@@ -7454,3 +7454,9 @@ profile. Both grids refined together are now running.
 and showed that the largest values quoted came from cells next to the solver's own cut; away from it the failure is ten
 times smaller but still huge and still early. It also recalled that for the first profile the simplest explanation, time
 steps too coarse for the angular grid, did not survive a test, so the runs now going will decide it here.
+
+**D526 (2026-11-01): the two-family approximate solution to every order.** The record builds its approximate solution
+stage by stage, each stage a linear system along the wave. With two crossing families the same works. Each family's pure
+oscillations are carried along its own direction, and the mixed ones, which oscillate in both phases at once, are fixed
+by a simple division. That division never gets close to zero, so nothing is lost. What remains is the domain and the
+initial data for two families.

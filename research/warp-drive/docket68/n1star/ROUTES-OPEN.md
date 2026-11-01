@@ -5667,6 +5667,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and D432 found the null step not curing it at the first seed, so 'the angular resolution outrunning the null step' is
   what the 1600 × 720 runs test, not yet the cause. Corrected in CERTIFY-10L5 6b and g1curv5; the D524 entry above keeps
   its text.
+- D526 (FAMILIES5 4h, deduced): the record's Theorem A (N1STAR-PROOF.md:450-533) with two families. The ansatz has two
+  phase corrections, eikonals once per phase (e_j^k), and two-phase profiles. The one structural difference is
+  ḡ⁻¹(du_in, du_out) = −e^(−2σ) + O(λ) ≠ 0. A stage-(m + 1) factor reaches order m as a pure harmonic under one phase
+  derivative, transported along its own generator, or through e_(m+1)^k; a mixed harmonic of ĝ_(m+2) reaches it through
+  P_(−2), multiplication by −e^(−2σ) n1 n2 on e^(i(n1 θ1 + n2 θ2)), whose inverse is bounded by e^(2σ) uniformly in the
+  harmonic. So each stage is the record's linear hyperbolic system, with two phase transports and two pure transports,
+  plus an algebraic division with no small divisors, and closes without loss by Picard. For every N, residual λ^N. Open:
+  the two-dust domain and Lemma 1.1's transversality for both generators, the two-family data (Theorem D, Lemma 6.2),
+  the proof at the record's level.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

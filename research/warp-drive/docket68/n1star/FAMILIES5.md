@@ -3,7 +3,7 @@
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
 coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
 174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced; section 4g
-its section 3 (D522). Nothing proved beyond Stage 0.
+its section 3 (D522), section 4h its Theorem A (D526). Nothing proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -579,6 +579,50 @@ terms.
 What it does not give: (E2) for two families, that is, the two-phase approximant to the order the bootstrap needs (only
 Stage 0 is computed, sections 4b and 4e); the two-dust domain Ω, its foliation and Lemma 1.1's transversality; the
 mollifier P on that domain; and section 4's steps written out.
+
+## 4h. Theorem A with two families (D526)
+
+Deduced from the record's section 5 (N1STAR-PROOF.md:450-533, Lemmas 5.1-5.3) with section 4g's notation; nothing
+computed beyond sections 4b-4f. It concerns the (E2) of section 4g: the two-phase approximant to every order, the
+record's Theorem A with two families.
+
+- *(5.1′) The ansatz.* The unknowns are the means m_j (j ≥ 1), two phase corrections φ_j^in, φ_j^out (j ≥ 1), and
+  zero-mean profiles ĝ_j(X, θ1, θ2) (j ≥ 2). With ḡ := g0 + Σ_j λ^j m_j, u_in := v + Σ_j λ^j φ_j^in, u_out := u + Σ_j
+  λ^j φ_j^out and G := ḡ + λ(W_in(X, θ1) + W_out(X, θ2)) + Σ_(j≥2) λ^j ĝ_j, put g_app := G(X, u_in/λ, u_out/λ). The
+  two-scale operator replaces ∂_a by ∂_a + λ⁻¹(∂_a u_in F1 + ∂_a u_out F2), with F_k := ∂_(θ_k).
+- *(5.2′) The eikonals.* ḡ⁻¹(du_k, du_k) = Σ_(j≥1) λ^j e_j^k, e_j^k = 2 ℓ_k · dφ_j^k − m_j(ℓ_k, ℓ_k) − q_j^k, with q_j^k
+  polynomial in the earlier stages, as in the record's (5.2), once per phase. The cross contraction ḡ⁻¹(du_in, du_out) =
+  g0^(uv) + O(λ) = −e^(−2σ) + O(λ) does not vanish. That is the one structural difference from one family.
+- *Lemma 5.1′ (where each unknown first enters).* As in the record's proof, by weights, a factor of stage m + 1 reaches
+  order m in two ways. The first is ĝ_(m+1)'s pure harmonics (functions of one phase) hit by one λ⁻¹ phase derivative:
+  the transports Th^in, Th^out of section 4g, each along its own ℓ_k. The second is m_(m+1) and dφ_(m+1)^k in the
+  contractions e_(m+1)^k. In addition, ĝ_(m+2)'s mixed harmonics hit by two λ⁻¹ derivatives of different phases reach
+  order m through P_(−2) = −g0⁻¹(k_in, k_out) F1 F2 = e^(−2σ) F1 F2 (section 4g, verifier 225). The pure harmonics of
+  ĝ_(m+2) do not, since g0⁻¹(k_k, k_k) = 0. So Rm^(m) = Th^in ĝ_(m+1)^in + Th^out ĝ_(m+1)^out + P_(−2) ĝ_(m+2)^mix − ½
+  Σ_k e_(m+1)^k F_k² W_k + Wm(m_m, φ_m) + K_m, with K_m depending on earlier stages only (stage-1 mixed parts included).
+- *Lemma 5.3′ (each stage is a linear hyperbolic system plus a division).* Given everything of earlier stages, impose
+  e_m^k = 0 and the four projections of (5.3′). (a) The mean, the record's (a) on the two-dust background: −½ □̃ m_m +
+  B̄ · dm_m + C̄ m_m = (sources). (b) The two phases: ℓ_k · dφ_m^k = ½ m_m(ℓ_k, ℓ_k) + ½ q_m^k, along each family's
+  generator. (c) The pure harmonics: Π_k Th^k ĝ_(m+1) = −Π_k(Wm + K_m), k = in, out, where Π_k projects on the nonzero
+  harmonics of θ_k alone; each is the record's transport for Z_k := F_k ĝ_(m+1), with its source, along ℓ_k. (d) The
+  mixed harmonics: P_(−2) ĝ_(m+2)^mix = −Π_mix(Wm + K_m + Th ĝ_(m+1)). On the harmonic e^(i(n1 θ1 + n2 θ2)), n1 n2 ≠ 0,
+  P_(−2) is multiplication by −e^(−2σ) n1 n2 on each component, whose inverse is bounded by e^(2σ), uniformly in the
+  harmonic: there are no small divisors, and the division loses no derivative. (d) is algebraic, as section 4b's T4 is
+  at Stage 0, and it feeds stage m + 1 through K_(m+1). Ψ_m^k := □̃ φ_m^k obey transports of Q1's form along ℓ_k
+  (section 4f). The system (a)-(c) for (m_m, φ_m^k, Ψ_m^k, Z_k) is then linear with smooth coefficients and closes
+  without loss as in the record, with m_m in H^(s+1), φ_m^k in H^(s+1) and Ψ_m^k, Z_k in H^s. Picard iteration gives a
+  unique smooth solution wherever both generators reach Σ_τ0 transversally, and (d) then gives ĝ_(m+2)^mix with
+  ĝ_(m+1)'s regularity.
+- *Theorem A′ (deduced).* For every N and every smooth choice of stage data (each family's wave and its phase shift on
+  Σ_τ0, the means' data) there are profiles ĝ_2, …, ĝ_(N+1), means and phases with residual Ric^H(g_app) = λ^N times a
+  profile bounded with all its derivatives. Section 4g's (E2), Stage 0 solved, is the case m = 0 (sections 4b and 4e),
+  and the record's Theorem A is the case W_out = 0.
+
+What it does not give: the two-dust domain Ω, its foliation and the transversality of both generators to Σ_τ0 (the
+analogue of the record's Lemma 1.1, needed for (b)-(c)); the data (Theorem D and Lemma 6.2 with two families: an
+outgoing packet's Cauchy data satisfying the constraints and the gauge condition to the order needed); and the proof
+written at the level of the record's (one item each: the order counting, the closing of (a)-(c), and the matching of the
+stage data).
 
 ## 4c. The two-dust background (D389)
 
