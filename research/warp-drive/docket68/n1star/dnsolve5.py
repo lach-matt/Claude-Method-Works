@@ -543,8 +543,14 @@ def main():
         xmap = float(opts[opts.index('map') + 1]) if 'map' in opts else 0.0
         E = Eqs()
         G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld, xmap=xmap)
+        keep = [int(k) for k in opts[opts.index('keep') + 1].split(',')] if 'keep' in opts else None
         A, mask = run(E, G, Data(lam, amp), rcut)
-        np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, xmap=xmap, **{f: A[f] for f in ALL})
+        if keep is None:
+            np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, xmap=xmap, **{f: A[f] for f in ALL})
+        else:               # only the u-rows r - 1, r, r + 1 of each kept r, all kretschmann needs (D572)
+            idx = np.array([r + d for r in keep for d in (-1, 0, 1)])
+            np.savez_compressed(sys.argv[7], mask=mask[idx], u=G.u[idx], v=G.v, x=G.x, xmap=xmap, keep=np.array(keep),
+                                **{f: A[f][idx] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
         return 0
     return selftest()

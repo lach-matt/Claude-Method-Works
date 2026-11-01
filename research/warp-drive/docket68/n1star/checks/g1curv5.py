@@ -97,6 +97,8 @@ Labels: computed (floating point, on saved runs).
     python3 checks/g1curv5.py --seed2-40 DIR   (D524: also s2_M40.npz; M = 24, 32, 40)
     python3 checks/g1curv5.py --seed2-1600 DIR (D543: also s2_M32_1600.npz, s2_M40_1600.npz)
     python3 checks/g1curv5.py --seed2-48 DIR   (D553: also s2_M48_1600.npz; K at v-order 2 and 4)
+    python3 checks/g1curv5.py --seed2-rows DIR 3   (D572: the rows to keep at 2400 x 1080)
+    python3 checks/g1curv5.py --seed2-2400 DIR (D572: s2_M32/40/48_2400.npz, saved with dnsolve5's keep)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
@@ -420,10 +422,15 @@ def seed2_48(dirn):
         for o in (2, 4):
             C[(M, o)] = s2_fine(dirn, M, rows, uc, vc, o)
             print("  M = %d, v-order %d: done" % (M, o), flush=True)
+    return s2_report(C, vc, "1600 x 720")
+
+
+def s2_report(C, vc, grid):
+    """--seed2-48's comparison of M = 32, 40 and 48 on one grid, per angle and v-band"""
     keep = ~np.any([c["mask"] for c in C.values()], axis=0)
-    print("\n  per v-band, cells kept at M = 32, 40, 48 (1600 x 720) with R in [0.9, 1.4] (Chebyshev interpolant), K's "
+    print("\n  per v-band, cells kept at M = 32, 40, 48 (%s) with R in [0.9, 1.4] (Chebyshev interpolant), K's "
           "v-derivatives at order o = 2 and 4: dev_M = max |K/K_0 - 1|; d40 = max |K_40 - K_32|/K_0, d48 = max |K_48 - "
-          "K_40|/K_0; st = max |K_o2 - K_o4|/K_0 at M = 48; n48 = cells with |K_48/K_0 - 1| > 2")
+          "K_40|/K_0; st = max |K_o2 - K_o4|/K_0 at M = 48; n48 = cells with |K_48/K_0 - 1| > 2" % grid)
     for xe in S2XS:
         Kx = {k: cheb(c["K"], c["x"], xe) for k, c in C.items()}
         Rr = cheb(C[(48, 2)]["R"], C[(48, 2)]["x"], xe)
@@ -450,9 +457,53 @@ def seed2_48(dirn):
     return 0
 
 
+def s2_rows(dirn, fac):
+    """--seed2-rows DIR FAC (D572): --seed2-40's rows on the grid FAC times finer, comma-separated, for dnsolve5's keep"""
+    Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))
+    print(",".join(str(fac * r) for r in pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)))
+    return 0
+
+
+def s2_kept(dirn, M, N, fac, rows, uc, vc, vorder):
+    """K at M on the N x (0.45 N) run saved with dnsolve5's keep option (D572; rows fac r, each with its two
+    neighbours), v nodes subsampled by fac, K's v-derivatives at order vorder; cached"""
+    tag = "" if vorder == 2 else "_v4"
+    cache = os.path.join(dirn, "curvS2_M%d_%d%s.npz" % (M, N, tag))
+    if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+        return dict(np.load(cache))
+    Zf = dict(np.load(os.path.join(dirn, "s2_M%d_%d.npz" % (M, N))))
+    assert list(Zf["keep"]) == [fac * r for r in rows], M
+    rr = [3 * k + 1 for k in range(len(rows))]
+    assert np.allclose(Zf["u"][rr], uc[rows]) and np.allclose(Zf["v"][::fac], vc), M
+    Kf = D.kretschmann(Zf, rows=rr, vorder=vorder)[rr][:, ::fac]
+    c = dict(rows=np.array(rows), K=Kf, R=Zf["R"][rr][:, ::fac], mask=Zf["mask"][rr][:, ::fac], v=vc, x=Zf["x"])
+    np.savez(cache, **c)
+    return c
+
+
+def seed2_2400(dirn):
+    """--seed2-2400 DIR (D572): --seed2-48's comparison at 2400 x 1080, where M^2/N <= 0.96 for M <= 48 (D571's step
+    condition held at 1.28 and failed at 1.44): s2_M32_2400.npz, s2_M40_2400.npz, s2_M48_2400.npz from dnsolve5.py --run
+    0.3162 0.9 M 2400 1080 out 0 ld 3 keep ROWS, ROWS from --seed2-rows DIR 3"""
+    Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))
+    rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
+    uc, vc = Z["u"], Z["v"]
+    del Z
+    C = {}
+    for M in (32, 40, 48):
+        for o in (2, 4):
+            C[(M, o)] = s2_kept(dirn, M, 2400, 3, rows, uc, vc, o)
+            print("  M = %d, v-order %d: done" % (M, o), flush=True)
+    return s2_report(C, vc, "2400 x 1080")
+
+
 def main():
     if sys.argv[1:2] == ["--seed2-48"]:
         return seed2_48(sys.argv[2])
+    if sys.argv[1:2] == ["--seed2-2400"]:
+        return seed2_2400(sys.argv[2])
+    if sys.argv[1:2] == ["--seed2-rows"]:
+        return s2_rows(sys.argv[2], int(sys.argv[3]))
     if sys.argv[1:2] == ["--seed2-1600"]:
         return seed2_1600(sys.argv[2])
     if sys.argv[1:2] == ["--null"]:
