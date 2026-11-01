@@ -693,7 +693,7 @@ same form, with one condition.
   meeting). Ω's third constraint is to be read with v̂, and V, T and τ_end need the two-dust r_q (D537). Not covered:
   (f), which needs D_T for two dusts, that is, the curvature threshold r_q of the two-dust background; and the
   background's existence on Ω, which is section 4c's Goursat problem continued over the past of Ω, where R ≥ a (local
-  existence is standard; the continuation is not read).
+  existence is standard; the continuation is not read; D552 supplies it).
 - *Computed (D3).* A seeded hole: corner data with mass μ0 = 1 at R = 4 (μ and R_u as 5D Tangherlini's, the gauge e^(2s)
   = R_v = ½); an ingoing pulse A = sin⁴ on v ∈ [0.5, 2] and an outgoing one B = 0.4 sin⁴ on u ∈ [1, 2]; section 4c's
   diamond scheme on u ∈ [0, U1], v ∈ [0, 2], U1 where R(U1, 2) = 0.62, clear of the singularity (later v needs resolving
@@ -728,6 +728,27 @@ same form, with one condition.
   T3, l5 = 1, μ = 10 on D_T and 8.6 on R = a, q0 = 3.0351 > √8.6 = 2.9326, while q0 := r_q(8.6) = 2.9227 holds.) The
   outgoing dust lowers μ outside the hole, so this bounds the mass it may carry off before the region; D4's strong pulse
   breaks it.
+- *The background on Ω: an extension principle (D552; `checks/twoext5.py` X1-X3; X1-X2 exact, the chain deduced, X3
+  computed).* [Mos17] (G. Moschidis, arXiv:1704.08685) Lemma 5.1 (pp. 42-43, READ) is the continuation criterion for the
+  spherically symmetric Einstein-null dust system with ingoing and outgoing dust in 3 + 1: a smooth solution on [u1, u2)
+  × [v1, v2) whose data on the two initial cones extend to their far ends, with inf r > 0 and sup r < ∞, extends
+  smoothly to the closed rectangle; its proof integrates ∂_u∂_v(r²) = −½Ω², the mass's ∂_u∂_v m̃ (the two dusts' cross
+  term) and ∂_u∂_v log Ω² ((5.210)-(5.222)). The 5D two-dust form holds with R³ for r²: on the evolution (R³)_uv =
+  −3Re^(2s), R_uv = −e^(2s)μ/R³ and s_uv = (3/2)e^(2s)μ/R⁴ (X1; the cross term R_uR_v cancels at exponent 3 exactly, and
+  (R²)_uv keeps it), and with the constraints μ_uv = (2/9)AB e^(−2s)/R² ≥ 0 (X2; with B depending on v a residual
+  remains). On a rectangle where R ≥ a > 0, with D[F] := F(u1, v) + F(u, v1) − F(u1, v1) the data's corner combination:
+  3∫∫Re^(2s) = D[R³] − R³, so sup R ≤ (max D[R³])^(1/3) needs no hypothesis and ∫∫Re^(2s) ≤ R_max³/3; μ ≥ min D[μ]; s ≥
+  min D[s] − (3/2)(m0⁻/a⁵)R_max³/3, since e^(2s)/R⁴ ≤ Re^(2s)/a⁵; then μ ≤ max D[μ] + (2/9) max(AB) e^(2S)|Q|/a² and s ≤
+  max D[s] + (3/2)(M⁺/a⁵)R_max³/3; R_u, R_v by integrating R_uv from the cones; higher derivatives by commuting, linear
+  in the top order, as [Mos17] does. No bootstrap is needed, each bound coming from the data and the ones before it. So
+  the background extends to any characteristic rectangle on which it stays at R ≥ a, and with local existence ([Mos17]
+  Proposition 5.3's Picard iteration, the same in 5D; not re-derived) the development ends only where R → 0. On D3's
+  background (X3, n = 40 to 320) the identity's residual falls to 2.0 × 10⁻⁵ (ratios 1.72, 2.88, 3.48) and the bounds
+  from the cones' data alone contain the computed R, μ and s (μ and s attain their lower bounds on the data; the upper
+  bounds are coarse, s ≤ 2.7 × 10³ against 1.12). With Lemma 1.1′: {R ≥ a} is closed to the past in the rectangle
+  wherever μ > a² on R = a, since R_u < 0 and R = a is trapped there (going back in v, R cannot fall through a), so the
+  background exists on Ω's past part of the rectangle, given the data on its two cones (deduced). Not: the data
+  themselves, that is, the outgoing family's data at past null infinity.
 
 What it does not give: the background on Ω beyond the computed rectangle, which does not
 reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the

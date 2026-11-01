@@ -7608,3 +7608,10 @@ shows it depends only on the background and on the leading wave, the later corre
 given by exact formulas with finitely many powers of the radius. So the lemma can be applied again and again, each step
 half a power further, and never meets the one power where a logarithm would appear. What is left is to write the
 induction out with its derivative bounds.
+
+**D552 (2026-11-01): the two-dust background exists as far as the proof needs.** A published continuation criterion for
+crossing null dusts in four dimensions (Moschidis 2017) carries over to five with one change, the cube of the radius in
+place of its square. It shows the two-dust background can be continued as long as the radius stays away from zero, each
+bound following from the data and the ones before it. Since the inner boundary is trapped, the region the proof uses
+never reaches the centre, so the background exists there given its data. What remains for this family is the outgoing
+dust's data at past null infinity.

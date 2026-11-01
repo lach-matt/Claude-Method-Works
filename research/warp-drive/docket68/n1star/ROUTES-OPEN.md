@@ -5910,6 +5910,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   exactly; the remainder's source S̃ − cZ^0 starts at q + ½). (a)'s B̄, C̄ and the count's coupling coefficients are
   expanded likewise; within a stage the half-order induction is triangular (m_m, then φ_m by integration, then
   gh_(m+1)). Open: that induction with its ℓ-gains ((H_m) at m ≥ 2) and over the stages.
+- D552 (FAMILIES5 4i, `checks/twoext5.py` X1-X3; [Mos17] arXiv:1704.08685 Lemma 5.1 READ): an extension principle for
+  the two-dust background. Moschidis's continuation criterion for spherically symmetric Einstein-null dust (ingoing and
+  outgoing, 3 + 1: smooth to the closed rectangle if inf r > 0, sup r < ∞) carries to 5D with R³ for r²: (R³)_uv =
+  −3Re^(2s), s_uv = (3/2)e^(2s)μ/R⁴ on the evolution, μ_uv = (2/9)AB e^(−2s)/R² ≥ 0 with the constraints (exact). On a
+  rectangle with R ≥ a > 0 the data bound sup R, ∫∫Re^(2s), μ from below, s from below, μ from above and s from above in
+  turn, without a bootstrap; so the background exists wherever R stays ≥ a, and on Ω's past part of a rectangle given
+  its cones' data (R = a trapped, so {R ≥ a} is closed to the past). Computed on D3's background: identity residual 2.0
+  × 10⁻⁵ at n = 320, bounds hold. Open: the outgoing family's data at past null infinity.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
