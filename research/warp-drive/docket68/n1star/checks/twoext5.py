@@ -37,6 +37,12 @@ K_out R^3 = B(u), A, B >= 0):
      n = 320; the upper bounds are coarse, s <= 2.7e3 against 1.12); and the constraint residuals C_u, C_v, on which
      (ii)'s mu_uv rests, fall at second order in the bulk (u <= 5, R >= 1; |C_u| 9.8e-5 to 1.6e-6) and, from n = 80,
      at the far corner, where R_uu is large and |C_u| is 5.8, 4.2, 2.2 two cells off the edges (D556, verifier 241).
+  X4 (computed; D558) the existence argument's integral form on D3's rectangle: the unknowns (R, s, P, Q) := (R, s, R_u,
+     R_v) solve P = P(u, 0) + int_0^v F dv', Q = Q(0, v) + int_0^u F du', R = R(0, v) + int_0^u P du', s = D[s] + int
+     int G, F := -(e^(2s) + 2PQ)/R, G := 3(e^(2s) + 2PQ)/(2R^2), with the cones' data (twodomain5's cone()). Picard
+     iteration from the data, by the trapezoidal rule, converges on the whole rectangle (successive changes falling
+     geometrically to 1e-13 within 60 iterations at n = 40, 80, 160), not only near the corner, and its limit agrees
+     with the diamond scheme's to second order in n.
   Control: X1 with R^2 in place of R^3 leaves the cross term -2 R_u R_v (the 4D identity is not the 5D one); X2 with B
      depending on v leaves a residual, which detects the compatibility condition B_v = 0 (verifier 241).
 
@@ -127,6 +133,33 @@ def chain(n, A, B, U1):
     return ident, a, got, bnd, ok, cons
 
 
+def picard(n, A, B, U1, iters=80):
+    """X4: Picard iteration for the integral system on [0, U1] x [0, 2] from the cones' data; returns the number of
+    iterations, the last change and the limit's distance from the diamond scheme"""
+    uu, vv, Rd, Sd = TD.solve(n, A, B, U1=U1)
+    Nu, Nv = len(uu) - 1, len(vv) - 1
+    du, dv = uu[1] - uu[0], vv[1] - vv[0]
+    R0v, Q0 = TD.cone(vv, A, 4.0, 0.5, Nv)
+    _, P0 = TD.cone(uu, B, 4.0, (1.0 / 16 - 1) / 2, Nu)
+    s0 = -math.log(2) / 2
+    R, S = np.tile(R0v, (Nu + 1, 1)), np.full((Nu + 1, Nv + 1), s0)
+    P, Q = np.tile(P0[:, None], (1, Nv + 1)), np.tile(Q0, (Nu + 1, 1))
+    cu = lambda f: np.concatenate([np.zeros((1, f.shape[1])), np.cumsum((f[1:] + f[:-1]) / 2 * du, axis=0)])
+    cv = lambda f: np.concatenate([np.zeros((f.shape[0], 1)), np.cumsum((f[:, 1:] + f[:, :-1]) / 2 * dv, axis=1)],
+                                  axis=1)
+    ch = np.inf
+    for it in range(1, iters + 1):
+        E = np.exp(2 * S) + 2 * P * Q
+        F, G = -E / R, 1.5 * E / R**2
+        Pn, Qn = P0[:, None] + cv(F), Q0[None, :] + cu(F)
+        Rn, Sn = R0v[None, :] + cu(Pn), s0 + cumint(G, du, dv)
+        ch = max(np.abs(Rn - R).max(), np.abs(Sn - S).max(), np.abs(Pn - P).max(), np.abs(Qn - Q).max())
+        R, S, P, Q = Rn, Sn, Pn, Qn
+        if ch < 1e-13 or not np.isfinite(ch):
+            break
+    return it, float(ch), float(np.abs(R - Rd).max()), float(np.abs(S - Sd).max())
+
+
 def main():
     ok = {}
     x1, x2, ctl = identities()
@@ -159,6 +192,17 @@ def main():
     print('  X3: identity (i)\'s residual falls with n (ratios %.2f, %.2f, %.2f, local orders %.2f, %.2f, %.2f), the '
           'constraint residuals fall at second order in the bulk and, from n = 80, at the far corner too, and every bound holds (mu\'s lower bound to the discretisation of R_u, R_v '
           'on the cones): %s' % (rates[0], rates[1], rates[2], *[math.log2(r) for r in rates], x3))
+    x4, dif = True, []
+    for n in (40, 80, 160):
+        it, ch, dR, ds = picard(n, A, Bw, U1)
+        dif.append(dR)
+        x4 &= ch < 1e-12
+        print('    n = %d: Picard converged in %d iterations (last change %.1e); limit vs diamond scheme: max |R| %.2e, '
+              'max |s| %.2e' % (n, it, ch, dR, ds), flush=True)
+    x4 &= all(dif[k] / dif[k + 1] > 3 for k in range(2))
+    ok['X4'] = x4
+    print('  X4: the integral system\'s Picard iteration converges on the whole rectangle, its limit the diamond '
+          'scheme\'s to second order: %s' % x4)
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1

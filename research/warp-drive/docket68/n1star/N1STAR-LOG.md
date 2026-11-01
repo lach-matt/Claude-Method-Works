@@ -7645,3 +7645,10 @@ not unknown: an earlier section of this note had already given it in closed form
 It also found that a lower bound had been used as an upper bound, so the claimed comparison with the counted loops is
 withdrawn; what stands is a condition on the ratio of the two rounds' costs, neither of which the record caps. The
 second-level round's cost equals the inner round's only up to a term not yet shown equal.
+
+**D558 (2026-11-01): the two-dust background exists.** The missing existence step was closed directly. Writing the
+equations as integral equations and capping their nonlinearity above the bounds already proved, an iteration converges
+on the whole rectangle at once; the bounds then show the cap is never reached while the radius stays away from zero, so
+the capped solution is the true one. Numerically the same iteration converges on the computed example and agrees with
+the earlier scheme. The background therefore exists on the region the proof uses, given data on its two light cones;
+what remains for this family is the outgoing dust's data.

@@ -5958,6 +5958,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   J3:261 is the iteration's row, counting exponents, not rounds; 2 + ℓ is this note's sum, equal ℓ for 4.4 and 5.1
   unverified. NITs: lower log orders redundant if the top goes first; J3's (g) asserts k-independence. Corrected in
   LD16; the D553 entry above keeps its text.
+- D558 (FAMILIES5 4i, deduced; `checks/twoext5.py` X4 computed): existence for the two-dust background, which D556 left
+  open. The system's Volterra form in U = (R, s, R_u, R_v) with the cones' data, truncated outside {|U| ≤ K, R ≥ a}, K
+  above the chain's bound K_0(data, a, Q), has a unique continuous fixed point on the whole rectangle (Bielecki
+  contraction); taking a first point of |Ũ| ≥ K by least u + v, the chain shows Ũ solves the true system on the past of
+  every point whose past keeps R > a. So the development within a rectangle ends only where R → 0 (D552's claim, now
+  proved), and with R = a trapped the background exists on Ω's past part, given the cones' data. Computed: Picard on the
+  integral system converges on all of D3's rectangle (10⁻¹³ in 32-52 iterations), its limit the diamond scheme's to
+  second order. Open: the outgoing family's data at past null infinity.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
