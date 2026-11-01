@@ -42,10 +42,11 @@ XS = (-0.99, -0.9, 0.0)
 
 def pick_rows(Z, n=24):
     R, mask, v = Z["R"], Z["mask"], Z["v"]
-    Rm = R.mean(axis=2)
+    with np.errstate(invalid="ignore"):
+        Rm = np.nanmean(R, axis=2)
     vin = (v >= 1.5) & (v <= 3.0)
-    ok = [i for i in range(1, R.shape[0] - 1)
-          if np.any(mask[i] & vin & (Rm[i] >= 0.95) & (Rm[i] <= 1.5))]
+    ok = [i for i in range(1, R.shape[0] - 1)                          # mask is True on excluded cells
+          if np.any(~mask[i] & vin & (Rm[i] >= 0.95) & (Rm[i] <= 1.5))]
     if len(ok) <= n:
         return ok
     return [ok[k] for k in np.linspace(0, len(ok) - 1, n).round().astype(int)]
@@ -99,9 +100,9 @@ def main():
             cells = []
             for lo, hi in BANDS:
                 vin = (v >= lo) & (v < hi)
-                sel = c32["mask"] & c40["mask"] & vin[None, :]
+                sel = ~c32["mask"] & ~c40["mask"] & vin[None, :]             # kept at both M
                 Rr = R40[xe]
-                sel &= (Rr >= 1.0) & (Rr <= 1.4)
+                sel &= (Rr >= 1.0) & (Rr <= 1.4) & np.isfinite(K32[xe]) & np.isfinite(K40[xe])
                 K0 = 72.0 / Rr**8
                 if not sel.any():
                     cells.append((np.nan, np.nan))
