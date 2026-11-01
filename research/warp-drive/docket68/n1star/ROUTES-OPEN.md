@@ -6058,6 +6058,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   four runs fit a step condition M²/N ≤ c with 1.28 ≤ c < 1.44 (consistent with, not shown). Convergence after v ≈ 3.5
   is not decided: it needs M = 32, 40, 48 at one grid with N ≳ 1800, about 5.6 GB at N = 2000 against 3.8 GB free (not
   run).
+- D573 (LOSS-D LD16; `checks/prop31loss5.py` Q1-Q3, exact, and deduced): III.I′ Proposition 3.1's fixed loss, counted.
+  Its proof applies L_b (loss 2) once in Step 1 and once per window of ℐ⁺-exponents below ℓ_I (the z's of a window
+  solved from one f), plus once per log step; the face integrations and (z − 3/2 − Ā)⁻¹ lose nothing (J3 (c)-(d), (g)).
+  The least E^C_I of III.C Definition 3.1 has no log orders, and for every admissible ℓ_I in (3, 3.5099) two windows,
+  [2, 3) and [3, 4): loss 6, not 2. So an ι⁺ round costs at least 8 + d_G = 19, not 15, on E^C_I without log terms below
+  ℓ_I; more with them. (D572 is the 2400 × 1080 runs' preparation, D571's test, running.)
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

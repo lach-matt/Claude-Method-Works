@@ -7726,3 +7726,8 @@ grid, does not help: the new run agrees with the others early on and then blows 
 time, just as the previous refinement did on the coarser grid. All four runs so far fit a simple rule linking the
 angular and time resolutions, so the test that would decide convergence is to run all three angular resolutions on a
 finer time grid. That needs more disk than this machine has free.
+
+**D573 (2026-11-01): one step's cost, counted.** One of the proof's repeated steps had been charged the cost of a single
+operation. Read through, that step performs the operation three times in sequence for the weights in use, so it costs
+three times as much, and each round of the loop it belongs to costs at least 19 rather than 15. Separately, D572 set up
+the finer-grid runs that the convergence question of D571 needs; they are running.
