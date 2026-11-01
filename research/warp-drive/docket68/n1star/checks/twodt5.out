@@ -1,0 +1,4 @@
+  T1: K = 72 mu^2/R^8 + (8/3) e^(-4s) A B/R^6 on shell: True; at B = 0 the record's 72 mu^2/r^8: True
+  T2: q0^2 <= mu_min exactly when mu_min >= sqrt72 l5^2 (equality at the bound): True; control mu_min = sqrt72 l5^2/2 gives q0^2 > mu_min: True
+T1 PASS
+T2 PASS

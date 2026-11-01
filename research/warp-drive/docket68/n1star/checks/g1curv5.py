@@ -87,7 +87,7 @@ from dnsolve5.py --run 0.3162 0.9 M 1600 720 out 0 ld 3), on --seed2-40's rows, 
 by 2, cells kept in all four; output in checks/g1curv5seed2_1600.out. Measured: at 1600 x 720 M = 40's |K/K_0 - 1| is at
 most 1.95 below v = 4, as M = 32's, and 1.22-3.11 on [4, 4.5) at x = 0.99-0.9, against 2e3-2e6 at 800 x 360; cells above
 2 drop from 11-49 per angle and band to none (2 at x = 0.9 on [4, 4.5)); M = 32 and 40 agree to 3e-7-1.4e-2 K_0 below v
-= 3.5, 0.02-1.0 on [3.5, 4), 0.39-2.35 on [4, 4.5). The M = 40 departures at 800 x 360 were the two grids together.
+= 3.5, 0.02-1.0 on [3.5, 4), 0.39-2.35 on [4, 4.5). The M = 40 departures at 800 x 360 were the two grids together. (D547: the figures after v = 3.5 depend on K's second-order v-stencil; with fourth order, none above 2.)
 
 Labels: computed (floating point, on saved runs).
 
@@ -343,7 +343,7 @@ def seed2_40(dirn):
 
 
 def seed2_1600(dirn):
-    """--seed2-1600 DIR (D537): M = 32 and 40 at 800 x 360 and at 1600 x 720 on --seed2-40's rows (the fine run's rows
+    """--seed2-1600 DIR (D543): M = 32 and 40 at 800 x 360 and at 1600 x 720 on --seed2-40's rows (the fine run's rows
     2i, its v nodes subsampled by 2, as --null does): whether M = 40's departures after v = 3.5 at 800 x 360 go when the
     null grid is refined with it"""
     Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))

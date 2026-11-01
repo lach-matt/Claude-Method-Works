@@ -7570,3 +7570,13 @@ eleventh section already handles: a wave equation and transports along light ray
 argument on them should give each part the same expansion toward past infinity, with no logarithms. With that, the far
 strip's contribution to the data would be in the class the final assembly accepts. The induction is described, not yet
 written out.
+
+**D546 (2026-11-01): the high-curvature boundary for two dusts.** The curvature that defines where the proof stops was
+computed exactly for two crossing dusts: it is the black hole's own term plus a never-negative term from the crossing.
+So the region keeps the record's shape, and both remaining conditions of the region's lemma follow from one: the mass
+inside must stay above the record's minimum, which limits how much mass the outgoing dust may carry away.
+
+**D547 (2026-11-01): the second wave profile, checked.** An independent check reproduced every number and confirmed that
+the blow-up is gone on the finer grid, but corrected where the remaining disagreement lies (off the axis, not at it) and
+showed that the late-time figures depend on how the curvature's time derivatives are differenced; with a more accurate
+stencil they are smaller still.

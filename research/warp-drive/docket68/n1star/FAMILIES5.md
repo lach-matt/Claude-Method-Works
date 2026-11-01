@@ -3,7 +3,7 @@
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
 coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
 174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced; section 4g
-its section 3 (D522), section 4h its Theorem A (D526), section 4i its Lemma 1.1 (D533). Nothing proved beyond Stage 0.
+its section 3 (D522), section 4h its Theorem A (D526), section 4i its Lemma 1.1 (D533, D546). Nothing proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -710,8 +710,17 @@ same form, with one condition.
 - *Control (D4).* A strong outgoing pulse just outside the horizon, B = 3 sin⁴ on u ∈ [3.5, 5]: on 0.7 ≤ R ≤ 0.75 the
   least μ − a² is −0.41 and 1 − μ/R² reaches 0.85, so part of R = a is untrapped and (b) fails there, while (a) and (c)
   still hold. The condition is a real one.
+- *D_T and (f) (D546; `checks/twodt5.py` T1-T2, exact).* On the two-dust solutions the Kretschmann scalar is R_abcd
+  R^abcd = 72μ²/R⁸ + (8/3)e^(−4s)AB/R⁶ (T1, sympy, with the evolution and both constraints), the record's 72μ²/r⁸ at B =
+  0; the dust term is never negative (one null dust has R_abR^ab = 0, two crossing ones do not). So, with D_T := {v̂ ≤
+  V, K ≤ l5⁻⁴}, K ≤ l5⁻⁴ gives R ≥ r_q(μ) = (√72 μ l5²)^(1/4), μ the Misner-Sharp mass. With r_q^♭(v̂) the least r_q(μ)
+  over D_T's points on the ingoing ray v̂, D_T ⊂ {R ≥ r_q^♭(v̂)}, and the record's proof of (f) runs with r_q^♭ for r_q,
+  q0 := min r_q^♭ and τ_end := max_(v̂≤V)(v̂ − r_q^♭(v̂)). (b) and (f) then follow from one condition, the record's seed
+  condition read for the Misner-Sharp mass: if μ ≥ μ_min ≥ √72 l5² on the region, q0⁴ = √72 μ_min l5² ≤ μ_min², so q0 ≤
+  √μ_min, and a := q0 − δ0 has a² < μ on R = a (T2; the control μ_min = √72 l5²/2 fails). The outgoing dust lowers μ
+  outside the hole, so this bounds the mass it may carry off before the region; D4's strong pulse breaks it.
 
-What it does not give: (f) and D_T for two dusts; the background on Ω beyond the computed rectangle, which does not
+What it does not give: the background on Ω beyond the computed rectangle, which does not
 reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the
 record's rule gives for these parameters, verifier 231); Theorem E on the two-dust background, which needs C^k bounds
 and the two families' transversality (E1), (e) being a C⁰ statement; the outgoing family's data, which in the record's

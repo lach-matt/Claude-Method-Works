@@ -5858,6 +5858,21 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the products forming the strip's sources expand in r^(−1/2), and the strip's term is polyhomogeneous in ρ^(1/2), in
   D517's class, at each fixed λ. Not written: the induction on the coupled system ((H_m) for the couplings and
   coefficients) and over the stages.
+- D546 (FAMILIES5 4i, exact; `checks/twodt5.py` T1-T2): D_T and (f) for two dusts. On shell, R_abcd R^abcd = 72μ²/R⁸ +
+  (8/3)e^(−4s)AB/R⁶ (the record's 72μ²/r⁸ at B = 0; the crossing term ≥ 0), so D_T := {v̂ ≤ V, K ≤ l5⁻⁴} ⊂ {R ≥ r_q(μ)}
+  with the Misner-Sharp μ, and the record's (f) runs with r_q^♭(v̂), the ray's least r_q. (b) and (f) follow from one
+  condition, the seed condition μ ≥ √72 l5² for the Misner-Sharp mass over the region: then q0 ≤ √μ_min and a := q0 − δ0
+  has a² < μ on R = a. Open: the background on Ω beyond the computed rectangle, and the outgoing data.
+- D547 (verifier 236 on D543; alignment and masks checked, all 995 numbers of the table reproduced from the caches, K
+  recomputed from the raw arrays at second and fourth order in v): the core result holds, M = 40's 800 × 360 blow-up
+  absent at 1600 × 720. MAJOR: the residual after v = 3.5 is not near the axis: the 32-40 difference peaks at 1.36 K_0
+  near x = 0.15, 0.15 at the axis (only the gauge fields peak there). MAJOR: the late figures depend on K's v-stencil
+  (dnsolve5's second order); at fourth order M = 40's |K/K_0 − 1| on [4, 4.5) is 0.89-1.11, the 32-40 difference
+  0.08-0.48, no cell above 2. MINOR: the 800 × 360 departures on those bands are 5.4 × 10⁴ to 2.4 × 10⁶ (1.9 × 10³ to
+  2.1 × 10⁴ on [3.5, 4)); M = 32's null-grid change is up to 0.012 below 3.5 and M = 40's up to 0.55 on [3.25, 3.5); `ld
+  3` is not recorded in the artefacts; halving du and dv together cannot say which step matters, and the 1600 solutions
+  are unconverged beyond 3.5. NITs: a docstring label; K_0 from one run's R (≲ 0.5 %). Corrected in CERTIFY-10L5 6b and
+  g1curv5; the D543 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

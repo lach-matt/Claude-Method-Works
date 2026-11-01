@@ -664,16 +664,22 @@ No other component is nonzero. So the scheme is the following.
   360 and at 1600 × 720, the fine runs' rows 2i and v nodes subsampled by 2, on the cells kept in all four; output
   `checks/g1curv5seed2_1600.out`).* Refining the null grid with the angular one removes M = 40's departures. At 1600 ×
   720, M = 40's |K/K_0 − 1| is at most 1.95 below v = 4, the same as M = 32's (and as both at 800 × 360 below v = 3.25,
-  the wave's own curvature), and 1.22, 1.78 and 3.11 on [4, 4.5) at x = 0.99, 0.97 and 0.9, against 2 × 10³ to 2 × 10⁶
-  at 800 × 360 on the same cells; its cells with |K/K_0 − 1| > 2 drop from 11 to 49 per angle and band to none, except 2
-  at x = 0.9 on [4, 4.5). M = 32 and 40 agree at 1600 × 720 to 3 × 10⁻⁷ to 1.4 × 10⁻² K_0 below v = 3.5 (up to 0.57 at
-  800 × 360), to 0.02 to 1.0 on [3.5, 4) and to 0.39 to 2.35 on [4, 4.5) near the axis. M = 32 itself moves by 0.003 to
-  0.01 K_0 between the null grids below v = 3.5, up to 0.19 on [3.5, 4) and 0.15 on [4, 4.5). So M = 40's large values
-  at 800 × 360 were an artefact of the two grids together, the angular resolution outrunning the null step: the reading
-  D432's test refuted at the first seed, and the one D524 pointed to here. What it does not give: convergence after v ≈
-  3.5 near the axis, where the 32-40 difference at 1600 × 720 is still of order K_0, and a finer null grid at M = 40. So
-  the second seed's curvature is resolved, and of order K_0, to v = 3.5 at every angle and to v = 4 at most, not yet
-  beyond.
+  the wave's own curvature), and 1.22, 1.78 and 3.11 on [4, 4.5) at x = 0.99, 0.97 and 0.9, against 1.9 × 10³ to 2.1 ×
+  10⁴ on [3.5, 4) and 5.4 × 10⁴ to 2.4 × 10⁶ on [4, 4.5) at 800 × 360 (corrected D547); its cells with |K/K_0 − 1| > 2
+  drop from 11 to 49 per angle and band to none, except 2 at x = 0.9 on [4, 4.5). M = 32 and 40 agree at 1600 × 720 to 3
+  × 10⁻⁷ to 1.4 × 10⁻² K_0 below v = 3.5 (up to 0.57 at 800 × 360), to 0.02 to 1.0 on [3.5, 4) and to 0.39 to 2.35 on
+  [4, 4.5) near the axis. M = 32 itself moves by 0.003 to 0.012 K_0 between the null grids below v = 3.5 (M = 40 by up
+  to 0.55 on [3.25, 3.5), so its resolution below 3.5 rests on M = 32's test; D547), up to 0.19 on [3.5, 4) and 0.15 on
+  [4, 4.5). So M = 40's large values at 800 × 360 were an artefact of the two grids together, the angular resolution
+  outrunning the null step: the reading D432's test refuted at the first seed, and the one D524 pointed to here.
+  (Corrected D547, verifier 236: 1600 × 720 halves du and dv together, so one resolution pair cannot say which step
+  matters; and the figures after v = 3.5 depend on K's v-stencil, dnsolve5's second-order differences: with fourth-order
+  ones M = 40's |K/K_0 − 1| on [4, 4.5) is 0.89, 0.96 and 1.11 at x = 0.99, 0.97 and 0.9, the 32-40 difference there
+  0.08 to 0.48, and no cell is above 2. Robust under both: the 800 × 360 blow-up gone, K of order K_0 at 1600 × 720, the
+  32-40 agreement below v = 3.5 to 0.013 K_0.) What it does not give: convergence after v ≈ 3.5, lost first off the axis
+  (the 32-40 difference at 1600 × 720 peaks at 1.36 K_0 near x = 0.15 and is 0.15 at the axis; only the gauge fields
+  peak at the axis; corrected D547), and a finer null grid at M = 40. So the second seed's curvature is of order K_0 at
+  1600 × 720 throughout, and resolved to v = 3.5 at every angle, not beyond (corrected D547).
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -697,9 +703,9 @@ No other component is nonzero. So the scheme is the following.
   axis alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first
   off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; a fourth M, 40, departs
   earlier, at every angle, and is worse than M = 32 from the start (D524); M refined together with the null grid removes
-  M = 40's departures (1600 × 720, D543), and what remains is convergence after v ≈ 3.5 near the axis, which needs a
-  finer null grid at M = 40 or angular refinement concentrated at the axes. Rounding is excluded (D354), and so is the
-  curvature cut. Then F3 (the certified linear constant) on the converged part.
+  M = 40's departures (1600 × 720, D543), and what remains is convergence after v ≈ 3.5, lost first off the axis (D547),
+  which needs M = 48 at 1600 × 720 (running) and a finer null grid. Rounding is excluded (D354), and so is the curvature
+  cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
