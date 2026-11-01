@@ -6982,3 +6982,9 @@ the light rays: one for the overall size of the cross-sections, then one for the
 the remaining component, each with a nonzero leading coefficient. So they can be solved in turn from free data and
 values where the two surfaces meet. What is left is matching the conditions at that meeting place.
 
+**D449 (2026-11-01): verifier 192 on D447 and D448.** Both stand. The scaling check was redone with the record's exact
+damping direction and still holds, and its numerical extraction was confirmed exact. For the light-surface constraints
+the verifier re-derived the three leading coefficients independently, and asked for, and got, a further check that each
+equation really leaves out what the chain needs it to leave out. The statements of what is solvable, and of what data
+the meeting place supplies, are now stated precisely.
+

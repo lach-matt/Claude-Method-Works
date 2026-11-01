@@ -316,14 +316,18 @@ couplings are then killed by their own contractions.
     - Controls: a hypersurface with g_vv ≠ 0 (and g_vA's jets along N nonzero), θ for θ/2 in N2, N3 without the reduction
       modulo W_v, and one angular component in place of the trace in N4 all fail; the last because the trace-free angular
       equations carry the trace-free ∂_v ∂_u g_AB, which is not a constraint.
-    - *The constraints as ODEs (D448; `checks/charcons5.py` K1-K3, exact in the transverse jets and in the v-derivatives
-      of g_uu, g_uv, g_uA, g_AB along N, n = 4 and 5).* Modulo every W-jet, C_vv contains of the second v-derivatives
-      only the trace γ^(AB) ∂_v² g_AB, with coefficient −½ (Raychaudhuri, for the conformal factor); C_vA contains ∂_v²
-      g_uB with coefficients g^(uv) δ_A^B and no ∂_v² g_uu; C_tr contains ∂_v² g_uu with coefficient −2 (g^(uv))². So
-      given the conformal class of γ and g_uv along N (free data and a gauge choice) and H, the gauge-reduced constraints
-      are ODEs along each generator for the conformal factor, then g_uA, then g_uu, with data at S; the first is
-      nonlinear (it holds while θ stays finite), the other two linear in their unknown's second derivative. Local
-      solvability along each generator follows.
+    - *The constraints as ODEs (D448-D449; `checks/charcons5.py` K1-K4, exact in the transverse jets and in the second
+      v-derivatives of g_AB and the first and second of g_uu, g_uv, g_uA along N, n = 4 and 5).* Modulo every W-jet, C_vv
+      contains of the second v-derivatives only the trace γ^(AB) ∂_v² g_AB, with coefficient −½ (Raychaudhuri, for the
+      conformal factor); C_vA contains ∂_v² g_uB with coefficients g^(uv) δ_A^B and no ∂_v² g_uu; C_tr contains ∂_v² g_uu
+      with coefficient −2 (g^(uv))². The hierarchy closes (K4, verifier 192): C_vv does not depend on g_uu or g_uA at
+      all, C_vA not on g_uu nor on angular derivatives of g_uB, and C_tr not on angular derivatives of g_uu. So given the
+      conformal class of γ and g_uv along N (free data and a gauge choice) and H, the gauge-reduced constraints are ODEs
+      along each generator for the conformal factor, then g_uA, then g_uu; the first is nonlinear (it holds while θ stays
+      finite), the other two linear in their unknown's second derivative. Each later step uses angular derivatives of the
+      earlier unknowns, so each is solved on a neighbourhood of generators, smooth in x^A, with an existence interval
+      uniform over the compact S. At S, g_uu = g_uA = 0 (N′ is null); their first v-derivatives and θ there are what the
+      corner conditions fix (the mirror of N1, not computed), and the conformal factor's value is free.
     - Not computed: the corner conditions (W = 0 on S, which fixes ∂_u g_vv, ∂_u g_vA and the trace of ∂_u g_AB there,
       N1, against the data N′ carries), the null dusts' stress in place of vacuum, uniqueness for the linear
       characteristic problem, and that the record's solution solves the reduced equation exactly.

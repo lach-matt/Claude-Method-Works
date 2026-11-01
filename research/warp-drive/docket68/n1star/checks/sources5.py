@@ -14,17 +14,17 @@ the e^2 coefficient by a degree-16 polynomial fit, exact as the inverse metric i
 then a polynomial in e of lower degree). E^Ups G (g - eta) is linear in h, so the quadratic part comes from Ric and from
 Upsilon^0(g, eta) = g g^-1 Gamma(g) alone, then through delta*_(eta,E_C), which is linear and built on eta and c.
 
-  Q1 (computed) Ric's quadratic part at 2p is 2^-6 times its value at p, in every component;
-  Q2 (computed) so is delta*_(eta,E_C) applied to Upsilon^0's quadratic part, its E_C term (c homogeneous of degree -1)
-     included;
-  Q3 (computed) control: the linear part of Ric at 2p is 2^-4 times its value at p, and a non-static h (sin t added to
-     H_tt) breaks Q1.
+  Q1 (omputed) Ric's quadratic part at 2p is 2^-6 times its value at p, in every component;
+  Q2 (omputed) so is delta*_(eta,E_C) applied to Upsilon^0's quadratic part, its E_C term (c homogeneous of degree -1)
+      included;
+  Q3 (omputed) control: the linear part of Ric at 2p is 2^-4 times its value at p, and a non-static h (sin t added to
+      H_tt) breaks Q1.
 
-Deduced: every term of P at least quadratic in a static h homogeneous of degree -2 has derivative order plus c-order two,
-so it is homogeneous of degree -6 on Minkowski; on Tangherlini (g0 - eta = O(mu r^-2) with derivatives) the corrections
-are of degree -8 or less. So the products of the leading means are O(r^-6), o(r^-4) as the condition needs. Not computed:
-the cross terms with the means' remainder in E_(5/2), which need that class's derivative bounds (if each derivative gains
-r^-1 they are O(r^(-13/2))), and the sources from g_lambda - g_app.
+Deduced: every term of P quadratic in a static h homogeneous of degree -2 has derivative order plus c-order two, so it is
+homogeneous of degree -6 on Minkowski, and higher orders of degree -8 or less (D449); on Tangherlini (g0 - eta = O(mu
+r^-2) with derivatives) the corrections are of degree -8 or less. So the products of the leading means are O(r^-6),
+o(r^-4) as the condition needs. Not computed: the cross terms with the means' remainder in E_(5/2), which need that
+class's derivative bounds (if each derivative gains r^-1 they are O(r^(-13/2))), and the sources from g_lambda - g_app.
 
 Run: python3 checks/sources5.py   (about 90 s; the jets by sympy, the rest at 50 digits)
 """
@@ -41,7 +41,7 @@ t, xs = X[0], X[1:]
 r = sp.sqrt(sum(x**2 for x in xs))
 eta = sp.diag(-1, 1, 1, 1, 1)
 eps = sp.Symbol("eps")
-gU, eU, gC, eC = sp.Rational(1, 3), sp.Rational(2, 7), sp.Rational(5, 4), sp.Rational(1, 6)
+gU, eU, gC, eC, vC = sp.Rational(1, 3), sp.Rational(2, 7), sp.Rational(5, 4), sp.Rational(1, 6), mp.mpf(3) / 5
 
 
 def random_h(rng, static=True):
@@ -62,13 +62,13 @@ def jets(h, pt):
     H0 = [[f(h[a, b]) for b in range(5)] for a in range(5)]
     H1 = [[[f(sp.diff(h[a, b], X[c])) for c in range(5)] for b in range(5)] for a in range(5)]
     H2 = [[[[f(sp.diff(h[a, b], X[c], X[d])) for d in range(5)] for c in range(5)] for b in range(5)] for a in range(5)]
-    return H0, H1, H2, f(1 / r)
+    return H0, H1, H2, f(1 / r), [f(x) for x in xs]
 
 
 def operator_at(J, e):
     """Ric(eta + e h) and delta*_(eta,E_C) Upsilon^0(eta + e h, eta) at the point, the inverse metric truncated at e^2
     (exact for the coefficients up to e^2)"""
-    H0, H1, H2, cr = J
+    H0, H1, H2, cr, xv = J
     I5 = range(5)
     et = [[(-1 if a == b == 0 else (1 if a == b else 0)) for b in I5] for a in I5]
     g = [[et[a][b] + e * H0[a][b] for b in I5] for a in I5]
@@ -90,7 +90,7 @@ def operator_at(J, e):
            for ee in I5]
     U = [sum(g[m][c] * gG[c] for c in I5) for m in I5]
     dU = [[sum(d1[m][c][ee] * gG[c] + g[m][c] * dgG[ee][c] for c in I5) for m in I5] for ee in I5]
-    cc = [cr, 0, 0, 0, 0]
+    cc = [cr] + [-vC * x * cr**2 for x in xv]
     cs = [sum(et[a][b] * cc[b] for b in I5) for a in I5]
     cU = sum(cs[a] * U[a] for a in I5)
     D = [[(dU[a][b] + dU[b][a]) / 2 + gC * (cc[a] * U[b] + cc[b] * U[a] - mp.mpf(2) / 3 * (1 - eC) * et[a][b] * cU)

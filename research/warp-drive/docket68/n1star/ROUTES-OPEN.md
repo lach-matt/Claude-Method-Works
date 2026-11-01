@@ -4972,6 +4972,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   with coefficient -2 (g^uv)^2. So with the conformal class of gamma, g_uv and H given, they are solved in turn for the
   conformal factor, g_uA and g_uu from data at S. Open: the corner conditions at S, the dusts' stress, uniqueness for the
   linear characteristic problem.
+- D449 (verifier 192 on D447-D448; both CONFIRMED-WITH-CORRECTIONS, nothing major): D447's fit degree 16 is above the
+  true degree 9 (degree 8 failed, 10 agrees to 3e-34); the record's c_C = r^-1 (dt - v_C dr) now used (v_C = 3/5; still
+  2^-6, as c_C has degree -1); only the quadratic part is of degree -6, higher orders <= -8. D448's three leading
+  coefficients re-derived independently; K4 added: the hierarchy closes (C_vv free of g_uu, g_uA; C_vA of g_uu and of
+  angular derivatives of g_uB; C_tr of angular derivatives of g_uu); solvability qualified (neighbourhoods of generators,
+  an interval uniform over S); the data at S corrected: g_uu = g_uA = 0 there, their first v-derivatives and theta fixed
+  by the corner conditions (mirror of N1, not computed), the conformal factor free.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
