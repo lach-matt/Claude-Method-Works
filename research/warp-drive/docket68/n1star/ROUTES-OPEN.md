@@ -6000,6 +6000,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   cited; "ℓ" named two objects; III.J″ gives only "fixed loss"; ℓ̃ = 0 under Corollary 4.2's choices. NIT: section 2's
   item 2 ("no closed form in the lines read") is superseded by section 2b's (2.3). Corrected in LD16; the D560 entry
   above keeps its text.
+- D564 (verifier 244 on D559; no break at the level of the count): verified the class E_p^ℓ, Lemma 11.2 with g0 ((9.5)
+  is the Cartesian principal part, numerically to 2.6 × 10⁻¹⁵), (H_m)'s exponents, the order m̃, φ̃, gh̃ and the
+  transfer of Proposition 11.1's last step. MINOR: the θ-Taylor series is a finite expansion with remainder (the full
+  series fails for smooth profiles); ℓ(E_p) ⊂ E_p (ℓ = x̂·∂_X − ∂_v) is the step that closes the term in m̃ and should
+  be cited; B̄, C̄'s expansions inherited as asserted (D555); "closed" is "deduced at the level of the count". NITs:
+  dφ̃'s extra ℓ; q_m; the record's sign slip [ℓ, 3/r] (10554); the start condition holds as e ∈ E_2. Corrected in
+  BEYOND5 3(b); the D559 entry above keeps its text.
+- D565 (verifier 246 on D562; the arithmetic holds, d_G = 11 on the window): MAJOR: the record holds two readings of
+  ℓ_I's upper bound, ℓ_I ≤ a_I (I5, I8-I11) and ℓ_I < a_I + ½ (I2:251-252), unreconciled; on the first, (3 + ε_+, 3.5)
+  is not admissible for every a_I, though some ℓ_I in (3 + ε_+, 3.5099] always is, and gives d_G = 11. MAJOR: "costs at
+  least 15" is III.J″'s charge (a sufficient one), through the assembly's single ℓ_I > 3 + ε_+. MINOR: ε_I < 1 is not
+  stated (ε_I = 1.6 would allow d_G = 15), so "d_G ≤ 13 at the source's a_I" is withdrawn; section 3 omitted I11:47's
+  ℓ_I ≤ a_I; dg5.py's G1 now argued by its breakpoints, G3 tests both readings. Corrected in LD16, section 3 and dg5.py;
+  the D562 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

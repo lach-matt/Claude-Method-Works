@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -167,8 +167,9 @@ the strip rule, F2 s_c ≥ 0, F3 Corollary 3.1 (2), F4 the free choices and λ_�
 
 **Weights.** Fixed only by inequalities at n = 4:
 
-- ℓ_I: 3 + ε_+ < ℓ_I < min(a_I + ½, ℓ_I^max), off discrete exclusion sets (PART-III-I11-SPACETIME.md:46 (H4);
-  PART-III-I6-ALMOSTBDD.md:27-28 and PART-III-I4-BOOST.md:264 for III.I'' (5.1)).
+- ℓ_I: 3 + ε_+ < ℓ_I < min(a_I + ½, ℓ_I^max), off discrete exclusion sets, the upper bound read in I5:319, I8:47, I9:31,
+  I10:37 and I11:47 as ℓ_I ≤ a_I, against I2:251-252's ℓ_I < a_I + ½, unreconciled in the record (D565)
+  (PART-III-I11-SPACETIME.md:46 (H4); PART-III-I6-ALMOSTBDD.md:27-28 and PART-III-I4-BOOST.md:264 for III.I'' (5.1)).
 - The top decay order: α ∈ (4, 4 + ε_K] for I15's theorem (I15:37), used with α > 4 at I15:227 and I15:324; the
   admissible orders range over (2, 4 + ε_K] (I11:156); α_K = 4 + ε_K (I12:14); ε_K small with no Re λ in (2, 2+ε_K] ∪
   (3, 3+ε_K] (I11:153); ε'_0 := ½ min(ε_K, ε_+ − ε_K) (I11:157-158); ε_ind ∈ (0, 1] with d(Re λ, Z) ≥ ε_ind
@@ -856,16 +857,22 @@ loop counts of section 3.
     level's level-3 rounds at ε_ind = δ_50 (less at smaller ε_ind), the ι⁺ loop's loss per level is below the counted
     loops' if one of its rounds costs less than 17.52 times a level-3 round; the floors are 4 + d_G, 15 to 17 at those
     ℓ_I, and 2 + ℓ, and neither round's cost has a ceiling in the record. [D562, E1'a for ℓ_I; `checks/dg5.py` G1-G3,
-    exact: a_I is a free weight in the record, a_I > 3/2 (PART-III-I-CONE.md:65; I5:471), asked a_I > 3 + ε_+ by (H4)
+    exact: a_I is a free weight in the record, a_I > 3/2 (PART-III-I-CONE.md:65, 471), asked a_I > 3 + ε_+ by (H4)
     (I11:46-48), and the source fixes it at 3 + ε_I with 0 < ε_K < ε_+ < min(ε_ind, ε_I) < 1 (I-CONE:68, 472-473);
-    ℓ_I^max > 100 (PART-III-I2-SCRI.md:31). So every admissible a_I allows ℓ_I ∈ (3 + ε_+, 3.5), the range section 2's
-    items 3-4 assume, and there (2.5) gives d_G = 11 on the whole ι⁺ window [λ_♯, 2 − ε) once the free δ is taken below
-    ε (G1): an ι⁺ round costs at least 15. With the source's a_I and ℓ_I up to 3.5 + ε_I < 4.5, d_G ≤ 13 on the window,
-    14 at its top if δ ≥ ε (G2).] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's (I9:231; its MOD column lists
-    III.G″ Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to α_K": exponents, not the rounds
-    LD14 counts, a round treating every λ_0 of the window together (I6:127-129), and which of the two III.J″ multiplies
-    is not stated (corrected D557: D553 said the table has no row); by its rule (g) and Lemma 1.2 (e) (J3:157-158,
-    76-77) their loss is their number times one round's.
+    ℓ_I^max > 100 (PART-III-I2-SCRI.md:31). So every admissible a_I allows some ℓ_I in (3 + ε_+, 3.5099], and there
+    (2.5) gives d_G = 11 (corrected D565, verifier 246: on the record's reading ℓ_I ≤ a_I, I5:319, I8:47, I9:31, I10:37,
+    I11:47, the admissible top is min(a_I, ·), so (3 + ε_+, 3.5) itself, the range section 2's items 3-4 assume, is
+    admissible for every a_I only on the n = 4 repair ℓ_I < a_I + ½, I2:251-252; the record holds both readings,
+    unreconciled) on the whole ι⁺ window [λ_♯, 2 − ε) once the free δ is taken below ε (G1): an ι⁺ round is charged at
+    least 15 in III.J″'s accounting (corrected D565: a sufficient charge, Theorem 3.1 (2) asserting only that there is a
+    d, with at most that many steps, not a shown minimum; and through the assembly's single ℓ_I > 3 + ε_+, K:54-58,
+    VII:454, I6's own bounds admitting ℓ_I = 2.2, where d_G = 9). With the source's a_I, d_G ≤ 13 on the window if ε_I <
+    1 (14 at its top if δ ≥ ε), but the record bounds ε_I only through min(ε_ind, ε_I) < 1 (corrected D565: ε_I = 1.6,
+    ℓ_I = 4.55 gives 15; G2). The choice of ℓ_I, not a_I, fixes d_G = 11.] III.J″'s row for III.I′′′′′ (J3:261) is this
+    iteration's (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds
+    raising α′_K to α_K": exponents, not the rounds LD14 counts, a round treating every λ_0 of the window together
+    (I6:127-129), and which of the two III.J″ multiplies is not stated (corrected D557: D553 said the table has no row);
+    by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G, which a finer accounting might lower (as LD11 (ii)
     notes). Open: a_I (through ℓ_I, d_G's input), Proposition 3.1's fixed loss, and ℓ's value (equal at both kinds of

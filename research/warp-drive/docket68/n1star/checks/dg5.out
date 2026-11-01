@@ -1,6 +1,6 @@
-  G1: d_G over l_I in (3, 3.5), Re lam in [1.5099, 2 - eps), delta < eps: [11]
-  G2: l_I up to 4.5 (a_I = 3 + eps_I, eps_I < 1): max d_G 13; with delta >= eps, 14
-  G3: (3 + eps_+, 3.5) lies in the admissible range for every a_I > 3 + eps_+: True
+  G1: ceil(l_I - Re lam) = 2 on (3 - eps, 3.5099] x [1.5099, 2 - eps) by the breakpoints; sampled d_G: [11]
+  G2: l_I up to 4.5 (if eps_I < 1, not stated in the record): max d_G 13; with delta >= eps, 14; at l_I = 4.55 (eps_I = 1.6), 15
+  G3: on both readings the admissible l_I meet (3 + eps_+, 3.5099] for a_I in ['3000001001/1000000000', '31/10', '17/5', '4', '10']: True; on l_I <= a_I, (3 + eps_+, 3.5) is not wholly admissible at 3 of the five
 G1 PASS
 G2 PASS
 G3 PASS

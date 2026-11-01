@@ -7679,3 +7679,14 @@ costs at least fifteen derivatives in the record's accounting.
 **D563 (2026-11-01): equal cost, checked.** An independent check found the claim that the two inner rounds cost the same
 holds only conditionally: the inverse's loss depends on two further choices that the record leaves free at each use, and
 equality needs both uses to make the same ones, which is natural but not written. Several citations were also corrected.
+
+**D564 (2026-11-01): the approximant's expansion, checked.** An independent check found no break in the derivative
+bookkeeping. It replaced an infinite Taylor series by a finite one with remainder, named the property that closes the
+induction's self-referential term, and narrowed the status: the expansion is deduced at the level of the count, still to
+be written line by line.
+
+**D565 (2026-11-01): the weight's choice, checked.** An independent check confirmed the loss of eleven but found that
+the record itself states two different upper bounds for the weight in different places, so the range chosen is
+admissible for every parameter value only on one of them; on the other a smaller range still gives eleven. "Costs at
+least fifteen" is what the record's accounting charges, not a proven minimum, and the claim at the source's values
+rested on a bound the record does not state.

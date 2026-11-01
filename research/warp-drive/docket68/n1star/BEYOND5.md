@@ -731,11 +731,26 @@ What it does not give:
   them) and Z to ℓ^(m−1): all found. So every remainder of stage i is in E^ℓ at every order, and the r^(−q) coefficients
   of the next order's sources are polynomials in the expanded terms, as in Proposition 11.1's last step; the stages
   follow in turn, each stage's sources being polynomials in earlier stages' profiles (10579-10586's argument). The
-  profile variables pass to the physical ones at fixed v (D555 (3)) by Taylor's formula in θ: Y(X, v/λ + φ_1 + …) = Σ_k
-  ∂_θ^kY(X, v/λ)(φ_1 + …)^k/k!, φ_1 ∈ L_1 expanded, each power adding r⁻¹. So g_app has an expansion in r^(−1/2) at past
-  null infinity at fixed λ with ℓ-gaining remainders, as g_λ has (Proposition 11.1), and so has e = g_λ − g_app; the
-  strip's term is then polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)). Not written at proof level: this induction
-  itself, line by line, as Proposition 11.1's proof is; and λ-uniformity, which the strip does not need (D521).]
+  profile variables pass to the physical ones at fixed v (D555 (3)) by Taylor's formula in θ with remainder (corrected
+  D564: the full series need not converge for smooth profiles): Y(X, v/λ + δ) = Σ_(k<K) ∂_θ^kY(X, v/λ)δ^k/k! + O(|δ|^K)
+  for each K, δ := φ_1 + … ∈ L_1 expanded, each power adding r⁻¹, the remainder in E_K with its ℓ-gains (ℓ(v/λ) = 0,
+  ℓ^jδ ∈ E_(1+j)), as N1STAR-PROOF.md:538-540 writes it. So g_app has an expansion in r^(−1/2) at past null infinity at
+  fixed λ with ℓ-gaining remainders, as g_λ has (Proposition 11.1), and so has e = g_λ − g_app; the strip's term is then
+  polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)). Not written at proof level: this induction itself, line by line, as
+  Proposition 11.1's proof is; and λ-uniformity, which the strip does not need (D521).]
+  [D564, verifier 244 on D559 (no break of the ℓ-gain bookkeeping at the level of the count; 4 minor, 5 nits). Verified:
+  E_p^ℓ's closure (Lemma 9.7(a), N1STAR-PROOF.md:1199-1200, 1212), Lemma 11.2 with g0 legitimate ((9.5) is the Cartesian
+  principal part g0^(ab)∂_a∂_b, checked numerically to 2.6 × 10⁻¹⁵; the covariant box differs by −(μ/r³)ℓ), the
+  exponents of (H_m) with one order to spare, the order m̃, φ̃, gh̃, and the transfer of Proposition 11.1's last step
+  (each coupling lowers the source order by at least ½, so no cycle; no source at 5/2). Corrected: (1) the θ-Taylor
+  formula, above; (2) the (H_m) step uses ℓ(E_p) ⊂ E_p, which Lemma 9.7(a) does not list but which holds as ℓ = x̂·∂_X −
+  ∂_v (1212), the step where the term in m̃ itself closes; (3) D559 takes the coefficients' exactness from D551 and
+  D555, and D555 (4) left B̄ and C̄'s expansions asserted, not shown: inherited; (4) the log's "closed" is "deduced at
+  the level of the count, open at proof level". Nits: dφ̃ at ℓ^j needs ℓ^(j+1)φ̃, from (b) at step j; q̃ is q_m (1270);
+  the record's [ℓ, 3/r] = 3/r² (10554) should be −3/r², class-neutral (a slip in the record, recorded); polyhomogeneity
+  needs D548 (5)'s start condition, which holds as every derivative of e is in E_2 (Lemma 11.0, D521), so r⁴ times the
+  quadratic sources starts at r⁰; and it follows only once e is expanded to every order at fixed v, which D559 supplies
+  at the level of the count.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
