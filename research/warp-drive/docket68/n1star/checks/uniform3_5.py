@@ -17,15 +17,22 @@ M0 terms of x-degree 0 only, so the same steps can be run on the degree -3 matri
         >= 2, K = T_3 J^-1 the strip's rho^3 coefficient in the normalised basis: bounded uniformly in l. (K4 = -(1/2)
         T_3' J^-1 is bounded by the derivative estimate, |F_s(1)| <= 2^(1/2) K0_3 (x^2/2 + 1)^(1/2) |F(0)|: at most
         linear in l, not uniform.)
-  V7    (computed) stripfull5's K at l = 2 ... 6, normalised, lies below K0_3 |J^-1|.
+  V7    (computed) stripfull5's K at l = 2 ... 6, normalised, lies below K0_3 |J^-1|: a consistency check, which at
+        a bound of e^(6e13) cannot fail (verifier 212, D500).
   Control: with A_3(0) -> -A_3(0) no positive Lyapunov solution (as uniform5's).
 
-Measured (D492): every check passes. A_3(0)'s eigenvalues 2, 2.0099, 2.01, 2.02, 1.5e6, 1.5e6, 3e6 (scalar) and 2, 2.01,
+Measured (D492): every check passes (V4-V5 judged since D500: every constant finite and positive; before, they
+were printed only). A_3(0)'s eigenvalues 2, 2.0099, 2.01, 2.02, 1.5e6, 1.5e6, 3e6 (scalar) and 2, 2.01,
 1.5e6 (vector); lambda(H) in [1.62e-7, 0.565] and [3.33e-7, 0.276]; C_E = 5.39e13 and 5.28e12; ln K0_3 = 5.99e13 and
 5.87e12; |J^-1|_2 <= 0.993 and 0.698; stripfull5's K at l = 2 ... 6 in this basis 2.21 to 2.39 (scalar) and 0.342 to
 1.008 (vector).
 
 Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed.
+Only uniform5's s1 = 1 case is run at degree -3; its s1 = 3/2 case and the derivative induction K_k are not, so K and
+K4, which need F(1) and F_s(1) only, are covered, and the rho^5 and later width coefficients are not (D500). J's
+eigenvalues, 1.5, 1.5099, 1.51, 1.52 and the damping's, do not depend on x, so M1_3(0) = J + I has every real part > 1
+at every l >= 2. 'Normalised' here is uniform5's W; harmonics5.weights, which stripfull5 uses, differs from it by
+factors in [0.645, 1.732] (scalar) and [1.118, 1.414] (vector) at every l, so the uniformity holds in either (D500).
 Uniform, not sharp: K0 is astronomical.
 """
 import sys
@@ -117,6 +124,7 @@ def main():
               "positive: %s" % (typ, v3, float(mu), float(hmax), ctl))
         print("  V4-V5 %s, s in [0, 1]: a1 = %.6g, n0 = %.6g, n1 = %.6g; C_E = %.6g, ln K0_3 = %s"
               % (typ, float(a1), float(n0), float(n1), float(CE), mp.nstr(lnK0, 8)))
+        ok["V4-V5 " + typ] = all(0 < float(q) < float("inf") for q in (a1, n0, n1, CE, lnK0))
         print("  V6 %s: J = M1_3(0) - I = M1_2(0), independent of x: %s; |J^-1|_2 <= %.6g; so ln |K|_2 <= %s for every "
               "l >= 2" % (typ, v6a, jnorm, mp.nstr(lnKb, 8)), flush=True)
         # V7: consistency with stripfull5's K, l = 2 ... 6

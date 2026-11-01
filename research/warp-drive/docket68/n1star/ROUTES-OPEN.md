@@ -5401,6 +5401,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   grids show agreement, not an order. Confirmed: D432's coarse runs by md5, the fine runs' flags by re-marching (bit for
   bit with ld 3; ld 0 differs by 1.6 × 10⁻⁷), the nested grids, the exact row cut. Corrected in CERTIFY 6b and g1curv5's
   docstring; the D489 entry above keeps its text.
+- D500 (verifier 212 on D492; Lemma 6.5‴ re-derived, the constants and K recomputed by three methods): no major finding.
+  The lemma's steps use only M2 = m2 I, U1-U4 and the regular branch, not the degree, so the checks on the degree −3
+  matrices prove the degree −3 bound; the jump solution H(s)F_reg is the one the energy estimate controls (F analytic in
+  s, so F_T(0) = 0); J = M1_2(0) exactly, |J⁻¹|_2 = 0.99293733 and 0.69807447 at 60 digits; A_3(0)'s eigenvalues, λ(H),
+  C_E and ln K0_3 reproduce (the record's slightly larger, rounded outward); V7's |K|_2 at l = 2-6 agrees to six digits
+  by Chebyshev collocation and by another Frobenius series. MINOR: the entry's 'normalised basis' is uniform5's W; in
+  harmonics5's weighting (P3's) K at l = 2-6 is 2.76-2.99 and 0.353-1.14, and the two differ by l-independent factors
+  ([0.645, 1.732], [1.118, 1.414]), so uniformity holds in either; V4-V5's constants were printed, not judged, and V7, at
+  a bound of e^(6 × 10¹³), cannot fail (V4-V5 now judged, finite and positive; V7 labelled a consistency check; the run
+  passes in 142 s); only s_1 = 1 is rerun, which covers K and K4 but not the ρ⁵ and later coefficients. Added: J's
+  eigenvalues (1.5, 1.5099, 1.51, 1.52, damping) are x-independent, so M1_3(0) has every real part > 1 at every l ≥ 2.
+  Corrected in BEYOND5 3(b) and uniform3_5; the D492 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

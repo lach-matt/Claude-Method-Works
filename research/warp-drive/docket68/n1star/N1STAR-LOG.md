@@ -7309,3 +7309,9 @@ on runs made without the extra-precision step at the axis, not on the runs the r
 curvature settles, not after. And the small angular differences quoted where it settles came from the way values were
 interpolated between grid points: done properly they are a thousand times smaller, so there the time step, not the
 angular grid, sets the error. The moderate curvature before the failure stands.
+
+**D500 (2026-11-01): the strip's uniform bound, checked.** An independent check re-derived the argument and found that it
+does not depend on the degree it was first written for, so it applies at the strip's degree; every constant and every
+computed coefficient reproduced. It noted that two of the program's steps printed numbers without judging them (now
+judged), that one check could not fail at a bound so large, and that the bound covers the first two strip coefficients
+but not the later ones.
