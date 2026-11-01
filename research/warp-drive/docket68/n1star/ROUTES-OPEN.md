@@ -5453,6 +5453,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ≤ 40' needs LMAX = 40; the full count had no source (the SO(4) representations (l, ±2); arXiv:1709.08020 (39)-(40));
   P4's guard nz > 0 was weak (now every angular entry). The full run passes P1-P5 in 27 minutes. Corrected in BEYOND5
   3(b) and stripfull5; the D502 entries keep their text.
+- D505 (verifier 216 on D503; the tails re-derived, an independent Arb certificate, e2trap5's table rebuilt): the
+  certified bounds stand. Arb, with φ to φ⁗ by Taylor-jet automatic differentiation and I enclosed by the mean-value
+  form, certifies the same multipliers with B ≤ 5.84669, 3.75548, 2.36242, 1.51284, 0.98870, below the program's; w_(l_1)
+  ≥ 0 on the bisection range and the l = 1 control failing with certified negative w_1 at all five σ; the closed forms
+  agree with the automatic derivatives to 2 × 10⁻²⁷; the presets, sups and E2.7 values are e2trap5's; c = M′ + 2σ is
+  Lemma E2.8's; the computed cut-off norms lie 9.5 to 36 times below; the interval deduction is right. MAJOR (the
+  controls only): from σ = 24 the left-tail control at t = −1 lay outside the bound's hypotheses (the flank's g > 0, 1 −
+  6e^t < 0), its 'ratio' a product of two negatives; inside them the bound is below 1 at every point tried, so there is
+  no left control point there. Repaired: tail_left_valid guards the bound (C2 now checks it at t = −120), the left
+  control is taken only inside the hypotheses, and a further control, C2 rerun with s_L = 51/50, fails on its exponent;
+  every preset re-run, the same bounds. MINOR: the gap to e2trap5 is the 8000-piece enclosure on I (0.4 to 0.9 %), not
+  the rational s_c (under 0.1 %); C1 takes under 2 s, a run about 15 s; mult's docstring said s_R = 4; the tail bounds
+  assume κ_s ≤ 1/2 and s_L < s_R, which the command line now enforces; the right tail is monotone once r_* + d_R >
+  3s_R/2, 9 at s_R = 6. Corrected in E2-PILOT 3j and e2trapcert5; the D503 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

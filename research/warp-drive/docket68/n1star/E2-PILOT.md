@@ -684,11 +684,15 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   above, and Lemma E2.7 covers every l < l_1, each below the barrier: l_1 = 11, 22, 46, 93, 188 with s_R = 4, 4, 4, 6, 4
   and s_c = 0.6575, 0.4914, 0.3673, 0.2467, 0.1774. So, certified: ‖χ_I R_l(σ) χ_I‖ ≤ 5.8726, 3.7719, 2.3724, 1.5222 and
   0.99697 for every l ≥ 0 at σ = 6, 12, 24, 48 and 96, against section 3j's floating-point 5.846, 3.755, 2.362, 1.512,
-  0.9886 (the rational s_c and outward rounding cost under 1 %), with E2.7 at most 4.0613, 1.9720, 1.9206, 1.2697 and
-  0.94628 below l_1, B_(l_1) setting each bound. At σ ≥ 12, l_1 lies below the barrier (max V_22 = 132.5 < 144): E2.7
-  would apply there too, but E2.8's bound is the smaller. The controls move inward as l_1 grows (the left tail ratio
-  exceeds 1 at t = −1 from σ = 24, the right at r = 2, then 1.6), since the tail bounds improve with a; C1 needs 95 to
-  187 enclosures, about 17 s at each σ.
+  0.9886 (the 8000-piece enclosure on I costs 0.4 to 0.9 %, the rational s_c under 0.1 %: an Arb certificate of the same
+  multipliers by verifier 216 gives 5.84669, 3.75548, 2.36242, 1.51284 and 0.98870, D505), with E2.7 at most 4.0613,
+  1.9720, 1.9206, 1.2697 and 0.94628 below l_1, B_(l_1) setting each bound. At σ ≥ 12, l_1 lies below the barrier (max
+  V_22 = 132.5 < 144): E2.7 would apply there too, but E2.8's bound is the smaller. The right-tail control moves inward
+  as l_1 grows (r = 2, then 1.6), the tail bound improving with a. The left tail's bound is below 1 at every control
+  point inside its hypotheses from σ = 24 (D505, verifier 216: the t = −1 printed there lay outside them, the flank's g >
+  0 and 1 − 6e^t < 0, and its ratio was a product of two negative factors), so from σ = 24 the left control is instead C2
+  rerun with s_L = 51/50, which fails on its exponent. C1 needs 95 to 141 enclosures, under 2 s; a whole run takes about
+  15 s. The computed cut-off norms at σ = 6 to 96 lie 9.5 to 36 times below these bounds (verifier 216, e2high5).
 
 What it does not give:
 

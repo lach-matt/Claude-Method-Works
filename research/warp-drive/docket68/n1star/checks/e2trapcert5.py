@@ -35,12 +35,18 @@ and, by interval arithmetic (mpmath.iv, e2asymcert5's helpers):
      1/r^2): Lambda sigma/(sigma^2 - max V_l) with Lambda = r_*(4) - r_*(1.2), in intervals, increasing in l. Whether
      l_1 itself is above the barrier is printed, not needed: E2.8 covers it.
   So, certified: at each preset sigma, for every l >= 0, ||chi_I R_l(sigma) chi_I|| <= max(C5's values, B_(l_1)(sigma)).
-  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the left tail's ratio bound exceeds
-     1 at the least of t = -2, -1, 0, 1 and the right's at the largest of r = 2.5, 2, 1.6, 1.45 tried (so neither
-     certifies without C1's range; the points move inward as l_1 grows, the tail bounds improving with a).
+  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the right tail's ratio bound
+     exceeds 1 at the largest of r = 2.5, 2, 1.6, 1.45 tried; the left tail's at the least of t = -2, -1, 0, 1 where the
+     bound's hypotheses hold (the flank's g < 0 and 1 - 6 e^t > 0; tail_left_valid), which is t = -2 at sigma <= 12,
+     while from sigma = 24 the bound is below 1 at every such point and there is no left control point (D505, verifier
+     216: the t = -1 used before lay outside the hypotheses); and C2 rerun with s_L = 51/50 fails, its exponent 2(1/s_L -
+     1) being negative. The command line refuses kappa_s > 1/2, s_L >= s_R and l_1 < 5, where the tail bounds are not
+     proved.
 
 Measured (D497, D503): certified at sigma = 3, 6, 12, 24, 48, 96: <= 10.989, 5.8726, 3.7719, 2.3724, 1.5222, 0.99697
-(section 3j's float sups 10.98, 5.846, 3.755, 2.362, 1.512, 0.9886); C1 in 95 to 187 enclosures, about 17 s each.
+(section 3j's float sups 10.98, 5.846, 3.755, 2.362, 1.512, 0.9886: the gap is the 8000-piece enclosure on I, 0.4 to
+0.9 %, the rational s_c costing under 0.1 %, verifier 216's Arb run giving 5.84669, 3.75548, 2.36242, 1.51284,
+0.98870); C1 in 95 to 187 enclosures, under 2 s; a whole run about 15 s.
 
 Labels: C1-C5 certified (interval arithmetic, explicit tail bounds, outward rounding); C0 computed. Lemmas E2.7 and E2.8
 as in sections 3c and 3e (verifier 207, D493: E2.8's proof uses only phi in C^3, phi' >= 0, |phi| <= 1 on I, phi(+-inf)
@@ -82,6 +88,8 @@ def _q(s):
 
 SIGMA, L1 = _q(_spec[0]), int(_spec[1])
 SL, SR, KS, SC = (_q(s) for s in _spec[2:6])
+if not (KS.b <= 0.5 and SL.b < SR.a and L1 >= 5):
+    sys.exit("the tail bounds need kappa_s <= 1/2, s_L < s_R and l_1 >= 5 (D505)")
 DD = 1 / SL - 1 / SR
 BETA = 1 / SC - (1 / SR + DD / 2)
 KC = SC
@@ -102,7 +110,7 @@ def th_sech(y):
 
 
 def mult(x):
-    """phi, phi', phi''' at r_* = x (an interval): e2asymcert5's flank with s_R = 4, plus the core"""
+    """phi, phi', phi''' at r_* = x (an interval): e2asymcert5's flank with s_R = SR, plus the core"""
     z = (x - X_C) / KS
     if z.a > 0:
         em = iv.exp(-z); sg = 1 / (1 + em); om = em / (1 + em)
@@ -163,6 +171,15 @@ def tail_left(a, tL):
     return K * iv.exp(2 * XL * (1 / SL - 1)), (1 / SL - 1)
 
 
+def tail_left_valid(tL):
+    """the hypotheses of tail_left's bound at tL: the flank's g < 0 there (so tanh g < 0) and 1 - 6 e^tL > 0 (D505,
+    verifier 216: from sigma = 24 the old control point t = -1 had both false, and its 'ratio' was a product of two
+    negative factors)"""
+    eL = iv.exp(iv.mpf(tL))
+    gL = (xr(iv.mpf(tL)) - X_C) / SL + DD * KS * LN2
+    return gL.b < 0 and (1 - 6 * eL).a > 0
+
+
 def tail_right(a, rR):
     rR = iv.mpf(rR)
     XR = xr(iv.log(rR - 1))
@@ -221,7 +238,7 @@ def main():
           % (L1, tL, rR - 1, good, n, time.time() - t0, "" if good else "  failed at %s" % (bad,)), flush=True)
     rl, el = tail_left(A_(L1), tL)
     rr, mr = tail_right(A_(L1), rR)
-    ok["C2"] = rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0
+    ok["C2"] = rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0 and tail_left_valid(tL)
     print("  C2: left tail ratio <= %s (exponent 2(1/s_L - 1) >= %s); right tail ratio <= %s, monotone from %s"
           % (E.up(rl.b, 4), E.dn((2 * el).a, 4), E.up(rr.b, 3), E.dn(mr.a, 3)), flush=True)
     # C3: -phi U' >= 0 everywhere: U' = (2 f/r^3)(2y - 1) changes sign only at r^2 = 2, and g(x_*) = 0 with g' > 0
@@ -256,14 +273,26 @@ def main():
     sup = max([b.b for _, _, b in e27] + [B5.b])
     # controls
     f1, _, bad1 = certify_positive(A_(1), tL, tR)
-    tc = next((t_ for t_ in (-2, -1, 0, 1) if tail_left(A_(L1), t_)[0].a > 1), None)
-    rl3, _ = tail_left(A_(L1), 1 if tc is None else tc)
+    tc = next((t_ for t_ in (-2, -1, 0, 1) if tail_left_valid(t_) and tail_left(A_(L1), t_)[0].a > 1), None)
+    rl3 = tail_left(A_(L1), tc)[0] if tc is not None else None
+    gl = globals()                                              # C2 with s_L = 51/50 must fail (its exponent)
+    keep = (gl['SL'], gl['DD'], gl['BETA'])
+    gl['SL'] = iv.mpf(51) / 50
+    gl['DD'] = 1 / gl['SL'] - 1 / SR
+    gl['BETA'] = 1 / SC - (1 / SR + gl['DD'] / 2)
+    rlx, elx = tail_left(A_(L1), tL)
+    c2x = rlx.b < 1 and elx.a > 0 and tail_left_valid(tL)
+    gl['SL'], gl['DD'], gl['BETA'] = keep
     rc = next((r_ for r_ in ("2.5", "2", "1.6", "1.45") if tail_right(A_(L1), mpf(r_))[0].a > 1), None)
     rr25 = tail_right(A_(L1), mpf(rc or "1.45"))[0]
-    ok["controls"] = (not f1) and rl3.a > 1 and rr25.a > 1
-    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = %s >= %s (the least of -2, -1, 0, "
-          "1 where it exceeds 1); right ratio at r = %s >= %s (the largest of 2.5, 2, 1.6, 1.45 where it exceeds 1)"
-          % (E.dn(iv.mpf(bad1[0]).a, 5) if bad1 else "-", tc, E.dn(rl3.a, 4), rc, E.dn(rr25.a, 4)), flush=True)
+    ok["controls"] = (not f1) and (rl3 is None or rl3.a > 1) and rr25.a > 1 and not c2x
+    left = ("at t = %s >= %s (the least of -2, -1, 0, 1 inside the bound's hypotheses where it exceeds 1)"
+            % (tc, E.dn(rl3.a, 4))) if tc is not None else \
+        "below 1 wherever its hypotheses hold among t = -2, -1, 0, 1 (no left control point there)"
+    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio %s; right ratio at r = %s >= %s (the "
+          "largest of 2.5, 2, 1.6, 1.45 where it exceeds 1); C2 with s_L = 51/50 fails (exponent 2(1/s_L - 1) <= %s)"
+          % (E.dn(iv.mpf(bad1[0]).a, 5) if bad1 else "-", left, rc, E.dn(rr25.a, 4), E.up((2 * elx).b, 4)),
+          flush=True)
     good_all = all(ok.values())
     print("  %s: at sigma = %s, ||chi_I R_l(sigma) chi_I|| <= %s for every l >= 0%s"
           % ("CERTIFIED" if good_all else "NOT certified", sg, E.up(sup, 5),

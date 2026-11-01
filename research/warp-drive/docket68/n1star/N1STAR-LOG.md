@@ -7335,3 +7335,8 @@ whole intervals.
 confirmed every number. It corrected the summary: the check was exact on one random mixture of the modes at each order,
 not on every mode; and at even modes it is the leading coefficient that vanishes, the strip still entering one order
 later, with a small coefficient that also shrinks as the mode grows.
+
+**D505 (2026-11-01): the five new certificates, checked.** An independent check certified the same bounds again with a
+different interval library, slightly tighter. It found that one of the sanity checks meant to show the certificate could
+fail was, at the three highest frequencies, testing a formula outside the range where it holds; that check is now
+restricted to its valid range, and a different check that does fail is added. The bounds themselves are unaffected.
