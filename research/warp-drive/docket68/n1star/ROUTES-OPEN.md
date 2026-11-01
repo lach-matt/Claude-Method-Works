@@ -5893,6 +5893,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (N1STAR-PROOF.md:172-173), the l5⁻⁴ form ours; the dust term is ≥ 0 only for AB ≥ 0 (the record's dusts); T2 checked
   three values (now symbolic: q0⁴ − μ² = μ(√72 l5² − μ), and R ≥ r_q ⟺ 72μ²/R⁸ ≤ l5⁻⁴); "exact" and "keeps the record's
   shape" overstated. Corrected in FAMILIES5 4i and twodt5; the D546 entry above keeps its text.
+- D550 (LOSS-D LD15, deduced from I11 Definition 1.1 and Lemma 1.2 and I12:58-60; `checks/lambdacount5.py` C1-C5,
+  exact): LD13's open factors N_2 and the log orders are bounded by the record through Λ. Level 2's window in
+  u-exponents is W = [2 + η_1, 3 + η_2), every exponent there lies in Λ with log order ≤ K(λ), and Λ + d1 ⊂ Λ, so the
+  chains merge: a level's level-2 rounds are at most |Λ ∩ W| (per exponent) or Σ (K(λ) + 1) (per (α_0, k)). Not numbered
+  (ℰ_++, 𝒢, ℰ^C_I, ℰ_col unlisted); from the named generators λ_♯, 2, 3 with d1 and 1, |Λ ∩ W| ≥ 7,470,307, 0.290 of a
+  level's level-3 rounds (11,881,206 and 0.461 with LD9 G7's increments), so "shorter" needs the unlisted generators to
+  add fewer than about six chains. K(λ) ≥ 2.2055 × 10¹³ on W (N_* = 15,000,015, n(λ) ≥ 1,470,303), and per (α_0, k) the
+  record's bound on one level is ≥ 5.83 × 10²⁰, above the counted 2.65 × 10¹⁵: the record's log ceiling does not bound
+  the loop; the log orders produced are not computed.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

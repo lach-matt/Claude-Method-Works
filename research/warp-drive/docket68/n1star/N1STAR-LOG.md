@@ -7593,3 +7593,11 @@ must be bounded below on the whole region, the inner boundary included, where th
 away, not only on the high-curvature region. With that bound, as in the record, the condition holds; and the second
 property needs no mass condition at all. The region is no longer a simple radius, so "keeps the record's shape" was too
 strong.
+
+**D550 (2026-11-01): the inner loop's length, from the record's own bookkeeping.** The count of the second-level rounds
+had two open factors, the number of starting exponents and their logarithm orders. The record bounds both through one
+set it defines, in which every exponent of that level lies and where overlapping chains are counted once. Counting only
+the part of the set the record names already gives about 7.5 million exponents per level, under a third of the counted
+inner rounds, so whether the loop is shorter depends on generators the record does not list. The record's ceiling on the
+logarithm orders, though, is about 2 × 10¹³ per exponent, so its own bookkeeping does not bound this loop below the
+counted ones; only the orders actually produced could, and they are not computed.

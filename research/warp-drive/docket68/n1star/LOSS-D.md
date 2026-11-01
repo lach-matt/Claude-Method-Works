@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -685,13 +685,14 @@ loop counts of section 3.
     harmonic l would make its least element δ_50 (L2's controls), which is LD12 (v)'s case. (b) Whether d0 ∈ ℰ_ind,
     LD9's open point, on which the count now moves by a factor of about 3.75 × 10⁵. (c) N_2, g_2's exponents not being
     listed: "shorter" needs N_2 times the log orders below about 8.6 (D531). (d) Log orders: a round is per (α_0, k),
-    and the log orders at a point multiply its count; not bounded here. (e) Proposition 4.4's loss per round, not read,
-    so this counts rounds, not loss. The ι⁺ loop of LD12 (v) is untouched: E^ι_ind is not read. (f) Above all, the
-    reading (D541, verifier 234): the record's convention is generic, ℰ_ind any index set with min Re ≥ the gauge
-    potential's ε_ind (D3:46-47; < 9.47 × 10⁻⁸, < 1.46 × 10⁻¹⁰ by D4's refinement), and read so, a chain can run up to
-    (1 + δ_50)/ε_ind rounds, the loop then possibly far longer than the counted ones. (a)-(e) hold on the reading that
-    ℰ_ind is built from the indicial roots' offsets. That is the construction's (LD14, D542): III.D‴'s every exponent
-    lies in ℳ.
+    and the log orders at a point multiply its count; not bounded here. [D550: the record bounds (c) and (d) together,
+    through III.I′′′′′′′′′′'s Λ, the chains merging there; the bounds and their sizes are LD15.] (e) Proposition 4.4's
+    loss per round, not read, so this counts rounds, not loss. The ι⁺ loop of LD12 (v) is untouched: E^ι_ind is not
+    read. (f) Above all, the reading (D541, verifier 234): the record's convention is generic, ℰ_ind any index set with
+    min Re ≥ the gauge potential's ε_ind (D3:46-47; < 9.47 × 10⁻⁸, < 1.46 × 10⁻¹⁰ by D4's refinement), and read so, a
+    chain can run up to (1 + δ_50)/ε_ind rounds, the loop then possibly far longer than the counted ones. (a)-(e) hold
+    on the reading that ℰ_ind is built from the indicial roots' offsets. That is the construction's (LD14, D542):
+    III.D‴'s every exponent lies in ℳ.
 - LD14 (the ι⁺ loop's length; deduced from the record's text, D534). LD12 (v) gave the ι⁺ iteration that Lemma 3.2's
   Steps 1-2 run at every β-level below 3 (I9:230-232, 256-261) as up to about (2 − λ_♯)/ε_ind rounds per level, and so
   possibly of the counted loops' order 1/(ε_K ε_ind). The record fixes it differently.
@@ -760,6 +761,44 @@ loop counts of section 3.
     carrying no ρ^(2+d0). Outside G3:339's list, the λ = 1 mass-change and boost-source grafts (G3:18-21, 390-394,
     436-437): their mass states add no element of (0, 1) (D544). D542 had left III.F⁗ unread with a wrong reason ("above
     4"), and cited F4 for it.
+- LD15 (the level-2 rounds through the record's Λ; deduced from I11 and I12, counted at the record's point; D550,
+  `checks/lambdacount5.py` C1-C5, exact). LD13 left two factors of the level-2 loop open: (c) N_2, the number of g_2's
+  tf-exponents in the window, and (d) the log orders. The record bounds both, in one set.
+  - *The container.* III.I′′′′′′′′′′ Definition 1.1 (PART-III-I11-SPACETIME.md:66-79) defines Λ as the smallest set,
+    closed under conjugation, containing π₁(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I) ∪ {λ_♯, 3} ∪ (2 + π₁ℰ_col) with Λ + w ⊂ Λ for every w ∈
+    π₁(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}; 2 ∈ Λ (I11:155). Its Lemma 1.2 (c) (I11:96-107): every exponent (λ, k) the construction
+    produces with 2 ≤ Re λ ≤ 3 + ε_+ has λ ∈ Λ and k ≤ K(λ) := L_0 + (N_* + 1)(l_* + 1)(n(λ) + 1), N_* := ⌈5/η_0⌉ + 2,
+    η_0 the least real part of the increments, n(λ) the number of points of Λ below Re λ. Level 2's window in
+    u-exponents is W = [2 + η_1, 3 + η_2): I12 chooses η_1, η_2 so that no point of Λ has real part at either end
+    (PART-III-I12-SPECTRAL.md:58-60), the tf-window [1 + η_1, 2 + η_2) shifted by one. So LD13's chains lie in Λ and
+    merge there: a level's level-2 rounds number at most |Λ ∩ W| if a round treats an exponent, and at most Σ_(λ∈Λ∩W)
+    (K(λ) + 1) if it treats an exponent and a log order, as Step 3's "for each tf-exponent (α_0, k)" reads (I12:278).
+    N_2 and the overlap of chains are no longer separate factors, and Lemma 1.2 (a) makes both bounds finite
+    (I11:87-88).
+  - *What the record names* (C2-C3). It does not number |Λ ∩ W|: ℰ_++, 𝒢, ℰ^C_I and ℰ_col are not listed. Its named
+    generators λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = 1.5099, 2 and 3, with the increments d1 (on the construction, D542-D544, A ≠
+    0) and 1, give Λ_0 ⊂ Λ with |Λ_0 ∩ W| = 7,470,307: the chains λ_♯ + n d1 (3,000,002 points in W), λ_♯ + 1 + n d1
+    (1,470,302) and 2 + n d1 (3,000,002), and the point 3, no two sharing a point, the count the same at the three η
+    tested. With LD9 G7's increments 1 + d0, 1 + δ_2 and 1 + δ′_1 (on LD9's reading that they lie in ℰ_ind) it is
+    11,881,206.
+  - *Against the level-3 rounds* (C4). A β-level's level-3 rounds are on average ½/ε_ind ≥ 2.5755 × 10⁷ (LD11). The
+    named part of the container is already 0.290 of that (0.461 with G7's increments), and each further base (an
+    unlisted generator with real part in [3/2, 3 + η_2), or one plus an increment of integer part ≥ 1) adds up to
+    3,000,003 points, 0.1165. So the container shows the level-2 loop shorter than a level's level-3 rounds only if the
+    unlisted generators add fewer than about six chains (four with G7's increments); it does not decide it. That is
+    LD13's threshold N_2 ≲ 8.6 again, now with the chains counted once.
+  - *The log orders* (C5). On the construction η_0 = d1, so N_* = ⌈5/d1⌉ + 2 = 15,000,015, and at every point of W, n(λ)
+    ≥ 1,470,303 (λ_♯ + n d1 below 2, and 2), so K(λ) ≥ 1 + (N_* + 1)(n(λ) + 1) ≥ 2.2055 × 10¹³ (L_0 ≥ 1, l_* ≥ 0). That
+    is Lemma 1.2 (c)'s ceiling, set by its count (at most N_* raises at an exponent, each by at most l_* + 1, one per
+    window of width at least η_0 below 2; I11:101-105), not by the log orders the construction produces. Read per (α_0,
+    k), the record's own bound on one level's level-2 rounds is at least the sum over Λ_0 ∩ W of K + 1, ≥ 5.83 × 10²⁰,
+    above the counted loops' total 2.65 × 10¹⁵ (LD11) at a single level. So the record's bookkeeping does not bound the
+    level-2 loop below the counted loops; the log orders actually produced might, and the record does not compute them.
+  - *What it rests on, and what is needed.* The reading of W in u-exponents (I12:58-60's two excluded values are the
+    level-2 window's ends); the construction's increments (D542-D544); for the second bound, a round per (α_0, k), as
+    Step 3 writes it. Needed: ℰ_++ (whose part below 2 is π₁ℳ, I11:88), 𝒢, ℰ^C_I and ℰ_col listed at the record's point,
+    and the log orders produced. LD13 (c) and (d) are replaced by this. The ι⁺ loop (LD14) has neither factor, one round
+    treating a whole window.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

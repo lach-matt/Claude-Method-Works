@@ -1,0 +1,10 @@
+  lambda_sharp = 1.5099, d1 = 3.3333304630e-7, 1/d1 = 3000002.583334, N_* = ceil(5/d1) + 2 = 15,000,015
+  C1 PASS: lambda_sharp = 1.5099, d1 = 3.3333305e-7 (LD9), N_* = 15,000,015
+    Lambda_0 in W: lambda_sharp + n d1, n = 1,470,302..4,470,303 (3,000,002); lambda_sharp + 1 + n d1, n = 0..1,470,301 (1,470,302); 2 + n d1, n = 1..3,000,002 (3,000,002); 3 (1)
+  C2 PASS: |Lambda_0 cap W| = 7,470,307, the same at eta = 1e-30, delta_50/2, 0.999 delta_50; no shared points
+  C3 PASS: with LD9 G7's increments 1 + d0, 1 + delta_2, 1 + delta'_1: 11,881,206 (each adds 1,470,298)
+    one beta-level's level-3 rounds, on average 1/(2 delta_50) = 2.57550e+7; ratios 0.2901 and 0.4613; one more chain of 3,000,003 points adds 0.1165
+  C4 PASS: the named part of Lambda already gives 0.29 (0.46) of a level's level-3 rounds: the record's container leaves "shorter" to the unlisted generators
+    n(lambda) >= 1,470,303 on W; K(lambda) >= 22,054,583,524,865 = 2.20546e+13; sum over Lambda_0 cap W of K + 1 >= 5.83296e+20
+  C5 PASS: the record's log ceiling is above 2.2e13 at every exponent of W, and its per-(alpha_0, k) count of one level's level-2 rounds above the counted loops' total 2.65e15
+  Ctl PASS: 1/d1 = 3000002.5833 is not an integer; with eta_0 = 1, N_* = 7
