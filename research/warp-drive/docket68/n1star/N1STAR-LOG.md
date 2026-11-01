@@ -7250,3 +7250,9 @@ the route called clear for the dust streams loses a derivative: the dust's own e
 the geometry back into the system, which then asks for one more, without end. The known way round is a different, partly
 elliptic system, worked out in four dimensions; nothing comparable is known here for five. The band the earlier papers
 give may also thin out far along the surfaces.
+
+**D483 (2026-11-01): where the coefficient vanishes.** Sampling the coefficient had missed its zeros, because each comes
+paired with a blow-up just beside it, where the coefficient returns to its sign. Scanning instead for the blow-ups, which
+a smooth quantity marks by changing sign, finds them only for very large changes of the record's choices close to the
+horizon: one in one family, four in another, each with its zero beside it, and none at all for changes further out, up to
+amplitudes a hundred thousand times the record's own.

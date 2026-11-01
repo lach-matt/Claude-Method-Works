@@ -472,7 +472,8 @@ loop counts of section 3.
       the samples only: inside r = 1.25 A does vanish, at bump amplitudes of order 10³ and 10⁴ between the samples
       (D482), and Definition 6.1 (III.B) bounds neither c_Υ nor c_Υ,H in size, so those cut-offs are admissible to it
       (other Parts' conditions not checked). So d1 ∈ ℰ_ind at the record's cut-offs and near them, not for every
-      admissible cut-off.
+      admissible cut-off (D483: the zeros found sit beside poles, at amplitudes from 1640 inside r = 1.25, and none at r
+      ≥ 2.45 to amplitude 10⁵).
     - *Beyond r = 3 (D465; `checks/s1coef5.py --zeros-far`, S8, computed).* Matched at r = 8 (A0 the same to ten
       digits), dA/dζ falls outward, from −2.7 × 10⁻⁵ at r = 3.2 to −1.2 × 10⁻⁵ at 7.6, but dA/dη levels off near 0.068
       per unit integral (0.063 at 3.2, 0.068 at 7.6): c_Υ,H = −½η dr carries no decay, so to first order an η within 1 of
@@ -502,7 +503,23 @@ loop counts of section 3.
       ζ0 + t b at r = 1.225, |t| from 1 to 10⁵, A stays in [140.34, 141.96] (QR matching where the plain one fails, every
       value reliable) at the sampled amplitudes; but between the samples A has real poles and zeros in t, and vanishes
       for η at t = −1642.825 and for ζ at t = −14570.834 (verifier 205, D482): the claim of no sign change there is
-      withdrawn.
+      withdrawn, and the families are scanned densely below (D483).
+    - *Dense in amplitude (D483; `checks/s1coef5.py --zeros-dense`, S11, computed).* A pole of A in a family is a zero of
+      the matching determinant det[H | −I_1 −I_2 −I_3], which is smooth in t, so poles are located by its sign
+      (match_det; with the horizon columns re-orthonormalised at each step, R's diagonal kept positive, the sign is the
+      plain matching's), each refined by bisection, and the zero of A beside each pole by A's own sign; a zero with no
+      pole beside it would show as a change in A's sign alone. Sampling A misses such pairs, since A returns to the same
+      sign on both sides of a simple pole with a zero beside it. On t = ±10^k, k ∈ [0, 5], 30 amplitudes per decade (20
+      for the far η family), every value reliable: inside r = 1.25 (half-width 0.025 at r = 1.225, started at 1.05) η has
+      one pole, at t = −1640.954, with its zero at −1642.825, and ζ four, at t = 1946.632, −1946.977, 14562.909 and
+      −14558.973, with zeros at 1943.638, −1943.977, 14574.511 and −14570.834 (D482's two zeros among them; the ζ pairs
+      nearly symmetric in t, A's first-order dependence on ζ there being small, D479). At r = 2.85 (η) and 2.45 (ζ),
+      half-width 0.1, matched at 3 and 4, and at r = 4.8 (η) and 3.2 (ζ), half-width 0.2, matched at 8 and 10: no pole
+      and no zero. Each zero lies within 0.2 % of its pole in t, where the matching's condition number is of order 10¹⁸
+      (6 × 10¹⁸ at t = −1640.954). Two poles within one step of the grid (8 % in t) would cancel in the determinant's
+      sign and be missed, so 'none' is for this grid. So A vanishes only beside a pole, a zero-energy state of the s1
+      sector, at bump amplitudes from 1640 up, concentrated inside r = 1.25; in every family scanned, amplitudes below
+      1640 give neither.
     - Not computed: variations inside r = 1.05, where the horizon series itself assumes ζ = O(r − 1) and η = 1, cut-offs
       that are not rotation invariant (the record's are), and the dual state as a function rather than through its
       pairings.

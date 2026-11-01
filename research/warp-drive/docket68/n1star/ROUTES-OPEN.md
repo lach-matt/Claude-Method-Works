@@ -5295,6 +5295,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   along both surfaces" overstates Remark 3.12 (the thickness may shrink to zero at infinity). Corrected in FAMILIES5 4e;
   the verifier's check is seated as dustloss5.py (its docstring's claim that c contains ∂_u W corrected: W drops out).
   The D488 entry above keeps its text.
+- D483 (LOSS-D LD9, `checks/s1coef5.py --zeros-dense`, S11, computed): D482's poles and zeros, scanned densely by the
+  sign of the matching determinant (smooth in t, unlike A, which returns to its sign on both sides of a pole), in six
+  bumped families, t = ±10^k, k ∈ [0, 5], 30 per decade (20 for far η), every value reliable. Inside r = 1.25: η has one
+  pole, t = −1640.954, zero at −1642.825; ζ four, t = ±1946.6 and ±14560.9 (to 0.3), zeros at 1943.638, −1943.977,
+  14574.511, −14570.834, D482's among them. At r = 2.45-4.8 (bumps at 2.85, 2.45, 4.8, 3.2): none. Each zero within 0.2 %
+  of its pole, the matching's condition number about 10¹⁸ there. So A vanishes only beside a zero-energy state of the s1
+  sector, at amplitudes from 1640 concentrated inside r = 1.25. Not excluded: two poles within one grid step (8 %).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
