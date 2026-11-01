@@ -5685,6 +5685,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   mixed profiles carries −c_1 F1 F2, c_1 the λ-coefficient of ḡ⁻¹(du_in, du_out); the projections in Rm^(m); the data
   list; (E1′)-(E3) in Theorem A′; Picard closes within each stage. Corrected in FAMILIES5 4h; the D526 entry above keeps
   its text.
+- D528 (E2-PILOT 3j, certified; `checks/e2trapband5.py 384 0.05 192`, output saved as `checks/e2trapband5_192.out`): the
+  band certificate of D506 run to σ = 192. B1 certifies one multiplier at every l_1 = 5, …, 384; B2 bounds all 3780
+  intervals of width 1/20 of [3, 192]; B3 lies above e2trap5's float sup at every 0.1, by 1.0010 to 1.1882. Certified:
+  ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤ 192 and every l ≥ 0, the sup unchanged on [3.2, 3.25]; 0.83951, 0.73083,
+  0.66429 on the intervals ending at σ = 128, 160, 192. σ^(1/2) times the bound is 9.77 at 96 and 9.20 at 192. With
+  3f-3g, every real 0 < |σ| ≤ 192. 98 minutes. Open: σ > 192, the H¹ constants of 3i with these multipliers, and the
+  measured (a + b log σ)/σ, which the bound still exceeds.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -33,9 +33,15 @@ predates tail_left_valid in B1, D505's guard, which holds for every multiplier h
 between -60.86 and -60.81 at t = -120; verifier 217 re-ran B1 with it, all 186 certified.) Verifier 217 re-certified
 the band independently in Arb: sup 11.4635.
 
+Run to SMAX = 192 (D528; `python3 checks/e2trapband5.py 384 0.05 192`, saved as checks/e2trapband5_192.out): B1
+certifies every l_1 = 5 ... 384 (93 to 145 enclosures at the printed l_1 = 20, 40, ..., 380); B2 over 3780 intervals of
+width 1/20: <= 11.477, again on [3.2, 3.25] (l_1 = 5); on the intervals ending at sigma = 128, 160 and 192, 0.83951,
+0.73083 and 0.66429 (l_1 = 251, 314, 378); B3 above e2trap5's float sup at every 0.1 of [3, 192] by 1.0010 to 1.1882; 98
+minutes.
+
 Labels: B1, B2 certified (the lemmas as in e2trapcert5); B3 computed. Together with sections 3f-3g (0 < |sigma| <= 3)
-this covers every real 0 < |sigma| <= 96 (the bounds are even in sigma), with the constant 275.2 on 0 < |sigma| < 3,
-set by l = 0 (section 3g).
+this covers every real 0 < |sigma| <= SMAX, 96 by default and 192 in D528's run (the bounds are even in sigma), with the
+constant 275.2 on 0 < |sigma| < 3, set by l = 0 (section 3g).
 
     python3 checks/e2trapband5.py [LMAX1 [H [SMAX]]]       (defaults 190, 0.05 and 96: the band is [3, SMAX])
 """

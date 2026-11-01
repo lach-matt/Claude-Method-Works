@@ -7465,3 +7465,8 @@ initial data for two families.
 computer algebra and confirmed the construction. It found that each stage's mixed oscillations come out one derivative
 less smooth than the previous stage's, which costs nothing for smooth data, and it named one coefficient the write-up
 had left implicit.
+
+**D528 (2026-11-01): the trapping bound certified up to twice the frequency.** The rigorous bound on the black hole's
+resolvent near its trapped orbits, which held for every frequency from 3 to 96, was run on to 192 and holds there too,
+with the same largest value, 11.48, and a bound that keeps falling as the frequency rises (0.66 at 192). The run took an
+hour and a half.
