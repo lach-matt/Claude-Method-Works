@@ -33,8 +33,25 @@ norm of K is 1.97 to 2.99 (scalar) and 0.17 to 1.14 (vector), the series at 400 
 gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12); K4, normalised, 1.70 to 3.31 (scalar) and 0.063 to 0.58
 (vector), nonzero at every harmonic.
 
-Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not
-reduced here.
+  P4 (exact at three points) the tensor type (D502): for h = r^(2 - p) P(s) T_AB, T a random combination of all the
+     level-l TT harmonics of S^3 (built as homogeneous degree-l polynomial tensors T_IJ on R^4, tangent, traceless,
+     divergence-free and harmonic in every component; 2 (l + 3) (l - 1) of them, the full count, so every TT harmonic
+     of level l is of this form and its Cartesian components are degree-l scalar harmonics, D439), the record's full
+     operator at its point gives L h = r^-p e(s) T_AB, e the scalar model's -(1/2) r^(p + 2) box (r^-p P) at kappa =
+     l (l + 2), every other component zero and the gauge 1-form w zero (harmonics5 S3), at p = 3 and l = 2, 3, 4.
+     L is computed once on abstract angular components Phi_AB and turned into exact linear forms in Phi and its
+     angular derivatives at three points with rational t, r and rational sines and cosines. Controls: kappa = 15 for
+     the l = 2 harmonics, and a trace part cos(chi) g_S3 added, both fail. So the tensor type at degree -3 is the
+     scalar model at kappa = l (l + 2): L = -(1/2) box on each Cartesian component, given w = 0.
+  P5 (exact) its K and K4 (L's normalisation, as P3's) from the terminating sums of 2F1(3 + l, 1 - l; 5/2; s/2)
+     and its derivative, against Gauss's second summation theorem: K = 2 (-1)^((l - 1)/2)/(l (l + 2)), K4 = 0 at odd
+     l, K = 0, K4 = -(-1)^(l/2)/(l + 1) at even l, for l = 1 ... LMAX; the series transfer agrees for l <= 12.
+
+Measured (D502): P4 exact at l = 2, 3, 4 (10, 24 and 42 harmonics; both controls fail); P5 exact for every l <= 40.
+So on the tensor type the strip enters at rho^3 only at odd l, |K| <= 2/15, and at even l at rho^4, |K4| <= 1/3,
+both falling with l: bounded uniformly with no need of Lemma 6.5''', and with no logarithm (M1(0) = 5/2).
+
+Labels: P1, P2, P5 exact; P3 computed (K4 too); P4 exact at three points.
 """
 import itertools
 import random
@@ -288,7 +305,7 @@ def tensor_check(TA, kap_l, F4, M, ls, p=3):
 def tensor_closed(l):
     """P5: the scalar model's K and K4 at degree -3 (L's normalisation, as P3's) from the terminating sums, exactly,
     against 2 (-1)^((l - 1)/2)/(l (l + 2)) and 0 at odd l, 0 and -(-1)^(l/2)/(l + 1) at even l (Gauss's second summation
-    theorem, D501)"""
+    theorem, D502)"""
     a, b, c = 3 + l, 1 - l, sp.Rational(5, 2)
     K = sp.Rational(2, 3)*sum(sp.rf(a, j)*sp.rf(b, j)/(sp.rf(c, j)*sp.factorial(j)*2**j) for j in range(l))
     K4 = -sp.Rational(1, 3)*a*b/(2*c)*sum(sp.rf(a + 1, j)*sp.rf(b + 1, j)/(sp.rf(c + 1, j)*sp.factorial(j)*2**j)
