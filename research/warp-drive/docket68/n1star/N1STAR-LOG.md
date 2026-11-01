@@ -7627,3 +7627,8 @@ comparison, which had set a count of rounds against a loss, and narrowed two sta
 largest admissible step and loosen as it shrinks, and the merging of chains rests on the construction's reading of the
 increments, since the record says only that the set is finite. With one round per exponent, as the record's own
 proposition allows, the question stays open rather than settled against the record.
+
+**D555 (2026-11-01): the coefficient's expansion, checked.** An independent check confirmed each step of the argument,
+including a numerical check of the background term, and found no error. It narrowed the claim: what is established is
+the coefficient's expansion and one step of the lemma; the later steps need the source expanded order by order, which is
+the part still to be written.

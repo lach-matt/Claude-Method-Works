@@ -697,6 +697,21 @@ What it does not give:
   integrating (b), then gh_(m+1)'s r^(1−q) from (c) (its couplings again through coefficients in E_(3/2) or better, Ψ_m
   = □̃φ_m included). Still not written: that induction with its ℓ-gains ((H_m) at m ≥ 2), as Proposition 11.1's proof
   does for u, and over the stages.]
+  [D555, verifier 240 on D551 (no break; 3 minor, 3 nits): verified Th = section 3.2's T at λ = 0 (N1STAR-PROOF.md:494,
+  262-266), m1 and φ1 entering only through −½e_1∂_θ² = 0 (509-511, 517), B at λ⁰ built from g0, dg0 and dv ⊗ ∂_θW
+  (257-258, 477), c Th's part and not Wm's or K_m's (494-496), □̃v = 3/r with Lemma 9.7(d)'s sign (1204, 1207-1209;
+  checked numerically), g0's inverse exact (Sherman-Morrison, dv null), W_TT = r^(−3/2)F exactly (past5.py selftest,
+  P3-P5), and Z^0 exact. Corrected: (1) "known from S's and c's" holds one step at a time: the record gives S̃ only as a
+  class (E_(7/2), 1263-1266), so each further step needs the source's expansion at that order, which is the induction
+  still to be written, and the ℓ-gains (H_m) (10525). (2) W is W_TT + χ dv dv (461), and χ is r⁻² times a function with
+  no remainder (1258-1260; past5.py P5), so c is exact with χ as well. (3) The expansion is in the profile variables (θ
+  = u/λ, no phase shift), where Lemma 5.3 (c) and Lemma 9.7(d) are posed; in section 9.4's fixed-phase variables (W_TT(·
+  + φ1), 1302-1303, 1317-1319) c is exact only after φ1's expansion is inserted. (4) B̄ and C̄'s expansions are asserted
+  as θ-means and products of g0 and W terms, not shown. Nits: the exponents p lie in ½ℤ, which "never meets 5/2" uses;
+  dΓ[g0] enters too (72), and is exact; the record's Lemma 5.2 proof says "the λ⁻¹ part of the principal term on λY(X,
+  u/λ)" (509) for formulas that are the [Y] coefficients of 262-263 (a wording slip in the record, recorded, not
+  repaired). Established: c's expansion and one step of Lemma 9.7(d); the triangular structure at the level of the
+  count.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

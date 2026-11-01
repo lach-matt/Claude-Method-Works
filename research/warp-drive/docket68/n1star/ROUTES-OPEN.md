@@ -5933,6 +5933,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   record's bookkeeping holds per (α_0, k), per exponent it is undecided (with LD16, the per-exponent count is the one
   that matters). NITs: the η tests had η_1 = η_2 (now η_1 < η_2); "at most six (four)". Corrected in LD15 and
   lambdacount5; the D550 entry above keeps its text.
+- D555 (verifier 240 on D551; Th at λ = 0, the e_1 cancellation, B's λ⁰ part, □̃v = 3/r numerically, g0⁻¹ exact, W_TT
+  exact by past5.py's selftest): no break. MINOR: "known from S's and c's" holds one step at a time, S̃ being given only
+  as a class, so further steps need the source's expansion order by order and (H_m); W includes χ dv dv, exact as well
+  (N1STAR-PROOF.md:461, 1258-1260); the expansion is in the profile variables, section 9.4's fixed-phase form needing
+  φ1's expansion; B̄, C̄ asserted, not shown. NITs: p ∈ ½ℤ; dΓ[g0]; a wording slip in the record's Lemma 5.2 proof
+  (509), recorded. Corrected in BEYOND5 3(b); the D551 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
