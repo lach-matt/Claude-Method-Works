@@ -482,13 +482,15 @@ loop counts of section 3.
       computed beyond r = 3.
     - *Beyond first order (D472; `checks/s1coef5.py --zeros-far-amp`, S9, computed).* The extreme cut-offs valued in [0,
       1] that the record's support allows (η switching off as late as [4.75, 4.95], ζ on as late as [7.5, 7.8], and both)
-      move A by +0.168, +6.5 × 10⁻⁵ and +0.168. Along η0 + t b (b at r = 4.8) and ζ0 + t b (r = 3.2), |t| from 1 to 10⁵,
-      A stays in [107.42, 141.97] and [120.47, 141.43]. Where the plain matching fails (for η at t ≤ −10³, one horizon
-      solution outgrows the others across the bump), the horizon columns are re-orthonormalised at every step of a grid,
-      which A, a coefficient of an infinity column, does not see; that matching agrees with the plain one to twelve
-      digits where both hold, and with itself at a second radius and half the steps to 10⁻⁷. Every value is reliable, the
-      least is 107.418, and A changes sign nowhere: the −166 the plain matching gave at t = −3 × 10⁴ was its failure. So
-      beyond r = 3, to the record's support and well past amplitude 1, no cut-off computed makes A vanish.
+      move A by +0.168, +6.5 × 10⁻⁵ and +0.168. Along η0 + t b (b at r = 4.8) and ζ0 + t b (r = 3.2), at the sampled |t|
+      from 1 to 10⁵, A is in [107.42, 141.97] and [120.47, 141.43] (between samples it can dip lower: 119.208 for ζ at t
+      = 1.3 × 10⁴, verifier 202). Where the plain matching fails (for η at t ≤ −10³, one horizon solution outgrows the
+      others across the bump), the horizon columns are re-orthonormalised at every step of a grid, which A, a coefficient
+      of an infinity column, does not see; that matching agrees with the plain one to twelve digits where both hold, and
+      with itself at a second radius and half the step size to 10⁻⁷ (and with independent DOP853, LSODA and Radau
+      integrations to 5 × 10⁻⁸, verifier 202). Every value is reliable, the least is 107.418, and A changes sign at none
+      of the samples: the −166 the plain matching gave at t = −3 × 10⁴ was its failure. So beyond r = 3, to the record's
+      support and well past amplitude 1, no cut-off computed makes A vanish.
     - *Inside r = 1.25 (D479; `checks/s1coef5.py --zeros-near`, S10, computed).* Started at r = 1.05, where the horizon
       series still converges (A0 the same to ten digits as from 1.25, and at matching radii 3 and 4), the cut-offs can be
       varied on (1.05, 1.25): bumps of half-width 0.025 give dA/dη = 0.011 to 0.025 and dA/dζ about −5 × 10⁻⁶, so a

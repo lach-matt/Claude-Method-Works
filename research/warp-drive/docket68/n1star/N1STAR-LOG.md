@@ -7196,3 +7196,9 @@ independent check confirmed the certified weight ratio and the safer rounding. I
 the null-surface theorem, so the quotations were checked here against the paper's text instead. It also pointed out that
 the theorem needs one more assumption than was spelled out, now stated; and that the no-condition-at-the-corner claim
 holds for the record's own dust streams, not for every possible one.
+
+**D481 (2026-11-01): both results stand, and one has an exact formula.** The independent check reproduced the coefficient
+scans with three different integrators, and noted that the ranges quoted were over the sampled amplitudes only. For the
+near-surface sources it solved the model exactly: the coefficient that decides whether they arrive one power lower is
+minus pi over four for the symmetric mode, and exactly zero for every even mode from the second on, where they arrive two
+powers lower.

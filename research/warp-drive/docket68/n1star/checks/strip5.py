@@ -12,8 +12,8 @@ t = 0 (u = -r, v = r) as r grows.
   T1 (computed) S = r^-4 on all of v >= 0: r^2 phi -> -1/2 (within 2e-3 at r = 100-400), the shift G(1) = -f/2 of
      BEYOND5's l = 0 example: an r^-4 source reaches the rho^2 coefficient.
   T2 (computed) S = r^-4 on the strip v in [0, 1] only: r * r^2 phi tends to a constant, -0.784 at r = 400 and still
-     drifting (changing by under 1 % from r = 200 to 400; about -0.785 by A + B/r, verifier 199), so r^2 phi falls like
-     1/r: the strip's source enters at rho^3, not rho^2.
+     drifting (changing by under 1 % from r = 200 to 400; about -0.785 by A + B/r, verifier 199; exactly -pi/4, verifier
+     202), so r^2 phi falls like 1/r: the strip's source enters at rho^3, not rho^2.
   T3 (computed) control: halving dv and doubling the u-grid moves r^2 phi at r = 100 by under 1e-3 on all of v >= 0, and
      the strip's value by under 2e-3 relative (4e-4 measured; verifier 199 found the old absolute 1e-3 too weak).
   T4 (computed) the harmonics l = 1, ..., 4, with the potential (l(l + 2) + 3/4)/r^2 in place of 3/4 (D474): on all of v
@@ -21,16 +21,23 @@ t = 0 (u = -r, v = r) as r grows.
      to 400); on the strip, r * r^2 phi does not grow from r = 200 to 400 (to 2 %) and r^2 phi is under 2 % of the full
      source's at r = 400. At l = 1 and 3 r * r^2 phi tends to -1/3 and 1/15, so the strip enters at rho^3 as at l = 0; at
      l = 2 and 4 it falls like 1/r, its rho^3 coefficient below the scheme's resolution (halving dv and doubling the
-     u-grid moves it by up to 8 % at r = 200), so there the strip enters at rho^3 or later. In no harmonic computed does
-     it reach rho^2. For l >= 1 the kernel changes sign, so these are values for S = r^-4 Y_l, not a bound over |S| <=
-     r^-4 (verifier 199).
+     u-grid moves it by up to 8 % at r = 200), so there the strip enters at rho^3 or later (exactly rho^4: T5). In no
+     harmonic computed does it reach rho^2. For l >= 1 the kernel changes sign, so these are values for S = r^-4 Y_l, not
+     a bound over |S| <= r^-4 (verifier 199).
+
+  T5 (computed against exact) verifier 202's values from the Riemann function P_(l+1/2) of this operator: the full source
+     gives r^2 phi -> -1/2, -1/3, -1/6, -1/15, -1/30 (l = 0-4), and the strip r * r^2 phi -> C_l = -pi/(4 Gamma(1 - l/2)
+     Gamma(2 + l/2)), so -pi/4, -1/3, 0, 1/15, 0: zero at every even l >= 2, where the strip enters at rho^4 (-1/6 and
+     1/10 at l = 2, 4, by the verifier's quadrature). The scheme reproduces the full-source values to 1e-3 and C_l to 1 %
+     (and |r * r^2 phi| < 2e-3 where C_l = 0) at r = 400. The closed form suggests the strip reaches rho^2 at no l (the
+     verifier's leading-order expansion, not a bound).
 
 So the sources from e, which live in such a strip, do not reach the r^-2 coefficient at I_0 in this model; as the
 l = 0 kernel is positive, it bounds every |S| <= r^-4 on the strip, at l = 0 only (verifier 199). Not
 computed: the strip for the record's full operator, and whether its r^-3 term, which carries no structure, is
 compatible with Lemma 0.1's rho^3 C^infinity.
 
-Run: python3 checks/strip5.py   (about 80 s)
+Run: python3 checks/strip5.py   (about a minute)
 """
 import sys
 
@@ -77,16 +84,31 @@ def main():
     print("  control at r = 100, dv/2 and 2n: %.5f against %.5f; strip %.6f against %.6f (relative %.1e)"
           % (h2[100], h[100], s2[100], s[100], rel))
     t4 = True
+    T4V = {}
     for l in (1, 2, 3, 4):
         hl = run(False, l=l, targets=(100, 200, 400))
         sl = run(True, l=l, targets=(100, 200, 400))
         conv_h = abs(hl[400] / hl[200] - 1) < 0.01 and abs(hl[400]) > 1e-3
         conv_s = abs(400 * sl[400]) <= 1.02 * abs(200 * sl[200]) and abs(sl[400]) < 0.02 * abs(hl[400])
         t4 &= conv_h and conv_s
+        T4V[l] = (hl[400], sl[400])
         print("  l = %d: r^2 phi on all of v >= 0: %s; r * r^2 phi on the strip: %s"
               % (l, ", ".join("r = %d: %.5f" % (k, v) for k, v in hl.items()),
                  ", ".join("r = %d: %.4f" % (k, k * v) for k, v in sl.items())), flush=True)
     ok["T4"] = t4
+    # T5: verifier 202's exact values from the Riemann function: the full source gives r^2 phi -> G_l, the strip
+    # r * r^2 phi -> C_l = -pi/(4 Gamma(1 - l/2) Gamma(2 + l/2)), zero at every even l >= 2 (1/Gamma's poles)
+    import mpmath
+    G = {0: -0.5, 1: -1 / 3, 2: -1 / 6, 3: -1 / 15, 4: -1 / 30}
+    t5 = True
+    for l in range(5):
+        Cl = float(-mpmath.pi / 4 * mpmath.rgamma(1 - mpmath.mpf(l) / 2) * mpmath.rgamma(2 + mpmath.mpf(l) / 2))
+        hv = h[400] if l == 0 else T4V[l][0]
+        sv = 400 * (s[400] if l == 0 else T4V[l][1])
+        good = abs(hv / G[l] - 1) < 1e-3 and (abs(sv - Cl) < 0.01 * abs(Cl) if Cl != 0 else abs(sv) < 2e-3)
+        t5 &= good
+        print("  l = %d: r^2 phi %.5f against %.5f; strip r * r^2 phi %.4f against C_l = %.5f" % (l, hv, G[l], sv, Cl))
+    ok["T5"] = t5
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     return 0 if all(ok.values()) else 1

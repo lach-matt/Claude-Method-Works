@@ -62,10 +62,11 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      2.85) for t from -10^3 to -10^5, matched at 3 and 4. Where the plain matching fails (radii disagreeing or the
      condition 1e12 or more: one horizon solution outgrows the others across a bump of large negative eta), A is computed
      with the horizon columns re-orthonormalised at every step of a grid (coefficient_qr; A depends on those columns only
-     through their span), at two radii, the second with half the steps, kept where they agree to 1e-7; (c) that matching
-     reproduces the plain one to twelve digits where both are reliable. Every value is reliable; the least A is 107.418
-     (eta, t = -10^5), with no sign change; the extremes move A by at most +0.168; S7's undecided range gives A = 130.27
-     to 130.48.
+     through their span), at two radii, the second with steps half as long, kept where they agree to 1e-7 (and
+     independently, with DOP853, LSODA and Radau, to 5e-8; verifier 202); (c) that matching reproduces the plain one to
+     twelve digits where both are reliable. Every value is reliable; the least A is 107.418 (eta, t = -10^5), with no
+     sign change at the sampled amplitudes (between samples A dips lower, 119.208 for zeta at t = 1.3e4, radii agreeing;
+     verifier 202); the extremes move A by at most +0.168; S7's undecided range gives A = 130.27 to 130.48.
 
   S10 (computed; --zeros-near, D479) inside r = 1.25: the integration started at r = 1.05, where the horizon series still
      converges (A0 the same to ten digits as from 1.25, and at matching radii 3 and 4), so that cut-off variations in
@@ -592,7 +593,8 @@ def coefficient_qr(pb, zeta, eta, rm, grid, r0=1.25, rtol=1e-12):
 
 
 def qr_grid(r0, rm, c, w, t, h=0.05, scale=1.0):
-    """chunks of h, and of 1/(0.05 |t| + 1) across the bump [c - w, c + w], where c_H's growth rate is about |t|/20"""
+    """chunks of h, and of 1/(0.05 |t| + 1) across the bump [c - w, c + w], where the largest growth rate is about
+    |t|/5 (2e4 at |t| = 1e5, verifier 202): at most about e^4 per chunk"""
     hf = min(h, 1.0 / (abs(t) * 0.05 + 1.0)) * scale
     pts = (list(np.arange(r0, c - w, h * scale)) + list(np.arange(c - w, c + w, hf)) +
            list(np.arange(c + w, rm, h * scale)) + [rm])
@@ -600,7 +602,8 @@ def qr_grid(r0, rm, c, w, t, h=0.05, scale=1.0):
 
 
 def A_qr(pb, zf, ef, c, w, t, r1, r2):
-    """A by coefficient_qr at matching radius r1 and at r2 with half the chunks: value, agreement to 1e-7, condition"""
+    """A by coefficient_qr at matching radius r1 and at r2 with steps half as long: value, agreement to 1e-7,
+    condition"""
     a1, c1 = coefficient_qr(pb, zf, ef, r1, qr_grid(1.25, r1, c, w, t))
     a2, c2 = coefficient_qr(pb, zf, ef, r2, qr_grid(1.25, r2, c, w, t, scale=0.5))
     return a1, bool(np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12), max(c1, c2)
@@ -648,7 +651,7 @@ def zeros_far_amp():
               "is 1e12 or more): %s" % (name, c, "; ".join("t = %g: %.6g%s" % (t_, At[t_][0], "" if At[t_][1] else "*")
                                                            for t_ in ts)), flush=True)
         if qr:
-            print("      QR matching where those fail (radii 8 and 10, the second with half the chunks): %s"
+            print("      QR matching where those fail (radii 8 and 10, the second with steps half as long): %s"
                   % "; ".join("t = %g: %.10g%s" % (t_, v[0], "" if v[1] else "*") for t_, v in sorted(qr.items())),
                   flush=True)
             At.update(qr)

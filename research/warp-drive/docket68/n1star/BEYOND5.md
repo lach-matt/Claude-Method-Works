@@ -453,9 +453,10 @@ What it does not give:
   conclusion that the record needs a stronger remainder bound is withdrawn. Beyond V′_P, g_λ − g_app is not defined and
   the remainder there is (b1)'s unknown, which nothing above bounds (verifier 199). In the same model at l = 1-4 (D474,
   `checks/strip5.py` T4), with the potential (l(l + 2) + 3/4)/r², the strip enters at ρ³ at l = 1 and 3 (r · r²φ → −1/3
-  and 1/15) and at ρ³ or later at l = 2 and 4 (its ρ³ coefficient below the scheme's resolution), so in no harmonic
-  computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign. Not
-  computed: the strip for the full operator, and whether its r⁻³ term, which carries no structure, is compatible with
+  and 1/15) and at ρ⁴ at l = 2 and 4: the ρ³ coefficient is C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)), −π/4, −1/3, 0, 1/15, 0 for
+  l = 0-4, zero at every even l ≥ 2 (verifier 202's Riemann-function computation, D481; `checks/strip5.py` T5), so in no
+  harmonic computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign.
+  Not computed: the strip for the full operator, and whether its r⁻³ term, which carries no structure, is compatible with
   Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,

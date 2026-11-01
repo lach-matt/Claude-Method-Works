@@ -5206,6 +5206,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   MINOR: the coupled reduced system's well-posedness, which [CP12] p. 9 assumes, is now stated separately from (15)'s;
   the corner claim is limited to the record's gradient dusts (a general crossing dust may cross N′ too and need a
   condition at S); whether [CP12] section 3's gauge covers this section's H and g0 is recorded as not checked.
+- D481 (verifier 202 on D472 and D474): both stand, no major finding. D472: A = x[3] is an infinity column's
+  coefficient, so x[3:] is invariant under any change of basis of the horizon columns (checked with a random T); S9
+  reproduces; an independent QR with a growth-adapted grid and DOP853, LSODA and Radau agrees to 5 × 10⁻⁸. MINOR: the
+  growth rate is |t|/5, not |t|/20 (docstring fixed; at most e^4 per chunk); 'half the chunks' meant steps half as long;
+  the ranges are over the sampled t (ζ at t = 1.3 × 10⁴ gives 119.208), now said so. D474: the potential is right; the
+  exact solution by the Riemann function P_(l+1/2) gives the full-source values −1/2, −1/3, −1/6, −1/15, −1/30 to twelve
+  digits and the strip's ρ³ coefficient C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)) (−π/4, −1/3, 0, 1/15, 0), zero at every even l
+  ≥ 2, where the strip enters at ρ⁴ (−1/6, 1/10 by quadrature); now strip5's T5.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
