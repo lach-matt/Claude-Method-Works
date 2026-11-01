@@ -24,8 +24,9 @@ and m', M' do not depend on l.
   K3 on I = {r in [1.2, 4]}, over 2000 pieces: m' = min_I phi' and M' = max_I phi' (enclosed, not assumed at an end),
      and min_I w_l for l = 1, ..., 6 (l >= 6 bounded by l = 6, as w_l increases with l); then B_l(3), X_l(3),
      A_l = l(l + 2) K_l/(a - a_1) (A_1 = 3 B_1^2), C_l = (X_l^2 + A_l)^(1/2), all rounded outward, and their maximum.
-  K4 controls: K1's bisection fails, as it must, at l = 0 (which needs section 3g's q), and w_0 is certified negative
-     at t = -3.9, on the horizon side (D462); with the centre at r = 1.6 the product -phi U' is negative at r = 1.5 (no monotonicity in l).
+  K4 controls: K1's bisection fails, as it must, at l = 0 (which needs section 3g's q), and w_0 is certified negative at
+     t = -3.9, on the horizon side (D462); with the centre at r = 1.6 the product -phi U' is negative at r = 1.5 (no
+     monotonicity in l).
 
 The angular weight is this multiplier's, -phi U', not section 3i's psi_*: D462 measured it at 0.64-0.94 times psi_* on
 I. Labels: K1-K3 certified (interval arithmetic and explicit tail bounds); the corollary deduced as in section 3i.
