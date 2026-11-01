@@ -598,8 +598,11 @@ record's Theorem A with two families.
   the transports Th^in, Th^out of section 4g, each along its own ℓ_k. The second is m_(m+1) and dφ_(m+1)^k in the
   contractions e_(m+1)^k. In addition, ĝ_(m+2)'s mixed harmonics hit by two λ⁻¹ derivatives of different phases reach
   order m through P_(−2) = −g0⁻¹(k_in, k_out) F1 F2 = e^(−2σ) F1 F2 (section 4g, verifier 225). The pure harmonics of
-  ĝ_(m+2) do not, since g0⁻¹(k_k, k_k) = 0. So Rm^(m) = Th^in ĝ_(m+1)^in + Th^out ĝ_(m+1)^out + P_(−2) ĝ_(m+2)^mix − ½
-  Σ_k e_(m+1)^k F_k² W_k + Wm(m_m, φ_m) + K_m, with K_m depending on earlier stages only (stage-1 mixed parts included).
+  ĝ_(m+2) do not, since g0⁻¹(k_k, k_k) = 0. So Rm^(m) = Π_in Th ĝ_(m+1)^in + Π_out Th ĝ_(m+1)^out + P_(−2) ĝ_(m+2)^mix −
+  ½ Σ_k e_(m+1)^k F_k² W_k + Wm(m_m, φ_m) + K_m. The mixed projections of Th ĝ_(m+1)^k, algebraic in Z_k, go to (d). K_m
+  depends on earlier stages only, ĝ_(m+1)'s mixed harmonics included, which (d) fixed at stage m − 1. On mixed profiles
+  Th also carries −c_1 F1 F2, c_1 := ℓ_in · dφ_1^out + ℓ_out · dφ_1^in − m1(ℓ_in, ℓ_out), the λ-coefficient of
+  ḡ⁻¹(du_in, du_out): a coefficient known at each stage (verifier 227, D527).
 - *Lemma 5.3′ (each stage is a linear hyperbolic system plus a division).* Given everything of earlier stages, impose
   e_m^k = 0 and the four projections of (5.3′). (a) The mean, the record's (a) on the two-dust background: −½ □̃ m_m +
   B̄ · dm_m + C̄ m_m = (sources). (b) The two phases: ℓ_k · dφ_m^k = ½ m_m(ℓ_k, ℓ_k) + ½ q_m^k, along each family's
@@ -610,13 +613,17 @@ record's Theorem A with two families.
   harmonic: there are no small divisors, and the division loses no derivative. (d) is algebraic, as section 4b's T4 is
   at Stage 0, and it feeds stage m + 1 through K_(m+1). Ψ_m^k := □̃ φ_m^k obey transports of Q1's form along ℓ_k
   (section 4f). The system (a)-(c) for (m_m, φ_m^k, Ψ_m^k, Z_k) is then linear with smooth coefficients and closes
-  without loss as in the record, with m_m in H^(s+1), φ_m^k in H^(s+1) and Ψ_m^k, Z_k in H^s. Picard iteration gives a
-  unique smooth solution wherever both generators reach Σ_τ0 transversally, and (d) then gives ĝ_(m+2)^mix with
-  ĝ_(m+1)'s regularity.
+  without loss as in the record, with m_m in H^(s+1), φ_m^k in H^(s+1) and Ψ_m^k, Z_k in H^s. Within each stage, Picard
+  iteration gives a unique smooth solution wherever both generators reach Σ_τ0 transversally, with data (m_m, ∂_τ m_m),
+  φ_m^in, φ_m^out and the pure harmonics of ĝ_(m+1) on Σ_τ0; the mixed harmonics take no data. (d) then gives
+  ĝ_(m+2)^mix with one derivative less than ĝ_(m+1)^mix, through −(ℓ_in · ∂_X) F1 − (ℓ_out · ∂_X) F2 acting on it
+  (corrected D527, verifier 227): one derivative per stage, harmless for smooth data and finitely many stages, as for
+  the record's K_m.
 - *Theorem A′ (deduced).* For every N and every smooth choice of stage data (each family's wave and its phase shift on
   Σ_τ0, the means' data) there are profiles ĝ_2, …, ĝ_(N+1), means and phases with residual Ric^H(g_app) = λ^N times a
-  profile bounded with all its derivatives. Section 4g's (E2), Stage 0 solved, is the case m = 0 (sections 4b and 4e),
-  and the record's Theorem A is the case W_out = 0.
+  profile bounded with all its derivatives. This is the record's (E3) with K = N − 1; (E1′) is section 4g's, and (E2) is
+  Stage 0. Section 4g's (E2), Stage 0 solved, is the case m = 0 (sections 4b and 4e), and the record's Theorem A is the
+  case W_out = 0.
 
 What it does not give: the two-dust domain Ω, its foliation and the transversality of both generators to Σ_τ0 (the
 analogue of the record's Lemma 1.1, needed for (b)-(c)); the data (Theorem D and Lemma 6.2 with two families: an

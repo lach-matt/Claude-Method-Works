@@ -7460,3 +7460,8 @@ stage by stage, each stage a linear system along the wave. With two crossing fam
 oscillations are carried along its own direction, and the mixed ones, which oscillate in both phases at once, are fixed
 by a simple division. That division never gets close to zero, so nothing is lost. What remains is the domain and the
 initial data for two families.
+
+**D527 (2026-11-01): the two-family approximate solution, checked.** An independent check recomputed the key division by
+computer algebra and confirmed the construction. It found that each stage's mixed oscillations come out one derivative
+less smooth than the previous stage's, which costs nothing for smooth data, and it named one coefficient the write-up
+had left implicit.

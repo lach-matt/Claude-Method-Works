@@ -5676,6 +5676,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   plus an algebraic division with no small divisors, and closes without loss by Picard. For every N, residual λ^N. Open:
   the two-dust domain and Lemma 1.1's transversality for both generators, the two-family data (Theorem D, Lemma 6.2),
   the proof at the record's level.
+- D527 (verifier 227 on D526; the two-scale principal part with m1 and the phase corrections expanded by sympy,
+  stage0two5's selftest rerun): no major finding. Confirmed: P_(−2) on λ^j q e^(i(n1 θ1 + n2 θ2)) is exactly −e^(−2σ) n1
+  n2 q, its inverse a smooth X-function times a Fourier multiplier at most 1, losing no X-derivative; stage-(m + 1)
+  unknowns do not enter through the cross contraction; the eikonals are once per phase (F1 F2 W = 0); the mean receives
+  no mixed term; (c) decouples by family; the mixed harmonics take no data; W_out = 0 gives the record. MINOR: (d) gives
+  ĝ_(m+2)^mix one derivative below ĝ_(m+1)^mix (−(ℓ_in · ∂_X)F1 − (ℓ_out · ∂_X)F2 on it), one per stage, harmless; Th on
+  mixed profiles carries −c_1 F1 F2, c_1 the λ-coefficient of ḡ⁻¹(du_in, du_out); the projections in Rm^(m); the data
+  list; (E1′)-(E3) in Theorem A′; Picard closes within each stage. Corrected in FAMILIES5 4h; the D526 entry above keeps
+  its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
