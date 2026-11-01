@@ -6121,6 +6121,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   every mask they agree (R to 2.4 × 10⁻⁴, K to 0.015 K_0). Masked cells hold NaN, so the difference is not K's stencil.
   M = 48 departs away from every mask too (R by up to 19 %). One region, not two kinds: late v, where M = 48 fails first
   and M = 32, 40 are unresolved.
+- D584 (LOSS-D LD16, read at source, deduced): D563's open condition resolved. F2's Corollary 3.4 fixes s (in
+  Proposition 3.3's proof, F2:382) and r_in (Lemma 3.2, α_+ = 0, F2:368-371, 478-481) from the operator alone, and makes
+  ℓ independent of ε (F2:491): choices of the proof, made once. Both kinds of round apply it with β_sctf = ℓ_scf = 3/2 −
+  ε (D560), so they cost the same 2 + ℓ + ℓ̃, on the reading that they apply that one corollary.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

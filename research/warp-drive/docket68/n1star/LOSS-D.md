@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576, D580, D582).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576, D580, D582, D584).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -839,12 +839,20 @@ loop counts of section 3.
     ℓ_zf, its input 5/2 − ε (I12:131-137) admitting ℓ_scf = 3/2 − ε; level 3's value is explicit at
     PART-III-I9-COMMOTION.md:287-288 and PART-III-I7-PARAMS.md:226 (I12:293-294 pins it only to (3/2 − 2ε, 3/2 − ε]).
     And "ℓ" here is Corollary 3.4's integer, Lemma 4.1's ℓ_a + ℓ̃, not the ℓ_a of the paragraph's first bracket; III.J″
-    itself states only "fixed loss" for Propositions 4.4 and 5.1.] One application at (α_0, k) treats every log power up
-    to k: its proof solves away each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold
-    α_0-derivatives of terms holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that
-    Step 3's "for each tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first
-    (I12:278-281 fixes no order; D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent
-    bound |Λ ∩ W| the procedure without the redundancy.
+    itself states only "fixed loss" for Propositions 4.4 and 5.1.] [D584, read at source (deduced): the choices are made
+    once. F2's Corollary 3.4 takes s and the orders from its own proof: s ∈ ℤ large is fixed in Proposition 3.3's proof
+    (F2:382), r_in by Lemma 3.2 above the largest incoming threshold ½(−1 + ϑ_in) − α_+ with α_+ = 0 (F2:368-371,
+    478-481), both from the operator N_tf(L̂_b, ±1) alone, and r_out := β_sctf − 2 − ε/2; the loss ℓ is then enlarged to
+    be independent of ε (F2:491, as in II.G′ Corollary 4.2). These are choices of the proof, made once, not of each
+    application, so every application of Corollary 3.4 with the same β_sctf has the same ℓ; and both kinds of round
+    apply it with β_sctf = ℓ_scf = 3/2 − ε (D560 with D563's citations). So a level-2 and a level-3 round cost the same
+    2 + ℓ + ℓ̃ in this accounting: D563's "conditional" is resolved, on the reading that both kinds of round apply the
+    one Corollary 3.4 (D560) rather than re-prove it.] One application at (α_0, k) treats every log power up to k: its
+    proof solves away each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives
+    of terms holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that Step 3's "for
+    each tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no
+    order; D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the
+    procedure without the redundancy.
   - *The ι⁺ loop.* Each round applies III.G″ Corollary 4.3 to the source's terms at λ_0 and removes the error by III.I′
     Proposition 3.1, the next source being F − L_b(u_λ0 + u′_λ0) (PART-III-I6-ALMOSTBDD.md:128-131, 156-157, 167-168).
     III.J″ charges Corollary 4.3 the loss d + 2, d being III.G′ Theorem 3.1 (2)'s for N_ι+(λ)⁻¹ composed with a contour
@@ -927,8 +935,8 @@ loop counts of section 3.
     d_G withdrawn, D576), which a finer accounting might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's
     input), E^C_I's log terms below ℓ_I for the one-off application to the general class (loss 6 without them, D573,
     D576), Proposition 2.1's count beyond its floor 8 per round raising α′_K (D582), and ℓ's value (equal at both kinds
-    of round if both make the same choices of s and r_in, D560, D563); the per-round loss is independent of k by J3's
-    (g) (J3:157-158), as it claims.
+    of round, the choices of s and r_in being made once in F2's Proposition 3.3 and Corollary 3.4, D560, D563, D584);
+    the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

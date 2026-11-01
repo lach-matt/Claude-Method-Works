@@ -7780,3 +7780,8 @@ resolutions exclude exactly the same cells, and they disagree only next to the e
 it blew up; there the solutions themselves differ, by several per cent, not just the curvature computed from them. So
 there is a single troubled region at late times, where the finest run fails first and the other two are not yet
 resolved. The finer-grid runs now in progress test exactly that region.
+
+**D584 (2026-11-01): the two kinds of round cost the same.** Whether the two kinds of round in the proof's longest loops
+cost the same depended on two numbers chosen inside one of the record's lemmas. Read at source, those numbers are chosen
+once, in the lemma's own proof, from the operator alone, so every use of the lemma gets the same cost, and the two kinds
+of round, which use it with the same weight, cost the same.
