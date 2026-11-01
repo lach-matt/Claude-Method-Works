@@ -7092,3 +7092,9 @@ possibilities apart, and the reading that it points to the method's treatment of
 found points to the solution itself. For the better multiplier, the numbers and the argument hold; the reason given for
 one failed choice was wrong, and the higher patterns' bound is in a slightly weaker weight, which does not change the
 constant of about 184.
+
+**D463 (2026-11-01): the dusts do not disturb the order of the constraints.** The family carries two streams of null
+dust. Their stress enters the constraint equations on a null surface algebraically, with no derivatives of the metric,
+so the gauge still propagates, and the three constraints can still be solved one after another: the first gains a
+source fixed by the data, the second stays linear in its unknown, and the third does not see the unknown the third step
+solves for. A stream moving along the surface drops out there altogether.

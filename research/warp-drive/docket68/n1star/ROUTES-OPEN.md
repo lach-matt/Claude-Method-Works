@@ -5083,6 +5083,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   formulas check; MAJOR: the infeasibility at x_* - 0.3, s_R >= 1.5 is on the horizon side (r_* in [-20.4, -1.0]), not
   the outer tail; minor: for l >= 2 the weight -phi U' is 0.64-0.94 of psi_* (C_l <= 65 in psi_*'s, 184.2 stands); m'
   certified 0.002580; docstring D-number.
+- D463 (FAMILIES5 4e, checks/chardust5.py D1-D5, exact): the null dusts' stress in the characteristic constraints. T =
+  sum rho_i k_i k_i is trace-free (k_i null) and algebraic, so N2-N4 hold with the C's shifted by -kap T components and
+  W's propagation uses div T = 0 (the dusts' equations). The hierarchy closes: T_vv = sum rho_i (g_uv k_i^u)^2 free of
+  g_uu, g_uA, gamma; T_vA free of g_uu, linear in g_uA; gamma^(AB) T_AB free of g_uu; a dust along N's generators drops
+  out on N. Open: the dusts' own data and transport, linear uniqueness.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

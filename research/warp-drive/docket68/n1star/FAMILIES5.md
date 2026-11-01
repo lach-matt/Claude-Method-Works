@@ -340,8 +340,15 @@ couplings are then killed by their own contractions.
       expansions and one of each mixed pair are free, and the other n numbers are fixed: given N′'s numbers the
       conditions fix N's, and conversely, but not both at once (D459); θ and ∂_u g_vv cannot both be prescribed
       (control).
-    - Not computed: the null dusts' stress in place of vacuum, uniqueness for the linear characteristic problem, and that
-      the record's solution solves the reduced equation exactly.
+    - *The null dusts (D463; `checks/chardust5.py` D1-D5, exact, n = 4 and 5).* With E := Ric − δ*W − κT for two null
+      dusts, T = Σ_i ρ_i k_i ⊗ k_i, trace-free as k_i is null, T is algebraic in g and the dusts' data and has no
+      transverse jet, so N2-N4 hold with C_vv, C_vA, C_tr shifted by −κT_vv, −κT_vA, −κγ^(AB)T_AB, and the propagation of
+      W uses div T = 0, which the dusts' own equations give. The hierarchy still closes: T_vv = Σ ρ_i (g_uv k_i^u)² is
+      free of g_uu, g_uA and γ (a source for Raychaudhuri's equation fixed by the data); T_vA is free of g_uu and linear
+      in g_uA; γ^(AB)T_AB is free of g_uu. A dust along N's generators has k_v = 0 on N and drops out; only the crossing
+      dust enters. The corner conditions are matter-free.
+    - Not computed: the dusts' own characteristic data and transport, uniqueness for the linear characteristic problem,
+      and that the record's solution solves the reduced equation exactly.
 
 ## 4c. The two-dust background (D389)
 
