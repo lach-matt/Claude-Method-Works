@@ -46,10 +46,22 @@ the null one, 0.045 to 0.74, at the band maxima (v >= 1.95), the same at both nu
 the null difference rises first (x = -0.97: 4.4e-3 at v = 1.75 to 4.7e-2 at 1.90) and the angular one overtakes from v
 ~ 1.9. From v = 2 both are as large as dev (the null difference up to 1.8e5, at x = 0 on [2.25, 2.5)).
 
+Seed-2 mode (--seed2, D513): the same question for the record's second seed (wavelength 0.3162, dnsolve5.py --run 0.3162
+0.9 M 800 360 out 0 ld 3, saved as s2_M16/24/32.npz, M = 16, 24, 32), where the angular solution converges to v about 3
+to 3.5 and then fails near x = +1: is the steepening at x = +1 the solution's or the scheme's, judged by K? K on 24 u-rows
+(the same at all three M) crossing kept cells with R in [0.9, 1.5] and v in [2.5, 4.5], per v-band (2.5, 2.75), (2.75, 3),
+(3, 3.25), (3.25, 3.5), (3.5, 4), (4, 4.5) over cells kept at all M with R in [0.9, 1.4], at x = 0.99, 0.97, 0.9, 0.5, 0,
+-0.5, -0.97 by the Chebyshev interpolant through all M nodes (barycentric): dev = max |K/K_0 - 1| (M = 32), diff_a =
+max |K_32 - K_24|/K_0, diff_b = max |K_24 - K_16|/K_0, their ratio (large = spectral convergence in M, near or below 1 =
+not converging), diff_a with the linear interpolant at x = 0.97 as the interpolation-floor cross-check, and the earliest v
+at which diff_a exceeds max(1e-2 dev, 1e-3) of K_0 in a cell.
+Measured (D513): ...
+
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
                                         DIR/curvA_MM.npz)
+    python3 checks/g1curv5.py --seed2 DIR   (D513: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
@@ -66,13 +78,13 @@ BANDS = ((1.5, 1.75), (1.75, 2.0), (2.0, 2.25), (2.25, 2.5), (2.5, 3.0))
 XS = (-0.97, -0.9, -0.5, 0.0, 0.5)
 
 
-def pick_rows(Z, n=24):
+def pick_rows(Z, n=24, vlo=1.5, vhi=3.0, Rlo=0.95, Rhi=1.5):
     R, mask, v = Z["R"], Z["mask"], Z["v"]
     with np.errstate(invalid="ignore"):
         Rm = np.nanmean(R, axis=2)
-    vin = (v >= 1.5) & (v <= 3.0)
+    vin = (v >= vlo) & (v <= vhi)
     ok = [i for i in range(1, R.shape[0] - 1)                          # mask is True on excluded cells
-          if np.any(~mask[i] & vin & (Rm[i] >= 0.95) & (Rm[i] <= 1.5))]
+          if np.any(~mask[i] & vin & (Rm[i] >= Rlo) & (Rm[i] <= Rhi))]
     if len(ok) <= n:
         return ok
     return [ok[k] for k in np.linspace(0, len(ok) - 1, n).round().astype(int)]
@@ -164,9 +176,85 @@ def null_refinement(dirn):
                   % (lo, hi, dev, dM, duv, dM8, int(sel.sum())), flush=True)
     return 0
 
+def cheb(K, xnodes, xe):
+    """K (..., M) at the Chebyshev-Gauss nodes (xmap 0) -> the collocation polynomial through all M nodes at xe, by the
+    barycentric formula with weights (-1)^j sin((2j+1) pi/2M) for the nodes cos((2j+1) pi/2M)"""
+    M = len(xnodes)
+    j = np.arange(M)
+    assert np.allclose(xnodes, np.cos((2 * j + 1) * np.pi / (2 * M)))
+    t = (-1.0) ** j * np.sin((2 * j + 1) * np.pi / (2 * M)) / (xe - xnodes)
+    return K @ (t / t.sum())
+
+
+S2BANDS = ((2.5, 2.75), (2.75, 3.0), (3.0, 3.25), (3.25, 3.5), (3.5, 4.0), (4.0, 4.5))
+S2XS = (0.99, 0.97, 0.9, 0.5, 0.0, -0.5, -0.97)
+
+
+def seed2(dirn):
+    """--seed2 DIR (D513): K on 24 rows at M = 16, 24, 32 of the seed-2 run, compared by the Chebyshev interpolant"""
+    path = {M: os.path.join(dirn, "s2_M%d.npz" % M) for M in (16, 24, 32)}
+    Z = dict(np.load(path[32]))
+    rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
+    del Z
+    print("  rows (u indices of the 800 x 360 grid): %s" % rows, flush=True)
+    C = {}
+    for M in (16, 24, 32):
+        cache = os.path.join(dirn, "curvS2_M%d.npz" % M)
+        if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+            C[M] = dict(np.load(cache))
+        else:
+            Zr, rr = reduced(path[M], rows)
+            K = D.kretschmann(Zr, rows=rr)[rr]
+            C[M] = dict(rows=np.array(rows), K=K, R=Zr["R"][rr], mask=Zr["mask"][rr], v=Zr["v"], x=Zr["x"])
+            np.savez(cache, **C[M])
+            del Zr
+        print("  M = %d: done (x nodes nearest +1: %.6f, -1: %.6f)" % (M, C[M]["x"].max(), C[M]["x"].min()), flush=True)
+    v = C[32]["v"]
+    assert np.allclose(v, C[16]["v"]) and np.allclose(v, C[24]["v"])
+    mk = {M: C[M]["mask"] for M in C}
+    print("\n  per v-band, cells kept at M = 16, 24, 32 (at both nearest nodes of the evaluation point's cell: the mask is "
+          "per node, so a cell counts if no node is masked) with R in [0.9, 1.4]; dev = max |K_32/K_0 - 1|, diff_a = max "
+          "|K_32 - K_24|/K_0, diff_b = max |K_24 - K_16|/K_0 (Chebyshev), ratio = diff_b/diff_a, lin = diff_a with the "
+          "linear interpolant (x = 0.97)")
+    first = {}
+    allkept = ~(mk[16].any(-1) | mk[24].any(-1) | mk[32].any(-1))
+    worst = []
+    for xe in S2XS:
+        Kx = {M: cheb(C[M]["K"], C[M]["x"], xe) for M in C}
+        Rr = cheb(C[32]["R"], C[32]["x"], xe)
+        K0 = 72.0 / Rr**8
+        ok = allkept & (Rr >= 0.9) & (Rr <= 1.4) & np.all([np.isfinite(Kx[M]) for M in Kx], axis=0)
+        da = np.abs(Kx[32] - Kx[24]) / K0
+        db = np.abs(Kx[24] - Kx[16]) / K0
+        dv_ = np.abs(Kx[32] / K0 - 1)
+        print("\n  x = %g" % xe)
+        for lo, hi in S2BANDS:
+            sel = ok & ((v >= lo) & (v < hi))[None, :]
+            if not sel.any():
+                print("    [%.2f,%.2f): no cells" % (lo, hi))
+                continue
+            a, b, d = da[sel].max(), db[sel].max(), dv_[sel].max()
+            line = "    [%.2f,%.2f): dev %.3g  diff_a %.3g  diff_b %.3g  ratio %.3g  (%d cells)" % (lo, hi, d, a, b, b / a, int(sel.sum()))
+            if xe == 0.97:
+                Kl = {M: at_x(C[M]["K"], C[M]["x"], xe) for M in (24, 32)}
+                okl = sel & np.isfinite(Kl[24]) & np.isfinite(Kl[32])
+                line += "  lin %.3g" % (np.abs(Kl[32] - Kl[24])[okl] / K0[okl]).max()
+            print(line, flush=True)
+        thr = np.maximum(1e-2 * dv_, 1e-3)
+        hit = ok & (v >= 2.5)[None, :] & (v <= 4.5)[None, :] & (da > thr)
+        vs = [v[np.argmax(h)] for h in hit if h.any()]
+        first[xe] = min(vs) if vs else np.nan
+        print("    earliest v where diff_a > max(1e-2 dev, 1e-3): %s" % ("%.4f" % first[xe] if vs else "none"))
+    print("\n  summary: earliest v where the M = 24 -> 32 difference exceeds 1e-2 of the departure, by x: "
+          + ", ".join("%g: %s" % (xe, "%.3f" % f if np.isfinite(f) else "none") for xe, f in first.items()))
+    return 0
+
+
 def main():
     if sys.argv[1:2] == ["--null"]:
         return null_refinement(sys.argv[2])
+    if sys.argv[1:2] == ["--seed2"]:
+        return seed2(sys.argv[2])
     dirn = sys.argv[1]
     Z40 = dict(np.load(os.path.join(dirn, "amp1_M40.npz")))
     rows = pick_rows(Z40)
