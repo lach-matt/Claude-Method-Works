@@ -15,10 +15,12 @@ of I in x = r_* (at least 40 points per wavelength) is the largest singular valu
 semiseparable structure.
 
   H1 control: D352's row at sigma = 3 (l = 0, 1, 2, 4, 8, 16, 32: 0.41, 0.42, 0.45, 0.67, 0.73, 0.065, 0.014).
-  H2 accuracy: the Wronskian's spread over I, and the norm on a grid twice as fine and at a tighter tolerance
-     (relative agreement better than 2 x 10^-3: the 40-points-per-wavelength grid sets it).
+  H2 accuracy: the Wronskian's spread over I (in modulus, D453), and the norm on a grid twice as fine and at a
+     tighter tolerance (relative agreement better than 2 x 10^-3: the 40-points-per-wavelength grid sets it).
   H3 at each sigma in {3, 6, 12, 24, 48, 96}, the norm over l (every l to 3 sigma + 4 at sigma <= 6, the 13 around
-     the trapped l above), its maximum and where it is attained, and the fit sigma * max = a + b log sigma.
+     the trapped l above), its maximum and where it is attained, and the fit sigma * max = a + b log sigma
+     at those sigma (all at one phase of the maximum's oscillation in sigma, period about 1/2, the barrier tops'
+     spacing; near sigma = 12 it runs 3.752-4.112 in sigma * max, D453).
   H4 the worst sigma for a fixed harmonic: for l = 4, 8, 16, 32, 64, the largest norm over 11 sigma with
      sigma^2 / max V_l in [0.9, 1.1], and sigma times it.
 

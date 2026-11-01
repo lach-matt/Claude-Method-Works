@@ -565,8 +565,9 @@ What it does not give:
     6), and Lemma E2.8′ (section 3g, D387) l = 0 (certified: 275.2 at σ = 3). Section 3d computes their actual norms at σ
     = 3, at most 1.132 (D371). Below the proved l_0 = 50 at σ = 3 it reaches e^417 at l = 49 (e^54 at l = 17, just below
     the threshold 18 that quadrature gives, which is computed, not proved).
-  - *Two kinds of l below l_0* (for Proposition E2.5's route; both are now covered by Lemma E2.9's certificate for every
-    l ≥ 1, section 3f, so they bear only on E2.5's sharper constants; D444).
+  - *Two kinds of l below l_0* (for Proposition E2.5's route; both are now covered by certificates, every l ≥ 1 by Lemma
+    E2.9's, section 3f, and l = 0, which lies below l_0 when σ < 0.711 (max V_0 = 0.5054), by Lemma E2.8′'s, section 3g;
+    so they bear only on E2.5's sharper constants; D444, D453).
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover
       them.
     - Where κ_I² ≤ 0, the barrier does not cover I. Proposition E2.5 cannot apply there, and those l need another
@@ -595,12 +596,17 @@ What it does not give:
   attained at l = 5, 11, 23, 47, 95 and 191: in every case the harmonic whose barrier top max V_l is the first above σ²
   (σ²/max V_l from 0.976 to 1.0000), the one trapped at the photon sphere. (Every l up to 3σ + 4 is scanned at σ ≤ 6 and
   was at σ ≤ 24 in a first run; above that the 13 harmonics around the trapped one.)
-  - σ times the maximum is 3.396, 3.708, 4.026, 4.344, 4.665 and 4.986: σ · max = a + b log σ with a = 2.887 and b =
-    0.459, residuals at most 0.004. So the norm falls like (a + b log σ)/σ, the logarithmic loss of trapping, not a
-    power; Lemma E2.8's proved constant (about 20 at σ = 3) instead grows like |σ| (section 3e).
+  - σ times the maximum is 3.396, 3.708, 4.026, 4.344, 4.665 and 4.986: at these σ, σ · max = a + b log σ with a = 2.887
+    and b = 0.459, residuals at most 0.004. The fit holds at the sampled σ, not as a function of σ (D453): over σ the
+    maximum oscillates with a period of about 1/2, the spacing of the barrier tops, and the six σ = 3 · 2^k all fall at
+    one phase of it (σ²/max V_l from 0.976 to 1.0000). A scan of σ over [11.50, 12.55] in steps of 0.05 gives σ · max
+    from 3.752 to 4.112, peaks 0.068 above the fit and troughs 0.26 below, so near σ = 12 the sup lies about 1.7 % above
+    it. The upper envelope appears to share the slope b, with intercept about 2.955, but only that one cycle was scanned
+    finely. So, up to that oscillation, the norm falls like (a + b log σ)/σ, a logarithmic loss and not a power; Lemma
+    E2.8's proved constant (about 20 at σ = 3) instead grows like |σ| (section 3e).
   - For a fixed harmonic the worst σ lies just below its barrier top (σ²/max V_l = 0.94, 0.978, 0.978, 0.9975 for l = 8,
     16, 32, 64; for l = 4 at the scanned window's lower edge, 0.90, so possibly lower), with σ times the norm 3.62, 3.93,
-    4.18 and 4.53, on the same law (H4).
+    4.18 and 4.53: 0.013 to 0.067 above the fit, on its upper envelope rather than on the fit (H4; D453).
   - *Against Lemma E2.8 (D452; `checks/e2high5.py --vs-e28`).* E2.8's bound, its multiplier width optimised at each σ,
     has its sup over 1 ≤ l ≤ 12 at l = 1, where w_I is smallest: 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24,
     48 and 96, about 63σ, 224 to 1.2 × 10⁵ times the measured maximum. At the trapped harmonic it gives 21.4, 21.9, 27.2,

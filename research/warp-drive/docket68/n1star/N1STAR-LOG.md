@@ -7013,3 +7013,11 @@ not at the trapped light but at the lowest angular patterns, where it grows in p
 true size there is small. At the highest frequency computed it is a hundred thousand times too large. A summary line
 that had quoted the proved bound's better values for every pattern was corrected to the section's own table.
 
+**D453 (2026-11-01): verifier 193 on D444.** The method and the numbers hold up: the norms agree with a dense
+computation and with the independent solver to ten digits, and the finer and wider checks stay inside the stated
+accuracy. The law fitted to them was stated too strongly. The largest size oscillates as the frequency changes, with a
+period of about a half, the spacing of the trapped patterns, and the six frequencies computed all fall at the same
+point of that cycle; a fine scan near frequency 12 runs about 9 % from peak to trough, the peaks about 2 % above the
+fit. So the law holds at the frequencies sampled, its upper envelope appears to share its slope, and the loss is still
+only logarithmic. The worst frequencies per pattern lie on that envelope, not on the fit, and the lowest pattern at low
+frequency is covered by its own lemma, which the text now names.

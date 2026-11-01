@@ -4981,10 +4981,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   by the corner conditions (mirror of N1, not computed), the conformal factor free.
 - D444 (E2-PILOT 4, checks/e2high5.py H1-H4, computed): the cut-off resolvent norm at large sigma. Max over l: 1.132,
   0.618, 0.336, 0.181, 0.0972, 0.0519 at sigma = 3 ... 96, always at the trapped harmonic (barrier top first above
-  sigma^2); sigma * max = 2.887 + 0.459 log sigma (residuals <= 0.004): a logarithmic trapping loss, against Lemma E2.8's
-  linear growth. Per harmonic the worst sigma lies just below its barrier top (l = 4 at the window's edge). D352's row
-  reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9 (section 3f),
-  bearing only on E2.5's constants. Open: a proof of the log law (E4), the record's norms.
+  sigma^2); at those sigma, sigma * max = 2.887 + 0.459 log sigma (residuals <= 0.004; at the sampled phase only, the
+  maximum oscillating in sigma with period about 1/2 and about 9 % peak to trough, D453): a logarithmic loss, against
+  Lemma E2.8's linear growth. Per harmonic the worst sigma lies just below its barrier top (l = 4 at the window's edge).
+  D352's row reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9
+  (section 3f) and, for l = 0 at sigma < 0.711, by Lemma E2.8' (section 3g, D453), bearing only on E2.5's constants.
+  Open: a proof of the log law (E4), the record's norms.
 - D450 (LOSS-D LD9, checks/s1coef5.py --record, S6, computed): the s1 coefficient at the record's point, gam_U = e_U =
   1/100 (z = 4e-6, d1 = 3.3e-7): A = 141.4269, ten digits across matching radii and starts (condition <= 1e5). The
   near-resonance forces A = -P_v + O(1) (P_v = -141.4214, u_0's rho^2 term from D412's (0, -99.75, -100.25) along v);
@@ -5004,6 +5006,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   253 at l = 1, about 19-21 from l = 5 (section 3e's own table).
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
+- D453 (verifier 193 on D444; confirmed with corrections): the method holds (the Riccati-to-linear switch and scale,
+  Riccati stability from the flux, the tail and start errors about 1e-9 and 1e-22; power iteration against a dense SVD
+  and e2pilot5's independent solver to 1e-10 at (l, sigma) = (4, 3), (11, 6), (23, 12), (30, 12); at sigma = 48 80 points
+  per wavelength move l = 95 by 1.7e-4, and 12 l off the window lie below the maximum). Major: the log fit holds at the
+  sampled sigma = 3 * 2^k, all at one phase of the maximum's oscillation in sigma (period about 1/2, the barrier tops'
+  spacing); a fine scan of [11.50, 12.55] gives sigma * max 3.752-4.112, the sup about 1.7 % above the fit; the envelope
+  appears to share the slope (intercept about 2.955, one cycle scanned). Minor: H4 lies on the envelope, not the fit; l =
+  0 at sigma < 0.711 is E2.8', not E2.9; H2's Wronskian spread is in modulus only. sigma = 96 not refined or scanned
+  off-window (unverified).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
