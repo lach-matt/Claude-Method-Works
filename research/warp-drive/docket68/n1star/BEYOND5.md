@@ -424,8 +424,11 @@ What it does not give:
   static h homogeneous of degree −2 has derivative order plus c-order two, so it is homogeneous of degree −6 on
   Minkowski, and higher orders of degree −8 or less (computed at p and 2p for Ric and for δ*_(E_C) Υ⁰ with random static
   h and the record's c_C = r⁻¹(dt − v_C dr), 30 digits; a non-static h breaks it; D449), and Tangherlini's corrections
-  lower the degree. So they are o(r⁻⁴), as needed. Not computed: the cross terms with the means' remainder in E_(5/2),
-  which need that class's derivative bounds, and the sources from g_λ − g_app.
+  lower the degree. So they are o(r⁻⁴), as needed. The cross terms with the means' remainder in E_(5/2) are o(r⁻⁴) too
+  (D454, `checks/sources5.py` Q4-Q5). E_(5/2) bounds every Cartesian derivative by r^(−5/2) with no gain
+  (N1STAR-PROOF.md, the classes before Lemma 9.7), so the largest is h ∂²ρ, O(r^(−9/2)), which an oscillating remainder
+  attains; the others are O(r^(−11/2)) or less, and the remainder's own products O(r⁻⁵). A remainder whose derivatives
+  gain would give O(r^(−13/2)). Not computed: the sources from g_λ − g_app.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

@@ -7021,3 +7021,11 @@ point of that cycle; a fine scan near frequency 12 runs about 9 % from peak to t
 fit. So the law holds at the frequencies sampled, its upper envelope appears to share its slope, and the loss is still
 only logarithmic. The worst frequencies per pattern lie on that envelope, not on the fit, and the lowest pattern at low
 frequency is covered by its own lemma, which the text now names.
+
+**D454 (2026-11-01): the cross terms of the sources.** The condition between the two cones needs the nonlinear sources
+to fall faster than the inverse fourth power of the radius. D447 showed that the leading parts' own products do. The
+record's remainder class bounds every derivative by the same power, with no gain from differentiating, so its products
+with the leading part were left open. Counting powers settles it: the worst term, the leading part times two
+derivatives of the remainder, falls like the radius to the power minus four and a half, which is enough. A remainder
+built to oscillate shows the bound is reached, and one whose derivatives do gain falls two powers faster, as the
+earlier estimate assumed.

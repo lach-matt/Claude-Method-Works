@@ -5015,6 +5015,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   appears to share the slope (intercept about 2.955, one cycle scanned). Minor: H4 lies on the envelope, not the fit; l =
   0 at sigma < 0.711 is E2.8', not E2.9; H2's Wronskian spread is in modulus only. sigma = 96 not refined or scanned
   off-window (unverified).
+- D454 (BEYOND5 3(b), checks/sources5.py Q4-Q5, computed): the cross terms of the sources between N and S. With the
+  leading mean h static of degree -2 and the remainder rho in E_(5/2) as N1STAR-PROOF.md defines it (every Cartesian
+  derivative <= C r^-5/2, none gaining), the part of P bilinear in (h, rho) is O(r^-9/2), led by h d^2 rho and attained
+  (rho = r^-5/2 G sin(x1 + 2 x3 + t): R^(9/2) times the largest component 23.5-33.9 over R = 8-128 at 8 directions), the
+  part quadratic in rho O(r^-5) (R^5 times it 31.8-53.0); a remainder whose derivatives gain gives exactly 2^-13/2 under
+  doubling (Q4) and falls a further 1/256 over that range. All o(r^-4), the condition D413 needs. Open: the sources from
+  g_lambda - g_app.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
