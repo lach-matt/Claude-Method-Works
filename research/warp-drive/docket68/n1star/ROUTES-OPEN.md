@@ -5734,6 +5734,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   to 11.477; E2-PILOT and e2trapband5 still gave the band as [3, 96] in three places, now [3, 192] or [3, SMAX]. NITs:
   w_I ≥ 731.2 rounded a lower bound up (731.1); D506's values on [3, 96] were compared at the printed points only.
   Corrected in E2-PILOT 3j and e2trapband5's docstring; the D528 entry above keeps its text.
+- D533 (FAMILIES5 4i, exact and computed; `checks/twodomain5.py` D1-D4, output saved): the record's Lemma 1.1 for two
+  dusts. The two-dust background takes the record's form with one more function, g0 = −e^(2ψ)(1 − μ/R²)dv̂² + 2e^ψ dv̂
+  dR + R²dΩ₃², wherever R_u < 0 (exact); the outgoing dust's constraint gives (e^(−2s)R_u)_u ≤ 0 and ψ_u = B/(3R²R_u) ≤
+  0, so R_u < 0 everywhere and ψ ≤ 0 with ψ = 0 on the outer cone. Then (a) g^(−1)(dτ, dτ) ≤ −1 − μ/R², (c) ≤ −3 − μ/R²,
+  (d)-(e) as in the record, with at least its margins; (b) holds exactly when μ > a² on R = a, i.e. the outgoing dust
+  carries off less than μ(v̂) − a² across each ray's untrapped part. Both generators are transverse to Σ_τ and their
+  past curves meet Σ_τ0: section 4g's (3.4′) has its domain. Computed: a seeded hole with both pulses, converging to
+  Vaidya at B = 0 (|ψ|, |μ − μ(v)| → 0) and trapped at R = a with B; control: a strong outgoing pulse leaves part of R =
+  a untrapped, (b) failing alone. Open: (f) and D_T for two dusts; existence on Ω beyond the rectangle; the outgoing
+  data.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

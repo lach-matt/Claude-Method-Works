@@ -7495,3 +7495,10 @@ other classes add nothing small.
 its own interval arithmetic and found no error of substance. It corrected the wording: the bound does rise a little
 between frequencies 3 and 3.25 before falling, one lower bound had been rounded the wrong way, and three places still
 gave the old range.
+
+**D533 (2026-11-01): the region of the proof, for two kinds of dust.** The proof's first lemma, which fixes the region
+where everything happens and checks its boundaries are the right kind, was carried over to two crossing streams of dust.
+The background then looks like the record's with one extra function, which the outgoing dust can only push in the
+harmless direction, so every inequality holds with at least the record's margin, except one: the inner boundary must
+still lie inside the black hole, which fails if the outgoing dust carries off too much mass. A computed example shows
+both the normal case and that failure.

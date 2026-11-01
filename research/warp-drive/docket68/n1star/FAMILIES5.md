@@ -3,7 +3,7 @@
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
 coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
 174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced; section 4g
-its section 3 (D522), section 4h its Theorem A (D526). Nothing proved beyond Stage 0.
+its section 3 (D522), section 4h its Theorem A (D526), section 4i its Lemma 1.1 (D533). Nothing proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -664,6 +664,45 @@ data is the standard Picard iteration for this 1+1 semilinear Goursat system; it
 
 What it does not give: the background on the record's domain, which would need the outgoing family's data at past
 null infinity; a horizon (these pulses leave the region untrapped); and the next stages listed in section 4b.
+
+## 4i. The record's Lemma 1.1 with two dusts (D533)
+
+`checks/twodomain5.py` D1-D4 (D1-D2 exact, sympy; D3-D4 computed; about 25 s). The record's Lemma 1.1
+(N1STAR-PROOF.md:154-173) is read off the explicit Vaidya g0. For the two-dust background of section 4c it holds in the
+same form, with one condition.
+
+- *The record's form with one more function (D1).* Wherever R_u < 0, (v̂, R) are coordinates, v̂(v) any increasing
+  function, and g0 = −e^(2ψ)(1 − μ/R²) dv̂² + 2e^ψ dv̂ dR + R² dΩ₃², with e^ψ = −e^(2s)/(R_u v̂′) and μ section 4c's B3
+  mass; the inverse has g^(v̂v̂) = 0, g^(v̂R) = e^(−ψ), g^(RR) = 1 − μ/R². The outgoing dust's constraint gives
+  (e^(−2s)R_u)_u = −e^(−2s)B/(3R²) ≤ 0 and ψ_u = B/(3R²R_u) ≤ 0. So R_u < 0 everywhere once it holds on the outer cone u
+  = u_0, which it does for data like the record's (there (R_u)_v = −e^(2s)μ/R³ < 0, from the evolution); and with v̂
+  fixed by ψ = 0 on u = u_0, ψ ≤ 0 everywhere. With B = 0, ψ ≡ 0 and μ = μ(v̂): the record's g0, with v̂ its v.
+- *Lemma 1.1′ (D2, deduced).* With τ := v̂ − R and Ω, Σ_τ, b(τ) as in the record's (1.1): (a) g^(−1)(dτ, dτ) = 1 − μ/R²
+  − 2e^(−ψ) ≤ −1 − μ/R²; (b) on {R = a}, g^(−1)(dR, dR) = 1 − μ/a², negative exactly when μ > a² there, and then
+  g^(−1)(dR, dτ) = e^(−ψ) − 1 + μ/a² > 0; (c) g^(−1)(d(v̂ + τ), d(v̂ + τ)) = 1 − μ/R² − 4e^(−ψ) ≤ −3 − μ/R² and
+  g^(−1)(dv̂, dτ) = −e^(−ψ) < 0; (d) the ingoing generators are {v̂ = const}, R increasing to the past, so Ω's shape and
+  (d) are the record's; (e) follows from (a)-(c) on the compact Ω as in the record. So (a)-(e) hold with at least the
+  record's margins, apart from (b), which asks μ > a² on the inner boundary: by section 4c's μ_u = −(2/3)Be^(−2s)R_v,
+  the outgoing dust must not carry off, across the untrapped part of each ingoing ray, more than μ(v̂) − a² of the mass.
+  Both generators are transverse to every Σ_τ, a null vector never being orthogonal to the timelike dτ, and by (e) the
+  past integral curve of either, normalised by dτ = 1, stays in Ω and meets Σ_τ0: what section 4g's (3.4′) asked of the
+  domain. Not covered: (f), which needs D_T for two dusts, that is, the curvature threshold r_q of the two-dust
+  background; and the background's existence on Ω, which is section 4c's Goursat problem continued over the past of Ω,
+  where R ≥ a (local existence is standard; the continuation is not read).
+- *Computed (D3).* A seeded hole: 5D Tangherlini corner data, μ0 = 1, at R = 4; an ingoing pulse A = sin⁴ on v ∈ [0.5,
+  2] and an outgoing one B = 0.4 sin⁴ on u ∈ [1, 2]; section 4c's diamond scheme on u ∈ [0, U1], v ∈ [0, 2], U1 where
+  R(U1, 2) = 0.62, clear of the singularity (later v needs resolving a strip between the horizon and the singularity
+  that thins exponentially). At n = 40, 80, 160 steps per unit: R_u < 0 everywhere; with B = 0, max |ψ| (0.100, 0.043,
+  0.015) and max |μ − μ(v)| (0.072, 0.033, 0.012) fall to 0, the scheme converging to Vaidya; with B, max ψ falls to 0
+  (0.091, 0.039, 0.010) while min ψ is about −0.016 and μ departs from μ(v) by 0.105; max g^(−1)(dτ, dτ) = −1.051
+  throughout, its ratio to −1 − μ/R² rising to 0.992 and 0.995 at n = 160; the cells with 0.7 ≤ R ≤ 0.75 are trapped,
+  with μ − a² ≥ 0.76.
+- *Control (D4).* A strong outgoing pulse just outside the horizon, B = 3 sin⁴ on u ∈ [3.5, 5]: on 0.7 ≤ R ≤ 0.75 the
+  least μ − a² is −0.41 and 1 − μ/R² reaches 0.85, so part of R = a is untrapped and (b) fails there, while (a) and (c)
+  still hold. The condition is a real one.
+
+What it does not give: (f) and D_T for two dusts; the background on Ω beyond the computed rectangle; the outgoing
+family's data, which in the record's setting come from Σ_τ0 or from past null infinity (section 4c).
 
 ## 5. Sources
 
