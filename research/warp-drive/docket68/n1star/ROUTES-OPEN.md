@@ -5223,6 +5223,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   vanish'. Standing: A = 141.4 at the record's cut-offs, and within 0.25 to first order for cut-offs within 1 of them;
   the scans of D457 and D472 are samples too, and are being scanned densely (D483). MINOR: nothing varied on (7.8, 8). T5
   stands (C_l derived independently); its tolerance is tightened from 1 % to 0.3 %.
+- D484 (FAMILIES5 4e, read and deduced): D480's 'not checked', whether [CP12] section 3's gauge covers the record's.
+  [CP12]'s target ĝ 'plays no significant role in what follows' (p. 6), and its W̊ is fixed on N1 ∪ N2 by the data and
+  any smooth extension off them (p. 9). The record's target is g0 and its source E^Υ_(g0) G_(g0)(g − g0) is algebraic in
+  g, fixed on N1 ∪ N2 by the data; off them it alters the reduced system only by terms without derivatives of g, so the
+  system stays quasilinear wave (deduced; Rendall's [36] not read). (D483 is the dense amplitude scan, running.)
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

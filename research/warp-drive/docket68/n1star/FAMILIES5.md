@@ -387,11 +387,15 @@ couplings are then killed by their own contractions.
       p. 9 assumes separately and which is not shown here (verifier 204, D480), the record's characteristic problem with
       its two dusts has a solution of the reduced equations near S, which solves the full equations since W = 0 on N ∪
       N′; uniqueness is stated there for vacuum and locally, and for the dusts rests on the same reduction (not read
-      further); P2's propagation of W = 0 near S is the step [CP12] takes from [11] (not read). Not checked: whether
-      [CP12] section 3's generalised wave-map gauge (a target metric ĝ and a source W̊ computed from the data) covers
-      this section's source H and the background g0. The quotations were checked word for word against the alphaXiv text
-      of arXiv:1203.4534v2 when they were seated (D480), by the author, not independently: the verifier's route to arXiv
-      was refused.
+      further); P2's propagation of W = 0 near S is the step [CP12] takes from [11] (not read). On the gauge (D484, read
+      and deduced): [CP12]'s target ĝ "is only introduced so that the harmonicity vector H^μ, defined in equation (18),
+      is a vector field, and plays no significant role in what follows" (p. 6), and W̊ is fixed on N1 ∪ N2 by the data
+      and otherwise "any smooth vector field on M which coincides with W̊ on N1 ∪ N2" (p. 9). The record's gauge (III.B
+      Definition 6.1, (6.3)) has target g0 and the source E^Υ_(g0) G_(g0)(g − g0), which is algebraic in g: on N1 ∪ N2 it
+      is fixed by the data, as [CP12]'s W̊ is, and off them it changes the reduced system only by terms without
+      derivatives of g, which leave it a quasilinear wave system of the kind Rendall's theorem treats (deduced; Rendall's
+      paper [36] not read). The quotations were checked word for word against the alphaXiv text of arXiv:1203.4534v2 when
+      they were seated (D480), by the author, not independently: the verifier's route to arXiv was refused.
     - Not computed: existence and uniqueness beyond a neighbourhood of S (the reading gives them near S only, and
       uniqueness locally), the dusts' well-posedness given g written out, and that the record's solution solves the
       reduced equation exactly. For the record's dusts, whose directions ∝ ∇v and ∇u are each tangent to one of N, N′,

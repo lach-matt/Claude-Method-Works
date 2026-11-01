@@ -7208,3 +7208,8 @@ The independent check scanned between them and found that the coefficient swings
 particular large amplitudes, about 1,600 and 15,000 times the natural size of the cut-off. The record's definition does
 not forbid such cut-offs. So the earlier claim that no choice makes the coefficient vanish is withdrawn: it is safely
 nonzero at the record's own choice and near it, but not for every allowed one.
+
+**D484 (2026-11-01): the record's gauge fits the theorem's.** The null-surface theorem is stated with its own choice of
+gauge. Read closely, that choice's reference metric plays no real role, and its source term is fixed on the surfaces by
+the data and free off them. The record's gauge differs only by terms without derivatives of the metric, which do not
+change the kind of equation the theorem treats.
