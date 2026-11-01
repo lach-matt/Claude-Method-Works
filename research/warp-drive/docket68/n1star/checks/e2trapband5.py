@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""e2trapband5.py -- E2-PILOT section 3j (D504): section 3j's bound certified for every sigma in [3, 96] and every l.
+"""e2trapband5.py -- E2-PILOT section 3j (D505): section 3j's bound certified for every sigma in [3, 96] and every l.
 
 D497 and D503 certify the bound at six frequencies. The pieces of e2trapcert5's certificate are of two kinds: those that
 do not involve sigma (the multiplier's admissibility at l_1, C1-C3, and the constants m' = min_I phi', M' = max_I phi',

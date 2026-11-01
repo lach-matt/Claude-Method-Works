@@ -7330,3 +7330,8 @@ frequency now runs at any, with the multiplier chosen for each: at frequencies t
 certified bounds are about 5.9, 3.8, 2.4, 1.5 and 1.0, within one per cent of the computed ones and falling as the
 frequency rises. Between the sampled frequencies the bound is still only computed, though the same pieces would certify
 whole intervals.
+
+**D504 (2026-11-01): the last kind of mode, checked.** An independent check proved the reduction a second way and
+confirmed every number. It corrected the summary: the check was exact on one random mixture of the modes at each order,
+not on every mode; and at even modes it is the leading coefficient that vanishes, the strip still entering one order
+later, with a small coefficient that also shrinks as the mode grows.

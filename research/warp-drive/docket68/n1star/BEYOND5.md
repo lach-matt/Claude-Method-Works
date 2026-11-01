@@ -499,13 +499,18 @@ What it does not give:
   (D439). So the tensor type at degree −3 is the scalar model at κ = l(l + 2), and its K and K4 are P1's in L's
   normalisation. Checked on the record's operator itself, exactly at three points, on random combinations of all the
   level-l harmonics for l = 2, 3 and 4 (built as homogeneous polynomial tensors on ℝ⁴, tangent, traceless,
-  divergence-free and harmonic: 10, 24 and 42 of them, 2(l + 3)(l − 1), the full count), every component of L h and of
-  the gauge 1-form as predicted, while a wrong κ and an added trace part fail (P4). By Gauss's second summation theorem K
-  = 2(−1)^((l − 1)/2)/(l(l + 2)) and K4 = 0 at odd l, K = 0 and K4 = −(−1)^(l/2)/(l + 1) at even l, exactly from the
-  terminating sums for every l ≤ 40, the series transfer agreeing for l ≤ 12 (P5). So on the tensor type the strip enters
-  at ρ³ only at odd l, with |K| ≤ 2/15 (at l = 3), and at even l first at ρ⁴, with |K4| ≤ 1/3 (at l = 2): both fall with
-  l, so the bound is uniform without Lemma 6.5‴, and there is no logarithm (M1(0) = 5/2). Every type is now computed. Not
-  computed: whether the r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  divergence-free and harmonic: 10, 24 and 42 of them, 2(l + 3)(l − 1), the full count: the SO(4) representations (l,
+  ±2), each of dimension (l + 3)(l − 1) by Weyl's formula, as in Lindblom, Taylor and Zhang, arXiv:1709.08020, eqs.
+  (39)-(40), read by verifier 215), every component of L h and of the gauge 1-form as predicted, while a wrong κ and an
+  added trace part fail (P4). Verifier 215 (D504) confirmed it by another route: the six SU(2)-invariant l = 2 TT tensors
+  with F free, the record's operator at six points, δGh, E^ΥGh and w each zero separately; and every one of the 76 basis
+  harmonics at l = 2, 3, 4 traceless, divergence-free and with rough Laplacian −(l(l + 2) − 2). By Gauss's second
+  summation theorem K = 2(−1)^((l − 1)/2)/(l(l + 2)) and K4 = 0 at odd l, K = 0 and K4 = −(−1)^(l/2)/(l + 1) at even l,
+  exactly from the terminating sums for every l ≤ 40 (`stripfull5.py 40`; a plain run checks l ≤ 12), the series transfer
+  agreeing for l ≤ 12 to 9.3 × 10⁻²⁷ (P5). So on the tensor type the strip enters at ρ³ only at odd l, with |K| ≤ 2/15
+  (at l = 3), and at even l first at ρ⁴, with |K4| ≤ 1/3 (at l = 2): both fall with l, so the bound is uniform without
+  Lemma 6.5‴, and there is no logarithm (M1(0) = 5/2). Every type is now computed. Not computed: whether the r⁻³ term,
+  which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

@@ -5442,6 +5442,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   inward where the bound already holds at the old points; σ = 3 unchanged at 10.989. Open: between the sampled σ (an
   interval needs only E2.7 at its left end and B at its right, deduced, not run), σ > 96, and the H¹ constants with these
   multipliers.
+- D504 (verifier 215 on D502; an independent route, the basis checked, the closed forms re-derived): no major finding.
+  The reduction re-proved analytically (genstates5's dric is the standard δRic, = −½□h − δ*δGh on flat space; δh = 0 and
+  E^ΥGh = 0 for tangent traceless divergence-free h; □ of f(t, r)T_IJ is ∝ T) and by computation on the six
+  SU(2)-invariant l = 2 TT tensors with F free at six points (δGh, E^ΥGh, w separately zero); all 76 basis harmonics TT
+  with rough Laplacian −(l(l + 2) − 2); P4 exact, every angular entry's expected value nonzero, its own extra controls
+  failing (a traceless Hess⁰Y, not divergence-free: 45 entries, w ≠ 0); Gauss's theorem re-derived, hyperexpand to l =
+  60, the normalisation P3's, F(1) = −K/2 against P1. MINOR: the D502 log entry says 'every such mode' (one random
+  combination at three points) and 'vanishes for every even mode' (the ρ³ coefficient does; ρ⁴ remains); 'P5 exact for l
+  ≤ 40' needs LMAX = 40; the full count had no source (the SO(4) representations (l, ±2); arXiv:1709.08020 (39)-(40));
+  P4's guard nz > 0 was weak (now every angular entry). The full run passes P1-P5 in 27 minutes. Corrected in BEYOND5
+  3(b) and stripfull5; the D502 entries keep their text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
