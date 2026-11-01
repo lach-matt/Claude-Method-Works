@@ -5476,6 +5476,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   for every multiplier (only the flank's g enters, ≈ −62/s_L at t = −120). With sections 3f-3g this covers every real 0
   < |σ| ≤ 96. Open: σ > 96 (more multipliers, the same route), the H¹ constants with these multipliers, and the factor
   9.5 to 36 to the computed norms.
+- D507 (LOSS-D LD11, deduced from the record's text): LD3 (ii)'s condition, whether a level-3 round costs a derivative,
+  settled. The rounds compose (each round's source is the previous one's remainder, I14:121-128, I12:287-298); a round
+  applies III.G⁗ Proposition 5.1, which III.J‴'s accounting composes with L̃_b(0)⁻¹, loss 1 (J3:143-147, 167-171); and
+  Theorem 4.1 sums the losses of a composition (J3:288-293). So the d of that accounting is at least the number of
+  level-3 rounds over the β-chain, about ½/(ε_K ε_ind) > 1.33 × 10¹⁵ (ε_K < ε_ind ≤ 1.94 × 10⁻⁸), and N = 21d + 6 > 2.8 ×
+  10¹⁶, against LD3 (iv)'s 2.06 × 10⁸ and 4.3 × 10⁹. A floor (a round may cost more); it bounds what this proof's
+  accounting delivers, not the optimal loss. The lever is the round's step, (1.1)'s ε_ind. Open: E1'a, E1'c as numbers
+  (an upper bound needs every weight chosen).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

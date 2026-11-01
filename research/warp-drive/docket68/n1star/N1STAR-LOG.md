@@ -7346,3 +7346,8 @@ frequency were certified once for each angular mode up to 190, and the rest is a
 every frequency from 3 to 96 is now certified, not just six of them: the resolvent is at most about 11.5 there, for every
 angular mode, close to the computed worst case of 11.35. Together with the earlier certified bounds below 3, every
 frequency up to 96 is covered.
+
+**D507 (2026-11-01): how many derivatives the proof spends.** An open condition in the count of derivatives the record's
+proof uses up was settled from the proof's own bookkeeping: a step repeated more than a million billion times costs at
+least one derivative each time, so the proof as written spends at least about 10¹⁵ derivatives, not 10⁸. This is what the
+written argument costs, not what the result needs; the number is set by one very small spectral gap.
