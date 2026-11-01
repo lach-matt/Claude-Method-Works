@@ -710,15 +710,24 @@ same form, with one condition.
 - *Control (D4).* A strong outgoing pulse just outside the horizon, B = 3 sin⁴ on u ∈ [3.5, 5]: on 0.7 ≤ R ≤ 0.75 the
   least μ − a² is −0.41 and 1 − μ/R² reaches 0.85, so part of R = a is untrapped and (b) fails there, while (a) and (c)
   still hold. The condition is a real one.
-- *D_T and (f) (D546; `checks/twodt5.py` T1-T2, exact).* On the two-dust solutions the Kretschmann scalar is R_abcd
-  R^abcd = 72μ²/R⁸ + (8/3)e^(−4s)AB/R⁶ (T1, sympy, with the evolution and both constraints), the record's 72μ²/r⁸ at B =
-  0; the dust term is never negative (one null dust has R_abR^ab = 0, two crossing ones do not). So, with D_T := {v̂ ≤
-  V, K ≤ l5⁻⁴}, K ≤ l5⁻⁴ gives R ≥ r_q(μ) = (√72 μ l5²)^(1/4), μ the Misner-Sharp mass. With r_q^♭(v̂) the least r_q(μ)
-  over D_T's points on the ingoing ray v̂, D_T ⊂ {R ≥ r_q^♭(v̂)}, and the record's proof of (f) runs with r_q^♭ for r_q,
-  q0 := min r_q^♭ and τ_end := max_(v̂≤V)(v̂ − r_q^♭(v̂)). (b) and (f) then follow from one condition, the record's seed
-  condition read for the Misner-Sharp mass: if μ ≥ μ_min ≥ √72 l5² on the region, q0⁴ = √72 μ_min l5² ≤ μ_min², so q0 ≤
-  √μ_min, and a := q0 − δ0 has a² < μ on R = a (T2; the control μ_min = √72 l5²/2 fails). The outgoing dust lowers μ
-  outside the hole, so this bounds the mass it may carry off before the region; D4's strong pulse breaks it.
+- *D_T and (f) (D546; `checks/twodt5.py` T1-T3, T1 exact and the rest deduced; corrected D549).* On the two-dust
+  solutions the Kretschmann scalar is R_abcd R^abcd = 72μ²/R⁸ + (8/3)e^(−4s)AB/R⁶ (T1, sympy, with the evolution and
+  both constraints), the record's 72μ²/r⁸ at B = 0; the dust term is ≥ 0 when AB ≥ 0, as for the record's dusts (A, B ≥
+  0; corrected D549): one null dust has R_abR^ab = 0, two crossing ones do not. The record's D_T is radial, {v ≤ V, r ≥
+  r_q(v)} (N1STAR-PROOF.md:172-173); its two-dust form D_T := {v̂ ≤ V, R ≥ r_q(μ)}, μ the Misner-Sharp mass at the
+  point, contains the curvature form {v̂ ≤ V, K ≤ l5⁻⁴}, since K ≤ l5⁻⁴ gives R ≥ r_q(μ) = (√72 μ l5²)^(1/4) when AB ≥
+  0; on Vaidya both are the record's (corrected D549: the l5⁻⁴ form is ours, not the record's). With r_q^♭(v̂) the least
+  r_q(μ) over D_T's points on the ingoing ray v̂, D_T ⊂ {R ≥ r_q^♭(v̂)}, and the record's proof of (f) runs with r_q^♭
+  for r_q, q0 := min r_q^♭ and τ_end := max_(v̂≤V)(v̂ − r_q^♭(v̂)). (f) needs no mass condition: it holds with any q0 at
+  most min r_q^♭. (b) follows from the record's seed condition read for the Misner-Sharp mass over the region, R = a
+  included: with μ_min a lower bound of μ there (the record's μ0, Vaidya's μ being non-decreasing; a bound on a larger
+  set fixed in advance avoids Ω depending on a) and q0 := r_q(μ_min) ≤ min r_q^♭, μ_min ≥ √72 l5² gives q0⁴ = √72 μ_min
+  l5² ≤ μ_min², so q0 ≤ √μ_min, and a := q0 − δ0 has a² < μ on R = a (T2; the control μ_min = √72 l5²/2 fails).
+  (Corrected D549, verifier 238: D546 took q0 := min r_q^♭, D_T's least value, and both (b) and (f) from μ_min ≥ √72
+  l5²; but R = a lies outside D_T, where the outgoing flux may lower μ below D_T's least mass, and then a² ≥ μ there:
+  T3, l5 = 1, μ = 10 on D_T and 8.6 on R = a, q0 = 3.0351 > √8.6 = 2.9326, while q0 := r_q(8.6) = 2.9227 holds.) The
+  outgoing dust lowers μ outside the hole, so this bounds the mass it may carry off before the region; D4's strong pulse
+  breaks it.
 
 What it does not give: the background on Ω beyond the computed rectangle, which does not
 reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the

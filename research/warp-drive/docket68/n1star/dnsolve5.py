@@ -388,7 +388,16 @@ def _setup_curvature():
     fgi = sp.lambdify(syms, [tosym(gi[i, j]) for i in range(5) for j in range(5)], 'numpy', cse=True)
 
 
-def kretschmann(Z, rows=None):
+def _vdiff(a, dv, order):
+    """d/dv along axis 0: numpy's second-order gradient, or (order 4) the five-point central difference inside and
+    numpy's second-order values at the two nodes nearest each end (verifier 236's comparison, D547)"""
+    g = np.gradient(a, dv, axis=0)
+    if order == 4 and a.shape[0] >= 5:
+        g[2:-2] = (a[:-4] - 8 * a[1:-3] + 8 * a[3:-1] - a[4:]) / (12 * dv)
+    return g
+
+
+def kretschmann(Z, rows=None, vorder=2):
     if 'fG' not in globals():
         _setup_curvature()
     uu, vv, xx = Z['u'], Z['v'], Z['x']
@@ -405,12 +414,12 @@ def kretschmann(Z, rows=None):
             e[k] = a
             e[k + '_x'] = a @ D1.T
             e[k + '_xx'] = a @ D1.T @ D1.T
-            e[k + '_v'] = np.gradient(a, dv, axis=0)
-            e[k + '_vv'] = np.gradient(e[k + '_v'], dv, axis=0)
+            e[k + '_v'] = _vdiff(a, dv, vorder)
+            e[k + '_vv'] = _vdiff(e[k + '_v'], dv, vorder)
             e[k + '_vx'] = e[k + '_v'] @ D1.T
             e[k + '_u'] = -h2 / (h1 * (h1 + h2)) * aq + (h2 - h1) / (h1 * h2) * a + h1 / (h2 * (h1 + h2)) * ap
             e[k + '_uu'] = 2 * (aq / (h1 * (h1 + h2)) - a / (h1 * h2) + ap / (h2 * (h1 + h2)))
-            e[k + '_uv'] = np.gradient(e[k + '_u'], dv, axis=0)
+            e[k + '_uv'] = _vdiff(e[k + '_u'], dv, vorder)
             e[k + '_ux'] = e[k + '_u'] @ D1.T
         return e
 

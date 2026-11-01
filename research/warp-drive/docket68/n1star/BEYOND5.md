@@ -602,18 +602,19 @@ What it does not give:
   no power of r (D464); neither r∂_u nor the scaling field is used there. [Corrected D540, verifier 233: the expansion
   is in the record for g_λ at each fixed λ. Proposition 11.1 (N1STAR-PROOF.md:10562-10592) gives u = g_λ − g0 =
   Σ_(k=3)^J r^(−k/2)G_k(v, x̂) + u_J with ℓ^m u_J ∈ E_((J+1)/2+m) for every m and J, by Lemma 11.2's induction
-  (10516-10560), the sources starting at q = 3, so no r^(−5/2) and no logarithm.] (iv) What it would cost (R4). A source
-  oscillating in u at fixed v, r⁴S = cos(2r/λ), which E_2 does not exclude, gives on t = 0 no ρ³ term (|r³φ| < 0.05 on
-  [300, 400] at λ = 10, against |K_(3,0)| = 0.785) and a ρ⁴ term ≈ √2 λρ⁴ sin(1/(λρ)) (amplitude 1.39λ at λ = 10, 1.395λ
-  with t = 0 exact; at λ = 30, 1.31λ on [200, 400] is not converged, 1.38λ on [400, 800] and 1.40λ on [800, 1200]; √2λ
-  is the leading term by parts in u; D535). As a function of ρ it is C¹ but not C²; the class test is stricter
-  (corrected D535, verifier 230): ρ⁻² times it, ρ²sin(1/(λρ)), is differentiable but not C¹, its derivative carrying
-  −λ⁻¹cos(1/(λρ)), and its t-derivative, −√2ρ⁴cos(1/(λρ)), is ρ³ times ρcos(1/(λρ)), not differentiable at 0: outside
-  Lemma 0.1's ρ²C^m and ρ³C^m from m = 1. (Checked on the flat slice t = 0; the bend of Σ_IVP, D510, is not checked for
-  this term.) Whether e has such a part along the strip is not decided; with incoming waves, it would come from
-  backscatter or from the remainder's own construction. What remains: for g_λ nothing at fixed λ, which is all the strip
-  needs (D521); for e = g_λ − g_app, the approximant's own expansion, and the products that form the sources (D536 as
-  corrected by D540).]
+  (10516-10560), the sources starting at q = 3, so no r^(−5/2) and no logarithm. (Corrected D548, verifier 237: no
+  source at q = 5/2, hence no logarithm; u's own r^(−5/2) term, G_5 = ∫S_(7/2) (10567), is generically nonzero.)] (iv)
+  What it would cost (R4). A source oscillating in u at fixed v, r⁴S = cos(2r/λ), which E_2 does not exclude, gives on t
+  = 0 no ρ³ term (|r³φ| < 0.05 on [300, 400] at λ = 10, against |K_(3,0)| = 0.785) and a ρ⁴ term ≈ √2 λρ⁴ sin(1/(λρ))
+  (amplitude 1.39λ at λ = 10, 1.395λ with t = 0 exact; at λ = 30, 1.31λ on [200, 400] is not converged, 1.38λ on [400,
+  800] and 1.40λ on [800, 1200]; √2λ is the leading term by parts in u; D535). As a function of ρ it is C¹ but not C²;
+  the class test is stricter (corrected D535, verifier 230): ρ⁻² times it, ρ²sin(1/(λρ)), is differentiable but not C¹,
+  its derivative carrying −λ⁻¹cos(1/(λρ)), and its t-derivative, −√2ρ⁴cos(1/(λρ)), is ρ³ times ρcos(1/(λρ)), not
+  differentiable at 0: outside Lemma 0.1's ρ²C^m and ρ³C^m from m = 1. (Checked on the flat slice t = 0; the bend of
+  Σ_IVP, D510, is not checked for this term.) Whether e has such a part along the strip is not decided; with incoming
+  waves, it would come from backscatter or from the remainder's own construction. What remains: for g_λ nothing at fixed
+  λ, which is all the strip needs (D521); for e = g_λ − g_app, the approximant's own expansion, and the products that
+  form the sources (D536 as corrected by D540).]
   [D536, read and deduced: what the record has toward that expansion. The strip is section 9's far region P: v ∈
   [v_start, V_P] and r = t + O(1) (Lemma 9.1(d)), and at fixed (v, x̂) the radial derivative is ℓ = −L0 (ℓv = 0, ℓr = 1;
   N1STAR-PROOF.md:1190-1191). So ρ³C^m for the strip's term needs (r²ℓ)^j of r⁴ times the sources bounded for j ≤ m
@@ -646,14 +647,37 @@ What it does not give:
   (1268-1270), estimated by energy (9.7) into m̃ ∈ E_(5/2), φ̃ ∈ E_(3/2) with ℓφ̃ ∈ E_(5/2), gh̃ ∈ O_(5/2) (1296-1298).
   Proposition 11.1's induction would carry over stage by stage: Lemma 11.2 (10516-10560) for (a), its operator −½□̃ with
   g0 in place of g_λ and B̄·dm̃ + C̄m̃ put in its source S̃ (the coefficients being in E_2, 1253-1256, so these terms
-  are in E_(q+1)); Lemma 9.7(d) for (b) and (c), each order's source expanded from the previous orders'. The sources
-  start at q = 3 (S_m = r⁻³S_(m,3) + E_(7/2), and r⁻³K_(m,3) for (c), 1263-1265), so neither lemma meets its q = 5/2
-  resonance, and each expansion is in r^(−1/2) with ℓ-gaining remainders. With the stages so expanded, the residual R_N
-  (a polynomial in the profiles, 1300-1304) and the products that form the strip's sources (quadratic in e = g_λ −
-  g_app) inherit expansions, and the strip's term is polyhomogeneous in ρ^(1/2) (D530, D540), in D517's class. Not
-  written: the induction itself on the coupled system, where (H_m) asks the couplings ⟨W_φ(dφ_m)⟩, ⟨Th gh_(m+1)⟩ and the
-  coefficients B̄, C̄ for their ℓ-gains, which their explicit leading terms have and their remainders acquire stage by
-  stage; the induction over the stages m ≤ N; and λ-uniformity, which the strip does not need (D521).]
+  are in E_(q+1)); Lemma 9.7(d) for (b) and (c), each order's source expanded from the previous orders' (corrected D548:
+  for (c) only; (b) is the c0 = 0 transport). The sources start at q = 3 (S_m = r⁻³S_(m,3) + E_(7/2), and r⁻³K_(m,3) for
+  (c), 1263-1265), so neither lemma meets its q = 5/2 resonance, and each expansion is in r^(−1/2) with ℓ-gaining
+  remainders (corrected D548: for (c), only once its coefficient c is expanded). With the stages so expanded, the
+  residual R_N (a polynomial in the profiles, 1300-1304) and the products that form the strip's sources (quadratic in e
+  = g_λ − g_app) inherit expansions, and the strip's term is polyhomogeneous in ρ^(1/2) (D530, D540), in D517's class.
+  Not written: the induction itself on the coupled system, where (H_m) asks the couplings ⟨W_φ(dφ_m)⟩, ⟨Th gh_(m+1)⟩ and
+  the coefficients B̄, C̄ for their ℓ-gains, which their explicit leading terms have and their remainders acquire stage
+  by stage; the induction over the stages m ≤ N; and λ-uniformity, which the strip does not need (D521).]
+  [D548, verifier 237 on D545 (2 major, 4 minor, 2 nits); read and deduced. (1) The φ-transport (b), L0φ_m = −½m_m(ℓ, ℓ)
+  − ½q_m, has c0 = 0 (N1STAR-PROOF.md:1185), not Lemma 9.7(d)'s c0 = 3/2: on ℓφ = ½r⁻²M(ℓ, ℓ) Lemma 9.7(d)'s formula
+  gives +r⁻¹M(ℓ, ℓ), the record's φ^0 is −½r⁻¹M(ℓ, ℓ) (1266). (b) expands by itself: its solution vanishing at past null
+  infinity is φ = −∫_r^∞ S dr′, and a term r^(−k/2)S_k integrates to −r^(1−k/2)S_k/(k/2 − 1), resonant only at k = 2 (q
+  = 1). Its sources start at q = 2 (m_m ∈ L_2, q_m ∈ L_3), and the r^(−5/2) term the gh-coupling gives m_m ((a)'s
+  E_(3/2) coefficient of gh, 1255) is a q = 5/2 source here, so no logarithm. (2) Lemma 9.7(d) gives one leading term
+  and a remainder in O_(q−1) (1209-1210, 1220-1221), not an expansion. Iterating it needs the transport's coefficient c
+  (Lemma 5.2's operator, coefficients in E_(3/2)) expanded in r^(−1/2), which nothing in the record supplies; with c
+  expanded the iteration steps q by ½ from q = 3 and never meets q = 5/2. So the expansion of gh, and with it of the
+  residual and of the strip's sources, is conditional on c's, not "would carry over". (3) Ψ_m := □̃φ_m obeys a c0 = 2
+  transport (525-526), resonant at q = 3, and φ^0 puts an r⁻³ term into its source. But Ψ_m = □̃φ_m holds (530), so
+  Ψ_m's expansion is (9.5) applied to φ_m's term by term, □̃(r^(−p)F) = (3 − 2p)r^(−p−1)∂_vF + r^(−p−2)(p(p − 2)F + Δ̊F)
+  − μp(p + 1)r^(−p−4)F, powers only; the transport is then satisfied, not solved, and its r⁻³ source coefficient is 0
+  (r^(−2) is its homogeneous solution). No logarithm enters (c) through Ψ_m (deduced). (4) Not taken: verifier 237 read
+  (11.5)'s −½g^(ab)∂_a∂_b as the principal part alone. In section 11's Cartesian coordinates it is (9.5)'s □̃ exactly at
+  g_λ = g0 (g0⁻¹ = η⁻¹ − (μ/r²)ℓ ⊗ ℓ, ℓ straight, so ℓ^aℓ^b∂_a∂_b = ℓℓ), as 10529-10530 use it. (5) D517's class needs
+  r⁴ times the strip's sources to start at r⁰ or later on the half-integer lattice (D530: r^(−(4+q)) gives ρ^(3+q)),
+  D508's hypothesis, now stated. (6) Line 605's "no r^(−5/2)" was wrong; corrected there. Nits: B̄ and C̄ are defined
+  only by (a) (516), their E_2 class read from the count (1237-1256); m̃ ∈ E_(5/2) holds for every J (1272-1275).
+  Verified as D545 stated: the leading terms, the steps m = 0 and 1 of Lemma 11.2 for (a) on the stated classes, the
+  sources starting at q = 3. Open: c's expansion; (H_m) at m ≥ 2 (the ℓ-gains of m̃, φ̃, gh̃); the induction over the
+  stages.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

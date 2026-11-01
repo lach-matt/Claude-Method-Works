@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
-"""twodt5: the curvature region D_T for two null dusts, and Lemma 1.1 (b), (f) from one mass condition (FAMILIES5 4i,
-D546).
+"""twodt5: the curvature region D_T for two null dusts, and Lemma 1.1 (b), (f) (FAMILIES5 4i, D546; corrected D549).
 
-The record's D_T is {v <= V, r >= r_q(v)}, r_q(mu) := (sqrt72 mu l5^2)^(1/4), the radius at which the Kretschmann
-scalar 72 mu^2/r^8 of 5D Vaidya reaches l5^-4 (N1STAR-PROOF.md:145-152). For two dusts (FAMILIES5 4c, 4i; g0 = -2 e^(2s)
-du dv + R^2 dOmega_3^2, K_in R^3 = A(v), K_out R^3 = B(u)) the Kretschmann scalar is no longer the mass's alone.
+The record's D_T is radial, {v <= V, r >= r_q(v)} (N1STAR-PROOF.md:172-173), r_q(mu) := (sqrt72 mu l5^2)^(1/4)
+(N1STAR-PROOF.md:145-148), with q0 := r_q(mu0) <= sqrt(mu0) by the seed condition mu0 >= sqrt72 l5^2. Read through the
+Kretschmann scalar 72 mu^2/r^8 of 5D Vaidya (CERTIFY-10L5's K_0 normalisation), r_q is where it reaches l5^-4; that
+reading is ours, not the record's. For two dusts (FAMILIES5 4c, 4i; g0 = -2 e^(2s) du dv + R^2 dOmega_3^2, K_in R^3 =
+A(v), K_out R^3 = B(u)) the Kretschmann scalar is no longer the mass's alone.
 
   T1 (exact, sympy) on the solutions of twodust5's B1 (the evolution) with the constraints C_u, C_v:
          R_abcd R^abcd = 72 mu^2/R^8 + (8/3) e^(-4s) A B/R^6,
-     mu the Misner-Sharp mass of B3; at B = 0 it is the record's 72 mu^2/r^8. The dust term is >= 0: one null dust has
-     R_ab R^ab = 0, two crossing ones 2 (g^uv)^2 Ric_uu Ric_vv.
-  T2 (exact) so K <= l5^-4 implies R >= r_q(mu): with D_T := {vhat <= V, K <= l5^-4} and r_q^flat(vhat) the least
-     r_q(mu) over the points of D_T on the ingoing ray vhat, D_T lies in {R >= r_q^flat(vhat)}, and the record's proof
-     of (f) runs with r_q^flat for r_q and q0 := min r_q^flat. If mu >= mu_min >= sqrt72 l5^2 there (the record's seed
-     condition, for the Misner-Sharp mass), then q0^4 = sqrt72 mu_min l5^2 <= mu_min^2, so q0 <= sqrt(mu_min), and a :=
-     q0 - delta0 gives a^2 < mu on R = a: Lemma 1.1' (b) as well. Checked symbolically: q0^2 <= mu_min under the
-     condition, and a control at mu_min below sqrt72 l5^2 where q0^2 > mu_min.
+     mu the Misner-Sharp mass of B3; at B = 0 it is the record's 72 mu^2/r^8. The dust term is >= 0 when A B >= 0, as
+     for the record's dusts (A, B >= 0, positive null energy): one null dust has R_ab R^ab = 0, two crossing ones
+     2 (g^uv)^2 Ric_uu Ric_vv.
+  T2 (exact, sympy) (i) 72 mu^2/R^8 <= l5^-4 iff R >= r_q(mu) (R^8 - r_q^8 = R^8 - 72 mu^2 l5^4), so with A B >= 0,
+     {K <= l5^-4} lies in {R >= r_q(mu)}, the two-dust form of the record's D_T, mu at the point; (ii) q0^4 - mu^2 =
+     mu (sqrt72 l5^2 - mu) for q0 := r_q(mu), so q0 <= sqrt(mu) exactly when mu >= sqrt72 l5^2 (control: at mu = sqrt72
+     l5^2/2, q0 > sqrt(mu)). (f) needs no mass condition: a point of D_T has R >= r_q(mu) >= q0 for any q0 at most the
+     least r_q over D_T. (b) needs q0 := r_q(mu_min) with mu_min a lower bound of mu on the region, R = a included
+     (the record's mu0, Vaidya's mu being non-decreasing): then mu_min >= sqrt72 l5^2 gives a^2 < q0^2 <= mu_min <= mu
+     on R = a, a := q0 - delta0.
+  T3 (exact, control; verifier 238, D549) q0 taken as D_T's least r_q fails (b) when the outgoing flux lowers mu on R =
+     a below D_T's least mass: l5 = 1, mu = 10 on D_T, 8.6 on R = a (both >= sqrt72 = 8.485): q0 = r_q(10) = 3.0351 >
+     sqrt(8.6) = 2.9326, and a^2 > 8.6 at delta0 = 0.01 and 0.1; with q0 := r_q(8.6) = 2.9227 it holds.
 
 Run: python3 checks/twodt5.py   (about 10 seconds)
 """
@@ -83,14 +89,20 @@ def kretschmann():
 
 
 def mass_condition():
-    mu, l5 = sp.symbols('mu_min l5', positive=True)
-    q0 = (sp.sqrt(72) * mu * l5**2)**sp.Rational(1, 4)
-    # q0^2 <= mu  <=>  sqrt72 mu l5^2 <= mu^2  <=>  mu >= sqrt72 l5^2
-    cond = sp.simplify(q0**4 - mu**2)          # <= 0 iff mu >= sqrt72 l5^2
-    ok = sp.simplify(cond.subs(mu, sp.sqrt(72) * l5**2 * 2)) < 0 and sp.simplify(
-        cond.subs(mu, sp.sqrt(72) * l5**2)) == 0
-    ctl = sp.simplify(cond.subs(mu, sp.sqrt(72) * l5**2 / 2)) > 0
-    return ok, ctl
+    mu, l5, R = sp.symbols('mu l5 R', positive=True)
+    rq = (sp.sqrt(72) * mu * l5**2)**sp.Rational(1, 4)
+    region = sp.expand(rq**8 - 72 * mu**2 * l5**4) == 0             # R >= r_q  <=>  R^8 >= 72 mu^2 l5^4
+    fac = sp.expand(rq**4 - mu**2 - mu * (sp.sqrt(72) * l5**2 - mu)) == 0
+    ctl = sp.simplify((rq**2 - sp.sqrt(mu)**2).subs(mu, sp.sqrt(72) * l5**2 / 2)) > 0
+    return region and fac, ctl
+
+
+def control_t3():
+    rq = lambda m: (sp.sqrt(72) * m)**sp.Rational(1, 4)               # l5 = 1
+    mD, ma = sp.Integer(10), sp.Rational(86, 10)
+    bad = rq(mD) > sp.sqrt(ma) and all((rq(mD) - d)**2 > ma for d in (sp.Rational(1, 100), sp.Rational(1, 10)))
+    good = rq(ma) < sp.sqrt(ma) and all((rq(ma) - d)**2 < ma for d in (sp.Rational(1, 100), sp.Rational(1, 10)))
+    return bad and good and min(mD, ma) >= sp.sqrt(72), [sp.N(x, 5) for x in (rq(mD), sp.sqrt(ma), rq(ma))]
 
 
 def main():
@@ -101,8 +113,12 @@ def main():
           % (t1, vaidya), flush=True)
     t2, ctl = mass_condition()
     ok['T2'] = t2 and ctl
-    print('  T2: q0^2 <= mu_min exactly when mu_min >= sqrt72 l5^2 (equality at the bound): %s; control mu_min = '
-          'sqrt72 l5^2/2 gives q0^2 > mu_min: %s' % (t2, ctl))
+    print('  T2: R >= r_q(mu) iff 72 mu^2/R^8 <= l5^-4, and q0^4 - mu^2 = mu (sqrt72 l5^2 - mu): %s; control mu = '
+          'sqrt72 l5^2/2 gives q0 > sqrt(mu): %s' % (t2, ctl))
+    t3, nums = control_t3()
+    ok['T3'] = t3
+    print('  T3: q0 from D_T\'s least mass (10) is %s > sqrt(8.6) = %s on R = a, so (b) fails; q0 = r_q(8.6) = %s '
+          'holds: %s' % (nums[0], nums[1], nums[2], t3))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

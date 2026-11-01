@@ -7580,3 +7580,16 @@ inside must stay above the record's minimum, which limits how much mass the outg
 the blow-up is gone on the finer grid, but corrected where the remaining disagreement lies (off the axis, not at it) and
 showed that the late-time figures depend on how the curvature's time derivatives are differenced; with a more accurate
 stencil they are smaller still.
+
+**D548 (2026-11-01): the approximant's expansion, checked.** An independent check found that one of the three equations
+had been matched to the wrong lemma: the phase correction's transport is a plain integration along the incoming rays,
+not the damped transport the lemma covers, and it expands on its own with no logarithm. More seriously, the lemma used
+for the third equation gives only a first term and a remainder, so the approximant's full expansion, and with it the
+claim about the far strip, is conditional on expanding that equation's coefficient, which the record does not do.
+
+**D549 (2026-11-01): the two-dust curvature region, checked.** An independent check reproduced the curvature formula by
+a different computation, but found that the inner boundary's condition had been taken from the wrong place: the mass
+must be bounded below on the whole region, the inner boundary included, where the outgoing dust can have carried mass
+away, not only on the high-curvature region. With that bound, as in the record, the condition holds; and the second
+property needs no mass condition at all. The region is no longer a simple radius, so "keeps the record's shape" was too
+strong.

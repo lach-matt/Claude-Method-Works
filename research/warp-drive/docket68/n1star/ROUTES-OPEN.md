@@ -5873,6 +5873,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   3` is not recorded in the artefacts; halving du and dv together cannot say which step matters, and the 1600 solutions
   are unconverged beyond 3.5. NITs: a docstring label; K_0 from one run's R (≲ 0.5 %). Corrected in CERTIFY-10L5 6b and
   g1curv5; the D543 entry above keeps its text.
+- D548 (verifier 237 on D545; Lemmas 9.6-9.7, 11.2, Theorem A_P and Proposition 11.1 read): D545 not supported as
+  written. MAJOR: (b) is the c0 = 0 transport (N1STAR-PROOF.md:1185), not Lemma 9.7(d)'s c0 = 3/2 (its formula gives
+  +r⁻¹M(ℓ, ℓ), the record's φ^0 is −½r⁻¹M(ℓ, ℓ)); (b) expands by direct integration from past null infinity, resonant
+  only at q = 1, its sources from q = 2. MAJOR: Lemma 9.7(d) gives one leading term and a remainder, not an expansion;
+  iterating it needs (c)'s coefficient c (Lemma 5.2's, in E_(3/2)) expanded, which the record does not supply, so the
+  conclusion is conditional on it. MINOR: Ψ_m's c0 = 2 transport resonates at q = 3, but Ψ_m = □̃φ_m expands term by
+  term from φ_m (deduced); line 605's "no r^(−5/2)" should read no source at q = 5/2 (G_5 = ∫S_(7/2) is generically
+  nonzero); D517's class needs r⁴S from r⁰ on the half-integer lattice (D508's hypothesis, now stated); the
+  gh-coupling's r^(−5/2) in m_m is a q = 5/2 source for (b), harmless. Not taken: (11.5)'s operator is □̃ in Cartesian
+  coordinates (ℓ straight), as 10529-10530 use it. Nits: B̄, C̄ defined by (a) only; "for every J". Corrected in BEYOND5
+  3(b); the D545 entry above keeps its text.
+- D549 (verifier 238 on D546; T1 reproduced by a brute-force Riemann tensor in a stereographic chart on random on-shell
+  jets, 2.2 × 10⁻¹⁵): T1, the containment D_T ⊂ {R ≥ r_q^♭} and (f)'s inequalities hold. MAJOR: (b) did not close: q0 :=
+  min r_q^♭ is D_T's least value, and R = a lies outside D_T, where the outgoing flux may lower μ below D_T's least mass
+  (abstract instance, now `checks/twodt5.py` T3: μ = 10 on D_T, 8.6 on R = a, l5 = 1, q0 = 3.0351 > √8.6). Repaired: q0
+  := r_q(μ_min), μ_min a lower bound of μ over the region with R = a, as the record's q0 = r_q(μ0). MAJOR: (f) needs no
+  mass condition; "(b) and (f) from one condition" withdrawn. MINOR: the record's D_T is radial, {v ≤ V, r ≥ r_q(v)}
+  (N1STAR-PROOF.md:172-173), the l5⁻⁴ form ours; the dust term is ≥ 0 only for AB ≥ 0 (the record's dusts); T2 checked
+  three values (now symbolic: q0⁴ − μ² = μ(√72 l5² − μ), and R ≥ r_q ⟺ 72μ²/R⁸ ≤ l5⁻⁴); "exact" and "keeps the record's
+  shape" overstated. Corrected in FAMILIES5 4i and twodt5; the D546 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
