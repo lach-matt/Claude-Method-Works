@@ -5384,6 +5384,23 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   reliability is one radius with condition below 10¹², no second radius, an unreliable point dropping both steps beside
   it (none occurred). The ζ near-symmetry is that A is nearly even in t (odd part −2.2 × 10⁻⁷t to |t| = 10³), not a small
   first-order dependence. Corrected in LOSS-D LD9 and s1coef5's zeros_dense; the D483 entry above keeps its text.
+- D499 (verifier 211 on D489; the runs re-identified, the fine runs re-marched, other interpolants): every number
+  reproduces, and the conclusion stands, but two findings change what the numbers mean. MAJOR 1: D475's caches match
+  plain amplitude runs without `ld 3`, not D445's `ld 3` runs as g1curv5 and CERTIFY 6b said; on [1.5, 1.75) the two
+  agree to three digits (so D489's 3.86 against D475's 3.9 is like for like there), but past v = 1.75 they do not: at A =
+  1 the `ld 3` runs lose convergence at v = 1.925-1.94 at every angle (the plain ones at 1.875-1.925, first off the
+  axis), with off-axis dev 2.9-3.2 on [1.75, 2) against 142-226. So D489 refined D432's `ld 3` runs, not D475's, and its
+  closing sentence holds for those. MAJOR 2: on [1.5, 1.75) the M-difference 2 × 10⁻⁴ to 1.3 × 10⁻³ is the error of
+  g1curv5's linear interpolation between nodes that differ with M; with the Chebyshev interpolant it is 1.3 × 10⁻⁷ to
+  10⁻⁶ (quadratic: 3 × 10⁻⁵ to 4.8 × 10⁻⁴), so there the null difference exceeds the angular one by 10³-10⁴, not 2-20, as
+  D432 found for P; D475's 'under 1.3 × 10⁻³' is on the same floor; on [1.75, 2) the interpolant does not matter. MINOR:
+  on [1.75, 2) near the axis the null difference rises first (x = −0.97: 4.4 × 10⁻³ to 4.7 × 10⁻² by v = 1.9) and M
+  dominates only from v ≈ 1.9; 'the same at both null grids' holds at the band maxima, within 15 %, not at x = −0.97 on v
+  = 1.825-1.875 (30-40 % lower on the fine grid); at the node x = −0.999 the null difference is 1.0 × 10⁻², and on seven
+  other rows 0.99 at x = 0; the null difference from v = 2 reaches 1.8 × 10⁵ at x = 0, not 1.6 × 10⁵ at x = 0.5; two
+  grids show agreement, not an order. Confirmed: D432's coarse runs by md5, the fine runs' flags by re-marching (bit for
+  bit with ld 3; ld 0 differs by 1.6 × 10⁻⁷), the nested grids, the exact row cut. Corrected in CERTIFY 6b and g1curv5's
+  docstring; the D489 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

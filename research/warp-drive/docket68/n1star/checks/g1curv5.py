@@ -5,8 +5,8 @@ D445-D446 found G1's angular non-convergence near the x = -1 axis from v ~ 2 at 
 1/2 and 3/4 of the record's amplitude, and D458-D462 could not tell a singularity, a steep smooth feature and an axis
 defect apart from the metric functions. The Kretschmann scalar K = Riem^2 is an invariant, so it does not see the
 gauge, and dnsolve5.kretschmann assembles it from exact Christoffels, so the axis terms are not differentiated
-numerically. Here it is computed on the saved runs of D445 (dnsolve5.py --run 1 0.9 M 800 360 out 0 ld 3 amp A, A = 1/4,
-1/2, 3/4, 7/8, 1, M = 32 and 40), on 24 u-rows crossing the failure region (kept cells with areal radius in [0.95, 1.5]
+numerically. Here it is computed on saved amplitude runs (dnsolve5.py --run 1 0.9 M 800 360 out 0 amp A, A = 1/4,
+1/2, 3/4, 7/8, 1, M = 32 and 40; without D445's ld 3, as the cached rows show, verifier 211, D499), on 24 u-rows crossing the failure region (kept cells with areal radius in [0.95, 1.5]
 and v in [1.5, 3]), and reported per v-band, over the kept cells of those rows with areal radius in [1.0, 1.4]:
 
     - dev_M = max |K/K_0 - 1| at x = -0.97, K_0 = 72/R^8 Tangherlini's at the same areal radius, K interpolated linearly
@@ -20,7 +20,7 @@ If K converges near the axis where P does not, the non-convergence sits in the g
 K's difference grows with dev, the angular structure of the geometry itself outruns the resolution; if dev grows faster
 than any fixed power of A as A -> 1, the solution may be heading for a singularity there.
 
-Measured (D475, corrected D485; 24 of the 438 rows with R in [1, 1.4], mask True marking excluded cells; (u, v) at 800 x
+Measured (D475, corrected D485 and D499; 24 of the 438 rows with R in [1, 1.4], mask True marking excluded cells; (u, v) at 800 x
 360 throughout, so 'converges' means in M, in angle): wherever K converges in M its departure from the background stays
 of order 1, growing like A^p with p from 0.58 to 2.22 over the converged bands (dev at x = -0.97 from 0.51 at A = 1/4 to
 3.9 at A = 1 on [1.5, 1.75), diff below 1.3e-3): on v < 1.75 at every A, and on v < 2.25 at A <= 1/2, with no resolved
@@ -33,10 +33,18 @@ are the collocation's, global in x, so this does not localise the cause at the a
 tell a singularity from a defect of the scheme, but it shows the failure is not only in the gauge functions, and that the
 curvature is moderate wherever it is resolved in angle.
 
-Measured with --null (D489; D432's runs at A = 1): on [1.5, 1.75) the 800 x 360 and 1600 x 720 values of K differ by
-2.5e-3 to 5.2e-3 of K_0 at x = -0.97 to 0.5 (M = 32 against 40: 2e-4 to 1.3e-3), with dev 0.42 to 3.9; on [1.75, 2) the
-angular difference, 1 to 2.3, dominates the null one, 0.045 to 0.74, and is the same at both null grids; from v = 2 both
-are as large as dev.
+Corrected D499 (verifier 211): the runs above are plain, without ld 3. They agree with D445's ld 3 runs to three digits
+on [1.5, 1.75), not later: at A = 1 the ld 3 runs lose convergence at v = 1.925 to 1.94 at every angle, and off the axis
+on [1.75, 2) their dev is 2.9 to 3.2 against 142 to 226 here. The M-difference below 1.3e-3 on [1.5, 1.75) is the floor
+of the linear interpolation (M = 32 and 40 have different nodes); with the Chebyshev interpolant it is 1e-6 or less.
+
+Measured with --null (D489, corrected D499; D432's runs at A = 1, with ld 3): on [1.5, 1.75) the 800 x 360 and 1600 x
+720 values of K differ by 2.5e-3 to 5.2e-3 of K_0 at x = -0.97 to 0.5 (1.0e-2 at the node x = -0.999), with dev 0.42 to
+3.9, against an M-difference of 1.3e-7 to 1.0e-6 with the Chebyshev interpolant (the 2e-4 to 1.3e-3 this printed is the
+linear interpolation's): there the null step sets the error. On [1.75, 2) the angular difference, 1.4 to 3, dominates
+the null one, 0.045 to 0.74, at the band maxima (v >= 1.95), the same at both null grids there to 15 %; near the axis
+the null difference rises first (x = -0.97: 4.4e-3 at v = 1.75 to 4.7e-2 at 1.90) and the angular one overtakes from v
+~ 1.9. From v = 2 both are as large as dev (the null difference up to 1.8e5, at x = 0 on [2.25, 2.5)).
 
 Labels: computed (floating point, on saved runs).
 

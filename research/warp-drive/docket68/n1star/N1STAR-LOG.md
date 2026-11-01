@@ -7303,3 +7303,9 @@ every angular mode the size of the resolvent there is at most about 11, where th
 of the coefficient at the same place to all printed digits, and a scan five to ten times finer found no others. It
 corrected how close to breaking the computation is near them, which had been overstated a hundred-thousand-fold, and
 listed the kinds of pairs a sign scan of this sort cannot see.
+
+**D499 (2026-11-01): the curvature check, checked.** Every number reproduced, but the curvature had first been computed
+on runs made without the extra-precision step at the axis, not on the runs the record named; the two agree where the
+curvature settles, not after. And the small angular differences quoted where it settles came from the way values were
+interpolated between grid points: done properly they are a thousand times smaller, so there the time step, not the
+angular grid, sets the error. The moderate curvature before the failure stands.

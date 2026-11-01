@@ -582,34 +582,49 @@ No other component is nonzero. So the scheme is the following.
     between 1/2 and 3/4 of the record's, with the angular structure outrunning M = 40 (D445-D446), where a grid
     concentrated at the axis does not separate the readings, its one failing run being its most rounding-affected (D458,
     D462); and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
-  - The curvature invariant (D475, corrected D485; `checks/g1curv5.py`, on the saved amplitude runs of D445, 24 of the
-    438 u-rows with R ∈ [1, 1.4]): the Kretschmann scalar K, assembled from exact Christoffels, against Tangherlini's K_0
-    = 72/R⁸ at the same areal radius (the volume radius of the 3-sphere), at M = 32 and 40 with (u, v) held at 800 × 360,
-    so 'converges' means in M, in angle. dev = max |K/K_0 − 1| also carries the rise in mass the ingoing wave brings, not
-    only the wave's own curvature. Wherever K converges in M its departure from the background is of order 1, growing
-    like A^p with p from 0.58 to 2.22 over the converged bands (near the axis, x = −0.97, dev from 0.51 at A = 1/4 to 3.9
-    at A = 1 on v ∈ [1.5, 1.75), the M-difference under 1.3 × 10⁻³ of K_0): on v < 1.75 at every amplitude and on v <
-    2.25 at A ≤ 1/2, with no resolved growth before the failure (column by column, dev at x = −0.97 peaks at 3.3 at A =
-    7/8 and 4.3 at A = 1 near v = 1.84, and falls before the M-difference rises). Convergence is lost at A = 3/4 inside
-    [2, 2.25) (at x = −0.97 K still converges to v = 2.1), at A = 7/8 off the axis already on [1.75, 2), and at A = 1
-    first off the axis, near v = 1.875 to 1.9 at x = 0 and 0.5 and 1.95 to 1.975 at x = −0.97. Beyond, K is unresolved at
-    every angle computed, x = −0.97 to 0.5: values from about 3 K_0 to 10⁷ K_0, with M = 32 and 40 differing by as much,
-    so they are not a resolved growth of the curvature. K's angular derivatives are the collocation's, global in x, so
-    this neither localises the cause at the axis nor excludes it (at A = 7/8 and 1 the loss begins off the axis): the
+  - The curvature invariant (D475, corrected D485 and D499; `checks/g1curv5.py`, 24 of the 438 u-rows with R ∈ [1, 1.4];
+    on amplitude runs at 800 × 360 without `ld 3`, not on D445's runs as stated: the cached rows match those runs, not
+    the `ld 3` ones, verifier 211, D499): the Kretschmann scalar K, assembled from exact Christoffels, against
+    Tangherlini's K_0 = 72/R⁸ at the same areal radius (the volume radius of the 3-sphere), at M = 32 and 40 with (u, v)
+    held at 800 × 360, so 'converges' means in M, in angle. dev = max |K/K_0 − 1| also carries the rise in mass the
+    ingoing wave brings, not only the wave's own curvature. Wherever K converges in M its departure from the background
+    is of order 1, growing like A^p with p from 0.58 to 2.22 over the converged bands (near the axis, x = −0.97, dev from
+    0.51 at A = 1/4 to 3.9 at A = 1 on v ∈ [1.5, 1.75), the M-difference under 1.3 × 10⁻³ of K_0, which is the floor of
+    the linear interpolation between nodes that differ with M, and 10⁻⁶ or less with the Chebyshev interpolant at A = 1,
+    D499): on v < 1.75 at every amplitude and on v < 2.25 at A ≤ 1/2, with no resolved growth before the failure (column
+    by column, dev at x = −0.97 peaks at 3.3 at A = 7/8 and 4.3 at A = 1 near v = 1.84, and falls before the M-difference
+    rises). Convergence is lost at A = 3/4 inside [2, 2.25) (at x = −0.97 K still converges to v = 2.1), at A = 7/8 off
+    the axis already on [1.75, 2), and at A = 1 first off the axis, near v = 1.875 to 1.9 at x = 0 and 0.5 and 1.95 to
+    1.975 at x = −0.97. These runs and D445's `ld 3` runs agree to three digits on [1.5, 1.75), but not later (D499): at
+    A = 1 the `ld 3` runs lose convergence at v = 1.925 to 1.94 at every angle, and off the axis on [1.75, 2) their dev
+    is 2.9 to 3.2, against 142 to 226 here (2 to 7 × 10⁶ from v = 2, against up to 1.4 × 10⁵), so 'first off the axis' at
+    A = 1 is these runs' and the values past v = 1.75 are not the `ld 3` solution's. Beyond, K is unresolved at every
+    angle computed, x = −0.97 to 0.5: values from about 3 K_0 to 10⁷ K_0, with M = 32 and 40 differing by as much, so
+    they are not a resolved growth of the curvature. K's angular derivatives are the collocation's, global in x, so this
+    neither localises the cause at the axis nor excludes it (at A = 7/8 and 1 the loss begins off the axis): the
     invariant does not tell a singularity from a defect of the scheme, but it shows the failure reaches the geometry, not
     only the gauge functions, and that the curvature is moderate wherever it is resolved in angle; the (u, v) resolution
     was not varied. (A first run read the saved mask, which marks excluded cells, the wrong way round and returned only
     NaN; corrected, b6fb8e7.)
-  - The curvature invariant in the null grid (D489; `checks/g1curv5.py --null`, on D432's runs at A = 1, M = 32 and 40 at
-    800 × 360 and 1600 × 720, 24 u-rows of the coarse grid and the same rows of the fine one, compared at the coarse
-    nodes). On v ∈ [1.5, 1.75), where K departs from the background by 0.42 to 3.9 (the departure at x = −0.97, 3.86, is
-    D475's 3.9 at A = 1), K converges in the null grid as well as in angle: the 800 × 360 and 1600 × 720 values differ by
-    2.5 to 5.2 × 10⁻³ of K_0 at x = −0.97 to 0.5, against 2 × 10⁻⁴ to 1.3 × 10⁻³ between M = 32 and 40, so 'resolved'
-    there holds in (u, v) too. On [1.75, 2) the angular difference (1 to 2.3 of K_0) dominates the null one (0.045 to
-    0.74), and the angular difference is the same at both null grids: the loss there is set by M, not by the null step.
-    From v = 2 both are as large as the departure (up to 1.6 × 10⁵ K_0 at x = 0.5): unresolved in both. So D475's finding
-    that the curvature is moderate wherever it is resolved, with no resolved growth before the failure, holds under
-    refinement of the null grid at the record's amplitude.
+  - The curvature invariant in the null grid (D489, corrected D499; `checks/g1curv5.py --null`, on D432's runs at A = 1,
+    M = 32 and 40 at 800 × 360 and 1600 × 720, all with `ld 3`, 24 u-rows of the coarse grid and the same rows of the
+    fine one, compared at the coarse nodes). On v ∈ [1.5, 1.75), where K departs from the background by 0.42 to 3.9 (the
+    departure at x = −0.97, 3.86, is D475's 3.9 at A = 1: D475's runs lack `ld 3`, but on this band the two agree to
+    three digits), K converges in the null grid as well as in angle: the 800 × 360 and 1600 × 720 values differ by 2.5 to
+    5.2 × 10⁻³ of K_0 at x = −0.97 to 0.5 (1.0 × 10⁻² at the node next to the axis, x = −0.999), and M = 32 and 40 by 1.3
+    × 10⁻⁷ to 1.0 × 10⁻⁶ with the Chebyshev interpolant; D489's 2 × 10⁻⁴ to 1.3 × 10⁻³ was the error of interpolating
+    linearly between nodes that differ with M (verifier 211, D499). So there the null step sets the error, by 10³ to 10⁴,
+    as D432 found for P; two null grids show agreement, not an order (at second order the coarse grid's error would be
+    about 4/3 of the difference, at most 7 × 10⁻³ against departures of 0.42 or more). On [1.75, 2) the angular
+    difference (1.4 to 3 of K_0 with any interpolant) dominates the null one (0.045 to 0.74 on these rows, up to 0.99 at
+    x = 0 on seven others) at the band maxima, which come from v ≥ 1.95, and is the same at both null grids there to 15
+    %; but near the axis the null difference rises first (at x = −0.97 from 4.4 × 10⁻³ at v = 1.75 to 4.7 × 10⁻² at 1.90,
+    the angular one staying at or below 1.4 × 10⁻², and on v = 1.825 to 1.875 the fine grid's angular difference 30 to 40
+    % below the coarse one's), and the angular difference overtakes it from v ≈ 1.9. So in that band M sets the loss from
+    v ≈ 1.9, and before it near the axis the null step does. From v = 2 both are as large as the departure (the null
+    difference reaching 1.8 × 10⁵ K_0, at x = 0 on [2.25, 2.5)): unresolved in both. So the finding that the curvature is
+    moderate wherever it is resolved, with no resolved growth before the failure, holds under refinement of the null grid
+    in D432's `ld 3` runs at the record's amplitude; D475's own runs were not refined.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -628,11 +643,11 @@ No other component is nonzero. So the scheme is the following.
   x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions imposed there), then the
   same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). The
   Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at every
-  angle after it (at the two largest amplitudes first off the axis), so an axis treatment must be judged by K's
-  convergence at all angles, not near the axis alone. At the second seed, decide whether the steepening at x = +1 is the
-  solution's, by an invariant (the Kretschmann scalar along the axis) or by angular refinement concentrated at the axes
-  (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear
-  constant) on the converged part.
+  angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it, at v ≈
+  1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the axis
+  alone. At the second seed, decide whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann
+  scalar along the axis) or by angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is
+  excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
