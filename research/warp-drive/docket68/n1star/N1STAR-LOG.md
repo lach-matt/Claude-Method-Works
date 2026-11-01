@@ -7764,3 +7764,8 @@ the exact solution, using the coefficients computed in D569.
 induction from a stronger property than the record supplies, and misdescribed how one kind of coefficient is obtained.
 Both are fixed: the induction now starts from what the record gives and builds the rest step by step. Three supporting
 facts are used without being proved here, and the entry now says so instead of calling the question closed.
+
+**D581 (2026-11-01): the derivative bounds on the whole band.** The certified bound on the black hole's resolvent up to
+frequency 384 also bounds the solution's derivative there, through a corollary the record already had; the constants are
+now computed exactly, growing only slowly with the frequency (from about 420 to about 510 at the points where the bound
+is known, and at most about 1500 anywhere on the band).

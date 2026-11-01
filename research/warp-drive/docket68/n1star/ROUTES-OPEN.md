@@ -6105,6 +6105,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   algebraic. Minor: three closures are asserted, not shown (∂_v on E_p, the couplings' exactness, the Taylor remainder's
   ℓ-gains), so "closes" is replaced by "written at the record's level, given those three"; D573's withdrawn 19 marked in
   place. D576's reading and code confirmed. The D578 entry above keeps its text.
+- D581 (E2-PILOT 3j; `checks/e2h1band5.py` W1-W3, exact): the H¹ constants of section 3i on the certified band.
+  Corollary E2.11 takes any valid resolvent bound, with φ_*'s m′, M′ (and l = 0's) independent of σ and l, so the band's
+  B gives them with no new multiplier: ‖u′‖_I ≤ X‖f‖ for every l ≥ 1, X from 205.4 (σ = 3) to 277.5 (σ = 384) on the
+  printed intervals, and the summed constant C, set by l = 0, from 420.3 to 514.4; uniformly on [3, 384], X ≤ 963.4 and
+  C ≤ 1516. The control reproduces H1's 224.5. Real σ only.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

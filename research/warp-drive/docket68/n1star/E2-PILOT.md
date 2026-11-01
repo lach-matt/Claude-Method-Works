@@ -742,6 +742,17 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   not certified): the max is 0.0519376 at σ = 96 (l = 191), 0.0399913 at σ = 128 (l = 255) and 0.0326365 at σ = 160 (l =
   319, D574), σ times it 4.986, 5.119 and 5.222; the band's interval bound is 19.2, 21.0 and 22.4 times these, the ratio
   still growing. With sections 3f-3g this bounds every real 0 < |σ| ≤ 384; 194 minutes, the certificate itself 11651 s.
+- *The H¹ constants on the band (D581; `checks/e2h1band5.py` W1-W3, exact, saved as `checks/e2h1band5.out`).* Corollary
+  E2.11 (section 3i) takes any valid bound of ‖χ_I R_l(σ) χ_I‖, with m′ ≥ 0.005793 and M′ ≤ 1.02041 those of φ_*
+  (e2certify5 C3) and, at l = 0, m0′ ≥ 0.002580 and M0′ ≤ 0.3809 (e2h1_5 H4), none depending on σ or l; so the band's
+  certified bound, valid for every l ≥ 0, gives the constants on [3, 384] with no new multiplier. W1, the control,
+  reproduces H1's ‖u′‖_I ≤ 224.5‖f‖ at σ = 3 from B_6 ≤ 19.214. W2: on the printed intervals [σ − 1/20, σ] of the band,
+  ‖u′‖_I ≤ X‖f‖ for every l ≥ 1 with X = 205.4 at σ = 3, 241.5 at 96 and 277.5 at 384 (B = 11.086, 0.99697, 0.43792
+  there), the angular bound A (l(l + 2)K/(a − a_1) ≤ 8K/5 for l ≥ 2, 3B² at l = 1) from 781.7 to 1427, and the summed
+  constant, ‖d_r* u‖_I² + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖², set by l = 0: C = X_0 = 420.3 at σ = 3, 467.2 at 96, 514.4
+  at 384. W3: uniformly on 3 ≤ σ ≤ 384 with B ≤ 11.477, X ≤ 963.4 and C = X_0 ≤ 1516, each increasing in σ. Real σ only
+  (Lemma E2.10's 4|σ| for Im σ > 0 not taken); between the printed points only the uniform bound is certified, the
+  band's interval values not being saved.
 
 What it does not give:
 
@@ -751,7 +762,7 @@ What it does not give:
   not involve σ, B_(l_1)(σ) increases with |σ|, and E2.7's Λσ/(σ² − max V_l) decreases with σ where it applies, so
   max(E2.7 at σ_a for every l < l_1, B_(l_1)(σ_b)) bounds every σ in it once every l < l_1 has max V_l < σ_a² (deduced;
   run by B2 since D506, corrected D574);
-- σ > 384 (to 384, D567, above), nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
+- σ > 384 (to 384, D567, above); (done, D581) the H¹ constants of section 3i on the band, above;
 - the measured (a + b log σ)/σ: the certified bound is still 9.5 to 22 times above it, and the ratio grows with σ from σ
   = 6 on: 9.79, 9.50, 11.24, 13.11, 15.66, 19.20 at σ = 3, 6, 12, 24, 48, 96, 20.99 at 128 and 22.39 at 160 (D567, D574;
   the 9.70, 9.46, 11.2, 13.0, 15.6, 19.0 printed here before are e2trap5's float sup over the measured, not the
