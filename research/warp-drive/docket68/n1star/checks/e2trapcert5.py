@@ -1,37 +1,53 @@
 #!/usr/bin/env python3
-"""e2trapcert5.py -- E2-PILOT section 3j (D497): section 3j's bound at sigma = 3, certified for every l >= 0.
+"""e2trapcert5.py -- E2-PILOT section 3j (D497, D503): section 3j's bound, certified for every l >= 0 at sigma = 3, 6,
+12, 24, 48 and 96.
 
-Section 3j (D486, D493) computed, in floating point, that at sigma = 3 the sup over l of min(Lemma E2.7, Lemma E2.8
-with a core-and-flank multiplier) is 10.98, set by l = 5 with the multiplier
+Section 3j (D486, D493) computed, in floating point, the sup over l of min(Lemma E2.7, Lemma E2.8 with a core-and-flank
+multiplier), set at each sigma near the trapped harmonic by a multiplier
 
     phi = tanh g,  g' = 1/s_R + (1/s_L - 1/s_R)/(1 + e^z) + beta sech^2((r_* - x_*)/kappa),  z = (r_* - x_*)/kappa_s,
 
-s_L = 49/50, s_R = 4, kappa_s = 1/2, core width s_c = 1/g'(x_*) and kappa = s_c, centred at x_* = r_*(2^(1/2)). Here the
-rational multiplier s_c = 10174/10000 (the program's choice to four digits; the certificate checks this one) is certified
-by interval arithmetic (mpmath.iv, e2asymcert5's helpers), and with it the bound:
+centred at x_* = r_*(2^(1/2)), with core width s_c = 1/g'(x_*) and kappa = s_c. At each preset sigma the multiplier is
+e2trap5's best at the least harmonic l_1 it is used from, with s_c rational to four digits (the certificate checks this
+multiplier, not the program's float):
+
+    sigma   l_1   s_L    s_R  kappa_s  s_c            sigma   l_1   s_L    s_R  kappa_s  s_c
+    3       5     49/50  4    1/2      1.0174 (D497)  24      46    49/50  4    1/2      0.3673
+    6       11    49/50  4    1/2      0.6575         48      93    49/50  6    1/2      0.2467
+    12      22    49/50  4    1/2      0.4914         96      188   49/50  4    1/2      0.1774
+
+and, by interval arithmetic (mpmath.iv, e2asymcert5's helpers):
 
   C0 the closed forms of phi, phi', phi''' agree with mpmath's numerical derivatives of tanh(g) (computed).
-  C1 w_5 = -phi V_5' - phi'''/2 >= 0 on t = ln(r - 1) in [-120, ln 119], by adaptive bisection.
-  C2 the tails, by e2asymcert5's bounds with the core's terms added: below the range g <= the flank's g (the core term is
-     negative there) and the core adds at most 4 beta e^(2y), 8 beta e^(2y)/kappa, 24 beta e^(2y)/kappa^2 to g', |g''|,
-     |g'''| (y = (r_* - x_*)/kappa), each at most its value at the range's end; above it g >= (r_* - x_*)/s_R (the core
-     term is positive there) and the core's terms are at most their values at r = 120, all decreasing outward. Both
-     ratios certified < 1, decreasing away from the range.
-  C3 monotone in l: -phi U' >= 0 on R (phi and U' change sign together at x_*), so w_l = w_5 + (a_l - a_5)(-phi U')
-     >= w_5 for l >= 5: the multiplier is admissible for every l >= 5, w_I does not decrease, and B_l(3) <= B_5(3).
-  C4 on I = {r in [1.2, 4]}, 8000 pieces: m' = min_I phi', M' = max_I phi', min_I w_5, and B_5(3) = ((2/m' + (M' +
-     6)^2/w_I)/w_I)^(1/2), rounded up.
-  C5 Lemma E2.7 for l = 0, ..., 4 (sigma^2 = 9 > max V_l, max V_l exact from the quadratic in y = 1/r^2): Lambda sigma/
-     (sigma^2 - max V_l) with Lambda = r_*(4) - r_*(1.2), in intervals; and max V_5 > 9 (l = 5 is not above the barrier).
-  So, certified: at sigma = 3, for every l >= 0, ||chi_I R_l(3) chi_I|| <= max(C5's values, B_5(3)).
-  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the left tail's ratio bound
-     exceeds 1 at t = -2 and the right's at r = 2.5 (so neither certifies without C1's range).
+  C1 w_(l_1) = -phi V_(l_1)' - phi'''/2 >= 0 on t = ln(r - 1) in [-120, ln 119], by adaptive bisection.
+  C2 the tails, by e2asymcert5's bounds with the core's terms added: below the range g <= the flank's g (the core
+     term is negative there) and the core adds at most 4 beta e^(2y), 8 beta e^(2y)/kappa, 24 beta e^(2y)/kappa^2 to
+     g', |g''|, |g'''| (y = (r_* - x_*)/kappa), each at most its value at the range's end; above it g >= (r_* -
+     x_*)/s_R (the core term is positive there) and the core's terms are at most their values at r = 120, all
+     decreasing outward. Both ratios certified < 1, decreasing away from the range (the left bound needs a_(l_1) >=
+     b, true for l_1 >= 5).
+  C3 monotone in l: -phi U' >= 0 on R (phi and U' change sign together at x_*), so w_l = w_(l_1) + (a_l - a_(l_1))(-phi
+     U') >= w_(l_1) for l >= l_1: the multiplier is admissible for every l >= l_1, w_I does not decrease, and B_l(sigma)
+     <= B_(l_1)(sigma).
+  C4 on I = {r in [1.2, 4]}, 8000 pieces: m' = min_I phi', M' = max_I phi', min_I w_(l_1), and B_(l_1)(sigma) = ((2/m' +
+     (M' + 2 sigma)^2/w_I)/w_I)^(1/2), rounded up.
+  C5 Lemma E2.7 for every l < l_1 (each below the barrier, sigma^2 > max V_l, max V_l exact from the quadratic in y =
+     1/r^2): Lambda sigma/(sigma^2 - max V_l) with Lambda = r_*(4) - r_*(1.2), in intervals, increasing in l. Whether
+     l_1 itself is above the barrier is printed, not needed: E2.8 covers it.
+  So, certified: at each preset sigma, for every l >= 0, ||chi_I R_l(sigma) chi_I|| <= max(C5's values, B_(l_1)(sigma)).
+  Controls: C1's bisection fails at l = 1 (the multiplier needs a larger a than a_1); the left tail's ratio bound exceeds
+     1 at the least of t = -2, -1, 0, 1 and the right's at the largest of r = 2.5, 2, 1.6, 1.45 tried (so neither
+     certifies without C1's range; the points move inward as l_1 grows, the tail bounds improving with a).
+
+Measured (D497, D503): certified at sigma = 3, 6, 12, 24, 48, 96: <= 10.989, 5.8726, 3.7719, 2.3724, 1.5222, 0.99697
+(section 3j's float sups 10.98, 5.846, 3.755, 2.362, 1.512, 0.9886); C1 in 95 to 187 enclosures, about 17 s each.
 
 Labels: C1-C5 certified (interval arithmetic, explicit tail bounds, outward rounding); C0 computed. Lemmas E2.7 and E2.8
 as in sections 3c and 3e (verifier 207, D493: E2.8's proof uses only phi in C^3, phi' >= 0, |phi| <= 1 on I, phi(+-inf)
-= +-1 and phi', phi'' -> 0, which this multiplier has).
+= +-1 and phi', phi'' -> 0, which these multipliers have).
 
-    python3 checks/e2trapcert5.py
+    python3 checks/e2trapcert5.py [SIGMA]                   (a preset: 3, the default, 6, 12, 24, 48 or 96)
+    python3 checks/e2trapcert5.py SIGMA L1 SL SR KS SC      (rationals, e.g. 6 11 49/50 4 1/2 6575/10000)
 """
 import sys
 import time
@@ -46,7 +62,8 @@ sys.argv = _argv
 
 iv.dps = 30
 mp.prec = iv.prec
-# sigma, the least harmonic l_1 the multiplier is certified at, and the multiplier (s_L, s_R, kappa_s, s_c; kappa = s_c):
+# sigma, the least harmonic l_1 the multiplier is certified at, and the multiplier (s_L, s_R, kappa_s, s_c; kappa =
+# s_c):
 # D497's at sigma = 3, D503's at 6 to 96 (e2trap5's argmin at l_1, s_c to four digits)
 PRESETS = {"3": ("3", "5", "49/50", "4", "1/2", "10174/10000"),
            "6": ("6", "11", "49/50", "4", "1/2", "6575/10000"),
@@ -210,8 +227,9 @@ def main():
     # C3: -phi U' >= 0 everywhere: U' = (2 f/r^3)(2y - 1) changes sign only at r^2 = 2, and g(x_*) = 0 with g' > 0
     gmin = min(1 / SR, 1 / SL).a                                # g' >= the flank's least slope > 0 (beta > 0)
     ok["C3"] = BETA.a > 0 and gmin > 0
-    print("  C3: beta > 0 and g' >= %s > 0, so phi and U' change sign together at x_*: -phi U' >= 0, and the multiplier "
-          "certified at l = %d is admissible for every l >= %d with B_l(%s) <= B_%d(%s)" % (E.dn(gmin, 4), L1, L1, sg, L1, sg))
+    print("  C3: beta > 0 and g' >= %s > 0, so phi and U' change sign together at x_*: -phi U' >= 0, and the "
+          "multiplier certified at l = %d is admissible for every l >= %d with B_l(%s) <= B_%d(%s)"
+          % (E.dn(gmin, 4), L1, L1, sg, L1, sg))
     m1lo, M1hi = E.enclose_I(lambda tt: mult(xr(tt))[1], pieces=8000)
     wlo, _ = E.enclose_I(lambda tt: w_of(tt, A_(L1)), pieces=8000)
     c = iv.mpf(M1hi) + 2 * SIGMA
@@ -229,8 +247,8 @@ def main():
         e27.append((l, vm, lam * SIGMA / (SIGMA**2 - vm)))
     above5 = (vmax(L1) - SIGMA**2).a > 0                       # informational: E2.7 is not needed at l_1
     ok["C5"] = good7
-    print("  C5: Lambda = %s; E2.7 at sigma = %s, every l < %d below the barrier: %s; l_1 = %d is %s the barrier (max V "
-          "= %s, sigma^2 = %s)" %
+    print("  C5: Lambda = %s; E2.7 at sigma = %s, every l < %d below the barrier: %s; l_1 = %d is %s the barrier "
+          "(max V = %s, sigma^2 = %s)" %
           (E.dn(lam.a, 8), sg, L1, ", ".join("l = %d: <= %s" % (l, E.up(b.b, 5)) for l, vm, b in
                                              (e27 if L1 <= 6 else e27[:1] + [(None, None, None)] + e27[-3:])
                                              if l is not None) + ("" if L1 <= 6 else " (increasing in l)"), L1,
@@ -238,13 +256,14 @@ def main():
     sup = max([b.b for _, _, b in e27] + [B5.b])
     # controls
     f1, _, bad1 = certify_positive(A_(1), tL, tR)
-    rl3, _ = tail_left(A_(L1), -2)
+    tc = next((t_ for t_ in (-2, -1, 0, 1) if tail_left(A_(L1), t_)[0].a > 1), None)
+    rl3, _ = tail_left(A_(L1), 1 if tc is None else tc)
     rc = next((r_ for r_ in ("2.5", "2", "1.6", "1.45") if tail_right(A_(L1), mpf(r_))[0].a > 1), None)
     rr25 = tail_right(A_(L1), mpf(rc or "1.45"))[0]
     ok["controls"] = (not f1) and rl3.a > 1 and rr25.a > 1
-    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -2 >= %s; right ratio at r = %s "
-          ">= %s (the largest of 2.5, 2, 1.6, 1.45 where it exceeds 1)"
-          % (E.dn(iv.mpf(bad1[0]).a, 5) if bad1 else "-", E.dn(rl3.a, 4), rc, E.dn(rr25.a, 4)), flush=True)
+    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = %s >= %s (the least of -2, -1, 0, "
+          "1 where it exceeds 1); right ratio at r = %s >= %s (the largest of 2.5, 2, 1.6, 1.45 where it exceeds 1)"
+          % (E.dn(iv.mpf(bad1[0]).a, 5) if bad1 else "-", tc, E.dn(rl3.a, 4), rc, E.dn(rr25.a, 4)), flush=True)
     good_all = all(ok.values())
     print("  %s: at sigma = %s, ||chi_I R_l(sigma) chi_I|| <= %s for every l >= 0%s"
           % ("CERTIFIED" if good_all else "NOT certified", sg, E.up(sup, 5),

@@ -5434,6 +5434,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   1) at even l, exact for l ≤ 40. So on the tensor type the strip enters at ρ³ only at odd l (|K| ≤ 2/15) and at ρ⁴ at
   even l (|K4| ≤ 1/3), falling with l, with no logarithm. Every type is now computed; open: whether the structureless
   r⁻³ term is compatible with Lemma 0.1's ρ³C^∞, and the remainder beyond V′_P.
+- D503 (E2-PILOT 3j, `checks/e2trapcert5.py SIGMA`, certified by interval arithmetic): section 3j's bound at σ = 6, 12,
+  24, 48 and 96 for every l ≥ 0, by D497's route. e2trapcert5 now takes σ, the starting harmonic l_1 and the multiplier;
+  at each σ e2trap5's best multiplier at l_1 (s_c to four digits) is certified admissible at l_1 and, by the monotonicity
+  in l, for every l ≥ l_1, and E2.7 covers l < l_1: l_1 = 11, 22, 46, 93, 188, bounds ≤ 5.8726, 3.7719, 2.3724, 1.5222,
+  0.99697 (floating point 5.846, 3.755, 2.362, 1.512, 0.9886); every check and control passes, the tail controls moved
+  inward where the bound already holds at the old points; σ = 3 unchanged at 10.989. Open: between the sampled σ (an
+  interval needs only E2.7 at its left end and B at its right, deduced, not run), σ > 96, and the H¹ constants with these
+  multipliers.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

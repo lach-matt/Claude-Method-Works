@@ -678,12 +678,25 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   lie below every bound, B_5(3) being about 9.7 times the norm at l = 5. For l ≥ 5 the same bound holds at every 0 < |σ|
   ≤ 3 (B_5 increases with |σ|); for l ≤ 4 at smaller |σ| E2.7 does not apply. Controls: the bisection fails at l = 1, and
   the tail bounds exceed 1 at t = −2 and r = 2.5.
+- *Certified at σ = 6, 12, 24, 48 and 96 (D503; `checks/e2trapcert5.py SIGMA`, the same checks).* At each σ one
+  multiplier, e2trap5's best at the least harmonic l_1 it is used from (s_L = 49/50, κ_s = 1/2, κ = s_c, s_c rational to
+  four digits), is certified admissible at l_1 by bisection and tail bounds and so for every l ≥ l_1 by the monotonicity
+  above, and Lemma E2.7 covers every l < l_1, each below the barrier: l_1 = 11, 22, 46, 93, 188 with s_R = 4, 4, 4, 6, 4
+  and s_c = 0.6575, 0.4914, 0.3673, 0.2467, 0.1774. So, certified: ‖χ_I R_l(σ) χ_I‖ ≤ 5.8726, 3.7719, 2.3724, 1.5222 and
+  0.99697 for every l ≥ 0 at σ = 6, 12, 24, 48 and 96, against section 3j's floating-point 5.846, 3.755, 2.362, 1.512,
+  0.9886 (the rational s_c and outward rounding cost under 1 %), with E2.7 at most 4.0613, 1.9720, 1.9206, 1.2697 and
+  0.94628 below l_1, B_(l_1) setting each bound. At σ ≥ 12, l_1 lies below the barrier (max V_22 = 132.5 < 144): E2.7
+  would apply there too, but E2.8's bound is the smaller. The controls move inward as l_1 grows (the left tail ratio
+  exceeds 1 at t = −1 from σ = 24, the right at r = 2, then 1.6), since the tail bounds improve with a; C1 needs 95 to
+  187 enclosures, about 17 s at each σ.
 
 What it does not give:
 
-- a certificate at σ > 3: w ≥ 0 is checked on the grid, as for section 3e; at σ = 3 the bound is certified (D497, above),
-  and the same route, one multiplier certified at its least l and the monotonicity above, applies at each σ, with more
-  multipliers as σ grows;
+- a certificate between the sampled frequencies: at σ = 3, 6, 12, 24, 48 and 96 the bound is certified (D497, D503);
+  between them it is computed on a grid of step 0.01 only (T3). An interval [σ_a, σ_b] needs no new kind of check:
+  admissibility does not involve σ, B_(l_1)(σ) increases with |σ|, and E2.7's Λσ/(σ² − max V_l) decreases with σ where it
+  applies, so max(E2.7 at σ_a for every l < l_1, B_(l_1)(σ_b)) bounds every σ in it once every l < l_1 has max V_l < σ_a²
+  (deduced, not run);
 - σ > 96, nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
 - the measured (a + b log σ)/σ: the bound is still 9.5 to 19 times above it, and the ratio grows with σ from σ = 6 on
   (9.70, 9.46, 11.2, 13.0, 15.6, 19.0).

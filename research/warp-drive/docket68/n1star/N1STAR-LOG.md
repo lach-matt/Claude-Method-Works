@@ -7324,3 +7324,9 @@ corrected the comparison: the best earlier certified figure was about 275, not 3
 angular ripples, turns out to behave exactly like the simplest model: the record's full equations reduce to it there,
 checked exactly on every such mode of the three lowest orders. So the strip's coefficient is known in closed form for
 every one of these modes: it vanishes for every even mode, is small for the odd ones, and shrinks as the mode grows.
+
+**D503 (2026-11-01): the bound, certified at five more frequencies.** The certificate that fixed the bound at one
+frequency now runs at any, with the multiplier chosen for each: at frequencies two to thirty-two times higher the
+certified bounds are about 5.9, 3.8, 2.4, 1.5 and 1.0, within one per cent of the computed ones and falling as the
+frequency rises. Between the sampled frequencies the bound is still only computed, though the same pieces would certify
+whole intervals.
