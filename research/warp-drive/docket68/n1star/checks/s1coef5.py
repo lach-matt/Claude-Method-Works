@@ -55,13 +55,24 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      with R_1 = sqrt(mu_end) = 1 here, which gives about 0.22 on (1.25, 5): 0.130 on (3, 5), S7's eta-only 0.0837 on
      (1.3, 2.9), and 0.0015 and 0.0062 on the gaps (1.25, 1.3), (2.9, 3) that neither samples (D468, verifier 199).
 
-Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
-(both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
-precision (DOP853, rtol 1e-13). About 15 minutes.
+  S9 (computed; --zeros-far-amp, D472) beyond first order outside (1.25, 3): (a) the extreme cut-offs valued in [0, 1]
+     that the record's support allows (eta switching off as late as [4.75, 4.95], zeta on as late as [7.5, 7.8], and
+     both); (b) A along eta0 + t b (b at r = 4.8, the far side's most sensitive) and zeta0 + t b (r = 3.2), for |t| from
+     1 to 10^5, matched at radii 8 and 10; and (d) S7's undecided range, eta0 + t b with S7's most sensitive bump (r =
+     2.85) for t from -10^3 to -10^5, matched at 3 and 4. Where the plain matching fails (radii disagreeing or the
+     condition 1e12 or more: one horizon solution outgrows the others across a bump of large negative eta), A is computed
+     with the horizon columns re-orthonormalised at every step of a grid (coefficient_qr; A depends on those columns only
+     through their span), at two radii, the second with half the steps, kept where they agree to 1e-7; (c) that matching
+     reproduces the plain one to twelve digits where both are reliable. Every value is reliable; the least A is 107.418
+     (eta, t = -10^5), with no sign change; the extremes move A by at most +0.168; S7's undecided range gives A = 130.27
+     to 130.48.
+
+Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8) (both z
+= 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double precision
+(DOP853, rtol 1e-13). About 15 minutes; --zeros-far-amp about 20.
 Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; cut-off variations inside r =
-1.25, beyond first order outside (1.25, 3) (no curvature is computed there), or not rotation invariant; the dual state as
-a function (S7 measures its pairing through bumps); and whether the record's later steps hold at the bumped cut-offs,
-beyond the matching being solvable there.
+1.25 or not rotation invariant; the dual state as a function (S7 measures its pairing through bumps); and whether the
+record's later steps hold at the bumped cut-offs, beyond the matching being solvable there.
 """
 import os
 import math
@@ -551,9 +562,126 @@ def zeros_far():
     return 0
 
 
+def coefficient_qr(pb, zeta, eta, rm, grid, r0=1.25, rtol=1e-12):
+    """A by the same matching as Problem.coefficient, with the horizon columns re-orthonormalised (QR) at every grid
+    point: A is the coefficient of an infinity column, so it depends on the horizon columns only through their span,
+    and the QR keeps that span resolved where one solution outgrows the others (D472)"""
+    if not hasattr(pb, "_hs"):
+        pb._hs = {}
+    if r0 not in pb._hs:
+        pb._hs[r0] = pb.horizon_solutions(r0 - 1)
+    fun = pb.rhs_fun(zeta, eta)
+    Y = np.column_stack([np.array([float(q) for q in U] + [float(q) for q in dU]) for U, dU, _ in pb._hs[r0]])
+    Y = np.linalg.qr(Y)[0]
+    for a, b in zip(grid[:-1], grid[1:]):
+        cols = [solve_ivp(fun, (a, b), Y[:, j], method="DOP853", rtol=rtol, atol=1e-15).y[:, -1] for j in range(3)]
+        Y = np.linalg.qr(np.column_stack(cols))[0]
+    inf = [pb.eval_inf(s0, cd, mp.mpf(rm)) for s0, cd in pb.modes]
+    vec = lambda UdU: np.array([float(q) for q in UdU[0]] + [float(q) for q in UdU[1]])
+    Amat = np.column_stack([Y[:, j] for j in range(3)] + [-vec(inf[k]) for k in (1, 2, 3)])
+    return np.linalg.solve(Amat, vec(inf[0]))[3], np.linalg.cond(Amat)
+
+
+def qr_grid(r0, rm, c, w, t, h=0.05, scale=1.0):
+    """chunks of h, and of 1/(0.05 |t| + 1) across the bump [c - w, c + w], where c_H's growth rate is about |t|/20"""
+    hf = min(h, 1.0 / (abs(t) * 0.05 + 1.0)) * scale
+    pts = (list(np.arange(r0, c - w, h * scale)) + list(np.arange(c - w, c + w, hf)) +
+           list(np.arange(c + w, rm, h * scale)) + [rm])
+    return np.array(sorted(set(round(float(q), 12) for q in pts)))
+
+
+def A_qr(pb, zf, ef, c, w, t, r1, r2):
+    """A by coefficient_qr at matching radius r1 and at r2 with half the chunks: value, agreement to 1e-7, condition"""
+    a1, c1 = coefficient_qr(pb, zf, ef, r1, qr_grid(1.25, r1, c, w, t))
+    a2, c2 = coefficient_qr(pb, zf, ef, r2, qr_grid(1.25, r2, c, w, t, scale=0.5))
+    return a1, bool(np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12), max(c1, c2)
+
+
+def zeros_far_amp():
+    """--zeros-far-amp: S9, A beyond first order for cut-off variations in (3, 8) at the record's point"""
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb = setup(M, gam, e, sp.Rational(1, 10))[0]
+    zeta0 = lambda x: smoothstep((x - 1.5) / 1.0)
+    eta0 = lambda x: 1 - smoothstep((x - 1.3) / 0.5)
+
+    def A_rel(zf, ef):
+        """A at matching radii 8 and 10, and whether they agree to 1e-7 relative with the condition below 1e12"""
+        try:
+            a8, c8 = pb.coefficient(zf, ef, 8.0)
+            a10, c10 = pb.coefficient(zf, ef, 10.0)
+        except Exception:                                               # noqa: BLE001
+            return float("nan"), False, float("inf")
+        good = bool(np.isfinite(a8) and abs(a8 - a10) < 1e-7 * abs(a8) and max(c8, c10) < 1e12)
+        return a8, good, max(c8, c10)
+    A0, g0, c0 = A_rel(zeta0, eta0)
+    print("  record's point: A0 = %.10g (radii 8 and 10 agree: %s; condition %.1e)" % (A0, g0, c0), flush=True)
+    e_long = lambda x: 1 - smoothstep((x - 4.75) / 0.2)           # eta off as late as the record's support allows
+    z_late = lambda x: smoothstep((x - 7.5) / 0.3)                 # zeta on as late as the matching allows
+    z_mid = lambda x: smoothstep((x - 4.5) / 0.3)
+    ext = {}
+    for lab, zf, ef in (("eta off on [4.75, 4.95]", zeta0, e_long), ("zeta on [4.5, 4.8]", z_mid, eta0),
+                        ("zeta on [7.5, 7.8]", z_late, eta0), ("both, zeta on [7.5, 7.8]", z_late, e_long)):
+        ext[lab] = A_rel(zf, ef)
+        print("  (a) %-28s A = %.10g (A - A0 = %+.4g; reliable: %s)" % (lab, ext[lab][0], ext[lab][0] - A0,
+                                                                         ext[lab][1]), flush=True)
+    bump = lambda c, w: (lambda x: float(np.exp(1 - 1 / (1 - ((x - c) / w)**2))) if abs(x - c) < w else 0.0)
+    ts = (-1e5, -3e4, -1e4, -3e3, -1e3, -1e2, -10, -1, 1, 10, 1e2, 1e3, 3e3, 1e4, 3e4, 1e5)
+    scans = {}
+    for name, c in (("eta", 4.8), ("zeta", 3.2)):
+        b = bump(c, 0.2)
+        fns = lambda t_: (((lambda x: zeta0(x) + t_ * b(x)), eta0) if name == "zeta"
+                          else (zeta0, (lambda x: eta0(x) + t_ * b(x))))
+        At = {t_: A_rel(*fns(t_)) for t_ in ts}
+        qr = {t_: A_qr(pb, *fns(t_), c, 0.2, t_, 8.0, 10.0) for t_ in ts if not At[t_][1]}
+        scans[name] = At
+        print("  (b) %s + t b (b of half-width 0.2 at r = %.1f; * marks a value whose radii disagree or whose condition "
+              "is 1e12 or more): %s" % (name, c, "; ".join("t = %g: %.6g%s" % (t_, At[t_][0], "" if At[t_][1] else "*")
+                                                           for t_ in ts)), flush=True)
+        if qr:
+            print("      QR matching where those fail (radii 8 and 10, the second with half the chunks): %s"
+                  % "; ".join("t = %g: %.10g%s" % (t_, v[0], "" if v[1] else "*") for t_, v in sorted(qr.items())),
+                  flush=True)
+            At.update(qr)
+        good = [t_ for t_ in ts if At[t_][1]]
+        lin = [(At[t_][0] - A0) / t_ for t_ in good if abs(t_) <= 10]
+        print("      reliable over %d of %d amplitudes: A from %.6g to %.6g; (A - A0)/t at |t| <= 10 from %.4g to %.4g"
+              % (len(good), len(ts), min(At[t_][0] for t_ in good), max(At[t_][0] for t_ in good), min(lin), max(lin)),
+              flush=True)
+        for t1, t2 in zip(good[:-1], good[1:]):
+            if At[t1][0] * At[t2][0] < 0:
+                print("      A changes sign between t = %g and %g" % (t1, t2), flush=True)
+    val = [(t_, A_qr(pb, zeta0, (lambda x, t_=t_: eta0(x) + t_ * bump(4.8, 0.2)(x)), 4.8, 0.2, t_, 8.0, 10.0)[0],
+            A_rel(zeta0, (lambda x, t_=t_: eta0(x) + t_ * bump(4.8, 0.2)(x)))[0]) for t_ in (0.0, -100.0)]
+    qr_ok = all(abs(a - b_) < 1e-8 * abs(b_) for _, a, b_ in val)
+    print("  (c) QR against plain matching where both are reliable: %s"
+          % "; ".join("t = %g: %.12g against %.12g" % v for v in val), flush=True)
+    Acoef3 = lambda zf, ef: pb.coefficient(zf, ef, 3.0)[0]
+    centres = [1.35 + 0.1 * k for k in range(16)]
+    sens = [(Acoef3(zeta0, lambda x, c=c: eta0(x) + bump(c, 0.1)(x))
+             - Acoef3(zeta0, lambda x, c=c: eta0(x) - bump(c, 0.1)(x))) for c in centres]
+    cn = centres[max(range(16), key=lambda i: abs(sens[i]))]
+    bn = bump(cn, 0.1)
+    near = {}
+    for t_ in (-1e3, -3e3, -1e4, -3e4, -1e5):
+        near[t_] = A_qr(pb, zeta0, (lambda x, t_=t_: eta0(x) + t_ * bn(x)), cn, 0.1, t_, 3.0, 4.0)
+    print("  (d) S7's undecided range, eta + t b with b of half-width 0.1 at r = %.2f (S7's most sensitive), by QR "
+          "matching at radii 3 and 4: %s" % (cn, "; ".join("t = %g: %.10g%s" % (t_, v[0], "" if v[1] else "*")
+                                                         for t_, v in sorted(near.items()))), flush=True)
+    ok = g0 and all(v[1] for v in ext.values()) and qr_ok and all(v[1] for v in near.values()) \
+        and all(v[1] for At in scans.values() for v in At.values())
+    allA = ([v[0] for v in ext.values()] + [v[0] for At in scans.values() for v in At.values() if v[1]] +
+            [v[0] for v in near.values() if v[1]])
+    print("  S9: every value reliable: %s; least A over (a), (b) and (d): %.6g; a sign change: %s"
+          % (ok, min(allA), "yes" if min(allA) <= 0 else "none"), flush=True)
+    return 0 if ok else 1
+
+
 def main():
     if sys.argv[1:2] == ["--zeros-far"]:
         return zeros_far()
+    if sys.argv[1:2] == ["--zeros-far-amp"]:
+        return zeros_far_amp()
     if sys.argv[1:2] == ["--record"]:
         return record_point()
     if sys.argv[1:2] == ["--zeros"]:

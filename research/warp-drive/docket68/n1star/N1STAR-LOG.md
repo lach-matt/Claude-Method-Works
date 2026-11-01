@@ -7152,3 +7152,9 @@ and found that, once the gauge condition is used, the surface's own focusing dro
 simply grows or decays at the rate the gauge source sets. It also made the scope exact: a crossing stream in general
 carries several free functions on the surface, the record's carries one, and the other surface follows by symmetry rather
 than by computation.
+
+**D472 (2026-11-01): no cut-off found makes the coefficient vanish, now to second order.** The earlier scans beyond the
+matching radius were only first-order, and very large negative choices of one cut-off had been left undecided because the
+numerics broke down there. With the horizon solutions kept orthonormal along the way, which does not change the quantity
+computed, every case is now decided: the coefficient stays above 107 in every scan, against 141.4 at the record's choice,
+and never changes sign; the apparent sign change the old numerics showed was their failure.

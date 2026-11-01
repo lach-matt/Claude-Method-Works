@@ -464,10 +464,11 @@ loop counts of section 3.
       and η0 + t b, b the most sensitive bump, A stays in [123.95, 141.43] at the sampled |t| ≤ 10⁵ (ζ; between samples
       it dips further, 121.42 at t = 1.5 × 10⁴, D459) and in [140.24, 141.94] at the sampled −100 ≤ t ≤ 10⁵ (η), each
       value the same at matching radii 3 and 4; for η at t ≤ −1000 the matching degenerates (condition above 10¹²: 2 ×
-      10¹⁴ at t = −1000, where the two radii still agree, and they disagree from −10⁴) and A is not decided there. No
-      zero was found: A is pinned by the near-resonance's −P_v = 141.42, and the cut-offs move only the rest, by about 20
-      at most even at amplitude 10⁴ on the samples. So for the cut-offs computed, and to first order for any within 1 of
-      the record's on (1.25, 3) (not proved), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry.
+      10¹⁴ at t = −1000, where the two radii still agree, and they disagree from −10⁴) and A was not decided there;
+      matching with the horizon columns re-orthonormalised decides it, A = 130.27 to 130.48 from t = −10³ to −10⁵ (D472).
+      No zero was found: A is pinned by the near-resonance's −P_v = 141.42, and the cut-offs move only the rest, by about
+      20 at most even at amplitude 10⁴ on the samples. So for the cut-offs computed, and to first order for any within 1
+      of the record's on (1.25, 3) (not proved), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry.
     - *Beyond r = 3 (D465; `checks/s1coef5.py --zeros-far`, S8, computed).* Matched at r = 8 (A0 the same to ten
       digits), dA/dζ falls outward, from −2.7 × 10⁻⁵ at r = 3.2 to −1.2 × 10⁻⁵ at 7.6, but dA/dη levels off near 0.068
       per unit integral (0.063 at 3.2, 0.068 at 7.6): c_Υ,H = −½η dr carries no decay, so to first order an η within 1 of
@@ -479,9 +480,17 @@ loop counts of section 3.
       ζ's first-order effect grows like log R (about 10⁻⁴ ln(R/3)), and as the record fixes ζ only for large |x|, (3, 8)
       is a choice, not its bound. Both are far from the 141.4 the near-resonance forces, at first order: no curvature is
       computed beyond r = 3.
+    - *Beyond first order (D472; `checks/s1coef5.py --zeros-far-amp`, S9, computed).* The extreme cut-offs valued in [0,
+      1] that the record's support allows (η switching off as late as [4.75, 4.95], ζ on as late as [7.5, 7.8], and both)
+      move A by +0.168, +6.5 × 10⁻⁵ and +0.168. Along η0 + t b (b at r = 4.8) and ζ0 + t b (r = 3.2), |t| from 1 to 10⁵,
+      A stays in [107.42, 141.97] and [120.47, 141.43]. Where the plain matching fails (for η at t ≤ −10³, one horizon
+      solution outgrows the others across the bump), the horizon columns are re-orthonormalised at every step of a grid,
+      which A, a coefficient of an infinity column, does not see; that matching agrees with the plain one to twelve
+      digits where both hold, and with itself at a second radius and half the steps to 10⁻⁷. Every value is reliable, the
+      least is 107.418, and A changes sign nowhere: the −166 the plain matching gave at t = −3 × 10⁴ was its failure. So
+      beyond r = 3, to the record's support and well past amplitude 1, no cut-off computed makes A vanish.
     - Not computed: variations inside r = 1.25 (the horizon series' form, ζ = O(r − 1), η = 1), cut-offs that are not
-      rotation invariant (the record's are), η at large negative amplitude, and the dual state as a function rather than
-      through its pairings.
+      rotation invariant (the record's are), and the dual state as a function rather than through its pairings.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an

@@ -5149,6 +5149,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   K_in alone, free where dv is null on N; N′ by symmetry, not computed; the transport reproduces 4c's K_out R³ = B(u).
   T5's third control, which restated T2, is replaced: W_u has other transverse jets, so T3's test is not vacuous.
   Recorded: whether the record's Υ is relative to g0 (Υ_v(g0) = −3R_v/R, order 1, against H of order λ) is not stated.
+- D472 (LOSS-D LD9, `checks/s1coef5.py --zeros-far-amp`, S9, computed): A at the record's point beyond first order
+  outside (1.25, 3). The extreme [0, 1] cut-offs the record's support allows move A by at most +0.168; amplitude scans of
+  η (bump at r = 4.8) and ζ (r = 3.2) bumps for |t| ≤ 10⁵ keep A in [107.42, 141.97]. Where the plain matching fails (η
+  at t ≤ −10³: radii disagree, condition 10¹² or more), the horizon columns are re-orthonormalised (QR) at every grid
+  step, which leaves A unchanged in exact arithmetic (A is an infinity column's coefficient); checked against the plain
+  matching to twelve digits and against itself (second radius, half steps) to 10⁻⁷. The plain matching's −166 at t = −3 ×
+  10⁴ was an artefact; no sign change. S7's undecided range (D457, η bump at r = 2.85, t = −10³ to −10⁵) is decided: A =
+  130.27 to 130.48. Open: variations inside r = 1.25, non-rotation-invariant cut-offs, the dual state as a function.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
