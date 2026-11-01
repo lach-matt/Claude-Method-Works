@@ -7169,3 +7169,9 @@ factor of four and a half.
 sources confined near the incoming null surface arrive one power lower than a source everywhere had only been run for the
 spherically symmetric mode. Run now for the next four angular modes, it shows the same or better: one power lower for two
 of them, and lower still, below what the numerics resolve, for the other two.
+
+**D476 (2026-11-01): what the literature already guarantees for the null-surface problem.** Read at source, a standard
+review states the theorem that data on two intersecting null surfaces determine a solution near their intersection,
+uniquely, for vacuum and for matter whose energy flux through the surface involves no derivatives, provided the matter's
+own equations are well posed. The record's two dust streams meet both conditions, by the earlier checks. The guarantee is
+only near the intersection; further out it is open.

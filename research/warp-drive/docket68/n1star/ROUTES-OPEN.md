@@ -5169,6 +5169,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   1 and 1/15 at l = 3 (ρ³, as at l = 0), and falls like 1/r at l = 2 and 4, its ρ³ coefficient below resolution
   (refinement moves it by up to 8 % at r = 200): ρ³ or later. In no harmonic computed does the strip reach ρ²; for l ≥ 1
   these are values for S = r⁻⁴Y_l, not bounds (the kernel changes sign). Open: the full operator on the strip.
+- D476 (FAMILIES5 4e, read: [CP12] Chruściel-Paetz, arXiv:1203.4534v2): Theorem 2.1 (Rendall, p. 5) gives, for vacuum
+  characteristic data on N1 ∪ N2 meeting in S, a unique metric on an open neighbourhood of S in {x¹, x² ≥ 0}, extended to
+  matter whose T_22, T_2A, T_12 on {x¹ = 0} are fixed by matter data and listed jets (p. 5); Section 3 (p. 5, eq. (15))
+  treats T_μν ℓ^ν = T_μ(g, φ, ∂_∥ g, ∂_∥ φ, x) with matter well-posed given g, and gives a reduced solution near S (p. 9)
+  that solves Einstein iff the gauge vector vanishes on N1 ∪ N2; uniqueness is local (p. 16). The record's dusts fit (15)
+  with no derivative (D463), their characteristic data are D470's, and the gauge vector vanishes on N ∪ N′ (D440-D441,
+  D455): so, given the dusts' well-posedness (by characteristics, not written out), a solution near S; uniqueness is
+  stated for vacuum, locally. The corner needs no dust condition. Open: beyond a neighbourhood of S; the dusts'
+  well-posedness written out.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

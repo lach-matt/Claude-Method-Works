@@ -311,8 +311,8 @@ couplings are then killed by their own contractions.
       the reduced equation has W_v, then W_A, then W_u zero on N: three ODEs along the generators with zero data at S,
       linear with the solution's κ as a coefficient (κ contains ∂_u g_vv, so in the data alone the first is a Riccati
       equation, which W_v = 0 still solves uniquely; D441). The same holds on N′ with u and v exchanged. P2's linear wave
-      equation then has zero data on N ∪ N′, and W ≡ 0 where its characteristic problem has uniqueness (standard, not
-      computed).
+      equation then has zero data on N ∪ N′, and W ≡ 0 where its characteristic problem has uniqueness (near S as [CP12]
+      states it, D476; beyond, standard, not computed).
     - Controls: a hypersurface with g_vv ≠ 0 (and g_vA's jets along N nonzero), θ for θ/2 in N2, N3 without the reduction
       modulo W_v, and one angular component in place of the trace in N4 all fail; the last because the trace-free angular
       equations carry the trace-free ∂_v ∂_u g_AB, which is not a constraint.
@@ -365,8 +365,32 @@ couplings are then killed by their own contractions.
         (g^vv = 0; in general that needs g_uu = γ^(AB)g_uA g_uB); on N′ the roles swap by symmetry (not computed).
         Whether the record's Υ is taken relative to g0 is not stated: with the coordinate Υ, Υ_v(g0) = −3R_v/R is of
         order 1, while 4e's H is of order λ (verifier 201); T3 holds either way.
-    - Not computed: existence for the dusts' transport off N, the corner S where both dusts' data meet, uniqueness for
-      the linear characteristic problem, and that the record's solution solves the reduced equation exactly.
+    - *Existence and uniqueness near S (D476, read: [CP12] P. T. Chruściel and T.-T. Paetz, "The many ways of the
+      characteristic Cauchy problem", arXiv:1203.4534v2).* Theorem 2.1 (Rendall), p. 5: for vacuum data on two
+      characteristic hypersurfaces meeting transversely in S, "there exists an open neighbourhood U of S in the region
+      {x¹ ≥ 0, x² ≥ 0}, a unique function Ω on (N1 ∪ N2) ∩ U and a unique smooth Lorentz metric g_μν on U" solving the
+      vacuum equations; and "The above extends easily to non-vacuum models with energy-momentum tensors of the form"
+      T_22, T_2A, T_12 given by matter data and the listed metric jets on {x¹ = 0} (p. 5). Section 3 (p. 5) treats
+      "energy-momentum tensors of the form T_μν ℓ^ν = T_μ(g, φ, ∂_∥ g, ∂_∥ φ, x) (15), for some fields φ satisfying
+      equations which, when the metric is considered as given, possess a well-posed characteristic Cauchy problem", with
+      every metric component prescribed on N1 ∪ N2 in a generalised wave-map gauge, and concludes (p. 9), "assuming that
+      the reduced Einstein equations (see (43) below) can be complemented by well-posed evolution equations for the
+      matter fields", a solution of the reduced equations "in a future neighbourhood of S", which solves the full
+      equations "if and only if [11] H^μ vanishes on N1 ∪ N2" (their H^λ = g^(αβ)Γ^λ_αβ − W^λ is this section's W, their
+      W its source H). On uniqueness, Section 4.3 (p. 16), of vacuum data: "Here uniqueness is understood locally, though
+      again it is clear that unique maximal globally hyperbolic developments should exist in the current context."
+      Applied here: the dusts' T_μν ℓ^ν on N is algebraic in g and the dusts' fields (D463), so of the form (15) with no
+      derivative; given g, each dust is a first-order transport along its own null direction with free data on the
+      hypersurface it crosses and its value on the other fixed by transport from S (D470), which is the well-posedness
+      (15) asks for, by characteristics (not written out); and W vanishes on N ∪ N′ by D440-D441 and the corner
+      conditions (D455). So, given that well-posedness, the record's characteristic problem with its two dusts has a
+      solution of the reduced equations near S, which solves the full equations since W = 0 on N ∪ N′; uniqueness is
+      stated there for vacuum and locally, and for the dusts rests on the same reduction (not read further); P2's
+      propagation of W = 0 near S is the step [CP12] takes from [11] (not read).
+    - Not computed: existence and uniqueness beyond a neighbourhood of S (the reading gives them near S only, and
+      uniqueness locally), the dusts' well-posedness given g written out, and that the record's solution solves the
+      reduced equation exactly. The corner S needs no condition for the dusts: each dust's value on S is the restriction
+      of its free data on the hypersurface it crosses, which then seeds its transport along the other (D470).
 
 ## 4c. The two-dust background (D389)
 
