@@ -430,8 +430,8 @@ What it does not give:
 - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
   the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N gives
   φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the shell the
-  leading means are static, and their products are r⁻⁶ (D447, `checks/sources5.py` Q1-Q3): every term of P quadratic in a
-  static h homogeneous of degree −2 has derivative order plus c-order two, so it is homogeneous of degree −6 on
+  leading means are static, and their products are r⁻⁶ (D447, `checks/sources5.py` Q1-Q3): every term of P quadratic in
+  a static h homogeneous of degree −2 has derivative order plus c-order two, so it is homogeneous of degree −6 on
   Minkowski, and higher orders of degree −8 or less (computed at p and 2p for Ric and for δ*_(E_C) Υ⁰ with random static
   h and the record's c_C = r⁻¹(dt − v_C dr), 30 digits; a non-static h breaks it; D449), and Tangherlini's corrections
   lower the degree. So they are o(r⁻⁴), as needed. The cross terms with the means' remainder in E_(5/2) are o(r⁻⁴) too
@@ -441,11 +441,11 @@ What it does not give:
   (fitted exponent within 0.08 of −9/2 over r = 8-128); the others are O(r^(−11/2)) or less, and the remainder's own
   products O(r⁻⁵). A remainder whose derivatives all gain would give O(r^(−13/2)). The margin over r⁻⁴ is only r^(−1/2):
   by the rule above an r^(−9/2) source contributes at ρ^(5/2), a half-integer power, which bears on (v)'s open question
-  whether half-integer exponents occur. The sources from e := g_λ − g_app (D461, corrected D464 and D468). (P-iii) bounds
-  e and ∂e by C t⁻² with no gain (N1STAR-PROOF.md 1041-1042), and (9.8) with Lemma 9.3(a) bounds the higher derivatives
-  of w_n on the far region (τ ≤ τ_T, t ≥ λ⁻²), |∂ʲw_n| ≲ λ^(K′−2−j) t⁻² for 1 ≤ j ≤ k − 2 uniformly in n, again with no
-  gain (verifier 198; one power of λ better than D464 stated, verifier 199; the passage from w_n to e is not checked). So
-  where they act, the terms quadratic in e and h ∂²e are of order r⁻⁴, attained for an e in that class
+  whether half-integer exponents occur. The sources from e := g_λ − g_app (D461, corrected D464 and D468). (P-iii)
+  bounds e and ∂e by C t⁻² with no gain (N1STAR-PROOF.md 1041-1042), and (9.8) with Lemma 9.3(a) bounds the higher
+  derivatives of w_n on the far region (τ ≤ τ_T, t ≥ λ⁻²), |∂ʲw_n| ≲ λ^(K′−2−j) t⁻² for 1 ≤ j ≤ k − 2 uniformly in n,
+  again with no gain (verifier 198; one power of λ better than D464 stated, verifier 199; the passage from w_n to e is
+  not checked). So where they act, the terms quadratic in e and h ∂²e are of order r⁻⁴, attained for an e in that class
   (`checks/sources5.py` Q6). But e is bounded only on P′, which has v ≤ V′_P, while I_0 lies at v → ∞: these sources sit
   in a strip of bounded v along N. In the scalar l = 0 model on flat 5D, r²φ → −1/2 for r⁻⁴ on all of v ≥ 0 (the G(1) =
   −f/2 above), but r · r²φ → about −0.785 for r⁻⁴ on the strip v ∈ [0, 1] (−0.784 at r = 400 and still drifting;
@@ -459,58 +459,74 @@ What it does not give:
   harmonic computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign.
   The strip for the full operator (D487, corrected D491; `checks/stripfull5.py` P1-P5): at radius r the strip is s = v/r
   ∈ [0, d/r], so for the degree −3 profile h = r⁻³F(s) a source of Cartesian size r⁻⁴ on it acts as σd δ(s) at N (σd = ∫
-  r⁴S dv over the strip). With harmonics5's reduction at degree −3 (M2 = (s − s²/2)I), integrating (sF′)′ + (M1(0) − I)F′
-  = σd δ over the strip, with F = 0 on N, gives F(0+) = (M1(0) − I)⁻¹σd; beyond it the solution is the regular one with
-  that value (distributionally: F = H(s)F_reg and sδ′ = −δ; the delta is the strip's leading term in d). So the strip
-  enters at ρ³ with coefficient Kσd, K = T_3(M1(0) − I)⁻¹ and T_3 the degree −3 transfer from N to I_0, when every
+  r⁴S dv over the strip). With harmonics5's reduction at degree −3 (M2 = (s − s²/2)I), integrating (sF′)′ + (M1(0) −
+  I)F′ = σd δ over the strip, with F = 0 on N, gives F(0+) = (M1(0) − I)⁻¹σd; beyond it the solution is the regular one
+  with that value (distributionally: F = H(s)F_reg and sδ′ = −δ; the delta is the strip's leading term in d). So the
+  strip enters at ρ³ with coefficient Kσd, K = T_3(M1(0) − I)⁻¹ and T_3 the degree −3 transfer from N to I_0, when every
   eigenvalue has Re m > 1. In the scalar model this is exact: M1(0) = 5/2, F(0+) = −d/3, the regular solution is ₂F₁(3 +
   l, 1 − l; 5/2; s/2), and Gauss's second summation theorem gives F(1) = C_l, verifier 202's coefficient (P1: to 10⁻³⁰
   for l ≤ 6, through the same series transfer as P3). For the record's full operator at its point (γ_C = 10⁶), at every
   scalar- and vector-type harmonic l ≤ 12: M1(0) at degree −3 is M1(0) at degree −2 plus I (exact, P2); its eigenvalues
   are 2.5, 2.51, 2.52 and the damping's 1.5 × 10⁶ and 3 × 10⁶ (at l = 0 and 1 the least is 2.5099), so every Re m ≥ 2.5;
   and K is finite, its norm in each harmonic's normalised basis at most 2.99 (scalar type 1.97 to 2.99, vector type 0.17
-  to 1.14; the series at 400 and 600 terms agree to 30 digits; P3). So for every harmonic computed the strip enters at ρ³
-  with no logarithm and does not reach the r⁻² coefficient. Its width corrections are analytic in d, at integer powers
-  (D491; verifier 208 corrected D487's ρ^(2+m)): the operator is invariant under t → t + c, so a sheet of source at v =
-  v_0 gives r⁻³F(1 − v_0/r) at t = 0, and over a uniform strip r³h(I_0) = dKσ + (d²/r)K4σ + O(d³/r²), K4 = −½T_3′(M1(0) −
-  I)⁻¹ with T_3′ the transfer to F′(1): ρ⁴, ρ⁵, …. In the scalar model K4 = 1/2, 0, −1/6, 0, 1/10, 0, −1/14 for l = 0-6
-  (P1, to 10⁻³⁰), strip5's ρ⁴ at l = 2 and 4 (D474) and, at l = 0, the drift of −0.784 at r = 400 above (−π/4 + 1/800 =
-  −0.78415); for the full operator K4 is nonzero at every harmonic l ≤ 12, normalised norm 1.70 to 3.31 (scalar type) and
-  0.063 to 0.58 (vector type). This is for a source r⁻⁴σ(v) with σ independent of r; a source only bounded by r⁻⁴ is not
-  covered, the kernel having no sign. Uniformly in l (D492, `checks/uniform3_5.py` V1-V7): Lemma 6.5‴'s steps run on the
-  degree −3 matrices. The structure holds (second-order part m2 I, M0 = x²I/2 + O(x), M1 = O(1) in x = κ^(1/2)); A_3(0) =
-  A_2(0) + I exactly, independent of x, with eigenvalues 2, 2.0099, 2.01, 2.02 and the damping's (scalar type; 2, 2.01
-  and 1.5 × 10⁶ on the vector type), and it has a positive Lyapunov metric; the jump J = M1_3(0) − I is M1_2(0),
-  independent of x, with |J⁻¹|_2 ≤ 0.993 (scalar) and 0.698 (vector). So |K|_2 ≤ K0_3 |J⁻¹|_2 in uniform5's normalised
-  basis for every l ≥ 2, ln K0_3 = 5.99 × 10¹³ and 5.87 × 10¹²: uniform, not sharp (the computed values at l = 2-6 are
-  2.2 to 2.4 and 0.34 to 1.0 there; in harmonics5's weighting, which P3 uses, 2.76 to 2.99 and 0.353 to 1.14, the two
-  weightings differing by factors bounded independently of l, in [0.645, 1.732] and [1.118, 1.414], so the bound is
-  uniform in either; verifier 212, D500). J's eigenvalues, 1.5, 1.5099, 1.51, 1.52 and the damping's, do not depend on x,
-  so M1_3(0) = J + I has every real part > 1 at every l ≥ 2, not only at the l computed (P3's '2.51' at l ≥ 2 is 2.5099
-  and 2.51 at four digits; D500). K4 is bounded by the derivative estimate, at most linearly in l. Only uniform5's s_1 =
-  1 case is rerun at degree −3; that covers K and K4, which need F(1) and F_s(1), but not the ρ⁵ and later width
-  coefficients, which would need its s_1 = 3/2 case and derivative induction (D500). Computed to l = 40 (D496,
-  `checks/stripfull5.py 40`, every check passing): on the scalar type ‖K‖ is 2.74 and ‖K4‖ 2.73 at l = 40, both flat from
-  about l = 10 (K4 does not grow as the bound allows), and on the vector type both fall (0.054 and 0.021 at l = 40); K at
-  γ_C = 10⁵ departs from its value at 10⁶ by up to 6.8 at l = 40 (scalar type), so what is computed is the record's γ_C =
-  10⁶, not the limit of large damping. The tensor type (D502, `checks/stripfull5.py` P4-P5): on h = r^(2−p)F(s)T_AB with
-  T a TT harmonic of level l ≥ 2 on S³, the gauge 1-form vanishes (harmonics5 S3), so L = D Ric, which on flat space is
-  −½□ on each Cartesian component once δGh = 0; and each Cartesian component of T is a scalar harmonic of degree l
-  (D439). So the tensor type at degree −3 is the scalar model at κ = l(l + 2), and its K and K4 are P1's in L's
-  normalisation. Checked on the record's operator itself, exactly at three points, on random combinations of all the
-  level-l harmonics for l = 2, 3 and 4 (built as homogeneous polynomial tensors on ℝ⁴, tangent, traceless,
-  divergence-free and harmonic: 10, 24 and 42 of them, 2(l + 3)(l − 1), the full count: the SO(4) representations (l,
-  ±2), each of dimension (l + 3)(l − 1) by Weyl's formula, as in Lindblom, Taylor and Zhang, arXiv:1709.08020, eqs.
-  (39)-(40), read by verifier 215), every component of L h and of the gauge 1-form as predicted, while a wrong κ and an
-  added trace part fail (P4). Verifier 215 (D504) confirmed it by another route: the six SU(2)-invariant l = 2 TT tensors
-  with F free, the record's operator at six points, δGh, E^ΥGh and w each zero separately; and every one of the 76 basis
-  harmonics at l = 2, 3, 4 traceless, divergence-free and with rough Laplacian −(l(l + 2) − 2). By Gauss's second
-  summation theorem K = 2(−1)^((l − 1)/2)/(l(l + 2)) and K4 = 0 at odd l, K = 0 and K4 = −(−1)^(l/2)/(l + 1) at even l,
-  exactly from the terminating sums for every l ≤ 40 (`stripfull5.py 40`; a plain run checks l ≤ 12), the series transfer
-  agreeing for l ≤ 12 to 9.3 × 10⁻²⁷ (P5). So on the tensor type the strip enters at ρ³ only at odd l, with |K| ≤ 2/15
-  (at l = 3), and at even l first at ρ⁴, with |K4| ≤ 1/3 (at l = 2): both fall with l, so the bound is uniform without
-  Lemma 6.5‴, and there is no logarithm (M1(0) = 5/2). Every type is now computed. Not computed: whether the r⁻³ term,
-  which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  to 1.14; the series at 400 and 600 terms agree to 30 digits; P3). So for every harmonic computed the strip enters at
+  ρ³ with no logarithm and does not reach the r⁻² coefficient. Its width corrections are analytic in d, at integer
+  powers (D491; verifier 208 corrected D487's ρ^(2+m)): the operator is invariant under t → t + c, so a sheet of source
+  at v = v_0 gives r⁻³F(1 − v_0/r) at t = 0, and over a uniform strip r³h(I_0) = dKσ + (d²/r)K4σ + O(d³/r²), K4 =
+  −½T_3′(M1(0) − I)⁻¹ with T_3′ the transfer to F′(1): ρ⁴, ρ⁵, …. In the scalar model K4 = 1/2, 0, −1/6, 0, 1/10, 0,
+  −1/14 for l = 0-6 (P1, to 10⁻³⁰), strip5's ρ⁴ at l = 2 and 4 (D474) and, at l = 0, the drift of −0.784 at r = 400
+  above (−π/4 + 1/800 = −0.78415); for the full operator K4 is nonzero at every harmonic l ≤ 12, normalised norm 1.70 to
+  3.31 (scalar type) and 0.063 to 0.58 (vector type). This is for a source r⁻⁴σ(v) with σ independent of r; a source
+  only bounded by r⁻⁴ is not covered, the kernel having no sign. Uniformly in l (D492, `checks/uniform3_5.py` V1-V7):
+  Lemma 6.5‴'s steps run on the degree −3 matrices. The structure holds (second-order part m2 I, M0 = x²I/2 + O(x), M1 =
+  O(1) in x = κ^(1/2)); A_3(0) = A_2(0) + I exactly, independent of x, with eigenvalues 2, 2.0099, 2.01, 2.02 and the
+  damping's (scalar type; 2, 2.01 and 1.5 × 10⁶ on the vector type), and it has a positive Lyapunov metric; the jump J =
+  M1_3(0) − I is M1_2(0), independent of x, with |J⁻¹|_2 ≤ 0.993 (scalar) and 0.698 (vector). So |K|_2 ≤ K0_3 |J⁻¹|_2 in
+  uniform5's normalised basis for every l ≥ 2, ln K0_3 = 5.99 × 10¹³ and 5.87 × 10¹²: uniform, not sharp (the computed
+  values at l = 2-6 are 2.2 to 2.4 and 0.34 to 1.0 there; in harmonics5's weighting, which P3 uses, 2.76 to 2.99 and
+  0.353 to 1.14, the two weightings differing by factors bounded independently of l, in [0.645, 1.732] and [1.118,
+  1.414], so the bound is uniform in either; verifier 212, D500). J's eigenvalues, 1.5, 1.5099, 1.51, 1.52 and the
+  damping's, do not depend on x, so M1_3(0) = J + I has every real part > 1 at every l ≥ 2, not only at the l computed
+  (P3's '2.51' at l ≥ 2 is 2.5099 and 2.51 at four digits; D500). K4 is bounded by the derivative estimate, at most
+  linearly in l. Only uniform5's s_1 = 1 case is rerun at degree −3; that covers K and K4, which need F(1) and F_s(1),
+  but not the ρ⁵ and later width coefficients, which would need its s_1 = 3/2 case and derivative induction (D500).
+  Computed to l = 40 (D496, `checks/stripfull5.py 40`, every check passing): on the scalar type ‖K‖ is 2.74 and ‖K4‖
+  2.73 at l = 40, both flat from about l = 10 (K4 does not grow as the bound allows), and on the vector type both fall
+  (0.054 and 0.021 at l = 40); K at γ_C = 10⁵ departs from its value at 10⁶ by up to 6.8 at l = 40 (scalar type), so
+  what is computed is the record's γ_C = 10⁶, not the limit of large damping. The tensor type (D502,
+  `checks/stripfull5.py` P4-P5): on h = r^(2−p)F(s)T_AB with T a TT harmonic of level l ≥ 2 on S³, the gauge 1-form
+  vanishes (harmonics5 S3), so L = D Ric, which on flat space is −½□ on each Cartesian component once δGh = 0; and each
+  Cartesian component of T is a scalar harmonic of degree l (D439). So the tensor type at degree −3 is the scalar model
+  at κ = l(l + 2), and its K and K4 are P1's in L's normalisation. Checked on the record's operator itself, exactly at
+  three points, on random combinations of all the level-l harmonics for l = 2, 3 and 4 (built as homogeneous polynomial
+  tensors on ℝ⁴, tangent, traceless, divergence-free and harmonic: 10, 24 and 42 of them, 2(l + 3)(l − 1), the full
+  count: the SO(4) representations (l, ±2), each of dimension (l + 3)(l − 1) by Weyl's formula, as in Lindblom, Taylor
+  and Zhang, arXiv:1709.08020, eqs. (39)-(40), read by verifier 215), every component of L h and of the gauge 1-form as
+  predicted, while a wrong κ and an added trace part fail (P4). Verifier 215 (D504) confirmed it by another route: the
+  six SU(2)-invariant l = 2 TT tensors with F free, the record's operator at six points, δGh, E^ΥGh and w each zero
+  separately; and every one of the 76 basis harmonics at l = 2, 3, 4 traceless, divergence-free and with rough Laplacian
+  −(l(l + 2) − 2). By Gauss's second summation theorem K = 2(−1)^((l − 1)/2)/(l(l + 2)) and K4 = 0 at odd l, K = 0 and
+  K4 = −(−1)^(l/2)/(l + 1) at even l, exactly from the terminating sums for every l ≤ 40 (`stripfull5.py 40`; a plain
+  run checks l ≤ 12), the series transfer agreeing for l ≤ 12 to 9.3 × 10⁻²⁷ (P5). So on the tensor type the strip
+  enters at ρ³ only at odd l, with |K| ≤ 2/15 (at l = 3), and at even l first at ρ⁴, with |K4| ≤ 1/3 (at l = 2): both
+  fall with l, so the bound is uniform without Lemma 6.5‴, and there is no logarithm (M1(0) = 5/2). Every type is now
+  computed. *Compatible with Lemma 0.1 (D508; deduced, with `checks/stripderiv5.py` as a computed check).* Lemma 0.1
+  (PART-VII-ASSEMBLY.md:56-69) asks only that the Cartesian components lie in ρ²C^∞ (γ̃) and ρ³C^∞ (k̃) of the radial
+  compactification; no structure is asked of the coefficients, the class's ℰ_0 = {(j, 0) : j ≥ 2} containing ρ³. On {t =
+  0} the strip's term is, harmonic by harmonic, r⁻³ ∫ σ(v) F(1 − vρ) dv over the strip (time-translation invariance), F
+  the regular degree −3 solution, and s = 1 is an ordinary point (m2(1) = ½); so it is ρ³ times a function of ρ whose
+  k-th derivative is ∫ σ(v) (−v)^k F^(k)(1 − vρ) dv, with 1 − vρ ∈ [½, 1] for ρ ≤ 1/(2d). On [½, 1] the equation is
+  regular (m2 ≥ 3/8), the structure M1 = O(1), M0 = x²I/2 + O(x) with entries polynomial in s holds at degree −3 (D492,
+  V1), and the s1 = 1 energy bound gives |F| ≤ K0_3|F(0)| and |F_T| ≤ K0_3(x²/2 + 1)^(1/2)|F(0)| there; differentiating
+  the equation then gives |F^(k)| ≤ K_k(1 + κ)^(k/2)|F(0)| with K_k independent of l (uniform5's induction U5, which for
+  s ≤ 1 needs only s1 = 1; this also bounds the ρ⁵ and later width coefficients D500 left open, by polynomials in l).
+  Computed at degree −3 for l = 2-20 (stripderiv5): |F^(k)(1)|/(1 + κ)^(k/2) in uniform5's basis is about 1.5 l at k = 0
+  on the scalar type (31.6 at l = 20; 1.6, flat, on the vector type), about 3.0 at k = 1, and falls with l for k = 2, 3,
+  4: polynomial, as the induction says. So for a source r⁻⁴σ(v, ω) with σ smooth in ω and supported in a bounded
+  v-interval, the sum over harmonics converges with every derivative, and the strip's term lies in ρ³C^∞ ⊂ ρ²C^∞ (its
+  t-derivative, of degree −4, in ρ⁴C^∞ ⊂ ρ³C^∞): inside Lemma 0.1's sufficient condition. Not covered: sources known
+  only by a bound O(r⁻⁴), which is what the record gives (D464), and half-integer exponents, for which Lemma 0.1 is not
+  the class (D467).
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

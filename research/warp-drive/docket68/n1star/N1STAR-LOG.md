@@ -7351,3 +7351,9 @@ frequency up to 96 is covered.
 proof uses up was settled from the proof's own bookkeeping: a step repeated more than a million billion times costs at
 least one derivative each time, so the proof as written spends at least about 10¹⁵ derivatives, not 10⁸. This is what the
 written argument costs, not what the result needs; the number is set by one very small spectral gap.
+
+**D508 (2026-11-01): the strip's term fits the data class.** The condition the record uses to put data in its class asks
+only for smooth expansions in inverse powers of the radius. The strip's contribution is such an expansion, mode by mode,
+and its derivatives grow only polynomially with the mode, so for a smooth source the contribution fits the class. What is
+still missing is that the record's actual sources have such an expansion: the record bounds them, but does not expand
+them.

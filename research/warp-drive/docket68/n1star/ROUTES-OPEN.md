@@ -5484,6 +5484,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10¹⁶, against LD3 (iv)'s 2.06 × 10⁸ and 4.3 × 10⁹. A floor (a round may cost more); it bounds what this proof's
   accounting delivers, not the optimal loss. The lever is the round's step, (1.1)'s ε_ind. Open: E1'a, E1'c as numbers
   (an upper bound needs every weight chosen).
+- D508 (BEYOND5 3(b), deduced; `checks/stripderiv5.py`, computed check): the strip's r⁻³ term is compatible with Lemma
+  0.1. The lemma asks only ρ²C^∞ and ρ³C^∞ components on the radial compactification, with no structure on the
+  coefficients. Harmonic by harmonic the strip's term on {t = 0} is r⁻³ ∫ σ(v) F(1 − vρ) dv, s = 1 an ordinary point; its
+  ρ-derivatives need F^(k) on [½, 1], where uniform5's induction from the s1 = 1 energy bound (held at degree −3, D492)
+  gives |F^(k)| ≤ K_k(1 + κ)^(k/2)|F(0)|, K_k independent of l; this also covers the ρ⁵ and later width coefficients D500
+  left open. Computed for l = 2-20: the normalised derivatives at I_0 grow at most about linearly in l (k = 0, scalar
+  type, 1.5 l) and fall with l for k ≥ 2. So for a source r⁻⁴σ(v, ω), σ smooth in ω with bounded v-support, the strip's
+  term is in ρ³C^∞, inside Lemma 0.1's condition. Not covered: the record's sources, known only by a bound O(r⁻⁴), and
+  half-integer exponents (D467). Open: an expansion of those sources, and the remainder beyond V′_P.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
