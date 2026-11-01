@@ -8,8 +8,14 @@
     n = 160, B = 0: min R 0.674, R_u < 0 True, psi in [-0.0113, 0.0153], max|mu - mu(v)| 0.0122, max g(dtau, dtau) -1.0514 (ratio to -1 - mu/R^2 >= 0.9918), max g(d(v+tau)) -3.0514; 14 cells on a <= R <= a + 0.05, all trapped True, mu - a^2 >= 0.8554
     n = 160, B = 0.4: min R 0.681, R_u < 0 True, psi in [-0.0161, 0.0095], max|mu - mu(v)| 0.1052, max g(dtau, dtau) -1.0514 (ratio to -1 - mu/R^2 >= 0.9947), max g(d(v+tau)) -3.0514; 16 cells on a <= R <= a + 0.05, all trapped True, mu - a^2 >= 0.7624
   D3: B = 0 converges to Vaidya (psi, mu - mu(v) -> 0) True; with B, max psi -> 0 True; R_u < 0 and (a), (c) with the record's margins True; inner boundary trapped with mu > a^2 True
+    D3b, B = 0, n = 80: 161 of 161 v-columns cross R = a, all trapped True, min mu - a^2 0.5095
+    D3b, B = 0, n = 160: 321 of 321 v-columns cross R = a, all trapped True, min mu - a^2 0.5099
+    D3b, B = 0.4, n = 80: 161 of 161 v-columns cross R = a, all trapped True, min mu - a^2 0.4129
+    D3b, B = 0.4, n = 160: 321 of 321 v-columns cross R = a, all trapped True, min mu - a^2 0.4131
+  D3b: the whole curve R = a crossed, trapped, mu > a^2: True
   D4: strong outgoing pulse: 654 cells on a <= R <= a + 0.05, min mu - a^2 = -0.4057 (negative), 1 - mu/R^2 up to 0.8500 there, so R = a is not trapped everywhere and (b) fails; (a), (c) still hold (-1.0514, -3.0514)
 D1 PASS
 D2 PASS
 D3 PASS
+D3b PASS
 D4 PASS

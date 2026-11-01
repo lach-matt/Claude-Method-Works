@@ -5772,6 +5772,28 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   O-classes for the approximant and residual. Conormality alone gives the strip's term ρ²C^(0,1), not ρ²C¹ (ρ³ sin log
   ρ); Lemma 0.1 needs the expansion, which the transport 2∂_v(ℓ + 3/(2r)) of (9.5) would give term by term with the q =
   5/2 logarithm to control. Open: all of it.
+- D537 (verifier 231 on D533; twodomain5 rerun, identical; Ricci, the evolution and the mass laws recomputed
+  independently; probes at n = 320, on the whole curve R = a, and with U1 = 8): the algebra holds; two MAJOR findings on
+  coverage and one on a deduction. MAJOR: on D533's rectangle the curve R = a lies only at v ∈ [1.975, 2], about 1 % of
+  the v-range; on u ∈ [0, 8] it is crossed at every v, trapped, with min μ − a² = 0.510 (B = 0) and 0.413 (B = 0.4) (now
+  twodomain5 D3b). MAJOR: "meets Σ_τ0 by (e)" does not follow; (e) gives containment, the meeting needs the background
+  on all of Ω, and the rectangle does not reach Σ_τ0 (outgoing rays from R = a leave it at τ ≈ −0.7 to −1.0, above τ0 <
+  −1.47), so "has its domain" holds only given that background. MINOR: R_u < 0 on u_0 needs μ > 0 and R_u < 0 at the
+  corner; the carry-off condition is sufficient, not necessary (exact: μ(u_0, v) − (2/3)∫ Be^(−2s)R_v du > a²); Ω's
+  third constraint uses v̂, and V, T, τ_end need the two-dust r_q; Theorem E needs C^k and (E1), (e) being C⁰; min ψ and
+  μ's departure were unconverged (−0.077 to −0.0098; 0.156 to 0.098); the margin test has tolerance 0.99. NITs: the
+  corner gauge is not Tangherlini's; the maximum of g^(−1)(dτ, dτ) sits on the data cone. Confirmed: D1, the sign of B
+  (C_u = 0 iff Ric_uu = B/R³ ≥ 0), (a)-(c), (e), (b)'s equivalence, the convergence at B = 0 (0.0997 to 0.0048 at n =
+  40-320), the control on the full curve. Corrected in FAMILIES5 4i and twodomain5; the D533 entry above keeps its text.
+- D538 (verifier 232 on D534; I6, I9, I15, G3, D3, D4, F4 read at source; the arithmetic repeated): the bound holds, its
+  identity, window, per-round increase, log orders (one application takes every j ≤ k, G3:363-368), start and comparison
+  base all confirmed. MAJOR: LD14's account of m_ι was too weak. G3:338-339 builds ℰ^ι_ind from the states' index sets,
+  2 + ℕ_0 and (2, 1), classes (k, 0) ∪ (k + E) with E the indicial-root offsets, so on LD13's reading m_ι ∈ {d1} ∪ [1,
+  ∞) and m_ι ≥ d1 with no computation; "not tied to d(Re λ, ℤ)" was false (d1 = d(Re λ_s1,2, ℤ)). The open point is only
+  whether the ρ^(2+d1) term is present: at most 1,470,302 rounds per level, or one. MINOR: LD8 cited I6:119 for min Re
+  ℰ^ι_ind ≥ ε_ind, where I6 defines its own ε_ind (the inequality still holds); "distinct from (1.1)'s" holds for the
+  value, not the sets (I9:32-33). NITs: 0.0571 is about 1/17.5, not 1/20; the ratio reaches 1 at m_ι ≈ 1.90 × 10⁻⁸.
+  Corrected in LOSS-D LD14 and LD8; the D534 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -317,7 +317,10 @@ loop counts of section 3.
     2 + π_1 ℰ_col. The bound Re w ≥ ε_ind keeps a single translate out of the window above the same integer, but not a
     sum out of the window above the next one: 2 + w lies in (3, 3 + ε_K] when Re w ∈ (1, 1 + ε_K]. The distance
     d(Re λ, ℤ) ≥ ε_ind is stated for the single roots of F2 (2.2) (F2:130-131; D3:44-48), and for ℰ^ι_ind the record
-    gives only min Re ≥ ε_ind (I6:119). So two kinds of element remain, none computed as numbers at n = 4 in the
+    gives only min Re ≥ ε_ind (I6:119). [D538, verifier 232: I6:118-119 defines its own ε_ind := min Re ℰ^ι_ind, not
+    (1.1)'s, so this citation does not give the inequality; it holds anyway, min Re ℰ^ι_ind ≥ d1 > δ_50 ≥ (1.1)'s ε_ind
+    (LD14).]
+ So two kinds of element remain, none computed as numbers at n = 4 in the
     record:
     - a sum g + Σ n_i w_i with real part in (2, 2 + ε_ind) ∪ (3, 3 + ε_ind), for any generator g. For g = λ_♯ this
       asks Re Σ n_i w_i within ε_ind above ½ − δ_♯ = 0.4901 (mod 1); for g = 2 and 3, within ε_ind above an
@@ -695,20 +698,23 @@ loop counts of section 3.
     2 − ε at the levels below 3, I9:256-257), λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 at the record's point (LD8): at most
     ⌈0.4901/m_ι⌉. Unlike the level-2 loop (LD13), there is no factor for the number of exponents: the window is one
     round.
-  - *What m_ι is.* The record does not compute it. III.G″ (4.4) gives ℰ^ι_ind only as "an index set ℰ_ind with min Re
-    ℰ_ind > 0 depending only on L̄ and on whether λ = 1" (PART-III-G3-GRAFT.md:298-299), and its proof says where it
-    comes from: the Myers-Perry formal solutions differ from the Minkowski ones at ι⁺ by corrections O(t_*^(−min Re
-    ℰ_ind)), ρ ~ t_*^(−1) there (G3:305-308), the s1 and v1 states entering through III.D″ (3.4) (G3:309-311). So m_ι is
-    the least relative exponent of those corrections at b_0, not (1.1)'s ε_ind, and it is not tied to d(Re λ, ℤ).
-  - *Conditional values.* If the corrections carry the offsets of the states' classes (LD9's ℰ_ind, least element d1 on
-    its reading), m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about (β − 2)/ε_ind of Lemma
+  - *What m_ι is.* The record does not compute it, but its class structure bounds it (corrected D538, verifier 232).
+    III.G″ (4.4) gives ℰ^ι_ind only as "an index set ℰ_ind with min Re ℰ_ind > 0 depending only on L̄ and on whether λ =
+    1" (PART-III-G3-GRAFT.md:298-299), and its proof says where it comes from: the Myers-Perry formal solutions differ
+    from the Minkowski ones at ι⁺ by corrections O(t_*^(−min Re ℰ_ind)), ρ ~ t_*^(−1) there (G3:305-308), the s1 and v1
+    states entering through III.D″ (3.4) (G3:309-311). G3:338-339 collects that set from "the states' index sets of
+    III.D″, III.D‴, III.F⁗, 2 + ℕ_0, and (2, 1) when λ = 1", whose classes are (k, 0) ∪ (k + E) with E the indicial-root
+    offsets (D3:198-203, F4:80, D4:52-60). On LD13's reading of those offsets, m_ι ∈ {d1} ∪ [1, ∞): m_ι ≥ d1 = d(Re
+    λ_s1,2, ℤ), with no Tangherlini computation. It differs from (1.1)'s ε_ind in value (VI4:38); the sets overlap
+    (I9:32-33).
+  - *Values.* So m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about (β − 2)/ε_ind of Lemma
     3.2's tf-rounds at the same level (LD12 (ii)), on average ½/ε_ind ≥ 2.5755 × 10⁷: a ratio 2(2 − λ_♯)ε_ind/m_ι ≤
-    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the corrections are at integer
-    orders only, m_ι ≥ 1 and the loop is one round per level. Only m_ι of order ε_ind would make it comparable to the
-    counted loops, which would need a correction exponent below about 10⁻⁷ that no computed root supplies.
-  - *What is needed.* m_ι itself: the expansion at ρ = 0, at b_0, of III.G″ Definition 2.5's Myers-Perry formal
-    solutions against the Minkowski ones. This is computable from 5D Tangherlini; it is not done here. With LD13, the
-    two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the level-2
+    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the ρ^(2+d1) term is absent (LD9's
+    open point), m_ι ≥ 1 and the loop is one round per level. Only m_ι near ε_ind would make it comparable to the
+    counted loops (ratio 1 at m_ι ≈ 1.90 × 10⁻⁸), which the class structure excludes (corrected D538).
+  - *What is needed.* whether the ρ^(2+d1) term is present in the states' expansions, which decides between at most
+    ⌈0.4901/d1⌉ = 1,470,302 rounds per level and one (corrected D538: m_ι ≥ d1 itself needs no computation). With LD13,
+    the two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the level-2
     chains, m_ι for ι⁺), the first up to the factor N_2.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.

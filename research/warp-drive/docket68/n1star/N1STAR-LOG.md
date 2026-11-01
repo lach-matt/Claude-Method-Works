@@ -7520,3 +7520,13 @@ strip for the parts of its approximate solution built by integrating along light
 remainder. The natural tool is the scaling symmetry of flat space. But even full control of that kind is not enough: the
 data need an actual expansion in inverse powers of the radius, which the equations' transport structure should give step
 by step, provided one logarithmic term is kept out.
+
+**D537 (2026-11-01): the two-dust region, checked.** An independent check confirmed the algebra but found the
+computation covered too little: the inner boundary had been tested only at the last moment of the run. On a larger
+computed region it holds all along, with room to spare. It also found that one conclusion, that the light rays reach the
+initial surface, needs the background on the whole region, which is still to be built.
+
+**D538 (2026-11-01): the last loop, checked and tightened.** An independent reading found that the record's own
+bookkeeping already fixes the unknown step from below by its smallest root, so no new computation is needed for the
+bound: that loop is at most about one seventeenth of the counted ones. Whether it is even shorter, a single round per
+level, depends on one term the record does not settle.

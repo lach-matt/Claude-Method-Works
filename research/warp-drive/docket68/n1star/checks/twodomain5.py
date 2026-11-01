@@ -16,19 +16,25 @@ function, and what that does to the lemma.
      d(vhat + tau)) = f - 4e^(-psi); at psi = 0 the record's -1 - mu/r^2, mu/r^2 and -3 - mu/r^2 (Lemma 1.1 (a)-(c)).
      Since psi <= 0 and f <= 1: g^-1(dtau, dtau) <= -1 - mu/R^2, g^-1(d(vhat + tau), .) <= -3 - mu/R^2, and on R = a,
      g^-1(dR, dR) = 1 - mu/a^2 < 0 exactly when mu > a^2 there.
-  D3 (computed) a seeded hole: corner data of 5D Tangherlini, mu0 = 1, at R = 4; an ingoing pulse A = sin^4 on v in
-     [0.5, 2] (mu to about 1.5) and an outgoing one B = 0.4 sin^4 on u in [1, 2]; twodust5's diamond scheme on u in [0,
-     U1], v in [0, 2], U1 where R(U1, 2) = 0.62, clear of the singularity (min R about 0.67; later v needs resolving a
-     strip between the horizon and the singularity that thins exponentially in v). At n = 40, 80, 160 steps per unit:
-     R_u < 0 everywhere; with B = 0, max |psi| and max |mu - mu(v)| fall with n (discretisation, about first order near
-     R = a, where R_u is steep); with B, max psi falls with n to 0 while min psi stays at about -0.016; max g^-1(dtau,
-     dtau) <= -1, its ratio to -1 - mu/R^2 rising to 1 with n (above 0.99 at n = 160); the cells with a <= R <= a +
-     0.05, a = 0.7, are trapped, with mu - a^2 >= 0.5.
+  D3 (computed) a seeded hole: corner data with mass mu0 = 1 at R = 4 (mu and R_u as 5D Tangherlini's, the gauge e^(2s)
+     = R_v = 1/2); an ingoing pulse A = sin^4 on v in [0.5, 2] (mu to about 1.5) and an outgoing one B = 0.4 sin^4 on u
+     in [1, 2]; twodust5's diamond scheme on u in [0, U1], v in [0, 2], U1 where R(U1, 2) = 0.62, clear of the
+     singularity in R (min R about 0.67; later v needs resolving a strip between the horizon and the singularity that
+     thins exponentially in v). At n = 40, 80, 160 steps per unit: R_u < 0 everywhere; with B = 0, max |psi| and max |mu
+     - mu(v)| fall with n (discretisation, about first order near R = a, where R_u is steep); with B, max psi falls with
+     n to 0 and min psi rises with n (-0.077, -0.035, -0.016, -0.0098 at n = 40 to 320, verifier 231), its limit small
+     and negative, and |mu - mu(v)| is about 0.1, also still moving with n; max g^-1(dtau, dtau) <= -1, its ratio to -1
+     - mu/R^2 rising to 1 with n (at least 1 analytically; 0.99 at n = 160 is the tolerance; the maximum sits on the
+     data cone u = 0); the cells with a <= R <= a + 0.05, a = 0.7, are trapped with mu - a^2 >= 0.5, but on this
+     rectangle they lie only at v >= 1.975 (verifier 231).
+  D3b (computed) the inner boundary on the whole curve R = a (D537): on u in [0, 8], v in [0, 2], cells with R <= 0.3
+     left out, at n = 80 and 160, every v-column crosses R = a = 0.7, the last cell with R >= a is trapped in every
+     column, and min mu - a^2 there is 0.510 (B = 0) and 0.413 (B = 0.4), the same at both n to 10^-3.
   D4 (computed control) a strong outgoing pulse just outside the horizon (B = 3 sin^4 on u in [3.5, 5]) carries enough
      mass out that mu < a^2 on part of R = a, which is then not trapped there: (b) fails while (a) and (c) hold, so
      (b)'s condition is a real one.
 
-Run: python3 checks/twodomain5.py   (about 25 seconds)
+Run: python3 checks/twodomain5.py   (about 45 seconds)
 """
 import math
 import sys
@@ -126,6 +132,25 @@ def corner_u(A, B, V1=2.0, Rc=0.62):
     return float(uu[np.where(np.isfinite(col) & (col >= Rc))[0][-1]])
 
 
+def inner_curve(n, A, B, a=0.7, U1=8.0, V1=2.0):
+    """D3b: along each v-column the last cell with R >= a before R falls below a; whether every column has one, all
+    trapped (R_v < 0), and the least mu - a^2 there"""
+    uu, vv, R, S = solve(n, A, B, U1=U1, V1=V1)
+    du, dv = uu[1] - uu[0], vv[1] - vv[0]
+    Ru = np.gradient(R, du, axis=0, edge_order=2)
+    Rv = np.gradient(R, dv, axis=1, edge_order=2)
+    mu = R**2 * (1 + 2 * np.exp(-2 * S) * Ru * Rv)
+    cols, mua, trapped = 0, [], True
+    for j in range(R.shape[1]):
+        idx = np.where(np.isfinite(R[:, j]) & (R[:, j] < a))[0]
+        if len(idx) == 0 or idx[0] < 2 or not np.isfinite(mu[idx[0] - 1, j]):
+            continue
+        i = idx[0] - 1
+        cols += 1
+        mua.append(mu[i, j] - a * a)
+        trapped &= bool(Rv[i, j] < 0)
+    return cols, R.shape[1], min(mua), trapped
+
 def measure(n, A, B, a=0.7, **kw):
     uu, vv, R, S = solve(n, A, B, **kw)
     du, dv = uu[1] - uu[0], vv[1] - vv[0]
@@ -178,6 +203,16 @@ def main():
     ok['D3'] = conv0 and convB and geo and inner
     print('  D3: B = 0 converges to Vaidya (psi, mu - mu(v) -> 0) %s; with B, max psi -> 0 %s; R_u < 0 and (a), (c) '
           'with the record\'s margins %s; inner boundary trapped with mu > a^2 %s' % (conv0, convB, geo, inner))
+
+    d3b = True
+    for lab, Bf in (('B = 0', zero), ('B = 0.4', Bw)):
+        res = {n: inner_curve(n, A, Bf) for n in (80, 160)}
+        for n, (c, tot, m, tr) in res.items():
+            print('    D3b, %s, n = %d: %d of %d v-columns cross R = a, all trapped %s, min mu - a^2 %.4f'
+                  % (lab, n, c, tot, tr, m), flush=True)
+        d3b &= all(c == tot and tr and m > 0.4 for c, tot, m, tr in res.values()) and abs(res[80][2] - res[160][2]) < 1e-3
+    ok['D3b'] = d3b
+    print('  D3b: the whole curve R = a crossed, trapped, mu > a^2: %s' % d3b, flush=True)
 
     Bs = lambda x: 3.0 * bump(x, 3.5, 5.0)
     rc = measure(80, A, Bs, U1=corner_u(A, Bs))

@@ -675,34 +675,47 @@ same form, with one condition.
   function, and g0 = −e^(2ψ)(1 − μ/R²) dv̂² + 2e^ψ dv̂ dR + R² dΩ₃², with e^ψ = −e^(2s)/(R_u v̂′) and μ section 4c's B3
   mass; the inverse has g^(v̂v̂) = 0, g^(v̂R) = e^(−ψ), g^(RR) = 1 − μ/R². The outgoing dust's constraint gives
   (e^(−2s)R_u)_u = −e^(−2s)B/(3R²) ≤ 0 and ψ_u = B/(3R²R_u) ≤ 0. So R_u < 0 everywhere once it holds on the outer cone u
-  = u_0, which it does for data like the record's (there (R_u)_v = −e^(2s)μ/R³ < 0, from the evolution); and with v̂
-  fixed by ψ = 0 on u = u_0, ψ ≤ 0 everywhere. With B = 0, ψ ≡ 0 and μ = μ(v̂): the record's g0, with v̂ its v.
+  = u_0, which it does when R_u < 0 at the corner and μ > 0 along u = u_0 (there (R_u)_v = −e^(2s)μ/R³, from the
+  evolution; corrected D537); and with v̂ fixed by ψ = 0 on u = u_0, ψ ≤ 0 everywhere. With B = 0, ψ ≡ 0 and μ = μ(v̂):
+  the record's g0, with v̂ its v (not the double-null v: in D3 v̂′ is 1.04 to 1.07).
 - *Lemma 1.1′ (D2, deduced).* With τ := v̂ − R and Ω, Σ_τ, b(τ) as in the record's (1.1): (a) g^(−1)(dτ, dτ) = 1 − μ/R²
   − 2e^(−ψ) ≤ −1 − μ/R²; (b) on {R = a}, g^(−1)(dR, dR) = 1 − μ/a², negative exactly when μ > a² there, and then
   g^(−1)(dR, dτ) = e^(−ψ) − 1 + μ/a² > 0; (c) g^(−1)(d(v̂ + τ), d(v̂ + τ)) = 1 − μ/R² − 4e^(−ψ) ≤ −3 − μ/R² and
   g^(−1)(dv̂, dτ) = −e^(−ψ) < 0; (d) the ingoing generators are {v̂ = const}, R increasing to the past, so Ω's shape and
   (d) are the record's; (e) follows from (a)-(c) on the compact Ω as in the record. So (a)-(e) hold with at least the
-  record's margins, apart from (b), which asks μ > a² on the inner boundary: by section 4c's μ_u = −(2/3)Be^(−2s)R_v,
-  the outgoing dust must not carry off, across the untrapped part of each ingoing ray, more than μ(v̂) − a² of the mass.
-  Both generators are transverse to every Σ_τ, a null vector never being orthogonal to the timelike dτ, and by (e) the
-  past integral curve of either, normalised by dτ = 1, stays in Ω and meets Σ_τ0: what section 4g's (3.4′) asked of the
-  domain. Not covered: (f), which needs D_T for two dusts, that is, the curvature threshold r_q of the two-dust
-  background; and the background's existence on Ω, which is section 4c's Goursat problem continued over the past of Ω,
-  where R ≥ a (local existence is standard; the continuation is not read).
-- *Computed (D3).* A seeded hole: 5D Tangherlini corner data, μ0 = 1, at R = 4; an ingoing pulse A = sin⁴ on v ∈ [0.5,
-  2] and an outgoing one B = 0.4 sin⁴ on u ∈ [1, 2]; section 4c's diamond scheme on u ∈ [0, U1], v ∈ [0, 2], U1 where
-  R(U1, 2) = 0.62, clear of the singularity (later v needs resolving a strip between the horizon and the singularity
-  that thins exponentially). At n = 40, 80, 160 steps per unit: R_u < 0 everywhere; with B = 0, max |ψ| (0.100, 0.043,
-  0.015) and max |μ − μ(v)| (0.072, 0.033, 0.012) fall to 0, the scheme converging to Vaidya; with B, max ψ falls to 0
-  (0.091, 0.039, 0.010) while min ψ is about −0.016 and μ departs from μ(v) by 0.105; max g^(−1)(dτ, dτ) = −1.051
-  throughout, its ratio to −1 − μ/R² rising to 0.992 and 0.995 at n = 160; the cells with 0.7 ≤ R ≤ 0.75 are trapped,
-  with μ − a² ≥ 0.76.
+  record's margins, apart from (b), which asks μ > a² on the inner boundary: exactly, μ(u_in, v) = μ(u_0, v) − (2/3)∫ B
+  e^(−2s)R_v du > a², the integral along the ingoing ray from u_0 to R = a (section 4c's μ_u). The outgoing dust carries
+  mass off across the ray's untrapped part and gives some back across its trapped part, so carrying off less than μ(v̂)
+  − a² across the untrapped part is sufficient, not necessary (corrected D537). Both generators are transverse to every
+  Σ_τ, a null vector never being orthogonal to the timelike dτ, and by (e) the past integral curve of either, normalised
+  by dτ = 1, stays in Ω, so, the background being given on all of the compact Ω, it meets Σ_τ0: what section 4g's (3.4′)
+  asked of the domain, given that background (corrected D537, verifier 231: (e) alone gives containment, not the
+  meeting). Ω's third constraint is to be read with v̂, and V, T and τ_end need the two-dust r_q (D537). Not covered:
+  (f), which needs D_T for two dusts, that is, the curvature threshold r_q of the two-dust background; and the
+  background's existence on Ω, which is section 4c's Goursat problem continued over the past of Ω, where R ≥ a (local
+  existence is standard; the continuation is not read).
+- *Computed (D3).* A seeded hole: corner data with mass μ0 = 1 at R = 4 (μ and R_u as 5D Tangherlini's, the gauge e^(2s)
+  = R_v = ½); an ingoing pulse A = sin⁴ on v ∈ [0.5, 2] and an outgoing one B = 0.4 sin⁴ on u ∈ [1, 2]; section 4c's
+  diamond scheme on u ∈ [0, U1], v ∈ [0, 2], U1 where R(U1, 2) = 0.62, clear of the singularity (later v needs resolving
+  a strip between the horizon and the singularity that thins exponentially). At n = 40, 80, 160 steps per unit: R_u < 0
+  everywhere; with B = 0, max |ψ| (0.100, 0.043, 0.015) and max |μ − μ(v)| (0.072, 0.033, 0.012) fall to 0, the scheme
+  converging to Vaidya; with B, max ψ falls to 0 (0.091, 0.039, 0.010) while min ψ rises with n (−0.077, −0.035, −0.016,
+  −0.0098 at n = 40 to 320, verifier 231), its limit small and negative, and μ departs from μ(v) by about 0.1, still
+  moving with n (0.156, 0.125, 0.105, 0.098); max g^(−1)(dτ, dτ) = −1.051, attained on the data cone u = 0, its ratio to
+  −1 − μ/R² (at least 1 analytically) rising to 0.992 and 0.995 at n = 160; the cells with 0.7 ≤ R ≤ 0.75 are trapped,
+  with μ − a² ≥ 0.76, but on this rectangle they lie only at v ≥ 1.975 (verifier 231, D537). On the whole curve (D3b: u
+  ∈ [0, 8], cells with R ≤ 0.3 left out), every v-column of [0, 2] crosses R = a and is trapped there, with min μ − a² =
+  0.510 (B = 0) and 0.413 (B = 0.4), the same at n = 80 and 160 to 10⁻³; s at the crossing reaches 1.08, the cut lying
+  near the singularity in R.
 - *Control (D4).* A strong outgoing pulse just outside the horizon, B = 3 sin⁴ on u ∈ [3.5, 5]: on 0.7 ≤ R ≤ 0.75 the
   least μ − a² is −0.41 and 1 − μ/R² reaches 0.85, so part of R = a is untrapped and (b) fails there, while (a) and (c)
   still hold. The condition is a real one.
 
-What it does not give: (f) and D_T for two dusts; the background on Ω beyond the computed rectangle; the outgoing
-family's data, which in the record's setting come from Σ_τ0 or from past null infinity (section 4c).
+What it does not give: (f) and D_T for two dusts; the background on Ω beyond the computed rectangle, which does not
+reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the
+record's rule gives for these parameters, verifier 231); Theorem E on the two-dust background, which needs C^k bounds
+and the two families' transversality (E1), (e) being a C⁰ statement; the outgoing family's data, which in the record's
+setting come from Σ_τ0 or from past null infinity (section 4c).
 
 ## 5. Sources
 
