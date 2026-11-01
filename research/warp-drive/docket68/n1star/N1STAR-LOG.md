@@ -7411,3 +7411,13 @@ chosen list of allowed powers of the inverse radius. For the list the record use
 as one over the radius to the five halves makes that norm infinite. But the record's own rules allow a list with half
 powers too, and with it such data are admitted, by the same argument. The price is that the choice feeds into a gap
 condition later in the proof, whose margin, and with it the derivative count, would then need recomputing.
+
+**D518 (2026-11-01): the second wave profile's curvature, checked.** An independent check reproduced the curvature
+computation exactly and found the conclusion stronger than stated: where the finest resolution shows the huge values, it
+even has the wrong sign, while the two coarser ones agree with each other and stay close to the black hole's own
+curvature.
+
+**D519 (2026-11-01): half powers, checked.** An independent reading confirmed that half powers are admitted, but showed
+that admitting them costs nothing further: the record's construction already carries half powers in the list that the
+later gap condition sees, whatever list the data use. So the gap condition and the derivative count are unchanged; at
+most some logarithmic orders rise.

@@ -57,18 +57,21 @@ not converging), diff_a with the linear interpolant at x = 0.97 as the interpola
 at which diff_a exceeds max(1e-2 dev, 1e-3) of K_0 in a cell.
 Measured (D515; 24 rows, u indices 271 to 461; 9 s from the caches, 15 minutes cold): up to v = 3.25 K converges
 spectrally in M at every x, the M-differences 1e-8 to 1e-5 of K_0 and diff_b/diff_a mostly 2 to 58, with dev 0.2 to 1.9.
-From v = 3.25 the ratio falls to about 1 or below at every x but 0.99 (2.0 to 3.6 there to v = 3.5, 1.2 on [3.5, 4)).
-diff_a passes 1e-2 of dev first off the axis, at v = 3.74 (x = 0.5), 3.75 (0), 3.76 (-0.5) and 3.83 (0.9), and later at
-the axis, at 4.00 (0.97) and 4.04 (0.99); not at x = -0.97, which has no kept cells after v = 4. On [3.5, 4) diff_a is
-0.037 to 0.077 at x = -0.5 to 0.5 against 0.0022 at 0.99. On [4, 4.5) at x = 0.5 to 0.99, dev is 19 to 206 with diff_a
-about as large (32 and 32.9 at x = 0.99, 205 and 206 at 0.9), while diff_b is 0.03 to 0.05: the departure is M = 32's
-alone, which a growth resolved in M would not show, and the band maxima suggest M = 24 stays near the background there.
-The linear interpolant's diff_a at x = 0.97 is 1.5e-3 to 5e-3 on the converged bands, against 4e-8 to 3e-6 with the
+From v = 3.25 the ratio falls to about 1 or below at x = 0.9, 0.5, 0 and -0.97, and from v = 3.5 at every x but 0.99 (on
+[3.25, 3.5) it is 2.1 to 3.6 at 0.99, 0.97 and -0.5; on [3.5, 4) 1.2 at 0.99; corrected D518). diff_a passes 1e-2 of dev
+first off the axis, at v = 3.74 (x = 0.5), 3.75 (0), 3.76 (-0.5) and 3.83 (0.9), and later at the axis, at 4.00 (0.97)
+and 4.04 (0.99); not at x = -0.97, which has no kept cells after v = 4. On [3.5, 4) diff_a is 0.037 to 0.077 at x = -0.5
+to 0.5 against 0.0022 at 0.99. On [4, 4.5) at x = 0.5 to 0.99, dev is 19 to 206 with diff_a about as large (32 and 32.9
+at x = 0.99, 205 and 206 at 0.9), while diff_b is 0.03 to 0.05: the departure is M = 32's alone, which a growth resolved
+in M would not show: M = 16 and 24 stay within order 1 of the background over the band (max |K_24/K_0 - 1| 0.72 to
+0.92), and at the maxima K_32 is negative, -18 to -205 K_0, where K_24/K_0 is 0.08 to 1.7 (verifier 222, D518). The
+linear interpolant's diff_a at x = 0.97 is 1.5e-3 to 5e-3 on the converged bands, against 4e-8 to 3e-6 with the
 Chebyshev one (D499's floor). So the invariant does not single out x = +1: K's angular convergence is lost first in the
 interior of the angle range, at v about 3.74, and at the axis about 0.26 later; K stays within order 1 of the background
 wherever it is resolved; and the large values near x = +1 after v = 4 come from the finest angular grid only. That
 points to the scheme rather than the solution at x = +1, without proving it: a feature finer than M = 24 resolves would
-also first show at M = 32.
+also first show at M = 32. (The saved runs record no solver flags: wavelength, cut, grid and M are checked from the
+files, `ld 3` only from the stated command; verifier 222.)
 
 Labels: computed (floating point, on saved runs).
 

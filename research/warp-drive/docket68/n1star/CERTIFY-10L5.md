@@ -627,14 +627,16 @@ No other component is nonzero. So the scheme is the following.
     in D432's `ld 3` runs at the record's amplitude; D475's own runs were not refined.
 
 - *The second seed's x = +1 steepening, by the invariant (D515; `checks/g1curv5.py --seed2`, on the second seed's runs
-  at λ = 0.3162 with `ld 3`, M = 16, 24, 32 at 800 × 360, 24 u-rows, compared by the Chebyshev interpolant through all M
-  nodes).* Up to v = 3.25, K converges spectrally in M at every angle from x = −0.97 to 0.99: the M-differences are 10⁻⁸
-  to 10⁻⁵ of K_0, the ratio of the 16-24 to the 24-32 difference mostly 2 to 58, and K departs from Tangherlini's 72/R⁸
-  by 0.2 to 1.9, moderate as at the first seed. Its angular convergence is lost first off the axis: the 24-32 difference
-  passes 1 % of the departure at v = 3.74 (x = 0.5), 3.75 (x = 0), 3.76 (x = −0.5) and 3.83 (x = 0.9), and at the axis
-  only at 4.00 (x = 0.97) and 4.04 (x = 0.99); on [3.5, 4) it is 0.037 to 0.077 of K_0 at x = −0.5 to 0.5 against 0.0022
-  at x = 0.99. After v = 4, at x = 0.5 to 0.99, M = 32 departs from the background by 19 to 206 K_0 while M = 16 and 24
-  differ by 0.03 to 0.05 K_0: the large values are the finest grid's alone, not a growth resolved in M. So the invariant
+  at λ = 0.3162 with `ld 3` (by the stated command; the saved runs record no solver flags, D518), M = 16, 24, 32 at 800
+  × 360, 24 u-rows, compared by the Chebyshev interpolant through all M nodes).* Up to v = 3.25, K converges spectrally
+  in M at every angle from x = −0.97 to 0.99: the M-differences are 10⁻⁸ to 10⁻⁵ of K_0, the ratio of the 16-24 to the
+  24-32 difference mostly 2 to 58, and K departs from Tangherlini's 72/R⁸ by 0.2 to 1.9, moderate as at the first seed.
+  Its angular convergence is lost first off the axis: the 24-32 difference passes 1 % of the departure at v = 3.74 (x =
+  0.5), 3.75 (x = 0), 3.76 (x = −0.5) and 3.83 (x = 0.9), and at the axis only at 4.00 (x = 0.97) and 4.04 (x = 0.99);
+  on [3.5, 4) it is 0.037 to 0.077 of K_0 at x = −0.5 to 0.5 against 0.0022 at x = 0.99. After v = 4, at x = 0.5 to
+  0.99, M = 32 departs from the background by 19 to 206 K_0 while M = 16 and 24 differ by 0.03 to 0.05 K_0 (at the
+  maxima K_32 is negative, −18 to −205 K_0, where K_24/K_0 is 0.08 to 1.7; over the band max |K_24/K_0 − 1| is 0.72 to
+  0.92; verifier 222, D518): the large values are the finest grid's alone, not a growth resolved in M. So the invariant
   does not single out x = +1, and wherever it is resolved the curvature is within order 1 of the background. That points
   to the scheme rather than the solution at x = +1, without proving it, since a feature finer than M = 24 resolves would
   also first show at M = 32. The linear interpolant's 24-32 difference is 1.5 to 5 × 10⁻³ on the converged bands, D499's

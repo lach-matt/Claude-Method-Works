@@ -5592,6 +5592,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   it LOSS-D's counts; Λ stays finite below every real part, so (G) can still be met, at a smaller ε_K. Not read: whether
   ℰ^C_I already has half-integers for Part VII's ℰ_0 (III.C Lemma 3.2 (a)). Not computed: (G+)'s margin with the
   half-integers.
+- D518 (verifier 222 on D515; the run repeated from the caches, byte-identical; the interpolant tested on polynomials
+  and against numpy's; one row's K recomputed from the run, identical; dnsolve5's selftest, K_0's normalisation; the
+  wavelength checked from the files): no major finding, every figure confirmed. Claim 3 strengthened, computed per cell:
+  on [4, 4.5) the maxima of the departure and of the 24-32 difference coincide, and there K_32 is negative, −18 to −205
+  K_0, while K_24/K_0 is 0.08 to 1.7 and K_16 close to it; over the band max |K_24/K_0 − 1| is 0.72 to 0.92, and no cell
+  has it above 2 while 5 to 24 cells per angle have |K_32/K_0 − 1| > 2. The invariant converging where the gauge
+  function n does not (D354) is no contradiction. MINOR: the ratio falls to about 1 on [3.25, 3.5) only at four of the
+  seven angles (2.1 to 3.6 at 0.99, 0.97, −0.5); 'suggest' was measured; `ld 3` rests on the stated command, the files
+  recording no flags. Corrected in CERTIFY-10L5 6b and g1curv5; the D515 entry above keeps its text.
+- D519 (verifier 223 on D517; the data norm, row d1, III.C′ Theorem 3.1, III.C Definition 3.1 and Lemma 3.2 read; a grep
+  of ℰ_0 over proof5): MAJOR, the consequence. III.C Lemma 3.2 (a) gives ℰ^C_I + ½ ⊂ ℰ^C_I and (2, 0) ∈ ℰ^C_I
+  (PART-III-C-EXTERIOR.md:189-191), so ℰ^C_I already contains every (2 + j/2, 0) for every admissible ℰ_0, and Theorem
+  3.1's proof starts from the least Definition 3.1 set containing ℰ_0, the same for the integer and the half-integer
+  choice. So the switch leaves π_1ℰ^C_I, Λ, (G), (G+), ε_+, ε_K and LOSS-D's counts unchanged; only log orders at the
+  half-integers can rise (l_*, K(λ)). D517 said it moves (G+)'s margin, and left unread what this answers. Confirmed:
+  (a) a ρ^(5/2) term lies outside the integer class (the remainder cannot hold it, and III.A Lemma 1.3's converse fails,
+  (V − 2)(V − 3)ρ^(5/2)a = −¼ρ^(5/2)a); (b) no hypothesis anywhere imposes integrality (III.C″ Proposition 4.1
+  included); (c) the ρ^(1/2) Taylor argument, for both components. MINOR: ℰ_0 also reaches III.K Theorem 4.3's ε, d_1
+  and l_*; BEYOND5's "III.A2 (2.2)" is [Hin26]'s, cited at III.A:33. Corrected in BEYOND5 3(b); the D517 entry above
+  keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
