@@ -5811,6 +5811,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   + 3/(2r)) is (9.5)'s ∂_v-part, not its leading part at fixed v. Confirmed: P is the strip; O_p's one step; [S, □] =
   −2□ in 5D; ρ³ sin(log ρ) is in ρ²C^(0,1) and not ρ²C¹. Corrected in BEYOND5 3(b) (the D530 and D536 brackets); the
   D536 entry above keeps its text.
+- D541 (verifier 234 on D539; s1coef5 --record rerun, A = 141.4268935 at r = 3, 4 and start 1.15; III.D″, III.D‴, F4,
+  G3, I5, I6 read): MAJOR, load-bearing. m_ι ≥ d1 (D538) and m_ι = d1 (D539) rest on reading the record's index sets as
+  root offsets (LD13); the record's convention is generic, "an index set with min Re ℰ_ind ≥ ε_ind, which may change
+  from line to line" (D3:46-47, D4:57-58, F4:28-29, G3:298-299), ε_ind the gauge potential's (< 9.47 × 10⁻⁸, < 1.46 ×
+  10⁻¹⁰ by D4's refinement). On it the ι⁺ ceiling is ⌈0.4901/ε_ind⌉: above 5.2 × 10⁶, up to 3.4 × 10⁹ per level, up to
+  about 130 times the counted tf-rounds; LD13's level-2 chains likewise. LD13 also leaves the III.D‴ class-root rows (G3
+  Table 1.1; D4:160-170): a base-3 class with λ_s2,3's own term would give δ_2 = z/15, 1,837,876 rounds. MINOR:
+  1,470,302 is a ceiling (rounds may skip, I6:167-168); A is S6's cut-offs' (the union reading, ℰ_ind fixed once,
+  I5:190, makes one A ≠ 0 enough); absent ρ^(2+d1), LD13's broad reading gives d0, 367,576 rounds, not one. NIT: 0.0571
+  ≈ 1/17.5. Confirmed: the s1 state is III.D″'s boost state at b_0; no shift (δ* keeps the offset, base 3 included); the
+  arithmetic. Corrected in LOSS-D LD14; the D539 entry above keeps its text. Open, and decisive for d's order: the
+  reading.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

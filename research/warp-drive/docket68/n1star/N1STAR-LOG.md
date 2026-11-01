@@ -7540,3 +7540,9 @@ eleventh section already proves what the last two notes called open: the actual 
 half-powers of the radius toward past infinity, with no logarithms, at each fixed wavelength. So for the solution itself
 the question is settled; what is left is the same expansion for the parts of the approximate solution built by energy
 rather than by integration along light rays.
+
+**D541 (2026-11-01): the last loop, unsettled again.** An independent check found that the bound of the last two entries
+rests on reading the record's lists of exponents as built from the black hole's actual roots. The record writes them
+more loosely, as any list above a tiny threshold. Read that way, the two loops could be far longer than the ones already
+counted, by up to about a hundred times. So which reading the record's construction supports now decides the order of
+the loss; "settled" in the previous entry was premature.

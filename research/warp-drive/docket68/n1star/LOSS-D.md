@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -686,7 +686,11 @@ loop counts of section 3.
     LD9's open point, on which the count now moves by a factor of about 3.75 × 10⁵. (c) N_2, g_2's exponents not being
     listed: "shorter" needs N_2 times the log orders below about 8.6 (D531). (d) Log orders: a round is per (α_0, k),
     and the log orders at a point multiply its count; not bounded here. (e) Proposition 4.4's loss per round, not read,
-    so this counts rounds, not loss. The ι⁺ loop of LD12 (v) is untouched: E^ι_ind is not read.
+    so this counts rounds, not loss. The ι⁺ loop of LD12 (v) is untouched: E^ι_ind is not read. (f) Above all, the
+    reading (D541, verifier 234): the record's convention is generic, ℰ_ind any index set with min Re ≥ the gauge
+    potential's ε_ind (D3:46-47; < 9.47 × 10⁻⁸, < 1.46 × 10⁻¹⁰ by D4's refinement), and read so, a chain can run up to
+    (1 + δ_50)/ε_ind rounds, the loop then possibly far longer than the counted ones. (a)-(e) hold on the reading that
+    ℰ_ind is built from the indicial roots' offsets.
 - LD14 (the ι⁺ loop's length; deduced from the record's text, D534). LD12 (v) gave the ι⁺ iteration that Lemma 3.2's
   Steps 1-2 run at every β-level below 3 (I9:230-232, 256-261) as up to about (2 − λ_♯)/ε_ind rounds per level, and so
   possibly of the counted loops' order 1/(ε_K ε_ind). The record fixes it differently.
@@ -705,20 +709,32 @@ loop counts of section 3.
     states entering through III.D″ (3.4) (G3:309-311). G3:338-339 collects that set from "the states' index sets of
     III.D″, III.D‴, III.F⁗, 2 + ℕ_0, and (2, 1) when λ = 1", whose classes are (k, 0) ∪ (k + E) with E the indicial-root
     offsets (D3:198-203, F4:80, D4:52-60). On LD13's reading of those offsets, m_ι ∈ {d1} ∪ [1, ∞): m_ι ≥ d1 = d(Re
-    λ_s1,2, ℤ), with no Tangherlini computation. It differs from (1.1)'s ε_ind in value (VI4:38); the sets overlap
+    λ_s1,2, ℤ), with no Tangherlini computation. That is a reading, not the record's convention (corrected D541,
+    verifier 234): the record's index sets are generic, "an index set with min Re ℰ_ind ≥ ε_ind, which may change from
+    line to line" (D3:46-47; D4:57-58; F4:28-29; G3:298-299), that ε_ind being the gauge potential's, below 9.47 × 10⁻⁸
+    (F4's distance from ℤ) and 1.46 × 10⁻¹⁰ (D4's refinement; LD10). On the convention as written the ceiling is
+    ⌈0.4901/ε_ind⌉ for that ε_ind: above 5.2 × 10⁶ rounds per level, and up to 3.4 × 10⁹ at D4's bound, which against
+    (1.1)'s ε_ind ≤ δ_50 would make the ι⁺ loop up to about 130 times the counted tf-rounds. And LD13 does not address
+    the III.D‴ class-root rows (G3's Table 1.1; D4:160-170): a base-3 class carrying λ_s2,3's own term would put δ_2 =
+    z/15 into the set, 1,837,876 rounds per level. It differs from (1.1)'s ε_ind in value (VI4:38); the sets overlap
     (I9:32-33).
-  - *Values.* So m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about (β − 2)/ε_ind of Lemma
-    3.2's tf-rounds at the same level (LD12 (ii)), on average ½/ε_ind ≥ 2.5755 × 10⁷: a ratio 2(2 − λ_♯)ε_ind/m_ι ≤
-    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the ρ^(2+d1) term were absent, m_ι
-    ≥ 1 and the loop would be one round per level; but LD9 computes it present at the record's point, A = 141.4269
-    (D450-D451, pinned by the near-resonance, nonzero at every cut-off computed), so m_ι = d1 there and the loop runs,
-    round by round through λ_♯ + n d1, up to the 1,470,302 per level (corrected D539; LD9's "not decided" is the bound
-    over every cut-off, not the record's point). Only m_ι near ε_ind would make it comparable to the counted loops
-    (ratio 1 at m_ι ≈ 1.90 × 10⁻⁸), which the class structure excludes (corrected D538).
-  - *What is needed.* nothing more for the bound: m_ι ≥ d1 from the classes (D538), and = d1 at the record's point by
-    LD9's A (D539). Each round's loss, III.G″ Corollary 4.3 and III.I′ Proposition 3.1 composed, is not read here. With
-    LD13, the two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the
-    level-2 chains, m_ι for ι⁺), the first up to the factor N_2.
+  - *Values, on LD13's reading.* There m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about
+    (β − 2)/ε_ind of Lemma 3.2's tf-rounds at the same level (LD12 (ii)), on average ½/ε_ind ≥ 2.5755 × 10⁷: a ratio 2(2
+    − λ_♯)ε_ind/m_ι ≤ 0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the ρ^(2+d1) term
+    were absent, m_ι ≥ 1 and the loop would be one round per level on LD9's reading (on LD13's broad one m_ι = d0,
+    367,576 rounds; D541); but LD9 computes it present at the record's point, A = 141.4269 (D450-D451, pinned by the
+    near-resonance, nonzero at every cut-off computed), so m_ι = d1 there (A is computed with S6's cut-offs; ℰ_ind being
+    fixed once, I5:190, one admissible cut-off with A ≠ 0 suffices, D541) and the loop runs up to the 1,470,302 per
+    level, a ceiling, since a round raises c_0 by at least m_ι and may skip (I6:167-168; D541) (corrected D539; LD9's
+    "not decided" is the bound over every cut-off, not the record's point). Only m_ι near ε_ind would make it comparable
+    to the counted loops (ratio 1 at m_ι ≈ 1.90 × 10⁻⁸), which the class structure excludes on LD13's reading (corrected
+    D538) and the convention as written does not (D541).
+  - *What is needed.* the reading itself (corrected D541): that the record's ℰ^ι_ind, and LD13's ℰ_ind, are built from
+    the indicial roots' offsets, the III.D‴ class-root rows included, rather than being any index set above the gauge
+    potential's ε_ind. On that reading m_ι = d1 at the record's point (D538-D539); on the convention as written neither
+    loop is bounded by d1, and both could outgrow the counted ones. Each round's loss, III.G″ Corollary 4.3 and III.I′
+    Proposition 3.1 composed, is not read here. With LD13, the two loops LD12 (v) left uncounted are then both bounded
+    per level by the record's own roots (d1 for the level-2 chains, m_ι for ι⁺), the first up to the factor N_2.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
