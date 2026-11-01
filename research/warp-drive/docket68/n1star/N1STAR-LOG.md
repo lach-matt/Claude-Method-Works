@@ -7754,3 +7754,8 @@ step, outside the loop.
 coefficients and found no error in it. D569's summary said more than was computed: the waves' contribution is computed
 exactly, but the background's part, and so the statement that both coefficients fall off fast enough, rests on a short
 argument rather than a computation.
+
+**D578 (2026-11-01): the expansion at past null infinity, written out.** The argument that every stage of the
+approximate solution has an expansion in powers of the radius near past null infinity had been given in outline. It is
+now written as a proposition with a proof at the same level of detail as the record's own corresponding proposition for
+the exact solution, using the coefficients computed in D569.

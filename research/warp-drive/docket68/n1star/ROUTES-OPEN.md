@@ -6092,6 +6092,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   second-harmonic choice, P5 allowing any s-dependence, and the zero mode L4 leaves free changes nothing; K1 carries to
   Cartesian components, the wave part being of order zero as a tensor operator. Nits: the run time, the polar-angle
   notation, "polynomial" in g0 and g0⁻¹. The D569 entry above keeps its text.
+- D578 (BEYOND5 3(b), deduced): Proposition B.4, the approximant's stage profiles at past null infinity, written at the
+  level of the record's Proposition 11.1: every stage's mean, phase and oscillating profile has an expansion in r^(−1/2)
+  with remainders in E^ℓ, by induction on the stage, the order and the number of ℓ's, with Lemma 11.2 (g0 for g_λ) for
+  the mean, the c0 = 0 integral from past null infinity for the phase, Lemma 9.7(d) iterated for the oscillating part,
+  and the coefficients exact (D551, D555, D569); then Taylor in θ with remainder to the physical variables. Closes
+  3(b)'s open induction at the record's level; λ-uniformity is not needed.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

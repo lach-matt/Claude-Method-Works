@@ -773,6 +773,52 @@ What it does not give:
   is a change of basis with x̂-dependent, r-independent coefficients (deduced); and K1 carries over to Cartesian
   components because the wave part is of order zero as a tensor operator, which a change of coordinates keeps (D577).
   Notation: h_θθ above is the polar angle's component, the record's θ being the phase, s in bbar5.py.]
+  [D578, deduced, written at the level of Proposition 11.1's proof (N1STAR-PROOF.md:10562-10588), from D559 with D564's
+  corrections and D569's coefficients (with D577's). **Proposition B.4 (the stage profiles at past null infinity).**
+  Write E_p^ℓ for the profiles f(X, θ) on the strip with d_X^α Ω^β ∂_θ^γ ℓ^j f ∈ E_(p+j) for all α, β, γ and j. For
+  every stage i ≥ 1 and every J ≥ 4 there are smooth M_(i,k)(v, x̂), Γ_(i,k)(v, x̂, θ) (k = 4, …, J) and Φ_(i,k)(v, x̂)
+  (k = 2, …, J − 2), bounded with all derivatives, vanishing for v ≤ v_start, T²×ℤ2×ℤ2-invariant, with m_i = Σ
+  r^(−k/2)M_(i,k) + m_(i,J), gh_(i+1) = Σ r^(−k/2)Γ_(i,k) + gh_(i,J), φ_i = Σ r^(−k/2)Φ_(i,k) + φ_(i,J), the remainders
+  in E_((J+1)/2)^ℓ, E_((J+1)/2)^ℓ and E_((J−1)/2)^ℓ; each coefficient is a polynomial in the earlier ones and their
+  derivatives, with stage 0 exact (W_TT = r^(−3/2)F, χ = r⁻² times a function of (v, θ, s): past5.py P3, P5). *Proof.*
+  (0) The class: E_p^ℓ contains every exact term r^(−p)F(v, x̂, θ) (ℓ(r^(−p)F) = −p r^(−p−1)F), is closed under products
+  (Leibniz), under ∂_v, Ω and ∂_θ, under Cartesian derivatives (∂_X = x̂(∂_v + ℓ) + r⁻¹(angular), [ℓ, r⁻¹Ω] = −r⁻²Ω),
+  and ℓ(E_p) ⊂ E_p, ℓ being x̂·∂_X − ∂_v (1212; D564 (2)). (1) The coefficients: (a)'s B̄ = B0 and C̄ = C0 + ΔC are
+  exact and in E_2 (D569); (c)'s c is a finite sum Σ r^(−p)c_p, p ≥ 3/2, the same at every stage (D551, D555); the
+  couplings ⟨Th gh⟩ and ⟨Wm_φ(dφ)⟩ have exact coefficients in E_(3/2) and E_3, and q_i is a polynomial in the earlier
+  stages' profiles (486-487). All lie in E^ℓ of their orders by (0). (2) Induction on i, and for fixed i on J, the case
+  J = 4 being Theorem A_P's leading terms and remainders (m̃ ∈ E_(5/2), φ̃ ∈ E_(3/2), gh̃ ∈ E_(5/2), 1263-1298; D545),
+  and within J on the number m of ℓ's, in the order m̃, φ̃, gh̃. Suppose the earlier stages expanded to every order with
+  remainders in E^ℓ, stage i to order J with remainders in E_((J+1)/2)^ℓ (m̃, gh̃) and E_((J−1)/2)^ℓ (φ̃), and put q :=
+  (J + 3)/2. (a) The mean: Lemma 5.3 (a) reads −½g0^(ab)∂_a∂_b m̃ = r^(−q)S_q + S̃, where r^(−q)S_q collects the terms
+  of order q, polynomials in the known coefficients, and S̃ the rest: B̄·dm̃ + C̄m̃ (E_2 · E_(q−1) ⊂ E_(q+1)), the
+  couplings with φ̃, gh̃ and the products with a remainder factor, each in E_(q+1/2) with all derivatives. Lemma 11.2
+  applies with g0 for g_λ ((9.5) is the Cartesian principal part g0^(ab)∂_a∂_b, D564; the energy step is Lemma 9.5 with
+  g̃ = g0, and (H_m)'s second clause is void, g0 − g0 = 0): m̃ = r^(1−q)M + m̃′, M = (2/(2q − 5))∫_(v_start)^v S_q, q ≥
+  7/2 ≠ 5/2, and m̃′ ∈ E_(q−1/2) = E_((J+2)/2) with all derivatives, which is order J + 1. For its ℓ-gains (H_m) asks
+  ℓ^j S̃ ∈ E_(q+1/2+j) for j < m: the couplings need ℓ^j gh̃ and ℓ^(j+1) φ̃ (dφ̃ at ℓ^j), found at step j by (b) and
+  (c); B̄·dm̃ needs ℓ^(j+1)m̃, at j = m − 1 the ℓ of ℓ^(m−1)m̃′ ∈ E_(q−1/2+m−1) with all derivatives, in E_(q+m−3/2) by
+  ℓ(E_p) ⊂ E_p, and B̄ ∈ E_2 lifts the product to E_(q+m+1/2), above the E_(q+m−1/2) asked; C̄m̃ and the products with
+  remainder factors gain by hypothesis, the explicit factors by (0). So Lemma 11.2 gives ℓ^m m̃′ ∈ E_(q−1/2+m). (b) The
+  phase: Lemma 5.3 (b) is ℓφ̃ = ½(m̃(ℓ, ℓ) + q̃) with c0 = 0 (1185; D548 (1)), solved from past null infinity as φ̃ =
+  −∫_r^∞ (½m̃(ℓ, ℓ) + ½q̃) dr′: a term r^(−k/2)S_k gives −r^(1−k/2)S_k/(k/2 − 1), resonant only at k = 2, which the
+  sources (from k = 4) never reach, and a remainder in E_p gives one in E_(p−1); and ℓ^(m+1)φ̃ = ½ℓ^m(m̃(ℓ, ℓ) + q̃),
+  with q̃ from the earlier stages. Ψ̃ = □̃φ̃ is then (9.5) applied term by term, powers only (D548 (3)): its c0 = 2
+  transport is satisfied, not solved. (c) The oscillating part: the transport (ℓ + 3/(2r) + c)Z = S of Lemma 9.7(d) on
+  each harmonic, with Z^0 = −r^(1−q)S_q/(q − 5/2) solving (ℓ + 3/(2r))Z^0 = r^(−q)S_q exactly, so Z − Z^0 solves the
+  same transport with source S̃ − cZ^0, starting at q + ½ (D551); the orders step by ½ from q = 3 and never meet 5/2.
+  Its ℓ-gains: ℓ^m Z = ℓ^(m−1)(S − (3/(2r))Z − cZ), whose terms need m̃ to ℓ^m, φ̃ to ℓ^(m+1) (Ψ̃ carries ℓℓφ̃) and Z to
+  ℓ^(m−1), all found. (3) Each new coefficient is a polynomial in the earlier ones and their derivatives, as in
+  Proposition 11.1's last step (10583-10587), the invariance and the vanishing for v ≤ v_start being inherited by the
+  integrals from v_start (and by the integral from past null infinity in (b), where every source vanishes for v ≤
+  v_start). (4) The physical variables: g_app(X) = G(X, u/λ) with u = v + Σ_j λ^j φ_j (5.1), so Y(X, v/λ + δ) = Σ_(k<K)
+  ∂_θ^kY(X, v/λ)δ^k/k! + O(|δ|^K) for each K, δ := Σ_j λ^(j−1)φ_j ∈ E_1^ℓ expanded by (b), each power of δ adding r⁻¹,
+  the Taylor remainder in E_K with its ℓ-gains (ℓ(v/λ) = 0) (538-540; D564 (1)). So g_app, and e = g_λ − g_app with
+  Proposition 11.1, has an expansion in r^(−1/2) at fixed λ with ℓ-gaining remainders, and the strip's term is
+  polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)), the start condition holding as every derivative of e is in E_2
+  (Lemma 11.0; D521). [] Not covered: λ-uniformity, which the strip does not need (D521). This closes 3(b)'s "the
+  induction written line by line" at the level of the record's own Proposition 11.1, the level at which the record
+  writes it.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
