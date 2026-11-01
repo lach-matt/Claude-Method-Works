@@ -7044,3 +7044,10 @@ constants were computed for, and the comparisons hold at the sampled frequencies
 remainder class does gain from derivatives along the spheres, only not along the radius, so the test function used was
 outside the class. One that oscillates in the radius is inside it, and still reaches the bound. The bound stands, with
 a margin of only half a power, which bears on the open question about half-integer powers.
+
+**D457 (2026-11-01): no cut-off found that removes the term.** At the record's own setting the coefficient is about
+141, and almost all of it is forced by a near-coincidence far out, which the record's free smoothing functions cannot
+touch. Measured over every placement of a small change in those functions between the two ends of the computation, any
+change of size up to one moves the coefficient by less than a tenth, and even enormous changes move it by at most about
+seventeen. So within these choices the term stays, and the smaller gap bound is the one to carry. One family, a large
+negative change in the horizon function, makes the calculation itself unreliable and is left undecided.

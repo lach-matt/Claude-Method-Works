@@ -455,8 +455,18 @@ loop counts of section 3.
     - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
       carry unless ζ is chosen to exclude d1. At every cut-off computed (D442, D450; z = 1/2, 1/8 and the record's point)
       the state carries d1.
-    - Not computed: the dual state, and whether some ζ makes A vanish. A variation for which the pairing is nonzero:
-      every one computed in D442.
+    - *Whether a cut-off makes A vanish at the record's point (D457; `checks/s1coef5.py --zeros`, S7, computed).* Every
+      variation supported in (1.25, 3), between the horizon series and the matching radius. The pairing with the dual
+      state, measured by unit bumps: dA/dζ from −1.0 × 10⁻⁵ to −3.1 × 10⁻⁵ and dA/dη from 0.034 to 0.061 per unit
+      integral, curvature at most 10⁻⁴, so cut-offs within 1 of the baseline there move A by at most 0.084 to first
+      order; the extreme cut-offs valued in [0, 1] give A from 141.4177 to 141.4938. Along ζ0 + t b and η0 + t b, b the
+      most sensitive bump, A stays in [123.95, 141.43] for |t| ≤ 10⁵ (ζ) and in [140.24, 141.94] for −100 ≤ t ≤ 10⁵ (η),
+      each value the same at matching radii 3 and 4; for η at t ≤ −1000 the matching degenerates (condition above 10¹²,
+      the two radii disagree) and A is not decided there. No zero was found: A is pinned by the near-resonance's −P_v =
+      141.42, and the cut-offs move only the rest, by at most about 17 even at amplitude 10⁴. So for every cut-off within
+      1 of the record's on (1.25, 3), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry.
+    - Not computed: variations beyond r = 3 or inside r = 1.25, cut-offs that are not rotation invariant (the record's
+      are), η at large negative amplitude, and the dual state as a function rather than through its pairings.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an

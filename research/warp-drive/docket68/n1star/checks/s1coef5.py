@@ -38,12 +38,20 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      orthogonal to v, so A + P_v = 0.0055 is small but not forced (D451). The cut-offs move A by 7 x 10^-6 (zeta's
      interval), 1.9 x 10^-3 (a zeta bump of 20) and 0.17 (an eta bump of 20, through gam_H eta); A + P_v by the same.
 
+  S7 (computed; --zeros) whether a cut-off makes A vanish at the record's point (D457). Every variation is supported in
+     (1.25, 3), between the horizon series' start and the matching radius. (a) The sensitivities dA/dzeta(r) and
+     dA/deta(r), by symmetric differences of unit bumps of half-width 0.1 at 16 centres, per unit integral, with their
+     curvature; (b) A at the extreme cut-offs valued in [0, 1] (zeta switching on at once after 1.25 or as late as 2.95,
+     eta switching off at once or as late as 2.95, and their four combinations); (c) A along zeta0 + t b and eta0 + t b,
+     b the most sensitive bump, for |t| from 10 to 10^5, each at matching radii 3 and 4, kept only where the two agree
+     to 1e-7 and the condition is below 1e12, a zero bracketed and located where a kept A changes sign.
+
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
 precision (DOP853, rtol 1e-13). About 15 minutes.
-Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; whether some zeta makes A
-vanish; the dual state; and whether the record's later steps hold at the bumped cut-offs, beyond the matching being
-solvable there.
+Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; cut-off variations outside
+(1.25, 3) or not rotation invariant; the dual state as a function (S7 measures its pairing through bumps); and whether
+the record's later steps hold at the bumped cut-offs, beyond the matching being solvable there.
 """
 import os
 import sys
@@ -393,9 +401,97 @@ def record_point():
     return 0
 
 
+def zeros_scan():
+    """--zeros: S7, whether some cut-off makes A vanish at the record's point"""
+    from scipy.integrate import quad
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb = setup(M, gam, e, sp.Rational(1, 10))[0]
+    v2 = pb.modes[1][1][0][0]
+    Pv = float((v2.T * pb.modes[0][1][0][2])[0])
+    zeta0 = lambda x: smoothstep((x - 1.5) / 1.0)
+    eta0 = lambda x: 1 - smoothstep((x - 1.3) / 0.5)
+    Acoef = lambda zf, ef: pb.coefficient(zf, ef, 3.0)[0]
+    A0 = Acoef(zeta0, eta0)
+    print("  record's point, baseline cut-offs: A = %.10g, P_v = %.10g" % (A0, Pv), flush=True)
+    bump = lambda c, w: (lambda x: float(np.exp(1 - 1 / (1 - ((x - c) / w)**2))) if abs(x - c) < w else 0.0)
+    w = 0.1
+    norm = quad(bump(0.0, w), -w, w, epsabs=1e-14)[0]
+    centres = [1.35 + 0.1 * k for k in range(16)]
+    sens = {}
+    for name in ("zeta", "eta"):
+        rows = []
+        for c in centres:
+            b = bump(c, w)
+            if name == "zeta":
+                Ap = Acoef(lambda x: zeta0(x) + b(x), eta0); Am = Acoef(lambda x: zeta0(x) - b(x), eta0)
+            else:
+                Ap = Acoef(zeta0, lambda x: eta0(x) + b(x)); Am = Acoef(zeta0, lambda x: eta0(x) - b(x))
+            rows.append(((Ap - Am) / (2 * norm), (Ap + Am - 2 * A0)))
+        sens[name] = rows
+        tot = sum(abs(s_) for s_, _ in rows) * 0.1
+        print("  (a) dA/d%s(r) at r = 1.35 ... 2.85: %s" % (name, " ".join("%.2e" % s_ for s_, _ in rows)), flush=True)
+        print("      curvature (A(+b) + A(-b) - 2 A0): largest %.1e; sum of |dA/d%s| dr = %.3e"
+              % (max(abs(q) for _, q in rows), name, tot), flush=True)
+    bound = sum(abs(s_) for s_, _ in sens["zeta"]) * 0.1 + sum(abs(s_) for s_, _ in sens["eta"]) * 0.1
+    print("      first-order bound on |A - A0| over cut-offs with |zeta - zeta0|, |eta - eta0| <= 1 on (1.25, 3): %.3e"
+          % bound, flush=True)
+    z_early = lambda x: smoothstep((x - 1.26) / 0.2)
+    z_late = lambda x: smoothstep((x - 2.75) / 0.2)
+    e_short = lambda x: 1 - smoothstep((x - 1.26) / 0.1)
+    e_long = lambda x: 1 - smoothstep((x - 2.75) / 0.2)
+    ext = []
+    for lab, zf, ef in (("zeta early, eta0", z_early, eta0), ("zeta late, eta0", z_late, eta0),
+                        ("zeta0, eta short", zeta0, e_short), ("zeta0, eta long", zeta0, e_long),
+                        ("zeta early, eta short", z_early, e_short), ("zeta early, eta long", z_early, e_long),
+                        ("zeta late, eta short", z_late, e_short), ("zeta late, eta long", z_late, e_long)):
+        Ax = Acoef(zf, ef)
+        ext.append(Ax)
+        print("  (b) %-24s A = %.10g (A - A0 = %+.3e)" % (lab, Ax, Ax - A0), flush=True)
+    for name in ("zeta", "eta"):
+        k = max(range(len(centres)), key=lambda i: abs(sens[name][i][0]))
+        b = bump(centres[k], w)
+        fns = lambda t: (((lambda x, t_=t: zeta0(x) + t_ * b(x)), eta0) if name == "zeta"
+                         else (zeta0, (lambda x, t_=t: eta0(x) + t_ * b(x))))
+
+        def A_rel(t):
+            """A at matching radii 3 and 4, and whether they agree to 1e-7 relative with the condition below 1e12"""
+            try:
+                a3, c3 = pb.coefficient(*fns(t), 3.0)
+                a4, c4 = pb.coefficient(*fns(t), 4.0)
+            except Exception:                                           # noqa: BLE001
+                return float("nan"), False, float("inf")
+            good = np.isfinite(a3) and abs(a3 - a4) < 1e-7 * abs(a3) and max(c3, c4) < 1e12
+            return a3, good, max(c3, c4)
+        At = {t: A_rel(t) for t in (-1e5, -3e4, -1e4, -1e3, -1e2, -10, 10, 1e2, 1e3, 1e4, 3e4, 1e5)}
+        ts = sorted(At)
+        print("  (c) %s + t b (b at r = %.2f; * marks a value whose two matching radii disagree or whose condition is "
+              "1e12 or more): %s" % (name, centres[k], "; ".join("t = %g: A = %.6g%s" % (t, At[t][0], "" if At[t][1]
+                                                                  else "*") for t in ts)), flush=True)
+        good = [t for t in ts if At[t][1]]
+        print("      reliable over t in %s: A from %.6g to %.6g" % (good, min(At[t][0] for t in good),
+                                                                  max(At[t][0] for t in good)), flush=True)
+        for t1, t2 in zip(good[:-1], good[1:]):
+            a1, a2 = At[t1][0], At[t2][0]
+            if a1 * a2 < 0:
+                lo, hi = t1, t2
+                for _ in range(40):
+                    mid = 0.5 * (lo + hi)
+                    am = A_rel(mid)[0]
+                    if am * a1 < 0:
+                        hi = mid
+                    else:
+                        lo, a1 = mid, am
+                print("      A changes sign between t = %g and %g: zero at t = %.6g" % (t1, t2, 0.5 * (lo + hi)),
+                      flush=True)
+    return 0
+
+
 def main():
     if sys.argv[1:2] == ["--record"]:
         return record_point()
+    if sys.argv[1:2] == ["--zeros"]:
+        return zeros_scan()
     ok = {}
     M, lin_ok, ang_ok = derive()
     ok["S1 form"] = lin_ok and ang_ok

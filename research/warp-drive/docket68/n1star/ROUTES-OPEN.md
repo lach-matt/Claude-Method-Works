@@ -5037,6 +5037,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   sin(x1 + 2 x3 + t) was outside the class; Q5 now uses sin(r + t), inside it, and still attains r^-9/2 (fitted exponent
   -0.07, where r^-5 gives -0.5; the old factor-5 test could not tell them apart). The bound stands; its margin over r^-4
   is r^-1/2, and the rho^(5/2) term it produces bears on BEYOND5 3(b) (v)'s half-integer question.
+- D457 (LOSS-D LD9, checks/s1coef5.py --zeros, S7, computed): whether a cut-off makes the s1 coefficient A vanish at the
+  record's point. Variations on (1.25, 3): dA/dzeta -1.0e-5 to -3.1e-5, dA/deta 0.034-0.061 per unit integral (the
+  dual-state pairing, by bumps), so |A - A0| <= 0.084 to first order for cut-offs within 1 of the record's; the extreme
+  [0, 1]-valued cut-offs give 141.4177-141.4938; bump amplitudes to 1e5 keep A in [123.95, 141.94] where the matching is
+  reliable (eta at t <= -1000 undecided: condition above 1e12). No zero: A is pinned by -P_v = 141.42. So d1 stays in
+  E_ind for such cut-offs and LD9's delta_G is carried. Open: variations outside (1.25, 3), non-rotation-invariant
+  cut-offs, eta at large negative amplitude.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
