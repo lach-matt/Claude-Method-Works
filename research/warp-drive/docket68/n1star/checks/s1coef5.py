@@ -677,11 +677,82 @@ def zeros_far_amp():
     return 0 if ok else 1
 
 
+def zeros_near():
+    """--zeros-near: S10, cut-off variations inside r = 1.25, between the horizon series and S7's range"""
+    from scipy.integrate import quad
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb = setup(M, gam, e, sp.Rational(1, 10))[0]
+    zeta0 = lambda x: smoothstep((x - 1.5) / 1.0)
+    eta0 = lambda x: 1 - smoothstep((x - 1.3) / 0.5)
+    r0 = 1.05
+    A125 = pb.coefficient(zeta0, eta0, 3.0)[0]
+    A105, c105 = pb.coefficient(zeta0, eta0, 3.0, r0=r0)
+    A105b = pb.coefficient(zeta0, eta0, 4.0, r0=r0)[0]
+    base_ok = abs(A105 - A125) < 1e-7 * abs(A125) and abs(A105b - A105) < 1e-7 * abs(A105)
+    print("  record's point: A0 = %.10g started at r = 1.25, %.10g at r = %.2f (matched at 3; %.10g at 4; condition "
+          "%.1e)" % (A125, A105, r0, A105b, c105), flush=True)
+    bump = lambda c, w: (lambda x: float(np.exp(1 - 1 / (1 - ((x - c) / w)**2))) if abs(x - c) < w else 0.0)
+    w = 0.025
+    norm = quad(bump(0.0, w), -w, w, epsabs=1e-14)[0]
+    centres = [1.075, 1.125, 1.175, 1.225]
+    sens = {}
+    for name in ("zeta", "eta"):
+        rows = []
+        for c in centres:
+            b = bump(c, w)
+            if name == "zeta":
+                Ap = pb.coefficient(lambda x: zeta0(x) + b(x), eta0, 3.0, r0=r0)[0]
+                Am = pb.coefficient(lambda x: zeta0(x) - b(x), eta0, 3.0, r0=r0)[0]
+            else:
+                Ap = pb.coefficient(zeta0, lambda x: eta0(x) + b(x), 3.0, r0=r0)[0]
+                Am = pb.coefficient(zeta0, lambda x: eta0(x) - b(x), 3.0, r0=r0)[0]
+            rows.append((Ap - Am) / (2 * norm))
+        sens[name] = rows
+        print("  (a) dA/d%s(r) at r = %s: %s; first-order sum over (1.05, 1.25): %.4f"
+              % (name, ", ".join("%.3f" % c for c in centres), " ".join("%.3e" % q for q in rows),
+                 sum(abs(q) for q in rows) * 2 * w), flush=True)
+    ts = (-1e5, -1e4, -1e3, -1e2, -10, -1, 1, 10, 1e2, 1e3, 1e4, 1e5)
+    near = {}
+    for name in ("zeta", "eta"):
+        k = max(range(len(centres)), key=lambda i: abs(sens[name][i]))
+        c = centres[k]
+        b = bump(c, w)
+        fns = lambda t_: (((lambda x: zeta0(x) + t_ * b(x)), eta0) if name == "zeta"
+                          else (zeta0, (lambda x: eta0(x) + t_ * b(x))))
+        At = {}
+        for t_ in ts:
+            try:
+                a3, c3 = pb.coefficient(*fns(t_), 3.0, r0=r0)
+                a4, c4 = pb.coefficient(*fns(t_), 4.0, r0=r0)
+                good = bool(np.isfinite(a3) and abs(a3 - a4) < 1e-7 * abs(a3) and max(c3, c4) < 1e12)
+            except Exception:                                           # noqa: BLE001
+                a3, good = float("nan"), False
+            if not good:
+                a1, cq1 = coefficient_qr(pb, *fns(t_), 3.0, qr_grid(r0, 3.0, c, w, t_), r0=r0)
+                a2, cq2 = coefficient_qr(pb, *fns(t_), 4.0, qr_grid(r0, 4.0, c, w, t_, scale=0.5), r0=r0)
+                good = bool(np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(cq1, cq2) < 1e12)
+                a3 = a1
+            At[t_] = (a3, good)
+        near[name] = At
+        print("  (b) %s + t b (b of half-width %.3f at r = %.3f; QR matching where the plain one fails; * unreliable): %s"
+              % (name, w, c, "; ".join("t = %g: %.6g%s" % (t_, v[0], "" if v[1] else "*") for t_, v in At.items())),
+              flush=True)
+    vals = [v for At in near.values() for v in At.values()]
+    ok = base_ok and all(g for _, g in vals)
+    print("  S10: baseline consistent: %s; every value reliable: %s; least A: %.6g; a sign change: %s"
+          % (base_ok, all(g for _, g in vals), min(a for a, _ in vals), "yes" if min(a for a, _ in vals) <= 0
+             else "none"), flush=True)
+    return 0 if ok else 1
+
+
 def main():
     if sys.argv[1:2] == ["--zeros-far"]:
         return zeros_far()
     if sys.argv[1:2] == ["--zeros-far-amp"]:
         return zeros_far_amp()
+    if sys.argv[1:2] == ["--zeros-near"]:
+        return zeros_near()
     if sys.argv[1:2] == ["--record"]:
         return record_point()
     if sys.argv[1:2] == ["--zeros"]:
