@@ -6064,6 +6064,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   The least E^C_I of III.C Definition 3.1 has no log orders, and for every admissible ℓ_I in (3, 3.5099) two windows,
   [2, 3) and [3, 4): loss 6, not 2. So an ι⁺ round costs at least 8 + d_G = 19, not 15, on E^C_I without log terms below
   ℓ_I; more with them. (D572 is the 2400 × 1080 runs' preparation, D571's test, running.)
+- D574 (verifier 248 on D567: no major; 3 minor, 4 nits; every figure and multiplier choice reproduces, the subset
+  tables equal the full one's): corrected the labels. The ratios 9.70, …, 19.0 are e2trap5's float sup over the
+  measured; on the certified bounds they are 9.79, 9.50, 11.24, 13.11, 15.66, 19.20 (9.5 to 21 stands). B2's window
+  binds in value at σ = 384 only (320 keeps l_1 = 632 with 24). The LOG's "0.44 at 384" is the wider window's value,
+  B2's own 0.48. Nits: B3 is computed, not part of the certificate; the interval argument is run by B2, not "not run";
+  two saved outputs predate print changes (values agree); e2meas5 had values at 96 and 128 only. Added: the measured
+  norm at σ = 160, 0.0326365 (l = 319), the certified bound 22.4 times it.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

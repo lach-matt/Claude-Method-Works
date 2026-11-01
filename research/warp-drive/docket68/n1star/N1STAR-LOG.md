@@ -7731,3 +7731,9 @@ finer time grid. That needs more disk than this machine has free.
 operation. Read through, that step performs the operation three times in sequence for the weights in use, so it costs
 three times as much, and each round of the loop it belongs to costs at least 19 rather than 15. Separately, D572 set up
 the finer-grid runs that the convergence question of D571 needs; they are running.
+
+**D574 (2026-11-01): the band check's labels corrected.** The independent check of D567 reproduced every certified
+number. It corrected three labels: one row of ratios had been described as the certified bound when it was a
+floating-point estimate, the certified ratios being slightly larger; the window of candidates matters at the top
+frequency only; and D567's "0.44 at 384" uses the wider window, the certificate's own value there being 0.48. The
+measurement at frequency 160 has also come in: the bound is about 22 times the measured value there.

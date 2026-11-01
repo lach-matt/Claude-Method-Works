@@ -2,13 +2,15 @@
 """e2meas5.py -- e2high5's H3 measurement continued above sigma = 96 (E2-PILOT section 3j, D567).
 
 e2high5 H3 measures ||chi_I R_l(sigma) chi_I|| at sigma in {3, 6, 12, 24, 48, 96}; E2-PILOT section 3j compares the
-certified band bound with it there (ratios 9.70 ... 19.0). This continues the measurement to sigma = 128, 160 and 192,
+band with it there: e2trap5's float sup over the measured, 9.70 ... 19.0, and the certified band bound over it, 9.79 ...
+19.20 (D574, verifier 248). This continues the measurement to sigma = 128, 160 and 192,
 the band's printed points above 96. At each sigma, ltop is the least l with max V_l > sigma^2 (the first harmonic
 whose barrier top lies above sigma^2), and the norm is taken over the 13 harmonics l = ltop - 6, ..., ltop + 6 around
 it, as H3 does above sigma = 6. The method is e2high5's cutoff_norm (a numerical ODE solve; computed, not certified).
 
 Measured (D567): sigma = 96: max 0.0519376 at l = 191 (ltop 191), sigma times the max 4.986; sigma = 128: max
-0.0399913 at l = 255 (ltop 255), sigma times the max 5.1189. Each sigma takes about one to two hours.
+0.0399913 at l = 255 (ltop 255), sigma times the max 5.1189; sigma = 160: max
+0.0326365 at l = 319 (ltop 319), sigma times the max 5.2218 (D574). Each sigma takes one to two hours.
 
     python3 checks/e2meas5.py [SIGMAS]       (default 96,128,160,192)
 """

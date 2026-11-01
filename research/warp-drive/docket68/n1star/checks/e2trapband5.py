@@ -43,8 +43,8 @@ minutes.
 Run to SMAX = 384 (D567; `python3 checks/e2trapband5.py 768 0.05 384`, saved as checks/e2trapband5_384.out): B1
 certifies every l_1 = 5 ... 768 (93 to 145 enclosures at the printed l_1 = 20, 40, ..., 760); B2 over 7620 intervals of
 width 1/20: <= 11.477, again on [3.2, 3.25] (l_1 = 5), the printed points to 192 unchanged; B3 above e2trap5's float sup
-at every 0.1 of [3, 384] by 1.0010 to 1.2294; 194 minutes. That run printed points only to 192 (256, 320 and 384 are
-printed from D567 on); checks/e2bandtop5.py gives the intervals ending there: 0.56257, 0.49119 and 0.47635 (l_1 = 505,
+at every 0.1 of [3, 384] by 1.0010 to 1.2294; 194 minutes. That run printed points only to 192 (256, 320 and 384 are printed from D567 on, so the saved output is
+not byte-exact to this code); checks/e2bandtop5.py gives the intervals ending there: 0.56257, 0.49119 and 0.47635 (l_1 = 505,
 632, 760), and 0.43792 at 384 (l_1 = 759) with a window of 24 l_1 in place of B2's eight.
 
 Labels: B1, B2 certified (the lemmas as in e2trapcert5); B3 computed. Together with sections 3f-3g (0 < |sigma| <= 3)

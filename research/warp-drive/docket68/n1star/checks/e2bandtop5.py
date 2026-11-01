@@ -16,7 +16,9 @@ B1's.
 Labels: certified, as e2trapband5's B1-B2 (interval arithmetic, e2trapcert5's functions).
 
   P2 (certified, the same) with the WIN largest admissible l_1 in place of B2's eight (WIN = 24): at σ = 320 and 384
-     B2's least is at the lowest of its eight, so a wider window can only lower the bound.
+     B2's least is at the lowest of its eight, so a wider window can only lower the bound;
+     it lowers 384 to 0.43792 (l_1 = 759) and leaves 320 at 632 (D574). The saved checks/e2bandtop5.out predates the
+     "candidates a to b" print; its values agree on a rerun (verifier 248).
 
     python3 checks/e2bandtop5.py [LMAX1 [SIGMAS [WIN]]]   (defaults 768, 192,256,320,384 and 8; seven minutes)
 """
