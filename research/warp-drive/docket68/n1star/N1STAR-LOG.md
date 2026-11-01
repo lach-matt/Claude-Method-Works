@@ -7552,3 +7552,9 @@ turns out to stand for lists its construction builds from the black hole's actua
 its leading one plus whole numbers or a root plus whole numbers. Tracing which states can produce a small exponent
 leaves only one, the boost state, with the record's smallest root. So both remaining loops are bounded as the earlier
 entries said, the last one at about one seventeenth of the counted ones.
+
+**D543 (2026-11-01): the second wave profile's blow-up was the grid's.** Refining the time steps along with the angular
+resolution made the huge curvature values at the finest angular grid disappear: the curvature stays within a small
+multiple of the black hole's own, and the two finest angular grids agree closely until late times. So the earlier
+blow-up was the angular grid outrunning the time step, not the solution. Late times near the axis still need finer
+grids.

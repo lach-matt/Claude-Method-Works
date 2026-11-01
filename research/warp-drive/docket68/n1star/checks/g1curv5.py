@@ -82,12 +82,20 @@ after v = 4; cells whose stencil reaches M = 40's cut give 1e4 to 2e6; D525), wh
 Refining M at the fixed null grid makes K worse from the start, and the large values come earlier the finer the angular
 grid, as D418 found at the first seed: it points to the scheme.
 
+Seed-2 jointly refined (--seed2-1600, D543): M = 32 and 40 at 800 x 360 and 1600 x 720 (s2_M32_1600.npz, s2_M40_1600.npz
+from dnsolve5.py --run 0.3162 0.9 M 1600 720 out 0 ld 3), on --seed2-40's rows, the fine rows 2i and v nodes subsampled
+by 2, cells kept in all four; output in checks/g1curv5seed2_1600.out. Measured: at 1600 x 720 M = 40's |K/K_0 - 1| is at
+most 1.95 below v = 4, as M = 32's, and 1.22-3.11 on [4, 4.5) at x = 0.99-0.9, against 2e3-2e6 at 800 x 360; cells above
+2 drop from 11-49 per angle and band to none (2 at x = 0.9 on [4, 4.5)); M = 32 and 40 agree to 3e-7-1.4e-2 K_0 below v
+= 3.5, 0.02-1.0 on [3.5, 4), 0.39-2.35 on [4, 4.5). The M = 40 departures at 800 x 360 were the two grids together.
+
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in
                                         DIR/curvA_MM.npz)
     python3 checks/g1curv5.py --seed2 DIR   (D515: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
     python3 checks/g1curv5.py --seed2-40 DIR   (D524: also s2_M40.npz; M = 24, 32, 40)
+    python3 checks/g1curv5.py --seed2-1600 DIR (D543: also s2_M32_1600.npz, s2_M40_1600.npz)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os

@@ -5832,6 +5832,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the class states' bases ≤ 0. Hence ℰ^ι_ind ∩ (0, 1) = {d1}, m_ι = d1 (A ≠ 0), at most 1,470,302 ι⁺ rounds per level
   (1/17.5 of the tf-rounds), and LD13's ℰ_ind ∩ (0, 1) = {d1}. Not read: III.F⁗'s states (base −2, offsets above 4 by
   the same count).
+- D543 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-1600`, output saved): the second seed jointly refined. M =
+  32 and 40 at 1600 × 720 on D524's rows: M = 40's departures vanish (|K/K_0 − 1| ≤ 1.95 below v = 4, as M = 32's;
+  1.22-3.11 on [4, 4.5) near the axis; against 2 × 10³ to 2 × 10⁶ at 800 × 360), cells above 2 from 11-49 per angle and
+  band to none (2 at x = 0.9 on [4, 4.5)); the 32-40 difference 3 × 10⁻⁷ to 1.4 × 10⁻² K_0 below v = 3.5, 0.02-1.0 on
+  [3.5, 4), 0.39-2.35 on [4, 4.5). So the M = 40 blow-up was the angular resolution outrunning the null step; the
+  curvature is resolved and of order K_0 to v = 3.5 at every angle. Open: convergence after v ≈ 3.5 near the axis (a
+  finer null grid at M = 40, or angular refinement at the axes).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
