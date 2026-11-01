@@ -600,6 +600,16 @@ No other component is nonzero. So the scheme is the following.
     only the gauge functions, and that the curvature is moderate wherever it is resolved in angle; the (u, v) resolution
     was not varied. (A first run read the saved mask, which marks excluded cells, the wrong way round and returned only
     NaN; corrected, b6fb8e7.)
+  - The curvature invariant in the null grid (D489; `checks/g1curv5.py --null`, on D432's runs at A = 1, M = 32 and 40 at
+    800 × 360 and 1600 × 720, 24 u-rows of the coarse grid and the same rows of the fine one, compared at the coarse
+    nodes). On v ∈ [1.5, 1.75), where K departs from the background by 0.42 to 3.9 (the departure at x = −0.97, 3.86, is
+    D475's 3.9 at A = 1), K converges in the null grid as well as in angle: the 800 × 360 and 1600 × 720 values differ by
+    2.5 to 5.2 × 10⁻³ of K_0 at x = −0.97 to 0.5, against 2 × 10⁻⁴ to 1.3 × 10⁻³ between M = 32 and 40, so 'resolved'
+    there holds in (u, v) too. On [1.75, 2) the angular difference (1 to 2.3 of K_0) dominates the null one (0.045 to
+    0.74), and the angular difference is the same at both null grids: the loss there is set by M, not by the null step.
+    From v = 2 both are as large as the departure (up to 1.6 × 10⁵ K_0 at x = 0.5): unresolved in both. So D475's finding
+    that the curvature is moderate wherever it is resolved, with no resolved growth before the failure, holds under
+    refinement of the null grid at the record's amplitude.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).

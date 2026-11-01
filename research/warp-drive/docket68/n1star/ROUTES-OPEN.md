@@ -5315,6 +5315,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   leading term in d; the eigenvalue 2.5 is absent at l = 0 and 1 (least 2.5099); Kσd assumes σ independent of r, and a
   source only bounded by r⁻⁴ is not covered; P1's accuracy is 1.2 × 10⁻³⁰, not 25 digits. The question whether the index
   sets contain 4.51 and 4.52 is moot. Corrected in BEYOND5 3(b) and stripfull5; the D487 entry above keeps its text.
+- D489 (CERTIFY-10L5 6b, `checks/g1curv5.py --null`, computed on saved runs): D485's caveat that K was resolved in angle
+  only. On D432's runs at A = 1 (M = 32, 40 at 800 × 360 and 1600 × 720), on v ∈ [1.5, 1.75) K converges in the null grid
+  too (differences 2.5-5.2 × 10⁻³ K_0 against departures of 0.42 to 3.9); on [1.75, 2) the angular difference (1-2.3)
+  dominates the null one (0.045-0.74) and does not change with the null grid, so the loss there is set by M; from v = 2
+  both are as large as the departure. So the curvature is moderate wherever resolved, in (u, v) as well, at the record's
+  amplitude. Open: an axis or angular treatment judged by K at every angle.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

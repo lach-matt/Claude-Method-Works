@@ -33,6 +33,11 @@ are the collocation's, global in x, so this does not localise the cause at the a
 tell a singularity from a defect of the scheme, but it shows the failure is not only in the gauge functions, and that the
 curvature is moderate wherever it is resolved in angle.
 
+Measured with --null (D489; D432's runs at A = 1): on [1.5, 1.75) the 800 x 360 and 1600 x 720 values of K differ by
+2.5e-3 to 5.2e-3 of K_0 at x = -0.97 to 0.5 (M = 32 against 40: 2e-4 to 1.3e-3), with dev 0.42 to 3.9; on [1.75, 2) the
+angular difference, 1 to 2.3, dominates the null one, 0.045 to 0.74, and is the same at both null grids; from v = 2 both
+are as large as dev.
+
 Labels: computed (floating point, on saved runs).
 
     python3 checks/g1curv5.py DIR      (DIR holds ampA_M32.npz and ampA_M40.npz; K on the chosen rows is cached in

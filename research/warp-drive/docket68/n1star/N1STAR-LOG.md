@@ -7262,3 +7262,8 @@ result, but not what was said of its next terms: they come in whole powers of th
 claimed, because the equations do not change under a shift in time, so the band's thickness only adds a Taylor series.
 The record's own model computation had shown the first of them already. The fractional powers were an artefact, and the
 question they raised falls away.
+
+**D489 (2026-11-01): the curvature check, with the time grid refined too.** The earlier check had only refined the
+angles. Doubling the grid in the two null directions as well changes the curvature by a fraction of a per cent where it
+had settled, so the moderate curvature before the failure stands. Where the failure begins, the angular grid is what
+limits the computation, not the time step.
