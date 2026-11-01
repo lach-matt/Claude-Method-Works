@@ -772,9 +772,43 @@ FAMILIES = {                       # name: (cut-off, centre, half-width, matchin
 }
 
 
+def match_det(pb, zeta, eta, rm, r0=1.25, grid=None, rtol=1e-13):
+    """A, the condition and the sign of det of the matching matrix [H | -I_1 -I_2 -I_3] (D483). A pole of A in a
+    family is a zero of that determinant, which is smooth in t, so its sign finds poles that sampling A cannot (A
+    returns to the same sign on both sides of a simple pole, a zero of A lying next to it). With grid, the horizon
+    columns are re-orthonormalised at every step with R's diagonal kept positive, which multiplies the determinant by
+    a positive factor, so its sign is the plain matching's"""
+    if not hasattr(pb, "_hs"):
+        pb._hs = {}
+    if r0 not in pb._hs:
+        pb._hs[r0] = pb.horizon_solutions(r0 - 1)
+    fun = pb.rhs_fun(zeta, eta)
+    Y = np.column_stack([np.array([float(q) for q in U] + [float(q) for q in dU]) for U, dU, _ in pb._hs[r0]])
+
+    def qr_pos(Y):
+        Q, R = np.linalg.qr(Y)
+        return Q * np.sign(np.diag(R))
+    if grid is None:
+        cols = [solve_ivp(fun, (r0, rm), Y[:, j], method="DOP853", rtol=rtol, atol=1e-15).y[:, -1] for j in range(3)]
+        Y = np.column_stack(cols)
+    else:
+        Y = qr_pos(Y)
+        for a_, b_ in zip(grid[:-1], grid[1:]):
+            cols = [solve_ivp(fun, (a_, b_), Y[:, j], method="DOP853", rtol=1e-12, atol=1e-15).y[:, -1]
+                    for j in range(3)]
+            Y = qr_pos(np.column_stack(cols))
+    inf = [pb.eval_inf(s0, cd, mp.mpf(rm)) for s0, cd in pb.modes]
+    vec = lambda UdU: np.array([float(q) for q in UdU[0]] + [float(q) for q in UdU[1]])
+    Amat = np.column_stack([Y[:, j] for j in range(3)] + [-vec(inf[k]) for k in (1, 2, 3)])
+    sgn, _ = np.linalg.slogdet(Amat)
+    return np.linalg.solve(Amat, vec(inf[0]))[3], np.linalg.cond(Amat), sgn
+
+
 def zeros_dense(fam, per_decade=30):
-    """--zeros-dense FAM: S11 (D483), A along a bumped family on a dense amplitude grid, every sign change refined
-    and classified as a zero (|A| small on both sides of a short bracket) or a pole (|A| growing)"""
+    """--zeros-dense FAM [per_decade]: S11 (D483), a bumped family on a dense amplitude grid. Poles are located as sign
+    changes of the matching determinant (match_det), each refined by bisection, and the zero of A that follows each
+    pole located; zeros of A not beside a pole are found as sign changes of A. Two poles within one step of the grid
+    would cancel in the determinant's sign and be missed."""
     M, _, _ = derive()
     gam = e = sp.Rational(1, 100)
     pb = setup(M, gam, e, sp.Rational(1, 10))[0]
@@ -791,54 +825,63 @@ def zeros_dense(fam, per_decade=30):
     fns = lambda t_: (((lambda x: zeta0(x) + t_ * b(x)), eta0) if name == "zeta"
                       else (zeta0, (lambda x: eta0(x) + t_ * b(x))))
 
-    def A_of(t_):
+    def ev(t_):
+        """A, the determinant's sign, and how: plain where the two radii agree, else QR matching"""
         try:
-            a1, c1 = pb.coefficient(*fns(t_), r1, r0=r0)
-            a2, c2 = pb.coefficient(*fns(t_), r2, r0=r0)
+            a1, c1, s1 = match_det(pb, *fns(t_), r1, r0)
+            a2, c2, _ = match_det(pb, *fns(t_), r2, r0)
             if np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12:
-                return a1, "plain"
+                return a1, s1, "plain"
         except Exception:                                               # noqa: BLE001
             pass
-        a1, c1 = coefficient_qr(pb, *fns(t_), r1, qr_grid(r0, r1, c, w, t_), r0=r0)
-        a2, c2 = coefficient_qr(pb, *fns(t_), r2, qr_grid(r0, r2, c, w, t_, scale=0.5), r0=r0)
-        good = np.isfinite(a1) and abs(a1 - a2) < 1e-7 * abs(a1) and max(c1, c2) < 1e12
-        return a1, "qr" if good else "unreliable"
+        a1, c1, s1 = match_det(pb, *fns(t_), r1, r0, grid=qr_grid(r0, r1, c, w, t_))
+        return a1, s1, ("qr" if np.isfinite(a1) and c1 < 1e12 else "unreliable")
+
+    def bisect(lo, hi, key, s_lo):
+        for _ in range(45):
+            mid = 0.5 * (lo + hi)
+            v = ev(mid)
+            if (v[1] if key == "det" else np.sign(v[0])) == s_lo:
+                lo = mid
+            else:
+                hi = mid
+        return lo, hi
     mags = np.logspace(0, 5, 5 * per_decade + 1)
-    out = {"zeros": [], "poles": [], "unreliable": 0, "n": 0}
+    poles, zeros, n, bad = [], [], 0, 0
     for sgn in (1, -1):
         prev = None
         for m in mags:
             t_ = sgn * m
-            a, how = A_of(t_)
-            out["n"] += 1
+            a_, ds, how = ev(t_)
+            n += 1
             if how == "unreliable":
-                out["unreliable"] += 1
+                bad += 1
                 prev = None
                 continue
-            if prev is not None and np.sign(a) != np.sign(prev[1]):
-                lo, hi, alo = prev[0], t_, prev[1]
-                for _ in range(40):
-                    mid = 0.5 * (lo + hi)
-                    am, hm = A_of(mid)
-                    if hm == "unreliable":
-                        break
-                    if np.sign(am) == np.sign(alo):
-                        lo, alo = mid, am
-                    else:
-                        hi = mid
-                a_lo, a_hi = A_of(lo)[0], A_of(hi)[0]
-                kind = "zero" if max(abs(a_lo), abs(a_hi)) < 1.0 else "pole"
-                out[kind + "s"].append(0.5 * (lo + hi))
-                print("  %s: sign change between t = %.6g and %.6g: a %s near t = %.8g (A = %.4g, %.4g at the bracket)"
-                      % (fam, prev[0], t_, kind, 0.5 * (lo + hi), a_lo, a_hi), flush=True)
-            prev = (t_, a)
-    print("  S11 %s (%s bump at r = %.3f, half-width %.3f, matched at %g and %g, started at %g): %d amplitudes, %d "
-          "unreliable; zeros at t = %s; poles at t = %s"
-          % (fam, name, c, w, r1, r2, r0, out["n"], out["unreliable"],
-             ", ".join("%.8g" % z for z in out["zeros"]) or "none", ", ".join("%.6g" % z for z in out["poles"]) or "none"),
-          flush=True)
+            if prev is not None:
+                tp, ap, dp = prev
+                if ds != dp:                                            # a pole between: refine it, then its zero
+                    lo, hi = bisect(tp, t_, "det", dp)
+                    tpole = 0.5 * (lo + hi)
+                    poles.append(tpole)
+                    # just past the pole on each side A has a sign; the side whose sign differs from its own grid
+                    # neighbour holds the zero, between the pole and that neighbour
+                    for near, far, af in ((lo, tp, ap), (hi, t_, a_)):
+                        an = ev(near)[0]
+                        if np.sign(an) != np.sign(af):
+                            zl, zh = bisect(near, far, "A", np.sign(an))
+                            zeros.append(0.5 * (zl + zh))
+                            print("  %s: pole at t = %.10g, zero at t = %.10g" % (fam, tpole, zeros[-1]), flush=True)
+                elif np.sign(a_) != np.sign(ap):                        # a zero with no pole beside it
+                    zl, zh = bisect(tp, t_, "A", np.sign(ap))
+                    zeros.append(0.5 * (zl + zh))
+                    print("  %s: zero at t = %.10g (no pole in the step)" % (fam, zeros[-1]), flush=True)
+            prev = (t_, a_, ds)
+    print("  S11 %s (%s bump at r = %.3f, half-width %.3f, matched at %g and %g, started at %g; %d per decade): %d "
+          "amplitudes, %d unreliable; poles at t = %s; zeros at t = %s"
+          % (fam, name, c, w, r1, r2, r0, per_decade, n, bad, ", ".join("%.8g" % z for z in poles) or "none",
+             ", ".join("%.8g" % z for z in zeros) or "none"), flush=True)
     return 0
-
 
 def main():
     if sys.argv[1:2] == ["--zeros-far"]:
@@ -848,7 +891,7 @@ def main():
     if sys.argv[1:2] == ["--zeros-near"]:
         return zeros_near()
     if sys.argv[1:2] == ["--zeros-dense"]:
-        return zeros_dense(sys.argv[2])
+        return zeros_dense(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 30)
     if sys.argv[1:2] == ["--record"]:
         return record_point()
     if sys.argv[1:2] == ["--zeros"]:
