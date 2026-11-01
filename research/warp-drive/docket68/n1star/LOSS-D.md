@@ -894,24 +894,25 @@ loop counts of section 3.
     ∈ σ_Υ, all of log order 0 (Q1: 9, 16, 25 points about 2, 2.5, 3); for every admissible ℓ_I in (3, 3.5099) the
     windows are [2, 3) and [3, 4), J = 2, L = 0 (Q2, 5,073 values of ℓ_I), and J = 2 for every seed with min Re E^C_I in
     (3/2 + 2γ_Υ, 2] and no log term below ℓ_I; a log term adds steps (Q3, the control). So Proposition 3.1 costs 6, not
-    2, and an ι⁺ round at least (d_G + 2) + 6 = 8 + d_G = 19, not 15 (corrected D573), on E^C_I without log terms below
-    ℓ_I; the record leaves E^C_I to the class, so with log terms there the loss is larger.] [D576, verifier 251 on D573
-    (1 major, 4 minor, 2 nits); `checks/prop31loss5.py` Q3 corrected, Q4 added, exact: the round is not charged at the
-    general class. Each ι⁺ round removes its error's ℐ⁺-expansion by Proposition 3.1 (I6:156-160), and that error lies
-    in (E^tot_(ι⁺,ℐ) + 2, ℓ_I + 1), E^tot_(ι⁺,ℐ) = ∪_s (3/2 + s, 0) (I6:38-40, 143-145), with no ρ_I^(z+1)-term for Re z
-    < 5/2 (I6:48-51): its z are 5/2 + σ_Υ + ℕ_0, of log order 0, and Step 1's exceptional term is absent. So one
-    application of L_b for ℓ_I in (3, 3.5) and two for ℓ_I in [3.5, 3.5099) (Q4), and a round is charged (d_G + 2) + 2 =
-    4 + d_G = 15, LD16's figure, on ℓ_I < 3.5, or 6 + d_G = 17 above: D573's "19, not 15" is withdrawn. D573's count, 6,
-    is that of the one-off application to the general class (I6:103-108), once per call. Also: these are sufficient
-    charges, not shown minima (the necessity of the sequential chain is read from the proof's structure); the counts 9,
-    16, 25 and 3.5099 are at e_Υ = γ_Υ = 1/100, J = 2 on (3, 4) being analytic for every log-free admissible E^C_I, Q2 a
-    grid of 10⁻⁴; chain() summed a window's log orders over its z's, where one solve per log level suffices (Q3: 5, not
-    17). Not done: whether Proposition 2.1's count, grouped with 3.1 by J3:257, changes (its weight steps also apply L̃,
-    I2:136-152).] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's (I9:231; its MOD column lists III.G″
-    Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to α_K": exponents, not the rounds LD14
-    counts, a round treating every λ_0 of the window together (I6:127-129), and which of the two III.J″ multiplies is
-    not stated (corrected D557: D553 said the table has no row); by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77)
-    their loss is their number times one round's.
+    2, and an ι⁺ round at least (d_G + 2) + 6 = 8 + d_G = 19, not 15 (corrected D573; withdrawn D576, a round's class
+    being smaller), on E^C_I without log terms below ℓ_I; the record leaves E^C_I to the class, so with log terms there
+    the loss is larger.] [D576, verifier 251 on D573 (1 major, 4 minor, 2 nits); `checks/prop31loss5.py` Q3 corrected,
+    Q4 added, exact: the round is not charged at the general class. Each ι⁺ round removes its error's ℐ⁺-expansion by
+    Proposition 3.1 (I6:156-160), and that error lies in (E^tot_(ι⁺,ℐ) + 2, ℓ_I + 1), E^tot_(ι⁺,ℐ) = ∪_s (3/2 + s, 0)
+    (I6:38-40, 143-145), with no ρ_I^(z+1)-term for Re z < 5/2 (I6:48-51): its z are 5/2 + σ_Υ + ℕ_0 (the ℕ_0 by
+    C-EXTERIOR:141-142), of log order 0, and Step 1's exceptional term is absent. So one application of L_b for ℓ_I in
+    (3, 3.5) and two for ℓ_I in [3.5, 3.5099) (Q4), and a round is charged (d_G + 2) + 2 = 4 + d_G = 15, LD16's figure,
+    on ℓ_I < 3.5, or 6 + d_G = 17 above (at d_G = 11; (2.5) allows 12 at the window's top if δ ≥ ε; D580): D573's "19,
+    not 15" is withdrawn. D573's count, 6, is that of the one-off application to the general class (I6:103-108), once
+    per call. Also: these are sufficient charges, not shown minima (the necessity of the sequential chain is read from
+    the proof's structure); the counts 9, 16, 25 and 3.5099 are at e_Υ = γ_Υ = 1/100, J = 2 on (3, 4) being analytic for
+    every log-free admissible E^C_I, Q2 a grid of 10⁻⁴; chain() summed a window's log orders over its z's, where one
+    solve per log level suffices (Q3: 5, not 17). Not done: whether Proposition 2.1's count, grouped with 3.1 by J3:257,
+    changes (its weight steps also apply L̃, I2:136-152).] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's
+    (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to
+    α_K": exponents, not the rounds LD14 counts, a round treating every λ_0 of the window together (I6:127-129), and
+    which of the two III.J″ multiplies is not stated (corrected D557: D553 said the table has no row); by its rule (g)
+    and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G on ℓ_I < 3.5 (6 + d_G on [3.5, 3.5099); D573's 8 +
     d_G withdrawn, D576), which a finer accounting might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's

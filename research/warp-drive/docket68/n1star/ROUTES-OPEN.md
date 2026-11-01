@@ -6098,6 +6098,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the mean, the c0 = 0 integral from past null infinity for the phase, Lemma 9.7(d) iterated for the oscillating part,
   and the coefficients exact (D551, D555, D569); then Taylor in θ with remainder to the physical variables. Closes
   3(b)'s open induction at the record's level; λ-uniformity is not needed.
+- D580 (verifier 252 on D578 and D576: 2 major, 2 minor, nits): D578 corrected. MAJOR, the base: Theorem A_P gives stage
+  i's remainders at level 0, not in E^ℓ, so the hypothesis on stage i is now level 0 only and each step J → J + 1 finds
+  the new remainders and then their ℓ-gains by induction on m, from the earlier stages' E^ℓ, the explicit terms and the
+  lower steps. MAJOR, the coefficients: the mean's is a v-integral of a polynomial, not a polynomial; Φ and Γ are
+  algebraic. Minor: three closures are asserted, not shown (∂_v on E_p, the couplings' exactness, the Taylor remainder's
+  ℓ-gains), so "closes" is replaced by "written at the record's level, given those three"; D573's withdrawn 19 marked in
+  place. D576's reading and code confirmed. The D578 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -7759,3 +7759,8 @@ argument rather than a computation.
 approximate solution has an expansion in powers of the radius near past null infinity had been given in outline. It is
 now written as a proposition with a proof at the same level of detail as the record's own corresponding proposition for
 the exact solution, using the coefficients computed in D569.
+
+**D580 (2026-11-01): D578's proof repaired.** The independent check found that the written-out proof started its
+induction from a stronger property than the record supplies, and misdescribed how one kind of coefficient is obtained.
+Both are fixed: the induction now starts from what the record gives and builds the rest step by step. Three supporting
+facts are used without being proved here, and the entry now says so instead of calling the question closed.
