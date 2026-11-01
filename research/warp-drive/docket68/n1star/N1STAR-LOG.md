@@ -7769,3 +7769,8 @@ facts are used without being proved here, and the entry now says so instead of c
 frequency 384 also bounds the solution's derivative there, through a corollary the record already had; the constants are
 now computed exactly, growing only slowly with the frequency (from about 420 to about 510 at the points where the bound
 is known, and at most about 1500 anywhere on the band).
+
+**D582 (2026-11-01): another step's cost, bounded below.** A second step of the proof, which a verifier noted had not
+been counted, improves the solution's decay in small increments, each costing two derivatives. At the weights in use it
+needs at least four increments, so at least eight derivatives, once per round of the outer loop; it is not inside the
+inner loop, whose per-round cost of 15 is unchanged.

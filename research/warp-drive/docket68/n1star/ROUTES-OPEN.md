@@ -6110,6 +6110,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   B gives them with no new multiplier: ‖u′‖_I ≤ X‖f‖ for every l ≥ 1, X from 205.4 (σ = 3) to 277.5 (σ = 384) on the
   printed intervals, and the summed constant C, set by l = 0, from 420.3 to 514.4; uniformly on [3, 384], X ≤ 963.4 and
   C ≤ 1516. The control reproduces H1's 224.5. Real σ only.
+- D582 (LOSS-D LD16, read at source, deduced): III.I′ Proposition 2.1's count, bounded below. A regularity statement
+  whose steps each apply L̃ (loss 2) and gain a weight below ½, in turn on the same u: its loss is twice its steps. Its
+  Step 2 alone sweeps from below ℓ_+ (≤ 3/2 − 4ε where III.I′′′′′ applies it) to ℓ_I > 3: at least 4 steps, a loss of at
+  least 8. It enters once per round raising α′_K (I6:216) and in the Step 8s of I9 and I12, not inside the ι⁺ rounds, so
+  the ι⁺ round's 4 + d_G stands. Open: its full count (Step 1 and Lemma 2.2's steps depend on the a priori weight).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
