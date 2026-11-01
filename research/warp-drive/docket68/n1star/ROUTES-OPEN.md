@@ -5157,6 +5157,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   matching to twelve digits and against itself (second radius, half steps) to 10⁻⁷. The plain matching's −166 at t = −3 ×
   10⁴ was an artefact; no sign change. S7's undecided range (D457, η bump at r = 2.85, t = −10³ to −10⁵) is decided: A =
   130.27 to 130.48. Open: variations inside r = 1.25, non-rotation-invariant cut-offs, the dual state as a function.
+- D473 (E2-PILOT 3i, `checks/e2asymlzero5.py` L1-L5, certified by interval arithmetic): l = 0 under D466's asymmetric
+  multiplier, with Lemma E2.8′'s Lagrangian term q (37 sech² bumps, κ_k < s_L, c_k from a linear program rounded to four
+  digits; the certificate checks this q). W_q ≥ 0 and φ′ − q ≥ 0 on t ∈ [−120, ln 119]; tails by explicit monotone bounds
+  (left 0.168, right 2.3 × 10⁻⁴⁶); on I, w_I ≥ 0.01776, m′ ≥ 0.05143, M′ ≤ 0.3201: B_0(3) ≤ 359.0, X_0(3) ≤ 158.57.
+  Controls fail as they should (no q; q″ at −1; the left tail at t = −3). With D466, one multiplier certifies every l ≥
+  0, and the summed H¹ constant at σ = 3 is ≤ 184.82, set by l = 1, against 808.6 before; in −φU′'s weight for l ≥ 2.
+  Open: the band 0 < |σ| ≤ 3 re-checked rather than deduced, and ψ_*'s weight.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

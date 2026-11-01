@@ -564,11 +564,22 @@ increases with |σ|.
     ratio ≤ 0.0842, decreasing toward the horizon; right ≤ 4.6 × 10⁻⁴⁷); on I, m′ ≥ 0.05299 and M′ ≤ 0.7929; B_1(3) ≤
     93.95, X_1(3) ≤ 87.61, C_1 ≤ 184.82, and C_l ≤ 64.18 for every l ≥ 2. So over l ≥ 1 the summed constant at σ = 3 is
     certified ≤ 184.82, against 675.1, in this multiplier's angular weight; the band 0 < |σ| ≤ 3 follows as for E2.12. l
-    = 0's q (X_0(3) = 117.3, computed) is not yet certified. Verified by verifier 200 (D469): the closed forms exact
-    (sympy), the bisection pieces and the tails overlapping with no gap, both tail bounds proofs, and every l ≥ 2 covered
-    (w_l ≥ w_6 on I, B, X and K decreasing in w_I, and l(l + 2)/(a − a_1) decreasing, so C_l ≤ C_6 = 48.41 for l ≥ 6); K4
-    now also shows the tail bounds and the constants step failing where they should. The comparison with 675.1 is like
-    for like at l = 1 only: for l ≥ 2 the weight is −φU′, not ψ_*, whose version is not certified.
+    = 0 is D473's. Verified by verifier 200 (D469): the closed forms exact (sympy), the bisection pieces and the tails
+    overlapping with no gap, both tail bounds proofs, and every l ≥ 2 covered (w_l ≥ w_6 on I, B, X and K decreasing in
+    w_I, and l(l + 2)/(a − a_1) decreasing, so C_l ≤ C_6 = 48.41 for l ≥ 6); K4 now also shows the tail bounds and the
+    constants step failing where they should. The comparison with 675.1 is like for like at l = 1 only: for l ≥ 2 the
+    weight is −φU′, not ψ_*, whose version is not certified.
+  - *l = 0 certified (D473; `checks/e2asymlzero5.py` L1-L5, interval arithmetic).* D466's φ with Lemma E2.8′'s Lagrangian
+    term, q a sum of 37 sech² bumps (x_k − x_* on a lattice of 1/4 in [−3, 3], κ_k ∈ {3/10, 1/2, 9/10}·s_L, each below
+    s_L, so q decays faster than φ′ at both ends; c_k rounded to four digits from a linear program, and the certificate
+    checks this q, not the program). W_q ≥ 0 (4309 enclosures) and φ′ − q ≥ 0 (101) on t ∈ [−120, ln 119], by bisection;
+    the tails by explicit bounds, every bump past its inflection (left ρ_3 + ρ_q ≤ 0.168 and q/φ′ ≤ 9.31 × 10⁻⁷, with
+    section 3g's V′ bound for every a, b > 0; right ≤ 2.28 × 10⁻⁴⁶ and 2.25 × 10⁻⁷², all monotone). On I, w_I ≥ 0.01776,
+    m′ ≥ 0.05143 and M′ ≤ 0.3201, so B_0(3) ≤ 359.0 and X_0(3) ≤ 158.57 (the program's grid gives 129.7; the enclosure
+    over 2000 pieces is coarser). Controls: without q, w_0 ≤ −0.022 at t = −3.9; with q″ entering at −1 the bisection
+    fails and W_q ≤ −0.188 at t = −0.18; the left tail does not certify at t = −3. So one multiplier, with q at l = 0
+    alone, certifies every harmonic l ≥ 0, and the summed H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82, set by l =
+    1, against 808.6 (set by l = 0) before; like for like at l = 0 and 1, and in −φU′'s weight for l ≥ 2.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
@@ -578,8 +589,8 @@ What it does not give:
 
 - the angular derivative without the weight: ψ vanishes at the photon sphere, where trapping costs any estimate
   uniform in σ a loss (E4) [on the band 0 < |σ| ≤ 3 it costs only the constant, 986.4 against 808.6: D431];
-- good constants: X_l is dominated by 1/m′, as B_l is (section 3e); asymmetric multipliers lower the summed
-  constant to 184.2, computed and not certified (D460);
+- good constants: X_l is dominated by 1/m′, as B_l is (section 3e); an asymmetric multiplier lowers the summed constant
+  at σ = 3 to 184.82 over every l ≥ 0, certified (D466, D473), in its own angular weight for l ≥ 2;
 - the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
 
 ## 4. What remains for E2 at this operator
@@ -667,15 +678,14 @@ What it does not give:
 ## 5. Labels and sources
 
 Proved here by inequality (Lemmas E2.1-E2.3, Proposition E2.4; Lemmas E2.5a-b, Proposition E2.5, Corollary E2.6; Lemma
-E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0; Lemma E2.10; Corollary E2.11); computed (P1:
-(1.1), (1.2); P2:
-numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution of the
-inverse-square tail; P3: Corollary E2.6's
-thresholds, Proposition E2.5's conditions by quadrature, and the bound against the numerical kernels; P4: unimodality
-for l ≤ 40, and Lemma E2.7 against the numerical kernels on I; `checks/e2morawetz5.py` M1: identity (3.4) as an exact
-derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and B_l(3) against the computed norms, floating point, not
-certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ for every l ≥ 1 by Lemma E2.9, and the constants, by
-interval arithmetic with explicit tail bounds; `checks/e2lzero5.py` Z1-Z5: l = 0 by Lemma E2.8′, the same way;
-`checks/e2cplx5.py` J1-J2 exact, J3-J4 floating point; `checks/e2h1_5.py` H1 exact, H2 floating point).
-Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
+E2.7; Lemma E2.8 given w ≥ 0; Lemma E2.9; Lemma E2.8′ given W_q ≥ 0; Lemma E2.10; Corollary E2.11); computed (P1: (1.1),
+(1.2); P2: numerical illustration, scipy solve_ivp at rtol 10⁻¹¹ with the outgoing data started from the exact solution
+of the inverse-square tail; P3: Corollary E2.6's thresholds, Proposition E2.5's conditions by quadrature, and the bound
+against the numerical kernels; P4: unimodality for l ≤ 40, and Lemma E2.7 against the numerical kernels on I;
+`checks/e2morawetz5.py` M1: identity (3.4) as an exact derivative, sympy; M2-M3: w ≥ 0 and the constants on a grid, and
+B_l(3) against the computed norms, floating point, not certified); certified (`checks/e2certify5.py` C1-C5: w ≥ 0 on ℝ
+for every l ≥ 1 by Lemma E2.9, and the constants, by interval arithmetic with explicit tail bounds; `checks/e2lzero5.py`
+Z1-Z5: l = 0 by Lemma E2.8′, the same way; `checks/e2asymcert5.py` K0-K4 and `checks/e2asymlzero5.py` L1-L5: the
+asymmetric multiplier at every l ≥ 1 and at l = 0, the same way; `checks/e2cplx5.py` J1-J2 exact, J3-J4 floating point;
+`checks/e2h1_5.py` H1 exact, H2 floating point). Sources: PART-III-D-GAUGEPOT.md Proposition 6.2 and its proof (the ODE
 fact); EFFECTIVE-CONSTANTS.md section 5 (E2).

@@ -7158,3 +7158,9 @@ matching radius were only first-order, and very large negative choices of one cu
 numerics broke down there. With the horizon solutions kept orthonormal along the way, which does not change the quantity
 computed, every case is now decided: the coefficient stays above 107 in every scan, against 141.4 at the record's choice,
 and never changes sign; the apparent sign change the old numerics showed was their failure.
+
+**D473 (2026-11-01): the better multiplier now covers the spherically symmetric mode too.** The improved estimate
+certified for every harmonic but the lowest needed, for the lowest, one extra correction term, as the old estimate had.
+That term is now found and checked by rigorous interval arithmetic, including both infinite ends. So a single choice of
+multiplier certifies every harmonic, and the overall constant at the sampled frequency falls from 808.6 to 184.8, about a
+factor of four and a half.
