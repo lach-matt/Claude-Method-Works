@@ -7278,3 +7278,8 @@ number of the new high-frequency bound and confirmed it lies above the true size
 where the worst angular mode sits (a few modes below the one trapped at the photon sphere, not just below the barrier), a
 small grid omission that had printed the bounds a hair too low, and several loose figures. The bound is 9.5 to 19 times
 the true size, as stated after the corrections.
+
+**D494 (2026-11-01): the dust theorem, read.** The one theorem that handles streams of null dust like the record's, along
+the two null directions and even as thin shells, was read at source. It gives a solution in a band along a whole initial
+surface, as the record would need, but it is proved in four dimensions, on two-spheres, and part of its proof leans on
+other four-dimensional results. A five-dimensional version is not known here.

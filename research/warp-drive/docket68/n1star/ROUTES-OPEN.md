@@ -5341,6 +5341,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   l^(1/2) runs 2.18-2.45; the cores are set by B's balance, not by w ≥ 0; the σ^(−1/2) suggestion is at the trapped
   harmonic only; '10 to 20' is 9.46-19.0, the ratio growing only from σ = 6. Corrected in E2-PILOT 3j and section 4 and
   in e2trap5; the D486 entry above keeps its text.
+- D494 (FAMILIES5 4e, read: Luk-Rodnianski arXiv:2009.08968v1): the treatment D490 pointed to, at source. Theorem 4.6 (p.
+  29): for strongly angularly regular characteristic data on [0, I] × S² and [0, I̲] × S² (Definition 4.5, p. 28;
+  measure-valued dusts allowed), a unique angularly regular weak solution of Einstein-null dust on [0, u_∗] × [0, u̲_∗] ×
+  S² for every u_∗ ≤ I and u̲_∗ ≤ ε: a slab along a whole hypersurface. The dusts are the two families of the double null
+  foliation (only Ric(e_3, e_3), Ric(e_4, e_4) non-zero, p. 10), the record's kind (D470). The derivative loss is avoided
+  by renormalised curvature and transport estimates in suitable spaces (p. 10, sections 8.4, 8.7), with elliptic
+  estimates on 2-spheres; existence comes by approximating with 4D vacuum solutions. So: the right theorem in 4D, S = S²;
+  no 5D counterpart known here. Open: a 5D version.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
