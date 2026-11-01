@@ -574,6 +574,35 @@ What it does not give:
   and λ-uniformly the question stays open. What neither D508 nor this note addresses is the radial dependence: D508
   treats a source r⁻⁴σ(v, ω), while e's Cartesian derivatives gain no power of r, so r⁴ times the sources need not be
   smooth in ρ at fixed v, and the strip's term need not then be polyhomogeneous. That is the open item.]
+  [D530, exact in the scalar model and deduced for the full operator; `checks/stripradial5.py` R1-R4: the strip's term
+  inherits the sources' radial expansion at fixed v, and needs nothing else. The strip's sources sit at bounded v as r →
+  ∞, so their radial dependence is their dependence on u = v − 2r → −∞, toward past null infinity. (i) The scalar model
+  at every degree. For φ = r^(−p)F(s)Y_l, −½r^(p+2)□φ = (s − s²/2)F″ + (p − ½)(1 − s)F′ − ½(p² − 2p − l(l + 2))F (R1,
+  exact, p and l symbolic), Gauss's equation in s/2 with (a, b, c) = (p + l, p − l − 2, p − ½). A sheet r^(−4−q)σδ(v −
+  v_0), q ≥ 0, is the degree −(3 + q) problem: F(0+) = −σ/(2p − 3), the regular branch ₂F₁(a, b; c; s/2) (c = p − ½ > 0;
+  the other exponent, 3/2 − p < 0, is excluded as in D487), so there is no logarithm at any p, half-integers included,
+  and K_(p,l) := F(1) = −√π Γ(p − ½)/((2p − 3)Γ((p + l + 1)/2)Γ((p − l − 1)/2)) by Gauss's second summation theorem (R2,
+  to 4 × 10⁻³¹; strip5's C_l at p = 3; at half-integer p it vanishes at no l). strip5's scheme with r^(−4−q) on the
+  strip gives r^(3+q)φ → K_(3+q,l) to 0.07 % for q = 0, ½, 1 and l = 0, 1 (R3). So if r⁴S = Σ_q ρ^q σ_q(v, ω) at fixed
+  v, the strip's term is Σ_q ρ^(3+q) ∫ F_(3+q)(1 − vρ)σ_q(v) dv, by time translation as in D508: its exponents are 3
+  plus those of r⁴S, with no logarithm, and a remainder |r⁴S| ≤ Cρ^m contributes O(ρ^(3+m)) at l = 0, where the kernel
+  is positive. (ii) The full operator, deduced. Its principal part on flat space is −½□ ⊗ I (D502), so at degree −p M2 =
+  (s − s²/2)I, and M1(0) depends on p only through ∂_r²: M1_p(0) = M1_2(0) + (p − 2)I, first-order terms B·∂ putting p
+  into M0 alone (D487's P2, exact, is the step from p = 2 to 3). M1_2(0)'s eigenvalues are 1.5, 1.5099, 1.51, 1.52 and
+  the damping's (D492), so J_p := M1_p(0) − I has every eigenvalue at least p − 3/2 and the other exponent at N is
+  negative at every p ≥ 3: no logarithm, and K_p = T_p J_p⁻¹ is finite in each harmonic. Its size and its uniformity in
+  l are computed only at p = 3 (D487, D492, D496). (iii) So the open item is exactly the radial expansion of r⁴ times
+  the sources at fixed v, that is, whether e and h are polyhomogeneous at past null infinity along the strip. The
+  record's waves are incoming, with phase v/λ (N1STAR-PROOF.md:538, 1040), so their fast dependence is in v, which σ(v,
+  ·) absorbs. What the record does not give is the dependence on u at fixed v. Lemma 11.0 commutes with ∂ and Ω only,
+  and the derivative along the strip, ∂_u, gains no power of r (D464); neither r∂_u nor the scaling field is used, so
+  neither conormality nor an expansion at I⁻ is proved. (iv) What it would cost (R4). A source oscillating in u at fixed
+  v, r⁴S = cos(2r/λ), which E_2 does not exclude, gives on t = 0 no ρ³ term (|r³φ| < 0.05 on [300, 400] at λ = 10,
+  against |K_(3,0)| = 0.785) and a ρ⁴ term ≈ √2 λρ⁴ sin(1/(λρ)) (amplitude 1.39λ and 1.31λ at λ = 10 and 30; √2λ is the
+  leading term by parts in u). It is C¹ but not C² in ρ, and its t-derivative, ρ⁴cos(1/(λρ)), is not C¹ after the factor
+  ρ³: outside Lemma 0.1's ρ²C^m and ρ³C^m from m = 2. Whether e has such a part along the strip is not decided; with
+  incoming waves, it would come from backscatter or from the remainder's own construction. What remains: e's conormality
+  and expansion at I⁻ along the strip, by commuting the far-region energy (9.8) with r∂_u or the scaling field.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

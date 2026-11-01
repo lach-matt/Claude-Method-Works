@@ -5701,6 +5701,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   N_2 > 8.6; LD12 (v)'s case needs a class base l + 1. On the broad reading d0 is below 1 too, a chain has 1.125 × 10¹²
   points, and the level-2 loop would dominate by 4.4 × 10⁴. Open: whether d0 ∈ ℰ_ind, N_2, log orders, Proposition 4.4's
   loss, and the ι⁺ loop (E^ι_ind unread).
+- D530 (BEYOND5 3(b), exact in the scalar model, deduced for the full operator; `checks/stripradial5.py` R1-R4, output
+  saved): the strip's term inherits the sources' radial expansion at fixed v. Scalar model: φ = r^(−p)F(s)Y_l reduces to
+  Gauss's equation with (p + l, p − l − 2, p − ½) at every degree; a sheet r^(−4−q)σδ(v − v_0) has F(0+) = −σ/(2p − 3)
+  and the regular branch, so no logarithm at any p, and K_(p,l) = −√πΓ(p − ½)/((2p − 3)Γ((p + l + 1)/2)Γ((p − l − 1)/2))
+  (to 4 × 10⁻³¹; C_l at p = 3; nonzero at every l for half-integer p); strip5's scheme reproduces it to 0.07 % for q =
+  0, ½, 1. So r⁴S = Σρ^qσ_q(v, ω) gives exponents 3 + q. Full operator: M1_p(0) = M1_2(0) + (p − 2)I from the scalar
+  principal part, so J_p is invertible and log-free at every p ≥ 3. The open item is therefore e's expansion at I⁻ along
+  the strip (its u-dependence at fixed v), which Lemma 11.0 (∂, Ω only) does not give; the record's phase v/λ puts the
+  fast dependence in v. The stake: r⁴S = cos(2r/λ) gives no ρ³ term and ≈ √2λρ⁴sin(1/(λρ)), C¹ but not C²: outside Lemma
+  0.1 from m = 2. Open: conormality of e at I⁻ (commuting (9.8) with r∂_u or the scaling field), K_p's size for p > 3.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

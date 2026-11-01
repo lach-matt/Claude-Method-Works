@@ -7476,3 +7476,11 @@ unknown, one advances by the smallest exponent the proof's expansions contain. R
 exponents, that step is about seventeen times the smallest admissible gap, so this loop is shorter than the two already
 counted, unless the record admits one further exponent that none of its cited states carries; if it does, this loop
 becomes by far the longest. Which is the case is not settled by the record's text.
+
+**D530 (2026-11-01): the far strip's data inherit the sources' radial shape, nothing worse.** The narrow strip of
+sources along the incoming light cone was shown, exactly in the model and by deduction for the full equations, to pass
+on whatever power-law expansion its sources have along the cone, shifted by three powers, with no logarithms. So what is
+open is only whether the remainder has such an expansion out toward past infinity. A model computation shows why it
+matters: a remainder that oscillated along the cone would leave the initial data rough at infinity, outside the class
+the final assembly needs. The record's waves are incoming and do not oscillate that way, but the record does not prove
+the remainder doesn't.
