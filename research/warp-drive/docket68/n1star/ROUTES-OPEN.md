@@ -5191,6 +5191,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D466's bullet m′ ≥ 0.05298, M′ ≤ 0.7930, B_1(3) ≤ 93.96, X_1(3) ≤ 87.62): corrected in E2-PILOT 3i, and e2asymcert5,
   e2asymlzero5 and e2asympsi5 now print every bound rounded outward; C_1 is recomputed in e2asymlzero5 (184.817); the
   right tail checks tanh g_R, c_R > 0. The D466 and D473 entries above keep the values as first stated.
+- D479 (LOSS-D LD9, `checks/s1coef5.py --zeros-near`, S10, computed): cut-off variations inside r = 1.25. Started at r =
+  1.05 (A0 unchanged to ten digits; the horizon series converges there), bumps on (1.05, 1.25) give first-order effects
+  0.0037 (η) and 1.2 × 10⁻⁶ (ζ); amplitude scans to |t| = 10⁵ at r = 1.225 keep A in [140.34, 141.96], every value
+  reliable (QR matching where needed), no sign change. With D457, D465 and D472, no cut-off variation computed anywhere
+  on (1.05, 8) makes A vanish. Open: (1, 1.05), the series' own range; non-rotation-invariant cut-offs; the dual state as
+  a function.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

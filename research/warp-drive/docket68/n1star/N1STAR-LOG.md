@@ -7185,3 +7185,8 @@ improved overall constant, 184.8 against 808.6, to hold in the original weight a
 independent check re-derived every bound and sampled the functions at high precision, finding no error. It found that a
 few printed constants had been rounded to the nearest digit rather than in the direction that keeps them true bounds, by
 a unit in the last place. They are corrected, and the checks now always round outward.
+
+**D479 (2026-11-01): the coefficient also survives changes close to the horizon.** The last untested stretch of the
+cut-off functions lay just outside the black hole, where the computation started from a series. Starting the series
+closer in opened most of that stretch; there too no change, however large, brings the coefficient near zero: it stays
+between 140.3 and 142.0.

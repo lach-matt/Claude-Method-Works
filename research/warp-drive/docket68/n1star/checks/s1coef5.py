@@ -67,12 +67,21 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      (eta, t = -10^5), with no sign change; the extremes move A by at most +0.168; S7's undecided range gives A = 130.27
      to 130.48.
 
+  S10 (computed; --zeros-near, D479) inside r = 1.25: the integration started at r = 1.05, where the horizon series still
+     converges (A0 the same to ten digits as from 1.25, and at matching radii 3 and 4), so that cut-off variations in
+     (1.05, 1.25) can be applied: (a) dA/dzeta and dA/deta from bumps of half-width 0.025 at 1.075, ..., 1.225, and their
+     first-order sums, 1.2e-6 and 0.0037; (b) A along zeta0 + t b and eta0 + t b at the most sensitive (r = 1.225), |t|
+     from 1 to 10^5, with the QR matching where the plain one fails. Every value is reliable, A stays in [140.34,
+     141.96], with no sign change. The interval (1, 1.05), where the series itself assumes zeta = O(r - 1) and eta = 1,
+     is not varied.
+
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8) (both z
 = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double precision
-(DOP853, rtol 1e-13). About 15 minutes; --zeros-far-amp about 20.
+(DOP853, rtol 1e-13). About 15 minutes; --zeros-far-amp about 20, --zeros-near about 25.
 Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; cut-off variations inside r =
-1.25 or not rotation invariant; the dual state as a function (S7 measures its pairing through bumps); and whether the
-record's later steps hold at the bumped cut-offs, beyond the matching being solvable there.
+1.05 (the horizon series' own range) or not rotation invariant; the dual state as a function (S7 measures its pairing
+through bumps); and whether the record's later steps hold at the bumped cut-offs, beyond the matching being solvable
+there.
 """
 import os
 import math
@@ -709,7 +718,7 @@ def zeros_near():
                 Am = pb.coefficient(zeta0, lambda x: eta0(x) - b(x), 3.0, r0=r0)[0]
             rows.append((Ap - Am) / (2 * norm))
         sens[name] = rows
-        print("  (a) dA/d%s(r) at r = %s: %s; first-order sum over (1.05, 1.25): %.4f"
+        print("  (a) dA/d%s(r) at r = %s: %s; first-order sum over (1.05, 1.25): %.3g"
               % (name, ", ".join("%.3f" % c for c in centres), " ".join("%.3e" % q for q in rows),
                  sum(abs(q) for q in rows) * 2 * w), flush=True)
     ts = (-1e5, -1e4, -1e3, -1e2, -10, -1, 1, 10, 1e2, 1e3, 1e4, 1e5)

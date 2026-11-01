@@ -489,8 +489,15 @@ loop counts of section 3.
       digits where both hold, and with itself at a second radius and half the steps to 10⁻⁷. Every value is reliable, the
       least is 107.418, and A changes sign nowhere: the −166 the plain matching gave at t = −3 × 10⁴ was its failure. So
       beyond r = 3, to the record's support and well past amplitude 1, no cut-off computed makes A vanish.
-    - Not computed: variations inside r = 1.25 (the horizon series' form, ζ = O(r − 1), η = 1), cut-offs that are not
-      rotation invariant (the record's are), and the dual state as a function rather than through its pairings.
+    - *Inside r = 1.25 (D479; `checks/s1coef5.py --zeros-near`, S10, computed).* Started at r = 1.05, where the horizon
+      series still converges (A0 the same to ten digits as from 1.25, and at matching radii 3 and 4), the cut-offs can be
+      varied on (1.05, 1.25): bumps of half-width 0.025 give dA/dη = 0.011 to 0.025 and dA/dζ about −5 × 10⁻⁶, so a
+      cut-off within 1 of the record's there moves A by 0.0037 (η) and 1.2 × 10⁻⁶ (ζ) to first order; along η0 + t b and
+      ζ0 + t b at r = 1.225, |t| from 1 to 10⁵, A stays in [140.34, 141.96] (QR matching where the plain one fails, every
+      value reliable), with no sign change.
+    - Not computed: variations inside r = 1.05, where the horizon series itself assumes ζ = O(r − 1) and η = 1, cut-offs
+      that are not rotation invariant (the record's are), and the dual state as a function rather than through its
+      pairings.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an
