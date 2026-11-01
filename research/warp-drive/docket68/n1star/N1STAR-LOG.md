@@ -7068,3 +7068,10 @@ right once the second cone's numbers are given, and wrong only in fixing both co
 overstated it. For the cut-off scan, the first-order figure is an estimate rather than a bound, since a cut-off near
 the end of the range moves the coefficient slightly more, and the large-change ranges hold at the sampled sizes; the
 conclusion that the term stays is unchanged.
+
+**D460 (2026-11-01): a better multiplier lowers the one-derivative constant fourfold.** The certified constant for one
+derivative, about 809, came from the lowest angular pattern, because the weight used in the proof is nearly flat at the
+outer end of the region. A weight that is narrow toward the horizon, as the proof needs, but wider outside brings the
+lowest pattern down to about 117, the next one from about 675 to 184, and every higher pattern below about 62, so the
+whole constant would be about 184. This is computed in ordinary floating point and is not yet certified; the earlier
+constants are reproduced as a control, and the certification is the next step.

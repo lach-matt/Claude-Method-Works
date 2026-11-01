@@ -5060,6 +5060,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   0.084 is an estimate, not a bound (eta0 - 1 moves A by -0.098); the amplitude ranges hold at the samples (121.42 at t =
   1.5e4); at eta t = -1000 only the condition rules the value out; 'for every cut-off' rests on linearisation.
   Unverified: the record's admissibility of large cut-offs (III.D' Prop. 4.1).
+- D460 (E2-PILOT 3i, checks/e2asym5.py A1-A5, computed in floating point, not certified): asymmetric multipliers, phi =
+  tanh(g), g' = 1/s, the width rising from 49/50 toward the horizon to s_R = 2 outside, centred at x_*. l = 1: B_1(3) =
+  95.6, X_1 = 80.5, C_1 = 184.2 (certified symmetric 264.5, 495.9, 675.1); l = 0 with section 3g's linear program for q:
+  X_0(3) = 117.3 (808.6); the same phi serves every l >= 1 (w_l >= w_1 as in 3f): C_l = 55-62 for l = 2-6. So the summed
+  H^1 constant at sigma = 3 would be 184.2, set by l = 1, against 808.6. Controls reproduce the certified symmetric chain
+  (254.6, 483.4, 801.5). Next: certify these multipliers by interval arithmetic (w >= 0 on R with the tails, the
+  constants on I).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

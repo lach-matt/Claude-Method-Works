@@ -538,6 +538,23 @@ increases with |σ|.
 - Off the axis Lemma E2.10's form holds with 4|σ| + 2 max q in place of 2|σ|, and is increasing in the same way.
 - This is uniformity on a compact band, as the record's Proposition 6.2 needs, but in the cut-off H¹ norm only, not in
   the record's norms (section 4).
+- *Asymmetric multipliers (D460; `checks/e2asym5.py` A1-A5, computed in floating point, not certified).* The constant
+  808.6 is set by l = 0 through m′ = 0.00256: the symmetric tanh of width 49/50 is nearly flat at the outer end of I.
+  Take φ = tanh(g), g′ = 1/s(r_*), with the width rising smoothly from s_L = 49/50 toward the horizon (what the tail
+  needs) to s_R outside, centred at x_* so that φ still changes sign where U′ does.
+  - l = 1, s_R = 2: m′ = 0.0619, M′ = 0.713, w_I = 0.0720; B_1(3) = 95.6, X_1(3) = 80.5 and C_1 = 184.2 (the certified
+    symmetric ones 264.5, 495.9 and 675.1).
+  - l = 0, s_R = 2, with q from section 3g's linear program (q ≤ 0.7φ′): m′ = 0.0601, B_0(3) = 225.2, X_0(3) = 117.3
+    (against 808.6). With the centre at x_* − 0.3 an outer width of 1.5 or more admits no q: l = 0's potential tail,
+    −V_0′ ≈ 1.5 r⁻³, cannot absorb φ‴ ~ e^(−2r_*/s_R) there.
+  - As in section 3f, w_l = w_1 + (a − a_1)(−φU′) ≥ w_1 with this φ, so it serves every l ≥ 1 with l-independent m′ and
+    M′: C_l = 62.1, 58.1, 56.4, 55.6 and 55.1 for l = 2-6 (l ≥ 6 bounded by l = 6 as above).
+  - So at σ = 3 the summed constant would be 184.2, set by l = 1, against 808.6 (284.9 with the certified C_l for l ≥ 2).
+    The multipliers do not depend on σ, so the band 0 < |σ| ≤ 3 would carry the same constant, deduced as for E2.12 and
+    not re-checked.
+  - Controls: the symmetric multipliers reproduce B_1(3) = 254.6 (certified 264.5), X_1(3) = 483.4 (495.9) and X_0(3) =
+    801.5 (808.6). The grid runs from ln(r − 1) = −60 to r = 120 and the tails beyond it are not checked; certification
+    by interval arithmetic as in sections 3f-3g is the next step.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
@@ -547,7 +564,8 @@ What it does not give:
 
 - the angular derivative without the weight: ψ vanishes at the photon sphere, where trapping costs any estimate
   uniform in σ a loss (E4) [on the band 0 < |σ| ≤ 3 it costs only the constant, 986.4 against 808.6: D431];
-- good constants: X_l is dominated by 1/m′, as B_l is (section 3e);
+- good constants: X_l is dominated by 1/m′, as B_l is (section 3e); asymmetric multipliers lower the summed
+  constant to 184.2, computed and not certified (D460);
 - the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
 
 ## 4. What remains for E2 at this operator
