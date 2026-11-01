@@ -216,8 +216,13 @@ V′_P := V′ + 1 + (τ′_end − τ0) + κ (N1STAR-PROOF.md (1.1), (9.1)).
   1296-1298). That is a leading term and a bound, not an expansion.
   - Lemma 0.1's sufficient condition asks for ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r. III.K's class
     is polyhomogeneous with terms of orders r^(−2) and r^(−3) (paper section 8.4).
-  - An E_(5/2) bound neither gives such an expansion nor excludes one. Whether III.K's index sets admit
-    half-integer exponents is not read here.
+  - An E_(5/2) bound neither gives such an expansion nor excludes one. III.K's classes do admit half-integer exponents
+    (D467, read). At 𝓘⁺ the expansion is in ρ_I, functions smooth on M_(1/2) are polyhomogeneous there with index set
+    ½ℕ_0, and each slot's index set satisfies ℰ_s + ½ ⊂ ℰ^C_I ⊂ ℰ_s (PART-III-K-NONLINEAR.md 361-377, III.C Lemma 3.2
+    (a)). The data index set ℰ_0 is restricted only by min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0
+    (III.K 53-57, III.C′ Theorem 3.1), not to integers. So Lemma 0.1's integer powers (PART-VII-ASSEMBLY.md 56-60) are a
+    sufficient condition, not the class. Not read: whether a ρ^(5/2) term, such as the cross terms of the sources below
+    could produce (D456), keeps ‖·‖_(d_1) finite, which depends on that norm's weights.
 
 So (b) now consists of three steps:
 

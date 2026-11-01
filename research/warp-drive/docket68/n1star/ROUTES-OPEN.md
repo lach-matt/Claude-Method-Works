@@ -5108,6 +5108,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   >= 0.05299, M' <= 0.7929 on I; B_1(3) <= 93.95, X_1(3) <= 87.61, C_1 <= 184.82, C_l <= 64.18 for l >= 2. So over l >= 1
   the summed H^1 constant at sigma = 3 is certified <= 184.82 (675.1 before), in this multiplier's weight. Open: l = 0's
   q (X_0 = 117.3 computed).
+- D467 (BEYOND5 3(b) (v), read): whether III.K's index sets admit half-integer exponents. They do: at scri+ the
+  expansion is in rho_I and functions smooth on M_(1/2) have index set (1/2)N_0 there, the slot index sets closed
+  under + 1/2 (PART-III-K-NONLINEAR 361-377, III.C Lemma 3.2 (a)); and the data index set E_0 is restricted only by
+  min Re E_0 > 3/2 + 2 gamma_Ups, j E_0 in E_0, ell_0 > 3, ell_0 not in Re pi_1 E_0 (III.K 53-57), not to integers. So
+  Lemma 0.1's integer powers are sufficient, not the class. Open: whether a rho^(5/2) term keeps the d_1-norm finite
+  (its weights not read).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -7119,3 +7119,10 @@ is now proved, not just computed, for every angular pattern from the first up: i
 positivity everywhere it is needed, with explicit bounds for the two ends, and the resulting constant over those
 patterns is at most about 185, against 675 before. The lowest pattern needs an extra correction term, which is computed
 but not yet certified.
+
+**D467 (2026-11-01): half powers are allowed.** BEYOND5 had left open whether the record's solution class allows terms
+falling like half-integer powers of the distance. Read at source, it does: near null infinity the class is built on a
+coordinate that is the square root of the natural one, so half steps appear automatically, and the data are allowed any
+exponents above a threshold, not only whole numbers. The integer-power condition used earlier is a convenient
+sufficient test, not a description of the class. Whether a half-power term coming from the sources keeps the record's
+data norm finite depends on that norm's weights, which are not read here.
