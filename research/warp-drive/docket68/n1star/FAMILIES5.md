@@ -467,8 +467,10 @@ obeys the transport (5.3). With two families:
 
 - *The decomposition.* w = h + φ_in Y_in + φ_out Y_out, with Y_k := λ⁻¹ ∂_(c_k) G at c = 0, G the two-phase profile of
   section 4 with its phases shifted to (s1 + c1, s2 + c2): Y_in = F1 g1^in + λ F1 ĝ_2, g1^in = W_TT^in + χ dv², F_k :=
-  ∂_(s_k), and likewise Y_out. Each φ_k is transported along its own family's generator, L_k φ_k = −½ P s_k(h), L_k :=
-  ℓ_k · ∇, with zero data on Σ_τ0.
+  ∂_(s_k), and likewise Y_out. Each φ_k is transported along its own family's generator, L_k φ_k = ½ P s_k(h), L_k :=
+  ℓ_k · ∇, with zero data on Σ_τ0: the record's L0 φ = −½ P s, its L0 being −ℓ (RESPONSE-HL-5D.md:190; corrected D513,
+  verifier 220, the sign having been carried over with L0's). Unlike the record's s(h) = s(w), here s_k(w) ≠ s_k(h):
+  s_in(w) − s_in(h) = e^(−4σ) φ_out F2 χ′ + O(λ) by Q2. Every s_k below is s_k(h).
 - *Lemma 5.1 for each phase (deduced).* Each constant shift c_k is a symmetry of the two-phase Stage 0: R^(−1) = 0, and
   R^(0) is met by the transports, ĝ_2 and the two-dust background, for every c (section 4b; its equations do not involve
   s1, s2 except through the profiles). Differentiating at c_k = 0, as in the record's proof, gives P(Y_k) = O(1). The
@@ -483,22 +485,24 @@ obeys the transport (5.3). With two families:
   part of family out's ½ s_out F2² g1^out and cancel with it. So in the record's gauge the decomposition along each
   family's own generator leaves no λ⁻¹ coefficient beyond the record's: section 4d's question is answered at the λ⁻¹
   level.
-- *Where the cross coupling goes (Q2, computed).* [F1 g1^in](ℓ_in, ·) = 0 and [F2 g1^out](ℓ_out, ·) = 0 in every
-  component, so contracting h's equation with ℓ_in ⊗ ℓ_in kills family in's λ⁻¹ term and its □̃φ_in term, as in the
-  record. Family out's survive, through χ′ alone: [F2 g1^out](ℓ_in, ℓ_in) = e^(−4σ) F2 χ′. So s_in's wave equation
-  carries ½ e^(−4σ) λ⁻¹((1 − P) s_out) F2² χ′, a bounded coefficient times O(∂s_out), and −½ e^(−4σ) (F2 χ′) Ψ_out, a
-  bounded coefficient oscillating in s2 times Ψ_out := □̃φ_out; the s_out equation carries the mirror terms with χ and
-  Ψ_in. No large coefficient enters either equation: the cross coupling is of order 1, at the top order of Ψ. Control:
-  with χ′ ≠ 0, [F2 g1^out](ℓ_in, ·) = 0 fails.
+- *Where the cross coupling goes (deduced from Q2's contractions, which are computed).* [F1 g1^in](ℓ_in, ·) = 0 and [F2
+  g1^out](ℓ_out, ·) = 0 in every component, so contracting h's equation with ℓ_in ⊗ ℓ_in kills family in's λ⁻¹ term and
+  its □̃φ_in term, as in the record. Family out's survive, through χ′ alone: [F2 g1^out](ℓ_in, ℓ_in) = e^(−4σ) F2 χ′. So
+  s_in's wave equation carries ½ e^(−4σ) λ⁻¹((1 − P) s_out) F2² χ′, a bounded coefficient times O(∂s_out), and −½
+  e^(−4σ) (F2 χ′) Ψ_out, a bounded coefficient oscillating in s2 times Ψ_out := □̃φ_out; the s_out equation carries the
+  mirror terms with χ and Ψ_in. No large coefficient enters either equation: the cross coupling is of order 1, at the
+  top order of Ψ. Control: with χ′ ≠ 0, [F2 g1^out](ℓ_in, ·) = 0 fails.
 - *The transports (Q1, computed).* On every round double-null metric −2 e^(2σ) du dv + R² dΩ_3, σ and R any functions of
   (u, v) (section 4c's two-dust background is one), with L_in = −e^(−2σ) ∂_u and L_out = −e^(−2σ) ∂_v: [□, L_k] f = a_k
-  □f + M_k(L_k f) + N_k f, a_k = 2 L_k R/R (two-thirds of ℓ_k's expansion), M_k and N_k first order, and no third
-  derivative. Every second derivative not in □ carries the generator's own index (for L_out, ∂_u ∂_v f with coefficient
-  −4 e^(−4σ) R_v/R and ∂_v² f with −4 e^(−4σ) σ_u), because each generator is shear-free: the derivative of the angular
-  inverse metric along it is a multiple of itself. So Ψ_k := □φ_k obeys L_k Ψ_k + a_k Ψ_k = −½ □P s_k + ½ M_k(P s_k) −
-  N_k φ_k, the structure of the record's (5.3), whose −2/r is a_k in the record's normalisation of L0. Q1 uses □ of g0;
-  the record's □̃ is not restated here. Control: with shear, an angular metric R²(e^(2b) dθ² + e^(−2b)(cos²θ dφ1² +
-  sin²θ dφ2²)), the three diagonal angular second derivatives of [□, L_out] remain and no multiple of □ removes them.
+  □f + M_k(L_k f) + N_k f, a_k = 2 L_k R/R (two-thirds of ℓ_k's expansion), M_k and N_k first order; the third
+  derivatives cancel identically, as in any commutator of a second-order with a first-order operator. Every second
+  derivative not in □ carries the generator's own index (for L_out, ∂_u ∂_v f with coefficient −4 e^(−4σ) R_v/R and ∂_v²
+  f with −4 e^(−4σ) σ_u), because each generator is shear-free: the derivative of the angular inverse metric along it is
+  a multiple of itself. So Ψ_k := □φ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □P s_k − ½ M_k(P s_k) − N_k φ_k (signs corrected
+  D513), the structure of the record's (5.3): on Vaidya R = r and ℓ(r) = 1, so a = 2/r, and ℓΨ + (2/r)Ψ = −(L0 Ψ −
+  (2/r)Ψ). Q1 uses □ of g0; the record's □̃ is not restated here. Control: with shear, an angular metric R²(e^(2b) dθ² +
+  e^(−2b)(cos²θ dφ1² + sin²θ dφ2²)), the three diagonal angular second derivatives of [□, L_out] remain and no multiple
+  of □ removes them.
 - *The loop (deduced; not written at the level of the record's supplement).* □P s_in comes from s_in's wave equation, so
   it contains Ψ_out with a bounded coefficient, and □P s_out contains Ψ_in. So (Ψ_in, Ψ_out) obey two transports along
   transversal null directions, coupled through bounded coefficients (P is bounded on L² whatever the oscillation of what

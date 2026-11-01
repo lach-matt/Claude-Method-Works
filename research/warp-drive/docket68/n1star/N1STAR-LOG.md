@@ -7382,3 +7382,9 @@ crossing, the same split along each family's own direction removes every large t
 uses. What remains of the interaction is of ordinary size, and the two split-off pieces then feed each other through
 bounded terms, which a standard growth argument should control; that argument is not yet written out. In the alternative
 gauge proposed earlier for two families, which had looked better, the split brings a large interaction back.
+
+**D513 (2026-11-01): the two-family split, checked.** An independent check found a sign error in how the split-off
+pieces are carried along the waves: the convention of the record's transport, which runs against the wave's direction,
+was copied onto one that runs with it. As written the large terms would have doubled instead of cancelling. With the
+sign corrected the argument stands, and the check confirmed the rest of it, including that the alternative gauge does
+bring a large interaction back.

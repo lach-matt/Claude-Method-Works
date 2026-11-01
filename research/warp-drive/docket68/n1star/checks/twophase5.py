@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""twophase5.py -- FAMILIES5 section 4f (D511): the record's section 5.2 with two families.
+"""twophase5.py -- FAMILIES5 section 4f (D512, corrected D513): the record's section 5.2 with two families.
 
 The record's section 5.2 (RESPONSE-HL-5D.md:490-511) writes the remainder as w = h + phi [d_theta g1], with
 L0 phi = -(1/2) P s, and closes the estimate with three facts: Lemma 5.1 (the phase shift is a symmetry), [d_theta
@@ -12,7 +12,8 @@ script computes what that needs of the background and of the waves.
      (sigma, R any functions of (u, v): the two-dust background of section 4c is of this form). For L_in := ell_in.d
      = -e^(-2 sigma) d_u and L_out := ell_out.d = -e^(-2 sigma) d_v and any function f,
          [box, L_k] f = a_k box f + (second derivatives of f each carrying the generator's own index) + (first order),
-     with a_k = 2 L_k R / R (two-thirds of the expansion of ell_k), and no third derivative. A second derivative with
+     with a_k = 2 L_k R / R (two-thirds of the expansion of ell_k); the third derivatives cancel, as they do in any
+     commutator of a second-order with a first-order operator (the check of that cannot fail). A second derivative with
      the generator's index is a first-order operator applied to L_k f plus a first-order term, so
          box (L_k f) = L_k (box f) + a_k box f + M_k (L_k f) + N_k f,    M_k, N_k first order,
      which is the structure of the record's (2.4): Psi_k := box phi_k obeys a transport along ell_k whose source is

@@ -5540,6 +5540,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   λ⁻¹ coupling of φ_in into s_out ((dv(ℓ_out))² = e^(−4σ)) that only a transported corrector, χ again, removes; so the
   record's gauge is the better one for the estimate. Open: the two-family supplement Lemmas 3.3-3.4 written out,
   (E1)-(E2) for two families, the mollifier against coefficients oscillating at scale λ.
+- D513 (verifier 220 on D512; Q1 re-derived with its own □ and ℓ_k, the coefficients and a_k = (2/3) div ℓ_k checked
+  exactly, the commutator's cross term re-derived, Lemma 5.1 per phase and the generalised gauge's defect re-derived):
+  MAJOR, a sign. The commutator's λ⁻¹ part is −(ℓ_k · ∇φ) F_k, so the cancellation needs ℓ_k · ∇φ_k = ½ P s_k(h); D512
+  wrote L_k φ_k = −½ P s_k(h) with L_k := ℓ_k · ∇, carrying over the sign of the record's L0, which is −ℓ
+  (RESPONSE-HL-5D.md:190). As written that gives ½((1 + P) s_k), not (1 − P). The mechanism stands; with the sign
+  corrected Ψ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □P s_k − ½ M_k(P s_k) − N_k φ_k, which on Vaidya (a = 2/r) is the record's
+  (5.3) times −1. Confirmed: twophase5 and twolin5 pass; the remaining second derivatives are exactly the printed ones
+  (sympy's Derivative ordering hides none); the shear control is meaningful; each phase shift is a symmetry of the
+  record's two-scale operator (no explicit s_k), ĝ_2 belongs in Y_k and reaches λ⁻¹ through e^(−2σ) F1 F2, and
+  g_app⁻¹(dv, dv) = −λ e^(−4σ) χ′ + O(λ²), now oscillating in s2, sits inside T(Y_in) and cancels there; the Q2 factors
+  (½ e^(−4σ) s_out F2² χ′ = −2 e^(−4σ) s_out χ′, L2's); the generalised gauge's P_H(Y_in) = −λ⁻¹ F1² h dv ⊗ dv + O(1), a
+  genuine loss of λ⁻¹; the loop is not over-claimed given its caveats, the new terms being bounded in L² by the record's
+  (M1), (M3), and (M5) entering only with slow coefficients. MINOR: the check's header said D511; 'no third derivative'
+  cannot fail (it holds for any such commutator); s_k(w) ≠ s_k(h) here (s_in(w) − s_in(h) = e^(−4σ) φ_out F2 χ′ + O(λ)),
+  unlike the record's; the form of s_in's equation is deduced from Q2's contractions, not computed. Corrected in
+  FAMILIES5 4f and twophase5; the D512 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
