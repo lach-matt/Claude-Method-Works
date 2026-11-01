@@ -7283,3 +7283,9 @@ the true size, as stated after the corrections.
 the two null directions and even as thin shells, was read at source. It gives a solution in a band along a whole initial
 surface, as the record would need, but it is proved in four dimensions, on two-spheres, and part of its proof leans on
 other four-dimensional results. A five-dimensional version is not known here.
+
+**D495 (2026-11-01): the dust theorem, read again.** The check confirmed every quotation and corrected the details: which
+of the two initial surfaces the band runs along, where the paper defines its dusts, that its two-spheres could be any
+closed surfaces (so the restriction is to four dimensions, not to spheres), and that its solutions are weak ones. It also
+noted that the record's dusts match the paper's only if they run along null surfaces built from the metric, which the
+record's coordinates do not guarantee away from the initial surfaces.

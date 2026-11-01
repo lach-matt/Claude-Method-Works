@@ -428,25 +428,32 @@ couplings are then killed by their own contractions.
       any order (shown at the level of the equations, not as a no-go theorem; D488 had called this route evident). What
       is known instead: Luk and Rodnianski (arXiv:2009.08968, Theorem 4.6, p. 29) treat two null dusts in double-null
       gauge, in 4D with S = S², by a hyperbolic-elliptic-transport system with renormalised curvature that avoids the
-      loss (p. 10), and the record's own [Tou24] cites them (p. 3); no 5D version is known here. Read at source (D494):
-      Theorem 4.6 (p. 29) gives, for "strongly angularly regular" characteristic data on H_0 = [0, I] × S² and H̲_0 = [0,
-      I̲] × S² (Definition 4.5, p. 28; the dusts may be measures), an ε > 0 such that "whenever u_∗ ∈ (0, I] and u̲_∗ ∈
-      (0, ε], there exists a unique angularly regular weak solution to the Einstein–null dust system ... in the domain
-      [0, u_∗] × [0, u̲_∗] × S²": a slab along the whole of one hypersurface. The dusts are the two families of the
-      double null foliation ("the only potentially non-vanishing components of the Ricci curvature ... are Ric(e_3, e_3)
-      and Ric(e_4, e_4)", p. 10), the record's kind (D470: directions ∝ ∇v and ∇u). Existence goes through approximation
-      by vacuum solutions (Theorem 4.1, on [LR17]'s existence theorem) and uniqueness through renormalised curvature and
+      loss (p. 10), and the record's own [Tou24] cites them (p. 3); no 5D version is known here. Read at source (D494,
+      corrected D495): Theorem 4.6 (p. 29) gives, for "strongly angularly regular" reduced characteristic data on H_0 =
+      [0, I̲] × S² and H̲_0 = [0, I] × S² (Definition 4.5, p. 28, with b ≡ 0 on H̲_0; the dusts may be Radon measures),
+      an ε > 0 such that "whenever u_∗ ∈ (0, I] and u̲_∗ ∈ (0, ε], there exists a unique angularly regular weak solution
+      to the Einstein–null dust system [in the sense of Definition 2.37] in the domain [0, u_∗] × [0, u̲_∗] × S²": a slab
+      along the whole of H̲_0, unique in that class (no statement found that smooth data give a smooth solution). The
+      dusts are the two families along the double null directions: Ric = f² du ⊗ du + f̲² du̲ ⊗ du̲ with g⁻¹(du, du) =
+      g⁻¹(du̲, du̲) = 0 (Definition 2.2 and Remark 2.3, p. 12; Remark 2.4 excludes non-exact null dusts), which is the
+      record's T = K_in dv² + K_out du² (D470), provided the record's dusts are taken along optical functions through N
+      and N′; in the record's gauge ∇v is null only where g^vv = 0, D470's own caveat. Existence goes through
+      approximation by vacuum solutions (Theorem 4.1, on Luk-Rodnianski's existence theorem in Camb. J. Math. 5(4), 2017,
+      their [42]); the coupled system is never solved directly. Uniqueness goes through renormalised curvature and
       transport estimates for tr χ, tr χ̲ and the dusts "in appropriate function spaces which avoid a potential loss of
-      derivative" (p. 10; sections 8.4, 8.7), with elliptic estimates on the 2-spheres (section 8.6) and a hairy-ball
-      restriction on S² for the approximation (Remark 4.9). So it is a theorem of exactly the record's kind, but in four
-      dimensions with S = S², and its route rests on 4D results. A dust version of [CCTW16]'s proof would also need its
-      Theorems 5.1 (Rendall's corner) and 5.2 (the spacelike problem with boundary) for the coupled equations (pp.
-      55-56), which the record assumes (D480). Still not computed: the dusts' well-posedness given g written out,
-      uniqueness beyond S, and that the record's solution solves the reduced equation exactly. For the record's dusts,
-      whose directions ∝ ∇v and ∇u are each tangent to one of N, N′, the corner S needs no condition: each dust's value
-      on S is the restriction of its free data on the hypersurface it crosses, which then seeds its transport along the
-      other (D470). A general crossing dust, with D470's free k^A on N, may cross N′ too, which brings free data there
-      and a compatibility condition at S (verifier 204).
+      derivative" (p. 10; sections 8.4, 8.7, the loss being in the difference estimates, not identified there with
+      D490's), with elliptic estimates on the 2-spheres (section 8.6, Proposition 8.15). The hairy-ball restriction of
+      Remark 4.9 belongs to Theorem 4.7 and is removed for Theorem 4.6 by cut-off and finite speed of propagation (p.
+      85). S² is notation: "all of our results apply if we replace S² by any compact 2-surface S" (footnote 14, p. 12);
+      what restricts the result is the 2-dimensional sections, that is, four dimensions. So it is a theorem of the
+      record's kind of dust, in four dimensions, for weak solutions in its class, and its route rests on 4D results. A
+      dust version of [CCTW16]'s proof would also need its Theorems 5.1 (Rendall's corner) and 5.2 (the spacelike problem
+      with boundary) for the coupled equations (pp. 55-56), which the record assumes (D480). Still not computed: the
+      dusts' well-posedness given g written out, uniqueness beyond S, and that the record's solution solves the reduced
+      equation exactly. For the record's dusts, whose directions ∝ ∇v and ∇u are each tangent to one of N, N′, the corner
+      S needs no condition: each dust's value on S is the restriction of its free data on the hypersurface it crosses,
+      which then seeds its transport along the other (D470). A general crossing dust, with D470's free k^A on N, may
+      cross N′ too, which brings free data there and a compatibility condition at S (verifier 204).
 
 ## 4c. The two-dust background (D389)
 

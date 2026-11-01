@@ -5349,6 +5349,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   by renormalised curvature and transport estimates in suitable spaces (p. 10, sections 8.4, 8.7), with elliptic
   estimates on 2-spheres; existence comes by approximating with 4D vacuum solutions. So: the right theorem in 4D, S = S²;
   no 5D counterpart known here. Open: a 5D version.
+- D495 (verifier 213 on D494; the paper reached through alphaXiv and Firecrawl): no major finding; every quotation word
+  for word (one ellipsis dropping only "[in the sense of Definition 2.37]"); the slab, measure-valued dusts, the
+  existence route through [42] and the 4D setting confirmed; no mention of higher dimensions found. MINOR: the
+  hypersurface labels were swapped (H_0 = [0, I̲] × S², H̲_0 = [0, I] × S², so the slab runs along H̲_0); the p. 10 Ricci
+  sentence is about the limiting spacetime, and the dusts' form is Definition 2.2 and Remark 2.3 (p. 12): Ric = f² du ⊗
+  du + f̲² du̲ ⊗ du̲ with du, du̲ null, the record's T = K_in dv² + K_out du²; [LR17] was undefined (it is their [42],
+  Camb. J. Math. 2017); S² is notation (footnote 14: any compact 2-surface), the restriction being four dimensions.
+  Omitted: the solution is weak, unique in its class; the data are reduced (b ≡ 0 on H̲_0); the match needs the record's
+  dusts along optical functions, ∇v being null in the record's gauge only where g^vv = 0; and the paper's 'potential loss
+  of derivative' is in its uniqueness estimates, not identified with D490's (the D494 entry's 'the derivative loss is
+  avoided' says too much). Corrected in FAMILIES5 4e; the D494 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
