@@ -5556,6 +5556,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   cannot fail (it holds for any such commutator); s_k(w) ≠ s_k(h) here (s_in(w) − s_in(h) = e^(−4σ) φ_out F2 χ′ + O(λ)),
   unlike the record's; the form of s_in's equation is deduced from Q2's contractions, not computed. Corrected in
   FAMILIES5 4f and twophase5; the D512 entry above keeps its text.
+- D514 (LOSS-D LD12, deduced from the record's text): a second long loop at the β-levels below 3. I15 applies
+  III.I′′′′′′′′ Lemma 3.2 at every level β < 3 (I15:346-348). Each call makes its source afresh at tf-weight τ_0 = 2 +
+  ε_ind − 2ε (I9:276-282), then iterates III.G⁗ Proposition 5.1, raising τ by ε_ind − ε until it passes β − ε′
+  (I9:284-301): (β − 2)/ε_ind rounds, a count no index set enters. These are rounds that compose, at loss at least 2
+  each (LD11 (ii)), and over the levels in (2, 3), spaced below ε_K, they total about ½/(ε_K ε_ind) > 1.32 × 10¹⁵, as
+  many as LD11's. So d > 5.3 × 10¹⁵ and N = 21d + 6 > 1.11 × 10¹⁷ for the record's proof. Not an upper estimate: the
+  level-2 rounds at each level above 3 (up to (1 + η_2 − η_1)/ε_ind each, set by E_ind, I12:278-281) and III.I′′′′′′
+  Steps 3-3.3 at each level below 3 are not counted.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

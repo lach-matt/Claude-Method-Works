@@ -7388,3 +7388,9 @@ pieces are carried along the waves: the convention of the record's transport, wh
 was copied onto one that runs with it. As written the large terms would have doubled instead of cancelling. With the
 sign corrected the argument stands, and the check confirmed the rest of it, including that the alternative gauge does
 bring a large interaction back.
+
+**D514 (2026-11-01): a second long loop in the derivative count.** The step repeated more than a million billion times
+(D507) has a twin. The levels below a certain order run a loop of the same length, which restarts at every level and
+does not depend on any fine structure. So the record's proof spends at least twice as many derivatives as counted
+before, more than 5 × 10¹⁵. An upper figure still needs two more loops counted, whose lengths do depend on that fine
+structure.
