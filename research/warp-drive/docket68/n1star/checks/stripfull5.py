@@ -33,7 +33,8 @@ norm of K is 1.97 to 2.99 (scalar) and 0.17 to 1.14 (vector), the series at 400 
 gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12); K4, normalised, 1.70 to 3.31 (scalar) and 0.063 to 0.58
 (vector), nonzero at every harmonic.
 
-Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not reduced here.
+Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not
+reduced here.
 """
 import sys
 import time
@@ -175,6 +176,12 @@ def k4_exact(l):
     return -(-mp.mpf(1)/3*a*b/(2*c)*g)/2
 
 
+def rng(out, k):
+    """'scalar lo to hi, vector lo to hi' for entry k of P3's rows"""
+    return ", ".join("%s %.4g to %.4g" % (ty, min(q[k] for q in out if q[1] == ty), max(q[k] for q in out if q[1] == ty))
+                     for ty in ("scalar", "vector"))
+
+
 def main():
     t0 = time.time()
     ok = {}
@@ -266,10 +273,7 @@ def main():
           "real part > 1 (least %.6g), K finite (largest normalised norm %.6g, at l = %d %s); normalised ||K|| %s; "
           "||K4|| %s" % ("PASS" if good else "FAIL", LMAX, min(q[6] for q in out), max(q[3] for q in out),
                          max(out, key=lambda q: q[3])[0], max(out, key=lambda q: q[3])[1],
-                         ", ".join("%s %.4g to %.4g" % (ty, min(q[3] for q in out if q[1] == ty),
-                                                        max(q[3] for q in out if q[1] == ty)) for ty in ("scalar", "vector")),
-                         ", ".join("%s %.4g to %.4g" % (ty, min(q[8] for q in out if q[1] == ty),
-                                                        max(q[8] for q in out if q[1] == ty)) for ty in ("scalar", "vector"))),
+                         rng(out, 3), rng(out, 8)),
           flush=True)
     print("  %s (%.0f s)" % ("all pass" if all(ok.values()) else "FAILED", time.time() - t0))
     return 0 if all(ok.values()) else 1
