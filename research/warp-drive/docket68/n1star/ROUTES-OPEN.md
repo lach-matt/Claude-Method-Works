@@ -4979,6 +4979,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   angular derivatives of g_uB; C_tr of angular derivatives of g_uu); solvability qualified (neighbourhoods of generators,
   an interval uniform over S); the data at S corrected: g_uu = g_uA = 0 there, their first v-derivatives and theta fixed
   by the corner conditions (mirror of N1, not computed), the conformal factor free.
+- D444 (E2-PILOT 4, checks/e2high5.py H1-H4, computed): the cut-off resolvent norm at large sigma. Max over l: 1.132,
+  0.618, 0.336, 0.181, 0.0972, 0.0519 at sigma = 3 ... 96, always at the trapped harmonic (barrier top first above
+  sigma^2); sigma * max = 2.887 + 0.459 log sigma (residuals <= 0.004): a logarithmic trapping loss, against Lemma E2.8's
+  linear growth. Per harmonic the worst sigma lies just below its barrier top (l = 4 at the window's edge). D352's row
+  reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9 (section 3f),
+  bearing only on E2.5's constants. Open: a proof of the log law (E4), the record's norms.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2

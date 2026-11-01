@@ -6988,3 +6988,11 @@ the verifier re-derived the three leading coefficients independently, and asked 
 equation really leaves out what the chain needs it to leave out. The statements of what is solvable, and of what data
 the meeting place supplies, are now stated precisely.
 
+**D444 (2026-11-01): how much the trapped light costs at high frequency.** The proved bound on the time-independent
+problem grows in proportion to the frequency, but the actual size of the solution operator had been measured only up
+to a modest frequency. A faster method now measures it up to thirty-two times higher. The worst case is always the
+angular pattern that sits exactly at the top of its potential barrier, the light trapped at the photon sphere, and the
+size falls like the logarithm of the frequency divided by the frequency. So trapping costs only a logarithm, as the
+general theory leads one to expect, and the proved bound is far from sharp there. This is a measurement and a fitted
+law, not a proof.
+

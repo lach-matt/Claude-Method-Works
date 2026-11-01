@@ -565,11 +565,12 @@ What it does not give:
     Section 3d computes their actual norms at σ = 3, at most 1.132 (D371). Below the proved l_0 = 50 at σ = 3 it
     reaches e^417 at l = 49 (e^54 at l = 17, just below the threshold 18 that quadrature gives, which is computed, not
     proved).
-  - *Two kinds of l below l_0.*
+  - *Two kinds of l below l_0* (for Proposition E2.5's route; both are now covered by Lemma E2.9's certificate for every
+    l ≥ 1, section 3f, so they bear only on E2.5's sharper constants; D444).
     - Where κ_I² > 0 (from l = 12 at σ = 3, by (i)), only the end signs are missing; a sharper Lemma E2.5b would cover
       them.
     - Where κ_I² ≤ 0, the barrier does not cover I. Proposition E2.5 cannot apply there, and those l need another
-      argument.
+      argument (Lemma E2.9 is one).
   - *On a compact band of σ* every closed-form threshold is monotone in σ. Take the band's largest σ for l_0 and for the
     bound 1/κ_I², and its smallest for Proposition E2.4.
 - **What a uniform bound must reach (measured, D352).** The actual cut-off norms, from the numerical u_h, u_∞ of P2 on
@@ -589,6 +590,22 @@ What it does not give:
   while E2.8 stays bounded there for every l ≥ 1 in this cut-off norm (certified, section 3f), and E2.8′ for l = 0
   (certified, section 3g). Uniformly in l, they
   degenerate at the trapping energies σ² ≈ max V_l for large σ (the photon sphere; E4), and E2.8 grows linearly in |σ|.
+- **Large σ: what a uniform bound must reach there (measured, D444; `checks/e2high5.py` H1-H4).** The actual norm ‖χ_I
+  R_l(σ) χ_I‖, maximised over l, is 1.132, 0.618, 0.336, 0.181, 0.0972 and 0.0519 at σ = 3, 6, 12, 24, 48 and 96,
+  attained at l = 5, 11, 23, 47, 95 and 191: in every case the harmonic whose barrier top max V_l is the first above σ²
+  (σ²/max V_l from 0.976 to 1.0000), the one trapped at the photon sphere. (Every l up to 3σ + 4 is scanned at σ ≤ 6 and
+  was at σ ≤ 24 in a first run; above that the 13 harmonics around the trapped one.)
+  - σ times the maximum is 3.396, 3.708, 4.026, 4.344, 4.665 and 4.986: σ · max = a + b log σ with a = 2.887 and b =
+    0.459, residuals at most 0.004. So the norm falls like (a + b log σ)/σ, the logarithmic loss of trapping, not a
+    power; Lemma E2.8's proved constant (about 20 at σ = 3) instead grows like |σ| (section 3e).
+  - For a fixed harmonic the worst σ lies just below its barrier top (σ²/max V_l = 0.94, 0.978, 0.978, 0.9975 for l = 8,
+    16, 32, 64; for l = 4 at the scanned window's lower edge, 0.90, so possibly lower), with σ times the norm 3.62, 3.93,
+    4.18 and 4.53, on the same law (H4).
+  - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
+    equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
+    at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,
+    0.0652, 0.0135); twice the grid at a tighter tolerance changes the norm by at most 7 × 10⁻⁴ relative (H2); the
+    Wronskian is constant to 10⁻¹⁰. Computed, not certified; the scaling law is a fit over 3 ≤ σ ≤ 96, not a bound.
 - **The record's norms.** Proposition 6.2 is stated on the variable-order b-Sobolev spaces X_σ, Y_σ of the extended
   domain through the horizon; passing from L²(dr_*) per harmonic to them needs the elliptic and propagation constants of
   I.A-I.B made explicit (E2-E4). One step is made: H¹ on I, with the angular derivative weighted by ψ, which vanishes
