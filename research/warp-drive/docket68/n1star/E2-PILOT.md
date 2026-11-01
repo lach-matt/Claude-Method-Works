@@ -251,7 +251,7 @@ growth through the forbidden region F = {V_l > σ²}.
 
 | l | 1 | 2 | 3 | 4 | 5 | 6 | 10 | 17 | 25 |
 |---|---|---|---|---|---|---|---|---|---|
-| B_l(3) | 253 | 53.3 | 35.5 | 26.6 | 21.3 | 19.5 | 19.3 | 19.2 | 19.2 |
+| B_l(3) | 253 | 53.3 | 35.5 | 26.6 | 21.35 | 19.5 | 19.3 | 19.2 | 19.2 |
 | computed norm (`checks/e2band5_s3.out`) | 0.423 | 0.451 | 0.508 | 0.672 | 1.132 | 0.983 | 0.421 | 0.0551 | 0.0225 |
 
 At the other frequencies of section 4's table (B_l(σ) against the computed norm):
@@ -603,15 +603,22 @@ What it does not give:
     from 3.752 to 4.112, peaks 0.068 above the fit and troughs 0.26 below, so near σ = 12 the sup lies about 1.7 % above
     it. The upper envelope appears to share the slope b, with intercept about 2.955, but only that one cycle was scanned
     finely. So, up to that oscillation, the norm falls like (a + b log σ)/σ, a logarithmic loss and not a power; Lemma
-    E2.8's proved constant (about 20 at σ = 3) instead grows like |σ| (section 3e).
+    E2.8's proved constant (at σ = 3, 253 at l = 1 and 19-21 from l = 5, section 3e's table; D456) instead grows like |σ|
+    (section 3e and the next bullet but one).
   - For a fixed harmonic the worst σ lies just below its barrier top (σ²/max V_l = 0.94, 0.978, 0.978, 0.9975 for l = 8,
     16, 32, 64; for l = 4 at the scanned window's lower edge, 0.90, so possibly lower), with σ times the norm 3.62, 3.93,
     4.18 and 4.53: 0.013 to 0.067 above the fit, on its upper envelope rather than on the fit (H4; D453).
-  - *Against Lemma E2.8 (D452; `checks/e2high5.py --vs-e28`).* E2.8's bound, its multiplier width optimised at each σ,
-    has its sup over 1 ≤ l ≤ 12 at l = 1, where w_I is smallest: 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24,
-    48 and 96, about 63σ, 224 to 1.2 × 10⁵ times the measured maximum. At the trapped harmonic it gives 21.4, 21.9, 27.2,
-    35.3, 47.7 and 66.8, 19 to 1300 times the measured norm. So the proved constant's growth in σ comes from the low
-    harmonics, where the measured norms are small (l = 0: 0.41 at σ = 3, 0.050 at σ = 24), not from trapping.
+  - *Against Lemma E2.8 (D452, corrected D456; `checks/e2high5.py --vs-e28`).* E2.8's bound, its multiplier width the
+    best of the instrument's 40 in [0.2, 0.98] at each σ (`checks/e2morawetz5.py`), has its sup over 1 ≤ l ≤ 12 at l = 1,
+    where w_I is smallest: 253, 429, 800, 1554, 3068 and 6099 at σ = 3, 6, 12, 24, 48 and 96. B/σ runs from 84 down to
+    64, about 63σ at large σ, and the sup is 224 to 1.2 × 10⁵ times the measured maximum at the sampled σ (between them
+    the maximum oscillates, D453, moving these ratios by a few per cent). At l = 1 the best width sits at the grid's
+    edge: widths 0.99 to 0.999 pass the instrument's own admissibility tests and give 175 at σ = 3 and 4073 at σ = 96,
+    about 42σ (verifier 195). At the trapped harmonic it gives 21.35, 21.9, 27.2, 35.3, 47.7 and 66.8, 19 to 1300 times
+    the measured norm; at σ = 24, 48 and 96 the trapped l (47, 95, 191) lies beyond section 3e's computed range l ≤ 30,
+    so those three are E2.8's formula with w ≥ 0 checked on the grid, not covered by 3e's statement. So the proved
+    constant's growth in σ comes from the low harmonics, where the measured norms are small (l = 1: 0.423, 0.0498 and
+    0.0124 at σ = 3, 24 and 96, so B_1 is 598 to 4.9 × 10⁵ times l = 1's own norm), not from trapping.
   - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
     equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
     at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,

@@ -7036,3 +7036,11 @@ and each relation ties one number of the first cone to one of the second: how fa
 to how one of the second cone's metric components starts, and the same with the cones exchanged, and the mixed
 components in pairs. So the growth rates of both cones can be chosen freely, which corrects the earlier reading that
 the gauge fixes the first cone's growth rate.
+
+**D456 (2026-11-01): verifier 195 on D452 and D454.** Both hold, with corrections. For the proved bound: its widths
+come from a fixed grid, and at the lowest pattern the best sits at the grid's edge; widths just beyond it are allowed
+and lower the bound by about a third. The trapped patterns at the highest frequencies lie beyond the range the lemma's
+constants were computed for, and the comparisons hold at the sampled frequencies. For the sources: the record's
+remainder class does gain from derivatives along the spheres, only not along the radius, so the test function used was
+outside the class. One that oscillates in the radius is inside it, and still reaches the bound. The bound stands, with
+a margin of only half a power, which bears on the open question about half-integer powers.

@@ -5029,6 +5029,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   angular derivatives and H. So both expansions and one of each mixed pair are free and n numbers fixed; D449's 'their
   first v-derivatives and theta are what the corner conditions fix' corrected. Open: the null dusts, linear uniqueness,
   the record's solution solving the reduced equation.
+- D456 (verifier 195 on D452 and D454; both confirmed with corrections): D452's --vs-e28 numbers reproduce (vs_e28 reuses
+  e2morawetz5.best). Corrected: 'optimised' is the best of 40 widths in [0.2, 0.98], and at l = 1 the best is at the edge
+  (widths to 0.999 admissible: 175 at sigma = 3, 4073 at 96, about 42 sigma); 'about 63 sigma' is the large-sigma slope
+  (B/sigma 84 to 64); the trapped l at sigma >= 24 lie beyond 3e's l <= 30; ratios at the sampled sigma; E2-PILOT's
+  'about 20 at sigma = 3'. D454: MAJOR, E_p bounds the rotations Omega too, so tangential derivatives gain and Q5's
+  sin(x1 + 2 x3 + t) was outside the class; Q5 now uses sin(r + t), inside it, and still attains r^-9/2 (fitted exponent
+  -0.07, where r^-5 gives -0.5; the old factor-5 test could not tell them apart). The bound stands; its margin over r^-4
+  is r^-1/2, and the rho^(5/2) term it produces bears on BEYOND5 3(b) (v)'s half-integer question.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

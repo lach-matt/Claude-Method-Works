@@ -22,18 +22,22 @@ Upsilon^0(g, eta) = g g^-1 Gamma(g) alone, then through delta*_(eta,E_C), which 
   Q4 (computed) the cross terms with a remainder: for rho = r^-5/2 G(x^) (G as H, so every derivative gains r^-1) the
       part of P bilinear in (h, rho) at 2p is 2^-13/2 times its value at p, in every component of both operators;
   Q5 (computed) rho in E_(5/2) as the record defines the class (N1STAR-PROOF.md, the classes before Lemma 9.7: every
-      Cartesian derivative bounded by C r^-5/2, none gaining), rho = r^-5/2 G(x^) sin(x1 + 2 x3 + t): over radii 8 to
-      128, at 8 directions each, R^(9/2) times the largest bilinear (h, rho) component stays within a factor 5 and does
-      not fall (against Q4's R^-2), and R^5 times the largest component quadratic in rho is likewise bounded.
+      Cartesian derivative and every rotation derivative Omega bounded by C r^-5/2, so tangential derivatives gain r^-1
+      and radial and time derivatives need not; D456), rho = r^-5/2 G(x^) sin(r + t), which Omega leaves as r^-5/2 (Omega
+      G) sin(r + t): over radii 8 to 128, at 8 directions each, R^(9/2) times the largest bilinear (h, rho) component has
+      a fitted exponent within 0.2 of zero, so it falls like r^-9/2 and not like r^-5 (which D454's factor-5 test could
+      not exclude), against Q4's R^-2; and R^5 times the largest component quadratic in rho likewise.
 
 Deduced: every term of P quadratic in a static h homogeneous of degree -2 has derivative order plus c-order two, so it is
 homogeneous of degree -6 on Minkowski, and higher orders of degree -8 or less (D449); on Tangherlini (g0 - eta = O(mu
 r^-2) with derivatives) the corrections are of degree -8 or less. So the products of the leading means are O(r^-6),
-o(r^-4) as the condition needs. The cross terms with the means' remainder in E_(5/2) (D454): every term of P quadratic
-in g - eta has two derivatives (or a factor c, of degree -1, per derivative missing) shared between its two factors, so
-with h's derivatives gaining r^-1 and rho's none the largest is h d^2 rho, O(r^(-2 - 5/2)) = O(r^(-9/2)) (Q5), the
-others O(r^(-11/2)) or less, and the terms quadratic in rho O(r^-5); with a gaining rho they would be O(r^(-13/2))
-(Q4). Both are o(r^-4). Not computed: the sources from g_lambda - g_app.
+o(r^-4) as the condition needs. The cross terms with the means' remainder in E_(5/2) (D454, corrected D456): every term
+of P quadratic in g - eta has two derivatives (or a factor c, of degree -1, per derivative missing) shared between its
+two factors, so with h's derivatives gaining r^-1, and rho's tangential ones too but its radial and time ones not, the
+largest is h d_r^2 rho, O(r^(-2 - 5/2)) = O(r^(-9/2)) (Q5), the others O(r^(-11/2)) or less, and the terms quadratic in
+rho O(r^-5); with a gaining rho they would be O(r^(-13/2)) (Q4). Both are o(r^-4), the first with a margin of only
+r^(-1/2): by D413's rule an r^(-9/2) source contributes at rho^(5/2), a half-integer power, which bears on BEYOND5 3(b)
+(v)'s open question whether half-integer exponents occur. Not computed: the sources from g_lambda - g_app.
 
 Run: python3 checks/sources5.py   (a few minutes; the jets by sympy, the rest at 50 digits)
 """
@@ -194,7 +198,7 @@ def main():
     hf = jet_fn(h)
     G = random_h(random.Random(11)) * r**2 / r**sp.Rational(5, 2)
     gf = jet_fn(G)
-    osc = jet_fn(G * sp.sin(xs[0] + 2 * xs[2] + t))
+    osc = jet_fn(G * sp.sin(r + t))
     mpq = lambda q: mp.mpf(q.p) / q.q
     pt = [mpq(p[k]) for k in X]; pt2 = [mpq(p2[k]) for k in X]
     B1, B2 = bilinear(hf(pt), gf(pt)), bilinear(hf(pt2), gf(pt2))
@@ -220,11 +224,15 @@ def main():
         Cx.append(bx * R**mp.mpf(4.5)); Cq.append(bq * R**5); Ch.append(bh * R**mp.mpf(4.5))
         print("    R = %3d: R^(9/2) max |(h, rho) part| %s; R^5 max |(rho, rho) part| %s; gaining rho: R^(9/2) %s"
               % (R, mp.nstr(Cx[-1], 4), mp.nstr(Cq[-1], 4), mp.nstr(Ch[-1], 4)), flush=True)
-    bounded = max(Cx) / min(Cx) < 5 and Cx[-1] > Cx[0] / 5 and max(Cq) / min(Cq) < 5
+    ex_x = mp.log(Cx[-1] / Cx[0]) / mp.log(16); ex_q = mp.log(Cq[-1] / Cq[0]) / mp.log(16)
+    print("    fitted exponents over R = 8 to 128: R^(9/2) max |(h, rho)| %s, R^5 max |(rho, rho)| %s (r^-5 would give "
+          "-0.5 for the first)" % (mp.nstr(ex_x, 3), mp.nstr(ex_q, 3)), flush=True)
+    bounded = abs(ex_x) < 0.2 and abs(ex_q) < 0.2 and max(Cx) / min(Cx) < 5 and max(Cq) / min(Cq) < 5
     control = Ch[-1] / Ch[0] < mp.mpf(1) / 100
     ok["Q5"] = bounded and control
-    print("  Q5 a remainder in E_(5/2) without derivative gain: the (h, rho) part is O(r^-9/2) and attains it, the "
-          "(rho, rho) part O(r^-5): %s; control, the gaining remainder falls a further %s from R = 8 to 128: %s"
+    print("  Q5 a remainder in E_(5/2), its radial derivatives not gaining: the (h, rho) part is O(r^-9/2) and "
+          "attains it, the (rho, rho) part O(r^-5): %s; control, the gaining remainder falls a further %s from R = 8 "
+          "to 128: %s"
           % (bounded, mp.nstr(Ch[-1] / Ch[0], 3), control))
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")

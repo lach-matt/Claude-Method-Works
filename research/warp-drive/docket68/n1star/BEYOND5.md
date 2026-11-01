@@ -425,10 +425,13 @@ What it does not give:
   Minkowski, and higher orders of degree −8 or less (computed at p and 2p for Ric and for δ*_(E_C) Υ⁰ with random static
   h and the record's c_C = r⁻¹(dt − v_C dr), 30 digits; a non-static h breaks it; D449), and Tangherlini's corrections
   lower the degree. So they are o(r⁻⁴), as needed. The cross terms with the means' remainder in E_(5/2) are o(r⁻⁴) too
-  (D454, `checks/sources5.py` Q4-Q5). E_(5/2) bounds every Cartesian derivative by r^(−5/2) with no gain
-  (N1STAR-PROOF.md, the classes before Lemma 9.7), so the largest is h ∂²ρ, O(r^(−9/2)), which an oscillating remainder
-  attains; the others are O(r^(−11/2)) or less, and the remainder's own products O(r⁻⁵). A remainder whose derivatives
-  gain would give O(r^(−13/2)). Not computed: the sources from g_λ − g_app.
+  (D454, corrected D456; `checks/sources5.py` Q4-Q5). E_(5/2) bounds every Cartesian derivative and every rotation
+  derivative by r^(−5/2) (N1STAR-PROOF.md, the classes before Lemma 9.7), so a tangential derivative gains r⁻¹ but a
+  radial or time derivative need not. The largest is h ∂_r²ρ, O(r^(−9/2)), which a remainder oscillating in r attains
+  (fitted exponent within 0.08 of −9/2 over r = 8-128); the others are O(r^(−11/2)) or less, and the remainder's own
+  products O(r⁻⁵). A remainder whose derivatives all gain would give O(r^(−13/2)). The margin over r⁻⁴ is only r^(−1/2):
+  by the rule above an r^(−9/2) source contributes at ρ^(5/2), a half-integer power, which bears on (v)'s open question
+  whether half-integer exponents occur. Not computed: the sources from g_λ − g_app.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
