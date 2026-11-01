@@ -6954,3 +6954,12 @@ recomputed the coefficient by a different numerical method, agreeing to nine dig
 the result covers two damping settings, not the record's own; three of the 22 choices were the same baseline; and
 whether those damping settings meet the record's smallness conditions was not checked.
 
+**D445 (2026-11-01): where the large-domain simulation breaks.** The numerical evolution at the record's setting stops
+converging near one axis, at about twice the time it handles well, and it was not known whether the method's treatment
+of that axis was at fault or the solution itself. Rerunning with the incoming waves weakened answers it. At half the
+record's strength or less the evolution converges to the end of the domain, axis included, to about one part in a
+hundred million. The failure appears only between half and three quarters of the record's strength, grows very fast
+with it, and tracks the solution's angular detail outgrowing the resolution. So the axis treatment is sound; it is the
+strongly nonlinear solution that sharpens. Whether that sharpening is a genuine singularity or a steep but smooth
+feature is the next question.
+

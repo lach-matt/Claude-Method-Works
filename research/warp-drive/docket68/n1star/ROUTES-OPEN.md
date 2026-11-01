@@ -4945,6 +4945,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the 22 rows repeat the baseline, the largest change from it is 1.60 (the spread 1.75); 'as one expects' is 'consistent
   with'; zeta = 0 near the horizon is one admissible choice (smoothness needs zeta = O(r - 1)); s1coef5's two z = 1/8
   points had shared ok keys (both passed in run 3; keys now distinct).
+- D445 (CERTIFY-10L5 6b, checks/g1amp5.py, computed; dnsolve5.py --run gains amp): the first seed at amplitude A = 1,
+  7/8, 3/4, 1/2, 1/4, M = 32 and 40 at 800 x 360 with ld 3 (A = 1 reproduces D432's runs bit for bit). Over areal radius
+  >= 1.0, |P_32 - P_40| on [2, 2.25) is 0.15, 1.9e-3, 7.7e-5, 2.0e-8, 3.5e-9, and the relative Chebyshev tail at M = 40
+  there 1.0, 6.3e-2, 8.5e-4, <= 2.3e-6. So at A <= 1/2 the angular refinement converges to the end of the grid at 1e-8,
+  the axis included, and D432's failure needs an amplitude between 1/2 and 3/4 of the record's and follows the angular
+  resolution: the nonlinear solution steepens past M = 40 near x = -1, not a fault of the axis treatment of the
+  linearised problem. Open: singularity or steep smooth feature at A = 1 (M <= 56 does not resolve it, D418); an
+  axis-concentrated grid or an invariant along the axis would decide.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
