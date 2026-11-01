@@ -402,12 +402,31 @@ couplings are then killed by their own contractions.
       propagates (deduced; Rendall's paper [36] not read). The quotations were checked word for word against the alphaXiv
       text of arXiv:1203.4534v2 when they were seated (D480, D484), by the author, not independently: the verifiers'
       routes to arXiv were refused (D480, D485).
-    - Not computed: existence and uniqueness beyond a neighbourhood of S (the reading gives them near S only, and
-      uniqueness locally), the dusts' well-posedness given g written out, and that the record's solution solves the
-      reduced equation exactly. For the record's dusts, whose directions ∝ ∇v and ∇u are each tangent to one of N, N′,
-      the corner S needs no condition: each dust's value on S is the restriction of its free data on the hypersurface it
-      crosses, which then seeds its transport along the other (D470). A general crossing dust, with D470's free k^A on N,
-      may cross N′ too, which brings free data there and a compatibility condition at S (verifier 204).
+    - Beyond a neighbourhood of S (D488, read: [CCTW16] Cabet-Chruściel-Tagne Wafo, arXiv:1406.3009v2; [CTWG23]
+      Chruściel-Tagne Wafo-Gray, arXiv:2305.07306v1). [CCTW16] proves "the neighborhood theorem" for quasilinear
+      symmetric hyperbolic systems split as A^u = diag(A^u_ϕϕ, 0), A^v = diag(0, A^v_ψψ) in double-null coordinates, in
+      any dimension, with Y = S compact (Theorem 3.9, p. 32; Corollary 3.11, p. 35: "a unique solution ... defined on the
+      neighborhood ([0, a_*] × [0, b_0] × Y) ∪ ([0, a_0] × [0, b_*] × Y) of N"), provided the transport equations along
+      the generators have a solution on the hypersurfaces; the neighbourhood's "thickness ... might shrink to zero when
+      receding to infinity" (Remark 3.12, p. 35). It applies this to Einstein in four dimensions only: the harmonic
+      reduction "lead[s] to a loss of derivative of the coefficients" (p. 50), so it works with the Bianchi equations in
+      a double-null frame (Theorem 5.3, p. 54, vacuum), and "generalises immediately to Einstein equations with matter
+      fields satisfying wave equations", □_g Φ = F(Φ, ∂Φ, g, ∂g) (section 5.2, pp. 56-57). [CTWG23] does every higher
+      dimension: "The maximal globally hyperbolic development of smooth initial data for vacuum Einstein equations with a
+      (possibly zero) cosmological constant Λ ∈ ℝ, on two characteristic hypersurfaces intersecting transversally,
+      contains a future neighborhood of the initial data hypersurfaces" (Theorem 1.1, pp. 2-3), by the same scheme on the
+      higher-dimensional Bianchi equations, with no compactness of S, and assuming vacuum: J_jkl ≡ 0 in D_i W^i_jkl =
+      J_jkl ((2.17)-(2.19), p. 6). So in 5D vacuum existence holds on a future neighbourhood of N ∪ N′, a statement about
+      the maximal development, which does not depend on the record's gauge. For the record's data, which carry the null
+      dusts, neither paper applies: [CTWG23] is vacuum, and [CCTW16]'s matter obeys wave equations, while the dusts obey
+      transport equations, and J then carries first derivatives of the dusts' T. Adding the dusts and their first
+      derivatives to the split system, each dust transported along e_0 or e_1 (a diagonal block of (2.3)), is the evident
+      route (deduced, not checked). Still not computed: the dusts' well-posedness given g written out, uniqueness beyond
+      S, and that the record's solution solves the reduced equation exactly. For the record's dusts, whose directions ∝
+      ∇v and ∇u are each tangent to one of N, N′, the corner S needs no condition: each dust's value on S is the
+      restriction of its free data on the hypersurface it crosses, which then seeds its transport along the other (D470).
+      A general crossing dust, with D470's free k^A on N, may cross N′ too, which brings free data there and a
+      compatibility condition at S (verifier 204).
 
 ## 4c. The two-dust background (D389)
 

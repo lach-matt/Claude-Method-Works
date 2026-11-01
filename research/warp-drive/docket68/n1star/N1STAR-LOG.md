@@ -7238,3 +7238,9 @@ known, in a model equation, to reach the far region one order lower than sources
 the band is a thin layer, so its whole effect is a jump across it, and the rest is a solution of the equations with no
 source. That reproduces the model's exact answer, and for the record's own equations, in every angular mode computed, it
 gives the same order with no logarithm. So these sources do not touch the coefficient the far-field statement needs.
+
+**D488 (2026-11-01): further than the corner, for empty space.** The theorem used so far gives a solution only near the
+place where the two initial null surfaces meet. Two later papers push that to a whole band along both surfaces: the first
+in four dimensions, the second in every higher dimension, five included, but only for empty space. The record's surfaces
+carry streams of null dust, which neither paper treats, so for the record the corner is still as far as the reading goes;
+the likely route to the band is clear but not carried out.

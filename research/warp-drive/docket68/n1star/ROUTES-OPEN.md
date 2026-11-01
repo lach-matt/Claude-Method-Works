@@ -5271,6 +5271,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   × 10⁶; K finite, normalised norm at most 2.99. So the strip enters at ρ³ with no logarithm and does not reach r⁻²; its
   width corrections enter at ρ^4.5, ρ^4.51, ρ^4.52. Open: the tensor type; uniformity in l at degree −3; whether the
   record's index sets at I_0 contain 4.51 and 4.52; Lemma 0.1's ρ³C^∞ for the r⁻³ term.
+- D488 (FAMILIES5 4e, read: Cabet-Chruściel-Tagne Wafo arXiv:1406.3009v2; Chruściel-Tagne Wafo-Gray arXiv:2305.07306v1):
+  D476's open item, existence beyond a neighbourhood of S. The first proves the neighbourhood theorem for doubly-null
+  split symmetric hyperbolic systems in any dimension (Theorem 3.9, Corollary 3.11, pp. 32-35; the thickness may shrink
+  to zero at infinity, Remark 3.12), and applies it to Einstein in 4D only (Theorem 5.3, p. 54), through the Bianchi
+  equations because the harmonic reduction loses a derivative (p. 50), with matter obeying wave equations (section 5.2).
+  The second gives every higher dimension in vacuum with Λ: the maximal globally hyperbolic development "contains a
+  future neighborhood of the initial data hypersurfaces" (Theorem 1.1, pp. 2-3; J ≡ 0, (2.19)). So 5D vacuum has
+  existence on a future neighbourhood of N ∪ N′, independent of gauge; the record's null dusts are covered by neither
+  (vacuum, or wave-equation matter; the dusts obey transport equations). Open: the dusts added to the split system with
+  their first derivatives (deduced as the route, not checked); uniqueness beyond S.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
