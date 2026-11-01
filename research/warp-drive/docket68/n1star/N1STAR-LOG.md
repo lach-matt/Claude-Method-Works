@@ -7319,3 +7319,8 @@ but not the later ones.
 **D501 (2026-11-01): the certified bound, certified again.** An independent check redid the certificate with a different
 interval library and derivatives taken automatically rather than by formula, and got the same bound, about 11. It
 corrected the comparison: the best earlier certified figure was about 275, not 359.
+
+**D502 (2026-11-01): the strip, for the last kind of mode.** The one family of angular modes not yet treated, the purely
+angular ripples, turns out to behave exactly like the simplest model: the record's full equations reduce to it there,
+checked exactly on every such mode of the three lowest orders. So the strip's coefficient is known in closed form for
+every one of these modes: it vanishes for every even mode, is small for the odd ones, and shrinks as the mode grows.

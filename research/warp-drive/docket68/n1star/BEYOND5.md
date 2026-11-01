@@ -457,7 +457,7 @@ What it does not give:
   and 1/15) and at ρ⁴ at l = 2 and 4: the ρ³ coefficient is C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)), −π/4, −1/3, 0, 1/15, 0 for
   l = 0-4, zero at every even l ≥ 2 (verifier 202's Riemann-function computation, D481; `checks/strip5.py` T5), so in no
   harmonic computed does it reach ρ²; for l ≥ 1 these are values for S = r⁻⁴Y_l, not bounds, as the kernel changes sign.
-  The strip for the full operator (D487, corrected D491; `checks/stripfull5.py` P1-P3): at radius r the strip is s = v/r
+  The strip for the full operator (D487, corrected D491; `checks/stripfull5.py` P1-P5): at radius r the strip is s = v/r
   ∈ [0, d/r], so for the degree −3 profile h = r⁻³F(s) a source of Cartesian size r⁻⁴ on it acts as σd δ(s) at N (σd = ∫
   r⁴S dv over the strip). With harmonics5's reduction at degree −3 (M2 = (s − s²/2)I), integrating (sF′)′ + (M1(0) − I)F′
   = σd δ over the strip, with F = 0 on N, gives F(0+) = (M1(0) − I)⁻¹σd; beyond it the solution is the regular one with
@@ -493,8 +493,19 @@ What it does not give:
   `checks/stripfull5.py 40`, every check passing): on the scalar type ‖K‖ is 2.74 and ‖K4‖ 2.73 at l = 40, both flat from
   about l = 10 (K4 does not grow as the bound allows), and on the vector type both fall (0.054 and 0.021 at l = 40); K at
   γ_C = 10⁵ departs from its value at 10⁶ by up to 6.8 at l = 40 (scalar type), so what is computed is the record's γ_C =
-  10⁶, not the limit of large damping. Not computed: the tensor type (damping-free, harmonics5 S3); and whether the r⁻³
-  term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
+  10⁶, not the limit of large damping. The tensor type (D502, `checks/stripfull5.py` P4-P5): on h = r^(2−p)F(s)T_AB with
+  T a TT harmonic of level l ≥ 2 on S³, the gauge 1-form vanishes (harmonics5 S3), so L = D Ric, which on flat space is
+  −½□ on each Cartesian component once δGh = 0; and each Cartesian component of T is a scalar harmonic of degree l
+  (D439). So the tensor type at degree −3 is the scalar model at κ = l(l + 2), and its K and K4 are P1's in L's
+  normalisation. Checked on the record's operator itself, exactly at three points, on random combinations of all the
+  level-l harmonics for l = 2, 3 and 4 (built as homogeneous polynomial tensors on ℝ⁴, tangent, traceless,
+  divergence-free and harmonic: 10, 24 and 42 of them, 2(l + 3)(l − 1), the full count), every component of L h and of
+  the gauge 1-form as predicted, while a wrong κ and an added trace part fail (P4). By Gauss's second summation theorem K
+  = 2(−1)^((l − 1)/2)/(l(l + 2)) and K4 = 0 at odd l, K = 0 and K4 = −(−1)^(l/2)/(l + 1) at even l, exactly from the
+  terminating sums for every l ≤ 40, the series transfer agreeing for l ≤ 12 (P5). So on the tensor type the strip enters
+  at ρ³ only at odd l, with |K| ≤ 2/15 (at l = 3), and at even l first at ρ⁴, with |K4| ≤ 1/3 (at l = 2): both fall with
+  l, so the bound is uniform without Lemma 6.5‴, and there is no logarithm (M1(0) = 5/2). Every type is now computed. Not
+  computed: whether the r⁻³ term, which carries no structure, is compatible with Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

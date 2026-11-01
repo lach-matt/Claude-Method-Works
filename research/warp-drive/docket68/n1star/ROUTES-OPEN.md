@@ -5423,6 +5423,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (0.0158079… and 5.20205… × 10⁻²³; E2-PILOT has 0.01581 and 5.21 × 10⁻²³); and the 'before' figure is 275.2, section
   3g's certified B_0(3) (D387), not 359.01. Corrected in E2-PILOT 3j and e2trapcert5's summary line; the D497 entry above
   keeps its text.
+- D502 (BEYOND5 3(b), `checks/stripfull5.py` P4-P5, exact): the strip on the tensor type, the last type open since
+  D487. On h = r^(2−p)F(s)T_AB with T a level-l TT harmonic the gauge 1-form vanishes (harmonics5 S3), so L = D Ric =
+  −½□ on Cartesian components (δGh = 0), and those components are degree-l scalar harmonics (D439): the tensor type is
+  the scalar model at κ = l(l + 2). Checked on the record's operator at its point, exactly at three points: L computed
+  once on abstract angular components, then evaluated on random combinations of all the level-l harmonics (homogeneous
+  polynomial tensors on ℝ⁴, tangent, traceless, divergence-free, harmonic; 10, 24, 42 at l = 2, 3, 4, the full count
+  2(l + 3)(l − 1)): every component as predicted, w = 0; κ = 15 at l = 2 and an added trace part both fail. Gauss's
+  second summation theorem then gives K = 2(−1)^((l−1)/2)/(l(l + 2)), K4 = 0 at odd l and K = 0, K4 = −(−1)^(l/2)/(l +
+  1) at even l, exact for l ≤ 40. So on the tensor type the strip enters at ρ³ only at odd l (|K| ≤ 2/15) and at ρ⁴ at
+  even l (|K4| ≤ 1/3), falling with l, with no logarithm. Every type is now computed; open: whether the structureless
+  r⁻³ term is compatible with Lemma 0.1's ρ³C^∞, and the remainder beyond V′_P.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
