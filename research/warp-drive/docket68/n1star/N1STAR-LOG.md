@@ -7267,3 +7267,8 @@ question they raised falls away.
 angles. Doubling the grid in the two null directions as well changes the curvature by a fraction of a per cent where it
 had settled, so the moderate curvature before the failure stands. Where the failure begins, the angular grid is what
 limits the computation, not the time step.
+
+**D492 (2026-11-01): the strip's coefficient, for every angular mode at once.** The strip result had been checked mode by
+mode up to twelve. The argument that bounded the full problem uniformly in the angular mode carries over to the strip's
+order with one shift, so the strip's coefficient is bounded for every mode at once. The bound is enormous, as the earlier
+one was, but it does not grow with the mode.

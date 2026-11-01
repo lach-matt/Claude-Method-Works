@@ -19,6 +19,11 @@ M0 terms of x-degree 0 only, so the same steps can be run on the degree -3 matri
   V7    (computed) stripfull5's K at l = 2 ... 6, normalised, lies below K0_3 |J^-1|.
   Control: with A_3(0) -> -A_3(0) no positive Lyapunov solution (as uniform5's).
 
+Measured (D492): every check passes. A_3(0)'s eigenvalues 2, 2.0099, 2.01, 2.02, 1.5e6, 1.5e6, 3e6 (scalar) and 2, 2.01,
+1.5e6 (vector); lambda(H) in [1.62e-7, 0.565] and [3.33e-7, 0.276]; C_E = 5.39e13 and 5.28e12; ln K0_3 = 5.99e13 and
+5.87e12; |J^-1|_2 <= 0.993 and 0.698; stripfull5's K at l = 2 ... 6 in this basis 2.21 to 2.39 (scalar) and 0.342 to
+1.008 (vector).
+
 Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed. Uniform, not sharp: K0 is astronomical.
 """
 import sys

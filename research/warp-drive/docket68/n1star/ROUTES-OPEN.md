@@ -5321,6 +5321,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   dominates the null one (0.045-0.74) and does not change with the null grid, so the loss there is set by M; from v = 2
   both are as large as the departure. So the curvature is moderate wherever resolved, in (u, v) as well, at the record's
   amplitude. Open: an axis or angular treatment judged by K at every angle.
+- D492 (BEYOND5 3(b), `checks/uniform3_5.py` V1-V7, exact but for one 50-digit norm): D487's open uniformity in l. Lemma
+  6.5‴ (D437) needs the second-order part m2 I, M0 = x²I/2 + O(x), M1 = O(1), and A(0) = M1(0) − I/2 independent of x
+  with a positive Lyapunov metric; at degree −3 M1 gains (1 − s)I, so A_3(0) = A_2(0) + I (eigenvalues from 2), and the
+  same steps give |F(1)| ≤ K0_3|F(0)| for every l ≥ 2. The jump J = M1_3(0) − I = M1_2(0) is independent of x (|J⁻¹|_2 ≤
+  0.993 scalar, 0.698 vector), so the strip's ρ³ coefficient K is bounded uniformly in l in the normalised basis, ln of
+  the bound 5.99 × 10¹³ (scalar) and 5.87 × 10¹² (vector), against computed values 2.2-2.4 and 0.34-1.0 at l = 2-6. K4 at
+  most linear in l. Open: the tensor type.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

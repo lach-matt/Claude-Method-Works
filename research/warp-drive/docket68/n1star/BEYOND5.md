@@ -477,9 +477,15 @@ What it does not give:
   (P1, to 10⁻³⁰), strip5's ρ⁴ at l = 2 and 4 (D474) and, at l = 0, the drift of −0.784 at r = 400 above (−π/4 + 1/800 =
   −0.78415); for the full operator K4 is nonzero at every harmonic l ≤ 12, normalised norm 1.70 to 3.31 (scalar type) and
   0.063 to 0.58 (vector type). This is for a source r⁻⁴σ(v) with σ independent of r; a source only bounded by r⁻⁴ is not
-  covered, the kernel having no sign. Not computed: the tensor type (damping-free, harmonics5 S3); uniformity in l at
-  degree −3 (Lemma 6.5‴ is at degree −2); and whether the r⁻³ term, which carries no structure, is compatible with Lemma
-  0.1's ρ³C^∞.
+  covered, the kernel having no sign. Uniformly in l (D492, `checks/uniform3_5.py` V1-V7): Lemma 6.5‴'s steps run on the
+  degree −3 matrices. The structure holds (second-order part m2 I, M0 = x²I/2 + O(x), M1 = O(1) in x = κ^(1/2)); A_3(0) =
+  A_2(0) + I exactly, independent of x, with eigenvalues 2, 2.0099, 2.01, 2.02 and the damping's (scalar type; 2, 2.01
+  and 1.5 × 10⁶ on the vector type), and it has a positive Lyapunov metric; the jump J = M1_3(0) − I is M1_2(0),
+  independent of x, with |J⁻¹|_2 ≤ 0.993 (scalar) and 0.698 (vector). So |K|_2 ≤ K0_3 |J⁻¹|_2 in uniform5's normalised
+  basis for every l ≥ 2, ln K0_3 = 5.99 × 10¹³ and 5.87 × 10¹²: uniform, not sharp (the computed values at l = 2-6 are
+  2.2 to 2.4 and 0.34 to 1.0 there). K4 is bounded by the derivative estimate, at most linearly in l. Not computed: the
+  tensor type (damping-free, harmonics5 S3); and whether the r⁻³ term, which carries no structure, is compatible with
+  Lemma 0.1's ρ³C^∞.
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
