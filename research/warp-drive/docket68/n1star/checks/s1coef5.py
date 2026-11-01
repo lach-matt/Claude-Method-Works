@@ -807,8 +807,12 @@ def match_det(pb, zeta, eta, rm, r0=1.25, grid=None, rtol=1e-13):
 def zeros_dense(fam, per_decade=30):
     """--zeros-dense FAM [per_decade]: S11 (D483), a bumped family on a dense amplitude grid. Poles are located as sign
     changes of the matching determinant (match_det), each refined by bisection, and the zero of A that follows each
-    pole located; zeros of A not beside a pole are found as sign changes of A. Two poles within one step of the grid
-    would cancel in the determinant's sign and be missed."""
+    pole located; zeros of A not beside a pole are found as sign changes of A when they are alone in their step. A sign
+    change shows an odd number of zeros, so two poles within one step of the grid, two zeros of A with no pole, a
+    determinant zero of even multiplicity or a second zero beside a pole would be missed (D498). A value is reliable
+    when finite with condition below 1e12 at one radius (no second radius, unlike S9-S10); an unreliable point drops
+    both steps beside it. The condition falls like 1/|t - t_pole|: about 1e13 plain 2e-4 from the eta pole, 1e5 to
+    1e9 at the zeros (D498)."""
     M, _, _ = derive()
     gam = e = sp.Rational(1, 100)
     pb = setup(M, gam, e, sp.Rational(1, 10))[0]

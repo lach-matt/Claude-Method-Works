@@ -7298,3 +7298,8 @@ are computed at the record's own damping strength, which matters at high modes.
 were worked out, the new high-frequency bound is now certified too, by arithmetic that keeps track of every rounding: for
 every angular mode the size of the resolvent there is at most about 11, where the best certified figure had been about
 359. The same route can be repeated at higher frequencies.
+
+**D498 (2026-11-01): where the coefficient vanishes, checked.** An independent check found every blow-up and every zero
+of the coefficient at the same place to all printed digits, and a scan five to ten times finer found no others. It
+corrected how close to breaking the computation is near them, which had been overstated a hundred-thousand-fold, and
+listed the kinds of pairs a sign scan of this sort cannot see.

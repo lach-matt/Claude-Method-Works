@@ -5371,6 +5371,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   10⁻²³); −φU′ ≥ 0 makes it admissible for every l ≥ 5 with B_l(3) ≤ B_5(3) ≤ 10.989 (m′ ≥ 0.052674, M′ ≤ 1.01, min_I w_5
   ≥ 0.81423, 8000 pieces); Lemma E2.7 for l ≤ 4, at most 4.4422. So ‖χ_I R_l(3) χ_I‖ ≤ 10.989 for every l ≥ 0, certified,
   against 359.01 (l = 0) before. Open: σ > 3 (more multipliers, the same route).
+- D498 (verifier 210 on D483; independent matching and finer scans): no major finding; the method is sound (A = N/D by
+  Cramer with N, D smooth in t, so a pole needs det = 0, and each det zero is a simple pole of A, A ≈ c/(t − t_p) with c
+  = 263.4 for η and 424.5, −425.2, −1641, 1678 for ζ; the positive-diagonal QR keeps det's sign), and every pole and zero
+  reproduces to the printed digits; at 150-200 amplitudes per decade the same sign changes and no others. MINOR: the
+  condition number falls like 1/|t − t_p|, 1.5 × 10¹³ plain (2.4 × 10⁹ QR) at t = −1640.954, 2 × 10⁻⁴ from the pole, 2.5
+  × 10⁵ to 1.5 × 10⁹ at the zeros; 10¹⁸ is its value at the bisected pole, so it said nothing. The step is 12 % for far η
+  (20 per decade), not 8 %. The ζ poles are 1946.632, −1946.977, 14562.909 and −14558.973, which miss the entry's
+  ±14560.9 by 2. A changes sign at each pole; it is the pole with its zero that returns it to its sign at the grid points
+  (the entry above put it loosely). A sign change shows an odd number of zeros, so two zeros of A in a step with no pole,
+  an even-multiplicity det zero or a second zero beside a pole would be missed too, and |t| < 1 is not scanned. S11's
+  reliability is one radius with condition below 10¹², no second radius, an unreliable point dropping both steps beside
+  it (none occurred). The ζ near-symmetry is that A is nearly even in t (odd part −2.2 × 10⁻⁷t to |t| = 10³), not a small
+  first-order dependence. Corrected in LOSS-D LD9 and s1coef5's zeros_dense; the D483 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
