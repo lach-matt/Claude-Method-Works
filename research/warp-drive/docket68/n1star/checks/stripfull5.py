@@ -36,6 +36,8 @@ gamma_C = 10^5 differs by up to 6.5e-2 (scalar, l = 12); K4, normalised, 1.70 to
 Labels: P1, P2 exact; P3 computed (K4 too). The tensor type, where the damping drops out (harmonics5 S3), is not
 reduced here.
 """
+import itertools
+import random
 import sys
 import time
 
@@ -54,6 +56,15 @@ t, r, ch, th = GS.t, GS.r, GS.ch, GS.th
 S, gC = C.S, C.gC
 kap, lam, y0, y1 = H.kap, H.lam, H.y0, H.y1
 LMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+TLS = (2, 3, 4)                         # P4's explicit tensor harmonics
+XS = sp.symbols("x1:5")
+PPOLY = sp.Lambda(C.S, 3*C.S**5 - 2*C.S**4 + sp.Rational(5, 7)*C.S**2 - C.S + sp.Rational(2, 3))
+PTS = [(sp.Rational(-1, 3), sp.Rational(5, 4), sp.acos(sp.Rational(3, 5)), sp.acos(sp.Rational(5, 13)),
+        sp.acos(sp.Rational(8, 17))),
+       (sp.Rational(2, 7), sp.Rational(3, 2), sp.acos(sp.Rational(-7, 25)), sp.acos(sp.Rational(12, 13)),
+        sp.acos(sp.Rational(-15, 17))),
+       (sp.Rational(-5, 4), sp.Rational(7, 3), sp.acos(sp.Rational(20, 29)), sp.acos(sp.Rational(-9, 41)),
+        sp.acos(sp.Rational(3, 5)))]
 
 
 def reduce_scalar_p(p):
@@ -182,6 +193,111 @@ def rng(out, k):
                      for ty in ("scalar", "vector"))
 
 
+def tt_harmonics(l):
+    """P4: the TT tensor harmonics of level l on S^3, as homogeneous degree-l polynomial tensors T_IJ(x) on R^4 that are
+    tangent (x^I T_IJ = 0), traceless, divergence-free and harmonic in every Cartesian component; returns T (with unknown
+    coefficients), the unknowns and a basis of the solutions, whose number should be 2 (l + 3) (l - 1)"""
+    mons = [sp.Mul(*[XS[i]**e[i] for i in range(4)]) for e in itertools.product(range(l + 1), repeat=4) if sum(e) == l]
+    pairs = [(i, j) for i in range(4) for j in range(i, 4)]
+    cs = {(pr, k): sp.Symbol("c_%d%d_%d" % (pr[0], pr[1], k)) for pr in pairs for k in range(len(mons))}
+    T = {}
+    for (i, j) in pairs:
+        T[(i, j)] = T[(j, i)] = sum(cs[((i, j), k)]*m for k, m in enumerate(mons))
+    conds = [sum(XS[i]*T[(i, j)] for i in range(4)) for j in range(4)]
+    conds += [sum(sp.diff(T[(i, j)], XS[i]) for i in range(4)) for j in range(4)]
+    conds.append(sum(T[(i, i)] for i in range(4)))
+    conds += [sum(sp.diff(T[pr], x, 2) for x in XS) for pr in pairs]
+    eqs = [c for q in conds for c in sp.Poly(sp.expand(q), *XS).coeffs()]
+    unk = list(cs.values())
+    A, _ = sp.linear_eq_to_matrix(eqs, unk)
+    return T, unk, A.nullspace()
+
+
+def tensor_forms(p=3):
+    """P4: the record's full operator at its point on h = r^(2 - p) P(s) Phi_AB, Phi_AB arbitrary functions of the angles
+    and P a fixed polynomial, so h_IJ = r^-p P(s) Phi_IJ in Cartesian components when Phi is tangent; at each of PTS
+    (rational t, r and angles with rational sines and cosines), every component of L h and of the gauge 1-form w as an
+    exact linear form in Phi and its angular derivatives"""
+    G = GS.geo(4, True)
+    sx = (t + r)/r
+    Phi, h = {}, sp.zeros(5)
+    for a in range(3):
+        for b in range(a, 3):
+            Phi[(a, b)] = sp.Function("Phi%d%d" % (a, b))(ch, th, GS.ph)
+            h[a + 2, b + 2] = h[b + 2, a + 2] = r**(2 - p)*PPOLY(sx)*Phi[(a, b)]
+    L, w = H.full_L(h, G)
+    exprs = [L[i, j] for i in range(5) for j in range(i, 5)] + list(w)
+    ders = set()
+    for e in exprs:
+        ders |= e.atoms(sp.Derivative)
+    atoms = sorted(ders, key=str) + [Phi[k] for k in sorted(Phi)]
+    zs = sp.symbols("z0:%d" % len(atoms))
+    rep = dict(zip(atoms, zs))
+    forms = []
+    for pt in PTS:
+        ps = dict(zip((t, r, ch, th, GS.ph), pt))
+        forms.append([sp.expand(e.xreplace(rep).subs(C.POINT).subs(ps)) for e in exprs])
+    return Phi, atoms, zs, forms
+
+
+def tt_angular(l, seed=1):
+    """a random combination of the level-l TT harmonics, as T_AB on the unit S^3, and their number"""
+    T, unk, ns = tt_harmonics(l)
+    rnd = random.Random(seed + l)
+    vec = sum((sp.Rational(rnd.randint(-9, 9), rnd.randint(1, 5))*v for v in ns), sp.zeros(len(unk), 1))
+    sub = dict(zip(unk, vec))
+    om = [sp.cos(ch), sp.sin(ch)*sp.cos(th), sp.sin(ch)*sp.sin(th)*sp.cos(GS.ph), sp.sin(ch)*sp.sin(th)*sp.sin(GS.ph)]
+    Tw = {k: v.subs(sub).subs(dict(zip(XS, om))) for k, v in T.items()}
+    J = [[sp.diff(om[i], a) for i in range(4)] for a in (ch, th, GS.ph)]
+    TA = sp.Matrix(3, 3, lambda a, b: sum(Tw[(i, k)]*J[a][i]*J[b][k] for i in range(4) for k in range(4)))
+    return TA, len(ns)
+
+
+def tensor_check(TA, kap_l, F4, M, ls, p=3):
+    """P4: L h = r^-p e(s) T_AB with e the scalar model's -(1/2) r^(p + 2) box (r^-p P) at kappa = kap_l, every other
+    component of L h zero, and w = 0, exactly at PTS; returns the number of failures and of nonzero entries compared"""
+    Phi, atoms, zs, forms = F4
+    q0, q1, q2 = sp.symbols("q0 q1 q2")
+    lval = sp.Rational(-1) + sp.sqrt(1 + kap_l)
+    e = (M[0][0, 0]*q2 + M[1][0, 0]*q1 + M[2][0, 0]*q0).subs(ls, lval)
+    keys = {v: k for k, v in Phi.items()}
+    bad = nz = 0
+    for pt, fs in zip(PTS, forms):
+        aps = dict(zip((ch, th, GS.ph), pt[2:]))
+        vals = {}
+        for a, z in zip(atoms, zs):
+            if isinstance(a, sp.Derivative):
+                vals[z] = sp.expand(sp.diff(TA[keys[a.expr]], *a.variable_count).subs(aps))
+            else:
+                vals[z] = sp.expand(TA[keys[a]].subs(aps))
+        sv = ((t + r)/r).subs({t: pt[0], r: pt[1]})
+        ev = sp.expand(e.subs(S, sv).subs({q0: PPOLY(sv), q1: sp.diff(PPOLY(S), S).subs(S, sv),
+                                           q2: sp.diff(PPOLY(S), S, 2).subs(S, sv)}))
+        k = 0
+        for i in range(5):
+            for j in range(i, 5):
+                got = sp.expand(fs[k].xreplace(vals))
+                want = sp.expand(pt[1]**(-p)*ev*vals[zs[atoms.index(Phi[(i - 2, j - 2)])]]) if i >= 2 else 0
+                bad += sp.radsimp(got - want) != 0
+                nz += want != 0
+                k += 1
+        bad += sum(sp.radsimp(sp.expand(q.xreplace(vals))) != 0 for q in fs[k:])
+    return bad, nz
+
+
+def tensor_closed(l):
+    """P5: the scalar model's K and K4 at degree -3 (L's normalisation, as P3's) from the terminating sums, exactly,
+    against 2 (-1)^((l - 1)/2)/(l (l + 2)) and 0 at odd l, 0 and -(-1)^(l/2)/(l + 1) at even l (Gauss's second summation
+    theorem, D501)"""
+    a, b, c = 3 + l, 1 - l, sp.Rational(5, 2)
+    K = sp.Rational(2, 3)*sum(sp.rf(a, j)*sp.rf(b, j)/(sp.rf(c, j)*sp.factorial(j)*2**j) for j in range(l))
+    K4 = -sp.Rational(1, 3)*a*b/(2*c)*sum(sp.rf(a + 1, j)*sp.rf(b + 1, j)/(sp.rf(c + 1, j)*sp.factorial(j)*2**j)
+                                         for j in range(max(l - 1, 0)))
+    Kc = sp.Rational(2*(-1)**((l - 1)//2), l*(l + 2)) if l % 2 else sp.Integer(0)
+    K4c = sp.Rational(-(-1)**(l//2), l + 1) if l % 2 == 0 else sp.Integer(0)
+    return K, K4, K == Kc and K4 == K4c
+
+
 def main():
     t0 = time.time()
     ok = {}
@@ -275,6 +391,43 @@ def main():
                          max(out, key=lambda q: q[3])[0], max(out, key=lambda q: q[3])[1],
                          rng(out, 3), rng(out, 8)),
           flush=True)
+    # P4 the tensor type, on explicit harmonics
+    M3, _, ls3 = scalar_model(3)
+    F4 = tensor_forms(3)
+    good, rows = True, []
+    for l in TLS:
+        TA, dim = tt_angular(l)
+        bad, nz = tensor_check(TA, l*(l + 2), F4, M3, ls3)
+        good &= bad == 0 and nz > 0 and dim == 2*(l + 3)*(l - 1)
+        rows.append("l = %d: %d harmonics (2 (l + 3) (l - 1) = %d), %d of %d nonzero entries and w failing"
+                    % (l, dim, 2*(l + 3)*(l - 1), bad, nz))
+        print("    P4 %s (%.0f s)" % (rows[-1], time.time() - t0), flush=True)
+    TA, _ = tt_angular(2)
+    gm = sp.diag(1, sp.sin(ch)**2, sp.sin(ch)**2*sp.sin(th)**2)
+    ctl_k = tensor_check(TA, 15, F4, M3, ls3)[0]
+    ctl_tr = tensor_check(TA + sp.cos(ch)*gm, 8, F4, M3, ls3)[0]
+    good &= ctl_k > 0 and ctl_tr > 0
+    ok["P4"] = good
+    print("  P4 %s: tensor type, the record's full operator at its point on h = r^-1 P(s) T_AB, T a random combination "
+          "of the level-l TT harmonics (homogeneous polynomial tensors on R^4, tangent, traceless, divergence-free, "
+          "harmonic): L h = r^-3 e(s) T_AB with e the scalar model's at kappa = l (l + 2), every other component zero, w = "
+          "0, exactly at three points: %s; controls fail (kappa = 15 at l = 2: %d failures; a trace part added: %d)"
+          % ("PASS" if good else "FAIL", "; ".join(rows), ctl_k, ctl_tr), flush=True)
+    # P5 the tensor type's K and K4, exactly
+    good, worst, rows = True, 0, []
+    for l in range(1, LMAX + 1):
+        K, K4, okc = tensor_closed(l)
+        good &= okc
+        if l >= 2 and l <= 12:
+            Ks, K4s, ev, _ = kmap(M3, {ls3: l}, 400)
+            worst = max(worst, float(abs(Ks[0, 0] - mp.mpf(K.p)/K.q)), float(abs(K4s[0, 0] - mp.mpf(K4.p)/K4.q)))
+        if l >= 2:
+            rows.append("%d: %s, %s" % (l, K, K4))
+    good &= worst < 1e-25
+    ok["P5"] = good
+    print("  P5 %s: tensor type (l >= 2), K and K4 exact from the terminating sums, equal to 2 (-1)^((l - 1)/2)/(l (l + "
+          "2)) and 0 at odd l, 0 and -(-1)^(l/2)/(l + 1) at even l, l <= %d; the series transfer agrees to %.1e for l <= "
+          "12; (K, K4) by l: %s" % ("PASS" if good else "FAIL", LMAX, worst, "; ".join(rows)), flush=True)
     print("  %s (%.0f s)" % ("all pass" if all(ok.values()) else "FAILED", time.time() - t0))
     return 0 if all(ok.values()) else 1
 
