@@ -13,13 +13,13 @@ M0 terms of x-degree 0 only, so the same steps can be run on the degree -3 matri
         with A_3(0) = A_2(0) + I exactly; its eigenvalues at the record's point; the Lyapunov metric; the constants and
         K0_3, so |F(1)| <= K0_3 |F(0)| for every l >= 2.
   V6    the jump: J := M1_3(0) - I = M1_2(0) in the normalised basis, exactly, so J is independent of x; |J^-1|_2 at the
-        record's point (outward rounded). Hence |K|_2 <= K0_3 |J^-1|_2 for every l >= 2, K = T_3 J^-1 the strip's rho^3
+        record's point (from J's least singular value at 50 digits, rounded up). Hence |K|_2 <= K0_3 |J^-1|_2 for every l >= 2, K = T_3 J^-1 the strip's rho^3
         coefficient in the normalised basis: bounded uniformly in l. (K4 = -(1/2) T_3' J^-1 is bounded by the derivative
         estimate, |F_s(1)| <= 2^(1/2) K0_3 (x^2/2 + 1)^(1/2) |F(0)|: at most linear in l, not uniform.)
   V7    (computed) stripfull5's K at l = 2 ... 6, normalised, lies below K0_3 |J^-1|.
   Control: with A_3(0) -> -A_3(0) no positive Lyapunov solution (as uniform5's).
 
-Labels: V1-V6 exact (constants outward rounded, as uniform5's), V7 computed. Uniform, not sharp: K0 is astronomical.
+Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed. Uniform, not sharp: K0 is astronomical.
 """
 import sys
 import time
@@ -92,9 +92,13 @@ def main():
         J2 = sp.Matrix(n, n, lambda i, j: sp.expand(Mt2[1][i, j].subs(S, 0)))
         v6a = sp.expand(J3 - J2) == sp.zeros(n) and not any(x in J3[i, j].free_symbols for i in range(n) for j in range(n))
         Jp = sp.Matrix(n, n, lambda i, j: sp.nsimplify(J3[i, j].subs(C.POINT), rational=True))
-        Ji = Jp.inv()
-        lo, hi = U.eig_bounds((Ji.T*Ji).applyfunc(sp.nsimplify))     # |J^-1|_2^2 = lambda_max(J^-T J^-1)
-        jnorm = float(sp.sqrt(hi))*(1 + 1e-12)
+        free = set().union(*[Jp[i, j].free_symbols for i in range(n) for j in range(n)])
+        v6a = v6a and not free
+        mp.mp.dps = 50                                                  # |J^-1|_2 = 1/sigma_min(J), at 50 digits
+        Jm = mp.matrix([[mp.mpf(sp.Rational(Jp[i, j]).p)/sp.Rational(Jp[i, j]).q for j in range(n)] for i in range(n)])
+        smin = min(mp.svd_r(Jm, compute_uv=False))
+        jnorm = float(1/smin)*(1 + 1e-10)
+        mp.mp.dps = 30
         lnKb = lnK0 + mp.log(jnorm)
         ok["V1 " + typ], ok["V2 " + typ], ok["V3 " + typ], ok["control " + typ] = v1, v2, v3 and mu > 0, ctl
         ok["V6 " + typ] = v6a
