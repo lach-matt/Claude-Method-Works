@@ -4949,10 +4949,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   7/8, 3/4, 1/2, 1/4, M = 32 and 40 at 800 x 360 with ld 3 (A = 1 reproduces D432's runs bit for bit). Over areal radius
   >= 1.0, |P_32 - P_40| on [2, 2.25) is 0.15, 1.9e-3, 7.7e-5, 2.0e-8, 3.5e-9, and the relative Chebyshev tail at M = 40
   there 1.0, 6.3e-2, 8.5e-4, <= 2.3e-6. So at A <= 1/2 the angular refinement converges to the end of the grid at 1e-8,
-  the axis included, and D432's failure needs an amplitude between 1/2 and 3/4 of the record's and follows the angular
-  resolution: the nonlinear solution steepens past M = 40 near x = -1, not a fault of the axis treatment of the
-  linearised problem. Open: singularity or steep smooth feature at A = 1 (M <= 56 does not resolve it, D418); an
-  axis-concentrated grid or an invariant along the axis would decide.
+  the axis included, and D432's failure needs an amplitude between 1/2 and 3/4 of the record's and comes with the angular
+  structure outrunning M = 40 near x = -1. Open (D446): at A = 1, a singularity, a steep smooth feature, or an axis
+  defect appearing only at large amplitude (M <= 56 does not resolve it, D418); an axis-concentrated grid or an invariant
+  along the axis would decide.
+- D446 (verifier 191 on D445; CONFIRMED-WITH-CORRECTIONS): the runs at A = 1 are byte-identical to D432's, amp scales the
+  waves linearly, P is D432's, all 18 quoted numbers match. Corrected: the scan shows the axis treatment sound at A <=
+  1/2 only; at A = 1 it cannot separate a singularity, a steep smooth feature and a large-amplitude axis defect (the tail
+  fills for any M-growing non-convergence; it tracks |dP| cell by cell, correlation 0.84-0.98); P/A changes by up to
+  about 20 % between A = 1/4 and 1/2, not a few per cent, so the converged response is already nonlinear; local exponents
+  about 20-50; the [0.5, 1) tail was noise at the waves' onset (now cells with largest coefficient > 1e-6, about 2e-4
+  there); areal radius [1.0, 1.2) is kept only to v = 3 at A <= 1/2; at A = 1 the [2, 2.25) maximum sits at x = +0.71,
+  the axis values alone agreeing; the no-ld floor is 1e-6 to 1e-5.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2

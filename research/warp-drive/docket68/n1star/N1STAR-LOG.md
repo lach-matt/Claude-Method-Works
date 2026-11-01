@@ -6955,11 +6955,17 @@ the result covers two damping settings, not the record's own; three of the 22 ch
 whether those damping settings meet the record's smallness conditions was not checked.
 
 **D445 (2026-11-01): where the large-domain simulation breaks.** The numerical evolution at the record's setting stops
-converging near one axis, at about twice the time it handles well, and it was not known whether the method's treatment
-of that axis was at fault or the solution itself. Rerunning with the incoming waves weakened answers it. At half the
-record's strength or less the evolution converges to the end of the domain, axis included, to about one part in a
-hundred million. The failure appears only between half and three quarters of the record's strength, grows very fast
-with it, and tracks the solution's angular detail outgrowing the resolution. So the axis treatment is sound; it is the
-strongly nonlinear solution that sharpens. Whether that sharpening is a genuine singularity or a steep but smooth
-feature is the next question.
+converging near one axis, a little beyond where it was known to converge, and it was not known whether the method's
+treatment of that axis was at fault or the solution itself. Rerunning with the incoming waves weakened answers it. At
+half the record's strength or less the evolution converges to the end of the domain, axis included, to about one part in
+a hundred million. The failure appears only between half and three quarters of the record's strength, grows very fast
+with it, and tracks the solution's angular detail outgrowing the resolution. So the axis treatment is sound where the
+waves are weaker, and the failure comes with sharpening detail. Whether at full strength that is a genuine singularity, a
+steep but smooth feature, or the method failing only for large fields is the next question.
+
+**D446 (2026-11-01): verifier 191 on D445.** The numbers stand: the full-strength runs are identical to the earlier
+ones and every quoted figure checks. The reading was too confident in two places. The scan shows the method sound only
+where the waves are weaker; at full strength it cannot yet tell a true singularity from a steep feature or from the
+method failing only for large fields. And the weaker runs are not nearly linear, as claimed: they already respond
+nonlinearly by about a fifth, and still converge, which makes the point stronger.
 

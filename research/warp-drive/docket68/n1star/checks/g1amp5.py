@@ -13,8 +13,9 @@ cells all the runs keep:
     the linearised problem (its discretisation or the axis treatment), larger if it needs the waves' own geometry;
   - the departure from linear response, max |P_A / A - P_A' / A'| at M = 40 for successive amplitudes, against
     max |P_A / A|: how nonlinear the solution itself is in that band;
-  - the relative Chebyshev tail of m and n at M = 40 (the largest of the last four coefficients in x over the largest):
-    how close the angular structure comes to M = 40's resolution.
+  - the relative Chebyshev tail of m and n at M = 40 (the largest of the last four coefficients in x over the largest, on
+    cells where the largest exceeds 1e-6; as the waves switch on the fields are near rounding noise, D446): how close the
+    angular structure comes to M = 40's resolution.
 
 Labels: computed (floating point, on saved runs).
 
@@ -88,7 +89,7 @@ def main():
         rel = 0
         for f in ("m", "n"):
             c = np.abs(GA.coeffs(np.nan_to_num(d[f]), d["x"]))
-            rel = np.maximum(rel, c[..., -4:].max(-1) / (c.max(-1) + 1e-300))
+            rel = np.maximum(rel, np.where(c.max(-1) > 1e-6, c[..., -4:].max(-1) / (c.max(-1) + 1e-300), np.nan))
         sel = ok & (rad[a] >= 1.0)
         print("  A = %-5s %s" % (a, " ".join("%8.1e" % q for q in GA.band_max(rel, sel, v))))
     return 0

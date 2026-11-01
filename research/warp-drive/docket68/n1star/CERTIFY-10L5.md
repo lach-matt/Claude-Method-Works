@@ -516,19 +516,23 @@ No other component is nonzero. So the scheme is the following.
   - Band maxima of |P_32 − P_40| over areal radius ≥ 1.0: on [2, 2.25), 0.15, 1.9 × 10⁻³, 7.7 × 10⁻⁵, 2.0 × 10⁻⁸ and 3.5
     × 10⁻⁹ for A = 1, 7/8, 3/4, 1/2 and 1/4; on [3.5, 4.6), 0.22, 2.0 × 10⁻⁴, 5.2 × 10⁻⁶, 2.2 × 10⁻⁸ and 5.6 × 10⁻⁹.
     Before v = 1.8 every amplitude sits at about 10⁻⁹.
-  - So at A ≤ 1/2 the angular refinement converges at the 10⁻⁸ level to the end of the grid, the axis x = −1 and areal
-    radius [1.0, 1.2) included: the axis treatment and the scheme are sound where the response is near linear (P/A
-    changes by a few per cent between A = 1/4 and 1/2). The failure switches on between A = 1/2 and 3/4 and grows like a
-    high power of A (local exponents 20-35).
+  - So at A ≤ 1/2 the angular refinement converges at the 10⁻⁸ level to the end of the grid, the axis x = −1 included
+    (cells with areal radius in [1.0, 1.2) reach v = 3 at these amplitudes): there the axis treatment and the scheme are
+    sound, although the response is already nonlinear (P/A changes by up to about 20 % of the band maximum between A =
+    1/4 and 1/2 on [2.25, 3); D446). The non-convergence rises steeply between A = 1/2 and 3/4 and then like a high power
+    of A (local exponents about 20-50).
   - It follows the angular resolution. The relative Chebyshev tail of m and n at M = 40 (the largest of the last four
     coefficients in x over the largest) on [2, 2.25) is 1.0, 6.3 × 10⁻², 8.5 × 10⁻⁴ and at most 2.3 × 10⁻⁶ for A = 1,
-    7/8, 3/4 and ≤ 1/2: the solution's angular structure steepens past M = 40 as the amplitude grows.
-  - So D432's failure is the nonlinear solution outrunning the angular resolution near the axis, not the axis treatment
-    of the linearised problem. Not decided: whether at A = 1 the steepening is a singularity, which would answer G1 no
-    for the record's data, or a steep smooth feature; M = 48 and 56 did not converge either (D418), so M ≤ 56 does not
-    resolve it.
-  - Without the long-double axis solve the same picture holds on a floor of 10⁻⁶, and at A = 1 a rounding-driven
-    excursion appears (|P/A| = 2.1 on [2, 2.25), against 0.32 with ld 3): at full amplitude the option matters.
+    7/8, 3/4 and ≤ 1/2 (about 2 × 10⁻⁴ on [0.5, 1), where the waves switch on); cell by cell it tracks |P_32 − P_40|
+    (correlation 0.84-0.98, verifier 191). The angular structure steepens past M = 40 as the amplitude grows. At A = 1
+    the largest |P_32 − P_40| on [2, 2.25) sits at x = +0.71; the values on the axis alone tell the same story (D446).
+  - So the axis treatment is sound wherever the runs converge, A ≤ 1/2, and D432's failure comes with angular structure
+    outrunning M = 40. The scan cannot separate the cases at A = 1: a singularity, which would answer G1 no for the
+    record's data; a steep smooth feature; or an axis defect that appears only at large amplitude (any non-convergence
+    that grows with M would fill the tail the same way; D446). M = 48 and 56 did not converge either (D418).
+  - Without the long-double axis solve the same picture holds on a floor of 10⁻⁶ to 10⁻⁵, and at A = 1 an excursion
+    appears, apparently from rounding (|P/A| = 2.1 on [2, 2.25), against 0.32 with ld 3): at full amplitude the option
+    matters.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
@@ -541,16 +545,17 @@ No other component is nonzero. So the scheme is the following.
   - At the second seed it holds to v ≈ 3-3.5.
   - Beyond, it fails to converge at an axis: at x = −1 for λ = 1 (in both gauges; D391, D399), from areal radius about 1
     near v = 2, with either axis treatment and whatever the cut (D410, corrected D413), and only from an amplitude
-    between 1/2 and 3/4 of the record's, the failure following the angular resolution (D445); and at x = +1 for the
+    between 1/2 and 3/4 of the record's, with the angular structure outrunning M = 40 (D445-D446); and at x = +1 for the
     second seed. G1 is not yet answered to the end of the domain.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
-  dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). The axis treatment at small R is now separated
-  from the geometry (D445): at A ≤ 1/2 the runs converge there, and the failure needs nearly the full amplitude and
-  follows the angular resolution. On the axis x = −1 the circle that does not shrink, g_22 = R²(1 − x)e^(2Q)/2, has an
-  invariant size, so compare it across gauges and resolutions where the runs stop; and recompute x_K and 𝒟_q from this
-  run with a stencil that stops at the cut. Candidates for the axis are an axis-adapted variable, a mapped Chebyshev grid
+  dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). The axis treatment at small R is now tested
+  (D445-D446): at A ≤ 1/2 the runs converge there, and the failure needs more than half the amplitude and comes with the
+  angular structure outrunning M = 40; at A = 1 a singularity, a steep smooth feature and a large-amplitude axis defect
+  are not yet told apart. On the axis x = −1 the circle that does not shrink, g_22 = R²(1 − x)e^(2Q)/2, has an invariant
+  size, so compare it across gauges and resolutions where the runs stop; and recompute x_K and 𝒟_q from this run with a
+  stencil that stops at the cut. Candidates for the axis are an axis-adapted variable, a mapped Chebyshev grid
   concentrated at the axes, and a shift condition between the two gauges. The `reg` division of D352 did not cure the
   axis in dnsolve5, either under the drag (D352) or at the event of D410 (D413). A cut experiment cannot separate the
   axis treatment from the geometry (D413). M alone, at 800 × 360, does not converge there and degrades the smooth region
