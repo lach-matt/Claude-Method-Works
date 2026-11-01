@@ -7670,3 +7670,8 @@ reproduced the computation, but the statement had dropped two hypotheses (the da
 the constraints, and both dusts carry positive energy), and the far corner of the computed example is not resolved by
 either numerical scheme, so the computation supports smoothness away from that corner only. The result is a deduction
 with one sketched step, not a finished proof.
+
+**D562 (2026-11-01): one weight given a number.** The weight that sets the resonance inverse's loss can be chosen in a
+range every admissible choice of the record's free parameter allows, and with that choice the loss is exactly eleven
+across the whole window where that loop runs; at the source's own values it is at most thirteen. So a round of that loop
+costs at least fifteen derivatives in the record's accounting.

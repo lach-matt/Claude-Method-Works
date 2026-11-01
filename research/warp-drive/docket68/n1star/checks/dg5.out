@@ -1,0 +1,6 @@
+  G1: d_G over l_I in (3, 3.5), Re lam in [1.5099, 2 - eps), delta < eps: [11]
+  G2: l_I up to 4.5 (a_I = 3 + eps_I, eps_I < 1): max d_G 13; with delta >= eps, 14
+  G3: (3 + eps_+, 3.5) lies in the admissible range for every a_I > 3 + eps_+: True
+G1 PASS
+G2 PASS
+G3 PASS

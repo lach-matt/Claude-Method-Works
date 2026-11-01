@@ -5987,6 +5987,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (bulk 1.29 × 10⁻⁵ to 8.13 × 10⁻⁷, ratio 4.0, now in X4); the data are C³; X3's far-corner residuals fall by 1.4 and
   2.0, not at second order; the open item now worded one way. Corrected in FAMILIES5 4i and twoext5; the D558 entry
   above keeps its text.
+- D562 (LOSS-D LD16, E1'a for ℓ_I; `checks/dg5.py` G1-G3, exact): a_I is free in the record (> 3/2,
+  PART-III-I-CONE.md:65), (H4) asks a_I > 3 + ε_+, and the source fixes 3 + ε_I, ε_I < 1 (I-CONE:68, 472-473); ℓ_I^max >
+  100. So ℓ_I ∈ (3 + ε_+, 3.5) is admissible for every a_I, and there section 2's (2.5) gives d_G = 11 on the whole ι⁺
+  window (δ < ε): an ι⁺ round costs at least 15. At the source's a_I, d_G ≤ 13 for every admissible ℓ_I (14 at the
+  window's top if δ ≥ ε).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
