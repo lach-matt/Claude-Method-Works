@@ -5744,6 +5744,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Vaidya at B = 0 (|ψ|, |μ − μ(v)| → 0) and trapped at R = a with B; control: a strong outgoing pulse leaves part of R =
   a untrapped, (b) failing alone. Open: (f) and D_T for two dusts; existence on Ω beyond the rectangle; the outgoing
   data.
+- D534 (LOSS-D LD14, deduced from the record's text): the ι⁺ loop's length. The iteration Lemma 3.2 runs at every
+  β-level below 3 is III.I′′′′′ Proposition 2.1's Step 2 (I9:231), whose ε_ind is min Re ℰ^ι_ind, III.G″ (4.4)'s index
+  set, "not (1.1)'s" (I6:118-119); LD12 (v) had read (1.1)'s. Each round treats the whole window and raises c_0 by at
+  least m_ι := min Re ℰ^ι_ind, from λ_♯ = 1.5099 to α♯_+ < 2 (I6:167-172), so a level runs at most ⌈0.4901/m_ι⌉ rounds,
+  with no factor for the number of exponents. m_ι is not computed in the record: (4.4) gives only min Re > 0, the set
+  coming from the Myers-Perry corrections to the Minkowski formal solutions at ι⁺ (G3:298-299, 305-311). If m_ι ≥ d1
+  (the classes' offsets), at most 1,470,302 rounds per level, 0.0571 of the levels' tf-rounds; if m_ι ≥ 1, one round.
+  LD12 (v) corrected. Open: m_ι from Definition 2.5's formal solutions on 5D Tangherlini.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

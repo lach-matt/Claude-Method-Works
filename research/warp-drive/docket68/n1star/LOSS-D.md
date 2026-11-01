@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -632,7 +632,9 @@ loop counts of section 3.
   rounds per level; it is not counted here. D514 had named III.I′′′′′′ Steps 3-3.3, whose row (J3:262) has count 1
   (corrected D516). So the record's d at its best admissible weights is at least about 2(½ + ½)/(ε_K ε_ind). Each of
   those two loops can add a term of the same order, 1/(ε_K ε_ind): the ι⁺ rounds up to about (2 − λ_♯)/(ε_K ε_ind) over
-  the levels below 3. E1'c's number needs them counted.
+  the levels below 3. E1'c's number needs them counted. [Corrected D534: the ι⁺ loop's step is I6's own ε_ind := min Re
+  ℰ^ι_ind (PART-III-I6-ALMOSTBDD.md:118-119, "not (1.1)'s"), not (1.1)'s ε_ind, so its order is not fixed by 1/(ε_K
+  ε_ind); see LD14.]
 - LD13 (the level-2 loop's length, from ℰ_ind's least elements; computed, conditional, D529; `checks/level2loop5.py`
   L1-L4, exact). LD12 (v) left the level-2 rounds of III.I′′′′′′′′′′′ Step 3 of order 1/(ε_K ε_ind) "if the smallest
   element of E_ind is about ε_ind". At the record's point it is not, on LD9's reading of ℰ_ind, and each of its chains
@@ -682,6 +684,32 @@ loop counts of section 3.
     listed: "shorter" needs N_2 times the log orders below about 8.6 (D531). (d) Log orders: a round is per (α_0, k),
     and the log orders at a point multiply its count; not bounded here. (e) Proposition 4.4's loss per round, not read,
     so this counts rounds, not loss. The ι⁺ loop of LD12 (v) is untouched: E^ι_ind is not read.
+- LD14 (the ι⁺ loop's length; deduced from the record's text, D534). LD12 (v) gave the ι⁺ iteration that Lemma 3.2's
+  Steps 1-2 run at every β-level below 3 (I9:230-232, 256-261) as up to about (2 − λ_♯)/ε_ind rounds per level, and so
+  possibly of the counted loops' order 1/(ε_K ε_ind). The record fixes it differently.
+  - *The step.* The iteration is III.I′′′′′ Proposition 2.1's Step 2 (I9:231, "the iteration and its termination are
+    III.I′′′′′'s"). There ε_ind is defined afresh as min Re ℰ^ι_ind, ℰ^ι_ind being III.G″ (4.4)'s index set, "not
+    (1.1)'s" (PART-III-I6-ALMOSTBDD.md:118-119). Each round treats every λ_0 of the window together and raises the least
+    real part c_0 of the source's ι⁺-exponents by at least that number, starting at c_0 ≥ λ_♯ and ending once c_0 ≥ α♯_+
+    (I6:167-172). So, with m_ι := min Re ℰ^ι_ind, a level runs at most ⌈(α♯_+ − λ_♯)/m_ι⌉ rounds, and α♯_+ < 2 (α♯_+ :=
+    2 − ε at the levels below 3, I9:256-257), λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 at the record's point (LD8): at most
+    ⌈0.4901/m_ι⌉. Unlike the level-2 loop (LD13), there is no factor for the number of exponents: the window is one
+    round.
+  - *What m_ι is.* The record does not compute it. III.G″ (4.4) gives ℰ^ι_ind only as "an index set ℰ_ind with min Re
+    ℰ_ind > 0 depending only on L̄ and on whether λ = 1" (PART-III-G3-GRAFT.md:298-299), and its proof says where it
+    comes from: the Myers-Perry formal solutions differ from the Minkowski ones at ι⁺ by corrections O(t_*^(−min Re
+    ℰ_ind)), ρ ~ t_*^(−1) there (G3:305-308), the s1 and v1 states entering through III.D″ (3.4) (G3:309-311). So m_ι is
+    the least relative exponent of those corrections at b_0, not (1.1)'s ε_ind, and it is not tied to d(Re λ, ℤ).
+  - *Conditional values.* If the corrections carry the offsets of the states' classes (LD9's ℰ_ind, least element d1 on
+    its reading), m_ι ≥ d1 and a level runs at most ⌈0.4901/d1⌉ = 1,470,302 rounds, against about (β − 2)/ε_ind of Lemma
+    3.2's tf-rounds at the same level (LD12 (ii)), on average ½/ε_ind ≥ 2.5755 × 10⁷: a ratio 2(2 − λ_♯)ε_ind/m_ι ≤
+    0.0571, smaller for smaller ε_ind, the number of levels being common to both. If the corrections are at integer
+    orders only, m_ι ≥ 1 and the loop is one round per level. Only m_ι of order ε_ind would make it comparable to the
+    counted loops, which would need a correction exponent below about 10⁻⁷ that no computed root supplies.
+  - *What is needed.* m_ι itself: the expansion at ρ = 0, at b_0, of III.G″ Definition 2.5's Myers-Perry formal
+    solutions against the Minkowski ones. This is computable from 5D Tangherlini; it is not done here. With LD13, the
+    two loops LD12 (v) left uncounted are then both bounded per level by the record's own roots (d1 for the level-2
+    chains, m_ι for ι⁺), the first up to the factor N_2.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

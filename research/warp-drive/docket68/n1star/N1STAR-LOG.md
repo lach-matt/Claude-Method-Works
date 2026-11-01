@@ -7502,3 +7502,10 @@ The background then looks like the record's with one extra function, which the o
 harmless direction, so every inequality holds with at least the record's margin, except one: the inner boundary must
 still lie inside the black hole, which fails if the outgoing dust carries off too much mass. A computed example shows
 both the normal case and that failure.
+
+**D534 (2026-11-01): the last uncounted loop, bounded in form.** The second repeated step whose length was unknown turns
+out to be governed by a different small number from the one assumed: the smallest exponent of the corrections a black
+hole makes to flat-space solutions near future timelike infinity, which the record never computes. And each of its
+rounds clears a whole window at once, so its length per level is that window divided by this number. If the number is as
+large as the record's smallest root, the loop is about one twentieth of the counted ones; computing it from the
+five-dimensional black hole is the next step.
