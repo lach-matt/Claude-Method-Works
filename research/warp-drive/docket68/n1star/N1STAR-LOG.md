@@ -7113,3 +7113,9 @@ settles at about seven hundredths per unit of radius. But the record confines th
 radii, so over everything it allows a change of size one moves the coefficient by about a fifth, against the 141 that
 is forced. The other function's influence keeps falling and is negligible. So the term stays for every such choice the
 record permits.
+
+**D466 (2026-11-01): the better multiplier, certified for every pattern but the lowest.** The improvement found in D460
+is now proved, not just computed, for every angular pattern from the first up: interval arithmetic checks the
+positivity everywhere it is needed, with explicit bounds for the two ends, and the resulting constant over those
+patterns is at most about 185, against 675 before. The lowest pattern needs an extra correction term, which is computed
+but not yet certified.

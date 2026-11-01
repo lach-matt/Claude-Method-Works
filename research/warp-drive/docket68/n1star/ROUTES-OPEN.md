@@ -5102,6 +5102,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   dr/2 does not decay). The record's chi is supported in |x| < 5 R_1, R_1 = sqrt(mu_end) = 1 here, so over that support
   an eta within 1 of the record's moves A by about 0.21 to first order (zeta on (3, 8): 9e-5), far from the forced 141.4:
   D457's conclusion extends to the record's whole support. Open: inside r = 1.25, non-rotation-invariant cut-offs.
+- D466 (E2-PILOT 3i, checks/e2asymcert5.py K0-K4, certified by interval arithmetic): D460's asymmetric multiplier for
+  every l >= 1, with the width interpolated harmonically (closed-form g; s_L = 49/50, s_R = 2, kap = 1/2, centre x_*).
+  w_1 >= 0 on R (bisection on t in [-120, ln 119], tails by explicit bounds, left ratio <= 0.0842, right <= 4.6e-47); m'
+  >= 0.05299, M' <= 0.7929 on I; B_1(3) <= 93.95, X_1(3) <= 87.61, C_1 <= 184.82, C_l <= 64.18 for l >= 2. So over l >= 1
+  the summed H^1 constant at sigma = 3 is certified <= 184.82 (675.1 before), in this multiplier's weight. Open: l = 0's
+  q (X_0 = 117.3 computed).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
