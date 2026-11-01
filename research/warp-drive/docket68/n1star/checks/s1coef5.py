@@ -48,6 +48,12 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      matching radii 3 and 4, kept only where the two agree to 1e-7 and the condition is below 1e12, a zero bracketed and
      located where a kept A changes sign.
 
+  S8 (computed; --zeros-far) the same sensitivities beyond the matching radius of S7 (D465): matching at r = 8 (A0 there
+     against r = 3), unit bumps of half-width 0.2 at centres 3.2, 3.6, ..., 7.6, per unit integral, for zeta and eta;
+     and how dA/deta behaves as r grows. It levels off near 0.068 (c_H = -eta dr/2 does not decay), so to first order
+     an eta within 1 of the record's moves A by about 0.07 per unit of support; the record confines chi to |x| < 5 R_1
+     with R_1 = sqrt(mu_end) = 1 here, which gives about 0.21 on (1.25, 5).
+
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
 precision (DOP853, rtol 1e-13). About 15 minutes.
@@ -56,6 +62,7 @@ Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_
 the record's later steps hold at the bumped cut-offs, beyond the matching being solvable there.
 """
 import os
+import math
 import sys
 
 import mpmath as mp
@@ -489,7 +496,51 @@ def zeros_scan():
     return 0
 
 
+def zeros_far():
+    """--zeros-far: S8, the sensitivities of A to zeta and eta on (3, 8) at the record's point"""
+    from scipy.integrate import quad
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb = setup(M, gam, e, sp.Rational(1, 10))[0]
+    zeta0 = lambda x: smoothstep((x - 1.5) / 1.0)
+    eta0 = lambda x: 1 - smoothstep((x - 1.3) / 0.5)
+    A3 = pb.coefficient(zeta0, eta0, 3.0)[0]
+    A8, c8 = pb.coefficient(zeta0, eta0, 8.0)
+    print("  record's point: A0 = %.10g matched at r = 3, %.10g at r = 8 (condition %.1e)" % (A3, A8, c8), flush=True)
+    bump = lambda c, w: (lambda x: float(np.exp(1 - 1 / (1 - ((x - c) / w)**2))) if abs(x - c) < w else 0.0)
+    w = 0.2
+    norm = quad(bump(0.0, w), -w, w, epsabs=1e-14)[0]
+    centres = [3.2 + 0.4 * k for k in range(12)]
+    dens = {}
+    for name in ("zeta", "eta"):
+        rows = []
+        for c in centres:
+            b = bump(c, w)
+            if name == "zeta":
+                Ap = pb.coefficient(lambda x: zeta0(x) + b(x), eta0, 8.0)[0]
+                Am = pb.coefficient(lambda x: zeta0(x) - b(x), eta0, 8.0)[0]
+            else:
+                Ap = pb.coefficient(zeta0, lambda x: eta0(x) + b(x), 8.0)[0]
+                Am = pb.coefficient(zeta0, lambda x: eta0(x) - b(x), 8.0)[0]
+            rows.append((Ap - Am) / (2 * norm))
+        dens[name] = rows
+        print("  dA/d%s(r) at r = 3.2 ... 7.6: %s" % (name, " ".join("%.3e" % q for q in rows)), flush=True)
+    rr = np.array(centres); de = np.array(dens["eta"])
+    p_fit = np.polyfit(np.log(rr), np.log(np.abs(de)), 1)
+    print("  dA/deta ~ %.3g r^%.3f on (3, 8) (log-log fit), levelling off: c_H = -eta dr/2 carries no decay"
+          % (math.exp(p_fit[1]), p_fit[0]), flush=True)
+    inner = np.array(centres) < 5.0
+    e5 = float(np.sum(np.abs(de[inner])) * 0.4)
+    z8 = float(np.sum(np.abs(np.array(dens["zeta"]))) * 0.4)
+    print("  first-order estimates: eta within 1 of eta0 on (3, 5) moves A by %.3f, so on (1.25, 5R_1) = (1.25, 5) "
+          "(R_1 = sqrt(mu_end) = 1 here, the record's chi supported in |x| < 5 R_1) by about %.3f with S7's 0.084; "
+          "zeta within 1 on (3, 8) by %.1e" % (e5, 0.084 + e5, z8), flush=True)
+    return 0
+
+
 def main():
+    if sys.argv[1:2] == ["--zeros-far"]:
+        return zeros_far()
     if sys.argv[1:2] == ["--record"]:
         return record_point()
     if sys.argv[1:2] == ["--zeros"]:

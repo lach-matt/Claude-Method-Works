@@ -7106,3 +7106,10 @@ confined to such a band reaches the far region one power weaker: in a simple mod
 that matters by one half, while the same source cut to the band only contributes at the next order. So the record does
 not need a stronger bound there, and the second derivatives are bounded elsewhere in the record after all. The dust
 result stands, with two clarifications.
+
+**D465 (2026-11-01): the cut-off scan, carried to the edge of the record's freedom.** D457 varied the smoothing
+functions only near the horizon. Farther out the damping function's influence on the coefficient stops falling: it
+settles at about seven hundredths per unit of radius. But the record confines that function to within five horizon
+radii, so over everything it allows a change of size one moves the coefficient by about a fifth, against the 141 that
+is forced. The other function's influence keeps falling and is negligible. So the term stays for every such choice the
+record permits.

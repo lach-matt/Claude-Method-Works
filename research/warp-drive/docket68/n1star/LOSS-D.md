@@ -468,8 +468,15 @@ loop counts of section 3.
       zero was found: A is pinned by the near-resonance's −P_v = 141.42, and the cut-offs move only the rest, by about 20
       at most even at amplitude 10⁴ on the samples. So for the cut-offs computed, and to first order for any within 1 of
       the record's on (1.25, 3) (not proved), d1 ∈ ℰ_ind and LD9's δ_G is the one to carry.
-    - Not computed: variations beyond r = 3 or inside r = 1.25, cut-offs that are not rotation invariant (the record's
-      are), η at large negative amplitude, and the dual state as a function rather than through its pairings.
+    - *Beyond r = 3 (D465; `checks/s1coef5.py --zeros-far`, S8, computed).* Matched at r = 8 (A0 the same to ten digits),
+      dA/dζ falls outward, from −2.7 × 10⁻⁵ at r = 3.2 to −1.2 × 10⁻⁵ at 7.6, but dA/dη levels off near 0.068 per unit
+      integral (0.063 at 3.2, 0.068 at 7.6): c_Υ,H = −½η dr carries no decay, so to first order an η within 1 of the
+      record's moves A by about 0.07 per unit of support. The record confines χ to |x| < 5R_1 (III.B Definition 6.1), and
+      R_1 = √μ_end = 1 in these units (BEYOND5, r_0 = ½R_1), so over its whole support (1.25, 5) an η within 1 moves A by
+      about 0.21 to first order, and a ζ within 1 on (3, 8) by 9 × 10⁻⁵: far from the 141.4 the near-resonance forces.
+    - Not computed: variations inside r = 1.25 (the horizon series' form, ζ = O(r − 1), η = 1), cut-offs that are not
+      rotation invariant (the record's are), η at large negative amplitude, and the dual state as a function rather than
+      through its pairings.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an

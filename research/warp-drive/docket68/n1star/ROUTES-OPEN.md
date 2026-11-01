@@ -5097,6 +5097,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the full operator, its unstructured r^-3 against rho^3 C^infinity. D463 confirmed with corrections: the record's dusts
   are the covectors sqrt K dv, sqrt K du (T_vA = T_AB = 0 on N); W's propagation also uses tr T = 0 off N, which geodesic
   flow keeps.
+- D465 (LOSS-D LD9, checks/s1coef5.py --zeros-far, S8, computed): the cut-off sensitivities beyond r = 3. Matched at r =
+  8 (A0 identical); dA/dzeta falls from -2.7e-5 to -1.2e-5 over r = 3.2-7.6, dA/deta levels off near 0.068 (c_H = -eta
+  dr/2 does not decay). The record's chi is supported in |x| < 5 R_1, R_1 = sqrt(mu_end) = 1 here, so over that support
+  an eta within 1 of the record's moves A by about 0.21 to first order (zeta on (3, 8): 9e-5), far from the forced 141.4:
+  D457's conclusion extends to the record's whole support. Open: inside r = 1.25, non-rotation-invariant cut-offs.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
