@@ -163,7 +163,11 @@ def main():
         K, ev, _ = kmap(M, {ls: l}, 400)
         F1 = K[0, 0]*mp.mpf(-0.5)
         Cl = -mp.pi/(4*mp.gamma(1 - mp.mpf(l)/2)*mp.gamma(2 + mp.mpf(l)/2)) if l % 2 or l == 0 else mp.mpf(0)
-        g = mp.hyp2f1(3 + l, 1 - l, mp.mpf(5)/2, mp.mpf(1)/2)*(-mp.mpf(1)/3)
+        if l == 0:
+            g = mp.hyp2f1(3, 1, mp.mpf(5)/2, mp.mpf(1)/2)*(-mp.mpf(1)/3)
+        else:                           # b = 1 - l <= 0: the series terminates (and is exactly 0 at even l)
+            g = -mp.fsum(mp.rf(3 + l, j)*mp.rf(1 - l, j)/(mp.rf(mp.mpf(5)/2, j)*mp.factorial(j))*mp.mpf(1)/2**j
+                         for j in range(l))/3
         worst = max(worst, float(abs(F1 - Cl)), float(abs(g - Cl)))
         rows.append("%d: %s" % (l, mp.nstr(F1, 12)))
     ok["P1"] = okm and worst < 1e-25
