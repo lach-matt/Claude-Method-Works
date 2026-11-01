@@ -5123,6 +5123,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   measured, 2 × 10⁻³ asserted). D465: the 0.21 was S7's joint sum without the gaps (1.25, 1.3) and (2.9, 3); S8 now
   computes them (0.0015, 0.0062), and η's first-order sum on (1.25, 5) is 0.221. dA/dζ falls like r^(−0.92), so ζ's
   first-order effect grows like log R and (3, 8) is a choice; no curvature beyond r = 3.
+- D469 (verifier 200 on D466 and D467): both stand, no major finding. D466: K0-K4 reproduced; the closed forms exact by
+  sympy; the bisection pieces share endpoints and overlap K2's tails; both tail bounds re-derived as proofs (the left
+  needs a ≥ 9/4, true at l = 1); every l ≥ 2 proved (w_l ≥ w_6 on I, B, X, K decreasing in w_I, and l(l + 2)/(a − a_1)
+  = 1 + 3/(l(l + 2) − 3) decreasing, now stated and checked in K3); the formulas are E2-PILOT's (228, 463-487) with c =
+  M′ + 6; 50-digit sampling lies inside every bound. Added to K4: the tail bounds fail where they should (left ratio
+  2.42 at t = −3, right 2.66 at r = 2.5, not monotone there) and the constants step refuses l = 0 (min_I w_0 enclosed
+  from −0.032). The l ≥ 2 terms are in −φU′'s weight; ψ_*'s version is not certified. D467: the quotes are exact (ℓ_0 >
+  3 the D323 form); j ∈ ℕ and jℰ_0 is the j-fold sum, so the condition is closure under addition; 'not to integers' is
+  an inference from the hypotheses cited; the 𝓘⁺ evidence concerns another face, and the I_0 conclusion rests on III.K
+  53-57 and III.C′ Theorem 3.1 alone (ρ_0 = 1/(2 − x¹), about 1/r there). BEYOND5 (v) is reframed so.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

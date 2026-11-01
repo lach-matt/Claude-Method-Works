@@ -22,11 +22,15 @@ and m', M' do not depend on l.
   K0 the closed forms of phi, phi' and phi''' agree with mpmath's numerical derivatives of tanh(g) at five points to
      twelve digits (computed).
   K3 on I = {r in [1.2, 4]}, over 2000 pieces: m' = min_I phi' and M' = max_I phi' (enclosed, not assumed at an end),
-     and min_I w_l for l = 1, ..., 6 (l >= 6 bounded by l = 6, as w_l increases with l); then B_l(3), X_l(3),
-     A_l = l(l + 2) K_l/(a - a_1) (A_1 = 3 B_1^2), C_l = (X_l^2 + A_l)^(1/2), all rounded outward, and their maximum.
+     and min_I w_l for l = 1, ..., 6; then B_l(3), X_l(3), A_l = l(l + 2) K_l/(a - a_1) (A_1 = 3 B_1^2),
+     C_l = (X_l^2 + A_l)^(1/2), all rounded outward, and their maximum. Every l >= 6 is bounded by l = 6: w_l >= w_6 on
+     I (w_l increases with l), B, X and K decrease as w_I grows, and l(l + 2)/(a - a_1) = 1 + 3/(l(l + 2) - 3)
+     decreases (checked for l = 2, ..., 7, and plain for every l); so C_l <= C_6 (verifier 200, D469).
   K4 controls: K1's bisection fails, as it must, at l = 0 (which needs section 3g's q), and w_0 is certified negative at
      t = -3.9, on the horizon side (D462); with the centre at r = 1.6 the product -phi U' is negative at r = 1.5 (no
-     monotonicity in l).
+     monotonicity in l). The tail bounds and the constants step fail where they should (D469, verifier 200): the left
+     tail's ratio bound exceeds 1 at t = -3 and the right tail's at r = 2.5, where it is not monotone either, so neither
+     certifies without K1's range; and K3's pipeline refuses l = 0, as its enclosure of min_I w_0 is not positive.
 
 The angular weight is this multiplier's, -phi U', not section 3i's psi_*: D462 measured it at 0.64-0.94 times psi_* on
 I. Labels: K1-K3 certified (interval arithmetic and explicit tail bounds); the corollary deduced as in section 3i.
@@ -214,7 +218,8 @@ def main():
         print("  K3: l = %d  min_I w_l >= %s  B_l(3) <= %s  X_l(3) <= %s  A_l <= %s  C_l <= %s"
               % (l, iv.nstr(iv.mpf(wlo), 5), iv.nstr(iv.mpf(B.b), 5), iv.nstr(iv.mpf(X.b), 5),
                  iv.nstr(iv.mpf(A.b), 6), iv.nstr(iv.mpf(Cl.b), 5)), flush=True)
-    ok["K3"] = all(r[2] is not None for r in rows) and m1lo > 0
+    fac = [iv.mpf(l * (l + 2)) / (A_(l) - a1) for l in range(2, 8)]      # 1 + 3/(l(l + 2) - 3), decreasing
+    ok["K3"] = all(r[2] is not None for r in rows) and m1lo > 0 and all(fac[k + 1].b < fac[k].a for k in range(5))
     print("  K3: m' >= %s, M' <= %s on I; over l >= 1, C <= %s at sigma = 3 (certified symmetric: 675.1 over l >= 1)"
           % (iv.nstr(iv.mpf(m1lo), 5), iv.nstr(iv.mpf(M1hi), 5), iv.nstr(iv.mpf(Cmax), 5)), flush=True)
     f0, _, bad0 = certify_positive(A_(0), tL, tR)
@@ -223,7 +228,15 @@ def main():
     tm = iv.log(iv.mpf("1.5") - 1)
     T2, _, _ = mult(xr(tm), xc=xc2)
     neg = (-T2 * pots(tm)[0]).b < 0
-    ok["K4 controls"] = (not f0) and n0 is not None and n0.b < 0 and neg
+    rl3, _ = tail_left(A_(1), -3)
+    rr25, mr25 = tail_right(A_(1), mpf("2.5"))
+    w0lo, _ = enclose_I(lambda tt: w_of(tt, A_(0)), pieces=400)
+    ok["K4 controls"] = (not f0) and n0 is not None and n0.b < 0 and neg and rl3.a > 1 and rr25.a > 1 \
+        and mr25.b < 0 and w0lo <= 0
+    print("  K4: tails fail where they should: left ratio at t = -3 >= %s, right ratio at r = 2.5 >= %s (monotone from "
+          "%s); K3's pipeline refuses l = 0 (min_I w_0 enclosed from %s)"
+          % (iv.nstr(iv.mpf(rl3.a), 4), iv.nstr(iv.mpf(rr25.a), 4), iv.nstr(mr25, 3), iv.nstr(iv.mpf(w0lo), 4)),
+          flush=True)
     print("  K4: at l = 0 the bisection fails (near t = %s) and w_0 <= %s at t = -3.9; centre at r = 1.6: -phi U' at "
           "r = 1.5 is %s (%.0fs)" % (iv.nstr(iv.mpf(bad0[0]), 5) if bad0 else "-", iv.nstr(iv.mpf(n0.b), 4),
                                     iv.nstr(-T2 * pots(tm)[0], 4), time.time() - t0), flush=True)

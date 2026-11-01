@@ -558,13 +558,17 @@ increases with |σ|.
   - Controls: the symmetric multipliers reproduce B_1(3) = 254.6 (certified 264.5), X_1(3) = 483.4 (495.9) and X_0(3) =
     801.5 (808.6). The grid runs from ln(r − 1) = −60 to r = 120 and the tails beyond it are not checked; certification
     by interval arithmetic as in sections 3f-3g is the next step.
-  - *Certified for l ≥ 1 (D466; `checks/e2asymcert5.py` K0-K4, interval arithmetic).* With the width interpolated
+  - - *Certified for l ≥ 1 (D466; `checks/e2asymcert5.py` K0-K4, interval arithmetic).* With the width interpolated
     harmonically, g′ = 1/s_R + (1/s_L − 1/s_R)(1 − σ(z)), so that g has a closed form, s_L = 49/50, s_R = 2, κ = 1/2 and
     the centre at x_*: w_1 ≥ 0 on t ∈ [−120, ln 119] by bisection (377 enclosures), the tails by explicit bounds (left
     ratio ≤ 0.0842, decreasing toward the horizon; right ≤ 4.6 × 10⁻⁴⁷); on I, m′ ≥ 0.05299 and M′ ≤ 0.7929; B_1(3) ≤
     93.95, X_1(3) ≤ 87.61, C_1 ≤ 184.82, and C_l ≤ 64.18 for every l ≥ 2. So over l ≥ 1 the summed constant at σ = 3 is
     certified ≤ 184.82, against 675.1, in this multiplier's angular weight; the band 0 < |σ| ≤ 3 follows as for E2.12. l
-    = 0's q (X_0(3) = 117.3, computed) is not yet certified.
+    = 0's q (X_0(3) = 117.3, computed) is not yet certified. Verified by verifier 200 (D469): the closed forms exact
+    (sympy), the bisection pieces and the tails overlapping with no gap, both tail bounds proofs, and every l ≥ 2 covered
+    (w_l ≥ w_6 on I, B, X and K decreasing in w_I, and l(l + 2)/(a − a_1) decreasing, so C_l ≤ C_6 = 48.41 for l ≥ 6); K4
+    now also shows the tail bounds and the constants step failing where they should. The comparison with 675.1 is like
+    for like at l = 1 only: for l ≥ 2 the weight is −φU′, not ψ_*, whose version is not certified.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,

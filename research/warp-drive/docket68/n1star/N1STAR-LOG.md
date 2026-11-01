@@ -7133,3 +7133,10 @@ source confined near the incoming null surface enters one power lower is shown i
 yet in general, and beyond the region where the approximation is defined nothing bounds the remainder. One of the two
 dust streams was named for the other. And the 0.21 left out two short intervals; computed now, they make it 0.22. No
 conclusion changes.
+
+**D469 (2026-11-01): the certificate and the reading stand.** The independent check found no error in the certified
+multiplier bound or in the reading of the solution class. It asked for tests showing that the certificate's tail
+estimates and its constants step can fail; they are now included and fail where they should. It also asked for one
+monotonicity step to be stated, which now is. On the reading: half powers are admitted at the boundary that matters
+because nothing in the data's conditions asks for whole numbers, and the evidence from the other boundary, which had been
+quoted first, bears on that boundary only.
