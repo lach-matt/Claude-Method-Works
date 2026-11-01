@@ -7315,3 +7315,7 @@ does not depend on the degree it was first written for, so it applies at the str
 computed coefficient reproduced. It noted that two of the program's steps printed numbers without judging them (now
 judged), that one check could not fail at a bound so large, and that the bound covers the first two strip coefficients
 but not the later ones.
+
+**D501 (2026-11-01): the certified bound, certified again.** An independent check redid the certificate with a different
+interval library and derivatives taken automatically rather than by formula, and got the same bound, about 11. It
+corrected the comparison: the best earlier certified figure was about 275, not 359.

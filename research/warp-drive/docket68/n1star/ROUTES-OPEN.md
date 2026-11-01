@@ -5413,6 +5413,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   passes in 142 s); only s_1 = 1 is rerun, which covers K and K4 but not the ρ⁵ and later coefficients. Added: J's
   eigenvalues (1.5, 1.5099, 1.51, 1.52, damping) are x-independent, so M1_3(0) has every real part > 1 at every l ≥ 2.
   Corrected in BEYOND5 3(b) and uniform3_5; the D492 entry above keeps its text.
+- D501 (verifier 214 on D497; the closed forms by sympy, the tails by hand, an independent certificate in Arb): the
+  certificate stands. g′, g″, g‴ and φ′, φ‴ are exact; both branches of th_sech and mult are identities, so the branch
+  choice cannot break an enclosure; the tail bounds re-derive (the core adds at most 4βe^(±2y), 8βe^(±2y)/κ,
+  24βe^(±2y)/κ², the last tight at 16), are monotone as claimed and lie above the actual ratios at 60 digits to t = −5000
+  and r = 10⁶; C3's monotonicity in l is analytic (g′ > 0, g(x_*) = 0, U′ changing sign only at r = √2). Arb, with φ′, φ‴
+  by automatic differentiation and 200,000 pieces on I, gives B_5(3) ≤ 10.98250, inside the program's 10.988632; the
+  computed norms at σ = 3 lie below every bound (l = 5: 1.13). MINOR: the entry above rounds the tail bounds inward
+  (0.0158079… and 5.20205… × 10⁻²³; E2-PILOT has 0.01581 and 5.21 × 10⁻²³); and the 'before' figure is 275.2, section
+  3g's certified B_0(3) (D387), not 359.01. Corrected in E2-PILOT 3j and e2trapcert5's summary line; the D497 entry above
+  keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

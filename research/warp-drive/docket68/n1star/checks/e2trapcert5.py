@@ -218,8 +218,8 @@ def main():
     print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -2 >= %s; right ratio at r = 2.5 "
           ">= %s" % (iv.nstr(iv.mpf(bad1[0]), 5) if bad1 else "-", E.dn(rl3.a, 4), E.dn(rr25.a, 4)), flush=True)
     good_all = all(ok.values())
-    print("  %s: at sigma = 3, ||chi_I R_l(3) chi_I|| <= %s for every l >= 0 (certified symmetric constant: 359.01 at "
-          "l = 0, D473; 93.96 at l = 1, D466)" % ("CERTIFIED" if good_all else "NOT certified", E.up(sup, 5)))
+    print("  %s: at sigma = 3, ||chi_I R_l(3) chi_I|| <= %s for every l >= 0 (best certified before: 275.2 at "
+          "l = 0, D387; 93.96 at l = 1, D466)" % ("CERTIFIED" if good_all else "NOT certified", E.up(sup, 5)))
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     print("  (%.0f s)" % (time.time() - t0))

@@ -670,9 +670,14 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   −φU′ ≥ 0 on ℝ, so the multiplier is admissible for every l ≥ 5 and B_l(3) ≤ B_5(3); on I over 8000 pieces m′ ≥
   0.052674, M′ ≤ 1.01, min_I w_5 ≥ 0.81423, so B_5(3) ≤ 10.989; and Lemma E2.7 for l ≤ 4 with max V_l exact, at most
   1.3221, 1.4463, 1.7217, 2.3512 and 4.4422 (max V_5 ≥ 9.22089 > 9). So, certified: at σ = 3, ‖χ_I R_l(3) χ_I‖ ≤ 10.989
-  for every l ≥ 0, where the certified constants of sections 3f-3g and 3i were 359.01 at l = 0 (D473) and 93.96 at l = 1
-  (D466). For l ≥ 5 the same bound holds at every 0 < |σ| ≤ 3 (B_5 increases with |σ|); for l ≤ 4 at smaller |σ| E2.7
-  does not apply. Controls: the bisection fails at l = 1, and the tail bounds exceed 1 at t = −2 and r = 2.5.
+  for every l ≥ 0, where the best certified bounds on the same quantity had been 275.2 at l = 0 (section 3g, D387; D497
+  cited 359.01, D473's, which is not the least; verifier 214, D501) and 93.96 at l = 1 (D466). Re-certified independently
+  in ball arithmetic (verifier 214, D501: Arb, with φ′ and φ‴ by automatic differentiation rather than the closed forms,
+  200,000 pieces on I): w_5 ≥ 0 on the bisection range, the l = 1 control failing, and m′ ≥ 0.052740, M′ ≤ 1.009823,
+  min_I w_5 ≥ 0.814548, so B_5(3) ≤ 10.9825; the computed norms at σ = 3 (1.13 at l = 5, 0.41 at l = 0, 0.67 at l = 4)
+  lie below every bound, B_5(3) being about 9.7 times the norm at l = 5. For l ≥ 5 the same bound holds at every 0 < |σ|
+  ≤ 3 (B_5 increases with |σ|); for l ≤ 4 at smaller |σ| E2.7 does not apply. Controls: the bisection fails at l = 1, and
+  the tail bounds exceed 1 at t = −2 and r = 2.5.
 
 What it does not give:
 
