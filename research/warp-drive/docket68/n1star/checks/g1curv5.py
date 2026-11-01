@@ -96,6 +96,7 @@ Labels: computed (floating point, on saved runs).
     python3 checks/g1curv5.py --seed2 DIR   (D515: DIR holds s2_M16/24/32.npz; K cached in DIR/curvS2_M<M>.npz)
     python3 checks/g1curv5.py --seed2-40 DIR   (D524: also s2_M40.npz; M = 24, 32, 40)
     python3 checks/g1curv5.py --seed2-1600 DIR (D543: also s2_M32_1600.npz, s2_M40_1600.npz)
+    python3 checks/g1curv5.py --seed2-48 DIR   (D553: also s2_M48_1600.npz; K at v-order 2 and 4)
     python3 checks/g1curv5.py --null DIR    (D489: DIR holds D432's l1_rc0.9_M32/40.npz and their _1600 runs)
 """
 import os
@@ -392,7 +393,66 @@ def seed2_1600(dirn):
     return 0
 
 
+def s2_fine(dirn, M, rows, uc, vc, vorder):
+    """K at M on the 1600 x 720 run, fine rows 2r, v nodes subsampled by 2, with K's v-derivatives at second (dnsolve5's
+    default) or fourth order (D553); cached"""
+    tag = "" if vorder == 2 else "_v4"
+    cache = os.path.join(dirn, "curvS2_M%d_1600%s.npz" % (M, tag))
+    if os.path.exists(cache) and list(np.load(cache)["rows"]) == list(rows):
+        return dict(np.load(cache))
+    Zf, rr = reduced(os.path.join(dirn, "s2_M%d_1600.npz" % M), [2 * r for r in rows])
+    assert np.allclose(Zf["u"][rr], uc[rows]) and np.allclose(Zf["v"][::2], vc), M
+    Kf = D.kretschmann(Zf, rows=rr, vorder=vorder)[rr][:, ::2]
+    c = dict(rows=np.array(rows), K=Kf, R=Zf["R"][rr][:, ::2], mask=Zf["mask"][rr][:, ::2], v=vc, x=Zf["x"])
+    np.savez(cache, **c)
+    return c
+
+
+def seed2_48(dirn):
+    """--seed2-48 DIR (D553): M = 32, 40 and 48 at 1600 x 720 on --seed2-40's rows, K at second and fourth order in v:
+    whether the M = 32-40 difference after v = 3.5 (D543, D547) falls when M is refined again"""
+    Z = dict(np.load(os.path.join(dirn, "s2_M32.npz")))
+    rows = pick_rows(Z, 24, 2.5, 4.5, 0.9, 1.5)
+    uc, vc = Z["u"], Z["v"]
+    del Z
+    C = {}
+    for M in (32, 40, 48):
+        for o in (2, 4):
+            C[(M, o)] = s2_fine(dirn, M, rows, uc, vc, o)
+            print("  M = %d, v-order %d: done" % (M, o), flush=True)
+    keep = ~np.any([c["mask"] for c in C.values()], axis=0)
+    print("\n  per v-band, cells kept at M = 32, 40, 48 (1600 x 720) with R in [0.9, 1.4] (Chebyshev interpolant), K's "
+          "v-derivatives at order o = 2 and 4: dev_M = max |K/K_0 - 1|; d40 = max |K_40 - K_32|/K_0, d48 = max |K_48 - "
+          "K_40|/K_0; st = max |K_o2 - K_o4|/K_0 at M = 48; n48 = cells with |K_48/K_0 - 1| > 2")
+    for xe in S2XS:
+        Kx = {k: cheb(c["K"], c["x"], xe) for k, c in C.items()}
+        Rr = cheb(C[(48, 2)]["R"], C[(48, 2)]["x"], xe)
+        K0 = 72.0 / Rr**8
+        ok = keep & (Rr >= 0.9) & (Rr <= 1.4) & np.all([np.isfinite(Kx[k]) for k in Kx], axis=0)
+        print("\n  x = %g" % xe)
+        for lo, hi in S2BANDS:
+            sel = ok & ((vc >= lo) & (vc < hi))[None, :]
+            if not sel.any():
+                print("    [%.2f,%.2f): no cells" % (lo, hi))
+                continue
+            mx = lambda a: float(a[sel].max())
+            parts = []
+            for o in (2, 4):
+                dev = [mx(np.abs(Kx[(M, o)] / K0 - 1)) for M in (32, 40, 48)]
+                d40 = mx(np.abs(Kx[(40, o)] - Kx[(32, o)]) / K0)
+                d48 = mx(np.abs(Kx[(48, o)] - Kx[(40, o)]) / K0)
+                n48 = int((sel & (np.abs(Kx[(48, o)] / K0 - 1) > 2)).sum())
+                parts.append("o%d: dev %.3g %.3g %.3g, d40 %.3g, d48 %.3g, n48 %d" % (o, dev[0], dev[1], dev[2], d40, d48,
+                                                                                      n48))
+            st = mx(np.abs(Kx[(48, 2)] - Kx[(48, 4)]) / K0)
+            print("    [%.2f,%.2f): %s;  st %.3g  (%d cells)" % (lo, hi, ";  ".join(parts), st, int(sel.sum())),
+                  flush=True)
+    return 0
+
+
 def main():
+    if sys.argv[1:2] == ["--seed2-48"]:
+        return seed2_48(sys.argv[2])
     if sys.argv[1:2] == ["--seed2-1600"]:
         return seed2_1600(sys.argv[2])
     if sys.argv[1:2] == ["--null"]:
