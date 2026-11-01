@@ -7720,3 +7720,9 @@ that falls off like the inverse cube of the radius. Both fall off fast enough fo
 of its weights, and D565 had recorded them as two readings. Read at source, they belong to two different steps: the
 stricter one is added by a later step, for a stated reason, and every step after that uses it. So both hold, the
 stricter one is the operative limit, and the loss computed for those rounds stays attainable.
+
+**D571 (2026-11-01): the finer angular run goes unstable.** Refining the angular resolution again, at the finer time
+grid, does not help: the new run agrees with the others early on and then blows up at every angle at the same point in
+time, just as the previous refinement did on the coarser grid. All four runs so far fit a simple rule linking the
+angular and time resolutions, so the test that would decide convergence is to run all three angular resolutions on a
+finer time grid. That needs more disk than this machine has free.

@@ -6052,6 +6052,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   hold from I5 on and ℓ_I ≤ a_I binds, dg5's G3 reading. d_G = 11 stays attainable: (3 + ε_+, min(a_I, 3.5099)] is
   nonempty for every a_I > 3 + ε_+, with ε_+ < ε_ind < 3 × 10⁻⁶ at the record's point. Open: a_I, the class's ℐ⁺-order,
   free in the record.
+- D571 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-48`, output saved as `checks/g1curv5_seed2_48.out`): the
+  second seed at M = 48, 1600 × 720. Before v = 3.25 it agrees with M = 40 to 0.011 K_0; from v ≈ 3.25 it departs at
+  every angle, to 4.4 × 10⁵ K_0 by v = 4.5, while M = 32 and 40 agree to 0.097 K_0. D524's pattern one level up. The
+  four runs fit a step condition M²/N ≤ c with 1.28 ≤ c < 1.44 (consistent with, not shown). Convergence after v ≈ 3.5
+  is not decided: it needs M = 32, 40, 48 at one grid with N ≳ 1800, about 5.6 GB at N = 2000 against 3.8 GB free (not
+  run).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

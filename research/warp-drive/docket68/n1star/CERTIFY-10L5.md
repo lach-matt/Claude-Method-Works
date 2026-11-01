@@ -680,6 +680,20 @@ No other component is nonzero. So the scheme is the following.
   (the 32-40 difference at 1600 × 720 peaks at 1.36 K_0 near x = 0.15 and is 0.15 at the axis; only the gauge fields
   peak at the axis; corrected D547), and a finer null grid at M = 40. So the second seed's curvature is of order K_0 at
   1600 × 720 throughout, and resolved to v = 3.5 at every angle, not beyond (corrected D547).
+- *M = 48 at 1600 × 720 (D571; `checks/g1curv5.py --seed2-48 DIR`, output saved as `checks/g1curv5_seed2_48.out`;
+  computed).* M = 32, 40 and 48 on --seed2-40's rows, K's v-derivatives at second and fourth order. Before v = 3.25 M =
+  48 agrees with M = 40 to 0.011 K_0 at the seven sampled angles (x = 0.99, …, −0.97), more loosely than M = 40 with M =
+  32 (2.4 × 10⁻⁴ K_0), the two stencils agreeing to 1.7 × 10⁻⁴ K_0. From v ≈ 3.25 M = 48 departs at every angle: |K/K_0
+  − 1| reaches 2.1 to 21 on [3.25, 3.5), 7.6 × 10³ to 6.6 × 10⁴ on [3.5, 4) and 2.2 × 10⁵ to 4.4 × 10⁵ on [4, 4.5), with
+  1 to 57 cells per band and angle above 2, and the two stencils differing as much; M = 32 and 40 still agree there to
+  0.097 K_0 at those angles. That is D524's pattern one level up: at 800 × 360 M = 40 departed and M = 32 did not, at
+  1600 × 720 M = 40 holds and M = 48 departs, worse than M = 40 from the start. The four runs are consistent with a step
+  condition M²/N ≤ c, N the first grid number: no departure at M²/N = 1.28 (M = 32, N = 800) and 1.0 (M = 40, N = 1600),
+  departures at 2.0 (M = 40, N = 800) and 1.44 (M = 48, N = 1600), so 1.28 ≤ c < 1.44 if such a condition is what acts
+  (consistent with, not shown; an explicit step's angular stiffness on a Chebyshev grid grows like M²). So this run does
+  not decide convergence after v ≈ 3.5. That needs M = 32, 40 and 48 at one grid with N ≳ 48²/1.28 = 1800: at N = 2000
+  about 5.6 GB of fields against the 3.8 GB free here, and several hours, the M = 48 run alone having taken two at N =
+  1600 (not run).
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -704,8 +718,9 @@ No other component is nonzero. So the scheme is the following.
   off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; a fourth M, 40, departs
   earlier, at every angle, and is worse than M = 32 from the start (D524); M refined together with the null grid removes
   M = 40's departures (1600 × 720, D543), and what remains is convergence after v ≈ 3.5, lost first off the axis (D547),
-  which needs M = 48 at 1600 × 720 (running) and a finer null grid. Rounding is excluded (D354), and so is the curvature
-  cut. Then F3 (the certified linear constant) on the converged part.
+  which M = 48 at 1600 × 720 does not decide, M = 48 departing there from v ≈ 3.25 as M = 40 did at 800 × 360 (D571); it
+  needs M = 32, 40 and 48 at one null grid with N ≳ 1800, M²/N below about 1.28. Rounding is excluded (D354), and so is
+  the curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
