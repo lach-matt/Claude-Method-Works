@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""e2asym5.py -- E2-PILOT section 3i (D459): asymmetric multipliers for l = 0 and l = 1, and the summed H^1 constant.
+"""e2asym5.py -- E2-PILOT section 3i (D460): asymmetric multipliers for l = 0 and l = 1, and the summed H^1 constant.
 
 Corollaries E2.11-E2.12's constant C <= 808.6 at sigma = 3 is set by l = 0: X_0 = (1 + (1 + 2m'(M' + 2|sigma|)
 B_0)^(1/2))/(2m') with m' = min_I (phi' - q) = 0.00258 (section 3g, Z4), small because the symmetric tanh of width

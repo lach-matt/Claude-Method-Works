@@ -539,19 +539,22 @@ increases with |σ|.
 - This is uniformity on a compact band, as the record's Proposition 6.2 needs, but in the cut-off H¹ norm only, not in
   the record's norms (section 4).
 - *Asymmetric multipliers (D460; `checks/e2asym5.py` A1-A5, computed in floating point, not certified).* The constant
-  808.6 is set by l = 0 through m′ = 0.00256: the symmetric tanh of width 49/50 is nearly flat at the outer end of I.
-  Take φ = tanh(g), g′ = 1/s(r_*), with the width rising smoothly from s_L = 49/50 toward the horizon (what the tail
+  808.6 is set by l = 0 through m′ ≥ 0.002580 (Z4): the symmetric tanh of width 49/50 is nearly flat at the outer end of
+  I. Take φ = tanh(g), g′ = 1/s(r_*), with the width rising smoothly from s_L = 49/50 toward the horizon (what the tail
   needs) to s_R outside, centred at x_* so that φ still changes sign where U′ does.
   - l = 1, s_R = 2: m′ = 0.0619, M′ = 0.713, w_I = 0.0720; B_1(3) = 95.6, X_1(3) = 80.5 and C_1 = 184.2 (the certified
     symmetric ones 264.5, 495.9 and 675.1).
   - l = 0, s_R = 2, with q from section 3g's linear program (q ≤ 0.7φ′): m′ = 0.0601, B_0(3) = 225.2, X_0(3) = 117.3
-    (against 808.6). With the centre at x_* − 0.3 an outer width of 1.5 or more admits no q: l = 0's potential tail,
-    −V_0′ ≈ 1.5 r⁻³, cannot absorb φ‴ ~ e^(−2r_*/s_R) there.
+    (against 808.6). With the centre at x_* − 0.3 the program finds no q in its dictionary for an outer width of 1.5 or
+    more: w_0 falls short of φ′/30 on the horizon side, r_* in [−20.4, −1.0] (ρ_3 = 1.50 at r_* = −10, against 1.05 for
+    the multiplier used), beyond the reach of bumps at x_* ± 3; the outer tail plays no part (verifier 197, D462).
   - As in section 3f, w_l = w_1 + (a − a_1)(−φU′) ≥ w_1 with this φ, so it serves every l ≥ 1 with l-independent m′ and
-    M′: C_l = 62.1, 58.1, 56.4, 55.6 and 55.1 for l = 2-6 (l ≥ 6 bounded by l = 6 as above).
-  - So at σ = 3 the summed constant would be 184.2, set by l = 1, against 808.6 (284.9 with the certified C_l for l ≥ 2).
-    The multipliers do not depend on σ, so the band 0 < |σ| ≤ 3 would carry the same constant, deduced as for E2.12 and
-    not re-checked.
+    M′: C_l = 62.1, 58.1, 56.4, 55.6 and 55.1 for l = 2-6 (l ≥ 6 bounded by l = 6 as above). The angular weight changes
+    with φ: ψ = −φU′ is 0.64-0.94 times section 3i's ψ_* on I, so these C_l bound a weaker norm; in ψ_*'s, dividing A_l
+    by 0.638, C_2-C_6 are at most 65.0 (D462).
+  - So at σ = 3 the summed constant would be 184.2, set by l = 1, against 808.6, in either weight (D462) (284.9 with the
+    certified C_l for l ≥ 2). The multipliers do not depend on σ, so the band 0 < |σ| ≤ 3 would carry the same constant,
+    deduced as for E2.12 and not re-checked.
   - Controls: the symmetric multipliers reproduce B_1(3) = 254.6 (certified 264.5), X_1(3) = 483.4 (495.9) and X_0(3) =
     801.5 (808.6). The grid runs from ln(r − 1) = −60 to r = 120 and the tails beyond it are not checked; certification
     by interval arithmetic as in sections 3f-3g is the next step.

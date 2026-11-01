@@ -7084,3 +7084,11 @@ products of this remainder with itself and with the leading part fall exactly li
 example within the bound shows, and the terms with second derivatives are not controlled at all. The small powers of
 the wavelength in front do not help, since the condition is about the power of the radius. So the record needs a
 stronger remainder bound here.
+
+**D462 (2026-11-01): verifier 197 on D458 and D460.** The packed-grid result does not say what D458 said. Only one of
+its two runs fails, and that run carries forty times the rounding error at the axis and goes wrong mostly on the far
+side, where the packed grid is coarser; the other run behaves like the plain grid. So the experiment cannot tell the
+possibilities apart, and the reading that it points to the method's treatment of the axis is withdrawn, though nothing
+found points to the solution itself. For the better multiplier, the numbers and the argument hold; the reason given for
+one failed choice was wrong, and the higher patterns' bound is in a slightly weaker weight, which does not change the
+constant of about 184.

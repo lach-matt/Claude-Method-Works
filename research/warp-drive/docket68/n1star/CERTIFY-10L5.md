@@ -537,8 +537,8 @@ No other component is nonzero. So the scheme is the following.
     m, the field the metric multiplies by 1 + x there, and becomes a node-to-node alternation growing toward the axis (m
     = 0.44, −0.37, 0.87, −0.65, 1.75, −1.86, 2.27, −28.1 at the eight nodes next to x = −1, v = 2.2, M = 40), its
     Chebyshev spectrum flat to the last coefficient. The tail of (1 + x)m and (1 − x)n, the parts the metric carries,
-    jumps from the floor by four to five orders within 0.1 in v: from v ≈ 1.8 at A = 1 and 7/8, 1.9 at 3/4, a tenfold
-    rise at 2.1 at 1/2, none at 1/4.
+    jumps from the floor by four to five orders within 0.1 in v at A = 1 (from v ≈ 1.8) and within 0.2 at 7/8 and 3/4
+    (from 1.8 and 1.9), a tenfold rise at 2.1 at 1/2, none at 1/4 (D462).
     - *Seed test.* Without the long-double axis solve the rounding at the axis node is about 800 times larger (S4's state
       at M = 32: 4 × 10⁻⁶ against 5 × 10⁻⁹) and the tail's floor 10³-10⁴ times higher. At M = 32 the jump lands in the
       same band at the same level (A = 1: 5 × 10⁻⁶ against 1 × 10⁻⁵ in [1.8, 1.9), both 3 × 10⁻³ in [1.9, 2.0); A = 3/4
@@ -546,22 +546,27 @@ No other component is nonzero. So the scheme is the following.
       there the long-double solve matters. Halving the null step does not move it (D432).
   - *A mapped angular grid (D458; `dnsolve5.py --run ... map 0.3`, `checks/g1map5.py`, computed).* Nodes concentrated at
     x = −1, the angular spacing there 0.7 times the plain one (as a plain M of 46 and 57 would give), with ld 3 at M = 32
-    and ld 4 at M = 40 (the mapped node next to the axis sits closer; its long-double residual is 5 × 10⁻⁸ and 10⁻⁶ on
-    S4's state), at A = 1 and 3/4.
-    - It does not resolve the failure. It brings it earlier and makes it larger: at A = 1 the mapped pair's |P_32 − P_40|
-      is 1.2 × 10⁻⁴ in [1.65, 1.8), where the plain pair agree to 2.5 × 10⁻⁹, and O(1) from 1.8; at A = 3/4 the mapped
-      pair fails at O(1) from v = 2, where the plain pair agree to 2 × 10⁻⁴.
+    and ld 4 at M = 40 (the mapped node next to the axis sits closer; its long-double residual on S4's state is 4.6 ×
+    10⁻⁸ and 1.4 × 10⁻⁶, the latter with ld 3 or 4 alike and 40 times plain M = 40's 3.3 × 10⁻⁸), at A = 1 and 3/4.
+    - The mapped pair's difference is carried by its M = 40 run alone (verifier 197, D462). The mapped M = 32 run tracks
+      the plain runs: at A = 1, |P_m32 − P_p40| is 1.6 × 10⁻³ in [1.8, 2) against the plain pair's 3.4 × 10⁻³, and 3.3 ×
+      10⁻³ against 3.0 × 10⁻³ in [2, 2.25); at A = 3/4 it is 3.4 × 10⁻³ in [2, 2.25), 17 times the plain pair's but not
+      O(1). The mapped M = 40 run departs from v ≈ 1.65 and is O(1) from 1.8 at A = 1 (from 2 at 3/4); it has 40 times
+      the axis-node rounding, and the mapped pair's difference peaks near x = +1, the mapped grid's coarser side (1 −
+      x_max = 2 × 10⁻³ at M = 32, as a plain M of about 25), not at the axis.
     - Over the four grids the onset tail grows as the first node approaches the axis: 1 + x_0 = 1.2 × 10⁻³, 7.7 × 10⁻⁴,
       5.9 × 10⁻⁴ and 3.8 × 10⁻⁴ (plain 32, plain 40, mapped 32, mapped 40) give tails in [1.65, 1.8) of 3 × 10⁻¹⁰, 2 ×
-      10⁻⁹, 2 × 10⁻⁷ and 8 × 10⁻⁵.
-    - A steep smooth feature would be resolved better by nodes concentrated at it, and before a singularity forms more
-      resolution should converge better, not worse. So the evidence points to the axis treatment (the near-axis
-      collocation of the singular terms and the rounding at the node next to the axis), not to the solution. It does not
-      show it cleanly: the mapped grid also carries more rounding at its axis node, is coarser at x = +1, and agrees only
-      to 3 × 10⁻⁸ already for v < 1.
+      10⁻⁹, 2 × 10⁻⁷ and 8 × 10⁻⁵. The same order holds for the axis-node rounding (long-double residuals 4.7 × 10⁻⁹, 3.3
+      × 10⁻⁸, 4.6 × 10⁻⁸ and 1.4 × 10⁻⁶), so the two are not separated; plain M = 40 and mapped M = 32 have nearly equal
+      residuals but tails 100 times apart, which favours node proximity without establishing it (D462).
+    - So the mapped grid does not separate the readings (D462, withdrawing D458's inference): its one failing run is also
+      its most rounding-affected, its error sits on the coarser side, and its D2 is about four times the plain grid's
+      (2.7 × 10⁵ against 6.4 × 10⁴ at M = 32); the mapped M = 32 run, with the axis spacing of a plain M of about 46,
+      converges neither better nor worse. Every alternative found is the scheme's rather than the solution's, but no
+      mechanism is shown.
     - The invariant g_22 = R² e^(8n/3) at x = −1, the circle that does not shrink, converges better than P on the plain
       grid: M = 32 and 40 agree to 5 × 10⁻⁴ at A = 1 through [1.8, 2.25) and to 6 × 10⁻⁵ after, against |ΔP| up to 3 ×
-      10⁻³ (6 × 10⁻⁵ at A = 3/4); on the mapped pair it fails with P.
+      10⁻³ (8.7 × 10⁻⁵ at A = 3/4, in [2.25, 2.5)); on the mapped pair it fails with P.
 - *G1, so far.* The double-null gauge passes the place where the record's Bondi chart broke, at both seeds.
   - At λ = 1, over its own kept cells, the computed solution is a converged approximation up to v ≈ 1.65 of 4.5 in
     dnsolve5's gauge (on 𝒟_q, in (u, v) and in angle).
@@ -574,9 +579,9 @@ No other component is nonzero. So the scheme is the following.
   - At the second seed it holds to v ≈ 3-3.5.
   - Beyond, it fails to converge at an axis: at x = −1 for λ = 1 (in both gauges; D391, D399), from areal radius about 1
     near v = 2, with either axis treatment and whatever the cut (D410, corrected D413), and only from an amplitude
-    between 1/2 and 3/4 of the record's, with the angular structure outrunning M = 40 (D445-D446), and earlier and larger
-    when the nodes are concentrated at the axis, which points to the axis treatment rather than the solution (D458); and
-    at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
+    between 1/2 and 3/4 of the record's, with the angular structure outrunning M = 40 (D445-D446), where a grid
+    concentrated at the axis does not separate the readings, its one failing run being its most rounding-affected (D458,
+    D462); and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -590,13 +595,13 @@ No other component is nonzero. So the scheme is the following.
   axis in dnsolve5, either under the drag (D352) or at the event of D410 (D413). A cut experiment cannot separate the
   axis treatment from the geometry (D413). M alone, at 800 × 360, does not converge there and degrades the smooth region
   (D418); refining (u, v) with M does not converge it either (D432). The mapped grid concentrated at x = −1 is tried and
-  points to the axis treatment (D458). Next at λ = 1: an axis treatment that does not lose digits near the axis (the
-  regular combinations (1 + x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions
-  imposed there), then the same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A =
-  3/4 and 1). At the second seed, decide whether the steepening at x = +1 is the solution's, by an invariant (the
-  Kretschmann scalar along the axis) or by angular refinement concentrated at the axes (a mapped Chebyshev grid).
-  Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the converged
-  part.
+  does not separate the readings: its M = 40 run is dominated by its own axis rounding, its error at its coarser side
+  (D458, D462). Next at λ = 1: an axis treatment that does not lose digits near the axis (the regular combinations (1 +
+  x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions imposed there), then the
+  same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). At the
+  second seed, decide whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along
+  the axis) or by angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and
+  so is the curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 

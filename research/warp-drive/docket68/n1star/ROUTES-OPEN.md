@@ -5049,10 +5049,10 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   4-5 orders within 0.1 in v from 1.8 (A = 1). Seed test: at M = 32 the jump is the same with an 800-fold larger axis
   rounding, so not amplified rounding; at M = 40 the long-double solve matters. A mapped grid concentrated at x = -1
   (spacing 0.7x) brings the failure earlier and larger, and makes A = 3/4 fail where the plain grid converges; the onset
-  tail grows as the first node approaches the axis (3e-10, 2e-9, 2e-7, 8e-5 for 1 + x_0 = 1.2e-3 ... 3.8e-4). Points to
-  the axis treatment, not the solution (not cleanly: the mapped grid's own rounding and coarseness at +1). The axis
-  invariant g_22 converges better than P on the plain grid. Next: an axis treatment that keeps its digits (regular
-  combinations as unknowns, or Gauss-Radau nodes at the axes).
+  tail grows as the first node approaches the axis (3e-10, 2e-9, 2e-7, 8e-5 for 1 + x_0 = 1.2e-3 ... 3.8e-4). Inference
+  withdrawn (D462): the failing mapped run is its most rounding-affected and its error sits at the coarser +1 side, so
+  the mapped grid does not separate the readings. The axis invariant g_22 converges better than P on the plain grid.
+  Next: an axis treatment that keeps its digits (regular combinations as unknowns, or Gauss-Radau nodes at the axes).
 - D459 (verifier 196 on D455 and D457; both confirmed with corrections, nothing major): D455's Jacobian re-derived by
   hand and by a symbolic n = 4 run, f_u = -H_u and f_v = -H_v exactly (now asserted in C3); D449's statement is right
   once N''s numbers are given, its fault was fixing both cones at once, so 'theta is not fixed' overstated; two wording
@@ -5073,6 +5073,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   128, fitted exponents 0.015 and 0.105; a gaining control falls as R^-2.0), so not o(r^-4) as D413's condition needs,
   and terms with d^2 e are unbounded by (P-iii); the lam^(K-3) factors do not change the power. Open: a strengthened
   (P-iii), two derivatives with a decay gain, or the condition restated with an r^-4 source's own contribution at rho^2.
+- D462 (verifier 197 on D458 and D460; both confirmed with corrections): D458's code and numbers hold (xgrid, a = 0
+  exact, interpolation in each run's variable; the seed test like for like, S4 3.9e-6 against 4.7e-9). MAJOR: the mapped
+  pair's failure is its M = 40 run alone, with 40 times plain M = 40's axis-node rounding (1.4e-6, ld 3 or 4 alike) and
+  its error near x = +1, the coarser side; the mapped M = 32 run tracks the plain runs; the onset tail's order is also
+  the rounding's; mapped D2 is 4 times larger. So 'points to the axis treatment' is withdrawn (CERTIFY 6b, G1 so far,
+  Next): the mapped grid does not separate the readings, the alternatives are the scheme's, no mechanism shown. Minor:
+  4-5 orders take 0.2 in v at A = 7/8, 3/4; 8.7e-5 at A = 3/4. D460: derivatives, lemma conditions, A5's argument and
+  formulas check; MAJOR: the infeasibility at x_* - 0.3, s_R >= 1.5 is on the horizon side (r_* in [-20.4, -1.0]), not
+  the outer tail; minor: for l >= 2 the weight -phi U' is 0.64-0.94 of psi_* (C_l <= 65 in psi_*'s, 184.2 stands); m'
+  certified 0.002580; docstring D-number.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

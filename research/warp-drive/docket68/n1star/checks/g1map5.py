@@ -21,12 +21,10 @@ keep at that amplitude:
 If the failure is a steep smooth feature that M = 40 fails to resolve, concentrating the nodes delays the tail's jump
 and shrinks the M-difference; if it is a singularity of the solution or a defect of the axis treatment, it does not.
 
-Measured (D458): it does neither. The mapped pair converges worse than the plain one from v of about 1.65 (at A =
-1, |P_32 - P_40| 1.2e-4 in [1.65, 1.8) against 2.5e-9, and O(1) from 1.8; at A = 3/4 O(1) from 2, where the plain
-pair agree to 2e-4), and over the four grids the onset tail grows as the first node approaches the axis. More
-resolution at the axis giving a worse approximation before the failure points to the axis treatment, not to the
-solution; the mapped grid's own costs (rounding at its axis node, coarser at x = +1, 3e-8 agreement already for v <
-1) keep this from being clean.
+Measured (D458, corrected D462): the mapped pair's difference is carried by its M = 40 run alone, whose axis-node
+rounding is 40 times plain M = 40's and whose error peaks near x = +1, the coarser side; the mapped M = 32 run tracks the
+plain runs. The onset tail grows with node proximity and with axis rounding together. So the mapped grid does not
+separate the readings; the alternatives found are the scheme's, but no mechanism is shown.
 
 Labels: computed (floating point, on saved runs).
 
