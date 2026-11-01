@@ -13,18 +13,27 @@ wave.
   T1 (exact) on the flat background (mu = 0, where u and v are both null), with both families: the linearised
      constraints (J_r, J_th, rho) in (a, w, q) have no coefficient of order 1/lam.
   T2 (exact) the same with the outgoing family alone (the ingoing alone is data5's S2 at mu = 0).
-  T3 (exact) the outgoing family alone with a phase that is not null, s2 = (tau - r/2)/lam: still no 1/lam coefficient.
+  T3 (exact) the outgoing family alone with a phase that is not null, s2 = (tau - r/2)/lam (slowness 1/2, crest speed
+     2; corrected D568, verifier 247): still no 1/lam coefficient.
   T4 (exact) the outgoing family alone with u = tau - r on Vaidya (mu != 0), where du is not null (g0^-1(du, du) =
      -4mu/r^2 in the (v, r) form): still none. So S2's cancellation does not use the phase's nullness; it uses W's
      tracelessness on the spheres, as data5's mutant trace_W shows for the ingoing family.
   T5 (control, exact) an outgoing wave with an oscillating trace on the spheres (data5's trace_W for the outgoing
      family), flat background: a 1/lam coefficient appears.
+  T6 (exact; D568, verifier 247's P4) both families on Vaidya, u = tau - r: none.
+  T7 (exact; D568, verifier 247's P6) both families on the static background mu = 1/2 with both phases null: the
+     outgoing phase u = tau - int c dr with c(r) = 2/f - 1, f = 1 - mu/r^2, the root of g0^-1(du, du) = 0 with d_tau u
+     = 1 (checked here); none. Static only: for mu' != 0 the outgoing eikonal fixes d_tau(d_tau u) on Sigma, which Dt
+     sets to zero, so the dynamic outgoing null phase is outside this code (verifier 247).
+  T8 (control, exact; verifier 247's P7) T7's outgoing wave with an oscillating trace: a 1/lam coefficient appears.
 
 The 1/lam coefficients of the linearisation are linear in the waves (they come from lam^-1 d_s^2 of lam W), so each
 family's cancellation is the single-family one and the mixed terms enter at order lam^0 only; T1-T2 check this on flat
-space, T3-T4 that the phase need not be null for it (D566). Labels: computed (exact, sympy, data5.py's normal form).
+space, T3-T4 that the phase need not be null for it (D566), T6-T7 both families off flat space (D568). The waves carry
+no chi here (wave() takes no chi term), so the two-family chi is untested. Labels: computed (exact, sympy, data5.py's
+normal form).
 
-Run: python3 checks/data5two.py   (a few minutes)
+Run: python3 checks/data5two.py   (about ten minutes)
 """
 import os
 import sys
@@ -99,13 +108,16 @@ def has_inverse(lin):
 MU0 = d5.mu
 
 
-def run(flat, c, which):
+def run(flat, c, which, static=None):
     d5.D, d5.Dt, d5.wave = D, Dt, wave
     SPEED["c"] = c
     WHICH.update(which)
     d5.mu = sp.Integer(0) if flat else MU0
     lin, _ = d5.perturbed(True)
     d5.mu = MU0                     # data5's normal form substitutes for mu, so it must be the function again
+    if static is not None:          # mu(v) -> a constant after the linearisation (verifier 247's probes)
+        q_ = sp.Symbol("q_")
+        lin = [sp.expand(x.subs(MU0.func, sp.Lambda(q_, static)).doit()) for x in lin]
     return has_inverse(lin)
 
 
@@ -119,7 +131,7 @@ def main():
     print('  T2: flat background, the outgoing family alone: a 1/lam coefficient: %s' % t2, flush=True)
     t3 = run(True, sp.Rational(1, 2), {"in": False, "out": True})
     ok['T3'] = not t3
-    print('  T3: outgoing phase of speed 1/2, not null: a 1/lam coefficient: %s' % t3, flush=True)
+    print('  T3: outgoing phase of slowness 1/2 (crest speed 2), not null: a 1/lam coefficient: %s' % t3, flush=True)
     t4 = run(False, 1, {"in": False, "out": True})
     ok['T4'] = not t4
     print('  T4: u = tau - r on Vaidya, not null there: a 1/lam coefficient: %s' % t4, flush=True)
@@ -127,6 +139,22 @@ def main():
     WHICH["trace_out"] = False
     ok['T5'] = t5
     print('  T5 (control): an outgoing wave with an oscillating trace: a 1/lam coefficient: %s' % t5, flush=True)
+    t6 = run(False, 1, {"in": True, "out": True})
+    ok['T6'] = not t6
+    print('  T6: both families on Vaidya, u = tau - r: a 1/lam coefficient: %s' % t6, flush=True)
+    M = sp.Rational(1, 2)
+    cphys = 2 / (1 - M / r_**2) - 1
+    m_ = M / r_**2                  # (tau, r) block of g0 = eta + (mu/r^2) dv dv, and its inverse
+    gi = sp.Matrix([[-1 + m_, m_], [m_, 1 + m_]]).inv()
+    null = sp.simplify((sp.Matrix([[1, -cphys]]) * gi * sp.Matrix([1, -cphys]))[0]) == 0
+    t7 = run(False, cphys, {"in": True, "out": True}, static=M)
+    ok['T7'] = null and not t7
+    print('  T7: both families, static mu = 1/2, both phases null (outgoing c(r) = 2/f - 1, null: %s): a 1/lam '
+          'coefficient: %s' % (null, t7), flush=True)
+    t8 = run(False, cphys, {"in": False, "out": True, "trace_out": True}, static=M)
+    WHICH["trace_out"] = False
+    ok['T8'] = t8
+    print('  T8 (control): T7\'s outgoing wave with an oscillating trace: a 1/lam coefficient: %s' % t8, flush=True)
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1

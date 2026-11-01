@@ -791,22 +791,30 @@ same form, with one condition.
   `checks/data5two.py` T1-T5, exact).* The record's Theorem D (N1STAR-PROOF.md:546-802) builds the data on Σ_τ0 in three
   steps, read here for a second, outgoing family. (i) Lemma 6.1, the gauge's propagation from (F1)-(F2) (600-621): its
   oscillating part is a transport along ℓ = −L0 (614); with two families each family's pure harmonics are transports
-  along its own generator, and both generators reach Σ_τ0 inside Ω (Lemma 1.1′, D537); the mixed harmonics are
-  algebraic, their symbol −e^(−2σ)n1n2 not vanishing (section 4h's (d)), so they vanish with the lower orders. (ii)
-  Lemma 6.2's stage data: the polarization Pol(Y) = Y(ℓ, ·) − ½dv tr Y is onto for any nonzero null covector (635-636;
-  data5.py S1, every pair of a Lorentzian metric and a null covector being GL(5)-equivalent), so each family's pure
-  harmonics are fixed as the record's; the mixed harmonics take no data (Lemma 5.3′ (d)); the means' constraints are
-  Lemma 6.4's radial problem, now on the two-dust background's slice, which needs the spheres' mean curvature H > 0
-  there (Lemma 6.3, 670-672): not checked here. (iii) Proposition 6.5's iteration needs the linearisation of the
-  constraint map at the approximant's slice data to have no 1/λ coefficient (data5.py S2). With both families (T1, flat
-  background) and with the outgoing one alone (T2) it has none; and the outgoing phase need not be null for this (T3,
-  speed 1/2; T4, u = τ − r on Vaidya, where du is not null): the cancellation rests on the waves' tracelessness on the
-  spheres, an outgoing wave with an oscillating trace giving a 1/λ coefficient (T5, the control), as data5's mutant
-  trace_W does for the ingoing one. The 1/λ coefficients are linear in the waves, so the mixed terms enter at order λ⁰
-  only (deduced). The outgoing family's waves cannot come in from past null infinity, outgoing rays traced back running
-  inward: their data, and the outgoing dust's, are posed on Σ_τ0 and on the cone v = v0, not at I⁻. Open: data5.py's
-  S3-S6 for two families (the parabolicity and the symmetrizer on the two-dust slice, with H > 0), and the proof written
-  at the record's level.
+  along its own generator, and both generators reach Σ_τ0 inside Ω once the two-dust background is given on all of Ω
+  (D537), whose existence D558 deduces with one sketched step (D561): a premise here, not settled (corrected D568,
+  verifier 247: it was cited as settled); the mixed harmonics are algebraic, their symbol −e^(−2σ)n1n2 not vanishing
+  (section 4h's (d)), so they vanish with the lower orders. (ii) Lemma 6.2's stage data: the polarization Pol(Y) = Y(ℓ,
+  ·) − ½dv tr Y is onto for any nonzero null covector (635-636; data5.py S1, every pair of a Lorentzian metric and a
+  null covector being GL(5)-equivalent), so each family's pure harmonics are fixed as the record's; the mixed harmonics
+  take no data (Lemma 5.3′ (d)); the means' constraints are Lemma 6.4's radial problem, now on the two-dust background's
+  slice, which needs the spheres' mean curvature H > 0 there (Lemma 6.3, 670-672): not checked here. (iii) Proposition
+  6.5's iteration needs the linearisation of the constraint map at the approximant's slice data to have no 1/λ
+  coefficient (data5.py S2). With both families (T1, flat background) and with the outgoing one alone (T2) it has none;
+  and the outgoing phase need not be null for this (T3, slowness 1/2, crest speed 2; T4, u = τ − r on Vaidya, where du
+  is not null): the cancellation rests on the waves' tracelessness on the spheres, an outgoing wave with an oscillating
+  trace giving a 1/λ coefficient (T5, the control), as data5's mutant trace_W does for the ingoing one. Off flat space
+  with both families (D568, verifier 247's probes): on Vaidya with u = τ − r (T6) and on the static background μ = 1/2
+  with both phases null (T7, c(r) = 2/f − 1), none; with a trace, one (T8). That the cancellation rests on nothing but
+  the tracelessness is not shown: T5 and T8 show that a trace breaks it. The dynamic outgoing null phase (μ′ ≠ 0) is
+  outside the code, Dt setting ∂_τ(∂_τu) = 0 on Σ, and the waves there carry no χ. The 1/λ coefficients are linear in
+  the waves, so the mixed terms enter at order λ⁰ only (deduced). The outgoing family's waves cannot come in from past
+  null infinity, outgoing rays traced back running inward: their data are posed on Σ_τ0, which is all the stage
+  iteration asks (data on Σ_τ0, above), and the outgoing dust's are the two-dust background's (section 4c's Goursat
+  data). (Corrected D568, verifier 247: "and on the cone v = v0" was asserted for the waves, not argued, and is
+  withdrawn.) Open: the two-dust background on all of Ω (D561), on which both generators' reach rests; the dynamic
+  outgoing null phase and χ with two families; data5.py's S3-S6 for two families (the parabolicity and the symmetrizer
+  on the two-dust slice, with H > 0), and the proof written at the record's level.
 
 What it does not give: the background on Ω beyond the computed rectangle, which does not
 reach Σ_τ0 (outgoing rays from R = a leave it through v = 0 at τ between −0.96 and −0.69, above the τ0 < −1.47 the

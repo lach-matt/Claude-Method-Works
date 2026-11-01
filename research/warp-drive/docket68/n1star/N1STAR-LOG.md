@@ -7702,3 +7702,16 @@ on the two-dust background.
 trapped orbits, run on from 192 to 384, holds there with the same largest value, 11.48, and keeps falling as the
 frequency rises (0.44 at 384). The measured value is still about twenty times smaller than the bound, and the gap is
 widening slowly. The run took a little over three hours.
+
+**D568 (2026-11-01): a premise named, and the two-family check widened.** The independent check of D566 found one step
+cited as settled that is not: that both families' rays reach the initial slice, which rests on the two-dust background
+existing on the whole region, still a sketch. It is now listed as a premise. The cancellation was rechecked with both
+families off flat space, on a dynamic background and on a static one with both phases exactly null, and holds in both; a
+wave with a trace still breaks it. D566's "depends only on the waves being traceless" said more than was tested, and its
+outgoing data sit on the initial slice because the iteration needs nothing else, not because they cannot come from past
+null infinity.
+
+**D569 (2026-11-01): two coefficients the expansion needed, computed.** The argument that the construction has an
+expansion at past null infinity used two coefficients of the equation for the mean metric that had been asserted, not
+shown. They are now computed exactly: one is built from the background alone, and the waves add to the other only a term
+that falls off like the inverse cube of the radius. Both fall off fast enough for the argument.

@@ -1,0 +1,19 @@
+  W_TT + chi dv dv: Ric^H to lam^1 eps^1 (295 s)
+    least order (in powers of r^(-1/2)) of the frame coefficients: W_TT^2 part 6, chi^2 part None; counts 9, 0
+  W_TT + chi dv dv done (299 s)
+    the W_TT^2 entries (component, h, least power of q): [('vv', 'tt', 6), ('vv', 'pp', 6), ('vv', 'qq', 6), ('vt', 'rt', 6), ('vp', 'rp', 6), ('vq', 'rq', 6), ('tt', 'rr', 6), ('pp', 'rr', 6), ('qq', 'rr', 6)]
+  K0 eps-linear lam^0 part = (1/2) h_rr d_s^2 W: True
+  K1 no derivative of h in the wave part of the lam^1 mean: True
+  K2 quadratic in the wave, no W_TT-chi cross term: True
+  K3 frame orders: W_TT^2 at least, and at most, r^-3 (q^6); chi^2 absent or at least r^-4 (q^8): True
+  K4 wave-off principal part -(1/2) g0^{ab} d_a d_b h_cd: True
+  control: W_TT with amplitude r^(-1/2): Ric^H to lam^1 eps^1 (390 s)
+    least order (in powers of r^(-1/2)) of the frame coefficients: W_TT^2 part 2, chi^2 part None; counts 9, 0
+  control: W_TT with amplitude r^(-1/2) done (395 s)
+  Ctl amplitude r^(-1/2): the W_TT^2 part's least order is q^2 (r^-1)
+K0 PASS
+K1 PASS
+K2 PASS
+K4 PASS
+K3 PASS
+Ctl PASS

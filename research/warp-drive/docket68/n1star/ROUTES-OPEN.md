@@ -6030,6 +6030,22 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   window binds there. σ^(1/2) times the bound is 9.20 at 192 and 8.58 at 384. The measured norm at σ = 128 is 0.0400,
   the bound 21.0 times it. With 3f-3g, every real 0 < |σ| ≤ 384. 194 minutes. Open: σ > 384, the H¹ constants of 3i with
   these multipliers, and the measured (a + b log σ)/σ, which the bound still exceeds.
+- D568 (verifier 247 on D566: 1 major, 3 minor, 2 nits; `checks/data5two.py` T6-T8 added, exact): MAJOR, both
+  generators' reach of Σ_τ0 was cited as settled (D537), but it needs the two-dust background on all of Ω, which D558
+  deduces with one sketched step (D561): now a premise, and on the Open list. Minor: the LOG's "depends only on
+  tracelessness" is broader than tested (a trace breaks the cancellation, T5, T8; that nothing else does is not shown);
+  T4's phase is not the outgoing null family, so T6 (both families, Vaidya, u = τ − r) and T7 (both families, static μ =
+  1/2, both phases null, c(r) = 2/f − 1) are added, no 1/λ coefficient in either, and T8 a control; the dynamic outgoing
+  null phase is outside the code. The outgoing data's cone v = v0 was asserted, not argued, and is withdrawn (Σ_τ0 is
+  all the iteration asks). Nits: c is a slowness (c = 1/2 is crest speed 2); the two-family waves carry no χ. FAMILIES5
+  4i corrected; the D566 entry above keeps its text.
+- D569 (BEYOND5 3(b), computed: `checks/bbar5.py` K0-K4, Ctl, exact; and deduced): B̄ and C̄, the stage equation's
+  first- and zeroth-order coefficients for the means, shown rather than asserted. They are the same at every stage
+  (weight 0) and are read off at stage 1: B̄ = B0 is g0's alone (the wave's θ-mean carries no derivative of the mean),
+  and C̄ = C0 + ΔC, ΔC quadratic in the wave and of order r⁻³ in a frame (nine entries; χ contributes nothing, dv being
+  null). B0 and C0 are built from g0, exact with p ≥ 2. So both are exact and in E_2^ℓ, which discharges D564 (3). K0
+  reproduces (5.2)'s −½e_1∂_θ²W term; K4 the □̃ of Lemma 5.3 (a); the control (amplitude r^(−1/2)) moves the order. Open
+  in 3(b): the induction written line by line at the record's level.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
