@@ -5493,6 +5493,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   type, 1.5 l) and fall with l for k ≥ 2. So for a source r⁻⁴σ(v, ω), σ smooth in ω with bounded v-support, the strip's
   term is in ρ³C^∞, inside Lemma 0.1's condition. Not covered: the record's sources, known only by a bound O(r⁻⁴), and
   half-integer exponents (D467). Open: an expansion of those sources, and the remainder beyond V′_P.
+- D509 (verifier 218 on D507; the record's text read again, the count summed): no major finding; the conclusion holds, a
+  level-3 round costs a derivative in the record's accounting, and the bound is qualified everywhere as what that
+  accounting delivers. MINOR: D507's reason (ii) cited J3:168-169's L̃_b(0)⁻¹ inside III.G⁗ Proposition 5.1, which G5
+  never applies (no III.H citation; its Remark 4.5; the zero-energy inverse is I12 Lemma 2.1's, once per level after the
+  rounds); the floor stands for another reason, the remainder being formed by second-order b-operators applied to
+  N_tf⁻¹'s output (G5:694, 713-715), loss 2 in J3's charging (J3:118-121, 164), so a round costs at least 2 + ℓ and d >
+  2.6 × 10¹⁵. The numbers: ½/δ_50² = 1.3266 × 10¹⁵, so 'more than 1.32 × 10¹⁵', not 1.33, and N > 2.78 × 10¹⁶;
+  PART-III-J3-TAME.md is III.J″, not III.J‴ (relabelled throughout LOSS-D); the lever wording named only the round's
+  step, the number of levels being the β-chain's; J3 (g)'s quoted clause on rounds supports (iii) (fixed means
+  k-independent, proved by Lemma 1.2 (e)). Confirmed: the rounds compose as maps, J3 adds their losses, the count and N =
+  21d + 6. Corrected in LOSS-D LD11 and LD3; the D507 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

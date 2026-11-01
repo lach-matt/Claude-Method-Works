@@ -7357,3 +7357,8 @@ only for smooth expansions in inverse powers of the radius. The strip's contribu
 and its derivatives grow only polynomially with the mode, so for a smooth source the contribution fits the class. What is
 still missing is that the record's actual sources have such an expansion: the record bounds them, but does not expand
 them.
+
+**D509 (2026-11-01): the derivative count, checked.** An independent reading confirmed that each repetition of the step
+costs derivatives, but for a different reason than the one given: the record's summary of that step named an operation
+the step does not perform, while the step does apply second-order operators, which cost two derivatives each time. So the
+count is at least twice what was stated, and two of the printed figures were rounded slightly too high.

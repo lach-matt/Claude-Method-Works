@@ -1,11 +1,11 @@
-# LOSS-D -- the loss d of III.J''' Theorem 4.1, added up as far as the record allows (E1')
+# LOSS-D -- the loss d of III.J″ Theorem 4.1, added up as far as the record allows (E1')
 
 Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), LD6 (D365), LD7 (D377, which corrects LD6
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
-findings seated. LD6-LD8 to be read (LD8: D397).
+findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after verifier 218).
 
-EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J''''s losses part by part, so that the
+EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
 number. The record gives d as a nested composition whose elementary losses are explicit formulas in the weights the
 proof chooses, apart from six losses whose proofs give no closed form, and whose loop counts are chosen under
@@ -19,7 +19,7 @@ over proof5 (D347), quoting file and line, spot-read here where a finding rests 
 
 ## 1. The structure of d
 
-III.J''' Theorem 4.1 (PART-III-J3-TAME.md:278, proof 288-292) is an induction over the parts: each part's solution
+III.J″ Theorem 4.1 (PART-III-J3-TAME.md:278, proof 288-292) is an induction over the parts: each part's solution
 map is a composition of a fixed number of the families of Lemma 2.1 (FWD, BG, MOD, FIN, INT) and of the solution maps
 of earlier parts, which the table of section 3 (lines 255-272) lists per part. Lemma 1.2 (lines 62-86) gives upper
 bounds for the losses: a composition adds them (b), an N-fold composition costs N times the loss (e), a sum or a
@@ -185,7 +185,7 @@ chosen numbers; the one number it states is ε_ind < 3 × 10⁻⁶ at its parame
   its rounds i_0, "finitely many" (I9:304);
 - I15's β-levels α_1 = β_0 < … < β_K = α with β_(k+1) − β_k < α − 4 (I15:323-324);
 - at every β-level, I14's level-3 loop, whose tf-weights rise by ε_ind − ε per round, τ = τ_3 + i(ε_ind − ε) from τ_3 =
-  1 + η_2 − 2ε (η_2 < ε_+ < ε_ind) up to β − 2 (I14:120-128; PART-III-I12-SPECTRAL.md:287-297), composed by III.J'''
+  1 + η_2 − 2ε (η_2 < ε_+ < ε_ind) up to β − 2 (I14:120-128; PART-III-I12-SPECTRAL.md:287-297), composed by III.J″
   (J3:44-45, 170-171, line 267); I15 calls I14's Lemma 2.2 at every β-level (I15:342-343).
 
 **The order of choices for δ.** J3 Lemma 2.1 (f) makes Corollary 4.5's k-dependent loss ⌈kδ⌉ + ℓ into ℓ + 1 by
@@ -226,21 +226,21 @@ loop counts of section 3.
   proof). (i) I15's β-chain: α ∈ (4, 4 + ε_K] (I15:37) and α_1 ∈ (2, α − 2) (I15:305), so the chain climbs more than 2 in
   steps below α − 4 ≤ ε_K, and K > 2/(α − 4) ≥ 2/ε_K. With ε_K < ε_ind < 3 × 10⁻⁶ (J-PARAM:34, F2:133-136), K > 6.8 ×
   10⁵. The levels are composed in the proof itself: level k + 1 takes R_q u with u at level k (I15:327-329), R_q is of
-  second order (I15:179-181), and the one-step route of the source is closed at n = 4 (I15:12-17). Within III.J''''s
+  second order (I15:179-181), and the one-step route of the source is closed at n = 4 (I15:12-17). Within III.J″'s
   accounting each level costs at least 2 (BG applied to R_q u, J3:115, 121), so the d it produces is at least 2K > 1.3 ×
   10⁶, and N = 21d + 6 > 2.8 × 10⁷. (ii) Nested inside, at every β-level, I14's level-3 loop rises by ε_ind − ε per round
   from about 1 to β − 2, so about (β − 3)/ε_ind rounds at the levels above 3, about 3 × 10⁵ near β = 4. Over the β-chain
   this is of order (1/ε_K)(½/ε_ind) > 5 × 10¹⁰ rounds; if a round costs a derivative (it rests on III.F' Corollary 3.4's
-  ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that III.J''''s accounting of
-  the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss may
-  be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a
-  different proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17).
-  (iv) [D425: with (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸ at the record's point (LD10, D422), (i) gives K > 2/ε_K > 1.03 × 10⁸, the
-  d of III.J''''s accounting at least 2K > 2.06 × 10⁸, and N = 21d + 6 > 4.3 × 10⁹. (ii)'s nested loop runs about (β −
-  3)/ε_ind > 5.1 × 10⁷ rounds per level near β = 4, and more than (1/ε_K)(½/ε_ind) > 1.3 × 10¹⁵ rounds over the chain.
-  These are lower bounds for what the record's proof delivers, not for the optimal loss, as in (iii).] [D507, LD11:
-  (ii)'s condition holds, each round costing at least one derivative in III.J‴'s accounting, so that d exceeds 1.3 × 10¹⁵
-  and N exceeds 2.8 × 10¹⁶.]
+  ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that III.J″'s accounting of the
+  record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss may be
+  far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a different
+  proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17). (iv) [D425:
+  with (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸ at the record's point (LD10, D422), (i) gives K > 2/ε_K > 1.03 × 10⁸, the d of
+  III.J″'s accounting at least 2K > 2.06 × 10⁸, and N = 21d + 6 > 4.3 × 10⁹. (ii)'s nested loop runs about (β − 3)/ε_ind
+  > 5.1 × 10⁷ rounds per level near β = 4, and more than (1/ε_K)(½/ε_ind) > 1.3 × 10¹⁵ rounds over the chain. These are
+  lower bounds for what the record's proof delivers, not for the optimal loss, as in (iii).] [D507, LD11: (ii)'s
+  condition holds, each round costing at least two derivatives in III.J″'s accounting (corrected D509), so that d exceeds
+  2.6 × 10¹⁵ and N exceeds 2.78 × 10¹⁶.]
 
 - LD5 (E1'a's first question answered: no admissible point opens the gap; D353). The record's construction fixes the
   damping parameters (v, e, h) by e ≤ e_0(v) ≈ 6.9 × 10⁻⁵ v² (the interior saddle, semiclass5.py W4) and h below e (the
@@ -575,26 +575,35 @@ loop counts of section 3.
     reading that bounds l (the real-part window, or l ≤ 12 as
     N1STAR-PROOF.md computed) has to be fixed for D4's definition to make sense. Recorded, not repaired.
 
-- LD11 (LD3 (ii)'s condition settled: each level-3 round costs a derivative; deduced from the record's text, D507). LD3
-  (ii) left open whether a round of I14's level-3 loop costs a derivative. The record's own accounting says it does. (i)
-  The rounds compose: "While the tf-weight τ of the current level-3 source is at most β − 2, apply III.G⁗ Proposition 5.1
-  … Each round leaves a remainder of tf-weight τ + ε_ind − ε and pieces σ³u; after finitely many rounds τ > β − 2"
-  (PART-III-I14-LEVELS.md:121-128; the same loop at α, PART-III-I12-SPECTRAL.md:287-298), so each round's source is the
-  previous round's remainder. (ii) A round has loss at least 1: III.J‴ Lemma 2.1 (g) has III.G⁗ Proposition 5.1 "compose"
-  III.F′ Corollary 3.4's N_tf(L̂_b, ±1)⁻¹ "with L̃_b(0)⁻¹ ((e)), cut-offs, a Mellin inversion … : fixed loss"
-  (PART-III-J3-TAME.md:167-171), and (e) gives L̃_b(0)⁻¹ "loss 1" (III.H Proposition 3.2, J3:143-147). (iii) Theorem 4.1
-  sums the losses over a composition, each loop of length fixed independently of k (J3:288-293; Lemma 1.2 (b), (e)). So
-  the d of III.J‴'s accounting is at least the total number of level-3 rounds. At a level β ∈ (3, 4 + ε_K] the loop runs
+- LD11 (LD3 (ii)'s condition settled: each level-3 round costs a derivative; deduced from the record's text, D507,
+  corrected D509 after verifier 218). LD3 (ii) left open whether a round of I14's level-3 loop costs a derivative. The
+  record's own accounting says it does. (i) The rounds compose: "While the tf-weight τ of the current level-3 source is
+  at most β − 2, apply III.G⁗ Proposition 5.1 … Each round leaves a remainder of tf-weight τ + ε_ind − ε"
+  (PART-III-I14-LEVELS.md:121-128; the same loop at α, PART-III-I12-SPECTRAL.md:287-298); Proposition 5.1's remainder is
+  f − L̂_b(σ)u (PART-III-G5*:631), built from its solution, not from the source's expansion (at β < 4, k_0 = 0 and the
+  zf-sum is empty, G5:648-655), and it is the next round's source. (ii) A round has loss at least 2: its remainder is
+  formed in Proposition 5.1's proof by second-order b-operators applied to u_1 = N_tf⁻¹(|σ|^(−α)f_1) (G5:694, 713-715;
+  L̂_b − L̂-bar ∈ ρ²_scf ρ⁴_tf Diff²_b, G5:18-19), which III.J″ charges loss 2 (J3:118-121, 164), and N_tf⁻¹ costs
+  Corollary 3.4's ℓ ∈ ℕ_0 (J3:167-168, F2:466), so 2 + ℓ by Lemma 1.2 (a)-(b). [D507 cited instead J3:168-169's "compose
+  it with L̃_b(0)⁻¹"; G5 applies no such inverse (it cites III.H nowhere, and its Remark 4.5 says the zero-energy
+  operator is not inverted in this range), the zero-energy inverse being I12 Lemma 2.1's, once per level after the rounds
+  (I12:110-112, 299) and omitted at β < 4 (I14:120-121): J3's sentence misdescribes G5.] (iii) III.J″ sums the losses
+  over a composition: Theorem 4.1 gives "a loss d equal to the sum of the losses" (J3:288-293), and J3 (g)'s "finitely
+  many rounds whose number is fixed by the weights (each raises the order by at least ε_ind − ε): fixed loss" means a
+  loss independent of k (J3:157-158), proved by Lemma 1.2 (e) (J3:192-194), so N rounds cost N times one. So the d of
+  III.J″'s accounting is at least twice the total number of level-3 rounds. At a level β ∈ (3, 4 + ε_K] the loop runs
   from τ_3 = 1 + η_2 − 2ε to β − 2 in steps ε_ind − ε, about (β − 3)/ε_ind rounds; the β-chain has a level in every
-  interval of length ε_K (I15:323-324), so over (3, 4] the rounds total about ½/(ε_K ε_ind), and with ε_K < ε_+ < ε_ind ≤
-  1.94 × 10⁻⁸ (LD7, LD10) that is more than 1.33 × 10¹⁵. So d > 1.3 × 10¹⁵, not only 2.06 × 10⁸ (LD3 (iv)), and N = 21d +
-  6 > 2.8 × 10¹⁶. A round's loss is at least the 1 of L̃_b(0)⁻¹; with Corollary 3.4's ℓ and the order-2 operator that
-  forms the remainder it may be several, so this is a floor. As in LD3 (iii), it bounds the d this proof's accounting
-  delivers (Lemma 1.2's rules are upper bounds), not the optimal loss; the lever is the round's step ε_ind − ε, fixed by
-  (1.1)'s ε_ind (LD10), not a property of the β-chain.
+  interval of length α − 4 ≤ ε_K (I15:323-324), so over (3, 4] the rounds total about ½/(ε_K ε_ind), and with ε_K < ε_+ <
+  ε_ind ≤ δ_50 = 1.94137 × 10⁻⁸ (LD7, LD10) that is more than 1.32 × 10¹⁵ (a direct sum gives 1.3266 × 10¹⁵, verifier
+  218). So d > 2.6 × 10¹⁵ by the loss 2 per round (d > 1.32 × 10¹⁵ counting one), against 2.06 × 10⁸ in LD3 (iv), and N =
+  21d + 6 > 2.78 × 10¹⁶ already at d > 1.32 × 10¹⁵. A floor: a finer accounting might charge less (the remainder's
+  leading part sees u_1 only through finitely many coefficients, G5:705-706, 712), which is the optimal-loss question. As
+  in LD3 (iii), it bounds what this proof's accounting delivers, not the optimal loss. The per-level count is set by the
+  round's step ε_ind − ε (LD10), the number of levels by the β-chain's step α − 4 ≤ ε_K < ε_+ < ε_ind (LD7); raising
+  ε_ind relaxes both caps, a longer level step (LD3 (iii)) the second.
 
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
-  the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J''' produces, not the optimal loss.
+  the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
   (2)'s d has parts d_1(s), m(s) with no formula, the sixth loss of section 2. m2: the k'' scope sentence in III.K was
   false at the e_S bound; repaired there. m3: LD3's conditional is already discharged within the accounting (2 per
