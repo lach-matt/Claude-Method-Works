@@ -606,7 +606,7 @@ What it does not give:
   at σ = 3 to 184.82 over every l ≥ 0, certified (D466, D473), in section 3i's angular weight too (D477);
 - the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
 
-## 3j. Large σ, harmonic by harmonic (D486)
+## 3j. Large σ, harmonic by harmonic (D486, corrected D493)
 
 Section 4 records the gap at large σ: the measured norm max_l ‖χ_I R_l(σ) χ_I‖ falls like (a + b log σ)/σ (D444), while
 Lemma E2.8's constant, maximised over l with section 3e's symmetric multipliers, grows like 63σ, its sup at l = 1 (D452,
@@ -619,13 +619,13 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   l(l + 2) + 3/4, b = 9/4).
 - *At the trapped harmonic E2.8 needs a narrow core.* With φ centred at x_* = r_*(√2), where U′ = 0 for U = f/r² (V_l =
   aU + W, W = (9/4)f/r⁴), w_I ≤ w(x_*) = −φ‴(x_*)/2, which for the symmetric tanh of width s is 1/s³; so B_l ≥ (M′ +
-  2|σ|)/w_I ≥ 2|σ|s³ grows like |σ| at fixed s. w ≥ 0 lets s shrink as l grows (V_l″ at the peak grows like l²), but a
-  narrow symmetric tanh is flat at the ends of I, where φ′ is of order e^(−2d/s) at distance d from x_*, and 2/m′ enters
-  B. A narrow core with wide flanks keeps both: φ = tanh g with g′ = 1/s_R + (1/s_L − 1/s_R)/(1 + e^z) + β sech²((r_* −
-  x_*)/κ), z = (r_* − x_*)/κ_s, and g in closed form, g = (r_* − x_*)/s_R − (1/s_L − 1/s_R)κ_s(ln(1 + e^(−z)) − ln 2) +
-  βκ tanh((r_* − x_*)/κ). β = 0 is D466's multiplier; s_L = 49/50 and κ_s = 1/2 as there; the core width is s_c =
-  1/g′(x_*) and κ = k s_c. The family searched: 30 core widths on a geometric grid from 0.02 to the flanks' own, k ∈
-  {1/2, 1, 2, 4}, s_R ∈ {1.5, 2, 3, 4, 6}, and section 3e's 40 symmetric widths, 645 multipliers.
+  2|σ|)/w_I ≥ 2|σ|s³ grows like |σ| at fixed s. w ≥ 0 allows s to shrink as l grows (V_l″ at the peak grows like l²), but
+  a narrow symmetric tanh is flat at the ends of I, where φ′ is of order e^(−2d/s) at distance d from x_*, and 2/m′
+  enters B. A narrow core with wide flanks keeps both: φ = tanh g with g′ = 1/s_R + (1/s_L − 1/s_R)/(1 + e^z) + β
+  sech²((r_* − x_*)/κ), z = (r_* − x_*)/κ_s, and g in closed form, g = (r_* − x_*)/s_R − (1/s_L − 1/s_R)κ_s(ln(1 +
+  e^(−z)) − ln 2) + βκ tanh((r_* − x_*)/κ). β = 0 is D466's multiplier; s_L = 49/50 and κ_s = 1/2 as there; the core
+  width is s_c = 1/g′(x_*) and κ = k s_c. The family searched: 30 core widths on a geometric grid from 0.02 to the
+  flanks' own, k ∈ {1/2, 1, 2, 4}, s_R ∈ {1.5, 2, 3, 4, 6}, and section 3e's 40 symmetric widths, 645 multipliers.
 - *Monotone in l.* With this centre −φU′ ≥ 0 everywhere (φ and U′ change sign together at x_*), so w_l = (−φW′ − φ‴/2) +
   a(−φU′) increases with l: a multiplier admissible at l (w ≥ 0 on ℝ) is admissible at every larger l, w_I does not
   decrease, and m′, M′ do not change. So B*_l(σ), the best over the family, is nonincreasing in l, and every l > 212 is
@@ -634,22 +634,31 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
 
 | σ | trapped l | B* there | section 3e's (D452) | sup over l ≥ 0 of min(E2.7, B*) | at l | measured max (D444) | ratio |
 |---|---|---|---|---|---|---|---|
-| 3 | 5 | 10.97 | 21.35 | 10.97 | 5 | 1.132 | 9.69 |
+| 3 | 5 | 10.98 | 21.35 | 10.98 | 5 | 1.132 | 9.70 |
 | 6 | 11 | 5.846 | 21.9 | 5.846 | 11 | 0.618 | 9.46 |
 | 12 | 23 | 3.573 | 27.2 | 3.755 | 22 | 0.336 | 11.2 |
 | 24 | 47 | 2.313 | 35.3 | 2.362 | 46 | 0.181 | 13.0 |
 | 48 | 95 | 1.475 | 47.7 | 1.512 | 93 | 0.0972 | 15.6 |
-| 96 | 191 | 0.9716 | 66.8 | 0.9886 | 188 | 0.0519 | 19.0 |
+| 96 | 191 | 0.9717 | 66.8 | 0.9886 | 188 | 0.0519 | 19.0 |
 
 - Over σ ∈ [3, 96] in steps of 0.01 the sup is at most 11.35 (at σ = 3.2), σ^(1/2) times it lies in [9.68, 20.3], and its
   log-log slope over [12, 96] is −0.63. So, uniformly in l ≥ 0 (l = 0 by E2.7, since max V_0 = 0.5054 < σ²), the cut-off
   resolvent bound falls with σ on this range, roughly like σ^(−0.6), where section 3e's grew like 63σ; it is 9.5 to 19
-  times the measured maximum, against 224 to 1.2 × 10⁵. Where the sup is not at the trapped harmonic it is at the last
-  one below the barrier top, where E2.7's gap σ² − max V_l is small.
-- The best cores narrow from s_c = 1.02 at l = 5 to 0.177 at l = 191, about 2.4 l^(−1/2), always with κ = s_c. Widening
-  the flanks from s_R ≤ 3 to s_R ≤ 6 lowered every value by at most 6 %; the best s_R is 4 or 6 (the grid's edge at σ =
-  24 and 48). With s_c of order l^(−1/2), w_I is of order l^(3/2) and B of order σ^(−1/2) + σ^(−3/4) at the trapped
-  harmonic, which suggests σ^(−1/2) beyond the range computed (deduced from the scaling, not computed).
+  times the measured maximum, against 224 to 1.2 × 10⁵. Where the sup is not at the trapped harmonic it lies one to four
+  harmonics below it, where E2.7's bound and B* cross, moving further below as σ grows (over the 9,301 σ scanned: at the
+  trapped harmonic for 206, one to four below it for 1,619, 2,693, 3,441 and 1,342; D493, verifier 207). I's ends, r =
+  1.2 and 4, are grid points since D493; before, m′ and w_I missed r = 4 and the printed bounds were low by up to 2 ×
+  10⁻⁴ relative.
+- The best cores narrow from s_c = 1.02 at l = 5 to 0.177 at l = 191, s_c l^(1/2) from 2.18 to 2.45 (the best constant at
+  exponent −1/2 is 2.32), with κ = s_c at the six trapped harmonics (17 of the 44 multipliers that set the bound
+  somewhere in the scan have κ = s_c/2). They sit well inside the admissible range (a_l at least 3.78 times the least a
+  admitting them; at σ = 96 cores down to s_c ≈ 0.11 are admissible): the width is set by B's balance of w_I against m′,
+  not by w ≥ 0. Widening the flanks from s_R ≤ 3 to s_R ≤ 6 lowered the sup at the six σ by at most 5.6 % (the trapped
+  harmonic's B* by 6.2 % at σ = 48; over the scan the sup by up to 6.2 % and a single B*_l by up to 8.9 %); the best s_R
+  is 4 or 6 (the grid's edge at σ = 24 and 48). With s_c of order l^(−1/2), w_I is of order l^(3/2) and B of order
+  σ^(−1/2) + σ^(−3/4) at the trapped harmonic, which suggests σ^(−1/2) beyond the range computed (deduced from the
+  scaling at the trapped harmonic, not computed; the sup sits up to four harmonics below it, and at σ = 96 the 2/m′ term
+  is still 41 % of B²).
 - Controls: T1 reproduces e2morawetz5's best symmetric bound at l = 5, σ = 3 (21.346; 21.341 with this file's multiplier
   and potential, centred at the exact peak); a core of width 0.05 fails w ≥ 0 at l = 5 (min w = −4.75 × 10³); and every
   bound exceeds the computed norm (e2high5) at (l, σ) = (5, 3), (11, 6), (23, 12) and (47, 24), and the measured maxima
@@ -660,7 +669,8 @@ What it does not give:
 - a certificate: w ≥ 0 is checked on the grid, as for section 3e; interval arithmetic over the chosen multipliers, as in
   sections 3f-3g, would make it one, for every larger l at once by the monotonicity above;
 - σ > 96, nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
-- the measured (a + b log σ)/σ: the bound is still 10 to 20 times above it, and the ratio grows with σ.
+- the measured (a + b log σ)/σ: the bound is still 9.5 to 19 times above it, and the ratio grows with σ from σ = 6 on
+  (9.70, 9.46, 11.2, 13.0, 15.6, 19.0).
 
 ## 4. What remains for E2 at this operator
 
@@ -732,10 +742,11 @@ What it does not give:
     so those three are E2.8's formula with w ≥ 0 checked on the grid, not covered by 3e's statement. So the proved
     constant's growth in σ comes from the low harmonics, where the measured norms are small (l = 1: 0.423, 0.0498 and
     0.0124 at σ = 3, 24 and 96, so B_1 is 598 to 4.9 × 10⁵ times l = 1's own norm), not from trapping.
-  - *Harmonic by harmonic (D486, section 3j; `checks/e2trap5.py`).* With Lemma E2.7 for every harmonic above the barrier
-    and E2.8 with core-and-flank multipliers near and above the trapped one, the sup over every l ≥ 0 is 10.97, 5.846,
-    3.755, 2.362, 1.512 and 0.9886 at σ = 3, 6, 12, 24, 48 and 96, at most 11.35 over [3, 96] and falling roughly like
-    σ^(−0.6): 9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵. Computed, not certified.
+  - *Harmonic by harmonic (D486, corrected D493; section 3j; `checks/e2trap5.py`).* With Lemma E2.7 for every harmonic
+    above the barrier and E2.8 with core-and-flank multipliers near and above the trapped one, the sup over every l ≥ 0
+    is 10.98, 5.846, 3.755, 2.362, 1.512 and 0.9886 at σ = 3, 6, 12, 24, 48 and 96, at most 11.35 over [3, 96] and
+    falling roughly like σ^(−0.6): 9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵. Computed, not
+    certified.
   - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
     equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
     at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,

@@ -28,11 +28,13 @@ change, so B*_l(sigma), the best over the family, is nonincreasing in l.
   T5  controls: a core too narrow for its harmonic fails w >= 0; B*_l(sigma) at least e2high5's computed norm at four
       (l, sigma).
 
-Measured (D486; 645 multipliers, l = 1..212): B* at the trapped harmonic 10.97, 5.846, 3.573, 2.313, 1.475, 0.9716 at
-sigma = 3, 6, ..., 96 (section 3e's 21.35 to 66.8); the sup over l >= 0 of min(E2.7, B*) 10.97, 5.846, 3.755, 2.362,
-1.512, 0.9886, at most 11.35 over [3, 96] (at sigma = 3.2), sigma^(1/2) times it in [9.68, 20.3], log-log slope -0.63
-over [12, 96]; 9.5 to 19 times the measured maximum (D444). The best cores have s_c about 2.4 l^(-1/2) and kappa = s_c;
-s_R up to 6 instead of 3 lowers the values by at most 6 %.
+Measured (D486, corrected D493; 645 multipliers, l = 1..212, I's ends on the grid): B* at the trapped harmonic 10.98,
+5.846, 3.573, 2.313, 1.475, 0.9717 at sigma = 3, 6, ..., 96 (section 3e's 21.35 to 66.8); the sup over l >= 0 of
+min(E2.7, B*) 10.98, 5.846, 3.755, 2.362, 1.512, 0.9886, at l = 5, 11, 22, 46, 93, 188 (the trapped harmonic or up to
+four below it, where E2.7 and B* cross), at most 11.35 over [3, 96] (at sigma = 3.2), sigma^(1/2) times it in [9.68,
+20.31], log-log slope -0.63 over [12, 96]; 9.46 to 19.0 times the measured maximum (D444). The best cores have s_c
+l^(1/2) from 2.18 to 2.45, kappa = s_c at the trapped harmonics; s_R up to 6 instead of 3 lowers the six sup values by at
+most 5.6 % (single B*_l by up to 8.9 %).
 
 Labels: E2.7 proved (section 3c), max V_l exact (a quadratic in 1/r^2); w >= 0 checked on the grid (floating point,
 computed, not certified), as for D452 and D460.

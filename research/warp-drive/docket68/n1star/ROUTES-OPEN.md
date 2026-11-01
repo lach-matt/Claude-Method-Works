@@ -5328,6 +5328,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   0.993 scalar, 0.698 vector), so the strip's ρ³ coefficient K is bounded uniformly in l in the normalised basis, ln of
   the bound 5.99 × 10¹³ (scalar) and 5.87 × 10¹² (vector), against computed values 2.2-2.4 and 0.34-1.0 at l = 2-6. K4 at
   most linear in l. Open: the tensor type.
+- D493 (verifier 207 on D486): the computation holds, reproduced cell for cell by an independent implementation (own grid
+  in r_*, sympy derivatives of g, admissibility as an exact threshold: the same 70,226 admissible cells; T2 and T3 at all
+  six σ with the same multipliers; the scan's 11.351, [9.678, 20.305], slope −0.630); Lemma E2.8's proof uses only φ ∈
+  C³, φ′ ≥ 0, |φ| ≤ 1 on I, φ(±∞) = ±1, φ′, φ″ → 0, which the family has (min g′ = 1/6); monotonicity in l exact (the
+  propagation step never acts); 50-digit admissibility margins a_l/a_min ≥ 3.78; tails bounded analytically; every bound
+  above an independently computed norm at 31 (l, σ), near the barrier tops included (bound/norm 3.1 to 36). MAJOR (no
+  number depends on it): 'where the sup is not at the trapped harmonic it is at the last one below the barrier top' is
+  false; it lies one to four below the trapped harmonic, where E2.7 and B* cross. MINOR: the grid missed I's ends (m′,
+  w_I at r = 4), so the bounds were low by up to 1.9 × 10⁻⁴ relative (now on the grid: 10.98 and 0.9717 at σ = 3 and 96);
+  'at most 6 %' holds for the six sup values (5.6 %), not for every value (trapped B* 6.2 %, single B*_l 8.9 %); s_c
+  l^(1/2) runs 2.18-2.45; the cores are set by B's balance, not by w ≥ 0; the σ^(−1/2) suggestion is at the trapped
+  harmonic only; '10 to 20' is 9.46-19.0, the ratio growing only from σ = 6. Corrected in E2-PILOT 3j and section 4 and
+  in e2trap5; the D486 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

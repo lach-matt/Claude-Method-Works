@@ -7272,3 +7272,9 @@ limits the computation, not the time step.
 mode up to twelve. The argument that bounded the full problem uniformly in the angular mode carries over to the strip's
 order with one shift, so the strip's coefficient is bounded for every mode at once. The bound is enormous, as the earlier
 one was, but it does not grow with the mode.
+
+**D493 (2026-11-01): the high-frequency bound, checked from scratch.** An independent reimplementation reproduced every
+number of the new high-frequency bound and confirmed it lies above the true size wherever it was compared. It corrected
+where the worst angular mode sits (a few modes below the one trapped at the photon sphere, not just below the barrier), a
+small grid omission that had printed the bounds a hair too low, and several loose figures. The bound is 9.5 to 19 times
+the true size, as stated after the corrections.
