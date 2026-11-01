@@ -7563,3 +7563,10 @@ grids.
 any state contributes is the record's smallest root, by going through every family of states, but found the argument
 given for it wrong in two places, including one family it had claimed without reading. The argument is now the right
 one: a smaller exponent would need a state starting just above two, and none does.
+
+**D545 (2026-11-01): the approximate solution's parts, by the same induction.** The parts of the approximate solution
+built by energy have explicit leading terms and remainders that solve equations of the same two kinds the record's
+eleventh section already handles: a wave equation and transports along light rays. Running that section's step-by-step
+argument on them should give each part the same expansion toward past infinity, with no logarithms. With that, the far
+strip's contribution to the data would be in the class the final assembly accepts. The induction is described, not yet
+written out.

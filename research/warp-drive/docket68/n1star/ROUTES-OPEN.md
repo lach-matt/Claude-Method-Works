@@ -5850,6 +5850,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   and is finite; sources are not always smooth; the λ = 1 grafts outside G3:339's list add nothing below 1. Confirmed:
   the quotes, the threshold, type preservation, the boost bases, the collected set, the arithmetic. Unverified by this
   verifier: A ≠ 0 (rerun by verifier 234, 141.4268935). Corrected in LOSS-D LD14; the D542 entry above keeps its text.
+- D545 (BEYOND5 3(b), read and deduced): the approximant's parts at past null infinity. Theorem A_P builds each stage as
+  explicit leading terms (m^0 = r⁻²M_m, φ^0 = −½r⁻¹M_m(ℓ, ℓ), gh^0 from Lemma 9.7(d) at q = 3) plus remainders solving
+  Lemma 5.3's system with E_(7/2) sources (N1STAR-PROOF.md:1263-1298). Proposition 11.1's induction carries over stage
+  by stage: Lemma 11.2 for the wave equation (a), with B̄·dm + C̄m in its source, and Lemma 9.7(d) for the transports
+  (b), (c); the sources start at q = 3, so neither meets the q = 5/2 resonance. So m_m, φ_m, gh_(m+1), the residual and
+  the products forming the strip's sources expand in r^(−1/2), and the strip's term is polyhomogeneous in ρ^(1/2), in
+  D517's class, at each fixed λ. Not written: the induction on the coupled system ((H_m) for the couplings and
+  coefficients) and over the stages.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

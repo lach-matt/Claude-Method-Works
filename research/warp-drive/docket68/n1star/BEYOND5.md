@@ -639,6 +639,21 @@ What it does not give:
   233). The q = 5/2 logarithm would multiply the leading order and so can only be excluded, not pushed up; the record's
   sources start at q = 3 and exclude it. The exponents are half-integers, so the class is D517's ρ^(1/2)-smooth
   extension of Lemma 0.1, not Part VII's integer one (corrected D540).]
+  [D545, read and deduced: the approximant's parts. Theorem A_P (N1STAR-PROOF.md:1224-1309) builds each stage m on the
+  strip as explicit leading terms, m^0 = r⁻²M_m(v, x̂, θ), φ^0 = −½r⁻¹M_m(ℓ, ℓ) and gh^0 from Lemma 9.7(d) at q = 3
+  (1265-1267), plus remainders (m̃, φ̃, gh̃) that solve the stage system of Lemma 5.3 ((a) a wave equation −½□̃ m +
+  B̄·dm + C̄m = …, (b) the transport L0 φ = −½m(ℓ, ℓ) − ½q, (c) the transport for gh) with every source in E_(7/2)
+  (1268-1270), estimated by energy (9.7) into m̃ ∈ E_(5/2), φ̃ ∈ E_(3/2) with ℓφ̃ ∈ E_(5/2), gh̃ ∈ O_(5/2) (1296-1298).
+  Proposition 11.1's induction would carry over stage by stage: Lemma 11.2 (10516-10560) for (a), its operator −½□̃ with
+  g0 in place of g_λ and B̄·dm̃ + C̄m̃ put in its source S̃ (the coefficients being in E_2, 1253-1256, so these terms
+  are in E_(q+1)); Lemma 9.7(d) for (b) and (c), each order's source expanded from the previous orders'. The sources
+  start at q = 3 (S_m = r⁻³S_(m,3) + E_(7/2), and r⁻³K_(m,3) for (c), 1263-1265), so neither lemma meets its q = 5/2
+  resonance, and each expansion is in r^(−1/2) with ℓ-gaining remainders. With the stages so expanded, the residual R_N
+  (a polynomial in the profiles, 1300-1304) and the products that form the strip's sources (quadratic in e = g_λ −
+  g_app) inherit expansions, and the strip's term is polyhomogeneous in ρ^(1/2) (D530, D540), in D517's class. Not
+  written: the induction itself on the coupled system, where (H_m) asks the couplings ⟨W_φ(dφ_m)⟩, ⟨Th gh_(m+1)⟩ and the
+  coefficients B̄, C̄ for their ℓ-gains, which their explicit leading terms have and their remainders acquire stage by
+  stage; the induction over the stages m ≤ N; and λ-uniformity, which the strip does not need (D521).]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
