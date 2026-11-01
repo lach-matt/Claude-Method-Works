@@ -5966,6 +5966,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   proved), and with R = a trapped the background exists on Ω's past part, given the cones' data. Computed: Picard on the
   integral system converges on all of D3's rectangle (10⁻¹³ in 32-52 iterations), its limit the diamond scheme's to
   second order. Open: the outgoing family's data at past null infinity.
+- D559 (BEYOND5 3(b), deduced at the level of the count, as Proposition 11.1's proof): the approximant's expansion with
+  its ℓ-gains. The class E_p^ℓ (ℓ^j f ∈ E_(p+j) for all j) contains the exact terms and is closed under products and
+  derivatives; the stage system's coefficients are exact (D551, D555). Inducting on the number of ℓ's in the order m̃,
+  φ̃, gh̃: (a) by Lemma 11.2, whose (H_m) needs gh̃, φ̃ at lower order and, in B̄·dm̃, one ℓ more on m̃, absorbed by
+  B̄'s E_2 decay; (b) and (c) inherit ℓ-gains from their equations. Over the orders and the stages as in Proposition
+  11.1's last step; to physical variables at fixed v by Taylor's formula in θ. So g_app and e = g_λ − g_app expand in
+  r^(−1/2) at fixed λ, and the strip's term is polyhomogeneous in ρ^(1/2). Open: the induction written line by line.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

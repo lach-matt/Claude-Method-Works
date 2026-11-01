@@ -7652,3 +7652,10 @@ on the whole rectangle at once; the bounds then show the cap is never reached wh
 the capped solution is the true one. Numerically the same iteration converges on the computed example and agrees with
 the earlier scheme. The background therefore exists on the region the proof uses, given data on its two light cones;
 what remains for this family is the outgoing dust's data.
+
+**D559 (2026-11-01): the approximant's expansion, closed at the level of the count.** The last open step for the far
+strip was the derivative bookkeeping of the induction. It runs as the record's own expansion of the solution does: the
+equations' coefficients are exact, two of the three equations hand their derivative gains down directly, and in the
+third the one extra derivative is paid for by the decay of its coefficient. With the approximant expanded as the
+solution already is, their difference is too, and the strip's contribution to the data falls in the class the final
+assembly accepts. Written as a deduction, not yet line by line.

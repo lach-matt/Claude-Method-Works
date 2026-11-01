@@ -712,6 +712,30 @@ What it does not give:
   u/λ)" (509) for formulas that are the [Y] coefficients of 262-263 (a wording slip in the record, recorded, not
   repaired). Established: c's expansion and one step of Lemma 9.7(d); the triangular structure at the level of the
   count.]
+  [D559, deduced, at the level of the count, as Proposition 11.1's proof is written (N1STAR-PROOF.md:10576-10587): the
+  stage system's expansion with its ℓ-gains, (H_m) included. Write E_p^ℓ for the profiles f with ℓ^j f ∈ E_(p+j) with
+  all derivatives for every j. It contains every exact term r^(−p)F(v, x̂, θ) (ℓ(r^(−p)F) = −p r^(−p−1)F), is closed
+  under products (Leibniz: E_p^ℓ E_q^ℓ ⊂ E_(p+q)^ℓ), under ∂_v, Ω and ∂_θ (which commute with ℓ and r), and under
+  Cartesian derivatives (∂_X = x̂(∂_v + ℓ) + r⁻¹(angular), [ℓ, r⁻¹Ω] = −r⁻²Ω). Fix a stage i ≥ 1 and suppose the earlier
+  stages' profiles expanded with every remainder in the E^ℓ class of its order (stage 0: W_TT and χ exact, P3, P5). The
+  coefficients of (a)-(c) are exact (D551, D555), hence in E^ℓ. Induct on the number m of ℓ's, at a fixed expansion
+  order (the order q of the remainders' sources, D545's half-order steps), in the order m̃, φ̃, gh̃. (a): Lemma 11.2
+  with g0 for g_λ, so its (H_m) asks only ℓ^j S̃ ∈ E_(q+1/2+j) for j < m; S̃ is the earlier stages' remainder terms (in
+  E^ℓ by hypothesis), the couplings ⟨Th gh̃⟩ (algebraic, coefficient in E_(3/2)) and ⟨Wm_φ(dφ̃)⟩ (coefficient in E_3),
+  and B̄·dm̃ + C̄m̃ (coefficients in E_2), with ℓ^j of each needing gh̃ and φ̃ at j < m (found at step j) and, in
+  B̄·dm̃, ℓ^(j+1)m̃ ≤ ℓ^m m̃, which at j = m − 1 is ℓ applied to ℓ^(m−1)m̃ ∈ E_(q−1/2+m−1) with all derivatives, so in
+  E_(q+m−3/2), and B̄'s E_2 lifts the product to E_(q+m+1/2), above the E_(q+m−1/2) asked: the extra derivative is
+  absorbed by the coefficient's decay. So (H_m) holds and Lemma 11.2 gives ℓ^m m̃. (b): ℓφ̃ = ½(m̃(ℓ, ℓ) + q̃), so
+  ℓ^(m+1)φ̃ = ½ℓ^m(m̃(ℓ, ℓ) + q̃), with q̃ from earlier stages. (c): the transport (ℓ + 3/(2r) + c)Z = S gives ℓ^(m)Z =
+  ℓ^(m−1)(S − (3/(2r))Z − cZ), whose terms need m̃ to ℓ^m, φ̃ to ℓ^(m+1) (Ψ̃ = □̃φ̃ carries two derivatives, ℓℓφ̃ among
+  them) and Z to ℓ^(m−1): all found. So every remainder of stage i is in E^ℓ at every order, and the r^(−q) coefficients
+  of the next order's sources are polynomials in the expanded terms, as in Proposition 11.1's last step; the stages
+  follow in turn, each stage's sources being polynomials in earlier stages' profiles (10579-10586's argument). The
+  profile variables pass to the physical ones at fixed v (D555 (3)) by Taylor's formula in θ: Y(X, v/λ + φ_1 + …) = Σ_k
+  ∂_θ^kY(X, v/λ)(φ_1 + …)^k/k!, φ_1 ∈ L_1 expanded, each power adding r⁻¹. So g_app has an expansion in r^(−1/2) at past
+  null infinity at fixed λ with ℓ-gaining remainders, as g_λ has (Proposition 11.1), and so has e = g_λ − g_app; the
+  strip's term is then polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)). Not written at proof level: this induction
+  itself, line by line, as Proposition 11.1's proof is; and λ-uniformity, which the strip does not need (D521).]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
