@@ -693,14 +693,27 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   0 and 1 − 6e^t < 0, and its ratio was a product of two negative factors), so from σ = 24 the left control is instead C2
   rerun with s_L = 51/50, which fails on its exponent. C1 needs 95 to 141 enclosures, under 2 s; a whole run takes about
   15 s. The computed cut-off norms at σ = 6 to 96 lie 9.5 to 36 times below these bounds (verifier 216, e2high5).
+- *Certified on the whole band 3 ≤ σ ≤ 96 (D506; `checks/e2trapband5.py` B1-B3).* The certificate's pieces are of two
+  kinds: those that do not involve σ (admissibility at l_1, C1-C3, and m′, M′, w_I on I) and two explicit functions of σ,
+  B_(l_1)(σ) = ((2/m′ + (M′ + 2σ)²/w_I)/w_I)^(1/2), increasing, and E2.7's Λσ/(σ² − max V_l), decreasing where σ² > max
+  V_l and increasing in l. So a multiplier certified at l_1 bounds every σ in [σ_a, σ_b] with max V_(l_1−1) < σ_a² by
+  max(E2.7(l_1 − 1, σ_a), B_(l_1)(σ_b)), for every l ≥ 0. B1 certifies one multiplier at every l_1 = 5, …, 190 (e2trap5's
+  best at l_1 within the core-and-flank subfamily, at the frequency where l_1 is the trapped harmonic; 95 to 145
+  enclosures each); B2 cuts [3, 96] into 1860 intervals of width 1/20 and takes on each the least such bound over the
+  eight largest admissible l_1. So, certified: for every 3 ≤ σ ≤ 96 and every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477, the
+  largest on [3.2, 3.25] (l_1 = 5), where section 3j's floating-point sup is 11.35 (at σ = 3.2); at the sampled σ the
+  band bound is D497's and D503's (11.086 on [3, 3.05]). B3: on e2trap5's grid it lies above the floating-point sup
+  everywhere, by a factor 1.001 to 1.188. The run predates D505's guard on the left tail's hypotheses, which holds for
+  every multiplier here: it involves only the flank's g, about −62/s_L at t = −120, whatever s_c. With sections 3f-3g (0
+  < |σ| ≤ 3) this bounds every real 0 < |σ| ≤ 96, the bounds being even in σ; 47 minutes.
 
 What it does not give:
 
-- a certificate between the sampled frequencies: at σ = 3, 6, 12, 24, 48 and 96 the bound is certified (D497, D503);
-  between them it is computed on a grid of step 0.01 only (T3). An interval [σ_a, σ_b] needs no new kind of check:
-  admissibility does not involve σ, B_(l_1)(σ) increases with |σ|, and E2.7's Λσ/(σ² − max V_l) decreases with σ where it
-  applies, so max(E2.7 at σ_a for every l < l_1, B_(l_1)(σ_b)) bounds every σ in it once every l < l_1 has max V_l < σ_a²
-  (deduced, not run);
+- (done, D506: every σ in [3, 96] is certified, above) a certificate between the sampled frequencies: at σ = 3, 6, 12,
+  24, 48 and 96 the bound is certified (D497, D503); between them it is computed on a grid of step 0.01 only (T3). An
+  interval [σ_a, σ_b] needs no new kind of check: admissibility does not involve σ, B_(l_1)(σ) increases with |σ|, and
+  E2.7's Λσ/(σ² − max V_l) decreases with σ where it applies, so max(E2.7 at σ_a for every l < l_1, B_(l_1)(σ_b)) bounds
+  every σ in it once every l < l_1 has max V_l < σ_a² (deduced, not run);
 - σ > 96, nor the H¹ constants of section 3i with these multipliers (X_l, C_l, not redone);
 - the measured (a + b log σ)/σ: the bound is still 9.5 to 19 times above it, and the ratio grows with σ from σ = 6 on
   (9.70, 9.46, 11.2, 13.0, 15.6, 19.0).
@@ -778,8 +791,9 @@ What it does not give:
   - *Harmonic by harmonic (D486, corrected D493; section 3j; `checks/e2trap5.py`).* With Lemma E2.7 for every harmonic
     above the barrier and E2.8 with core-and-flank multipliers near and above the trapped one, the sup over every l ≥ 0
     is 10.98, 5.846, 3.755, 2.362, 1.512 and 0.9886 at σ = 3, 6, 12, 24, 48 and 96, at most 11.35 over [3, 96] and
-    falling roughly like σ^(−0.6): 9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵. Computed, not
-    certified.
+    falling roughly like σ^(−0.6): 9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵. Certified since: at
+    the six σ (D497, D503) and on the whole band, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤ 96 and every l (D506,
+    `checks/e2trapband5.py`).
   - Method: u_h and u_∞ by the Riccati equation for their log-derivatives where each is a single WKB wave, by the linear
     equation past the barrier peak, the kernel in logarithms, its norm by power iteration on its semiseparable structure,
     at least 40 grid points per wavelength. Controls: D352's σ = 3 row reproduced (0.4094, 0.4229, 0.451, 0.6719, 0.7251,

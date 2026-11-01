@@ -7340,3 +7340,9 @@ later, with a small coefficient that also shrinks as the mode grows.
 different interval library, slightly tighter. It found that one of the sanity checks meant to show the certificate could
 fail was, at the three highest frequencies, testing a formula outside the range where it holds; that check is now
 restricted to its valid range, and a different check that does fail is added. The bounds themselves are unaffected.
+
+**D506 (2026-11-01): the bound, certified across the whole band.** The parts of the certificate that do not depend on the
+frequency were certified once for each angular mode up to 190, and the rest is an explicit formula in the frequency, so
+every frequency from 3 to 96 is now certified, not just six of them: the resolvent is at most about 11.5 there, for every
+angular mode, close to the computed worst case of 11.35. Together with the earlier certified bounds below 3, every
+frequency up to 96 is covered.

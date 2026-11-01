@@ -24,6 +24,11 @@ every l < l_1 has, for every l >= 0,
   B3 (computed) against e2trap5's float sup on its grid of step 0.01 (T3: at most 11.35 over [3, 96], at sigma = 3.2):
      the band bound lies above it at every grid point, as it must.
 
+Measured (D506): B1 certifies every l_1 = 5 ... 190 (95 to 145 enclosures each); B2 over 1860 intervals of width
+1/20: <= 11.477, the largest on [3.2, 3.25] (l_1 = 5), the six sampled sigma as D497 and D503 (11.086 on [3, 3.05]);
+B3 above e2trap5's float sup by 1.001 to 1.188; 47 minutes. (The run predates tail_left_valid in B1, D505's guard,
+which holds for every multiplier here: only the flank's g enters, about -62/s_L at t = -120.)
+
 Labels: B1, B2 certified (the lemmas as in e2trapcert5); B3 computed. Together with sections 3f-3g (0 < |sigma| <= 3)
 this covers every real 0 < |sigma| <= 96 (the bounds are even in sigma).
 

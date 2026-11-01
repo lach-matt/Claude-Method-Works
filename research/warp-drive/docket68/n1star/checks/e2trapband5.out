@@ -1,0 +1,24 @@
+  e2trap5's admissible table, l = 1 ... 190 (74 s)
+    l_1 = 20: s_R = 6, s_c = 1033/2000, certified, 145 enclosures, m' >= 0.029022, w_I >= 8.3643 (306 s)
+    l_1 = 40: s_R = 6, s_c = 3843/10000, certified, 125 enclosures, m' >= 0.025133, w_I >= 24.345 (602 s)
+    l_1 = 60: s_R = 4, s_c = 397/1250, certified, 99 enclosures, m' >= 0.022839, w_I >= 45.341 (889 s)
+    l_1 = 80: s_R = 4, s_c = 1373/5000, certified, 95 enclosures, m' >= 0.021678, w_I >= 70.36 (1171 s)
+    l_1 = 100: s_R = 6, s_c = 2467/10000, certified, 115 enclosures, m' >= 0.021598, w_I >= 98.342 (1460 s)
+    l_1 = 120: s_R = 6, s_c = 133/625, certified, 119 enclosures, m' >= 0.0208, w_I >= 129.97 (1745 s)
+    l_1 = 140: s_R = 4, s_c = 513/2500, certified, 99 enclosures, m' >= 0.019923, w_I >= 164.91 (2045 s)
+    l_1 = 160: s_R = 6, s_c = 459/2500, certified, 115 enclosures, m' >= 0.020135, w_I >= 200.36 (2342 s)
+    l_1 = 180: s_R = 6, s_c = 459/2500, certified, 113 enclosures, m' >= 0.020135, w_I >= 239.74 (2671 s)
+  B1 PASS: multipliers certified at every l_1 = 5 ... 190
+  B2 PASS: [3, 96] in 1860 intervals of width 1/20: every one bounded; sup of the band bound 11.477 on [3.2, 3.25] (l_1 = 5)
+    sigma = 3: on [3.0, 3.05] <= 11.086 (l_1 = 5)
+    sigma = 6: on [5.95, 6.0] <= 5.8726 (l_1 = 11)
+    sigma = 12: on [11.95, 12.0] <= 3.7719 (l_1 = 22)
+    sigma = 24: on [23.95, 24.0] <= 2.3724 (l_1 = 46)
+    sigma = 48: on [47.95, 48.0] <= 1.5222 (l_1 = 93)
+    sigma = 96: on [95.95, 96.0] <= 0.99697 (l_1 = 188)
+  B3 PASS: the band bound lies above e2trap5's float sup at every 0.1 of [3, 96] (0 failures); ratio 1.0010 to 1.1882
+  CERTIFIED: for every sigma in [3, 96] and every l >= 0, ||chi_I R_l(sigma) chi_I|| <= 11.477 (2833 s)
+
+real	47m13.591s
+user	46m9.064s
+sys	0m33.557s

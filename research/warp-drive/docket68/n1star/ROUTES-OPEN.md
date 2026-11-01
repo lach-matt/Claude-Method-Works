@@ -5467,6 +5467,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the rational s_c (under 0.1 %); C1 takes under 2 s, a run about 15 s; mult's docstring said s_R = 4; the tail bounds
   assume κ_s ≤ 1/2 and s_L < s_R, which the command line now enforces; the right tail is monotone once r_* + d_R >
   3s_R/2, 9 at s_R = 6. Corrected in E2-PILOT 3j and e2trapcert5; the D503 entry above keeps its text.
+- D506 (E2-PILOT 3j, `checks/e2trapband5.py` B1-B3, certified by interval arithmetic): section 3j's bound on the whole
+  band 3 ≤ σ ≤ 96. Admissibility and m′, M′, w_I do not involve σ; B_(l_1)(σ) increases and E2.7 decreases in σ (and
+  increases in l), so on [σ_a, σ_b], with max V_(l_1−1) < σ_a², max(E2.7(l_1 − 1, σ_a), B_(l_1)(σ_b)) bounds every σ and
+  every l. One multiplier certified at each l_1 = 5, …, 190 (186 certificates, e2trapcert5's functions), 1860 intervals
+  of width 1/20: for every 3 ≤ σ ≤ 96 and every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 (on [3.2, 3.25]; the float sup 11.35 at
+  σ = 3.2), above e2trap5's float sup everywhere by 1.001 to 1.188. D505's left-tail guard, added after the run, holds
+  for every multiplier (only the flank's g enters, ≈ −62/s_L at t = −120). With sections 3f-3g this covers every real 0
+  < |σ| ≤ 96. Open: σ > 96 (more multipliers, the same route), the H¹ constants with these multipliers, and the factor
+  9.5 to 36 to the computed norms.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
