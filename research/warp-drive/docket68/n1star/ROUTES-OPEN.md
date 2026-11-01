@@ -5631,6 +5631,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   ~ r; h is L_2, not E_(5/2); "m about k − 6" names its Sobolev loss on S³. Not checked by either, and now the open
   item: the radial dependence of the sources (D508 treats r⁻⁴σ(v, ω); e's Cartesian derivatives gain no power of r).
   Corrected in BEYOND5 3(b); the D520 entry above keeps its text.
+- D522 (FAMILIES5 4g, deduced): the record's section 3 (N1STAR-PROOF.md:240-337) with two families, term by term. Lemma
+  3.1′: T(F_k g1^(k)) + P_(−2)(F_k ĝ_2) = O(λ), ĝ_2 entering through the mixed symbol. (E1′): n1^in = −e^(−4σ)χ′ + O(λ),
+  oscillating in s2, and |ℓ_app^k − ℓ_k| ≤ Cλ. (3.4′): the phases solve the coupled linear system ℓ_k · dφ_k = ½ P
+  s_k(h), h = w − Σ φ_j Y_j, which is solvable by Picard. The record's s(w) = s(h) does not carry over, since defining
+  φ_k from s_k(w) would leave λ⁻¹ P(c_in φ_out) G2^in, not small. (3.5′): one 1/λ coefficient per family, O(∂s_k(h)).
+  Lemma 3.3′: s_in's equation has no large coefficient and couples to Ψ_out through −q c_in Ψ_out, c_in = e^(−4σ)F2χ′.
+  Lemma 3.4′: Ψ_in's source contains P(c_in Ψ_out), bounded; no □̃ falls on a fast coefficient. Section 4: N′ with both
+  families, every new term a bounded two-phase profile, so the bootstrap takes the record's form (not written step by
+  step). Open: (E2) for two families (the approximant beyond Stage 0), the two-dust domain and its transversality, the
+  mollifier there, section 4 written out.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

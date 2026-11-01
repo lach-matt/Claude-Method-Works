@@ -7432,3 +7432,10 @@ limit, remain.
 takes its far-region estimate to every order for a fixed wavelength, and passes it to the actual solution, which is all
 that was needed: the sources feeding the strip are smooth along the spheres to every order. What is left is their
 dependence along the radius, which no argument so far controls; that is now the open item.
+
+**D522 (2026-11-01): the record's core estimate with two wave families.** The section of the record that removes the
+dangerous large term was carried over to two crossing families, step by step. Two things change. The pieces split off
+along each family must be defined together, as a small coupled system, because each family's wave leaves an oscillating
+trace in the other's direction. And each family's key equation picks up a bounded coupling to the other's. With those,
+every term is of the kind the record's estimate already handles. Still missing: the two-family approximate solution
+beyond its first stage, and the estimate written out in full.

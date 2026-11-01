@@ -2,8 +2,8 @@
 
 Status: scoping note (D361). Read by verifier 167 (D362), findings seated. Section 1's two deductions on the cross
 coupling added (D363-D364). Section 4's first step computed (D376, section 4b: `checks/stage0two5.py`; read by verifier
-174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced. Nothing
-proved beyond Stage 0.
+174, D380). Section 4f: the record's section 5.2 with two families (D512, `checks/twophase5.py`), deduced; section 4g
+its section 3 (D522). Nothing proved beyond Stage 0.
 
 The paper's open item "more families" (RESPONSE-HL-5D.md section 9): "Several dusts, angular separation, and the passage
 to Vlasov matter are not attempted." This note sets out what each would need, given what the record's proof uses of
@@ -520,6 +520,62 @@ obeys the transport (5.3). With two families:
 What it does not give: the two-family energy estimate itself (the supplement's Lemmas 3.3-3.4 with these couplings);
 (E1)-(E2) for two families; the mollifier against coefficients oscillating at scale λ (P(cΨ) is bounded, not close to c
 PΨ); later stages.
+
+## 4g. The record's section 3 with two families (D522)
+
+Deduced from the record's section 3 (N1STAR-PROOF.md:240-337) and sections 4b-4f; nothing is computed beyond 4f's Q1-Q2.
+Two-phase profiles G(X, s1, s2), s1 = v/λ, s2 = u/λ; F_k := ∂_(s_k); k_in := dv, k_out := du; ℓ_k := g0⁻¹k_k; the
+record's gauge, so χ and χ′ are present; g1^(k) is family k's wave with its gauge term, Y_k := F_k g1^(k) + λ F_k ĝ_2,
+G1^k := [F_k g1^(k)], G2^k := [F_k² g1^(k)], and, by Q2, c_in := G1^out(ℓ_in, ℓ_in) = e^(−4σ) F2 χ′ and c_out :=
+G1^in(ℓ_out, ℓ_out) = e^(−4σ) F1 χ. The record's section 3 carries over term by term, with three changes: ĝ_2 enters the
+phase-shift identity, the phases φ_k solve a coupled system, and the contraction with ℓ_in ⊗ ℓ_in keeps family out's
+terms.
+
+- *(3.1′) and (E1′).* R[G] contains no explicit s1 or s2, so R[G(·, · + c1, · + c2)] = R[G](·, · + c1, · + c2).
+  g_app⁻¹(k_k, k_k) = λ n1^k with n1^in = −e^(−4σ) χ′ + O(λ) and n1^out = −e^(−4σ) χ + O(λ), each oscillating in the
+  other phase (verifier 220); ℓ_app^in := g_app⁻¹ dv = ℓ_in + λ e^(−2σ) χ′ ℓ_out + O(λ²), and likewise for out, so
+  |ℓ_app^k − ℓ_k| ≤ Cλ as in the record. G1^k(ℓ_k, ·) = G2^k(ℓ_k, ·) = 0 (Q2), but c_in, c_out ≠ 0.
+- *(3.2′) and Lemma 3.1′.* P(w) = −½ g_app^(ab) ∂_a ∂_b w + ½ λ⁻¹ Σ_k s_k(w) G2^k + B·∂w + C·w (D414's L1, with ℓ_app^k
+  for the record's ℓ_app). On a two-phase profile, P([Y]) = [λ⁻² P_(−2) Y + λ⁻¹ T Y + P_0 Y] with P_(−2) Y = −g0⁻¹(k_in,
+  k_out) F1 F2 Y, nonzero only on mixed harmonics. Differentiating (3.1′) at c_k = 0 as in the record gives T(F_k
+  g1^(k)) + P_(−2)(F_k ĝ_2) = O(λ), so P(Y_k) = O(1): λ F_k ĝ_2 reaches order λ⁻¹ through P_(−2), and it has to be in
+  Y_k.
+- *Lemma 3.2′ (the record's (3.3)).* For φ(X), P(φ Y_k) = −λ⁻¹ (ℓ_app^k · dφ) G2^k − ½ (□̃_app φ) G1^k + B1^k · dφ +
+  C1^k φ + N_φ^k, with bounded profiles B1^k, C1^k and |N_φ^k| ≤ C|w|(λ⁻²|φ| + λ⁻¹|dφ| + |d²φ|). The cross terms from λ
+  F_k ĝ_2, such as −(ℓ_j · dφ) F_j F_k ĝ_2, are of order |dφ| with bounded profile coefficients and go into B1^k.
+- *(3.4′) The phases.* ℓ_k · dφ_k = ½ P s_k(h), with h := w − Σ_j φ_j Y_j and φ_k = 0 on Σ_τ0. Since s_k(h) = s_k(w) −
+  Σ_j φ_j Y_j(ℓ_k, ℓ_k), with Y_out(ℓ_in, ℓ_in) = c_in + O(λ) and Y_in(ℓ_in, ℓ_in) = O(λ) (and likewise for out), this
+  is a linear system for (φ_in, φ_out). It consists of two transports along transversal null generators, coupled through
+  the bounded operators φ ↦ P(c φ), and is solvable by Picard iteration wherever both generators are transversal to Σ_τ
+  (the analogue of the record's Lemma 1.1(d), not written for the two-dust background). The record's choice, s = s(w) =
+  s(h), does not carry over. Defining φ_k from s_k(w) would leave λ⁻¹ P(c_in φ_out) G2^in in h's equation, which is not
+  small: a mollifier at scale λ does not remove an oscillation at that scale.
+- *(3.5′) The equation for h.* −½ g^(ab) ∂_a ∂_b h + B·dh + C·h = F + N(w) − Σ_k N_φ^k − ½ λ⁻¹ Σ_k ((1 − P) s_k(h)) G2^k
+  + λ⁻¹ Σ_k ((ℓ_app^k − ℓ_k) · dφ_k) G2^k − Σ_k φ_k [T1^k] + ½ Σ_k (□̃_app φ_k) G1^k − Σ_k (B1^k · dφ_k + C1^k φ_k).
+  This is the record's (3.5) with one 1/λ coefficient per family, (1 − P) s_k(h) = O(λ ∂s_k(h)) by (M3).
+- *Lemma 3.3′ (the ℓ_in ⊗ ℓ_in component).* □̃ s_in(h) is the record's Lemma 3.3 for family in, minus 2q times the
+  family-out terms of (3.5′) contracted with ℓ_in ⊗ ℓ_in. Among these, the term at the top order is −q c_in (□̃_app
+  φ_out) = −q c_in Ψ_out + O(λ|d²φ_out|). The only 1/λ one is q λ⁻¹ ((1 − P) s_out(h)) G2^out(ℓ_in, ℓ_in), with
+  G2^out(ℓ_in, ℓ_in) = e^(−4σ) F2² χ′; it is O(∂s_out(h)). The rest are bounded profiles times dφ_out, φ_out and
+  λ⁻¹(ℓ_app^out − ℓ_out) · dφ_out = O(dφ_out), together with N_φ^out(ℓ_in, ℓ_in). The last keeps the term |w||d²φ_out|
+  that the record's contraction removes, small times second derivatives, as in the record's (3.5). So s_in's equation
+  has no large coefficient, and at the top order it couples to Ψ_out through a bounded profile oscillating in s2. The
+  equation for s_out is the mirror image.
+- *Lemma 3.4′ (Q1).* On a round double-null background, Ψ_k := □̃ φ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □̃ P s_k(h) − ½ M_k(P
+  s_k(h)) − N_k φ_k, with □̃ P s_k(h) = P □̃ s_k(h) + [□̃, P] s_k(h) and □̃ s_k(h) from Lemma 3.3′. So Ψ_in's source
+  contains P(c_in Ψ_out) and Ψ_out's contains P(c_out Ψ_in), both bounded on L² whatever the oscillation. No □̃ falls on
+  a fast coefficient, because the coupling enters through s_k(h) and not through an explicit c φ. As in the record, the
+  second derivatives of φ_k are combinations of L_k P s_k(h), ∂_x P s_k(h), dφ_k and the spatial Hessian, which has its
+  own transport.
+- *Section 4 with two families.* N′(τ) := Σ_(j≤k) λ^j (‖∂^j ∂h‖ + Σ_k (‖∂^j Ψ_k‖ + ‖∂^j ∂φ_k‖ + λ ‖∂^j ∂_x² φ_k‖)) + ‖h‖
+  + Σ_k ‖φ_k‖. Every new term is a bounded two-phase profile times a quantity N′ controls at the same scaled order. A
+  derivative of a coefficient costs λ⁻¹, which the weight λ^j absorbs, as for the record's profiles. So the energy
+  inequalities take the record's form with N′ for N, and the bootstrap closes as it does there (deduced, not written
+  step by step).
+
+What it does not give: (E2) for two families, that is, the two-phase approximant to the order the bootstrap needs (only
+Stage 0 is computed, sections 4b and 4e); the two-dust domain Ω, its foliation and Lemma 1.1's transversality; the
+mollifier P on that domain; and section 4's steps written out.
 
 ## 4c. The two-dust background (D389)
 
