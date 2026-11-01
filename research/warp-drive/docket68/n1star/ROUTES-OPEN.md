@@ -5641,6 +5641,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   families, every new term a bounded two-phase profile, so the bootstrap takes the record's form (not written step by
   step). Open: (E2) for two families (the approximant beyond Stage 0), the two-dust domain and its transversality, the
   mollifier there, section 4 written out.
+- D523 (verifier 225 on D522; (E1′), P_(−2) and the Q2 contractions computed with sympy on stage0two5's background and
+  waves, the cancellation bookkeeping checked both ways, the mollifier's factor on an oscillation at scale λ computed,
+  |ρ̂| = 0.92, 0.72, 0.19 at n = 1, 2, 4): no major finding. Confirmed: P_(−2) = e^(−2σ) F1 F2, and the λ-correction of
+  g_app⁻¹(dv, du) is zero; (E1′) exactly; s_k(w) never enters as a whole, the pieces s_j(φ_k Y_k) sit inside T(Y_k) and
+  cancel by Lemma 3.1′; defining φ_k from s_k(w) would leave −½ λ⁻¹ P(c_in φ_out) G2^in, not small; Lemma 3.3′'s factor
+  −2q and its one 1/λ term; Lemma 3.4′ computed the other way agrees (the λ⁻¹ terms from □̃ on c_in are those Lemma 3.1′
+  cancels). MINOR: Lemma 3.2′ omitted −½ λ (□̃_app φ) F_k ĝ_2, O(λ|d²φ|), and Lemma 3.3′ the matching O(λ|d²φ_in|), both
+  harmless for N′; Q1's □ is the covariant one on scalars; the −½ on the s_k(w) remark; T for two phases was not
+  restated. Corrected in FAMILIES5 4g; the D522 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

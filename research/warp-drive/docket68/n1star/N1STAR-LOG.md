@@ -7439,3 +7439,7 @@ along each family must be defined together, as a small coupled system, because e
 trace in the other's direction. And each family's key equation picks up a bounded coupling to the other's. With those,
 every term is of the kind the record's estimate already handles. Still missing: the two-family approximate solution
 beyond its first stage, and the estimate written out in full.
+
+**D523 (2026-11-01): the two-family core estimate, checked.** An independent check recomputed the key identities by
+computer algebra, confirmed the bookkeeping by two routes, and found one omitted small term, of a kind the estimate
+already controls, and some wording to tighten.

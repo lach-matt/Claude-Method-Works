@@ -537,10 +537,12 @@ terms.
   |ℓ_app^k − ℓ_k| ≤ Cλ as in the record. G1^k(ℓ_k, ·) = G2^k(ℓ_k, ·) = 0 (Q2), but c_in, c_out ≠ 0.
 - *(3.2′) and Lemma 3.1′.* P(w) = −½ g_app^(ab) ∂_a ∂_b w + ½ λ⁻¹ Σ_k s_k(w) G2^k + B·∂w + C·w (D414's L1, with ℓ_app^k
   for the record's ℓ_app). On a two-phase profile, P([Y]) = [λ⁻² P_(−2) Y + λ⁻¹ T Y + P_0 Y] with P_(−2) Y = −g0⁻¹(k_in,
-  k_out) F1 F2 Y, nonzero only on mixed harmonics. Differentiating (3.1′) at c_k = 0 as in the record gives T(F_k
-  g1^(k)) + P_(−2)(F_k ĝ_2) = O(λ), so P(Y_k) = O(1): λ F_k ĝ_2 reaches order λ⁻¹ through P_(−2), and it has to be in
-  Y_k.
-- *Lemma 3.2′ (the record's (3.3)).* For φ(X), P(φ Y_k) = −λ⁻¹ (ℓ_app^k · dφ) G2^k − ½ (□̃_app φ) G1^k + B1^k · dφ +
+  k_out) F1 F2 Y, nonzero only on mixed harmonics; T is the record's with −½ n1^in F1² − ½ n1^out F2² in place of its −½
+  n1 ∂_θ² (g_app⁻¹(dv, du) = g0^(uv) + O(λ²), so there is no mixed λ⁻¹ correction; verifier 225, D523). Differentiating
+  (3.1′) at c_k = 0 as in the record gives T(F_k g1^(k)) + P_(−2)(F_k ĝ_2) = O(λ), so P(Y_k) = O(1): λ F_k ĝ_2 reaches
+  order λ⁻¹ through P_(−2), and it has to be in Y_k.
+- *Lemma 3.2′ (the record's (3.3)).* For φ(X), P(φ Y_k) = −λ⁻¹ (ℓ_app^k · dφ) G2^k − ½ (□̃_app φ) G1^k − ½ λ (□̃_app φ)
+  F_k ĝ_2 + (the second term O(λ|d²φ|), handled as the record's c^(ab) ∂_a ∂_b φ in Lemma 3.4; added D523) B1^k · dφ +
   C1^k φ + N_φ^k, with bounded profiles B1^k, C1^k and |N_φ^k| ≤ C|w|(λ⁻²|φ| + λ⁻¹|dφ| + |d²φ|). The cross terms from λ
   F_k ĝ_2, such as −(ℓ_j · dφ) F_j F_k ĝ_2, are of order |dφ| with bounded profile coefficients and go into B1^k.
 - *(3.4′) The phases.* ℓ_k · dφ_k = ½ P s_k(h), with h := w − Σ_j φ_j Y_j and φ_k = 0 on Σ_τ0. Since s_k(h) = s_k(w) −
@@ -548,25 +550,26 @@ terms.
   is a linear system for (φ_in, φ_out). It consists of two transports along transversal null generators, coupled through
   the bounded operators φ ↦ P(c φ), and is solvable by Picard iteration wherever both generators are transversal to Σ_τ
   (the analogue of the record's Lemma 1.1(d), not written for the two-dust background). The record's choice, s = s(w) =
-  s(h), does not carry over. Defining φ_k from s_k(w) would leave λ⁻¹ P(c_in φ_out) G2^in in h's equation, which is not
-  small: a mollifier at scale λ does not remove an oscillation at that scale.
+  s(h), does not carry over. Defining φ_k from s_k(w) would leave −½ λ⁻¹ P(c_in φ_out) G2^in in h's equation, which is
+  not small: a mollifier at scale λ does not remove an oscillation at that scale.
 - *(3.5′) The equation for h.* −½ g^(ab) ∂_a ∂_b h + B·dh + C·h = F + N(w) − Σ_k N_φ^k − ½ λ⁻¹ Σ_k ((1 − P) s_k(h)) G2^k
   + λ⁻¹ Σ_k ((ℓ_app^k − ℓ_k) · dφ_k) G2^k − Σ_k φ_k [T1^k] + ½ Σ_k (□̃_app φ_k) G1^k − Σ_k (B1^k · dφ_k + C1^k φ_k).
   This is the record's (3.5) with one 1/λ coefficient per family, (1 − P) s_k(h) = O(λ ∂s_k(h)) by (M3).
-- *Lemma 3.3′ (the ℓ_in ⊗ ℓ_in component).* □̃ s_in(h) is the record's Lemma 3.3 for family in, minus 2q times the
-  family-out terms of (3.5′) contracted with ℓ_in ⊗ ℓ_in. Among these, the term at the top order is −q c_in (□̃_app
-  φ_out) = −q c_in Ψ_out + O(λ|d²φ_out|). The only 1/λ one is q λ⁻¹ ((1 − P) s_out(h)) G2^out(ℓ_in, ℓ_in), with
-  G2^out(ℓ_in, ℓ_in) = e^(−4σ) F2² χ′; it is O(∂s_out(h)). The rest are bounded profiles times dφ_out, φ_out and
-  λ⁻¹(ℓ_app^out − ℓ_out) · dφ_out = O(dφ_out), together with N_φ^out(ℓ_in, ℓ_in). The last keeps the term |w||d²φ_out|
-  that the record's contraction removes, small times second derivatives, as in the record's (3.5). So s_in's equation
-  has no large coefficient, and at the top order it couples to Ψ_out through a bounded profile oscillating in s2. The
-  equation for s_out is the mirror image.
-- *Lemma 3.4′ (Q1).* On a round double-null background, Ψ_k := □̃ φ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □̃ P s_k(h) − ½ M_k(P
-  s_k(h)) − N_k φ_k, with □̃ P s_k(h) = P □̃ s_k(h) + [□̃, P] s_k(h) and □̃ s_k(h) from Lemma 3.3′. So Ψ_in's source
-  contains P(c_in Ψ_out) and Ψ_out's contains P(c_out Ψ_in), both bounded on L² whatever the oscillation. No □̃ falls on
-  a fast coefficient, because the coupling enters through s_k(h) and not through an explicit c φ. As in the record, the
-  second derivatives of φ_k are combinations of L_k P s_k(h), ∂_x P s_k(h), dφ_k and the spatial Hessian, which has its
-  own transport.
+- *Lemma 3.3′ (the ℓ_in ⊗ ℓ_in component).* □̃ s_in(h) is the record's Lemma 3.3 for family in (up to O(λ|d²φ_in|) from
+  λ F1 ĝ_2(ℓ_in, ℓ_in), which N′ controls; D523), minus 2q times the family-out terms of (3.5′) contracted with ℓ_in ⊗
+  ℓ_in. Among these, the term at the top order is −q c_in (□̃_app φ_out) = −q c_in Ψ_out + O(λ|d²φ_out|). The only 1/λ
+  one is q λ⁻¹ ((1 − P) s_out(h)) G2^out(ℓ_in, ℓ_in), with G2^out(ℓ_in, ℓ_in) = e^(−4σ) F2² χ′; it is O(∂s_out(h)). The
+  rest are bounded profiles times dφ_out, φ_out and λ⁻¹(ℓ_app^out − ℓ_out) · dφ_out = O(dφ_out), together with
+  N_φ^out(ℓ_in, ℓ_in). The last keeps the term |w||d²φ_out| that the record's contraction removes, small times second
+  derivatives, as in the record's (3.5). So s_in's equation has no large coefficient, and at the top order it couples to
+  Ψ_out through a bounded profile oscillating in s2. The equation for s_out is the mirror image.
+- *Lemma 3.4′ (Q1).* On a round double-null background (Q1's □ is g0's covariant one on scalars and differs from □̃ by
+  first-order terms in φ_k, which join N_k φ_k, as 4f remarks; D523), Ψ_k := □̃ φ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □̃ P
+  s_k(h) − ½ M_k(P s_k(h)) − N_k φ_k, with □̃ P s_k(h) = P □̃ s_k(h) + [□̃, P] s_k(h) and □̃ s_k(h) from Lemma 3.3′. So
+  Ψ_in's source contains P(c_in Ψ_out) and Ψ_out's contains P(c_out Ψ_in), both bounded on L² whatever the oscillation.
+  No □̃ falls on a fast coefficient, because the coupling enters through s_k(h) and not through an explicit c φ. As in
+  the record, the second derivatives of φ_k are combinations of L_k P s_k(h), ∂_x P s_k(h), dφ_k and the spatial
+  Hessian, which has its own transport.
 - *Section 4 with two families.* N′(τ) := Σ_(j≤k) λ^j (‖∂^j ∂h‖ + Σ_k (‖∂^j Ψ_k‖ + ‖∂^j ∂φ_k‖ + λ ‖∂^j ∂_x² φ_k‖)) + ‖h‖
   + Σ_k ‖φ_k‖. Every new term is a bounded two-phase profile times a quantity N′ controls at the same scaled order. A
   derivative of a coefficient costs λ⁻¹, which the weight λ^j absorbs, as for the record's profiles. So the energy
