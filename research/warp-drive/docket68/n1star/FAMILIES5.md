@@ -340,7 +340,7 @@ couplings are then killed by their own contractions.
       expansions and one of each mixed pair are free, and the other n numbers are fixed: given N′'s numbers the
       conditions fix N's, and conversely, but not both at once (D459); θ and ∂_u g_vv cannot both be prescribed
       (control).
-    - - - *The null dusts (D463; `checks/chardust5.py` D1-D5, exact, n = 4 and 5).* With E := Ric − δ*W − κT for two null
+    - *The null dusts (D463; `checks/chardust5.py` D1-D5, exact, n = 4 and 5).* With E := Ric − δ*W − κT for two null
       dusts, T = Σ_i ρ_i k_i ⊗ k_i, trace-free as k_i is null, T is algebraic in g and the dusts' data and has no
       transverse jet, so N2-N4 hold with C_vv, C_vA, C_tr shifted by −κT_vv, −κT_vA, −κγ^(AB)T_AB, and the propagation of
       W uses div T = 0 and tr T = 0 off N, which the dusts' own equations (geodesic flow and continuity) keep. The
@@ -350,7 +350,7 @@ couplings are then killed by their own contractions.
       dv and √K du (section 4c), T_vA = T_AB = 0 on N, and T_vv = K_in comes from the √K dv dust (T = K_in dv² + K_out
       du², section 4b; the du-dust runs along N's generators and drops out) (verifier 198, D464; corrected D468, verifier
       199). The corner conditions are matter-free.
-    - - - *The dusts' own data (D470; `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5).* At a point of N, every field
+    - *The dusts' own data (D470; `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5).* At a point of N, every field
         a first-order jet: a null dust tangent to N lies along the generators (k^A = 0 by nullity), (div T)^u and (div
         T)^A vanish identically, and the remaining component is a transport along the generators, ∂_v q + c q = 0 for q =
         ρ(k^v)² (T_uu = g_uv² q), with c = (2∂_v g_uv − ∂_u g_vv)/g_uv + ½γ^(AB)∂_v g_AB. Its one transverse jet, ∂_u
@@ -365,7 +365,7 @@ couplings are then killed by their own contractions.
         (g^vv = 0; in general that needs g_uu = γ^(AB)g_uA g_uB); on N′ the roles swap by symmetry (not computed).
         Whether the record's Υ is taken relative to g0 is not stated: with the coordinate Υ, Υ_v(g0) = −3R_v/R is of
         order 1, while 4e's H is of order λ (verifier 201); T3 holds either way.
-    - - Not computed: existence for the dusts' transport off N, the corner S where both dusts' data meet, uniqueness for
+    - Not computed: existence for the dusts' transport off N, the corner S where both dusts' data meet, uniqueness for
       the linear characteristic problem, and that the record's solution solves the reduced equation exactly.
 
 ## 4c. The two-dust background (D389)

@@ -216,7 +216,7 @@ V′_P := V′ + 1 + (τ′_end − τ0) + κ (N1STAR-PROOF.md (1.1), (9.1)).
   1296-1298). That is a leading term and a bound, not an expansion.
   - Lemma 0.1's sufficient condition asks for ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r. III.K's class
     is polyhomogeneous with terms of orders r^(−2) and r^(−3) (paper section 8.4).
-  - - An E_(5/2) bound neither gives such an expansion nor excludes one. III.K's data index set admits half-integer
+  - An E_(5/2) bound neither gives such an expansion nor excludes one. III.K's data index set admits half-integer
     exponents (D467, read; reframed D469). ℰ_0 is restricted by min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re
     π_1ℰ_0 (III.K 53-57, III.C′ Theorem 3.1), where j ranges over ℕ and jℰ_0 is the j-fold sum (III.C Lemma 3.2 (b)):
     closure under addition, so 5/2 ∈ ℰ_0 forces 5, 15/2, …, and none of these conditions is integrality (an inference
@@ -426,7 +426,7 @@ What it does not give:
   along N and enter at ρ³ in the l = 0 model: D464);
 - uniqueness in W beyond the expansion (an energy identity on W would give it); Lemma 6.5′'s self-similar reduction
   assumes it;
-- - the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
+- the condition on the sources between N and S (D413, verifier 181). An r^(−q) source there contributes at ρ^(q−2), so
   the r⁻² coefficient at I_0 above needs those sources to be o(r⁻⁴). For l = 0, □φ = f r⁻⁴ Y_0 with zero data on N gives
   φ = r⁻² G(s) with s(s − 2)G″ + 3(s − 1)G′ = f, and G(1) = −f/2, which shifts the ρ² coefficient. After the shell the
   leading means are static, and their products are r⁻⁶ (D447, `checks/sources5.py` Q1-Q3): every term of P quadratic in a

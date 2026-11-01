@@ -558,7 +558,7 @@ increases with |σ|.
   - Controls: the symmetric multipliers reproduce B_1(3) = 254.6 (certified 264.5), X_1(3) = 483.4 (495.9) and X_0(3) =
     801.5 (808.6). The grid runs from ln(r − 1) = −60 to r = 120 and the tails beyond it are not checked; certification
     by interval arithmetic as in sections 3f-3g is the next step.
-  - - *Certified for l ≥ 1 (D466; `checks/e2asymcert5.py` K0-K4, interval arithmetic).* With the width interpolated
+  - *Certified for l ≥ 1 (D466; `checks/e2asymcert5.py` K0-K4, interval arithmetic).* With the width interpolated
     harmonically, g′ = 1/s_R + (1/s_L − 1/s_R)(1 − σ(z)), so that g has a closed form, s_L = 49/50, s_R = 2, κ = 1/2 and
     the centre at x_*: w_1 ≥ 0 on t ∈ [−120, ln 119] by bisection (377 enclosures), the tails by explicit bounds (left
     ratio ≤ 0.0842, decreasing toward the horizon; right ≤ 4.6 × 10⁻⁴⁷); on I, m′ ≥ 0.05299 and M′ ≤ 0.7929; B_1(3) ≤
