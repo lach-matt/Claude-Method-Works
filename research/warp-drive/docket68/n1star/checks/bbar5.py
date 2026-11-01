@@ -9,7 +9,8 @@ not shown. Here they are computed. By Lemma 5.1's weights, the terms of Rm^(m) l
 factors of weight 0, which do not depend on m: Bbar and Cbar are the same at every stage. So they are read off at
 stage 1 with phi_1 = 0: the lam^1 eps^1 coefficient of Ric^H(g0 + lam W + lam eps h), in lead5.py's gauge, coordinates
 (v, r, th, phi1, phi2) and wave (W_TT, and chi dv dv with chi = r^-2 (k_a cos 2s + k_b sin 2s), the second harmonic,
-k_a and k_b arbitrary functions of (v, th): past5.py P5's form). h is a symmetric tensor of 15 arbitrary functions of
+k_a and k_b arbitrary functions of (v, th): a second-harmonic choice: past5.py P5 allows any s-dependence and
+lead5.py's L4 an s-independent zero mode, with which the results are the same, verifier 249, D577). h is a symmetric tensor of 15 arbitrary functions of
 all five coordinates.
 
   K0 (exact) the eps-linear part at lam^0 is (1/2) h_rr d_s^2 W, every component: the record's -(1/2) e_1 d_th^2 W with
@@ -28,13 +29,13 @@ all five coordinates.
   Ctl W_TT with amplitude r^(-1/2) in place of r^(-3/2): K3's order falls to 1, so K3 sees the amplitude.
 
 Deduced from these: Cbar = C0 + Delta C, with Delta C the quadratic wave means of K2-K3 (exact terms r^-p F(v, xhat),
-p >= 3, all from W_TT, chi contributing none). B0 and C0 are polynomials in g0's Cartesian components and their first and second
-derivatives, and g0 - eta = mu(v) r^-2 dv dv is exact, so they are exact sums of r^-p F(v, xhat) with p >= 2 (each
-Cartesian derivative of r^-p F(v, xhat) gives x_hat r^-p F_v plus r^(-p-1) terms). So Bbar and Cbar are exact, in E_2,
-as D559's induction uses them, and in particular in E_2^ell. Labels: computed (exact, sympy) for K0-K4 and Ctl;
+p >= 3, all from W_TT, chi contributing none). B0 and C0 are polynomial in the
+Cartesian components of g0 and g0^-1 and their first and second derivatives, and g0 - eta = mu(v) r^-2 dv dv is exact, so they are exact sums of r^-p F(v, xhat) with p >= 2 (each
+Cartesian derivative of r^-p F(v, xhat) gives x_hat r^-p F_v plus r^(-p-1) terms). So Bbar and Cbar are exact sums of r^-p F with
+p >= 2, each in E_p^ell, as D559's induction uses them (D577: E_2 alone would not give E_2^ell). Labels: computed (exact, sympy) for K0-K4 and Ctl;
 deduced for the Cartesian statement about B0 and C0.
 
-    python3 checks/bbar5.py [--cache DIR]      (about fifteen minutes; DIR keeps the two Ricci expansions)
+    python3 checks/bbar5.py [--cache DIR]      (about ten minutes; DIR keeps the two Ricci expansions)
 """
 import os
 import pickle

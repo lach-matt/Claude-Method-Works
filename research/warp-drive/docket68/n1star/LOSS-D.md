@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -895,16 +895,29 @@ loop counts of section 3.
     windows are [2, 3) and [3, 4), J = 2, L = 0 (Q2, 5,073 values of ℓ_I), and J = 2 for every seed with min Re E^C_I in
     (3/2 + 2γ_Υ, 2] and no log term below ℓ_I; a log term adds steps (Q3, the control). So Proposition 3.1 costs 6, not
     2, and an ι⁺ round at least (d_G + 2) + 6 = 8 + d_G = 19, not 15 (corrected D573), on E^C_I without log terms below
-    ℓ_I; the record leaves E^C_I to the class, so with log terms there the loss is larger.] III.J″'s row for III.I′′′′′
-    (J3:261) is this iteration's (I9:231; its MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window,
-    and rounds raising α′_K to α_K": exponents, not the rounds LD14 counts, a round treating every λ_0 of the window
-    together (I6:127-129), and which of the two III.J″ multiplies is not stated (corrected D557: D553 said the table has
-    no row); by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
+    ℓ_I; the record leaves E^C_I to the class, so with log terms there the loss is larger.] [D576, verifier 251 on D573
+    (1 major, 4 minor, 2 nits); `checks/prop31loss5.py` Q3 corrected, Q4 added, exact: the round is not charged at the
+    general class. Each ι⁺ round removes its error's ℐ⁺-expansion by Proposition 3.1 (I6:156-160), and that error lies
+    in (E^tot_(ι⁺,ℐ) + 2, ℓ_I + 1), E^tot_(ι⁺,ℐ) = ∪_s (3/2 + s, 0) (I6:38-40, 143-145), with no ρ_I^(z+1)-term for Re z
+    < 5/2 (I6:48-51): its z are 5/2 + σ_Υ + ℕ_0, of log order 0, and Step 1's exceptional term is absent. So one
+    application of L_b for ℓ_I in (3, 3.5) and two for ℓ_I in [3.5, 3.5099) (Q4), and a round is charged (d_G + 2) + 2 =
+    4 + d_G = 15, LD16's figure, on ℓ_I < 3.5, or 6 + d_G = 17 above: D573's "19, not 15" is withdrawn. D573's count, 6,
+    is that of the one-off application to the general class (I6:103-108), once per call. Also: these are sufficient
+    charges, not shown minima (the necessity of the sequential chain is read from the proof's structure); the counts 9,
+    16, 25 and 3.5099 are at e_Υ = γ_Υ = 1/100, J = 2 on (3, 4) being analytic for every log-free admissible E^C_I, Q2 a
+    grid of 10⁻⁴; chain() summed a window's log orders over its z's, where one solve per log level suffices (Q3: 5, not
+    17). Not done: whether Proposition 2.1's count, grouped with 3.1 by J3:257, changes (its weight steps also apply L̃,
+    I2:136-152).] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's (I9:231; its MOD column lists III.G″
+    Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to α_K": exponents, not the rounds LD14
+    counts, a round treating every λ_0 of the window together (I6:127-129), and which of the two III.J″ multiplies is
+    not stated (corrected D557: D553 said the table has no row); by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77)
+    their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
-    with III.I′ Proposition 3.1; the per-round floors 2 and 8 + d_G (4 + d_G before D573), which a finer accounting
-    might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's input), E^C_I's log terms below ℓ_I (Proposition
-    3.1's loss is 6 without them, D573), and ℓ's value (equal at both kinds of round if both make the same choices of s
-    and r_in, D560, D563); the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
+    with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G on ℓ_I < 3.5 (6 + d_G on [3.5, 3.5099); D573's 8 +
+    d_G withdrawn, D576), which a finer accounting might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's
+    input), E^C_I's log terms below ℓ_I for the one-off application to the general class (loss 6 without them, D573,
+    D576), Proposition 2.1's count, and ℓ's value (equal at both kinds of round if both make the same choices of s and
+    r_in, D560, D563); the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

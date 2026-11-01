@@ -6080,6 +6080,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   a_I + ½ (I6:35), and the forcing-weight reason is this note's reading; I15:451 reads a_I = ℓ_I under one reading of
   (H2), so d_G = 11 then asks a_I ≤ 3.5099 too; the disk figure's basis stated. The D570 and D571 entries above keep
   their text.
+- D576 (verifier 251 on D573: 1 major, 4 minor, 2 nits; `checks/prop31loss5.py` Q3-Q4, exact): MAJOR, the ι⁺ round's
+  Proposition 3.1 acts on the round's error, whose ℐ⁺-exponents are 5/2 + σ_Υ + ℕ_0 only (I6:38-51, 143-145), with no
+  Step 1 term: one L_b application on ℓ_I < 3.5, two on [3.5, 3.5099). A round is charged 4 + d_G = 15 on ℓ_I < 3.5
+  (LD16's figure) or 17 above; D573's 19 is withdrawn, its 6 being the one-off application to the general class
+  (I6:103-108). Minor: sufficient charges, not minima; the counts at e_Υ = γ_Υ = 1/100; J = 2 analytic, Q2 a grid; one
+  solve per log level in a window (Q3: 5, not 17). Open: Proposition 2.1's count. The D573 entry above keeps its text.
+- D577 (verifier 249 on D569: no major; 4 minor, 4 nits; the rerun reproduces bbar5.out, the λ³ truncation and a
+  χ-on-dr⊗dr mutant confirm it, ΔC is one term r⁻³F(v, θ)): corrected the wording. The background part B0, C0 is
+  deduced, not computed; "in E_2, hence in E_2^ℓ" is replaced by "exact sums of r^(−p)F, p ≥ 2, each in E_p^ℓ"; χ is a
+  second-harmonic choice, P5 allowing any s-dependence, and the zero mode L4 leaves free changes nothing; K1 carries to
+  Cartesian components, the wave part being of order zero as a tensor operator. Nits: the run time, the polar-angle
+  notation, "polynomial" in g0 and g0⁻¹. The D569 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

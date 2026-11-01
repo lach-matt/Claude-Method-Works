@@ -755,19 +755,24 @@ What it does not give:
   5.1's weights the terms of Rm^(m) linear in m_m pair it with factors of weight 0, which do not depend on m, so B̄ and
   C̄ are the same at every stage and are read off at stage 1 with φ_1 = 0: the λ¹ε¹ coefficient of Ric^H(g0 + λW + λεh)
   in lead5.py's gauge and coordinates, h a symmetric tensor of 15 arbitrary functions of all five coordinates, W = W_TT
-  + χ dv dv with χ = r⁻²(k_a cos 2s + k_b sin 2s), past5.py P5's form. K0: the ε-linear part at λ⁰ is ½h_rr ∂_s²W, the
-  record's −½e_1∂_θ²W with e_1 = −m_1(ℓ, ℓ) (5.2), and nothing else. K4: with the wave off, its principal part is
-  −½g0^(ab)∂_a∂_b h_cd component by component, Lemma 5.3 (a)'s □̃. K1: the wave's contribution to the θ-mean carries no
-  derivative of h, so B̄ = B0, built from g0 alone. K2: that contribution is quadratic in the wave, the means of the
-  linear terms vanishing. K3: in an orthonormal frame, whose order is the Cartesian one, it is of order r⁻³, attained at
-  nine entries (vv from h_θθ, h_φ1φ1, h_φ2φ2; vθ, vφ1, vφ2 from h_rθ, h_rφ1, h_rφ2; θθ, φ1φ1, φ2φ2 from h_rr), and χ
-  contributes nothing, every quadratic χ term pairing dv with dv through g0⁻¹, which is null (χ is in the computation:
-  K0's vv entry carries it). Ctl: the amplitude r^(−1/2) lowers K3's order to r⁻¹. So C̄ = C0 + ΔC with ΔC an exact
-  finite sum of r^(−p)F(v, x̂), p ≥ 3; B0 and C0 are polynomials in g0's Cartesian components and their first two
-  derivatives, and g0 − η = μ(v)r⁻² dv dv is exact, so they are exact sums with p ≥ 2 (deduced). B̄ and C̄ are therefore
-  exact and in E_2, hence in E_2^ℓ, as D559's induction uses them: D564's (3) is discharged. Not computed: the stage-m
-  statement rests on Lemma 5.1's weight count, not on a run at m ≥ 2; the frame-to-Cartesian step is a change of basis
-  with x̂-dependent, r-independent coefficients (deduced).]
+  + χ dv dv with χ = r⁻²(k_a cos 2s + k_b sin 2s), a second harmonic (P5 allows any s-dependence, and lead5.py's L4
+  leaves an s-independent zero mode free; with that mode the results are the same, verifier 249's mutant, D577). K0: the
+  ε-linear part at λ⁰ is ½h_rr ∂_s²W, the record's −½e_1∂_θ²W with e_1 = −m_1(ℓ, ℓ) (5.2), and nothing else. K4: with
+  the wave off, its principal part is −½g0^(ab)∂_a∂_b h_cd component by component, Lemma 5.3 (a)'s □̃. K1: the wave's
+  contribution to the θ-mean carries no derivative of h, so B̄ = B0, built from g0 alone. K2: that contribution is
+  quadratic in the wave, the means of the linear terms vanishing. K3: in an orthonormal frame, whose order is the
+  Cartesian one, it is of order r⁻³, attained at nine entries (vv from h_θθ, h_φ1φ1, h_φ2φ2; vθ, vφ1, vφ2 from h_rθ,
+  h_rφ1, h_rφ2; θθ, φ1φ1, φ2φ2 from h_rr), and χ contributes nothing, every quadratic χ term pairing dv with dv through
+  g0⁻¹, which is null (χ is in the computation: K0's vv entry carries it). Ctl: the amplitude r^(−1/2) lowers K3's order
+  to r⁻¹. So C̄ = C0 + ΔC with ΔC an exact finite sum of r^(−p)F(v, x̂), p ≥ 3; B0 and C0 are polynomials in g0's
+  Cartesian components and their first two derivatives, and g0 − η = μ(v)r⁻² dv dv is exact, so they are exact sums with
+  p ≥ 2 (deduced). B̄ and C̄ are therefore exact sums of r^(−p)F(v, x̂) with p ≥ 2, and such a term lies in E_p^ℓ
+  (ℓ(r^(−p)F) = −p r^(−p−1)F), as D559's induction uses them: D564's (3) is discharged, the wave part by computation and
+  B0, C0 by deduction (corrected D577, verifier 249: "in E_2, hence in E_2^ℓ" did not follow from E_2 alone). Not
+  computed: the stage-m statement rests on Lemma 5.1's weight count, not on a run at m ≥ 2; the frame-to-Cartesian step
+  is a change of basis with x̂-dependent, r-independent coefficients (deduced); and K1 carries over to Cartesian
+  components because the wave part is of order zero as a tensor operator, which a change of coordinates keeps (D577).
+  Notation: h_θθ above is the polar angle's component, the record's θ being the phase, s in bbar5.py.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

@@ -7744,3 +7744,13 @@ Compared on their own cells, they agree closely everywhere except next to the ex
 the finest run's blow-up is in the interior. So there are two different failures, and the simple rule linking the
 resolutions is now only a hypothesis. On D570: the stricter weight limit is not used by every later step, as that entry
 said, and the reason given for it was this note's reading, not the record's statement.
+
+**D576 (2026-11-01): D573 corrected.** D573 counted the cost of a step for the most general input, but inside each round
+of the loop the step only ever sees a much simpler input, for which it costs what the note had charged before. So a
+round still costs 15, or 17 for a slightly larger weight; D573's higher count applies only to one separate use of the
+step, outside the loop.
+
+**D577 (2026-11-01): D569 confirmed, its wording narrowed.** The independent check reproduced the computation of the two
+coefficients and found no error in it. D569's summary said more than was computed: the waves' contribution is computed
+exactly, but the background's part, and so the statement that both coefficients fall off fast enough, rests on a short
+argument rather than a computation.

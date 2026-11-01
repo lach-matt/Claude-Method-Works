@@ -22,7 +22,17 @@ gamma_Ups, 2 gamma_Ups}; III.C Lemma 3.2 (e) gives a least one containing any ad
   Q2 (exact) for every l_I in (3, 3.5099), off the exclusion set: the windows meeting {Re z <= l_I} are [2, 3) and
      [3, 4), J = 2, no log steps: 1 + J = 3 applications of L_b, loss 6 for the remainder (3.1), 4 for u. The same J = 2
      for every admissible seed with min Re E^C_I in (3/2 + 2 gamma_Ups, 2] and no log term below l_I.
-  Q3 (control) a seed with a log term below l_I, (2.3, 1): its two log orders are taken in turn, one more step.
+  Q3 (control) a seed with a log term below l_I, (2.3, 1): its closure has log-1 points below 3.4 in both windows, and
+     each window's two log levels are taken in turn: 1 + 2 + 2 = 5 applications (corrected D576: 17 summed the log
+     orders over the z's of a window).
+  Q4 (exact; D576, verifier 251) the iota+ round's own application (I6:156-160): its error has I+-exponents z in 5/2
+     + sigma_Ups + N_0 only (I6:38-40, 143-145), no Step 1, no logs: one application for l_I in (3, 3.5), two for
+     [3.5, 3.5099); so a round costs (d_G + 2) + 2 = 15 or (d_G + 2) + 4 = 17, LD16's 4 + d_G on l_I < 3.5. The
+     general count, 6, is the one-off application to the general class (I6:103-108).
+
+The counts 9, 16, 25, 36 and 3.5099 = 3/2 + (1 - e_Ups) gamma_Ups + 2 are at e_Ups = gamma_Ups = 1/100; J = 2 on (3, 4)
+for any admissible log-free E^C_I is analytic ((2, 0), (3, 0) in E^C_I and E^C_I + 1 in E^C_I, III.C Lemma 3.2 (a),
+fix the window starts at 2 and 3), Q2 sampling it on a grid of 10^-4.
 
 Labels: computed (exact rationals) for Q1-Q3; deduced (the reading of I2's proof and J3 (g) above) for the step count.
 
@@ -58,17 +68,26 @@ def least_ECI(seed=(), top=TOP):
         E = new
 
 
-def chain(E, lI):
-    """the L_b applications of Proposition 3.1's proof below l_I: Step 1, one per window, one per extra log order"""
+def chain(E, lI, step1=True):
+    """the L_b applications of Proposition 3.1's proof below l_I: Step 1 (if f has the exceptional term), and per window
+    one per log level, the z's of a window and of one log level solved from one f (D576, verifier 251: the log levels of
+    a window are combined, not summed over its z's)"""
     left = sorted(z for z in E if z <= lI)
     J, logs = 0, 0
     while left:
         mu = left[0]
         win = [z for z in left if z < mu + 1]
         J += 1
-        logs += sum(E[z] for z in win)
+        logs += max(E[z] for z in win)
         left = [z for z in left if z >= mu + 1]
-    return J, logs, 1 + J + logs
+    return J, logs, int(step1) + J + logs
+
+
+def round_class(top=TOP):
+    """the iota+ round's error at I+ (proof5/PART-III-I6-ALMOSTBDD.md:143-145, 156-160): exponents z + 1 in
+    E^tot_(iota+, I) + 2 + N_0, E^tot_(iota+, I) = {3/2 + s} (I6:38-40), so z in 5/2 + sigma_Ups + N_0, log order 0;
+    no rho_I^(z + 1) term with Re z < 5/2 (I6:48-51), so Step 1's exceptional term is absent"""
+    return {Fr(5, 2) + s + n: 0 for s in SIGMA for n in range(3) if Fr(5, 2) + s + n <= top}
 
 
 def main():
@@ -101,8 +120,14 @@ def main():
     ok['Q2b'] = Js == {2}
     print('  Q2: seeds with min Re in (1.52, 2] (%d seeds, l_I = 3.0001, 3.4, 3.5098): J = %s' % (len(seeds), sorted(Js)))
     El = least_ECI(((Fr(23, 10), 1),))
-    ok['Q3'] = chain(El, Fr(34, 10))[1] > 0 and chain(El, Fr(34, 10))[2] > 3
+    ok['Q3'] = chain(El, Fr(34, 10)) == (2, 2, 5)
     print('  Q3 (control): a seed (2.3, 1): (J, log steps, applications) at l_I = 3.4: %s' % (chain(El, Fr(34, 10)),))
+    Er = round_class()
+    lo = {chain(Er, l, step1=False) for l in lIs if l < Fr(35, 10) and l not in Er}
+    hi = {chain(Er, l, step1=False) for l in lIs if l >= Fr(35, 10) and l not in Er}
+    ok['Q4'] = lo == {(1, 0, 1)} and hi == {(2, 0, 2)}
+    print('  Q4: the iota+ round\'s error class (5/2 + sigma + N_0, no Step 1): (J, log steps, applications) = %s on (3, '
+          '3.5), %s on [3.5, 3.5099): loss 2 or 4, a round (d_G + 2) + 2 = 15 or 17' % (sorted(lo), sorted(hi)))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

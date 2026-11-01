@@ -1,8 +1,10 @@
   Q1: the least E^C_I below 3.6: 86 points, [9, 16, 25, 36] about 2, 2.5, 3, 3.5; all of log order 0: True; min 2; (2,0), (3,0) in it; E + 1/2 in E: True
   Q2: over 5073 values of l_I in (3, 3.5099) off the exclusion set, (J, log steps, L_b applications) = [(2, 0, 3)]: loss 6 for (3.1), 4 for u
   Q2: seeds with min Re in (1.52, 2] (4 seeds, l_I = 3.0001, 3.4, 3.5098): J = [2]
-  Q3 (control): a seed (2.3, 1): (J, log steps, applications) at l_I = 3.4: (2, 14, 17)
+  Q3 (control): a seed (2.3, 1): (J, log steps, applications) at l_I = 3.4: (2, 2, 5)
+  Q4: the iota+ round's error class (5/2 + sigma + N_0, no Step 1): (J, log steps, applications) = [(1, 0, 1)] on (3, 3.5), [(2, 0, 2)] on [3.5, 3.5099): loss 2 or 4, a round (d_G + 2) + 2 = 15 or 17
 Q1 PASS
 Q2a PASS
 Q2b PASS
 Q3 PASS
+Q4 PASS
