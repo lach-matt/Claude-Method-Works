@@ -35,21 +35,40 @@ as in sections 3c and 3e (verifier 207, D493: E2.8's proof uses only phi in C^3,
 """
 import sys
 import time
+from fractions import Fraction
 
 from mpmath import iv, mp, mpf
 
+_argv, sys.argv = sys.argv, sys.argv[:1]
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
 import e2asymcert5 as E  # noqa: E402
+sys.argv = _argv
 
 iv.dps = 30
 mp.prec = iv.prec
-SL, SR, KS = iv.mpf(49) / 50, iv.mpf(4), iv.mpf(1) / 2
-SC = iv.mpf(10174) / 10000
+# sigma, the least harmonic l_1 the multiplier is certified at, and the multiplier (s_L, s_R, kappa_s, s_c; kappa = s_c):
+# D497's at sigma = 3, D503's at 6 to 96 (e2trap5's argmin at l_1, s_c to four digits)
+PRESETS = {"3": ("3", "5", "49/50", "4", "1/2", "10174/10000"),
+           "6": ("6", "11", "49/50", "4", "1/2", "6575/10000"),
+           "12": ("12", "22", "49/50", "4", "1/2", "4914/10000"),
+           "24": ("24", "46", "49/50", "4", "1/2", "3673/10000"),
+           "48": ("48", "93", "49/50", "6", "1/2", "2467/10000"),
+           "96": ("96", "188", "49/50", "4", "1/2", "1774/10000")}
+FLOAT = {"3": 10.98, "6": 5.846, "12": 3.755, "24": 2.362, "48": 1.512, "96": 0.9886}   # section 3j's (D486, D493)
+_spec = PRESETS[sys.argv[1]] if len(sys.argv) == 2 else (tuple(sys.argv[1:7]) if len(sys.argv) >= 7 else PRESETS["3"])
+
+
+def _q(s):
+    f = Fraction(s)
+    return iv.mpf(f.numerator) / f.denominator
+
+
+SIGMA, L1 = _q(_spec[0]), int(_spec[1])
+SL, SR, KS, SC = (_q(s) for s in _spec[2:6])
 DD = 1 / SL - 1 / SR
 BETA = 1 / SC - (1 / SR + DD / 2)
 KC = SC
 X_C, LN2, B_, A_, xr, pots = E.X_C, E.LN2, E.B_, E.A_, E.xr, E.pots
-SIGMA = iv.mpf(3)
 
 
 def th_sech(y):
@@ -176,12 +195,15 @@ def main():
           % (mp.nstr(wk, 3), iv.nstr(BETA, 8)), flush=True)
     tL, rR = -120, 120
     tR = iv.log(iv.mpf(rR) - 1).b
-    good, n, bad = certify_positive(A_(5), tL, tR)
+    sg = _spec[0]
+    print("  sigma = %s, l_1 = %d, multiplier s_L = %s, s_R = %s, kappa_s = %s, s_c = kappa = %s"
+          % (sg, L1, iv.nstr(SL, 6), iv.nstr(SR, 6), iv.nstr(KS, 6), iv.nstr(SC, 8)), flush=True)
+    good, n, bad = certify_positive(A_(L1), tL, tR)
     ok["C1"] = good
-    print("  C1: w_5 >= 0 on t in [%d, ln %d]: %s, %d enclosures (%.0fs)%s"
-          % (tL, rR - 1, good, n, time.time() - t0, "" if good else "  failed at %s" % (bad,)), flush=True)
-    rl, el = tail_left(A_(5), tL)
-    rr, mr = tail_right(A_(5), rR)
+    print("  C1: w_%d >= 0 on t in [%d, ln %d]: %s, %d enclosures (%.0fs)%s"
+          % (L1, tL, rR - 1, good, n, time.time() - t0, "" if good else "  failed at %s" % (bad,)), flush=True)
+    rl, el = tail_left(A_(L1), tL)
+    rr, mr = tail_right(A_(L1), rR)
     ok["C2"] = rl.b < 1 and el.a > 0 and rr.b < 1 and mr.a > 0
     print("  C2: left tail ratio <= %s (exponent 2(1/s_L - 1) >= %s); right tail ratio <= %s, monotone from %s"
           % (E.up(rl.b, 4), E.dn((2 * el).a, 4), E.up(rr.b, 3), E.dn(mr.a, 3)), flush=True)
@@ -189,37 +211,44 @@ def main():
     gmin = min(1 / SR, 1 / SL).a                                # g' >= the flank's least slope > 0 (beta > 0)
     ok["C3"] = BETA.a > 0 and gmin > 0
     print("  C3: beta > 0 and g' >= %s > 0, so phi and U' change sign together at x_*: -phi U' >= 0, and the multiplier "
-          "certified at l = 5 is admissible for every l >= 5 with B_l(3) <= B_5(3)" % E.dn(gmin, 4))
+          "certified at l = %d is admissible for every l >= %d with B_l(%s) <= B_%d(%s)" % (E.dn(gmin, 4), L1, L1, sg, L1, sg))
     m1lo, M1hi = E.enclose_I(lambda tt: mult(xr(tt))[1], pieces=8000)
-    wlo, _ = E.enclose_I(lambda tt: w_of(tt, A_(5)), pieces=8000)
+    wlo, _ = E.enclose_I(lambda tt: w_of(tt, A_(L1)), pieces=8000)
     c = iv.mpf(M1hi) + 2 * SIGMA
     w, m = iv.mpf(wlo), iv.mpf(m1lo)
     B5 = iv.sqrt((2 / m + c**2 / w) / w)
     ok["C4"] = m1lo > 0 and wlo > 0
-    print("  C4: on I: m' >= %s, M' <= %s, min_I w_5 >= %s; B_5(3) <= %s (section 3j's float value 10.98)"
-          % (E.dn(m1lo, 5), E.up(M1hi, 5), E.dn(wlo, 5), E.up(B5.b, 5)), flush=True)
+    print("  C4: on I: m' >= %s, M' <= %s, min_I w_%d >= %s; B_%d(%s) <= %s (section 3j's float sup %s)"
+          % (E.dn(m1lo, 5), E.up(M1hi, 5), L1, E.dn(wlo, 5), L1, sg, E.up(B5.b, 5), FLOAT.get(_spec[0], "-")),
+          flush=True)
     lam = xr(iv.log(iv.mpf(3))) - xr(iv.log(iv.mpf("0.2")))
     e27, good7 = [], True
-    for l in range(0, 5):
+    for l in range(0, L1):
         vm = vmax(l)
         good7 &= (SIGMA**2 - vm).a > 0
         e27.append((l, vm, lam * SIGMA / (SIGMA**2 - vm)))
-    above5 = (vmax(5) - SIGMA**2).a > 0
-    ok["C5"] = good7 and above5
-    print("  C5: Lambda = %s; E2.7 at sigma = 3: %s; max V_5 >= %s > 9" %
-          (iv.nstr(lam, 8), ", ".join("l = %d: <= %s (max V = %s)" % (l, E.up(b.b, 5), iv.nstr(vm, 6))
-                                      for l, vm, b in e27), E.dn(vmax(5).a, 6)), flush=True)
+    above5 = (vmax(L1) - SIGMA**2).a > 0                       # informational: E2.7 is not needed at l_1
+    ok["C5"] = good7
+    print("  C5: Lambda = %s; E2.7 at sigma = %s, every l < %d below the barrier: %s; l_1 = %d is %s the barrier (max V "
+          "= %s, sigma^2 = %s)" %
+          (E.dn(lam.a, 8), sg, L1, ", ".join("l = %d: <= %s" % (l, E.up(b.b, 5)) for l, vm, b in
+                                             (e27 if L1 <= 6 else e27[:1] + [(None, None, None)] + e27[-3:])
+                                             if l is not None) + ("" if L1 <= 6 else " (increasing in l)"), L1,
+           "above" if above5 else "below", E.dn(vmax(L1).a, 6), E.dn((SIGMA**2).a, 6)), flush=True)
     sup = max([b.b for _, _, b in e27] + [B5.b])
     # controls
     f1, _, bad1 = certify_positive(A_(1), tL, tR)
-    rl3, _ = tail_left(A_(5), -2)
-    rr25, _ = tail_right(A_(5), mpf("2.5"))
+    rl3, _ = tail_left(A_(L1), -2)
+    rc = next((r_ for r_ in ("2.5", "2", "1.6", "1.45") if tail_right(A_(L1), mpf(r_))[0].a > 1), None)
+    rr25 = tail_right(A_(L1), mpf(rc or "1.45"))[0]
     ok["controls"] = (not f1) and rl3.a > 1 and rr25.a > 1
-    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -2 >= %s; right ratio at r = 2.5 "
-          ">= %s" % (iv.nstr(iv.mpf(bad1[0]), 5) if bad1 else "-", E.dn(rl3.a, 4), E.dn(rr25.a, 4)), flush=True)
+    print("  controls: the bisection fails at l = 1 (near t = %s); left ratio at t = -2 >= %s; right ratio at r = %s "
+          ">= %s (the largest of 2.5, 2, 1.6, 1.45 where it exceeds 1)"
+          % (E.dn(iv.mpf(bad1[0]).a, 5) if bad1 else "-", E.dn(rl3.a, 4), rc, E.dn(rr25.a, 4)), flush=True)
     good_all = all(ok.values())
-    print("  %s: at sigma = 3, ||chi_I R_l(3) chi_I|| <= %s for every l >= 0 (best certified before: 275.2 at "
-          "l = 0, D387; 93.96 at l = 1, D466)" % ("CERTIFIED" if good_all else "NOT certified", E.up(sup, 5)))
+    print("  %s: at sigma = %s, ||chi_I R_l(sigma) chi_I|| <= %s for every l >= 0%s"
+          % ("CERTIFIED" if good_all else "NOT certified", sg, E.up(sup, 5),
+             " (best certified before: 275.2 at l = 0, D387; 93.96 at l = 1, D466)" if _spec[0] == "3" else ""))
     for k, v in ok.items():
         print(k, "PASS" if v else "FAIL")
     print("  (%.0f s)" % (time.time() - t0))
