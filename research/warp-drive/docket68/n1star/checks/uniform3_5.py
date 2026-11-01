@@ -12,10 +12,11 @@ M0 terms of x-degree 0 only, so the same steps can be run on the degree -3 matri
   V1-V5 uniform5's U1-U5 at degree -3 (its functions, on stripfull5's matrices): the structure; A_3(0), independent of x,
         with A_3(0) = A_2(0) + I exactly; its eigenvalues at the record's point; the Lyapunov metric; the constants and
         K0_3, so |F(1)| <= K0_3 |F(0)| for every l >= 2.
-  V6    the jump: J := M1_3(0) - I = M1_2(0) in the normalised basis, exactly, so J is independent of x; |J^-1|_2 at the
-        record's point (from J's least singular value at 50 digits, rounded up). Hence |K|_2 <= K0_3 |J^-1|_2 for every l >= 2, K = T_3 J^-1 the strip's rho^3
-        coefficient in the normalised basis: bounded uniformly in l. (K4 = -(1/2) T_3' J^-1 is bounded by the derivative
-        estimate, |F_s(1)| <= 2^(1/2) K0_3 (x^2/2 + 1)^(1/2) |F(0)|: at most linear in l, not uniform.)
+  V6    jump: J := M1_3(0) - I = M1_2(0) in the normalised basis, exactly, so J is independent of x; |J^-1|_2 at the
+        record's point (from J's least singular value at 50 digits, rounded up). Hence |K|_2 <= K0_3 |J^-1|_2 for every l
+        >= 2, K = T_3 J^-1 the strip's rho^3 coefficient in the normalised basis: bounded uniformly in l. (K4 = -(1/2)
+        T_3' J^-1 is bounded by the derivative estimate, |F_s(1)| <= 2^(1/2) K0_3 (x^2/2 + 1)^(1/2) |F(0)|: at most
+        linear in l, not uniform.)
   V7    (computed) stripfull5's K at l = 2 ... 6, normalised, lies below K0_3 |J^-1|.
   Control: with A_3(0) -> -A_3(0) no positive Lyapunov solution (as uniform5's).
 
@@ -24,7 +25,8 @@ Measured (D492): every check passes. A_3(0)'s eigenvalues 2, 2.0099, 2.01, 2.02,
 5.87e12; |J^-1|_2 <= 0.993 and 0.698; stripfull5's K at l = 2 ... 6 in this basis 2.21 to 2.39 (scalar) and 0.342 to
 1.008 (vector).
 
-Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed. Uniform, not sharp: K0 is astronomical.
+Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed.
+Uniform, not sharp: K0 is astronomical.
 """
 import sys
 import time
@@ -95,7 +97,8 @@ def main():
         # V6: the jump J = M1_3(0) - I = M1_2(0), normalised
         J3 = sp.Matrix(n, n, lambda i, j: sp.expand(Mt[1][i, j].subs(S, 0))) - sp.eye(n)
         J2 = sp.Matrix(n, n, lambda i, j: sp.expand(Mt2[1][i, j].subs(S, 0)))
-        v6a = sp.expand(J3 - J2) == sp.zeros(n) and not any(x in J3[i, j].free_symbols for i in range(n) for j in range(n))
+        v6a = sp.expand(J3 - J2) == sp.zeros(n) and \
+            not any(x in J3[i, j].free_symbols for i in range(n) for j in range(n))
         Jp = sp.Matrix(n, n, lambda i, j: sp.nsimplify(J3[i, j].subs(C.POINT), rational=True))
         free = set().union(*[Jp[i, j].free_symbols for i in range(n) for j in range(n)])
         v6a = v6a and not free
