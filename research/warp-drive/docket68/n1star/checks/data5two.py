@@ -26,14 +26,19 @@ wave.
      = 1 (checked here); none. Static only: for mu' != 0 the outgoing eikonal fixes d_tau(d_tau u) on Sigma, which Dt
      sets to zero, so the dynamic outgoing null phase is outside this code (verifier 247).
   T8 (control, exact; verifier 247's P7) T7's outgoing wave with an oscillating trace: a 1/lam coefficient appears.
+  T9, T10 (exact; D579) both families with each family's second harmonic chi on Sigma, data5's S4 for two families
+     (chi dv dv for the ingoing, chi_2 du du for the outgoing, which enters the shift g_taur with the opposite sign):
+     no 1/lam coefficient on the flat background (T9) and on Vaidya with u = tau - r (T10).
+  T11 (exact; D579) data5's S6 for two families: with both families and chi, the order-0 coefficients of the
+     principal terms ((J_r, J_th) in (w, q), rho in a) equal the background's, flat and Vaidya.
 
 The 1/lam coefficients of the linearisation are linear in the waves (they come from lam^-1 d_s^2 of lam W), so each
 family's cancellation is the single-family one and the mixed terms enter at order lam^0 only; T1-T2 check this on flat
 space, T3-T4 that the phase need not be null for it (D566), T6-T7 both families off flat space (D568). The waves carry
-no chi here (wave() takes no chi term), so the two-family chi is untested. Labels: computed (exact, sympy, data5.py's
+no chi in T1-T8; T9-T11 add each family's (D579). Labels: computed (exact, sympy, data5.py's
 normal form).
 
-Run: python3 checks/data5two.py   (about ten minutes)
+Run: python3 checks/data5two.py   (about twenty minutes)
 """
 import os
 import sys
@@ -82,7 +87,41 @@ def wave(with_w=True, with_chi=False):
         a2 = A * env * Hf * y3 * (2 * S_**2 * sp.sin(ph) - C**2 * sp.cos(ph)) / 3
         for i, x in enumerate((-2 * r_**2 * (a1 + a2), 2 * r_**2 * C**2 * a1, 2 * r_**2 * S_**2 * a2)):
             comp[i] += x
-    return comp, 0
+    # D579: each family's second harmonic chi, data5's form, chi dv dv for the ingoing and chi_2 du du for the outgoing
+    ch = A * d5.Ef * Hf * y3 * sp.cos(2 * d5.s) if (with_w and with_chi and WHICH["in"]) else 0
+    CHI["out"] = A * E2 * Hf * y3 * sp.cos(2 * s2) if (with_w and with_chi and WHICH["out"]) else 0
+    return comp, ch
+
+
+CHI = {"out": 0}
+
+
+def slice_data2(with_w=True, with_chi=False):
+    """data5's slice_data with chi_2 du du added: du = dtau - dr on Sigma, so chi_2 enters g_tautau, g_rr with + and the
+    shift g_taur with - (chi dv dv enters all three with +)"""
+    trunc, lam, mu, C, S_ = d5.trunc, d5.lam, d5.mu, d5.C, d5.S_
+    Wa, ch = d5.wave(with_w, with_chi)
+    ch2 = CHI["out"]
+    m = mu / r_**2
+    gtt = -1 + m + lam * (ch + ch2)
+    btr = m + lam * (ch - ch2)
+    gam = sp.diag(1 + m + lam * (ch + ch2), r_**2 + lam * Wa[0], r_**2 * C**2 + lam * Wa[1], r_**2 * S_**2 + lam * Wa[2])
+    gi = sp.zeros(4)
+    for i in range(4):
+        g0_, d_ = gam[i, i].subs(lam, 0), gam[i, i] - gam[i, i].subs(lam, 0)
+        gi[i, i] = trunc(1 / g0_ - d_ / g0_**2 + d_**2 / g0_**3, 2)
+    beta = [btr, 0, 0, 0]
+    N2 = trunc(-gtt + gi[0, 0] * btr**2, 2)
+    N20 = N2.subs(lam, 0)
+    dl = trunc((N2 - N20) / (2 * N20), 1)
+    Ninv = (1 - dl + sp.Rational(3, 2) * dl**2) / sp.sqrt(N20)
+    G = d5.christoffel(gam, gi)
+    K = sp.zeros(4)
+    for i in range(4):
+        for j in range(4):
+            lie = d5.D(beta[j], i) + d5.D(beta[i], j) - 2 * sum(G[k][i][j] * beta[k] for k in range(4))
+            K[i, j] = trunc(sp.expand((d5.Dt(gam[i, j]) - lie) * Ninv / 2), 1)
+    return gam, gi, K
 
 
 def canonical2(e):
@@ -106,6 +145,34 @@ def has_inverse(lin):
 
 
 MU0 = d5.mu
+
+
+SLICE0 = d5.slice_data
+NAMES = (("w_r", "w_t", "q_r", "q_t"), ("w_r", "w_t", "q_r", "q_t"), ("a_rr", "a_rt", "a_r", "a_tt"))
+
+
+def principal(lin):
+    """data5's S6: the order-0 coefficients of the principal terms ((J_r, J_th) in (w, q), rho in a)"""
+    g = {str(v_): v_ for v_ in d5.jet(sp.Integer(0))[1].values()}
+    return [sp.expand(d5.jet(d5.coeff(x, 0))[0]).coeff(g[nm]) for x, nms in zip(lin, NAMES) for nm in nms]
+
+
+def run_chi(flat):
+    """D579: both families with chi on Sigma; returns (a 1/lam coefficient?, the principal coefficients equal the
+    background's?)"""
+    d5.D, d5.Dt, d5.wave, d5.slice_data = D, Dt, wave, slice_data2
+    SPEED["c"] = 1
+    WHICH.update({"in": True, "out": True, "trace_out": False})
+    d5.mu = sp.Integer(0) if flat else MU0
+    try:
+        lin, _ = d5.perturbed(True, True)
+        lin0, _ = d5.perturbed(False, False)
+    finally:
+        d5.mu = MU0
+        d5.slice_data = SLICE0
+        CHI["out"] = 0
+    same = all(canonical2(sp.expand(x - y)) == 0 for x, y in zip(principal(lin), principal(lin0)))
+    return has_inverse(lin), same
 
 
 def run(flat, c, which, static=None):
@@ -155,6 +222,16 @@ def main():
     WHICH["trace_out"] = False
     ok['T8'] = t8
     print('  T8 (control): T7\'s outgoing wave with an oscillating trace: a 1/lam coefficient: %s' % t8, flush=True)
+    t9, p9 = run_chi(True)
+    ok['T9'] = not t9
+    print('  T9: both families with chi (chi dv dv and chi_2 du du) on the flat background: a 1/lam coefficient: %s'
+          % t9, flush=True)
+    t10, p10 = run_chi(False)
+    ok['T10'] = not t10
+    print('  T10: the same on Vaidya, u = tau - r: a 1/lam coefficient: %s' % t10, flush=True)
+    ok['T11'] = p9 and p10
+    print('  T11: data5\'s S6 with both families and chi: the order-0 principal coefficients equal the background\'s '
+          '(flat %s, Vaidya %s)' % (p9, p10), flush=True)
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1
