@@ -5228,6 +5228,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   any smooth extension off them (p. 9). The record's target is g0 and its source E^Υ_(g0) G_(g0)(g − g0) is algebraic in
   g, fixed on N1 ∪ N2 by the data; off them it alters the reduced system only by terms without derivatives of g, so the
   system stays quasilinear wave (deduced; Rendall's [36] not read). (D483 is the dense amplitude scan, running.)
+- D475 (CERTIFY-10L5 6b, `checks/g1curv5.py`, computed on saved runs): G1's failure in the Kretschmann invariant. On the
+  amplitude runs of D445 (A = 1/4 to 1, M = 32 and 40), 24 u-rows over the failure region: where K converges in M it is
+  within order 1 of Tangherlini's 72/R⁸ (max |K/K_0 − 1| near the axis from 0.51 to 3.9 as A goes from 1/4 to 1, before v
+  = 1.75), growing roughly like A^1.3 to A², with no resolved growth before the failure; from v = 2 at A ≥ 3/4 it is
+  unresolved at every angle computed (x from −0.97 to 0.5), 10³ to 10⁷ K_0 with M-differences as large. The angular
+  derivatives are global, so the cause is not localised; the invariant shows the failure reaches the geometry and that
+  the resolved curvature is moderate. Open: an axis treatment judged by K at every angle. (A first run read the mask the
+  wrong way round, b6fb8e7.)
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

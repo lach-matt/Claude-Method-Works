@@ -7213,3 +7213,9 @@ nonzero at the record's own choice and near it, but not for every allowed one.
 gauge. Read closely, that choice's reference metric plays no real role, and its source term is fixed on the surfaces by
 the data and free off them. The record's gauge differs only by terms without derivatives of the metric, which do not
 change the kind of equation the theorem treats.
+
+**D475 (2026-11-01): the curvature where the numerics fail.** Followed through the earlier runs at five wave strengths,
+the curvature, which no choice of coordinates can disguise, stays within a few times its background value wherever the
+two resolutions agree, and shows no sign of running away before the numerics fail. Where they fail, the curvature itself
+is unresolved at every angle, not only near the axis. So the failure is real in the geometry as computed, but nothing
+resolved points to a singularity.

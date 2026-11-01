@@ -9,16 +9,26 @@ numerically. Here it is computed on the saved runs of D445 (dnsolve5.py --run 1 
 1/2, 3/4, 7/8, 1, M = 32 and 40), on 24 u-rows crossing the failure region (kept cells with areal radius in [0.95, 1.5]
 and v in [1.5, 3]), and reported per v-band, over the kept cells of those rows with areal radius in [1.0, 1.4]:
 
-  - dev_M = max |K/K_0 - 1| at x = -0.99, K_0 = 72/R^8 Tangherlini's at the same areal radius, K interpolated in x from
-    the collocation nodes (Chebyshev in each run's own nodes): how far the curvature departs from the background near the
-    axis;
+    - dev_M = max |K/K_0 - 1| at x = -0.97, K_0 = 72/R^8 Tangherlini's at the same areal radius, K interpolated linearly
+    between the two nearest collocation nodes (a global interpolant would carry the near-axis alternation to every
+    angle): how far the curvature departs from the background near the axis;
   - diff = max |K_32 - K_40|/K_0 there: whether the invariant itself converges in angle;
   - p = the exponent of dev in A between successive amplitudes (1 for a linear response, 2 for a quadratic one);
-  - the same three at x = -0.9 and x = 0, away from the axis.
+    - the same three at x = -0.9, -0.5, 0 and 0.5, away from the axis.
 
 If K converges near the axis where P does not, the non-convergence sits in the gauge functions, not in the geometry; if
 K's difference grows with dev, the angular structure of the geometry itself outruns the resolution; if dev grows faster
 than any fixed power of A as A -> 1, the solution may be heading for a singularity there.
+
+Measured (D475; 24 rows, the kept cells, mask True marking excluded cells): wherever K converges in M its departure from
+the background stays of order 1, growing roughly like A^1.3 to A^2 (dev at x = -0.97 from 0.51 at A = 1/4 to 3.9 at A = 1
+on [1.5, 1.75), diff below 1.3e-3): on v < 1.75 at every A, and on v < 2.25 at A <= 1/2, with no resolved growth before
+the failure. At A = 1/2 the convergence weakens from v = 2.25 (diff up to 0.4 of dev at x = 0.5). From v = 2 at A >= 3/4
+(from 1.75 at A = 1) K is unresolved at every angle computed, x = -0.97 to 0.5: dev 10^3 to 10^7 with diff as large, so
+those values are not a resolved growth of the curvature. The angular derivatives in K are the collocation's, global in x,
+so this does not localise the cause at the axis or exclude it: the invariant does not tell a singularity from a defect of
+the scheme, but it shows the failure is not only in the gauge functions, and that the curvature is moderate wherever it
+is resolved.
 
 Labels: computed (floating point, on saved runs).
 
@@ -29,7 +39,6 @@ import os
 import sys
 
 import numpy as np
-from numpy.polynomial import chebyshev as Ch
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
@@ -37,7 +46,7 @@ import dnsolve5 as D                                                   # noqa: E
 
 AMPS = ("0.25", "0.5", "0.75", "0.875", "1")
 BANDS = ((1.5, 1.75), (1.75, 2.0), (2.0, 2.25), (2.25, 2.5), (2.5, 3.0))
-XS = (-0.99, -0.9, 0.0)
+XS = (-0.97, -0.9, -0.5, 0.0, 0.5)
 
 
 def pick_rows(Z, n=24):
@@ -53,11 +62,13 @@ def pick_rows(Z, n=24):
 
 
 def at_x(K, xnodes, xe):
-    """K (..., M) at the nodes -> its Chebyshev interpolant at xe (each run's own nodes are Chebyshev-Gauss in x)"""
-    M = len(xnodes)
-    V = Ch.chebvander(xnodes, M - 1)
-    c = np.linalg.solve(V, np.moveaxis(K, -1, 0).reshape(M, -1))
-    return Ch.chebval(xe, c).reshape(K.shape[:-1])
+    """K (..., M) at the nodes -> linear interpolation at xe between the two nearest nodes; a global interpolant
+    would carry the near-axis nodes' alternation (D458) to every angle"""
+    o = np.argsort(xnodes)
+    xs, Ks = xnodes[o], K[..., o]
+    j = min(max(int(np.searchsorted(xs, xe)), 1), len(xs) - 1)
+    w = (xe - xs[j - 1]) / (xs[j] - xs[j - 1])
+    return (1 - w) * Ks[..., j - 1] + w * Ks[..., j]
 
 
 def curv(dirn, A, M, rows=None):

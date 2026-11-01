@@ -582,6 +582,18 @@ No other component is nonzero. So the scheme is the following.
     between 1/2 and 3/4 of the record's, with the angular structure outrunning M = 40 (D445-D446), where a grid
     concentrated at the axis does not separate the readings, its one failing run being its most rounding-affected (D458,
     D462); and at x = +1 for the second seed. G1 is not yet answered to the end of the domain.
+  - The curvature invariant (D475; `checks/g1curv5.py`, on the saved amplitude runs of D445, 24 u-rows over the failure
+    region): the Kretschmann scalar K, assembled from exact Christoffels, against Tangherlini's K_0 = 72/R⁸ at the same
+    areal radius, at M = 32 and 40. Wherever K converges in M its departure from the background is of order 1 and grows
+    roughly like A^1.3 to A² (near the axis, x = −0.97, max |K/K_0 − 1| from 0.51 at A = 1/4 to 3.9 at A = 1 on v ∈ [1.5,
+    1.75), the M-difference under 1.3 × 10⁻³ of K_0): on v < 1.75 at every amplitude and on v < 2.25 at A ≤ 1/2, with no
+    resolved growth before the failure. From v = 2 at A ≥ 3/4 (from 1.75 at A = 1) K is unresolved at every angle
+    computed, x = −0.97 to 0.5: values 10³ to 10⁷ K_0, with M = 32 and 40 differing by as much, so they are not a
+    resolved growth of the curvature. K's angular derivatives are the collocation's, global in x, so this neither
+    localises the cause at the axis nor excludes it: the invariant does not tell a singularity from a defect of the
+    scheme, but it shows the failure reaches the geometry, not only the gauge functions, and that the curvature is
+    moderate wherever it is resolved. (A first run read the saved mask, which marks excluded cells, the wrong way round
+    and returned only NaN; corrected, b6fb8e7.)
 
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
@@ -598,10 +610,12 @@ No other component is nonzero. So the scheme is the following.
   does not separate the readings: its M = 40 run is dominated by its own axis rounding, its error at its coarser side
   (D458, D462). Next at λ = 1: an axis treatment that does not lose digits near the axis (the regular combinations (1 +
   x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions imposed there), then the
-  same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). At the
-  second seed, decide whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along
-  the axis) or by angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and
-  so is the curvature cut. Then F3 (the certified linear constant) on the converged part.
+  same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). The
+  Kretschmann scalar is now followed (D475): moderate and converged up to the failure, unresolved at every angle after
+  it, so an axis treatment must be judged by K's convergence at all angles, not near the axis alone. At the second seed,
+  decide whether the steepening at x = +1 is the solution's, by an invariant (the Kretschmann scalar along the axis) or
+  by angular refinement concentrated at the axes (a mapped Chebyshev grid). Rounding is excluded (D354), and so is the
+  curvature cut. Then F3 (the certified linear constant) on the converged part.
 
 ## 7. Sources
 
