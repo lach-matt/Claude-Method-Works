@@ -9,9 +9,11 @@ terms, stripfull5's degree -3 reductions at the record's point): the norm of F(0
 basis W, divided by (1 + kappa)^(k/2), k = 0 ... 4, scalar and vector types, l = 2, 4, 6, 8, 12, 16, 20.
 
 Measured (D508): scalar type, k = 0 from 4.88 (l = 2) to 31.6 (l = 20), about 1.5 l; k = 1 about 3.0, flat; k = 2, 3, 4
-falling with l (0.25, 0.026, 0.0059 at l = 20). Vector type: k = 0 about 1.6, flat; k >= 1 falling. All polynomial in l,
-as the induction says, the k = 0 growth far below the uniform bound K0_3 = e^(6e13). Labels: computed (a consistency
-check of the deduction in BEYOND5 3(b), not a bound). About 2 minutes.
+falling with l (0.25, 0.026, 0.0059 at l = 20). Vector type: k = 0 about 1.6, flat; k >= 1 falling. All polynomial in l
+and far below the induction's l-independent K_k (the k = 0 growth continues to 61.5 at l = 40, verifier 219, far below
+K0_3 = e^(6e13)): a pre-asymptotic consistency check, at s = 1 only, which does not probe uniformity in l (x^2/2
+dominates M0's lower terms only from x ~ 5e6 on the scalar type; D510). Labels: computed (a consistency check of the
+deduction in BEYOND5 3(b), not a bound). About 2 minutes.
 
     python3 checks/stripderiv5.py
 """

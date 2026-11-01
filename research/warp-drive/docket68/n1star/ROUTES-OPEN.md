@@ -5504,6 +5504,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   step, the number of levels being the β-chain's; J3 (g)'s quoted clause on rounds supports (iii) (fixed means
   k-independent, proved by Lemma 1.2 (e)). Confirmed: the rounds compose as maps, J3 adds their losses, the count and N =
   21d + 6. Corrected in LOSS-D LD11 and LD3; the D507 entry above keeps its text.
+- D510 (verifier 219 on D508; Lemma 0.1 re-read, the induction written out at k = 2, stripderiv5 rerun and extended to l
+  = 40): no major finding; (a)-(d) hold (Lemma 0.1 asks only ρ²C^∞, ρ³C^∞ components; the time-translate gives F(1 −
+  v_0ρ) at t = 0, the damping covectors being t-independent; s = 1 ordinary, series radius 2; K_k independent of l, the
+  x-degrees kept under s-differentiation; the angular sum converges, W uniformly equivalent to L² size; the t-derivative
+  uses K_(k+1)). MINOR: BEYOND5's D500 sentence still said s_1 = 3/2 was needed, as did uniform3_5's docstring; the
+  tensor type (a Gegenbauer polynomial, |F| ≤ |F(0)|, Markov) and l = 0, 1 needed their own clause; Lemma 0.1 is posed on
+  Σ_IVP, not {t = 0} (far out a constant shift and an O(ρ) bending, so the argument carries over), and the support is v ∈
+  [0, d] after N; the integrand is ∫ T_l(1 − vρ) J_l⁻¹ σ_l(v) dv and σ ∈ L¹(dv; C^∞(S³)); 'about 3.0 at k = 1' is the
+  scalar type's; 'polynomial, as the induction says' overstated a check that is pre-asymptotic, at s = 1 only, and does
+  not probe uniformity. Corrected in BEYOND5 3(b), uniform3_5 and stripderiv5; the D508 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

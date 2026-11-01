@@ -7362,3 +7362,8 @@ them.
 costs derivatives, but for a different reason than the one given: the record's summary of that step named an operation
 the step does not perform, while the step does apply second-order operators, which cost two derivatives each time. So the
 count is at least twice what was stated, and two of the printed figures were rounded slightly too high.
+
+**D510 (2026-11-01): the data-class argument, checked.** An independent check confirmed the argument and closed small
+gaps in it: the purely angular modes and the two lowest modes needed their own sentence, the record poses its data on a
+slightly tilted surface rather than a flat one (the argument carries over), and the computed check was worded more
+strongly than a check over the first forty modes can bear.

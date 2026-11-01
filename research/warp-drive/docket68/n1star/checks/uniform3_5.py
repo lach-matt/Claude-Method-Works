@@ -29,7 +29,7 @@ were printed only). A_3(0)'s eigenvalues 2, 2.0099, 2.01, 2.02, 1.5e6, 1.5e6, 3e
 
 Labels: V1-V5 exact (constants outward rounded, as uniform5's), V6 exact but for |J^-1|_2 (50 digits), V7 computed.
 Only uniform5's s1 = 1 case is run at degree -3; its s1 = 3/2 case and the derivative induction K_k are not, so K and
-K4, which need F(1) and F_s(1) only, are covered, and the rho^5 and later width coefficients are not (D500). For s
+K4, which need F(1) and F_s(1) only, are covered, and the rho^5 and later width coefficients are not covered by this run (D500). For s
 <= 1 uniform5's derivative induction needs only s1 = 1, so they are bounded by polynomials in l (D508, deduced). J's
 eigenvalues, 1.5, 1.5099, 1.51, 1.52 and the damping's, do not depend on x, so M1_3(0) = J + I has every real part > 1
 at every l >= 2. 'Normalised' here is uniform5's W; harmonics5.weights, which stripfull5 uses, differs from it by
