@@ -568,7 +568,7 @@ increases with |σ|.
     overlapping with no gap, both tail bounds proofs, and every l ≥ 2 covered (w_l ≥ w_6 on I, B, X and K decreasing in
     w_I, and l(l + 2)/(a − a_1) decreasing, so C_l ≤ C_6 = 48.41 for l ≥ 6); K4 now also shows the tail bounds and the
     constants step failing where they should. The comparison with 675.1 is like for like at l = 1 only: for l ≥ 2 the
-    weight is −φU′, not ψ_*, whose version is not certified.
+    weight is −φU′, not ψ_*; D477 certifies ψ_*'s version.
   - *l = 0 certified (D473; `checks/e2asymlzero5.py` L1-L5, interval arithmetic).* D466's φ with Lemma E2.8′'s Lagrangian
     term, q a sum of 37 sech² bumps (x_k − x_* on a lattice of 1/4 in [−3, 3], κ_k ∈ {3/10, 1/2, 9/10}·s_L, each below
     s_L, so q decays faster than φ′ at both ends; c_k rounded to four digits from a linear program, and the certificate
@@ -579,7 +579,16 @@ increases with |σ|.
     over 2000 pieces is coarser). Controls: without q, w_0 ≤ −0.022 at t = −3.9; with q″ entering at −1 the bisection
     fails and W_q ≤ −0.188 at t = −0.18; the left tail does not certify at t = −3. So one multiplier, with q at l = 0
     alone, certifies every harmonic l ≥ 0, and the summed H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82, set by l =
-    1, against 808.6 (set by l = 0) before; like for like at l = 0 and 1, and in −φU′'s weight for l ≥ 2.
+    1, against 808.6 (set by l = 0) before; like for like at l = 0 and 1, and for l ≥ 2 in −φU′'s weight and, by D477, in
+    ψ_*'s.
+  - *In section 3i's weight (D477; `checks/e2asympsi5.py` P1-P3, interval arithmetic).* U′ cancels in ψ/ψ_* = φ/φ_*,
+    and both vanish at x_* with the sign of r_* − x_*: away from x_* the ratio is enclosed by interval division, and
+    within |z| < 1/20 of it (z = (r_* − x_*)/s) by (tanh G/G)·s·min g′, the mean value theorem giving g/z. Over 2000
+    pieces of I, refined where needed, ψ/ψ_* ≥ 0.712 (floating point: 0.7134 at r = 1.70, the bound within 0.01 of it
+    there; D462's 0.638 was the linear-width multiplier's). So (a − a_1)∫_I ψ_*|u|² ≤ (K_l/0.712)‖f‖², and in ψ_*'s
+    weight C*_l ≤ 66.029, 53.523, 51.07, 49.974, 49.391 for l = 2-6, every l ≥ 6 bounded by l = 6; C_1 (its angular
+    part unweighted) and D473's X_0 are unchanged. So the summed H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82 in
+    section 3i's own weight, against 808.6. Control: with φ_* centred at x_* + 3/10 the ratio changes sign on I.
 
 What it gives: per harmonic, the cut-off resolvent maps L²(I) to the norm ‖u′‖_I + (l(l + 2)∫_I ψ|u|²)^(1/2), with
 explicit constants uniform in l ≥ 6 at each σ (and for 1 ≤ l ≤ 5 from the table's B_l). Summed over the harmonics,
@@ -590,7 +599,7 @@ What it does not give:
 - the angular derivative without the weight: ψ vanishes at the photon sphere, where trapping costs any estimate
   uniform in σ a loss (E4) [on the band 0 < |σ| ≤ 3 it costs only the constant, 986.4 against 808.6: D431];
 - good constants: X_l is dominated by 1/m′, as B_l is (section 3e); an asymmetric multiplier lowers the summed constant
-  at σ = 3 to 184.82 over every l ≥ 0, certified (D466, D473), in its own angular weight for l ≥ 2;
+  at σ = 3 to 184.82 over every l ≥ 0, certified (D466, D473), in section 3i's angular weight too (D477);
 - the record's norms beyond H¹ on I: the variable-order b-Sobolev spaces near the horizon and at infinity (E2-E4).
 
 ## 4. What remains for E2 at this operator

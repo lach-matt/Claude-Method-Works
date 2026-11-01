@@ -5178,6 +5178,11 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D455): so, given the dusts' well-posedness (by characteristics, not written out), a solution near S; uniqueness is
   stated for vacuum, locally. The corner needs no dust condition. Open: beyond a neighbourhood of S; the dusts'
   well-posedness written out.
+- D477 (E2-PILOT 3i, `checks/e2asympsi5.py` P1-P3, certified): D466's l ≥ 2 constants in section 3i's weight ψ_* =
+  −φ_*U′. The ratio ψ/ψ_* = φ/φ_* (U′ cancels), certified ≥ 0.712 on I (interval division away from x_*, the mean value
+  theorem near it; floating-point minimum 0.7134 at r = 1.70). So C*_l ≤ 66.029 for l ≥ 2 in ψ_*'s weight, and the summed
+  H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82 in section 3i's own weight, against 808.6. Control: φ_* off the
+  photon sphere makes the ratio change sign.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

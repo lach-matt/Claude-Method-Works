@@ -7175,3 +7175,8 @@ review states the theorem that data on two intersecting null surfaces determine 
 uniquely, for vacuum and for matter whose energy flux through the surface involves no derivatives, provided the matter's
 own equations are well posed. The record's two dust streams meet both conditions, by the earlier checks. The guarantee is
 only near the intersection; further out it is open.
+
+**D477 (2026-11-01): the improved constant holds in the original norm too.** The better multiplier measures the angular
+part of the solution with a slightly different weight from the one the estimate was first stated in. The two weights are
+now compared rigorously: one is everywhere at least 0.71 times the other on the region concerned. That is enough for the
+improved overall constant, 184.8 against 808.6, to hold in the original weight as well.
