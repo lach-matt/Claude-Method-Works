@@ -100,7 +100,7 @@ def mult(x, sL, sR, ks, sc, k, xc=XS):
 
 def family():
     out = [(s, s, 0.5, s, 1.0) for s in np.linspace(0.2, 0.98, 40)]
-    for sR in (1.5, 2.0, 3.0):
+    for sR in (1.5, 2.0, 3.0, 4.0, 6.0):
         hp0 = 1 / sR + (1 / 0.98 - 1 / sR) / 2
         out.append((0.98, sR, 0.5, 1 / hp0, 1.0))
         for sc in np.geomspace(0.02, 1 / hp0, 31)[:-1]:
