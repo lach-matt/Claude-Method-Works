@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""s1coef5: the rho^(2 + d1) coefficient of the s1 state, from the horizon (LOSS-D LD9, D442).
+"""s1coef5: the rho^(2 + d1) coefficient of the s1 state, from the horizon (LOSS-D LD9, D442, D450).
 
 D412 found that the local expansion does not decide whether the s1 state of box^Ups_b carries the root 2 + d1, and D415
 deduced that its coefficient depends on the cut-offs the record leaves open. Here the coefficient is computed
@@ -30,13 +30,19 @@ B(r) Y dr + K(r) r dY, Y = cos chi, and box^Ups omega = 0 is three second-order 
      S4's agreement of 10^-10. It is positive at every choice: no zero was found in these families. Verifier 190
      reproduced A by Chebyshev collocation to nine digits (D443).
 
+  S6 (computed; --record) the record's point gam_U = e_U = 1/100 (z = 4 x 10^-6, d1 = 3.3 x 10^-7): A = 141.4268935,
+     the same to ten digits at both matching radii and the second start (condition 3 x 10^4 to 10^5). u_0's rho^2
+     coefficient there is (0, -99.75, -100.25) (D412's particular solution), whose component along the unit vector of
+     rho^(2+d1) is P_v = -141.42138: A cancels it to within A + P_v = 0.0055, as the near-resonance forces, the state
+     carrying A (rho^(2+d1) - rho^2) = A d1 rho^2 log rho + ... The cut-offs move A by 7 x 10^-6 (zeta's interval),
+     1.9 x 10^-3 (a zeta bump of 20) and 0.17 (an eta bump of 20); A + P_v by the same (D450).
+
 Parameters: mu = 1, gam_H = 1/10, and (gam_U, e_U) = (1/2, 1/2) (z = 1/2, d1 = 0.0375), (1/4, 1/2) and (1/2, 1/8)
 (both z = 1/8, d1 = 0.0101). Series at 40 digits (60 terms); the ODE between r = 1.25 and the matching radius in double
 precision (DOP853, rtol 1e-13). About 15 minutes.
-Not computed: the record's point (z = 4 x 10^-6, where d1 is near 3 x 10^-7 and the terms rho^2 and rho^(2+d1) are nearly
-parallel); whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; whether some zeta makes A vanish;
-the dual state; and whether the record's later steps hold at the bumped cut-offs, beyond the matching being solvable
-there.
+Not computed: whether these gam_U, e_U, gam_H meet III.D' Proposition 4.1's eps_0, eps_1; whether some zeta makes A
+vanish; the dual state; and whether the record's later steps hold at the bumped cut-offs, beyond the matching being
+solvable there.
 """
 import os
 import sys
@@ -357,7 +363,38 @@ def setup(M, gam, e, gamH):
     pb.modes = modes
     return pb, lam2, lam3, rts, alpha
 
+def record_point():
+    """--record: A at the record's point gam_U = e_U = 1/100 (z = 4e-6), baseline cut-offs and four variations"""
+    M, _, _ = derive()
+    gam = e = sp.Rational(1, 100)
+    pb, lam2, lam3, rts, alpha = setup(M, gam, e, sp.Rational(1, 10))
+    print("  record's point: z = %s, d1 = %.6g, lambda_3 - 3 = %.6g, log coefficient %.4g"
+          % (4 * e * gam**2, float(lam2 - 2), float(lam3 - 3), float(alpha)), flush=True)
+    zeta0 = lambda x, a=1.5, b=2.5: smoothstep((x - a) / (b - a))
+    eta0 = lambda x, a=1.3, b=1.8: 1 - smoothstep((x - a) / (b - a))
+    v2 = pb.modes[1][1][0][0]
+    Pv = float((v2.T * pb.modes[0][1][0][2])[0])
+    print("  u_0's rho^2 coefficient: %s; its component along the unit vector of rho^(2+d1): %.10g"
+          % ([mp.nstr(x, 8) for x in pb.modes[0][1][0][2]], Pv), flush=True)
+    A3, c3 = pb.coefficient(zeta0, eta0, 3.0)
+    A4, c4 = pb.coefficient(zeta0, eta0, 4.0)
+    A3b, c3b = pb.coefficient(zeta0, eta0, 3.0, r0=1.15, rtol=1e-12)
+    print("  A = %.10g (r = 3, condition %.2g), %.10g (r = 4, %.2g), %.10g (start 1.15, rtol 1e-12, %.2g); "
+          "A + P_v = %.6g" % (A3, c3, A4, c4, A3b, c3b, A3 + Pv), flush=True)
+    bump = lambda c, w: (lambda x: np.exp(1 - 1 / (1 - ((x - c) / w)**2)) if abs(x - c) < w else 0.0)
+    rows = [("zeta on [1.5, 2.0]", lambda x: smoothstep((x - 1.5) / 0.5), eta0),
+            ("zeta on [1.5, 2.75]", lambda x: smoothstep((x - 1.5) / 1.25), eta0),
+            ("zeta0 + 20 bump on [1.6, 2.4]", lambda x, b_=bump(2.0, 0.4): zeta0(x) + 20 * b_(x), eta0),
+            ("eta0 + 20 bump on [1.35, 1.75]", zeta0, lambda x, b_=bump(1.55, 0.2): eta0(x) + 20 * b_(x))]
+    for lab, zf, ef in rows:
+        Ar = pb.coefficient(zf, ef, 3.0)[0]
+        print("      %-32s A = %+.10g, A + P_v = %+.6g" % (lab, Ar, Ar + Pv), flush=True)
+    return 0
+
+
 def main():
+    if sys.argv[1:2] == ["--record"]:
+        return record_point()
     ok = {}
     M, lin_ok, ang_ok = derive()
     ok["S1 form"] = lin_ok and ang_ok

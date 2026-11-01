@@ -6996,3 +6996,10 @@ size falls like the logarithm of the frequency divided by the frequency. So trap
 general theory leads one to expect, and the proved bound is far from sharp there. This is a measurement and a fitted
 law, not a proof.
 
+**D450 (2026-11-01): the coefficient at the record's own setting.** D442 computed the coefficient at stronger damping
+than the record's, because at the record's setting two of the solution's rates of fall-off differ by only three parts
+in ten million and are hard to separate. They separate cleanly after all: the coefficient there is about 141, the same
+to ten digits however the calculation is arranged. Its size comes from the near-coincidence: it almost exactly cancels
+a nearby term the equations force anyway, leaving a remainder of about half a hundredth. So at the record's own setting
+too the term is present, and how the record's free smoothing functions are chosen changes it only slightly.
+

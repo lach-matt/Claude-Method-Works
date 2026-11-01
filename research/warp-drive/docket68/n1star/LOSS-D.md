@@ -390,12 +390,12 @@ loop counts of section 3.
     - (G) can still bind through Definition 1.1's generators the record does not list (π_1 ℰ_++, 𝒢, ℰ^C_I,
       2 + π_1 ℰ_col and the increments of ℰ^ι_ind; I11:66-71): each adds bases, and every base adds a residue below d1.
   - *Not decided.* Whether the coefficient of ρ^(2+d1) is nonzero, so that ℰ_ind contains d1 (the record keeps ℰ_ind as a
-    bound; at every cut-off computed it is nonzero, D442), and δ_G over the unlisted generators. The sl offsets are δ_l =
-    z l/(2(l + 1)(2l + 1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both follow
-    from ∂_z s_l,j = (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most one of
-    them fits in a sum. That adds shifts to d1's multiples and could lower the bound below 5.0 × 10⁻⁸ [computed, D430: it
-    does not], but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G is set by the O(z²)
-    parts"; withdrawn, D413.)
+    bound; at every cut-off computed it is nonzero, D442, D450), and δ_G over the unlisted generators. The sl offsets are
+    δ_l = z l/(2(l + 1)(2l + 1)) + O(z²) and δ′_l = (l + 2)z/(2(l + 1)(2l + 3)) + O(z²) (GAUGEPOT:194 prints δ′_l; both
+    follow from ∂_z s_l,j = (s − κ)/(2s − 2 − 2κ − z) on Q_l's roots). Entering with integer parts l − 1 and l, at most
+    one of them fits in a sum. That adds shifts to d1's multiples and could lower the bound below 5.0 × 10⁻⁸ [computed,
+    D430: it does not], but it cannot bring the O(z²) parts into play. (D408 said "if they all enter, δ_G is set by the
+    O(z²) parts"; withdrawn, D413.)
   - *The local expansion does not decide it (D412; `checks/s1reson5.py`, exact).* The s1 state is dx¹ + w. On
     Tangherlini, □^Υ(dx¹) starts at ρ⁴, which is the order resonant with the root 2 + d1:
     F4 = μ(−2γ_Υ(e_Υ + 2), −3, 1) on (dt, dr, dχ).
@@ -421,8 +421,16 @@ loop counts of section 3.
     - A = 2.584 at z = 1/2 (γ_Υ = e_Υ = 1/2) and 2.662 at z = 1/8 reached along γ_Υ → 0 (γ_Υ = 1/4, e_Υ = 1/2); at z =
       1/8 reached along e_Υ → 0 (γ_Υ = 1/2, e_Υ = 1/8) it is 10.99, about four times larger, consistent with the local
       picture above (there the near-resonant particular solution grows like 1/e_Υ). Two points on each branch at most;
-      the record's point (z = 4 × 10⁻⁶) is not computed, and whether these γ_Υ, e_Υ, γ_Υ,H meet III.D′ Proposition 4.1's
-      ε_0, ε_1 is not checked (D443).
+      the record's point is the next bullet, and whether these γ_Υ, e_Υ, γ_Υ,H meet III.D′ Proposition 4.1's ε_0, ε_1 is
+      not checked (D443).
+    - *At the record's point (D450; `checks/s1coef5.py --record`, S6, computed).* γ_Υ = e_Υ = 1/100, z = 4 × 10⁻⁶, d1 =
+      3.3 × 10⁻⁷: A = 141.4269, the same to ten digits at both matching radii and the second start (condition up to 10⁵).
+      It is large because of the near-resonance. u_0's ρ² coefficient there is (0, −99.75, −100.25), D412's particular
+      solution, with component P_v = −141.4214 along ρ^(2+d1)'s unit vector, and A cancels it to within A + P_v = 0.0055:
+      near I_0 the state carries A (ρ^(2+d1) − ρ²) ≈ A d1 ρ² log ρ plus a small ρ² term. So d1 ∈ ℰ_ind at the record's
+      point too, with coefficient about 141 for these cut-offs. The cut-offs move A by 7 × 10⁻⁶ (ζ's interval), 1.9 ×
+      10⁻³ (a ζ bump of 20) and 0.17 (an η bump of 20): at γ_Υ = 1/100 the gauge term is weak, and the cut-off-dependent
+      part is the residual A + P_v. Not checked: whether these parameters meet III.D′ Proposition 4.1's ε_0, ε_1.
   - *The global problem depends on choices the record leaves open (D415, deduced).* The s1 state solves □^Υ_b ω = 0
     and is smooth on X (D4:109-111), so its ρ^(2+d1) coefficient depends on □^Υ_b everywhere, not only near infinity.
     The record fixes c_Υ only near infinity: c_Υ = ζ(|x|)|x|⁻¹ dt with ζ = 1 for large |x|, and c_Υ,H = −½χ(|x|) d|x|
@@ -440,10 +448,10 @@ loop counts of section 3.
       = 1/8 points). A ζ solving the one real equation A = 0 would remove this state's term (one for all S ∈ 𝒮_1, as ζ
       and χ are rotation invariant), but none was found in these families.
     - For the loss d: the record keeps ℰ_ind as a bound valid for its choices, so LD9's δ_G ≤ 5.0 × 10⁻⁸ is the one to
-      carry unless ζ is chosen to exclude d1. At every cut-off computed (D442; z = 1/2 and 1/8 only, not the record's
-      point) the state carries d1.
-    - Not computed: the dual state, the record's point, and whether some ζ makes A vanish. A variation for which the
-      pairing is nonzero: every one computed in D442.
+      carry unless ζ is chosen to exclude d1. At every cut-off computed (D442, D450; z = 1/2, 1/8 and the record's point)
+      the state carries d1.
+    - Not computed: the dual state, and whether some ζ makes A vanish. A variation for which the pairing is nonzero:
+      every one computed in D442.
 
 - LD10 (ε_ind as D4 defines it; computed, D420 after verifier 182; `checks/epsind5.py` E1-E2, exact).
   - *The definition.* D4:54-57 lets ℳ be "the finite set of real numbers in [−10, 10] of the form Re λ + j", λ an

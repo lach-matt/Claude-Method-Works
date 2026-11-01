@@ -4985,6 +4985,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   linear growth. Per harmonic the worst sigma lies just below its barrier top (l = 4 at the window's edge). D352's row
   reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9 (section 3f),
   bearing only on E2.5's constants. Open: a proof of the log law (E4), the record's norms.
+- D450 (LOSS-D LD9, checks/s1coef5.py --record, S6, computed): the s1 coefficient at the record's point, gam_U = e_U =
+  1/100 (z = 4e-6, d1 = 3.3e-7): A = 141.4269, ten digits across matching radii and starts (condition <= 1e5). It cancels
+  u_0's near-resonant rho^2 term along the same vector (P_v = -141.4214, from D412's (0, -99.75, -100.25)) to within
+  0.0055, so near I_0 the state carries A d1 rho^2 log rho plus a small rho^2 term, and d1 is in E_ind at the record's
+  point. The cut-offs move A by 7e-6 to 0.17 (the gauge term is weak at gam_U = 1/100). Open: the parameters against
+  III.D' Prop. 4.1, whether some zeta removes the term, the dual state.
 ### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
 
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
