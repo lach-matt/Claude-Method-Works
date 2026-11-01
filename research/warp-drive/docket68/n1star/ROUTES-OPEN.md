@@ -5584,6 +5584,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   1); the level-2 bound is per chain, one chain per tf-exponent of g_2 in the window, and chains can interleave; the
   α-levels' step bound is I9:374-375 (I15:332 gives a_K ≥ 4 + ε_K only). Corrected in LOSS-D LD12; the D514 entry above
   keeps its text.
+- D517 (BEYOND5 3(b)(v), read and deduced): the half-integer exponents at I_0 and the data norm. ‖·‖_(d_1) is H^(d_1) of
+  H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, infinite outside (PART-VII-ASSEMBLY.md:52-54): finite on a ρ^(5/2) term
+  exactly when (5/2, 0) ∈ ℰ_0, so infinite for Part VII's ℰ_0 = {(j, 0) : j ≥ 2} (PART-VI4-PARAMS.md:69-70). Row d1's
+  hypotheses (VI4:40, III.C′ Theorem 3.1) admit ℰ_0^½ = {(2 + j/2, 0)}, ℓ_0 ∈ (3, 4) ∖ {7/2}, and Lemma 0.1's proof
+  carries over to data smooth in ρ^(1/2). The choice moves ℰ^C_I and Λ ⊃ π_1ℰ^C_I (I11:66), so (G+)'s margin, and with
+  it LOSS-D's counts; Λ stays finite below every real part, so (G) can still be met, at a smaller ε_K. Not read: whether
+  ℰ^C_I already has half-integers for Part VII's ℰ_0 (III.C Lemma 3.2 (a)). Not computed: (G+)'s margin with the
+  half-integers.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

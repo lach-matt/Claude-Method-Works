@@ -7405,3 +7405,9 @@ does not prove it.
 **D516 (2026-11-01): the second long loop, checked.** An independent reading confirmed the doubled derivative count and
 its figures. It corrected which of the record's steps is the second of the two loops whose length depends on fine
 structure, and how the first of them should be bounded.
+
+**D517 (2026-11-01): half powers at spatial infinity.** The record measures its initial data in a norm built around a
+chosen list of allowed powers of the inverse radius. For the list the record uses, whole powers only, a half power such
+as one over the radius to the five halves makes that norm infinite. But the record's own rules allow a list with half
+powers too, and with it such data are admitted, by the same argument. The price is that the choice feeds into a gap
+condition later in the proof, whose margin, and with it the derivative count, would then need recomputing.

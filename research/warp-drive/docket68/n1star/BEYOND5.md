@@ -217,15 +217,30 @@ V′_P := V′ + 1 + (τ′_end − τ0) + κ (N1STAR-PROOF.md (1.1), (9.1)).
   - Lemma 0.1's sufficient condition asks for ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r. III.K's class
     is polyhomogeneous with terms of orders r^(−2) and r^(−3) (paper section 8.4).
   - An E_(5/2) bound neither gives such an expansion nor excludes one. III.K's data index set admits half-integer
-    exponents (D467, read; reframed D469). ℰ_0 is restricted by min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re
-    π_1ℰ_0 (III.K 53-57, III.C′ Theorem 3.1), where j ranges over ℕ and jℰ_0 is the j-fold sum (III.C Lemma 3.2 (b)):
+    exponents (D467, read; reframed D469). ℰ_0 is restricted by min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉
+    Re π_1ℰ_0 (III.K 53-57, III.C′ Theorem 3.1), where j ranges over ℕ and jℰ_0 is the j-fold sum (III.C Lemma 3.2 (b)):
     closure under addition, so 5/2 ∈ ℰ_0 forces 5, 15/2, …, and none of these conditions is integrality (an inference
     from their absence; the index sets' definition, III.A2 (2.2), is not read). Near I_0, ρ_0 = 1/(2 − x¹) (III.C 36),
     about 1/r. At 𝓘⁺, a different face, the expansion is in ρ_I, functions smooth on M_(1/2) are polyhomogeneous there
     with index set ½ℕ_0, and each slot's index set satisfies ℰ_s + ½ ⊂ ℰ^C_I ⊂ ℰ_s (PART-III-K-NONLINEAR.md 361-377,
     III.C Lemma 3.2 (a)); that bears on 𝓘⁺, not on I_0 (verifier 200). So Lemma 0.1's integer powers
-    (PART-VII-ASSEMBLY.md 56-60) are a sufficient condition, not the class. Not read: whether a ρ^(5/2) term, such as the
-    cross terms of the sources below could produce (D456), keeps ‖·‖_(d_1) finite, which depends on that norm's weights.
+    (PART-VII-ASSEMBLY.md 56-60) are a sufficient condition, not the class. Not read: whether a ρ^(5/2) term, such as
+    the cross terms of the sources below could produce (D456), keeps ‖·‖_(d_1) finite, which depends on that norm's
+    weights. [D517, read and deduced. The norm is H^(d_1) of H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, infinite outside
+    these spaces (PART-VII-ASSEMBLY.md:52-54), so it is finite on a ρ^(5/2) term exactly when (5/2, 0) ∈ ℰ_0. Part VII
+    takes ℰ_0 = {(j, 0) : j ≥ 2} and ℓ_0 ∈ (3, 4) (PART-VI4-PARAMS.md:69-70), where it is infinite. Row d1's hypotheses
+    (VI4:40; III.C′ Theorem 3.1, PART-III-C2-POLYHOM.md:133-140: min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3, ℓ_0 ∉ Re
+    π_1ℰ_0) admit ℰ_0^½ := {(2 + j/2, 0) : j ∈ ℕ_0}, closed under sums, with ℓ_0 ∈ (3, 4) ∖ {7/2}. Lemma 0.1's proof
+    carries over to components in ρ²C^∞ and ρ³C^∞ of the compactification in ρ^(1/2): Taylor's formula in ρ^(1/2), whose
+    smooth functions are conormal in ρ (ρ∂_ρ = ½ρ^(1/2)∂_(ρ^(1/2))), the exponents 2 + j/2 < ℓ_0 lying in ℰ_0^½ and the
+    remainder in ρ⁴C^∞ ⊂ ρ^(ℓ_0)H^∞_b. So half-integer exponents at I_0 lie in a class row d1 admits, with ℰ_0^½ in
+    place of Part VII's choice. What that choice moves: ℰ_0 fixes ℰ^C_I (row d2, III.C′ Theorem 3.1) and Λ ⊃ π_1ℰ^C_I
+    (PART-III-I11-SPACETIME.md:66), on which rows w1 ((G+)) and w2 ((A_J)) depend (VI4:38-39). Λ is closed under adding
+    π_1(E_ind ∪ E^ι_ind) ∪ {1}, all of real part at least η_0 > 0, so it is finite below every real part and (G) can
+    still be met by a smaller ε_K. But its margin, and with it LOSS-D's counts, of order 1/(ε_K ε_ind), is then set by
+    the elements the half-integers bring next to 2 and 3, which are not computed. Whether ℰ^C_I already carries
+    half-integers for Part VII's ℰ_0 (III.C Lemma 3.2 (a), ℰ_s + ½ ⊂ ℰ^C_I, as verifier 200 read it at 𝓘⁺) would decide
+    whether the change is felt at all; not read.]
 
 So (b) now consists of three steps:
 
@@ -534,7 +549,8 @@ What it does not give:
   supported in v ∈ [0, d], after N, the sum over harmonics converges with every derivative, and the strip's term lies in
   ρ³C^∞ ⊂ ρ²C^∞ (its t-derivative, of degree −4, in ρ⁴C^∞ ⊂ ρ³C^∞): inside Lemma 0.1's sufficient condition. Not covered:
   sources known only by a bound O(r⁻⁴), which is what the record gives (D464), and half-integer exponents, for which
-  Lemma 0.1 is not the class (D467).
+  Lemma 0.1 is not the class (D467). [D517: Lemma 0.1 extends to data smooth in ρ^(1/2), with the half-integer ℰ_0^½
+  that row d1 admits in place of Part VII's ℰ_0; what moves with it is (G+)'s margin, (v).]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
