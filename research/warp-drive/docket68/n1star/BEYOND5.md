@@ -611,6 +611,23 @@ What it does not give:
   decided; with incoming waves, it would come from backscatter or from the remainder's own construction. What remains:
   e's conormality and expansion at I⁻ along the strip, by commuting the far-region energy (9.8) with r∂_u or the scaling
   field.]
+  [D536, read and deduced: what the record has toward that expansion. The strip is section 9's far region P: v ∈
+  [v_start, V_P] and r = t + O(1) (Lemma 9.1(d)), and at fixed (v, x̂) the radial derivative is ℓ = −L0 (ℓv = 0, ℓr = 1;
+  N1STAR-PROOF.md:1190-1191). So ρ³C^m for the strip's term needs (r²ℓ)^j of r⁴ times the sources bounded for j ≤ m
+  (D530 (i)-(ii)); on P, rℓ = S − v∂_v, S the scaling field, v bounded. (i) One step is in the record: O_p (1197) asks
+  of the remainder ℓf̃ ∈ E_(p+3/2), that is rℓf̃ ∈ E_(p+1/2), Lemma 9.7(d)'s transport solutions are in O_(q−1)
+  (1209-1210), and Theorem A_P puts W_TT, χ and gh_(m+1) in O_p (1229-1230). (ii) What is not: m_m ∈ L_2 and φ_m ∈ L_1
+  (with ℓφ_m ∈ L_2) carry no condition on their remainders' ℓ-derivatives; the residual Ric^H(g_app) is in E_3 only
+  (1233); and Lemma 11.0 (10471-10501) runs its identity with Cartesian and rotation derivatives, so u_1 is in E_2 with
+  no ℓ-gain. (iii) The route: commute Lemma 11.0's identity on the approximating g_n with S, j times. [S, □] = −2□ on
+  flat space, and on P the coefficients' S-derivatives stay in the coefficients' classes once the approximant's profiles
+  and residual are in iterated O-classes, (rℓ)^i f̃ ∈ E_(p+1/2) for i ≤ j. Lemma 9.7(d) gives these one transport at a
+  time, but the record states j = 1, for the transported profiles only; m_m, φ_m and R_N need them too. (iv) Conormality
+  is not enough: it puts the strip's term in ρ³ times a function with (ρ∂_ρ)^j bounded, which lies in ρ²C^(0,1) and not
+  in ρ²C¹ (ρ³ sin(log ρ) is an example). Lemma 0.1's C^m needs an expansion of r⁴ times the sources at fixed v, i.e. of
+  u_1 at past null infinity along the strip. By (9.5) the leading part there is the transport 2∂_v(ℓ + 3/(2r)), so with
+  conormality the expansion would follow term by term as for the approximant (Lemma 9.7(d)), the resonance q = 5/2,
+  where a logarithm appears (1210), to be excluded or pushed above the order m Lemma 0.1 needs. Neither is done here.]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

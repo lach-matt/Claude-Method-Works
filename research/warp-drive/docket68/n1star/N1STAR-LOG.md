@@ -7514,3 +7514,9 @@ five-dimensional black hole is the next step.
 into a computation: the full equations' profile reduction behaves exactly as claimed at four non-integer powers. It also
 found the consequence stronger than stated: a remainder oscillating along the cone would push the data out of the
 required class already at the first derivative, not the second.
+
+**D536 (2026-11-01): what the far-strip question needs, mapped.** The record already controls one derivative along the
+strip for the parts of its approximate solution built by integrating along light rays, but not for the rest, nor for the
+remainder. The natural tool is the scaling symmetry of flat space. But even full control of that kind is not enough: the
+data need an actual expansion in inverse powers of the radius, which the equations' transport structure should give step
+by step, provided one logarithmic term is kept out.

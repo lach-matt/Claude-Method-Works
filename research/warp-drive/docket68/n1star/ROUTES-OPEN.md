@@ -5764,6 +5764,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   rests on kernel positivity (D468), sampled, not proved. NITs: the t-derivative's constant −√2; E_p's C at fixed λ; the
   class checks are on the flat slice, the bend of Σ_IVP not checked for the oscillating term. Corrected in BEYOND5 3(b)
   and stripradial5's docstring; the D530 entry above keeps its text.
+- D536 (BEYOND5 3(b), read and deduced): what the record has toward e's expansion at I⁻ along the strip. The strip is
+  section 9's far region P (v bounded, r = t + O(1)); the radial derivative at fixed v is ℓ = −L0, and rℓ = S − v∂_v. In
+  the record: one step, the class O_p (rℓ of the remainder costs nothing, N1STAR-PROOF.md:1197), held by Lemma 9.7(d)'s
+  transport solutions and by W_TT, χ, gh_(m+1) (Theorem A_P). Not in it: m_m, φ_m (L_p only), the residual (E_3), and
+  u_1 (Lemma 11.0: Cartesian and rotation derivatives only). Route: commute Lemma 11.0's identity with S, given iterated
+  O-classes for the approximant and residual. Conormality alone gives the strip's term ρ²C^(0,1), not ρ²C¹ (ρ³ sin log
+  ρ); Lemma 0.1 needs the expansion, which the transport 2∂_v(ℓ + 3/(2r)) of (9.5) would give term by term with the q =
+  5/2 logarithm to control. Open: all of it.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
