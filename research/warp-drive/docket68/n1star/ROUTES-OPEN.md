@@ -5925,6 +5925,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   III.G″ Corollary 4.3 (loss d_G + 2, J3:160-164) then III.I′ Proposition 3.1 (≥ 2 through L̃, J3:173-176): ≥ 4 + d_G,
   d_G the formula-less loss of III.G′ Theorem 3.1 (2); with LD14's 1/17.5 the ι⁺ loop's loss is at most (4 + d_G)/35 of
   the counted loops' per level, below them only while d_G < 31. J3's table has no row for the ι⁺ rounds.
+- D554 (verifier 239 on D550; every figure reproduced independently at 90 digits, the tf ↔ u shift checked at I12:52-53,
+  278-279 and I11:145): no major finding. MINOR: the 5.83 × 10²⁰ rounds were set against the counted loops' loss 2.65 ×
+  10¹⁵, not their 1.33 × 10¹⁵ rounds (the inequality holds either way); the thresholds "six (four)" are those of ε_ind =
+  δ_50 and sufficient, not "only if" (83 and 81 at δ_50/10), and LD13's N_2 route stands beside them; the merging needs
+  d1 ∈ π₁(ℰ_ind ∪ ℰ^ι_ind), the construction's reading, the record giving finiteness only; the conclusion about the
+  record's bookkeeping holds per (α_0, k), per exponent it is undecided (with LD16, the per-exponent count is the one
+  that matters). NITs: the η tests had η_1 = η_2 (now η_1 < η_2); "at most six (four)". Corrected in LD15 and
+  lambdacount5; the D550 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -764,7 +764,8 @@ loop counts of section 3.
     4"), and cited F4 for it.
 - LD15 (the level-2 rounds through the record's Λ; deduced from I11 and I12, counted at the record's point; D550,
   `checks/lambdacount5.py` C1-C5, exact). LD13 left two factors of the level-2 loop open: (c) N_2, the number of g_2's
-  tf-exponents in the window, and (d) the log orders. The record bounds both, in one set.
+  tf-exponents in the window, and (d) the log orders. The record bounds both, in one set, as finite (corrected D554,
+  verifier 239: it gives no size).
   - *The container.* III.I′′′′′′′′′′ Definition 1.1 (PART-III-I11-SPACETIME.md:66-79) defines Λ as the smallest set,
     closed under conjugation, containing π₁(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I) ∪ {λ_♯, 3} ∪ (2 + π₁ℰ_col) with Λ + w ⊂ Λ for every w ∈
     π₁(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}; 2 ∈ Λ (I11:155). Its Lemma 1.2 (c) (I11:96-107): every exponent (λ, k) the construction
@@ -775,26 +776,33 @@ loop counts of section 3.
     merge there: a level's level-2 rounds number at most |Λ ∩ W| if a round treats an exponent, and at most Σ_(λ∈Λ∩W)
     (K(λ) + 1) if it treats an exponent and a log order, as Step 3's "for each tf-exponent (α_0, k)" reads (I12:278).
     N_2 and the overlap of chains are no longer separate factors, and Lemma 1.2 (a) makes both bounds finite
-    (I11:87-88).
+    (I11:87-88). (Corrected D554, verifier 239: the merging uses Λ + d1 ⊂ Λ, which holds on the construction's reading,
+    d1 ∈ π₁(ℰ_ind ∪ ℰ^ι_ind) (D542-D544); the record lists neither the increments nor a size, only finiteness.)
   - *What the record names* (C2-C3). It does not number |Λ ∩ W|: ℰ_++, 𝒢, ℰ^C_I and ℰ_col are not listed. Its named
     generators λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = 1.5099, 2 and 3, with the increments d1 (on the construction, D542-D544, A ≠
     0) and 1, give Λ_0 ⊂ Λ with |Λ_0 ∩ W| = 7,470,307: the chains λ_♯ + n d1 (3,000,002 points in W), λ_♯ + 1 + n d1
     (1,470,302) and 2 + n d1 (3,000,002), and the point 3, no two sharing a point, the count the same at the three η
     tested. With LD9 G7's increments 1 + d0, 1 + δ_2 and 1 + δ′_1 (on LD9's reading that they lie in ℰ_ind) it is
     11,881,206.
-  - *Against the level-3 rounds* (C4). A β-level's level-3 rounds are on average ½/ε_ind ≥ 2.5755 × 10⁷ (LD11). The
-    named part of the container is already 0.290 of that (0.461 with G7's increments), and each further base (an
-    unlisted generator with real part in [3/2, 3 + η_2), or one plus an increment of integer part ≥ 1) adds up to
-    3,000,003 points, 0.1165. So the container shows the level-2 loop shorter than a level's level-3 rounds only if the
-    unlisted generators add fewer than about six chains (four with G7's increments); it does not decide it. That is
-    LD13's threshold N_2 ≲ 8.6 again, now with the chains counted once.
+  - *Against the level-3 rounds* (C4). A β-level's level-3 rounds are on average ½/ε_ind ≥ 2.5755 × 10⁷ (LD11). At ε_ind
+    = δ_50 the named part of the container is already 0.290 of that (0.461 with G7's increments), and each further base
+    (an unlisted generator with real part in [3/2, 3 + η_2), or one plus an increment of integer part ≥ 1) adds up to
+    3,000,003 points, 0.1165; at smaller ε_ind the ratios fall as ε_ind, the container not depending on it. So at ε_ind
+    = δ_50 the container shows the level-2 loop shorter than a level's level-3 rounds if the unlisted generators add at
+    most six chains (four with G7's increments), and at δ_50/10 at most 83 (81); it does not decide it, and LD13's route
+    through N_2 (rounds ≤ min(N_2 · 3,000,003, |Λ ∩ W|)) stands beside it. (Corrected D554, verifier 239: D550 wrote
+    "only if" and "fewer than about six", the thresholds being those of ε_ind = δ_50 and sufficient, not necessary.)
+    That is LD13's threshold N_2 ≲ 8.6 again, now with the chains counted once.
   - *The log orders* (C5). On the construction η_0 = d1, so N_* = ⌈5/d1⌉ + 2 = 15,000,015, and at every point of W, n(λ)
     ≥ 1,470,303 (λ_♯ + n d1 below 2, and 2), so K(λ) ≥ 1 + (N_* + 1)(n(λ) + 1) ≥ 2.2055 × 10¹³ (L_0 ≥ 1, l_* ≥ 0). That
     is Lemma 1.2 (c)'s ceiling, set by its count (at most N_* raises at an exponent, each by at most l_* + 1, one per
     window of width at least η_0 below 2; I11:101-105), not by the log orders the construction produces. Read per (α_0,
-    k), the record's own bound on one level's level-2 rounds is at least the sum over Λ_0 ∩ W of K + 1, ≥ 5.83 × 10²⁰,
-    above the counted loops' total 2.65 × 10¹⁵ (LD11) at a single level. So the record's bookkeeping does not bound the
-    level-2 loop below the counted loops; the log orders actually produced might, and the record does not compute them.
+    k), the record's own bound on one level's level-2 rounds is at least the sum over Λ_0 ∩ W of K + 1, ≥ 5.83 × 10²⁰
+    rounds, above the counted loops' 1.33 × 10¹⁵ rounds in total (their loss 2.65 × 10¹⁵, LD11) at a single level
+    (corrected D554, verifier 239: D550 set rounds against that loss). So, counted per (α_0, k), the record's
+    bookkeeping does not bound the level-2 loop below the counted loops; counted per exponent (LD16: one application
+    covers an exponent's log orders) its bound is |Λ ∩ W|, which the record leaves undecided; and the log orders
+    actually produced might bound it, which the record does not compute.
   - *What it rests on, and what is needed.* The reading of W in u-exponents (I12:58-60's two excluded values are the
     level-2 window's ends); the construction's increments (D542-D544); for the second bound, a round per (α_0, k), as
     Step 3 writes it. Needed: ℰ_++ (whose part below 2 is π₁ℳ, I11:88), 𝒢, ℰ^C_I and ℰ_col listed at the record's point,

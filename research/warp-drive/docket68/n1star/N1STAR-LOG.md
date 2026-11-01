@@ -7621,3 +7621,9 @@ the second-level loop exactly what it charges an inner round, since both invert 
 full operator to the result; one application also handles all the logarithm powers of an exponent at once. A round of
 the other loop costs at least four plus the loss of a resonance inverse the record never computes, so that loop stays
 below the counted ones only if that unknown loss is under about thirty.
+
+**D554 (2026-11-01): the inner loop's bound, checked.** An independent check reproduced every number. It corrected one
+comparison, which had set a count of rounds against a loss, and narrowed two statements: the thresholds hold at the
+largest admissible step and loosen as it shrinks, and the merging of chains rests on the construction's reading of the
+increments, since the record says only that the set is finite. With one round per exponent, as the record's own
+proposition allows, the question stays open rather than settled against the record.

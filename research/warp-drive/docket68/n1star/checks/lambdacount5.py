@@ -23,14 +23,18 @@ E_ind and E^iota_ind meet (0, 1) in {d1} alone, A != 0, so d1 is an increment an
      level2loop5), N_* = ceil(5/d1) + 2.
   C2 Lambda_0 := the generators lambda_sharp, 2, 3 with the increments d1 and 1, a subset of Lambda. Its points in W:
      the chains lambda_sharp + n d1, lambda_sharp + 1 + n d1, 2 + n d1 and the point 3; no two chains share a point
-     (no difference of bases is a multiple of d1 to 1e-25); the count is the same at eta_1 = eta_2 = 1e-30, delta_50/2
-     and 0.999 delta_50 (eta_1, eta_2 lie in (eps_K, eps_+), below delta_50). So |Lambda cap W| >= |Lambda_0 cap W|.
+     (no difference of bases is a multiple of d1 to 1e-25); the count is the same at (eta_1, eta_2) = (1e-30, 2e-30),
+     (delta_50/3, delta_50/2) and (delta_50/2, 0.999 delta_50), eta_1 < eta_2 as I12:58 asks (eta_1, eta_2 lie in
+     (eps_K, eps_+), below delta_50; verifier 239: the count is fixed for eta_1 < 2.45e-7, eta_2 < 5.02e-8). So
+     |Lambda cap W| >= |Lambda_0 cap W|.
   C3 the same with LD9 G7's increments 1 + d0, 1 + delta_2, 1 + delta'_1 added (at most one increment of integer part
      >= 1 reaches W from a generator >= 3/2), on LD9's reading that they lie in E_ind.
-  C4 against one beta-level's level-3 rounds, on average 1/(2 eps_ind) >= 1/(2 delta_50) = 2.5755e7 (LD11).
+  C4 against one beta-level's level-3 rounds, on average 1/(2 eps_ind) >= 1/(2 delta_50) = 2.5755e7 (LD11): the ratios
+     are at eps_ind = delta_50 and fall as eps_ind for smaller eps_ind, the container not depending on it (D554).
   C5 the log ceiling: n(lambda) >= the number of Lambda_0's points below W (lambda_sharp + n d1 < 2, and 2), so on W
      K(lambda) >= 1 + (N_* + 1)(n(lambda) + 1) (L_0 >= 1, l_* >= 0), and the sum over Lambda_0 cap W of K + 1, the ranks
-     there being consecutive, against the counted loops' 2.65e15 (LD11).
+     there being consecutive, a count of rounds per (alpha_0, k), against the counted loops' 1.3266e15 rounds (LD11;
+     their loss is 2.65e15; corrected D554, verifier 239).
   Control: 1/d1 is not an integer (so lambda_sharp + 1 is not on lambda_sharp's chain), and with eta_0 = 1 (no
      increment below 1) N_* would be 7.
 
@@ -93,13 +97,12 @@ def main():
     two, three = Decimal(2), Decimal(3)
     bases0 = [ls, ls + 1, two, three]
     counts = {}
-    for e1, e2 in ((Decimal('1e-30'), Decimal('1e-30')), (de50 / 2, de50 / 2), (de50 * Decimal('0.999'),
-                                                                                 de50 * Decimal('0.999'))):
+    for e1, e2 in ((Decimal('1e-30'), Decimal('2e-30')), (de50 / 3, de50 / 2), (de50 / 2, de50 * Decimal('0.999'))):
         lo, hi = two + e1, three + e2
         per = [chain(b, d1, lo, hi) for b in bases0]
         # 3 is 2's chain + 1 and a generator: count it once (2 + n d1 never equals 3, 1/d1 not an integer)
         counts[(e1, e2)] = (per, count(bases0, d1, lo, hi))
-    per, n0 = counts[(Decimal('1e-30'), Decimal('1e-30'))]
+    per, n0 = counts[(Decimal('1e-30'), Decimal('2e-30'))]
     same = len({v[1] for v in counts.values()}) == 1
 
     def distinct(bases):
@@ -115,7 +118,7 @@ def main():
           'n = %s..%s (%s); 3 (%s)' % (tuple(x for c in per for x in (f'{c[0]:,}', f'{c[1]:,}', f'{c[1] - c[0] + 1:,}'))[:9]
                                        + (f'{per[3][1] - per[3][0] + 1}',)))
     check('C2', dis0 and same and n0 == sum(c[1] - c[0] + 1 for c in per),
-          f'|Lambda_0 cap W| = {n0:,}, the same at eta = 1e-30, delta_50/2, 0.999 delta_50; no shared points')
+          f'|Lambda_0 cap W| = {n0:,}, the same at the three (eta_1, eta_2) tested; no shared points')
 
     # C3
     bases1 = bases0 + [ls + 1 + d0, ls + 1 + de2, ls + 1 + dp1]
@@ -130,8 +133,8 @@ def main():
     print(f'    one beta-level\'s level-3 rounds, on average 1/(2 delta_50) = {lvl3:.5e}; ratios {r0:.4f} and {r1:.4f}; '
           f'one more chain of {floor(1 / d1) + 1:,} points adds {(floor(1 / d1) + 1) / lvl3:.4f}')
     check('C4', Decimal('0.28') < r0 < Decimal('0.30') and Decimal('0.45') < r1 < Decimal('0.47'),
-          'the named part of Lambda already gives 0.29 (0.46) of a level\'s level-3 rounds: the record\'s container '
-          'leaves "shorter" to the unlisted generators')
+          'at eps_ind = delta_50 the named part of Lambda already gives 0.29 (0.46) of a level\'s level-3 rounds, '
+          'less for smaller eps_ind: the record\'s container leaves "shorter" to the unlisted generators')
 
     # C5
     below = count([ls], d1, Decimal(0), two) + 1                 # lambda_sharp + n d1 < 2, and the point 2
@@ -141,9 +144,9 @@ def main():
     ksum = 2 * n0 + (Nstar + 1) * (ranks + n0)
     print(f'    n(lambda) >= {below:,} on W; K(lambda) >= {kmin:,} = {Decimal(kmin):.5e}; sum over Lambda_0 cap W of '
           f'K + 1 >= {Decimal(ksum):.5e}')
-    check('C5', below == 1470303 and Decimal(kmin) > Decimal('2.2e13') and Decimal(ksum) > Decimal('2.65e15'),
+    check('C5', below == 1470303 and Decimal(kmin) > Decimal('2.2e13') and Decimal(ksum) > Decimal('1.3266e15'),
           'the record\'s log ceiling is above 2.2e13 at every exponent of W, and its per-(alpha_0, k) count of one '
-          'level\'s level-2 rounds above the counted loops\' total 2.65e15')
+          'level\'s level-2 rounds above the counted loops\' 1.3266e15 rounds in total (their loss 2.65e15)')
 
     # control
     q = 1 / d1
