@@ -23,16 +23,22 @@ K_out R^3 = B(u), A, B >= 0):
     (iv)  mu <= max D[mu] + (2/9) max(AB) e^(2S) |Q|/a^2 =: M;
     (v)   s <= max D[s] + (3/2)(M^+/a^5) Rmax^3/3;
     (vi)  R_u, R_v by integrating R_uv = -e^(2s) mu/R^3 from the cones; higher derivatives by commuting, the commuted
-          equations linear in the top order, as [Mos17] does. So (R, s) extend to the closed rectangle, and the
-          background exists on any characteristic rectangle on which R stays >= a > 0, which [Mos17]'s local existence
-          (its Proposition 5.3, by the same Picard iteration in 5D) turns into: the development ends only where R -> 0.
+          equations linear in the top order, as [Mos17] does. So a solution given on a half-open rectangle with R >= a
+          > 0 extends to the closed rectangle: [Mos17] Lemma 5.1's extension criterion in 5D, its bounds from the cones'
+          data and a. Not written: 5D local existence ([Mos17] Proposition 5.3, a small-step statement assuming d_u r <
+          0) and the continuation loop of its section 5.4 (pp. 48-59), which would turn the criterion into existence
+          on Omega's past (corrected D556, verifier 241).
   X3 (computed) on D3's background (twodomain5: seeded corner, A = sin^4 on v in [0.5, 2], B = 0.4 sin^4 on u in [1, 2],
-     u in [0, U1], R(U1, 2) = 0.62): (i)'s identity on the computed solution, its residual falling with n = 40 to 320
-     (ratios 1.72, 2.88, 3.48, approaching second order; first order near R = a at coarse n, as D3 records); and the bounds (i)-(v) from the
-     cones' data alone contain the computed R, mu and s (mu and s attain their lower bounds on the data, mu_uv and
-     s_uv being >= 0 there; the upper bounds are coarse, s <= 2.7e3 against 1.12).
+     u in [0, U1], U1 the last u at n = 160 with R(u, 2) >= 0.62, R(U1, 2) being the rectangle's least, about 0.68;
+     corrected D556): (i)'s identity on the computed solution, its residual falling with n = 40 to 320 (ratios 1.72,
+     2.88, 3.48, local orders 0.78, 1.53, 1.80, rising toward second order; first order near R = a at coarse n, as D3
+     records); the bounds (i)-(v), from the cones' data and a = min R (an interior value), contain the computed R, mu
+     and s (mu and s attain their lower bounds on the data, mu_uv and s_uv being >= 0 there, to discretisation, 2e-7 at
+     n = 320; the upper bounds are coarse, s <= 2.7e3 against 1.12); and the constraint residuals C_u, C_v, on which
+     (ii)'s mu_uv rests, fall at second order in the bulk (u <= 5, R >= 1; |C_u| 9.8e-5 to 1.6e-6) and, from n = 80,
+     at the far corner, where R_uu is large and |C_u| is 5.8, 4.2, 2.2 two cells off the edges (D556, verifier 241).
   Control: X1 with R^2 in place of R^3 leaves the cross term -2 R_u R_v (the 4D identity is not the 5D one); X2 with B
-     depending on v leaves a residual.
+     depending on v leaves a residual, which detects the compatibility condition B_v = 0 (verifier 241).
 
 Run: python3 checks/twoext5.py   (about a minute)
 """
@@ -96,6 +102,16 @@ def chain(n, A, B, U1):
     Rv = np.gradient(R, dv, axis=1, edge_order=2)
     mu = R**2 * (1 + 2 * np.exp(-2 * S) * Ru * Rv)
     ident = np.max(np.abs(3 * cumint(R * np.exp(2 * S), du, dv) - (corner(R**3) - R**3)))
+    Ruu = np.gradient(Ru, du, axis=0, edge_order=2)
+    Rvv = np.gradient(Rv, dv, axis=1, edge_order=2)
+    Su = np.gradient(S, du, axis=0, edge_order=2)
+    Sv = np.gradient(S, dv, axis=1, edge_order=2)
+    Cu = np.abs(Ruu - 2 * Su * Ru + B(uu)[:, None] / (3 * R**2))
+    Cv = np.abs(Rvv - 2 * Sv * Rv + A(vv)[None, :] / (3 * R**2))
+    inn = np.zeros(R.shape, bool)
+    inn[2:-2, 2:-2] = True                                                      # off the one-sided edge stencils
+    bulk = inn & (uu[:, None] <= 5) & (R >= 1)
+    cons = (float(Cu[inn].max()), float(Cv[inn].max()), float(Cu[bulk].max()), float(Cv[bulk].max()))
     a = float(R.min())
     Rmax = float(corner(R**3).max()) ** (1 / 3)
     m0 = float(corner(mu).min())
@@ -108,7 +124,7 @@ def chain(n, A, B, U1):
     bnd = dict(Rmax=Rmax, mumin=m0, mumax=M, smin=-Sb, smax=smax)
     ok = (got['Rmax'] <= bnd['Rmax'] + 1e-9 and got['mumin'] >= bnd['mumin'] - 1e-2 and got['mumax'] <= bnd['mumax']
           and got['smin'] >= bnd['smin'] - 1e-9 and got['smax'] <= bnd['smax'])
-    return ident, a, got, bnd, ok
+    return ident, a, got, bnd, ok, cons
 
 
 def main():
@@ -122,22 +138,27 @@ def main():
     A = lambda x: TD.bump(x, 0.5, 2.0)
     Bw = lambda x: 0.4 * TD.bump(x, 1.0, 2.0)
     U1 = TD.corner_u(A, Bw)
-    ids, x3 = [], True
+    ids, cs, x3 = [], [], True
     for n in (40, 80, 160, 320):
-        ident, a, got, bnd, good = chain(n, A, Bw, U1)
+        ident, a, got, bnd, good, cons = chain(n, A, Bw, U1)
         ids.append(ident)
+        cs.append(cons)
         x3 &= good
         print('    n = %d (u in [0, %.3f], v in [0, 2], a = min R = %.3f): max |3 int int R e^(2s) - (D[R^3] - R^3)| = '
               '%.2e;  computed vs bound: max R %.3f <= %.3f, mu in [%.3f, %.3f] within [%.3f, %.3g], s in [%.3f, %.3f] '
               'within [%.3f, %.3g]' % (n, U1, a, ident, got['Rmax'], bnd['Rmax'], got['mumin'], got['mumax'],
                                        bnd['mumin'], bnd['mumax'], got['smin'], got['smax'], bnd['smin'], bnd['smax']),
               flush=True)
+        print('      constraints (two cells off the edges): max |C_u| %.2e, |C_v| %.2e; in the bulk (u <= 5, R >= 1) %.2e, '
+              '%.2e' % cons, flush=True)
     rates = [ids[k] / ids[k + 1] for k in range(3)]
     x3 &= all(r > 1 for r in rates) and rates[-1] > 3
+    x3 &= all(cs[k][q] / cs[k + 1][q] > 3 for k in range(3) for q in (2, 3))      # bulk: second order
+    x3 &= all(cs[k + 1][q] < cs[k][q] for k in (1, 2) for q in (0, 1))           # everywhere: falling from n = 80
     ok['X3'] = x3
-    print('  X3: identity (i)\'s residual falls with n (ratios %.2f, %.2f, %.2f: approaching second order; first order near R = '
-          'a at coarse n, as D3 records), and every bound holds (mu\'s lower bound to the discretisation of '
-          'R_u, R_v on the cones): %s' % (rates[0], rates[1], rates[2], x3))
+    print('  X3: identity (i)\'s residual falls with n (ratios %.2f, %.2f, %.2f, local orders %.2f, %.2f, %.2f), the '
+          'constraint residuals fall at second order in the bulk and, from n = 80, at the far corner too, and every bound holds (mu\'s lower bound to the discretisation of R_u, R_v '
+          'on the cones): %s' % (rates[0], rates[1], rates[2], *[math.log2(r) for r in rates], x3))
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1

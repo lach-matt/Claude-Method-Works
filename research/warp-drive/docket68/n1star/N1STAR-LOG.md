@@ -7632,3 +7632,10 @@ proposition allows, the question stays open rather than settled against the reco
 including a numerical check of the background term, and found no error. It narrowed the claim: what is established is
 the coefficient's expansion and one step of the lemma; the later steps need the source expanded order by order, which is
 the part still to be written.
+
+**D556 (2026-11-01): the two-dust extension, checked.** An independent check confirmed the identities by a separate
+computation and the bounds on the computed background, but the claim went too far. The criterion only says that a
+solution already given on a rectangle, with the radius away from zero, continues to its edge; it does not produce the
+solution. That needs a local existence statement in five dimensions and the continuation argument of the published
+paper, neither written yet. The change from four to five dimensions is also more than one power: the mass and its
+equations take different exponents and constants.

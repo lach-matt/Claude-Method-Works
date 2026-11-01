@@ -2,10 +2,14 @@
   X2: mu_uv = (2/9) A B e^(-2s)/R^2 with C_u, C_v: True
   Ctl: (R^2)_uv keeps a cross term; B = B(u, v) leaves a residual in X2: True
     n = 40 (u in [0, 6.444], v in [0, 2], a = min R = 0.678): max |3 int int R e^(2s) - (D[R^3] - R^3)| = 3.51e-04;  computed vs bound: max R 4.993 <= 4.993, mu in [0.903, 1.358] within [0.903, 6.34], s in [-0.347, 1.123] within [-0.347, 2.75e+03]
+      constraints (two cells off the edges): max |C_u| 5.38e+00, |C_v| 2.38e-03; in the bulk (u <= 5, R >= 1) 9.80e-05, 2.69e-04
     n = 80 (u in [0, 6.444], v in [0, 2], a = min R = 0.680): max |3 int int R e^(2s) - (D[R^3] - R^3)| = 2.04e-04;  computed vs bound: max R 4.993 <= 4.993, mu in [0.903, 1.358] within [0.903, 6.31], s in [-0.347, 1.121] within [-0.347, 2.7e+03]
+      constraints (two cells off the edges): max |C_u| 5.76e+00, |C_v| 2.89e-03; in the bulk (u <= 5, R >= 1) 2.49e-05, 6.74e-05
     n = 160 (u in [0, 6.444], v in [0, 2], a = min R = 0.681): max |3 int int R e^(2s) - (D[R^3] - R^3)| = 7.10e-05;  computed vs bound: max R 4.993 <= 4.993, mu in [0.903, 1.358] within [0.903, 6.3], s in [-0.347, 1.120] within [-0.347, 2.68e+03]
+      constraints (two cells off the edges): max |C_u| 4.21e+00, |C_v| 2.43e-03; in the bulk (u <= 5, R >= 1) 6.28e-06, 1.69e-05
     n = 320 (u in [0, 6.444], v in [0, 2], a = min R = 0.681): max |3 int int R e^(2s) - (D[R^3] - R^3)| = 2.04e-05;  computed vs bound: max R 4.993 <= 4.993, mu in [0.903, 1.358] within [0.903, 6.3], s in [-0.347, 1.120] within [-0.347, 2.68e+03]
-  X3: identity (i)'s residual falls with n (ratios 1.72, 2.88, 3.48: approaching second order; first order near R = a at coarse n, as D3 records), and every bound holds (mu's lower bound to the discretisation of R_u, R_v on the cones): True
+      constraints (two cells off the edges): max |C_u| 2.15e+00, |C_v| 1.37e-03; in the bulk (u <= 5, R >= 1) 1.57e-06, 4.23e-06
+  X3: identity (i)'s residual falls with n (ratios 1.72, 2.88, 3.48, local orders 0.78, 1.52, 1.80), the constraint residuals fall at second order in the bulk and, from n = 80, at the far corner too, and every bound holds (mu's lower bound to the discretisation of R_u, R_v on the cones): True
 X1 PASS
 X2 PASS
 Ctl PASS

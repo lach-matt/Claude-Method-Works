@@ -18,8 +18,8 @@ function, and what that does to the lemma.
      g^-1(dR, dR) = 1 - mu/a^2 < 0 exactly when mu > a^2 there.
   D3 (computed) a seeded hole: corner data with mass mu0 = 1 at R = 4 (mu and R_u as 5D Tangherlini's, the gauge e^(2s)
      = R_v = 1/2); an ingoing pulse A = sin^4 on v in [0.5, 2] (mu to about 1.5) and an outgoing one B = 0.4 sin^4 on u
-     in [1, 2]; twodust5's diamond scheme on u in [0, U1], v in [0, 2], U1 where R(U1, 2) = 0.62, clear of the
-     singularity in R (min R about 0.67; later v needs resolving a strip between the horizon and the singularity that
+     in [1, 2]; twodust5's diamond scheme on u in [0, U1], v in [0, 2], U1 the last u at n = 160 with R(u, 2) >= 0.62
+     (R(U1, 2) is the rectangle's least, about 0.68; D556), clear of the singularity in R (min R about 0.67; later v needs resolving a strip between the horizon and the singularity that
      thins exponentially in v). At n = 40, 80, 160 steps per unit: R_u < 0 everywhere; with B = 0, max |psi| and max |mu
      - mu(v)| fall with n (discretisation, about first order near R = a, where R_u is steep); with B, max psi falls with
      n to 0 and min psi rises with n (-0.077, -0.035, -0.016, -0.0098 at n = 40 to 320, verifier 231), its limit small

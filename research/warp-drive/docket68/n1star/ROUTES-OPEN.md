@@ -5939,6 +5939,16 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (N1STAR-PROOF.md:461, 1258-1260); the expansion is in the profile variables, section 9.4's fixed-phase form needing
   φ1's expansion; B̄, C̄ asserted, not shown. NITs: p ∈ ½ℤ; dΓ[g0]; a wording slip in the record's Lemma 5.2 proof
   (509), recorded. Corrected in BEYOND5 3(b); the D551 entry above keeps its text.
+- D556 (verifier 241 on D552; X1-X2 by a full 5D Ricci computation independent of the warped formulas, X3 by an
+  independent scheme, [Mos17] Lemma 5.1 read at pp. 42-43, the domain's past-closedness checked numerically): the
+  identities, the bound chain and the domain argument hold. MAJOR: existence on Ω's past and "the development ends only
+  where R → 0" are not established: Lemma 5.1 is an extension criterion for a solution already given on a half-open
+  rectangle; 5D local existence ([Mos17] Proposition 5.3, small-step, ∂_u r < 0) and the continuation loop of [Mos17]
+  section 5.4 are not written. MINOR: the bounds use a = min R, an interior value, not the data alone; R(U1, 2) ≈ 0.68
+  is the rectangle's least, 0.62 the threshold; the constraint residuals were not reported (now in X3: second order in
+  the bulk, falling at the far corner from n = 80); the log's "one change" understated the 5D form; R_u < 0 belongs in
+  the summaries; the trap condition is checkable from data (min D[μ] > a²). Corrected in FAMILIES5 4i, twoext5 and
+  twodomain5's docstring; the D552 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
