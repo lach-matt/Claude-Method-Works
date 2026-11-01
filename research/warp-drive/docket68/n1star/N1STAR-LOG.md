@@ -7534,3 +7534,9 @@ level, depends on one term the record does not settle.
 **D539 (2026-11-01): the last loop's length, settled at the record's point.** The term that decides whether the last
 loop takes one round or about a million and a half per level was already computed in this note's own earlier work, and
 it is present, so the loop takes the longer count, still about one seventeenth of the loops already counted.
+
+**D540 (2026-11-01): the far-strip expansion was already in the record.** An independent reading found that the record's
+eleventh section already proves what the last two notes called open: the actual solution has an expansion in inverse
+half-powers of the radius toward past infinity, with no logarithms, at each fixed wavelength. So for the solution itself
+the question is settled; what is left is the same expansion for the parts of the approximate solution built by energy
+rather than by integration along light rays.

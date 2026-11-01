@@ -5799,6 +5799,18 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   its "not decided" being the bound over all cut-offs. So m_ι = d1 at the record's point and the ι⁺ loop runs up to
   1,470,302 rounds per level, through λ_♯ + n d1, about 0.057 of the levels' tf-rounds. With LD13, both of LD12 (v)'s
   uncounted loops are bounded per level by d1, the level-2 one up to N_2. Open: each round's loss.
+- D540 (verifier 233 on D536; the record's section 9.3, Lemma 11.0, Lemmas 11.1-11.2, Proposition 11.1 and Lemma 0.1
+  read; the identities and the class example checked in sympy): MAJOR, the inventory. D536 (and D530 (iii)) said the
+  record gives u_1 no ℓ-gain and no expansion at I⁻; Proposition 11.1 (N1STAR-PROOF.md:10562-10592) gives u = g_λ − g0 =
+  Σ_(k=3)^J r^(−k/2)G_k(v, x̂) + u_J with ℓ^m u_J ∈ E_((J+1)/2+m) for all m and J, at each fixed λ, the sources starting
+  at q = 3 (no r^(−5/2), no logarithm), checked by the record's own verifiers. So for g_λ the strip's expansion is in
+  hand at fixed λ, which is all the strip needs; what remains is the approximant's m_m, φ_m and residual R_N, the
+  products forming the sources (quadratic in e = g_λ − g_app), and λ-uniformity. MINOR: rℓ = S − (v − 1 − τ0)∂_v with
+  the record's t; φ_m has one condition, ℓφ_m ∈ L_2; the q = 5/2 logarithm multiplies the leading order and can only be
+  excluded; the sources are in e, not u_1; the exponents being half-integers, D517's ρ^(1/2) class applies. NITs: 2∂_v(ℓ
+  + 3/(2r)) is (9.5)'s ∂_v-part, not its leading part at fixed v. Confirmed: P is the strip; O_p's one step; [S, □] =
+  −2□ in 5D; ρ³ sin(log ρ) is in ρ²C^(0,1) and not ρ²C¹. Corrected in BEYOND5 3(b) (the D530 and D536 brackets); the
+  D536 entry above keeps its text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -599,35 +599,46 @@ What it does not give:
   are polyhomogeneous at past null infinity along the strip. The record's waves are incoming, with phase v/λ
   (N1STAR-PROOF.md:538, 1040), so their fast dependence is in v, which σ(v, ·) absorbs. What the record does not give is
   the dependence on u at fixed v. Lemma 11.0 commutes with ∂ and Ω only, and the derivative along the strip, ∂_u, gains
-  no power of r (D464); neither r∂_u nor the scaling field is used, so neither conormality nor an expansion at I⁻ is
-  proved. (iv) What it would cost (R4). A source oscillating in u at fixed v, r⁴S = cos(2r/λ), which E_2 does not
-  exclude, gives on t = 0 no ρ³ term (|r³φ| < 0.05 on [300, 400] at λ = 10, against |K_(3,0)| = 0.785) and a ρ⁴ term ≈
-  √2 λρ⁴ sin(1/(λρ)) (amplitude 1.39λ at λ = 10, 1.395λ with t = 0 exact; at λ = 30, 1.31λ on [200, 400] is not
-  converged, 1.38λ on [400, 800] and 1.40λ on [800, 1200]; √2λ is the leading term by parts in u; D535). As a function
-  of ρ it is C¹ but not C²; the class test is stricter (corrected D535, verifier 230): ρ⁻² times it, ρ²sin(1/(λρ)), is
-  differentiable but not C¹, its derivative carrying −λ⁻¹cos(1/(λρ)), and its t-derivative, −√2ρ⁴cos(1/(λρ)), is ρ³
-  times ρcos(1/(λρ)), not differentiable at 0: outside Lemma 0.1's ρ²C^m and ρ³C^m from m = 1. (Checked on the flat
-  slice t = 0; the bend of Σ_IVP, D510, is not checked for this term.) Whether e has such a part along the strip is not
-  decided; with incoming waves, it would come from backscatter or from the remainder's own construction. What remains:
-  e's conormality and expansion at I⁻ along the strip, by commuting the far-region energy (9.8) with r∂_u or the scaling
-  field.]
+  no power of r (D464); neither r∂_u nor the scaling field is used there. [Corrected D540, verifier 233: the expansion
+  is in the record for g_λ at each fixed λ. Proposition 11.1 (N1STAR-PROOF.md:10562-10592) gives u = g_λ − g0 =
+  Σ_(k=3)^J r^(−k/2)G_k(v, x̂) + u_J with ℓ^m u_J ∈ E_((J+1)/2+m) for every m and J, by Lemma 11.2's induction
+  (10516-10560), the sources starting at q = 3, so no r^(−5/2) and no logarithm.] (iv) What it would cost (R4). A source
+  oscillating in u at fixed v, r⁴S = cos(2r/λ), which E_2 does not exclude, gives on t = 0 no ρ³ term (|r³φ| < 0.05 on
+  [300, 400] at λ = 10, against |K_(3,0)| = 0.785) and a ρ⁴ term ≈ √2 λρ⁴ sin(1/(λρ)) (amplitude 1.39λ at λ = 10, 1.395λ
+  with t = 0 exact; at λ = 30, 1.31λ on [200, 400] is not converged, 1.38λ on [400, 800] and 1.40λ on [800, 1200]; √2λ
+  is the leading term by parts in u; D535). As a function of ρ it is C¹ but not C²; the class test is stricter
+  (corrected D535, verifier 230): ρ⁻² times it, ρ²sin(1/(λρ)), is differentiable but not C¹, its derivative carrying
+  −λ⁻¹cos(1/(λρ)), and its t-derivative, −√2ρ⁴cos(1/(λρ)), is ρ³ times ρcos(1/(λρ)), not differentiable at 0: outside
+  Lemma 0.1's ρ²C^m and ρ³C^m from m = 1. (Checked on the flat slice t = 0; the bend of Σ_IVP, D510, is not checked for
+  this term.) Whether e has such a part along the strip is not decided; with incoming waves, it would come from
+  backscatter or from the remainder's own construction. What remains: for g_λ nothing at fixed λ, which is all the strip
+  needs (D521); for e = g_λ − g_app, the approximant's own expansion, and the products that form the sources (D536 as
+  corrected by D540).]
   [D536, read and deduced: what the record has toward that expansion. The strip is section 9's far region P: v ∈
   [v_start, V_P] and r = t + O(1) (Lemma 9.1(d)), and at fixed (v, x̂) the radial derivative is ℓ = −L0 (ℓv = 0, ℓr = 1;
   N1STAR-PROOF.md:1190-1191). So ρ³C^m for the strip's term needs (r²ℓ)^j of r⁴ times the sources bounded for j ≤ m
-  (D530 (i)-(ii)); on P, rℓ = S − v∂_v, S the scaling field, v bounded. (i) One step is in the record: O_p (1197) asks
-  of the remainder ℓf̃ ∈ E_(p+3/2), that is rℓf̃ ∈ E_(p+1/2), Lemma 9.7(d)'s transport solutions are in O_(q−1)
-  (1209-1210), and Theorem A_P puts W_TT, χ and gh_(m+1) in O_p (1229-1230). (ii) What is not: m_m ∈ L_2 and φ_m ∈ L_1
-  (with ℓφ_m ∈ L_2) carry no condition on their remainders' ℓ-derivatives; the residual Ric^H(g_app) is in E_3 only
-  (1233); and Lemma 11.0 (10471-10501) runs its identity with Cartesian and rotation derivatives, so u_1 is in E_2 with
-  no ℓ-gain. (iii) The route: commute Lemma 11.0's identity on the approximating g_n with S, j times. [S, □] = −2□ on
-  flat space, and on P the coefficients' S-derivatives stay in the coefficients' classes once the approximant's profiles
-  and residual are in iterated O-classes, (rℓ)^i f̃ ∈ E_(p+1/2) for i ≤ j. Lemma 9.7(d) gives these one transport at a
-  time, but the record states j = 1, for the transported profiles only; m_m, φ_m and R_N need them too. (iv) Conormality
-  is not enough: it puts the strip's term in ρ³ times a function with (ρ∂_ρ)^j bounded, which lies in ρ²C^(0,1) and not
-  in ρ²C¹ (ρ³ sin(log ρ) is an example). Lemma 0.1's C^m needs an expansion of r⁴ times the sources at fixed v, i.e. of
-  u_1 at past null infinity along the strip. By (9.5) the leading part there is the transport 2∂_v(ℓ + 3/(2r)), so with
-  conormality the expansion would follow term by term as for the approximant (Lemma 9.7(d)), the resonance q = 5/2,
-  where a logarithm appears (1210), to be excluded or pushed above the order m Lemma 0.1 needs. Neither is done here.]
+  (D530 (i)-(ii)); on P, rℓ = S − (v − 1 − τ0)∂_v, S the scaling field, with the record's t = 1 + τ0 − τ, and v bounded
+  (corrected D540: "S − v∂_v" held only for τ∂_τ + r∂_r). (i) One step is in the record: O_p (1197) asks of the
+  remainder ℓf̃ ∈ E_(p+3/2), that is rℓf̃ ∈ E_(p+1/2), Lemma 9.7(d)'s transport solutions are in O_(q−1) (1209-1210),
+  and Theorem A_P puts W_TT, χ and gh_(m+1) in O_p (1229-1230). (ii) What is not: m_m ∈ L_2 carries no condition on its
+  remainder's ℓ-derivatives and φ_m one (ℓφ_m ∈ L_2); the residual Ric^H(g_app) is in E_3 only (1233). Lemma 11.0
+  (10471-10501) runs its identity with Cartesian and rotation derivatives only, but section 11 goes on: Proposition 11.1
+  (10562-10592) gives u = g_λ − g0 its full expansion in r^(−1/2) at fixed λ, every ℓ-gain included ((11.7); ℓu_1 ∈ E_3
+  at 10577). [Corrected D540, verifier 233: D536 had missed section 11 and said u_1 had no ℓ-gain.] (iii) For g_λ the
+  route is the record's own, Lemma 11.2's induction rather than a commutator. For e = g_λ − g_app, the approximant's
+  m_m, φ_m and residual need the same expansion; Lemma 11.2 would give it to any part solving such an equation with an
+  expanding source (not checked). A commutator route would have been: commute Lemma 11.0's identity on the approximating
+  g_n with S, j times. [S, □] = −2□ on flat space, and on P the coefficients' S-derivatives stay in the coefficients'
+  classes once the approximant's profiles and residual are in iterated O-classes, (rℓ)^i f̃ ∈ E_(p+1/2) for i ≤ j. Lemma
+  9.7(d) gives these one transport at a time, but the record states j = 1, for the transported profiles only; m_m, φ_m
+  and R_N need them too. (iv) Conormality is not enough: it puts the strip's term in ρ³ times a function with (ρ∂_ρ)^j
+  bounded, which lies in ρ²C^(0,1) and not in ρ²C¹ (ρ³ sin(log ρ) is an example). Lemma 0.1's C^m needs an expansion of
+  r⁴ times the sources at fixed v, i.e. of e at past null infinity along the strip, the sources being quadratic in e =
+  g_λ − g_app, not in u_1 (corrected D540). For g_λ that expansion is Proposition 11.1, which integrates the ∂_v-part
+  2∂_v(ℓ + 3/(2r)) of (9.5) from v_start (Lemma 11.2; it is the ∂_v-part, not the leading part at fixed v, verifier
+  233). The q = 5/2 logarithm would multiply the leading order and so can only be excluded, not pushed up; the record's
+  sources start at q = 3 and exclude it. The exponents are half-integers, so the class is D517's ρ^(1/2)-smooth
+  extension of Lemma 0.1, not Part VII's integer one (corrected D540).]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the
