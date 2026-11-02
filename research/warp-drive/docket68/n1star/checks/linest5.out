@@ -32,3 +32,4 @@ E8 G_low = 382 read in 2(d)'s model: G = G_low K/(2F(F - 1)) = 0.566 (K = 0.2215
     d2R/ddelta2 = 382.0 (PASS); demand 1/(4GTF^2) = 0.000526; the residual 2.42e-3 is 4.60 times it, and at G = 10, 81.2
     times
    control (the factor 2 dropped): the model gives 764.0, not 382 -> fails (good)
+   (40 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)

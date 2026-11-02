@@ -1,1 +1,8 @@
 O1  the product split at order k (Proposition 9.8's commuted equation)
+  O1a every source monomial has a split (highest w-order in L^2, the rest in sup with Lemma 9.3(a)) at every k = 5..200;
+        minimal k = 5: pass minimal k = 5
+  O1b the record's k = 6 and every larger k are covered (10.51(a)'s split at k - 2: the sup factor has w-order <= (k +
+        2)/2 <= k - 2); and for every k the second-largest w-order of a monomial with 3 or 4 factors is at most that of a
+        pair (checked k <= 40), so pairs decide the split above 40: pass
+  O1c control (Sobolev cost mutated 3 -> 4): the minimal k becomes 7, so 'k = 6 suffices' fails: pass minimal k with cost
+        4 = 7

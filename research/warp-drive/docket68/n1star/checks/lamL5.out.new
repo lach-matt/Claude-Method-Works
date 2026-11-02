@@ -1,0 +1,3 @@
+  L1 sin^4 edge: one-sided derivatives at v_s+ (k = 0..6) [0, 0, 0, 0, 8*pi**4/27, 0, -160*pi**6/243]; = 0, 0, 0, 0, 24
+      (pi/3)^4, 0, -480 (pi/3)^6: True; jump of env^(4): 28.861953; sin^4 = (3 - 4 cos 2u + cos 4u)/8: True
+L1 PASS

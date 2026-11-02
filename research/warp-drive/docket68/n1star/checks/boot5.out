@@ -2,3 +2,8 @@ B3  the Hardy inequality on the slices
   B3a phi = r^(-a-1-eta): ratio = 1/(a + 1 + eta)^2 -> (a + 1)^-2 (the constant is sharp): pass (a + eta + 1)**(-2)
   B3b the integration by parts behind it: d/dr (r^(2a+2) f^2/(2a+2)) = r^(2a+1) f^2 + r^(2a+2) f f'/(a+1); the boundary
         term at the inner edge enters as -R^(2a+2) f(R)^2/(2a+2) <= 0: pass
+  B3c 100 random phi = sum c_i r^(-b_i), b_i > a + 1 (quadrature on [1, oo)): ratio <= (a + 1)^-2: pass max ratio x
+        (a+1)^2 = 0.992706
+  B3d control: the constant (a + 1)^-2 / 2 is violated by r^(-a-1-eta), eta = 1/100: pass 80000/40401
+B4  the radial derivatives from the commuted fields
+  B4a x.d_x = Z - (t - v1) d_t on every function: pass
