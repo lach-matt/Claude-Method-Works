@@ -357,6 +357,24 @@ def main():
         lg = 2 * a_ * (Du + Dv) / np.log(10)
         print('E4 X = %.4f: a = %.3g, worst unknown %s; F^2 = exp(2 a (Du + Dv)) = 10^%.1f, F = 10^%.1f' % (
             Xb, a_, UNK[int(np.argmax(row))], lg, lg / 2))
+    # E4 detail at |x| <= 1/2: the coordinate-normalised state and the largest single coefficient
+    sel = inbox[:, :, None] & (np.abs(x)[None, None, :] <= 0.5)
+    mx = lambda A_: float(np.nanmax(np.where(sel, np.abs(A_) * np.ones_like(bg[Ew]), np.nan)))
+    syms = STATE + [Ew, Ek] + list(DX.values()); args = [bg[s_] for s_ in syms]
+    print('E4 detail, |x| <= 1/2: sup of e^w times the state: ' + ', '.join(
+        '%s %.3g' % (s_, mx(bg[s_] * bg[Ew])) for s_ in STATE))
+    best = (0, None, None)
+    for name, (op, bnd, rhs, fac) in R.items():
+        for n in UNK:
+            co = rhs.coeff(U[n])
+            if co == 0:
+                continue
+            cv = mx(sp.lambdify(syms, co, 'numpy')(*args) * (bg[Ew] if fac == Ew else 1.0))
+            if cv > best[0]:
+                best = (cv, name, n)
+    print('   the largest single coordinate-normalised coefficient: %.3g, of %s in the %s row; its sup over u is at '
+          'u = %.2f (e^w chib)' % (best[0], best[2], best[1], uu[np.unravel_index(
+              np.nanargmax(np.where(sel, np.abs(bg[chib] * bg[Ew]), np.nan)), sel.shape)[0]]))
     # E4b: the same with the coefficients' own profile (the variable-coefficient lemma, E7's proof with
     # U(u) = int a_o du, V(v) = int a_i dv): F^2 = exp(2 int a_o du + 2 int a_i dv)
     outs = [n for n in UNK if TYPE[n] in ('out', 'both')]
