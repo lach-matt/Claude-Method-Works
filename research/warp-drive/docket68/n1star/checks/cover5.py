@@ -104,7 +104,8 @@ def main():
         'to 1/2: %s = %.6f' % (xid_on, Hr, sp.simplify(T), sp.nsimplify(Tval), float(Tval)))
     outside = sp.simplify(G0.subs({mu: 1, r: 2}))
     ok['C2'] = all(outside.subs({xi: a, et: b}) > 0 for a, b in ((1, 0), (0, 1), (Fr(1, 3), Fr(5, 7))))
-    say('  C2 (control): at r = 2 r_h (mu = 1), G0 = %s > 0 off the zero section: no characteristic point there' % outside)
+    say('  C2 (control): at r = 2 r_h (mu = 1), G0 = %s > 0 off the zero section: no characteristic point there'
+        % outside)
 
     # V3: the boundary face
     sg, ph = sp.symbols('sigma0 phi', positive=True)
@@ -117,7 +118,8 @@ def main():
     eta2dot_chain = sp.simplify(sp.diff(eta2, ph) * phidot)
     rate = sp.simplify(sp.diff(sp.log(sp.tan(ph / 2)), ph) * phidot)
     ok['V3'] = on_circle and sp.simplify(eta2dot_flow - eta2dot_chain) == 0 and sp.simplify(rate + 2 * sg) == 0
-    say('  V3: the circle is the characteristic set: %s; phi\' = %s, consistent with H |eta|^2 = -4 (sigma0 + xi)|eta|^2: '
+    say('  V3: the circle is the characteristic set: %s; phi\' = %s, consistent with H |eta|^2 = -4 (sigma0 + '
+        'xi)|eta|^2: '
         '%s; H log tan(phi/2) = %s: an exact time function' % (on_circle, phidot, sp.simplify(eta2dot_flow
                                                                                             - eta2dot_chain) == 0,
                                                                 rate))
@@ -146,7 +148,8 @@ def main():
     ok['C4'] = v0 < 0
     say('  C4 (control): with b^2 = 11/10 of the critical value (mu = 1) F(r_c) = %s < 0: no orbit reaches r_c, so the '
         'double root, and the exponent, belong to the critical orbit only' % v0)
-    say('  V5: the counts: I.A (7.1) is a chain of six pieces (A)-(F) at each of N(I) sigma_0-neighbourhoods, with (B) and '
+    say('  V5: the counts: I.A (7.1) is a chain of six pieces (A)-(F) at each of N(I) sigma_0-neighbourhoods, with (B) '
+        'and '
         '(D) replaced by single commutators (V2, V3); II.D\'s cover at the trapped set has explicit escape times (V4). '
         'Not explicit: the constants of the microlocal estimates of each piece (calculus constants).')
     for k, v in ok.items():

@@ -1,0 +1,10 @@
+  K1: 18 sites; B and A sites 11, each classified: True; by effectiveness: {'calculus': 6, 'N1-kind': 1, 'base': 1, 'as
+      written': 1, 'proofs': 2}
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/baire5.py", line 166, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/baire5.py", line 112, in main
+    say('      %s:%d [%s] %s; hides: %s; size: %s' % (h.replace('PART-', '').replace('.md', ''), h[1], e, rep, hid,
+                                                      ^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'replace'

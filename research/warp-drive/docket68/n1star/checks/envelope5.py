@@ -19,7 +19,8 @@ deduced (the tail argument at E2).
      so lower and upper Riemann sums at exact points bound it), hence c in a certified interval.
   E2 (certified; deduced tail) e_k := sup_v |env^(k)(v)| for k = 0..14. On |y| <= 1 - delta: Taylor arithmetic with
      interval coefficients (the k-th coefficient computed with y0 an interval encloses beta^(k)(xi)/k! for every xi in
-     it), in the centred form of interior_bounds over a graded cover. On 1 - delta <= |y| < 1, t = 1 - |y|: beta = e sin^12(pi t/2) phi1(t) phi2(t), phi1 = exp(-1/(2t)), phi2 =
+     it), in the centred form of interior_bounds over a graded cover. On 1 - delta <= |y| < 1, t = 1 - |y|: beta =
+     e sin^12(pi t/2) phi1(t) phi2(t), phi1 = exp(-1/(2t)), phi2 =
      exp(-1/(2(2 - t))) (y^2/(1 - y^2) = 1/(t(2 - t)) - 1 and 1/(t(2 - t)) = 1/(2t) + 1/(2(2 - t))); phi1^(j) =
      P_j(1/t) exp(-1/(2t)) with P_(j+1)(x) = x^2 (P_j(x)/2 - P_j'(x)), and x^i e^(-x/2) decreases for x > 2i, so with
      delta <= 1/(4K) the sup over t <= delta is at t = delta; the analytic factor by Taylor arithmetic on [0, delta];

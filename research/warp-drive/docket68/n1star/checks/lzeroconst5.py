@@ -297,7 +297,8 @@ def main():
 
     say('  Z5: lam0 = min{ lam1, eps1/(2 C_app), [min(eps1, eps2)/(4 C_inf M)]^(1/(K-3)), [1/(2 C_dw M)]^(1/(K-4)), '
         '1/(C3 C_N M^2), '
-        '[m_c/(2 C_c C0)]^(1/(N-3)), (2 C_k)^(-1/(N-3)), m_s/C_s, (4 C_b C0)^(-1/(N-3)) },  M = C3 (C_D + 1 + C_R) + 1,  C3 = C_st C2 '
+        '[m_c/(2 C_c C0)]^(1/(N-3)), (2 C_k)^(-1/(N-3)), m_s/C_s, (4 C_b C0)^(-1/(N-3)) },  M = C3 (C_D + 1 + C_R) + '
+        '1,  C3 = C_st C2 '
         'exp(C2 (tau_end - tau0)) (1 + tau_end - tau0);  K = 6, N = 9')
     say('      certified at P*: lam1 <= %.6f, tau_end - tau0 <= %.6f, eps1 >= %.4e, C_S <= %.3f (inside C_inf, C_dw)' % (
         float(g['lam1'][1]), float(g['dtau'][1]), float(eps1), float(CS)))

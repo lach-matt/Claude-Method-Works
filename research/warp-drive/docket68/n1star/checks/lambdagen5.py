@@ -205,7 +205,8 @@ def main():
     iota = int(ceil((2 - w['eps'] - DW.LSHARP) / d1lo))
     assert iota == int(ceil((2 - w['eps'] - DW.LSHARP) / d1hi))
     win = 15 * iota * above
-    say('  L6: windows of III.I\'\'\'\'\'\'\'\'\'\' Proposition 3.1 (b) per call <= %d; at the %d levels above 3, 15 per '
+    say('  L6: windows of III.I\'\'\'\'\'\'\'\'\'\' Proposition 3.1 (b) per call <= %d; at the %d levels above 3, '
+        '15 per '
         'window: %d = %.4e, not in round 1\'s W8' % (iota, above, win, win))
     ok['L6'] = iota == 1470302
 

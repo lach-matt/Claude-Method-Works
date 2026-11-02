@@ -8,3 +8,5 @@ box: u in [-4.00, -1.10], v in [0.55, 1.60], x in [-1, 1] (angular nodes); degre
          ll 1.11e-02 (9.64e-03), ln 2.59e-04 (5.92e-04), nn 3.47e-04 (2.93e-04), lx 1.08e-03 (1.66e-03)
          nx 2.22e-04 (8.67e-05), xx 4.80e-04 (7.79e-04), 11 4.33e-04 (2.41e-04), 22 5.70e-04 (8.27e-04)
   worst relative residual: 2.46e-03 (l1_M16_800), 9.64e-03 (l1_M16_400), ratio 3.92
+  control (W + 0.01 v): worst relative residual 3.44e-01, 140 times the approximant's -> fails (good)
+resid5: control behaves (650 s)
