@@ -280,18 +280,19 @@ def f1b():
             K0t = K0 - ((ell.T*K0*ell)[0]/ml**2)*(m*m.T)
             trs.append(mp.mnorm(DF1(Jw, J0, test_field("val", K0t)), 1))
             Jn, J0n = Jn_s.at(X, lv), J0n_s.at(X, lv)
-            nos.append(mp.mnorm(DF1(Jn, J0n, test_field("val", K0)), 1))
+            # the same test on the mutated (non-oscillating) wave: D F_1[K0] minus the claimed lam^-1 term
+            nos.append(mp.mnorm(DF1(Jn, J0n, test_field("val", K0)) - L, 1))
         info.append((mp.nstr(rems[0], 3), mp.nstr(rems[-1], 3), mp.nstr(leads[0], 3), mp.nstr(leads[-1], 3)))
         rem_ok = rem_ok and max(rems) < 3*min(rems) + 1
         grow_ok = grow_ok and leads[-1] > 50*leads[0]
         tr_ok = tr_ok and max(trs) < 3*min(trs) + 1
-        ctl_ok = ctl_ok and max(nos) < 3*min(nos) + 1
+        ctl_ok = ctl_ok and nos[-1] > 50*nos[0]
     check("F1b D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A sin(v/lam) stays bounded (lam = 1e-2, 1e-3, 1e-4) while the "
           "lam^-1 term grows: c = -(1/2) lam^-1 (.)(ell, ell)[d_th^2 W] + O(1)", rem_ok and grow_ok,
           "(rem at 1e-2, 1e-4; lead at 1e-2, 1e-4) " + str(info))
     check("F1b' for K0(ell, ell) = 0 the value coefficient is O(1): the lam^-1 part is exactly the ell-ell one", tr_ok)
-    check("F1b'' control (the wave mutated to the non-oscillating lam A): no lam^-1 term (bounded as lam -> 0), so the "
-          "claimed lam^-1 growth is absent there", ctl_ok and not grow_ok is False)
+    check("F1b'' control (the wave mutated to the non-oscillating lam A): the same test fails, the remainder growing "
+          "like lam^-1 (the lam^-1 coefficient is the oscillation's)", ctl_ok)
 
 
 def f1c():
