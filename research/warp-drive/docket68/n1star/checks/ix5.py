@@ -24,10 +24,13 @@ nabla w^T), Theta := delta G, K(X, Y) = g(nabla_X nu, Y) with nu the future unit
      on Sigma: its T Sigma components vanish and the s-derivative of the second fundamental form of g + s L_X g
      vanishes (Lemma 2.1 (f); verifier 162's N3).  Control: X = (1 + t) V, not zero on Sigma, fails.
   X8 (computed) Same setting, for Theorem 2.2's Step 3 (D610): Sigma is noncharacteristic for L^0 := DRic + delta^*
-     Theta. For h = t^m H + t^(m+1) K (H, K symmetric, every component an arbitrary function of (x, y)), the coefficient
-     of t^(m-2) in L^0 h at t = 0 is -(1/2) m (m-1) g^tt H, m = 2, 3, 4, 5; as g^tt = g^(-1)(dt, dt) < 0, L^0 h = 0 and
-     h = O(t^m) force H = 0, so h vanishes to infinite order.  Control: DRic alone (without delta^* Theta) fails at every
-     m -- the gauge term is what makes Sigma noncharacteristic.
+     Theta.  (a) For h = f(t) H, f arbitrary and H symmetric with every component an arbitrary function of (x, y), no
+     derivative of f above the second occurs in L^0 h and the coefficient of f'' is -(1/2) g^tt H.  With f = t^m this
+     gives the coefficient of t^(m-2) at t = 0 as -(1/2) m (m-1) g^tt H for every m >= 2 (f' and f carry t^(m-1), t^m;
+     a remainder O(t^(m+1)) contributes O(t^(m-1))), and as g^tt = g^(-1)(dt, dt) < 0, L^0 h = 0 with h = O(t^m) forces
+     H = 0: h vanishes to infinite order.  (b) The example m = 2 with a remainder t^3 K: L^0 h at t = 0 is -g^tt H.
+     Control: DRic alone (without delta^* Theta) fails in (a) and (b) -- the gauge term is what makes Sigma
+     noncharacteristic.
   X6 (computed) At five-dimensional Tangherlini, DRic(L_X g) = 0 for X = a(t, r) d_t + b(t, r) d_r (a, b arbitrary);
      DRic is the s-derivative at 0 of the Ricci tensor of g + s L_X g, assembled from its Christoffel symbols to first
      order in s.  Control: at the four-dimensional lapse F = 1 - mu/r (not Ricci-flat in five dimensions) it fails.
@@ -223,29 +226,46 @@ def x3_x5():
 
 
 def x8():
+    """(a) for every m: h = f(t) H, f arbitrary -- the coefficient of f'' in L^0 h is -(1/2) g^tt H and no derivative of f
+    of higher order occurs; (b) the example m = 2 with a t^3 remainder.  Control: DRic alone in both."""
     X, g, _ = curved_setting()
     t = X[0]
     gi = g.inv()
     Gm, _ = christoffel(g, X, gi)
     H = sp.Matrix(3, 3, lambda a, b: sp.Function('H%d%d' % (min(a, b), max(a, b)))(X[1], X[2]))
     K = sp.Matrix(3, 3, lambda a, b: sp.Function('K%d%d' % (min(a, b), max(a, b)))(X[1], X[2]))
-    gtt0 = gi[0, 0].subs(t, 0)
-    ok, ctl = True, True
-    for m in (2, 3, 4, 5):
-        h = t**m * H + t**(m + 1) * K
+
+    def L0(h, gauge=True):
         R = ricci_dot(g, h, X)
+        if not gauge:
+            return R
         th = theta(h, g, X)
-        ds = sp.Matrix(3, 3, lambda a, b: (sp.diff(th[b], X[a]) + sp.diff(th[a], X[b])) / 2
-                       - sum(Gm[c][a][b] * th[c] for c in range(3)))
-        want = -sp.Rational(1, 2) * m * (m - 1) * gtt0 * H
-        coef = lambda E: [sp.diff(E[a, b], t, m - 2).subs(t, 0) / sp.factorial(m - 2) - want[a, b]
-                          for a in range(3) for b in range(a, 3)]
-        r = holds(coef(R + ds), ranges=RANGES)
-        c = not fails(coef(R), ranges=RANGES)
-        print('   X8 m = %d: coefficient of t^(m-2) in L^0 h is -(1/2) m (m-1) g^tt H: %s | control DRic alone: %s'
-              % (m, r, c), flush=True)
-        ok, ctl = ok and r, ctl and not c
-    return ok, not ctl
+        return R + sp.Matrix(3, 3, lambda a, b: (sp.diff(th[b], X[a]) + sp.diff(th[a], X[b])) / 2
+                             - sum(Gm[c][a][b] * th[c] for c in range(3)))
+    f = sp.Function('f')(t)
+    F0, F1, F2, F3 = sp.symbols('F0 F1 F2 F3')
+    rep = {sp.Derivative(f, (t, 3)): F3, sp.Derivative(f, (t, 2)): F2, sp.Derivative(f, t): F1}
+
+    def coeffs(E):
+        E = E.subs(rep).subs(f, F0)
+        return [E[a, b] for a in range(3) for b in range(a, 3)]
+    want = [-gi[0, 0] * H[a, b] / 2 for a in range(3) for b in range(a, 3)]
+    Eg, Ed = coeffs(L0(f * H)), coeffs(L0(f * H, gauge=False))
+    no_high = all(sp.diff(e, F3) == 0 for e in Eg)
+    ra = no_high and holds([sp.diff(e, F2) - w for e, w in zip(Eg, want)], ranges=RANGES)
+    ca = not fails([sp.diff(e, F2) - w for e, w in zip(Ed, want)], ranges=RANGES)
+    print('   X8 (a) h = f(t) H: no f\'\'\' and the coefficient of f\'\' in L^0 h is -(1/2) g^tt H: %s | control DRic '
+          'alone: %s' % (ra, ca), flush=True)
+    h = t**2 * H + t**3 * K
+    E2, D2 = L0(h), L0(h, gauge=False)
+    w2 = [-gi[0, 0].subs(t, 0) * H[a, b] for a in range(3) for b in range(a, 3)]
+    rb = holds([E2[a, b].subs(t, 0) - w for (a, b), w in zip([(a, b) for a in range(3) for b in range(a, 3)], w2)],
+               ranges=RANGES)
+    cb = not fails([D2[a, b].subs(t, 0) - w for (a, b), w in zip([(a, b) for a in range(3) for b in range(a, 3)], w2)],
+                   ranges=RANGES)
+    print('   X8 (b) m = 2, h = t^2 H + t^3 K: L^0 h at t = 0 is -g^tt H: %s | control DRic alone: %s' % (rb, cb),
+          flush=True)
+    return ra and rb, ca or cb
 
 
 def ricci_dot(g, k, C):

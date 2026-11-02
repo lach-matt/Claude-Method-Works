@@ -42,16 +42,22 @@ dv, ell_out := g0^-1 du, s_k(h) := h(ell_k, ell_k), e^(2 sig) =: E.
      With (E2) (stage 0 solved: R^(-1) = R^(0) = 0, stage0two5 T1-T4) it gives T(F_k g1^(k)) + P_(-2)(F_k ghat_2) = O(lam),
      so P(Y_k) = O(1).
 
-  Controls (each must fail): (a) plain Ric in place of Ric^H (the gauge term dropped): J2, J3 and J5 fail; (b) the
-     direction lam F_k W without lam^2 F_k Q: J0 fails at lam^0 (P_(-2)(F_k Q) is missing: lam F_k ghat_2 has to be in
-     Y_k); (c) phi_in transported along the other generator (ell_out . d phi_in = (1/2)(s_in - rho_in)): J7 leaves a
-     lam^-1 term; (d) a trace on the spheres of the outgoing wave: J4's own-family contraction G1^out(ell_out, .) = 0 still
-     holds but tracelessness, which J3's coefficient does not need, is not what is tested -- so instead (d) is: chi_out
-     placed on du dv in place of du du: G1^out(ell_out, .) = 0 fails.
+  J8 (exact, generic symmetric matrices) Lemma 3.3_2's splitting of the principal part: with q := g0^tautau / g^tautau,
+     c^ab := g0^ab - q g^ab has c^tautau = 0 and c^ab = (g0^ab (g^tautau - g0^tautau) - g0^tautau (g^ab - g0^ab)) /
+     g^tautau, so |c| <= C |g^-1 - g0^-1| = C (lam + |w|) where |g^tautau| is bounded below (Lemma 1.1'(a), (e)).
+  J9 (exact, generic functions) the contraction rule box s = (box h)(ell, ell) + 2 g0^ab d_a(ell ell) . d_b h + h .
+     box(ell ell), s = h(ell, ell), box := g0^ab d_a d_b on components, in three variables with a 2 x 2 block of h.
 
-Labels: computed (exact rational arithmetic at a random point; the identities are polynomial in the jets, so agreement at
-a random rational point is evidence, and J1-J7 and J0 hold at all three points tried). Run: python3 checks/twodecomp5.py
-(about ten minutes).
+  Controls (each must fail): (a) plain Ric in place of Ric^H (the gauge term dropped): J2, J3 and J5 fail; (b) the
+     direction lam F_1 W without lam^2 F_1 Q: J0 fails (P_(-2)(F_1 Q) is missing, so lam F_k ghat_2 has to be in Y_k);
+     (c) phi_in transported along the other generator (ell_out . d phi_in = (1/2)(s_in - rho_in)): J7 leaves a lam^-1
+     term; (d) chi_out placed on du dv in place of du du: J4's G1^out(ell_out, .) = 0 fails; (e) J8 with q := 1:
+     c^tautau != 0; (f) J9 without the cross term.
+
+Labels: computed (exact rational arithmetic at three random points for J0-J7: the identities are polynomial in the jets,
+so agreement at random rational points is strong evidence, not a proof for every jet; J8-J9 exact symbolic). The
+estimates these identities feed are deduced (FAMILIES5-FULL.md section 8); twoledger5.py computes their power counting.
+Run: python3 checks/twodecomp5.py   (about three minutes)
 """
 import random
 import sys
@@ -561,18 +567,43 @@ def _contract(RH, slot, x, l=0):
     return out
 
 
+def j8(control=False):
+    gi = sp.Matrix(5, 5, lambda a, b: sp.Symbol("G%d%d" % (min(a, b), max(a, b))))       # g^-1
+    g0i = sp.Matrix(5, 5, lambda a, b: sp.Symbol("H%d%d" % (min(a, b), max(a, b))))      # g0^-1; index 0 is tau
+    q = 1 if control else g0i[0, 0] / gi[0, 0]
+    c = g0i - q * gi
+    form = (g0i * (gi[0, 0] - g0i[0, 0]) - g0i[0, 0] * (gi - g0i)) / gi[0, 0]
+    return sp.simplify(c[0, 0]) == 0 and all(sp.simplify(c[a, b] - form[a, b]) == 0 for a in range(5) for b in range(5))
+
+
+def j9(control=False):
+    x = sp.symbols("x0:3")
+    g0i = sp.Matrix(3, 3, lambda a, b: sp.Function("k%d%d" % (min(a, b), max(a, b)))(*x))
+    ell = [sp.Function("l%d" % a)(*x) for a in range(2)]
+    h = sp.Matrix(2, 2, lambda a, b: sp.Function("h%d%d" % (min(a, b), max(a, b)))(*x))
+
+    def box(f):
+        return sum(g0i[a, b] * sp.diff(f, x[a], x[b]) for a in range(3) for b in range(3))
+    s = sum(h[m, n] * ell[m] * ell[n] for m in range(2) for n in range(2))
+    rhs = sum(box(h[m, n]) * ell[m] * ell[n] + h[m, n] * box(ell[m] * ell[n]) for m in range(2) for n in range(2))
+    if not control:
+        rhs += sum(2 * g0i[a, b] * sp.diff(ell[m] * ell[n], x[a]) * sp.diff(h[m, n], x[b])
+                   for a in range(3) for b in range(3) for m in range(2) for n in range(2))
+    return sp.expand(box(s) - rhs) == 0
+
+
 def main():
     t0 = time.time()
     ok = True
     names = ["J1", "J5", "J2", "J3", "J4", "J6", "J7", "J0"]
     for seed in (1, 2, 3):
         r = run(seed, verbose=(seed == 1))
-        good = all(r[k] for k in names) and r["R-1"]
+        good = all(r[k] for k in names) and r["R-1"] and r["nonvacuous"]
         ctl = r["ctl_b"] or r["ctl_c"]
-        print("  point %d: %s; R^(-1) = 0 for the stage-0 waves with lam^2 Q: %s; controls (b) J0 without lam^2 F_k Q "
-              "holds: %s, (c) phi_in along ell_out leaves J7 intact: %s  (%.0f s)"
-              % (seed, ", ".join("%s %s" % (k, r[k]) for k in names), r["R-1"], r["ctl_b"], r["ctl_c"],
-                 time.time() - t0), flush=True)
+        print("  point %d: %s; R^(-1) = 0 for the stage-0 waves with lam^2 Q: %s; predictions and R^(0) nonzero: %s;"
+              "\n    controls (b) J0 without lam^2 F_1 Q holds: %s, (c) phi_in along ell_out leaves J7 intact: %s  (%.0f s)"
+              % (seed, ", ".join("%s %s" % (k, r[k]) for k in names), r["R-1"], r["nonvacuous"], r["ctl_b"],
+                 r["ctl_c"], time.time() - t0), flush=True)
         ok &= good and not ctl
     ra = run(1, gauge=False)
     ctl_a = ra["J2"] or ra["J3"] or ra["J5"]
@@ -580,9 +611,15 @@ def main():
           % (ra["J2"], ra["J3"], ra["J5"], time.time() - t0), flush=True)
     rd = run(1, control="chi_dudv")
     print("  control (d), chi_out on du dv: J4 %s (must fail)  (%.0f s)" % (rd["J4"], time.time() - t0), flush=True)
-    ok &= not ctl_a and not rd["J4"]
-    print("J1-J7, J0 at three points:", "PASS" if ok else "FAIL")
-    print("controls (a)-(d) rejected:", "PASS" if (not ctl_a and not rd["J4"]) else "FAIL")
+    good8, good9, c8, c9 = j8(), j9(), j8(True), j9(True)
+    print("  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: %s; control (e) q = 1 "
+          "passes: %s" % (good8, c8), flush=True)
+    print("  J9: box h(ell, ell) by the product rule: %s; control (f) without the cross term passes: %s" % (good9, c9),
+          flush=True)
+    ctl_ok = not ctl_a and not rd["J4"] and not c8 and not c9
+    ok &= ctl_ok and good8 and good9
+    print("J0-J9:", "PASS" if ok else "FAIL")
+    print("controls (a)-(f) rejected:", "PASS" if ctl_ok else "FAIL")
     return 0 if ok else 1
 
 
