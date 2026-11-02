@@ -6,3 +6,5 @@ R1 PASS
   R2 control l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
   R2 control l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
 R2 PASS
+  R3 (a) Lap P_j(cos 2th) = -l(l+2) P_j, l = 2j <= 10: True
+  R3 (b) D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 3) tau: True

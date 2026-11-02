@@ -343,6 +343,16 @@ def t8():
 
 
 def main():
+    only = sys.argv[1:]
+    for name, f in (("t1", t1), ("t2", t2), ("t3", t3), ("t4", t4), ("t5", t5), ("t6", t6), ("t7", t7),
+                    ("t8", t8)):
+        if not only or name in only:
+            f()
+    print("FAILED:", FAIL if FAIL else "none")
+    return 1 if FAIL else 0
+
+
+def _unused():
     t1()
     t2()
     t3()

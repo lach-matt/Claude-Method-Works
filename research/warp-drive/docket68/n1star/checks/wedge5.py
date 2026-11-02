@@ -109,17 +109,18 @@ def w2():
     for _ in range(2000):
         m = random.uniform(0.1, 2.0)
         rr = random.uniform(1.5, 30.0)*m**0.5
-        G = sp.Matrix([[-1 + m/rr**2, m/rr**2], [m/rr**2, 1 + m/rr**2]])
-        Gi = G.inv()
+        e = m/rr**2
+        # g0 in (t, r) and its inverse (closed form, det = -1)
+        G = ((-1 + e, e), (e, 1 + e))
+        Gi = ((-1 - e, e), (e, 1 - e))
         # 1+1 block plus an angular gradient with |grad_omega phi|^2 = q >= 0 (it enters T(V,Y) as -(1/2) g(V,Y) q)
         a_t, a_r, q = random.uniform(-3, 3), random.uniform(-3, 3), random.uniform(0, 3)
-        dphi = sp.Matrix([a_t, a_r])
-        nrm = (dphi.T*Gi*dphi)[0] + q
-        for key, dw in (("wu", -sp.Matrix([1, -1])), ("wv", sp.Matrix([1, 1]))):
-            V = Gi*dw  # grad w = w' grad(u or v); the factor |w'| > 0 is dropped
-            Y = sp.Matrix([1, 0])
-            Tvy = (V.T*dphi)[0]*(Y.T*dphi)[0] - (V.T*G*Y)[0]*nrm/2
-            mins[key] = min(mins[key], float(Tvy))
+        nrm = Gi[0][0]*a_t*a_t + 2*Gi[0][1]*a_t*a_r + Gi[1][1]*a_r*a_r + q
+        for key, dw in (("wu", (-1.0, 1.0)), ("wv", (1.0, 1.0))):
+            V = (Gi[0][0]*dw[0] + Gi[0][1]*dw[1], Gi[1][0]*dw[0] + Gi[1][1]*dw[1])  # grad w / |w'|
+            gVY = G[0][0]*V[0] + G[1][0]*V[1]  # g(V, d_t)
+            Tvy = (V[0]*a_t + V[1]*a_r)*a_t - gVY*nrm/2
+            mins[key] = min(mins[key], Tvy)
     check("W2d T(grad w, d_t) >= 0 for w = w(u), w' < 0 (2000 random points, mu, d phi)",
           mins["wu"] >= -1e-12, f"min {mins['wu']:.3e}")
     check("W2e control: w = w(v), w' > 0 gives negative values", mins["wv"] < -1e-3,
@@ -183,6 +184,15 @@ def w6():
 
 
 def main():
+    only = sys.argv[1:]
+    for name, f in (("w2", w2), ("w3", w3), ("w4", w4), ("w5", w5), ("w6", w6), ("w1", w1)):
+        if not only or name in only:
+            f()
+    print("FAILED:", FAIL if FAIL else "none")
+    return 1 if FAIL else 0
+
+
+def _unused():
     w2()
     w3()
     w4()

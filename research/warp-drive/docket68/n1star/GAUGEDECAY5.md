@@ -308,7 +308,8 @@ horizon-regular one is $W^{**}$ above: the mass change in harmonic gauge grows a
 $\hat P(\sigma)$ be the spectral family of the unmodified 1-form wave operator $\Box$ at $b_0$ (III.D$'$'s $\hat P$, the
 parameter $\mathsf p_0$), on III.D$'$'s spaces $\mathcal X_\sigma\to\mathcal Y_\sigma$, $\mathcal X_0\to\mathcal Y_0$.
 (i) $\hat P(\sigma)$ is invertible for every $\sigma\ne0$ with $\mathrm{Im}\,\sigma\ge0$ (III.D Proposition 6.2, "mode
-stability of $\Box$ on Tangherlini away from zero", READ at the supplement's proof5/PART-III-D-GAUGEPOT.md section 6).
+stability of $\Box$ on Tangherlini away from zero", proved in `proof5/PART-III-D-GAUGEPOT.md` section 6, for
+$\mathcal X_\sigma\to\mathcal Y_\sigma$; the high energies are its Proposition 6.1 at $\mathsf p_0$).
 (ii) $\hat P(0)$ has index 0, kernel $\mathrm{span}\{W^*\}$, and the annihilator of its range is spanned by $\ell$
 (III.D$'$ Lemma 2.1 (2)-(3)).
 (iii) Near $\sigma = 0$, with the augmented operator $\mathcal P_0(\sigma)$ of III.D$'$ Proposition 4.1, Step 1
