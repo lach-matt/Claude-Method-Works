@@ -16,8 +16,10 @@ eta1 = x1 dx1 + x2 dx2, eta2 = x3 dx3 + x4 dx4, d12 = dx1^2 + dx2^2, d34 = dx3^2
 k = H R2^(-3/4) (deduced; checked against the pullback, X1):
 
     W_TT = E(v) (Gc cos s + Gs sin s),
-      Gc = (k/3) (4c^2 d12 - 2c^2 d34 - (2/R2)(2c^2 + 3s^2) eta1 eta1 + (2/R2) c^2 eta2 eta2 + (2c^2/R2)(eta1 eta2 + eta2 eta1)),
-      Gs = (k/3) (-2s^2 d12 + 4s^2 d34 + (2/R2) s^2 eta1 eta1 - (2/R2)(2s^2 + 3c^2) eta2 eta2 + (2s^2/R2)(eta1 eta2 + eta2 eta1)),
+      Gc = (k/3) (4c^2 d12 - 2c^2 d34 - (2/R2)(2c^2 + 3s^2) eta1 eta1 + (2/R2) c^2 eta2 eta2
+                  + (2c^2/R2)(eta1 eta2 + eta2 eta1)),
+      Gs = (k/3) (-2s^2 d12 + 4s^2 d34 + (2/R2) s^2 eta1 eta1 - (2/R2)(2s^2 + 3c^2) eta2 eta2
+                  + (2s^2/R2)(eta1 eta2 + eta2 eta1)),
     chi dv dv = E^2 (Ga) + E^2 (v - tau0)^(-1/2) (Gb),  Ga = -(1/12) H^2 R2^-1 T2 U U,  Gb = -R2^(1/4) Ga,
       T2 = 4 (c^2 - s^2) sin 2s + 4 c^2 s^2 cos 2s,
     S = -(4/9) E^2 H^2 R2^(-3/2) (U xi + xi U),  xi = sin2th dth = 2 (c^2 eta2 - s^2 eta1)/R2,
@@ -332,7 +334,8 @@ def cart_form(X, s_, which, flip=False):
         k = H * R2 ** -0.75
         sg = -1 if flip else 1
         Gc = k / 3 * (4 * c2 * d12 - 2 * c2 * d34 - 2 / R2 * (2 * c2 + 3 * s2) * np.outer(eta1, eta1)
-                      + 2 / R2 * c2 * np.outer(eta2, eta2) + sg * 2 * c2 / R2 * (np.outer(eta1, eta2) + np.outer(eta2, eta1)))
+                      + 2 / R2 * c2 * np.outer(eta2, eta2)
+                      + sg * 2 * c2 / R2 * (np.outer(eta1, eta2) + np.outer(eta2, eta1)))
         Gs = k / 3 * (-2 * s2 * d12 + 4 * s2 * d34 + 2 / R2 * s2 * np.outer(eta1, eta1)
                       - 2 / R2 * (2 * s2 + 3 * c2) * np.outer(eta2, eta2) + 2 * s2 / R2 * (np.outer(eta1, eta2)
                                                                                      + np.outer(eta2, eta1)))
@@ -399,7 +402,8 @@ def main():
     from_lead5 = lead_f_from_lead5()
     ok['X1'] = worst < 1e-10 and transport and zero_data and same_f and from_lead5 and all(np.isfinite(axes))
     ok['C1'] = worst_flip > 1e-3
-    say('  X1: Cartesian forms against the EF pullbacks at 400 random points: largest relative error %.2e; components at '
+    say('  X1: Cartesian forms against the EF pullbacks at 400 random points: largest relative error %.2e; components '
+        'at '
         'the axes finite (%s); chi: (d_r + 3/(2r)) d_s chi = r^-3 f %s, zero on Sigma_tau0 %s; f equals lead5.py\'s vv '
         'second harmonic (recomputed from lead5.py: %s)' % (worst, ['%.3g' % a for a in axes], transport, zero_data,
                                                             same_f and from_lead5))
@@ -413,7 +417,8 @@ def main():
     a_lo = g['a'][0]
     tau_end_hi = g['tau_end'][1]
     ok['X2'] = R_LO < a_lo and Fr(7, 2) - TAU0 == R_HI and Fr(1, 2) - tau_end_hi < a_lo
-    say('  X2: on Omega, E(v) != 0 needs v in (1/2, 7/2) and tau in [tau0, tau_end] (tau_end <= %.6f), so r = v - tau in '
+    say('  X2: on Omega, E(v) != 0 needs v in (1/2, 7/2) and tau in [tau0, tau_end] (tau_end <= %.6f), so r = v - tau '
+        'in '
         '[a, 11/2]; a >= %.9f > %s: %s' % (float(tau_end_hi), float(a_lo), float(R_LO), ok['X2']))
 
     gs = [None, None] + [gegen_sup(m) for m in range(2, KMAX + 1)]
@@ -462,8 +467,9 @@ def main():
     sp_ = 0.7
     cval = float(clo)
     yv = (2 * (Xp[0] + np.linalg.norm(Xp[1:])) - 4) / 3
-    envf = lambda X: cval * math.cos(math.pi * ((2 * (X[0] + np.linalg.norm(X[1:])) - 4) / 3) / 2) ** 12 * math.exp(  # noqa
-        -((2 * (X[0] + np.linalg.norm(X[1:])) - 4) / 3) ** 2 / (1 - ((2 * (X[0] + np.linalg.norm(X[1:])) - 4) / 3) ** 2))
+    def envf(X):
+        y = (2 * (X[0] + np.linalg.norm(X[1:])) - 4) / 3
+        return cval * math.cos(math.pi * y / 2) ** 12 * math.exp(-y * y / (1 - y * y))
     assert abs(yv) < 1
     Wf = lambda X: envf(X) * cart_form(X, sp_, 'TT')  # noqa: E731
     h = 1e-6

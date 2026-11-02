@@ -30,4 +30,10 @@ L3 gauge indicators on the fine run: max |W|, max (P + Q), min (P + Q) per band:
    v in [1.650, 1.800): 1.221 0.084 -0.122
    v in [1.800, 1.900): 1.252 0.070 -0.138
    v in [1.900, 1.975): 1.251 0.058 -0.149
-late5: all checks pass
+L4 max |rho| per band at the fine grid, l1_M24_800 against l1_M16_800:
+   v in [0.500, 1.000): 6.03e-04 against 6.02e-04
+   v in [1.000, 1.500): 1.30e-02 against 1.28e-02
+   v in [1.500, 1.650): 7.24e-02 against 6.41e-02
+   v in [1.650, 1.800): 1.84e+00 against 3.19e+00
+   v in [1.800, 1.900): 8.43e+00 against 1.49e+01
+   v in [1.900, 1.975): 1.35e+01 against 5.50e+01

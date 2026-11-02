@@ -471,14 +471,25 @@ def b3(control=False):
           " for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients k = 0..7: %s"
           % (rep, zodd, zrec, coef), flush=True)
     ii = rep and zodd and zrec and all(coef[k] == 0 for k in range(0, 8, 2)) and all(coef[k] != 0 for k in (1, 3, 5))
-    # (iii) k = 1, constant h: an exact solution sought
-    iii, sol = b3_solve(red)
+    # (iii) k = 1, constant h: the solution with no radiation at past null infinity, order by order in 1/r
+    J = 5
+    iii, (ode, fac, zc) = b3_solve(red, J)
+    half = all(2*x % 2 == 1 for x in fac.values())
+    print("  B3 (iii): k = 1, h constant, L0 m1 = -S, f = sum_j c_(f,j)(v) r^(-j - w), w = 1 for H_L, H_T, 0 else,"
+          " j <= %d:\n      each order a linear transport c_j' = A c_j + (lower) in v with factors %s, all"
+          " half-odd (never the radiation weight); with zero data before the shell\n      (P = A^2 E^2 h0^2 = 0"
+          " there) %d of %d coefficients vanish identically; the first nonzero: c_(fv,2)' = %s, so\n      m1_(v th) ="
+          " %s r^-2 + O(r^-3), Q = int_-oo^v P; sigma-odd (k = 1); equations satisfied through each order: %s"
+          % (J, sorted(set(fac.values())), len(zc), len(fac), ode[("fv", 2)],
+             sp.Rational(-4, 27)*sp.Symbol("Q")*sp.diff(sp.cos(2*th), th), iii),
+          flush=True)
+    iii &= half and ode[("fv", 2)] == sp.Rational(-4, 27)*sp.Function("P")(v)
     # (iv) the whole m1-linear mean of R^(1) with W: sigma-equivariant
     Lb, iv = b3_full(control=False)
     print("  B3 (iv): the m1-linear part of <R^(1)[g0 + lam (W + m1)]> (W, chi of S3), generic m1 in the eight"
           " components:\n      %d coefficients (target component, m1 component, derivative); sigma-equivariant"
           " coefficient by coefficient: %s [%.0fs]" % (Lb, iv, time.time() - t0), flush=True)
-    return closed and par[1] and par[3] and not par[2] and ii and iv, iii
+    return closed and par[1] and par[3] and not par[2] and ii and iii and iv
 
 
 A2E2 = L.A**2*L.Ef**2
@@ -524,9 +535,10 @@ def b3_solve(red, J=5):
             if not more:
                 break
             live |= more
+        dead = {c[(G, j)]: 0 for G in FN if G not in live}
         for F in FN:
             if F in live:
-                ode[(F, j)] = step[F]
+                ode[(F, j)] = sp.expand(step[F].subs(dead))
             else:
                 zeroc.add((F, j))
     resid = True

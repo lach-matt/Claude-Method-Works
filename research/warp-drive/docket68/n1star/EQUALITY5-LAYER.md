@@ -179,10 +179,11 @@ g_λ, so R lies to the past of the face and its flux is dropped; R does not meet
 ∂g_app)], whose last two terms are bounded by C(|w| + |∂w|) on R because |∂² g_app| ≤ C(1 + λ⁻¹ ε_2(v1)) ≤ C there
 (Lemma L.3 (a); the one large coefficient of the supplement's section 5.1 is λ⁻¹ times the wave's amplitude, which is
 small on R). The energy inequality of the supplement's Lemma 2.3 with gt := g_λ, run on R, Gronwall, and the same for
-∂^i w, i ≤ 4 (the commutators carry ∂^j g_λ, j ≤ 5, bounded on R: |∂^j g_app| ≤ C(1 + λ^(1−j) ε_j(v1)) ≤ C, and
-|∂^j w| ≤ C λ^(K−2−j) by Theorem E), bound w in H^4 of the slices of R by the data of w on Σ_τ0 ∩ R (Lemma L.3 (c),
-four derivatives: C λ^(N−6) ε_M(v1)) and ∫ ‖∂^i Ric^H(g_app)‖ (L.3 (b): C λ^(N−4) ε_M(v1)). The slice through X has
-width at least r_q − a ≥ δ0, so Sobolev's embedding (supplement Lemma 2.1) has a uniform constant. ∎
+∂^i w, i ≤ 3 (the commutators carry ∂^j g_λ, j ≤ 4, bounded on R: |∂^j g_app| ≤ C(1 + λ^(1−j) ε_j(v1)) ≤ C, and
+|∂^j w| ≤ C λ^(K−2−j) for j ≤ 4 by Theorem E and Lemma 2.1; the term w ∂^(i+2) g_app is ≤ C|w| on R because
+λ^(−i−1) ε_(i+2)(v1) ≤ 1), bound w in H^4 of the slices of R by the data of w on Σ_τ0 ∩ R (Lemma L.3 (c), four
+derivatives: C λ^(N−6) ε_M(v1)) and ∫ ‖∂^i Ric^H(g_app)‖ (L.3 (b): C λ^(N−3) ε_M(v1)). The slice through X has width
+at least r_q − a ≥ δ0, so Sobolev's embedding (supplement Lemma 2.1) has a uniform constant. ∎
 
 ## 6. The window
 
@@ -230,7 +231,8 @@ the shifts r_q − √μ0, β0 = O(ε_M²). With ε_M ≤ C y^(1 − M/m) this i
 small, and the signal's amplitude is at least λ³ (3y/4) K_* d_*, d_* := min |d| > 0 (section 4). The exponent
 conditions (e1) 2p > 3 + p, (e2) pM/m < 1, (e3) p(1 − 2M/m) > 2, (e4) N − 6 − 3 > pM/m, (e5) p/m < 1, (e6) p(1 − M/m)
 > 6 hold for p = 14, m = 56 M once N ≥ 10, i.e. K ≥ 7 (W3, exact; control: N = 9 violates (e4)), so δ(λ) → 0. Case
-(v_s − τ0)/√μ0 = ρ*: K(v − τ0) = (K''/2μ0)(v − v_s)²(1 + o(1)) with K'' ≠ 0 (N5) and v − v_s ≥ v* − v_s ≥ (y/C_κ)^(1/κ)
+(v_s − τ0)/√μ0 = ρ*: K(v − τ0) = (K_ρρ(ρ*)/(2μ0))(v − v_s)²(1 + o(1)) with K_ρρ(ρ*) ≠ 0 (N5; K as a function of
+ρ) and v − v_s ≥ v* − v_s ≥ (y/C_κ)^(1/κ)
 (Lemma L.6), so the amplitude is at least c λ³ y^(1 + 2/κ); the conditions with 3 + p replaced by 3 + p(1 + 2/κ) hold as
 well (W3).
 

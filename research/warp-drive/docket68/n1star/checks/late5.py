@@ -12,10 +12,12 @@ sectexp5.py X1 (exact).
      (X1).  Its largest increase between successive v-nodes, over the same cells, per band, scaled by its own size.
   L3 gauge indicators where L1-L2 fail: the largest |W| and P + Q (Gx ~ e^{-2(P+Q)}: a caustic of the outgoing cones
      would send Gx to 0) per band.
+  L4 the angular resolution: with a fourth run (the fine grid at a finer angular resolution), max |rho| per band at
+     both, and where on [1.65, 1.8) it is largest (reported).
   Control (L1): the same residual with the coefficient 2 W_v replaced by W_v does not converge (ratio below 2 in the
   bands where L1's converges), so L1 is not a smoothness test that any field passes.
 
-  python3 checks/late5.py RUNDIR run_coarse run_mid run_fine
+  python3 checks/late5.py RUNDIR run_coarse run_mid run_fine [run_fine_finer_M]
 """
 import os, sys, warnings
 import numpy as np
@@ -118,6 +120,20 @@ def main():
         W = np.where(fr, F['W'][:, sel], np.nan); PQ = np.where(fr, F['PQ'][:, sel], np.nan)
         print('   v in [%.3f, %.3f): %.3f %.3f %.3f' % (band[0], band[1], np.nanmax(np.abs(W)), np.nanmax(PQ),
                                                        np.nanmin(PQ)), flush=True)
+    if len(sys.argv) > 5:
+        print('L4 max |rho| per band at the fine grid, %s against %s:' % (sys.argv[5], names[-1]))
+        F2 = fields(B.load(os.path.join(rundir, sys.argv[5] + '.npz')))
+        for band in BANDS:
+            print('   v in [%.3f, %.3f): %.2e against %.2e' % (band[0], band[1], band_max(F2, 'rho', band),
+                                                          band_max(F, 'rho', band)), flush=True)
+        for nm, FF in ((sys.argv[5], F2), (names[-1], F)):
+            Z = B.load(os.path.join(rundir, nm + '.npz'))
+            sel = (FF['v'] >= 1.65) & (FF['v'] < 1.8)
+            A = np.where(FF['far'][:, sel][..., None], np.abs(FF['rho'][:, sel]), np.nan)
+            i, j, k = np.unravel_index(np.nanargmax(A), A.shape)
+            jj = np.nonzero(sel)[0][j] + 1
+            print('   %s: largest on [1.65, 1.8) at u = %.4f, v = %.3f, x = %.3f, R = %.3f' % (
+                nm, FF['u'][i], Z['v'][jj], Z['x'][k], Z['R'][i, jj, k]), flush=True)
     print('late5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
