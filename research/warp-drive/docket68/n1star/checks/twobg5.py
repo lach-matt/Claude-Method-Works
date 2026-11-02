@@ -409,11 +409,11 @@ def main():
           'effect: %s' % (c[40], c[80], ctl), flush=True)
     ok['control'] = ctl
     global AAMP
-    keep, AAMP = AAMP, 7.0
+    keep, AAMP = AAMP, 16.0
     hv = {n: measure(n)['gap6'] for n in (40, 80)}
     AAMP = keep
     ctl5 = all(g[0] < 0 for g in hv.values())
-    print('  G5 control (a heavier shell, amplitude 7 for 3.6): the gap is %s at n = 40, 80: the packet is trapped by\n'
+    print('  G5 control (a heavier shell, amplitude 16 for 3.6): the gap is %s at n = 40, 80: the packet is trapped by\n'
           '      the shell and crosses its columns\' horizon band, so G5 fails for it: %s'
           % (' '.join('%.4f' % g[0] for g in hv.values()), ctl5), flush=True)
     ok['G5 control'] = ctl5
