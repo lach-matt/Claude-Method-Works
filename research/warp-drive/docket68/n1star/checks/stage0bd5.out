@@ -6,3 +6,30 @@
       3.84e+5, 3.78e+6, 3.54e+7, 3.73e+8, 3.8e+9, 4.21e+10, 4.55e+11, 5.25e+12
   X2: on Omega, E(v) != 0 needs v in (1/2, 7/2) and tau in [tau0, tau_end] (tau_end <= 3.937208), so r = v - tau in [a,
       11/2]; a >= 0.269858789 > 0.2698: True
+      the x-tensors on the unit sphere (majorants D[m](1), m = 0..14): Gc 11.5, 111.0, 1.36e+3, 2.17e+4, 4.49e+5,
+      1.17e+7, 3.75e+8, 1.42e+10, 6.19e+11, 3.07e+13, 1.7e+15, 1.04e+17, 6.99e+18, 5.1e+20, 4.02e+22; GS 10.1, 141.0,
+      2.38e+3, 4.94e+4, 1.25e+6, 3.81e+7, 1.37e+9, 5.69e+10, 2.69e+12, 1.42e+14, 8.37e+15, 5.4e+17, 3.8e+19, 2.89e+21,
+      2.37e+23
+  X3: D[n], n = 0..14, for W_TT on Omega x S^1: 154.0, 6.18e+3, 3.04e+5, 1.88e+7, 1.46e+9, 1.42e+11, 1.67e+13, 2.34e+15,
+      3.77e+17, 6.91e+19, 1.42e+22, 3.21e+24, 7.97e+26, 2.15e+29, 6.28e+31
+  X3: D[n], n = 0..14, for chi dv dv on Omega x S^1: 44.0, 2.75e+3, 2.01e+5, 1.71e+7, 1.72e+9, 2.01e+11, 2.72e+13,
+      4.23e+15, 7.44e+17, 1.47e+20, 3.2e+22, 7.66e+24, 2.0e+27, 5.64e+29, 1.71e+32
+  X3: D[n], n = 0..14, for W_TT + chi dv dv on Omega x S^1: 198.0, 8.92e+3, 5.05e+5, 3.59e+7, 3.18e+9, 3.43e+11,
+      4.39e+13, 6.56e+15, 1.12e+18, 2.16e+20, 4.61e+22, 1.09e+25, 2.8e+27, 7.79e+29, 2.34e+32
+  X3: D[n], n = 0..14, for S (stage-1 source) on Omega x S^1: 3.32e+3, 1.94e+5, 1.34e+7, 1.1e+9, 1.07e+11, 1.24e+13,
+      1.66e+15, 2.58e+17, 4.52e+19, 8.9e+21, 1.94e+24, 4.64e+26, 1.21e+29, 3.42e+31, 1.04e+34
+  C2 (control): |x|^(-3/2)'s majorant (3/2)_m equals its radial derivative at every order (sympy, exact), so the claim
+      "half the majorant bounds it" is refuted: True
+  C3 (control): a coordinate derivative of W_TT at one point (finite differences) 30.0293 <= D[1] = 6176.2576; the claim
+      D[1]/1e9 is refuted by it: True
+  X4: at v = 2, r = 0.27 (tau = 1.73 in [tau0, tau_end], r > a), th = 0.0000, s = 0.0000: |W_TT|_op >= u^T W_TT u =
+      12.583585 (certified, E = c taken at c_lo); so every admissible C_app >= 12.5836 and lambda0 <= 0.60132/(2 C_app)
+      <= 0.023893 (against lambda_Omega <= 0.026986)
+      (454 s)
+X1 PASS
+C1 PASS
+X2 PASS
+X3 PASS
+C2 PASS
+C3 PASS
+X4 FAIL

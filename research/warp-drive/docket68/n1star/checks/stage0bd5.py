@@ -519,7 +519,7 @@ def main():
     quad = sum((uq[i] * Wq[i][j] * uq[j] for i in range(5) for j in range(5)), iv.mpf(0)) / nu ** 2
     capp_lo = min(abs(lo_end(quad)), abs(hi_end(quad))) if (lo_end(quad) > 0 or hi_end(quad) < 0) else 0
     lam_ub = mpmath.mpf('0.60132') / (2 * capp_lo)
-    ok['X4'] = capp_lo > 1 and float(capp_lo) <= best_pt[0] * (1 + 1e-6)
+    ok['X4'] = capp_lo > 1 and float(capp_lo) <= best_pt[0] * float(chi_) * (1 + 1e-6)   # best_pt has E = 1
     say('  X4: at v = 2, r = 0.27 (tau = 1.73 in [tau0, tau_end], r > a), th = %.4f, s = %.4f: |W_TT|_op >= u^T W_TT u '
         '= %s (certified, E = c taken at c_lo); so every admissible C_app >= %s and lambda0 <= 0.60132/(2 C_app) <= '
         '%s (against lambda_Omega <= 0.026986)' % (th_, s_, mpmath.nstr(capp_lo, 8), mpmath.nstr(capp_lo, 6),

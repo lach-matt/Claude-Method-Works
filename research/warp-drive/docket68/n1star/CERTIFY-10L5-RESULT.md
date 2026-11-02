@@ -13,19 +13,17 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
    horizon stay outer trapped (negative outgoing expansion at every point).
    - *Deduced (D1, D2):* in any smooth vacuum solution with the record's data in `dnsolve5`'s double-null gauge,
      every leaf with u > −1 has negative outgoing expansion at every point, for as long as the solution exists in
-     that gauge. No section of an ingoing cone whose
-     expansion is ≥ 0 at its innermost point has that point at u > −1. In particular this holds for every
-     marginally outer trapped surface (MOTS).
+     that gauge. No section of an ingoing cone whose expansion is ≥ 0 at its innermost point has that point at
+     u > −1. In particular this holds for every marginally outer trapped surface (MOTS).
    - *Computed:* the leaves' expansion has one zero per angular node along every ingoing cone of the converged
      region. Every MOTS of the exact solution on that cone is then confined to a band of width 0.003–0.007 in u at
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
    - *Computed (seed 1):* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero
      structure: the dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40
-     (`growth5`: 1.419),
-     28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40, the largest difference
-     of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows), while the leaves'
-     own zero stays 0.22 away: the two formulations converge on each other as the data truncation is removed.
-     At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
+     (`growth5`: 1.419), 28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40,
+     the largest difference of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows),
+     while the leaves' own zero stays 0.22 away: the two formulations converge on each other as the data truncation is
+     removed. At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
    - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
      recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
      to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
@@ -38,9 +36,9 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
      constants for the characteristic problem in the class (CERTIFY-10L5.md F5). [Wu26] Theorem 2.2's threshold
      ε(C0) is implicit. So no residual, however small, closes a Newton–Kantorovich argument (section 2.3).
 3. **The late region is not classified.**
-   - *Computed:* from v ≈ 1.65 at seed 1 (M = 16) the computed fields violate the Raychaudhuri constraint by the size
-     of its own terms. Away from the cut they also violate D1's exact monotonicity. So they are not an approximation
-     of any vacuum solution there.
+   - *Computed:* from v ≈ 1.65 at seed 1 (M = 16; smaller but still of order one at M = 24) the computed fields
+     violate the Raychaudhuri constraint by the size of its own terms. Away from the cut they also violate D1's exact
+     monotonicity. So they are not an approximation of any vacuum solution there.
    - *Computed:* the gauge indicators stay moderate (|W| ≤ 1.25, |P + Q| ≤ 0.15). So the failure is not a caustic of
      the outgoing cones, nor a collapse of the lapse.
    - Kretschmann blow-up against a smooth steep feature remains undecided (section 3).
@@ -371,10 +369,11 @@ v-band over kept cells at least Nu/40 rows from the cut.
     below 25 times its value on the first cone (e^{2W} = 1/2 there), the growth Tangherlini's own interior shows
     toward the cut.
   - The failure is therefore not a breakdown of the double-null gauge visible in its own functions.
-- **L4, the angular resolution.** At 800 × 360, M = 24 against M = 16, max |ρ| on [1.65, 1.8), [1.8, 1.9) and
-  [1.9, 1.975) is 1.84, 8.4 and 13.5 against 3.19, 14.9 and 55. It is smaller at the finer angular grid, but stays of the order of
-  the terms. The maximum on [1.65, 1.8) is at u = −0.978, x ≈ −0.85, areal radius at the node 0.80, v = 1.79, at both M:
-  inside the seed's horizon generator, toward the axis x = −1 where the record's angular failure begins (D351–D418).
+- **L4, the angular resolution.** At 800 × 360, M = 24 against M = 16, max |ρ| on [1.65, 1.8), [1.8, 1.9) and [1.9,
+  1.975) is 1.84, 8.4 and 13.5 against 3.19, 14.9 and 55. It is smaller at the finer angular grid, but stays of the
+  order of the terms. The maximum on [1.65, 1.8) is at u = −0.978, x ≈ −0.85, areal radius at the node 0.80, v = 1.79,
+  at both M: inside the seed's horizon generator, toward the axis x = −1 where the record's angular failure begins
+  (D351–D418).
 - **What this classifies.** From v ≈ 1.65 (M = 16; M = 24–40 move the angular onset to 1.65–1.93, CERTIFY-10L5.md
   D418–D499) the computed fields are not an approximation of a vacuum solution in this gauge. They violate an identity
   that every vacuum solution satisfies (Ric_vv = 0) and an inequality that it implies (D1).
