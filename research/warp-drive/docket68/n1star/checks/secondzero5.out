@@ -304,3 +304,5 @@ secondzero5: all checks pass
          r_AH ranges 0.943-1.079 and 0.938-1.062
       v = 1.500: max |r_AH(double null) - r_AH(growth5)| = 0.026 (at x = 0.00);
          r_AH ranges 0.909-1.100 and 0.927-1.081
+  S4 (reported) outer zero against growth5 (L1000_lam0.3162_20x16_d0_y2.2): max 0.026 (round 1's 0.1: within);
+     control (leaf expansion, tilt ignored) max 0.069 passes: S4 not informative here
