@@ -193,6 +193,7 @@ N2):
 
 Each round is charged 3 in III.J''s accounting (LD16, `thetain5.py` T4, READ), so at these weights **d >= 3 (R2 + R3) =
 8,407,505,890,317,054** and N = 21 d + 6 >= 1.7656e17 (computed). LOSS-D's 7.959e15 is the same estimate in a form
+[Round 4, m1: N >= 1.765576e17, rounded down; `dweights5.py` W3 now prints it so.]
 valid at every admissible weight (eps_K, eps_ind taken up to delta_50); this is its exact value at one admissible point
 [Round 3, m1: at a point meeting every decidable condition; four admissibility conditions are undecided (2.1), and round
 2 settled (G) only].
@@ -360,6 +361,8 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
   boundary's corner r = b(tau0), and both figures in the Euclidean operator norm, which N1STAR-PROOF.md lines 1-805
   never define for arrays; eps1 = 3/5 itself serves, by a direct cone argument: `eps1hyp5.py` H2-H3, `lzerotrace5.py`
   T2, T6]. Certified bounds to order 14 on every
+[Round 4, A: eps1 = 3/5 serves Lemma 1.1 (e) only; Lemma 2.3 takes the same eps1 and needs it below g0's least
+absolute eigenvalue on Omega, in [0.030768559, 0.030768560] (certified, `lzerotrace5.py` T7), so lambda0 < 0.0024433.]
   derivative of the explicit profiles: the wave W_TT, the second harmonic chi dv dv, and the stage-1 mean source S
   (computed). Every admissible C_app is at least 12.58, so **the lambda0 this proof delivers is at most 0.0239** at P*
   with this envelope (computed), below lambda_Omega [Round 3, M1: 0.0239 holds only at round 1's even split of eps1
@@ -453,6 +456,7 @@ cone argument, `eps1hyp5.py` H2: |g - g0| <= 3/5 gives g >= g0 - (3/5) I, which 
 dr at r = a and ker d(v + tau) (least eigenvalues 2/5, 2/5, mu/(5 r^2)) and has exactly one negative eigenvalue, so
 eps1 = 3/5 itself serves], and the perturbation -lambda n n^T at r = 67/5 on the outer boundary (norm 0.6013169, exact)
 makes it null: **eps1* in [3/5, 0.60132]** [Round 3, M1: 0.6013096 at the corner r = b(tau0); operator norm]. Round 1
+[Round 4, A: that is Lemma 1.1 (e)'s eps1*; Lemma 2.3 needs eps1 < 0.0307686 (R4.2).]
 went through |g^-1 - g0^-1| <= n^2 eps with n = 33.47, which cost the factor 1140. In lambda0's formula, eps1 enters E-a
 and E-b; Lemma 2.3's constants degrade as eps1 approaches 3/5, so the choice is a trade-off the formula does not yet
 resolve.
@@ -654,6 +658,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   envelope5.py's envelope and a = q0/2; not a value. At round 1's even split of eps1 the term is 0.023874 (operator
   norm); the split is the note's, not the proof's (M1). The seven other terms need the profiles g_1..g_10 (R2.2 (f)).
   A definition of the pointwise norm for the supplement is proposed and checked (R3.2).
+  [Round 4, A and m1: the term is < 0.0477484 (operator), and Lemma 2.3 bounds eps1 below 0.0307686, so lambda0 <
+  0.0024433 (operator norm; < 0.0019950 Frobenius) and lam1 does not bind (R4.2); the halves' 0.023874 is 0.0238742.]
 - **(ii) d: no number and no proved upper bound; the floor stands and the record's own ceiling is computed.** The
   indicial roots of box^Ups(0) below 7, every harmonic type, are now complete (ten non-integer roots; `dceiling5.py`
   D1). Which offsets are Lambda's increments is a reading the record leaves open ("E_ind ... may change from line to
@@ -666,6 +672,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   III.A Proposition 4.2 (1) at every level above 3 counts the (exponent, log order) pairs of E^flat, which the record
   bounds only through K(lambda) (D5). So **N = 21 d + 6 >= 1.7656e17** and has no ceiling below 3.1e32 in the record's
   bookkeeping.
+  [Round 4, m4 and m1: at that parameter point, on the construction reading (the ceiling moves with the weights,
+  about 1.44e31 at eps_K near delta_50); N >= 1.765576e17. With l_* >= 10 (R4.3) the form gives 3.2855e31.]
 - **(iii) lambda1, delta: upper bounds stand; no lower bound from this proof, the exact obstruction proved.** For each
   of the four kinds of non-effective step, an explicit family on which every input of the step is fixed or bounded
   while its output is unbounded shows that the argument as written gives no bound (`nkind5.py` K1-K4); for N2 and N4
@@ -681,6 +689,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   and < 0.047748 for any split (operator norm; the reader's 0.04779 at r = 0.27, mine at r = a), so split-free
   lambda_Omega binds. The pointwise norm: the reader's largest-entry figures reproduced (eps1* <= 0.1202619; the term
   <= 0.00955 split-free, 0.004775 halved); the operator-norm definition is proposed with a computed check (R3.2).
+  [Round 4, A: split-free lambda_Omega does not bind once Lemma 2.3 is read with the same eps1 (R4.2); m1: 0.0477484,
+  0.0238742 and 0.12026192, rounded outward.]
 - **M2 (major), e^44 and the doubly exponential C3.** Correct: the identity at :233-235 keeps -int (3/r) phi^2, and with
   c = 2/r the rate is 1/(2a). Seated: `gronwall5.py` rewritten (G0 the identity in R^4, sympy; G1 e^11.0006 = 5.99e4;
   G2 the equation's ((a + dtau)/a)^2 = 529, excess 113; G3 ln C3 >= 3.56e5 as a deduced reading), with controls that
@@ -698,6 +708,7 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   NORM, TENSOR, LOWE, TRAP, after COVER) and C3 re-tags one row (fails).
 - **m3** `eps1hyp5.py` H2: replaced by the direct cone argument (g >= g0 - eps I; at eps = 3/5 least eigenvalues 2/5,
   2/5 and mu/(5 r^2) on the three kernels; one negative eigenvalue), which also shows eps1 = 3/5 itself serves.
+  [Round 4, A: for Lemma 1.1 (e) only.]
 - **m4** labels: R2.0 (iii) and R2.4 (b) now say "computed on the Tangherlini model at b0; a deduction at b0, not
   reaching b != b0" and "a hand-written classification whose coverage is checked".
 - **m5** tau_end needs v - r_q(v) increasing, which depends on sup env: `lzeroconst5.py` now checks 1 - q0 (2/9) c^2/4 >=
@@ -738,6 +749,9 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   so its causal set is a double cone of convex halves on which dtau, dr (at r = a) and d(v + tau) keep their signs;
   and no eps1 above 0.6013096 serves. The Frobenius norm dominates it (same eps1); the largest-entry norm would give
   eps1* in [3/25, 0.1202619] and lambda0 < 0.00955.
+  [Round 4, m1 and A: 12.593309 (rounded down), 15.423591, 0.0477484, 0.0389864, 0.0194932, 0.12026192, rounded
+  outward (`lzerotrace5.py` T2-T5); and every reading's eps1 is below 0.0307686 (Lemma 2.3), so lambda0 < 0.0024433
+  (operator, largest entry) and < 0.0019950 (Frobenius); the margin over 10 l5 is above 409, not 37 (R4.2).]
 - *What a value needs* (unchanged, R2.2 (f)): certified solves of stages 1-9, with the profile bounds to order about 11.
 
 ### R3.3 (ii) d
@@ -766,6 +780,7 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   n_iota, n_iota the pairs (z, m) of E_iota below beta_iota, and the record bounds E^flat only by pi_1 E^flat in Lambda
   cap [2, 3 + eps_+) with log order <= K(lambda): n_iota <= S_iota, >= 5.6e22 per level at l_* = 0 (control C4: with
   E_iota empty, 11).
+  [Round 4, m4: the bound is on S_iota: S_iota >= 5.6096e22 at l_* = 0, 2.80e23 at the least admissible l_* = 4.]
 - *D6 (exact).* The composition over the levels, construction reading:
 
       d <= 3 (R2 + R3) + L_above [3 X_2 + 11 + S_iota + 15 W] + L_below [15 W + 58] + L_above X_7 + (K + 1) c',
@@ -788,6 +803,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   Proposition 4.4's zero-frequency terms. (5) c': II.E's tame orders d^E_0, d^E, d^S, d-tilde (II.F2-TAME:528-532),
   unnumbered there. (6) The three readings of round 1 (2.6). And the ceiling is a ceiling of the record's bookkeeping:
   the log orders actually produced are not computed, and only they could bring it near the floor.
+  [Round 4, m5: l_* also bounds the multiplicities of the indicial roots of L-hat_b0(0) (I11:76-77). R4.3: the iota+
+  pole orders are computed (all 1 at Re <= 5 in the class), and E_ind's Lemma 1.4 log orders reach 10 at Re 5.]
 
 ### R3.4 (iii) lambda1 and delta
 
@@ -827,6 +844,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
 - *Open, with the exact obstruction*: a value of lambda0 (the nine stage solves); a number or proved ceiling for d and
   N (R3.3's six items, first the reading of E_ind and the iota+ boundary spectrum below 5); lower bounds for lambda1 and
   delta (the seven inverse bounds of R3.4, then the Lipschitz moduli and the B-row constants).
+  [Round 4: lambda0 < 0.0024433 replaces lambda0 <= 0.026986 (A); the pole orders are no longer open (R4.3); the
+  II.F:1393 constant also contains ||Pi|| (the Hahn-Banach projection), which the R3.4 list omitted.]
 
 ### R3.6 Proposed text for the paper's section 9 (for the bullets "Settling" and "Physical wavelengths")
 
@@ -841,6 +860,8 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
     inverse below real part 5. lambda1 and delta are bounded above, log10 delta < -7.66 x 10^16 and lambda1 < delta;
     no lower bound follows from this proof, whose arguments at six injectivity steps and one trapping estimate give
     no number: seven certified inverse bounds in the write-out's norms would have to be computed instead.
+    [Round 4: superseded by R4.6, which seats the reader's corrections: 'term by term' for 'factor by factor' (m2),
+    below 0.0025 (A), d >= 8.40 x 10^15 and N >= 1.76 x 10^17 (m1), 'at that parameter point' (m4).]
 
 ### R3.7 Sources (round 3)
 
