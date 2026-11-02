@@ -6,3 +6,4 @@ D2 PASS
   D3 sqrt(x) - 1 <= (x - 1)/2: True; x^(1/4) - 1 <= (x - 1)/4: True; beta0 = 1 - sqrt(mu/mu0) - r_q mu'/(4 mu): True; m0
       = sqrt(mu/mu0) - 1 + r_q mu'/(2 mu): True (so, with mu >= mu0, the stated bounds)
 D3 PASS
+  D4 sup|Y|/sup|Z| over the samples: 1.0000 <= pi; square wave: pi/2 <= pi
