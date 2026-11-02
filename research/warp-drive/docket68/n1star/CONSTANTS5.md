@@ -890,6 +890,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   0.030768560] (`lzerotrace5.py` T7). With C_app >= 12.593309: **lambda0 < 0.0024433** in the operator norm the
   supplement now states (< 0.0019950 Frobenius), so 1/lambda0 > 409.2 against the wavelength 10 l5 = 1. No linear stage
   is solved; the exact obstruction is in R4.2.
+  [Round 5, R5.1 (a): the Frobenius figure rests on a rank-one perturbation, not on the ball inclusion R4.2 states
+  (`lzerorank5.py` R1); the largest-entry reading gives < 0.0012968 (R2).]
 - **(ii) d: the iota+ pole orders are computed, and they are not what keeps the ceiling high.** By the Mellin transform
   the poles of N_iota+(L-bar, .)^-1 on one harmonic reduce to an explicit product of the indicial matrices (R4.3,
   deduced); computed exactly in the class (s0, t2, and every even l >= 2 at once): every pole with real part <= 5 is
@@ -945,6 +947,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   over Omega = (m*^2 + 1)^(1/2) - m*, m* = mu_end/a^2 in [16.234970, 16.234971], in [0.030768559, 0.030768560]. Every
   reading's ball |g - g0| <= eps1 contains the operator-norm ball, so eps1 < 0.0307686 in each, and lambda0 <=
   min(lam1, eps1/C_app) < **0.0024433** (operator; largest entry the same), < 0.0019950 (Frobenius).
+  [Round 5, R5.1 (a): the inclusion is false for the Frobenius ball, which lies inside the operator ball; the figure
+  stands by the rank-one perturbation (s - m) e e^T, of equal operator and Frobenius size; largest entry < 0.0012968.]
 - *What a value needs, and how far the stages went* (deduced; none solved). lambda0 is a minimum of the nine terms
   (R3.2's trace, 37 rows); each further term can only lower the bound, and a value needs lower bounds for all of them.
   Stage 0's profiles are certified to order 14 (round 2, `stage0bd5.py`). Stage 1 is Lemma 5.3 (a)-(c)
@@ -953,6 +957,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   (`stage5.py` S1 checks the structure only), its data are Lemma 6.2's, and a certified a priori bound needs Lemma
   2.3's constant C(M1) at gt within 0.0307686 of g0, which is not written out. Interval arithmetic (Arb) cannot start
   before those three exist; stages 2-9 depend on stage 1.
+  [Round 5, R5.1 (g): `checks/bbar5.py` (D569) extracts B-bar = B0 and C-bar = C0 + Delta C; stage 1's operator is
+  box~ at g0, so it needs Lemma 2.3 at gt = g0, written out in R5.5; the data remain the obstruction.]
 
 ### R4.3 (ii) d
 

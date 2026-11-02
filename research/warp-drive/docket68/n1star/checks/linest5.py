@@ -390,7 +390,7 @@ def main():
     iu_ = ~np.isnan(sup_b_u); iv_ = ~np.isnan(sup_c_v)
     Ib = np.trapezoid(sup_b_u[iu_], uu[iu_]); Ic = np.trapezoid(sup_c_v[iv_], vv[iv_])
     print('E5b with local speeds (c_u = sup_{v,x}|b| + lam, c_v = sup_{u,x}(Omt^2/gt)/lam): least shrink '
-          'int|b| du + 2 sqrt(Du int(Omt^2/gt) dv) = %.3g + %.3g = %.3g against the x-range 2: %s' % (
+          'int|b| du + 2 sqrt(Du int(Omt^2/gt) dv) = %.3g + %.3g = %.3g against the half-width X <= 1: %s' % (
               Ib, 2 * np.sqrt(Du * Ic), Ib + 2 * np.sqrt(Du * Ic),
               'every truncated domain over the box is empty' if Ib + 2 * np.sqrt(Du * Ic) >= 1 else 'nonempty'))
     # E6: the demand
