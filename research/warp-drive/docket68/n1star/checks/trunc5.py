@@ -42,7 +42,10 @@ P (N1STAR-PROOF.md:1053-1060): t_P := 1 + tau0 - tau, h(tau) = kappa t_P^(-1/4),
      ell-gain (a_0 < 1), |T|^(2a - 7) for h_R = O(r^-(9/2)) (a < 7/2); with T2's cap energies and the integrable
      kernels (scatter5 S2, scale5 Z7) the differences h_T - h_T' tend to 0 in the energy class as T, T' -> -oo.
      Control: without the ell-gain (|d h| ~ r^-2 on N) the tail is infinite at every a_0 >= 0.
-Labels: computed (T1 numerical at random points, T3 mpmath at 40 digits; the rest exact, sympy).
+  T8 (computed, quadrature) R2.6's wording: a field r^(-3/2) F(v) at past null infinity with F' != 0 has cap energy
+     ~ |T|^(2a) int F'^2 on {t = T} (excluded at every a > 0); with F constant in v the cap energy is |T|^(2a-1),
+     which tends to 0 for a < 1/2: what the weight a < 1/2 fails to exclude is an r^(-3/2) tail constant in v.
+Labels: computed (T1 numerical at random points, T3 mpmath at 40 digits, T8 quadrature; the rest exact, sympy).
 
     python3 checks/trunc5.py
 """
@@ -287,8 +290,25 @@ def t7():
     check("T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0", tail0 == sp.oo)
 
 
+def t8():
+    print("T8  (R2.6's wording) which incoming fields the weight a < 1/2 fails to exclude")
+    rr, T, sv = sp.symbols("rr T sv", positive=True)
+    a = sp.Rational(1, 4)
+    # phi ~ r^(-3/2) F(v) at past null infinity; on the cap t = T, v = T + r = v1 + s, r = |T| + v1 + s ~ |T| + s:
+    # the d_v part of |d phi|^2 r^3 is |F'(v1 + s)|^2 r^0, so the cap energy is int (|T| + s)^(2a) F'(v1 + s)^2 ds
+    Fp = sp.exp(-(sv - 1)**2)*(-2*(sv - 1))
+    capvar = sp.Integral((T + sv)**(2*a)*Fp**2, (sv, 0, sp.oo))
+    ratio = [sp.N(capvar.subs(T, TT)/TT**(2*a), 12) for TT in (10**2, 10**4, 10**6)]
+    lim = sp.N(sp.Integral(Fp**2, (sv, 0, sp.oo)), 12)
+    check("T8a F varying in v: cap energy / |T|^(2a) -> int F'^2 > 0 (a = 1/4): grows like |T|^(2a), excluded",
+          abs(ratio[-1] - lim) < 1e-3*lim and lim > 0, f"{[str(x) for x in ratio]} -> {lim}")
+    capconst = sp.integrate(rr**(2*a)*rr**-5*rr**3, (rr, T, sp.oo))
+    check("T8b F constant in v (an r^(-3/2) tail of the data on N): the cap energy |T|^(2a-1) -> 0 at a = 1/4 "
+          "(round 2's S4c-d): this is what a < 1/2 fails to exclude", sp.limit(capconst, T, sp.oo) == 0)
+
+
 def main():
-    for f in (t1, t2, t4, t5, t6, t7, t3):
+    for f in (t1, t2, t4, t5, t6, t7, t8, t3):
         f()
     print("FAILED:", FAIL if FAIL else "none")
     return 1 if FAIL else 0
