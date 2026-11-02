@@ -39,3 +39,7 @@ P8  the interpolation lemma: e's expansion coefficients from (P-iii) and (Poly)
 P9  the threshold K* for the commuted flux of e's remainder below and above R (replaces R2.10's K)
      a = 11/4, J' = 8, M = 3, j = 0: s = 14/3, K* = 20 ~ 20.00, K = 21: flux -> 0
      a = 29/10, J' = 8, M = 12, j = 2: s = 125/6, K* = 1297/12 ~ 108.08, K = 109: flux -> 0
+     a = 31/11, J' = 9, M = 20, j = 4: s = 451/26, K* = 3283/26 ~ 126.27, K = 127: flux -> 0
+  P9a at K = floor(K*) + 1 every term of the commuted flux tends to 0 (three sampled cases): pass 
+  P9b control: a = 11/4, J' = 8, M = 12: R2.10's K = 50 satisfies K - 4 > a s (s = 50/3), but K < K* = 56.00 and the e_8 term (one d_v) of the flux does not tend to 0: pass limit oo
+FAILED: none
