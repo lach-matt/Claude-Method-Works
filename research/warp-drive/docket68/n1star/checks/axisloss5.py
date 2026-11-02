@@ -40,7 +40,8 @@ below. K2 = x3 d_4 - x4 d_3, psi2 = (1/2) log |K2|^2, kappa2 = g^-1(du, d psi2).
      and stay bounded for both families of X2 (an elliptic estimate: the integral runs in rho2, across the family's
      generators, which at the axis lie in span(d_tau, d_rho1), axisphase5 A1). In fact ||s_pl|| = ||f|| exactly (flat
      Bochner in the plane). Control: the pointwise route, bounding s_pl by f and the first-order quotient u_rho/rho
-     against ||grad u||, is X2's blow-up.
+     against ||grad u||, is X2's blow-up. [2026-11-02, after the independent reader: ||s_pl|| = ||f|| and ||A f|| =
+     ||f||/sqrt(2) at the axis are now asserted to 1e-12, with a control that must reject (f - A f for f - 2 A f).]
 
 Labels: computed (X1, X3's identity exact, sympy; X2, X3's bounds by mpmath quadrature at 30 digits). Run: python3
 checks/axisloss5.py   (about a minute)
@@ -224,7 +225,20 @@ def x3():
     bnd = all(ra < 2 and rs < 3 for _, _, ra, rs in res)
     scale_inv = abs(res[0][2] - res[1][2]) < mp.mpf('1e-15')
     print("   bounded:", bnd, "; scale-invariant at the axis (same ratio at both eps):", scale_inv)
-    return ok and bnd and scale_inv
+    # [2026-11-02, the independent reader's finding] assert the identities, and a control that must reject
+    exact = all(abs(rs - 1) < mp.mpf('1e-12') for _, _, _, rs in res) and \
+        all(abs(ra - 1 / mp.sqrt(2)) < mp.mpf('1e-12') for kind, _, ra, _ in res if kind == 'axis')
+    eps = mp.mpf('0.1')
+    ur = lambda q: -2 * q / eps**2 * mp.exp(-q**2 / eps**2)                         # noqa: E731
+    urr = lambda q: (-2 / eps**2 + 4 * q**2 / eps**4) * mp.exp(-q**2 / eps**2)       # noqa: E731
+    ff = lambda q: urr(q) + (ur(q) / q if q != 0 else urr(q))                       # noqa: E731
+    Aq = lambda q: (ur(q) / q if q != 0 else urr(q))                                # noqa: E731
+    w = lambda h: mp.quad(lambda q: 2 * mp.pi * q * h(q)**2, [0, eps, 12 * eps])     # noqa: E731
+    bad = mp.sqrt(w(lambda q: ff(q) - Aq(q))) / mp.sqrt(w(ff))
+    ctl = abs(bad - 1) > mp.mpf('1e-3')
+    print("   asserted: ||s_pl|| = ||f|| (all four) and ||A f|| = ||f||/sqrt(2) at the axis, to 1e-12:", exact,
+          "; control f - A f in place of f - 2 A f: ratio", mp.nstr(bad, 8), "rejected:", ctl)
+    return ok and bnd and scale_inv and exact and ctl
 
 
 if __name__ == '__main__':
