@@ -157,8 +157,8 @@ def s2_s3_s5(seed):
                for b in range(n)] for a in range(n)]
         return max(abs((LW[a][b] - iPW[b].d(a) + iPW[a].d(b)).at0()) for a in range(n) for b in range(n))
     ok3 = cartan_defect(W) == 0
-    Wbad = [[(W[a][b] + (Jet.var(0) * Jet.var(1) if (a, b) == (2, 3) else Jet())
-              - (Jet.var(0) * Jet.var(1) if (a, b) == (3, 2) else Jet())) for b in range(n)] for a in range(n)]
+    Wbad = [[(W[a][b] + (Jet.var(0) if (a, b) == (2, 3) else Jet())
+              - (Jet.var(0) if (a, b) == (3, 2) else Jet())) for b in range(n)] for a in range(n)]
     ctl2 = cartan_defect(Wbad) != 0
     # S3: div T and tr T
     T = [[q * p[a] * p[b] for b in range(n)] for a in range(n)]

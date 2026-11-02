@@ -1,0 +1,9 @@
+S1 (derivative ledger): highest derivative of each unknown in each source (order m: dg, p, th, q)
+   wave: T = q p p, Q(dg, dg)               lowest level m+0 -> closes
+   p transport: Gam(dg) p p                 lowest level m+0 -> closes
+   th transport (class, off axes)           lowest level m+0 -> closes
+   q transport: th q                        lowest level m+0 -> closes
+   control (a) q transport with div P             lowest level m-1 -> LOSES
+   control (b) th transport, general 5D: |hess u|^2 lowest level m-1 -> LOSES
+   control (c) th transport at an axis point: kappa2 = d3 p3 / a lowest level m-1 -> LOSES
+S2, S3, S5 (exact at rational jets, a general 5D metric, covector field and density)
