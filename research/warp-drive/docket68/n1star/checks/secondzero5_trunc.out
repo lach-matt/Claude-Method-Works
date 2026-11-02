@@ -1,2 +1,4 @@
 # python3 checks/secondzero5.py --truncation RUNDIR l1_M16_400 l1_M16_400_R20 l1_M16_400_R40
 #    l1_M16_800 l1_M16_800_R20  (round 2)
+  l1_M16_400 (R0 = 10): max |r_AH - r_AH(growth5)| at v = 1.000, 1.200, 1.300, 1.350, 1.375:
+     0.004, 0.029, 0.076, 0.068, 0.081; leaves only: 0.014, 0.068, 0.127, 0.184, 0.223
