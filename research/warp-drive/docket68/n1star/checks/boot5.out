@@ -82,3 +82,11 @@ B2  the bulk sign: grad u timelike
         <= r^-2/2 (2000 points): a time function on W for the perturbed metrics: pass max -1.173
   B2e control: |H| up to 4 r^-2 makes dPhi_W spacelike somewhere: pass max 4.676
 B5  the commuted equations' structure: the differentiated identities (60 digits)
+  B5a (Z + 2) DP(h)[k] = DP(h)[Z k] + D^2P(h)[Z h, k] - 2 mu d_mu DP(h)[k], 15 components, two points: pass max |defect|
+        1.47e-30 against terms up to 0.207
+  B5b d_t (DP(h)[k]) = DP(h)[d_t k] + D^2P(h)[d_t h, k]: pass max |defect| 1.08e-31
+  B5c control: without D^2P(h)[Z h, k] the first fails at every point: pass min defect 0.0577
+  B5d control: without D^2P(h)[d_t h, k] the second fails at every point: pass min defect 0.026
+FAILED: ["B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has weighted
+        energy -> int psi'^2 = 1/105 and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16"]
+exit 1
