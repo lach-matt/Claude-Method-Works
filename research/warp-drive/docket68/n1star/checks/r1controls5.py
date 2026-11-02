@@ -10,7 +10,7 @@ are left as the verifier read them; the controls are here.
      and the identity WITHOUT the bulk term T(grad w, d_t) fails at every point (the control).
   C3 (T6c) a wrong subtraction is caught: rho^(-l0)(rho^(5/2) - (1/2) rho^(5/2)) is not in L^2(drho/rho) near 0 at
      l0 = 13/4 (the integral from eps diverges), so the claim "the remainder is in the class" is rejected.
-  C4 (T8g) the claim "ehat_b(0) = 0" for the bump itself is rejected (int env_b = 0.33...), while env_b' does have
+  C4 (T8g) the claim "ehat_b(0) = 0" for the bump itself is rejected (int env_b = 0.666...), while env_b' does have
      zero time integral: the record's waves are of the first kind.
 Labels: computed (sympy exact; mpmath 30-40 digits).
 
@@ -42,14 +42,16 @@ def c1():
             f = lambda x: mp.hyp2f1(pp + l, pp - l - 2, cpar, x/2)
             worst = mp.mpf(0)
             for x in (mp.mpf("0.3"), mp.mpf("0.9"), mp.mpf("1.4")):
-                res = (x - x**2/2)*mp.diff(f, x, 2) + (pp - mp.mpf(1)/2)*(1 - x)*mp.diff(f, x) - (pp**2 - 2*pp - kk)*f(x)/2
+                res = ((x - x**2/2)*mp.diff(f, x, 2) + (pp - mp.mpf(1)/2)*(1 - x)*mp.diff(f, x)
+                       - (pp**2 - 2*pp - kk)*f(x)/2)
                 worst = max(worst, abs(res))
             if store == "good":
                 good = max(good, worst)
             else:
                 bad = min(bad, worst)
     check("C1a the T2b solution: residual < 1e-20", good < mp.mpf(10)**-20, mp.nstr(good, 3))
-    check("C1b control: third parameter p + 1/2: residual > 1e-3 for every l <= 6", bad > mp.mpf(10)**-3, mp.nstr(bad, 3))
+    check("C1b control: third parameter p + 1/2: residual > 1e-3 for every l <= 6", bad > mp.mpf(10)**-3,
+          mp.nstr(bad, 3))
 
 
 def c2():
