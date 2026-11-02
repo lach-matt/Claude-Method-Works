@@ -17,3 +17,5 @@ R2 PASS
   R3 (f) (1+k^2)^2/((2/3)k^2(k^2-3)) has derivative -3*(x + 1)*(5*x - 3)/(2*x**2*(x - 3)**2), negative for k^2 >= 8 (coefficients of -num(x+8) and den(x+8) >= 0: True); sup at l = 2: 243/80; (1+k^2)/k^2 decreasing, sup 9/8 at l = 2
   R3 (b) control D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 2) tau: False
 R3 PASS
+  R4 (a) dmu[h0] = 2 mu H + r^2 (A + 2fB + f^2 C) - 2 r^2 (d_v + f d_r)(r H), m(g) = mu: True
+  R4 (b) dmu[L_Y g] = 0: True

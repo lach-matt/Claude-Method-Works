@@ -344,7 +344,177 @@ def b2(control=False):
     return all(ok.values())
 
 
-CHECKS = [("B1", b1), ("B2", b2)]
+# ------------------------------------------------------------------------------------------------------------- B3
+kap2 = sp.Symbol("kappa2", positive=True)                       # 4 k (k + 1)
+Yf = sp.Function("Y")(th)
+C2, S2 = sp.cos(th)**2, sp.sin(th)**2
+SC = sp.sin(th)*sp.cos(th)
+
+
+def yred(e):
+    """Y'' -> -2 cot(2 th) Y' - kappa2 Y (the T^2-invariant harmonic equation on S^3), repeatedly"""
+    while True:
+        ds = [d for d in e.atoms(sp.Derivative) if d.expr == Yf and d.derivative_count >= 2]
+        if not ds:
+            return sp.expand(e)
+        d = max(ds, key=lambda x: x.derivative_count)
+        rhs = sp.diff(-2*sp.cos(2*th)/sp.sin(2*th)*sp.diff(Yf, th) - kap2*Yf, th, d.derivative_count - 2)
+        e = sp.expand(e.subs(d, rhs))
+
+
+FN = ("fvv", "fvr", "frr", "fv", "fr", "HL", "HT")
+
+
+def sector(Y, fs):
+    """the scalar-type T^2-invariant perturbation of harmonic Y with the seven functions fs"""
+    fvv, fvr, frr, fv, fr, HL, HT = fs
+    Yp, Ypp = sp.diff(Y, th), sp.diff(Y, th, 2)
+    m = sp.zeros(N)
+    m[0, 0], m[1, 1] = fvv*Y, frr*Y
+    m[0, 1] = m[1, 0] = fvr*Y
+    m[0, 2] = m[2, 0] = fv*Yp
+    m[1, 2] = m[2, 1] = fr*Yp
+    m[2, 2] = r**2*(HL*Y + HT*Ypp)
+    m[3, 3] = r**2*(HL*C2*Y - HT*SC*Yp)
+    m[4, 4] = r**2*(HL*S2*Y + HT*SC*Yp)
+    return m
+
+
+def linearise(m, comps):
+    """the part of Ric^H(g0 + eps m) linear in eps (the operator of m1's equation from g0)"""
+    g0, _ = L.background()
+    G = empty()
+    put(G, g0, 0, '')
+    put(G, m, 1, "m")
+    R = Engine(G, [{}]*N, k0=0, kt=1, kt0=1, linear=True).run(comps, -1, 1)
+    return {k: R[k].get((1, "m"), 0) for k in comps}
+
+
+def reduce_sector(Lm):
+    """closure of the sector: each component a multiple of its harmonic tensor, multiples free of th"""
+    Yp = sp.diff(Yf, th)
+    red = {k: yred(Lm[k]) for k in Lm}
+    out, ok = {}, True
+    for k in ((0, 0), (0, 1), (1, 1)):
+        ok &= zero(red[k].coeff(Yp))
+        out[k] = sp.simplify(red[k].coeff(Yf))
+    for k in ((0, 2), (1, 2)):
+        ok &= zero(red[k].coeff(Yf))
+        out[k] = sp.simplify(red[k].coeff(Yp))
+    b = sp.simplify(-red[(3, 3)].coeff(Yp)/SC)
+    a = sp.simplify(red[(3, 3)].coeff(Yf)/C2)
+    ypp = yred(sp.diff(Yf, th, 2))
+    for k, want in (((2, 2), a*Yf + b*ypp), ((4, 4), a*S2*Yf + b*SC*Yp)):
+        ok &= zero(red[k] - sp.expand(want))
+    out["L"], out["T"] = a, b
+    ok &= all(th not in sp.simplify(x).free_symbols for x in out.values())
+    return ok, out
+
+
+def b3(control=False):
+    t0 = time.time()
+    fs = [sp.Function(n)(v, r) for n in FN]
+    if control:
+        m = sector(sp.legendre(2, sp.cos(2*th)), fs)
+        M, Ms = S5.sigma_star(m)
+        odd = all(zero(x) for x in Ms + M)
+        Lb, odd_iv = b3_full(control=True)
+        print("  B3 control: the k = 2 sector sigma-odd: %s; one quadrature: m1's operator sigma-equivariant: %s"
+              % (odd, odd_iv), flush=True)
+        return odd or odd_iv
+    # (i) the sector, k symbolic
+    Lm = linearise(sector(Yf, fs), COMP)
+    closed, red = reduce_sector(Lm)
+    sizes = {str(k): len(sp.Add.make_args(sp.expand(x))) for k, x in red.items()}
+    par = {}
+    for k in (1, 2, 3):
+        M, Ms = S5.sigma_star(sector(sp.legendre(k, sp.cos(2*th)), fs))
+        par[k] = all(zero(x - (-1)**k*y) for x, y in zip(Ms, M))
+    print("  B3 (i): the linearisation of Ric^H at g0 on the scalar-type sector of Y (Y'' = -2 cot 2th Y' - kappa2 Y)"
+          " closes, every multiple free of th: %s;\n      the reduced 1+1 system's terms per equation: %s;"
+          " sigma^* = (-1)^k on the sector, k = 1, 2, 3 (P_k(cos 2th)): %s [%.0fs]"
+          % (closed, sizes, par, time.time() - t0), flush=True)
+    # (ii) the source's harmonics
+    x, y = sp.symbols("x y", real=True)
+    hf = sp.Function("h")
+    Z = -sp.Integral(hf(y**2)**2, (y, 0, x))/2
+    zodd = zero(sp.diff(Z + Z.subs(x, -x), x).doit()) and zero((Z + Z.subs(x, -x)).subs(x, 0).doit())
+    src = -4*A2E2*hf(sp.cos(2*th)**2)**2*sp.sin(2*th)/(9*r**3)
+    dZ = sp.diff(Z.subs(x, sp.cos(2*th)), th).doit()
+    rep = zero(src - 4*A2E2/(9*r**3)*dZ)
+    Zrec = -sp.atan(x)
+    zrec = zero(sp.diff(Zrec, x) + sp.Rational(1, 2)*(2/(1 + x**2)))
+    coef = [sp.simplify(sp.Rational(2*k + 1, 2)*sp.integrate(Zrec*sp.legendre(k, x), (x, -1, 1))) for k in range(8)]
+    print("  B3 (ii): S3's source = (4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth, Z(x) = -(1/2) int_0^x h(y^2)^2: %s; Z odd"
+          " for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients k = 0..7: %s"
+          % (rep, zodd, zrec, coef), flush=True)
+    ii = rep and zodd and zrec and all(coef[k] == 0 for k in range(0, 8, 2)) and all(coef[k] != 0 for k in (1, 3, 5))
+    # (iii) k = 1, constant h: an exact solution sought
+    iii, sol = b3_solve(red)
+    # (iv) the whole m1-linear mean of R^(1) with W: sigma-equivariant
+    Lb, iv = b3_full(control=False)
+    print("  B3 (iv): the m1-linear part of <R^(1)[g0 + lam (W + m1)]> (W, chi of S3), generic m1 in the eight"
+          " components:\n      %d coefficients (target component, m1 component, derivative); sigma-equivariant"
+          " coefficient by coefficient: %s [%.0fs]" % (Lb, iv, time.time() - t0), flush=True)
+    return closed and par[1] and par[3] and not par[2] and ii and iv, iii
+
+
+A2E2 = L.A**2*L.Ef**2
+
+
+def b3_solve(red):
+    """the reduced system at k = 1 with S3's source for constant h0: Laurent polynomial in r, coefficients of v"""
+    h0 = sp.Symbol("h0", positive=True)
+    fs = [sp.Function(n)(v, r) for n in FN]
+    eqs = {k: x.subs(kap2, 8) for k, x in red.items()}
+    # source in the f_v slot: S_(v th) = -4 A^2 E^2 h0^2 sin 2th/(9 r^3) = (2 A^2 E^2 h0^2/(9 r^3)) d_th cos 2th
+    srcv = 2*A2E2*h0**2/(9*r**3)
+    return None, eqs
+
+
+def b3_full(control):
+    """m1-linear part of <R^(1)[g0 + lam (W + m1)]>; equivariance under sigma coefficient by coefficient"""
+    _, _, _, W = S5.source(single=control, past=True)
+    g0, _ = L.background()
+    m1 = sym("m1", (v, r, th))
+    G = empty()
+    put(G, g0, 0, '')
+    put(G, W, 1, '')
+    put(G, m1, 1, "m1")
+    R = Engine(G, ucoef([(0, '', v)]), k0=1, kt=2, kt0=1, linear=True).run(COMP, -1, 1)
+    hh = sp.Function("h")(sp.cos(2*th)**2)
+    Lb = {k: S5.mean(R[k].get((1, "m1"), 0)).subs(L.Hf, hh).doit() for k in COMP}
+    eps = {0: 1, 1: 1, 2: -1, 3: 1, 4: 1}
+    pi_ = {0: 0, 1: 1, 2: 2, 3: 4, 4: 3}
+    pk = lambda a, b: (min(pi_[a], pi_[b]), max(pi_[a], pi_[b]))
+    atoms = {}
+    for k in COMP:
+        for d in Lb[k].atoms(sp.Derivative) | Lb[k].atoms(sp.Function):
+            f = d.expr if isinstance(d, sp.Derivative) else d
+            if f.func.__name__.startswith("m1_"):
+                vs = d.variables if isinstance(d, sp.Derivative) else ()
+                atoms[d] = (f, tuple(sorted(vs, key=str)))
+    syms = {d: sp.Dummy() for d in atoms}
+    lin = {k: sp.expand(Lb[k].subs(syms)) for k in COMP}
+    fun = {(a, b): m1[a, b] for (a, b) in COMP}
+    byname = {(fun[k].func, tuple(sorted(vs, key=str))): d for d, (f, vs) in atoms.items() for k in [None]}
+    ok, n = True, 0
+    sub = {th: sp.pi/2 - th}
+    for k in COMP:
+        for d, (f, vs) in atoms.items():
+            (a, b) = [kk for kk in COMP if fun[kk] == f][0]
+            c = lin[k].coeff(syms[d])
+            img = byname.get((fun[pk(a, b)].func, vs))
+            c2 = lin[pk(*k)].coeff(syms[img]) if img is not None else 0
+            lhs = c2.subs(sub, simultaneous=True)*eps[k[0]]*eps[k[1]]
+            rhs = c*eps[a]*eps[b]*(-1)**sum(1 for x in vs if x == th)
+            if c != 0 or c2 != 0:
+                n += 1
+                ok &= zero(lhs - rhs)
+    return n, ok
+
+
+CHECKS = [("B1", b1), ("B2", b2), ("B3", b3)]
 
 
 def main():
