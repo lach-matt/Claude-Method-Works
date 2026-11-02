@@ -184,6 +184,30 @@ def b2():
     check("B2b g^-1(du, du) r^2 < 0 for |H| <= mu/(2 r^2) (2000 points, r in [4, 400])", worst < 0,
           f"max {worst:.3f}")
     check("B2c control: |H| up to 8 mu/r^2 makes du spacelike somewhere", ctl > 0, f"max {ctl:.3f}")
+    # Phi_W := v + 1/r: g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 - mu r^-2) exactly, and < 0 for |H| <= r^-2/2
+    rs, ms = sp.symbols("r mu", positive=True)
+    gvv, gvr, grr = 0, 1, 1 - ms/rs**2       # g_b0^-1(dv, dv), (dv, dr), (dr, dr) (trunc5 T1b, T4a)
+    exact = gvv + 2*(-rs**-2)*gvr + rs**-4*grr
+    worstP, ctlP = -1e9, -1e9
+    for _ in range(2000):
+        r_ = rng.uniform(4, 400)
+        x = np.array([rng.gauss(0, 1) for _ in range(4)])
+        xh = list(x/np.linalg.norm(x))
+        A = np.array([[rng.uniform(-1, 1) for _ in range(5)] for _ in range(5)])
+        Hs = (A + A.T)/2
+        Hs /= max(abs(np.linalg.eigvalsh(Hs)))
+        dPhi = np.array([1.0] + [(1 - 1/r_**2)*c for c in xh])
+        for th, store in ((0.5, "ok"), (4.0, "ctl")):
+            g = metric(r_, xh, 1.0, th/r_**2*Hs*rng.uniform(0.5, 1))
+            val = dPhi@np.linalg.inv(g)@dPhi*r_**2
+            if store == "ok":
+                worstP = max(worstP, val)
+            else:
+                ctlP = max(ctlP, val)
+    check("B2d Phi_W := v + 1/r: g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 - mu r^-2) (exact), and r^2 g^-1(dPhi, dPhi) "
+          "< 0 for |H| <= r^-2/2 (2000 points): a time function on W for the perturbed metrics",
+          sp.simplify(exact - (-2/rs**2 + (1 - ms/rs**2)/rs**4)) == 0 and worstP < 0, f"max {worstP:.3f}")
+    check("B2e control: |H| up to 4 r^-2 makes dPhi_W spacelike somewhere", ctlP > 0, f"max {ctlP:.3f}")
 
 
 # ---------------------------------------------------------------- B3, B4: Hardy, the radial derivatives
