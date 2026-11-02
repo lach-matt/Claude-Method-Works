@@ -19,7 +19,7 @@ deduced (the tail argument at E2).
      so lower and upper Riemann sums at exact points bound it), hence c in a certified interval.
   E2 (certified; deduced tail) e_k := sup_v |env^(k)(v)| for k = 0..14. On |y| <= 1 - delta: Taylor arithmetic with
      interval coefficients (the k-th coefficient computed with y0 an interval encloses beta^(k)(xi)/k! for every xi in
-     it). On 1 - delta <= |y| < 1, t = 1 - |y|: beta = e sin^12(pi t/2) phi1(t) phi2(t), phi1 = exp(-1/(2t)), phi2 =
+     it), in the centred form of interior_bounds over a graded cover. On 1 - delta <= |y| < 1, t = 1 - |y|: beta = e sin^12(pi t/2) phi1(t) phi2(t), phi1 = exp(-1/(2t)), phi2 =
      exp(-1/(2(2 - t))) (y^2/(1 - y^2) = 1/(t(2 - t)) - 1 and 1/(t(2 - t)) = 1/(2t) + 1/(2(2 - t))); phi1^(j) =
      P_j(1/t) exp(-1/(2t)) with P_(j+1)(x) = x^2 (P_j(x)/2 - P_j'(x)), and x^i e^(-x/2) decreases for x > 2i, so with
      delta <= 1/(4K) the sup over t <= delta is at t = delta; the analytic factor by Taylor arithmetic on [0, delta];
@@ -119,17 +119,17 @@ def ts_exp(a):
     return e
 
 
-def ts_trig(x0, w, phase, K=KMAX):
+def ts_trig(x0, w, phase, K=KMAX):  # noqa: D401
     """Taylor series of sin(w (x0 + h) + phase) in h, x0 an interval: coefficients sin(w x0 + phase + k pi/2) w^k/k!"""
     return [iv.sin(w * x0 + phase + k * iv.pi / 2) * w ** k / math.factorial(k) for k in range(K + 1)]
 
 
 # ---- the bump ----
-def beta_series(y0):
-    """Taylor series of beta about y0 (an interval inside (-1, 1))"""
-    u = ts_sub(ts_const(1), ts_mul(ts_var(y0), ts_var(y0)))
+def beta_series(y0, K=KMAX):
+    """Taylor series of beta about y0 (an interval inside (-1, 1)), to order K"""
+    u = ts_sub(ts_const(1, K), ts_mul(ts_var(y0, K), ts_var(y0, K)))
     gauss = ts_scale(ts_exp(ts_scale(ts_recip(u), -1)), iv.e)          # exp(1 - 1/(1 - y^2))
-    cosp = ts_ipow(ts_trig(y0, iv.pi / 2, iv.pi / 2), MPOW)              # cos(pi y/2)^12
+    cosp = ts_ipow(ts_trig(y0, iv.pi / 2, iv.pi / 2, K), MPOW)           # cos(pi y/2)^12
     return ts_mul(cosp, gauss)
 
 
@@ -186,13 +186,22 @@ def interior_cells(delta):
     return cells
 
 
-def interior_bounds(delta, K=KMAX):
-    """sup over 0 <= y <= 1 - delta of |beta^(k)| (|beta^(k)| is even), k = 0..K"""
+def interior_bounds(delta, K=KMAX, J=4):
+    """sup over 0 <= y <= 1 - delta of |beta^(k)| (|beta^(k)| is even), k = 0..K, by the centred form: with m the
+    cell's midpoint and h <= w/2 its half-width, beta^(k)(m + h) = sum_{j<J} beta^(k+j)(m) h^j/j! + beta^(k+J)(xi)
+    h^J/J!, the first terms from the series at the point m (narrow intervals), the last from the series over the cell
+    (wide, but multiplied by h^J). Plain interval evaluation over the cell loses the cancellation between the factors'
+    large coefficients and overestimated the orders 11-14 by up to 1e4 in a first run."""
     best = [mpmath.mpf(0)] * (K + 1)
     for lo, hi in interior_cells(delta):
-        s = beta_series(iv.mpf([lo, hi]))
+        mid = (lo + hi) / 2
+        h = (hi - lo) / 2
+        sm = beta_series(iv.mpf(mid), K + J)
+        sc = beta_series(iv.mpf([lo, hi]), K + J)
         for k in range(K + 1):
-            v = ivmax_abs(s[k]) * math.factorial(k) * SAFE
+            v = sum(ivmax_abs(sm[k + j]) * math.factorial(k + j) / math.factorial(j) * h ** j for j in range(J))
+            v += ivmax_abs(sc[k + J]) * math.factorial(k + J) / math.factorial(J) * h ** J
+            v *= SAFE
             if v > best[k]:
                 best[k] = v
     return best
