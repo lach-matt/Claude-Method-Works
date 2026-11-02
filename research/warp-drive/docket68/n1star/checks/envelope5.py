@@ -106,8 +106,20 @@ def ts_pow(a, p):
     return b
 
 
+SAFE = 1 + mpmath.mpf(10) ** -15     # covers the rounding of the few mpf (not iv) products below
+
+
+def lo_end(x):
+    return mpmath.mpf(x._mpi_[0])
+
+
+def hi_end(x):
+    return mpmath.mpf(x._mpi_[1])
+
+
 def ivmax_abs(x):
-    return max(abs(x.a), abs(x.b))
+    """an upper bound of |y| over the interval x (exact endpoints)"""
+    return max(abs(lo_end(x)), abs(hi_end(x)))
 
 
 # ---- the bump ----
@@ -148,11 +160,11 @@ def end_bounds(delta, K=KMAX):
     t0 = iv.mpf([0, delta])
     two_minus = ts_sub(ts_const(2), ts_var(t0))
     s2 = ts_exp(ts_scale(ts_recip(two_minus), iv.mpf(-1) / 2))
-    t2 = [ivmax_abs(s2[k]) * math.factorial(k) for k in range(K + 1)]
+    t2 = [iv.mpf(ivmax_abs(s2[k]) * math.factorial(k) * SAFE) for k in range(K + 1)]
     out = []
     for k in range(K + 1):
         b = sum((math.comb(k, j) * t1[j] * t2[k - j] for j in range(k + 1)), iv.mpf(0)) * iv.e
-        out.append(b.b)
+        out.append(hi_end(b))
     return out
 
 
@@ -164,7 +176,7 @@ def interior_bounds(delta, cells=4000, K=KMAX):
         lo, hi = top * i / cells, top * (i + 1) / cells
         s = beta_series(iv.mpf([lo, hi]))
         for k in range(K + 1):
-            v = ivmax_abs(s[k]) * math.factorial(k)
+            v = ivmax_abs(s[k]) * math.factorial(k) * SAFE
             if v > best[k]:
                 best[k] = v
     return best
@@ -185,7 +197,7 @@ def beta_sq_integral(N=2 ** 17):
     for i in range(N):
         lo += vals[i + 1]
         hi += vals[i]
-    return (2 * lo / N).a, (2 * hi / N).b
+    return lo_end(2 * lo / N), hi_end(2 * hi / N)
 
 
 def bump_poly_end_test():
@@ -215,7 +227,7 @@ def main():
     inner = interior_bounds(float(delta))
     tail = end_bounds(float(delta))
     bbeta = [max(inner[k], tail[k]) for k in range(KMAX + 1)]
-    ek = [chi_ * (mpmath.mpf(2) / 3) ** k * bbeta[k] for k in range(KMAX + 1)]
+    ek = [chi_ * (mpmath.mpf(2) / 3) ** k * bbeta[k] * SAFE for k in range(KMAX + 1)]
     ok['E2'] = all(tail[k] < inner[k] for k in range(KMAX + 1))
     say('  E2: delta = 1/%d; sup |beta^(k)|, k = 0..%d (certified): %s' % (
         4 * KMAX, KMAX, ', '.join(mpmath.nstr(b, 4) for b in bbeta)))
@@ -223,7 +235,7 @@ def main():
         '(2/3)^k sup|beta^(k)| <= %s' % (ok['E2'], ', '.join(mpmath.nstr(e, 4) for e in ek)))
 
     P = Pk_list(KMAX)
-    shrink = [max(tail_phi1_bound(P[j], float(delta) / 2 ** m).b for j in range(KMAX + 1)) for m in (0, 4, 8)]
+    shrink = [max(hi_end(tail_phi1_bound(P[j], float(delta) / 2 ** m)) for j in range(KMAX + 1)) for m in (0, 4, 8)]
     ok['E3'] = shrink[0] > shrink[1] > shrink[2] and shrink[2] < 1e-100
     say('  E3: max_j sup_{t <= delta/2^m} |phi1^(j)| at m = 0, 4, 8: %s: every derivative of env tends to 0 at the '
         'ends (smooth, compactly supported)' % ', '.join(mpmath.nstr(x, 3) for x in shrink))
