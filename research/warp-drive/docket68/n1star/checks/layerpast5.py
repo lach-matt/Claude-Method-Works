@@ -23,7 +23,8 @@ layerlin5.py (imported, not copied: T, R_X, D_X, Pol, the free functions a(th), 
      solve T(H3) + R_X(H2inf) = 0 in vv, vr, rr and trace, decay (r^(3/2) |.|_cart -> 0), and satisfy i Pol(H3) + D_X
      H2inf = 0 in v and r.  At the horizon: H3_vv(sqrt mu0) = A E d Kinf, Kinf = -mu0^(-7/4)/9, the r0 -> infinity limit
      of round 1's K(r0) (N5), now obtained without that limit.  Control: the vv transport without the mass coupling 2 mu0
-     H_vr/r^3 gives H3_vv = 0 with nothing coming in (no signal).
+     H_vr/r^3 gives H3_vv = 0 with nothing coming in (no signal).  [Round 4: that control integrated 0; it now runs
+     the vv transport of the computed path with the coupling halved, whose horizon value differs from Kinf.]
 
 Labels: computed (exact, sympy).  The identification of these profiles with the first-degree part of Theorem A_P's
 approximant is deduced in the note (Lemma L.2_P), not computed here.
@@ -158,9 +159,10 @@ def p2(control=False):
 def p3(control=False):
     if control:
         H3 = STATE['H3']
-        # the vv transport without the mass coupling: (d_r + 3/(2r)) H_vv = 0, nothing coming in: the integral of 0
+        # Round 4 (verifier of round 3, m6): the vv transport of the computed path with its mass coupling halved
+        # (the old control integrated 0, a tautology); the horizon value must then differ from Kinf
         sR = sp.Symbol('sR', positive=True)
-        hvv = rint_inf(sp.S(0)*sR, r, sR)*r**sp.Rational(-3, 2)
+        hvv = rint_inf((-(mu0/r**3)*r**sp.Rational(3, 2)*H3[0, 1]).subs(r, sR), r, sR)*r**sp.Rational(-3, 2)
         return L.is_zero(sp.expand(hvv).subs(r, sp.sqrt(mu0)) - STATE['Kinf_val'])
     H2 = STATE['H2']
     R2, D2 = L.ops(H2)

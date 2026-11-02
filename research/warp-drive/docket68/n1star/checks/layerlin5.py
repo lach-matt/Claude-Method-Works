@@ -378,9 +378,13 @@ KCLOSED = -mu0**sp.Rational(-7, 4)*(2*rho**3 - 3*rho**2 - 2)**2/(36*rho**6)
 
 def n5(control=False):
     if control:
-        ac, bc = (1 + 3*sp.cos(2*th))/2, (1 - 3*sp.cos(2*th))/2
-        tau_c = sp.simplify(TAU.subs({a: ac, b: bc}).doit())
-        return tau_c != 0
+        # Round 4 (verifier of round 3, m6): mutate the computed path -- H3_vv with the vv mass coupling halved (the
+        # integral part of N4's construction halved) -- and require that K then differs from the closed form
+        H = STATE['H3sym']
+        h0 = r0**sp.Rational(3, 2)*H[0, 0].subs(r, r0)
+        Hm = (h0 + (r**sp.Rational(3, 2)*H[0, 0] - h0)/2)*r**sp.Rational(-3, 2)
+        Km = sp.simplify(Hm.subs(r, sp.sqrt(mu0))/(A*E*STATE['dd']))
+        return sp.simplify(Km.subs(r0, rho*sp.sqrt(mu0)) - KCLOSED) == 0
     K = sp.simplify(STATE['H3sym'][0, 0].subs(r, sp.sqrt(mu0))/(A*E*STATE['dd']))
     Kr = sp.simplify(K.subs(r0, rho*sp.sqrt(mu0)))
     closed = sp.simplify(Kr - KCLOSED) == 0
@@ -405,7 +409,9 @@ def n6(control=False):
     P = -2*z**5 - sp.Rational(20, 3)*z**3 - sp.Rational(20, 3)*z**2 - sp.Rational(38, 3)*z + sp.Rational(4, 3)
     quads = {'F': (2*(-s**2*h)/3, 2*(2*s**2*h)/3, P), 'G': (2*(2*c**2*h)/3, 2*(-c**2*h)/3, P.subs(z, -z))}
     if control:
-        return sp.Poly(P, z).count_roots(-1, 1) == 0
+        # Round 4 (verifier of round 3, m6): mutate the computed path -- the F quadrature's a scaled by 11/10 -- and
+        # require that the closed form then fails
+        quads = {'F': (2*(-s**2*h)/3*sp.Rational(11, 10), 2*(2*s**2*h)/3, P)}
     ok = True
     for nm, (aa, bb, PP) in quads.items():
         dq = DIV2.subs({a: aa, b: bb}).doit()
@@ -413,6 +419,8 @@ def n6(control=False):
         e = sp.expand(e).subs(1 + sp.cos(2*th)**2, U)
         e = sp.expand(sp.powsimp(sp.expand(e*U**sp.Rational(5, 2)), force=True)).subs(U, 1 + sp.cos(2*th)**2)
         ok &= is_zero(e)
+    if control:
+        return ok
     gcd = sp.gcd(sp.Poly(P, z), sp.Poly(P.subs(z, -z), z))
     nroot = sp.Poly(P, z).count_roots(-1, 1)
     print("  N6 d^F, d^G = sqrt2 P(+-zeta)/(1 + zeta^2)^(5/2) exactly: %s; gcd(P(zeta), P(-zeta)) = %s; roots of P in"
