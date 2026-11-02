@@ -8,3 +8,10 @@ stage1rate5: Lemma 2.3 at gt = g0 on Omega at P*, its energy constant written ou
       ||du(tau)|| <= 4.174e+18 ||du(tau0)|| + 7.048e+17 int ||f|| (Dtau <= 5.937209)
   C1 (control): bulk without the Gamma term: kappa [10.9936 +/- 1.73e-6] against [12.2260 +/- 4.50e-5] on the coarse
       cover: differs: True
+  C2 (control): Y = d_tau: Q at m = 2 has eigenvalues [0.0858, 2.9142, -0.5], not positive definite: K3's coercivity
+      fails: True
+K1 PASS
+K2 PASS
+K3 PASS
+C1 PASS
+C2 PASS
