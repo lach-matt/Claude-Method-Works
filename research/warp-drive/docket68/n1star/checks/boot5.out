@@ -18,3 +18,10 @@ B6  the kernel table of the weighted energy at weight a
         ': '2', 'explicit zero order with Hardy (lam r^-4': '3', 'first order h_R coefficients (Q, Gamma[g': '17/4',
         'zero order h_R with Hardy (r d d h_R <= ': '13/4', "bulk-sign error |w'||H|/w (r^-1 (lam r^-": '3', 'mu d_mu
         second-order source (mu r^-2 d d': '2', 'multilinear terms: one L^2 factor, sup f': '17/4'}
+  B6b on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2): pass [51/100,
+        349/100], 299 points
+  B6c control: at a = 1/2 the zero-order h_R kernel is not integrable: pass ['zero order h_R with Hardy (r d d h_R <= eps
+        r^(-1/2-a))']
+  B6d control: at a = 7/2 the residual kernel is not integrable: pass ['residual P(Sigma) = O(lam r^(-13/2)), L^2 with
+        weight']
+B7  the split of the commuted multilinear terms
