@@ -19,8 +19,14 @@ plane {rho1, rho2 >= 0} (polar: rho1 = r cos th, rho2 = r sin th), whose edges t
      approached along a wavefront, g0^-1(dv, dw) / beta^2 -> -1/2 and beta / th tends to a nonzero constant: the
      mixed symbol of the harmonic (n1, n2), -n1 n2 g0^-1(dv, dw), vanishes at the axes to second order (a small
      divisor), and Huneau-Luk's angular separation (Definition 4.1 of [HL18], cos of the spatial angle < 1 - eta') fails
-     there. The pair (v, u) of the ingoing and outgoing radial phases has g0^-1(dv, du) = -2 at every point (Minkowski):
-     separated.
+     there.
+  A4 (exact; replaces round 1's typed -2, the verifier's item 4) the radial in/out pair is separated, computed from the
+     phases themselves: on Minkowski in R^4, v = tau + |x| and u = tau - |x| give eta^-1(dv, du) = -2 at every x != 0
+     and the spatial cosine of HL's Definition 4.1 is grad v . grad u/(|grad v||grad u|) = -1 < 1 - eta'; on Vaidya,
+     g0^-1 = eta^-1 - (mu/r^2) L0 L0, with k_out the outgoing radial null covector of A1, g0^-1(dv, k_out) = -2 k_tau
+     (k normalised by k_tau) is nonzero wherever k_out is defined (r^2 != mu): the mixed symbol has no zero.
+     Control (must fail): two ingoing radial phases v and 2 v: g0^-1(dv, d(2 v)) = 0 and the cosine is 1, so the same
+     test rejects them (no separation; nonres5's resonance).
   A3 (exact) the averaged stress of the family w, F^2 dw (x) dw, has a nonzero th-th component wherever w_th != 0 (off
      the axes, al != be): a background carrying it is not round (not SO(4)-invariant), so the explicit Vaidya structure
      of FAMILIES5-FULL.md section 2 is lost; its phi_i-components vanish (dw has none).
@@ -106,30 +112,59 @@ def a2(al=sp.Rational(1, 2), be=sp.Rational(1, 3)):
                 lim=lim_g, ratio=ratio, hl=hl, wth=wth_mid, c_beta=c_beta, c_th=c_th)
 
 
+def a4(control=False):
+    tau, x1, x2, x3, x4, mu = sp.symbols('tau x1 x2 x3 x4 mu', real=True)
+    X = [tau, x1, x2, x3, x4]
+    r = sp.sqrt(x1**2 + x2**2 + x3**2 + x4**2)
+    v = tau + r
+    u = 2 * (tau + r) if control else tau - r
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    dv = sp.Matrix([sp.diff(v, z) for z in X])
+    du = sp.Matrix([sp.diff(u, z) for z in X])
+    gvu = sp.simplify((dv.T * eta * du)[0])
+    cos = sp.simplify((dv[1:, 0].T * du[1:, 0])[0] / sp.sqrt((dv[1:, 0].T * dv[1:, 0])[0] * (du[1:, 0].T * du[1:, 0])[0]))
+    # Vaidya: g0^-1 = eta^-1 - (mu/r^2) L0 L0 in (tau, r), L0 = d_tau - d_r; k_out = dtau + b dr null, b != 1
+    rr = sp.Symbol('r', positive=True)
+    gi = sp.Matrix([[-1, 0], [0, 1]]) - (mu / rr**2) * sp.Matrix([[1, -1], [-1, 1]])
+    b = sp.Symbol('b')
+    bs = [x for x in sp.solve(sp.Eq((sp.Matrix([1, b]).T * gi * sp.Matrix([1, b]))[0], 0), b) if sp.simplify(x - 1) != 0]
+    kout = sp.Matrix([1, bs[0]]) if not control else sp.Matrix([2, 2])
+    gvk = sp.simplify((sp.Matrix([1, 1]).T * gi * kout)[0])
+    return gvu, cos, gvk
+
+
 def main():
     ok = {}
     good, ctl, roots = a1()
-    print('  A1: an invariant phase has its gradient in span(dtau, dr) on both axes, and the null ones there are dv and '
-          'the outgoing radial covector (b/a = %s): %s; control tau - x3 leaves span(dtau, dr): %s'
+    print('  A1: an invariant phase has its gradient in span(dtau, dr) on both axes, and the null ones there are dv\n'
+          '      and the outgoing radial covector (b/a = %s): %s; control tau - x3 leaves span(dtau, dr): %s'
           % (roots, good, ctl), flush=True)
     ok['A1'] = good and ctl
     r = a2()
-    sep = -2                                                                     # g^-1(dv, du), Minkowski, radial pair
-    print('  A2: f = distance to the ellipse orbit (al, be) = (1/2, 1/3): eikonal %s, even in rho1 and rho2 %s, rays '
-          'radial at both axes %s and not between %s (cos beta at t = pi/8, pi/4, 3pi/8: %s); near the axis g^-1(dv, '
-          'dw)/(beta^2/2) -> %s, beta/th -> %s (beta ~ %s t, th ~ %s t): the mixed symbol vanishes like th^2; HL\'s '
-          'cosine -> %s (separation fails); the radial in/out pair has g^-1(dv, du) = %d everywhere'
+    print('  A2: f = distance to the ellipse orbit (al, be) = (1/2, 1/3): eikonal %s, even in rho1 and rho2 %s,\n'
+          '      rays radial at both axes %s and not between %s (cos beta at t = pi/8, pi/4, 3pi/8: %s);\n'
+          '      near the axis g^-1(dv, dw)/(beta^2/2) -> %s, beta/th -> %s (beta ~ %s t, th ~ %s t):\n'
+          '      the mixed symbol vanishes like th^2; HL\'s cosine -> %s (separation fails)'
           % (r['eik'], r['even'], r['axes'], r['between'], ' '.join('%.6f' % m for m in r['mid']), r['lim'],
-             r['ratio'], r['c_beta'], r['c_th'], r['hl'], sep), flush=True)
+             r['ratio'], r['c_beta'], r['c_th'], r['hl']), flush=True)
     ok['A2'] = (r['eik'] and r['even'] and r['axes'] and r['between'] and r['lim'] == -1 and r['ratio'] != 0
                 and r['hl'] == 1)
     print('  A3: the th-th component of the family\'s stress, w_th at t = pi/5, s = 3/2: %.6f (nonzero: not round)'
           % r['wth'], flush=True)
     rc = a2(sp.Rational(1, 2), sp.Rational(1, 2))
     ctl3 = rc['eik'] and abs(rc['wth']) < 1e-12 and all(abs(m - 1) < 1e-12 for m in rc['mid'])
-    print('  A3 control (al = be, a sphere): w_th = %.2e, cos beta = %s: radial everywhere, no small divisor: %s'
-          % (rc['wth'], rc['mid'], ctl3), flush=True)
+    print('  A3 control (al = be, a sphere): w_th = %.2e, cos beta = %s: radial everywhere, no small divisor:\n'
+          '      %s' % (rc['wth'], rc['mid'], ctl3), flush=True)
     ok['A3'] = abs(r['wth']) > 1e-3 and ctl3
+    gvu, cos, gvk = a4()
+    cgvu, ccos, cgvk = a4(control=True)
+    sep = gvu == -2 and cos == -1 and sp.simplify(gvk) != 0
+    rej = not (cgvu != 0 and ccos < 1 and sp.simplify(cgvk) != 0)
+    print('  A4: v = tau + r, u = tau - r on Minkowski: eta^-1(dv, du) = %s, HL\'s spatial cosine = %s; on Vaidya\n'
+          '      g0^-1(dv, k_out) = %s (k_tau = 1): separated %s' % (gvu, cos, gvk, sep), flush=True)
+    print('  A4 control (v and 2 v, both ingoing): g^-1 = %s, cosine = %s, Vaidya %s: rejected %s'
+          % (cgvu, ccos, cgvk, rej), flush=True)
+    ok['A4'] = sep and rej
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

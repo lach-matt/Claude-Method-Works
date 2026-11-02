@@ -1,6 +1,9 @@
   T1: the transport energy identity on the annuli with the two boundary terms: True
-  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo, so in (-1, 1] for y <= 1/2 and negative for y < 0 (R = a trapped): True
-  control: R = a untrapped (y = 0.2 there): c_out(a) > 0, the inner term has the wrong sign: True
+  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo,
+      so in (-1, 1] for y <= 1/2 and negative for y < 0 (R = a trapped): True
+  T3: mu0 = 0.82211 > a^2: c_out(a) = -0.2531 < 0, and of 40 rays traced back from the annulus 0 reach R = a: True
+  control: mu = 0.3 < a^2 (R = a untrapped): c_out(a) = 0.2405 > 0, 40 of 40 rays leave through R = a: rejected True
 T1 PASS
 T2 PASS
+T3 PASS
 control PASS

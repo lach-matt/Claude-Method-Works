@@ -17,10 +17,17 @@ field Z = d_tau + c xhat.d_x (Z(tau) = 1):
      1/2, so c_out in (-1, 1]: b' - c_out(b) <= -2 + 1 < 0 with the record's b' = -2. On R = a, where mu > a^2 (f < 0;
      FAMILIES5-FULL.md section 2, mu >= mu0 > a^2), y < 0 and c_out(a) < 0. Both boundary terms have the record's sign,
      so Lemma 2.4 holds for the outgoing transports with the same proof.
-  Control (exact): if R = a were untrapped (f > 0 there, the case twodomain5 D4 exhibits for a strong outgoing pulse
-     outside the hole, excluded here by the mass bound), c_out(a) > 0 and the inner boundary term has the wrong sign.
+  T3 (computed, RK4; replaces round 1's sign at a typed y, the verifier's item 4) the domain-of-dependence form of
+     the inner boundary term's sign, on the example's region III (Tangherlini of the seed's mass mu0 = 0.82211 > a^2 =
+     0.49, psi = 0): the outgoing characteristics dR/dtau = c_out(R), c_out = y/(1 - y), y = f/2, traced back from 40
+     points of {a < R <= a + 0.4} at tau1 = tau0 + 1 to tau0, never reach R = a: no outgoing ray enters the annulus
+     through R = a, which is what c(a) int_(|x|=a) phi^2 <= 0 says. c_out(a) is computed from mu0, not typed.
+  Control (computed, must fail): the same with an untrapped inner sphere, mu = 0.3 < a^2 (the case twodomain5 D4
+     exhibits for a strong outgoing pulse outside the hole, excluded here by the mass bound): c_out(a) > 0 and rays from
+     the annulus traced back leave it through R = a, so data on {R = a} enter and the estimate from Sigma_tau0 alone
+     fails.
 
-Labels: computed (exact, sympy). Run: python3 checks/twotransport5.py   (seconds)
+Labels: computed (T1, T2 exact, sympy; T3 RK4 in floating point). Run: python3 checks/twotransport5.py   (seconds)
 """
 import sys
 
@@ -68,18 +75,49 @@ def t2():
     inner = all(float(c_out.subs(y, yy)) < 0 for yy in (-50, -1, -0.01))
     mono = sp.simplify(sp.diff(c_out, y) - 1 / (1 - y)**2) == 0
     lim = sp.limit(c_out, y, -sp.oo) == -1
-    ctl = float(c_out.subs(y, 0.2)) > 0
-    return ok_slope and c_check and bnd_outer and inner and mono and lim and c_in == -1, ctl
+    return ok_slope and c_check and bnd_outer and inner and mono and lim and c_in == -1
+
+
+def t3(mu, a=0.7, n=40, steps=2000):
+    """trace the outgoing characteristics of Z_out back from tau1 = tau0 + 1 on Tangherlini of mass mu (psi = 0);
+    returns c_out(a) and how many of the n starting points reach R = a"""
+    def c_out(R):
+        y = (1 - mu / R**2) / 2
+        return y / (1 - y)
+
+    def rhs(R):
+        return -c_out(R)                                              # backward in tau
+    exits = 0
+    for i in range(n):
+        R = a + 0.4 * (i + 1) / n
+        h = 1.0 / steps
+        for _ in range(steps):
+            k1 = rhs(R)
+            k2 = rhs(R + h * k1 / 2)
+            k3 = rhs(R + h * k2 / 2)
+            k4 = rhs(R + h * k3)
+            R += h * (k1 + 2 * k2 + 2 * k3 + k4) / 6
+            if R <= a:
+                exits += 1
+                break
+    return c_out(a), exits
 
 
 def main():
     ok1, _ = t1()
-    ok2, ctl = t2()
+    ok2 = t2()
+    ca, ex = t3(0.82211)
+    cb, exb = t3(0.3)
+    ok3 = ca < 0 and ex == 0
+    ctl = cb > 0 and exb > 0                                           # True: the untrapped case is rejected
     print('  T1: the transport energy identity on the annuli with the two boundary terms: %s' % ok1)
-    print('  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo, so in (-1, 1] '
-          'for y <= 1/2 and negative for y < 0 (R = a trapped): %s' % ok2)
-    print('  control: R = a untrapped (y = 0.2 there): c_out(a) > 0, the inner term has the wrong sign: %s' % ctl)
-    ok = {'T1': ok1, 'T2': ok2, 'control': ctl}
+    print('  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo,\n'
+          '      so in (-1, 1] for y <= 1/2 and negative for y < 0 (R = a trapped): %s' % ok2)
+    print('  T3: mu0 = 0.82211 > a^2: c_out(a) = %.4f < 0, and of 40 rays traced back from the annulus %d reach R = a: '
+          '%s' % (ca, ex, ok3))
+    print('  control: mu = 0.3 < a^2 (R = a untrapped): c_out(a) = %.4f > 0, %d of 40 rays leave through R = a: '
+          'rejected %s' % (cb, exb, ctl))
+    ok = {'T1': ok1, 'T2': ok2, 'T3': ok3, 'control': ctl}
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1
