@@ -60,7 +60,9 @@ K_in R^3 = A(v), K_out R^3 = B(u) (twodust5 B1-B3), mu := R^2 (1 + 2 e^(-2s) R_u
      d ln(sym)/dvhat = -psi' - e^psi mu/R^3 >= -psi' - mu_max/a^3 on R >= a, so the symbol is bounded below on the
      compact domain by a positive constant that falls at most exponentially in the time spent in the hole.
      Control: the rays without the redshift term must miss the grid's values, and do.
-  G5 (computed; item 6) the outgoing packet stays outside its columns' background horizon band: on a column {vhat
+  G5 (computed; item 6, where round 2 first meant it as a hypothesis; twohorizon5 H3 then showed the placement is not
+     needed, so G5 now describes the example) the outgoing packet stays outside its columns' background horizon band:
+     on a column {vhat
      fixed} R_v is strictly decreasing in u (R_uv < 0), so the background's outgoing expansion has one zero there, in
      region III when the packet is untrapped, at R_H = sqrt(mu_III(vhat)); the least over v <= 5 of R(u2, v) -
      sqrt(mu_III(v)) is positive and converged, and R_v(u2, v) > 0 throughout. For v >= 5 (A = 0) R grows along the

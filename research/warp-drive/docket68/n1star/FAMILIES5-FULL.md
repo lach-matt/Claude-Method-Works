@@ -472,8 +472,9 @@ nor [Tou24] (p. 4) provides beyond small data.
 # Part V. Round 2 (2026-11-02)
 
 Labels as above. Programs added: `checks/twodecomp5.py` (exact rational arithmetic at random points, from the full
-reduced Ricci tensor; about four minutes), `checks/twoledger5.py` (seconds), `checks/twohorizon5.py` (exact, sympy;
-minutes), `checks/twoparity5.py` (exact, sympy; about half an hour); amended: `checks/twobg5.py` (G3-G5),
+reduced Ricci tensor; about four minutes), `checks/twoledger5.py` (seconds), `checks/twohorizon5.py` (H1-H2 exact,
+sympy; H3 symbolic up to three sample points, then 30 digits; about half an hour), `checks/twoparity5.py` (exact,
+sympy; about half an hour); amended: `checks/twobg5.py` (G3-G5),
 `twotransport5.py` (T3), `axisphase5.py` (A4), `torusstress5.py` (V3, V4's control). Each has its `.out`; every check
 has a control that the program must reject, and does.
 
@@ -744,4 +745,5 @@ structural proof of H3's cancellation (section 9).
 `FAMILIES5-FULL.md` (this note); `checks/twobg5.py` (+ `.out`, about ten minutes); `checks/twoslice5.py` (+ `.out`,
 about twenty minutes); `checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`
 (+ `.out` each, seconds); round 2: `checks/twodecomp5.py` (+ `.out`, about four minutes), `checks/twoledger5.py`
-(+ `.out`, seconds), `checks/twohorizon5.py` (+ `.out`, minutes), `checks/twoparity5.py` (+ `.out`, about half an hour).
+(+ `.out`, seconds), `checks/twohorizon5.py` (+ `.out`, about half an hour), `checks/twoparity5.py` (+ `.out`, about
+half an hour).
