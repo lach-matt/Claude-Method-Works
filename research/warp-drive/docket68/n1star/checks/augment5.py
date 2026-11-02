@@ -180,19 +180,38 @@ def s2_s3_s5(seed):
     ok4 = all((divT[b] - (Pq + q * divP) * p[b] - q * nabPp[b]).at0() == 0 for b in range(n))
     trT = sum((gi[a][b] * T[a][b] for a in range(n) for b in range(n)), Jet())
     ok5 = (trT - q * N).at0() == 0
-    # under the augmented equations (th arbitrary value, P(q) = -th q, nabla_P p = 0 imposed algebraically at 0)
+    # under the augmented equations, imposed on the jets at 0 (repaired 2026-11-02 after the independent reader: the
+    # claims are now compared with the div T computed by cov_divT, not with the formula itself): add linear terms to
+    # p_a and q along x_k (P^k(0) != 0) so that nabla_P p = 0 and P(q) = -th q hold at the point
     th = Fraction(7, 3)
-    divT_aug = [((-th * q + q * divP) * p[b]).at0() for b in range(n)]   # nabla_P p = 0
-    ok6 = all(divT_aug[b] == (-(th - divP.at0()) * q.at0() * p[b].at0()) for b in range(n))
-    divT_bad = [((-th * q / 2 + q * divP) * p[b]).at0() for b in range(n)]
-    ctl3 = any(divT_bad[b] != (-(th - divP.at0()) * q.at0() * p[b].at0()) for b in range(n))
-    # S5: B_g T = -div T + (1/2) d tr T = (th - div P) q p + (1/2) d(q N) under the augmented equations
+    k = max(range(n), key=lambda i: abs(P[i].at0()))
+
+    def impose(qfac):
+        pa = [p[a] + Jet.var(k) * (-nabPp[a].at0() / P[k].at0()) for a in range(n)]
+        Pa = [sum((gi[a][b] * pa[b] for b in range(n)), Jet()) for a in range(n)]
+        Pq0 = sum((Pa[a] * q.d(a) for a in range(n)), Jet()).at0()
+        qa = q + Jet.var(k) * ((-th * qfac * q.at0() - Pq0) / Pa[k].at0())
+        nab = [sum((Pa[b] * (pa[a].d(b) - sum((Gam[c][b][a] * pa[c] for c in range(n)), Jet())) for b in range(n)),
+                   Jet()).at0() for a in range(n)]
+        Pqa = sum((Pa[a] * qa.d(a) for a in range(n)), Jet()).at0()
+        assert all(x == 0 for x in nab) and Pqa == -th * qfac * qa.at0()
+        Ta = [[qa * pa[a] * pa[b] for b in range(n)] for a in range(n)]
+        dvP = sum((Pa[a].d(a) + sum((Gam[a][a][b] * Pa[b] for b in range(n)), Jet()) for a in range(n)), Jet()).at0()
+        Na = sum((gi[a][b] * pa[a] * pa[b] for a in range(n) for b in range(n)), Jet())
+        trTa = sum((gi[a][b] * Ta[a][b] for a in range(n) for b in range(n)), Jet())
+        return pa, qa, cov_divT(Ta), dvP, Na, trTa
+    pa, qa, dTa, dvP, Na, trTa = impose(1)
+    formula = [-(th - dvP) * qa.at0() * pa[b].at0() for b in range(n)]
+    ok6 = all(dTa[b].at0() == formula[b] for b in range(n))
+    pb, qb, dTb, dvPb, _, _ = impose(Fraction(1, 2))
+    ctl3 = any(dTb[b].at0() != -(th - dvPb) * qb.at0() * pb[b].at0() for b in range(n))
+    # S5: B_g T = -div T + (1/2) d tr T = (th - div P) q p + (1/2) d(q N), the left side computed
     BgT = [(-(Pq + q * divP) * p[b] - q * nabPp[b] + trT.d(b) * Fraction(1, 2)).at0() for b in range(n)]
     ok7 = all(BgT[b] == (-(divT[b]) + trT.d(b) * Fraction(1, 2)).at0() for b in range(n))
-    BgT_aug = [(th * q.at0() - q.at0() * divP.at0()) * p[b].at0() + (q * N).d(b).at0() / 2 for b in range(n)]
-    direct = [(-(-th * q + q * divP) * p[b]).at0() + trT.d(b).at0() / 2 for b in range(n)]
-    ok8 = BgT_aug == direct
-    ctl4 = any((q * N).d(b).at0() != 0 for b in range(n))    # the d tr T term matters where N != 0
+    BgT_comp = [-dTa[b].at0() + trTa.d(b).at0() / 2 for b in range(n)]
+    BgT_form = [(th - dvP) * qa.at0() * pa[b].at0() + (qa * Na).d(b).at0() / 2 for b in range(n)]
+    ok8 = BgT_comp == BgT_form
+    ctl4 = any(-dTa[b].at0() != BgT_form[b] for b in range(n))     # without (1/2) d tr T it fails where N != 0
     print("   seed %d: P(N) = 2 g^-1(p, nabla_P p): %s; nabla_P p = dN/2 + i_P dp: %s; Cartan: %s; "
           "div T = (P q + q div P) p + q nabla_P p: %s; tr T = q N: %s" % (seed, ok1, ok2, ok3, ok4, ok5))
     print("      augmented: div T = -(th - div P) q p: %s; B_g T formula: %s, %s" % (ok6, ok7, ok8))
@@ -267,15 +286,15 @@ def s7():
         for j in range(61):
             ff = -5.0 + 6.0 * j / 60
             e = math.exp(ps)
-            ang = math.sqrt(e / (2 - e * ff))
-            hi = e * ff / (2 - e * ff)
+            ang = math.sqrt(float(fq(ps, ff)))
+            hi = float(fhi(ps, ff))
             worst_ang = max(worst_ang, ang)
             worst_hi = max(worst_hi, hi)
             if ff < 0:
                 trapped_ok &= hi < 0
     ok3 = worst_ang <= 1 + 1e-12 and worst_hi <= 1 + 1e-12 and trapped_ok
     e_bad = 1.9
-    ctl = math.sqrt(1.0 / (2 - e_bad)) > 1                # psi = 0, f = 1.9 (f > 1): R|dOmega| up to sqrt(10)
+    ctl = float(sp.sqrt(qmax.subs({psi: 0, f: sp.Rational(19, 10)}))) > 1   # the computed bound, outside the class
     print("S7 max R^2|dOmega|^2 = e^psi/(2 - e^psi f):", ok1, "; dR in [-1, e^psi f/(2 - e^psi f)]:", ok2,
           "; on psi in [-3,0], f in [-5,1]: R|dOmega| <= %.6f, dR <= %.6f, dR < 0 where f < 0: %s"
           % (worst_ang, worst_hi, trapped_ok))
