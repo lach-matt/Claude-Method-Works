@@ -286,8 +286,8 @@ def main():
     ok['T10'] = not t10
     print('  T10: the same on Vaidya, u = tau - r: a 1/lam coefficient: %s' % t10, flush=True)
     ok['T11'] = p9 and p10
-    print('  T11: data5\'s S6 with both families and chi: the order-0 principal coefficients equal the background\'s '
-          '(flat %s, Vaidya %s)' % (p9, p10), flush=True)
+    print('  T11: data5\'s S6 with both families and chi: the order-0 principal coefficients equal the background\'s\n'
+          '       (flat %s, Vaidya %s)' % (p9, p10), flush=True)
     for k, val in ok.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1

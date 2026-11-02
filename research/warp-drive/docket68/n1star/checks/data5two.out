@@ -8,7 +8,8 @@
   T8 (control): T7's outgoing wave with an oscillating trace: a 1/lam coefficient: True
   T9: both families with chi (chi dv dv and chi_2 du du) on the flat background: a 1/lam coefficient: False
   T10: the same on Vaidya, u = tau - r: a 1/lam coefficient: False
-  T11: data5's S6 with both families and chi: the order-0 principal coefficients equal the background's (flat True, Vaidya True)
+  T11: data5's S6 with both families and chi: the order-0 principal coefficients equal the background's
+       (flat True, Vaidya True)
 T1 PASS
 T2 PASS
 T3 PASS
