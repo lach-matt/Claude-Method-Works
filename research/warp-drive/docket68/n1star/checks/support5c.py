@@ -9,9 +9,15 @@
       every term of N that covers it (same unknown, same total order, enough spatial derivatives); its lam-exponent is
       (weight in |w|_7) - (oscillation cost) - (weight in N), and the term is covered when some exponent is >= 0. The
       cost rule itself is computed: d^b [f] of a profile f(x1, x2, th) at the phase v(x1, x2) has lowest lam-power
-      exactly -b, b <= 7 (sympy, with the two-scale chain rule of (0.3)). Control: N without its ||d^j d phi|| term must
-      leave a term uncovered. The control the commission named, N without lam ||d^j d_x^2 phi||, is run and printed as
-      well: it leaves no term uncovered, so it cannot serve as a control (see the report).
+      exactly -b, b <= 7 (sympy, with the two-scale chain rule of (0.3)). The 128 ledger rows are classes
+      (order i, a, number of spatial derivatives among the a) of Leibniz terms, not terms: the terms proper, (unknown,
+      i, a), number 44 here (8 of h, 36 of phi G1); the verifier's count was 52, not reproduced. Both are printed.
+      Controls, each must leave a term uncovered: (1) N without its ||d^j d phi|| term (this tests only that N has
+      the needed terms); (2) |w|_8 measured against N with k = 6 (the verifier found 3 uncovered); (3) one extra lam^-1
+      charged on each differentiated oscillating factor, cost lam^-(b+1) for b >= 1, read here as the verifier's "one
+      extra lam^-1 per derivative" (it found 7 uncovered; charging lam^-2b instead leaves 57). The control the
+      commission named, N without lam ||d^j d_x^2 phi||, is run and printed as well: it leaves no term uncovered, so
+      it cannot serve as a control (see the report).
   C12 (computed, exact, rational arithmetic) paper section 5.4, "written as a symmetric hyperbolic first-order system it
       satisfies (A1)-(A4) of [DS23]" (supplement Step 8 (ii)-(iii)). At eight random admissible rational points (lapse
       N > 0, shift beta, spatial metric gamma = L L^T + I/10, half of them convex combinations toward (1, 0, delta)),
@@ -82,15 +88,15 @@ def _n_terms(drop=None, k=6):
     return t                                                            # (Psi = box~ phi covers no single d^a phi)
 
 
-def _ledger(cost, drop=None, k=6):
+def _ledger(cost, drop=None, k=6, kw=7, extra=0):
     terms = _n_terms(drop, k)
     rows = []
-    for i in range(k + 2):                                              # |w|_7: i <= 7
+    for i in range(kw + 1):                                             # |w|_kw: i <= kw (7)
         rows.append(("h", i, 0, i, 0))
         for a in range(i + 1):
             b = i - a
             for sp_ in range(a + 1):
-                rows.append(("phi", a, sp_, i, -cost[b - 1] if b else 0))       # oscillation cost b, as lam^-b
+                rows.append(("phi", a, sp_, i, -cost[b - 1] + extra if b else 0))   # cost b (+ extra), as lam^-b
     worst, uncovered = None, []
     for u, a, sp_, wgt, oc in rows:
         exps = [wgt - oc - nw for (nu, na, nsp, nw) in terms if nu == u and na == a and sp_ >= nsp]
@@ -105,16 +111,22 @@ def _ledger(cost, drop=None, k=6):
 def c11(control=False):
     cost = _osc_cost()
     if control:
-        n, worst, unc = _ledger(cost, drop="dphi")
-        print("  C11 control: N without ||d^j d phi||: %d terms uncovered (first: %s)" % (len(unc), unc[:2]), flush=True)
-        return not unc
+        _, _, unc = _ledger(cost, drop="dphi")
+        _, _, unc8 = _ledger(_osc_cost(8), kw=8)
+        _, _, unce = _ledger(cost, extra=1)
+        print("  C11 controls (each must leave a term uncovered): N without ||d^j d phi||: %d (first: %s);\n"
+              "      |w|_8 against N with k = 6: %d (%s); one extra lam^-1 on each differentiated oscillating\n"
+              "      factor: %d" % (len(unc), unc[:2], len(unc8), unc8, len(unce)), flush=True)
+        return not unc or not unc8 or not unce
     rule = cost == [-b for b in range(1, 8)]
     n, worst, unc = _ledger(cost)
+    proper = 8 + sum(i + 1 for i in range(8))                           # (h, i) and (phi G1, i, a), i <= 7
     _, _, unc_named = _ledger(cost, drop="dx2phi")
     print("  C11: each derivative of [d_th g1] costs lam^-1, lowest powers for b = 1..7: %s (rule holds: %s);\n"
-          "      %d Leibniz terms of |w|_7, uncovered: %d, least lam-exponent over the covered: %d (>= 0);\n"
+          "      %d (order, a, spatial count) classes of Leibniz terms of |w|_7 (%d Leibniz terms proper),\n"
+          "      uncovered: %d, least lam-exponent over the covered: %d (>= 0);\n"
           "      the commission's control, N without lam ||d^j d_x^2 phi||: %d uncovered (the term is not used here)"
-          % (cost, rule, n, len(unc), worst, len(unc_named)), flush=True)
+          % (cost, rule, n, proper, len(unc), worst, len(unc_named)), flush=True)
     return rule and not unc and worst >= 0
 
 

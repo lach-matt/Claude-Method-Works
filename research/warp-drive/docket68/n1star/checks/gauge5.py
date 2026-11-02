@@ -11,7 +11,8 @@ zero there". Supplement N1STAR-PROOF.md 6.1-6.2, 9.1, 9.3 and the proof of Theor
      E = Ric^H(g) = Ric - S(D), S(D)_mn = (1/2)(g_m rho Dh_n D^rho + g_n rho Dh_m D^rho), D^rho = g^ab (Gamma[g] -
      Gamma[g0])^rho_ab, Gt(T) = T - (1/2)(tr_g T) g, n the unit normal of {x0 = 0}. g = eta + random quadratic, g0 = eta
      + random quadratic (the background is arbitrary here), and D = 0 to first order along the slice at the point is
-     imposed by solving for d_0 g_(0 rho) and d_i d_0 g_(0 rho) (two linear solves, exact). Also rerun: the record's own
+     imposed by solving for d_0 g_(0 rho) and d_i d_0 g_(0 rho) (two linear solves, exact). One point of one random
+     metric pair (seed 62): an exact instance of the identity, not a proof of it. Also rerun: the record's own
      check of the Bianchi step (6.1) uses, response5.py R14 (imported), with its control.
      Controls (each must fail): (6.2) without Z -- the term (F2) sets to zero in mean, d_tau <D^(m)> = 0, so that
      the constraints are the mean of Gt(E); and (6.2) on a slice where D != 0 (no gauge adjustment).
@@ -30,9 +31,14 @@ zero there". Supplement N1STAR-PROOF.md 6.1-6.2, 9.1, 9.3 and the proof of Theor
      part exactly, Pol^+ = Pol^T (Pol Pol^T)^-1 in these components (a right inverse; the supplement takes it in
      Cartesian components for equivariance, not tested here); (e) the mean of D^(1) is linear in the five d_tau
      (m1)_(tau .) with nonzero determinant, and solving kills it: D^(1) = 0 on Sigma, (F1) at m = 1, with m1's
-     spatial part h1 and its d_tau (Q1) left generic. Not computed: (F2) at order 1 (the mean of the constraints, which
+     spatial part h1 and its d_tau (Q1) left generic. Of these, two hold by construction and are printed as
+     consistency checks only: that -Pol^+ kills the oscillating part (P Pol^+ = I identically) and that its s-mean
+     is zero (osc is rest minus its mean, and Pol^+ has no s). The substantive checks are (a), (b) -- the next
+     profile enters only through Pol(d_s gh2) --, (c), that the mean is free of gh2, and the determinant in (e).
+     Not computed: (F2) at order 1 (the mean of the constraints, which
      Lemma 6.4 solves for h1, Q1), D^(2), and Lemma 6.1's propagation off Sigma.
-     Controls (each must fail): the choices not made (d_s gh2 = 0, d_tau (m1)_(tau .) = 0); Pol^T in place of Pol^+.
+     Controls (each must fail): the choices not made (d_s gh2 = 0, d_tau (m1)_(tau .) = 0), the one that tests
+     D^(1); Pol^T in place of Pol^+, which tests linear algebra (Pol Pol^T != I), not D^(1).
   G3 (exact) the decay. (a) Supplement 9.1: A_P(tau) = {r_in <= |x| <= r_out} in R^4, r_in = t + a1, a1 > 0, width
      r_out - r_in <= d1. The flat L^2 norm on A_P(tau) of an amplitude r^-q is N_q(t), N_q^2 = vol(S^3) int r^(3-2q) dr,
      vol(S^3) = 2 pi^2 computed in the record's Hopf angles; at q = 2 (class E_2, the proof's D_j) exactly
@@ -158,8 +164,9 @@ def g1(control=False, seed=62):
     ok, zsize = residual(gfix, True)
     r14 = response5.r14()
     print("  G1: (6.2) 2 G(n, .) = 2 Gt(E)(n, .) + d_n D, exact, at a point of a random 4+1 metric with D = 0 along the"
-          " slice: %s (sum |Z_m| = %s, so Z is live); response5 R14 (6.1's Bianchi step) rerun: %s [%.0fs]"
-          % (ok, zsize, r14, time.time() - t0), flush=True)
+          " slice (one point, one random metric, seed %d): %s (sum |Z_m| = %s, so Z is live);\n      response5 R14"
+          " (6.1's Bianchi step) rerun: %s [%.0fs]"
+          % (seed, ok, zsize, r14, time.time() - t0), flush=True)
     return ok and r14 and zsize != 0
 
 
@@ -260,14 +267,18 @@ def g2(control=False):
     nochoice = all(sp.simplify(e.subs({y: 0 for y in Ysym}).subs({p: 0 for p in Pv})) == 0 for e in DS)
     if control:
         print("  G2 control: D^(1) = 0 on Sigma with no choices: %s; Pol^T in place of Pol^+ kills the oscillating"
-              " part: %s" % (nochoice, killed_osc), flush=True)
+              " part (a linear-algebra control, not of D^(1)): %s" % (nochoice, killed_osc), flush=True)
         return nochoice or killed_osc
+    mean_free = all(not e.has(*[GF[a][b].func for a in range(5) for b in range(5)]) for e in rest + mean)
     print("  G2: D^(-1) = D^(0) = 0: %s; gh2 enters D^(1) only as Pol(d_s gh2): %s; on Sigma the rest of the"
-          " oscillating part is algebraic in m1: %s; Pol onto (data5 S1): %s; d_s gh2 := -Pol^+(rest) has zero mean:"
-          " %s and kills the oscillating part: %s; mean linear in d_tau (m1)_(tau .), det = %s, solved, mean killed: %s"
-          " [%.0fs]" % (zero01, only_pol, algebraic, onto, ymean0, killed_osc, det, killed_mean, time.time() - t0),
-          flush=True)
-    return zero01 and only_pol and algebraic and onto and ymean0 and killed_osc and det != 0 and killed_mean
+          " oscillating part is algebraic in m1: %s;\n      Pol onto (data5 S1): %s;"
+          " the mean is free of gh2 (rest has none; <d_s gh2> = 0): %s;"
+          " mean linear in d_tau (m1)_(tau .), det = %s, solved, mean killed: %s;\n      consistency checks (true by"
+          " construction: P Pol^+ = I, osc = rest - mean): d_s gh2 := -Pol^+(rest) has zero mean: %s and kills the"
+          " oscillating part: %s [%.0fs]" % (zero01, only_pol, algebraic, onto, mean_free, det, killed_mean, ymean0,
+                                             killed_osc, time.time() - t0), flush=True)
+    return (zero01 and only_pol and algebraic and onto and mean_free and ymean0 and killed_osc and det != 0
+            and killed_mean)
 
 
 def g3(control=False):
