@@ -246,7 +246,8 @@ def build(seed, control=None):
     lin_in[U] = -Ep * (s_in - rho_in) / 2                                    # ell_in . d phi_in = (1/2)(s_in - rho_in)
     lin_out[V] = -Ep * (s_out - rho_out) / 2
     lin_wrong = [rq(rng) for _ in range(3)]
-    lin_wrong[V] = -Ep * (s_in - rho_in) / 2                                 # control (c): along ell_out
+    lin_wrong[V] = -Ep * (s_in - rho_in) / 2                                 # control (c): along ell_out, and
+    lin_wrong[U] = lin_in[U] + 1                                             # never the right value along ell_in
     phin = sum(c * x for c, x in zip(lin_in, TVARS))
     phout = sum(c * x for c, x in zip(lin_out, TVARS))
     phwrong = sum(c * x for c, x in zip(lin_wrong, TVARS))
