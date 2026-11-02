@@ -1,2 +1,6 @@
-  I1: l = 0, 2, ..., 9999 (469s): discs overlapping in 0 polynomials; least distance from Z of a non-integer root with |lam| <= 50 in [1.94137056846e-8, 1.94137056846e-8] (width 3.1e-48), at l = 50, lam = -49.0000000194137 + 0.0 i (box^Ups: True); box^C's least 2.93235e-6 at l = 2
-I1 PASS; control (planted root at 10^-30 from Z kept, integer root set aside) behaves
+  I1: l = 0, 2, ..., 9999 (609s): discs overlapping in 0 polynomials; least distance from Z of a non-integer root with |lam| <= 50 in [1.94137056846e-8, 1.94137056846e-8] (width 3.1e-48), at l = 50, lam = -49.0000000194137 + 0.0 i (box^Ups: True); box^C's least 2.93235e-6 at l = 2
+  I1: the disc giving hi lies certainly inside |lam| <= 50: True
+I1 PASS; control (planted root at 10^-30 from Z kept, integer root set aside, true roots inside offset-seeded discs) behaves
+  I2: Q(lam - 1) is the formula in s = lam'(lam' - 1), lam' = lam - 1: True; D = 4*kappa + z**2 + 4*z + 4; s_+- roots: True; ds_+-/dz = (b_z +- D_z/(2 sqrt D))/2: True; >= 0 (b_z = 1, D_z = 2*z + 4, 4 b_z^2 D - D_z^2 = 16*kappa): True; s_+-(0) = [(l + 1)*(l + 2), l*(l + 1)]: True; min |lam'| at s = l (l + 1) is l: True; so |lam| >= l - 1 > 50 for l >= 52
+  I2 control (z -> -z): b_z = -1, monotonicity test rejects
+I2 PASS; control (z terms' sign flipped: monotonicity in z rejected) behaves

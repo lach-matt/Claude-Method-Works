@@ -26,8 +26,11 @@ Pi = (r^2 + a^2)(r^2 + b^2), F = 1 - a^2 (x1^2 + x2^2)/(r^2 + a^2)^2 - b^2 (x3^2
      at t' = 0 along x' = omega'/rho' at three rational points, every component a power series in rho' with exact
      coefficients (truncated power-series arithmetic to rho'^7 for the inverse, the lapse and the Christoffel symbols):
      the lowest orders are rho'^2 and rho'^3.
-  Control: a mass term falling as rho (h = mu rho, the four-dimensional rate) gives gamma - delta of order rho^1: not in
-     the class, and B4's criterion rejects it.
+  Controls: B1 and B4, a mass term falling as rho (h = mu rho, the four-dimensional rate) gives gamma - delta of order
+     rho^1: not in the class, and the criterion rejects it. B2, the boosted form Q replaced by the split-signature form
+     y1^2 + y2^2 - y3^2 - y4^2, which vanishes at omega' = (1/2, 1/2, 1/2, 1/2): Q = O(rho') there, rho'^(-1/2) appears,
+     and the analyticity test rejects it. B3, the identity with the term - omega_i (omega . d_omega) f dropped (the
+     angular derivative not projected onto S^3): the exact difference is nonzero and the test rejects it.
 
 Labels: computed (exact, sympy series). The finite series support the structural statement (compositions of functions
 analytic at rho = 0), which is what Lemma 0.1 needs.
@@ -97,8 +100,6 @@ def b1(control=False):
 
 
 def b2(control=False):
-    if control:
-        return False
     c = (1, -2, sp.Rational(1, 3), 0)
     bv = sp.Rational(3, 5)
     g = 1/sp.sqrt(1 - bv**2)
@@ -106,8 +107,12 @@ def b2(control=False):
     for om in POINTS:
         y = [om[i] - rho*c[i] for i in range(4)]
         Q = g**2*y[0]**2 + y[1]**2 + y[2]**2 + y[3]**2
+        if control:                                       # a split-signature form, vanishing at omega' = (1/2, ...)
+            Q = y[0]**2 + y[1]**2 - y[2]**2 - y[3]**2
         exprs = [1/sp.sqrt(Q), g*y[0]/sp.sqrt(Q)] + [y[i]/sp.sqrt(Q) for i in (1, 2, 3)]
         ok &= all(powers(e_, rho, ORDER)[0] for e_ in exprs)
+    if control:
+        return ok
     Qmin = sp.simplify((g**2 - 1)*w[0]**2 + 1)
     print("  B2: rho_rest/rho' and omega_rest analytic at rho' = 0 (integer powers to rho'^%d at three points, beta ="
           " 3/5, c = (1, -2, 1/3, 0)): %s; Q(omega') = %s >= 1 on S^3" % (ORDER, ok, Qmin), flush=True)
@@ -115,8 +120,6 @@ def b2(control=False):
 
 
 def b3(control=False):
-    if control:
-        return False
     x = sp.symbols("x1:5", real=True)
     p = sp.Symbol("p", integer=True)
     R = sp.sqrt(sum(xi**2 for xi in x))
@@ -127,9 +130,12 @@ def b3(control=False):
     for i in range(4):
         lhs = sp.diff(F, x[i])
         grad = [sp.diff(f, oi) for oi in o]
-        rhs = rr**(p + 1)*(-p*o[i]*f - rr*o[i]*sp.diff(f, rr) + grad[i] - o[i]*sum(o[j]*grad[j] for j in range(4)))
+        proj = 0 if control else o[i]*sum(o[j]*grad[j] for j in range(4))   # control: the projection dropped
+        rhs = rr**(p + 1)*(-p*o[i]*f - rr*o[i]*sp.diff(f, rr) + grad[i] - proj)
         rhs = rhs.subs({rr: 1/R, **{o[j]: x[j]/R for j in range(4)}})
         ok &= sp.simplify(sp.expand(lhs - rhs)) == 0
+    if control:
+        return ok
     print("  B3: d/dx_i (rho^p f(rho, omega)) = rho^(p+1) (-p omega_i f - rho omega_i f_rho + f_(omega_i) - omega_i"
           " omega . grad_omega f), f generic: %s" % ok, flush=True)
     return ok

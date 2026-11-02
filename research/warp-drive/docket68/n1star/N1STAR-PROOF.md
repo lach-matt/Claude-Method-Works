@@ -1642,23 +1642,29 @@ Phi, Phi the master field of the mode,
     r F = (1/(12 r^2 H)) [ (2H - 3 r f') Phi~ + 6 r Dr . DPhi~ ],
     r F_ab + r F g_ab = (1/H) ( D_a D_b Phi~ - (1/2) (box Phi~) g_ab ),                                      (10.1)
 D the covariant derivative of the orbit metric g_ab; and H_T = r^(-3/2) Phi for the tensor type. The coefficients 1/H <=
-1/5, (2H - 3 r f')/(12 r^2 H) and 1/(2 r H) are bounded on r >= r_h uniformly in l, but Phi~ carries H = m + 6x, of
-order l^2: in terms of Phi, (1/H) D_a D_b (r^(3/2) H Phi) = r^(3/2) D_a D_b Phi + lower-order terms with coefficients
-bounded uniformly in l (H depends on r alone), so r F_ab costs two orbit-space derivatives of Phi and, through its trace
--2 r F (the bracket of (10.1) is traceless), the factor of r F, (2H - 3 r f') Phi~/(12 r^2 H) = (m + 3x) r^(-1/2) Phi/6,
-which carries m = l(l + 2) - 3, two angular derivatives. (10.1) is covariant on the orbit space, so in any chart regular
-at the horizon (ingoing Eddington-Finkelstein) every component of h_S and h_T is a combination of the master fields and
-their derivatives to order two -- two orbit-space derivatives, and the factor m through F and the trace of F_ab -- with
-coefficients bounded on r >= r_h uniformly in l (verifiers' findings, D44, D45).
+1/5, (2H - 3 r f')/(12 r^2 H) and 1/(2 r H) are bounded on r >= r_h uniformly in l, but Phi~ carries H = m + 6x, of order
+l^2: in terms of Phi, (1/H) D_a D_b (r^(3/2) H Phi) = r^(3/2) D_a D_b Phi + lower-order terms with coefficients bounded
+uniformly in l (H depends on r alone), so r F_ab costs two orbit-space derivatives of Phi and, through its trace -2 r F
+(the bracket of (10.1) is traceless), the factor of r F, (2H - 3 r f') Phi~/(12 r^2 H) = (m + 3x) r^(-1/2) Phi/6, which
+carries m = l(l + 2) - 3, two angular derivatives. (10.1) is covariant on the orbit space, so in any chart regular at the
+horizon (ingoing Eddington-Finkelstein) every component of h_S and h_T is a combination of the master fields and their
+derivatives to order two -- two orbit-space derivatives, and the factor m through F and the trace of F_ab -- with
+coefficients bounded on r >= r_h uniformly in l (verifiers' findings, D44, D45). The bound is for the master field
+normalised as psi := r^(3/2) Phi = Phi~/H (`checks/kirecon5.py` P1). [HKW18] bound other normalisations
+(arXiv:1809.05144): their r^p energies are of Phi itself ((124), p. 43; (127), p. 46), and their scalar master quantity,
+(r^(1/2) Phi) times a tensor harmonic ((173), pp. 60-61), has pointwise norm r^(-3/2) |Phi|; in Phi the coefficients are
+O(r^(3/2)) and in r^(-3/2) Phi O(r^3), uniformly in l, those powers attained (P2; D607).
 
 (iv) *Decay.* [HKW18] Theorem 2 gives, in spacetime dimension five, E~^N_Psi(Sigma_tau) <= C(3, M) I_Psi(Sigma_0)/tau^2
 for the master quantities of the scalar and tensor portions, the constant uniform in l (their (179)-(186): the estimates
 "are uniform in the angular mode numbers" and are summed). With (10.1), the metric components of h_S + h_T in the gauge
 of (ii), measured with two derivatives fewer -- two orbit-space derivatives for F_ab, two angular derivatives for F, the
-factor m of (iii) -- decay at the same rate; and h_0 is delta mu_f K plus a pure-gauge part pi_X ((i), [HKW18] Theorem 1
-in the class), which a separate l = 0 gauge condition removes (h_0 = c K). So in the Regge-Wheeler-type gauge of (ii)
-for l >= 2, with h_0 = c K, every metric component of h settles to a change of the mass at the rate tau^-2 in energy,
-with the loss of two derivatives counted as above.
+factor m of (iii) -- decay at the same rate on each region {r <= R}, uniformly in l, with a constant growing as a power
+of R, since (iii)'s coefficients grow as r^3 in the field whose N-energy [HKW18] bound (D607); uniformly in r it is not
+shown; and h_0 is delta mu_f K plus a pure-gauge part pi_X ((i), [HKW18] Theorem 1 in the class), which a separate l = 0
+gauge condition removes (h_0 = c K). So in the Regge-Wheeler-type gauge of (ii) for l >= 2, with h_0 = c K, every metric
+component of h settles to a change of the mass at the rate tau^-2 in energy on each region {r <= R}, with the loss of two
+derivatives counted as above.
 
 *Proof.* (i) is `settle5.py` T1 for the absence of vector-type perturbations and of the linearised rotations (the
 co-closed T^2-invariant vector fields on S^3 and the Myers-Perry rotations are odd under the reflections), together

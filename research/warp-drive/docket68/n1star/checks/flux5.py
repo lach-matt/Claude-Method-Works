@@ -14,12 +14,20 @@ that on vacuum data d_i b^i = q (Part V Lemma 1.2's identity, integrated over an
      d_i tr h) + O(eps^2) at a random point, so d_i b^i = DR(h) and q_e0(eps h, eps K) = O(eps^2): q vanishes to second
      order at flat data, as step (6) uses.
   F3 (exact) The scaling of step (6): q of data h(x) = A H(x/R)/R^2, K(x) = A k(x/R)/R^3 is A^2 R^-6 qhat(x/R) + O(A^3)
-     (computed: R^6 q at order A^2 depends on x/R alone), so a difference of two such data of sizes 1 and eta + |m -
-     mubar| gives |q(xhat) - q(gamma^mubar)| <= C (eta + |m - mubar|) R^-6 on Gamma(R, 4R), whose volume is 255 pi^2
-     R^4/2: the integral is O((eta + |m - mubar|) R^-2); with 6 pi^2 (m - mubar) = that + O(|m - mubar| R^-2) + O(eta),
-     |m - mubar| <= C eta once C R^-2 < 3 pi^2 (the inequality solved exactly).
-  Control: the flux built with + d_i tr h in place of - d_i tr h is not the divergence of DR(h) (F2's identity fails),
-     and on F1's slice it gives -2 pi^2 m, not 6 pi^2 m.
+     (computed: q at order A^1 vanishes, and R^6 q at order A^2 is the exact rational -10294529/36000 at the sampled
+     point, independent of R). The volume of Gamma(R, 4R) is 255 pi^2 R^4/2 (computed exactly). The inequality
+     6 pi^2 |dm| <= C (eta + |dm|)/R^2 + C eta, dm = m - mubar, is linear in |dm| with coefficient (6 pi^2 R^2 - C)/R^2,
+     positive exactly when C < 6 pi^2 R^2 (checked: positive for C = 6 pi^2 R^2/(1 + s), s > 0), and then it gives
+     |dm| <= C eta (R^2 + 1)/(6 pi^2 R^2 - C) (checked exactly: the bound is the equality's root). Not computed: the
+     bilinear difference bound |q(xhat) - q(gamma^mubar)| <= C (eta + |dm|) R^-6 on Gamma(R, 4R) of step (6) is deduced
+     from the scaling in prose, not checked here.
+  Controls: F1, F2, the flux built with + d_i tr h in place of - d_i tr h is not the divergence of DR(h) (F2's identity
+     fails), and on F1's slice it gives -2 pi^2 m, not 6 pi^2 m. F3, the same computation with every Gamma.Gamma term of
+     the scalar curvature deleted: R^6 q at order A^2 is still independent of R (that test alone is blind to it), but its
+     value is not -10294529/36000, and F3 rejects it.
+
+Sign convention: q_e0 here is DR_delta(h) - (R - |K|^2 + (tr K)^2), the negative of Part V (1.1)'s, and it omits the
+factor sqrt(det g); F1-F3 test vanishing, R-independence and a magnitude, so they are blind to both.
 
 Labels: computed (exact, sympy).
 
@@ -43,8 +51,9 @@ def jets_at(g, pt):
     return g0, dg, ddg
 
 
-def curvature_at(g, pt, inverse=None):
-    """scalar curvature, Christoffel symbols and the inverse at a point, from the jets (no symbolic simplification)"""
+def curvature_at(g, pt, inverse=None, gg=True):
+    """scalar curvature, Christoffel symbols and the inverse at a point, from the jets (no symbolic simplification);
+    gg=False deletes every Gamma.Gamma term (F3's control)"""
     n = len(X)
     g0, dg, ddg = jets_at(g, pt)
     gi = inverse if inverse is not None else g0.inv()
@@ -61,7 +70,7 @@ def curvature_at(g, pt, inverse=None):
             e = 0
             for a in range(n):
                 e += dG[a][a][b][c] - dG[c][a][b][a]
-                for d in range(n):
+                for d in range(n if gg else 0):
                     e += G[a][a][d]*G[d][b][c] - G[a][c][d]*G[d][b][a]
             R += gi[b, c]*e
     return sp.expand(R), G, gi
@@ -101,7 +110,6 @@ def f1(control=False):
         Ku = gi*K
         trK = Ku.trace()
         ham = sp.simplify(R - sum(Ku[i, j]*Ku[j, i] for i in range(4) for j in range(4)) + trK**2)
-        # the momentum constraint needs dK: from the symbolic K's derivatives at the point
         hams.append(ham)
         qs.append(sp.simplify(DR.subs(pt) - ham))
     print("  F1: (d_j h_ij - d_i tr h) . nu = %s; flux over S_rho = %s; at |x| = 5, 9, 13: Hamiltonian constraint %s;"
@@ -137,8 +145,6 @@ def f2(control=False):
 
 
 def f3(control=False):
-    if control:
-        return False
     rng = random.Random(11)
     Yv = sp.symbols("y1:5", real=True)
     Hm, Km = sp.zeros(4), sp.zeros(4)
@@ -152,19 +158,32 @@ def f3(control=False):
     pt = {X[i]: Rr*sp.Rational(rng.randint(-3, 3), 5) for i in range(4)}   # a point x with x/R fixed
     h0 = h.subs(pt)
     gi = sp.eye(4) - h0 + h0*h0 - h0**3
-    R, _, _ = curvature_at(sp.eye(4) + h, pt, inverse=gi)
+    R, _, _ = curvature_at(sp.eye(4) + h, pt, inverse=gi, gg=not control)
     F = flux_vector(h)
     DR = sp.expand(sum(sp.diff(F[i], X[i]) for i in range(4)).subs(pt))
     Ku = gi*K.subs(pt)
     q = sp.expand(DR - (R - sum(Ku[i, j]*Ku[j, i] for i in range(4) for j in range(4)) + Ku.trace()**2))
     q1 = sp.simplify(q.coeff(A, 1))
     scal = sp.simplify(q.coeff(A, 2)*Rr**6)
-    ok = q1 == 0 and scal != 0 and not scal.has(Rr)
-    C, d, mm, R_ = sp.symbols("C eta dm R_", positive=True)
-    sol = sp.solve(sp.Eq(6*sp.pi**2*mm, C*(d + mm)/R_**2 + C*d), mm)[0]
-    print("  F3: q at order A^1: %s; R^6 q at order A^2 = %s (independent of R: %s); 6 pi^2 |dm| <= C (eta + |dm|)/R^2 +"
-          " C eta solves to |dm| <= %s" % (q1, str(scal)[:30] + "...", ok, sp.simplify(sol)), flush=True)
-    return ok
+    ok = q1 == 0 and not scal.has(Rr) and scal == sp.Rational(-10294529, 36000)
+    if control:
+        print("  F3 control (Gamma.Gamma deleted): R^6 q at order A^2 = %s, independent of R: %s"
+              % (scal, not scal.has(Rr)), flush=True)
+        return ok
+    C, d, mm, s_ = sp.symbols("C eta dm s", positive=True)
+    lin = 6*sp.pi**2*mm - C*(d + mm)/Rr**2 - C*d                    # <= 0 is the inequality
+    coef = sp.expand(lin).coeff(mm)
+    bound = C*d*(Rr**2 + 1)/(6*sp.pi**2*Rr**2 - C)
+    ok_coef = sp.simplify(coef*Rr**2 - (6*sp.pi**2*Rr**2 - C)) == 0
+    ok_sign = sp.simplify(coef.subs(C, 6*sp.pi**2*Rr**2/(1 + s_))).is_positive is True
+    ok_bound = sp.simplify(lin.subs(mm, bound)) == 0
+    r_ = sp.Symbol("r", positive=True)
+    vol = sp.integrate(2*sp.pi**2*r_**3, (r_, Rr, 4*Rr))
+    ok_vol = sp.simplify(vol - sp.Rational(255, 2)*sp.pi**2*Rr**4) == 0
+    print("  F3: q at order A^1: %s; R^6 q at order A^2 = %s (independent of R: %s); vol Gamma(R, 4R) = %s; coefficient"
+          " of |dm| (6 pi^2 R^2 - C)/R^2: %s, positive for C < 6 pi^2 R^2: %s; |dm| <= %s: %s"
+          % (q1, scal, not scal.has(Rr), vol, ok_coef, ok_sign, bound, ok_bound), flush=True)
+    return ok and ok_coef and ok_sign and ok_bound and ok_vol
 
 
 CHECKS = [("F1", f1), ("F2", f2), ("F3", f3)]

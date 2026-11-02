@@ -857,7 +857,8 @@ What it does not give:
   - Proving this means a census of r_0's uses in proof5 (III.B-III.K and Parts IV-VII), among them Part VII Lemma 1.2
     (a' < r_0/2) and III.K Proposition 1.2 (R_ν = (r_0 + R)/2). Each use must be through constants, or through
     "r = r_0 is spacelike, inside every horizon of the family, outside every inner horizon".
-  - **The census (D363; `checks/r0census5.py`, `BEYOND5-R0.tsv`).** 322 lines of Parts III-VII in 25 files name
+  - **The census (D363; `checks/r0census5.py`, `BEYOND5-R0.tsv`).** 322 lines of Parts III-VII in 25 files at D363, 323
+    since D378 (D607), name
     r_0, the inner radius or boundary, ½R_1, r_♯, ⅝R_1, ¾R_1 or, since D373, ⅜R_1 (308 lines before Part VI's
     amendment). Each is classed at its line, by reading, not by proof:
     - 108 are another r_0 (OTHER): III.C′'s exterior radius "r_0 large" (C2-POLYHOM, C3-BOOSTDATA, IV-EB,
@@ -865,10 +866,10 @@ What it does not give:
       (III.B 102, 117);
     - 19 are the definition and the domain (DEF): III.B 49-79, 177-178 and 224-251 ((2.1), (3.6), Lemma 3.7);
       III.K 43-44; Part VII 40, 195, 258;
-    - 120 use only that {r = r_0} is spacelike with dr future timelike, inside the horizon (SPC): the artificial
-      boundary, vanishing inside the horizon (III.E), the radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES,
-      F4-ZERO). IV6-SOLV's finding (IV′′′′′5) says its cut-offs and energy estimates near Σ^♯ need only "the future
-      timelike character of dr on [r_♯, r̂]";
+    - 120 (121 since D378: PART-III-K-NONLINEAR.md:462's causal curves) use only that {r = r_0} is spacelike with dr
+      future timelike, inside the horizon (SPC): the artificial boundary, vanishing inside the horizon (III.E), the
+      radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES, F4-ZERO). IV6-SOLV's finding (IV′′′′′5) says its cut-offs and
+      energy estimates near Σ^♯ need only "the future timelike character of dr on [r_♯, r̂]";
     - 61 go through a constant chosen from it (CON; 48 before D373, the thirteen added being Part VI's amended lines):
       δ_0 of I.A's radii and the collar below r_0 (VI-DYN to VI3-TRAPPING),
       ν_0 = min(¼, r_0/8) and R_ν (III.K), δ_1 and the weights (H2-ADMISS), δ′_0 (Part VII Lemma 1.2);
@@ -915,15 +916,15 @@ for every μ_end, without (1.1).
 - **DEF.** The definitions and domains read with r_♭ for r_0, as the three VAL sites allow.
 - So Theorem 0.2 (i) holds on {r ≥ r_♭} ⊃ {r ≥ r_q}, with λ_1, ε_m and ε depending on r_♭, so on μ_end. ∎
 
-What this rests on: the census is a reading at 322 lines, not a re-proof of each Part. The re-proof, Part by Part, is
-BEYOND5-R0-PROOF.md (D368-D378): Parts I-IX in four batches, each read by its own verifier (169-173), the findings
-seated. It found the record's radius mismatch (D372, repaired in Part VI at D373) and the inner-boundary input of II.F
-Lemma 1.3 (D378), and no step that fails at r_♭. A use that names the inner radius by none of the eight strings would be
-missed; verifier 168 searched for the names above and found them harmless. [Hin26a] Proposition 5.1's conditions at m
-are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and both hold on (0, r_h) (C2 and the sign
-argument above). The source itself is not read at m here. Part VII's record domain Ω′ reaches r ≥ a′ = q_0 − δ′_0, below
-the record's q_0; with r_♭ it must reach further, through δ′_0 alone. The region r_♭ ≤ r < r_q, covered too, lies beyond
-the curvature boundary, where the paper's premise has the classical description stop.
+What this rests on: the census is a reading at 322 lines (323 since D378), not a re-proof of each Part. The re-proof,
+Part by Part, is BEYOND5-R0-PROOF.md (D368-D378): Parts I-IX in four batches, each read by its own verifier (169-173),
+the findings seated. It found the record's radius mismatch (D372, repaired in Part VI at D373) and the inner-boundary
+input of II.F Lemma 1.3 (D378), and no step that fails at r_♭. A use that names the inner radius by none of the eight
+strings would be missed; verifier 168 searched for the names above and found them harmless. [Hin26a] Proposition 5.1's
+conditions at m are IV6-SOLV Lemma 0.5's (1)-(6); of these only (1) and (6) involve m, and both hold on (0, r_h) (C2 and
+the sign argument above). The source itself is not read at m here. Part VII's record domain Ω′ reaches r ≥ a′ = q_0 −
+δ′_0, below the record's q_0; with r_♭ it must reach further, through δ′_0 alone. The region r_♭ ≤ r < r_q, covered too,
+lies beyond the curvature boundary, where the paper's premise has the classical description stop.
 
 - **(d) The slab, if (c) fails somewhere.** The region r_q ≤ r ≤ r_0 after Σ_IVP is a slab of finite r-time: inside
   the hole r is a time function, and every point's causal past meets {r = r_0} in a set of bounded t-extent. Points

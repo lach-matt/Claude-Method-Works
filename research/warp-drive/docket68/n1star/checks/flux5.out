@@ -2,5 +2,6 @@
 F1 PASS
   F2: at a random point, R(delta + eps h) has eps^0 term 0 and eps^1 term 140/3 = d_i b^i 140/3
 F2 PASS
-  F3: q at order A^1: 0; R^6 q at order A^2 = -10294529/36000... (independent of R: True); 6 pi^2 |dm| <= C (eta + |dm|)/R^2 + C eta solves to |dm| <= -C*eta*(R_**2 + 1)/(C - 6*pi**2*R_**2)
+  F3: q at order A^1: 0; R^6 q at order A^2 = -10294529/36000 (independent of R: True); vol Gamma(R, 4R) = 255*pi**2*R**4/2; coefficient of |dm| (6 pi^2 R^2 - C)/R^2: True, positive for C < 6 pi^2 R^2: True; |dm| <= C*eta*(R**2 + 1)/(-C + 6*pi**2*R**2): True
+  F3 control (Gamma.Gamma deleted): R^6 q at order A^2 = -9074819/36000, independent of R: True
 F3 PASS

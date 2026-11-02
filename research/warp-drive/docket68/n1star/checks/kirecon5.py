@@ -19,10 +19,18 @@ r (mu fixed), and its monomials H^a r^b are read off.
      the trace (so not r F_rr, g_rr = 0). With F_ab = (r F_ab)/r and the spheres' orthonormal components 2 F S of h_S,
      every component of h_S is so bounded; the tensor type's, 2 H_T T = 2 r^(-3) psi T, trivially. So the
      proposition's 'coefficients bounded on r >= r_h uniformly in l' holds for the master field normalised as psi =
-     r^(3/2) Phi (the field whose energy [HKW18] bounds carries this weight), with the factor m counted as two angular
-     derivatives.
-  Control: the same components as combinations of Phi itself: the coefficient of d_r^2 Phi in r F_rr is r^(3/2),
-     unbounded on r >= r_h, so the normalisation matters and the check sees it.
+     r^(3/2) Phi, with the factor m counted as two angular derivatives; psi is not a field [HKW18] bound (P2).
+  P2 (exact) The fields [HKW18] bound (arXiv:1809.05144): Phi itself, of which their r^p energies are taken ((124),
+     p. 43, Phi := r^(n/2) Psi; (127), p. 46), and phi = r^(-3/2) Phi, the pointwise norm of their scalar master
+     quantity (r^(1/2) Phi) Y_ab ((173), p. 60; k = (4 - n)/2, p. 61). Every coefficient is a sum of H^a r^b with
+     a <= 0 and b <= 3/2 in Phi, b <= 3 in phi (but the factor m), uniformly in l, and those powers are attained
+     (r F_rr's d_r^2 coefficient): in the fields their energies control the coefficients grow as r^(3/2) and r^3,
+     so the decay passes to the metric components on each region r <= R; uniformly in r it is not shown. Control: the
+     bound r^1 in Phi must fail.
+  P1's control: the same monomial test run on the components as combinations of Phi itself (r = s^2, so half-integer
+     powers of r are read exactly): the coefficient of d_r^2 Phi in r F_rr is r^(3/2), unbounded on r >= r_h, so the test
+     must reject it; a monomial reader that found nothing would pass the control and fail main(). A coefficient whose
+     denominator is not a monomial in H and r raises (there is no fallback).
 
 Labels: computed (exact, sympy).
 
@@ -37,7 +45,7 @@ X = [v, r]
 
 
 def reconstruction(field):
-    """(r F, r F_ab) as expressions in the jets of the field: psi (r^(3/2) Phi) or Phi"""
+    """(r F, r F_ab) as expressions in the jets of the field: psi (r^(3/2) Phi), Phi, or phi (r^(-3/2) Phi)"""
     f = 1 - mu/r**2
     g = sp.Matrix([[-f, 1], [1, 0]])
     gi = g.inv()
@@ -45,7 +53,7 @@ def reconstruction(field):
                  for d in range(2))/2 for c in range(2)] for b in range(2)] for a in range(2)]
     H = m + 6*mu/r**2
     u = sp.Function("u")(v, r)
-    Pt = H*u if field == "psi" else r**sp.Rational(3, 2)*H*u          # Phi~
+    Pt = {"psi": H*u, "Phi": r**sp.Rational(3, 2)*H*u, "phi": r**3*H*u}[field]          # Phi~
     dP = [sp.diff(Pt, x) for x in X]
     DD = [[sp.diff(Pt, X[a], X[b]) - sum(Gam[c][a][b]*dP[c] for c in range(2)) for b in range(2)] for a in range(2)]
     box = sum(gi[a, b]*DD[a][b] for a in range(2) for b in range(2))
@@ -74,45 +82,52 @@ def jets(e, u):
 
 
 def monomials(c):
-    """the monomials H^a r^b of c with m = H - 6 mu/r^2, mu kept as a constant"""
-    x = sp.expand(sp.together(c.subs(m, Hs - 6*mu/r**2)))
+    """the monomials H^a r^b of c with m = H - 6 mu/r^2, mu kept as a constant; r = s^2, so b may be a half-integer"""
+    s = sp.Symbol("s", positive=True)
+    x = sp.expand(sp.together(c.subs(m, Hs - 6*mu/r**2).subs(r, s**2)))
     num, den = sp.fraction(sp.factor(x))
     out = []
-    dpoly = sp.Poly(den, Hs, r)
+    dpoly = sp.Poly(den, Hs, s)
     if len(dpoly.terms()) != 1:
         return None                                                   # the denominator is not a monomial
     (da, db), dc = dpoly.terms()[0]
-    for (a, b), cc in sp.Poly(sp.expand(num), Hs, r).terms():
-        out.append((a - da, b - db))
+    for (a, b), cc in sp.Poly(sp.expand(num), Hs, s).terms():
+        out.append((a - da, sp.Rational(b - db, 2)))
     return out
 
 
-def check(field):
+SHIFT = {"psi": 0, "Phi": sp.Rational(3, 2), "phi": 3}
+
+
+def check(field, bmax=0):
+    """every coefficient a sum of H^a r^b with a <= 0 and b <= bmax, but the factor m of r F's u-coefficient; returns
+    (ok, worst, the largest r-power met outside that factor)"""
     u, rF, rFab, brk = reconstruction(field)
     worst = {}
     ok = True
+    top = None
     items = [("rF", rF, True)]
     items += [("[]_%s%s" % ("vr"[a], "vr"[b]), brk[a][b], False) for a in range(2) for b in range(a, 2)]
     items += [("rF_%s%s" % ("vr"[a], "vr"[b]), rFab[a][b], True) for a in range(2) for b in range(a, 2)]
     for name, e, allow in items:
         for jet, c in jets(e, u).items():
-            mons = monomials(c) if field == "psi" else None
+            mons = monomials(c)
             if mons is None:
-                p_r = sp.limit(sp.log(abs(c.subs({m: 7, mu: 1})))/sp.log(r), r, sp.oo)
-                worst[(name, jet)] = "r^%s" % p_r
-                ok &= p_r <= 0
-                continue
-            bad = [(a, b) for a, b in mons if not (a <= 0 and b <= 0)
-                   and not (allow and jet == "u" and a == 1 and b <= -2)]
-            worst[(name, jet)] = "max H-power %d, max r-power %d" % (max(a for a, _ in mons), max(b for _, b in mons))
+                raise ValueError("%s %s %s: denominator not a monomial in H, r" % (field, name, jet))
+            free = [(a, b) for a, b in mons if not (allow and jet == "u" and a == 1 and b <= -2 + SHIFT[field])]
+            bad = [(a, b) for a, b in free if not (a <= 0 and b <= bmax)]
+            if free:
+                top = max(b for _, b in free) if top is None else max(top, max(b for _, b in free))
+            worst[(name, jet)] = "max H-power %s, max r-power %s" % (max(a for a, _ in mons), max(b for _, b in mons))
             ok &= not bad
-    return ok, worst
+    return ok, worst, top
 
 
 def p1(control=False):
-    ok, worst = check("Phi" if control else "psi")
+    ok, worst, _ = check("Phi" if control else "psi")
     if control:
-        print("  control (in Phi): r F_rr's d_r^2 coefficient grows as %s" % worst[("rF_rr", "u_rr")], flush=True)
+        print("  control (in Phi, same monomial test): r F_rr's d_r^2 coefficient has %s; test rejects: %s"
+              % (worst[("rF_rr", "u_rr")], not ok), flush=True)
         return ok
     print("  P1: coefficients in psi = r^(3/2) Phi, as monomials H^a r^b:", flush=True)
     for (name, jet), w in sorted(worst.items()):
@@ -120,7 +135,22 @@ def p1(control=False):
     return ok
 
 
-CHECKS = [("P1", p1)]
+def p2(control=False):
+    """the fields [HKW18] bound: Phi (their r^p energies, of r^(n/2) Psi, (124), (127)) and phi = r^(-3/2) Phi (the
+    pointwise norm of their master quantity (r^(1/2) Phi) Y, (173)): the coefficients are O(r^(3/2)) and O(r^3),
+    uniformly in l (H-power <= 0), and those powers are attained"""
+    if control:
+        ok, _, top = check("Phi", 1)                                       # the bound r^1 in Phi must fail
+        print("  P2 control: in Phi with the bound r^1 the test passes: %s (largest r-power %s)" % (ok, top), flush=True)
+        return ok
+    ok1, _, t1 = check("Phi", SHIFT["Phi"])
+    ok2, _, t2 = check("phi", SHIFT["phi"])
+    print("  P2: in Phi every coefficient is O(r^(3/2)) uniformly in l: %s, largest r-power %s; in phi = r^(-3/2) Phi"
+          " O(r^3): %s, largest r-power %s" % (ok1, t1, ok2, t2), flush=True)
+    return ok1 and ok2 and t1 == SHIFT["Phi"] and t2 == SHIFT["phi"]
+
+
+CHECKS = [("P1", p1), ("P2", p2)]
 
 
 def main():

@@ -115,7 +115,7 @@ def main():
         print('selftest', 'ok' if ok else 'FAIL'); sys.exit(0 if ok else 1)
 
 
-EXPECT = collections.Counter({'CON': 61, 'DEF': 19, 'OTHER': 108, 'SPC': 120, 'VAL': 14})
+EXPECT = collections.Counter({'CON': 61, 'DEF': 19, 'OTHER': 108, 'SPC': 121, 'VAL': 14})   # 121 since D378 (K-NONLINEAR:462; D607)
 EXPECT_FILES = 25
 
 if __name__ == '__main__':

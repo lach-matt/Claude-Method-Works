@@ -27,5 +27,8 @@
       rF_vv  u_v   max H-power 0, max r-power -1
       rF_vv  u_vr  max H-power 0, max r-power 0
       rF_vv  u_vv  max H-power 0, max r-power 0
-  control (in Phi): r F_rr's d_r^2 coefficient grows as r^3/2
+  control (in Phi, same monomial test): r F_rr's d_r^2 coefficient has max H-power 0, max r-power 3/2; test rejects: True
 P1 PASS
+  P2: in Phi every coefficient is O(r^(3/2)) uniformly in l: True, largest r-power 3/2; in phi = r^(-3/2) Phi O(r^3): True, largest r-power 3
+  P2 control: in Phi with the bound r^1 the test passes: False (largest r-power 3/2)
+P2 PASS
