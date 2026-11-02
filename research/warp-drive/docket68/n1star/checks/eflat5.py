@@ -84,12 +84,17 @@ def print(*a, **k):  # noqa: A001
                                      break_on_hyphens=False), **k)
 
 
+def mpf_fr(q):
+    m, e = q.man_exp
+    return Fr(int(m)) * Fr(2) ** int(e)
+
+
 def offsets():
     out, ints, ok = DC.root_census(Fr(4, 10 ** 6), top=10)
     off = {}
     for tag, l, n, lo, hi in out:
-        q = (Fr(lo) + Fr(hi)) / 2
-        off[(tag, l)] = (n, q, Fr(lo), Fr(hi))
+        lo, hi = mpf_fr(lo), mpf_fr(hi)
+        off[(tag, l)] = (n, (lo + hi) / 2, lo, hi)
     return off, ints, ok
 
 

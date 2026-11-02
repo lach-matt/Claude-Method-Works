@@ -176,7 +176,7 @@ def q3(control=False):
     r3Wr = sp.limit(r**3*Wr, r, sp.oo)
     # Lemma 4.3: ||W^-1 Phi(sigma r) r^-q||^2_{L^2(dr/r, r >= 1)} = sigma^(2q) int_sigma^oo (1+x)^(2m) x^(-2eps-1)
     # g(x) dx
-    # with g = Phi^2 = e^(-2x^2); main term int_sigma^1 x^(-2eps-1) dx exact, remainder integrable (g - 1 = O(x^2))
+    # with g = Phi^2 = e^(-2x^2); main term int_sigma^1 x^(-2eps-1) dx exact, remainder integrable (g - 1 = O(x))
     rows = []
     good = True
     for eps in (sp.Rational(1, 4), sp.Rational(1, 10), sp.Rational(1, 3)):

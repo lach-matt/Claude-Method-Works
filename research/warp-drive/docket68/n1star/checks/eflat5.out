@@ -1,0 +1,42 @@
+eflat5: E^flat's log orders as the construction writes them; the ceiling on d with them
+  F1: Lemma 1.4 per site (block by type at b0): offsets below 1 ['3.3333e-07'] (d1 = 3.3333e-07); log orders at the
+      offsets in (0, 1.4901] (Step 2's): [('0.0000003', 0), ('1.0000000', 2), ('1.0000003', 1), ('1.0000006', 0),
+      ('1.0000013', 0)]; largest log order at Re <= 5: 10 at ['5'] (round 4's M5 reproduced on the block reading). Every
+      type's roots (M5's census): offsets below 1 ['3.3333e-07', '1.3333e-06'] (d0 = 1.3333e-06, d1), largest at Re <= 5:
+      10
+      III.F''' (1,0), mu-dot (s0, k = 1): log orders at offsets 1, 2, 3, 4, 5: [1, 3, 5, 7, 9]
+      III.F''' (0,A), A-dot; III.D'' rotations (v1, k = 2): log orders at offsets 1, 2, 3, 4, 5: [2, 4, 6, 8, 10]
+      III.D'' translations (s1, k = 2): log orders at offsets 1, 2, 3, 4, 5: [1, 3, 5, 7, 9]
+      III.D'' boosts (s1, k = 1): log orders at offsets 1, 2, 3, 4, 5: [1, 2, 4, 6, 8]
+  F2: towers (D4 (R4)): class roots mu with mu + 1 a root of the same type: [] (of 14 checked): offset 1 has log order 0
+      in every tower
+  F3: offsets below 2 - lambda_sharp = 0.4901: ['3.3333e-07'] with log orders [0]; pole order 0 below 2: every exponent
+      below 2 has log order 0
+  F4: E^flat's log order on [2, 3 + eps_+): at most 2 off pi_1 E^C_I (Step 2: max l(w) = 2; G: [(2.0, 0),
+      (2.0000003333330465, 0), (3.0, 2)]); at the 26 points of pi_1 E^C_I in [2, 3] at most (z, k(E^C_I, z), bound): R0
+      [(2.5, 1, 4), (2.5099, 1, 4), (2.51, 1, 4), (2.5198, 0, 3), (2.5199, 0, 3), (2.52, 1, 4), (2.5297, 0, 3), (2.5298,
+      0, 3), (2.5299, 0, 3), (2.53, 0, 3), (2.5398, 0, 3), (2.5399, 0, 3), (2.54, 0, 3), (2.5499, 0, 3), (2.55, 0, 3),
+      (2.56, 0, 3), (3.0, 2, 5)]; R1 [(2.0, 4, 5), (2.5, 4, 7), (2.5099, 4, 7), (2.51, 4, 7), (2.5198, 0, 3), (2.5199, 0,
+      3), (2.52, 4, 7), (2.5297, 0, 3), (2.5298, 0, 3), (2.5299, 0, 3), (2.53, 0, 3), (2.5398, 0, 3), (2.5399, 0, 3),
+      (2.54, 0, 3), (2.5499, 0, 3), (2.55, 0, 3), (2.56, 0, 3), (3.0, 8, 11)]
+  F5: n_iota <= 3 P_iota + excess (excess 23 on R0, 44 on R1); per exponent: d <= 37919138373535686 (R0),
+      37919139491675142 (R1) + 53244736 X_7 + 106489470 c' (3.791914e+16 + ...; N = 21 d + 6 <= 7.963019e+17 + ...),
+      against the floor 8,407,505,890,317,054 (ratio 4.510)
+  F6: L_0 in [2, 7] (G at 3; the column classes (2, 0) U (2 + E_ind), (3, 0) U (3 + E_ind) at shifts >= -5, round 2's
+      reading)
+  F7: Step 7's beta_iota = beta'_+ < 3/2 < lambda_sharp = 15099/10000 <= min Re E_iota: |E_iota,<=| = 0, X_7 = |E_K,<=| +
+      (2.26a)'s losses
+  C1 (control): the windows' raises at 3 summed instead of maximised: log order 45000050: F4's bound fails: True
+  C2 (control): the v1 site's extended unions counted twice: log order 4 at offset 1 > 2: F4 fails: True
+  C3 (control): Lemma 1.4 with every type's roots at k = 2: offsets below 1 ['3.3333e-07', '1.3333e-06'], not {d1}: F1's
+      block assertion fails on it: True
+F1 PASS
+F2 PASS
+F3 PASS
+F4 PASS
+F5 PASS
+F6 PASS
+F7 PASS
+C1 PASS
+C2 PASS
+C3 PASS
