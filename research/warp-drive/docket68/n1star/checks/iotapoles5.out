@@ -6,3 +6,5 @@ iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's
       <= 5 (lam, order): {0: [(3, 1), (4, 1), (5, 1)], 1: [(4, 1), (5, 1)], 2: [(5, 1)], 3: []}; R4.1 product poles: {0:
       {3: 1, 4: 1, 5: 1}, 1: {4: 1, 5: 1}, 2: {5: 1}, 3: {}}; agree: True
   C2 (control): the constant 1 for 3/2: no state solves: True
+  C3 (control): the product with N(lam - i + 1): poles {0: {2: 1, 3: 1, 4: 1, 5: 1}, 1: {3: 1, 4: 1, 5: 1}, 2: {4: 1, 5:
+      1}}, not M2's: True
