@@ -5,3 +5,6 @@ H1 PASS
   H2: Q of an l = 2 class 1-form vanishes (Q sees only the l = 0 part): True
   H2 control: the identity at r = 2 r_h: False
 H2 PASS
+  H3: Box W* = 0, delta W* = 0, (dW*)_vr = 2/r^3; Q[W*] = 4*pi**2; Q[(d_v)^flat] = 4*pi**2*s**2; (d_v)^flat - mu W* closed: True; ell([Box, v] W*) = 4*pi**2; Theta(dv^2/r^2) = -1/r**3, ell = -2*pi**2; L_{W*} g != 0: True
+  H3 control: dv/r^2 + dr/(r(r+s)) in the kernel of Box: False
+H3 PASS
