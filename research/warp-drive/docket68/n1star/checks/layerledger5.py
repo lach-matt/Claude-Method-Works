@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""layerledger5.py -- the exponent and derivative ledgers of EQUALITY5-LAYER.md round 2 (sections R2.4-R2.7).
+"""layerledger5.py -- the exponent and derivative ledgers of EQUALITY5-LAYER.md round 2 (sections R2.3, R2.6, R2.7).
 
   L1 (exact rationals) Theorem L for Theorem 1's solution with round 2's remainder bound |w| <= C lam^(N-5) eps_M(v1)
      (Lemma L.4) and level y = lam^p, p = 14, Landau index m = 56 M: the conditions

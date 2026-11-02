@@ -74,16 +74,12 @@ def k1(control=False):
             Gc = sp.expand_log((G*rp**(-(c + m) + eta)*rk**(-c + eta)).subs(to), force=True)
             for a in (1, 2, sp.Rational(1, 2)):
                 lim = sp.limit(Gc.subs({rp: s, rk: s**a}), s, 0, '+')
-                if control:
-                    if lim.is_finite:
-                        ok = False
-                else:
-                    if lim != 0:
-                        ok = False
+                if lim != 0:
+                    ok = False
     print("  K1%s: chain rule for t d_t, r d_r in (rho_+, rho_K): %s; products t^-c log^k t r^-m have orders "
-          "(c + m, c)%s: %s" % (" control (-eta)" if control else "", ok_chain,
-                                " (quotient -> 0 into the corner)" if not control else
-                                " (quotient bounded with -eta)", ok), flush=True)
+          "(c + m, c) (the weighted quotient -> 0 into the corner): %s" % (" control (-eta in place of eta)"
+                                                                           if control else "", ok_chain, ok),
+          flush=True)
     return ok
 
 # ---------------------------------------------------------------- K2
@@ -200,21 +196,19 @@ def k4(control=False):
     es = [Fr(1, 100), Fr(1, 3), Fr(1, 2), Fr(9, 10), Fr(99, 100)]
     ok = True
     n = 0
+    if control:
+        # the claim that fails: (S_K) holds at the edge beta = delta_#, or with no damping (gam = 0) for some beta > 0
+        edge = any(sk_inequalities(gam, e, (1 - e)*gam, (1 - e)*gam/8) for gam, e in itertools.product(gams, es))
+        undamped = any(sk_inequalities(Fr(0), e, b, Fr(1, 1000)) for e in es for b in (Fr(1, 10**6), Fr(1, 100)))
+        print("  K4 control: (S_K) holds at beta = delta_# for some sample: %s; with gam = 0 for some beta > 0: %s"
+              % (edge, undamped), flush=True)
+        return edge or undamped
     for gam, e in itertools.product(gams, es):
         d = (1 - e)*gam
         eta = d/8
-        if control:
-            ok &= not sk_inequalities(gam, e, d, eta)                # beta = delta_#: the edge
-        else:
-            for frac in (Fr(1, 100), Fr(1, 2), Fr(3, 4)):
-                ok &= sk_inequalities(gam, e, frac*d, frac*d/8 if frac < Fr(1, 2) else eta)
-                n += 1
-    if control:
-        # gam = 0: the interval (0, delta_#) is empty
-        ok &= (1 - Fr(1, 2))*0 == 0
-        print("  K4 control: beta = delta_# meets (S_K) at no sample (h' has iota+-order exactly lambda_#); gam = 0 "
-              "leaves (0, delta_#) empty: %s" % (not ok), flush=True)
-        return not ok
+        for frac in (Fr(1, 100), Fr(1, 2), Fr(3, 4)):
+            ok &= sk_inequalities(gam, e, frac*d, frac*d/8 if frac < Fr(1, 2) else eta)
+            n += 1
     print("  K4: (S_K) and Lemma R2.11 hold at %d samples (gam, e, beta in (0, delta_#)): %s" % (n, ok), flush=True)
     return ok
 

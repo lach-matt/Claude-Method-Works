@@ -5,7 +5,7 @@
      the lam^-2 part of dRic^H is zero (g0^-1(dv, dv) = 0), its lam^-1 part is k T(H) with T the table of layerlin5.py
      (N1), its lam^0 part R_X(H) does not depend on k, and the lam^-1 part of dD is i k Pol(H).  Hence the fast part of
      the seed's stage operator is d_th composed with an operator in X alone: it maps the k-th harmonic to the k-th
-     harmonic, annihilates th-means (k = 0) and has th-mean zero on every profile (round 2, (R2.3) and (R2.6)).
+     harmonic, annihilates th-means (k = 0) and has th-mean zero on every profile (round 2, R2.1 (F2), L.3).
      Control: the phase tau = v - r, whose differential is timelike (g0^-1(dtau, dtau) = -1 - mu0/r^2), gives a nonzero
      lam^-2 part.
   D2 (exact) Harmonic algebra: Re[a e^(i th)] Re[b e^(i th)] has harmonics 0 and 2 only; the th-mean of (th-independent)

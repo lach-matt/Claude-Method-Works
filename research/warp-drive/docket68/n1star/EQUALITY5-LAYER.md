@@ -161,30 +161,31 @@ Data on Σ_τ0 (Lemma 6.2): χ, φ_m, (m_m)_(τ·) are zero; ĝ_(m+1) and d_τ(m
 (h_m, Q_m) and U solve Lemma 6.4's evolution in r from zero data at r = a, whose solution on [a, r] is the solution of
 the problem posed on [a, r] (uniqueness), bounded by the sources on [a, r] alone (Lemma 6.4's bound with R := r; the
 contraction of Proposition 6.5 run on [a, r] with the same constants); on Σ_τ0, r' ≤ r is v' ≤ v. Transports run along
-ℓ, at fixed v. The wave equations for the means: on Ω_v := Ω ∩ {v' ≤ v} the face {v' = v} is null for g0 with Ω_v to
-its past, so its flux is nonnegative and is dropped (the argument of Proposition E.2), and Lemmas 2.3–2.4 bound the
-solution on Ω_v by its data and sources there; commuted derivatives and Sobolev's embedding on the Ω_v (uniformly
-Lipschitz for v ∈ [v_s, v_s + 1]) give the pointwise form, each derivative of a source costing derivatives of env (M
-grows with N and i). Products of first-degree factors give the degree-2 bounds; μ(v) − μ0 ≤ C ε_0². ∎
+ℓ, at fixed v. The wave equations for the means: on Ω_v := Ω ∩ {v' ≤ v} the face {v' = v} is null for g0 with Ω_v to its
+past, so its flux is nonnegative and is dropped (the argument of Proposition E.2), and Lemmas 2.3–2.4 bound the solution
+on Ω_v by its data and sources there; commuted derivatives and Sobolev's embedding on the Ω_v (uniformly Lipschitz for v
+∈ [v_s, v_s + 1]) [round 2, R2.0 (C3): read slice by slice this fails near r = a; replaced in R2.3] give the pointwise
+form, each derivative of a source costing derivatives of env (M grows with N and i). Products of first-degree factors
+give the degree-2 bounds; μ(v) − μ0 ≤ C ε_0². ∎
 
 **Lemma L.4 (the weighted remainder; deduced, sketch).** Put ε := 2C1 λ (C1 of EQUALITY5 section 0, |g_λ⁻¹ − g0⁻¹| ≤ C1
 λ). For v1 ≤ v_s + 1 with ε_M(v1) ≤ λ^6 and every point X of Ω with v(X) + ε(τ(X) − τ0) ≤ v1 and r(X) ≥ r_q(v(X)),
 
     |w(X)| ≤ C λ^(N−6) ε_M(v1).
 
-*Proof (sketch).* R := Ω ∩ {v + ε(τ − τ0) ≤ v1}. Its lateral face has conormal dv + ε dτ, timelike for g_λ:
-g_λ⁻¹(dv + ε dτ, dv + ε dτ) ≤ −2ε − ε²(1 + μ/r²) + C1 λ (1 + ε)² < 0; v + ετ increases along future causal curves of
-g_λ, so R lies to the past of the face and its flux is dropped; R does not meet the outer face of Ω, and its slices
-{a ≤ r ≤ v1 − ε(τ − τ0) − τ} have outer radii decreasing in τ. From the quasilinear form (supplement (0.2)),
-−(1/2) g_λ^ab ∂_a ∂_b w = −Ric^H(g_app) + (1/2)(g_λ^ab − g_app^ab) ∂_a ∂_b g_app − [Q(g_λ)(∂g_λ, ∂g_λ) − Q(g_app)(∂g_app,
-∂g_app)], whose last two terms are bounded by C(|w| + |∂w|) on R because |∂² g_app| ≤ C(1 + λ⁻¹ ε_2(v1)) ≤ C there
-(Lemma L.3 (a); the one large coefficient of the supplement's section 5.1 is λ⁻¹ times the wave's amplitude, which is
-small on R). The energy inequality of the supplement's Lemma 2.3 with gt := g_λ, run on R, Gronwall, and the same for
-∂^i w, i ≤ 3 (the commutators carry ∂^j g_λ, j ≤ 4, bounded on R: |∂^j g_app| ≤ C(1 + λ^(1−j) ε_j(v1)) ≤ C, and
-|∂^j w| ≤ C λ^(K−2−j) for j ≤ 4 by Theorem E and Lemma 2.1; the term w ∂^(i+2) g_app is ≤ C|w| on R because
-λ^(−i−1) ε_(i+2)(v1) ≤ 1), bound w in H^4 of the slices of R by the data of w on Σ_τ0 ∩ R (Lemma L.3 (c), four
-derivatives: C λ^(N−6) ε_M(v1)) and ∫ ‖∂^i Ric^H(g_app)‖ (L.3 (b): C λ^(N−3) ε_M(v1)). The slice through X has width
-at least r_q − a ≥ δ0, so Sobolev's embedding (supplement Lemma 2.1) has a uniform constant. ∎
+*Proof (sketch).* R := Ω ∩ {v + ε(τ − τ0) ≤ v1}. Its lateral face has conormal dv + ε dτ, timelike for g_λ: g_λ⁻¹(dv + ε
+dτ, dv + ε dτ) ≤ −2ε − ε²(1 + μ/r²) + C1 λ (1 + ε)² [R2.0 (C2): C1 λ ((1 + ε)² + 1)] < 0; v + ετ increases along future
+causal curves of g_λ, so R lies to the past of the face and its flux is dropped; R does not meet the outer face of Ω,
+and its slices {a ≤ r ≤ v1 − ε(τ − τ0) − τ} have outer radii decreasing in τ. From the quasilinear form (supplement
+(0.2)), −(1/2) g_λ^ab ∂_a ∂_b w = −Ric^H(g_app) + (1/2)(g_λ^ab − g_app^ab) ∂_a ∂_b g_app − [Q(g_λ)(∂g_λ, ∂g_λ) −
+Q(g_app)(∂g_app, ∂g_app)], whose last two terms are bounded by C(|w| + |∂w|) on R because |∂² g_app| ≤ C(1 + λ⁻¹
+ε_2(v1)) ≤ C there (Lemma L.3 (a); the one large coefficient of the supplement's section 5.1 is λ⁻¹ times the wave's
+amplitude, which is small on R). The energy inequality of the supplement's Lemma 2.3 with gt := g_λ, run on R, Gronwall,
+and the same for ∂^i w, i ≤ 3 (the commutators carry ∂^j g_λ, j ≤ 4, bounded on R: |∂^j g_app| ≤ C(1 + λ^(1−j) ε_j(v1))
+≤ C, and |∂^j w| ≤ C λ^(K−2−j) [R2.0 (C1): λ^(K−3−j)] for j ≤ 4 by Theorem E and Lemma 2.1; the term w ∂^(i+2) g_app is
+≤ C|w| on R because λ^(−i−1) ε_(i+2)(v1) ≤ 1), bound w in H^4 of the slices of R by the data of w on Σ_τ0 ∩ R (Lemma L.3
+(c), four derivatives: C λ^(N−6) ε_M(v1)) and ∫ ‖∂^i Ric^H(g_app)‖ (L.3 (b): C λ^(N−3) ε_M(v1)). The slice through X has
+width at least r_q − a ≥ δ0, so Sobolev's embedding (supplement Lemma 2.1) has a uniform constant. ∎
 
 ## 6. The window
 
@@ -209,9 +210,10 @@ exp(−1/x) sin²(π/x), whose zeros accumulate at the edge.
 
 ## 7. Proof of Theorem L
 
-Fix p := 14, M from Lemmas L.3–L.4 (with i ≤ 4), m := 56 M, κ := 64, y := λ^p, v* := v*(y), W_λ := [v*, v* + 4πλ], v1
-:= v* + 4πλ + ε(τ_end − τ0) = v* + O(λ), L := v1 − v*. For λ small the hypothesis of Lemma L.6 holds (λ ≪ y^(1/m)),
-so on [v*, v1] env ∈ [3y/4, 5y/4] and ε_M(v1) ≤ C y^(1 − M/m) ≤ λ^6 (Lemma L.4's hypothesis).
+Fix p := 14, M from Lemmas L.3–L.4 (with i ≤ 4) [R2.0 (C4): M = M* := 2N + 8], m := 56 M, κ := 64, y := λ^p, v* :=
+v*(y), W_λ := [v*, v* + 4πλ], v1 := v* + 4πλ + ε(τ_end − τ0) = v* + O(λ), L := v1 − v*. For λ small the hypothesis of
+Lemma L.6 holds (λ ≪ y^(1/m)), so on [v*, v1] env ∈ [3y/4, 5y/4] and ε_M(v1) ≤ C y^(1 − M/m) ≤ λ^6 (Lemma L.4's
+hypothesis).
 
 *Every point of W_λ is in the layer:* μ(v1) − μ0 ≤ (2/9) A² (v1 − v_s)(5y/4)² ≪ λ, while μ(v_s + η_λ) − μ0 = μ0((1 + 2C_Φ
 λ)² − 1) ≥ 4 μ0 C_Φ λ; μ is nondecreasing, so v1 < v_s + η_λ.
