@@ -21,7 +21,8 @@ metric  ht = rho^2 h.  Then for EVERY metric of the class (no field equation use
          Ric5_ab + (e^{-2A} Ric5_11 + e^{-2B} Ric5_22) h_ab,
      and Box_ht A = -e^{-2A} rho^-2 Ric5_11, Box_ht B = -e^{-2B} rho^-2 Ric5_22: the reduced residues are fixed linear
      combinations of the five-dimensional Ricci tensor, off shell, so a certified bound on one is a certified bound on
-     the other (in the orthonormal frames of h and of g5: |E| <= |Ric5| + 3 max |Ric5|, termwise).
+     the other (in the frames of h and g5, termwise: |E_ab| <= |Ric5_ab| + 2 |h_ab| max(|Ric5_11|, |Ric5_22|) with
+     the Killing directions normalised, so + 4 max on the null pair, |h(e3, e4)| = 2).
   R4 (exact) the Einstein frame in the record's variables: ht = -4 Omt^2 du dv + gt (dx - (1-x^2) s du)^2 with
          gt = R^6/16  (P and Q drop out)  and  log Omt = W + 2 log R + P + Q + (1/2) log((1 - x^2)/4),
      sqrt|det ht| = R^7 (1 - x^2) e^{2(P+Q) + 2W}/8.  So round 2's Jordan variable zeta = W + 2 log R + P + Q
