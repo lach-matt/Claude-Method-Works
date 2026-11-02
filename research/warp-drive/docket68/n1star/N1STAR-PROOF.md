@@ -1777,13 +1777,25 @@ perturbations in the class:
 (iv) The l = 0 sector. box W = 0 for W = W0(r) dt + W1(r) dr has W0 = a + b/r^2 and W1 = c/(r^3 f) + d r^3/(r^2 - mu),
     and the combination regular at the horizon with finite energy is
         W* = dt/r^2 + sqrt(mu) dr/(r^3 f) = dv/r^2 - dr/(r (r + sqrt mu))                                     (10.2)
-    (W2). The mass change K := d g/d mu has Gamma[K] = dr/(r^3 f), and K* := K + pi_{W**} with W** = t W* + A dt +
-    B dr, A = (log f + mu/r^2)/(2 sqrt mu), B = (3 mu^2 log(r^2 - mu) + 2 mu^2 + 3 mu r^2 - 2 r^4 log r + r^4
-    log(r^2 - mu))/(8 mu r (r^2 - mu)), satisfies Gamma[K*] = 0 and K* = t pi_{W*} + (stationary) (W3): the
-    counterparts of [Hun19] (8.1) and (8.39). These are the counterparts of Hung's two non-decaying solutions; if the
-    five-dimensional analogue of his Theorems 1.3-1.4 holds -- the decay estimate this section leaves open -- a
-    perturbation in the class settles in harmonic gauge to c1 K* + c2 pi_{W*}, the mass change growing linearly in t as
-    in four dimensions (conditional, D45).
+    (W2). The mass change. In the ingoing chart (v = t + r_*, g = -f dv^2 + 2 dv dr + r^2 gamma) the mass derivative is K
+    := r^-2 dv^2, smooth across the horizon, with Gamma[K] = r^-3 dv; the static chart's dg/dmu = r^-2 dt^2 + r^-2 f^-2
+    dr^2 equals K + pi_{zeta d_v} with zeta' = (r^2 f^2)^-1, singular at r_h. Put W** := (v/2) W* + A dv + B dr, r_h :=
+    sqrt mu,
+        A = (r_h^2 + 2 r^2 log((r + r_h)/r)) / (4 r_h r^2),
+        B = (r^2 r_h - 3 r r_h^2 + 2 r_h^3 + 2 r^3 log r + 2 (r_h^3 - r^3) log(r + r_h) - 2 r_h^3 log r_h)
+            / (4 r r_h (r^2 - r_h^2)),
+    analytic on r > 0 including r = r_h, where B's numerator vanishes. Then K* := K + pi_{W**} has Gamma[K*] = 0, is
+    smooth across the horizon, has linearised mass 1, and K* = (v/2) pi_{W*} + (stationary, smooth across r_h): the
+    counterparts of [Hun19] (8.1) and (8.39) (corrected D610, `checks/gdrepair5.py` V1-V5; W3 computed Gamma[K*] = 0 for
+    the representative below). The coefficient 1/2 of v is forced by regularity at the horizon among gauge vectors c v W*
+    + U, U stationary and smooth at r_h: the horizon functional annihilates box U and gives 4 pi^2 c = 2 pi^2. The
+    representative W** = t W* + A_st dt + B_st dr with the coefficient 1 of the static time, which this item stated
+    before D610, gives a K* singular at r_h (at mu = 1, (r - r_h) K*_vr -> -3/8 and (r - r_h)^2 K*_rr -> 3/8; V1). In
+    harmonic gauge the l = 0 part of a perturbation in the class is mu-dot K* + pi_Z with box Z = 0. When Z has compactly
+    supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the conserved horizon
+    charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), assuming (Dyn) as III.D does;
+    `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions. Without decay of Z's data at
+    infinity the growth can be exchanged for a stationary term that does not decay at infinity (R2.13 (c)).
 
     (v) *The gauge-vector system is triangular (W6).* With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t th}/S_l'
     and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r - k^2/r^2
@@ -2433,12 +2445,16 @@ deduced in 10.9 for l >= 2 and (b) in 10.10.
 
 ### 10.8 The l = 0 sector: [Hun19] Theorem 8.1 in five dimensions (`lzero5.py` Z1-Z5; D50)
 
-The l = 0 part of a perturbation in the class is h_0 = c K + pi_W (Proposition 10.1(i): a change of mass and a pure
-gauge part), and in harmonic gauge h_0 = c K* + pi_{W'} with box W' = 0, since Gamma[K*] = 0 and Gamma[pi_W'] = box W'
-(Proposition 10.2(i), (iv)). What [Hun19] section 8 proves in four dimensions is that such a W' converges to c_1(oo) W*,
-W* the stationary one-form regular at the horizon ((10.2) here), so that h_0 settles to c K* + c_1(oo) pi_{W*}, the mass
-change growing linearly in t (his Theorems 8.1 and 8.7). The identities his argument rests on are computed here in five
-dimensions; the argument itself is his, transcribed; and the two estimates it feeds on are named at the end.
+The l = 0 part of a perturbation in the class is h_0 = c K + pi_W, K = r^-2 dv^2 the horizon-regular mass change of
+Proposition 10.2 (iv) (Proposition 10.1 (i)'s static K differs from it by pi_{zeta d_v}, zeta' = (r^2 f^2)^-1, singular
+at r_h), and in harmonic gauge h_0 = c K* + pi_{W'} with box W' = 0 and W' smooth across the horizon, K* the
+horizon-regular gauge-fixed mass change of Proposition 10.2 (iv), since Gamma[K*] = 0 and Gamma[pi_W'] = box W'
+(Proposition 10.2 (i), (iv); corrected D610). With the static-time K* (coefficient 1) this decomposition fails for c !=
+0: pi_{W'} = h_0 - c K* would be singular at r_h. What [Hun19] section 8 proves in four dimensions is that such a W'
+converges to c_1(oo) W*, W* the stationary one-form regular at the horizon ((10.2) here), so that h_0 settles to c K* +
+c_1(oo) pi_{W*}, the mass change growing linearly in t (his Theorems 8.1 and 8.7). The identities his argument rests on
+are computed here in five dimensions; the argument itself is his, transcribed; and the two estimates it feeds on are
+named at the end.
 
 *Setting.* W = W0 dt + f^-1 W1 dr spherically symmetric with box W = 0 on the exterior; S_W := tr pi_W = 2 div W, P :=
 r (dW)_tr - 2 W0 (his P_even = r (dW)_tr - W0: the coefficient of W0 is the one value for which box_s P is a multiple of
@@ -2853,7 +2869,9 @@ to vanish. Then for tau >= 0:
 
  (iii) W' converges to c_1(oo) W*, c_1(oo) of (10.25): the energy of (sqrt mu d)^{<= 1} W-hat on Sigma''_tau, W-hat := W'
       - c_1(oo) W*, and its integral over D''(tau, oo), normalised as in his Theorem 8.1, are at most C (1 + tau/sqrt
-      mu)^(-1+4 delta) Decay_0[W']; so h_0 settles to c K* + c_1(oo) pi_{W*}, the final state of Proposition 10.2(iv).
+      mu)^(-1+4 delta) Decay_0[W']; so h_0 settles to c K* + c_1(oo) pi_{W*}, with K* = K + pi_{W**}, W** = (v/2) W* + A
+      dv + B dr, the horizon-regular gauge-fixed mass change of Proposition 10.2 (iv), and c_1(oo) = Q[W']/Q[W*], the
+      conserved horizon charges; c K* grows like (c/2) v pi_{W*} (corrected D610).
 
 *Proof.* (a) The base hierarchy at l = 0. [Sch13] Proposition 4.1 gives the Morawetz bulk of S_W at l = 0 with one
 T-derivative on the right, Corollary 4.3 its non-degenerate form and Proposition 4.22 the zeroth-order term on the
@@ -2917,7 +2935,10 @@ below 1. Since mu (W0 + P/2 - (sqrt mu/4) S_W) is constant along H^+ (10.25) and
 c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), whose square the energy bounds, so it tends to zero at the
 square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s components, its energy at the rate itself,
 and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition
-10.2(iv)), h_0 settles to c K* + c_1(oo) pi_{W*}. []
+10.2 (iv), the horizon-regular K*), h_0 settles to c K* + c_1(oo) pi_{W*}, c_1(oo) = Q[W']/Q[W*]. For W' with
+compactly supported data GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R}
+(deduced, assuming (Dyn)); without decay of W''s data at infinity the final state is not unique (R2.13
+(c)). []
 
 *What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's at the weaker rate: at l = 0 the
 perturbation settles to a change of mass and a stationary gauge mode, c K* + c_1(oo) pi_{W*}, at (1 + tau/sqrt mu)^(-1+4
