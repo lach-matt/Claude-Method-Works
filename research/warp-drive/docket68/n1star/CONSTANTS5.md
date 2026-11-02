@@ -872,3 +872,210 @@ PART-III-I8-UNPARAM.md:30-42; PART-III-I11-SPACETIME.md:20-110, 336-392; PART-II
 PART-III-G2-IOTA.md:400-460; PART-III-I-CONE.md:394-450; PART-II-F2-TAME.md:525-545; PART-II-E-ENERGY.md:842-856,
 1148-1170; PART-III-J3-TAME.md:30-300; the seven sites of R3.4; LOSS-D.md sections 1-2b, LD14-LD16; E2-PILOT.md
 section 4; EFFECTIVE-CONSTANTS.md sections 3-5; EFFECTIVE-LEDGER.tsv; the reader's report (commit bbfb486).
+
+## Round 4
+
+*Status (2026-11-02).* Appended to rounds 1-3; not yet read by a verifier. The independent reader of round 3 has
+reported; each finding is seated (R4.1), in place where it corrects a line of rounds 1-3 (a bracketed `[Round 4, ...]`
+note after the line, the old figure kept). New programs (each with its `.out`, every control failing as it must):
+`checks/iotapoles5.py`, `checks/zeroinv5.py`. Changed and rerun: `lzerotrace5.py` (re-pinned, T7, T5, controls),
+`lzeroaudit5.py` (re-pinned), `dceiling5.py` (D5, D6), `nkind5.py` (C1, K4, C4, K5), `eps1hyp5.py` (H2 exact),
+`dweights5.py` and `stage0bd5.py` (printing rounded outward).
+
+### R4.0 Summary
+
+- **(i) lambda0 < 0.0024433 (certified), and lam1 no longer binds.** Lemma 2.3 takes Lemma 1.1 (e)'s eps1 and needs it
+  below g0's least absolute Euclidean eigenvalue on Omega (N1STAR-PROOF.md:89-92, :222; the reader's MAJOR A). That
+  infimum is (m*^2 + 1)^(1/2) - m*, m* = mu_end/a^2, attained at the corner (tau_end, r = a), and lies in [0.030768559,
+  0.030768560] (`lzerotrace5.py` T7). With C_app >= 12.593309: **lambda0 < 0.0024433** in the operator norm the
+  supplement now states (< 0.0019950 Frobenius), so 1/lambda0 > 409.2 against the wavelength 10 l5 = 1. No linear stage
+  is solved; the exact obstruction is in R4.2.
+- **(ii) d: the iota+ pole orders are computed, and they are not what keeps the ceiling high.** By the Mellin transform
+  the poles of N_iota+(L-bar, .)^-1 on one harmonic reduce to an explicit product of the indicial matrices (R4.3,
+  deduced); computed exactly in the class (s0, t2, and every even l >= 2 at once): every pole with real part <= 5 is
+  simple (`iotapoles5.py` M3-M4). On the narrowest reading the write-out supports (the construction's, LD14, fixed once
+  at I5:190, I8:35, I10:38-40), III.A Lemma 1.4 gives E_ind log order 2w at the integer w, 10 at real part 5 (M5), so
+  l_* >= 10 there and the record's form gives **d <= 3.2855e31 + 53,244,736 X_7 + 106,489,470 c'** at that parameter
+  point (M6). The size is III.A Proposition 4.2's count through K(lambda): with log order at most 2 at every exponent of
+  E^flat, a hypothesis the record does not prove, the same accounting gives d <= 3.7919e16 + 53,244,736 X_7 +
+  106,489,470 c', 4.5 times the floor.
+- **(iii) lambda1, delta: one of the seven inverse bounds attempted.** The cheapest site is I.C:497 (zero energy, an
+  ODE per class harmonic with closed-form solutions at b0). For the scalar model at b0 the inverse on every even l >= 2
+  is bounded by 1/(l (l + 2)) <= 1/8 in an exterior weighted L^2 norm (certified: an exact identity; `zeroinv5.py`); it
+  is not yet in the write-out's norm, nor for L_b0 (R4.4).
+
+### R4.1 The reader's findings on round 3, seated
+
+- **Re-pinning (D614).** N1STAR-PROOF.md gained the norm paragraph at :87-92; every line above 86 moved by +7 from the
+  pre-D612 text. `lzerotrace5.py` and `lzeroaudit5.py` now pin lines 1-812 (sections 0-6; md5 6e8947ad...) and the whole
+  file (md5 02e76176..., 10853 lines); every trace fragment and census row is moved by +7, the new lines classified
+  (:89, :90, class E), and both pass. Every round-3 citation of N1STAR-PROOF.md above line 86 (R3.2, R3.7: :94-96, :113,
+  :145-177, :215, :348-401, :425-427, :461-462, :541, :692-795) reads +7 now: :101-103, :120, :152-184, :222, :355-408,
+  :432-434, :468-469, :548, :699-802 (lines below 87 unchanged).
+- **MAJOR A (lambda_Omega does not bind).** Correct, and the infimum asked for is computed: it equals the corner value
+  (above). `lzerotrace5.py` T7 (new, certified) and T5 (now with the Lemma 2.3 term); control C6 (T7 run with mu0 for
+  mu_end) fails as it must. In place at :361, :454, R3.0 (i), R3.1 M1, R3.1 m3, R3.2, R3.5 and R3.6 (notes). The figures:
+  E-a < 0.0024433 (operator, largest entry), < 0.0019950 (Frobenius); the reader's 0.0024433 and "above 409" reproduced.
+- **m1 (outward rounding).** `lzerotrace5.py` prints with `up`/`down` on exact Fractions; `dweights5.py` W3 prints N >=
+  1.765576e17; `stage0bd5.py` X4 prints 12.583585 (floor). Notes at :195, R3.0, R3.1, R3.2, R3.6.
+- **m2 (gaps in the trace).** Rows added for tau_end (:155), b(tau) (:159), mu' (:126), Lemma 2.3's eps1 (:222) and the
+  D614 sentence (:91), C_S (:186), C_R (:108), C_D (:110), C2 (:406), C_c (:775): 37 rows, all found; "term by term".
+- **m4.** "At that parameter point, construction reading" (notes at R3.0 (ii), R3.6); at :767 the bound is on S_iota
+  (S_iota >= 5.6096e22 at l_* = 0, 2.80e23 at l_* = 4).
+- **m5.** Obstruction (2) of R3.3 now names the multiplicities of the indicial roots of L-hat_b0(0) (I11:76-77); see
+  R4.3.
+- **m6.** T3's c from `iv.sqrt` (outward); T6's and `eps1hyp5.py` H2's signature checks exact at five m (sympy signs),
+  "every m >= 0" labelled deduced from the closed form.
+- **II.F:1393** also carries ||Pi|| (the Hahn-Banach projection of Lemma 5.2's proof): noted at R3.5; R4.4 counts it.
+- **Controls that could not fail, now mutating their path.** `lzerotrace5.py`: C3 runs T4's parity test on the wave
+  with its phase doubled (fails); C4 runs T3's own domain test (`in_omega`, which T3 now uses); T2's nullness is tested
+  through gp^-1(d(v + tau), d(v + tau)) = 0, not by construction; the Frobenius figures are asserted (T3: 15.423591 <=
+  Frobenius < 15.4236; T5: < 0.0389865). `dceiling5.py`: D5 computes its loss 1 + n_iota + 2 floor B from the weights,
+  D6 asserts the exact forms and rebuilds the constant term from R2, R3, P_W, P_iota, W (the reader's mutants D_b, D_c,
+  D_e change them). `nkind5.py`: C1 runs K1's own computation and test on the family held at e = 1; K4's test is now
+  count x e >= 1/2 at every e, and C4 runs that same test on the effective counts [4, 8, 11] (fails); K5 reads each
+  site's non-effective step on its line.
+- **The reader's proposed R3.6 text** is folded into R4.6.
+
+### R4.2 (i) lambda0
+
+- *The Lemma 2.3 term* (certified; `lzerotrace5.py` T7, T5). g0 = eta + m U U^T, U = (1, xhat), m = mu/r^2, has the
+  Euclidean eigenvalues 1 (three times) and m +- (m^2 + 1)^(1/2) (exact); the least absolute, (m^2 + 1)^(1/2) - m,
+  decreases in m; mu <= mu_end and r >= a on Omega, and the corner (tau_end, r = a) lies in Omega with v > v_end. So inf
+  over Omega = (m*^2 + 1)^(1/2) - m*, m* = mu_end/a^2 in [16.234970, 16.234971], in [0.030768559, 0.030768560]. Every
+  reading's ball |g - g0| <= eps1 contains the operator-norm ball, so eps1 < 0.0307686 in each, and lambda0 <=
+  min(lam1, eps1/C_app) < **0.0024433** (operator; largest entry the same), < 0.0019950 (Frobenius).
+- *What a value needs, and how far the stages went* (deduced; none solved). lambda0 is a minimum of the nine terms
+  (R3.2's trace, 37 rows); each further term can only lower the bound, and a value needs lower bounds for all of them.
+  Stage 0's profiles are certified to order 14 (round 2, `stage0bd5.py`). Stage 1 is Lemma 5.3 (a)-(c)
+  (N1STAR-PROOF.md:516-536): a wave equation for m_1 coupled to transports for phi_1, Psi_1 and Z. Its source is
+  explicit (`stage5.out` S2), but its lower-order coefficients B-bar, C-bar are not extracted by any instrument
+  (`stage5.py` S1 checks the structure only), its data are Lemma 6.2's, and a certified a priori bound needs Lemma
+  2.3's constant C(M1) at gt within 0.0307686 of g0, which is not written out. Interval arithmetic (Arb) cannot start
+  before those three exist; stages 2-9 depend on stage 1.
+
+### R4.3 (ii) d
+
+- *The reduction (deduced; checked on the free model, `iotapoles5.py` M1-M2).* On one harmonic of a type with K
+  components, N_iota+(lam) h = f is (D - lam) L1(D) h + v N(D) h = F, D = v d_v, L1(x) = C - x (C constant, spec C =
+  3/2 + a part of spec S-bar), N the indicial matrix of L~(0) (iota5.py I1; READ, G2-IOTA:27-30). (a) The Mellin
+  transform h-hat(zeta) = int v^-zeta h dv/v gives (zeta - lam) L1(zeta) h-hat(zeta) + N(zeta - 1) h-hat(zeta - 1) =
+  F-hat(zeta) (M1). (b) For Re lam >= 2 the K solutions that decay at v = oo (the K roots of det N with Re <= 0: checked,
+  M3-M4) form V(lam), and their transforms are holomorphic on S = {0 < Re zeta < 3/2}, every exponent at v = 0 (lam,
+  spec C) having real part >= 3/2. (c) h in V(lam) is pure (no v^lam) iff h-hat continues regularly to zeta = lam; the
+  residue there is rho(lam) h = Pi_j(lam) h-hat(lam - j), Pi_j = -((j - 1)!)^-1 L1(lam)^-1 N(lam - 1) L1(lam - 1)^-1 ...
+  L1(lam - j + 1)^-1 N(lam - j), with lam - j in S, off the exceptional set spec C + N_0. (d) h -> h-hat(lam - j) is
+  injective on V(lam): if it vanishes, so do h-hat(lam - j + 1), ..., h-hat(lam - 1), and h-hat/(zeta - lam + 1) is a
+  pure state at lam - 1 vanishing at lam - j; descending, a pure state at lam - j, Re < 3/2 < 2, which III.G Theorem
+  5.1 (2) excludes. (e) Per harmonic the resolvent is h_p - B(lam) rho(lam)^-1 c(lam), h_p the solution vanishing near
+  oo and c(lam) its v^lam coefficient at 0, which ranges over C^K as f ranges over C_c^oo; so the pole order at lam0 is
+  that of Pi_j(lam)^-1, a product of N(lam - i)^-1 and L1(lam - i + 1): the poles lie at r + i, r a root of det N with
+  0 < Re r <= Re lam0 - 1, i >= 1, and a single singular factor at a simple root gives order exactly 1. At an exceptional
+  point with no root an integer distance from spec C, Pi_j^-1 is holomorphic and the order is at most c's, 1.
+- *Computed (exact; M3-M4).* s0 (K = 4): spec C - 3/2 = {0.0099, 0.02, 499995.1171875, 10^6}; det N = x (x - 2)(x - 4)
+  (250000 x^2 - 750000 x - 1)(cubic), four roots with Re <= 0, and in (0, 4] the simple roots 1.0000747438, 2, 3 + d0,
+  4. Poles at Re <= 5: 2.0000747, 3.0000747, 4.0000747, 3, 4, 4 + d0 (order 1 each) and 5, where N(4) and N(2) are both
+  singular: the exact Laurent expansion of Pi_4(5 + eps)^-1 has order 1, residue of rank 2 (control C4: the adjugate for
+  N(2 + eps)^-1 gives order 0). t2 (K = 1): det N = -(x - 4)(x + 2)/2, one pole, 5, order 1. Every even l >= 2: the
+  physical root 4 at l = 2 only; box^Ups's roots plus 1 never in (0, 4]; box^C's roots minus 1 from damping5.py's
+  sextic: its discriminant and its resultants with its shifts by 1, 2, 3, and its values at 5/2 + s + m, have no root
+  kappa = l (l + 2) at any even l >= 2 (exact isolation), and at l = 2 no box^C root is an integer. So at every even l
+  all roots of det N with 0 < Re <= 4 are simple, none two differ by 1, 2 or 3, none is exceptional: **every pole of
+  N_iota+(L-bar, .)^-1 with real part <= 5 in the class is simple.** At l = 2 the s2 poles below 5 are 2.0000029,
+  3.0000029, 4.0000029, 2.000193, 3.000193, 4.000193, 2.9998948, 3.9998948, 4.9998948 and 5. This places 10.37 (d)'s
+  candidates and settles 10.37 (e)'s "not computed there": 2.0000747438 is a pure resonance at the record's point.
+  Controls: C1 (the shift zeta + 1), C2 (the constant 1 for 3/2), C3 (the product without the shift) fail.
+- *E_ind fixed by the narrowest supported reading, and its log orders (M5; READ III.A Lemma 1.4, A-PREREQ:176-182; F4
+  Lemma 2.1, F4:66-80).* "May change from line to line" (D3:46-48) is the notation; at I5:190 and I8:35 E_ind is fixed
+  once as the index sets of III.D'' Proposition 3.1 and III.F''' Proposition 2.2 at b0, enlarged at I10:38-40 by III.D'''
+  Proposition 3.1's and (2,0), and D4:54-59 states that every exponent of the construction lies in M: so the narrowest
+  reading is the construction's, whose offsets below 1 are {d1} (LD14). Its log orders are those the construction
+  proves, which is III.A Lemma 1.4's set at each site: at F4 Lemma 2.1 (k = 2) the recursion with the integer roots
+  3, 4, 5, ... gives log order 2w at k + w, so **E_ind has log order 10 at real part 5** (9 at k = 1); control C6 (plain
+  unions) gives 0. So l_* >= 10 on this reading; the other constituent sites (III.D''' with bases <= 0, III.F''' 2.2,
+  E^iota_ind's list at G3:338-339) are not computed, so 10 is a lower bound for l_*, not yet an upper one.
+- *l_*'s other items.* Pole orders: 1 (above). Multiplicities of the indicial roots of L-hat_b0(0): 1 at every class
+  root with 0 < Re <= 4, and every box^C root simple at every even l (the discriminant). E^C_I: 4 (R0) or 16 (R1).
+- *L_0, X_7, c' (deduced; not settled).* L_0 >= 2 on the same reading (G = (2,0) U (2 + E_ind) carries (3, 2)); its
+  upper bound needs E_++'s and E_col's log orders below 2 lambda_sharp. X_7 needs Step 5's K+-exponents (III.G''''
+  Proposition 4.4's zero-frequency terms; I12:389-394), not computed. c' needs II.E's tame orders d^E_0, d^E, d^S,
+  d-tilde (II.F2-TAME:528-532), which II.E does not number.
+- *The ceiling (M6, exact).* dceiling5.py D6's per-exponent form, its constant term rebuilt from its parts: at L_0 = 1,
+  d <= 1.493399e31 (l_* = 4) and **3.285478e31 (l_* = 10)**, + 53,244,736 X_7 + 106,489,470 c'; N <= 6.8995e32 + ....
+  Replacing K(lambda) by the pole orders is not what the record supports: E^flat's log orders accumulate along Lambda's
+  chains (I11 Lemma 1.2 (c)), and the pole orders enter K(lambda) only through l_*. As a measure of where the size
+  sits: with log order <= 2 at every exponent of E^flat (n_iota <= 3 P_iota), the same accounting gives d <=
+  37,919,137,148,906,758 + 53,244,736 X_7 + 106,489,470 c' (3.7919e16; N <= 7.9630e17 + ...), 4.5 times the floor.
+- *The exact obstruction to a proved ceiling, now.* (1) The log orders of E^flat actually produced (the record's
+  K(lambda) alone puts the ceiling at 1e31); (2) E_ind's and E^iota_ind's Lemma 1.4 log orders at every constituent
+  site (one site computed, 10); (3) L_0; (4) X_7; (5) II.E's tame orders in c'; (6) round 1's three readings.
+
+### R4.4 (iii) lambda1 and delta
+
+- *The cheapest site* (deduced). I.C:497 is sigma_min of P-hat(0) on (3.2)'s pair H-bar^(s,alpha)_b ->
+  H-bar^(s-1,alpha+2)_b (I.C:378-382). At sigma = 0 the family is stationary and, per class harmonic, an ODE system with
+  closed-form zero-energy solutions at b0; the other six need sigma-dependent connection problems or microlocal
+  constants (I.B:1513, :1685, :1978; III.F'':223; III.D:365) or a Hahn-Banach projection (II.F:1393, with ||Pi||).
+- *Attempted, scalar model at b0* (`zeroinv5.py`; certified: exact). A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u: the
+  solution regular at the horizon is P_(l/2)(2 r^2/mu - 1), a polynomial growing like r^l (Z1), so no zero-energy kernel
+  on an even l >= 2 in decaying weights; and r^3 conj(u) A_l u = -(r^3 f conj(u) u')' + r^3 f |u'|^2 + l (l + 2) r
+  |u|^2 (Z2) gives ||r^-1 u|| <= ||r A_l u||/(l (l + 2)) in L^2(r^3 dr), the constant <= 1/8 on every even l >= 2.
+  Controls: C1 (the next polynomial), C2 (l (l + 1)) fail.
+- *Where it stops* (deduced). (3.2)'s norm crosses the horizon with s > 1/2 + theta_H derivatives, where f vanishes and
+  the identity controls no u' (the radial-point estimate's constant is needed there); l = 0 needs a Hardy inequality with
+  f's degeneracy; and the settling operator is L_b0 on 15 components, whose zero-energy kernel is eleven-dimensional
+  (10.32 (c)), so I.C:497's sigma_min is on its complement, type by type (s0, s_l, t_l in the class).
+- *How the seven glue* (deduced). By frequency: I.C:497 at sigma = 0, carried to |sigma| <= sigma_0 by a Neumann series
+  with the Lipschitz modulus ||d_sigma P-hat|| (between the same spaces); I.B:1978 on sigma_0 <= |sigma| <= sigma_1
+  (E2-PILOT's certified band 3 <= sigma <= 384, cut-off L^2, in the scalar model); I.B:1685 with the trapping constant
+  I.B:1513 above sigma_1 (E2-PILOT 3j's per-harmonic bounds); III.F'':223 and III.D:365 are the same partition for the
+  linearised and gauge-potential operators; II.F:1393 at iota+ (sigma_min of T on ker Pi, times ||Pi||). Each enters
+  A_2d multiplicatively through the B-rows, and delta = eps/2 with eps <= eps_NM/A_2d (nkind5.py K5).
+- *Upper bounds* (stand): log10 delta < -7.6666e16, lambda1 < delta.
+
+### R4.5 Proved, computed, open
+
+- *Certified*: lambda0 < 0.0024433 (operator; < 0.0019950 Frobenius); inf over Omega of g0's least absolute eigenvalue
+  in [0.030768559, 0.030768560]; the zero-energy bound 1/(l (l + 2)) of the scalar model on even l >= 2.
+- *Computed, exact*: the iota+ poles at Re <= 5 in the class, all simple (s0's at 5 of residue rank 2); E_ind's Lemma
+  1.4 log orders 2w (k = 2); the ceiling at l_* = 10, 3.285478e31 + ...; the hypothetical 3.7919e16 + ....
+- *Deduced*: the Mellin reduction (R4.3); the narrowest reading of E_ind; the gluing of R4.4.
+- *Open, with the exact obstruction*: a value of lambda0 (stage 1's coefficients, data and Lemma 2.3's C(M1)); a
+  proved ceiling for d (R4.3's six items, first E^flat's actual log orders); lower bounds for lambda1, delta (the seven
+  inverse bounds in the write-out's norms, the Lipschitz moduli, ||Pi||, the B-row constants and d).
+
+### R4.6 Proposed text for the paper's section 9 (replaces R3.6; the reader's proposal folded in)
+
+    The threshold lambda0 that the proof of Theorem 1 delivers is traced term by term to the supplement. At the
+    numerical point (l5 = 1/10, mu0 = 1, A = 1, T = 1, tau0 = -2, a = q0/2, a smooth envelope with the numerics'
+    integral) it is below 0.0025 (certified): the energy estimate needs the pointwise bound eps1 below g0's least
+    absolute eigenvalue on the domain, 0.0308, its value at r = a once the hole has grown, and C_app is at least 12.59
+    with the pointwise norm read as the operator norm, as the supplement now states. So the wavelength 10 l5 lies more
+    than 400 times beyond it. A value would need certified solves of the approximant's nine linear stages; none is done,
+    and the first needs lower-order coefficients the record does not extract and the energy constant at that eps1.
+
+    The loss d is not a number. On the construction reading of E_ind, at a parameter point meeting every condition
+    decidable there, d >= 8.40 x 10^15 and N >= 1.76 x 10^17 (computed). The poles of the iota+-normal operator's
+    inverse below real part 5 are all simple in the class (computed, exactly, through the Mellin transform), but the
+    index sets E_ind carry logarithms up to order 10 at real part 5, so at that point the write-out's bookkeeping gives
+    no ceiling below 3.29 x 10^31. The size comes from one count, bounded through the log-order ceiling of the parameter
+    exponents; with at most two logarithms at each exponent the same accounting would give 3.8 x 10^16. A proved
+    ceiling needs the log orders actually produced, then L_0, X_7 and II.E's tame orders.
+
+    For what this proof's formulas can deliver (upper-bound constants at least 1), log10 delta < -7.66 x 10^16 and
+    lambda1 < delta. No lower bound follows from this proof, whose arguments at six injectivity steps and one trapping
+    estimate give no number: seven certified inverse bounds in the write-out's norms, with the Lipschitz moduli, the
+    calculus constants and d, would have to be computed instead. The cheapest, at zero energy, is explicit harmonic by
+    harmonic for the scalar model at the final black hole, but not yet in the write-out's norm.
+
+### R4.7 Sources (round 4)
+
+N1STAR-PROOF.md:87-92, 101-126, 152-186, 222-233, 355-408, 516-536, 548, 699-802 (D614 numbering); proof5:
+PART-III-G2-IOTA.md:17-60, 205-240, 421-470; PART-III-G-SPECTRAL.md:60-135, 299-330, 890-930; PART-III-I11-SPACETIME.md:
+60-110, 330-345; PART-III-I12-SPECTRAL.md:236-256, 380-402; PART-III-A-PREREQ.md:176-182, 658; PART-III-F4-ZERO.md:
+20-35, 60-84; PART-III-D3-SYMSTATES.md:36-48; PART-III-D4-GENSTATES.md:50-60, 109-130; PART-III-I5-UNBOOST.md:185-195;
+PART-III-I8-UNPARAM.md:30-42; PART-III-I10-CORR4.md:33-44; PART-III-G3-GRAFT.md:363-388; PART-I-C-LOWENERGY.md:372-400,
+488-500; PART-II-F-IOTA.md:1378-1400; PART-I-B-HIGHENERGY.md:1500-1520; N1STAR-PROOF.md 10.37 (iota5.py); lin5.py E2;
+damping5.py U3-U4; gaugepot5.py G1; class5.py C2; LOSS-D.md LD14; E2-PILOT.md sections 1, 4; the reader's report
+(round 3) and its scripts.
+

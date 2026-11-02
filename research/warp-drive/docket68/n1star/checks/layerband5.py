@@ -15,13 +15,15 @@
      below lam^gamma times min(margin, signal) once K >= 10.  Controls: K = 6 with sigma = 3 violates the w-condition of
      (i); p = 3 violates (e6), L.4's hypothesis (the windows do not reach the level lam^3); K = 9 violates (iii).
   B3 (computed, mpmath; unit constants, A = mu0 = 1, |nu d| = 1; env = exp(-1/x) with its exact derivatives) The
-     regime map of the layer at lam = 10^-300 and 10^-1000: windows (errors with Lemma L.4's w-bound below a tenth of
+     regime map of the layer at lam = 10^-1000 and 10^-3000 (1501 points): windows (errors with Lemma L.4's w-bound below a tenth of
      the signal, margin below a tenth of it, eps_M <= lam^3), spacelike (signal, Theorem E's w and the rest below a
      tenth of the margin) and the band (errors below a tenth of both); M = M* = 26 derivatives, K = 6 and K = 10.  For
      K = 10 the three regimes cover [x_deep, x_top] with no gap (x_deep: where the proof's error terms with 26
      derivatives fall below the signal; x_top: m0 = 2 lam); for K = 6 a band between is undecided.  x_deep lies far
      above the very edge x_b = lam^(1/2): the record's bounds lose 26 derivatives where the expansion itself loses one
-     per order.  Control: at lam = 10^-100 the windows are empty (x_deep exceeds the level lam^3.1).
+     per order.  Control: at lam = 10^-300 the map is not covered for K = 10: the degree-two error lam eps_26^2 of
+     Corollary L.11 exceeds the margin in the upper layer (x^-104 lam > 1 there) -- "lam small enough" is part of the
+     statement, and with the record's derivative counts it means lam below about 10^-1000 for this edge.
 
 Labels: B1 sampled (a check of a deduced inequality, not a proof); B2 exact; B3 a model with unit constants (the record's
 constants are not evaluated; R3.3).  Run: python3 checks/layerband5.py   (about half a minute)
@@ -174,10 +176,10 @@ def regimes(lam, K, M=26):
 def b3(control=False):
     mp.mp.dps = 40
     if control:
-        r = regimes(mp.mpf(10)**-100, 10)
-        return r['xdeep'] is not None and r['xdeep'] < r['x31']
+        r = regimes(mp.mpf(10)**-300, 10)
+        return r['covered'] is True
     rows, ok = [], True
-    for e in (300, 1000):
+    for e in (1000, 3000):
         lam = mp.mpf(10)**-e
         r10, r6 = regimes(lam, 10), regimes(lam, 6)
         good = (r10['covered'] is True and r6['covered'] is False and r10['xdeep'] is not None
