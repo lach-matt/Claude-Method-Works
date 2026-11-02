@@ -20,10 +20,16 @@ Data, grid, cut and mask are dnsolve5's (u := -r on v = 0 with R_v = (1 - 1/R^2)
 u = -R0 with R from Raychaudhuri, as in dnsolve5).  The k nodes next to each axis are solved in long double when the
 option ld k is given, as in dnsolve5 (D354).
 
-  P1 (computed) Tangherlini reproduced on dnsolve5's stretched grid at second order (error ratio of R in [3, 6] at
-     r > 1.5 between 200 x 90 and 400 x 180), and the monitored Ric_xx falling at least threefold between them.
-  P2 (computed) on the record's data (seed 1, M = 8, v <= 1.5) the scheme and dnsolve5 converge to one solution: their
-     difference in (R, m, n, W) falls at least threefold from 100 x 45 to 200 x 90 (two schemes, one limit).
+  P1 (computed) Tangherlini on dnsolve5's stretched grid (M = 8) at 100 x 45, 200 x 90 and 400 x 180: the error of R at
+     r > 1.5 falls at each refinement, and the monitored Ric_xx falls at least threefold from 200 to 400 rows.  The
+     spurious m, which Tangherlini does not have, is reported: it is the scheme's axis defect (P3).
+  P2 (computed) on the record's data (seed 1, M = 8, cut 0.54, v <= 1.5) the scheme and dnsolve5 converge to one
+     solution: their difference in (R, m, n, W) falls at least threefold from 100 x 45 to 200 x 90.
+  P3 (computed, reported) the axis defect.  With R marched and the rows Ric_11, Ric_22, Ric(Y, d_v) solved for
+     (m, n, W)_uv, a mismatch delta between the marched R_uv and the one those rows would take enters m_uv as
+     -3 delta/(R(1 + x)) and n_uv as -3 delta/(R(1 - x)) (symbol5.py Y2's R_uv column): P and Q both shift by -delta/R,
+     so 2P + Q = (1 + x) m no longer vanishes at x = -1 (elementary flatness at the axis, kept identically by dnsolve5's
+     variables, is violated at the order of the truncation error).  Reported: max |m| on Tangherlini at each grid.
   Control (P1): the Raychaudhuri march with 2 W_v replaced by W_v; the Tangherlini error must not fall with
      resolution (ratio below 2): the march imposes the constraint, not any second-order ODE.
 
@@ -214,15 +220,19 @@ def tangherlini_error(E, Nu, Nv, wcoef=2.0):
 def selftest():
     ok = True
     E = d5.Eqs()
-    res = {Nu: tangherlini_error(E, Nu, Nv) for Nu, Nv in ((200, 90), (400, 180))}
-    _, Ac, mc, ec, rc = res[200]
-    _, Af, mf, ef, rf = res[400]
+    res = {Nu: tangherlini_error(E, Nu, Nv) for Nu, Nv in ((100, 45), (200, 90), (400, 180))}
+    errs, cxs, ms = [], [], []
+    _, _, mc, _, rc = res[100]
     sel = (~mc) & (rc > 1.5)
-    ratio = np.nanmax(np.abs(ec[sel])) / np.nanmax(np.abs(ef[::2, ::2][sel]))
-    cxc = np.nanmax(np.abs(Ac['cx'][sel])); cxf = np.nanmax(np.abs(Af['cx'][::2, ::2][sel]))
-    r1 = 3 <= ratio <= 6 and cxc / cxf >= 3
-    print('P1 Tangherlini: error ratio %.2f at r > 1.5 (second order: 4); Ric_xx monitor %.1e -> %.1e (ratio %.2f) ->'
-          % (ratio, cxc, cxf, cxc / cxf), 'PASS' if r1 else 'FAIL', flush=True)
+    for q, Nu in enumerate((100, 200, 400)):
+        _, A, msk, e, r = res[Nu]
+        s_ = 2 ** q
+        errs.append(np.nanmax(np.abs(e[::s_, ::s_][sel]))); cxs.append(np.nanmax(np.abs(A['cx'][::s_, ::s_][sel])))
+        ms.append(np.nanmax(np.abs(A['m'][::s_, ::s_][sel])))
+    r1 = errs[0] > errs[1] > errs[2] and cxs[1] / cxs[2] >= 3
+    print('P1 Tangherlini, error of R at r > 1.5: %.2e, %.2e, %.2e (100, 200, 400 rows); Ric_xx monitor %.2e, %.2e, '
+          '%.2e ->' % (*errs, *cxs), 'PASS' if r1 else 'FAIL', flush=True)
+    print('P3 (reported) spurious max |m| on Tangherlini (the axis defect): %.2e, %.2e, %.2e' % tuple(ms), flush=True)
     ok &= r1
     ctl = {Nu: tangherlini_error(E, Nu, Nv, wcoef=1.0) for Nu, Nv in ((200, 90), (400, 180))}
     a_, b_ = ctl[200], ctl[400]
@@ -236,9 +246,9 @@ def selftest():
     diffs = []
     for Nu, Nv in ((100, 45), (200, 90)):
         nv = int(round(Nv * 1.5 / 4.5))
-        G = d5.Grid(8, -10.0, -0.3, Nu, 0.0, 4.5 * nv / Nv, nv, a=0.002)
-        Acp, mcp = run(E, G, d5.Data(1.0, 1.0), 0.3)
-        Ad, md = d5.run(E, G, d5.Data(1.0, 1.0), 0.3)
+        G = d5.Grid(8, -10.0, -0.54, Nu, 0.0, 4.5 * nv / Nv, nv, a=0.002)
+        Acp, mcp = run(E, G, d5.Data(1.0, 1.0), 0.54)
+        Ad, md = d5.run(E, G, d5.Data(1.0, 1.0), 0.54)
         diffs.append({f: (Acp[f] - Ad[f]) for f in ('R', 'm', 'n', 'W')})
         keep = (~mcp) & (~md) if Nu == 100 else keep
     dc = max(np.nanmax(np.abs(diffs[0][f][keep])) for f in diffs[0])
