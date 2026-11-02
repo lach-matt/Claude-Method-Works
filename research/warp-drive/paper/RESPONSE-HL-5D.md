@@ -482,9 +482,10 @@ has no angular component, and R^(0) ≡ 0 identically in (X, θ).
 coefficients for the mean m_m (a wave equation), the phase correction φ_m (a transport, imposing that u stays an eikonal
 of the mean metric to that order), the oscillating profile ĝ_(m+1) (a transport along ℓ) and □̃φ_m (a transport by
 (2.4)); the system closes without loss and has a unique smooth solution on Ω for smooth data (its triangular structure at
-order λ¹ computed in the eight components the symmetry leaves, the new unknowns entering only through −½ □̃ on the mean,
-(ℓ · ∂)∂_θ on the next profile and the two transports, `docket68/n1star/checks/stage5.py` S1; the higher orders by
-induction, deduced). Rewritten with the fixed phase v, the profiles g_j satisfy (supplement 0.4):
+order λ¹ computed in the eight components the symmetry leaves, the new unknowns' second derivatives entering only through
+−½ □̃ on the mean, (ℓ · ∂)∂_θ on the next profile and the two transports, the profile after next absent,
+`docket68/n1star/checks/stage5.py` S1; the higher orders by induction, deduced). Rewritten with the fixed phase v, the
+profiles g_j satisfy (supplement 0.4):
 
 - (E1) transversality: (g1 − ⟨g1⟩)(ℓ, ·) = 0;
 - (E2) the leading equation: R^(0) ≡ 0 in (X, θ);
@@ -561,9 +562,9 @@ The energy is
 
     𝒩(τ) := Σ_(j≤6) λ^j (‖∂^j ∂h‖ + ‖∂^j Ψ‖ + ‖∂^j ∂φ‖ + λ ‖∂^j ∂_x² φ‖) + ‖h‖ + ‖φ‖,                    (5.4)
 
-norms in L²(Σ_τ). It controls the remainder: |w|_7 ≤ C 𝒩 (its exponent ledger over the 128 Leibniz terms of w computed,
-`docket68/n1star/checks/support5c.py` C11). The energy inequality for −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω uses the
-multiplier −g̃⁻¹ dτ; the lateral boundaries are spacelike with Ω to their past, so their fluxes have a sign and are
+norms in L²(Σ_τ). It controls the remainder: |w|_7 ≤ C 𝒩 (its exponent ledger over the 128 classes of Leibniz terms of w
+computed, `docket68/n1star/checks/support5c.py` C11). The energy inequality for −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω uses
+the multiplier −g̃⁻¹ dτ; the lateral boundaries are spacelike with Ω to their past, so their fluxes have a sign and are
 dropped (supplement Lemma 2.3). The transport estimate along L0 uses div x̂ = 3/r and the sign of the outer boundary's
 motion (supplement Lemma 2.4). Assume 𝒩 ≤ 2 M λ^K on [τ0, τ*]. Then |w| ≤ C M λ^(K−3), |∂w| ≤ C M λ^(K−4), so g = g_app +
 w stays in the class where the domain lemma (supplement Lemma 1.1(e)) holds. The nonlinear terms are at most C λ⁻⁵ 𝒩² ≤ C
@@ -629,15 +630,16 @@ gives sup_r of the H²-type norms of U, ∂_r U and ∂_r² U scaling as λ^4.00
 1/32 to 1/64 (floating point; the earlier halvings pre-asymptotic; resolution varied by M = 12, 16, 20 modes and λ/32,
 λ/64 steps, the norms moving by 7 × 10⁻⁵), the solve uniform in λ and the first r-derivative costing nothing, both within
 the λ^(N−2−j) stated (control: the mutant with an oscillating trace on the spheres, which has a 1/λ coefficient, makes
-the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coefficients frozen, contracts with ratio
-d_(i+1)/d_i = 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32 (d_i the successive differences), falling
-at rates 3.55 and 4.03, at least the proof's λ^(N−3), its first correction falling as λ^(N−2) (rates 3.76, 3.97); with a
-1/λ quadratic coefficient of nonzero phase mean put in, the first correction falls an order slower (rates 2.96, 3.15) and
-the check rejects it (`checks/csolve5.py` C7c, floating point). Beforehand the approximant's stage data are chosen so
-that its data satisfy the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by order
-(supplement Lemmas 6.1–6.2; computed: the identity (6.2) exactly at points of random 4+1 metrics, and the first step,
-D^(1) = 0 on the slice under Lemma 6.2's stage-1 choices with m1 kept generic, its mean solved by a determinant −(r² +
-μ)⁵/(2r¹⁰) ≠ 0, `docket68/n1star/checks/gauge5.py` G1–G2; the later orders by the same induction, deduced).
+the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coefficients frozen, contracts with first ratio
+d_1/d_0 = 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32 (d_i the successive differences; at λ = 1/32
+the next difference already sits at roundoff), falling at rates 3.55 and 4.03, at least the proof's λ^(N−3), its first
+correction falling as λ^(N−2) (rates 3.76, 3.97); with a 1/λ quadratic coefficient of nonzero phase mean put in, the
+first correction falls an order slower (rates 2.96, 3.15) and the check rejects it (`checks/csolve5.py` C7c, floating
+point). Beforehand the approximant's stage data are chosen so that its data satisfy the constraints and D = 0 to order N
+− 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas 6.1–6.2; computed: the identity (6.2)
+exactly at a point of a random 4+1 metric, and the first step, D^(1) = 0 on the slice under Lemma 6.2's stage-1 choices
+with m1 kept generic, its mean solved by a determinant −(r² + μ)⁵/(2r¹⁰) ≠ 0, `docket68/n1star/checks/gauge5.py` G1–G2;
+the later orders by the same induction, deduced).
 
 ---
 
@@ -2129,10 +2131,10 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/csolve5.py` C7a–C7c: the constraint solve's λ^(N−2) scaling (supplement Lemmas 6.3–6.4, Proposition 6.5): no
   coefficient of order 1/λ in the linear or the quadratic part of the constraint map at the stage-0 approximant's data
   (C7a, exact); the linear solve's rates λ^(N−2), λ^(N−2), λ^(N−3) for U, ∂_r U and ∂_r² U (C7b); the nonlinear scheme's
-  contraction ratio d_(i+1)/d_i, 6.8 × 10⁻³, 5.8 × 10⁻⁴, 3.5 × 10⁻⁵ at λ = 1/8, 1/16, 1/32 (rates 3.55, 4.03, at least
-  the proof's λ^(N−3)), and its first correction at λ^(N−2) (C7c), floating point. Controls: an oscillating trace on the
-  spheres (C7a, C7b), a 1/λ quadratic coefficient with nonzero phase mean, which slows the first correction by an order
-  (C7c). About two hours.
+  first contraction ratio d_1/d_0, 6.8 × 10⁻³, 5.8 × 10⁻⁴, 3.5 × 10⁻⁵ at λ = 1/8, 1/16, 1/32 (rates 3.55, 4.03, at least
+  the proof's λ^(N−3); the rate test's tolerance accepts 2.8, a 1/λ² term failing it), and its first correction at
+  λ^(N−2) (C7c), floating point. Controls: an oscillating trace on the spheres (C7a, C7b), a 1/λ quadratic coefficient
+  with nonzero phase mean, which slows the first correction by an order (C7c). About two hours.
 - `checks/eindcert5.py` I1–I2: the scan of `eind5.py` E2 below l = 10⁴ made rigorous: every root it visits enclosed by an
   inclusion disc computed in exact rational arithmetic (the gauge potential's quartic for l ≤ 60), δ_50 certified,
   attained by the gauge potential's operator at l = 50, its disc inside |λ| ≤ 50 (I1); for l ≥ 52 no root of the gauge
@@ -2239,13 +2241,13 @@ Programs behind section 9, in `docket68/n1star/`:
   g^rr = f(r_0) ≤ −3 for every final mass, exactly. Controls: a planted unlisted conclusion; a planted seventh loss; r_0
   = 2 r_h. A few seconds.
 - `checks/support5c.py` C11–C13: section 5's remaining steps. C11, |w|_7 ≤ C 𝒩 as an exponent ledger: each derivative of
-  [∂_θ g1] costs λ⁻¹ (computed), and every one of the 128 Leibniz terms of w = h + φ[∂_θ g1] is covered by (5.4)'s
-  weights with λ-exponent ≥ 0; C12, the first-order reduction in the Z-coordinates at random admissible rational points,
-  A⁰ symmetric positive definite (Sylvester) and every A^k symmetric, the symmetry and positivity of (A1)–(A4) and not
-  the rest; C13, M[S] at g0 + λ(W_TT + χ dv² + m1) to order λ⁰: only θ⁺ carries the wave there, through ∂_θ tr_S W, zero
-  for the TT wave. Controls: (5.4) without its ‖∂^j ∂φ‖ term (C11; without its λ‖∂^j ∂_x² φ‖ term nothing is uncovered,
-  that term being Step 4's); Vaidya's constant-x lines inside the horizon (C12); a wave with a trace on the spheres
-  (C13). Exact; about a minute.
+  [∂_θ g1] costs λ⁻¹ (computed), and every one of the 128 classes of Leibniz terms of w = h + φ[∂_θ g1] is covered by
+  (5.4)'s weights with λ-exponent ≥ 0; C12, the first-order reduction in the Z-coordinates at random admissible rational
+  points, A⁰ symmetric positive definite (Sylvester) and every A^k symmetric, the symmetry and positivity of (A1)–(A4)
+  and not the rest; C13, M[S] at g0 + λ(W_TT + χ dv² + m1) to order λ⁰: only θ⁺ carries the wave there, through ∂_θ tr_S
+  W, zero for the TT wave. Controls: (5.4) without its ‖∂^j ∂φ‖ term (C11; without its λ‖∂^j ∂_x² φ‖ term nothing is
+  uncovered, that term being Step 4's); Vaidya's constant-x lines inside the horizon (C12); a wave with a trace on the
+  spheres (C13). Exact; about a minute.
 - `checks/ledger5.py` L1–L4: exponent ledgers. L1, supplement Propositions 9.8–9.9 with β0 symbolic (∫_(t≥λ⁻²) λ⁻¹
   t^(−3/2) dt = 2, K′ > 8 + 4β0, K′ − 2β0 − 1 ≥ K + 2, the Gronwall margin); L2, the bootstrap's ledger
   (`checks/support5.py` C5) with k and K symbolic, every row linear and holding for k, K ≥ 6; L3, Proposition 11.1's
