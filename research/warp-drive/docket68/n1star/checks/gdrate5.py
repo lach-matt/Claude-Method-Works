@@ -11,9 +11,9 @@ are deduced and which are formal.
      which gives L_2 in rho^2 C^oo, round 2's B1).  Control: in
      the static time t the sigma-linear term vanishes (L_1 = 0), so the factor -2(q - 3/2) is particular to t_*.
   G2 (exact) The first non-smooth term at zero energy.  P-hat(0) = -Delta on r^-q Y_l has the indicial roots q = -l,
-     l + 2 (n = 4).  For P-hat(sigma) u = f with f compactly supported, the formal expansion u = u_0 + sigma u_1 + sigma^2
-     u_2 + ... has u_0 = m r^-2, u_1 = -i m r^-1, and the equation for u_2 has the source m r^-2, at the indicial root
-     0 of l = 0: no power solves it, -(m/2) log r does.  So the expansion carries sigma^2 log sigma (one sigma-derivative
+     l + 2 (n = 4).  For P-hat(sigma) u = f with f compactly supported, the formal expansion u = u_0 + sigma u_1 +
+     sigma^2 u_2 + ... has u_0 = m r^-2, u_1 = -i m r^-1, and the equation for u_2 has the source m r^-2, at the
+     indicial root 0 of l = 0: no power solves it, -(m/2) log r does.  So the expansion carries sigma^2 log sigma (one sigma-derivative
      is bounded, two are not).  Control: at n = 3 the same chain gives L_1 u_0 = 0 (no log; e^(i sigma r)/r is analytic).
   G3 (exact series) The free outgoing kernel of -Delta - sigma^2 on R^4, (i sigma/(8 pi r)) H_1^(1)(sigma r), is 1/(4
      pi^2 r^2) - (1/(8 pi^2)) sigma^2 log sigma + (smooth in sigma at order 2, and higher): the sigma^2 log sigma
@@ -22,9 +22,9 @@ are deduced and which are formal.
   G4 (exact) The source side.  (a) A cone source (support r <= t/4, |F| <= r^-a (r/t)^b, b > kappa + 1/2) lies in the
      L^2-in-time class with K+-weight kappa and sf-weight beta iff a > beta + 5/2 + kappa (round 2's B7 at kappa = 0).
      (b) Its time-Fourier transform obeys |F-hat(sigma, x)| <= (4^(1-b)/(b-1)) r^(1-a), in rho^beta L^2(dx) iff
-     a > beta + 3: pointwise use in sigma costs 1/2 more than the L^2 use.  (c) The harmonic-gauge source has a = lambda_#
-     + 1 - eta = 5/2 + delta_# - eta (GAUGEDECAY5 Proposition R3.2): (a) holds iff kappa < delta_# - beta - eta, (b)
-     fails whenever delta_# <= 1/2 + beta + eta.  (d) The quasi-stationary response at a fixed point to the cone source:
+     a > beta + 3: pointwise use in sigma costs 1/2 more than the L^2 use.  (c) The harmonic-gauge source has a =
+     lambda_# + 1 - eta = 5/2 + delta_# - eta (GAUGEDECAY5 Proposition R3.2): (a) holds iff kappa < delta_# - beta -
+     eta, (b) fails whenever delta_# <= 1/2 + beta + eta.  (d) The quasi-stationary response at a fixed point to the cone source:
      with the l = 0 zero-energy kernel ~ r'^-2, int_1^(t/4) r'^-2 r'^-a (r'/t)^b r'^3 dr' ~ (4^(a-b-2)/(b+2-a)) t^(2-a);
      with the l = 2 kernel ~ r'^-4 it is ~ (4^(a-b)/(b-a)) t^-a.  At a = 5/2 + delta_#: t^(-1/2-delta_#) for l = 0.
      Controls: (a) at kappa = a - beta - 5/2 the integral diverges; (b) at a = beta + 3 it diverges; (d) the l = 0

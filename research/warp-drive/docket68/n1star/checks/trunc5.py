@@ -13,7 +13,9 @@ P (N1STAR-PROOF.md:1053-1060): t_P := 1 + tau0 - tau, h(tau) = kappa t_P^(-1/4),
      {v1 <= v <= V_P - h(tau)} has width at least kappa (1 - t_P^(-1/4)) > 0 (exact), so g_lam's data on
      {t = T} cap {v <= v1 + kappa/4} exist for T <= tau0 - 15, and the Cauchy problem from {t = T} with those data,
      cut off beyond, reproduces g_lam on {v <= v1, t >= T} (domain of dependence): N carries g_lam's data with no
-     characteristic problem. Control: dr(Y) takes both signs on future causal Y (r is not a time function).
+     characteristic problem. Control: dr(Y) takes both signs on future causal Y (r is not a time function). And
+     (T1e) v + eps t is a time function for g_b0 with margin 2 eps (exact), which survives perturbations small
+     against eps, used on the bounded part of N in Omega'; control (T1f): at eps = 0 there is no margin.
   T2 (exact) the cap energies of the truncation (cut-off over a unit width in v inside the strip): for h ~ r^-2
      (round 1's (b1), weight a_0) the cut region costs |T|^(2a_0 - 1) -> 0 exactly for a_0 < 1/2; for the remainder
      h_R = O(r^-(9/2)) ((b2), subtraction through p = 4) |T|^(2a - 6) -> 0 exactly for a < 3. Controls: a_0 = 1/2,
@@ -112,6 +114,13 @@ def t1():
     check("T1c the strip {v1 <= v <= V_P - h(tau)} has width >= kappa(1 - t_P^(-1/4)): 1/4 at t_P = 16, -> 1/2",
           ok)
     check("T1d control: dr(Y) takes both signs on future causal Y", dr_signs == {True, False})
+    ep = sp.Symbol("epsilon", positive=True)
+    dt_ = sp.Matrix([1, 0, 0, 0, 0])
+    form = sp.simplify(((k + ep*dt_).T*gi*(k + ep*dt_))[0, 0])
+    check("T1e g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu/r^2): v + eps t is a time function with "
+          "margin 2 eps, kept under |g^-1 - g_b0^-1| << eps (used on the bounded part of N in Omega')",
+          sp.simplify(form + 2*ep + ep**2*(1 + mu/RR**2)) == 0, str(form))
+    check("T1f control: at eps = 0 the margin is 0 (dv is null)", sp.simplify(form.subs(ep, 0)) == 0)
 
 
 def t2():

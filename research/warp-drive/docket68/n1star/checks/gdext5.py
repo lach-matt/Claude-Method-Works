@@ -15,8 +15,8 @@ rho^(3/2) (Part IV (2.1)).
      g g^-1 = 1.  (b) d delta + delta d = 2 delta G delta^* on test 1-forms (so Ric = 0: this is III.D's Box).
      (c) (Box Z)_c = Box_0 Z_c + C_c^{nu b} d_b Z_nu + D_c^nu Z_nu: no second-order coupling; C and D vanish at mu = 0,
      are t-independent, and are sums sum_{k>=1} mu^k C_k, mu^k D_k with C_k, D_k homogeneous in x of degrees -1-2k and
-     -2-2k (so O(r^-3) and O(r^-4), the leading terms of degrees -3 and -4); C_1 is not identically 0.  Controls: (b) on the
-     non-vacuum Kerr-Schild metric with mu r^-1 in place of mu r^-2 the two operators differ; (c) in the polar
+     -2-2k (so O(r^-3) and O(r^-4), the leading terms of degrees -3 and -4); C_1 is not identically 0.  Controls: (b) on
+     the non-vacuum Kerr-Schild metric with mu r^-1 in place of mu r^-2 the two operators differ; (c) in the polar
      component of a 1-form a dr (not Cartesian) the coupling at mu = 0 is 3 a r^-2, of degree -2 and nonzero.
   E2 (exact) The edge-b order of the coupling.  d_t = rho_0 (X_0 - X_I), d_r = rho_0 (-X_0 + (1 - rho_I) X_I) and
      r^-1 d_omega = rho_0 rho_I^(1/2) (x_I d_omega); with the prefactor rho_I rho^-2 and the conjugation by rho^(3/2),
@@ -352,7 +352,8 @@ def e4(control=False):
     lim = sp.simplify(sp.limit(ex, rh, 0))
     c2 = sp.simplify(sp.expand(lim).coeff(V2))
     ok = sp.simplify(c2 - (1 - tau**2)) == 0 and not c2.has(alpha)
-    print("  E4: rho^(-2-alpha) Box_0(rho^alpha v(tau)) at rho = 0 = %s; v'' coefficient 1 - tau^2, independent of alpha: "
+    print("  E4: rho^(-2-alpha) Box_0(rho^alpha v(tau)) at rho = 0 = %s; v'' coefficient 1 - tau^2, independent of "
+          "alpha: "
           "%s" % (lim, ok), flush=True)
     return ok
 
