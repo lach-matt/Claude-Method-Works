@@ -18,3 +18,27 @@ B1 n = 4 (64 sub-boxes, 49 s):
        centres <= [4.53e-5 +/- 6.11e-9]  nx: sup <= [1.70 +/- 1.10e-3], centres <= [8.65e-6 +/- 1.94e-9]  xx: sup <=
        [1.88 +/- 1.01e-3], centres <= [1.13e-5 +/- 3.98e-8]  11: sup <= [0.777 +/- 2.99e-4], centres <= [2.16e-5 +/-
        4.90e-8]  22: sup <= [0.940 +/- 4.99e-4], centres <= [2.10e-5 +/- 1.29e-8]
+B1 n = 8 (512 sub-boxes, 300 s):
+   ll: sup <= [0.124 +/- 1.76e-4], centres <= [0.000153 +/- 9.45e-8]  ln: sup <= [0.0490 +/- 1.07e-5], centres <=
+       [1.26e-5 +/- 3.35e-8]  nn: sup <= [0.0934 +/- 2.20e-5], centres <= [2.39e-5 +/- 2.77e-8]  lx: sup <= [0.0486 +/-
+       1.59e-5], centres <= [4.77e-5 +/- 4.60e-8]  nx: sup <= [0.0333 +/- 3.53e-5], centres <= [9.35e-6 +/- 3.44e-9]  xx:
+       sup <= [0.0521 +/- 9.25e-6], centres <= [1.19e-5 +/- 4.99e-8]  11: sup <= [0.0206 +/- 3.56e-5], centres <=
+       [2.23e-5 +/- 1.54e-8]  22: sup <= [0.0257 +/- 5.24e-6], centres <= [2.19e-5 +/- 4.67e-8]
+B2 the ratio of the bound at n to that at n/2, per component, and the n at which the bound would reach twice the centre
+    values at that ratio (computed):
+   ll: ratios 53.81, 36.64, 33.15; at n = 8 bound/centre = 810; reaches 2x the centre values at n ~ 26.3 (1.8e+04
+       sub-boxes for this one box)
+   ln: ratios 134.58, 51.88; at n = 8 bound/centre = 3.9e+03; reaches 2x the centre values at n ~ 30.2 (2.8e+04 sub-boxes
+       for this one box)
+   nn: ratios 5682.20, 158.45, 39.80; at n = 8 bound/centre = 3.9e+03; reaches 2x the centre values at n ~ 33.3 (3.7e+04
+       sub-boxes for this one box)
+   lx: ratios 333.85, 53.76, 36.96; at n = 8 bound/centre = 1.02e+03; reaches 2x the centre values at n ~ 26.5 (1.9e+04
+       sub-boxes for this one box)
+   nx: ratios 1744.04, 129.06, 51.07; at n = 8 bound/centre = 3.56e+03; reaches 2x the centre values at n ~ 29.9 (2.7e+04
+       sub-boxes for this one box)
+   xx: ratios 528.96, 58.28, 36.11; at n = 8 bound/centre = 4.4e+03; reaches 2x the centre values at n ~ 35.4 (4.4e+04
+       sub-boxes for this one box)
+   11: ratios 1498.84, 76.69, 37.80; at n = 8 bound/centre = 922; reaches 2x the centre values at n ~ 25.8 (1.7e+04
+       sub-boxes for this one box)
+   22: ratios 1484.16, 74.81, 36.56; at n = 8 bound/centre = 1.18e+03; reaches 2x the centre values at n ~ 27.3 (2e+04
+       sub-boxes for this one box)
