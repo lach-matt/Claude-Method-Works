@@ -46,6 +46,7 @@ def out(msg):
 
 # ------------------------------------------------------------------------------------------------------------ F1
 def costs(N, data_step=True, three=False):
+    @lru_cache(maxsize=None)
     def c_osc(j, i):
         if j == 1:
             return i

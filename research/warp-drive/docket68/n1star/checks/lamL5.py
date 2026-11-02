@@ -300,7 +300,7 @@ def l4(control=False):
     if control:
         bad = False
         for kind in ('r1', 'eq', 'ch'):
-            lam4, lam5 = res[kind]
+            lam4, lam5, _ = res[kind]
             C1m = CACHE['C1'][kind]
             x = lam4*mp.mpf('1.01')
             bad |= x**(1 - mp.mpf(p)/m)*4*2**(1 - mp.mpf(1)/m)*C1m*Mm1m*4*mp.pi <= 1

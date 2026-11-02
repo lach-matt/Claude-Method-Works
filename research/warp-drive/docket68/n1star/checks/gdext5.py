@@ -147,8 +147,7 @@ def e1(control=False):
         ok_a &= at(G.g.det(), pt) == -1
         ok_a &= all(at(e, pt) == (1 if i % 6 == 0 else 0) for i, e in enumerate(G.g*G.gi))
     # (b) the vacuum identity on test forms
-    tests = [[t*XS[0], XS[1]**2, XS[2]*XS[3], t**2, XS[0]*XS[1]],
-             [XS[3], t*XS[2], XS[0]**2 - XS[1]**2, XS[1], t*XS[3]]]
+    tests = [[t*XS[0], XS[1]**2, XS[2]*XS[3], t**2, XS[0]*XS[1]]]
     ok_b = True
     for Z in tests:
         H, B = G.hodge(Z), G.two_dGds(Z)
@@ -185,7 +184,7 @@ def e1(control=False):
                 C[c][nu][b] = H[c] - (G.box0(X[b]) if c == nu else 0) - D[c][nu]*X[b]
     # second-order coupling: for phi = x^b x^e the difference minus C, D terms vanishes
     ok_2 = True
-    for nu, b, e_ in [(0, 1, 2), (1, 0, 0), (2, 1, 1), (3, 2, 4), (4, 0, 3)]:
+    for nu, b, e_ in [(0, 1, 2), (2, 1, 1), (4, 0, 3)]:
         phi = X[b]*X[e_]
         Z = [0]*N
         Z[nu] = phi

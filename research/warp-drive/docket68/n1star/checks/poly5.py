@@ -31,16 +31,25 @@ every K, g_lam being unique, (P-v)).
      n - 1 at derivative order n, no Sobolev), w at order -(K'_0 - 2) + n (Proposition 9.8 read at order k, as 10.51
      reads section 4; lam <= lam_F(k)): the same recursion closes at P(N) = N, Q(N) = N - 1 for every N <= 40.
      Control: with K'_0 = 5 the scaled bootstrap's quadratic term lam^(2K'-5) does not beat lam^K'.
-  P7 (exact, integer recursion) Lemma 11.2 and Proposition 11.1: e(G_3) = -1, e(G_4) = 0 and the monomial bound give
-     e(G_k) <= k - 4 (k = 4..30, a fixed point of the recursion); the remainder u_J then has pointwise order
-     M(J, n, m) at n Cartesian/rotation derivatives and m ell-derivatives; the recursion is run for J <= 24, n <= 12,
-     m <= 4 and M(J, n, m) <= n + m + (J^2 + 3J)/2 - 9 holds there (computed bound; equality recorded where it is).
-     Control: no bound linear in J with slope 3 holds (M(24, 0, 0) exceeds 3 * 24).
-  P8 (exact) smallness with commutations: on N, Z = r ell; below R = lam^-s the record's lam-uniform bounds
-     |d^i e| <= C lam^(K'-3-i) r^-2 (no ell-gain) and above R (11.7) at order J' with its ell-gains: the weighted
-     flux of Z^j d(e's remainder) is at most C(lam^(2(K'-3-j) - s(2a + 2j - 2)) + lam^(2(-M) + s(J' - 1 - 2a))), so it
-     tends to 0 once K' > 3 + j + s(a + j - 1) with s = (2M + 1)/(J' - 1 - 2a); sampled exactly. Control: above R
-     without the ell-gain the flux of Z^j d e diverges for j >= 1 at a = 11/4.
+  P7 (exact, integer recursion) Lemma 11.2 and Proposition 11.1: e(G_3) = -1, e(G_4) = 0 and the monomial bound
+     (a linear term on G_(k-2) with at most one d_v, products of 2 or 3 earlier coefficients with at most two d_v)
+     give e(G_k) = k - 4 (k = 4..40, a fixed point); the remainder u_J then has pointwise order B_J + n + m at n
+     Cartesian/rotation and m ell-derivatives, the stage rule (S~: linear terms +1, quadratic terms with one factor
+     taken crudely, |d u_J| <= lam^-(J-3) r^-2; S' adds e(G_(J+1)) + 1; Gronwall lam-free; Lemma 9.3 + 2; each ell
+     + 1) giving B_J = (J^2 - J)/2 - 3 for J = 4..40, with B_3 = -1 (P6). Control: no bound linear in J with
+     slope 3 (B_24 = 273).
+  P8 (exact) the interpolation lemma (the verifier's M1): a polynomial P(s) = sum_(i<=d) c_i s^i with |P| <= eta on
+     [sigma/2, sigma] has |c_i| <= L_d sigma^-i eta (L_d from the inverse Vandermonde matrix at d + 1 nodes, exact;
+     checked on 100 random polynomials). With r^2 e = sum_(k=4)^(J') s^(k-4) e_k + s^-4 (remainder), s = r^(-1/2),
+     (P-iii)'s |e| <= C lam^(K-3) r^-2 and (Poly)'s remainder lam^-M r^(-(J'+1)/2), the optimal sigma gives
+     |e_k| <= C lam^((K-3)(1 - th_k) - M th_k), th_k = (k - 4)/(J' - 3) (J' = 8), with sigma inside the far region
+     once K - 3 + M > J' - 3. Control: at a fixed radius the bound is only lam^-M.
+  P9 (exact) the threshold: with R = lam^-s, s = max(2, (2M + 1)/(J' - 1 - 2a)), the commuted flux of e's
+     remainder (subtraction through p = 4, j commutations with Z = r ell, which costs r below R, where the
+     lam-uniform bounds have no ell-gain) is a sum of terms each tending to 0 once K > K*(a, J', M, j), the largest
+     of 4 + j + s(a + j) and 3 + i + (s max(0, 2a + 2 - k)/2 + (M + i) th_k)/(1 - th_k) (k = 4..8, i <= j + 1);
+     sampled exactly at K = floor(K*) + 1. Control: a = 11/4, J' = 8, M = 12: R2.10's K = 50 satisfies
+     K - 4 > a s but K* = 56, and the e_8 term of the flux tends to infinity.
 Labels: computed (exact; sympy and integer arithmetic).
 
     python3 checks/poly5.py

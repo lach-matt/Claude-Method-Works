@@ -1,0 +1,15 @@
+P1  the two-scale chain rule: one lam^-1 per Cartesian derivative, none per rotation
+  P1a D^alpha (lam A sin th) has order 1 - |alpha| exactly (five multi-indices up to order 3): pass 
+  P1b two rotations: order still 1 (Omega v = 0): pass 
+  P1c the two-scale formula equals the true d_1 d_t of A sin(v/lam) (two points, lam = 1/7): pass 
+  P1d control: x2 d_1 + x1 d_2 (not a rotation) costs lam^-1: order 0: pass 
+P2  the coefficients of Lemma 11.0's energy identity
+  P2a d_t (lam W sin th) has order 0: the kernel ||d g|| <= C t^(-3/2) is lam-free: pass 
+  P2b g0 g0^-1 = 1 and det g0 = -1 (5D Kerr-Schild, mu = 1/2, two points, 60 digits): pass 
+  P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv (first variation by a central difference at 60 digits, two points, random rational u): pass 
+  P2d (1/2) H^ab d_a d_b (lam [W]) = -(1/2) lam^-1 H(dv, dv) [W] + O(lam^0): with H(dv, dv) = -u(ell, ell) the term is +(1/2) lam^-1 u_1(ell, ell) [W], linear in u_1, at order -1: pass 
+  P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell): pass 
+P3  the Gronwall factors
+  P3a far region: int C t^(-3/2) = 2 C lam, int C lam^-1 t^(-3/2) = 2 C (lam-free factors): pass 2*C*lambda, 2*C
+  P3b control: over the near region [1, lam^-2] the lam^-1 kernel gives exp(2C(1/lam - 1)), beating every lam^-M: pass 2*C*(1 - lambda)/lambda
+P4  the data constants: d_tau^m w on the initial slice (1+1 model, N = 6)

@@ -15,9 +15,9 @@ findings are seated (section 11, each with its disposition, the text corrected i
 Lemma 3.3₂ and Steps 4-6 are written in full (section 8), every identity behind them computed (`checks/twodecomp5.py`,
 from the full reduced Ricci tensor) and the power counting computed term by term (`checks/twoledger5.py`): Theorem E₂,
 and with it Theorem 1₂ items 1-5, is **deduced**. The record's item 6 (one zero per column of the outgoing expansion) is
-**deduced for two families under a placement hypothesis (H6)** that the computed example satisfies, with the term that
-makes (H6) necessary computed (section 9); item 7 (the mean mass) is **deduced** with the outgoing family's parity base
-computed (section 10). Not yet read by an independent verifier.
+**deduced for two families**, with no condition on where the outgoing packet lies: the outgoing wave's would-be O(1)
+contribution to ∂_R θ⁺ along a column is computed to vanish at stage 0 (section 9); item 7 (the mean mass) is **deduced**
+with the outgoing family's parity base computed (section 10). Not yet read by an independent verifier.
 
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that the
 program must reject), **deduced** (argued here, a standard step named as such), **READ** (verbatim, identifier and page,
@@ -314,14 +314,13 @@ The record's proof (N1STAR-PROOF.md section 6) carries over with:
 - Transport on Ω₂ for both generators: computed (twotransport5).
 - Theorem 1₂ items 1-5: **deduced** (§1); read by an independent verifier at commit 169c9b5 with no major gap; round 2's
   sections 8-10 not yet read.
-- Theorem 1 item 6 (horizon) for two families: **deduced under the placement hypothesis (H6)** (§9; round 1: not
-  claimed).
+- Theorem 1 item 6 (horizon) for two families: **deduced**, with no placement condition (§9; round 1: not claimed).
 - Theorem 1 item 7 (mean mass) for two families: **deduced** (§10; round 1: not claimed).
 
 (Round 1 wrote here: item 6 would need the outgoing wave's O(1) oscillating contribution to ∂_R θ⁺ along the columns to
 stay below 3/μ near the horizon, which holds where the packet stays away from √μ; item 7 needs both families' first mean
-corrections odd. Round 2 does the first by placement (§9, with the O(1) term computed, H3) and the second by computing
-the outgoing family's parity base (§10).)
+corrections odd. Round 2 computes the O(1) term to vanish at stage 0 (§9, twohorizon5 H3), so no placement is needed,
+and computes the outgoing family's parity base (§10).)
 
 ---
 
@@ -629,45 +628,43 @@ standing as the record's Theorem E; round 2's text has not been read by an indep
 
 ## 9. Item 6 for two families: one zero per column of the outgoing expansion
 
-**Hypothesis (H6).** There is δ6 > 0 with R ≥ R_H(v̂) + δ6 on D_T ∩ {τ ≥ τ0} ∩ {u1 ≤ u ≤ u2}, where R_H(v̂) :=
-√μ_III(v̂) and μ_III is the mass of region III (u ≥ u2) on the column {v̂ fixed}. Equivalently (R decreasing in u on a
-column), R(u2, v̂) − √μ_III(v̂) ≥ δ6: the outgoing packet's inner edge stays untrapped, with a margin, on every column.
+**Proposition 8.1₂ (deduced; computed twohorizon5 H1-H3).** For a column (v̂ and the angles fixed, R varying, in D_T ∩
+{τ ≥ τ0}) let θ⁺_λ(R) be the outgoing expansion of the sphere S_(v̂,R) for g_λ, and R_H(v̂) the zero on the column of
+the background's θ⁺, that is of R_v (where R² = μ, μ the Misner-Sharp mass there). There are λ1 ∈ (0, λ0], C, δ1 > 0,
+independent of λ, such that for λ ≤ λ1 the record's Proposition 8.1 (a)-(c) hold with √μ(v) replaced by R_H(v̂): at
+most one zero per column, θ⁺ > 0 above it and < 0 below it; exactly one, R_λ(v̂, ω), with |R_λ − R_H(v̂)| ≤ C λ, on the
+columns with R_H(v̂) ≤ v̂ − τ0 − δ1; the spheres below R_H − C λ trapped, those above R_H + C λ untrapped; no inner
+apparent horizon. No condition on where the outgoing packet lies is needed.
 
-**Proposition 8.1₂ (deduced, under (H6); computed twohorizon5 H1-H3, twobg5 G5).** For a column (v̂ and the angles
-fixed, R varying, in D_T ∩ {τ ≥ τ0}) let θ⁺_λ(R) be the outgoing expansion of the sphere S_(v̂,R) for g_λ. Under (H6)
-there are λ1 ∈ (0, λ0], C, δ1 > 0, independent of λ, such that for λ ≤ λ1 the record's Proposition 8.1 (a)-(c) hold with
-√μ(v) replaced by R_H(v̂): at most one zero per column, θ⁺ > 0 above it and < 0 below it; exactly one, R_λ(v̂, ω), with
-|R_λ − R_H(v̂)| ≤ C λ, on the columns with R_H(v̂) ≤ v̂ − τ0 − δ1; the spheres below R_H − C λ trapped, those above R_H
-+ C λ untrapped; no inner apparent horizon.
+*Proof.* (i) The background. Along g0⁻¹ du = −e^(−2σ) ∂_v the expansion of the spheres is −3 e^(−2σ) R_v/R (H2,
+computed), so the future-directed, n(τ) = 1 normalised θ⁺(g0) is a positive multiple of R_v. On a column R decreases in u
+(R_u < 0) and ∂_u R_v = R_uv = −e^(2s) μ/R³ < 0 (twobg5 G1 (c)), so ∂_R R_v = e^(2s) μ/(R³ |R_u|) > 0: θ⁺(g0) has at
+most one zero on each column, simple, with ∂_R θ⁺ bounded below near it on the compact domain. Where the outgoing dust
+vanishes (region III) this is H1's explicit form, θ⁺ = c 3 (1 − μ/R²)/(2R), c = 2R² e^ψ/(R² (2 − e^ψ) + μ e^ψ) > 0,
+∂_R θ⁺ = 3 e^ψ/μ at the zero (control: the ingoing normal's expansion has no zero there); the ingoing expansion is
+negative everywhere (R_u < 0). (ii) The approximant. Neither family's fast derivative enters θ± at order λ⁻¹ or λ⁰ (H2:
+they enter only as ½ g0⁻¹(k, dϕ) F tr_S W, and tr_S W_K = 0; control: an outgoing wave with a trace on the spheres gives
+a λ⁰ oscillation in the ingoing expansion). At order λ the outgoing expansion has **no harmonic depending on s2** (H3,
+computed): with both families' stage-0 waves and ĝ_2's mixed harmonics fixed by stage 0's division, the λ¹ coefficient
+of the expansion along g⁻¹ du has, at three sample points (concrete smooth functions, 30 digits), mixed harmonics and
+pure (0, n2) harmonics below 10⁻²⁰, against harmonics in s1 alone of order one. Control: with ĝ_2 dropped the mixed
+harmonics are of order one, so the cancellation is stage 0's division at work (the bilinear term of the two waves'
+second-order area variation against tr_S ĝ_2; a structural proof, presumably through Raychaudhuri's equation along
+ℓ_out with R^(0) = 0, is not written). The stage-1 unknowns add no s2-dependence at order λ (deduced: ĝ_2's pure
+harmonics enter as ½ g0⁻¹(du, dϕ) F tr_S ĝ_2, which vanishes for ϕ = u since g0⁻¹(du, du) = 0 and is a harmonic in s1
+alone for ϕ = v̂; φ1 enters through ½ g0⁻¹(du, dφ1) F tr_S W = 0; m1 carries no phase), and normalising the null
+covector, k_g = c(g)(du + β dv), adds at order λ only s1-dependence (β ∝ g^uu = −λ e^(−4σ) χ_in + O(λ²), c(g) through
+W(ℓ_out, ·) = W_in(ℓ_out, ·)). So θ⁺(g_app) = θ⁺(g0) + λ [Th1] + λ² [E] with Th1 independent of s2 and E a bounded
+two-phase profile; along a column s1 = v̂/λ is constant, so ∂_R(λ [Th1]) = λ [∂_R Th1], and ∂_R(λ² [E]) = λ² [∂_R E] +
+λ (∂_R u)[F2 E] = O(λ). Hence |θ⁺(g_app) − θ⁺(g0)| + |∂_R(θ⁺(g_app) − θ⁺(g0))| ≤ C λ along every column, the record's
+(iii). (iii) The remainder: θ⁺ is smooth in g and linear in ∂g, and ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) (i ≤ 4, section 8 Step
+1) give ≤ C λ^(K−5) ≤ C λ. (iv) The zero: the record's (v), with R_H for √μ and D_T's r_q^♭ (section 2 (f)). ∎
 
-*Proof.* (i) The background. On a column R_v, which carries the sign of θ⁺(g0) (R_u < 0), is strictly decreasing in u
-(R_uv = −e^(2s) μ/R³ < 0, twobg5 G1 (c)), so θ⁺(g0) has at most one zero on each column, and under (H6) it lies in
-region III, where the background is ingoing Vaidya in (v̂, R) with ψ(v̂) ≤ 0. There (H1) θ⁺ = c 3 (1 − μ/R²)/(2R) with c
-= 2R² e^ψ/(R² (2 − e^ψ) + μ e^ψ) > 0, its one zero R² = μ_III is simple with ∂_R θ⁺ = 3 e^ψ/μ_III ≥ 3 e^(ψ_min)/μ_max
-> 0, and the ingoing expansion is −3/R < 0 (control: the ingoing normal's expansion has no zero there). (ii) The
-approximant. Neither family's fast derivative enters θ± at order λ⁻¹ or λ⁰ (H2, computed on the general round
-double-null background with both stage-0 waves: they enter only as ½ g0⁻¹(k, dϕ) F tr_S W, and tr_S W_K = 0; control: an
-outgoing wave with a trace on the spheres gives a λ⁰ oscillation in the ingoing expansion), so θ⁺(g_app) = θ⁺(g0) + λ
-[Th1] + λ² E, E bounded with its X-derivatives. On the band B_δ := {|R − R_H(v̂)| ≤ δ}, δ < δ6, every profile depending
-on s2 vanishes: family out's pure harmonics are transported along ℓ_out, on which u is constant, with data and sources
-supported in u ∈ [u1, u2], and the mixed harmonics are algebraic in products with an outgoing factor (section 4, the
-stage-data bullet). So on B_δ [Th1] depends on s1 = v̂/λ only, constant along the column, and ∂_R [Th1] = [∂_R Th1]: |θ⁺
-(g_app) − θ⁺(g0)| + |∂_R (θ⁺(g_app) − θ⁺(g0))| ≤ C λ on B_δ, and |θ⁺(g_app) − θ⁺(g0)| ≤ C λ everywhere. (iii) The
-remainder: θ⁺ is smooth in g and linear in ∂g, and ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) (i ≤ 4, section 8 Step 1) give ≤ C λ^(K−5)
-≤ C λ. (iv) The zero: the record's (v) with R_H for √μ, D_T's r_q^♭ (section 2 (f)), and the band's monotonicity
-constant 3 e^(ψ_min)/(2 μ_max). ∎
-
-*Why (H6) is needed (computed, H3).* With ĝ_2's mixed harmonics fixed by stage 0's division, the λ¹ coefficient of the
-outgoing expansion has nonzero mixed harmonics where both families are present (12 of them; the largest of order 10 at
-the sample point; control: none without the outgoing family). Along a column u varies (∂_R u = 1/R_u ≠ 0), so λ [Th1]
-contributes (∂_R u) [F2 Th1] = O(1) to ∂_R θ⁺ there: if the packet met the band, the monotonicity in (iv) would need this
-O(1) term, proportional to the product of the two families' amplitudes, below 3 e^ψ/μ. That is a smallness condition
-on the data, not examined; the alternative route the round-1 note named is therefore not free, and placement is used.
-
-*The example (twobg5 G5).* The least over v ≤ 5 of R(u2, v) − √μ_III(v) is 0.6127 at n = 40, 80, 160 (attained at v =
-0), with R_v(u2, v) > 0 throughout; for v ≥ 5 (𝒜 = 0) R grows along the untrapped ray and μ_III is constant (G1 (d)),
-so (H6) holds with δ6 = 0.61. Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge; the
-gap is −0.617 at n = 40 and 80, and (H6) fails.
+*What round 2 first expected, and what was computed.* Round 1 named two routes: keep the packet off the horizon band, or
+bound the outgoing wave's O(1) contribution (∂_R u)[F2 Th1] to ∂_R θ⁺ below 3/μ. The O(1) contribution is computed to
+be zero at stage 0 (H3), so neither is needed. The placement holds in the example anyway (twobg5 G5: R(u2, v) −
+√μ_III(v) ≥ 0.6127 at n = 40, 80, 160, the inner edge untrapped throughout; a heavier shell, amplitude 16, traps it,
+gap −0.617), and is no longer a hypothesis.
 
 ## 10. Item 7 for two families: the mean mass
 
@@ -697,8 +694,8 @@ DM[σ^* m] = DM[m] by naturality (σ fixes g0 and S), so DM[m1] = −DM[m1] = 0 
 O(λ). ∎
 
 **Theorem 1₂ items 6-7.** Item 7 follows for Theorem 1₂ as stated above (deduced; its parity base computed for both
-families and for the mixed stage-0 harmonics). Item 6 follows under (H6) (deduced), which the example satisfies
-(computed) and which a heavier shell violates (computed); without (H6) it is not claimed.
+families and for the mixed stage-0 harmonics). Item 6 follows (section 9, deduced, its decisive cancellation computed
+at three sample points).
 
 ## 11. The verifier's findings (commit 169c9b5) and their dispositions
 
@@ -724,10 +721,13 @@ families and for the mixed stage-0 harmonics). Item 6 follows under (H6) (deduce
 7. (Nit) Off the diamond, u > u2 and v > v_end are Vaidya with mass functions from the diamond's solution. **Repaired**
    in section 2 (a).
 
-**What remains open (precisely).** (i) Item 6 without (H6): the O(1) term (∂_R u)[F2 Th1] of H3 at the band, i.e. a
-bound of the mixed second-order term of the outgoing expansion below 3 e^ψ/μ, or another argument. (ii) An independent
-reading of sections 8-10. (iii) The symbol on R = a beyond the computed rectangle (v > 5) is bounded only by G4's
-analytic rate μ_max/a³, which is far from the measured one. (iv) Part II's non-round background and Part III's
+**What remains open (precisely).** (i) Item 6's decisive cancellation (no harmonic in s2 at order λ in the outgoing
+expansion) is computed at three sample points, not proved for every function: a structural proof (presumably
+Raychaudhuri's equation along ℓ_out with stage 0 solved) is not written. (ii) Item 7's induction past the base (every
+later stage S-symmetric by uniqueness) is deduced, as in the record, not computed. (iii) An independent reading of
+sections 8-10. (iii) The symbol on R = a beyond the computed rectangle (v > 5) is bounded only by G4's
+analytic rate μ_max/a³, which is far from the measured one. (iv) J0-J7 of twodecomp5 are exact at three random points
+of a jet space (strong evidence, not a symbolic identity). (v) Part II's non-round background and Part III's
 non-round Vlasov case, unchanged.
 
 ---
@@ -736,8 +736,8 @@ non-round Vlasov case, unchanged.
 
 Round 1's next step (an independent reading of sections 2 and 5, then Lemma 3.3₂ and Steps 4-6 written, then item 6)
 is done: the reading found no major gap, and Part V writes the rest. Next: an independent verifier on Part V (sections
-8-10 against N1STAR-PROOF.md sections 3-4 and 8, with twodecomp5, twoledger5, twohorizon5 and twoparity5); and, if item
-6 is wanted without (H6), a bound of the mixed term of H3 (section 9).
+8-10 against N1STAR-PROOF.md sections 3-4 and 8, with twodecomp5, twoledger5, twohorizon5 and twoparity5); and a
+structural proof of H3's cancellation (section 9).
 
 ## Files
 
