@@ -6321,6 +6321,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the w part of the commutators, both nonlinear terms within λ^(K+1), the residual within λ^K, the closing); at K = 5,
   the control, |∂w| ≤ C M λ² and the worst nonlinear term fail. Left of verifier 257's list: C7 (the constraint solve's
   scaling) and C9 (Propositions 3.3-3.4 at λ > 0).
+- D604 (computational support, verifier 257's C9; `checks/support5.py` C9, exact): Propositions 3.3-3.4 at λ > 0. The
+  horizon's facts were already computed (horizon5.py H1: the simple zero √μ of θ⁺ with ∂_r θ⁺ = 3/μ; H2-H2b: no λ⁰
+  correction from the wave, χ or m1; H3: no λ⁻¹ in ∂_r along a column). The mean mass needs m1 odd under σ: its source,
+  the λ¹ mean of R^(1) computed by ansatz5.py A5 in its Bondi-type gauge, has only the dv dθ component, and S_vθ(σX) =
+  S_vθ(X), so σ*S = −S, the source is odd, and so is m1 by uniqueness (the gauge-independent argument being mass5.py
+  M2-M4's equivariance). Control: S_vθ cos 2θ is even and fails. With C7 (the constraint solve's λ^(N−2) scaling, a
+  numerical run) the last of verifier 257's list; the constants of the O(λ) remainders are not evaluated, as Theorem 1
+  states.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

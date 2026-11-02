@@ -347,7 +347,34 @@ def c8(control=False):
     return ok
 
 
-CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C5", c5), ("C6", c6), ("C8", c8)]
+def c9(control=False):
+    """Propositions 3.3-3.4 at lam > 0. The horizon (Proposition 3.3) rests on horizon5.py: H1 (theta+ of g0 has the
+    simple zero sqrt(mu), d_r = 3/mu there), H2-H2b (no lam^0 correction from the wave, chi or m1) and H3 (no lam^-1 in
+    the r-derivative along a column), all computed there. The mean mass (Proposition 3.4) needs m1 odd under sigma (th
+    -> pi/2 - th, phi1 <-> phi2; mass5.py M2, M4). m1 solves the sigma-equivariant linear equation with zero data and
+    source the lam^1 mean of R^(1). Computed here in the Bondi-type gauge of ansatz5.py A5 (the gauge-independent
+    argument is mass5.py M2-M4's equivariance with uniqueness), on the record's h: that mean has only the dv dth
+    component S_vth, and S_vth(sigma X) = S_vth(X), so sigma^* S = -S (d th -> -d th): the source is odd, hence m1 by
+    uniqueness. Control: S_vth cos 2th (even under sigma) in place of S_vth."""
+    sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(
+        __file__))))
+    import ansatz5 as a5
+    o = a5.a5()
+    S = o["mean_vth"].subs(a5.Hf, a5.H_REC).doit()
+    if control:
+        S = S * sp.cos(2 * a5.th)
+    only_vth = bool(o["others0"])
+    odd = sp.simplify(S.subs(a5.th, sp.pi / 2 - a5.th) - S) == 0      # sigma^* S = -S for a dv dth component
+    nonzero = sp.simplify(S) != 0
+    if control:
+        return odd
+    print("  C9: m1's source, the lam^1 mean of R^(1) (ansatz5 A5, Bondi-type gauge): only dv dth: %s; nonzero: %s;\n"
+          "      S_vth(sigma X) = S_vth(X), so sigma^* S = -S and m1 is odd: %s (Proposition 3.3's facts: horizon5.py"
+          " H1-H3)" % (only_vth, nonzero, odd), flush=True)
+    return only_vth and nonzero and odd
+
+
+CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C5", c5), ("C6", c6), ("C8", c8), ("C9", c9)]
 
 
 def main():

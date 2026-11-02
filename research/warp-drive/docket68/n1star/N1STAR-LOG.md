@@ -7916,3 +7916,8 @@ induction showing that the waves' oscillating parts vanish once the shell has pa
 **D603 (2026-11-02): the bootstrap's bookkeeping computed.** The counting of powers of the wavelength that makes the
 core estimate close is now a program: each term's power is derived from the stated rules, every condition holds at the
 order the proof uses, and the program shows the counting fails one order lower, as it should.
+
+**D604 (2026-11-02): the mass statement's symmetry computed.** The first-order correction to the mean geometry must
+change sign under a reflection of the sphere for the mass to be unaffected at that order; its source is now computed to
+do so, with a deliberately symmetric control that fails. Of the nine steps the second reader listed, eight are now
+computed; the ninth needs a numerical run.

@@ -5,7 +5,7 @@ C1 PASS
       lam^0: True, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [12s]
 C2 PASS
   C3: P(phi [d_s W]) contracted with l (x) l: no lam^-1 or lower term: True; no second derivative of phi at
-      lam^0: True [33s]
+      lam^0: True [35s]
 C3 PASS
   C4: the shifted ball and its segment stay in the annulus: True; length <= 3 lam and lam inside near
       either sphere: True; b(tau) - a >= 1 on [tau0, tau_end]: True; without |sigma0| <= 1 a point leaves: True
@@ -27,3 +27,6 @@ C6 PASS
   C8: #dPhi = d_v + (f - r_q') d_r; the first-order term is -(chi + m_vv + 2 (f - r_q') m_vr
       + (f - r_q')^2 m_rr), W_TT dropping out exactly: True
 C8 PASS
+  C9: m1's source, the lam^1 mean of R^(1) (ansatz5 A5, Bondi-type gauge): only dv dth: True; nonzero: True;
+      S_vth(sigma X) = S_vth(X), so sigma^* S = -S and m1 is odd: True (Proposition 3.3's facts: horizon5.py H1-H3)
+C9 PASS
