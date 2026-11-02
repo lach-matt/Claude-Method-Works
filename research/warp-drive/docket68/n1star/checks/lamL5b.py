@@ -149,7 +149,7 @@ def rowsums_np(n, imax):
     return res
 
 
-LFAC = {k: iv.log(iv.mpf(math.factorial(k))) for k in range(MM - 5, MM)}
+LFAC = {k: iv.log(iv.mpf(math.factorial(k))) for k in range(MM - 30, MM)}
 
 
 def cds(i, m):

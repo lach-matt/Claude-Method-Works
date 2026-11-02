@@ -8,3 +8,5 @@ Q1 PASS
       (a = 0.5, c_R 2.309): max |I_n| kappa^n/env = 0.99993, max |I_n|/(env min(lam,1/kappa)^n) = 0.99993, max
       |rho_2|/R_2 = 0.9999, max R_2 kappa^(1-a) = 6.9276  [208 s]
 Q2 PASS
+  Q3 every one of 3 carrier periods has timelike and spacelike points, 5 depths x 3 phases x 2 signs of D2: True (30
+      cases)  [1032 s]

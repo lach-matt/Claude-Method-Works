@@ -6,5 +6,5 @@ M1 PASS
 M2 PASS
   M3 row sums = T_n^(i)(1), signs alternating, n = 6, 10, 16, 24 and i <= 4 (50 digits): True; n = 1455: relative errors
       5.7e-12, 1.3e-11, 2.7e-11, 5.6e-11, alternating: True; log10 T_1455^(i)(1), i = 1..4: 6.3257, 12.1743, 17.8011,
-      23.2817  [2 s]
+      23.2817  [1 s]
 M3 PASS
