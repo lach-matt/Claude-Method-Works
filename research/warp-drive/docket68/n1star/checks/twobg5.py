@@ -343,20 +343,19 @@ def main():
     ok = {}
     gk, gctl = g1()
     ok['G1'] = all(gk.values()) and gctl
-    print('  G1: (a) mass fluxes %s, (b) ingoing and outgoing Vaidya off the other dust %s, (c) mu_uv, R_uv, s_uv %s, '
-          '(d) trapping kept along outgoing rays where A = 0 %s; control (B depending on v) fails as it must: %s'
+    print('  G1: (a) mass fluxes %s, (b) ingoing and outgoing Vaidya off the other dust %s, (c) mu_uv, R_uv, s_uv %s,\n'
+          '      (d) trapping kept along outgoing rays where A = 0 %s; control (B depending on v) fails as it must: %s'
           % (gk['a'], gk['b'], gk['c'], gk['d'], gctl), flush=True)
     res = {}
     for n in (40, 80, 160):
         r = measure(n)
         res[n] = r
-        print('    n = %d: mu0 = %.5f, outer mass after the shell %.4f; structure errors (I, III, before, after) %s; '
-              'min(mu - mu0) on R >= a %.2e; R = a: %d of %d columns v <= 2, trapped %s, min mu - a^2 %.4f; '
-              'mu_III >= %.5f; '
-              'past-closedness '
-              'margin %.2e; diamond: min R %.3f, untrapped %s, max mu %.4f; Sigma_tau0: packet at R in [%.3f, %.3f], '
-              'horizon %.3f, shell from R = %.3f (rule %s); |g^-1(dvhat, du)| in [%.4f, %.4f] where R^2 >= 1.5 mu, '
-              'least %.4f over every computed cell, on R = a at v = 0.5, 1, 1.5: %s'
+        print('    n = %d: mu0 = %.5f, outer mass after the shell %.4f; structure errors (I, III, before, after) %s;\n'
+              '      min(mu - mu0) on R >= a %.2e; R = a: %d of %d columns v <= 2, trapped %s, min mu - a^2 %.4f;\n'
+              '      mu_III >= %.5f; past-closedness margin %.2e; diamond: min R %.3f, untrapped %s, max mu %.4f;\n'
+              '      Sigma_tau0: packet at R in [%.3f, %.3f], horizon %.3f, shell from R = %.3f (rule %s);\n'
+              '      |g^-1(dvhat, du)| in [%.4f, %.4f] where R^2 >= 1.5 mu, least %.4f over every computed cell (not\n'
+              '      converged: G4), on R = a at v = 0.5, 1, 1.5: %s'
               % (n, r['mu0'], r['muend'], ' '.join('%.1e' % x for x in r['struct']), r['minmu'], *r['inner'],
                  r['muIII'], r['pastc'], *r['diamond'], *r['sigma'], *r['symbol'][:3],
                  ' '.join('%.4f' % x for x in r['symbol'][3])), flush=True)
@@ -376,8 +375,9 @@ def main():
             and all(abs(x - y) < 0.01 * y for x, y in zip(s8[3], s16[3]))
             and all(x > y > 0 for x, y in zip(s16[3][:-1], s16[3][1:])))
     ok['G2'] = struct and massb and inner and pastc and diam and sig and symb
-    print('  G2: structure (Vaidya off the diamond, errors falling) %s; mu >= mu0 %s; R = a trapped with mu > a^2 %s; '
-          'past-closed %s; diamond untrapped above R = a %s; Sigma_tau0 as stated %s; mixed symbol bounded below %s'
+    print('  G2: structure (Vaidya off the diamond, errors falling) %s; mu >= mu0 %s; R = a trapped with mu > a^2 %s;\n'
+          '      past-closed %s; diamond untrapped above R = a %s; Sigma_tau0 as stated %s; the symbol off the trapped\n'
+          '      region stable and on R = a converged %s'
           % (struct, massb, inner, pastc, diam, sig, symb), flush=True)
     # G3: the outer data cone (round 2, the verifier's item 1)
     r3 = g3(res[160]['grid'])
@@ -404,12 +404,13 @@ def main():
     mu_max = max(res[160]['muend'], res[160]['mu0'])
     print('  G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: %s at n = 40, 80, 160: NOT converged\n'
           '      (each finer grid reaches further into the late-v strip near R = a, where the grid thins). Resolved on\n'
-          '      R = a by region III\'s rays (n = 160 coefficients): %s;\n'
+          '      R = a by region III\'s rays (n = 160 coefficients):\n      %s\n      %s;\n'
           '      agrees with the grid at v = 0.5, 1, 1.5 to 1 %%: %s; n = 80 vs 160 coefficients agree to 2 %%: %s;\n'
           '      positive and decreasing in v: %s; decay rate per unit v %s (redshift; the analytic bound\n'
           '      d ln(sym)/dvhat >= -psi\' - mu_max/a^3 = -psi\' - %.2f on R >= a gives a positive lower bound on Omega)'
           % (' '.join('%.4f' % x for x in least),
-             ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160]), agree, conv, mono,
+             ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160][:5]),
+             ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160][5:]), agree, conv, mono,
              ' '.join('%.2f' % x for x in rates), mu_max / AA**3), flush=True)
     print('  G4 control: the same rays without the redshift term (d ln|R_u|/dv := 0) give %s on R = a at v = 0.5, 1,\n'
           '      1.5 against the grid\'s %s: agreement %s (it must fail)'
@@ -426,8 +427,8 @@ def main():
     ok['G5'] = g5
     c = {n: measure(n, sign=-1.0)['minmu'] for n in (40, 80)}
     ctl = c[80] < -0.05 and abs(c[80] - c[40]) < 0.2 * abs(c[80])
-    print('  control (B -> -B): min(mu - mu0) = %.4f (n = 40), %.4f (n = 80): the bound fails, not a discretisation '
-          'effect: %s' % (c[40], c[80], ctl), flush=True)
+    print('  control (B -> -B): min(mu - mu0) = %.4f (n = 40), %.4f (n = 80): the bound fails, not a discretisation\n'
+          '      effect: %s' % (c[40], c[80], ctl), flush=True)
     ok['control'] = ctl
     global AAMP
     keep, AAMP = AAMP, 16.0

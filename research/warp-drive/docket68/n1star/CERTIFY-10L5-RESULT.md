@@ -166,8 +166,9 @@ r_AH(growth5)| over growth5's 17 columns:
 
 M = 16 except where stated. The 200-row grid has no column at 1.375 (its nearest is 1.35). S4's per-run threshold of
 0.1 therefore fails on the two 800 × 360 runs at v = 1.375; the truncation test S6 below is the criterion that
-matters. `checks/secondzero5.out` accordingly ends in FAILURES three times: S4 on the two 800-row seed-1 runs, and S4
-at seed 2, where its control passes. S1–S3 pass in all eight runs.
+matters. `checks/secondzero5.out` accordingly ended in FAILURES three times in round 1: S4 on the two 800-row seed-1
+runs, and S4 at seed 2, where its control passes. S1–S3 pass in all eight runs. [Round 2, V4: S4 is now report-only
+and S6 is the gate; the regenerated `secondzero5.out` carries no S4 verdict, section 6.1.]
 
 - **What the difference is.** At fixed R0 = 10 the difference does not fall with resolution: it is 0.081 and 0.110 at
   v = 1.375 on 400 and 800 rows, and M = 24 changes nothing to three digits. At fixed resolution it falls by a factor
