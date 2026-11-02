@@ -9,8 +9,9 @@ readings cited at each item); READ (delta_50 from checks/eindcert5.out I1, the f
      ones they cannot decide listed with the missing input.
   W2 (certified) (G) through the generators pi_1 E^C_I of Lambda (I11 Definition 1.1): with the increments d1 and 1
      only, the least value of Re lambda above 2 or 3 over the chains of {lambda_sharp, 2, 3} reproduces LOSS-D LD9 G7's
-     5.02e-8; the points of the least E^C_I of III.C Definition 3.1 (contained in every admissible E^C_I) add 24 chains
-     and lower nothing: (G) does not bind on these generators, eps_ind stays the binding cap.
+     5.02e-8; the points of the least E^C_I of III.C Definition 3.1 (contained in every admissible E^C_I) add 23 chains
+     (24 in round 1, which counted lambda_sharp + 1's twice; Round 3 corrects this stale line, the verifier's nit) and
+     lower nothing: (G) does not bind on these generators, eps_ind stays the binding cap.
   W3 (exact) the loop counts at these weights by an exact floor-sum: the beta-levels, the tf rounds of III.I'''''''' Step
      3.4' at the levels below 3 and the level-3 rounds of III.I''''''''''''' at the levels above 3; the floor 3 x rounds.
   W4 (certified) the per-level ceilings on the construction's reading: iota+ rounds, N_*, and the level-2 container

@@ -1,0 +1,5 @@
+  H1: one outgoing null covector dR + alpha dvhat, alpha = [(-R**2 + mu(vhat))*exp(psi(vhat))/(2*R**2)];
+      theta+ = c 3 f/(2R) with c = 2*R**2*exp(psi(vhat))/(2*R**2 - (R**2 - mu(vhat))*exp(psi(vhat)));
+      zero at R^2 = mu: True; there d_R theta+ = 3*exp(psi(vhat))/R**2 = 3 c/mu with c = exp(psi(vhat));
+      ingoing (k = dvhat, n(tau) = -exp(-psi(vhat))): theta- = -3/R: True
+  H1 control (the ingoing normal): its expansion vanishes at R^2 = mu: False (it must not)
