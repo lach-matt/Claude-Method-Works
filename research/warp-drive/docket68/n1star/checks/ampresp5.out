@@ -2,3 +2,9 @@
 A1 region: 48322 cells (v in [0.5, 1.65), areal radius >= 1.0, kept by all three runs); data step sup 2.258e-03
    P   : sup |g(1) - g(7/8)| 1.618e-02 -> F_low 7.17;  sup |second difference| 3.987e-04 -> G_low 78.2
    Q   : sup |g(1) - g(7/8)| 2.069e-02 -> F_low 9.16;  sup |second difference| 6.779e-04 -> G_low 133
+   W   : sup |g(1) - g(7/8)| 2.000e-02 -> F_low 8.86;  sup |second difference| 1.950e-03 -> G_low 382
+   logR: sup |g(1) - g(7/8)| 3.007e-03 -> F_low 1.33;  sup |second difference| 4.390e-04 -> G_low 86.1
+A1 overall: F_low = 9.16, G_low = 382
+   control (second difference of the data, linear in A): 2.04e-12 -> fails (good)
+A2 closing condition at F_low, G_low, T = 10: delta + int eps < 7.788e-07; the record's residual 2.5e-3 is 3.21e+03 times that (a lower bound on the gap; in dnsolve5's formulation the gap is infinite, symbol5.py Y3)
+ampresp5: all checks pass
