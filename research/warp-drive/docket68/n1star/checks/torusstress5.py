@@ -20,14 +20,22 @@ divergence form, sqrt|h| box_h f = d_a(sqrt|h| h^ab d_b f).
      = sum w p_phi^2: zero exactly when every momentum in the support has p_phi1 = p_phi2 = 0. With V1: in the class,
      a Burnett limit that is massless Vlasov has its measure on the momenta tangent to the orbit space (the 5D T^2
      analogue of [HL19] Definition 2.7's restricted system).
-  V3 (exact) on a round (SO(4)-invariant) background, at a point the isotropy SO(3) acts on the angular part of p by
-     rotations of R^3; the set {p_phi1 = p_phi2 = 0} meets it in the line spanned by e_th, and a rotation moves e_th off
-     that line: an SO(3)-invariant measure supported in the line is supported at 0. So a round limit's measure is on
-     radial momenta.
+  V3 (exact; corrected 2026-11-02, round 2, the verifier's item 2) a round background gives a round stress tensor, not
+     an invariant measure, so the argument uses T alone. (a) Schur: a symmetric bilinear form on the tangent space of
+     S^3 at a point that commutes with the isotropy so(3) (generators J_1, J_2, J_3 in an orthonormal frame (e_th, e_p1,
+     e_p2)) is a multiple of the identity: solving [S, J_i] = 0 for a general symmetric S leaves S = c I. So T's
+     angular block is c gamma, and T_(th th) = T_(p1 p1) = T_(p2 p2) in that frame. (b) With V2's T_(p p) = 0, c = 0,
+     so int p_th^2 d mu = T_(th th) = 0: for a positive measure (weights w_i > 0) the quadratic form sum w_i p_th,i^2
+     has Hessian diag(2 w_i), positive definite, so p_th = 0 on the support. The momenta are radial.
+     Example: a measure with p_p = 0 and one momentum with p_th != 0 has T_(th th) > 0 = T_(p1 p1): not round.
+     Control (must fail): without V2, roundness alone does not give p_th = 0: the measure with equal weights on
+     +-e_th, +-e_p1, +-e_p2 (null, with p_r = 0) has a round angular block with T_(th th) > 0, so 'round => T_(th th)
+     = 0' is false for it.
   V4 (exact) radial null momenta at a point of Vaidya are multiples of dv or of the outgoing radial covector k_out, so a
      radial massless Vlasov measure has T = (int E^2 df_in) dv dv + (int E^2 df_out) k_out k_out: the stress of two null
      dusts, one ingoing and one outgoing (and radial momenta stay radial along radial geodesics).
-     Control: a null momentum with p_th != 0 gives T_(th th) > 0, not of that form.
+     Control (computed, must fail): the measure of V4 with one more momentum carrying p_th != 0 has a stress whose
+     (th th) component is positive, so it is not of the two-dust form (whose angular block vanishes).
 
 So inside the class, round massless Vlasov limits are exactly the two-dust limits of part I. Labels: computed (exact,
 sympy); the weak-limit step deduced. Run: python3 checks/torusstress5.py   (seconds)
@@ -102,13 +110,34 @@ def v2_v4(seed=5):
     moms_bad = moms_orbit[:4] + [null(1, 0, sp.Rational(1, 2), 0)]
     Tb = T(moms_bad)
     v2b = Tb[3][3] > 0
-    # V3: a rotation about e_phi2 moves e_th off span(e_th) (angular momentum space R^3 = span(e_th, e_phi1, e_phi2))
-    al = sp.Rational(1, 3)
-    c, s = (1 - al**2) / (1 + al**2), 2 * al / (1 + al**2)
-    Rot = sp.Matrix([[c, -s, 0], [s, c, 0], [0, 0, 1]])
-    eth = sp.Matrix([1, 0, 0])
-    img = Rot * eth
-    v3 = img[1] != 0 or img[2] != 0
+    # V3 (a): Schur for so(3) on the angular tangent space, orthonormal frame (e_th, e_p1, e_p2)
+    Ss = sp.Matrix(3, 3, lambda a, b: sp.Symbol("S%d%d" % (min(a, b), max(a, b))))
+    Js = [sp.Matrix([[0, 0, 0], [0, 0, -1], [0, 1, 0]]), sp.Matrix([[0, 0, 1], [0, 0, 0], [-1, 0, 0]]),
+          sp.Matrix([[0, -1, 0], [1, 0, 0], [0, 0, 0]])]
+    eqs = [e for J in Js for e in (Ss * J - J * Ss)]
+    sol = sp.solve(eqs, sorted(Ss.free_symbols, key=str), dict=True)
+    Sinv = Ss.subs(sol[0]) if sol else None
+    schur = Sinv is not None and sp.simplify(Sinv - Sinv[0, 0] * sp.eye(3)) == sp.zeros(3)
+    # V3 (b): with T_(p1 p1) = 0 the round block is 0, so sum w p_th^2 = 0; the form is positive definite
+    nw = 5
+    wv = sp.symbols("w0:%d" % nw, positive=True)
+    pth = sp.symbols("q0:%d" % nw, real=True)
+    form = sum(w * q**2 for w, q in zip(wv, pth))
+    Hs = sp.hessian(form, pth)
+    posdef = all(sp.simplify(Hs[i, i] - 2 * wv[i]) == 0 for i in range(nw)) and \
+        all(Hs[i, j] == 0 for i in range(nw) for j in range(nw) if i != j)
+    # example: p_p = 0, one momentum with p_th != 0: T_thth > 0 = T_p1p1 -> not round
+    moms_ex = moms_orbit[:4] + [null(sp.Rational(1, 3), sp.Rational(1, 2), 0, 0)]
+    Tex = T(moms_ex)
+    notround = Tex[2][2] > 0 and Tex[3][3] == 0
+    # control: no V2 premise; equal weights on +-e_th, +-e_p1, +-e_p2 (null, p_r = 0): round block, T_thth > 0
+    iso = [null(0, s_ * 1, 0, 0) for s_ in (1, -1)] + [null(0, 0, s_ * 1, 0) for s_ in (1, -1)] + \
+        [null(0, 0, 0, s_ * 1) for s_ in (1, -1)]
+    Tiso = [[sum(p[a] * p[b] for p in iso) for b in range(5)] for a in range(5)]
+    blk = sp.Matrix(3, 3, lambda a, b: Tiso[a + 2][b + 2])
+    iso_round = sp.simplify(blk - blk[0, 0] * sp.eye(3)) == sp.zeros(3)
+    v3_ctl_implication = (not iso_round) or Tiso[2][2] == 0                     # 'round => T_thth = 0' on it
+    v3 = schur and posdef and notround and not v3_ctl_implication
     # V4: radial null covectors at a point of Vaidya, in (tau, r): eta^-1 - (mu/r^2) L0 L0; the stress of radial ones
     mu, r = sp.symbols('mu r', positive=True)
     ginv = sp.Matrix([[-1, 0], [0, 1]]) - (mu / r**2) * sp.Matrix([[1, -1], [-1, 1]])
@@ -121,9 +150,16 @@ def v2_v4(seed=5):
         sum((E[i]**2 * kout * kout.T for i in range(3, 6)), sp.zeros(2, 2))
     two = sp.simplify(Tr - (sum(e**2 for e in E[:3]) * kin * kin.T + sum(e**2 for e in E[3:]) * kout * kout.T))
     v4 = two == sp.zeros(2, 2) and len(sols) == 2
-    # control: a non-radial null momentum has T_thth > 0
-    ctl = null(1, sp.Rational(1, 2), 0, 0)[2]**2 > 0
-    return v2a and v2b, v3, v4, ctl
+    # control: the V4 measure with one momentum carrying p_th != 0 (orthonormal frame at the point; the radial plane
+    # Minkowski there): its stress has T_(th th) > 0, so it is not two-dust (whose angular block vanishes)
+    rad = [null(1, 0, 0, 0)] * 3 + [null(-1, 0, 0, 0)] * 3
+    Wv = [E[i]**2 for i in range(6)]
+    Trad = [[sum(w * p[a] * p[b] for w, p in zip(Wv, rad)) for b in range(5)] for a in range(5)]
+    extra = null(sp.Rational(2, 5), sp.Rational(3, 7), 0, 0)
+    Tbad = [[Trad[a][b] + extra[a] * extra[b] for b in range(5)] for a in range(5)]
+    two_dust_rad = all(Trad[a][b] == 0 for a in range(2, 5) for b in range(5))
+    ctl = not (two_dust_rad and all(Tbad[a][b] == 0 for a in range(2, 5) for b in range(5)))   # True: rejected
+    return v2a and v2b, (v3, schur, posdef, notround, iso_round, Tiso[2][2]), v4 and two_dust_rad, ctl
 
 
 def main():
@@ -133,9 +169,15 @@ def main():
           'control (h^ab d_a d_b f) acquires a mean term: %s' % (lm1, mean_ok, quad_ok, ctl1), flush=True)
     v2, v3, v4, ctl4 = v2_v4()
     print('  V2: T_(phi phi) = 0 exactly for a measure on momenta with p_phi = 0, > 0 once one has p_phi != 0: %s' % v2)
-    print('  V3: a rotation of the isotropy SO(3) moves e_th off its line: %s' % v3)
+    v3, schur, posdef, notround, iso_round, tiso = v3
+    print('  V3: (a) an so(3)-commuting symmetric form on the angular space is c I (Schur): %s; (b) sum w p_th^2 has '
+          'Hessian diag(2 w), positive definite: %s; a measure with p_p = 0 and one p_th != 0 is not round: %s'
+          % (schur, posdef, notround))
+    print('  V3 control: without V2, the isotropic angular measure is round (%s) with T_thth = %s > 0, so round alone '
+          'does not give p_th = 0: rejected %s' % (iso_round, tiso, v3))
     print('  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: %s; '
-          'control (p_th != 0 gives T_thth > 0): %s' % (v4, ctl4), flush=True)
+          'control (one momentum with p_th != 0 added: T_thth > 0, not two-dust) rejected: %s' % (v4, ctl4),
+          flush=True)
     ok = {'V1': lm1 and mean_ok and quad_ok and ctl1, 'V2': v2, 'V3': v3, 'V4': v4 and ctl4}
     for kname, val in ok.items():
         print(kname, 'PASS' if val else 'FAIL')
