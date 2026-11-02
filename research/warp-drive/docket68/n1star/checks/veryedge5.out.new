@@ -1,3 +1,5 @@
   V1 dRic^H(H) + i T(d_v H) free of v-derivatives (15 components): True; dD(H) - Pol(d_v H) free of v-derivatives (5):
       True; g0^-1(dv, dv) = 0 while g0^-1 of dv + dr/5 is -mu0/(25*r**2) + 11/25  [89 s]
 V1 PASS
+  V2 model, j <= 9: c_(j,j-2) = i^(j-2) c_(2,0) and c_(j,j-3) = (j-2) i^(j-3) c_(3,0) in every component, slice data:
+      True, data from infinity: True; frozen control: False; data carrying i d_v of the wave: False
