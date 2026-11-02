@@ -13,3 +13,4 @@ S4 PASS
   S5: r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', True), ('1', True)]
   S5 control (chi(t), t = T + r): r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', False), ('1', False)]
 S5 PASS
+  S6: r^(p+2) [Box, chi] Z finite at fixed R = r/T, (p, finite): [('2', True), ('5/2', True)]
