@@ -26,3 +26,18 @@
       inside the domain, the verifier's case (rejected, as it must be). Moving N out inside region I
       (explicit ingoing Vaidya, the same solution there): from R = 7.505 at v = 0 the cone has R - b >= 1.010
       on all of [tau0, tau_end] (1.010 at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: True
+  G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: 0.1312 0.0713 0.0422 at n = 40, 80, 160: NOT converged
+      (each finer grid reaches further into the late-v strip near R = a, where the grid thins). Resolved on
+      R = a by region III's rays (n = 160 coefficients):
+      v = 0.5: 8.921e-01 v = 1.0: 4.465e-01 v = 1.5: 2.401e-01 v = 2.0: 1.337e-01 v = 2.5: 7.582e-02
+      v = 3.0: 4.341e-02 v = 3.5: 2.656e-02 v = 4.0: 2.117e-02 v = 4.5: 1.833e-02 v = 4.9: 1.555e-02;
+      agrees with the grid at v = 0.5, 1, 1.5 to 1 %: True; n = 80 vs 160 coefficients agree to 2 %: True;
+      positive and decreasing in v: True; decay rate per unit v 1.38 1.24 1.17 1.13 1.12 0.98 0.45 0.29 0.41 (redshift; the analytic bound
+      d ln(sym)/dvhat >= -psi' - mu_max/a^3 = -psi' - 10.51 on R >= a gives a positive lower bound on Omega)
+  G4 control: the same rays without the redshift term (d ln|R_u|/dv := 0) give 2.0159 1.9365 1.8789 on R = a at v = 0.5, 1,
+      1.5 against the grid's 0.8920 0.4464 0.2400: agreement False (it must fail)
+  G5: min over v <= 5 of R(u2, v) - sqrt(mu_III(v)) (the packet's inner edge against its columns'
+      background horizon), at n = 40, 80, 160: 0.6127 0.6127 0.6127 (attained at v = 0.00 0.00 0.00); the inner edge untrapped
+      (R_v > 0) at every v: True; positive and converged: True
+  control (B -> -B): min(mu - mu0) = -0.6479 (n = 40), -0.6480 (n = 80): the bound fails, not a discretisation
+      effect: True
