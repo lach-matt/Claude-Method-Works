@@ -127,6 +127,9 @@ def h2(control=False):
     base = theta_series(S0, sp.zeros(5), top=0)
     nolm1 = all(zero(res[k][-1]) for k in res)
     l0 = {k: zero(res[k][0] - base[k][0]) for k in res}
+    # the background: along g0^-1 du = -e^(-2 sig) d_v the expansion is -3 e^(-2 sig) R_v/R (R_v carries its sign)
+    bg = zero(base["out"][0] + 3*sp.exp(-2*S0.sig)*sp.diff(S0.Rf, S0.v)/S0.Rf)
+    l0["bg"] = bg
     return nolm1, l0
 
 
@@ -244,12 +247,12 @@ def main():
     ok["H1"] = good1 and not r["ctl"]
     nolm1, l0 = h2()
     cn, cl0 = h2(control=True)
-    print("  H2: both families: no lam^-1 term in either expansion: %s; lam^0 term equal to g0's: out %s, in %s"
-          "  [%.0f s]"
-          % (nolm1, l0["out"], l0["in"], time.time() - t0), flush=True)
+    print("  H2: g0's expansion along g0^-1 du is -3 e^(-2 sig) R_v/R: %s; both families: no lam^-1 term in either\n"
+          "      expansion: %s; lam^0 term equal to g0's: out %s, in %s  [%.0f s]"
+          % (l0["bg"], nolm1, l0["out"], l0["in"], time.time() - t0), flush=True)
     print("  H2 control (the outgoing wave with a trace on the spheres): lam^0 equal to g0's: out %s, in %s (the in\n"
           "      expansion must fail)  [%.0f s]" % (cl0["out"], cl0["in"], time.time() - t0), flush=True)
-    ok["H2"] = nolm1 and l0["out"] and l0["in"] and cl0["out"] and not cl0["in"]
+    ok["H2"] = nolm1 and l0["out"] and l0["in"] and l0["bg"] and cl0["out"] and not cl0["in"]
     r3 = h3()
     for (mixed, pure2, pure1, lm1, l0), k_ in zip(r3, range(1, 4)):
         print("  H3 point %d: lam^-1 term %.1e; lam^0 oscillation %.1e; lam^1 harmonics depending on s2: mixed %.1e,\n"
