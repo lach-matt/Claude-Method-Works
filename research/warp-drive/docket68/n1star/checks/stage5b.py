@@ -46,7 +46,8 @@ lead5 (R^(-1) = 0, R^(0) = lead5's R^(0)[W] - (1/2) e1 d_s^2 W, stage5 S1 (b)) a
      of m1. Not computed: the couplings of m1's equation to <Th g2> and <Wm_phi(d phi1)>. Controls: the k = 2 sector
      must not be sigma-odd; for (iv), one quadrature (the sin s term of W_TT removed) must break the equivariance.
 
-Labels: computed (exact, sympy). Run: python3 checks/stage5b.py [B1 B2 B3]   (the record's .out is a full run)
+Labels: computed (exact, sympy). Run: python3 checks/stage5b.py [B1 B2 B3]   (about 11 minutes; the record's .out is
+a full run)
 """
 import os
 import sys
