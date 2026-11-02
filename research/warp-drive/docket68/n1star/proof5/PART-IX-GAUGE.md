@@ -205,30 +205,36 @@ $\Sigma_{\mathrm{IVP}}$ for every small $s$. The induced data are smooth functio
 $\Sigma_{\mathrm{IVP}}$, whose $s$-derivative at 0 is that of $\mathcal L_Xg$. So the derivative of the data, which is
 the data induced by $\mathcal L_Xg$, vanishes. $\square$
 
-**Theorem 2.2 (linearised vacuum solutions with gauge-equivalent data are gauge-equivalent).** Let $U\subset N^\circ$ be
-open, $\Sigma_U := \Sigma_{\mathrm{IVP}}\cap U$, and $\Omega' := D_U(\Sigma_U)$. Let $k$ be a smooth symmetric 2-tensor
-on $\Omega'$ with $D\mathrm{Ric}(k) = 0$, inducing on $\Sigma_U$ the linearised data that $\mathcal L_Zg$ induces, for a
-smooth vector field $Z$ on a neighbourhood of $\Sigma_U$ in $\Omega'$ ($Z = 0$: zero data). Then there is a smooth
-vector field $X$ on $\Omega'$ with
-$$k = \mathcal L_Xg\quad\text{on }\Omega'.$$
-$X$ is unique up to a Killing field of $g$ on $\Omega'$.
+**Theorem 2.2 (linearised vacuum solutions with gauge-equivalent data are gauge-equivalent).** Let $U\subset U^\sharp$
+be open, $\Omega' := D_U(\Sigma_U)$ and $\Omega'_+ := \Omega'\cap\{t_{\mathrm{IVP}}\ge0\}$, a manifold with boundary
+$\Sigma_U$. Let $k$ be a symmetric 2-tensor on $\Omega'_+$, smooth up to $\Sigma_U$ (section 0), with $D\mathrm{Ric}(k)
+= 0$, inducing on $\Sigma_U$ the linearised data that $\mathcal L_Zg$ induces, for a vector field $Z$ on a
+neighbourhood of $\Sigma_U$ in $\Omega'_+$, smooth up to $\Sigma_U$ ($Z = 0$: zero data). Then there is a vector field
+$X$ on $\Omega'_+$, smooth up to $\Sigma_U$, with
+$$k = \mathcal L_Xg\quad\text{on }\Omega'_+.$$
+$X$ is unique up to a Killing field of $g$ on $\Omega'_+$.
 
-*Proof.* $\Omega'$ is globally hyperbolic with smooth spacelike Cauchy hypersurface $\Sigma_U$ (Lemma 1.2). Uniqueness
-up to Killing fields is $\mathcal L_{X-X'}g = 0$.
+*Proof.* $\Omega'$ is globally hyperbolic with smooth spacelike Cauchy hypersurface $\Sigma_U$ (Lemma 1.2), and the
+data of a tensor smooth up to $\Sigma_U$ are defined from one side (Part VIII Lemma 1.1 allows this). Uniqueness up to
+Killing fields is $\mathcal L_{X-X'}g = 0$.
 
-*Step 0 (zero data).* Let $W$ be the neighbourhood of $\Sigma_U$ where $Z$ is defined, and $\psi\in C^\infty(\Omega')$
-equal 1 near $\Sigma_U$ with $\mathrm{supp}_{\Omega'}\psi\subset W$ (smooth Urysohn: $\Sigma_U$ is closed in
-$\Omega'$). $k_0 := k-\mathcal L_{\psi Z}g$ has $D\mathrm{Ric}(k_0) = 0$
-(Lemma 2.1 (b)), and it induces zero data: those of $\mathcal L_{\psi Z}g$ and $\mathcal L_Zg$ agree, as $\psi Z = Z$
-near $\Sigma_U$. If $k_0 = \mathcal L_{X_0}g$, then $k = \mathcal L_{X_0+\psi Z}g$. So assume $Z = 0$.
+*Step 0 (zero data).* Let $W = \tilde W\cap\Omega'_+$, $\tilde W$ open in $\Omega'$, be the neighbourhood of
+$\Sigma_U$ where $Z$ is defined, and $\tilde\psi\in C^\infty(\Omega')$ equal 1 near $\Sigma_U$ with
+$\mathrm{supp}_{\Omega'}\tilde\psi\subset\tilde W$ (smooth Urysohn: $\Sigma_U$ is closed in $\Omega'$); $\psi :=
+\tilde\psi|_{\Omega'_+}$. $k_0 := k-\mathcal L_{\psi Z}g$ has $D\mathrm{Ric}(k_0) = 0$ (Lemma 2.1 (b)), and it induces
+zero data: those of $\mathcal L_{\psi Z}g$ and $\mathcal L_Zg$ agree, as $\psi Z = Z$ near $\Sigma_U$. If $k_0 =
+\mathcal L_{X_0}g$, then $k = \mathcal L_{X_0+\psi Z}g$. So assume $Z = 0$.
 
 *Step 1 (the gauge vector field).* Zero data means $k(e_i,e_j) = 0$ on $\Sigma_U$ ($\dot\gamma = 0$) and $\dot K =
 0$. Let $Y$ be Lemma 2.1 (e)'s vector field on $\Sigma_U$, smooth, as $Y^\flat = k(\nu,\cdot)+\frac12k(\nu,\nu)
-\nu^\flat$. By Lemma 1.1, with $P := 2\delta_gG_g\delta^*_g$ or its negative (Lemma 2.1 (a)), there is a smooth 1-form
-$w$ on $\Omega'$ with
-$$2\delta_gG_g\delta^*_gw = \Theta(k),\qquad w|_{\Sigma_U} = 0,\qquad\nabla_\nu w|_{\Sigma_U} = Y^\flat.$$
-Put $X := w^\sharp$. Then $\Theta(\mathcal L_Xg) = \Theta(2\delta^*_gw) = \Theta(k)$, and $X = 0$, $\nabla_\nu X = Y$
-on $\Sigma_U$.
+\nu^\flat$. $\Theta(k)$ is a 1-form on $\Omega'_+$, smooth up to $\Sigma_U$. Let $F$ be a smooth 1-form on $\Omega'$
+with $F = \Theta(k)$ on $\Omega'_+$: section 0 extends $\Theta(k)$ to an open neighbourhood $V$ of $\Omega'_+$ in
+$\Omega'$, and a smooth function equal to 1 on the closed set $\Omega'_+$ with support in $V$ (smooth Urysohn) extends
+it by 0 beyond. By Lemma 1.1 on $\Omega'$, with $P := 2\delta_gG_g\delta^*_g$ or its negative (Lemma 2.1 (a)), there is
+a smooth 1-form $w$ on $\Omega'$ with
+$$2\delta_gG_g\delta^*_gw = F,\qquad w|_{\Sigma_U} = 0,\qquad\nabla_\nu w|_{\Sigma_U} = Y^\flat.$$
+Put $X := w^\sharp|_{\Omega'_+}$. Then $\Theta(\mathcal L_Xg) = \Theta(2\delta^*_gw) = F = \Theta(k)$ on $\Omega'_+$,
+and $X = 0$, $\nabla_\nu X = Y$ on $\Sigma_U$.
 
 *Step 2 (the difference has vanishing Cauchy data).* Let $h := k-\mathcal L_Xg$.
 
