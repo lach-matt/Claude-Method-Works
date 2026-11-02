@@ -2,20 +2,3 @@
   W1 (i, m) = (3, 6): C = 213, max over the grid of lhs/rhs = 0.017582
   W1 (i, m) = (2, 8): C = 5302829/45, max over the grid of lhs/rhs = 2.7295e-5
   W1 control (i, m) = (1, 6): C = 47131/15, max over the grid of lhs/rhs = 3.1826
-  W1 control (i, m) = (3, 6): C = 213, max over the grid of lhs/rhs = 4.416e+9
-  W1 control (i, m) = (2, 8): C = 5302829/45, max over the grid of lhs/rhs = 831.63
-W1 PASS
-  W2 exp(-1/x)              rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 7.77e+17, 5.81e+6, 3.72, 2.4e-14; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 exp(-1/x^2)            rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 3.64e+8, 1.12e+4, 0.00255, 5.79e-18; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 exp(-1/x) sin^2(pi/x)  rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 5.29e+20, 1.82e+9, 3.79e+3, 2.4e-9; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 control y = lam^2 exp(-1/x)              rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 1.44e+15, 4.44e+18, 2.17e+22, 1.11e+31; window in [y/2, 2y] and in the layer: [True, True, True, True]
-  W2 control y = lam^2 exp(-1/x^2)            rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 1.33e+13, 6.23e+15, 3.62e+18, 1.11e+31; window in [y/2, 2y] and in the layer: [True, True, True, True]
-  W2 control y = lam^2 exp(-1/x) sin^2(pi/x)  rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 8.78e+19, 1.35e+23, 1.52e+27, 1.6e+31; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 control K = 0 exp(-1/x)              rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: +inf, +inf, +inf, +inf; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 control K = 0 exp(-1/x^2)            rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: +inf, +inf, +inf, +inf; window in [y/2, 2y] and in the layer: [False, True, True, True]
-  W2 control K = 0 exp(-1/x) sin^2(pi/x)  rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: +inf, +inf, +inf, +inf; window in [y/2, 2y] and in the layer: [False, True, True, True]
-W2 PASS
-  W3 p = 14, m = 56 M, N - k0 = 4: e1 m0 = O(y^2) True; e2 lam^4 e_M True; e3 quadratic parts True; e4 the remainder w True; e5 Landau window True; e6 L.4's hypothesis True
-  W3 control N - k0 = 3: (e4) holds: False
-W3 PASS
-layerwin5: all checks pass, every control fails

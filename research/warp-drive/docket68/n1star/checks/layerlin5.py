@@ -56,6 +56,14 @@ import sys
 import time
 
 import sympy as sp
+import builtins                                                                   # noqa: E402
+import textwrap                                                                   # noqa: E402
+
+
+def print(*args, **kw):                                                           # noqa: A001
+    """the builtin print, wrapped at 121 columns (Round 3: every file within 121 characters)"""
+    builtins.print(textwrap.fill(" ".join(str(a) for a in args), width=121, subsequent_indent="      ",
+                                 break_on_hyphens=False), **kw)
 
 v, r, th, p1, p2 = sp.symbols('v r theta phi1 phi2', real=True)
 mu0, lam, A, r0 = sp.symbols('mu0 lam A r0', positive=True)

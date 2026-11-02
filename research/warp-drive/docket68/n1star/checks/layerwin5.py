@@ -33,6 +33,14 @@ from fractions import Fraction as Fr
 
 import mpmath as mp
 import sympy as sp
+import builtins                                                                   # noqa: E402
+import textwrap                                                                   # noqa: E402
+
+
+def print(*args, **kw):                                                           # noqa: A001
+    """the builtin print, wrapped at 121 columns (Round 3: every file within 121 characters)"""
+    builtins.print(textwrap.fill(" ".join(str(a) for a in args), width=121, subsequent_indent="      ",
+                                 break_on_hyphens=False), **kw)
 
 mp.mp.dps = 80
 

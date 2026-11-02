@@ -25,3 +25,31 @@ iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's
       candidates lam0 = r + i, Re <= 5 (interval: order, residue rank): {'[5.0000000, 5.0000000]': (1, 1)}; exceptional
       points spec C + {1, 2, 3} at Re <= 5: [2.5, 3.5, 4.5], no root at an integer distance from spec C: True
   C4 (control): lam0 = 5 at s0 with N(2 + eps)^-1 replaced by its adjugate: (order, rank) = (0, 2), not (1, 2): True
+  M4: every even l >= 2: even l with kappa = l (l + 2) a root of: disc []; Res m = 1, 2, 3: [], [], []; pk(5/2 + s + m):
+      []; at l = 2 pk(2), pk(3), pk(4) nonzero: True; box^Ups (s_-(0) = l (l + 1), increasing in z): False, True; box^C
+      roots right of 2 at l = 2 (Routh): 3; det N_L roots from box^C in (0, 4] at l = 2: [(1.0000029323500967,
+      1.00000293235067), (1.000193021897147, 1.000193021897974), (1.9998947899540707, 1.9998947899544788)]
+  C5 (control): physical l + 2 against box^Ups's l + 4, resultant at m = 2 identically zero: True
+  M5: III.A Lemma 1.4 with F = (1, 0): E_ind = E' - 1 has log order 9 at Re <= 5; at the integers {1: 1, 2: 3, 3: 5, 4:
+      7, 5: 9}
+  M5: III.A Lemma 1.4 with F = (2, 0): E_ind = E' - 2 has log order 10 at Re <= 5; at the integers {1: 2, 2: 4, 3: 6, 4:
+      8, 5: 10}
+  C6 (control): plain unions for the extended ones: largest log order [0, 0]: True
+  M6: dceiling5 D6's constant term rebuilt from R2, R3, P_W, P_iota, W and the level counts: True; per exponent, L_0 = 1:
+      d <= 1.493399e+31 (l_* = 4), 3.285478e+31 (l_* = 10), + 53244736 X_7 + 106489470 c'; N = 21 d + 6 <= 3.1361e+32,
+      6.8995e+32 + ...
+      hypothetical (not the record's bound): log order <= 2 at every exponent of E^flat, n_iota <= 3 P_iota: d <=
+      37919137148906758 + 53244736 X_7 + 106489470 c' = 3.791914e+16 + ...; N <= 7.9630e+17 + ...
+  (656 s)
+M1 PASS
+C1 PASS
+M2 PASS
+C2 PASS
+C3 PASS
+M3 PASS
+C4 PASS
+M4 FAIL
+C5 PASS
+M5 PASS
+C6 PASS
+M6 PASS
