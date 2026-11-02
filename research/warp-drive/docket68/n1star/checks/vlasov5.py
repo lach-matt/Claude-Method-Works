@@ -19,7 +19,7 @@
      with the axis in the meridional plane: T_rhorho = int f E^2 sin^2(alpha) d alpha / (2 pi) must vanish like
      rho2^2. A density continuous in alpha with f(0, alpha) = c > 0 gives T_rhorho(0) = c/2 != 0 (control: not
      smooth); a density concentrating at the axial directions with fixed total density, f = rho2^-1 (exp(-alpha^2 /
-     rho2^2) + exp(-(|alpha| - pi)^2/rho2^2)), gives T_rhorho/rho2^2 -> 1/(2 sqrt(pi)) (computed), while d_alpha f
+     rho2^2) + exp(-(|alpha| - pi)^2/rho2^2)), gives T_rhorho/rho2^2 -> 1/(2 sqrt(pi)) at second order, while d_alpha f
      blows up: at an axis a restricted Vlasov field with smooth stress is either zero there or, in the limit, the two
      radial dusts along the axis (Part I's); a density smooth in (x, alpha) must vanish there.
   V4 (exact, sympy) the high-frequency approximation by N families. For N restricted families with orbit-space
@@ -104,9 +104,9 @@ def v2():
                   for i in range(2) for j in range(2))
     even = sp.expand(Aexpr - Aexpr.subs(rho, -rho)) == 0 and sp.expand(Bexpr - Bexpr.subs(rho, -rho)) == 0
     # T_phph = 0 forces A = 0, then T_rhorho = s B = O(rho^2)
-    ok_flux = sp.limit(sp.expand(Trr.subs(sp.solve(sp.Poly(Aexpr, rho).coeffs(),
-                                                       list(Aexpr.free_symbols - {rho}), dict=True)[0])) / rho**2,
-                       rho, 0).is_finite
+    Asol = sp.solve(sp.Poly(Aexpr, rho).coeffs(), list(Aexpr.free_symbols - {rho}), dict=True)[0]
+    Trr0 = sp.Poly(sp.expand(Trr.subs(Asol)), rho)
+    ok_flux = Trr0.is_zero or min(m[0] for m in Trr0.monoms()) >= 2
     # control: xhat (x) xhat, non-smooth, T_phph = 0 and T_rhorho = 1 at the axis
     ctl = sp.limit((x3**2 / sv).subs({x3: rho, x4: 0}), rho, 0) == 1
     print("   the general invariant smooth planar tensor (degree <= 4) is A(s) delta + B(s) x x:", ok_form and even,
@@ -131,7 +131,8 @@ def v3():
         r_ = mp.mpf(rho)
         norm.append(Trr(conc, r_) / r_**2)
         dal.append(mp.diff(lambda al: conc(r_, al), r_ / 2))
-    conv = abs(norm[-1] - 1 / (2 * mp.sqrt(mp.pi))) < mp.mpf('1e-6')
+    L = 1 / (2 * mp.sqrt(mp.pi))
+    conv = abs(norm[-1] - L) < mp.mpf('2e-4') and abs(norm[-2] - L) / abs(norm[-1] - L) > 3.5   # second order
     grows = all(abs(dal[i + 1]) > 1.8 * abs(dal[i]) for i in range(3))
     print("   control: continuous f = 1 at the axis has T_rhorho = %s (must be 1/2, not O(rho^2)): %s"
           % (mp.nstr(t_iso, 10), ctl))
