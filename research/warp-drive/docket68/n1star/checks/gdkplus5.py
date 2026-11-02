@@ -164,6 +164,7 @@ def q3(control=False):
         Wt, Wr = -f, -f/f + 1
     else:                                           # W* = r^-2 dv - dr/(r (r + r_h))
         Wt, Wr = 1/r**2, 1/(r**2*f) - 1/(r*(r + rh))
+    Wt, Wr = sp.cancel(sp.together(Wt)), sp.cancel(sp.together(Wr))
     # the decay order q: the largest integer with r^q W bounded and some component not o(r^-q)
     q = None
     for qq in range(4, -1, -1):
