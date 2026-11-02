@@ -191,8 +191,9 @@ def u2():
     rr = sp.Symbol("rr", positive=True)
     ok = True
     for aa, JJ, MM, KK in ((sp.Rational(11, 4), 9, 5, 30), (sp.Rational(29, 10), 9, 12, 60),
-                           (sp.Rational(11, 4), 12, 20, 40)):
-        ss = (2*MM + 1)/sp.Integer(JJ - 1 - 2*aa)
+                           (sp.Rational(11, 4), 12, 20, 40), (sp.Rational(29, 10), 9, 12, 24),
+                           (sp.Rational(11, 4), 9, 5, 16)):
+        ss = (2*MM + 1)/(JJ - 1 - 2*aa)  # exact (round 3: the round-2 cast sp.Integer truncated JJ - 1 - 2aa)
         R0 = lam**(-ss)
         p1 = sp.integrate(rr**(2*aa)*(lam**(KK - 4)*rr**-2)**2*rr**3, (rr, 1, R0))
         p2 = sp.integrate(rr**(2*aa)*(lam**(-MM)*rr**(-sp.Rational(JJ + 3, 2)))**2*rr**3, (rr, R0, sp.oo))
@@ -201,7 +202,8 @@ def u2():
         lim = sp.limit(tot, lam, 0, "+")
         ok = ok and (lim == 0) == good
         print(f"     a = {aa}, J = {JJ}, M = {MM}, K = {KK}: s = {ss}, K - 4 > a s: {good}, flux -> {lim}")
-    check("U2a the split flux tends to 0 exactly in the sampled cases with K - 4 > a s", ok)
+    check("U2a the split flux tends to 0 exactly in the sampled cases with K - 4 > a s, and not in the two with "
+          "K - 4 <= a s (K = 24, 16: the control)", ok)
     flux0 = sp.integrate(rr**(2*sp.Rational(1, 10))*(rr**-2)**2*rr**3, (rr, 1, sp.oo))
     check("U2b control: the lam-uniform bound alone gives an infinite flux at a = 1/10", flux0 == sp.oo)
 

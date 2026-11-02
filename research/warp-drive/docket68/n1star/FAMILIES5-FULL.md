@@ -121,11 +121,28 @@ b_h δ_h P) dv′, with a_h, b_h the mean values of ∇F on the segment, continu
 Q. So U ∈ C¹; the k-th derivatives solve linear Volterra equations of the same form with coefficients built from lower
 derivatives, so by induction U ∈ C^∞ for smooth data. *Boundedness of the domain.* On N′, in the gauge s = const there
 (twodomain5's cone()), R_uu = 0 for u ≥ u2, so R_u(u, v0) = c0 < 0 there; R_uv = −e^(2s) μ/R³ < 0 gives R_u ≤ c0 on
-{u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded. With (c), Ω₂ below lies in Q_(a′) for a′ < a, and the background exists,
-smooth, on all of it.
+{u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded. *The first exit* (written in round 2, the verifier's item 1: (c) assumes the
+solution on J⁻(p), so Ω₂ ⊂ Q_(a′) needs an argument). Fix a′ < a, K > K_0 (the chain's bound on {R ≥ a′}), the truncated
+fixed point Ũ on Q (F_K, G_K equal to F, G on {|U| ≤ K, R ≥ a′}) and Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p) ∩ Q}. (1) Ũ
+solves the true system on Q_(a′): for p ∈ Q_(a′), if |Ũ| ≥ K somewhere on the compact J⁻(p) ∩ Q, let q be such a point
+with u + v least; on J⁻(q) ∖ {q}, |Ũ| < K and R̃ > a′, so Ũ solves the true system there, the chain gives |Ũ| ≤ K_0
+there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q (the least of R̃ over J⁻(p) is
+continuous in p), and the development D := ∪_(a″>0) Q_(a″) is a past set carrying one smooth solution (two truncations
+agree where both solve B1, by the contraction). (3) For p ∈ D with R(p) ≥ a, (c) applies, J⁻(p) ⊂ D, and gives R ≥
+min(R(p), √μ0) ≥ a > a′ on J⁻(p): p ∈ Q_(a′). (4) So G := {p ∈ D : R ≥ a on J⁻(p)} ⊂ Q_(a′), and G is not cut by the
+edge of the development: G is closed, and at p ∈ ∂G the least of R over J⁻(p) is a (were it larger, a neighbourhood of
+p would lie in G), so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, i.e. R(p) = a: ∂G ⊂ {R = a}. Ω₂ ⊂ G below, and the
+background exists, smooth, on all of it.
 
-(e) *The domain and the record's Lemma 1.1 (deduced; computed twodomain5 D1-D2, twodt5 T1-T2, twotransport5).* Define
-Ω₂ by the record's (1.1) with v̂, τ = v̂ − R and R in place of v, τ, r, inside Q_(a′). Then Lemma 1.1 (a)-(f) hold:
+(e) *The domain and the record's Lemma 1.1 (deduced; computed twodomain5 D1-D2, twodt5 T1-T2, twotransport5, twobg5
+G3).* Define Ω₂ ⊂ G by the record's (1.1) with v̂, τ = v̂ − R and R in place of v, τ, r, the outer data cone N = {u =
+u0} being chosen with **N ∩ {τ ≥ τ0} ⊂ {R > b(τ)}** (round 2, the verifier's item 1: if N met Σ_τ0 at R < b(τ0), {u =
+u0} would be a null boundary of Ω₂ through which the ingoing waves enter, and Lemma 2.3 and (e) would fail there). The
+condition costs nothing: u ≤ u1 is explicit ingoing Vaidya with the data's mass function (a), so N can be moved outward
+without changing the background elsewhere (uniqueness on the smaller rectangle). Computed (twobg5 G3, the example, T =
+1, δ0 = 0.05): the example's own N (R = 5 at v = 0) meets Σ_τ0 at R − b = G3EX, inside the domain, which is the
+verifier's case; the outgoing ray of region I from R = G3R0 at v = 0 keeps R − b ≥ G3MIN on all of [τ0, τ_end] (along it
+R and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold:
 (a), (c), (d), (e) as FAMILIES5.md 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c)
 above; (f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3)
 e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside
@@ -407,12 +424,17 @@ non-divergence operator h^ab ∂_a ∂_b f acquires a mean ⟨h1(du, du) ∂_θ�
 (b) *A massless Vlasov limit in the class is restricted (computed V2).* T_(φφ) = ∫ p_φ² dμ = 0 forces the measure onto
 p_φ1 = p_φ2 = 0: momenta tangent to the 2+1 orbit space — the 5D T² analogue of [HL19]'s restricted system.
 
-(c) *Round limits are two null dusts (computed V3-V4).* If the limit is moreover SO(4)-invariant (as every background of
-Part I is), the isotropy SO(3) at a point rotates the angular momentum, and the line {p_φ = 0} ∩ T*S³ = span(e_θ) is
-moved off itself (V3), so an invariant measure supported in it is supported at 0: the momenta are radial. Radial null
+(c) *Round limits are two null dusts (computed V3-V4; V3 corrected in round 2, the verifier's item 2).* If the limit is
+moreover round (as every background of Part I is), what roundness gives is a round stress tensor T, not an invariant
+measure, so the argument uses T alone. T's angular block commutes with the isotropy so(3), so it is a multiple of the
+round metric (Schur, V3 (a)): T_θθ = T_φ1φ1 = T_φ2φ2 in an orthonormal frame. With (b)'s T_φφ = 0 the multiple is 0, so
+∫ p_θ² dμ = T_θθ = 0, and for a positive measure p_θ = 0 on its support (Σ w_i p_θ,i² is positive definite, V3 (b)):
+the momenta are radial. Control: without (b) roundness alone does not force this (an isotropic angular measure has a
+round block with T_θθ > 0; V3's control, rejected). Radial null
 momenta at a point of Vaidya are multiples of dv or of k_out, so T = (∫ E² df_in) dv² + (∫ E² df_out) k_out² (V4),
 radial momenta stay radial along radial geodesics, and the Einstein–(radial) massless Vlasov system is, for g, the
-Einstein–two-null-dust system. Control: a momentum with p_θ ≠ 0 gives T_θθ > 0.
+Einstein–two-null-dust system. Control (computed, round 2): the V4 measure with one more momentum carrying p_θ ≠ 0 has
+T_θθ > 0, so it is not of the two-dust form.
 
 **Consequence (deduced).** Within the round T² class the passage to Vlasov matter adds nothing to Part I: every round
 massless Vlasov limit in the class is a two-dust solution, and Theorem 1₂ realises those of section 2's form (a seed, an

@@ -125,6 +125,47 @@ def ecol_bases(shift_min=-5, tower=True):
     return out
 
 
+def g_search(bases, d1lo, d1hi):
+    """L4's search (Round 3: a function, so that the control N1 runs it): the least value above 2 or 3 over the chains
+    base + m + n d1 (m in {0, 1}, n >= 0), certified on intervals; returns (name, (lo, hi), T, m, n)"""
+    best = None
+    for name, lo, hi in bases:
+        for T in (2, 3):
+            for m in (0, 1):
+                gap_lo, gap_hi = T - hi - m, T - lo - m
+                if gap_hi < 0:
+                    if lo + m > T:                              # the base itself is above T
+                        val = (lo + m - T, hi + m - T)
+                        if best is None or val[1] < best[1][1]:
+                            best = (name, val, T, m, 0)
+                    continue
+                if gap_lo < 0:
+                    continue
+                qa, qb = int(gap_lo / d1hi), int(gap_hi / d1lo)
+                if qa != qb:
+                    raise ValueError('undecided at %s' % name)
+                n = qa + 1
+                val = (lo + m + n * d1lo - T, hi + m + n * d1hi - T)
+                assert val[0] > 0
+                if best is None or val[1] < best[1][1]:
+                    best = (name, val, T, m, n)
+    return best
+
+
+def same_chain(b1, b2, d1lo, d1hi):
+    """True unless certified that b1 is not b2 + m + n d1 for m in {-1, 0, 1} and an integer n (Round 3: L3's bases
+    deduplicated against each other and against the existing chain starts, the verifier's m2)"""
+    (lo1, hi1), (lo2, hi2) = b1, b2
+    for m in (-1, 0, 1):
+        dl, dh = lo1 - hi2 - m, hi1 - lo2 - m
+        if dl <= 0 <= dh:
+            return True
+        ql, qh = (dl / d1hi, dh / d1lo) if dl > 0 else (dl / d1lo, dh / d1hi)
+        if floor(qh) >= ceil(ql):
+            return True
+    return False
+
+
 def main():
     ok = {}
     d1lo, d1hi = DW.d1_interval()
@@ -149,27 +190,7 @@ def main():
         len([b for b in narrow if b[1] < whi]), sorted({n for n, lo, hi in narrow if lo < whi})))
 
     # L4: (G) over these bases' chains: least value above 2 or 3 (increments d1 and 1), certified on intervals
-    best = None
-    for name, lo, hi in in_w:
-        for T in (2, 3):
-            for m in (0, 1):
-                gap_lo, gap_hi = T - hi - m, T - lo - m
-                if gap_hi < 0:
-                    if lo + m > T:                              # the base itself is above T
-                        val = (lo + m - T, hi + m - T)
-                        if best is None or val[1] < best[1][1]:
-                            best = (name, val, T, m, 0)
-                    continue
-                if gap_lo < 0:
-                    continue
-                qa, qb = int(gap_lo / d1hi), int(gap_hi / d1lo)
-                if qa != qb:
-                    raise ValueError('undecided at %s' % name)
-                n = qa + 1
-                val = (lo + m + n * d1lo - T, hi + m + n * d1hi - T)
-                assert val[0] > 0
-                if best is None or val[1] < best[1][1]:
-                    best = (name, val, T, m, n)
+    best = g_search(in_w, d1lo, d1hi)
     r_old = DW.residues(sorted(set(named) | {z for z in E if z < 3 + Fr(1, 10 ** 6)}), d1lo, d1hi)
     binds = best[1][0] < DELTA50
     ok['L4'] = best is not None and not binds and best[1][0] > w['eps_K']

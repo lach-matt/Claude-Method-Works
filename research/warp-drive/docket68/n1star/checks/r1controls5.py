@@ -11,7 +11,9 @@ are left as the verifier read them; the controls are here.
   C3 (T6c) a wrong subtraction is caught: rho^(-l0)(rho^(5/2) - (1/2) rho^(5/2)) is not in L^2(drho/rho) near 0 at
      l0 = 13/4 (the integral from eps diverges), so the claim "the remainder is in the class" is rejected.
   C4 (T8g) the claim "ehat_b(0) = 0" for the bump itself is rejected (int env_b = 0.666...), while env_b' does have
-     zero time integral: the record's waves are of the first kind.
+     zero time integral: the record's waves are of the first kind. (T8c, round 3) T8c's test |ehat_b| > 1e-30 is
+     run at T8f's first zero omega* = 3.331...: there it fails (|ehat_b(omega*)| < 1e-25), so T8c can fail and its
+     passing at lam = 2^-1..2^-7 is a statement about those lam.
 Labels: computed (sympy exact; mpmath 30-40 digits).
 
     python3 checks/r1controls5.py
@@ -129,6 +131,17 @@ def c4():
     d0 = mp.quad(lambda x: mp.diff(bump, x), [mp.mpf(1)/2, 2, mp.mpf(7)/2])
     check("C4a the claim 'ehat_b(0) = 0' is rejected: int env_b > 0.3", e0 > mp.mpf("0.3"), mp.nstr(e0, 8))
     check("C4b env_b' has zero time integral (T8g's statement)", abs(d0) < mp.mpf(10)**-20, mp.nstr(d0, 3))
+
+    def ehat(om):
+        re = mp.quad(lambda x: bump(x)*mp.cos(om*x), [mp.mpf(1)/2, 2, mp.mpf(7)/2])
+        im = mp.quad(lambda x: bump(x)*mp.sin(om*x), [mp.mpf(1)/2, 2, mp.mpf(7)/2])
+        return mp.mpc(re, im)
+    E = lambda om: mp.re(mp.exp(-2j*om)*ehat(om))
+    wstar = mp.findroot(E, (mp.mpf(3.2), mp.mpf(3.45)), solver="anderson")
+    val = abs(ehat(wstar))
+    check("C4c T8c's test (|ehat_b| > 1e-30) fails at T8f's first zero omega* (round 3)",
+          abs(wstar - mp.mpf("3.331")) < mp.mpf("0.001") and not val > mp.mpf(10)**-25,
+          "omega* = " + mp.nstr(wstar, 8) + ", |ehat_b(omega*)| = " + mp.nstr(val, 3))
 
 
 def main():

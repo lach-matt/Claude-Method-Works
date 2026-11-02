@@ -15,7 +15,8 @@ r^(2a) |d phi|^2 r^3 dr domega on the slices.
      dimensions (radiation fields at r^-1, |d h| <= r^(-1-a)) the kernel at a = 0 diverges.
   S3 (exact) the data on N: the record's energy bound lam^K' t^(-1/2) per annulus gives a dyadic flux sum
      sum_k 2^(k(2a - 1)), finite exactly for a < 1/2. Control: a = 1/2 diverges.
-  S4 (exact) the obstruction: a field with a radiation field at past null infinity, phi = r^(-3/2) F(s) Y_l,
+  S4 (exact for (a), (b), (e); (c)-(d) are power-count models, |d phi|^2 ~ r^-5 integrated, round 3) the
+     obstruction: a field with a radiation field at past null infinity, phi = r^(-3/2) F(s) Y_l,
      s = (v - v1)/r, F = 2F1(3/2 + l, -1/2 - l; 1; s/2): (a) it solves box phi = 0; (b) r^(3/2) phi -> F(0) = 1 at
      past null infinity, at every v >= v1 (a radiation field, constant in v: incoming); (c) its flux through N with
      weight a is finite exactly for a < 1/2 and (d) its cap energy on {t = T} cap W tends to 0 as T -> -oo exactly
@@ -24,7 +25,7 @@ r^(2a) |d phi|^2 r^3 dr domega on the slices.
      F''(1) != 0 (l <= 20; Gauss's second theorem and no pole, deduced for every l): a curvature term rho^(7/2),
      which III.K's class (either data class) excludes. Control: at a = 1/2 the flux and the cap energy diverge.
   S5 (exact) gauge cannot remove it: the linearized Riemann tensor of a pure-gauge perturbation d_a xi_b + d_b xi_a
-     of 4 + 1 Minkowski space vanishes identically (generic xi, all 50 independent components checked at a point
+     of 4 + 1 Minkowski space vanishes identically (generic xi, all 55 components checked at a point
      with random polynomial xi). Control: h = f(t, x1) dx2^2 (not pure gauge) has nonzero linearized Riemann tensor.
 Labels: computed (exact, sympy; mpmath at 30 digits).
 
