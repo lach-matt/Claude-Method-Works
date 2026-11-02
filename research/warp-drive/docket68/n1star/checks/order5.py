@@ -68,25 +68,29 @@ def check(name, ok, msg=""):
 
 # ---------------------------------------------------------------- O1: the product split at order k
 
+MCAP = 40  # triples and quadruples are enumerated for k <= MCAP; above it pairs dominate (see o1)
+
+
 def monomials(k):
     """w-orders of the factors of every source monomial at levels j <= k (nonlinear terms and the quasilinear
-    commutator terms of Proposition 9.8's commuted equation)."""
+    commutator terms of Proposition 9.8's commuted equation).  A monomial at level j has total w-order <= j + 2
+    <= k + 2, so the union over j <= k is the set of tuples of total <= k + 2; w-order k + 2 occurs only in the
+    principal part and is excluded."""
     out = set()
-    for j in range(k + 1):
-        # nonlinear: m >= 2 factors, total w-order <= j + 2, no factor of order j + 2 (principal part)
-        for m in (2, 3, 4):
+    for o1_ in range(0, k + 3):          # pairs (the quasilinear commutators (i, j - i + 2) are among them)
+        for o2_ in range(0, min(o1_, k + 2 - o1_) + 1):
+            out.add((o2_, o1_))
+    if k <= MCAP:
+        for m in (3, 4):
             def rec(rem, parts, lo):
                 if len(parts) == m:
                     out.add(tuple(sorted(parts)))
                     return
                 for o in range(lo, rem + 1):
                     rec(rem - o, parts + [o], o)
-            for tot in range(0, j + 3):
+            for tot in range(0, k + 3):
                 rec(tot, [], 0)
-        # quasilinear commutators: d^i g . d^(j-i+1) d w with i >= 1: w-orders (i, j - i + 2)
-        for i in range(1, j + 1):
-            out.add(tuple(sorted((i, j - i + 2))))
-    return {mono for mono in out if max(mono) <= k + 1}  # w-order k + 2 occurs only in the principal part
+    return {mono for mono in out if max(mono) <= k + 1}
 
 
 def split_ok(k, sob=3, reverse=False):
@@ -104,10 +108,27 @@ def split_ok(k, sob=3, reverse=False):
 
 
 def min_k(sob=3, reverse=False, kmax=200):
+    ok = [split_ok(k, sob, reverse) for k in range(0, kmax + 1)]
     for k in range(1, kmax + 1):
-        if all(split_ok(kk, sob, reverse) for kk in range(k, min(k + 40, kmax) + 1)):
+        if all(ok[k:]):
             return k
     return None
+
+
+def dominated(k):
+    """every triple or quadruple of total <= k + 2 has its second-largest entry <= that of a pair of total
+    <= k + 2 (the pair (k + 2 - o2, o2)), so pairs decide the split condition"""
+    for m in (3, 4):
+        def rec(rem, parts, lo):
+            if len(parts) == m:
+                ps = sorted(parts)
+                if ps[-2] > (k + 2)//2:
+                    return False
+                return True
+            return all(rec(rem - o, parts + [o], o) for o in range(lo, rem + 1))
+        if not all(rec(tot, [], 0) for tot in range(0, k + 3)):
+            return False
+    return True
 
 
 def lam_loss(k):
@@ -132,7 +153,9 @@ def o1():
     check("O1a every source monomial has a split (highest w-order in L^2, the rest in sup with Lemma 9.3(a)) at "
           "every k = 5..200; minimal k = 5", allok and mk == 5, f"minimal k = {mk}")
     check("O1b the record's k = 6 and every larger k are covered (10.51(a)'s split at k - 2: the sup factor has "
-          "w-order <= (k + 2)/2 <= k - 2)", all((k + 2)//2 <= k - 2 for k in range(6, 201)))
+          "w-order <= (k + 2)/2 <= k - 2); and for every k the second-largest w-order of a monomial with 3 or 4 "
+          "factors is at most that of a pair (checked k <= 40), so pairs decide the split above 40",
+          all((k + 2)//2 <= k - 2 for k in range(6, 201)) and all(dominated(k) for k in range(1, MCAP + 1)))
     mk4 = min_k(sob=4)
     check("O1c control (Sobolev cost mutated 3 -> 4): the minimal k becomes 7, so 'k = 6 suffices' fails",
           mk4 == 7 and not split_ok(6, sob=4), f"minimal k with cost 4 = {mk4}")

@@ -148,6 +148,9 @@ def rowsums_np(n, imax):
     return res
 
 
+LFAC = {k: iv.log(iv.mpf(math.factorial(k))) for k in range(MM - 5, MM)}
+
+
 def cds(i, m):
     """C^DS_(i,m) = min_kappa [T_(m-1)^(i)(1) (2/kappa)^i + kappa^(m-i)/(m-i)!], certified at the grid minimiser"""
     Tn = T_der(m - 1, i)
@@ -155,7 +158,7 @@ def cds(i, m):
     best = None
     for k10 in range(1, 3000):
         kap = iv.mpf(k10)/4
-        val = Ti*(2/kap)**i + iv.exp((m - i)*iv.log(kap) - iv.loggamma(iv.mpf(m - i + 1)))
+        val = Ti*(2/kap)**i + iv.exp((m - i)*iv.log(kap) - LFAC[m - i])
         if best is None or val.b < best[0].b:
             best = (val, kap)
     return best
@@ -206,7 +209,7 @@ def m4(control=False):
         lthr, ib, terms = res['ds']
         lam = mp.mpf(10)**mp.mpf(lthr.b)*mp.mpf('1.01')
         lbase, expo = terms[ib][1], terms[ib][2]
-        return mp.log10(lam)*(mp.mpf(expo.a)) + mp.mpf(lbase.a) <= mp.log10(lam) - mp.log10(lam) + 0   # must fail
+        return mp.mpf(lbase.a) + mp.mpf(expo.a)*mp.log10(lam) <= 0          # the inequality at 1.01 Lam_5': must fail
     bound = min(LAMBDA0, LAM4_0, mp.mpf(10)**mp.mpf(res['ds'][0].b))
     out("  M4 log10 M_m^(1/m) <= %s.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)"
         " log10 Lam_5' <= %s (binding i = %d); with C^DS_(i,m) log10 Lam_5' <= %s (binding i = %d); log10 C^DS_(i,m),"
