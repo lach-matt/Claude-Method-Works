@@ -4,3 +4,4 @@ X3 Kdot = (1/2) nabla_nu k on T Sigma (k = 0 on Sigma): PASS | control factor 1:
 X4 Theta(k) at Sigma in the frame: PASS | control tangential trace 1: False
 X5 L_X g = k on Sigma for the Y of the construction: PASS | controls +1/2, tangential factor 2: False
 X7 L_X g induces zero data when X = 0 on Sigma: PASS | control X != 0 on Sigma: False
+   X8 (a) h = f(t) H: no f''' and the coefficient of f'' in L^0 h is -(1/2) g^tt H: True | control DRic alone: False
