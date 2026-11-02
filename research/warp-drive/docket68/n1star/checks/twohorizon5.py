@@ -23,7 +23,7 @@ facts the deduction in FAMILIES5-FULL.md section 9 uses.
      chi's), against harmonics in s1 alone of order one; no lam^-1 term and no lam^0 oscillation either. So along a
      column {vhat fixed}, where s1 is constant and u is not, the outgoing expansion's O(lam) term contributes O(lam) to
      d_R theta+, and the record's band argument needs no placement of the outgoing packet.
-     Control (must fail): with ghat_2 dropped the mixed harmonics are of order one: the cancellation is the division's.
+     Control (must fail): with ghat_2 dropped the mixed harmonics are nonzero: the cancellation is the division's.
 
 Labels: computed (H1, H2 exact, sympy; H3 symbolic up to the points, then 30 digits: evidence at three points, not a
 proof for every function). Run: python3 checks/twohorizon5.py   (about half an hour)

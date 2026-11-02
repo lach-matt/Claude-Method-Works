@@ -638,28 +638,28 @@ columns with R_H(v̂) ≤ v̂ − τ0 − δ1; the spheres below R_H − C λ tr
 apparent horizon. No condition on where the outgoing packet lies is needed.
 
 *Proof.* (i) The background. Along g0⁻¹ du = −e^(−2σ) ∂_v the expansion of the spheres is −3 e^(−2σ) R_v/R (H2,
-computed), so the future-directed, n(τ) = 1 normalised θ⁺(g0) is a positive multiple of R_v. On a column R decreases in u
-(R_u < 0) and ∂_u R_v = R_uv = −e^(2s) μ/R³ < 0 (twobg5 G1 (c)), so ∂_R R_v = e^(2s) μ/(R³ |R_u|) > 0: θ⁺(g0) has at
+computed), so the future-directed, n(τ) = 1 normalised θ⁺(g0) is a positive multiple of R_v. On a column R decreases in
+u (R_u < 0) and ∂_u R_v = R_uv = −e^(2s) μ/R³ < 0 (twobg5 G1 (c)), so ∂_R R_v = e^(2s) μ/(R³ |R_u|) > 0: θ⁺(g0) has at
 most one zero on each column, simple, with ∂_R θ⁺ bounded below near it on the compact domain. Where the outgoing dust
-vanishes (region III) this is H1's explicit form, θ⁺ = c 3 (1 − μ/R²)/(2R), c = 2R² e^ψ/(R² (2 − e^ψ) + μ e^ψ) > 0,
-∂_R θ⁺ = 3 e^ψ/μ at the zero (control: the ingoing normal's expansion has no zero there); the ingoing expansion is
-negative everywhere (R_u < 0). (ii) The approximant. Neither family's fast derivative enters θ± at order λ⁻¹ or λ⁰ (H2:
-they enter only as ½ g0⁻¹(k, dϕ) F tr_S W, and tr_S W_K = 0; control: an outgoing wave with a trace on the spheres gives
-a λ⁰ oscillation in the ingoing expansion). At order λ the outgoing expansion has **no harmonic depending on s2** (H3,
+vanishes (region III) this is H1's explicit form, θ⁺ = c 3 (1 − μ/R²)/(2R), c = 2R² e^ψ/(R² (2 − e^ψ) + μ e^ψ) > 0, ∂_R
+θ⁺ = 3 e^ψ/μ at the zero (control: the ingoing normal's expansion has no zero there); the ingoing expansion is negative
+everywhere (R_u < 0). (ii) The approximant. Neither family's fast derivative enters θ± at order λ⁻¹ or λ⁰ (H2: they
+enter only as ½ g0⁻¹(k, dϕ) F tr_S W, and tr_S W_K = 0; control: an outgoing wave with a trace on the spheres gives a λ⁰
+oscillation in the ingoing expansion). At order λ the outgoing expansion has **no harmonic depending on s2** (H3,
 computed): with both families' stage-0 waves and ĝ_2's mixed harmonics fixed by stage 0's division, the λ¹ coefficient
 of the expansion along g⁻¹ du has, at three sample points (concrete smooth functions, 30 digits), mixed harmonics and
-pure (0, n2) harmonics below 10⁻²⁰, against harmonics in s1 alone of order one. Control: with ĝ_2 dropped the mixed
-harmonics are of order one, so the cancellation is stage 0's division at work (the bilinear term of the two waves'
-second-order area variation against tr_S ĝ_2; a structural proof, presumably through Raychaudhuri's equation along
-ℓ_out with R^(0) = 0, is not written). The stage-1 unknowns add no s2-dependence at order λ (deduced: ĝ_2's pure
-harmonics enter as ½ g0⁻¹(du, dϕ) F tr_S ĝ_2, which vanishes for ϕ = u since g0⁻¹(du, du) = 0 and is a harmonic in s1
-alone for ϕ = v̂; φ1 enters through ½ g0⁻¹(du, dφ1) F tr_S W = 0; m1 carries no phase), and normalising the null
-covector, k_g = c(g)(du + β dv), adds at order λ only s1-dependence (β ∝ g^uu = −λ e^(−4σ) χ_in + O(λ²), c(g) through
-W(ℓ_out, ·) = W_in(ℓ_out, ·)). So θ⁺(g_app) = θ⁺(g0) + λ [Th1] + λ² [E] with Th1 independent of s2 and E a bounded
-two-phase profile; along a column s1 = v̂/λ is constant, so ∂_R(λ [Th1]) = λ [∂_R Th1], and ∂_R(λ² [E]) = λ² [∂_R E] +
-λ (∂_R u)[F2 E] = O(λ). Hence |θ⁺(g_app) − θ⁺(g0)| + |∂_R(θ⁺(g_app) − θ⁺(g0))| ≤ C λ along every column, the record's
-(iii). (iii) The remainder: θ⁺ is smooth in g and linear in ∂g, and ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) (i ≤ 4, section 8 Step
-1) give ≤ C λ^(K−5) ≤ C λ. (iv) The zero: the record's (v), with R_H for √μ and D_T's r_q^♭ (section 2 (f)). ∎
+pure (0, n2) harmonics below 10⁻³¹, against harmonics in s1 alone of 0.37 to 0.91. Control: with ĝ_2 dropped the mixed
+harmonics are 4 × 10⁻³ to 0.12 at the three points, so the cancellation is stage 0's division at work (the bilinear term
+of the two waves' second-order area variation against tr_S ĝ_2; a structural proof, presumably through Raychaudhuri's
+equation along ℓ_out with R^(0) = 0, is not written). The stage-1 unknowns add no s2-dependence at order λ (deduced:
+ĝ_2's pure harmonics enter as ½ g0⁻¹(du, dϕ) F tr_S ĝ_2, which vanishes for ϕ = u since g0⁻¹(du, du) = 0 and is a
+harmonic in s1 alone for ϕ = v̂; φ1 enters through ½ g0⁻¹(du, dφ1) F tr_S W = 0; m1 carries no phase), and normalising
+the null covector, k_g = c(g)(du + β dv), adds at order λ only s1-dependence (β ∝ g^uu = −λ e^(−4σ) χ_in + O(λ²), c(g)
+through W(ℓ_out, ·) = W_in(ℓ_out, ·)). So θ⁺(g_app) = θ⁺(g0) + λ [Th1] + λ² [E] with Th1 independent of s2 and E a
+bounded two-phase profile; along a column s1 = v̂/λ is constant, so ∂_R(λ [Th1]) = λ [∂_R Th1], and ∂_R(λ² [E]) = λ²
+[∂_R E] + λ (∂_R u)[F2 E] = O(λ). Hence |θ⁺(g_app) − θ⁺(g0)| + |∂_R(θ⁺(g_app) − θ⁺(g0))| ≤ C λ along every column, the
+record's (iii). (iii) The remainder: θ⁺ is smooth in g and linear in ∂g, and ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) (i ≤ 4, section 8
+Step 1) give ≤ C λ^(K−5) ≤ C λ. (iv) The zero: the record's (v), with R_H for √μ and D_T's r_q^♭ (section 2 (f)). ∎
 
 *What round 2 first expected, and what was computed.* Round 1 named two routes: keep the packet off the horizon band, or
 bound the outgoing wave's O(1) contribution (∂_R u)[F2 Th1] to ∂_R θ⁺ below 3/μ. The O(1) contribution is computed to

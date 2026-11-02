@@ -333,9 +333,9 @@ def main():
         'with mu = mu_end: %s; n in ker d(v + tau): %s; g0 - lam_n n n^T Lorentzian (det %.6f) with n null on the '
         'boundary: %s; lam_n = (3 + mu_end/r^2)/5 = %.7f (exact rational; round 2\'s r = 67/5 gave %.7f); size of the '
         'perturbation: operator = Frobenius = %.7f, largest entry %.7f at xhat = (1,1,1,1)/2 (%.7f at xhat = e1). So '
-        'eps1 < %.7f (operator, Frobenius) and eps1 < %.7f (largest entry) (exact)'
+        'eps1 < %s (operator, Frobenius) and eps1 < %s (largest entry) (exact; rounded up)'
         % (float(g['b0'][0]), p_op['inside'], p_op['in_ker'], float(p_op['det']), p_op['null_dir'], float(lam_n),
-           float(lam_67), float(eps_op), float(eps_mx), float(p_op['maxe']), float(eps_op), float(eps_mx)))
+           float(lam_67), float(eps_op), float(eps_mx), float(p_op['maxe']), up(eps_op, 7), up(eps_mx, 8)))
 
     # T3 the wave at (v, th, s, r) = (2, 0, 0, a)
     ok_eig, odd, at0, even_ctrl, _ = wtt_symbolic()
@@ -366,10 +366,10 @@ def main():
                 and Fr(15423591, 10 ** 6) <= w_fr_lo < Fr(154236, 10 ** 4))
     say('  T3: eigenvalues of W_TT (Euclidean) = (-2(a1 + a2), 2 a1, 2 a2) from lead5.py\'s definition: %s; at th = 0, '
         'phase 0: %s x env(v) r^(-3/2); the point (v, r) = (2, a), tau = 2 - a, lies in Omega: %s; c in [%.10f, '
-        '%.10f] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in [%.6f, %.6f], Frobenius >= '
-        '%.6f (certified); Cartesian cross-check (floating point): %s'
-        % (ok_eig, [str(x) for x in ratios], dom, float(c_lo), float(c_hi), float(w_op_lo), float(w_op_hi),
-           float(w_fr_lo), cross))
+        '%.10f] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in [%s, %s], Frobenius >= '
+        '%s (certified, rounded outward); Cartesian cross-check (floating point): %s'
+        % (ok_eig, [str(x) for x in ratios], dom, float(c_lo), float(c_hi), down(w_op_lo, 6), up(w_op_hi, 6),
+           down(w_fr_lo, 6), cross))
 
     # T4 the parity argument
     ok['T4'] = odd
