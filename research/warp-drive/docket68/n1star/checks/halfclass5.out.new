@@ -44,3 +44,7 @@ H4  the log orders of G
   H4e pi_1 G is the same for both seeds: pass
 H5  LOSS-D's one-off count, 1 + J + L applications of L_b below l_I
      int sharp: (J, L, applications) = [(2, 4, 7)]
+     half sharp: (J, L, applications) = [(2, 5, 8)]
+     int record M=4: (J, L, applications) = [(2, 12, 15)]
+     half record M=4: (J, L, applications) = [(2, 12, 15)]
+     int record M=8: (J, L, applications) = [(2, 24, 27)]
