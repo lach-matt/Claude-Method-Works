@@ -20,7 +20,12 @@ R_rr at v = 1/2 and 7/2 as small as the fit, and Ric_vv[g_app] = 0 exactly outsi
      of boxes: Ric_vv(box) is enclosed by its value at the box's centre (ball arithmetic) plus its gradient, enclosed
      over the box by forward-mode jets in ball arithmetic, times the box's half-widths; Chebyshev polynomials over an
      interval by Markov's inequality |T_k'| <= k^2.  Also certified: sup of s over the cone (the size of the terms
-     that cancel in Ric_vv), and the jumps of R_rr at the two ends.
+     that cancel in Ric_vv).
+  C2 (certified; added in round 2, the verifier having found the claim made but not computed) the jumps of R_rr at
+     the two ends, v = 1/2 and 7/2: sup over x of |R_app,rr(r_s, x)| and |R_app,rr(r_e, x)| (R_rr = 0 on the other
+     side of each end), enclosed on 256 boxes in x by the same Markov bound, beside the certified sup of |R_app,rr|
+     over the cone (from C1's boxes).  Control: the perturbed approximant of C1's control has jumps at least 100 times
+     larger.
      The enclosure is of second order in the box size (the mean-value form; measured: halving both box widths divides
      the bound by 4.0), so the certified sup is far above the residual itself, which the certified point values at
      the box centres show.
@@ -260,7 +265,7 @@ def certify(seed, Dr, Dx, Nr, Nx, perturb=0.0):
     c1x = cheb_der([c1], 1, arb(1))[0]
     # R_app = series + a(x) + b(x) (r - rs),  a = rs - c0(x),  b = 1 - c1(x): R_rr unchanged
     t0 = time.time()
-    delta, smax, n, cmax = arb(0), arb(0), 0, arb(0)
+    delta, smax, n, cmax, rrmax = arb(0), arb(0), 0, arb(0), arb(0)
     worst_at = None
     rr_edges = [arb(rs) + 2 * hr * arb(k) / Nr for k in range(Nr + 1)]
     for ir in range(Nr):
@@ -275,6 +280,10 @@ def certify(seed, Dr, Dx, Nr, Nx, perturb=0.0):
             x_lo, x_hi = -1 + 2 * ix / Nx, -1 + 2 * (ix + 1) / Nx
             xc, xrad = 0.5 * (x_lo + x_hi), 0.5 * (x_hi - x_lo)
             B_pt = tvec(xc, 0, Dx + 1); B_bx = tvec(xc, xrad, Dx + 1)
+
+            rrbox = abs(ser(Crr, A_bx, B_bx))
+            rru = arb(rrbox.mid() + rrbox.rad())
+            rrmax = rru if rru > rrmax else rrmax
 
             def ric(Aa, Bb, rj, xj, point):
                 """Ric_vv as a jet: point -- at the centre (gradient unused); else over the box (value and gradient
@@ -310,8 +319,19 @@ def certify(seed, Dr, Dx, Nr, Nx, perturb=0.0):
             su = arb(sb.mid() + sb.rad())
             smax = su if su > smax else smax
             n += 1
+    # C2: the jumps of R_rr at t = -1 (r = rs) and t = +1 (r = re), certified over x on 256 boxes
+    jumps = []
+    for sgn in (-1, 1):
+        row = [sum((Crr[i][j] * arb(sgn ** i) for i in range(len(Crr))), arb(0)) for j in range(Dx + 1)]
+        jm = arb(0)
+        for ix in range(256):
+            xc, xrad = -1 + (2 * ix + 1) / 256, 1 / 256
+            val = abs(sum((row[j] * b for j, b in enumerate(tvec(xc, xrad, Dx + 1))), arb(0)))
+            up = arb(val.mid() + val.rad())
+            jm = up if up > jm else jm
+        jumps.append(jm)
     return dict(delta=delta, smax=smax, cmax=cmax, boxes=n, seconds=time.time() - t0, worst_at=worst_at, rs=rs, re=re,
-                lam=lam_f)
+                lam=lam_f, jumps=jumps, rrmax=rrmax)
 
 
 def main():
@@ -335,6 +355,15 @@ def main():
             ctl['delta'].str(4), 'fails (good)' if fails else 'passed (bad)'), flush=True)
         ok &= good and fails
         print('  C1 %s (bound below 5e-2 of the terms)' % ('PASS' if good else 'FAIL'), flush=True)
+        j0, j1 = res['jumps']
+        jgood = j0 < res['rrmax'] * arb('1e-3') and j1 < res['rrmax'] * arb('1e-3')
+        jctl = min(ctl['jumps'][0], ctl['jumps'][1]) > 100 * max(j0, j1)
+        print('  C2 certified: jump of R_rr at v = 1/2: <= %s; at v = 7/2: <= %s; sup |R_rr| on the cone <= %s -> %s'
+              % (j0.str(3), j1.str(3), res['rrmax'].str(3), 'PASS (below 1e-3 of sup |R_rr|)' if jgood else 'FAIL'),
+              flush=True)
+        print('     control (perturbed approximant): jumps %s, %s -> %s' % (
+            ctl['jumps'][0].str(3), ctl['jumps'][1].str(3), 'fails (good)' if jctl else 'passed (bad)'), flush=True)
+        ok &= jgood and jctl
     print('cdata5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

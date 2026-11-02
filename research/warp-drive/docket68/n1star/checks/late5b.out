@@ -1,0 +1,2 @@
+# python3 checks/late5b.py RUNDIR (the record's runs of D418, D432 and the r_cut 0.7 runs of D410)
+L5 the null step: max |rho| per band (absolute; relative to its largest term in brackets), coarse cells kept by both grids, >= Nu/40 rows from the cut
