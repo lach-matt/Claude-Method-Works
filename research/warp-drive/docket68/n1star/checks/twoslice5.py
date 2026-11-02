@@ -292,7 +292,9 @@ def rp(rng, vars_, deg, const=None, scale=1):
 
 
 def circle(rng):
-    k = sp.Rational(rng.randint(1, 9), rng.randint(2, 11))
+    k = sp.Integer(1)
+    while k == 1:                                     # off the axes: cos and sin both nonzero
+        k = sp.Rational(rng.randint(1, 9), rng.randint(2, 11))
     return (1 - k**2) / (1 + k**2), 2 * k / (1 + k**2)
 
 

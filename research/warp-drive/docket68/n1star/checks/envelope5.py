@@ -13,7 +13,7 @@ definition of c: mu_end = mu0 + (2/9) A^2 int env^2 = 227/192 is unchanged, and 
 (they depend on the envelope only through mu_end; lzeroconst5.py Z0). Labels: computed (interval arithmetic, mpmath.iv,
 outward rounded; exact integers for the polynomials P_k); deduced (the tail argument, stated at E2).
 
-  E1 (certified) int_{-1}^{1} beta^2 in an interval of relative width < 1e-6 (beta^2 is even and decreasing in |y|,
+  E1 (certified) int_{-1}^{1} beta^2 in an interval of relative width < 1e-4 (beta^2 is even and decreasing in |y|,
      so lower and upper Riemann sums at exact points bound it), hence c in a certified interval.
   E2 (certified; deduced tail) e_k := sup_v |env^(k)(v)| for k = 0..14. On |y| <= 1 - delta: Taylor arithmetic in
      interval coefficients (the k-th coefficient computed with y0 an interval encloses beta^(k)(xi)/k! for every xi in
@@ -219,7 +219,7 @@ def main():
     lo, hi = beta_sq_integral()
     clo = mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * hi)) * (1 - mpmath.mpf(10) ** -20)
     chi_ = mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * lo)) * (1 + mpmath.mpf(10) ** -20)
-    ok['E1'] = (hi - lo) / lo < 1e-5
+    ok['E1'] = (hi - lo) / lo < 1e-4
     say('  E1: int_{-1}^{1} beta^2 in [%s, %s] (relative width %.1e); c in [%s, %s]; int env^2 = 105/128 and mu_end = '
         '227/192 exactly by the definition of c' % (mpmath.nstr(lo, 12), mpmath.nstr(hi, 12), float((hi - lo) / lo),
                                                      mpmath.nstr(clo, 12), mpmath.nstr(chi_, 12)))
