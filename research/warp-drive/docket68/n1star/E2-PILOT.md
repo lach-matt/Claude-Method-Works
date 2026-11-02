@@ -746,13 +746,16 @@ D456). Two observations close most of it (`checks/e2trap5.py` T1-T5; computed, n
   E2.11 (section 3i) takes any valid bound of ‖χ_I R_l(σ) χ_I‖, with m′ ≥ 0.005793 and M′ ≤ 1.02041 those of φ_*
   (e2certify5 C3) and, at l = 0, m0′ ≥ 0.002580 and M0′ ≤ 0.3809 (e2h1_5 H4), none depending on σ or l; so the band's
   certified bound, valid for every l ≥ 0, gives the constants on [3, 384] with no new multiplier. W1, the control,
-  reproduces H1's ‖u′‖_I ≤ 224.5‖f‖ at σ = 3 from B_6 ≤ 19.214. W2: on the printed intervals [σ − 1/20, σ] of the band,
-  ‖u′‖_I ≤ X‖f‖ for every l ≥ 1 with X = 205.4 at σ = 3, 241.5 at 96 and 277.5 at 384 (B = 11.086, 0.99697, 0.43792
-  there), the angular bound A (l(l + 2)K/(a − a_1) ≤ 8K/5 for l ≥ 2, 3B² at l = 1) from 781.7 to 1427, and the summed
-  constant, ‖d_r* u‖_I² + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖², set by l = 0: C = X_0 = 420.3 at σ = 3, 467.2 at 96, 514.4
-  at 384. W3: uniformly on 3 ≤ σ ≤ 384 with B ≤ 11.477, X ≤ 963.4 and C = X_0 ≤ 1516, each increasing in σ. Real σ only
-  (Lemma E2.10's 4|σ| for Im σ > 0 not taken); between the printed points only the uniform bound is certified, the
-  band's interval values not being saved.
+  reproduces H1's ‖u′‖_I ≤ 224.5‖f‖ from B_6 ≤ 19.214 and H4's X_0 ≤ 808.6 from B_0 ≤ 275.2, at σ = 3. W2: on the
+  printed intervals of the band, [3, 3.05] at σ = 3 and [σ − 1/20, σ] after (corrected D586, verifier 253: [2.95, 3] was
+  stated at σ = 3, where X = 205.4 and C = 420.3 held at the point σ = 3 only), ‖u′‖_I ≤ X‖f‖ for every l ≥ 1 with X =
+  205.8 on [3, 3.05], 241.5 at 96 and 277.5 at 384 (B = 11.086, 0.99697, 0.43792 there), the angular bound A (l(l +
+  2)K/(a − a_1) ≤ 8K/5 for l ≥ 2, 3B² at l = 1) 784.7, 1081 and 1427 there, X and A least on [5.95, 6] (204.9, 777.9),
+  not at an end, and the summed constant, ‖d_r* u‖_I² + Σ_l l(l + 2)∫_I ψ|u_l|² ≤ C²‖f‖², set by l = 0: C = X_0 = 420.7
+  on [3, 3.05], 467.2 at 96, 514.4 at 384. W3: uniformly on 3 ≤ σ ≤ 384 with B ≤ 11.477, X ≤ 963.4 and C = X_0 ≤ 1516,
+  each increasing in σ and B by its closed form (deduced; W3's grid check is an illustration, and W2 now checks each row
+  against W3 and C = X_0, D586). Real σ only (Lemma E2.10's 4|σ| for Im σ > 0 not taken); between the printed points
+  only the uniform bound is certified, the band's interval values not being saved.
 
 What it does not give:
 

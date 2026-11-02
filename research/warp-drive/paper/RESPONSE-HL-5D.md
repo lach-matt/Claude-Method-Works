@@ -1264,15 +1264,15 @@ Theorem 4 with them.
   (deduced; the counts computed exactly): a floor for what this proof's bookkeeping delivers, not for the optimal loss.
   A round of the write-out's iteration at future timelike infinity is charged 15 derivatives on the part of its weight
   range below 3.5, and 17 above (deduced; the steps counted exactly, `checks/prop31loss5.py`), and the rounds of the two
-  remaining long loops cost the same (deduced); one weight, the logarithmic terms of the general index set, the count of
-  one regularity step beyond its floor of 8 and the loss of one resolvent remain open, so d is still not a number. For
-  the first constant of the linear theory, the resolvent of the scalar wave operator on five-dimensional Tangherlini of
-  mass 1 cut off to an interval about the photon sphere, a bound is certified for every real 0 < |σ| ≤ 384 and every
-  harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the one-derivative constants are at most 963.4 and,
-  summed over the harmonics, 1516 (`E2-PILOT.md`; certified in exact rational and interval arithmetic,
-  `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound lies 9.5 to 21 times above the computed norm at the
-  sampled frequencies. The passage to the write-out's own function spaces and the other constants are not done, so λ1
-  and δ are still not evaluated.
+  remaining long loops cost the same when one of them takes a weight the write-out admits but does not fix (deduced);
+  one weight, the logarithmic terms of the general index set, the count of one regularity step beyond its floor of 8 and
+  the loss of one resolvent remain open, so d is still not a number. For the first constant of the linear theory, the
+  resolvent of the scalar wave operator on five-dimensional Tangherlini of mass 1 cut off to an interval about the
+  photon sphere, a bound is certified for every real 0 < |σ| ≤ 384 and every harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤
+  σ ≤ 384, and there the one-derivative constants are at most 963.4 and, summed over the harmonics, 1516 (`E2-PILOT.md`;
+  certified in exact rational and interval arithmetic, `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound
+  lies 9.5 to 21 times above the computed norm at the sampled frequencies. The passage to the write-out's own function
+  spaces and the other constants are not done, so λ1 and δ are still not evaluated.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1,

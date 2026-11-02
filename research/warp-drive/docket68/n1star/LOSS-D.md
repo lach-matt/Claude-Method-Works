@@ -4,7 +4,7 @@ Status: written (D347); LD3 added (D348), LD5 (D353), section 2b (E1'b, D357), L
 (ii)-(iii); repaired D380). Read by verifier 164 (D348), whose three major findings (the structure of d, the scope of
 LD3, a second nested loop) and its minor findings and nits are seated (LD4); section 2b read by verifier 166 (D358),
 findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), LD11 (D507, corrected D509 after
-verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576, D580, D582, D584).
+verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576, D580, D582, D584, D586).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -847,12 +847,22 @@ loop counts of section 3.
     application, so every application of Corollary 3.4 with the same β_sctf has the same ℓ; and both kinds of round
     apply it with β_sctf = ℓ_scf = 3/2 − ε (D560 with D563's citations). So a level-2 and a level-3 round cost the same
     2 + ℓ + ℓ̃ in this accounting: D563's "conditional" is resolved, on the reading that both kinds of round apply the
-    one Corollary 3.4 (D560) rather than re-prove it.] One application at (α_0, k) treats every log power up to k: its
-    proof solves away each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives
-    of terms holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that Step 3's "for
-    each tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no
-    order; D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the
-    procedure without the redundancy.
+    one Corollary 3.4 (D560) rather than re-prove it. (Corrected D586, verifier 253: the record states β_sctf = 3/2 − ε
+    at level 3 (I9:287-288, I7:226) and at level 1 (I12:266-267), but at level 2 I12:278-281 does not restate it and
+    I12:293-294 pins it only to (3/2 − 2ε, 3/2 − ε]; ℓ being a ceiling in r_out = β_sctf − 2 − ε/2, the two kinds of
+    round cost the same when level 2 takes β_sctf = 3/2 − ε, which the record admits there and does not fix, and D563's
+    conditional stands in that form. Corollary 3.4's proof does not cite Lemma 3.2 or name r_in: it names r_out and the
+    orders r_± of I.A Lemma 7.1 with that outgoing value (F2:480-481); Lemma 3.2 enters Proposition 3.3's proof (F2:382)
+    at that proof's α_+ and for a family of operators (F2:382-384); s and the incoming order are constrained (large,
+    above a threshold), not given values. That a corollary's constant depends only on its stated inputs stands. The two
+    applications use different β_ztf (G5:211, 695) and the corollary's ℓ is quantified after β_ztf (F2:464-466), but its
+    proof's ℓ does not depend on β_ztf (F2:385, 483-485); the fibre inner product h (F2:471-478), a third choice, is
+    made in the proof the same way.)] One application at (α_0, k) treats every log power up to k: its proof solves away
+    each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms
+    holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that Step 3's "for each
+    tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no order;
+    D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the procedure
+    without the redundancy.
   - *The ι⁺ loop.* Each round applies III.G″ Corollary 4.3 to the source's terms at λ_0 and removes the error by III.I′
     Proposition 3.1, the next source being F − L_b(u_λ0 + u′_λ0) (PART-III-I6-ALMOSTBDD.md:128-131, 156-157, 167-168).
     III.J″ charges Corollary 4.3 the loss d + 2, d being III.G′ Theorem 3.1 (2)'s for N_ι+(λ)⁻¹ composed with a contour
@@ -922,21 +932,23 @@ loop counts of section 3.
     I2:139, 154-161), the steps taken in turn on the same u, so its loss is 2 × its number of steps. Its Step 2 alone
     sweeps the ℐ⁺-weight from below ℓ_+ to ℓ_I, at least ⌊2(ℓ_I − ℓ_+)⌋ + 1 steps; where III.I′′′′′ applies it (I6:216,
     Step 4 of each round raising α′_K), ℓ_+ ≤ 3/2 − 4ε, so for ℓ_I > 3 at least 4 steps, a loss of at least 8 (10 once
-    ℓ_I − ℓ_+ ≥ 2), with Step 1's backward steps and Lemma 2.2's on top, depending on the a priori weight. It enters
-    once per round raising α′_K (I6:216, 223-227) and in the Step 8s of III.I′′′′′′′′ and III.I′′′′′′′′′′′ (I9:338,
-    I12:399), not inside the ι⁺ rounds, so the per-ι⁺-round charge 4 + d_G stands, and each round raising α′_K carries
-    at least 8 more.] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's (I9:231; its MOD column lists III.G″
-    Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to α_K": exponents, not the rounds LD14
-    counts, a round treating every λ_0 of the window together (I6:127-129), and which of the two III.J″ multiplies is
-    not stated (corrected D557: D553 said the table has no row); by its rule (g) and Lemma 1.2 (e) (J3:157-158, 76-77)
-    their loss is their number times one round's.
+    ℓ_I − ℓ_+ ≥ 2), with Step 1's backward steps on top, depending on the a priori weight (Lemma 2.2's are not shown to
+    add: Step 1 uses its conclusion only to show that coefficients vanish, I2:149-152; corrected D586). It enters once
+    per round raising α′_K (I6:216, 223-227) and in Step 8 of III.I′′′′′′′′ (I9:338) and Step 7 of III.I′′′′′′′′′′′
+    (I12:399; "Step 8" there before D586), not inside the ι⁺ rounds, so the per-ι⁺-round charge 4 + d_G stands, and each
+    round raising α′_K carries at least 8 more.] III.J″'s row for III.I′′′′′ (J3:261) is this iteration's (I9:231; its
+    MOD column lists III.G″ Corollary 4.3) and counts "exponents in a window, and rounds raising α′_K to α_K":
+    exponents, not the rounds LD14 counts, a round treating every λ_0 of the window together (I6:127-129), and which of
+    the two III.J″ multiplies is not stated (corrected D557: D553 said the table has no row); by its rule (g) and Lemma
+    1.2 (e) (J3:157-158, 76-77) their loss is their number times one round's.
   - *What it rests on.* LD11 (ii)'s reading of III.J″'s accounting, now applied to Propositions 4.4 and to Corollary 4.3
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G on ℓ_I < 3.5 (6 + d_G on [3.5, 3.5099); D573's 8 +
     d_G withdrawn, D576), which a finer accounting might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's
     input), E^C_I's log terms below ℓ_I for the one-off application to the general class (loss 6 without them, D573,
     D576), Proposition 2.1's count beyond its floor 8 per round raising α′_K (D582), and ℓ's value (equal at both kinds
-    of round, the choices of s and r_in being made once in F2's Proposition 3.3 and Corollary 3.4, D560, D563, D584);
-    the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
+    of round when level 2 takes β_sctf = 3/2 − ε, which the record admits there and does not fix, the proof's own
+    choices being made once: D560, D563, D584, D586); the per-round loss is independent of k by J3's (g) (J3:157-158),
+    as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1

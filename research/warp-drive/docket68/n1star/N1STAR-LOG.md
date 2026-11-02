@@ -7793,3 +7793,9 @@ up to frequency 384), what the double-null runs at the physical wavelength show 
 the solution is carried inside the black hole and what stands between it and the record's own data, and what two
 crossing dusts have and have not been given. The verifier record is extended to match. No new mathematics; the new text
 is to be read by a verifier.
+
+**D586 (2026-11-02): two small corrections from the latest check.** The independent check of the last four entries found
+nothing major. One row of the table of derivative bounds was labelled with the wrong frequency interval; on the right
+one its numbers rise slightly (205.8 for 205.4), and the bounds over the whole band are unchanged. And the claim that
+two kinds of round in the loss count cost the same holds only if one weight takes the value the record allows but does
+not fix at one of the levels; that condition is restored, in the paper too. The rest were labels and wording.

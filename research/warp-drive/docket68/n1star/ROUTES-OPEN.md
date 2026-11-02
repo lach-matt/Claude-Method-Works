@@ -6125,6 +6125,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Proposition 3.3's proof, F2:382) and r_in (Lemma 3.2, α_+ = 0, F2:368-371, 478-481) from the operator alone, and makes
   ℓ independent of ε (F2:491): choices of the proof, made once. Both kinds of round apply it with β_sctf = ℓ_scf = 3/2 −
   ε (D560), so they cost the same 2 + ℓ + ℓ̃, on the reading that they apply that one corollary.
+- D586 (verifier 253 on D580, D581, D582, D584: no major; 2 minor, 6 nits; `checks/e2h1band5.py` repaired and rerun,
+  exact): MINOR (D581), the band's interval at σ = 3 is [3, 3.05], not [2.95, 3], so that row's X = 205.4 and C = 420.3
+  held at the point only; on the interval X ≤ 205.8, K ≤ 490.5, A ≤ 784.7, C = X_0 ≤ 420.7 (the verifier's exact
+  recomputation reproduced); the uniform bounds stand. MINOR (D584), the record fixes β_sctf = 3/2 − ε at levels 1 and 3
+  but at level 2 only admits it (I12:293-294, (3/2 − 2ε, 3/2 − ε]); ℓ being a ceiling in r_out = β_sctf − 2 − ε/2, equal
+  cost holds when level 2 takes that value, and D563's conditional stands in that form (the paper's section 9 says so).
+  Nits: Corollary 3.4's proof names r_out and I.A Lemma 7.1's orders, not Lemma 3.2 or r_in, and s and the incoming
+  order are constrained, not valued; its ℓ does not depend on β_ztf (F2:385, 483-485), though the two applications use
+  different β_ztf, and the fibre inner product is a third choice made the same way; I12:399 is Step 7, not Step 8; Lemma
+  2.2's steps are not shown to add to Proposition 2.1's loss (the floor 8 stands); e2h1band5's W2 passed whenever C > 0
+  (now checked against W3 and C = X_0), W3's monotonicity is the closed form's (the grid an illustration), W1 now
+  controls X_0 too (H4's 808.6), its printed decimals are rounded up exactly (no value moved), and X and A over the rows
+  run from 204.9 and 777.9 at σ = 6, not from the first row; Proposition B.4's gains are found at lower m or earlier at
+  the same m. The D580-D584 entries above keep their text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

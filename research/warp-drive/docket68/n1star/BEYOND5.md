@@ -794,35 +794,36 @@ What it does not give:
   expanded to every order with remainders in E^ℓ. Put q := (J + 3)/2. Each step finds the next coefficients and the
   order-(J+1) remainders m̃′, φ̃′, gh̃′ at level 0 by (a)-(c), and then their ℓ-gains by induction on m in the order
   m̃′, φ̃′, gh̃′, each step using the earlier stages' E^ℓ, the explicit terms' gains by (0) and the gains of m̃′, φ̃′,
-  gh̃′ found at lower m; the order-J remainders, explicit terms plus these, are then in E^ℓ as well (corrected D580,
-  verifier 252: the hypothesis had stage i's own remainders in E^ℓ at order J, which Theorem A_P does not give at J =
-  4). (a) The mean: Lemma 5.3 (a) reads −½g0^(ab)∂_a∂_b m̃ = r^(−q)S_q + S̃, where r^(−q)S_q collects the terms of order
-  q, polynomials in the known coefficients, and S̃ the rest: B̄·dm̃ + C̄m̃ (E_2 · E_(q−1) ⊂ E_(q+1)), the couplings with
-  φ̃, gh̃ and the products with a remainder factor, each in E_(q+1/2) with all derivatives. Lemma 11.2 applies with g0
-  for g_λ ((9.5) is the Cartesian principal part g0^(ab)∂_a∂_b, D564; the energy step is Lemma 9.5 with g̃ = g0, and
-  (H_m)'s second clause is void, g0 − g0 = 0): m̃ = r^(1−q)M + m̃′, M = (2/(2q − 5))∫_(v_start)^v S_q, q ≥ 7/2 ≠ 5/2,
-  and m̃′ ∈ E_(q−1/2) = E_((J+2)/2) with all derivatives, which is order J + 1. For its ℓ-gains (H_m) asks ℓ^j S̃ ∈
-  E_(q+1/2+j) for j < m: the couplings need ℓ^j gh̃ and ℓ^(j+1) φ̃ (dφ̃ at ℓ^j), found at step j by (b) and (c); B̄·dm̃
-  needs ℓ^(j+1)m̃, at j = m − 1 the ℓ of ℓ^(m−1)m̃′ ∈ E_(q−1/2+m−1) with all derivatives, in E_(q+m−3/2) by ℓ(E_p) ⊂
-  E_p, and B̄ ∈ E_2 lifts the product to E_(q+m+1/2), above the E_(q+m−1/2) asked; C̄m̃ and the products with remainder
-  factors gain by the lower steps (stage i) and the hypothesis (earlier stages), the explicit factors by (0). So Lemma
-  11.2 gives ℓ^m m̃′ ∈ E_(q−1/2+m). (b) The phase: Lemma 5.3 (b) is ℓφ̃ = ½(m̃(ℓ, ℓ) + q̃) with c0 = 0 (1185; D548 (1)),
-  solved from past null infinity as φ̃ = −∫_r^∞ (½m̃(ℓ, ℓ) + ½q̃) dr′: a term r^(−k/2)S_k of the source ½(m̃(ℓ, ℓ) + q̃)
-  gives −r^(1−k/2)S_k/(k/2 − 1), resonant only at k = 2, which the sources (from k = 4) never reach, and a remainder in
-  E_p gives one in E_(p−1); and ℓ^(m+1)φ̃ = ½ℓ^m(m̃(ℓ, ℓ) + q̃), with q̃ from the earlier stages. Ψ̃ = □̃φ̃ is then
-  (9.5) applied term by term, powers only (D548 (3)): its c0 = 2 transport is satisfied, not solved. (c) The oscillating
-  part: the transport (ℓ + 3/(2r) + c)Z = S of Lemma 9.7(d), with Z^0 = −r^(1−q)S_q/(q − 5/2) solving (ℓ + 3/(2r))Z^0 =
-  r^(−q)S_q exactly, so Z − Z^0 solves the same transport with source S̃ − cZ^0, starting at q + ½ (D551); the orders
-  step by ½ from q = 3 and never meet 5/2. Its ℓ-gains: ℓ^m Z = ℓ^(m−1)(S − (3/(2r))Z − cZ), whose terms need m̃ to ℓ^m,
-  φ̃ to ℓ^(m+1) (Ψ̃ carries ℓℓφ̃) and Z to ℓ^(m−1), all found. (3) Each source coefficient S_q is a polynomial in the
-  earlier coefficients and their derivatives, as in Proposition 11.1's last step (10583-10587), and the new coefficients
-  are M = (2/(2q − 5))∫S_q, and Φ and Γ algebraic in them, the invariance and the vanishing for v ≤ v_start being
-  inherited by the integrals from v_start (and by the integral from past null infinity in (b), where every source
-  vanishes for v ≤ v_start). (4) The physical variables: g_app(X) = G(X, u/λ) with u = v + Σ_j λ^j φ_j (5.1), so Y(X,
-  v/λ + δ) = Σ_(k<K) ∂_θ^kY(X, v/λ)δ^k/k! + O(|δ|^K) for each K, δ := Σ_j λ^(j−1)φ_j ∈ E_1^ℓ expanded by (b), each power
-  of δ adding r⁻¹, the Taylor remainder in E_K with its ℓ-gains (ℓ(v/λ) = 0) (538-540; D564 (1)). So g_app, and e = g_λ
-  − g_app with Proposition 11.1, has an expansion in r^(−1/2) at fixed λ with ℓ-gaining remainders, and the strip's term
-  is polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)), the start condition holding as every derivative of e is in E_2
+  gh̃′ found at lower m, or at the same m earlier in that order (D586, verifier 253); the order-J remainders, explicit
+  terms plus these, are then in E^ℓ as well (corrected D580, verifier 252: the hypothesis had stage i's own remainders
+  in E^ℓ at order J, which Theorem A_P does not give at J = 4). (a) The mean: Lemma 5.3 (a) reads −½g0^(ab)∂_a∂_b m̃ =
+  r^(−q)S_q + S̃, where r^(−q)S_q collects the terms of order q, polynomials in the known coefficients, and S̃ the rest:
+  B̄·dm̃ + C̄m̃ (E_2 · E_(q−1) ⊂ E_(q+1)), the couplings with φ̃, gh̃ and the products with a remainder factor, each in
+  E_(q+1/2) with all derivatives. Lemma 11.2 applies with g0 for g_λ ((9.5) is the Cartesian principal part
+  g0^(ab)∂_a∂_b, D564; the energy step is Lemma 9.5 with g̃ = g0, and (H_m)'s second clause is void, g0 − g0 = 0): m̃ =
+  r^(1−q)M + m̃′, M = (2/(2q − 5))∫_(v_start)^v S_q, q ≥ 7/2 ≠ 5/2, and m̃′ ∈ E_(q−1/2) = E_((J+2)/2) with all
+  derivatives, which is order J + 1. For its ℓ-gains (H_m) asks ℓ^j S̃ ∈ E_(q+1/2+j) for j < m: the couplings need ℓ^j
+  gh̃ and ℓ^(j+1) φ̃ (dφ̃ at ℓ^j), found at step j by (b) and (c); B̄·dm̃ needs ℓ^(j+1)m̃, at j = m − 1 the ℓ of
+  ℓ^(m−1)m̃′ ∈ E_(q−1/2+m−1) with all derivatives, in E_(q+m−3/2) by ℓ(E_p) ⊂ E_p, and B̄ ∈ E_2 lifts the product to
+  E_(q+m+1/2), above the E_(q+m−1/2) asked; C̄m̃ and the products with remainder factors gain by the lower steps (stage
+  i) and the hypothesis (earlier stages), the explicit factors by (0). So Lemma 11.2 gives ℓ^m m̃′ ∈ E_(q−1/2+m). (b)
+  The phase: Lemma 5.3 (b) is ℓφ̃ = ½(m̃(ℓ, ℓ) + q̃) with c0 = 0 (1185; D548 (1)), solved from past null infinity as φ̃
+  = −∫_r^∞ (½m̃(ℓ, ℓ) + ½q̃) dr′: a term r^(−k/2)S_k of the source ½(m̃(ℓ, ℓ) + q̃) gives −r^(1−k/2)S_k/(k/2 − 1),
+  resonant only at k = 2, which the sources (from k = 4) never reach, and a remainder in E_p gives one in E_(p−1); and
+  ℓ^(m+1)φ̃ = ½ℓ^m(m̃(ℓ, ℓ) + q̃), with q̃ from the earlier stages. Ψ̃ = □̃φ̃ is then (9.5) applied term by term, powers
+  only (D548 (3)): its c0 = 2 transport is satisfied, not solved. (c) The oscillating part: the transport (ℓ + 3/(2r) +
+  c)Z = S of Lemma 9.7(d), with Z^0 = −r^(1−q)S_q/(q − 5/2) solving (ℓ + 3/(2r))Z^0 = r^(−q)S_q exactly, so Z − Z^0
+  solves the same transport with source S̃ − cZ^0, starting at q + ½ (D551); the orders step by ½ from q = 3 and never
+  meet 5/2. Its ℓ-gains: ℓ^m Z = ℓ^(m−1)(S − (3/(2r))Z − cZ), whose terms need m̃ to ℓ^m, φ̃ to ℓ^(m+1) (Ψ̃ carries
+  ℓℓφ̃) and Z to ℓ^(m−1), all found. (3) Each source coefficient S_q is a polynomial in the earlier coefficients and
+  their derivatives, as in Proposition 11.1's last step (10583-10587), and the new coefficients are M = (2/(2q −
+  5))∫S_q, and Φ and Γ algebraic in them, the invariance and the vanishing for v ≤ v_start being inherited by the
+  integrals from v_start (and by the integral from past null infinity in (b), where every source vanishes for v ≤
+  v_start). (4) The physical variables: g_app(X) = G(X, u/λ) with u = v + Σ_j λ^j φ_j (5.1), so Y(X, v/λ + δ) = Σ_(k<K)
+  ∂_θ^kY(X, v/λ)δ^k/k! + O(|δ|^K) for each K, δ := Σ_j λ^(j−1)φ_j ∈ E_1^ℓ expanded by (b), each power of δ adding r⁻¹,
+  the Taylor remainder in E_K with its ℓ-gains (ℓ(v/λ) = 0) (538-540; D564 (1)). So g_app, and e = g_λ − g_app with
+  Proposition 11.1, has an expansion in r^(−1/2) at fixed λ with ℓ-gaining remainders, and the strip's term is
+  polyhomogeneous in ρ^(1/2) (D530, D540, D548 (5)), the start condition holding as every derivative of e is in E_2
   (Lemma 11.0; D521). [] Asserted, not shown here: E_p's closure under ∂_v (1199, beyond the derivatives 1194 displays),
   the couplings' coefficients exact (as B0 and C0 are, by deduction, D577), and the Taylor remainder's ℓ-gains (538-540
   writes the remainder, not its gains). Not covered: λ-uniformity, which the strip does not need (D521). So 3(b)'s
