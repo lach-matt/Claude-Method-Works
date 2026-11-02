@@ -390,24 +390,35 @@ def linearise(m, comps):
     return {k: R[k].get((1, "m"), 0) for k in comps}
 
 
+def tzero(e):
+    """exact zero test for a rational function of trigonometric functions of th (through z = exp(i th))"""
+    z = sp.Symbol("z")
+    e = sp.expand(e).rewrite(sp.exp).subs(th, -sp.I*sp.log(z))
+    return sp.cancel(sp.together(sp.expand(e))) == 0
+
+
 def reduce_sector(Lm):
     """closure of the sector: each component a multiple of its harmonic tensor, multiples free of th"""
     Yp = sp.diff(Yf, th)
     red = {k: yred(Lm[k]) for k in Lm}
     out, ok = {}, True
     for k in ((0, 0), (0, 1), (1, 1)):
-        ok &= zero(red[k].coeff(Yp))
-        out[k] = sp.simplify(red[k].coeff(Yf))
+        ok &= tzero(red[k].coeff(Yp))
+        out[k] = red[k].coeff(Yf)
     for k in ((0, 2), (1, 2)):
-        ok &= zero(red[k].coeff(Yf))
-        out[k] = sp.simplify(red[k].coeff(Yp))
-    b = sp.simplify(-red[(3, 3)].coeff(Yp)/SC)
-    a = sp.simplify(red[(3, 3)].coeff(Yf)/C2)
+        ok &= tzero(red[k].coeff(Yf))
+        out[k] = red[k].coeff(Yp)
+    b = -red[(3, 3)].coeff(Yp)/SC
+    a = red[(3, 3)].coeff(Yf)/C2
     ypp = yred(sp.diff(Yf, th, 2))
-    for k, want in (((2, 2), a*Yf + b*ypp), ((4, 4), a*S2*Yf + b*SC*Yp)):
-        ok &= zero(red[k] - sp.expand(want))
+    for k, want in (((2, 2), a*Yf + b*ypp), ((3, 3), a*C2*Yf - b*SC*Yp), ((4, 4), a*S2*Yf + b*SC*Yp)):
+        d = sp.expand(red[k] - want)
+        ok &= tzero(d.coeff(Yf)) and tzero(d.coeff(Yp))
     out["L"], out["T"] = a, b
-    ok &= all(th not in sp.simplify(x).free_symbols for x in out.values())
+    ok &= all(tzero(sp.diff(x, th)) for x in out.values())
+    z = sp.Symbol("z")
+    out = {k: sp.expand(sp.cancel(sp.expand(x.rewrite(sp.exp).subs(th, -sp.I*sp.log(z))))) for k, x in out.items()}
+    ok &= all(z not in x.free_symbols for x in out.values())
     return ok, out
 
 

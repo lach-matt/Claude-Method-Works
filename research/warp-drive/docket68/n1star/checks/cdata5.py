@@ -29,6 +29,7 @@ R_rr at v = 1/2 and 7/2 as small as the fit, and Ric_vv[g_app] = 0 exactly outsi
 import sys, time, warnings
 import numpy as np
 import sympy as sp
+from sympy.printing.pycode import PythonCodePrinter
 from flint import arb, ctx
 from numpy.polynomial import chebyshev as Ch
 from scipy.integrate import solve_ivp
@@ -115,7 +116,7 @@ def data_exprs(lam_sym):
     return r, x, v, sp.diff(P, r), sp.diff(Q, r)
 
 
-class ArbPrinter(sp.printing.pycode.PythonCodePrinter):
+class ArbPrinter(PythonCodePrinter):
     def _print_Rational(self, e):
         return 'arb(%d)/arb(%d)' % (e.p, e.q)
 
