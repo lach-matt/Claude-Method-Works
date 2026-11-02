@@ -2,3 +2,9 @@
       every component: True (nontrivial: True); P H_1 = 0 and P B^n H_1 = Q B^(n-1) H_1, n = 1..6 (the telescoping of P(s
       X_M) - Q X_M): True; B^n H_1 decay faster than r^(-1/2) (nothing coming in): True
 Q1 PASS
+  Q2 exp(-1/x) (a = 0.5, c_R 2.0): max |I_n| kappa^n/env = 0.99994, max |I_n|/(env min(lam,1/kappa)^n) = 1.0002, max
+      |rho_2|/R_2 = 0.9999, max R_2 kappa^(1-a) = 9.3221; exp(-1/x^2) (a = 0.333, c_R 2.381): max |I_n| kappa^n/env =
+      1.0, max |I_n|/(env min(lam,1/kappa)^n) = 1.0, max |rho_2|/R_2 = 1.0, max R_2 kappa^(1-a) = 8.272; record C_c^inf
+      (a = 0.5, c_R 2.309): max |I_n| kappa^n/env = 0.99993, max |I_n|/(env min(lam,1/kappa)^n) = 0.99993, max
+      |rho_2|/R_2 = 0.9999, max R_2 kappa^(1-a) = 6.9276  [208 s]
+Q2 PASS
