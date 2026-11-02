@@ -1,0 +1,8 @@
+    jets 36 s
+    inverse 36 s
+    d inverse 36 s
+    Christoffels 37 s
+    Ricci 38 s
+    gauge 40 s
+  point 1: J1 True, J5 True, J2 True, J3 True, J4 True, J6 True, J7 True, J0 True; R^(-1) = 0 for the stage-0 waves with lam^2 Q: True; predictions and R^(0) nonzero: True;
+    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (54 s)
