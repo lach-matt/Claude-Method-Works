@@ -38,7 +38,8 @@ space, T3-T4 that the phase need not be null for it (D566), T6-T7 both families 
 no chi in T1-T8; T9-T11 add each family's (D579). Labels: computed (exact, sympy, data5.py's
 normal form).
 
-Run: python3 checks/data5two.py   (about twenty minutes)
+Run: python3 checks/data5two.py   (T1-T9 about twenty minutes; T10-T11 about five and a half hours, 331 minutes
+on the run saved as checks/data5two.out; --t10t computes T10-T11 by exact truncation in about an hour)
 """
 import os
 import sys

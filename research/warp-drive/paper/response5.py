@@ -460,7 +460,7 @@ def r9(control=False):
 def r10(control=False):
     """section 9's floor: d > 7.95e15, N > 1.66e17 from delta_50 and 3 per round (2 in the control)"""
     from fractions import Fraction as Fr
-    delta = Fr(194137, 10**13)
+    delta = Fr(194138, 10**13)          # above delta_50 = 1.94137057e-8 (epsind5.py E3): the floor is rigorous
     rounds = 2 * (Fr(1, 2) / delta**2)
     d = (2 if control else 3) * rounds
     txt = " ".join(open(PAPER, encoding="utf-8").read().split())
