@@ -24,3 +24,4 @@ iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's
       non-real: True
       candidates lam0 = r + i, Re <= 5 (interval: order, residue rank): {'[5.0000000, 5.0000000]': (1, 1)}; exceptional
       points spec C + {1, 2, 3} at Re <= 5: [2.5, 3.5, 4.5], no root at an integer distance from spec C: True
+  C4 (control): lam0 = 5 at s0 with N(2 + eps)^-1 replaced by its adjugate: (order, rank) = (0, 2), not (1, 2): True

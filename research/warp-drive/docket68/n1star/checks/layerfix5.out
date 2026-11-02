@@ -4,3 +4,4 @@ F1 PASS
   F2 nu with the (tau, x) frame [supplement]: -(2*rho**3 - 3*rho**2 - 2)**2/(36*mu0**(7/4)*rho**6) (= (0.2): True); with
       the (v, x) frame: -(rho - 1)**2*(rho**2 + rho + 1)**2/(9*mu0**(7/4)*rho**6) (= -mu0^(-7/4) (rho^3 - 1)^2/(9 rho^6):
       True); both -> -mu0^(-7/4)/9: True
+F2 PASS
