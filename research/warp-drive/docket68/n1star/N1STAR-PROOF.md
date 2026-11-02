@@ -6896,11 +6896,16 @@ the cofactors are treated the same way. Mutant: 10^-3 in place of 10^-6, above e
      this section rests on it (D129).
  (d) (what holds off a countable set) Simplicity (10.52(i)) is, for each l, the nonvanishing of a polynomial in h that
      is nonzero at 10^-6, so it fails for at most finitely many h at each l, and for at most countably many in all;
-     (8.13) holds at every h with its own eps_ind(h) > 0, finitely many roots having |lam| <= 50 (the top-weight parts)
-     and each non-integer one lying off Z; the record uses eps_ind only through eps_ind > 0, its value 1.94137 x 10^-8
-     being the point's (10.52; D129). So the h that the record's theorems take may be any h in (0, 10^-6] outside a
-     countable set, below the h_0 of his Theorems 5.2 and 6.2 and of [Hin26] Theorem 7.1 ("for all sufficiently large
-     gam_C").
+     (8.13) holds off a countable set too, but not at every h, as this item said before D607: a non-real root can have
+     integer real part, and at l = 1000, h = 6.652623172 x 10^-7 two roots of L are 2 +- 3.6833 i, |lam| = 4.19
+     (`checks/re813.py` R1). Such a root of real part n is a common root t = y^2 > 0 of A and B, P(n + iy) = A(y^2) +
+     i y B(y^2), so it occurs only where Res_t(A, B), a polynomial in (kappa, h), vanishes; for |n| <= 50 and each of
+     box^C's sextic, vector quadratic and l = 0 quartic it is a nonzero polynomial in h at every l (R2), so it vanishes
+     at finitely many h for each (l, n); and at each h finitely many roots have |lam| <= 50, the top coefficient in
+     kappa being h^3 or h, free of lam (R3). So eps_ind(h) > 0 off a countable set of h. The record uses eps_ind only
+     through eps_ind > 0, its value 1.94137 x 10^-8 being the point's (10.52; D129). So the h that the record's
+     theorems take may be any h in (0, 10^-6] outside a countable set, below the h_0 of his Theorems 5.2 and 6.2 and of
+     [Hin26] Theorem 7.1 ("for all sufficiently large gam_C").
  (e) (B6, the horizon threshold) 10.21(d) needs vartheta_H+ < -C_0 - 1/2 for box^C at the conormal bundle of the
      horizon. The part of that quantity of order h^-1 is h^-1 rho_oo times the damping symbol l_{g,c,e} of C (his Lemma
      3.2), even in the covector, which his Lemma 3.5 -- computed in five dimensions in 10.13 -- makes definite on future
@@ -9334,7 +9339,8 @@ with sections 10, 11 and 13.2 (pp. 106-109, 201-233, 247-255), and (lxi) [Hin26a
      written out.
 
 So all of 10.74's 61 rows are written out at n = 4 and rest on their inputs, not on a census of their sources;
-B-MAP.tsv's column `written` marks them. Thirty-five of the sixty-one take a reading among their inputs (B-MAP.tsv's
+B-MAP.tsv's column `written` marks them. Thirty-five of the sixty-one took a reading among their inputs when this was
+written (thirty-four since D174, at which B-MAP.tsv's row 10.41 (b) became `no`; D607) (B-MAP.tsv's
 column `reading`: 10.15 (a), 10.15 (b), 10.19 (a), 10.19 (d), 10.20 (a), 10.27 (b), 10.28 (a), 10.29 (a), 10.30 (a),
 10.31 (a), 10.32 (c), 10.34 (c), 10.36 (b), 10.37 (c), 10.39 (d), 10.39 (e), 10.41 (b), 10.42 (e), 10.43 (c), 10.45 (b),
 10.45 (e), 10.46 (a), 10.46 (b), 10.47 (d), 10.47 (e), 10.49 (a), 10.53 (e), 10.55 (b), 10.56 (b), 10.58 (c), 10.61 (b),

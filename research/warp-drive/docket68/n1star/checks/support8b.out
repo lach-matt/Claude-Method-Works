@@ -1,0 +1,44 @@
+  M1: half-turns in both planes compose to -I: True; P* g_MP = g_MP for P = -I, all 15 components, symbolic
+      (a, b, mu): True; the 15 KIDs of (0.4) under -I:
+        e_0 (d_t)              even
+        e_1 (translation)      odd
+        e_2 (translation)      odd
+        e_3 (translation)      odd
+        e_4 (translation)      odd
+        e_12 (rotation)        even
+        e_13 (rotation)        even
+        e_14 (rotation)        even
+        e_23 (rotation)        even
+        e_24 (rotation)        even
+        e_34 (rotation)        even
+        e'_1 (boost)           odd
+        e'_2 (boost)           odd
+        e'_3 (boost)           odd
+        e'_4 (boost)           odd
+      7 even, 8 odd; translations and boosts odd, d_t and rotations even: True
+M1 PASS
+  M2: q0 <= sqrt(mu0) under the seed (mu0^2 - q0^4 = mu0 s, s = mu0 - sqrt72 l5^2 >= 0): True; a < q0: True;
+      mu_end > mu0: True; T > r_q(mu_end) - a => v_end - a < V - r_q(mu_end) <= tau_end (margin = epsilon): True;
+      on tau = tau1, r >= a: v - v_end = eta + (r - a) > 0: True; M lam^(K-j) <= M lam for j <= d <= K - 1,
+      0 < lam <= 1 (d <= 8): True, attained at j = K - 1 (so O(lam), not <= lam): True; instance
+      (l5, mu0, mu_end) = (1, 9, 10): seed True, mu_end True, certificate True
+M2 PASS
+  M3: rho^4 C^oo in rho^(7/2) H_b near rho = 0: with dr/r dw True, with |dx| False; ||r^l0 R^-3 chi(r/R)||_b ~
+      R^(l0 - 3), ||r^(l0+1) R^-4 chi(r/R)||_b ~ R^(l0 - 3), R-free remainders: True; (r d_r)^j chi(r/R) = ((s d_s)^j
+      chi)(r/R), j = 1, 2: True; concrete chi, l0 = 7/2, 13/4, R = 2, 3: True; for the record, amplitude R^-1:
+      R^(l0 - 1); Lebesgue |dx|, amplitude R^-3: R^(l0 - 1)
+M3 PASS
+  M4: 18 rows parsed, every dependency a row: True; acyclic: True; a topological order:
+        c1 u2 b1 c2 c4 u1 c3 u3 u4 u5 d1 b2 d2 b3 w1 w2 b4 n1;
+      Theorem 2.1's steps (0)-(6) a linear extension: True; (C5) and s_C > 100 for gamma_C > 10^6: True;
+      z_Ups <= 1/2 at the extremes gamma_Ups = 1/4, e_Ups = 1: True; record point: u4 True, z_Ups = 1/250000, 3/2 +
+      delta_sharp = 15099/10000: True; d2 nonempty: True; eps_ind < 3e-6 < delta_sharp: True; eps'_0 in (0, eps_K), rate
+      alpha - 2 > 2 on row w2 (three witnesses; eps'_0 <= eps_K/2 < eps_K symbolically): True, True
+M4 PASS
+  M5: counts in the files, each equal to the paper's unless listed below: deduced 248; D 90; A 29; C 31; ? 38; B 60;
+      modification 61; places named 57; places none 4; short 45; long 16; reading 34; no step 12; proof level 25; one
+      more B 1; roots 10; own 5; groups 2; READ 1; every n 2; lines 7577
+      roots by status: RB written out, RC READ, RE settled, RG settled, RH settled, RI written out, RK settled, RL
+      written out, RP settled, RU written out; 10.75's items numbered 1-61, 16 of them long; READINGS.tsv 39 rows (the
+      34 and five on none); batches 1,806+1,814+1,718+1,122+1,117; sums consistent: True; mismatches: none
+M5 PASS

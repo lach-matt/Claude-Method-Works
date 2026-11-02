@@ -1,0 +1,8 @@
+  R1: l = 1000, n = 2: R_n has a root h in (6.65262317215657e-7, 6.65262317215657e-7); there L has the root (2.0 + 3.68334335826j) (|lam| = 4.1913)
+  R1: l = 1000, n = 2: R_n has a root h in (6.65262317215657e-7, 6.65262317215657e-7); there L has the root (2.0 - 3.68334335826j) (|lam| = 4.1913)
+  R1: 1 root(s) h of R_2 in (0, 10^-6]; at 1 of them L has a conjugate pair of non-real roots of real part 2 with |lam| <= 50, so (8.13) fails there
+R1 PASS
+  R2: scalar sextic: R_n not identically zero at any l, for each |n| <= 50; vector quadratic: R_n not identically zero at any l, for each |n| <= 50; scalar quartic (l = 0): R_n not identically zero at any l, for each |n| <= 50 [38s]
+R2 PASS
+  R3: scalar sextic: top coefficient in kappa (degree 3) h**3, free of lam: True; vector quadratic: top coefficient in kappa (degree 1) h, free of lam: True
+R3 PASS

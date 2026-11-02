@@ -1,0 +1,64 @@
+  L1: Theorem 2's past ledger, N = K + 4 + ceil(4 beta0), K' = N - 1 (beta0, K >= 6 symbolic):
+      (i) int_(t >= split) lam^-1 t^(-3/2) dt = 2, independent of lam                                              True
+      (ii) Lemma 9.3's gain t^(-3/2): |w| <= lam^(K'-3) t^(-2), |d w| <= lam^(K'-4) t^(-2)                         True
+      (ii) margin: lam^(K'-3) t^-2 <= lam t^(-3/2) <= eps t^(-5/4) (t >= 1, lam <= 1)                              True
+      (iii) Gronwall: lam^(2K'-5) M^2 <= M lam^(K'+1), 2K' - 5 >= K' + 1                                           True
+      (iv) int_t^T t'^(-1-a) (T/t')^b dt' <= t^-a (T/t)^b/(b + a): the difference is T^(-a)/(a + b)                True
+      (iv) log(T/t) <= (T/t)^b/b: y - log y has its minimum 1 at y = 1                                             True
+      (v) the weight (T/t)^beta0 at t = 1: lam**(-2*beta0)                                                         True
+      (vi) nonlinear: lam^-5 (lam^(-2*beta0 - 1))^2 lam^-1 = lam^(-4*beta0 - 8)                                    True
+      (vi) small against B: K' - 8 - 4 beta0 > 0 (K >= 6)                                                          True
+      (vii) data at tau0: K' - 2 beta0 - 1 >= K + 2                                                                True
+           beta0 = 2, K = 6: K' = 17 > 8 + 4 beta0 = 16; K' - 2 beta0 - 1 = 12 >= 8                                True
+           beta0 = 9/4, K = 6: K' = 18 > 8 + 4 beta0 = 17; K' - 2 beta0 - 1 = 25/2 >= 8                            True
+           beta0 = 53/10, K = 6: K' = 31 > 8 + 4 beta0 = 146/5; K' - 2 beta0 - 1 = 97/5 >= 8                       True
+           beta0 = 7, K = 6: K' = 37 > 8 + 4 beta0 = 36; K' - 2 beta0 - 1 = 22 >= 8                                True
+  L1 control (split at lam^-1): fails (i) int_(t >= split) lam^-1 t^(-3/2) dt = 2/sqrt(lam)
+  L1 control (K' = K + 3): fails (vi) small against B; (vii) data at tau0
+L1 PASS
+  L2: C5's ledger with k = 6 + a, K = 6 + b symbolic (a, b >= 0; s0 = 3):
+      Step 1 (10.51(a)): L^inf bounds to i <= k - 2 exist (k + 1 - s0 >= k - 2)                                    True
+      Step 3: the L^inf bounds i = 0, 1 exist (k + 1 - s0 >= 1)                                                    True
+      Step 4's split at k - 2: the L^inf factor needs 2 + 1 + s0 <= k + 1                                          True
+      Step 4: the scaled product bound |d w d w|_k <= C lam^-s0 |d w|_k^2 needs k >= s0                            True
+      Step 8: [DS23] Theorem 2.4 needs k > n/2 + 1                                                                 True
+      Step 3: |w|_inf <= C M lam^(K-3) small                                                                       True
+      Step 3: |d w|_inf <= C M lam^(K-4) <= C M lam^2                                                              True
+      Step 4: the w part of the commutators C M lam^(K-4) N <= C N                                                 True
+      Step 4: the worst nonlinear term lam^(-5) N^2 <= C M^2 lam^(K+1)                                             True
+      Step 4: the lower nonlinear term lam^(-3) N^2 <= C M^2 lam^(K+1)                                             True
+      the residual lam^(N_st - 1), N_st = K + 3, within C_R lam^K                                                  True
+      10.51(c): Data(w) at order k is O(lam^(N - 3)) = O(lam^K), N = K + 3                                         True
+      Step 7: the nonlinear term one power above lam^K                                                             True
+      every row linear in (k, K): True; k = 6..30 x K = 6..12: True; support5.c5 agrees at (6, 6) and (6, 5): True
+  L2 control (K = 5, k symbolic): fails
+      Step 3: |d w|_inf <= C M lam^(K-4) <= C M lam^2;
+      Step 4: the worst nonlinear term lam^(-5) N^2 <= C M^2 lam^(K+1);
+      Step 7: the nonlinear term one power above lam^K
+L2 PASS
+  L3: Lemma 11.2's step: -(1/2)(3 - 2(q - 1)) (2/(2q - 5)) = 1; steps (J, q, term exponent, S' class,
+      energy exponent, pointwise exponent, new remainder class):
+      J =  3: q = 3    term r^(-2), S' in E_(7/2), ||d u~~|| <= t^(-1), |u~~| <= t^(-5/2), E_(5/2)
+      J =  4: q = 7/2  term r^(-5/2), S' in E_(4), ||d u~~|| <= t^(-3/2), |u~~| <= t^(-3), E_(3)
+      J =  5: q = 4    term r^(-3), S' in E_(9/2), ||d u~~|| <= t^(-2), |u~~| <= t^(-7/2), E_(7/2)
+      J =  6: q = 9/2  term r^(-7/2), S' in E_(5), ||d u~~|| <= t^(-5/2), |u~~| <= t^(-4), E_(4)
+      J =  7: q = 5    term r^(-4), S' in E_(11/2), ||d u~~|| <= t^(-3), |u~~| <= t^(-9/2), E_(9/2)
+      J =  8: q = 11/2 term r^(-9/2), S' in E_(6), ||d u~~|| <= t^(-7/2), |u~~| <= t^(-5), E_(5)
+      J =  9: q = 6    term r^(-5), S' in E_(13/2), ||d u~~|| <= t^(-4), |u~~| <= t^(-11/2), E_(11/2)
+      J = 10: q = 13/2 term r^(-11/2), S' in E_(7), ||d u~~|| <= t^(-9/2), |u~~| <= t^(-6), E_(6)
+      gain 1/2 at every step: True; terms r^(-k/2), k = [3, 4, 5, 6, 7, 8, 9, 10, 11], contiguous: True;
+      q > 5/2 (no log): True; G_k = (2/(k - 3)) int S_(k/2+1): True; E_(3/2+j) E_(q-1/2+m-1-j) = E_(q+m): True
+  L3: tortoise r* = r + (sqrt mu/2) log((r - sqrt mu)/(r + sqrt mu)), dr*/dr = 1/(1 - mu/r^2): True;
+      Vaidya generators (mu_end = 1.1667) from 15 points of P cap {t >= T} back to v_start stay in it, f > 0,
+      r' in [r - (v - v_start)/2, r] (largest drop 1.7000 <= d1/2 = 2.0), factor <= e^(3 d1/(2 r')): True
+  L3 control (metric in E_1): gains [0, 0, 0, 0, 0, 0, 0, 0], terms r^(-k/2) k = [3, 4, 4, 4, 4, 4, 4, 4, 4]
+L3 PASS
+  L4: ell = g0^-1 dv = d_r, tangent to {v = const}: True; zero source and data give Z = 0: True; Pi_osc where
+      env = 0 and gh_2..gh_m = 0 (terms with / without an oscillating factor):
+      stage m = 2:   56 source terms,  5 data terms (  50 /  11): Pi_osc = 0: True
+      stage m = 3:  158 source terms,  8 data terms ( 132 /  34): Pi_osc = 0: True
+      stage m = 4:  350 source terms, 11 data terms ( 289 /  72): Pi_osc = 0: True
+      stage m = 5:  686 source terms, 14 data terms ( 574 / 126): Pi_osc = 0: True
+      stage m = 6: 1268 source terms, 17 data terms (1077 / 208): Pi_osc = 0: True
+  L4 control (cos 2 th m_1 in stage 2's source): Pi_osc vanishes where env = 0: False
+L4 PASS
