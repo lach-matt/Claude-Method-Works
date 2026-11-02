@@ -210,8 +210,8 @@ def main():
         I["wodd"]
     print("  P1: ell_out = g0^-1 du = -d_r: %s; R^(-1) = 0: %s; F_out = r^-3 f(u, th, s): %s; chi enters only the uu\n"
           "      harmonic, as c (d_r + 3/(2r)) d_s chi with c = %s: %s; the transport solution solves it: %s,\n"
-          "      and (E2)'s"
-          "      uu second harmonic vanishes with it: %s; F_out S-even: %s; W_out = W_TT + chi_out du^2 S-odd: %s"
+          "      and (E2)'s uu second harmonic vanishes with it: %s; F_out S-even: %s;\n"
+          "      W_out = W_TT + chi_out du^2 S-odd: %s"
           "  [%.0f s]" % (I["ell"], I["rm1"], I["form"], I["c"], I["chi_only"], I["solves"], I["e2"], I["feven"],
                           I["wodd"], time.time() - t0), flush=True)
     ok &= good1

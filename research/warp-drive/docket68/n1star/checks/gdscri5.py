@@ -209,21 +209,26 @@ def s4(control=False):
 
 
 def commutator(G, chi_arg, Z, rep):
-    """[Box, chi(arg)] Z with chi an arbitrary function; chi, chi', chi'' replaced by symbols"""
+    """[Box, chi(arg)] Z with chi an arbitrary function; chi and its derivatives replaced by symbols X0, X1, X2"""
     chi = sp.Function('chi')
     w1 = [chi(chi_arg)*z for z in Z]
     B1 = box(G, w1)
     B0 = box(G, Z)
-    out = [sp.expand(B1[m] - chi(chi_arg)*B0[m]) for m in range(N)]
-    X0, X1, X2 = sp.symbols('X0 X1 X2')
-    u = sp.Symbol('u_')
-    rp = {sp.Subs(sp.Derivative(chi(u), (u, 2)), u, chi_arg): X2, sp.Subs(sp.Derivative(chi(u), u), u, chi_arg): X1}
+    Xs = sp.symbols('X0:4')
+
+    def is_chi_der(x):
+        if isinstance(x, sp.Subs) and isinstance(x.expr, sp.Derivative) and x.expr.expr.func == chi:
+            return True
+        return isinstance(x, sp.Derivative) and x.expr.func == chi
+
+    def to_sym(x):
+        d = x.expr if isinstance(x, sp.Subs) else x
+        return Xs[sum(c for _, c in d.variable_count)]
     res = []
-    for e_ in out:
-        e_ = e_.replace(lambda ex: isinstance(ex, sp.Subs), lambda ex: X2 if ex.expr.diff(u, 2) == 0 and False else ex)
-        e_ = e_.subs(rp).subs(chi(chi_arg), X0)
-        e_ = e_.subs(rep)
-        res.append(sp.expand(e_))
+    for m in range(N):
+        e_ = sp.expand(B1[m] - chi(chi_arg)*B0[m])
+        e_ = e_.replace(is_chi_der, to_sym).subs(chi(chi_arg), Xs[0])
+        res.append(sp.expand(e_.subs(rep)))
     return res
 
 
