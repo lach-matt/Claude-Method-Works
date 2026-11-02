@@ -1,34 +1,42 @@
 lzerotrace5: lambda0 at P*, every factor traced, the bound certified
-  T0: md5 of N1STAR-PROOF.md lines 1-805 = 57d896ae1da4845f3c94c66d7b087a41 (pinned 57d896ae1da4845f3c94c66d7b087a41); 27
-      trace rows, every fragment on its line: True; the nine terms covered: True
-      lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:177, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
-      (N1STAR-PROOF.md:145, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:146, certified here)
-      E-a   eps1 of Lemma 1.1 (e) (N1STAR-PROOF.md:160, certified here); the lateral boundaries stay spacelike
-      (N1STAR-PROOF.md:161, certified here); the outer boundary {v + tau - tau_end = V + 1} (N1STAR-PROOF.md:150,
-      certified here); g = g_app + w must satisfy Lemma 1.1 (e) (N1STAR-PROOF.md:356, certified here); g_app = g0 + lam
-      [g1] + ... (0.4) (N1STAR-PROOF.md:94, certified here); profiles bounded independently of lam (N1STAR-PROOF.md:96,
-      certified here); |g - g0| <= C lam (C_app) (N1STAR-PROOF.md:113, certified here); g1 = m1 + W(X, th + phi1(X)), g_j
-      independent of lam (N1STAR-PROOF.md:541, certified here); W := W_TT + chi dv dv (N1STAR-PROOF.md:462, certified
-      here); W_TT the record's wave (lead5.py) (N1STAR-PROOF.md:461, certified here)
-      E-b   |w| <= C lam^(-3) N (Step 1, C_inf) (N1STAR-PROOF.md:348, not evaluated); |w| <= eps2/2 (Step 8 (iii), eps2)
-      (N1STAR-PROOF.md:427, not evaluated); eps2 (Step 8 (iii)) (N1STAR-PROOF.md:425, not evaluated)
+  T0: md5 of N1STAR-PROOF.md lines 1-812 = 6e8947ad2005ac587f9b632d0a1e8025 (pinned 6e8947ad2005ac587f9b632d0a1e8025);
+      whole file (10853 lines) 02e7617602841a350a75349c44ab5fb6 (pinned 02e7617602841a350a75349c44ab5fb6); 37 trace rows,
+      every fragment on its line: True; the nine terms covered: True
+      lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:184, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
+      (N1STAR-PROOF.md:152, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:153, certified here)
+      E-a   eps1 of Lemma 1.1 (e) (N1STAR-PROOF.md:167, certified here); the lateral boundaries stay spacelike
+      (N1STAR-PROOF.md:168, certified here); the outer boundary {v + tau - tau_end = V + 1} (N1STAR-PROOF.md:157,
+      certified here); g = g_app + w must satisfy Lemma 1.1 (e) (N1STAR-PROOF.md:363, certified here); g_app = g0 + lam
+      [g1] + ... (0.4) (N1STAR-PROOF.md:101, certified here); profiles bounded independently of lam (N1STAR-PROOF.md:103,
+      certified here); |g - g0| <= C lam (C_app) (N1STAR-PROOF.md:120, certified here); g1 = m1 + W(X, th + phi1(X)), g_j
+      independent of lam (N1STAR-PROOF.md:548, certified here); W := W_TT + chi dv dv (N1STAR-PROOF.md:469, certified
+      here); W_TT the record's wave (lead5.py) (N1STAR-PROOF.md:468, certified here); tau_end := max_{v <= V} (v -
+      r_q(v)) (N1STAR-PROOF.md:155, certified here); b(tau), the outer radius (N1STAR-PROOF.md:159, certified here); mu'
+      = (2/9) A^2 env^2 (mu_end) (N1STAR-PROOF.md:126, certified here); Lemma 2.3 takes eps1: |gt - g0| <= eps1
+      (N1STAR-PROOF.md:222, certified here); eps1 below g0's least absolute eigenvalue on Omega (D614)
+      (N1STAR-PROOF.md:91, certified here)
+      E-b   |w| <= C lam^(-3) N (Step 1, C_inf) (N1STAR-PROOF.md:355, not evaluated); |w| <= eps2/2 (Step 8 (iii), eps2)
+      (N1STAR-PROOF.md:434, not evaluated); eps2 (Step 8 (iii)) (N1STAR-PROOF.md:432, not evaluated); C_S (Lemma 2.1;
+      certified in round 1, lzeroconst5 Z3) (N1STAR-PROOF.md:186, certified here)
             to evaluate: C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1's constant), M, eps2 (g_ext): the
       profiles
-      E-c   |d w| <= C M lam^(K-4) (C_dw), M1 independent of M (N1STAR-PROOF.md:356, not evaluated); M1 independent of M
-      (N1STAR-PROOF.md:357, not evaluated)
+      E-c   |d w| <= C M lam^(K-4) (C_dw), M1 independent of M (N1STAR-PROOF.md:363, not evaluated); M1 independent of M
+      (N1STAR-PROOF.md:364, not evaluated)
             to evaluate: C_dw and M: Step 1's constant and the profiles g_1..g_10 to order about 11
-      E-d   C3 := C2 e^{C2 dtau} (1 + dtau) C (N1STAR-PROOF.md:400, not evaluated); M := C3 (C_D + 1 + C_R) + 1
-      (N1STAR-PROOF.md:400, not evaluated); C3 C M^2 lam0 <= 1 (C_N) (N1STAR-PROOF.md:401, not evaluated); k = 6, K >= 6
-      (P*: K = 6) (N1STAR-PROOF.md:92, certified here)
+      E-d   C3 := C2 e^{C2 dtau} (1 + dtau) C (N1STAR-PROOF.md:407, not evaluated); M := C3 (C_D + 1 + C_R) + 1
+      (N1STAR-PROOF.md:407, not evaluated); C3 C M^2 lam0 <= 1 (C_N) (N1STAR-PROOF.md:408, not evaluated); k = 6, K >= 6
+      (P*: K = 6) (N1STAR-PROOF.md:99, certified here); C_R (E3) (N1STAR-PROOF.md:108, not evaluated); C_D (E4)
+      (N1STAR-PROOF.md:110, not evaluated); C2 (Steps 4-6) (N1STAR-PROOF.md:406, not evaluated)
             to evaluate: C2, C_st, C_N, C_R, C_D: Steps 2, 4-7 written with the profiles' bounds (R2.2 (d)-(f))
-      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:769, not evaluated);
-      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:795, certified here)
+      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:776, not evaluated);
+      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:802, certified here); C_c (Lemma 6.3's coefficients frozen at U_i)
+      (N1STAR-PROOF.md:775, not evaluated)
             to evaluate: C0, C_c, m_c: Lemma 6.4's constant at s0 = 6, s = 8, and the stage data of Lemma 6.2
-      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:772, not evaluated)
+      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:779, not evaluated)
             to evaluate: C_k: the difference estimate of Lemma 6.4 at s0
-      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:692, not evaluated)
+      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:699, not evaluated)
             to evaluate: m_s, C_s: the O(lam) part of alpha and S A0 at the approximant's data (needs m_1)
-      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:771, not evaluated)
+      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:778, not evaluated)
             to evaluate: C_b, C0: the quadratic remainder Nl at the approximant's data
   T1: q0 in [0.539717577094, 0.539717577094] (q0^8 = 9/1250), a = delta0 = q0/2 in [0.269858788547, 0.269858788547], lam1
       = q0/20 in [0.026985878855, 0.026985878855] (certified)
@@ -37,43 +45,3 @@ lzerotrace5: lambda0 at P*, every factor traced, the bound certified
       boundary: True; lam_n = (3 + mu_end/r^2)/5 = 0.6013096 (exact rational; round 2's r = 67/5 gave 0.6013169); size of
       the perturbation: operator = Frobenius = 0.6013096, largest entry 0.1202619 at xhat = (1,1,1,1)/2 (0.4810477 at
       xhat = e1). So eps1 < 0.6013096 (operator, Frobenius) and eps1 < 0.1202619 (largest entry) (exact)
-  T3: eigenvalues of W_TT (Euclidean) = (-2(a1 + a2), 2 a1, 2 a2) from lead5.py's definition: True; at th = 0, phase 0:
-      ['-2/3', '4/3', '-2/3'] x env(v) r^(-3/2); the point (v, r) = (2, a), tau = 2 - a, lies in Omega: True; c in
-      [1.3240549143, 1.3241196855] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in
-      [12.593310, 12.593926], Frobenius >= 15.423591 (certified); Cartesian cross-check (floating point): True
-  T4: W_TT(s + pi) = -W_TT(s) in every eigenvalue (sympy): True; chi dv dv and m1 even (chi in the second harmonic, lead5
-      L3-L4; m1 the mean), so g1(s) - g1(s + pi) = 2 W_TT(s + phi1) and every admissible C_app >= sup |W_TT| (deduced)
-  T5: lambda0 <= min(lam1, eps1/C_app) (split-free, Step 3) and <= min(lam1, eps1/(2 C_app)) (round 1's halves),
-      certified upper ends:
-      |.| = operator      eps1/C_app <= 0.047748; lambda0 <= 0.026986 (split-free); <= 0.023874 (halves)
-      |.| = Frobenius     eps1/C_app <= 0.038986; lambda0 <= 0.026986 (split-free); <= 0.019493 (halves)
-      |.| = largest entry eps1/C_app <= 0.009550; lambda0 <= 0.009550 (split-free); <= 0.004775 (halves)
-      every reading: lambda0 <= 0.026986 = lam1 at a = q0/2 (certified); round 2's 0.0239 holds with the halves (operator
-      norm: 0.023874), not split-free
-  T6 (proposed definition, checked): |A| := the Euclidean operator norm of the array of Cartesian components (for
-      symmetric A, its largest absolute eigenvalue). For |g - g0| <= eps, g >= g0 - eps I as forms, so each hypersurface
-      stays spacelike if (g0 - eps I) is positive definite on its kernel; at eps = 3/5 (m = mu/r^2) the restricted
-      eigenvalues are ['m + 2/5', '2/5'] on ker dtau, ['m - 8/5', '2/5'] on ker dr (least 2/5 at r = a, P*), ['m/5',
-      '2/5'] on ker d(v + tau) (least m/5 > 0) (exact); g0 - (3/5) I has exactly one negative eigenvalue for every m >=
-      0: True, so its causal set is a double cone of two convex halves on which dtau, dr (at r = a) and d(v + tau) keep
-      their signs, which gives the causal containment and the transversality (deduced). So Lemma 1.1 (e) holds with eps1
-      = 3/5 and fails above 0.6013096 (T2): eps1* in [3/5, 0.6013096]. The Frobenius norm dominates it (same eps1); the
-      largest-entry norm satisfies |A|_op <= 5 |A|_max, so there eps1* in [3/25, 0.1202619]
-  C1 (control): every trace line shifted by one: 27 of 27 fragments not found
-  C2 (control): "C_app >= 12.6 at this point" refuted: |W_TT|_op there <= 12.593926 < 12.6
-  C3 (control): an even harmonic, cos 2s: g(s) - g(s + pi) = 0, so the parity argument gives no bound: True
-  C4 (control): the point r = a - 1e-6 is rejected by the domain test: True
-  C5 (control): least eigenvalue on ker d(v + tau) after the same-size perturbation along (1, 2 xhat), not in the kernel:
-      0.3848 > 0 (floating point); along (1, -2 xhat): 5.9e-17
-T0 PASS
-T1 PASS
-T2 PASS
-T3 PASS
-T4 PASS
-T5 PASS
-T6 PASS
-C1 PASS
-C2 PASS
-C3 PASS
-C4 PASS
-C5 PASS

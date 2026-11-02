@@ -1,0 +1,7 @@
+  L1 sin^4 edge: one-sided derivatives at v_s+ (k = 0..6) [0, 0, 0, 0, 8*pi**4/27, 0, -160*pi**6/243]; = 0, 0, 0, 0, 24
+      (pi/3)^4, 0, -480 (pi/3)^6: True; jump of env^(4): 28.861953; sin^4 = (3 - 4 cos 2u + cos 4u)/8: True
+L1 PASS
+  L2 log10 B(1456) <= 8573.893584 (theta = 1.0), so M_1456^(1/1456) <= 7.7386e+5; B(k) >= e_k/2 for k = 1..14: True; at m
+      = 400: log10 B = 1911.5421, the series value log10 |env^(400)| = 1870.4806 (precisions agree to 0.0): below B: True
+      [21 s]
+L2 PASS

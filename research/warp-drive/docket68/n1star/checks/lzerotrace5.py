@@ -50,6 +50,12 @@ where said).
   boundary null (the restricted form keeps a positive least eigenvalue).
 
     python3 checks/lzerotrace5.py
+Round 4 (the round-3 reader's findings, D614): T0 re-pinned (lines 1-812 and the whole file; every trace line above 86
+moved by +7) with nine rows added (tau_end, b(tau), mu', Lemma 2.3's eps1, C_S, C_R, C_D, C2, C_c) and the D614 norm
+paragraph; T7 (certified) g0's least absolute Euclidean eigenvalue on Omega, which Lemma 2.3 needs eps1 below, and T5
+with it: lambda0 < 0.0024433 (operator norm), lam1 no longer binding; outward rounding (up/down); T2's nullness tested
+through gp^-1; T3's c by interval square roots and its domain by in_omega; T6's signature exact at five m. Controls
+that now mutate the computed path: C3 (T4's parity test on a doubled phase), C4 (T3's domain test), C6 (T7 with mu0).
 """
 import hashlib
 import os
@@ -396,8 +402,6 @@ def main():
     at = {name: [sp.simplify(x.subs(e, sp.Rational(3, 5))) for x in v] for name, v in eigs.items()}
     one_neg = all(sum(1 for x in full if sp.simplify(x.subs({e: sp.Rational(3, 5), m: sp.Rational(mv)})).is_negative)
                   == 1 for mv in (0, Fr(1, 100), 1, 13, 1000))                      # exact at these five m
-    one_neg_all = (len(full) == 3 and set(sp.simplify(x - (m - e)) for x in full) >= set()
-                   and any(sp.simplify(x - (1 - e)) == 0 for x in full))          # 1 - eps, and m - eps +- sqrt
     m_a_lo = LZ.MU0 / ahi ** 2                         # mu/a^2 >= mu0/a^2 on {r = a}
     least_dr = min(Fr(1), m_a_lo - 1) - Fr(3, 5)
     ok['T6'] = (sp.Rational(2, 5) in at['ker dtau'] and least_dr == Fr(2, 5) and one_neg
