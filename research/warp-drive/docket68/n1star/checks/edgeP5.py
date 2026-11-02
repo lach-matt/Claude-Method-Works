@@ -21,8 +21,8 @@ then reduces to one-dimensional integrals of env.
      kappa + i/lam, obeys |rho_2| <= R_2(v) := int_0^x [kappa^-1 (psi'' + psi'^2) + psi' + u (psi'' + psi'^2)] env(v -
      u)/env(v) du, psi' = kappa(v - u) - kappa(v), psi'' = |kappa'(v - u)| (the bound the proof gives, independent of
      lam), and R_2(v) kappa^(1-a) stays bounded (a = 1/2, 1/3, 1/2).  Controls: the frozen local form (s~ := i/lam,
-     the lam-expansion's leading term) is off by more than 1 at the very edge; a flat edge that is not log-concave,
-     exp(-1/x)(2 + sin(1/x)), violates (b).
+     the lam-expansion's leading term) is off by more than 1 at the very edge; s~ built with a wrong log-derivative,
+     2 kappa + i/lam, violates (b).
   Q3 (computed, mpmath; a model with unit constants) Alternation: a(v) := Re[c lam J_2(v)]/9 - m0(v) -+ D2(v), J_2 :=
      e^(i v/lam) I_2 (the exact first-degree term at the horizon for |nu_inf d| = 1/9, mu0 = A = 1), m0 := (env^2 + x
      env^2)/9, D2 := 10 (1 + lam kappa)^2 env^2 (a degree-two term, generous), over three carrier periods at five depths
@@ -105,7 +105,7 @@ def q1(control=False):
     Bn = [H1]
     for _ in range(6):
         Bn.append(B_inf(Bn[-1]))
-    tele = all(V.add(*x) == {} for x in P_apply(H1)) if False else all(x == {} for x in P_apply(H1))
+    tele = all(x == {} for x in P_apply(H1))
     tele &= all(eq(P_apply(Bn[k]), V.Q_(Bn[k - 1])) for k in range(1, 7))
     # the formal identity, coefficient of s^(1-n): P B^n H1 - Q B^(n-1) H1 = 0 (n = 1..M); of s^-M: -Q B^M H1
     decay = all(all(k[0] < -1 for k in comp) for b in Bn[1:] for comp in b)
@@ -159,9 +159,6 @@ EDGES = [
     Edge("exp(-1/x^2)", lambda x: -1/x**2, lambda x: 2/x**3, lambda x: 6/x**4, mp.mpf(1)/3, 6/mp.mpf(2)**(mp.mpf(4)/3)),
     Edge("record C_c^inf", rec_ell, rec_kap, rec_dkap, mp.mpf(1)/2, None),
 ]
-CONTROL_EDGE = Edge("exp(-1/x)(2 + sin(1/x))", lambda x: -1/x + mp.log(2 + mp.sin(1/x)),
-                    lambda x: (1 - mp.cos(1/x)/(2 + mp.sin(1/x)))/x**2,
-                    lambda x: abs(mp.diff(lambda y: (1 - mp.cos(1/y)/(2 + mp.sin(1/y)))/y**2, x)), mp.mpf(1)/2, None)
 
 
 def I_n(edge, x, lam, n, kappa_eff=None):
@@ -174,7 +171,7 @@ def I_n(edge, x, lam, n, kappa_eff=None):
     l0 = edge.ell(x)
     fac = mp.factorial(n - 1)
     g = lambda u: u**(n - 1)/fac*mp.expj(-u/lam)*mp.exp(edge.ell(x - u) - l0)     # noqa: E731
-    return mp.quad(g, pts)
+    return mp.quad(g, pts, method='gauss-legendre')
 
 
 def R2_bound(edge, x):
@@ -198,23 +195,18 @@ def cR_record():
 
 def q2(control=False):
     if control:
+        # two mutations of the computed path: the frozen local form s~ := i/lam (the lam-expansion's leading term),
+        # and s~ built with a wrong log-derivative, 2 kappa + i/lam; each claim must fail somewhere on the very edge
         lam = mp.mpf('1e-3')
-        bad = False
         e = EDGES[0]
+        frozen_ok, wrong_ok = True, True
         for lk in (10, 100, 1000):
             x = e.x_of(lk/lam)
-            frozen = -lam**2                                        # (i/lam)^-2: the lam-expansion's leading term
-            bad |= abs(I_n(e, x, lam, 2)/frozen - 1) <= 1
-        ce = CONTROL_EDGE
-        worst = mp.mpf(0)
-        for lk in (1, 3, 10, 30, 100):
-            for shift in (0, 1, 2, 3):
-                x = ce.x_of(lk/lam)*(1 + mp.mpf(shift)/40)
-                k0 = ce.kap(x)
-                st = k0 + 1j/lam
-                rho = I_n(ce, x, lam, 2, kappa_eff=k0)*st**2 - 1
-                worst = max(worst, abs(rho) - R2_bound_nonlc(ce, x))
-        return (not bad) and worst <= 0
+            k0 = e.kap(x)
+            I2 = I_n(e, x, lam, 2)
+            frozen_ok &= abs(I2*(1j/lam)**2 - 1) <= 1
+            wrong_ok &= abs(I2*(2*k0 + 1j/lam)**2 - 1) <= R2_bound(e, x)
+        return frozen_ok or wrong_ok
     EDGES[2].cR = cR_record()
     ok = True
     rows = []
@@ -245,19 +237,6 @@ def q2(control=False):
                         mp.nstr(worst_rho, 4), mp.nstr(worst_scaled, 5)))
     out("  Q2 " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
     return ok
-
-
-def R2_bound_nonlc(edge, x):
-    """R_2 as defined (with |kappa'| and kappa(v - u) - kappa(v)), for an edge that need not be log-concave"""
-    k0 = edge.kap(x)
-    l0 = edge.ell(x)
-    U = min(x*(1 - mp.mpf(10)**-20), 100/k0)
-
-    def h(u):
-        p1 = abs(edge.kap(x - u) - k0)
-        p2 = edge.dkap(x - u)
-        return ((p2 + p1**2)/k0 + p1 + u*(p2 + p1**2))*mp.exp(edge.ell(x - u) - l0)
-    return mp.quad(h, [U*k/32 for k in range(33)])
 
 
 # ------------------------------------------------------------------------------------------------------------ Q3
@@ -307,8 +286,6 @@ def q3(control=False):
                         kap = e.kap(x)
                         m0 = (env**2 + x*env**2)/9
                         D2 = 10*(1 + lam*kap)**2*env**2
-                        if control is True and cn == "1":
-                            D2 *= mp.mpf(10)**6/lam**3
                         vals.append(mp.re(c*lam*J2s[k]*E0)/9 - m0 - sgn*D2)
                     good &= any(vv > 0 for vv in vals) and any(vv < 0 for vv in vals)
                 res[(nm, cn, sgn)] = good

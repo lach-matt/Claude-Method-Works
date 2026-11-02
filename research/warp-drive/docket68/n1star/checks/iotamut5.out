@@ -9,3 +9,4 @@ iotamut5: iotapoles5.py read adversarially -- singleton orders computed, an inde
   U3: Pi_4(5 + eps)^-1 at eps = 1e-10, 1e-20, 1e-30 (mpmath, 60 digits): slope of log |.|_F against log eps -1.000000;
       singular values of eps Pi^-1 at 1e-30: ['4.798e+01', '1.674e-01', '6.596e-26', '2.275e-27']: order 1, residue rank
       2
+  X1 (mutation): the shift N(lam0 + eps - i + 1) in the s0 product at 5: (order, rank) = (2, 1), not (1, 2): True

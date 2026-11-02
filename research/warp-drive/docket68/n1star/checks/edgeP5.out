@@ -1,0 +1,4 @@
+  Q1 model, data from infinity, j <= 10: record's recursion = closed form H_2 = -i B H_1, H_(j+1) = i (d_v - B) H_j in
+      every component: True (nontrivial: True); P H_1 = 0 and P B^n H_1 = Q B^(n-1) H_1, n = 1..6 (the telescoping of P(s
+      X_M) - Q X_M): True; B^n H_1 decay faster than r^(-1/2) (nothing coming in): True
+Q1 PASS
