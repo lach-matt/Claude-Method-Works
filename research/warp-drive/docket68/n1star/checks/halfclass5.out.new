@@ -3,3 +3,23 @@ H1  the class E_0^(1/2)
   H1b min Re = 2 > 3/2 + 2 gamma_Ups: pass
   H1c control: (5/2, 0) + N_0 alone is not closed under sums (5 missing): pass
 H2  the record's construction, M rounds
+     points: ['2', '5/2', '3', '7/2', '4', '9/2', '5']
+     M=0: int [0, 0, 0, 0, 0, 0, 0] max<=5: 0 | half [0, 0, 0, 0, 0, 0, 0] max<=5: 0
+     M=1: int [1, 1, 2, 2, 3, 3, 4] max<=5: 4 | half [1, 1, 2, 2, 3, 3, 4] max<=5: 4
+     M=2: int [2, 2, 4, 4, 6, 6, 8] max<=5: 8 | half [2, 2, 4, 4, 6, 6, 8] max<=5: 8
+     M=3: int [3, 3, 6, 6, 9, 9, 12] max<=5: 12 | half [3, 3, 6, 6, 9, 9, 12] max<=5: 12
+     M=4: int [4, 4, 8, 8, 12, 12, 16] max<=5: 16 | half [4, 4, 8, 8, 12, 12, 16] max<=5: 16
+     M=5: int [5, 5, 10, 10, 15, 15, 20] max<=5: 20 | half [5, 5, 10, 10, 15, 15, 20] max<=5: 20
+     M=6: int [6, 6, 12, 12, 18, 18, 24] max<=5: 24 | half [6, 6, 12, 12, 18, 18, 24] max<=5: 24
+     M=7: int [7, 7, 14, 14, 21, 21, 28] max<=5: 28 | half [7, 7, 14, 14, 21, 21, 28] max<=5: 28
+     M=8: int [8, 8, 16, 16, 24, 24, 32] max<=5: 32 | half [8, 8, 16, 16, 24, 24, 32] max<=5: 32
+     M=9: int [9, 9, 18, 18, 27, 27, 36] max<=5: 36 | half [9, 9, 18, 18, 27, 27, 36] max<=5: 36
+     M=10: int [10, 10, 20, 20, 30, 30, 40] max<=5: 40 | half [10, 10, 20, 20, 30, 30, 40] max<=5: 40
+     M=11: int [11, 11, 22, 22, 33, 33, 44] max<=5: 44 | half [11, 11, 22, 22, 33, 33, 44] max<=5: 44
+     M=12: int [12, 12, 24, 24, 36, 36, 48] max<=5: 48 | half [12, 12, 24, 24, 36, 36, 48] max<=5: 48
+  H2a pi_1 E^(M) is the same set for both seeds at every M <= 12 (below the top): pass
+  H2b record's construction: E^(M) is the same index set for both seeds, log orders included, M <= 12: pass
+  H2e record's construction: k(n) = k(n + 1/2) = M(n - 1) at n = 2, ..., 5: pass
+  H2f control: an admissible seed (9/4, 0) not in Part VII's E^(0) gives a different E^(0): pass
+  H2c the largest log order at real part <= 5 is the same for both seeds at every M: pass [(0, 0), (4, 4), (8, 8), (12,
+        12), (16, 16), (20, 20), (24, 24), (28, 28), (32, 32), (36, 36), (40, 40), (44, 44), (48, 48)]

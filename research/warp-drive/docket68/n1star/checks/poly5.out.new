@@ -8,3 +8,11 @@ P2  the coefficients of Lemma 11.0's energy identity
   P2b g0 g0^-1 = 1 and det g0 = -1 (5D Kerr-Schild, mu = 1/2, two points, 60 digits): pass
   P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv (first variation by a central difference at 60
         digits, two points, random rational u): pass
+  P2d (1/2) H^ab d_a d_b (lam [W]) = -(1/2) lam^-1 H(dv, dv) [W] + O(lam^0): with H(dv, dv) = -u(ell, ell) the term is
+        +(1/2) lam^-1 u_1(ell, ell) [W], linear in u_1, at order -1: pass
+  P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell): pass
+P3  the Gronwall factors
+  P3a far region: int C t^(-3/2) = 2 C lam, int C lam^-1 t^(-3/2) = 2 C (lam-free factors): pass 2*C*lambda, 2*C
+  P3b control: over the near region [1, lam^-2] the lam^-1 kernel gives exp(2C(1/lam - 1)), beating every lam^-M: pass
+        2*C*(1 - lambda)/lambda
+P4  the data constants: d_tau^m w on the initial slice (1+1 model, N = 6)
