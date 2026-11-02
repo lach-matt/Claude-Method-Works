@@ -8,3 +8,5 @@ B2 PASS
       [x_deep, x_top]: True (first W, B, S at 5.309e-15, 0.0001332, 0.0001451); K = 6 covers it: False; lam = 1e-3000:
       x_b = 1.0e-1500, x_deep = 1.934e-44, level lam^3.1 at x = 4.67e-5, x_top = 0.0002897; K = 10 covers [x_deep,
       x_top]: True (first W, B, S at 1.934e-44, 4.676e-5, 4.832e-5); K = 6 covers it: False
+B3 PASS
+layerband5: all checks pass, every control fails

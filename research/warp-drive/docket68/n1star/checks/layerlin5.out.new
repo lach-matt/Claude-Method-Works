@@ -9,3 +9,14 @@ N2 PASS
       data i Pol^+(D_X H1) at r0: True; T(H2) + R_X(H1) = 0 (15): True; i Pol(H2) + D_X H1 = 0 (5): True; H2 in S: True
       [722 s]
 N3 PASS
+  N4 D_X H2 = i A E d (r^-5/2 beta, r^-7/2): True, True; R_X(H2) vv = 0: True, trace 0: True; H3 data at r0: True; T(H3)
+      + R_X(H2) = 0 in vv, vr, rr: [True, True, True], trace: True; i Pol(H3) + D_X H2 = 0 in v, r: [True, True]  [1058
+      s]
+N4 PASS
+  N5 K(r0) = H3_vv(sqrt mu0)/(A E d) = -(2*rho**3 - 3*rho**2 - 2)**2/(36*mu0**(7/4)*rho**6); the closed form: True; =
+      -r_h^-3/2 beta(r_h)^2: True; r0 -> oo: -mu0^-7/4/9: True; real root rho* = 1.80644393236 (one real root, double in
+      K), K'' there -0.122146
+N5 PASS
+  N6 d^F, d^G = sqrt2 P(+-zeta)/(1 + zeta^2)^(5/2) exactly: True; gcd(P(zeta), P(-zeta)) = 1; roots of P in [-1, 1]: 1
+N6 PASS
+layerlin5: all checks pass, every control fails  [1067 s]
