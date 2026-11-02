@@ -2,3 +2,11 @@ r6fixes5: the round-5 verifier's minor findings 2 and 3, re-derived
   F1: det(g0 + t v v^T) = 4*m*t - 1 with v = e_tau - e_1 (exact); t* = 1/(4 m*) <= 0.0153989 (m* >= 16.234970), the
       largest entry of t* v v^T being t*; lambda0 < t*/C_app <= 0.0012228 (largest-entry reading; C_app >= 12.593309):
       True
+  C1 (control): v = e_tau + e_1: det = -1, no root in t: F1's test fails: True
+  F2: the coefficient of int ||f|| in y is c_Y (exact); c_Y q_lo^(-1/2) e^(kappa Dtau/2) <= 3.5237e+17 (floating point on
+      READ enclosures, rounded up at 4 digits there), half of stage1rate5's 7.048e17: True
+  C2 (control): box~ u = -f: coefficient c_Y/2, not c_Y: F2's identity fails: True
+F1 PASS
+C1 PASS
+F2 PASS
+C2 PASS

@@ -30,3 +30,46 @@ B7  the split of the commuted multilinear terms
   B7b the tame induction above k1: with the sup factors at energy order <= k - 1 every term splits for k = 9..30 (so the
         orders above k1 need no smallness, only the lower ones): pass
   B7c control: k0 = 5 fails (a slot of order 2 with two derivatives against one of order 3): pass
+  B7d control: the rule reversed (smallest slot in L^2, largest in sup) fails at every k0 <= 30: pass
+B8  the degree of the residual P(g_b0 + Sigma)
+  B8a with p in {2, 5/2, 3, 7/2, 4} the residual's leading degree is -13/2 (mu Sigma_(5/2), Sigma_2 Sigma_(5/2)): pass
+        -13/2
+  B8b ||w^(1/2) r^(-13/2)||_(L^2(r >= R)) = R^(a - 9/2)/sqrt(9 - 2a): FAIL
+  B8c control: without the p = 4 term the leading degree is -6: pass -6
+B9  the self-similar terms and the fixed-v expansion
+  B9a (p + m - 1)(p + m - 3) - l(l + 2) = (p + m - l - 3)(p + m + l - 1) (symbolic): pass
+  B9a' the 2F1 coefficient ratio equals the recursion's exactly at c = p - 1/2: pass
+  B9a'' control: c = p + 1/2 (round 1's C1) breaks it: pass
+  B9b after the shell (G_3 = 0, G_4, G_5 constant) the flat recursion makes G_k a polynomial in v of degree floor((k -
+        4)/2), k = 6..16 (so Sigma's fixed-v expansion reproduces it, by B9a): pass
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 709, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 703, in main
+    f()
+    ~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 599, in b9
+    maxes.append(max(f(mp.mpf(i)/40) for i in range(0, 61)))
+                 ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 599, in <genexpr>
+    maxes.append(max(f(mp.mpf(i)/40) for i in range(0, 61)))
+                     ~^^^^^^^^^^^^^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 598, in <lambda>
+    f = lambda s: abs(mp.hyp2f1(pv + lv, pv - lv - 2, pv - 0.5, s/2))
+                      ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/functions/hypergeometric.py", line 251, in hyp2f1
+    return ctx.hyper([a,b],[c],z,**kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/functions/hypergeometric.py", line 226, in hyper
+    if   q == 1: return ctx._hyp2f1(a_s, b_s, z, **kwargs)
+                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/functions/hypergeometric.py", line 443, in _hyp2f1
+    return ctx.hypsum(2, 1, (atype, btype, ctype), [a, b, c], z, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/ctx_mp.py", line 708, in hypsum
+    raise ValueError(ctx._hypsum_msg % (prec, prec+extraprec))
+ValueError: hypsum() failed to converge to the requested 103 bits of accuracy
+using a working precision of 7138 bits. Try with a higher maxprec,
+maxterms, or set zeroprec.
+exit 1
