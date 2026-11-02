@@ -2417,7 +2417,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | sections 8.1–8.8: the half-turn, 10.50's bounds, the bump's cost | `docket68/n1star/checks/support8b.py` M1–M3 |
 | sections 8.4, 8.8: the parameter order, the inventories' counts | `docket68/n1star/checks/support8b.py` M4–M5 |
 | section 8.5: (8.13) off a countable set of h, not at every h | `docket68/n1star/checks/re813.py` R1–R3 |
-| sections 8.4, 8.5: the exponent 2, the class, r_h, the roots in (5/2, 13/4] | `docket68/n1star/checks/support8c.py` K1–K4 |
+| sections 8.4–8.5: the exponent 2, the class, r_h, roots past 5/2 | `docket68/n1star/checks/support8c.py` K1–K4 |
 | sections 8.5, 9: the point's conclusions, the losses, the lowered boundary | `docket68/n1star/checks/census9.py` |
 | section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F3 |
 | section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
