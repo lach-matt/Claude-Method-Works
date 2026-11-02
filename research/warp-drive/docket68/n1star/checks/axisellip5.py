@@ -32,20 +32,22 @@ the totally geodesic three-manifold M3 = Sigma_tau cap {phi1 = 0} (the fixed set
      order in the metric, and the 1/r of kappa2 (X1 (c)) is absorbed by the integral from the axis.
      Controls (must fail): a metric with the non-smooth cross term C dz dr (for C r dz dr) has k_ph unbounded at the
      axis; the derivative reader applied to a Ricci component of gamma3 finds second derivatives (it can see them).
-  E2 (computed, mpmath at 30 digits; a curved invariant metric with A, B, C, D non-constant) the estimate behind it,
-     for leaves concentrating at the axis, h_eps(r) = eps^2 exp(-r^2/eps^2), eps = 0.2, 0.1, 0.05, 0.025, on the disc
-     r < 1/2 with the weight r dr: ||sigma|| / ||H2|| and ||d_r sigma|| / ||d_r H2|| stay below 2 and converge as eps
-     -> 0 (to 3 % between the last two), while the first-order route ||k_ph|| / ||h'|| grows like 1/eps (X2's loss,
-     here with curvature): control (must grow).
+  E2 (computed, scipy quadrature; a curved invariant metric with A, B, C, D non-constant) the estimate behind it,
+     for leaves concentrating at the axis, h_eps(r) = eps^2 exp(-r^2/eps^2), eps = 0.2, 0.1, 0.05, 0.025, measured
+     against the background leaf z = 0 (which has O(1) mean curvature in this metric), on the disc r < 1/2 with the
+     weight r dr: ||d sigma|| / ||d H2|| tends to the flat value 1/2 and ||d_r d sigma|| / ||d_r d H2|| stays bounded
+     and converges (to 3 % between the last two), while the first-order route ||d k_ph|| / ||h'|| grows like 1/eps
+     (X2's loss, here with curvature): control (must grow).
      Reconstruction (scipy, DOP853): integrating the leaf's equation from the axis as an ODE for (h, h') with H2 given
      recovers h' and sigma = H2/2 - k_ph to the integrator's tolerance. Control (must fail): the same integration with
      the flat equation h'' + h'/r = H2 misses h' by the size of the metric's gradient.
 
 Labels: computed (E0 exact at jets, checks/jetpoly5.py and checks/classchi5.py; E1 (a) exact, sympy, (b) 50-digit
-evaluation of exact expressions; E2 mpmath and scipy).
+evaluation of exact expressions; E2 scipy).
 Run: python3 checks/axisellip5.py   (a few minutes)
 """
 from fractions import Fraction
+import math
 import os
 import random
 import sys
@@ -234,7 +236,9 @@ mp.mp.dps = 30
 
 
 def e2():
-    print("E2 (mpmath) the estimate on a curved metric; reconstruction from the axis")
+    print("E2 (scipy) the estimate on a curved metric, for the perturbation of the background leaf; reconstruction")
+    import numpy as np
+    from scipy.integrate import quad
     Am = 1 + sp.Rational(3, 10) * z + sp.Rational(1, 5) * s
     Bm = 1 + sp.Rational(1, 10) * z**2 + sp.Rational(3, 20) * s
     Cm = sp.Rational(1, 5) + sp.Rational(1, 10) * z
@@ -243,30 +247,30 @@ def e2():
     hh = ep**2 * sp.exp(-r**2 / ep**2)
     kr, kph, _ = leaf_quantities(Am, Bm, Cm, Dm, hh)
     kr, kph = kr.subs(z, hh), kph.subs(z, hh)
+    kr0, kph0, _ = leaf_quantities(Am, Bm, Cm, Dm, sp.Integer(0))              # the background leaf z = 0
+    kr0, kph0 = kr0.subs(z, 0), kph0.subs(z, 0)
     H2 = kr + kph
     sig = (kr - kph) / 2
-    fH = sp.lambdify((r, ep), H2, 'mpmath')
-    fS = sp.lambdify((r, ep), sig, 'mpmath')
-    fK = sp.lambdify((r, ep), kph, 'mpmath')
-    fdH = sp.lambdify((r, ep), sp.diff(H2, r), 'mpmath')
-    fdS = sp.lambdify((r, ep), sp.diff(sig, r), 'mpmath')
-    fhp = sp.lambdify((r, ep), sp.diff(hh, r), 'mpmath')
+    dH = H2 - (kr0 + kph0)
+    dS = sig - (kr0 - kph0) / 2
+    dK = kph - kph0
+    L = lambda e: sp.lambdify((r, ep), e, 'numpy')                                # noqa: E731
+    fdH, fdS, fdK = L(dH), L(dS), L(dK)
+    fddH, fddS, fhp = L(sp.diff(dH, r)), L(sp.diff(dS, r)), L(sp.diff(hh, r))
     out = []
-    for e in ('0.2', '0.1', '0.05', '0.025'):
-        E_ = mp.mpf(e)
-        lo = mp.mpf('1e-12')
-        pts = [lo, E_ / 2, E_, 3 * E_, mp.mpf('0.5')]
-        w = lambda f: mp.sqrt(mp.quad(lambda q: q * f(q, E_)**2, pts))          # noqa: E731
-        r0 = w(fS) / w(fH)
-        r1 = w(fdS) / w(fdH)
-        rk = w(fK) / w(fhp)
+    for e in (0.2, 0.1, 0.05, 0.025):
+        pts = [e / 2, e, 3 * e]
+        w = lambda f: math.sqrt(quad(lambda q: q * f(q, e)**2, 1e-12, 0.5, points=pts, limit=400,   # noqa: E731
+                                     epsabs=1e-14, epsrel=1e-10)[0])
+        r0, r1, rk = w(fdS) / w(fdH), w(fddS) / w(fddH), w(fdK) / w(fhp)
         out.append((e, r0, r1, rk))
-        print("   eps = %s: ||sigma||/||H2|| = %s, ||d sigma||/||d H2|| = %s; control ||k_ph||/||h'|| = %s"
-              % (e, mp.nstr(r0, 8), mp.nstr(r1, 8), mp.nstr(rk, 8)))
-    bounded = all(o[1] < 2 and o[2] < 2 for o in out) and abs(out[-1][1] / out[-2][1] - 1) < 0.03 \
-        and abs(out[-1][2] / out[-2][2] - 1) < 0.03
+        print("   eps = %s: ||d sigma||/||d H2|| = %.6f, ||d_r d sigma||/||d_r d H2|| = %.6f; control ||d k_ph||/||h'|| "
+              "= %.4f" % (e, r0, r1, rk))
+    flat = abs(out[-1][1] - 0.5) < 0.05 and abs(out[-1][1] - 0.5) < abs(out[0][1] - 0.5)
+    bounded = all(o[1] < 2 and o[2] < 2 for o in out) and abs(out[-1][2] / out[-2][2] - 1) < 0.03
     grows = all(out[i + 1][3] > 1.8 * out[i][3] for i in range(len(out) - 1))
-    print("   bounded (near the flat 1/2): %s; control grows like 1/eps: %s" % (bounded, grows))
+    print("   bounded, the derivative ratio converged to 3 %%: %s; the ratio tends to the flat value 1/2: %s; control "
+          "grows like 1/eps: %s" % (bounded, flat, grows))
     # reconstruction: integrate the leaf equation from the axis as an ODE for (h, h') with H2 given, eps = 0.1
     import numpy as np
     from scipy.integrate import solve_ivp
@@ -301,7 +305,7 @@ def e2():
     print("   reconstruction from the axis with H2 given: max error in h' %.2e, in sigma %.2e; flat equation "
           "(control): %.2e, %.2e" % (errs['curved'] + errs['flat']))
     rec = errs['curved'][0] < 1e-9 and errs['curved'][1] < 1e-8 and errs['flat'][0] > 1e-4
-    return bounded and grows and rec
+    return bounded and flat and grows and rec
 
 
 if __name__ == '__main__':
