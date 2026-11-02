@@ -367,13 +367,14 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
 
 ### R2.1 The verifier's findings on round 1 (commit 72850e1), folded in
 
-- **V-M1 (major), `dweights5.py`:336.** Wrong: the E^C_I chains were taken as the least E^C_I minus {lambda_sharp, 2,
-  3}, but lambda_sharp + 1 = 2.5099 is both a chain start (a named generator plus 1) and a point of the least E^C_I, so
-  its 1,470,302 points per level were counted twice. Corrected (computed, `dweights5.py` W4, control N5 on the
-  deduplicated union of the 27 chain starts): **52,025,761 points per level, 1.98 times** the level-3 rounds (not
-  53,496,063 and 2.03), from **23** further chains (not 24), and **W8: d <= 17,892,090,290,788,934 + 106,489,470 c**
-  (not 18,126,947,816,279,750). The verifier's figures, reproduced. The conclusion that the container is longer than
-  the level-3 loop survives. Round 1's lines 24-25, 160, 214-216, 226 and 291 carry the correction.
+- **V-M1 (major), `dweights5.py`:336.** Wrong: the E^C_I chains were taken as the least E^C_I minus {lambda_sharp, 2, 3},
+  but lambda_sharp + 1 = 2.5099 is both a chain start (a named generator plus 1) and a point of the least E^C_I, so its
+  1,470,302 points per level were counted twice. Corrected (computed, `dweights5.py` W4, control N5 on the deduplicated
+  union of the 27 chain starts): **52,025,761 points per level, 1.98 times** the level-3 rounds (not 53,496,063 and
+  2.03), from **23** further chains (not 24), and **W8: d <= 17,892,090,290,788,934 + 106,489,470 c** (not
+  18,126,947,816,279,750). The verifier's figures, reproduced. The conclusion that the container is longer than the
+  level-3 loop survives. The round-1 lines the verifier names (24-25, 160, 214-216, 226, 291 at 72850e1) carry the
+  correction.
 - **V-M2 (major), round 1 lines 16-17 and 115-118.** Wrong: "a certified statement about Theorem 1 itself".
   lambda0 <= lambda_Omega holds because lambda_Omega is one term of the proof's own minimum, a condition the
   construction imposes (RESPONSE-HL-5D.md:286-288, READ: "a condition the construction imposes, not a bound below
@@ -456,9 +457,9 @@ about 48 instead. Neither is a bound on lambda0 without lower bounds on C_N and 
 -2.29e20 literally, <= -143.8 after the rewrite: estimates, not bounds).
 
 (e) *Stage 1, as far as it went.* Its explicit inputs are now bounded: the coefficients built from W and chi, and the
-mean source S (the stage-5.py S2 source, a dv dth component only). Not bounded: the oscillating part of R^(1)[g0 + lam
-W] (nonzero in seven components, `stage5.out` S4), the linear operator's coefficients B-bar, C-bar, Mm, Wm (structure in
-`stage5.py` S1, coefficients not extracted), the data (h_1, Q_1) of Lemma 6.2, which solve Lemma 6.4's radial
+mean source S (`checks/stage5.py` S2's source, a dv dth component only). Not bounded: the oscillating part of R^(1)[g0 +
+lam W] (nonzero in seven components, `stage5.out` S4), the linear operator's coefficients B-bar, C-bar, Mm, Wm (structure
+in `stage5.py` S1, coefficients not extracted), the data (h_1, Q_1) of Lemma 6.2, which solve Lemma 6.4's radial
 parabolic-hyperbolic system with an unwritten constant, and the solution.
 
 (f) *The exact cost of the nine stages* (deduced from Lemmas 5.1-5.3, 6.2, 6.4 and the record's timings; not computed).
