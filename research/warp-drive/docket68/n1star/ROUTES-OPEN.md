@@ -6298,6 +6298,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   expansion at ρ → 0; (c4) an enumeration for (VII5); (c5) the h-dependence of each at-point conclusion; (c6) ε_ind
   certified by interval root isolation; (c7) Proposition 10.1's coefficients bounded uniformly in l; (c8) the squashing's
   dφ1 dφ2 coefficient (the verifier computed it, ∝ (e^(−4B) − e^(2B)) c² s²; to be scripted).
+- D601 (CERTIFY-10L5 6b, computed, floating point: `checks/g1curv5.py --seed2-2400`, saved as
+  `checks/g1curv5_seed2_2400.out`): the second seed at 2400 × 1080 with M = 32, 40 and 48. M = 32 and 40 agree to 0.09
+  K_0 up to v = 3.5 at all seven angles and to 0.53 K_0 on [4, 4.5); M = 48 departs from v ≈ 3.25 at every angle, as at
+  1600 × 720 and by as much, and masks 103 cells alone. The departure does not move with the null grid, and M²/N = 0.96
+  is below the 1.0 at which M = 40 held at 1600: the step condition M²/N ≤ c (D571's hypothesis) is refuted. Whether M =
+  48 meets another instability or resolves late structure that M = 32 and 40 miss where it masks is not decided; M = 32
+  and 40 agree away from that region to v ≈ 4.5, and the region is unresolved. The paper's section 9 sentence on these
+  runs waits for audit batch 4 to report (it reads that section now).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

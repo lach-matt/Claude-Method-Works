@@ -714,6 +714,21 @@ No other component is nonzero. So the scheme is the following.
   %. So D575's "beside the cut" is beside the cells M = 48 drops, and "two kinds" is withdrawn: one region at late v,
   where M = 48 fails first and M = 32 and 40 are unresolved in their fields.)
 
+- *M = 32, 40 and 48 at 2400 × 1080 (D601; `checks/g1curv5.py --seed2-2400 DIR`, output saved as
+  `checks/g1curv5_seed2_2400.out`; computed, floating point).* D572's runs, the rows compared only. Per band and angle: M
+  = 32 and 40 agree to 0.09 K_0 or better up to v = 3.5 at all seven angles (|K_40 − K_32|/K_0 from 1.4 × 10⁻⁷ on [2.5,
+  2.75) to 0.088 on [3.25, 3.5) at x = 0), and to 0.53 K_0 on [4, 4.5) (x = 0.9), |K/K_0 − 1| staying below 2 for both; M
+  = 48 agrees with M = 40 to 0.15 K_0 up to v = 3.25 and departs from v ≈ 3.25 at every angle, |K_48 − K_40|/K_0 from 51
+  to 497 on [3.25, 3.5) and 6.5 × 10² to 1.0 × 10⁶ after, the two stencils differing as much. The masks: 0.218, 0.223,
+  0.235 of the compared rows, M = 48 alone masking 103 cells and M = 32 and 40 none alone; on each pair's own cells, M =
+  32 and 40 agree away from M = 48's mask (R to 1.7 × 10⁻⁴ before v = 3.5, K to 0.53 K_0 after) and differ by 80 to 8 ×
+  10⁴ K_0 beside it, as at 1600 × 720. Two findings. M = 48's departure does not move with the null grid: it begins at v
+  ≈ 3.25 at both 1600 × 720 and 2400 × 1080, with the same size. And M²/N = 48²/2400 = 0.96 lies below the 1.0 at which M
+  = 40 held at N = 1600, so the step condition M²/N ≤ c with 1.28 ≤ c < 1.44 (D571, a hypothesis) is refuted: what M = 48
+  meets is not the explicit step's angular stiffness. What it is, an instability of the finest angular grid with a
+  different cause or late structure that M = 32 and 40 under-resolve where M = 48 masks, these runs do not decide; they
+  decide that M = 32 and 40 agree away from that region to v ≈ 4.5, and that the region itself is unresolved.
+
 - *Next.* At λ = 1: the invariant cut is tried (D392) and does not move the limit. Gauges and cuts are compared on the
   cells both keep from now on (`checks/g1cells5.py`, D399), where dnsolve5's gauge is the better solver in (u, v).
   dnsolve5's k-scan and the swapped gauge's fourth grid are done (D403). The axis treatment at small R is now tested
@@ -730,18 +745,19 @@ No other component is nonzero. So the scheme is the following.
   (D458, D462). Next at λ = 1: an axis treatment that does not lose digits near the axis (the regular combinations (1 +
   x)m and (1 − x)n as unknowns, or Gauss-Radau nodes at the axes with the regularity conditions imposed there), then the
   same comparison; and the invariant g_22 at x = −1 followed as A rises to 1 (D458 has it at A = 3/4 and 1). The
-  Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at
-  every angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it,
-  at v ≈ 1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the
-  axis alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first
-  off the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; a fourth M, 40, departs
+  Kretschmann scalar is now followed (D475, D485): moderate and converged in angle up to the failure, unresolved at every
+  angle after it (at the two largest amplitudes first off the axis in the runs without `ld 3`; at A = 1 with it, at v ≈
+  1.93 at every angle, D499), so an axis treatment must be judged by K's convergence at all angles, not near the axis
+  alone. At the second seed the invariant does not single out x = +1 (D515): its angular convergence is lost first off
+  the axis, at v ≈ 3.74, and the large values at the axis after v = 4 are M = 32's alone; a fourth M, 40, departs
   earlier, at every angle, and is worse than M = 32 from the start (D524); M refined together with the null grid removes
   M = 40's departures (1600 × 720, D543), and what remains is convergence after v ≈ 3.5, lost first off the axis (D547),
   which M = 48 at 1600 × 720 does not decide, M = 48 departing there from v ≈ 3.25 as M = 40 did at 800 × 360 (D571); it
   needs M = 32, 40 and 48 at one finer null grid, compared on each pair's own cells with the cells beside the cut apart
-  (D575), which D572's runs at 2400 × 1080 provide; and the cut's own effect, which is where M = 32 and 40 disagree at
-  1600 × 720. Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear constant) on the
-  converged part.
+  (D575), which D572's runs at 2400 × 1080 now provide (D601: M = 48 departs there unchanged, the step condition refuted,
+  M = 32 and 40 agreeing away from M = 48's mask); and the cut's own effect, which is where M = 32 and 40 disagree at
+  1600 × 720 and at 2400 × 1080. Rounding is excluded (D354), and so is the curvature cut. Then F3 (the certified linear
+  constant) on the converged part.
 
 ## 7. Sources
 

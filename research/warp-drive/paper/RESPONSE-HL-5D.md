@@ -2341,7 +2341,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | --- | --- |
 | `paper/response5.py` | `42571e97deee86b5dd0f9c8e0d4fbad7` |
 | `docket68/n1star/N1STAR-PROOF.md` | `2fe46896ad472fe14d30f8bda86b3d60` |
-| `docket68/n1star/N1STAR-LOG.md` | `f1180e5788e2a5867b2dcecb8ca43e2a` |
+| `docket68/n1star/N1STAR-LOG.md` | `7f771fad560067502c3b976fb2e8eb13` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2436,7 +2436,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/LOSS-D.md` | `363b7acd423b6201dbcc7faa8b42f8eb` |
 | `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `3a43fc786ec3d98b0f06e179dddc7814` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
-| `docket68/n1star/CERTIFY-10L5.md` | `932c277dc0262c62b220aba83bbb3289` |
+| `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
 | `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
 | `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
 | `docket68/n1star/FAMILIES5.md` | `34c0c29c24010c93ac191c3351b1c564` |

@@ -7902,3 +7902,9 @@ says what is and is not shown. The settling theorem's statement was brought into
 decay rate of a linear tail was no longer presented as the nonlinear rate, a mode frequency was converted to the paper's
 sign convention, and several sentences that rested on the review record rather than on the proofs themselves were
 rewritten. Eight steps lacking computational support were listed and queued.
+
+**D601 (2026-11-02): the second test wave at the finest grid.** The three angular resolutions were run on a null grid
+one and a half times finer. The two coarser ones agree well away from one late region; the finest departs there exactly
+as before, so refining the grid did not change it, and the earlier explanation (a time-step limit growing with the
+angular resolution) is ruled out by the numbers. What the finest run meets is not decided; the late region stays
+unresolved.
