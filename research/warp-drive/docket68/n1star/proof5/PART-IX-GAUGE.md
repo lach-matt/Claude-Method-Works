@@ -7,8 +7,8 @@ future half of a Cauchy development that extends past $\Sigma_{\mathrm{IVP}}$ (f
 
 Part VIII Remark 2.4 (a) records what Theorem 2.2 there does not assert: that a linearised solution given in another
 gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the whole future of
-$\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Lemma 1.2), the future half of a Cauchy development of $\Sigma_{\mathrm{IVP}}$. Every
-linearised vacuum solution whose data agree with $(\dot\gamma,\dot k)$ up to a linearised diffeomorphism is $\dot
+$\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Lemma 1.2), the future half of a Cauchy development of $\Sigma_{\mathrm{IVP}}$.
+Every linearised vacuum solution whose data agree with $(\dot\gamma,\dot k)$ up to a linearised diffeomorphism is $\dot
 g+\mathcal L_Xg$ for a vector field $X$ (Corollary 2.3). So the linear stability of Part VIII holds in every gauge,
 modulo a linearised diffeomorphism. Nothing is asserted about the size or decay of $X$ (Remark 2.4).
 
@@ -50,7 +50,8 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
   3.2 (b)); and a point of $N$ has either $t^\flat_*>\hat T+3\ge1$, so lies in $\Omega_*$, or lies in $\mathcal D =
   N\cap\{t^\flat_*\le\hat T+3\}$, with III.K section 0's convention that $\{t^\flat_*\le c\}$ is the
-  complement of $\{t^\flat_*>c\}$, so that points where $t^\flat_*$ is undefined lie in it. So Part VIII Theorem 2.2's $\dot g$ is a smooth symmetric 2-tensor on $N$ with
+  complement of $\{t^\flat_*>c\}$, so that points where $t^\flat_*$ is undefined lie in it. So Part VIII Theorem
+  2.2's $\dot g$ is a smooth symmetric 2-tensor on $N$ with
   $D\mathrm{Ric}(\dot g) = 0$ there.
 
 - *Time orientation.* As in II.B, $dt_*$ is past timelike. $dt_{\mathrm{IVP}}$ is timelike for $g$ on $M$ (III.B Lemma
@@ -258,7 +259,8 @@ $\Theta(h) = 0$, so $L^0h = 0$ on $\Omega'_+$ by (0.1); $h$ is smooth up to $\Si
   $\partial^j_{t_{\mathrm{IVP}}}h = 0$ on $\Sigma_U$ for $j<m$, some $m\ge2$, so that every derivative of $h$ of order
   below $m$ vanishes there. By Lemma 2.1 (a), $2L^0 = -g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})
   \partial^2_{t_{\mathrm{IVP}}}+R$, with $R$ of second order and at most first order in $\partial_{t_{\mathrm{IVP}}}$,
-  and $g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})<0$ as $dt_{\mathrm{IVP}}$ is timelike: $\Sigma_U$ is noncharacteristic.
+  and $g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})<0$ as $dt_{\mathrm{IVP}}$ is timelike: $\Sigma_U$ is
+  noncharacteristic.
   Apply $\partial^{m-2}_{t_{\mathrm{IVP}}}$ to $2L^0h = 0$ and restrict to $\Sigma_U$: every term but
   $-g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})\partial^m_{t_{\mathrm{IVP}}}h$ is a derivative of order below $m$, or of
   order $m$ with at most $m-1$ derivatives in $t_{\mathrm{IVP}}$ (a tangential derivative of a vanishing normal one),
@@ -335,8 +337,8 @@ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 1
 
 - (IX5) A later reading (D610) found a major gap: section 0 called $\nu$ positive, but III.K Proposition 1.2 sets $\nu =
   0$ on $[0,R_\nu]$, so $N = \{t_{\mathrm{IVP}}\ge0\}$ near $\{r = r_0\}$ and $\Sigma^\circ$ was not inside the old
-  $N^\circ := \{t_{\mathrm{IVP}}>-\nu\}\cap M^\circ$; the old Lemma 1.2's first two claims failed there, and with them the
-  domain of Theorem 2.2 and Corollary 2.3. Repair: the Cauchy development is taken in $U^\sharp :=
+  $N^\circ := \{t_{\mathrm{IVP}}>-\nu\}\cap M^\circ$; the old Lemma 1.2's first two claims failed there, and with them
+  the domain of Theorem 2.2 and Corollary 2.3. Repair: the Cauchy development is taken in $U^\sharp :=
   M^\circ\cap\{t_{\mathrm{IVP}}>-1\}$, which contains $\Sigma^\circ$ and where only $g$ is used; Theorem 2.2 is stated
   on its future half for tensors smooth up to $\Sigma_U$; Step 1 extends $\Theta(k)$ across $\Sigma_U$ (Seeley); Step 3
   shows $h$ vanishes to infinite order at the noncharacteristic $\Sigma_U$ (`ix5.py` X8) and extends it by 0, so that
@@ -359,4 +361,5 @@ section 1.4, Lemma 1.3 and its proof; III.K (PART-III-K-NONLINEAR.md) section 0 
 arXiv:0806.1036v1, Definition 1.3.8 (p. 23), Corollary 1.3.12 and the term Cauchy time-function (p. 24), section 1.5
 (p. 33), Corollary 3.2.4 (p. 76), Proposition 3.2.5's proof (p. 81), Theorem 3.2.11 with its proof (pp. 85-86),
 Corollary A.5.4 (p. 174), Lemma A.5.9 (p. 176). [See64] R. T. Seeley, Extension of $C^\infty$ functions defined in a
-half space, Proc. Amer. Math. Soc. 15 (1964) 625-626.
+half space, Proc. Amer. Math. Soc. 15 (1964) 625-626,
+doi:10.1090/s0002-9939-1964-0165392-8.

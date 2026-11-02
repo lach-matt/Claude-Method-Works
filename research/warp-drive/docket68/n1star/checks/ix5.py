@@ -23,11 +23,16 @@ nabla w^T), Theta := delta G, K(X, Y) = g(nabla_X nu, Y) with nu the future unit
   X7 (computed) Same setting: for X = t V / nu(t), V an arbitrary vector field (X = 0 on Sigma), L_X g induces zero data
      on Sigma: its T Sigma components vanish and the s-derivative of the second fundamental form of g + s L_X g
      vanishes (Lemma 2.1 (f); verifier 162's N3).  Control: X = (1 + t) V, not zero on Sigma, fails.
+  X8 (computed) Same setting, for Theorem 2.2's Step 3 (D610): Sigma is noncharacteristic for L^0 := DRic + delta^*
+     Theta. For h = t^m H + t^(m+1) K (H, K symmetric, every component an arbitrary function of (x, y)), the coefficient
+     of t^(m-2) in L^0 h at t = 0 is -(1/2) m (m-1) g^tt H, m = 2, 3, 4, 5; as g^tt = g^(-1)(dt, dt) < 0, L^0 h = 0 and
+     h = O(t^m) force H = 0, so h vanishes to infinite order.  Control: DRic alone (without delta^* Theta) fails at every
+     m -- the gauge term is what makes Sigma noncharacteristic.
   X6 (computed) At five-dimensional Tangherlini, DRic(L_X g) = 0 for X = a(t, r) d_t + b(t, r) d_r (a, b arbitrary);
      DRic is the s-derivative at 0 of the Ricci tensor of g + s L_X g, assembled from its Christoffel symbols to first
      order in s.  Control: at the four-dimensional lapse F = 1 - mu/r (not Ricci-flat in five dimensions) it fails.
 
-X1 and X2 are decided by exact expansion.  X3-X7 are identities between rational expressions (with square roots) in the
+X1 and X2 are decided by exact expansion.  X3-X8 are identities between rational expressions (with square roots) in the
 coordinates and the jets of the arbitrary functions; each is decided by evaluation at four random rational points to 60
 digits, every coordinate and every jet an independent random rational (polynomial identity testing; seed fixed).  An
 identity holds if every residual is below 1e-45; a control fails if some residual exceeds 1e-6.
@@ -176,8 +181,9 @@ def x3_x5():
     tang = sum(kp(ei, ei) for ei in e0)
     r4 = holds([th_on(ej) - kp(nu0, ej) for ej in e0] + [th_on(nu0) - kp(nu0, nu0) / 2 - tang / 2], ranges=RANGES)
     c4 = not fails([th_on(nu0) - kp(nu0, nu0) / 2 - tang], ranges=RANGES)
-    # X5: k1 := nu^flat (x) c + c (x) nu^flat + c0 nu^flat (x) nu^flat, so k1(e_i, e_j) = 0; X = t Y / nu(t), so X = 0
-    # on Sigma and nabla_nu X = Y there; then L_X g = k1 on Sigma
+    # X5: k1 := nu^flat (x) a + a (x) nu^flat, a an arbitrary 1-form (the general k1 with k1(e_i, e_j) = 0);
+    # X := t Y / nu^t, nu^t := dt(nu) at Sigma, so X = 0 on Sigma and nabla_nu X = (nu(t) / nu^t) Y = Y there;
+    # then L_X g = k1 on Sigma
     nu_flat = g.subs(sub0) * nu0
     al = sp.Matrix([sp.Function('a%d' % i)(X[1], X[2]) for i in range(3)])     # an arbitrary 1-form
     k1 = nu_flat * al.T + al * nu_flat.T                                       # k1(e_i, e_j) = 0
@@ -214,6 +220,32 @@ def x3_x5():
     r7 = holds(data_of(lie_full(t * V / lam)), ranges=RANGES)
     c7 = not fails(data_of(lie_full((1 + t) * V)), ranges=RANGES)
     return r3, c3, r4, c4, r5, c5, r7, c7
+
+
+def x8():
+    X, g, _ = curved_setting()
+    t = X[0]
+    gi = g.inv()
+    Gm, _ = christoffel(g, X, gi)
+    H = sp.Matrix(3, 3, lambda a, b: sp.Function('H%d%d' % (min(a, b), max(a, b)))(X[1], X[2]))
+    K = sp.Matrix(3, 3, lambda a, b: sp.Function('K%d%d' % (min(a, b), max(a, b)))(X[1], X[2]))
+    gtt0 = gi[0, 0].subs(t, 0)
+    ok, ctl = True, True
+    for m in (2, 3, 4, 5):
+        h = t**m * H + t**(m + 1) * K
+        R = ricci_dot(g, h, X)
+        th = theta(h, g, X)
+        ds = sp.Matrix(3, 3, lambda a, b: (sp.diff(th[b], X[a]) + sp.diff(th[a], X[b])) / 2
+                       - sum(Gm[c][a][b] * th[c] for c in range(3)))
+        want = -sp.Rational(1, 2) * m * (m - 1) * gtt0 * H
+        coef = lambda E: [sp.diff(E[a, b], t, m - 2).subs(t, 0) / sp.factorial(m - 2) - want[a, b]
+                          for a in range(3) for b in range(a, 3)]
+        r = holds(coef(R + ds), ranges=RANGES)
+        c = not fails(coef(R), ranges=RANGES)
+        print('   X8 m = %d: coefficient of t^(m-2) in L^0 h is -(1/2) m (m-1) g^tt H: %s | control DRic alone: %s'
+              % (m, r, c), flush=True)
+        ok, ctl = ok and r, ctl and not c
+    return ok, not ctl
 
 
 def ricci_dot(g, k, C):
@@ -265,6 +297,10 @@ def main():
     print('X7 L_X g induces zero data when X = 0 on Sigma:', 'PASS' if r7 else 'FAIL', '| control X != 0 on Sigma:', c7,
           flush=True)
     ok &= r3 and not c3 and r4 and not c4 and r5 and not c5 and r7 and not c7
+    r8, c8 = x8()
+    print('X8 Sigma noncharacteristic for L^0 (leading coefficient):', 'PASS' if r8 else 'FAIL',
+          '| control DRic alone:', c8, flush=True)
+    ok &= r8 and not c8
     t5, t4 = x6()
     print('X6 DRic(L_X g) = 0 at 5D Tangherlini:', 'PASS' if t5 else 'FAIL', '| control (4D lapse):', t4)
     ok &= t5 and not t4
