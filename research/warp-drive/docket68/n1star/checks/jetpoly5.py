@@ -3,7 +3,10 @@
 A Jet is a dict {exponent tuple: Fraction} in NV variables, truncated at total degree DEG. Every identity checked at
 the origin with it is exact as long as the quantities used there involve at most DEG - (number of derivatives taken)
 orders, which the callers respect (they use at most two derivatives of degree-3 jets at the origin).
-Not a check by itself: imported by classchi5.py and augment5.py.
+Imported by classchi5.py, augment5.py and axisloss5.py. Its own check (run it directly):
+  J1 (exact) a product and an inverse of random jets agree with sympy's series to total degree DEG.
+  Control (must fail): the same with the truncation at DEG - 1 misses the degree-DEG coefficients.
+Labels: computed (exact, Fractions). Run: python3 checks/jetpoly5.py   (seconds)
 """
 from fractions import Fraction
 import itertools
@@ -141,3 +144,39 @@ def monomials(nvars_used, deg):
             e[i] += 1
         out.append(tuple(e))
     return out
+
+
+if __name__ == '__main__':
+    import random
+    import sys
+    import sympy as sp
+    rng = random.Random(3)
+    ys = sp.symbols('z0:%d' % NV)
+
+    def rjet():
+        c = {}
+        for dgr in range(DEG + 1):
+            for m in monomials(3, dgr):
+                c[m] = Fraction(rng.randint(-9, 9), rng.randint(1, 5))
+        c[(0,) * NV] = Fraction(rng.randint(2, 9), 1)
+        return Jet(c)
+
+    def tosym(j):
+        return sum(sp.Rational(v.numerator, v.denominator) * sp.prod([y**k for y, k in zip(ys, m)])
+                   for m, v in j.c.items())
+
+    def trunc(e, D):
+        p = sp.Poly(sp.expand(e), *ys)
+        return sum(c * sp.prod([y**k for y, k in zip(ys, m)]) for m, c in p.terms() if sum(m) <= D)
+    A, B = rjet(), rjet()
+    prod_ok = sp.expand(tosym(A * B) - trunc(tosym(A) * tosym(B), DEG)) == 0
+    t = sp.Symbol('t')
+    a0 = tosym(A).subs({y: 0 for y in ys})
+    ser = sp.series(1 / (a0 + t * (tosym(A) - a0)), t, 0, DEG + 1).removeO().subs(t, 1)
+    inv_ok = sp.expand(tosym(A.inv()) - trunc(ser, DEG)) == 0
+    DEG -= 1
+    ctl = sp.expand(tosym(A * B) - trunc(tosym(A) * tosym(B), DEG + 1)) != 0
+    print("J1 product:", prod_ok, " inverse:", inv_ok, " control (truncation one lower misses terms):", ctl)
+    ok = prod_ok and inv_ok and ctl
+    print("PASS" if ok else "FAIL")
+    sys.exit(0 if ok else 1)

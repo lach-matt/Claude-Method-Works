@@ -994,7 +994,12 @@ to $\Sigma_U$ (IX:35-40, 209-216); a source known on $\Omega'_+$ only is extende
 and a cut-off (IX:231-234); $\dot g|_{N^+}$ is smooth up to $\Sigma^\circ$ (IX:40-47); $N^\circ$ and $N^{\mathcal D}$
 are withdrawn, and a text citing them reads $U^\sharp$, $\Omega^\sharp$, $N^+$ (IX:350-351).
 
-*The uses here, each amended.*
+*The uses here, each amended.* These are also the D610 repair verifier's minor finding m1 for this file (relayed
+2026-11-02): $N^{\mathcal D} := D_{N^\circ}(\Sigma^\circ)$ and the old Lemma 1.2 at lines 213, 221, 243, 357 and 769,
+and $U\subset N^\circ$ in Theorem 1.5 (d) at line 166. A substitution of names is not enough, as $e$ is not defined on
+$\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0,\ r\le R_\nu\}$: the source is extended across $\Sigma^\circ$ as IX's Step 1 does,
+the problem is solved on $\Omega^\sharp$, and the result is stated on $N^+$ ((A4), Lemma R3.1, computed P1); line 166
+is (A2) (d), lines 213, 221 and 243 are (A3)-(A4), line 357 is (A6), line 769 is (A7).
 
 (A1) Section 0, "Part VIII in the class" (round 1, lines 52-54): $\dot g$ is smooth on the interior of $N$, and
 $\dot g|_{N^+}$ is smooth up to $\Sigma^\circ$; where $\nu = 0$, $N$ ends at $\Sigma^\circ$.

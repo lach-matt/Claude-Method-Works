@@ -14,3 +14,12 @@ S4 PASS
   S5 control (chi(t), t = T + r): r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', False), ('1', False)]
 S5 PASS
   S6: r^(p+2) [Box, chi] Z finite at fixed R = r/T, (p, finite): [('2', True), ('5/2', True)]
+  S6 control (chi(r)): r^(p+2) [Box, chi] Z finite at fixed R = r/T, (p, finite): [('2', False), ('5/2', False)]
+S6 PASS
+  S7 (p = 3/2): the slab commutator lies in (1.4) at I+ for beta in (0, 1): True
+  S7 control (p = beta + 1/2): the slab commutator lies in (1.4) at I+ for beta in (0, 1): False
+S7 PASS
+  S8: rho d_mu T_mu -> 2, r A -> 1/2, r B -> -1/4, r (v/2) W*_v on iota+-interior -> (R0/2 + 1/2)/R0: True
+  S8 control: r (v/2) W*_v at fixed r bounded as v -> oo: False
+S8 PASS
+EXIT 0
