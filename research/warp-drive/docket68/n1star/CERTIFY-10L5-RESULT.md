@@ -911,3 +911,314 @@ first certified step is taken" to "remains open":
 > condition asks a residual at least 84 times smaller than the computed one (`checks/ampresp5.py`). The computed
 > solution converges at the first seed to v ≈ 1.9 r_h at areal radius ≥ r_h, the earlier failure there being angular
 > resolution (`checks/late5b.py`), and is unresolved beyond (supplement `CERTIFY-10L5-RESULT.md` section 6).
+
+## 7. Round 3 (2026-11-02): the curvature-level estimate, what it asks of the residual, the late region
+
+*Status.* Appended 2026-11-02. Sections 0–6 are unchanged; nothing in them is amended by this round (7.10 records the
+verifier's findings when they arrive). Labels as in section 0. [Wu26] was re-read at source for this round (arXiv
+2609.08421v1: Theorem 2.2 and its proof sketch pp. 6–8, the transport equations (2.2)–(2.6) pp. 4–5, the scalar
+identity (2.17) p. 6, the residual formulas p. 12; READ). Machine load was 9–36 on 4 cores throughout.
+
+### 7.0 Answers
+
+1. **Task 1, the curvature-level estimate.** It is written and proved on domains away from the axes, with every
+   constant explicit (Theorem 7.L). It does not reach the region where it is needed, and the reason is exact: the axes.
+   - *Deduced (exact, `checks/reduce5.py` R1–R4).* The class is (2+1)-dimensional gravity coupled to two free waves.
+     With ρ the T² orbit's area density and h̃ = ρ²h the Einstein-frame orbit metric, the vacuum equations are
+     exactly Ric(h̃) = dΦ1 dΦ1 + dΦ2 dΦ2, □_h̃ Φ_i = 0, with Φ1 = √(3/2) log ρ and Φ2 = (A − B)/√2. So the model is
+     [Wu26]'s Einstein–scalar system (1.4), not its vacuum one, in dimension 2+1: no Weyl curvature, sections of
+     dimension one (no shear, no Gauss curvature).
+     - Its curvature residues, Ric(h̃) − Σ dΦ_i dΦ_i and □Φ_i, are fixed linear combinations of the five-dimensional
+       Ricci tensor, off shell (R3). A certified bound on one is a certified bound on the other.
+     - Round 2's Jordan variable ζ = W + 2 log R + P + Q is the Einstein-frame lapse log Ω̃, up to a fixed function of
+       x (R4).
+   - *Deduced (exact, `checks/null3.py` N0–N10).* In double-null gauge the reduced system has a hierarchy with no
+     angular loss.
+     - Every Ricci coefficient has a transport equation free of angular derivatives of Ricci coefficients: χ, η, ω̲
+       along e4; χ̲, η̲, ω along e3 (N1–N3).
+     - The scalars obey two Bianchi-type pairs each, with exact energy identities (N9).
+     - The shift's x-derivative lives only in χ̲, which Raychaudhuri transports along e3 without it (N0, N1).
+     - In frame-difference unknowns the linearised operators contain no derivative of the metric differences
+       (N10).
+     - The angular loss lives only in the two equations the hierarchy does not use, e4 χ̲ and e3 χ (N7).
+     - So round 2's Y5 loss belongs to the metric formulation, not to the class. The free scheme evolved ζ through
+       Ric_xx, which carries its second x-derivative; the hierarchy transports it with ω, ω̲, where it has none.
+   - *Proved (Theorem 7.L, 7.3).* The linear estimate at level 0 (L² on the sections) for the linearised reduced
+     system, on a truncated domain of dependence away from the axes:
+     f ≤ (𝒟 + 𝒮) exp(2∫a_o du + 2∫a_i dv), with a_o, a_i explicit sums of the background's coordinate-normalised
+     coefficients (listed in `checks/linest5.out`, E2).
+   - *Computed (`checks/linest5.py` E4–E5, on the record's solution over rcert5's box).*
+     - F² = 10^138 on |x| ≤ 1/2 and 10^222 on |x| ≤ 0.8, growing without bound toward the axes.
+     - Every truncated domain over the box is empty. The x-shrink the domain needs is 5.8, against a half-width of at
+       most 1. The box is causally connected to the axes about three times over.
+   - **What is missing, exactly (7.5).**
+     - The axes. The Einstein frame degenerates there (Ω̃² ∝ 1 − x², Φ_i carry log(1 ∓ x)), and the coefficients grow
+       like the inverse distance (κ from 122 to 1.8 × 10⁵ between |x| ≤ 1/2 and the outermost node). Near each axis
+       the class is four-dimensional axisymmetric Einstein–scalar: reduce on the circle that does not degenerate
+       there. Its estimate needs Weyl curvature and its Bianchi pairs, [Wu26] (1.4) on disk sections with a
+       regular axis. It is not written, and without it no point of the late region is reached.
+     - Level 1 (H¹ ⊂ L^∞ on a one-dimensional section) for the quadratic term. Away from the axes it should be
+       mechanical, by commuting with the background's e_x. Not written.
+     - The quadratic constant G.
+2. **Task 2, the demand on the residual.**
+   - *Computed (`linest5.py` E6, E4b).* At Theorem 7.L's own F, the closing condition δ + ∫ε < 1/(4GTF²) asks
+     10^−140 on |x| ≤ 1/2, before the axes enter. No approximant held in double or modest multiprecision has a
+     residual near that, so no certificate can meet it (deduced).
+   - *Deduced.* Any Grönwall-type explicit constant adds absolute values of coefficients of size 20–120 here. The
+     measured response is 9.2 (round 2, A1). So the route needs F as a computed, validated bound on the linearised
+     solution operator: an approximate inverse built numerically, with the explicit estimate applied only to its
+     defect (radii-polynomial style). Then the demand is round 2's 3.0 × 10⁻⁵ to 7.8 × 10⁻⁷.
+   - At that level a certificate is plausible only with a better approximant first. The record's residual,
+     2.4 × 10⁻³, is above it by 84 to 3.2 × 10³.
+   - *Certified (`checks/rcert5b.py`, one sub-box; Theorem 7.L's L² norm allows a local certificate).* On one interior
+     box of rcert5's K2 grid, split into n³ sub-boxes, the certified sup of the ll component falls from 8.1 × 10³
+     (n = 1) to 0.124 (n = 8). The other components fall from up to 3.4 × 10⁶, or no bound, to 0.021–0.093.
+     - It is still 810–4,400 times the residual's own size there (the largest certified centre value, 1.5 × 10⁻⁴).
+     - At the measured rate of 33–51 per halving (computed), reaching twice the residual's size needs n ≈ 26–35:
+       about 2–4 × 10⁴ sub-boxes for this one box of the 416, at 0.6 s each at this load.
+     - So a usable certified sup over the box is a matter of machine time (extrapolated: of the order of 10⁷
+       sub-boxes and 10⁷ s for all 416), not of method. It is useful only once F is computed rather than Grönwall's.
+3. **Task 3, the late region.** Not run. The one-minute load was above 12 at every check (9.4 at the start, then
+   20–36), and the instruction was to skip. v ≥ 1.9 at areal radius 1.0–1.2 and v ≥ 1.65 below 0.9 stay undecided,
+   as in 6.4.
+
+### 7.1 The reduction (`checks/reduce5.py`; deduced, every identity exact)
+
+The class, with P and Q free functions (the record's P, Q of m, n are a special case), is
+g5 = h + e^{2A} dφ1² + e^{2B} dφ2², with A = log R + P + ½ log((1 + x)/2) and B = log R + Q + ½ log((1 − x)/2).
+Put ρ = e^{A+B}, L = log ρ, ψ = (A − B)/2, h̃ = ρ² h. For every metric of the class, no field equation used:
+
+- **R1.** Ric5(∂_φ1, ∂_φ1) = −e^{2A} ρ² □_h̃ A, and likewise for B.
+- **R2.** On the orbit directions, Ric5_ab = Ric(h̃)_ab − (3/2) L_a L_b − 2 ψ_a ψ_b + (□_h̃ L) h̃_ab (all six
+  components).
+- **R3.** E_ab := Ric(h̃)_ab − (3/2) L_a L_b − 2 ψ_a ψ_b = Ric5_ab + (e^{−2A} Ric5_11 + e^{−2B} Ric5_22) h_ab, and
+  □_h̃ A = −e^{−2A} ρ⁻² Ric5_11. The reduced residues are fixed combinations of Ric5. In the frames, termwise,
+  |E_ab| ≤ |Ric5_ab| + 2 |h_ab| max(|Ric5_1̂1̂|, |Ric5_2̂2̂|), the Killing directions normalised (deduced from R3).
+- **R4.** In the record's variables h̃ = −4 Ω̃² du dv + γ̃ (dx − (1 − x²) s du)², with γ̃ = R⁶/16 (P and Q drop out),
+  log Ω̃ = W + 2 log R + P + Q + ½ log((1 − x²)/4), and √|det h̃| = R⁷ (1 − x²) e^{2(P+Q) + 2W}/8.
+- *Controls* (each fails, as it must): the weight ρ in place of ρ² (R1 and R2), and the coefficient 1 in place of 3/2.
+
+So the vacuum equations of the class are Ric(h̃) = Σ dΦ_i dΦ_i and □_h̃ Φ_i = 0, a wave map into the flat plane coupled
+to (2+1)-gravity. R4 identifies round 2's Jordan variable (symbol5.py Y1) as the Einstein-frame lapse.
+
+### 7.2 The null structure and the hierarchy (`checks/null3.py`; deduced, every identity exact)
+
+For any (2+1)-metric h = −2Ω² (du dv + dv du) + γ (dx − b du)², Ω = e^w, γ = e^{2k}, frame e4 = Ω⁻¹ ∂_v,
+e3 = Ω⁻¹ (∂_u + b ∂_x), e_x = γ^{−1/2} ∂_x, and [Wu26] (2.1)'s Ricci coefficients (READ, p. 4):
+
+- **N0.** χ = e^{−w} k_v, χ̲ = e^{−w} (k_u + b k_x + b_x), ω = −e^{−w} w_v/2, ω̲ = −e^{−w} (w_u + b w_x)/2,
+  ζ = −e^{k−2w} b_v/4, η = ζ + e^{−k} w_x, η̲ = −ζ + e^{−k} w_x. The shift's x-derivative b_x appears in χ̲ only.
+- **N1.** e4 χ + χ² + 2ωχ = −Ric_44 and e3 χ̲ + χ̲² + 2ω̲χ̲ = −Ric_33 ([Wu26] (2.2) on a one-dimensional section).
+- **N2.** e4 η = −χ(η − η̲) − Ric_x4 and e3 η̲ = −χ̲(η̲ − η) − Ric_x3.
+- **N3.** e4 ω̲ = ½η² − ηη̲ + 2ωω̲ + ¼(Ric_34 + Ric_xx) and e3 ω = ½η̲² − ηη̲ + 2ωω̲ + ¼(Ric_34 + Ric_xx). The
+  coefficients are solved for and then checked, uniquely. [Wu26] (2.5)'s Gauss term has no analogue here.
+- **N4.** [e4, e_x] = −χ e_x + ½(η + η̲) e4, [e3, e_x] = −χ̲ e_x + ½(η + η̲) e3, and
+  [e3, e4] = 2(η − η̲) e_x − 2ω e3 + 2ω̲ e4.
+- **N5.** −□f = e3 e4 f − e_x e_x f + ½χ e3 f + ½χ̲ e4 f − 2η e_x f − 2ω̲ e4 f ([Wu26] (2.17) in dimension 3).
+- **N6.** div e4 = χ − 2ω, div e3 = χ̲ − 2ω̲, div e_x = η + η̲.
+- **N7.** The two equations the hierarchy does not use, e4 χ̲ and e3 χ, contain 2 e_x η̲ and 2 e_x η. An ansatz without
+  them has no solution (the control); one with them has.
+- **N9.** For a = e4 f, c = e_x f, d = e3 f: Div(a² e3 + c² e4 − 2ac e_x) = −2a □f + Q1 and
+  Div(c² e3 + d² e4 − 2cd e_x) = −2d □f + Q2. Q1 and Q2 are quadratic forms with Ricci coefficients as coefficients
+  (printed). The fluxes are a² and c² on outgoing cones, c² and d² on ingoing ones.
+- **N10.** With the frame-component differences A1 = δ(e4 Φ), C1 = δ(e_x Φ), D1 = δ(e3 Φ), the linearised pair and
+  transport operators contain no derivative of the metric differences δw, δk, δb, and none of δΦ.
+  - *Control.* The coordinate difference e^{−k} δΦ_x in place of C1 brings in δk_x: the angular derivative the frame
+    differences avoid.
+- *Controls* (each fails): ωχ for 2ωχ in N1, η for η − η̲ in N2, N7's ansatz, N10's coordinate difference.
+- **N8 (deduced from N0–N6).** The hierarchy has no angular loss. Each Ricci coefficient is transported with a right
+  side polynomial in the Ricci coefficients and in Ric = Σ e_aΦ_i e_bΦ_i. The metric follows by ∂_v k = e^w χ,
+  ∂_v w = −2 e^w ω, ∂_v b = −2 e^{2w−k}(η − η̲). The scalars obey the pairs (P1, P2) = (e3 a − e_x c, e4 c − e_x a)
+  and (P3, P4) = (e3 c − e_x d, e4 d − e_x c), whose right sides are listed in `linest5.py` E1 (exact).
+
+### 7.3 Theorem 7.L: the linear estimate, level 0 (proved)
+
+*Setting.* Let g̊ be a smooth metric of the class on Q = [u0, u1] × [v0, v1] × [−1, 1], in the record's coordinates.
+Its Einstein frame (R4) gives (ẘ, k̊, b̊), the scalars Φ̊_i, and the state (ψ̊; å_i, c̊_i, d̊_i).
+- *The domain.* Fix X ∈ (0, 1) and λ > 0. Put c_u := sup_Q |b̊| + λ, c_v := sup_Q (Ω̊²/γ̊)/λ, and
+  D := {|x| ≤ X − c_u (u − u0) − c_v (v − v0)}. (With local suprema in place of sup_Q, the same holds.)
+- *The system.* The linearisation of the reduced system about g̊ in the fifteen frame-difference unknowns
+  Z = (δχ, δη, δω̲, δk, δw, δb; δχ̲, δη̲, δω; δa_i, δc_i, δd_i). Each row reads X̊(δY) = Σ_Z m_Z Z + S, with
+  X̊ ∈ {e̊4, e̊3, ∂_v} or a pair operator. The coefficients m_Z are the derivatives of the right sides in the state,
+  plus δw e̊_X Y̊, −e^{−ẘ} δb ∂_x Y̊ (e3 rows) and −δk e̊_x Y̊ (pairs). They are listed in `linest5.out` E2. S is the
+  background's residual (R3) and any source.
+- *The norm.* With ϖ := 2 e^{ẘ+k̊} and ‖·‖ the L²(ϖ dx) norm on S_{u,v} ∩ D:
+  f(u, v) := Σ_i [∫_{v0}^{v} ‖(δa_i, δc_i)(u, ·)‖² + ∫_{u0}^{u} ‖(δc_i, δd_i)(·, v)‖²]
+  + Σ_{e4, ∂_v rows} ∫_{u0}^{u} ‖Y(·, v)‖² + Σ_{e3 rows} ∫_{v0}^{v} ‖Y(u, ·)‖².
+  𝒟 is the same norms of the data on u = u0 and v = v0; 𝒮 := Σ_rows ∫∫_D (e^{ẘ} S)² ϖ.
+- *The constants.* κ_Z is the sum, over the rows Z enters or bounds, of the coordinate-normalised |m_Z| (e^{ẘ}|m_Z|
+  for frame rows). To it are added the measure's term |∂_v log ϖ| (e4, ∂_v rows) or |∂_u log ϖ + ∂_x(b̊ϖ)/ϖ| (e3
+  rows), the energy forms' e^{ẘ}|χ̲̊ − 2ω̲̊|, e^{ẘ}|χ̊ − 2ω̊| and e^{ẘ}|η̊ + η̲̊| (N6), and 1 for the source. Put
+  a_o(u) := max over δa, δc and the e3 rows of sup_{D∩{u}} κ_Z, and a_i(v) := max over δd and the e4, ∂_v rows of
+  sup_{D∩{v}} κ_Z.
+
+**Theorem 7.L.** f(u, v) ≤ (𝒟 + 𝒮) exp(2 ∫_{u0}^{u} a_o + 2 ∫_{v0}^{v} a_i) on D.
+
+*Proof.*
+1. Pairs. The divergence identity (N6, product rule) holds for the linearised pairs on D(u, v) = D ∩ {u' ≤ u,
+   v' ≤ v}.
+   - The fluxes through H_u and H̲_v are f's first two terms.
+   - Through the lateral boundary x = ±(X − c_u(u − u0) − c_v(v − v0)), the outward flux of a² e̊3 + c² e̊4 − 2ac e̊_x
+     is e^{−ẘ}[(c_u ± b̊) a² + c_v c² ∓ 2 e^{ẘ−k̊} ac]. It is nonnegative because (c_u ± b̊) c_v ≥ λ c_v ≥ Ω̊²/γ̊.
+     So it is dropped. Likewise for the second pair.
+2. Transport. For an e4 or ∂_v row, d/dv ∫Y² ϖ dx ≤ ∫(2|Y| |∂_v Y| + |∂_v log ϖ| Y²) ϖ dx, since the shrinking
+   interval only removes. For an e3 row, D_u = ∂_u + b̊∂_x. The term b̊∂_x(Y²) integrates by parts to
+   Y² ∂_x(b̊ϖ)/ϖ, and its boundary term is nonpositive because c_u ≥ |b̊|. Integrate in the transport variable, then
+   in the other.
+3. Every right side is linear in Z with the coefficients above. Split each bilinear term as 2|m||Z||Z'| ≤
+   |m|(Z² + Z'²), and the source as 2|Z||S| ≤ Z² + S².
+   - The space-time integral of Z² is at most ∫_{u0}^{u} f(u', v) du' if Z is measured on outgoing cones (δa, δc, the
+     e3 rows).
+   - It is at most ∫_{v0}^{v} f(u, v') dv' otherwise.
+   - Hence f ≤ 𝒟 + 𝒮 + ∫ a_o f du' + ∫ a_i f dv'.
+4. Lemma (E7). If f ≥ 0 is continuous and f ≤ A + ∫ a_o f du' + ∫ a_i f dv', then f ≤ A exp(2∫a_o + 2∫a_i).
+   - With U = ∫a_o and V = ∫a_i, g = B e^{α(U+V)} for α > 2 and B > A satisfies
+     A + ∫ a_o g + ∫ a_i g ≤ A + (2/α)(g − B) < g.
+   - Compare along U + V, then let α → 2 and B → A. ∎
+
+- *What the theorem is.* A linear estimate with explicit constants at the curvature level of the class. The curvature
+  of h̃ is quadratic in dΦ, which the pairs estimate, and the metric is controlled by it with no loss (N8, N10). It
+  is [Wu26] Theorem 2.2's linear step in the class, with its bootstrap weight exp(D(u + v)) replaced by the lemma, on
+  domains that avoid the axes.
+- *What it is not.*
+  - It is not the nonlinear theorem: the quadratic remainder needs L^∞ control, hence level 1.
+  - It does not reach the axes: D excludes them.
+  - The m_Z use the background's exact frame derivatives e̊_X Y̊. `linest5.py` evaluates them through the background's
+    own equations, which differ by its residual: 10⁻³ relative on the box (computed).
+- *Computational support.* E1 (the pair identities, exact, with a mutated control), E2 (the table: no derivative of an
+  unknown on any right side, exact), E3 (control: χ̲ by N7's e4 equation puts e_x δη̲ on a right side, flagged),
+  E7 (the lemma: the extremal solution lies below A e^{2a(u+v)} and above A e^{a(u+v)}, the control; its growth rate
+  is 1.6–1.7 a against the bound's 2a).
+
+### 7.4 The constant on the record's solution, and the domain (`checks/linest5.py` E4, E4b, E5; computed)
+
+On the record's computed solution (D432: M = 32, 800 × 360, ld 3, cut 0.9), over rcert5's box u ∈ [−4, −1.1],
+v ∈ [0.55, 1.6], every second row and column, κ_Z is evaluated by finite differences in (u, v) and spectrally in x, on
+the angular band ∣x∣ ≤ X.
+
+| band X | a (largest κ, worst unknown) | F² at a constant | F² with the profile: ∫a_o du, ∫a_i dv | demand (G = 10) |
+|---|---|---|---|---|
+| 0.5 | 122 (δχ̲) | 10^420 | 10^138: 67.9, 91 | 10^−140 |
+| 0.8 | 171 (δχ̲) | 10^587 | 10^222: 99.2, 157 | 10^−224 |
+| 0.95 | 1.9 × 10³ (δb) | 10^6552 | 10^1916 | 10^−1919 |
+| 0.9988 (outermost node) | 1.8 × 10⁵ (δb) | 10^624563 | 10^166843 | 10^−166845 |
+
+- *Where it comes from.* a_o rises from 21 at u = −3.9 to 122 at u = −1.1. There the run's u-coordinate is compressed
+  (u = −1 + a sinh ξ), and e^{ẘ}χ̲̊ = 3D_u log R + b_x reaches 6.3. The largest single coefficient is that of δw in
+  the χ̲ row, 53. Toward the axes the frame coefficients grow like the inverse distance (the last two rows).
+- *The domain (E5, E5b).* The truncated domain needs an x-shrink ∫ sup|b̊| du + 2 √(Δu ∫ sup(Ω̊²/γ̊) dv) =
+  0.13 + 5.67 = 5.8 over the box, against a half-width X ≤ 1. Every truncated domain over the box is empty.
+  - Theorem 7.L applies only to sub-rectangles of area Δu Δv ≲ 0.01 there (2√(2.94 Δu Δv) < 1/2).
+  - The angular speed 2√(Ω̃²/γ̃) reaches 3.4, against an angular range of 2. Every point of the box, and of the late
+    region, depends on data at the axes.
+
+So the estimate exists and its constants are explicit, but (i) they are of size 10^138 and up where it applies, and
+(ii) it does not apply where it is needed.
+
+### 7.5 What is missing, exactly
+
+1. **The axes (G4); the obstruction, and it is essential.**
+   - At x = ±1 the Einstein frame degenerates: Ω̃² = e^{2ζ}(1 − x²)/4 (R4), and Φ1, Φ2 carry ½ log(1 − x²) and
+     ¼ log((1 + x)/(1 − x)).
+   - The frame-normalised Ricci coefficients and scalar derivatives grow like the inverse distance to the axis (E4's
+     last rows). No truncated domain avoids the axes over the box (E5).
+   - The regular description near the axis x = +1, where the φ2-circle degenerates, is the reduction on φ1 alone. It
+     gives four-dimensional, axisymmetric Einstein–scalar with a regular axis: [Wu26]'s (1.4) on disk sections. That
+     system has Weyl curvature, and its estimate needs the Bianchi pairs (β, (K, σ)) and the renormalised pairs of
+     [Wu26] p. 8.
+   - Near x = −1 the same holds with the circles exchanged. The full theorem patches the two charts to Theorem 7.L's
+     interior with a partition of unity in x. The cut-off's derivative enters as a source with an explicit constant.
+   - Not written.
+2. **Level 1.**
+   - The quadratic remainder of the difference system needs L^∞ control of Z. On a one-dimensional section that is
+     H¹ (‖f‖_∞ ≤ ‖f‖/√|I| + √|I| ‖f′‖).
+   - Commuting the rows with e̊_x keeps N10's structure (deduced, not checked at level 1): the commutators are Ricci
+     coefficients (N4), and the metric differences enter at the same order in x as the Ricci coefficients, which
+     the ∂_v rows supply.
+   - Mechanical away from the axes; not written.
+3. **G** and the data at past null infinity (G3), as in 6.6.
+4. **A sharp F.** Even with 1–3, Theorem 7.L's F is 10^69 on |x| ≤ 1/2 (7.4). A usable argument needs the linearised
+   solution operator bounded by a validated computation (7.6), not by Grönwall.
+
+### 7.6 Task 2: the demand on the residual, and one sub-box certified
+
+- *The demand at Theorem 7.L's F (computed, E6).* δ + ∫ε < 1/(4GTF²) asks 10^−140 (|x| ≤ 1/2, G = 10) to
+  10^−166845 (to the outermost node). No enclosure and no approximant reaches that.
+  - The reason is structural (deduced): a Grönwall bound adds the absolute values of the coefficients, 20–120 per unit
+    u here. The response it bounds is 9.2 (round 2, A1).
+- *The plausible route (deduced; not done).*
+  - Bound the linearised solution operator by a validated computation. Discretise it, invert the discretisation
+    numerically, and certify the defect of that approximate inverse.
+  - The explicit estimate then multiplies only the defect, as in a radii-polynomial argument. F becomes the computed
+    norm, of the order of the measured 9.2.
+  - The demand becomes round 2's 3.0 × 10⁻⁵ (G = 10) to 7.8 × 10⁻⁷ (G = G_low).
+- *What a certified sup at that level asks.* Theorem 7.L's norm is a space-time L² norm, so a certificate is local:
+  the square is a sum over boxes. Two things are needed.
+  - A better approximant. The record's 2.4 × 10⁻³ (K1) is 84 to 3.2 × 10³ above the demand, a second-order
+    truncation error. A spectral or Richardson-extrapolated approximant in (u, v) on the converged region is the
+    candidate.
+  - A better enclosure, or more boxes (certified, `checks/rcert5b.py`). On the box t ∈ [−1/2, 0], σ ∈ [−1/2, 0],
+    x ∈ [0, 1/4] (rcert5's coordinates: interior, away from K2's worst corners and from the axes), split into n³:
+
+    | n (sub-boxes) | ll | ln | nn | lx | nx | xx | 11 | 22 |
+    |---|---|---|---|---|---|---|---|---|
+    | 1 (1) | 8.1e3 | ∞ | 3.4e6 | 3.2e4 | 3.8e5 | 5.8e4 | 8.9e4 | 1.0e5 |
+    | 2 (8) | 150 | 342 | 589 | 97 | 219 | 110 | 60 | 70 |
+    | 4 (64) | 4.1 | 2.5 | 3.7 | 1.8 | 1.7 | 1.9 | 0.78 | 0.94 |
+    | 8 (512) | 0.124 | 0.049 | 0.093 | 0.049 | 0.033 | 0.052 | 0.021 | 0.026 |
+    | centres, n = 8 | 1.5e-4 | 1.3e-5 | 2.4e-5 | 4.8e-5 | 9.4e-6 | 1.2e-5 | 2.2e-5 | 2.2e-5 |
+
+    - The bound falls 33–51 times per halving at the last step (54, 37, 33 for ll), faster than the remainder's h³
+      because the fields' enclosures over the box shrink too (computed).
+    - The ratio is still falling, so the extrapolated n ≈ 26–35 (about 2–4 × 10⁴ sub-boxes for this box) is a lower
+      bound on what is needed.
+    - *Control.* The approximant with W + 0.01 v has centre values up to 0.052 at n = 4, 400 times the approximant's.
+    - *Reading.* The method works; it needs about 10⁴ times rcert5's boxes. A Chebyshev enclosure with an analyticity
+      bound, or a reformulation in which the cancellation is algebraic (6.3), would cut that.
+    - None of this closes anything at Theorem 7.L's F; at a computed F it is the step after a better approximant.
+
+### 7.7 Task 3: the late region (not run)
+
+`uptime` read 9.4 at the start of the round, then 20.2, 21.5, 27.9, 32.1, 36.3, 35.9, 31.8 and 24.6 at later checks. The
+instruction was to skip the third null grid above 12, so cpsolve5 at 1600 × 720 and `late5b.py --small` were not
+started. Nothing in 6.4's verdict changes:
+- v ≥ 1.9 at areal radius 1.0–1.2 is not decided;
+- v ≥ 1.65 below areal radius 0.9 is not decided.
+
+7.4 adds one fact bearing on them (computed): signals cross the angular range about three times within rcert5's box
+alone, so the late region depends on data at the axes, and any estimate that decides it must hold there.
+
+### 7.8 Files and outputs (round 3)
+
+| file | what |
+|---|---|
+| `checks/reduce5.py`, `.out` | R0–R4: the class as (2+1)-gravity with two free waves; the residual map (exact) |
+| `checks/null3.py`, `.out` | N0–N10: null structure, commutators, wave operator, energy identities (exact) |
+| `checks/linest5.py`, `.out` | E1–E7: the pairs, the linearised table, Theorem 7.L's constant and domain, the demand |
+| `checks/rcert5b.py`, `.out` | B1–B2: one sub-box of rcert5's K2 refined, n = 1–8; control W + 0.01 v |
+
+Runs read in place (scratch, not committed): D432's `l1_rc0.9_M32.npz` (linest5), resid5's `l1_M16_800.npz`
+(rcert5b).
+
+### 7.9 A proposed replacement for the paper's section 9 sentences on existence at 10 l5
+
+Proposed to the main session, which seats it. It replaces 6.8's proposal (and the paper's sentences from "A first
+certified step is taken" to "remains open"):
+
+> Certified so far: on the data cone the Raychaudhuri constraint of an explicit approximant holds to 5.0 × 10⁻⁵ and
+> 2.3 × 10⁻⁵ (`docket68/n1star/checks/cdata5.py`), and the Einstein residual of a smoothed three-dimensional
+> approximant is enclosed in ball arithmetic at 16,128 points, ≤ 2.4 × 10⁻³ of the curvature scale
+> (`checks/rcert5.py`); its sup over the box is computed only. Existence at 10 l5 is not proved beyond the seed. The
+> class is (2+1)-dimensional gravity coupled to two free waves (deduced, exact: `checks/reduce5.py`), and in
+> double-null gauge its Ricci coefficients obey transport equations with no angular loss (`checks/null3.py`). So a
+> linear estimate at the curvature level holds, with explicit constants, on domains of dependence that avoid the axes
+> (supplement `CERTIFY-10L5-RESULT.md` Theorem 7.L). Two things stop it short of a proof. On the computed solution its
+> constant is of order 10^69 before the axes enter, against a measured response of 9.2 (`checks/linest5.py`). And the
+> solution's late region lies within three angular crossing times of the axes, where the reduction degenerates and the
+> estimate must be made in four-dimensional axisymmetric form; that estimate is not written. The computed solution
+> converges at the first seed to v ≈ 1.9 r_h at areal radius ≥ r_h, and is unresolved beyond (`checks/late5b.py`).
+
+### 7.10 The verifier of round 2
+
+No findings reached this session before it closed. When they arrive they are seated here as amendments; earlier
+sections are not rewritten.
