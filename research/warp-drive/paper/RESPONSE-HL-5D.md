@@ -777,7 +777,8 @@ least-damped mode of the class is the scalar-type one with l = 2, ω r_h = 0.947
 which evolving the master equation in time reproduces to 1% (settle5.py T3, on the barrier of
 `docket68/lemmas/seed_escape.py`): an e-folding time of 3.905 r_h. The reduced problem in the class is 2+1-dimensional,
 the dimension of Klainerman and Szeftel's polarized axisymmetric stability of four-dimensional Schwarzschild ([HKW18] p.
-2); its five-dimensional counterpart is open.
+2); their method is not carried into five dimensions here: the class is settled by Hintz's route instead
+(sections 8.3–8.4, Theorem 4).
 
 ### 8.3 Hintz's route: the five-dimensional inputs
 
@@ -854,8 +855,8 @@ computed from the linearized Ricci operator itself for every harmonic — each t
 equation whose potential is positive, the tensor type, which four dimensions lacks, with the scalar wave's, and l ≤ 1
 pure gauge — so that every mode of the linearized Einstein operator smooth across the horizon and outgoing at infinity
 is pure gauge (supplement section 10.27, `gmodes5.py`; computed, the proposition deduced on the same readings, the
-kernel elements' class open; the continuation and the uniqueness inside the horizon by a lemma proved in supplement
-section 10.76). And the zero energy states he builds from the
+kernel elements' class deduced in section 8.5; the continuation and the uniqueness inside the horizon by a lemma proved
+in supplement section 10.76). And the zero energy states he builds from the
 Minkowskian translations, boosts and rotations, with the linearized Kerr metrics put into his gauge, his Proposition
 8.9, have five-dimensional counterparts one order faster in 1/r and without his two logarithms: Tangherlini meets
 Minkowski at μ/r², the rotations are Killing, the rotating metrics — the derivatives at zero rotation of the
@@ -863,39 +864,39 @@ five-dimensional Myers–Perry family [ER08], checked — have their gauge sourc
 exponents the constructions need, 1 and 2, miss the five-dimensional indicial roots once that modification is on
 (supplement section 10.28, `zstates5.py`; the orders and exponents computed, the propositions deduced on the
 five-dimensional form of his Lemma 6.13, itself deduced in supplement section 10.29 on the reading of [Hin26c]'s section
-9 that is open below). There, too, the first three of his generalized zero energy states — on the time translation, on
-the boosts carried to second order in time, and on the rotations — have five-dimensional counterparts with exact leading
-terms: his rotation coefficients (1 ± γ/2)/4 become (1 ± 2γ/5)/4, each of the six rotations gives such a state, and the
-time translation's state carries no logarithm (`genstates5.py`; the leading terms computed, his four-dimensional numbers
-reproduced as the control, the lemma and the states deduced). And the four remaining classes — the pure gauge states
-whose gauge potentials carry no symmetry, built on the gauge potential operator's growing roots — carry over with his
-ranges, every stationary correction one order faster in 1/r and no logarithm in their leading terms once the gauge
+9 taken up in section 8.5). There, too, the first three of his generalized zero energy states — on the time translation,
+on the boosts carried to second order in time, and on the rotations — have five-dimensional counterparts with exact
+leading terms: his rotation coefficients (1 ± γ/2)/4 become (1 ± 2γ/5)/4, each of the six rotations gives such a state,
+and the time translation's state carries no logarithm (`genstates5.py`; the leading terms computed, his four-dimensional
+numbers reproduced as the control, the lemma and the states deduced). And the four remaining classes — the pure gauge
+states whose gauge potentials carry no symmetry, built on the gauge potential operator's growing roots — carry over with
+his ranges, every stationary correction one order faster in 1/r and no logarithm in their leading terms once the gauge
 modification is on (`puregauge5.py`; the leading terms computed exactly, his four-dimensional indicial matrices
 reproduced entry by entry as the control, the proposition deduced in supplement section 10.30). The dual states of the
 constraint propagation operator, whose symmetric gradients enter the cokernel of the linearized gauge-fixed operator in
-his section 8.4, carry over too, on the readings supplement section 10.21 rests on: eleven in five dimensions against
-his seven, the translations' one order faster in 1/r, and near zero rotation two of the six rotations' stay Killing at
-first order, the other four carrying his (7.18) ratios (`dual5.py`; computed at first order in the rotation, his
+his section 8.4, carry over too, on the readings supplement section 10.21 rests on: eleven in five dimensions against his
+seven, the translations' one order faster in 1/r, and near zero rotation two of the six rotations' stay Killing at first
+order, the other four carrying his (7.18) ratios (`dual5.py`; computed at first order in the rotation, his
 four-dimensional values reproduced as the control, his Lemma 7.2 and Proposition 7.3 deduced in supplement section
 10.31). At every spin his Lemma 7.5 is an identity of the Myers–Perry family: written in Kerr–Schild form for every spin
 matrix A in so(4) at once, the deformation tensor of a rotation is the family's derivative along the bracket of the spin
 with the rotation, so that, on readings (an SO(4)-equivariant family; supplement section 10.31(a)), his Proposition 7.4
 holds with so(4) in place of R³, its leading term the same at every spin, the Killing rotations six, four at a = ±b ≠ 0
 and two otherwise (`mp5.py`; computed exactly, Ricci-flatness at exact points, the rest deduced in supplement section
-10.36). And the pairings that make his zero energy kernel and cokernel exact are boundary pairings at infinity -- at
-zero rotation, -8π times the ADM mass and angular momentum and 4πM times the centre of mass, in five dimensions as in
-four -- so the eleven kernel states and the eleven dual states are independent (`pairing5.py`; the pairings computed,
-his four-dimensional table reproduced as the control, the rest deduced in supplement section 10.32). The rigidity his
-count takes from Andersson, Häfner and Whiting [AHW24] — every decaying stationary linearised solution smooth across the
+10.36). And the pairings that make his zero energy kernel and cokernel exact are boundary pairings at infinity -- at zero
+rotation, -8π times the ADM mass and angular momentum and 4πM times the centre of mass, in five dimensions as in four --
+so the eleven kernel states and the eleven dual states are independent (`pairing5.py`; the pairings computed, his
+four-dimensional table reproduced as the control, the rest deduced in supplement section 10.32). The rigidity his count
+takes from Andersson, Häfner and Whiting [AHW24] — every decaying stationary linearised solution smooth across the
 horizon a linearised Myers–Perry metric plus pure gauge — holds on five-dimensional Tangherlini: Kodama and Ishibashi's
 decomposition at zero frequency reduces it to ordinary differential equations, whose energy identities leave nothing
 smooth at the horizon and decaying for l ≥ 2, while l ≤ 1 gives the mass, the six rotations and pure gauge; so his count
 holds there with eleven for seven, and near it on a reading (`static5.py`; computed harmonic by harmonic, the rest
 deduced in supplement section 10.33). The physical states of his section 8.5 exist too: at Tangherlini, for every l ≥ 2
 and each of the tensor, vector and scalar types, the static tidal solutions smooth at the horizon are Gauss functions of
-r²/μ growing like r^l with coefficients that never vanish, and near it, on the same reading and on his Proposition 7.4
-in five dimensions, his construction runs, one step modified, with his Lemma 8.15 carried over, so(4)'s bracket in place
-of the cross product (`physical5.py`; computed, the rest deduced in supplement section 10.34). And five dimensions needs
+r²/μ growing like r^l with coefficients that never vanish, and near it, on the same reading and on his Proposition 7.4 in
+five dimensions, his construction runs, one step modified, with his Lemma 8.15 carried over, so(4)'s bracket in place of
+the cross product (`physical5.py`; computed, the rest deduced in supplement section 10.34). And five dimensions needs
 only l = 2: if the slowest term at timelike infinity decays like t^(−α) with α in (1, 2] — t^−2 for the mass aspect's,
 where four dimensions has t^−1, the Coulombic order separating from the radiative one above four dimensions, or t^(−3/2)
 if the radiative order reached timelike infinity as Hintz's index sets would carry it — his window [−3, 0] shrinks to [α
@@ -910,26 +911,26 @@ kind, the lowest at the spherical type a resonance where the computation reaches
 in supplement section 10.37). Nor does the radiative order. Hintz's linearized operator at null infinity in five
 dimensions — his (5.28) at the background, computed in his splitting, his printed matrix reproduced in four — has his
 diagonal and his coupling of the 01-component into the 11-component, four trace couplings changed, while every coupling
-through the metric perturbation falls half an order, so that the iteration's quadratic sources reach null infinity at
-the Coulombic order, the mass aspect's; and a radiative term reaches timelike infinity at its own order only through a
+through the metric perturbation falls half an order, so that the iteration's quadratic sources reach null infinity at the
+Coulombic order, the mass aspect's; and a radiative term reaches timelike infinity at its own order only through a
 resonant state there, which the same descent and injectivity exclude below 2. So α = 2 on readings, and the window is
 [−2, 0] (`scri5.py`; computed, the rest deduced in supplement section 10.38). Nor, on readings, does the zero energy
 augmentation need Hintz's improved states. In five dimensions the entries of his naive augmentation decay like r⁻³, one
 order better than his r⁻² and inside the target space of his zero energy operator, and his own device for the angular
 momenta — the states themselves, cut off to vanish near future null infinity — serves every state, the mass and the
-boosts included, with no logarithm in time; so his zero energy operator, augmented by the eleven states, is invertible
-by the same pairings, and his uniform low energy bounds and 2-admissibility hold on readings (`aug5.py`; computed on the
+boosts included, with no logarithm in time; so his zero energy operator, augmented by the eleven states, is invertible by
+the same pairings, and his uniform low energy bounds and 2-admissibility hold on readings (`aug5.py`; computed on the
 model, the rest deduced in supplement section 10.39). And, on readings, his proof of it loses no decay at spatial
-infinity in five dimensions: the time derivatives that remove the poles at zero energy carry the states' own weights,
-one order better than his, and with the augmentation cut off near future null infinity the threshold at the outgoing
-radial set does not bind, so the two integrations in time keep the weights they start from; his loss of decay δ > α_sf +
-3/2, α_sf the weight of his Theorem 10.1, becomes none (`lowfreq5.py`; computed on the model, the rest deduced in
-supplement section 10.40). With it, his first step towards decay carries over: on readings, the dynamical operator is
-admissible relative to the stationary one, the background's orders at timelike infinity one higher than his, and its
-forward solutions lose there only the two orders the operator takes (`cone5.py`; computed on the model, the rest deduced
-in supplement section 10.42). Several provisos of this section — the parameter point and the threshold h₀, the roots
-beyond l = 12, the kernel elements' class and the uniqueness inside the horizon, and the readings of [Hin26c] and
-[Hin26a] in five dimensions — are taken up in section 8.5.
+infinity in five dimensions: the time derivatives that remove the poles at zero energy carry the states' own weights, one
+order better than his, and with the augmentation cut off near future null infinity the threshold at the outgoing radial
+set does not bind, so the two integrations in time keep the weights they start from; his loss of decay δ > α_sf + 3/2,
+α_sf the weight of his Theorem 10.1, becomes none (`lowfreq5.py`; computed on the model, the rest deduced in supplement
+section 10.40). With it, his first step towards decay carries over: on readings, the dynamical operator is admissible
+relative to the stationary one, the background's orders at timelike infinity one higher than his, and its forward
+solutions lose there only the two orders the operator takes (`cone5.py`; computed on the model, the rest deduced in
+supplement section 10.42). Several provisos of this section — the parameter point and the threshold h₀, the roots beyond
+l = 12, the kernel elements' class and the uniqueness inside the horizon, and the readings of [Hin26c] and [Hin26a] in
+five dimensions — are taken up in section 8.5.
 
 ### 8.4 Hintz's argument in the class
 
@@ -2293,7 +2294,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | --- | --- |
 | `paper/response5.py` | `21d4879694b85ccc99d6c4e1ca24df4d` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `3f21f133d37939215a8125961339c455` |
+| `docket68/n1star/N1STAR-LOG.md` | `1b801033dec7413dec8d797807e52bd9` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

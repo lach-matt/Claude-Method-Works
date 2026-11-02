@@ -6195,6 +6195,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   v1 PDF p. 8 and its Theorem 3.3 pointed; [HL18] Remark 4.3; D_T named twice where it was implicit; μ ≥ μ0 ≥ √72 l5²;
   log names removed from the text; a long Appendix C row split; 'angularly separated dusts'. The paper's structure is
   unchanged (39 headings, 173 bullets, 10 numbered items; two displays added).
+- D594 (paper section 8, three stale phrases, held for audit batch 3 and repaired before it): section 8.2's 'its
+  five-dimensional counterpart is open', of Klainerman and Szeftel's polarized axisymmetric stability, read as if
+  settling in the class were open; it now says their method is not carried into five dimensions here and the class is
+  settled by Hintz's route (sections 8.3-8.4, Theorem 4). Section 8.3's 'the kernel elements' class open' and 'the
+  reading of [Hin26c]'s section 9 that is open below' predate section 8.5, which deduces the first and takes up the
+  second; both now point there. Wording only; two paragraph tails re-filled at 121.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

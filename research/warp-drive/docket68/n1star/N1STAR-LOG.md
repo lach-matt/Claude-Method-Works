@@ -7849,3 +7849,8 @@ different constants (now two symbols), a uniqueness claim missing its rate, a st
 more than was written out (narrowed, and the rest said to follow by the same argument), and three phrases that leaned on
 the board's internal record, which the paper must not do. Ten small corrections to wording, labels and citations went in
 with them. Sections 5-10 and the appendices are next, one batch at a time.
+
+**D594 (2026-11-02): three stale phrases in the paper's settling section.** Written before the later sub-sections
+settled the points, they still called open a five-dimensional counterpart of one known method, a class of kernel
+elements, and a reading of one cited section. The first now says that method is not used here because the class is
+settled another way; the other two point to the sub-section that settles them.
