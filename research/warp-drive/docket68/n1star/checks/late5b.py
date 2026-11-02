@@ -18,7 +18,8 @@ their section.
      grids, 800 x 360 and 1600 x 720; the ratio coarse/fine (4 = second order).
   L6 angle: max |rho| per band and class at M = 24, 32, 40, 48, 56 (800 x 360, cut 0.9), on the cells all five keep.
   L7 the small radii: max |rho| per band on 0.6 <= r_A < 0.9 at cut 0.7, M = 24 and 32 (800 x 360), its location, and
-     the null step there: M = 32 at 800 x 360 against 1600 x 720 (to v = 1.85) on the coarse cells both keep.
+     the null step there (with --small): M = 32 at 800 x 360 against 1600 x 720 (to v = 1.85, szrun5.py) on the
+     coarse cells both keep.
   L8 D1's monotone quantity q = e^{-2W} R_v along outgoing generators: its largest increase between successive v-nodes
      per band, over the band's max |q| (a vacuum solution has none), at M = 32 and 40, both null grids.
   Claim (PASS/FAIL on [1.65, 1.8) only): on [1.65, 1.8) and r_A >= 1.0, the null-step ratio of L5 is at least 3 at both
@@ -26,6 +27,7 @@ their section.
   Control (L5): rho with W_v in place of 2 W_v must not converge (ratio below 2) on [1, 1.5), where L5's does.
 
   python3 checks/late5b.py RUNDIR        (RUNDIR holding the record's l1_rc0.9_M*.npz and l1_rc0.7_M*.npz)
+  python3 checks/late5b.py RUNDIR --small RUN1600.npz      (L7's null step, output checks/late5b_small.out)
 """
 import os, sys, warnings
 import numpy as np
@@ -90,6 +92,9 @@ def sub(F, s):
 
 def main():
     D = sys.argv[1]
+    if len(sys.argv) > 3 and sys.argv[2] == '--small':
+        print('L7 the null step at the small radii (M = 32, cut 0.7; 800 x 360 against %s)' % sys.argv[3], flush=True)
+        return small(D, sys.argv[3])
     ok = True
     print('L5 the null step: max |rho| per band (absolute; relative to its largest term in brackets), coarse cells kept'
           ' by both grids, >= Nu/40 rows from the cut', flush=True)
@@ -155,8 +160,14 @@ def main():
         i, j = np.unravel_index(np.argmax(A), A.shape)
         print('     largest on [1.65, 1.8): %.2e at u = %.4f, v = %.3f, r_A = %.3f' % (
             A[i, j], F_['u'][i], F_['v'][j], F_['rA'][i, j]), flush=True)
-    pf = os.path.join(D, 'l1_rc0.7_M32_1600_v185.npz')
-    if os.path.exists(pf):
+    print('late5b:', 'all checks pass' if ok else 'FAILURES')
+    return 0 if ok else 1
+
+
+def small(D, pf):
+    """L7's null step at the small radii: M = 32, cut 0.7, 800 x 360 against 1600 x 720 (to v = 1.85)"""
+    sm = ('', 0.6, 0.9)
+    if True:
         Fc = rho_run(os.path.join(D, 'l1_rc0.7_M32.npz'))
         Ff = sub(rho_run(pf), 2)
         nv = Ff['abs'].shape[1]
@@ -164,13 +175,13 @@ def main():
               for k, a in Fc.items()}
         sel = Fc['far'] & Ff['far'] & Fc['ok'] & Ff['ok']
         print('  null step at M = 32 (800 against 1600 rows), 0.6 <= r_A < 0.9 and 0.9 <= r_A < 1.0:', flush=True)
-        for cls in (small, CLASSES[2]):
+        for cls in (sm, CLASSES[2]):
             for b in BANDS[:5]:
                 a, f_ = band_cls(Fc, sel, 'abs', b, cls), band_cls(Ff, sel, 'abs', b, cls)
-                print('     %s, v in [%.2f, %.2f): 800 %.2e  1600 %.2e  ratio %.2f' % (
-                    cls[0] or '0.6 <= r_A < 0.9', *b, a, f_, a / f_ if f_ > 0 else np.nan), flush=True)
-    print('late5b:', 'all checks pass' if ok else 'FAILURES')
-    return 0 if ok else 1
+                tf = band_cls(Ff, sel, 'term', b, cls)
+                print('     %s, v in [%.2f, %.2f): 800 %.2e  1600 %.2e (%.1e of the largest term)  ratio %.2f' % (
+                    cls[0] or '0.6 <= r_A < 0.9', *b, a, f_, f_ / tf, a / f_ if f_ > 0 else np.nan), flush=True)
+    return 0
 
 
 if __name__ == '__main__':

@@ -6520,6 +6520,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   D2 correct; the paper's second-zero sentence replaced; open: F5 (an explicit-constant linear estimate), a certified
   3D residual, the late region. Rounds and readers running: A (reader of R2; round 3), B (reader of R2; round 3), C
   (round 2), D (reader of rounds 1-2), E (round 2), F (round 2); Part IX's repair to be read.
+- D611-D612 (2026-11-02). Part IX's repair read: no major gap; m1 (GAUGEDECAY5 still on N°, N^D) seated by workstream A
+  round 3, m2 and nits n1-n6 seated. Workstream A round 3: (S_K) holds (Prop. R3.2); the harmonic gauge on the late
+  region (Thm R3.4); open (Ext box), a rate beyond t^(-1/2). Workstream D round 3: lambda0 <= 0.026986 certified
+  (operator norm, now defined after (0.3)); d >= 8.41e15, ceiling not below 1.49e31; open: the pole orders of the
+  iota+-normal operator's inverse below Re 5, E_ind, L_0, X_7, c', the nine stage solves, seven inverse bounds.
+  Running: readers of A round 2, A round 3, D round 3; rounds A4, B3, C2, C3, D4, E3, F2.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

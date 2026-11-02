@@ -7973,3 +7973,25 @@ at t^(-1/2) for compactly supported gauge data (GAUGEDECAY5 R2.13, admbox5.py); 
 a second marginally trapped surface (sectexp5.py, secondzero5.py); the paper's sentence replaced. Workstream B: Theorem
 4 holds in the half-integer class at the same rate (SETTLE-GLAM5 round 2). Workstream C: the two-family theorem read
 with no major gap. Readers and next rounds running for A, B, C, D and F.
+
+**D611 (2026-11-02): the gauge comparison's repair read; workstream A round 3.** A reader of D610's repair of Part IX
+found no major gap and recomputed the noncharacteristic coefficient independently (ix5.py X8, with m = 3 directly).
+Seated: section 0 now states why only the compact part of the linear solution's domain meets the initial hypersurface
+where nu = 0; the zero extension's smoothness is shown in Step 3 rather than taken from the reference's device, which
+there applies to a section smooth on the whole manifold; the reference re-read at source; III.K's 'two-sided
+neighbourhood' qualified; BEYOND5-R0-PROOF section 11 marked as the pre-D610 text. Workstream A round 3 (GAUGEDECAY5):
+(S_K) holds for every beta below the constraint damping's margin (gdsk5.py); the gauge-decay note restated on the
+repaired domain, with the source extended across the hypersurface and the solution shown independent of the extension
+(gdix5.py); in harmonic gauge every perturbation in the class has a representative equal to the linear solution near
+the initial surface and harmonic on the late region out to null infinity, settling on compact sets at t^(-1/2)
+(gdscri5.py); harmonic gauge down to the initial surface needs one weighted estimate for the 1-form wave operator near
+spatial infinity, (Ext box). A reader of round 3 and a round 4 on (Ext box) and the rate are running.
+
+**D612 (2026-11-02): workstream D round 3 (CONSTANTS5).** The threshold lambda0 this proof delivers is traced factor by
+factor to the supplement; at the numerical point it is at most 0.026986 (certified), with the pointwise norm on arrays
+read as the operator norm, which N1STAR-PROOF.md now states after (0.3) (lzerotrace5.py T6); the wavelength 10 l5 lies
+more than 37 times beyond it. The loss d has the floor 8.41e15 and, from the write-out's own bounds, no ceiling below
+1.49e31 (dceiling5.py); lambda1 and delta are bounded above only, and the seven inverse bounds a lower bound needs are
+named at their sites (nkind5.py). The reader's findings on rounds 1-2 are seated (gronwall5.py rewritten; controls that
+could not fail now mutate the code they test). A reader of round 3 and a round 4 (the pole orders for d's ceiling,
+certified stage solves for lambda0's value, one inverse bound) are running.

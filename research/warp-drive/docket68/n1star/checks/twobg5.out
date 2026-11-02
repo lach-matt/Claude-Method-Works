@@ -14,3 +14,18 @@
       Sigma_tau0: packet at R in [1.861, 3.425], horizon 0.907, shell from R = 3.825 (rule True);
       |g^-1(dvhat, du)| in [0.1384, 2.1277] where R^2 >= 1.5 mu, least 0.0713 over every computed cell (not
       converged: G4), on R = a at v = 0.5, 1, 1.5: 0.8919 0.4464 0.2396
+    n = 160: mu0 = 0.82211, outer mass after the shell 3.6058;
+      structure errors (I, III, before, after) 1.8e-05 5.2e-03 5.2e-03 2.2e-04;
+      min(mu - mu0) on R >= a -2.30e-03; R = a: 321 of 321 columns v <= 2, trapped True, min mu - a^2 0.3321;
+      mu_III >= 0.82207; past-closedness margin 0.00e+00; diamond: min R 2.590, untrapped True, max mu 3.6058;
+      Sigma_tau0: packet at R in [1.861, 3.431], horizon 0.907, shell from R = 3.825 (rule True);
+      |g^-1(dvhat, du)| in [0.1475, 2.1277] where R^2 >= 1.5 mu, least 0.0422 over every computed cell (not
+      converged: G4), on R = a at v = 0.5, 1, 1.5: 0.8920 0.4464 0.2400
+  G2: structure (Vaidya off the diamond, errors falling) True; mu >= mu0 True; R = a trapped with mu > a^2 True;
+      past-closed True; diamond untrapped above R = a True; Sigma_tau0 as stated True; the symbol off the trapped
+      region stable and on R = a converged True
+  G3: the domain (T = 1, delta0 = 0.05, so l5 = 0.2130, seed condition True): V = 5.692, tau_end <= 4.942,
+      b(tau0) = 12.995. The example's own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = -4.092:
+      inside the domain, the verifier's case (rejected, as it must be). Moving N out inside region I
+      (explicit ingoing Vaidya, the same solution there): from R = 7.505 at v = 0 the cone has R - b >= 1.010
+      on all of [tau0, tau_end] (1.010 at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: True

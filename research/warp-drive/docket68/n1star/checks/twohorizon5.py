@@ -196,8 +196,8 @@ def h3(control=False):
     lm1 = sp.expand(res[-1])
     mixed = {n: complex(sp.N(cf, 12)) for n, cf in S0.harmonics(res[1]).items() if n[0] and n[1]}
     big = max((abs(x) for x in mixed.values()), default=0.0)
-    return big, sorted(n for n in mixed if abs(mixed[n]) > 1e-12)[:8], sum(1 for x in mixed.values() if abs(x) > 1e-12), \
-        lm1 == 0
+    nz = sorted(n for n in mixed if abs(mixed[n]) > 1e-12)
+    return big, nz[:8], len(nz), lm1 == 0
 
 
 def main():
@@ -224,8 +224,8 @@ def main():
           "      expansion must fail)  [%.0f s]" % (cl0["out"], cl0["in"], time.time() - t0), flush=True)
     ok["H2"] = nolm1 and l0["out"] and l0["in"] and cl0["out"] and not cl0["in"]
     big, some, count, nolm1 = h3()
-    print("  H3: at the sample point, no lam^-1 term: %s; the lam^1 coefficient of the outgoing expansion has %d nonzero\n"
-          "      mixed harmonics, largest |value| %.4e (harmonics %s ...)  [%.0f s]"
+    print("  H3: at the sample point, no lam^-1 term: %s; the lam^1 coefficient of the outgoing expansion has\n"
+          "      %d nonzero mixed harmonics, largest |value| %.4e (harmonics %s ...)  [%.0f s]"
           % (nolm1, count, big, some, time.time() - t0), flush=True)
     bigc, somec, countc, _ = h3(control=True)
     print("  H3 control (the outgoing family removed): %d mixed harmonics, largest %.1e  [%.0f s]"
