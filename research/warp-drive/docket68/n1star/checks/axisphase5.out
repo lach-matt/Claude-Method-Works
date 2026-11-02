@@ -1,2 +1,0 @@
-  A1: an invariant phase has its gradient in span(dtau, dr) on both axes, and the null ones there are dv
-      and the outgoing radial covector (b/a = [a, a*(mu + r**2)/(mu - r**2)]): True; control tau - x3 leaves span(dtau, dr): True

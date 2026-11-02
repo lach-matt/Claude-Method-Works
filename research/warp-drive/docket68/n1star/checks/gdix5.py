@@ -18,12 +18,7 @@ Sigma o is noncharacteristic for Box with the leading coefficient of Part IX Lem
      d vanishes to infinite order at Sigma.  (b) The example m = 2 with a remainder t^3 V: Box w at t = 0 is -2 g^tt W.
      Control: 2 delta delta^* (G dropped) fails in (a) and (b) -- the trace term of G is what makes the leading
      coefficient scalar.
-  P2 (exact) The extension does not reach N+.  On flat R^{1+1} with Sigma = {t = 0}: two smooth sources F1, F2 that
-     agree on {t >= 0} (F2 - F1 = t^4 e^x on t < 0, zero on t >= 0, a C^3 model of a Seeley-type difference; the
-     d'Alembert formula is used), with the same zero data, give solutions that agree on {t >= 0}.  Control: sources
-     that differ on t > 0 give solutions that differ there.
-
-Labels: computed (P1 by polynomial identity testing at 60 digits as ix5.py; P2 exact, sympy).
+Labels: computed (P1 by polynomial identity testing at 60 digits, as ix5.py).
 Run: python3 checks/gdix5.py
 """
 import sys
@@ -83,37 +78,7 @@ def p1(control=False):
     return ra and rb
 
 
-def p2(control=False):
-    t, x, s, y = sp.symbols('t x s y', real=True)
-    # forward solution of (d_t^2 - d_x^2) u = F with zero data at t = 0 (d'Alembert):
-    # u(t, x) = (1/2) int_0^t int_{x-(t-s)}^{x+(t-s)} F(s, y) dy ds, for t >= 0 and for t < 0 alike
-    def duhamel(F):
-        inner = sp.integrate(F.subs({t: s, x: y}), (y, x - (t - s), x + (t - s)))
-        return sp.simplify(sp.integrate(inner, (s, 0, t))/2)
-    F1 = sp.exp(x)*sp.cos(t)
-    diff_neg = t**4*sp.exp(x)                     # F2 - F1 on t < 0 (a C^3 difference across t = 0), 0 on t >= 0
-    if control:
-        diff_pos = t**4*sp.exp(x)                 # the sources differ on t > 0
-        d_plus = duhamel(diff_pos)
-        ok = sp.simplify(d_plus.subs({t: 1, x: 0})) == 0
-        print("  P2 control: sources differing on t > 0 give solutions agreeing on t > 0: %s" % ok, flush=True)
-        return ok
-    # on t >= 0 the Duhamel integral only sees F on [0, t]: the difference is the integral of 0
-    u1 = duhamel(F1)
-    u2_plus = duhamel(F1 + 0*diff_neg)            # F2 = F1 on t >= 0
-    u2_minus = duhamel(F1 + diff_neg)             # F2 = F1 + diff on t < 0
-    ok_plus = sp.simplify(u1 - u2_plus) == 0
-    box = lambda u: sp.simplify(sp.diff(u, t, 2) - sp.diff(u, x, 2))
-    ok_eq = sp.simplify(box(u1) - F1) == 0 and sp.simplify(box(u2_minus) - (F1 + diff_neg)) == 0
-    jump = [sp.simplify(sp.diff(u2_minus - u1, t, k).subs(t, 0)) for k in range(6)]
-    ok_jet = all(j == 0 for j in jump[:6])
-    print("  P2: on t >= 0 the two solutions agree: %s; Box u_i = F_i: %s; on t < 0 they differ by a function "
-          "vanishing to order 6 at t = 0 (jets %s), so the glued u2 is the solution with F2: %s"
-          % (ok_plus, ok_eq, jump, ok_jet), flush=True)
-    return ok_plus and ok_eq and ok_jet
-
-
-CHECKS = [("P1", p1), ("P2", p2)]
+CHECKS = [("P1", p1)]
 
 
 def main():

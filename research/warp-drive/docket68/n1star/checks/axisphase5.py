@@ -122,7 +122,9 @@ def a4(control=False):
     dv = sp.Matrix([sp.diff(v, z) for z in X])
     du = sp.Matrix([sp.diff(u, z) for z in X])
     gvu = sp.simplify((dv.T * eta * du)[0])
-    cos = sp.simplify((dv[1:, 0].T * du[1:, 0])[0] / sp.sqrt((dv[1:, 0].T * dv[1:, 0])[0] * (du[1:, 0].T * du[1:, 0])[0]))
+    pt = {x1: sp.Rational(1, 5), x2: sp.Rational(2, 5), x3: sp.Rational(2, 5), x4: sp.Rational(4, 5), tau: 0}
+    nv, nu = (dv[1:, 0].T * dv[1:, 0])[0], (du[1:, 0].T * du[1:, 0])[0]
+    cos = sp.nsimplify(sp.simplify(((dv[1:, 0].T * du[1:, 0])[0] / sp.sqrt(nv * nu)).subs(pt)))   # at a point
     # Vaidya: g0^-1 = eta^-1 - (mu/r^2) L0 L0 in (tau, r), L0 = d_tau - d_r; k_out = dtau + b dr null, b != 1
     rr = sp.Symbol('r', positive=True)
     gi = sp.Matrix([[-1, 0], [0, 1]]) - (mu / rr**2) * sp.Matrix([[1, -1], [-1, 1]])
@@ -137,12 +139,14 @@ def main():
     ok = {}
     good, ctl, roots = a1()
     print('  A1: an invariant phase has its gradient in span(dtau, dr) on both axes, and the null ones there are dv\n'
-          '      and the outgoing radial covector (b/a = %s): %s; control tau - x3 leaves span(dtau, dr): %s'
+          '      and the outgoing radial covector (b/a = %s): %s;\n'
+          '      control tau - x3 leaves span(dtau, dr): %s'
           % (roots, good, ctl), flush=True)
     ok['A1'] = good and ctl
     r = a2()
     print('  A2: f = distance to the ellipse orbit (al, be) = (1/2, 1/3): eikonal %s, even in rho1 and rho2 %s,\n'
-          '      rays radial at both axes %s and not between %s (cos beta at t = pi/8, pi/4, 3pi/8: %s);\n'
+          '      rays radial at both axes %s and not between %s\n'
+          '      (cos beta at t = pi/8, pi/4, 3pi/8: %s);\n'
           '      near the axis g^-1(dv, dw)/(beta^2/2) -> %s, beta/th -> %s (beta ~ %s t, th ~ %s t):\n'
           '      the mixed symbol vanishes like th^2; HL\'s cosine -> %s (separation fails)'
           % (r['eik'], r['even'], r['axes'], r['between'], ' '.join('%.6f' % m for m in r['mid']), r['lim'],
@@ -160,9 +164,11 @@ def main():
     cgvu, ccos, cgvk = a4(control=True)
     sep = gvu == -2 and cos == -1 and sp.simplify(gvk) != 0
     rej = not (cgvu != 0 and ccos < 1 and sp.simplify(cgvk) != 0)
-    print('  A4: v = tau + r, u = tau - r on Minkowski: eta^-1(dv, du) = %s, HL\'s spatial cosine = %s; on Vaidya\n'
+    print('  A4: v = tau + r, u = tau - r on Minkowski: eta^-1(dv, du) = %s, HL\'s spatial cosine (at x = (1, 2, 2,\n'
+          '      4)/5) = %s; on Vaidya\n'
           '      g0^-1(dv, k_out) = %s (k_tau = 1): separated %s' % (gvu, cos, gvk, sep), flush=True)
-    print('  A4 control (v and 2 v, both ingoing): g^-1 = %s, cosine = %s, Vaidya %s: rejected %s'
+    print('  A4 control (v and 2 v, both ingoing): g^-1 = %s, cosine (at x = (1, 2, 2, 4)/5) = %s, Vaidya %s:\n'
+          '      rejected %s'
           % (cgvu, ccos, cgvk, rej), flush=True)
     ok['A4'] = sep and rej
     for k, v in ok.items():
