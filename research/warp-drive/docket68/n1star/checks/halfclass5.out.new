@@ -48,3 +48,19 @@ H5  LOSS-D's one-off count, 1 + J + L applications of L_b below l_I
      int record M=4: (J, L, applications) = [(2, 12, 15)]
      half record M=4: (J, L, applications) = [(2, 12, 15)]
      int record M=8: (J, L, applications) = [(2, 24, 27)]
+     half record M=8: (J, L, applications) = [(2, 24, 27)]
+  H5a sharp: the half class adds one log step below l_I in (3, 7/2): (2, 4, 7) -> (2, 5, 8), loss 14 -> 16: pass
+  H5b control: the log-free least E^C_I (empty seed) gives LOSS-D Q2's (2, 0, 3): pass [(2, 0, 3)]
+     l_I in (7/2, 4), int sharp: (J, L, applications) = [(2, 4, 7)]
+     l_I in (7/2, 4), half sharp: (J, L, applications) = [(2, 6, 9)]
+  H5c (round 3) l_I in (7/2, 4): the half class costs 9 applications (loss 18), Part VII's class fewer: pass {'int
+        sharp': 7, 'half sharp': 9}
+H8  (round 3) G against the record's E^(M)
+     G subset E^(M), M = 0..12: {'int': '0011111111111', 'half': '0011111111111'}
+  H8a G is contained in the record's E^(M) exactly from M = 2 on (both seeds); not at M = 0, 1 (control): pass
+H6  Step 1 at I_0: the number of factors of R
+  H6a N = |E_(0,<=)| at l_0 = 3.3 and 3.7: int (2, 2), half (3, 4): pass {'int': (2, 2), 'half': (3, 4)}
+H7  a second sample, and the gamma_Ups control
+  H7a (gamma, e) = (1/5, 1/3): the same log orders on (1/2)Z: pass
+  H7b control: gamma_Ups = 3/10 violates Definition 3.1 (2): pass
+FAILED: none

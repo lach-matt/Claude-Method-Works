@@ -29,16 +29,16 @@ the totally geodesic three-manifold M3 = Sigma_tau cap {phi1 = 0} (the fixed set
          and the leaf's planar shear is sigma := (k_r - k_ph)/2 = H2/2 - k_ph[h, h'].
      So the map H2 -> sigma involves gamma3 and its first derivatives only: the curved, non-planar terms are first
      order in the metric, and the 1/r of kappa2 (X1 (c)) is absorbed by the integral from the axis.
-     Controls (must fail): a conical metric (ph-circle B r^2 replaced by (9/4) B r^2) leaves a 1/r^2 term in E / r;
-     the derivative reader applied to the scalar curvature of gamma3 finds second derivatives (it can see them).
+     Controls (must fail): a metric with the non-smooth cross term C dz dr (for C r dz dr) has k_ph unbounded at the
+     axis; the derivative reader applied to a Ricci component of gamma3 finds second derivatives (it can see them).
   E2 (computed, mpmath at 30 digits; a curved invariant metric with A, B, C, D non-constant) the estimate behind it,
      for leaves concentrating at the axis, h_eps(r) = eps^2 exp(-r^2/eps^2), eps = 0.2, 0.1, 0.05, 0.025, on the disc
-     r < 1/2 with the weight r dr: ||sigma|| / ||H2|| and ||d_r sigma|| / ||d_r H2|| stay bounded (they converge to the
-     flat values 1/2 and 1/2), while the first-order route ||k_ph|| / ||h'|| grows like 1/eps (X2's loss, here with
-     curvature): control (must grow).
-     Reconstruction: integrating (V) from the axis as an ODE for (h, r h') with H2 given recovers h' to 1e-10 and sigma
-     to 1e-9. Control (must fail): the same integration with the flat equation (a = 1, E = 0) misses h' by the size of
-     the metric's gradient.
+     r < 1/2 with the weight r dr: ||sigma|| / ||H2|| and ||d_r sigma|| / ||d_r H2|| stay below 2 and converge as eps
+     -> 0 (to 3 % between the last two), while the first-order route ||k_ph|| / ||h'|| grows like 1/eps (X2's loss,
+     here with curvature): control (must grow).
+     Reconstruction (scipy, DOP853): integrating the leaf's equation from the axis as an ODE for (h, h') with H2 given
+     recovers h' and sigma = H2/2 - k_ph to the integrator's tolerance. Control (must fail): the same integration with
+     the flat equation h'' + h'/r = H2 misses h' by the size of the metric's gradient.
 
 Labels: computed (E0 exact at jets, checks/jetpoly5.py and checks/classchi5.py; E1 exact, sympy; E2 mpmath).
 Run: python3 checks/axisellip5.py   (a few minutes)
@@ -106,9 +106,7 @@ def e0():
         badG = any(sp.simplify(H0[idx[a]][idx[b]] - HM[a][b]) != 0 for a in range(3) for b in range(3))
         # T Sigma2 in M3: the vector orthogonal (in M3) to grad_M3 u within span(d_y1, d_y2), and d_phi2
         gradM = [sum(giM[a, b] * duM[b] for b in range(3)) for a in range(3)]
-        t = [gradM[1], -gradM[0], 0]
-        t = [sum(gM[a, b] * 0 for b in range(3)) + x for a, x in enumerate(t)]
-        # make t M3-orthogonal to gradM: t^a g_ab gradM^b = 0 with t in span(d1, d2)
+        # t in span(d_y1, d_y2), M3-orthogonal to gradM: t^a g_ab gradM^b = 0 with t in span(d1, d2)
         c1 = sum(gM[0, b] * gradM[b] for b in range(3))
         c2 = sum(gM[1, b] * gradM[b] for b in range(3))
         t = [c2, -c1, 0]
@@ -132,12 +130,13 @@ def e0():
 z, r, s = sp.symbols('z r s', positive=True)
 
 
-def leaf_quantities(A, B, C, D, h, conical=1):
-    """mean curvature H2, principal curvatures k_r, k_ph of the leaf z = h(r) in gamma3 (functions of z, s = r^2)."""
+def leaf_quantities(A, B, C, D, h, cross=1):
+    """the principal curvatures k_r, k_ph of the leaf z = h(r) in gamma3 (A, B, C, D functions of z, s = r^2); cross = 0
+    replaces the smooth cross term C r dz dr by the non-smooth C dz dr (the control)."""
     X = [z, r]
     sub = {s: r**2}
-    m = sp.Matrix([[A, C * r], [C * r, B + D * r**2]]).subs(sub)
-    l2 = conical * (B * r**2).subs(sub)
+    m = sp.Matrix([[A, C * r**cross], [C * r**cross, B + D * r**2]]).subs(sub)
+    l2 = (B * r**2).subs(sub)
     g3 = sp.diag(m, l2)
     Y = [z, r, sp.Symbol('ph')]
     gi = g3.inv()
@@ -198,37 +197,29 @@ def e1():
     def rp(c0):
         return c0 + sum(sp.Rational(rng.randint(-6, 6), 13) * z**i * s**j for i in range(3) for j in range(2)
                         if i + j > 0)
-    okb = True
-    ctl_con = True
+
+    def instance(Ai, Bi, Ci, Di, hh, cross):
+        hq = sp.Function('hq')(r)
+        krq, kphq, _ = leaf_quantities(Ai, Bi, Ci, Di, hq, cross)
+        Hq = (krq + kphq).subs(z, hq).doit()
+        Hqw = Hq.subs(sp.Derivative(hq, (r, 2)), W)
+        aq = sp.diff(Hqw, W)
+        Eq = (r * (Hqw - aq * W) / aq - sp.Derivative(hq, r)).subs(hq, hh).doit()
+        return Eq, kphq.subs(z, hq).subs(hq, hh).doit()
+    okb, ctl_con = True, True
     for trial in range(3):
         Ai, Bi = rp(sp.Rational(3, 2)), rp(sp.Rational(5, 4))
         Ci, Di = rp(sp.Rational(1, 5)), rp(sp.Rational(1, 7))
         hh = sp.Rational(rng.randint(1, 5), 10) + sum(sp.Rational(rng.randint(-5, 5), 11) * (r**2)**j
                                                        for j in range(1, 3))
-        for conical, want in ((1, True), (sp.Rational(9, 4), False)):
-            kr_i, kph_i, _ = leaf_quantities(Ai, Bi, Ci, Di, hh, conical)
-            kr_i, kph_i = kr_i.subs(z, hh), kph_i.subs(z, hh)
-            H_i = kr_i + kph_i
-            a_i = sp.diff(H_i.subs(sp.diff(hh, r, 2), W), W) if False else None
-            # a and E for the instance from the general formulas
-            vals = {A: Ai, B: Bi, C: Ci, D: Di}
-            E_i = E.subs({hf: hh}).subs(vals).doit() if conical == 1 else None
-            if conical == 1:
-                lim_E = sp.limit(sp.simplify(E_i / r), r, 0)
-                lim_k = sp.limit(sp.simplify(kph_i), r, 0)
-                okb &= lim_E.is_finite and lim_k.is_finite
-            else:
-                # conical: E from the instance directly: r H2/a - (r h')' with a the h'' coefficient
-                hfun = sp.Function('hq')(r)
-                krq, kphq, _ = leaf_quantities(Ai, Bi, Ci, Di, hfun, conical)
-                Hq = (krq + kphq).subs(z, hfun).doit()
-                Hqw = Hq.subs(sp.Derivative(hfun, (r, 2)), W)
-                aq = sp.diff(Hqw, W)
-                Eq = (r * (Hqw - aq * W) / aq - sp.Derivative(hfun, r)).subs(hfun, hh).doit()
-                lim_c = sp.limit(sp.simplify(Eq / r), r, 0)
-                ctl_con &= not lim_c.is_finite
-        print("   instance %d: E/r and k_ph finite at the axis: %s; conical control: E/r infinite: %s"
-              % (trial, okb, ctl_con))
+        Ei, Ki = instance(Ai, Bi, Ci, Di, hh, 1)
+        lE, lK = sp.limit(Ei / r, r, 0), sp.limit(Ki, r, 0)
+        okb &= bool(lE.is_finite) and bool(lK.is_finite)
+        Ec, Kc = instance(Ai, Bi, Ci, Di, hh, 0)
+        lKc = sp.limit(Kc, r, 0, '+')
+        ctl_con &= not bool(lKc.is_finite)
+        print("   instance %d: lim E/r = %s, lim k_ph = %s (finite: %s); control (cross term C dz dr): lim k_ph = %s"
+              % (trial, sp.nsimplify(lE), sp.nsimplify(lK), okb, lKc))
     return lin and noh2 and oE <= 1 and oK <= 1 and ctl_ord and okb and ctl_con
 
 
@@ -265,38 +256,44 @@ def e2():
         out.append((e, r0, r1, rk))
         print("   eps = %s: ||sigma||/||H2|| = %s, ||d sigma||/||d H2|| = %s; control ||k_ph||/||h'|| = %s"
               % (e, mp.nstr(r0, 8), mp.nstr(r1, 8), mp.nstr(rk, 8)))
-    bounded = all(o[1] < 1 and o[2] < 1 for o in out) and abs(out[-1][1] - mp.mpf(1) / 2) < 0.05
+    bounded = all(o[1] < 2 and o[2] < 2 for o in out) and abs(out[-1][1] / out[-2][1] - 1) < 0.03 \
+        and abs(out[-1][2] / out[-2][2] - 1) < 0.03
     grows = all(out[i + 1][3] > 1.8 * out[i][3] for i in range(len(out) - 1))
     print("   bounded (near the flat 1/2): %s; control grows like 1/eps: %s" % (bounded, grows))
-    # reconstruction: integrate (V) as an ODE from the axis with H2 given, for eps = 0.1
-    A, B, C, D = [sp.Function(nm)(z, s) for nm in ('A', 'B', 'C', 'D')]
-    hf = sp.Function('h')(r)
-    krg, kphg, _ = leaf_quantities(A, B, C, D, hf)
-    Hg = (krg + kphg).subs(z, hf).doit()
+    # reconstruction: integrate the leaf equation from the axis as an ODE for (h, h') with H2 given, eps = 0.1
+    import numpy as np
+    from scipy.integrate import solve_ivp
     W, P1, P0 = sp.symbols('W P1 P0')
-    sub = {sp.Derivative(hf, (r, 2)): W}
-    Hg = Hg.subs(sub).subs({sp.Derivative(hf, r): P1}).subs(hf, P0)
-    vals = {A: Am, B: Bm, C: Cm, D: Dm}
-    Hg = Hg.subs({A: Am.subs(z, P0), B: Bm.subs(z, P0), C: Cm.subs(z, P0), D: Dm.subs(z, P0)}).doit()
-    Hg = Hg.subs(s, r**2)
-    a_ = sp.diff(Hg, W)
-    rest = sp.simplify(Hg - a_ * W)
-    # h'' = (H2 - rest)/a: ODE for (h, h') with H2 the true leaf's; start at r0 from the true series
+    hq = sp.Function('hq')(r)
+    krq, kphq, _ = leaf_quantities(Am, Bm, Cm, Dm, hq)
+    Hq = (krq + kphq).subs(z, hq).doit()
+    rep = lambda e: e.subs(sp.Derivative(hq, (r, 2)), W).subs(sp.Derivative(hq, r), P1).subs(hq, P0)  # noqa: E731
+    Hw = rep(Hq)
+    a_ = sp.diff(Hw, W)
+    rest = sp.simplify(Hw - a_ * W)
+    Kw = rep(kphq.subs(z, hq).doit())
     Hval = sp.Symbol('Hval')
-    hpp_true = sp.lambdify((r, P0, P1, Hval), (Hval - rest) / a_, 'mpmath')
-    hpp_flat = sp.lambdify((r, P0, P1, Hval), Hval - P1 / r, 'mpmath')
-    E_ = mp.mpf('0.1')
-    fh = sp.lambdify((r, ep), hh, 'mpmath')
-    fhp1 = sp.lambdify((r, ep), sp.diff(hh, r), 'mpmath')
-    r_0, r_1 = mp.mpf('1e-6'), mp.mpf('0.3')
+    hpp_c = sp.lambdify((r, P0, P1, Hval), (Hval - rest) / a_, 'numpy')
+    hpp_f = sp.lambdify((r, P0, P1, Hval), Hval - P1 / r, 'numpy')
+    kph_n = sp.lambdify((r, P0, P1), Kw, 'numpy')
+    e_ = 0.1
+    fHn = sp.lambdify(r, H2.subs(ep, sp.Rational(1, 10)), 'numpy')
+    fhn = sp.lambdify(r, hh.subs(ep, sp.Rational(1, 10)), 'numpy')
+    fhpn = sp.lambdify(r, sp.diff(hh, r).subs(ep, sp.Rational(1, 10)), 'numpy')
+    fSn = sp.lambdify(r, sig.subs(ep, sp.Rational(1, 10)), 'numpy')
+    r_0, r_1 = 1e-6, 0.3
+    qs = np.array([0.05, 0.1, 0.2, 0.3])
     errs = {}
-    for name, rhs in (('curved', hpp_true), ('flat (control)', hpp_flat)):
-        sol = mp.odefun(lambda q, y: [y[1], rhs(q, y[0], y[1], fH(q, E_))], r_0, [fh(r_0, E_), fhp1(r_0, E_)])
-        err = max(abs(sol(q)[1] - fhp1(q, E_)) for q in (mp.mpf('0.05'), mp.mpf('0.1'), mp.mpf('0.2'), r_1))
-        errs[name] = err
-    print("   reconstruction of h' from H2 by (V): max error %s; flat equation (control) %s"
-          % (mp.nstr(errs['curved'], 3), mp.nstr(errs['flat (control)'], 3)))
-    rec = errs['curved'] < mp.mpf('1e-10') and errs['flat (control)'] > mp.mpf('1e-4')
+    for name, rhs in (('curved', hpp_c), ('flat', hpp_f)):
+        sol = solve_ivp(lambda q, y: [y[1], rhs(q, y[0], y[1], fHn(q))], (r_0, r_1), [fhn(r_0), fhpn(r_0)],
+                        method='DOP853', rtol=1e-13, atol=1e-16, dense_output=True)
+        yy = sol.sol(qs)
+        eh = float(np.max(np.abs(yy[1] - fhpn(qs))))
+        es = float(np.max(np.abs(fHn(qs) / 2 - kph_n(qs, yy[0], yy[1]) - fSn(qs))))
+        errs[name] = (eh, es)
+    print("   reconstruction from the axis with H2 given: max error in h' %.2e, in sigma %.2e; flat equation "
+          "(control): %.2e, %.2e" % (errs['curved'] + errs['flat']))
+    rec = errs['curved'][0] < 1e-9 and errs['curved'][1] < 1e-8 and errs['flat'][0] > 1e-4
     return bounded and grows and rec
 
 

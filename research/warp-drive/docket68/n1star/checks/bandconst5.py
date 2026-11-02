@@ -354,7 +354,7 @@ def b4():
 
 
 def b5():
-    print("B5 (computed) the parabolic split spreads to the axes; the hyperbolic split does not")
+    print("B5 (computed) the parabolic split spreads to the axes; without the angular operator nothing does")
     # invariant functions on S^3: Lap = d_th^2 + 2 cot(2 th) d_th, on th in (0, pi/2)
     nth = 401
     ths = np.linspace(0, np.pi / 2, nth)
