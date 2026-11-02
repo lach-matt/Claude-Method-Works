@@ -19,6 +19,9 @@ A MORE or UNDECIDED row must carry a resolution: where it is answered, or why th
   Controls: the table with one row dropped, with one row doubled, with a verdict misspelt, with a resolution removed,
      and the census widened by one radial cut-off (chi_9, treated as if averaged) must each fail.
 
+Lemma 3.1's (C3) names since D608 the 1-form towers of every type, with their site PART-III-I10-CORR4.md:127-147; the
+census keeps those lines as uses, and they were read as such (each NAMING, a definition).
+
 Labels: computed (that the reading covers every listed use and is complete in form); the verdicts are READ (each
 reader's reading of the proof at that line), not computed. Reach: vii5census.py's -- a literal census of printed
 symbols.
@@ -28,6 +31,7 @@ Run: python3 checks/vii5read.py   (a second)
 import csv
 import os
 import sys
+import textwrap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -37,6 +41,11 @@ TABLE = os.path.join(HERE, "VII5-READING.tsv")
 VERDICTS = ("SITE-ONLY", "NAMING", "MORE", "UNDECIDED", "HOMONYM")
 NEED_NOTE = ("MORE", "UNDECIDED", "HOMONYM")
 NEED_RES = ("MORE", "UNDECIDED")
+
+
+def say(s, indent="      "):
+    print("\n".join(textwrap.wrap(s, 119, subsequent_indent=indent, break_long_words=False,
+                                   break_on_hyphens=False)), flush=True)
 
 
 def entries(widen=False):
@@ -86,13 +95,13 @@ def q1(rows, es, show=True):
     twice = sorted(k for k, n in seen.items() if n > 1)
     ok = not (missing or extra or twice or bad)
     if show:
-        print("  Q1: %d census use lines (C3, C3', the built object, C4) in %d files; table rows %d; missing %d, extra %d,"
-              " doubled %d, malformed %d" % (len(want), len({f for f, _ in want}), len(rows), len(missing), len(extra),
-                                             len(twice), len(bad)), flush=True)
+        say("  Q1: %d census use lines (C3, C3', the built object, C4) in %d files; table rows %d; missing %d, extra %d,"
+            " doubled %d, malformed %d" % (len(want), len({f for f, _ in want}), len(rows), len(missing), len(extra),
+                                           len(twice), len(bad)))
         for x in (missing[:5] + extra[:5] + twice[:5]):
             print("      %s:%d" % x, flush=True)
         for x in bad[:10]:
-            print("      " + x, flush=True)
+            say("      " + x)
     return ok
 
 
@@ -104,12 +113,12 @@ def q2(rows, show=True):
         if r["verdict"] in NEED_RES and not r.get("resolution", "").strip():
             unres.append("%s:%s" % (r["file"], r["line"]))
     if show:
-        print("  Q2: " + ", ".join("%s %d" % (v, count[v]) for v in VERDICTS) +
-              "; MORE/UNDECIDED rows without a resolution: %d" % len(unres), flush=True)
+        say("  Q2: " + ", ".join("%s %d" % (v, count[v]) for v in VERDICTS) +
+            "; MORE/UNDECIDED rows without a resolution: %d" % len(unres))
         for r in rows:
             if r["verdict"] in NEED_RES:
-                print("      %s:%s %s [%s] %s -- resolution: %s" % (r["file"], r["line"], r["verdict"], r["symbols"],
-                                                                   r["note"], r.get("resolution", "")), flush=True)
+                say("      %s:%s %s [%s] %s -- resolution: %s" % (r["file"], r["line"], r["verdict"], r["symbols"],
+                                                                 r["note"], r.get("resolution", "")), "        ")
     return not unres
 
 
@@ -127,8 +136,8 @@ def control(rows):
         unresolved[0]["verdict"], unresolved[0]["note"], unresolved[0]["resolution"] = "MORE", "planted", ""
     fails = [not q1(dropped, es, False), not q1(doubled, es, False), not q1(misspelt, es, False),
              not q2(unresolved, False), not q1(rows, entries(widen=True), False)]
-    print("  control: dropped row fails %s; doubled row fails %s; misspelt verdict fails %s; resolution removed fails %s;"
-          " census widened by chi_9 fails %s" % tuple(fails), flush=True)
+    say("  control: dropped row fails %s; doubled row fails %s; misspelt verdict fails %s; resolution removed fails %s;"
+        " census widened by chi_9 fails %s" % tuple(fails))
     return all(fails)
 
 

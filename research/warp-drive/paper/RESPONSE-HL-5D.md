@@ -1359,12 +1359,16 @@ of rotation, so it is an isometry of every five-dimensional Myers–Perry metric
 the time translation and the rotations even (computed on the metric with symbolic spins,
 `docket68/n1star/checks/support8b.py` M1), so the rotation state at a rotating black hole is a change of its parameters
 alone. With those repairs every part proves its statement in its own text, and Theorem 4 follows (the repairs read
-again). One check remains for a reader: that no proof in Parts III–IV uses more of the class's averaged choices than the
-conditions stated at their sites is checked at the sites listed and awaits a reader (supplement
-`docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5; the sites are enumerated — every line of Parts
-III–IV that names one of the averaged or equivariant choices by a printed symbol on the program's list of thirty-three,
-drawn from Lemma 3.1's sites and III.G'' Table 1.1, is listed by `docket68/n1star/checks/vii5census.py`, which makes the
-reading finite but does not perform it; a choice named another way would be missed).
+again). That no proof in Parts III–IV uses more of the class's averaged choices than the conditions stated at their
+sites was read at every line of Parts III–IV that names one of them by a printed symbol on a list of thirty-three, drawn
+from Lemma 3.1's sites and III.G'' Table 1.1: 577 lines, listed by `docket68/n1star/checks/vii5census.py`, each given a
+verdict by one of three independent readers (`docket68/n1star/checks/VII5-READING.tsv`; that the verdicts cover every
+listed line once, each with its note, computed by `checks/vii5read.py`). 311 use only the conditions at the site, 189
+only name the choice, 72 name another object spelt the same, and none uses more. Five were undecided, for one reason
+that all three readers found: the proofs use the 1-form towers of every type themselves, and the supplement's Lemma 3.1
+named 1-forms for one type only. It now names them all, the tensor towers being their images under δ*_(g_b0), which
+commutes with the average (supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5, deduced).
+The verdicts are readings, not computations, and a choice named otherwise than by its printed symbol would not be found.
 
 ---
 
@@ -1509,27 +1513,28 @@ reading finite but does not perform it; a choice named another way would be miss
   future causal curve enters, and the spheres' horizon holds in the form: at most one zero per column, within C λ of
   √μ(v); exactly one on the columns with v ≤ v_s and on those that reach across √μ(v) + C λ with √μ(v) − r_q(v) ≥ C' λ.
 - **Review.** Every part of the supplement and every section of this paper was read by independent verifiers, each
-  recomputing what it read, and their findings are repaired in the text. One check awaits a reader: that no proof in
-  Parts III–IV uses more of the class's averaged choices than the conditions stated at their sites (supplement
-  `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5; section 8.8; its sites enumerated,
-  `docket68/n1star/checks/vii5census.py`). The supplement's log, `docket68/n1star/N1STAR-LOG.md`, records the readings;
-  it is provenance only, not a source for any claim.
+  recomputing what it read, and their findings are repaired in the text. The last check that awaited a reader, that no
+  proof in Parts III–IV uses more of the class's averaged choices than the conditions stated at their sites, is done
+  (section 8.8): the 577 listed uses read, none using more, and one amendment to the supplement's Lemma 3.1
+  (`docket68/n1star/checks/VII5-READING.tsv`, `checks/vii5read.py`). The supplement's log,
+  `docket68/n1star/N1STAR-LOG.md`, records the readings; it is provenance only, not a source for any claim.
 - **Computational support.** Every computed claim names its program. The identities and bookkeeping behind the deductions
   of sections 3–6 and 8 are computed, each with a negative control: `paper/response5.py` R12–R14,
   `docket68/n1star/checks/support5.py` C1–C6, C8, C9, `checks/support5b.py`, `checks/support5c.py`, `checks/support3.py`,
   `checks/ledger5.py`, `checks/stage5.py`, `checks/gauge5.py`, `checks/csolve5.py` C7, `checks/support8.py` K1, K8,
   `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/kirecon5.py`,
-  `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py` and `checks/census9.py`, and for
-  section 9 `checks/support9.py`, `checks/charge5.py`, `checks/eqlayer5.py`, `checks/e2lower5.py`,
-  `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`, `checks/twodomain5.py`,
-  `checks/r0census5.py` and `checks/excise5.py`. A census of the deduced claims in sections 1–9 (103 claims, of which 27
-  named no program for the step) left none without one but the analytic estimates named below, the settling write-out and
-  one step resting on a reading at source; where a check stops short of the step (an order λ¹ structure in place of every
-  order, eight of fifteen components, a scan to a finite l) its entry in Appendix A says so. The analytic estimates
-  themselves (the energy estimate and the bootstrap's analysis, the mollifier's Bernstein- and Friedrichs-type bounds,
-  the Nash–Moser scheme, the settling write-out) are proved in the supplement and read by independent verifiers, not
-  computed (deduced). The two-dust background's convergence on a rectangle reaching Σ_τ0 is computed for one choice of
-  the outgoing family's characteristic data, those data themselves being among the items left open above.
+  `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`, `checks/vii5read.py` and
+  `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`, `checks/eqlayer5.py`,
+  `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`,
+  `checks/twodomain5.py`, `checks/r0census5.py` and `checks/excise5.py`. A census of the deduced claims in sections 1–9
+  (103 claims, of which 27 named no program for the step) left none without one but the analytic estimates named below,
+  the settling write-out and one step resting on a reading at source; where a check stops short of the step (an order λ¹
+  structure in place of every order, eight of fifteen components, a scan to a finite l) its entry in Appendix A says so.
+  The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the mollifier's Bernstein- and
+  Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the supplement and read by
+  independent verifiers, not computed (deduced). The two-dust background's convergence on a rectangle reaching Σ_τ0 is
+  computed for one choice of the outgoing family's characteristic data, those data themselves being among the items left
+  open above.
 
 ---
 
@@ -2157,8 +2162,14 @@ Programs behind section 9, in `docket68/n1star/`:
   choice by one of thirty-three printed symbols -- the cut-offs (χ_K, χ_r, χ_∞, χ_−, Θ and those inside t♭_* among them),
   the states and towers of III.G'' Table 1.1 as maps (h̆, h^(μ), h_(b,s1), h^(0)_(b,s0), h^(−2)_b, h^(≤k)_(b,s1),
   h^(≤k)_(b,v1)) and their domain -- each symbol's own site marked as its site, not as a use; the reading it makes finite
-  is not performed. Control: every symbol must be found at its site, so a planted symbol and a site moved, to another
-  file or to other lines of its own, are reported. A second.
+  is recorded in `checks/VII5-READING.tsv` (next entry). Control: every symbol must be found at its site, so a planted
+  symbol and a site moved, to another file or to other lines of its own, are reported. A second.
+- `checks/vii5read.py` Q1–Q2: the reading (VII5) asks for, held against that census. Q1, `checks/VII5-READING.tsv` has
+  exactly one row for each of the 577 lines naming a choice of (C3), (C3′) or (C4) outside its site, with the census's
+  symbols, a verdict (SITE-ONLY 311, NAMING 189, HOMONYM 72, UNDECIDED 5, MORE 0), a note where one is required, and the
+  symbol still printed on that line; Q2, every undecided row carries its resolution (the amended Lemma 3.1). Controls: a
+  row dropped, a row doubled, a verdict misspelt, a resolution removed, and the census widened by one radial cut-off must
+  each fail. The verdicts are three readers' readings, not computed. A second.
 - `checks/hclass5.py` H1–H2: the h-dependence of the conclusions drawn at the parameter point, by class: the quantities
   proportional to 1/h, A_0's diagonal among them, positive at the record's signs (c_2 < 0) and growing as h falls on (0,
   10⁻⁶] (H1); for l ≤ 20, box^C's discriminant (simplicity), its values at the integers |n| ≤ 52, the vector quadratic
@@ -2478,6 +2489,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F3 |
 | section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
 | section 8.8: the sites of the averaged choices enumerated | `docket68/n1star/checks/vii5census.py` V1 |
+| section 8.8: every listed use of the averaged choices read | `docket68/n1star/checks/vii5read.py` Q1–Q2 |
 | section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
 | | `checks/prop31loss5.py`; R10 |
 | section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
@@ -2528,8 +2540,8 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
 `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
 `checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports `growth5.py`,
 `checks/stage5.py` imports `lead5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports
-`checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import
-nothing from the research tree:
+`checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`, `checks/vii5read.py`
+imports `checks/vii5census.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2602,6 +2614,7 @@ nothing from the research tree:
     python3 checks/mpdata5.py                            # about four minutes
     python3 checks/flux5.py                              # a few minutes
     python3 checks/vii5census.py                         # a second
+    python3 checks/vii5read.py                           # a second
     python3 checks/hclass5.py                            # a few minutes
     python3 checks/support9.py                           # about five minutes
     python3 checks/charge5.py                            # under a minute
@@ -2711,7 +2724,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
 | `docket68/n1star/proof5/README.md` | `82d46566d3bc11e766a7af9896a89d5d` |
-| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
+| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `5b5d06532383a4b7a804d980179e9261` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
 | `docket68/n1star/proof5/checks/gammac5.tsv` | `0801ba6869e3884ed3ef309acf872ad1` |
@@ -2762,7 +2775,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2meas5.py` | `9142cd462955de2f7d832ea477a98a52` |
 | `docket68/n1star/checks/g1curv5_seed2_2400.out` | `d4b3e16ed75dcaa2b17d5b674dd230a5` |
 | `docket68/n1star/checks/data5two.out` | `9d628d9645dff8a0ca17f68cf349937b` |
-| `docket68/n1star/checks/csolve5.py` | `96cb26fe819c4ef67f87b6e7705175ca` |
+| `docket68/n1star/checks/csolve5.py` | `a1a4c89f9fd66090448b1ed7a42d2da0` |
 | `docket68/n1star/checks/csolve5.out` | `01d62ffee616675b0e90773eed0d70a4` |
 | `docket68/n1star/checks/eindcert5.py` | `8d77fd0d316a9db49b6f16d5fa578b67` |
 | `docket68/n1star/checks/eindcert5.out` | `f09e6bfc454413da6a5b568636c0fea2` |
@@ -2774,6 +2787,9 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/flux5.out` | `2764f0c5d211c1470b1fa0a03fd49dad` |
 | `docket68/n1star/checks/vii5census.py` | `72bd25c139eb7fd1d50047e54081300d` |
 | `docket68/n1star/checks/vii5census.out` | `0c0af2356bbe42ee7dc272dadc492969` |
+| `docket68/n1star/checks/vii5read.py` | `ac923c34340fa8526238423002d6e395` |
+| `docket68/n1star/checks/vii5read.out` | `49414b30b52bc778f5d8f449b505f38e` |
+| `docket68/n1star/checks/VII5-READING.tsv` | `592b0fc609b682fe2afb2d3d466e0eb4` |
 | `docket68/n1star/checks/hclass5.py` | `8ad8a55f77406eb4a4d0e481fb1fe85c` |
 | `docket68/n1star/checks/hclass5.out` | `761509082809bc9a23fb1b876f3b0b0f` |
 | `docket68/n1star/checks/support9.py` | `617014162b849cf055ed4ca7d196141a` |
@@ -2787,12 +2803,12 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
-| `docket68/n1star/checks/stage5.py` | `6a4c9142921b6e72f749522f093b2bad` |
+| `docket68/n1star/checks/stage5.py` | `9ce714c13eb450223ddbdde68db53928` |
 | `docket68/n1star/checks/stage5.out` | `f5f85af8c080b0ccfd162ad58c60f211` |
 | `docket68/n1star/checks/excise5.py` | `dfa3d996d7acf9d79ea2de1fef1a6f08` |
 | `docket68/n1star/checks/excise5.out` | `8cc3d5d8a5fea8a901bf010c6bc0ff26` |
-| `docket68/n1star/checks/gauge5.py` | `c2754b735462075545cfc637ec9b5ce8` |
-| `docket68/n1star/checks/gauge5.out` | `1900c7e4a3072ac9fce2230d0ba001e0` |
+| `docket68/n1star/checks/gauge5.py` | `0b34a91dde8253a839e62aff2904e19f` |
+| `docket68/n1star/checks/gauge5.out` | `0efc8e4c9ee0663fbd2d4b539012fadf` |
 | `docket68/n1star/checks/support8c.py` | `f79e1f948f8b06bd5595a3e01facdfb2` |
 | `docket68/n1star/checks/support8c.out` | `1cad614d5707093dea720c5779647754` |
 | `docket68/n1star/checks/level2loop5.py` | `0f30611bc4ab8b842ed10524032f012d` |
@@ -2804,8 +2820,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/BEYOND5-R0.tsv` | `11b1d5a98db3a2f9dab96eef6a813a21` |
 | `docket68/n1star/checks/census9.py` | `2df668cb63c0e15be15e346af3187d6d` |
 | `docket68/n1star/checks/census9.out` | `9ba93588dbc0dfa50fb6f3a0bf920a3f` |
-| `docket68/n1star/checks/support5c.py` | `f3f131731c372576a3b83eff313e5820` |
-| `docket68/n1star/checks/support5c.out` | `4ca721c80bc0fca7d13fce0f9d913c1e` |
+| `docket68/n1star/checks/support5c.py` | `494d4b4a969248f3d27ccadcda1df4c6` |
+| `docket68/n1star/checks/support5c.out` | `8c79ff003b7091b3d434def27a44aab9` |
 | `docket68/n1star/checks/ledger5.py` | `457f7834c9a7341f193b6ca05c676cbf` |
 | `docket68/n1star/checks/ledger5.out` | `ebeebba20e8ad1af2afbe1f72271a2c1` |
 | `docket68/n1star/checks/support8b.py` | `04a01a972f84fd709e6ac0c67c1a9224` |

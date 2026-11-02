@@ -296,12 +296,18 @@ PART-IV5-CDMODES.md:36-38 (the record's 10.49, N1STAR-PROOF.md:3071-3075, whose 
 which are $O(4)$-invariant; no averaging is needed.
 
 (C3) *Linear maps given by existence statements:* $\omega_{\mathrm s1}(S)$ and $\breve\omega(S)$ (III.D$''$ Proposition
-3.1 at $b_0$, linear in $S\in\mathcal S_1$; PART-III-I5-UNBOOST.md:63-66); the states and towers of III.G$''$ Table 1.1,
-as linear maps of the coefficient spaces $\mathcal Y_\tau$ (PART-III-G3-GRAFT.md:40-80, 179-182); and the solution
-operators $\mathcal S_{\lambda_0}$ (III.G$'''$ Corollary 3.1; PART-III-J-PARAM.md:225-227). Each is a linear map
-$L:V\to\mathcal T$ from an $O(4)$-representation into tensors. Its conditions are linear in $L$ and $O(4)$-invariant:
-equations with natural operators of $g_{b_0}$, and asymptotic or support conditions at faces fixed by $O(4)$. So
-$L^{O(4)} := \int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them, with the same bounds.
+3.1 at $b_0$, linear in $S\in\mathcal S_1$; PART-III-I5-UNBOOST.md:63-66); the 1-form towers
+$\breve\omega^i_\tau(W)$, $0\le i\le K_\tau$, of every type $\tau\in\mathcal T$ (III.D$''$ and III.D$'''$ Propositions
+3.1 at $b_0$, linear in $W$; PART-III-I10-CORR4.md:127-147), which the proofs use themselves, in the term
+$dt_*\otimes_s\breve\omega^{K_\tau}_\tau$ of $m_\nu$ (PART-III-I11-SPACETIME.md Lemma 2.1 (a)); the states and towers
+of III.G$''$ Table 1.1, as linear maps of the coefficient spaces $\mathcal Y_\tau$ (PART-III-G3-GRAFT.md:40-80,
+179-182); and the solution operators $\mathcal S_{\lambda_0}$ (III.G$'''$ Corollary 3.1; PART-III-J-PARAM.md:225-227).
+Each is a linear map $L:V\to\mathcal T$ from an $O(4)$-representation into tensors. Its conditions are linear in $L$
+and $O(4)$-invariant: equations with natural operators of $g_{b_0}$, and asymptotic or support conditions at faces fixed
+by $O(4)$. So $L^{O(4)} := \int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them, with the same bounds. The
+1-form towers are averaged once, and Table 1.1's towers at $b_0$ are taken as $\delta^*_{g_{b_0}}$ of the averaged
+1-forms, as they are of the unaveraged ones (PART-III-I11-SPACETIME.md Lemma 2.1 (b), PART-III-G3-GRAFT.md:63):
+$\delta^*_{g_{b_0}}$ is natural, so it commutes with the average, and one averaged choice serves both names (D608).
 
 (C3$'$) *Families in $b$:* the towers and states at $b$ used in $h_{b,\mathrm{rem}}(q)$, namely $T_{\rho,b}$,
 $h^{\le1}_{b,\mathrm s1}$, $h_{b,\mathrm v1}$ and $h^{\le2}_{b,\mathrm v1}$, chosen smooth in $b$ by
@@ -316,8 +322,13 @@ in the conjugation-invariant norm of VI.C step (5).
 Then, for every closed subgroup $G'$ of $O(4)$, every $G'$-invariant data $(\gamma,k)$, every $\sigma\in G'$ and every
 small $U\in\mathcal D_{\mathrm{ex}}$, $\Phi(\sigma\cdot U) = \sigma\cdot\Phi(U)$, $\Psi(\sigma\cdot U) =
 \sigma_*\Psi(U)$ and $P_5(\Psi(\sigma\cdot U)) = \sigma_*P_5(\Psi(U))$. The proofs of Parts III-IV use the objects of
-(C3) and (C3$'$) only through the conditions stated at the sites listed (finding (VII5)), so the averaged choices are
-admissible.
+(C3) and (C3$'$) only through the conditions stated at the sites listed, so the averaged choices are admissible: read at
+every use a literal census finds, 577 lines (finding (VII5); `checks/VII5-READING.tsv`, `checks/vii5read.py`). Three
+properties used there are not themselves linear conditions, and each is kept. The s1 and v1 states are unique given
+their conditions ($P_b$ is injective at the weights in the gap; III.D$''$), so the average is the choice. The
+bijectivity of III.G$''$ Lemma 1.2 (PART-III-G3-GRAFT.md:230, PART-III-I13-EXPANSION.md:175) is a statement about
+leading terms, which are prescribed by $O(4)$-equivariant maps onto kernels split by harmonic, and which the average
+keeps. The isotypic type of each construction (PART-III-I11-SPACETIME.md:232-235) is that of an equivariant map (Schur).
 
 *Proof.* By induction along the definitions; each object is natural, given (C1)-(C4) and (C3$'$).
 
@@ -475,7 +486,12 @@ three stationary 1-forms, linear maps given by existence statements, and one com
 1-forms are chosen radial directly (the proofs already use radial forms; averaging cut-offs separately could break their
 nesting). The linear maps given by existence statements, and their families in $b$, are averaged, which keeps the
 conditions stated at their sites (Lemma 3.1, (C3) and (C3$'$); verifier 140's A-m2, A-m3). That no proof in Parts III-IV
-uses more than those conditions is checked at the sites listed; a reader of Lemma 3.1 should confirm it. Every other
+uses more than those conditions is read at every line of Parts III-IV that names one of these objects by a printed
+symbol, 577 lines found by `checks/vii5census.py`, three readers a third each (D608; `checks/VII5-READING.tsv`, its
+coverage computed by `checks/vii5read.py`): 311 use only the site's conditions, 189 only name the object, 72 name
+another object spelt the same, none uses more. Five were undecided, and all three readers found the reason: the
+proofs use the 1-form towers $\breve\omega^i_\tau$ of every type themselves (in $m_\nu$), and (C3) named 1-forms only
+for s1. (C3) now names them, with Table 1.1's towers taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms. Every other
 ingredient is natural or the unique solution of a natural problem. III.C$''$ Proposition 4.1's data and the boosts
 $\phi_S$ are among the natural ones.
 

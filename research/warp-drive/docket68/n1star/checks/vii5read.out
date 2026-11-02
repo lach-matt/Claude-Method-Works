@@ -1,0 +1,31 @@
+  Q1: 577 census use lines (C3, C3', the built object, C4) in 25 files; table rows 577; missing 0, extra 0, doubled 0,
+      malformed 0
+  Q2: SITE-ONLY 311, NAMING 189, MORE 0, UNDECIDED 5, HOMONYM 72; MORE/UNDECIDED rows without a resolution: 0
+      PART-III-I11-SPACETIME.md:182 UNDECIDED [\breve h] identifies Table 1.1 towers with delta* of the 1-form towers
+        breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it names
+        only omega_s1, breve omega) -- resolution: Lemma 3.1 (C3) amended (D608): the 1-form towers of every type are
+        averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so it
+        commutes with the average)
+      PART-III-I11-SPACETIME.md:183 UNDECIDED [\breve h | h^{(\mu)] identifies Table 1.1 towers with delta* of the
+        1-form towers breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau
+        (it names only omega_s1, breve omega) -- resolution: Lemma 3.1 (C3) amended (D608): the 1-form towers of every
+        type are averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so
+        it commutes with the average)
+      PART-III-I11-SPACETIME.md:210 UNDECIDED [\breve\omega] identifies Table 1.1 towers with delta* of the 1-form
+        towers breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it
+        names only omega_s1, breve omega) -- resolution: Lemma 3.1 (C3) amended (D608): the 1-form towers of every type
+        are averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so it
+        commutes with the average)
+      PART-III-I11-SPACETIME.md:211 UNDECIDED [\breve h] identifies Table 1.1 towers with delta* of the 1-form towers
+        breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it names
+        only omega_s1, breve omega) -- resolution: Lemma 3.1 (C3) amended (D608): the 1-form towers of every type are
+        averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so it
+        commutes with the average)
+      PART-III-I11-SPACETIME.md:212 UNDECIDED [\breve h | h^{(0)}_{b,\mathrm s0}] identifies Table 1.1 towers with
+        delta* of the 1-form towers breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those
+        1-forms for all tau (it names only omega_s1, breve omega) -- resolution: Lemma 3.1 (C3) amended (D608): the
+        1-form towers of every type are averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged
+        1-forms (delta* natural, so it commutes with the average)
+  control: dropped row fails True; doubled row fails True; misspelt verdict fails True; resolution removed fails True;
+      census widened by chi_9 fails True
+Q1 PASS; Q2 PASS; control behaves
