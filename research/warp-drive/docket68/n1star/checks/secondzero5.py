@@ -234,16 +234,17 @@ def s6(rundir, names):
                 vals.append(float(np.nanmax(np.abs(B.bary_matrix(xi, XG) @ rz - og))))
             rows.append((float(Z['v'][j]), vals[0], vals[1]))
         per[nm] = rows
-        print('  %s (R0 = %g): max |r_AH - r_AH(growth5)| at v = %s: %s; leaves only: %s' % (
-            nm, float(Z['R0']) if 'R0' in Z else 10.0, ', '.join('%.3f' % r[0] for r in rows),
-            ', '.join('%.3f' % r[1] for r in rows), ', '.join('%.3f' % r[2] for r in rows)), flush=True)
+        print('  %s (R0 = %g): max |r_AH - r_AH(growth5)| at v = %s:' % (
+            nm, float(Z['R0']) if 'R0' in Z else 10.0, ', '.join('%.3f' % r[0] for r in rows)), flush=True)
+        print('     %s; leaves only: %s' % (', '.join('%.3f' % r[1] for r in rows),
+                                            ', '.join('%.3f' % r[2] for r in rows)), flush=True)
     a, b, c = [per[nm] for nm in names]
     falls = all(b[i][1] < a[i][1] for i in range(len(a)) if a[i][0] >= 1.15)
     small = max(r[1] for r in b) <= 0.05 and max(r[1] for r in c) <= 0.05
     ctl = max(r[2] for r in c) <= 0.1
-    print('  S6 falls from R0 = 10 to 20 (v >= 1.2): %s; at most 0.05 at R0 = 20 and 40: %s -> %s; control (leaves '
-          'only at R0 = 40 within 0.1) %s' % (falls, small, 'PASS' if falls and small else 'FAIL',
-                                              'passed (bad)' if ctl else 'fails (good)'), flush=True)
+    print('  S6 falls from R0 = 10 to 20 (v >= 1.2): %s; at most 0.05 at R0 = 20 and 40: %s -> %s;\n'
+          '     control (leaves only at R0 = 40 within 0.1) %s' % (falls, small, 'PASS' if falls and small else 'FAIL',
+                                                              'passed (bad)' if ctl else 'fails (good)'), flush=True)
     return falls and small and not ctl
 
 
