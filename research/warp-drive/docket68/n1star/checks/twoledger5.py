@@ -172,7 +172,7 @@ def check(k, K, rows=None, verbose=False):
         out.append((r, e, mo, ok))
     if verbose:
         for r, e, mo, ok in out:
-            print("      Step %s %-86s e = %-4s order %-2s %s" % (r[0], r[1][:86], e, mo, ok), flush=True)
+            print("    %s %-84s e=%-2s ord %-2s %s" % (r[0], r[1][:84], e, mo, ok), flush=True)
     return all(o for *_, o in out), out
 
 

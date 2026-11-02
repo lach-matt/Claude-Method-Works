@@ -2392,9 +2392,10 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/ix5.py` X1–X8: the pointwise identities of the gauge statement: the flat principal parts (X1, X2), the first
   variations of the second fundamental form and of the gauge 1-form (X3, X4), the vector field realising data (X5) and
   inducing none (X7), DRic(L_X g) = 0 on Tangherlini (X6), and the initial surface noncharacteristic for the
-  gauge-fixed operator (X8: for h = t^m H + t^(m+1) K on a curved metric the coefficient of t^(m−2) in L⁰h at t = 0 is
-  −½ m(m − 1) g^tt H, m = 2, …, 5; control, DRic alone without the gauge term). Each with a control. Exact; X8 about an
-  hour.
+  gauge-fixed operator (X8: for h = f(t)H on a curved metric, f arbitrary, no derivative of f above the second occurs
+  in L⁰h and the coefficient of f″ is −½ g^tt H, so with f = t^m the coefficient of t^(m−2) at t = 0 is −½ m(m − 1)
+  g^tt H for every m ≥ 2; and the example m = 2 with a remainder t³K; control, DRic alone without the gauge term). Each
+  with a control. Exact; about 20 minutes.
 - `proof5/checks/gammac5.py` G1–G5 and `proof5/checks/admiss5.py` A1–A2: enumerations over the write-out's parts,
   failing on any unlisted line: every use of the constraint damping parameter γ_C, applied only at its one fixed value;
   and every use of the lower triangular condition (3), used by none of the parts that might.
@@ -2808,7 +2809,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `82d46566d3bc11e766a7af9896a89d5d` |
+| `docket68/n1star/proof5/README.md` | `827cfcc0dbde107706a27e366498434c` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `ed98c26f5e7a4b3693f5c2d812768215` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
@@ -2819,8 +2820,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
 | `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e5ccb190d92288c1b8f489d3ed206495` |
 | `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `5fcfded92005ed06251f1216515d082f` |
-| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `71e569e413b9bcc0758b249cae861f78` |
-| `docket68/n1star/checks/ix5.py` | `453bce743709cf9ddf6fe122b94071c6` |
+| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `ee994064ba09a178fa63968f5fae6874` |
+| `docket68/n1star/checks/ix5.py` | `6a3fb0bbf7858715eb8c6b96563b59c4` |
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
 | `docket68/n1star/LOSS-D.md` | `363b7acd423b6201dbcc7faa8b42f8eb` |
