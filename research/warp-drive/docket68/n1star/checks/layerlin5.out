@@ -5,3 +5,5 @@ N1 PASS
 N2 PASS
   N3 H1 polarised and transported: True; D_X H1 = A E r^-3/2 tau dth: True; R_X(H1) vv, vr, rr, vth = 0: True; H2 has the data i Pol^+(D_X H1) at r0: True; T(H2) + R_X(H1) = 0 (15): True; i Pol(H2) + D_X H1 = 0 (5): True; H2 in S: True  [121 s]
 N3 PASS
+  N4 D_X H2 = i A E d (r^-5/2 beta, r^-7/2): True, True; R_X(H2) vv = 0: True, trace 0: True; H3 data at r0: True; T(H3) + R_X(H2) = 0 in vv, vr, rr: [True, True, True], trace: True; i Pol(H3) + D_X H2 = 0 in v, r: [True, True]  [382 s]
+N4 PASS

@@ -1,0 +1,20 @@
+A1 Nx = 16 breakdown 1.5 (pinned 1.5): PASS;
+   control Nx = 24 breakdown 0.322581: fails (good)
+   Nx = 16: 62 steps on v < 1/2, max K_all 5.6e-11; step dv 0.00806;
+      run ended: complete
+   Nx = 24: 43 steps on v < 1/2, max K_all 2.81e+05; step dv 0.00806;
+      run ended: scheme failed at v = 0.3387: LinAlgError
+      last K_all: 22.7, 56.5, 156, 467, 3.31e+03, 2.81e+05 (ratios 2.5, 2.8, 3.0, 7.1, 85.0)
+   Nx = 32: 11 steps on v < 1/2, max K_all 1.29e+08; step dv 0.00806;
+      run ended: scheme failed at v = 0.0806: LinAlgError
+      last K_all: 0.000156, 0.0057, 0.208, 7.57, 282, 1.29e+08 (ratios 36.4, 36.4, 36.5, 37.2, 456968.7)
+A2 unstable on the seed at Nx = 24 and 32: PASS; control (Nx = 16 flagged) fails (good)
+A3 Bondi columns with no zero of the expansion (Nx = 16 run):
+     r >= 0.54: first column with no zero at v = 1.435484; of 17:
+        0 at v = 1.403, 0 at v = 1.427, 2 at v = 1.452, 5 at v = 1.500, 8 at v = 1.548
+     r >= 0.64: first column with no zero at v = 1.419355; of 17:
+        0 at v = 1.403, 2 at v = 1.427, 2 at v = 1.452, 5 at v = 1.500, 8 at v = 1.548
+     r >= 1.25: first column with no zero at v = 0.0; of 17:
+        17 at v = 1.403, 17 at v = 1.427, 17 at v = 1.452, 16 at v = 1.500, 13 at v = 1.548
+   none before v = 1.4 at r_min = 0.54 and 0.64: PASS; control (r_min = 1.25) fails (good)
+g5angle5: all checks pass

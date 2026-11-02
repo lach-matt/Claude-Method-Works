@@ -374,11 +374,11 @@ boundary v + ½(1 + τ0 − τ)^(−1/4) = V_P that is spacelike, chosen so that
 3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
    infinity;
 4. on Ω, the conclusions of Theorem E hold (items 1 and 3–5 of Theorem 1), with the data on Σ_τ0 now the trace of g_λ
-   itself; and items 6–7 hold for these solutions too, on Ω (deduced, supplement Proposition 9.10: their proofs use four
-   facts about the solution, the remainder bounds on Ω, the first stage's form, the support of the oscillating profiles
-   and the quarter-turn symmetry, and each holds for the approximant from past null infinity; the first stage covered by
-   `docket68/n1star/horizon5.py` H2b, and with χ carrying no radiation at past null infinity m1's source is odd,
-   `docket68/n1star/checks/stage5.py` S3);
+   itself; and items 6–7 hold for these solutions too (deduced, supplement Proposition 9.10: their proofs use four facts,
+   the remainder bounds on Ω, the first stage's form, the support of the oscillating profiles and the quarter-turn
+   symmetry, and each holds for this solution and its approximant from past null infinity; the first stage covered by
+   `docket68/n1star/horizon5.py` H2b, and the parity by uniqueness, with the whole first-order residual odd under the
+   symmetry for the χ that carries no radiation at past null infinity, computed, `docket68/n1star/checks/stage5.py` S4);
 5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions with item 1 whose difference from g_app is, with its first
    derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices
    tends to zero at past null infinity.
@@ -2665,7 +2665,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `c852047f4fda185e2262a71407f7007d` |
+| `docket68/n1star/N1STAR-PROOF.md` | `e64bafabf08adeeb1b4db435b7600c0f` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

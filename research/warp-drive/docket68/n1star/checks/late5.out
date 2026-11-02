@@ -37,3 +37,6 @@ L4 max |rho| per band at the fine grid, l1_M24_800 against l1_M16_800:
    v in [1.650, 1.800): 1.84e+00 against 3.19e+00
    v in [1.800, 1.900): 8.43e+00 against 1.49e+01
    v in [1.900, 1.975): 1.35e+01 against 5.50e+01
+   l1_M24_800: largest on [1.65, 1.8) at u = -0.9781, v = 1.788, x = -0.831, R = 0.804
+   l1_M16_800: largest on [1.65, 1.8) at u = -0.9777, v = 1.788, x = -0.882, R = 0.795
+late5: all checks pass

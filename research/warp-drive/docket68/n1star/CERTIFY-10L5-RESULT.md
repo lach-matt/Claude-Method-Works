@@ -171,7 +171,7 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
 
 **The untrapped columns (S5).**
 - *`growth5`.* Its standard run, re-run with every zero recorded (`checks/g5zeros5.py`, 20 × 16; breakdown 1.5,
-  reproducing the pinned value):
+  reproducing the pinned value, `checks/g5angle5.py` A1, A3):
   - at v = 1.4355 the columns x = −0.383 and −0.556 already have no zero on r ≥ 0.54: T > 0 along the whole column;
   - the untrapped band widens toward x = −1: x ∈ [−0.83, −0.20] at v = 1.49, and every column x ≤ −0.195 at 1.548;
   - the pinned "second zero" is the pair of zeros at the band's edge, e.g. (0.556, 0.664) at x = −0.707, v = 1.452,
@@ -190,11 +190,12 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
 - The excision radius 0.54 itself is not reached before the cut at these grids. Over r ≥ 0.54 `growth5`'s first
   zero-less column is at v = 1.4355.
 
-### 1.5 `growth5` cannot be refined in angle at its own step (computed, `checks/g5zeros5.py`)
+### 1.5 `growth5` cannot be refined in angle at its own step (computed, `checks/g5angle5.py` A1–A2)
 
 `growth5`'s step is fixed by the radial grid alone: dv = min(λ/8, 2 dy/speed).
 - At Nx = 24 and 32 (Ny = 20) that step is unstable in angle on the seed itself, before the wave arrives:
-  - K_all grows by about 2.7 per step at Nx = 24 and about 36 per step at Nx = 32;
+  - K_all, which vanishes on the seed (5.6 × 10⁻¹¹ at Nx = 16), grows by about 2.5–3 per step at Nx = 24 and about
+    36 per step at Nx = 32;
   - the solve fails at v = 0.34 and 0.08, and `breakdown()` reports 0.32 and 0.08.
 - So the record's breakdown times, "three grids agreeing", are three radial grids at one angular resolution.
 - A run at Nx = 24 with the step reduced (CFL 0.7) is recorded in section 4.
@@ -366,7 +367,8 @@ v-band over kept cells at least Nu/40 rows from the cut.
 | `checks/secondzero5.py`, `.out` | S1–S5 on every run below |
 | `checks/szrun5.py` | driver: `dnsolve5.run` stopped at v = 2; options `ld`, `amp`, `R0`, gauge; singular cells masked |
 | `checks/g5zeros5.py` | driver: `growth5.run` with every zero recorded, written to scratch; option `cfl` |
-| `checks/late5.py`, `.out` | L1–L3 |
+| `checks/late5.py`, `.out` | L1–L4 |
+| `checks/g5angle5.py`, `.out` | A1–A3: `growth5` re-run, its angular instability, its zero-less columns |
 | `checks/resid5.py`, `.out` | Q1–Q2: computed residual of a smoothed approximant |
 | `checks/cdata5.py`, `.out` | C1: certified Raychaudhuri constraint on the data cone |
 
