@@ -19,3 +19,7 @@ R2 PASS
 R3 PASS
   R4 (a) dmu[h0] = 2 mu H + r^2 (A + 2fB + f^2 C) - 2 r^2 (d_v + f d_r)(r H), m(g) = mu: True
   R4 (b) dmu[L_Y g] = 0: True
+  R4 (c) d_v dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [2*r**3/3, 2*r*(r - s)*(r + s)/3, 0, 0]
+  R4 (c) d_r dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [0, 0, r*(r - s)*(r + s)/3, r]
+  R4 (d) dmu[dv^2/r^2] = 1, DRic(dv^2/r^2) = 0: True
+  R4 (e) Y1 = -r H dv (vector -r H d_r) has L_Y1 g angular part -2 r^2 H gamma: True
