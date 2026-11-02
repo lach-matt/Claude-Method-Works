@@ -28,3 +28,7 @@ O3  Proposition 9.9 at order k: the bootstrap integrals and the order of the app
         and K' - 2 beta0 >= K ((P-iii)'s absorption), for every K >= 6 and every beta0: pass
   O3e control (the order rule mutated to K + 4 + ceil(2 beta0)): the closing fails at K = 6, beta0 = 4: pass
 O4  the commutation facts (Lemma 9.6 transports, the Z's of N_P, the rotations)
+  O4a [Z, L0] = 0 for Z = d_tau, d_r, Omega_12, Omega_24 on a generic function: pass
+  O4b [d_r, r^-c] = -c r^(-c-1), [Omega, r^-c] = [d_tau, r^-c] = 0 (the transports keep c0 at every order): pass
+  O4c control: the Cartesian d_1 does not commute with L0 (hence N_P's Z are d_tau, d_r, Omega): pass
+  O4d [Omega_12, box~] = 0 on every function, g0 = eta + mu(v) r^-2 dv dv (P6 of past5.py, recomputed): pass
