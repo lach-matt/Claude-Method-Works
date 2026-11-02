@@ -14,3 +14,4 @@ K1 certified |Ric(e_a, e_b)|/sqrt(K_0) at 16128 points (a 24 x 24 tensor grid in
 K1 PASS (the certified values within a factor 2 of the computed maxima where those exceed 1e-4)
   control (W + 0.01 v): certified values up to [0.272 +/- 2.75e-4] against [0.00241 +/- 4.18e-6] -> fails (good)
 K2 (reported) the certified sup over boxes, Taylor models of order 3 with Lagrange remainder, at 4 x 4 x graded x boxes:
+  enclosures of the fields' Taylor coefficients on 416 boxes: 22 s
