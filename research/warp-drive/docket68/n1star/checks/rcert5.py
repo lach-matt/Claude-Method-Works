@@ -17,12 +17,15 @@ over t, sig in [-1, 1] and x in [-x_1, x_1], x_1 = cos(pi/32) the outermost angu
 |x| > x_1, where the frame's 1/(1 - x^2) factors cancel only analytically, are not covered.
 
 The method: Taylor models of order Q = 3 in (t, sig, x).  On each box B of a tensor grid, with centre c and half-widths
-h: every field's Taylor coefficients up to order Q + 2 are enclosed at c (points) and over B (balls; Chebyshev
-derivatives T_i^(a) by the exact differentiation matrix at the centre, plus Markov's bound |T_n^(a+1)| <= T_n^(a+1)(1)
-times h for the variation over the box); the u-derivatives by the chain rule through dt/du and d2t/du2 (themselves
-Taylor jets); the frame components, generated from dnsolve5's exact symbolic Ricci tensor and printed as code on
-truncated Taylor jets (exp, sqrt and reciprocals by their series), give the coefficients f_alpha (|alpha| <= Q) at c
-and over B; and by Taylor's theorem with the Lagrange remainder
+h: every field's Taylor coefficients F_beta = D^beta F/beta! up to order Q + 3 at c (points: Chebyshev derivatives
+by the exact differentiation matrix, D^T T(c), in ball arithmetic), and over B up to order Q + 2 by the second-order
+enclosure  F_beta(B) in F_beta(c) + sum_d (beta_d + 1) F_{beta+e_d}(c) [-h_d, h_d]
++ (1/2) sum_{d, d'} k_{d d'} L_{beta+e_d+e_d'} h_d h_d' [-1, 1],  with L_gamma = sum_ijk |C^(gamma)_ijk|/gamma! >= sup of
+|F_gamma| on the domain (|T_i| <= 1; C^(gamma) the exact derivative tensor) and k the multinomial factors; the
+u-derivatives by the chain rule through dt/du and d2t/du2 (themselves Taylor jets); the frame components, generated
+from dnsolve5's exact symbolic Ricci tensor and printed as code on truncated Taylor jets (exp, sqrt and reciprocals by
+their series), give the coefficients f_alpha (|alpha| <= Q) at c and over B; and by Taylor's theorem with the
+Lagrange remainder
     sup_B |f| <= sum_{|alpha| < Q} |f_alpha(c)| h^alpha + sum_{|alpha| = Q} sup_B |f_alpha| h^alpha.
 
   K1 (certified) per frame component, the sup over the covered box of |Ric(e_a, e_b)|/sqrt(K_0), the largest over
@@ -331,6 +334,85 @@ def inputs(jets, geo, tc, sc, xc, box):
     return out
 
 
+def deriv_tensors(C, order):
+    """the exact Chebyshev derivative tensors C^(a,b,c) (a + b + c <= order) of a float tensor C, divided by a! b! c!,
+    as nested lists of arb, and their l1 norms"""
+    nt, ns_, nx = C.shape
+    Dt, Ds, Dx = cheb_dmat(nt), cheb_dmat(ns_), cheb_dmat(nx)
+    base = arb_mat([[float(C[i, j, k]) for j in range(ns_) for k in range(nx)] for i in range(nt)])
+    tens, l1 = {}, {}
+    At = base
+    for a in range(order + 1):
+        blocks = [arb_mat([[At[i, j * nx + k] for k in range(nx)] for j in range(ns_)]) for i in range(nt)]
+        Bs = blocks
+        for b in range(order + 1 - a):
+            Bx = Bs
+            for c in range(order + 1 - a - b):
+                f = arb(math.factorial(a) * math.factorial(b) * math.factorial(c))
+                tot = arb(0)
+                for blk in Bx:
+                    for j in range(ns_):
+                        for k in range(nx):
+                            tot = tot + abs(blk[j, k])
+                l1[(a, b, c)] = tot / f
+                tens[(a, b, c)] = (Bx, f)
+                Bx = [blk * Dx.transpose() for blk in Bx]
+            Bs = [Ds * blk for blk in Bs]
+        At = Dt * At
+    return tens, l1
+
+
+def point_coeffs(tens, tcs, scs, xcs, order):
+    """F_beta(c)/beta! at every centre of the tensor grid, |beta| <= order: dict beta -> array (Nt, Ns, Nx)"""
+    nt = len(tens[(0, 0, 0)][0]); ns_ = tens[(0, 0, 0)][0][0].nrows(); nx = tens[(0, 0, 0)][0][0].ncols()
+    Tt = arb_mat([[(arb(c).acos() * i).cos() for i in range(nt)] for c in tcs])          # (Nt, nt)
+    Ss = arb_mat([[(arb(c).acos() * j).cos() for j in range(ns_)] for c in scs])        # (Ns, ns)
+    Xx = arb_mat([[(arb(c).acos() * k).cos() for c in xcs] for k in range(nx)])         # (nx, Nx)
+    out = {}
+    for beta, (blocks, f) in tens.items():
+        if sum(beta) > order:
+            continue
+        arr = np.empty((len(tcs), len(scs), len(xcs)), dtype=object)
+        sx = [Ss * blk * Xx for blk in blocks]                                     # nt of (Ns, Nx)
+        for p in range(len(tcs)):
+            for q in range(len(scs)):
+                for r in range(len(xcs)):
+                    acc = arb(0)
+                    for i in range(nt):
+                        acc = acc + Tt[p, i] * sx[i][q, r]
+                    arr[p, q, r] = acc / f
+        out[beta] = arr
+    return out
+
+
+def box_coeffs(pt, l1, h, order):
+    """enclosures of F_beta over each box, |beta| <= order, from the centre values to order + 1 and the l1 bounds"""
+    E = [tuple(int(i == d) for i in range(3)) for d in range(3)]
+    add = lambda a, b: tuple(x + y for x, y in zip(a, b))
+    out = {}
+    unit = arb(0, 1)
+    for beta in pt:
+        if sum(beta) > order:
+            continue
+        lin = arb(0)
+        quad = arb(0)
+        for d in range(3):
+            g = add(beta, E[d])
+            lin_d = None
+            for d2 in range(3):
+                gg = add(g, E[d2])
+                k = (beta[d] + 1) * (g[d2] + 1)
+                quad = quad + arb(k) * l1[gg] * arb(h[d]) * arb(h[d2])
+        arr = np.empty(pt[beta].shape, dtype=object)
+        for idx in np.ndindex(arr.shape):
+            v = pt[beta][idx]
+            for d in range(3):
+                v = v + unit * arb(h[d]) * (beta[d] + 1) * abs(pt[add(beta, E[d])][idx])
+            arr[idx] = v + unit * quad / 2
+        out[beta] = arr
+    return out
+
+
 def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
     args = [-4.0, -1.1, 0.55, 1.6, 24, 30]
     coef, err, geo = RS.fit(Z, *args)
@@ -347,19 +429,17 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
         C3['W'][0, 0, 0] += wshift * (args[2] + hv); C3['W'][0, 1, 0] += wshift * hv
     g = dict(hxi=(geo['xb'] - geo['xa']) / 2, a=RS.A_GRID, psi=1 / hv, xa=geo['xa'])
     x1 = float(np.cos(np.pi / (2 * M)))
-    order = Q + 2
     ht, hs, hx = 1.0 / Nt, 1.0 / Ns, x1 / Nx
     tcs = [-1 + (2 * p + 1) * ht for p in range(Nt)]
     scs = [-1 + (2 * q + 1) * hs for q in range(Ns)]
     xcs = [-x1 + (2 * r + 1) * hx for r in range(Nx)]
     t0 = time.time()
     fld_box, fld_pt = {}, {}
-    for which, store, hh in (('box', fld_box, (ht, hs, hx)), ('pt', fld_pt, (0, 0, 0))):
-        Tt = basis_jets(tcs, hh[0], C3['R'].shape[0], order)
-        Ss = basis_jets(scs, hh[1], C3['R'].shape[1], order)
-        Xx = basis_jets(xcs, hh[2], M, order)
-        for f in RS.NAMES:
-            store[f] = contract(C3[f], Tt, Ss, Xx, order)
+    for f in RS.NAMES:
+        tens, l1 = deriv_tensors(C3[f], Q + 4)
+        pt = point_coeffs(tens, tcs, scs, xcs, Q + 3)
+        fld_pt[f] = {b: a for b, a in pt.items() if sum(b) <= Q + 2}
+        fld_box[f] = box_coeffs(pt, l1, (ht, hs, hx), Q + 2)
     if log:
         log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (Nt * Ns * Nx, time.time() - t0))
     hpow = {m: arb(ht) ** m[0] * arb(hs) ** m[1] * arb(hx) ** m[2] for m in MONO}

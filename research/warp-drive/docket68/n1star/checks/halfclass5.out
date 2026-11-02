@@ -27,3 +27,34 @@ H3  the sharp index set G = E_0 u-bar F(G)
   H3a int: G satisfies Definition 3.1 (2)-(3), contains E_0, equals E_0 u-bar F(G): pass 
   H3b int: fixed-point iteration = recursion on the real part: pass 
   H3c int control: G does not contain E_0 u-bar G (the coarse round grows): pass 
+  H3a half: G satisfies Definition 3.1 (2)-(3), contains E_0, equals E_0 u-bar F(G): pass 
+  H3b half: fixed-point iteration = recursion on the real part: pass 
+  H3c half control: G does not contain E_0 u-bar G (the coarse round grows): pass 
+H4  the log orders of G
+     points: ['2', '5/2', '3', '7/2', '4', '9/2', '5', '11/2']
+     int : [1, 1, 3, 3, 5, 5, 7, 7]
+     half: [1, 2, 3, 4, 5, 6, 7, 8]
+  H4a int: k(n) = k(n + 1/2) = 2n - 3; half: k(2 + j/2) = j + 1: pass 
+  H4b the integers agree; each half-integer is raised by 1; an exponent off (1/2)Z by 0 or 1: pass off (1/2)Z: 273 exponents, 53 raised by 1
+  H4c the largest log order at real part <= 5 is 7 for both: pass 7, 7
+  H4d control: 'the half-integer log orders are unchanged' fails: pass 
+     pi_1 equal: True
+  H4e pi_1 G is the same for both seeds: pass 
+H5  LOSS-D's one-off count, 1 + J + L applications of L_b below l_I
+     int sharp: (J, L, applications) = [(2, 4, 7)]
+     half sharp: (J, L, applications) = [(2, 5, 8)]
+     int record M=4: (J, L, applications) = [(2, 12, 15)]
+     half record M=4: (J, L, applications) = [(2, 12, 15)]
+     int record M=8: (J, L, applications) = [(2, 24, 27)]
+     half record M=8: (J, L, applications) = [(2, 24, 27)]
+  H5a sharp: the half class adds one log step below l_I in (3, 7/2): (2, 4, 7) -> (2, 5, 8), loss 14 -> 16: pass 
+  H5b control: the log-free least E^C_I (empty seed) gives LOSS-D Q2's (2, 0, 3): pass [(2, 0, 3)]
+     l_I in (7/2, 4), int sharp: (J, L, applications) = [(2, 4, 7)]
+     l_I in (7/2, 4), half sharp: (J, L, applications) = [(2, 6, 9)]
+  H5c (round 3) l_I in (7/2, 4): the half class costs 9 applications (loss 18), Part VII's class fewer: pass {'int sharp': 7, 'half sharp': 9}
+H6  Step 1 at I_0: the number of factors of R
+  H6a N = |E_(0,<=)| at l_0 = 3.3 and 3.7: int (2, 2), half (3, 4): pass {'int': (2, 2), 'half': (3, 4)}
+H7  a second sample, and the gamma_Ups control
+  H7a (gamma, e) = (1/5, 1/3): the same log orders on (1/2)Z: pass 
+  H7b control: gamma_Ups = 3/10 violates Definition 3.1 (2): pass 
+FAILED: none

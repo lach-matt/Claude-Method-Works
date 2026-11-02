@@ -11,9 +11,10 @@ asks env in C_c^inf. Here
 so supp env = [1/2, 7/2] = [v_start, v_end], env is smooth, and int env^2 = 105/128 = int sin^8 exactly, by the
 definition of c: mu_end = mu0 + (2/9) A^2 int env^2 = 227/192 is unchanged, and so is every certified leaf of round 1
 (they depend on the envelope only through mu_end; lzeroconst5.py Z0). The factor cos^12 keeps the derivatives small to
-order 14: the plain bump exp(1 - 1/(1 - y^2)) has sup |env^(11)| about 3.6e22 (a first run of this program), this one
-about 4e10. Labels: computed (interval arithmetic, mpmath.iv, outward rounded; exact rationals for the polynomials P_j);
-deduced (the tail argument at E2).
+order 14: the plain bump exp(1 - 1/(1 - y^2)), normalised the same way, has sup |env^(11)| about 3.29e18 (computed,
+floating point, P0 below; round 2 printed 3.6e22 from a first run that no program reproduces, the verifier's nit),
+this one about 4e10. Labels: computed (interval arithmetic, mpmath.iv, outward rounded; exact rationals for the
+polynomials P_j); deduced (the tail argument at E2).
 
   E1 (certified) int_{-1}^{1} beta^2 in an interval of relative width < 1e-4 (beta^2 is even and decreasing in |y|,
      so lower and upper Riemann sums at exact points bound it), hence c in a certified interval.
@@ -27,9 +28,11 @@ deduced (the tail argument at E2).
      Leibniz.
   E3 (computed) smoothness at the ends: the tail bound at delta/2^m decreases to 0, so every derivative of env
      vanishes at v_start and v_end.
-  Controls (must fail, and do): C1 the polynomial bump (1 - y^2)^4, run through an end test, has a nonzero 4th
-  derivative at y = 1 (C^3, not C^4, as round 1's sin^4); C2 the bound / 2 is refuted for every k <= 14 by a sampled
-  value (mpmath.diff), so the bounds are within a factor 2 of the truth; C3 an envelope with int env^2 off 105/128 by
+  P0 (computed, floating point) the plain bump's e_11 on a grid refined near its peak (y ~ 0.9758).
+  Controls (must fail, and do): C1 (Round 3, the verifier's m2: round 2's C1 tested a polynomial, not E3's procedure)
+  E3's shrink test run with the tail bound's flat factor exp(-1/(2t)) removed fails (the bounds grow as delta -> 0);
+  the polynomial bump (1 - y^2)^4 is still shown C^3, not C^4, as round 1's sin^4; C2 the bound / 2 is refuted for
+  every k <= 14 by a sampled value (mpmath.diff), so the bounds are within a factor 2 of the truth; C3 an envelope with int env^2 off 105/128 by
   1e-4 is refuted by E1's interval.
 
     python3 checks/envelope5.py
@@ -147,14 +150,14 @@ def Pk_list(K):
     return P
 
 
-def tail_phi1_bound(Pj, delta):
+def tail_phi1_bound(Pj, delta, flat=True):
     """sup_{0 < t <= delta} |P_j(1/t) exp(-1/(2t))| <= sum |p_i| delta^-i e^(-1/(2 delta)), valid when
     1/delta >= 2 deg P_j (each x^i e^(-x/2) is then decreasing on x >= 1/delta)"""
     deg = len(Pj) - 1
     assert 1 / delta >= 2 * deg
     d = iv.mpf(delta.numerator) / delta.denominator
     return sum((iv.mpf(abs(c.numerator)) / c.denominator * d ** (-i) for i, c in enumerate(Pj)),
-               iv.mpf(0)) * iv.exp(-1 / (2 * d))
+               iv.mpf(0)) * (iv.exp(-1 / (2 * d)) if flat else 1)          # flat=False: control C1's mutant
 
 
 def end_bounds(delta, K=KMAX):
@@ -263,15 +266,34 @@ def main():
         'c (2/3)^k sup|beta^(k)| <= %s' % (ok['E2'], ', '.join(mpmath.nstr(e, 4) for e in ek)))
 
     P = Pk_list(KMAX)
-    shrink = [max(hi_end(tail_phi1_bound(P[j], DELTA / 2 ** m)) for j in range(KMAX + 1)) for m in (0, 4, 8)]
-    ok['E3'] = shrink[0] > shrink[1] > shrink[2] and shrink[2] < mpmath.mpf(10) ** -100
+
+    def e3_test(flat):
+        sh = [max(hi_end(tail_phi1_bound(P[j], DELTA / 2 ** m, flat)) for j in range(KMAX + 1)) for m in (0, 4, 8)]
+        return sh, sh[0] > sh[1] > sh[2] and sh[2] < mpmath.mpf(10) ** -100
+
+    shrink, ok['E3'] = e3_test(True)
     say('  E3: max_j sup_{t <= delta/2^m} |phi1^(j)| at m = 0, 4, 8: %s: every derivative of env tends to 0 at the '
         'ends (smooth, compactly supported)' % ', '.join(mpmath.nstr(x, 3) for x in shrink))
 
+    shrink_m, e3_m = e3_test(False)
     ders = bump_poly_end_test()
-    ok['C1'] = ders[:4] == [0, 0, 0, 0] and ders[4] != 0
-    say('  C1 (control): (1 - y^2)^4 at y = 1: derivatives 0..5 = %s: the end test fails at order 4'
-        % [str(d) for d in ders])
+    ok['C1'] = (not e3_m) and ders[:4] == [0, 0, 0, 0] and ders[4] != 0
+    say('  C1 (control): E3 with the factor exp(-1/(2t)) removed: %s at m = 0, 4, 8: E3 fails for it: %s; '
+        '(1 - y^2)^4 at y = 1: derivatives 0..5 = %s: C^3, not C^4' % (', '.join(mpmath.nstr(x, 3) for x in shrink_m),
+                                                                      not e3_m, [str(d) for d in ders]))
+
+    bp = lambda yy: mpmath.exp(1 - 1 / (1 - yy * yy))  # noqa: E731
+    with mpmath.workdps(30):
+        cb = mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * mpmath.quad(lambda yy: bp(yy) ** 2, [-1, 0, 1])))
+        grid = [(abs(mpmath.diff(bp, mpmath.mpf(i) / 400, 11)), mpmath.mpf(i) / 400) for i in range(1, 400)]
+        y0 = max(grid)[1]
+        peak = max(abs(mpmath.diff(bp, y0 + mpmath.mpf(i) / 40000, 11)) for i in range(-200, 201)
+                   if y0 + mpmath.mpf(i) / 40000 < 1)
+        e11b = cb * (mpmath.mpf(2) / 3) ** 11 * peak
+    ok['P0'] = mpmath.mpf('3.2e18') < e11b < mpmath.mpf('3.4e18')
+    say('  P0 (computed, floating point): the plain bump exp(1 - 1/(1 - y^2)), normalised to int env^2 = 105/128: '
+        'e_11 ~ %s near y = %s (round 2 printed 3.6e22, reproduced by no program)' % (mpmath.nstr(e11b, 4),
+                                                                                      mpmath.nstr(y0, 4)))
 
     f = lambda yy: mpmath.cos(mpmath.pi * yy / 2) ** MPOW * mpmath.exp(-yy * yy / (1 - yy * yy))  # noqa: E731
     pts = [mpmath.mpf(i) / 60 * mpmath.mpf(9) / 10 for i in range(60)]

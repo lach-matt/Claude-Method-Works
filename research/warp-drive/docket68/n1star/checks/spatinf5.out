@@ -3,35 +3,3 @@ Z1  Z is homothetic for eta, and nearly so for Tangherlini
   Z1b L_Z g - 2 g = -2 mu r^-2 dv^2: pass -2*mu/r**2
   Z1c control: r d_r alone is not homothetic for eta: pass 
 Z2  the commutator of Z with the wave operator
-  Z2a box_g = box_eta - mu r^-3 d_r(r d_r) (from the metric): pass 
-  Z2b [Z, box_eta] = -2 box_eta: pass 
-  Z2c [Z, box_g] + 2 box_g = 2 mu r^-3 d_r(r d_r): pass 2*mu*(r*Derivative(F(v, r), (r, 2)) + Derivative(F(v, r), r))/r**3
-  Z2d control: [r d_r, box_eta] is not a constant multiple of box_eta: pass (2*kappa*F(v, r) - 2*r**2*(Derivative(F(v, r), (r,
-Z3  Z at I_0
-  Z3a Z = -rho d_rho - v1 rho d_tau (b-normal at rho = 0): pass Z rho = -rho, Z tau = -rho*v1
-  Z3b control: d_t = rho d_tau, which vanishes at I_0: pass 
-Z4  the self-similar terms are Z-eigenfields
-  Z4a (Z + p)(r^-p F(s)) = 0 for p = 2, 5/2, 3, 7/2: pass 
-  Z4b control: a log term is not annihilated by Z + p, but is by (Z + p)^2: pass F((v - v1)/r)/r**(5/2)
-Z5  the weight window
-     l_0 = 3.1, 3.4, 3.6, 3.9: a window exists for q = 7/2, 4, 9/2: {'7/2': [False, False, False, False], '4': [True, True, False, False], '9/2': [True, True, True, True]}
-  Z5a q = 4 serves l_0 = 3.1, 3.4 and not 3.6, 3.9; q = 9/2 serves all four: pass 
-  Z5b control: q = 7/2 (subtraction through r^-3 only) serves no l_0 > 3: pass 
-U1  the Gronwall factor on the far region
-  U1a exp(int_(lam^-2)^oo C lam^-1 t^(-3/2) dt) = exp(2C): pass 2*C
-  U1b control: from t = lam^-1 the factor exp(2C lam^(-1/2)) beats every lam^-M: pass 2*C/sqrt(lambda)
-U2  interpolation
-     a = 11/4, J = 9, M = 5, K = 30: s = 11/2, K - 4 > a s: True, flux -> 0
-     a = 29/10, J = 9, M = 12, K = 60: s = 25/2, K - 4 > a s: True, flux -> 0
-     a = 11/4, J = 12, M = 20, K = 40: s = 41/5, K - 4 > a s: True, flux -> 0
-  U2a the split flux tends to 0 exactly in the sampled cases with K - 4 > a s: pass 
-  U2b control: the lam-uniform bound alone gives an infinite flux at a = 1/10: pass 
-U3  the linear model: iterated integrals of an oscillating radiation field
-     lam = 0.12500: sup|I_j|/lam^(j+1) = [0.4213, 1.2504, 14.9226], lam sup|F'|/sup|F| = 1.0108, control sup|int lam env|/lam^2 = 5.33
-     lam = 0.06250: sup|I_j|/lam^(j+1) = [0.3846, 0.9251, 19.9975], lam sup|F'|/sup|F| = 1.0011, control sup|int lam env|/lam^2 = 10.66
-     lam = 0.03125: sup|I_j|/lam^(j+1) = [0.3706, 0.501, 11.6295], lam sup|F'|/sup|F| = 0.9995, control sup|int lam env|/lam^2 = 21.31
-     lam = 0.01562: sup|I_j|/lam^(j+1) = [0.3679, 0.3842, 3.1226], lam sup|F'|/sup|F| = 1.0000, control sup|int lam env|/lam^2 = 42.62
-  U3a sup|I_j| <= C lam^(j+1): the ratios stay below 25 and do not grow from lam = 1/8 to 1/64: pass largest 19.997, growth 0.873
-  U3b each d_v costs lam^-1: lam sup|F'|/sup|F| -> 1: pass 
-  U3c control: non-oscillating F = lam env: sup|I_1|/lam^2 doubles as lam halves: pass [5.33, 10.66, 21.31, 42.62]
-FAILED: none
