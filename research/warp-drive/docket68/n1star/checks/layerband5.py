@@ -18,7 +18,8 @@
      regime map of the layer at lam = 10^-1000 and 10^-3000 (500 log-spaced points below the level lam^10, 3001
      equally spaced above it): windows (errors with Lemma L.4's w-bound below a tenth of the signal, margin below a
      tenth of it, eps_M <= lam^3), spacelike (signal, Theorem E's w and the rest below a tenth of the margin) and the
-     band (errors below a tenth of both); M = M* = 26 derivatives, K = 6 and K = 10.  For K = 10 the three regimes
+     band (errors below a tenth of both); M = M* = 2N + 8 derivatives (26 at K = 6, 34 at K = 10 [Round 4, verifier
+     of round 3: it was 26 for both]), K = 6 and K = 10.  For K = 10 the three regimes
      cover [x_deep, x_top] with no gap (x_deep: where the proof's error terms with 26 derivatives fall below the
      signal; x_top: m0 = 2 lam); for K = 6 a band between is undecided.  x_deep lies far
      above the very edge x_b = lam^(1/2): the record's bounds lose 26 derivatives where the expansion itself loses one
@@ -130,12 +131,14 @@ def polys(K):
     return [sp.lambdify(U, p, 'mpmath') for p in Ps]
 
 
-PK = polys(27)
+PK = polys(35)
 
 
-def regimes(lam, K, M=26):
+def regimes(lam, K, M=None):
     """the regime of each point of a log grid of x in the layer, for env = exp(-1/x), unit constants"""
     N = K + 3
+    if M is None:
+        M = 2*N + 8                  # Round 4 (verifier of round 3): M* = 2N + 8, 34 at K = 10 (it was 26 for both)
     E = lambda x: mp.exp(-1/x)                                                       # noqa: E731
     eps = lambda x: sum(abs(PK[i](1/x)) for i in range(M + 1))*E(x)                  # eps_M(x), the sup at x near 0
     sig = lambda x: lam**3*E(x)                                                      # noqa: E731

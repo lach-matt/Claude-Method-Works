@@ -18,7 +18,8 @@
      (x - 1)/2 fails near x = 1.
   D4 (exact on samples) The zero-mean antiderivative: if Z is 2 pi-periodic with mean 0 and Y' = Z, <Y> = 0, then
      sup |Y| <= pi sup |Z| (used to make the stage transport an ODE in the Banach space C(S^1)); checked on random
-     trigonometric polynomials and a square wave.  Control: the constant pi/4 fails on cos.
+     trigonometric polynomials, cos 4t and a square wave.  Control [Round 4, verifier of round 3: the old one, the
+     constant pi/4, refuted a sharper constant]: the operator under test mutated, d_th^-1 -> d_th, fails on cos 4t.
   D5 (exact) The chain rule (0.3) of the supplement to order four: for a profile f(v, th) and m >= 0, d_v^j (lam^m f(v,
      v/lam)) = sum_l binom(j, l) lam^(m - l) (d_th^l d_v^(j - l) f)(v, v/lam), so |d^j(lam^m [f])| <= C sum_l lam^(m-l)
      |d_th^l d_X^(j-l) f|: a derivative of a profile costs lam^-1 only through d_th.  Control: without the lam^-l weights

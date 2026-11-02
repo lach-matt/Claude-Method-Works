@@ -35,7 +35,8 @@ decides the causal character of x_K = 1 there.
      twice on
      every carrier period at the very edge for three phases c, and |F| exceeds the margin bound (E^2 + int E^2)/9 by a
      factor above 10^1000; (d) at the very edge |F| < the approximant's top slice-data term lam^(N+1) (N-1) |E^(N-2)|
-     |nu_hom| < the record's bound on the correction U, lam^(N-2) eps_(2N+2) (N = 9): the record's own bounds leave the
+     |nu_hom| < the record's bound on the correction U, lam^(N-2) eps_(2N+3) (N = 9; A4's cost, Round 4: the program
+     summed to 2N + 2): the record's own bounds leave the
      sign to U.  Controls: c = 0 (no first-degree term) leaves -m0 < 0 with no sign change; in the window the ordering
      of (d) fails (|F| exceeds the top data term there).
 
@@ -449,7 +450,7 @@ def v5(control=False):
     for nm, x in (("edge", xe), ("window", xw)):
         Fn = abs(res[nm][0])
         top = lam**(N + 1)*(N - 1)*abs(PK[N - 2](1/x))*nu_h
-        bU = lam**(N - 2)*sum(abs(PK[i](1/x)) for i in range(2*N + 3))
+        bU = lam**(N - 2)*sum(abs(PK[i](1/x)) for i in range(2*N + 4))     # eps_(2N+3) (A4; Round 4: was 2N + 2)
         order[nm] = (Fn < top < bU, Fn, top, bU)
     if control:
         return changes["0 (control)"] > 0 or order["window"][0]

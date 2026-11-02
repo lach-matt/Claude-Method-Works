@@ -20,7 +20,10 @@ R3.1), each with a control that must fail.
      (c) P3: nu_inf from the transport from infinity with the vv mass coupling halved is not -mu0^(-7/4)/9;
      (d) D4: the sharper claim sup |Y| <= (1/2) sup |Z| for the zero-mean antiderivative is refuted by the square wave,
          whose antiderivative has amplitude pi/2 (exact).
-     Each check passes unmutated and fails mutated.
+     Each check passes unmutated and fails mutated.  [Round 4, verifier of round 3: the top-level control was the
+     check's negation; it now returns the four mutated claims, each of which must fail.  (b) mutates the claimed
+     closed form and (d) refutes a sharper constant, as the verifier notes; the mutations of N5, N6, P3 and D4 of the
+     computed paths are now in layerlin5, layerpast5 and layerdeg5 themselves.]
   F4 (exact) The parts of D3, E3, E5 that were sampled, done exactly: (x - 1)/2 - (sqrt x - 1) and (x - 1)/4 - (x^(1/4)
      - 1) have derivative >= 0 on x >= 1 (solved as inequalities); -2 s + 4 s^3 < 0 on 0 < s <= 1/2 (and on 0 < s <
      1/sqrt2); min(x, y)^2 <= x y for x, y > 0.  Controls: (x - 1)/3 fails on x >= 1; s <= 1 fails.
@@ -97,7 +100,8 @@ def f1(control=False):
         ok &= closed and mx <= 2*N + 6
         worst[N] = mx
     out("  F1 closed forms c_osc = i + 2j - 2, c_mean = i + 2j + 1, c_delta <= i + 2j + 1, c_res = i + 2N + 3, and every"
-        " used cost <= 2N + 6 for N in [3, 40]: %s (N = 9: largest %d <= 24 <= M* = 26)" % (ok, worst[9]))
+        " used cost <= 2N + 6 for N in [3, 40]: %s (N = 9: largest %d <= %d <= M* = %d)" % (
+            ok, worst[9], 2*9 + 6, 2*9 + 8))
     return ok
 
 
@@ -170,9 +174,14 @@ def f3(control=False):
     mp.mp.dps = 30
     Z = L.polplus(sp.Matrix([L.Vv, L.Vr, L.Vt, 0, 0]))[0]
     rec = lambda e: sp.simplify(in_rho(e) - L.KCLOSED) == 0                     # noqa: E731
-    a_ok = rec(nu_of(Z)) and not rec(nu_of(Z, mass=False))
+    # Round 4 (verifier of round 3, m6): the claims here, their mutations in control mode (no negation of the check)
     kinf = -L.mu0**sp.Rational(-7, 4)/9
-    c_ok = sp.simplify(nu_of(Z, past=True) - kinf) == 0 and sp.simplify(nu_of(Z, past=True, half=True) - kinf) != 0
+    if control:
+        a_mut = rec(nu_of(Z, mass=False))
+        c_mut = sp.simplify(nu_of(Z, past=True, half=True) - kinf) == 0
+    else:
+        a_ok = rec(nu_of(Z))
+        c_ok = sp.simplify(nu_of(Z, past=True) - kinf) == 0
     zt = sp.Symbol('zeta')
     Pz = -2*zt**5 - sp.Rational(20, 3)*zt**3 - sp.Rational(20, 3)*zt**2 - sp.Rational(38, 3)*zt + sp.Rational(4, 3)
     Pm = Pz + sp.Rational(1, 3)*zt                                    # 38/3 -> 37/3
@@ -184,15 +193,20 @@ def f3(control=False):
         f = sp.lambdify(zt, PP, 'mpmath')
         return all(abs(dF(t) - mp.sqrt(2)*f(mp.cos(2*t))/(1 + mp.cos(2*t)**2)**mp.mpf(2.5)) < mp.mpf(10)**-20
                    for t in [mp.pi*k/17 + mp.mpf(1)/7 for k in range(7)])
-    b_ok = matches(Pz) and not matches(Pm)
+    if control:
+        b_mut = matches(Pm)
+    else:
+        b_ok = matches(Pz)
     t = sp.Symbol('t', real=True)
     # square wave Z = 1 on (0, pi), -1 on (pi, 2 pi): Y = t - pi/2 on [0, pi], 3 pi/2 - t on [pi, 2 pi], mean 0
     Y1, Y2 = t - sp.pi/2, 3*sp.pi/2 - t
     mean = (sp.integrate(Y1, (t, 0, sp.pi)) + sp.integrate(Y2, (t, sp.pi, 2*sp.pi)))/(2*sp.pi)
     supY = sp.Max(*[abs(Y1.subs(t, 0)), abs(Y1.subs(t, sp.pi)), abs(Y2.subs(t, 2*sp.pi))])
-    d_ok = mean == 0 and sp.simplify(supY - sp.pi/2) == 0 and (supY <= sp.Rational(1, 2)) == sp.false
     if control:
-        return not (a_ok and b_ok and c_ok and d_ok)
+        # the mutated claim: the square wave's mean-zero antiderivative has amplitude at most sup|Z|/2
+        d_mut = mean == 0 and (supY <= sp.Rational(1, 2)) == sp.true
+        return a_mut or b_mut or c_mut or d_mut
+    d_ok = mean == 0 and sp.simplify(supY - sp.pi/2) == 0
     out("  F3 (a) nu = (0.2), and not with beta's mass term dropped: %s; (b) d^F's closed form at 7 angles, and not with"
         " 38/3 -> 37/3: %s; (c) nu_inf = -mu0^(-7/4)/9, and not with the vv coupling halved: %s; (d) square wave:"
         " mean-zero antiderivative of amplitude pi/2, refuting sup|Y| <= sup|Z|/2: %s" % (a_ok, b_ok, c_ok, d_ok))
@@ -213,8 +227,8 @@ def f4(control=False):
     e3 = sp.solveset(-2*s + 4*s**3 >= 0, s, sp.Interval.Lopen(0, smax)) == sp.EmptySet
     e3b = sp.solveset(-2*s + 4*s**3 >= 0, s, sp.Interval.open(0, 1/sp.sqrt(2))) == sp.EmptySet
     y = sp.Symbol('y', positive=True)
-    e5 = sp.simplify(x*y - sp.Min(x, y)**2).is_nonnegative is not False and \
-        sp.simplify((x*y - x**2).subs(y, x + s)) == sp.expand(x*s) and sp.simplify((x*y - y**2).subs(x, y + s)) == y*s
+    # Round 4 (verifier of round 3): the vacuous first clause dropped; both cases of min checked exactly
+    e5 = sp.simplify((x*y - x**2).subs(y, x + s)) == sp.expand(x*s) and sp.simplify((x*y - y**2).subs(x, y + s)) == y*s
     if control:
         return d1 or e3
     out("  F4 D3: derivatives >= 0 on x >= 1 (no solution of < 0): %s, %s; E3: -2 s + 4 s^3 < 0 on (0, 1/2] and on (0,"
