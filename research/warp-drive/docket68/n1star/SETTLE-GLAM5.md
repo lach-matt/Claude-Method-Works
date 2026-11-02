@@ -494,13 +494,13 @@ nothing uniform in lam" (10664-10665). [Line numbers as of 82a7e95: the file mov
 82a7e95), +23 for those round 2 cited above 10514 and +7 for 1105, 1341-1342 and 1045-1047; R3.0 (c1).]
 
 *Deduced (not line by line).* Every λ-dependence these proofs display is a power of λ^(−1) (a derivative of a profile,
-the scaled Sobolev of Lemma 9.3) or the Grönwall factor of Lemma 9.5, which on t ≥ λ^(−2) is e^(2C) even with the
-kernel Cλ^(−1)t^(−3/2) (U1a; control U1b: from t = λ^(−1) the factor e^(2Cλ^(−1/2)) beats every power). If the
-explicit data constants C(λ, j) of the approximating solutions and the near part of N (t ≤ λ^(−2), the λ^(−2β_0) loss)
-are polynomial in λ^(−1) as well, then (Poly): the constants of (11.7) at order J with N derivatives are O(λ^(−M(J,N)))
-with M independent of K, since g_λ is unique ((P-v), 1052-1054 as of 82a7e95) and Theorem P at a fixed K_0 = 6 serves for them. In
-the linear model the expansion coefficients lose nothing: sup|I_j| ≤ Cλ^(j+1) for the j-fold integrals of
-λ env sin(v/λ), each ∂_v costing λ^(−1) (U3a-b; control U3c: a non-oscillating field loses λ^(−1)).
+the scaled Sobolev of Lemma 9.3) or the Grönwall factor of Lemma 9.5, which on t ≥ λ^(−2) is e^(2C) even with the kernel
+Cλ^(−1)t^(−3/2) (U1a; control U1b: from t = λ^(−1) the factor e^(2Cλ^(−1/2)) beats every power). If the explicit data
+constants C(λ, j) of the approximating solutions and the near part of N (t ≤ λ^(−2), the λ^(−2β_0) loss) are polynomial
+in λ^(−1) as well, then (Poly): the constants of (11.7) at order J with N derivatives are O(λ^(−M(J,N))) with M
+independent of K, since g_λ is unique ((P-v), 1052-1054 as of 82a7e95) and Theorem P at a fixed K_0 = 6 serves for them.
+In the linear model the expansion coefficients lose nothing: sup|I_j| ≤ Cλ^(j+1) for the j-fold integrals of λ env
+sin(v/λ), each ∂_v costing λ^(−1) (U3a-b; control U3c: a non-oscillating field loses λ^(−1)).
 
 **Proposition R2.9 ((Poly) gives the smallness; deduced, computed U2).** Under (Poly), let a < (J − 1)/2 and
 s := (2M + 1)/(J − 1 − 2a). With R = λ^(−s), the weighted flux on N of e's remainder is at most C(λ^(2(K−4)−2as) + λ),
