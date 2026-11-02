@@ -142,9 +142,10 @@ def in_omega(tau, r, v, g):
     return (tau >= LZ.TAU0 and tau <= te_lo and r >= g['a'][1] and v + (tau - te_lo) <= g['V'] + 1)
 
 
-def eps1_perturbation(g, xhat):
-    """g0 - lam n n^T at the outer boundary point r = 67/5 with direction xhat (rational, |xhat| = 1): exact"""
-    r = Fr(67, 5)
+def eps1_perturbation(g, xhat, r=None):
+    """g0 - lam n n^T at an outer boundary point (default the corner r = b(tau0), taken at the lower end of its
+    certified interval, so tau >= tau0) with direction xhat (rational, |xhat| = 1): exact"""
+    r = g['b0'][0] if r is None else r
     mu = g['mu_end']
     xh = [Fr(c) for c in xhat]
     assert sum(c * c for c in xh) == 1
