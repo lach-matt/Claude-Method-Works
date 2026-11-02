@@ -17,3 +17,4 @@ C7b PASS [979s]
     lam = 1/32: sup ||U|| 3.178e-06; ||U_(i+1) - U_i|| 7.8e-13 5.8e-19 1.2e-20
   C7c: the nonlinear correction relative to U (the scheme's contraction factor) 5.2e-05 3.8e-06 2.5e-07, rates 3.75 3.97 (the proof's bound: >= N - 3 = 3; with C7a, N - 2 = 4: True); sup ||U|| rates 3.70 3.96; each iterate's change below 1e-2 of the last: True
     mutant lam = 1/8: sup ||U|| 7.557e-04; ||U_(i+1) - U_i|| 6.8e-08 4.6e-12 2.2e-16 2.0e-17
+    mutant lam = 1/16: sup ||U|| 1.038e-04; ||U_(i+1) - U_i|| 1.7e-09 1.1e-14 2.2e-18
