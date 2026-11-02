@@ -372,15 +372,15 @@ def point_coeffs(tens, tcs, scs, xcs, order):
     for beta, (blocks, f) in tens.items():
         if sum(beta) > order:
             continue
-        arr = np.empty((len(tcs), len(scs), len(xcs)), dtype=object)
+        Ns, Nx = len(scs), len(xcs)
         sx = [Ss * blk * Xx for blk in blocks]                                     # nt of (Ns, Nx)
+        stack = arb_mat([[sx[i][q, r] for q in range(Ns) for r in range(Nx)] for i in range(nt)])
+        res = Tt * stack                                                            # (Nt, Ns Nx)
+        arr = np.empty((len(tcs), Ns, Nx), dtype=object)
         for p in range(len(tcs)):
-            for q in range(len(scs)):
-                for r in range(len(xcs)):
-                    acc = arb(0)
-                    for i in range(nt):
-                        acc = acc + Tt[p, i] * sx[i][q, r]
-                    arr[p, q, r] = acc / f
+            for q in range(Ns):
+                for r in range(Nx):
+                    arr[p, q, r] = res[p, q * Nx + r] / f
         out[beta] = arr
     return out
 

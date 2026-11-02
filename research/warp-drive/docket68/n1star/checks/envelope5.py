@@ -32,8 +32,8 @@ polynomials P_j); deduced (the tail argument at E2).
   Controls (must fail, and do): C1 (Round 3, the verifier's m2: round 2's C1 tested a polynomial, not E3's procedure)
   E3's shrink test run with the tail bound's flat factor exp(-1/(2t)) removed fails (the bounds grow as delta -> 0);
   the polynomial bump (1 - y^2)^4 is still shown C^3, not C^4, as round 1's sin^4; C2 the bound / 2 is refuted for
-  every k <= 14 by a sampled value (mpmath.diff), so the bounds are within a factor 2 of the truth; C3 an envelope with int env^2 off 105/128 by
-  1e-4 is refuted by E1's interval.
+  every k <= 14 by a sampled value (mpmath.diff), so the bounds are within a factor 2 of the truth; C3 an envelope
+  with int env^2 off 105/128 by 1e-4 is refuted by E1's interval.
 
     python3 checks/envelope5.py
 """

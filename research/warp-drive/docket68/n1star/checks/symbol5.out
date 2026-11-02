@@ -1,1 +1,20 @@
 Y0 M^-1 V = (1 - x^2) s I: PASS
+Y1 K = M^-1 N = Lambda A, A =
+⎡           2⋅R⋅(-x - 1)  2⋅R⋅(x - 1)  -2⋅R ⎤
+⎢  -4/3     ────────────  ───────────  ─────⎥
+⎢                9             9         3  ⎥
+⎢                                           ⎥
+⎢    1                     2⋅(1 - x)     2  ⎥
+⎢─────────      -1/3       ─────────   ─────⎥
+⎢R⋅(x + 1)                 3⋅(x + 1)   x + 1⎥
+⎢                                           ⎥
+⎢   -1       2⋅(-x - 1)                 -2  ⎥
+⎢─────────   ──────────      -1/3      ─────⎥
+⎢R⋅(x - 1)   3⋅(x - 1)                 x - 1⎥
+⎢                                           ⎥
+⎢    2         x   1         1   x          ⎥
+⎢    ─         ─ + ─         ─ - ─       0  ⎥
+⎣    R         3   3         3   3          ⎦
+   charpoly l**2*(l + 1)**2; rank A = 3, rank (A + I) = 2; eigenvalue 0 of algebraic multiplicity 2, Jordan block: True
+   left eigenvectors (eigenvalue -1) and left null vector d zeta check: True; generalised vector eta A = d zeta solvable: True (eta = {e0: 2*e3/R - 3/(2*R), e1: e3*(x/3 + 1/3), e2: e3*(1/3 - x/3)})
+Y1 PASS

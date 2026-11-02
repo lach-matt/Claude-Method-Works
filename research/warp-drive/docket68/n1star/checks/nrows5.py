@@ -9,11 +9,14 @@ computed here (CONSTANTS5.md, D3-D4).
      finds 18 lines (16 in round 1, whose pattern missed "closed-graph" and "Banach and Steinhaus"); each is classified
      (B: a constant or order enters; A: with a constructive alternative beside it; R: a remark, summary, list or
      pointer; Q: a quoted source).
-  R3 (deduced) the order the replacements must be built in: no N1 base bound can be certified in the record's norms
-     before the calculus and covering constants (COVER, BAIRE) and the norm passage (NORM) are explicit.
+  R3 (deduced; the table is a hand-written reading) the order the replacements must be built in: no N1 base bound
+     can be certified in the record's norms before the calculus and covering constants (COVER, BAIRE) and the norm
+     passage (NORM) are explicit. Round 3 (the verifier's m2): the test now checks the claim itself, that every N1 row
+     needs one of NORM, TENSOR, LOWE, TRAP, each after COVER, not only "after COVER".
   Controls (must fail, and do): C1 a ledger row removed from the table is reported missing; C2 a planted site is
   unclassified, and the pattern itself is tested on planted phrasings (round 1's C2 injected a hit and never tested
-  the pattern; round 1's pattern misses three of the five phrasings).
+  the pattern; round 1's pattern misses three of the five phrasings); C3 (Round 3) R3's test with one N1 row
+  re-tagged SIGMA only fails.
 
 Codes. NORM: from per-harmonic L^2 bounds (E2-PILOT's kind) to the record's variable-order b-Sobolev norms, which needs
 the elliptic and propagation constants of I.A-I.B, themselves COVER rows. TENSOR: a system on 1-forms or symmetric
@@ -128,11 +131,24 @@ def main():
                                                    for (f, l) in hits if BAIRE.get((f, l)) == 'B')))
     dep = {c: i for i, c in enumerate(ORDER)}
     n1_first = sorted(k for k in led if led[k] == 'N1')
-    blocked = all(min(dep[c] for c in ROWS[k].split()) > dep['COVER'] for k in n1_first)
+    need = {'NORM', 'TENSOR', 'LOWE', 'TRAP'}
+
+    def r3_test(rows):
+        # Round 3 (the verifier's m2): the claim itself -- every N1 row needs one of NORM, TENSOR, LOWE, TRAP, each
+        # after COVER in the order -- not only the weaker "after COVER"
+        return all(set(rows[k].split()) & need and min(dep[c] for c in rows[k].split()) > dep['COVER']
+                   for k in n1_first)
+
+    blocked = r3_test(ROWS)
     ok['R3'] = blocked and len(by['COVER']) == 13
     say('  R3: every N1 row needs at least one of NORM, TENSOR, LOWE, TRAP, all after COVER in the order %s: %s; the '
         'COVER rows (%d) and the B rows (%d) come first' % (' < '.join(ORDER), blocked, len(by['COVER']),
                                                             sum(1 for h in hits if BAIRE.get(h) == 'B')))
+    t3 = dict(ROWS)
+    t3[('PART-I-C-LOWENERGY.md', 497)] = 'SIGMA'
+    ok['C3'] = not r3_test(t3)
+    say('  C3 (control; Round 3): R3\'s test with I-C:497 re-tagged SIGMA only (no NORM, TENSOR, LOWE or TRAP) fails: %s'
+        % ok['C3'])
     t2 = dict(ROWS)
     del t2[('PART-I-C-LOWENERGY.md', 497)]
     ok['C1'] = sorted(set(led) - set(t2)) == [('PART-I-C-LOWENERGY.md', 497)]

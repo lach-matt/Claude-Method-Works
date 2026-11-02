@@ -4,3 +4,13 @@ Z1  Z is homothetic for eta, and nearly so for Tangherlini
   Z1c control: r d_r alone is not homothetic for eta: pass 
 Z2  the commutator of Z with the wave operator
   Z2a box_g = box_eta - mu r^-3 d_r(r d_r) (from the metric): pass 
+  Z2b [Z, box_eta] = -2 box_eta: pass 
+  Z2c [Z, box_g] + 2 box_g = 2 mu r^-3 d_r(r d_r): pass 2*mu*(r*Derivative(F(v, r), (r, 2)) + Derivative(F(v, r), r))/r**3
+  Z2d control: [r d_r, box_eta] is not a constant multiple of box_eta: pass (2*kappa*F(v, r) - 2*r**2*(Derivative(F(v, r), (r,
+Z3  Z at I_0
+  Z3a Z = -rho d_rho - v1 rho d_tau (b-normal at rho = 0): pass Z rho = -rho, Z tau = -rho*v1
+  Z3b control: d_t = rho d_tau, which vanishes at I_0: pass 
+Z4  the self-similar terms are Z-eigenfields
+  Z4a (Z + p)(r^-p F(s)) = 0 for p = 2, 5/2, 3, 7/2: pass 
+  Z4b control: a log term is not annihilated by Z + p, but is by (Z + p)^2: pass F((v - v1)/r)/r**(5/2)
+Z5  the weight window

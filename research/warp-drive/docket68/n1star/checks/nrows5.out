@@ -12,17 +12,3 @@
       I-SPECTRAL:1602 COVER; I-SPECTRAL:1884 COVER BFAM; II-A2-STANDARD:772 COVER; II-D-REGULARITY:1032 COVER;
       II-E-ENERGY:615 COVER; II-G-NASHMOSER:299 COVER; II-G2-DECAY:716 COVER SIGMA; III-G-SPECTRAL:342 COVER;
       III-H3-UNIFORM:215 COVER BFAM
-  R2: Baire-category sites in proof5: 18 ({'B': 10, 'R': 6, 'Q': 1, 'A': 1}), none among the ledger's N-rows: True; the B
-      rows: II-A-SETUP:960; II-A2-STANDARD:130; II-A2-STANDARD:186; II-A2-STANDARD:188; II-A2-STANDARD:276;
-      II-A2-STANDARD:281; II-F-IOTA:1400; III-H-AUGMENT:425; III-J3-TAME:41; III-J3-TAME:82
-  R3: every N1 row needs at least one of NORM, TENSOR, LOWE, TRAP, all after COVER in the order COVER < NORM < TENSOR <
-      LOWE < TRAP < SIGMA < BFAM: True; the COVER rows (13) and the B rows (10) come first
-  C1 (control): with I-C:497 removed from the table it is reported missing: True
-  C2 (control): a planted site is unclassified; the pattern finds 5 planted phrasings (every dash) and not "a closed
-      curve in the graph"; round 1's pattern misses 3 of them (by the closed-graph theorem; the open–mapping theorem; the
-      theorem of Banach and Steinhaus): True
-R1 PASS
-R2 PASS
-R3 PASS
-C1 PASS
-C2 PASS
