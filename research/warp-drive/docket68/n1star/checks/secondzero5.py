@@ -223,16 +223,16 @@ def main():
                                                                  float(Z['rcut']) if 'rcut' in Z else -1), flush=True)
         good, n_far, n_near, k, nsel = s1(Z)
         ctl = s1(Z, umin=-1.02)[0]
-        print('  S1 R_v < 0 at u > -1, >= %d rows from the cut, v <= 2: violations %d far, %d near the cut, of %d '
-              'cells -> %s; control (u > -1.02) %s' % (k, n_far, n_near, nsel, 'PASS' if good else 'FAIL',
+        print('  S1 R_v < 0 at u > -1, >= %d rows from the cut, v <= %.2f: violations %d far, %d near the cut, of %d '
+              'cells -> %s; control (u > -1.02) %s' % (k, VMAX, n_far, n_near, nsel, 'PASS' if good else 'FAIL',
                                                        'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
         late = s1(Z, vmax=2.0, vmin=VMAX)
         print('     beyond, on (%.2f, 2]: violations %d far, %d near the cut' % (VMAX, late[1], late[2]), flush=True)
         good, extra, fv, k = s2(Z)
         ctl = s2(Z, control=True)
-        print('  S2 further zeros of R_v along ingoing cones: %d, first at v = %s, all at u > -1 within %d rows of the '
-              'cut: %s; control (first zero near the cut) %s' % (extra, fv, k, 'PASS' if good else 'FAIL',
+        print('  S2 further zeros of R_v along ingoing cones, v <= %.2f: %d, first at v = %s, all at u > -1 within %d '
+              'rows of the cut: %s; control (first zero near the cut) %s' % (VMAX, extra, fv, k, 'PASS' if good else 'FAIL',
                                                                  'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
         late = s2(Z, vmax=2.0, vmin=VMAX)

@@ -90,7 +90,7 @@ TABLE = {
     (744, 'weak'): (G, 'weak-* limit: existence, the bound is the uniform one'),
     (745, 'limit'): (G, 'weak-* limit: as above'),
     (750, 'lam0'): (T, 'lam_D (Proposition 6.5)'), (750, 'there is '): (T, 'lam_D (Proposition 6.5)'),
-    (771, 'lam small'): (T, 'D-a and D-b (Proposition 6.5)'),
+    (771, 'lam small'): (T, 'D-a, D-b and D-d (Proposition 6.5)'),
     (782, 'depending only on'): (X, 'tame recursion: explicit'),
     (785, 'gronwall'): (X, 'explicit'),
     (787, 'limit'): (X, 'limit of a contraction: constructive'),
@@ -100,8 +100,10 @@ TERMS = {'statement of lam0 (Theorem E)': None, 'lam1 = min(1, delta0)/10': 'lam
          'E-a, E-b and E-c (Step 3)': 'E-a,E-b,E-c',
          'E-d (Step 7)': 'E-d', 'E-b (|w| <= eps2/2 on Omega)': 'E-b', 'lam_D (Theorem D)': None,
          'D-c (coefficients keep their signs)': 'D-c', 'lam_D (Proposition 6.5)': None,
-         'D-a and D-b (Proposition 6.5)': 'D-a,D-b'}
-FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c'}
+         'D-a, D-b and D-d (Proposition 6.5)': 'D-a,D-b,D-d'}
+FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D-d added in round 2 (V-m4): the
+# ball invariance of Proposition 6.5 (N1STAR-PROOF.md:771-772)
+PIN = '57d896ae1da4845f3c94c66d7b087a41'        # round 1's md5 of lines 1-805, pinned in round 2 (V-n3)
 CITES = {
     'BH17': ('Sobolev H^3 -> L^inf in 4D', 'enters (C_S)', 'effective: certified constant, lzeroconst5 Z3'),
     'DS23': ('local existence Thms 2.4, 2.6; Remark 2.3 commutators', 'Thm 2.4/2.6 no; Remark 2.3 via Lemma 6.4',
@@ -139,6 +141,8 @@ def main():
     ok = {}
     lines = open(PROOF, encoding='utf-8').read().split('\n')[:LAST]
     md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
+    ok['A0'] = md5 == PIN
+    say('  A0: md5 of N1STAR-PROOF.md lines 1-%d = %s, the pinned %s: %s' % (LAST, md5, PIN, ok['A0']))
     hits, uncl = census(lines, TABLE)
     cls = {}
     for h in hits:
