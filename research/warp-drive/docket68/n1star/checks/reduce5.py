@@ -105,7 +105,8 @@ def main():
     good = zero(sq ** 2 + ht.det())
     print('R4 sqrt|det ht| = R^7 (1 - x^2) e^{2(P+Q)+2W}/8:', 'PASS' if good else 'FAIL'); ok &= good
     gt = ht[2, 2]; Om2 = -ht[0, 1] / 2
-    good = zero(gt - R ** 6 / 16) and zero(ht[0, 2] + gt * (1 - x ** 2) * s) and zero(ht[0, 0] - gt * ((1 - x ** 2) * s) ** 2)
+    good = zero(gt - R ** 6 / 16) and zero(ht[0, 2] + gt * (1 - x ** 2) * s)
+    good &= zero(ht[0, 0] - gt * ((1 - x ** 2) * s) ** 2)
     zeta = W + 2 * sp.log(R) + P + Q
     good &= zero(Om2 - sp.exp(2 * zeta) * (1 - x ** 2) / 4)
     print('R4 gt = R^6/16, the shift unchanged, Omt^2 = e^{2 zeta} (1 - x^2)/4 with zeta = W + 2 log R + P + Q:',
@@ -139,14 +140,14 @@ def main():
                     - Ric5[i, j] - tr * h[i, j]) for i, j in pairs)
     print('R3 E_ab = Ric5_ab + (e^{-2A} Ric5_11 + e^{-2B} Ric5_22) h_ab (all six):', 'PASS' if good else 'FAIL')
     ok &= good
-    c1 = zero(Ric5[1, 1] - (Rict[1, 1] - 0)) and zero(r2(0, 1, hconf=sp.sqrt(rho2) * h))
-    # c1 proper: R2 with the Einstein frame built from rho instead of rho^2
+    # c1: R2 with the Einstein frame built from rho instead of rho^2
     hc = sp.sqrt(rho2) * h
     Rc = dn.ricci(hc, C3)
     c1 = zero(Ric5[0, 1] - (Rc[0, 1] - sp.Rational(3, 2) * d(L, 0) * d(L, 1) - 2 * d(psi, 0) * d(psi, 1)
                            + bL * hc[0, 1])) and zero(Ric5[1, 1] - (Rc[1, 1] - sp.Rational(3, 2) * d(L, 1) ** 2
                                                                     - 2 * d(psi, 1) ** 2))
-    print('   control (c1) the conformal weight rho in place of rho^2 (uv, vv):', 'identity (bad)' if c1 else 'fails (good)')
+    print('   control (c1) the conformal weight rho in place of rho^2 (uv, vv):',
+          'identity (bad)' if c1 else 'fails (good)')
     ok &= not c1
     c2 = zero(r2(1, 1, coefL=1)) and zero(r2(0, 1, coefL=1))
     print('   control (c2) coefficient 1 in place of 3/2 (vv, uv):', 'identity (bad)' if c2 else 'fails (good)')
