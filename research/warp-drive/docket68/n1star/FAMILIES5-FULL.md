@@ -24,10 +24,12 @@ source through alphaXiv, 2026-11-02). New programs: `checks/twobg5.py`, `checks/
 record's. Add an outgoing family: A₂ > 0 and env₂ ∈ C_c^∞((u1, u2)). The **background's characteristic data** are
 explicit Vaidya data on two null cones, both in the past of Σ_τ0:
 
-- on the ingoing cone N′ = {v = v0}, v0 < τ0 + a, before the shell: **outgoing Vaidya**, g = −(1 − m(u)/r²) du² − 2 du dr
-  + r² dΩ₃², with dm/du = −(2/9) A₂² env₂(u)² (the record's Isaacson law, (2.6), for the outgoing wave), m = μ0 for u ≥
-  u2 (the seed inside the packet) and m = μ0 + E₂ for u ≤ u1, E₂ := (2/9) A₂² ∫ env₂²; the packet [u1, u2] is required
-  to lie where N′ is untrapped (r² > m);
+- on the ingoing cone N′ = {v = v0}, v0 < τ0 + a, before the shell: Tangherlini of mass μ0 (the seed) for u ≥ u2,
+  outgoing Vaidya g = −(1 − m(u)/r²) du² − 2 du dr + r² dΩ₃² across the packet [u1, u2], with dm/du = −(2/9) A₂²
+  env₂(u)² (the record's Isaacson law (2.6) for the outgoing wave, u the retarded Eddington–Finkelstein time there), and
+  Tangherlini of mass μ0 + E₂, E₂ := (2/9) A₂² ∫ env₂², for u ≤ u1; the packet is required to lie where N′ is
+  untrapped (r² > m). In double-null form these are the solutions along N′ of the Raychaudhuri constraint with K_out R³
+  = ℬ(u) = (1/3) A₂² env₂² in that normalisation (twodust5 B1, B3);
 - on the outgoing cone N = {u = u0}, u0 < u1, outside the packet: **ingoing Vaidya** with dμ/dv = (2/9) A² env²,
   μ = μ0 + E₂ before the shell.
 
@@ -182,14 +184,12 @@ smooth data and finitely many stages.
 The proof is the record's section 4 with these changes (each a statement FAMILIES5.md 4f-4g deduces, now with the
 domain, the transports and the mollifier in place):
 
-- *The decomposition is an extended system.* (h, φ_in, φ_out) solve h's equation (FAMILIES5.md (3.5′)) and ℓ_K·dφ_K =
-  ½ 𝒫 s_K(h), φ_K = 0 on Σ_τ0. The phases are driven by s_K(**h**), not s_K(w): s_in(w) − s_in(h) = φ_out c_in + O(λ)
-  with c_in = e^(−4σ) F2 χ′ oscillating at scale λ, and a transport driven by s_in(w) would give ‖∂φ_in‖ ≲ λ⁻¹ ‖φ_out‖
-  (Bernstein on an oscillation at the mollifier's scale), a loss. Driven by s_K(h), ‖λ^j ∂^j ∂φ_K‖ ≤ C ‖λ^j ∂^j ∂ s_K(h)‖
-  ≤ C N₂, as in the record's Step 5. The extended system is a wave equation for h coupled to transports with smoothing
-  sources (𝒫), solvable at fixed λ by the record's Step 8; w := h + Σ φ_K Y_K solves Ric^H(g_app + w) = 0, and by
-  uniqueness (Step 8) it is the solution. Step 1 (|w|_(k+1) ≤ C N₂) and Step 2 (φ_K = 0 on Σ_τ0, so h = w there) are
-  the record's.
+- *The decomposition.* Given the solution w (Step 8), the phases solve the linear system ℓ_K·dφ_K = ½ 𝒫 s_K(h), h :=
+  w − Σ_J φ_J Y_J, φ_K = 0 on Σ_τ0 (FAMILIES5.md (3.4′)), by Picard iteration (φ ↦ 𝒫(c φ) is bounded on L²). The
+  estimates must use this form: ‖λ^j ∂^j ∂φ_K‖ ≤ C ‖λ^j ∂^j ∂ s_K(h)‖ ≤ C N₂, as in the record's Step 5. Written through
+  s_K(w) instead, the source contains 𝒫(c_in φ_out), c_in = e^(−4σ) F2 χ′ oscillating at the mollifier's own scale, whose
+  derivative is of size λ⁻¹ ‖φ_out‖ (Bernstein, (M2)): routing the estimate that way would lose a power of λ (deduced).
+  Step 1 (|w|_(k+1) ≤ C N₂) and Step 2 (φ_K = 0 on Σ_τ0, so h = w there) are the record's.
 - *The λ⁻¹ structure* (computed, FAMILIES5.md 4d L1-L3, 4f Q2): the λ⁻¹ part of the linearisation is ½ λ⁻¹ Σ_K s_K
   G2^K, once per family and nothing else; after the decomposition the only λ⁻¹ coefficients left are ½ λ⁻¹ ((1 − 𝒫)
   s_K(h)) G2^K, each O(∂ s_K(h)) by (M3).
@@ -287,9 +287,9 @@ dr) at an axis point.
 
 **Angular separation (computed, A2; deduced).** Two families both ingoing (or both outgoing) at an axis point have
 parallel gradients there. For v = τ + r and w above, g0⁻¹(dv, dw) = −1 + cos β, and near the axis g0⁻¹(dv, dw)/(β²/2) →
-−1 with β/θ → 5/31 (α, β = 1/2, 1/3): the mixed symbol −n1 n2 g0⁻¹(dv, dw) **vanishes like θ²** at the axes (a small
-divisor of the division of section 4), and Huneau and Luk's angular separation (READ below, [HL18] Definition 4.1, p.
-10) fails there, its cosine tending to 1. The radial in/out pair has g0⁻¹(dv, du) = −2 everywhere (separated). Hence:
+−1 with β/θ → 5/31, β the angle between the two rays: the mixed symbol −n1 n2 g0⁻¹(dv, dw) **vanishes like θ²** at the axes (a small
+divisor of the division of section 4; semi-axes 1/2, 1/3), and Huneau and Luk's angular separation (READ below,
+[HL18] Definition 4.1, p. 10) fails there, its cosine tending to 1. The radial in/out pair has g0⁻¹(dv, du) = −2 everywhere (separated). Hence:
 **with envelopes that do not vanish at the axes, at most two families can be angularly separated in the class, one
 ingoing and one outgoing at each axis** — Part I. Several radial families of one orientation are resonant (nonres5
 control): they are one family with a multi-frequency profile, not separated families.
@@ -305,8 +305,8 @@ the axes as boundary.
 without smallness, is available here. What is known is small-data and four-dimensional: Huneau and Luk's background is
 their small-data local solution in an elliptic gauge, "smallness is required even for local existence of smooth
 solution" (READ, [HL24] p. 28, quoted in the record), and Touati assumes the background "close to Minkowski" and does
-not construct it ("we don't prove that such a background spacetime ... can be constructed", READ, [Tou24] (1.15) p. 8,
-Remark 1.3 p. 11). The step that fails without these is the null dust's own regularity: the dust's density is
+not construct it (READ, [Tou24] (1.15) p. 8, and Remark 1.3 p. 11: "In this article, we don't prove that such a
+background spacetime (M, g0, uA, FA) can be constructed, this follows from [CBF06] adapted to the null dusts case."). The step that fails without these is the null dust's own regularity: the dust's density is
 transported by □_g u_A, one derivative below g, and coupled back into Einstein it loses a derivative (FAMILIES5.md 4i,
 `dustloss5.py`, in the characteristic setting); Huneau and Luk recover it in their Vlasov paper through the Raychaudhuri
 equation for the null expansions (READ, [HL25] p. 5: "we use the Raychaudhuri equation that χ_A satisfies"), again for
@@ -408,7 +408,8 @@ T²-invariant dusts needs non-radial families, which are radial at the axes (Par
 at the axes is radial or the families' envelopes vanish there. Either way the background is non-round and the proof
 stops at **Part II's obstruction**: the existence of a non-round, large Einstein–null dust background in the class on the
 domain, and, for the limit N → ∞ of [HL25], a construction uniform in the number of families, which neither [HL25] (its
-constants C(N) = c^N N^N, p. 5, READ: "Going through the proof gives that C(N) = c^N N^N works for some large c ≥ 1")
+constants C(N) = c^N N^N, p. 5, READ: "Going through the proof gives that C(N) = c^N N^N works for some large c ≥ 1",
+exponents restored from the extraction)
 nor [Tou24] (p. 4) provides beyond small data.
 
 ---
