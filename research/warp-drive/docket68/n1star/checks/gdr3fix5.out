@@ -2,3 +2,6 @@
   T1 control (chi(t), t = T + r): (p, r^(p+1) [Box, chi(t_flat)] Z finite[, at p = 1: r^(p+3/2) finite]): [('3/2', False), ('1', False)]
 T1 PASS
   T2: Box^Ups(phi(t_*) U), U of spatial order q (symbolic): (coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite for every q): [('A1', True), ('A2', True)]
+  T2 control (c_Ups = dt): Box^Ups(phi(t_*) U), U of spatial order q (symbolic): (coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite for every q): [('A1', False), ('A2', True)]
+T2 PASS
+  T3: each condition is a positive sum on the whole box: {'K4 h iota+': True, 'K4 h K+': True, 'K4 rows iota+': True, 'S2 pi_1/ - lam': True, 'S4 b_I < 3/2': True, 'S4 b_+ < b_I': True, 'S4 I+': True, 'S4 iota+': True, 'S4 K+': True, 'S7 p > b_I': True}

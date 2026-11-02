@@ -10,3 +10,13 @@ L2 PASS
       Lambda_(26,m) = 456.86229; round 1: log10 C_(1,m) = 4601.9657, log10 C_(26,m) = 4522.8941; amended: log10 C*_(1,m)
       = 435.274, log10 C*_(26,m) = 460.016; Chebyshev first-row sum = n^2 = 2117025 (certified): True, log10 C^Ch_(1,m) =
       3.89723  [243 s]
+L3 PASS
+  L4 nu(5/2) = -196/15625; d nu/d rho = -(rho**2 + 2)*(2*rho**3 - 3*rho**2 - 2)/(6*rho**7) (so |nu| increases on rho >
+      rho*): True; d_*^2 = 64/9 at zeta = 0 (critical points 3); C_m0 = 0.22697248.  Thresholds (no constant of Theorem
+      1): Lam_4(C1 = 0), Lam_5, round 1's L.5: 2.4417e-4655, 7.6088e-436; amended L.5: 3.4099e-448, 6.6596e-58; with
+      Chebyshev nodes at i = 1: Lam_4(0) = 1.2519e-12; Lam_8a = 0.610885.  Formulas: Lam_4(C1) = Lam_4(0) (1 + C1 dtau/(2
+      pi))^(-m/(m - p)), dtau <= 5.937209; Lam_6 = (288 mu0 C_Phi/(25 A^2))^(1/27); Lam_8b = (G/(C_L11 C_eps))^(4/3),
+      Lam_8c = (G/(C_L11 C_eps^2))^(1/11.5), Lam_8d = (G/(C_L4 C_eps))^(4/3), G := 3 A nu_* d_*/32 = 0.003136, log10
+      C_eps = 4676.095 (round 1), 613.2166 (amended)
+L4 PASS
+lamL5: all checks pass, every control fails  [267 s]
