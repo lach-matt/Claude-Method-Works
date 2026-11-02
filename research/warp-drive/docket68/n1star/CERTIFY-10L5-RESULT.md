@@ -14,9 +14,11 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
    - *Deduced (D1, D2):* in any smooth vacuum solution with the record's data in `dnsolve5`'s double-null gauge,
      every leaf with u > −1 has negative outgoing expansion at every point, for as long as the solution exists in
      that gauge. No section of an ingoing cone whose expansion is ≥ 0 at its innermost point has that point at
-     u > −1. In particular this holds for every marginally outer trapped surface (MOTS).
+     u > −1. In particular this holds for every T²-invariant MOTS section (a marginally outer trapped surface that
+     is a T²-invariant section of an ingoing cone; corrected in round 2, section 6).
    - *Computed:* the leaves' expansion has one zero per angular node along every ingoing cone of the converged
-     region. Every MOTS of the exact solution on that cone is then confined to a band of width 0.003–0.007 in u at
+     region. Every T²-invariant MOTS section of the exact solution on that cone is then confined to a band of width
+     0.003–0.007 in u at
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
    - *Computed (seed 1):* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero
      structure: the dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40
@@ -105,7 +107,8 @@ controls are the formula without the derivative of l along S, and the leaf's exp
 - At the innermost point p of S (where U is largest), θ_S(p) ≤ θ_leaf(p).
 - At the outermost point q, θ_S(q) ≥ θ_leaf(q).
 - With D1: no section with θ_S ≥ 0 at its innermost point has that point at u > −1.
-- A MOTS of C_v has θ_leaf ≥ 0 at its innermost point and θ_leaf ≤ 0 at its outermost point. So it lies between the
+- A T²-invariant MOTS section of C_v has θ_leaf ≥ 0 at its innermost point and θ_leaf ≤ 0 at its outermost point. So
+  it lies between the
   least and the greatest u of the leaves' zero set on C_v. This is the double-null form of `hf_mirror5.py` X10's
   remark for the Bondi slices.
 
@@ -133,7 +136,8 @@ two at seed 2, cut 0.18. Results are in `checks/secondzero5.out`.
     [−1.0121, −1.0056] at v = 1.75; M = 16 agrees to 3 × 10⁻⁵ in u;
   - seed 2 (M = 16): [−1.0029, −1.0014] at v = 1.5 and [−1.0080, −1.0036] at v = 1.9.
 
-  By D2 every MOTS of these cones lies in that band, near areal radius 1.01–1.05. The Bondi second zero sits near the
+  By D2 every T²-invariant MOTS section of these cones lies in that band, near areal radius 1.01–1.05. The Bondi
+  second zero sits near the
   excision radius 0.54–0.57 (seed 1).
 
 ### 1.4 The Bondi spheres rebuilt from the double-null solution
@@ -231,7 +235,7 @@ at seed 2, where its control passes. S1–S3 pass in all eight runs.
   - two independent formulations and gauges give the same zero structure, and they converge on each other as the
     data truncation is removed;
   - the double-null leaves inside stay outer trapped (D1);
-  - any MOTS lies in a thin band at areal radius ≈ 1.01–1.05 (D2 and S1–S2).
+  - any T²-invariant MOTS section lies in a thin band at areal radius ≈ 1.01–1.05 (D2 and S1–S2).
 - So (a) is physical as a property of those particular surfaces and of the Bondi chart's excision premise. It is not a
   second marginally trapped surface, and it is no obstruction to existence. It obstructs only the Bondi chart.
 - The paper's "round spheres inside the seed's horizon cease to be trapped ... the direction of the untrapping is not a
@@ -281,7 +285,8 @@ values at the box centres are 10⁻¹¹–10⁻¹⁰: the fit's own residual.
 *Control.* Perturbing the fitted coefficients by 10⁻⁶ must raise the bound a hundredfold. It raises it to 465 (seed 1)
 and 4,259 (seed 2). `checks/cdata5.out`: all checks pass.
 
-*What this is.* A certified data error for the Raychaudhuri constraint of the record's truncated characteristic
+*What this is.* A certified constraint residual (corrected in round 2 from "data error") for the Raychaudhuri
+constraint of the record's truncated characteristic
 problem (data on u = −10, not at past null infinity). The constraint Ric_vx, which fixes the shift on that cone, is not
 certified.
 
@@ -346,7 +351,7 @@ shell, v ≤ v_start, the record's own result) existence is trivial, and no larg
 What is proved (deduced) is conditional and structural. Wherever a smooth vacuum solution with the record's data exists
 in `dnsolve5`'s double-null gauge:
 - every leaf inside the seed's horizon generator (u > −1) is outer trapped at every point (D1);
-- every MOTS of an ingoing cone has its innermost point at u ≤ −1 (D2).
+- every T²-invariant MOTS section of an ingoing cone has its innermost point at u ≤ −1 (D2).
 
 ## 3. The late region (computed, `checks/late5.py`)
 

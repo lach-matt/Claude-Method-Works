@@ -13,3 +13,5 @@
       outer boundary at r = 67/5 a perturbation of norm 0.601317 makes d(v + tau) null (floating point; exact in
       eps1hyp5.py H3): every eps1 above it is refuted, eps1 = 5.2617e-04 is below it: True; the hyperplane test of
       eps1hyp5.py gives every eps1 < 3/5
+  Z3: sup |p^(j)|, j = 0..3: [1.003, 1.884, 5.793, 60.027] (certified); max_j C(3, j) h^-(3-j) sup|p^(3-j)| = 480.2160;
+      |S_pi/3| >= 3.85868; C_S <= 43.2158 (certified, exact rationals)
