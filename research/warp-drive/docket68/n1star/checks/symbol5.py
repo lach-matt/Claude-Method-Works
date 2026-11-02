@@ -9,7 +9,7 @@ n, W) and s_vx; M is the matrix of the f_uv coefficients, N of the f_xx ones, V 
 of the linearised system is  D_u d_v f + K d_xx f  with  K = M^-1 N  and  D_u = d_u + (1 - x^2) s d_x  (Y0).
 
   Y0 M^-1 V = (1 - x^2) s I: in every row the mixed derivatives are D_u d_v f, the shift entering only through D_u.
-  Y1 K = -Lambda A with Lambda = 4 (1 - x^2) e^{2W + 2(P + Q)}/R^2 = e^{2W}/Gx > 0 and A exact; its characteristic
+  Y1 K = Lambda A with Lambda = 4 (1 - x^2) e^{2W + 2(P + Q)}/R^2 = e^{2W}/Gx > 0 and A exact; its characteristic
      polynomial is l^2 (l + 1)^2; the eigenvalue -1 is semisimple (rank (A + I) = 2), with left eigenvectors
      (3/(R(1 + x)), 1, 0, 0) and (3/(R(1 - x)), 0, 1, 0): the two wave modes, d[3 log R/(1 +- x) + m or n], i.e.
      log(g11 sqrt g22) and log(sqrt g11 g22) over (1 +- x); the eigenvalue 0 is NOT semisimple (rank A = 3 < 4 - 2):
@@ -19,10 +19,10 @@ of the linearised system is  D_u d_v f + K d_xx f  with  K = M^-1 N  and  D_u = 
      K3 = -Lambda I exactly (three uncoupled wave operators); R enters them through R_uv and R_xx only, with the exact
      coefficients printed; the Raychaudhuri row Ric_vv has the single second derivative R_vv (coefficient -3/R).
   Y3 no estimate for the weakly hyperbolic system (deduced; the identities exact).  Freeze the coefficients and take
-     f = e^{ikx} (a(u, v) e0 + b(u, v) e1) in the Jordan basis (K e0 = 0, K e1 = -Lambda e0, rescaled): the principal
-     system is a_uv = k^2 Lambda b, b_uv = 0.  The characteristic data b = 1, a = 0 on u = u0 and v = v0 give the exact
-     solution b = 1, a = k^2 Lambda (u - u0)(v - v0) (checked).  The data have norm 1 at frequency k in every H^s(x)
-     weighted alike, the solution norm k^2 Lambda (u - u0)(v - v0): so no estimate
+     f = e^{ikx} (a(u, v) e0 + b(u, v) e1) in the Jordan basis (K e0 = 0, K e1 = -Lambda e0): the principal system
+     f_uv = k^2 K f is a_uv = -k^2 Lambda b, b_uv = 0.  The characteristic data b = 1, a = 0 on u = u0 and v = v0 give
+     the exact solution b = 1, a = -k^2 Lambda (u - u0)(v - v0) (checked).  The data have norm 1 at frequency k in
+     every H^s(x) weighted alike, the solution norm k^2 Lambda (u - u0)(v - v0): so no estimate
          sup_{u, v} ||f(u, v)||_{H^s} <= F (||data||_{H^s} + ||source||)
      with F independent of k holds for any s, and none for the variable-coefficient linearisation either (a frozen-
      coefficient defect of strong hyperbolicity excludes well-posedness in such a scale: Kreiss; Strang).  Hence no
@@ -146,13 +146,13 @@ def main():
     print('Y2', 'PASS' if good else 'FAIL'); ok &= good
     # Y3: the frozen-coefficient Goursat solutions
     u, v, u0, v0, k, L = sp.symbols('u v u0 v0 k Lambda', positive=True)
-    a = k ** 2 * L * (u - u0) * (v - v0); b = sp.Integer(1)
-    jord = (sp.simplify(sp.diff(a, u, v) - k ** 2 * L * b) == 0 and sp.diff(b, u, v) == 0
+    a = -k ** 2 * L * (u - u0) * (v - v0); b = sp.Integer(1)
+    jord = (sp.simplify(sp.diff(a, u, v) + k ** 2 * L * b) == 0 and sp.diff(b, u, v) == 0
             and a.subs(u, u0) == 0 and a.subs(v, v0) == 0)
     f = sp.besselj(0, 2 * k * sp.sqrt(L * (u - u0) * (v - v0)))
     wave = (sp.simplify(sp.diff(f, u, v) + k ** 2 * L * f) == 0 and sp.simplify(f.subs(u, u0)) == 1
             and sp.simplify(f.subs(v, v0)) == 1)
-    print('Y3 Jordan block: a = k^2 Lambda (u - u0)(v - v0), b = 1 solve a_uv = k^2 Lambda b, b_uv = 0 with data (0, 1):'
+    print('Y3 Jordan block: a = -k^2 Lambda (u - u0)(v - v0), b = 1 solve a_uv = -k^2 Lambda b, b_uv = 0, data (0, 1):'
           ' %s; growth k^2 Lambda (u - u0)(v - v0), unbounded in k' % jord)
     print('   control (semisimple block): J_0(2k sqrt(Lambda (u - u0)(v - v0))) solves f_uv = -k^2 Lambda f with data 1:'
           ' %s; |J_0| <= 1 for every k -> the bounded case, as it must be' % wave)
