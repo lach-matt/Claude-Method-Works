@@ -236,8 +236,8 @@ def main():
           "      (%d nonzero entries checked; failures %s)"
           "  [%.0f s]" % (good4, cnt, bad4, time.time() - t0), flush=True)
     good4c, cntc, bad4c = p4(single=True)
-    print("  P4 control (family out with one quadrature): S-even: %s; failures, first six: %s  [%.0f s]"
-          % (good4c, bad4c, time.time() - t0), flush=True)
+    print("  P4 control (family out with one quadrature): S-even: %s; failures, first six (harmonic, component):\n"
+          "      %s  [%.0f s]" % (good4c, " ".join("%s%s" % (n, c) for n, c in bad4c), time.time() - t0), flush=True)
     ok &= good4
     ctl = ctl or good4c
     print("P1-P4:", "PASS" if ok else "FAIL")

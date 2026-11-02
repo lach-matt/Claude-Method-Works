@@ -16,19 +16,21 @@ decides the causal character of x_K = 1 there.
      (the top two derivative orders of the lam-series are those of lam (1 - i lam d_v)^-1 and lam^3 (1 - i lam d_v)^-2).
      Controls: R_X without its d_v part (the frozen operator) fails; slice data carrying i d_v of the wave fail.
   V3 (exact) nu_hom(r0): the homogeneous transport (T = 0) to r = sqrt(mu0) of the vv, vr, rr data of the third profile
-     on Sigma_tau0, i Pol^+(D_X H2)(r0) (layerlin5 N2, N4), per A E d: nu_hom = -mu0^(-1/4) r0^-6 / 4, never zero.
+     on Sigma_tau0, i Pol^+(D_X H2)(r0) (layerlin5 N2, N4), per A E d: nu_hom = -mu0^(5/4) r0^-6/4 = -mu0^(-7/4)/(4
+     rho^6), rho = r0/sqrt(mu0): never zero.
      Control: nu_hom differs from the transported-with-source value nu(r0) of (0.2) (it has no root rho*).
   V4 (computed, mpmath; exact for exp(-1/x^k)) The scale of the very edge, x_b(lam) := the x where lam |env'/env| = 1,
-     for the edge classes exp(-1/x^k) (k = 1, 2, 3: x_b = (k lam)^(1/(k+1))), exp(-e^(1/x)) (x_b ln(1/lam) -> 1), the
-     record's C_c^inf envelope (an exp(-3/(4x)) edge: exponent 1/2) and sin^4 (a finite-order edge: x_b ~ 4 lam,
-     exponent 1); and that below x_b/2 the top terms of the lam-series increase (k = 0..6) and above 3 x_b they decrease.
+     for the edge classes exp(-1/x^k) (k = 1, 2, 3: x_b = (k lam)^(1/(k+1))), exp(-e^(1/x)) (x_b ln(1/lam) decreases
+     towards 1), the record's C_c^inf envelope (an exp(-3/(4x)) edge: exponent 1/2) and sin^4 (a finite-order edge:
+     x_b ~ 4 lam, exponent 1); and that below x_b/2 the top terms of the lam-series increase (k = 0..6) and above 3 x_b they decrease.
      Control: the claim "x_b ~ lam^(1/2) for every flat edge" fails for exp(-1/x^2), exp(-1/x^3) and exp(-e^(1/x)).
   V5 (computed, mpmath, a model with unit constants, A = mu0 = |d| = 1) For env = exp(-1/x), lam = 1e-6: the re-summed
      first-degree term F := lam (i/s)^2 E = -lam int_0^x (x - x') e^(-i (x - x')/lam) E(x') dx', s = d_v + i/lam,
      (a) agrees with its truncated binomial series lam^3 sum_(k<=K) (k+1) (i lam)^k E^(k) in the window (env = lam^14)
      and with the local form lam (i/s~)^2 E, s~ := E'/E + i/lam, at both points; (b) at the very edge x = 0.3 lam^(1/2)
      the truncated series is off by more than its own size and consecutive truncations differ by more than the first
-     (no truncation is asymptotic), while the local form is within 1e-3; (c) Re[c F e^(i v/lam)] changes sign twice on
+     (no truncation is asymptotic), while the local form is within 2e-3, O(x); (c) Re[c F e^(i v/lam)] changes sign
+     twice on
      every carrier period at the very edge for three phases c, and |F| exceeds the margin bound (E^2 + int E^2)/9 by a
      factor above 10^1000; (d) at the very edge |F| < the approximant's top slice-data term lam^(N+1) (N-1) |E^(N-2)|
      |nu_hom| < the record's bound on the correction U, lam^(N-2) eps_(2N+2) (N = 9): the record's own bounds leave the
@@ -269,9 +271,9 @@ def v3(control=False):
     K = L.KCLOSED
     if control:
         return sp.simplify(nur - K) == 0
-    closed = sp.simplify(nu + mu0**sp.Rational(-1, 4)*r0**-6/4) == 0
+    closed = sp.simplify(nu + mu0**sp.Rational(5, 4)*r0**-6/4) == 0
     noroot = sp.solve(sp.numer(sp.together(nur)), rho) == []
-    out("  V3 nu_hom(r0) = %s (closed form -mu0^(-1/4) r0^-6/4: %s), homogeneous transport: %s, no zero: %s;"
+    out("  V3 nu_hom(r0) = %s (closed form -mu0^(5/4) r0^-6/4: %s), homogeneous transport: %s, no zero: %s;"
         " at P* (mu0 = 1, r0 = 5/2): nu_hom = %s, nu = %s" % (nu, closed, hom, noroot, sp.nsimplify(nu.subs(
             {mu0: 1, r0: sp.Rational(5, 2)})), sp.N(K.subs({mu0: 1, rho: sp.Rational(5, 2)}), 8)))
     return closed and hom and noroot
@@ -356,7 +358,7 @@ def v4(control=False):
         exact = all(abs(xb/((k*lam)**(mp.mpf(1)/(k + 1))) - 1) < mp.mpf(10)**-30 for xb, lam in zip(expo[nm][1], lams))
         ok &= exact and abs(expo[nm][0] - mp.mpf(1)/(k + 1)) < mp.mpf(10)**-20
     dexp = [xb*mp.log(1/lam) for xb, lam in zip(expo["exp(-e^(1/x))"][1], lams)]
-    ok &= dexp[0] < dexp[1] < dexp[2] < 1 and dexp[2] > mp.mpf('0.95')
+    ok &= dexp[0] > dexp[1] > dexp[2] > 1 and dexp[2] < mp.mpf('1.2')
     ok &= abs(expo["record C_c^inf"][0] - mp.mpf(1)/2) < mp.mpf('0.01')
     ok &= abs(expo["sin^4 (paper)"][0] - 1) < mp.mpf('1e-6')
     ok &= abs(expo["sin^4 (paper)"][1][2]/(4*lams[2]) - 1) < mp.mpf('1e-6')
@@ -373,7 +375,8 @@ def v4(control=False):
     ok &= all(incr.values())
     out("  V4 exponents d log x_b / d log lam at lam = 1e-16..1e-32: " + "; ".join(
         "%s %s" % (nm, mp.nstr(e[0], 6)) for nm, e in expo.items()) + "; x_b = (k lam)^(1/(k+1)) exactly for"
-        " exp(-1/x^k): True; exp(-e^(1/x)): x_b ln(1/lam) = %s (-> 1); sin^4: x_b/(4 lam) = %s; top terms increase below"
+        " exp(-1/x^k): True; exp(-e^(1/x)): x_b ln(1/lam) = %s (decreasing to 1); sin^4: x_b/(4 lam) = %s; top terms"
+        " increase below"
         " x_b/2 and decrease above 3 x_b: %s" % (", ".join(mp.nstr(d, 5) for d in dexp),
                                                 mp.nstr(expo["sin^4 (paper)"][1][2]/(4*lams[2]), 8), incr))
     return ok
@@ -443,7 +446,7 @@ def v5(control=False):
     if control:
         return changes["0 (control)"] > 0 or order["window"][0]
     ok = res["window"][1] < mp.mpf('1e-3') and res["window"][3] < mp.mpf('1e-2')
-    ok &= res["edge"][1] > 1 and res["edge"][2] > 1 and res["edge"][3] < mp.mpf('1e-3')
+    ok &= res["edge"][1] > 1 and res["edge"][2] > 1 and res["edge"][3] < 10*xe
     ok &= all(changes[c] == 2 for c in ("1", "i", "e^(i pi/4)")) and ratio_log10 > 1000
     ok &= order["edge"][0]
     out("  V5 lam = 1e-6. Window (x = %s): |S_5/F - 1| = %s, |local/F - 1| = %s. Very edge (x = 0.3 lam^(1/2)):"

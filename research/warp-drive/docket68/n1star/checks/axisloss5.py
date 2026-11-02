@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """axisloss5: where the class Raychaudhuri closure (classchi5) degenerates: the axes (FAMILIES5-NONROUND.md section 4).
 
-Near the axis {x3 = x4 = 0} (rho1 > 0, so away from the origin, which Omega excludes) a T^2 x Z2 x Z2-invariant metric is,
+Near the axis {x3 = x4 = 0} (rho1 > 0: away from the origin, which Omega excludes) a T^2 x Z2 x Z2-invariant metric is,
 in the coordinates (tau, rho1, x3, x4) of the quotient by the free circle phi1 (the phi1-block G1 dphi1^2 decouples),
 
   g = h_AB dX^A dX^B + 2 (c_tau dtau + c_1 drho1)(x.dx) + a |dx|^2 + b (x.dx)^2,   x = (x3, x4), A, B in {tau, rho1},
