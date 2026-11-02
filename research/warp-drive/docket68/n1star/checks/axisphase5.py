@@ -7,8 +7,8 @@ plane {rho1, rho2 >= 0} (polar: rho1 = r cos th, rho2 = r sin th), whose edges t
 
   A1 (exact) a smooth function F(tau, rho1^2, rho2^2) has, at every point of the axis {x3 = x4 = 0} (and likewise of
      {x1 = x2 = 0}), its spatial gradient along xhat: its x3, x4 components vanish and its (x1, x2) part is radial. So
-     at an axis point the gradient of an invariant phase lies in span(dtau, dr), and if it is null for g0 = eta + (mu/r^2)
-     dv dv (Vaidya; Minkowski at mu = 0) it is a multiple of dv or of the outgoing radial null covector. Two families
+     at an axis point the gradient of an invariant phase lies in span(dtau, dr), and if it is null for g0 = eta +
+     (mu/r^2) dv dv (Vaidya; Minkowski at mu = 0) it is a multiple of dv or of the outgoing radial null covector. Two families
      whose phases are both ingoing (or both outgoing) at an axis point have parallel gradients there.
      Control: the non-invariant phase tau - x3 has, at the axis point (1, 0, 0, 0), a gradient off span(dtau, dr).
   A2 (exact) non-radial invariant null phases exist: on Minkowski, w = tau + f with f the distance to the T^2-orbit of
@@ -81,9 +81,10 @@ def a2(al=sp.Rational(1, 2), be=sp.Rational(1, 3)):
     ev1 = sp.simplify(x.subs(t, sp.pi - t) - sp.Matrix([-x[0], x[1]])) == sp.zeros(2, 1)
     # angle between the ray (n) and the radial direction xhat
     xhat = x / sp.sqrt(x.dot(x))
-    cosb = sp.simplify(n.dot(xhat))
-    at_axes = [sp.simplify(cosb.subs(t, 0) - 1) == 0, sp.simplify(cosb.subs(t, sp.pi / 2) - 1) == 0]
+    cosb = n.dot(xhat)
     s0 = sp.Rational(3, 2)
+    at_axes = [sp.simplify(cosb.subs({t: tt, s: ss}) - 1) == 0 for tt in (0, sp.pi / 2) for ss in (s0, 2 * s0, s0 / 3)]
+    cosb = sp.simplify(cosb)
     mid = [float(cosb.subs({t: sp.pi * k / 16, s: s0})) for k in (2, 4, 6)]
     radial_only_at_axes = all(m < 1 - 1e-6 for m in mid)
     # near the axis t -> 0 along the wavefront s = s0: g^-1(dv, dw) = -1 + cos(beta), beta ~ c t, th ~ c' t

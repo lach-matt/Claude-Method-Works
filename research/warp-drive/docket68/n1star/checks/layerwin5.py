@@ -16,8 +16,8 @@ term linear in the wave dominates the margin and every error term (Lemma L.6, Le
      |env^(i)|, N - k0 = 4, m0 the margin (0.2) with A = mu0 = 1,
      is printed; it decreases to 0 as lam -> 0 (the model of Theorem L's dominance), and at the two smallest lam the
      window has env in [y/2, 2y] and lies in the layer, (2/9) int_0^(v*+4 pi lam) env^2 < lam/100 (at lam = 10^-4 the
-     window is not yet narrow against the edge scale: "lam small enough" is part of the statement).  Controls: the level y = lam^2 (m0 dominates: rho > 1 at every lam), and
-     the coefficient K = 0 (no linear term: rho = infinity).
+     window is not yet narrow against the edge scale: "lam small enough" is part of the statement).  Controls: the
+     level y = lam^2 (m0 dominates: rho grows as lam -> 0), and the coefficient K = 0 (no linear term: rho infinite).
   W3 (computed, exact rationals) Theorem L's exponent ledger: with y = lam^p, Landau's index m and the derivative count
      M of the construction's flat-edge bounds, the conditions (e1)-(e6) of the note hold at p = 14, m = 56 M for every
      M in {8, 64, 1024} once N - k0 >= 4, and also in the exceptional case rho0 in Z_K (exponent 1 + 2/kap on the

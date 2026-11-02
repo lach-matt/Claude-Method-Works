@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/layerlin5.py", line 425, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/layerlin5.py", line 407, in main
+    ctl = f(control=True)
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/layerlin5.py", line 170, in n0
+    rhs = i0 - i0*km*i0 + (0 if control else i0*km*i0*km*i1)
+          ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for +: 'MutableDenseMatrix' and 'int'
+exit 1

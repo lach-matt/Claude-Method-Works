@@ -7,7 +7,7 @@ Programs: `checks/tail5.py` (T1-T9), `checks/wedge5.py` (W1-W6).
 
 ## 0. The question and the answer
 
-The paper's section 9 ("Beyond the boundary", RESPONSE-HL-5D.md:1471-1482) says that Theorem 4 is not shown to apply
+The paper's section 9 ("Beyond the boundary", RESPONSE-HL-5D.md:1463-1482) says that Theorem 4 is not shown to apply
 to g_λ's own data. The task: prove that the maximal vacuum development of g_λ's own data settles to a Tangherlini
 metric by Theorem 4 (ii), in III.K's own class as Part VII fixes it, ℰ_0 = {(j, 0) : j ≥ 2} and ℓ0 ∈ (3, 4)
 (PART-VII-ASSEMBLY.md:45-46), with no gluing; otherwise say exactly what fails.
@@ -87,8 +87,9 @@ Put ê(ω) := ∫ env(v) e^(iωv) dv and ω := 1/λ.
 - (b) G_5^∞ = A a_1 + A³ a_3, where a_1 = ½(Δ̊ − ¾) ∫ G_3|_(A=1) dv = ½(Δ̊ − ¾)[λ h (T_F Im ê(ω) + T_G Re ê(ω))],
   Δ̊ acting on each Cartesian component, and a_3 is the v-integral of the cubic part of S_(7/2).
 - (c) a_1 and a_3 are O(λ^n) for every n.
-- (d) a_1 = 0 exactly when ê(1/λ) = 0. There is at most one A* > 0 for which G_5^∞ vanishes for every λ; for every
-  other A > 0 the λ at which G_5^∞ = 0 form a discrete subset of (0, ∞).
+- (d) a_1 is purely spatial, and a_1 = 0 exactly when ê(1/λ) = 0. There is at most one A* > 0 for which the
+  spatial components of G_5^∞ vanish for every λ; for every other A > 0 the λ at which they vanish form a discrete
+  subset of (0, ∞).
 
 *Proof.* **The order count.** At past null infinity give each factor of a term of S_q its order (the power of r^(−1))
 and its degree in A: G_3 (3/2, 1); G_4 (2, 2), since G_4 = 2∫S_3 and S_3 is quadratic in G_3 plus Ric(g0)'s
@@ -118,8 +119,9 @@ product has a nonzero mean).
 independent (T7c). So a_1 = 0 iff Im ê(ω) = Re ê(ω) = 0. ê is entire. Every factor of a_1 and a_3 is an iterated
 integral over [v_start, v] of products of C_c^∞ functions of v with e^(±ikωv), times monomials in ω^(±1) (λ = 1/ω,
 and λ^(−1) from ∂_v² G_3), so a_1 and a_3 are real-analytic in ω > 0. If two amplitudes A_1 ≠ A_2 had G_5^∞ ≡ 0 in
-ω, subtracting would give a_3 ≡ 0 and then a_1 ≡ 0, against ê ≢ 0. For any other A, some component of G_5^∞ at some
-x̂ is a real-analytic function of ω that is not identically zero, so its zeros are isolated. ∎
+ω, subtracting would give a_3 ≡ 0 and then a_1 ≡ 0, against ê ≢ 0 (the same on the spatial components, where all
+of a_1 lies). For any other A, some spatial component of G_5^∞ at some x̂ is a real-analytic function of ω that is not
+identically zero, so its zeros are isolated. ∎
 
 For the C_c^∞ bump env_b(v) = exp(−1/(1 − y²)), y = (v − 2)/(3/2), on the record's interval [½, 7/2]: ê_b(1/λ) ≠ 0
 at λ = 2^(−1), …, 2^(−7) (|ê_b| = 0.297 to 3.4 × 10^(−8)), falling faster than λ^5 over [2^(−7), 2^(−5)] (T8c-d);
@@ -163,8 +165,8 @@ Gamma is finite (deduced); computed for l ≤ 60, with the controls that at the 
 vanishes at every odd l and every even l ≥ 2 (T3). (iv) The induced metric is g_ij plus terms carrying ∂f = O(ρ²),
 which do not reach ρ^(5/2). ∎
 
-**Corollary 4.2 (deduced, conditional as 4.1; computed, T6).** Off the exceptional set of Proposition 3.1 (d), with
-ê(1/λ) ≠ 0, a_(5/2) ≠ 0: G_3 is purely spatial and nonzero, ½(Δ̊ − ¾) is injective, and T_(5/2)(l) ≠ 0. A term
+**Corollary 4.2 (deduced, conditional as 4.1; computed, T6).** Off the exceptional set of Proposition 3.1 (d) the
+spatial part of G_5^∞ is nonzero, so a_(5/2) ≠ 0, T_(5/2)(l) being nonzero at every l. A term
 ρ^(5/2) a with a ≠ 0 is not in ρ² a_2 + ρ³ a_3 + ρ^(ℓ0) H_b^∞ for any a_2, a_3 and any ℓ0 > 5/2: in the b-density,
 ∫_ε^1 |ρ^(−ℓ0)(ρ^(5/2) − a_2 ρ² − a_3 ρ³)|² dρ/ρ grows like ε^(5−2ℓ0)/(2ℓ0 − 5), or like a_2² ε^(4−2ℓ0)/(2ℓ0 − 4)
 when a_2 ≠ 0 (T6a-b; controls: subtracted in ℰ_0^½ the remainder is 0, T6c; at ℓ0 = 9/4 the term is in
@@ -177,10 +179,12 @@ each Cartesian component of the curvature solves □R = 0, and the electric part
 has radiation field −½∂_v² G_3, injective on the purely spatial G_3. The recursion with radiation field G″ gives,
 after the shell, vanishing r^(−5/2) and r^(−3) coefficients and an r^(−9/2) coefficient −c(c − 2)(c − 6)/48 ∫G, with
 c(c − 2)(c − 6) ≠ 0 at every integer l (T5; control: a field with zero time integral leaves no tail). So the tail
-of h at r^(−5/2) comes with a curvature tail ρ^(9/2) at spatial infinity, whereas data in Part VII's class have
-E_ij ∈ ρ⁴ C^∞ (Gauss-Codazzi and the constraints on ρ² C^∞ and ρ³ C^∞ data, Lemma 0.1's sufficient form). A
-diffeomorphism of Σ_IVP close to the identity cannot remove it: E_(b_0) is O(ρ⁴) with integer powers, so it changes
-E only beyond ρ^(9/2). The non-linear statement is not checked.
+of h at r^(−5/2) comes with a curvature tail ρ^(9/2) at spatial infinity, whereas data in Part VII's class have, by
+the Gauss equation E_ij = Ric(γ)_ij + (tr k) k_ij − k_ik k^k_j, E_ij ∈ ρ⁴ a_4 + ρ⁵ a_5 + ρ^(ℓ0+2) H_b^∞ with
+ℓ0 + 2 > 5, which excludes a nonzero ρ^(9/2) term. A diffeomorphism ψ = id + ξ of Σ_IVP with ξ decaying cannot remove
+it: E is a tensor, and E_(b_0) has integer powers from ρ⁴ on, so L_ξ E_(b_0) = O(|ξ| ρ⁵ + |∂ξ| ρ⁴) does not reach
+ρ^(9/2) for ξ = o(r^(1/2)), in particular for the ξ = O(ρ^(3/2)) that would move a ρ^(5/2) term of γ. The nonlinear
+statement is not checked.
 
 ## 5. The scattering problem on W: the linear estimate
 

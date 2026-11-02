@@ -61,3 +61,7 @@ T8  the time integral of the record's waves
      local log-slopes d log|ehat|/d log lam (they oscillate with ehat's zeros): ['2.579', '3.725', '4.121', '7.538']
   T8d bump: log-slope over [2^-7, 2^-5] > 5 (faster than the C^3 envelope's lam^5): pass 5.83
   T8e e^(-2iw) ehat_b(w) is real: pass 1.25e-43
+     real zeros of E in [1, 21]: ['3.33103', '5.92565', '8.39923', '10.8119', '13.1862', '15.5334', '17.8601', '20.1706']
+  T8f E has isolated real zeros (discrete exceptional set lam = 1/w): pass 
+  T8g control: a radiation field env' has zero time integral at w = 0: pass 0.0
+T9  the cubic part is beyond all orders: its integrand has no zeroth phase harmonic

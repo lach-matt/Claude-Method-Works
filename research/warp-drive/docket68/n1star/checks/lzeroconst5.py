@@ -15,14 +15,17 @@ N1STAR-PROOF.md section 4 Steps 3 and 7 and Proposition 6.5).
      tau_end - tau0, lam1 = min(1, delta0)/10, and Lemma 1.1 (f)'s b - a >= 1 + delta0.
   Z2 (certified) Lemma 1.1 (e)'s eps1, explicit: for |g - g0|_op <= eps1, |g^-1 - g0^-1| <= n^2 eps/(1 - n eps) with
      n := 1 + 2 mu_end/a^2 >= sup_Omega |g0^-1|_op, and the margins of (a)-(c) are at least 1, mu0/a^2 - 1 and 3/5
-     (|d(v + tau)|^2 = 5 against -3 - mu/r^2); so eps1 := (3/5)/(n^2 + (3/5) n). Control: an explicit perturbation at
-     r = a making d(v + tau) null has size above eps1, and a claim of 1.01 times its size is refuted by it.
+     (|d(v + tau)|^2 = 5 against -3 - mu/r^2); so eps1 := (3/5)/(n^2 + (3/5) n). Control (round 2, V-m5; round 1's,
+     at r = a, accepted any eps1 below 27): on the outer boundary a perturbation of norm 0.60132 makes d(v + tau) null,
+     so eps1 lies below it; eps1hyp5.py shows every eps1 < 3/5 serves.
   Z3 (certified) Lemma 2.1's Sobolev constant: ||f||_inf <= C_S sum_{i<=3} ||d^i f||_{L^2(A)} on every annulus A of
      width >= 1 in R^4, by the cone formula with the cut-off p(s) = (1 - s)^3 (1 + 3s + 6s^2), height 1/2, aperture
      pi/3. Controls: test functions stay below C_S (floating point); C_S/10^4 is refuted by one; at m = 2 the cone
      integral diverges (no constant); a cone of height (b - a)/2 + 1/4 leaves the annulus.
-  Z4 (deduced; checked in floating point) lambda0 = min of eight closed-form terms; at lambda0 every condition of the
-     proof holds and slightly above it one fails, on random inputs. Control: the formula without its Step-7 term fails.
+  Z4 (deduced; checked in floating point) lambda0 = min of nine closed-form terms (eight in round 1; the ninth is
+     Proposition 6.5's ball invariance, added in round 2); at lambda0 every condition holds and slightly above it one
+     fails, on random inputs. Control: the formula without its Step-7 term fails. Z4 checks the closed form against the
+     conditions as transcribed here, not against the proof (V-m4): the transcription is the deduction of section 1.3.
   Z5 the formula at P*: which leaves are certified (Z1-Z3) and which are not computed, with what each needs.
 
     python3 checks/lzeroconst5.py
@@ -174,8 +177,12 @@ def test_ratio(a, b, c, w):
 
 
 def lambda0(c):
-    """the closed form: lam0 = min of the seven terms (deduced from N1STAR-PROOF.md section 4, Steps 3 and 7, and
-    Proposition 6.5, with the standing lam1 of section 2)"""
+    """the closed form: lam0 = min of the nine terms (deduced from N1STAR-PROOF.md section 4, Steps 3 and 7, and
+    Proposition 6.5, with the standing lam1 of section 2). Round 2 (V-n2, V-m4): round 1's docstring said "seven" of
+    its eight terms; the ninth, D-d, is Proposition 6.5's ball invariance (N1STAR-PROOF.md:771-772): Lemma 6.4 keeps
+    the iterates in the ball of radius 2 C0 lam^(N-2) when C0 lam^(N-2) + C_b (2 C0 lam^(N-2))^2 lam^-1 <= 2 C0
+    lam^(N-2), i.e. 4 C_b C0 lam^(N-3) <= 1, C_b the constant of the quadratic remainder Nl (size C lam^-1, lines
+    753-755)."""
     C3 = c['Cst'] * c['C2'] * math.exp(c['C2'] * c['dtau']) * (1 + c['dtau'])
     M = C3 * (c['CD'] + 1 + c['CR']) + 1
     terms = {'lam1': c['lam1'],
@@ -185,7 +192,8 @@ def lambda0(c):
              'E-d': 1 / (C3 * c['CN'] * M ** 2),
              'D-a': (c['mc'] / (2 * c['Cc'] * c['C0'])) ** (1 / (NST - 3)),
              'D-b': (1 / (2 * c['Ck'])) ** (1 / (NST - 3)),
-             'D-c': c['ms'] / c['Cs']}
+             'D-c': c['ms'] / c['Cs'],
+             'D-d': (1 / (4 * c['Cb'] * c['C0'])) ** (1 / (NST - 3))}
     return min(terms.values()), terms, M, C3
 
 
@@ -201,7 +209,8 @@ def conditions(c, lam, M, C3):
             'E-d': C3 * c['CN'] * M * M * lam <= 1,
             'D-a': 2 * c['Cc'] * c['C0'] * lam ** (NST - 3) <= c['mc'],
             'D-b': c['Ck'] * lam ** (NST - 3) <= 0.5,
-            'D-c': c['Cs'] * lam <= c['ms']}
+            'D-c': c['Cs'] * lam <= c['ms'],
+            'D-d': 4 * c['Cb'] * c['C0'] * lam ** (NST - 3) <= 1}
 
 
 def main():
@@ -232,17 +241,23 @@ def main():
         x = rng.normal(size=4)
         x = r * x / np.linalg.norm(x)
         worst = max(worst, np.linalg.norm(g0inv([0.0, *x], mu_e), 2) / (1 + 2 * mu_e / r ** 2))
-    a_hi, mu0 = float(g['a'][1]), 1.0
-    G0i = g0inv([0.0, a_hi, 0, 0, 0], mu0)
-    xi = np.array([2.0, 1.0, 0, 0, 0])                       # d(v + tau) = 2 dtau + dr at x = (a, 0, 0, 0)
-    c_bad = -(xi @ G0i @ xi) / (xi @ xi) ** 2
-    Gbad_inv = G0i + c_bad * np.outer(xi, xi)
-    eps_bad = np.linalg.norm(np.linalg.inv(Gbad_inv) - np.linalg.inv(G0i), 2)
-    null = abs(xi @ Gbad_inv @ xi) < 1e-9
-    ok['Z2'] = worst <= 1 + 1e-12 and float(eps1) < eps_bad and null
-    say('      check: sup |g0^-1|_op/(1 + 2 mu/r^2) over 2000 random points of {r >= a} = %.6f <= 1; control: a '
-        'perturbation at r = a with d(v + tau) null (floating) has |g - g0|_op = %.4e > eps1 = %.4e: %s; the claim '
-        '"eps1 = %.4e works" is refuted by it' % (worst, eps_bad, float(eps1), float(eps1) < eps_bad, 1.01 * eps_bad))
+    # Round 2 (V-m5): round 1's control perturbed g0 at r = a, where d(v + tau) need not be timelike, and its size 27.2
+    # accepted any eps1 below 27. The sharp control (eps1hyp5.py H3): on the outer boundary at r = 67/5, mu = mu_end,
+    # delta g = -lam n n^T with n = (1, -2 xhat)/sqrt5 and lam = (3 + mu_end/r^2)/5 makes d(v + tau) null there; so no
+    # eps1 above lam = 0.60132 serves, and round 1's eps1 is valid but 1140 times below the hyperplane value 3/5.
+    rr = 67 / 5
+    G0 = np.diag([-1.0, 1, 1, 1, 1]) + (mu_e / rr ** 2) * np.outer([1, 1, 0, 0, 0], [1, 1, 0, 0, 0])
+    nn = np.array([1, -2, 0, 0, 0]) / np.sqrt(5)
+    lam_s = (3 + mu_e / rr ** 2) / 5
+    Gs = G0 - lam_s * np.outer(nn, nn)
+    Kb = np.linalg.svd(np.array([[2.0, 1, 0, 0, 0]]))[2][1:].T          # an orthonormal basis of ker d(v + tau)
+    null = abs(np.linalg.det(Kb.T @ Gs @ Kb)) < 1e-12 and np.linalg.det(Gs) < 0
+    eps_bad = lam_s
+    ok['Z2'] = worst <= 1 + 1e-12 and float(eps1) < eps_bad and null and eps_bad < 0.6014
+    say('      check: sup |g0^-1|_op/(1 + 2 mu/r^2) over 2000 random points of {r >= a} = %.6f <= 1; control (round 2): '
+        'on the outer boundary at r = 67/5 a perturbation of norm %.6f makes d(v + tau) null (floating point; exact in '
+        'eps1hyp5.py H3): every eps1 above it is refuted, eps1 = %.4e is below it: %s; the hyperplane test of '
+        'eps1hyp5.py gives every eps1 < 3/5' % (worst, eps_bad, float(eps1), float(eps1) < eps_bad))
 
     CS, sups, coef, cap = sobolev()
     say('  Z3: sup |p^(j)|, j = 0..3: %s (certified); max_j C(3, j) h^-(3-j) sup|p^(3-j)| = %.4f; |S_pi/3| >= %.5f; '
@@ -264,7 +279,7 @@ def main():
     good = bad = 0
     for _ in range(400):
         c = {k: 10 ** rnd.uniform(-1, 2) for k in ('Cst', 'Cinf', 'Cdw', 'CN', 'CR', 'CD', 'Cc', 'C0', 'Ck', 'Cs',
-                                                     'Capp')}
+                                                     'Capp', 'Cb')}
         c.update(C2=10 ** rnd.uniform(-1, 0.3), dtau=6.0, lam1=0.027, eps1=5e-4, eps2=10 ** rnd.uniform(-4, -1),
                  mc=10 ** rnd.uniform(-2, 0), ms=10 ** rnd.uniform(-2, 0))
         lam0, terms, M, C3 = lambda0(c)
@@ -282,7 +297,7 @@ def main():
 
     say('  Z5: lam0 = min{ lam1, eps1/(2 C_app), [min(eps1, eps2)/(4 C_inf M)]^(1/(K-3)), [1/(2 C_dw M)]^(1/(K-4)), '
         '1/(C3 C_N M^2), '
-        '[m_c/(2 C_c C0)]^(1/(N-3)), (2 C_k)^(-1/(N-3)), m_s/C_s },  M = C3 (C_D + 1 + C_R) + 1,  C3 = C_st C2 '
+        '[m_c/(2 C_c C0)]^(1/(N-3)), (2 C_k)^(-1/(N-3)), m_s/C_s, (4 C_b C0)^(-1/(N-3)) },  M = C3 (C_D + 1 + C_R) + 1,  C3 = C_st C2 '
         'exp(C2 (tau_end - tau0)) (1 + tau_end - tau0);  K = 6, N = 9')
     say('      certified at P*: lam1 <= %.6f, tau_end - tau0 <= %.6f, eps1 >= %.4e, C_S <= %.3f (inside C_inf, C_dw)' % (
         float(g['lam1'][1]), float(g['dtau'][1]), float(eps1), float(CS)))
