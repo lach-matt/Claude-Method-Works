@@ -25,3 +25,5 @@ B6  the kernel table of the weighted energy at weight a
   B6d control: at a = 7/2 the residual kernel is not integrable: pass ['residual P(Sigma) = O(lam r^(-13/2)), L^2 with
         weight']
 B7  the split of the commuted multilinear terms
+  B7a every multilinear term (m = 2..4 slots) has a split (one slot in L^2, the rest in sup) for every k0 in [6, 30];
+        minimal k0 = 6: pass minimal k0 = 6

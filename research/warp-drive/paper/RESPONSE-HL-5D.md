@@ -2772,7 +2772,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `02e7617602841a350a75349c44ab5fb6` |
+| `docket68/n1star/N1STAR-PROOF.md` | `f436ef75d46b2a3668c31110fbe2da3b` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

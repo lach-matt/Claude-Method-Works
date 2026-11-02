@@ -6,3 +6,49 @@ dnumber5: X_7 summed over the levels; d up to c'
   K3: Lemma 1.4's rule with a general source agrees with iotapoles5.lemma14 on (k, 0) sources: True
       E_col on [0, 1] (wide reading): log order 10 at 0, 12 at 1, at most 5 off the integers (12 points)
       E_col on [0, 1] (shifted reading): log order 6 at 0, 8 at 1, at most 3 off the integers (8 points)
+  K2: E_K below beta_K = {1} u {lambda - 1 : lambda in Lambda cap (2, 3)} u {2}, cut at beta - 2 - eps; at the top level
+      (beta = alpha) |E_K,<=| = 352162873 pairs (3 |Lambda cap (2, 3)| = 255077346, the rest the excess and the points 1,
+      2), so X_7(alpha) = 352162875
+      R0: k_1(2) = 10, u_0 at 3 (Lemma 1.4, root 2) 24, k_2(3) = 24; E_K log orders 11 at 1, 25 at 2
+      R1: k_1(2) = 10, u_0 at 3 (Lemma 1.4, root 2) 26, k_2(3) = 26; E_K log orders 11 at 1, 27 at 2
+      chains with an excess (R1, wide E_col): [('2.0', 8), ('2.5', 5), ('2.5099', 5), ('2.51', 5), ('2.5198', 1),
+      ('2.5199', 1), ('2.52', 5), ('2.5297', 1), ('2.5298', 1), ('2.5299', 1), ('2.53', 1), ('2.5398', 1), ('2.5399', 1),
+      ('2.54', 1), ('2.5499', 1), ('2.55', 1), ('2.56', 1), ('1 + d0', 3), ("l + delta'_1", 2), ('(l-1) + delta_2', 2),
+      ("l + delta'_2", 1), ('(l-1) + delta_3', 1)]; the other 15 chains carry log order <= 2
+  K4 R0/shifted: sum over the levels above 3 of X_7 = 6553653743474486 (generic 3 per point 5794881998695725, excess
+      758771238953732, the points 1 and 2 425957924, ceil(beta - 5/2) 79867105); certified (each chain sum equal at both
+      ends of the d1 and base intervals)
+  K4 R0/wide: sum over the levels above 3 of X_7 = 7512059369168913 (generic 3 per point 5794881998695725, excess
+      1717176651669199, the points 1 and 2 638936884, ceil(beta - 5/2) 79867105); certified (each chain sum equal at both
+      ends of the d1 and base intervals)
+  K4 R1/shifted: sum over the levels above 3 of X_7 = 6783838625545958 (generic 3 per point 5794881998695725, excess
+      988956121025192, the points 1 and 2 425957936, ceil(beta - 5/2) 79867105); certified (each chain sum equal at both
+      ends of the d1 and base intervals)
+  K4 R1/wide: sum over the levels above 3 of X_7 = 7742244251240377 (generic 3 per point 5794881998695725, excess
+      1947361533740659, the points 1 and 2 638936888, ceil(beta - 5/2) 79867105); certified (each chain sum equal at both
+      ends of the d1 and base intervals)
+  K5: d <= 45431197742704599 (R0), 45661383902649727 (R1) + 106489470 c'  (4.566138e+16 + 1.0649e8 c'); N = 21 d + 6 <=
+      958889061955644273 + 2236278870 c' (R1). The uniform bound L_above X_7(alpha) would give 11008575057135623 more
+      c' = 10: d <= 45661384967544427 (4.566138e+16), N <= 958889084318432973 (9.588891e+17)
+      c' = 100: d <= 45661394551596727 (4.566139e+16), N <= 958889285583531273 (9.588893e+17)
+      c' = 10000: d <= 45662448797349727 (4.566245e+16), N <= 958911424744344273 (9.589114e+17)
+      c' = 1000000: d <= 45767873372649727 (4.576787e+16), N <= 961125340825644273 (9.611253e+17)
+  K6: c' >= D_0 + D_1 + d' + d'' + 6 + 2 (BG) + the fixed MODs; D_0 >= II.A Lemma 8.5's d_0 = d_* + K + 1, d_* from the
+      closed graph theorem (II.A:955-967), and D_0 >= the d_0 of (L3)-(L4), fixed by d_0 - 2 >= M_2.4 + 2
+      (II.A2:722-723), M_2.4 a closed-graph seminorm count (II.A2:277-279); [SBG] Theorem 3.44 gives no count (READ). So
+      c' has no number in the record; d is A' + 106,489,470 c' with A' above (deduced)
+  C1 (control): scaled instance (d1 = 1/97, four chains, 90 levels): brute force 37655 = closed form 37655; the closed
+      form without the chain of 2's carried excess 28823 and the simulation without propagation 25619 differ: True
+  C2 (control): s1 rows taken at rate lambda (no shift): 551 pairs over the levels, not 37655: K2's identity fails: True
+  C4 (control): the chain of 2.5 summed at d1 (1 + 1e-9): 19966808484036, not the certified 19966808504002: True
+K1 PASS
+C3 PASS
+K3a PASS
+K2 PASS
+K3 PASS
+K4 PASS
+K5 PASS
+C1 PASS
+C2 PASS
+C4 PASS
+rc=0
