@@ -355,3 +355,21 @@ secondzero5: all checks pass
          r_AH ranges 0.912-1.098 and 0.927-1.081
   S4 (reported) outer zero against growth5 (L1000_lam0.3162_20x16_d0_y2.2): max 0.027 (round 1's 0.1: within);
      control (leaf expansion, tilt ignored) max 0.070 passes: S4 not informative here
+  S5 (reported) per Bondi column, zeros of theta on [r_min, 1.6]:
+     v = 1.400 r_min 0.419: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -14.223; on r_core n/a
+     v = 1.450 r_min 0.438: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -10.633; on r_core n/a
+     v = 1.500 r_min 0.456: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -6.342; on r_core n/a
+     v = 1.525 r_min 0.494: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -4.101; on r_core n/a
+     v = 1.550 r_min 0.512: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -3.114; on r_core n/a
+     v = 1.575 r_min 0.512: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -1.971; on r_core n/a
+     v = 1.600 r_min 0.550: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -0.335; on r_core n/a
+     v = 1.625 r_min 0.569: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -0.091; on r_core n/a
+secondzero5: all checks pass
