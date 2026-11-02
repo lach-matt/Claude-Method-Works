@@ -36,7 +36,7 @@ factor sqrt(det g); F1-F3 test vanishing, R-independence and a magnitude, so the
 
 Labels: computed (exact, sympy).
 
-Run: python3 checks/flux5.py   (a few minutes)
+Run: python3 checks/flux5.py   (about twenty minutes, F4 most of it)
 """
 import random
 import sys

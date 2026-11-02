@@ -5,3 +5,7 @@ F2 PASS
   F3: q at order A^1: 0; R^6 q at order A^2 = -10294529/36000 (independent of R: True); vol Gamma(R, 4R) = 255*pi**2*R**4/2; coefficient of |dm| (6 pi^2 R^2 - C)/R^2: True, positive for C < 6 pi^2 R^2: True; |dm| <= C*eta*(R**2 + 1)/(-C + 6*pi**2*R**2): True
   F3 control (Gamma.Gamma deleted): R^6 q at order A^2 = -9074819/36000, independent of R: True
 F3 PASS
+  F4: Delta q has no order-A term: True; at order A^2 no eps B^0 term: True, and R^6 times the eps B and eps^2 coefficients = [-7445993/60000, 2929331/30000], independent of R: True;
+      at order A^3, R^8 times the eps B^2, eps^2 B, eps^3 coefficients = [5624508269/9000000, 937072667/13500000, 8518366651/27000000], independent of R: True.
+      So |q(x2 + eps d) - q(x2)| <= C eps (|B| + eps) R^-6 + C eps R^-8 near flat data: step (6)'s bound, with eps ~ eta + |dm|.
+F4 PASS
