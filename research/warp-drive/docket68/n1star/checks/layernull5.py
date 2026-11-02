@@ -8,7 +8,7 @@ Lemma 2.3).  T(X, Z) := (X u)(Z u) - (1/2) g0(X, Z) g0^-1(du, du), the energy te
 
   E1 (exact, every mu(v)) The flux density through a null face {v = const}: T(L0, Y) = (1/2)(1 + mu/r^2)(ell u)^2 +
      (1/(2 r^2)) |dring u|^2 (dring u: the derivatives on the unit S^3), with no transverse derivative d_v u; the volume
-     density is r^3 cos th sin th; Y is future timelike (g0(Y, Y) = -1 - mu/r^2, dtau(Y) = 1 + mu/r^2) and L0 future
+     density is r^3 |cos th sin th|; Y is future timelike (g0(Y, Y) = -1 - mu/r^2, dtau(Y) = 1 + mu/r^2) and L0 future
      null (dtau(L0) = 1).  So the flux of the energy current through {v = const}, on the side of the region to its past,
      is int T(L0, Y) r^3 dr domega >= 0 and controls ell u and the angular derivatives there.  Control: the normal of
      {r = const}, g0^-1 dr, in place of L0 gives a form that is indefinite at r > sqrt(mu) (a timelike face's flux has
@@ -27,7 +27,7 @@ Lemma 2.3).  T(X, Z) := (X u)(Z u) - (1/2) g0(X, Z) g0^-1(du, du), the energy te
   E4 (exact) The past tilted face of Lemma L.4_P: psi(tau) := 2 t^(-1/2), t := 1 + tau0 - tau, on tau <= tau0, and
      psi := 2 + tau - tau0 on tau >= tau0: C^1 at tau0 (psi = 2, psi' = 1 from both sides), increasing, bounded by 2
      on the past side, psi' = t^(-3/2).  With the perturbation C_P lam t^(-3/2) |alpha|_e^2 on P and eps := 2 C_P lam
-     =: 2 s, alpha := dv + eps psi' dtau has worst case -2 s psi' + 2 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2 < 0 for s psi' <=
+     =: 2 s, alpha := dv + eps psi' dtau has worst case -2 s psi' + 4 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2 < 0 for s psi' <=
      1/2.  Control: psi' = t^-2 (a tilt decaying faster than the perturbation) is positive at t = 100, s = 1/10.
   E5 (exact) The integrals: int_r^oo r'^-3 dr' = 1/(2 r^2) (the null-face Cauchy-Schwarz); int_(-oo)^(tau0) t^(-3/2)
      dtau = 2 (the far kernel); the L^2 norm of r^-3 on {t + a1 <= r <= t + a2} with measure r^3 dr is at most (a2 -
@@ -72,7 +72,7 @@ def e1(control=False):
     flux = sp.simplify(T(L0, Y))
     target = (1 + mu/r**2)*u[1]**2/2 + (u[2]**2 + u[3]**2/c**2 + u[4]**2/s_**2)/(2*r**2)
     ok = sp.simplify(flux - target) == 0
-    vol = sp.simplify(sp.sqrt(-g.det()) - r**3*c*s_) == 0
+    vol = sp.simplify(-g.det() - (r**3*c*s_)**2) == 0
     YY = sp.simplify((Y.T*g*Y)[0] + 1 + mu/r**2) == 0
     tY = sp.simplify((dtau.T*Y)[0] - 1 - mu/r**2) == 0
     tL = sp.simplify((dtau.T*L0)[0] - 1) == 0 and sp.simplify((L0.T*g*L0)[0]) == 0
@@ -142,9 +142,9 @@ def e4(control=False):
     worst = sp.expand(galal + s*tt**sp.Rational(-3, 2)*((1 + eps*pp)**2 + 1))
     if control:
         return bool(worst.subs({mu: 1, r: 2, s: sp.Rational(1, 10), tt: 100}) < 0)
-    closed = sp.simplify(worst - (-2*s*pp + 2*s**3*pp**3 - 4*s**2*pp**2*mu/r**2)) == 0
+    closed = sp.simplify(worst - (-2*s*pp + 4*s**3*pp**3 - 4*s**2*pp**2*mu/r**2)) == 0
     print("  E4 psi' = t^(-3/2): %s; psi(tau0) = 2, psi'(tau0) = 1 (C^1 with 2 + tau - tau0): %s; psi -> 0 at the past:"
-          " %s; worst case -2 s psi' + 2 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2: %s (negative for s psi' <= 1/2)"
+          " %s; worst case -2 s psi' + 4 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2: %s (negative for s psi' <= 1/2)"
           % (c1, at0, lim, closed), flush=True)
     return c1 and at0 and lim and closed
 

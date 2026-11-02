@@ -1,13 +1,13 @@
-  E1 T(L0, Y) = (1/2)(1 + mu/r^2)(ell u)^2 + |dring u|^2/(2 r^2): True; volume density r^3 c s: False; g0(Y, Y) = -1 - mu/r^2: True, dtau(Y) = 1 + mu/r^2: True; L0 future null: True
-E1 FAIL
+  E1 T(L0, Y) = (1/2)(1 + mu/r^2)(ell u)^2 + |dring u|^2/(2 r^2): True; volume density r^3 c s: True; g0(Y, Y) = -1 - mu/r^2: True, dtau(Y) = 1 + mu/r^2: True; L0 future null: True
+E1 PASS
   E2 d_tau int_a^(v-tau) phi^2 r^3 = 2 <phi, L0 phi> - 3 int phi^2 r^2 - phi(a)^2 a^3 (outer term zero): True; the energy slices' outer radius derivative -1: True
 E2 PASS
   E3 contractions: True; g0^-1(alpha, alpha) = -2 eps - eps^2 (1 + mu/r^2): True; worst case at eps = 2 C1 lam: -2 s + 4 s^3 - 4 s^2 mu/r^2: True, negative on (0, 1/2]: True; alpha(Y) = 1 + eps (1 + mu/r^2): True
 E3 PASS
-  E4 psi' = t^(-3/2): True; psi(tau0) = 2, psi'(tau0) = 1 (C^1 with 2 + tau - tau0): True; psi -> 0 at the past: True; worst case -2 s psi' + 2 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2: False (negative for s psi' <= 1/2)
-E4 FAIL
+  E4 psi' = t^(-3/2): True; psi(tau0) = 2, psi'(tau0) = 1 (C^1 with 2 + tau - tau0): True; psi -> 0 at the past: True; worst case -2 s psi' + 4 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2: True (negative for s psi' <= 1/2)
+E4 PASS
   E5 int_r^oo r'^-3 = 1/(2 r^2): True; int t^(-3/2) dtau = 2: True; int r^-6 r^3 dr = ((t+a1)^-2 - (t+a2)^-2)/2: True; transport from infinity at q = 13/4: (4/3) r^(-9/4): True; min <= geometric mean: True
 E5 PASS
   E6 -(1/2) G(g_lam) H(w) = -Ric^H(g_app) + (1/2)(G(g_lam) - G(g_app)) H(g_app) - (Q(g_lam) - Q(g_app)), given Ric^H(g_lam) = 0: True
 E6 PASS
-layernull5: FAILURES
+layernull5: all checks pass, every control fails
