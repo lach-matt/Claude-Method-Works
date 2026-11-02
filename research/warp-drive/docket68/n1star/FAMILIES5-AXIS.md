@@ -226,7 +226,7 @@ depending on δ, on lower bounds for |∇_Σ u| and |∂_z u| on D_2δ, and on C
 H^m in all directions (along the axis, planar, and in τ through the equations). On the axis s = 0 and κ2 = (θ − κ1)/2.
 
 *Proof.*
-1. By (G), H2 = (−(θ − κ1) − n(u) tr K̸)/|∇u| (sign as in E0), which is in H^m(D_2δ) whenever θ, dg and du are.
+1. By (G), H2 = (θ − κ1 + n(u) tr K̸)/|∇u|, which is in H^m(D_2δ) whenever θ, dg and du are.
 2. In Cartesian coordinates (z, x3, x4) of M3 the leaf is the graph z = h(x3, x4). The leaf solves the prescribed mean
    curvature equation a^ij(x, h, ∂h) ∂_ij h + b(x, h, ∂h) = H2. Here a^ij, built from γ3(h(x), x) and ∂h, is uniformly
    elliptic on the whole disc: the axis is an interior point, which is the point E1 (b) checks in polar form. And b
