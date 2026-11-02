@@ -6509,6 +6509,17 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   282.4, 254.6, 238.7, 228.4, 224.5 (l = 1..5, >= 6; rounded up since D413), angular bounds 209,881 (l = 1,
   3 B_1^2), 1,478 ... 623. Summed
   over harmonics: ||d_r* u||_I^2 + sum_l l(l+2) int_I psi |u_l|^2 <= C^2 ||f||^2, C <= 675.1, set by l = 1.
+- D609-D610 (2026-11-02). Part IX repaired (finding (IX5)): III.K's nu vanishes on [0, R_nu], so the old N° did not
+  contain Sigma°; the comparison now runs on the future half of D_{U#}(Sigma°), U# := M° cap {t_IVP > -1}, Theta(k)
+  extended across Sigma° (Seeley), h extended by 0 after ix5.py X8 (Sigma noncharacteristic for L^0). N° and N^D
+  withdrawn. Workstream A round 2 (GAUGEDECAY5): (Adm box) false as stated (R2.0); K* = K + pi_{W**}, W** = (v/2) W* +
+  A dv + B dr, the static representative singular at r_h (gdrepair5 V1); decay modulo W* at t^(-1/2) for compactly
+  supported gauge data (R2.13, admbox5); open: (S_K), harmonic gauge on all of N, better rates. Workstream B round 2
+  (SETTLE-GLAM5): Theorem 4 in the half class; open (b1), (b2), (Poly), Part IV. Workstream C (FAMILIES5-FULL): no
+  major gap; minors 1-4, nits 5-7 to seat; Lemma 3.3_2 and Steps 4-6 to write. Workstream F (CERTIFY-10L5-RESULT): D1,
+  D2 correct; the paper's second-zero sentence replaced; open: F5 (an explicit-constant linear estimate), a certified
+  3D residual, the late region. Rounds and readers running: A (reader of R2; round 3), B (reader of R2; round 3), C
+  (round 2), D (reader of rounds 1-2), E (round 2), F (round 2); Part IX's repair to be read.
 
 ### 4.278 Beyond D_T: the interior after the shell (D360)
 

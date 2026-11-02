@@ -7951,3 +7951,25 @@ labels. (VII5), the one check the paper listed as awaiting a reader: the 577 lis
 (checks/VII5-READING.tsv, vii5read.py): none uses more than its site's conditions; five undecided for one reason -- the
 proofs use the 1-form towers of every type, which Lemma 3.1 (C3) named for s1 only -- so Lemma 3.1 amended, with
 delta*'s commuting with rotations and reflections computed (vii5read Q3). ROUTES-OPEN.md D608.
+
+**D609 (2026-11-02): Theorem 1's last two items written out for the constructed solutions.** The decay and symmetry
+statements the main theorem makes are now proved for the solutions built from past null infinity (N1STAR-PROOF.md
+Proposition 9.10), from four inputs each computed: the remainder bounds, the first stage, the support, and the symmetry
+(stage5.py S4). A verifier found it correct; its minor points are seated. Also: the 577 listed uses of the averaged
+choices read and Lemma 3.1 amended (vii5read.py); the flux check's bilinear bound computed (flux5.py F4); the inner
+boundary restated at every curvature scale (innerr5.py); the approximant's computed reach extended to all fifteen
+components at order lam^1 and to order lam^2 (stage5b.py B1-B3).
+
+**D610 (2026-11-02): the gauge comparison's domain repaired; four workstreams' first results seated.** A reader of Part
+IX found that the region where the linear solution lives ends at the initial hypersurface near the inner boundary, so
+the comparison could not be posed on a region around it. The comparison is now made on the future half of a larger
+region where only the background is used, with the gauge source extended across the hypersurface and the difference
+extended by zero (PART-IX-GAUGE.md, finding (IX5); ix5.py X8 computes that the initial hypersurface is
+noncharacteristic for the gauge-fixed operator, with the ungauged operator as a control that fails). Workstream A: the
+gauge-fixed mass change stated in the supplement was singular at the horizon; the regular one carries half the
+coefficient of the ingoing time, which regularity forces (gdrepair5.py); in harmonic gauge the spherical part settles
+at t^(-1/2) for compactly supported gauge data (GAUGEDECAY5 R2.13, admbox5.py); seated in the supplement's 10.2(iv),
+10.8 and the paper's 8.2. Workstream F: the earlier scheme's second zero belongs to that chart's tilted spheres, not to
+a second marginally trapped surface (sectexp5.py, secondzero5.py); the paper's sentence replaced. Workstream B: Theorem
+4 holds in the half-integer class at the same rate (SETTLE-GLAM5 round 2). Workstream C: the two-family theorem read
+with no major gap. Readers and next rounds running for A, B, C, D and F.
