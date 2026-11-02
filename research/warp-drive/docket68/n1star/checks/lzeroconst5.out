@@ -13,3 +13,22 @@
       eps1hyp5.py gives every eps1 < 3/5
   Z3: sup |p^(j)|, j = 0..3: [1.003, 1.884, 5.793, 60.027] (certified); max_j C(3, j) h^-(3-j) sup|p^(3-j)| = 480.2160;
       |S_pi/3| >= 3.85868; C_S <= 43.2158 (certified, exact rationals)
+      cone of height 1/2, aperture pi/3 inside every annulus of width >= 1: True; height (b - a)/2 + 1/4 leaves it
+      (control): True; test functions exp(-((x1 - c)/w)^2): largest ratio 0.0793 <= C_S (floating point), above C_S/10^4
+      = 0.00432 (control: refuted): True; m = 2: the cone integral diverges, no constant (control): True
+  Z4: on 400 random inputs the closed form meets every condition at lam0 and fails one at lam0 (1 + 1e-6): 400/400;
+      control, the formula without its Step-7 term violates a condition on 360 of them
+  Z5: lam0 = min{ lam1, eps1/(2 C_app), [min(eps1, eps2)/(4 C_inf M)]^(1/(K-3)), [1/(2 C_dw M)]^(1/(K-4)), 1/(C3 C_N
+      M^2), [m_c/(2 C_c C0)]^(1/(N-3)), (2 C_k)^(-1/(N-3)), m_s/C_s, (4 C_b C0)^(-1/(N-3)) },  M = C3 (C_D + 1 + C_R) +
+      1,  C3 = C_st C2 exp(C2 (tau_end - tau0)) (1 + tau_end - tau0);  K = 6, N = 9
+      certified at P*: lam1 <= 0.026986, tau_end - tau0 <= 5.937208, eps1 >= 5.2617e-04, C_S <= 43.216 (inside C_inf,
+      C_dw)
+      not computed (each a finite expression in the profiles g_1..g_{N+1} and their derivatives on Omega x S^1, which are
+      not computed beyond stage 0): C2 (Steps 4-6), C_N (nonlinear), C_st (Step 2), C_R (E3), C_D (E4, through C0, C_c,
+      C_k, m_c of Proposition 6.5), C_inf and C_dw (Step 1: C_S times profile bounds), eps2 (the extension g_ext), m_s
+      and C_s (Lemma 6.3 (c)), C_app (sup |g_app - g0|/lam)
+Z0 PASS
+Z1 PASS
+Z2 PASS
+Z3 PASS
+Z4 PASS

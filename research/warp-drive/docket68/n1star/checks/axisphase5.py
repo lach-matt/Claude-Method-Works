@@ -8,8 +8,8 @@ plane {rho1, rho2 >= 0} (polar: rho1 = r cos th, rho2 = r sin th), whose edges t
   A1 (exact) a smooth function F(tau, rho1^2, rho2^2) has, at every point of the axis {x3 = x4 = 0} (and likewise of
      {x1 = x2 = 0}), its spatial gradient along xhat: its x3, x4 components vanish and its (x1, x2) part is radial. So
      at an axis point the gradient of an invariant phase lies in span(dtau, dr), and if it is null for g0 = eta +
-     (mu/r^2) dv dv (Vaidya; Minkowski at mu = 0) it is a multiple of dv or of the outgoing radial null covector. Two families
-     whose phases are both ingoing (or both outgoing) at an axis point have parallel gradients there.
+     (mu/r^2) dv dv (Vaidya; Minkowski at mu = 0) it is a multiple of dv or of the outgoing radial null covector. Two
+     families whose phases are both ingoing (or both outgoing) at an axis point have parallel gradients there.
      Control: the non-invariant phase tau - x3 has, at the axis point (1, 0, 0, 0), a gradient off span(dtau, dr).
   A2 (exact) non-radial invariant null phases exist: on Minkowski, w = tau + f with f the distance to the T^2-orbit of
      the ellipse {(rho1/al)^2 + (rho2/be)^2 = 1}, outside it, written parametrically x = p(t) + s n(t) (p on the

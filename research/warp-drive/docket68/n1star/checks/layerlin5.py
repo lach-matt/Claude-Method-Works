@@ -167,7 +167,7 @@ def n0(control=False):
         km = sym()/7
         g1m = g0m + km
         i0, i1 = g0m.inv(), g1m.inv()
-        rhs = i0 - i0*km*i0 + (0 if control else i0*km*i0*km*i1)
+        rhs = i0 - i0*km*i0 + (sp.zeros(5) if control else i0*km*i0*km*i1)
         ok &= (i1 - rhs) == sp.zeros(5)
     return ok
 

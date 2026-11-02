@@ -12,7 +12,8 @@ log, EFFECTIVE-CONSTANTS.md, LOSS-D.md or E2-PILOT.md. Programs: `checks/lzeroau
   sections 0-6 (Theorems E, A, D) is an energy or transport estimate, Gronwall, Sobolev, a mollifier bound, Picard or
   Kato-Majda iteration, or a perturbation of an explicit margin; no step of the kinds N1-N4 occurs. The one compactness
   argument (Lemma 6.4's weak-* Galerkin limit) gives existence, its bound being the uniform estimate. lambda0 is an
-  explicit minimum of eight closed-form terms (section 1.3, checked `lzeroconst5.py` Z4). At the paper's numerical
+  explicit minimum of eight closed-form terms [Round 2, V-m4: nine; Proposition 6.5's ball invariance was missing]
+  (section 1.3, checked `lzeroconst5.py` Z4). At the paper's numerical
   point its geometric leaves are certified (lambda_Omega <= 0.026986, tau_end - tau0 <= 5.937209, eps1 >= 5.2617e-4,
   C_S <= 43.216); **no number for lambda0**: its other leaves are bounds on the approximant's profiles g_1, ..., g_10
   [Round 2, V-n4: "of stages 1-10" read loosely; the profiles come from stage 0 and the nine stage solves 1-9 of Lemma
@@ -75,6 +76,10 @@ numerical point; this is the one its section 9 computes at.
                    1/(C3 C_N M^2),  [m_c/(2 C_c C0)]^(1/(N-3)),  (2 C_k)^(-1/(N-3)),  m_s/C_s },
 
     M = C3 (C_D + 1 + C_R) + 1,    C3 = C_st C2 exp(C2 (tau_end - tau0)) (1 + tau_end - tau0),    K = 6, N = K + 3.
+
+[Round 2, V-m4: a ninth term belongs in the minimum, (4 C_b C0)^(-1/(N-3)): Proposition 6.5's iterates stay in the ball
+of radius 2 C0 lam^(N-2) (N1STAR-PROOF.md:771-772) only when 4 C_b C0 lam^(N-3) <= 1, C_b the constant of the quadratic
+remainder; `lzeroconst5.py` and `lzeroaudit5.py` now carry it.]
 
 - *The terms.* lambda_Omega = min(1, delta0)/10 (section 2's standing condition, the paper's lambda_Omega). Step 3
   needs g = g_app + w within eps1 of g0 (|g_app - g0| <= C_app lam, |w| <= C_inf lam^-3 N <= 2 C_inf M lam^(K-3), each

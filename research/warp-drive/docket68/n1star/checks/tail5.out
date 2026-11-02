@@ -65,3 +65,6 @@ T8  the time integral of the record's waves
   T8f E has isolated real zeros (discrete exceptional set lam = 1/w): pass 
   T8g control: a radiation field env' has zero time integral at w = 0: pass 0.0
 T9  the cubic part is beyond all orders: its integrand has no zeroth phase harmonic
+  T9a the theta-mean of G3 S3 vanishes identically in (lam, e, e'): pass 0
+  T9b only odd phase harmonics occur (1 and 3): pass 
+  T9c control: an even product, (d_v G3)^2, has a nonzero mean (an O(1) source, not O(lam^oo)): pass e0**2/2 + e1**2*lambda**2/2
