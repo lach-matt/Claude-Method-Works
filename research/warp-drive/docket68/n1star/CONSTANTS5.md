@@ -762,9 +762,10 @@ deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3)
   (l_* + 1), N_* = 15,000,015 (control C2: the closed form against a brute-force sum).
 - *D5 (deduced; READ I12:249-253, I14:120-121, I11:339-343, LOSS-D (2.1)).* III.I''''''''''' Proposition 3.1's Step 0
   applies III.A Proposition 4.2 (1) with E_iota = E^flat + 2, beta_iota = w_+ - eps and E_I = E_K empty;
-  III.I''''''''''''' repeats it at every level above 3. Its loss is 1 + n_iota + 2 max(floor beta_K, floor B) = 11 + n_iota, n_iota the
-  pairs (z, m) of E_iota below beta_iota, and the record bounds E^flat only by pi_1 E^flat in Lambda cap [2, 3 + eps_+)
-  with log order <= K(lambda): n_iota <= S_iota, >= 5.6e22 per level at l_* = 0 (control C4: with E_iota empty, 11).
+  III.I''''''''''''' repeats it at every level above 3. Its loss is 1 + n_iota + 2 max(floor beta_K, floor B) = 11 +
+  n_iota, n_iota the pairs (z, m) of E_iota below beta_iota, and the record bounds E^flat only by pi_1 E^flat in Lambda
+  cap [2, 3 + eps_+) with log order <= K(lambda): n_iota <= S_iota, >= 5.6e22 per level at l_* = 0 (control C4: with
+  E_iota empty, 11).
 - *D6 (exact).* The composition over the levels, construction reading:
 
       d <= 3 (R2 + R3) + L_above [3 X_2 + 11 + S_iota + 15 W] + L_below [15 W + 58] + L_above X_7 + (K + 1) c',
