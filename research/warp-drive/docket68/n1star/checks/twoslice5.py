@@ -21,24 +21,26 @@ coordinates (R areal, th, phi1, phi2), exactly (sympy):
      Control: with the correction h = a gamma (conformal) in place of a dR dR, d_R^2 a appears in rho (data5's
      mutant conformal_h): the parabolic structure belongs to Racz's parametrisation, not to the slice.
   S2 (exact at random points) at the approximant's slice data with both families -- the ingoing wave W_TT(s1) with its
-     second harmonic chi_in dPv dPv and the outgoing one W'_TT(s2) with chi_out dPu dPu, s1 = Pv/lam, s2 = Pu/lam --
-     on a general round spacetime background (lapse N, radial metric G and shift b, all functions of (t, R)), with the
-     two phases Pv(t, R), Pu(t, R) arbitrary (null or not; static or dynamic: d_t^2 Pu arbitrary), the linearisation of
-     (J_R, J_th, rho) in (a, w, q) has no coefficient of order 1/lam. Three random draws of every function (polynomials
-     with rational coefficients), each at a random point and random phases of (s1, s2, th).
-     Control: the outgoing wave given an oscillating trace on the spheres produces a 1/lam coefficient (nonzero at the
-     same points).
+     second harmonic chi_in cos(2 s1) dPv dPv and the outgoing one W'_TT(s2) with chi_out cos(2 s2) dPu dPu, s1 =
+     Pv/lam, s2 = Pu/lam -- on a general round spacetime background (lapse N, radial metric G and shift b, functions of
+     (t, R)), the two phases Pv(t, R), Pu(t, R) arbitrary (null or not; static or dynamic: d_t^2 Pu arbitrary), the
+     linearisation of (J_R, J_th, rho) in a generic direction (a, w, q) has no coefficient of order 1/lam, in any
+     harmonic e^(i(n1 s1 + n2 s2)). Every function is a random polynomial with rational coefficients (three draws, each
+     at a random point and angle); the fields are carried as exact jets (Gaussian-rational coefficients, total degree 2
+     in (t - t0, R - R0, th - th0), every harmonic, lam-order <= 2), which is exact at the point since the constraint
+     map takes at most two derivatives along any path.
+     Control: the outgoing wave given an oscillating trace on the spheres produces a 1/lam coefficient.
   S3 (exact at random points) there, the order-0 coefficients of the principal terms (d_R a, d_th^2 a, d_R d_th a, d_R^2
-     a in rho; d_R w, d_th q in J_R; d_R q, d_th w in J_th) equal the background's: no O(1) oscillation reaches them.
-     Control: with the oscillating trace they differ.
-  S4 (exact) the constraint map involves only (gamma, K), which involve g and its first t-derivatives: d_t^2 Pu cannot
-     enter. Checked: the slice data built by this program are unchanged when Pu is replaced by Pu + c (t - t0)^2 (c a
-     symbol). So the dynamic outgoing null phase is covered by S2-S3; its eikonal equation is never used.
+     a in rho; d_R w, d_th q in J_R; d_R q, d_th w in J_th) equal the background's in every harmonic: no O(1)
+     oscillation reaches them. Control: with the oscillating trace some differ.
+  S4 (exact) the constraint map involves only (gamma, K), that is g and its first t-derivatives, so d_t^2 Pu cannot
+     enter: the slice data built here are unchanged when Pu -> Pu + c (t - t0)^2. Control: Pu -> Pu + c (t - t0)(R - R0)
+     changes K. So the dynamic outgoing null phase is covered by S2-S3; its eikonal equation is never used.
 
 With S1-S4, Lemmas 6.3-6.4 and Proposition 6.5 apply on the two-dust slice with both families (FAMILIES5-FULL.md
 section 6). Labels: computed (exact, sympy).
 
-Run: python3 checks/twoslice5.py   (a few minutes)
+Run: python3 checks/twoslice5.py   (about twenty minutes)
 """
 import random
 import sys
