@@ -151,27 +151,35 @@ def ks():
 
 def p2():
     print("P2  the coefficients of Lemma 11.0's energy identity")
+    import mpmath as mp
+    import random
     W = 1 + x1*x3 + t**2
     e = D(W*sp.sin(th), 0)
     check("P2a d_t (lam W sin th) has order 0: the kernel ||d g|| <= C t^(-3/2) is lam-free", order_L(e, 1) == 0)
     g0, g0i, mu = ks()
-    check("P2b g0 g0^-1 = 1 (5D Kerr-Schild, det g0 = -1)",
-          sp.simplify(g0*g0i - sp.eye(5)) == sp.zeros(5, 5) and sp.simplify(g0.det() + 1) == 0)
-    eps = sp.Symbol("epsilon")
-    us = sp.symbols("u0:15")
-    U = sp.zeros(5, 5)
-    idx = 0
-    for i in range(5):
-        for jj in range(i, 5):
-            U[i, jj] = U[jj, i] = us[idx]
-            idx += 1
-    dv = sp.Matrix([1, x1/R, x2/R, x3/R, x4/R])  # dv = dt + dr = k
-    ell = g0i*dv
-    # first-order variation of the inverse: (g0 + eps U)^-1 = g0^-1 - eps g0^-1 U g0^-1 + O(eps^2)
-    first = -(g0i*U*g0i)
-    lhs = sp.simplify((dv.T*first*dv)[0, 0])
-    rhs = sp.simplify(-(ell.T*U*ell)[0, 0])
-    check("P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv", sp.simplify(lhs - rhs) == 0)
+    mp.mp.dps = 60
+    cv = lambda c: mp.mpf(str(sp.N(c, 70)))
+    random.seed(11)
+    ok_inv, ok, ctl = True, True, True
+    for p in PTS:
+        G0 = mp.matrix([[cv(c) for c in row] for row in g0.subs(mu, sp.Rational(1, 2)).subs(p).tolist()])
+        G0i = mp.matrix([[cv(c) for c in row] for row in g0i.subs(mu, sp.Rational(1, 2)).subs(p).tolist()])
+        ok_inv = ok_inv and mp.mnorm(G0*G0i - mp.eye(5), 1) < mp.mpf(10)**-50 and abs(mp.det(G0) + 1) < 1e-50
+        Um = mp.matrix(5, 5)
+        for i in range(5):
+            for jj in range(i, 5):
+                Um[i, jj] = Um[jj, i] = mp.mpf(random.randint(-9, 9))/7
+        dv = mp.matrix([cv(c) for c in sp.Matrix([1, x1/R, x2/R, x3/R, x4/R]).subs(p)])  # dv = dt + dr = k
+        ell = G0i*dv
+        h = mp.mpf(10)**-20
+        first = ((G0 + h*Um)**-1 - (G0 - h*Um)**-1)/(2*h)  # the first variation of the inverse
+        rhs = -(ell.T*Um*ell)[0]
+        ok = ok and abs((dv.T*first*dv)[0] - rhs) < mp.mpf(10)**-30
+        e0 = mp.matrix([1, 0, 0, 0, 0])
+        ctl = ctl and abs((e0.T*first*e0)[0] - rhs) > mp.mpf(10)**-3
+    check("P2b g0 g0^-1 = 1 and det g0 = -1 (5D Kerr-Schild, mu = 1/2, two points, 60 digits)", ok_inv)
+    check("P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv (first variation by a central "
+          "difference at 60 digits, two points, random rational u)", ok)
     # the quasilinear term of (11.4) on lam [W]: its lam^-1 part is (1/2)(g^-1 - g0^-1)^(ab) d_a v d_b v (-W sin th)
     Wf = 2 + t*x2 + x1**2
     Y = Wf*sp.sin(th)  # times lam
@@ -185,8 +193,7 @@ def p2():
     check("P2d (1/2) H^ab d_a d_b (lam [W]) = -(1/2) lam^-1 H(dv, dv) [W] + O(lam^0): with H(dv, dv) = -u(ell, ell)"
           " the term is +(1/2) lam^-1 u_1(ell, ell) [W], linear in u_1, at order -1",
           1 - deg == -1 and not nonzero((lead - target).subs(hv)))
-    tt = sp.simplify((sp.Matrix([1, 0, 0, 0, 0]).T*first*sp.Matrix([1, 0, 0, 0, 0]))[0, 0] - rhs)
-    check("P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell)", tt != 0)
+    check("P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell)", ctl)
 
 
 def p3():

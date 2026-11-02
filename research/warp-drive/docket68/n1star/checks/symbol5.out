@@ -32,3 +32,4 @@ Y3 Jordan block: a = k^2 Lambda (u - u0)(v - v0), b = 1 solve a_uv = k^2 Lambda 
    right Jordan chain A e0 = 0, A e1 = -e0 solvable: True
 Y3 PASS
 Y4 mode 1: second x-derivatives in the combined row: ['R_xx', 'm_xx'] -> PASS
+Y4 mode 2: second x-derivatives in the combined row: ['R_xx', 'n_xx'] -> PASS
