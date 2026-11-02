@@ -1767,39 +1767,34 @@ in five dimensions (the search of 2026-10-20 found [HKW18] alone, which stops at
 every explicit object of that structure is computed here; the decay estimates are not.
 
 **Proposition 10.2 (computed, exact, `wavegauge5.py`; deduced).** On five-dimensional Tangherlini of mass mu, for
-perturbations in the class:
-(i) Under Gamma[h] = 0 the linearised vacuum equation is the Lichnerowicz equation box h_ab + 2 R_a^c_b^d h_cd = 0,
-    and for a one-form X, Gamma[pi_X] = box X; so h_RW + pi_X is in harmonic gauge exactly when box X = -Gamma[h_RW]
-    (W1).
-(ii) The tensor type is in harmonic gauge as it stands: Gamma[h_T] = 0 for h_T = 2 r^2 H_T T_ij with T traceless and
-    divergence-free (W5). For the tensor part, L1 is Proposition 10.1 itself.
-(iii) For a scalar mode with harmonic S (k^2 = l(l + 2), l = 2, 4, ... even) the gauge vector is of scalar type,
-    X = X_t S dt + X_r S dr + X_L r S_i dz^i, and box X = -Gamma[h_RW] is three 1+1 equations for (X_t, X_r, X_L) with
-    coefficients in (r, mu, k) alone, principal part -f^-1 d_t^2 + f d_r^2, first-order couplings, and sources linear
-    in F, F_ab and their first derivatives -- by (10.1), in the master field and its derivatives to order three (W4,
-    checked at l = 2 and 4): the counterpart of [Hun19] (4.21)-(4.23).
-(iv) The l = 0 sector. box W = 0 for W = W0(r) dt + W1(r) dr has W0 = a + b/r^2 and W1 = c/(r^3 f) + d r^3/(r^2 - mu),
-    and the combination regular at the horizon with finite energy is
-        W* = dt/r^2 + sqrt(mu) dr/(r^3 f) = dv/r^2 - dr/(r (r + sqrt mu))                                     (10.2)
-    (W2). The mass change. In the ingoing chart (v = t + r_*, g = -f dv^2 + 2 dv dr + r^2 gamma) the mass derivative is K
-    := r^-2 dv^2, smooth across the horizon, with Gamma[K] = r^-3 dv; the static chart's dg/dmu = r^-2 dt^2 + r^-2 f^-2
-    dr^2 equals K + pi_{zeta d_v} with zeta' = (r^2 f^2)^-1, singular at r_h. Put W** := (v/2) W* + A dv + B dr, r_h :=
-    sqrt mu,
-        A = (r_h^2 + 2 r^2 log((r + r_h)/r)) / (4 r_h r^2),
-        B = (r^2 r_h - 3 r r_h^2 + 2 r_h^3 + 2 r^3 log r + 2 (r_h^3 - r^3) log(r + r_h) - 2 r_h^3 log r_h)
-            / (4 r r_h (r^2 - r_h^2)),
-    analytic on r > 0 including r = r_h, where B's numerator vanishes. Then K* := K + pi_{W**} has Gamma[K*] = 0, is
-    smooth across the horizon, has linearised mass 1, and K* = (v/2) pi_{W*} + (stationary, smooth across r_h): the
-    counterparts of [Hun19] (8.1) and (8.39) (corrected D610, `checks/gdrepair5.py` V1-V5; W3 computed Gamma[K*] = 0 for
-    the representative below). The coefficient 1/2 of v is forced by regularity at the horizon among gauge vectors c v W*
-    + U, U stationary and smooth at r_h: the horizon functional annihilates box U and gives 4 pi^2 c = 2 pi^2. The
-    representative W** = t W* + A_st dt + B_st dr with the coefficient 1 of the static time, which this item stated
-    before D610, gives a K* singular at r_h (at mu = 1, (r - r_h) K*_vr -> -3/8 and (r - r_h)^2 K*_rr -> 3/8; V1). In
-    harmonic gauge the l = 0 part of a perturbation in the class is mu-dot K* + pi_Z with box Z = 0. When Z has compactly
-    supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the conserved horizon
-    charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), assuming (Dyn) as III.D does;
-    `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions. Without decay of Z's data at
-    infinity the growth can be exchanged for a stationary term that does not decay at infinity (R2.13 (c)).
+perturbations in the class: (i) Under Gamma[h] = 0 the linearised vacuum equation is the Lichnerowicz equation box h_ab
++ 2 R_a^c_b^d h_cd = 0, and for a one-form X, Gamma[pi_X] = box X; so h_RW + pi_X is in harmonic gauge exactly when box
+X = -Gamma[h_RW] (W1). (ii) The tensor type is in harmonic gauge as it stands: Gamma[h_T] = 0 for h_T = 2 r^2 H_T T_ij
+with T traceless and divergence-free (W5). For the tensor part, L1 is Proposition 10.1 itself. (iii) For a scalar mode
+with harmonic S (k^2 = l(l + 2), l = 2, 4, ... even) the gauge vector is of scalar type, X = X_t S dt + X_r S dr + X_L r
+S_i dz^i, and box X = -Gamma[h_RW] is three 1+1 equations for (X_t, X_r, X_L) with coefficients in (r, mu, k) alone,
+principal part -f^-1 d_t^2 + f d_r^2, first-order couplings, and sources linear in F, F_ab and their first derivatives
+-- by (10.1), in the master field and its derivatives to order three (W4, checked at l = 2 and 4): the counterpart of
+[Hun19] (4.21)-(4.23). (iv) The l = 0 sector. box W = 0 for W = W0(r) dt + W1(r) dr has W0 = a + b/r^2 and W1 = c/(r^3
+f) + d r^3/(r^2 - mu), and the combination regular at the horizon with finite energy is W* = dt/r^2 + sqrt(mu) dr/(r^3
+f) = dv/r^2 - dr/(r (r + sqrt mu))                                     (10.2) (W2). The mass change. In the ingoing
+chart (v = t + r_*, g = -f dv^2 + 2 dv dr + r^2 gamma) the mass derivative is K := r^-2 dv^2, smooth across the horizon,
+with Gamma[K] = r^-3 dv; the static chart's dg/dmu = r^-2 dt^2 + r^-2 f^-2 dr^2 equals K + pi_{zeta d_v} with zeta' =
+(r^2 f^2)^-1, singular at r_h. Put W** := (v/2) W* + A dv + B dr, r_h := sqrt mu, A = (r_h^2 + 2 r^2 log((r + r_h)/r)) /
+(4 r_h r^2), B = (r^2 r_h - 3 r r_h^2 + 2 r_h^3 + 2 r^3 log r + 2 (r_h^3 - r^3) log(r + r_h) - 2 r_h^3 log r_h) / (4 r
+r_h (r^2 - r_h^2)), analytic on r > 0 including r = r_h, where B's numerator vanishes. Then K* := K + pi_{W**} has
+Gamma[K*] = 0, is smooth across the horizon, has linearised mass 1, and K* = (v/2) pi_{W*} + (stationary, smooth across
+r_h): the counterparts of [Hun19] (8.1) and (8.39) (corrected D610, `checks/gdrepair5.py` V1-V5; W3 computed Gamma[K*] =
+0 for the representative below). The coefficient 1/2 of v is forced by regularity at the horizon among gauge vectors c v
+W* + U, U stationary and smooth at r_h: the horizon functional annihilates box U and gives 4 pi^2 c = 2 pi^2. The
+representative W** = t W* + A_st dt + B_st dr with the coefficient 1 of the static time, which this item stated before
+D610, gives a K* singular at r_h (at mu = 1, (r - r_h) K*_vr -> -3/8 and (r - r_h)^2 K*_rr -> 3/8; V1). In harmonic
+gauge the l = 0 part of a perturbation in the class is mu-dot K* + pi_Z with box Z = 0, mu-dot the change of mass. When
+Z has compactly supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the
+conserved horizon charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), with (Dyn), which Part
+VI.A Theorem 6.1 proves at b_0; `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions.
+Without decay of Z's data at infinity the growth can be exchanged for a stationary term that does not decay at infinity
+(R2.13 (c)).
 
     (v) *The gauge-vector system is triangular (W6).* With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t th}/S_l'
     and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r - k^2/r^2
@@ -2931,18 +2926,18 @@ term from (10.17) at p = delta on [tau, oo).
 
 (e) W'. 10.8's argument, his section 8.2 on (10.23)-(10.26), with (10.44)-(10.45) for his Propositions 8.2 and 8.4: his
 Appendix B bounds the O_j by sup norms on [r-underline, R_null] of (sqrt mu d)^{<= m+6} P and S_W, which spherical
-symmetry turns into energies, and P = P-hat there since eta_b vanishes on [r_h, b r_h]; so his Lemmas 8.5-8.6 hold at the
-rate of (10.45), Err_{l=0}(tau_1, tau_2) <~ (1 + tau_1/sqrt mu)^(-1+4 delta) Decay_0[W']. His (8.36), E(tau_2) + mu^-1/2
-int_{tau_1}^{tau_2} E <~ E(tau_1) + Err_{l=0}(tau_1, tau_2), from the red-shift current on (W-bar_0, W-bar_3), coercive
-by (10.24)'s sign, then gives E(tau) <~ (1 + tau/sqrt mu)^(-1+4 delta) Decay_0[W'] in one dyadic step, the rate being
-below 1. Since mu (W0 + P/2 - (sqrt mu/4) S_W) is constant along H^+ (10.25) and W0 = c_1(tau)/r^2 + W-bar_0, c_1(tau) -
-c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), whose square the energy bounds, so it tends to zero at the
-square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s components, its energy at the rate itself,
-and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition
-10.2 (iv), the horizon-regular K*), h_0 settles to c K* + c_1(oo) pi_{W*}, c_1(oo) = Q[W']/Q[W*]. For W' with
-compactly supported data GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R}
-(deduced, assuming (Dyn)); without decay of W''s data at infinity the final state is not unique (R2.13
-(c)). []
+symmetry turns into energies, and P = P-hat there since eta_b vanishes on [r_h, b r_h]; so his Lemmas 8.5-8.6 hold at
+the rate of (10.45), Err_{l=0}(tau_1, tau_2) <~ (1 + tau_1/sqrt mu)^(-1+4 delta) Decay_0[W']. His (8.36), E(tau_2) +
+mu^-1/2 int_{tau_1}^{tau_2} E <~ E(tau_1) + Err_{l=0}(tau_1, tau_2), from the red-shift current on (W-bar_0, W-bar_3),
+coercive by (10.24)'s sign, then gives E(tau) <~ (1 + tau/sqrt mu)^(-1+4 delta) Decay_0[W'] in one dyadic step, the rate
+being below 1. Since mu (W0 + P/2 - (sqrt mu/4) S_W) is constant along H^+ (10.25) and W0 = c_1(tau)/r^2 + W-bar_0,
+c_1(tau) - c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), whose square the energy bounds, so it tends to
+zero at the square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s components, its energy at the
+rate itself, and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition 10.2 (iv), the
+horizon-regular K*), h_0 settles to c K* + c_1(oo) pi_{W*}, c_1(oo) = Q[W']/Q[W*]. For W' with compactly supported data
+GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R} (deduced, with (Dyn), which Part VI.A Theorem
+6.1 proves at b_0); without decay of W''s data at infinity the final state need not be c K* + c_1 pi_{W*} (R2.13 (c)).
+[]
 
 *What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's at the weaker rate: at l = 0 the
 perturbation settles to a change of mass and a stationary gauge mode, c K* + c_1(oo) pi_{W*}, at (1 + tau/sqrt mu)^(-1+4
