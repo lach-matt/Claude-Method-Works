@@ -154,7 +154,7 @@ def f2(control=False):
     nu_vx = in_rho(nu_of(pplus_frame(J_vx)))
     if control:
         return sp.simplify(nu_tx - nu_vx) == 0
-    rec = sp.simplify(nu_tx - L.KCLOSED.subs(L.rho, RHO) if hasattr(L, 'rho') else nu_tx - L.KCLOSED) == 0
+    rec = sp.simplify(nu_tx - L.KCLOSED) == 0
     alt = sp.simplify(nu_vx + L.mu0**sp.Rational(-7, 4)*(RHO**3 - 1)**2/(9*RHO**6)) == 0
     lim = all(sp.simplify(sp.limit(e*L.mu0**sp.Rational(7, 4), RHO, sp.oo) + sp.Rational(1, 9)) == 0
               for e in (nu_tx, nu_vx))
@@ -168,7 +168,7 @@ def f3(control=False):
     import mpmath as mp
     mp.mp.dps = 30
     Z = L.polplus(sp.Matrix([L.Vv, L.Vr, L.Vt, 0, 0]))[0]
-    rec = lambda e: sp.simplify(in_rho(e) - L.KCLOSED.subs(sp.Symbol('rho', positive=True), RHO)) == 0   # noqa: E731
+    rec = lambda e: sp.simplify(in_rho(e) - L.KCLOSED) == 0                     # noqa: E731
     a_ok = rec(nu_of(Z)) and not rec(nu_of(Z, mass=False))
     kinf = -L.mu0**sp.Rational(-7, 4)/9
     c_ok = sp.simplify(nu_of(Z, past=True) - kinf) == 0 and sp.simplify(nu_of(Z, past=True, half=True) - kinf) != 0
