@@ -10,8 +10,9 @@ roots, lzerotrace5.py's geometry, imported), computed (exact, sympy), deduced (w
   R1 (exact, sympy, symbolic m > 0) g0 = eta + m U U^T, U = (1, xhat), xhat = e1 (O(4) invariance): the negative
      eigenvalue m - s, s = (m^2 + 1)^(1/2), has the eigenvector v = (m, 1 - s, 0, 0, 0); with e = v/|v|,
      g0 + (s - m) e e^T has determinant 0. So at the corner (tau_end, r = a), m = m*, the perturbation t e e^T leaves
-     the Lorentzian class at t = s - m = g0's least absolute eigenvalue, and its size is t in the operator AND in the Frobenius norm (rank one,
-     |e| = 1). Hence eps1 < 0.0307686 in the Frobenius reading by a valid argument, and lambda0 < 0.0019950 stands.
+     the Lorentzian class at t = s - m = g0's least absolute eigenvalue, and its size is t in the operator AND in the
+     Frobenius norm (rank one, |e| = 1). Hence eps1 < 0.0307686 in the Frobenius reading by a valid argument, and
+     lambda0 < 0.0019950 stands.
   R2 (certified) its largest entry: e e^T has entries e_tau^2, e_tau e_x xhat_i, e_x^2 xhat_i xhat_j, and e_tau^2 >
      e_x^2 exactly when s < m + 1, true for m > 0, so for every direction xhat the largest entry is t e_tau^2, e_tau^2 =
      m^2/(m^2 + (s - 1)^2) =: f(m) = 1/(1 + ((s - 1)/m)^2), decreasing in m since d/dm (s - 1)/m = (1 - 1/s)/m^2 > 0
