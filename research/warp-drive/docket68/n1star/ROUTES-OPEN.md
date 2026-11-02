@@ -6252,6 +6252,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the bootstrap's power counting, Steps 4-6, as a ledger failing at K = 5; (C6) section 5.4's extension, g(Z, Z) < 0 and
   g^ij > 0 along the convex interpolation; (C7) the constraint solve's λ^(N−2) scaling (Lemma 6.4, Proposition 6.5); (C8)
   the boundary for g_λ to O(λ); (C9) Propositions 3.3-3.4 at λ > 0, ∂_r θ⁺ to O(λ) and the oddness of m1.
+- D598 (computational support, verifier 257's C4, C6, C8; `checks/support5.py`, saved as `checks/support5.out`, about 30
+  s): C4, certified by Z3 over the reals: supplement Lemma 2.2's shifted ball and the segment to it stay in the annulus
+  A(τ) for every z in the unit ball and t in [0, 1], the segment's length is at most 3λ and its end lies λ inside near
+  either sphere, for b − a ≥ 1 and 0 < λ ≤ 1/10, the problem reduced exactly by rotation to (ρ, z1, |z⊥|²); b(τ) − a ≥ 1
+  follows from (1.1)'s definitions. The middle third uses |σ0| ≤ 1, which the supplement did not state; it now takes σ0
+  non-increasing, and the check shows a point leaves without the bound. Control: no shift leaves the annulus. C6, exact:
+  for lapse N, shift β and a symbolic spatial metric γ, det g = −N² det γ, g(Z, Z) = −N², g(Z, ∂_k) = 0, so along Z the
+  inverse metric is diag(−N⁻², γ⁻¹) and the characteristic roots are real and of opposite signs; convex combinations
+  toward (1, 0, δ) keep N > 0 and γ > 0. Control: Vaidya's original time lines give a negative spatial inverse inside the
+  horizon. C8, exact: on x_K = 1 the first-order term of g_λ⁻¹(dΦ, dΦ) is −(χ + m_vv + 2(f − r_q′) m_vr + (f − r_q′)²
+  m_rr), ♯dΦ = ∂_v + (f − r_q′) ∂_r having no angular part, so W_TT drops out exactly; a wave with a dr dr part would
+  enter (control). The paper cites each at its claim (sections 5.2, 5.4, 6) and in Appendices A, C, D. Left of the list:
+  C1-C3, C5, C7, C9.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

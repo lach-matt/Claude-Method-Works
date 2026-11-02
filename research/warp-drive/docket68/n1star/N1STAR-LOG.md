@@ -7880,3 +7880,10 @@ being defined, several symbols each used for two different things (renamed), a q
 its sentence, and an omitted finer run of the numerical solver (now stated, with why it is grid-limited). Under the new
 rule the reader also listed nine steps of the proof's outline that rest on argument without a computation behind them;
 they are queued, each to be computed with a control.
+
+**D598 (2026-11-02): three of the nine steps given computations.** That the smoothing operator never reaches outside the
+domain is now certified by a solver over the real numbers, and the certification exposed a condition the proof used
+without stating it (the smoothing profile must stay between -1 and 1), now stated, with a check that the claim fails
+without it. The geometry that lets the local existence theorems apply inside the horizon is verified as exact
+identities, and the first-order correction to the boundary condition is computed, showing that the wave itself drops out
+of it. Six of the nine remain.

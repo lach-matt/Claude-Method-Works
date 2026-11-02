@@ -516,9 +516,10 @@ Write w = h + φ [∂_θ g1], with φ(X) defined by the transport along the back
 where 𝒫 is a compactly supported mollifier at scale λ adapted to the annuli Σ_τ = {a ≤ |x| ≤ b(τ)}, b(τ) the outer radius
 of Ω's slice at τ: the averaging ball is shifted 2λ inward near the outer sphere and outward near the inner one, so that
 𝒫 maps functions on the annulus to functions on it, with the Bernstein- and Friedrichs-type bounds ‖∂_x 𝒫 f‖ ≤ C λ⁻¹ ‖f‖,
-‖f − 𝒫 f‖ ≤ C λ ‖∂_x f‖ and ‖[m, 𝒫] ∂_x f‖ ≤ C ‖∂_x m‖_∞ ‖f‖ for smooth m (supplement Lemma 2.2). It replaces Touati's
-Fourier projector Π≤ ("a Fourier multiplier supported in { |ξ| ≤ 1/λ }", READ, [Tou23a] section 3.2.3, p. 21), which
-needs no boundary.
+‖f − 𝒫 f‖ ≤ C λ ‖∂_x f‖ and ‖[m, 𝒫] ∂_x f‖ ≤ C ‖∂_x m‖_∞ ‖f‖ for smooth m (supplement Lemma 2.2, σ0 non-increasing; that
+the shifted ball and the segment to it stay in the annulus is certified, `docket68/n1star/checks/support5.py` C4). It
+replaces Touati's Fourier projector Π≤ ("a Fourier multiplier supported in { |ξ| ≤ 1/λ }", READ, [Tou23a] section 3.2.3,
+p. 21), which needs no boundary.
 
 By Lemma 5.1, the equation for h has bounded coefficients except one, λ⁻¹ ((1 − 𝒫) s) [∂_θ² g1], which is O(∂s) by the
 mollifier bound (supplement (3.5)). Two derivatives of φ remain on its right side through □̃φ. Contracting the
@@ -560,8 +561,9 @@ The local theory needs the time lines timelike as well as the slices spacelike (
 meet each other"). Inside the horizon the lines of constant x are spacelike (Proposition 2.2(d)), so the local theorems
 are applied in other coordinates: the coefficients are extended beyond Ω by a universal extension operator and convex
 interpolation of lapse, shift and spatial metric to Minkowski's; the slices are kept and the time lines are taken along Z
-= ∂_τ − β (β the shift), for which g(Z, Z) < 0; the system is posed on a large torus with its coefficients clamped in
-time outside [τ0 − 2, τ_end + 2] (τ_end the last time of Ω); and written as a symmetric hyperbolic first-order system it
+= ∂_τ − β (β the shift), for which g(Z, Z) = −N² < 0 and, in coordinates with these time lines, g^ij is the inverse
+spatial metric (computed, support5.py C6); the system is posed on a large torus with its coefficients clamped in time
+outside [τ0 − 2, τ_end + 2] (τ_end the last time of Ω); and written as a symmetric hyperbolic first-order system it
 satisfies (A1)–(A4) of [DS23]. Restarts use [DS23] Theorem 2.4 ("there exists some T > 0 depending on ||u0||_r and M̃
 such that (1.1) has a unique solution"), with data extended by the universal operator of [LY22] Theorem 26; uniqueness
 and finite speed on Ω come from the energy inequality itself. With (5.5) the solution continues across Ω (supplement
@@ -604,7 +606,8 @@ order (supplement Lemmas 6.1–6.2).
 
 **The boundary.** Proposition 3.2: x_K = 1 is spacelike for the limit wherever μ > √72 l5² or μ' > 0, and for g_λ when μ0
 > √72 l5² and C λ ≤ δ/2; every future causal curve that meets it leaves D_T there. Exact for g0 (computed R6, and
-`docket68/lemmas/hf_theorem5.py` F2, there also machine-checked with Z3); deduced for g_λ.
+`docket68/lemmas/hf_theorem5.py` F2, there also machine-checked with Z3); deduced for g_λ, its first-order term computed:
+−(χ + m1(♯dΦ, ♯dΦ)) with ♯dΦ = g0⁻¹ dΦ, the wave W_TT dropping out exactly (support5.py C8).
 
 **The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ with μ0 > √72 l5² and λ ≤ λ_H, each column carries at
 most one zero of the outgoing expansion of the spheres {v, r = const}, exactly one within C λ of √μ on the columns that
@@ -2039,6 +2042,8 @@ Programs behind section 9, in `docket68/n1star/`:
   curvature comparisons. Floating point; computed, not certified.
 - `checks/data5two.py` T1–T11: the constraint map's linearisation with two families, on flat, Vaidya and static
   backgrounds. Exact.
+- `checks/support5.py` C4, C6, C8: the mollifier's annulus (Z3 over the reals), the time lines of section 5.4
+  (exact) and the boundary's first-order term for g_λ (exact), each with a control that must fail.
 
 ## Appendix B. The author's words
 
@@ -2106,6 +2111,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | (2.5′) | `paper/response5.py` R12; `docket68/n1star/ansatz5.py` A3–A4; `docket68/n1star/data5.py` |
 | section 3: λ-free profiles; Proposition 3.2's margin | `paper/response5.py` R13 |
 | section 3: the vacuum step | `paper/response5.py` R14; [LR05] p. 1; [CBCL06] section 3 |
+| sections 5.2, 5.4, 6: mollifier, time lines, boundary for g_λ | `docket68/n1star/checks/support5.py` C4, C6, C8 |
 | Proposition 2.3, (2.6) | `docket68/n1star/lead5.py` L2; R6; `docket68/lemmas/hf_theorem5.py` F3 |
 | (2.7) | [CBCM10] (2.7)–(2.9); supplement 0.2 |
 | Theorem 1 items 1–5 | supplement 0.4–0.7 (Theorems E, A, D), sections 1–6 |
@@ -2323,8 +2329,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `42571e97deee86b5dd0f9c8e0d4fbad7` |
-| `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `3067ea0ce0f70b2eaf2323692b3d8680` |
+| `docket68/n1star/N1STAR-PROOF.md` | `2fe46896ad472fe14d30f8bda86b3d60` |
+| `docket68/n1star/N1STAR-LOG.md` | `5bd701a94359aa9987536aab10798329` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2434,6 +2440,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/closure5.py` | `c65098b4a3c6f0a36b37a5de0ccf902b` |
 | `docket68/n1star/checks/closure5.out` | `8388cf3bd8a7eee36f599a210effd723` |
 | `docket68/n1star/checks/data5two.py` | `bc25353c1e3abd6e39decb22a9a19550` |
+| `docket68/n1star/checks/support5.py` | `e18c24ba91ccc04db2af0a7d1a6aabb5` |
+| `docket68/n1star/checks/support5.out` | `5b7ad78ac09d616e80240e414ae1b13a` |
 | `docket68/n1star/checks/g1curv5.py` | `d98ed86deaee1c04d6eb92653cf1cf2b` |
 | `docket68/n1star/dnsolve5.py` | `f5c59a474498f3e2a215acfbdf46dbbd` |
 | `docket68/n1star/checks/epsind5.py` | `8a255f7058dc653627001236cb7075ad` |

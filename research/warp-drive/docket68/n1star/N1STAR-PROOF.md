@@ -184,9 +184,10 @@ in four dimensions ([BH17] Theorem 7.26, READ) holds with a uniform constant; sc
 second form. For products, distribute lam^k d^k and put the factor with at most three derivatives in L^inf. The last
 claim is (0.3)'s chain-rule remark. []
 
-**The mollifier.** Fix rho in C_c^inf(B_1), rho >= 0, int rho = 1, and sigma0 in C^inf([0, 1]) with sigma0 = 1 on
-[0, 1/3], sigma0 = -1 on [2/3, 1]. For f on A(tau) put sigma(tau, x) := sigma0((|x| - a)/(b(tau) - a)),
-Phi(x) := x + 2 lam sigma xhat and
+**The mollifier.** Fix rho in C_c^inf(B_1), rho >= 0, int rho = 1, and sigma0 in C^inf([0, 1]) non-increasing, with
+sigma0 = 1 on [0, 1/3], sigma0 = -1 on [2/3, 1], so |sigma0| <= 1, which the middle third below uses (D598;
+checks/support5.py C4 certifies the inclusion and that it fails without the bound). For f on A(tau) put sigma(tau, x) :=
+sigma0((|x| - a)/(b(tau) - a)), Phi(x) := x + 2 lam sigma xhat and
 
     P f (x) := int rho(z) f(Phi(x) - lam z) dz        (spatial, at fixed tau).                              (2.1)
 

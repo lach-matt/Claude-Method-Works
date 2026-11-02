@@ -1,0 +1,9 @@
+  C4: the shifted ball and its segment stay in the annulus: True; length <= 3 lam and lam inside near
+      either sphere: True; b(tau) - a >= 1 on [tau0, tau_end]: True; without |sigma0| <= 1 a point leaves: True
+C4 PASS
+  C6: det g = -N^2 det gamma: True; g(Z, Z) = -N^2: True; g(Z, d_k) = 0: True; inverse along Z
+      (g^00 = -N^-2, g^ij = gamma^-1): True; roots real, opposite, product -N^2 X: True; convex combinations: True
+C6 PASS
+  C8: #dPhi = d_v + (f - r_q') d_r; the first-order term is -(chi + m_vv + 2 (f - r_q') m_vr
+      + (f - r_q')^2 m_rr), W_TT dropping out exactly: True
+C8 PASS
