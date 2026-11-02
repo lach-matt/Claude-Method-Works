@@ -17,7 +17,8 @@ T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 +
      Kt (nhat.xi)^2 - 2 (nhat.xi)(k.xi) + kappa |xi_S|^2. So in the class the angular characteristic speeds are
      dth/dR = sqrt(G) (p/R^2 +- sqrt(p^2/R^4 - kappa Kt/R^2))/Kt: real exactly where kappa Kt < p^2/R^2.
      Control (must fail): kappa treated as free data (not eliminated): the determinant is not (4.22).
-  B2 (exact, sympy) Part I's chart g0 = -e^(2 psi) f dvhat^2 + 2 e^psi dvhat dR + R^2 dOmega_3^2, slice tau = vhat - R
+  B2 (exact, sympy; the general case exact at four rational points) Part I's chart g0 = -e^(2 psi) f dvhat^2
+     + 2 e^psi dvhat dR + R^2 dOmega_3^2, slice tau = vhat - R
      (FAMILIES5-FULL.md section 2): with E = e^psi, Kt = 3 (E f - 1)/(E R sqrt(2/E - f)) < 0 whenever E f < 1 (K =
      nabla n), and kappa = -Nk / (E sqrt(2/E - f) (2 - E f)) with Nk := E^2 f^2 psi_R + E^2 f f_R/2 - 3 E f psi_R
      - E f_v/2 - 3 E f_R/2 - psi_v + psi_R, so the split is hyperbolic (kappa Kt < 0, p = 0) exactly where Nk < 0.
@@ -187,15 +188,23 @@ def b2():
         Kt = dimS * nR / R
         return kappa, Kt, gRR
     kappa, Kt, gRR = slice_data(psi, f, 3)
-    pt = {T: sp.Symbol('v0') - sp.Symbol('R0'), R: sp.Symbol('R0')}
-    kap0 = sp.simplify(kappa.subs(pt))
-    Kt0 = sp.simplify(Kt.subs(pt))
     E = sp.exp(P0)
     Nk = E**2 * F0**2 * pR + E**2 * F0 * fR / 2 - 3 * E * F0 * pR - E * fv / 2 - 3 * E * fR / 2 - pv + pR
     want_k = -Nk / (E * sp.sqrt(2 / E - F0) * (2 - E * F0))
     want_K = 3 * (E * F0 - 1) / (E * sp.Symbol('R0') * sp.sqrt(2 / E - F0))
-    ok1 = sp.simplify(kap0 - want_k) == 0 and sp.simplify(Kt0 - want_K) == 0
-    print("   kappa = -Nk/(E sqrt(2/E - f)(2 - E f)), Kt = 3 (E f - 1)/(E R sqrt(2/E - f)):", ok1)
+    import random
+    rng = random.Random(7)
+    ok1 = True
+    for _ in range(4):                     # exact at rational points (psi0 = log of a rational)
+        Eq_ = sp.Rational(rng.randint(3, 10), 10)
+        vals = {P0: sp.log(Eq_), F0: sp.Rational(rng.randint(-20, 10), 10), pv: sp.Rational(rng.randint(-9, 9), 7),
+                pR: sp.Rational(rng.randint(-9, 9), 7), fv: sp.Rational(rng.randint(-9, 9), 7),
+                fR: sp.Rational(rng.randint(-9, 9), 7), sp.Symbol('R0'): sp.Rational(rng.randint(7, 30), 10),
+                sp.Symbol('v0'): sp.Rational(rng.randint(-9, 9), 10)}
+        pt = {T: vals[sp.Symbol('v0')] - vals[sp.Symbol('R0')], R: vals[sp.Symbol('R0')]}
+        dk = sp.simplify(kappa.subs(vals).subs(pt) - want_k.subs(vals))
+        dK = sp.simplify(Kt.subs(vals).subs(pt) - want_K.subs(vals))
+        ok1 &= dk == 0 and dK == 0
     # Tangherlini
     mu = sp.Symbol('mu', positive=True)
     fT = 1 - mu / R**2
