@@ -38,6 +38,8 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
    - The exact obstruction is mathematical, not one of precision. There is no linear estimate with explicit
      constants for the characteristic problem in the class (CERTIFY-10L5.md F5). [Wu26] Theorem 2.2's threshold
      ε(C0) is implicit. So no residual, however small, closes a Newton–Kantorovich argument (section 2.3).
+     [Round 2, section 6.2: sharpened. In the formulation the record evolves no linear estimate exists in any Sobolev
+     scale, since its principal symbol has a Jordan block.]
 3. **The late region is not classified.**
    - *Computed:* from v ≈ 1.65 at seed 1 (M = 16; smaller but still of order one at M = 24) the computed fields
      violate the Raychaudhuri constraint by the size of its own terms. Away from the cut they also violate D1's exact
@@ -45,6 +47,8 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
    - *Computed:* the gauge indicators stay moderate (|W| ≤ 1.25, |P + Q| ≤ 0.15). So the failure is not a caustic of
      the outgoing cones, nor a collapse of the lapse.
    - Kretschmann blow-up against a smooth steep feature remains undecided (section 3).
+   - [Round 2, section 6.4: at M ≥ 32 the Raychaudhuri violation converges at second order in the null step to
+     v ≈ 1.9 at areal radius ≥ 1.0. The onset at v ≈ 1.65 was M = 16's angular resolution.]
 
 ## 1. The second zero
 
@@ -424,6 +428,8 @@ v-band over kept cells at least Nu/40 rows from the cut.
 *Timings.* The times are wall times on a shared machine.
 
 ## 5. Next step
+
+[Round 2: superseded by section 6.6.]
 
 1. **F5 first.** Write the linear estimate for the linearised double-null system in the class with explicit constants
    (energy on characteristic rectangles, Sobolev on the 1D orbit sections, in the axis-regular variables). Until it
