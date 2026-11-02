@@ -243,9 +243,9 @@ class JetFast:
 
 
 def jconstraints(F, g, gi, K):
-    """(J_R, J_th, rho) for diagonal gamma (g, gi lists of jets) and symmetric K"""
+    """(J_R, J_th, rho) for diagonal gamma (g, gi: lists of the diagonal jets) and symmetric K"""
     n = 4
-    dg = [[F.D(g[a][a], k) for k in range(n)] for a in range(n)]
+    dg = [[F.D(g[a], k) for k in range(n)] for a in range(n)]
 
     def dgf(a, b, k):
         return dg[a][k] if a == b else P(0)
@@ -254,7 +254,7 @@ def jconstraints(F, g, gi, K):
         for b in range(n):
             for c in range(b, n):
                 e = dgf(a, c, b) + dgf(a, b, c) - dgf(b, c, a)
-                G[a][b][c] = G[a][c][b] = mul(gi[a][a], e) * QQ(1, 2)
+                G[a][b][c] = G[a][c][b] = mul(gi[a], e) * QQ(1, 2)
     Rs = P(0)
     for b in range(n):
         e = P(0)
@@ -262,21 +262,21 @@ def jconstraints(F, g, gi, K):
             e = e + F.D(G[a][b][b], a) - F.D(G[a][b][a], b)
             for d in range(n):
                 e = e + mul(G[a][a][d], G[d][b][b]) - mul(G[a][b][d], G[d][b][a])
-        Rs = Rs + mul(gi[b][b], e)
+        Rs = Rs + mul(gi[b], e)
     trK = P(0)
     for i in range(n):
-        trK = trK + mul(gi[i][i], K[i][i])
+        trK = trK + mul(gi[i], K[i][i])
     K2 = P(0)
     for i in range(n):
         for j in range(n):
-            K2 = K2 + mul(mul(gi[i][i], gi[j][j]), mul(K[i][j], K[i][j]))
+            K2 = K2 + mul(mul(gi[i], gi[j]), mul(K[i][j], K[i][j]))
     rho = tr(Rs - K2 + mul(trK, trK))
     J = []
     for i in range(2):
         divK = P(0)
         for j in range(n):
             cov = F.D(K[i][j], j) - sum((mul(G[l][j][i], K[l][j]) + mul(G[l][j][j], K[i][l]) for l in range(n)), P(0))
-            divK = divK + mul(gi[j][j], cov)
+            divK = divK + mul(gi[j], cov)
         J.append(tr((F.D(trK, i) - divK) * 2))
     return J[0], J[1], rho
 

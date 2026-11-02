@@ -6,9 +6,9 @@ surface. The background is the record's g0 after the shell, five-dimensional Tan
 g0 = eta + (mu/r^2) k k, k = dt + xhat . dx (det g0 = -1), in Cartesian (t, x1..x4); u := t - r, v := t + r.
 For a scalar phi, T_ab = d_a phi d_b phi - (1/2) g_ab |d phi|^2, and X := w(u) d_t.
 
-  W1 (exact, rational points) d_a (g^ab T_bc X^c) = (box_g phi) X phi + T(grad w, d_t): the divergence identity of
-     the multiplier, d_t being Killing (checked at 6 points, random cubic phi, mu = 1 and mu = 3, w = (-u)^(2a) at
-     a = 1/3 and 3/4, exactly in rationals and radicals).
+  W1 (computed, 50 digits) d_a (g^ab T_bc X^c) = (box_g phi) X phi + T(grad w, d_t): the divergence identity of
+     the multiplier, d_t being Killing (12 points: 3 points, random cubic phi, mu = 1 and 3, w = (-u)^(2a) at
+     a = 1/3 and 3/4; det g0 = -1, so the divergence is d_a of the components).
   W2 (exact) g0^(-1)(du, du) = -4 mu/r^2 and g0^(-1)(du, dt) = -1 - 2 mu/r^2: grad u is timelike and past-directed,
      so for w' < 0 grad w is future timelike, and T(grad w, d_t) >= 0 wherever d_t is timelike (r^2 > mu): the bulk
      term has the sign that makes the energy through S at most that through N (computed at 2000 random points and
@@ -25,13 +25,14 @@ For a scalar phi, T_ab = d_a phi d_b phi - (1/2) g_ab |d phi|^2, and X := w(u) d
      as T -> -oo for a < 1 (nothing incoming in the limit); control: a = 1 makes it infinite.
   W6 (exact) the weighted Hardy inequality int_R^oo r^(2a-1) phi^2 <= a^-2 int_R^oo r^(2a+1) phi_r^2 on the power
      test functions it is sharp on (phi = r^-b, b > a); control: at a = 0 the constant is lost.
-Labels: computed (exact, sympy).
+Labels: computed (exact, sympy; W1 mpmath at 50 digits).
 
     python3 checks/wedge5.py
 """
 import random
 import sys
 
+import mpmath as mp
 import sympy as sp
 
 t, x1, x2, x3, x4 = X = sp.symbols("t x1 x2 x3 x4", real=True)
@@ -55,38 +56,67 @@ def metric(m):
 
 
 def w1():
-    print("W1  the divergence identity")
+    print("W1  the divergence identity (mpmath, 50 digits, numerical differentiation)")
+    mp.mp.dps = 50
     random.seed(5)
-    ok_all = True
+    worst = mp.mpf(0)
+    scale = mp.mpf(0)
+    monos = [(1, 0, 0, 0, 0), (0, 1, 0, 0, 0), (0, 0, 1, 1, 0), (1, 0, 0, 0, 1), (1, 2, 0, 0, 0),
+             (0, 0, 1, 1, 1), (3, 0, 0, 0, 0), (0, 0, 0, 0, 2), (1, 1, 0, 1, 0)]
     for m in (1, 3):
-        g, gi, r = metric(sp.Integer(m))
-        check(f"W1a mu={m}: g^-1 g = 1 and det g = -1", sp.simplify(gi*g - sp.eye(5)) == sp.zeros(5, 5)
-              and sp.simplify(g.det()) == -1)
-        for aa in (sp.Rational(1, 3), sp.Rational(3, 4)):
-            u = t - r
-            wf = (-u)**(2*aa)
-            phi = sum(sp.Rational(random.randint(-5, 5), random.randint(1, 4))*mono
-                      for mono in [t, x1, x2*x3, t*x4, x1**2*t, x2*x3*x4, t**3, x4**2, x1*x3*t])
-            dphi = [sp.diff(phi, c) for c in X]
-            grad = gi*sp.Matrix(dphi)
-            nrm = sum(dphi[i]*grad[i] for i in range(5))
-            T = sp.Matrix(5, 5, lambda i, j: dphi[i]*dphi[j] - g[i, j]*nrm/2)
-            Xv = sp.Matrix([wf, 0, 0, 0, 0])
-            P = gi*T*Xv
-            div = sum(sp.diff(P[i], X[i]) for i in range(5))
-            box = sum(sp.diff(grad[i], X[i]) for i in range(5))
-            dw = [sp.diff(wf, c) for c in X]
-            gw = gi*sp.Matrix(dw)
-            Tgt = sum(gw[i]*T[i, 0] for i in range(5))
-            rhs = box*wf*dphi[0] + Tgt
+        for aa in (mp.mpf(1)/3, mp.mpf(3)/4):
+            cf = [mp.mpf(random.randint(-5, 5))/random.randint(1, 4) for _ in monos]
+
+            def phi(*y):
+                return sum(c*mp.fprod(y[i]**e[i] for i in range(5)) for c, e in zip(cf, monos))
+
+            def geo(y):
+                rr = mp.sqrt(sum(c*c for c in y[1:]))
+                k = [mp.mpf(1)] + [c/rr for c in y[1:]]
+                eta = [-1, 1, 1, 1, 1]
+                g = [[(eta[i] if i == j else 0) + m/rr**2*k[i]*k[j] for j in range(5)] for i in range(5)]
+                K = [eta[i]*k[i] for i in range(5)]
+                gi = [[(eta[i] if i == j else 0) - m/rr**2*K[i]*K[j] for j in range(5)] for i in range(5)]
+                return g, gi, rr
+
+            def grad_phi(y):
+                return [mp.diff(lambda z: phi(*(y[:i] + [z] + y[i + 1:])), y[i]) for i in range(5)]
+
+            def wfun(y):
+                rr = mp.sqrt(sum(c*c for c in y[1:]))
+                return (rr - y[0])**(2*aa)
+
+            def P(y, a):
+                g, gi, rr = geo(y)
+                d = grad_phi(y)
+                up = [sum(gi[i][j]*d[j] for j in range(5)) for i in range(5)]
+                nrm = sum(d[i]*up[i] for i in range(5))
+                T0 = [d[b_]*d[0] - g[b_][0]*nrm/2 for b_ in range(5)]  # T_(b t)
+                return wfun(y)*sum(gi[a][b_]*T0[b_] for b_ in range(5))
+
+            def boxphi(y):
+                def comp(a, z):
+                    yy = y[:a] + [z] + y[a + 1:]
+                    g, gi, rr = geo(yy)
+                    d = grad_phi(yy)
+                    return sum(gi[a][j]*d[j] for j in range(5))
+                return sum(mp.diff(lambda z: comp(a, z), y[a]) for a in range(5))
+
             for pt in ([1, 3, 2, 5, 4], [-2, 7, 1, 1, 3], [0, 4, 4, 2, 1]):
-                sub = dict(zip(X, [sp.Integer(c) for c in pt]))
-                d = sp.nsimplify(sp.N((div - rhs).subs(sub), 50), rational=False)
-                val = abs(sp.N((div - rhs).subs(sub), 50))
-                if val > sp.Float("1e-40"):
-                    ok_all = False
-                _ = d
-    check("W1b div(T(X)) = (box phi) X phi + T(grad w, d_t) at 12 points", ok_all)
+                y = [mp.mpf(c) for c in pt]
+                div = sum(mp.diff(lambda z: P(y[:a] + [z] + y[a + 1:], a), y[a]) for a in range(5))
+                g, gi, rr = geo(y)
+                d = grad_phi(y)
+                up = [sum(gi[i][j]*d[j] for j in range(5)) for i in range(5)]
+                nrm = sum(d[i]*up[i] for i in range(5))
+                dw = [mp.diff(lambda z: wfun(y[:i] + [z] + y[i + 1:]), y[i]) for i in range(5)]
+                gw = [sum(gi[i][j]*dw[j] for j in range(5)) for i in range(5)]
+                Tgt = sum(gw[b_]*(d[b_]*d[0] - g[b_][0]*nrm/2) for b_ in range(5))
+                rhs = boxphi(y)*wfun(y)*d[0] + Tgt
+                worst = max(worst, abs(div - rhs))
+                scale = max(scale, abs(div))
+    check("W1a div(T(X)) = (box phi) X phi + T(grad w, d_t) at 12 points", worst < mp.mpf(10)**-25*(1 + scale),
+          "max |diff| " + mp.nstr(worst, 3) + " against |div| up to " + mp.nstr(scale, 3))
 
 
 def w2():

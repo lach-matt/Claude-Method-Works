@@ -8,3 +8,7 @@ H2 PASS
   H3: Box W* = 0, delta W* = 0, (dW*)_vr = 2/r^3; Q[W*] = 4*pi**2; Q[(d_v)^flat] = 4*pi**2*s**2; (d_v)^flat - mu W* closed: True; ell([Box, v] W*) = 4*pi**2; Theta(dv^2/r^2) = -1/r**3, ell = -2*pi**2; L_{W*} g != 0: True
   H3 control: dv/r^2 + dr/(r(r+s)) in the kernel of Box: False
 H3 PASS
+  H4: Box W** = dv/r^3: v-component exact True, all components at 6 points to 40 digits (max 1.38e-40) True; B's numerator at r = s vanishes: True (B at r_h -+ 1e-8: -0.2632402589352179695653712, -0.2632402549580607010322199); r A, r B -> [1/2, -1/4]; dQ[W**]/dv = 2*pi**2 (Q at v = 0, r_h -+ 1e-8, s = 3/2: 14.804406601634037928, 14.804406601634037928); L_{W**} g - (v/2) L_{W*} g stationary: True
+  H4 control (coefficient 1): residual max 3.515e-01, solves: False
+H4 PASS
+EXIT 0

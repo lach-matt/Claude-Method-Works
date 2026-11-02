@@ -295,17 +295,25 @@ def ehat_b(om):
 
 def t8():
     print("T8  the time integral of the record's waves")
-    env = sp.sin(sp.pi*(v - sp.Rational(1, 2))/3)**4
-    eh = sp.integrate(sp.expand(sp.expand_trig(env)*sp.exp(sp.I*w*v)).rewrite(sp.exp), (v, sp.Rational(1, 2),
-                                                                                          sp.Rational(7, 2)))
-    eh = sp.simplify(eh)
-    f = sp.lambdify(w, eh, "mpmath")
+    # sin^4 x = (3 - 4 cos 2x + cos 4x)/8, x = pi (v - 1/2)/3: ehat is a finite sum of int e^(i alpha v) dv
     mp.mp.dps = 30
+    lo, hi = mp.mpf(1)/2, mp.mpf(7)/2
+
+    def seg(al):
+        return (hi - lo) if al == 0 else (mp.exp(1j*al*hi) - mp.exp(1j*al*lo))/(1j*al)
+
+    def ehat4(om):
+        tot = 3*seg(om)
+        for k, cf in ((2, -4), (4, 1)):
+            q = k*mp.pi/3
+            ph = mp.exp(-1j*q/2)
+            tot += cf*(ph*seg(om + q) + seg(om - q)/ph)/2
+        return tot/8
     vals = []
     for om in (10, 20, 40, 80, 160, 320):
-        e = f(mp.mpf(om))
+        e = ehat4(mp.mpf(om))
         direct = mp.quad(lambda x: mp.sin(mp.pi*(x - mp.mpf(1)/2)/3)**4*mp.exp(1j*om*x),
-                         mp.linspace(mp.mpf(1)/2, mp.mpf(7)/2, 4*om))
+                         mp.linspace(lo, hi, 4*om))
         vals.append((om, abs(e)*om**5, abs(e - direct)))
     check("T8a the closed form agrees with quadrature", max(x[2] for x in vals) < 1e-20,
           mp.nstr(max(x[2] for x in vals), 3))
