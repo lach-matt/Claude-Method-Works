@@ -56,3 +56,8 @@ T8  the time integral of the record's waves
   T8a the closed form agrees with quadrature: pass 8.0e-32
      |ehat(w)| w^5 at w = 10..320: ['47.614', '60.311', '17.839', '33.63', '54.622', '35.567']
   T8b sin^4 envelope: |ehat(w)| w^5 bounded, not -> 0 (C^3 ends: ehat ~ w^-5): pass 
+     bump: lam, |ehat(1/lam)|: [('0.5', '0.2969'), ('0.25', '0.05895'), ('0.125', '0.008629'), ('0.0625', '0.001444'), ('0.0313', '0.0001092'), ('0.0156', '6.275e-6'), ('0.00781', '3.375e-8')]
+  T8c bump: ehat(1/lam) != 0 at lam = 2^-1..2^-7: pass 
+     local log-slopes d log|ehat|/d log lam (they oscillate with ehat's zeros): ['2.579', '3.725', '4.121', '7.538']
+  T8d bump: log-slope over [2^-7, 2^-5] > 5 (faster than the C^3 envelope's lam^5): pass 5.83
+  T8e e^(-2iw) ehat_b(w) is real: pass 1.25e-43

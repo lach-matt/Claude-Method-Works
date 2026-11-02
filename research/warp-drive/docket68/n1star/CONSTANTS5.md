@@ -31,7 +31,8 @@ log, EFFECTIVE-CONSTANTS.md, LOSS-D.md or E2-PILOT.md. Programs: `checks/lzeroau
 - **lambda1 and delta.** No quantitative replacement is computed here. Each of the 35 non-effective rows has its
   replacement and the precise missing input (`nrows5.py` R1); a fifth kind the ledger's census did not search, bounds
   from the closed graph, open mapping and Banach-Steinhaus theorems, occurs at 16 lines of proof5, 13 of which carry a
-  constant (R2); and the replacements must be built in a fixed order, the covering and calculus constants first (R3).
+  constant (R2) [Round 2, V-m2: 18 lines with a pattern that also finds "closed-graph" and "Banach and Steinhaus", 10
+  carrying a constant or an order, one more with a constructive alternative beside it; R2.9]; and the replacements must be built in a fixed order, the covering and calculus constants first (R3).
   Upper bounds are certified: **log10 delta < -7.666e16 and lambda1 < delta**, from the proof's own formulas, with the
   upper-bound constants taken >= 1 (`deltacap5.py`).
 
@@ -272,7 +273,9 @@ effective version, and EFFECTIVE-CONSTANTS.md section 4's methods (READ) apply t
 
 The ledger's census searched contradiction, compactness, Rellich, Fredholm and subsequence. Bounds from Baire-category
 theorems give a constant without a value too: proof5 has 16 lines with the closed graph, open mapping or
-Banach-Steinhaus theorem, none among the ledger's N-rows; 13 carry a constant: II.A:960, 986, 1538; II.A2:130, 188,
+Banach-Steinhaus theorem, none among the ledger's N-rows; 13 carry a constant [Round 2, V-m2: corrected to 18 lines and
+10 B rows in `nrows5.py`; II.A:986, 1538 and II.A2:811 are summaries, I4:274 offers a constructive bound beside the
+theorem, II.A2:186 and J4:655 were missed; R2.9]: II.A:960, 986, 1538; II.A2:130, 188,
 276, 281, 811 (the calculus); II.F:1400 (open mapping, beside the N1 row 1393); III.H:425 (Banach-Steinhaus, locally
 uniform in sigma); III.I''':274; and III.J'':41, 82, where the closed graph theorem gives the tame constants C_k of
 every membership statement (Lemma 1.2 (f)). These enter lambda1 and delta through the tame constants. Their
