@@ -1,7 +1,8 @@
   K1 (N1): P_e = diag(e, 1, ..., 1), j = diag(1, 1/2, ..., 1/6): (e, a priori C, sampled ratios <= C, ||P||, output C') =
       [('1/10', '10/11', True, '1', '10'), ('1/1000', '1000/1001', True, '1', '1000'), ('1/1000000', '1000000/1000001',
       True, '1', '1000000')] (exact): inputs bounded (C <= 1, ||P|| = 1), output 1/e
-  C1 (control): the mutant e = 1: C' = 1, not growing: K1's test fails for it: True
+  C1 (control): K1's computation and test with the family held at e = 1: outputs ['1', '1', '1'], K1's test fails for it:
+      True
   C3 (control): with e = 0 and j vanishing on e_1, the a priori estimate fails (no constant): True
   K2 (N2): P_e(p) = diag(p + e, 1), L = 1: pointwise bounds 1/(p + e) finite, the supremum 1/e; the Neumann cover
       (computed, exact): (e, base points, bound 2 max M_i, worst true/bound) = [('1/10', 4, '20', '1.000'), ('1/100', 8,
@@ -12,7 +13,7 @@
       1/10, 1/1000: 1/l, the inverse expansion rate, not produced by the argument
   K4 (N4): radius e everywhere on [0, 1]: patch counts [5, 500, 500000] for e = 1/10, 1/1000, 1e-6 (unbounded at fixed
       inputs); with K2's explicit radii the counts are computed: [4, 8, 11] for e = 1/10, 1/100, 1/1000
-  C4 (control): K4's unboundedness test on the effective counts (all below 1e6): fails, as it must: True
+  C4 (control): K4's own test (count * e >= 1/2 at every e) on the effective counts [4, 8, 11]: fails, as it must: True
   K5: the seven sites at which this proof gives no number for the constants behind lambda1 and delta, and what has to be
       computed instead (READ at the cited lines; deduced):
       I-C-LOWENERGY:497 (N1) P-hat(0) at zero energy, X_0 -> Y (I.C Theorem 3.1 (4)) -> sigma_min of P-hat(0) on the
@@ -28,6 +29,7 @@
       X_sigma -> Y_sigma (E2-PILOT: cut-off L^2 bound, 3 <= sigma <= 384)
       I-B-HIGHENERGY:1513 (N3) the trapping estimate (6.6) (I.B Proposition 6.4) -> the multiplier constant at the photon
       sphere (rate lambda_L^2 = 1/(2 mu), cover5.py)
+      every site's non-effective step read on its line (Round 4): [True, True, True, True, True, True, True]
 K1 PASS
 C1 PASS
 C3 PASS

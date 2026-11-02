@@ -49,8 +49,12 @@ said); deduced (the reduction of each record site to its model, read at the cite
   varies over the grid's own values, so K4's test fails for the effective replacement, as it must.
 
     python3 checks/nkind5.py
+Round 4 (the round-3 reader's findings): C1 now runs K1's own computation and test on the family held at e = 1; K4's
+test is count * e >= 1/2 at every e (growth like 1/e), and C4 runs that same test on K2's effective counts; K5 reads
+each site's non-effective step on its line.
 """
 import builtins
+import os
 import sys
 import textwrap
 from fractions import Fraction as Fr
@@ -138,26 +142,46 @@ def neumann_cover(e, L=Fr(1), factor=Fr(1, 2)):
     return len(centres), 2 * max(M for _, M, _ in centres), worst
 
 
-def main():
-    ok = {}
-    # K1
+FRAG = {497: 'a subsequence converges', 1685: 'is Fredholm, and by (a)', 1978: 'is Fredholm, so it is invertible',
+        1393: 'Fredholm estimates with a weak remainder', 223: 'so injectivity suffices',
+        365: 'so it suffices to show injectivity', 1513: 'after passing to a subsequence'}   # Round 4: K5 reads them
+
+
+def k4_test(pairs):
+    """K4's test (Round 4: the one C4 also runs): the count grows like 1/e, count * e >= 1/2 at every e"""
+    return all(c * e >= Fr(1, 2) for e, c in pairs) and all(a[1] < b[1] for a, b in zip(pairs, pairs[1:]))
+
+
+def k1_rows(es, hold=None):
     rows = []
-    for e in (Fr(1, 10), Fr(1, 1000), Fr(1, 10 ** 6)):
-        P, j = diag_family(e)
+    for e in es:
+        P, j = diag_family(e if hold is None else hold)
         C = apriori_C(P, j)
         C_lp = apriori_C_lp(P, j, C)
         normP = max(abs(x) for x in P)
         Cp = 1 / min(abs(x) for x in P)
         rows.append((e, C, C_lp, normP, Cp))
-    k1 = all(r[1] <= 1 and r[2] and r[3] == 1 for r in rows) and rows[0][4] < rows[1][4] < rows[2][4]
+    return rows
+
+
+def k1_test(rows):
+    return all(r[1] <= 1 and r[2] and r[3] == 1 for r in rows) and rows[0][4] < rows[1][4] < rows[2][4]
+
+
+def main():
+    ok = {}
+    # K1
+    ES = (Fr(1, 10), Fr(1, 1000), Fr(1, 10 ** 6))
+    rows = k1_rows(ES)
+    k1 = k1_test(rows)
     ok['K1'] = k1 and rows[2][4] == 10 ** 6
     print('  K1 (N1): P_e = diag(e, 1, ..., 1), j = diag(1, 1/2, ..., 1/6): (e, a priori C, sampled ratios <= C, ||P||, '
           'output C\') = %s (exact): inputs bounded (C <= 1, ||P|| = 1), output 1/e'
           % [(str(r[0]), str(r[1]), r[2], str(r[3]), str(r[4])) for r in rows])
-    P, j = diag_family(Fr(1))
-    ok['C1'] = not (1 / min(P) > 1)
-    print('  C1 (control): the mutant e = 1: C\' = %s, not growing: K1\'s test fails for it: %s' % (1 / min(P),
-                                                                                               ok['C1']))
+    rows_m = k1_rows(ES, hold=Fr(1))
+    ok['C1'] = not k1_test(rows_m)
+    print('  C1 (control): K1\'s computation and test with the family held at e = 1: outputs %s, K1\'s test fails for '
+          'it: %s' % ([str(r[4]) for r in rows_m], ok['C1']))
     P0 = [Fr(0)] + [Fr(1)] * 5
     j0 = [Fr(0)] + [Fr(1, i + 1) for i in range(1, 6)]
     ok['C3'] = apriori_C(P0, j0) is None
@@ -190,21 +214,25 @@ def main():
 
     # K4
     k4 = [(e, ceil(1 / (2 * e))) for e in (Fr(1, 10), Fr(1, 1000), Fr(1, 10 ** 6))]
-    ok['K4'] = k4[0][1] < k4[1][1] < k4[2][1]
+    ok['K4'] = k4_test(k4)
     eff = [neumann_cover(e)[0] for e in (Fr(1, 10), Fr(1, 100), Fr(1, 1000))]
     print('  K4 (N4): radius e everywhere on [0, 1]: patch counts %s for e = 1/10, 1/1000, 1e-6 (unbounded at fixed '
           'inputs); with K2\'s explicit radii the counts are computed: %s for e = 1/10, 1/100, 1/1000' % (
               [c for _, c in k4], eff))
-    ok['C4'] = not (eff[0] < eff[1] < eff[2] and eff[2] > 10 ** 6)
-    print('  C4 (control): K4\'s unboundedness test on the effective counts (all below 1e6): fails, as it must: %s'
-          % ok['C4'])
+    ok['C4'] = not k4_test(list(zip((Fr(1, 10), Fr(1, 100), Fr(1, 1000)), eff)))
+    print('  C4 (control): K4\'s own test (count * e >= 1/2 at every e) on the effective counts %s: fails, as it '
+          'must: %s' % (eff, ok['C4']))
 
     # K5
     print('  K5: the seven sites at which this proof gives no number for the constants behind lambda1 and delta, and '
           'what has to be computed instead (READ at the cited lines; deduced):')
     for f, ln, kind, op, need in SITES:
         print('      %s:%d (%s) %s -> %s' % (f.replace('PART-', '').replace('.md', ''), ln, kind, op, need))
-    ok['K5'] = len(SITES) == 7 and sum(1 for s in SITES if s[2] == 'N1') == 6
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'proof5')
+    found = [FRAG[ln] in open(os.path.join(root, f), encoding='utf-8').read().split('\n')[ln - 1]
+             for f, ln, *_ in SITES]
+    ok['K5'] = len(SITES) == 7 and sum(1 for s in SITES if s[2] == 'N1') == 6 and all(found)
+    print('      every site\'s non-effective step read on its line (Round 4): %s' % found)
     for k, v in ok.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1
