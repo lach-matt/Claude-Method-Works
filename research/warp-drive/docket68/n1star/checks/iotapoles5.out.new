@@ -1,0 +1,4 @@
+iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's Lemma 1.4 log orders; the ceiling
+  M1: Mellin[(D - lam) L1(D) G + v N(D) G] = (zeta - lam) L1(zeta) Ghat(zeta) + N(zeta - 1) Ghat(zeta - 1) on G = v^a
+      e^-v, L1, N symbolic: True
+  C1 (control): the shift taken as zeta + 1: the identity fails: True

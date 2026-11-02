@@ -3,7 +3,7 @@
 by the Mellin transform of the iota+-normal operator; the log orders III.A Lemma 1.4 puts into E_ind; and d's ceiling
 redone with them (CONSTANTS5.md, Round 4, item (ii)).
 
-Labels: computed (exact, sympy; real roots in exact isolating intervals), deduced (the Mellin reduction, R4.1), READ
+Labels: computed (exact, sympy; real roots in exact isolating intervals), deduced (the Mellin reduction, R4.3), READ
 (cited lines and the record's instruments, used by import, never copied).
 
 The operator (READ, PART-III-G2-IOTA.md:27-30): N_iota+(lam) = -2 v (v d_v - lam)(v d_v - 3/2 - S-bar) + v^2
@@ -21,12 +21,12 @@ are s0, s_l and t_l, l even >= 2.
      v^(3/2) (1 + v/2)^(-k-3/2-l) F_k(-v/2), F_k = 2F1(-k, -2-2l-k; -1/2-l-k; .) terminating, solve N_iota+(3 + l + k) G
      = 0 exactly (l, k = 0, 1, 2; l = k = 0 is [Hin26]'s u_3); (b) the growing coefficient of the outgoing solution
      at oo,
-     Gamma(2 + 2l)/(Gamma(3/2 + l) Gamma(3 + l - lam)), has exactly the zeros 3 + l + k, each simple; (c) R4.1's product
+     Gamma(2 + 2l)/(Gamma(3/2 + l) Gamma(3 + l - lam)), has exactly the zeros 3 + l + k, each simple; (c) R4.3's product
      Pi_j gives the same poles, each of order 1. Controls: C2 the constant 1 (the n = 3 value) for 3/2 in (a): the states
      fail; C3 the product with the shift lost, N(lam - i + 1): its poles are l + 2 + k, not (b)'s, and (c) fails.
   M3 (exact) L-bar at the record's point, types s0 and t2 (iota5.mats, about 2 minutes): M0 = (x - lam) L1, L1 = C - x,
      spec C - 3/2 inside spec S-bar (READ, G2-IOTA (1.4)); det N factored; the roots with 0 < Re <= 4 isolated; exactly K
-     roots with Re <= 0 (the strip of R4.1); the candidates r + i (Re <= 5) listed; at every candidate but one a single
+     roots with Re <= 0 (the strip of R4.3); the candidates r + i (Re <= 5) listed; at every candidate but one a single
      factor N(lam0 - i) is singular, at a simple root, so the order is 1; at lam0 = 5 (s0) two are, N(4) and N(2), and
      the exact Laurent expansion of Pi_4(5 + eps)^-1 gives order 1, residue of rank 2. No root lies in spec C + Z (the
      exceptional points). Control C4: the same expansion with N(2 + eps)^-1 replaced by its adjugate: the order-1,
@@ -128,7 +128,7 @@ def gamma_zeros(l, top=5):
 
 
 def pole_orders_scalar(L1, N, roots, top=5, shift_bug=False):
-    """R4.1 for K = 1: poles lam0 = r + i (i >= 1) of Pi_j^-1 with Re lam0 <= top, and their orders (exact)"""
+    """R4.3 for K = 1: poles lam0 = r + i (i >= 1) of Pi_j^-1 with Re lam0 <= top, and their orders (exact)"""
     out = {}
     cand = sorted({r + i for r in roots for i in range(0, 6) if 0 < r + i <= top})
     for l0 in cand:
@@ -294,8 +294,10 @@ def m4():
     z, kap, l = sp.symbols('z kappa l', positive=True)
     s_minus = ((2 + 2 * kap + z) - sp.sqrt((z + 2) ** 2 + 4 * kap)) / 2
     ds = sp.simplify(sp.diff(s_minus, z))
-    at0 = sp.simplify(s_minus.subs(z, 0).subs(kap, l * (l + 2)) - l * (l + 1))
-    pos_der = sp.simplify(1 - (z + 2) / sp.sqrt((z + 2) ** 2 + 4 * kap)).is_positive
+    Qz0 = lambda q: q ** 2 - (2 + 2 * kap) * q + kap * (kap + 1)           # noqa: E731  (Q at z = 0)
+    at0 = (sp.expand(Qz0(l * (l + 1)).subs(kap, l * (l + 2))) == 0
+           and sp.expand(Qz0((l + 1) * (l + 2)).subs(kap, l * (l + 2))) == 0)      # roots l (l + 1) < (l + 1)(l + 2)
+    pos_der = sp.expand(((z + 2) ** 2 + 4 * kap) - (z + 2) ** 2) == 4 * kap      # sqrt(...) > z + 2: ds_-/dz > 0
     out['box^Ups'] = (at0 == 0, pos_der, ds)
     # the l = 2 right roots of pk (box^C), for the s2 candidate list; and the counts at the line 2 (Routh, damping5)
     roots2 = [(sp.Rational(a) - 1, sp.Rational(b) - 1) for (a, b), _ in sp.Poly(pk2, L).intervals(
@@ -392,7 +394,7 @@ def main():
     OK['M2'] = all(st.values()) and agree and all(o == 1 for l in pz for o in pz[l].values())
     print('  M2: free model: the pure states solve N_iota+(3 + l + k) G = 0 for l, k = 0, 1, 2: %s; '
         'Gamma-coefficient zeros '
-          'at Re <= 5 (lam, order): %s; R4.1 product poles: %s; agree: %s' % (all(st.values()), gz,
+          'at Re <= 5 (lam, order): %s; R4.3 product poles: %s; agree: %s' % (all(st.values()), gz,
                                                                            {l: pz[l] for l in pz}, agree))
     OK['C2'] = not any(free_state(l, k, c=1) for l in range(2) for k in range(2))
     print('  C2 (control): the constant 1 for 3/2: no state solves: %s' % OK['C2'])
