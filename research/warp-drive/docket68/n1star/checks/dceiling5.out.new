@@ -14,3 +14,27 @@
       + 1)(l_* + 1) (exact)
   C2 (control): scaled Lambda (489 points below 2, 2747 in [2, 3)): brute force 5117661 = closed form 5117661; without
       the n_below term 3774378: differs
+  D7: the largest log order of E^C_I at Re <= 5: {'R0': 4, 'R1, M = 4': 16} (exact; dweights5 data_ECI): l_* >= l_C
+  D6: d <= 4527175422273024*L_0 + 2986797742916004835692267122688*l_star_plus_1 + 28864786304360710 + 53244736 X_7 +
+      106489470 c'  [level-2 rounds per exponent (LD16)]
+      at the least admissible L_0 = 1, l_* = l_C(R0) = 4: d <= 1.493399e+31 + 53244736 X_7 + 106489470 c'; N = 21 d + 6
+      <= 3.136138e+32 + ... (exact integer 14933988714580057570423062247174)
+  D6: d <= 18108701529357888*L_0 + 11947190968141150306670744890368*l_star_plus_1 + 28864786304360710 + 53244736 X_7 +
+      106489470 c'  [level-2 rounds per (alpha_0, k) (LD15)]
+      at the least admissible L_0 = 1, l_* = l_C(R0) = 4: d <= 5.973595e+31 + 53244736 X_7 + 106489470 c'; N = 21 d + 6
+      <= 1.254455e+33 + ... (exact integer 59735954840705798506841558170438)
+      against the floor d >= 8407505890317054 (W3): the record's accounting leaves a factor of at least 1.78e+15 between
+      floor and ceiling; III.A Proposition 4.2's n_iota alone is <= 2.805e+23 per level
+  C4 (control): III.A Proposition 4.2 (1) at Step 0 read with E_iota empty: l = 11; with E^flat bounded by K(lambda): >=
+      5.610e+22: the size is E^flat's log orders
+  C1 (control): D1 at z = 0: offsets [0.0]: not all positive, D1's test fails: True
+D1 PASS
+D3 PASS
+C3 PASS
+D4 PASS
+C2 PASS
+D7 PASS
+D6 PASS
+D5 PASS
+C4 PASS
+C1 PASS
