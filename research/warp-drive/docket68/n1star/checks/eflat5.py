@@ -133,6 +133,59 @@ def site_eind(roots, k, top=Fr(8), extra=0):
     return {z - k: lo for z, lo in U.items() if z > k}
 
 
+def f4_table(M, G, lmax_w, c_gen, windows='max', completion=True, top=Fr(4)):
+    """F4 (Round 6, the verifier of round 5, M1): E^flat's bound at the points z of pi_1 E^C_I in [2, 3] (R0: M = 1,
+    R1: M = 4). Step 1 runs III.I' (3.2) in rounds over the windows [m_j, m_j + 1), m_j = 2 + j - 1, from G; each
+    extended union raises the log order at z by k(E^C_I, z) + 1 (or puts (z, k(E^C_I, z)) where G has no z) and
+    completes the index set by (2.2), adding (z + m, its order), m >= 1, so a raise at 2 reaches 3 before the round
+    at 3 (A-PREREQ:122-130; round 5's rule took each z alone, completion=False). The windows' own III.I' steps raise
+    only at real part >= 5/2 (I11:382-386) and are maximised (windows='max'), or summed over N_* windows (control).
+    Returns (rows (z, k(E^C_I, z), bound) for every z, excess over c_gen, count of points)."""
+    Ec = {z: kk for z, kk in DW.data_ECI(M, top=top).items() if 2 <= z <= 3 + EPS_P}
+    S = {}
+    for z0, lo in G.items():                       # G as an index set (closed under + N_0 by (2.2))
+        n = 0
+        while z0 + n <= top:
+            S[z0 + n] = max(S.get(z0 + n, -1), lo)
+            n += 1
+    j = 1
+    while 2 + j - 1 <= 3:
+        mj = 2 + j - 1
+        raised = []
+        for z in sorted(Ec):
+            if mj <= z < mj + 1 and z <= L_I:
+                S[z] = S[z] + Ec[z] + 1 if z in S else Ec[z]
+                raised.append(z)
+        if completion:
+            for z in raised:
+                n = 1
+                while z + n <= top:
+                    S[z + n] = max(S.get(z + n, -1), S[z])
+                    n += 1
+        j += 1
+    rows, excess = [], 0
+    for z in sorted(Ec):
+        kz = Ec[z]
+        step1 = S.get(z, kz)
+        win = (lmax_w + kz + 1) if z >= Fr(5, 2) else 0
+        if windows == 'sum':
+            b = max(c_gen, step1 + NSTAR * win)
+        else:
+            b = max(c_gen, step1, win)
+        excess += b - c_gen
+        rows.append((float(z), kz, b))
+    return rows, excess, len(Ec)
+
+
+def f4_ok(res, c_gen):
+    """F4's test (Round 6): excess 23 (R0) and 47 (R1) over the 26 points, largest bounds 5 and 14, at 17 and 18
+    points above c_gen = 2"""
+    above = {nm: len([r for r in res[nm][0] if r[2] > c_gen]) for nm in res}
+    return (c_gen == 2 and res['R0'][1] == 23 and res['R1'][1] == 47 and res['R0'][2] == 26
+            and max(b for _, _, b in res['R0'][0]) == 5 and max(b for _, _, b in res['R1'][0]) == 14
+            and above == {'R0': 17, 'R1': 18})
+
+
 def main():
     print('eflat5: E^flat\'s log orders as the construction writes them; the ceiling on d with them')
     off, ints, census_ok = offsets()
@@ -205,20 +258,8 @@ def main():
     c_gen = max(lmax_w, max(G.values()))
     res = {}
     for name, M in (('R0', 1), ('R1', 4)):
-        Ec = {z: kk for z, kk in DW.data_ECI(M, top=Fr(4)).items() if 2 <= z <= 3 + EPS_P}
-        rows, excess, sum_rule = [], 0, 0
-        for z in sorted(Ec):
-            kz = Ec[z]
-            step1 = (G[z] + kz + 1) if z in G else kz
-            window = (lmax_w + kz + 1) if z >= Fr(5, 2) else 0
-            b = max(c_gen, step1, window)
-            excess += b - c_gen
-            rows.append((float(z), kz, b))
-            if z == 3:
-                sum_rule = step1 + NSTAR * (kz + 1)              # C1: raises summed over the windows
-        res[name] = (rows, excess, sum_rule, len(Ec))
-    OK['F4'] = (c_gen == 2 and res['R0'][1] == 23 and res['R1'][1] == 44 and res['R0'][3] == 26
-                and max(b for _, _, b in res['R0'][0]) == 5 and max(b for _, _, b in res['R1'][0]) == 11)
+        res[name] = f4_table(M, G, lmax_w, c_gen)
+    OK['F4'] = f4_ok(res, c_gen)
     print('  F4: E^flat\'s log order on [2, 3 + eps_+): at most %d off pi_1 E^C_I (Step 2: max l(w) = %d; G: %s); at '
           'the %d points of pi_1 E^C_I in [2, 3] at most (z, k(E^C_I, z), bound): R0 %s; R1 %s' % (
               c_gen, lmax_w, sorted((float(z), lo) for z, lo in G.items()), res['R0'][3],
@@ -248,9 +289,17 @@ def main():
     print('  F7: Step 7\'s beta_iota = beta\'_+ < 3/2 < lambda_sharp = %s <= min Re E_iota: |E_iota,<=| = 0, X_7 = '
           '|E_K,<=| + (2.26a)\'s losses' % LSHARP)
     # controls
-    OK['C1'] = res['R0'][2] > 15 * 10 ** 6
-    print('  C1 (control): the windows\' raises at 3 summed instead of maximised: log order %d: F4\'s bound fails: %s'
-          % (res['R0'][2], OK['C1']))
+    # Round 6 (verifier of round 5, minor 1): C1 reruns F4's own loop with the windows summed, and F4's test on it
+    res_sum = {nm: f4_table(M, G, lmax_w, c_gen, windows='sum') for nm, M in (('R0', 1), ('R1', 4))}
+    at3 = [b for z, _, b in res_sum['R0'][0] if z == 3.0][0]
+    OK['C1'] = not f4_ok(res_sum, c_gen) and at3 > 15 * 10 ** 6
+    print('  C1 (control): F4\'s loop rerun with the windows\' raises summed instead of maximised: log order %d at 3; '
+          'F4\'s test fails on it: %s' % (at3, OK['C1']))
+    res_nc = {nm: f4_table(M, G, lmax_w, c_gen, completion=False) for nm, M in (('R0', 1), ('R1', 4))}
+    OK['C4'] = not f4_ok(res_nc, c_gen) and res_nc['R1'][1] == 44 and res_nc['R0'][1] == 23
+    print('  C4 (control, Round 6): F4 without the completion (2.2) between the rounds of (3.2) (round 5\'s rule): '
+          'excess %d (R0), %d (R1), log order %d at 3 on R1: F4\'s test fails on it: %s' % (
+              res_nc['R0'][1], res_nc['R1'][1], max(b for _, _, b in res_nc['R1'][0]), OK['C4']))
     Ebad = site_eind(blocks['v1'], 2, extra=1)
     OK['C2'] = Ebad[Fr(1)] > 2
     print('  C2 (control): the v1 site\'s extended unions counted twice: log order %d at offset 1 > 2: F4 fails: %s' % (
