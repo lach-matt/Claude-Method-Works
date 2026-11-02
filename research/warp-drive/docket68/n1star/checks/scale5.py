@@ -23,7 +23,7 @@ in Cartesian components; Z := (t - v1) d_t + x.d_x, acting on components (the di
      every function, so every second derivative of h is a combination of first derivatives of h, Z h, d_t h and
      Omega_ij h with coefficients bounded by 1 + 4/r on W, where |t - v1| <= r (W lies in {v >= v1, t <= v1}).
      Control: with |t - v1| > r (outside W) the coefficient of d d_t h is unbounded along t -> -oo at fixed r.
-  Z5 (exact) on S = {t = f(r)}: r d/dr (h|_S) = (Z h)|_S + (v1 - f + r f')(d_t h)|_S, so the b-derivative rho d_rho
+  Z5 (exact, an explicit h(t, r), f generic) on S = {t = f(r)}: r d/dr (h|_S) = (Z h)|_S + (v1 - f + r f')(d_t h)|_S, so the b-derivative rho d_rho
      = -r d/dr of the data on S is a combination of the restrictions of Z h and d_t h with a coefficient smooth in
      rho (f' in |x|^-2 C^oo, Part VII 162-177). Control: r d_r h alone is not (Z h)|_S.
   Z6 (exact) on N = {v = v1}: Z(v - v1) = v - v1, so Z is tangent to N, Z = r (d_r - d_t) there, and Z^j of a
@@ -314,15 +314,14 @@ def z5():
     print("Z5  the b-derivative on S")
     r = sp.Symbol("r", positive=True)
     f = sp.Function("f")(r)
-    hh = sp.Function("h")
     tt, rr = sp.symbols("tt rr")
-    H = hh(tt, rr)
-    onS = lambda e: e.subs(tt, f)
-    lhs = r*sp.diff(hh(f, r), r)
+    H = tt**2*rr**3 + sp.sin(tt*rr) + sp.exp(tt)/rr  # an explicit h(t, r); f stays generic
+    onS = lambda e: e.subs(tt, f).subs(rr, r)
+    lhs = r*sp.diff(onS(H), r)
     Zh = (tt - V1)*sp.diff(H, tt) + rr*sp.diff(H, rr)
-    rhs = onS(Zh.subs(rr, r)) + (V1 - f + r*sp.diff(f, r))*onS(sp.diff(H, tt).subs(rr, r))
+    rhs = onS(Zh) + (V1 - f + r*sp.diff(f, r))*onS(sp.diff(H, tt))
     check("Z5a r d/dr (h|_S) = (Z h)|_S + (v1 - f + r f')(d_t h)|_S", sp.simplify(sp.expand(lhs - rhs)) == 0)
-    rdr = onS((rr*sp.diff(H, rr)).subs(rr, r))
+    rdr = onS(rr*sp.diff(H, rr))
     check("Z5b control: (r d_r h)|_S is not r d/dr (h|_S) (the slice is not t = const)",
           sp.simplify(lhs - rdr) != 0)
 
