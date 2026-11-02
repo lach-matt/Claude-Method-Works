@@ -19,7 +19,8 @@ III.G'' Corollary 4.3, G3:375-400):
      (10, at 5, from v1 with k = 2: round 4's M5 reproduced on the block reading).
      Also the literal reading, E(alpha) from every type's roots (iotapoles5.py M5's choice): there the offsets below 1
      are {d0, d1}, the widest reading of R3.3 D3, under which (G) binds and the floor moves. So M5's log order 10 holds
-     on both readings, but M5's root set is not the narrowest reading it names.
+     on both readings, but M5's root set is not the narrowest reading it names. On that reading too the log orders at
+     Step 2's offsets are <= 2 (what changes there is Lambda, not the log orders).
   F2 (exact) the towers of III.D''' (Lemma 2.1, D4:76-100: Lemma 1.5's formal solutions, logarithms where m + n meets a
      root, then Lemma 1.4 above 2 + d1): for each class root mu of D4 (R4) of type tau, mu + 1 is not a type-tau root, so
      a tower's offset 1 carries log order 0; its other offsets in (0, 1.4901] are none (Lemma 1.4's part starts at
@@ -157,14 +158,15 @@ def main():
     Efull = site_eind(allroots, 2)
     below1_full = sorted(w for w in Efull if 0 < w < 1)
     max5_full = max(lo for w, lo in Efull.items() if w <= 5)
+    win_full = max(max(lo for w, lo in site_eind(allroots, k).items() if 0 < w <= TOP_W) for k in (1, 2))
     OK['F1'] = (census_ok and below1 == [d1] and max5 == 10 and arg5 == [Fr(5)] and max(win.values()) == 2
-                and max5_full == 10)
+                and max5_full == 10 and win_full == 2)
     print('  F1: Lemma 1.4 per site (block by type at b0): offsets below 1 %s (d1 = %.4e); log orders at the offsets in '
           '(0, %.4f] (Step 2\'s): %s; largest log order at Re <= 5: %d at %s (round 4\'s M5 reproduced on the block '
-          'reading). Every type\'s roots (M5\'s census): offsets below 1 %s (d0 = %.4e, d1), largest at Re <= 5: %d'
-          % (['%.4e' % w for w in below1], d1, float(TOP_W),
+          'reading). Every type\'s roots (M5\'s census): offsets below 1 %s (d0 = %.4e, d1), largest at Re <= 5: %d, '
+          'largest at Step 2\'s offsets (k = 1, 2): %d' % (['%.4e' % w for w in below1], d1, float(TOP_W),
              sorted(('%.7f' % w, lo) for w, lo in win.items()), max5, [str(w) for w in arg5],
-             ['%.4e' % w for w in below1_full], d0, max5_full))
+             ['%.4e' % w for w in below1_full], d0, max5_full, win_full))
     for name, b, k in sites:
         e = E[name]
         print('      %s (%s, k = %d): log orders at offsets 1, 2, 3, 4, 5: %s' % (
