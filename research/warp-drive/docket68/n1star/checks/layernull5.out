@@ -16,3 +16,4 @@ E5 PASS
   E6 -(1/2) G(g_lam) H(w) = -Ric^H(g_app) + (1/2)(G(g_lam) - G(g_app)) H(g_app) - (Q(g_lam) - Q(g_app)), given
       Ric^H(g_lam) = 0: True
 E6 PASS
+layernull5: all checks pass, every control fails

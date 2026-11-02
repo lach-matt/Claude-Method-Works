@@ -615,8 +615,8 @@ def main():
     rd = run(1, control="chi_dudv")
     print("  control (d), chi_out on du dv: J4 %s (must fail)  (%.0f s)" % (rd["J4"], time.time() - t0), flush=True)
     good8, good9, c8, c9 = j8(), j9(), j8(True), j9(True)
-    print("  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: %s; control (e) "
-          "q = 1 passes: %s" % (good8, c8), flush=True)
+    print("  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: %s;\n"
+          "      control (e) q = 1 passes: %s" % (good8, c8), flush=True)
     print("  J9: box h(ell, ell) by the product rule: %s; control (f) without the cross term passes: %s" % (good9, c9),
           flush=True)
     ctl_ok = not ctl_a and not rd["J4"] and not c8 and not c9
