@@ -238,6 +238,106 @@ def fdb(F, B, n):
     return F[0] if n == 0 else sum((F[k] * B[n][k] for k in range(1, n + 1)), iv.mpf(0))
 
 
+def seq_mul(A, B):
+    """Leibniz majorant along a line: D_{AB}[n] <= sum_j C(n, j) D_A[j] D_B[n - j]"""
+    return [sum((math.comb(n, j) * A[j] * B[n - j] for j in range(n + 1)), iv.mpf(0)) for n in range(len(A))]
+
+
+def seq_add(*Ss, w=None):
+    w = w or [1] * len(Ss)
+    return [sum((c * S_[n] for c, S_ in zip(w, Ss)), iv.mpf(0)) for n in range(len(Ss[0]))]
+
+
+def seq_scale(S_, c):
+    return [x * c for x in S_]
+
+
+def pochhammer(alpha):
+    """|x|^-alpha on the unit sphere: sup |(e.d)^m| = (alpha)_m, attained radially (|x + te|^-alpha = sum_m
+    C_m^(alpha/2)(-tau) t^m and |C_m^lambda| <= C_m^lambda(1) = (2 lambda)_m/m! for lambda > 0)"""
+    out = [iv.mpf(1)]
+    for m in range(1, KMAX + 1):
+        out.append(out[-1] * (fiv(alpha) + m - 1))
+    return out
+
+
+def ts_pow(a, p):
+    """a^p for a Fraction p, a[0] > 0: n a0 b_n = sum_{j=1}^{n} ((p + 1) j - n) a_j b_(n-j)"""
+    K = len(a) - 1
+    if not lo_end(a[0]) > 0:
+        raise ValueError('power of a series with non-positive constant term')
+    pp = fiv(p)
+    b = [iv.exp(pp * iv.log(a[0]))]
+    for n in range(1, K + 1):
+        b.append(sum((((pp + 1) * j - n) * a[j] * b[n - j] for j in range(1, n + 1)), iv.mpf(0)) / (n * a[0]))
+    return b
+
+
+def h_bounds(power, scale, cells=400, J=4):
+    """sup over q in [-1, 1] of |d^k [scale (1 + q^2)^power]|, k <= KMAX (even function; centred interval form)"""
+    best = [mpmath.mpf(0)] * (KMAX + 1)
+    for i in range(cells):
+        lo, hi = mpmath.mpf(i) / cells, mpmath.mpf(i + 1) / cells
+        mid, h = (lo + hi) / 2, (hi - lo) / 2
+        ser = {}
+        for key, q0 in (('m', iv.mpf(mid)), ('c', iv.mpf([lo, hi]))):
+            qq = EV.ts_mul(EV.ts_var(q0, KMAX + J), EV.ts_var(q0, KMAX + J))
+            one = EV.ts_const(1, KMAX + J)
+            ser[key] = EV.ts_scale(ts_pow([x + y for x, y in zip(one, qq)], power), scale)
+        for k in range(KMAX + 1):
+            v = sum(EV.ivmax_abs(ser['m'][k + j]) * math.factorial(k + j) / math.factorial(j) * h ** j for j in range(J))
+            v += EV.ivmax_abs(ser['c'][k + J]) * math.factorial(k + J) / math.factorial(J) * h ** J
+            best[k] = max(best[k], v * EV.SAFE)
+    return [iv.mpf(b) for b in best]
+
+
+def x_tensors(gs):
+    """majorants D[m](1) on the unit sphere of the analytic x-tensors (see the docstring), iv sequences"""
+    K = KMAX
+    zero = [iv.mpf(0)] * (K + 1)
+    P = [iv.mpf(1), iv.mpf(2), iv.mpf(2)] + zero[3:]          # x1^2 + x2^2, x3^2 + x4^2, and their difference
+    eta = [iv.mpf(1), iv.mpf(1)] + zero[2:]                   # eta1, eta2 (vectors), and x itself
+    const2 = [iv.sqrt(iv.mpf(2))] + zero[1:]                  # d12, d34 (Frobenius sqrt 2)
+    iR2, R2_34, R2_32, ir = pochhammer(Fr(2)), pochhammer(Fr(3, 2)), pochhammer(Fr(3)), pochhammer(Fr(1))
+    c2 = seq_mul(P, iR2)
+    s2 = c2
+    q = seq_mul(P, iR2)
+    q[0] = iv.mpf(1)                                          # |cos 2th| <= 1
+    c2[0] = iv.mpf(1)
+    hH = h_bounds(Fr(-1, 2), iv.sqrt(iv.mpf(2)))
+    hH2 = h_bounds(Fr(-1), iv.mpf(2))
+    H = [fdb_seq(hH, q, n) for n in range(K + 1)]
+    H2 = [fdb_seq(hH2, q, n) for n in range(K + 1)]
+    xhat = seq_mul(eta, ir)
+    U = [iv.sqrt(iv.mpf(2))] + xhat[1:]
+    UU = seq_mul(U, U)
+    e11 = seq_mul(eta, eta)
+    cross = seq_scale(seq_mul(eta, eta), 2)
+    Bc = seq_add(seq_mul(c2, const2), seq_mul(c2, const2), seq_mul(iR2, seq_mul(seq_add(c2, s2, w=[2, 3]), e11)),
+                 seq_mul(iR2, seq_mul(c2, e11)), seq_mul(c2, seq_mul(iR2, cross)), w=[4, 2, 2, 2, 2])
+    Gc = seq_scale(seq_mul(H, seq_mul(R2_34, Bc)), iv.mpf(1) / 3)
+    Gs = Gc                                                   # the same majorant (c and s exchanged)
+    c2s2 = seq_mul(c2, s2)
+    c2s2[0] = iv.mpf(1) / 4                                   # c^2 s^2 = sin^2(2th)/4 <= 1/4
+    Ga_s2 = seq_scale(seq_mul(H2, seq_mul(iR2, seq_mul(q, UU))), iv.mpf(4) / 12)
+    Ga_c2 = seq_scale(seq_mul(H2, seq_mul(iR2, seq_mul(c2s2, UU))), iv.mpf(4) / 12)
+    Gb_s2 = seq_scale(seq_mul(H2, seq_mul(R2_34, seq_mul(q, UU))), iv.mpf(4) / 12)
+    Gb_c2 = seq_scale(seq_mul(H2, seq_mul(R2_34, seq_mul(c2s2, UU))), iv.mpf(4) / 12)
+    xi = seq_scale(seq_mul(seq_add(seq_mul(c2, eta), seq_mul(s2, eta)), iR2), 2)
+    GS = seq_scale(seq_mul(H2, seq_mul(R2_32, seq_mul(U, xi))), iv.mpf(8) / 9)
+    blocks = {'R2^-3/4': R2_34, 'H': H, 'H2': H2, 'q': q, 'U': U}
+    return blocks, {'Gc': Gc, 'Gs': Gs, 'Ga_c2': Ga_c2, 'Ga_s2': Ga_s2, 'Gb_c2': Gb_c2, 'Gb_s2': Gb_s2, 'GS': GS}
+
+
+def fdb_seq(Fk, D, n):
+    """Faa di Bruno majorant for h(q(x)) along a line: sum_k sup|h^(k)| B_{n,k}(D[1], D[2], ...)"""
+    if n == 0:
+        return Fk[0]
+    Vv = [None] + D[1:]
+    B = bell(Vv, n)
+    return sum((Fk[k] * B[n][k] for k in range(1, n + 1)), iv.mpf(0))
+
+
 def env_funcs(ek):
     E = [iv.mpf(e) for e in ek]
     E2 = [sum((math.comb(k, j) * E[j] * E[k - j] for j in range(k + 1)), iv.mpf(0)) for k in range(KMAX + 1)]
@@ -378,72 +478,45 @@ def main():
         '[a, 11/2]; a >= %.9f > %s: %s' % (float(tau_end_hi), float(a_lo), float(R_LO), ok['X2']))
 
     gs = [None, None] + [gegen_sup(m) for m in range(2, KMAX + 1)]
-    # boxes
-    rb = [R_LO]
-    while rb[-1] < R_HI:
-        rb.append(min(R_HI, rb[-1] * Fr(108, 100)))
-    nth = 10
-    fracs = [Fr(4, 100), Fr(8, 100), Fr(12, 100), Fr(16, 100)]
-    names = ['Gc', 'Gs', 'Ga_c2', 'Ga_s2', 'Gb_c2', 'Gb_s2', 'GS']
-    best = {k: [iv.mpf(0)] * (KMAX + 1) for k in ('TT', 'chi', 'W', 'S')}
-    refused = 0
-    for bi in range(len(rb) - 1):
-        r1, r2 = rb[bi], rb[bi + 1]
-        r1m = mpmath.mpf(r1.numerator) / r1.denominator
-        V = [None, iv.sqrt(iv.mpf(2))] + [iv.mpf(math.factorial(m)) * fiv(r1) ** (1 - m) * fiv(gs[m])
-                                          for m in range(2, KMAX + 1)]
-        B = bell(V, KMAX)
-        FE = [fdb(E, B, n) for n in range(KMAX + 1)]
-        FE2 = [fdb(E2, B, n) for n in range(KMAX + 1)]
-        FE2k = [fdb(E2k, B, n) for n in range(KMAX + 1)]
-        for ti in range(nth):
-            t1 = iv.pi / 2 * ti / nth
-            t2 = iv.pi / 2 * (ti + 1) / nth
-            t1 = lo_end(t1)
-            t2 = hi_end(t2)
-            Dg = {k: [None] * (KMAX + 1) for k in names}
-            for fr in fracs:
-                p = r1m * fr.numerator / fr.denominator
-                try:
-                    M = tensors_at(box_points(mpmath.mpf(r1.numerator) / r1.denominator,
-                                              mpmath.mpf(r2.numerator) / r2.denominator, t1, t2, p))
-                except BranchError:
-                    refused += 1
-                    continue
-                for k in names:
-                    for n in range(KMAX + 1):
-                        val = iv.mpf(M[k]) * math.factorial(n) * iv.mpf(p) ** (-n)
-                        if Dg[k][n] is None or hi_end(val) < hi_end(Dg[k][n]):
-                            Dg[k][n] = val
-            DT = [sum((math.comb(m, i) * iv.sqrt(Dg['Gc'][i] ** 2 + Dg['Gs'][i] ** 2) for i in range(m + 1)),
-                      iv.mpf(0)) for m in range(KMAX + 1)]
-            Da = [sum((math.comb(m, i) * 2 ** (m - i) * iv.sqrt(Dg['Ga_c2'][i] ** 2 + Dg['Ga_s2'][i] ** 2)
-                       for i in range(m + 1)), iv.mpf(0)) for m in range(KMAX + 1)]
-            Db = [sum((math.comb(m, i) * 2 ** (m - i) * iv.sqrt(Dg['Gb_c2'][i] ** 2 + Dg['Gb_s2'][i] ** 2)
-                       for i in range(m + 1)), iv.mpf(0)) for m in range(KMAX + 1)]
-            for n in range(KMAX + 1):
-                tt = sum((math.comb(n, j) * FE[j] * DT[n - j] for j in range(n + 1)), iv.mpf(0))
-                cx = sum((math.comb(n, j) * (FE2[j] * Da[n - j] + FE2k[j] * Db[n - j]) for j in range(n + 1)),
-                         iv.mpf(0))
-                ss = sum((math.comb(n, j) * FE2[j] * Dg['GS'][n - j] for j in range(n + 1)), iv.mpf(0))
-                for key, val in (('TT', tt), ('chi', cx), ('W', tt + cx), ('S', ss)):
-                    if hi_end(val) > hi_end(best[key][n]):
-                        best[key][n] = val
+    blocks, G = x_tensors(gs)
+    a = fiv(a_lo)
+    deg = {'Gc': Fr(-3, 2), 'Gs': Fr(-3, 2), 'Ga_c2': Fr(-2), 'Ga_s2': Fr(-2), 'Gb_c2': Fr(-3, 2), 'Gb_s2': Fr(-3, 2),
+           'GS': Fr(-4)}
+    Dg = {k: [G[k][m] * a ** (fiv(deg[k]) - m) for m in range(KMAX + 1)] for k in G}   # homogeneity: radius a
+    V = [None, iv.sqrt(iv.mpf(2))] + [iv.mpf(math.factorial(m)) * a ** (1 - m) * fiv(gs[m]) for m in range(2, KMAX + 1)]
+    B = bell(V, KMAX)
+    FE = [fdb(E, B, n) for n in range(KMAX + 1)]
+    FE2 = [fdb(E2, B, n) for n in range(KMAX + 1)]
+    FE2k = [fdb(E2k, B, n) for n in range(KMAX + 1)]
+    DT = [sum((math.comb(m, i) * iv.sqrt(Dg['Gc'][i] ** 2 + Dg['Gs'][i] ** 2) for i in range(m + 1)), iv.mpf(0))
+          for m in range(KMAX + 1)]
+    Da = [sum((math.comb(m, i) * 2 ** (m - i) * iv.sqrt(Dg['Ga_c2'][i] ** 2 + Dg['Ga_s2'][i] ** 2)
+               for i in range(m + 1)), iv.mpf(0)) for m in range(KMAX + 1)]
+    Db = [sum((math.comb(m, i) * 2 ** (m - i) * iv.sqrt(Dg['Gb_c2'][i] ** 2 + Dg['Gb_s2'][i] ** 2)
+               for i in range(m + 1)), iv.mpf(0)) for m in range(KMAX + 1)]
+    best = {}
+    best['TT'] = [sum((math.comb(n, j) * FE[j] * DT[n - j] for j in range(n + 1)), iv.mpf(0)) for n in range(KMAX + 1)]
+    best['chi'] = [sum((math.comb(n, j) * (FE2[j] * Da[n - j] + FE2k[j] * Db[n - j]) for j in range(n + 1)), iv.mpf(0))
+                   for n in range(KMAX + 1)]
+    best['W'] = [best['TT'][n] + best['chi'][n] for n in range(KMAX + 1)]
+    best['S'] = [sum((math.comb(n, j) * FE2[j] * Dg['GS'][n - j] for j in range(n + 1)), iv.mpf(0))
+                 for n in range(KMAX + 1)]
     ok['X3'] = all(hi_end(best['W'][n]) < mpmath.mpf(10) ** 60 for n in range(KMAX + 1))
+    say('      the x-tensors on the unit sphere (majorants D[m](1), m = 0..%d): Gc %s; GS %s' % (
+        KMAX, ', '.join(mpmath.nstr(hi_end(x), 3) for x in G['Gc']), ', '.join(mpmath.nstr(hi_end(x), 3)
+                                                                               for x in G['GS'])))
     for key, label in (('TT', 'W_TT'), ('chi', 'chi dv dv'), ('W', 'W_TT + chi dv dv'), ('S', 'S (stage-1 source)')):
-        say('  X3: D[n], n = 0..%d, for %s: %s' % (KMAX, label, ', '.join(mpmath.nstr(hi_end(b), 3)
-                                                                         for b in best[key])))
-    say('      (%d boxes in r, %d in th, polydisc radii %s r; %d (box, radius) pairs refused for an uncertified branch)'
-        % (len(rb) - 1, nth, [str(f) for f in fracs], refused))
+        say('  X3: D[n], n = 0..%d, for %s on Omega x S^1: %s' % (KMAX, label, ', '.join(mpmath.nstr(hi_end(b), 3)
+                                                                                   for b in best[key])))
 
-    # C2: a radius beyond the branch points is refused
-    try:
-        tensors_at(box_points(mpmath.mpf(1), mpmath.mpf(1.01), 0.3, 0.31, 0.75))
-        ok['C2'] = False
-    except BranchError:
-        ok['C2'] = True
-    say('  C2 (control): polydisc radius 0.75 r at r = 1: refused (Re R2 or the H branch not certified): %s'
-        % ok['C2'])
+    # C2: the elementary block |x|^(-3/2) is sharp: its majorant (3/2)_m is attained in the radial direction
+    exact = [abs(sp.diff((1 + sp.Symbol('t')) ** sp.Rational(-3, 2), sp.Symbol('t'), m).subs(sp.Symbol('t'), 0))
+             for m in range(KMAX + 1)]
+    maj = blocks['R2^-3/4']
+    ok['C2'] = all(lo_end(maj[m]) <= exact[m] <= hi_end(maj[m]) for m in range(KMAX + 1)) and \
+        not all(exact[m] <= hi_end(maj[m]) / 2 for m in range(1, KMAX + 1))
+    say('  C2 (control): |x|^(-3/2)\'s majorant (3/2)_m equals its radial derivative at every order (sympy, exact), '
+        'so the claim "half the majorant bounds it" is refuted: %s' % ok['C2'])
 
     # C3: finite differences of W_TT at one point against the order-1 bound
     Xp = np.array([1.5, 0.3, 0.0, 0.25, 0.0])

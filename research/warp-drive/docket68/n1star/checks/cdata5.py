@@ -323,9 +323,10 @@ def main():
         res = certify(seed, Dr, Dx, Nr, Nx)
         print('seed %d (lam = %.6f): r in [%.6f, %.6f] (v in [1/2, 7/2]), degrees (%d, %d), %d boxes, %.0f s'
               % (seed, res['lam'], res['rs'], res['re'], Dr, Dx, res['boxes'], res['seconds']), flush=True)
-        print('  C1 certified: sup |Ric_vv[g_app]| <= %s; sup s <= %s (the terms that cancel); worst box near '
-              '(r, x) = (%.4f, %.3f); at the %d box centres, certified pointwise: max |Ric_vv| <= %s'
-              % (res['delta'].str(4), res['smax'].str(4), *res['worst_at'], res['boxes'], res['cmax'].str(4)),
+        print('  C1 certified: sup |Ric_vv[g_app]| <= %s' % res['delta'].str(4), flush=True)
+        print('     sup s <= %s (the terms that cancel); worst box near (r, x) = (%.4f, %.3f)'
+              % (res['smax'].str(4), *res['worst_at']), flush=True)
+        print('     certified pointwise at the %d box centres: max |Ric_vv| <= %s' % (res['boxes'], res['cmax'].str(4)),
               flush=True)
         good = res['delta'] < res['smax'] * arb('0.05')
         ctl = certify(seed, Dr, Dx, Nr // 4, Nx // 4, perturb=1e-6)

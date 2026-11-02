@@ -1,0 +1,6 @@
+  T1: the transport energy identity on the annuli with the two boundary terms: True
+  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo, so in (-1, 1] for y <= 1/2 and negative for y < 0 (R = a trapped): True
+  control: R = a untrapped (y = 0.2 there): c_out(a) > 0, the inner term has the wrong sign: True
+T1 PASS
+T2 PASS
+control PASS

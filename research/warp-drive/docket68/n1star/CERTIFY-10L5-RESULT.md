@@ -10,9 +10,10 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
 
 1. **The second zero is not a second marginally trapped surface.** It is the loss of trapping of the *Bondi chart's
    areal spheres*, which are tilted against the null foliation, while the double-null leaves inside the seed's
-   horizon stay trapped.
+   horizon stay outer trapped (negative outgoing expansion at every point).
    - *Deduced (D1, D2):* in any smooth vacuum solution with the record's data in `dnsolve5`'s double-null gauge,
-     every leaf with u > −1 is strictly trapped at every point and for all v. No section of an ingoing cone whose
+     every leaf with u > −1 has negative outgoing expansion at every point, for as long as the solution exists in
+     that gauge. No section of an ingoing cone whose
      expansion is ≥ 0 at its innermost point has that point at u > −1. In particular this holds for every
      marginally outer trapped surface (MOTS).
    - *Computed:* the leaves' expansion has one zero per angular node along every ingoing cone of the converged
@@ -73,7 +74,8 @@ e^{2W} = 1/2.
 with no shift and no angular derivative. So in vacuum ∂_v(e^{−2W} R_v) ≤ 0 along every outgoing generator.
 
 *Consequence.* In any smooth vacuum solution with this data in this gauge, e^{−2W} R_v(u, v, x) ≤ 1 − 1/u² < 0 for
-u ∈ (−1, 0). Every leaf with u > −1 is strictly trapped at every point, for as long as the solution exists in this gauge.
+u ∈ (−1, 0). Every leaf with u > −1 is outer trapped: its outgoing expansion is negative at every point, for as long as
+the solution exists in this gauge. (The ingoing expansion is not used here.)
 
 *Control.* With 2W_v replaced by W_v the identity fails.
 
@@ -196,13 +198,13 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
 - *(a) is the Bondi spheres' own:*
   - two independent formulations and gauges give the same zero structure, and they converge on each other as the
     data truncation is removed;
-  - the double-null leaves stay trapped (D1);
+  - the double-null leaves inside stay outer trapped (D1);
   - any MOTS lies in a thin band at areal radius ≈ 1.01–1.05 (D2 and S1–S2).
 - So (a) is physical as a property of those particular surfaces and of the Bondi chart's excision premise. It is not a
   second marginally trapped surface, and it is no obstruction to existence. It obstructs only the Bondi chart.
 - The paper's "round spheres inside the seed's horizon cease to be trapped ... the direction of the untrapping is not a
   measurement of these runs" can now be read precisely. The untrapping is of the areal spheres of the Bondi slicing;
-  the trapped leaves inside persist.
+  the outer-trapped leaves inside persist.
 - *What is not shown:*
   - convergence of the rebuilt Bondi spheres down to the excision radius 0.54 (the cut stops the rebuild at r_min ≈ 0.64
     at v = 1.4);
@@ -307,7 +309,7 @@ shell, v ≤ v_start, the record's own result) existence is trivial, and no larg
 
 What is proved (deduced) is conditional and structural. Wherever a smooth vacuum solution with the record's data exists
 in `dnsolve5`'s double-null gauge:
-- every leaf inside the seed's horizon generator (u > −1) is strictly trapped (D1);
+- every leaf inside the seed's horizon generator (u > −1) is outer trapped at every point (D1);
 - every MOTS of an ingoing cone has its innermost point at u ≤ −1 (D2).
 
 ## 3. The late region (computed, `checks/late5.py`)
