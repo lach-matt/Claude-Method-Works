@@ -323,19 +323,27 @@ def n4():
     dv_ = is_zero(DX2[0] - I*A*E*DIV2*r**sp.Rational(-5, 2)*BETA)
     dr_ = is_zero(DX2[1] - I*A*E*DIV2*r**sp.Rational(-7, 2))
     rvv, rtr = is_zero(RX2[0, 0]), is_zero(trace(RX2))
+    # the scalar sector is built from the closed forms just verified (dv_, dr_), so that N5 handles small expressions
+    dd = sp.Symbol('dd')
+    DXv = I*A*E*dd*r**sp.Rational(-5, 2)*BETA
+    DXr = I*A*E*dd*r**sp.Rational(-7, 2)
     Z, _ = polplus(sp.Matrix([Vv, Vr, Vt, 0, 0]))
-    sub0 = {Vv: DX2[0].subs(r, r0), Vr: DX2[1].subs(r, r0), Vt: 0}
+    sub0 = {Vv: DXv.subs(r, r0), Vr: DXr.subs(r, r0), Vt: 0}
     Z0 = (I*Z.subs(r, r0)).subs(sub0)
     tr0 = I*(-Vr - 2*Vv).subs(sub0)
     H3 = sp.zeros(n)
-    H3[1, 1] = I*DX2[1]
+    H3[1, 1] = I*DXr
     trH3 = r0**sp.Rational(3, 2)*tr0*r**sp.Rational(-3, 2)
-    H3[0, 1] = H3[1, 0] = trH3/2 + I*DX2[0]
+    H3[0, 1] = H3[1, 0] = trH3/2 + I*DXv
     phi = (trH3 - 2*H3[0, 1] - F*H3[1, 1])/3
     H3[2, 2], H3[3, 3], H3[4, 4] = phi*r**2, phi*r**2*c**2, phi*r**2*s**2
     sR = sp.Symbol('sR', positive=True)
     integrand = (-(2*mu0/r**3)*r**sp.Rational(3, 2)*H3[0, 1]).subs(r, sR)
     H3[0, 0] = (r0**sp.Rational(3, 2)*Z0[0, 0] + rint(integrand, r0, r, sR))*r**sp.Rational(-3, 2)
+    STATE.update(H3sym=H3.copy(), dd=dd)
+    H3 = H3.subs(dd, DIV2)
+    Z0 = Z0.subs(dd, DIV2)
+    tr0 = tr0.subs(dd, DIV2)
     data = (is_zero(H3[0, 0].subs(r, r0) - Z0[0, 0]) and is_zero(H3[0, 1].subs(r, r0) - Z0[0, 1])
             and is_zero(H3[1, 1].subs(r, r0) - Z0[1, 1]) and is_zero(trace(H3).subs(r, r0) - tr0))
     Tt = T_tab(H3)
@@ -360,8 +368,7 @@ def n5(control=False):
         ac, bc = (1 + 3*sp.cos(2*th))/2, (1 - 3*sp.cos(2*th))/2
         tau_c = sp.simplify(TAU.subs({a: ac, b: bc}).doit())
         return tau_c != 0
-    H3 = STATE['H3']
-    K = sp.simplify(H3[0, 0].subs(r, sp.sqrt(mu0))/(A*E*DIV2))
+    K = sp.simplify(STATE['H3sym'][0, 0].subs(r, sp.sqrt(mu0))/(A*E*STATE['dd']))
     Kr = sp.simplify(K.subs(r0, rho*sp.sqrt(mu0)))
     closed = sp.simplify(Kr - KCLOSED) == 0
     rh = sp.sqrt(mu0)
