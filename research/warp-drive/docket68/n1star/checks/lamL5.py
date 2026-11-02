@@ -5,8 +5,8 @@ The point P* of CONSTANTS5.md (READ): mu0 = 1, A = 1, tau0 = -2, v_s = 1/2, r0(v
 tau0 <= 5.937209 (certified there); Theorem L's parameters (rounds 1-2): p = 14, M = 2N + 8 = 26, m = 56 M = 1456.
 
   L1 (exact) The paper's envelope sin^4(pi (v - 1/2)/3) is not flat at its edge: on v > v_s its derivatives at v_s+
-     are 0, 0, 0, 0, 24 (pi/3)^4, 0, -480 (pi/3)^6, on v < v_s all zero: env^(4) jumps by 24 (pi/3)^4 = 28.86..., so env is
-     C^3 and not C^4, M_m := sup |env^(m)| is infinite for m >= 5 (env^(5) carries a Dirac mass), and Theorem 1 and
+     are 0, 0, 0, 0, 24 (pi/3)^4, 0, -480 (pi/3)^6, on v < v_s all zero: env^(4) jumps by 24 (pi/3)^4 = 28.86..., so
+     env is C^3 and not C^4, M_m := sup |env^(m)| is infinite for m >= 5 (env^(5) carries a Dirac mass), and Theorem 1 and
      Theorem L do not apply to it; one-sided, sup_(v > v_s) |env^(m)| <= (pi/3)^m (4^m + 4 2^m)/8.  Control: the
      record's C_c^inf envelope (CONSTANTS5 R2.2 (a)) has |env^(4)| < 1e-100 at v_s + 1e-3 (flat).
   L2 (certified, interval arithmetic) For that C_c^inf envelope, env = c beta((2v - 4)/3), beta = cos^12(pi y/2)
@@ -100,8 +100,8 @@ def l1(control=False):
 def log10_B(m, theta):
     th = iv.mpf(theta)
     lfac = iv.log(iv.mpf(math.factorial(m)))
-    val = (iv.log(C_HI) + m*iv.log(iv.mpf(2)/3) + lfac + iv.mpf(3)/4 + 12*iv.log(iv.cosh(iv.pi*th/2))
-           + m*iv.log(2*(1 + th)*m/(iv.e*th)))
+    val = (iv.log(C_HI) + m*iv.log(iv.mpf(2)/3) + lfac + iv.mpf(3)/4 + 12*iv.log((iv.exp(iv.pi*th/2) + iv.exp(-iv.pi*th/2))/2)
+           + m*iv.log(2*(1 + th)*m/(iv.exp(1)*th)))
     return val/iv.log(10)
 
 
@@ -233,7 +233,7 @@ def l3(control=False):
         return cstar(lam_eq([i], m)[i], i, m)[0]
 
     def ch_star(i, m):
-        return cstar(hi(ch_const(m)), 1, m, "ch")[0] if i == 1 else eq_star(i, m)
+        return cstar(hi(2*ch_const(m)), 1, m, "ch")[0] if i == 1 else eq_star(i, m)
     if control:
         return w1_check(eq_star, control=True) or w1_check(ch_star, control=True)
     w_eq, w_ch = w1_check(eq_star), w1_check(ch_star)
