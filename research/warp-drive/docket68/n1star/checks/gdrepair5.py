@@ -29,6 +29,10 @@ Background and class as in rwgauge5.py / hgauge5.py (ingoing chart, s = sqrt(mu)
      H3: Q[W* + (d_v)^flat] = 4 pi^2 (1 + mu) != 4 pi^2, and ell([Box, v] (d_v)^flat) != 4 pi^2: the values
          discriminate.
      R5: for Y = (1 + v)^-q r d_r, L_Y g is not O(v^(-q-1)): the loss of one power is particular to d_v.
+  V5 (exact) The static mass change of supplement Proposition 10.1 is K_static = dt^2/r^2 + dr^2/(r^2 f^2) = dv^2/r^2 +
+     L_{zeta d_v} g with zeta' = 1/(r^2 f^2), which has a double pole at r_h: GAUGEDECAY5 Definition 1.1's gauge
+     (l = 0 part c K, K of (0.1), horizon-regular) agrees with Proposition 10.1's at l >= 2 only.  Control: zeta' =
+     1/(r^2 f).
 
 Labels: computed (exact, sympy; R3e by quadrature at 40 digits).  Run: python3 checks/gdrepair5.py
 """
@@ -209,7 +213,26 @@ def v4(control=False):
     return ok_claims
 
 
-CHECKS = [("V1", v1), ("V2", v2), ("V3", v3), ("V4", v4)]
+# --------------------------------------------------------------------------------------------------------------- V5
+def v5(control=False):
+    """K_static - dv^2/r^2 = L_{zeta d_v} g with zeta' = 1/(r^2 f^2): the static mass change differs from (0.1)'s K
+    (which is dv^2/r^2 on {r <= 2 R_1}) by a gauge vector with a double pole at r_h"""
+    zeta = sp.Function("zeta")(r)
+    Ks = [[0]*N for _ in range(N)]
+    Ks[0][0] = 1/r**2
+    Ks[0][1] = Ks[1][0] = -1/(r**2*f)
+    Ks[1][1] = 2/(r**2*f**2)
+    L = GEO.lie([-f*zeta, zeta, 0, 0, 0])
+    zp = 1/(r**2*f) if control else 1/(r**2*f**2)
+    diff = [[Ks[a][b] - (1/r**2 if a == b == 0 else 0) - L[a][b] for b in range(N)] for a in range(N)]
+    ok = all(zero(sp.simplify(e.subs(sp.Derivative(zeta, r), zp).subs(zeta, 0))) for row in diff for e in row)
+    pole = sp.limit(((r - 1)**2*zp).subs(s, 1), r, 1, "+")
+    print("  V5%s: K_static - dv^2/r^2 = L_{zeta d_v} g with zeta' = %s: %s; (r - 1)^2 zeta' -> %s at mu = 1"
+          % (" control" if control else "", zp, ok, pole), flush=True)
+    return ok and (control or pole != 0)
+
+
+CHECKS = [("V1", v1), ("V2", v2), ("V3", v3), ("V4", v4), ("V5", v5)]
 
 
 def main():

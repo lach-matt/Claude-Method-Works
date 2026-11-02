@@ -68,7 +68,8 @@ def main():
     lnC3_one = rate_lo * dtl + mpmath.log(rate_lo) + mpmath.log(1 + dtl)   # C3 >= C2 e^(C2 dt)(1 + dt)
     ok['G3'] = lnC3_lit > mpf('7.6e19') and -3 * lnC3_one < -143
     print('  G3 (C_N, C_st >= 1 assumed): literal reading: ln C3 >= %s, ln lambda0 <= %s;\n'
-          '      one Gronwall: ln C3 >= %s, ln lambda0 <= %s' % (nstr(lnC3_lit, 4), nstr(lnlam_lit, 4), nstr(lnC3_one, 5),
+          '      one Gronwall: ln C3 >= %s, ln lambda0 <= %s' % (nstr(lnC3_lit, 4), nstr(lnlam_lit, 4),
+                                                             nstr(lnC3_one, 5),
                                                              nstr(-3 * lnC3_one, 5)))
     ok['C3'] = not (lnC3_lit <= lnC3_one)
     print('  C3 (control): "ln C3 <= %s" (the single-exponential value) refuted for the literal reading: %s' % (
