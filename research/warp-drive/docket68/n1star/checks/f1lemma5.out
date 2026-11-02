@@ -9,3 +9,7 @@ F1e  the Gronwall factors of the repaired step
   F1e'' with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the kernel it carries lam^0:
         the kernel placement is the lam-sharp one (Proposition R3.1's count +1 per order is an overcount, harmless): pass
 F1a-F1c  the first variation of F_1 at u_1 = 0 on the full gauge-fixed operator (80 digits)
+  F1a the Hessian coefficient of F_1 vanishes: |D F_1[k_hess]| / |g^ab d_a d_b k| (two points, lam = 1e-2, 1e-3, three
+        K2): pass max 5.74e-53
+  F1a' control (F~ := -Ric^H(g) - (1/2) g0^ab d_a d_b u_1, the record's box~ form): a Hessian coefficient remains: pass
+        min ratio 2.02e-5
