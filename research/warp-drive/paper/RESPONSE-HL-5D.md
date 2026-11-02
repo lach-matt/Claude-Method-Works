@@ -342,12 +342,14 @@ S_(v,r) to itself (computed, M4). The waves' two polarizations are a quarter tur
 odd under σ combined with the phase reflection θ ↦ 3π/2 − θ: W_TT(σX, 3π/2 − θ) = −W_TT(X, θ) (computed, M2; one
 quadrature alone, or two in phase, is not odd). The two-scale operator is equivariant under θ ↦ c0 − θ with λ ↦ −λ
 (computed, M3), and every stage of the approximant is the unique solution of a problem that this combined map carries to
-itself, so the profiles obey σ*g_j(·, 3π/2 − ·) = (−1)^j g_j; for the first mean correction, σ*m1 = −m1. Outside the
-shell the oscillating profiles vanish, so g_app = g0 + λ m1 + O(λ²) there, and M[S](g_λ) = μ(v) + λ DM[m1] + O(λ²) +
-O(|w| + |∂w|). M is natural, so DM[σ*m] = DM[m], and DM[m1] = DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4)
-≤ C λ². Inside the shell the wave enters M only through its trace on the sphere and the trace of its phase derivative,
-both zero, so the difference is O(λ) (computed: at order λ⁰ only θ⁺ carries the wave, through ∂_θ tr_S W, and θ⁻, the
-area and g(n⁺, n⁻) do not; `docket68/n1star/checks/support5c.py` C13). ∎
+itself, so the profiles obey σ*g_j(·, 3π/2 − ·) = (−1)^j g_j; for the first mean correction, σ*m1 = −m1 (its source in
+the proof's gauge, the phase mean of R^(1)[g0 + λW], is nonzero only in dv dθ, −(4/9) A² env² H² sin 2θ/r³, and odd:
+computed, `docket68/n1star/checks/stage5.py` S2). Outside the shell the oscillating profiles vanish, so g_app = g0 + λ m1
++ O(λ²) there, and M[S](g_λ) = μ(v) + λ DM[m1] + O(λ²) + O(|w| + |∂w|). M is natural, so DM[σ*m] = DM[m], and DM[m1] =
+DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4) ≤ C λ². Inside the shell the wave enters M only through its
+trace on the sphere and the trace of its phase derivative, both zero, so the difference is O(λ) (computed: at order λ⁰
+only θ⁺ carries the wave, through ∂_θ tr_S W, and θ⁻, the area and g(n⁺, n⁻) do not;
+`docket68/n1star/checks/support5c.py` C13). ∎
 
 The numerics' "mean mass" is the angular mean of the mass aspect at past null infinity; the Hawking mass of the spheres
 of the domain is its counterpart here. Theorem 2 below gives the waves' field at past null infinity exactly; what it
@@ -378,7 +380,8 @@ boundary v + ½(1 + τ0 − τ)^(−1/4) = V_P that is spacelike, chosen so that
    infinity;
 4. on Ω, the conclusions of Theorem E hold (items 1 and 3–5 of Theorem 1), with the data on Σ_τ0 now the trace of g_λ
    itself; items 6–7 are proved for Theorem 1's solutions, and the supplement carries them to these by the same argument
-   without writing it out (supplement section 9.5);
+   without writing it out (supplement section 9.5; with χ carrying no radiation at past null infinity, m1's source is the
+   same and odd, `docket68/n1star/checks/stage5.py` S3, m1 itself from past null infinity not computed);
 5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions with item 1 whose difference from g_app is, with its first
    derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices
    tends to zero at past null infinity.
@@ -474,12 +477,14 @@ under (2.6); with χ = 0 its oscillating part is a second harmonic in the vv com
 −(∂_r + 3/(2r)) ∂_θ χ in vv; and W(ℓ, ·) = 0, tr W = 0. So χ solves a transport along ℓ, smooth at the axes because ℓ
 has no angular component, and R^(0) ≡ 0 identically in (X, θ).
 
-**Higher stages (deduced; supplement 5.2–5.4).** The ansatz G = ḡ + λW + Σ_(j≥2) λ^j ĝ_j(X, θ), with mean metric
-ḡ = g0 + Σ λ^j m_j and phase u = v + Σ λ^j φ_j, is solved order by order. Each order m ≥ 1 is a linear system with
-smooth coefficients for the mean m_m (a wave equation), the phase correction φ_m (a transport, imposing that u stays
-an eikonal of the mean metric to that order), the oscillating profile ĝ_(m+1) (a transport along ℓ) and □̃φ_m (a
-transport by (2.4)); the system closes without loss and has a unique smooth solution on Ω for smooth data. Rewritten
-with the fixed phase v, the profiles g_j satisfy (supplement 0.4):
+**Higher stages (deduced; supplement 5.2–5.4).** The ansatz G = ḡ + λW + Σ_(j≥2) λ^j ĝ_j(X, θ), with mean metric ḡ = g0 +
+Σ λ^j m_j and phase u = v + Σ λ^j φ_j, is solved order by order. Each order m ≥ 1 is a linear system with smooth
+coefficients for the mean m_m (a wave equation), the phase correction φ_m (a transport, imposing that u stays an eikonal
+of the mean metric to that order), the oscillating profile ĝ_(m+1) (a transport along ℓ) and □̃φ_m (a transport by
+(2.4)); the system closes without loss and has a unique smooth solution on Ω for smooth data (its triangular structure at
+order λ¹ computed in the eight components the symmetry leaves, the new unknowns entering only through −½ □̃ on the mean,
+(ℓ · ∂)∂_θ on the next profile and the two transports, `docket68/n1star/checks/stage5.py` S1; the higher orders by
+induction, deduced). Rewritten with the fixed phase v, the profiles g_j satisfy (supplement 0.4):
 
 - (E1) transversality: (g1 − ⟨g1⟩)(ℓ, ·) = 0;
 - (E2) the leading equation: R^(0) ≡ 0 in (X, θ);
@@ -2173,6 +2178,16 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/stage5.py` S1–S3: the approximant's stages in the proof's gauge, from `lead5.py`'s reduced Ricci carried to
+  order λ¹ (its orders λ⁻¹ and λ⁰ reproduced exactly). S1, with generic stage-1 and stage-2 unknowns, in the eight
+  components the symmetry leaves: (5.2)'s e1, e2 are the λ¹, λ² parts of ḡ⁻¹(du, du); in R^(1) the profile after next is
+  absent, m2 and φ2 enter only through −½ e2 ∂_θ² W, g2 only through −(ℓ · ∂)∂_θ g2 − ½ e1 ∂_θ² g2 and terms with no
+  X-derivative and at most one ∂_θ, the second derivatives of m1 only in −½ □̃ m1 and of φ1 only in −½ (□̃ φ1) ∂_θ W; S2,
+  m1's source, the phase mean of R^(1)[g0 + λW] with χ from its transport, nonzero only in dv dθ, −(4/9) A² env² H² sin
+  2θ/r³, and σ-odd, g1 = W S-odd; S3, the same source with χ carrying no radiation at past null infinity. Not computed:
+  order λ², the other seven components, m1 from past null infinity. Controls: the non-null phase v + r/3 (six of the
+  eight structural checks fail); one quadrature (g1 no longer S-odd; the source alone stays odd). About forty-five
+  minutes.
 - `checks/excise5.py` E1: `growth5.py`'s deeper excisions on the next finer grid (Ny = 28 at μ0 = 100 l5², Ny = 20 at
   1000 l5²): the second zero of the round spheres' expansion holds from v = 1.41033, 1.35549 and 1.52374, moved by
   0.00076, 0.00251 and 0.00020 from the single grids, all before the standard excision's 1.4959–1.5 and 1.5825–1.5829 on
@@ -2351,6 +2366,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | (5.1), Lemma 5.1, supplement Lemma 3.3 | `docket68/n1star/checks/support5.py` C1–C3; `docket68/n1star/lead5.py` |
 | section 5.2: supplement Lemma 3.2's (3.3) in every component | `docket68/n1star/checks/support5b.py` C10, C10b |
 | sections 5.2, 5.4, 6: mollifier, time lines, boundary for g_λ | `docket68/n1star/checks/support5.py` C4, C6, C8 |
+| sections 3, 4: the stages' structure at λ¹, m1's source and parity | `docket68/n1star/checks/stage5.py` S1–S3 |
 | sections 3, 5.5: (6.2), the gauge field's first order and decay | `docket68/n1star/checks/gauge5.py` G1–G3 |
 | sections 3, 5.3, 5.4: the remainder, the first-order system, M[S] | `docket68/n1star/checks/support5c.py` C11–C13 |
 | sections 3, 8.1, 8.7: the exponent ledgers, the stages after the shell | `docket68/n1star/checks/ledger5.py` L1–L4 |
@@ -2492,8 +2508,9 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
 `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
 `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
 `checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports `growth5.py`,
-`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
-`checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from the research tree:
+`checks/stage5.py` imports `lead5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports
+`checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import
+nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2572,6 +2589,7 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/stage5.py                              # about forty-five minutes
     python3 checks/excise5.py                             # seconds, on the runs merged into data/
     python3 checks/gauge5.py                              # about five minutes
     python3 checks/support8c.py                           # about nine minutes
@@ -2750,6 +2768,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/stage5.py` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/stage5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/excise5.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/excise5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/gauge5.py` | `00000000000000000000000000000000` |

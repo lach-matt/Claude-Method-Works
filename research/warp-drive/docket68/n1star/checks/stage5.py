@@ -39,7 +39,7 @@ Neumann series to lam^(top+1), and reproduces lead5's two orders exactly (checke
      9.1(f) with sigma-invariant data, deduced, not computed here; and the stages beyond m1 (j >= 2) are not computed
      on either route. Control: one quadrature, as S2.
 
-Labels: computed (exact, sympy). Run: python3 checks/stage5.py   (several minutes; output in checks/stage5.out)
+Labels: computed (exact, sympy). Run: python3 checks/stage5.py   (about 45 minutes, S1 and its control most of it)
 """
 import os
 import sys
