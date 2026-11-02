@@ -58,7 +58,7 @@ ROWS = {
     ('PART-III-D-GAUGEPOT.md', 365): 'TENSOR NORM LOWE', ('PART-III-D2-ZEROENERGY.md', 256): 'SIGMA LOWE TENSOR',
     ('PART-IV7-TFACE.md', 383): 'SIGMA TENSOR',
 }
-# Round 2 (verifier, V-m2): round 1's pattern, r'closed graph|open mapping|uniform boundedness|banach[- ]steinhaus|baire',
+# Round 2 (verifier, V-m2): round 1's pattern (BAIRE_PAT_R1 below)
 # missed "closed-graph" (J4-EXACT:655) and "Banach and Steinhaus" (II.A2:186); any dash or space is allowed now.
 _D = r'[\s\-\u2010\u2011\u2012\u2013\u2014]*'
 BAIRE_PAT = re.compile(r'closed' + _D + 'graph|open' + _D + 'mapping|uniform' + _D + 'boundedness|steinhaus|baire', re.I)

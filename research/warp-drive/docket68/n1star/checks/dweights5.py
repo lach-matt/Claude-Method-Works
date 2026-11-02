@@ -353,7 +353,8 @@ def main():
               cnt_named, len(extra), cnt_ec, cnt_named + cnt_ec, float((cnt_named + cnt_ec) / lev3), float(lev3)))
     ok['W4'] = (iota == 1470302 and cnt_named == 7470307 and cnt_ec > 0 and cnt_union == cnt_named + cnt_ec
                 and len(union) == len(starts) + len(extra))
-    print('      deduplicated union of the chain starts: %d starts, %d points = named %d + E^C_I %d (control on the union); '
+    print('      deduplicated union of the chain starts: %d starts, %d points = named %d + E^C_I %d (control on the '
+          'union); '
           'round 1 listed %d E^C_I chains, counting %s (lambda_sharp + 1) twice: %d points per level' % (
               len(union), cnt_union, cnt_named, cnt_ec, len(extra_r1), [float(x) for x in dup], cnt_named + cnt_r1))
     ok['N5'] = cnt_named + cnt_r1 != cnt_union and len(dup) == 1
