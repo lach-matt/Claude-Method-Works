@@ -1,0 +1,8 @@
+  H1 triangular ledger at h = 1 (eps_4 <= lam), 25 terms over levels 0-2: every term admissible: True; failures at h =
+      1/2: [(0, 'src p=0'), (1, 'src p=1'), (2, 'src p=2')]; the non-triangular rule first holds at h = 3 (Lemma L.4's
+      lam^3)
+H1 PASS
+  H2 with Lemma L.4': (i) the upper layer E >= lam^(3 - delta), every K in [6, 40] (both sub-ranges, which overlap):
+      True; (iii) the band, every K in [6, 40]: True; at K = 6: {'lam^4 eps': True, 'lam eps^2': True, 'w': True, "L.4'
+      hypothesis in the band": True}
+H2 PASS
