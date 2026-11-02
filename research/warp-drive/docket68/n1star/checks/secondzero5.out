@@ -312,3 +312,30 @@ secondzero5: all checks pass
          r_AH ranges 0.943-1.079 and 0.938-1.062
       v = 1.500: max |r_AH(double null) - r_AH(growth5)| = 0.026 (at x = 0.00);
          r_AH ranges 0.909-1.100 and 0.927-1.081
+  S4 (reported) outer zero against growth5 (L1000_lam0.3162_20x16_d0_y2.2): max 0.026 (round 1's 0.1: within);
+     control (leaf expansion, tilt ignored) max 0.069 passes: S4 not informative here
+  S5 (reported) per Bondi column, zeros of theta on [r_min, 1.6]:
+     v = 1.400 r_min 0.494: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -7.781; on r_core n/a
+     v = 1.450 r_min 0.531: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -5.308; on r_core n/a
+     v = 1.500 r_min 0.512: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -4.359; on r_core n/a
+     v = 1.525 r_min 0.531: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -3.682; on r_core n/a
+     v = 1.550 r_min 0.569: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -2.092; on r_core n/a
+     v = 1.575 r_min 0.587: columns with 0 / 1 / 2+ zeros: 0 / 30 / 2; inner zeros at r = [0.794, 0.794];
+        max theta on r_min -0.986; on r_core n/a
+     v = 1.600 r_min 0.606: columns with 0 / 1 / 2+ zeros: 0 / 27 / 5; inner zeros at r = [0.681, 0.7, 0.719, 0.756];
+        max theta on r_min -0.532; on r_core n/a
+     v = 1.625 r_min 0.625: columns with 0 / 1 / 2+ zeros: 0 / 25 / 7; inner zeros at r = [0.625, 0.7, 0.719, 0.719];
+        max theta on r_min 0.065; on r_core n/a
+== s2_M16_800: lambda 0.3162, M 16, 800 x 360, cut 0.18
+  S1 R_v < 0 at u > -1, >= 20 rows from the cut, v <= 1.80: violations 0 far, 20 near the cut,
+     of 35936 cells -> PASS; control (u > -1.02) fails (good)
+     near the cut (excluded band): largest excess of R_v over D1's bound e^{2W}(1 - 1/u^2) 5.97
+     beyond, on (1.80, 2]: violations 0 far, 4 near the cut
+  S2 further zeros of R_v along ingoing cones, v <= 1.80: 20, first at v = 1.6875,
+     all at u > -1 within 20 rows of the cut: PASS; control (first zero near the cut) fails (good)
+     beyond, on (1.80, 2]: 4 further zeros, all near the cut: True
