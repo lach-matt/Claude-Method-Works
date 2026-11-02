@@ -1426,8 +1426,9 @@ III–IV that names an averaged or equivariant choice by its printed symbol is l
   before the shell's peak: a second zero holds over 0.04 in v from 1.50 r_h at μ = 100 l5² (1.496 on the finer grid,
   1.476 with a shorter hold; a single-step excursion at 1.45 is not it) and from 1.583 r_h at 1000 l5² (three grids
   agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not later
-  (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too, where the three
-  breakdowns move by 0.0008, 0.0025 and 0.0002 against the standard excision's 0.004 between its two grids
+  (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too: with the breakdown read
+  as a second zero lasting 0.01 in v, the solver's criterion, the three move by 0.0008, 0.0025 and 0.0002 between the
+  grids and the standard excision by 0.0041 and 0.0004, and the order holds for every such duration from 0.005 to 0.06
   (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at 10 l5 at the excision depths
   run. What the computed solution shows is that round spheres inside the seed's horizon cease to be trapped and the
   boundary to be outflow, in the scheme's gauge, while the shell passes; the direction of the untrapping is not a
@@ -2195,12 +2196,13 @@ Programs behind section 9, in `docket68/n1star/`:
   order λ², the other seven components, m1 from past null infinity. Controls: the non-null phase v + r/3 (six of the
   eight structural checks fail); one quadrature (g1 no longer S-odd; the source alone stays odd). About forty-five
   minutes.
-- `checks/excise5.py` E1: `growth5.py`'s deeper excisions on the next finer grid (Ny = 28 at μ0 = 100 l5², Ny = 20 at
-  1000 l5²): the second zero of the round spheres' expansion holds from v = 1.41033, 1.35549 and 1.52374, moved by
-  0.00076, 0.00251 and 0.00020 from the single grids, all before the standard excision's 1.4959–1.5 and 1.5825–1.5829 on
-  both grids. Control: the standard excision's two grids agree to 0.005 (0.0041), the grid dependence the deeper runs are
-  measured against. Floating point (the solver's scheme, not certified); the runs one to three hours each, the check
-  seconds.
+- `checks/excise5.py` E1–E2: `growth5.py`'s deeper excisions on the next finer grid (Ny = 28 at μ0 = 100 l5², Ny = 20 at
+  1000 l5²), the breakdown read by `growth5.py`'s criterion (a second zero of the round spheres' expansion lasting 0.01
+  in v, or W ≥ 0 at the boundary): from v = 1.41033, 1.35549 and 1.52374, moved by 0.00076, 0.00251 and 0.00020 from the
+  single grids (the standard excision by 0.0041 and 0.0004), all before the standard excision on both grids (E1); the
+  order the same for every duration from 0.005 to 0.06, the y = 2 run moving 0.0083 at 0.04 (E2). Control: each deeper
+  run replaced by its seed's standard run, which the order must reject. Floating point (the solver's scheme, not
+  certified); the runs one to three hours each, the check seconds.
 - `checks/gauge5.py` G1–G3: the gauge field. G1, supplement (6.2) exactly at a point of a random 4+1 metric over a random
   background, D = 0 imposed along the slice, with `paper/response5.py` R14 rerun; G2, the order-λ gauge field D^(1) in
   `lead5.py`'s coordinates with m1, the next oscillating profile and φ1 generic: D^(−1) = D^(0) = 0 off the slice, the
@@ -2475,7 +2477,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, settling: the certified lower bound | `docket68/n1star/checks/e2lower5.py` E1 |
 | section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
 | | `checks/g1curv5.py` |
-| section 9, deeper excisions on a second grid | `docket68/n1star/checks/excise5.py` E1 |
+| section 9, deeper excisions on a second grid | `docket68/n1star/checks/excise5.py` E1–E2 |
 | section 9, beyond the boundary | `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, Lemma 6.3, section 3(b); |
 | | `BEYOND5-R0-PROOF.md`; `checks/closure5.py` |
 | the boundary at equality | `docket68/n1star/EQUALITY5.md`; `checks/eq5.py` E1–E6 |
