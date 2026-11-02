@@ -674,8 +674,8 @@ component (family in: stage5 S4; family out: P2, the same seven components; cont
 every component), and ĝ_2's mixed harmonics are S-even (P4: R^(0)'s mixed harmonics with both families on the general
 round double-null background satisfy J R^(0)_(−n)(σX) J i^(n1+n2) = R^(0)_n(X), 52 entries; division by −e^(−2σ) n1 n2
 is even under n → −n; control: family out with one quadrature fails). Every later stage of Theorem A₂ (Lemma 5.3₂
-(a)-(d)) and every choice of Lemma 6.2₂ (Pol O(4)-equivariant per family, the division, the means' and phases' data as the
-record's) is the unique solution of a problem that S maps to itself. Hence the two-family profiles have parity (−1)^j
+(a)-(d)) and every choice of Lemma 6.2₂ (Pol O(4)-equivariant per family, the division, the means' and phases' data
+as the record's) is the unique solution of a problem that S maps to itself. Hence the two-family profiles have parity (−1)^j
 and the first mean correction m1 is σ-odd: σ^* m1 = −m1.
 
 **Proposition 8.2₂ (deduced).** For every sphere S_(v̂,R) in D_T ∩ {τ ≥ τ0} with v̂ ∉ (v_start, v_end) and u ∉ (u1, u2)
