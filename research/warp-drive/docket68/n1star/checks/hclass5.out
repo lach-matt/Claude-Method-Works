@@ -1,0 +1,4 @@
+  H1: I+ gap upper end: d/dh sign -1, sign 1, |q| grows as h falls True; dual5 3 + 2 v gam: d/dh sign -1, sign 1, |q| grows as h falls True; tface5 S_in: d/dh sign -1, sign 1, |q| grows as h falls True; strap5 -2 (1 - e) gam c2: d/dh sign 1, sign -1, |q| grows as h falls True; strap5 -2 gam c2: d/dh sign 1, sign -1, |q| grows as h falls True; strap5 -4 gam c2: d/dh sign 1, sign -1, |q| grows as h falls True
+H1 PASS
+  H2: l = 0, 2, ..., 20: 20 discriminants and 2099 integer values, each a nonzero polynomial in h; roots in (0, h_1]: none
+H2 PASS

@@ -1,0 +1,4 @@
+  L1: x^-k m0 -> 0 for k = 0..12 (env = exp(-1/x)): True; m0 > 0 at a sample x: True; m0/env^2 >= sqrt(7)/63 > 0 as x -> 0+ (A = 1, mu0 = 7)
+L1 PASS
+  L2: env'/(env^2 + x env^2) -> oo and env''/(env^2 + x env^2) -> oo as x -> 0+
+L2 PASS

@@ -1,0 +1,2 @@
+  I1: l = 0, 2, ..., 9999 (469s): discs overlapping in 0 polynomials; least distance from Z of a non-integer root with |lam| <= 50 in [1.94137056846e-8, 1.94137056846e-8] (width 3.1e-48), at l = 50, lam = -49.0000000194137 + 0.0 i (box^Ups: True); box^C's least 2.93235e-6 at l = 2
+I1 PASS; control (planted root at 10^-30 from Z kept, integer root set aside) behaves

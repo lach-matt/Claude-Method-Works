@@ -1,0 +1,31 @@
+  P1: coefficients in psi = r^(3/2) Phi, as monomials H^a r^b:
+      []_rr  u     max H-power -1, max r-power -4
+      []_rr  u_r   max H-power -1, max r-power -3
+      []_rr  u_rr  max H-power 0, max r-power 0
+      []_vr  u     max H-power -1, max r-power -4
+      []_vr  u_r   max H-power -1, max r-power -3
+      []_vr  u_rr  max H-power 0, max r-power 0
+      []_vv  u     max H-power -1, max r-power -4
+      []_vv  u_r   max H-power -1, max r-power -3
+      []_vv  u_rr  max H-power 0, max r-power 0
+      []_vv  u_v   max H-power 0, max r-power -3
+      []_vv  u_vr  max H-power 0, max r-power 0
+      []_vv  u_vv  max H-power 0, max r-power 0
+      rF     u     max H-power 1, max r-power -2
+      rF     u_r   max H-power 0, max r-power -1
+      rF     u_v   max H-power 0, max r-power -1
+      rF_rr  u     max H-power -1, max r-power -4
+      rF_rr  u_r   max H-power -1, max r-power -3
+      rF_rr  u_rr  max H-power 0, max r-power 0
+      rF_vr  u     max H-power 1, max r-power -2
+      rF_vr  u_r   max H-power 0, max r-power -1
+      rF_vr  u_rr  max H-power 0, max r-power 0
+      rF_vr  u_v   max H-power 0, max r-power -1
+      rF_vv  u     max H-power 1, max r-power -2
+      rF_vv  u_r   max H-power 0, max r-power -1
+      rF_vv  u_rr  max H-power 0, max r-power 0
+      rF_vv  u_v   max H-power 0, max r-power -1
+      rF_vv  u_vr  max H-power 0, max r-power 0
+      rF_vv  u_vv  max H-power 0, max r-power 0
+  control (in Phi): r F_rr's d_r^2 coefficient grows as r^3/2
+P1 PASS

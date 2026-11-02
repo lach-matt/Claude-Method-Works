@@ -1,0 +1,6 @@
+  F1: (d_j h_ij - d_i tr h) . nu = 3*m/(x1**2 + x2**2 + x3**2 + x4**2)**(3/2); flux over S_rho = 6*pi**2*m; at |x| = 5, 9, 13: Hamiltonian constraint [0, 0, 0]; q_e0 = DR(h) - (R - |K|^2 + (tr K)^2) = [0, 0, 0]
+F1 PASS
+  F2: at a random point, R(delta + eps h) has eps^0 term 0 and eps^1 term 140/3 = d_i b^i 140/3
+F2 PASS
+  F3: q at order A^1: 0; R^6 q at order A^2 = -10294529/36000... (independent of R: True); 6 pi^2 |dm| <= C (eta + |dm|)/R^2 + C eta solves to |dm| <= -C*eta*(R_**2 + 1)/(C - 6*pi**2*R_**2)
+F3 PASS
