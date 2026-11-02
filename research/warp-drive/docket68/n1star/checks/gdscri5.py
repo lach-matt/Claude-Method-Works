@@ -144,27 +144,23 @@ def s3(control=False):
     rp = (t + rr)/(t*rr)
     rK = rr/(t + rr)
     ok = sp.simplify(rI*rp - 1/rr) == 0 and sp.simplify(rp*rK - 1/t) == 0
-    dens = t*rr**3 if control else t*rr**4
-    ratio = sp.simplify(dens*rI**4*rp**5*rK)
-    ok_d = sp.simplify(ratio - 1) == 0
-    # weights: f in rho^w L^2(|dt dx|) iff rho^-w f in L^2(dens mu_b) iff rho^(-w - shift) f in L^2(mu_b)
-    a, b_, c_ = sp.symbols('a b c')
-    sol = sp.solve([sp.Eq(sp.log(sp.simplify(dens.subs({t: 1/(rp*rK), rr: 1/(rI*rp)}))), 0)], [])  # unused
-    shifts = None
-    if not control:
-        shifts = (2, sp.Rational(5, 2), sp.Rational(1, 2))       # half of the exponents 4, 5, 1
-    else:
-        # t r^3 = rho_I^-3 rho_+^-4 rho_K^-1 (rho_I rho_+ = 1/r, rho_+ rho_K = 1/t)
-        ok_d = sp.simplify(t*rr**3*rI**3*rp**4*rK - 1) == 0
-        shifts = (sp.Rational(3, 2), 2, sp.Rational(1, 2))
+    dens = t*rr**3 if control else t*rr**4                     # |dt dx| = dens mu_b (n = 4: t r^4)
+    RI, RP, RK = sp.symbols('RI RP RK', positive=True)
+    # t = 1/(rho_+ rho_K), r = 1/(rho_I rho_+) (the identities just checked); read off dens = prod rho^-e
+    pw = sp.powsimp(sp.expand_power_base(dens.subs({t: 1/(RP*RK), rr: 1/(RI*RP)}), force=True),
+                    force=True).as_powers_dict()
+    e = (-pw.get(RI, 0), -pw.get(RP, 0), -pw.get(RK, 0))
+    ok_d = sp.simplify(dens*rI**e[0]*rp**e[1]*rK**e[2] - 1) == 0
+    # f in rho^w L^2(|dt dx|) iff rho^-w f in L^2(dens mu_b) iff rho^(-w - e/2) f in L^2(mu_b)
+    shifts = tuple(sp.Rational(x, 2) for x in e)
     aI, ap = sp.symbols('alpha_I alpha_+')
     bI, bp = aI + 2, ap + sp.Rational(5, 2)
     want = (bI + 1, bp + 2, sp.Rational(1, 2))
     got = (aI + 1 + shifts[0], ap + 2 + shifts[1], 0 + shifts[2])
     ok_w = all(sp.simplify(g_ - w_) == 0 for g_, w_ in zip(got, want))
-    print("  S3%s: rho_I rho_+ = 1/r, rho_+ rho_K = 1/t_*: %s; density factorises: %s; (1.4) weights for mu_b = "
-          "(b_I + 1, b_+ + 2, 1/2): %s" % (" control (n = 3 density t r^3)" if control else "", ok, ok_d, ok_w),
-          flush=True)
+    print("  S3%s: rho_I rho_+ = 1/r, rho_+ rho_K = 1/t_*: %s; dens = rho_I^-%s rho_+^-%s rho_K^-%s: %s; (1.4) weights "
+          "for mu_b = (b_I + 1, b_+ + 2, 1/2): %s" % (" control (n = 3 density t r^3)" if control else "", ok,
+                                                      e[0], e[1], e[2], ok_d, ok_w), flush=True)
     return ok and ok_d and ok_w
 
 # ---------------------------------------------------------------- S4

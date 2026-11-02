@@ -13,15 +13,17 @@
   L5: container per level above 3: round 1 (corrected) 52025761; L3's 11 bases add 33000022 (2999999, 3000001, 3000002,
       3000002, 3000002, 3000002, 3000003, 3000002, 3000003, 3000003, 3000003): 85025783; over the 53244736 levels above 3
       at 3 per point the conditional bound grows by 5271232378152576 = 5.2712e+15
+      the 11 bases certified pairwise on distinct chains and off the 27 existing starts' chains: True
   L6: windows of III.I'''''''''' Proposition 3.1 (b) per call <= 1470302; at the 53244736 levels above 3, 15 per window:
       1174287627454080 = 1.1743e+15, not in round 1's W8
   L8: the conditional bound (H1-H4 with H1 widened to admit L3's bases and H2 to the windows above 3): d <=
       24337610296395590 + 106489470 c = 2.4338e+16 + 1.0649e+08 c
-  N1 (control): a planted base 3 - 2,900,000 d1 + 1e-8 reaches 3 + 1.000e-08 < delta_50: the search catches a binding
-      base
+  N1 (control; Round 3: L4's search itself is run on the bases with one planted base 3 - 2,900,000 d1 + 1e-8): the search
+      returns planted at 3 + 1.000e-08 < delta_50: L4's test fails for it
   N2 (control): shift bound -4 in place of -5 drops [('(l-1) + delta_6', 2), ('(l-1) + delta_7', 3), ("l + delta'_5", 2),
       ("l + delta'_6", 3)]
-  N3 (control): starts and E^C_I counted without deduplication: 56496066 != 52025761
+  N3 (control; Round 3: L5's deduplication of L3's bases is run with one planted base on an existing chain, start 2.0100
+      + 7 d1): flagged [('duplicate', 2.01)]: L5's test fails for it
 L1 PASS
 L4 PASS
 L5 PASS

@@ -23,8 +23,9 @@ certified intervals, mpmath.iv at 200 bits; floating point where said).
      j >= 0}: a base that is not a chain of 2 or 3 needs an exponent of E_ind whose fractional part is not an integer
      combination of the increments below 1. With the record's computed roots (LOSS-D LD9; gapsums5.py: d1 = delta_1,
      1 + d0, the sl roots entering as (l - 1) + delta_l and l + delta'_l) the candidate new bases in W's range are
-     2 + d0, 2 + delta_l (l = 2, 3, 4), 3 + delta_5, 2 + delta'_l (l = 1, 2, 3) and 3 + delta'_4. Whether their
-     coefficients are non-zero the record does not decide; for an upper bound on d they must be admitted.
+     11 (as printed; Round 3 corrects this line, which round 2 left stale): 2 + d0, 2 + delta_l (l = 2..6) and
+     2 + delta'_l (l = 1..5), each just above 2. Whether their coefficients are non-zero the record does not decide;
+     for an upper bound on d they must be admitted.
   L4 (certified) (G) with L3's bases admitted: the least value above 2 or 3 over their chains (increments d1 and 1),
      against eps_ind <= delta_50 = 1.94137e-8 and round 1's eps_K = 1.88e-8.
   L5 (certified) the level-2 container |Lambda cap W| per level above 3 with L3's bases (on round 1's weights), and the

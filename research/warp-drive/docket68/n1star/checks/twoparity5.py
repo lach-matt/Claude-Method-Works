@@ -216,14 +216,14 @@ def main():
                           I["wodd"], time.time() - t0), flush=True)
     ok &= good1
     good2, nz, bad = p2(W)
-    print("  P2: R^(1)[g0 + lam W_out] under sigma^* with s2 -> 3 pi/2 - s2: nonzero in %s;\n"
+    print("  P2: R^(1)[g0 + lam W_out] under sigma^* with s2 -> 3 pi/2 - s2:\n      nonzero in %s;\n"
           "      odd in every component: %s; components where it fails: %s  [%.0f s]"
           % (nz, good2, bad, time.time() - t0),
           flush=True)
     ok &= good2
     Wc, Ic = p1(single=True)
     good2c, nzc, badc = p2(Wc)
-    print("  P2 control (one quadrature): W_out S-odd: %s; R^(1) odd: %s; fails in %s  [%.0f s]"
+    print("  P2 control (one quadrature): W_out S-odd: %s; R^(1) odd: %s;\n      fails in %s  [%.0f s]"
           % (Ic["wodd"], good2c, badc, time.time() - t0), flush=True)
     ctl = Ic["wodd"] or good2c
     good3, c3 = p3(), p3(control=True)
