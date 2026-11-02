@@ -25,10 +25,10 @@ gradient), its expansion th_A, its density q_A = F_A^2. P_A := g^-1 p_A. Equatio
   S4 (exact algebra) with d := th - div P and the exact class identity (R) for div P = box u (classchi5 C3),
      P(d) = -d (th + div P - 2 k1 - 2 k2) - (T - Ric)(P, P): homogeneous in (d, T - Ric).
      Control (must fail): an augmented equation with the shear-free source -th^2/3 leaves an inhomogeneous term.
-  S5 (exact at jets) the gauge source: B_g T := -div T + (1/2) d tr T = sum_A d_A q_A p_A + (1/2) d(sum q_A N_A): with the
-     record's propagation identities (propagate5.py P1-P2: B_g Ric = 0 and B_g delta*W = -(1/2)(box W + Ric(W))) the
-     gauge vector W solves box W + Ric(W) + (first order in W) = 2 B_g T, whose source vanishes with d_A and N_A.
-     Control (must fail): without the (1/2) d tr T term the identity fails where N != 0.
+  S5 (exact at jets) the gauge source: B_g T := -div T + (1/2) d tr T = sum_A d_A q_A p_A + (1/2) d(sum q_A N_A).
+     With the record's propagation identities (propagate5.py P1-P2: B_g Ric = 0 and B_g delta*W = -(1/2)(box W +
+     Ric(W))) the gauge vector W solves box W + Ric(W) + (first order in W) = 2 B_g T, whose source vanishes with d_A
+     and N_A. Control (must fail): without the (1/2) d tr T term the identity fails where N != 0.
   S6 (exact) why the record's citation [DS23] does not cover the augmented system as stated: the transport root of
      P_A meets the light cone at the conormal p_A: P_A(p_A) = 0 and g^-1(p_A, p_A) = 0, so the eigenvalue of the
      transport equals a wave eigenvalue at xi = spatial part of p_A ([DS23] (A4) asks the eigenvalues not to meet).

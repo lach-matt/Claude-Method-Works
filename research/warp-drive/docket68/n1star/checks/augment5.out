@@ -7,17 +7,3 @@ S1 (derivative ledger): highest derivative of each unknown in each source (order
    control (b) th transport, general 5D: |hess u|^2 lowest level m-1 -> LOSES
    control (c) th transport at an axis point: kappa2 = d3 p3 / a lowest level m-1 -> LOSES
 S2, S3, S5 (exact at rational jets, a general 5D metric, covector field and density)
-   seed 2: P(N) = 2 g^-1(p, nabla_P p): True; nabla_P p = dN/2 + i_P dp: True; Cartan: True; div T = (P q + q div P) p + q nabla_P p: True; tr T = q N: True
-      augmented: div T = -(th - div P) q p: True; B_g T formula: True, True
-      controls: no Christoffel term breaks P(N): True; non-closed 2-form breaks Cartan: True; P(q) = -th q/2 breaks div T: True; d tr T term nonzero where N != 0: True
-   seed 9: P(N) = 2 g^-1(p, nabla_P p): True; nabla_P p = dN/2 + i_P dp: True; Cartan: True; div T = (P q + q div P) p + q nabla_P p: True; tr T = q N: True
-      augmented: div T = -(th - div P) q p: True; B_g T formula: True, True
-      controls: no Christoffel term breaks P(N): True; non-closed 2-form breaks Cartan: True; P(q) = -th q/2 breaks div T: True; d tr T term nonzero where N != 0: True
-   seed 31: P(N) = 2 g^-1(p, nabla_P p): True; nabla_P p = dN/2 + i_P dp: True; Cartan: True; div T = (P q + q div P) p + q nabla_P p: True; tr T = q N: True
-      augmented: div T = -(th - div P) q p: True; B_g T formula: True, True
-      controls: no Christoffel term breaks P(N): True; non-closed 2-form breaks Cartan: True; P(q) = -th q/2 breaks div T: True; d tr T term nonzero where N != 0: True
-S4 P(d) = -d (th + div P - 2 k1 - 2 k2) - (T - Ric)(P, P): True ; control (shear-free source leaves 2*(3*k1**2 + 3*k1*k2 - 3*k1*thhat + 3*k2**2 - 3*k2*thhat + thhat**2)/3 at d = 0): True
-S6 transport root = wave root at the conormal of a null p (both signs of p0): True ; control: timelike transport root strictly between the wave roots: True
-S7 max R^2|dOmega|^2 = e^psi/(2 - e^psi f): True ; dR in [-1, e^psi f/(2 - e^psi f)]: True ; on psi in [-3,0], f in [-5,1]: R|dOmega| <= 1.000000, dR <= 1.000000, dR < 0 where f < 0: True
-   control: e^psi f = 1.9 gives R|dOmega| up to 3.1623 > 1: True
-PASS
