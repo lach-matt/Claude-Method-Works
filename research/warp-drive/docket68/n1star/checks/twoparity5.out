@@ -2,3 +2,6 @@
       harmonic, as c (d_r + 3/(2r)) d_s chi with c = 1: True; the transport solution solves it: True,
       and (E2)'s uu second harmonic vanishes with it: True; F_out S-even: True;
       W_out = W_TT + chi_out du^2 S-odd: True  [30 s]
+  P2: R^(1)[g0 + lam W_out] under sigma^* with s2 -> 3 pi/2 - s2:
+      nonzero in [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)];
+      odd in every component: True; components where it fails: []  [357 s]
