@@ -168,20 +168,20 @@ def e1(control=False):
               "component is scalar: %s" % (vals[0]/sp.Rational(1, 3), polar_scalar), flush=True)
         return ok_b or polar_scalar
     # (c) coupling coefficients from test forms phi e_nu, phi in {1, x^b, x^b x^e}
-    D = [[None]*N for _ in range(N)]
+    DD = [[None]*N for _ in range(N)]
     C = [[[None]*N for _ in range(N)] for _ in range(N)]
     for nu in range(N):
         e = [0]*N
         e[nu] = sp.Integer(1)
         H = G.hodge(e)
         for c in range(N):
-            D[c][nu] = H[c]
+            DD[c][nu] = H[c]
         for b in range(N):
             Z = [0]*N
             Z[nu] = X[b]
             H = G.hodge(Z)
             for c in range(N):
-                C[c][nu][b] = H[c] - (G.box0(X[b]) if c == nu else 0) - D[c][nu]*X[b]
+                C[c][nu][b] = H[c] - (G.box0(X[b]) if c == nu else 0) - DD[c][nu]*X[b]
     # second-order coupling: for phi = x^b x^e the difference minus C, D terms vanishes
     ok_2 = True
     for nu, b, e_ in [(0, 1, 2), (2, 1, 1), (4, 0, 3)]:
@@ -191,7 +191,7 @@ def e1(control=False):
         H = G.hodge(Z)
         for c in range(N):
             rest = H[c] - (G.box0(phi) if c == nu else 0) - sum(C[c][nu][q]*D(phi, q) for q in range(N)) \
-                - D[c][nu]*phi
+                - DD[c][nu]*phi
             for pt, _ in pts[:1]:
                 ok_2 &= at(rest, pt) == 0
     ok_mu0 = True
@@ -204,7 +204,7 @@ def e1(control=False):
         return {m[0]: cf for m, cf in zip(P.monoms(), P.coeffs())}
     for pt, rr in pts:
         p2 = tuple(2*q for q in pt)
-        entries = [(D[c][nu], 2) for c, nu in itertools.product(range(N), range(N))]
+        entries = [(DD[c][nu], 2) for c, nu in itertools.product(range(N), range(N))]
         entries += [(C[c][nu][b], 1) for c, nu, b in itertools.product(range(N), range(N), range(N))]
         for e_, base in entries:
             k1 = mu_coeffs(at(e_, pt))
