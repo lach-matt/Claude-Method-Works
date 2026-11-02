@@ -269,13 +269,17 @@ So Ric_vv[g_app] = 0 exactly outside [1/2, 7/2].
 | seed | boxes | certified sup \|Ric_vv[g_app]\| | certified sup s | certified at the box centres |
 |---|---|---|---|---|
 | 1 | 192 × 64 | 4.97 × 10⁻⁵ | 1.20 × 10⁻³ | 6.6 × 10⁻¹¹ (12,288 points) |
-| 2 | 288 × 64 | see .out | see .out | see .out |
+| 2 | 288 × 64 | 2.28 × 10⁻⁵ | 5.28 × 10⁻⁴ | 1.8 × 10⁻¹⁰ (18,432 points) |
 
 *The bound's order.* The mean-value enclosure is of second order in the box size: halving both widths divided the
 bound by 4.0, 8.4 × 10⁻⁴ → 2.1 × 10⁻⁴ at 48 × 16 → 96 × 32. So the certified sup lies far above the residual itself,
 which the certified point values at the centres show.
 
-*Control.* Perturbing the fitted coefficients by 10⁻⁶ must raise the bound a hundredfold.
+*Reading.* The certified sup is 4.1 % (seed 1) and 4.3 % (seed 2) of the terms that cancel in Ric_vv. The certified
+values at the box centres are 10⁻¹¹–10⁻¹⁰: the fit's own residual.
+
+*Control.* Perturbing the fitted coefficients by 10⁻⁶ must raise the bound a hundredfold. It raises it to 465 (seed 1)
+and 4,259 (seed 2). `checks/cdata5.out`: all checks pass.
 
 *What this is.* A certified data error for the Raychaudhuri constraint of the record's truncated characteristic
 problem (data on u = −10, not at past null infinity). The constraint Ric_vx, which fixes the shift on that cone, is not

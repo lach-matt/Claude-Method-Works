@@ -8,3 +8,6 @@ seed 2 (lam = 0.316228): r in [10.247560, 11.735086] (v in [1/2, 7/2]), degrees 
   C1 certified: sup |Ric_vv[g_app]| <= [2.284e-5 +/- 3.83e-9]
      sup s <= [0.0005281 +/- 3.00e-8] (the terms that cancel); worst box near (r, x) = (10.8441, 0.453)
      certified pointwise at the 18432 box centres: max |Ric_vv| <= [1.757e-10 +/- 1.10e-14]
+  control (coefficients perturbed by 1e-6): bound [4.259e+3 +/- 0.0768] -> fails (good)
+  C1 PASS (bound below 5e-2 of the terms)
+cdata5: all checks pass

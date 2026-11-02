@@ -7,7 +7,7 @@ Lemma 2.4 (N1STAR-PROOF.md:230-235): L0 phi - c phi = f on Omega gives ||phi(tau
 Step 6 applies it to (3.6), L0 Psi - (2/r) Psi = ..., so c = 2/r <= 2/a. Labels: computed (certified rationals from
 lzeroconst5.py's geometry); deduced (the reading of the proof).
 
-  G1 (certified) at P*: 2/a in [7.4113, 7.4114], tau_end - tau0 = 5.93720825, so Lemma 2.4's factor for Psi is
+  G1 (certified) at P*: 2/a = 7.41128..., tau_end - tau0 = 5.93720825, so Lemma 2.4's factor for Psi is
      exp((2/a)(tau_end - tau0)) in a certified interval, about 1.3e19 (e^44.0): the proof's C2 is at least 2/a as Steps
      6-7 derive it, and C3 = C_st C2 e^(C2 (tau_end - tau0)) (1 + tau_end - tau0) carries this factor at least.
   G2 (deduced; certified number) the exponential is the proof's, not the equation's: along an integral curve of L0 (r
@@ -44,15 +44,15 @@ def main():
     fac = iv.exp(rate * dt)
     lo, hi = mpf(fac._mpi_[0]), mpf(fac._mpi_[1])
     ok['G1'] = lo > mpf(10) ** 19 and hi < mpf(2) * mpf(10) ** 19
-    print('  G1: 2/a in [%s, %s]; tau_end - tau0 in [%.8f, %.8f]; Lemma 2.4\'s factor for Psi, exp((2/a)(tau_end - '
-          'tau0)),\n      in [%s, %s] (= e^%s)' % (nstr(mpf(rate._mpi_[0]), 8), nstr(mpf(rate._mpi_[1]), 8),
-                                                  float(dt_lo), float(dt_hi), nstr(lo, 6), nstr(hi, 6),
-                                                  nstr(mpf((rate * dt)._mpi_[0]), 6)))
+    print('  G1: 2/a in [%s, %s]; tau_end - tau0 in [%.8f, %.8f];\n      Lemma 2.4\'s factor for Psi, '
+          'exp((2/a)(tau_end - tau0)), in [%s, %s] (= e^%s)' % (
+              nstr(mpf(rate._mpi_[0]), 8), nstr(mpf(rate._mpi_[1]), 8), float(dt_lo), float(dt_hi), nstr(lo, 6),
+              nstr(hi, 6), nstr(mpf((rate * dt)._mpi_[0]), 6)))
     b_lo, b_hi = g['b0']
     poly = (b_hi / a_lo) ** 2
     ok['G2'] = poly < 2500 and (b_lo / a_hi) ** 2 > 2470
-    print('  G2: along L0 the homogeneous factor is (r(tau0)/r)^2 <= (b(tau0)/a)^2 <= %.2f: the exponential exceeds it '
-          'by a factor\n      above %s' % (float(poly), nstr(lo / poly, 3)))
+    print('  G2: along L0 the homogeneous factor is (r(tau0)/r)^2 <= (b(tau0)/a)^2 <= %.2f: the exponential exceeds '
+          'it\n      by a factor above %s' % (float(poly), nstr(lo / poly, 3)))
     ok['C1'] = lo > mpf(10) ** 18
     print('  C1 (control): "the factor is below 1e18" refuted: %s' % ok['C1'])
     ok['C2'] = poly < 10 ** 4
