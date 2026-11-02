@@ -266,9 +266,9 @@ overlaps of supports — open, so it holds for the perturbed background if it ho
 (Part II: possible for non-radial phases of different ellipses supported away from the axes; at the axes it fails for
 two families of one orientation, axisphase5 A2); (iii) is not settled here: for a non-radial family the transverse
 traceless polarisations in the class are diag(α, β, −α − β) in (e_θ, e_φ1, e_φ2) (deduced: the Z2 × Z2 reflections
-kill the off-diagonal ones), and S2's constraint cancellation is known only for α = 0 (FAMILIES5-FULL §6 S2, Part II (iii)).
-Given (ii)-(iii), Part II's conditional extension of sections 4-6 gives the high-frequency limits of N1's backgrounds;
-Part I's background with any non-round perturbation is not reached (section 4).
+kill the off-diagonal ones), and S2's constraint cancellation is known only for α = 0 (FAMILIES5-FULL §6 S2, Part
+II (iii)). Given (ii)-(iii), Part II's conditional extension of sections 4-6 gives the high-frequency limits of N1's
+backgrounds; Part I's background with any non-round perturbation is not reached (section 4).
 
 **Several families.** Any finite number N of non-round families, supported away from the axes, small, on the seed:
 background on the whole domain (N1); large, on a short domain (N3). Near Part I's growing hole: only on N2's shorter

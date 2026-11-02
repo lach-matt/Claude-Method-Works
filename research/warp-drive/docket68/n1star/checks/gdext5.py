@@ -359,59 +359,54 @@ def e5(control=False):
 
 
 # --------------------------------------------------------------------------------------------------------------- E6
-def e6(control=False):
-    """the weight chain; returns True if (Ext Box)'s p exists at every sample"""
+def e6(mode=None):
+    """the weight chain at exact rational samples; returns (all good, some good, all good with l_0^flat for beta <
+    delta_#/2, some good with l_0^flat for beta >= delta_#/2, count)"""
     gams = [Fr(1, 50), Fr(1, 10), Fr(1, 5), Fr(1, 3)]
     es = [Fr(0), Fr(1, 4), Fr(1, 2)]
-    ok = True
-    ok_flat = True
-    cnt = 0
+    allg, someg, allf, somef_hi, cnt = True, False, True, False, 0
+    gain = 0 if mode == "nogain" else 1
     for gam, e in itertools.product(gams, es):
         dsh = (1 - e)*gam
         for k in range(1, 6):
             beta = dsh*Fr(k, 6)                                   # beta in (0, delta_#)
-            q_h = Fr(3, 2) + 2*gam                                # dot h: I_0-order > 3/2 + 2 gam (use the bound)
-            gain = 0 if control == "nogain" else 1
-            q_F = q_h + gain                                      # F_Y = chi E^Ups G dot h: |x|^-1
-            a0 = q_F - Fr(7, 2)                                   # conjugated source / solution weight at I_0
-            lo, hi = beta - 1, min(a0, Fr(0))
-            # I+: F_Y's order >= l_I^flat + 1 (S1) or 5/2- with the radiation slot; conjugated >= 0- > a_I
-            fI = min(Fr(3, 2) + dsh/4 + 1, Fr(5, 2)) - Fr(5, 2)
-            good = lo < hi and fI >= 0
+            q_h = Fr(3, 2) + 2*gam                                # dot h: I_0-order > 3/2 + 2 gam (the bound used)
+            q_F = q_h + gain                                      # F_Y = chi E^Ups G dot h: the factor |x|^-1
+            a0 = q_F - Fr(7, 2)                                   # (q_F - 2) - 3/2: solution weight, conjugated
+            # I+: F_Y has order l_I^flat + 1 = 5/2 + delta_#/4 by S1 (5/2- if the radiation slot were seen);
+            # conjugated (- 5/2): delta_#/4, or 0-; either is above every a_I < 0
+            fI = min(dsh/4, Fr(0))
+            lo, hi = beta - 1, min(a0, Fr(0), fI)
+            good = lo < hi
             if good:
                 aI = (lo + hi)/2
                 p = Fr(3, 2) + aI
-                good = p > Fr(1, 2) + beta and aI < 0 and aI < a0
-            ok &= good
-            # statement-level l_0^flat = 3/2 + delta_#/2
-            lflat = Fr(3, 2) + dsh/2
-            a0f = lflat + gain - Fr(7, 2)
+                good = p > Fr(1, 2) + beta and aI < min(a0, 0)
+            allg &= good
+            someg |= good
+            a0f = Fr(3, 2) + dsh/2 + gain - Fr(7, 2)              # statement-level l_0^flat = 3/2 + delta_#/2
             goodf = beta - 1 < min(a0f, Fr(0))
-            if control == "flat":
-                if beta >= dsh/2:
-                    ok_flat &= goodf
-            elif beta < dsh/2:
-                ok_flat &= goodf
+            if beta < dsh/2:
+                allf &= goodf
+            else:
+                somef_hi |= goodf
             cnt += 1
-    if control == "flat":
-        print("  E6 control (i) (l_0^flat, beta >= delta_#/2): the interval is non-empty at some sample: %s" % ok_flat,
-              flush=True)
-        return ok_flat
-    if control == "nogain":
-        print("  E6 control (ii) (no factor |x|^-1 in c_Ups): (Ext Box)'s p exists at every sample: %s" % ok,
-              flush=True)
-        return ok
-    print("  E6: at %d samples (gam, e, beta), beta in (0, delta_#): the interval (beta - 1, min(a_0, 0)) is non-empty "
-          "and p = 3/2 + a_I > 1/2 + beta: %s; with l_0^flat for beta < delta_#/2: %s" % (cnt, ok, ok_flat), flush=True)
-    return ok and ok_flat
+    return allg, someg, allf, somef_hi, cnt
 
 
 def e6c(control=False):
-    if not control:
-        return e6()
-    c1 = e6("flat")
-    c2 = e6("nogain")
-    return c1 or c2
+    if control:
+        _, _, _, somef_hi, _ = e6()
+        _, some_ng, _, _, _ = e6("nogain")
+        print("  E6 control (i) (l_0^flat, beta >= delta_#/2): the interval is non-empty at some sample: %s" % somef_hi,
+              flush=True)
+        print("  E6 control (ii) (no factor |x|^-1 in c_Ups): the interval is non-empty at some sample: %s" % some_ng,
+              flush=True)
+        return somef_hi or some_ng
+    allg, _, allf, _, cnt = e6()
+    print("  E6: at %d samples (gam, e, beta), beta in (0, delta_#): the interval (beta - 1, min(a_0, 0)) is non-empty "
+          "and p = 3/2 + a_I > 1/2 + beta: %s; with l_0^flat for beta < delta_#/2: %s" % (cnt, allg, allf), flush=True)
+    return allg and allf
 
 
 CHECKS = [("E1", e1), ("E2", e2), ("E3", e3), ("E4", e4), ("E5", e5), ("E6", e6c)]
