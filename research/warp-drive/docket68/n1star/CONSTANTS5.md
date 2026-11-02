@@ -351,7 +351,8 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
   (computed). Every admissible C_app is at least 12.58, so **the lambda0 this proof delivers is at most 0.0239** at P*
   with this envelope (computed), below lambda_Omega. Lemma 2.4's factor for Step 6's transport is e^44.0 = 1.29e19
   (computed), and as Steps 6-7 are written it enters C2 and then a second exponential, so the literal C3 is doubly
-  exponential, ln C3 >= 7.65e19 (deduced reading, certified number). **Stage 1 itself (m_1, phi_1, gh_2) is not bounded**: the exact cost is in R2.2.
+  exponential, ln C3 >= 7.65e19 (deduced reading, certified number). **Stage 1 itself (m_1, phi_1, gh_2) is not
+  bounded**: the exact cost is in R2.2.
 - **(ii) d.** E_++ and G add no chain to Lambda (deduced; computed check). E_col's candidate bases, under the widest
   reading, are 11 (computed): they do not make (G) bind, though the nearest comes within 2.2 % of delta_50 (certified),
   and they lengthen the level-2 container to 85,025,783 per level. The windows of III.I'''''''''' Proposition 3.1 run
@@ -558,9 +559,9 @@ delta) stand.
   windows run above 3 (R2.3 (c)); the explicit escape and time functions (R2.4 (a)); the Baire classification and
   III.H:425's replacement (R2.4 (b)); the ninth term of lambda0 (R2.1, V-m4).
 - *Computed, exact or certified*: the envelope's e_k (R2.2 (a)); eps1* in [3/5, 0.60132]; the D[n] table and C_app >=
-  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00, and ln C3 >= 7.65e19 on the literal reading (R2.2 (d)); (G) unbound at 3 + 1.9841e-8, the container
-  85,025,783 (R2.3 (b)); N(I), H r = 2f, H log tan(phi/2) = -2 sigma0, lambda_L^2 = 1/(2 mu) (R2.4 (a)); the
-  verifier's corrected figures (R2.1).
+  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00, and ln C3 >= 7.65e19 on the literal reading (R2.2 (d)); (G)
+  unbound at 3 + 1.9841e-8, the container 85,025,783 (R2.3 (b)); N(I), H r = 2f, H log tan(phi/2) = -2 sigma0, lambda_L^2
+  = 1/(2 mu) (R2.4 (a)); the verifier's corrected figures (R2.1).
 - *Conditional, not proved*: d <= 2.4338e16 + 1.0649e8 c (R2.3 (d)).
 - *Open, with the exact obstruction*: stage 1's solution and stages 2-9 (R2.2 (e)-(f)); a proved upper bound for d,
   blocked first by Lambda's unlisted increments (R2.3 (e)); every N-row constant and the per-piece microlocal constants
