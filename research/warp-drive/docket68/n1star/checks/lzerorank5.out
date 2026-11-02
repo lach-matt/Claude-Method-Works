@@ -1,1 +1,16 @@
 lzerorank5: the rank-one perturbation behind Lemma 2.3's eps1 in every reading of |.|
+  R1: g0 v = (m - s) v for v = (m, 1 - s, 0, 0, 0) (exact, symbolic m): True; det(g0 + (s - m) e e^T) = 0 (exact): the
+      rank-one perturbation of operator = Frobenius size s - m makes g0 degenerate
+  R2: f(m) = e_tau^2 = m**2/(m**2 + (sqrt(m**2 + 1) - 1)**2), decreasing (f' < 0 at five exact m: True); at m* in
+      [16.234970, 16.234971]: f <= 0.5307395, so the largest-entry size of the perturbation is <= 0.0163301 (certified,
+      rounded up). lambda0 < eps1/C_app: operator 0.0024433, Frobenius 0.0019950 (R1), largest entry 0.0012968
+      (certified, rounded up)
+  R3 (floating point): negative eigenvalues of g0 + t (s - m) e e^T at m*: t = 0.99: 1, t = 1.01: 0
+  C1 (control): the positive eigenvector (m, 1 + s): det = 2*(-m**4 + m**3*sqrt(m**2 + 1) + m**3 - m**2*sqrt(m**2 + 1) -
+      2*m**2 + m*sqrt(m**2 + 1) + m - sqrt(m**2 + 1) - 1)/(m**2 + sqrt(m**2 + 1) + 1), not 0: R1's test fails on it: True
+  C2 (control): R2 at the outer corner r = b(tau0), m = 0.006547: bound 0.9934, so R2's enclosure fails: True
+R1 PASS
+R2 PASS
+R3 PASS
+C1 PASS
+C2 PASS

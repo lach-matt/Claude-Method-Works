@@ -286,7 +286,8 @@ two-dust background on Ω₂ (FAMILIES5-FULL section 2). Replace Ω₂'s lateral
 - *Inner:* {v̂_ε − τ = a}, a leaf of the ingoing family in each slice. The outgoing packet never comes near: its inner
   edge stays at R ≥ R_H + 0.61 on every column (twobg5 G5, computed in the record), and R_H ≥ √μ0 = 0.907 > a = 0.7.
 - *Outer:* {u_ε = U_b(τ)}, U_b(τ) the background's outgoing phase on R = b(τ), a leaf of the outgoing family. The shell
-  is absent there: on the record's outer boundary v̂ = V + 1 + τ_end − τ ≥ V + 1 > v_end (N1STAR-PROOF.md (1.1); deduced).
+  is absent there: on the record's outer boundary v̂ = V + 1 + τ_end − τ ≥ V + 1 > v_end (N1STAR-PROOF.md (1.1);
+  deduced).
 
 For the background both boundaries are the record's spheres, and they stay spacelike for small ε. Then every invariant
 datum on Σ_τ0 within ε of Part I's, satisfying the constraints and the gauge condition, has its Einstein–N-null-dust
