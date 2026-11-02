@@ -21,3 +21,10 @@ E2 the linearised rows (17), the unknowns on each right side:
    no derivative of an unknown on any right side: True; background enters through its state and first x-derivatives only:
        True -> PASS
 E3 control: chib by null3.py N7's e4 equation: derivatives of unknowns on the right side: ['dx_detab'] -> fails (good)
+E7 a = 1.0, T = 2.0: extremal f(T, T) = 617.1, bound e^{4aT} = 2981, below everywhere: True; exceeds e^{a(u+v)} (control,
+    must): True; growth rate log f/(2T) = 1.606 a
+E7 a = 0.5, T = 4.0: extremal f(T, T) = 617.1, bound e^{4aT} = 2981, below everywhere: True; exceeds e^{a(u+v)} (control,
+    must): True; growth rate log f/(2T) = 1.606 a
+E7 a = 3.0, T = 1.0: extremal f(T, T) = 2.713e+04, bound e^{4aT} = 1.628e+05, below everywhere: True; exceeds e^{a(u+v)}
+    (control, must): True; growth rate log f/(2T) = 1.701 a
+E7 PASS
