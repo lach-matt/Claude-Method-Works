@@ -15,14 +15,15 @@ facts the deduction in FAMILIES5-FULL.md section 9 uses, and the term that makes
      reason: the fast derivatives enter only as (1/2) g0^-1(k, d phase) F tr_S W, and tr_S W_k = 0 for both families.
      Control: the outgoing wave with a trace on the spheres (t z2 gamma0 added) gives a lam^0 oscillation in the
      ingoing expansion (g0^-1(dv, du) != 0); in the outgoing one it does not (g0^-1(du, du) = 0).
-  H3 (exact; the reason for the placement hypothesis (H6)) with ghat_2's mixed harmonics fixed by stage 0's division
+  H3 (30-digit evaluation at a point; the reason for the placement hypothesis (H6)) with ghat_2's mixed harmonics fixed by stage 0's division
      (ghat = e^(2 sig) R^(0)_(n1,n2)/(n1 n2), stage0two5 T4, T7), the lam^1 coefficient of the outgoing expansion has
      nonzero mixed harmonics (n1, n2), n1 n2 != 0, wherever both families are present (evaluated with concrete smooth
      functions at a point). Along a column {vhat fixed} the outgoing phase u varies (d_R u = 1/R_u != 0), so lam
      [Th1] contributes (d_R u) [F2 Th1] = O(1) to d_R theta+ there: the record's monotonicity band argument needs the
      band free of the outgoing family. Control (must fail): with the outgoing family removed the mixed harmonics vanish.
 
-Labels: computed (exact, sympy). Run: python3 checks/twohorizon5.py   (a few minutes)
+Labels: computed (H1, H2 exact, sympy; H3 symbolic up to the point, then 30-digit). Run: python3
+checks/twohorizon5.py   (a few minutes)
 """
 import os
 import sys
@@ -130,12 +131,13 @@ def h2(control=False):
 
 
 def theta_at_point(S0, g0, W, Q, pt, top=1):
-    """the outgoing expansion -gamma^AB Gamma^u_AB (k = du) of {u, v = const} for g = g0 + lam W + lam^2 Q, with g0, W, Q
-    concrete functions of (u, v, th) (and z1, z2): every derivative is taken first, then evaluated at the point pt, so
-    the products are of numbers and Laurent polynomials in (z1, z2); lam^0..lam^top coefficients"""
+    """the outgoing expansion -gamma^AB Gamma^u_AB (k = du) of {u, v = const} for g = g0 + lam W + lam^2 Q, with g0, W
+    concrete functions of (u, v, th) (and z1, z2) and Q its value at pt: every derivative is taken first, then evaluated
+    at the point pt, so the products are of numbers and Laurent polynomials in (z1, z2); lam^-1..lam^top coefficients
+    (lam^1 exact: Q's slow derivatives would enter at lam^2)"""
     lam = sp.Symbol("lam")
     X = [S0.u, S0.v, S0.th]
-    at = lambda e: sp.expand(sp.sympify(e).subs(pt))                   # noqa: E731
+    at = lambda e: sp.expand(sp.N(sp.sympify(e).subs(pt), 30))         # noqa: E731  (30 digits at the point)
     G = g0 + lam*W + lam**2*Q
 
     def D(e, c):
@@ -192,12 +194,16 @@ def h3(control=False):
            S0.xi2: 1 + u*v/3, S0.xi2b: 2 - v, S0.et2: sp.Rational(1, 2) + u, S0.et2b: 1 + th}
     pt = {u: sp.Rational(1, 3), v: sp.Rational(1, 2), th: sp.Rational(7, 10)}
     sub = lambda M: M.applyfunc(lambda e: e.subs(rep).doit())         # noqa: E731
-    res = theta_at_point(S0, sub(g0), sub(W), sub(Q), pt)
-    lm1 = sp.expand(res[-1])
+    # ghat_2 enters the lam^1 coefficient of theta only through its fast derivative and its value at the point (its
+    # slow derivatives come with lam^2), so it is evaluated at the point first
+    Qp = Q.applyfunc(lambda e: sp.expand(sp.N(e.subs(rep).doit().subs(pt), 30)))
+    res = theta_at_point(S0, sub(g0), sub(W), Qp, pt)
+    lm1 = max([abs(complex(c)) for c in sp.Poly(sp.expand(res[-1]*S0.z1**8*S0.z2**8), S0.z1, S0.z2).coeffs()]
+              + [0.0]) if res[-1] != 0 else 0.0
     mixed = {n: complex(sp.N(cf, 12)) for n, cf in S0.harmonics(res[1]).items() if n[0] and n[1]}
     big = max((abs(x) for x in mixed.values()), default=0.0)
     nz = sorted(n for n in mixed if abs(mixed[n]) > 1e-12)
-    return big, nz[:8], len(nz), lm1 == 0
+    return big, nz[:8], len(nz), lm1 < 1e-20
 
 
 def main():

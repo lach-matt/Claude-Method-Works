@@ -27,6 +27,8 @@ below. K2 = x3 d_4 - x4 d_3, psi2 = (1/2) log |K2|^2, kappa2 = g^-1(du, d psi2).
          second order at the axis, so th_h = kappa2 on the axis and |chi|^2 -> kappa1^2 + (th - kappa1)^2/2 pointwise
          there; its coefficient carries U_ss, two orders above the 1-jet. (Off the axis d3 is tilted off the section by
          g(d3, d_tau) = c_tau rho2, so the rho2^2 coefficient also holds the tilt's terms.)
+     (e) the exact split |chi|^2 = th_h^2 + k1^2 + k2^2 = k1^2 + (th - k1)^2/2 + s^2/2, s := th_h - kappa2 (the planar
+         shear): near the axis only s is not controlled by th and the first-order kappa1. Control: without s^2/2.
   X2 (computed, mpmath quadrature) the size of the Hardy quotient: in the flat model (a = 1) kappa2 = d_rho u/rho; for
      the invariant family u_eps = exp(-rho^2/eps^2) concentrating at the axis, ||kappa2||/||grad u|| = sqrt(2)/eps in
      L^2(R^2) and grows like 1/eps in H^1 too: kappa2 is not bounded by any norm of du at the same order.
@@ -129,7 +131,13 @@ def x1():
     ok_d2 = sh0 == 0 and sp.cancel(dU2 - 4 / a0) == 0
     print("X1 (d) chi(e4, e4) = kappa2 exactly:", ok_d1, "; chi(d3,d3)/g33 - kappa2 -> 0 on the axis:", sh0 == 0,
           "; its rho2^2 coefficient has d/dU_ss =", dU2, "->", ok_d2)
-    return ok_a and ok_a2 and ctl_a and ok_b and ctl_b and ok_c and ok_d1 and ok_d2
+    # (e) the exact split near the axis: th_h^2 + k1^2 + k2^2 = k1^2 + (th - k1)^2/2 + s^2/2, s = th_h - k2
+    thh, k1, k2 = sp.symbols('th_h k1 k2')
+    th_ = thh + k1 + k2
+    split = sp.expand(thh**2 + k1**2 + k2**2 - (k1**2 + (th_ - k1)**2 / 2 + (thh - k2)**2 / 2)) == 0
+    ctl_e = sp.expand(thh**2 + k1**2 + k2**2 - (k1**2 + (th_ - k1)**2 / 2)) != 0
+    print("X1 (e) |chi|^2 = k1^2 + (th - k1)^2/2 + s^2/2 exactly:", split, "; control (dropping s^2/2) rejected:", ctl_e)
+    return ok_a and ok_a2 and ctl_a and ok_b and ctl_b and ok_c and ok_d1 and ok_d2 and split and ctl_e
 
 
 mp.mp.dps = 30
