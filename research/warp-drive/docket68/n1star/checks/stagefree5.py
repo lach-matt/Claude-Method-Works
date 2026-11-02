@@ -24,9 +24,10 @@ dominates the layer's deep part, and the two signs make the boundary spacelike t
      10^-100 and 10^-1000: the free term 2 lam^N psi''/2 exceeds ten times the sum of every other term the record bounds
      at the boundary point -- the rule's first-degree part lam^3 eps_26(x), the degree-two part eps_26(x)^2, the
      remainder lam^(N-5) eps_26(x + lam) (Lemma L.4, its tilt reaching v + c lam, c = 1) and its change lam^(N-5)
-     psi_26(x + lam) eps_26(x + lam), the margin m0 -- on the whole range [3 lam, x_1], x_1 printed, where env(x_1) is
-     about lam^18 = lam^(3N - 9); and at Theorem L's window (env = lam^14) the free term is below a tenth of the signal
-     lam^3 env.  Control: psi := env (as flat as env) dominates nowhere on [3 lam, x_b].
+     psi_26(x + lam) eps_26(x + lam), the margin m0 -- at every point of a 1200-point log grid of [3 lam, x_1], x_1
+     found by bisection, env(x_1) = lam^(p_1) with p_1 printed (p_1 -> 3N - 9 = 18 as lam -> 0, the factors x^-4M*
+     aside); and at Theorem L's window (env = lam^14) the free term is below a tenth of the signal lam^3 env.  Control:
+     psi := env (as flat as env) dominates nowhere on [3 lam, x_b].
   G4 (READ, located by content; md5 printed) N1STAR-PROOF.md: Lemma 6.2's statement ("For every N there are stage data
      ..."), its proof's range ("Stage m = 1, ..., N - 1"), section 6.4 ("Take the stage data of Lemma 6.2 with N := K
      + 3"); the paper: "every smooth choice of stage data" (Theorem A).  Control: no line fixes stage N's data.
@@ -154,46 +155,63 @@ U = sp.Symbol('u')
 
 
 def der_polys(a, K):
-    """d^k/dx^k exp(-a/x) = P_k(1/x) exp(-a/x): P_(k+1)(u) = u^2 (a P_k(u) - P_k'(u))"""
+    """d^k/dx^k exp(-a/x) = P_k(1/x) exp(-a/x): P_(k+1)(u) = u^2 (a P_k(u) - P_k'(u)); integer-rational coefficients"""
     Ps = [sp.Integer(1)]
     for _ in range(K):
         Ps.append(sp.expand(U**2*(a*Ps[-1] - sp.diff(Ps[-1], U))))
-    return [sp.lambdify(U, p, 'mpmath') for p in Ps]
+    return [[mp.mpf(sp.Rational(c).p)/sp.Rational(c).q for c in reversed(sp.Poly(p, U).all_coeffs())] for p in Ps]
 
 
 PE = der_polys(1, 26)
 PP = der_polys(sp.Rational(2, 3), 26)
 
 
+def peval(co, u):
+    res = mp.mpf(0)
+    for c in reversed(co):
+        res = res*u + c
+    return res
+
+
 def eps(polys, a, x):
-    return sum(abs(p(1/x)) for p in polys)*mp.exp(-a/x)
+    u = 1/x
+    return sum(abs(peval(p, u)) for p in polys)*mp.exp(-a/x)
 
 
-def domination(lam, psi_a=mp.mpf(2)/3, N=9):
+def domination(lam, psi_a=mp.mpf(2)/3, N=9, npts=1200):
     polysP = PP if psi_a != 1 else PE
     env = lambda x: mp.exp(-1/x)                                                     # noqa: E731
-    psi2 = lambda x: polysP[2](1/x)*mp.exp(-psi_a/x)                                # noqa: E731
 
     def terms(x):
-        free = 2*lam**N*psi2(x)/2
+        free = 2*lam**N*peval(polysP[2], 1/x)*mp.exp(-psi_a/x)/2
         e26 = eps(PE, 1, x)
         e26s = eps(PE, 1, x + lam)
         p26s = eps(polysP, psi_a, x + lam)
         m0 = (env(x)**2 + x*env(x)**2)/9
         bound = lam**3*e26 + e26**2 + lam**(N - 5)*e26s + lam**(N - 5)*p26s*e26s + m0
-        return free, bound
-    xs = [3*lam*(mp.mpf('0.05')/(3*lam))**(mp.mpf(k)/600) for k in range(601)]
-    dom = [terms(x)[0] >= 10*terms(x)[1] for x in xs]
+        return free >= 10*bound
+    xs = [3*lam*(mp.mpf('0.05')/(3*lam))**(mp.mpf(k)/npts) for k in range(npts + 1)]
+    dom = [terms(x) for x in xs]
     k1 = 0
     while k1 < len(xs) and dom[k1]:
         k1 += 1
-    x1 = xs[k1 - 1] if k1 > 0 else None
+    x1 = None
+    if 0 < k1 < len(xs):
+        lo, hi = xs[k1 - 1], xs[k1]
+        for _ in range(40):
+            mid = mp.sqrt(lo*hi)
+            if terms(mid):
+                lo = mid
+            else:
+                hi = mid
+        x1 = lo
     xw = 1/(14*mp.log(1/lam))
-    fw, _ = terms(xw)
+    fw = 2*lam**N*peval(polysP[2], 1/xw)*mp.exp(-psi_a/xw)/2
     window_ok = fw <= lam**3*env(xw)/10
     xb = mp.sqrt(lam)
     anywhere = any(d for x, d in zip(xs, dom) if x <= xb)
-    return x1, k1, window_ok, anywhere, (mp.log(env(x1))/mp.log(lam) if x1 else None), xb, xw
+    after = all(not d for x, d in zip(xs[k1:], dom[k1:]) if x <= xw)
+    return x1, k1, window_ok, anywhere, (mp.log(env(x1))/mp.log(lam) if x1 else None), xb, xw, after
 
 
 def g3(control=False):
@@ -202,8 +220,8 @@ def g3(control=False):
     rows, ok = [], True
     for e in (100, 1000):
         lam = mp.mpf(10)**-e
-        x1, k1, window_ok, _, lev, xb, xw = domination(lam)
-        good = x1 is not None and k1 > 300 and window_ok and x1 > xb and x1 < xw
+        x1, k1, window_ok, _, lev, xb, xw, after = domination(lam)
+        good = x1 is not None and k1 > 600 and window_ok and x1 > xb and x1 < xw
         ok &= good
         rows.append("lam = 1e-%d: dominated on [3 lam, x_1] with x_1 = %s (env(x_1) = lam^%s; x_b = %s, window x_w ="
                     " %s), free term at the window below a tenth of lam^3 env: %s" % (
