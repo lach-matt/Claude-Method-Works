@@ -21,8 +21,10 @@ and its quadratic part Q, each a lam-series whose coefficients are exact sympy e
       coefficients (of d_r a, d_r d_th a, d_th^2 a in rho; of d_r w, d_r q, d_th w, d_th q, d_r a, d_r d_th a in J) are
       frozen at U_i, the remaining quadratic terms evaluated at U_i as a source. The iterates converge, and the
       nonlinear correction relative to U, the contraction factor of the scheme, scales as lam^(N-2): the proof's bound C
-      lam^(N-3) allows a 1/lam coefficient in Nl, which C7a shows absent here. Control: the trace_W mutant, whose Q has
-      a 1/lam coefficient, contracts at the proof's rate lam^(N-3) only.
+      lam^(N-3) allows a 1/lam coefficient in Nl, which C7a shows absent here. Control: a quadratic term a^2/lam added
+      to rho (a 1/lam coefficient with nonzero phase mean) contracts at the proof's rate lam^(N-3) only. (The trace_W
+      mutant's 1/lam quadratic coefficient oscillates with zero phase mean, is averaged out by the march as its linear
+      one is in C7b, and contracts at lam^(N-2) too: it is not a control here.)
 
 Not reached: the approximant's higher stages (g_j, j >= 1, the means and the phase corrections; Lemma 6.3(b) gives them
 O(1) coefficients) and the O(lam) coefficients (data5.py truncates its series at lam^1, so only the orders -1 and 0
@@ -297,7 +299,12 @@ def c7b(control=False):
 
 
 def c7c(control=False):
-    S = System(operator("trace_W" if control else None), 12)
+    T = operator()
+    if control:                         # a 1/lam quadratic coefficient with nonzero phase mean: a^2/lam in rho
+        T = [dict((k, [dict(ld), dict(qd)]) for k, (ld, qd) in row.items()) for row in T]
+        a0 = [j for j in d5.jet(sp.Integer(0))[1].values() if str(j) == "a"][0]
+        T[2].setdefault(-1, [{}, {}])[1][(a0, a0)] = sp.Integer(1)
+    S = System(T, 12)
     rel, sizes, conv = [], [], []
     for lam in LAMS[:3]:
         Xm, Xrm, h = S.march(lam)
