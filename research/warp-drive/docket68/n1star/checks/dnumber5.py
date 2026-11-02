@@ -29,7 +29,9 @@ The chain (from the table: dweights5 W1/W3, dceiling5 D4/D6, eflat5 F4-F5, impor
                                u {(2, <= max(k_2(3), k_1(2)) + 1)}, cut at beta_K;
      n_iota = |E_iota,<=| = 0 at Step 7 (eflat5 F7), and LOSS-D (2.2) gives X_7 = n_K + ceil(beta_K + eps - 1/2)
      = n_K + ceil(beta - 5/2).
-  K3 (deduced; computed) the log orders k_2(lambda) of the level-2 sources at lambda in (2, 3): E^flat's (eflat5 F4:
+  K3 (deduced, on round 5's step-by-step reading of I11:352-387, which the write-out does not state: it states K(lambda),
+     I11 Proposition 3.1 (c); so the whole figure is a deduced ceiling on that reading, R6.0 M2) the log orders
+     k_2(lambda) of the level-2 sources at lambda in (2, 3): E^flat's (eflat5 F4, Round 6:
      2 off the 26 points of pi_1 E^C_I, the table there at them), 2 + E_col (Lemma 1.1, E_col := E cap {Re >= 0} with
      E's exponents b + w + sigma, b in {0, 2, 3}, w in E_ind, sigma >= -5, I12:79-110; E_ind's Lemma 1.4 log orders on
      every type's roots, the reading under which lambdagen5's eleven E_col bases enter P_W), u_0's (III.I''''''''''''
@@ -337,7 +339,8 @@ def main():
     OK['K1'] = (A['R0'] == 37919138373535686 and A['R1'] == 37919139651409350 and P_W == 85025783
                 and P_i == P_W + 1 and W == 1470302 and open23 == P_i - 2)
     print('  K1: A = 3 (R2 + R3) + L_above [3 P_W + 11 + 3 P_iota + excess + 15 W] + L_below [15 W + 58] = %d (R0), '
-          '%d (R1) (eflat5 F5 as corrected in Round 6: R1's excess 47); P_W = %d, P_iota = %d, W = %d, |Lambda cap (2, 3)| = %d' % (
+          '%d (R1) (eflat5 F5 as corrected in Round 6: R1\'s excess 47); P_W = %d, P_iota = %d, W = %d, '
+          '|Lambda cap (2, 3)| = %d' % (
               A['R0'], A['R1'], P_W, P_i, W, open23))
     C3 = k1_constant(w, c, P_i, P_W, W, 0)
     OK['C3'] = C3 != A['R1'] and C3 != A['R0']
