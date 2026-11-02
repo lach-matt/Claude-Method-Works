@@ -1,0 +1,5 @@
+H1  the class E_0^(1/2)
+  H1a E_0^(1/2) = {2 + j/2} below the top, closed under sums and +1: pass ['2', '5/2', '3', '7/2', '4', '9/2']
+  H1b min Re = 2 > 3/2 + 2 gamma_Ups: pass
+  H1c control: (5/2, 0) + N_0 alone is not closed under sums (5 missing): pass
+H2  the record's construction, M rounds

@@ -1,0 +1,11 @@
+C1  T2's ODE: the hypergeometric solution and a wrong one
+  C1a the T2b solution: residual < 1e-20: pass 7.89e-31
+  C1b control: third parameter p + 1/2: residual > 1e-3 for every l <= 6: pass 0.601
+C2  W1's identity (5.1) and the same identity without its bulk term
+  C2a (5.1) holds at four points (relative residual < 1e-25): pass 6.58e-41
+  C2b control: without T(grad w, d_t) the identity fails at every point (relative defect > 1e-3): pass 0.123
+C3  T6c's control: a wrong subtraction is not in the class
+  C3a with coefficient 1/2 the integral from eps diverges as eps -> 0: pass -1/6 + 1/(6*epsilon**(3/2))
+C4  T8g's control: the bump has nonzero time integral
+  C4a the claim 'ehat_b(0) = 0' is rejected: int env_b > 0.3: pass 0.66599072
+  C4b env_b' has zero time integral (T8g's statement): pass 0.0

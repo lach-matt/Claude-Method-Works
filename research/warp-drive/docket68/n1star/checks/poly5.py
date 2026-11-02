@@ -59,6 +59,20 @@ from functools import lru_cache
 
 import sympy as sp
 
+
+import builtins as _builtins
+import textwrap as _textwrap
+
+_raw_print = _builtins.print
+
+
+def print(*args, **kw):  # output lines are kept to 121 characters (wrapped, continuation indented)
+    text = kw.pop("sep", " ").join(str(x) for x in args)
+    for line in text.split("\n"):
+        for piece in (_textwrap.wrap(line, 121, subsequent_indent="        ", break_long_words=True,
+                                     replace_whitespace=False, drop_whitespace=True) or [""]):
+            _raw_print(piece, **kw)
+
 FAIL = []
 
 
