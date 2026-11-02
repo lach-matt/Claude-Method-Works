@@ -8,3 +8,13 @@ iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's
   C2 (control): the constant 1 for 3/2: no state solves: True
   C3 (control): the product with N(lam - i + 1): poles {0: {2: 1, 3: 1, 4: 1, 5: 1}, 1: {3: 1, 4: 1, 5: 1}, 2: {4: 1, 5:
       1}}, not M2's: True
+  M3 s0 (K = 4, 392 s): M0 = (x - lam)(C - x), C constant: True; spec C - 3/2 = [0.0099, 0.02, 499995.1171875,
+      1000000.0], inside spec S-bar: True; det N = x*(x - 4)*(x - 2)*(250000*x**2 - 750000*x - 1)*(64*x**3 +
+      191999439*x**2 + 127996874997869*x - 128006634001506)/256000000
+      roots with Re <= 0: 4 of 8 (K = 4); roots in (0, 4]: ['[4.0000000000, 4.0000000000]', '[2.0000000000,
+      2.0000000000]', '[3.0000013333, 3.0000013333]', '[1.0000747438, 1.0000747438]'], all simple: True, none non-real:
+      True
+      candidates lam0 = r + i, Re <= 5 (interval: order, residue rank): {'[2.0000747, 2.0000747]': (1, 1), '[3.0000000,
+      3.0000000]': (1, 1), '[3.0000747, 3.0000747]': (1, 1), '[4.0000000, 4.0000000]': (1, 1), '[4.0000013, 4.0000013]':
+      (1, 1), '[4.0000747, 4.0000747]': (1, 1), '[5.0000000, 5.0000000]': (1, 2)}; exceptional points spec C + {1, 2, 3}
+      at Re <= 5: [2.5099, 2.52, 3.5099, 3.52, 4.5099, 4.52], no root at an integer distance from spec C: True

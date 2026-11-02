@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/gdext5.py", line 448, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/gdext5.py", line 438, in main
+    good = fn()
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/gdext5.py", line 193, in e1
+    rest = H[c] - (G.box0(phi) if c == nu else 0) - sum(C[c][nu][q]*D(phi, q) for q in range(N)) \
+                                                    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/gdext5.py", line 193, in <genexpr>
+    rest = H[c] - (G.box0(phi) if c == nu else 0) - sum(C[c][nu][q]*D(phi, q) for q in range(N)) \
+                                                                    ~^^^^^^^^
+TypeError: 'list' object is not callable
