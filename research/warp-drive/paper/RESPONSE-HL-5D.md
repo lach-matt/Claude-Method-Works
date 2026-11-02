@@ -605,13 +605,15 @@ each r-derivative costing a factor λ⁻¹ (supplement Proposition 6.5). Compute
 (`docket68/n1star/checks/csolve5.py`): the linear and the quadratic part of the constraint map have no coefficient of
 order 1/λ (exact; the quadratic part's absence is new, so the remainder's coefficients are O(1) here, not merely O(1/λ));
 the linear solve, a pseudo-spectral discretisation on the symmetric class marched in r with a source of size λ⁴ (N = 6),
-gives sup_r of the H² norms of U, ∂_r U and ∂_r² U scaling as λ^4.00, λ^3.99 and λ^3.00 over λ = 1/8 to 1/64 (floating
-point; resolution varied by M = 12, 16, 20 modes and λ/32, λ/64 steps, the norms moving by 7 × 10⁻⁵), within the
-λ^(N−2−j) stated, the first r-derivative costing nothing; and the scheme of the proof, principal coefficients frozen,
-contracts with factor 5.2 × 10⁻⁵, 3.8 × 10⁻⁶, 2.5 × 10⁻⁷ at λ = 1/8, 1/16, 1/32, rate λ^(N−2) against the proof's
-λ^(N−3). Control: the mutant with an oscillating trace on the spheres, which has a 1/λ coefficient, makes the first
-r-derivative cost λ⁻¹. Beforehand the approximant's stage data are chosen so that its data satisfy the constraints and D
-= 0 to order N − 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas 6.1–6.2).
+gives sup_r of the H²-type norms of U, ∂_r U and ∂_r² U scaling as λ^4.00, λ^3.99 and λ^3.00 over the last halving, λ =
+1/32 to 1/64 (floating point; the earlier halvings pre-asymptotic; resolution varied by M = 12, 16, 20 modes and λ/32,
+λ/64 steps, the norms moving by 7 × 10⁻⁵), the solve uniform in λ and the first r-derivative costing nothing, both within
+the λ^(N−2−j) stated (control: the mutant with an oscillating trace on the spheres, which has a 1/λ coefficient, makes
+the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coefficients frozen, is run to measure its
+contraction ratio against the proof's λ^(N−3) and the size of the quadratic remainder's effect (`checks/csolve5.py` C7c,
+being rerun with a control that can fail). Beforehand the approximant's stage data are chosen so that its data satisfy
+the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas
+6.1–6.2).
 
 ---
 
@@ -2063,8 +2065,9 @@ Programs behind section 9, in `docket68/n1star/`:
   is quadratic in it; control, a profile with an envelope-free term. Exact.
 - `checks/csolve5.py` C7a–C7c: the constraint solve's λ^(N−2) scaling (supplement Lemmas 6.3–6.4, Proposition 6.5): no
   coefficient of order 1/λ in the linear or the quadratic part of the constraint map at the stage-0 approximant's data
-  (C7a, exact); the linear solve's rates λ^(N−2), λ^(N−2), λ^(N−3) for U, ∂_r U and ∂_r² U (C7b) and the nonlinear
-  scheme's contraction at λ^(N−2) (C7c), floating point. Control: an oscillating trace on the spheres. About fifty
+  (C7a, exact); the linear solve's rates λ^(N−2), λ^(N−2), λ^(N−3) for U, ∂_r U and ∂_r² U (C7b) the nonlinear scheme's
+  contraction ratio against the proof's λ^(N−3) and its first correction at λ^(N−2) (C7c), floating point. Controls: an
+  oscillating trace on the spheres (C7a, C7b), a 1/λ quadratic coefficient with nonzero phase mean (C7c). About eighty
   minutes.
 - `checks/eindcert5.py` I1: the scan of `eind5.py` E2 below l = 10⁴ made rigorous: every root it visits enclosed by an
   inclusion disc computed in exact rational arithmetic, δ_50 certified, attained by the gauge potential's operator at l =
@@ -2316,29 +2319,29 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 
 ## Appendix D. Reproduction
 
-Python 3 with sympy (Python 3.13.16, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3, scipy 1.18.1, z3 5.3.1 in the runs
-recorded here); z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for `settle5.py`;
-mpmath for `damping5.py` and every program that imports it, and for
-`lowenergy5.py`. `growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py`
-imports `lead5.py`, `growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports
-`hierarchy5.py`, `semiclass5.py` imports `damping5.py`, `cform5.py` imports `semiclass5.py` and `damping5.py`,
-`gaugepot5.py` imports `damping5.py`, `modes5.py` imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py`
-import `gaugepot5.py`, `damping5.py` and `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py`
-and `trap5.py`, `lowenergy5.py` imports `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py`
-imports `cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and
-`damping5.py`, `lin5.py` imports `damping5.py` and `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and
-`zstates5.py` import `damping5.py`, `genstates5.py` imports `damping5.py` and `zstates5.py`, `puregauge5.py` imports
-`damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`,
-`pairing5.py` imports `damping5.py`, `static5.py` imports `damping5.py` and `gmodes5.py`, `physical5.py` imports
-`damping5.py` and `lin5.py`, `window5.py` imports `damping5.py` and `lin5.py`, `mp5.py` imports `damping5.py` and
-`dual5.py`, `iota5.py` imports `damping5.py` and `lin5.py`, `scri5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and
-`sbar5.py`, `aug5.py` imports `damping5.py` and `sbar5.py`, `lowfreq5.py` imports `aug5.py`, `damping5.py` and
-`sbar5.py`, `cone5.py`, `class5.py`, `eind5.py`, `uniform5.py` and `transfer5.py` import `damping5.py`, `iplus5.py`
-imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py` imports `class5.py`, `damping5.py`, `iplus5.py`
-and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`, `window5.py` and `iplus5.py`, `checks/csolve5.py`
-imports `data5.py`, `checks/eindcert5.py` imports `eind5.py` and `damping5.py`, `checks/hclass5.py` imports
-`damping5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py`; the others
-import nothing from the research tree:
+Python 3 with sympy (Python 3.13.16, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3, scipy 1.18.1, z3 5.3.1 in the runs recorded
+here); z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for `settle5.py`; mpmath
+for `damping5.py` and every program that imports it, and for `lowenergy5.py`. `growth5.py` imports the solver
+`docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`, `lzero5.py` and
+`coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`, `semiclass5.py` imports `damping5.py`,
+`cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`, `modes5.py` imports
+`gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and `modes5.py`,
+`hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports `thresh5.py`
+and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`, `tface5.py`
+imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
+`gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`, `genstates5.py` imports
+`damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py`
+imports `damping5.py`, `genstates5.py` and `puregauge5.py`, `pairing5.py` imports `damping5.py`, `static5.py` imports
+`damping5.py` and `gmodes5.py`, `physical5.py` imports `damping5.py` and `lin5.py`, `window5.py` imports `damping5.py`
+and `lin5.py`, `mp5.py` imports `damping5.py` and `dual5.py`, `iota5.py` imports `damping5.py` and `lin5.py`, `scri5.py`
+imports `damping5.py`, `iota5.py`, `lin5.py` and `sbar5.py`, `aug5.py` imports `damping5.py` and `sbar5.py`,
+`lowfreq5.py` imports `aug5.py`, `damping5.py` and `sbar5.py`, `cone5.py`, `class5.py`, `eind5.py`, `uniform5.py` and
+`transfer5.py` import `damping5.py`, `iplus5.py` imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py`
+imports `class5.py`, `damping5.py`, `iplus5.py` and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`,
+`window5.py` and `iplus5.py`, `checks/csolve5.py` imports `data5.py`, `checks/eindcert5.py` imports `eind5.py` and
+`damping5.py`, `checks/hclass5.py` imports `damping5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py`
+imports `checks/prop31loss5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from
+the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2405,7 +2408,7 @@ import nothing from the research tree:
     python3 checks/support5.py                           # about a minute; and checks/support8.py
     python3 checks/eq5.py                                # and checks/ix5.py (about 14 minutes)
     python3 checks/epsind5.py --selftest
-    python3 checks/csolve5.py                            # about fifty minutes
+    python3 checks/csolve5.py                            # about eighty minutes
     python3 checks/eindcert5.py                          # a few minutes
     python3 checks/kirecon5.py                           # a few seconds
     python3 checks/mpdata5.py                            # about four minutes
@@ -2559,7 +2562,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2meas5.py` | `9142cd462955de2f7d832ea477a98a52` |
 | `docket68/n1star/checks/g1curv5_seed2_2400.out` | `d4b3e16ed75dcaa2b17d5b674dd230a5` |
 | `docket68/n1star/checks/data5two.out` | `9d628d9645dff8a0ca17f68cf349937b` |
-| `docket68/n1star/checks/csolve5.py` | `c4beab544fc507c86b1cdc759fe58d17` |
+| `docket68/n1star/checks/csolve5.py` | `a8ec59d42b40222f42083f4f45ff4a56` |
 | `docket68/n1star/checks/csolve5.out` | `0825ead5a038ec9fe6080499b4d84d91` |
 | `docket68/n1star/checks/eindcert5.py` | `38dff777740e9cb5b0627ddcd7274b08` |
 | `docket68/n1star/checks/eindcert5.out` | `a030dc112b7b0ef36d7c3039ac604015` |
@@ -2579,7 +2582,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/charge5.out` | `e9375c55cee6ec9df77dd3fc6ebf53ac` |
 | `docket68/n1star/checks/eqlayer5.py` | `d7a1288744dc556ede95c486bffc915e` |
 | `docket68/n1star/checks/eqlayer5.out` | `43d95eb4505ae0a32c64c179e808b8e9` |
-| `docket68/n1star/checks/e2lower5.py` | `230c95c6cedbdcfda25558e6d510b3ad` |
+| `docket68/n1star/checks/e2lower5.py` | `d3e494e451d09f0396f78e0675888c4d` |
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |

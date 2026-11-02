@@ -8,31 +8,40 @@ and its quadratic part Q, each a lam-series whose coefficients are exact sympy e
   C7a (exact) Neither L nor Q has a coefficient of order 1/lam (data5.py S2/S4 showed it for L; Q is new: the 1/lam
       second derivatives of gamma enter only through the trace of W on the spheres at every order in a). So the
       quadratic remainder Nl of Proposition 6.5's proof has coefficients O(1) at this approximant, not merely O(1/lam).
-      Control: the trace_W mutant (an oscillating trace in place of W_TT) has a 1/lam coefficient in both.
+      Control: the trace_W mutant (an oscillating trace in place of W_TT) has a 1/lam coefficient in Q (tested on Q
+      alone; its L has one too, data5.py S2).
   C7b (numerical, floating point) The linear solve of Lemma 6.4: concrete mu, E, H (below), A = 1, tau0 = 0; on S^3's
-      symmetric class a pseudo-spectral collocation (a, w in cos 2k th, q in sin 2k th, k < M), the system M1 d_r U +
+      symmetric class a pseudo-spectral collocation (a, w in cos 2k th, k < M; q in sin 2k th, 1 <= k <= M), M1 d_r U +
       M0 U = F marched by the implicit midpoint rule from zero data at r = a = 1 to r = 3 with lam/32 steps; F a source
-      of size lam^(N-2), N = 6, carrying a phase mean and two harmonics, supported on the shell 1.25 < r < 2.75. The
-      measured rates of sup_r ||d_r^j U||_(H^2) over lam = 1/8, ..., 1/64 are lam^(N-2), lam^(N-2), lam^(N-3) for j =
-      0, 1, 2: within Proposition 6.5's lam^(N-2-j), the first r-derivative costing nothing, as the absence of a 1/lam
-      coefficient implies. Control: the trace_W mutant's 1/lam coefficient (with zero phase mean, so sup ||U|| still
-      scales as lam^(N-2)) makes the first r-derivative cost lam^-1. Resolution: M = 12, 16, 20 and lam/32, lam/64 steps.
+      of size lam^(N-2), N = 6, carrying a phase mean and two harmonics, supported on the shell 1.25 < r < 2.75. Over
+      the last halving, lam = 1/32 to 1/64, sup_r ||d_r^j U||_(H^2) scales as lam^(N-2), lam^(N-2), lam^(N-3) for j =
+      0, 1, 2 (the earlier halvings, printed, are pre-asymptotic): the solve is uniform in lam (U at the source's rate,
+      which is put in by hand) and the first r-derivative costs nothing, as the absence of a 1/lam coefficient implies;
+      both within Proposition 6.5's lam^(N-2-j). Control: the trace_W mutant's 1/lam coefficient (zero phase mean, so
+      sup ||U|| still scales as lam^(N-2), and Proposition 6.5's bound is met too) makes the first r-derivative cost
+      lam^-1, which the 'first derivative free' clause rejects. Resolution at lam = 1/32: M = 12, 16, 20 and lam/32,
+      lam/64 steps.
   C7c (numerical) The nonlinear solve, by Proposition 6.5's scheme: U_(i+1) solves the linear system whose principal
-      coefficients (of d_r a, d_r d_th a, d_th^2 a in rho; of d_r w, d_r q, d_th w, d_th q, d_r a, d_r d_th a in J) are
-      frozen at U_i, the remaining quadratic terms evaluated at U_i as a source. The iterates converge, and the
-      nonlinear correction relative to U, the contraction factor of the scheme, scales as lam^(N-2): the proof's bound C
-      lam^(N-3) allows a 1/lam coefficient in Nl, which C7a shows absent here. Control: a quadratic term a^2/lam added
-      to rho (a 1/lam coefficient with nonzero phase mean) contracts at the proof's rate lam^(N-3) only. (The trace_W
-      mutant's 1/lam quadratic coefficient oscillates with zero phase mean, is averaged out by the march as its linear
-      one is in C7b, and contracts at lam^(N-2) too: it is not a control here.)
+      coefficients (of d_r a, d_th^2 a in rho; of d_r w, d_r q, d_th w, d_th q and the whole coefficient of d_r a in J)
+      are frozen at U_i, the remaining quadratic terms evaluated at U_i as a source, from U_0 the linear solution; the
+      source is taken 100 times the C7b one (Proposition 6.5's constant) so that three successive differences stay
+      above roundoff. Two measurements. (i) The contraction ratio of the scheme, d_(i+1)/d_i with d_i = sup_r ||U_(i+1)
+      - U_i||: below 10^-1 at every step, and its rate in lam is printed beside the proof's bound C lam^(N-3); it is
+      not better than that bound by more than the measurement shows (the frozen coefficients differ by r-derivatives of
+      oscillating differences, each costing lam^-1). (ii) The first correction relative to the linear solution,
+      d_0/sup_r ||U_0||, the size of the quadratic remainder's effect: lam^(N-2), as O(1) coefficients of Nl give (C7a).
+      Control for (ii): a quadratic term a^2/lam added to rho (a 1/lam coefficient with nonzero phase mean) gives
+      lam^(N-3). (The trace_W mutant's 1/lam quadratic coefficient oscillates with zero phase mean and is averaged out
+      by the march, as its linear one is in C7b: it would not be a control.)
 
 Not reached: the approximant's higher stages (g_j, j >= 1, the means and the phase corrections; Lemma 6.3(b) gives them
 O(1) coefficients) and the O(lam) coefficients (data5.py truncates its series at lam^1, so only the orders -1 and 0
-are complete); the norms are the computed ones at one resolution set, not bounds. Equivalent H^2 norm: coefficients in
-cos 2k th (sin 2k th for q) weighted by (1 + l (l + 2)), l = 2k.
+are complete); the norms are the computed ones at one resolution set, not bounds. The norm is an H^2-type norm on the
+spheres (coefficients in cos 2k th, sin 2k th for q, weighted by 1 + l (l + 2), l = 2k), not H^2(S^3) itself; the
+lam-rates do not depend on the choice, the angular profiles being lam-independent.
 
-Run: python3 checks/csolve5.py   (about fifty minutes, most of it the sympy build of L and Q; saved as
-     checks/csolve5.out)
+Run: python3 checks/csolve5.py   (about eighty minutes: the sympy build of L and Q about twenty-five, C7b about
+     fifteen, C7c and its control about forty; saved as checks/csolve5.out)
 """
 import os
 import sys
@@ -163,7 +172,7 @@ def hnorm(X, G, M):
 
 
 FIELD = {"a": (0, "De"), "w": (1, "De"), "q": (2, "Do")}
-PRINC = [{"w_r", "w_t", "q_r", "q_t", "a_r", "a_rt"}]*2 + [{"a_r", "a_rt", "a_tt"}]
+PRINC = [{"w_r", "w_t", "q_r", "q_t", "a_r"}]*2 + [{"a_r", "a_tt"}]       # Lemma 6.3 (a): no d_r d_th a
 
 
 class System:
@@ -219,10 +228,12 @@ class System:
                     src[rows] += c*vals[0]*vals[1]
         return M1, M0, src
 
+    ampl = 1.0
+
     def forcing(self, r, lam):
         b = float(FUN[d5.Ef.func](sp.Float(r))) if V0 < r < V1 else 0.0
         osc = 1 + np.cos(r/lam) + 0.5*np.sin(2*r/lam)
-        return lam**P*np.concatenate([np.cos(2*self.th), np.sin(2*self.th), 1 + np.cos(2*self.th)/3])*b*osc
+        return self.ampl*lam**P*np.concatenate([np.cos(2*self.th), np.sin(2*self.th), 1 + np.cos(2*self.th)/3])*b*osc
 
     def march(self, lam, per=32, prev=None):
         """implicit midpoint from zero data at r = RA; returns U and d_r U at the step midpoints, and the step"""
@@ -255,7 +266,7 @@ def c7a(control=False):
     neg = {(nm, k, deg): len(row[k][deg]) for nm, row in zip(("J_r", "J_th", "rho"), T)
            for k in row if k < 0 for deg in (0, 1) if row[k][deg]}
     if control:
-        return not neg
+        return not any(deg == 1 for (_, _, deg) in neg)              # Q alone
     print("  C7a: orders of lam in L and Q at the stage-0 approximant's data (W_TT and chi): %s; terms of order < 0:"
           " %s" % (sorted({k for row in T for k in row}), neg or "none"), flush=True)
     return not neg
@@ -298,6 +309,9 @@ def c7b(control=False):
     return bound and free and dev < 1e-2
 
 
+AMPL = 100.0
+
+
 def c7c(control=False):
     T = operator()
     if control:                         # a 1/lam quadratic coefficient with nonzero phase mean: a^2/lam in rho
@@ -305,32 +319,35 @@ def c7c(control=False):
         a0 = [j for j in d5.jet(sp.Integer(0))[1].values() if str(j) == "a"][0]
         T[2].setdefault(-1, [{}, {}])[1][(a0, a0)] = sp.Integer(1)
     S = System(T, 12)
-    rel, sizes, conv = [], [], []
+    S.ampl = AMPL
+    first, ratio, sizes, conv = [], [], [], []
     for lam in LAMS[:3]:
         Xm, Xrm, h = S.march(lam)
+        u0 = max(hnorm(x, S.G, S.M) for x in Xm)
         prev, diffs = (Xm, Xrm), []
-        for i in range(8):
+        for i in range(4):
             Xm2, Xrm2, h = S.march(lam, prev=prev)
             diffs.append(max(hnorm(a_ - b_, S.G, S.M) for a_, b_ in zip(Xm2, prev[0])))
             prev = (Xm2, Xrm2)
-            if diffs[-1] < 1e-13*max(hnorm(x, S.G, S.M) for x in Xm2):
-                break
-        u = max(hnorm(x, S.G, S.M) for x in prev[0])
-        rel.append(diffs[0]/u)
-        sizes.append(u)
-        conv.append(diffs[1] < 1e-2*diffs[0])
-        print("    %slam = 1/%d: sup ||U|| %.3e; ||U_(i+1) - U_i|| %s" % ("mutant " if control else "", round(1/lam), u,
-                                                                   " ".join("%.1e" % d for d in diffs)), flush=True)
-    sr, su = slopes(rel, LAMS[:3]), slopes(sizes, LAMS[:3])
-    sharp = abs(sr[-1] - P) < 0.15                                  # Nl with O(1) coefficients: lam^(N-2)
-    print("  C7c%s: the nonlinear correction relative to U (the scheme's contraction factor) %s, rates %s (the proof's"
-          " bound: >= N - 3 = %d; with C7a, N - 2 = %d: %s); sup ||U|| rates %s; each iterate's change below 1e-2 of the"
-          " last: %s" % (" (control)" if control else "", " ".join("%.1e" % x for x in rel),
-                         " ".join("%.2f" % x for x in sr), P - 1, P, sharp, " ".join("%.2f" % x for x in su), all(conv)),
-          flush=True)
+        first.append(diffs[0]/u0)
+        ratio.append(diffs[1]/diffs[0])
+        sizes.append(u0)
+        conv.append(all(diffs[i + 1] < 0.1*diffs[i] for i in range(2)))
+        print("    %slam = 1/%d: sup ||U_0|| %.3e; d_i = sup ||U_(i+1) - U_i|| %s (floor about %.0e); d_1/d_0 %.2e,"
+              " d_2/d_1 %.2e" % ("control " if control else "", round(1/lam), u0,
+                                  " ".join("%.1e" % d for d in diffs), 3e-14*u0, diffs[1]/diffs[0], diffs[2]/diffs[1]),
+              flush=True)
+    sf, sr, su = slopes(first, LAMS[:3]), slopes(ratio, LAMS[:3]), slopes(sizes, LAMS[:3])
+    sharp = abs(sf[-1] - P) < 0.15                                  # O(1) coefficients of Nl: lam^(N-2)
+    bound = sr[-1] >= P - 1 - 0.2                                   # the proof's contraction lam^(N-3)
+    print("  C7c%s: (i) contraction ratio d_1/d_0 %s, rates %s (the proof's bound N - 3 = %d: %s), every step below"
+          " 0.1: %s; (ii) first correction relative to U_0 %s, rates %s (N - 2 = %d: %s); sup ||U_0|| rates %s"
+          % (" (control)" if control else "", " ".join("%.1e" % x for x in ratio), " ".join("%.2f" % x for x in sr),
+             P - 1, bound, all(conv), " ".join("%.1e" % x for x in first), " ".join("%.2f" % x for x in sf), P, sharp,
+             " ".join("%.2f" % x for x in su)), flush=True)
     if control:
         return sharp
-    return all(conv) and sharp and sr[-1] >= P - 1 - 0.1 and abs(su[-1] - P) < 0.1
+    return all(conv) and sharp and bound and abs(su[-1] - P) < 0.1
 
 
 CHECKS = [("C7a", c7a), ("C7b", c7b), ("C7c", c7c)]

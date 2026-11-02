@@ -180,8 +180,8 @@ def e1(control=False):
         L = certify(sig, l, a, b, K, c)
         ok &= L is not None and L > 0 and float(L) <= fl*1.0001
         ratio = "U/L = %.1f against the floating U/norm %.2f" % (float(U/L), float(U/meas))
-        print("  E1: sigma = %s, l = %d, u on [%s, %s], K = %d: ||chi R chi|| >= %.6f (floating %.6f; measured norm "
-              "%.5f) %s" % (sig, l, a, b, K, float(L), fl, float(meas), ratio), flush=True)
+        print("  E1: sigma = %s, l = %d, u on [%s, %s], K = %d: ||chi R chi|| >= %.6f (floating %.6f; computed norm "
+              "%.5f, the max over l) %s" % (sig, l, a, b, K, float(L), fl, float(meas), ratio), flush=True)
     return ok
 
 
