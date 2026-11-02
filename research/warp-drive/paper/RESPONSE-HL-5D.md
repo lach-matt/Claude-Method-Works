@@ -1456,30 +1456,31 @@ The verdicts are readings, not computations, and a choice named otherwise than b
   horizon generator is outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius
   1.01–1.05 r_h (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100
   l5² for v ≤ 1.75 r_h in `docket68/n1star/checks/secondzero5.py`; supplement note `CERTIFY-10L5-RESULT.md` section 1).
-  At 100 l5² the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns, which come from the
-  spheres' tilt against the null leaves (computed); at 1000 l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown
-  times are at one angular resolution (N_x = 16); the scheme is unstable at 24 and 32. Nothing is said of the event
-  horizon. The step is re-posed as the characteristic initial value problem in double-null gauge — the incoming wave on
-  an ingoing null hypersurface from past null infinity, the seed's outgoing cone as the other — where Luk's theorem
-  gives local existence without smallness ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2 is the a posteriori structure,
-  introduced there by the sentence "the difference of metrics is controlled by the difference of curvature residues"
-  (section 2.3, p. 6; the sentence before the theorem, not its text); its five-dimensional version in the class is not
-  built. Up to the failure the radiation field's growth factor exp ∫K dv is 1.9 and 2.1, and a finite-difference
-  amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28 and 1.00; where the
-  scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³:
-  a certified argument would need the propagator's norm, not a sup-norm bound. The linear scattering of the shell off
-  the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. That problem has since been computed as a
-  prototype (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein
-  equations in double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength
-  at both seeds. At the first seed the Kretschmann scalar is moderate and converged in angle up to the point where the
-  runs stop converging, and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis
-  are not yet told apart. At the second seed, with the angular and null grids refined together, the two coarser angular
-  resolutions agree up to v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid,
-  2400 × 1080, the second seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up
-  to v = 4.5 (K_0 = 72/R⁸, Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48
-  masks; M = 48 departs from v ≈ 3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step
-  condition M²/N ≤ c it had been ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed,
-  floating point: `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement
+  At 100 l5² the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns to within one column
+  spacing up to v = 1.525 (not at 1.55), which come from the spheres' tilt against the null leaves (computed); at 1000
+  l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown times are at one angular resolution (N_x = 16); the scheme
+  is unstable at 24 and 32. Nothing is said of the event horizon. The step is re-posed as the characteristic initial
+  value problem in double-null gauge — the incoming wave on an ingoing null hypersurface from past null infinity, the
+  seed's outgoing cone as the other — where Luk's theorem gives local existence without smallness ([Wu26] Theorem 2.1)
+  and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced there by the sentence "the difference of metrics
+  is controlled by the difference of curvature residues" (section 2.3, p. 6; the sentence before the theorem, not its
+  text); its five-dimensional version in the class is not built. Up to the failure the radiation field's growth factor
+  exp ∫K dv is 1.9 and 2.1, and a finite-difference amplification of the data along one direction, a lower bound for
+  the propagator's norm, is 1.28 and 1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the
+  sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's norm, not a
+  sup-norm bound. The linear scattering of the shell off the seed at 10 l5 is computed in
+  `docket68/lemmas/seed_escape.py`. That problem has since been computed as a prototype (supplement
+  `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein equations in double-null
+  gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength at both seeds. At the
+  first seed the Kretschmann scalar is moderate and converged in angle up to the point where the runs stop converging,
+  and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis are not yet told apart.
+  At the second seed, with the angular and null grids refined together, the two coarser angular resolutions agree up to
+  v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid, 2400 × 1080, the second
+  seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸,
+  Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48 masks; M = 48 departs from v ≈
+  3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step condition M²/N ≤ c it had been
+  ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed, floating point:
+  `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement
   `CERTIFY-10L5.md` section 6b). A first certified step is taken: for an explicit approximant of the characteristic
   data on the data cone, the constraint along its outgoing generators holds to a certified bound at both seeds (at the
   second, 2.3 × 10⁻⁵ against terms of size 5.3 × 10⁻⁴; certified, ball arithmetic, `docket68/n1star/checks/cdata5.py`).
@@ -2771,7 +2772,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `fc53b76ab873cedb61761c20bc202bb8` |
+| `docket68/n1star/N1STAR-PROOF.md` | `02e7617602841a350a75349c44ab5fb6` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2930,12 +2931,12 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
 | `docket68/n1star/checks/secondzero5.py` | `79cf3b6a7c0cf65ac0ef0a23c5ab40ba` |
 | `docket68/n1star/checks/secondzero5.out` | `e6c54e237a365541f23db2e966cedaf4` |
-| `docket68/n1star/checks/secondzero5_trunc.out` | `8b4adb55bfeb51ba2e2823b1e0306604` |
-| `docket68/n1star/checks/secondzero5_edges.out` | `c0df225b38566ca5fea8442e4beee66b` |
+| `docket68/n1star/checks/secondzero5_trunc.out` | `99b7e7174f7c4a7fa296638d4fc7b095` |
+| `docket68/n1star/checks/secondzero5_edges.out` | `a0ab92a92705bd4c6d2afc78309436c9` |
 | `docket68/n1star/checks/bondisph5.py` | `9803376f7d211fe9447979e22c4a2486` |
 | `docket68/n1star/checks/szrun5.py` | `f27923471b2c1e362b3a65d9f80bbac6` |
 | `docket68/n1star/checks/cdata5.py` | `c76bf8f4a8cadb4285ef88058d79bc15` |
-| `docket68/n1star/checks/cdata5.out` | `eec6767b776658abc2bec59f477a0d9d` |
+| `docket68/n1star/checks/cdata5.out` | `6536abcba46ec57a5dca8ced814b7788` |
 | `docket68/n1star/checks/resid5.py` | `cfbfa68ce8b353b6ced0b20562c9ade4` |
 | `docket68/n1star/checks/resid5.out` | `fb54bab514ffcd7cb4bb12c4a69abe6e` |
 | `docket68/n1star/checks/gdrepair5.py` | `3c17fae47ffea22448dac167cd0f257c` |

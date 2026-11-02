@@ -281,7 +281,7 @@ def e2():
     rep = lambda e: e.subs(sp.Derivative(hq, (r, 2)), W).subs(sp.Derivative(hq, r), P1).subs(hq, P0)  # noqa: E731
     Hw = rep(Hq)
     a_ = sp.diff(Hw, W)
-    rest = sp.simplify(Hw - a_ * W)
+    rest = Hw - a_ * W
     Kw = rep(kphq.subs(z, hq).doit())
     Hval = sp.Symbol('Hval')
     hpp_c = sp.lambdify((r, P0, P1, Hval), (Hval - rest) / a_, 'numpy')

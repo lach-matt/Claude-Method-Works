@@ -1,0 +1,26 @@
+B1 (exact at rational points) the class constraints in [Rac16]'s algebraic-hyperbolic split; the symbol
+   H linear in kappa: True ; coefficient 2 Kt: True
+   point R = 3/2, th = atan(3/4): det / (4.22) = 245/156 for every xi: True
+   point R = 2, th = atan(5/12): det / (4.22) = 91/43 for every xi: True
+   point R = 7/3, th = atan(8/15): det / (4.22) = 7735/2973 for every xi: True
+   control (kappa not eliminated): det / (4.22) depends on xi: True
+   speeds at p = 0: dth/dR = +- sqrt(G) sqrt(-kappa/(Kt R^2)): True
+B2 (exact) Part I's chart and slice tau = vhat - R: Kt, kappa, the hyperbolicity sign; Tangherlini; [Rac16] (4.30)
+   kappa = -Nk/(E sqrt(2/E - f)(2 - E f)), Kt = 3 (E f - 1)/(E R sqrt(2/E - f)) (exact at four rational points): True
+   Tangherlini: Nk = (mu/R^3)(f - 3): True ; angular speed c(R)^2 = (2 + mu/R^2)/(3 R^2): True
+   four dimensions: -K^l_l/kappa = 2(1 + 2H)/(1 + H) ([Rac16] (4.30)): True ; control (trace factor 3 in 4D) differs: True
+B4 (exact at rational points) compactly supported solutions of the linearised constraints, round slices
+   M_R = -1 d_R dKt + (-3/R - kappa0(R)/(R*Y0(R))) dKt + (dp terms)
+   at three rational points: linearised H residual [0, 0, 0] ; M_R residual [0, 0, 0] ; M_th coefficient of ds2 [-25/12, -169/60, -289/120]
+   dKt, dp, ds2 (= -M_th(ds2 = 0)/coefficient) are local differential expressions in psi: True
+   controls: ds2 = 0 leaves M_th: True ; weight sin th cos th dropped leaves M_R: True
+   gauge with dgamma = 0: X^th = 0: True ; then (L_X gamma)_Rth = (-R*G(R)*Y0(R)) d_th N: N = N(R): True
+B6 (exact) the characteristic constraints on an outgoing cone are ODEs in v at fixed th
+   Ric_vv: no th-derivative True, no u-derivative True; Ric_vth: b only through [('v',), ('v', 'v')], no u-derivative True
+   control: Ric_thth contains u-derivatives: True
+B5 (computed) the parabolic split spreads to the axes; without the angular operator nothing does
+   parabolic: after dR = 0.01, a(axis 1) = 4.046e-09, a(axis 2) = 4.046e-09 (max 8.826e-01)
+   parabolic: after dR = 0.05, a(axis 1) = 5.406e-04, a(axis 2) = 5.406e-04 (max 6.422e-01)
+   parabolic: after dR = 0.20, a(axis 1) = 7.848e-02, a(axis 2) = 7.848e-02 (max 4.110e-01)
+   control (no angular operator, the ODE structure of B6): the axes stay exactly 0.0, 0.0: True
+B3 (computed, floating point) Part I's Sigma_tau0 in the seed region: Nk < 0, the speed and the spread

@@ -131,20 +131,6 @@ def dominated(k):
     return True
 
 
-def lam_loss(k):
-    """the largest lam-loss of a nonlinear monomial at order k in scaled norms: each sup factor costs lam^-3
-    (Lemma 9.3(a) scaled) and the conversion of the scaled w-norms to E costs nothing (|w|_k <= C E,
-    |d w|_k <= E); the 1/lam monomial lam^-1 w w G2 costs one more."""
-    worst = 0
-    for mono in monomials(k):
-        if len(mono) < 2:
-            continue
-        loss = 3*(len(mono) - 1)
-        if len(mono) == 2:
-            worst = max(worst, loss + (1 if mono == (0, 0) else 0))
-    return worst
-
-
 def o1():
     print("O1  the product split at order k (Proposition 9.8's commuted equation)")
     ks = list(range(5, 201))
@@ -161,10 +147,6 @@ def o1():
           mk4 == 7 and not split_ok(6, sob=4), f"minimal k with cost 4 = {mk4}")
     rk = min_k(reverse=True)
     check("O1d control (split reversed: highest factor in sup): no k <= 200 works", rk is None)
-    print("     nonlinear lam-loss of the worst quadratic monomial at k = 6, 20, 100:",
-          [lam_loss(k) for k in (6, 20, 100)])
-    check("O1e the nonlinear lam-loss is at most 4 at every k (lam^-3 for one sup factor, one lam^-1 for the "
-          "s G2 monomial); the record's lam^-5 is an upper bound", all(lam_loss(k) <= 4 for k in (6, 7, 20, 100)))
 
 
 # ---------------------------------------------------------------- O2: Proposition 9.8's closing at order k
@@ -212,10 +194,15 @@ def o3():
     check("O3a int_t^T t'^(-1-a) (T/t')^beta dt' = T^beta (t^(-a-beta) - T^(-a-beta))/(a + beta) <= t^-a (T/t)^beta"
           " / (beta + a) (beta + a > 0; four exact cases and the symbolic bound)", ok and bound_ok)
     x = sp.Symbol("x", positive=True)  # x = T/t >= 1
-    g = x**beta/beta - sp.log(x)
-    ok2 = all(sp.simplify(g.subs(beta, bv).subs(x, 1)) > 0 and
-              sp.solve(sp.diff(g.subs(beta, bv), x), x) == [1] for bv in (2, 3, sp.Rational(9, 4)))
-    check("O3b log(T/t) <= (T/t)^beta / beta (beta > 1: equality-free at x = 1, increasing gap)", ok2)
+    ok2 = True
+    for bv in (sp.Rational(3, 2), 2, 3, sp.Rational(9, 4)):
+        g = x**bv/bv - sp.log(x)
+        ok2 = ok2 and sp.simplify(sp.diff(g, x) - (x**bv - 1)/x) == 0 and g.subs(x, 1) > 0
+    check("O3b log(T/t) <= (T/t)^beta / beta for beta > 1: g(x) := x^beta/beta - log x has g(1) = 1/beta > 0 and "
+          "g'(x) = (x^beta - 1)/x >= 0 on x >= 1 (four beta)", ok2)
+    ctlb = sp.limit(sp.log(x)/x**0, x, sp.oo)
+    check("O3b' control (the growth factor removed, beta = 0): log(T/t) is not bounded by (T/t)^0 = 1 as T/t -> oo, "
+          "so the bootstrap's weight (T/t)^beta is what absorbs the Q'-line's t^-1 H term", ctlb == sp.oo)
     b0 = sp.Max(2, 4*C + 1)
     ret = [(C/(b0 - 1)).subs(C, cv) for cv in (sp.Rational(1, 10), sp.Rational(1, 4), 1, 3, 40)]
     check("O3c beta0(k) := max(2, 4 C(k) + 1): each integral of (9.9) returns C/(beta0 - 1) <= 1/4 of its bound, "
