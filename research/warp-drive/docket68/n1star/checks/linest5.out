@@ -28,3 +28,4 @@ E7 a = 0.5, T = 4.0: extremal f(T, T) = 617.1, bound e^{4aT} = 2981, below every
 E7 a = 3.0, T = 1.0: extremal f(T, T) = 2.713e+04, bound e^{4aT} = 1.628e+05, below everywhere: True; exceeds e^{a(u+v)}
     (control, must): True; growth rate log f/(2T) = 1.701 a
 E7 PASS
+   (44 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
