@@ -42,3 +42,5 @@ B2 the ratio of the bound at n to that at n/2, per component, and the n at which
        sub-boxes for this one box)
    22: ratios 1484.16, 74.81, 36.56; at n = 8 bound/centre = 1.18e+03; reaches 2x the centre values at n ~ 27.3 (2e+04
        sub-boxes for this one box)
+control (W + 0.01 v, n = 4): centre values up to [0.0516 +/- 2.39e-6] against [0.000129 +/- 4.09e-7] -> fails (good)
+rcert5b (889 s): all checks pass
