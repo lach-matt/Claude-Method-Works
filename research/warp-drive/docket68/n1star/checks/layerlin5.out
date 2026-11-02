@@ -1,3 +1,5 @@
 N0 PASS
   N1 (a) on S: (dRic^H h)_vv = 0: True, tr = 0: True; (b) lam^-2 part 0: True, lam^-1 part = T (15 comps): True, dD: lam^-2 part 0: True, lam^-1 part = i Pol: True  [13 s]
 N1 PASS
+  N2 Pol^+ (V_v, V_r, V_th): vv V_r/4, vr -V_r/2, rr V_r, trace -V_r - 2*V_v, vth -V_t/2, rth V_t; table: True; Pol Pol^+ = 1: True; kernel directions: True, orthogonal to them: True
+N2 PASS
