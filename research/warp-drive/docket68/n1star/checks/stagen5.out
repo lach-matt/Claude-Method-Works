@@ -1,0 +1,15 @@
+  S1 N1STAR-PROOF.md md5 fc53b76ab873cedb61761c20bc202bb8; lines: 5.4 stages 1..N 540; 6.2 statement 628; 6.2 proof range
+      631; (F1) 607; (F2) 608; 6.5 uses 6.2 753; 6.4 uses 6.2 799; 6.4 seed data 806
+S1 PASS
+  S2 lowest order - N at which stage N's unknowns enter: D mean: 0 (m_j with d_X); D phase: 0 (dphi_j d_th W); D osc: 0
+      (lam^-1 d_th gh_j); RicH mean: -1 (m_j(ell, ell) in e_j, against d_th^2 W); RicH phase: -1 (dv x dphi_j d_th^2 W
+      (in e_j)); RicH osc: 0 (lam^-1 d_th gh_j); Ric mean: -1 (m_j(ell, ell) in e_j, against d_th^2 W); Ric phase: -1 (dv
+      x dphi_j d_th^2 W (in e_j)); Ric osc: -1 (lam^-2 d_th^2 gh_j: the Pol-combination).  D: >= N, past (F1)'s N - 1:
+      True; constraint map: >= N - 1, inside O(lam^(N-2)): True; Ric^H at N - 1 only through e_N: True
+S2 PASS
+  S3 the th-mean of e_(N+1) d_th^2 W (e_(N+1) independent of th, W first and second harmonics): 0
+S3 PASS
+  S4 top slice data, Lemma 6.2's rule at m = N over zero data for stage N: at the very edge 12.6527, in the window
+      0.0400658
+S4 PASS
+stagen5: all checks pass, every control fails

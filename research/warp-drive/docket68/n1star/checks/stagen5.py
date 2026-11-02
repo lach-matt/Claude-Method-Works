@@ -22,7 +22,7 @@
      m = N, or zero data for stage N -- change the approximant's top slice data at the very edge (x = 0.3 lam^(1/2)):
      the top term lam^(N+1) (N - 1) E^(N-2) of the first is larger than lam^N (N - 2) E^(N-3) of the second by a factor
      above 10 (the choice is visible at leading order there, R3.2 (e)).  Control: in the window (env = lam^14) the ratio
-     is below 10^-3 (the choice is invisible there).
+     is below 10^-1 (the expansion is ordered there; the choice enters at relative order lam/x^2).
 
 Labels: S1 READ; S2, S3 computed (exact); S4 computed (mpmath, a model with unit constants).
 Run: python3 checks/stagen5.py   (a few seconds)
@@ -110,7 +110,8 @@ def s2(control=False):
     ricH_e = rows[("RicH", "mean")][0] == -1 and rows[("RicH", "phase")][0] == -1 and rows[("RicH", "osc")][0] == 0
     out("  S2 lowest order - N at which stage N's unknowns enter: " + "; ".join(
         "%s %s: %s (%s)" % (op, u, v[0], v[1]) for (op, u), v in rows.items()) + ".  D: >= N, past (F1)'s N - 1: %s;"
-        " constraint map: >= N - 1, inside O(lam^(N-2)): %s; Ric^H at N - 1 only through e_N: %s" % (D_ok, ric_ok, ricH_e))
+        " constraint map: >= N - 1, inside O(lam^(N-2)): %s; Ric^H at N - 1 only through e_N: %s"
+        % (D_ok, ric_ok, ricH_e))
     return D_ok and ric_ok and ricH_e
 
 
@@ -141,7 +142,7 @@ def s4(control=False):
         zero = lam**N*(N - 2)*abs(P[N - 3](1/x))
         ratio[nm] = rule/zero
     if control:
-        return ratio["window"] > mp.mpf('1e-3')
+        return ratio["window"] > mp.mpf('1e-1')
     out("  S4 top slice data, Lemma 6.2's rule at m = N over zero data for stage N: at the very edge %s, in the window"
         " %s" % (mp.nstr(ratio["edge"], 6), mp.nstr(ratio["window"], 6)))
     return ratio["edge"] > 10

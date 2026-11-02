@@ -4,8 +4,9 @@ Status (2026-11-02). This note attacks FAMILIES5-FULL.md Part II's obstruction (
 T²-invariant Einstein–null-dust background on a domain like Ω₂, without smallness) and does not edit that file, the
 paper, N1STAR-PROOF.md, FAMILIES5.md, ROUTES-OPEN.md, N1STAR-LOG.md or any proof5 Part.
 
-**Verdict.** The near-round, large-data problem posed in section 1 (Cauchy stability of Part I's round two-dust background
-on Ω₂) **does not close**, and the obstruction is **localised and proved to be at the axes**:
+**Verdict.** The near-round, large-data problem posed in section 1 (Cauchy stability of Part I's round two-dust
+background on Ω₂) **does not close**. The obstruction is **localised at the axes**: off them the problem closes
+(Theorem N), at them the closing structure provably degenerates (computed), and what would replace it is identified:
 
 - *Off the axes the class recovers the dust's derivative, with no smallness* (sections 2-3). In the T² × Z2 × Z2 class,
   the null second fundamental form of every invariant null hypersurface is diag(θ_h, κ1, κ2) with κ_i = g⁻¹(du, dψ_i)
@@ -135,7 +136,8 @@ in the norm N_m below, with supp F_A ∩ Σ_τ0 ⊂ S_A, has a unique smooth inv
 within Cε of ů in N_m, with p_A = du_A, θ_A = □u_A on the dust and supp F_A within Cε of D̊_A. No smallness of ů or of
 the families is assumed; ε and C depend on ů, Ω, N and δ.
 
-*Proof, at the level of the record's section 4.* Put w := g − g̊, π_A := p_A − p̊_A, ϑ_A := θ_A − θ̊_A, ς_A := q_A − q̊_A,
+*Proof, at the level of the record's section 4.* Put w := g − g̊, π_A := p_A − p̊_A, ϑ_A := θ_A − θ̊_A and
+ς_A := q_A − q̊_A,
 
     N_m(τ) := Σ_(j≤m) ( ‖∂^j ∂w‖ + Σ_A ( ‖∂^j π_A‖ + ‖∂^j ϑ_A‖ + ‖∂^j ς_A‖ ) ) + ‖w‖     on Σ_τ ∩ Ω
 
@@ -151,8 +153,10 @@ the families is assumed; ε and C depend on ů, Ω, N and δ.
   p̊_A π_A)), is at most C N_m; the commutators [∂^α, g^(ab)] ∂_a ∂_b w and the quadratic terms give C N_m + C N_m².
 - *Step 5 (π_A).* ∂^α (A2), the record's Lemma 2.4 for the transport along P_A: the source holds (Γ[g] − Γ[g̊]) p p,
   Γ[g̊](p p − p̊ p̊) and (P_A − P̊_A)·∂p̊_A, the commutator [∂^α, P_A·∂]π_A has top term (∂^α P_A)·∂π_A; all at most
-  C N_m. The boundary terms have the record's sign for every family (S7: outer b′ − c ≤ −2 + 1, inner c(a) < 0 since
-  R = a is trapped; the angular part of P_A enters only the bulk divergence term).
+  C N_m. The boundary terms have the record's sign for every family: the lateral boundaries are spacelike with Ω to
+  their past (Lemma 1.1 (b), (c), (e)), so every future causal transport field leaves Ω through them (on Part I's
+  background, explicitly, S7: outer b′ − c ≤ −2 + 1, inner c(a) < 0 since R = a is trapped); the angular part of P_A
+  enters only the bulk divergence term.
 - *Step 6 (ϑ_A).* ∂^α (A3): χ_A (S_A(U) − S_A(ů)) is a smooth function of (dg, p, θ, q) on supp χ_A, where |K_i| ≥ cδ
   (Proposition C, S1), so its ∂^α is at most C(δ) N_m (the constant carries δ^(−1−j) from the derivatives of
   1/|K_i|²); the term (P_A − P̊_A)·∂θ̊_A and the commutator likewise.
@@ -261,8 +265,8 @@ trapped, nor through the outer boundary); (ii) is a hypothesis on the chosen pha
 overlaps of supports — open, so it holds for the perturbed background if it holds with margin for the seed's phases
 (Part II: possible for non-radial phases of different ellipses supported away from the axes; at the axes it fails for
 two families of one orientation, axisphase5 A2); (iii) is not settled here: for a non-radial family the transverse
-traceless polarisations in the class are diag(α, β, −α − β) in (e_θ, e_φ1, e_φ2) (the Z2 × Z2 reflections kill the
-off-diagonal ones), and S2's constraint cancellation is known only for α = 0 (FAMILIES5-FULL §6 S2, Part II (iii)).
+traceless polarisations in the class are diag(α, β, −α − β) in (e_θ, e_φ1, e_φ2) (deduced: the Z2 × Z2 reflections
+kill the off-diagonal ones), and S2's constraint cancellation is known only for α = 0 (FAMILIES5-FULL §6 S2, Part II (iii)).
 Given (ii)-(iii), Part II's conditional extension of sections 4-6 gives the high-frequency limits of N1's backgrounds;
 Part I's background with any non-round perturbation is not reached (section 4).
 
