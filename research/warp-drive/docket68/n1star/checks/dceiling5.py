@@ -46,7 +46,8 @@ in certified intervals, mpmath.iv at 200 bits and exact rationals), estimate (wh
      its E_K, Step 5's K+-exponents, not bounded here), c' the per-level fixed steps (FWD: III.I Theorem 5.3's d =
      D_0 + D_1 + d' + d'' + 6, II.F2-TAME:529-535, whose D_0, D_1 are II.E's unnumbered tame orders; BG 2; the
      fixed MODs). Printed exactly as A + B L_0 + C (l_* + 1) and evaluated at the least admissible L_0 = 1 and l_* =
-     l_C (D7): the record's ceiling is then at least about 1e30, against the floor 8,407,505,890,317,054.
+     l_C (D7): the record's ceiling is then at least 1.49e31 (5.97e31 per (alpha_0, k)), against the floor
+     8,407,505,890,317,054.
   D7 (exact) l_C: the largest log order of E^C_I at real part <= 5 (III.C' (3.1), dweights5.py data_ECI), on the one
      corner union (R0) and on (3.1) as written (R1); l_* >= l_C by its definition (I11:72-75). E_ind's log orders and
      N_iota+(L-bar)^-1's pole orders at Re <= 5, which l_* also bounds, are not computed: the boundary spectrum
