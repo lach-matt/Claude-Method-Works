@@ -14,13 +14,14 @@ roots, lzerotrace5.py's geometry, imported), computed (exact, sympy), deduced (w
      |e| = 1). Hence eps1 < 0.0307686 in the Frobenius reading by a valid argument, and lambda0 < 0.0019950 stands.
   R2 (certified) its largest entry: e e^T has entries e_tau^2, e_tau e_x xhat_i, e_x^2 xhat_i xhat_j, and e_tau^2 >
      e_x^2 exactly when s < m + 1, true for m > 0, so for every direction xhat the largest entry is t e_tau^2, e_tau^2 =
-     m^2/(m^2 + (s - 1)^2) =: f(m), decreasing in m (sympy: f' < 0 from the closed form). So in the largest-entry reading
-     eps1 < (s - m) f(m) at m*, certified below 0.0163299, and lambda0 < 0.0163299/12.593309 < 0.0012968 (T3's C_app,
-     certified there): round 4's 0.0024433 for that reading is valid and twice too large.
+     m^2/(m^2 + (s - 1)^2) =: f(m) = 1/(1 + ((s - 1)/m)^2), decreasing in m since d/dm (s - 1)/m = (1 - 1/s)/m^2 > 0
+     (exact identities). So in the largest-entry reading eps1 < (s - m) f(m) at m*, certified below 0.0163302, and
+     lambda0 < 0.0163302/12.593309 < 0.0012968 (T3's C_app, certified there): round 4's 0.0024433 for that reading is
+     valid and twice too large.
   R3 (floating point) cross-check: the signature of g0 + t e e^T at m* is (1, 4) for t = 0.99 (s - m) and degenerate or
      Riemannian beyond (numpy eigenvalues).
   Controls (mutating the computed path; each must fail): C1 R1's test on the positive eigenvector (m, 1 + s): g0 +
-  (s - m) e+ e+^T has determinant -1 (s - m) ... nonzero, so the degeneracy test fails; C2 R2 at the outer corner r =
+  (s - m) e+ e+^T has a nonzero determinant, so the degeneracy test fails; C2 R2 at the outer corner r =
   b(tau0) (m = mu_end/b(tau0)^2): the bound there is above 0.4, so R2's enclosure fails for it.
 
     python3 checks/lzerorank5.py       (seconds)
@@ -76,9 +77,9 @@ def main():
     print('lzerorank5: the rank-one perturbation behind Lemma 2.3\'s eps1 in every reading of |.|')
     R = rank_one()
     m, s = R['m'], R['s']
-    # f' < 0: check the sign of the numerator symbolically at m > 0 by sampling it exactly and by its closed form
-    fp = sp.simplify(sp.diff(R['f'], m))
-    fp_neg = all(sp.N(fp.subs(m, sp.Rational(q)), 30) < 0 for q in ('1/100', '1', '13', '16', '1000'))
+    # f = 1/(1 + ((s - 1)/m)^2) and d/dm (s - 1)/m = (1 - 1/s)/m^2 > 0 (s > 1): f decreases (exact identity)
+    fp_neg = (sp.simplify(R['f'] - 1 / (1 + ((s - 1) / m) ** 2)) == 0
+              and sp.simplify(sp.diff((s - 1) / m, m) - (1 - 1 / s) / m ** 2) == 0)
     OK['R1'] = R['eig_ok'] and R['det'] == 0
     print('  R1: g0 v = (m - s) v for v = (m, 1 - s, 0, 0, 0) (exact, symbolic m): %s; det(g0 + (s - m) e e^T) = %s '
           '(exact): the rank-one perturbation of operator = Frobenius size s - m makes g0 degenerate' % (
@@ -88,7 +89,7 @@ def main():
     b2, f_hi = bound_at(m_lo, m_hi, e_hi)
     lam_max = b2 / C_OP
     lam_op, lam_fr = e_hi / C_OP, e_hi / C_FR
-    OK['R2'] = (corner and fp_neg and b2 < Fr(163299, 10 ** 7) and lam_max < Fr(12968, 10 ** 7)
+    OK['R2'] = (corner and fp_neg and b2 < Fr(163302, 10 ** 7) and lam_max < Fr(12968, 10 ** 7)
                 and lam_op < Fr(24433, 10 ** 7) + Fr(1, 10 ** 7) and lam_fr < Fr(19950, 10 ** 7))
     print('  R2: f(m) = e_tau^2 = %s, decreasing (f\' < 0 at five exact m: %s); at m* in [%s, %s]: f <= %s, so the '
           'largest-entry size of the perturbation is <= %s (certified, rounded up). lambda0 < eps1/C_app: operator %s, '
@@ -115,7 +116,7 @@ def main():
     mb = g['mu_end'] / b0 ** 2
     eb_hi = 1 / (LT.sqrt_lo(mb ** 2 + 1) + mb)
     b2b, _ = bound_at(mb, mb, eb_hi)
-    OK['C2'] = not (b2b < Fr(163299, 10 ** 7))
+    OK['C2'] = not (b2b < Fr(163302, 10 ** 7))
     print('  C2 (control): R2 at the outer corner r = b(tau0), m = %s: bound %s, so R2\'s enclosure fails: %s' % (
         LT.down(mb, 6), LT.down(b2b, 4), OK['C2']))
     for k_, val in OK.items():

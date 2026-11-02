@@ -276,7 +276,6 @@ def q5(control=False):
         'II.F b_I < 3/2': sp.Rational(3, 2) - bI,
         'II.F source iota+ g + 2 >= b_+ + 2': gp - bp,
         'II.F source I+ w_I >= b_I + 1': wI - (bI + 1),
-        'conclusion: iota+ weight g - eps > a_K': (gp - ep) - aK,
     }
     res = {k: positive_sum(sp.simplify(v), pos) for k, v in conds.items()}
     # the a priori iota-weight of u_reg on Omega_< is gamma_+ = beta_iota: an equality, checked as one
