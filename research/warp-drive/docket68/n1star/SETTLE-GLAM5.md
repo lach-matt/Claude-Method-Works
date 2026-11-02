@@ -486,19 +486,19 @@ slice S.
 ### R2.4 R4: the λ-dependence of Lemmas 11.0 and 11.2
 
 *READ.* "Throughout, lam is fixed, and every constant may depend on it. On the far region P cap {t >= T}, T = lam^-2"
-(N1STAR-PROOF.md:10535); "d^i [f] costs lam^-i, a constant now" (10537); Lemma 11.0, "with constants depending on lam
-and the order" (10543-10544); "||d U_n(tau_n)|| <= C(lam, j) t_n^(-1/2)" (10564-10565); Lemma 9.3, "||d^i f||_inf <= C
-lam^(-3-i) t^(-3/2) |f|_(i+3,P)" (1105); (9.8)'s proof, "the 1/lam term: lam^-1 |s G2|_k <= C lam^-1 t^(-3/2) E"
-(1341-1342); Lemma 11.2's energy step with "k = C t^(-3/2), integrable" (10607-10609); and "the proposition claims
-nothing uniform in lam" (10662-10664). [Line numbers as of e50e9bc, +21 from round 2's for those above 10514; R3.0
-(c1).]
+(N1STAR-PROOF.md:10537); "d^i [f] costs lam^-i, a constant now" (10539); Lemma 11.0, "with constants depending on lam
+and the order" (10545-10546); "||d U_n(tau_n)|| <= C(lam, j) t_n^(-1/2)" (10565-10566); Lemma 9.3, "||d^i f||_inf <= C
+lam^(-3-i) t^(-3/2) |f|_(i+3,P)" (1112); (9.8)'s proof, "the 1/lam term: lam^-1 |s G2|_k <= C lam^-1 t^(-3/2) E"
+(1348-1349); Lemma 11.2's energy step with "k = C t^(-3/2), integrable" (10609-10610); and "the proposition claims
+nothing uniform in lam" (10664-10665). [Line numbers as of 82a7e95: the file moved twice during round 3 (e50e9bc,
+82a7e95), +23 for those round 2 cited above 10514 and +7 for 1105, 1341-1342 and 1045-1047; R3.0 (c1).]
 
 *Deduced (not line by line).* Every λ-dependence these proofs display is a power of λ^(−1) (a derivative of a profile,
 the scaled Sobolev of Lemma 9.3) or the Grönwall factor of Lemma 9.5, which on t ≥ λ^(−2) is e^(2C) even with the
 kernel Cλ^(−1)t^(−3/2) (U1a; control U1b: from t = λ^(−1) the factor e^(2Cλ^(−1/2)) beats every power). If the
 explicit data constants C(λ, j) of the approximating solutions and the near part of N (t ≤ λ^(−2), the λ^(−2β_0) loss)
 are polynomial in λ^(−1) as well, then (Poly): the constants of (11.7) at order J with N derivatives are O(λ^(−M(J,N)))
-with M independent of K, since g_λ is unique ((P-v), 1045-1047) and Theorem P at a fixed K_0 = 6 serves for them. In
+with M independent of K, since g_λ is unique ((P-v), 1052-1054 as of 82a7e95) and Theorem P at a fixed K_0 = 6 serves for them. In
 the linear model the expansion coefficients lose nothing: sup|I_j| ≤ Cλ^(j+1) for the j-fold integrals of
 λ env sin(v/λ), each ∂_v costing λ^(−1) (U3a-b; control U3c: a non-oscillating field loses λ^(−1)).
 
@@ -555,8 +555,8 @@ is no longer an obstruction: it is a term of the class.
   (conditional on Part IV); Propositions R2.5 (outline), R2.6, R2.9 (under (Poly)); Lemmas R2.7-R2.8; Theorem R2.10
   (conditional on (P4), (b1), (b2), (Poly)).
 - READ: C2:248-250, 256; III.A:390; I11:73-74; BEYOND5.md:237-244; VI4:38, 40; LOSS-D.md:90, 970-971; N1STAR-PROOF.md
-  10535, 10537, 10543-10544, 10564-10565, 1105, 1341-1342, 10607-10609, 10662-10664, 1045-1047 (as of e50e9bc;
-  round 2 had each line above 10514 21 lower, R3.0 (c1)); Part VII 69-100, 373-375.
+  10537, 10539, 10545-10546, 10565-10566, 1112, 1348-1349, 10609-10610, 10664-10665, 1052-1054 (as of 82a7e95;
+  round 2's numbers were 23 lower above 10514 and 7 lower below, R3.0 (c1)); Part VII 69-100, 373-375.
 - Findings for other files (not edited here): BEYOND5 D519's open sentence is answered (no rise with the record's
   construction; one more log at each half-integer with Lemma R2.3's); LOSS-D's open "E^C_I's log terms below ℓ_I" is
   computed (3 + 3M applications with the record's ℰ^C_I, 7 with Lemma R2.3's).
@@ -565,7 +565,7 @@ is no longer an obstruction: it is a term of the class.
   R5 (λ_1, δ; another workstream).
 
 **Next step.** (Poly) is the cheapest of the four: it is a reading of Lemma 11.0's proof with the powers of λ carried,
-the constants C(λ, j) of the approximating solutions' data (N1STAR-PROOF.md:10561-10565, as of e50e9bc) first. Then
+the constants C(λ, j) of the approximating solutions' data (N1STAR-PROOF.md:10563-10566, as of 82a7e95) first. Then
 (b2), whose commutators Lemma R2.7 has computed.
 
     python3 checks/halfclass5.py     (about fifty seconds, M <= 12)
