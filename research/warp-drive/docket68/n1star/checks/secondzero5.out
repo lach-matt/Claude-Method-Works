@@ -121,3 +121,10 @@
         max theta on r_min 2.336; on r_core n/a
 secondzero5: all checks pass
 # python3 checks/secondzero5.py RUNDIR l1_M24_800 l1_M16_400_R20 l1_M16_400_R40 l1_M16_800_R20
+== l1_M24_800: lambda 1, M 24, 800 x 360, cut 0.30
+  S1 R_v < 0 at u > -1, >= 20 rows from the cut, v <= 1.80: violations 0 far, 195 near the cut,
+     of 35837 cells -> PASS; control (u > -1.02) fails (good)
+     beyond, on (1.80, 2]: violations 441 far, 1624 near the cut
+  S2 further zeros of R_v along ingoing cones, v <= 1.80: 171, first at v = 1.6375,
+     all at u > -1 within 20 rows of the cut: PASS; control (first zero near the cut) fails (good)
+     beyond, on (1.80, 2]: 421 further zeros, all near the cut: False

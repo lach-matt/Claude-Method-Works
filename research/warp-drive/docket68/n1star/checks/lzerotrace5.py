@@ -68,7 +68,7 @@ TRACE = [
     ('lam1', 'q0 = (sqrt72 mu0 l5^2)^(1/4)', 145, 'q0 := r_q(mu0) = (sqrt(72) mu0 l5^2)^(1/4)', CERT),
     ('lam1', 'a := q0 - delta0 (P*: delta0 = q0/2)', 146, 'Fix 0 < delta0 < q0, a := q0 - delta0', CERT),
     ('E-a', 'eps1 of Lemma 1.1 (e)', 160, 'is eps1 > 0 such that for every Lorentzian g with |g - g0| <= eps1', CERT),
-    ('E-a', 'the lateral boundaries stay spacelike', 162, 'Sigma_tau and the two lateral boundaries stay spacelike',
+    ('E-a', 'the lateral boundaries stay spacelike', 161, 'Sigma_tau and the two lateral boundaries stay spacelike',
      CERT),
     ('E-a', 'the outer boundary {v + tau - tau_end = V + 1}', 150, 'v + (tau - tau_end) <= V + 1', CERT),
     ('E-a', 'g = g_app + w must satisfy Lemma 1.1 (e)', 356, 'so for lam <= lam0(M) the metric g = g_app + w', CERT),
