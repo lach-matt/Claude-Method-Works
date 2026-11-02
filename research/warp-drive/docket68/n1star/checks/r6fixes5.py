@@ -24,11 +24,18 @@ R6.0). Labels: computed (exact, sympy), certified (exact rationals and outward-r
 """
 import builtins
 import sys
+import textwrap
 from fractions import Fraction as Fr
 
 import sympy as sp
 
 OK = {}
+
+
+def print(*a, **k):  # noqa: A001
+    for line in ' '.join(str(q) for q in a).split('\n'):
+        builtins.print(textwrap.fill(line, 121, subsequent_indent='      ', break_long_words=False,
+                                     break_on_hyphens=False), **k)
 
 
 def det_form(sign):

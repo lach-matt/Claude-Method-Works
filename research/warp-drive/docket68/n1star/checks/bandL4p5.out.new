@@ -6,3 +6,5 @@ H1 PASS
       True; (iii) the band, every K in [6, 40]: True; at K = 6: {'lam^4 eps': True, 'lam eps^2': True, 'w': True, "L.4'
       hypothesis in the band": True}
 H2 PASS
+  H3 lam = 1e-1000: K = 6 covers [x_deep, x_top] = [5.753e-19, 0.0008697] with Lemma L.4': True; lam = 1e-3000: K = 6
+      covers [x_deep, x_top] = [2.114e-56, 0.0002897] with Lemma L.4': True
