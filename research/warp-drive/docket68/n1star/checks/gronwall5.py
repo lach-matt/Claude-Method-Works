@@ -30,8 +30,10 @@ lzeroconst5.py's geometry, mpmath.iv); deduced (the reading of the proof); estim
 
     python3 checks/gronwall5.py
 """
+import builtins
 import os
 import sys
+import textwrap
 
 import mpmath
 import sympy as sp
@@ -41,6 +43,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lzeroconst5 as LZ  # noqa: E402
 
 iv.prec = 120
+
+
+def print(*a, **k):  # noqa: A001  (every printed line within 121 characters)
+    for line in ' '.join(str(x) for x in a).split('\n'):
+        builtins.print(textwrap.fill(line, 121, subsequent_indent='      ', break_long_words=False,
+                                     break_on_hyphens=False), **k)
 
 
 def fiv(q):
@@ -85,7 +93,8 @@ def main():
     poly = growth(g, a_hi + g['dtau'][1])
     ok['G2'] = poly < 530 and (a_lo + g['dtau'][0]) ** 2 / a_hi ** 2 > 529
     print('  G2: along L0 the equation\'s own factor (r(tau0)/r)^2 <= ((a + dtau)/a)^2 <= %.2f; the identity\'s '
-          'exponential exceeds it by a factor in [%s, %s]' % (float(poly), nstr(lo / poly, 4), nstr(hi / poly * 1.0001, 4)))
+          'exponential exceeds it by a factor in [%s, %s]' % (float(poly), nstr(lo / poly, 4),
+                                                              nstr(hi / poly * 1.0001, 4)))
     dtl = mpf(dt._mpi_[0])
     lnC3_lit = lo * dtl                                     # ln C3 >= C2 dtau, C2 >= the factor (literal reading)
     r_lo = mpf(rate._mpi_[0])

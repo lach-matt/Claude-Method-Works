@@ -1,15 +1,18 @@
-  G1: 2/a in [7.4112835, 7.4112835]; tau_end - tau0 in [5.93720825, 5.93720825];
-      Lemma 2.4's factor for Psi, exp((2/a)(tau_end - tau0)), in [1.28816e+19, 1.28816e+19] (= e^44.0023)
-  G2: along L0 the homogeneous factor is (r(tau0)/r)^2 <= (b(tau0)/a)^2 <= 2479.39: the exponential exceeds it
-      by a factor above 5.2e+15
-  G3 (C_N, C_st >= 1 assumed): literal reading: ln C3 >= 7.648e+19, ln lambda0 <= -2.294e+20;
-      one Gronwall: ln C3 >= 47.942, ln lambda0 <= -143.83
-  C3 (control): "ln C3 <= 47.942" (the single-exponential value) refuted for the literal reading: True
-  C1 (control): "the factor is below 1e18" refuted: True
-  C2 (control): "the homogeneous growth exceeds 1e4" refuted: True
+  G0: div xhat = 3/r in R^4; 2c - div xhat = 1/r with c = 2/r (sympy): the rate of ||Psi|| is 1/(2a)
+  G1: 1/(2a) in [1.8528209, 1.8528209]; tau_end - tau0 in [5.93720825, 5.93720825]; the identity's factor exp(dtau/(2a))
+      in [59909.1, 59909.1] (= e^11.0006)
+  G2: along L0 the equation's own factor (r(tau0)/r)^2 <= ((a + dtau)/a)^2 <= 529.05; the identity's exponential exceeds
+      it by a factor in [113.2, 113.2]
+  G3 (deduced reading; C_N, C_st >= 1 assumed, an estimate): literal: ln C3 >= 3.557e+5, ln lambda0 <= -1.067e+6; one
+      Gronwall at the identity's rate: ln C3 ~ 13.554, ln lambda0 <= -40.663
+  C1 (control): the identity without -int (3/r) phi^2 gives exp((2/a) dtau) in [1.28816e+19, 1.28816e+19]: G1's enclosure
+      fails for it: True
+  C2 (control): G2 with r(tau0) <= b(tau0) (round 2) gives 2479.39: G2's bound fails for it: True
+  C3 (control): in R^3, div xhat = 2/r and 2c - div xhat = 2/r: G0 fails for it: True
+G0 PASS
 G1 PASS
 G2 PASS
 G3 PASS
-C3 PASS
 C1 PASS
 C2 PASS
+C3 PASS
