@@ -632,3 +632,221 @@ PART-III-I9-COMMOTION.md:28-66; PART-III-I11-SPACETIME.md:28-166, 340-390; PART-
 PART-III-I13-EXPANSION.md:222-266; PART-III-I2-SCRI.md:177-195; PART-III-I8-UNPARAM.md:35-45;
 PART-III-J2-LINEAR.md:18-30, 95-145; the 18 sites of `nrows5.py`; `lead5.py`, `checks/stage5.py` and `.out`,
 `checks/gapsums5.py` (the sl roots' formula), `prop31loss5.py`.
+
+## Round 3
+
+*Status (2026-11-02).* Appended to rounds 1-2; not yet read by a verifier. The independent reader of rounds 1-2
+(commit bbfb486) has reported; each of its findings is seated, in place where it corrects a line of rounds 1-2 (a
+bracketed `[Round 3, ...]` note keeping the old figure) and listed in R3.1. New programs (each with its `.out`, every
+control failing as it must): `checks/lzerotrace5.py`, `checks/dceiling5.py`, `checks/nkind5.py`. Changed and rerun:
+`gronwall5.py` (rewritten, M2), `eps1hyp5.py` (H2 by the cone argument, H3 at the corner, C1 and C4), `lzeroconst5.py`
+(m5), `stage0bd5.py` (X4's text, M1), `deltacap5.py` (C3, C4), `baire5.py` (K3, C3), `lambdagen5.py` (L5's
+deduplication, N1, N3, docstring), `envelope5.py` (C1, P0), `nrows5.py` (R3, C3); `dweights5.py` (docstring only).
+
+### R3.0 Summary
+
+- **(i) lambda0: certified lambda0 <= 0.026986 at P*.** Every factor of the proof's lambda0 is traced to its line of
+  N1STAR-PROOF.md (27 rows over the nine terms, each fragment asserted on its line, lines 1-805 md5-pinned;
+  `lzerotrace5.py` T0). Two terms are evaluated: lam1 = min(1, delta0)/10 = q0/20 = 0.0269859 (:177; certified) and
+  eps1/C_app < 0.6013096/12.5933 = 0.047748 (Step 3, :355-357; certified, operator norm), so **lambda0 <= 0.026986**
+  for the operator and Frobenius readings of |.|, and **lambda0 < 0.009550** for the largest-entry reading, where the
+  second term binds. Label: a certified upper bound on the lambda0 this proof delivers (V-M2), at P* with
+  envelope5.py's envelope and a = q0/2; not a value. At round 1's even split of eps1 the term is 0.023874 (operator
+  norm); the split is the note's, not the proof's (M1). The seven other terms need the profiles g_1..g_10 (R2.2 (f)).
+  A definition of the pointwise norm for the supplement is proposed and checked (R3.2).
+- **(ii) d: no number and no proved upper bound; the floor stands and the record's own ceiling is computed.** The
+  indicial roots of box^Ups(0) below 7, every harmonic type, are now complete (ten non-integer roots; `dceiling5.py`
+  D1). Which offsets are Lambda's increments is a reading the record leaves open ("E_ind ... may change from line to
+  line", D3:46-48): on the construction reading (LD14) the floor **d >= 8,407,505,890,317,054** (computed, W3) stands;
+  on the widest reading (G) binds at 3 + 4.679e-13 (certified, D3) and the floor rises to about 3e20 (estimate).
+  The composing recursion, with every per-level step the record charges, gives on the construction reading the exact
+  ceiling **d <= 4,527,175,422,273,024 L_0 + 2.9868e30 (l_* + 1) + 28,864,786,304,360,710 + 53,244,736 X_7 +
+  106,489,470 c'** (level-2 rounds per exponent; 1.1947e31 (l_* + 1) per (alpha_0, k)), which is **at least 1.49e31**
+  at the least admissible L_0 = 1 and l_* = 4 (computed, D6). The size comes from one step rounds 1-2 left inside c:
+  III.A Proposition 4.2 (1) at every level above 3 counts the (exponent, log order) pairs of E^flat, which the record
+  bounds only through K(lambda) (D5). So **N = 21 d + 6 >= 1.7656e17** and has no ceiling below 3.1e32 in the record's
+  bookkeeping.
+- **(iii) lambda1, delta: upper bounds stand; no lower bound from this proof, the exact obstruction proved.** For each
+  of the four kinds of non-effective step, an explicit family on which every input of the step is fixed or bounded
+  while its output is unbounded shows that the argument as written gives no bound (`nkind5.py` K1-K4); for N2 and N4
+  the effective replacement is computed on the model. So a lower bound for delta and lambda1 needs exactly seven
+  certified inverse bounds, at the six N1 sites and the one N3 site (K5), with the Lipschitz moduli in b and sigma
+  and the calculus constants of the B-rows; the upper bounds log10 delta < -7.6666e16 and lambda1 < delta stand.
+
+### R3.1 The reader's findings on rounds 1-2 (commit bbfb486), seated
+
+- **M1 (major), lambda0 <= 0.0239 "below lambda_Omega".** Correct. Step 3 (N1STAR-PROOF.md:355-357) asks only |g_app -
+  g0| + |w| <= eps1; the halves are round 1's (1.3, `lzeroconst5.py`). Seated: in place at 1.3, R2.0 (i), R2.2 (b)-(c)
+  and R2.5; `stage0bd5.py` X4 now prints both forms; `lzerotrace5.py` T5 states lambda0 <= 0.023874 at the even split
+  and < 0.047748 for any split (operator norm; the reader's 0.04779 at r = 0.27, mine at r = a), so split-free
+  lambda_Omega binds. The pointwise norm: the reader's largest-entry figures reproduced (eps1* <= 0.1202619; the term
+  <= 0.00955 split-free, 0.004775 halved); the operator-norm definition is proposed with a computed check (R3.2).
+- **M2 (major), e^44 and the doubly exponential C3.** Correct: the identity at :233-235 keeps -int (3/r) phi^2, and with
+  c = 2/r the rate is 1/(2a). Seated: `gronwall5.py` rewritten (G0 the identity in R^4, sympy; G1 e^11.0006 = 5.99e4;
+  G2 the equation's ((a + dtau)/a)^2 = 529, excess 113; G3 ln C3 >= 3.56e5 as a deduced reading), with controls that
+  mutate the code path (C1 the identity without its -3/r term gives e^44 and fails G1; C2 round 2's b(tau0) bound fails
+  G2; C3 the identity in R^3 fails G0). In place at R2.0 (i), R2.2 (d), (f), R2.5.
+- **m1** "one admissible point" (2.3): now "a point meeting every decidable condition" (four remain undecided, 2.1).
+- **m2** controls that could not fail on their own, each now mutating the code path it tests: `gronwall5.py` C1-C3
+  (above); `deltacap5.py` C3 (P2 rerun with A_2d >= 2^-(32 d + 9): fails) and C4 (P2 rerun with theta0 >= 1: fails);
+  `baire5.py` K3 now computes the a priori constant, ||T||, ||Pi|| and the open-mapping constant (SVD on ker Pi), and C3
+  reruns K3 on T = diag(0, 1) (fails); `eps1hyp5.py` C1 reruns H3's degeneracy test at size 59/100 (no null boundary)
+  and C4 reruns H2 at eps = 0.61 (fails); `lambdagen5.py` N1 runs L4's search, now a function, on the bases plus a
+  planted one (returns it as binding), and N3 runs L5's new deduplication of L3's eleven bases (certified pairwise on
+  distinct chains and off the 27 existing starts) with a planted duplicate (flagged); `envelope5.py` C1 reruns E3 with
+  the flat factor exp(-1/(2t)) removed (fails); `nrows5.py` R3 now tests the claim itself (every N1 row needs one of
+  NORM, TENSOR, LOWE, TRAP, after COVER) and C3 re-tags one row (fails).
+- **m3** `eps1hyp5.py` H2: replaced by the direct cone argument (g >= g0 - eps I; at eps = 3/5 least eigenvalues 2/5,
+  2/5 and mu/(5 r^2) on the three kernels; one negative eigenvalue), which also shows eps1 = 3/5 itself serves.
+- **m4** labels: R2.0 (iii) and R2.4 (b) now say "computed on the Tangherlini model at b0; a deduction at b0, not
+  reaching b != b0" and "a hand-written classification whose coverage is checked".
+- **m5** tau_end needs v - r_q(v) increasing, which depends on sup env: `lzeroconst5.py` now checks 1 - q0 (2/9) c^2/4 >=
+  0.9474 > 0 with c <= 1.3241035 (READ, envelope5.out E1); R2.2 (a) amended.
+- **Nits.** 341 -> 360 (1.3); the V-m5 bracket at 1.4's old control; e_11 of the plain bump is 3.29e18 (`envelope5.py`
+  P0, floating point), not 3.6e22, nine orders above 3.796e9; `dweights5.py` (23 chains) and `lambdagen5.py` (L3's
+  eleven bases, N2's list) docstrings; RESPONSE-HL-5D.md's lines are now 1403 and 1782 (the paper moves: 1390, 1758 at
+  round 2, 1398, 1772 at the reading); R2.0 (iii) "18 sites" are the 11 of classes B and A.
+- **Numbers the reader vouches for**, all reproduced here: q0 = 0.539717577; tau_end - tau0 = 5.937208254; lambda_Omega =
+  0.026985879; C_S <= 43.2158; eps1* in [3/5, 0.6013096]; C_app >= 12.583585 (r = 0.27; 12.5933 at r = a); c in
+  [1.32407111, 1.32410349]; lambda0 <= 0.023893 at the even split (r = 0.27), < 0.047786 for any split; log10 delta <
+  -7.6666e16; lambda1 < delta; K = 106,489,469, R2 = 1,401,250,931,461,121, R3 = 1,401,251,031,977,897, the floor and
+  the conditional bounds of rounds 1-2.
+
+### R3.2 (i) lambda0, complete as far as it goes
+
+- *The trace* (READ, computed; `lzerotrace5.py` T0). The nine terms of 1.3 (with V-m4's) and their factors: lam1 at
+  :177 with q0 at :145 and a := q0 - delta0 at :146; E-a at :160-162 (eps1, the lateral boundaries), :150 (the outer
+  boundary), :356 (Step 3), :94-96 ((0.4), profiles bounded independently of lam), :113 (|g - g0| <= C lam), :541 (g1 =
+  m1 + W(X, th + phi1(X)), g_j independent of lam), :461-462 (W = W_TT + chi dv dv); E-b at :348, :425, :427; E-c at
+  :356-357; E-d at :400-401 and :92; D-a at :769 and :795; D-b at :772; D-c at :692; D-d at :771. Every fragment is
+  asserted on its line; shifted by one line, 27 of 27 fail (C1).
+- *The evaluated factors* (certified). q0 in a certified interval of width 1e-25, lam1 = q0/20 = 0.0269859 (T1). eps1:
+  at the corner r = b(tau0) of the outer boundary (tau = tau0, mu = mu_end) the Lorentzian metric g0 - lam_n n n^T, n =
+  (1, -2 xhat)/5^(1/2) in ker d(v + tau), lam_n = (3 + mu_end/r^2)/5 = 0.6013096, makes the boundary null (exact, T2).
+  C_app: lead5.py's W_TT is diagonal in (th, phi1, phi2) with Euclidean eigenvalues -2(a1 + a2), 2 a1, 2 a2 (sympy),
+  -2/3, 4/3, -2/3 times env(v) r^(-3/2) at th = 0, phase 0; at (v, r) = (2, a), a point of Omega, |W_TT| >= 12.5933
+  (operator, largest entry) and 15.4236 (Frobenius), certified with c's lower end (T3); W_TT is odd under th -> th +
+  pi and chi, m1 even, so every admissible C_app is at least sup |W_TT| (T4, deduced).
+- *The bound* (certified, T5). Operator norm: eps1/C_app <= 0.047748, lambda0 <= 0.026986 split-free, <= 0.023874 at
+  the halves; Frobenius: 0.038986, 0.026986, 0.019493; largest entry: 0.009550, 0.009550, 0.004775. Against the
+  numerics' wavelength 10 l5 = 1, a factor above 37 at a = q0/2 (and above 18.5 for every a, lam1 <= q0/10).
+- *Proposed definition for the supplement* (deduced; checked, T6 and `eps1hyp5.py` H2-H3). N1STAR-PROOF.md lines 1-805
+  use |.| for arrays without defining it. Proposed, after (0.3): "For an array A of Cartesian components, |A| is the
+  Euclidean operator norm (for symmetric A, the largest absolute eigenvalue)." With it Lemma 1.1 (e) holds with eps1 =
+  3/5: |g - g0| <= 3/5 gives g >= g0 - (3/5) I as forms; g0 - (3/5) I is positive definite on ker dtau (least 2/5), on
+  ker dr at r = a (least 2/5 at P*) and on ker d(v + tau) (least mu/(5 r^2)) and has exactly one negative eigenvalue,
+  so its causal set is a double cone of convex halves on which dtau, dr (at r = a) and d(v + tau) keep their signs;
+  and no eps1 above 0.6013096 serves. The Frobenius norm dominates it (same eps1); the largest-entry norm would give
+  eps1* in [3/25, 0.1202619] and lambda0 < 0.00955.
+- *What a value needs* (unchanged, R2.2 (f)): certified solves of stages 1-9, with the profile bounds to order about 11.
+
+### R3.3 (ii) d
+
+- *D1 (exact; certified).* box^Ups(0)'s roots (gaugepot5.py G1's factors, READ): s0 gives 0, 3, (1 +- (9 + 4z)^(1/2))/2;
+  vl gives -l, l + 2; sl gives l + 3, 1 - l and the roots of Q_l(lam (lam - 1)), whose discriminant is (z + 2)^2 + 4
+  kappa, so that at z = 0 they are l + 1 and l + 2. At z = 4e-6 the non-integer roots in (0, 7) are exactly ten: 2 +
+  d0 (d0 = 1.333e-6), l + 1 + delta_l (l = 1..5; delta_1 = d1 = 3.333e-7) and l + 2 + delta'_l (l = 1..4), every offset
+  in (0, 1.4e-6); the integer roots there are 3, 4, 5, 6. Control C1: at z = 0 every offset vanishes.
+- *D2 (READ, deduced).* E_ind is "an index set with min Re E_ind >= eps_ind, which may change from line to line"
+  (D3:46-48, F4:28-30); I5:190 and I8:35 fix it as the index sets of III.D'' Proposition 3.1 and III.F''' Proposition
+  2.2, built by III.A Lemma 1.4 from the roots above (F4:67-80). Which offsets enter Lambda's increments is therefore
+  the reading of LD14 (only d1 below 1: the construction, checked state by state) or the widest one (every offset).
+- *D3 (certified).* On the widest reading d0 and d1 alone bring 2 + n0 d0 + n1 d1 to 3 + 4.679010e-13 (n0 = 350,001, n1
+  = 1,599,998; gapsums5.py G2 reproduced on certified intervals), 4.15e4 times below delta_50: round 1's weights are
+  then inadmissible, eps_K < 4.68e-13, K > 4.27e12, and the floor rises to about 3.4e20 (estimate, W3 scaled). On the
+  construction reading the same search gives 3 + 5.0191e-8 (control C3): (G) does not bind.
+- *D4 (exact).* Construction reading, every generator of rounds 1-2: n_0 = |Lambda cap {Re < 2}| = 1,470,302, P_iota =
+  |Lambda cap [2, 3 + eps_+ - eps]| = 85,025,784, P_W = 85,025,783 (round 2's container), n_W = 1,470,303. The record's
+  log-order ceiling K(lambda) = L_0 + (N_* + 1)(l_* + 1)(n(lambda) + 1) (I11:72-80) summed over them: S_iota = 85,025,784
+  (L_0 + 1) + 3,739,705,595,186,988 (N_* + 1)(l_* + 1) and S_W = 85,025,783 (L_0 + 1) + 3,739,705,593,716,685 (N_* + 1)
+  (l_* + 1), N_* = 15,000,015 (control C2: the closed form against a brute-force sum).
+- *D5 (deduced; READ I12:249-253, I14:120-121, I11:339-343, LOSS-D (2.1)).* III.I''''''''''' Proposition 3.1's Step 0
+  applies III.A Proposition 4.2 (1) with E_iota = E^flat + 2, beta_iota = w_+ - eps and E_I = E_K empty;
+  III.I''''''''''''' repeats it at every level above 3. Its loss is 1 + n_iota + 2 max(floor beta_K, floor B) = 11 + n_iota, n_iota the
+  pairs (z, m) of E_iota below beta_iota, and the record bounds E^flat only by pi_1 E^flat in Lambda cap [2, 3 + eps_+)
+  with log order <= K(lambda): n_iota <= S_iota, >= 5.6e22 per level at l_* = 0 (control C4: with E_iota empty, 11).
+- *D6 (exact).* The composition over the levels, construction reading:
+
+      d <= 3 (R2 + R3) + L_above [3 X_2 + 11 + S_iota + 15 W] + L_below [15 W + 58] + L_above X_7 + (K + 1) c',
+
+  W = 1,470,302, L_above = 53,244,736, L_below = 53,244,734, X_2 the level-2 rounds per level (P_W per exponent, S_W per
+  (alpha_0, k)), X_7 III.A Proposition 4.2 (2)'s loss at Step 7 (I12:389-394, E_K not bounded here), c' the remaining
+  fixed per-level steps (FWD's loss is III.I Theorem 5.3's d = D_0 + D_1 + d' + d'' + 6, II.F2-TAME:529-535, with II.E's
+  tame orders unnumbered; BG 2; the fixed MODs). Printed exactly as 4,527,175,422,273,024 L_0 + 2,986,797,742,916,004,
+  835,692,267,122,688 (l_* + 1) + 28,864,786,304,360,710 (per exponent) and 18,108,701,529,357,888 L_0 +
+  11,947,190,968,141,150,306,670,744,890,368 (l_* + 1) + 28,864,786,304,360,710 (per (alpha_0, k)), each + 53,244,736
+  X_7 + 106,489,470 c'. At L_0 = 1 and l_* = l_C(R0) = 4 (D7): d <= 1.4934e31 and 5.9736e31; N <= 3.14e32 and 1.25e33.
+- *D7 (exact).* The largest log order of E^C_I at Re <= 5 is 4 on one corner union (R0) and 16 on III.C' (3.1) as
+  written with M = 4 (R1); l_* >= l_C by its definition (I11:72-75).
+- *The exact obstruction to a proved upper bound.* (1) The reading of E_ind (D2): the record does not fix it, and
+  the widest reading changes even the floor (D3). (2) l_*: besides E^C_I's log orders it bounds E_ind's and
+  E^iota_ind's at Re <= 5 and the pole orders of N_iota+(L-bar, .)^-1, of which the record shows only that
+  spec_iota+(L-bar) is discrete in Re >= 2 (III.G' Lemma 4.2 (a), G2-IOTA:428-431): the iota+ boundary spectrum below
+  5, with its pole orders, has to be computed. (3) L_0: the log orders of the class's index sets E^0_src, E_++, G, 2 +
+  E_col below 2 lambda_sharp (computable for the least class; not done). (4) X_7: the K+-exponents of III.G''''
+  Proposition 4.4's zero-frequency terms. (5) c': II.E's tame orders d^E_0, d^E, d^S, d-tilde (II.F2-TAME:528-532),
+  unnumbered there. (6) The three readings of round 1 (2.6). And the ceiling is a ceiling of the record's bookkeeping:
+  the log orders actually produced are not computed, and only they could bring it near the floor.
+
+### R3.4 (iii) lambda1 and delta
+
+- *The non-effective steps, made precise* (`nkind5.py`; computed, exact). N1 (I.C:494-498 and five more): on P_e =
+  diag(e, 1, ..., 1), j = diag(1, 1/2, ..., 1/6), the a priori constant is 1/(1 + e) <= 1 (exact: the denominator is
+  concave in the weights u_i^2, so the supremum is on an axis; 400 rational vectors checked exactly), ||P_e|| = 1, ker
+  P_e = 0, and the output C' = 1/e (K1; control C1 at e = 1). N2: P_e(p) = diag(p + e, 1), Lipschitz 1, pointwise
+  bounds finite, supremum 1/e; the Neumann cover with radius 1/(2 L M_i) bounds it by 2 max M_i in 4, 8, 11 explicit
+  steps at e = 1/10, 1/100, 1/1000 (K2; C2: radius 1/(L M_i) breaks the factor 2). N3: diag(h l, 1), output 1/l, the
+  inverse expansion rate the argument does not produce (K3). N4: radius e everywhere, ceil(1/(2e)) patches; with K2's
+  radii the counts are computed (K4; C4).
+- *The seven quantities* (K5; READ at the lines, deduced). A lower bound for delta and lambda1 from this proof needs,
+  besides d, the calculus constants of the B-rows (`baire5.py`) and Lipschitz moduli in b and sigma: sigma_min of
+  P-hat(0) on (3.2)'s b-Sobolev pair (I.C:497); the inverse of P'_{h,z} on the strip of I.B Theorem 1.3 (I.B:1685);
+  ||P-hat(sigma)^-1|| in the middle range (I.B:1978); sigma_min of T on ker Pi (II.F:1393); the inverse of L-hat_b(sigma)
+  off zero frequency (III.F'':223); the inverse of box-hat(sigma) on X_sigma -> Y_sigma (III.D:365); and the trapping
+  multiplier constant (I.B:1513), whose rate is known at b0 (lambda_L^2 = 1/(2 mu), `cover5.py`).
+- *The passage from E2-PILOT to the write-out's spaces* (deduced). E2-PILOT certifies ||chi_I R_l(sigma) chi_I|| <=
+  11.477 on L^2(dr_*) for 3 <= sigma <= 384 and every l, with H^1 on I; III.D:365 asks the inverse on X_sigma ->
+  Y_sigma, variable-order b-Sobolev spaces through the horizon with weights at infinity. The passage is a gluing of
+  three bounds: E2-PILOT's on I, and bounds for sources and solutions near the horizon and near infinity, which in the
+  write-out come from I.A's radial-point and propagation estimates (Propositions 4.2, 4.6, 4.9, 5.1, 5.2) with constants
+  of the calculus that are not written out (R2.4 (a): only the cover counts are explicit, at b0). So the passage is
+  blocked by those per-piece constants, not by E2-PILOT, and it covers only 3 <= sigma <= 384: I.C (sigma -> 0) and
+  I.B (|sigma| large) need their own certified bounds.
+- *Upper bounds* (stand): log10 delta < -7.6666e16 (d >= 7.959e15) and < -8.0987e16 (the W3 floor); lambda1 < delta
+  (`deltacap5.py`, whose controls now fail on their own, R3.1 m2).
+
+### R3.5 Proved, computed, open
+
+- *Certified*: lambda0 <= 0.026986 at P* (operator and Frobenius readings), < 0.009550 (largest entry); eps1* in [3/5,
+  0.6013096]; C_app >= 12.5933; the root census of box^Ups(0) below 7; (G) at 3 + 4.679e-13 on the widest reading.
+- *Computed, exact*: the trace table; the ceiling's coefficients and the counts n_0, P_iota, P_W, n_W; l_C = 4 and 16;
+  the models of K1-K4.
+- *Deduced*: the split-free form of E-a; the proposed norm and the cone argument; D2, D5; the seven quantities and the
+  gluing obstruction.
+- *Open, with the exact obstruction*: a value of lambda0 (the nine stage solves); a number or proved ceiling for d and
+  N (R3.3's six items, first the reading of E_ind and the iota+ boundary spectrum below 5); lower bounds for lambda1 and
+  delta (the seven inverse bounds of R3.4, then the Lipschitz moduli and the B-row constants).
+
+### R3.6 Proposed text for the paper's section 9 (for the bullets "Settling" and "Physical wavelengths")
+
+    The threshold lambda0 that the proof of Theorem 1 delivers is traced factor by factor to the supplement; at the
+    numerical point (l5 = 1/10, mu0 = 1, a = q0/2, a smooth envelope with the numerics' integral) it is at most
+    0.0270 (certified, the proof's own standing condition; the term eps1/C_app is below 0.0478 with the pointwise norm
+    read as the operator norm, which the supplement now states), so the wavelength 10 l5 lies more than 37 times
+    beyond it; a value would need certified solves of the approximant's nine linear stages. The loss d is not a
+    number: d >= 8.41 x 10^15 and N >= 1.77 x 10^17 at a parameter point meeting every decidable condition (computed),
+    while the write-out's own bounds give no ceiling below 1.49 x 10^31, one index-set count being bounded only by the
+    log-order ceiling of its construction; a proved ceiling needs the pole orders of the iota+-normal operator's
+    inverse below real part 5. lambda1 and delta are bounded above, log10 delta < -7.66 x 10^16 and lambda1 < delta;
+    no lower bound follows from this proof, whose arguments at six injectivity steps and one trapping estimate give
+    no number: seven certified inverse bounds in the write-out's norms would have to be computed instead.
+
+### R3.7 Sources (round 3)
+
+N1STAR-PROOF.md:83-113, 143-177, 155-235, 339-401, 461-462, 538-541, 663-795; lead5.py:1-20, 58-67; gaugepot5.py G1
+(docstring); proof5: PART-III-D3-SYMSTATES.md:36-48; PART-III-F4-ZERO.md:20-35, 60-84; PART-III-I5-UNBOOST.md:185-195;
+PART-III-I8-UNPARAM.md:30-42; PART-III-I11-SPACETIME.md:20-110, 336-392; PART-III-I12-SPECTRAL.md:20-80, 240-256,
+386-402; PART-III-I14-LEVELS.md:96-135; PART-III-I15-AUGMENT5.md:252-266; PART-III-G3-GRAFT.md:280-352;
+PART-III-G2-IOTA.md:400-460; PART-III-I-CONE.md:394-450; PART-II-F2-TAME.md:525-545; PART-II-E-ENERGY.md:842-856,
+1148-1170; PART-III-J3-TAME.md:30-300; the seven sites of R3.4; LOSS-D.md sections 1-2b, LD14-LD16; E2-PILOT.md
+section 4; EFFECTIVE-CONSTANTS.md sections 3-5; EFFECTIVE-LEDGER.tsv; the reader's report (commit bbfb486).
