@@ -947,3 +947,376 @@ is stated as proved; open: section R2.5.
 
 *Files.* `GAUGEDECAY5.md` (this section appended); `checks/admbox5.py` with `checks/admbox5.out`;
 `checks/gdrepair5.py` with `checks/gdrepair5.out`.
+
+## Round 3
+
+*Status.* Written 2026-11-02 (round 3, this section). Not verified by a second reader. Rounds 1 and 2 are left as they
+stand; where round 3 changes them it says so here, as amendments (A1)-(A8). New programs: `checks/gdix5.py` (P1),
+`checks/gdsk5.py` (K1-K5) and `checks/gdscri5.py` (S1-S8), with their `.out` files; every check has a control that
+must fail, and fails. Labels as in rounds 1-2. Readings of the supplement's Parts are READ with file:line, every file
+under `proof5/` (abbreviated IX, VIII, K for III.K, J for III.J, J4 for III.J$'''$, I8, I9, I10, I15 for
+III.I$'''''''$, III.I$''''''''$, III.I$'''''''''$, III.I$''''''''''''''$, F2 for II.F$'$, C for III.C, C3 for
+III.C$''$, B for III.B). "Standard" marks b-Sobolev embedding for a b-density, used without a program.
+
+*The result, in one paragraph.*
+- **Part IX's repair moves no conclusion here** (R3.1). Round 1's $N^\circ$ and $N^{\mathcal D}$ are replaced by
+  $U^\sharp$, $\Omega^\sharp$ and $N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$; Theorem 1.5 and Proposition 2.1 are
+  restated on $N^+$, for tensors smooth up to $\Sigma^\circ$. The one new argument: the harmonic-gauge vector's source
+  is known on $N^+$ only and is extended across $\Sigma^\circ$, and the solution on $N^+$ does not depend on the
+  extension, as $\Sigma^\circ$ is noncharacteristic for $\Box$ with Part IX's leading coefficient (Lemma R3.1, P1).
+- **(S$_K$) holds, for every $\beta\in(0,\delta_\sharp)$, $\delta_\sharp = (1-e_\Upsilon)\gamma_\Upsilon$** (R3.2).
+  $h'$ has $\iota^+$-order exactly $\lambda_\sharp$ and $K^+$-order $\alpha$; on $\{\chi_K = 1\}$,
+  $D\vartheta_{\mathrm{tot}}(\vec p\,')$ is a sum of row terms $\frac12\Box^\Upsilon\omega_\nu$ of joint orders
+  $(\mathrm{Re}\,\lambda+1,\kappa_\nu)$, $\mathrm{Re}\,\lambda\ge\lambda_\sharp$, $\kappa_\nu>\lambda_\sharp+3$ (K1-K3).
+  Theorem R2.12 is deduced without its hypothesis (Corollary R3.3). The room is the constraint damping: at
+  $\gamma_\Upsilon = 0$ there is none (K4).
+- **Round 2's cut-off $\chi'$ was built from the wrong $\chi_K$** (A8): III.H (1.2)'s, not Part VIII's, on whose
+  $\{\chi_K = 1\}$ alone (R2.3) holds. Repaired with a later, narrower $\chi'$; only constants change.
+- **The harmonic gauge beyond the cone: closed on the late region, open down to $\Sigma^\circ$** (R3.3). The source
+  lies in II.F$'$ (1.4)'s class: at $\mathscr I^+$, $E^\Upsilon G$ does not see the trace-free angular slot, the only
+  one with a radiation field (S1), so the source's order there is $\lambda_\sharp+1$, above the $b_I+1<\frac52$ asked
+  (S2-S4); at $\iota^+$ and $K^+$ as on the cone. With II.F$'$ Theorem 1.1 for $\Box$ this gives a solution equal to
+  $\dot g$ near $\Sigma^\circ$, in harmonic gauge on all of $N^+\cap\{t^\flat_*\ge3\}$ out to $\mathscr I^+$, settling
+  on compact sets to $\dot\mu K^*+c_\infty\mathcal L_{W^*}g$ at the rate $t_*^{-1/2}$ (Theorem R3.4). Down to
+  $\Sigma^\circ$ one estimate is missing, (Ext$\Box$): the gauge vector's $\mathscr I^+$-order above $\frac12+\beta$
+  on a bounded $t_*$-slab (S5, S7), which needs a weighted Cauchy estimate for $\Box$ near $I_0\cup\mathscr I^+$; the
+  write-out's exterior theorems are stated for $L$ only.
+- **The rate** $t_*^{-1/2}$ is not improved: task 4 was to be attempted only if the harmonic gauge closed on all of $N$.
+
+### R3.1 Part IX's repair (D610): the amendments
+
+*What Part IX now says* (READ). $\nu\ge0$ with $\nu = 0$ on $[0,R_\nu]$, $R_\nu = \frac12(r_0+R)$ (K:102-107, IX:24-29),
+so near $\{r = r_0\}$, $N = \{t_{\mathrm{IVP}}\ge0\}$ and $\Sigma^\circ$ is part of $N$'s boundary. The comparison is
+posed on $U^\sharp := M^\circ\cap\{t_{\mathrm{IVP}}>-1\}$ and $\Omega^\sharp := D_{U^\sharp}(\Sigma^\circ)$, open and
+globally hyperbolic on each component with Cauchy hypersurface $\Sigma^\circ$, with $\Omega^\sharp_+ = N^+ :=
+M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (IX:30-33, 131-134); tensors are compared on future halves $\Omega'_+$, smooth up
+to $\Sigma_U$ (IX:35-40, 209-216); a source known on $\Omega'_+$ only is extended across $\Sigma_U$ by Seeley's theorem
+and a cut-off (IX:231-234); $\dot g|_{N^+}$ is smooth up to $\Sigma^\circ$ (IX:40-47); $N^\circ$ and $N^{\mathcal D}$
+are withdrawn, and a text citing them reads $U^\sharp$, $\Omega^\sharp$, $N^+$ (IX:350-351).
+
+*The uses here, each amended.*
+
+(A1) Section 0, "Part VIII in the class" (round 1, lines 52-54): $\dot g$ is smooth on the interior of $N$, and
+$\dot g|_{N^+}$ is smooth up to $\Sigma^\circ$; where $\nu = 0$, $N$ ends at $\Sigma^\circ$.
+
+(A2) Theorem 1.5 (lines 149-169) and its proof (lines 171-193). $N^\circ := N\cap\{r>r_0\}$ is not open where $\nu = 0$,
+while the proof (line 174) uses the open set $\{t>\psi_{\mathrm{IVP}}(r)-\nu(r),\ r>r_0\}$, the interior of $N$ in
+$M^\circ$. Read (a)-(c) on $N^+$, every object smooth up to $\Sigma^\circ$. Lemma 1.4 (b) is applied on the interior of
+$N^+$, whose orbit space $\{t>\psi_{\mathrm{IVP}}(r),\ r>r_0\}$ lies above a graph, so is simply connected, and whose
+upward rays $\{(v',r):v'\ge v\}$ stay in it ($t_{\mathrm{IVP}}$ increases with $v$ at fixed $r$). $\xi[h]$, $H_0$ and
+$\omega$ are smooth up to $\Sigma^\circ$ (inverses on $S^3$ with parameters $(v,r)$, commuting with
+$\partial_v,\partial_r$); $\zeta = -\int_v^\infty\omega_v\,dv'$ has $d\zeta = \omega$, so its derivatives of order $\ge1$
+are derivatives of $\omega$ and $\zeta$ is continuous up to $\Sigma^\circ$. So $X_{\mathrm{RW}}$ and
+$\dot g_{\mathrm{RW}}$ are smooth up to $\Sigma^\circ$, and (a)'s data clause is read from one side (Part VIII Lemma
+1.1, VIII:71-72). (a)-(c) also hold, as proved, on the open set $\mathrm{int}\,N\cap M^\circ$, the data clause aside.
+(d) reads: $U\subset U^\sharp$ open and $SO(4)$-invariant, $\Omega'_+ := D_U(\Sigma_U)\cap\{t_{\mathrm{IVP}}\ge0\}$,
+$\dot g'$ on $\Omega'_+$ smooth up to $\Sigma_U$, inducing the data plus those of $\mathcal L_Zg$, $Z$ smooth up to
+$\Sigma_U$; then $\dot g' = \dot g_{\mathrm{RW}}$ on $\Omega'_+$. Its proof stands with Part IX Corollary 2.3 and Remark
+2.4 (c) as repaired (IX:279-293, 312-317): Lemmas 1.3 (c) and 1.4 (a) are sphere-wise and pointwise, and (d) uses no
+simple connectivity.
+
+(A3) Section 2.1, "Let $N^{\mathcal D} := D_{N^\circ}(\Sigma^\circ)$" (line 213): read $\Omega^\sharp$ (IX Lemma 1.2),
+with $\Omega^\sharp_+ = N^+$.
+
+(A4) Proposition 2.1 (a)-(b) (lines 220-228) and its proof (lines 241-246). Read (a) for 1-forms $Z'$ on $N^+$, smooth up
+to $\Sigma^\circ$, with $\Box Z' = -\Theta(e)$ on $N^+$; such $Z'$ exist for all smooth Cauchy data on $\Sigma^\circ$
+and are determined on $N^+$ by them (Lemma R3.1). Read (b) on $\Omega'_+$, $U\subset U^\sharp$, for $\dot g'$ smooth
+up to $\Sigma_U$. In the proof, $e$ is known on $N^+$ only (A2): extend $-\Theta(e)$ across $\Sigma^\circ$ to $F$ on
+$\Omega^\sharp$ as IX Theorem 2.2's Step 1 does (IX:231-234), solve $\Box\tilde Z = F$ on $\Omega^\sharp$ with the data
+(IX Lemma 1.1 with $P = \pm\Box$, IX Lemma 2.1 (a)), and restrict to $N^+$.
+
+**Lemma R3.1 (the extension does not reach $N^+$; deduced, computed P1).** Let $F_1,F_2$ be smooth on $\Omega^\sharp$
+and equal on $N^+$, and let $\tilde Z_i$ solve $\Box\tilde Z_i = F_i$ with the same Cauchy data on $\Sigma^\circ$. Then
+$\tilde Z_1 = \tilde Z_2$ on $N^+$.
+
+*Proof.* $d := \tilde Z_1-\tilde Z_2$ has $\Box d = 0$ on $N^+$ and zero data on $\Sigma^\circ$. IX Theorem 2.2's Step 3
+(IX:253-277) uses of $L^0$ only that its principal part is a negative multiple of $g^{\alpha\beta}\partial_\alpha
+\partial_\beta$ times the identity, so that $\Sigma^\circ$ is noncharacteristic. $\Box$ has the principal part
+$-g^{\alpha\beta}\partial_\alpha\partial_\beta$ (IX Lemma 2.1 (a)); P1 computes the leading coefficient at $\Sigma$: for
+$w = f(t)W$ no derivative of $f$ above the second occurs in $\Box w$, and the coefficient of $f''$ is $-g^{tt}W$, so the
+coefficient of $t^{m-2}$ in $\Box(t^mW+O(t^{m+1}))$ at $t = 0$ is $-m(m-1)g^{tt}W$ (control: with the trace term of $G$
+dropped the coefficient is not $-g^{tt}W$). So $d$ vanishes to infinite order at $\Sigma^\circ$, its extension by 0 is
+smooth with $\Box\tilde d = 0$ on $\Omega^\sharp$ and zero data, and [BGP] Corollary 3.2.4, on each component (IX:96-99),
+gives $\tilde d = 0$. $\square$
+
+*Consequences.* The extension affects no conclusion on $N^+$. $G$-invariance needs no averaging: for $\sigma\in G$,
+$\sigma^*\tilde Z$ solves the problem with $\sigma^*F$, another extension of the $G$-invariant $-\Theta(e)$ ($G$
+preserves $t_{\mathrm{IVP}}$ and $|x|$, so $N^+$ and $\Omega^\sharp$: IX:312-314), and the same $G$-invariant data; so
+$\sigma^*Z' = Z'$ on $N^+$.
+
+(A5) Lemma 2.2, Theorem 2.3 (lines 275-295) and Remark 2.4: unchanged. They concern the horizon at late times, in the
+interior of $N^+$, and Lemma 1.4 is used on a neighbourhood of the horizon's orbit.
+
+(A6) Corollary 2.6 (lines 357-363), withdrawn by R2.0: read $N^+$ for $N^{\mathcal D}$. R2.0's $d\phi_2$ is defined on
+all of $M^\circ$, so the withdrawal stands.
+
+(A7) Round 2. R2.V (m1) (lines 766-772): the Part IX inputs of Proposition 2.1 (a) are now IX Lemma 1.1 on
+$\Omega^\sharp$, IX Lemma 1.2 ($\Omega^\sharp_+ = N^+$), the extension of IX:35-40 and Lemma R3.1. Part IX's status line
+reads verified (D347) and repaired (D610) (IX:3-6); the repair's second reading is not recorded there. Theorem R2.12:
+$Y$ lives on $\Omega = \mathrm{cl}_M\{t_*\ge1,\ r\ge r_0\}$ (F2:41) and vanishes for $t_*<2$; as $t_*\le
+t_{\mathrm{IVP}}$, it extends by 0 to $N^+$, and near $\Sigma^\circ$ ($t_*\le0$ there) $\dot g_H = \dot g+\dot\mu
+\mathcal L_{W^{**}_H}g$. Corollary R2.8 and Proposition R2.13 do not use $N^\circ$ or $N^{\mathcal D}$.
+
+(A8) Theorem R2.12's cut-off (lines 703-707, 729-731); not from Part IX, found while checking (A7). (R2.3) holds on
+$\{\chi_K = 1\}$ for Part VIII's $\chi_K$, the cut-off of III.B section 5 and III.I (1.2): supported in
+$\{t>50R_1\}\cap\{t^\flat_*\ge10\}$, and equal to 1 on a neighbourhood of $\mathrm{supp}\,\chi^\flat_K\supset\{|x|<t/10,\
+t>60R_1\}$ (B:345-352, `PART-III-I-CONE.md`:25-28; thresholds raised as K:35-37 allows). Round 2's $\chi' :=
+\chi_+(t_*/2)\chi_c(2r/t_*)$ is built from III.H (1.2)'s $\chi_K = \chi_+(t_*)\chi_c(|x|/t_*)$
+(`PART-III-H-AUGMENT.md`:66-71), a different function, and its support $\{t_*\ge2,\ r\le t_*/4\}$ is not in Part
+VIII's $\{\chi_K = 1\}$, which misses $\{t^\flat_*<10\}$. Repair: $\chi' := \chi_+(t_*/T_1)\chi_c(10r/t_*)$ with $T_1$
+above the threshold $T_\chi$ for which $\chi^\flat_K = 1$ on $\{|x|<t/10,\ t>T_\chi\}$. As $t\ge t_*$ ($\psi\ge0$,
+B:243-244), $\mathrm{supp}\,\chi'\subset\{t_*\ge T_1,\ r\le t_*/20\}\subset\{|x|<t/10,\ t>T_\chi\}\subset
+\mathrm{int}\{\chi_K = 1\}$; $\chi' = 1$ on $\{t_*\ge2T_1,\ r\le t_*/40\}$, where R2.12 (ii) now holds; in the proof of
+(iii), "$t_*\ge8r_h$" reads "$t_*\ge\max(2T_1,40r_h)$"; and $\chi'$ is supported in $\{r\le t_*/4\}$, as Lemma R2.11
+asks. Nothing else changes.
+
+*Does a conclusion move?* No. Every decay, charge and growth statement lives at late times in the interior of $N^+$;
+the domain statements read $N^+$, with smoothness up to $\Sigma^\circ$, where they read $N^\circ$ or $N^{\mathcal D}$.
+Read literally, $N^{\mathcal D}$ also contained points below $\Sigma^\circ$ where $\nu>0$; nothing after round 1 used
+them. (A8) changes constants only.
+
+### R3.2 (S$_K$): settled
+
+*Readings* (READ).
+1. $h'$. Part VIII Theorem 2.2 (3)-(4): $h'\in\mathcal X^\infty_{J,\mathrm{ex}}$, and (2.2) where $\chi_K = 1$
+   (VIII:224-230, 295-301). $\mathcal X^k_{J,\mathrm{ex}} := H^{k,(\langle\mathcal E^C_I\rangle,\ell_I),(\mathcal E_+,
+   3+\epsilon_+),\alpha}_{\mathrm b}$ (J4:48-49): a partial expansion at $\iota^+$ with index set $\mathcal E_+$ up to
+   the weight $3+\epsilon_+$, and $K^+$-weight $\alpha$. Near the corner $\rho_+ = 1/r$, $\rho_K = r/t_*$ (J4:34-36).
+   The expansion is in powers of $\rho_+$ with coefficients carrying the weights of the adjacent faces, $\alpha$ at
+   $\iota^+\cap K^+$ (J4:141-147, 170), for a b-density (`PART-III-A-PREREQ.md`:142). $\mathcal E_+\subset
+   \{\mathrm{Re}\ge\lambda_\sharp\}$ and contains an exponent of real part $\lambda_\sharp$ ((H1), I10:53-55);
+   $\lambda_\sharp = \frac32+(1-e_\Upsilon)\gamma_\Upsilon$ is a simple pole with no resonant state (J:13-15),
+   $K_\iota(\lambda_\sharp) = 1$ (J:112-114), so the $\lambda_\sharp$-term carries no logarithm.
+2. $h_{b_0,\mathrm{rem}}(q')$: $K^+$-order $(\alpha-2)-$, plain $\iota^+$-weight $\ge\lambda_\sharp$ (I15:147-150); each
+   piece is a function of $t_*$ times a stationary tensor (I15:67-72, 157-162).
+3. $\vartheta_{\mathrm{tot}}$ is the sum of III.I$'''''''$'s terms (I8:183-185), the motion terms (I9:128-131), which
+   are the s1 rows (I10:101-102, 180-182), the rows (I10:258-260) and the rotation rows (I15:92-94). III.I$'''''''$'s
+   terms each carry a factor $d\chi_K$ (I8:139-147, 163-164) and vanish on $\{\chi_K = 1\}$, where $d\chi_K = 0$. Where
+   $\chi_K = 1$ a row term is $\vartheta_{\nu,\sharp}(W) = \vartheta_\nu(W) = \frac12\Box^\Upsilon_{b_0}\omega_\nu(W)$
+   (I10:177-178, 202, 234-235), and by (2.2) there (I10:191-193) it is $\frac12[a^{(K+1)}(A_1\breve\omega^K+A_2\breve
+   \omega^{K-1})+a^{(K+2)}A_2\breve\omega^K]$, with $\breve\omega^i\in\mathcal A^{(\sigma_\tau-i,0)+\mathcal F}$
+   (I10:152-154), $\mathcal F = (0,0)\cup\mathcal E_{\mathrm{ind}}$, $\min\mathrm{Re}\,\mathcal E_{\mathrm{ind}}>0$
+   (I15:39), $a^{(j)}$ of rate $e_\nu+j$ (I10:221-225; for s0, $A^{(j)}_\nu$ of rate $\lambda-1+j$), and
+   $\mathrm{Re}\,\lambda\ge\lambda_\sharp$ on every row (I10:61-64; I15:103-104 for the rotation rows). Lemma 2.2 (b),
+   (d) state the $\iota^+$-index set $(\lambda+1,k)+\mathcal F$ near $(\iota^+)^\circ$ and the $K^+$-weight
+   $\kappa_\nu-$, $\kappa_\nu>\lambda_\sharp+3$, near $K^+$, each separately (I10:195-206).
+
+*Computed.* K1: a product $a(t_*)P(x)$, $a$ of rate $c$ (logarithms allowed), $P$ of spatial order $m$, is conormal at
+the corner with orders $(c+m,c)$, exactly without logarithms and with a loss "$-$" with them: the pointwise form of J4
+Lemma 2.1 (J4:119-122). K3: on Tangherlini at large $r$, with the $E_\Upsilon$-term of $\Box^\Upsilon$ and $c_\Upsilon
+= |x|^{-1}dt$, the coefficients $A_1$ of $\partial_{t_*}$ and $A_2$ of $\partial^2_{t_*}$ gain one and two spatial
+orders (control: with $c_\Upsilon = dt$, $A_1$ gains none). K2: with these, every row type (s1, v1, s0, s2, c0, c1,
+rotation) has joint orders $(\lambda+1,\kappa_\nu)$ at the corner, Lemma 2.2's values (control: $A_1$ without its gain
+gives $\iota^+$-order $\lambda$, contradicting Lemma 2.2 (b)).
+
+**Proposition R3.2 ((S$_K$) holds; deduced from the readings and K1-K4).** Let $\delta_\sharp := (1-e_\Upsilon)
+\gamma_\Upsilon = \lambda_\sharp-\frac32>0$ (I10:45-46). For every $\beta\in(0,\delta_\sharp)$ and $\eta\in(0,
+\delta_\sharp-\beta)$, on $\{\chi_K = 1,\ t_*\ge T_0\}$: $h = h_{b_0,\mathrm{rem}}(q')+h'$ is conormal with
+$\iota^+$-order $\lambda_\sharp-\eta>\frac32+\beta$ and $K^+$-order $\alpha-2-\eta>\frac12$;
+$D\vartheta_{\mathrm{tot}}(\vec p\,')$ with $\iota^+$-order $\lambda_\sharp+1-\eta>\frac52+\beta$ and $K^+$-order
+$>\lambda_\sharp+3$; and $J_h$ of (R2.3) with $\iota^+$-order $\lambda_\sharp+1-\eta>\beta+\frac52$ and $K^+$-order
+$\alpha-2-\eta>\frac12$ (the factor $|x|^{-1}$ of $E^\Upsilon_{g,\infty}$ gains one $\iota^+$-order and none at $K^+$).
+Each seminorm is bounded by finitely many of $U'$, so of the data (VIII:243, 309-311).
+
+*Proof.* $h'$: by reading 1 and b-Sobolev embedding (standard), $h'$ and its b-derivatives are
+$O(\rho_+^{\lambda_\sharp}\rho_K^\alpha)$ near the corner, $O(\rho_+^{\lambda_\sharp})$ on $(\iota^+)^\circ$ and
+$O(t_*^{-\alpha})$ near $K^+$; $t_*\partial_{t_*}$, $r\partial_r$ and $\partial_\omega$ span the b-vector fields there
+(K1). $h_{\mathrm{rem}}$ and the rows: K1 and K2 applied to the explicit forms; the shifts by $\mathcal F$ only raise
+orders. $J_h$: (R2.3). The inequalities: K4, at 75 rational samples of $(\gamma_\Upsilon,e_\Upsilon,\beta)$ (control: at
+$\beta = \delta_\sharp$ the condition on $h'$ is an equality, and at $\gamma_\Upsilon = 0$ no $\beta>0$ is admissible).
+$\square$
+
+**Corollary R3.3 (Theorem R2.12 without (S$_K$); deduced).** Theorem R2.12, with the cut-off of (A8), holds for every
+$\beta\in(0,\delta_\sharp)$, from Part VIII, the readings above, Theorems R2.5 and R2.7 and Lemma R2.11, assuming (Dyn)
+and III.H$'$'s obligation (H$'$7) as Theorem R2.5 does; its constant is bounded by the data norms of Part VIII. The room
+is $\delta_\sharp$, the constraint damping: at $\gamma_\Upsilon = 0$ the cone source would have $\iota^+$-order
+$\frac52$, the edge of Lemma R2.11 for every $\beta>0$.
+
+*The class* (K5; not needed above). $G$ fixes no nonzero element of $\mathcal S_1$ or of $\mathfrak{so}(4)$, a line in
+$\mathcal S_0$ and a line in $\mathcal S_2$, spanned by $x_1^2+x_2^2-x_3^2-x_4^2$ (round 1's $P_1(\cos2\theta)$). So in
+the class only the rows of types s0, s2 and c0 carry parameters (coefficient spaces: I10:90-97); s1, c1, v1 and the
+rotation rows vanish, as $S'$ and $S'^{(0)}_1$ do (VIII:314-316). Control: the torus alone fixes $R_{12}$ and $R_{34}$;
+the reflections are what remove the rotation rows.
+
+### R3.3 The harmonic gauge beyond the cone
+
+*Setting.* On $\Omega_*$ (F2:41), in the class, $\dot g_0 = \chi_K\dot\mu K$ (I8 (1.3) at $S = S^{(0)}_1 = 0$,
+VIII:239), and Part VIII Theorem 2.2 (5) (VIII:237-240) with R2.10 gives
+$$-\Theta(\dot g) = E^\Upsilon G(\dot g-\chi_K\dot\mu K)+D\vartheta_{\mathrm{tot}}(\vec p\,')-\dot\mu\Theta(\chi_KK).
+\tag{R3.1}$$
+With $\Box W^{**}_H = -\Theta(K)$ (Proposition 2.1 (d)) put
+$$F_Y := -\Theta(\dot g)-\dot\mu\Box(\chi_KW^{**}_H) = E^\Upsilon G(\dot g-\chi_K\dot\mu K)+D\vartheta_{\mathrm{tot}}
+(\vec p\,')-\dot\mu\big([\Theta,\chi_K]K+[\Box,\chi_K]W^{**}_H\big).\tag{R3.2}$$
+So $F_Y = J_h$ on $\{\chi_K = 1\}$ (R2.3); $F_Y = E^\Upsilon G\dot g$ on $\{\chi_K = 0\}$, in particular near
+$\mathscr I^+$ ($\mathrm{supp}\,\chi_K\subset\{|x|<t/2\}$, B:347-348); the commutator terms live on $\mathcal C =
+\mathrm{supp}\,d\chi_K$, whose closure meets $\partial M$ only in a compact subset of $(\iota^+)^\circ$ (I15:207-208).
+
+**Lemma R3.5 (the source in II.F$'$'s class; deduced, computed S1-S4, S6, S8).** Let $\beta\in(0,\delta_\sharp)$,
+$b_+ := \beta+\frac12$, $b_I\in(b_+,\frac32)$, $\alpha_+ := \beta-2$, $\alpha_I := b_I-2$, and $\chi\in C^\infty(\mathbb
+R)$ equal to 0 on $(-\infty,2]$ and 1 on $[3,\infty)$. Then (1.3) of II.F$'$ holds for $P_0 = \Box$, and
+$\chi(t^\flat_*)F_Y$ lies in (1.4).
+
+*Proof.* *(1.3).* $\bar S = \gamma_\Upsilon\min(1-e_\Upsilon,1)$ for $\Box^\Upsilon$ (`PART-III-D-GAUGEPOT.md`:131-139),
+so $\bar S = 0$ for $\Box$ ($\gamma_\Upsilon = 0$), and (1.3) reads $b_I<\frac32$, $b_+<b_I$ (F2:67, 89-92). *Weights.*
+(1.4) is $(b_I+1,b_++2,\frac12)$ for the b-density $\mu_{\mathrm b}$ (S3; F2:89-96), and a conormal function lies there
+iff its pointwise order exceeds each weight (S4). *$\mathscr I^+$.* There $F_Y = E^\Upsilon G\dot g$ with
+$E^\Upsilon_{g,\infty}k = -\gamma_\Upsilon(2\iota_{g^{-1}c_\Upsilon}k-\frac23(1-e_\Upsilon)c_\Upsilon\mathrm{tr}_gk)$,
+$c_\Upsilon = |x|^{-1}dt$ (III.B (6.1), read in round 2), which contracts with $g^{-1}c_\Upsilon$, a vector with no
+angular component, and takes a trace: it does not see the trace-free angular slot $\slashed\pi_0$ (S1; control: $\Theta$
+does). $\dot g$ has on $\Omega_*$ the $\mathscr I^+$-classes of III.C Definition 3.1 slot by slot ($h'$: J4:48;
+$\chi_-\dot h$: VIII:135-136; the $\chi_K$-terms vanish there), with exponents (C:154, 166-178, 182-186)
+$>\frac32+2\gamma_\Upsilon$ for $\pi_C$, $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ for $\pi_{01}$,
+$\frac32+\gamma_\Upsilon$ for $\pi_{1/}$, $\frac32+(1-e_\Upsilon)\gamma_\Upsilon$ and $\frac32+2\gamma_\Upsilon$ for
+$\pi_{11}$, and $\frac32$ for $\slashed\pi_0$, the radiation field. Without $\slashed\pi_0$ the least is
+$\lambda_\sharp$ (S2; control: with it, $\frac32$), and $|x|^{-1}$ adds one: $\mathscr I^+$-order
+$\lambda_\sharp+1>\frac52>b_I+1$. *$\iota^+$.* On
+$\{\chi_K = 1\}$, $(\lambda_\sharp+1)-$ (Proposition R3.2). Elsewhere $\dot g-\chi_K\dot\mu K = h'+h_{\mathrm{rem}}(q')+
+Dh_{\mathrm{tot}}(\vec p\,')$ has $\iota^+$-order $\min(\lambda_\sharp,2)- = \lambda_\sharp-$ ($h_{\mathrm{tot}}$'s
+terms lie in $\mathcal A^{\mathcal G}$, $\mathcal A^{\mathcal G+1}$, $\mathcal A^{(\lambda,k)+\mathcal F}$: I8:155-158,
+I9:94-98, I10:195-196), so $E^\Upsilon G(\cdot)$ has $(\lambda_\sharp+1)-$; $D\vartheta_{\mathrm{tot}}$ has
+$\min(3,\lambda_\sharp+1)-$ (I8:159-160, I10:195-196); $[\Theta,\chi_K]K$ has order 3 ($d\chi_K\in\rho_+C^\infty$,
+I8:172-173; $K$ stationary in $|x|^{-2}C^\infty(\bar X)$, I8:309-310); $[\Box,\chi_K]$ gains two orders on the cone (S6;
+control: a spatial cut-off gains one) and $W^{**}_H$ has order 1 on $(\iota^+)^\circ$ (S8: $r\partial_\mu T_\mu\to2$,
+$rA\to\frac12$, $rB\to-\frac14$, and $r\frac v2W^*$ bounded there; control: at fixed $r$, $\frac v2W^*$ grows), so
+$[\Box,\chi_K]W^{**}_H$ has order 3. All exceed $b_++2 = \beta+\frac52$ (S4). *$K^+$.* On $\{\chi_K = 1\}$,
+$(\alpha-2)->\frac12$; $\mathcal C$ and $\{\chi_K<1\}$ stay away from $K^+$. *Support.* $\chi(t^\flat_*)F_Y$ vanishes on
+$\{t^\flat_*<2\}$, as $(\Omega_*)^{\bullet,-}$ asks. $\square$
+
+Without the term $\dot\mu\Box(\chi_KW^{**}_H)$ the source near $K^+$ is $J_h-\dot\mu\Theta(K)$, stationary at leading
+order, of $K^+$-order 0, and not in (1.4) (S4's control). That is why the mass change is carried explicitly.
+
+**Theorem R3.4 (the harmonic gauge on the late region; deduced from Lemma R3.5, II.F$'$ Theorem 1.1 at $P = P_0 =
+\Box$, Theorems R2.5 and R2.7; assuming (Dyn) and (H$'$7)).** $\Box$ is 1-admissible with sf-weight $\alpha_+ =
+\alpha_{\mathrm{sf}}$ and sf-loss 0 (Theorem R2.5 (iii), in the relaxed form II.F$'$ allows, F2:717). Let $Y$ be the
+forward solution on $\Omega_*$ of $\Box Y = \chi(t^\flat_*)F_Y$ (II.F$'$ Theorem 1.1, F2:65-80), extended by 0 to $N^+$,
+$$Z := \dot\mu\chi_KW^{**}_H+Y,\qquad\dot g_H := \dot g+\mathcal L_Zg\quad\text{on }N^+.$$
+(i) $\dot g_H$ is $G$-invariant, $D\mathrm{Ric}(\dot g_H) = 0$, and $\dot g_H = \dot g$ on $N^+\cap\{t^\flat_*<2\}$; so
+it induces $(\dot\gamma,\dot k)$ exactly.
+
+(ii) $\Theta(\dot g_H) = -(1-\chi(t^\flat_*))\chi^\natural_0E^\Upsilon G\dot g$. So $\dot g_H$ is in harmonic gauge on
+$N^+\cap\{t^\flat_*\ge3\}$, the whole late region out to $\mathscr I^+$, and near $\Sigma^\circ$, where $\chi^\natural_0
+= 0$ (K:76-77, 84-86); in general not on $\{t^\flat_*<3,\ \chi^\natural_0\ne0\}$.
+
+(iii) On each $\{r_0<r\le R',\ t_*\ge T'\}$, with the derivatives of (R2.2),
+$$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le Ct_*^{-1/2},\qquad c_\infty = \frac1{4\pi^2}\int\ell\big(
+\chi'J_h+[\Box,\chi']Y\big)\,dv,$$
+$\chi'$ of (A8): a horizon charge, as in R2.12 (iii).
+
+(iv) For $Y_h$ on $N^+$ with $\Box Y_h = 0$ and compactly supported Cauchy data on $\Sigma^\circ$, $\dot g_H+\mathcal
+L_{Y_h}g$ has (ii), induces $(\dot\gamma,\dot k)$ up to the data of $\mathcal L_{Y_h}g$, and has (iii) with
+$c_\infty+Q[Y_h]/4\pi^2$.
+
+*Proof.* (i) $\chi_K = 0$ on $\{t^\flat_*<10\}$ and $Y = 0$ on $\{t^\flat_*<2\}$; $D\mathrm{Ric}(\mathcal L_Zg) = 0$
+(IX Lemma 2.1 (b)); $\dot g$ induces the data (VIII:314-317); $G$-invariance as in R2.12 (i). (ii) By (R3.2),
+$\Theta(\dot g_H) = \Theta(\dot g)+\dot\mu\Box(\chi_KW^{**}_H)+\chi(t^\flat_*)F_Y = (1-\chi(t^\flat_*))(\Theta(\dot g)+
+\dot\mu\Box(\chi_KW^{**}_H))$, and $\chi_K = 0$ where $\chi(t^\flat_*)<1$. There $\dot\Upsilon^\natural(\dot g) = 0$
+(VIII:132-133 on $\mathcal D$, (R3.1) with $\chi_K = 0$ and $\chi^\natural_0 = 1$ on $\Omega_*\cap\{t^\flat_*<10\}$),
+and $\dot\Upsilon^\natural = -\Theta-\chi^\natural_0E^\Upsilon G$ (R2.10's computation with the cut-off: C3:59-60,
+K:93-94, VIII:36-41). (iii) Cone localisation with $\chi'$ of (A8): $\chi'Y$ is the forward solution of
+$\Box(\chi'Y) = \chi'J_h+[\Box,\chi']Y$, as $\chi(t^\flat_*) = 1$ and $F_Y = J_h$ on $\mathrm{supp}\,\chi'$. The first
+term is in Theorem R2.5's class by Proposition R3.2 and Lemma R2.11. The second is supported in $\mathrm{supp}\,
+d\chi'$, a compact set and a cone in $(\iota^+)^\circ$, where $Y\in H^{k,(\alpha_I,\alpha_+,-1)}_{\mathrm b}$ (sf-loss
+0) and $[\Box,\chi']\in\rho_+^2\mathrm{Diff}^1_{\mathrm b}$ (S6) give sf-weight $\alpha_++2 = \alpha_{\mathrm{sf}}+2$,
+Theorem R2.5's (b-regularity gives every 3b-order on the cone, as in Lemma R2.11's proof). Theorem R2.7 gives
+$|\chi'Y-c(t_*)W^*|\le Ct_*^{-1/2}$. For large $t_*$, $\chi' = 1$ on compact $r$-sets and $d\chi' = 0$ near the horizon,
+so $\ell$ of the source is $\ell(J_h) = -\ell(\Theta(h)) = O(v^{-w+\epsilon'})$ (Theorem 2.3) and $c(t_*)\to c_\infty$
+at the rate $t_*^{-(w-1)+\epsilon'}$. On compact $r$-sets at late times $Y = \chi'Y$ and $\dot g_H-\dot\mu K^* =
+h+\mathcal L_Yg$; conclude as in R2.12 (iii). (iv) $Y_h$ has compactly supported data on every later slice (finite
+speed of propagation), so Corollary R2.8 applies; $\mathcal L_{Y_h}g$ is linear in $Y_h$. $\square$
+
+So the harmonic gauge holds on everything but a transition region bounded in $t^\flat_*$, where the solution is Part
+VIII's own, in its generalised harmonic gauge $\dot\Upsilon^\natural = 0$.
+
+*The obstruction down to $\Sigma^\circ$.*
+
+(Ext$\Box$) Let $Z_1$ be the solution on $N^+$ of $\Box Z_1 = F_Y$ with zero Cauchy data on $\Sigma^\circ$ (IX Lemma 1.1
+on $\Omega^\sharp$, with $F_Y|_{N^+}$ extended across $\Sigma^\circ$; unique on $N^+$ by Lemma R3.1). There are
+$\beta\in(0,\delta_\sharp)$ and $p>\frac12+\beta$ such that $Z_1$ and its b-derivatives are $O(\rho_I^p)$ near
+$\mathscr I^+$ on $N^+\cap\{2\le t^\flat_*\le3\}$.
+
+**Proposition R3.6 (conditional on (Ext$\Box$); deduced, computed S5, S7).** Under (Ext$\Box$), with $Z :=
+\dot\mu\chi_KW^{**}_H+Z_1$, $\dot g_H := \dot g+\mathcal L_Zg$ is in harmonic gauge on all of $N^+$, induces
+$(\dot\gamma,\dot k)$ exactly, and satisfies Theorem R3.4 (iii)-(iv).
+
+*Proof.* $\Box Z = -\Theta(\dot g)$ on $N^+$. $Z_1 = 0$ and $\nabla_\nu Z_1 = 0$ on $\Sigma^\circ$, so $\mathcal
+L_{Z_1}g$ induces zero data (IX Lemma 2.1 (f)). $\chi(t^\flat_*)Z_1$ is the forward solution on $\Omega_*$ of
+$\Box(\chi Z_1) = \chi F_Y+[\Box,\chi(t^\flat_*)]Z_1$. The first term is Lemma R3.5's. The second is supported in
+$\{2\le t^\flat_*\le3\}$, bounded in $t_*$, and meets $\partial M$ only at $\mathscr I^+$; $t^\flat_*$ is smooth near
+$\mathscr I^+$ and equals $t_*$ there (K:34-35), so it is $t_*+\kappa/r+\ldots$, and $[\Box,\chi(t^\flat_*)]$ gains one
+order at $\mathscr I^+$ (S5; control: a cut-off in the static time gains none). So the second term has
+$\mathscr I^+$-order $p+1$, and lies in (1.4) iff $p>\frac12+\beta$ (S7; control: $p = \frac12+\beta$ fails). The
+proof of Theorem R3.4 (iii) then applies to $\chi(t^\flat_*)Z_1$. $\square$
+
+*What (Ext$\Box$) needs, and why it is open.* On $N^+\cap\{t^\flat_*<3\}$, $F_Y = \chi^\natural_0E^\Upsilon G\dot g$,
+supported where $\chi^\natural_0\ne0$: near infinity $\{t_{\mathrm{IVP}}>r/8\}\cup\{t_*>\frac12\}$ (K:74; C3:52-55),
+a region that reaches the interior of $I_0$ and $\mathscr I^+$. Its $I_0$-weight is one above $\dot h$'s on the exterior
+($\ell^\flat_0$, VIII:144-147), its $\mathscr I^+$-order $\lambda_\sharp+1$ (S2). The expected $\mathscr I^+$-order of
+$Z_1$ is $\frac32$, the radiation field, against the $\frac12+\beta<1$ asked. But the write-out's exterior theory is
+stated and proved for $L$ only: Part IV Proposition 3.1, the b-energy estimate near $I_0\cup\mathscr I^+$
+(`PART-IV-EB.md`:196-202, its multiplier built on $L$'s edge-b form, Lemma 2.2 at 114-120), Part IV$''$ Theorem 2.4
+(`PART-IV3-NM.md`:229-236) and III.C$'$ Theorem 3.1. II.F$'$ does not reach $I_0$: its domain is $\Omega_*$, and it
+leaves even $\mathrm{cl}_M\{t_*\ge1\}$ unproved (F2:110-114). So (Ext$\Box$) asks for a $\Box$-version of Part IV
+Proposition 3.1 at $\bar S = 0$, with a weight at $\mathscr I^+$ above $\frac12+\beta$; it is not written. Other Cauchy
+data for the gauge vector do not help: the source near $I_0$ is fixed by $\dot g$.
+
+### R3.4 The rate
+
+Not attempted. Task 4 was to be attempted only if (S$_K$) and the harmonic gauge on all of $N$ both closed, and the
+latter does not (R3.3). What a better rate needs is unchanged from R2.5 item 3: the $K^+$-expansion of $\Box$'s
+resolvent at zero energy beyond the simple pole of Proposition 2.5, the analogue of III.I for $\Box$. The rate in
+Theorem R3.4 (iii) and Corollary R3.3 is $t_*^{-1/2}$, what square integrability in time gives.
+
+### R3.5 What is not proved
+
+1. *(Ext$\Box$)*, so the harmonic gauge down to $\Sigma^\circ$ (Proposition R3.6 is conditional on it). Precisely: a
+   weighted Cauchy estimate for $\Box$ on $N^+\cap\{t^\flat_*\le3\}$ near $I_0\cup\mathscr I^+$, for sources of
+   $I_0$-weight one above $\ell^\flat_0$ and $\mathscr I^+$-order $\lambda_\sharp+1$, giving $\mathscr I^+$-order above
+   $\frac12+\beta$ on $\{2\le t^\flat_*\le3\}$.
+2. *A rate better than $t_*^{-1/2}$*: the analogue of III.I for $\Box$ (R3.4).
+3. *II.F$'$ Theorem 1.1 at $P_0 = \Box$* rests on Theorem R2.5 (iii) and inherits III.H$'$'s obligation (H$'$7), as
+   for $L_{b_0}$; (Dyn) is assumed throughout, as III.D does.
+4. *A second reading* of R2.1-R2.5, R2.12, (A8) and this round.
+
+### R3.6 Findings, labels and files (round 3)
+
+*Findings.*
+- (GD11) Part IX's repair (D610) is absorbed with no conclusion moved: round 1's $N^\circ$, $N^{\mathcal D}$ read
+  $U^\sharp$, $\Omega^\sharp$, $N^+$ ((A1)-(A7)); the harmonic-gauge vector's source is extended across $\Sigma^\circ$,
+  and the extension does not reach $N^+$ (Lemma R3.1; P1, $\Sigma^\circ$ noncharacteristic for $\Box$ with coefficient
+  $-g^{tt}$). $G$-invariance follows from that independence, without averaging.
+- (GD12) (S$_K$) holds for every $\beta\in(0,(1-e_\Upsilon)\gamma_\Upsilon)$ (Proposition R3.2): $h'$ has
+  $\iota^+$-order $\lambda_\sharp$ exactly, and on $\{\chi_K = 1\}$ $D\vartheta_{\mathrm{tot}}(\vec p\,')$ is a sum of
+  row terms of joint orders $(\mathrm{Re}\,\lambda+1,\kappa_\nu)$. Theorem R2.12 is deduced without its hypothesis
+  (Corollary R3.3). The room is the constraint damping alone.
+- (GD13) Round 2's cut-off $\chi'$ was built from III.H (1.2)'s $\chi_K$, not Part VIII's (A8); repaired, constants only.
+- (GD14) $E^\Upsilon G$ does not see the radiation field (S1), so the harmonic-gauge source has $\mathscr I^+$-order
+  $\lambda_\sharp+1$ and lies in II.F$'$ (1.4) (Lemma R3.5). The harmonic gauge holds on the whole late region
+  $N^+\cap\{t^\flat_*\ge3\}$, out to $\mathscr I^+$, with the solution equal to Part VIII's near $\Sigma^\circ$ and the
+  same settling on compact sets (Theorem R3.4).
+- (GD15) Down to $\Sigma^\circ$ the obstruction is one estimate, (Ext$\Box$): $\mathscr I^+$-order above $\frac12+\beta$
+  for the gauge vector on a bounded $t_*$-slab, which needs an exterior estimate for $\Box$ that the write-out proves
+  for $L$ only (Proposition R3.6).
+- (GD16) In the class only the rows of types s0, s2, c0 carry parameters (K5).
+
+*Labels.* Computed: `checks/gdix5.py` P1 (identities at random rational points to 60 digits, as `ix5.py`),
+`checks/gdsk5.py` K1-K5 and `checks/gdscri5.py` S1-S8 (exact, sympy; K4, S2, S4, S7 at exact rational samples); each
+with a control that fails. Deduced: Lemma R3.1, Proposition R3.2, Corollary R3.3, Lemma R3.5, Theorem R3.4, Proposition
+R3.6 (conditional on (Ext$\Box$)), the amendments (A1)-(A8). Everything that uses III.D, III.D$'$ or Theorem R2.5
+assumes (Dyn), and Theorem R3.4 and Corollary R3.3 also (H$'$7). READ: the file:line citations above. Standard:
+b-Sobolev embedding for a b-density.
+
+*Proposed replacement for the paper's sentences on decay in harmonic gauge* (section 8.2, "In harmonic gauge the
+spherically symmetric part ... at the rate τ^(−1/2) ..."; section 9, "... and in the harmonic gauge ..., which argue
+decay in those gauges, remain deductions"):
+
+> In harmonic gauge every perturbation in the class has a representative that equals the solution of section 8.2 near
+> the initial surface and is in harmonic gauge on the whole late region, out to null infinity; on each region r ≤ R it
+> settles to μ̇K* + c π_{W*}, c a conserved horizon charge, at the rate τ^(−1/2), and a gauge change with compactly
+> supported data moves only c (deduced from the supplement's proved parts, with the horizon and trapping hypotheses its
+> Part VI verifies and one order condition it carries; supplement GAUGEDECAY5 R3.4, `checks/gdsk5.py`,
+> `checks/gdscri5.py`). The harmonic gauge down to the initial surface needs one estimate more, a weighted energy
+> estimate for the 1-form wave operator near spatial infinity, which is not written; τ^(−1/2) is what square
+> integrability in time gives.
+
+*Files.* `GAUGEDECAY5.md` (this section appended); `checks/gdix5.py` with `checks/gdix5.out`; `checks/gdsk5.py` with
+`checks/gdsk5.out`; `checks/gdscri5.py` with `checks/gdscri5.out`.
