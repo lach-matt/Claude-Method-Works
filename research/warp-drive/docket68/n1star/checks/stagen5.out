@@ -1,5 +1,5 @@
-  S1 N1STAR-PROOF.md md5 fc53b76ab873cedb61761c20bc202bb8; lines: 5.4 stages 1..N 540; 6.2 statement 628; 6.2 proof range
-      631; (F1) 607; (F2) 608; 6.5 uses 6.2 753; 6.4 uses 6.2 799; 6.4 seed data 806
+  S1 N1STAR-PROOF.md md5 02e7617602841a350a75349c44ab5fb6; lines: 5.4 stages 1..N 543; 6.2 statement 631; 6.2 proof range
+      634; (F1) 610; (F2) 611; 6.5 uses 6.2 756; 6.4 uses 6.2 802; 6.4 seed data 809
 S1 PASS
   S2 lowest order - N at which stage N's unknowns enter: D mean: 0 (m_j with d_X); D phase: 0 (dphi_j d_th W); D osc: 0
       (lam^-1 d_th gh_j); RicH mean: -1 (m_j(ell, ell) in e_j, against d_th^2 W); RicH phase: -1 (dv x dphi_j d_th^2 W
