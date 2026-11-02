@@ -1,0 +1,2 @@
+X1 DRic + delta^* Theta = -(1/2) box (flat): PASS | control with -delta^* Theta: False
+X2 2 Theta delta^* = -box (flat): PASS | control without the trace term: False
