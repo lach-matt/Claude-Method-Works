@@ -33,8 +33,8 @@ L2, recomputed here).
      gives log10 M_1456 >= 8091.6 (against B's 8573.89); cross-checked against CONSTANTS5's e_k (k <= 14).  With it, the
      UPPER bounds of the thresholds that decrease in M_m (Lam_4, Lam_5, Lam_5', Lam_8b), and the LOWER bounds with B,
      for round 1's constants, A15's and the Duffin-Schaeffer ones; the certified bound of lam_L with Lemma L.4' is
-     min(lambda0 < 0.0024433, Lam_4(0) upper, Lam_5' upper).  Control: the Taylor bound with m! mutated to (m + 40)!
-     exceeds B(1456), so it is refuted.
+     min(lambda0 < 0.0024433, Lam_4(0) upper, Lam_5' upper).  Control: the Taylor bound at k = 14 with k! mutated to
+     (k + 2)! exceeds CONSTANTS5's certified e_14, so it is refuted.
 
 Labels: M1 READ; M2, M4, M5 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n,
 floating point at n = 1455).  Every bound is on the threshold the proof delivers, not on the largest lam for which
@@ -271,9 +271,10 @@ def taylor_low(m, extra=0):
 def m5(control=False):
     lb_up, _ = LL.best_B(MM)                              # log10 B(1456): an upper bound of log10 M_1456
     if control:
-        # a mutation: m! -> (m + 40)!; the "lower bound" then exceeds the upper bound B, i.e. it is refuted
-        low_mut, _, _ = taylor_low(MM, extra=40)
-        return low_mut <= mp.mpf(lb_up)
+        # a mutation of the computed path: k! -> (k + 2)! at k = 14; the "lower bound" then exceeds CONSTANTS5's
+        # certified upper value e_14 (refuted); the factor of the mutation is 15 x 16 = 240
+        low_mut, _, _ = taylor_low(14, extra=2)
+        return low_mut <= mp.log10(LL.E_K[14])
     low, x_at, _ = taylor_low(MM)
     cross = all(taylor_low(k)[0] <= mp.log10(LL.E_K[k]) for k in range(1, 15))
     Lp = {'low': low/MM, 'B': mp.mpf(lb_up)/MM}         # log10 M_m^(1/m), both directions
