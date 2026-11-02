@@ -27,7 +27,8 @@ and one quadrature fails. With two families the same induction needs the outgoin
   P4 (exact) the mixed base: on stage0two5.py's general round double-null background with both families (H =
      h(cos^2 2th); each chi with its two harmonics related by sigma as S-oddness requires), the mixed harmonics (n1, n2),
      n1 n2 != 0, of R^(0) are S-even: J R^(0)_(-n)(sigma X) J i^(n1 + n2) = R^(0)_n(X) (the phase factor of s_k -> 3 pi/2
-     - s_k on e^(i n_k s_k)); so ghat_2's mixed harmonics, fixed by division by -e^(-2 sig) n1 n2 (even in n), are S-even,
+     - s_k on e^(i n_k s_k)); so ghat_2's mixed harmonics, fixed by division by -e^(-2 sig) n1 n2 (even in n), are
+     S-even,
      the parity (-1)^2 the induction asks of stage 2. Control: the outgoing family with one quadrature: some mixed
      harmonic is not S-even.
 
@@ -95,9 +96,9 @@ def p1(single=False):
     c = sp.simplify(dchi/op)
     chi_only = sp.diff(c, r) == 0 and not c.has(chi) and c != 0 and all(
         zero(R0c[k][1] - R0[k][1]) for k in R0 if k != (0, 0))
-    # transport: c (d_r + 3/(2r)) Y + F = 0, Y = d_s chi; Y = -(1/c)(-2 f r^-2 + k r^(-3/2)) solves it
+    # transport: c (d_r + 3/(2r)) Y + F = 0, Y = d_s chi; Y = (2 f/c)(r^-2 - k r^(-3/2)), k(u) fixing the data
     k = sp.Function("k")(v)
-    Y = -(-2*f*r**-2 + k*r**sp.Rational(-3, 2))/c
+    Y = 2*f*(r**-2 - k*r**sp.Rational(-3, 2))/c
     solves = zero(c*(sp.diff(Y, r) + 3*Y/(2*r)) + F)
     chis = sp.integrate(sp.expand(Y), s)
     W = W0.copy()
@@ -208,14 +209,16 @@ def main():
     good1 = I["ell"] and I["rm1"] and I["form"] and I["chi_only"] and I["solves"] and I["e2"] and I["feven"] and \
         I["wodd"]
     print("  P1: ell_out = g0^-1 du = -d_r: %s; R^(-1) = 0: %s; F_out = r^-3 f(u, th, s): %s; chi enters only the uu\n"
-          "      harmonic, as c (d_r + 3/(2r)) d_s chi with c = %s: %s; the transport solution solves it: %s, and (E2)'s\n"
+          "      harmonic, as c (d_r + 3/(2r)) d_s chi with c = %s: %s; the transport solution solves it: %s,\n"
+          "      and (E2)'s"
           "      uu second harmonic vanishes with it: %s; F_out S-even: %s; W_out = W_TT + chi_out du^2 S-odd: %s"
           "  [%.0f s]" % (I["ell"], I["rm1"], I["form"], I["c"], I["chi_only"], I["solves"], I["e2"], I["feven"],
                           I["wodd"], time.time() - t0), flush=True)
     ok &= good1
     good2, nz, bad = p2(W)
     print("  P2: R^(1)[g0 + lam W_out] under sigma^* with s2 -> 3 pi/2 - s2: nonzero in %s;\n"
-          "      odd in every component: %s; components where it fails: %s  [%.0f s]" % (nz, good2, bad, time.time() - t0),
+          "      odd in every component: %s; components where it fails: %s  [%.0f s]"
+          % (nz, good2, bad, time.time() - t0),
           flush=True)
     ok &= good2
     Wc, Ic = p1(single=True)
@@ -229,7 +232,8 @@ def main():
     ok &= good3
     ctl = ctl or c3
     good4, cnt, bad4 = p4()
-    print("  P4: R^(0)'s mixed harmonics (both families, stage0two5) S-even: %s (%d nonzero entries checked; failures %s)"
+    print("  P4: R^(0)'s mixed harmonics (both families, stage0two5) S-even: %s\n"
+          "      (%d nonzero entries checked; failures %s)"
           "  [%.0f s]" % (good4, cnt, bad4, time.time() - t0), flush=True)
     good4c, cntc, bad4c = p4(single=True)
     print("  P4 control (family out with one quadrature): S-even: %s; failures, first six: %s  [%.0f s]"

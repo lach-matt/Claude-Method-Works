@@ -60,6 +60,7 @@ def check(name, ok, msg=""):
 
 
 lam = sp.Symbol("lambda", positive=True)
+Li = sp.Symbol("Li", positive=True)  # stands for 1/lam in the two-scale derivatives
 t, x1, x2, x3, x4, th = sp.symbols("t x1 x2 x3 x4 theta", real=True)
 XS = [t, x1, x2, x3, x4]
 R = sp.sqrt(x1**2 + x2**2 + x3**2 + x4**2)
@@ -79,36 +80,50 @@ def lam_order(expr, B=40):
 
 
 def D(expr, a, vfield=None):
-    """two-scale derivative along a coordinate (a int) or along a vector field (list of 5 coefficients)"""
+    """two-scale derivative along a coordinate (a int) or along a vector field (list of 5 coefficients);
+    Li stands for 1/lam"""
     if vfield is None:
-        return sp.diff(expr, XS[a]) + sp.diff(V, XS[a])/lam*sp.diff(expr, th)
-    return sum(c*(sp.diff(expr, XS[i]) + sp.diff(V, XS[i])/lam*sp.diff(expr, th)) for i, c in enumerate(vfield)
+        return sp.diff(expr, XS[a]) + sp.diff(V, XS[a])*Li*sp.diff(expr, th)
+    return sum(c*(sp.diff(expr, XS[i]) + sp.diff(V, XS[i])*Li*sp.diff(expr, th)) for i, c in enumerate(vfield)
                if c != 0)
+
+
+def order_L(expr, j=0):
+    """lam-order of lam^j * expr, expr a polynomial in Li = 1/lam: j - (top Li-degree with nonzero coefficient)"""
+    P = sp.Poly(sp.expand(expr), Li)
+    degs = [m[0] for m, c in zip(P.monoms(), P.coeffs()) if sp.simplify(c) != 0]
+    return j - max(degs) if degs else sp.oo
+
+
+def top_L(expr):
+    P = sp.Poly(sp.expand(expr), Li)
+    d = P.degree()
+    return d, P.coeff_monomial(Li**d)
 
 
 def p1():
     print("P1  the two-scale chain rule: one lam^-1 per Cartesian derivative, none per rotation")
     A = sp.Function("A")(*XS)
     j = 1
-    F = lam**j*A*sp.sin(th)
+    F = A*sp.sin(th)  # times lam^j
     ok = True
     for alpha in ((0,), (1,), (0, 2), (0, 1, 3), (1, 1, 4)):
         e = F
         for a in alpha:
             e = D(e, a)
-        o = lam_order(e)
+        o = order_L(e, j)
         ok = ok and o == j - len(alpha)
     check("P1a D^alpha (lam A sin th) has order 1 - |alpha| exactly (five multi-indices up to order 3)", ok)
     Om = [0, -x2, x1, 0, 0]  # x1 d_2 - x2 d_1
     e = D(D(F, None, Om), None, Om)
-    check("P1b two rotations: order still 1 (Omega v = 0)", lam_order(e) == 1)
+    check("P1b two rotations: order still 1 (Omega v = 0)", order_L(e, 1) == 1)
     # validate the two-scale formula against the true derivative of A sin(v/lam)
     true = sp.diff(A*sp.sin(V/lam), x1, t)
-    two = D(D(A*sp.sin(th), 0), 1).subs(th, V/lam)
+    two = D(D(A*sp.sin(th), 0), 1).subs({th: V/lam, Li: 1/lam})
     check("P1c the two-scale formula equals the true d_1 d_t of A sin(v/lam)", sp.simplify(true - two) == 0)
     Nr = [0, x2, x1, 0, 0]  # x2 d_1 + x1 d_2: not a rotation
     e = D(F, None, Nr)
-    check("P1d control: x2 d_1 + x1 d_2 (not a rotation) costs lam^-1: order 0", lam_order(e) == 0)
+    check("P1d control: x2 d_1 + x1 d_2 (not a rotation) costs lam^-1: order 0", order_L(e, 1) == 0)
 
 
 def ks():
@@ -123,8 +138,8 @@ def ks():
 def p2():
     print("P2  the coefficients of Lemma 11.0's energy identity")
     W = sp.Function("W")(*XS)
-    e = D(lam*W*sp.sin(th), 0)
-    check("P2a d_t (lam W sin th) has order 0: the kernel ||d g|| <= C t^(-3/2) is lam-free", lam_order(e) == 0)
+    e = D(W*sp.sin(th), 0)
+    check("P2a d_t (lam W sin th) has order 0: the kernel ||d g|| <= C t^(-3/2) is lam-free", order_L(e, 1) == 0)
     g0, g0i, mu = ks()
     check("P2b g0 g0^-1 = 1 (5D Kerr-Schild, det g0 = -1)",
           sp.simplify(g0*g0i - sp.eye(5)) == sp.zeros(5, 5) and sp.simplify(g0.det() + 1) == 0)
@@ -145,16 +160,16 @@ def p2():
     check("P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv", sp.simplify(lhs - rhs) == 0)
     # the quasilinear term of (11.4) on lam [W]: its lam^-1 part is (1/2)(g^-1 - g0^-1)^(ab) d_a v d_b v (-W sin th)
     Wf = sp.Function("Wf")(*XS)
-    Y = lam*Wf*sp.sin(th)
+    Y = Wf*sp.sin(th)  # times lam
     hess = sp.Matrix(5, 5, lambda a, b: D(D(Y, a), b))
     Hm = sp.Matrix(5, 5, lambda a, b: sp.Symbol(f"H{min(a, b)}{max(a, b)}"))
     q = sp.expand(sum(Hm[a, b]*hess[a, b] for a in range(5) for b in range(5))/2)
-    lead = sum(term for term in sp.Add.make_args(q) if term.as_coeff_exponent(lam)[1] == -1)
-    target = -sp.Rational(1, 2)/lam*Wf*sp.sin(th)*sum(Hm[a, b]*sp.diff(V, XS[a])*sp.diff(V, XS[b])
-                                                       for a in range(5) for b in range(5))
+    deg, lead = top_L(q)  # lam * Li^deg: order 1 - deg
+    target = -sp.Rational(1, 2)*Wf*sp.sin(th)*sum(Hm[a, b]*sp.diff(V, XS[a])*sp.diff(V, XS[b])
+                                                  for a in range(5) for b in range(5))
     check("P2d (1/2) H^ab d_a d_b (lam [W]) = -(1/2) lam^-1 H(dv, dv) [W] + O(lam^0): with H(dv, dv) = -u(ell, ell)"
-          " the term -(1/2) lam^-1 ... is lam^-1 u_1(ell, ell) [d_th^2 W]/2, linear in u_1",
-          sp.simplify(lead - target) == 0)
+          " the term is +(1/2) lam^-1 u_1(ell, ell) [W], linear in u_1, at order -1",
+          1 - deg == -1 and sp.simplify(lead - target) == 0)
     tt = sp.simplify((sp.Matrix([1, 0, 0, 0, 0]).T*first*sp.Matrix([1, 0, 0, 0, 0]))[0, 0] - rhs)
     check("P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell)", tt != 0)
 
