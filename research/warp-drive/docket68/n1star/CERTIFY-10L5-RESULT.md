@@ -22,11 +22,14 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
    - *Computed (seed 1):* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero
      structure: the dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40
-     (`growth5`: 1.419), 28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40,
+     (`growth5`: 1.419), 28 % of the columns at v = 1.50 against 29 % (counts over unlike radii and columns; at one
+     radius the band edges agree within a column spacing to v = 1.525, section 6.1, V3). As the data cone moves out,
+     R0 = 10, 20, 40,
      the largest difference of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows),
      and from 0.110 to 0.051 at 800 rows (R0 = 10, 20; round 2), while the leaves' own zero stays 0.22 away. But at
      fixed R0 it grows from 400 to 800 rows at v ≥ 1.3 (0.025 → 0.051 at R0 = 20, v = 1.375): the fall with R0 is
-     shown at two resolutions, the agreement itself only to v ≈ 1.2 (0.011 at 800 rows, R0 = 20; section 6.1, V2). At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
+     shown at two resolutions, the agreement itself only to v ≈ 1.2 (0.011 at 800 rows, R0 = 20; section 6.1, V2).
+     At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
    - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
      recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
      to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
