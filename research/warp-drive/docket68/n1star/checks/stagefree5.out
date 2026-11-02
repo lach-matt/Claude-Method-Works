@@ -10,3 +10,8 @@ G2 PASS
       with x_1 = 2.326e-5 (env(x_1) = lam^18.671; x_b = 1.0e-500, window x_w = 3.1021e-5), free term at the window below
       a tenth of lam^3 env: True
 G3 PASS
+  G1 h = 2 grad grad f, f(v, r, th) arbitrary: dD(h) = d(box f): True; dRic(h) = 0 (15 components): True; dRic^H(h) =
+      -grad grad(box f): True  [229 s]
+G1 PASS
+stagefree5: all checks pass, every control fails  [234 s]
+exit 0
