@@ -280,12 +280,13 @@ def s7():
     Rds = sorted([sp.simplify(r - 1) for r in roots], key=lambda e: sp.N(e.subs({psi: -0.3, f: 0.5})))
     ok2 = sp.simplify(Rds[0] + 1) == 0 and sp.simplify(Rds[1] - E * f / (2 - E * f)) == 0
     import math
+    fq = sp.lambdify((psi, f), qmax, 'math')             # the computed bounds, evaluated on the grid
+    fhi = sp.lambdify((psi, f), Rds[1], 'math')
     worst_ang, worst_lo, worst_hi, trapped_ok = 0.0, 0.0, -9.0, True
     for i in range(41):
         ps = -3.0 + 3.0 * i / 40
         for j in range(61):
             ff = -5.0 + 6.0 * j / 60
-            e = math.exp(ps)
             ang = math.sqrt(float(fq(ps, ff)))
             hi = float(fhi(ps, ff))
             worst_ang = max(worst_ang, ang)
