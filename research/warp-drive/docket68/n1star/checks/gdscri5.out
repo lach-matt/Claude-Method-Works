@@ -11,3 +11,5 @@ S3 PASS
   S4 control (no W** cut-off term: K+-order 0): the source lies in (1.4) at the samples: False; int_0^1 x^-1 dx = oo
 S4 PASS
   S5: r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', True), ('1', True)]
+  S5 control (chi(t), t = T + r): r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', False), ('1', False)]
+S5 PASS
