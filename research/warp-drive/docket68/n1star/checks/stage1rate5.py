@@ -115,8 +115,7 @@ def sup_kappa(M, Q, mm, kk, ncell=400):
     fang = to_arb_fn(sp.simplify(M[2, 2] / Q[2, 2]), (mm, kk))
     fdetq = fA
     best, worst_r = flint.arb(0), None
-    ratio = (B_HI / A_LO) ** Fr(1, ncell) if False else None
-    rs = [A_LO * (B_HI / A_LO) ** 0 + (B_HI - A_LO) * Fr(i, ncell) for i in range(ncell + 1)]
+    rs = [A_LO + (B_HI - A_LO) * Fr(i, ncell) for i in range(ncell + 1)]
     mup = Fr(2, 9) * C_ENV ** 2
     for i in range(ncell):
         r0, r1 = rs[i], rs[i + 1]
