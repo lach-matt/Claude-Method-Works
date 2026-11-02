@@ -11,10 +11,11 @@ lives in the domain of dependence of the initial sphere (its Theorem 4.3, p. 14)
 T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 + sin^2 th dphi1^2 + cos^2 th dphi2^2):
 
   B1 (exact: the symbol symbolic, its comparison at three rational points with every function explicit) the class
-     constraints in the algebraic-hyperbolic split: with K_RR = G kappa, K_Rth = sqrt(G) p, K_thth = R^2 (Kt/3 + s1), K_11 = G1 (Kt/3 + s2), K_22 = G2 (Kt/3 - s1 - s2) (Kt := K^l_l on the spheres, s1, s2
-     the free trace-free part), the Hamiltonian constraint is linear in kappa with coefficient 2 Kt, and after kappa is
-     eliminated the principal symbol of (M_R, M_th) in (Kt, p) has determinant proportional to [Rac16] (4.22):
-     Kt (nhat.xi)^2 - 2 (nhat.xi)(k.xi) + kappa |xi_S|^2. So in the class the angular characteristic speeds are
+     constraints in the algebraic-hyperbolic split: with K_RR = G kappa, K_Rth = sqrt(G) p, K_thth = R^2 (Kt/3 + s1),
+     K_11 = G1 (Kt/3 + s2), K_22 = G2 (Kt/3 - s1 - s2) (Kt := K^l_l on the spheres, s1, s2 the free trace-free part),
+     the Hamiltonian constraint is linear in kappa with coefficient 2 Kt, and after kappa is eliminated the principal
+     symbol of (M_R, M_th) in (Kt, p) has determinant proportional to [Rac16] (4.22): Kt (nhat.xi)^2 - 2 (nhat.xi)
+     (k.xi) + kappa |xi_S|^2. So in the class the angular characteristic speeds are
      dth/dR = sqrt(G) (p/R^2 +- sqrt(p^2/R^4 - kappa Kt/R^2))/Kt: real exactly where kappa Kt < p^2/R^2.
      Control (must fail): kappa treated as free data (not eliminated): the determinant is not (4.22).
   B2 (exact, sympy; the general case exact at four rational points) Part I's chart g0 = -e^(2 psi) f dvhat^2
@@ -32,10 +33,11 @@ T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 +
      the spread Delta(R2) = int_a^R2 c dR of a perturbation integrated inward from R2 to a are printed.
   B4 (exact: the construction symbolic for arbitrary G, kappa0, Y0, psi; its residuals exact at three rational points
      with explicit functions) compactly supported solutions of the linearised constraints in angle AND radius on every
-     round slice (gamma = G dR^2 + R^2 dOmega_3^2, K0 = kappa0 nhat nhat + Y0 R^2 dOmega_3^2, G, kappa0, Y0 arbitrary): with
-     dgamma = 0 and a stream function psi(R, th) of compact support, dKt = e^(int a) (sin th cos th)^-1 d_th psi,
-     dp = R^2 e^(int a) (sqrt(G) sin th cos th)^-1 d_R psi (a(R) computed), ds1 = 0, ds2 fixed algebraically by M_th
-     (its coefficient is computed and nonzero for 0 < th < pi/2): the linearised H, M_R, M_th vanish.
+     round slice (gamma = G dR^2 + R^2 dOmega_3^2, K0 = kappa0 nhat nhat + Y0 R^2 dOmega_3^2, G, kappa0, Y0
+     arbitrary): with dgamma = 0 and a stream function psi(R, th) of compact support, dKt = e^(int a) (sin th
+     cos th)^-1 d_th psi, dp = R^2 e^(int a) (sqrt(G) sin th cos th)^-1 d_R psi (a(R) computed), ds1 = 0, ds2
+     fixed algebraically by M_th (its coefficient is computed and nonzero for 0 < th < pi/2): the linearised H, M_R,
+     M_th vanish.
      Not pure gauge (exact): a gauge perturbation (lapse N, shift X) of a round slice with dgamma = 0 has d_th N = 0 and
      X^th = 0, so its dK is th-independent; the stream perturbation is not.
      Controls (must fail): ds2 = 0 leaves M_th; the weight (sin th cos th) dropped leaves M_R.
@@ -291,7 +293,7 @@ def b3():
 
 
 def b4():
-    print("B4 (exact at rational points) compactly supported solutions of the linearised constraints on every round slice")
+    print("B4 (exact at rational points) compactly supported solutions of the linearised constraints, round slices")
     G, k0, Y0 = [sp.Function(nm)(R) for nm in ('G', 'kappa0', 'Y0')]
     eps = sp.Symbol('eps')
     dKt, dp, ds1, ds2, dkap = [sp.Function(nm)(R, th) for nm in ('dKt', 'dp', 'ds1', 'ds2', 'dkappa')]
