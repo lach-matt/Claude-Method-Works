@@ -1,0 +1,107 @@
+  the weights read off N_2 (k = 6): h/s orders 0..7, phi 0..8, Psi 0..6
+      Step 4 B.dh                                                                                   e = 0    order 7  True
+      Step 4 C.h                                                                                    e = 0    order 6  True
+      Step 4 [d^a, g^ab] d_a d_b h, g_app part (i >= 1)                                             e = 0    order 7  True
+      Step 4 [d^a, g^ab] d_a d_b h, w part (i >= 1)                                                 e = 2    order 7  True
+      Step 4 -(1/2) lam^-1 ((1 - P) s_in) G2                                                        e = 0    order 7  True
+      Step 4 lam^-1 ((ell_app - ell) . d phi_in) G2, |ell_app - ell| <= C lam                       e = 0    order 7  True
+      Step 4 -phi_in [T1]                                                                           e = 0    order 6  True
+      Step 4 (1/2) Psi_in G1                                                                        e = 0    order 6  True
+      Step 4 (1/2) c^ab d_a d_b phi_in G1, |c| <= C lam                                             e = 0    order 8  True
+      Step 4 (1/2) lam (box_app phi_in) F ghat_2: lam Psi                                           e = 1    order 6  True
+      Step 4 (1/2) lam (box_app phi_in) F ghat_2: lam^2 d^2 phi                                     e = 1    order 8  True
+      Step 4 B1 . d phi_in                                                                          e = 0    order 7  True
+      Step 4 C1 phi_in                                                                              e = 0    order 6  True
+      Step 4 N_phi^in: |w| lam^-2 |phi|                                                             e = 1    order 6  True
+      Step 4 N_phi^in: |w| lam^-1 |d phi|                                                           e = 2    order 7  True
+      Step 4 N_phi^in: |w| |d^2 phi|                                                                e = 2    order 8  True
+      Step 4 -(1/2) lam^-1 ((1 - P) s_out) G2                                                       e = 0    order 7  True
+      Step 4 lam^-1 ((ell_app - ell) . d phi_out) G2, |ell_app - ell| <= C lam                      e = 0    order 7  True
+      Step 4 -phi_out [T1]                                                                          e = 0    order 6  True
+      Step 4 (1/2) Psi_out G1                                                                       e = 0    order 6  True
+      Step 4 (1/2) c^ab d_a d_b phi_out G1, |c| <= C lam                                            e = 0    order 8  True
+      Step 4 (1/2) lam (box_app phi_out) F ghat_2: lam Psi                                          e = 1    order 6  True
+      Step 4 (1/2) lam (box_app phi_out) F ghat_2: lam^2 d^2 phi                                    e = 1    order 8  True
+      Step 4 B1 . d phi_out                                                                         e = 0    order 7  True
+      Step 4 C1 phi_out                                                                             e = 0    order 6  True
+      Step 4 N_phi^out: |w| lam^-2 |phi|                                                            e = 1    order 6  True
+      Step 4 N_phi^out: |w| lam^-1 |d phi|                                                          e = 2    order 7  True
+      Step 4 N_phi^out: |w| |d^2 phi|                                                               e = 2    order 8  True
+      Step 5 (1/2) P s_in, for ||phi||                                                              e = 0    order 0  True
+      Step 5 (1/2) P s_in, for lam^j ||d^j d phi||                                                  e = 0    order 7  True
+      Step 5 (1/2) P s_in, for lam^(j+1) ||d^j d_x^2 phi|| (Bernstein)                              e = 0    order 7  True
+      Step 5 [d^a, L_in] phi (smooth coefficients, i >= 1)                                          e = 0    order 7  True
+      Step 5 (1/2) P s_out, for ||phi||                                                             e = 0    order 0  True
+      Step 5 (1/2) P s_out, for lam^j ||d^j d phi||                                                 e = 0    order 7  True
+      Step 5 (1/2) P s_out, for lam^(j+1) ||d^j d_x^2 phi|| (Bernstein)                             e = 0    order 7  True
+      Step 5 [d^a, L_out] phi (smooth coefficients, i >= 1)                                         e = 0    order 7  True
+      Step 6 P box s_in: c1 . dh                                                                    e = 0    order 7  True
+      Step 6 P box s_in: c0 h                                                                       e = 0    order 6  True
+      Step 6 P box s_in: c2 . d phi_in, c2 . d phi_out                                              e = 0    order 7  True
+      Step 6 P box s_in: c3 phi_in, c3 phi_out                                                      e = 0    order 6  True
+      Step 6 P box s_in: -q c_in Psi_out (the coupling)                                             e = 0    order 6  True
+      Step 6 P box s_in: q lam^-1 ((1 - P) s_out) G2^out(ell, ell)                                  e = 0    order 7  True
+      Step 6 P box s_in: lam d^2 phi (c^ab, lam F ghat_2 terms)                                     e = 0    order 8  True
+      Step 6 P box s_in: 2q N_phi: |w| lam^-2 |phi|                                                 e = 1    order 6  True
+      Step 6 P box s_in: 2q N_phi: |w| lam^-1 |d phi|                                               e = 2    order 7  True
+      Step 6 P box s_in: 2q N_phi^out(ell, ell): |w| |d^2 phi_out|                                  e = 2    order 8  True
+      Step 6 P box s_in: P d_i (c d_a h), |c| <= C(lam + |w|)                                       e = 0    order 7  True
+      Step 6 P box s_in: P((d_i c) d_a h), |d c| <= C                                               e = 0    order 7  True
+      Step 6 [box, P] s_in: spatial index, (M5) first form                                          e = 0    order 7  True
+      Step 6 [box, P] s_in: d^2 P - P d^2: lam P d_x d s (M4, M6)                                   e = 0    order 7  True
+      Step 6 [box, P] s_in, tau-tau, M5b: c1 . dh                                                   e = 1    order 7  True
+      Step 6 [box, P] s_in, tau-tau, M5b: c0 h                                                      e = 1    order 6  True
+      Step 6 [box, P] s_in, tau-tau, M5b: c2 . d phi_in, c2 . d phi_out                             e = 1    order 7  True
+      Step 6 [box, P] s_in, tau-tau, M5b: c3 phi_in, c3 phi_out                                     e = 1    order 6  True
+      Step 6 [box, P] s_in, tau-tau, M5b: -q c_in Psi_out (the coupling)                            e = 1    order 6  True
+      Step 6 [box, P] s_in, tau-tau, M5b: q lam^-1 ((1 - P) s_out) G2^out(ell, ell)                 e = 1    order 7  True
+      Step 6 [box, P] s_in, tau-tau, M5b: lam d^2 phi (c^ab, lam F ghat_2 terms)                    e = 1    order 8  True
+      Step 6 [box, P] s_in, tau-tau, M5b: 2q N_phi: |w| lam^-2 |phi|                                e = 2    order 6  True
+      Step 6 [box, P] s_in, tau-tau, M5b: 2q N_phi: |w| lam^-1 |d phi|                              e = 3    order 7  True
+      Step 6 [box, P] s_in, tau-tau, M5b: 2q N_phi^out(ell, ell): |w| |d^2 phi_out|                 e = 3    order 8  True
+      Step 6 [box, P] s_in, tau-tau: [a, P] d_i (c d_a h) by (M5) first form                        e = 1    order 7  True
+      Step 6 [box, P] s_in, tau-tau: [a, P]((d_i c) d_a h) by (M5) second form                      e = 1    order 7  True
+      Step 6 -(1/2) M_in(P s_in)                                                                    e = 0    order 7  True
+      Step 6 -N_in phi_in                                                                           e = 0    order 7  True
+      Step 6 a_in Psi_in and [d^a, L_in] Psi_in                                                     e = 0    order 6  True
+      Step 6 P box s_out: c1 . dh                                                                   e = 0    order 7  True
+      Step 6 P box s_out: c0 h                                                                      e = 0    order 6  True
+      Step 6 P box s_out: c2 . d phi_out, c2 . d phi_in                                             e = 0    order 7  True
+      Step 6 P box s_out: c3 phi_out, c3 phi_in                                                     e = 0    order 6  True
+      Step 6 P box s_out: -q c_out Psi_in (the coupling)                                            e = 0    order 6  True
+      Step 6 P box s_out: q lam^-1 ((1 - P) s_in) G2^in(ell, ell)                                   e = 0    order 7  True
+      Step 6 P box s_out: lam d^2 phi (c^ab, lam F ghat_2 terms)                                    e = 0    order 8  True
+      Step 6 P box s_out: 2q N_phi: |w| lam^-2 |phi|                                                e = 1    order 6  True
+      Step 6 P box s_out: 2q N_phi: |w| lam^-1 |d phi|                                              e = 2    order 7  True
+      Step 6 P box s_out: 2q N_phi^in(ell, ell): |w| |d^2 phi_in|                                   e = 2    order 8  True
+      Step 6 P box s_out: P d_i (c d_a h), |c| <= C(lam + |w|)                                      e = 0    order 7  True
+      Step 6 P box s_out: P((d_i c) d_a h), |d c| <= C                                              e = 0    order 7  True
+      Step 6 [box, P] s_out: spatial index, (M5) first form                                         e = 0    order 7  True
+      Step 6 [box, P] s_out: d^2 P - P d^2: lam P d_x d s (M4, M6)                                  e = 0    order 7  True
+      Step 6 [box, P] s_out, tau-tau, M5b: c1 . dh                                                  e = 1    order 7  True
+      Step 6 [box, P] s_out, tau-tau, M5b: c0 h                                                     e = 1    order 6  True
+      Step 6 [box, P] s_out, tau-tau, M5b: c2 . d phi_out, c2 . d phi_in                            e = 1    order 7  True
+      Step 6 [box, P] s_out, tau-tau, M5b: c3 phi_out, c3 phi_in                                    e = 1    order 6  True
+      Step 6 [box, P] s_out, tau-tau, M5b: -q c_out Psi_in (the coupling)                           e = 1    order 6  True
+      Step 6 [box, P] s_out, tau-tau, M5b: q lam^-1 ((1 - P) s_in) G2^in(ell, ell)                  e = 1    order 7  True
+      Step 6 [box, P] s_out, tau-tau, M5b: lam d^2 phi (c^ab, lam F ghat_2 terms)                   e = 1    order 8  True
+      Step 6 [box, P] s_out, tau-tau, M5b: 2q N_phi: |w| lam^-2 |phi|                               e = 2    order 6  True
+      Step 6 [box, P] s_out, tau-tau, M5b: 2q N_phi: |w| lam^-1 |d phi|                             e = 3    order 7  True
+      Step 6 [box, P] s_out, tau-tau, M5b: 2q N_phi^in(ell, ell): |w| |d^2 phi_in|                  e = 3    order 8  True
+      Step 6 [box, P] s_out, tau-tau: [a, P] d_i (c d_a h) by (M5) first form                       e = 1    order 7  True
+      Step 6 [box, P] s_out, tau-tau: [a, P]((d_i c) d_a h) by (M5) second form                     e = 1    order 7  True
+      Step 6 -(1/2) M_out(P s_out)                                                                  e = 0    order 7  True
+      Step 6 -N_out phi_out                                                                         e = 0    order 7  True
+      Step 6 a_out Psi_out and [d^a, L_out] Psi_out                                                 e = 0    order 6  True
+  T1: 94 terms (Step 4: 28, Step 5: 8, Step 6: 58) pass at k = K = 6: True; on k = 6..12 x K = 6..10: True
+  T2: non-linear 2K - 5 - (K + 1) = kappa >= 0 for K = 6 + kappa: True; residual within C_R lam^K: True; Step 7's
+      M := C3 (C_D + 1 + C_R) + 1 and lam0 := 1/(C3 C M^2) give N_2 <= M lam^K < 2 M lam^K: True
+  control (a): exponent -1, order 7: rejected True
+  control (b): exponent -1, order 8: rejected True
+  control (c): exponent None, order 8: rejected True
+  control (d): exponent None, order 8: rejected True
+  control (e): exponent None, order 8: rejected True
+  control (f) K = 5: non-linear 2K - 5 - (K + 1) = -1: rejected True
+      (the linear terms alone still pass at K = 5: True; the non-linear row is what K >= 6 is for)
+T1-T2: PASS
+controls (a)-(f) rejected: PASS

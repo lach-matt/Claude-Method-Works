@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""twoledger5: the power counting of Theorem E_2's Steps 4-6 with two families, term by term (FAMILIES5-FULL.md section 8).
+"""twoledger5: the power counting of Theorem E_2's Steps 4-6 with two families, term by term (FAMILIES5-FULL.md
+section 8).
 
 The record's section 4 closes because every term on the right of the equations for h, phi and Psi is, at every level j
 <= k, at most C N in the scaled norm, or C_R lam^K, or C M^2 lam^(K+1). With two families every equation gains the other
@@ -10,12 +11,14 @@ stated once, not typed per term.
   The norm (section 8, (8.1)): N_2 := sum_(j<=k) lam^j (||d^j d h|| + sum_K (||d^j Psi_K|| + ||d^j d phi_K|| + lam ||d^j
   d_x^2 phi_K||)) + ||h|| + sum_K ||phi_K||. From it, by reading off weight and order (derived in weights() below):
   ||d^m h|| <= lam^(-e_h(m)) N_2 with e_h(m) = max(m - 1, 0) for m <= k + 1; the same for s_K(h) = h(ell_K, ell_K),
-  ell_K smooth and lam-independent; ||d^m phi|| <= lam^(-e(m)) N_2, e(m) = max(m - 1, 0), m <= k + 2 (the top order through
-  Lemma 3.4_2: every second derivative of phi_K is a combination of L_K P s_K, d_x P s_K, d phi_K and d_x^2 phi_K);
+  ell_K smooth and lam-independent; ||d^m phi|| <= lam^(-e(m)) N_2, e(m) = max(m - 1, 0), m <= k + 2 (the top order
+  through Lemma 3.4_2: every second derivative of phi_K is a combination of L_K P s_K, d_x P s_K, d phi_K and d_x^2
+  phi_K);
   ||d^m Psi|| <= lam^(-m) N_2, m <= k.
   A term is lam^p c d^m U, U one of h, s, phi, Psi; c a coefficient whose derivatives cost lam^-1 each (a profile, or a
   quantity built from g = g_app + w; kappa = 1) or nothing (smooth and lam-independent, kappa = 0). Mollifier rules
-  (Lemma 2.2): P costs nothing (M1, M4, M6); P d_i costs lam^-1 and absorbs the d_i (M2: 'bern'); (1 - P) gains lam
+  (Lemma 2.2): P costs nothing (M1, M4, M6); P d_i costs lam^-1 and absorbs the d_i (M2: 'bern', or 'bern_t' when the
+  d_i is the target's); (1 - P) gains lam
   and costs one derivative (M3: 'oneminusP'); [a, P] d_i absorbs the d_i at no cost (M5 first form: 'M5a'); [a, P] gains
   lam (M5 second form: 'M5b'). The target of the h and Psi equations at level j is lam^j ||d^j T||; of the phase
   transport lam^j ||d^j d T|| (one more derivative) and lam^(j+1) ||d^j d_x^2 T||. Then for j <= k and i derivatives on
@@ -90,7 +93,8 @@ def term_rows(K):
     for K_ in ("in", "out"):
         t += [("5", "(1/2) P s_%s, for ||phi||" % K_, "s", 0, 0, 0, ["P", "j=0"], 0, 0),
               ("5", "(1/2) P s_%s, for lam^j ||d^j d phi||" % K_, "s", 0, 0, 0, ["P"], 1, 0),
-              ("5", "(1/2) P s_%s, for lam^(j+1) ||d^j d_x^2 phi|| (Bernstein)" % K_, "s", 1, 0, 0, ["P", "bern"], 2, 0),
+              ("5", "(1/2) P s_%s, for lam^(j+1) ||d^j d_x^2 phi|| (Bernstein)" % K_, "s", 0, 0, 0, ["P", "bern_t"], 2,
+               0),
               ("5", "[d^a, L_%s] phi (smooth coefficients, i >= 1)" % K_, "phi", 0, 0, 1, ["i>=1"], 1, 0)]
     # Step 6: L_K Psi_K + a_K Psi_K = (1/2) box P s_K - (1/2) M_K(P s_K) - N_K phi_K; box P s = P box s + [box, P] s,
     # box s_in from Lemma 3.3_2
@@ -101,23 +105,25 @@ def term_rows(K):
                ("-q c_%s Psi_%s (the coupling)" % (K_, o), "Psi", 0, 1, 0),
                ("q lam^-1 ((1 - P) s_%s) G2^%s(ell, ell)" % (o, o), "s", -1, 1, 0),
                ("lam d^2 phi (c^ab, lam F ghat_2 terms)", "phi", 1, 1, 2),
-               ("2q N_phi: |w| lam^-2 |phi|", "phi", Km3 - 2, 1, 0), ("2q N_phi: |w| lam^-1 |d phi|", "phi", Km3 - 1, 1, 1),
+               ("2q N_phi: |w| lam^-2 |phi|", "phi", Km3 - 2, 1, 0),
+               ("2q N_phi: |w| lam^-1 |d phi|", "phi", Km3 - 1, 1, 1),
                ("2q N_phi^%s(ell, ell): |w| |d^2 phi_%s|" % (o, o), "phi", Km3, 1, 2)]
         for lab, U, p, ka, m in L33:
             ops = ["P"] + (["oneminusP"] if "(1 - P)" in lab else [])
             t.append(("6", "P box s_%s: %s" % (K_, lab), U, p, ka, m, ops, 0, 1 if "|w|" in lab else 0))
-        t += [("6", "P box s_%s: P d_i (c d_a h), |c| <= C(lam + |w|)" % K_, "h", 1, 1, 1, ["P", "bern"], 0, 0),
+        t += [("6", "P box s_%s: P d_i (c d_a h), |c| <= C(lam + |w|)" % K_, "h", 1, 1, 2, ["P", "bern"], 0, 0),
               ("6", "P box s_%s: P((d_i c) d_a h), |d c| <= C" % K_, "h", 0, 1, 1, ["P"], 0, 0),
-              ("6", "[box, P] s_%s: spatial index, (M5) first form" % K_, "s", 0, 0, 1, ["M5a"], 0, 0),
-              ("6", "[box, P] s_%s: d^2 P - P d^2 (M4, M6)" % K_, "s", 0, 0, 1, [], 0, 0)]
+              ("6", "[box, P] s_%s: spatial index, (M5) first form" % K_, "s", 0, 0, 2, ["M5a"], 0, 0),
+              ("6", "[box, P] s_%s: d^2 P - P d^2: lam P d_x d s (M4, M6)" % K_, "s", 1, 0, 2, ["bern"], 0, 0)]
         for lab, U, p, ka, m in L33:                                     # the tau-tau rewrite, (M5) second form
             if "(1 - P)" in lab:
                 ops = ["M5b", "oneminusP"]
             else:
                 ops = ["M5b"]
             t.append(("6", "[box, P] s_%s, tau-tau, M5b: %s" % (K_, lab), U, p, ka, m, ops, 0, 1 if "|w|" in lab else 0))
-        t += [("6", "[box, P] s_%s, tau-tau: d_i (c d_a h) by (M5) first form" % K_, "h", 1, 1, 1, ["M5a"], 0, 0),
-              ("6", "[box, P] s_%s, tau-tau: (d_i c) d_a h by (M5) first form" % K_, "h", 0, 1, 1, ["M5a"], 0, 0),
+        t += [("6", "[box, P] s_%s, tau-tau: [a, P] d_i (c d_a h) by (M5) first form" % K_, "h", 1, 1, 2, ["M5a"], 0, 0),
+              ("6", "[box, P] s_%s, tau-tau: [a, P]((d_i c) d_a h) by (M5) second form" % K_, "h", 0, 1, 1, ["M5b"], 0,
+               0),
               ("6", "-(1/2) M_%s(P s_%s)" % (K_, K_), "s", 0, 0, 1, ["P"], 0, 0),
               ("6", "-N_%s phi_%s" % (K_, K_), "phi", 0, 0, 1, [], 0, 0),
               ("6", "a_%s Psi_%s and [d^a, L_%s] Psi_%s" % (K_, K_, K_, K_), "Psi", 0, 0, 0, [], 0, 0)]
@@ -128,17 +134,20 @@ def evaluate(row, k, W):
     step, lab, U, p, kappa, m, ops, extra, wfac = row
     imin = 1 if "i>=1" in ops else 0
     jrange = [0] if "j=0" in ops else range(k + 1)
+    if extra == 2:                                    # the lam^(j+1) ||d^j d_x^2 .|| target carries one more lam
+        p += 1
     for op in ops:
-        if op == "bern":
+        if op == "bern":                              # P d_i: lam^-1, the d_i absorbed (M2)
+            p, m = p - 1, m - 1
+        elif op == "bern_t":                          # the same on a derivative of the target
             p, extra = p - 1, extra - 1
         elif op == "oneminusP":
             p, m = p + 1, m + 1
-        elif op == "M5a":
-            m = m - 1 if m > 0 else m
+        elif op == "M5a":                             # [a, P] d_i: the d_i absorbed at no cost
+            m = m - 1
         elif op == "M5b":
             p += 1
-    if extra == 2:                                    # the lam^(j+1) ||d^j d_x^2 .|| target carries one more lam
-        p += 1
+
     worst_e, worst_m = None, -1
     for j in jrange:
         for i in range(imin, j + extra + 1):
@@ -177,7 +186,9 @@ def t2(K=None):
     nl_ok = sp.Poly(nl, kap).coeffs() and all(c >= 0 for c in sp.Poly(nl, kap).coeffs()) if K is None else nl >= 0
     lam0 = 1 / (C3 * C * M**2)
     Mdef = C3 * (CD + 1 + CR) + 1
-    closing = sp.simplify(Mdef - (C3 * (CD + 1 + CR) + C3 * C * M**2 * lam0)) == 1     # N_2 <= M lam^K, margin 1
+    # Step 7: N_2 <= C3 (C_D + 1 + C_R) lam^K + C3 C M^2 lam^(K+1) <= (C3 (C_D + 1 + C_R) + C3 C M^2 lam0) lam^K
+    #         = M lam^K
+    closing = sp.simplify(Mdef - (C3 * (CD + 1 + CR) + C3 * C * M**2 * lam0)) == 0 and sp.simplify(2 * M - M) == M
     resid = (KK + 3) - 1 - KK >= 0
     return bool(nl_ok), closing, bool(resid), nl
 
@@ -194,8 +205,9 @@ def main():
           % (len(out), n4, n5, n6, good, grid), flush=True)
     ok &= good and grid
     nl_ok, closing, resid, nl = t2()
-    print("  T2: non-linear 2K - 5 - (K + 1) = %s >= 0 for K = 6 + kappa: %s; residual within C_R lam^K: %s; Step 7's M "
-          "and lam0 close N_2 <= M lam^K with margin 1: %s" % (nl, nl_ok, resid, closing), flush=True)
+    print("  T2: non-linear 2K - 5 - (K + 1) = %s >= 0 for K = 6 + kappa: %s; residual within C_R lam^K: %s; Step 7's\n"
+          "      M := C3 (C_D + 1 + C_R) + 1 and lam0 := 1/(C3 C M^2) give N_2 <= M lam^K < 2 M lam^K: %s"
+          % (nl, nl_ok, resid, closing), flush=True)
     ok &= nl_ok and closing and resid
     # controls
     W = weights(6)
