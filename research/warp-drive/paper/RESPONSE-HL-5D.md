@@ -803,38 +803,38 @@ master field as source, and the l = 0 sector's two non-decaying solutions are ex
 stationary one-form W*, and the gauge-fixed mass change K* = K + π_{W**} with W** = (v/2)W* + A dv + B dr, v the
 ingoing time, whose coefficient 1/2 is forced by regularity at the horizon (with the static time and the coefficient 1,
 K* is singular there; `docket68/n1star/checks/gdrepair5.py`). In harmonic gauge the spherically symmetric part of a
-perturbation whose gauge vector has compactly supported data settles on each region r ≤ R to μ̇K* + c π_{W*}, growing
-linearly in v, at the rate τ^(−1/2) (deduced from the zero-energy structure of the 1-form wave operator, supplement
-GAUGEDECAY5 R2.13, `docket68/n1star/checks/admbox5.py`, with the horizon and trapping hypotheses the supplement's Part
-VI verifies at Tangherlini); without decay of the gauge vector's data the growth can be traded for a stationary term
-that does not decay at infinity; the decay estimate for that system, Hung's sections 5–8 in five dimensions, does not
-exist in the literature and is deduced below, not proved; the system is triangular (supplement Proposition 10.2(v)),
-each rung a scalar wave equation on Tangherlini whose potential obeys the positivity condition Hung's method needs; the
-estimate is a route of known tools rung by rung, with four things that had to be carried out rather than quoted (the
-Morawetz currents for the rungs, the r^p weights, the l = 0 argument and Hung's Proposition 4.2 in five dimensions),
-all four carried out below. The last of the four is computed (supplement Proposition 10.2(vi), W7): in Hung's
-components, with the harmonic gauge condition admixed as he does it, the system is □H = AH + UH with U along the
-horizon generator in two rows only, the leading matrix has the eigenvalues (l+a)(l+a+2) for a = −2, …, 2 where his has
-(l+a)(l+a+1), and the horizon-regular rows carry the positive coefficients 2f′ and f′ in place of his 4M/r² and 2M/r²;
-the four-dimensional control (`docket68/n1star/hung4.py`) reproduces his printed rows from the Schwarzschild metric. On
-that structure his Proposition 4.1 — the red-shift and r^p estimates for the metric itself, with the compact region
-between them as the only error — is deduced in five dimensions (supplement Proposition 10.3, `wavegauge5.py` W8;
-constants not tracked): the energy of the harmonic-gauge perturbation at every later time and in the bulk is bounded by
-its initial value and by the perturbation on a compact region [r_rs, R + r_h], with [Sch13]'s weights at null infinity,
-where the five-dimensional radiation field's potential is coercive at every l ≥ 2 (its leading eigenvalues are
-(l+a+1/2)(l+a+3/2) ≥ 3/4, so no Hardy inequality is needed where Hung's l = 2 needs one), and the red-shift at r_h,
-where the identity acquires two terms absent in four dimensions, both absorbed. It is not a decay statement: the
-compact region is where the master quantities and the gauge vector enter. The gauge vector's rungs are done next
-(supplement Propositions 10.4–10.5, `rungs5.py`): each rung is a scalar wave equation with a potential, 0 or the
-Maxwell potential −4μ/r⁴, and a source from the rungs below, and the one input of Hung, Keller and Wang's chain that
-depends on the potential, the Morawetz multiplier, is computed for it — their own n = 3 choice serves both potentials,
-with half the angular term lent to the bulk coefficient, which is then positive on the whole exterior by a Sturm count
-— so every rung has the estimates of Hung's Appendix A in five dimensions for a source in the norm those estimates
-take. The sources the rungs carry are not in that norm; Hung's substitutions that bring them into it — the first rung
-taken as tr h, which solves the homogeneous wave equation, and the master field's bad terms removed by corrections
-carrying the factor u + r — are computed in five dimensions term by term in his shape, every residual weight checked
-(supplement section 10.7, `growing5.py`), and the identities of his l = 0 argument likewise (section 10.8,
-`lzero5.py`); of the two estimates the route then owed, the rapid decay of the first rungs is deduced in five
+perturbation is μ̇K* + π_Z, μ̇ the change of mass and Z a 1-form with □Z = 0; when Z has compactly supported data it
+settles on each region r ≤ R to μ̇K* + c π_{W*}, growing linearly in v, at the rate τ^(−1/2) (deduced from the
+zero-energy structure of the 1-form wave operator, supplement GAUGEDECAY5 R2.13, `docket68/n1star/checks/admbox5.py`,
+with the horizon and trapping hypotheses the supplement's Part VI verifies at Tangherlini); without decay of Z's data
+the growth can be traded for a stationary term that does not decay at infinity; the decay estimate for that system,
+Hung's sections 5–8 in five dimensions, does not exist in the literature and is deduced below, not proved; the system
+is triangular (supplement Proposition 10.2(v)), each rung a scalar wave equation on Tangherlini whose potential obeys
+the positivity condition Hung's method needs; the estimate is a route of known tools rung by rung, with four things
+that had to be carried out rather than quoted (the Morawetz currents for the rungs, the r^p weights, the l = 0 argument
+and Hung's Proposition 4.2 in five dimensions), all four carried out below. The last of the four is computed
+(supplement Proposition 10.2(vi), W7): in Hung's components, with the harmonic gauge condition admixed as he does it,
+the system is □H = AH + UH with U along the horizon generator in two rows only, the leading matrix has the eigenvalues
+(l+a)(l+a+2) for a = −2, …, 2 where his has (l+a)(l+a+1), and the horizon-regular rows carry the positive coefficients
+2f′ and f′ in place of his 4M/r² and 2M/r²; the four-dimensional control (`docket68/n1star/hung4.py`) reproduces his
+printed rows from the Schwarzschild metric. On that structure his Proposition 4.1 — the red-shift and r^p estimates for
+the metric itself, with the compact region between them as the only error — is deduced in five dimensions (supplement
+Proposition 10.3, `wavegauge5.py` W8; constants not tracked): the energy of the harmonic-gauge perturbation at every
+later time and in the bulk is bounded by its initial value and by the perturbation on a compact region [r_rs, R + r_h],
+with [Sch13]'s weights at null infinity, where the five-dimensional radiation field's potential is coercive at every l
+≥ 2 (its leading eigenvalues are (l+a+1/2)(l+a+3/2) ≥ 3/4, so no Hardy inequality is needed where Hung's l = 2 needs
+one), and the red-shift at r_h, where the identity acquires two terms absent in four dimensions, both absorbed. It is
+not a decay statement: the compact region is where the master quantities and the gauge vector enter. The gauge vector's
+rungs are done next (supplement Propositions 10.4–10.5, `rungs5.py`): each rung is a scalar wave equation with a
+potential, 0 or the Maxwell potential −4μ/r⁴, and a source from the rungs below, and the one input of Hung, Keller and
+Wang's chain that depends on the potential, the Morawetz multiplier, is computed for it — their own n = 3 choice serves
+both potentials, with half the angular term lent to the bulk coefficient, which is then positive on the whole exterior
+by a Sturm count — so every rung has the estimates of Hung's Appendix A in five dimensions for a source in the norm
+those estimates take. The sources the rungs carry are not in that norm; Hung's substitutions that bring them into it —
+the first rung taken as tr h, which solves the homogeneous wave equation, and the master field's bad terms removed by
+corrections carrying the factor u + r — are computed in five dimensions term by term in his shape, every residual
+weight checked (supplement section 10.7, `growing5.py`), and the identities of his l = 0 argument likewise (section
+10.8, `lzero5.py`); of the two estimates the route then owed, the rapid decay of the first rungs is deduced in five
 dimensions for every mode of the class but the spherically symmetric one by Hung's own argument, with his conditions on
 the potential computed (supplement section 10.9, `hierarchy5.py`), and found obstructed for the spherically symmetric
 mode, where the radiation field carries a potential his argument needs to vanish; the coupled estimate for the last two
