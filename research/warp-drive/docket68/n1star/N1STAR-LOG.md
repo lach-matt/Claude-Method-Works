@@ -7799,3 +7799,10 @@ nothing major. One row of the table of derivative bounds was labelled with the w
 one its numbers rise slightly (205.8 for 205.4), and the bounds over the whole band are unchanged. And the claim that
 two kinds of round in the loss count cost the same holds only if one weight takes the value the record allows but does
 not fix at one of the levels; that condition is restored, in the paper too. The rest were labels and wording.
+
+**D587 (2026-11-02): the expansion at past null infinity, with nothing left asserted.** The written-out proof that the
+approximate solution's parts expand in powers of r^(−1/2) toward past null infinity rested on three properties it stated
+without showing. All three now have short proofs: one derivative is just a coordinate derivative in disguise; the
+coefficients that couple the unknowns are built from the background and the first wave alone, because averaging over the
+phase kills every other term, which a count of orders shows term by term; and the Taylor remainder keeps its decay
+because the phase is constant along the direction that matters. An exact check backs each one.

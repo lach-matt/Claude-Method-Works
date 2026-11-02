@@ -6139,6 +6139,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   controls X_0 too (H4's 808.6), its printed decimals are rounded up exactly (no value moved), and X and A over the rows
   run from 204.9 and 777.9 at σ = 6, not from the first row; Proposition B.4's gains are found at lower m or earlier at
   the same m. The D580-D584 entries above keep their text.
+- D587 (BEYOND5 3(b), deduced; `checks/closure5.py` K1-K5, exact, K4 an enumeration at every order m ≤ 10): Proposition
+  B.4's three asserted closures (D580) shown. (i) ∂_v is ∂_τ at fixed x and commutes with d_X, Ω and ℓ, so it preserves
+  E_p and E_p^ℓ. (ii) A θ-mean sees only monomials with two oscillating factors; by Lemma 5.1's weights these are W
+  gh_(m+1) under two λ⁻¹dv∂_θ and W W under λ⁻¹dv∂_θ and dφ_m∂_θ, so the couplings' coefficients are built from g0,
+  g0⁻¹, dv, dd v and W alone, exact sums of orders 3/2 and 3, with no m_i or dφ_i (the control with three derivatives
+  lets m_1 in). (iii) The Taylor remainder's integral form and the chain rule with ℓv = Ωv = 0 give R_K ∈ E_(K+q)^ℓ at
+  fixed λ. 3(b)'s induction then stands at the record's level with nothing asserted beyond the record's own lemmas;
+  λ-uniformity is not covered, and the strip does not need it.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

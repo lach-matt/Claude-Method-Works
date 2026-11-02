@@ -1,0 +1,14 @@
+  K1: d_tau, d_i, Omega and ell of r^-p F(v, xhat): exact sums as stated: True; control (sign flipped) rejected: True
+  K2: d_tau commutes with d_i, Omega, ell; ell with Omega; Omega v = ell v = 0, ell r = 1: True; control: True
+  K3: g0 = eta + mu r^-2 dv dv, its inverse eta^-1 - mu r^-2 V V, the Vaidya pull-back, dd v = (delta - xhat xhat)/r: True
+  K4: m <= 10: the mean couplings are W gh_(m+1) (two lam^-1 dv d_th) and W W dphi_m (one): True; control (three derivatives) lets m_1 in: True
+  K5: ell and Omega of Z(., v/lam + s delta): no lam^-1 term: True; control (+d_tau): True
+K1 PASS
+K1ctl PASS
+K2 PASS
+K2ctl PASS
+K3 PASS
+K4 PASS
+K4ctl PASS
+K5 PASS
+K5ctl PASS

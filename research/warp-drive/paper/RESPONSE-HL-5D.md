@@ -1326,8 +1326,8 @@ Theorem 4 with them.
   carried to spatial infinity with no logarithm, the transfer under the record's full operator on Minkowski space
   bounded uniformly in the harmonic, the remainder's sources in the strip along the initial null hypersurface entering
   one order later at every harmonic computed (l ≤ 12), and the approximant's stage profiles expanded in powers of
-  r^(−1/2) at past null infinity, with three closure properties of that expansion asserted, not shown. The scattering
-  estimate itself is not done. Inside x_K = 1 nothing is attempted.
+  r^(−1/2) at past null infinity, with the closure properties of that expansion shown (deduced, with an exact check).
+  The scattering estimate itself is not done. Inside x_K = 1 nothing is attempted.
 - **More families.** Angular separation and the passage to Vlasov matter are not attempted. Two crossing null dusts are
   scoped and taken through the leading orders (supplement `docket68/n1star/FAMILIES5.md`): the cross coupling of the two
   families is a gauge artefact at leading order (deduced; stage 0 computed), and with two families the record's core
