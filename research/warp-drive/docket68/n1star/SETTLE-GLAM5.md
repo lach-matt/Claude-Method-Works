@@ -309,8 +309,8 @@ Corrections (each states what was wrong; round 1's text is not changed):
   |∂^J e| ≤ Cλ, so "g_λ − g_(b_0) = λ m_1 + O(λ²)" held in C^(J−1), not C^J; in C^J it is λ m_1 + O(λ). Corrected by
   taking **K := d_1 + 15** (= J + 5), which gives |∂^J e| ≤ Cλ²; K is free (Theorem E at every order). Round 1's
   "K = d_1 + 14" (lines 56, 255) reads d_1 + 15.
-- **(n1) Stale line cites in N1STAR-PROOF.md** (numbers as of e50e9bc; amended in round 3, R3.0 (c1)). Proposition
-  11.1 is at 10634-10641 (cited 10575-10581); Ric(g0) = (3μ′/(2r³)) dv dv at 10583 (cited 10522); the source's
+- **(n1) Stale line cites in N1STAR-PROOF.md** (numbers as of 82a7e95; amended in round 3, R3.0 (c1)). Proposition
+  11.1 is at 10636-10642 (cited 10575-10581); Ric(g0) = (3μ′/(2r³)) dv dv at 10583 (cited 10522); the source's
   +½□̃(r^(−3/2) G_3) at 10645-10646 (cited 10584-10585); "a polynomial in (u, d u, d^2 u) with coefficients smooth in
   (X, g)" and the r^(−q) coefficient "a polynomial in the G_k, k <= J, and their derivatives" at 10657-10661 (cited
   10596-10599).

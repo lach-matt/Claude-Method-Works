@@ -14,7 +14,8 @@ are deduced and which are formal.
      l + 2 (n = 4).  For P-hat(sigma) u = f with f compactly supported, the formal expansion u = u_0 + sigma u_1 +
      sigma^2 u_2 + ... has u_0 = m r^-2, u_1 = -i m r^-1, and the equation for u_2 has the source m r^-2, at the
      indicial root 0 of l = 0: no power solves it, -(m/2) log r does.  So the expansion carries sigma^2 log sigma (one
-     sigma-derivative is bounded, two are not).  Control: at n = 3 the same chain gives L_1 u_0 = 0 (no log; e^(i sigma r)/r is analytic).
+     sigma-derivative is bounded, two are not).  Control: at n = 3 the same chain gives L_1 u_0 = 0 (no log;
+     e^(i sigma r)/r is analytic).
   G3 (exact series) The free outgoing kernel of -Delta - sigma^2 on R^4, (i sigma/(8 pi r)) H_1^(1)(sigma r), is 1/(4
      pi^2 r^2) - (1/(8 pi^2)) sigma^2 log sigma + (smooth in sigma at order 2, and higher): the sigma^2 log sigma
      coefficient -1/(8 pi^2) is G2's -(m/2) at m = 1/(4 pi^2), independent of r.  Control: the n = 3 kernel
