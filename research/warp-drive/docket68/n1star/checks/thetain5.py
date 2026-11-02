@@ -40,7 +40,17 @@ constant eigenvalues: its spectral projections are smooth, sbar5.py S4's argumen
      each, and it cannot be 0 (r_in > -1/2 > r_out). Control: with the sign of the reduction flipped, vartheta_in =
      2 max spec M, l would be about 3 * 10^6.
 
-Labels: T1, T2 and T3 computed (exact); the reduction, the choice s = 1 and T4's reading deduced.
+  T5 (exact) the same for the 1-form operators the record inverts beside L: box^Ups = box + 2 E^Ups G delta* and box^C =
+     box + 2 delta G E^C (sbar5.py's sbar_1form, with t* = t + r): incoming spec gam_U {1 - e_U, 2, 1 (3 times)} and
+     (1 + v) gam_C {1 - e_C, 2, 1 (3 times)}, all positive, so their vartheta_in may be taken any number above -2 (1 -
+     e_U) gam_U = -0.0198 and -2 (1 - e_C)(1 + v) gam_C, about -3.0 * 10^6, at the record's point. Control: the outgoing
+     spectra are thresh5.py U2's and cpmodes5.py K1's, (1 - v) for (1 + v).
+  T6 (exact) LOSS-D (2.3)-(2.4) for L_b, with vartheta_in = 0 and lhor5.py's horizon threshold vartheta_H = 2 (s_c >
+     5/2, taken in (5/2, 3]): (2.3) l = max(ceil((3 - beta_scf)_+), ceil(s_c - 1)) = 2 for beta_scf in [1, 3/2), and
+     (2.4) l = max(ceil((5/2 + eps/2 - beta_scf)_+), ceil(s_c - 1)) = 2 for beta_scf in [1/2 + eps/2, 3/2), on a grid.
+
+Labels: T1, T2, T3 and T5 computed (exact); the reduction, the choice s = 1, T4's and T6's readings deduced; vartheta_H
+= 2 is lhor5.py's (computed there).
 
     python3 checks/thetain5.py
 """
@@ -148,6 +158,45 @@ def t4(minM, maxM):
     return ok, ceil(bad), ls
 
 
+def onef(which, sgn):
+    C = B.Mink(4, sgn)
+    w, F = C.oneform()
+    if which == 'U':
+        out = [2 * q for q in C.EU(C.G(C.dstar(w)), M3)]
+    else:
+        out = [2 * q for q in C.delta(C.G(C.EC(w, M3)))]
+    R = sp.Symbol('R', positive=True)
+    return (B.coeffs(C, out, F, lambda f: sp.diff(f, C.T), [R, 0, 0, 0]) * R / 2).applyfunc(sp.simplify)
+
+
+def t5():
+    gU, eU, gC, eC, v = B.gU, B.eU, B.gC, B.eC, B.v
+    wantU = {sp.factor(k): n for k, n in {(1 - eU) * gU: 1, 2 * gU: 1, gU: 3}.items()}
+    wantC = {sp.factor(k): n for k, n in {(1 - eC) * (1 + v) * gC: 1, 2 * (1 + v) * gC: 1, (1 + v) * gC: 3}.items()}
+    outC = {sp.factor(k): n for k, n in {(1 - eC) * (1 - v) * gC: 1, 2 * (1 - v) * gC: 1, (1 - v) * gC: 3}.items()}
+    sUi, sCi = B.spec(onef('U', -1)), B.spec(onef('C', -1))
+    sUo, sCo = B.spec(onef('U', 1)), B.spec(onef('C', 1))
+    ok = sUi == wantU and sCi == wantC and all(B.nonneg(k) for k in list(sUi) + list(sCi))
+    ctl = sUo == wantU and sCo == outC
+    tU = -2 * ((1 - eU) * gU).subs(POINT)
+    tC = -2 * ((1 - eC) * (1 + v) * gC).subs(POINT)
+    return ok, ctl, tU, tC
+
+
+def t6():
+    vals3, vals4 = set(), set()
+    for i in range(1, 20):
+        eps = Fr(i, 80)
+        for sc in (Fr(5, 2) + Fr(1, 100), Fr(11, 4), Fr(3)):
+            for j in range(0, 50):
+                b = Fr(1) + Fr(j, 100)
+                vals3.add(max(ceil(max(3 - b, 0)), ceil(sc - 1)))
+                b4 = Fr(1, 2) + eps / 2 + Fr(j, 50) * (1 - eps / 2)
+                if b4 < Fr(3, 2):
+                    vals4.add(max(ceil(max(Fr(5, 2) + eps / 2 - b4, 0)), ceil(sc - 1)))
+    return vals3 == {2} and vals4 == {2}, vals3, vals4
+
+
 def main():
     res = {}
     a, c, M, S = t1()
@@ -165,6 +214,14 @@ def main():
     res['T4'], res['T4ctl'] = a, bad > 10**6
     print('  T4: with vartheta_in = 0 and s = 1, Corollary 3.4\'s l + l~ over the grid of (beta_sctf, eps): %s; it '
           'cannot be 0; control (vartheta_in = 2 max spec M): l = %d' % (sorted(ls), bad))
+    a, c, tU, tC = t5()
+    res['T5'], res['T5ctl'] = a, c
+    print('  T5: box^Ups and box^C incoming spectra as stated, all positive: %s; vartheta_in above %s and %s (about '
+          '%.4g); control (outgoing spectra): %s' % (a, tU, tC, float(tC), c))
+    a, v3, v4 = t6()
+    res['T6'] = a
+    print('  T6: L_b with vartheta_in = 0, vartheta_H = 2: (2.3) l over the grid %s, (2.4) l %s'
+          % (sorted(v3), sorted(v4)))
     for k, val in res.items():
         print(k, 'PASS' if val else 'FAIL')
     return 0 if all(res.values()) else 1

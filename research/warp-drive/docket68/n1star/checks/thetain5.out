@@ -2,6 +2,8 @@
   T2: spec M = {2*gam_U: 1, -gam_U*(e_U - 1): 1, -gam_C*(e_C - 1)*(v + 1): 1, 2*gam_C*(v + 1): 1, 0: 5, gam_U: 3, gam_C*(v + 1): 3}; all >= 0, min 0, semisimple at the record's point: True (min 0, max 3000000); control (the record's S shares the zero and the gam_U part): True
   T3: outgoing k = [-alpha/2 + beta/2 + 3/2], incoming k = [-alpha/2 - beta/2 + 3/2]; incoming waves rho^(3/2 - M) leave rho^r L^2 iff r > -1/2 - M: True; control: True
   T4: with vartheta_in = 0 and s = 1, Corollary 3.4's l + l~ over the grid of (beta_sctf, eps): [1]; it cannot be 0; control (vartheta_in = 2 max spec M): l = 3000001
+  T5: box^Ups and box^C incoming spectra as stated, all positive: True; vartheta_in above -99/5000 and -191998125/64 (about -3e+06); control (outgoing spectra): True
+  T6: L_b with vartheta_in = 0, vartheta_H = 2: (2.3) l over the grid [2], (2.4) l [2]
 T1 PASS
 T1ctl PASS
 T2 PASS
@@ -10,3 +12,6 @@ T3 PASS
 T3ctl PASS
 T4 PASS
 T4ctl PASS
+T5 PASS
+T5ctl PASS
+T6 PASS
