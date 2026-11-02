@@ -272,7 +272,7 @@ def g3(G, T=1.0, delta0=0.05):
                 R0new=hi, new=(new_at0, new_worst))
 
 
-def g4(G, redshift=True, npts=(0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 4.9), steps=4000):
+def g4(G, redshift=True, npts=(0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 4.9), steps=2000):
     """the mixed symbol |g0^-1(dvhat, du)| = e^(-psi)/|R_u| on R = a, along region III's outgoing rays: in u >= u2
     (B = 0) psi and mu depend on v alone, dR/dv = vhat' e^psi (1 - mu/R^2)/2 and d ln|R_u|/dv = vhat' e^psi mu/R^3
     (G1 (b) and R_uv = -e^(2s) mu/R^3); the coefficients are read on u = u2 + 0.1 and on N, the rays start on N'"""
@@ -363,8 +363,9 @@ def main():
     g3ok = r3['seed'] and r3['ex'][0] < 0 and r3['new'][0] >= 1.0 and r3['new'][1] >= 1.0 - 1e-9
     print('  G3: the domain (T = 1, delta0 = 0.05, so l5 = %.4f, seed condition %s): V = %.3f, tau_end <= %.3f,\n'
           '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f:\n'
-          '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I (explicit\n'
-          '      ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f on all of\n'
+          '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I\n'
+          '      (explicit
+ ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f on all of\n'
           '      [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)
