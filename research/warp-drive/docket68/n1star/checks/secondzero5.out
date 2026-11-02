@@ -90,3 +90,11 @@
      (against exact Tangherlini: 6.2e-04, the run's own error)
       v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.004 (at x = 0.00);
          r_AH ranges 0.981-1.014 and 0.985-1.012
+      v = 1.200: max |r_AH(double null) - r_AH(growth5)| = 0.024 (at x = -0.20);
+         r_AH ranges 0.904-1.070 and 0.928-1.062
+      v = 1.300: max |r_AH(double null) - r_AH(growth5)| = 0.051 (at x = -0.20);
+         r_AH ranges 0.814-1.129 and 0.864-1.111
+      v = 1.350: max |r_AH(double null) - r_AH(growth5)| = 0.082 (at x = -0.20);
+         r_AH ranges 0.735-1.164 and 0.801-1.142
+      v = 1.375: max |r_AH(double null) - r_AH(growth5)| = 0.110 (at x = -0.20);
+         r_AH ranges 0.680-1.185 and 0.759-1.158
