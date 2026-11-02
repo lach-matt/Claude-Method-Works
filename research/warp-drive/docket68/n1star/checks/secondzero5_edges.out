@@ -25,3 +25,23 @@
         rebuilt edges outside growth5's brackets by [3.77, 0.27] column spacings -> differ
   S7 same count and every edge within one column spacing at every v: FAIL
   control (the leaves' expansion in place of theta):
+     v = 1.425 (growth5 v = 1.427), r* = 0.650: untrapped columns of 17: growth5 2 [10, 11]; rebuild 0 [];
+        differ at [10, 11]; edges: growth5 between [(-0.195, -0.383), (-0.556, -0.707)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.450 (growth5 v = 1.452), r* = 0.660: untrapped columns of 17: growth5 3 [9, 10, 11]; rebuild 0 [];
+        differ at [9, 10, 11]; edges: growth5 between [(0.0, -0.195), (-0.556, -0.707)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.475 (growth5 v = 1.476), r* = 0.690: untrapped columns of 17: growth5 4 [9, 10, 11, 12]; rebuild 0 [];
+        differ at [9, 10, 11, 12]; edges: growth5 between [(0.0, -0.195), (-0.707, -0.831)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.500 (growth5 v = 1.500), r* = 0.710: untrapped columns of 17: growth5 5 [9, 10, 11, 12, 13]; rebuild 0 [];
+        differ at [9, 10, 11, 12, 13]; edges: growth5 between [(0.0, -0.195), (-0.831, -0.924)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.525 (growth5 v = 1.524), r* = 0.740: untrapped columns of 17: growth5 6 [9, 10, 11, 12, 13, 14]; rebuild 0 [];
+        differ at [9, 10, 11, 12, 13, 14]; edges: growth5 between [(0.0, -0.195), (-0.924, -0.981)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.550 (growth5 v = 1.548), r* = 0.780: untrapped columns of 17: growth5 8 [9, 10, 11, 12, 13, 14, 15, 16];
+         rebuild 0 [];
+        differ at [9, 10, 11, 12, 13, 14, 15, 16]; edges: growth5 between [(0.0, -0.195)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+  control fails (good)

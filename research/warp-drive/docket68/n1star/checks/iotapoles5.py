@@ -298,7 +298,7 @@ def m4():
     at0 = (sp.expand(Qz0(l * (l + 1)).subs(kap, l * (l + 2))) == 0
            and sp.expand(Qz0((l + 1) * (l + 2)).subs(kap, l * (l + 2))) == 0)      # roots l (l + 1) < (l + 1)(l + 2)
     pos_der = sp.expand(((z + 2) ** 2 + 4 * kap) - (z + 2) ** 2) == 4 * kap      # sqrt(...) > z + 2: ds_-/dz > 0
-    out['box^Ups'] = (at0 == 0, pos_der, ds)
+    out['box^Ups'] = (at0, pos_der, ds)
     # the l = 2 right roots of pk (box^C), for the s2 candidate list; and the counts at the line 2 (Routh, damping5)
     roots2 = [(sp.Rational(a) - 1, sp.Rational(b) - 1) for (a, b), _ in sp.Poly(pk2, L).intervals(
         eps=sp.Rational(1, 10 ** 12)) if b > 1]
