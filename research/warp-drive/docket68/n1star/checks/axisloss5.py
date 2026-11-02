@@ -81,56 +81,52 @@ def x1():
     ctl_a = sp.simplify(lim_x - lim_y.subs(cc, sp.Rational(3, 2))) != 0 and lim_x == 1
     print("   control: conical c = 3/2, g_xx -> %s along the x-axis, %s along the y-axis: discontinuous: %s"
           % (lim_x, lim_y.subs(cc, sp.Rational(3, 2)), ctl_a))
-    # inverse metric at the point (rho2, 0)
+    # inverse metric at the point (rho2, 0); every quantity below is evaluated there, then rho2 -> 0
     pt = {x3: rho, x4: 0}
-    gi = sp.simplify(g.subs(pt).inv())
+    gi = g.subs(pt).inv().applyfunc(sp.cancel)
     du = [sp.diff(u, v).subs(pt) for v in X]
     psi2 = sp.log(K2sq) / 2
-    dpsi2 = [sp.simplify(sp.diff(psi2, v).subs(pt)) for v in X]
+    dpsi2 = [sp.cancel(sp.diff(psi2, v).subs(pt)) for v in X]
     psi1 = sp.log(G1) / 2
-    dpsi1 = [sp.simplify(sp.diff(psi1, v).subs(pt)) for v in X]
-    kap2 = sp.simplify(sum(gi[i, j] * du[i] * dpsi2[j] for i in range(4) for j in range(4)))
-    kap1 = sp.simplify(sum(gi[i, j] * du[i] * dpsi1[j] for i in range(4) for j in range(4)))
-    kap2_axis = sp.simplify(sp.limit(kap2, rho, 0))
-    kap1_axis = sp.simplify(sp.limit(kap1, rho, 0))
-    du_axis = [sp.simplify(sp.limit(d, rho, 0)) for d in du]
-    coefU1 = sp.simplify(sp.diff(kap2_axis, U1))
-    ok_b = sp.simplify(coefU1 - 2 / a0) == 0 and all(not d.has(U1) for d in du_axis)
+    dpsi1 = [sp.cancel(sp.diff(psi1, v).subs(pt)) for v in X]
+    at_axis = lambda e: sp.cancel(sp.cancel(e).subs(rho, 0))
+    kap2 = sp.cancel(sum(gi[i, j] * du[i] * dpsi2[j] for i in range(4) for j in range(4)))
+    kap1 = sp.cancel(sum(gi[i, j] * du[i] * dpsi1[j] for i in range(4) for j in range(4)))
+    kap2_axis = at_axis(kap2)
+    kap1_axis = at_axis(kap1)
+    du_axis = [at_axis(d) for d in du]
+    coefU1 = sp.cancel(sp.diff(kap2_axis, U1))
+    ok_b = sp.cancel(coefU1 - 2 / a0) == 0 and all(not d.has(U1) for d in du_axis)
     ctl_b = not kap1_axis.has(U1)
     print("X1 (b) kappa2 on the axis: d/dU_s =", coefU1, "; du on the axis free of U_s:",
           all(not d.has(U1) for d in du_axis), "->", ok_b)
-    print("   (U_s = (1/2) d_3^2 u on the axis:", sp.simplify(sp.diff(u, x3, 2).subs({x3: 0, x4: 0}) - 2 * U1) == 0,
+    print("   (U_s = (1/2) d_3^2 u on the axis:", sp.expand(sp.diff(u, x3, 2).subs({x3: 0, x4: 0}) - 2 * U1) == 0,
           ")")
     print("   control: kappa1 on the axis free of U_s (stays first order):", ctl_b)
     # (c) off the axis: kappa2 as a function of the Cartesian 1-jet; coefficient of d_3 u
-    u3 = sp.Symbol('u3')
-    coef3 = sp.simplify(sum(gi[2, j] * dpsi2[j] for j in range(4)))
-    lead = sp.simplify(sp.limit(rho * coef3, rho, 0))
-    ok_c = sp.simplify(lead - 1 / a0) == 0
+    coef3 = sp.cancel(sum(gi[2, j] * dpsi2[j] for j in range(4)))
+    lead = at_axis(rho * coef3)
+    ok_c = sp.cancel(lead - 1 / a0) == 0
     print("X1 (c) off the axis, coefficient of d_3 u in kappa2 ~ 1/(a rho2): lim rho2 * coef =", lead, "->", ok_c)
-    # (d) planar Hessian at (rho2, 0)
-    gfull = g
-    gif = gfull.inv()
+    # (d) planar Hessian at (rho2, 0): Christoffels at the point from g^-1 there and dg there
     n = 4
-    Gam = [[[sum(gif[c, d] * (sp.diff(gfull[d, bb], X[aa]) + sp.diff(gfull[d, aa], X[bb])
-                                - sp.diff(gfull[aa, bb], X[d])) for d in range(n)) / 2 for bb in range(n)]
-             for aa in range(n)] for c in range(n)]
+    dg = [[[sp.diff(g[i, j], X[k]).subs(pt) for k in range(n)] for j in range(n)] for i in range(n)]
+    Gam = [[[sum(gi[c, d] * (dg[d][j][i] + dg[d][i][j] - dg[i][j][d]) for d in range(n)) / 2 for j in range(n)]
+            for i in range(n)] for c in range(n)]
 
     def hess(i, j):
-        e = sp.diff(u, X[i], X[j]) - sum(Gam[c][i][j] * sp.diff(u, X[c]) for c in range(n))
-        return sp.simplify(e.subs(pt))
-    g33 = sp.simplify(g[2, 2].subs(pt))
-    g44 = sp.simplify(g[3, 3].subs(pt))
-    chi44 = sp.simplify(hess(3, 3) / g44)
-    ok_d1 = sp.simplify(chi44 - kap2) == 0
-    # e3 at (rho2, 0) is not orthogonal to d_tau, d_rho1 off the axis; the planar shear is measured on the axis
-    # limit and its rho2^2 coefficient: chi(d3, d3)/g33 - kappa2
-    shear = sp.simplify(hess(2, 2) / g33 - kap2)
-    sh0 = sp.simplify(sp.limit(shear, rho, 0))
-    sh2 = sp.simplify(sp.limit(shear / rho**2, rho, 0))
-    ok_d2 = sh0 == 0 and sp.simplify(sp.diff(sh2, U2) - 4 / a0) == 0
+        return sp.cancel(sp.diff(u, X[i], X[j]).subs(pt) - sum(Gam[c][i][j] * du[c] for c in range(n)))
+    g33 = g[2, 2].subs(pt)
+    g44 = g[3, 3].subs(pt)
+    chi44 = sp.cancel(hess(3, 3) / g44)
+    ok_d1 = sp.cancel(chi44 - kap2) == 0
+    shear = sp.cancel(hess(2, 2) / g33 - kap2)
+    sh0 = at_axis(shear)
+    sh2 = at_axis(shear / rho**2)
+    dU2 = sp.cancel(sp.diff(sh2, U2))
+    ok_d2 = sh0 == 0 and sp.cancel(dU2 - 4 / a0) == 0
     print("X1 (d) chi(e4, e4) = kappa2 exactly:", ok_d1, "; chi(d3,d3)/g33 - kappa2 -> 0 on the axis:", sh0 == 0,
-          "; its rho2^2 coefficient has d/dU_ss =", sp.simplify(sp.diff(sh2, U2)), "->", ok_d2)
+          "; its rho2^2 coefficient has d/dU_ss =", dU2, "->", ok_d2)
     return ok_a and ok_a2 and ctl_a and ok_b and ctl_b and ok_c and ok_d1 and ok_d2
 
 

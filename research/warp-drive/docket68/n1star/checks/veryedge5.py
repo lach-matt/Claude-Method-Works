@@ -286,9 +286,38 @@ def logderiv(f, x):
 
 
 def substitute_env(x):
-    """CONSTANTS5's C_c^inf envelope at v = 1/2 + x (its edge), up to the factor c: beta(y), y = (2v - 4)/3"""
-    y = -1 + 2*x/3
-    return mp.cos(mp.pi*y/2)**12*mp.exp(-y**2/(1 - y**2))
+    """CONSTANTS5's C_c^inf envelope at v = 1/2 + x (its edge), up to the factor c: beta(y), y = -1 + t, t = 2x/3;
+    with 1 - y^2 = t (2 - t) and cos(pi y/2) = sin(pi t/2), so no cancellation near the edge"""
+    t = 2*x/3
+    return mp.sin(mp.pi*t/2)**12*mp.exp(1 - 1/(t*(2 - t)))
+
+
+def substitute_se(x):
+    """its logarithmic derivative in v: (2/3) (6 pi cot(pi t/2) + 2 (1 - t)/(t^2 (2 - t)^2))"""
+    t = 2*x/3
+    return mp.mpf(2)/3*(6*mp.pi*mp.cot(mp.pi*t/2) + 2*(1 - t)/(t**2*(2 - t)**2))
+
+
+def ders_poly(kind, K):
+    """E^(k) = P_k(1/x) E: exp(-1/x): P' = u^2 (P - P'); exp(-1/x^2): P' = 2 u^3 P - u^2 P'"""
+    u = sp.Symbol('u')
+    Ps = [sp.Integer(1)]
+    for _ in range(K):
+        p = Ps[-1]
+        Ps.append(sp.expand(u**2*(p - sp.diff(p, u))) if kind == 1 else sp.expand(2*u**3*p - u**2*sp.diff(p, u)))
+    return [sp.lambdify(u, q, 'mpmath') for q in Ps]
+
+
+DP = {"exp(-1/x)": ders_poly(1, 8), "exp(-1/x^2)": ders_poly(2, 8)}
+
+
+def ders_at(name, x, K):
+    """|E^(k)(x)|/E(x), k <= K: exact polynomials for the two model edges, step-x^2/1000 differences otherwise"""
+    if name in DP:
+        return [abs(DP[name][k](1/x)) for k in range(K + 1)]
+    f = CLASSES[name][0]
+    f0 = f(x)
+    return [abs(mp.diff(f, x, k, h=x**2/1000))/f0 for k in range(K + 1)]
 
 
 CLASSES = {
@@ -296,14 +325,14 @@ CLASSES = {
     "exp(-1/x^2)": (lambda x: mp.exp(-1/x**2), lambda x: 2/x**3),
     "exp(-1/x^3)": (lambda x: mp.exp(-1/x**3), lambda x: 3/x**4),
     "exp(-e^(1/x))": (lambda x: mp.exp(-mp.exp(1/x)), lambda x: mp.exp(1/x)/x**2),
-    "record C_c^inf": (substitute_env, lambda x: logderiv(substitute_env, x)),
+    "record C_c^inf": (substitute_env, substitute_se),
     "sin^4 (paper)": (lambda x: mp.sin(mp.pi*x/3)**4, lambda x: 4*(mp.pi/3)*mp.cot(mp.pi*x/3)),
 }
 
 
 def x_break(se, lam):
     """the x where lam se(x) = 1 (se decreasing near 0): bisection on a log scale"""
-    lo, hi = mp.mpf('1e-300'), mp.mpf('0.4')
+    lo, hi = mp.mpf('1e-40'), mp.mpf('0.4')
     for _ in range(400):
         mid = mp.sqrt(lo*hi)
         if lam*se(mid) > 1:
@@ -335,12 +364,11 @@ def v4(control=False):
     lam = lams[1]
     incr = {}
     for nm in ("exp(-1/x)", "exp(-1/x^2)", "record C_c^inf"):
-        f = CLASSES[nm][0]
         xb = expo[nm][1][1]
-        ders = [mp.diff(f, xb/2, k) for k in range(8)]
-        up = all(lam*(k + 2)/(k + 1)*abs(ders[k + 1]/ders[k]) > 1 for k in range(7))
-        ders3 = [mp.diff(f, 3*xb, k) for k in range(2)]
-        down = lam*2*abs(ders3[1]/ders3[0]) < 1
+        ders = ders_at(nm, xb/2, 7)
+        up = all(lam*(k + 2)/(k + 1)*ders[k + 1]/ders[k] > 1 for k in range(7))
+        ders3 = ders_at(nm, 3*xb, 1)
+        down = lam*2*ders3[1]/ders3[0] < 1
         incr[nm] = up and down
     ok &= all(incr.values())
     out("  V4 exponents d log x_b / d log lam at lam = 1e-16..1e-32: " + "; ".join(
