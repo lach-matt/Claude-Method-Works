@@ -1,14 +1,8 @@
 # A Five-Dimensional Black Hole Grown by Null Dust Is a High-Frequency Limit of Vacuum Gravity
 
-## The Formal Counterpart to Huneau and Luk
-
-*The title is the form the author set on 2026-10-20: a statement that answers the theorem's question, and this
-subtitle.*
+## A Large-Data Counterpart, in Five Dimensions, to the Theorem of Huneau and Luk
 
 **Matthew Lach** · Independent Researcher · 20 October 2026
-
-*Status: draft for the author's review. It is to be published on the author's website, through the session that
-builds the site.*
 
 Labels used throughout: **computed** (an exact identity checked by a program named in Appendix A, with a negative
 control the program must reject), **deduced** (an argument written out here or in the supplement, a standard theorem
