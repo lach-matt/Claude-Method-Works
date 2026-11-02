@@ -41,6 +41,7 @@ import numpy as np
 L5, MU0, A_AMP = Fr(1, 10), Fr(1), Fr(1)
 VS, VE, T, TAU0, K = Fr(1, 2), Fr(7, 2), Fr(1), Fr(-2), 6
 NST = K + 3
+C_ENV_HI = Fr(13241035, 10 ** 7)   # READ: envelope5.out E1, c <= 1.32410349 (round 2's envelope; Round 3, m5)
 PI_LO, PI_HI = Fr(333, 106), Fr(355, 113)
 S3_LO, S3_HI = Fr(17320, 10000), Fr(17321, 10000)
 S2_LO, S2_HI = Fr(14142, 10000), Fr(14143, 10000)
@@ -91,8 +92,11 @@ def geometry():
     qe = (q0[0] * m4[0], q0[1] * m4[1])
     a = (q0[0] / 2, q0[1] / 2)
     V = VE + T
-    # v - r_q(v) increases: 1 - q0 mu^(-3/4) mu'/4 >= 1 - q0 (2/9)/4 > 0 (mu >= 1, mu' <= (2/9) A^2)
+    # v - r_q(v) increases: 1 - q0 mu^(-3/4) mu'/4 >= 1 - q0 (2/9) sup env^2/4 > 0 (mu >= 1, mu' = (2/9) A^2 env^2).
+    # Round 1 took sup env = 1 (the numerics' sin^4); round 2's envelope peaks at c <= C_ENV_HI (Round 3, the
+    # verifier's m5): 1 - q0 (2/9) c^2/4 >= 0.947 > 0, so tau_end and every leaf below hold for both envelopes.
     assert 1 - q0[1] * Fr(2, 9) / 4 > 0
+    assert 1 - q0[1] * Fr(2, 9) * C_ENV_HI ** 2 / 4 > Fr(947, 1000)
     tau_end = (V - qe[1], V - qe[0])
     b0 = (V + 1 + tau_end[0] - 2 * TAU0, V + 1 + tau_end[1] - 2 * TAU0)
     dtau = (tau_end[0] - TAU0, tau_end[1] - TAU0)
@@ -227,6 +231,9 @@ def main():
         'v_start - tau0 > sqrt(mu0) + 1: %s; Lemma 1.1 (f) width: %s' % (
             f(g['q0']), f(g['a']), g['mu_end'], float(g['mu_end']), f(g['qe']), g['V'], f(g['tau_end']), f(g['b0']),
             f(g['dtau']), f(g['lam1']), g['seed'], g['fwidth']))
+    mono = 1 - g['q0'][1] * Fr(2, 9) * C_ENV_HI ** 2 / 4
+    say('      (Round 3, m5) v - r_q(v) increasing for envelope5\'s envelope too: 1 - q0 (2/9) c^2/4 >= %.4f > 0 (c <= '
+        '%.7f, READ envelope5.out E1); round 1\'s check took sup env = 1' % (float(mono), float(C_ENV_HI)))
     ok['Z1'] = g['seed'] and g['fwidth'] and g['q0'][1] - g['q0'][0] < Fr(1, 10 ** 25)
 
     eps1, n, m, margins = eps1_bound(g)
