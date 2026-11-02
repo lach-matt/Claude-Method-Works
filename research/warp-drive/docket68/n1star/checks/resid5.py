@@ -153,8 +153,10 @@ def main():
         out[nm] = res
         print('  %s: Q1 fit error per field: %s' % (nm, ', '.join('%s %.1e' % (k, e) for k, e in err.items())),
               flush=True)
-        print('      Q2 residual, frame components, max |.| and max |.|/sqrt(K_0): %s' % ', '.join(
-            '%s %.2e (%.2e)' % (k, a, b) for k, (a, b) in res.items()), flush=True)
+        print('      Q2 residual, frame components, max |.| and (max |.|/sqrt(K_0)):', flush=True)
+        items = ['%s %.2e (%.2e)' % (k, a, b) for k, (a, b) in res.items()]
+        for q in range(0, len(items), 4):
+            print('         ' + ', '.join(items[q:q + 4]), flush=True)
     worst_f = max(b for a, b in out[fine].values()); worst_c = max(b for a, b in out[coarse].values())
     print('  worst relative residual: %.2e (%s), %.2e (%s), ratio %.2f' % (worst_f, fine, worst_c, coarse,
                                                                        worst_c / worst_f), flush=True)

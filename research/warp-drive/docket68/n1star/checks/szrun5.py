@@ -26,8 +26,8 @@ def load(name):
 
 
 def safe(E):
-    """a cell whose 4 x 4 solve is singular (near the singularity, at a small cut) is returned as NaN, so that dnsolve5.run
-    masks it as it masks any non-finite cell, instead of stopping the run (np.linalg.solve raises on the whole batch)"""
+    """a cell whose 4 x 4 solve is singular (near the singularity, at a small cut) is returned as NaN, so that
+    dnsolve5.run masks it as it masks any non-finite cell, instead of stopping the run (np.linalg.solve raises on the whole batch)"""
     raw = E.uv
 
     def uv(env):

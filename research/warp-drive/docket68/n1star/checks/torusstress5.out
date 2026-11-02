@@ -1,0 +1,8 @@
+  V1: lam^-1 coefficient of d_a(H^ab d_b f) vanishes on a null phase: True; its lam^0 th-mean is d_a(H0^ab d_b f0) exactly: True; the quadratic term of Ric[h] keeps its Isaacson mean (3/2) <(d_th psi1)^2> du du: True; control (h^ab d_a d_b f) acquires a mean term: True
+  V2: T_(phi phi) = 0 exactly for a measure on momenta with p_phi = 0, > 0 once one has p_phi != 0: True
+  V3: a rotation of the isotropy SO(3) moves e_th off its line: True
+  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: True; control (p_th != 0 gives T_thth > 0): True
+V1 PASS
+V2 PASS
+V3 PASS
+V4 PASS

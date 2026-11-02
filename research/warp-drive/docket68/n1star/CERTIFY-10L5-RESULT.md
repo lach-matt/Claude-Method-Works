@@ -130,7 +130,9 @@ two at seed 2, cut 0.18. Results are in `checks/secondzero5.out`.
   By D2 every MOTS of these cones lies in that band, near areal radius 1.01–1.05. The Bondi second zero sits near the
   excision radius 0.54–0.57 (seed 1).
 
-### 1.4 The Bondi spheres rebuilt from the double-null solution (computed, `checks/bondisph5.py`, `checks/secondzero5.py` S3–S5)
+### 1.4 The Bondi spheres rebuilt from the double-null solution
+
+(computed, `checks/bondisph5.py`, `checks/secondzero5.py` S3–S5)
 
 **The rebuild.**
 - On C_{v_j}, `dnsolve5`'s ingoing generators obey dx/du = β. Their labels ξ are their angles on the data cone
@@ -330,8 +332,13 @@ rows from the cut.
   - 0.18 on [1.65, 1.8), 12 on [1.8, 1.9) and 58 on [1.9, 1.975).
 - **L3, gauge indicators.** Max |W| is 0.49, 0.87, 1.03, 1.22, 1.25 and 1.25 per band. P + Q ∈ [−0.149, 0.088].
   - Gx ~ e^{−2(P+Q)} does not approach zero, so no caustic of the outgoing cones is forming. The lapse e^{2W} stays
-    within a factor 12 of its seed value.
+    below 25 times its value on the first cone (e^{2W} = 1/2 there), the growth Tangherlini's own interior shows
+    toward the cut.
   - The failure is therefore not a breakdown of the double-null gauge visible in its own functions.
+- **The angular resolution.** At 800 × 360, M = 24 against M = 16, max |ρ| on [1.65, 1.8), [1.8, 1.9) and [1.9, 1.975)
+  is 1.84, 8.4 and 13.5 against 3.19, 14.9 and 55. It is smaller at the finer angular grid, but stays of the order of
+  the terms. The maximum on [1.65, 1.8) is at u = −0.978, x ≈ −0.85, areal radius at the node 0.80, v = 1.79, at both M:
+  inside the seed's horizon generator, toward the axis x = −1 where the record's angular failure begins (D351–D418).
 - **What this classifies.** From v ≈ 1.65 (M = 16; M = 24–40 move the angular onset to 1.65–1.93, CERTIFY-10L5.md
   D418–D499) the computed fields are not an approximation of a vacuum solution in this gauge. They violate an identity
   that every vacuum solution satisfies (Ric_vv = 0) and an inequality that it implies (D1).
@@ -347,7 +354,7 @@ rows from the cut.
 | `checks/sectexp5.py`, `.out` | X1–X3: Raychaudhuri identity, the section-expansion formula, the Minkowski check |
 | `checks/bondisph5.py` | library: the Bondi spheres rebuilt from a double-null run |
 | `checks/secondzero5.py`, `.out` | S1–S5 on every run below |
-| `checks/szrun5.py` | driver: `dnsolve5.run` stopped at v = 2; options `ld`, `amp`, `R0`, swapped gauge; singular cells masked |
+| `checks/szrun5.py` | driver: `dnsolve5.run` stopped at v = 2; options `ld`, `amp`, `R0`, gauge; singular cells masked |
 | `checks/g5zeros5.py` | driver: `growth5.run` with every zero recorded, written to scratch; option `cfl` |
 | `checks/late5.py`, `.out` | L1–L3 |
 | `checks/resid5.py`, `.out` | Q1–Q2: computed residual of a smoothed approximant |

@@ -1463,36 +1463,41 @@ part of P with r bounded, with constants that grow with r; it is not a statement
 at past null infinity was later derived, section 11, the paper's Theorem 3; the paragraph above records the state at
 D32.)
 
-**Proposition 9.10 (Theorem 1's items 6-7 for Theorem P's solutions, on Omega; deduced, D609).** Let g_lam be the
-solution of Theorem P (the paper's Theorem 2), K >= 6, lam <= lam_P. Then on Omega cap {tau >= tau0}: (a) if mu0 >
-sqrt(72) l5^2, Proposition 8.1 (a)-(c) holds for g_lam, with lam1 and C of the same form; (b) Proposition 8.2 holds for
-g_lam: |M[S_(v,r)](g_lam) - mu(v)| <= C lam^2 if v <= v_start or v >= v_end, and <= C lam in between.
+**Proposition 9.10 (Theorem 1's items 6-7 for Theorem P's solutions, on Omega; deduced, D609; read by an independent
+verifier, D609).** Let g_lam be the solution of Theorem P (the paper's Theorem 2), K >= 6, lam <= lam_P. Then on D_T cap
+{tau >= tau0}: (a) if mu0 > sqrt(72) l5^2, Proposition 8.1 (a)-(c) holds for g_lam, with lam1 and C of the same form; (b)
+Proposition 8.2 holds for g_lam: |M[S_(v,r)](g_lam) - mu(v)| <= C lam^2 if v <= v_start or v >= v_end, and <= C lam in
+between.
 
 *Proof.* Each proof uses four inputs about the solution and none about how its data were obtained; each holds for Theorem
-P's g_lam on Omega. (1) The remainder bounds: g_lam = g_app + w on Omega with ||d^i w||_inf <= C M lam^(K-3-i), i <= 4
-(section 4, Step 1, from (0.5)). The proof of Theorem P continues g_n to Omega by Theorem E with (0.5) (section 9.4, *The
-solution on P cup Omega*), and the limit keeps those bounds with k - 5 derivatives, so (1) holds with g_app the
-approximant of Theorem A_P. (2) The approximant's first stage: g1 = m1 + W(X, th + phi1) with W = W_TT + chi dv^2, W(ell,
-.) = 0 and tr W_TT = 0 (lead5.py L5), m1 independent of th. Theorem A_P's stages are section 5's with nothing coming in,
-so the same W_TT and a chi with no radiation at past null infinity (past5.py P4-P5: Y = -2 f r^-2); horizon5.py H2b
-computes Proposition 8.1 (iii) for the record's wave at the shifted phase with chi dv^2 and a mean m1 of every
-T^2-invariant component symbolically in every function, so it covers this chi and this m1: theta^+(g_app) = theta^+(g0) +
-lam [Th1] + lam^2 E along every column, with no term of order lam^-2, lam^-1 or lam^0 beyond g0's. The later stages are
-bounded with their X-derivatives on the compact Omega (Theorem A_P's classes). (3) The support of the oscillating
-profiles: Theorem A_P's stages vanish for v <= v_start (and g_lam = g0 there, (P-i)), and its oscillating profiles are
-transport solutions along ell at fixed v with sources supported in v_start < v < v_end (Lemma 9.7(d)), so they vanish for
-v >= v_end as in Proposition 8.2's proof. (4) The symmetry: Theorem A_P's stages obey Lemma 8.2's symmetry (the stage
-system is S-equivariant, nothing coming in is S-invariant, and the solutions are unique), so sigma^* m1 = -m1; computed
-for the source with this chi in stage5.py S3 (odd, and g1 = W S-odd), and for the whole R^(1) under S in S4. With
-(1)-(4), the proofs of Propositions 8.1 and 8.2 run verbatim: (i)-(ii) of 8.1 concern g0 and the expansion as a function
-of g; (iii) is (2); (iv) is (1), giving C lam^(K-5) <= C lam; (v) uses Omega, mu and r_q only. In 8.2, outside the shell
-g_app = g0 + lam m1 + lam^2 E by (3), DM[m1] = 0 by (4) and naturality, the remainder is O(lam^(K-4)) by (1), and inside
-the shell tr_S W = tr_S d_th W = 0 by (2). []
+P's g_lam. (1) The remainder bounds: g_lam = g_app + w on Omega with ||d^i w||_inf <= C M lam^(K-3-i), i <= 4 (section 4,
+Step 1, from (0.5)). (P-iv) gives (0.5) for g_lam itself on Omega (the proof of Theorem P continues g_n to Omega by
+Theorem E with (0.5), section 9.4, *The solution on P cup Omega*, and the limit satisfies it), so Step 1 gives (1), with
+g_app the approximant of Theorem A_P. (2) The approximant's first stage: g1 = m1 + W(X, th + phi1) with W = W_TT + chi
+dv^2, W(ell, .) = 0 and tr W_TT = 0 (lead5.py L5), m1 independent of th. Theorem A_P's stages are section 5's with
+nothing coming in, so the same W_TT, and chi = -2 r^-2 times a function of (v, th, s), with no radiation at past null
+infinity (past5.py P4-P5); horizon5.py H2b computes Proposition 8.1 (iii) for the record's wave at the shifted phase with
+chi dv^2 and a mean m1 in each of the eight T^2 x Z2 x Z2-invariant components, symbolically in every function, which is
+Theorem A_P's class, so it covers this chi and this m1: theta^+(g_app) = theta^+(g0) + lam [Th1] + lam^2 E along every
+column, with no term of order lam^-2, lam^-1 or lam^0 beyond g0's. The later stages are smooth on P cup Omega, so bounded
+with their X-derivatives on the compact Omega. (3) The support of the oscillating profiles: Theorem A_P's stages vanish
+for v <= v_start (and g_lam = g0 there, (P-i)), and its oscillating profiles are transport solutions along ell at fixed v
+with sources supported in v_start < v < v_end (Lemma 9.7(d), and on Omega Lemma 5.3(c) with the trace data on
+Sigma_tau0), so they vanish for v >= v_end as in Proposition 8.2's proof. (4) The symmetry: Theorem A_P's stages obey
+Lemma 8.2's symmetry (the stage system is S-equivariant, nothing coming in is S-invariant, and the solutions are unique),
+so sigma^* m1 = -m1 (deduced). Computed: stage5.py S4, the whole R^(1)[g0 + lam W] odd under S in its seven nonzero
+components with a control failing in all seven, run with chi's free function k(v) generic, of which this chi is the case
+k = 0 (S3 checks the mean source alone, which its control cannot fail). With (1)-(4), the proofs of Propositions 8.1 and
+8.2 run verbatim: (i)-(ii) of 8.1 concern g0 and the expansion as a function of g; (iii) is (2); (iv) is (1), giving C
+lam^(K-5) <= C lam; (v) uses Omega, mu and r_q only. In 8.2, outside the shell g_app = g0 + lam m1 + lam^2 E by (3),
+DM[m1] = 0 by (4) and naturality, the remainder is O(lam^(K-4)) by (1), and inside the shell tr_S W = tr_S d_th W = 0 by
+(2). []
 
-The columns of Proposition 8.1 (b) are those of Omega cap {tau >= tau0}; on P the columns continue below Sigma_tau0,
-where (P-iii) bounds g_lam - g_app by C lam^(K-3) t^-2 but the derivative bounds needed in (iv) are those of (9.8)-(9.9)
-with Sobolev on the slices, so the same argument runs on P cap {r <= R} for each R, with constants depending on R; the
-statement above is on Omega, as Theorem P item 4 is.
+The columns of Proposition 8.1 (b) are those of D_T cap {tau >= tau0}; on P the columns continue below Sigma_tau0, where
+(P-iii) bounds g_lam - g_app and its first derivatives by C lam^(K-3) t^-2 and C lam^(K-4) t^-2, and the second
+derivatives (iv) needs come from (9.8)-(9.9) with Sobolev on the slices, so the same argument runs on P cap {r <= R} for
+each R, with constants depending on R (theta^+(g0) ~ 3/r far out); the statement above is on D_T cap {tau >= tau0}, as
+Theorem P item 4 is.
 
 ## 10. Late-time settling and the wavelength 10 l5: how far each goes (D33)
 

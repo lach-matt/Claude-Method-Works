@@ -390,11 +390,24 @@ def linearise(m, comps):
     return {k: R[k].get((1, "m"), 0) for k in comps}
 
 
+TH = sp.Symbol("t")                                              # tan(th/2)
+TRIG = {sp.cos(th): (1 - TH**2)/(1 + TH**2), sp.sin(th): 2*TH/(1 + TH**2)}
+
+
+def coeffs(e):
+    """coefficients of e, linear in the unknown functions and their derivatives, by atom"""
+    e = sp.expand(sp.expand_trig(sp.expand(e)))
+    at = sorted([d for d in e.atoms(sp.Derivative)], key=lambda d: -d.derivative_count)
+    at += [f for f in e.atoms(sp.Function) if not isinstance(f, (sp.sin, sp.cos, sp.tan, sp.cot))]
+    dm = [sp.Dummy() for _ in at]
+    e = e.subs(list(zip(at, dm)))
+    P = sp.Poly(e, *dm) if dm else None
+    return [e] if P is None else [x for x in P.coeffs()]
+
+
 def tzero(e):
-    """exact zero test for a rational function of trigonometric functions of th (through z = exp(i th))"""
-    z = sp.Symbol("z")
-    e = sp.expand(e).rewrite(sp.exp).subs(th, -sp.I*sp.log(z))
-    return sp.cancel(sp.together(sp.expand(e))) == 0
+    """exact zero test: every coefficient, a rational function of cos th, sin th, through t = tan(th/2)"""
+    return all(sp.cancel(sp.together(c.subs(TRIG))) == 0 for c in coeffs(e))
 
 
 def reduce_sector(Lm):
@@ -416,9 +429,7 @@ def reduce_sector(Lm):
         ok &= tzero(d.coeff(Yf)) and tzero(d.coeff(Yp))
     out["L"], out["T"] = a, b
     ok &= all(tzero(sp.diff(x, th)) for x in out.values())
-    z = sp.Symbol("z")
-    out = {k: sp.expand(sp.cancel(sp.expand(x.rewrite(sp.exp).subs(th, -sp.I*sp.log(z))))) for k, x in out.items()}
-    ok &= all(z not in x.free_symbols for x in out.values())
+    out = {k: sp.expand(sp.radsimp(sp.expand(x.subs(th, sp.pi/4)))) for k, x in out.items()}
     return ok, out
 
 

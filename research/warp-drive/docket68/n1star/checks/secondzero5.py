@@ -15,7 +15,8 @@ solution's.  By D2 (X2 (b)) no section of an ingoing cone with theta >= 0 at its
 u > -1.  The checks measure the runs against these facts, and rebuild (a) in the double-null formulation.
 
   S1 every kept cell with u > -1, v <= 1.8, a valid v-stencil and at least k rows from the cut has R_v < 0
-     (k = Nu/40); the violations, if any, lie within k rows of the cut.  The same count on (1.8, 2] is reported.  Control: the same test over u > -1.02, which includes leaves
+     (k = Nu/40); the violations, if any, lie within k rows of the cut.  The same count on (1.8, 2] is reported.
+     Control: the same test over u > -1.02, which includes leaves
      outside the seed's horizon generator, must fail.
   S2 every second (and further) zero of R_v along an ingoing cone at a fixed node lies at u > -1 within k rows of the
      cut, so by D1 none is the exact solution's.  Control: the classifier applied to the first zero must fail (the
@@ -232,7 +233,8 @@ def main():
         good, extra, fv, k = s2(Z)
         ctl = s2(Z, control=True)
         print('  S2 further zeros of R_v along ingoing cones, v <= %.2f: %d, first at v = %s, all at u > -1 within %d '
-              'rows of the cut: %s; control (first zero near the cut) %s' % (VMAX, extra, fv, k, 'PASS' if good else 'FAIL',
+              'rows of the cut: %s; control (first zero near the cut) %s' % (VMAX, extra, fv, k,
+                                                                             'PASS' if good else 'FAIL',
                                                                  'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
         late = s2(Z, vmax=2.0, vmin=VMAX)

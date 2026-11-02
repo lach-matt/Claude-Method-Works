@@ -79,7 +79,8 @@ def main():
     ok = True
     for wcoef, label in ((2.0, 'L1 rho'), (1.0, 'control (W_v in place of 2 W_v)')):
         Fs = [fields(Z, wcoef=wcoef) for Z in Zs]
-        print('%s: max |rho| per band, at %s (coarse nodes of each run)' % (label, ', '.join(names)), flush=True)
+        print('%s: max |rho| per band, at' % label, flush=True)
+        print('   %s' % ', '.join(names), flush=True)
         conv = []
         for band in BANDS:
             # the v-nodes of the runs nest: run l has 2^l columns per coarse column; centred stencils are shifted by
