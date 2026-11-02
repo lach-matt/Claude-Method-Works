@@ -186,16 +186,109 @@ def s1(control=False):
     return out
 
 
-# ---------------------------------------------------------------- S2-S4: the approximant's data, random draws
-def rpoly(rng, vars_, deg=2, scale=1, const=None):
-    """a random polynomial with small rational coefficients"""
+# ---------------------------------------------------------------- S2-S4: the approximant's data, as exact jets
+# Every field is a polynomial in (T, X, Y) = (t - t0, R - R0, th - th0), truncated at total degree 2, with coefficients
+# polynomial in the fast variables (c_k, d_k) = (cos s_k, sin s_k), eps = lam, il = 1/lam and eU (the linearisation
+# parameter). The constraint map takes at most two derivatives along any path, so its value at the point is exact.
+TJ, XJ, YJ = sp.symbols('T X Y')
+GENS = (TJ, XJ, YJ, c1, d1, c2, d2, eps, IL, eU)
+QQ = sp.QQ
+
+
+def P(e):
+    return sp.Poly(sp.expand(e), *GENS, domain=QQ)
+
+
+def tr(p):
+    d = {m: c for m, c in p.as_dict().items() if m[0] + m[1] + m[2] <= 2 and m[7] <= 2 and m[9] <= 1}
+    return sp.Poly.from_dict(d, *GENS, domain=QQ) if d else sp.Poly(0, *GENS, domain=QQ)
+
+
+def mul(a, b):
+    return tr(a * b)
+
+
+def inv(x):
+    """1/x, x a jet with a nonzero constant term"""
+    d = x.as_dict()
+    c = d.get((0,) * 10, 0)
+    assert c != 0
+    y = tr(x * QQ(1, 1) * sp.Rational(1) / c - P(1)) if False else tr(sp.Poly.from_dict(
+        {m: v / c for m, v in d.items()}, *GENS, domain=QQ) - P(1))
+    s, pw = P(1), P(1)
+    for _ in range(6):
+        pw = mul(pw, -y)
+        s = s + pw
+    return tr(sp.Poly.from_dict({m: v / c for m, v in s.as_dict().items()}, *GENS, domain=QQ))
+
+
+def Dsk(p, c, d):
+    return -P(d) * p.diff(c) + P(c) * p.diff(d)
+
+
+class JetFast:
+    def __init__(self, Pv, Pu):
+        self.vR, self.uR = P(sp.diff(Pv, XJ)), P(sp.diff(Pu, XJ))
+        self.vT, self.uT = P(sp.diff(Pv, TJ)), P(sp.diff(Pu, TJ))
+
+    def D(self, p, k):
+        if k == 0:
+            return tr(p.diff(XJ) + P(IL) * (mul(self.vR, Dsk(p, c1, d1)) + mul(self.uR, Dsk(p, c2, d2))))
+        if k == 1:
+            return tr(p.diff(YJ))
+        return P(0)
+
+    def Dt(self, p):
+        return tr(p.diff(TJ) + P(IL) * (mul(self.vT, Dsk(p, c1, d1)) + mul(self.uT, Dsk(p, c2, d2))))
+
+
+def jconstraints(F, g, gi, K):
+    """(J_R, J_th, rho) for diagonal gamma (g, gi lists of jets) and symmetric K"""
+    n = 4
+    dg = [[F.D(g[a][a], k) for k in range(n)] for a in range(n)]
+
+    def dgf(a, b, k):
+        return dg[a][k] if a == b else P(0)
+    G = [[[P(0)] * n for _ in range(n)] for _ in range(n)]
+    for a in range(n):
+        for b in range(n):
+            for c in range(b, n):
+                e = dgf(a, c, b) + dgf(a, b, c) - dgf(b, c, a)
+                G[a][b][c] = G[a][c][b] = mul(gi[a][a], e) * QQ(1, 2)
+    Rs = P(0)
+    for b in range(n):
+        e = P(0)
+        for a in range(n):
+            e = e + F.D(G[a][b][b], a) - F.D(G[a][b][a], b)
+            for d in range(n):
+                e = e + mul(G[a][a][d], G[d][b][b]) - mul(G[a][b][d], G[d][b][a])
+        Rs = Rs + mul(gi[b][b], e)
+    trK = P(0)
+    for i in range(n):
+        trK = trK + mul(gi[i][i], K[i][i])
+    K2 = P(0)
+    for i in range(n):
+        for j in range(n):
+            K2 = K2 + mul(mul(gi[i][i], gi[j][j]), mul(K[i][j], K[i][j]))
+    rho = tr(Rs - K2 + mul(trK, trK))
+    J = []
+    for i in range(2):
+        divK = P(0)
+        for j in range(n):
+            cov = F.D(K[i][j], j) - sum((mul(G[l][j][i], K[l][j]) + mul(G[l][j][j], K[i][l]) for l in range(n)), P(0))
+            divK = divK + mul(gi[j][j], cov)
+        J.append(tr((F.D(trK, i) - divK) * 2))
+    return J[0], J[1], rho
+
+
+def rp(rng, vars_, deg, const=None, scale=1):
     mons = [sp.Integer(1)]
     for _ in range(deg):
         mons = list({m * v for m in mons for v in [sp.Integer(1)] + list(vars_)})
-    e = sum(sp.Rational(rng.randint(-4, 4), 7) * m for m in mons)
+    e = sum(sp.Rational(rng.randint(-4, 4), 7) * m for m in mons) * scale
     if const is not None:
-        e = e - e.subs({v: 0 for v in vars_}) + const
-    return sp.expand(e * scale) if const is None else sp.expand(e)
+        e = sp.expand(e) - sp.expand(e).subs({v: 0 for v in vars_}) + const
+    return sp.expand(e)
 
 
 def circle(rng):
@@ -203,135 +296,124 @@ def circle(rng):
     return (1 - k**2) / (1 + k**2), 2 * k / (1 + k**2)
 
 
-def slice_data(rng, trace_out=False, phase_shift=None):
-    """gamma, K (lists) on {t = 0} of g = g0 + eps (W_in + W_out) in the shifted variables (t, R - R0, th - th0)"""
-    x, y = sp.symbols('x y')                                                     # placeholders for R - R0, th - th0
-    R0, th0 = sp.Rational(rng.randint(15, 30), 10), sp.Rational(rng.randint(3, 12), 10)
-    sh = {x: R - R0, y: th - th0}
-    tv = [t, x]
-    N = rpoly(rng, tv, 2, const=sp.Integer(1)).subs(sh)
-    Gb = rpoly(rng, tv, 2, const=sp.Rational(3, 2)).subs(sh)
-    b = (rpoly(rng, tv, 2) / 3).subs(sh)
-    Pv = (t + R + rpoly(rng, tv, 2) / 5).subs({x: R - R0})
-    Pu = (t - R + rpoly(rng, tv, 2) / 5).subs({x: R - R0})
-    if phase_shift is not None:
-        Pu = Pu + phase_shift * t**2
-    F = Fast(Pv, Pu)
-    amp = lambda: rpoly(rng, [t, x, y], 1).subs(sh)                             # noqa: E731
-    a1 = amp() * c1 + amp() * d1
-    a2 = amp() * c1 + amp() * d1
-    b1 = amp() * c2 + amp() * d2
-    b2 = amp() * c2 + amp() * d2
+def jslice(seed, trace_out=False, waves=True, pu_extra=0):
+    """the approximant's slice data at the point (as jets): gamma (diagonal), K, the operator, and R0"""
+    rng = random.Random(seed)
+    R0 = sp.Rational(rng.randint(15, 30), 10)
+    ct, st = circle(rng)
+    Rj = R0 + XJ
+    Cj = ct - st * YJ - ct * YJ**2 / 2
+    Sj = st + ct * YJ - st * YJ**2 / 2
+    N = rp(rng, [TJ, XJ], 2, const=1)
+    Gb = rp(rng, [TJ, XJ], 2, const=sp.Rational(3, 2))
+    b = rp(rng, [TJ, XJ], 2, scale=sp.Rational(1, 3))
+    Pv = TJ + XJ + rp(rng, [TJ, XJ], 3, scale=sp.Rational(1, 5))
+    Pu = TJ - XJ + rp(rng, [TJ, XJ], 3, scale=sp.Rational(1, 5)) + pu_extra
+    F = JetFast(Pv, Pu)
+    amp = lambda: rp(rng, [TJ, XJ, YJ], 1)                                      # noqa: E731
+    a1, a2 = amp() * c1 + amp() * d1, amp() * c1 + amp() * d1
+    b1, b2 = amp() * c2 + amp() * d2, amp() * c2 + amp() * d2
     chi_in, chi_out = amp() * (c1**2 - d1**2), amp() * (c2**2 - d2**2)
-    sph = [R**2, R**2 * Ct**2, R**2 * St**2]
-    Wang = [-2 * R**2 * (a1 + a2) - 2 * R**2 * (b1 + b2), 2 * sph[1] * (a1 + b1), 2 * sph[2] * (a2 + b2)]
+    Ftr = amp() * c2
+    w = 1 if waves else 0
+    sph = [Rj**2, Rj**2 * Cj**2, Rj**2 * Sj**2]
+    Wang = [-2 * Rj**2 * (a1 + a2 + b1 + b2), 2 * sph[1] * (a1 + b1), 2 * sph[2] * (a2 + b2)]
     if trace_out:
-        Ftr = amp() * c2
         Wang = [Wang[0] + sph[0] * Ftr, Wang[1] + sph[1] * Ftr, Wang[2] + sph[2] * Ftr]
-    dPv = (sp.diff(Pv, t), sp.diff(Pv, R))
-    dPu = (sp.diff(Pu, t), sp.diff(Pu, R))
-    W_tt = chi_in * dPv[0]**2 + chi_out * dPu[0]**2
-    W_tR = chi_in * dPv[0] * dPv[1] + chi_out * dPu[0] * dPu[1]
-    W_RR = chi_in * dPv[1]**2 + chi_out * dPu[1]**2
-    g_RR = Gb + eps * W_RR
-    g_tR = Gb * b + eps * W_tR
-    gam = [[g_RR, 0, 0, 0], [0, sph[0] + eps * Wang[0], 0, 0], [0, 0, sph[1] + eps * Wang[1], 0],
-           [0, 0, 0, sph[2] + eps * Wang[2]]]
-    gi = [[ZERO] * 4 for _ in range(4)]
-    for i in range(4):
-        gi[i][i] = inv_diag(gam[i][i], 2)
-    beta = [g_tR, ZERO, ZERO, ZERO]
-    G = christoffel(F, gam, gi)
-    K = [[ZERO] * 4 for _ in range(4)]
+    vT, vR, uT, uR = sp.diff(Pv, TJ), sp.diff(Pv, XJ), sp.diff(Pu, TJ), sp.diff(Pu, XJ)
+    W_tR = chi_in * vT * vR + chi_out * uT * uR
+    W_RR = chi_in * vR**2 + chi_out * uR**2
+    gam = [tr(P(Gb + w * eps * W_RR))] + [tr(P(sph[i] + w * eps * Wang[i])) for i in range(3)]
+    gi = [inv(x) for x in gam]
+    beta = tr(P(Gb * b + w * eps * W_tR))
+    two_n_inv = inv(tr(P(2 * N)))
+    dg = [[F.D(gam[a], k) for k in range(4)] for a in range(4)]
+
+    def Gam(a, b_, c):                                   # Christoffel symbols of the diagonal gamma
+        e = (dg[a][b_] if a == c else P(0)) + (dg[a][c] if a == b_ else P(0)) - (dg[b_][a] if b_ == c else P(0))
+        return mul(gi[a], e) * QQ(1, 2)
+    K = [[P(0)] * 4 for _ in range(4)]
     for i in range(4):
         for j in range(i, 4):
-            lie = (F.D(beta[j], i) + F.D(beta[i], j) - 2 * sum(G[k][i][j] * beta[k] for k in range(4)))
-            e = trunc((F.Dt(gam[i][j]) - lie) / (2 * N), 1, 0)
-            K[i][j] = K[j][i] = trunc(sp.expand(e).subs(t, 0), 1, 0)
-    gam = [[sp.expand(gam[i][j]).subs(t, 0) for j in range(4)] for i in range(4)]
-    point = {R: R0, th: th0}
-    return F, gam, K, point
+            dtg = F.Dt(gam[i]) if i == j else P(0)
+            lie = (F.D(beta, i) if j == 0 else P(0)) + (F.D(beta, j) if i == 0 else P(0)) - mul(Gam(0, i, j), beta) * 2
+            K[i][j] = K[j][i] = mul(two_n_inv, dtg - lie)
+    # the slice is t = t0: drop T
+    sl = lambda p: tr(sp.Poly.from_dict({m: v for m, v in p.as_dict().items() if m[0] == 0} or {(0,) * 10: 0},  # noqa
+                                         *GENS, domain=QQ))
+    return F, [sl(x) for x in gam], [[sl(x) for x in row] for row in K], rng
 
 
-def linearised(rng_seed, a_, w_, q_, trace_out=False, waves=True):
-    rng = random.Random(rng_seed)
-    F, gam, K, point = slice_data(rng, trace_out)
-    F.Pv, F.Pu = F.Pv.subs(t, 0), F.Pu.subs(t, 0)
-    if not waves:
-        gam = [[sp.expand(x).subs(eps, 0) for x in row] for row in gam]
-        K = [[sp.expand(x).subs({eps: 0, IL: 0}) for x in row] for row in K]
-    g = [row[:] for row in gam]
-    g[0][0] = g[0][0] + eU * a_
-    gi = [[ZERO] * 4 for _ in range(4)]
-    for i in range(4):
-        gi[i][i] = inv_diag(g[i][i], 2)
+def jlinear(seed, a_, w_, q_, trace_out=False, waves=True, pt=None):
+    """the 1/lam and order-0 parts, at the point, of the linearisation of (J_R, J_th, rho) in (a, w, q)"""
+    F, gam, K, rng = jslice(seed, trace_out, waves)
+    g = [tr(gam[0] + P(eU * a_))] + gam[1:]
+    gi = [inv(x) for x in g]
     Kp = [row[:] for row in K]
     for i in (1, 2, 3):
-        Kp[i][i] = Kp[i][i] + eU * w_ * gam[i][i]
-    Kp[0][1] = Kp[0][1] + eU * q_
-    Kp[1][0] = Kp[1][0] + eU * q_
-    JR, Jth, rho = constraints(F, g, gi, Kp)
-    rng2 = random.Random(rng_seed + 1000)
-    pt = dict(point)
-    pt[c1], pt[d1] = circle(rng2)
-    pt[c2], pt[d2] = circle(rng2)
-    pt[Ct], pt[St] = circle(rng2)
+        Kp[i][i] = tr(Kp[i][i] + mul(P(eU * w_), gam[i]))
+    Kp[0][1] = tr(Kp[0][1] + P(eU * q_))
+    Kp[1][0] = Kp[0][1]
     out = []
-    for e in (JR, Jth, rho):
-        e = sp.expand(sp.diff(e, eU).subs(eU, 0))
-        e = sp.expand(e.subs(IL, 1 / eps) * eps)                                 # order lam^k -> eps^(k+1)
-        out.append((e.coeff(eps, 0).subs(pt), e.coeff(eps, 1).subs(pt)))       # the 1/lam and the order-0 parts
-    return out, point
+    for e in jconstraints(F, g, gi, Kp):
+        e1, e0 = sp.Integer(0), sp.Integer(0)
+        for m, v in e.as_dict().items():
+            if m[0] or m[1] or m[2] or m[9] != 1:
+                continue
+            net = m[7] - m[8]                                                   # power of lam
+            mono = v * c1**m[3] * d1**m[4] * c2**m[5] * d2**m[6]
+            if net == -1:
+                e1 += mono
+            elif net == 0:
+                e0 += mono
+        red = lambda x: sp.reduced(sp.expand(x), [d1**2 + c1**2 - 1, d2**2 + c2**2 - 1], d1, d2, c1, c2)[1]  # noqa
+        out.append((sp.expand(red(e1)), sp.expand(red(e0))))
+    return out
 
 
 def s2_s3(seeds=(11, 12, 13)):
-    """S2: the 1/lam coefficient at (a, w, q) = generic slow polynomials; S3: order-0 principal coefficients"""
     res = {'S2': True, 'S2c': True, 'S3': True, 'S3c': True}
     for sd in seeds:
         rng = random.Random(sd + 500)
-        R0th0 = slice_data(random.Random(sd))[3]
-        X, Y = R - R0th0[R], th - R0th0[th]
-        gen = [rpoly(rng, [X, Y], 2) for _ in range(3)]
-        lin, _ = linearised(sd, *gen)
-        linc, _ = linearised(sd, *gen, trace_out=True)
-        m1 = [abs(x[0]) for x in lin]
-        mc = [abs(x[0]) for x in linc]
-        print('    draw %d: 1/lam coefficients of (J_R, J_th, rho) at generic (a, w, q): %s; with the outgoing trace: %s'
-              % (sd, [str(x) for x in m1], [str(sp.nsimplify(x)) if x == 0 else '%.3g' % float(x) for x in mc]),
-              flush=True)
-        res['S2'] &= all(x == 0 for x in m1)
-        res['S2c'] &= any(x != 0 for x in mc)
-        # S3: the principal coefficients at order 0, against the background's
-        tests = {'d_R a (rho)': ((X, 0, 0), 2), 'd_th^2 a (rho)': ((Y**2 / 2, 0, 0), 2),
-                 'd_R d_th a (rho)': ((X * Y, 0, 0), 2), 'd_R^2 a (rho)': ((X**2 / 2, 0, 0), 2),
-                 'd_R w (J_R)': ((0, X, 0), 0), 'd_th q (J_R)': ((0, 0, Y), 0), 'd_R q (J_th)': ((0, 0, X), 1),
-                 'd_th w (J_th)': ((0, Y, 0), 1)}
-        same, samec = True, True
+        gen = [rp(rng, [XJ, YJ], 2) for _ in range(3)]
+        lin = jlinear(sd, *gen)
+        linc = jlinear(sd, *gen, trace_out=True)
+        z = [x[0] == 0 for x in lin]
+        zc = [x[0] == 0 for x in linc]
+        print('    draw %d: the 1/lam coefficient of (J_R, J_th, rho) vanishes: %s; with the outgoing trace: %s'
+              % (sd, z, zc), flush=True)
+        res['S2'] &= all(z)
+        res['S2c'] &= not all(zc)
+        tests = {'d_R a (rho)': ((XJ, 0, 0), 2), 'd_th^2 a (rho)': ((YJ**2 / 2, 0, 0), 2),
+                 'd_R d_th a (rho)': ((XJ * YJ, 0, 0), 2), 'd_R^2 a (rho)': ((XJ**2 / 2, 0, 0), 2),
+                 'd_R w (J_R)': ((0, XJ, 0), 0), 'd_th q (J_R)': ((0, 0, YJ), 0), 'd_R q (J_th)': ((0, 0, XJ), 1),
+                 'd_th w (J_th)': ((0, YJ, 0), 1)}
+        same, samec, bad = True, True, []
         for name, (aw, k) in tests.items():
-            full = linearised(sd, *aw)[0][k][1]
-            bg = linearised(sd, *aw, waves=False)[0][k][1]
-            ctl = linearised(sd, *aw, trace_out=True)[0][k][1]
-            same &= sp.simplify(full - bg) == 0
-            samec &= sp.simplify(ctl - bg) == 0
-        print('    draw %d: order-0 principal coefficients equal the background\'s %s; with the trace %s'
-              % (sd, same, samec), flush=True)
+            full = jlinear(sd, *aw)[k][1]
+            bg = jlinear(sd, *aw, waves=False)[k][1]
+            ctl = jlinear(sd, *aw, trace_out=True)[k][1]
+            if sp.expand(full - bg) != 0:
+                same = False
+                bad.append(name)
+            samec &= sp.expand(ctl - bg) == 0
+        print('    draw %d: order-0 principal coefficients equal the background\'s: %s %s; with the trace: %s'
+              % (sd, same, bad, samec), flush=True)
         res['S3'] &= same
         res['S3c'] &= not samec
     return res
 
 
 def s4():
-    c = sp.Symbol('cc')
-    F1, g1, K1, _ = slice_data(random.Random(21))
-    F2, g2, K2, _ = slice_data(random.Random(21), phase_shift=c)
-    same = all(sp.expand(g1[i][j] - g2[i][j]) == 0 and sp.expand(K1[i][j] - K2[i][j]) == 0
-               for i in range(4) for j in range(4))
-    F3, g3, K3, _ = slice_data(random.Random(21), phase_shift=None)
-    # control: a first-order change of Pu in t does change K (so the test can fail)
-    Pu_lin = F3.Pu + c * t
-    F4 = Fast(F3.Pv, Pu_lin)
-    e_ctl = sp.expand(F4.Dt(c2) - F3.Dt(c2))
-    return same, e_ctl != 0
+    """d_t^2 of the outgoing phase does not reach the slice data"""
+    c = sp.Rational(5, 3)
+    _, g1, K1, _ = jslice(21)
+    _, g2, K2, _ = jslice(21, pu_extra=c * TJ**2)
+    same = all((g1[i] - g2[i]).is_zero for i in range(4)) and all((K1[i][j] - K2[i][j]).is_zero for i in range(4)
+                                                                    for j in range(4))
+    _, g3, K3, _ = jslice(21, pu_extra=c * TJ * XJ)                       # control: d_t d_R Pu does reach K
+    ctl = not all((K1[i][j] - K3[i][j]).is_zero for i in range(4) for j in range(4))
+    return same, ctl
 
 
 def main():
@@ -347,8 +429,8 @@ def main():
     ok['S2'] = r['S2'] and r['S2c']
     ok['S3'] = r['S3'] and r['S3c']
     same, ctl4 = s4()
-    print('  S4: slice data unchanged under Pu -> Pu + c t^2: %s; control (Pu -> Pu + c t changes D_t) %s'
-          % (same, ctl4), flush=True)
+    print('  S4: slice data unchanged under Pu -> Pu + c (t - t0)^2: %s; control (Pu -> Pu + c (t - t0)(R - R0) '
+          'changes K) %s' % (same, ctl4), flush=True)
     ok['S4'] = same and ctl4
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
