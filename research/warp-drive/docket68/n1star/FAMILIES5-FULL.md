@@ -635,7 +635,7 @@ the background's θ⁺, that is of R_v (where R² = μ, μ the Misner-Sharp mass
 independent of λ, such that for λ ≤ λ1 the record's Proposition 8.1 (a)-(c) hold with √μ(v) replaced by R_H(v̂): at
 most one zero per column, θ⁺ > 0 above it and < 0 below it; exactly one, R_λ(v̂, ω), with |R_λ − R_H(v̂)| ≤ C λ, on the
 columns with R_H(v̂) ≤ v̂ − τ0 − δ1; the spheres below R_H − C λ trapped, those above R_H + C λ untrapped; no inner
-apparent horizon. No condition on where the outgoing packet lies is needed.
+apparent horizon. No condition on where the outgoing packet lies is needed beyond section 1's data.
 
 *Proof.* (i) The background. Along g0⁻¹ du = −e^(−2σ) ∂_v the expansion of the spheres is −3 e^(−2σ) R_v/R (H2,
 computed), so the future-directed, n(τ) = 1 normalised θ⁺(g0) is a positive multiple of R_v. On a column R decreases in

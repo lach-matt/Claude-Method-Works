@@ -32,7 +32,7 @@ import textwrap
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LOWE = os.path.join(HERE, '..', 'proof5', 'PART-I-C-LOWENERGY.md')
-LAST = 805
+LAST = 812                       # sections 0-6; 805 before D612/D614 added 7 lines at 87-93
 
 NONCON = re.compile(r'contradict|compact|rellich|fredholm|subsequen|closed graph|baire|weak|open condition|'
                     r'finitely many|so small|small enough|sufficiently small|limit', re.I)
@@ -103,7 +103,9 @@ TERMS = {'statement of lam0 (Theorem E)': None, 'lam1 = min(1, delta0)/10': 'lam
          'D-a, D-b and D-d (Proposition 6.5)': 'D-a,D-b,D-d'}
 FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D-d added in round 2 (V-m4): the
 # ball invariance of Proposition 6.5 (N1STAR-PROOF.md:771-772)
-PIN = '57d896ae1da4845f3c94c66d7b087a41'        # round 1's md5 of lines 1-805, pinned in round 2 (V-n3)
+PIN = '6e8947ad2005ac587f9b632d0a1e8025'        # md5 of lines 1-812 at D614 (round 1's 57d896ae... of lines 1-805)
+FILE_PIN = '02e7617602841a350a75349c44ab5fb6'   # the whole file at D614 (10853 lines)
+TABLE = {((ln + 7 if ln > 86 else ln), kw): val for (ln, kw), val in TABLE.items()}   # D612 + D614: +7 above 86
 CITES = {
     'BH17': ('Sobolev H^3 -> L^inf in 4D', 'enters (C_S)', 'effective: certified constant, lzeroconst5 Z3'),
     'DS23': ('local existence Thms 2.4, 2.6; Remark 2.3 commutators', 'Thm 2.4/2.6 no; Remark 2.3 via Lemma 6.4',
@@ -141,8 +143,11 @@ def main():
     ok = {}
     lines = open(PROOF, encoding='utf-8').read().split('\n')[:LAST]
     md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
-    ok['A0'] = md5 == PIN
-    say('  A0: md5 of N1STAR-PROOF.md lines 1-%d = %s, the pinned %s: %s' % (LAST, md5, PIN, ok['A0']))
+    full = open(PROOF, encoding='utf-8').read().split('\n')
+    fmd5 = hashlib.md5('\n'.join(full).encode()).hexdigest()
+    ok['A0'] = md5 == PIN and fmd5 == FILE_PIN
+    say('  A0: md5 of N1STAR-PROOF.md lines 1-%d = %s, the pinned %s; whole file %s, the pinned %s: %s' % (
+        LAST, md5, PIN, fmd5, FILE_PIN, ok['A0']))
     hits, uncl = census(lines, TABLE)
     cls = {}
     for h in hits:
@@ -179,10 +184,10 @@ def main():
     ok['C2'] = 'subsequen' in kws and 'contradict' in kws
     say('  C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds %s' % kws)
     t2 = dict(TABLE)
-    del t2[(745, 'limit')]
+    del t2[(752, 'limit')]
     _, u3 = census(lines, t2)
     ok['C3'] = len(u3) == 1
-    say('  C3 (control): with the row (745, limit) removed, %d hit unclassified' % len(u3))
+    say('  C3 (control): with the row (752, limit) removed (745 before D612/D614), %d hit unclassified' % len(u3))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1
