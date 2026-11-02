@@ -386,7 +386,8 @@ def main():
         e_23 = min(eps1_11e, e_hi) / capp             # with Lemma 2.3's requirement: every reading's ball contains the
         out[name] = (min(lam1[1], e_23), e_23, e_11e)  # op-ball of the same radius, so eps1 < e_hi in each
     lam0_op = out['operator'][0]
-    ok['T5'] = (lam0_op == out['operator'][1] and lam0_op < Fr(24434, 10 ** 7) and out['Frobenius'][0] < Fr(1995, 10 ** 6)
+    ok['T5'] = (lam0_op == out['operator'][1] and lam0_op < Fr(24434, 10 ** 7) and out['Frobenius'][0] < Fr(1995, 10
+     ** 6)
                 and out['largest entry'][0] == lam0_op and out['operator'][2] < Fr(477484, 10 ** 7)
                 and out['Frobenius'][2] < Fr(389865, 10 ** 7))
     say('  T5: lambda0 <= min(lam1, eps1/C_app), eps1 limited by Lemma 1.1 (e) (T2) and by Lemma 2.3 (T7): eps1 < %s; '

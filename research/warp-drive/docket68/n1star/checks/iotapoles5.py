@@ -12,13 +12,15 @@ M0(x) = (x - lam) L1(x), M1 = N the indicial matrix of L~(0) (iota5.py I1, lin5.
 (class5.py C2): one scalar harmonic at each even l, one tensor harmonic at each even l >= 2, no vector one; so the types
 are s0, s_l and t_l, l even >= 2.
 
-  M1 (exact) The Mellin transform G-hat(zeta) = int_0^oo v^-zeta G dv/v turns D into zeta and v into the shift zeta -> zeta
+  M1 (exact) The Mellin transform G-hat(zeta) = int_0^oo v^-zeta G dv/v turns D into zeta and v into the shift zeta
+     -> zeta
      - 1, so N_iota+(lam) G = F becomes (zeta - lam) L1(zeta) G-hat(zeta) + N(zeta - 1) G-hat(zeta - 1) = F-hat(zeta):
      checked on G = v^a e^-v (G-hat = Gamma(a - zeta)) for L1, N with symbolic coefficients. Control C1: the shift taken
      as zeta + 1: the identity fails.
   M2 (exact) The free scalar model (L1 = -2(x - 3/2), N = -(x - l - 2)(x + l)), harmonic degree l: (a) the pure states
      v^(3/2) (1 + v/2)^(-k-3/2-l) F_k(-v/2), F_k = 2F1(-k, -2-2l-k; -1/2-l-k; .) terminating, solve N_iota+(3 + l + k) G
-     = 0 exactly (l, k = 0, 1, 2; l = k = 0 is [Hin26]'s u_3); (b) the growing coefficient of the outgoing solution at oo,
+     = 0 exactly (l, k = 0, 1, 2; l = k = 0 is [Hin26]'s u_3); (b) the growing coefficient of the outgoing solution
+     at oo,
      Gamma(2 + 2l)/(Gamma(3/2 + l) Gamma(3 + l - lam)), has exactly the zeros 3 + l + k, each simple; (c) R4.1's product
      Pi_j gives the same poles, each of order 1. Controls: C2 the constant 1 (the n = 3 value) for 3/2 in (a): the states
      fail; C3 the product with the shift lost, N(lam - i + 1): its poles are l + 2 + k, not (b)'s, and (c) fails.
@@ -32,7 +34,8 @@ are s0, s_l and t_l, l even >= 2.
   M4 (exact) Every even l >= 2, both types. det N_L = c (x + l)(x - l - 2) det N_Ups(x - 1) det N_C(x + 1) (READ: lin5.py
      E2) and det N_tl = c (x + l)(x - l - 2) (READ, ibid.; M3 reproduces it at l = 2). Physical roots in (0, 4]: 4 at l =
      2 only; box^Ups's plus 1: none in (0, 4] (closed form, gaugepot5.py G1: the root of Q_l above l is > l + 1 for z >
-     0, exactly); box^C's minus 1: from damping5.py's sextic pk(lam, kappa) at its PARAMS, the discriminant in lam and the
+     0, exactly); box^C's minus 1: from damping5.py's sextic pk(lam, kappa) at its PARAMS, the discriminant in lam
+     and the
      resultants with pk(lam + m), m = 1, 2, 3, and pk(5/2 + s + m), s in spec S-bar's small part, m = -1..2, are
      polynomials in kappa with no root kappa = l (l + 2), l even >= 2 (exact isolation of every real root); at l = 2
      pk(2), pk(3), pk(4) != 0 (no box^C root an integer distance from the physical 4). So every root of det N with 0 <
@@ -373,7 +376,8 @@ def main():
     ok1 = mellin_check()
     OK['M1'] = ok1
     OK['C1'] = not mellin_check(shift=+1)
-    print('  M1: Mellin[(D - lam) L1(D) G + v N(D) G] = (zeta - lam) L1(zeta) Ghat(zeta) + N(zeta - 1) Ghat(zeta - 1) on G '
+    print('  M1: Mellin[(D - lam) L1(D) G + v N(D) G] = (zeta - lam) L1(zeta) Ghat(zeta) + N(zeta - 1) '
+        'Ghat(zeta - 1) on G '
           '= v^a e^-v, L1, N symbolic: %s' % ok1)
     print('  C1 (control): the shift taken as zeta + 1: the identity fails: %s' % OK['C1'])
     # M2
@@ -386,7 +390,8 @@ def main():
         pz[l] = pole_orders_scalar(L1f, Nf, [l + 2] if l + 2 <= 4 else [], top=5)
     agree = all(sorted(pz[l].items()) == sorted(gz[l]) for l in range(4))
     OK['M2'] = all(st.values()) and agree and all(o == 1 for l in pz for o in pz[l].values())
-    print('  M2: free model: the pure states solve N_iota+(3 + l + k) G = 0 for l, k = 0, 1, 2: %s; Gamma-coefficient zeros '
+    print('  M2: free model: the pure states solve N_iota+(3 + l + k) G = 0 for l, k = 0, 1, 2: %s; '
+        'Gamma-coefficient zeros '
           'at Re <= 5 (lam, order): %s; R4.1 product poles: %s; agree: %s' % (all(st.values()), gz,
                                                                            {l: pz[l] for l in pz}, agree))
     OK['C2'] = not any(free_state(l, k, c=1) for l in range(2) for k in range(2))
@@ -403,7 +408,8 @@ def main():
         info = type_analysis(typ, typ)
         res[typ] = info
         ords = info['orders']
-        print('  M3 %s (K = %d, %.0f s): M0 = (x - lam)(C - x), C constant: %s; spec C - 3/2 = %s, inside spec S-bar: %s; '
+        print('  M3 %s (K = %d, %.0f s): M0 = (x - lam)(C - x), C constant: %s; spec C - 3/2 = %s, inside spec '
+            'S-bar: %s; '
               'det N = %s' % (typ, info['K'], info['time'], info['struct'],
                               sorted(float(e - sp.Rational(3, 2)) for e in info['eig']), info['spec_ok'], info['detN']))
         print('      roots with Re <= 0: %d of %d (K = %d); roots in (0, 4]: %s, all simple: %s, none non-real: %s' % (
@@ -420,7 +426,8 @@ def main():
                 and t2['struct'] and t2['left'] == 1 and t2['orders'] == {(5.0, 5.0): (1, 1)})
     c4 = control_adjugate(s0)
     OK['C4'] = c4 != (1, 2)
-    print('  C4 (control): lam0 = 5 at s0 with N(2 + eps)^-1 replaced by its adjugate: (order, rank) = %s, not (1, 2): %s'
+    print('  C4 (control): lam0 = 5 at s0 with N(2 + eps)^-1 replaced by its adjugate: (order, rank) = %s, not '
+        '(1, 2): %s'
           % (c4, OK['C4']))
     # M4
     out4, roots2 = m4()
@@ -429,7 +436,8 @@ def main():
                 and out4['box^Ups'][0] and out4['box^Ups'][1] and out4['right of 2 at l = 2 (Routh)'] == 3)
     OK['C5'] = out4['C5']
     print('  M4: every even l >= 2: even l with kappa = l (l + 2) a root of: disc %s; Res m = 1, 2, 3: %s, %s, %s; '
-          'pk(5/2 + s + m): %s; at l = 2 pk(2), pk(3), pk(4) nonzero: %s; box^Ups (s_-(0) = l (l + 1), increasing in z): '
+          'pk(5/2 + s + m): %s; at l = 2 pk(2), pk(3), pk(4) nonzero: %s; box^Ups (s_-(0) = l (l + 1), '
+              'increasing in z): '
           '%s, %s; box^C roots right of 2 at l = 2 (Routh): %d; det N_L roots from box^C in (0, 4] at l = 2: %s' % (
               out4['disc'], out4['res m=1'], out4['res m=2'], out4['res m=3'], out4['exceptional'],
               all(q != 0 for q in out4['l=2 integer box^C roots 2, 3, 4']), out4['box^Ups'][0], out4['box^Ups'][1],
@@ -440,17 +448,20 @@ def main():
     OK['M5'] = out5[2][0] == 10 and out5[1][0] == 9
     OK['C6'] = all(out5[k_][2] == 0 for k_ in (1, 2))
     for k_ in (1, 2):
-        print('  M5: III.A Lemma 1.4 with F = (%d, 0): E_ind = E\' - %d has log order %d at Re <= 5; at the integers %s' % (
+        print('  M5: III.A Lemma 1.4 with F = (%d, 0): E_ind = E\' - %d has log order %d at Re <= 5; at the '
+            'integers %s' % (
             k_, k_, out5[k_][0], out5[k_][1]))
     print('  C6 (control): plain unions for the extended ones: largest log order %s: %s' % (
         [out5[k_][2] for k_ in (1, 2)], OK['C6']))
     # M6
     ok_A, at, hyp, (La, K1) = m6()
     OK['M6'] = ok_A
-    print('  M6: dceiling5 D6\'s constant term rebuilt from R2, R3, P_W, P_iota, W and the level counts: %s; per exponent, '
+    print('  M6: dceiling5 D6\'s constant term rebuilt from R2, R3, P_W, P_iota, W and the level counts: %s; '
+        'per exponent, '
           'L_0 = 1: d <= %.6e (l_* = 4), %.6e (l_* = 10), + %d X_7 + %d c\'; N = 21 d + 6 <= %.4e, %.4e + ...' % (
               ok_A, at[4], at[10], La, K1, 21 * at[4] + 6, 21 * at[10] + 6))
-    print('      hypothetical (not the record\'s bound): log order <= 2 at every exponent of E^flat, n_iota <= 3 P_iota: '
+    print('      hypothetical (not the record\'s bound): log order <= 2 at every exponent of E^flat, n_iota <= '
+        '3 P_iota: '
           'd <= %d + %d X_7 + %d c\' = %.6e + ...; N <= %.4e + ...' % (hyp, La, K1, hyp, 21 * hyp + 6))
     print('  (%.0f s)' % (time.time() - t0))
     for k_, val in OK.items():

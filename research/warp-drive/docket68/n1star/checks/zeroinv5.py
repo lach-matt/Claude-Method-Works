@@ -4,11 +4,13 @@ sigma_min of P-hat(0) at zero energy (CONSTANTS5.md, Round 4, item (iii)). Done 
 wave operator of 5D Tangherlini, the operator E2-PILOT.md certifies at sigma != 0), harmonic by harmonic in the T^2
 class (class5.py C2: one scalar harmonic at each even l), on the exterior. Labels: computed (exact, sympy), deduced.
 
-At sigma = 0 the radial operator on the degree-l harmonic is A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u, f = 1 - mu/r^2,
+At sigma = 0 the radial operator on the degree-l harmonic is A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u, f = 1 -
+     mu/r^2,
 r > r_h = mu^(1/2) (READ: E2-PILOT.md (1.1) at sigma = 0, undoing Phi = r^(3/2) u).
 
   Z1 (exact) The zero-energy solutions in closed form: with y = 2 r^2/mu - 1, u_h = P_(l/2)(y) (a polynomial for even l,
-     smooth across the horizon y = 1) solves A_l u = 0 for l = 0, 2, 4, 6, 8; it grows like r^l, so no solution regular at
+     smooth across the horizon y = 1) solves A_l u = 0 for l = 0, 2, 4, 6, 8; it grows like r^l, so no solution
+     regular at
      the horizon decays and the zero-energy family has no kernel on any even l >= 2 in decaying weights (deduced; at l =
      0, u_h = 1). Control C1: Z1's test on the next polynomial, P_((l+2)/2): it fails.
   Z2 (exact) The energy identity r^3 conj(u) A_l u = -(r^3 f conj(u) u')' + r^3 f |u'|^2 + l (l + 2) r |u|^2, symbolic
@@ -78,7 +80,8 @@ def main():
     print('  C1 (control): the next polynomial, P_((l+2)/2), in Z1\'s test: solves for none: %s' % OK['C1'])
     r2 = z2()
     OK['Z2'] = all(r2.values())
-    print('  Z2: r^3 conj(u) A_l u = -(r^3 f conj(u) u\')\' + r^3 f |u\'|^2 + l (l + 2) r |u|^2 (exact, symbolic u): %s; '
+    print('  Z2: r^3 conj(u) A_l u = -(r^3 f conj(u) u\')\' + r^3 f |u\'|^2 + l (l + 2) r |u|^2 (exact, '
+        'symbolic u): %s; '
           'so ||r^-1 u|| <= ||r A_l u||/(l (l + 2)) in L^2(r^3 dr) for l >= 1: constants %s at l = 2, 4, 6, 8 (<= 1/8 '
           'for every even l >= 2)' % (r2, [str(sp.Rational(1, l * (l + 2))) for l in (2, 4, 6, 8)]))
     c2 = z2(lambda l: l * (l + 1))

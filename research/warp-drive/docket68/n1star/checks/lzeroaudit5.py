@@ -5,7 +5,8 @@ lambda0 is the threshold of N1STAR-PROOF.md sections 0-6 (Theorem E, section 4 S
 6.5; the standing lam1 of section 2), the paper's sections 3-5 restating it. The same three theorems at order k = J + 4
 are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANTS.md E5's first item (C_J, lambda_1.1).
 
-  A1 (computed) a census of N1STAR-PROOF.md lines 1-812 (sections 0-6; 1-805 before D612 and D614) for the words of the four non-effective kinds of
+  A1 (computed) a census of N1STAR-PROOF.md lines 1-812 (sections 0-6; 1-805 before D612 and D614) for the words of
+     the four non-effective kinds of
      EFFECTIVE-CONSTANTS.md section 3 (contradiction, compactness, Rellich, Fredholm, subsequence, closed graph, Baire,
      weak limits, open conditions, "small enough") and for every threshold phrase (lam0, lam1, eps1, eps2, "lam small",
      "depending only on", Gronwall, Picard, "there is/are"); every hit is classified by the table below, read in context:

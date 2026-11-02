@@ -1,3 +1,6 @@
   F1 closed forms c_osc = i + 2j - 2, c_mean = i + 2j + 1, c_delta <= i + 2j + 1, c_res = i + 2N + 3, and every used cost
       <= 2N + 6 for N in [3, 40]: True (N = 9: largest 24 <= 24 <= M* = 26)
 F1 PASS
+  F2 nu with the (tau, x) frame [supplement]: -(2*rho**3 - 3*rho**2 - 2)**2/(36*mu0**(7/4)*rho**6) (= (0.2): True); with
+      the (v, x) frame: -(rho - 1)**2*(rho**2 + rho + 1)**2/(9*mu0**(7/4)*rho**6) (= -mu0^(-7/4) (rho^3 - 1)^2/(9 rho^6):
+      True); both -> -mu0^(-7/4)/9: True
