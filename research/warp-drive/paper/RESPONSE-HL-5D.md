@@ -398,8 +398,10 @@ interval of length λ^(−2). There the transport of its auxiliary field loses a
 exponent ledger with β0 symbolic computed, `docket68/n1star/checks/ledger5.py` L1). The mollifier's commutator with the
 wave operator is, apart from decaying terms, an exact derivative along the generators (P8), and is absorbed into the
 auxiliary field. The limit is vacuum because the gauge field of the approximant decays at past null infinity, so its
-energy tends to zero there and the gauge field vanishes. A first independent verifier found the near-region estimate
-incomplete: that commutator was missing. A second found that the repair closes it (supplement section 9).
+energy tends to zero there and the gauge field vanishes (an r⁻² amplitude on a v-strip of fixed width has L² norm at most
+C t^(−1/2), and r² D^(1) stays bounded at leading order with m1 generic: computed, `docket68/n1star/checks/gauge5.py`
+G3). A first independent verifier found the near-region estimate incomplete: that commutator was missing. A second found
+that the repair closes it (supplement section 9).
 
 **Theorem 3 (the Bondi mass at past null infinity; deduced, supplement section 11; computed:
 `docket68/n1star/bondi5.py` B1–B4).** Let g_λ be the metric of Theorem 2, 0 < λ ≤ λ_P. Near past null infinity it
@@ -625,7 +627,9 @@ the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coe
 contraction ratio against the proof's λ^(N−3) and the size of the quadratic remainder's effect (`checks/csolve5.py` C7c,
 being rerun with a control that can fail). Beforehand the approximant's stage data are chosen so that its data satisfy
 the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas
-6.1–6.2).
+6.1–6.2; computed: the identity (6.2) exactly at points of random 4+1 metrics, and the first step, D^(1) = 0 on the slice
+under Lemma 6.2's stage-1 choices with m1 kept generic, its mean solved by a determinant −(r² + μ)⁵/(2r¹⁰) ≠ 0,
+`docket68/n1star/checks/gauge5.py` G1–G2; the later orders by the same induction, deduced).
 
 ---
 
@@ -2168,6 +2172,15 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/gauge5.py` G1–G3: the gauge field. G1, supplement (6.2) exactly at a point of a random 4+1 metric over a random
+  background, D = 0 imposed along the slice, with `paper/response5.py` R14 rerun; G2, the order-λ gauge field D^(1) in
+  `lead5.py`'s coordinates with m1, the next oscillating profile and φ1 generic: D^(−1) = D^(0) = 0 off the slice, the
+  next profile entering D^(1) only through Pol(∂_θ ·), and on the slice Lemma 6.2's stage-1 choices kill the oscillating
+  part and the mean (a linear system in ∂_τ m1 of determinant −(r² + μ)⁵/(2r¹⁰)); G3, an r⁻² amplitude on a v-strip of
+  fixed width has L² norm at most π(2d1)^(1/2) t^(−1/2), the rate sharp, and r² D^(1) bounded at leading order with m1
+  generic. Not computed: (F2) at order 1, D^(2), Lemma 6.1's propagation off the slice; Pol⁺ taken in
+  Eddington–Finkelstein components. Controls: (6.2) without its Z term, and on a slice with ∂_i D ≠ 0; no choices, Pol^T
+  for Pol⁺; amplitude r⁻¹, W(ℓ, ·) ≠ 0. About five minutes.
 - `checks/support8c.py` K1–K4: section 8.4–8.5's deduced steps. K1, the Frobenius exponents at r_h of the scalar wave,
   P_0, box^C and 2L at the record's point (0 with the damping's negative ones, the σ part iσ, free of the angle), so the
   solutions smooth at r_h are the exponent-0 family (at γ = 0, 2L has 1 at σ = i, which the lemma does not use); K2, the
@@ -2331,6 +2344,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | (5.1), Lemma 5.1, supplement Lemma 3.3 | `docket68/n1star/checks/support5.py` C1–C3; `docket68/n1star/lead5.py` |
 | section 5.2: supplement Lemma 3.2's (3.3) in every component | `docket68/n1star/checks/support5b.py` C10, C10b |
 | sections 5.2, 5.4, 6: mollifier, time lines, boundary for g_λ | `docket68/n1star/checks/support5.py` C4, C6, C8 |
+| sections 3, 5.5: (6.2), the gauge field's first order and decay | `docket68/n1star/checks/gauge5.py` G1–G3 |
 | sections 3, 5.3, 5.4: the remainder, the first-order system, M[S] | `docket68/n1star/checks/support5c.py` C11–C13 |
 | sections 3, 8.1, 8.7: the exponent ledgers, the stages after the shell | `docket68/n1star/checks/ledger5.py` L1–L4 |
 | section 3: √μ − r_q, the weak limit, the symmetries, the Sobolev index | `docket68/n1star/checks/support3.py` D1–D4 |
@@ -2469,8 +2483,9 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
 `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports `checks/support5.py`,
 `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
 `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
-`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
-`checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from the research tree:
+`checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/support9.py` imports `lead5.py`,
+`checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
+`checks/twodomain5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2549,6 +2564,7 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/gauge5.py                              # about five minutes
     python3 checks/support8c.py                           # about nine minutes
     python3 checks/level2loop5.py; python3 checks/lambdacount5.py; python3 checks/twodomain5.py
     python3 checks/census9.py                             # a few seconds
@@ -2725,6 +2741,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/gauge5.py` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/gauge5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/support8c.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/support8c.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/level2loop5.py` | `00000000000000000000000000000000` |
