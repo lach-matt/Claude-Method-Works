@@ -11,3 +11,7 @@
       Misner-Sharp mu: True; control (sheared angular metric) sigma-invariant: False
   P4: R^(0)'s mixed harmonics (both families, stage0two5) S-even: True
       (52 nonzero entries checked; failures [])  [1684 s]
+  P4 control (family out with one quadrature): S-even: False; failures, first six: [((-1, -1), (0, 1)), ((-1, -1), (2, 2)), ((-1, -1), (3, 3)), ((-1, -1), (4, 4)), ((-1, 1), (0, 1)), ((-1, 1), (2, 2))]  [1769 s]
+P1-P4: PASS
+controls rejected: PASS
+exit 0
