@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """layerwin5.py -- the window of EQUALITY5-LAYER.md: where, near the flat edge of a C_c^inf envelope, the order-lam^3
-term linear in the wave dominates the margin and every error term (Lemma L.6, Lemma L.7, Theorem L's exponent ledger).
+term linear in the wave dominates the margin and every error term (Lemma L.5, Lemma L.6, Theorem L's exponent ledger).
 
-  W1 (computed, exact constants; sampled) Lemma L.6, the interpolation bound on a half-line: for f smooth, f = 0 on
+  W1 (computed, exact constants; sampled) Lemma L.5, the interpolation bound on a half-line: for f smooth, f = 0 on
      (-inf, v_s], E(v) := sup_{(-inf, v]} |f| and M_m(v) := sup_{(-inf, v]} |f^(m)|,
          sup_{(-inf, v]} |f^(i)| <= C_{i,m} E(v)^(1 - i/m) M_m(v)^(i/m),   C_{i,m} := Lambda_{i,m} + (m - 1)^(m - i),
      Lambda_{i,m} the sum of |l_k^(i)(0)| over the Lagrange basis on the nodes 0, -1, ..., -(m - 1) (computed exactly).
      Checked on a grid of (0, 0.3] for f = exp(-1/x) at (i, m) = (1, 6), (3, 6), (2, 8).  Control: the bound without
      the interpolation, sup |f^(i)| <= C E(v) (exponent 1 in place of 1 - i/m), fails near the edge (f'/f = 1/x^2).
-  W2 (computed, a model with every constant set to 1) Lemma L.7 and Theorem L's window, for three C_c^inf edges:
+  W2 (computed, a model with every constant set to 1) Lemma L.6 and Theorem L's window, for three C_c^inf edges:
      exp(-1/x); exp(-1/x^2); exp(-1/x) sin^2(pi/x) (zeros accumulating at the edge).  For lam = 10^-4, ..., 10^-32 and
      the level y = lam^p (p = 14), v* := the first point where the running maximum E reaches y, the window [v*, v* +
      4 pi lam]; on it env lies in [y/2, 2y], and the ratio
@@ -23,8 +23,9 @@ term linear in the wave dominates the margin and every error term (Lemma L.6, Le
      M in {8, 64, 1024} once N - k0 >= 4, and also in the exceptional case rho0 in Z_K (exponent 1 + 2/kap on the
      signal, kap = 64).  Control: N - k0 = 3 violates (e4).
 
-Labels: computed.  W2 is a model: it checks the arithmetic of the dominance with unit constants, not Theorem L's
-constants, which are not evaluated.  Run: python3 checks/layerwin5.py  (about a minute)
+Labels: computed.  W2 is a qualitative model: it checks the arithmetic of the dominance with unit constants and three
+derivatives (e3), not the M* = 2N + 8 = 26 of the proof (with 26 the exp(-1/x) model needs far smaller lam:
+layerband5.py B3), and not Theorem L's constants, which are not evaluated (lamL5.py).  Run: python3 checks/layerwin5.py  (about a minute)
 """
 import sys
 from fractions import Fraction as Fr
@@ -134,7 +135,7 @@ def ledger(p, m_over_M, M, Nk0, kap=None):
          "e3 quadratic parts": 1 + 2*p*(1 - M/m) > 3 + s,
          "e4 the remainder w": Nk0 + p*(1 - M/m) > 3 + s,
          "e5 Landau window": p/m < 1,
-         "e6 L.5's hypothesis": p*(1 - M/m) > q0}
+         "e6 L.4's hypothesis": p*(1 - M/m) > q0}
     return c
 
 

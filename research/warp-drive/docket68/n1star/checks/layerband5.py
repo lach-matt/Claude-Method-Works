@@ -19,7 +19,8 @@
      equally spaced above it): windows (errors with Lemma L.4's w-bound below a tenth of the signal, margin below a
      tenth of it, eps_M <= lam^3), spacelike (signal, Theorem E's w and the rest below a tenth of the margin) and the
      band (errors below a tenth of both); M = M* = 26 derivatives, K = 6 and K = 10.  For K = 10 the three regimes
-     cover [x_deep, x_top] with no gap (x_deep: where the proof's error terms with 26 derivatives fall below the signal; x_top: m0 = 2 lam); for K = 6 a band between is undecided.  x_deep lies far
+     cover [x_deep, x_top] with no gap (x_deep: where the proof's error terms with 26 derivatives fall below the
+     signal; x_top: m0 = 2 lam); for K = 6 a band between is undecided.  x_deep lies far
      above the very edge x_b = lam^(1/2): the record's bounds lose 26 derivatives where the expansion itself loses one
      per order.  Control: at lam = 10^-300 the map is not covered for K = 10: the degree-two error lam eps_26^2 of
      Corollary L.11 exceeds the margin in the upper layer (x^-104 lam > 1 there) -- "lam small enough" is part of the
