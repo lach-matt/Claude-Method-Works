@@ -7908,3 +7908,7 @@ one and a half times finer. The two coarser ones agree well away from one late r
 as before, so refining the grid did not change it, and the earlier explanation (a time-step limit growing with the
 angular resolution) is ruled out by the numbers. What the finest run meets is not decided; the late region stays
 unresolved.
+
+**D602 (2026-11-02): two of the settling section's steps computed.** That the class of an earlier stability result and
+this paper's symmetry class meet only in spherical symmetry is now an exact computation, and so is the first step of the
+induction showing that the waves' oscillating parts vanish once the shell has passed.

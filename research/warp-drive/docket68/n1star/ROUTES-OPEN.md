@@ -6306,6 +6306,14 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   48 meets another instability or resolves late structure that M = 32 and 40 miss where it masks is not decided; M = 32
   and 40 agree away from that region to v ≈ 4.5, and the region is unresolved. The paper's section 9 sentence on these
   runs waits for audit batch 4 to report (it reads that section now).
+- D602 (computational support, verifier 258's c8 and c1; `checks/support8.py`, saved as `checks/support8.out`): K8,
+  exact: the round S³ splits as base (σ1² + σ2²)/4 = dθ² + c²s²(dφ1 − dφ2)² plus fibre η², η = c² dφ1 + s² dφ2, and
+  [Hol08]'s squashed sphere e^(2B) base + e^(−4B) η² has dφ1 dφ2 coefficient 2c²s²(e^(−4B) − e^(2B)), zero for cs ≠ 0
+  only at B = 0: section 8.1's 'the two classes meet only in spherical symmetry'. Control: no squashing gives no cross
+  term for every B. K1, exact, the base of supplement 10.50(a)'s induction: every oscillating profile of ansatz5.py (a1,
+  a2, bc, bs, kc, ks) and lead5.py's W_TT vanishes where E = 0, and χ's transport source, R^(0)_vv's second harmonic, has
+  E-degree ≥ 2 in every term (the first version also counted the mean, whose M′ is a separate function in the code, and
+  failed; the source is the harmonic). Control: a profile with an E-free part. Cited in the paper after audit batch 4.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
