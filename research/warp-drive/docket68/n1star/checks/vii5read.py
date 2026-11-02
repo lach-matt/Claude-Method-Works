@@ -16,17 +16,23 @@ A MORE or UNDECIDED row must carry a resolution: where it is answered, or why th
      and C4 -- none missing, none extra, none twice -- each with the census's symbols, a verdict from the list above,
      a note where one is required, and the symbol still printed on that line of the file (a stale line number fails).
   Q2 (computed) Every MORE and UNDECIDED row carries a resolution. The counts per verdict are printed.
-  Controls: the table with one row dropped, with one row doubled, with a verdict misspelt, with a resolution removed,
-     and the census widened by one radial cut-off (chi_9, treated as if averaged) must each fail.
+  Q3 (computed, exact) The amended (C3) takes Table 1.1's towers at b0 as delta*_(g_b0) of the averaged 1-forms; that
+     is the average of the unaveraged towers because delta* commutes with O(4): on the Kerr-Schild Tangherlini metric
+     g_b0 = eta + (mu/r^2) l l (mu = 3/2), for a generic stationary 1-form (quadratic polynomials plus a 1/r term, random
+     rationals) and a rational rotation (Cayley transform) and a reflection, sigma^*(delta* w) = delta*(sigma^* w) and
+     sigma^* g = g, at three rational points with |x| rational, exactly. Controls: delta* plus w (x)_s dx^1 (not
+     natural) must fail; a shear (not an isometry) must fail.
+  Controls (Q1-Q2): the table with one row dropped, with one row doubled, with a verdict misspelt, with a resolution
+     removed, and the census widened by one radial cut-off (chi_9, treated as if averaged) must each fail.
 
 Lemma 3.1's (C3) names since D608 the 1-form towers of every type, with their site PART-III-I10-CORR4.md:127-147; the
 census keeps those lines as uses, and they were read as such (each NAMING, a definition).
 
-Labels: computed (that the reading covers every listed use and is complete in form); the verdicts are READ (each
-reader's reading of the proof at that line), not computed. Reach: vii5census.py's -- a literal census of printed
+Labels: computed (that the reading covers every listed use and is complete in form; Q3, exact); the verdicts are READ
+(each reader's reading of the proof at that line), not computed. Reach: vii5census.py's -- a literal census of printed
 symbols.
 
-Run: python3 checks/vii5read.py   (a second)
+Run: python3 checks/vii5read.py   (about fifteen seconds)
 """
 import csv
 import os
@@ -122,6 +128,67 @@ def q2(rows, show=True):
     return not unres
 
 
+def q3(mode=None):
+    """mode None: rotation and reflection; 'extra': a non-natural operator; 'shear': a non-isometry"""
+    import random
+    import sympy as sp
+    T, X = sp.Symbol("t"), sp.symbols("x1:5")
+    C = (T,) + X
+    r = sp.sqrt(sum(x**2 for x in X))
+    ell = [sp.Integer(1)] + [x/r for x in X]
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    g = sp.Matrix(5, 5, lambda a, b: eta[a, b] + sp.Rational(3, 2)/r**2*ell[a]*ell[b])
+    dg = [[[sp.diff(g[a, b], C[c]) for c in range(5)] for b in range(5)] for a in range(5)]
+
+    def at(e, p):
+        return sp.simplify(e.subs({T: sp.Rational(1, 3), **{X[i]: p[i] for i in range(4)}}))
+
+    def dstar_at(w, p, extra):
+        G = sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))
+        Gi = G.inv()
+        D = [[[at(dg[a][b][c], p) for c in range(5)] for b in range(5)] for a in range(5)]
+        Gam = [[[sum(Gi[c, d]*(D[d][a][b] + D[d][b][a] - D[a][b][d]) for d in range(5))/2 for b in range(5)]
+                for a in range(5)] for c in range(5)]
+        dw = [[at(sp.diff(w[b], C[a]), p) for b in range(5)] for a in range(5)]
+        wp = [at(wi, p) for wi in w]
+        M = sp.Matrix(5, 5, lambda a, b: (dw[a][b] + dw[b][a])/2 - sum(Gam[c][a][b]*wp[c] for c in range(5)))
+        if extra:
+            M += sp.Matrix(5, 5, lambda a, b: (wp[a]*int(b == 1) + wp[b]*int(a == 1))/2)
+        return M
+
+    rnd = random.Random(7)
+
+    def q():
+        return sp.Rational(rnd.randint(-9, 9), rnd.randint(1, 5))
+    mono = [sp.Integer(1)] + list(X) + [X[i]*X[j] for i in range(4) for j in range(i, 4)]
+    om = [sum(q()*m for m in mono) + q()/r for _ in range(5)]
+    A = sp.zeros(4)
+    for i in range(4):
+        for j in range(i + 1, 4):
+            A[i, j] = q()
+            A[j, i] = -A[i, j]
+    R = (sp.eye(4) - A)*(sp.eye(4) + A).inv()
+    maps = [R, R*sp.diag(1, -1, 1, 1)]
+    if mode == "shear":
+        maps = [sp.Matrix([[1, sp.Rational(1, 2), 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])]
+    ok = True
+    for S in maps:
+        Jm = sp.diag(1, S)
+        sub = {X[i]: sum(S[i, j]*X[j] for j in range(4)) for i in range(4)}
+        ws = [wi.subs(sub, simultaneous=True) for wi in om]
+        pull = [sum(ws[b]*Jm[b, a] for b in range(5)) for a in range(5)]
+        for p in [(1, 2, 2, 4), (2, 3, 6, 0), (4, 4, 7, 0)]:
+            sp_ = tuple(sum(S[i, j]*p[j] for j in range(4)) for i in range(4))
+            nat = (Jm.T*dstar_at(om, sp_, mode == "extra")*Jm - dstar_at(pull, p, mode == "extra")).is_zero_matrix
+            iso = (Jm.T*sp.Matrix(5, 5, lambda a, b: at(g[a, b], sp_))*Jm
+                   - sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))).is_zero_matrix
+            ok = ok and bool(nat) and bool(iso)
+    if mode is None:
+        say("  Q3: sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at "
+            "three rational points, exactly: %s" % ok)
+    return ok
+
+
 def control(rows):
     es = entries()
     dropped = rows[1:]
@@ -146,9 +213,13 @@ def main():
     a = q1(rows, entries())
     b = q2(rows)
     c = control(rows)
-    print("Q1 %s; Q2 %s; control %s" % ("PASS" if a else "FAIL", "PASS" if b else "FAIL",
-                                       "behaves" if c else "MISBEHAVES"), flush=True)
-    return 0 if a and b and c else 1
+    d = q3()
+    ce, cs = not q3("extra"), not q3("shear")
+    e = ce and cs
+    say("  Q3 control: delta* plus w (x)_s dx^1 fails %s; a shear fails %s" % (ce, cs))
+    print("Q1 %s; Q2 %s; Q3 %s; control %s" % ("PASS" if a else "FAIL", "PASS" if b else "FAIL", "PASS" if d else "FAIL",
+                                              "behaves" if c and e else "MISBEHAVES"), flush=True)
+    return 0 if a and b and c and d and e else 1
 
 
 if __name__ == "__main__":

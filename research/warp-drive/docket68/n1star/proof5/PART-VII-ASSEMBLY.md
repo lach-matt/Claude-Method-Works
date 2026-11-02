@@ -307,7 +307,8 @@ and $O(4)$-invariant: equations with natural operators of $g_{b_0}$, and asympto
 by $O(4)$. So $L^{O(4)} := \int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them, with the same bounds. The
 1-form towers are averaged once, and Table 1.1's towers at $b_0$ are taken as $\delta^*_{g_{b_0}}$ of the averaged
 1-forms, as they are of the unaveraged ones (PART-III-I11-SPACETIME.md Lemma 2.1 (b), PART-III-G3-GRAFT.md:63):
-$\delta^*_{g_{b_0}}$ is natural, so it commutes with the average, and one averaged choice serves both names (D608).
+$\delta^*_{g_{b_0}}$ is natural, so it commutes with the average, and one averaged choice serves both names (D608;
+the commutation with rotations and reflections computed exactly, `checks/vii5read.py` Q3).
 
 (C3$'$) *Families in $b$:* the towers and states at $b$ used in $h_{b,\mathrm{rem}}(q)$, namely $T_{\rho,b}$,
 $h^{\le1}_{b,\mathrm s1}$, $h_{b,\mathrm v1}$ and $h^{\le2}_{b,\mathrm v1}$, chosen smooth in $b$ by

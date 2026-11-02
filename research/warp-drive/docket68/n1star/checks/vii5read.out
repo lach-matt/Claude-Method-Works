@@ -28,4 +28,7 @@
         1-forms (delta* natural, so it commutes with the average)
   control: dropped row fails True; doubled row fails True; misspelt verdict fails True; resolution removed fails True;
       census widened by chi_9 fails True
-Q1 PASS; Q2 PASS; control behaves
+  Q3: sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at three rational
+      points, exactly: True
+  Q3 control: delta* plus w (x)_s dx^1 fails True; a shear fails True
+Q1 PASS; Q2 PASS; Q3 PASS; control behaves

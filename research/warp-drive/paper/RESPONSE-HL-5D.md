@@ -1367,7 +1367,8 @@ listed line once, each with its note, computed by `checks/vii5read.py`). 311 use
 only name the choice, 72 name another object spelt the same, and none uses more. Five were undecided, for one reason
 that all three readers found: the proofs use the 1-form towers of every type themselves, and the supplement's Lemma 3.1
 named 1-forms for one type only. It now names them all, the tensor towers being their images under δ*_(g_b0), which
-commutes with the average (supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5, deduced).
+commutes with the average, as it commutes with every rotation and reflection (computed, exactly, `checks/vii5read.py`
+Q3; supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5, deduced).
 The verdicts are readings, not computations, and a choice named otherwise than by its printed symbol would not be found.
 
 ---
@@ -2164,12 +2165,15 @@ Programs behind section 9, in `docket68/n1star/`:
   h^(≤k)_(b,v1)) and their domain -- each symbol's own site marked as its site, not as a use; the reading it makes finite
   is recorded in `checks/VII5-READING.tsv` (next entry). Control: every symbol must be found at its site, so a planted
   symbol and a site moved, to another file or to other lines of its own, are reported. A second.
-- `checks/vii5read.py` Q1–Q2: the reading (VII5) asks for, held against that census. Q1, `checks/VII5-READING.tsv` has
+- `checks/vii5read.py` Q1–Q3: the reading (VII5) asks for, held against that census. Q1, `checks/VII5-READING.tsv` has
   exactly one row for each of the 577 lines naming a choice of (C3), (C3′) or (C4) outside its site, with the census's
   symbols, a verdict (SITE-ONLY 311, NAMING 189, HOMONYM 72, UNDECIDED 5, MORE 0), a note where one is required, and the
-  symbol still printed on that line; Q2, every undecided row carries its resolution (the amended Lemma 3.1). Controls: a
-  row dropped, a row doubled, a verdict misspelt, a resolution removed, and the census widened by one radial cut-off must
-  each fail. The verdicts are three readers' readings, not computed. A second.
+  symbol still printed on that line; Q2, every undecided row carries its resolution (the amended Lemma 3.1); Q3, the
+  amendment's step: δ*_(g_b0) commutes with a rotation and a reflection, σ*(δ*ω) = δ*(σ*ω) and σ*g_b0 = g_b0 for a
+  generic stationary 1-form on Kerr–Schild Tangherlini, exactly at three rational points. Controls: a row dropped, a row
+  doubled, a verdict misspelt, a resolution removed, and the census widened by one radial cut-off must each fail, and so
+  must δ* plus a non-natural term and a shear in place of σ. The verdicts are three readers' readings, not computed.
+  About fifteen seconds.
 - `checks/hclass5.py` H1–H2: the h-dependence of the conclusions drawn at the parameter point, by class: the quantities
   proportional to 1/h, A_0's diagonal among them, positive at the record's signs (c_2 < 0) and growing as h falls on (0,
   10⁻⁶] (H1); for l ≤ 20, box^C's discriminant (simplicity), its values at the integers |n| ≤ 52, the vector quadratic
@@ -2489,7 +2493,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F3 |
 | section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
 | section 8.8: the sites of the averaged choices enumerated | `docket68/n1star/checks/vii5census.py` V1 |
-| section 8.8: every listed use of the averaged choices read | `docket68/n1star/checks/vii5read.py` Q1–Q2 |
+| section 8.8: every listed use of the averaged choices read | `docket68/n1star/checks/vii5read.py` Q1–Q3 |
 | section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
 | | `checks/prop31loss5.py`; R10 |
 | section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
@@ -2614,7 +2618,7 @@ imports `checks/vii5census.py`; the others import nothing from the research tree
     python3 checks/mpdata5.py                            # about four minutes
     python3 checks/flux5.py                              # a few minutes
     python3 checks/vii5census.py                         # a second
-    python3 checks/vii5read.py                           # a second
+    python3 checks/vii5read.py                           # about fifteen seconds
     python3 checks/hclass5.py                            # a few minutes
     python3 checks/support9.py                           # about five minutes
     python3 checks/charge5.py                            # under a minute
@@ -2724,7 +2728,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
 | `docket68/n1star/proof5/README.md` | `82d46566d3bc11e766a7af9896a89d5d` |
-| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `5b5d06532383a4b7a804d980179e9261` |
+| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `ed98c26f5e7a4b3693f5c2d812768215` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
 | `docket68/n1star/proof5/checks/gammac5.tsv` | `0801ba6869e3884ed3ef309acf872ad1` |
@@ -2787,8 +2791,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/flux5.out` | `2764f0c5d211c1470b1fa0a03fd49dad` |
 | `docket68/n1star/checks/vii5census.py` | `72bd25c139eb7fd1d50047e54081300d` |
 | `docket68/n1star/checks/vii5census.out` | `0c0af2356bbe42ee7dc272dadc492969` |
-| `docket68/n1star/checks/vii5read.py` | `ac923c34340fa8526238423002d6e395` |
-| `docket68/n1star/checks/vii5read.out` | `49414b30b52bc778f5d8f449b505f38e` |
+| `docket68/n1star/checks/vii5read.py` | `5fe023d9f991eb39404e709ae8811f86` |
+| `docket68/n1star/checks/vii5read.out` | `95b1d4ffe25e4cdf0ceeef7450281aa3` |
 | `docket68/n1star/checks/VII5-READING.tsv` | `592b0fc609b682fe2afb2d3d466e0eb4` |
 | `docket68/n1star/checks/hclass5.py` | `8ad8a55f77406eb4a4d0e481fb1fe85c` |
 | `docket68/n1star/checks/hclass5.out` | `761509082809bc9a23fb1b876f3b0b0f` |
