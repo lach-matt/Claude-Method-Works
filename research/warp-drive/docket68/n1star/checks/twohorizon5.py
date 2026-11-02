@@ -39,7 +39,7 @@ def zero(e):
     return e == 0 or sp.simplify(e) == 0
 
 
-def h1(control=False):
+def h1():
     vh, R, th, p1, p2 = sp.symbols("vhat R theta phi1 phi2", real=True)
     X = [vh, R, th, p1, p2]
     psi, mu = sp.Function("psi")(vh), sp.Function("mu")(vh)
@@ -49,32 +49,25 @@ def h1(control=False):
     g[2, 2], g[3, 3], g[4, 4] = R**2, R**2*sp.cos(th)**2, R**2*sp.sin(th)**2
     gi = sp.simplify(g.inv())
     alpha = sp.Symbol("alpha")
-    roots = sp.solve(sp.Eq(sum(gi[a, b]*k1*k2 for a, k1 in ((0, alpha), (1, 1)) for b, k2 in ((0, alpha), (1, 1))), 0),
-                     alpha)
-    out_root = [x for x in roots if not zero(sp.simplify(x))]
-    a_ = sp.Integer(0) if control else out_root[0]                     # control: dR alone is not null (f != 0)
-    if control:
-        a_ = [x for x in roots if zero(sp.simplify(x))][0] if any(zero(sp.simplify(x)) for x in roots) else roots[0]
-    k = [a_, 1, 0, 0, 0]
-    n = [sp.simplify(sum(gi[c, d]*k[d] for d in range(5))) for c in range(5)]
-    cn = sp.simplify(1/(n[0] - n[1]))                                  # normalise n(tau) = 1, tau = vhat - R
+    kk = lambda al: [al, 1, 0, 0, 0]                                   # noqa: E731
+    roots = sp.solve(sp.Eq(sum(gi[a, b]*kk(alpha)[a]*kk(alpha)[b] for a in range(5) for b in range(5)), 0), alpha)
     A = [2, 3, 4]
     dg = [[[sp.diff(g[a, b], X[c]) for c in range(5)] for b in range(5)] for a in range(5)]
     Gam = lambda c, a, b: sum(gi[c, d]*(dg[d][a][b] + dg[d][b][a] - dg[a][b][d]) for d in range(5))/2  # noqa: E731
-    gam_inv = {a: 1/g[a, a] for a in A}
-    theta = sp.simplify(-cn*sum(gam_inv[a]*Gam(c, a, a)*k[c] for a in A for c in range(5)))
+
+    def theta(k):
+        n = [sp.simplify(sum(gi[c, d]*k[d] for d in range(5))) for c in range(5)]
+        cn = sp.simplify(1/(n[0] - n[1]))                              # n(tau) = 1, tau = vhat - R
+        return sp.simplify(-cn*sum(Gam(c, a, a)*k[c]/g[a, a] for a in A for c in range(5))), sp.simplify(n[0] - n[1])
+    tp, _ = theta(kk(roots[0]))
     base = 3*f/(2*R)
-    ratio = sp.simplify(theta/base)
-    if control:
-        return ratio
-    zero_at = sp.simplify(theta.subs(mu, R**2)) == 0
-    d_at = sp.simplify(sp.diff(theta, R).subs(mu, R**2))
+    ratio = sp.simplify(tp/base)
+    zero_at = sp.simplify(tp.subs(mu, R**2)) == 0
+    d_at = sp.simplify(sp.diff(tp, R).subs(mu, R**2))
     pos = sp.simplify(ratio.subs(mu, R**2))
-    kin = [1, 0, 0, 0, 0]
-    nin = [-sum(gi[c, d]*kin[d] for d in range(5)) for c in range(5)]
-    theta_in = sp.simplify(-sum(gam_inv[a]*Gam(c, a, a)*(-kin[c]) for a in A for c in range(5)))
-    fut = sp.simplify(nin[0] - nin[1])                                 # dtau(n_in) > 0: future directed
-    return dict(ratio=ratio, zero_at=zero_at, d_at=d_at, pos=pos, theta_in=theta_in, fut=fut)
+    tin, dtau_in = theta([1, 0, 0, 0, 0])                              # k = dvhat, the ingoing null normal
+    return dict(roots=roots, ratio=ratio, zero_at=zero_at, d_at=d_at, pos=pos, theta_in=tin, dtau_in=dtau_in,
+                ctl=sp.simplify(tin.subs(mu, R**2)) == 0)
 
 
 def theta_series(S0, W, Q=None, top=1):
@@ -176,16 +169,16 @@ def main():
     t0 = time.time()
     ok = {}
     r = h1()
-    rc = h1(control=True)
-    good1 = r["zero_at"] and zero(r["d_at"] - 3*r["pos"]/(sp.Symbol("R", real=True)**2)) is not None
     Rs = sp.Symbol("R", real=True)
-    good1 = r["zero_at"] and zero(sp.simplify(r["d_at"]*Rs**2 - 3*r["pos"]))
-    print("  H1: theta+ = c(R) 3 f/(2R) with c = %s; zero at R^2 = mu: %s; there d_R theta+ = %s = (3/mu) c, c = %s > 0;"
-          "\n      ingoing expansion %s < 0 with dtau(n_in) = %s > 0: %s" % (r["ratio"], r["zero_at"], r["d_at"], r["pos"],
-                                                                         r["theta_in"], r["fut"], good1), flush=True)
-    print("  H1 control (the ingoing root used as k): theta/(3 f/(2R)) = %s, not a positive function: the outgoing root"
-          "\n      is the one with the zero" % rc, flush=True)
-    ok["H1"] = good1 and r["fut"] != 0
+    good1 = (len(r["roots"]) == 1 and r["zero_at"] and zero(sp.simplify(r["d_at"]*Rs**2 - 3*r["pos"]))
+             and sp.simplify(r["pos"]) == 1)
+    print("  H1: one outgoing null covector dR + alpha dvhat, alpha = %s; theta+ = c 3 f/(2R) with c = %s;\n"
+          "      zero at R^2 = mu: %s; there d_R theta+ = %s = 3 c/mu with c = %s; ingoing (k = dvhat, n(tau) = %s):\n"
+          "      theta- = %s: %s" % (r["roots"], r["ratio"], r["zero_at"], r["d_at"], r["pos"], r["dtau_in"],
+                                   r["theta_in"], good1), flush=True)
+    print("  H1 control (the ingoing normal): its expansion vanishes at R^2 = mu: %s (it must not)" % r["ctl"],
+          flush=True)
+    ok["H1"] = good1 and not r["ctl"]
     nolm1, l0 = h2()
     cn, cl0 = h2(control=True)
     print("  H2: both families: no lam^-1 term in either expansion: %s; lam^0 term equal to g0's: out %s, in %s  [%.0f s]"
