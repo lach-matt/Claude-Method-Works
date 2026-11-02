@@ -61,3 +61,19 @@
          11, 12, 13];
         differ at []; edges: growth5 between [(0.0, -0.195), (-0.831, -0.924)], rebuild at x = [-0.852, -0.024];
         rebuilt edges outside growth5's brackets by [0.0, 0.0] column spacings -> agree
+     v = 1.525 (growth5 v = 1.524), r* = 0.730: untrapped columns of 17: growth5 6 [9, 10, 11, 12, 13, 14]; rebuild 5 [9,
+         10, 11, 12, 13];
+        differ at [14]; edges: growth5 between [(0.0, -0.195), (-0.924, -0.981)], rebuild at x = [-0.921, -0.008];
+        rebuilt edges outside growth5's brackets by [0.05, 0.0] column spacings -> differ
+     v = 1.550 (growth5 v = 1.548), r* = 0.770: untrapped columns of 17: growth5 8 [9, 10, 11, 12, 13, 14, 15, 16];
+         rebuild 7 [8, 9, 10, 11, 12, 13, 14];
+        differ at [8, 15, 16]; edges: growth5 between [(0.0, -0.195)], rebuild at x = [-0.973, 0.031];
+        rebuilt edges outside growth5's brackets by [3.99, 0.16] column spacings -> differ
+  S7 same count and every edge within one column spacing at every v: FAIL
+  control (the leaves' expansion in place of theta):
+     v = 1.425 (growth5 v = 1.427), r* = 0.640: untrapped columns of 17: growth5 2 [10, 11]; rebuild 0 [];
+        differ at [10, 11]; edges: growth5 between [(-0.195, -0.383), (-0.556, -0.707)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
+     v = 1.450 (growth5 v = 1.452), r* = 0.670: untrapped columns of 17: growth5 4 [9, 10, 11, 12]; rebuild 0 [];
+        differ at [9, 10, 11, 12]; edges: growth5 between [(0.0, -0.195), (-0.707, -0.831)], rebuild at x = [];
+        rebuilt edges outside growth5's brackets by [] column spacings -> differ
