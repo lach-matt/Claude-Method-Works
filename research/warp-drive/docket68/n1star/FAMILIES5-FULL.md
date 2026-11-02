@@ -9,10 +9,21 @@ non-round) families is **open**, with the obstruction stated. Part III: the lite
 T²-class reduction of the Vlasov passage to Part I is **deduced** with its identities computed; the non-round case is
 **open** and stops at Part II's obstruction. Nothing in FAMILIES5.md, the paper or the log is changed.
 
+Round 2 (2026-11-02, Part V). An independent verifier read this note at commit 169c9b5 and found no major gap; its seven
+findings are seated (section 11, each with its disposition, the text corrected in place where it stood). Theorem E₂'s
+Lemma 3.3₂ and Steps 4-6 are written in full (section 8), every identity behind them computed (`checks/twodecomp5.py`,
+from the full reduced Ricci tensor) and the power counting computed term by term (`checks/twoledger5.py`): Theorem E₂,
+and with it Theorem 1₂ items 1-5, is **deduced**. The record's item 6 (one zero per column of the outgoing expansion) is
+**deduced for two families under a placement hypothesis (H6)** that the computed example satisfies, with the term that
+makes (H6) necessary computed (section 9); item 7 (the mean mass) is **deduced** with the outgoing family's parity base
+computed (section 10). Not yet read by an independent verifier.
+
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that the
 program must reject), **deduced** (argued here, a standard step named as such), **READ** (verbatim, identifier and page,
 read at source through alphaXiv, 2026-11-02). New programs: `checks/twobg5.py`, `checks/twoslice5.py`,
-`checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`, each with its `.out`.
+`checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`, each with its `.out`;
+round 2: `checks/twodecomp5.py`, `checks/twoledger5.py`, `checks/twohorizon5.py`, `checks/twoparity5.py`, and
+`twobg5.py`, `twotransport5.py`, `axisphase5.py`, `torusstress5.py` amended (section 11).
 
 ---
 
@@ -47,11 +58,13 @@ for every λ ∈ (0, λ0] there is a smooth T² × Z2 × Z2-invariant metric g_�
 2. on Σ_τ0 the data satisfy the vacuum constraints exactly, equal the seed's on R < r1, and differ from those of the
    two-phase approximant g_app by O(λ^K) in the record's norm (E4);
 3. g_λ = g_app + w, |w| ≤ C λ^(K−3), |∂w| ≤ C λ^(K−4) on Ω₂;
-4. |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C, and ∂g_λ − ∂g0 = dv ⊗ [∂_(s1) g1^in] + du ⊗ [∂_(s2) g1^out] + O(λ), so ∂g_λ → ∂g0
+4. |g_λ − g0| ≤ C λ, |∂g_λ| ≤ C, and ∂g_λ − ∂g0 = dv̂ ⊗ [∂_(s1) g1^in] + du ⊗ [∂_(s2) g1^out] + O(λ), so ∂g_λ → ∂g0
    weakly in L² and not strongly where env or env₂ is nonzero; g0 is the **two-null-dust background** of section 2,
    Ric(g0) = K_in dv² + K_out du² with K_in R³ and K_out R³ the two families' Isaacson fluxes;
 5. D(g_λ) = 0 (the record's wave-map gauge relative to g0) and g_λ is the only C² solution of Ric^H(g) = 0 on Ω₂ with
    data within ε1 of g0.
+
+The record's items 6 (the horizon) and 7 (the mean mass) for two families: sections 9 and 10 (round 2).
 
 *How it follows* (deduced): exactly as the record's Theorem 1 (N1STAR-PROOF.md 0.7) from Proposition B (the background
 and the domain, section 2), Theorem A₂ (the approximant, section 4), Theorem E₂ (the uniform estimate, section 5) and
@@ -67,10 +80,13 @@ g0 = −e^(2ψ) f dv̂² + 2 e^ψ dv̂ dR + R² dΩ₃², f = 1 − μ/R² (twod
 
 **Proposition B.** (a) *Structure (computed: twobg5 G1 (a)-(b), G2 (i)).* μ_u = −(2/3) ℬ e^(−2s) R_v and μ_v = −(2/3) 𝒜
 e^(−2s) R_u; ψ_u = ℬ/(3R² R_u), and the mirror ψ̃_v = 𝒜/(3R² R_v). So where ℬ = 0 the background is ingoing Vaidya in
-(v̂, R) after reparametrising v̂, and where 𝒜 = 0 (and R_v ≠ 0) outgoing Vaidya: the only region where it is not explicit
-Vaidya is the compact crossing diamond Q× = [u1, u2] × [v_start, v_end]. In the example the departures from Vaidya off Q×
-fall with resolution (1.8 × 10⁻⁵, 5.2 × 10⁻³, 5.2 × 10⁻³, 2.2 × 10⁻⁴ at n = 160 in the four regions, each falling with
-n).
+(v̂, R) after reparametrising v̂, and where 𝒜 = 0 (and R_v ≠ 0) outgoing Vaidya: the only region where it is not Vaidya
+is the compact crossing diamond Q× = [u1, u2] × [v_start, v_end]. (Corrected in round 2, the verifier's nit 7.) Off Q×
+the background is Vaidya, but explicit from the data only in u ≤ u1 (ingoing Vaidya with the mass function of the data
+on N) and in v ≤ v_start (outgoing Vaidya with that of the data on N′); in u ≥ u2 and in v ≥ v_end it is Vaidya with
+the mass functions μ(u2, ·) and μ(·, v_end) read from the diamond's solution on its edges, not explicit from the data.
+In the example the departures from Vaidya off Q× fall with resolution (1.8 × 10⁻⁵, 5.2 × 10⁻³, 5.2 × 10⁻³, 2.2 × 10⁻⁴
+at n = 160 in the four regions, each falling with n).
 
 (b) *The mass bound μ ≥ μ0 on the whole development (deduced; computed G1 (c), G2 (ii)).* μ_uv = (2/9) 𝒜ℬ e^(−2s)/R² ≥ 0
 (twoext5 X2, recomputed G1 (c)), so μ(u, v) ≥ μ(u, v0) + μ(u0, v) − μ(u0, v0). The second difference is ∫ μ_v ≥ 0, R_u

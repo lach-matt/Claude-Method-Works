@@ -17,17 +17,20 @@ sites), deduced (the replacements), computed (K1, K2: floating point on matrix m
      ||R^(i)(s*)||/i! <= ||R*|| [h^i] 1/(1 - a h - p h^2), a = ||R*|| ||A||, p = ||R*|| ||P2||: locally uniform, with
      no Banach-Steinhaus, polynomial of degree i + 1 in ||R*||. Checked on 200 random complex matrix families (n = 6),
      i <= 8. Size: given the base bound ||R*|| (a SIGMA/N1 constant, not computed), i! ||R*||^(i+1) (||T|| + ...)^i.
-  K3 (computed on matrices) II.F:1400's open-mapping constant is 1/(the least singular value of T on ker Pi): with T =
-     diag(0, eps) the a priori estimate's constants stay fixed while the constant is 1/eps. So it is a quantitative
-     injectivity constant, of the N1 kind; effective only with a certified lower bound.
+  K3 (computed on matrices; Round 3: the constants are now computed, not written in) II.F:1400's open-mapping constant
+     is 1/(the least singular value of T on ker Pi), Pi Lemma 5.2's projection. For T = diag(0, eps), j = id: the
+     inputs of the step -- the constant C of ||x|| <= C (||Tx|| + ||jx||) (computed as a supremum over the unit
+     circle), ||T|| and ||Pi|| (computed) -- stay at 1, 1e-1.. and 1, while the output (computed by SVD on ker Pi) is
+     1/eps: the step's output is not a function of its inputs, so the proof as written gives no bound there (the N1
+     kind); a certified lower bound on sigma_min(T on ker Pi) is what has to be computed instead.
   K4 (READ, deduced) hidden orders and losses (V-m1): II.A:960 "for some d0" (the coefficient regularity); II.A2:188
      "C times a seminorm of X" (the seminorm's order M); J3:41 "a loss eps'(eps, k)" (a weight loss, read off the
      proofs to be independent of k, J3:42-46); J3:82 the loss d of a membership statement is fixed by its orders only
      when the statement's proof is a chain of explicit estimates. So the derivative loss d is unaffected only where
      these orders are fixed by explicit estimates.
   Controls (must fail, and do): C1 a planted site is unclassified; C2 K2's bound without its P2 term fails on a family
-  with A = 0; C3 the claim that II.F:1400's constant is bounded by ||T|| and the projection's constant alone is refuted
-  by K3's family.
+  with A = 0; C3 (Round 3, the verifier's m2: round 2's C3 used the hard-coded 1/eps) K3's computation run on the
+  mutated family T = diag(0, 1), whose output does not grow, fails K3's test.
 
     python3 checks/baire5.py
 """
@@ -142,17 +145,34 @@ def main():
     bad = gen_bound(r, r * np.linalg.norm(A, 2), 0.0, 4)
     ok['C2'] = any(np.linalg.norm(c[i], 2) > bad[i] + 1e-12 for i in range(5))
     say('  C2 (control): without the P2 term the bound is violated (A = 0, P2 = 5 I): %s' % ok['C2'])
-    # K3: open mapping constant on T = diag(0, eps)
-    consts = []
-    for eps in (1e-1, 1e-3, 1e-6):
-        T = np.diag([0.0, eps])
-        on_ker_pi = abs(T[1, 1])                     # T restricted to ker Pi = span(e2)
-        consts.append(1 / on_ker_pi)
-    ok['K3'] = consts[0] < consts[1] < consts[2] and consts[2] >= 1e6
-    say('  K3: T = diag(0, eps), ||T|| <= 1, the projection onto ker T of norm 1: the open-mapping constant is %s for '
-        'eps = 1e-1, 1e-3, 1e-6' % ['%.0e' % x for x in consts])
-    ok['C3'] = consts[2] > 1 + 1                     # the claim "constant <= ||T|| + ||Pi|| = 2" is refuted
-    say('  C3 (control): "the constant is at most ||T|| + ||Pi||" refuted by eps = 1e-6: %s' % ok['C3'])
+    # K3: II.F Lemma 5.2's construction on matrices, every constant computed
+    def lemma52(T, j):
+        n = T.shape[0]
+        u, sv, vt = np.linalg.svd(T)
+        ker = vt[np.abs(np.concatenate([sv, np.zeros(n - sv.size)])) < 1e-14].T
+        E = j @ ker                                   # j e_k, independent (j injective)
+        L = np.linalg.pinv(E)                         # functionals with L (j e_k) = delta_ik (Hahn-Banach in R^n)
+        Pi = ker @ L @ j
+        th = np.linspace(0, 2 * np.pi, 20001)
+        X = np.stack([np.cos(th), np.sin(th)])
+        Capri = np.max(1 / (np.linalg.norm(T @ X, axis=0) + np.linalg.norm(j @ X, axis=0)))
+        u2, s2, v2 = np.linalg.svd(np.eye(n) - Pi)
+        kerPi = u2[:, s2 > 1e-12]                     # range of 1 - Pi = ker Pi
+        out = 1 / np.min(np.linalg.svd(T @ kerPi, compute_uv=False))
+        return Capri, np.linalg.norm(T, 2), np.linalg.norm(Pi, 2), out
+
+    def k3_test(rows):
+        inputs_fixed = all(abs(r[0] - 1) < 1e-6 and r[1] <= 1 and abs(r[2] - 1) < 1e-9 for r in rows)
+        return inputs_fixed and rows[0][3] < rows[1][3] < rows[2][3] and rows[2][3] >= 1e6
+
+    rows = [lemma52(np.diag([0.0, eps]), np.eye(2)) for eps in (1e-1, 1e-3, 1e-6)]
+    ok['K3'] = k3_test(rows)
+    say('  K3: T = diag(0, eps), j = id: (C of the a priori estimate, ||T||, ||Pi||, open-mapping constant) = %s for '
+        'eps = 1e-1, 1e-3, 1e-6 (computed): inputs fixed, output 1/eps' % [tuple('%.3g' % x for x in r) for r in rows])
+    rows_m = [lemma52(np.diag([0.0, 1.0]), np.eye(2)) for _ in range(3)]
+    ok['C3'] = not k3_test(rows_m)
+    say('  C3 (control): K3\'s computation on T = diag(0, 1): output %s, not growing: K3 fails for it: %s'
+        % (['%.3g' % r[3] for r in rows_m], ok['C3']))
     planted = NR.baire_census(extra=[('PART-PLANTED.md', 1)])
     ok['C1'] = [h for h in planted if h not in NR.BAIRE] == [('PART-PLANTED.md', 1)]
     say('  C1 (control): a planted site is unclassified: %s' % ok['C1'])
