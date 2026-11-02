@@ -8,3 +8,8 @@ F2 PASS
   F3 (a) nu = (0.2), and not with beta's mass term dropped: True; (b) d^F's closed form at 7 angles, and not with 38/3 ->
       37/3: True; (c) nu_inf = -mu0^(-7/4)/9, and not with the vv coupling halved: True; (d) square wave: mean-zero
       antiderivative of amplitude pi/2, refuting sup|Y| <= sup|Z|/2: True
+F3 PASS
+  F4 D3: derivatives >= 0 on x >= 1 (no solution of < 0): True, True; E3: -2 s + 4 s^3 < 0 on (0, 1/2] and on (0,
+      1/sqrt2): True, True; E5: x y - min(x, y)^2 = min * (max - min) >= 0: True
+F4 PASS
+layerfix5: all checks pass, every control fails
