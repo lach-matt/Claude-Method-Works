@@ -5,3 +5,7 @@ X4 Theta(k) at Sigma in the frame: PASS | control tangential trace 1: False
 X5 L_X g = k on Sigma for the Y of the construction: PASS | controls +1/2, tangential factor 2: False
 X7 L_X g induces zero data when X = 0 on Sigma: PASS | control X != 0 on Sigma: False
    X8 (a) h = f(t) H: no f''' and the coefficient of f'' in L^0 h is -(1/2) g^tt H: True | control DRic alone: False
+   X8 (b) m = 2, h = t^2 H + t^3 K: L^0 h at t = 0 is -g^tt H: True | control DRic alone: False
+X8 Sigma noncharacteristic for L^0 (leading coefficient): PASS | control DRic alone: False
+X6 DRic(L_X g) = 0 at 5D Tangherlini: PASS | control (4D lapse): False
+ix5: all checks pass
