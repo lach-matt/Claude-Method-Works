@@ -27,3 +27,6 @@ B6  the kernel table of the weighted energy at weight a
 B7  the split of the commuted multilinear terms
   B7a every multilinear term (m = 2..4 slots) has a split (one slot in L^2, the rest in sup) for every k0 in [6, 30];
         minimal k0 = 6: pass minimal k0 = 6
+  B7b the tame induction above k1: with the sup factors at energy order <= k - 1 every term splits for k = 9..30 (so the
+        orders above k1 need no smallness, only the lower ones): pass
+  B7c control: k0 = 5 fails (a slot of order 2 with two derivatives against one of order 3): pass

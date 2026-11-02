@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""r6fixes5: two of the round-5 verifier's minor findings, re-derived before they are seated (CONSTANTS5.md, Round 6,
+R6.0). Labels: computed (exact, sympy), certified (exact rationals and outward-rounded enclosures), READ (the cited
+.out lines).
+
+  F1 (minor 2; exact, certified) the largest-entry reading of lambda0. At xhat = e1, g0 = eta + m U U^T, U = (1, 1, 0,
+     0, 0), eta = diag(-1, 1, 1, 1, 1); with v = e_tau - e_1, det(g0 + t v v^T) = 4 m t - 1 (sympy, every m, t). At
+     t = 1/(4 m) the metric degenerates, and t v v^T has every entry of absolute value t or 0: so in the largest-entry
+     reading Lemma 2.3's eps1 is below 1/(4 m*), m* = mu_end/a^2 in [16.234970, 16.234971] (READ lzerotrace5.out T7,
+     certified there), that is eps1 < 0.0153989, and with C_app >= 12.593309 (READ lzerotrace5.out T3, operator and
+     largest entry) lambda0 < 0.0012228. Round 5's 0.0012968 (lzerorank5.py R2) is valid; this one is smaller. Not
+     claimed sharp.
+  F2 (minor 3; deduced, computed) stage1rate5's inhomogeneous constant. From dE/dtau <= kappa E + c_Y E^(1/2) ||box~ u||
+     and box~ u = -2 f: y := E^(1/2) obeys y' <= (kappa/2) y + (c_Y/2) ||box~ u|| = (kappa/2) y + c_Y ||f||, so
+     ||du(tau)|| <= q_lo^(-1/2) e^(kappa Dtau/2) (y(tau0) + c_Y int ||f||): the coefficient is c_Y q_lo^(-1/2)
+     e^(kappa Dtau/2), not 2 c_Y q_lo^(-1/2) e^(kappa Dtau/2). With stage1rate5.out K3's enclosures (READ: c_Y^2 <= 2,
+     q_lo >= 0.196683, e^(kappa Dtau/2) <= 1.105e17, and its own product 7.048e17 for the factor 2) the coefficient
+     is < 3.525e17. The homogeneous factor q^(1/2) e^(kappa Dtau/2) <= 4.174e18 stands.
+  Controls (each mutates the computed path; each must fail): C1 F1 with v = e_tau + e_1 (the other sign): the
+  determinant is -1 for every t, no degeneration, so F1's test (a root in t > 0) fails; C2 F2's recursion with
+  box~ u = -f (the factor 2 dropped): the coefficient is c_Y/2, and F2's identity fails.
+
+    python3 checks/r6fixes5.py       (seconds)
+"""
+import builtins
+import sys
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+OK = {}
+
+
+def det_form(sign):
+    m, t = sp.symbols('m t', real=True)
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    U = sp.Matrix([1, 1, 0, 0, 0])
+    v = sp.Matrix([1, sign, 0, 0, 0])
+    g = eta + m * U * U.T + t * v * v.T
+    return sp.expand(g.det()), m, t
+
+
+def f2_coeff(factor):
+    """y' <= (kappa/2) y + (c_Y/2) ||box~ u||, box~ u = -factor f: the coefficient of int ||f|| in y"""
+    cY, f = sp.symbols('c_Y f', positive=True)
+    return sp.simplify(cY / 2 * factor * f / f)
+
+
+def main():
+    print('r6fixes5: the round-5 verifier\'s minor findings 2 and 3, re-derived')
+    D, m, t = det_form(-1)
+    OK['F1'] = sp.simplify(D - (4 * m * t - 1)) == 0
+    mlo = Fr(16234970, 10 ** 6)
+    tstar_hi = 1 / (4 * mlo)                      # 1/(4 m*) <= 1/(4 m_lo)
+    capp_lo = Fr(12593309, 10 ** 6)
+    lam_hi = tstar_hi / capp_lo
+    OK['F1'] = OK['F1'] and tstar_hi < Fr(153989, 10 ** 7) and lam_hi < Fr(12228, 10 ** 7)
+    print('  F1: det(g0 + t v v^T) = %s with v = e_tau - e_1 (exact); t* = 1/(4 m*) <= %.7f (m* >= 16.234970), the '
+          'largest entry of t* v v^T being t*; lambda0 < t*/C_app <= %.7f (largest-entry reading; C_app >= 12.593309): '
+          '%s' % (D, float(tstar_hi), float(lam_hi), OK['F1']))
+    Dc, _, _ = det_form(1)
+    roots = sp.solve(sp.Eq(Dc, 0), t)
+    OK['C1'] = not (sp.simplify(Dc - (4 * m * t - 1)) == 0) and roots == []
+    print('  C1 (control): v = e_tau + e_1: det = %s, no root in t: F1\'s test fails: %s' % (Dc, OK['C1']))
+    c2 = f2_coeff(2)
+    cY = sp.Symbol('c_Y', positive=True)
+    OK['F2'] = sp.simplify(c2 - cY) == 0
+    qlo, cY2, fac = Fr(196683, 10 ** 6), 2, Fr(1105, 10 ** 3) * 10 ** 17
+    import math
+    coeff = math.sqrt(cY2) / math.sqrt(float(qlo)) * float(fac)
+    OK['F2'] = OK['F2'] and coeff < 3.525e17 and abs(2 * coeff - 7.048e17) / 7.048e17 < 1e-3
+    print('  F2: the coefficient of int ||f|| in y is %s (exact); c_Y q_lo^(-1/2) e^(kappa Dtau/2) <= %.4e (floating '
+          'point on READ enclosures, rounded up at 4 digits there), half of stage1rate5\'s 7.048e17: %s' % (
+              c2, coeff, OK['F2']))
+    c2b = f2_coeff(1)
+    OK['C2'] = not (sp.simplify(c2b - cY) == 0)
+    print('  C2 (control): box~ u = -f: coefficient %s, not c_Y: F2\'s identity fails: %s' % (c2b, OK['C2']))
+    for k, v in OK.items():
+        builtins.print(k, 'PASS' if v else 'FAIL')
+    return 0 if all(OK.values()) else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
