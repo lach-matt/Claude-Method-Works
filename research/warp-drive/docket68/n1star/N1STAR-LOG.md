@@ -7854,3 +7854,11 @@ with them. Sections 5-10 and the appendices are next, one batch at a time.
 settled the points, they still called open a five-dimensional counterpart of one known method, a class of kernel
 elements, and a reading of one cited section. The first now says that method is not used here because the class is
 settled another way; the other two point to the sub-section that settles them.
+
+**D595 (2026-11-02): two derived steps given computations.** The author's rule is that everything derived must be proved
+with computational support. The wave formula the paper printed at D593 had been transcribed from the supplement, not
+checked; the paper's check script now verifies it against the supplement's own program and derives the mass law from it,
+with a deliberately wrong formula as the control. And the two-family case of D592 had been settled by an argument (the
+dangerous coefficients are linear in the waves); it is now being computed directly, by an exact method that keeps only
+the terms able to reach those coefficients, the method itself checked against the full computation on cases where that
+is affordable, including cases where the coefficient is nonzero. The first comparison agrees; the rest is running.

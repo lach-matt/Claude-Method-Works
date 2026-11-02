@@ -224,13 +224,13 @@ angular profile h(ζ) = √(2/(1 + ζ²)) on the orbit space (ζ = cos 2θ, c² 
 "x") and phase v/λ; at past null infinity their free data are F = λ A env(v) h(ζ) sin(v/λ), G = λ A env(v) h(ζ)
 cos(v/λ). In the gauge of section 2.5 the leading wave W_TT is traceless, transverse to ℓ, of amplitude r^(−3/2), and
 smooth at both axes (computed, `docket68/n1star/ansatz5.py` A3). Explicitly, with c = cos θ and s = sin θ on the orbit
-space (the round metric of S³ being dθ² + c² dφ1² + s² dφ2²) and the profile taken at the phase θ-variable v/λ,
+space (the round metric of S³ being dθ² + c² dφ1² + s² dφ2²), and F and G taken at the angle θ and the phase v/λ,
 
     λ W_TT = 2 r^(1/2) (c² p1 dφ1² + s² p2 dφ2² − (p1 + p2) dθ²),   p1 := (2c² G − s² F)/3,   p2 := (2s² F − c² G)/3,
                                                                                                          (2.5′)
 
 traceless on the spheres and with no dv or dr component (computed: the components are those of the supplement's
-programs, `data5.py` and `ansatz5.py` A3, and of Theorem M (b) of its section 11).
+programs, `data5.py` and `ansatz5.py` A3, and of Theorem M (b) of its section 11; `paper/response5.py` R12).
 
 **Proposition 2.3 (the limit; computed: `docket68/n1star/lead5.py` L2; `docket68/lemmas/hf_theorem5.py` F3;
 `paper/response5.py` R6).** The θ-mean of the leading equation of the two-scale expansion (section 4) vanishes exactly
@@ -1660,8 +1660,12 @@ Paths are relative to the root of the research tree.
   charge of 3 per round, in exact rationals. Control: a charge of 2.
 - R11: section 9's one-derivative constants on the band, 963.4 for l ≥ 1 and 1516 at l = 0, from the certified
   bound 11.477 and multipliers, the square root bracketed exactly. Control: σ = 3 in place of 384.
+- R12: (2.5′). Its components are the λ-linear part of the approximant the proof's programs compute with (the one
+  check that imports one of them, `ansatz5.py`, to show that (2.5′) is the object they compute with); it is traceless
+  on the round S³; and with Proposition 2.3's quadratic part of R_vv and R2, the phase mean of its flux is
+  (2/9) A² env² h² (c⁴ + s⁴) = (2/9) A² env², the law (2.6). Control: the map p1 = F, p2 = G.
 
-All eleven pass and every control is rejected (about 40 seconds). The proof's programs, in `docket68/n1star/`:
+All twelve pass and every control is rejected (about 45 seconds). The proof's programs, in `docket68/n1star/`:
 
 - `ks5.py` K1–K5: the Kerr–Schild form, its inverse, the commutator (2.4), div L0, the gauge source H0. 5/5;
   mutants 4/4.
@@ -2076,6 +2080,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | Proposition 2.2 | R2–R4; `docket68/n1star/ks5.py` K1–K5; supplement 0.1, Lemma 1.1 |
 | (2.4) | `docket68/n1star/ks5.py` K3; [Tou23a] Lemma 3.1 for comparison |
 | domain Ω | supplement (1.1), Lemma 1.1; `docket68/n1star/foliation5.py` B1–B4 |
+| (2.5′) | `paper/response5.py` R12; `docket68/n1star/ansatz5.py` A3–A4; `docket68/n1star/data5.py` |
 | Proposition 2.3, (2.6) | `docket68/n1star/lead5.py` L2; R6; `docket68/lemmas/hf_theorem5.py` F3 |
 | (2.7) | [CBCM10] (2.7)–(2.9); supplement 0.2 |
 | Theorem 1 items 1–5 | supplement 0.4–0.7 (Theorems E, A, D), sections 1–6 |
@@ -2229,7 +2234,7 @@ imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py` imports
 `iplus5.py` and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`, `window5.py` and `iplus5.py`; the
 others import nothing from the research tree:
 
-    cd paper && python3 response5.py --selftest          # R1-R11, about 40 seconds
+    cd paper && python3 response5.py --selftest          # R1-R12, about 45 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
         cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
                                                          # past5 (about 4 minutes), settle5, bondi5 (about ten minutes)
@@ -2292,9 +2297,9 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `21d4879694b85ccc99d6c4e1ca24df4d` |
+| `paper/response5.py` | `d4d945d6fc28e4400ab11aee2cdfd357` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `1b801033dec7413dec8d797807e52bd9` |
+| `docket68/n1star/N1STAR-LOG.md` | `bde7f42ef951d156528e97ca84db3365` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2392,7 +2397,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/CERTIFY-10L5.md` | `932c277dc0262c62b220aba83bbb3289` |
 | `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
 | `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
-| `docket68/n1star/FAMILIES5.md` | `55c24156ff085a6df978844a2c0ddb20` |
+| `docket68/n1star/FAMILIES5.md` | `94314fd0bf0e126925e67933d06b4de8` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
 | `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
 | `docket68/n1star/checks/prop31loss5.py` | `7f8004a1801aca2a1aa3e777e6ee2907` |
@@ -2403,7 +2408,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2h1band5.out` | `1fd8053f3fdac83cf070974bf7db38be` |
 | `docket68/n1star/checks/closure5.py` | `c65098b4a3c6f0a36b37a5de0ccf902b` |
 | `docket68/n1star/checks/closure5.out` | `8388cf3bd8a7eee36f599a210effd723` |
-| `docket68/n1star/checks/data5two.py` | `5d4117235d43da55022ddd12e1e583a9` |
+| `docket68/n1star/checks/data5two.py` | `40e4bb3646f370e33647b818ef548e18` |
 | `docket68/n1star/checks/g1curv5.py` | `d98ed86deaee1c04d6eb92653cf1cf2b` |
 | `docket68/n1star/dnsolve5.py` | `f5c59a474498f3e2a215acfbdf46dbbd` |
 | `docket68/n1star/checks/epsind5.py` | `8a255f7058dc653627001236cb7075ad` |

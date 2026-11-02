@@ -109,19 +109,45 @@ def slice_data2(with_w=True, with_chi=False):
     gi = sp.zeros(4)
     for i in range(4):
         g0_, d_ = gam[i, i].subs(lam, 0), gam[i, i] - gam[i, i].subs(lam, 0)
-        gi[i, i] = trunc(1 / g0_ - d_ / g0_**2 + d_**2 / g0_**3, 2)
+        full = 1 / g0_ - d_ / g0_**2 + d_**2 / g0_**3
+        MINORD["gi"] = min(MINORD.get("gi", 0), minord(full))
+        MINORD["gam"] = min(MINORD.get("gam", 0), minord(gam[i, i]))
+        gi[i, i] = trunc(full, TOPS["gi"])
     beta = [btr, 0, 0, 0]
-    N2 = trunc(-gtt + gi[0, 0] * btr**2, 2)
+    MINORD["beta"] = min(MINORD.get("beta", 0), minord(btr))
+    N2full = -gtt + gi[0, 0] * btr**2
+    MINORD["N2"] = min(MINORD.get("N2", 0), minord(N2full))
+    N2 = trunc(N2full, TOPS["N2"])
     N20 = N2.subs(lam, 0)
-    dl = trunc((N2 - N20) / (2 * N20), 1)
+    dl = trunc((N2 - N20) / (2 * N20), TOPS["dl"])
     Ninv = (1 - dl + sp.Rational(3, 2) * dl**2) / sp.sqrt(N20)
     G = d5.christoffel(gam, gi)
     K = sp.zeros(4)
     for i in range(4):
         for j in range(4):
             lie = d5.D(beta[j], i) + d5.D(beta[i], j) - 2 * sum(G[k][i][j] * beta[k] for k in range(4))
-            K[i, j] = trunc(sp.expand((d5.Dt(gam[i, j]) - lie) * Ninv / 2), 1)
+            Kf = sp.expand((d5.Dt(gam[i, j]) - lie) * Ninv / 2)
+            MINORD["K"] = min(MINORD.get("K", 0), minord(Kf))
+            K[i, j] = trunc(Kf, TOPS["K"])
     return gam, gi, K
+
+
+# D595: the truncations of slice_data2. TOPS is the full pipeline's (D579). The constraints are polynomial in gi, the
+# Christoffel symbols G = gi D gamma, K and their D-derivatives, D lowers the order in lam by at most one (lam^-1 d_s),
+# and gamma, gi, beta, N2 and K have no negative order (MINORD records it, computed). So the lam^-1 coefficients of the
+# linearisation are exact with gi and K kept to order 0 and N^-1 to its background value (TOPS_10: J needs gi_0 (D K)_-1
+# and D(trK)_-1, so K mod lam; rho needs gi_0 (D G)_-1, so G mod lam, gi_0 and gamma mod lam^2, which gamma is
+# exactly), and the order-0 principal coefficients of data5's S6 with gi to order 1 (TOPS_11: rho's a_r coefficient
+# takes (D gi)_0 and G_0; no named coefficient takes K). --t10t checks both against the full pipeline exactly.
+TOPS = {"gi": 2, "N2": 2, "dl": 1, "K": 1}
+TOPS_10 = {"gi": 0, "N2": 0, "dl": 0, "K": 0}
+TOPS_11 = {"gi": 1, "N2": 0, "dl": 0, "K": 0}
+MINORD = {}
+
+
+def minord(e):
+    o = d5.orders(e)
+    return min(o) if o else 0
 
 
 def canonical2(e):
@@ -267,5 +293,87 @@ def main():
     return 0 if all(ok.values()) else 1
 
 
+def lin_of(which, chi, tops, flat=False):
+    """the linearisation of data5's constraint map at the slice data of the waves in which (with chi if chi), under the
+    truncations tops"""
+    d5.D, d5.Dt, d5.wave, d5.slice_data = D, Dt, wave, slice_data2
+    SPEED["c"] = 1
+    WHICH.update({"in": False, "out": False, "trace_out": False})
+    WHICH.update(which)
+    TOPS_SAVE = dict(TOPS)
+    TOPS.update(tops)
+    d5.mu = sp.Integer(0) if flat else MU0
+    try:
+        lin, _ = d5.perturbed(True, chi)
+    finally:
+        d5.mu = MU0
+        d5.slice_data = SLICE0
+        CHI["out"] = 0
+        WHICH["trace_out"] = False
+        TOPS.update(TOPS_SAVE)
+    return lin
+
+
+def neg_part(lin):
+    """the lam^-1 (and lower) coefficients of each component, the unknowns' jets as symbols"""
+    return [sp.expand(sum(c_ * d5.IL**(-k) for k, c_ in d5.orders(d5.jet(x)[0]).items() if k < 0)) for x in lin]
+
+
+def same(xs, ys):
+    return all(canonical2(sp.expand(x - y)) == 0 for x, y in zip(xs, ys))
+
+
+def t10t():
+    """--t10t (D595): T10 and T11 computed directly, both families and chi on Vaidya, by the exact truncations TOPS_10
+    and TOPS_11, each first held against the full pipeline (TOPS) on cases where that is affordable, controls with a
+    1/lam coefficient among them (about an hour)"""
+    import time
+    ok, t0 = {}, time.time()
+    out_tr = {"out": True, "trace_out": True}
+    cases = (("both families, no chi", {"in": True, "out": True}, False),
+             ("the ingoing family with chi", {"in": True}, True),
+             ("the outgoing family, an oscillating trace, no chi (control)", out_tr, False),
+             ("the outgoing family with chi_2, an oscillating trace (control)", out_tr, True))
+    agree, nonzero = [], []
+    for name, wh, chi in cases:
+        full = neg_part(lin_of(wh, chi, TOPS))
+        cut = neg_part(lin_of(wh, chi, TOPS_10))
+        a = same(full, cut)
+        nz = any(canonical2(x) != 0 for x in full)
+        agree.append(a)
+        nonzero.append(nz)
+        print("  G (%s): the lam^-1 coefficients of TOPS_10 equal the full pipeline's: %s; nonzero: %s [%.0fs]"
+              % (name, a, nz, time.time() - t0), flush=True)
+    ok["G10"] = all(agree) and nonzero == [False, False, True, True]
+    for name, wh in (("the ingoing family with chi", {"in": True}), ("the outgoing family with chi_2", {"out": True})):
+        a = same(principal(lin_of(wh, True, TOPS)), principal(lin_of(wh, True, TOPS_11)))
+        agree.append(a)
+        ok.setdefault("G11", True)
+        ok["G11"] = ok["G11"] and a
+        print("  G (%s): the order-0 principal coefficients of TOPS_11 equal the full pipeline's: %s [%.0fs]"
+              % (name, a, time.time() - t0), flush=True)
+    MINORD.clear()
+    both = {"in": True, "out": True}
+    t10 = neg_part(lin_of(both, True, TOPS_10))
+    ok["T10t"] = all(canonical2(x) == 0 for x in t10) and min(MINORD.values()) >= 0
+    print("  T10t: both families with chi on Vaidya, u = tau - r: a 1/lam coefficient: %s; least orders of gamma, gi, "
+          "beta, N^2, K: %s [%.0fs]" % (not ok["T10t"], dict(sorted(MINORD.items())), time.time() - t0), flush=True)
+    ctl = neg_part(lin_of({"in": True, "out": True, "trace_out": True}, True, TOPS_10))
+    parts = [sp.expand(x + y) for x, y in zip(neg_part(lin_of({"in": True}, True, TOPS_10)),
+                                                neg_part(lin_of(out_tr, True, TOPS_10)))]
+    ok["T10t-control"] = any(canonical2(x) != 0 for x in ctl) and same(ctl, parts)
+    print("  T10t (control): the outgoing wave with an oscillating trace: a 1/lam coefficient: %s, and it is the sum of "
+          "the two families' own: %s [%.0fs]" % (any(canonical2(x) != 0 for x in ctl), same(ctl, parts),
+                                               time.time() - t0), flush=True)
+    p = principal(lin_of(both, True, TOPS_11))
+    p0 = principal(lin_of({}, False, TOPS_11))
+    ok["T11t"] = same(p, p0)
+    print("  T11t: both families with chi on Vaidya: the order-0 principal coefficients equal the background's: %s "
+          "[%.0fs]" % (ok["T11t"], time.time() - t0), flush=True)
+    for k, val in ok.items():
+        print(k, "PASS" if val else "FAIL")
+    return 0 if all(ok.values()) else 1
+
+
 if __name__ == '__main__':
-    sys.exit(t10b() if '--t10b' in sys.argv else main())
+    sys.exit(t10b() if '--t10b' in sys.argv else t10t() if '--t10t' in sys.argv else main())

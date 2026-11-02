@@ -499,6 +499,30 @@ def update_md5():
     print("updated %d rows" % n)
 
 
+def r12(control=False):
+    """(2.5'), the leading wave written from section 2.4's F, G: (a) its components are the lam-linear part of the
+    approximant the supplement's programs compute with (ansatz5.py's approximant(), imported), with no dv or dr
+    component; (b) it is traceless on the round S^3; (c) with Proposition 2.3's quadratic part of R_vv, -2 (P1_v^2 + P1_v
+    P2_v + P2_v^2) with P_i = r^(-3/2) p_i, against R2's Ric(g0) = (3 mu'/(2 r^3)) dv dv, the phase mean of mu' = (4/3)
+    (p1_v^2 + p1_v p2_v + p2_v^2) at leading order in lam is (2/9) A^2 env^2 h^2 (c^4 + s^4), which is (2/9) A^2 env^2
+    for section 2.4's h: the law (2.6). Control: the map p1 = F, p2 = G in place of (2.5')'s."""
+    sys.path.insert(0, os.path.join(ROOT, "docket68", "n1star"))
+    import ansatz5 as a5
+    r, th, s, lam, A, C, S, E, H = a5.r, a5.th, a5.s, a5.lam, a5.A, a5.C, a5.S, a5.Ef, a5.Hf
+    F, G = lam*A*E*H*sp.sin(s), lam*A*E*H*sp.cos(s)          # s stands for the phase v/lam
+    q1, q2 = (F, G) if control else ((2*C**2*G - S**2*F)/3, (2*S**2*F - C**2*G)/3)
+    W = sp.zeros(5)
+    W[2, 2], W[3, 3], W[4, 4] = -2*sp.sqrt(r)*(q1 + q2), 2*sp.sqrt(r)*C**2*q1, 2*sp.sqrt(r)*S**2*q2
+    g, _ = a5.approximant()
+    ok = all(sp.simplify(lam*sp.expand(g[i, j]).coeff(lam, 1) - W[i, j]) == 0 for i in range(5) for j in range(5))
+    ok &= sp.simplify(W[2, 2]/r**2 + W[3, 3]/(r**2*C**2) + W[4, 4]/(r**2*S**2)) == 0
+    d1, d2 = sp.diff(q1, s)/lam, sp.diff(q2, s)/lam            # d_v at leading order: lam^-1 d_s on the phase
+    mup = sp.integrate(sp.expand(sp.Rational(4, 3)*(d1**2 + d1*d2 + d2**2)), (s, 0, 2*sp.pi))/(2*sp.pi)
+    ok &= sp.simplify(mup - sp.Rational(2, 9)*A**2*E**2*H**2*(C**4 + S**4)) == 0
+    ok &= sp.simplify(a5.H_REC**2*(C**4 + S**4) - 1) == 0
+    return bool(ok)
+
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
@@ -511,7 +535,8 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
            r8, 1),
           ("R9 Appendix D's md5 table matches the files at this commit", r9, 1),
           ("R10 section 9's floor: d > 7.95e15 and N > 1.66e17 from delta_50 and 3 per round", r10, 1),
-          ("R11 section 9's H^1 constants at sigma = 384: X <= 963.4, X_0 <= 1516", r11, 1)]
+          ("R11 section 9's H^1 constants at sigma = 384: X <= 963.4, X_0 <= 1516", r11, 1),
+          ("R12 (2.5'): the approximant's lam-linear part, traceless on S^3, its phase-mean flux (2.6)", r12, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 

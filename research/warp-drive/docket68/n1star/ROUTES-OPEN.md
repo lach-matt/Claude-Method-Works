@@ -6201,6 +6201,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   settled by Hintz's route (sections 8.3-8.4, Theorem 4). Section 8.3's 'the kernel elements' class open' and 'the
   reading of [Hin26c]'s section 9 that is open below' predate section 8.5, which deduces the first and takes up the
   second; both now point there. Wording only; two paragraph tails re-filled at 121.
+- D595 (computational support for two derived steps; paper/response5.py R12, checks/data5two.py --t10t): (a) the paper's
+  display (2.5′), written out at D593, is checked by R12: its components are λ times the λ-linear part of ansatz5.py's
+  approximant (imported), it is traceless on the round S³, and with Proposition 2.3's quadratic part of R_vv and R2 the
+  phase mean of its flux is (2/9) A² env² h² (c⁴ + s⁴) = (2/9) A² env², the law (2.6); the control p1 = F, p2 = G fails
+  (exact, 3 s; the first run compared W_TT with λ W_TT and failed, the display being right). Appendix A lists R12,
+  Appendix C maps (2.5′) to it. (b) D592's T10 rested on the linearity of the 1/λ coefficients in the waves, argued and
+  not computed. --t10t computes T10 and T11 directly by exact truncation: gamma, gi, beta, N² and K have no negative
+  order in λ (recorded), so the λ⁻¹ coefficients are exact with gi and K kept to order 0 (TOPS_10) and the order-0
+  principal coefficients with gi to order 1 (TOPS_11); each truncation is first held against the full pipeline exactly on
+  four cases, two of them controls with a nonzero λ⁻¹ coefficient, and the control of T10 checks the linearity itself
+  (both families' λ⁻¹ coefficient equal to the sum of the two families' own). First case (both families, no χ):
+  agreement, 290 s; the run continues. The saved checks/data5two_t10b.out is reproduced byte for byte by the script's own
+  run (FAMILIES5 4i's caveat dropped).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

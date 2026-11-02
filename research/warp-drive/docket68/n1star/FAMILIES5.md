@@ -813,9 +813,9 @@ same form, with one condition.
   background, none (T9, computed). On Vaidya, T10 by its single-wave parts: the ingoing W_TT and χ are data5.py S2 and
   S4, the outgoing W_TT is T4/T6, and the last part, the outgoing χ₂ du du alone on Vaidya with u = τ − r, has none,
   while the same wave with an oscillating trace has one (`checks/data5two.py --t10b`, exact, saved as
-  `checks/data5two_t10b.out`, about half an hour; the saved run is a driver calling the same function, the script's own
-  rerun pending). So, by the linearity, both families with χ on Vaidya have none (deduced). The direct T10 and
-  data5.py's S6 with both families and χ (T11) are running.] The outgoing family's waves cannot come in from past null
+  `checks/data5two_t10b.out`, about half an hour; the script's own run reproduces it byte for byte). So, by the
+  linearity, both families with χ on Vaidya have none (deduced). The direct T10 and data5.py's S6 with both families and
+  χ (T11) are running.] The outgoing family's waves cannot come in from past null
   infinity, outgoing rays traced back running inward: their data are posed on Σ_τ0, which is all the stage iteration
   asks (data on Σ_τ0, above), and the outgoing dust's are the two-dust background's (section 4c's Goursat data).
   (Corrected D568, verifier 247: "and on the cone v = v0" was asserted for the waves, not argued, and is withdrawn.)
