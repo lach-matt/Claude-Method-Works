@@ -1419,33 +1419,34 @@ III–IV that names an averaged or equivariant choice by its printed symbol is l
   before the shell's peak: a second zero holds over 0.04 in v from 1.50 r_h at μ = 100 l5² (1.496 on the finer grid,
   1.476 with a shorter hold; a single-step excursion at 1.45 is not it) and from 1.583 r_h at 1000 l5² (three grids
   agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not later
-  (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second). So no approximant on D_T comes from that scheme at
-  10 l5 at the excision depths run. What the computed solution shows is that round spheres inside the seed's horizon
-  cease to be trapped and the boundary to be outflow, in the scheme's gauge, while the shell passes; the direction of the
-  untrapping is not a measurement of these runs, and nothing is said of the event horizon. The step is re-posed as the
-  characteristic initial value problem in double-null gauge — the incoming wave on an ingoing null hypersurface from past
-  null infinity, the seed's outgoing cone as the other — where Luk's theorem gives local existence without smallness
-  ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced there by the sentence "the
-  difference of metrics is controlled by the difference of curvature residues" (section 2.3, p. 6; the sentence before
-  the theorem, not its text); its five-dimensional version in the class is not built. Up to the failure the radiation
-  field's growth factor exp ∫K dv is 1.9 and 2.1, and a finite-difference amplification of the data along one direction,
-  a lower bound for the propagator's norm, is 1.28 and 1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and
-  1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's
-  norm, not a sup-norm bound. The linear scattering of the shell off the seed at 10 l5 is computed in
-  `docket68/lemmas/seed_escape.py`. That problem has since been computed as a prototype (supplement
-  `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein equations in double-null
-  gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength at both seeds. At the first
-  seed the Kretschmann scalar is moderate and converged in angle up to the point where the runs stop converging, and
-  unresolved after it, where a singularity, a steep smooth feature and a defect at the axis are not yet told apart. At
-  the second seed, with the angular and null grids refined together, the two coarser angular resolutions agree up to v ≈
-  3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid, 2400 × 1080, the second
-  seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸,
-  Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48 masks; M = 48 departs from v ≈
-  3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step condition M²/N ≤ c it had been
-  ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed, floating point:
-  `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement `CERTIFY-10L5.md`
-  section 6b). No certified step has been taken, neither a certified residual nor the certified linear estimate about the
-  computed solution, so existence at 10 l5 remains open.
+  (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too, where the three
+  breakdowns move by 0.0008, 0.0025 and 0.0002 against the standard excision's 0.004 between its two grids
+  (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at 10 l5 at the excision depths
+  run. What the computed solution shows is that round spheres inside the seed's horizon cease to be trapped and the
+  boundary to be outflow, in the scheme's gauge, while the shell passes; the direction of the untrapping is not a
+  measurement of these runs, and nothing is said of the event horizon. The step is re-posed as the characteristic initial
+  value problem in double-null gauge — the incoming wave on an ingoing null hypersurface from past null infinity, the
+  seed's outgoing cone as the other — where Luk's theorem gives local existence without smallness ([Wu26] Theorem 2.1)
+  and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced there by the sentence "the difference of metrics is
+  controlled by the difference of curvature residues" (section 2.3, p. 6; the sentence before the theorem, not its text);
+  its five-dimensional version in the class is not built. Up to the failure the radiation field's growth factor exp ∫K dv
+  is 1.9 and 2.1, and a finite-difference amplification of the data along one direction, a lower bound for the
+  propagator's norm, is 1.28 and 1.00; where the scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm
+  Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a certified argument would need the propagator's norm, not a sup-norm
+  bound. The linear scattering of the shell off the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. That
+  problem has since been computed as a prototype (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not
+  certified): the class's Einstein equations in double-null gauge, evolved in (u, v) with an expansion in the polar
+  angle, at the prescribed wavelength at both seeds. At the first seed the Kretschmann scalar is moderate and converged
+  in angle up to the point where the runs stop converging, and unresolved after it, where a singularity, a steep smooth
+  feature and a defect at the axis are not yet told apart. At the second seed, with the angular and null grids refined
+  together, the two coarser angular resolutions agree up to v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at
+  every angle. On a finer null grid, 2400 × 1080, the second seed's M = 32 and 40 angular resolutions agree to 0.09 K_0
+  up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸, Tangherlini's Kretschmann scalar at the same areal radius),
+  away from the cells M = 48 masks; M = 48 departs from v ≈ 3.25 exactly as at 1600 × 720, so the finer null grid does
+  not move it, and the step condition M²/N ≤ c it had been ascribed to is refuted (M²/N = 0.96). The late region stays
+  unresolved (computed, floating point: `docket68/n1star/checks/g1curv5.py --seed2-2400`, output
+  `checks/g1curv5_seed2_2400.out`; supplement `CERTIFY-10L5.md` section 6b). No certified step has been taken, neither a
+  certified residual nor the certified linear estimate about the computed solution, so existence at 10 l5 remains open.
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
   x_K = 1; beyond them Theorem 4 is stated outside the black hole. Its development also reaches inside the black hole
   after the shell, up to the curvature boundary (supplement `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, deduced;
@@ -2172,6 +2173,12 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/excise5.py` E1: `growth5.py`'s deeper excisions on the next finer grid (Ny = 28 at μ0 = 100 l5², Ny = 20 at
+  1000 l5²): the second zero of the round spheres' expansion holds from v = 1.41033, 1.35549 and 1.52374, moved by
+  0.00076, 0.00251 and 0.00020 from the single grids, all before the standard excision's 1.4959–1.5 and 1.5825–1.5829 on
+  both grids. Control: the standard excision's two grids agree to 0.005 (0.0041), the grid dependence the deeper runs are
+  measured against. Floating point (the solver's scheme, not certified); the runs one to three hours each, the check
+  seconds.
 - `checks/gauge5.py` G1–G3: the gauge field. G1, supplement (6.2) exactly at a point of a random 4+1 metric over a random
   background, D = 0 imposed along the slice, with `paper/response5.py` R14 rerun; G2, the order-λ gauge field D^(1) in
   `lead5.py`'s coordinates with m1, the next oscillating profile and φ1 generic: D^(−1) = D^(0) = 0 off the slice, the
@@ -2445,6 +2452,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, settling: the certified lower bound | `docket68/n1star/checks/e2lower5.py` E1 |
 | section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
 | | `checks/g1curv5.py` |
+| section 9, deeper excisions on a second grid | `docket68/n1star/checks/excise5.py` E1 |
 | section 9, beyond the boundary | `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, Lemma 6.3, section 3(b); |
 | | `BEYOND5-R0-PROOF.md`; `checks/closure5.py` |
 | the boundary at equality | `docket68/n1star/EQUALITY5.md`; `checks/eq5.py` E1–E6 |
@@ -2483,9 +2491,9 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
 `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports `checks/support5.py`,
 `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
 `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
-`checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/support9.py` imports `lead5.py`,
-`checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
-`checks/twodomain5.py`; the others import nothing from the research tree:
+`checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports `growth5.py`,
+`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
+`checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2564,6 +2572,7 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/excise5.py                             # seconds, on the runs merged into data/
     python3 checks/gauge5.py                              # about five minutes
     python3 checks/support8c.py                           # about nine minutes
     python3 checks/level2loop5.py; python3 checks/lambdacount5.py; python3 checks/twodomain5.py
@@ -2741,6 +2750,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/excise5.py` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/excise5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/gauge5.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/gauge5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/support8c.py` | `00000000000000000000000000000000` |

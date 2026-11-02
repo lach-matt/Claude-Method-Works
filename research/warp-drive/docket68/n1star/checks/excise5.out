@@ -1,0 +1,4 @@
+  E1: L100_lam1_d0_y1.6: breakdown 1.40957 (single grid) and 1.41033 (finer grid), moved by 0.00076; standard excision 1.50000, 1.49590: deeper is earlier on both grids: True
+  E1: L100_lam1_d0_y2: breakdown 1.35298 (single grid) and 1.35549 (finer grid), moved by 0.00251; standard excision 1.50000, 1.49590: deeper is earlier on both grids: True
+  E1: L1000_lam0.3162_d0_y2.2: breakdown 1.52354 (single grid) and 1.52374 (finer grid), moved by 0.00020; standard excision 1.58294, 1.58252: deeper is earlier on both grids: True
+E1 PASS
