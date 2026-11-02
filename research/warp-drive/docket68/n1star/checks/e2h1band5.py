@@ -38,7 +38,8 @@ from math import isqrt
 MP, MM = Fr(5793, 10**6), Fr(102041, 10**5)          # phi_*: m' >= 0.005793, M' <= 1.02041 (e2certify5 C3)
 M0P, M0M = Fr(2580, 10**6), Fr(3809, 10**4)          # l = 0: m0' >= 0.002580, M0' <= 0.3809 (e2lzero5 Z4)
 SUP = Fr(11477, 1000)
-# (sigma, B, top of the band's interval): B2's interval at the first printed point is [3, 3.05], the rest [sigma - 1/20, sigma]
+# (sigma, B, top of the band's interval): B2's interval at the first printed point is [3, 3.05], the rest
+# [sigma - 1/20, sigma]
 # (checks/e2trapband5_384.out; verifier 253); every quantity increases in sigma, so it is taken at the interval's top
 TOP = {3: Fr(61, 20)}
 POINTS = [(3, "11.086"), (6, "5.8726"), (12, "3.7719"), (24, "2.3724"), (48, "1.5222"), (96, "0.99697"),
@@ -89,9 +90,11 @@ def main():
     X = xb(MP, MM, Fr(3), Fr(19214, 1000))
     X0 = xb(M0P, M0M, Fr(3), Fr(2752, 10))
     ok['W1'] = up(X, 4) == '224.5' and up(X0, 4) == '808.6'
-    print('  W1 (control): at sigma = 3, e2h1_5 H1 from B_6 <= 19.214: Xb <= %s (H1: 224.5); H4 from B_0 <= 275.2: X_0 <= '
+    print('  W1 (control): at sigma = 3, e2h1_5 H1 from B_6 <= 19.214: Xb <= %s (H1: 224.5); H4 from B_0 <= 275.2: '
+          'X_0 <= '
           '%s (H4: 808.6)' % (up(X, 4), up(X0, 4)))
-    print('  W2: on each printed interval of the band (B certified there; [3, 3.05] at the first, [sigma - 1/20, sigma] after):')
+    print('  W2: on each printed interval of the band (B certified there; [3, 3.05] at the first, [sigma - 1/20, sigma] '
+          'after):')
     print('      interval          B        X (l>=1)   K          A          X_0        C')
     rows = []
     for s, bs in POINTS:
@@ -101,14 +104,15 @@ def main():
         C = sqrt_up(C2)
         rows.append((s, X, K, A, X0, C, C2))
         lo = Fr(s) if s in TOP else Fr(s) - Fr(1, 20)
-        print('      [%-7s %-7s]  %-8s %-10s %-10s %-10s %-10s %s' % (str(float(lo)) + ',', float(top), bs, up(X), up(K), up(A),
-                                                                   up(X0), up(C)))
+        print('      [%-7s %-7s]  %-8s %-10s %-10s %-10s %-10s %s'
+              % (str(float(lo)) + ',', float(top), bs, up(X), up(K), up(A), up(X0), up(C)))
     Xs, Ks, As, X0s, C2s = constants(Fr(384), SUP)
     ok['W2'] = all(r[5] * r[5] >= r[6] and r[6] >= max(r[1]**2 + r[3], r[4]**2) and r[6] == r[4]**2 and r[1] <= Xs
                    and r[4] <= X0s for r in rows)
-    print('      every row: C^2 = max(X^2 + A, X_0^2) = X_0^2 (set by l = 0), and below the uniform bounds of W3: %s; X from '
-          '%s to %s, A from %s to %s over the rows (the least on [5.95, 6], not at an end)' % (ok['W2'], up(min(r[1] for r in rows)),
-          up(max(r[1] for r in rows)), up(min(r[3] for r in rows)), up(max(r[3] for r in rows))))
+    print('      every row: C^2 = max(X^2 + A, X_0^2) = X_0^2 (set by l = 0), and below the uniform bounds of W3: %s; X '
+          'from %s to %s, A from %s to %s over the rows (the least on [5.95, 6], not at an end)'
+          % (ok['W2'], up(min(r[1] for r in rows)), up(max(r[1] for r in rows)), up(min(r[3] for r in rows)),
+             up(max(r[3] for r in rows))))
     Cs = sqrt_up(C2s)
     mono = all(constants(Fr(s), SUP)[4] <= constants(Fr(t), SUP)[4] for s, t in zip(range(3, 384, 7), range(10, 391, 7)))
     ok['W3'] = mono
