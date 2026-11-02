@@ -78,9 +78,9 @@ def admissible(i, h, triangular=True):
 
 def h1(control=False):
     if control:
-        weak = any(admissible(i, Fr(1, 2)) for i in range(3)) is False
-        nontri = all(not admissible(i, Fr(1), triangular=False) for i in range(3))
-        return weak or nontri
+        weak_holds = all(not admissible(i, Fr(1, 2)) for i in range(3))
+        nontri_holds = all(not admissible(i, Fr(1), triangular=False) for i in range(3))
+        return weak_holds or nontri_holds
     tri = {i: admissible(i, Fr(1)) for i in range(3)}
     nontri_h = [h for h in (Fr(1), Fr(2), Fr(3)) if all(not admissible(i, h, triangular=False) for i in range(3))]
     ok = all(not b for b in tri.values()) and nontri_h == [Fr(3)]
