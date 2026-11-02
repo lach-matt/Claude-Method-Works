@@ -32,7 +32,8 @@ root of round 5 is computed here, each with a control that mutates the computed 
      (2.26a), II.G' Proposition 2.8, II.F' Theorem 1.1 for the density step) at alpha_K in (1/2, 1), gamma_+ in
      (alpha_K, 3/2), eps in (0, (3/2 - gamma_+)/5): each a positive sum on the box.  Control: III.I'''s bookkeeping
      for the singular part (beta_iota := gamma_+ + 1, the weight of d_t u_sing there) violates Lemma 4.3's tf-order.
-  Q6 (exact) The rate.  For a source of iota+-order a the admissible K+-weights give kappa < min(1/2, a - 5/2); for
+  Q6 (exact) The rate.  For a source of iota+-order a, eliminating gamma_+ from Theorem R5.1's bounds (Fourier-Motzkin)
+     gives kappa < min(1/2, a - 5/2), at 41 rational a; for
      the harmonic-gauge source (a = lambda_# + 1 = 5/2 + delta_#, and the commutator at b_+ + 2, b_+ < 1/2 + delta_#)
      explicit parameters exist for every kappa in (0, delta_#), and for the commutator of a homogeneous solution with
      compactly supported data for every kappa in (0, 1/2), each a positive sum on the box; round 4's G4 class with
@@ -294,13 +295,28 @@ def q5(control=False):
 
 # --------------------------------------------------------------------------------------------------------------- Q6
 def kappa_sup(a, lower_window=True):
-    """sup of alpha_K - 1/2 over alpha_K in [1/2, 1), gamma_+ with lo < gamma_+ < 3/2, gamma_+ + 2 < a, where lo =
-    alpha_K (the window's lower end) or alpha_K - 1 (mutated)"""
-    if lower_window:
-        ub = sp.Min(1, sp.Rational(3, 2), a - 2)               # alpha_K < gamma_+ < min(3/2, a - 2)
-    else:
-        ub = sp.Min(1, sp.Rational(5, 2), a - 1)
-    return sp.Max(0, ub - HALF)
+    """sup of alpha_K - 1/2 over alpha_K in [1/2, 1) for which some gamma_+ meets the strict bounds of Theorem R5.1:
+    lower, the window's lower end alpha_K (mutated: alpha_K - 1); upper, the radiation cap 3/2, the source's iota+-order
+    a - 2 and the window's upper end alpha_K + 1.  gamma_+ is eliminated by Fourier-Motzkin: it exists iff every lower
+    bound is below every upper bound, each pair a linear condition on alpha_K."""
+    aK = sp.Symbol('alpha_K')
+    lows = [aK] if lower_window else [aK - 1]
+    ups = [sp.Rational(3, 2), a - 2, aK + 1]
+    ub = [sp.Integer(1)]                                     # alpha_K < 1: no zf Taylor term (Q4)
+    lb = [HALF]
+    for lo in lows:
+        for up in ups:
+            d = sp.expand(up - lo)                           # the pair asks d > 0
+            c = d.coeff(aK)
+            if c == 0:
+                if not d > 0:
+                    return sp.Integer(0)
+            elif c < 0:
+                ub.append(sp.solve(sp.Eq(d, 0), aK)[0])
+            else:
+                lb.append(sp.solve(sp.Eq(d, 0), aK)[0])
+    sup = sp.Min(*ub)
+    return sp.Max(0, sup - HALF) if sp.Max(*lb) < sup else sp.Integer(0)
 
 
 def q6(control=False):

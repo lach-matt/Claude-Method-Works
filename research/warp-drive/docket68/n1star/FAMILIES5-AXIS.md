@@ -203,9 +203,10 @@ so near it each leaf is a graph z = h(r), h a smooth function of r². With F = z
 - (a) H2 := k_r + k_φ is linear in h″ with coefficient a, and E := r H2/a − (r h′)′ contains no h″ (exact, sympy). E and
   k_φ contain derivatives of A, B, C, D of first order only (read off the expressions). The reader sees second
   derivatives when they are there: a Ricci component of γ3 (control).
-- (b) On three random polynomial instances (rational coefficients), E/r and k_φ settle to finite values at the axis
-  (50-digit evaluation at r = 10⁻⁴, …, 10⁻⁸; values in `axisellip5.out`). Control (rejected): the non-smooth cross term
-  C dz dr (for C r dz dr) makes k_φ grow like 1/r.
+- (b) On three random polynomial instances (rational coefficients), E/r and k_φ settle to finite values at the axis:
+  E/r → 0.25243, 0.36883, 0.25400 and k_φ → −0.56153, 0.71160, 0.05412 (50-digit evaluation at r = 10⁻⁴, …, 10⁻⁸,
+  settled to 10⁻¹²). Control (rejected): the non-smooth cross term C dz dr (for C r dz dr) makes k_φ grow like 1/r,
+  −2.7 × 10⁷, −1.6 × 10⁷, −8.9 × 10⁶ at r = 10⁻⁸.
 
 Hence the leaf obeys the regular Volterra equation
 
@@ -276,7 +277,7 @@ constants of Lemma A.
   The extension to R⁴ keeps P_A^τ > 0 by a cut-off on p_A, as the record's on w (the independent reader's point on
   Theorem N, which applies here too).
 - *Step 10.* (V) is uniquely solvable, so on a solution with θ_A = □u_A it returns the true leaf, hence the true
-  χ̸̂. So d_A := θ_A − □u_A obeys P_A(d_A) = −d_A(…) − ½(|χ̸̂_A|²[θ_A] − |χ̸̂_A|²[□u_A]) + (δ*W)(P_A, P_A). The middle
+  χ̸̂. So d_A := θ_A − □u_A obeys P_A(d_A) = −d_A(…) − (|χ̸̂_A|²[θ_A] − |χ̸̂_A|²[□u_A]) + (δ*W)(P_A, P_A). The middle
   term is a bounded L² → L² operator applied to d_A (the Volterra map of (V) is a Hardy average). With zero data the
   energy of (W, d_A) obeys a linear Gronwall inequality, as before, so d_A = 0. ∎
 
