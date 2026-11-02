@@ -1,0 +1,3 @@
+S1 second derivatives of s by row: {'E11': [], 'E22': [], 'Exx': ['vx'], 'EYv': ['vv', 'vx'], 'Evx': ['vv']} ; s_vx
+    column (E11, E22, Exx, EYv): [0, 0, R**2*exp(-2*W - 2*m*x/3 - 2*m/3 + 2*n*x/3 - 2*n/3)/8, x**2/2 - 1/2] ; Ric_vx:
+    s_vv coefficient R**2*exp(-2*W - 2*m*x/3 - 2*m/3 + 2*n*x/3 - 2*n/3)/16 , f_vx coefficients = -d zeta: True -> FAIL
