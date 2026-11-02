@@ -767,15 +767,15 @@ of the exterior, for each ε < ε_K. In the class the boost vanishes and the Mye
 alone. The proof is Theorem 4's linearisation at the Tangherlini data: the linear initial-value problem near Hintz's
 initial surface, the right inverse of the linearised operator at the zero perturbation, and the Bianchi identity
 linearised at a Ricci-flat metric. It needs no new estimate. A linearised vacuum solution given in another gauge, such
-as the two below, with the same data up to those of a linearised diffeomorphism, differs from this one by a linearised
-diffeomorphism L_X g on the whole future of the initial surface outside r = r_0, X unique up to Killing fields
-(verified, not proved by the standard of section 8.8: supplement `proof5/PART-IX-GAUGE.md`, Theorem 2.2 and Corollary
-2.3; the comparison is posed on the future half of a Cauchy development that extends past the initial surface, because
-near r = r_0 the linear solution's domain ends there, and the difference, which vanishes to infinite order on the
-noncharacteristic initial surface, is extended by zero: `docket68/n1star/checks/ix5.py` X8). Nothing is asserted about
-the size or decay of X, so the decay of such a solution in its own gauge is that of L_X g there. The rest of this
-section is the route by which the linear level was first reached, in those gauges and by deduction; it stands beside
-the proof as an independent route.
+as the two below, with the same data up to those of a linearised diffeomorphism and given on the whole future of the
+initial surface outside r = r_0, smooth up to that surface, differs from this one there by a linearised diffeomorphism
+L_X g, X unique up to Killing fields (verified, not proved by the standard of section 8.8: supplement
+`proof5/PART-IX-GAUGE.md`, Theorem 2.2 and Corollary 2.3; the comparison is posed on the future half of a Cauchy
+development that extends past the initial surface, because near r = r_0 the linear solution's domain ends there, and
+the difference, which vanishes to infinite order on the noncharacteristic initial surface, is extended by zero:
+`docket68/n1star/checks/ix5.py` X8). Nothing is asserted about the size or decay of X, so the decay of such a solution
+in its own gauge is that of L_X g there. The rest of this section is the route by which the linear level was first
+reached, in those gauges and by deduction; it stands beside the proof as an independent route.
 
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
@@ -2859,16 +2859,16 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
 | `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e5ccb190d92288c1b8f489d3ed206495` |
 | `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `5fcfded92005ed06251f1216515d082f` |
-| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `ee994064ba09a178fa63968f5fae6874` |
+| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `0982c8f9d442e3a75359fb0f12c420e9` |
 | `docket68/n1star/checks/ix5.py` | `6a3fb0bbf7858715eb8c6b96563b59c4` |
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
 | `docket68/n1star/LOSS-D.md` | `363b7acd423b6201dbcc7faa8b42f8eb` |
-| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `3a43fc786ec3d98b0f06e179dddc7814` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `e0906bcdf3ce1b3035a823b964279b18` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
 | `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
 | `docket68/n1star/BEYOND5.md` | `967dac4b469933f49f796bb57486bace` |
-| `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
+| `docket68/n1star/BEYOND5-R0-PROOF.md` | `de3a24f4c0413712d3fd46e078343b99` |
 | `docket68/n1star/FAMILIES5.md` | `34c0c29c24010c93ac191c3351b1c564` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
 | `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
