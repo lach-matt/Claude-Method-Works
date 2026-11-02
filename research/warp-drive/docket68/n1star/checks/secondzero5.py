@@ -182,9 +182,10 @@ def s4(Z, F, leaf_only=False, show=True, seed=1):
         d = np.abs(rzg - og)
         worst = max(worst, np.nanmax(d))
         if show:
-            print('      v = %.3f: max |r_AH(double null) - r_AH(growth5)| = %.3f (at x = %.2f); r_AH ranges %.3f-%.3f '
-                  'and %.3f-%.3f' % (Z['v'][j], np.nanmax(d), XG[np.nanargmax(d)], rzg.min(), rzg.max(),
-                                     np.nanmin(og), np.nanmax(og)), flush=True)
+            print('      v = %.3f: max |r_AH(double null) - r_AH(growth5)| = %.3f (at x = %.2f);\n'
+                  '         r_AH ranges %.3f-%.3f and %.3f-%.3f' % (Z['v'][j], np.nanmax(d), XG[np.nanargmax(d)],
+                                                                    rzg.min(), rzg.max(), np.nanmin(og),
+                                                                    np.nanmax(og)), flush=True)
     return worst
 
 
@@ -224,34 +225,38 @@ def main():
                                                                  float(Z['rcut']) if 'rcut' in Z else -1), flush=True)
         good, n_far, n_near, k, nsel = s1(Z)
         ctl = s1(Z, umin=-1.02)[0]
-        print('  S1 R_v < 0 at u > -1, >= %d rows from the cut, v <= %.2f: violations %d far, %d near the cut, of %d '
-              'cells -> %s; control (u > -1.02) %s' % (k, VMAX, n_far, n_near, nsel, 'PASS' if good else 'FAIL',
+        print('  S1 R_v < 0 at u > -1, >= %d rows from the cut, v <= %.2f: violations %d far, %d near the cut,\n'
+              '     of %d cells -> %s; control (u > -1.02) %s' % (k, VMAX, n_far, n_near, nsel,
+                                                                   'PASS' if good else 'FAIL',
                                                        'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
         late = s1(Z, vmax=2.0, vmin=VMAX)
         print('     beyond, on (%.2f, 2]: violations %d far, %d near the cut' % (VMAX, late[1], late[2]), flush=True)
         good, extra, fv, k = s2(Z)
         ctl = s2(Z, control=True)
-        print('  S2 further zeros of R_v along ingoing cones, v <= %.2f: %d, first at v = %s, all at u > -1 within %d '
-              'rows of the cut: %s; control (first zero near the cut) %s' % (VMAX, extra, fv, k,
+        print('  S2 further zeros of R_v along ingoing cones, v <= %.2f: %d, first at v = %s,\n'
+              '     all at u > -1 within %d rows of the cut: %s; control (first zero near the cut) %s' % (
+                  VMAX, extra, None if fv is None else round(float(fv), 4), k,
                                                                              'PASS' if good else 'FAIL',
                                                                  'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
         late = s2(Z, vmax=2.0, vmin=VMAX)
-        print('     beyond, on (%.2f, 2]: %d further zeros, all near the cut: %s' % (VMAX, late[1], late[0]), flush=True)
+        print('     beyond, on (%.2f, 2]: %d further zeros, all near the cut: %s' % (VMAX, late[1], late[0]),
+              flush=True)
         F = B.derivatives(Z)
         w, ex = s3(Z, F)
-        print('  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = %.1e -> %s '
-              '(against exact Tangherlini: %.1e, the run\'s own error)' % (w, 'PASS' if w < 1e-7 else 'FAIL', ex),
+        print('  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = %.1e -> %s\n'
+              '     (against exact Tangherlini: %.1e, the run\'s own error)' % (w, 'PASS' if w < 1e-7 else 'FAIL', ex),
               flush=True)
         ok &= w < 1e-7
         seed = 1 if abs(lam - 1) < 1e-6 else 2
         w = s4(Z, F, seed=seed)
         wc = s4(Z, F, leaf_only=True, show=False, seed=seed)
         good = w <= 0.1 and wc > 0.1
-        print('  S4 outer zero against growth5 (%s): max %.3f -> %s; control (leaf expansion, tilt ignored) max %.3f '
-              '%s' % (G5KEY[seed][0], w, 'PASS' if good else 'FAIL', wc, 'fails (good)' if wc > 0.1 else
-                      'passed (bad)'), flush=True)
+        print('  S4 outer zero against growth5 (%s): max %.3f -> %s;\n'
+              '     control (leaf expansion, tilt ignored) max %.3f %s' % (
+                  G5KEY[seed][0], w, 'PASS' if good else 'FAIL', wc, 'fails (good)' if wc > 0.1 else 'passed (bad)'),
+              flush=True)
         ok &= good
         if seed == 1:
             rows = s5(Z, F, 0.5397, (1.30, 1.35, 1.40, 1.425, 1.45, 1.475, 1.50, 1.525, 1.55), 0.42)
@@ -262,12 +267,12 @@ def main():
             if d is None:
                 print('     v = %.3f: no usable sphere' % vj); continue
             c = d['counts']
-            print('     v = %.3f r_min %.3f: columns with 0 / 1 / 2+ zeros: %d / %d / %d; inner zeros at r = %s; '
-                  'max theta on r_min %.3f; on r_core %s' % (vj, d['r_min'], c.count(0), c.count(1),
-                                                            sum(q > 1 for q in c),
-                                                            np.round(sorted(d['inner'])[:4], 3).tolist(),
-                                                            d['th_min_r'], 'n/a' if d['core_max'] is None else
-                                                            '%.3f' % d['core_max']), flush=True)
+            print('     v = %.3f r_min %.3f: columns with 0 / 1 / 2+ zeros: %d / %d / %d; inner zeros at r = %s;\n'
+                  '        max theta on r_min %.3f; on r_core %s' % (vj, d['r_min'], c.count(0), c.count(1),
+                                                                   sum(q > 1 for q in c),
+                                                                   np.round(sorted(d['inner'])[:4], 3).tolist(),
+                                                                   d['th_min_r'], 'n/a' if d['core_max'] is None
+                                                                   else '%.3f' % d['core_max']), flush=True)
     print('secondzero5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

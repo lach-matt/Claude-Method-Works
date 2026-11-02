@@ -9,3 +9,13 @@
       to 0 at the ends (smooth, compactly supported)
   C1 (control): (1 - y^2)^4 at y = 1: derivatives 0..5 = ['0', '0', '0', '0', '384', '3840']: the end test fails at order
       4
+  C2 (control): for every k <= 14 a sampled |beta^(k)(y)| (mpmath.diff, 120 points) lies in (bound/2, bound]: True [True,
+      True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+  C3 (control): an envelope normalised to int env^2 = 105/128 + 1e-4 has c >= 1.324184197, outside E1's interval: True
+E1 PASS
+E2 PASS
+E3 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+exit 0

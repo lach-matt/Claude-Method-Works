@@ -93,7 +93,7 @@ def derivatives(Z):
 
 def generators(Z, F, j, MB):
     """ingoing generators of C_{v_j} with labels xi (MB Chebyshev-Gauss nodes) at u = u[0]: X[i, b], J[i, b] = dx/dxi
-    on every row i up to the first row where a needed value is missing"""
+    and the areal radius RB[i, b] on every row i up to the first row where a needed value is missing"""
     u, x = Z['u'], Z['x']
     xi = cheb_nodes(MB)
     D1 = diff_matrix(len(x))
@@ -121,7 +121,12 @@ def generators(Z, F, j, MB):
             break
         X[i + 1] = X[i] + 0.5 * du * (b1 + b2)
         J[i + 1] = J[i] * np.exp(0.5 * du * (bx1 + bx2))
-    return xi, X, J
+    Rrow = F['R'][:, j]
+    RB = np.full_like(X, np.nan)                 # the areal radius in the labels, R (dx/dxi)^(1/3), on every row
+    for i in range(Nu):
+        if np.all(np.isfinite(X[i])) and np.all(np.isfinite(Rrow[i])):
+            RB[i] = (bary_matrix(x, X[i]) @ Rrow[i]) * J[i] ** (1 / 3)
+    return xi, X, J, RB
 
 
 def field_at(Z, F, j, rows_frac, Xpts):
@@ -145,14 +150,9 @@ def field_at(Z, F, j, rows_frac, Xpts):
 
 def sphere(Z, F, j, r, MB=32, gen=None, want_leaf=False):
     """the sphere R_B = r on C_{v_j}: xi, U(xi), X(xi), theta(xi); NaN where it is not inside the usable rows"""
-    xi, X, J = gen if gen is not None else generators(Z, F, j, MB)
+    xi, X, J, RB = gen if gen is not None else generators(Z, F, j, MB)
     u = Z['u']
     Nu = len(u)
-    Rrow = F['R'][:, j]
-    RB = np.full_like(X, np.nan)
-    for i in range(Nu):
-        if np.all(np.isfinite(X[i])) and np.all(np.isfinite(Rrow[i])):
-            RB[i] = (bary_matrix(Z['x'], X[i]) @ Rrow[i]) * J[i] ** (1 / 3)
     fr = np.full(len(xi), np.nan)
     for b in range(len(xi)):
         col = RB[:, b]
