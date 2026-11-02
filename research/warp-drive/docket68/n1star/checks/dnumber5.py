@@ -198,8 +198,14 @@ def chains(w, T, reading, ecol_rd, d1lo, d1hi):
     for g in starts:
         if not (g < 3):
             continue
-        n_a = 1 if g == 2 else max(0, int(floor((2 - g) / d1hi)) + 1)
-        assert g + n_a * d1lo > 2 and (n_a == 0 or g + (n_a - 1) * d1hi <= 2 or g == 2)
+        if g == 2:
+            n_a = 1
+        elif g > 2:
+            n_a = 0
+        else:                                                     # first n with g + n d1 > 2, certified
+            qa, qb = floor((2 - g) / d1hi), floor((2 - g) / d1lo)
+            assert qa == qb
+            n_a = qa + 1
         if g == 2:
             e = max(sp['k12'], ec[[p for p in ec if abs(p - T['d1']) < Fr(1, 10 ** 30)][0]], 2) - 2
         elif 2 < g < 3:
@@ -405,7 +411,7 @@ def main():
     for reading in ('R0', 'R1'):
         Xm = max(results[(reading, rd)]['X7'] for rd in ('wide', 'shifted'))
         final[reading] = A[reading] + Xm
-    unif = La * (results[('R1', 'wide')]['X7'] // 1 and top + 2)
+    unif = La * (top + 2)
     print('  K5: d <= %d (R0), %d (R1) + %d c\'  (%.6e + 1.0649e8 c\'); N = 21 d + 6 <= %d + %d c\' (R1). The '
           'uniform bound L_above X_7(alpha) would give %d more' % (
               final['R0'], final['R1'], KPLUS1, final['R1'], 21 * final['R1'] + 6, 21 * KPLUS1,
