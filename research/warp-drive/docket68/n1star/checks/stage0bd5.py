@@ -28,15 +28,20 @@ said); deduced (the bound calculus below).
   The bound calculus (deduced). For a tensor field F put D_F[n] := sup_points sup_{|e| = 1} ||(e.d)^n F||_Frobenius,
   e a unit vector in (tau, x, s). By Banach's theorem on symmetric multilinear forms on a Hilbert space, every
   component of every n-th derivative is at most D_F[n]. Along a line the product and chain rules are one-dimensional:
-  D_{fF}[n] <= sum_j C(n, j) D_f[j] D_F[n - j] and D_{h o v}[n] <= sum_k sup|h^(k)| B_{n,k}(V_1, V_2, ...) (Bell
-  polynomials) with V_m := sup |(e.d)^m v|: V_1 = 2^(1/2), V_m = |e_x|^m |(xhat'.d)^m r| <= m! r^(1-m) g_m, g_m the sup of
-  the Gegenbauer polynomial |C_m^(-1/2)| on [-1, 1] (|x + s e| = r sum_m C_m^(-1/2)(t) (-s/r)^m). The phase: the
-  s-derivatives of cos(h s), sin(h s) cost h per order and ||A cos + B sin|| <= (||A||^2 + ||B||^2)^(1/2). For the
-  analytic x-tensors A (Gc, Gs, Ga, Gb and S's factor): Cauchy's estimate on the complex lines x + z e, |z| <= p, which
-  lie in the complex polydisc of radius p: D_A[n] <= n! M_A(p) p^-n, M_A(p) the sup of ||A|| over the polydisc,
-  enclosed by complex rectangle arithmetic (pairs of mpmath.iv intervals) with the principal branches certified
-  (Re R2 > 0, Re R2^2 > 0, Re(R2^2 + D^2) > 0 on every box). D_A is invariant under the T^2 action (A is equivariant,
-  the Frobenius norm and the polydisc family invariant), so the points are x = (r cos th, 0, r sin th, 0).
+  D_{FG}[n] <= sum_j C(n, j) D_F[j] D_G[n - j] (also for outer products of tensors) and D_{h o q}[n] <= sum_k
+  sup|h^(k)| B_{n,k}(D_q[1], D_q[2], ...) (Bell polynomials). The pieces, on the unit sphere |x| = 1 (sup over the
+  sphere and over unit e): |x|^-alpha has D[m] = (alpha)_m exactly, attained radially (|x + t e|^-alpha = sum_m
+  C_m^(alpha/2)(-tau) t^m, |C_m^lambda| <= C_m^lambda(1) for lambda > 0); x1^2 + x2^2, x3^2 + x4^2 and their difference
+  have D = (1, 2, 2, 0, ...); eta1, eta2 and x have D = (1, 1, 0, ...); d12, d34 have Frobenius norm 2^(1/2); H =
+  h(q), q = cos 2th = (rho1^2 - rho2^2)/R2 in [-1, 1], h = 2^(1/2) (1 + q^2)^(-1/2), sup|h^(k)| on [-1, 1] by interval
+  Taylor arithmetic in the centred form (as envelope5.py); H^2 likewise. Every x-tensor is homogeneous (Gc, Gs, Gb of
+  degree -3/2, Ga of degree -2, S's x-factor of degree -4), so on |x| = r its majorant is r^(deg - m) times the unit
+  one, largest at r = a. The envelope enters through v = tau + r: V_1 = 2^(1/2), V_m <= m! r^(1-m) g_m (m >= 2), g_m
+  the sup of the Gegenbauer polynomial |C_m^(-1/2)| on [-1, 1] (|x + s e| = r sum_m C_m^(-1/2)(t) (-s/r)^m); and
+  the phase: the s-derivatives of cos(h s), sin(h s) cost h per order, with ||A cos + B sin|| <= (||A||^2 +
+  ||B||^2)^(1/2). Every factor decreases in r, so the bounds at r = a hold on all of Omega x S^1. (A first version
+  used Cauchy's estimate on complex polydiscs; complex rectangle arithmetic could not certify the branch of H beyond
+  radius 0.04 r, where the factor 25^n made the bounds useless, so it was replaced.)
 
   X1 (floating point) the Cartesian forms equal the pullbacks of the EF forms at 400 random points (relative error
      < 1e-10), chi solves (d_r + 3/(2r)) d_s chi = r^-3 f with zero data on Sigma_tau0 (sympy, exact), and the
@@ -44,15 +49,17 @@ said); deduced (the bound calculus below).
   X2 (certified) the support: on Omega, E(v) != 0 forces r in [a, 11/2]; the boxes cover r in [0.2698, 5.5] x th in
      [0, pi/2].
   X3 (certified) D[n], n = 0..14, for W_TT, chi dv dv, their sum (g_1 - m_1 at phi_1 = 0) and S, on Omega x S^1.
+     Not sharp: the composition majorant for H loses up to about 1e5 at order 11 against the scale of H's complex
+     singularities (q = +-i, at imaginary distance 0.44 in th), and the Leibniz sums lose more.
   X4 (certified) a lower bound: at v = 2, r = 0.27 > a, the operator norm of W_TT exceeds a certified value, so every
      admissible C_app (|g_app - g0| <= C_app lam, which forces C_app >= sup |W_TT|_op: g_1 = m_1 + W(X, th + phi_1),
      and W_TT changes sign under th -> th + pi while m_1 and chi do not) is at least that, and lambda0 <=
      eps1/(2 C_app) <= 0.60132/(2 C_app) for every admissible eps1 (eps1hyp5.py H3).
-  Controls (must fail, and do): C1 a sign flipped in Gc's cross term breaks X1; C2 a polydisc radius 0.75 r (beyond
-  the branch points of R2^(1/2)) is refused (no bound printed); C3 the order-1 bound at one box is above a
-  finite-difference value there (floating point) and the claim D/10 is refuted by it.
+  Controls (must fail, and do): C1 a sign flipped in Gc's cross term breaks X1; C2 the majorant (3/2)_m of |x|^(-3/2)
+  equals its radial derivative at every order (exact), so "half the majorant" is refuted; C3 the order-1 bound for
+  W_TT is above a finite-difference value at one point (floating point) and the claim D/1e9 is refuted by it.
 
-    python3 checks/stage0bd5.py        (about ten minutes: envelope5's bounds, then the boxes)
+    python3 checks/stage0bd5.py        (about ten minutes, most of it envelope5's bounds)
 """
 import math
 import os
@@ -143,74 +150,6 @@ class CI:
 
     def mod_lo(self):
         return lo_end(iv.sqrt(self.abs2()))
-
-
-class BranchError(Exception):
-    pass
-
-
-def tensors_at(z):
-    """moduli (upper bounds of the Frobenius norms over the box) of Gc, Gs, Ga (cos 2s, sin 2s), Gb (cos 2s, sin 2s),
-    and S's x-factor, at the complex points z (four CI); raises BranchError if a branch is not certified"""
-    p1 = z[0].sq() + z[1].sq()
-    p2 = z[2].sq() + z[3].sq()
-    R2 = p1 + p2
-    if not lo_end(R2.re) > 0:
-        raise BranchError('Re R2')
-    R2s = R2.sq()
-    Dd = p1 - p2
-    den = R2s + Dd.sq()
-    if not (lo_end(R2s.re) > 0 and lo_end(den.re) > 0):
-        raise BranchError('H')
-    H2 = (R2s * 2) / den
-    Hmod = mpmath.sqrt(H2.mod_hi())
-    H2mod = H2.mod_hi()
-    R2lo, R2hi = R2.mod_lo(), R2.mod_hi()
-    kmod = Hmod * R2lo ** mpmath.mpf(-0.75)
-    c2 = p1 / R2
-    s2 = p2 / R2
-    iR2 = CI(1) / R2
-    eta1 = [CI(0), z[0], z[1], CI(0), CI(0)]
-    eta2 = [CI(0), CI(0), CI(0), z[2], z[3]]
-    d12 = [0, 1, 1, 0, 0]
-    d34 = [0, 0, 0, 1, 1]
-    cc = [(c2 * 2 + s2 * 3) * iR2 * (-2), c2 * iR2 * 2, c2 * iR2 * 2, c2 * 4, c2 * (-2)]
-    ss = [s2 * iR2 * 2, (s2 * 2 + c2 * 3) * iR2 * (-2), s2 * iR2 * 2, s2 * (-2), s2 * 4]
-    frob = {'Gc': mpmath.mpf(0), 'Gs': mpmath.mpf(0)}
-    for i in range(5):
-        for j in range(5):
-            for name, co in (('Gc', cc), ('Gs', ss)):
-                e = (co[0] * (eta1[i] * eta1[j]) + co[1] * (eta2[i] * eta2[j])
-                     + co[2] * (eta1[i] * eta2[j] + eta2[i] * eta1[j]))
-                if i == j:
-                    e = e + co[3] * d12[i] + co[4] * d34[i]
-                m = kmod / 3 * e.mod_hi()
-                frob[name] += m * m
-    out = {k: mpmath.sqrt(v) for k, v in frob.items()}
-    # U = dtau + z/r: |U|^2 <= 1 + sum |z_i|^2 / |R2|
-    U2 = 1 + sum(zi.abs2() for zi in z) * (1 / iv.mpf(R2lo))
-    U2 = hi_end(U2)
-    c2s2 = (c2 * s2).mod_hi()
-    cms = (c2 - s2).mod_hi()
-    a_pref = H2mod / 12 * R2lo ** -1 * 4
-    out['Ga_c2'] = a_pref * c2s2 * U2
-    out['Ga_s2'] = a_pref * cms * U2
-    b_pref = H2mod / 12 * R2lo ** mpmath.mpf(-0.75) * 4
-    out['Gb_c2'] = b_pref * c2s2 * U2
-    out['Gb_s2'] = b_pref * cms * U2
-    xi2 = sum((((c2 * eta2[i] - s2 * eta1[i]) * iR2) * 2).abs2() for i in range(5))
-    xim = hi_end(iv.sqrt(xi2))
-    out['GS'] = mpmath.mpf(4) / 9 * H2mod * R2lo ** mpmath.mpf(-1.5) * 2 * mpmath.sqrt(U2) * xim
-    return out
-
-
-def box_points(r1, r2, t1, t2, p):
-    rr = iv.mpf([r1, r2])
-    tt = iv.mpf([t1, t2])
-    x1 = rr * iv.cos(tt)
-    x3 = rr * iv.sin(tt)
-    w = iv.mpf([-p, p])
-    return [CI(x1 + w, w), CI(w, w), CI(x3 + w, w), CI(w, w)]
 
 
 def gegen_sup(m):

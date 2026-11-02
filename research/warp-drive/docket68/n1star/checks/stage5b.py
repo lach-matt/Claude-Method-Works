@@ -484,14 +484,58 @@ def b3(control=False):
 A2E2 = L.A**2*L.Ef**2
 
 
-def b3_solve(red):
-    """the reduced system at k = 1 with S3's source for constant h0: Laurent polynomial in r, coefficients of v"""
-    h0 = sp.Symbol("h0", positive=True)
+def b3_solve(red, J=5):
+    """the reduced system at k = 1 with S3's source (constant h0): the formal solution in integer powers of 1/r,
+    f = sum_j c_(f,j)(v) r^(-j - w_f), solved order by order; every c' is fixed by one transport equation in v"""
+    P = sp.Function("P")(v)                                     # A^2 E^2 h0^2
+    q = sp.Symbol("q")
     fs = [sp.Function(n)(v, r) for n in FN]
-    eqs = {k: x.subs(kap2, 8) for k, x in red.items()}
-    # source in the f_v slot: S_(v th) = -4 A^2 E^2 h0^2 sin 2th/(9 r^3) = (2 A^2 E^2 h0^2/(9 r^3)) d_th cos 2th
-    srcv = 2*A2E2*h0**2/(9*r**3)
-    return None, eqs
+    w = dict(fvv=0, fvr=0, frr=0, fv=0, fr=0, HL=1, HT=1)
+    c = {(F, j): sp.Function("c_%s_%d" % (F, j))(v) for F in FN for j in range(J + 1)}
+    ans = {f: sum(c[(F, j)]*r**(-j - w[F]) for j in range(J + 1)) for F, f in zip(FN, fs)}
+    eq = {}
+    for k, x in red.items():
+        e = x.subs(kap2, 8) + (sp.Rational(2, 9)*P/r**3 if k == (0, 2) else 0)    # L0 m1 = -S
+        eq[k] = sp.expand(sp.expand(e.subs(ans).doit()).subs(r, 1/q))
+    owner = {(0, 0): "fvv", (0, 1): "fvr", (1, 1): "frr", (0, 2): "fv", (1, 2): "fr", "L": "HL", "T": "HT"}
+    shift = {k: (0 if k in ("L", "T") else 1) for k in owner}
+    ode, zeroc, factors, ok = {}, set(), {}, True
+    for j in range(J + 1):
+        step, sub = {}, {}
+        for (F, i) in zeroc:
+            sub[c[(F, i)]] = 0
+        for (F, i), rhs in ode.items():
+            sub[sp.Derivative(c[(F, i)], v)] = rhs
+        for k, F in owner.items():
+            e = sp.expand(eq[k].coeff(q, j + shift[k]).subs(sub).doit().subs(sub))
+            d = sp.Derivative(c[(F, j)], v)
+            fac = e.coeff(d)
+            others = [x for x in e.atoms(sp.Derivative) if x.expr in {c[(G, j)] for G in FN} and x != d]
+            ok &= fac != 0 and not others and all(x.expr not in c.values() or x.expr in
+                                                  {c[(G, i)] for G in FN for i in range(j)} or x == d
+                                                  for x in e.atoms(sp.Derivative) if x.expr in c.values())
+            step[F] = sp.expand(-(e - fac*d)/fac)
+            factors[(F, j)] = fac
+        cj = {c[(G, j)]: G for G in FN}
+        live = {F for F in FN if step[F].subs({x: 0 for x in cj}) != 0}
+        while True:                                 # c_j' = A c_j + b_j: zero data, b_j = 0 off live => zero there
+            more = {F for F in FN if F not in live and any(cj[x] in live for x in step[F].atoms(sp.Function)
+                                                            if x in cj)}
+            if not more:
+                break
+            live |= more
+        for F in FN:
+            if F in live:
+                ode[(F, j)] = step[F]
+            else:
+                zeroc.add((F, j))
+    resid = True
+    sub = {c[(F, i)]: 0 for (F, i) in zeroc}
+    sub.update({sp.Derivative(c[(F, i)], v): rhs for (F, i), rhs in ode.items()})
+    for k in owner:
+        for n in range(J + 1 + shift[k]):
+            resid &= sp.expand(eq[k].coeff(q, n).subs(sub).doit().subs(sub)) == 0
+    return ok and resid and bool(ode), (ode, factors, zeroc)
 
 
 def b3_full(control):

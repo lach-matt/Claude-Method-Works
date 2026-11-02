@@ -20,10 +20,12 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
      region. Every MOTS of the exact solution on that cone is then confined to a band of width 0.003–0.007 in u at
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
    - *Computed:* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero structure: the
-     dip of the outer zero, and angular columns with no zero at all from v ≈ 1.40 (`growth5`: 1.4355). As the
-     data cone moves out from R0 = 10 to 20, the rebuilt outer zero moves to within about 0.03 of `growth5`'s.
-   - *Computed:* the double-null "second zero of R_v at v = 1.425" (CERTIFY-10L5.md D344) is numerical: it
-     contradicts D1, and every such zero lies within Nu/40 rows of the cut.
+     dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40 (`growth5`: 1.419),
+     28 % of the columns at v = 1.50 against 29 %. As the data cone moves out from R0 = 10 to 20, the rebuilt outer
+     zero moves to within about 0.03 of `growth5`'s.
+   - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
+     recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
+     to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
 2. **Certified, a first step.** For an explicit approximant of the characteristic data on the data cone u = −10,
    the Raychaudhuri constraint holds to a certified bound (Arb), at both seeds (section 2.1).
    - The full residual of a smoothed three-dimensional approximant is *computed* only: 2.5 × 10⁻³ of the curvature
@@ -171,17 +173,22 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
 - *`growth5`.* Its standard run, re-run with every zero recorded (`checks/g5zeros5.py`, 20 × 16; breakdown 1.5,
   reproducing the pinned value):
   - at v = 1.4355 the columns x = −0.383 and −0.556 already have no zero on r ≥ 0.54: T > 0 along the whole column;
-  - the untrapped band widens toward x = −1: x ∈ [−0.92, −0.20] at v = 1.49, and every column x ≤ −0.195 at 1.548;
+  - the untrapped band widens toward x = −1: x ∈ [−0.83, −0.20] at v = 1.49, and every column x ≤ −0.195 at 1.548;
   - the pinned "second zero" is the pair of zeros at the band's edge, e.g. (0.556, 0.664) at x = −0.707, v = 1.452,
     and (0.566, 0.858) at x = −0.924, v = 1.500. Those are the inner zero rising from the excision boundary and the
     outer zero falling, before they meet.
   - W at the boundary turns positive only at 1.516, so the outflow premise outlives the first wholly untrapped column
     by 0.08 in v.
 - *The double-null rebuild (800 × 360, R0 = 10, M = 16), over r ≥ r_min, the least radius reachable before the cut:*
-  - columns with no zero first appear at v = 1.40 (r_min = 0.64);
+  - columns with no zero first appear at v = 1.40 (r_min = 0.64; none at 1.35);
   - there are 4, 6, 9 and 13 of 32 at v = 1.425, 1.45, 1.50 and 1.55, spreading toward x = −1.
-  - The same structure appears 0.035 earlier in v than `growth5`'s; the R0 = 10 dip is the deeper one (see S4).
-  - The excision radius 0.54 itself is not reached before the cut at these grids.
+- *The same count in `growth5`'s run over the same radii, r ≥ 0.64:*
+  - the first column with no zero is at v = 1.419;
+  - there are 2, 2, 5 and 8 of 17 at v = 1.427, 1.452, 1.500 and 1.548.
+- *Comparison.* The fractions agree: 28 % and 29 % at v = 1.50, 41 % and 47 % at 1.55. The onset is at most 0.02 earlier
+  in the double-null rebuild, whose R0 = 10 dip is the deeper one (see S4).
+- The excision radius 0.54 itself is not reached before the cut at these grids. Over r ≥ 0.54 `growth5`'s first
+  zero-less column is at v = 1.4355.
 
 ### 1.5 `growth5` cannot be refined in angle at its own step (computed, `checks/g5zeros5.py`)
 
@@ -194,7 +201,8 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
 
 ### 1.6 Verdict on priority 1
 
-- *(b) is numerical:* it violates D1 and sits at the cut.
+- *(b) is numerical:* in every run here it lies at u > −1, where it violates D1, and it sits at the cut. D344's own
+  instance was not located, so that one is classified by this pattern, not measured.
 - *(a) is the Bondi spheres' own:*
   - two independent formulations and gauges give the same zero structure, and they converge on each other as the
     data truncation is removed;
@@ -236,7 +244,7 @@ So Ric_vv[g_app] = 0 exactly outside [1/2, 7/2].
 
 | seed | boxes | certified sup \|Ric_vv[g_app]\| | certified sup s | certified at the box centres |
 |---|---|---|---|---|
-| 1 | 192 × 64 | see `checks/cdata5.out` | see .out | see .out |
+| 1 | 192 × 64 | 4.97 × 10⁻⁵ | 1.20 × 10⁻³ | 6.6 × 10⁻¹¹ (12,288 points) |
 | 2 | 288 × 64 | see .out | see .out | see .out |
 
 *The bound's order.* The mean-value enclosure is of second order in the box size: halving both widths divided the
@@ -289,10 +297,10 @@ with δ + ∫ε < 1/(4 G T F²). Their state:
   - In L^∞ of frame components it is 2.5 × 10⁻³ of the curvature scale on the box of section 2.2.
   - The closing condition demands 6 × 10⁻⁴ at F = 2 and 9 × 10⁻⁶ at F = 17 (G = 10, T = 10; CERTIFY-10L5.md 2(d)).
   - Certifying it in three dimensions costs more than here. The 2D certificate of section 2.1, with a mean-value form
-    of second order in the box size, needed 12,288 boxes to bound one component with an expression of a few hundred
-    operations to a relative 10⁻²-level. The 3D residual has eight components of 900 to 10,000 operations
-    (`dnull5.ricci`, counted here). A certificate tight enough would need third-order Taylor models, not the
-    mean-value form.
+    of second order in the box size, needed 12,288 boxes to bound one component with a short explicit expression
+    to 4 % of its terms. The 3D residual has eight components, each of them a larger expression than
+    Ric_vv's, over three variables instead of two. A certificate tight enough would need third-order Taylor models,
+    not the mean-value form.
 - **(2)** is certified only for one constraint on one data cone (section 2.1), and for the truncated problem: the data
   on u = −10, not at past null infinity (G3).
 - **The domain.** Even with (3)–(4) in hand, the approximant exists only where the numerics converge:
