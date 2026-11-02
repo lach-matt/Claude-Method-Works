@@ -141,8 +141,8 @@ u0} being chosen with **N ∩ {τ ≥ τ0} ⊂ {R > b(τ)}** (round 2, the verif
 u0} would be a null boundary of Ω₂ through which the ingoing waves enter, and Lemma 2.3 and (e) would fail there). The
 condition costs nothing: u ≤ u1 is explicit ingoing Vaidya with the data's mass function (a), so N can be moved outward
 without changing the background elsewhere (uniqueness on the smaller rectangle). Computed (twobg5 G3, the example, T =
-1, δ0 = 0.05): the example's own N (R = 5 at v = 0) meets Σ_τ0 at R − b = G3EX, inside the domain, which is the
-verifier's case; the outgoing ray of region I from R = G3R0 at v = 0 keeps R − b ≥ G3MIN on all of [τ0, τ_end] (along it
+1, δ0 = 0.05): the example's own N (R = 5 at v = 0) meets Σ_τ0 at R − b = −4.09, inside the domain, which is the
+verifier's case; the outgoing ray of region I from R = 7.505 at v = 0 keeps R − b ≥ 1.01 on all of [τ0, τ_end] (along it
 R and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold:
 (a), (c), (d), (e) as FAMILIES5.md 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c)
 above; (f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3)
@@ -702,8 +702,8 @@ families and for the mixed stage-0 harmonics). Item 6 follows under (H6) (deduce
 
 1. (Minor) Ω₂ inside Q_(a′) with u0 unconstrained; the first exit. **Repaired** in section 2 (d)-(e): N ∩ {τ ≥ τ0} ⊂
    {R > b(τ)} is now required, at no cost (u ≤ u1 is explicit ingoing Vaidya); computed (twobg5 G3): the example's own
-   N fails it (R − b = G3EX at Σ_τ0, the verifier's case), and the cone from R = G3R0 at v = 0 satisfies it with margin
-   G3MIN. The least-(u + v) first-exit argument is written out, with D, G and ∂G ⊂ {R = a}.
+   N fails it (R − b = −4.09 at Σ_τ0, the verifier's case), and the cone from R = 7.505 at v = 0 satisfies it with margin
+   1.01. The least-(u + v) first-exit argument is written out, with D, G and ∂G ⊂ {R = a}.
 2. (Minor) V3 assumed an SO(3)-invariant measure. **Repaired** in Part III (c) and torusstress5 V3: Schur on T's round
    angular block (computed), with T_φφ = 0 giving ∫ p_θ² dμ = 0 and, by positivity (computed), p_θ = 0; control: an
    isotropic angular measure is round with T_θθ > 0, so without V2 the implication fails.

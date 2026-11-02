@@ -290,3 +290,21 @@ secondzero5: all checks pass
         max theta on r_min 2.096; on r_core n/a
 secondzero5: all checks pass
 # python3 checks/secondzero5.py RUNDIR s2_M16_400 s2_M16_800
+== s2_M16_400: lambda 0.3162, M 16, 400 x 180, cut 0.18
+  S1 R_v < 0 at u > -1, >= 10 rows from the cut, v <= 1.80: violations 0 far, 25 near the cut,
+     of 8910 cells -> PASS; control (u > -1.02) fails (good)
+     near the cut (excluded band): largest excess of R_v over D1's bound e^{2W}(1 - 1/u^2) 1.8e+20
+     beyond, on (1.80, 2]: violations 0 far, 5 near the cut
+  S2 further zeros of R_v along ingoing cones, v <= 1.80: 25, first at v = 0.625,
+     all at u > -1 within 10 rows of the cut: PASS; control (first zero near the cut) fails (good)
+     beyond, on (1.80, 2]: 5 further zeros, all near the cut: True
+  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = 2.0e-09 -> PASS
+     (against exact Tangherlini: 2.3e-03, the run's own error)
+      v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.003 (at x = 0.20);
+         r_AH ranges 0.990-1.010 and 0.990-1.008
+      v = 1.200: max |r_AH(double null) - r_AH(growth5)| = 0.007 (at x = 0.20);
+         r_AH ranges 0.972-1.025 and 0.972-1.019
+      v = 1.300: max |r_AH(double null) - r_AH(growth5)| = 0.012 (at x = 0.00);
+         r_AH ranges 0.962-1.039 and 0.957-1.027
+      v = 1.400: max |r_AH(double null) - r_AH(growth5)| = 0.020 (at x = 0.00);
+         r_AH ranges 0.948-1.057 and 0.941-1.047

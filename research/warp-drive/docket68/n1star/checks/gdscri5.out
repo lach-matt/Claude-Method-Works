@@ -10,3 +10,4 @@ S3 PASS
   S4: int_0^1 x^(2 eps - 1) dx = 1/(2*epsilon), = oo at eps = 0: True; (1.3) and the source in (1.4) at I+, iota+, K+ at 75 samples: True
   S4 control (no W** cut-off term: K+-order 0): the source lies in (1.4) at the samples: False; int_0^1 x^-1 dx = oo
 S4 PASS
+  S5: r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): [('3/2', True), ('1', True)]
