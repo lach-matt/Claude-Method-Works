@@ -1,0 +1,33 @@
+  A1: N1STAR-PROOF.md lines 1-805 (md5 57d896ae1da4845f3c94c66d7b087a41): 61 hits, 0 unclassified; classes {'E': 8, 'G':
+      3, 'T': 15, 'X': 35}; class N (kinds N1-N4): 0
+  A2: the T rows reach the formula terms ['D-a', 'D-b', 'D-c', 'E-a', 'E-b', 'E-c', 'E-d', 'lam1']; every term has a
+      source row: True
+  A3: citations in lines 1-805: ['AO14', 'BH17', 'CBCL06', 'CBCM10', 'CD03', 'DS23', 'GO13', 'Hua15', 'LR05', 'LY22',
+      'MM10', 'Rac16', 'SY21', 'Tou23a']; all listed: True
+      AO14    local theory (1.3); Kato-Majda scheme section 4.1 | enters lam0: scheme yes (Prop 6.5) | contraction with
+      explicit factor
+      BH17    Sobolev H^3 -> L^inf in 4D | enters lam0: enters (C_S) | effective: certified constant, lzeroconst5 Z3
+      CBCL06  contracted Bianchi, n+1 | enters lam0: no | identity
+      CBCM10  form of Ric^H | enters lam0: no | identity
+      CD03    constraint map form | enters lam0: no | identity
+      DS23    local existence Thms 2.4, 2.6; Remark 2.3 commutators | enters lam0: Thm 2.4/2.6 no; Remark 2.3 via Lemma
+      6.4 | existence time unused by lam0; integer-order commutators effective
+      GO13    Moser and Kato-Ponce on S^3 | enters lam0: through Lemma 6.4 | effective at integer orders
+      Hua15   withdrawn citation (D18) | enters lam0: no | -
+      LR05    contracted Bianchi | enters lam0: no | identity
+      LY22    Seeley extension Thm 26, Lemma 27 | enters lam0: no (restarts only) | -
+      MM10    withdrawn citation (D18) | enters lam0: no | -
+      Rac16   constraints as evolution in r | enters lam0: no | structure
+      SY21    Stein/Rychkov extension of the profiles | enters lam0: through eps2 | explicit operator
+      Tou23a  comparison | enters lam0: no | -
+  C1 (control): a planted sentence leaves 3 hits unclassified: [(806, 'compact'), (806, 'contradict'), (806,
+      'subsequen')]
+  C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds ['contradict', 'limit',
+      'subsequen']
+  C3 (control): with the row (745, limit) removed, 1 hit unclassified
+A1 PASS
+A2 PASS
+A3 PASS
+C1 PASS
+C2 PASS
+C3 PASS

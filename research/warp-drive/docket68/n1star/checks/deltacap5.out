@@ -1,0 +1,11 @@
+  P1: 2^196 > 10^59: True, so log10 2 > 59/196 = 0.3010204082
+  P2: d >= 7.959e15 (LOSS-D LD16): log10 delta < -7.666629e+16
+      d >= 8407505890317054 (dweights5 W3): log10 delta < -8.098659e+16
+  P3: lambda1 < delta: the same bounds (C_R >= 1)
+  C1 (control): the claim delta >= 10^(-7e16) contradicts log10 delta < -7.6666e+16: refuted
+  C2 (control): at d = 1 the formula allows log10 delta up to -12.342
+  C3 (control): without A_2d >= 1 no bound is printed: True
+P2 PASS
+C1 PASS
+C2 PASS
+C3 PASS

@@ -1479,7 +1479,10 @@ The verdicts are readings, not computations, and a choice named otherwise than b
   supported where v is bounded along the initial null hypersurface, entering one order later at every harmonic computed
   (l ≤ 12) (`checks/sources5.py`, `checks/stripfull5.py`), and the approximant's stage profiles expanded in powers of
   r^(−1/2) at past null infinity, with the closure properties of that expansion shown (deduced, with an exact check,
-  `checks/closure5.py`). The scattering estimate itself is not done. Below r = a nothing is attempted.
+  `checks/closure5.py`). The scattering estimate itself is not done. Below the inner boundary the theorems are not
+  silent: the boundary sits at the curvature scale l5, which is arbitrary, and a smaller l5 puts every point with r > 0
+  inside D_T, the constants then depending on it (computed, exact, `docket68/n1star/checks/innerr5.py` I1–I2, with the
+  limit's Kretschmann scalar 72 μ²/r⁸ computed for every mass function); at r = 0 the limit itself is singular.
 - **More families.** Angular separation and the passage to Vlasov matter are not attempted. Two crossing null dusts are
   scoped and taken through the leading orders (supplement `docket68/n1star/FAMILIES5.md`): the cross coupling of the two
   families is a gauge artefact at leading order (deduced; stage 0 computed, `docket68/n1star/checks/stage0two5.py`), and
@@ -2203,6 +2206,10 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/innerr5.py` I1–I2: the inner boundary at any curvature scale. I1, l5 := θ a²/(72^(1/4) μ_end^(1/2)), 0 < θ < 1,
+  gives r_q ≤ θ^(1/2) a < a for every v and the strict seed condition when a⁴ < μ0 μ_end, so D_T contains {r ≥ a}; I2,
+  the Kretschmann scalar of five-dimensional Vaidya is 72 μ(v)²/r⁸ for every mass function, so x_K = 1 is r = r_q(v).
+  Controls: l5 proportional to a; the four-dimensional μ/r. Exact; about half a minute.
 - `checks/stage5.py` S1–S4: the approximant's stages in the proof's gauge, from `lead5.py`'s reduced Ricci carried to
   order λ¹ (its orders λ⁻¹ and λ⁰ reproduced exactly). S1, with generic stage-1 and stage-2 unknowns, in the eight
   components the symmetry leaves: (5.2)'s e1, e2 are the λ¹, λ² parts of ḡ⁻¹(du, du); in R^(1) the profile after next is
@@ -2503,6 +2510,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, settling: the certified lower bound | `docket68/n1star/checks/e2lower5.py` E1 |
 | section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
 | | `checks/g1curv5.py` |
+| section 9: the inner boundary at any curvature scale | `docket68/n1star/checks/innerr5.py` I1–I2 |
 | section 9, deeper excisions on a second grid | `docket68/n1star/checks/excise5.py` E1–E2 |
 | section 9, beyond the boundary | `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, Lemma 6.3, section 3(b); |
 | | `BEYOND5-R0-PROOF.md`; `checks/closure5.py` |
@@ -2625,6 +2633,7 @@ imports `checks/vii5census.py`; the others import nothing from the research tree
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/innerr5.py                             # about half a minute
     python3 checks/stage5.py                              # about fifty minutes
     python3 checks/excise5.py                             # seconds, on the runs merged into data/
     python3 checks/gauge5.py                              # about five minutes
@@ -2807,6 +2816,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/innerr5.py` | `67f49433c4feafb9f8ca1f5a28a376a4` |
+| `docket68/n1star/checks/innerr5.out` | `202c8e2b671848791708606a2d11b784` |
 | `docket68/n1star/checks/stage5.py` | `9ce714c13eb450223ddbdde68db53928` |
 | `docket68/n1star/checks/stage5.out` | `b550d9d6673e97c2a1f4bc82eb12f339` |
 | `docket68/n1star/checks/excise5.py` | `dfa3d996d7acf9d79ea2de1fef1a6f08` |
