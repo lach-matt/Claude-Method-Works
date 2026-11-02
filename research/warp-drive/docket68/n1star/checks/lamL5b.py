@@ -26,9 +26,17 @@ L2, recomputed here).
      M_m^(i/m)]^(-1/(14(1-i/m)-1)); printed for C*_(i,m) (equal nodes, Round 3) and C^DS_(i,m).  The certified upper
      bound of lam_L (no constant of Theorem 1) is then min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12 (lamL5 L4),
      Lam_5').  And C_eps (the 26-derivative envelope cost of the error terms Lam_8b-d) with C^DS at every i <= 26.
-     Control: at 1.01 Lam_5' the binding term's inequality fails.
+     Control: at 1.01 Lam_5' the binding term's inequality fails.  [These use B >= M_m, so, as the verifier of round
+     3 found for lamL5 (M2), they are LOWER bounds of the proof's thresholds; M5 gives the upper bounds.]
+  M5 (certified at the stated point) A lower bound of M_m = sup |env^(m)|: every derivative of env vanishes at v_s, so
+     env(v) = env^(m)(xi) (v - v_s)^m/m! and M_m >= m! env(v)/(v - v_s)^m at every v; at m = 1456 the best grid point
+     gives log10 M_1456 >= 8091.6 (against B's 8573.89); cross-checked against CONSTANTS5's e_k (k <= 14).  With it, the
+     UPPER bounds of the thresholds that decrease in M_m (Lam_4, Lam_5, Lam_5', Lam_8b), and the LOWER bounds with B,
+     for round 1's constants, A15's and the Duffin-Schaeffer ones; the certified bound of lam_L with Lemma L.4' is
+     min(lambda0 < 0.0024433, Lam_4(0) upper, Lam_5' upper).  Control: the Taylor bound with m! mutated to (m + 40)!
+     exceeds B(1456), so it is refuted.
 
-Labels: M1 READ; M2, M4 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n, floating
+Labels: M1 READ; M2, M4, M5 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n, floating
 point at n = 1455).  Every bound is on the threshold the proof delivers, not on the largest lam for which Theorem L
 holds (CONSTANTS5 V-M2).  Run: python3 checks/lamL5b.py   (about two minutes; imports lamL5.py)
 """
@@ -235,12 +243,75 @@ def m4(control=False):
     return bound <= LAM4_0
 
 
+# ------------------------------------------------------------------------------------------------------------ M5
+C_LO = iv.mpf('1.32407110621')         # CONSTANTS5 envelope5 E1: c in [1.32407110621, 1.3241034918]
+
+
+def log10_env_lo(x):
+    """a lower bound of log10 env(1/2 + x), interval arithmetic: env = c sin^12(pi t/2) exp(1 - 1/(t (2 - t)))"""
+    t = 2*iv.mpf(x)/3
+    v = iv.log(C_LO) + 12*iv.log(iv.sin(iv.pi*t/2)) + 1 - 1/(t*(2 - t))
+    return (v/iv.log(10)).a
+
+
+def taylor_low(m, extra=0):
+    """log10 of m! env(v)/(v - v_s)^m at the best grid point: a lower bound of M_m (Taylor at the flat edge, every
+    derivative of env vanishing at v_s); extra > 0 multiplies by (m + 1)...(m + extra), a mutation"""
+    mp.mp.dps = 30
+    xs = [mp.mpf(k)/200000 for k in range(1, 4000)] if m > 100 else [mp.mpf(k)/2000 for k in range(1, 2000)]
+    lf = mp.log10(mp.factorial(m + extra))
+    best = max(xs, key=lambda x: float(mp.log10(C_LO.a) + 12*mp.log10(mp.sin(mp.pi*x/3))
+                                       + (1 - 1/((2*x/3)*(2 - 2*x/3)))/mp.log(10) - m*mp.log10(x)))
+    lfac = iv.log(iv.mpf(math.factorial(m + extra)))/iv.log(10)
+    val = lfac.a + log10_env_lo(best) - m*(iv.log(iv.mpf(best))/iv.log(10)).b
+    mp.mp.dps = 40
+    return mp.mpf(val), best, lf
+
+
+def m5(control=False):
+    lb_up, _ = LL.best_B(MM)                              # log10 B(1456): an upper bound of log10 M_1456
+    if control:
+        # a mutation: m! -> (m + 40)!; the "lower bound" then exceeds the upper bound B, i.e. it is refuted
+        low_mut, _, _ = taylor_low(MM, extra=40)
+        return low_mut <= mp.mpf(lb_up)
+    low, x_at, _ = taylor_low(MM)
+    cross = all(taylor_low(k)[0] <= mp.log10(LL.E_K[k]) for k in range(1, 15))
+    Lp = {'low': low/MM, 'B': mp.mpf(lb_up)/MM}         # log10 M_m^(1/m), both directions
+    res = {}
+    for tag, lM in Lp.items():
+        lb4 = mp.log10(4*2**(1 - mp.mpf(1)/MM)*4*mp.pi)
+        lam4 = {k: -(lb4 + c + lM)*MM/(MM - P_) for k, c in (('r1', mp.mpf('4601.9657')), ('ch', mp.mpf('3.89723')))}
+        t26 = lambda lc: mp.log10(27) + lc + (1 - mp.mpf(26)/MM)*mp.log10(mp.mpf(5)/4) + 26*lM          # noqa: E731
+        lam5 = {k: -t26(c)/(P_*(1 - mp.mpf(26)/MM) - 3) for k, c in (('r1', mp.mpf('4522.8941')),
+                                                                       ('A15', mp.mpf('460.016')))}
+        l4ds = mp.mpf((iv.log(CACHE['ds'][4])/iv.log(10)).a if tag == 'low' else (iv.log(CACHE['ds'][4])
+                                                                                   / iv.log(10)).b)
+        lam5p = -(mp.log10(5) + l4ds + (1 - mp.mpf(4)/MM)*mp.log10(mp.mpf(5)/4) + 4*lM)/(P_*(1 - mp.mpf(4)/MM) - 1)
+        lG = mp.log10(mp.mpf(3)*196/15625*(mp.mpf(8)/3)/32)
+        ce26 = {k: c + (1 - mp.mpf(26)/MM)*mp.log10(mp.mpf(5)/4) + 26*lM
+                for k, c in (('A15', mp.mpf('460.016')), ('DS', mp.mpf((iv.log(cds(26, MM)[0])/iv.log(10)).a)))}
+        lam8b = {k: (lG - c)*mp.mpf(4)/3 for k, c in ce26.items()}
+        res[tag] = (lam4, lam5, lam5p, lam8b)
+    up = res['low']
+    bound = min(LAMBDA0, mp.mpf(10)**up[0]['ch'], mp.mpf(10)**up[2])
+    f = lambda d: ", ".join("%s 10^%s" % (k, mp.nstr(v, 7)) for k, v in d.items())                       # noqa: E731
+    out("  M5 log10 M_1456 >= %s (Taylor at v_s + %s, m! env(v)/(v - v_s)^m; certified at that point), against log10"
+        " B(1456) <= %s; at k = 1..14 the Taylor bound lies below CONSTANTS5's e_k: %s.  UPPER bounds of the proof's"
+        " thresholds (with the lower bound of M_m): Lam_4(0): %s; Lam_5 (L.4, its i = 26 term): %s; Lam_5' (L.4', i = 4,"
+        " Duffin-Schaeffer): 10^%s; Lam_8b with C_L11 = 1 (C_eps >= its i = 26 term): %s.  LOWER bounds (with B):"
+        " Lam_4(0): %s; Lam_5: %s; Lam_5': 10^%s; Lam_8b: %s.  Certified with L.4': lam_L <= %s"
+        % (mp.nstr(low, 10), mp.nstr(x_at, 6), mp.nstr(mp.mpf(lb_up), 10), cross, f(up[0]), f(up[1]),
+           mp.nstr(up[2], 6), f(up[3]), f(res['B'][0]), f(res['B'][1]), mp.nstr(res['B'][2], 6), f(res['B'][3]),
+           mp.nstr(bound, 5)))
+    return cross and low < mp.mpf(lb_up) and bound < mp.mpf('1e-11')
+
+
 CACHE = {}
 
 
 def main():
     ok = True
-    for name, f in (("M1", m1), ("M2", m2), ("M3", m3), ("M4", m4)):
+    for name, f in (("M1", m1), ("M2", m2), ("M3", m3), ("M4", m4), ("M5", m5)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))
