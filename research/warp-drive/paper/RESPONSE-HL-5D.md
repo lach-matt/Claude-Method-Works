@@ -1635,8 +1635,15 @@ Paths are relative to the root of the research tree.
   (2a + b)² + 2b²; r + r_q in place of r − r_q; √48 in place of √72.
 - R7: λ = 10 l5 against the curvature length: 10 on x_K = 1, 2.91 and 0.92 at the horizon; against r: 1.85 and
   1.04 on x_K = 1, 1.00 and 0.32 at the horizon. Control: 48 for 72.
+- R8: the mass law's coefficient for the solver's envelope, (2/9) ∫ env′² = 5π²/108, and the shell's mass 35/192.
+  Control: sin² in place of sin⁴.
+- R9: every row of Appendix D's md5 table matches its file at this commit. Control: one printed digit changed.
+- R10: section 9's floor on the loss, d > 7.95 × 10¹⁵ and N > 1.66 × 10¹⁷, from ε_ind ≤ 1.94137 × 10⁻⁸ and a
+  charge of 3 per round, in exact rationals. Control: a charge of 2.
+- R11: section 9's one-derivative constants on the band, 963.4 for l ≥ 1 and 1516 at l = 0, from the certified
+  bound 11.477 and multipliers, the square root bracketed exactly. Control: σ = 3 in place of 384.
 
-All seven pass and every control is rejected (about 30 seconds). The proof's programs, in `docket68/n1star/`:
+All eleven pass and every control is rejected (about 40 seconds). The proof's programs, in `docket68/n1star/`:
 
 - `ks5.py` K1–K5: the Kerr–Schild form, its inverse, the commutator (2.4), div L0, the gauge source H0. 5/5;
   mutants 4/4.
@@ -1971,6 +1978,23 @@ Earlier programs cited, in `docket68/lemmas/`:
 - `hf_core5.py`: the numerical sequence at two seeds (rates; one zero per column). 10/10; numerical, not exact.
 - `seed_escape.py` E1–E5: the barrier of the hole and its linear scattering at the wavelength 10 l5.
 
+Programs behind section 9, in `docket68/n1star/`:
+
+- `checks/thetain5.py` T1–T6: the incoming radial threshold of the transition-face model, ϑ_in = 0 (the ∂_t*
+  endomorphism in the incoming time has spectrum ≥ 0 containing 0, and is semisimple), the two 1-form operators'
+  (negative), and the losses it fixes: 1 for the model's inverse, 2 for (2.3)–(2.4) of the loss count. Exact; the
+  reduction from the definitions and the choice of regularity deduced. 11/11 with controls (about 25 seconds).
+- `checks/prop31loss5.py` Q1–Q4: the step counts behind the round charges 15 and 17. Exact. 5/5 (seconds).
+- `checks/e2trapband5.py` B1–B3, run to σ = 384 (`checks/e2trapband5_384.out`, 194 minutes): the band bound
+  11.477, certified in interval arithmetic; `checks/e2h1band5.py` W1–W3: the one-derivative constants on the band,
+  exact rationals (`checks/e2h1band5.out`). 3/3 each.
+- `checks/closure5.py` K1–K5: the closure properties of the expansion at past null infinity (K1 and K5 exact at
+  five points, K4 an enumeration of the weight patterns). 9/9 with controls (about 17 seconds).
+- `dnsolve5.py` with `checks/g1curv5.py`: the double-null prototype at the prescribed wavelength and its
+  curvature comparisons. Floating point; computed, not certified.
+- `checks/data5two.py` T1–T11: the constraint map's linearisation with two families, on flat, Vaidya and static
+  backgrounds. Exact.
+
 ## Appendix B. The author's words
 
 The commission and the rules that bind it, verbatim, with the item numbers of the author's record; where they enter,
@@ -2106,6 +2130,15 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | sixty-one modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
 | | [Hin21], [Hin23a], [Hin23e], [Hin24b], [CD03]; `docket68/n1star/iplusnorm5.py` N1–N9 |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
+| section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
+| | `checks/prop31loss5.py`; R10 |
+| section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
+| | `checks/e2h1band5.out`; R11 |
+| section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
+| | `checks/g1curv5.py` |
+| section 9, beyond the boundary | `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, Lemma 6.3, section 3(b); |
+| | `BEYOND5-R0-PROOF.md`; `checks/closure5.py` |
+| section 9, more families | `docket68/n1star/FAMILIES5.md` sections 1, 4b–4i; `checks/data5two.py` |
 | verification | supplement section 7: seven independent verifiers, one at a time (log D12, D15, D16, D18–D21); the |
 | | eighth read this paper and the supplement's last restatement (log D26); the ninth sections 8.1–8.2 (D30); |
 | | the tenth and eleventh Theorem 2's proof (D34–D35); the twelfth Theorem 3 (D40); the thirteenth |
@@ -2177,7 +2210,7 @@ imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py` imports
 `iplus5.py` and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`, `window5.py` and `iplus5.py`; the
 others import nothing from the research tree:
 
-    cd paper && python3 response5.py --selftest          # R1-R8, about 30 seconds
+    cd paper && python3 response5.py --selftest          # R1-R11, about 40 seconds
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
         cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
                                                          # past5 (about 4 minutes), settle5, bondi5 (about ten minutes)
@@ -2229,15 +2262,20 @@ others import nothing from the research tree:
                                                          # gluing5 (about fifteen seconds)
                                                          # edge5 (a few seconds)
                                                          # synth5 (about forty seconds)
+                                                         # and behind section 9: checks/thetain5, closure5,
+                                                         # e2h1band5, prop31loss5 (seconds to half a minute),
+                                                         # checks/data5two (hours), checks/e2trapband5.py
+                                                         # 768 0.05 384 (about 194 minutes)
     python3 data5.py --mutants                           # about 80 minutes; each program has --mutants
 
-The md5 of each file this paper rests on, at the commit that adds it:
+The md5 of each file this paper rests on, at this commit (R9 checks every row; `python3 response5.py
+--update-md5` rewrites the column):
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `1f62f6daff0ed15623cffd1c738b93df` |
+| `paper/response5.py` | `21d4879694b85ccc99d6c4e1ca24df4d` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `34edf9c82f5c3d49526088ee291cb1dd` |
+| `docket68/n1star/N1STAR-LOG.md` | `bd6fb4042e8cb1488eb9091ee331e8b6` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2314,7 +2352,7 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `8424be06575fd6a81818b339fd4b3220` |
+| `docket68/n1star/proof5/README.md` | `82d46566d3bc11e766a7af9896a89d5d` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
@@ -2323,13 +2361,32 @@ The md5 of each file this paper rests on, at the commit that adds it:
 | `docket68/n1star/proof5/checks/admiss5.tsv` | `133a673e184f911e6529c318eac95950` |
 | `docket68/n1star/proof5/checks/damping5.tsv` | `4e7c226efd96b04206eb1c8e207e6861` |
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
-| `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `7a5ecacf958a470070c4a92388f4fc54` |
-| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `c5b0dddd69644ffcd7ca93624b2ef4a2` |
+| `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e5ccb190d92288c1b8f489d3ed206495` |
+| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `5fcfded92005ed06251f1216515d082f` |
 | `docket68/n1star/proof5/PART-IX-GAUGE.md` | `de9afd2470c80c26ff6b172d35992a51` |
 | `docket68/n1star/checks/ix5.py` | `3aef2fc325684b0a489e2b04c9a89c4a` |
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
-| `docket68/n1star/LOSS-D.md` | `bf9cc64fa9d2c9cd75642e1db3ef6bfa` |
-| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `ff1f27f03b6aa076d8f5a6dcdef73506` |
+| `docket68/n1star/LOSS-D.md` | `363b7acd423b6201dbcc7faa8b42f8eb` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `3a43fc786ec3d98b0f06e179dddc7814` |
+| `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
+| `docket68/n1star/CERTIFY-10L5.md` | `932c277dc0262c62b220aba83bbb3289` |
+| `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
+| `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
+| `docket68/n1star/FAMILIES5.md` | `787b5b6b348c2f37b8be815f9676eb27` |
+| `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
+| `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
+| `docket68/n1star/checks/prop31loss5.py` | `7f8004a1801aca2a1aa3e777e6ee2907` |
+| `docket68/n1star/checks/prop31loss5.out` | `962916acee770eb2f1f8e78350d36531` |
+| `docket68/n1star/checks/e2trapband5.py` | `4637d18c90b0ee2ebee7df637cce22d7` |
+| `docket68/n1star/checks/e2trapband5_384.out` | `de0fac402970aa209517f5902595c1c2` |
+| `docket68/n1star/checks/e2h1band5.py` | `4eed2befe76129e5c01d9b7a4fbea138` |
+| `docket68/n1star/checks/e2h1band5.out` | `1fd8053f3fdac83cf070974bf7db38be` |
+| `docket68/n1star/checks/closure5.py` | `c65098b4a3c6f0a36b37a5de0ccf902b` |
+| `docket68/n1star/checks/closure5.out` | `8388cf3bd8a7eee36f599a210effd723` |
+| `docket68/n1star/checks/data5two.py` | `fc6fff725087c4d27194887c001b41e5` |
+| `docket68/n1star/checks/g1curv5.py` | `d98ed86deaee1c04d6eb92653cf1cf2b` |
+| `docket68/n1star/dnsolve5.py` | `f5c59a474498f3e2a215acfbdf46dbbd` |
+| `docket68/n1star/checks/epsind5.py` | `8a255f7058dc653627001236cb7075ad` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

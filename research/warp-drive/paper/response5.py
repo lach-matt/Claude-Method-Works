@@ -44,6 +44,16 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
   R8 The mass law's coefficient for the numerical solver's envelope, sin^4(pi (v - 1/2)/3) on [1/2, 7/2], A = 1:
      (2/9) int env'^2 = 5 pi^2/108 = 0.456926 (Theorem 3, section 6), and the shell's mass (2/9) int env^2 = 35/192.
      Control: a sin^2 envelope gives pi^2/27.
+  R9 The md5 table.  Every row of Appendix D's table names a file under the research tree whose md5 at this commit is
+     the one printed (the paper's own md5 is in its commit, not in itself).  Control: one printed digit changed.
+  R10 Section 9's floor on the loss.  With epsilon_ind <= delta_50 = 1.94137 * 10^-8 (supplement LOSS-D LD10, exact
+     there), each of the two long loops runs more than (1/2)/delta_50^2 rounds, and each round is charged 3, so d > 3 *
+     2 * (1/2)/delta_50^2 > 7.95 * 10^15 and N = 21 d + 6 > 1.66 * 10^17, the figures section 9 prints (exact
+     rationals).  Control: 2 per round.
+  R11 Section 9's one-derivative constants on the band.  From the certified band bound B <= 11.477 on 3 <= sigma <= 384
+     and the certified multipliers (m' >= 0.005793, M' <= 1.02041; at l = 0, m0' >= 0.002580, M0' <= 0.3809),
+     X = (1 + (1 + 2 m' (M' + 2 sigma) B)^(1/2)) / (2 m') at sigma = 384 lies in (963.3, 963.4] and X_0 in (1515, 1516],
+     each increasing in sigma and B (exact rationals, the root bracketed by integer square roots).  Control: sigma = 3.
 
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
@@ -421,6 +431,74 @@ def r8(control=False):
     return bool(ok)
 
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, "..")
+PAPER = os.path.join(HERE, "RESPONSE-HL-5D.md")
+
+
+def md5_rows():
+    import re
+    S = open(PAPER, encoding="utf-8").read()
+    a = S.index("The md5 of each file this paper rests on")
+    return re.findall(r"^\| `([^`]+)` \| `([0-9a-f]{32})` \|$", S[a:], re.M)
+
+
+def md5_of(path):
+    import hashlib
+    return hashlib.md5(open(os.path.join(ROOT, path), "rb").read()).hexdigest()
+
+
+def r9(control=False):
+    """Appendix D's md5 table against the files at this commit"""
+    rows = md5_rows()
+    if control:
+        f, m = rows[0]
+        rows = [(f, ("0" if m[0] != "0" else "1") + m[1:])] + rows[1:]
+    return len(rows) > 0 and all(os.path.exists(os.path.join(ROOT, f)) and md5_of(f) == m for f, m in rows)
+
+
+def r10(control=False):
+    """section 9's floor: d > 7.95e15, N > 1.66e17 from delta_50 and 3 per round (2 in the control)"""
+    from fractions import Fraction as Fr
+    delta = Fr(194137, 10**13)
+    rounds = 2 * (Fr(1, 2) / delta**2)
+    d = (2 if control else 3) * rounds
+    txt = " ".join(open(PAPER, encoding="utf-8").read().split())
+    printed = "d > 7.95 × 10¹⁵ and N > 1.66 × 10¹⁷" in txt
+    return printed and d > Fr(795, 100) * 10**15 and 21 * d + 6 > Fr(166, 100) * 10**17
+
+
+def r11(control=False):
+    """section 9's H^1 constants at sigma = 384, B = 11.477: X in (963.3, 963.4], X_0 in (1515, 1516]"""
+    from fractions import Fraction as Fr
+    from math import isqrt
+
+    def xb(mp, mm, sig, b):
+        q = 1 + 2 * mp * (mm + 2 * sig) * b
+        s = 10**12
+        n = isqrt(q.numerator * s * s // q.denominator)
+        lo, hi = Fr(n, s), Fr(n + 1, s)              # lo <= sqrt(q) < hi
+        assert lo * lo <= q < hi * hi
+        return (1 + lo) / (2 * mp), (1 + hi) / (2 * mp)
+    sig, b = Fr(3 if control else 384), Fr(11477, 1000)
+    xlo, xhi = xb(Fr(5793, 10**6), Fr(102041, 10**5), sig, b)
+    zlo, zhi = xb(Fr(2580, 10**6), Fr(3809, 10**4), sig, b)
+    return Fr(9633, 10) < xlo and xhi <= Fr(9634, 10) and 1515 < zlo and zhi <= 1516
+
+
+def update_md5():
+    """--update-md5: rewrite Appendix D's md5 column from the files at this commit"""
+    S = open(PAPER, encoding="utf-8").read()
+    n = 0
+    for f, m in md5_rows():
+        cur = md5_of(f)
+        if cur != m:
+            S = S.replace("| `%s` | `%s` |" % (f, m), "| `%s` | `%s` |" % (f, cur))
+            n += 1
+    open(PAPER, "w", encoding="utf-8").write(S)
+    print("updated %d rows" % n)
+
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
@@ -430,7 +508,10 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
           ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)",
            r7, 1),
           ("R8 the mass law's coefficient for the solver's envelope: (2/9) int env'^2 = 5 pi^2/108; the shell 35/192",
-           r8, 1)]
+           r8, 1),
+          ("R9 Appendix D's md5 table matches the files at this commit", r9, 1),
+          ("R10 section 9's floor: d > 7.95e15 and N > 1.66e17 from delta_50 and 3 per round", r10, 1),
+          ("R11 section 9's H^1 constants at sigma = 384: X <= 963.4, X_0 <= 1516", r11, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
@@ -460,4 +541,7 @@ def selftest(full=False):
 
 if __name__ == "__main__":
     random.seed(0)
+    if "--update-md5" in sys.argv:
+        update_md5()
+        sys.exit(0)
     sys.exit(0 if selftest("--full" in sys.argv) else 1)

@@ -7825,3 +7825,11 @@ transition face costs one derivative, whatever regularity the proof chooses ther
 label for the result now says it is deduced from an exact computation, one operator's thresholds are justified by the
 right reason, a range of entry numbers is corrected, and the printed lower bound on the loss is rounded so that its two
 figures agree.
+
+**D591 (2026-11-02): the paper's appendices brought up to date, and its reproduction table made to check itself.**
+Appendix D's table of file fingerprints had six stale rows and none for the files section 9 now rests on; it is
+regenerated, nineteen files are added, and the paper's check script now verifies every row (R9) and can rewrite the
+column on request, so the table cannot drift again unnoticed. The script also re-derives two of section 9's figures
+independently: the lower bound on the loss (R10) and the derivative constants on the certified band (R11). Appendix A
+lists the programs behind section 9 and the script's checks R8-R11 (it still said seven checks); Appendix C maps section
+9's claims to their sources.
