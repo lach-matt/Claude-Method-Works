@@ -4,6 +4,14 @@ Status (2026-11-02). This note attacks FAMILIES5-FULL.md Part II's obstruction (
 T²-invariant Einstein–null-dust background on a domain like Ω₂, without smallness) and does not edit that file, the
 paper, N1STAR-PROOF.md, FAMILIES5.md, ROUTES-OPEN.md, N1STAR-LOG.md or any proof5 Part.
 
+[Amendment 2026-11-02, round 4 (FAMILIES5-AXIS.md; the independent reader's findings, seated here at the places they
+concern). The reader found no hard error, confirmed (C) by an independent route, judged Theorem N sound as a sketch
+with "deduced" the right label, re-derived N2's window exactly and reran the four programs byte-identically. Two
+findings change the verdict below: the flat recovery at the axis loses no derivative, and the curved terms, computed in
+FAMILIES5-AXIS.md section 3, are first order in the metric. So the axis closes there (Lemma A, Theorem N′, deduced),
+Corollary N2 is superseded by FAMILIES5-AXIS Corollary N′1, and the near-round, large-data problem of section 1 is
+closed on an adapted Ω₂ (deduced; not independently read).]
+
 **Verdict.** The near-round, large-data problem posed in section 1 (Cauchy stability of Part I's round two-dust
 background on Ω₂) **does not close**. The obstruction is **localised at the axes**: off them the problem closes
 (Theorem N), at them the closing structure provably degenerates (computed), and what would replace it is identified:
@@ -25,6 +33,15 @@ background on Ω₂) **does not close**. The obstruction is **localised at the a
   background stay open. **Corollary N2** (a shorter domain): a perturbation of Part I's data supported in an angular
   band has a background up to the time its influence reaches the axes (τ − τ0 < a(θ1 − θ2), from the computed bound
   R|dΩ/dτ| ≤ 1 on Part I's background), conditional on band-localised constraint data, which are not constructed here.
+
+[Amendment 2026-11-02 (the independent reader's nits; FAMILIES5-AXIS.md). Read "does not close" as "is not closed
+here" and "provably degenerates" as "the algebraic closure degenerates". On the axis κ2 = θ_h = (θ − κ1)/2, which the
+transported θ controls; the loss is the 1/ρ2 coefficient near the axis, and X2 tests only m = 0 and 1. "Recovered
+only ... by the Codazzi/torsion hierarchy of the double-null method" was analogy with [LR20], not deduction (the
+reader's MAJOR 1), and is withdrawn: FAMILIES5-AXIS section 3 recovers the planar shear by elliptic regularity of the
+family's level sets in the slice, with first derivatives of the metric only, and Theorem N′ removes the axis
+hypothesis. Corollary N2's input is supplied by FAMILIES5-AXIS section 2 (Proposition L; exact on cones by B6), and N2
+itself is superseded by Corollary N′1 there.]
 
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that it must
 reject), **deduced** (argued here), **READ** (verbatim, identifier and page, read at source through alphaXiv,
@@ -54,6 +71,9 @@ order m − 1). Carrying θ as an unknown with the general five-dimensional Rayc
 its source |∇²u|² holds the shear, again at m − 1 (S1 control (b)). This is FAMILIES5.md 4i's dustloss5 in the Cauchy
 setting.
 
+[Amendment 2026-11-02 (the independent reader). augment5 S1 is a hand-typed ledger with typed sources and controls, the
+levels read off by sympy: its label is **deduced**, not computed; the program's docstring now says so.]
+
 ## 2. The class structure (computed: `classchi5.py` C1-C4)
 
 Off the axes, g = h_ab(y) dy^a dy^b + G1 dφ1² + G2 dφ2², G_i = |K_i|² = e^(2ψ_i), K_i = ∂_(φ_i) (the paper's
@@ -65,6 +85,10 @@ d|K|²) makes the torus components first order. So the null second fundamental f
 frame (e_θ, e_φ1, e_φ2) of a section, χ = diag(θ_h, κ1, κ2), and only θ_h := □u − κ1 − κ2 carries second derivatives
 of u. Controls (rejected): g_(φ1φ2) ≠ 0 (T²-invariant, not Z2 × Z2), a Kaluza–Klein term g_(tφ1) ≠ 0, and a phase
 u + w cos φ1 each break it.
+
+[Amendment 2026-11-02 (the independent reader). The third control here (a φ1-dependent phase) and jetpoly5 J1's
+control (a truncation one degree lower) reject, but trivially; they are recorded as weak, not repaired. The reader's
+mutations of the computed paths (C-M1 to C-M4, J-M1, J-M2) all fail as they must.]
 
 (C2, exact at rational jets, three seeds) Where g⁻¹(du, du) vanishes to first order,
 
@@ -81,6 +105,12 @@ Raychaudhuri equation**
 Controls (rejected): the shear-free right side −θ²/3 − Ric(P, P); the null condition to first order only ((R) fails,
 (C) still holds). With Einstein–dust, Ric(P_A, P_A) = Σ_B F_B² g⁻¹(du_A, du_B)²: the right side of (R) holds θ, p and
 dg, and no derivative of θ, of p, or second derivative of g.
+
+[Amendment 2026-11-02 (the independent reader; deduced). (R) also follows in two lines from the three-dimensional orbit
+Raychaudhuri equation, which has no shear term: for the orbit metric h, P(θ_h) = −θ_h² − Ric_h(P, P), and Ric(P, P) =
+Ric_h(P, P) − Σ_i (∇²ψ_i(P, P) + κ_i²) for the warped product. With P(κ_i) = ∇²ψ_i(P, P) (P geodesic) and θ = θ_h + κ1 +
+κ2, P(θ) = −θ_h² − Σ κ_i² − Ric(P, P), which is (R); C4's Riccati equation is the same statement, Rm(P, e_i, P, e_i) =
+−(∇²ψ_i(P, P) + κ_i²).]
 
 (C4, exact at jets) P(κ_i) = −κ_i² − Rm(P, e_i, P, e_i), e_i = K_i/|K_i|: the torus curvatures have their own Riccati
 equations, driven by curvature (wrong sign rejected). Their first-order character is therefore *algebraic* (the Killing
@@ -100,6 +130,10 @@ derivatives of u_A − u_A^0 is only O(λ^0) (with dependence on N), the special
 O(λ^1) ... To obtain this improvement, we use the Raychaudhuri equation that χ_A satisfies" (pp. 4-5). Proposition C
 is the five-dimensional class version of the 2+1 structure: the two torus directions add principal curvatures that are
 first order, and the one orbit direction carries the whole expansion. It holds where the T² action is free.
+
+[Amendment 2026-11-02 (the independent reader; READ at source here). "The smallness there is the elliptic gauge's, not
+the dust's" is not right for [HL18]: its Theorem 3.3 (p. 9) assumes "‖φ̇‖_(L∞) + ‖∇φ‖_(L∞) + max_A ‖F̆_A‖_(L∞) ≤ ε,
+(3.17)", a smallness of the dust in L∞; the higher norms need none.]
 
 ## 3. The augmented system off the axes, its energy hierarchy, and Theorem N
 
@@ -126,6 +160,12 @@ d(Σ q_A N_A); with the record's propagation identities (`propagate5.py` P1-P2) 
 g⁻¹(p_A, p_A)); a timelike transport field (control) does not. (S7) On Part I's background in its chart (τ = v̂ − R,
 ψ ≤ 0, f ≤ 1), every future causal vector with dτ = 1 has R|dΩ| ≤ (e^ψ/(2 − e^ψ f))^(1/2) ≤ 1 and dR ∈ [−1, e^ψ
 f/(2 − e^ψ f)] ⊂ [−1, 1], negative where f < 0 (control: e^ψ f = 1.9 gives R|dΩ| up to 3.16).
+
+[Amendment 2026-11-02 (the independent reader). S3's and S5's claims and controls compared formula with formula;
+they now impose the augmented equations on the jets at the point and compare with the div T computed from T, and S7's
+grid and control evaluate the computed bounds (augment5.py repaired, `.out` unchanged in text; a mutation of the
+divergence inside the repaired check now fails). On (S6) and Step 9: [DS23]'s (A4) fails more generically than stated:
+the transport roots meet the zero root wherever P_A^i ξ_i = 0, and meet each other on hyperplanes of ξ.]
 
 **Theorem N (deduced; identities computed in classchi5, augment5).** Fix m ≥ 6 and δ > 0. Let Ω be a compact domain of
 the record's type for g̊ (N1STAR-PROOF.md Lemma 1.1 (a)-(e) with g0 := g̊) and ů a smooth T² × Z2 × Z2-invariant
@@ -179,6 +219,10 @@ the families is assumed; ε and C depend on ů, Ω, N and δ.
   record's P3-P4) and d_A = 0 (θ_A := □u_A on Σ_τ0). So D(g) = 0, Ric(g) = T, θ_A = □u_A, and (A4) is the dust's
   conservation law: an Einstein–N-null-dust solution. ∎
 
+[Amendment 2026-11-02 (the independent reader). Step 9's extension to R⁴ must keep P_A^τ > 0, which needs a cut-off on
+p_A like the record's on w. FAMILIES5-AXIS Theorem N′ replaces (H2) by an adaptation of the lateral boundaries where
+they meet an axis, and Step 6's source near an axis by the planar elliptic recovery (Lemma A).]
+
 **Corollary N1 (deduced).** Let g̊ be the seed (Tangherlini of mass μ0 ≥ √72 l5²; F̊_A = 0) on the record's domain with
 μ ≡ μ0, and ů_A any finite set of invariant eikonals of the seed, smooth on Ω, with sets S_A whose tubes stay 2δ from
 the axes (radial phases with S_A in an angular band; or non-radial phases such as axisphase5's ellipse phases, where
@@ -189,6 +233,12 @@ FAMILIES5-FULL §6 S1-S3) and the density data are free, so they stay in S_A, wh
 which Theorem N allows. The hole then grows by O(ε): this is not the record's growing hole, but it is a large,
 non-round background with any number of families — Part II's case "more families, with envelopes vanishing near the
 axes".
+
+[Amendment 2026-11-02 (the independent reader's MAJOR 2). N1's data rest on the record's Proposition 6.5, built for
+λ-dependent data; a small non-round dust source and axis regularity for a solve that is parabolic in θ are not
+checked. N1 is therefore **conditional on such data**. FAMILIES5-AXIS section 2 constructs data near the seed
+(Proposition L: the algebraic-hyperbolic split of [Rac16], hyperbolic on Part I's seed region, computed in
+bandconst5 B3), whose leaves are 3-spheres so axis regularity is automatic, with dust sources free.]
 
 **Corollary N2 (a shorter domain; deduced, conditional on data).** Let ů be Part I's round two-dust background on Ω₂ and
 suppose the data coincide with Part I's on Σ_τ0 ∩ {θ < θ1 or θ > π/2 − θ1} (θ the angle of the orbit quarter plane)
@@ -201,9 +251,18 @@ source is ů's own; elsewhere Theorem N's proof. ∎ In the computed example (a 
 not constructed here: the record's radial solve is parabolic in θ (its ρ-equation has ∂_R a against ∂_θ² a, FAMILIES5-
 FULL §6 S1) and spreads every perturbation over all angles; a localised gluing in the class with dust would supply them.
 
+[Amendment 2026-11-02. The reader re-derived the window exactly: 1 − R²|Ω̇|² = (2 − e^ψ(1 + f))/(2 − e^ψ f). The data
+are supplied (FAMILIES5-AXIS section 2: exactly on cones, B6; on Σ_τ0 by Proposition L, in a band widened by Δ = ∫ c dR,
+0.213 rad within 0.2 of R = a in the example; the record's parabolic split does spread, bandconst5 B5). N2 is superseded
+by FAMILIES5-AXIS Corollary N′1, the background on the whole adapted domain.]
+
 **Corollary N3 (large data, short time; deduced).** For any smooth invariant datum whose densities vanish within 2δ of
 the axes, (A) has a solution on Ω ∩ {τ ≤ τ0 + T}, T depending on the data (Step 9 and Steps 4-8 on a short interval),
 which is an Einstein–N-null-dust solution as long as the tubes stay in {χ_A = 1}.
+
+[Amendment 2026-11-02 (the independent reader). N3 also needs Ω's lateral boundaries and slices spacelike for the
+data's own metric (they are open conditions for g̊, not for a large datum): it is stated for domains with that
+property.]
 
 ## 4. The axes: what fails, exactly (computed: `axisloss5.py` X1-X3; deduced)
 
@@ -251,6 +310,15 @@ families (the flat Bochner identity in the plane), ‖Af‖/‖f‖ = 0.7071 at 
    Einstein–scalar–null dust with an axis, or for five-dimensional T²-invariant metrics, is available here. **That is
    the exact obstruction:** not the size of the data, not the black hole, and not the number of families, but the
    elliptic recovery of the planar shear of each family that reaches an axis.
+
+[Amendment 2026-11-02 (the independent reader's finding and MAJOR 1; FAMILIES5-AXIS.md section 3). Items 2-3 assert
+the curved terms without computing them, and "only", "needs" and the double-null hierarchy claim more than is shown.
+The flat model loses nothing: Af = u′/ρ = κ2 is the dilation average ∫₀¹ t f(t·) dt, bounded on every Ḣ^k (the reader).
+The curved terms, computed in FAMILIES5-AXIS (axisellip5 E0-E1), are first order in the metric: in the slice the
+family's second fundamental form on the plane is the level set's plus the slice's K, with no curvature component and
+no torsion, and the level set obeys a regular Volterra equation from the axis. The obstruction named here is withdrawn;
+Theorem N′ (deduced) holds with dusts at the axes. X3's numerical part now asserts ‖s‖ = ‖f‖ and ‖Af‖ = ‖f‖/√2 to
+10⁻¹² with a rejecting control (axisloss5.py repaired); the reader's mutations s := 2u_ρρ and Af := f/2 now fail.]
 4. *Which families meet it.* Every family whose density is nonzero at an axis — in particular Part I's round ingoing
    and outgoing dusts, for which s ≡ 0 on the round background and is perturbed by any non-round perturbation (the
    metric perturbation reaches the axes at the speed of light, through the constraints at once). Part II's separated
@@ -283,6 +351,11 @@ obstruction. The passage to vacuum is: [HL25] approximate the Vlasov field by N 
 Part II's separation constant c tends to 0 as the families' directions accumulate; families reaching the axes add
 section 4's obstruction. So non-round Vlasov limits in the class remain open, now with the background removed from the
 list of obstructions near the seed.
+
+[Amendment 2026-11-02 (FAMILIES5-AXIS.md section 4). Superseded: the class Einstein–Vlasov system is derived there
+(vlasov5 V1), a restricted field with smooth stress is zero or two radial dusts at an axis (V2-V3), so with Theorem N′
+the background is not the obstruction, axes included; the obstruction is the high-frequency approximation's dependence
+on N (least mixed symbol 1 − cos(2π/N) ~ 2π²/N², V4; [HL25]'s c^N N^N, READ).]
 
 ## 6. Literature (READ, alphaXiv, 2026-11-02)
 
@@ -323,6 +396,11 @@ list of obstructions near the seed.
 - **Open:** the non-round background near Part I's growing hole on the whole Ω₂ (for families meeting the axes); the
   band-localised data of N2; Part II's (iii); uniformity in N (Vlasov).
 
+[Amendment 2026-11-02 (round 4). Now: the axes are closed (FAMILIES5-AXIS Lemma A, Theorem N′, Corollary N′1;
+deduced, identities computed, not independently read); N2's data are supplied and N2 superseded; N1 is conditional on
+data (the reader), supplied near the seed by Proposition L. Open: Part II's (ii) at the axes for more than two
+families and (iii); uniformity in N; an independent reading of FAMILIES5-AXIS sections 3.3-3.4.]
+
 ## 8. Proposed text for the paper's section 9, "More families" (≤ 8 lines)
 
 > More families. In the class the null second fundamental form of each family is diag(θ_h, κ1, κ2) with the torus terms
@@ -333,6 +411,11 @@ list of obstructions near the seed.
 > generators, by the double-null hierarchy, known in four dimensions and not here; so non-round perturbations of the
 > two-dust background, whose dusts meet the axes, and non-round Vlasov limits (whose dust approximations are not uniform
 > in their number) remain open.
+
+[Amendment 2026-11-02. Superseded by FAMILIES5-AXIS.md section 8. If the axis result is not accepted, the reader's
+wording for the axis sentence is: "is not recovered by the transport hierarchy; in a flat model an elliptic estimate
+across the generators recovers it; a curved analogue (as in [LR20], 4D, double-null, two dusts) is not available
+here."]
 
 ## Files
 

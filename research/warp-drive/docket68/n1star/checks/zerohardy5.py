@@ -25,8 +25,8 @@ A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u, f = 1 - mu/r^2, r_h = mu^(1/2) (ze
      has scalar harmonics at even l only and no vector harmonic, so s1 (l = 1) and v1 are absent and the kernel met in
      the class is the single s0 state: I.C:497's sigma_min there is on the complement of one direction, in s0.
   Controls (mutating the computed path; each must fail): C1 H1 with w = r^-2: -(r^3 f w')' - (1 + mu r^-2) r w is not
-  zero and is negative near r_h, so the supersolution test fails; C2 H3's family at the claimed constant raised by 1/10:
-  for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 H4 with r^3 f taken as
+  zero and is negative at r = 2 r_h, so the supersolution test fails; C2 H3's family at the claimed constant raised by
+  1/10: for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 H4 with r^3 f taken as
   r^3 (r - r_h): the factorisation test fails.
 
     python3 checks/zerohardy5.py       (seconds)
@@ -78,9 +78,9 @@ def main():
     print('  H1: -(r^3 f w\')\' - (1 + mu r^-2) r w at w = 1/r: %s (exact)' % h1)
     OK['H2'] = ground_identity()
     print('  H2: r^3 f |(w phi)\'|^2 = r^3 f w^2 |phi\'|^2 - (r^3 f w\')\' w |phi|^2 + (r^3 f w w\' |phi|^2)\' (exact, '
-          'symbolic phi, conj(phi)): %s; so <A_l u, u> >= (l + 1)^2 ||r^-1 u||^2 and ||r^-1 u|| <= ||r A_l u||/(l + 1)^2,'
-          ' l >= 0: constants %s at l = 0, 2, 4, 6' % (OK['H2'], [str(sp.Rational(1, (q + 1) ** 2)) for q in (0, 2, 4,
-                                                                                                         6)]))
+          'symbolic phi, conj(phi)): %s; so <A_l u, u> >= (l + 1)^2 ||r^-1 u||^2 and ||r^-1 u|| <= ||r A_l u||/'
+          '(l + 1)^2, l >= 0: constants %s at l = 0, 2, 4, 6' % (
+              OK['H2'], [str(sp.Rational(1, (q + 1) ** 2)) for q in (0, 2, 4, 6)]))
     R = ratio(dl)
     OK['H3'] = sp.simplify(R - ((l + 1) ** 2 + dl)) == 0
     print('  H3: u = r^(-1-delta): <A_l u, u>/||r^-1 u||^2 = %s (exact): the constant (l + 1)^2 is sharp' % sp.factor(
@@ -90,12 +90,22 @@ def main():
         sp.limit((r - rh) / (r ** 3 * f), r, rh) - 1 / (2 * mu)) == 0
     print('  H4: r^3 f = %s = r (r - r_h)(r + r_h): %s; (r - r_h)/(r^3 f) = 1/(r (r + r_h)) -> 1/(2 mu) at r_h' % (
         fac, OK['H4']))
-    OK['H5'] = True
-    print('  H5 (deduced, READ): eleven = 1 (s0) + 6 (v1) + 4 (s1); in the class only the s0 state: one direction')
+    import os
+    proof = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'N1STAR-PROOF.md')
+    with open(proof) as fh:
+        lines = fh.read().split('\n')
+    read = ('The eleven tensors g-dot^Ups(mu-dot), g-dot^Ups(0, A)' in lines[4982] and 'h_s1(S)' in lines[4983])
+    n4 = 4
+    dims = {'s0': 1, 'v1 (so(4))': n4 * (n4 - 1) // 2, 's1 (l = 1 harmonics on S^3)': (1 + 1) ** 2}
+    in_class = {k_: v_ for k_, v_ in dims.items() if k_ == 's0'}       # even scalar l only, no vector type
+    OK['H5'] = read and sum(dims.values()) == 11 and sum(in_class.values()) == 1
+    print('  H5 (READ N1STAR-PROOF.md:4983-4984: %s; deduced): %s, sum %d; in the class (even scalar l, no vector '
+          'type) %s: one direction' % (read, dims, sum(dims.values()), in_class))
     c1 = supersol(r ** -2)
-    near = sp.limit(c1, r, rh)
-    OK['C1'] = c1 != 0 and near < 0
-    print('  C1 (control): w = r^-2: residual %s, at r_h %s < 0: H1\'s test fails: %s' % (c1, near, OK['C1']))
+    far = sp.simplify(c1.subs(r, 2 * rh))
+    OK['C1'] = c1 != 0 and far < 0
+    print('  C1 (control): w = r^-2: residual %s, at r = 2 r_h %s < 0: not a supersolution, H1\'s test fails: %s' % (
+        c1, far, OK['C1']))
     R20 = R.subs(dl, sp.Rational(1, 20))
     OK['C2'] = all(sp.simplify(R20.subs(l, q) - ((q + 1) ** 2 + sp.Rational(1, 10))) < 0 for q in (0, 2, 4))
     print('  C2 (control): the claim <A_l u, u> >= ((l + 1)^2 + 1/10) ||r^-1 u||^2 at delta = 1/20: ratio (l + 1)^2 + '
