@@ -35,7 +35,8 @@ and cos th become rational in t = tan(th/2), r = q^2, and the result is cancelle
   N4 (exact) D_X H2 = i A E d (r^(-5/2) beta, r^(-7/2), *, 0, 0) with d := (cos sin)^-1 d_th(cos sin tau) = div div T
      on S^3; R_X(H2)_vv = 0 and tr R_X(H2) = 0 (N1 (a)).  The scalar sector of H3 (vv, vr, rr, trace) built from the
      gauge, the trace transport and the vv transport with the data i Pol^+(D_X H2) at r0 satisfies T(H3) + R_X(H2) = 0
-     in vv, vr, rr and trace, and i Pol(H3) + D_X H2 = 0 in v and r.
+     in vv, vr, rr and trace, and i Pol(H3) + D_X H2 = 0 in v and r.  Control: H3_vv transported without the mass
+     coupling 2 mu0 H_vr/r^3 violates the vv equation.
   N5 (exact) At the horizon r = sqrt(mu0): H3_vv = A E d K(r0), K = -mu0^(-7/4) (2 rho^3 - 3 rho^2 - 2)^2/(36 rho^6),
      rho := r0/sqrt(mu0) -- a negative square, zero only at rho* = 1.80644... (the real root, double), and -mu0^(-7/4)/9
      as r0 -> infinity (data at past null infinity).  K = -mu0^(-1) r_h^(-3/2) (r_h^(1/2) beta(r_h))^2 (H2_vth at the
@@ -351,7 +352,11 @@ def n4():
     eqtr = is_zero(trace(Tt))                       # and tr R_X(H2) = 0 above
     pt = pol_tab(H3)
     eqD = [is_zero(I*pt[k] + DX2[k]) for k in (0, 1)]
-    STATE.update(H3=H3)
+    # control: the vv transport without its mass coupling 2 mu0 H_vr/r^3 (the source of the signal) must fail
+    Hm = STATE['H3sym'].copy()
+    Hm[0, 0] = (r0**sp.Rational(3, 2)*STATE['H3sym'][0, 0].subs(r, r0))*r**sp.Rational(-3, 2)
+    ctl = is_zero(T_tab(Hm.subs(dd, DIV2))[0, 0] + RX2[0, 0])
+    STATE.update(H3=H3, n4ctl=ctl)
     print("  N4 D_X H2 = i A E d (r^-5/2 beta, r^-7/2): %s, %s; R_X(H2) vv = 0: %s, trace 0: %s; H3 data at r0: %s;"
           " T(H3) + R_X(H2) = 0 in vv, vr, rr: %s, trace: %s; i Pol(H3) + D_X H2 = 0 in v, r: %s  [%.0f s]"
           % (dv_, dr_, rvv, rtr, data, eqs, eqtr, eqD, time.time() - T0), flush=True)
@@ -416,8 +421,9 @@ def main():
               flush=True)
         ok &= good and not ctl
     good = n4()
-    print("N4 %s" % ("PASS" if good else "FAIL"), flush=True)
-    ok &= good
+    ctl = STATE['n4ctl']
+    print("N4 %s%s" % ("PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
+    ok &= good and not ctl
     for name, f in (("N5", n5), ("N6", n6)):
         good = f()
         ctl = f(control=True)

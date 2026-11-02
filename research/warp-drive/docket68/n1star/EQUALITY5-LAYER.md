@@ -123,7 +123,8 @@ data i Pol^+(D_X H_1) at r0 (control: β without its mass term violates the vθ 
 (i Pol(H_3) = −D_X H_2: H_rr = i(D_X H_2)_r, H_vr = (1/2) tr H + i(D_X H_2)_v), the trace transport (r^(3/2) tr H
 constant along ℓ) and the vv transport, with the data i Pol^+(D_X H_2) at r0, determine (vv, vr, rr, tr) of H_3; they
 satisfy T(H_3) + R_X(H_2) = 0 in vv, vr, rr and trace (the vr and rr equations are consistency checks: they hold
-because the gauge propagates), and i Pol(H_3) + D_X H_2 = 0 in v and r. In closed form, Q := r^(3/2) H(∂_v, g0⁻¹ dr) =
+because the gauge propagates), and i Pol(H_3) + D_X H_2 = 0 in v and r (control: H_3,vv transported without the
+mass coupling 2μ0 H_vr/r³ violates the vv equation). In closed form, Q := r^(3/2) H(∂_v, g0⁻¹ dr) =
 r^(3/2)(H_vv + F H_vr) obeys ∂_r Q = i F ∂_r(r^(3/2)(D_X H_2)_v), and at r_h = √μ0, where F = 0, Q = r_h^(3/2) H_vv.
 
 (f) *The horizon value (N5).* H_3,vv(v, √μ0, θ) = A env(v) d(θ) K(r0) with K as in (0.2). Equivalently K =
