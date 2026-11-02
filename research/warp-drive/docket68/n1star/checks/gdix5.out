@@ -1,1 +1,4 @@
   P1 (a) w = f(t) W: no f''' and the coefficient of f'' in Box w is -g^tt W: True; (b) m = 2, w = t^2 W + t^3 V: Box w at t = 0 is -2 g^tt W: True
+  P1 control (2 delta delta^*, G dropped) (a) w = f(t) W: no f''' and the coefficient of f'' in Box w is -g^tt W: False; (b) m = 2, w = t^2 W + t^3 V: Box w at t = 0 is -2 g^tt W: False
+P1 PASS
+EXIT 0
