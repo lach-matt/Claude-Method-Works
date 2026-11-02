@@ -25,7 +25,8 @@ L2, recomputed here).
      C_(i,m) (5/4)^(1-i/m) M_m^(i/m) lam^(14(1-i/m)) <= lam/5, gives Lam_5' = min_i [5 C_(i,m) (5/4)^(1-i/m)
      M_m^(i/m)]^(-1/(14(1-i/m)-1)); printed for C*_(i,m) (equal nodes, Round 3) and C^DS_(i,m).  The certified upper
      bound of lam_L (no constant of Theorem 1) is then min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12 (lamL5 L4),
-     Lam_5').  Control: at 1.01 Lam_5' the binding term's inequality fails.
+     Lam_5').  And C_eps (the 26-derivative envelope cost of the error terms Lam_8b-d) with C^DS at every i <= 26.
+     Control: at 1.01 Lam_5' the binding term's inequality fails.
 
 Labels: M1 READ; M2, M4 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n, floating
 point at n = 1455).  Every bound is on the threshold the proof delivers, not on the largest lam for which Theorem L
@@ -211,13 +212,26 @@ def m4(control=False):
         lbase, expo = terms[ib][1], terms[ib][2]
         return mp.mpf(lbase.a) + mp.mpf(expo.a)*mp.log10(lam) <= 0          # the inequality at 1.01 Lam_5': must fail
     bound = min(LAMBDA0, LAM4_0, mp.mpf(10)**mp.mpf(res['ds'][0].b))
+    # C_eps = sum_(i<=26) C_(i,m) (5/4)^(1-i/m) M_m^(i/m) with the Duffin-Schaeffer constants (round 3: 10^613.2166)
+    if 'ceps' not in CACHE:
+        tot = iv.mpf(5)/4
+        for i in range(1, 27):
+            tot += cds(i, MM)[0]*(iv.mpf(5)/4)**(1 - iv.mpf(i)/MM)*iv.mpf(10)**(i*lMm)
+        CACHE['ceps'] = iv.log(tot)/iv.log(10)
+    lce = CACHE['ceps']
+    G = iv.mpf(3)*iv.mpf(196)/15625*(iv.mpf(8)/3)/32                      # G = 3 A nu_* d_*/32 (lamL5 L4)
+    lG = iv.log(G)/iv.log(10)
+    l8b = (lG - lce)*iv.mpf(4)/3
+    l8c = (lG - 2*lce)/iv.mpf('11.5')
     out("  M4 log10 M_m^(1/m) <= %s.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)"
         " log10 Lam_5' <= %s (binding i = %d); with C^DS_(i,m) log10 Lam_5' <= %s (binding i = %d); log10 C^DS_(i,m),"
-        " i = 1..4: %s.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12, Lam_5') = %s"
+        " i = 1..4: %s.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12, Lam_5') = %s.  With"
+        " C^DS at every i <= 26: log10 C_eps <= %s (round 3: 613.2166), so Lam_8b, Lam_8d <= 10^(%s) min(C_L11,"
+        " C_L4)^(-4/3) and Lam_8c <= 10^(%s) C_L11^(-1/11.5)"
         % (mp.nstr(mp.mpf(lMm.b), 8), mp.nstr(mp.mpf(res['eq'][0].b), 6), res['eq'][1],
            mp.nstr(mp.mpf(res['ds'][0].b), 6), res['ds'][1],
            ", ".join(mp.nstr(mp.mpf((iv.log(CACHE['ds'][i])/iv.log(10)).b), 6) for i in (1, 2, 3, 4)),
-           mp.nstr(bound, 5)))
+           mp.nstr(bound, 5), mp.nstr(mp.mpf(lce.b), 7), mp.nstr(mp.mpf(l8b.b), 6), mp.nstr(mp.mpf(l8c.b), 6)))
     return bound <= LAM4_0
 
 
