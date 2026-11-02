@@ -10,3 +10,7 @@ Q1 PASS
 Q2 PASS
   Q3 every one of 3 carrier periods has timelike and spacelike points, 5 depths x 3 phases x 2 signs of D2: True (30
       cases)  [1032 s]
+Q3 PASS
+  Q4 at x = lam/10, lam = 1e-6: log10(nonlocal bound/term) = 3553353.4, log10(localised bound/term) = -4342893.9
+Q4 PASS
+edgeP5: all checks pass, every control fails  [1746 s]

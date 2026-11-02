@@ -19,3 +19,9 @@ F1a-F1c  the first variation of F_1 at u_1 = 0 on the full gauge-fixed operator 
   F1b' for K0(ell, ell) = 0 the value coefficient is O(1): the lam^-1 part is exactly the ell-ell one: pass
   F1b'' control (the wave mutated to the non-oscillating lam A): the same test fails, the remainder reaching more than
         100 times the bound above (the lam^-1 coefficient is the oscillation's): pass
+  F1c the gradient coefficient b has lam-order 0: |D F_1[k_grad]| bounded and bounded away from 0 (lam = 1e-2, 1e-3,
+        1e-4): b . d U is at the order the step estimates: pass [['1.476', '0.7677', '0.6754'], ['0.6451', '0.4643',
+        '1.274']]
+  F1c' control (g0 -> eta, no wave): b = 0, so b comes from d(lam [W]) and Gamma[g0]: pass
+FAILED: none
+exit 0
