@@ -1,0 +1,12 @@
+  R1: (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: True
+  R1 control (weight dropped): (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: False
+R1 PASS
+  R2 l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 control l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+  R2 control l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+R2 PASS
+  R3 (a) Lap P_j(cos 2th) = -l(l+2) P_j, l = 2j <= 10: True
+  R3 (b) D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 3) tau: True
+  R3 (c) class 1-forms with zero divergence: Eq(a(theta), C1/sin(2*theta)) (smooth on S^3 only for C1 = 0)
+  R3 (d) the divergence of a class symmetric tensor has no phi components: True
