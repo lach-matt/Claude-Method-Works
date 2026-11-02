@@ -40,6 +40,11 @@ e4 d - ex c), each equal to an explicit bilinear form G_P in (psi; a, c, d) when
      u + v; let al -> 2a, B -> A.)  The extremal solution is computed and must lie below; control: the bound
      A exp(a (u + v)) must fail for it.
 
+  E8 (deduced; computed check) round 2's G_low (ampresp5.py: the solution map's second derivative in data units, 382,
+     at F_low = 9.16, T = 10) read in CERTIFY-10L5.md 2(d)'s own model R' = K R + G R^2: there d^2 R(T)/d delta^2 =
+     2 G F (F - 1)/K with K = ln F/T, so G = G_low K/(2 F (F - 1)); the demand 1/(4 G T F^2) at that G; the model's
+     second derivative checked by integrating it (control: the formula without its factor 2 must fail the check).
+
   python3 checks/linest5.py RUN.npz        (RUN: the record's l1_rc0.9_M32.npz)
 """
 import os, sys, time, importlib.util
@@ -328,6 +333,32 @@ def main():
               'exceeds e^{a(u+v)} (control, must): %s; growth rate log f/(2T) = %.3f a' % (
                   a, T, fT, bT, below, exceeds, rate / a))
     print('E7', 'PASS' if good else 'FAIL'); ok &= good
+    # E8: G_low in 2(d)'s model
+    Fl, Gl, Tm = 9.16, 382.0, 10.0
+    Km = np.log(Fl) / Tm
+    Gm = Gl * Km / (2 * Fl * (Fl - 1))
+
+    def RT(d0, G_, n=20000):
+        h = Tm / n; r = d0
+        for _ in range(n):                                   # RK4 on R' = K R + G R^2
+            f = lambda q: Km * q + G_ * q * q
+            k1 = f(r); k2 = f(r + h * k1 / 2); k3 = f(r + h * k2 / 2); k4 = f(r + h * k3)
+            r += h * (k1 + 2 * k2 + 2 * k3 + k4) / 6
+        return r
+    dd = 1e-4
+    d2 = (RT(dd, Gm) - 2 * RT(0.0, Gm) + RT(-dd, Gm)) / dd ** 2
+    good = abs(d2 / Gl - 1) < 1e-3
+    Gw = Gl * Km / (Fl * (Fl - 1))                          # the control: the factor 2 dropped
+    d2w = (RT(dd, Gw) - 2 * RT(0.0, Gw) + RT(-dd, Gw)) / dd ** 2
+    bad = abs(d2w / Gl - 1) > 1e-3
+    dem = 1 / (4 * Gm * Tm * Fl ** 2)
+    print('E8 G_low = %.0f read in 2(d)\'s model: G = G_low K/(2F(F - 1)) = %.3f (K = %.4f); the model integrated at '
+          'that G gives d2R/ddelta2 = %.1f (%s); demand 1/(4GTF^2) = %.3g; the residual 2.42e-3 is %.2f times it, and '
+          'at G = 10, %.1f times' % (Gl, Gm, Km, d2, 'PASS' if good else 'FAIL', dem, 2.42e-3 / dem,
+                                     2.42e-3 * 4 * 10 * Tm * Fl ** 2))
+    print('   control (the factor 2 dropped): the model gives %.1f, not %.0f ->' % (d2w, Gl),
+          'fails (good)' if bad else 'passes (bad)')
+    ok &= good and bad
     if len(sys.argv) < 2:
         print('linest5 (no run given; E4-E6 skipped):', 'all checks pass' if ok else 'FAILURES')
         return 0 if ok else 1

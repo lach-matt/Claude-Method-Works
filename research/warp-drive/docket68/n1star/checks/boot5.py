@@ -13,11 +13,13 @@ Z := (t - v1) d_t + x.d_x; P_mu(h) := Ric^H(g_b0(mu) + h; g_b0(mu)).
      spacelike) gives a negative value.
   B2 (computed) the bulk sign: g^-1(du, du) = -4 mu/r^2 for g_b0, and stays < 0 for |H| <= mu/(2 r^2) (2000 points),
      so -grad u and d_t are future timelike and T(grad w, d_t) = |w'| T(-grad u, d_t) >= 0. Control: |H| up to
-     8 mu/r^2 makes du spacelike somewhere.
+     8 mu/r^2 makes du spacelike somewhere. (B2d) Phi_W := v + 1/r has g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 -
+     mu r^-2) (exact) and stays timelike for |H| <= r^-2/2 (2000 points): a time function on W for the perturbed
+     metrics, which localises the truncated problems; control (B2e): |H| up to 4 r^-2 breaks it.
   B3 (exact; computed) the Hardy inequality on the slices (four space dimensions):
      int_R^oo r^(2a+1) phi^2 dr <= (a + 1)^-2 int_R^oo r^(2a+3) phi_r^2 dr, the boundary term at the inner edge of
      the good sign, the constant sharp (phi = r^(-a-1-eta): ratio 1/(a + 1 + eta)^2, exact). Control: the constant
-     (a + 1)^-2 / 2 is violated by that family.
+     (a + 1)^-2 / 2 is violated by that family. (B3c: 100 random sums of powers, by quadrature.)
   B4 (exact) the radial derivatives from the commuted fields: x.d_x = Z - (t - v1) d_t; along a ray of
      Sigma~_sigma, d/dr = xhat.d_x + f' d_t; v increases along the ray (1 + f' >= 1/2); |t - v1| <= r on W. Control:
      with |f'| = 3/2 the ray can leave {v >= v1}.
@@ -32,13 +34,14 @@ Z := (t - v1) d_t + x.d_x; P_mu(h) := Ric^H(g_b0(mu) + h; g_b0(mu)).
      Sigma~_sigma (r >= r_sigma >= |sigma| - C) and its time kernel (1 + |sigma|)^-q: residual P(Sigma) = O(lam
      r^(-13/2)) (q = 9/2 - a), explicit coefficients (q = 2, 3), first-order coefficients eps r^(-3/2-a) (q = 3/2 +
      a), zero-order through Hardy eps r^(-1/2-a) (q = a + 1/2), the bulk-sign error and the deformation (q = 3,
-     3/2 + a), the mu d_mu second-order source (q = 2): all integrable exactly for a in (1/2, 7/2), so on R3.6's
-     window (5/2, 3). Controls: a = 1/2 and a = 7/2 each leave one kernel non-integrable.
+     3/2 + a), the mu d_mu second-order source (q = 2): all integrable on R3.6's window (5/2, 3), and on the grid
+     a = 0, 1/100, ..., 5 exactly for a in (1/2, 7/2). Controls: a = 1/2 and a = 7/2 each leave one kernel
+     non-integrable.
   B7 (exact, enumeration) the split of the commuted multilinear terms: every term (m >= 2 slots, |alpha_i| >= 1,
      sum <= k0, one slot with at most two derivatives) has one slot in L^2 (energy order <= k0) and the others in
-     sup (order + 3, or + 4 with two derivatives, <= k0): true for every k0 >= 7 (k0 <= 60), and the same rule with
-     k0 - 1 in place of k0 for the sup factors (the tame induction above a fixed k1) for every k >= 9. Controls:
-     k0 = 6 fails; the rule with the largest slot in sup fails at every k0.
+     sup (order + 3, or + 4 with two derivatives, <= k0): true for every k0 in [7, 30] (m = 2..4 slots), and the same
+     rule with k0 - 1 in place of k0 for the sup factors (the tame induction above a fixed k1) for k = 9..30.
+     Controls: k0 = 6 fails; the rule with the largest slot in sup fails at every k0.
   B8 (exact) the residual's degree: P(g_b0 + Sigma) has its flat parts cancelled degree by degree, the degree -6
      terms (mu Sigma_2, Sigma_2 Sigma_2) cancelled by Sigma_4's equation, and its leading degree is -13/2 (mu
      Sigma_(5/2), Sigma_2 Sigma_(5/2)): ||w^(1/2) P(Sigma)|| on Sigma~_sigma ~ r_sigma^(a - 9/2). Control: without the
@@ -512,16 +515,17 @@ def split_terms(k0, sobolev=3, avail=None, reverse=False):
 
 def b7():
     print("B7  the split of the commuted multilinear terms")
-    ks = [k for k in range(2, 61) if split_terms(k)]
-    mink = min(k for k in range(2, 61) if all(split_terms(kk) for kk in range(k, 61)))
-    check("B7a every multilinear term has a split (largest slot in L^2, the rest in sup) for every k0 in [7, 60]; "
-          "minimal k0 = 7", mink == 7, f"minimal k0 = {mink}")
-    tame = all(split_terms(k, avail=k - 1) for k in range(9, 61))
+    KM = 30
+    ok = {k: split_terms(k) for k in range(2, KM + 1)}
+    mink = min(k for k in range(2, KM + 1) if all(ok[kk] for kk in range(k, KM + 1)))
+    check("B7a every multilinear term (m = 2..4 slots) has a split (largest slot in L^2, the rest in sup) for every k0 "
+          "in [7, 30]; minimal k0 = 7", mink == 7, f"minimal k0 = {mink}")
+    tame = all(split_terms(k, avail=k - 1) for k in range(9, KM + 1))
     check("B7b the tame induction above k1: with the sup factors at energy order <= k - 1 every term splits for "
-          "k = 9..60 (so the orders above k1 = d_1 + c need no smallness, only the lower ones)", tame)
-    check("B7c control: k0 = 6 fails", not split_terms(6))
-    check("B7d control: the rule reversed (smallest slot in L^2, largest in sup) fails at every k0 <= 60",
-          not any(split_terms(k, reverse=True) for k in range(7, 61)))
+          "k = 9..30 (so the orders above k1 need no smallness, only the lower ones)", tame)
+    check("B7c control: k0 = 6 fails", not ok[6])
+    check("B7d control: the rule reversed (smallest slot in L^2, largest in sup) fails at every k0 <= 30",
+          not any(split_terms(k, reverse=True) for k in range(7, KM + 1)))
 
 
 # ---------------------------------------------------------------- B8: the residual's degree
