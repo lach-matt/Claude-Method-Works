@@ -22,7 +22,10 @@
   W4: iota+ rounds per level below 3 <= ceil((2 - eps - lambda_sharp)/d1) = 1470302 (LD14: 1,470,302); N_* = ceil(5/d1) +
       2 = 15000015
       level-2 container per level above 3, |Lambda' cap W|, W = [2 + eta_1, 3 + eta_2): named generators 7470307 (LD15:
-      7,470,307); E^C_I's 24 further chains add 46025756: 53496063, 2.03 x a level's mean level-3 rounds 2.6317e+07
+      7,470,307); E^C_I's 23 further chains add 44555454: 52025761, 1.98 x a level's mean level-3 rounds 2.6317e+07
+      deduplicated union of the chain starts: 27 starts, 52025761 points = named 7470307 + E^C_I 44555454 (control on the
+      union); round 1 listed 24 E^C_I chains, counting [2.5099] (lambda_sharp + 1) twice: 53496063 points per level
+  N5 (control): round 1's list (E^C_I minus the named generators only) does not match the union: True
   W5: control, E_0 empty: (J, log steps, applications) = (2, 0, 3), loss 6 (prop31loss5 Q2)
       E_0 = {(j, 0): j >= 2}, one corner union (R0): 14 exponents below l_I carry logs, max log order 2 at [3.0]; (J, L,
       applications) = (2, 3, 6), loss 12
@@ -33,9 +36,9 @@
   W6: III.I' Proposition 2.1 at I6:216, l_I = 13/4: 5 steps, loss 10 (floor 4 steps, 8: LD16 D582)
   W7: d_G = 11 on the iota+ window; III.G''' Lemma 2.2 l = 18, Proposition 2.4 l' = l + sup d = 30; an iota+ round 4 +
       d_G = 15 (l_I < 3.5); Corollary 3.4's l = 1, a tf round 3 (READ, thetain5 T4)
-  W8 (conditional on H1-H4): d <= 18126947816279750 + (K + 1) c = 1.8127e+16 + 106489470 c, c the per-level loss of the
+  W8 (conditional on H1-H4): d <= 17892090290788934 + (K + 1) c = 1.7892e+16 + 106489470 c, c the per-level loss of the
       steps not counted (FWD, BG, FIN, INT, III.I'''''''''''s windows (<= N_* = 15000015 per call), the pairs of
-      III.I'''''''''''', Lambda_* of III.J'); terms: rounds 8.408e+15, level-2 container 8.545e+15, iota+ 1.174e+15,
+      III.I'''''''''''', Lambda_* of III.J'); terms: rounds 8.408e+15, level-2 container 8.310e+15, iota+ 1.174e+15,
       Proposition 2.1 and the one-off application 3.088e+09
   N1 (control): eps_+ = eps_ind rejected by: ['eps_+ < eps_ind']
   N2 (control): the level-3 sum without its +1 per level and without the top level: 1526 != 1639
@@ -47,6 +50,7 @@ W1 PASS
 W3 PASS
 W3c PASS
 W4 PASS
+N5 PASS
 W5 PASS
 W6 PASS
 W7 PASS

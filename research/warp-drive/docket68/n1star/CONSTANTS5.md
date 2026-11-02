@@ -14,16 +14,19 @@ log, EFFECTIVE-CONSTANTS.md, LOSS-D.md or E2-PILOT.md. Programs: `checks/lzeroau
   argument (Lemma 6.4's weak-* Galerkin limit) gives existence, its bound being the uniform estimate. lambda0 is an
   explicit minimum of eight closed-form terms (section 1.3, checked `lzeroconst5.py` Z4). At the paper's numerical
   point its geometric leaves are certified (lambda_Omega <= 0.026986, tau_end - tau0 <= 5.937209, eps1 >= 5.2617e-4,
-  C_S <= 43.216); **no number for lambda0**: its other leaves are bounds on the approximant's profiles of stages 1-10,
-  which nobody has computed (section 1.5). The same audit settles EFFECTIVE-CONSTANTS.md E5's first item: C_J and
+  C_S <= 43.216); **no number for lambda0**: its other leaves are bounds on the approximant's profiles g_1, ..., g_10
+  [Round 2, V-n4: "of stages 1-10" read loosely; the profiles come from stage 0 and the nine stage solves 1-9 of Lemma
+  5.3, as section 1.5 says], which nobody has computed (section 1.5). [Round 2, V-M2: lambda0 here is the threshold
+  this proof delivers, the minimum of its own terms; it is not the largest lam for which Theorem 1's conclusions hold.] The same audit settles EFFECTIVE-CONSTANTS.md E5's first item: C_J and
   lambda_1.1 of PART-VII Lemma 1.1 are the same theorems at order k = J + 4, so they are constructive too.
 - **d.** The weights now have numbers (section 2.1); (G) is checked against the generators pi_1 E^C_I and does not bind;
   at these weights the loops are counted exactly and **d >= 8,407,505,890,317,054** (computed, `dweights5.py` W3). Two
   of LOSS-D's open items are closed: the data's E^C_I **does carry logarithms below l_I** (the assembly's E_0 =
   {(j, 0) : j >= 2} meets E^C_I at 2 and 3), so the one-off application costs 12, 30 or 48 by reading, not 6 (W5); and
-  III.I' Proposition 2.1 takes **5 steps, loss 10**, one above its floor (W6). The level-2 container grows to 53,496,063
-  points per level once E^C_I's chains are counted, so LD15's comparison cannot show that loop shorter (W4). The
-  composition gives **d <= 1.8127e16 + 1.0649e8 c** on hypotheses H1-H4, c the uncounted per-level loss (W8): a
+  III.I' Proposition 2.1 takes **5 steps, loss 10**, one above its floor (W6). The level-2 container grows to 52,025,761
+  points per level once E^C_I's chains are counted [Round 2, V-M1: round 1 printed 53,496,063, counting the chain of
+  lambda_sharp + 1 = 2.5099 twice], so LD15's comparison cannot show that loop shorter (W4). The
+  composition gives **d <= 1.7892e16 + 1.0649e8 c** [V-M1: was 1.8127e16] on hypotheses H1-H4, c the uncounted per-level loss (W8): a
   conditional bound, not a certified one. The exact obstructions are in section 2.6.
 - **lambda1 and delta.** No quantitative replacement is computed here. Each of the 35 non-effective rows has its
   replacement and the precise missing input (`nrows5.py` R1); a fifth kind the ledger's census did not search, bounds
@@ -114,8 +117,10 @@ numerical point; this is the one its section 9 computes at.
   needs.
 - *What these already say* (computed). At P*, lambda0 <= lambda_Omega <= q0/10 < 0.0540 = 0.540 l5 for every choice of
   a, against the numerics' reduced wavelength 10 l5 = 1: the construction's own standing condition excludes it by a
-  factor above 18.5 (37 at a = q0/2), before any profile enters. This agrees with the paper's section 9 and is now a
-  certified statement about Theorem 1 itself.
+  factor above 18.5 (37 at a = q0/2), before any profile enters. This agrees with the paper's section 9. [Round 2,
+  V-M2: round 1 called this "a certified statement about Theorem 1 itself". It is not: lambda_Omega is one term of the
+  proof's own minimum, a condition the construction imposes (the paper's lines 286-288), so the bound is on the lambda0
+  this proof delivers, not on the largest lam for which Theorem 1's conclusions hold.]
 
 ### 1.5 What a number needs (the exact obstruction)
 
@@ -157,13 +162,15 @@ d1 = lambda_s1,2 - 2 is taken in a certified rational interval of width 3e-57 (a
 being a rational square). With the increments d1 and 1, the chains of {lambda_sharp, 2, 3} come nearest to (2, 2 +
 eps_K] u (3, 3 + eps_K] at 3 + 5.0191e-8, from lambda_sharp + 4,470,304 d1: LOSS-D LD9 G7's value, reproduced. The
 least E^C_I of III.C Definition 3.1, which every admissible E^C_I contains (Definition 3.1 (3) forces 2 + s + s'),
-adds 24 chains (26 points below 3); none comes nearer, their residues sitting near d1/2 and 3 d1/4 because 1/d1 =
+adds 23 chains [Round 2, V-M1: round 1 said 24; lambda_sharp + 1 = 2.5099 is already a chain start] (26 points below 3,
+of which 2, 3 and 2.5099 start chains already); none comes nearer, their residues sitting near d1/2 and 3 d1/4 because 1/d1 =
 3,000,002.5... So E^C_I, one of the four generators LD9 left unlisted, does not make (G) bind, and eps_ind stays the
 binding cap on eps_K at the record's point.
 
 ### 2.3 The loop counts and an exact floor (computed, W3)
 
-The beta-chain has K = 106,489,469 levels (53,244,734 below 3, 53,244,736 above, the top included). Summed exactly by a
+The beta-chain has K = 106,489,469 steps, K + 1 = 106,489,470 levels counting the top (53,244,734 below 3, 53,244,736
+above, the top included) [Round 2, V-n1: round 1 wrote "K levels"; the two parts sum to K + 1]. Summed exactly by a
 floor-sum (control: equal to the level-by-level sum on a scaled instance, W3c; the sum without its +1 per level differs,
 N2):
 
@@ -211,8 +218,10 @@ The elementary losses at these weights (W7): d_G = 11 on the iota+ window, III.G
 18, Proposition 2.4's l' = 30, an iota+ round 4 + d_G = 15, a tf, level-3 or level-2 round 3. The per-level ceilings
 (W4, certified with the d1 interval): the iota+ loop at most ceil((2 - eps - lambda_sharp)/d1) = 1,470,302 rounds per
 level below 3 (LD14, reproduced); N_* = ceil(5/d1) + 2 = 15,000,015; the level-2 container |Lambda' cap W| per level
-above 3 is 7,470,307 for the named generators (LD15, reproduced) plus 46,025,756 from E^C_I's 24 chains, **53,496,063,
-2.03 times a level's mean level-3 rounds** (2.6317e7): LD15's route (the container shorter than the level-3 loop when
+above 3 is 7,470,307 for the named generators (LD15, reproduced) plus 44,555,454 from E^C_I's 23 chains, **52,025,761,
+1.98 times a level's mean level-3 rounds** (2.6317e7) [Round 2, V-M1: round 1 printed 46,025,756 from 24 chains,
+53,496,063 and 2.03, counting the chain of lambda_sharp + 1 twice; `dweights5.py` now checks the count on the
+deduplicated union of the chain starts, control N5]: LD15's route (the container shorter than the level-3 loop when
 the unlisted generators add at most six chains) is closed in the negative by E^C_I alone.
 
 The composition (1.1) over the levels, on these hypotheses:
@@ -223,7 +232,8 @@ The composition (1.1) over the levels, on these hypotheses:
 - H3: at each call of III.I''''' one round raising alpha'_K, Proposition 2.1's 10 and the one-off application's 48;
 - H4: III.J''s charges, and every other step of a level lumped into one unknown c,
 
-gives **d <= 18,126,947,816,279,750 + 106,489,470 c** (computed, W8: rounds 8.408e15, level-2 container 8.545e15,
+gives **d <= 17,892,090,290,788,934 + 106,489,470 c** [V-M1: was 18,126,947,816,279,750] (computed, W8: rounds 8.408e15,
+level-2 container 8.310e15 [was 8.545e15],
 iota+ 1.174e15, the rest 3.1e9). This is conditional. The exact obstructions to a certified upper bound:
 
 1. Lambda's generators pi_1 E_++ (the least choice of III.I'''''''' (1.1)), G and 2 + pi_1 E_col are not computed at
@@ -267,8 +277,10 @@ Banach-Steinhaus theorem, none among the ledger's N-rows; 13 carry a constant: I
 uniform in sigma); III.I''':274; and III.J'':41, 82, where the closed graph theorem gives the tame constants C_k of
 every membership statement (Lemma 1.2 (f)). These enter lambda1 and delta through the tame constants. Their
 replacement is to read each bound off the proof of the membership statement it concerns, which is a chain of explicit
-estimates; that is not done. (The losses, and so d, are not affected: a membership statement fixes its loss by its
-orders.)
+estimates; that is not done. [Round 2, V-m1: round 1 added "(The losses, and so d, are not affected: a membership
+statement fixes its loss by its orders.)". That is too strong: closed-graph steps also hide orders and losses -- "for
+some d0" (II.A-SETUP:960), "a seminorm" (II.A2:188), the weight loss eps'(eps, k) (J3:41) -- so d is unaffected only
+where the membership statement's orders are themselves fixed by explicit estimates; see Round 2, section R2.9.]
 
 ### 3.3 How small the proof's own formulas make them (computed, certified, `deltacap5.py`)
 
@@ -288,8 +300,9 @@ the same formula allows 10^-12.3; without A_2d >= 1 the program prints no number
   data's E^C_I carries logarithms below l_I (2.4); Proposition 2.1's count 5 at I6:216 (2.5); the order of the
   replacements (3.1); the Baire-category kind (3.2); delta, lambda1 < 10^(-7.66e16) given A_2d, C_R >= 1 (3.3).
 - *Computed, exact or certified*: the leaves of 1.4; the weights and their 17 inequalities (2.1); (G) unmoved by E^C_I
-  (2.2); K, R2, R3 and d >= 8,407,505,890,317,054 (2.3); the losses 12/30/48 (2.4); the container 53,496,063 (2.6).
-- *Conditional, not proved*: d <= 1.8127e16 + 1.0649e8 c on H1-H4 (2.6).
+  (2.2); K, R2, R3 and d >= 8,407,505,890,317,054 (2.3); the losses 12/30/48 (2.4); the container 52,025,761 (2.6)
+  [V-M1: was 53,496,063].
+- *Conditional, not proved*: d <= 1.7892e16 + 1.0649e8 c on H1-H4 (2.6) [V-M1: was 1.8127e16].
 - *Open, with the exact obstruction*: lambda0's number (the profiles g_1..g_10 to order about 11, section 1.5); a
   certified upper bound for d (Lambda's generators E_++, G, E_col; five uncounted steps; three readings, section 2.6);
   every N-row and B-row constant (section 3.1-3.2).

@@ -9,3 +9,16 @@ W3  the weighted flux through N
   W3b ... and infinite at a = 1: pass oo
   W3c control: no ell-gain (|d_r phi| ~ r^-2): infinite already at a = 0: pass oo
 W4  the Gronwall kernels along W
+  W4a O(r^-3) coefficient: int (v1-t)^-3 dt finite: pass 1/(2*L**2)
+  W4b quadratic term with |dh| <= r^(-3/2-a), a = 1/4: finite: pass 4/(3*L**(3/4))
+  W4c control: O(r^-1) coefficient (III.K's damping 1-forms): divergent: pass oo
+W5  the cap at t = T
+  W5a a=1/2: cap energy = 1/Tm, -> 0 as T -> -oo: pass 
+  W5a a=9/10: cap energy = 5/Tm**(1/5), -> 0 as T -> -oo: pass 
+  W5b control a=1: cap energy infinite: pass oo
+W6  the weighted Hardy inequality
+  W6a int r^(2a-1) phi^2 <= a^-2 int r^(2a+1) phi_r^2 on phi = r^-b, b > a: pass 
+  W6b control: at a = 0 the ratio lhs/rhs = 1/b^2 is unbounded as b -> 0 (here 100): pass 100
+W1  the divergence identity (mpmath, 50 digits, numerical differentiation)
+  W1a div(T(X)) = (box phi) X phi + T(grad w, d_t) at 12 points: pass max |diff| 1.4e-45 against |div| up to 2.44e+5
+FAILED: none

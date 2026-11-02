@@ -25,7 +25,9 @@ readings cited at each item); READ (delta_50 from checks/eindcert5.out I1, the f
   W8 (conditional) the composition (1.1) over the levels with every count above, on hypotheses H1-H4 of CONSTANTS5.md
      D2.6, the uncounted steps left as one symbol c per level: d <= D_cond + (K + 1) c.
   Negative controls (must fail, and do): N1 a weight choice with eps_+ >= eps_ind; N2 the floor-sum against brute force
-  with a perturbed formula; N3 the extended union without its +1 gives no logarithm; N4 l_I = 3.6 changes W6 and W7.
+  with a perturbed formula; N3 the extended union without its +1 gives no logarithm; N4 l_I = 3.6 changes W6 and W7;
+  N5 (added in round 2) round 1's chain list, which excluded only the named generators and so counted the chain of
+  lambda_sharp + 1 = 2.5099 twice, disagrees with the count on the deduplicated union of the chain starts.
 
     python3 checks/dweights5.py
 """
@@ -333,15 +335,30 @@ def main():
     wlo, whi = 2 + w['eta1'], 3 + w['eta2']
     starts = sorted({g + m for g in named for m in (0, 1) if g + m < whi})
     cnt_named = sum(chain_points(g, d1lo, d1hi, wlo, whi) for g in starts)
-    extra = [g for g in ec if g not in named]
+    # Round 2 (verifier, R2-V1): the chains already started are `starts` (named generators and their +1 shifts), and
+    # lambda_sharp + 1 = 2.5099 lies in the least E^C_I as well; round 1 excluded only `named` here and counted that
+    # chain twice. Exclude every start, and check the count on the deduplicated union of all chain starts.
+    extra = [g for g in ec if g not in starts]
     cnt_ec = sum(chain_points(g, d1lo, d1hi, wlo, whi) for g in extra)
+    union = sorted(set(starts) | {g for g in ec if g < whi})
+    cnt_union = sum(chain_points(g, d1lo, d1hi, wlo, whi) for g in union)
+    extra_r1 = [g for g in ec if g not in named]                    # round 1's list (the double count)
+    cnt_r1 = sum(chain_points(g, d1lo, d1hi, wlo, whi) for g in extra_r1)
+    dup = sorted(set(extra_r1) & set(starts))
     lev3 = (Fr(1, 2) / w['step'])
     print('  W4: iota+ rounds per level below 3 <= ceil((2 - eps - lambda_sharp)/d1) = %d (LD14: 1,470,302); N_* = '
           'ceil(5/d1) + 2 = %d' % (iota, Nstar))
     print('      level-2 container per level above 3, |Lambda\' cap W|, W = [2 + eta_1, 3 + eta_2): named generators '
           '%d (LD15: 7,470,307); E^C_I\'s %d further chains add %d: %d, %.2f x a level\'s mean level-3 rounds %.4e' % (
               cnt_named, len(extra), cnt_ec, cnt_named + cnt_ec, float((cnt_named + cnt_ec) / lev3), float(lev3)))
-    ok['W4'] = iota == 1470302 and cnt_named == 7470307 and cnt_ec > 0
+    ok['W4'] = (iota == 1470302 and cnt_named == 7470307 and cnt_ec > 0 and cnt_union == cnt_named + cnt_ec
+                and len(union) == len(starts) + len(extra))
+    print('      deduplicated union of the chain starts: %d starts, %d points = named %d + E^C_I %d (control on the union); '
+          'round 1 listed %d E^C_I chains, counting %s (lambda_sharp + 1) twice: %d points per level' % (
+              len(union), cnt_union, cnt_named, cnt_ec, len(extra_r1), [float(x) for x in dup], cnt_named + cnt_r1))
+    ok['N5'] = cnt_named + cnt_r1 != cnt_union and len(dup) == 1
+    print('  N5 (control): round 1\'s list (E^C_I minus the named generators only) does not match the union: %s' %
+          ok['N5'])
 
     # W5: the log terms of the data's E^C_I
     lI = w['lI']

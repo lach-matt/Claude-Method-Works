@@ -1,0 +1,4 @@
+  X1: Cartesian forms against the EF pullbacks at 400 random points: largest relative error 1.50e-15; components at the
+      axes finite (['1.59', '0']); chi: (d_r + 3/(2r)) d_s chi = r^-3 f True, zero on Sigma_tau0 True; f equals
+      lead5.py's vv second harmonic (recomputed from lead5.py: True)
+  C1 (control): Gc's cross term with its sign flipped: relative error 0.955
