@@ -205,6 +205,8 @@ def b2():
         dk = sp.simplify(kappa.subs(vals).subs(pt) - want_k.subs(vals))
         dK = sp.simplify(Kt.subs(vals).subs(pt) - want_K.subs(vals))
         ok1 &= dk == 0 and dK == 0
+    print("   kappa = -Nk/(E sqrt(2/E - f)(2 - E f)), Kt = 3 (E f - 1)/(E R sqrt(2/E - f)) (exact at four rational "
+          "points):", ok1)
     # Tangherlini
     mu = sp.Symbol('mu', positive=True)
     fT = 1 - mu / R**2
