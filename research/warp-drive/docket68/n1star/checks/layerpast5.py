@@ -18,25 +18,31 @@ layerlin5.py (imported, not copied: T, R_X, D_X, Pol, the free functions a(th), 
      free constant, so the condition "nothing coming in" fixes the solution.  Control: H2 with finite r0 (round 1's N3,
      data at r0 = 3 sqrt(mu0)) violates the decay condition in its vth component.
   P3 (exact) D_X H2inf = i A E d (r^(-5/2) beta_inf, r^(-7/2), *, 0, 0), beta_inf = (mu0/3) r^-3, d = div div T;
-     R_X(H2inf)_vv = 0, tr R_X(H2inf) = 0.  The scalar sector of H3 with nothing coming in: tr = 0 (r^(3/2) tr is constant
-     along ell), rr = -A E d r^(-7/2), vr = -(mu0/3) A E d r^(-11/2), vv = -(mu0^2/9) A E d r^(-15/2), which solve T(H3) +
-     R_X(H2inf) = 0 in vv, vr, rr and trace, decay (r^(3/2) |.|_cart -> 0), and satisfy i Pol(H3) + D_X H2inf = 0 in v
-     and r.  At the horizon: H3_vv(sqrt mu0) = A E d Kinf, Kinf = -mu0^(-7/4)/9, the r0 -> infinity limit of round 1's
-     K(r0) (N5), now obtained without that limit.  Control: the vv transport without the mass coupling 2 mu0 H_vr/r^3
-     gives H3_vv = 0 with nothing coming in (no signal).
+     R_X(H2inf)_vv = 0, tr R_X(H2inf) = 0.  The scalar sector of H3 with nothing coming in: tr = 0 (r^(3/2) tr is
+     constant along ell), rr = -A E d r^(-7/2), vr = -(mu0/3) A E d r^(-11/2), vv = -(mu0^2/9) A E d r^(-15/2), which
+     solve T(H3) + R_X(H2inf) = 0 in vv, vr, rr and trace, decay (r^(3/2) |.|_cart -> 0), and satisfy i Pol(H3) + D_X
+     H2inf = 0 in v and r.  At the horizon: H3_vv(sqrt mu0) = A E d Kinf, Kinf = -mu0^(-7/4)/9, the r0 -> infinity limit
+     of round 1's K(r0) (N5), now obtained without that limit.  Control: the vv transport without the mass coupling 2 mu0
+     H_vr/r^3 gives H3_vv = 0 with nothing coming in (no signal).
 
 Labels: computed (exact, sympy).  The identification of these profiles with the first-degree part of Theorem A_P's
 approximant is deduced in the note (Lemma L.2_P), not computed here.
-Run: python3 checks/layerpast5.py   (about five minutes; imports layerlin5.py)
+Run: python3 checks/layerpast5.py   (about a minute and a half; imports layerlin5.py)
 """
 import os
 import sys
+import textwrap
 import time
 
 import sympy as sp
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import layerlin5 as L  # noqa: E402
+
+
+def out(msg, flush=True):
+    """print, wrapped at 121 characters"""
+    print(textwrap.fill(msg, width=121, subsequent_indent="      ", break_on_hyphens=False), flush=flush)
 
 T0 = time.time()
 r, v, th, mu0, lam, A, I, n = L.r, L.v, L.th, L.mu0, L.lam, L.A, L.I, L.n
@@ -113,7 +119,7 @@ def p1(control=False):
     inS = all(H2[i, j] == 0 for (i, j) in ((0, 0), (0, 1), (1, 1))) and L.is_zero(L.tr_sigma(H2))
     dec, pw = decays(H2)
     STATE.update(H2=H2, RX1=RX1)
-    print("  P1 H2inf: T(H2inf) + R_X(H1) = 0 (15): %s; i Pol(H2inf) + D_X H1 = 0 (5): %s; in S: %s; r^(3/2)|H|_cart"
+    out("  P1 H2inf: T(H2inf) + R_X(H1) = 0 (15): %s; i Pol(H2inf) + D_X H1 = 0 (5): %s; in S: %s; r^(3/2)|H|_cart"
           " -> 0: %s (leading powers %s)  [%.0f s]" % (eqR, eqD, inS, dec, {k: str(p) for k, p in pw.items()},
                                                      time.time() - T0), flush=True)
     return eqR and eqD and inS and dec
@@ -144,7 +150,7 @@ def p2(control=False):
         lim = sp.limit(r**sp.Rational(3, 2)*expr/r**w, r, sp.oo)
         res.append(sp.simplify(lim - const) == 0)
     ok = all(res)
-    print("  P2 homogeneous solutions of T: r^(3/2)|h|_cart -> its free constant in rr, vr, vv, rth, vth, AB: %s"
+    out("  P2 homogeneous solutions of T: r^(3/2)|h|_cart -> its free constant in rr, vr, vv, rth, vth, AB: %s"
           % res, flush=True)
     return ok
 
@@ -183,7 +189,7 @@ def p3(control=False):
     val = sp.simplify(H3[0, 0].subs(r, sp.sqrt(mu0))/(A*E*DIV2))
     kinf = sp.simplify(val + mu0**sp.Rational(-7, 4)/9) == 0
     STATE.update(H3=H3, Kinf_val=sp.expand(H3[0, 0].subs(r, sp.sqrt(mu0))))
-    print("  P3 D_X H2inf = i A E d (r^-5/2 beta_inf, r^-7/2): %s, %s; R_X(H2inf) vv = 0: %s, trace 0: %s;"
+    out("  P3 D_X H2inf = i A E d (r^-5/2 beta_inf, r^-7/2): %s, %s; R_X(H2inf) vv = 0: %s, trace 0: %s;"
           " H3 scalar sector: vv = -(mu0^2/9) A E d r^(-15/2): %s; T(H3) + R_X(H2inf) = 0 in vv, vr, rr: %s, trace: %s;"
           " i Pol(H3) + D_X H2inf = 0 in v, r: %s; decays: %s %s; H3_vv(sqrt mu0)/(A E d) = %s, = -mu0^(-7/4)/9: %s"
           "  [%.0f s]" % (dv_, dr_, rvv, rtr, closed, eqs, eqtr, eqD, dec, {k: str(p) for k, p in pw.items()}, val,
@@ -195,16 +201,16 @@ def main():
     ok = True
     g = p1()
     ctl = p1(control=True)
-    print("P1 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
+    out("P1 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
     ok &= g and not ctl
     g, ctl = p2(), p2(control=True)
-    print("P2 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
+    out("P2 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
     ok &= g and not ctl
     g = p3()
     ctl = p3(control=True)
-    print("P3 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
+    out("P3 %s%s" % ("PASS" if g and not ctl else "FAIL", " (control passed)" if ctl else ""), flush=True)
     ok &= g and not ctl
-    print("layerpast5: %s  [%.0f s]" % ("all checks pass, every control fails" if ok else "FAILURES", time.time() - T0))
+    out("layerpast5: %s  [%.0f s]" % ("all checks pass, every control fails" if ok else "FAILURES", time.time() - T0))
     return 0 if ok else 1
 
 

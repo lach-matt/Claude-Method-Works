@@ -13,7 +13,8 @@
      ceil(4 beta0), beta0 >= 2, K >= 6; Kinf != 0 so s = p only; (e1)-(e8) hold.  Control: a hypothetical N_P = 7 with
      the round-1 exponent N_P - 6 violates (e4).
   L3 (exact integers) The derivative costs: with c_osc(1, i) = i, c_osc(m+1, i) = max(c_osc(m, i+2), c_osc(m, i+1),
-     i + 2) (transport source with two derivatives, Sigma data with one, the wave with two), c_mean(j, i) = max(c_osc(j+1,
+     i + 2) (transport source with two derivatives, Sigma data with one, the wave with two), c_mean(j, i) =
+     max(c_osc(j+1,
      i), c_osc(j, i+2), c_mean(j-1, i+2)), c_phi = c_mean, c_Psi(j, i) = c_mean(j, i+2), c_delta(1, i) = i,
      c_delta(m+1, i) = max(c_delta(m, i+2), c_delta(m, i+1), c_Psi(m, i), c_mean(m, i+2), c_osc(m, i+2)), the residual
      c_res(i) = max(c_osc(N+1, i+2), c_mean(N, i+2), c_phi(N, i+2)), the correction c_U(j) = j + c_res(0) and the data of
@@ -25,8 +26,14 @@
 Labels: computed (exact arithmetic).  Run: python3 checks/layerledger5.py   (under a second)
 """
 import sys
+import textwrap
 from fractions import Fraction as Fr
 from functools import lru_cache
+
+
+def out(msg, flush=True):
+    """print, wrapped at 121 characters"""
+    print(textwrap.fill(msg, width=121, subsequent_indent="      ", break_on_hyphens=False), flush=flush)
 
 
 def ledger(p, m_over_M, M, wexp, kap=None):
@@ -47,7 +54,7 @@ def l1(control=False):
             for kap in (None, 64):
                 ok &= all(ledger(14, 56, M, N - 5, kap).values())
     c = ledger(14, 56, 2*9 + 8, 9 - 5, 64)
-    print("  L1 N = 9 (K = 6), M = 26, the double root: " + ", ".join("%s %s" % kv for kv in c.items())
+    out("  L1 N = 9 (K = 6), M = 26, the double root: " + ", ".join("%s %s" % kv for kv in c.items())
           + "; all N in [9, 40], M, both cases: %s" % ok, flush=True)
     return ok
 
@@ -61,7 +68,7 @@ def l2(control=False):
             NP = K + 4 + -(-4*Fr(beta0) // 1)
             for M in (2*int(NP) + 8, 8, 1024):
                 ok &= all(ledger(14, 56, M, int(NP) - 3).values())
-    print("  L2 Theorem 2's solution, K in [6, 29], beta0 in {2, 5/2, 7, 40}: (e1)-(e8) hold: %s" % ok, flush=True)
+    out("  L2 Theorem 2's solution, K in [6, 29], beta0 in {2, 5/2, 7, 40}: (e1)-(e8) hold: %s" % ok, flush=True)
     return ok
 
 
@@ -109,17 +116,19 @@ def l3(control=False):
         if N == 9:
             worst = mx
     if not control:
-        print("  L3 closed forms and every used cost <= 2N + 8 for N in [3, 40]: %s (at N = 9: largest cost %d <= 26)"
+        out("  L3 closed forms and every used cost <= 2N + 8 for N in [3, 40]: %s (at N = 9: largest cost %d <= 26)"
               % (ok, worst), flush=True)
     return ok
 
 
 def l4(control=False):
-    r1 = min(N for N in range(3, 30) if all(all(ledger(14, 56, 2*N + 8, N - 6, k).values()) for k in (None, 64)))
-    r2 = min(N for N in range(3, 30) if all(all(ledger(14, 56, 2*N + 8, N - 5, k).values()) for k in (None, 64)))
+    r1 = min(N for N in range(3, 30)
+             if all(all(ledger(14, 56, 2*N + 8, N - 6, k).values()) for k in (None, 64)))
+    r2 = min(N for N in range(3, 30)
+             if all(all(ledger(14, 56, 2*N + 8, N - 5, k).values()) for k in (None, 64)))
     if control:
         return r1 == r2
-    print("  L4 least N with (e1)-(e8): round 1's exponent N - 6: %d (K >= %d); round 2's N - 5: %d (K >= %d)"
+    out("  L4 least N with (e1)-(e8): round 1's exponent N - 6: %d (K >= %d); round 2's N - 5: %d (K >= %d)"
           % (r1, r1 - 3, r2, r2 - 3), flush=True)
     return r1 == 10 and r2 == 9
 
@@ -129,10 +138,10 @@ def main():
     for name, f in (("L1", l1), ("L2", l2), ("L3", l3), ("L4", l4)):
         good = f()
         ctl = f(control=True)
-        print("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
+        out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
               flush=True)
         ok &= good and not ctl
-    print("layerledger5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
+    out("layerledger5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
     return 0 if ok else 1
 
 

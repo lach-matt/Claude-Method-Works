@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """layerdeg5.py -- the degree bookkeeping of EQUALITY5-LAYER.md round 2 (Lemmas L.2(a) and L.3 written out).
 
-  D1 (exact, every component, every harmonic k) The seed's linearised operators on one harmonic H(v, r, th) e^(i k v/lam):
+  D1 (exact, every component, every harmonic k) The seed's linearised operators on a harmonic H(v, r, th) e^(i k v/lam):
      the lam^-2 part of dRic^H is zero (g0^-1(dv, dv) = 0), its lam^-1 part is k T(H) with T the table of layerlin5.py
      (N1), its lam^0 part R_X(H) does not depend on k, and the lam^-1 part of dD is i k Pol(H).  Hence the fast part of
      the seed's stage operator is d_th composed with an operator in X alone: it maps the k-th harmonic to the k-th
@@ -29,12 +29,18 @@ Labels: computed (exact, sympy).  Run: python3 checks/layerdeg5.py   (about a mi
 import os
 import random
 import sys
+import textwrap
 import time
 
 import sympy as sp
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import layerlin5 as L  # noqa: E402
+
+
+def out(msg, flush=True):
+    """print, wrapped at 121 characters"""
+    print(textwrap.fill(msg, width=121, subsequent_indent="      ", break_on_hyphens=False), flush=flush)
 
 T0 = time.time()
 r, v, th, mu0, lam, I, n = L.r, L.v, L.th, L.mu0, L.lam, L.I, L.n
@@ -74,7 +80,7 @@ def d1(control=False):
     pt = L.pol_tab(H)
     p1 = all(L.is_zero(sp.expand(Dd[j]).coeff(lam, -1) - I*k*pt[j]) for j in range(n))
     p0 = all(L.is_zero(sp.diff(sp.expand(Dd[j]).coeff(lam, 0), k)) for j in range(n))
-    print("  D1 on H e^(i k v/lam), k symbolic: lam^-2 part 0: %s; lam^-1 part = k T(H) (15): %s; lam^0 part free of k:"
+    out("  D1 on H e^(i k v/lam), k symbolic: lam^-2 part 0: %s; lam^-1 part = k T(H) (15): %s; lam^0 part free of k:"
           " %s; dD: lam^-1 part = i k Pol(H): %s, lam^0 part free of k: %s  [%.0f s]"
           % (m2, m1, m0, p1, p0, time.time() - T0), flush=True)
     return m2 and m1 and m0 and p1 and p0
@@ -92,7 +98,7 @@ def d2(control=False):
     if control:
         return not first
     mean = sp.simplify(sp.integrate(sp.Symbol('m')*ReA, (t, 0, 2*sp.pi)))
-    print("  D2 harmonics j >= 0 of Re[a e^(i th)] Re[b e^(i th)]: %s; mean of (mean) x (first harmonic): %s"
+    out("  D2 harmonics j >= 0 of Re[a e^(i th)] Re[b e^(i th)]: %s; mean of (mean) x (first harmonic): %s"
           % (harmonics, mean), flush=True)
     return set(harmonics) <= {0, 2} and mean == 0
 
@@ -120,7 +126,7 @@ def d3(control=False):
     m0 = -(Fq - 2*rqp)                       # Lemma E.1 (a): g0^-1(dPhi, dPhi) = F(rho) - 2 rho' on r = rho
     form_b = sp.simplify(beta0 - (1 - sp.sqrt(mu/mu0) - rq*sp.diff(mu, vv)/(4*mu))) == 0
     form_m = sp.simplify(m0 - (sp.sqrt(mu/mu0) - 1 + rq*sp.diff(mu, vv)/(2*mu))) == 0
-    print("  D3 sqrt(x) - 1 <= (x - 1)/2: %s; x^(1/4) - 1 <= (x - 1)/4: %s; beta0 = 1 - sqrt(mu/mu0) - r_q mu'/(4 mu):"
+    out("  D3 sqrt(x) - 1 <= (x - 1)/2: %s; x^(1/4) - 1 <= (x - 1)/4: %s; beta0 = 1 - sqrt(mu/mu0) - r_q mu'/(4 mu):"
           " %s; m0 = sqrt(mu/mu0) - 1 + r_q mu'/(2 mu): %s (so, with mu >= mu0, the stated bounds)"
           % (ok1, ok2, form_b, form_m), flush=True)
     return ok1 and ok2 and form_b and form_m
@@ -150,7 +156,7 @@ def d4(control=False):
     # the square wave Z = sign(sin t): Y a triangle of amplitude pi/2
     if not control:
         ok &= sp.pi/2 <= sp.pi
-        print("  D4 sup|Y|/sup|Z| over the samples: %.4f <= pi; square wave: pi/2 <= pi" % worst, flush=True)
+        out("  D4 sup|Y|/sup|Z| over the samples: %.4f <= pi; square wave: pi/2 <= pi" % worst, flush=True)
     return ok
 
 
@@ -171,7 +177,7 @@ def d5(control=False):
                   for l in range(j + 1))
         ok &= sp.simplify(lhs - rhs) == 0
     if not control:
-        print("  D5 d_v^j (lam^m f(v, v/lam)) = sum_l binom(j, l) lam^(m-l) (d_th^l d_v^(j-l) f)(v, v/lam), j <= 4: %s"
+        out("  D5 d_v^j (lam^m f(v, v/lam)) = sum_l binom(j, l) lam^(m-l) (d_th^l d_v^(j-l) f)(v, v/lam), j <= 4: %s"
               % ok, flush=True)
     return ok
 
@@ -181,10 +187,10 @@ def main():
     for name, f in (("D1", d1), ("D2", d2), ("D3", d3), ("D4", d4), ("D5", d5)):
         good = f()
         ctl = f(control=True)
-        print("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
+        out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
               flush=True)
         ok &= good and not ctl
-    print("layerdeg5: %s  [%.0f s]" % ("all checks pass, every control fails" if ok else "FAILURES", time.time() - T0))
+    out("layerdeg5: %s  [%.0f s]" % ("all checks pass, every control fails" if ok else "FAILURES", time.time() - T0))
     return 0 if ok else 1
 
 

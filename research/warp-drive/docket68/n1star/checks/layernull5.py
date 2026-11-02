@@ -40,8 +40,14 @@ Lemma 2.3).  T(X, Z) := (X u)(Z u) - (1/2) g0(X, Z) g0^-1(du, du), the energy te
 Labels: computed (exact, sympy).  Run: python3 checks/layernull5.py   (about ten seconds)
 """
 import sys
+import textwrap
 
 import sympy as sp
+
+
+def out(msg, flush=True):
+    """print, wrapped at 121 characters"""
+    print(textwrap.fill(msg, width=121, subsequent_indent="      ", break_on_hyphens=False), flush=flush)
 
 v, r, th, p1, p2 = sp.symbols('v r theta phi1 phi2', real=True)
 mu = sp.Function('mu')(v)
@@ -76,7 +82,7 @@ def e1(control=False):
     YY = sp.simplify((Y.T*g*Y)[0] + 1 + mu/r**2) == 0
     tY = sp.simplify((dtau.T*Y)[0] - 1 - mu/r**2) == 0
     tL = sp.simplify((dtau.T*L0)[0] - 1) == 0 and sp.simplify((L0.T*g*L0)[0]) == 0
-    print("  E1 T(L0, Y) = (1/2)(1 + mu/r^2)(ell u)^2 + |dring u|^2/(2 r^2): %s; volume density r^3 c s: %s; g0(Y, Y) ="
+    out("  E1 T(L0, Y) = (1/2)(1 + mu/r^2)(ell u)^2 + |dring u|^2/(2 r^2): %s; volume density r^3 c s: %s; g0(Y, Y) ="
           " -1 - mu/r^2: %s, dtau(Y) = 1 + mu/r^2: %s; L0 future null: %s" % (ok, vol, YY, tY, tL), flush=True)
     return ok and vol and YY and tY and tL
 
@@ -97,7 +103,7 @@ def e2(control=False):
     ok = outer == 0
     # the energy's L^2 term: d_tau int u^2 r^3 = 2 int u d_tau u r^3 + b' u(b)^2 b^3, b' = -1
     ok2 = sp.diff(b, tau) == -1
-    print("  E2 d_tau int_a^(v-tau) phi^2 r^3 = 2 <phi, L0 phi> - 3 int phi^2 r^2 - phi(a)^2 a^3 (outer term zero): %s;"
+    out("  E2 d_tau int_a^(v-tau) phi^2 r^3 = 2 <phi, L0 phi> - 3 int phi^2 r^2 - phi(a)^2 a^3 (outer term zero): %s;"
           " the energy slices' outer radius derivative -1: %s" % (ok, ok2), flush=True)
     return ok and ok2
 
@@ -120,7 +126,7 @@ def e3(control=False):
     neg = all(sp.Rational(j, 20)*(-2 + 4*sp.Rational(j, 20)**2) < 0 for j in range(1, 11))
     Y = -gi*dtau
     aY = sp.simplify((al.T*Y)[0] - (1 + eps*(1 + mu/r**2))) == 0
-    print("  E3 contractions: %s; g0^-1(alpha, alpha) = -2 eps - eps^2 (1 + mu/r^2): %s; worst case at eps = 2 C1 lam:"
+    out("  E3 contractions: %s; g0^-1(alpha, alpha) = -2 eps - eps^2 (1 + mu/r^2): %s; worst case at eps = 2 C1 lam:"
           " -2 s + 4 s^3 - 4 s^2 mu/r^2: %s, negative on (0, 1/2]: %s; alpha(Y) = 1 + eps (1 + mu/r^2): %s"
           % (contr, form, closed, neg, aY), flush=True)
     return contr and form and closed and neg and aY
@@ -143,7 +149,7 @@ def e4(control=False):
     if control:
         return bool(worst.subs({mu: 1, r: 2, s: sp.Rational(1, 10), tt: 100}) < 0)
     closed = sp.simplify(worst - (-2*s*pp + 4*s**3*pp**3 - 4*s**2*pp**2*mu/r**2)) == 0
-    print("  E4 psi' = t^(-3/2): %s; psi(tau0) = 2, psi'(tau0) = 1 (C^1 with 2 + tau - tau0): %s; psi -> 0 at the past:"
+    out("  E4 psi' = t^(-3/2): %s; psi(tau0) = 2, psi'(tau0) = 1 (C^1 with 2 + tau - tau0): %s; psi -> 0 at the past:"
           " %s; worst case -2 s psi' + 4 s^3 psi'^3 - 4 s^2 psi'^2 mu/r^2: %s (negative for s psi' <= 1/2)"
           % (c1, at0, lim, closed), flush=True)
     return c1 and at0 and lim and closed
@@ -164,7 +170,7 @@ def e5(control=False):
                      - rr**(1 - q0)/(q0 - sp.Rational(5, 2))) == 0
     x, y = sp.symbols('x y', positive=True)
     mm = all(min(xa, ya) <= sp.sqrt(xa*ya) for xa in (sp.Rational(1, 3), 2, 7) for ya in (sp.Rational(1, 5), 3))
-    print("  E5 int_r^oo r'^-3 = 1/(2 r^2): %s; int t^(-3/2) dtau = 2: %s; int r^-6 r^3 dr = ((t+a1)^-2 - (t+a2)^-2)/2:"
+    out("  E5 int_r^oo r'^-3 = 1/(2 r^2): %s; int t^(-3/2) dtau = 2: %s; int r^-6 r^3 dr = ((t+a1)^-2 - (t+a2)^-2)/2:"
           " %s; transport from infinity at q = 13/4: (4/3) r^(-9/4): %s; min <= geometric mean: %s"
           % (i1, i2, i3, tr, mm), flush=True)
     return i1 and i2 and i3 and tr and mm
@@ -179,7 +185,7 @@ def e6(control=False):
     lhs = -sp.Rational(1, 2)*Gl*Hw
     ok = sp.simplify(lhs - rhs - ricH_lam) == 0
     if not control:
-        print("  E6 -(1/2) G(g_lam) H(w) = -Ric^H(g_app) + (1/2)(G(g_lam) - G(g_app)) H(g_app) - (Q(g_lam) - Q(g_app)),"
+        out("  E6 -(1/2) G(g_lam) H(w) = -Ric^H(g_app) + (1/2)(G(g_lam) - G(g_app)) H(g_app) - (Q(g_lam) - Q(g_app)),"
               " given Ric^H(g_lam) = 0: %s" % ok, flush=True)
     return ok
 
@@ -189,10 +195,10 @@ def main():
     for name, f in (("E1", e1), ("E2", e2), ("E3", e3), ("E4", e4), ("E5", e5), ("E6", e6)):
         good = f()
         ctl = f(control=True)
-        print("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
+        out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
               flush=True)
         ok &= good and not ctl
-    print("layernull5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
+    out("layernull5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
     return 0 if ok else 1
 
 
