@@ -132,7 +132,7 @@ def _lin_ricH(W, Y, scale):
                     e += G[a][a][d] * G[d][b][c] - G[a][c][d] * G[d][b][a]
             hb = sum(g[b, rho] * (L.D(Dv[rho], c) + sum(Gh[rho][c][sg] * Dv[sg] for sg in range(n))) for rho in range(n))
             hc = sum(g[c, rho] * (L.D(Dv[rho], b) + sum(Gh[rho][b][sg] * Dv[sg] for sg in range(n))) for rho in range(n))
-            e = tr(e - (hb + hc) / 2, 0).coeff(eps, 1)
+            e = sp.expand(tr(e - (hb + hc) / 2, 0)).coeff(eps, 1)        # expanded: eps inside lam^k brackets
             out[(b, c)] = {k: sp.expand(e).coeff(lam, k) for k in range(-3, 1)}
     return out, L
 
