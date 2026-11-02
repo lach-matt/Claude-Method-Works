@@ -1,0 +1,1 @@
+  N1: sym(n1, n2) = -n1*n2*exp(-2*sigma(u, v))*Derivative(f(v), v)*Derivative(h(u), u): the stated form True; zero on pure harmonics and |sym| >= e^(-2 sig) |f' h'| on every mixed one with |n1|, |n2| <= 12: True

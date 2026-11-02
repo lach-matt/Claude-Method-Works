@@ -64,11 +64,11 @@ def main():
     f1, f2 = sp.Function('f1')(v), sp.Function('f2')(v)
     kc = sp.Matrix([0, n1 * sp.diff(f1, v) + n2 * sp.diff(f2, v)])
     symc = sp.simplify((kc.T * ginv * kc)[0] / 2)
-    zero_freq = sp.simplify(sp.diff(2 * f1 - (2 * f1), v)) == 0
-    kc2 = (2 * sp.diff(f1, v) - 1 * sp.diff(2 * f1, v))
-    ctl = symc == 0 and sp.simplify(kc2) == 0 and zero_freq
-    print('  control (two ingoing phases): sym = %s on every harmonic (resonant); f2 = 2 f1: d(2 f1 - f2) = %s: %s'
-          % (symc, sp.simplify(kc2), ctl), flush=True)
+    kc2 = (2 * sp.diff(f1, v) - 1 * sp.diff(2 * f1, v))                       # the harmonic (2, -1) at f2 = 2 f1
+    lower = sp.simplify(symc.subs({n1: 1, n2: 1})) != 0                        # N1's lower bound, tried on the control
+    ctl = symc == 0 and sp.simplify(kc2) == 0 and not lower
+    print('  control (two ingoing phases): sym = %s on every harmonic, so N1\'s lower bound fails (resonant); f2 = 2 '
+          'f1: d(2 f1 - f2) = %s: %s' % (symc, sp.simplify(kc2), ctl), flush=True)
     ok = {'N1': n1ok and grid, 'N2': n2ok, 'control': ctl}
     for kname, val in ok.items():
         print(kname, 'PASS' if val else 'FAIL')
