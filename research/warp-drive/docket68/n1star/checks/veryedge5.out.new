@@ -12,3 +12,8 @@ V3 PASS
       True; exp(-e^(1/x)): x_b ln(1/lam) = 1.39, 1.2266, 1.128 (decreasing to 1); sin^4: x_b/(4 lam) = 1.0; top terms
       increase below x_b/2 and decrease above 3 x_b: {'exp(-1/x)': True, 'exp(-1/x^2)': True, 'record C_c^inf': True}
 V4 PASS
+  V5 lam = 1e-6. Window (x = 0.0051702): |S_5/F - 1| = 1.64e-8, |local/F - 1| = 4.34e-5. Very edge (x = 0.3 lam^(1/2)):
+      |S_5/F - 1| = 1.26e+8, |S_6 - S_5|/|S_5| = 13.0, |local/F - 1| = 0.00179. Sign changes of -m0 - Re[c F e^(i v/lam)]
+      on one period at the edge: {'1': 2, 'i': 2, 'e^(i pi/4)': 2, '0 (control)': 0}; log10 min |F|/margin = 1398.84.
+      Ordering at the edge |F| < top data < U-bound: True (8.02e-21, 1.69e-13, 8.05e+105 per E); in the window (control):
+      False
