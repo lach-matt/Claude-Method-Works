@@ -32,3 +32,12 @@ T7  the Cauchy sequence: tails
         10/(11*T**(11/10))
   T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0: pass
 T8  (R2.6's wording) which incoming fields the weight a < 1/2 fails to exclude
+  T8a F varying in v: cap energy / |T|^(2a) -> int F'^2 > 0 (a = 1/4): grows like |T|^(2a), excluded: pass
+        ['1.09590117225', '1.08953041280', '1.08946643832'] -> 1.08946579208
+  T8b F constant in v (an r^(-3/2) tail of the data on N): the cap energy |T|^(2a-1) -> 0 at a = 1/4 (round 2's S4c-d):
+        this is what a < 1/2 fails to exclude: pass
+T3  the energy identity for a non-stationary metric (mpmath, 40 digits)
+  T3a div(T(X)) = (box_g phi) X phi + T(grad w, d_t) + (1/2) w T^ab d_t g_ab (relative, 6 cases): pass 1.26e-40
+  T3b g^ab d_a d_b phi = box_g phi + g^ab Gamma^c_ab d_c phi: pass 6.31e-41
+  T3c control: without the deformation term the identity fails at every point: pass 1.72e-5
+FAILED: none
