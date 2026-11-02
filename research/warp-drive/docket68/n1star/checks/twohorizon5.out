@@ -13,3 +13,7 @@
       pure (0, n2) 4.3e-32; (those in s1 alone, for comparison: 4.912e-01)  [1003 s]
   H3 point 3: lam^-1 term 0.0e+00; lam^0 oscillation 3.4e-33; lam^1 harmonics depending on s2: mixed 1.7e-33,
       pure (0, n2) 7.7e-34; (those in s1 alone, for comparison: 3.661e-01)  [1003 s]
+  H3 control (ghat_2 dropped): lam^1 mixed harmonics 1.007e-02 1.151e-01 4.031e-03 (must be nonzero)  [1029 s]
+H1 PASS
+H2 PASS
+H3 PASS
