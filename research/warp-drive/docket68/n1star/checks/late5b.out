@@ -16,3 +16,5 @@ L5 the null step: max |rho| per band (absolute; relative to its largest term in 
      v in [1.80, 1.90): 800 3.14e-02 (1.3e-02)  1600 9.03e-03 (3.8e-03)  ratio 3.48
      v in [1.90, 2.00): 800 5.23e-01 (1.4e-01)  1600 5.44e-01 (1.5e-01)  ratio 0.96
      v in [2.00, 2.25): 800 8.83e+00 (8.3e-01)  1600 1.04e+01 (8.5e-01)  ratio 0.85
+  control (W_v for 2 W_v), M = 32, [1, 1.5), r_A >= 1.2: 7.34e-02 -> 7.28e-02, ratio 1.01 -> fails (good)
+  L8 M = 32, 1.0 <= r_A < 1.2: largest increase of e^{-2W} R_v over the band's max |e^{-2W} R_v|, 800 / 1600: -8.1e-07 / -9.9e-08; -2.3e-05 / -3.0e-06; 1.0e-04 / 1.3e-05; -9.4e-05 / -1.0e-04; -1.0e-03 / -4.6e-04; 3.2e-02 / 1.8e-02; 2.1e-01 / 1.4e-01
