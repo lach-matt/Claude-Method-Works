@@ -19,3 +19,15 @@ Y1 K = M^-1 N = Lambda A, A =
    left eigenvectors (eigenvalue -1) and left null vector d zeta check: True; generalised vector eta A = d zeta solvable:
        True (eta = {e0: 2*e3/R - 3/(2*R), e1: e3*(x/3 + 1/3), e2: e3*(1/3 - x/3)})
 Y1 PASS
+Y2 constraint-preserving rows: M3^-1 N3 = -Lambda I: True; R enters through R_xx with [-3/(R*(x + 1)), 3/(R*(x - 1)), 0]
+    (times Lambda) and
+   R_uv with [3/(R*(x + 1)), -3/(R*(x - 1)), 3/(2*R)]; the Raychaudhuri row has the single second derivative R_vv,
+       coefficient -3/R: True
+   control: Jordan test on the 3 x 3 block: charpoly (l + 1)**3, Jordan block at 0: False -> fails (good)
+Y2 PASS
+Y3 Jordan block: a = k^2 Lambda (u - u0)(v - v0), b = 1 solve a_uv = k^2 Lambda b, b_uv = 0 with data (0, 1): True;
+    growth k^2 Lambda (u - u0)(v - v0), unbounded in k
+   control (semisimple block): J_0(2k sqrt(Lambda (u - u0)(v - v0))) solves f_uv = -k^2 Lambda f with data 1: True; |J_0|
+       <= 1 for every k -> the bounded case, as it must be
+   right Jordan chain A e0 = 0, A e1 = -e0 solvable: True
+Y3 PASS
