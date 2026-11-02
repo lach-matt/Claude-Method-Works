@@ -226,7 +226,8 @@ def main():
     ceil = {nm: hyp + La * res[nm][1] for nm in ('R0', 'R1')}
     OK['F5'] = ok_A and hyp == 37919137148906758 and ceil['R0'] == hyp + La * 23
     print('  F5: n_iota <= 3 P_iota + excess (excess %d on R0, %d on R1); per exponent: d <= %d (R0), %d (R1) + '
-          '%d X_7 + %d c\' (%.6e + ...; N = 21 d + 6 <= %.6e + ...), against the floor 8,407,505,890,317,054 (ratio %.3f)' % (
+          '%d X_7 + %d c\' (%.6e + ...; N = 21 d + 6 <= %.6e + ...), against the floor 8,407,505,890,317,054 '
+          '(ratio %.3f)' % (
               res['R0'][1], res['R1'][1], ceil['R0'], ceil['R1'], La, K1, ceil['R1'], 21 * ceil['R1'] + 6,
               ceil['R1'] / 8407505890317054))
     # F6 L_0

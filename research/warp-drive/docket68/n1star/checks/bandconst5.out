@@ -2,3 +2,11 @@ B1 (exact at rational points) the class constraints in [Rac16]'s algebraic-hyper
    H linear in kappa: True ; coefficient 2 Kt: True
    point R = 3/2, th = atan(3/4): det / (4.22) = 245/156 for every xi: True
    point R = 2, th = atan(5/12): det / (4.22) = 91/43 for every xi: True
+   point R = 7/3, th = atan(8/15): det / (4.22) = 7735/2973 for every xi: True
+   control (kappa not eliminated): det / (4.22) depends on xi: True
+   speeds at p = 0: dth/dR = +- sqrt(G) sqrt(-kappa/(Kt R^2)): True
+B2 (exact) Part I's chart and slice tau = vhat - R: Kt, kappa, the hyperbolicity sign; Tangherlini; [Rac16] (4.30)
+   kappa = -Nk/(E sqrt(2/E - f)(2 - E f)), Kt = 3 (E f - 1)/(E R sqrt(2/E - f)) (exact at four rational points): True
+   Tangherlini: Nk = (mu/R^3)(f - 3): True ; angular speed c(R)^2 = (2 + mu/R^2)/(3 R^2): True
+   four dimensions: -K^l_l/kappa = 2(1 + 2H)/(1 + H) ([Rac16] (4.30)): True ; control (trace factor 3 in 4D) differs: True
+B4 (exact at rational points) compactly supported solutions of the linearised constraints, round slices
