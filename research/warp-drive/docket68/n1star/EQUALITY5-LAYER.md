@@ -233,9 +233,8 @@ small, and the signal's amplitude is at least λ³ (3y/4) K_* d_*, d_* := min |d
 conditions (e1) 2p > 3 + p, (e2) pM/m < 1, (e3) p(1 − 2M/m) > 2, (e4) N − 6 − 3 > pM/m, (e5) p/m < 1, (e6) p(1 − M/m)
 > 6 hold for p = 14, m = 56 M once N ≥ 10, i.e. K ≥ 7 (W3, exact; control: N = 9 violates (e4)), so δ(λ) → 0. Case
 (v_s − τ0)/√μ0 = ρ*: K(v − τ0) = (K_ρρ(ρ*)/(2μ0))(v − v_s)²(1 + o(1)) with K_ρρ(ρ*) ≠ 0 (N5; K as a function of
-ρ) and v − v_s ≥ v* − v_s ≥ (y/C_κ)^(1/κ)
-(Lemma L.6), so the amplitude is at least c λ³ y^(1 + 2/κ); the conditions with 3 + p replaced by 3 + p(1 + 2/κ) hold as
-well (W3).
+ρ) and v − v_s ≥ v* − v_s ≥ (y/C_κ)^(1/κ) (Lemma L.6), so the amplitude is at least c λ³ y^(1 + 2/κ); the conditions
+with 3 + p replaced by 3 + p(1 + 2/κ) hold as well (W3).
 
 *Sign change.* e^(iv/λ) turns twice on W_λ. At every ω, at the points of each half of W_λ where Re[d e^(iv/λ)] sgn(−K)
 = |d|, (0.1) gives g_λ⁻¹(dΦ0, dΦ0) ≥ λ³ (3y/4)|K||d|(1 − δ(λ)) > 0: timelike; where it is −|d|, the value is < 0:

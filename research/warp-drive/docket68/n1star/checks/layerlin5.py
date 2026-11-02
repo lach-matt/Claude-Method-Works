@@ -40,8 +40,8 @@ and cos th become rational in t = tan(th/2), r = q^2, and the result is cancelle
   N5 (exact) At the horizon r = sqrt(mu0): H3_vv = A E d K(r0), K = -mu0^(-7/4) (2 rho^3 - 3 rho^2 - 2)^2/(36 rho^6),
      rho := r0/sqrt(mu0) -- a negative square, zero only at rho* = 1.80644... (the real root, double), and -mu0^(-7/4)/9
      as r0 -> infinity (data at past null infinity).  K = -r_h^(-3/2) beta(r_h)^2 (beta(r_h): the radial factor of
-     H2_vth at the horizon, squared).  Control: a transverse angular tensor (a, b) = ((1 + 3 cos 2th)/2, (1 - 3 cos 2th)/2) has tau
-     = 0, so d = 0 and no signal.
+     H2_vth at the horizon, squared).  Control: a transverse angular tensor (a, b) = ((1 + 3 cos 2th)/2, (1 - 3 cos
+     2th)/2) has tau = 0, so d = 0 and no signal.
   N6 (exact) For the paper's wave, T = T^G - i T^F: d^F = sqrt2 P(zeta)/(1 + zeta^2)^(5/2), d^G = sqrt2 P(-zeta)/(1 +
      zeta^2)^(5/2), zeta = cos 2th, P = -2 zeta^5 - (20/3) zeta^3 - (20/3) zeta^2 - (38/3) zeta + 4/3; gcd(P(zeta),
      P(-zeta)) = 1, so |d|^2 = (d^F)^2 + (d^G)^2 > 0 at every angle.  Control: one quadrature alone vanishes at one
