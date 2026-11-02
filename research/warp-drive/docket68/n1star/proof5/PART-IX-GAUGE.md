@@ -233,8 +233,9 @@ $\Omega'$, and a smooth function equal to 1 on the closed set $\Omega'_+$ with s
 it by 0 beyond. By Lemma 1.1 on $\Omega'$, with $P := 2\delta_gG_g\delta^*_g$ or its negative (Lemma 2.1 (a)), there is
 a smooth 1-form $w$ on $\Omega'$ with
 $$2\delta_gG_g\delta^*_gw = F,\qquad w|_{\Sigma_U} = 0,\qquad\nabla_\nu w|_{\Sigma_U} = Y^\flat.$$
-Put $X := w^\sharp|_{\Omega'_+}$. Then $\Theta(\mathcal L_Xg) = \Theta(2\delta^*_gw) = F = \Theta(k)$ on $\Omega'_+$,
-and $X = 0$, $\nabla_\nu X = Y$ on $\Sigma_U$.
+Put $X := w^\sharp$, a smooth vector field on $\Omega'$; the theorem's $X$ is its restriction to $\Omega'_+$, and Lemma
+2.1 (f) applies to it as it stands. Then $\Theta(\mathcal L_Xg) = \Theta(2\delta^*_gw) = F = \Theta(k)$ on
+$\Omega'_+$, and $X = 0$, $\nabla_\nu X = Y$ on $\Sigma_U$.
 
 *Step 2 (the difference has vanishing Cauchy data).* Let $h := k-\mathcal L_Xg$.
 
@@ -243,47 +244,75 @@ and $X = 0$, $\nabla_\nu X = Y$ on $\Sigma_U$.
 - $h$ induces zero linearised data: $k$ does by assumption, and $\mathcal L_Xg$ does by Lemma 2.1 (f). So by Lemma 2.1
   (c), $(\nabla_\nu h)(e_i,e_j) = 2\dot K(e_i,e_j) = 0$.
 
-- $\Theta(h) = 0$ on $\Omega'$ by Step 1. At $\Sigma_U$, Lemma 2.1 (d) with $h' := \nabla_\nu h$ and $h'(e_i,e_i) = 0$
-  gives $h'(\nu,e_j) = 0$ and $h'(\nu,\nu) = 0$.
+- $\Theta(h) = 0$ on $\Omega'_+$ by Step 1. At $\Sigma_U$, Lemma 2.1 (d) with $h' := \nabla_\nu h$ and $h'(e_i,e_i) =
+  0$ gives $h'(\nu,e_j) = 0$ and $h'(\nu,\nu) = 0$.
 
 So $h|_{\Sigma_U} = 0$ and $\nabla_\nu h|_{\Sigma_U} = 0$.
 
 *Step 3 (it vanishes).* $D\mathrm{Ric}(h) = D\mathrm{Ric}(k)-D\mathrm{Ric}(\mathcal L_Xg) = 0$ (Lemma 2.1 (b)), and
-$\Theta(h) = 0$, so $L^0h = 0$ by (0.1). $2L^0$ or its negative is normally hyperbolic (Lemma 2.1 (a)). [BGP] Corollary
-3.2.4 on $\Omega'$ gives $h = 0$. $\square$
+$\Theta(h) = 0$, so $L^0h = 0$ on $\Omega'_+$ by (0.1); $h$ is smooth up to $\Sigma_U$.
+
+- *$h$ vanishes to infinite order along $\Sigma_U$.* Work in coordinates $(t_{\mathrm{IVP}},y)$ near a point of
+  $\Sigma_U$. As $h = 0$ on $\Sigma_U$, $\nabla_\nu h = \nu^{t}\partial_{t_{\mathrm{IVP}}}h$ there, with $\nu^t :=
+  d t_{\mathrm{IVP}}(\nu)>0$; so $\partial_{t_{\mathrm{IVP}}}h = 0$ on $\Sigma_U$. Suppose
+  $\partial^j_{t_{\mathrm{IVP}}}h = 0$ on $\Sigma_U$ for $j<m$, some $m\ge2$, so that every derivative of $h$ of order
+  below $m$ vanishes there. By Lemma 2.1 (a), $2L^0 = -g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})
+  \partial^2_{t_{\mathrm{IVP}}}+R$, with $R$ of second order and at most first order in $\partial_{t_{\mathrm{IVP}}}$,
+  and $g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})<0$ as $dt_{\mathrm{IVP}}$ is timelike: $\Sigma_U$ is noncharacteristic.
+  Apply $\partial^{m-2}_{t_{\mathrm{IVP}}}$ to $2L^0h = 0$ and restrict to $\Sigma_U$: every term but
+  $-g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})\partial^m_{t_{\mathrm{IVP}}}h$ is a derivative of order below $m$, or of
+  order $m$ with at most $m-1$ derivatives in $t_{\mathrm{IVP}}$ (a tangential derivative of a vanishing normal one),
+  so it vanishes; hence $\partial^m_{t_{\mathrm{IVP}}}h = 0$ on $\Sigma_U$. `ix5.py` X8 computes the leading
+  coefficient: for $h = t^mH+t^{m+1}K$ on a curved metric, the coefficient of $t^{m-2}$ in $L^0h$ at $t = 0$ is
+  $-\frac12m(m-1)g^{tt}H$, $m = 2,\dots,5$.
+
+- *Extension by zero.* Put $\tilde h := h$ on $\Omega'_+$ and $\tilde h := 0$ on $\Omega'\cap\{t_{\mathrm{IVP}}<0\}$.
+  Every derivative of $h$ tends to 0 at $\Sigma_U$, so $\tilde h$ is smooth on $\Omega'$ ([BGP] p. 81's device, section
+  0). $L^0\tilde h$ is smooth and vanishes off $\Sigma_U$, so everywhere; and $\tilde h|_{\Sigma_U} = 0$, $\nabla_\nu
+  \tilde h|_{\Sigma_U} = 0$.
+
+$2L^0$ or its negative is normally hyperbolic (Lemma 2.1 (a)). [BGP] Corollary 3.2.4 on $\Omega'$, on each component,
+gives $\tilde h = 0$, so $h = 0$ on $\Omega'_+$. $\square$
 
 **Corollary 2.3 (Part VIII's solution in any gauge).** Let $(\dot\gamma,\dot k)$, $\dot g$, $S'$, $\dot b$ and $U'$ be
-as in Part VIII Theorem 2.2, $U\subset N^\circ$ open and $\Omega' := D_U(\Sigma_U)$. Let $\dot g'$ be a smooth
-symmetric 2-tensor on $\Omega'$ with $D\mathrm{Ric}(\dot g') = 0$ that induces on $\Sigma_U$ the data
-$(\dot\gamma,\dot k)$ plus those of $\mathcal L_Zg$, for a smooth $Z$ near $\Sigma_U$. Then
-$$\dot g' = \dot g+\mathcal L_Xg\quad\text{on }\Omega'$$
-for a smooth vector field $X$ on $\Omega'$. In particular, where $\chi_K = 1$ in $\Omega'$,
+as in Part VIII Theorem 2.2, $U\subset U^\sharp$ open, $\Omega' := D_U(\Sigma_U)$ and $\Omega'_+ :=
+\Omega'\cap\{t_{\mathrm{IVP}}\ge0\}\subset N^+\subset N$. Let $\dot g'$ be a symmetric 2-tensor on $\Omega'_+$, smooth
+up to $\Sigma_U$, with $D\mathrm{Ric}(\dot g') = 0$, that induces on $\Sigma_U$ the data $(\dot\gamma,\dot k)$ plus
+those of $\mathcal L_Zg$, for a vector field $Z$ near $\Sigma_U$ in $\Omega'_+$, smooth up to $\Sigma_U$. Then
+$$\dot g' = \dot g+\mathcal L_Xg\quad\text{on }\Omega'_+$$
+for a vector field $X$ on $\Omega'_+$, smooth up to $\Sigma_U$. In particular, where $\chi_K = 1$ in $\Omega'_+$,
 $$\dot g'-\mathcal L_Xg-\partial_bg_b|_{b=b_0}(\dot b) = h_{b_0,\mathrm{rem}}(q')+h',$$
-For $U = N^\circ$, $\Omega'$ contains $N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2), so on the region where
-Part VIII (2.3) is stated, intersected with $\{r>r_0\}$ ($\Omega'\subset M^\circ$), the remainder has the rate of
-Part VIII (2.3): every linearised vacuum solution with these data settles, up to the linearised diffeomorphism
-$\mathcal L_Xg$, to a linearised Myers-Perry metric, with $X$ itself not controlled (Remark 2.4 (b)). For a general
-open $U$ this holds only on the part of that region which $\Omega'$ contains (verifier 162's M3).
+with $q'$ and $h'$ the components of $D_0\Phi(U') = (h',\vec p\,',q')$ named in Part VIII Theorem 2.2 (3), as in its
+(2.2). For $U = U^\sharp$, $\Omega'_+ = N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2). The region where Part
+VIII (2.3) is stated has $t_{\mathrm{IVP}}\ge t_*\ge T'$, so its part in $\{r>r_0\}$ lies in $N^+$, and there the
+remainder has the rate of Part VIII (2.3): every linearised vacuum solution with these data settles, up to the
+linearised diffeomorphism $\mathcal L_Xg$, to a linearised Myers-Perry metric, with $X$ itself not controlled (Remark
+2.4 (b)). For a general open $U$ this holds only on the part of that region which $\Omega'_+$ contains (verifier 162's
+M3).
 
-*Proof.* $\dot g$ is smooth on $N\supset\Omega'$ with $D\mathrm{Ric}(\dot g) = 0$ (section 0; Part VIII Theorem 2.2
-(1)). Near $\Sigma_{\mathrm{IVP}}$ in $N$, $\dot g = \dot h+\dot g_{S'}$ with $\dot g_{S'} = -\mathcal L_{V(S')}g$:
-the set $\mathcal D' = \mathcal D\setminus\{t^\flat_*\ge\hat T+\frac74\}$ of Part VIII Theorem 2.2 (2) contains
-$N\cap\{t_{\mathrm{IVP}}<\hat T+\frac74\}$, as $t^\flat_*\le t_*\le t_{\mathrm{IVP}}$ where $t^\flat_*$ is defined. $\dot
-h$ induces $(\dot\gamma,\dot k)$ (Part VIII Lemma 1.1 (1), Proposition 1.2's data). So $k := \dot g'-\dot g$ has
-$D\mathrm{Ric}(k) = 0$ on $\Omega'$ and induces the data of $\mathcal L_{Z+V(S')}g$. Theorem 2.2 gives $k = \mathcal
-L_Xg$. The second display is Part VIII (2.2) with $\dot g = \dot g'-\mathcal L_Xg$. $\square$
+*Proof.* $\dot g$ is smooth on $N$ with $D\mathrm{Ric}(\dot g) = 0$ (section 0; Part VIII Theorem 2.2 (1)), and its
+restriction to $N^+\supset\Omega'_+$ is smooth up to $\Sigma^\circ$ (section 0). Near $\Sigma_{\mathrm{IVP}}$ in $N$,
+$\dot g = \dot h+\dot g_{S'}$ with $\dot g_{S'} = -\mathcal L_{V(S')}g$: the set $\mathcal D' = \mathcal
+D\setminus\{t^\flat_*\ge\hat T+\frac74\}$ of Part VIII Theorem 2.2 (2) contains $N\cap\{t_{\mathrm{IVP}}<\hat
+T+\frac74\}$, as $t^\flat_*\le t_*\le t_{\mathrm{IVP}}$ where $t^\flat_*$ is defined. $\dot h$ induces
+$(\dot\gamma,\dot k)$ (Part VIII Lemma 1.1 (1), which allows a tensor given on one side up to $\Sigma_{\mathrm{IVP}}$;
+Proposition 1.2's data). So $k := \dot g'-\dot g$ is smooth up to $\Sigma_U$ on $\Omega'_+$, has $D\mathrm{Ric}(k) = 0$
+there, and induces the data of $\mathcal L_{Z+V(S')}g$. Theorem 2.2 gives $k = \mathcal L_Xg$. The second display is
+Part VIII (2.2) with $\dot g = \dot g'-\mathcal L_Xg$. $\square$
 
 **Remark 2.4 (what is and is not asserted).** (a) The statement is the linear counterpart of the gauge comparison that
 Part VII Remark 4.1 leaves to the nonlinear theory; it is proved here for the linearisation only. (b) Nothing is
 asserted about the size or decay of $X$: $X$ solves a linear wave equation with source $\Theta(k)$ and its own Cauchy
 data, and its behaviour at $\mathscr I^+$ and $K^+$ depends on the gauge of $\dot g'$. So the paper's section 8.2
 routes keep their status: a solution in the Regge-Wheeler-type gauge or in the harmonic gauge with the same data is
-$\dot g+\mathcal L_Xg$ on its Cauchy development (Corollary 2.3), which settles modulo $\mathcal L_Xg$; the decay *in
-those gauges* is the decay of $\mathcal L_Xg$ there, which is what the deduced routes argue and is not proved here.
-(c) In the class of Part VII, if $U$ is $G$-invariant (for instance $U = N^\circ$), so that $\Omega'$ is $G$-stable,
-and $\dot g'$ and $Z$ are $G$-invariant, $X$ may be taken $G$-invariant: $G$ is compact and acts by isometries of $g$
-(Part VIII Corollary 2.3's proof), $k$ is $G$-invariant, and the Haar average $X_G := \int_G\sigma_*X\,d\sigma$ has
-$\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's M4).
+$\dot g+\mathcal L_Xg$ on the future of $\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Corollary 2.3), which settles modulo
+$\mathcal L_Xg$; the decay *in those gauges* is the decay of $\mathcal L_Xg$ there, which is what the deduced routes
+argue and is not proved here. (c) In the class of Part VII, if $U$ is $G$-invariant (for instance $U = U^\sharp$: $G$
+preserves $t_{\mathrm{IVP}}$ and $|x|$), so that $\Omega'$ and $\Omega'_+$ are $G$-stable, the data
+$(\dot\gamma,\dot k)$ are in the class of Part VIII Corollary 2.3, and $\dot g'$ and $Z$ are $G$-invariant, then $X$
+may be taken $G$-invariant. $G$ is compact and acts by isometries of $g$ (Part VIII Corollary 2.3's proof); $\dot g$
+is $G$-invariant by that Corollary, so $k = \dot g'-\dot g$ is; and the Haar average $X_G := \int_G\sigma_*X\,d\sigma$
+has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's M4).
 
 ## 3. Findings, labels and sources
 
