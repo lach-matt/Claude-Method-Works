@@ -13,29 +13,31 @@ log, EFFECTIVE-CONSTANTS.md, LOSS-D.md or E2-PILOT.md. Programs: `checks/lzeroau
   Kato-Majda iteration, or a perturbation of an explicit margin; no step of the kinds N1-N4 occurs. The one compactness
   argument (Lemma 6.4's weak-* Galerkin limit) gives existence, its bound being the uniform estimate. lambda0 is an
   explicit minimum of eight closed-form terms [Round 2, V-m4: nine; Proposition 6.5's ball invariance was missing]
-  (section 1.3, checked `lzeroconst5.py` Z4). At the paper's numerical
-  point its geometric leaves are certified (lambda_Omega <= 0.026986, tau_end - tau0 <= 5.937209, eps1 >= 5.2617e-4,
-  C_S <= 43.216); **no number for lambda0**: its other leaves are bounds on the approximant's profiles g_1, ..., g_10
-  [Round 2, V-n4: "of stages 1-10" read loosely; the profiles come from stage 0 and the nine stage solves 1-9 of Lemma
-  5.3, as section 1.5 says], which nobody has computed (section 1.5). [Round 2, V-M2: lambda0 here is the threshold
-  this proof delivers, the minimum of its own terms; it is not the largest lam for which Theorem 1's conclusions hold.] The same audit settles EFFECTIVE-CONSTANTS.md E5's first item: C_J and
-  lambda_1.1 of PART-VII Lemma 1.1 are the same theorems at order k = J + 4, so they are constructive too.
+  (section 1.3, checked `lzeroconst5.py` Z4). At the paper's numerical point its geometric leaves are certified
+  (lambda_Omega <= 0.026986, tau_end - tau0 <= 5.937209, eps1 >= 5.2617e-4, C_S <= 43.216); **no number for lambda0**:
+  its other leaves are bounds on the approximant's profiles g_1, ..., g_10 [Round 2, V-n4: "of stages 1-10" read loosely;
+  the profiles come from stage 0 and the nine stage solves 1-9 of Lemma 5.3, as section 1.5 says], which nobody has
+  computed (section 1.5). [Round 2, V-M2: lambda0 here is the threshold this proof delivers, the minimum of its own
+  terms; it is not the largest lam for which Theorem 1's conclusions hold.] The same audit settles EFFECTIVE-CONSTANTS.md
+  E5's first item: C_J and lambda_1.1 of PART-VII Lemma 1.1 are the same theorems at order k = J + 4, so they are
+  constructive too.
 - **d.** The weights now have numbers (section 2.1); (G) is checked against the generators pi_1 E^C_I and does not bind;
-  at these weights the loops are counted exactly and **d >= 8,407,505,890,317,054** (computed, `dweights5.py` W3). Two
-  of LOSS-D's open items are closed: the data's E^C_I **does carry logarithms below l_I** (the assembly's E_0 =
-  {(j, 0) : j >= 2} meets E^C_I at 2 and 3), so the one-off application costs 12, 30 or 48 by reading, not 6 (W5); and
-  III.I' Proposition 2.1 takes **5 steps, loss 10**, one above its floor (W6). The level-2 container grows to 52,025,761
-  points per level once E^C_I's chains are counted [Round 2, V-M1: round 1 printed 53,496,063, counting the chain of
-  lambda_sharp + 1 = 2.5099 twice], so LD15's comparison cannot show that loop shorter (W4). The
-  composition gives **d <= 1.7892e16 + 1.0649e8 c** [V-M1: was 1.8127e16] on hypotheses H1-H4, c the uncounted per-level loss (W8): a
-  conditional bound, not a certified one. The exact obstructions are in section 2.6.
+  at these weights the loops are counted exactly and **d >= 8,407,505,890,317,054** (computed, `dweights5.py` W3). Two of
+  LOSS-D's open items are closed: the data's E^C_I **does carry logarithms below l_I** (the assembly's E_0 = {(j, 0) : j
+  >= 2} meets E^C_I at 2 and 3), so the one-off application costs 12, 30 or 48 by reading, not 6 (W5); and III.I'
+  Proposition 2.1 takes **5 steps, loss 10**, one above its floor (W6). The level-2 container grows to 52,025,761 points
+  per level once E^C_I's chains are counted [Round 2, V-M1: round 1 printed 53,496,063, counting the chain of
+  lambda_sharp + 1 = 2.5099 twice], so LD15's comparison cannot show that loop shorter (W4). The composition gives **d <=
+  1.7892e16 + 1.0649e8 c** [V-M1: was 1.8127e16] on hypotheses H1-H4, c the uncounted per-level loss (W8): a conditional
+  bound, not a certified one. The exact obstructions are in section 2.6.
 - **lambda1 and delta.** No quantitative replacement is computed here. Each of the 35 non-effective rows has its
   replacement and the precise missing input (`nrows5.py` R1); a fifth kind the ledger's census did not search, bounds
   from the closed graph, open mapping and Banach-Steinhaus theorems, occurs at 16 lines of proof5, 13 of which carry a
   constant (R2) [Round 2, V-m2: 18 lines with a pattern that also finds "closed-graph" and "Banach and Steinhaus", 10
-  carrying a constant or an order, one more with a constructive alternative beside it; R2.9]; and the replacements must be built in a fixed order, the covering and calculus constants first (R3).
-  Upper bounds are certified: **log10 delta < -7.666e16 and lambda1 < delta**, from the proof's own formulas, with the
-  upper-bound constants taken >= 1 (`deltacap5.py`).
+  carrying a constant or an order, one more with a constructive alternative beside it; R2.4 (b)]; and the replacements
+  must be built in a fixed order, the covering and calculus constants first (R3). Upper bounds are certified: **log10
+  delta < -7.666e16 and lambda1 < delta**, from the proof's own formulas, with the upper-bound constants taken >= 1
+  (`deltacap5.py`).
 
 ## 1. lambda0 (Theorem 1)
 
@@ -164,12 +166,12 @@ I14:124-126. Each needs Lambda, or the roots -mu of L_b(0)-hat, as numbers. Cont
 
 ### 2.2 (G) through E^C_I (computed, certified, W2)
 
-d1 = lambda_s1,2 - 2 is taken in a certified rational interval of width 3e-57 (and is irrational, z^2 + 4z + 16 not
-being a rational square). With the increments d1 and 1, the chains of {lambda_sharp, 2, 3} come nearest to (2, 2 +
-eps_K] u (3, 3 + eps_K] at 3 + 5.0191e-8, from lambda_sharp + 4,470,304 d1: LOSS-D LD9 G7's value, reproduced. The
-least E^C_I of III.C Definition 3.1, which every admissible E^C_I contains (Definition 3.1 (3) forces 2 + s + s'),
-adds 23 chains [Round 2, V-M1: round 1 said 24; lambda_sharp + 1 = 2.5099 is already a chain start] (26 points below 3,
-of which 2, 3 and 2.5099 start chains already); none comes nearer, their residues sitting near d1/2 and 3 d1/4 because 1/d1 =
+d1 = lambda_s1,2 - 2 is taken in a certified rational interval of width 3e-57 (and is irrational, z^2 + 4z + 16 not being
+a rational square). With the increments d1 and 1, the chains of {lambda_sharp, 2, 3} come nearest to (2, 2 + eps_K] u (3,
+3 + eps_K] at 3 + 5.0191e-8, from lambda_sharp + 4,470,304 d1: LOSS-D LD9 G7's value, reproduced. The least E^C_I of
+III.C Definition 3.1, which every admissible E^C_I contains (Definition 3.1 (3) forces 2 + s + s'), adds 23 chains [Round
+2, V-M1: round 1 said 24; lambda_sharp + 1 = 2.5099 is already a chain start] (26 points below 3, of which 2, 3 and
+2.5099 start chains already); none comes nearer, their residues sitting near d1/2 and 3 d1/4 because 1/d1 =
 3,000,002.5... So E^C_I, one of the four generators LD9 left unlisted, does not make (G) bind, and eps_ind stays the
 binding cap on eps_K at the record's point.
 
@@ -280,7 +282,7 @@ The ledger's census searched contradiction, compactness, Rellich, Fredholm and s
 theorems give a constant without a value too: proof5 has 16 lines with the closed graph, open mapping or
 Banach-Steinhaus theorem, none among the ledger's N-rows; 13 carry a constant [Round 2, V-m2: corrected to 18 lines and
 10 B rows in `nrows5.py`; II.A:986, 1538 and II.A2:811 are summaries, I4:274 offers a constructive bound beside the
-theorem, II.A2:186 and J4:655 were missed; R2.9]: II.A:960, 986, 1538; II.A2:130, 188,
+theorem, II.A2:186 and J4:655 were missed; R2.4 (b)]: II.A:960, 986, 1538; II.A2:130, 188,
 276, 281, 811 (the calculus); II.F:1400 (open mapping, beside the N1 row 1393); III.H:425 (Banach-Steinhaus, locally
 uniform in sigma); III.I''':274; and III.J'':41, 82, where the closed graph theorem gives the tame constants C_k of
 every membership statement (Lemma 1.2 (f)). These enter lambda1 and delta through the tame constants. Their
@@ -288,7 +290,7 @@ replacement is to read each bound off the proof of the membership statement it c
 estimates; that is not done. [Round 2, V-m1: round 1 added "(The losses, and so d, are not affected: a membership
 statement fixes its loss by its orders.)". That is too strong: closed-graph steps also hide orders and losses -- "for
 some d0" (II.A-SETUP:960), "a seminorm" (II.A2:188), the weight loss eps'(eps, k) (J3:41) -- so d is unaffected only
-where the membership statement's orders are themselves fixed by explicit estimates; see Round 2, section R2.9.]
+where the membership statement's orders are themselves fixed by explicit estimates; see Round 2, R2.4 (b).]
 
 ### 3.3 How small the proof's own formulas make them (computed, certified, `deltacap5.py`)
 

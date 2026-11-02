@@ -13,8 +13,15 @@ lzeroconst5.py's geometry); deduced (the reading of the proof).
   G2 (deduced; certified number) the exponential is the proof's, not the equation's: along an integral curve of L0 (r
      decreasing at unit rate), Psi' = (2/r) Psi + f gives the homogeneous factor (r(tau0)/r(tau))^2 <= (b(tau0)/a)^2,
      about 2.48e3: a weighted energy (r^2 Psi) would replace e^44 by this polynomial factor.
+  G3 (deduced reading; certified numbers) Step 6 writes the Psi-part as "at most C (N(tau0) + int (N + ...))", and that
+     C carries Lemma 2.4's factor, so C2 >= exp((2/a)(tau_end - tau0)) as written; Step 7's C3 contains
+     exp(C2 (tau_end - tau0)), so the literal constants are doubly exponential: ln C3 >= 1.288e19 x 5.937 = 7.65e19.
+     With C_N, C_st >= 1 (assumed here, not shown), lambda0 <= 1/(C3 C_N M^2) <= C3^-3 gives ln lambda0 <= -2.29e20;
+     one Gronwall on the summed differential inequalities (rate >= 2/a) would give ln C3 of order 48 instead, and ln
+     lambda0 <= -143.8 on the same assumption (an estimate of what a rewritten Step 7 delivers, not a bound).
   Controls (must fail, and do): C1 the claim "the factor is below 1e18" is refuted by G1's lower end; C2 the claim
-  "the homogeneous growth exceeds 1e4" is refuted by G2's bound.
+  "the homogeneous growth exceeds 1e4" is refuted by G2's bound; C3 the single-exponential reading's ln C3 is refuted
+  as a bound for the literal reading's.
 
     python3 checks/gronwall5.py
 """
@@ -53,6 +60,19 @@ def main():
     ok['G2'] = poly < 2500 and (b_lo / a_hi) ** 2 > 2470
     print('  G2: along L0 the homogeneous factor is (r(tau0)/r)^2 <= (b(tau0)/a)^2 <= %.2f: the exponential exceeds '
           'it\n      by a factor above %s' % (float(poly), nstr(lo / poly, 3)))
+    rate_lo = mpf(rate._mpi_[0])
+    dtl = mpf(fiv(dt_lo)._mpi_[0])
+    lnC3_lit = lo * dtl                                    # ln C3 >= C2 (tau_end - tau0) with C2 >= the factor
+    lnlam_lit = -3 * lnC3_lit
+    import mpmath
+    lnC3_one = rate_lo * dtl + mpmath.log(rate_lo) + mpmath.log(1 + dtl)   # C3 >= C2 e^(C2 dt)(1 + dt), C2 >= 2/a
+    ok['G3'] = lnC3_lit > mpf('7.6e19') and -3 * lnC3_one < -143
+    print('  G3 (C_N, C_st >= 1 assumed): literal reading: ln C3 >= %s, ln lambda0 <= %s;\n'
+          '      one Gronwall: ln C3 >= %s, ln lambda0 <= %s' % (nstr(lnC3_lit, 4), nstr(lnlam_lit, 4), nstr(lnC3_one, 5),
+                                                             nstr(-3 * lnC3_one, 5)))
+    ok['C3'] = not (lnC3_lit <= lnC3_one)
+    print('  C3 (control): "ln C3 <= %s" (the single-exponential value) refuted for the literal reading: %s' % (
+        nstr(lnC3_one, 5), ok['C3']))
     ok['C1'] = lo > mpf(10) ** 18
     print('  C1 (control): "the factor is below 1e18" refuted: %s' % ok['C1'])
     ok['C2'] = poly < 10 ** 4

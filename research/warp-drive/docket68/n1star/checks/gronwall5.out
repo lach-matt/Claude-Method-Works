@@ -2,9 +2,14 @@
       Lemma 2.4's factor for Psi, exp((2/a)(tau_end - tau0)), in [1.28816e+19, 1.28816e+19] (= e^44.0023)
   G2: along L0 the homogeneous factor is (r(tau0)/r)^2 <= (b(tau0)/a)^2 <= 2479.39: the exponential exceeds it
       by a factor above 5.2e+15
+  G3 (C_N, C_st >= 1 assumed): literal reading: ln C3 >= 7.648e+19, ln lambda0 <= -2.294e+20;
+      one Gronwall: ln C3 >= 47.942, ln lambda0 <= -143.83
+  C3 (control): "ln C3 <= 47.942" (the single-exponential value) refuted for the literal reading: True
   C1 (control): "the factor is below 1e18" refuted: True
   C2 (control): "the homogeneous growth exceeds 1e4" refuted: True
 G1 PASS
 G2 PASS
+G3 PASS
+C3 PASS
 C1 PASS
 C2 PASS
