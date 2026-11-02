@@ -442,3 +442,472 @@ v-band over kept cells at least Nu/40 rows from the cut.
 3. **For the late region.** A run that imposes or damps the Raychaudhuri constraint (or a constraint-preserving
    formulation), to see whether the onset at v ≈ 1.65–1.9 moves. A fixed point of the onset under refinement would point
    to the solution; a moving one to the scheme.
+
+## 6. Round 2 (2026-11-02): F5, the certified residual, the late region
+
+*Status.* Appended 2026-11-02 after an independent verifier read round 1 at commit 169c9b5. Labels as in section 0.
+Sections 0–5 above were corrected in place where the verifier found them wrong, each correction marked "round 2"; the
+findings and their dispositions are in 6.1.
+
+### 6.0 Answers
+
+1. **F5. No linear estimate with explicit constants is had. The reason is now proved, not only observed.**
+   - *Deduced (exact, `checks/symbol5.py`).* In the formulation the record evolves (dnsolve5's rows Ric_11, Ric_22,
+     Ric_xx, Ric(Y, ∂_v)), the linearised principal symbol has a 2 × 2 Jordan block at the eigenvalue 0.
+     - Its frozen-coefficient characteristic problem has solutions growing like k²(u − u0)(v − v0) at angular
+       frequency k.
+     - So no estimate with a constant independent of k exists in any Sobolev scale. No Newton–Kantorovich or a
+       posteriori argument closes in that formulation, whatever the residual.
+     - *Computed (`checks/jordan5.py`).* Measured in the scheme itself: k = 2 → 8 multiplies the response by 20.4.
+   - *Deduced (exact).* Replacing Ric_xx by the Raychaudhuri constraint for R removes the block: the remaining rows are
+     three uncoupled wave operators.
+     - But the shift still enters the W row through s_x, and its transport row brings the other fields' angular
+       derivatives. Any energy estimate built on the metric functions loses one angular derivative there.
+     - The estimate has to be made at the curvature (Bianchi) level: the five-dimensional, T²-symmetric form of
+       [Wu26] Theorem 2.2. It is not written.
+   - *Computed (`checks/ampresp5.py`).* The problem reduces to one inequality, CERTIFY-10L5.md 2(d)'s
+     δ + ∫ε < 1/(4GTF²).
+     - The record's runs bound F below by 9.2 (and G by 382 in data units). The demand is then δ + ∫ε < 3.0 × 10⁻⁵
+       at 2(d)'s G = 10, and 7.8 × 10⁻⁷ at G_low.
+     - The record's computed residual, 2.5 × 10⁻³, is 84 and 3.2 × 10³ times too large: orders of magnitude, lower
+       bounds on the gap.
+2. **The residual is certified at points, not as a sup.**
+   - *Certified (`checks/rcert5.py`).* The explicit three-dimensional approximant's Ricci tensor has frame components,
+     in units of the curvature scale, ≤ 2.41 × 10⁻³ (ll) and ≤ 4.0 × 10⁻⁴ for the rest. These are Arb enclosures at
+     16,128 points of the box u ∈ [−4, −1.1], v ∈ [0.55, 1.6], |x| ≤ cos(π/32), and they agree with resid5's
+     computed maxima to 2–11 %.
+   - *Certified, but too loose to use.* The sup over the box, by order-3 Taylor models, is ≤ 6.8 × 10⁴ to 1.7 × 10⁸,
+     or unbounded, at 416 boxes. So the sup over the box stays computed (resid5).
+3. **The late region.**
+   - *Computed (`checks/late5b.py`).* Round 1's failure from v ≈ 1.65 is numerical wherever the record's finest runs
+     reach: it was M = 16's angular resolution.
+     - At M = 32 and 40 (ld 3) the Raychaudhuri residual converges at second order in the null step, ratio
+       3.98–4.00, on every band to v = 1.8 at areal radius ≥ 1.0 (3.48–3.89 on [1.8, 1.9)), and to v = 2 at ≥ 1.2
+       (2.25 at M = 40).
+     - It is independent of M = 24–56 there, and is 2.4 × 10⁻³ of its terms at 1600 × 720 on [1.65, 1.8).
+   - *Unresolved.* It stays unresolved from v ≈ 1.9 at areal radius 1.0–1.2, where neither the null step nor M
+     reduces it (12–15 % of its terms). It is also unresolved at areal radius < 0.9 from v ≈ 1.65, where
+     M = 24 → 32 changes it little and no finer null grid was completed.
+   - *Computed (`checks/cpsolve5.py`, `checks/cplate5.py`).* A constraint-preserving scheme, with no Jordan block,
+     agrees with the free one below v = 1.8 to within their null-step differences: one solution.
+     - Past v ≈ 1.9 at areal radius 1.0–1.2 it runs on to v = 2.25.
+     - Its unimposed Ric_xx falls 100–470-fold per null-grid doubling there, but is not yet small. Whether it
+       converges needs a third grid.
+   - Whether the unresolved part is a curvature singularity or a steep smooth feature is not decided.
+4. **The region of existence** (6.5).
+   - *Proved:* only where the solution is the seed, v ≤ 1/2.
+   - *Certified:* the data cone's Raychaudhuri constraint (C1, C2), and the 3D residual at points (K1).
+   - *Computed:* a converged solution at seed 1 on areal radius ≥ 1.0 for v ≤ 1.9 (≥ 1.2 to v ≈ 2), and at seed 2 to
+     v ≈ 3.5.
+   - No existence theorem beyond v ≤ 1/2.
+
+### 6.1 The verifier's findings and their disposition
+
+The verifier read round 1 at commit 169c9b5 (scripts d1_mine.py, d2_mine.py, d2_axis.py, myrun_check.py).
+
+**Its verdicts on the claims, recorded.**
+- D1 and D2 are correct. D1 rules out every zero of R_v at u > −1, not only one between the first zero and u = −1.
+  D2 covers only T²-invariant sections of a single ingoing cone.
+- Claim 3 (further zeros of R_v near the cut) holds for v ≤ 1.8; past 1.8 some zeros lie far from the cut. Section 1.3
+  already stated it for v ≤ 1.8 and counted the far ones beyond.
+- Claim 4 (the untrapped Bondi spheres are tilt) holds at seed 1 only. On 200- and 400-row runs the rebuilt spheres
+  have θ > 0 at 3–10 of 32 labels, all at u > −1, where the leaves' θ is −0.6 to −2.5: tilt, not a MOTS. At seed 2 the
+  rebuild does not reach those radii, as section 1.4 states.
+- The Nx = 24 and 32 instability is reproduced, and the Arb certification of section 2.1 is genuine.
+
+**Its findings, each with its disposition.**
+
+- **V1** (minor; RESULT.md:17, 349, "every MOTS"). Applied: "every T²-invariant MOTS section", at 17 and 349 and at
+  the four other sites that say the same (sections 0, 1.2, 1.3, 1.6, 2.4).
+- **V2** (minor; the gap's fall with R0 shown at 400 rows only, while at R0 = 10 it grows with resolution). Run: R0 = 20
+  at 800 × 360 (922 s). The fall with R0 holds at 800 rows too, but the agreement does not converge in (u, v) from
+  v = 1.3. The text is corrected (sections 0, 1.4); details below.
+- **V3** (minor; S5's counts over different radii and columns). Done: S7 compares the bands at one radius r* on
+  growth5's 17 columns; result below.
+- **V4** (minor; secondzero5.py's three S4 FAILURES are expected outcomes). Applied: S4 is report-only and S6 is the
+  gate; `secondzero5.out` is regenerated, all checks pass.
+- **V5** (minor; RESULT.md:284, "certified data error"). Applied: "certified constraint residual".
+- **V6** (nit; cdata5.py's R_rr jumps claimed, never computed). Computed in Arb (C2): ≤ 3.1 × 10⁻⁸ and 3.6 × 10⁻⁸ at
+  seed 1, ≤ 7.4 × 10⁻⁸ and 8.5 × 10⁻⁸ at seed 2, against sup |R_rr| ≤ 0.024 and 0.011. The perturbed control's jumps
+  are 1.2 × 10² to 1.1 × 10³.
+- **V7** (nit; near the cut the D1 violation grows with resolution). Applied, and measured over all runs: that band is
+  excluded, not converging; details below.
+
+**V2, the data truncation at two resolutions** (S6, `checks/secondzero5_trunc.out`). Max |r_AH(double null) −
+r_AH(growth5)| over growth5's 17 columns:
+
+| v | 400, R0 = 10 | 800, R0 = 10 | 400, R0 = 20 | 800, R0 = 20 | 400, R0 = 40 |
+|---|---|---|---|---|---|
+| 1.0 | 0.004 | 0.004 | 0.002 | 0.002 | 0.002 |
+| 1.2 | 0.029 | 0.024 | 0.018 | 0.011 | 0.008 |
+| 1.3 | 0.076 | 0.051 | 0.021 | 0.027 | 0.017 |
+| 1.35 | 0.068 | 0.082 | 0.031 | 0.036 | 0.015 |
+| 1.375 | 0.081 | 0.110 | 0.025 | 0.051 | 0.020 |
+
+- *What holds.* At 800 rows the difference falls from R0 = 10 to 20 by a factor 2.0–2.3 at every v ≥ 1.2, as at 400
+  rows.
+- *What fails.* S6's bound of 0.05 at R0 = 20 fails at 800 rows, by 0.001 at v = 1.375. At both R0 the difference grows
+  from 400 to 800 rows from v = 1.3 on (at R0 = 20: 0.021 → 0.027, 0.031 → 0.036, 0.025 → 0.051).
+- *So.* The dependence on the data truncation is shown at two resolutions. The agreement of the two formulations is
+  shown only to v ≈ 1.2 (0.011 at 800 rows, R0 = 20); from v = 1.3 the remaining difference is not resolved in (u, v).
+  growth5's record is at one resolution of its own, so which side moves is not decided.
+- The control (the leaves' expansion) stays at 0.22 at every R0 and grid.
+- `secondzero5_trunc.out` ends in FAILURES for that reason. The round-1 sentence "the two formulations converge on
+  each other as the data truncation is removed" is withdrawn as stated, and replaced in section 0.
+
+**V3, the bands at one radius** (S7, `checks/secondzero5_edges.out`). At v = 1.425–1.55 and r* = the rebuild's least
+reachable radius (0.64–0.78), the columns of growth5's 17 with no zero on [r*, 1.6] are compared with the rebuild's θ
+on the sphere r = r*, interpolated to the same columns.
+
+- *R0 = 10.* The counts are equal at v = 1.425–1.525 (2, 3, 4, 5, 6 columns). The rebuilt band is shifted toward x = 0
+  by one column at 1.425, 1.50 and 1.525, and every rebuilt edge lies within 0–0.77 of growth5's column spacing of its
+  bracketing pair.
+- *R0 = 20.* The sets are identical at 1.475 and 1.50, the shift gone. They differ by one column at 1.45 and 1.525, with
+  the edges within 0.36 of a spacing.
+- *At v = 1.55.* growth5's band reaches the axis x = −1 (8 columns). The rebuild's stops at x = −0.93 (R0 = 10) and
+  −0.97 (R0 = 20), so it moves toward the axis as the data cone moves out.
+- *Verdict.* S7, gated on equal counts and every edge within one spacing, FAILS at v = 1.55 at both R0 and at 1.45 and
+  1.525 at R0 = 20 (counts differ by one).
+- *What it shows.* The band edges agree to within one column spacing through v = 1.525 at both R0. The round-1
+  fractions (28 % against 29 %) were not a like-for-like comparison, and are replaced by this.
+- *Control.* With the leaves' expansion in place of θ, no column is untrapped at any v. The control fails, as it must.
+
+**V7, the band near the cut** (S1, `checks/secondzero5.out`). The largest excess of R_v over D1's bound
+e^{2W}(1 − 1/u²) within Nu/40 rows of the cut, v ≤ 1.8, is 1.32, 4.91 and 9.0 × 10³ at 200, 400 and 800 rows
+(M = 16, R0 = 10), 229 at M = 24, 2.5 × 10³ and 1.6 × 10⁴ at R0 = 20 (400, 800 rows), and 1.8 × 10²⁰ and 6.0 at seed 2.
+It grows with resolution and with nothing else in common. So that band is excluded, not converging. Section 1.3's
+S1 bullet is read that way, and nothing there is claimed for it.
+
+### 6.2 F5: the linear estimate, and why it cannot be had in the record's variables
+
+**The structure (deduced; every identity exact, `checks/symbol5.py` Y0–Y5).** dnsolve5 solves, at each point,
+M (R, m, n, W)_uv = rhs with the rows Ric_11, Ric_22, Ric_xx and Ric(Y, ∂_v). Linearised, the principal part is
+
+    D_u ∂_v δf + K ∂_x² δf,   K = M⁻¹N = Λ A,   Λ = e^{2W}/Gx = 4(1 − x²) e^{2W + 2(P+Q)}/R² > 0,
+
+with D_u = ∂_u + (1 − x²) s ∂_x in every row (Y0: M⁻¹V = (1 − x²) s I). A is exact and free of the shift.
+
+- **Y1.** The characteristic polynomial of A is l²(l + 1)².
+  - The eigenvalue −1 is semisimple, with left eigenvectors (3/(R(1 + x)), 1, 0, 0) and (3/(R(1 − x)), 0, 1, 0): the
+    two wave modes δ[3 log R/(1 ± x) + m or n], that is log(g11 √g22) and log(√g11 g22) over 1 ± x, each with the
+    scalar wave operator −e^{−2W} D_u ∂_v + Gx⁻¹ ∂_x² as principal part (Y4).
+  - The eigenvalue 0 is **not** semisimple (rank A = 3): a 2 × 2 Jordan block. Its left null vector is dζ,
+    ζ = W + 2 log R + P + Q, and the ζ row contains no second x-derivative at all (Y4). The generalised left vector η
+    with ηA = dζ is computed (Y1).
+- **Y3, no estimate.** Freeze the coefficients at any point and take δf = e^{ikx}(a e0 + b e1) in the Jordan basis.
+  The principal system is a_uv = −k²Λ b, b_uv = 0. Characteristic data b = 1, a = 0 on u = u0 and v = v0 give the
+  exact solution b = 1, a = −k²Λ(u − u0)(v − v0). Data of norm 1 at frequency k produce a solution of norm
+  k²Λ(u − u0)(v − v0) in every H^s(x).
+  - So no estimate sup ‖δf(u, v)‖_{H^s} ≤ F(‖data‖_{H^s} + ‖source‖) with F independent of k holds, for any s. A
+    defect of strong hyperbolicity in the frozen symbol excludes well-posedness in such a scale for the
+    variable-coefficient problem too. This is the standard necessity of strong hyperbolicity (Kreiss, Strang), cited
+    from memory and not READ here.
+  - *Control.* The same construction in the semisimple block gives J_0(2k√(Λ(u − u0)(v − v0))), bounded by 1 for
+    every k (exact).
+  - **Consequence.** The a posteriori argument needs exactly such an estimate for the evolution system about g_app,
+    with the residual as its source. In dnsolve5's formulation it does not exist: no residual, however small and however
+    certified, closes a Newton–Kantorovich argument there. This is the precise reason, sharper than round 1's ("the
+    theorem is missing").
+- **Y2, the constraint-preserving formulation.** Drop Ric_xx and impose the Raychaudhuri constraint Ric_vv = 0 for R
+  along every outgoing generator (`checks/cpsolve5.py`).
+  - The rows Ric_11, Ric_22, Ric(Y, ∂_v) for (m, n, W) have K₃ = −ΛI exactly: three uncoupled wave operators. The
+    Jordan block is gone.
+  - R enters them through R_xx, with coefficients −3Λ/(R(1 + x)), 3Λ/(R(x − 1)), 0, and through R_uv, with
+    3/(R(1 + x)), −3/(R(x − 1)), 3/(2R) (exact). The Raychaudhuri row has the single second derivative R_vv.
+  - *Control.* Y1's Jordan test applied to this block finds none.
+- **Y5, the shift.** The obstruction that remains is the shift, in either formulation.
+  - The W row contains s_x; on every spherical state its coefficient is −(1 − x²) R_v/R, nonzero wherever R_v is.
+  - The shift is transported by Ric_vx, which contains W_vx (coefficient −1) and R_vx (−2/R) beside s_vv.
+  - So δs at (u, v, x) is an integral along the outgoing generator of first x-derivatives of the other fields (after
+    one integration by parts in v). The W row needs one more x-derivative of it. An energy estimate at level k for
+    (m, n, W) then needs the fields at level k + 1.
+  - So no energy estimate built on the metric functions closes, at any derivative level. The shift's angular
+    derivative must be estimated as a curvature component with its own flux (the Bianchi level). That is what
+    [Wu26] Theorem 2.2's H³/H⁴ structure reflects (READ, CERTIFY-10L5.md section 1). Its five-dimensional,
+    T²-symmetric version is not written.
+  - *Control.* s_xx, which the W row does not contain, is found absent.
+
+**The witness in the schemes themselves (computed, `checks/jordan5.py`).**
+
+The setup:
+- Tangherlini (the record's data at amplitude 0), M = 16, 200 × 30 cells (v ≤ 1.5).
+- A source εφ(u, v)T_k(x) is added to the W_uv row, with ε = 10⁻⁷ and φ a sin² bump on u ∈ [−6, −3], v ∈ [0.2, 0.5].
+- The response is max |δf|/ε over (R, m, n, W) on the kept cells with u ≤ −1.5, v ∈ [0.6, 1.5].
+
+| k | 0 | 2 | 4 | 6 | 8 |
+|---|---|---|---|---|---|
+| free (dnsolve5's equations), W source | 2.56 | 3.75 | 24.1 | 46.7 | 76.5 |
+| constraint-preserving (cpsolve5), W source | 1.27 | 1.06 | 0.91 | 0.87 | 0.94 |
+| free, source along a wave-sector eigenvector (control) | 23.8 | 13.4 | 15.5 | 18.2 | 9.0 |
+
+- **J1.** In the free scheme the response grows by 20.4 from k = 2 to 8. Y3's k² predicts 16.
+- **J2.** In the constraint-preserving scheme it stays bounded (ratio 0.88).
+- *Control.* A source with no component along dζ does not grow in the free scheme either (ratio 0.67). The growth is
+  the Jordan block's.
+- *What this explains.* Errors injected at angular frequency k (truncation, and the rounding at the axis nodes of
+  D354) are amplified in dnsolve5's formulation by about k² times the area of the (u, v) region they cross. That is
+  consistent with the record's finding that raising M at a fixed null grid degrades the solution (D418, D524, D571):
+  a property of the formulation, not of the solution. It is not shown here that it is their cause.
+
+**The one inequality, and how far the record is from it** (computed, `checks/ampresp5.py`). The a posteriori route
+closes if δ + ∫ε < 1/(4 G T F²) (CERTIFY-10L5.md 2(d)), with F the linear estimate's constant and G the quadratic
+one.
+
+- *In dnsolve5's formulation.* F = ∞ (Y3).
+- *In any formulation where an estimate exists.* F is bounded below by the response of the computed solution to its
+  own data, by the mean-value theorem.
+  - The record's ld 3 amplitude runs (D445; M = 32, 800 × 360) at A = 1, 7/8 and 3/4 give the response of the
+    metric's values, on v ∈ [0.5, 1.65) and areal radius ≥ 1.0 (48,322 cells kept by all three).
+  - F_low = 9.2 (Q; P 7.2, W 8.9, log R 1.3). The second difference gives G_low = 382 (in units of the data's sup).
+  - *Control.* The data's own second difference is 2 × 10⁻¹², rounding.
+- *The demand.* At F_low, T = 10 and 2(d)'s placeholder G = 10, the condition demands δ + ∫ε < 3.0 × 10⁻⁵. At
+  G = G_low it demands 7.8 × 10⁻⁷.
+- *The record's figure.* Its computed residual, 2.5 × 10⁻³ of the curvature scale, is 84 and 3.2 × 10³ times these.
+  The two sides are measured in different norms, so these are orders of magnitude, and lower bounds, since F and G
+  can only be larger.
+- *Cost at second order.* The null grid would have to be refined by at least √84 ≈ 9 to 57 in each direction:
+  7,000 to 45,000 rows, beside the missing theorem.
+- **So F5's state is exact.**
+  - In the record's variables no estimate exists (proved).
+  - In the constraint-preserving variables the principal part is diagonal, and one coupling, the shift's angular
+    derivative, must be estimated at the curvature level. That estimate is not written: it is the open theorem.
+  - Given it, the closing inequality above is the one condition left. The record's numbers miss it by a factor of at
+    least 84, as orders of magnitude.
+
+### 6.3 R: the certified residual of the three-dimensional approximant (`checks/rcert5.py`)
+
+**The approximant.** It is resid5's, made exact: on Q = {u ∈ [−4, −1.1], v ∈ [0.55, 1.6]}, every field is the
+polynomial Σ C_ijk T_i(t) T_j(σ) T_k(x).
+- The degrees are 24, 30 and 15.
+- t is the run's own coordinate arcsinh((u + 1)/a), rescaled, and σ is affine in v.
+- The C_ijk are resid5's floating-point least-squares fit, converted in x to the 16-node interpolant's Chebyshev
+  coefficients. Floats are exact rationals, so g_app is an explicit metric of the class.
+- The certified quantity is each of the eight null-orthonormal frame components of Ric[g_app] over √K_0 = √72/R⁴.
+- They are generated from dnsolve5's exact symbolic Ricci tensor and printed as code on Arb balls.
+- x is taken over [−x_1, x_1], x_1 = cos(π/32), the outermost angular node. The axis caps are not covered: there the
+  frame's 1/(1 − x²) factors cancel only analytically.
+
+**K1 (certified).** Arb enclosures at the 16,128 centres of a 24 × 24 grid in (t, σ) times the 28 graded x-boxes'
+centres. The largest certified value of each component, with resid5's computed maximum at the run's cell midpoints in
+brackets:
+
+| ll | ln | nn | lx |
+|---|---|---|---|
+| 2.41e-3 (2.46e-3) | 1.44e-4 (1.53e-4) | 7.23e-5 (7.46e-5) | 4.03e-4 (4.25e-4) |
+
+| nx | xx | 11 | 22 |
+|---|---|---|---|
+| 2.22e-5 (2.47e-5) | 1.87e-4 (2.02e-4) | 5.55e-5 (6.24e-5) | 1.99e-4 (2.14e-4) |
+
+- The two agree to 2–11 %: the same function, sampled at other points (PASS).
+- The fit's own error is ≤ 7 × 10⁻¹¹ (computed).
+- *Control.* The approximant with W + 0.01v has certified values up to 0.272, 113 times larger.
+
+**K2 (certified, and too loose to use).** Order-3 Taylor models with the Lagrange remainder, on 416 boxes:
+4 × 4 in (t, σ), and 26 in x, graded geometrically toward the axes.
+- The certified sup is ≤ 6.8 × 10⁴ for ll, ≤ 1.7 × 10⁸ for nn, and ≤ 6.2 × 10⁷ for xx, 11 and 22.
+- For ln, lx and nx it is unbounded: in some box an interval reaches zero under a reciprocal or a square root.
+- The worst boxes lie at the corners of the (t, σ) grid, and for 11, 22 and xx in the box next to an axis.
+
+**What this is, and is not.**
+- It is a certified residual of an explicit three-dimensional approximant at 16,128 points of Q. The values agree with
+  the computed figures at the run's own cell midpoints, so the residual is the run's (u, v) truncation error, certified.
+- It is not a certified sup over Q. With Taylor models of order 3 and interval remainders the sup bound is valid, and
+  10⁴ to 10⁸ times the residual or unbounded at 416 boxes.
+- The reason is the expression, not the precision. Its terms cancel to 10⁻³ of their size, and the interval remainder
+  is C h³ with C of the size of the terms' third derivatives, not the residual's.
+- A useful sup bound needs either boxes at least a hundred times finer in each variable (beyond this round's machine
+  time) or a different enclosure. Candidates are Chebyshev interpolation of the residual with an analyticity bound on
+  a polyellipse, or a reformulation in which the cancellation is algebraic.
+- Either way it would still not close anything, by section 6.2.
+
+### 6.4 R: the late region
+
+**The record's finest free runs, refined in the null step and in angle** (`checks/late5b.py`, computed; the runs of
+CERTIFY-10L5.md D418 and D432, ld 3, cut 0.9, and D410's at cut 0.7). Round 1's L1 asked whether the Raychaudhuri
+residual ρ = −(R/3) Ric_vv converges. It is measured here per v-band and per class of areal radius r_A.
+
+- **L5, the null step** (M = 32 and 40; 800 × 360 against 1600 × 720 on the coarse cells both keep). The figures are
+  max |ρ|, with its ratio to the band's largest term in brackets.
+
+  | v-band | areal ≥ 1.2, M = 32: 800 / 1600 (ratio) | areal 1.0–1.2, M = 32 | areal 1.0–1.2, M = 40 |
+  |---|---|---|---|
+  | [1, 1.5) | 9.9e-4 / 2.5e-4 (3.99) | 1.8e-3 / 4.4e-4 (3.99) | 1.8e-3 / 4.4e-4 (3.99) |
+  | [1.5, 1.65) | 1.4e-3 / 3.6e-4 (3.99) | 3.3e-3 / 8.2e-4 (3.99) | 3.3e-3 / 8.3e-4 (3.99) |
+  | [1.65, 1.8) | 2.1e-3 / 5.2e-4 (3.99) | 9.5e-3 / 2.4e-3 [2.4e-3] (4.00) | 9.6e-3 / 2.4e-3 [2.4e-3] (3.98) |
+  | [1.8, 1.9) | 2.8e-3 / 7.1e-4 (3.99) | 3.1e-2 / 9.0e-3 (3.48) | 3.3e-2 / 8.5e-3 (3.89) |
+  | [1.9, 2.0) | 4.0e-3 / 1.0e-3 (3.99) | 0.52 / 0.54 [0.15] (0.96) | 0.43 / 0.45 [0.12] (0.95) |
+  | [2.0, 2.25) | 6.4e-3 / 3.5e-3 (1.84; 3.56 at M = 40) | 8.8 / 10.4 (0.85) | 10.4 / 11.7 (0.89) |
+
+  - The residual is second order in the null step (ratio 3.98–4.00) on every band to v = 1.8 at areal radius ≥ 1.0,
+    nearly so on [1.8, 1.9) (3.48, 3.89), and to v = 2.25 at ≥ 1.2 (M = 40).
+  - On [1.65, 1.8), round 1's failing band, it is 2.4 × 10⁻³ of its terms at 1600 × 720 (claim: PASS).
+  - From v = 1.9 at areal radius 1.0–1.2 it does not converge, and it is 12–15 % of its terms.
+  - *Control.* With W_v in place of 2W_v the residual does not converge where L5's does (ratio 1.01 on [1, 1.5)).
+- **L6, angle** (800 × 360, on the cells M = 24, 32, 40, 48 and 56 all keep).
+  - Before v = 1.9 max |ρ| is the same at all five M to 3 % at areal radius ≥ 1.2. At 1.0–1.2 it agrees to 6 % before
+    v = 1.8 and to 20 % on [1.8, 1.9). So the null step sets it, and M ≥ 24 resolves the angle there.
+  - On [1.9, 2.0) at 1.0–1.2 it is 0.61, 0.52, 0.43, 0.37, 0.81, and on [2.0, 2.25) it grows with M, 2.0 to 906: the
+    record's D418 pattern, now in the constraint.
+- **L7, the small radii** (cut 0.7, 800 × 360, areal radius 0.6–0.9).
+  - Max |ρ| over the band's largest term on [1.5, 1.65), [1.65, 1.8), [1.8, 1.9) and [1.9, 2.0) is 5.8 × 10⁻³,
+    5.5 × 10⁻², 0.43 and 1.0 at M = 24.
+  - At M = 32 it is 5.8 × 10⁻³, 4.3 × 10⁻², 0.38 and 0.68.
+  - The largest on [1.65, 1.8) is at u = −0.982, v = 1.788, areal radius 0.86, round 1's place.
+  - So round 1's "the size of its own terms from v ≈ 1.65" was M = 16's: at M = 24–32 it is 4–6 % of the terms on
+    [1.65, 1.8). It still reaches 40 % on [1.8, 1.9).
+  - The null-step test there (`--small`, a 1600 × 720 run at cut 0.7) was not completed.
+- **L8, D1's monotone quantity** (areal 1.0–1.2). Its largest increase relative to the band's size is ≤ 10⁻⁴, and
+  falling with the null step, to v = 1.9. It is 1.4–3.2 × 10⁻² on [1.9, 2.0) and 0.07–0.21 on [2.0, 2.25), not
+  converging: the computed fields there are not a vacuum solution's.
+
+**The constraint-preserving runs** (`checks/cpsolve5.py`, `checks/cplate5.py`). This is the scheme without the
+Jordan block (Y2): Ric_vv imposed, Ric_xx dropped and monitored.
+
+- *P1–P3* (selftest, `checks/cpsolve5.out`).
+  - On Tangherlini at M = 8 the error of R is 1.2 × 10⁻², 4.6 × 10⁻⁴ and 2.4 × 10⁻⁴ at 100, 200 and 400 rows.
+  - On the record's data (M = 8, v ≤ 1.5) the two schemes' difference falls 14.6-fold from 100 to 200 rows: one limit.
+  - The scheme has a defect of its own (P3). A mismatch between the marched R_uv and the rows' shifts P and Q
+    uniformly, so 2P + Q = (1 + x)m does not vanish at x = −1. Elementary flatness at the axis is violated at the order
+    of the truncation error times M²: a spurious m on Tangherlini of 2.0 × 10⁻², 1.0 × 10⁻³ and 1.1 × 10⁻⁴ at 100,
+    200 and 400 rows.
+  - *Control.* With W_v for 2W_v in the march the error does not fall.
+- *J2.* A W_uv source's response is bounded in k: 1.06 at k = 2, 0.94 at k = 8.
+- *The record's data* (seed 1, cut 0.9, ld 3, M = 32, v ≤ 2.25, at 400 × 180 and 800 × 360: 1,405 s and 2,551 s at
+  this machine's load), against the record's free runs (M = 32, 800 × 360 and 1600 × 720). The figures are max |ΔP|.
+
+  | v-band | areal 1.0–1.2: cp 400–800 | cp 800 − free 800 | free 800–1600 | Ric_xx monitor 400 → 800 |
+  |---|---|---|---|---|
+  | [1, 1.5) | 1.1e-3 | 6.9e-5 | 1.8e-5 | 3.8 → 0.16 (25) |
+  | [1.5, 1.65) | 1.5e-3 | 1.2e-4 | 2.6e-5 | 34 → 0.50 (68) |
+  | [1.65, 1.8) | 1.7e-3 | 1.6e-4 | 3.8e-5 | 613 → 6.4 (96) |
+  | [1.8, 1.9) | 4.9e-3 | 3.7e-4 | 1.1e-4 | 4.7e3 → 45 (105) |
+  | [1.9, 2.0) | 2.0e-2 | 1.5e-3 | 3.8e-4 | 3.4e4 → 345 (99) |
+  | [2.0, 2.25) | 0.19 | 1.8e-2 | 2.0e-3 | 4.1e5 → 880 (467) |
+
+  - Below v = 1.8, at areal radius ≥ 1.0, the two formulations agree to within 3 times the larger of their own
+    null-step differences (claim: PASS). They converge to one solution, and the free scheme's Raychaudhuri residual
+    there is its second-order truncation error.
+  - *Control.* The free run at amplitude 7/8, a different solution, differs by 10⁻³–4.5 × 10⁻², beyond that bound on
+    every band.
+  - The constraint-preserving scheme is the less accurate of the two in P, about ten times at equal grid: its axis
+    defect.
+  - Its unimposed Ric_xx (a coordinate component, large near the axes) falls 18–27-fold per doubling before v = 1.5,
+    and 60–470-fold after. So the 400-row run is not in the asymptotic range, and two grids give no order.
+  - It runs through v = 2.25 at every areal radius kept, with no breakdown; the free scheme's residual stops
+    converging from v ≈ 1.9. Its own null-step difference in P there is 2 × 10⁻² on [1.9, 2.0) and 0.19 on
+    [2.0, 2.25) at 1.0–1.2, so it is not shown to converge either.
+
+**Verdict.** 
+- **Before v ≈ 1.8–1.9, at areal radius ≥ 1.0: numerical, and settled.**
+  - Round 1's Raychaudhuri violation from v ≈ 1.65 was M = 16's angular under-resolution. At M ≥ 24 it is the null
+    step's second-order error, and it converges.
+  - Two formulations, one weakly and one strongly hyperbolic in principal part, converge to one solution there.
+- **From v ≈ 1.9 at areal radius 1.0–1.2: not decided.**
+  - In the free scheme neither refinement converges, and its formulation amplifies angular errors like k² (Y3, J1).
+  - The constraint-preserving scheme runs on without breakdown, but its two grids do not establish convergence.
+  - The decisive test is the constraint-preserving scheme on a third null grid (1600 × 720) at M = 32 and 40, with
+    the Kretschmann scalar compared. It was not run in this round.
+  - A singularity and a steep smooth feature are not told apart.
+- **From v ≈ 1.65 at areal radius < 0.9: not decided.**
+  - At M = 24–32 the residual is 4–6 % of its terms on [1.65, 1.8) (no longer of their size, round 1's M = 16) and
+    40 % on [1.8, 1.9).
+  - The null-step test there was started and not completed.
+
+### 6.5 The region of existence at 10 l5, with labels
+
+Seed 1 unless stated.
+- **v ≤ 1/2, the whole (u, x) range — proved (deduced).** The solution exists: it is the seed (Tangherlini) itself
+  (the record; section 2.4).
+- **Wherever a smooth vacuum solution with the data exists in dnsolve5's gauge — proved (deduced).** Every leaf with
+  u > −1 is outer trapped; every T²-invariant MOTS section has its innermost point at u ≤ −1 (D1–D2, `sectexp5.py`).
+- **The data cone u = −10, v ∈ [1/2, 7/2], both seeds — certified.** The Raychaudhuri constraint of an explicit
+  approximant is ≤ 5.0 × 10⁻⁵ (seed 1) and 2.3 × 10⁻⁵ (seed 2); R_rr's jumps are ≤ 3.6 × 10⁻⁸ and 8.5 × 10⁻⁸
+  (`cdata5.py` C1, C2).
+- **u ∈ [−4, −1.1], v ∈ [0.55, 1.6], |x| ≤ cos(π/32) — certified at 16,128 points, computed as a sup.** The 3D
+  approximant's Einstein residual is ≤ 2.41 × 10⁻³ of the curvature scale at the points; its sup over the box is
+  2.5 × 10⁻³, computed (`rcert5.py` K1; `resid5.py`).
+- **Areal radius ≥ 1.0 for v ≤ 1.9 (null-step ratio 3.98–4.00 to v = 1.8, 3.48–3.89 on [1.8, 1.9)); ≥ 1.2 for
+  v ≤ 2.0 (2.25 at M = 40) — computed, converged.** The record's free solution at M ≥ 32: the Raychaudhuri residual
+  is second order in the null step and independent of M, and a constraint-preserving scheme converges to the same
+  solution below v = 1.8; the metric values converge in M and null step to v ≈ 1.8 (`late5b.py` L5–L6, `cplate5.py`;
+  CERTIFY-10L5.md D432).
+- **Areal radius 1.0–1.2 for v ≥ 1.9, and areal radius < 0.9 for v ≥ 1.65 — computed, not converged.** The
+  Raychaudhuri residual is 12–100 % of its terms and not reduced by M. By the null step it is not reduced at 1.0–1.2,
+  and not tested below 0.9 (`late5b.py` L5–L7).
+- **Seed 2, v ≤ 3.5 at every angle — computed, converged.** Kretschmann converges in M and in the null grid
+  (CERTIFY-10L5.md D543, D601).
+
+**No existence theorem beyond v ≤ 1/2 is proved at 10 l5, at either seed.** Two steps are missing between the computed
+regions and a proof:
+- the linear estimate with explicit constants, which does not exist in the record's formulation (6.2, Y3) and must be
+  built at the curvature level in the constraint-preserving one (Y5);
+- a residual meeting the closing inequality. The record's misses it by at least two orders of magnitude (6.2,
+  `ampresp5.py`), and its certificate is pointwise (6.3).
+
+### 6.6 What remains open, precisely
+
+1. **The theorem (F5).** In the class, in double-null gauge, with Ric_vv imposed and Ric_xx dropped (cpsolve5's
+   formulation, diagonal principal part, Y2): an energy estimate for the linearised system at the curvature level.
+   - The shift's angular derivative enters as a curvature component with its own flux, so Y5's loss is removed.
+   - It needs explicit constants: Sobolev on the 1D orbit sections, and the axes in the regular variables (G4).
+   - This is the five-dimensional, T²-symmetric form of [Wu26] Theorem 2.2, whose threshold is not explicit even in
+     3 + 1.
+2. **Its constants on g_app.** F, and G, evaluated on the converged region. ampresp5 bounds them below (F ≥ 9.2), not
+   above.
+3. **A residual meeting the closing inequality**, certified as a sup in the theorem's norm.
+   - The record's 2.5 × 10⁻³ is at least 84 times too large, so at second order the null grid must be at least 9 times
+     finer.
+   - A usable certified sup needs a better enclosure than interval Taylor models of this expression (6.3).
+4. **The late region's cause.**
+   - At areal radius < 0.9 from v ≈ 1.65: the null-step test at M = 32, `szrun5.py 1 0.7 32 1600 720 1.85` read by
+     `late5b.py --small`, was started and stopped unfinished at this machine's load.
+   - From v ≈ 1.9 at 1.0–1.2: a scheme without the Jordan block at M ≥ 32 on a finer null grid. The
+     constraint-preserving runs at 400 and 800 rows (6.4) are the first two grids: run the third (1600 × 720) at
+     M = 32 and 40.
+   - A singularity against a steep smooth feature is decided by neither, only by a resolved Kretschmann scalar.
+5. **The data at past null infinity (G3)** and Ric_vx on the data cone: unchanged since round 1.
+
+### 6.7 Files, runs and outputs (round 2)
+
+| file | what |
+|---|---|
+| `checks/symbol5.py`, `.out` | Y0–Y5: principal symbol, Jordan block, no-estimate, Y2's block, the shift (exact) |
+| `checks/jordan5.py`, `.out` | J1–J2: the Jordan growth in both schemes, with a wave-sector control (computed) |
+| `checks/cpsolve5.py`, `.out` | the constraint-preserving scheme; P1–P3 (computed) |
+| `checks/cplate5.py`, `.out` | E1–E2: constraint-preserving against free runs (computed) |
+| `checks/late5b.py`, `.out` | L5–L8 on the record's finest runs (computed); `--small` not yet run |
+| `checks/ampresp5.py`, `.out` | A1–A2: F_low, G_low and the closing condition's demand (computed) |
+| `checks/rcert5.py`, `.out` | K1 certified values, K2 certified (loose) sup |
+| `checks/cdata5.py`, `.out` | C1 as before; C2 the R_rr jumps (certified, new) |
+| `checks/secondzero5.py`, `.out` | S4 report-only; S1's near-cut excess (new) |
+| `checks/secondzero5_trunc.out` | S6 at 400 and 800 rows |
+| `checks/secondzero5_edges.out` | S7: the bands at one radius (new) |
+
+**Runs** (scratch, not committed).
+- `szrun5.py 1 0.3 16 800 360 2.0 OUT ld 3 R0 20`: 922 s.
+- `szrun5.py 1 0.7 32 1600 720 1.85 OUT ld 3`: started, and stopped unfinished after 28 min (6.7 CPU-minutes)
+  at a load of 20–28, for L7's null-step test; not seated.
+- `cpsolve5.py --run 1 0.9 32 Nu Nv 2.25 OUT ld 3` at (400, 180) and (800, 360): 1,405 s and 2,551 s.
+- The record's runs of D410, D418, D432 and D445, read in place.
+
+The machine ran at a load of 15–28 on 4 cores throughout, so the wall times are not comparable with round 1's.
+
+
+### 6.8 A proposed replacement for the paper's section 9 sentences on existence at 10 l5
+
+Proposed to the main session, which seats it; this note does not edit the paper. It replaces the sentences from "A
+first certified step is taken" to "remains open":
+
+> Certified so far: on the data cone the Raychaudhuri constraint of an explicit approximant holds to 5.0 × 10⁻⁵ and
+> 2.3 × 10⁻⁵ (`docket68/n1star/checks/cdata5.py`). The Einstein residual of a smoothed three-dimensional approximant
+> is enclosed in ball arithmetic at 16,128 points, ≤ 2.4 × 10⁻³ of the curvature scale (`checks/rcert5.py`); its sup
+> over the box is computed only (`checks/resid5.py`). Existence at 10 l5 is not proved beyond the seed, and the
+> reason is exact. In the double-null formulation the numerics evolve, the linearised principal symbol has a Jordan
+> block, so no linear estimate holds in any Sobolev scale and no residual closes an a posteriori argument (deduced,
+> `checks/symbol5.py`; measured in the scheme, `checks/jordan5.py`). Imposing the Raychaudhuri constraint in place of
+> Ric_xx removes the block, but the shift then costs one angular derivative: the estimate must be made at the
+> curvature level, the five-dimensional form of [Wu26] Theorem 2.2, which is not written. Granting it, the closing
+> condition asks a residual at least 84 times smaller than the computed one (`checks/ampresp5.py`). The computed
+> solution converges at the first seed to v ≈ 1.9 r_h at areal radius ≥ r_h, the earlier failure there being angular
+> resolution (`checks/late5b.py`), and is unresolved beyond (supplement `CERTIFY-10L5-RESULT.md` section 6).
