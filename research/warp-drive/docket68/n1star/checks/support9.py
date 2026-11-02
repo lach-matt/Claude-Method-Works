@@ -8,15 +8,17 @@
      a reading (the classes); the counts are computed, and they reproduce D338's and the section's table exactly (the
      76th file, added since, contains none of the words). Control: a word absent from every file counts 0.
   S6 (exact) The paper's (4.1), R[G(., . + c)](X, th) = R[G](X, th + c): the two-scale operator has no explicit phase.
-     lead5.py's reduced_ricci (Ric^H of g0 + lam W in the wave-map gauge relative to g0, d_v -> d_v + lam^-1 d_s) on its
-     stage-0 profile W (W_TT and chi dv^2, chi = B cos 2s + C sin s with B, C generic functions of (v, r, theta), the
-     phase explicit) with the phase shifted, s -> s + c, equals its value at the
-     unshifted profile with s replaced by s + c, in every component at orders lam^-1 and lam^0 (c symbolic). Control:
-     shifting the waves but not chi (not a phase shift of the profile) breaks the identity.
+     The structural fact, checked for every W rather than one profile: lead5.py's reduced_ricci (Ric^H of g0 + lam W in
+     the wave-map gauge relative to g0, d_v -> d_v + lam^-1 d_s; its background has no s) is applied to W whose 15
+     components are generic functions w_ab(s, v, r, theta), and R[W(s + c)] = R[W](s + c) holds in every component at
+     orders lam^-1 and lam^0 (c symbolic; compared as R[W(s + c)](s - c) = R[W](s)). The program prints how many of the
+     30 parts are nonzero, i.e. tested nontrivially: the 15 lam^0 parts; the 15 lam^-1 parts vanish identically for
+     generic W (g0^vv = 0), so they test nothing. Control: every component shifted but W_vv (the slot of chi dv^2: the
+     waves shifted, chi not; not a phase shift of the profile) breaks the identity.
 
 Labels: S3 computed (text census); S6 computed (exact, sympy).
 
-Run: python3 checks/support9.py   (a few minutes)
+Run: python3 checks/support9.py   (about five minutes)
 """
 import csv
 import glob
@@ -62,25 +64,30 @@ def s3(control=False):
 def s6(control=False):
     import lead5 as L
     c = sp.Symbol("c", real=True)
-    Bf = sp.Function("B")(L.v, L.r, L.th)
-    Cf = sp.Function("C")(L.v, L.r, L.th)
-    chi_x = Bf*sp.cos(2*L.s) + Cf*sp.sin(L.s)                          # chi with its phase explicit (B, C generic)
-    W = L.wave(with_chi=True).applyfunc(lambda e: e.subs(L.chi, chi_x).doit())
-    shift = {L.s: L.s + c}
-    Ws = W.applyfunc(lambda e: e.subs(shift))
-    if control:                                                        # the waves shifted, chi not
-        Ws = L.wave(with_chi=True).applyfunc(lambda e: e.subs(shift).subs(L.chi.subs(shift), chi_x).doit())
-    R0 = L.reduced_ricci(W)
-    R1 = L.reduced_ricci(Ws)
-    ok = True
+
+    def generic(shifted):
+        W = sp.zeros(5)
+        for a in range(5):
+            for b in range(a, 5):
+                arg = L.s + c if (a, b) in shifted else L.s
+                W[a, b] = W[b, a] = sp.Function("w%d%d" % (a, b))(arg, L.v, L.r, L.th)
+        return W
+    pairs = [(a, b) for a in range(5) for b in range(a, 5)]
+    R0 = L.reduced_ricci(generic([]))
+    R1 = L.reduced_ricci(generic([p for p in pairs if control is False or p != (0, 0)]))
+    ok, nonzero, bad = True, [0, 0], []
     for key in R0:
         for k in range(2):
-            d = sp.simplify(sp.expand(R1[key][k] - sp.sympify(R0[key][k]).subs(shift)))
-            ok &= d == 0
-    if control:
-        return ok
-    print("  S6: Ric^H of g0 + lam W at the profile shifted by c equals the unshifted value at s + c, all %d"
-          " components, orders lam^-1 and lam^0: %s" % (len(R0), ok), flush=True)
+            e0 = sp.sympify(R0[key][k])
+            nonzero[k] += e0 != 0
+            d = sp.expand(sp.sympify(R1[key][k]).subs(L.s, L.s - c).doit() - e0)
+            if d != 0:
+                ok = False
+                bad.append((key, k - 1))
+    print("  S6%s: Ric^H of g0 + lam W, W generic in (s, v, r, th), at W(s + c) equals R[W](s + c) in all %d components"
+          ", orders lam^-1 and lam^0: %s; parts nonzero (tested nontrivially): lam^-1 %d of %d, lam^0 %d of %d%s"
+          % (" control (W_vv not shifted)" if control else "", len(R0), ok, nonzero[0], len(R0), nonzero[1], len(R0),
+             "; identity fails at (component, order) %s" % bad if bad else ""), flush=True)
     return ok
 
 

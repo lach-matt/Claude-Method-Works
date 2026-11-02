@@ -246,7 +246,7 @@ def g2(control=False):
     PPt = (P*P.T).applyfunc(sp.simplify)
     Pplus = P.T*PPt.inv()
     yv = -(P.T if control else Pplus)*sp.Matrix(osc)
-    ymean0 = all(sp.simplify(L.modes(sp.expand(e))[0]) == 0 for e in yv)
+    ymean0 = not Pplus.has(s) and all(sp.simplify(L.modes(e)[0]) == 0 for e in osc)  # <yv> = -Pol^+ <osc>
     killed_osc = all(sp.simplify(osc[c] + (P*yv)[c]) == 0 for c in range(5))
     J = sp.Matrix([[sp.diff(mean[c], p) for p in Pv] for c in range(5)])
     det = sp.simplify(J.det())
