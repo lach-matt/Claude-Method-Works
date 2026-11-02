@@ -1,31 +1,41 @@
 T1  the causal structure, the strip, and the domain of dependence of N
   T1a dv(Y) >= 0 for every sampled future causal Y (g_b0, r^2 > mu): v is a time function: pass min dv(Y) = 5.732e-02
-  T1b grad v = -d_t + xhat.d_x (null, past-directed) for every mu: pass 
-  T1c the strip {v1 <= v <= V_P - h(tau)} has width >= kappa(1 - t_P^(-1/4)): 1/4 at t_P = 16, -> 1/2: pass 
-  T1d control: dr(Y) takes both signs on future causal Y: pass 
-  T1e g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu/r^2): v + eps t is a time function with margin 2 eps, kept under |g^-1 - g_b0^-1| << eps (used on the bounded part of N in Omega'): pass epsilon*(-epsilon*mu - epsilon*x1**2 - epsilon*x2**2 - epsilon*x3**2 - epsilon*x4**2 - 2*x1**2 - 2*x2**2 - 2*x3**2 - 2*x4**2)/(x1**2 + x2**2 + x3**2 + x4**2)
-  T1f control: at eps = 0 the margin is 0 (dv is null): pass 
+  T1b grad v = -d_t + xhat.d_x (null, past-directed) for every mu: pass
+  T1c the strip {v1 <= v <= V_P - h(tau)} has width >= kappa(1 - t_P^(-1/4)): 1/4 at t_P = 16, -> 1/2: pass
+  T1d control: dr(Y) takes both signs on future causal Y: pass
+  T1e g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu/r^2): v + eps t is a time function with margin 2 eps,
+        kept under |g^-1 - g_b0^-1| << eps (used on the bounded part of N in Omega'): pass epsilon*(-epsilon*mu -
+        epsilon*x1**2 - epsilon*x2**2 - epsilon*x3**2 - epsilon*x4**2 - 2*x1**2 - 2*x2**2 - 2*x3**2 - 2*x4**2)/(x1**2 +
+        x2**2 + x3**2 + x4**2)
+  T1f control: at eps = 0 the margin is 0 (dv is null): pass
 T2  the cap energies of the truncation
-     limits as |T| -> oo: {'b1 a0=1/4': '0', 'b1 a0=9/20': '0', 'b1 a0=1/2': '1', 'b2 q=9/2 a=11/4': '0', 'b2 q=9/2 a=59/20': '0', 'b2 q=4 a=11/4': 'oo'}
-  T2a (b1): the cap energy tends to 0 at a0 = 1/4, 9/20: pass 
-  T2b (b2): with q = 9/2 it tends to 0 at a = 11/4, 59/20: pass 
-  T2c controls: a0 = 1/2 (q = 2), and q = 4 at a = 11/4, do not tend to 0: pass 
+     limits as |T| -> oo: {'b1 a0=1/4': '0', 'b1 a0=9/20': '0', 'b1 a0=1/2': '1', 'b2 q=9/2 a=11/4': '0', 'b2 q=9/2
+        a=59/20': '0', 'b2 q=4 a=11/4': 'oo'}
+  T2a (b1): the cap energy tends to 0 at a0 = 1/4, 9/20: pass
+  T2b (b2): with q = 9/2 it tends to 0 at a = 11/4, 59/20: pass
+  T2c controls: a0 = 1/2 (q = 2), and q = 4 at a = 11/4, do not tend to 0: pass
 T4  the radial derivatives from the equation
-  T4a coefficients: F_rr (1 - mu/r^2), F_tt -(1 + mu/r^2), F_tr 2 mu/r^2: the radial second derivative is solved for where r^2 > mu: pass -mu/r**2 + 1, -mu/r**2 - 1, 2*mu/r**2
-  T4b control: at r^2 = mu the F_rr coefficient vanishes: pass 
+  T4a coefficients: F_rr (1 - mu/r^2), F_tt -(1 + mu/r^2), F_tr 2 mu/r^2: the radial second derivative is solved for
+        where r^2 > mu: pass -mu/r**2 + 1, -mu/r**2 - 1, 2*mu/r**2
+  T4b control: at r^2 = mu the F_rr coefficient vanishes: pass
 T5  (N2)'s flux identity on a dyadic piece (flat radial model)
-  T5a E(tau_+) + int_N (1/2)(phi_t - phi_r)^2 r^3 = E(tau_-) - int int_D phi_t box phi r^3 (exact): pass both sides 941257.540031
-  T5b control: with the transverse (phi_t + phi_r)^2 the identity fails: pass 
+  T5a E(tau_+) + int_N (1/2)(phi_t - phi_r)^2 r^3 = E(tau_-) - int int_D phi_t box phi r^3 (exact): pass both sides
+        941257.540031
+  T5b control: with the transverse (phi_t + phi_r)^2 the identity fails: pass
 T6  the dyadic sums with the powers of lam
-  T6a far region: sum_k 2^(2a(k+1)) 2^-k is finite at a = 1/4, 9/20 (times M^2 lam^(2(K' - i))): pass 
-  T6b control: at a = 1/2 the far-region sum diverges: pass 
-  T6c near region: log2(lam^-2) pieces, each <= lam^(2(K'-1) - 4 beta0 - 2(2a+1)); the sum -> 0 once K' > 2 + 2 beta0 + 2a (beta0 = 2, 3; a = 1/4, 9/20): pass 
+  T6a far region: sum_k 2^(2a(k+1)) 2^-k is finite at a = 1/4, 9/20 (times M^2 lam^(2(K' - i))): pass
+  T6b control: at a = 1/2 the far-region sum diverges: pass
+  T6c near region: log2(lam^-2) pieces, each <= lam^(2(K'-1) - 4 beta0 - 2(2a+1)); the sum -> 0 once K' > 2 + 2 beta0 +
+        2a (beta0 = 2, 3; a = 1/4, 9/20): pass
 T7  the Cauchy sequence: tails
-  T7a the flux tails on N beyond r = |T| tend to 0 (a0 = 9/20 with ell-gain; a = 59/20 for h_R): pass 10/(11*T**(11/10)), 10/(11*T**(11/10))
-  T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0: pass 
+  T7a the flux tails on N beyond r = |T| tend to 0 (a0 = 9/20 with ell-gain; a = 59/20 for h_R): pass 10/(11*T**(11/10)),
+        10/(11*T**(11/10))
+  T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0: pass
 T8  (R2.6's wording) which incoming fields the weight a < 1/2 fails to exclude
-  T8a F varying in v: cap energy / |T|^(2a) -> int F'^2 > 0 (a = 1/4): grows like |T|^(2a), excluded: pass ['1.09590117225', '1.08953041280', '1.08946643832'] -> 1.08946579208
-  T8b F constant in v (an r^(-3/2) tail of the data on N): the cap energy |T|^(2a-1) -> 0 at a = 1/4 (round 2's S4c-d): this is what a < 1/2 fails to exclude: pass 
+  T8a F varying in v: cap energy / |T|^(2a) -> int F'^2 > 0 (a = 1/4): grows like |T|^(2a), excluded: pass
+        ['1.09590117225', '1.08953041280', '1.08946643832'] -> 1.08946579208
+  T8b F constant in v (an r^(-3/2) tail of the data on N): the cap energy |T|^(2a-1) -> 0 at a = 1/4 (round 2's S4c-d):
+        this is what a < 1/2 fails to exclude: pass
 T3  the energy identity for a non-stationary metric (mpmath, 40 digits)
   T3a div(T(X)) = (box_g phi) X phi + T(grad w, d_t) + (1/2) w T^ab d_t g_ab (relative, 6 cases): pass 1.26e-40
   T3b g^ab d_a d_b phi = box_g phi + g^ab Gamma^c_ab d_c phi: pass 6.31e-41
