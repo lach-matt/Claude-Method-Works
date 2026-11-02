@@ -11,3 +11,4 @@ E1 (exact) the leaf's equation at the axis: a regular Volterra equation with fir
 E2 (scipy) the estimate on a curved metric, for the perturbation of the background leaf; reconstruction
    eps = 0.2: ||d sigma||/||d H2|| = 0.497131, ||d_r d sigma||/||d_r d H2|| = 0.286151; control ||d k_ph||/||h'|| = 7.0674
    eps = 0.1: ||d sigma||/||d H2|| = 0.499278, ||d_r d sigma||/||d_r d H2|| = 0.288133; control ||d k_ph||/||h'|| = 14.1404
+   eps = 0.05: ||d sigma||/||d H2|| = 0.499819, ||d_r d sigma||/||d_r d H2|| = 0.288539; control ||d k_ph||/||h'|| = 28.2834
