@@ -74,9 +74,11 @@ def boxT(F, kappa, m):
 def t1():
     print("T1  the recursion from past null infinity")
     a = sp.Function("a")
-    lhs = sp.expand(box(a(v)*r**(-p), kap)*r**(p + 2))
-    rhs = sp.expand((3 - 2*p)*sp.diff(a(v), v)*r + (p*(p - 2) - kap)*a(v))
-    check("T1a box(a r^-p) = (3-2p)a' r^(-p-1) + (p(p-2)-kappa) a r^(-p-2)", sp.simplify(lhs - rhs) == 0)
+    rp = sp.Symbol("rp", positive=True)
+    lhs = sp.powsimp(sp.expand(box(a(v)*r**(-p), kap).subs(r, rp)*rp**(p + 2)), force=True)
+    rhs = sp.expand((3 - 2*p)*sp.diff(a(v), v)*rp + (p*(p - 2) - kap)*a(v))
+    check("T1a box(a r^-p) = (3-2p)a' r^(-p-1) + (p(p-2)-kappa) a r^(-p-2)",
+          sp.simplify(sp.expand(lhs - rhs)) == 0)
     # truncated sum with a concrete radiation field, exact
     F0 = (v*(1 - v))**6  # smooth on [0, 1], C^5 at the ends: enough for the identity
     for l in (0, 1, 2, 3):
@@ -91,7 +93,7 @@ def t1():
         ok = sp.simplify(res - sp.expand(res.coeff(r, 0))) == 0
         check(f"T1b l={l}: box of the sum to j={J} lives at r^(-{J}-7/2) only", ok)
         c = sp.Rational(4*kk + 3, 4)
-        a1_after = A[1].subs(v, 2)  # v = 2 > v_end = 1
+        a1_after = A[1].subs(v, 1)  # F = 0 for v > v_end = 1, so a_1 is constant from v = 1 on
         check(f"T1c l={l}: a_1 after the shell = -(c/2) int F, c = {c}",
               sp.simplify(a1_after + c/2*sp.integrate(F0, (v, 0, 1))) == 0)
     l = sp.symbols("l", nonnegative=True, integer=True)
@@ -200,7 +202,9 @@ def t5():
         for j in (1, 2, 3):
             coef = -(c - {1: 0, 2: 2, 3: 6}[j])/(2*j)
             A.append(sp.integrate(coef*A[-1], (v, 0, v)))
-        after = [sp.factor(sp.simplify(A[j].subs(v, 2))) for j in (1, 2, 3)]
+        # the radiation field is supported in [0, 1]: from v = 1 on, a_1 is constant, a_2 grows by int a_1 and
+        # a_3 by int a_2, so a_1(1) = a_2(1) = 0 makes all three constant after the shell
+        after = [sp.factor(sp.simplify(A[j].subs(v, 1))) for j in (1, 2, 3)]
         base = G if expect_nonzero else sp.diff(H, v)
         predicted = -c*(c - 2)*(c - 6)/48*sp.integrate(base, (v, 0, 1))
         ok = after[0] == 0 and after[1] == 0 and sp.simplify(after[2] - predicted) == 0
@@ -250,8 +254,10 @@ def t7():
     boxt = 2*sp.diff(ell(f), v) + 3*sp.diff(f, v)/r + (1 - mu/r**2)*ell(ell(f)) + 3*ell(f)/r - kap*f/r**2
     target = ((3 - 2*p)*r**(-p - 1)*sp.diff(Fn(v), v) + r**(-p - 2)*(p*(p - 2) - kap)*Fn(v)
               - mu*p*(p + 1)*r**(-p - 4)*Fn(v))
+    rp = sp.Symbol("rp", positive=True)
+    dd = sp.powsimp(sp.expand(((boxt - target)*r**(p + 4)).subs(r, rp)), force=True)
     check("T7a (9.5) on r^-p F Y = (3-2p) r^(-p-1) F' + (p(p-2)-kappa) r^(-p-2) F - mu p(p+1) r^(-p-4) F",
-          sp.simplify(boxt - target) == 0)
+          sp.simplify(sp.expand(dd)) == 0, str(sp.simplify(dd))[:60])
     t32 = sp.expand(target.subs(p, sp.Rational(3, 2)))
     check("T7b at p = 3/2 no r^(-5/2) term; r^(-7/2) carries -(kappa + 3/4) F; mu enters at r^(-11/2)",
           sp.simplify(t32 - (-(kap + sp.Rational(3, 4))*r**sp.Rational(-7, 2)*Fn(v)

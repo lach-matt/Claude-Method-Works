@@ -23,3 +23,5 @@ R3 PASS
   R4 (c) d_r dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [0, 0, r*(r - s)*(r + s)/3, r]
   R4 (d) dmu[dv^2/r^2] = 1, DRic(dv^2/r^2) = 0: True
   R4 (e) Y1 = -r H dv (vector -r H d_r) has L_Y1 g angular part -2 r^2 H gamma: True
+  R4 (f) H = 0: d omega in span DRic: True; L_{zeta d_v} g = h0 - (dmu/r^2) dv^2 when d zeta = omega: True (L_{zeta d_v} g computed: True)
+  R4 (g) L_Z g = 0 for spherically symmetric Z forces Z^r = 0 (angular), d_r Z^v = 0, d_v Z^v = 0: True

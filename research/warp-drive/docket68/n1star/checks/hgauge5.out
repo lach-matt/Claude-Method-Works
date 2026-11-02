@@ -2,3 +2,6 @@
   H1 control (f = 1 - mu/r, not vacuum): Theta(L_X g) = (d delta + delta d) X: False
 H1 PASS
   H2: r^3 (Box X)_v = d_v[r^3 (delta X + (dX)_vr)] - (r/sqrt gamma) d_th(sqrt gamma (dX)_{th v}) at r_h: True
+  H2: Q of an l = 2 class 1-form vanishes (Q sees only the l = 0 part): True
+  H2 control: the identity at r = 2 r_h: False
+H2 PASS

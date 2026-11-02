@@ -497,7 +497,7 @@ def b3_full(control):
     syms = {d: sp.Dummy() for d in atoms}
     lin = {k: sp.expand(Lb[k].subs(syms)) for k in COMP}
     fun = {(a, b): m1[a, b] for (a, b) in COMP}
-    byname = {(fun[k].func, tuple(sorted(vs, key=str))): d for d, (f, vs) in atoms.items() for k in [None]}
+    byname = {(f.func, vs): d for d, (f, vs) in atoms.items()}
     ok, n = True, 0
     sub = {th: sp.pi/2 - th}
     for k in COMP:
