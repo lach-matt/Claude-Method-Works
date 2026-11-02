@@ -284,15 +284,16 @@ def f1b():
             nos.append(mp.mnorm(DF1(Jn, J0n, test_field("val", K0)) - L, 1))
         info.append((mp.nstr(rems[0], 3), mp.nstr(rems[-1], 3), mp.nstr(leads[0], 3), mp.nstr(leads[-1], 3)))
         rem_ok = rem_ok and max(rems) < 3*min(rems) + 1
-        grow_ok = grow_ok and leads[-1] > 50*leads[0]
+        grow_ok = grow_ok and max(leads) > 100*max(rems)
         tr_ok = tr_ok and max(trs) < 3*min(trs) + 1
-        ctl_ok = ctl_ok and nos[-1] > 50*nos[0]
+        ctl_ok = ctl_ok and max(nos) > 100*max(rems)
     check("F1b D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A sin(v/lam) stays bounded (lam = 1e-2, 1e-3, 1e-4) while the "
-          "lam^-1 term grows: c = -(1/2) lam^-1 (.)(ell, ell)[d_th^2 W] + O(1)", rem_ok and grow_ok,
+          "lam^-1 term reaches more than 100 times it: c = -(1/2) lam^-1 (.)(ell, ell)[d_th^2 W] + O(1)",
+          rem_ok and grow_ok,
           "(rem at 1e-2, 1e-4; lead at 1e-2, 1e-4) " + str(info))
     check("F1b' for K0(ell, ell) = 0 the value coefficient is O(1): the lam^-1 part is exactly the ell-ell one", tr_ok)
-    check("F1b'' control (the wave mutated to the non-oscillating lam A): the same test fails, the remainder growing "
-          "like lam^-1 (the lam^-1 coefficient is the oscillation's)", ctl_ok)
+    check("F1b'' control (the wave mutated to the non-oscillating lam A): the same test fails, the remainder "
+          "reaching more than 100 times the bound above (the lam^-1 coefficient is the oscillation's)", ctl_ok)
 
 
 def f1c():

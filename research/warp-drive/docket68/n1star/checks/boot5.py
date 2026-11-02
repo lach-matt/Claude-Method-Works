@@ -192,7 +192,8 @@ def b3():
           sp.simplify(ratio - 1/(a + 1 + eta)**2) == 0, str(ratio))
     # integration by parts: int r^(2a+1) phi^2 = -R^(2a+2) phi(R)^2/(2a+2) - (1/(a+1)) int r^(2a+2) phi phi'
     f = sp.Function("f")
-    ibp = sp.diff(r**(2*a + 2)*f(r)**2/(2*a + 2), r) - (r**(2*a + 1)*f(r)**2 + r**(2*a + 2)*f(r)*sp.diff(f(r), r)/(a + 1))
+    ibp = sp.diff(r**(2*a + 2)*f(r)**2/(2*a + 2), r) - (r**(2*a + 1)*f(r)**2
+                                                      + r**(2*a + 2)*f(r)*sp.diff(f(r), r)/(a + 1))
     check("B3b the integration by parts behind it: d/dr (r^(2a+2) f^2/(2a+2)) = r^(2a+1) f^2 + r^(2a+2) f f'/(a+1); the "
           "boundary term at the inner edge enters as -R^(2a+2) f(R)^2/(2a+2) <= 0", sp.simplify(ibp) == 0)
     rng = random.Random(4)
@@ -232,7 +233,8 @@ def b4():
     vprime = 1 + fp_
     check("B4c v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2)",
           all(vprime.subs(fp_, c) >= sp.Rational(1, 2) for c in (sp.Rational(-1, 2), 0, sp.Rational(1, 2))))
-    check("B4d control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0)", vprime.subs(fp_, -sp.Rational(3, 2)) < 0)
+    check("B4d control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0)",
+          vprime.subs(fp_, -sp.Rational(3, 2)) < 0)
     # |t - v1| <= r on W: t - v1 >= -r from v >= v1; t - v1 <= r from t <= f(r), v1 = f(4R) + 4R, |f'| <= 1/2, r >= 4R
     Rv = sp.Symbol("R", positive=True)
     worst = -(sp.Rational(1, 2)*(rr - 4*Rv)) + 4*Rv + rr  # v1 + r - t >= f(4R) - f(r) + 4R + r >= -(r - 4R)/2 + 4R + r
