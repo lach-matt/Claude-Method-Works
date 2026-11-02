@@ -296,94 +296,162 @@ def p6():
 # ---------------------------------------------------------------- Lemma 11.2 and Proposition 11.1
 
 def eG(kmax):
+    """lam-orders of the coefficients: e(G_3) = -1 (lam A env h sin), e(G_4) = 0 (2 int S_3); G_k = c int S_(k/2+1),
+    whose monomials are a linear term on G_(k-2) with at most one d_v (Gamma[g0] d_v, coefficient r-gain 2) or none
+    (the flat part, Delta-ring and ell ell), or products of 2 or 3 factors G_(k_i), 3 <= k_i <= k - 1,
+    sum k_i <= k + 2, with at most two d_v (each d_v costs one power, an integral over [v_start, v] none)."""
     e = {3: -1, 4: 0}
     for k in range(5, kmax + 1):
-        cands = []
-        # linear terms: Gamma[g0] d_v on G_(k-2) (coefficient r-gain 2, one d_v)
-        cands.append(e[k - 2] + 1)
-        # flat linear part (no d_v) on G_(k-2)
-        cands.append(e[k - 2])
-        # products with up to two d_v, factors k_i >= 3, sum k_i <= k + 2 (r-gains make up the rest)
+        cands = [e[k - 2] + 1, e[k - 2]]
         for parts in (2, 3):
-            for ks_ in partitions(k + 2, parts, 3):
-                for extra in range(0, 3):
-                    pass
-                if all(ki <= k - 1 for ki in ks_):
-                    cands.append(sum(e[ki] for ki in ks_) + 2)
-            for tot in range(3*parts, k + 2):
+            for tot in range(3*parts, k + 3):
                 for ks_ in partitions(tot, parts, 3):
-                    if all(ki <= k - 1 for ki in ks_):
+                    if max(ks_) <= k - 1:
                         cands.append(sum(e[ki] for ki in ks_) + 2)
         e[k] = max(cands)
     return e
 
 
-def stages(Jmax, nmax, mmax, e):
-    """pointwise orders M(J, n, m) of u_J (n Cartesian/rotation derivatives, m ell-derivatives)."""
-    M = {}
-    # u_3 = u_1: natural (P6): order n - 1; ell does not hit the phase (ell v = 0)
-    for n in range(nmax + 8):
-        for m in range(mmax + 1):
-            M[(3, n, m)] = n - 1
+def stages(Jmax, e):
+    """base orders B_J of the remainders u_J (pointwise order at n derivatives and m ell-derivatives is B_J + n + m).
+
+    Stage J -> J + 1 is Lemma 11.2 at q = (J + 3)/2 on u~ = u_J:
+      S~ (pointwise): terms linear in u_J with explicit coefficients, lam^-1 u_J(ell, ell) [W''] and d u_J d(lam W):
+          B_J + 1; terms quadratic in u_J, one factor taken crudely, |d u_J| <= lam^-(crude + 1) r^-2 with
+          crude = max(-1, e(G_k), k <= J): B_J + crude + 2; explicit G-monomials beyond order q: 2J - 6;
+      S' adds (g^-1 - g0^-1) d^2 (r^(1-q) G_(J+1)): e(G_(J+1)) + 1, and box~(r^(1-q) G_(J+1)) - r^-q S_q: e(G_(J+1));
+      energy (Lemma 9.5, lam-free Gronwall on the far region, P3; commutators natural, P6): the order of S';
+      pointwise (Lemma 9.3): energies of two more orders, + 2;
+      the ell-gain (transport (11.6), lam-free factor): f contains d_v u~~, + 1 per ell.
+    u_3 = u_1 has B_3 = -1 (P6)."""
+    B = {3: -1}
     for J in range(3, Jmax):
-        crude = max([0] + [e[k] + 1 for k in range(4, J + 1)])  # |d u_J| <= lam^-crude r^-2 (one factor)
-        for n in range(nmax + 8 - 3*(J - 2)):
-            # S~ of u_J's equation at order n: linear terms in u_J (order +1), quadratic (+ crude), explicit
-            # G-monomials beyond the leading order (e <= 2 J - 6 at this r-order)
-            sres = max(M[(J, n, 0)] + 1, M[(J, n + 1, 0)], M[(J, n, 0)] + crude + 1, 2*J - 6 + n)
-            # S' adds (g^-1 - g0^-1) d^2 (r^(1-q) G_(J+1)) and the box~ remainder
-            spr = max(sres, e[J + 1] + 1 + n, e[J + 1] + n)
-            if (J, n + 3, 0) not in M:
-                break
-            # energies of order n + 2 feed the pointwise bound at order n (Lemma 9.3), commutators natural
-            sp_n2 = max(M[(J, n + 2, 0)] + 1, M[(J, n + 3, 0)], M[(J, n + 2, 0)] + crude + 1, 2*J - 6 + n + 2,
-                        e[J + 1] + 1 + n + 2)
-            base = sp_n2
-            for m in range(mmax + 1):
-                # ell-gain by transport: f contains d_v of the previous ell-level: one more power per ell
-                M[(J + 1, n, m)] = base + m
-    return M
+        crude = max([-1] + [e[k] for k in range(4, J + 1)])
+        stil = max(B[J] + 1, B[J] + crude + 2, 2*J - 6)
+        sprime = max(stil, e[J + 1] + 1, e[J + 1])
+        B[J + 1] = sprime + 2
+    return B
 
 
 def p7():
     print("P7  Lemma 11.2 and Proposition 11.1: the coefficients and the remainders")
     e = eG(40)
-    check("P7a e(G_k) <= k - 4 for k = 4..40 (e(G_3) = -1, e(G_4) = 0)", all(e[k] <= k - 4 for k in range(4, 41)),
-          str([e[k] for k in range(3, 12)]))
-    M = stages(24, 12, 4, e)
-    bound = lambda J, n, m: n + m + (J*J + 3*J)//2 - 9
-    rows = [(J, n, m) for (J, n, m) in M if J <= 24 and n <= 12 and m <= 4]
-    ok = all(M[k] <= bound(*k) for k in rows)
-    worst = max(M[k] - bound(*k) for k in rows)
-    print("     M(J, 0, 0), J = 3..12:", [M.get((J, 0, 0)) for J in range(3, 13)])
-    check("P7b M(J, n, m) <= n + m + (J^2 + 3J)/2 - 9 on every computed (J <= 24, n <= 12, m <= 4)", ok,
-          f"{len(rows)} rows, max(M - bound) = {worst}")
-    check("P7c control: no bound 3J + n + m (M(24, 0, 0) > 72)", M[(24, 0, 0)] > 72, f"M(24,0,0) = {M[(24, 0, 0)]}")
+    check("P7a e(G_k) = k - 4 for k = 4..40 (e(G_3) = -1): the monomial recursion's fixed point",
+          all(e[k] == k - 4 for k in range(4, 41)), str([e[k] for k in range(3, 12)]))
+    B = stages(40, e)
+    closed = lambda J: (J*J - J)//2 - 1 if J >= 4 else -1
+    print("     B_J, J = 3..12:", [B[J] for J in range(3, 13)])
+    check("P7b B_J = (J^2 - J)/2 - 1 for J = 4..40: M(J, n, m) = B_J + n + m, polynomial, K-independent",
+          all(B[J] == closed(J) for J in range(4, 41)))
+    check("P7c control: no bound linear in J with slope 3 (B_24 > 72)", B[24] > 72, f"B_24 = {B[24]}")
 
+
+# ---------------------------------------------------------------- M1: e's coefficients by interpolation
 
 def p8():
-    print("P8  smallness of the commuted data on N from (Poly)")
+    print("P8  the interpolation lemma: e's expansion coefficients from (P-iii) and (Poly)")
+    # Lemma: P(s) = sum_(i<=d) c_i s^i with |P| <= eta on [sigma/2, sigma] has |c_i| <= L_d sigma^-i eta,
+    # L_d := max_i ||row i of V^-1||_1 for the nodes 1/2 + j/(2d) (exact rationals).
+    ok = True
+    Ls = {}
+    for d in (1, 2, 3, 4, 5):
+        nodes = [sp.Rational(1, 2) + sp.Rational(j, 2*d) for j in range(d + 1)]
+        Vm = sp.Matrix(d + 1, d + 1, lambda i, j: nodes[i]**j)
+        Vi = Vm.inv()
+        Ls[d] = max(sum(abs(Vi[i, j]) for j in range(d + 1)) for i in range(d + 1))
+        # check on random polynomials, scaled to [sigma/2, sigma]
+        import random
+        random.seed(d)
+        for _ in range(20):
+            cs = [sp.Rational(random.randint(-9, 9), random.randint(1, 5)) for _ in range(d + 1)]
+            sig = sp.Rational(random.randint(1, 9), 10)
+            vals = [sum(cs[i]*(sig*y)**i for i in range(d + 1)) for y in nodes]
+            eta = max(abs(vv) for vv in vals)
+            ok = ok and all(abs(cs[i]) <= Ls[d]*sig**(-i)*eta for i in range(d + 1))
+    check("P8a |c_i| <= L_d sigma^-i max|P(nodes)| on 100 random polynomials (d = 1..5), L_4 = " + str(Ls[4]), ok)
+    # optimisation: |c_(k)| <= 2 L (eps + B sigma^(J'-3)) sigma^-(k-4), sigma^(J'-3) = eps/B
+    K, Mx, Jp = sp.symbols("K M Jp", positive=True)
+    th_ = lambda k, J: sp.Rational(k - 4, J - 3)
+    eps = lam**(K - 3)
+    Bb = lam**(-Mx)
+    sig = (eps/Bb)**(sp.Integer(1)/(Jp - 3))
+    for k in (5, 6, 7, 8):
+        bound = sp.powsimp(sp.expand_power_base(eps*sig**(-(k - 4)), force=True), force=True)
+        expo = sp.simplify(sp.log(bound.subs(Jp, 8))/sp.log(lam))
+        target = (K - 3)*(1 - th_(k, 8)) - Mx*th_(k, 8)
+        ok = ok and sp.simplify(sp.expand(expo - target)) == 0
+    check("P8b with J' = 8: |e_k| <= C lam^((K-3)(1 - th_k) - M th_k), th_k = (k - 4)/5, k = 5..8", ok)
+    # sigma must lie in the far region: sigma <= s_0 = (2 lam^-2)^(-1/2)
+    check("P8c sigma = lam^((K - 3 + M)/(J' - 3)) <= lam/sqrt(2) once K - 3 + M > J' - 3 (lam small)",
+          sp.limit((lam**(sp.Rational(10 + 1, 5)))/(lam/sp.sqrt(2)), lam, 0, "+") == 0)
+    # control: at a fixed radius (sigma fixed) the coefficient bound is only lam^-M
+    fixed = sp.limit(lam**(-5)*(lam**(17) + lam**(-5)), lam, 0, "+")
+    check("P8d control: without the optimisation (sigma fixed) the bound lam^-M (eps + B) does not tend to 0",
+          fixed == sp.oo)
+
+
+def kstar(a, Jp, Mx, j):
+    """least K with every exponent of the commuted flux of e's remainder (subtraction through p = 4, k <= 8)
+    positive, R = lam^-s, s = max(2, (2M + 1)/(J' - 1 - 2a)).
+      (i)   e below R, j commutations (Z = r ell costs r):   2(K - 4 - j) - s(2a + 2j) > 0
+      (ii)  coefficient e_k with i <= j + 1 d_v's, up to R:   2[(K - 3 - i)(1 - th_k) - (M + i) th_k]
+                                                               - s max(0, 2a + 2 - k) > 0
+      (iii) above R, (11.7) with ell-gains:                   -2M + s(J' - 1 - 2a) > 0 (holds by the choice of s)"""
+    s = max(sp.Integer(2), (2*Mx + 1)/sp.Integer(Jp) - 0 if False else (2*Mx + 1)/(Jp - 1 - 2*a))
+    s = max(sp.Integer(2), s)
+    best = 0
+    Kk = sp.Symbol("Kk")
+    need = [4 + j + s*(a + j)]
+    for k in range(4, 9):
+        thk = sp.Rational(k - 4, Jp - 3)
+        for i in range(0, j + 2):
+            # (K - 3 - i)(1 - th) - (M + i) th > (s/2) max(0, 2a + 2 - k)
+            rhs = s*max(0, 2*a + 2 - k)/2
+            if thk == 1:
+                continue
+            need.append(3 + i + (rhs + (Mx + i)*thk)/(1 - thk))
+    return s, max(need)
+
+
+def p9():
+    print("P9  the threshold K* for the commuted flux of e's remainder below and above R (replaces R2.10's K)")
     rr = sp.Symbol("rr", positive=True)
     ok = True
-    for a, Jp, Mx, j, Kp in ((sp.Rational(11, 4), 8, 12, 0, 80), (sp.Rational(11, 4), 8, 12, 3, 140),
-                             (sp.Rational(29, 10), 9, 20, 2, 400)):
-        s = (2*Mx + 1)/sp.Integer(Jp - 1 - 2*a)
+    for a, Jp, Mx, j in ((sp.Rational(11, 4), 8, 3, 0), (sp.Rational(29, 10), 8, 12, 2),
+                         (sp.Rational(31, 11), 9, 20, 4)):
+        s, Ks = kstar(a, Jp, Mx, j)
+        K = int(sp.floor(Ks)) + 1
+        th6 = sp.Rational(2, Jp - 3)
+        terms = []
         Rr = lam**(-s)
-        low = sp.integrate(rr**(2*a)*(lam**(Kp - 3 - j)*rr**(j - 2))**2*rr**3, (rr, 1, Rr))
-        high = sp.integrate(rr**(2*a)*(lam**(-Mx)*rr**(-sp.Rational(Jp + 3, 2)))**2*rr**3, (rr, Rr, sp.oo))
-        cond = Kp > 3 + j + s*(a + j - 1)
-        lim = sp.limit(sp.simplify(low + high), lam, 0, "+")
-        ok = ok and cond and lim == 0
-        print(f"     a = {a}, J' = {Jp}, M = {Mx}, j = {j}, K' = {Kp}: s = {s}, condition {cond}, flux -> {lim}")
-    check("P8a the split flux of Z^j d e tends to 0 in the sampled cases satisfying K' > 3 + j + s(a + j - 1)", ok)
-    a = sp.Rational(11, 4)
-    div = sp.integrate(rr**(2*a)*(rr**(1 - sp.Rational(11, 2)))**2*rr**3, (rr, 1, sp.oo))
-    check("P8b control: above R without the ell-gain (|Z d e| ~ r^(j - (J'+3)/2), J' = 8, j = 1) the flux diverges",
-          div == sp.oo)
+        terms.append(sp.integrate(rr**(2*a)*(lam**(K - 4 - j)*rr**(j - 2))**2*rr**3, (rr, 1, Rr)))
+        for k in range(4, 9):
+            thk = sp.Rational(k - 4, Jp - 3)
+            for i in range(0, j + 2):
+                ek = lam**((K - 3 - i)*(1 - thk) - (Mx + i)*thk)
+                terms.append(sp.integrate(rr**(2*a)*(ek*rr**(-sp.Rational(k, 2) - 1))**2*rr**3, (rr, 1, Rr)))
+        terms.append(sp.integrate(rr**(2*a)*(lam**(-Mx)*rr**(-sp.Rational(Jp + 3, 2)))**2*rr**3, (rr, Rr, sp.oo)))
+        lim = sp.limit(sp.simplify(sum(terms)), lam, 0, "+")
+        ok = ok and lim == 0
+        print(f"     a = {a}, J' = {Jp}, M = {Mx}, j = {j}: s = {s}, K* = {sp.nsimplify(Ks)} ~ {float(Ks):.2f}, "
+              f"K = {K}: flux -> {lim}")
+    check("P9a at K = floor(K*) + 1 every term of the commuted flux tends to 0 (three sampled cases)", ok)
+    # control: R2.10's K - 4 > a s holds but K < K*: the e_6 term up to R does not tend to 0
+    a, Jp, Mx, j = sp.Rational(29, 10), 8, 1, 0
+    s_old = (2*Mx + 1)/(Jp - 1 - 2*a)
+    s, Ks = kstar(a, Jp, Mx, j)
+    K = int(sp.floor(4 + a*s_old)) + 1
+    th6 = sp.Rational(2, Jp - 3)
+    e6 = lam**((K - 3 - 1)*(1 - th6) - (Mx + 1)*th6)
+    t6 = sp.integrate(rr**(2*a)*(e6*rr**-4)**2*rr**3, (rr, 1, lam**(-s)))
+    lim6 = sp.limit(t6, lam, 0, "+")
+    check(f"P9b control: a = 29/10, J' = 8, M = 1: R2.10's K = {K} satisfies K - 4 > a s, but K < K* = "
+          f"{float(Ks):.2f} and the e_6 term (one d_v) does not tend to 0", K - 4 > a*s_old and K < Ks and lim6 != 0,
+          f"limit {lim6}")
 
 
 def main():
-    for f in (p1, p2, p3, p4, p5, p6, p7, p8):
+    for f in (p1, p2, p3, p4, p5, p6, p7, p8, p9):
         f()
     print("FAILED:", FAIL if FAIL else "none")
     return 1 if FAIL else 0
