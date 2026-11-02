@@ -572,3 +572,340 @@ the constants C(λ, j) of the approximating solutions' data (N1STAR-PROOF.md:105
     python3 checks/scatter5.py       (about four and a half minutes, 260 s)
     python3 checks/spatinf5.py       (about a minute; U3 most of it)
     python3 checks/r1controls5.py    (a few seconds)
+
+## Round 3 (2026-11-02)
+
+Status: written; not yet read by a verifier. Labels as in round 2. New programs, each with its `.out` and with
+controls that are claims the program must reject: `checks/poly5.py` (P1-P9, (Poly) and the verifier's M1),
+`checks/scale5.py` (Z1-Z8, (b2)), `checks/trunc5.py` (T1-T8, (b1)). N1STAR-PROOF.md line numbers are as of
+82a7e95. Round 2's programs amended (R3.0):
+`halfclass5.py` (H2 to M ≤ 12, H5c, H8), `spatinf5.py` (U2), `r1controls5.py` (C4c), `scatter5.py` (docstring); their
+`.out` files are regenerated and pass. Round 2's text is amended in place where the verifier's report asked, each
+amendment marked "R3.0 (…)" there; round 1 is unchanged. Sections are R3.0 and R3-A … R3-F, statements R3.1 … R3.7,
+equations (R3a)-(R3c), so that they do not collide (the verifier's nit).
+
+### R3.0 The verifier's reading of round 2, and what was amended
+
+*Reported to this workstream (the reader's scripts were not re-read here).* R2.0, R2.2, R2.3 sound; R2.4 had a gap for
+ℓ0 ∈ (7/2, 4); R2.6 overstated; R2.9 had a major gap (M1). Dispositions:
+
+- **(M1) R2.9-R2.10.** (P-iii) bounds e, not e minus its subtracted coefficients, which were bounded nowhere (round 1
+  covers only k = 5), and R2.9 had only the first-derivative flux. *Repaired*: Lemma R3.2 (the coefficients by an
+  interpolation lemma, the commuted fluxes from Propositions 9.8-9.9 at order k, R ≥ λ^(−2)) and the threshold K*
+  (`poly5.py` P8-P9); R2.9 and R2.10 carry the amendment; R2.10's K − 4 > as does not imply K > K* (P9b).
+- **(c1)** Every round-2 cite of N1STAR-PROOF.md above 10514 was 21 lines low after e50e9bc, and the file moved again
+  during this round (82a7e95: +2 more there, +7 below): all of them, and 1045-1047, 1105, 1341-1342, are updated to
+  82a7e95 at (n1), R2.5, R2.4's READ, the ledger and the next step.
+- **(c2) (n2)** said "damping built on c = r^(−1) dt" for both 1-forms: E^Υ is built on c_Υ = r^(−1) dt and E^C on
+  c = r^(−1)(dt − v dr) (BEYOND5.md:300-301). Amended.
+- **(c3) R2.2** was computed for M ≤ 8; ℓ_I < 4 allows M up to 10. H2 now runs to M ≤ 12, equality holding at every
+  M (`halfclass5.out`); the verifier's induction for every M is recorded in R2.2, not re-derived.
+- **(c4) R2.4.** The gap for ℓ0 ∈ (7/2, 4) is closed by (c3). The factor counts (2 or 5 more derivatives in Step 1)
+  are the verifier's and are recorded; the claims on ε, δ, λ_1 are now stated as qualitative (none is computed); the
+  dependency list cites the statements generic in ℰ_0 (III.C″ Theorem 3.1 (2) and Proposition 4.1, Part IV‴
+  Corollary 2.3, Part VIII Lemma 1.1, H6a) in place of BEYOND5.md:237-239.
+- **(c5) R2.6.** "Does not exclude incoming radiation" overstated: a radiation field varying in v has cap energy
+  ~ |T|^(2a) ∫F′² and is excluded at every a > 0; what a < ½ fails to exclude is an r^(−3/2) tail constant in v
+  (`trunc5.py` T8a-b, quadrature: the ratio to |T|^(2a) tends to ∫F′² = 1.0895). Reworded.
+- **(c6) R2.8** used the pointwise bound O(ρ^(1/2+a)); the S-energy with Hardy gives ρ^(a+1)L²_b (`scale5.py` Z8), so
+  the condition is a > ℓ0 − 1. Amended, with a pointer to R3-D.
+- **(m1)** `spatinf5.py` U2 cast `sp.Integer(JJ − 1 − 2aa)`, which truncated: s is now exact (22/5, 125/11, 82/11),
+  and two failing cases with K − 4 ≤ as (K = 24, 16) give an infinite flux, as they must. **(m2)** R2.10's (b2) now
+  names its restriction to S. **(m3)** R ≥ λ^(−2), so s ≥ 2 (in Lemma R3.2). **(m4)** Run times corrected.
+- **Nits.** (n1) scatter5's docstring now says 55 components; (n2) slot 7 has two Σ points (R2.3); (n3) for
+  ℓ_I ∈ (7/2, 4) the half class costs 9 applications, loss 18 (computed, H5c: (J, L) = (2, 6); Part VII's class 7);
+  (n4) G ⊂ ℰ^(M) exactly from M = 2 (computed, H8); (n5) S4c-d are power-count models (R2.6, scatter5); (n6) C4c runs
+  T8c's test at T8f's first zero ω* = 3.3310293, where |ê_b| = 7.5 × 10^(−35): T8c can fail; (n7) "R2.3 below" in
+  R2.4 now reads "Lemma R2.8 in section R2.3".
+
+### R3-A What "conditional on Part IV" means
+
+*READ.* III.K Theorem 4.3 is "conditional on Part IV" (PART-III-K-NONLINEAR.md:468), and (K2) says what Part IV must
+deliver: "(a) III.C′ Theorem 2.1 in the cut-off gauge ... (b) Its continuation on the slab 𝒮 ... (c) III.E Theorem 1.1
+(constraint damping) ... Theorem 4.3 is conditional on these" (PART-III-K-NONLINEAR.md:510-518). Part VII Theorem 0.2
+uses III.K Theorem 4.3 (PART-VII-ASSEMBLY.md:69-92), and so did Theorem R2.4.
+
+*READ, the statements that deliver them and their status (proof5/README.md:77-84).*
+- (a): Part IV″ Theorem 2.4 (the linear exterior estimate), Theorem 3.1 (the nonlinear exterior solution) and
+  Corollary 4.1 (the cut-off gauge) (PART-IV3-NM.md:229, 321, 382), on Part IV′ and Part IV; status **proved**
+  (IV D309; IV′, IV″ D311).
+- (b): Part IV‴ Theorems 2.1-2.2 and Corollary 2.3 (PART-IV4-SLAB.md:86, 128, 148); **proved** (D312).
+- (c): III.E Theorem 1.1 (1)-(3) is Part IV⁗ Theorem 2.1 (PART-IV5-CDMODES.md:154), with [Hin26a] Theorem 5.2 at
+  n = 4 from Part IV′′′′′ Theorem 7.3 (PART-IV6-SOLV.md:742); (4) is Part IV′′′′′′ Theorem 4.1 (PART-IV7-TFACE.md:387)
+  through its Theorem 3.1 (348). **Proved** (IV⁗, IV′′′′′ D312; IV′′′′′′ D315).
+- III.K itself: **proved** (D312), conditionally on (a)-(c) (README:77).
+
+*READ, the class.* Part IV″ works with conormal data: "ℰ_0 := ∅, ℓ_0 := ℓ^♭_0" (PART-IV3-NM.md:60-61), its Theorem
+3.1's data in H_b^(∞,ℓ^♭_0) (321-330). The one output that carries an index set, Part IV‴ Corollary 2.3, takes "the
+hypotheses of III.C′ Theorem 3.1 on the data" (PART-IV4-SLAB.md:148-149), which ℰ_0^½ satisfies (row d1, Lemma R2.1).
+
+*Deduced.* "Conditional on Part IV" in Theorems R2.4 and R2.10 means conditional on those seven statements, each listed
+as proved in the record, none depending on ℰ_0 beyond row d1. So (P4) is discharged by citation and Theorem R2.4
+holds in the record's sense of "proved". This workstream did not re-read Part IV.
+
+### R3-B (Poly): the powers of λ, carried
+
+*Setting.* "λ-order p" means a bound C λ^p. K_0 := 6: Theorem P at K = 6 gives the same g_λ as at any K ≥ 6, for λ ≤
+min(λ_P(K), λ_P(6)) ((P-v), N1STAR-PROOF.md:1052-1054; the two approximants differ by O(λ²) t^(−2) in C¹). So every
+constant below is K-free. u_1 := g_λ − g0 − r^(−3/2)G_3 = a + w, a := g_app − g0 − r^(−3/2)G_3 explicit
+(N1STAR-PROOF.md:1436-1440), w = g_λ − g_app.
+
+(a) *The chain rule and the kernels* (computed P1-P3). Each Cartesian derivative of a profile at phase v/λ costs exactly
+λ^(−1), attained, and a rotation none (P1a-d; control: x2∂_1 + x1∂_2 costs λ^(−1)). ∂(λ[W_TT]) has order 0 (P2a: λ-order
+0), so the kernel ‖∂g_n‖_∞ ≤ C t^(−3/2) of Lemma 9.5 in Lemma 11.0 and of Lemma 11.2's energy step is λ-free, and on t ≥
+λ^(−2) its Grönwall factor is e^(2Cλ) (P3a).
+
+(b) **Finding F1 (a gap in Lemma 11.0's written proof; harmless on the far region).** (g^(−1) − g0^(−1))(dv, dv) = −u(ℓ,
+ℓ) + O(u²) (P2c, exact first variation at 60 digits; control P2e), so the quasilinear term of S(u) on λ[W_TT] is
+½(g^(ab) − g0^(ab))∂_a∂_b(λ[W_TT]) = ½λ^(−1)(g^(−1) − g0^(−1))(dv, dv)[∂_θ²W_TT] + O(λ⁰) (P2d, exact on a profile W sin
+θ), i.e. a term −½λ^(−1) u_1(ℓ, ℓ)[∂_θ²W_TT] of F_1, linear in u_1 with coefficient λ^(−1)t^(−3/2). At order |γ| = j + 1
+its ∂^γ contains −½λ^(−1)(∂^γ u_1)(ℓ, ℓ)[∂_θ²W_TT], of the top order, not "the orders already controlled"
+(N1STAR-PROOF.md:10550-10551). It must enter Lemma 9.5's kernel through Lemma 9.3(b), as Proposition 9.8 (i) does with
+λ^(−1)sG2 (1348-1349): on t ≥ λ^(−2) that kernel integrates to 2C (P3a), a λ-free factor e^(2C). On the near region it
+would give e^(2C(1/λ − 1)), which beats every power (P3b, the control).
+
+(c) *The data constants C(λ, j)* (computed P4). ‖∂U_n(τ_n)‖ ≤ C(λ, j)t_n^(−1/2) (N1STAR-PROOF.md:10563-10566):
+the explicit part a is natural, ∂^(j+2) a has λ-order −(j + 1) (times r^(−2)); for w_n, which vanishes on
+Σ_(τ_n) with its first derivatives, the model of (3.2) (oscillating g_app^(−1) − g0^(−1) of size λ, the 1/λ coupling
+s(w)G2, quadratic terms, residual λ^(N−1)[R]) gives ∂_τ^m w_n λ-order exactly N + 1 − m (m = 2..6, N = 6; control: "order
+N − 1 at every m" fails at m = 3). So C(λ, j) ≤ C_j λ^(−(j+1)): polynomial.
+
+(d) *Lemma 11.0 as written* (computed P5). With the sources split as written (the highest-order factor in L², the rest
+in sup; sup at order n from energies of order n + 2 by Lemma 9.3, the cost of three; Theorem P at orders ≤ 6), the
+energy at order N has λ-order −P(N), P(N) finite at every order and P(N) ≤ 9N/4 for 7 ≤ N ≤ 160 (P(40) = 82, P(160) =
+358). The record's split inequality ⌊(N + 2)/2⌋ ≤ max(4, N − 3) holds (P5a); the reverse split needs an uncontrolled
+order (P5d).
+
+(e) *The sharp reading* (computed P6; deduced). Proposition 9.8's proof at order k: items (i)-(v) (N1STAR-PROOF.md:
+1348-1354) use scaled norms throughout, the nonlinear term is C(k)λ^(−5)t^(−3/2)E², and 10.51's reading of section 4
+(6776-6801: Step 4's split at k − 2, "valid at every k ≥ 3 with C = C_k", closing when 2K − 5 ≥ K + 1) applies to
+them verbatim. So (9.8) holds at every order k ≥ 6 for λ ≤ λ_F(k) (deduced, not read line by line). With it, w has
+λ-order K′_0 − 3 − n ≥ 1 − n at n derivatives, a has λ-order 1 − n, and the recursion of (d) closes at the
+natural exponent: |∂^α Ω^β u_1| ≤ C λ^(1−|α|) t^(−2) (P6a; control P6b: at K′ = 5 the scaled bootstrap fails).
+
+(f) *Lemma 11.2 and Proposition 11.1* (computed P7). The coefficient G_k = c∫S_(k/2+1) has λ-order −e(G_k), e(G_k) = k −
+4 (k ≥ 4; e(G_3) = −1): S_q's monomials are a linear term on G_(k−2) with at most one ∂_v or products of earlier
+coefficients with at most two, and an integral over [v_start, v] costs nothing. Each stage of Proposition 11.1 is Lemma
+11.2 with: S̃'s terms linear in u_J (+1: the λ^(−1)u_J(ℓ,ℓ)[∂_θ²W] of F1 and ∂u_J ∂(λ[W])), quadratic in u_J (one factor
+bounded crudely, |∂u_J| ≤ λ^(−(J−3)) r^(−2)), S′'s (g^(−1) − g0^(−1))∂²(r^(1−q)G_(J+1)) (e(G_(J+1)) + 1), a λ-free
+Grönwall factor (Lemma 9.5 on the far region, P3a), Lemma 9.3 (+2), and the ℓ-transport (11.6) with the λ-free factor
+e^(3d1/(2r′))(d1/2) (+1 per ℓ, its forcing containing ∂_v u~~). u_J has λ-order −B_J, B_J = (J² − J)/2 − 3 (J ≥ 4), B_3
+= −1 (P7b; control P7c: no bound linear in J with slope 3, B_24 = 273).
+
+**Proposition R3.1 ((Poly) on the far region; deduced, computed P1-P7).** For J ≥ 3 and n, m ≥ 0 there are C and
+λ_0 > 0, depending on J, n, m and the record's data (seed, A, env, angular profile) and not on K, such that for
+0 < λ ≤ λ_0, on {t_P ≥ λ^(−2) + d1} (the far region less the collar its ℓ-transport needs, N1STAR-PROOF.md:10625),
+for |α| + |β| ≤ n:
+
+    |∂_X^α Ω^β ℓ^m u_J| ≤ C λ^(−(B_J + |α| + m)) r^(−(J+1)/2 − m),    |∂_X^α G_k| ≤ C λ^(−(k − 4 + |α|))  (k ≥ 4),
+
+B_J = (J² − J)/2 − 3. So (Poly) holds with M(J, n, m) = B_J + n + m, polynomial and K-independent. Its inputs: (e),
+i.e. Proposition 9.8 at order n + 4 (deduced); without (e), Lemma 11.0 as written gives a larger finite exponent
+(P(N) ≤ 9N/4 at the base), still polynomial. ∎
+
+*Where polynomiality fails, exactly.* Only on the near region and only through the 1/λ coupling: Theorem P's
+smoothness argument there ("taken over the bounded interval [tau_T, tau0] on the near region, with no decomposition
+needed for fixed lam", N1STAR-PROOF.md:1423-1426) has the kernel C(λ)t^(−3/2) with C(λ) ⊃ λ^(−1) (F1), whose
+Grönwall factor over [1, λ^(−2)] is e^(2C(1/λ − 1)) (P3b). (11.7) lives on the far region and does not use it.
+
+(g) *The near region* (deduced; computed T6c). It enters only (N2)'s commuted fluxes on N ∩ {1 ≤ t_P ≤ λ^(−2)}.
+Proposition 9.9's proof states that "every line holds at every order j ≤ k with c0 unchanged" (N1STAR-PROOF.md:
+1404-1405) and that β0 "depends only on the constants C of (9.9) below at the orders j ≤ k" (1371); with 10.51's
+reading of section 4 this gives (9.9a) at every order k with β0(k) = max(2, 4C(k) + 1), C(k) not evaluated, the loss
+λ^(−2β0(k)) absorbed by K′ = K + 3 + ⌈4β0(k)⌉ (deduced, not read line by line). So (P-iii) holds at order k:
+|∂^i(g_λ − g_app)| ≤ C_k λ^(K−3−i) t_P^(−2) on P, i ≤ k − 3. The near-region pieces of N then sum to
+O(log(1/λ) λ^(2(K′−1) − 4β0 − 2(2a+1))), → 0 once K′ > 2 + 2β0 + 2a (T6c, exact at β0 = 2, 3).
+
+(h) *The coefficients of e* (the verifier's M1; computed P8). **Lemma (interpolation).** If P(s) = Σ_(i≤d) c_i s^i
+and |P| ≤ η on [σ/2, σ], then |c_i| ≤ L_d σ^(−i) η, L_d the largest row sum of the inverse Vandermonde matrix at
+d + 1 equally spaced nodes (L_4 = 27136/3; P8a, exact, 100 random polynomials). Apply it on N to r²e = Σ_(k=4)^(J′)
+s^(k−4)e_k + s^(−4)(remainder), s = r^(−1/2), with (P-iii)'s |e| ≤ Cλ^(K−3)r^(−2) and (Poly)'s remainder
+Cλ^(−M)r^(−(J′+1)/2) (M the order of e's remainder: u_(J′)'s of R3.1 with the approximant's, explicit), at
+σ^(J′−3) = λ^(K−3+M): |e_k| ≤ Cλ^((K−3)(1−θ_k) − Mθ_k), θ_k := (k − 4)/(J′ − 3) (P8b), with σ in the far region once
+K − 3 + M > J′ − 3 (P8c; control P8d: at a fixed radius the bound is λ^(−M)). The same with K − 3 − i and M + i for
+∂_v^i e, from (P-iii) at order k ((g)).
+
+**Lemma R3.2 (the commuted flux of e's remainder on N; deduced, computed P8-P9).** Let J′ ≥ 8, a ∈ (0, (J′ − 1)/2),
+j ≥ 0, M as in (h) at j + 1 derivatives, s := max(2, (2M + 1)/(J′ − 1 − 2a)), R := λ^(−s). The flux at weight a
+through N of Γ^α(e − Σ_(k=4)^(8) r^(−k/2)e_k), |α| ≤ j, Γ ∈ {∂_t, Ω, Z} (on N, Z = rℓ, tangent, `scale5.py` Z6),
+tends to 0 as λ → 0 once K > K*(a, J′, M, j), the largest of 4 + j + s(a + j) (e below R, where the λ-uniform
+bounds have no ℓ-gain and Z costs r) and 3 + i + (s·max(0, 2a + 2 − k)/2 + (M + i)θ_k)/(1 − θ_k) for 4 ≤ k ≤ 8,
+i ≤ j + 1 (each coefficient up to R); above R, (11.7) with its ℓ-gains gives λ^(−2M)R^(2a+1−J′) → 0 by the choice of
+s. Computed exactly at K = ⌊K*⌋ + 1 in three cases (P9a). Control (P9b): a = 11/4, J′ = 8, M = 12: R2.10's K = 50
+satisfies K − 4 > as, but K* = 56 and the e_8 term of the flux tends to infinity. ∎
+
+So the smallness of g_λ's data on N at weight a, with k_0 commutations, needs K > K*(a, 8, M(8, k_0 + 1, k_0 + 1),
+k_0); with R3.1's M(8, n, m) = 25 + n + m this is a finite number for each a < 3, k_0, linear in k_0 for a fixed a.
+
+### R3-C (b1): the truncated problems as Cauchy problems, and (N2)
+
+**Lemma R3.3 (the truncation; computed T1-T2; deduced).** (i) ∇v = g_b0^(−1)dv = −∂_t + x̂·∂_x is null and past-directed
+for every μ (T1b, exact), so dv(Y) ≥ 0 for every future causal Y (T1a, 2000 random points, minimum 5.7 × 10^(−2);
+control T1d: dr(Y) has both signs). For g_λ and for any metric with Lemma 9.1(f)'s margin, Φ := v + h(τ) increases along
+future causal curves (N1STAR-PROOF.md:1069-1078), and N runs inside Ω′ ∪ P′ with δ_0 := V′_P − κ − v_1 > 0: ∂S lies in
+the interior of Ω′_+ and v + (τ − τ′_end) decreases strictly along N to the past (BEYOND5.md:203-205; Part VII Lemma
+1.2), so BEYOND5's "v1 ≤ V′_P − κ" is strict. For q ∈ J^−(p) ∩ Σ_T, p ∈ N, τ(p) ≥ T: on the bounded part in Ω′ use v +
+ε(τ − τ0), a time function with margin 2ε (T1e, exact; control T1f), with ε(τ′_end − τ0) < δ_0/2, then Φ on P′: v(q) ≤
+v_1 + δ_0/2 + κ − h(T) = V′_P − h(T) − δ_0/2 (deduced). (ii) So the *truncated problem* 𝒫_T is a Cauchy problem for the
+record's Ric^H(g) = 0 relative to g0 (= g_b0 on v ≥ v_end) with data on Σ_T: g_λ's on {v ≤ V′_P − h(T) − δ_0/2}, a
+cut-off over the band {V′_P − h(T) − δ_0/2 ≤ v ≤ V′_P − h(T)} ⊂ P′, and beyond it g_b0 (for (b1)) or g_b0 + Σ (for (b2),
+Σ the self-similar terms of R3-D). Its solution equals g_λ on {v ≤ v_1, t ≥ T} ∩ (P′ ∪ Ω′) by uniqueness in the domain
+of dependence ((P-v); Step 8), so N ∩ {t ≥ T} carries g_λ's data: **no characteristic problem and no corner condition is
+posed**. The strip between N and the band has width κ − h(T) ≥ κ(1 − t_P^(−1/4)) (T1c). (iii) Since v is a time
+function, the solution on W ∩ {v ≤ V_*} depends only on the data on Σ_T ∩ {v ≤ V_*}: the problem may be posed with data
+equal to g_b0 beyond v = V_* + 2, a compactly supported perturbation, to which the record's local theory (Step 8, READ
+there: [DS23] Theorems 2.4, 2.6, [AO14] Theorem 1.1) applies on bounded domains; the solutions for V_* → ∞ agree on
+overlaps. (iv) The cap energies: the band costs |T|^(2a_0 − 1) for h ~ r^(−2), → 0 exactly for a_0 < ½ (T2a, control
+T2c), and |T|^(2a − 6) for the remainder h_R = O(r^(−9/2)) of R3-D, → 0 exactly for a < 3 (T2b); the subtraction through
+p = 7/2 only (h_R = O(r^(−4))) does not tend to 0 at a = 11/4 (T2c). ∎
+
+**The energy identity for the quasilinear metric (computed T3).** For g = g_b0 + h, not stationary, and X = w(u)∂_t,
+
+    ∇_a(T^a_b X^b) = (□_g φ) Xφ + T(∇w, ∂_t) + ½ w T^(ab) ∂_t g_ab,                                           (R3a)
+
+at 40 digits, six cases, relative defect 1.3 × 10^(−40) (T3a; control T3c: without the deformation term it fails);
+and g^(ab)∂_a∂_b φ = □_g φ + g^(ab)Γ^c_ab ∂_c φ (T3b): the reduced operator differs from □_g by a first-order term
+with coefficient Γ[g_b0] + O(∂h) = O(r^(−3)) + O(|∂h|). The deformation term is bounded by w|∂_t h||∂φ|², a kernel
+|∂_t h| ≤ Cε r^(−3/2−a_0), integrable along W (scatter5 S2). Round 1's (5.1) is the case ∂_t h = 0.
+
+**The commutators (computed `scale5.py` Z2, `trunc5.py` T4).** ∂_t P(h) = DP(h)[∂_t h] and L_Ω P(h) = DP(h)[L_Ω h]
+exactly for the full gauge-fixed operator (Z2a-b at 40 digits; controls: the rotation on components alone, and the
+translation ∂_1, fail): the commuted fields solve the linearised equation at h with no source. The radial second
+derivative is solved for from the equation: on φ(t, |x|) the ∂_r² coefficient of g_b0^(ab)∂_a∂_b is 1 − μ/r² > 0
+(T4a; with ∂_t² coefficient −(1 + μ/r²), ∂_t∂_r coefficient 2μ/r²), so ∂_r²h is the source plus ∂_t-commuted and
+angular terms (control T4b: it vanishes at r² = μ).
+
+**(N2)'s flux identity on a dyadic piece (computed T5-T6).** On D = {τ_− ≤ t ≤ τ_+, v_start ≤ v ≤ v_1}, for φ
+vanishing near {v = v_start} (the record's e and m_j do, N1STAR-PROOF.md:1046, (P-i), and 1234),
+
+    E(τ_+) + ∫_N ½(φ_t − φ_r)² r³ dr = E(τ_−) − ∫∫_D φ_t □φ r³ dr dt,                                         (R3b)
+
+exactly in the flat radial model (T5a; control T5b: with the transverse (φ_t + φ_r)² it fails); on N only the tangential
+derivative enters. With the record's operator, the commuted equations and Lemma 9.5's bulk bound in place of the flat
+ones, each dyadic piece N_k = N ∩ {2^k ≤ t_P ≤ 2^(k+1)} has flux at most C(E(τ_k^−)² + bulk), the energy at the
+earlier slice. Far region (Proposition 9.8 at order k): Σ_k 2^(2a(k+1)) M_F² λ^(2(K′−i)) 2^(−k), finite exactly for
+a < ½ (T6a; control T6b). Near region ((g)): T6c. Compact part N ∩ Ω′: Part VII Lemma 1.1 (|∂^j e| ≤ Cλ^(K−3−j)). So
+(N2) holds at every a_0 ∈ (0, ½) with k_0 commutations: the weighted commuted flux of h on N is O(λ²) (the means,
+λ-independent profiles with their ℓ-gain, W3) plus O(λ^(2(K−3−k_0))) (deduced; every identity computed).
+
+**The limit (computed T7).** For T > T′ → −∞, h_T − h_T′ on W ∩ {t ≥ T} has the caps' data (T2) and the flux of
+h_T′ through N ∩ {T′ ≤ t ≤ T} and its sources there, whose tails tend to 0: |T|^(2a_0 − 2) with the ℓ-gain (T7a;
+control T7b: without it the tail is infinite). With the integrable kernels (scatter5 S2; W4) the h_T form a Cauchy
+sequence in the energy class of weight a_0, and the limit is unique there (R2.5).
+
+**Proposition R3.4 ((b1); deduced, every identity computed).** Under (N2) at a_0 ∈ (0, ½) with k_0 commutations and
+data small (λ small, K as in Lemma R3.2 at a_0), g_λ continues to W as a solution of Ric^H = 0 relative to g_b0, the
+limit of the truncated problems of Lemma R3.3, unique in the energy class of weight a_0 with vanishing cap energy, and
+|∂^i Ω^β ∂h| ≤ Cε r^(−3/2−a_0) for i + |β| ≤ k_0 − 3. What is not written: the bootstrap on W assembled line by line
+from (R3a), the commutators, S1 (scatter5), W6 and S2 (that is round 2's outline with each identity now computed);
+and **(V)**, that the limit is vacuum: D(g) solves the homogeneous system of N1STAR-PROOF.md section 0.7 with D = 0 on N
+(g_λ is vacuum and in gauge on P ∪ Ω) and data of size → 0 on the caps (the band's constraint defect, T2), and the
+record's argument for D(g_λ) = 0 on P (N1STAR-PROOF.md:1433-1436, Grönwall with an integrable kernel) then gives D = 0
+on W; deduced, not written.
+
+### R3-D (b2): the Z-commuted estimate and the expansion at spatial infinity
+
+**Proposition R3.5 (the scaling identity; computed Z1, Z3).** Let P_μ(h) := Ric^H(g_b0(μ) + h; g_b0(μ)) in Cartesian
+components and Z := (t − v_1)∂_t + x·∂_x on components. For every h,
+
+    (Z + 2) P_μ(h) = DP_μ(h)[Z h] − 2μ ∂_μ P_μ(h).                                                          (R3c)
+
+*Proof (deduced).* D_s^* g_b0(μ) = s² g_b0(μ s^(−2)) (Z1d, exact), Ric^H is natural and Ric^H(s²G; s²G0) = Ric^H(G; G0);
+so P_(μ s^(−2))(h(s·)) = s² P_μ(h)(s·), and d/ds at s = 1 is (R3c); P is static, which centres the dilation at any
+t = v_1. ∎ *Computed*: Z1a, all 15 components at three points, 40 digits, for an explicit h of size 0.3 (not small):
+defect 4.7 × 10^(−41) against terms up to 0.44; controls Z1b (without −2μ∂_μP: defect ≥ 0.028) and Z1c (the
+non-uniform dilation (t − v_1)∂_t + 2x·∂_x: ≥ 0.065). Z3: the scalar case is round 2's Z2c,
+−2μ∂_μ(□_g) = 2μ r^(−3)∂_r(r∂_r).
+
+For a solution, P_μ(h) = 0, so Zh solves the linearised equation at h — with the full quasilinear principal part
+−½g^(ab)∂_a∂_b — with source 2μ∂_μ P_μ(h), the μ-derivative at fixed h; P depends on μ only through g_b0, and
+∂_μ g_b0 = r^(−2) kk, so every term of the source carries μ r^(−2) relative to P's terms. Differentiating (R3c) in h,
+(Z + 2)DP(h)[k] = DP(h)[Zk] + D²P(h)[Zh, k] − 2μ∂_μDP(h)[k], which gives the equations of Z^j h and of mixed
+Γ^α h (Γ ∈ {∂_t, L_Ω, Z}) by induction (deduced). In particular the quasilinear term commutes without loss: the
+"(Z H)∂∂h" of round 2 is D²P(h)[Zh, h]'s principal part.
+
+**The identities the weighted estimate uses (computed Z4-Z8).** (i) Every second derivative is a first derivative of
+a commuted field: ∂_i = r^(−1)x̂_i(Z − (t − v_1)∂_t) − r^(−2)x_jΩ_ij on every function (Z4a), with |t − v_1| ≤ r on W
+(Z4b; control Z4c). (ii) On N, Z(v − v_1) = v − v_1 and Z = r(∂_r − ∂_t) (Z6a-b): the data of Z^j h on N are
+tangential and keep the order r^(−q) (Z6c). (iii) Kernels at weight a for the remainder h_R := h − Σ,
+Σ := Σ_(p∈{2,5/2,3,7/2,4}) r^(−p)F_p(s), F_p regular at N (round 1 T2; the p = 4 term solves the degree −4 equation with
+the quadratic degree −6 source, the other exponent 3/2 − p < 0 excluded as in BEYOND5 D530; deduced): the μ-source and
+the Σ-coefficients give r^(−3), the quasilinear h_R-term (Zh_R)∂∂h_R gives (v_1 − t)^(−1/2−a) (integrable for a > ½),
+Q's give r^(−3), r^(−3/2−a), and Σ's residual P(Σ) = O(r^(−6)) gives the L² kernel (v_1 − t)^(a−4), integrable
+exactly for a < 3 (Z7a; controls Z7b at a = 3, Z7c at a = ½). (iv) On S = {t = f(r)}, r d/dr(h|_S) = (Zh)|_S +
+(v_1 − f + rf′)(∂_t h)|_S (Z5a; control Z5b), the coefficient smooth in ρ (f′ ∈ |x|^(−2)C^∞, PART-VII-ASSEMBLY.md:
+162-177): the b-derivatives of the data on S are restrictions of commuted fields. (v) The S-flux at weight a with the
+Hardy inequality puts φ|_S in ρ^(a+1)L²_b(dρ/ρ) and ∂φ|_S in ρ^(a+2)L²_b (Z8a, exact on ρ^β); Σ|_S has exponents
+p + j, all in ℰ_0^½ (Z8c); and a ∈ (ℓ0 − 1, 3) serves ℓ0 = 3.8 (Z8b), where round 2's pointwise reading a > ℓ0 − ½ does
+not (Z8d).
+
+**Proposition R3.6 ((b2); deduced, every identity computed).** Let ℓ0 ∈ (3, 4) ∖ {7/2},
+a ∈ (max(ℓ0 − 1, 5/2), 3), q = 9/2. Run Lemma R3.3 with the data g_b0 + Σ beyond the band (posed on {v ≤ V_*} as in
+R3.3 (iii)) and estimate Γ^α h_R, |α| ≤ k_0, Γ ∈ {∂_t, L_Ω, Z}, at weight a by (R3a), with the equations of
+Proposition R3.5, the kernels of (iii), the data on N small by Lemma R3.2 at weight a, and the caps by T2b; the
+limit is Proposition R3.4's solution (both lie in the weight-a_0 class with vanishing cap energy: Σ's flux and cap
+energy are finite and vanishing for a_0 < 1, W3, W5). Then on S: h|_S − Σ|_S ∈ ρ^(ℓ0)H_b^(k_0 − c) and
+∂h|_S − ∂Σ|_S ∈ ρ^(ℓ0+1)H_b^(k_0 − c) (c a fixed number of commutations), with Σ|_S polyhomogeneous with exponents in
+ℰ_0^½; the data (γ, k) of g_λ on S lie in III.K's half class with ℓ0 ∈ (3, 4) ∖ {7/2}, the coefficients at ρ², ρ³
+O(λ), at ρ^(5/2) O(λ^∞) (round 1). What is not written: the bootstrap over |α| assembled line by line, and (V).
+
+The window widens round 2's: ℓ0 ∈ (3, 4) ∖ {7/2}, all of Part VII's range, which R2.4 now covers (H2 to M ≤ 12).
+
+### R3-E The theorem that results
+
+**Theorem R3.7 (conditional; deduced).** Fix A, the C_c^∞ envelope of Theorem 1, the angular profile and the seed. Let
+ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off row d2's exclusion sets, ε_m > 0, ε_t < ε_K; let ε, d_1 be III.K Theorem 4.3's in
+the half class, k_0 large enough for the H^(d_1) norm, a ∈ (max(ℓ0 − 1, 5/2), 3), a_0 ∈ (0, ½), M := M(8, k_0 + 1, k_0 +
+1) = 27 + 2k_0 (Proposition R3.1), and K > max(d_1 + 14, K*(a, 8, M, k_0), K*(a_0, 8, M, k_0)). Assume:
+
+- (Pr) Propositions 9.8 and 9.9 at order k_0 + 4 (deduced from 10.51's reading, R3-B (e), (g); not read line by line);
+- (B) the bootstraps of Propositions R3.4 and R3.6 written out from the identities computed here;
+- (V) the limit is vacuum (Proposition R3.4).
+
+Then there is λ_2 ∈ (0, λ_P(K)] such that for every 0 < λ ≤ λ_2 (no exceptional set) g_λ continues to W as a vacuum
+metric whose data on Σ_IVP lie in III.K's class with ℰ_0 = ℰ_0^½ and norm < ε in H^(d_1), and the conclusion of
+Theorem R2.10 holds: the development of g_λ's own data settles to a Tangherlini metric g_(m′,0),
+|m′ − μ_end| < ε_m, at the rate O(t_*^(−2−ε_t)), by Theorem R2.4 (whose Part IV condition is discharged, R3-A), with no
+gluing. *Proof.* R3.4 (continuation), R3.6 (the class on S), Lemma R3.2 and R3.1 (smallness), Theorem R2.4 and Part
+VII Proposition 3.2 (settling), as in R2.10. ∎
+
+### R3-F Findings, ledger, what remains
+
+Findings:
+1. (P4) is discharged by citation: Part IV's seven outputs are listed as proved, and none depends on ℰ_0 beyond row
+   d1 (R3-A).
+2. (Poly) holds on the far region with M(J, n, m) = (J² − J)/2 − 3 + n + m, K-independent (Proposition R3.1), given
+   Proposition 9.8 at order n + 4; with Lemma 11.0 as written, still polynomial (P(N) ≤ 9N/4). The data constants are
+   C(λ, j) ≤ C_j λ^(−(j+1)). The only non-polynomial factor in the record's fixed-λ arguments is the near region's
+   smoothness argument (e^(C/λ)), which (11.7) does not use.
+3. F1: Lemma 11.0's proof treats a top-order term −½λ^(−1)(∂^γ u_1)(ℓ,ℓ)[∂_θ²W_TT] as a lower-order source; it belongs in
+   Lemma 9.5's kernel, where on the far region it costs e^(2C). Finding for N1STAR-PROOF.md (not edited here).
+4. M1 repaired: e's coefficients by interpolation, the commuted fluxes from Propositions 9.8-9.9 at order k, and the
+   threshold K* (Lemma R3.2), which R2.10's K − 4 > as does not imply.
+5. (b1)'s mixed problem is not needed: J^−(N) lies in {v ≤ V′_P − h(T) − δ_0/2} on Σ_T, inside P′, so the
+   truncations are Cauchy problems with g_λ's own data there, and N's data are attained by uniqueness (Lemma R3.3).
+6. The Z-commuted equation is exact and nonlinear: (R3c), verified at 4.7 × 10^(−41); the commutator defect is the
+   μ-derivative of the operator.
+7. The window for g_λ's data widens to ℓ0 ∈ (3, 4) ∖ {7/2} (Hardy on S, q = 9/2).
+
+Ledger. Computed: `poly5.py` P1-P9 (28 checks), `scale5.py` Z1-Z8 (25), `trunc5.py` T1-T8 (23), all with failing
+controls, and round 2's amended programs. Deduced: Propositions R3.1, R3.4 (outline with computed identities), R3.5,
+R3.6 (same), Lemmas R3.2, R3.3, Theorem R3.7 (conditional). READ: PART-III-K-NONLINEAR.md:468, 510-518;
+proof5/README.md:77-84; PART-IV3-NM.md:60-61, 229, 321, 382; PART-IV4-SLAB.md:86, 128, 148-149;
+PART-IV5-CDMODES.md:154; PART-IV6-SOLV.md:742; PART-IV7-TFACE.md:348, 387; N1STAR-PROOF.md (as of 82a7e95) 1046,
+1052-1054, 1069-1078, 1234, 1348-1354, 1371, 1404-1405, 1423-1426, 1433-1440, 6776-6801, 10550-10551, 10563-10566,
+10625; BEYOND5.md:203-205, 300-301; PART-VII-ASSEMBLY.md:69-92, 162-177. None from outside sources.
+
+Open, precisely: (B) the two bootstraps on W written line by line (their identities, kernels, data and caps are
+computed here); (V) the vacuum condition of the limit (section 0.7's system with D = 0 on N; deduced); (Pr)
+Propositions 9.8-9.9 read at order k > 6 (deduced from 10.51); R5 (λ_1, δ not evaluated; another workstream). Not
+open any more: (P4), (Poly), the mixed problem, the commutators, (N2)'s identity, the Z-commuted equation.
+
+N1STAR-PROOF.md moved during this round (e50e9bc, then 82a7e95); every number above is as of 82a7e95.
+
+**Next step.** (V) is the shortest: the system of section 0.7 on W, with the band's constraint defect estimated by T2's
+count at the order of D (one derivative more). Then (B) for Proposition R3.4, from round 2's outline and (R3a).
+
+    python3 checks/poly5.py      (about seven minutes; P4 most of it)
+    python3 checks/scale5.py     (about three minutes; Z1-Z2 most of it)
+    python3 checks/trunc5.py     (about two minutes; T3 most of it)
