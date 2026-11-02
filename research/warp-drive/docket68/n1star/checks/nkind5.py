@@ -13,8 +13,9 @@ said); deduced (the reduction of each record site to its model, read at the cite
   K1 (N1: a compact error removed by injectivity; I.C:494-498, I.B:1685, I.B:1978, II.F:1393, III.F'':223,
      III.D:365). Inputs: ||u|| <= C (||P u|| + ||j u||) with j compact, ker P = 0, ||P||. Output: C' with ||u|| <= C'
      ||P u||. Family on R^n (n = 6): P_e = diag(e, 1, ..., 1), j = diag(1, 1/2, ..., 1/n). Computed exactly: the a
-     priori constant is C = 1 for every e (|u_1| = |(j u)_1| <= ||j u|| and the other coordinates are those of P_e u;
-     equality at e_2), ||P_e|| = 1, ker P_e = 0; the output C' = 1/sigma_min(P_e) = 1/e. So the contradiction step
+     priori constant is C = 1/min_i (|P_i| + |j_i|) = 1/(1 + e) <= 1 for every e < 1/6 (||P u|| + ||j u|| is concave
+     in the weights u_i^2, so its minimum on the unit sphere is at an axis; random rational vectors checked below it),
+     ||P_e|| = 1, ker P_e = 0; the output C' = 1/sigma_min(P_e) = 1/e. So the contradiction step
      gives no bound; the quantity to compute instead is a certified lower bound for sigma_min of the operator on the
      record's spaces (the inverse norm), which on the model is e.
   K2 (N2: uniformity in parameters by sequences; III.H'''':189, I.C:686, II.F:1063 and twelve more). Inputs: each P(p),
@@ -87,9 +88,9 @@ def diag_family(e, n=6):
 
 
 def apriori_C(P, j):
-    """sup over u != 0 of ||u|| / (||P u|| + ||j u||) for diagonal P, j: attained on a coordinate axis or on a 2D face;
-    for diagonal maps the ratio on span(e_i, e_k) is maximised on an axis (the denominators are norms of diagonal
-    images, convex in the direction), so the sup is max_i 1/(|P_i| + |j_i|), exact (inf if some P_i = j_i = 0)"""
+    """sup over u != 0 of ||u|| / (||P u|| + ||j u||) for diagonal P, j: with w_i = u_i^2 on the simplex, ||P u|| =
+    (sum w_i P_i^2)^(1/2) and ||j u|| are concave in w, so their sum is minimal at a vertex: the sup is
+    max_i 1/(|P_i| + |j_i|), exact (None, no constant, if some P_i = j_i = 0)"""
     vals = []
     for p, q in zip(P, j):
         if p == 0 and q == 0:
@@ -98,12 +99,11 @@ def apriori_C(P, j):
     return max(vals)
 
 
-def apriori_C_lp(P, j):
-    """the same supremum checked from below on random rational vectors (exact Fractions, squares compared): a sanity
-    check that no vector beats the axis value"""
+def apriori_C_lp(P, j, C):
+    """the supremum checked on random rational vectors, exactly: ||u|| <= C (||P u|| + ||j u||) iff nu2/C^2 - pu2 - ju2
+    <= 2 (pu2 ju2)^(1/2), decided by squaring when the left side is positive. Returns True if no sample violates it"""
     import random
     rnd = random.Random(11)
-    best = Fr(0)
     for _ in range(400):
         u = [Fr(rnd.randint(-50, 50), rnd.randint(1, 20)) for _ in P]
         nu2 = sum(x * x for x in u)
@@ -111,10 +111,10 @@ def apriori_C_lp(P, j):
             continue
         pu2 = sum((p * x) ** 2 for p, x in zip(P, u))
         ju2 = sum((q * x) ** 2 for q, x in zip(j, u))
-        # ratio^2 <= nu2 / (pu2 + ju2) <= nu2 / max(pu2, ju2); compare with the axis value C^2 via (a + b)^2 >= a^2 + b^2
-        r2 = nu2 / (pu2 + ju2)
-        best = max(best, r2)
-    return best
+        lhs = nu2 / (C * C) - pu2 - ju2
+        if lhs > 0 and lhs * lhs > 4 * pu2 * ju2:
+            return False
+    return True
 
 
 def neumann_cover(e, L=Fr(1), factor=Fr(1, 2)):
@@ -145,15 +145,15 @@ def main():
     for e in (Fr(1, 10), Fr(1, 1000), Fr(1, 10 ** 6)):
         P, j = diag_family(e)
         C = apriori_C(P, j)
-        C_lp = apriori_C_lp(P, j)
+        C_lp = apriori_C_lp(P, j, C)
         normP = max(abs(x) for x in P)
         Cp = 1 / min(abs(x) for x in P)
-        rows.append((e, C, C_lp <= C * C, normP, Cp))
-    k1 = all(r[1] == 1 and r[2] and r[3] == 1 for r in rows) and rows[0][4] < rows[1][4] < rows[2][4]
+        rows.append((e, C, C_lp, normP, Cp))
+    k1 = all(r[1] <= 1 and r[2] and r[3] == 1 for r in rows) and rows[0][4] < rows[1][4] < rows[2][4]
     ok['K1'] = k1 and rows[2][4] == 10 ** 6
     print('  K1 (N1): P_e = diag(e, 1, ..., 1), j = diag(1, 1/2, ..., 1/6): (e, a priori C, sampled ratios <= C, ||P||, '
-          'output C\') = %s (exact): inputs fixed, output 1/e' % [(str(r[0]), str(r[1]), r[2], str(r[3]), str(r[4]))
-                                                                  for r in rows])
+          'output C\') = %s (exact): inputs bounded (C <= 1, ||P|| = 1), output 1/e'
+          % [(str(r[0]), str(r[1]), r[2], str(r[3]), str(r[4])) for r in rows])
     P, j = diag_family(Fr(1))
     ok['C1'] = not (1 / min(P) > 1)
     print('  C1 (control): the mutant e = 1: C\' = %s, not growing: K1\'s test fails for it: %s' % (1 / min(P),

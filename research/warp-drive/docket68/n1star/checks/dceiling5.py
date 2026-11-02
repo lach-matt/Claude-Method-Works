@@ -15,7 +15,7 @@ in certified intervals, mpmath.iv at 200 bits and exact rationals), estimate (wh
      s0 lam (lam - 3)(lam^2 - lam - 2 - z); vl (lam + l)(l + 2 - lam); sl (l + 3 - lam)(l + lam - 1) Q_l(lam (lam - 1)))
      the roots of Q_l are computed in closed form here: at z = 0 they give l + 1 and l + 2, so for z = 4e-6 the
      non-integer roots in (0, 7) are exactly 2 + d0 (s0), l + 1 + delta_l (l = 1..5, delta_1 = d1) and l + 2 + delta'_l
-     (l = 1..4): eleven, every offset in (0, 1.4e-6). "The indicial roots of E_ind below 5" are no longer open.
+     (l = 1..4): ten, every offset in (0, 1.4e-6). "The indicial roots of E_ind below 5" are no longer open.
   D2 (READ; deduced) which offsets are increments of Lambda (I11:66-71) is a reading the record does not fix: "E_ind
      denotes an index set with min Re E_ind >= eps_ind, which may change from line to line" (D3:46-48; F4:28-30). On
      the construction reading (LOSS-D LD14, three verifiers: the states' types and bases checked family by family)
@@ -191,8 +191,8 @@ def main():
     d1_is_delta1 = abs(mpmath.mpf(offs[('sl-', 1)][0]) - mpmath.mpf(float(d1lo))) < mpmath.mpf('1e-20')
     ok['D1'] = sym_ok and len(roots) == expect and in_range and d1_is_delta1
     print('  D1: Q_l\'s roots in closed form (discriminant (z + 2)^2 + 4 kappa) and l (l + 1), (l + 1)(l + 2) at z = 0: '
-          '%s; non-integer roots of box^Ups(0) in (0, 7) at z = 4e-6: %d (expected 1 + 5 + 4 = %d): %s; integer roots in '
-          '(0, 7): %s; every offset in (0, 1.4e-6): %s; delta_1 = d1: %s'
+          '%s; non-integer roots of box^Ups(0) in (0, 7) at z = 4e-6: %d (expected 1 + 5 + 4 = %d): %s; integer '
+          'roots in (0, 7): %s; every offset in (0, 1.4e-6): %s; delta_1 = d1: %s'
           % (sym_ok, len(roots), expect, '; '.join(labels), ints, in_range, d1_is_delta1))
 
     # D3: (G) on the widest reading
