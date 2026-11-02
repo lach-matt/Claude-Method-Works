@@ -18,15 +18,18 @@ eflat5: E^flat's log orders as the construction writes them; the ceiling on d wi
       0, 3), (2.5299, 0, 3), (2.53, 0, 3), (2.5398, 0, 3), (2.5399, 0, 3), (2.54, 0, 3), (2.5499, 0, 3), (2.55, 0, 3),
       (2.56, 0, 3), (3.0, 2, 5)]; R1 [(2.0, 4, 5), (2.5, 4, 7), (2.5099, 4, 7), (2.51, 4, 7), (2.5198, 0, 3), (2.5199, 0,
       3), (2.52, 4, 7), (2.5297, 0, 3), (2.5298, 0, 3), (2.5299, 0, 3), (2.53, 0, 3), (2.5398, 0, 3), (2.5399, 0, 3),
-      (2.54, 0, 3), (2.5499, 0, 3), (2.55, 0, 3), (2.56, 0, 3), (3.0, 8, 11)]
-  F5: n_iota <= 3 P_iota + excess (excess 23 on R0, 44 on R1); per exponent: d <= 37919138373535686 (R0),
-      37919139491675142 (R1) + 53244736 X_7 + 106489470 c' (3.791914e+16 + ...; N = 21 d + 6 <= 7.963019e+17 + ...),
+      (2.54, 0, 3), (2.5499, 0, 3), (2.55, 0, 3), (2.56, 0, 3), (3.0, 8, 14)]
+  F5: n_iota <= 3 P_iota + excess (excess 23 on R0, 47 on R1); per exponent: d <= 37919138373535686 (R0),
+      37919139651409350 (R1) + 53244736 X_7 + 106489470 c' (3.791914e+16 + ...; N = 21 d + 6 <= 7.963019e+17 + ...),
       against the floor 8,407,505,890,317,054 (ratio 4.510)
   F6: L_0 in [2, 7] (G at 3; the column classes (2, 0) U (2 + E_ind), (3, 0) U (3 + E_ind) at shifts >= -5, round 2's
       reading)
   F7: Step 7's beta_iota = beta'_+ < 3/2 < lambda_sharp = 15099/10000 <= min Re E_iota: |E_iota,<=| = 0, X_7 = |E_K,<=| +
       (2.26a)'s losses
-  C1 (control): the windows' raises at 3 summed instead of maximised: log order 45000050: F4's bound fails: True
+  C1 (control): F4's loop rerun with the windows' raises summed instead of maximised: log order 75000080 at 3; F4's test
+      fails on it: True
+  C4 (control, Round 6): F4 without the completion (2.2) between the rounds of (3.2) (round 5's rule): excess 23 (R0), 44
+      (R1), log order 11 at 3 on R1: F4's test fails on it: True
   C2 (control): the v1 site's extended unions counted twice: log order 4 at offset 1 > 2: F4 fails: True
   C3 (control): Lemma 1.4 with every type's roots at k = 2: offsets below 1 ['3.3333e-07', '1.3333e-06'], not {d1}: F1's
       block assertion fails on it: True
@@ -38,5 +41,6 @@ F5 PASS
 F6 PASS
 F7 PASS
 C1 PASS
+C4 PASS
 C2 PASS
 C3 PASS

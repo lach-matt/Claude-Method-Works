@@ -914,10 +914,11 @@ first certified step is taken" to "remains open":
 
 ## 7. Round 3 (2026-11-02): the curvature-level estimate, what it asks of the residual, the late region
 
-*Status.* Appended 2026-11-02. Sections 0–6 are unchanged; nothing in them is amended by this round (7.10 records the
-verifier's findings when they arrive). Labels as in section 0. [Wu26] was re-read at source for this round (arXiv
-2609.08421v1: Theorem 2.2 and its proof sketch pp. 6–8, the transport equations (2.2)–(2.6) pp. 4–5, the scalar
-identity (2.17) p. 6, the residual formulas p. 12; READ). Machine load was 9–36 on 4 cores throughout.
+*Status.* Appended 2026-11-02. Sections 0–6 are not rewritten. The verifier of round 2 reported during this round;
+its findings are seated in 7.10 as amendments to section 6, each re-derived or marked as not re-derived. Labels as in
+section 0. [Wu26] was re-read at source for this round (arXiv 2609.08421v1: Theorem 2.2 and its proof sketch
+pp. 6–8, the transport equations (2.2)–(2.6) pp. 4–5, the scalar identity (2.17) p. 6, the residual formulas p. 12;
+READ). Machine load was 9–36 on 4 cores throughout.
 
 ### 7.0 Answers
 
@@ -930,8 +931,8 @@ identity (2.17) p. 6, the residual formulas p. 12; READ). Machine load was 9–3
      dimension one (no shear, no Gauss curvature).
      - Its curvature residues, Ric(h̃) − Σ dΦ_i dΦ_i and □Φ_i, are fixed linear combinations of the five-dimensional
        Ricci tensor, off shell (R3). A certified bound on one is a certified bound on the other.
-     - Round 2's Jordan variable ζ = W + 2 log R + P + Q is the Einstein-frame lapse log Ω̃, up to a fixed function of
-       x (R4).
+     - Round 2's ζ = W + 2 log R + P + Q (symbol5.py's left null vector) is the Einstein-frame lapse log Ω̃, up to a
+       fixed function of x (R4). Its Jordan block was the frozen shift's (7.10, A1: with s_vx kept there is none).
    - *Deduced (exact, `checks/null3.py` N0–N10).* In double-null gauge the reduced system has a hierarchy with no
      angular loss.
      - Every Ricci coefficient has a transport equation free of angular derivatives of Ricci coefficients: χ, η, ω̲
@@ -941,8 +942,9 @@ identity (2.17) p. 6, the residual formulas p. 12; READ). Machine load was 9–3
      - In frame-difference unknowns the linearised operators contain no derivative of the metric differences
        (N10).
      - The angular loss lives only in the two equations the hierarchy does not use, e4 χ̲ and e3 χ (N7).
-     - So round 2's Y5 loss belongs to the metric formulation, not to the class. The free scheme evolved ζ through
-       Ric_xx, which carries its second x-derivative; the hierarchy transports it with ω, ω̲, where it has none.
+     - So round 2's Y5 loss belongs to the metric formulation, not to the class. There the shift's first derivative
+       s_x is of principal size at high angular frequency (7.10, A1: `checks/symbol5s.py` S4–S6); in the hierarchy s
+       enters only through η, η̲ (b_v) and χ̲ (b_x), each transported.
    - *Proved (Theorem 7.L, 7.3).* The linear estimate at level 0 (L² on the sections) for the linearised reduced
      system, on a truncated domain of dependence away from the axes:
      f ≤ (𝒟 + 𝒮) exp(2∫a_o du + 2∫a_i dv), with a_o, a_i explicit sums of the background's coordinate-normalised
@@ -967,9 +969,10 @@ identity (2.17) p. 6, the residual formulas p. 12; READ). Machine load was 9–3
    - *Deduced.* Any Grönwall-type explicit constant adds absolute values of coefficients of size 20–120 here. The
      measured response is 9.2 (round 2, A1). So the route needs F as a computed, validated bound on the linearised
      solution operator: an approximate inverse built numerically, with the explicit estimate applied only to its
-     defect (radii-polynomial style). Then the demand is round 2's 3.0 × 10⁻⁵ to 7.8 × 10⁻⁷.
-   - At that level a certificate is plausible only with a better approximant first. The record's residual,
-     2.4 × 10⁻³, is above it by 84 to 3.2 × 10³.
+     defect (radii-polynomial style). Then the demand is 5.3 × 10⁻⁴ (G = 0.57, round 2's G_low read in 2(d)'s own
+     model, `linest5.py` E8) to 3.0 × 10⁻⁵ (2(d)'s placeholder G = 10), at F = 9.2.
+   - At that level a certificate is plausible only with a better approximant first. The record's certified pointwise
+     residual, 2.42 × 10⁻³, is above it by 4.6 to 81, depending on G, which is not computed.
    - *Certified (`checks/rcert5b.py`, one sub-box; Theorem 7.L's L² norm allows a local certificate).* On one interior
      box of rcert5's K2 grid, split into n³ sub-boxes, the certified sup of the ll component falls from 8.1 × 10³
      (n = 1) to 0.124 (n = 8). The other components fall from up to 3.4 × 10⁶, or no bound, to 0.021–0.093.
@@ -999,7 +1002,7 @@ Put ρ = e^{A+B}, L = log ρ, ψ = (A − B)/2, h̃ = ρ² h. For every metric o
 - *Controls* (each fails, as it must): the weight ρ in place of ρ² (R1 and R2), and the coefficient 1 in place of 3/2.
 
 So the vacuum equations of the class are Ric(h̃) = Σ dΦ_i dΦ_i and □_h̃ Φ_i = 0, a wave map into the flat plane coupled
-to (2+1)-gravity. R4 identifies round 2's Jordan variable (symbol5.py Y1) as the Einstein-frame lapse.
+to (2+1)-gravity. R4 identifies round 2's ζ (symbol5.py Y1's left null vector) as the Einstein-frame lapse.
 
 ### 7.2 The null structure and the hierarchy (`checks/null3.py`; deduced, every identity exact)
 
@@ -1151,10 +1154,11 @@ So the estimate exists and its constants are explicit, but (i) they are of size 
     numerically, and certify the defect of that approximate inverse.
   - The explicit estimate then multiplies only the defect, as in a radii-polynomial argument. F becomes the computed
     norm, of the order of the measured 9.2.
-  - The demand becomes round 2's 3.0 × 10⁻⁵ (G = 10) to 7.8 × 10⁻⁷ (G = G_low).
+  - The demand becomes 5.3 × 10⁻⁴ (G = 0.57, E8) to 3.0 × 10⁻⁵ (G = 10), at F = 9.2. Round 2's 7.8 × 10⁻⁷ used
+    G_low itself as 2(d)'s G, which it is not (7.10, A4).
 - *What a certified sup at that level asks.* Theorem 7.L's norm is a space-time L² norm, so a certificate is local:
   the square is a sum over boxes. Two things are needed.
-  - A better approximant. The record's 2.4 × 10⁻³ (K1) is 84 to 3.2 × 10³ above the demand, a second-order
+  - A better approximant. The record's 2.42 × 10⁻³ (K1) is 4.6 to 81 times the demand, a second-order
     truncation error. A spectral or Richardson-extrapolated approximant in (u, v) on the converged region is the
     candidate.
   - A better enclosure, or more boxes (certified, `checks/rcert5b.py`). On the box t ∈ [−1/2, 0], σ ∈ [−1/2, 0],
@@ -1207,16 +1211,16 @@ certified step is taken" to "remains open"):
 
 > Certified so far: on the data cone the Raychaudhuri constraint of an explicit approximant holds to 5.0 × 10⁻⁵ and
 > 2.3 × 10⁻⁵ (`docket68/n1star/checks/cdata5.py`), and the Einstein residual of a smoothed three-dimensional
-> approximant is enclosed in ball arithmetic at 16,128 points, ≤ 2.4 × 10⁻³ of the curvature scale
-> (`checks/rcert5.py`); its sup over the box is computed only. Existence at 10 l5 is not proved beyond the seed. The
-> class is (2+1)-dimensional gravity coupled to two free waves (deduced, exact: `checks/reduce5.py`), and in
+> approximant is enclosed in ball arithmetic at 16,128 points away from the axis caps, ≤ 2.42 × 10⁻³ of the
+> curvature scale (`checks/rcert5.py`); its sup over the box is computed only. Existence at 10 l5 is not proved beyond
+> the seed. The class is (2+1)-dimensional gravity coupled to two free waves (deduced, exact: `checks/reduce5.py`), and in
 > double-null gauge its Ricci coefficients obey transport equations with no angular loss (`checks/null3.py`). So a
 > linear estimate at the curvature level holds, with explicit constants, on domains of dependence that avoid the axes
 > (supplement `CERTIFY-10L5-RESULT.md` Theorem 7.L). Two things stop it short of a proof. On the computed solution its
 > constant is of order 10^69 before the axes enter, against a measured response of 9.2 (`checks/linest5.py`). And the
 > solution's late region lies within three angular crossing times of the axes, where the reduction degenerates and the
 > estimate must be made in four-dimensional axisymmetric form; that estimate is not written. The computed solution
-> converges at the first seed to v ≈ 1.9 r_h at areal radius ≥ r_h, and is unresolved beyond (`checks/late5b.py`).
+> converges at the first seed to v ≈ 1.8 r_h at areal radius ≥ r_h, and is unresolved beyond (`checks/late5b.py`).
 
 ### 7.10 The verifier of round 2
 

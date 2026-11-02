@@ -134,7 +134,6 @@ def logs_tables():
     for k in (1, 2):
         for wv, lo in EF.site_eind(allroots, k, top=Fr(10)).items():
             eind[wv] = max(eind.get(wv, -1), lo)
-    # F4's rule (eflat5.py main, F4): the bound at a point z of pi_1 E^C_I in [2, 3]
     blocks = {'s0': [2 + off[('s0', 0)][1], Fr(3)], 's1': [2 + d1, 3 + off[('sl+', 1)][1], Fr(4)], 'v1': [Fr(3)]}
     union = {}
     for b, k in (('s0', 1), ('v1', 2), ('s1', 2), ('s1', 1)):
@@ -147,14 +146,10 @@ def logs_tables():
     lmax_w = max(lo for wv, lo in union.items() if 0 < wv <= EF.TOP_W)
     c_gen = max(lmax_w, max(G.values()))
     flat = {}
-    for name, M in (('R0', 1), ('R1', 4)):
-        Ec = {z: kk for z, kk in DW.data_ECI(M, top=Fr(4)).items() if 2 <= z <= 3}
-        tab = {}
-        for z, kz in Ec.items():
-            step1 = (G[z] + kz + 1) if z in G else kz
-            window = (lmax_w + kz + 1) if z >= Fr(5, 2) else 0
-            tab[z] = max(c_gen, step1, window)
-        flat[name] = tab
+    for name, M in (('R0', 1), ('R1', 4)):                   # eflat5 F4 (Round 6: with the completion of (3.2))
+        rows = EF.f4_table(M, G, lmax_w, c_gen)[0]
+        flat[name] = {Fr(z).limit_denominator(10 ** 6): b for z, kz, b in rows}
+    ecol = {}
     ecol = {}
     for rd, bases in (('wide', (0, 2, 3)), ('shifted', (2, 3))):
         res = {}
@@ -338,11 +333,11 @@ def main():
     W = n0
     open23 = DC.range_count(allst, d1lo, d1hi, Fr(2), Fr(3)) - 1     # minus the point 2
     # K1
-    A = {'R0': k1_constant(w, c, P_i, P_W, W, 23), 'R1': k1_constant(w, c, P_i, P_W, W, 44)}
-    OK['K1'] = (A['R0'] == 37919138373535686 and A['R1'] == 37919139491675142 and P_W == 85025783
+    A = {'R0': k1_constant(w, c, P_i, P_W, W, 23), 'R1': k1_constant(w, c, P_i, P_W, W, 47)}
+    OK['K1'] = (A['R0'] == 37919138373535686 and A['R1'] == 37919139651409350 and P_W == 85025783
                 and P_i == P_W + 1 and W == 1470302 and open23 == P_i - 2)
     print('  K1: A = 3 (R2 + R3) + L_above [3 P_W + 11 + 3 P_iota + excess + 15 W] + L_below [15 W + 58] = %d (R0), '
-          '%d (R1) (eflat5 F5 reproduced); P_W = %d, P_iota = %d, W = %d, |Lambda cap (2, 3)| = %d' % (
+          '%d (R1) (eflat5 F5 as corrected in Round 6: R1's excess 47); P_W = %d, P_iota = %d, W = %d, |Lambda cap (2, 3)| = %d' % (
               A['R0'], A['R1'], P_W, P_i, W, open23))
     C3 = k1_constant(w, c, P_i, P_W, W, 0)
     OK['C3'] = C3 != A['R1'] and C3 != A['R0']

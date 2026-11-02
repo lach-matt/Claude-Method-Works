@@ -1,3 +1,6 @@
   P1 H2inf: T(H2inf) + R_X(H1) = 0 (15): True; i Pol(H2inf) + D_X H1 = 0 (5): True; in S: True; r^(3/2)|H|_cart -> 0:
       True (leading powers {(0, 2): '-3', (1, 2): '-1', (2, 2): '-1', (3, 3): '-1', (4, 4): '-1'})  [44 s]
 P1 PASS
+  P2 homogeneous solutions of T: r^(3/2)|h|_cart -> its free constant in rr, vr, vv, rth, vth, AB: [True, True, True,
+      True, True, True]
+P2 PASS
