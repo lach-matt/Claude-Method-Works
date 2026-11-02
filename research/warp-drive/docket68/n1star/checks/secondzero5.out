@@ -60,3 +60,5 @@
          r_AH ranges 0.762-1.160 and 0.801-1.142
       v = 1.375: max |r_AH(double null) - r_AH(growth5)| = 0.081 (at x = 0.00);
          r_AH ranges 0.722-1.187 and 0.759-1.158
+  S4 (reported) outer zero against growth5 (L100_lam1_28x16_d0_y1.6): max 0.081 (round 1's 0.1: within);
+     control (leaf expansion, tilt ignored) max 0.223 fails (good)
