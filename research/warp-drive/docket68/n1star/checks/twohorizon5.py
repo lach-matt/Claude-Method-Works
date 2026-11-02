@@ -129,6 +129,44 @@ def h2(control=False):
     return nolm1, l0
 
 
+def theta_at_point(S0, g0, W, Q, pt, top=1):
+    """the outgoing expansion -gamma^AB Gamma^u_AB (k = du) of {u, v = const} for g = g0 + lam W + lam^2 Q, with g0, W, Q
+    concrete functions of (u, v, th) (and z1, z2): every derivative is taken first, then evaluated at the point pt, so
+    the products are of numbers and Laurent polynomials in (z1, z2); lam^0..lam^top coefficients"""
+    lam = sp.Symbol("lam")
+    X = [S0.u, S0.v, S0.th]
+    at = lambda e: sp.expand(sp.sympify(e).subs(pt))                   # noqa: E731
+    G = g0 + lam*W + lam**2*Q
+
+    def D(e, c):
+        out = sp.diff(e, X[c]) if c < 3 else 0
+        if c in (0, 1):
+            out += S0.fast(e, c)/lam
+        return out
+    g0p = g0.applyfunc(at)
+    g0ip = g0p.inv()
+    Dl = (lam*W + lam**2*Q).applyfunc(at)
+    gi, term = g0ip, g0ip
+    for _ in range(top + 1):
+        term = (-term*Dl*g0ip).applyfunc(sp.expand)
+        gi = gi + term
+    A = [2, 3, 4]
+    gA0i = sp.Matrix(3, 3, lambda i, j: g0ip[A[i], A[j]])
+    DA = sp.Matrix(3, 3, lambda i, j: Dl[A[i], A[j]])
+    gAi, term = gA0i, gA0i
+    for _ in range(top + 1):
+        term = (-term*DA*gA0i).applyfunc(sp.expand)
+        gAi = gAi + term
+    tot = 0
+    for i, a in enumerate(A):
+        for j, b in enumerate(A):
+            low = [at(D(G[d, a], b) + D(G[d, b], a) - D(G[a, b], d)) for d in range(5)]
+            Gk = sum(gi[0, d]*low[d] for d in range(5))/2
+            tot += -gAi[i, j]*Gk
+    tot = sp.expand(tot)
+    return {j: tot.coeff(lam, j) for j in range(-1, top + 1)}
+
+
 def h3(control=False):
     import stage0two5 as S0
     W = S0.waves()
@@ -147,22 +185,19 @@ def h3(control=False):
                     Q[a, b] += q
                     if a != b:
                         Q[b, a] += q
-    res = theta_series(S0, W, Q=Q, top=1)
-    th1 = res["out"][1]
-    mixed = {n: cf for n, cf in S0.harmonics(th1).items() if n[0] and n[1]}
-    # evaluate with concrete smooth functions at a point
+    # concrete smooth functions, then the point
     u, v, th = S0.u, S0.v, S0.th
     rep = {S0.sig: sp.Rational(1, 10)*u + sp.Rational(1, 5)*v, S0.Rf: 3 + u - v/2 + u*v/7,
-           S0.Hf: 1 + sp.cos(2*th)**2/3, S0.alpha: 1 + v/3, S0.beta: 2 - u/5}
-    for fn, val in ((S0.xi2, 1 + u*v/3), (S0.xi2b, 2 - v), (S0.et2, sp.Rational(1, 2) + u), (S0.et2b, 1 + th)):
-        rep[fn] = val
+           S0.Hf: 1 + sp.cos(2*th)**2/3, S0.alpha: 1 + v/3, S0.beta: 2 - u/5,
+           S0.xi2: 1 + u*v/3, S0.xi2b: 2 - v, S0.et2: sp.Rational(1, 2) + u, S0.et2b: 1 + th}
     pt = {u: sp.Rational(1, 3), v: sp.Rational(1, 2), th: sp.Rational(7, 10)}
-    vals = {}
-    for n, cf in mixed.items():
-        e = cf.subs(rep).doit()
-        vals[n] = complex(sp.N(e.subs(pt), 12))
-    big = max((abs(x) for x in vals.values()), default=0.0)
-    return big, sorted(vals)[:8], len(mixed)
+    sub = lambda M: M.applyfunc(lambda e: e.subs(rep).doit())         # noqa: E731
+    res = theta_at_point(S0, sub(g0), sub(W), sub(Q), pt)
+    lm1 = sp.expand(res[-1])
+    mixed = {n: complex(sp.N(cf, 12)) for n, cf in S0.harmonics(res[1]).items() if n[0] and n[1]}
+    big = max((abs(x) for x in mixed.values()), default=0.0)
+    return big, sorted(n for n in mixed if abs(mixed[n]) > 1e-12)[:8], sum(1 for x in mixed.values() if abs(x) > 1e-12), \
+        lm1 == 0
 
 
 def main():
@@ -188,13 +223,14 @@ def main():
     print("  H2 control (the outgoing wave with a trace on the spheres): lam^0 equal to g0's: out %s, in %s (the in\n"
           "      expansion must fail)  [%.0f s]" % (cl0["out"], cl0["in"], time.time() - t0), flush=True)
     ok["H2"] = nolm1 and l0["out"] and l0["in"] and cl0["out"] and not cl0["in"]
-    big, some, count = h3()
-    print("  H3: the lam^1 coefficient of the outgoing expansion has %d mixed harmonics, largest |value| at the sample\n"
-          "      point %.4e (harmonics %s ...)  [%.0f s]" % (count, big, some, time.time() - t0), flush=True)
-    bigc, somec, countc = h3(control=True)
+    big, some, count, nolm1 = h3()
+    print("  H3: at the sample point, no lam^-1 term: %s; the lam^1 coefficient of the outgoing expansion has %d nonzero\n"
+          "      mixed harmonics, largest |value| %.4e (harmonics %s ...)  [%.0f s]"
+          % (nolm1, count, big, some, time.time() - t0), flush=True)
+    bigc, somec, countc, _ = h3(control=True)
     print("  H3 control (the outgoing family removed): %d mixed harmonics, largest %.1e  [%.0f s]"
           % (countc, bigc, time.time() - t0), flush=True)
-    ok["H3"] = big > 1e-6 and bigc < 1e-12
+    ok["H3"] = big > 1e-6 and bigc < 1e-12 and nolm1
     for k_, v_ in ok.items():
         print(k_, "PASS" if v_ else "FAIL")
     return 0 if all(ok.values()) else 1
