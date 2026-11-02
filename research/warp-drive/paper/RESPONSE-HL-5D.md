@@ -543,10 +543,11 @@ p. 21), which needs no boundary.
 By Lemma 5.1, the equation for h has bounded coefficients except one, λ⁻¹ ((1 − 𝒫) s) [∂_θ² g1], which is O(∂s) by the
 mollifier bound (supplement (3.5)). Two derivatives of φ remain on its right side through □̃φ. Contracting the equation
 with ℓ ⊗ ℓ kills every λ⁻¹ term and the □̃φ term exactly ([∂_θ g1](ℓ, ·) = 0), so s satisfies a wave equation with no
-large coefficient (supplement Lemma 3.3; computed on the stage-0 profile with φ generic, support5.py C3: the ℓ ⊗ ℓ
-component has no λ⁻¹ term and no second derivative of φ, while a wave with W(ℓ, ℓ) ≠ 0 gives one; in all fifteen
-components the λ⁻¹ part is −(ℓ · ∂φ)[∂_θ² g1] + φ T(∂_θ g1), with nothing of lower order, and φ's second derivatives
-enter only as −½ (□̃φ)[∂_θ g1], `checks/support5b.py` C10). And Ψ := □̃φ satisfies, by (2.4) applied to (5.2),
+large coefficient (supplement Lemma 3.3; computed on the stage-0 profile with φ = φ(v, r, θ) generic, T²-invariant as in
+the class, support5.py C3: the ℓ ⊗ ℓ component has no λ⁻¹ term and no second derivative of φ, while a wave with W(ℓ, ℓ) ≠
+0 gives one; in all fifteen components the λ⁻¹ part is −(ℓ · ∂φ)[∂_θ² g1] + φ T(∂_θ g1), with nothing of lower order, and
+φ's second derivatives enter only as −½ (□̃φ)[∂_θ g1], `checks/support5b.py` C10). And Ψ := □̃φ satisfies, by (2.4)
+applied to (5.2),
 
     L0 Ψ − (2/r) Ψ = −(1/2) □̃ 𝒫 s − (1/r)(∂_τ + ∂_r) 𝒫 s − (3/r²) ∂_r φ,                                 (5.3)
 
@@ -749,10 +750,10 @@ five-dimensional Schwarzschild metric finally converges in a suitable sense to a
 our T² but not the reflections: its squashing is a dφ1 dφ2 term, which (2.1) excludes, so the two classes meet only in
 spherical symmetry (computed: the squashing's dφ1 dφ2 coefficient is 2c²s²(e^(−4B) − e^(2B)), zero only at B = 0,
 `docket68/n1star/checks/support8.py` K8). The waves here, which depend on the angle θ, lie outside it in any case. After
-the shell the oscillating profiles vanish (supplement section 10.50(a), deduced; its base computed, `support8.py` K1,
-and the induction over the stages' source terms, `checks/ledger5.py` L4)
-and only the mean corrections remain: on Ω ∩ {v ≥ v_end}, g_λ differs from Tangherlini of the final mass by λ m1 +
-O(λ²) with its first derivatives (Theorem 1, items 3–4).
+the shell the oscillating profiles vanish (supplement section 10.50(a), deduced; its base computed, `support8.py` K1, and
+the source terms of stages 2–6 as Lemma 5.1's rule enumerates them, each carrying the envelope or an earlier profile,
+`checks/ledger5.py` L4; that the rule produces every term is deduced) and only the mean corrections remain: on Ω ∩ {v ≥
+v_end}, g_λ differs from Tangherlini of the final mass by λ m1 + O(λ²) with its first derivatives (Theorem 1, items 3–4).
 Settling would therefore follow from the small-data stability of Tangherlini in the T²-mirror class, once the solution is
 also constructed outside D_T. Sections 8.2–8.8 take up the first step. The second, continuing g_λ outside D_T, is
 replaced by a gluing (section 8.7), and Theorem 4 is not shown to apply to g_λ's own data.
@@ -2139,7 +2140,7 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/kirecon5.py` P1–P2: supplement Proposition 10.1 (iii)'s coefficients, bounded on r ≥ r_h uniformly in l for the
   master field normalised as r^(3/2) Φ (P1), and O(r^(3/2)) and O(r³), uniformly in l and attained, in the fields [HKW18]
   bound, Φ and r^(−3/2) Φ (P2). Controls: the monomial test on Φ, which must find the r^(3/2); the bound r¹ in Φ. Exact;
-  a few seconds.
+  about half a minute.
 - `checks/mpdata5.py` B1–B4: the data of translated, rotated and boosted Myers–Perry metrics lie in the class of
   supplement Part VII Lemma 0.1, ρ²C^∞ and ρ³C^∞ of the radial compactification. Controls: a mass term falling as ρ (B1,
   B4); a split-signature form, which vanishes on the sphere (B2); the projection term dropped (B3). Exact series; about
@@ -2244,8 +2245,8 @@ Programs behind section 9, in `docket68/n1star/`:
   (`checks/support5.py` C5) with k and K symbolic, every row linear and holding for k, K ≥ 6; L3, Proposition 11.1's
   iteration, a gain of r^(−1/2) per step, and g0's outgoing generators reaching v_start (RK4, floating point); L4, the
   stages' source terms (56 at m = 2 to 1268 at m = 6) each carrying the envelope or an earlier profile, so all vanish
-  after the shell. Controls: the split at λ⁻¹, K′ = K + 3; K = 5; the perturbation in E_1; an envelope-free term. About
-  forty seconds.
+  after the shell (that the enumeration is complete is deduced). Controls: the split at λ⁻¹, K′ = K + 3; K = 5; the
+  perturbation in E_1; an envelope-free term. About forty seconds.
 - `checks/support8b.py` M1–M5: section 8's bookkeeping. M1, the antipodal map is an isometry of the Myers–Perry metric at
   symbolic spins (`checks/mpdata5.py`'s Kerr–Schild form), the 15 Killing initial data split 7 even (∂_t, the rotations)
   and 8 odd (translations, boosts); M2, supplement 10.50 (b)–(d)'s inequalities; M3, a bump of amplitude R⁻³ costs
@@ -2258,11 +2259,11 @@ Programs behind section 9, in `docket68/n1star/`:
   isometries of g0 for every μ(v), g0 + λW invariant under the T² action and the reflections, with `past5.py` P6 and
   `mass5.py` M4; D4, the data's Sobolev index as a derivative ledger, s > 3/2 + 4. Controls: exponent 1/2 (D1); env = 0
   (D2); grad x1 (D3); s0 = 9/2 (D4). About two minutes.
-- `checks/support5b.py` C10, C10b: supplement Lemma 3.2's (3.3) at w = 0 in all fifteen components of P(φ [∂_θ g1]), φ
-  generic, on `lead5.py`'s stage-0 profile: no order below λ⁻¹, the λ⁻¹ part −(ℓ · ∂φ)[∂_θ² g1] + φ T(∂_θ g1), and φ's
-  second derivatives at λ⁰ only in −½ (□̃φ)[∂_θ g1] (C10); the same with an oscillating dr dr component added, W(ℓ, ℓ) ≠
-  0, whose extra λ⁻¹ term is proportional to φ (C10b). Controls: −2 (ℓ · ∂φ) and −(□̃φ) in place of the true
-  coefficients. Exact; about eight minutes.
+- `checks/support5b.py` C10, C10b: supplement Lemma 3.2's (3.3) at w = 0 in all fifteen components of P(φ [∂_θ g1]), φ(v,
+  r, θ) generic (T²-invariant, as in the class), on `lead5.py`'s stage-0 profile: no order below λ⁻¹, the λ⁻¹ part −(ℓ ·
+  ∂φ)[∂_θ² g1] + φ T(∂_θ g1), and φ's second derivatives at λ⁰ only in −½ (□̃φ)[∂_θ g1] (C10); the same with an
+  oscillating dr dr component added, W(ℓ, ℓ) ≠ 0, whose extra λ⁻¹ term is proportional to φ (C10b). Controls: −2 (ℓ · ∂φ)
+  and −(□̃φ) in place of the true coefficients. Exact; about eight minutes.
 - `checks/re813.py` R1–R3: (8.13) as h = 1/γ_C varies (supplement 10.54(d)). R1: at l = 1000 the resultant in h of a
   non-real root of real part 2 has one root in (0, 10⁻⁶], h = 6.652623172 × 10⁻⁷, where two indicial roots are 2 ± 3.6833
   i, |λ| = 4.19: (8.13) fails there. R2: for |n| ≤ 50 and each of box^C's sextic, vector quadratic and l = 0 quartic,
@@ -2588,7 +2589,7 @@ nothing from the research tree:
     python3 checks/epsind5.py --selftest
     python3 checks/csolve5.py                            # about two hours
     python3 checks/eindcert5.py                          # a few minutes
-    python3 checks/kirecon5.py                           # a few seconds
+    python3 checks/kirecon5.py                           # about half a minute
     python3 checks/mpdata5.py                            # about four minutes
     python3 checks/flux5.py                              # a few minutes
     python3 checks/vii5census.py                         # a second

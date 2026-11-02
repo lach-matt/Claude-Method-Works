@@ -15,7 +15,7 @@ exponents are derived from the supplement's stated rules, not typed, and then he
      K' > 8 + 4 beta0 for every K >= 6, beta0 > 0; (vii) K' - 2 beta0 - 1 >= K + 2. Each inequality is reduced to a
      polynomial with non-negative coefficients in non-negative variables (K = 6 + kap, ceil(4 beta0) = 4 beta0 + del).
      Control: the split at t = lam^-1 (the integral is 2 lam^(-1/2), not O(1)), and K' = K + 3 (K' > 8 + 4 beta0 fails
-     at beta0 >= 2); each variant must fail one requirement.
+     for beta0 > (1 + kappa)/4, beta0 >= 1/4 at K = 6); each variant must fail one requirement.
   L2 (exact, sympy; k, K symbolic) paper section 8.7, supplement section 10.51: support5.py C5's bootstrap ledger with
      the derivative order k symbolic. C5's function holds its rules inside it, so they are restated here and support5.c5
      is imported and run as the cross-check: at (k, K) = (6, 6) both pass and at K = 5 both fail. With k = 6 + a, K = 6 +
@@ -35,12 +35,14 @@ exponents are derived from the supplement's stated rules, not typed, and then he
      metric's perturbation in E_1 in place of E_(3/2)) leaves the exponent unchanged and the expansion stalls.
   L4 (exact, sympy) paper sections 8.1 and 8.7, supplement section 10.50(a) with Lemmas 5.1, 5.3 and 6.2: the induction
      over stages m = 2..6. Each stage's oscillating source, Pi_osc (Wm(m_m, phi_m) + K_m), is enumerated by Lemma 5.1's
-     weight rule (W weight 1, gh_i weight i, m_i weight i, a derivative lam^-1 dv d_th weight -1 or dphi_i d_th weight
-     i - 1, at most two derivatives, d_th acting on an oscillating factor, order m), and the data terms of Lemma 6.2
-     (bilinear with d_th W or built from earlier oscillating quantities). Where env = 0 (W = 0 there, and gh_i = 0 for
-     i <= m by the hypothesis) every term's Pi_osc is computed to vanish: a term with an oscillating factor is zero, one
-     without is th-independent. ell = g0^-1 dv = d_r is tangent to {v = const}, and the transport with zero source and
-     zero data has the zero solution only; so gh_(m+1) = 0 there and the induction proceeds. Control: an envelope-free
+     weight rule (W weight 1, gh_i weight i, m_i weight i, a derivative lam^-1 dv d_th weight -1 or dphi_i d_th weight i
+     - 1, at most two derivatives, d_th acting on an oscillating factor, order m), and the data terms of Lemma 6.2
+     (bilinear with d_th W or built from earlier oscillating quantities). Where env = 0 (W = 0 there, and gh_i = 0 for i
+     <= m by the hypothesis) every term's Pi_osc is computed to vanish: a term with an oscillating factor is zero, one
+     without is th-independent. That holds by construction once the enumeration is right: what L4 adds is the enumeration
+     itself; that Lemma 5.1's rule produces every source term, and that W and gh_i are the only oscillating factors, is
+     deduced, not computed. ell = g0^-1 dv = d_r is tangent to {v = const}, and the transport with zero source and zero
+     data has the zero solution only; so gh_(m+1) = 0 there and the induction proceeds. Control: an envelope-free
      oscillating term (cos 2 th times a mean) in a stage's source survives.
 
 Labels: computed (exact sympy identities and inequalities; L3's generators by RK4). Reach: these are the counts the

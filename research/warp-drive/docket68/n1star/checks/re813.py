@@ -9,8 +9,9 @@ A, B real polynomials, and a non-real root of real part n is a common root t = y
 where the resultant R_n = Res_t(A, B), a polynomial in (kappa, h), vanishes (A's leading coefficient is +-h^3, h^2 or
 h, nonzero for h > 0).
 
-  R1 (exact, then 60 digits) At l = 1000 and n = 2, R_2 has two roots h in (0, 10^-6] (Sturm), isolated to 10^-30; at
-     one of them L has a non-real root of real part 2 with |lam| <= 50, so (8.13) fails at that h for every eps_ind.
+  R1 (exact, then 60 digits) At l = 1000 and n = 2, R_2 has one root h in (0, 10^-6] (Sturm; h = 0 is a triple root),
+     isolated to 10^-30; at one of them L has a non-real root of real part 2 with |lam| <= 50, so (8.13) fails at that h
+     for every eps_ind.
   R2 (exact) For the scalar sextic (every l >= 1), the vector quadratic (every l >= 1) and the scalar quartic (l = 0),
      and each integer n with |n| <= 50: R_n is not identically zero at any l. For the l >= 1 families the greatest
      common divisor in Q[kappa] of R_n's coefficients in h has no root kappa = l (l + 2) with l >= 1 integer; so at each
@@ -19,7 +20,8 @@ h, nonzero for h > 0).
      the quadratic), so at each h only finitely many l carry a root with |lam| <= 50.
   Controls: R1 at h = 10^-6 itself, where the non-real root nearest Re lam = 2 lies 0.25 from it (the record's point
      satisfies (8.13), 10.52); R2 on (lam - 2)^2 + 1 + kappa h, whose roots 2 +- i (1 + kappa h)^(1/2) have real part
-     2 at every h, so R_2 vanishes identically and the test must report it; R3 on the sextic plus lam h^3 kappa^3,
+     2 at every h, so R_2 vanishes identically, and on (lam - 2)^2 + 1 + (kappa - 8) h, for which it vanishes only at
+     kappa = 8 (l = 2, the gcd branch): the test must report both; R3 on the sextic plus lam h^3 kappa^3,
      whose top coefficient involves lam.
 
 Deduced (from R2-R3): (8.13) holds at every h in (0, 10^-6] outside a countable set (finitely many h for each l and n,
@@ -129,9 +131,10 @@ def r1(control=False):
 
 def r2(control=False):
     t0 = time.time()
-    if control:
-        P = sp.expand((lam - 2)**2 + 1 + K*h)
-        return bad_l(resultant(P, 2)) == []
+    if control:                       # both branches: R identically zero, and zero only at kappa = 8 (l = 2)
+        Pa = sp.expand((lam - 2)**2 + 1 + K*h)
+        Pb = sp.expand((lam - 2)**2 + 1 + (K - 8)*h)
+        return bad_l(resultant(Pa, 2)) == [] or bad_l(resultant(Pb, 2)) == []
     ok, rows = True, []
     for name, P in families():
         zero = []

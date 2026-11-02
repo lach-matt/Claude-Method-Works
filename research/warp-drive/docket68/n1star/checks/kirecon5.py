@@ -34,7 +34,7 @@ r (mu fixed), and its monomials H^a r^b are read off.
 
 Labels: computed (exact, sympy).
 
-Run: python3 checks/kirecon5.py   (a few seconds)
+Run: python3 checks/kirecon5.py   (about half a minute)
 """
 import sys
 
