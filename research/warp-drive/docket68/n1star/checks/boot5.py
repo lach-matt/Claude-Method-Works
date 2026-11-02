@@ -39,9 +39,9 @@ Z := (t - v1) d_t + x.d_x; P_mu(h) := Ric^H(g_b0(mu) + h; g_b0(mu)).
      non-integrable.
   B7 (exact, enumeration) the split of the commuted multilinear terms: every term (m >= 2 slots, |alpha_i| >= 1,
      sum <= k0, one slot with at most two derivatives) has one slot in L^2 (energy order <= k0) and the others in
-     sup (order + 3, or + 4 with two derivatives, <= k0): true for every k0 in [7, 30] (m = 2..4 slots), and the same
-     rule with k0 - 1 in place of k0 for the sup factors (the tame induction above a fixed k1) for k = 9..30.
-     Controls: k0 = 6 fails; the rule with the largest slot in sup fails at every k0.
+     sup (order + 3, or + 4 with two derivatives, <= k0): true for every k0 in [6, 30] (m = 2..4 slots), minimal
+     k0 = 6, and the same rule with k0 - 1 in place of k0 for the sup factors (the tame induction above a fixed k1)
+     for k = 9..30. Controls: k0 = 5 fails; the rule with the smallest slot in L^2 fails at every k0.
   B8 (exact) the residual's degree: P(g_b0 + Sigma) has its flat parts cancelled degree by degree, the degree -6
      terms (mu Sigma_2, Sigma_2 Sigma_2) cancelled by Sigma_4's equation, and its leading degree is -13/2 (mu
      Sigma_(5/2), Sigma_2 Sigma_(5/2)): ||w^(1/2) P(Sigma)|| on Sigma~_sigma ~ r_sigma^(a - 9/2). Control: without the
@@ -518,12 +518,12 @@ def b7():
     KM = 30
     ok = {k: split_terms(k) for k in range(2, KM + 1)}
     mink = min(k for k in range(2, KM + 1) if all(ok[kk] for kk in range(k, KM + 1)))
-    check("B7a every multilinear term (m = 2..4 slots) has a split (largest slot in L^2, the rest in sup) for every k0 "
-          "in [7, 30]; minimal k0 = 7", mink == 7, f"minimal k0 = {mink}")
+    check("B7a every multilinear term (m = 2..4 slots) has a split (one slot in L^2, the rest in sup) for every k0 "
+          "in [6, 30]; minimal k0 = 6", mink == 6, f"minimal k0 = {mink}")
     tame = all(split_terms(k, avail=k - 1) for k in range(9, KM + 1))
     check("B7b the tame induction above k1: with the sup factors at energy order <= k - 1 every term splits for "
           "k = 9..30 (so the orders above k1 need no smallness, only the lower ones)", tame)
-    check("B7c control: k0 = 6 fails", not ok[6])
+    check("B7c control: k0 = 5 fails (a slot of order 2 with two derivatives against one of order 3)", not ok[5])
     check("B7d control: the rule reversed (smallest slot in L^2, largest in sup) fails at every k0 <= 30",
           not any(split_terms(k, reverse=True) for k in range(7, KM + 1)))
 

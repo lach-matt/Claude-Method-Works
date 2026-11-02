@@ -15,16 +15,22 @@ symbol5.py Y1 took the 4 x 4 system (R, m, n, W)_uv with the shift held fixed.  
   S3 (exact) A_eff's characteristic polynomial is l^2 (l + 1)^2, as before, but rank A_eff = 2 and rank(A_eff + I) = 2:
      both eigenvalues are semisimple.  NO Jordan block: round 2's Y1/Y3 obstruction is the frozen shift's.
   Control (must fail): the same Jordan test on the frozen-shift system (n -> 0) finds the block (rank A = 3).
-  S4 (exact) the shift's first derivative s_x (and s itself) in the four rows, projected on A_eff's eigenvalue-0 left
-     eigenvectors (the sector with no x-derivative at principal order).  At high angular frequency k with u, v-scales
-     fixed, s ~ k (from s_v ~ d zeta . f_x), so s_x ~ k^2: these terms are of principal size there (Y5's loss).  The
-     projections are printed; a nonzero one means the eigenvalue-0 sector is driven by k^2 int (d zeta . f) dv.
+  S4 (exact) the shift's first derivative s_x in the four rows, projected on A_eff's eigenvalue-0 left eigenvectors
+     l_0 = (1, 0, 0, 0) (delta R) and l_1 (with d zeta = l_1 + (2/R) l_0).  At angular frequency k with the u, v scales
+     fixed, Ric_vx gives s_v = zeta_x/c_s + O(1), so s ~ (ik/c_s) int (d zeta . f) dv and s_x ~ k^2: these "lower-order"
+     terms are of principal size in the eigenvalue-0 sector (Y5's loss).  On spherical states: d zeta . M^-1 (s_x
+     column) = 0 exactly (delta zeta does not drive itself), but l_0 . M^-1 (s_x column) = R_v (1 - x^2) != 0.
   S5 (exact) the constraint-preserving block (cpsolve5: Ric_11, Ric_22, Ric(Y, d_v) for (m, n, W), Ric_vx for s, R
-     given) with s_vx eliminated likewise: characteristic polynomial and Jordan test; whether W keeps a W_xx term.
-  S6 (computed, a model only) the case the S4 numbers decide: if the eigenvalue-0 sector is forced by k^2 int_v of
-     itself, its scalar caricature z_uv = -kappa k^2 int_v z has Goursat solutions growing faster than any power of k
-     (exact series, evaluated in mpmath at k = 2 .. 64).  If it is forced only by the wave sector, the forcing is
-     k^2 times the v-integral of an oscillation of frequency ~k, and the loss is a power of k (Y5's count).
+     given) with s_vx eliminated likewise: charpoly l (l + 1)^2, no Jordan block, W has no W_xx; but its W row carries
+     s_x, so on spherical states W (d zeta . e_W = 1) is driven by k^2 int W dv: the eigenvalue-0 mode drives itself.
+  S6 (deduced; computed for the model) the two frozen-coefficient consequences.  Free formulation: delta zeta = Z is
+     not driven at order k^2, so delta R obeys R_uv = kappa_R k^2 int Z dv, kappa_R = R_v (1 - x^2)/c_s, and grows
+     like k^2 u v^2/2: an estimate without loss fails there still, by the shift's Levi term instead of a Jordan block.
+     Constraint-preserving formulation: W obeys the model z_uv = -kappa k^2 int z dv, whose Goursat solution (exact
+     series, mpmath, k = 2 .. 64) grows faster than any power of k for either sign of kappa: a model only (variable
+     coefficients and every O(k) term left out), but it says the metric formulation's loss is not one derivative.
+     Neither touches null3.py's frame hierarchy, where s enters only through eta, etab (b_v) and chib (b_x), each
+     transported (null3.py N8, N10; linest5.py E2).
 
   python3 checks/symbol5s.py
 """
@@ -68,7 +74,7 @@ def main():
     good = (present['E11'] == [] and present['E22'] == [] and present['Exx'] == ['vx']
             and present['EYv'] == ['vv', 'vx'] and eyv_svv == 0
             and present['Evx'] == ['vv'] and sp.simplify(cvec + dz) == sp.zeros(1, 4))
-    print('   Ric(Y, d_v) carries s_vv only through (1 - x^2) s Ric_vx (exact: %s), which the solver removes with Ric_vx;'
+    print('   Ric(Y, d_v) carries s_vv only through (1 - x^2) s Ric_vx (exact: %s), which the solver removes'
           % (eyv_svv == 0))
     print('S1 second derivatives of s by row:', present, '; s_vx column (E11, E22, Exx, EYv):', list(nvec),
           '; Ric_vx: s_vv coefficient', cs, ', f_vx coefficients = -d zeta:', sp.simplify(cvec + dz) == sp.zeros(1, 4),
@@ -139,10 +145,16 @@ def main():
           % pW)
     good3 = not jb3 and wxx == 0 and pW != 0
     print('S5', 'PASS' if good3 else 'FAIL'); ok &= good3
-    # S6: frozen-coefficient model of the eigenvalue-0 sector driven by s_x
+    # S6: frozen-coefficient consequences
     import mpmath as mp
     mp.mp.dps = 60
-    print('S6 (computed, mpmath) the scalar model z_uv = -kappa k^2 Z, Z_v = z, Goursat data z = 1 on u = 0 and v = 0;')
+    kR, csph = S4res
+    print('S6 (deduced) free formulation, spherical states: delta R_uv = kappa_R k^2 int Z dv, kappa_R = %s, '
+          'Z = delta zeta undriven at order k^2: delta R ~ kappa_R k^2 u v^2/2, growth k^2 (no estimate without loss).'
+          % (
+              sp.simplify(kR / csph)))
+    print('   (computed, model) constraint-preserving W: z_uv = -kappa k^2 int z dv, Goursat data z = 1 on u = 0 and '
+          'v = 0;')
     print('   exact series z(u, v) = sum_j a^j u^j v^(2j)/(j! (2j)!), a = -kappa k^2; |z(1, 1)| against k^2:')
     grow = {}
     for kap in (1.0, -1.0):
@@ -154,9 +166,10 @@ def main():
         grow[kap] = vals
         print('   kappa = %+.0f: %s' % (kap, ', '.join('k = %d: %.3g' % kv for kv in vals)))
     sup_pow = all(v2 / v1 > (k2 / k1) ** 2 for (k1, v1), (k2, v2) in zip(grow[-1.0][-3:-1], grow[-1.0][-2:]))
-    print('   kappa = -1 outgrows every k^2 step at the top of the range: %s (the series grows like exp(c k^(2/3)));' %
-          sup_pow)
-    print('   kappa = +1 (a < 0) also grows: 0F2 with negative argument has exponential growth along the cube roots.')
+    sup_pow2 = grow[1.0][-1][1] / grow[1.0][-2][1] > 4
+    print('   both signs outgrow k^2 at the top of the range: %s, %s (the series grows like exp(c k^(2/3)))' % (
+        sup_pow, sup_pow2))
+    ok &= sup_pow and sup_pow2
     print('symbol5s:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

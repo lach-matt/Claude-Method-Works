@@ -18,10 +18,10 @@ orders 1 .. k + 1 (and order 0 through 9.3(b)); "w-order" of a factor = the numb
      commutators, d g_n) and C_k lam^-1 t^(-3/2) (the 1/lam coupling s G2), whose integrals over t >= lam^-2 are
      2 C_k lam and 2 C_k: the Gronwall factor exp(2 C_k (1 + lam)) is lam-free and k enters only through C_k; the
      nonlinear term C_k lam^-5 t^(-3/2) E^2 with E <= 2 M lam^K' t^(-1/2) returns C_k M^2 lam^(2K'-5) t^(-1/2),
-     below M lam^K' / 2 for lam small exactly when K' > 5 (independent of k). And the nonlinear lam-loss from O1's
-     split is at most 4 (the record's 5 is an upper bound). Control: K' = 5 does not close.
+     below M lam^K' / 2 for lam small exactly when K' > 5 (independent of k). Control: K' = 5 does not close.
   O3 (exact, sympy) the near region's bootstrap at order k (Proposition 9.9): for beta > 1, a > -beta,
-     int_t^T t'^(-1-a) (T/t')^beta dt' <= t^-a (T/t)^beta / (beta + a), and log(T/t) <= (T/t)^beta / beta; with
+     int_t^T t'^(-1-a) (T/t')^beta dt' <= t^-a (T/t)^beta / (beta + a), and log(T/t) <= (T/t)^beta / beta (control:
+     without the factor (T/t)^beta the log is unbounded); with
      beta0(k) = max(2, 4 C(k) + 1) each integral of (9.9) returns C/(beta0 - 1) <= 1/4 of its bound; the nonlinear
      terms C B^2 lam^(-8 - 4 beta0) are below B/2 for lam small once K' > 8 + 4 beta0, which N = K + 4 +
      ceil(4 beta0(k)) gives for every K >= 6; and (P-iii)'s absorption K' - 2 beta0 >= K holds. Control (the order
