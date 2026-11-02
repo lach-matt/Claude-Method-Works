@@ -192,7 +192,7 @@ def measure(n, sign=1.0):
             t = (tau0 - row[j]) / (row[j + 1] - row[j])
             Rsig[i] = R[i, j] + t * (R[i, j + 1] - R[i, j])
     pk = (uu >= U1P) & (uu <= U2P) & np.isfinite(Rsig)
-    shell_in = V1S - tau0
+    shell_in = float(np.interp(V1S, vv, vh)) - tau0                            # R of the shell's inner edge on it
     out['sigma'] = (float(np.nanmin(Rsig[pk])), float(np.nanmax(Rsig[pk])), math.sqrt(mu0), shell_in,
                     shell_in > math.sqrt(mu0) + 1)
     sym = np.exp(-2 * S) * vhp[None, :]                                         # the outgoing phase normalised by u

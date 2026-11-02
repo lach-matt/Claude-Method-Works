@@ -59,6 +59,7 @@ import dweights5 as DW  # noqa: E402  (round 1's instrument: d1, residues, chain
 import prop31loss5 as P31  # noqa: E402
 
 iv.prec = 200
+mpmath.mp.prec = 260          # so that the iv endpoints convert to mpf without rounding
 Z = Fr(4, 10 ** 6)
 DELTA50 = Fr(1941370568, 10 ** 17)
 

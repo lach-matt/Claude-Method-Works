@@ -33,7 +33,7 @@ lead5 (R^(-1) = 0, R^(0) = lead5's R^(0)[W] - (1/2) e1 d_s^2 W, stage5 S1 (b)) a
      + 2 Y' (f_v dv + f_r dr) dth + r^2 (H_L Y gamma + H_T nabla nabla Y), seven functions of (v, r). The sector is
      closed (every component a th-free multiple of its harmonic tensor): a 1+1 system of seven equations.
      sigma^* = (-1)^k on the sector, computed with Y = P_k(cos 2th), k = 1, 2, 3. (ii) S3's source,
-     -4 A^2 E^2 h^2 sin 2th/(9 r^3) dv dth, h(cos^2 2th) generic, is (4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth with
+     -4 A^2 E^2 h^2 sin 2th/(9 r^3) dv dth, h(cos^2 2th) generic, is -(4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth with
      Z odd for every h, so it lies in the odd-k sectors only: k = 1 alone for constant h; every odd k for the
      record's H (Z = -atan x; Legendre coefficients k <= 7 computed, the even ones 0). (iii) k = 1, constant h: the
      solution with no radiation at past null infinity, as a series in integer powers of 1/r with coefficients of v,
@@ -468,12 +468,12 @@ def b3(control=False):
     zodd = zero(sp.diff(Z + Z.subs(x, -x), x).doit()) and zero((Z + Z.subs(x, -x)).subs(x, 0).doit())
     src = -4*A2E2*hf(sp.cos(2*th)**2)**2*sp.sin(2*th)/(9*r**3)
     dZ = sp.diff(Z.subs(x, sp.cos(2*th)), th).doit()
-    rep = zero(src - 4*A2E2/(9*r**3)*dZ)
+    rep = zero(src + 4*A2E2/(9*r**3)*dZ)
     Zrec = -sp.atan(x)
     zrec = zero(sp.diff(Zrec, x) + sp.Rational(1, 2)*(2/(1 + x**2)))
     coef = [sp.simplify(sp.Rational(2*k + 1, 2)*sp.integrate(Zrec*sp.legendre(k, x), (x, -1, 1))) for k in range(8)]
-    print("  B3 (ii): S3's source = (4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth, Z(x) = -(1/2) int_0^x h(y^2)^2: %s; Z odd"
-          " for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients k = 0..7: %s"
+    print("  B3 (ii): S3's source = -(4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth, Z(x) = -(1/2) int_0^x h(y^2)^2: %s;"
+          " Z odd for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients k = 0..7: %s"
           % (rep, zodd, zrec, coef), flush=True)
     ii = rep and zodd and zrec and all(coef[k] == 0 for k in range(0, 8, 2)) and all(coef[k] != 0 for k in (1, 3, 5))
     # (iii) k = 1, constant h: the solution with no radiation at past null infinity, order by order in 1/r
