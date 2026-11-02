@@ -322,8 +322,9 @@ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 1
 - (IX2) [BGP] Theorem 3.2.11 is stated for compactly supported data; the extension to smooth data without support
   conditions (Lemma 1.1) is written out, using only Corollary 3.2.4, Theorem 3.2.11 and the facts used in its proof.
 
-- (IX3) The domain of the comparison is a Cauchy development, $D_U(\Sigma_U)$; for $U = N^\circ$ it contains the
-  whole future $N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2), where the settling statement lives.
+- (IX3) The domain of the comparison is the future half $\Omega'_+$ of a Cauchy development $D_U(\Sigma_U)$; for $U =
+  U^\sharp$ it is the whole future $N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2), where the settling
+  statement lives (amended D610, finding (IX5)).
 
 - (IX4) Verifier 162 (D347): no blocking or major gap. M1, Lemma 1.1's case split at $a_i = 0$, $a_i+1 = 0$; M2, X5
   tested a two-dimensional family of the three-dimensional space it claims, now the full family, with a tangential
@@ -332,12 +333,30 @@ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 1
   2.1 (f) now computed, X7 (N3); X1's flat $D\mathrm{Ric}$ tied to X6's (N4); the connection of Lemma 1.1 (N5). All
   seated.
 
-Labels: proved here from the cited parts and [BGP] (READ); Lemma 2.1's identities are derived in the text and computed
-in `checks/ix5.py` (X1-X7, with controls). The [BGP] readings were not re-read by verifier 162 (arXiv refused the
-fetch).
+- (IX5) A later reading (D610) found a major gap: section 0 called $\nu$ positive, but III.K Proposition 1.2 sets $\nu =
+  0$ on $[0,R_\nu]$, so $N = \{t_{\mathrm{IVP}}\ge0\}$ near $\{r = r_0\}$ and $\Sigma^\circ$ was not inside the old
+  $N^\circ := \{t_{\mathrm{IVP}}>-\nu\}\cap M^\circ$; the old Lemma 1.2's first two claims failed there, and with them the
+  domain of Theorem 2.2 and Corollary 2.3. Repair: the Cauchy development is taken in $U^\sharp :=
+  M^\circ\cap\{t_{\mathrm{IVP}}>-1\}$, which contains $\Sigma^\circ$ and where only $g$ is used; Theorem 2.2 is stated
+  on its future half for tensors smooth up to $\Sigma_U$; Step 1 extends $\Theta(k)$ across $\Sigma_U$ (Seeley); Step 3
+  shows $h$ vanishes to infinite order at the noncharacteristic $\Sigma_U$ (`ix5.py` X8) and extends it by 0, so that
+  [BGP] Corollary 3.2.4 applies. Section 0 records why $\dot g$ restricted to $N^+$ is smooth up to $\Sigma^\circ$
+  (deduced from Part VIII's $H^k$ bounds). Nits seated at the same time: the term "time function" is now II.F's, with
+  [BGP] p. 24's Cauchy time-function named for the property; [BGP] Lemma A.5.4 corrected to Corollary A.5.4 (p. 174),
+  with $S = \{0\}\times S$; [BGP]'s connectedness handled per component; $k$'s $G$-invariance in Remark 2.4 (c) traced
+  to Part VIII Corollary 2.3; $q'$ and $h'$ named in Corollary 2.3; `ix5.py`'s X5 comment corrected; `checks/ix5.out`
+  recorded. The objects $N^\circ$ and $N^{\mathcal D}$ are withdrawn; a text that cites them reads $U^\sharp$,
+  $\Omega^\sharp$ and $N^+$ in their place.
+
+Labels: proved here from the cited parts and [BGP] (READ); Lemma 2.1's identities and Step 3's leading coefficient are
+derived in the text and computed in `checks/ix5.py` (X1-X8, with controls). [See64] is cited, not read here. The [BGP]
+readings were not re-read by verifier 162 (arXiv refused the fetch); D610's repair cites [BGP] pp. 23, 24, 81 and 174
+from the text the session holds.
 
 Sources: Part VIII (PART-VIII-LINEAR.md) section 0, Lemma 1.1, Proposition 1.2, Theorem 2.2, Corollary 2.3, Remark 2.4;
 III.B (PART-III-B-FAMILY.md) (3.5), (3.6), Lemma 3.7; II.C (PART-II-C-OPERATORS.md) Lemma 3.2; II.F (PART-II-F-IOTA.md)
 section 1.4, Lemma 1.3 and its proof; III.K (PART-III-K-NONLINEAR.md) section 0 and Proposition 1.2; [BGP]
-arXiv:0806.1036v1, section 1.5 (p. 33), Corollary 3.2.4 (p. 76), Theorem 3.2.11 with its proof (pp. 85-86), Lemma
-A.5.9 (p. 176).
+arXiv:0806.1036v1, Definition 1.3.8 (p. 23), Corollary 1.3.12 and the term Cauchy time-function (p. 24), section 1.5
+(p. 33), Corollary 3.2.4 (p. 76), Proposition 3.2.5's proof (p. 81), Theorem 3.2.11 with its proof (pp. 85-86),
+Corollary A.5.4 (p. 174), Lemma A.5.9 (p. 176). [See64] R. T. Seeley, Extension of $C^\infty$ functions defined in a
+half space, Proc. Amer. Math. Soc. 15 (1964) 625-626.

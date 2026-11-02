@@ -405,3 +405,545 @@ N1STAR-PROOF.md sections 10.3-10.4 (Propositions 10.1-10.2).
 
 *Files.* `GAUGEDECAY5.md` (this note); `checks/rwgauge5.py` with `checks/rwgauge5.out`; `checks/hgauge5.py` with
 `checks/hgauge5.out`.
+
+## Round 2
+
+*Status.* Written (round 2, this section). Not verified by a second reader. Round 1 above is left as it stands; where
+it is wrong this section says so (R2.0) and states the correction. New programs: `checks/admbox5.py` (B1-B8) and
+`checks/gdrepair5.py` (V1-V5), with their `.out` files, every check with a negative control that fails. Section R2.V
+folds in the independent verifier's reading of round 1 at commit 40398c5 and says, for each finding, what was wrong.
+Labels as in round 1; "standard" marks a textbook fact used without a program.
+
+*The result, in one paragraph.*
+- **Round 1's (Adm$\Box$) is false as stated** (R2.0). $d\phi_2$, $d\phi_4$ below are $G$-invariant, smooth across the
+  horizon, solve $\Box Z = 0$, and have stationary, nonzero, $\theta$-dependent $\mathcal L_Zg$. So Corollary 2.6's
+  hypothesis fails already for $J = 0$, and its conclusion fails for harmonic-gauge solutions of Proposition 2.1 (a).
+  Any decay statement must restrict the data of the gauge vector.
+- **Obstruction (a) is closed at $b_0$** (R2.1-R2.2). The analogue of III.H-III.H$'$ for $\Box$ has one state ($W^*$),
+  one column (from the cut-off state $\chi_KW^*$) and one row. III.H Proposition 3.2's $11\times11$ pairing matrix
+  becomes the number $\ell([\Box,t_*]W^*) = 4\pi^2$. $\Box$ is 1-admissible with sf-loss 0, in the form III.H$'$ proves
+  for $L_{b_0}$; the forward solution is a part of $K^+$-weight 0 plus $\beta(t_*,r)W^*$.
+- **Decay modulo $W^*$, with its coefficient** (R2.3). For sources in the class of II.C Definition 2.7 (3), $u-c_f(t_*)
+  W^* = O(t_*^{-1/2})$ on each compact $r$-set, where $c_f$ is the horizon charge $(4\pi^2)^{-1}\int^v\ell(f)$.
+  Homogeneous solutions with compactly supported data settle to $(Q/4\pi^2)W^*$ at that rate. The rate $\frac12$ is what
+  $L^2$ in time gives; nothing better is claimed.
+- **Obstruction (c)** needs no separate argument (Corollary R2.8 covers $l = 0$); the explicit $l = 0$ reduction is Lemma
+  R2.9.
+- **Obstruction (b) is reduced, not closed** (R2.4). With the source cut off to a cone inside $\{\chi_K = 1\}$, in Part
+  VIII's gauge it is $|x|^{-1}$ times an algebraic expression in $h$ plus a gauge-source term, and only $K^+$- and
+  $\iota^+$-orders matter. Two inputs are not extracted here: the $\iota^+$-orders of $h'$ and of $D\vartheta_{\mathrm{
+  tot}}(\vec p\,')$. Under that hypothesis (S$_K$), Theorem R2.12: a solution in harmonic gauge on
+  $\{t_*\ge4,\ r\le t_*/8\}$ equals $\dot\mu K^*+c_\infty\mathcal L_{W^*}g+O(t_*^{-1/2})$ on each $\{r_0<r\le R'\}$,
+  with $c_\infty$ a horizon charge; a gauge change by a homogeneous $Y_h$ with compactly supported data shifts
+  $c_\infty$ by $Q[Y_h]/4\pi^2$ and changes nothing else.
+- **The supplement's gauge-fixed mass change is singular at the horizon** (R2.V (M), the verifier's major finding,
+  confirmed in V1). Supplement Proposition 10.2 (iv)'s $K^*$, built with the static time and the coefficient 1, has
+  $K^*_{vr}\sim-\frac38(r-r_h)^{-1}$ and $K^*_{rr}\sim\frac38(r-r_h)^{-2}$ at $\mu_0 = 1$. So the paper's "regular at the
+  horizon" and the final state of supplement 10.8 and 10.11 are wrong; replacement texts are in R2.S.
+- **The spherically symmetric sector in harmonic gauge, corrected** (Proposition R2.13, unconditional given R2.5). It is
+  exactly $\dot\mu K^*+\mathcal L_{Z'_0}g$ with $\Box Z'_0 = 0$, where $K^* = r^{-2}dv^2+\mathcal L_{W^{**}}g$ is the
+  horizon-regular mass change with the $\frac v2$ term. For $Z'_0$ with compactly supported data it settles to
+  $\dot\mu K^*+c\,\mathcal L_{W^*}g$ at the rate $t_*^{-1/2}$, $c = Q[Z'_0]/4\pi^2$. The linear growth is forced only for
+  decaying gauge data: a stationary, horizon-regular harmonic-gauge mass change exists, but it is $O(1)$ at infinity
+  (V2).
+
+### R2.0 Correction to round 1: (Adm$\Box$) and Corollary 2.6
+
+**Lemma R2.0 (computed B6).** $\phi_2 := (r^2-\frac{\mu_0}2)P_1(\cos2\theta)$ and $\phi_4 := (r^4-\mu_0r^2+
+\frac{\mu_0^2}6)P_2(\cos2\theta)$ (the two lower coefficients of $\phi_4$ solved for) satisfy $\Box_0\phi = 0$. They are
+polynomials in $r^2$, so smooth across the horizon in the ingoing chart, and $G$-invariant. $Z := d\phi$ has $\Box Z =
+d\Box_0\phi = 0$ and $Q[Z] = 0$, and $\mathcal L_Zg = 2\nabla d\phi$ is stationary, nonzero and $\theta$-dependent.
+(Control:
+$r^2P_1(\cos2\theta)$, the mass term dropped, is not a solution.)
+
+So round 1 is wrong at three places. The text above is not altered, for the verifier reading commit 40398c5.
+- *Corollary 2.6's hypothesis (Adm$\Box$) is false.* $Z' = d\phi_2$ is $G$-invariant, solves $\Box Z' = J$ with $J = 0$
+  (which meets every bound asked of $J$), and $Z'-cW^*-c'(\partial_t)^\flat$ does not tend to 0 on any $\{r_0<r\le R'\}$:
+  its $l = 2$ part is stationary and nonzero, and $W^*$, $(\partial_t)^\flat$ are $l = 0$. Corollary 2.6 is vacuous as
+  stated.
+- *Its conclusion, and section 2.5's target, fail.* "Every harmonic-gauge solution ... equals $\dot\mu K^*+c\,\mathcal
+  L_{W^*}g+O(t_*^{-\kappa})$" is false: by Proposition 2.1 (a) with $Z'+d\phi_2$, $\dot g_H+2\nabla d\phi_2$ is a
+  harmonic-gauge solution with the same data up to a linearised diffeomorphism, and it differs from every
+  $\dot\mu K^*+c\,\mathcal L_{W^*}g$ by a stationary $l = 2$ tensor.
+- *The cause is the data at infinity.* $|d\phi_l|$ grows like $r^{l-1}$. For every even $l\ge2$ the stationary equation
+  $(r^3f\phi_l')' = l(l+2)r\phi_l$ has a solution smooth at $r_h$ (indicial roots $0,0$ there); by the energy identity
+  of III.D$'$ Lemma 2.1 (2)(c) it cannot decay, so it is the growing Frobenius branch. On III.D$'$'s decaying space
+  $\mathcal X_0$ these are excluded, which is why the kernel there is $\mathrm{span}\{W^*\}$.
+
+*The corrected target (Adm$\Box'$).* (i) The forward solution (zero data) of $\Box u = f$, $f$ in a stated weighted
+class, is $cW^*+o(1)$ on compact $r$-sets with a rate. (ii) The same for homogeneous solutions with data in a stated
+decaying class. $(\partial_t)^\flat$ occurs in neither, its data not decaying; as $\mathcal L_{(\partial_t)^\flat}g =
+0$ it does not enter $\dot g_H$ anyway.
+
+### R2.1 The augmented zero-energy operator of $\Box$ (III.H at $\Box$)
+
+*Setting.* $b = b_0$ and the unmodified operator $\Box$, the parameter $\mathsf p_0$ of III.D$'$. III.D$'$ section 1:
+$\hat P(\sigma)$ satisfies (H1)-(H5) with $\vartheta_{\mathcal H} = 1$, (G) for $\alpha+2\in(0,2)$, (TF), and has index
+0 at $\sigma\ne0$. III.D Lemma 2.1 (1)-(3): $\Box = L_0+L_1\partial_{t_*}+L_2\partial_{t_*}^2$ with $L_0 = \hat P(0)\in
+\rho^2\mathrm{Diff}^2_{\mathrm b}$, $L_1\in\rho\,\mathrm{Diff}^1_{\mathrm b}$ (equal to $[\Box,t_*]$ on stationary
+sections) and $L_2 = -g^{00}\in\rho^2C^\infty$ near $\partial X$, which is what III.H section 1 asks of $L_b$; and
+$\bar S = 0$, as III.D Lemma 3.1 gives $\bar S = \gamma_\Upsilon(\cdots)$ (READ, `PART-III-D-GAUGEPOT.md`:132) and
+$\gamma_\Upsilon = 0$ here. Fix $\alpha$ with $\alpha+2\in(0,1)$ (III.H (1.1)), $s>\frac32$, $\chi_K$ of III.H (1.2), an
+$SO(4)$-invariant fibre inner product $h$ and an $SO(4)$-invariant $\varphi\in C^\infty_c(X^\circ;E)$ with
+$\langle W^*,\varphi\rangle_h = 1$ (average any choice over $SO(4)$). The state is $W^*$ of III.D$'$ (2.1): smooth on
+$X$, in $\mathcal A^2$ (weight 2, as $\dot g(1,0)$ in III.H), $\Box W^* = 0$.
+
+**Definition R2.1.** $f_* := \Box(\chi_KW^*) = [\Box,\chi_K]W^*$, $\hat f_*(\sigma) := \int e^{i\sigma t_*}f_*\,dt_*$,
+$\hat g_*(\sigma) := i\sigma^{-1}\Psi(\sigma,\cdot)W^*$ with $\Psi$ of III.H Lemma 2.5, and
+$$\tilde P(\sigma)(u,c) := \big(\hat P(\sigma)u+c\hat f_*(\sigma),\ \langle u,\varphi\rangle_h\big).$$
+
+**Lemma R2.2 (III.H Lemmas 2.2-2.5 at $\Box$; computed B1-B2, deduced).** (a) $f_*$ is supported as in III.H Lemma 2.2
+(a), and its part at $r\ge1$ obeys III.H (2.1): $|(t_*\partial_{t_*})^j(r\partial_r)^a\partial^\beta_\omega f_\infty|\le
+Cr^{-4}$. (b) $\hat f_*(0) = L_1W^*+L_0w$, $w := -\kappa(r)W^*$ with $\kappa$ of III.H Lemma 2.3, so $w\in\mathcal A^1$
+and $\hat f_*(0)\in\mathcal A^3$. (c) III.H Lemma 2.4 (a)-(d) hold for $\hat f_*$. (d) For $\sigma\ne0$,
+$\mathrm{Im}\,\sigma\ge0$: $\hat g_*(\sigma)\in\mathcal X_\sigma$ and $\hat P(\sigma)\hat g_*(\sigma) = \hat
+f_*(\sigma)$.
+
+*Proof.* III.H's proofs use of their state only $L_bh = 0$, stationarity, its weight, and the structure of $L_0$,
+$L_1$, $L_2$ near $\partial X$; at $\Box$ these are $\Box W^* = 0$, the weight 2 and the setting. The generalised state
+$t_*h+\breve h$ does not occur. *Computed:* in the outgoing chart of III.B (3.4), (3.6) ($|x|\ge3R_1$), $\Box W^* = 0$,
+$r^3L_1W^*\to-1$, $r^4L_2W^*\to16\mu_0$, $r^3L_0(rW^*)\to1$ in both orbit components, and $r^2g^{TT}\to-16\mu_0$ (B1;
+control: in III.B's time $t$, $L_2W^*$ is only $O(r^{-2})$). On the cone $t_* = r/q$, $q\in[\frac14,\frac12]$,
+$r^4[\Box,\chi]W^*$ has a finite limit and $r^3[\Box,\chi]W^*\to0$ for $\chi = (r/t_*)^2$ and $e^{r/t_*}$ (B2; control:
+for the Killing form $(\partial_{t_*})^\flat$, weight 0, it is not $O(r^{-3})$). $\square$
+
+**Proposition R2.3 (III.H Proposition 3.2 at $\Box$; computed B3, deduced).** $\tilde P(0):\mathcal X_0\oplus\mathbb
+C\to\mathcal Y_0\oplus\mathbb C$, the spaces of III.H Proposition 3.2 at the weight $\alpha$, is invertible.
+
+*Proof.* *Index 0.* $\tilde P(0)$ is a finite-rank perturbation of $\hat P(0)\oplus0$, and $\hat P(0):\mathcal
+X_0\to\mathcal Y_0$ has index 0 (I.C Corollary 6.6, as in III.D$'$ Lemma 2.1 (3)); $\hat f_*(0)\in\mathcal
+A^3\subset\mathcal Y_0$ as $\alpha+2<1$. *Injectivity.* Let $\tilde P(0)(u,c) = 0$. By Lemma R2.2 (b), $\hat
+P(0)(u+cw)+cL_1W^* = 0$, and $u+cw\in\mathcal X_0$ ($\mathcal A^1\subset\bar H^{\infty,\alpha}_{\mathrm b}$ as
+$\alpha<-1$). Apply $\ell$ of III.D$'$ (1.1). $\ell\circ\hat P(0) = 0$ on $\mathcal X_0$ (III.D$'$ Lemma 2.1 (1) and the
+density argument of its (3); B3 checks $(\Box u)_v = 0$ at $r_h$ for stationary $l = 0$ $u$ with general coefficients,
+and not at $2r_h$). And $\ell(L_1W^*) = \ell([\Box,t_*]W^*) = 4\pi^2$ (III.D$'$ Lemma 3.1 (1); B3 computes
+$\ell([\Box,v+F(r)]W^*) = 4\pi^2$ for a general $F$, so for every $t_*$ with $t_*-v$ a function of $r$ near $r_h$, and
+$\ell(L_1W^*+L_0(-\kappa W^*)) = 4\pi^2$ for a general $\kappa$). So $4\pi^2c = 0$, $c = 0$, $u\in\mathrm{span}\{W^*\}$
+(III.D$'$ Lemma 2.1 (2)), and $\langle u,\varphi\rangle_h = 0$ gives $u = 0$. $\square$
+
+III.H's block-triangular $11\times11$ matrix is here the $1\times1$ matrix $(4\pi^2)$. The time cut-off is what makes
+it nonzero: a stationary column $\hat P(0)(\kappa W^*)$ is annihilated by $\ell$ (B3 control), and an augmentation by
+it is not injective at zero energy.
+
+**Theorem R2.4 (III.H Theorem 4.1 and Corollaries 4.2-4.3 at $\Box$; deduced).** There are $c_k>0$ and $C_k$ such that
+for $\sigma\in\Sigma_0$, $|\sigma|\le c_k$: $\tilde P(\sigma):\mathcal X_\sigma\oplus\mathbb C\to\mathcal
+Y_\sigma\oplus\mathbb C$ is invertible with the estimate III.H (4.5); III.H Theorem 4.1 (3) holds for $\tilde P$ on
+$\Sigma_0\cap\mathbb R$; and, with $(u,c) := \tilde P(\sigma)^{-1}(f,0)$ for $0<|\sigma|\le c_0$,
+$$\hat P(\sigma)^{-1}f = u+c\,\hat g_*(\sigma).\tag{R2.1}$$
+
+*Proof.* III.H Theorem 4.1 is stated for any $\hat P$ with (H1)-(H4), (G), (TF) and index 0 at $\sigma\ne0$, which the
+setting gives, and columns with (A1)-(A4), which Lemma R2.2 (c) gives with $\epsilon_0 = \frac14(1-(\alpha+2))$ exactly
+as in III.H Corollary 4.2's proof; (Z$_{\mathcal P}$) is Proposition R2.3. $\hat P(\sigma)$ is invertible for every
+$\sigma\ne0$ with $\mathrm{Im}\,\sigma\ge0$ (III.D Propositions 6.1-6.2), so III.H Corollary 4.3's scaling argument is
+not
+needed, and (R2.1) follows from Lemma R2.2 (d) as III.H (4.6) does. $\square$
+
+### R2.2 The time domain: $\Box$ is 1-admissible (III.H$'$ at $\Box$)
+
+$\mathcal O_c(\Box)$ is III.H$'$ Definition 1.1 with $P_0 = \Box$ and the $K^+$-weight $-1$ in place of $-2$.
+
+**Theorem R2.5 (III.H$'$ Theorem 1.3 at $\Box$; deduced).** Let $\alpha_{\mathrm{sf}}+2\in(0,1)$, $k\in\mathbb N_0$,
+$\mathsf s\in\mathcal O_c(\Box)$ and $f\in H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(\Omega)^{\bullet,-}$. The
+forward solution $u$ of $\Box u = f$ satisfies, with $C$ independent of $f$ and $\|f\|$ that norm:
+
+(i) $u = u'+u_{\mathrm{sing}}$ with $\|u'\|_{H^{(\mathsf s;k),(\alpha_{\mathrm{sf}},0)}_{3b;b}(M_0)}\le C\|f\|$;
+
+(ii) $u_{\mathrm{sing}} = \beta(t_*,r)W^*$, where for one function $B$ with $\sum_{j\le
+k}\|(t\partial_t)^jB\|_{L^2(\mathbb
+R)}\le C\|f\|$, $\partial_{t_*}\beta(\cdot,r) = (\partial_t\chi_K)(\cdot,r)*B$ and $\beta(\cdot,r)-\beta(\cdot,r') =
+(\chi_K(\cdot,r)-\chi_K(\cdot,r'))*B$;
+
+(iii) $\|u\|_{H^{(\mathsf s-1;k),(\alpha_{\mathrm{sf}},-1)}_{3b;b}(\Omega)^{\bullet,-}}\le C\|f\|$: $\Box$ is
+1-admissible
+with sf-weight $\alpha_{\mathrm{sf}}$, sf-loss 0 and margin 1 (II.C Definition 2.7 relaxed, orders in $\mathcal
+O_c(\Box)$), at $b_0$ and for every $k$.
+
+*Proof.* III.H$'$ sections 2-7 with $L_{b_0}$ replaced by $\Box$ and $\tilde L_b$ by $\tilde P$ (Theorem R2.4), the
+states of III.H$'$ Lemma 5.1 reduced to the one of weight $q = 2$, and the two integrations of its section 7 (iv)-(v)
+reduced to one. What III.H$'$ takes from $L_b$, at $\Box$:
+- *Lemma 1.2 (orders).* With $\alpha_K = -1$ and margin 1, II.C Definition 2.4 (5)-(6) give $\mathsf
+  s+\alpha_{\mathrm{sf}}+1>\frac12(-1+\vartheta_{\mathrm{in}})+1$ at the incoming radial set and $<\frac12(-1+
+  \vartheta_{\mathrm{out}})-1\le-\frac32+\bar S$ at the outgoing one: inside the interval Lemma 1.2 (a) needs. (4)
+  gives $s_c>\frac32+\vartheta_{\mathcal H} = \frac52$ (III.D Lemma 5.1).
+- *Lemma 2.1.* High energies (I.B Theorem 1.3 (3); III.D Proposition 6.1), invertibility at every $\sigma\ne0$ (III.D
+  Proposition 6.2), uniqueness of forward solutions (II.E Proposition 3.4).
+- *Lemma 3.1.* I.B Theorem 1.3 (5) with $\delta_\Gamma(0)<\frac1{2(k+1)}$: III.D Lemma 5.2 gives $\delta_\Gamma(0)$ as
+  small as wished at $b_0$, so $b_0\in\mathcal B^{\mathrm{hi}}_k$ for every $k$, as III.F Proposition 4.1 does for $L_b$.
+- *Lemmas 4.1-4.2.* Theorem R2.4.
+- *Lemma 5.1* with $q = 2$: $\partial_{t_*}u_{\mathrm{sing}}\in H^{(m;k),(\alpha_{\mathrm{sf}}+1,0)}_{3b;b}(M_0)$, as
+  $\beta' = \alpha_{\mathrm{sf}}+1<0$.
+- *Section 7.* (i) as there, with $u' := u_{\mathrm{hi}}+u_{\mathrm{reg}}$; (ii) $u_{\mathrm{sing}} = -u'$ on $\Omega_-$;
+  then Lemma 6.2 once, for $u_{\mathrm{sing}}$ with the order $\mathsf s-1$, $\beta = \alpha_{\mathrm{sf}}+1$, $\ell =
+  1$: the data $(\alpha_{\mathrm{sf}},0)\subset(\beta-1,-1)$ on $\Omega_-$ and $\partial_{t_*}u_{\mathrm{sing}}$ at
+  $(\beta,-\ell+1)$ give $u_{\mathrm{sing}}\in H^{(\mathsf s-1;k),(\alpha_{\mathrm{sf}},-1)}_{3b;b}(M_0)$. This is (iii).
+
+For (ii): by III.H$'$ Lemma 5.1's proof, $\mathcal F(\partial_{t_*}u_{\mathrm{sing}}) = \chi\Psi\hat b_1W^*$ on
+$\mathbb R$, and $\Psi(\cdot,r)$ is the Fourier transform of $\partial_t\chi_K(\cdot,r)$ (III.H Lemma 2.5); $B :=
+\mathcal F^{-1}(\chi\hat b_1)$ is bounded by III.H$'$ Lemma 4.2 and Plancherel, $\mathcal F(t\partial_tB) =
+-(1+\sigma\partial_\sigma)\hat B$. Then $\beta(\cdot,r)-\beta(\cdot,r')-\psi*B$, $\psi :=
+\chi_K(\cdot,r)-\chi_K(\cdot,r')
+\in C^\infty_c([1,\max(2,4r,4r')])$, has zero $t_*$-derivative and is square integrable as $t_*\to-\infty$
+($u_{\mathrm{sing}} = -u'$ there), so it vanishes. (i)-(ii) for general $f$ by density, $u'$ and $B$ extended by
+continuity. $\square$
+
+So round 1's obstruction (a) is closed in the form it was posed: II.C Definition 2.7 (3) holds for $\Box$ as III.H$'$
+Theorem 1.3 proves it for $L_{b_0}$, with $\aleph = 1$ in place of 2. An application of II.F$'$ Theorem 1.1 to $\Box$
+inherits III.H$'$'s obligation (H$'$7), orders in $\mathcal O_c$.
+
+### R2.3 Decay modulo $W^*$: the coefficient is the horizon charge
+
+**Lemma R2.6 (standard: Sobolev embedding on an interval, rescaled).** If $w,t\partial_tw\in L^2([\frac T2,4T];H)$ for
+a Hilbert space $H$, then $\sup_{[T,2T]}\|w(t)\|_H^2\le C\,T^{-1}\int_{T/2}^{4T}(\|w\|_H^2+\|t\partial_tw\|_H^2)\,dt$,
+$C$ absolute.
+
+**Theorem R2.7 (deduced from Theorem R2.5, Lemma 2.2 and B4).** Let $k\ge1$, $j\ge0$, $R'>r_0$, and $\mathsf
+s\in\mathcal O_c(\Box)$ with $\mathsf s\ge j+3$ over $\{r\le R'+1\}$ (such orders exist: II.C Definition 2.4 bounds
+$\mathsf s$ above only near the outgoing radial set, which lies over sf, and the monotonicity runs toward it). Let $f\in
+H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(\Omega)^{\bullet,-}$, $u$ the forward solution of $\Box u = f$, and
+$v_h(t_*)$ the value of $v$ at $(t_*,r_h)$. On $\{r_0<r\le R',\ t_*\ge4\max(R',1)\}$, with $j$ derivatives in $x$ and
+$k-1$ of $t_*\partial_{t_*}$,
+$$\big|u-c_f(t_*)W^*\big|\le C\,t_*^{-1/2}\|f\|,\qquad c_f(t_*) := \frac1{4\pi^2}\int_{-\infty}^{v_h(t_*)}\ell(f)(v')\,
+dv',\tag{R2.2}$$
+$\ell(f)(v) = r_h^3\int_{S^3}f(\partial_v)|_{(v,r_h)}d\omega$. In particular: (a) if $f$ has no $l = 0$ part,
+$\ell(f) = 0$ and $u = O(t_*^{-1/2})$; (b) if $\int_v^\infty|\ell(f)|\le C'v^{-\kappa}$, then $u = c_\infty
+W^*+O(t_*^{-\min(1/2,\kappa)})$, $c_\infty = (4\pi^2)^{-1}\int\ell(f)$.
+
+*Proof.* (1) $Q[u](v) = 4\pi^2c_f$: (2.1) of Lemma 2.2 (deduced there for every 1-form) and $u = 0$ for $t_*<1$. (2)
+$Q[u_{\mathrm{sing}}] = 4\pi^2(\beta-r_h\partial_r\beta)|_{r_h}$, $\partial_r$ at fixed $v$ (B4; control: without the
+$\partial_r\beta$ term it fails). By Theorem R2.5 (ii), $\partial_r|_v\beta = \partial_r|_{t_*}\beta+(\partial_r
+t_*)|_v\partial_{t_*}\beta$ is a convolution of $B$ with a kernel in $C^\infty_c$ ($\partial_r\chi_K$, $\partial_t
+\chi_K$ at $r$ near $r_h$), and $|B(t)|\le Ct^{-1/2}\|f\|$ by Lemma R2.6 with $H = \mathbb C$. (3) $Q[u']$ involves
+$u'$ and its first derivatives at $r_h$, so $|Q[u'](v)|\le C\|u'(t_*)\|_{H^2(K)}\le Ct_*^{-1/2}\|f\|$, $K$ a compact
+neighbourhood of the horizon sphere, by Theorem R2.5 (i) (on compact $r$-sets its norm controls $t\partial_t$ and
+$\mathsf
+s\ge2$ derivatives in $L^2(dt\,dx)$) and Lemma R2.6. (4) Hence $4\pi^2\beta(t_*,r_h) = Q[u]-Q[u']+4\pi^2r_h\partial_r
+\beta = 4\pi^2c_f+O(t_*^{-1/2}\|f\|)$, and for $r\le R'$, $\beta(t_*,r) = \beta(t_*,r_h)+(\psi*B)(t_*) =
+c_f+O(t_*^{-1/2}\|f\|)$. (5) $u-c_fW^* = u'+(\beta-c_f)W^*$: the first term by Theorem R2.5 (i) and Lemma R2.6 in
+$H^{j+3}\subset C^j$; the second with its derivatives, as $\partial_{t_*}\beta = \partial_t\chi_K*B$ and
+$\partial_{t_*}c_f = \ell(f)/4\pi^2$ are $O(t_*^{-1/2})$ by Lemma R2.6, and the $r$-derivatives of $\beta$ are
+convolutions of $B$ with $C^\infty_c$ kernels. For general $f$ both sides of (R2.2) depend continuously on $f$ on bounded
+time intervals (Theorem R2.5 (iii); $\ell(f)\in L^2_{\mathrm{loc}}$), and $C^\infty_c(\Omega^\circ)$ is dense. (a):
+$\ell$
+sees only the $l = 0$ part (H2). $\square$
+
+$c_f$ need not converge: $\ell(f)$ is only square integrable, and $c_fW^*$ is then the growth that the $K^+$-weight $-1$
+of Theorem R2.5 (iii) allows. All of it is along $W^*$.
+
+**Corollary R2.8 (homogeneous solutions with compactly supported data; deduced).** Let $Y$ be a smooth 1-form on
+$\{t_*\ge t_0,\ r\ge r_0\}$ with $\Box Y = 0$ whose Cauchy data on $\{t_* = t_0\}$ have compact support. Then $Q[Y]$ is
+constant, and on each $\{r_0<r\le R'\}$, $|Y-(Q[Y]/4\pi^2)W^*|\le Ct_*^{-1/2}$ with the derivatives of (R2.2).
+
+*Proof.* With $\chi\in C^\infty(\mathbb R)$ equal to 0 near $(-\infty,t_0]$ and to 1 on $[t_0+1,\infty)$, $\chi(t_*)Y$ is
+the forward solution of $[\Box,\chi(t_*)]Y$, which is smooth with compact support by finite speed of propagation
+($\{r = r_0\}$ is spacelike, inside the horizon; the spaces of III.H$'$ are extendible there). So it lies in every class
+of Theorem R2.7, and $(4\pi^2)^{-1}\int\ell([\Box,\chi]Y) = (4\pi^2)^{-1}Q[\chi Y]$ at late times $= Q[Y]/4\pi^2$, by
+(2.1) and $\Box Y = 0$. Theorem R2.7 (b), $\kappa = \infty$. $\square$
+
+By Lemma R2.0 the compact support, or some decay of the data, cannot be dropped.
+
+**Lemma R2.9 ($l = 0$; computed B5).** For $Y = a\,dv+b\,dr$ ($a,b$ functions of $v,r$) put $\phi := \delta Y$ and $q :=
+r^3(dY)_{vr}$. Then
+$$(\Box Y)_v = \partial_v\phi+r^{-3}(\partial_vq+f\partial_rq),\qquad(\Box Y)_r = \partial_r\phi-r^{-3}\partial_rq.$$
+So $\Box Y = 0$ iff $\partial_rq = r^3\partial_r\phi$ and $\partial_vq = -r^3(\partial_v\phi+f\partial_r\phi)$; their
+integrability condition is $-r^3\Box_0\phi = 0$, the $l = 0$ scalar wave equation, and $q$ is then fixed up to a constant
+by $\phi$. $Q[Y] = 2\pi^2(r_h^3\phi+q)|_{r_h}$. Stationary solutions smooth at the horizon and bounded: $W^*$ with
+$(\phi,q) = (0,2)$, $(\partial_v)^\flat$ with $(0,2\mu_0)$, and $d\psi = \mu_0W^*-(\partial_v)^\flat$, $\psi = v+F$, $F'
+=
+-\frac{r^2+rr_h+r_h^2}{r(r+r_h)}$, $\Box_0\psi = 0$, with $(0,0)$; only $W^*$ decays (III.D$'$ Lemma 2.1 (2)). (Control:
+$q$ with $r^2$ in place of $r^3$ does not reduce the equation.)
+
+So round 1's obstruction (c) is settled for data with compact support by Corollary R2.8, without a separate radial
+argument. At zero energy the radial ODE system is solved explicitly (III.D$'$ Lemma 2.1 (2) and B5); in time it reduces
+to $l = 0$ scalar waves for $\phi$ and $\psi$ and a quadrature for $q$, and Corollary R2.8 gives what those reductions
+would: $\phi\to0$, $q\to Q[Y]/2\pi^2$, $Y\to(Q[Y]/4\pi^2)W^*$.
+
+### R2.4 The source: obstruction (b), reduced
+
+**Lemma R2.10 (the gauge identity; computed B8, READ III.B (6.3)).** III.B Definition 6.1 (`PART-III-B-FAMILY.md`:
+430-445) reads "$\Upsilon^0(g,g_0)_\mu := g_{\mu\nu}g^{\kappa\lambda}\big(\Gamma(g)^\nu_{\kappa\lambda}-\Gamma(g_0)^\nu_{
+\kappa\lambda}\big)$, $\Upsilon^{E_\Upsilon}(g,g_0) := \Upsilon^0(g,g_0)-E^\Upsilon_{g_0}G_{g_0}(g-g_0)$" (6.3), with
+"$c_\Upsilon = |x|^{-1}dt$ for large $|x|$" and "$E^\Upsilon_{g_0,\infty}h := -\gamma_\Upsilon\big(2\iota_{g_0^{-1}
+c_\Upsilon}h-\tfrac23(1-e_\Upsilon)\,c_\Upsilon\,\mathrm{tr}_{g_0}h\big)$" (6.1), $E^\Upsilon_{g_0,H}$ compactly
+supported.
+The derivative of $\Upsilon^0(g+\epsilon k,g)$ at $\epsilon = 0$ is $-\Theta(k)$ (B8, for a general class tensor on
+Tangherlini; control: without the $-g^{-1}k\Gamma$ term of $\dot\Gamma$ it fails). Hence $\dot\Upsilon :=
+D_1\Upsilon^{E_\Upsilon}(g,g) = -\Theta-E^\Upsilon_gG_g$ and $D_2\Upsilon^{E_\Upsilon}(g,g) = -\dot\Upsilon$. Part VIII
+Theorem 2.2 (5), $\dot\eta = 0$, then reads $\Theta(\dot g-\dot g_0) = -E^\Upsilon_gG_g(\dot g-\dot g_0)-D\vartheta_{
+\mathrm{tot}}(\vec p\,')$. Where $\chi_K = 1$, $\dot g_0 = \dot\mu K$ (Part VIII Theorem 2.2's proof, Step 6:
+"$g_{b_0,b,-S} = g_b$" there), so
+$$J_h := -\Theta(h) = E^\Upsilon_gG_gh+D\vartheta_{\mathrm{tot}}(\vec p\,')\quad\text{on}\ \{\chi_K = 1\},\qquad h =
+\dot g-\dot\mu K.\tag{R2.3}$$
+No derivative of $h$ enters, and $E^\Upsilon_{g,\infty}$ carries the factor $|x|^{-1}$.
+
+**Lemma R2.11 (cone sources; computed B7, deduced).** Let $F$ be supported in $\{t_*\ge2,\ r\le t_*/4\}$, smooth, with
+$|(t_*\partial_{t_*})^i(r\partial_r)^a\partial^\beta_\omega F|\le C\,r^{-a_\iota}(r/t_*)^{b_K}$ on $r\ge1$ and $\le
+Ct_*^{-b_K}$ on $r\le1$. If $b_K>\frac12$ and $a_\iota>\beta+\frac52$, then $F\in H^{(\mathsf s;k),(\beta,0)}_{3b;b}
+(\Omega)^{\bullet,-}$ for every $\mathsf s$ and $k$.
+
+*Proof.* On the cone $r\partial_{t_*} = (r/t_*)\,t_*\partial_{t_*}$ and $r\partial_x$ are b-vector fields with
+coefficients bounded with all b-derivatives, so b-regularity gives every 3b-order. $\rho_{\mathrm{sf}} = r^{-1}$ and
+$\rho_K\asymp r/t_*$ there, and $\int_1^\infty\int_{2r}^\infty r^{2\beta}r^{-2a_\iota}(r/t)^{2b_K}r^3\,dt\,dr<\infty$ iff
+$b_K>\frac12$ and $a_\iota>\beta+\frac52$: after the $t$-integral the $r$-exponent is $2\beta-2a_\iota+4$ (B7; control:
+$a_\iota = \beta+\frac52$ diverges). On $r\le1$, $t^{-b_K}$ is square integrable. $\square$
+
+**Hypothesis (S$_K$).** There is $\beta\in(0,1)$ such that on $\{\chi_K = 1,\ t_*\ge T_0\}$, $h$ is conormal (in the
+sense of Lemma R2.11) with $\iota^+$-order $>\frac32+\beta$ and $K^+$-order $>\frac12$, and $D\vartheta_{\mathrm{tot}}
+(\vec p\,')$ with $\iota^+$-order $>\frac52+\beta$ and $K^+$-order $>\frac12$.
+
+*What is known about (S$_K$).* $K^+$: $h$ has $K^+$-order $(\alpha-2)->2$ (Part VIII Theorem 2.2's proof, "The rate":
+"$h'$ has $K^+$-order $\alpha-$, and $h_{b_0,\mathrm{rem}}(q')$ has $K^+$-order $(\alpha-2)-$"). $\iota^+$: III.I15 Lemma
+2.2 (a) (`PART-III-I15-AUGMENT5.md`:147-150) says $h_{\mathrm{rem}}(q)$ is "at $\iota^+$ partially polyhomogeneous with
+exponents in $\mathcal E_\sharp\cup\mathcal E^\natural$ to the order $(3+\eta_2)-$, of plain weight $\ge\lambda_\sharp$",
+and "$\lambda_\sharp := \frac32+(1-e_\Upsilon)\gamma_\Upsilon$" (`PART-III-I6-ALMOSTBDD.md`:31). Read as an
+$\iota^+$-order, $h_{\mathrm{rem}}$ meets (S$_K$) for $\beta<(1-e_\Upsilon)\gamma_\Upsilon$: the constraint damping
+$\gamma_\Upsilon>0$ makes the room. *Not extracted here:* the $\iota^+$-order of $h'\in\mathcal X^\infty_{J,
+\mathrm{ex}}$ (III.J$'''$ Proposition 5.4), and the $\iota^+$- and $K^+$-orders of $D\vartheta_{\mathrm{tot}}(\vec p\,')$
+on $\{\chi_K = 1\}$. (S$_K$) is open, and on the cone it is all that obstruction (b) now consists of.
+
+**Theorem R2.12 (the harmonic gauge near $K^+$; deduced, conditional on (S$_K$)).** Put $\chi' :=
+\chi_+(t_*/2)\chi_c(2r/t_*)$ ($\chi_+$, $\chi_c$ of III.H (1.2)), so $\mathrm{supp}\,\chi'\subset\{\chi_K = 1\}$ and
+$\chi' = 1$ on $\{t_*\ge4,\ r\le t_*/8\}$. Assume (S$_K$), and let $Y$ be the forward solution of $\Box Y = \chi'J_h$,
+which lies in the class of Theorem R2.5 with $\alpha_{\mathrm{sf}}+2 = \beta$ by (R2.3) and Lemma R2.11, and
+$\dot g_H := \dot g+\mathcal L_{\dot\mu W^{**}_H+Y}g$. Then:
+
+(i) $\dot g_H$ is $G$-invariant, $D\mathrm{Ric}(\dot g_H) = 0$, and it induces $(\dot\gamma,\dot k)$ up to the data of
+the
+linearised diffeomorphism $\mathcal L_{\dot\mu W^{**}_H}g$ ($Y$ vanishes for $t_*<2$);
+
+(ii) $\Theta(\dot g_H) = (1-\chi')\Theta(h)$, so $\dot g_H$ is in harmonic gauge on $\{t_*\ge4,\ r\le t_*/8\}$;
+
+(iii) on each $\{r_0<r\le R',\ t_*\ge T'\}$, with the derivatives of (R2.2),
+$$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le Ct_*^{-1/2},\qquad c_\infty =
+-\frac1{4\pi^2}\int\ell\big(\chi'\Theta(h)\big)\,dv,$$
+where $K^*-\frac v2\mathcal L_{W^*}g$ is stationary and smooth across the horizon (Proposition 2.1 (d)), and $C$ is
+bounded by the data norms of Part VIII and the constants of (S$_K$);
+
+(iv) for every 1-form $Y_h$ with $\Box Y_h = 0$ and compactly supported data, $\dot g_H+\mathcal L_{Y_h}g$ has (i)-(ii),
+and (iii) with $c_\infty+Q[Y_h]/4\pi^2$;
+
+(v) (iii) fails without a restriction on the data of $Y_h$ (Lemma R2.0), and with non-decaying data the linear growth
+itself can be removed at the price of a term that does not decay at infinity (Proposition R2.13 (c)).
+
+*Proof.* (ii): $\Theta(\dot g)+\dot\mu\Box W^{**}_H = \Theta(\dot g)-\dot\mu\Theta(K) = \Theta(h)$ (Proposition 2.1 (d)),
+and $\Box Y = -\chi'\Theta(h)$. (iii): $\dot g_H-\dot\mu K^* = h+\mathcal L_Yg$. Theorem R2.7 gives $|Y-c(t_*)W^*|\le
+Ct_*^{-1/2}$ with one more derivative, $c(t_*) = -(4\pi^2)^{-1}\int^{v_h(t_*)}\ell(\chi'\Theta(h))$. For $t_*\ge8r_h$,
+$\chi' = 1$ near the horizon, and $|\ell(\Theta(h))|\le Cv^{-w+\epsilon'}$ (Theorem 2.3), so $c-c_\infty$ and $\partial
+c$ are $O(t_*^{-(w-1)+\epsilon'})$; $\mathcal L_{cW^*}g = c\,\mathcal L_{W^*}g+2\,dc\otimes_sW^*$. With $|h|_k =
+O(t_*^{-w+\epsilon'})$ ((0.2)) and $w-1>1$, the slowest term is $t_*^{-1/2}$. (iv): Corollary R2.8, $\mathcal L_{Y_h}g$
+being linear in $Y_h$. (i): every ingredient is $G$-equivariant, and the forward solution is unique. $\square$
+
+So the harmonic-gauge statement that is proved, given (S$_K$), is: near $K^+$, on every compact $r$-set at late times,
+the solution is the explicit $\dot\mu K^* = \frac{\dot\mu}2v\,\mathcal L_{W^*}g+(\text{stationary})$, plus the stationary
+$c_\infty\mathcal L_{W^*}g$ with $c_\infty$ a horizon charge, plus $O(t_*^{-1/2})$; and a gauge change with compactly
+supported data only moves $c_\infty$, by $Q[Y_h]/4\pi^2$. Theorem 2.3 forces the growth; Theorem R2.12 settles the rest.
+
+### R2.V The verifier's reading of round 1 (commit 40398c5): what was wrong
+
+An independent verifier read round 1 and confirmed Theorem 1.5, the charge identity of Lemma 2.2, Theorem 2.3, Remark
+2.4 and Proposition 2.5 (as a deduction). Its findings follow, each with what was wrong and the repair; the computations
+are `checks/gdrepair5.py` V1-V5. Round 1's text is left as the verifier read it.
+
+**(M) Major: the supplement's $K^*$ is singular at the horizon, and round 1 said so too softly.** Supplement Proposition
+10.2 (iv) (READ, `N1STAR-PROOF.md`:1780-1782) takes "$K := dg/d\mu$" of the static chart and "$K^* := K+\pi_{W^{**}}$
+with $W^{**} = tW^*+A\,dt+B\,dr$, $A = (\log f+\mu/r^2)/(2\sqrt\mu)$": the coefficient of the static time is 1. Written
+in
+the ingoing chart, its $\Gamma[K^*] = 0$ holds, but at $\mu_0 = 1$, $(r-r_h)K^*_{vr}\to-\frac38$ and $(r-r_h)^2K^*_{rr}
+\to\frac38$ as $r\to r_h^+$, the verifier's values (V1). The difference from the horizon-regular $K^* = r^{-2}dv^2+
+\mathcal L_{W^{**}}g$ of Proposition 2.1 (d) is $\frac v2\mathcal L_{W^*}g$ plus a stationary tensor with a double pole
+at $r_h$ (V1). *What was wrong in round 1:* Remark 2.4 (lines 300-303) called the two "different representatives", and
+the close of section 2.5 (lines 365-368) said the paper's route "keeps its status as a deduction". Both understate it.
+Plainly:
+- the supplement's $K^*$ is not smooth across the horizon, so it is the final state of no perturbation that is;
+- the paper's clause "the $l = 0$ sector's two non-decaying solutions are explicit and regular at the horizon" (READ,
+  `paper/RESPONSE-HL-5D.md`:797-798) is false for $K^*$ (it holds for $W^*$);
+- supplement 10.8 (`N1STAR-PROOF.md`:2436-2440 and 2854-2856) and 10.11 (2919-2920) write $h_0 = cK^*+\pi_{W'}$ with
+  $W'$ regular and conclude that $h_0$ settles to $cK^*+c_1(\infty)\pi_{W^*}$. With that $K^*$, $h_0$ smooth and $c\ne0$,
+  $\pi_{W'} = h_0-cK^*$ is singular at $r_h$, so $W'$ is not regular: the decomposition fails, and the stated final
+  state is wrong.
+
+The corrected final state is Proposition R2.13; replacement texts are in R2.S.
+
+**(m1) The Part IX dependence was understated (round 1 lines 390-392).** The labels said that Theorem 1.5 (a)-(c) rest on
+Part VIII and this note, and that only Theorem 1.5 (d) and Proposition 2.1 (b) use Part IX. In fact Theorem 1.5 (a) uses
+Part IX (IX1) (the region $N$; line 52) and Part IX Lemma 2.1 (b) ($D\mathrm{Ric}(\mathcal L_Xg) = 0$; lines 177-178),
+and Proposition 2.1 (a) uses Part IX Lemmas 1.1-1.2 ($N^{\mathcal D}$, its global hyperbolicity and the Cauchy problem
+for
+$P = \Box$; lines 213, 224, 242-243). These Part IX inputs are labelled verified. Round 2 inherits them through
+Proposition 2.1.
+
+**(m2) "Forced" was claimed at the metric level (round 1 lines 26, 366, 381).** The summary, the close of section 2.5 and
+(GD3) say the linear growth $\frac{\dot\mu}2v\,\mathcal L_{W^*}g$ is forced. Theorem 2.3 proves a statement about the
+gauge vector: the horizon charge $Q[Z]$ grows like $2\pi^2\dot\mu v$, so no harmonic-gauge solution settles to
+$\dot\mu K$ near the horizon at an integrable rate. At the metric level round 1 had the growth only through Corollary
+2.6, which is conditional, and vacuous as stated (R2.0). Corrected: Proposition R2.13. At the metric level the growth is
+forced in the $l = 0$ sector when the gauge vector's $l = 0$ part has compactly supported data, and it can be removed
+when the data do not decay.
+
+**(n1) Proposition 2.5 did not cite (Dyn).** III.D and III.D$'$ assume (Dyn) (Part VI.A). Proposition 2.5, and
+everything in round 2 that uses III.D or III.D$'$ (R2.1-R2.5, R2.7-R2.8, R2.12, R2.13 (b)), assume it as those parts do.
+
+**(n2) "Every check with a failing control" was not true (round 1 line 389).** R3 (c)-(f), H2's $l = 2$ item and H3's
+values of $Q$ and $\ell$ had no control, and R5's control (`rwgauge5.py`:456-459, "$Y$ decays like $\mathcal L_Yg$"
+for the same $Y$) is tautological. Controls are supplied in V4, each a claim that fails:
+- R3c: off the class, $\cos^2\theta\,d\phi_1$ is divergence-free and not closed, so "divergence-free implies exact"
+  fails;
+- R3d: a $(\theta,\phi_1)$ component gives a $\phi_1$ divergence;
+- R3e: $(k^2-2)$ in place of $(k^2-3)$ fails at 40 digits;
+- R3f: with $k^2(k^2-2)$ the supremum is not $\frac{243}{80}$;
+- H2: $Q$ of a general $l = 0$ class 1-form is not 0;
+- H3: $Q[W^*+(\partial_v)^\flat] = 4\pi^2(1+\mu_0)$ and $\ell([\Box,v](\partial_v)^\flat) = 4\pi^2\mu_0$, so the values
+  discriminate;
+- R5: for $Y = (1+v)^{-q}r\partial_r$, $\mathcal L_Yg$ is only $O(v^{-q})$, so the loss of one power is particular to
+  $\partial_v$.
+
+**(n3) H4's $r$-component was numerical (`hgauge5.py`:21, 29, 173-178).** It is exact: after
+`expand_log(force=True)` every component of $\Box W^{**}-r^{-3}dv$ vanishes identically (V3; control: the coefficient
+1). `hgauge5.py` is left as the verifier read it.
+
+**(n4) Definition 1.1 and supplement Proposition 10.1 agree at $l\ge2$ only (round 1 lines 83-84).** Definition 1.1
+fixes the $l = 0$ part to $cK$ with $K$ of (0.1), which is smooth across the horizon. Proposition 10.1 uses the static
+$K_{\mathrm{st}} = r^{-2}dt^2+r^{-2}f^{-2}dr^2 = r^{-2}dv^2+\mathcal L_{\zeta\partial_v}g$, $\zeta' = (r^2f^2)^{-1}$,
+which
+has a double pole at $r_h$ (V5). So the two gauges coincide for $l\ge2$; at $l = 0$, Proposition 10.1's is singular at
+the horizon. Theorem 1.5's "with $l = 0$ part exactly $\dot\mu K$" refers to (0.1)'s $K$.
+
+**Proposition R2.13 (the spherically symmetric sector in harmonic gauge; deduced; computed H4, B5, V1-V2).** Let $\dot
+g_H$ be a harmonic-gauge solution of Proposition 2.1 (a), with gauge vector $Z'$.
+
+(a) *Exact form.* $(\dot g_H)_0 = \dot\mu K^*+\mathcal L_{Z'_0}g$, where $Z'_0$ is the $l = 0$ part of $Z'$, $\Box Z'_0 =
+0$, and $K^* := K+\mathcal L_{W^{**}_H}g$, which equals $r^{-2}dv^2+\mathcal L_{W^{**}}g$ (by (0.1)), with
+$$W^{**} = \tfrac v2W^*+A\,dv+B\,dr,\qquad A = \frac{r_h^2+2r^2\log\frac{r+r_h}r}{4r_hr^2},\qquad B =
+\frac{r^2r_h-3rr_h^2+2r_h^3+2r^3\log r+2(r_h^3-r^3)\log(r+r_h)-2r_h^3\log r_h}{4rr_h(r^2-r_h^2)}.$$
+$K^*$ is smooth across the horizon, $\Theta(K^*) = 0$, $\delta\mu[K^*] = 1$, and $K^*-\frac v2\mathcal L_{W^*}g$ is
+stationary (H4, V2 (a)). The choice $Z'_0 = 0$ is allowed, and then $(\dot g_H)_0 = \dot\mu K^*$ identically.
+
+(b) *Decaying gauge data.* If $Z'_0$ has compactly supported Cauchy data, then on each $\{r_0<r\le R'\}$, with the
+derivatives of (R2.2),
+$$(\dot g_H)_0 = \dot\mu K^*+c\,\mathcal L_{W^*}g+O(t_*^{-1/2}),\qquad c = Q[Z'_0]/4\pi^2.$$
+When $\dot\mu\ne0$ this grows linearly in $v$ and is not (stationary, smooth at $r_h$) $+\,o(1)$.
+
+(c) *Non-decaying gauge data.* Without decay the growth can be removed. Let $\Psi := (v+F)^2+K_\Psi$ with $F = -r-
+r_h\log\frac r{r+r_h}$ and $K_\Psi' = \big(\frac{r^4}2+r^2r_h^2-\frac32r_h^4+2r_h^4\log\frac r{r_h}\big)/(r(r^2-r_h^2))$.
+Then $\Box_0\Psi = 0$, $d\Psi$ is smooth across $r_h$, and $S := K^*-(4\mu_0)^{-1}\mathcal L_{d\Psi}g$ is stationary,
+smooth across the horizon, $\Theta(S) = 0$, $\delta\mu[S] = 1$; but $S_{vv}\to-1/\mu_0$ as $r\to\infty$ (V2). So
+$\dot\mu S$ is the $l = 0$ part of a harmonic-gauge solution, with $Z'_0 = -\frac{\dot\mu}{4\mu_0}d\Psi$, that is
+stationary near the horizon, not decaying at infinity, and whose gauge vector grows in $v$ and $r$. The growth of
+$Q[Z]$ (Theorem 2.3) is then carried by $\frac{\dot\mu}{2\mu_0}v(\partial_v)^\flat$, a linearly growing time translation,
+whose Lie derivative is stationary.
+
+*Proof.* (a): $(\dot g_{\mathrm{RW}})_0 = \dot\mu K$ (Theorem 1.5 (a)), $W^{**}_H$ is radial, and Proposition 2.1 (c)
+gives $\Box Z'_0 = 0$; $K = r^{-2}dv^2+\mathcal L_Vg$ (0.1) and $W^{**}_H = W^{**}-V^\flat$ (section 2.1).
+$\delta\mu[\mathcal L_Yg] = 0$ for radial $Y$ (Lemma 1.4 (a)). (b): Corollary R2.8 for $Z'_0$, and $\mathcal
+L_{Z'_0}g-c\,\mathcal L_{W^*}g = \mathcal L_{Z'_0-cW^*}g$. (c): V2. By B5, $d\psi = \mu_0W^*-(\partial_v)^\flat$ for
+$\psi = v+F$, and $d\Psi = 2(v+F)\,d\psi+K_\Psi'\,dr$; so $-\frac{\dot\mu}{4\mu_0}d\Psi$ has the growing part
+$-\frac{\dot\mu}2vW^*+\frac{\dot\mu}{2\mu_0}v(\partial_v)^\flat$. The first cancels the growing part of $\dot\mu W^{**}$;
+$Q[d\Psi] = 0$ ($\delta d\Psi = \Box_0\Psi = 0$ and $d\,d\Psi = 0$). $\square$
+
+So "the growth is forced" holds for perturbations whose gauge vector decays at infinity, and only for them. A statement
+of the final state must carry that class.
+
+### R2.S Replacement texts for the supplement and the paper
+
+These replace the passages named; each is a statement of what is proved or deduced here, with its label.
+
+*(S1) Supplement Proposition 10.2 (iv), from "The mass change" (`N1STAR-PROOF.md`:1780) to "(conditional, D45)." (1786):*
+
+> The mass change. In the ingoing chart ($v = t+r_*$, $g = -f\,dv^2+2\,dv\,dr+r^2\gamma$) the mass derivative is $K :=
+> r^{-2}dv^2$, smooth across the horizon, with $\Gamma[K] = r^{-3}dv$. The static chart's $dg/d\mu = r^{-2}dt^2+
+> r^{-2}f^{-2}dr^2$ equals $K+\pi_{\zeta\partial_v}$ with $\zeta' = (r^2f^2)^{-1}$, singular at $r_h$. Put $W^{**} :=
+> \frac v2W^*+A\,dv+B\,dr$, $r_h = \sqrt\mu$,
+> $$A = \frac{r_h^2+2r^2\log\frac{r+r_h}r}{4r_hr^2},\qquad B = \frac{r^2r_h-3rr_h^2+2r_h^3+2r^3\log r+2(r_h^3-r^3)
+> \log(r+r_h)-2r_h^3\log r_h}{4rr_h(r^2-r_h^2)},$$
+> analytic on $r>0$ including $r = r_h$, where the numerator of $B$ vanishes. Then $K^* := K+\pi_{W^{**}}$ satisfies
+> $\Gamma[K^*] = 0$, is smooth across the horizon, has linearised mass 1, and $K^* = \frac v2\pi_{W^*}+(\text{stationary,
+> smooth across }r_h)$: the counterparts of [Hun19] (8.1) and (8.39). The
+> coefficient $\frac12$ of $v$ is forced by regularity at the horizon among gauge vectors $cvW^*+U$, $U$ stationary and
+> smooth at $r_h$: the horizon functional annihilates $\Box U$ and gives $4\pi^2c = 2\pi^2$. The representative $tW^*+
+> A_{\mathrm{st}}\,dt+B_{\mathrm{st}}\,dr$ with the coefficient 1 of the static time gives a $K^*$ singular at $r_h$ (at
+> $\mu = 1$, $(r-r_h)K^*_{vr}\to-\frac38$ and $(r-r_h)^2K^*_{rr}\to\frac38$). In harmonic gauge the $l = 0$ part of a
+> perturbation in the class is $\dot\mu K^*+\pi_Z$ with $\Box Z = 0$. When $Z$ has compactly supported data it settles to
+> $\dot\mu K^*+c\,\pi_{W^*}$ on each $\{r\le R\}$ at the rate $t_*^{-1/2}$, with $c$ the conserved horizon charge of $Z$
+> divided by that of $W^*$ (deduced, GAUGEDECAY5 Proposition R2.13 (b), assuming (Dyn)); the mass change grows linearly
+> in $v$, as in four dimensions. Without decay of $Z$'s data at infinity the growth can be exchanged for a stationary
+> term that does not decay at infinity (R2.13 (c)).
+
+*(S2) Supplement 10.8, its first sentence (`N1STAR-PROOF.md`:2436-2438), to "(Proposition 10.2(i), (iv))":*
+
+> The $l = 0$ part of a perturbation in the class is $h_0 = cK+\pi_W$, $K = r^{-2}dv^2$ the horizon-regular mass change
+> of Proposition 10.2 (iv) (Proposition 10.1 (i)'s static $K$ differs from it by $\pi_{\zeta\partial_v}$, $\zeta' =
+> (r^2f^2)^{-1}$, singular at $r_h$), and in harmonic gauge $h_0 = cK^*+\pi_{W'}$ with $\Box W' = 0$ and $W'$ smooth
+> across the horizon, $K^*$ the horizon-regular gauge-fixed mass change of Proposition 10.2 (iv), since $\Gamma[K^*] = 0$
+> and $\Gamma[\pi_{W'}] = \Box W'$. With the static-time $K^*$ (coefficient 1) this decomposition fails for $c\ne0$:
+> $\pi_{W'} = h_0-cK^*$ would be singular at $r_h$.
+
+*(S3) Supplement 10.8 (iii) (`N1STAR-PROOF.md`:2856) and 10.11 (2919-2920), the final state:*
+
+> ... so $h_0$ settles to $cK^*+c_1(\infty)\pi_{W^*}$, with $K^* = K+\pi_{W^{**}}$, $W^{**} = \frac v2W^*+A\,dv+B\,dr$,
+> the horizon-regular gauge-fixed mass change of Proposition 10.2 (iv), and $c_1(\infty) = Q[W']/Q[W^*]$, the conserved
+> horizon charges. $cK^*$ grows like $\frac c2v\,\pi_{W^*}$. For $W'$ with compactly supported data this is proved at the
+> rate $t_*^{-1/2}$ on each $\{r\le R\}$ (GAUGEDECAY5 Proposition R2.13 (b), deduced, assuming (Dyn)); the rate here
+> remains a deduction. Without decay of $W'$'s data at infinity the final state is not unique (R2.13 (c)).
+
+*(S4) The paper, section 8.2 (`paper/RESPONSE-HL-5D.md`:797-798), the clause "and the l = 0 sector's two non-decaying
+solutions are explicit and regular at the horizon;":*
+
+> and the $l = 0$ sector's two non-decaying solutions are explicit and regular at the horizon: the stationary one-form
+> $W^*$, and the gauge-fixed mass change $K^* = K+\pi_{W^{**}}$ with $W^{**} = \frac v2W^*+A\,dv+B\,dr$, $v$ the
+> ingoing time, whose coefficient $\frac12$ is forced by regularity at the horizon (with the static time and the
+> coefficient 1, $K^*$ is singular there). In harmonic gauge the spherically symmetric part of a perturbation whose
+> gauge vector has compactly supported data settles on each region $r\le R$ to $\dot\mu K^*+c\,\pi_{W^*}$, growing
+> linearly in $v$, at the rate $\tau^{-1/2}$ (deduced from the zero-energy structure of the 1-form wave operator,
+> supplement GAUGEDECAY5 R2.13); without decay of the gauge vector's data the growth can be traded for a stationary term
+> that does not decay at infinity;
+
+### R2.5 What is not proved, and why
+
+1. *(S$_K$).* The $\iota^+$-orders of $h'$ (III.J$'''$'s class) and of $D\vartheta_{\mathrm{tot}}(\vec p\,')$ on
+   $\{\chi_K = 1\}$; $h_{\mathrm{rem}}$'s is enough for $\beta<(1-e_\Upsilon)\gamma_\Upsilon$.
+2. *The harmonic gauge on all of $N$, not only on the cone.* It needs $J_h$ at $\mathscr I^+$ in II.F$'$ (1.4)'s
+   b-class (by (R2.3), $J_h$ is $|x|^{-1}$ times a radiation field there), II.F$'$ Theorem 1.1 for $P = P_0 = \Box$
+   (whose hypothesis Theorem R2.5 (iii) supplies, with (H$'$7)), and the cone localisation of the forward solution
+   ($\chi_Ku$ solves a problem with cone-supported source $\chi_Kf+[\Box,\chi_K]u$). The $\mathscr I^+$- and
+   $\iota^+$-weights of $\dot g$ in III.J$'''$'s classes are not extracted here.
+3. *A rate better than $t_*^{-1/2}$.* Theorem R2.5 (i) is $L^2$ in time at $K^+$-weight 0, which is all III.H$'$'s
+   argument gives; a faster rate needs the $K^+$ expansion of the resolvent at zero energy, the analogue of III.I for
+   $\Box$.
+4. *A second reading* of the transposition R2.2-R2.5.
+
+### R2.6 Findings, labels and files (round 2)
+
+*Findings.*
+- (GD5) Round 1's (Adm$\Box$) and Corollary 2.6 are false as stated (R2.0): $d\phi_2$, $d\phi_4$ are $G$-invariant
+  homogeneous solutions with non-decaying data and stationary $l\ge2$ Lie derivatives. A decay statement must restrict
+  the data of the gauge vector.
+- (GD6) At $b_0$, $\Box$ has III.H's structure with one state and one column; $\tilde P(0)$ is invertible because
+  $\ell([\Box,t_*]W^*) = 4\pi^2\ne0$, and $\Box$ is 1-admissible with sf-loss 0 (R2.3-R2.5). Obstruction (a) is closed as
+  posed.
+- (GD7) Forward solutions with sources in that class settle modulo $W^*$ at the rate $t_*^{-1/2}$ on compact $r$-sets,
+  with the coefficient of $W^*$ the horizon charge $(4\pi^2)^{-1}\int\ell(f)$ (R2.7). Homogeneous solutions with
+  compactly
+  supported data settle to $(Q/4\pi^2)W^*$ (R2.8), the $l = 0$ sector included (R2.9): obstruction (c).
+- (GD9) The supplement's $K^*$ (Proposition 10.2 (iv), static time, coefficient 1) is singular at the horizon (V1);
+  the horizon-regular one has the coefficient $\frac12$ of $v$. In harmonic gauge the spherically symmetric sector is
+  exactly $\dot\mu K^*+\mathcal L_{Z'_0}g$, $\Box Z'_0 = 0$. It settles to $\dot\mu K^*+c\,\mathcal L_{W^*}g$,
+  $c = Q[Z'_0]/4\pi^2$, when $Z'_0$ has compactly supported data. Without decay a stationary horizon-regular
+  harmonic-gauge mass change exists that is $O(1)$ at infinity (R2.13). Replacement texts: R2.S.
+- (GD10) Round 1's Part IX dependence, its "forced" growth, its control claim, H4's numerical component and its
+  identification of Definition 1.1 with Proposition 10.1 at $l = 0$ are corrected in R2.V.
+- (GD8) On the cone, obstruction (b) is reduced to (S$_K$). In Part VIII's gauge the source is zeroth order in $h$ with a
+  $|x|^{-1}$ coefficient (R2.10), and $h_{\mathrm{rem}}$'s $\iota^+$-weight $\lambda_\sharp$ suffices. Given (S$_K$) the
+  harmonic gauge settles near $K^+$ to $\dot\mu K^*+c_\infty\mathcal L_{W^*}g$ at the rate $t_*^{-1/2}$ (R2.12).
+
+*Labels.* Computed: `checks/admbox5.py` B1-B8 and `checks/gdrepair5.py` V1-V5 (exact, sympy; V4's R3e by
+quadrature at 40 digits; each with a failing control). Deduced: Lemma R2.2,
+Proposition R2.3, Theorems R2.4, R2.5, R2.7, Corollary R2.8, Lemmas R2.10 (with B8) and R2.11 (with B7), and Theorem
+R2.12, which is conditional on (S$_K$), and Proposition R2.13 ((b) through Corollary R2.8; all of R2.1-R2.13 that
+uses III.D or III.D$'$ assumes (Dyn), as those parts do). READ: III.B (6.1), (6.3) (`PART-III-B-FAMILY.md`:430-445),
+III.I15 Lemma 2.2
+(a) (`PART-III-I15-AUGMENT5.md`:147-150), $\lambda_\sharp$ (`PART-III-I6-ALMOSTBDD.md`:31), $\bar S$
+(`PART-III-D-GAUGEPOT.md`:132), supplement Proposition 10.2 (iv) (`N1STAR-PROOF.md`:1780-1782), 10.8 (2436-2440,
+2854-2856), 10.11 (2919-2920), the paper (`paper/RESPONSE-HL-5D.md`:797-798). Standard: Lemma R2.6. Nothing conjectural
+is stated as proved; open: section R2.5.
+
+*Files.* `GAUGEDECAY5.md` (this section appended); `checks/admbox5.py` with `checks/admbox5.out`;
+`checks/gdrepair5.py` with `checks/gdrepair5.out`.
