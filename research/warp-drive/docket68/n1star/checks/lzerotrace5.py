@@ -255,20 +255,24 @@ def main():
     lam_n = Fr(int(sp.fraction(p_op['lam_n'])[0]), int(sp.fraction(p_op['lam_n'])[1]))
     eps_op = lam_n
     eps_mx = Fr(int(sp.fraction(p_mx['maxe'])[0]), int(sp.fraction(p_mx['maxe'])[1]))
-    ok['T2'] = (all(p[k] for p in (p_op, p_mx) for k in ('inside', 'in_ker', 'null_dir', 'lorentz'))
-                and lam_n == Fr(2591339, 4309440) and p_op['frob'] == p_op['op'] and eps_mx == lam_n / 5)
-    say('  T2: outer-boundary point r = 67/5 in Omega with mu = mu_end: %s; n in ker d(v + tau): %s; g0 - lam_n n n^T '
-        'Lorentzian (det %s) with n null on the boundary: %s; lam_n = %s = %.7f; size of the perturbation: operator '
-        '= Frobenius = %.7f, largest entry %.7f at xhat = (1,1,1,1)/2 (%.7f at xhat = e1). So eps1 < %.7f '
-        '(operator, Frobenius) and eps1 < %.7f (largest entry) (exact)'
-        % (p_op['inside'], p_op['in_ker'], sp.nsimplify(p_op['det']).evalf(6), p_op['null_dir'], lam_n,
-           float(lam_n), float(eps_op), float(eps_mx), float(p_op['maxe']), float(eps_op), float(eps_mx)))
+    p67 = eps1_perturbation(g, (1, 0, 0, 0), Fr(67, 5))
+    lam_67 = Fr(int(sp.fraction(p67['lam_n'])[0]), int(sp.fraction(p67['lam_n'])[1]))
+    ok['T2'] = (all(p[k] for p in (p_op, p_mx, p67) for k in ('inside', 'in_ker', 'null_dir', 'lorentz'))
+                and lam_67 == Fr(2591339, 4309440) and lam_n < Fr(60131, 10 ** 5) and p_op['frob'] == p_op['op']
+                and eps_mx == lam_n / 5)
+    say('  T2: the corner of the outer boundary, r = b(tau0) (lower end of its interval, %.9f; tau = tau0), in Omega '
+        'with mu = mu_end: %s; n in ker d(v + tau): %s; g0 - lam_n n n^T Lorentzian (det %.6f) with n null on the '
+        'boundary: %s; lam_n = (3 + mu_end/r^2)/5 = %.7f (exact rational; round 2\'s r = 67/5 gave %.7f); size of the '
+        'perturbation: operator = Frobenius = %.7f, largest entry %.7f at xhat = (1,1,1,1)/2 (%.7f at xhat = e1). So '
+        'eps1 < %.7f (operator, Frobenius) and eps1 < %.7f (largest entry) (exact)'
+        % (float(g['b0'][0]), p_op['inside'], p_op['in_ker'], float(p_op['det']), p_op['null_dir'], float(lam_n),
+           float(lam_67), float(eps_op), float(eps_mx), float(p_op['maxe']), float(eps_op), float(eps_mx)))
 
     # T3 the wave at (v, th, s, r) = (2, 0, 0, a)
     ok_eig, odd, at0, even_ctrl, _ = wtt_symbolic()
     ratios = [sp.nsimplify(sp.simplify(e * sp.Symbol('r', positive=True) ** sp.Rational(3, 2) /
                                        sp.Symbol('E', positive=True))) for e in at0]
-    lo_sum, hi_sum = EV.beta_sq_integral(2 ** 11)
+    lo_sum, hi_sum = EV.beta_sq_integral(2 ** 16)
     c_lo = mpf_fr(mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * hi_sum)) * (1 - mpmath.mpf(10) ** -20))
     c_hi = mpf_fr(mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * lo_sum)) * (1 + mpmath.mpf(10) ** -20))
     # a^(-3/2) >= 1/sqrt(a_hi^3); the point r = a lies in Omega (|x| >= a), tau = 2 - a, v = 2
@@ -289,7 +293,7 @@ def main():
                 and w_op_lo > 12)
     say('  T3: eigenvalues of W_TT (Euclidean) = (-2(a1 + a2), 2 a1, 2 a2) from lead5.py\'s definition: %s; at th = 0, '
         'phase 0: %s x env(v) r^(-3/2); the point (v, r) = (2, a), tau = 2 - a, lies in Omega: %s; c in [%.10f, '
-        '%.10f] (envelope5 sums at 2^11 cells); |W_TT| there: operator and largest entry in [%.6f, %.6f], Frobenius >= '
+        '%.10f] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in [%.6f, %.6f], Frobenius >= '
         '%.6f (certified); Cartesian cross-check (floating point): %s'
         % (ok_eig, [str(x) for x in ratios], dom, float(c_lo), float(c_hi), float(w_op_lo), float(w_op_hi),
            float(w_fr_lo), cross))
@@ -308,8 +312,8 @@ def main():
         out[name] = (min(lam1[1], e_a), e_a, min(lam1[1], e_a / 2))
     split_free = max(v[0] for v in out.values())
     halves = max(v[2] for v in out.values())
-    ok['T5'] = (split_free == lam1[1] and out['largest entry'][0] < Fr(956, 100000)
-                and out['operator'][2] < Fr(23874, 10 ** 6))
+    ok['T5'] = (split_free == lam1[1] and out['largest entry'][0] < Fr(96, 10000)
+                and out['operator'][2] < Fr(239, 10 ** 4) and out['operator'][1] < Fr(478, 10 ** 4))
     say('  T5: lambda0 <= min(lam1, eps1/C_app) (split-free, Step 3) and <= min(lam1, eps1/(2 C_app)) (round 1\'s '
         'halves), certified upper ends:')
     for name, (sf, ea, hv) in out.items():
@@ -317,6 +321,30 @@ def main():
             name, float(ea), float(sf), float(hv)))
     say('      every reading: lambda0 <= %.6f = lam1 at a = q0/2 (certified); round 2\'s 0.0239 holds with the halves '
         '(operator norm: %.6f), not split-free' % (float(split_free), float(out['operator'][2])))
+
+    # T6 the pointwise norm the supplement should state
+    eigs, full, m, e = norm_proposal()
+    at = {name: [sp.simplify(x.subs(e, sp.Rational(3, 5))) for x in v] for name, v in eigs.items()}
+    neg = [x for x in full if sp.simplify(x.subs(e, sp.Rational(3, 5)).subs(m, 0)) < 0]
+    sig_ok = all(sp.simplify(x.subs(e, sp.Rational(3, 5))).subs(m, mv) != 0 for x in full for mv in (0, 1, 10))
+    one_neg = all(sum(1 for x in full if float(x.subs({e: sp.Rational(3, 5), m: mv})) < 0) == 1
+                  for mv in (0, Fr(1, 100), 1, 13, 1000))
+    m_a_lo = LZ.MU0 / ahi ** 2                         # mu/a^2 >= mu0/a^2 on {r = a}
+    least_dr = min(Fr(1), m_a_lo - 1) - Fr(3, 5)
+    ok['T6'] = (sp.Rational(2, 5) in at['ker dtau'] and least_dr == Fr(2, 5) and one_neg
+                and any(sp.simplify(x - m / 5) == 0 for x in at['ker d(v + tau)']) and eps_op > Fr(3, 5)
+                and eps_mx > Fr(3, 25))
+    say('  T6 (proposed definition, checked): |A| := the Euclidean operator norm of the array of Cartesian components '
+        '(for symmetric A, its largest absolute eigenvalue). For |g - g0| <= eps, g >= g0 - eps I as forms, so each '
+        'hypersurface stays spacelike if (g0 - eps I) is positive definite on its kernel; at eps = 3/5 (m = mu/r^2) the '
+        'restricted eigenvalues are %s on ker dtau, %s on ker dr (least %s at r = a, P*), %s on ker d(v + tau) '
+        '(least m/5 > 0) (exact); g0 - (3/5) I has exactly one negative eigenvalue for every m >= 0: %s, so its '
+        'causal set is a double cone of two convex halves on which dtau, dr (at r = a) and d(v + tau) keep their '
+        'signs, which gives the causal containment and the transversality (deduced). So Lemma 1.1 (e) holds with '
+        'eps1 = 3/5 and fails above %.7f (T2): eps1* in [3/5, %.7f]. The Frobenius norm dominates it (same eps1); '
+        'the largest-entry norm satisfies |A|_op <= 5 |A|_max, so there eps1* in [3/25, %.7f]'
+        % ([str(x) for x in at['ker dtau']], [str(x) for x in at['ker dr']], least_dr,
+           [str(x) for x in at['ker d(v + tau)']], one_neg, float(eps_op), float(eps_op), float(eps_mx)))
 
     # controls
     bad1 = trace_check(all_lines, shift=1)
