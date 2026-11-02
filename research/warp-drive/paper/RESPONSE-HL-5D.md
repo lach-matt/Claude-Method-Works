@@ -466,8 +466,8 @@ computed exactly in `past5.py` P7.
 S¹; [f](X) := f(X, v(X)/λ); ⟨f⟩ is its θ-mean. Derivatives are measured in the λ-scaled norm |f|_j := Σ_(i≤j) λ^i ‖∂^i
 f‖_(L²(Σ_τ)), in which an oscillation costs nothing: ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f]. For a profile G the
 two-scale operator R[G] is Ric^H with ∂_a replaced by ∂_a + λ⁻¹ (∂_a v) ∂_θ; it contains no explicit θ (computed for a
-generic profile, all fifteen components functions of (X, θ) shifted by a symbolic c: `docket68/n1star/checks/support9.py`
-S6), so
+generic profile, all fifteen components functions of (v, r, θ) and the phase, shifted by a symbolic c:
+`docket68/n1star/checks/support9.py` S6), so
 
     R[G(·, · + c)](X, θ) = R[G](X, θ + c)   for every constant c.                                       (4.1)
 
@@ -1033,15 +1033,15 @@ steps follow the order, `docket68/n1star/checks/support8b.py` M4). Each has been
 2, l = 0 and 1 being computed directly, and his distance condition (8.13) holds with ε_ind ≤ 1.94 × 10⁻⁸ (`eind5.py`: the
 certificate exact, the scan below l = 10⁴ certified by rigorous root inclusion in exact rational arithmetic
 (`docket68/n1star/checks/eindcert5.py`: the least distance is δ_50 = 1.94137056846 × 10⁻⁸, enclosed to 3 × 10⁻⁴⁸,
-attained at l = 50 by a root of the gauge potential's operator; the constraint damping's own roots stay at least 2.9 ×
-10⁻⁶ from the integers)). The constraint damping holds at every h in (0, 10⁻⁶], not only at the point: the indicial roots
-of the constraint propagation operator avoid [−100, 2] but for the simple Coulomb root at l = 0 and 1, for every such h,
-by the point's line-crossing certificate with h as a second parameter (`uniform5.py`; exact). Since Hintz's own threshold
-is not explicit — "there exists e₀ = e₀(v) in (0, 1) such that for all e in (0, e₀), there exists h₀ > 0 such that for
-all h in (0, h₀)" ([Hin26a] Theorem 4.9, p. 37) — this removes the proviso that the point lie below it: every other
-conclusion drawn at the point inherits from this, is free of h, improves as h falls, or, like simplicity, fails at most
-on a countable set of h (the 62 lines of the supplement's section 10 that draw a conclusion at the point each placed in
-one of these classes, `docket68/n1star/checks/census9.py` C23; the last two classes computed:
+attained at l = 50 by a root of the gauge potential's operator; the constraint damping's own roots with |λ| ≤ 50 stay at
+least 2.9 × 10⁻⁶ from the integers)). The constraint damping holds at every h in (0, 10⁻⁶], not only at the point: the
+indicial roots of the constraint propagation operator avoid [−100, 2] but for the simple Coulomb root at l = 0 and 1, for
+every such h, by the point's line-crossing certificate with h as a second parameter (`uniform5.py`; exact). Since Hintz's
+own threshold is not explicit — "there exists e₀ = e₀(v) in (0, 1) such that for all e in (0, e₀), there exists h₀ > 0
+such that for all h in (0, h₀)" ([Hin26a] Theorem 4.9, p. 37) — this removes the proviso that the point lie below it:
+every other conclusion drawn at the point inherits from this, is free of h, improves as h falls, or, like simplicity,
+fails at most on a countable set of h (the 62 lines of the supplement's section 10 that draw a conclusion at the point
+each placed in one of these classes, `docket68/n1star/checks/census9.py` C23; the last two classes computed:
 `docket68/n1star/checks/hclass5.py` — the quantities proportional to 1/h are positive at the record's signs and grow as h
 falls on (0, 10⁻⁶], and simplicity and the integer values are, for each l ≤ 20 and integer up to 52, nonvanishing
 polynomials in h with no root in (0, 10⁻⁶]; `docket68/n1star/checks/re813.py` — the distance condition (8.13) holds off a
@@ -1359,8 +1359,9 @@ alone. With those repairs every part proves its statement in its own text, and T
 again). One check remains for a reader: that no proof in Parts III–IV uses more of the class's averaged choices than the
 conditions stated at their sites is checked at the sites listed and awaits a reader (supplement
 `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` Lemma 3.1 and section 5; the sites are enumerated — every line of Parts
-III–IV that names an averaged or equivariant choice by its printed symbol is listed by
-`docket68/n1star/checks/vii5census.py`, which makes the reading finite but does not perform it).
+III–IV that names one of the averaged or equivariant choices by a printed symbol on the program's list of thirty-three,
+drawn from Lemma 3.1's sites and III.G'' Table 1.1, is listed by `docket68/n1star/checks/vii5census.py`, which makes the
+reading finite but does not perform it; a choice named another way would be missed).
 
 ---
 
@@ -2150,16 +2151,18 @@ Programs behind section 9, in `docket68/n1star/`:
   difference bound of step (6) is argued, not computed) (supplement Part VII Lemma 2.1 (c), Proposition 2.2 step (6)).
   Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms (F3). Exact; a few minutes.
 - `checks/vii5census.py` V1: an enumeration for (VII5): every line of Parts III–IV that names an averaged or equivariant
-  choice by its printed symbol -- the cut-offs (χ_K, χ_r, χ_∞, χ_−, Θ and those inside t♭_* among them), the states and
-  towers of III.G'' as maps (h̆, h^(μ), h_(b,s1), h^(0)_(b,s0)) and their domain -- each symbol's own site marked as its
-  site, not as a use; the reading it makes finite is not performed. Control: every symbol must be found at its site, so a
-  planted symbol and a site moved are reported. A second.
+  choice by one of thirty-three printed symbols -- the cut-offs (χ_K, χ_r, χ_∞, χ_−, Θ and those inside t♭_* among them),
+  the states and towers of III.G'' Table 1.1 as maps (h̆, h^(μ), h_(b,s1), h^(0)_(b,s0), h^(−2)_b, h^(≤k)_(b,s1),
+  h^(≤k)_(b,v1)) and their domain -- each symbol's own site marked as its site, not as a use; the reading it makes finite
+  is not performed. Control: every symbol must be found at its site, so a planted symbol and a site moved, to another
+  file or to other lines of its own, are reported. A second.
 - `checks/hclass5.py` H1–H2: the h-dependence of the conclusions drawn at the parameter point, by class: the quantities
   proportional to 1/h, A_0's diagonal among them, positive at the record's signs (c_2 < 0) and growing as h falls on (0,
   10⁻⁶] (H1); for l ≤ 20, box^C's discriminant (simplicity), its values at the integers |n| ≤ 52, the vector quadratic
-  and the resultant with Q(λ − 1), each a nonzero polynomial in h, their roots in (0, 10⁻⁶] counted by Sturm: none (H2;
-  at l = 1000 the vector quadratic has one, h = 1/1001992). The distance condition (8.13) is `checks/re813.py`'s.
-  Controls: h itself; the sextic times (λ − 3). Exact; a few minutes.
+  and the resultant with Q(λ − 1), each a nonzero polynomial in h but three that vanish identically (the roots λ = 1 at l
+  = 0, 1 and λ = 2 of the vector type at l = 1, integers for every h), their roots in (0, 10⁻⁶] counted by Sturm: none,
+  which H2 requires (H2; at l = 1000 the vector quadratic has one, h = 1/1001992). The distance condition (8.13) is
+  `checks/re813.py`'s. Controls: h itself; the sextic times (λ − 3). Exact; a few minutes.
 - `checks/epsind5.py` E1–E3: ε_ind at the parameter point of section 8.5 (z = 4 × 10⁻⁶). E1, the non-integer roots
   lie δ_l from an integer with δ_l → 0, so read over every l no positive least distance exists; E2, the finite
   reading, roots with real part in [−10, 10]; E3, the least distance from Z of the non-integer roots with |λ| ≤ 50,
@@ -2457,7 +2460,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | sixty-one modification steps written out, section 8.8 | supplement section 10.75; [Hin26], [Hin26a], [Hin26c], |
 | | [Hin21], [Hin23a], [Hin23e], [Hin24b], [CD03]; `docket68/n1star/iplusnorm5.py` N1–N9 |
 | the continuation and uniqueness inside the horizon, sections 8.4, 8.5 | supplement section 10.76 |
-| (4.1) on the stage-0 profile | `docket68/n1star/checks/support9.py` S6 |
+| (4.1) for a generic profile | `docket68/n1star/checks/support9.py` S6 |
 | section 8.2: Proposition 10.1's coefficients | `docket68/n1star/checks/kirecon5.py` P1–P2 |
 | section 8.5: the scan below l = 10⁴ certified | `docket68/n1star/checks/eindcert5.py` I1 |
 | section 8.5: the conclusions' dependence on h | `docket68/n1star/checks/hclass5.py` H1–H2 |
@@ -2588,7 +2591,7 @@ nothing from the research tree:
     python3 checks/eq5.py                                # and checks/ix5.py (about 14 minutes)
     python3 checks/epsind5.py --selftest
     python3 checks/csolve5.py                            # about two hours
-    python3 checks/eindcert5.py                          # a few minutes
+    python3 checks/eindcert5.py                          # about ten minutes
     python3 checks/kirecon5.py                           # about half a minute
     python3 checks/mpdata5.py                            # about four minutes
     python3 checks/flux5.py                              # a few minutes

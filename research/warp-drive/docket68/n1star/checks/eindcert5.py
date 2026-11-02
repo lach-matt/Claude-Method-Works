@@ -26,7 +26,8 @@ which can only lower the minimum).
      says, and its disc lies certainly inside |lam| <= 50 (|z_k| + r_k <= 50, rationally); box^C's own least distance
      is printed.
   Control: (a) a polynomial with a planted root 3 + 10^-30 next to an integer root 4: the certifier keeps the first, at
-     distance 10^-30 from Z (not set aside as an integer, since p(3) != 0), and sets aside the second; (b) x^2 - 1
+     distance 10^-30 from Z (its disc already excludes 3, so the exact test p(n) = 0 is not what keeps it), and
+     sets aside the second; (b) x^2 - 1
      seeded at 1 + 1/10 and -1 - 1/10: each exact root lies in its disc. At these seeds |W_k| = (21/220) < 1/10, so a
      radius |W_k| without the factor n misses the root and fails (b).
   I2 (exact, sympy) box^Ups's roots for l >= 52, where I1 does not scan. With s = lam'(lam' - 1) and lam' = lam - 1

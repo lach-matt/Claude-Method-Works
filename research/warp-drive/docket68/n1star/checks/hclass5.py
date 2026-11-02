@@ -142,6 +142,7 @@ def h2(control=False):
         if lv >= 1:
             ok &= scan(sp.expand(PV.subs(K, lv*(lv + 2))), "vector", lv, out)
     ok &= set(out["skipped"]) == SKIP
+    ok &= not out["found"]                          # the sample l <= LMAX has no root in (0, h_1], as the paper states
     ex = sp.expand(PV.subs(K, 1000*1002).subs(lam, 3))
     _, exc = nonzero_poly_roots(ex)
     print("  H2: l = 0, 1, ..., %d (simplicity and integer roots; (8.13) is checks/re813.py's): counted %s, each a "

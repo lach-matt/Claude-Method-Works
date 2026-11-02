@@ -17,7 +17,8 @@ section only, the sentence there that fixes it) from the places it is used.
          PART-II-C-OPERATORS.md; that one Part II file is searched as their site.
      C2: c_Upsilon, c_{Upsilon,H}, c_C at III.B Definition 6.1 and the specific forms Lemma 3.1 cites.
      C3: omega_s1, breve omega; the domain Y_tau and the maps' printed names in III.G'' Table 1.1 and Definition 2.5
-         (breve h, h^{(mu), h_{b,s1}, h^{(0)}_{b,s0}); S_{lambda_0}.
+         (breve h, h^{(mu), h_{b,s1}, h^{(0)}_{b,s0}, h^{(-2)}_{b,tau} and its h^{(-2)}_b, h^{<=k}_{b,s1},
+         h^{<=k}_{b,v1}); S_{lambda_0}.
      C3': T_{rho,b}, h^{<=1}_{b,s1}, h_{b,v1}, h^{<=2}_{b,v1}. Beside them, h_{b,rem} is reported as the object built
          from (C3') (III.I'''''''''''''' Definition 1.2), not a choice.
      C4: the complement V'.
@@ -63,6 +64,7 @@ GROUPS = [
     ("C3 linear maps (averaged)", [
         ("\\omega_{\\mathrm s1}", [(I5, 62, 66)]), ("\\breve\\omega", [(I5, 62, 66)]), ("\\mathcal Y_\\tau", TABLE),
         ("\\breve h", TABLE), ("h^{(\\mu)", TABLE), ("h_{b,\\mathrm s1}", TABLE), ("h^{(0)}_{b,\\mathrm s0}", TABLE),
+        ("h^{(-2)}_", TABLE), ("h^{\\le k}_{b,\\mathrm s1}", TABLE), ("h^{\\le k}_{b,\\mathrm v1}", TABLE),
         ("\\mathcal S_{\\lambda_0}", [("PART-III-J-PARAM.md", 225, 227)])]),
     ("C3' families in b (averaged)", [
         ("T_{\\rho,b}", FAM), ("h^{\\le1}_{b,\\mathrm s1}", FAM), ("h_{b,\\mathrm v1}", FAM),
@@ -72,6 +74,7 @@ GROUPS = [
 ]
 PLANT = ("\\mathfrak{Z}_{\\mathrm{planted}}", [(BF, 1, 10 ** 6)])
 MOVED = ("\\chi_9", CUT5)
+MOVED_IN = ("\\chi_9", [(K, 1, 10)])                                # same file, other lines
 
 
 def files():
@@ -133,9 +136,10 @@ def control():
     fs = files()
     planted = missing_site([PLANT], fs) == [PLANT[0]]
     moved = missing_site([MOVED], fs) == [MOVED[0]]
+    moved_in = missing_site([MOVED_IN], fs) == [MOVED_IN[0]]
     print("  control: planted symbol reported missing its site: %s; chi_9 with its site moved to %s:345-349 reported "
-          "missing: %s" % (planted, BF, moved), flush=True)
-    return planted and moved
+          "missing: %s; moved within its own file (%s:1-10): %s" % (planted, BF, moved, K, moved_in), flush=True)
+    return planted and moved and moved_in
 
 
 def main():

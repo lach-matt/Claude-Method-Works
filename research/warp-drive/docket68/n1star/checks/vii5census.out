@@ -711,7 +711,7 @@
       used at PART-IV6-SOLV.md:31  c_C
       used at PART-IV6-SOLV.md:816  c_C
       used at PART-IV7-TFACE.md:74  c_C
-    C3 linear maps (averaged): site found for 8 of 8 symbols
+    C3 linear maps (averaged): site found for 11 of 11 symbols
       \omega_{\mathrm s1}          site lines   2; used on  48 lines in  8 files
       \breve\omega                 site lines   2; used on 108 lines in  9 files
       \mathcal Y_\tau              site lines   2; used on  10 lines in  2 files
@@ -719,6 +719,9 @@
       h^{(\mu)                     site lines   2; used on  42 lines in  8 files
       h_{b,\mathrm s1}             site lines   1; used on  35 lines in  8 files
       h^{(0)}_{b,\mathrm s0}       site lines   1; used on   9 lines in  3 files
+      h^{(-2)}_                    site lines   1; used on  10 lines in  2 files
+      h^{\le k}_{b,\mathrm s1}     site lines   2; used on   4 lines in  1 files
+      h^{\le k}_{b,\mathrm v1}     site lines   2; used on   3 lines in  2 files
       \mathcal S_{\lambda_0}       site lines   2; used on   7 lines in  2 files
       used at PART-III-D3-SYMSTATES.md:58  \omega_{\mathrm s1}
       used at PART-III-D3-SYMSTATES.md:139  \breve\omega
@@ -781,6 +784,7 @@
       used at PART-III-D4-GENSTATES.md:141  \breve h
       used at PART-III-D4-GENSTATES.md:143  \breve\omega
       used at PART-III-D4-GENSTATES.md:146  \breve\omega
+      used at PART-III-D4-GENSTATES.md:149  h^{\le k}_{b,\mathrm v1}
       used at PART-III-D4-GENSTATES.md:150  \breve h
       used at PART-III-D4-GENSTATES.md:151  \breve h
       used at PART-III-D4-GENSTATES.md:157  \breve h
@@ -878,6 +882,7 @@
       used at PART-III-F5-PAIRINGS.md:237  \breve h
       used at PART-III-F5-PAIRINGS.md:238  \breve h
       used at PART-III-F5-PAIRINGS.md:244  \breve h
+      used at PART-III-F5-PAIRINGS.md:264  h^{(-2)}_
       used at PART-III-F5-PAIRINGS.md:290  \breve h
       used at PART-III-F5-PAIRINGS.md:292  \breve h
       used at PART-III-F5-PAIRINGS.md:293  \breve h
@@ -885,9 +890,17 @@
       used at PART-III-F5-PAIRINGS.md:296  \breve h
       used at PART-III-F5-PAIRINGS.md:299  \breve h
       used at PART-III-F5-PAIRINGS.md:309  \breve h
+      used at PART-III-F5-PAIRINGS.md:316  h^{(-2)}_
+      used at PART-III-F5-PAIRINGS.md:317  h^{(-2)}_
+      used at PART-III-F5-PAIRINGS.md:325  h^{(-2)}_
+      used at PART-III-F5-PAIRINGS.md:326  h^{(-2)}_
+      used at PART-III-F5-PAIRINGS.md:329  h^{(-2)}_
       used at PART-III-F5-PAIRINGS.md:344  \breve h
       site    PART-III-G3-GRAFT.md:41  \mathcal Y_\tau
       site    PART-III-G3-GRAFT.md:50  h^{(0)}_{b,\mathrm s0}
+      site    PART-III-G3-GRAFT.md:52  h^{\le k}_{b,\mathrm s1}
+      site    PART-III-G3-GRAFT.md:53  h^{\le k}_{b,\mathrm v1}
+      site    PART-III-G3-GRAFT.md:56  h^{(-2)}_
       site    PART-III-G3-GRAFT.md:63  h^{(\mu)
       site    PART-III-G3-GRAFT.md:75  \mathcal Y_\tau
       site    PART-III-G3-GRAFT.md:76  \breve h
@@ -912,8 +925,8 @@
       used at PART-III-G3-GRAFT.md:160  h^{(\mu)
       used at PART-III-G3-GRAFT.md:164  h^{(\mu)
       used at PART-III-G3-GRAFT.md:166  h^{(\mu)
-      site    PART-III-G3-GRAFT.md:181  \breve h h^{(\mu)
-      site    PART-III-G3-GRAFT.md:182  \breve h h_{b,\mathrm s1}
+      site    PART-III-G3-GRAFT.md:181  \breve h h^{(\mu) h^{\le k}_{b,\mathrm s1}
+      site    PART-III-G3-GRAFT.md:182  \breve h h^{\le k}_{b,\mathrm v1} h_{b,\mathrm s1}
       used at PART-III-G3-GRAFT.md:183  \breve h
       used at PART-III-G3-GRAFT.md:185  h^{(\mu)
       used at PART-III-G3-GRAFT.md:186  \breve h h^{(\mu)
@@ -940,16 +953,21 @@
       used at PART-III-G5-TF.md:140  h^{(\mu)
       used at PART-III-G5-TF.md:142  h^{(\mu)
       used at PART-III-G5-TF.md:221  \mathcal Y_\tau
+      used at PART-III-G5-TF.md:226  h^{(-2)}_
+      used at PART-III-G5-TF.md:227  h^{(-2)}_
+      used at PART-III-G5-TF.md:228  h^{(-2)}_
       used at PART-III-G5-TF.md:391  \mathcal Y_\tau
       used at PART-III-G5-TF.md:392  \breve h h^{(\mu)
-      used at PART-III-G5-TF.md:393  \breve h
+      used at PART-III-G5-TF.md:393  \breve h h^{\le k}_{b,\mathrm s1}
       used at PART-III-G5-TF.md:394  \breve h h_{b,\mathrm s1}
-      used at PART-III-G5-TF.md:395  \breve h
+      used at PART-III-G5-TF.md:395  \breve h h^{\le k}_{b,\mathrm v1}
       used at PART-III-G5-TF.md:399  \breve h h^{(\mu)
       used at PART-III-G5-TF.md:400  \breve h h^{(\mu)
       used at PART-III-G5-TF.md:401  h^{(\mu)
-      used at PART-III-G5-TF.md:402  \breve h h_{b,\mathrm s1}
-      used at PART-III-G5-TF.md:409  \breve h
+      used at PART-III-G5-TF.md:402  \breve h h^{\le k}_{b,\mathrm s1} h_{b,\mathrm s1}
+      used at PART-III-G5-TF.md:403  h^{\le k}_{b,\mathrm v1}
+      used at PART-III-G5-TF.md:408  h^{\le k}_{b,\mathrm s1}
+      used at PART-III-G5-TF.md:409  \breve h h^{\le k}_{b,\mathrm s1}
       used at PART-III-G5-TF.md:412  h^{(\mu)
       used at PART-III-G5-TF.md:414  \breve h
       used at PART-III-G5-TF.md:415  h_{b,\mathrm s1}
@@ -965,6 +983,7 @@
       used at PART-III-G5-TF.md:579  \breve h
       used at PART-III-G5-TF.md:584  \breve h
       used at PART-III-G5-TF.md:585  \breve h
+      used at PART-III-G5-TF.md:612  h^{(-2)}_
       used at PART-III-G5-TF.md:614  h^{(0)}_{b,\mathrm s0}
       used at PART-III-G5-TF.md:615  h^{(0)}_{b,\mathrm s0}
       used at PART-III-G5-TF.md:617  h_{b,\mathrm s1}
@@ -1327,5 +1346,5 @@
       used at PART-III-I10-CORR4.md:424  \mathcal V'
       used at PART-III-I15-AUGMENT5.md:85  \mathcal V'
       used at PART-III-I16-BASEPOINTS.md:737  \mathcal V'
-  control: planted symbol reported missing its site: True; chi_9 with its site moved to PART-III-B-FAMILY.md:345-349 reported missing: True
+  control: planted symbol reported missing its site: True; chi_9 with its site moved to PART-III-B-FAMILY.md:345-349 reported missing: True; moved within its own file (PART-III-K-NONLINEAR.md:1-10): True
 V1 PASS; control (every symbol found at its own site; a planted and a moved site reported missing): behaves
