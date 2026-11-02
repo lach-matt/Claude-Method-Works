@@ -31,15 +31,23 @@ Neumann series to lam^(top+1), and reproduces lead5's two orders exactly (checke
      average in s (checked equal to the 16-point one), exact for R^(1)'s harmonics (at most cubic in W, so at most 6).
      Control: one quadrature (the sin s term of W_TT removed): the check passes only if g1 is S-odd and the source odd.
      Found: with one quadrature the source alone stays odd (it is a dv dth component with a sigma-even coefficient);
-     what the quarter turn carries is the base, g1 = W S-odd, which one quadrature breaks.
+     what the quarter turn carries is the base, g1 = W S-odd, which one quadrature breaks. So S2's mean-only oddness
+     has no control that can fail (it is forced: a dv dth component with a sigma-even coefficient); S4 supplies one.
   S3 (exact) Row 13, Theorem 2 item 4 (supplement 9.5): the same source for the approximant from past null infinity,
      chi with no radiation there (past5.py P4-P5: Y = -2 f r^-2, r^(3/2) Y -> 0): odd, and equal to S2's (chi enters
      no mean at this order). What the record's programs do not give: m1 itself from past null infinity (past5.py has
      no m1; bondi5.py works in the Bondi gauge in r^(-1/2) series), so its parity rests on the uniqueness of Lemma
      9.1(f) with sigma-invariant data, deduced, not computed here; and the stages beyond m1 (j >= 2) are not computed
      on either route. Control: one quadrature, as S2.
+  S4 (exact) the whole R^(1)[g0 + lam W], mean and oscillating part, as S2 computes it from lead5's reduced Ricci at
+     order lam^1 (S2's W, chi with zero data on Sigma_tau0), under the combined map S = sigma^* with the phase
+     reflection s -> 3 pi/2 - s: odd, S R^(1) = -R^(1), in every component. This, not S2's mean-only oddness, is what
+     sigma^* m1 = -m1 and the next profile's parity rest on: supplement Lemma 5.3(a) couples m1 to the oscillating
+     source as well as to the mean. Control: one quadrature (the sin s term of W_TT removed): it must fail, and does
+     in every nonzero component.
 
-Labels: computed (exact, sympy). Run: python3 checks/stage5.py   (about 45 minutes, S1 and its control most of it)
+Labels: computed (exact, sympy). Run: python3 checks/stage5.py   (about 50 minutes, S1 and its control most of it;
+--skip S1 [...] omits the named checks, for development only: the record's .out is a full run)
 """
 import os
 import sys
@@ -187,6 +195,9 @@ def sigma_star(M, phase=False):
     return M, J.T*M.subs(sub, simultaneous=True)*J
 
 
+_R1 = {}
+
+
 def source(single=False, past=False):
     W0 = L.wave(with_chi=False)
     if single:
@@ -205,6 +216,7 @@ def source(single=False, past=False):
     W = W0.copy()
     W[0, 0] = sp.integrate(sp.expand(Y), s)
     o = series(lam*W, 0)
+    _R1[(single, past)] = {key: o[key][1] for key in o}
     S = {key: mean(o[key][1]) for key in o}
     exact = all(zero(S[key] - mean(o[key][1], 16)) for key in o)
     return S, ok and exact, feven, W
@@ -247,12 +259,29 @@ def s3(control=False):
     return good and same
 
 
-CHECKS = [("S1", s1), ("S2", s2), ("S3", s3)]
+def s4(control=False):
+    t0 = time.time()
+    if (control, False) not in _R1:
+        source(single=control)
+    R1 = _R1[(control, False)]
+    M, Ms = sigma_star(sp.Matrix(5, 5, lambda a, b: R1[(min(a, b), max(a, b))]), phase=True)
+    nz = [(a, b) for (a, b) in COMP if not zero(M[a, b])]
+    bad = [(a, b) for (a, b) in nz if not zero(Ms[a, b] + M[a, b])]
+    odd = not bad and all(zero(Ms[a, b] + M[a, b]) for a in range(5) for b in range(5))
+    print("  S4%s: R^(1)[g0 + lam W] (mean and oscillating part) under sigma^* with s -> 3 pi/2 - s: nonzero in %s;\n"
+          "      odd in every component: %s; components where it fails: %s [%.0fs]"
+          % (" control (one quadrature)" if control else "", nz, odd, bad, time.time() - t0), flush=True)
+    return odd and bool(nz)
+
+
+CHECKS = [("S1", s1), ("S2", s2), ("S3", s3), ("S4", s4)]
 
 
 def main():
     ok = True
     for name, f in CHECKS:
+        if name in sys.argv[2:] and sys.argv[1:2] == ["--skip"]:
+            continue
         good = f()
         ctl = f(control=True)
         print("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),

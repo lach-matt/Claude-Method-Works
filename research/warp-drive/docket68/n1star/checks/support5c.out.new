@@ -1,0 +1,20 @@
+  C11: each derivative of [d_th g1] costs lam^-1, lowest powers for b = 1..7: [-1, -2, -3, -4, -5, -6, -7] (rule holds: True);
+      128 (order, a, spatial count) classes of Leibniz terms of |w|_7 (44 Leibniz terms proper),
+      uncovered: 0, least lam-exponent over the covered: 0 (>= 0);
+      the commission's control, N without lam ||d^j d_x^2 phi||: 0 uncovered (the term is not used here)
+  C11 controls (each must leave a term uncovered): N without ||d^j d phi||: 56 (first: [('phi', 1, 0, 0, None), ('phi', 1, 1, 0, None)]);
+      |w|_8 against N with k = 6: 3 ([('h', 8, 0, 8, None), ('phi', 8, 0, 0, None), ('phi', 8, 1, 0, None)]); one extra lam^-1 on each differentiated oscillating
+      factor: 7
+C11 PASS
+  C12: 9 admissible points (8 random, 4 of them convex combinations toward Minkowski, and Vaidya at
+      r^2 < mu): along Z, g'^00 = -N^-2 and g'^0i = 0; A^0 symmetric positive definite (Sylvester),
+      every A^k symmetric, the reduction reproducing g'^ab d_a d_b u: True (least leading minor 8000000/6369798566237)
+  C12 control: Vaidya's constant-x lines at r^2 < mu: g^11 = -1, A^0 positive definite: False
+C12 PASS
+  C13: M[S](g0) = mu: True; theta+- carry no lam^-2, lam^-1 (W_TT: True; general tangential W: True);
+      area element: no wave at lam^0, at lam^1 exactly tr_S W: True; lam^0 corrections for the general W:
+      theta+ = kappa d_Theta(tr_S W) with kappa = r**2/(mu + r**2): True; theta- 0; g(n+, n-) 0;
+      so the wave enters M at O(1) only through d_Theta(tr_S W); for lead5's W_TT the lam^0 term of M is 0 [37s]
+  C13 control: a(tau, r) cos Theta added to W_thth/r^2: lam^0 term of M = r**3*a(tau, r)*sin(Theta)/3, its S-mean r**3*a(tau, r)*sin(Theta)/3
+C13 PASS
+exit 0
