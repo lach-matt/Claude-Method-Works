@@ -1,1 +1,11 @@
 F1d  the chain rule: the top-order terms of d^N F(x, u, u')
+  F1d d^N F - F_p u^(N+1) - F_u u^(N) has no u^(N+1), and (N >= 3) its u^(N) coefficient is N D_x(F_p), which involves u,
+        u', u'' only (N = 2..6): pass
+  F1d' control: without subtracting F_p u^(N+1) the top order u^(N+1) is present: pass
+F1e  the Gronwall factors of the repaired step
+  F1e int_(lam^-2)^oo C (1 + lam^-1) t^(-3/2) dt = 2 C (1 + lam): the factor e^(2C(1 + lam)) is lam-free: pass 2*C*(lm +
+        1)
+  F1e' control: over the near region [1, lam^-2] the factor is exp(2C(1 + lam^-1)(1 - lam)), beating every lam^-M: pass
+  F1e'' with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the kernel it carries lam^0:
+        the kernel placement is the lam-sharp one (Proposition R3.1's count +1 per order is an overcount, harmless): pass
+F1a-F1c  the first variation of F_1 at u_1 = 0 on the full gauge-fixed operator (80 digits)
