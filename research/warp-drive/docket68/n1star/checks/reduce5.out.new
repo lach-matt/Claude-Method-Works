@@ -9,3 +9,4 @@ R1 Ric5_11 = -e^{2A} rho^2 Box_ht A, Ric5_22 = -e^{2B} rho^2 Box_ht B: PASS
    control (c3) rho in place of rho^2: fails (good)
 R2 Ric5_ab = Ric(ht)_ab - (3/2) L_a L_b - 2 psi_a psi_b + (Box_ht L) ht_ab, ab in uu uv ux vv vx xx: uu+ uv+ ux+ vv+ vx+
     xx+ PASS
+R3 E_ab = Ric5_ab + (e^{-2A} Ric5_11 + e^{-2B} Ric5_22) h_ab (all six): PASS
