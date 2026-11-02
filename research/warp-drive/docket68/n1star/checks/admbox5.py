@@ -137,7 +137,6 @@ def b1(control=False):
 def b2(control=False):
     G, p = outgoing_geo()
     qv = sp.Symbol("q", positive=True)                           # q = r/T on the cone, in [1/4, 1/2]
-    state = [-G.g[0, 0]*(-1), 0, 0, 0, 0]                        # placeholder, replaced below
     if control:
         state = [G.g[0, 0], G.g[0, 1], 0, 0, 0]                   # (d_T)^flat, d_T Killing
     else:
@@ -219,9 +218,9 @@ def b5(control=False):
     if control:
         print("  B5 control (q = r^2 (dY)_vr): the reduction holds: %s" % ok, flush=True)
         return ok
-    integ = sp.simplify(sp.diff(r**3*sp.diff(phi, r), v) + sp.diff(r**3*(sp.diff(phi, v) + f*sp.diff(phi, r)), r))
-    box0 = sp.simplify(-r**3*sp.diff(phi, v, r)*0 + delta1(GEO, [sp.diff(phi, x) for x in X]))
-    integ_ok = zero(integ - (-r**3)*box0) or zero(integ + (-r**3)*box0)
+    Ph = sp.Function("Phi")(v, r)                                 # integrability, for a general function
+    integ = sp.diff(r**3*sp.diff(Ph, r), v) + sp.diff(r**3*(sp.diff(Ph, v) + f*sp.diff(Ph, r)), r)
+    integ_ok = zero(integ + r**3*scalar_box(GEO, Ph))
     Fp = -(r**2 + r*s + s**2)/(r*(r + s))
     table = []
     for name, w in (("W*", WSTAR), ("(d_v)^flat", [-f, 1, 0, 0, 0]), ("d psi", [1, Fp, 0, 0, 0])):
@@ -232,7 +231,7 @@ def b5(control=False):
     ok &= integ_ok and psi_ok and all(t[1] for t in table)
     ok &= [(t[2], sp.simplify(t[3])) for t in table] == [(0, 2), (0, 2*s**2), (0, 0)]
     print("  B5: (Box Y)_v = d_v phi + r^-3 (d_v q + f d_r q), (Box Y)_r = d_r phi - r^-3 d_r q: True; integrability "
-          "of q is r^3 Box_0 phi (up to sign): %s; stationary (Box = 0, phi, q): %s; d psi = mu W* - (d_v)^flat, "
+          "of q is -r^3 Box_0 phi: %s; stationary (Box = 0, phi, q): %s; d psi = mu W* - (d_v)^flat, "
           "Box_0 psi = 0: %s" % (integ_ok, table, psi_ok), flush=True)
     return ok
 
@@ -275,8 +274,7 @@ def b6(control=False):
 # --------------------------------------------------------------------------------------------------------------- B7
 def b7(control=False):
     tt, rr = sp.symbols("t rr", positive=True)
-    cases = [(sp.Rational(1, 4), sp.Rational(3, 4), sp.Rational(1, 2) + sp.Rational(1, 4) + sp.Rational(5, 2)
-              + sp.Rational(1, 10))]
+    cases = [(sp.Rational(1, 4), sp.Rational(3, 4), sp.Rational(1, 4) + sp.Rational(5, 2) + sp.Rational(1, 10))]
     if control:
         cases = [(sp.Rational(1, 4), sp.Rational(3, 4), sp.Rational(1, 4) + sp.Rational(5, 2))]
     ok = True
@@ -287,7 +285,6 @@ def b7(control=False):
         outer = sp.integrate(sp.simplify(inner), (rr, 1, sp.oo))
         vals.append(outer)
         ok &= bool(outer.is_finite)
-    exp_ = sp.Symbol("e")
     a_, b_, be_ = sp.symbols("a b beta", positive=True)
     rexp = sp.simplify(2*be_ - 2*a_ + 2*b_ + 3 + (1 - 2*b_))     # r-exponent after the T-integral
     print("  B7%s: weighted norms of r^-a (r/T)^b on the cone: %s (finite: %s); the r-exponent after the T-integral is "

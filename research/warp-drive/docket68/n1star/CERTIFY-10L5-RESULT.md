@@ -21,8 +21,9 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
    - *Computed:* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero structure: the
      dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40 (`growth5`: 1.419),
-     28 % of the columns at v = 1.50 against 29 %. As the data cone moves out from R0 = 10 to 20, the rebuilt outer
-     zero moves to within about 0.03 of `growth5`'s.
+     28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40, the largest difference
+     of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows), while the leaves'
+     own zero stays 0.22 away: the two formulations converge on each other as the data truncation is removed.
    - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
      recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
      to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
@@ -149,18 +150,24 @@ two at seed 2, cut 0.18. Results are in `checks/secondzero5.out`.
 L100_lam1_28x16_d0_y1.6, whose exterior is its data's until its breakdown at 1.41. Max |r_AH(double null) −
 r_AH(growth5)| over growth5's 17 columns:
 
-| v | 200, R0 = 10 | 400, R0 = 10 | 800, R0 = 10 | 400, R0 = 20 | 400, R0 = 40 |
-|---|---|---|---|---|---|
-| 1.0 | 0.005 | 0.004 | 0.004 | see .out | see .out |
-| 1.2 | 0.026 | 0.029 | 0.024 | 0.014 | see .out |
-| 1.3 | 0.054 | 0.076 | 0.051 | 0.029 | see .out |
-| 1.35 | 0.052 | 0.068 | 0.082 | 0.031 | see .out |
-| 1.375 | — | 0.081 | 0.110 | 0.024 | see .out |
+| v | 200, R0 = 10 | 400, R0 = 10 | 800, R0 = 10 | 800, M = 24, R0 = 10 | 400, R0 = 20 | 400, R0 = 40 |
+|---|---|---|---|---|---|---|
+| 1.0 | 0.005 | 0.004 | 0.004 | 0.004 | 0.002 | 0.002 |
+| 1.2 | 0.026 | 0.029 | 0.024 | 0.024 | 0.018 | 0.008 |
+| 1.3 | 0.054 | 0.076 | 0.051 | 0.051 | 0.021 | 0.017 |
+| 1.35 | 0.052 | 0.068 | 0.082 | 0.082 | 0.031 | 0.015 |
+| 1.375 | (1.35) | 0.081 | 0.110 | 0.110 | 0.025 | 0.020 |
 
-The R0 = 20 column is read off the per-column table in section 4; the .out has the max line per run.
+M = 16 except where stated. The 200-row grid has no column at 1.375 (its nearest is 1.35). S4's per-run threshold of
+0.1 therefore fails on the two 800 × 360 runs at v = 1.375; the truncation test S6 below is the criterion that
+matters.
 
-- **What the difference is.** At fixed R0 = 10 the difference does not fall with resolution. At fixed resolution it
-  falls by a factor 2–4 when the data cone moves from R0 = 10 to 20.
+- **What the difference is.** At fixed R0 = 10 the difference does not fall with resolution: it is 0.081 and 0.110 at
+  v = 1.375 on 400 and 800 rows, and M = 24 changes nothing to three digits. At fixed resolution it falls by a factor
+  1.5–4 at every v ≥ 1.2 when the data cone moves from R0 = 10 to 20, and further at R0 = 40: 0.081, 0.031 and 0.020
+  at worst (S6, `checks/secondzero5_trunc.out`, PASS; its control, the leaves' expansion, stays at 0.22).
+- *Not measured:* R0 = 20 on the 800-row grid. Since at R0 = 10 the difference grew by 0.03 from 400 to 800 rows, the
+  agreement at R0 = 20 is shown at one resolution only.
 - *Why.* `dnsolve5` places only the leading Bondi term of the wave on u = −R0 (m = y³G/2, n = y³F/2), and labels by
   the angle there, not at past null infinity. So the remaining difference is the truncation of the data, a property of
   the two problems, not of either scheme.
@@ -374,6 +381,7 @@ v-band over kept cells at least Nu/40 rows from the cut.
 | `checks/sectexp5.py`, `.out` | X1–X3: Raychaudhuri identity, the section-expansion formula, the Minkowski check |
 | `checks/bondisph5.py` | library: the Bondi spheres rebuilt from a double-null run |
 | `checks/secondzero5.py`, `.out` | S1–S5 on every run below |
+| `checks/secondzero5_trunc.out` | S6: the data truncation, R0 = 10, 20, 40 |
 | `checks/szrun5.py` | driver: `dnsolve5.run` stopped at v = 2; options `ld`, `amp`, `R0`, gauge; singular cells masked |
 | `checks/g5zeros5.py` | driver: `growth5.run` with every zero recorded, written to scratch; option `cfl` |
 | `checks/late5.py`, `.out` | L1–L4 |
