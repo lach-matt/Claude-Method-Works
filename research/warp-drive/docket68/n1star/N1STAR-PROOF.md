@@ -84,9 +84,12 @@ derivatives of order j and ||.|| the flat L^2(Sigma_tau),
 
     |f|_j := sum_{i<=j} lam^i ||d^i f||.                                                                  (0.3)
 
-For an array A of Cartesian components, |A| is the Euclidean operator norm (for symmetric A, the largest absolute
-eigenvalue). With it Lemma 1.1 (e) holds with eps1 = 3/5 (D612; computed, `checks/lzerotrace5.py` T6 and
-`checks/eps1hyp5.py` H2-H3); any other norm on arrays changes only constants.
+For pointwise bounds on a symmetric 2-tensor A of Cartesian components, |A| is the Euclidean operator norm (the
+largest absolute eigenvalue); for arrays of higher rank (|dw|, |dg|), |.| is the Frobenius norm, and ||.|| always
+integrates the Euclidean sum of squares, as Lemmas 2.3-2.4 use <u, d_tau u>. With it Lemma 1.1 (e) holds with eps1 =
+3/5 (D612; computed, `checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H2-H3); Lemma 2.3 takes the same eps1 and
+needs it below g0's least absolute eigenvalue on Omega (at the numerical point at most 0.0308, its value at r = a,
+mu = mu_end; D614). Any other norm on arrays changes only constants.
 
 Chain rule: d_a [f] = lam^-1 (d_a v)[d_th f] + [d_a f], so |[f]|_j <= C_j sup_{i<=j} |d^i_{(X,th)} f|_{L^inf}
 (the oscillation costs nothing in scaled norms), and ||d^i [f]||_{L^inf} <= C lam^-i.
