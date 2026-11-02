@@ -207,6 +207,114 @@ def measure(n, sign=1.0):
         ona.append(float(math.exp((1 - w) * math.log(abs(sym[i, j])) + w * math.log(abs(sym[i + 1, j])))))
     out['symbol'] = (float(np.abs(sym[ext]).min()), float(np.abs(sym[ext]).max()), float(np.abs(sym[ma]).min()), ona)
     out['muend'] = float(mu[0, -1])
+    # G5: the packet's distance from the background horizon of its columns, R(u2, v) - sqrt(mu_III(v)), v <= V1
+    i2 = int(np.argmin(np.abs(uu - U2P)))
+    gap = R[i2] - np.sqrt(mu[k3])
+    okg = np.isfinite(gap)
+    out['gap6'] = (float(gap[okg].min()), float(vv[okg][np.argmin(gap[okg])]), bool((Rv[i2][okg] > 0).all()))
+    out['grid'] = dict(uu=uu, vv=vv, R=R, S=S, Ru=Ru, mu=mu, k3=k3, vh=vh, vhp=vhp, tau0=tau0, mu0=mu0)
+    return out
+
+
+def rk4(f, y, t0, t1, n):
+    h = (t1 - t0) / n
+    t = t0
+    for _ in range(n):
+        k1 = f(t, y)
+        k2 = f(t + h / 2, [a + h / 2 * b for a, b in zip(y, k1)])
+        k3 = f(t + h / 2, [a + h / 2 * b for a, b in zip(y, k2)])
+        k4 = f(t + h, [a + h * b for a, b in zip(y, k3)])
+        y = [a + h / 6 * (b + 2 * c + 2 * d + e) for a, b, c, d, e in zip(y, k1, k2, k3, k4)]
+        t += h
+    return y
+
+
+def g3(G, T=1.0, delta0=0.05):
+    """the outer data cone N = {u = u0} against the domain's outer boundary R = b(tau), tau in [tau0, tau_end]"""
+    vv, R, vh, tau0, mu0 = G['vv'], G['R'], G['vh'], G['tau0'], G['mu0']
+    q0 = AA + delta0                                                            # r_q(mu0) = q0 fixes l5
+    l5sq = q0**4 / (math.sqrt(72) * mu0)
+    seed = mu0 >= math.sqrt(72) * l5sq and AA < q0 <= math.sqrt(mu0)
+    vh_end = float(np.interp(V2S, vv, vh))
+    V = vh_end + T
+    tau_end = V - q0                       # r_q(mu) >= r_q(mu0) = q0 (mu >= mu0): an upper bound, so b is overstated
+    b = lambda tau: V + 1 - tau + (tau_end - tau)                              # noqa: E731
+    muI = G['mu'][0]                                                            # region I: ingoing Vaidya, mu(vhat)
+    mu_end = float(muI[-1])
+
+    def mu_of(x):
+        return float(np.interp(x, vh, muI)) if x <= vh[-1] else mu_end
+
+    def ray(R0):
+        """the outgoing ray of region I from (vhat, R) = (0, R0): dR/dvhat = (1 - mu/R^2)/2; R - b at tau0 and the
+        least of R - b over [tau0, tau_end] (tau = vhat - R increases along it while it is untrapped)"""
+        y, x, h, worst, at0 = [R0], 0.0, 0.01, None, None
+        while True:
+            tau = x - y[0]
+            if at0 is None and tau >= tau0:
+                at0 = y[0] - b(tau)
+            if tau >= tau0:
+                worst = y[0] - b(tau) if worst is None else min(worst, y[0] - b(tau))
+            if tau > tau_end:
+                return at0, worst
+            y = rk4(lambda t, z: [(1 - mu_of(t) / z[0]**2) / 2], y, x, x + h, 1)
+            x += h
+    ex_at0, ex_worst = ray(float(R[0, 0]))                                      # the example's N: u0 = 0, R = 5
+    lo, hi = float(R[0, 0]), 60.0                                               # the least R0 with R - b >= 1
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        if ray(mid)[1] >= 1.0:
+            hi = mid
+        else:
+            lo = mid
+    new_at0, new_worst = ray(hi)
+    return dict(seed=seed, l5=math.sqrt(l5sq), V=V, tau_end=tau_end, b0=b(tau0), ex=(ex_at0, ex_worst),
+                R0new=hi, new=(new_at0, new_worst))
+
+
+def g4(G, redshift=True, npts=(0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 4.9), steps=4000):
+    """the mixed symbol |g0^-1(dvhat, du)| = e^(-psi)/|R_u| on R = a, along region III's outgoing rays: in u >= u2
+    (B = 0) psi and mu depend on v alone, dR/dv = vhat' e^psi (1 - mu/R^2)/2 and d ln|R_u|/dv = vhat' e^psi mu/R^3
+    (G1 (b) and R_uv = -e^(2s) mu/R^3); the coefficients are read on u = u2 + 0.1 and on N, the rays start on N'"""
+    uu, vv, R, S, Ru, mu, k3, vhp = (G[k] for k in ('uu', 'vv', 'R', 'S', 'Ru', 'mu', 'k3', 'vhp'))
+    psiIII = np.log(-np.exp(2 * S[k3]) / (Ru[k3] * vhp))
+    muIII = mu[k3]
+    ok = np.isfinite(psiIII) & np.isfinite(muIII)
+    vgrid = vv[ok]
+    cof = lambda x, arr: float(np.interp(x, vgrid, arr[ok]))                   # noqa: E731
+    iN = np.where(uu >= U2P + 0.1)[0]
+    uN, RN, RuN = uu[iN], R[iN, 0], Ru[iN, 0]
+
+    def cross(u0):
+        """v at which the ray from (u0, 0) reaches R = a (inf if not by v = V1), and the symbol there"""
+        R0 = float(np.interp(u0, uN, RN))
+        L0 = math.log(-float(np.interp(u0, uN, RuN)))
+        y, x, h = [R0, L0], 0.0, vv[-1] / steps
+        for _ in range(steps):
+            def f(t, z):
+                e = cof(t, vhp) * math.exp(cof(t, psiIII))
+                return [e * (1 - cof(t, muIII) / z[0]**2) / 2, e * cof(t, muIII) / z[0]**3 if redshift else 0.0]
+            yn = rk4(f, y, x, x + h, 1)
+            if yn[0] < AA:
+                w = (y[0] - AA) / (y[0] - yn[0])
+                xc = x + w * h
+                Lc = y[1] + w * (yn[1] - y[1])
+                return xc, math.exp(-cof(xc, psiIII) - Lc)
+            y, x = yn, x + h
+        return math.inf, None
+    out = []
+    for vt in npts:                                                             # bisection in u for the crossing v
+        lo, hi = float(uN[0]), float(uN[-1])
+        if not (cross(lo)[0] > vt > cross(hi)[0]):
+            out.append((vt, None))
+            continue
+        for _ in range(40):
+            mid = (lo + hi) / 2
+            if cross(mid)[0] > vt:
+                lo = mid
+            else:
+                hi = mid
+        out.append((vt, cross(hi)[1]))
     return out
 
 
@@ -243,18 +351,72 @@ def main():
     lo, hi, hor, sh, rule = res[160]['sigma']
     sig = hor < lo and hi < sh and rule
     s8, s16 = res[80]['symbol'], res[160]['symbol']
-    symb = (s16[0] > 0 and abs(s16[0] - s8[0]) < 0.1 * s16[0] and all(res[n]['symbol'][2] > 0 for n in res)
+    symb = (s16[0] > 0 and abs(s16[0] - s8[0]) < 0.1 * s16[0]
             and all(abs(x - y) < 0.01 * y for x, y in zip(s8[3], s16[3]))
             and all(x > y > 0 for x, y in zip(s16[3][:-1], s16[3][1:])))
     ok['G2'] = struct and massb and inner and pastc and diam and sig and symb
     print('  G2: structure (Vaidya off the diamond, errors falling) %s; mu >= mu0 %s; R = a trapped with mu > a^2 %s; '
           'past-closed %s; diamond untrapped above R = a %s; Sigma_tau0 as stated %s; mixed symbol bounded below %s'
           % (struct, massb, inner, pastc, diam, sig, symb), flush=True)
+    # G3: the outer data cone (round 2, the verifier's item 1)
+    r3 = g3(res[160]['grid'])
+    g3ok = r3['seed'] and r3['ex'][0] < 0 and r3['new'][0] >= 1.0 and r3['new'][1] >= 1.0 - 1e-9
+    print('  G3: the domain (T = 1, delta0 = 0.05, so l5 = %.4f with the seed condition %s): V = %.3f, tau_end <= %.3f,\n'
+          '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f: inside\n'
+          '      the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I (explicit\n'
+          '      ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f on all of\n'
+          '      [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
+          % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
+             r3['new'][0], g3ok), flush=True)
+    ok['G3'] = g3ok
+    # G4: the mixed symbol on R = a, resolved along region III's rays (round 2, the verifier's nit 5)
+    least = [res[n]['symbol'][2] for n in (40, 80, 160)]
+    r4 = {n: g4(res[n]['grid']) for n in (80, 160)}
+    r4c = g4(res[160]['grid'], redshift=False, npts=(0.5, 1.0, 1.5))
+    grid_ona = res[160]['symbol'][3]
+    val = [x for _, x in r4[160]]
+    agree = all(abs(r4[160][i][1] - grid_ona[i]) < 0.01 * grid_ona[i] for i in range(3))
+    conv = all(x is not None and y is not None and abs(x - y) < 0.02 * y for (_, x), (_, y) in zip(r4[80], r4[160]))
+    mono = all(x is not None and x > 0 for x in val) and all(x > y for x, y in zip(val[:-1], val[1:]))
+    rates = [math.log(val[i] / val[i + 1]) / (r4[160][i + 1][0] - r4[160][i][0]) for i in range(len(val) - 1)]
+    ctl4 = all(abs(x - y) < 0.05 * y for (_, x), y in zip(r4c, grid_ona))
+    mu_max = max(res[160]['muend'], res[160]['mu0'])
+    print('  G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: %s at n = 40, 80, 160: NOT converged\n'
+          '      (each finer grid reaches further into the late-v strip near R = a, where the grid thins). Resolved on\n'
+          '      R = a by region III\'s rays (n = 160 coefficients): %s;\n'
+          '      agrees with the grid at v = 0.5, 1, 1.5 to 1 %%: %s; n = 80 vs 160 coefficients agree to 2 %%: %s;\n'
+          '      positive and decreasing in v: %s; decay rate per unit v %s (redshift; the analytic bound\n'
+          '      d ln(sym)/dvhat >= -psi\' - mu_max/a^3 = -psi\' - %.2f on R >= a gives a positive lower bound on Omega)'
+          % (' '.join('%.4f' % x for x in least),
+             ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160]), agree, conv, mono,
+             ' '.join('%.2f' % x for x in rates), mu_max / AA**3), flush=True)
+    print('  G4 control: the same rays without the redshift term (d ln|R_u|/dv := 0) give %s on R = a at v = 0.5, 1,\n'
+          '      1.5 against the grid\'s %s: agreement %s (it must fail)'
+          % (' '.join('%.4f' % x for _, x in r4c), ' '.join('%.4f' % x for x in grid_ona), ctl4), flush=True)
+    ok['G4'] = agree and conv and mono and not ctl4
+    # G5: the packet stays outside the background horizon band (item 6)
+    gaps = {n: res[n]['gap6'] for n in (40, 80, 160)}
+    g5 = all(g[0] > 0.1 and g[2] for g in gaps.values()) and abs(gaps[160][0] - gaps[80][0]) < 0.02 * gaps[160][0]
+    print('  G5: min over v <= 5 of R(u2, v) - sqrt(mu_III(v)) (the packet\'s inner edge against its columns\'\n'
+          '      background horizon), at n = 40, 80, 160: %s (attained at v = %s); the inner edge untrapped\n'
+          '      (R_v > 0) at every v: %s; positive and converged: %s'
+          % (' '.join('%.4f' % g[0] for g in gaps.values()), ' '.join('%.2f' % g[1] for g in gaps.values()),
+             all(g[2] for g in gaps.values()), g5), flush=True)
+    ok['G5'] = g5
     c = {n: measure(n, sign=-1.0)['minmu'] for n in (40, 80)}
     ctl = c[80] < -0.05 and abs(c[80] - c[40]) < 0.2 * abs(c[80])
     print('  control (B -> -B): min(mu - mu0) = %.4f (n = 40), %.4f (n = 80): the bound fails, not a discretisation '
           'effect: %s' % (c[40], c[80], ctl), flush=True)
     ok['control'] = ctl
+    global AAMP
+    keep, AAMP = AAMP, 7.0
+    hv = {n: measure(n)['gap6'] for n in (40, 80)}
+    AAMP = keep
+    ctl5 = all(g[0] < 0 for g in hv.values())
+    print('  G5 control (a heavier shell, amplitude 7 for 3.6): the gap is %s at n = 40, 80: the packet is trapped by\n'
+          '      the shell and crosses its columns\' horizon band, so G5 fails for it: %s'
+          % (' '.join('%.4f' % g[0] for g in hv.values()), ctl5), flush=True)
+    ok['G5 control'] = ctl5
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1
