@@ -134,58 +134,35 @@ def sharp(C, E0):
 
 
 def sharp_recursive(C, E0):
-    """the same set by explicit recursion on the real part"""
-    cand = set(E0)
-    T0 = tot(C, {})
-    # every exponent reachable: generate the formal lattice below top
-    frontier = set(T0) | set(E0)
-    allz = set(frontier)
-    while frontier:
-        new = set()
-        for a in frontier:
-            for b in allz | set(T0):
-                z = (a[0] + b[0] - 1, a[1] + b[1], a[2] + b[2])
-                if C.ok(z) and z not in allz:
-                    new.add(z)
-            y = (a[0] + 1, a[1], a[2])
-            if C.ok(y) and y not in allz:
-                new.add(y)
-        allz |= new
-        frontier = new
-    allz |= cand
-    G = {}
-    for z in sorted(allz, key=C.val):
-        if not C.ok(z):
-            continue
+    """the same set by explicit recursion on the real part: at z, F's value uses only the part of G below z - 1/2
+    (the sums a + b - 1 with a, b >= 3/2) and F's own value at z - 1 (its +1 closure)"""
+    lattice = []
+    a = Fr(3, 2)
+    while a <= C.top:
+        m = 0
+        while C.ok((a, m, 0)):
+            n = 0
+            while C.ok((a, m, n)):
+                lattice.append((a, m, n))
+                n += 1
+            m += 1
+        a += HALF
+    G, kF = {}, {}
+    for z in sorted(lattice, key=C.val):
         T = tot(C, {w: k for w, k in G.items() if C.val(w) <= C.val(z) - HALF})
-        kF = -1
-        for a, ka in T.items():
-            for b, kb in T.items():
-                if (a[0] + b[0] - 1, a[1] + b[1], a[2] + b[2]) == z:
-                    kF = max(kF, ka + kb)
-        # +1 closure of F: z - 1 in F(G) (F is +1-closed and is computed from the lower part)
-        y = (z[0] - 1, z[1], z[2])
-        if y in G:
-            Fy = None
-            Tl = tot(C, {w: k for w, k in G.items() if C.val(w) <= C.val(y) - HALF})
-            for a, ka in Tl.items():
-                for b, kb in Tl.items():
-                    if (a[0] + b[0] - 1, a[1] + b[1], a[2] + b[2]) == y:
-                        Fy = ka + kb if Fy is None else max(Fy, ka + kb)
-            # F's +1 closure is by induction on F itself
-        kF = max(kF, FCACHE.get((id(C), y), -1))
-        FCACHE[(id(C), z)] = kF
+        k = -1
+        for x, kx in T.items():
+            y = (z[0] - x[0] + 1, z[1] - x[1], z[2] - x[2])
+            if y in T:
+                k = max(k, kx + T[y])
+        k = max(k, kF.get((z[0] - 1, z[1], z[2]), -1))
+        kF[z] = k
         k0 = E0.get(z, -1)
-        if k0 >= 0 and kF >= 0:
-            G[z] = k0 + kF + 1
-        elif k0 >= 0:
-            G[z] = k0
-        elif kF >= 0:
-            G[z] = kF
-    return close(C, G)
-
-
-FCACHE = {}
+        if k0 >= 0 and k >= 0:
+            G[z] = k0 + k + 1
+        elif max(k0, k) >= 0:
+            G[z] = max(k0, k)
+    return G
 
 
 def subset(A, B):
