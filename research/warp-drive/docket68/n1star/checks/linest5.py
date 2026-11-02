@@ -245,7 +245,7 @@ def background(path, box=(-4.0, -1.1, 0.55, 1.6), step=2):
         st[dd] = (d[Fk][0] + b * d[Fk][2]) / Ewv
     dxs = {DX[s_]: dx(st[s_]) for s_ in STATE}
     sub = (slice(None, None, step), slice(None, None, step))
-    keep = mask[sl][sub]
+    keep = ~mask[sl][sub]                                       # mask marks the cut cells
     uu, vv = u[sub[0]], v[sub[1]]
     inbox = ((uu >= box[0]) & (uu <= box[1]))[:, None] & ((vv >= box[2]) & (vv <= box[3]))[None, :] & keep
     out = {s_: st[s_][sub] for s_ in STATE}
