@@ -91,7 +91,8 @@ remainder; `lzeroconst5.py` and `lzeroaudit5.py` now carry it.]
   C_s lam <= m_s. Here C_inf, C_dw are C_S times Step 1's constant, C2 the constant of Steps 4-6, C_st Step 2's, C_N the
   nonlinear one, C_R and C_D those of (E3) and (E4).
 - *Z4 (computed, floating point).* On 400 random inputs the closed form meets every condition at lambda0 and fails one
-  at lambda0 (1 + 10^-6); without its Step-7 term it violates a condition on 341 of them (control).
+  at lambda0 (1 + 10^-6); without its Step-7 term it violates a condition on 341 of them (control) [Round 3, nit:
+  `lzeroconst5.out` prints 360].
 - *Its shape* (deduced). lambda0 is polynomial in every constant except through exp(C2 (tau_end - tau0)), Gronwall's
   factor, which enters at most to the power 3 (the term 1/(C3 C_N M^2), M >= C3). Nothing like delta's
   theta0^-(8d+2) occurs: Theorem 1 loses no derivatives.
@@ -114,7 +115,8 @@ remainder; `lzeroconst5.py` and `lzeroaudit5.py` now carry it.]
   mu0/a^2 = 13.73 and 3/5 (d(v + tau) = 2 dtau + dr has Euclidean norm^2 5 and g0^-1 value -3 - mu/r^2); the least,
   3/5, gives eps1 := (3/5)/(n^2 + (3/5) n). Control: an explicit perturbation at r = a making d(v + tau) null has
   operator size 27.2 > eps1 (floating point), and refutes the claim that 1.01 times its size would do. eps1 is
-  sufficient, not sharp.
+  sufficient, not sharp. [Round 2, V-m5, bracket added in Round 3: this control, at r = a where d(v + tau) need not be
+  timelike, accepted any eps1 below 27; replaced by the sharp one on the outer boundary, `eps1hyp5.py` H3.]
 - *C_S.* For x in an annulus of width >= 1 in R^4 the cone of height 1/2 and aperture pi/3, outward when |x| <= (a +
   b)/2 and inward otherwise, lies in the annulus; with psi(t) = p(t/h), p(s) = (1 - s)^3 (1 + 3s + 6s^2), f(x) =
   (-1)^3/2! int_0^h t^2 d_t^3 (psi f) dt averaged over the cap (|S_pi/3| = 2 pi (pi/3 - sqrt3/4) >= 3.8587) and
@@ -189,7 +191,9 @@ N2):
 
 Each round is charged 3 in III.J''s accounting (LD16, `thetain5.py` T4, READ), so at these weights **d >= 3 (R2 + R3) =
 8,407,505,890,317,054** and N = 21 d + 6 >= 1.7656e17 (computed). LOSS-D's 7.959e15 is the same estimate in a form
-valid at every admissible weight (eps_K, eps_ind taken up to delta_50); this is its exact value at one admissible point.
+valid at every admissible weight (eps_K, eps_ind taken up to delta_50); this is its exact value at one admissible point
+[Round 3, m1: at a point meeting every decidable condition; four admissibility conditions are undecided (2.1), and round
+2 settled (G) only].
 
 ### 2.4 The log terms of the general class (computed, W5; deduced from the cited lines)
 
@@ -346,12 +350,21 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
 
 - **(i) lambda0.** A C_c^inf envelope with int env^2 = 105/128 exactly (so round 1's leaves stand) and certified bounds
   on its derivatives to order 14 (computed). **eps1 can be any number below 3/5, and no eps1 above 0.60132 serves**
-  (computed, exact; round 1's 5.2617e-4 is valid but 1140 times smaller). Certified bounds to order 14 on every
+  (computed, exact; round 1's 5.2617e-4 is valid but 1140 times smaller) [Round 3, M1: 0.6013096 at the outer
+  boundary's corner r = b(tau0), and both figures in the Euclidean operator norm, which N1STAR-PROOF.md lines 1-805
+  never define for arrays; eps1 = 3/5 itself serves, by a direct cone argument: `eps1hyp5.py` H2-H3, `lzerotrace5.py`
+  T2, T6]. Certified bounds to order 14 on every
   derivative of the explicit profiles: the wave W_TT, the second harmonic chi dv dv, and the stage-1 mean source S
   (computed). Every admissible C_app is at least 12.58, so **the lambda0 this proof delivers is at most 0.0239** at P*
-  with this envelope (computed), below lambda_Omega. Lemma 2.4's factor for Step 6's transport is e^44.0 = 1.29e19
-  (computed), and as Steps 6-7 are written it enters C2 and then a second exponential, so the literal C3 is doubly
-  exponential, ln C3 >= 7.65e19 (deduced reading, certified number). **Stage 1 itself (m_1, phi_1, gh_2) is not
+  with this envelope (computed), below lambda_Omega [Round 3, M1: 0.0239 holds only at round 1's even split of eps1
+  between g_app and w, a choice the proof does not make (N1STAR-PROOF.md:355-357 asks only |g_app - g0| + |w| <=
+  eps1); for any split the term is < eps1*/C_app <= 0.0478, above lambda_Omega, so split-free the bound is
+  lambda_Omega = 0.026986 itself (operator norm; largest-entry norm: 0.00955); "below lambda_Omega" is withdrawn;
+  `lzerotrace5.py` T5]. Lemma 2.4's factor for Step 6's transport is e^11.0006 = 5.99e4 (computed) [Round 3, M2: was
+  e^44.0 = 1.29e19, which took C = sup|c| and dropped the -int (3/r) phi^2 term of the lemma's own identity], and as
+  Steps 6-7 are written it enters C2 and then a second exponential, so the literal C3 is doubly exponential, ln C3 >=
+  3.56e5 [was 7.65e19] (a deduced reading: the proof's C is any valid constant, so C2 >= e^11 is not forced;
+  `gronwall5.py`, corrected). **Stage 1 itself (m_1, phi_1, gh_2) is not
   bounded**: the exact cost is in R2.2.
 - **(ii) d.** E_++ and G add no chain to Lambda (deduced; computed check). E_col's candidate bases, under the widest
   reading, are 11 (computed): they do not make (G) bind, though the nearest comes within 2.2 % of delta_50 (certified),
@@ -360,9 +373,13 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
   becomes **d <= 2.4338e16 + 1.0649e8 c** on widened H1-H4. **No proved upper bound**: it is blocked first by Lambda's
   increments, pi_1 E^iota_ind and the full root list of E_ind, which the record never lists (R2.3).
 - **(iii) lambda1, delta.** The covering counts of I.A section 7 and II.D:1032 are explicit on the model, and two of the
-  three coverings are not needed (an exact escape function and an exact time function) (computed). The 18
-  closed-graph-type sites: 1 effective as written, 6 by a calculus estimate, 2 by reading chained proofs, 1 given a
-  base inverse bound (explicit Neumann series), 1 of the N1 kind (computed classification, deduced replacements). No
+  three coverings are not needed (an exact escape function and an exact time function) (computed) [Round 3, m4:
+  computed exactly on the Tangherlini model at b0 only; that two coverings are not needed is a deduction at b0, which
+  does not reach b != b0]. The 18 closed-graph-type sites [Round 3, nit: of which the 11 of classes B and A are
+  classified here]: 1 effective as written, 6 by a calculus estimate, 2 by reading chained proofs, 1 given a base
+  inverse bound (explicit Neumann series), 1 of the N1 kind (computed classification, deduced replacements) [Round 3,
+  m4: a hand-written classification, `baire5.py`:44-70, whose coverage the program checks; since Round 3 K3 computes
+  its constants, and `nkind5.py` K1 shows the N1 kind's non-determination]. No
   number for lambda1 or delta.
 
 ### R2.1 The verifier's findings on round 1 (commit 72850e1), folded in
@@ -403,7 +420,8 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
 - **Nits.** Line 166: the two parts sum to K + 1 = 106,489,470, not K (corrected in place). `lzeroconst5.py`:177 said
   "seven terms" of eight (now nine, V-m4). `lzeroaudit5.py` now pins the md5 (A0, 57d896ae...). Line 17's "stages 1-10"
   meant the profiles g_1..g_10, which come from stage 0 and the nine solves of stages 1-9 (corrected in place). The
-  paper prints d > 7.95e15 (RESPONSE-HL-5D.md:1390, 1758, READ); 7.959e15 is LOSS-D's sharper form of the same floor,
+  paper prints d > 7.95e15 (RESPONSE-HL-5D.md:1390, 1758, READ; [Round 3, nit: now 1403, 1782]); 7.959e15 is LOSS-D's
+  sharper form of the same floor,
   which round 1 quotes under LOSS-D's name (`deltacap5.py`, 3.3); both stand.
 - **Found here.** Round 1's eps1 is valid but not the right measure (R2.2 (b)); round 1's 1.5 "a nine-stage linear PDE
   solve" stands, with the cost now made specific (R2.2 (f)).
@@ -412,19 +430,26 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
 
 (a) *The envelope* (computed, `envelope5.py` E1-E3). env(v) = c cos^12(pi y/2) exp(-y^2/(1 - y^2)), y = (2v - 4)/3, on
 [1/2, 7/2]; c in [1.3240711, 1.3241035] makes int env^2 = 105/128 exactly, so mu_end = 227/192 and every leaf of 1.4
-stands. Certified e_k = sup|env^(k)|, k = 0..14: 1.324, 3.077, 18.6, 95.75, 739.5, 5166, 4.611e4, 3.841e5, 3.780e6,
-3.539e7, 3.733e8, 3.796e9, 4.214e10, 4.552e11, 5.248e12 (interval Taylor arithmetic in a centred form; the end
-intervals by the exact derivatives of exp(-1/(2t))). Within a factor 2 of sampled values at every order (control C2).
-The plain bump exp(1 - 1/(1 - y^2)) gives e_11 about 3.6e22: the cos^12 factor buys twelve orders of magnitude.
+stands [Round 3, m5: tau_end also needs v - r_q(v) increasing, which round 1 checked with sup env = 1; with this
+envelope's peak c <= 1.3241035, 1 - q0 (2/9) c^2/4 >= 0.947 > 0, now checked in `lzeroconst5.py` Z1]. Certified e_k =
+sup|env^(k)|, k = 0..14: 1.324, 3.077, 18.6, 95.75, 739.5, 5166, 4.611e4, 3.841e5, 3.780e6, 3.539e7, 3.733e8, 3.796e9,
+4.214e10, 4.552e11, 5.248e12 (interval Taylor arithmetic in a centred form; the end intervals by the exact derivatives of
+exp(-1/(2t))). Within a factor 2 of sampled values at every order (control C2). The plain bump exp(1 - 1/(1 - y^2)) gives
+e_11 about 3.6e22: the cos^12 factor buys twelve orders of magnitude [Round 3, nit: no program printed 3.6e22;
+`envelope5.py` P0 now computes e_11 ~ 3.29e18 (floating point), so the factor buys about nine orders of magnitude].
 
 (b) *eps1* (computed, exact, `eps1hyp5.py` H1-H3; deduced H2). Lemma 1.1 (e)'s conditions are that Sigma_tau, {r = a}
 and the outer boundary stay spacelike, i.e. that g restricted to ker dtau, ker dr, ker d(v + tau) stays positive
 definite. On those hyperplanes, in Euclidean-orthonormal bases, g0 has least eigenvalues 1, min(1, mu/a^2 - 1) = 1 and
 (3 + mu/r^2)/5 >= 3/5. So **every eps1 < 3/5 serves** (the time orientation and the causal containment follow along
-g0 + t(g - g0)), and the perturbation -lambda n n^T at r = 67/5 on the outer boundary (norm 0.6013169, exact) makes it
-null: **eps1* in [3/5, 0.60132]**. Round 1 went through |g^-1 - g0^-1| <= n^2 eps with n = 33.47, which cost the factor
-1140. In lambda0's formula, eps1 enters E-a and E-b; Lemma 2.3's constants degrade as eps1 approaches 3/5, so the
-choice is a trade-off the formula does not yet resolve.
+g0 + t(g - g0)) [Round 3, m3: that path argument assumed the intermediate metrics Lorentzian; replaced by the direct
+cone argument, `eps1hyp5.py` H2: |g - g0| <= 3/5 gives g >= g0 - (3/5) I, which is positive definite on ker dtau, ker
+dr at r = a and ker d(v + tau) (least eigenvalues 2/5, 2/5, mu/(5 r^2)) and has exactly one negative eigenvalue, so
+eps1 = 3/5 itself serves], and the perturbation -lambda n n^T at r = 67/5 on the outer boundary (norm 0.6013169, exact)
+makes it null: **eps1* in [3/5, 0.60132]** [Round 3, M1: 0.6013096 at the corner r = b(tau0); operator norm]. Round 1
+went through |g^-1 - g0^-1| <= n^2 eps with n = 33.47, which cost the factor 1140. In lambda0's formula, eps1 enters E-a
+and E-b; Lemma 2.3's constants degrade as eps1 approaches 3/5, so the choice is a trade-off the formula does not yet
+resolve.
 
 (c) *Stage 0 and the stage-1 source* (computed, `stage0bd5.py` X1-X4). The Cartesian forms of W_TT, chi dv dv and S,
 each smooth across both axes, are new here (deduced; equal to the EF pullbacks at 400 points to 1.5e-15; chi's f
@@ -444,17 +469,26 @@ distance 0.44 in th. A first attempt with Cauchy estimates on complex polydiscs 
 certify H's branch beyond radius 0.04 r. *A bound the other way* (computed, X4): at v = 2, r = 0.27, |W_TT|_op >=
 12.5836; since g_1 = m_1 + W(X, th + phi_1) and W_TT changes sign under th -> th + pi while m_1 and chi do not, every
 admissible C_app is at least 12.58, and **lambda0 <= eps1/(2 C_app) <= 0.60132/25.17 < 0.0239** for every admissible
-eps1 (the lambda0 of this proof, V-M2; with this envelope).
+eps1 (the lambda0 of this proof, V-M2; with this envelope) [Round 3, M1: at round 1's even split only; for any split
+lambda0 < eps1/C_app <= 0.6013096/12.5836 = 0.04779, above lambda_Omega; operator norm. At r = a itself (in Omega)
+|W_TT|_op >= 12.5933, giving 0.023874 and 0.047748: `lzerotrace5.py` T3, T5].
 
 (d) *A stage-independent constant* (computed, `gronwall5.py` G1-G3). Lemma 2.4 gives C = sup|c|; for Step 6's
 transport c = 2/r <= 2/a, so its factor is **exp((2/a)(tau_end - tau0)) = 1.288e19 = e^44.00**. Along L0 the equation's
 own growth is (r(tau0)/r)^2 <= (b(tau0)/a)^2 = 2479, so the exponential is the proof's, 5e15 above the equation's
-(computed). *A finding about Steps 6-7* (deduced from N1STAR-PROOF.md:382-401, the reading to be checked): Step 6
+(computed). [Round 3, M2: wrong. The lemma's own identity (N1STAR-PROOF.md:233-235) keeps -int (3/r) phi^2, and with
+c = 2/r, 2c - 3/r = 1/r <= 1/a: the rate of ||Psi|| is 1/(2a) and the factor exp((tau_end - tau0)/(2a)) = e^11.0006 =
+5.99e4; the equation's own growth is ((a + dtau)/a)^2 = 529 (round 2's 2479 is a looser bound), so the excess is
+about 113, not 5e15; `gronwall5.py` G0-G2, corrected, with controls that mutate the code path.] *A finding about
+Steps 6-7* (deduced from N1STAR-PROOF.md:382-401, the reading to be checked): Step 6
 writes the Psi-part as "at most C (N(tau0) + int (N + ...))", a C that carries Lemma 2.4's factor, so C2 >= e^44 as
 written; Step 7 then applies Gronwall again, C3 containing exp(C2 (tau_end - tau0)): **the literal constants are
 doubly exponential, ln C3 >= 7.65e19**. One Gronwall on the summed differential inequalities (rate >= 2/a) gives ln C3
 about 48 instead. Neither is a bound on lambda0 without lower bounds on C_N and C_st (taking them >= 1, ln lambda0 <=
--2.29e20 literally, <= -143.8 after the rewrite: estimates, not bounds).
+-2.29e20 literally, <= -143.8 after the rewrite: estimates, not bounds). [Round 3, M2: with the identity's rate, C2 >=
+e^11.0006 on this reading, ln C3 >= 3.56e5 literally and about 13.6 after one Gronwall; ln lambda0 <= -1.07e6 and
+-40.7 on the same assumption. This is a deduced reading, not a forced bound: the proof's C is any valid constant, so
+C2 >= e^11 is not implied by the proof.]
 
 (e) *Stage 1, as far as it went.* Its explicit inputs are now bounded: the coefficients built from W and chi, and the
 mean source S (`checks/stage5.py` S2's source, a dv dth component only). Not bounded: the oscillating part of R^(1)[g0 +
@@ -473,7 +507,7 @@ stage's source carries up to two derivatives of earlier profiles and its transpo
 14 (11, plus 3 for Sobolev) stage 1 is needed to order between about 22 and 30. With constants of the size above (e^44
 per transport, 1e24-1e26 for the order-11 profile bounds at stage 0), (d) already places the number far below 1:
 ln lambda0 <= -143.8 after a one-Gronwall rewrite of Step 7, -2.29e20 as written, if C_N, C_st >= 1 (not shown, so
-an estimate).
+an estimate) [Round 3, M2: e^11 per transport; -40.7 and -1.07e6].
 
 ### R2.3 (ii) d
 
@@ -535,7 +569,9 @@ three readings of round 1 (l_I vs a_I; III.C' (3.1) as written or one union; one
   radial and trapping estimates), which comes from the calculus. The COVER rows thus reduce to these per-piece
   constants, multiplied along a chain of six pieces at each of N(I) frequency neighbourhoods.
 
-(b) *The 18 closed-graph-type sites* (computed classification, deduced replacements, `baire5.py` K1-K4).
+(b) *The 18 closed-graph-type sites* (computed classification, deduced replacements, `baire5.py` K1-K4) [Round 3, m4:
+a hand-written classification (`baire5.py`:44-70) whose coverage is checked; K3's constants are computed since Round
+3].
 - Effective as written: I4:274 (the constructive bound beside the theorem).
 - Effective by a calculus estimate, of size a dimensional constant times one finite symbol or coefficient seminorm:
   II.A:960, II.A2:130, 186, 188, 276, 281 (Calderon-Vaillancourt, the composition remainder, integration by parts for
@@ -560,7 +596,9 @@ delta) stand.
   windows run above 3 (R2.3 (c)); the explicit escape and time functions (R2.4 (a)); the Baire classification and
   III.H:425's replacement (R2.4 (b)); the ninth term of lambda0 (R2.1, V-m4).
 - *Computed, exact or certified*: the envelope's e_k (R2.2 (a)); eps1* in [3/5, 0.60132]; the D[n] table and C_app >=
-  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00, and ln C3 >= 7.65e19 on the literal reading (R2.2 (d)); (G)
+  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00, and ln C3 >= 7.65e19 on the literal reading (R2.2 (d))
+  [Round 3: eps1* in [3/5, 0.6013096]; lambda0 < 0.0239 at the even split only, < 0.0478 for any split, so <=
+  lambda_Omega split-free (M1); e^11.0006 and ln C3 >= 3.56e5, a deduced reading (M2)]; (G)
   unbound at 3 + 1.9841e-8, the container 85,025,783 (R2.3 (b)); N(I), H r = 2f, H log tan(phi/2) = -2 sigma0, lambda_L^2
   = 1/(2 mu) (R2.4 (a)); the verifier's corrected figures (R2.1).
 - *Conditional, not proved*: d <= 2.4338e16 + 1.0649e8 c (R2.3 (d)).
@@ -580,8 +618,9 @@ delta) stand.
 
 ### R2.7 Sources (round 2)
 
-N1STAR-PROOF.md:143-235, 339-450, 509-532, 624-662, 697-791; RESPONSE-HL-5D.md:286-288, 1390, 1758; proof5:
-PART-I-SPECTRAL.md:60-139, 1384-1404, 1463-1712; PART-II-D-REGULARITY.md:1015-1043; PART-III-I9-COMMOTION.md:28-66;
-PART-III-I11-SPACETIME.md:28-166, 340-390; PART-III-I12-SPECTRAL.md:55-110; PART-III-I13-EXPANSION.md:222-266;
-PART-III-I2-SCRI.md:177-195; PART-III-I8-UNPARAM.md:35-45; PART-III-J2-LINEAR.md:18-30, 95-145; the 18 sites of
-`nrows5.py`; `lead5.py`, `checks/stage5.py` and `.out`, `checks/gapsums5.py` (the sl roots' formula), `prop31loss5.py`.
+N1STAR-PROOF.md:143-235, 339-450, 509-532, 624-662, 697-791; RESPONSE-HL-5D.md:286-288, 1390, 1758 [Round 3: now 1403,
+1782]; proof5: PART-I-SPECTRAL.md:60-139, 1384-1404, 1463-1712; PART-II-D-REGULARITY.md:1015-1043;
+PART-III-I9-COMMOTION.md:28-66; PART-III-I11-SPACETIME.md:28-166, 340-390; PART-III-I12-SPECTRAL.md:55-110;
+PART-III-I13-EXPANSION.md:222-266; PART-III-I2-SCRI.md:177-195; PART-III-I8-UNPARAM.md:35-45;
+PART-III-J2-LINEAR.md:18-30, 95-145; the 18 sites of `nrows5.py`; `lead5.py`, `checks/stage5.py` and `.out`,
+`checks/gapsums5.py` (the sl roots' formula), `prop31loss5.py`.

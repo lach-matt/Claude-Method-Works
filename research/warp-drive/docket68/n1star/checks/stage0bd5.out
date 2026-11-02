@@ -23,9 +23,10 @@
   C3 (control): a coordinate derivative of W_TT at one point (finite differences) 30.0293 <= D[1] = 6176.2576; the claim
       D[1]/1e9 is refuted by it: True
   X4: at v = 2, r = 0.27 (tau = 1.73 in [tau0, tau_end], r > a), th = 0.0000, s = 0.0000: |W_TT|_op >= u^T W_TT u =
-      12.583585 (certified, E = c taken at c_lo); so every admissible C_app >= 12.5836 and lambda0 <= 0.60132/(2 C_app)
-      <= 0.023893 (against lambda_Omega <= 0.026986)
-      (350 s)
+      12.583585 (certified, E = c taken at c_lo); so every admissible C_app >= 12.5836 and lambda0 < 0.6013096/C_app <=
+      0.0477852 for any split (above lambda_Omega = 0.026986), <= 0.0238926 at the even split (operator norm; Round 3,
+      M1)
+      (918 s)
 X1 PASS
 C1 PASS
 X2 PASS
