@@ -12,7 +12,9 @@ tau0 <= 5.937209 (certified there); Theorem L's parameters (rounds 1-2): p = 14,
   L2 (certified, interval arithmetic) For that C_c^inf envelope, env = c beta((2v - 4)/3), beta = cos^12(pi y/2)
      exp(-y^2/(1 - y^2)): by Cauchy's estimate on the disc of radius theta (1 - |y0|) about y0,
          M_m <= B(m) := c (2/3)^m m! e^(3/4) min_(0<theta<1) cosh(pi theta/2)^12 (2 (1 + theta) m/(e theta))^m,
-     (|cos z| <= cosh Im z; Re 1/w >= 1/(w0 + rho) on |w - w0| <= rho < w0; sup_d d^-m e^(-a/d) = (m/(a e))^m).
+     (|cos z| <= cosh Im z; exp(-z^2/(1 - z^2)) = e exp(-1/(1 - z^2)) with 1/(1 - z^2) = (1/u + 1/(2 - u))/2, u = 1 - z,
+     Re 1/u >= 1/((1 + theta) d) and Re 1/(2 - u) >= 1/2 on the disc, which gives e^(3/4) [Round 4, verifier of
+     round 3: Re 1/w >= 1/(w0 + rho) alone gives e^1]; sup_d d^-m e^(-a/d) = (m/(a e))^m).
      log10 B(1456) = 8574.0..., M_1456^(1/1456) <= 7.75e5.  Cross-checks: B(k) >= e_k/2 for k <= 14 (CONSTANTS5's
      sampled lower values); at m = 400 a power-series value of |beta^(400)| at one point, stable to 100 digits between
      two precisions, lies below B (the bound is within a factor about 1.5^m).  Control: B without its factor m! lies
