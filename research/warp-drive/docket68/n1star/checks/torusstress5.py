@@ -159,26 +159,29 @@ def v2_v4(seed=5):
     Tbad = [[Trad[a][b] + extra[a] * extra[b] for b in range(5)] for a in range(5)]
     two_dust_rad = all(Trad[a][b] == 0 for a in range(2, 5) for b in range(5))
     ctl = not (two_dust_rad and all(Tbad[a][b] == 0 for a in range(2, 5) for b in range(5)))   # True: rejected
-    return v2a and v2b, (v3, schur, posdef, notround, iso_round, Tiso[2][2]), v4 and two_dust_rad, ctl
+    return v2a and v2b, (v3, schur, posdef, notround, iso_round, Tiso[2][2], not v3_ctl_implication), \
+        v4 and two_dust_rad, ctl
 
 
 def main():
     lm1, mean_ok, quad_ok, ctl1 = v1()
-    print('  V1: lam^-1 coefficient of d_a(H^ab d_b f) vanishes on a null phase: %s; its lam^0 th-mean is d_a(H0^ab d_b '
-          'f0) exactly: %s; the quadratic term of Ric[h] keeps its Isaacson mean (3/2) <(d_th psi1)^2> du du: %s; '
-          'control (h^ab d_a d_b f) acquires a mean term: %s' % (lm1, mean_ok, quad_ok, ctl1), flush=True)
+    print('  V1: lam^-1 coefficient of d_a(H^ab d_b f) vanishes on a null phase: %s;\n'
+          '      its lam^0 th-mean is d_a(H0^ab d_b f0) exactly: %s;\n'
+          '      the quadratic term of Ric[h] keeps its Isaacson mean (3/2) <(d_th psi1)^2> du du: %s;\n'
+          '      control (h^ab d_a d_b f) acquires a mean term: %s' % (lm1, mean_ok, quad_ok, ctl1), flush=True)
     v2, v3, v4, ctl4 = v2_v4()
-    print('  V2: T_(phi phi) = 0 exactly for a measure on momenta with p_phi = 0, > 0 once one has p_phi != 0: %s' % v2)
-    v3, schur, posdef, notround, iso_round, tiso = v3
-    print('  V3: (a) an so(3)-commuting symmetric form on the angular space is c I (Schur): %s; (b) sum w p_th^2 has '
-          'Hessian diag(2 w), positive definite: %s; a measure with p_p = 0 and one p_th != 0 is not round: %s'
-          % (schur, posdef, notround))
-    print('  V3 control: without V2, the isotropic angular measure is round (%s) with T_thth = %s > 0, so round alone '
-          'does not give p_th = 0: rejected %s' % (iso_round, tiso, v3))
-    print('  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: %s; '
-          'control (one momentum with p_th != 0 added: T_thth > 0, not two-dust) rejected: %s' % (v4, ctl4),
+    print('  V2: T_(phi phi) = 0 exactly for a measure on momenta with p_phi = 0, > 0 once one has p_phi != 0:\n'
+          '      %s' % v2)
+    v3, schur, posdef, notround, iso_round, tiso, rej = v3
+    print('  V3: (a) an so(3)-commuting symmetric form on the angular space is c I (Schur): %s;\n'
+          '      (b) sum w p_th^2 has Hessian diag(2 w), positive definite: %s;\n'
+          '      a measure with p_p = 0 and one p_th != 0 is not round: %s' % (schur, posdef, notround))
+    print('  V3 control: without V2, the isotropic angular measure is round (%s) with T_thth = %s > 0, so round\n'
+          '      alone does not give p_th = 0: the implication is rejected: %s' % (iso_round, tiso, rej))
+    print('  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: %s;\n'
+          '      control (one momentum with p_th != 0 added: T_thth > 0, not two-dust) rejected: %s' % (v4, ctl4),
           flush=True)
-    ok = {'V1': lm1 and mean_ok and quad_ok and ctl1, 'V2': v2, 'V3': v3, 'V4': v4 and ctl4}
+    ok = {'V1': lm1 and mean_ok and quad_ok and ctl1, 'V2': v2, 'V3': v3 and rej, 'V4': v4 and ctl4}
     for kname, val in ok.items():
         print(kname, 'PASS' if val else 'FAIL')
     return 0 if all(ok.values()) else 1
