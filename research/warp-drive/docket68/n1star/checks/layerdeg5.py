@@ -82,27 +82,19 @@ def d1(control=False):
 
 def d2(control=False):
     a1, a2, b1, b2, t = sp.symbols('a1 a2 b1 b2 t', real=True)
-    A_ = (a1 + I*a2)*sp.exp(I*t)
-    B_ = (b1 + I*b2)*sp.exp((2 if control else 1)*I*t)
-    prod = sp.expand(sp.re(A_)*sp.re(B_), complex=True)
-    prod = sp.expand(sp.expand_trig(prod.rewrite(sp.exp)).rewrite(sp.exp))
-    harmonics = set()
-    for term in sp.Add.make_args(sp.expand(prod)):
-        e = sp.powsimp(term)
-        p = sp.Poly(sp.expand(e*sp.exp(4*I*t)).subs(sp.exp(I*t), sp.Symbol('z')), sp.Symbol('z')) \
-            if e.has(t) else None
-        if p is None:
-            harmonics.add(0)
-        else:
-            for (deg,), _ in p.terms():
-                harmonics.add(deg - 4)
-    first = 1 in harmonics or -1 in harmonics
+    kb = 2 if control else 1
+    ReA = a1*sp.cos(t) - a2*sp.sin(t)
+    ReB = b1*sp.cos(kb*t) - b2*sp.sin(kb*t)
+    prod = ReA*ReB
+    harmonics = [j for j in range(0, 5)
+                 if sp.simplify(sp.integrate(sp.expand(prod*sp.exp(-I*j*t)), (t, 0, 2*sp.pi))) != 0]
+    first = 1 in harmonics
     if control:
         return not first
-    mean = sp.simplify(sp.integrate(sp.Symbol('m')*sp.re(A_).rewrite(sp.cos), (t, 0, 2*sp.pi)))
-    print("  D2 harmonics of Re[a e^(i th)] Re[b e^(i th)]: %s; mean of (mean) x (first harmonic): %s"
-          % (sorted(harmonics), mean), flush=True)
-    return harmonics <= {-2, 0, 2} and mean == 0
+    mean = sp.simplify(sp.integrate(sp.Symbol('m')*ReA, (t, 0, 2*sp.pi)))
+    print("  D2 harmonics j >= 0 of Re[a e^(i th)] Re[b e^(i th)]: %s; mean of (mean) x (first harmonic): %s"
+          % (harmonics, mean), flush=True)
+    return set(harmonics) <= {0, 2} and mean == 0
 
 
 def d3(control=False):
@@ -164,13 +156,18 @@ def d4(control=False):
 
 def d5(control=False):
     f = sum(sp.Rational(j + 1, 3)*v**(j % 3)*th**(j % 4) for j in range(7)) + sp.sin(2*th)*v**2
+
+    def der(e, l, jl):
+        for _ in range(l):
+            e = sp.diff(e, th)
+        for _ in range(jl):
+            e = sp.diff(e, v)
+        return e
     m = 2
     ok = True
     for j in range(1, 5):
         lhs = sp.diff(lam**m*f.subs(th, v/lam), v, j)
-        rhs = sum(sp.binomial(j, l)*(lam**(m - (0 if control else l)))*sp.diff(f, th, l, v, j - l).subs(th, v/lam)
-                  if j - l > 0 else
-                  sp.binomial(j, l)*(lam**(m - (0 if control else l)))*sp.diff(f, th, l).subs(th, v/lam)
+        rhs = sum(sp.binomial(j, l)*lam**(m - (0 if control else l))*der(f, l, j - l).subs(th, v/lam)
                   for l in range(j + 1))
         ok &= sp.simplify(lhs - rhs) == 0
     if not control:
