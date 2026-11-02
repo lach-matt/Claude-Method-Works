@@ -3,3 +3,5 @@ N0 PASS
 N1 PASS
   N2 Pol^+ (V_v, V_r, V_th): vv V_r/4, vr -V_r/2, rr V_r, trace -V_r - 2*V_v, vth -V_t/2, rth V_t; table: True; Pol Pol^+ = 1: True; kernel directions: True, orthogonal to them: True
 N2 PASS
+  N3 H1 polarised and transported: True; D_X H1 = A E r^-3/2 tau dth: True; R_X(H1) vv, vr, rr, vth = 0: True; H2 has the data i Pol^+(D_X H1) at r0: True; T(H2) + R_X(H1) = 0 (15): True; i Pol(H2) + D_X H1 = 0 (5): True; H2 in S: True  [121 s]
+N3 PASS
