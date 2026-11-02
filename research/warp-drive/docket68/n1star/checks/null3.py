@@ -100,8 +100,9 @@ def christoffel(g):
     for a in range(3):
         for i in range(3):
             for j in range(i, 3):
-                G[a][i][j] = G[a][j][i] = sp.together(sum(gi[a, d] * (sp.diff(g[d, j], X3[i]) + sp.diff(g[d, i], X3[j])
-                                                                      - sp.diff(g[i, j], X3[d])) for d in range(3)) / 2)
+                s = sum(gi[a, d] * (sp.diff(g[d, j], X3[i]) + sp.diff(g[d, i], X3[j]) - sp.diff(g[i, j], X3[d]))
+                        for d in range(3))
+                G[a][i][j] = G[a][j][i] = sp.together(s / 2)
     return G
 
 
@@ -121,7 +122,8 @@ def ricci(g, G):
 def main():
     t0 = time.time(); ok = True
     g = metric(); G = christoffel(g)
-    E4 = sp.Matrix([0, sp.exp(-w), 0]); E3 = sp.Matrix([sp.exp(-w), 0, sp.exp(-w) * b]); EX = sp.Matrix([0, 0, sp.exp(-c)])
+    E4 = sp.Matrix([0, sp.exp(-w), 0]); E3 = sp.Matrix([sp.exp(-w), 0, sp.exp(-w) * b])
+    EX = sp.Matrix([0, 0, sp.exp(-c)])
     ip = lambda X, Y: (X.T * g * Y)[0]
     D = lambda X, Y: sp.Matrix([sum(X[n] * sp.diff(Y[m], X3[n]) for n in range(3))
                                 + sum(G[m][n][l] * X[n] * Y[l] for n in range(3) for l in range(3)) for m in range(3)])
@@ -131,7 +133,8 @@ def main():
     psi = {'chi': ip(D(EX, E4), EX), 'chib': ip(D(EX, E3), EX), 'eta': -ip(D(E3, EX), E4) / 2,
            'etab': -ip(D(E4, EX), E3) / 2, 'omega': -ip(D(E4, E3), E4) / 4, 'omegab': -ip(D(E3, E4), E3) / 4,
            'zeta': ip(D(EX, E4), E3) / 2}
-    form = {'chi': sp.exp(-w) * sp.diff(c, v), 'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
+    form = {'chi': sp.exp(-w) * sp.diff(c, v),
+            'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
             'omega': sp.exp(-w) * sp.diff(w, v) / 2, 'omegab': sp.exp(-w) * (sp.diff(w, u) + b * sp.diff(w, x)) / 2,
             'zeta': -sp.exp(c - 2 * w) * sp.diff(b, v) / 4,
             'eta': -sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x),
@@ -149,7 +152,8 @@ def main():
     fr = {'4': E4, '3': E3, 'x': EX}
     Rf = {i + j: (fr[i].T * Ric * fr[j])[0] for i in '34x' for j in '34x'}
     # N1
-    n1 = zero(e4(chi) + chi ** 2 + 2 * om * chi + Rf['44']) and zero(e3(chib) + chib ** 2 + 2 * omb * chib + Rf['33'])
+    n1 = zero(e4(chi) + chi ** 2 + 2 * om * chi + Rf['44'])
+    n1 &= zero(e3(chib) + chib ** 2 + 2 * omb * chib + Rf['33'])
     k1 = zero(e4(chi) + chi ** 2 + om * chi + Rf['44'])
     print('N1 Raychaudhuri e4 chi + chi^2 + 2 omega chi = -Ric_44 and the e3 one:', 'PASS' if n1 else 'FAIL',
           '; control (k1) omega chi:', 'identity (bad)' if k1 else 'fails (good)')
@@ -162,7 +166,7 @@ def main():
     # N3: solve for the coefficients
     names = ['chi', 'chib', 'eta', 'etab', 'omega', 'omegab']
     quad = [(p, q) for i, p in enumerate(names) for q in names[i:]]
-    cs = sp.symbols('k0:%d' % (len(quad) + 2))
+    cs = sp.symbols('k0:80')
 
     def solve_ansatz(lhs, terms, extra, tag):
         """lhs = sum k_i term_i + extra-terms; solve the k_i (linear) from the jets; return dict or None"""
@@ -226,7 +230,8 @@ def main():
         good = sol_no is None and sol_yes is not None
         kd = sol_yes.get(cs[len(terms)]) if sol_yes else None
         print('N7 %s: ansatz without ex(eta%s) solvable: %s (k3: must be False); with it: %s, coefficient %s ->' % (
-            tag, 'b' if 'chib' in tag else '', sol_no is not None, sol_yes is not None, kd), 'PASS' if good else 'FAIL')
+            tag, 'b' if 'chib' in tag else '', sol_no is not None, sol_yes is not None, kd),
+            'PASS' if good else 'FAIL')
         ok &= good
     # N9 energy identities of the pairs
     a_, c_, d_ = fa, fc, fd
@@ -284,9 +289,11 @@ def n10():
     ok = True
     for tag, op in ops.items():
         s_ = syms(op)
-        hit = sorted(q for q in s_ if q in bad or any(q.startswith(p) and q[len(p):] in
-                                                     ('uu', 'uv', 'ux', 'vv', 'vx', 'xx') for p in ('w1_', 'c1_', 'b1_', 'F1_')))
-        print('N10 %s: derivatives of the differences present: %s ->' % (tag, hit or 'none'), 'PASS' if not hit else 'FAIL')
+        two = ('uu', 'uv', 'ux', 'vv', 'vx', 'xx')
+        hit = sorted(q for q in s_ if q in bad or any(q.startswith(p) and q[len(p):] in two
+                                                     for p in ('w1_', 'c1_', 'b1_', 'F1_')))
+        print('N10 %s: derivatives of the differences present: %s ->' % (tag, hit or 'none'),
+              'PASS' if not hit else 'FAIL')
         ok &= not hit
     # control k4: coordinate difference in place of C1
     Cc = sp.exp(-c0) * sp.diff(F1, x)

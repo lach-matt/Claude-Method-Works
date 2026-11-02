@@ -8,8 +8,8 @@ root of round 5 is computed here, each with a control that mutates the computed 
      rho_K^(1/2) L^2_b, so at n = 4 a 3b weight (sf, K) is the b-weight (sf + 5/2, K + 1/2) for II.F''s mu_b = dt dx /
      (t r^4), which is exactly the b-density (II.F' (1.6), (1.7)).  A function rho_+^A rho_K^B lies in rho_+^w1 rho_K^w2
      L^2_b near the corner iff A > w1 and B > w2.  So R2.5's source class (3b (a_sf + 2, 0)) is the b-class (g + 2, 1/2)
-     with g := a_sf + 5/2, its window a_sf + 2 in (0, 1) is g - 1/2 in (0, 1), its solution weight -1 (3b) is -1/2 = 1/2 -
-     1 (b), and a b-weight a_K at K+ is the pointwise rate t^-a_K on compact sets: a_K = 1/2 + kappa.  Control: n = 3
+     with g := a_sf + 5/2, its window a_sf + 2 in (0, 1) is g - 1/2 in (0, 1), its solution weight -1 (3b) is -1/2 =
+     1/2 - 1 (b), and a b-weight a_K at K+ is the pointwise rate t^-a_K on compact sets: a_K = 1/2 + kappa.  Control: n = 3
      gives the shift 2 at iota+, not 5/2.
   Q2 (exact) The zero-energy gap of Box and the window.  r^2(-Delta) on r^-q Y_l in R^n has the indicial roots q = -l,
      l + n - 2 (on Cartesian components; the 1-form coupling is rho^2-relative, gdext5.py E1-E2).  In mu_b-weights (rho^q
@@ -51,19 +51,20 @@ HALF = sp.Rational(1, 2)
 
 
 def positive_sum(expr, pos):
-    """expr equals a quotient of polynomials in the 'pos' symbols with positive coefficients: a sufficient, exact test
-    of positivity on the open box (the symbols range over (0, oo); box coordinates are U/(1 + U))"""
-    num, den = sp.fraction(sp.factor(sp.together(expr)))
+    """expr equals a quotient of polynomials in the 'pos' symbols whose coefficients all have one sign, the same for
+    numerator and denominator: a sufficient, exact test of positivity on the open box (the symbols range over (0, oo);
+    box coordinates are U/(1 + U))"""
+    num, den = sp.fraction(sp.cancel(sp.together(expr)))
     if num.is_number and den.is_number:
         return bool(num/den > 0)
+    N, Dn = sp.Poly(sp.expand(num), *pos), sp.Poly(sp.expand(den), *pos)
 
-    def pos_poly(P):
-        P = sp.Poly(sp.expand(P), *pos)
-        return not P.is_zero and all(cf > 0 for cf in P.coeffs())
-    sgn = 1
-    if sp.Poly(sp.expand(num), *pos).LC() < 0 and sp.Poly(sp.expand(den), *pos).LC() < 0:
-        num, den = -num, -den
-    return sgn > 0 and pos_poly(num) and pos_poly(den)
+    def allpos(P):
+        return not P.is_zero and all(c > 0 for c in P.coeffs())
+
+    def allneg(P):
+        return not P.is_zero and all(c < 0 for c in P.coeffs())
+    return (allpos(N) and allpos(Dn)) or (allneg(N) and allneg(Dn))
 
 
 def box(*names):
@@ -104,8 +105,8 @@ def q1(control=False):
         print("  Q1 control (n = 3): b-shifts at (iota+, K+) = %s, the 4D values (5/2, 1/2): %s"
               % (shifts, ok), flush=True)
         return ok
-    print("  Q1: dt dx = rho_+^-%s rho_K^-%s x b-density, so L^2(dt dx) = rho_+^%s rho_K^%s L^2_b; mu_b = dt dx/(t r^4) is"
-          " the b-density: %s; rho^A in rho^w L^2_b iff A > w: %s (A = w diverges: %s); K+ interior shift 1/2: %s; "
+    print("  Q1: dt dx = rho_+^-%s rho_K^-%s x b-density, so L^2(dt dx) = rho_+^%s rho_K^%s L^2_b; mu_b = dt dx/(t r^4)"
+          " is the b-density: %s; rho^A in rho^w L^2_b iff A > w: %s (A = w diverges: %s); K+ interior shift 1/2: %s; "
           "R2.5's source 3b (a_sf + 2, 0) = b (%s, %s), solution K-weight 3b -1 = b %s"
           % (e_p, e_k, shifts[0], shifts[1], mub == 1, memb, edge > 13, kok, src_b[0], src_b[1], sol_K), flush=True)
     return ok
@@ -173,7 +174,8 @@ def q3(control=False):
     conormal = q is not None and all(                      # r^j d_r^j spans (r d_r)^i, i <= j
         sp.limit(sp.simplify(sp.diff(r**q*w, r, j)*r**j), r, sp.oo).is_finite for w in (Wt, Wr) for j in (1, 2, 3))
     r3Wr = sp.limit(r**3*Wr, r, sp.oo)
-    # Lemma 4.3: ||W^-1 Phi(sigma r) r^-q||^2_{L^2(dr/r, r >= 1)} = sigma^(2q) int_sigma^oo (1+x)^(2m) x^(-2eps-1) g(x) dx
+    # Lemma 4.3: ||W^-1 Phi(sigma r) r^-q||^2_{L^2(dr/r, r >= 1)} = sigma^(2q) int_sigma^oo (1+x)^(2m) x^(-2eps-1)
+    # g(x) dx
     # with g = Phi^2 = e^(-2x^2); main term int_sigma^1 x^(-2eps-1) dx exact, remainder integrable (g - 1 = O(x^2))
     rows = []
     good = True
