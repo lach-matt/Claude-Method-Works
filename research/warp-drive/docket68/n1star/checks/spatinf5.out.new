@@ -1,1 +1,6 @@
 Z1  Z is homothetic for eta, and nearly so for Tangherlini
+  Z1a L_Z eta = 2 eta: pass
+  Z1b L_Z g - 2 g = -2 mu r^-2 dv^2: pass -2*mu/r**2
+  Z1c control: r d_r alone is not homothetic for eta: pass
+Z2  the commutator of Z with the wave operator
+  Z2a box_g = box_eta - mu r^-3 d_r(r d_r) (from the metric): pass

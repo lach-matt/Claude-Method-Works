@@ -1,2 +1,11 @@
 T1  the causal structure, the strip, and the domain of dependence of N
   T1a dv(Y) >= 0 for every sampled future causal Y (g_b0, r^2 > mu): v is a time function: pass min dv(Y) = 5.732e-02
+  T1b grad v = -d_t + xhat.d_x (null, past-directed) for every mu: pass
+  T1c the strip {v1 <= v <= V_P - h(tau)} has width >= kappa(1 - t_P^(-1/4)): 1/4 at t_P = 16, -> 1/2: pass
+  T1d control: dr(Y) takes both signs on future causal Y: pass
+  T1e g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu/r^2): v + eps t is a time function with margin 2 eps,
+        kept under |g^-1 - g_b0^-1| << eps (used on the bounded part of N in Omega'): pass epsilon*(-epsilon*mu -
+        epsilon*x1**2 - epsilon*x2**2 - epsilon*x3**2 - epsilon*x4**2 - 2*x1**2 - 2*x2**2 - 2*x3**2 - 2*x4**2)/(x1**2 +
+        x2**2 + x3**2 + x4**2)
+  T1f control: at eps = 0 the margin is 0 (dv is null): pass
+T2  the cap energies of the truncation
