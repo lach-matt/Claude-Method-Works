@@ -185,15 +185,15 @@ def s4(control=False):
         d = (1 - e)*gam
         lam = Fr(3, 2) + d
         alpha = 4 + d/2
-        eta = d/8
         for frac in (Fr(1, 100), Fr(1, 2), Fr(9, 10)):
             beta = frac*d
+            eta = (d - beta)/4                                   # the loss of an order written "w-", below d - beta
             b_plus = beta + Fr(1, 2)
             b_I = (b_plus + Fr(3, 2))/2
             alpha_I, alpha_p = b_I - 2, beta - 2
             cond13 = alpha_I < Fr(-1, 2) and alpha_p < alpha_I - Fr(1, 2)
             src_I = lam + 1
-            src_iota = min(lam + 1 - min(eta, beta/4 if beta < d else eta), 3)
+            src_iota = min(lam + 1 - eta, 3)
             src_K = Fr(0) if control else alpha - 2 - eta
             ok &= cond13 and in_class(src_I, b_I + 1) and in_class(src_iota, b_plus + 2) and in_class(src_K, Fr(1, 2))
             n += 1

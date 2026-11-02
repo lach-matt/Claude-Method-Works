@@ -49,13 +49,14 @@ u > -1.  The checks measure the runs against these facts, and rebuild (a) in the
      interpolated to the same x_k (barycentric, from its 32 labels): a column is untrapped at r* iff theta(r*) > 0
      there (one zero per column above r*, S5).  Reported: both sets, the columns where they differ, and each band's
      edges (growth5's as the bracketing columns, the rebuild's as the zero of the interpolated theta(r*, x)).  Pass: at
-     every v the two sets differ in at most one column, an edge column (the coarser grid's resolution of the edge).
-     Control: the same comparison with the leaves' expansion 3 R_v/R in place of theta must differ by more than one
-     column at some v.
+     every v the bands have the same number of columns, and each rebuilt edge lies within one growth5 column spacing
+     of growth5's bracketing pair (the coarser grid's resolution of the edge).  Reported beside it: the columns where
+     the sets differ (a band shifted by one column differs at two).  Control: the same comparison with the leaves'
+     expansion 3 R_v/R in place of theta must fail.  Run on the R0 = 10 and R0 = 20 runs at 800 rows (S6's truncation).
 
   python3 checks/secondzero5.py RUNDIR [run names ...]
   python3 checks/secondzero5.py --truncation RUNDIR run_R10 run_R20 run_R40 [run_R10_800 run_R20_800]
-  python3 checks/secondzero5.py --edges RUNDIR run G5ZEROS.json
+  python3 checks/secondzero5.py --edges RUNDIR run [run ...] G5ZEROS.json
 """
 import os, sys, json, warnings
 import numpy as np
@@ -298,34 +299,44 @@ def s7(Z, F, g5, vlist, floor=0.64, leaf_only=False, show=True):
         st = min(steps, key=lambda s: abs(s[0] - Z['v'][j]))
         ung = np.array([not any(r >= rstar for r in c) for c in st[7]])
         diff = np.nonzero(und != ung)[0]
-        edge_ok = all((k > 0 and ung[k - 1] != ung[k]) or (k < 16 and ung[k + 1] != ung[k]) for k in diff)
-        bad = len(diff) if not (len(diff) <= 1 and edge_ok) else 0
-        worst = max(worst, bad)
         xs = np.linspace(-1, 1, 2001)
         tf = B.bary_matrix(xi, xs) @ q
         ed = xs[np.nonzero(np.sign(tf[1:]) != np.sign(tf[:-1]))[0]]
         ge = [(round(XG[k], 3), round(XG[k + 1], 3)) for k in range(16) if ung[k] != ung[k + 1]]
+        dist = []
+        for e in ed:
+            dd = [max(0.0, min(a, b) - e, e - max(a, b)) / abs(a - b) for a, b in ge]
+            dist.append(min(dd) if dd else np.inf)
+        good_v = und.sum() == ung.sum() and len(ed) == len(ge) and all(d_ <= 1.0 for d_ in dist)
+        worst = max(worst, 0 if good_v else 1)
         if show:
             print('     v = %.3f (growth5 v = %.3f), r* = %.3f: untrapped columns of 17: growth5 %d %s; rebuild %d %s;\n'
-                  '        differ at %s; edges: growth5 between %s, rebuild at x = %s' % (
+                  '        differ at %s; edges: growth5 between %s, rebuild at x = %s;\n'
+                  '        rebuilt edges outside growth5\'s brackets by %s column spacings -> %s' % (
                       Z['v'][j], st[0], rstar, ung.sum(), np.nonzero(ung)[0].tolist(), und.sum(),
-                      np.nonzero(und)[0].tolist(), diff.tolist(), ge, np.round(ed, 3).tolist()), flush=True)
+                      np.nonzero(und)[0].tolist(), diff.tolist(), [(float(a), float(b)) for a, b in ge],
+                      np.round(ed, 3).tolist(), np.round(dist, 2).tolist(), 'agree' if good_v else 'differ'),
+                  flush=True)
     return worst
 
 
 def main():
     if sys.argv[1] == '--edges':
-        Z = B.load(os.path.join(sys.argv[2], sys.argv[3] + '.npz')); F = B.derivatives(Z)
-        g5 = json.load(open(sys.argv[4]))
+        g5 = json.load(open(sys.argv[-1]))
         vl = (1.425, 1.45, 1.475, 1.50, 1.525, 1.55)
-        print('  S7 the untrapped band at r* on growth5\'s 17 columns (%s against %s):' % (sys.argv[3], sys.argv[4]))
-        w = s7(Z, F, g5, vl)
-        good = w == 0
-        print('  S7 the sets differ by at most one edge column at every v: %s' % ('PASS' if good else 'FAIL'))
-        print('  control (the leaves\' expansion in place of theta):')
-        wc = s7(Z, F, g5, vl, leaf_only=True)
-        print('  control %s' % ('fails (good)' if wc > 0 else 'passed (bad)'))
-        ok = good and wc > 0
+        ok = True
+        for name in sys.argv[3:-1]:
+            Z = B.load(os.path.join(sys.argv[2], name + '.npz')); F = B.derivatives(Z)
+            print('  S7 the untrapped band at r* on growth5\'s 17 columns (%s, R0 = %g):' % (
+                name, float(Z['R0']) if 'R0' in Z else 10.0), flush=True)
+            w = s7(Z, F, g5, vl)
+            good = w == 0
+            print('  S7 same count and every edge within one column spacing at every v: %s' % (
+                'PASS' if good else 'FAIL'), flush=True)
+            print('  control (the leaves\' expansion in place of theta):', flush=True)
+            wc = s7(Z, F, g5, vl, leaf_only=True)
+            print('  control %s' % ('fails (good)' if wc > 0 else 'passed (bad)'), flush=True)
+            ok &= good and wc > 0
         print('secondzero5 --edges:', 'all checks pass' if ok else 'FAILURES')
         return 0 if ok else 1
     if sys.argv[1] == '--truncation':
