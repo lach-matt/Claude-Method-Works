@@ -12,3 +12,5 @@ C7a PASS [1446s]
     mutant lam = 1/64: sup ||U|| 3.633e-07, sup ||d_r U|| 1.659e-05, sup ||d_r^2 U|| 3.505e-03 [131s]
     mutant rates (successive halvings): j = 0: 2.86 4.06 4.10; j = 1: 1.57 3.09 3.16; j = 2: 0.63 2.04 2.15
 C7b PASS [979s]
+    lam = 1/8: sup ||U|| 6.414e-04; ||U_(i+1) - U_i|| 3.3e-08 2.2e-12 1.3e-16 1.7e-17
+    lam = 1/16: sup ||U|| 4.932e-05; ||U_(i+1) - U_i|| 1.9e-10 1.1e-15 2.4e-18

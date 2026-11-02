@@ -1,0 +1,2 @@
+  E1: sigma = 3, l = 6, u on [6/5, 4], K = 40: ||chi R chi|| >= 0.450304 (floating 0.457598; measured norm 1.13200) U/L = 24.6 against the floating U/norm 9.79
+  E1: sigma = 6, l = 11, u on [6/5, 4], K = 60: ||chi R chi|| >= 0.250493 (floating 0.256548; measured norm 0.61801) U/L = 23.4 against the floating U/norm 9.50
