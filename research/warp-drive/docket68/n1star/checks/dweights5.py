@@ -316,8 +316,13 @@ def main():
     floor_d = 3 * (c['R2'] + c['R3'])
     print('  W3: beta-levels K = %d (%d below 3, %d above); tf rounds below 3 R2 = %d; level-3 rounds above 3 R3 = %d'
           % (c['K'], c['levels_below3'], c['levels_above3'], c['R2'], c['R3']))
-    print('      floor: d >= 3 (R2 + R3) = %d = %.4e; N = 21 d + 6 >= %.4e; against LOSS-D\'s 7.959e15 at eps_ind -> '
-          'delta_50 without (G): x %.2f' % (floor_d, floor_d, 21 * floor_d + 6, floor_d / 7.959e15))
+    def sci_down(n, k=7):                         # rounded down (Round 4, the reader's m1: outward for a floor)
+        e = len(str(n)) - 1
+        t = str(n)[:k]
+        return '%s.%se%d' % (t[0], t[1:], e)
+    print('      floor: d >= 3 (R2 + R3) = %d >= %s; N = 21 d + 6 >= %s (rounded down); against LOSS-D\'s 7.959e15 at '
+          'eps_ind -> delta_50 without (G): x %.2f' % (floor_d, sci_down(floor_d), sci_down(21 * floor_d + 6),
+                                                       floor_d / 7.959e15))
     est = Fr(1, 2) / (w['eps_K'] * w['step']) * 2 * 3
     ok['W3'] = abs(Fr(floor_d) / est - 1) < Fr(1, 100) and floor_d > 7.959e15
     # W3 control: floor_sum against brute force on a scaled-down instance

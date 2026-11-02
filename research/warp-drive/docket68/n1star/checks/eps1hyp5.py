@@ -107,17 +107,18 @@ def main():
     rest = {name: sorted({sp.simplify(z) for z in restricted_eps(cov).eigenvals()}, key=str)
             for name, cov in (('dtau', dtau), ('dr', dr), ('d(v+tau)', dvt))}
     full = [sp.simplify(z) for z in (g0m - e_ * sp.eye(5)).eigenvals()]
-    one_neg = all(sum(1 for z in full if float(z.subs({e_: sp.Rational(3, 5), m_: mv})) < 0) == 1
-                  for mv in (0, sp.Rational(1, 100), 1, 13, 1000))
+    one_neg = all(sum(1 for z in full if sp.simplify(z.subs({e_: sp.Rational(3, 5), m_: mv})).is_negative) == 1
+                  for mv in (0, sp.Rational(1, 100), 1, 13, 1000))     # exact signs (Round 4, m6)
     m_a = sp.Rational((LZ.MU0 / a_hi ** 2).numerator, (LZ.MU0 / a_hi ** 2).denominator)
-    l_dt = min(float(z.subs({e_: sp.Rational(3, 5), m_: 0})) for z in rest['dtau'])
-    l_dr = min(float(z.subs({e_: sp.Rational(3, 5), m_: m_a})) for z in rest['dr'])
+    l_dt = min((sp.nsimplify(sp.simplify(z.subs({e_: sp.Rational(3, 5), m_: 0}))) for z in rest['dtau']), key=float)
+    l_dr = min((sp.simplify(z.subs({e_: sp.Rational(3, 5), m_: m_a})) for z in rest['dr']), key=float)
     l_dv = [sp.simplify(z.subs(e_, sp.Rational(3, 5))) for z in rest['d(v+tau)']]
-    ok['H2'] = abs(l_dt - 0.4) < 1e-12 and abs(l_dr - 0.4) < 1e-12 and m_ / 5 in l_dv and one_neg
+    ok['H2'] = l_dt == sp.Rational(2, 5) and l_dr == sp.Rational(2, 5) and m_ / 5 in l_dv and one_neg
     say('  H2: g0 - eps I on the kernels (exact, m = mu/r^2): %s; at eps = 3/5: least %.4f on ker dtau (m >= 0), %.4f '
-        'on ker dr at r = a (P*), %s on ker d(v + tau); one negative eigenvalue of g0 - (3/5) I at every m tested: %s; '
-        'so eps1 = 3/5 serves (direct cone argument)' % ({k: [str(z) for z in v] for k, v in rest.items()}, l_dt,
-                                                           l_dr, [str(z) for z in l_dv], one_neg))
+        'on ker dr at r = a (P*), %s on ker d(v + tau); one negative eigenvalue of g0 - (3/5) I at m = 0, 1/100, 1, 13, '
+        '1000 (exact signs; every m >= 0 from the closed form, deduced): %s; '
+        'so eps1 = 3/5 serves (direct cone argument)' % ({k: [str(z) for z in v] for k, v in rest.items()}, float(l_dt),
+                                                           float(l_dr), [str(z) for z in l_dv], one_neg))
 
     # H3: sharpness at the outer boundary on Sigma_tau0
     b_lo, b_hi = g['b0']

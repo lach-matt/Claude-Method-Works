@@ -1,3 +1,4 @@
   T1 (t_flat = T(1 - (T/r)^(1/2))): (p, r^(p+1) [Box, chi(t_flat)] Z finite[, at p = 1: r^(p+3/2) finite]): [('3/2', True), ('1', True, False)]
   T1 control (chi(t), t = T + r): (p, r^(p+1) [Box, chi(t_flat)] Z finite[, at p = 1: r^(p+3/2) finite]): [('3/2', False), ('1', False)]
 T1 PASS
+  T2: Box^Ups(phi(t_*) U), U of spatial order q (symbolic): (coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite for every q): [('A1', True), ('A2', True)]

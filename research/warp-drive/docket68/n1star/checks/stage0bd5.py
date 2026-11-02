@@ -526,7 +526,8 @@ def main():
     say('  X4: at v = 2, r = 0.27 (tau = 1.73 in [tau0, tau_end], r > a), th = %.4f, s = %.4f: |W_TT|_op >= u^T W_TT u '
         '= %s (certified, E = c taken at c_lo); so every admissible C_app >= %s and lambda0 < 0.6013096/C_app <= %s '
         'for any split (above lambda_Omega = 0.026986), <= %s at the even split (operator norm; Round 3, M1)' % (
-            th_, s_, mpmath.nstr(capp_lo, 8), mpmath.nstr(capp_lo, 6), mpmath.nstr(lam_sf, 6),
+            th_, s_, mpmath.nstr(capp_lo, 8), '%.6f' % (mpmath.floor(capp_lo * 10 ** 6) / 10 ** 6),
+            mpmath.nstr(lam_sf, 6),
             mpmath.nstr(lam_ub, 6)))
     say('      (%.0f s)' % (time.time() - t_start))
     for kk, vv in ok.items():
