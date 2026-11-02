@@ -6228,6 +6228,30 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Ric(D)) for E := Ric − ∇_(μD_ν), checked exactly at a point on two random 4+1 metrics with random D (R14, 16 s; control
   E − g tr E). The paper cites each at its claim and in Appendices A and C; section 9's more-families bullet records
   T10-T11 computed and loses two references to 'the record'.
+- D597 (verifier 257, the paper's audit batch 2, sections 5-7, with the author's criterion that everything derived be
+  proved with computational support: no major; 8 minor, 11 nits; the analysis of section 5 matching the supplement step
+  for step; ks5, lead5, horizon5, mass5, past5, hf_theorem5, bondi5 B4 and response5 rerun; data5.py's selftest did not
+  finish under load). Seated in the paper: MINOR (1) F4's ratios at μ0 = 1000 l5² were a superseded sequence's (offset
+  4.65, 3.84; horizon 2.46, 2.26; P 2.43, 2.33), now this file's own output (4.00, 4.02; 2.26, 2.14; 2.33, 1.93), in the
+  paper and hf_theorem5.py's docstring; (2) the 'essentially kinematic (an assessment, not computed)' clause dropped, the
+  law being computed (P7) and proved (Theorem 3), and the two estimators named (F4 the largest offset after the shell, B4
+  the mean); (3) the part labels '(iv)', '(iii)' and 'N1* in the working notes' removed, the solver described at first
+  use; (4) C_D and C_R defined at (5.5); (5) symbols used twice in the batch renamed: the mollifier 𝒫, the energy 𝒩, the
+  commutator's function m, the data correction (α, ϖ, q) (the programs' a, w, q), the lapse factor ϑ; (6) [AO14]'s (1.3)
+  quoted for both halves, the A^ij condition for the time lines; (7) the λ = 0.00625 run (0.4535, −0.74 %, grid-limited)
+  and the 1000 l5² rows' dependence on the 100 l5² rows stated, the measured means recomputed here from the run file; (8)
+  'the one decision in which the proof departs from Touati's' → 'the decision on which the estimate turns'. Nits: T, P_0
+  bounded on profiles; the Touati sentence marked a remark; b(τ), τ_end defined; supplement Lemma 1.1(e) and 2.4 cited;
+  the clamp interval [τ0 − 2, τ_end + 2] as the supplement has it; O(λ^(N−2)) per angular norm, λ⁻¹ per r-derivative;
+  Proposition 3.2's C λ ≤ δ/2 and μ0 > √72 l5² stated in section 6; 'converging as O(λ)' dropped and B4's 0.5 % named;
+  Touati's λ ≤ λ0 (READ by the verifier, [Tou23a] Proposition 7.1, p. 13); data at past null infinity are this paper's,
+  not the others'. hf_theorem5.py's status row for existence now reads proved (Theorem E), its F7 kept as it stood. Kept:
+  (6.1)'s remainder O(λ³), true, the sharper O(λ^∞) not needed. COMPUTATIONAL SUPPORT MISSING, queued (each to be
+  computed with a control): (C1) (5.1), only w(ℓ, ℓ) carries λ⁻¹; (C2) Lemma 5.1, T(∂_θ g1) = O(λ) on the stage-0
+  profile; (C3) supplement Lemma 3.3, the ℓ ⊗ ℓ contraction; (C4) the mollifier's annulus (Lemma 2.2), certified; (C5)
+  the bootstrap's power counting, Steps 4-6, as a ledger failing at K = 5; (C6) section 5.4's extension, g(Z, Z) < 0 and
+  g^ij > 0 along the convex interpolation; (C7) the constraint solve's λ^(N−2) scaling (Lemma 6.4, Proposition 6.5); (C8)
+  the boundary for g_λ to O(λ); (C9) Propositions 3.3-3.4 at λ > 0, ∂_r θ⁺ to O(λ) and the oddness of m1.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

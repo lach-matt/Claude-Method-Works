@@ -7871,3 +7871,12 @@ sections call deduced was checked for a computation behind it; three had none, a
 script: that the approximation's building blocks carry no hidden wavelength, the exact margin by which the boundary of
 the domain is spacelike, and the identity that makes the constructed metric a vacuum solution, verified exactly on
 random five-dimensional metrics. Each comes with a deliberately broken control that fails.
+
+**D597 (2026-11-02): the paper's second audit batch (sections 5-7) read and repaired.** The reader found no serious
+error: the proof outline matches the supplement step for step. The fixable findings were two sets of numbers copied from
+an outdated run of a check program (now the program's current output), a clause calling a result 'an assessment, not
+computed' that the next paragraph computes and proves (removed), leftover internal labels, two constants used before
+being defined, several symbols each used for two different things (renamed), a quotation supporting the wrong half of
+its sentence, and an omitted finer run of the numerical solver (now stated, with why it is grid-limited). Under the new
+rule the reader also listed nine steps of the proof's outline that rest on argument without a computation behind them;
+they are queued, each to be computed with a control.

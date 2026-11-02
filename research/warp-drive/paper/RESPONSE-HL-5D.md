@@ -481,7 +481,7 @@ section 2.4 with the second harmonic χ dv² and a phase shift, on the backgroun
 
 ## 5. Proof of the uniform existence theorem
 
-This is the uniform existence statement (called N1* in the working notes): for λ ≤ λ0 the vacuum solution with the given
+This is the uniform existence statement: for λ ≤ λ0 the vacuum solution with the given
 data exists on the fixed domain, and its remainder after the approximant obeys estimates uniform in λ, in a formulation
 that loses no derivatives, is regular across the axes, and works on the large background. The supplement gives every
 step; here is its structure, with the identities on which it turns.
@@ -497,34 +497,35 @@ w(ℓ, ℓ) up to O(λ)|w| by (E1). So the only coefficient of size λ⁻¹ coup
 s = w(ℓ, ℓ), to the wave. This is the five-dimensional form of the coupling Touati describes (READ, [Tou23a] section
 3.2.2, p. 20, "The quasi-linear coupling and the loss of derivatives").
 
-**Lemma 5.1 (the phase-shift identity; deduced).** Write P([Y]) = [λ⁻¹ T Y + P_0 Y] for profiles Y. Under (E2),
-T(∂_θ g1) = λ T1 with T1 a bounded profile.
+**Lemma 5.1 (the phase-shift identity; deduced).** Write P([Y]) = [λ⁻¹ T Y + P_0 Y] for profiles Y, T and P_0 operators
+bounded on profiles (supplement 3.2). Under (E2), T(∂_θ g1) = λ T1 with T1 a bounded profile.
 
 *Proof.* Differentiate (4.1) at c = 0 for G the profile of g_app: the linearization of R at G in the direction ∂_θ G
 equals ∂_θ R[G]. The left side is T(∂_θ g1) + O(λ); the right side is ∂_θ(λ⁻¹ R^(−1) + R^(0)) + O(λ) = O(λ). ∎
 
-A constant shift of the phase is a symmetry of the leading equation, so its generator ∂_θ g1 is annihilated by the
-λ⁻¹ part of the linearized operator. This one line is the analytic content of Touati's transport and polarization
-conditions at first order.
+A constant shift of the phase is a symmetry of the leading equation, so its generator ∂_θ g1 is annihilated by the λ⁻¹
+part of the linearized operator. (A remark, used nowhere below: this one line is the analytic content of Touati's
+transport and polarization conditions at first order.)
 
 ### 5.2 The decomposition and the regained derivative
 
 Write w = h + φ [∂_θ g1], with φ(X) defined by the transport along the background generator
 
-    L0 φ = −(1/2) P s,     φ = 0 on Σ_τ0,                                                              (5.2)
+    L0 φ = −(1/2) 𝒫 s,     φ = 0 on Σ_τ0,                                                              (5.2)
 
-where P is a compactly supported mollifier at scale λ adapted to the annuli Σ_τ = {a ≤ |x| ≤ b(τ)}: the averaging ball
-is shifted 2λ inward near the outer sphere and outward near the inner one, so that P maps functions on the annulus to
-functions on it, with the Bernstein- and Friedrichs-type bounds ‖∂_x P f‖ ≤ C λ⁻¹ ‖f‖, ‖f − P f‖ ≤ C λ ‖∂_x f‖ and ‖[a,
-P] ∂_x f‖ ≤ C ‖∂_x a‖_∞ ‖f‖ (supplement Lemma 2.2). It replaces Touati's Fourier projector Π≤ ("a Fourier multiplier
-supported in { |ξ| ≤ 1/λ }", READ, [Tou23a] section 3.2.3, p. 21), which needs no boundary.
+where 𝒫 is a compactly supported mollifier at scale λ adapted to the annuli Σ_τ = {a ≤ |x| ≤ b(τ)}, b(τ) the outer radius
+of Ω's slice at τ: the averaging ball is shifted 2λ inward near the outer sphere and outward near the inner one, so that
+𝒫 maps functions on the annulus to functions on it, with the Bernstein- and Friedrichs-type bounds ‖∂_x 𝒫 f‖ ≤ C λ⁻¹ ‖f‖,
+‖f − 𝒫 f‖ ≤ C λ ‖∂_x f‖ and ‖[m, 𝒫] ∂_x f‖ ≤ C ‖∂_x m‖_∞ ‖f‖ for smooth m (supplement Lemma 2.2). It replaces Touati's
+Fourier projector Π≤ ("a Fourier multiplier supported in { |ξ| ≤ 1/λ }", READ, [Tou23a] section 3.2.3, p. 21), which
+needs no boundary.
 
-By Lemma 5.1, the equation for h has bounded coefficients except one, λ⁻¹ ((1 − P) s) [∂_θ² g1], which is O(∂s) by the
+By Lemma 5.1, the equation for h has bounded coefficients except one, λ⁻¹ ((1 − 𝒫) s) [∂_θ² g1], which is O(∂s) by the
 mollifier bound (supplement (3.5)). Two derivatives of φ remain on its right side through □̃φ. Contracting the
 equation with ℓ ⊗ ℓ kills every λ⁻¹ term and the □̃φ term exactly ([∂_θ g1](ℓ, ·) = 0), so s satisfies a wave
 equation with no large coefficient (supplement Lemma 3.3). And Ψ := □̃φ satisfies, by (2.4) applied to (5.2),
 
-    L0 Ψ − (2/r) Ψ = −(1/2) □̃ P s − (1/r)(∂_τ + ∂_r) P s − (3/r²) ∂_r φ,                                 (5.3)
+    L0 Ψ − (2/r) Ψ = −(1/2) □̃ 𝒫 s − (1/r)(∂_τ + ∂_r) 𝒫 s − (3/r²) ∂_r φ,                                 (5.3)
 
 a transport whose source is controlled by the wave equation for s (supplement Lemma 3.4). This is Touati's mechanism
 (READ, [Tou23a] p. 20: "The main idea is to show that □_g F is better than ∂² F"), carried out with the exact
@@ -534,34 +535,37 @@ commutator (2.4) on the black-hole background.
 
 The energy is
 
-    N(τ) := Σ_(j≤6) λ^j (‖∂^j ∂h‖ + ‖∂^j Ψ‖ + ‖∂^j ∂φ‖ + λ ‖∂^j ∂_x² φ‖) + ‖h‖ + ‖φ‖,                    (5.4)
+    𝒩(τ) := Σ_(j≤6) λ^j (‖∂^j ∂h‖ + ‖∂^j Ψ‖ + ‖∂^j ∂φ‖ + λ ‖∂^j ∂_x² φ‖) + ‖h‖ + ‖φ‖,                    (5.4)
 
-norms in L²(Σ_τ). It controls the remainder: |w|_7 ≤ C N. The energy inequality for −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω
+norms in L²(Σ_τ). It controls the remainder: |w|_7 ≤ C 𝒩. The energy inequality for −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω
 uses the multiplier −g̃⁻¹ dτ; the lateral boundaries are spacelike with Ω to their past, so their fluxes have a sign and
 are dropped (supplement Lemma 2.3). The transport estimate along L0 uses div x̂ = 3/r and the sign of the outer
-boundary's motion (Lemma 2.4). Assume N ≤ 2 M λ^K on [τ0, τ*]. Then |w| ≤ C M λ^(K−3), |∂w| ≤ C M λ^(K−4), so
-g = g_app + w stays in the class where the domain lemma holds. The nonlinear terms are at most C λ⁻⁵ N² ≤ C M² λ^(2K−5)
-≤ C M² λ^(K+1); the residual contributes C λ^K; every linear term is C N. Gronwall gives
+boundary's motion (supplement Lemma 2.4). Assume 𝒩 ≤ 2 M λ^K on [τ0, τ*]. Then |w| ≤ C M λ^(K−3), |∂w| ≤ C M λ^(K−4), so
+g = g_app + w stays in the class where the domain lemma (supplement Lemma 1.1(e)) holds. The nonlinear terms are at most
+C λ⁻⁵ 𝒩² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1); the residual contributes C λ^K; every linear term is C 𝒩. Gronwall gives
 
-    N(τ) ≤ C3 ((C_D + 1 + C_R) λ^K + C M² λ^(K+1)),     C3 independent of M and λ,                         (5.5)
+    𝒩(τ) ≤ C3 ((C_D + 1 + C_R) λ^K + C M² λ^(K+1)),     C3 independent of M and λ,                         (5.5)
 
-and with M := C3 (C_D + 1 + C_R) + 1 and λ0 small the bootstrap closes at N ≤ M λ^K. The smallness that closes it is
-a power of λ, never the size of the data or of the background; this is the one decision in which the proof departs
-from Touati's (READ, [Tou23a] p. 12, Theorem 2.2, "There exists λ 0 > 0 and ε 0 = ε 0 (δ, R) > 0 such that if
-0 < ε ≤ ε 0").
+where C_R bounds the residual, |Ric^H(g_app)|_k ≤ C_R λ^K on [τ0, τ_end] ((E3), as N − 1 ≥ K), and C_D the data, the
+datum's departure from the approximant's on Σ_τ0 being at most C_D λ^K in the norms of (5.4) (section 5.5); with M := C3
+(C_D + 1 + C_R) + 1 and λ0 small the bootstrap closes at 𝒩 ≤ M λ^K. The smallness that closes it is a power of λ, never
+the size of the data or of the background; this is the decision on which the estimate turns, and one in which it departs
+from Touati's (READ, [Tou23a] p. 12, Theorem 2.2, "There exists λ 0 > 0 and ε 0 = ε 0 (δ, R) > 0 such that if 0 < ε ≤ ε
+0").
 
 ### 5.4 Existence, continuation and the time lines
 
-The local theory needs the time lines timelike as well as the slices spacelike (READ: [AO14] Theorem 1.1 under (1.3),
-"A^00(U) ≤ −κ"; [DS23] (A4), eigenvalues that "do not meet each other"). Inside the horizon the lines of constant x
-are spacelike (Proposition 2.2(d)), so the local theorems are applied in other coordinates: the coefficients are
-extended beyond Ω by a universal extension operator and convex interpolation of lapse, shift and spatial metric to
-Minkowski's; the slices are kept and the time lines are taken along Z = ∂_τ − β (β the shift), for which g(Z, Z) < 0;
-the system is posed on a large torus with its coefficients clamped in time outside [τ0 − 1, τ_end + 1]; and written as
-a symmetric hyperbolic first-order system it satisfies (A1)–(A4) of [DS23]. Restarts use [DS23] Theorem 2.4 ("there
-exists some T > 0 depending on ||u0||_r and M̃ such that (1.1) has a unique solution"), with data extended by the
-universal operator of [LY22] Theorem 26; uniqueness and finite speed on Ω come from the energy inequality itself. With
-(5.5) the solution continues across Ω (supplement section 4, Step 8).
+The local theory needs the time lines timelike as well as the slices spacelike (READ: [AO14] Theorem 1.1 under (1.3), p.
+2, "A^00(U) ≤ −κ" for the slices and "1/γ |ξ|² ≤ A^ij ξ_i ξ_j" for the time lines; [DS23] (A4), eigenvalues that "do not
+meet each other"). Inside the horizon the lines of constant x are spacelike (Proposition 2.2(d)), so the local theorems
+are applied in other coordinates: the coefficients are extended beyond Ω by a universal extension operator and convex
+interpolation of lapse, shift and spatial metric to Minkowski's; the slices are kept and the time lines are taken along Z
+= ∂_τ − β (β the shift), for which g(Z, Z) < 0; the system is posed on a large torus with its coefficients clamped in
+time outside [τ0 − 2, τ_end + 2] (τ_end the last time of Ω); and written as a symmetric hyperbolic first-order system it
+satisfies (A1)–(A4) of [DS23]. Restarts use [DS23] Theorem 2.4 ("there exists some T > 0 depending on ||u0||_r and M̃
+such that (1.1) has a unique solution"), with data extended by the universal operator of [LY22] Theorem 26; uniqueness
+and finite speed on Ω come from the energy inequality itself. With (5.5) the solution continues across Ω (supplement
+section 4, Step 8).
 
 ### 5.5 The data: the constraints solved outward in r
 
@@ -573,50 +577,52 @@ as an evolution in r, following Rácz (READ, [Rac16] p. 6, on (3.3): "Notice tha
 symmetric, and that the coefficient of ∂ρ is also positive definite"), from a sphere inside the shell where the
 approximant's data are the seed's exactly, imposing nothing further out.
 
-Correct the approximant's data (γ, κ) by U = (a, w, q): γ + a dr², κ + w Π + q ⊗ dr + dr ⊗ q (Π the metric of the
-spheres). The constraint map (J, ρ) = (2(−div κ + d tr κ), R − |κ|² + (tr κ)²) (READ, [CD03] (2.1), p. 4: "These are
-the general relativistic constraint equations whatever the space-dimension n") then has, at the background's data
-(computed, `paper/response5.py` R5; `docket68/n1star/data5.py` S2–S4, S6):
+Correct the approximant's data (γ, κ) by U = (α, ϖ, q) (the programs' a, w, q): γ + α dr², κ + ϖ Π + q ⊗ dr + dr ⊗ q (Π
+the metric of the spheres). The constraint map (J, ρ) = (2(−div κ + d tr κ), R − |κ|² + (tr κ)²) (READ, [CD03] (2.1), p.
+4: "These are the general relativistic constraint equations whatever the space-dimension n") then has, at the
+background's data (computed, `paper/response5.py` R5; `docket68/n1star/data5.py` S2–S4, S6):
 
-    ρ:   (3 r³/(r² + μ)²) ∂_r a − (1/(r² + μ)) ∂_θ² a + …,
-         3 r³/(r² + μ)² = θ³ H,   θ² = r²/(r² + μ),   H = 3/√(r² + μ),
-    J_r: 6 ∂_r w − (2/r²) ∂_θ q + …,     J_θ: −(2 r²/(r² + μ)) ∂_r q + 4 ∂_θ w + …,                        (5.6)
+    ρ:   (3 r³/(r² + μ)²) ∂_r α − (1/(r² + μ)) ∂_θ² α + …,
+         3 r³/(r² + μ)² = ϑ³ H,   ϑ² = r²/(r² + μ),   H = 3/√(r² + μ),
+    J_r: 6 ∂_r ϖ − (2/r²) ∂_θ q + …,     J_θ: −(2 r²/(r² + μ)) ∂_r q + 4 ∂_θ ϖ + …,                        (5.6)
 
-so ρ is forward parabolic in r for every r > 0 (no ∂_r² a, no ∂_r ∂_θ a, no derivative of (w, q)), and J is symmetric
-hyperbolic in (w, q) with r as time: the symmetrizer S = diag(1, −1/(2r²)) gives S A0 = diag(6, 1/(r² + μ)) > 0 and
-S A^θ symmetric, with real speeds c² = 2(r² + μ)/(3 r⁴). At the approximant's data there is no coefficient of order
-λ⁻¹ (data5.py S2, S4), because the waves have zero trace on the spheres; an oscillating trace would produce one (the
-instrument's mutants). The linear system is solved by a Faedo–Galerkin scheme on the eigenspaces of the Laplacian of
-S³ with λ-uniform estimates (supplement Lemma 6.4), the nonlinear one by the Kato–Majda scheme, bounded in a high norm
-and contracting in a low one (READ: [AO14] section 4.1; [AG22] abstract, p. 1, "the boundedness in the high norm and
-contraction in the low norm"), with no smallness; the correction is O(λ^(N−2)) at every order (supplement Proposition
-6.5). Beforehand the approximant's stage data are chosen so that its data satisfy the constraints and D = 0 to order
-N − 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas 6.1–6.2).
+so ρ is forward parabolic in r for every r > 0 (no ∂_r² α, no ∂_r ∂_θ α, no derivative of (ϖ, q)), and J is symmetric
+hyperbolic in (ϖ, q) with r as time (θ here the angle of S³): the symmetrizer S = diag(1, −1/(2r²)) gives S A0 = diag(6,
+1/(r² + μ)) > 0 and S A^θ symmetric, with real speeds c² = 2(r² + μ)/(3 r⁴). At the approximant's data there is no
+coefficient of order λ⁻¹ (data5.py S2, S4), because the waves have zero trace on the spheres; an oscillating trace would
+produce one (the instrument's mutants). The linear system is solved by a Faedo–Galerkin scheme on the eigenspaces of the
+Laplacian of S³ with λ-uniform estimates (supplement Lemma 6.4), the nonlinear one by the Kato–Majda scheme, bounded in a
+high norm and contracting in a low one (READ: [AO14] section 4.1; [AG22] abstract, p. 1, "the boundedness in the high
+norm and contraction in the low norm"), with no smallness; the correction is O(λ^(N−2)) in every angular Sobolev norm,
+each r-derivative costing a factor λ⁻¹ (supplement Proposition 6.5). Beforehand the approximant's stage data are chosen
+so that its data satisfy the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by
+order (supplement Lemmas 6.1–6.2).
 
 ---
 
 ## 6. The remaining parts
 
-**(iv) The boundary.** Proposition 3.2: x_K = 1 is spacelike for the limit wherever μ > √72 l5² or μ' > 0, and for
-g_λ, λ ≤ λ0, when μ0 > √72 l5²; every future causal curve that meets it leaves D_T there. Exact for g0 (computed R6, and
+**The boundary.** Proposition 3.2: x_K = 1 is spacelike for the limit wherever μ > √72 l5² or μ' > 0, and for g_λ when μ0
+> √72 l5² and C λ ≤ δ/2; every future causal curve that meets it leaves D_T there. Exact for g0 (computed R6, and
 `docket68/lemmas/hf_theorem5.py` F2, there also machine-checked with Z3); deduced for g_λ.
 
-**(iii) The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ, λ ≤ λ_H, each column carries at most one zero of
-the outgoing expansion of the spheres {v, r = const}, exactly one within C λ of √μ on the columns that reach across it,
-trapped spheres below and untrapped above; no inner zero (deduced). The per-column zero set is not itself a marginally
-trapped surface; the statement is about the round family, as the numerics' is. Although ∂g_λ converges only weakly, the
-expansion of these spheres does not see the oscillation at leading order, because the wave is traceless on them and the
-phase is constant along each column. The numerical solver agrees (`docket68/lemmas/hf_core5.py`; hf_theorem5.py F4: the
-horizon's departure halves with λ, ratios 2.47, 2.26, 2.14 and 2.46, 2.26 at μ0/l5² = 100 and 1000).
+**The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ with μ0 > √72 l5² and λ ≤ λ_H, each column carries at
+most one zero of the outgoing expansion of the spheres {v, r = const}, exactly one within C λ of √μ on the columns that
+reach across it, trapped spheres below and untrapped above; no inner zero (deduced). The per-column zero set is not
+itself a marginally trapped surface; the statement is about the round family, as the numerical solver's is:
+`docket68/lemmas/hf_core5.py` evolves the metric of the class in the Bondi form (3.2) from the free data of section 2.4
+and reads each quantity on the same spheres. Although ∂g_λ converges only weakly, the expansion of these spheres does not
+see the oscillation at leading order, because the wave is traceless on them and the phase is constant along each column.
+It agrees (`docket68/lemmas/hf_theorem5.py` F4: the horizon's departure halves with λ, ratios 2.47, 2.26, 2.14 at μ0/l5²
+= 100 and 2.26, 2.14 at 1000).
 
 **The mean mass.** Proposition 3.4 and item 7 of Theorem 1: after the shell, the mass of every sphere of the domain is
-the limit's to O(λ²) (deduced) — the mass of the spheres {v, r = const}, not the numerics' mass aspect at past null
+the limit's to O(λ²) (deduced) — the mass of the spheres {v, r = const}, not the solver's mass aspect at past null
 infinity. The first-order mean correction m1 need not vanish (in the Bondi-type gauge its source, a tilt of the dust's
 direction at O(λ), is computed in `docket68/n1star/ansatz5.py` A5), but it is odd under the quarter-turn symmetry, and a
-rotation-invariant mass cannot see it. The numerical solver measures a different quantity, the mean mass aspect at past
-null infinity, whose offset quarters at each halving of λ (hf_theorem5.py F4: 5.17, 4.01, 4.02 and 4.65, 3.84); being
-fixed by the incoming flux of the free data, its second-order offset is essentially kinematic (an assessment, not
-computed).
+rotation-invariant mass cannot see it. The solver measures a different quantity, the mean mass aspect at past null
+infinity: its largest offset from μ after the shell (v ≥ 3.75) quarters at each halving of λ (hf_theorem5.py F4: ratios
+5.17, 4.01, 4.02 at μ0/l5² = 100 and 4.00, 4.02 at 1000), and its law is computed and proved in the next paragraph.
 
 **The mean mass at past null infinity.** By Theorem 2 the waves' field at past null infinity is exactly λ[W_TT]. The
 sphere mean of its flux density, in the normalization of Proposition 2.3, is exactly
@@ -624,16 +630,19 @@ sphere mean of its flux density, in the normalization of Proposition 2.3, is exa
     (2/9) A² [env² + λ² env'² − ½ (env² − λ² env'²) sin(2v/λ) + λ env env' cos(2v/λ)]                          (6.1)
 
 (computed, `past5.py` P7). Its integral in v is μ(v) − μ0 plus terms that oscillate with amplitude (λ/18) A² env² while
-the shell passes; after the shell it exceeds μ − μ0 by exactly (2/9) λ² A² ∫ env'² + O(λ³). By Theorem 3 this is the
-law the Bondi mass of g_λ obeys: the pointwise rate (3.3) of the mass aspect is (4/3)(∂_v p1² + ∂_v p1 ∂_v p2 +
-∂_v p2²), whose sphere mean is (6.1), so μ_B(v) − μ0 is that integral, and after the shell μ_B − μ(v_end) = (2/9) λ²
-A² ∫ env'² + O(λ³). The numerical solver evolves the metric in the Bondi form (3.2) from the same free data and fixes
-the rate of its mass aspect by the same equation, so its mean mass is μ_B as it integrates it: for its envelope
-sin⁴(π(v − ½)/3) on [½, 7/2] with A = 1 the coefficient is (2/9) ∫ env'² = 5π²/108 = 0.45693, and the solver's offset
-over λ² after the shell is 0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at λ =
-0.025, 0.0125 (1000 l5²): within 0.05 % at the finest wavelength and converging as O(λ) (computed, `bondi5.py` B4;
-the quartering of hf_theorem5.py F4 was this rate). What the comparison tests is the law against the solver's own
-integration of it; what Theorem 3 proves is that g_λ obeys it.
+the shell passes; after the shell it exceeds μ − μ0 by exactly (2/9) λ² A² ∫ env'² + O(λ³). By Theorem 3 this is the law
+the Bondi mass of g_λ obeys: the pointwise rate (3.3) of the mass aspect is (4/3)(∂_v p1² + ∂_v p1 ∂_v p2 + ∂_v p2²),
+whose sphere mean is (6.1), so μ_B(v) − μ0 is that integral, and after the shell μ_B − μ(v_end) = (2/9) λ² A² ∫ env'² +
+O(λ³). The numerical solver evolves the metric in the Bondi form (3.2) from the same free data and fixes the rate of its
+mass aspect by the same equation, so its mean mass is μ_B as it integrates it: for its envelope sin⁴(π(v − ½)/3) on [½,
+7/2] with A = 1 the coefficient is (2/9) ∫ env'² = 5π²/108 = 0.45693, and the solver's offset over λ² after the shell is
+0.4589, 0.4577, 0.4568 at λ = 0.05, 0.025, 0.0125 (μ0 = 100 l5²) and 0.4578, 0.4569 at λ = 0.025, 0.0125 (1000 l5²), each
+the mean over the samples after the shell (computed, `bondi5.py` B4, which checks agreement to 0.5 %; F4's ratios above
+take the largest offset over the same samples). At λ = 0.0125 the agreement is within 0.05 %. The one finer run, λ =
+0.00625 at μ0 = 100 l5², gives 0.4535, 0.74 % below, on the previous run's grid, which the solver's anchor check records
+as grid-limited (`docket68/lemmas/hf_anchor5.py`); and the rows at 1000 l5² reproduce those at 100 l5² to about 10⁻⁴, the
+far region not depending on the inner cut, so they are not an independent check. What the comparison tests is the law
+against the solver's own integration of it; what Theorem 3 proves is that g_λ obeys it.
 
 ---
 
@@ -657,8 +666,9 @@ Point by point; HL is [HL18], T is [Tou23a], LR is [LR20], and "here" is this pa
   Cauchy data on Σ_τ0, the constraints solved outward in r.
 - **Domain.** HL: [0, 1] × R². T: [0, 1] × R³. LR: [0, u*] × [0, u̲*] × S². Here: Ω ⊃ D_T ∩ {τ ≥ τ0}, through the
   horizon to a spacelike boundary.
-- **What closes the estimates.** HL and T: the smallness ε. LR: angular regularity on a domain short in one null
-  direction. Here: powers of λ, with the approximant carried to any order.
+- **What closes the estimates.** HL: the smallness ε. T: the smallness ε, with λ ≤ λ0 as well (READ, [Tou23a] Proposition
+  7.1, p. 13). LR: angular regularity on a domain short in one null direction. Here: powers of λ, with the approximant
+  carried to any order.
 - **The derivative loss.** HL: elliptic estimates for the metric. T: a null foliation and a Fourier cut-off. LR: angular
   regularity. Here: the phase-shift identity, the exact commutator (2.4) and a compact mollifier.
 - **Conclusion.** HL: uniform convergence, weak L² convergence of derivatives, ∂ in L∞ uniformly. T: g_λ = g0 + λ g(1) +
@@ -669,9 +679,10 @@ is two copies of Huneau and Luk's scalar (Proposition 2.1); the geometric-optics
 of the limit; the weak limit as null dust with Isaacson's flux; the time interval fixed in advance.
 
 **What changes.** One more dimension; a T²-mirror class whose orbits degenerate on two axes, so that the reduced system
-cannot be used there; a large black-hole background in place of small data, so that the trapped region and a
-spacelike inner boundary are inside the domain; data before the shell reaches the hole rather than at past null
-infinity or on a maximal slice; one family of dust, not many.
+cannot be used there; a large black-hole background in place of small data, so that the trapped region and a spacelike
+inner boundary are inside the domain; Cauchy data before the shell reaches the hole, and by Theorem 2 data at past null
+infinity, which none of the three poses, rather than on a maximal slice or characteristic hypersurfaces; one family of
+dust, not many.
 
 **What the proof needed beyond theirs.** (1) An approximant of every order (Theorem A), so that the nonlinear terms
 are beaten by λ and only a linear estimate on the large background must be uniform; (2) the phase-shift identity
@@ -1651,7 +1662,7 @@ Paths are relative to the root of the research tree.
 - R3: K = 72μ²/r⁸, for constant μ and for μ(v); x_K = 1 at r_q; r_q ≤ √μ iff μ ≥ √72 l5². Controls: 48 in place of
   72 in either computation.
 - R4: ℓ null and geodesic; the contractions of Proposition 2.2(d). Control: dv − 2 dr is not null.
-- R5: (5.6): ρ parabolic in a, J symmetric hyperbolic in (w, q), S, the speeds, θ³H. Control: a γ in place of
+- R5: (5.6): ρ parabolic in α, J symmetric hyperbolic in (ϖ, q), S, the speeds, ϑ³H. Control: α γ in place of
   a dr² brings ∂_r² a into ρ.
 - R6: h²(c⁴ + s⁴) = 1; 4(a² + ab + b²) = (2a + b)² + 3b²; (3.1). Controls, each run on its own: h = 1;
   (2a + b)² + 2b²; r + r_q in place of r − r_q; √48 in place of √72.
@@ -2313,7 +2324,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | --- | --- |
 | `paper/response5.py` | `42571e97deee86b5dd0f9c8e0d4fbad7` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `ab201bc5c04dae80a3160ac33021f511` |
+| `docket68/n1star/N1STAR-LOG.md` | `3067ea0ce0f70b2eaf2323692b3d8680` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2343,7 +2354,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/lowenergy5.py` | `b8eae0d5730b39836cbe21cb1ec2c46d` |
 | `docket68/n1star/hung4.py` | `7f3d68853fde8bda4ff383dc039dadfe` |
 | `docket68/n1star/data5.py` | `9404eb2d500b5b5fc810ee136bea2272` |
-| `docket68/lemmas/hf_theorem5.py` | `81e96f5af9eb31fc80669d582763d5be` |
+| `docket68/lemmas/hf_theorem5.py` | `7d146a8a610dc709d6ab5484756d4cc8` |
 | `docket68/lemmas/counterpart5.py` | `e7dcf7bf898c2147492d28c5fb888d18` |
 | `docket68/lemmas/kn_gauge.py` | `7e9e9ef8ec12e670f1717ec4fe8bd491` |
 | `docket68/lemmas/hf_core5.py` | `84b715eb461838abcb5e018cd455eb5c` |
