@@ -10,7 +10,7 @@ frame e4 = Omega^-1 d_v, e3 = Omega^-1 (d_u + b d_x), ex = gamma^-1/2 d_x, and [
 etab = -h(D_4 ex, e3)/2, omega = -h(D_4 e3, e4)/4, omegab = -h(D_3 e4, e3)/4, zeta = h(D_x e4, e3)/2.
 
   N0 (exact) the frame is null/orthonormal; the coefficients are
-         chi = e^-w c_v,  chib = e^-w (c_u + b c_x + b_x),  omega = e^-w w_v/2 ... (printed);  b_x enters chib only.
+         chi = e^-w c_v,  chib = e^-w (c_u + b c_x + b_x),  omega = -e^-w w_v/2 ... (printed);  b_x enters chib only.
   N1 (exact) Raychaudhuri, both directions:  e4 chi + chi^2 + 2 omega chi = -Ric_44,  e3 chib + chib^2 + 2 omegab chib
      = -Ric_33  ([Wu26] (2.2) with |chi|^2 = chi^2).
   N2 (exact) torsion:  e4 eta = -chi (eta - etab) - Ric_x4,  e3 etab = -chib (etab - eta) - Ric_x3  ([Wu26] (2.5), with
@@ -50,6 +50,20 @@ etab = -h(D_4 ex, e3)/2, omega = -h(D_4 e3, e4)/4, omegab = -h(D_3 e4, e3)/4, ze
 """
 import sys, time, itertools
 import sympy as sp
+
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
 
 u, v, x = sp.symbols('u v x', real=True)
 X3 = [u, v, x]
@@ -135,14 +149,14 @@ def main():
            'zeta': ip(D(EX, E4), E3) / 2}
     form = {'chi': sp.exp(-w) * sp.diff(c, v),
             'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
-            'omega': sp.exp(-w) * sp.diff(w, v) / 2, 'omegab': sp.exp(-w) * (sp.diff(w, u) + b * sp.diff(w, x)) / 2,
+            'omega': -sp.exp(-w) * sp.diff(w, v) / 2, 'omegab': -sp.exp(-w) * (sp.diff(w, u) + b * sp.diff(w, x)) / 2,
             'zeta': -sp.exp(c - 2 * w) * sp.diff(b, v) / 4,
             'eta': -sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x),
             'etab': sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x)}
     res = {k: zero(psi[k] - form[k]) for k in form}
     good &= all(res.values())
     print('N0 frame null/orthonormal, and the Ricci coefficients:', 'PASS' if good else 'FAIL', res)
-    print('   chi = e^-w c_v, chib = e^-w (c_u + b c_x + b_x), omega = e^-w w_v/2, omegab = e^-w (w_u + b w_x)/2,\n'
+    print('   chi = e^-w c_v, chib = e^-w (c_u + b c_x + b_x), omega = -e^-w w_v/2, omegab = -e^-w (w_u + b w_x)/2,\n'
           '   zeta = -e^{c-2w} b_v/4, eta = zeta + e^-c w_x, etab = -zeta + e^-c w_x.  b_x appears in chib only.')
     ok &= good
     P = {k: psi[k] for k in psi}

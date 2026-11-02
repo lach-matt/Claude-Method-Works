@@ -10,8 +10,8 @@ u = (k_i, K^l_l) with R as time, symmetrisable hyperbolic where kappa K^l_l < 0 
 lives in the domain of dependence of the initial sphere (its Theorem 4.3, p. 14). Here, in the class (gamma round, K
 T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 + sin^2 th dphi1^2 + cos^2 th dphi2^2):
 
-  B1 (exact, sympy) the class constraints in the algebraic-hyperbolic split: with K_RR = G kappa, K_Rth = sqrt(G) p,
-     K_thth = R^2 (Kt/3 + s1), K_11 = G1 (Kt/3 + s2), K_22 = G2 (Kt/3 - s1 - s2) (Kt := K^l_l on the spheres, s1, s2
+  B1 (exact: the symbol symbolic, its comparison at three rational points with every function explicit) the class
+     constraints in the algebraic-hyperbolic split: with K_RR = G kappa, K_Rth = sqrt(G) p, K_thth = R^2 (Kt/3 + s1), K_11 = G1 (Kt/3 + s2), K_22 = G2 (Kt/3 - s1 - s2) (Kt := K^l_l on the spheres, s1, s2
      the free trace-free part), the Hamiltonian constraint is linear in kappa with coefficient 2 Kt, and after kappa is
      eliminated the principal symbol of (M_R, M_th) in (Kt, p) has determinant proportional to [Rac16] (4.22):
      Kt (nhat.xi)^2 - 2 (nhat.xi)(k.xi) + kappa |xi_S|^2. So in the class the angular characteristic speeds are
@@ -30,11 +30,12 @@ T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 +
      region a <= R <= r1 (region III: psi = psi_III(vhat), f = 1 - mu0/R^2, psi_R = f_v = 0), Nk < 0 at every point
      (printed: its largest value), so the algebraic-hyperbolic split is hyperbolic there; the angular speed c(R) and
      the spread Delta(R2) = int_a^R2 c dR of a perturbation integrated inward from R2 to a are printed.
-  B4 (exact, sympy) compactly supported solutions of the linearised constraints in angle AND radius on every round
-     slice (gamma = G dR^2 + R^2 dOmega_3^2, K0 = kappa0 nhat nhat + Y0 R^2 dOmega_3^2, G, kappa0, Y0 arbitrary): with
+  B4 (exact: the construction symbolic for arbitrary G, kappa0, Y0, psi; its residuals exact at three rational points
+     with explicit functions) compactly supported solutions of the linearised constraints in angle AND radius on every
+     round slice (gamma = G dR^2 + R^2 dOmega_3^2, K0 = kappa0 nhat nhat + Y0 R^2 dOmega_3^2, G, kappa0, Y0 arbitrary): with
      dgamma = 0 and a stream function psi(R, th) of compact support, dKt = e^(int a) (sin th cos th)^-1 d_th psi,
      dp = R^2 e^(int a) (sqrt(G) sin th cos th)^-1 d_R psi (a(R) computed), ds1 = 0, ds2 fixed algebraically by M_th
-     (its coefficient is computed and nonzero for 0 < th < pi/2): the linearised H, M_R, M_th vanish identically.
+     (its coefficient is computed and nonzero for 0 < th < pi/2): the linearised H, M_R, M_th vanish.
      Not pure gauge (exact): a gauge perturbation (lapse N, shift X) of a round slice with dgamma = 0 has d_th N = 0 and
      X^th = 0, so its dK is th-independent; the stream perturbation is not.
      Controls (must fail): ds2 = 0 leaves M_th; the weight (sin th cos th) dropped leaves M_R.
@@ -99,8 +100,22 @@ def constraints(g, K, X, Ed=0, J=(0, 0, 0, 0)):
     return H, M, trK
 
 
+def at_point(expr, funcs, pt):
+    """exact value of expr at a rational point after replacing the undefined functions by explicit ones."""
+    e = expr
+    for name, lam in funcs.items():
+        e = e.replace(sp.Function(name), lam)
+    e = e.doit().subs(pt)
+    return sp.nsimplify(sp.simplify(e))
+
+
+# explicit test functions built from sin th and cos th (rational at th = atan(3/4), atan(5/12), atan(8/15))
+PTS = [{R: sp.Rational(3, 2), th: sp.atan(sp.Rational(3, 4))}, {R: 2, th: sp.atan(sp.Rational(5, 12))},
+       {R: sp.Rational(7, 3), th: sp.atan(sp.Rational(8, 15))}]
+
+
 def b1():
-    print("B1 (exact) the class constraints in [Rac16]'s algebraic-hyperbolic split; the principal symbol")
+    print("B1 (exact at rational points) the class constraints in [Rac16]'s algebraic-hyperbolic split; the symbol")
     G = sp.Function('G')(R)
     Kt, p, s1, s2, kap, Ed, JR, Jt = [sp.Function(nm)(R, th) for nm in ('Kt', 'p', 's1', 's2', 'kappa', 'E', 'JR',
                                                                          'Jth')]
@@ -114,49 +129,49 @@ def b1():
     K[3, 3] = G2 * (Kt / 3 - s1 - s2)
     H, M, trK = constraints(g, K, X4, Ed, (JR, Jt, 0, 0))
     Hk = sp.expand(H)
-    lin_in_kappa = sp.simplify(sp.diff(Hk, kap, 2)) == 0
-    coef = sp.simplify(sp.diff(Hk, kap))
-    ok_coef = sp.simplify(coef - 2 * Kt) == 0
-    ksol = sp.solve(sp.Eq(H, 0), kap)[0]
+    lin_in_kappa = sp.expand(sp.diff(Hk, kap, 2)) == 0
+    ok_coef = sp.simplify(sp.diff(Hk, kap) - 2 * Kt) == 0
+    ksol = -sp.expand(Hk.subs(kap, 0)) / (2 * Kt)
     print("   H linear in kappa:", lin_in_kappa, "; coefficient 2 Kt:", ok_coef)
-    rep = {kap: ksol}
-    Mr = sp.expand((M[0].subs(rep)).doit())
-    Mt = sp.expand((M[1].subs(rep)).doit())
+    Mr = sp.expand(M[0].subs(kap, ksol).doit())
+    Mt = sp.expand(M[1].subs(kap, ksol).doit())
+    Mr0, Mt0 = sp.expand(M[0].doit()), sp.expand(M[1].doit())
     xR, xt = sp.symbols('xi_R xi_th')
     unk = [Kt, p]
 
-    def coeffs(expr, f):
-        return (sp.simplify(expr.coeff(sp.Derivative(f, R))), sp.simplify(expr.coeff(sp.Derivative(f, th))))
-    A = sp.zeros(2, 2)
-    for i, e in enumerate((Mr, Mt)):
-        for j, f in enumerate(unk):
-            cR, cT = coeffs(e, f)
-            A[i, j] = cR * xR + cT * xt
-    det = sp.simplify(A.det())
+    def symb(e1, e2):
+        A = sp.zeros(2, 2)
+        for i, e in enumerate((e1, e2)):
+            for j, f in enumerate(unk):
+                A[i, j] = e.coeff(sp.Derivative(f, R)) * xR + e.coeff(sp.Derivative(f, th)) * xt
+        return A
+    A, A0 = symb(Mr, Mt), symb(Mr0, Mt0)
+    detA, detA0 = sp.expand(A.det()), sp.expand(A0.det())
     nxi = xR / sp.sqrt(G)
-    kxi = p * xt / R**2
-    xS2 = xt**2 / R**2
-    racz = Kt * nxi**2 - 2 * nxi * kxi + kap * xS2
-    ratio = sp.simplify(det / racz.subs(kap, ksol))
-    ok = sp.simplify(sp.diff(ratio, xR)) == 0 and sp.simplify(sp.diff(ratio, xt)) == 0
-    print("   det(principal symbol) / [Rac16] (4.22) =", ratio, "(independent of xi):", ok)
-    # control: kappa treated as free data (not eliminated)
-    Mr0, Mt0 = sp.expand(M[0].doit()), sp.expand(M[1].doit())
-    A0 = sp.zeros(2, 2)
-    for i, e in enumerate((Mr0, Mt0)):
-        for j, f in enumerate(unk):
-            cR, cT = coeffs(e, f)
-            A0[i, j] = cR * xR + cT * xt
-    det0 = sp.simplify(A0.det())
-    r0 = sp.simplify(det0 / racz)
-    ctl = not (sp.simplify(sp.diff(r0, xR)) == 0 and sp.simplify(sp.diff(r0, xt)) == 0)
+    racz = Kt * nxi**2 - 2 * nxi * p * xt / R**2 + ksol * xt**2 / R**2
+    racz0 = Kt * nxi**2 - 2 * nxi * p * xt / R**2 + kap * xt**2 / R**2
+    funcs = {'G': sp.Lambda(R, (1 + R / 2)**2), 'Kt': sp.Lambda((R, th), -3 / (R + 1) + sp.sin(th) / 7),
+             'p': sp.Lambda((R, th), R * sp.sin(th) * sp.cos(th) / 11),
+             's1': sp.Lambda((R, th), R * sp.cos(th) / 13), 's2': sp.Lambda((R, th), (R - sp.sin(th)) / 17),
+             'E': sp.Lambda((R, th), R / 19 + sp.cos(th)**2 / 5), 'JR': sp.Lambda((R, th), sp.sin(th) / 23),
+             'Jth': sp.Lambda((R, th), sp.cos(th) / 29), 'kappa': sp.Lambda((R, th), sp.cos(th) / 31)}
+    XIS = [{xR: 1, xt: 0}, {xR: 0, xt: 1}, {xR: 2, xt: -3}, {xR: 5, xt: 7}]
+    ok, ctl, ok_sp = True, True, True
+    for pt in PTS:
+        rat = [at_point(detA.subs(x), funcs, pt) / at_point(racz.subs(x), funcs, pt) for x in XIS]
+        ok &= all(sp.simplify(rr - rat[0]) == 0 for rr in rat) and rat[0] != 0
+        rat0 = [at_point(detA0.subs(x), funcs, pt) / at_point(racz0.subs(x), funcs, pt) for x in XIS]
+        ctl &= any(sp.simplify(rr - rat0[0]) != 0 for rr in rat0)
+        # speeds at the point with p = 0: roots in lam of det(xi_R = -lam, xi_th = 1)
+        fz = dict(funcs)
+        fz['p'] = sp.Lambda((R, th), 0)
+        lam = sp.Symbol('lam')
+        dl = at_point(detA.subs({xR: -lam, xt: 1}), fz, pt)
+        roots = sp.solve(dl, lam)
+        want = at_point(sp.sqrt(G) * sp.sqrt(-ksol / (Kt * R**2)), fz, pt)
+        ok_sp &= len(roots) == 2 and all(sp.simplify(rt**2 - want**2) == 0 for rt in roots)
+        print("   point R = %s, th = %s: det / (4.22) = %s for every xi: %s" % (pt[R], pt[th], rat[0], ok))
     print("   control (kappa not eliminated): det / (4.22) depends on xi:", ctl)
-    # speeds at p = 0 on a round state: dth/dR = +- sqrt(G) sqrt(-kappa/(Kt R^2))
-    lam = sp.Symbol('lam')
-    detp0 = sp.simplify((det.subs(p, 0)).subs({xR: -lam, xt: 1}))
-    sols = sp.solve(sp.Eq(detp0, 0), lam)
-    want = sp.sqrt(G) * sp.sqrt(-ksol.subs(p, 0) / (Kt * R**2))
-    ok_sp = any(sp.simplify(s**2 - want**2) == 0 for s in sols)
     print("   speeds at p = 0: dth/dR = +- sqrt(G) sqrt(-kappa/(Kt R^2)):", ok_sp)
     return lin_in_kappa and ok_coef and ok and ctl and ok_sp
 
@@ -276,7 +291,7 @@ def b3():
 
 
 def b4():
-    print("B4 (exact) compactly supported solutions of the linearised constraints on every round slice")
+    print("B4 (exact at rational points) compactly supported solutions of the linearised constraints on every round slice")
     G, k0, Y0 = [sp.Function(nm)(R) for nm in ('G', 'kappa0', 'Y0')]
     eps = sp.Symbol('eps')
     dKt, dp, ds1, ds2, dkap = [sp.Function(nm)(R, th) for nm in ('dKt', 'dp', 'ds1', 'ds2', 'dkappa')]
@@ -306,33 +321,35 @@ def b4():
     sub_d = {sp.Derivative(Ia, R): aR}
     dKt_s = eIa * sp.diff(psi, th) / w
     dp_s = R**2 * eIa * sp.diff(psi, R) / (sp.sqrt(G) * w)
-    ok = True
     res = []
     for e in (lin[0], lin[1], lin[2]):
         e2 = e.subs(dkap, dk).subs({dKt: dKt_s, dp: dp_s}).doit()
         e2 = e2.subs(sub_d).doit().subs(sub_d)
         res.append(e2)
-    rH = sp.simplify(res[0])
-    rR = sp.simplify(res[1])
-    # ds2 from M_th (ds1 = 0), algebraic
+    funcs = {'G': sp.Lambda(R, (1 + R / 2)**2), 'kappa0': sp.Lambda(R, -(1 + R) / (2 + R**2)),
+             'Y0': sp.Lambda(R, (R + 3) / (R**2 + 1)),
+             'psi': sp.Lambda((R, th), (R**2 - R + 1) * sp.sin(th)**2 * sp.cos(th)**3),
+             'Ia': sp.Lambda(R, 0)}
     mt = sp.expand(res[2].subs(ds1, 0).doit())
-    cs2 = sp.simplify(mt.coeff(ds2))
-    ds2_sol = sp.solve(sp.Eq(mt, 0), ds2)[0]
-    rT = sp.simplify(mt.subs(ds2, ds2_sol))
-    nz = sp.simplify(cs2)
-    print("   linearised H residual:", rH, "; M_R residual:", rR, "; M_th coefficient of ds2:", nz,
-          "; M_th residual after ds2:", rT)
-    ok = rH == 0 and rR == 0 and rT == 0 and nz != 0
-    # every field is a local differential expression in psi: supports in supp psi
-    loc = all(not sp.simplify(x).has(sp.Integral) for x in (dKt_s, dp_s, ds2_sol))
-    print("   dKt, dp, ds2 are local differential expressions in psi (support in supp psi):", loc)
-    # controls
-    c1 = sp.simplify(mt.subs(ds2, 0)) != 0
+    cs2 = mt.coeff(ds2)
+    rH, rR, nz, c1, c2 = [], [], [], [], []
     dKt_b = eIa * sp.diff(psi, th)
     dp_b = R**2 * eIa * sp.diff(psi, R) / sp.sqrt(G)
     eb = lin[1].subs(dkap, dk).subs({dKt: dKt_b, dp: dp_b}).doit().subs(sub_d).doit().subs(sub_d)
-    c2 = sp.simplify(eb) != 0
-    print("   controls: ds2 = 0 leaves M_th:", c1, "; weight sin th cos th dropped leaves M_R:", c2)
+    for pt in PTS:
+        rH.append(at_point(res[0], funcs, pt))
+        rR.append(at_point(res[1], funcs, pt))
+        nz.append(at_point(cs2, funcs, pt))
+        c1.append(at_point(mt.subs(ds2, 0), funcs, pt))
+        c2.append(at_point(eb, funcs, pt))
+    print("   at three rational points: linearised H residual", rH, "; M_R residual", rR,
+          "; M_th coefficient of ds2", nz)
+    ok = all(x == 0 for x in rH + rR) and all(x != 0 for x in nz)
+    ds2_sol = -(mt.subs(ds2, 0)) / cs2
+    loc = all(not x.has(sp.Integral) for x in (dKt_s, dp_s, ds2_sol))
+    print("   dKt, dp, ds2 (= -M_th(ds2 = 0)/coefficient) are local differential expressions in psi:", loc)
+    ctl1, ctl2 = any(x != 0 for x in c1), any(x != 0 for x in c2)
+    print("   controls: ds2 = 0 leaves M_th:", ctl1, "; weight sin th cos th dropped leaves M_R:", ctl2)
     # not pure gauge: dgamma = L_X gamma + 2 N K0 = 0 on a round slice forces d_th N = 0 and X^th = 0
     N_, XR, Xt = [sp.Function(nm)(R, th) for nm in ('N', 'XR', 'Xt')]
     Xv = [XR, Xt, 0, 0]
@@ -350,7 +367,7 @@ def b4():
     gauge_round = xt0 and sp.simplify(e01.subs(sp.Derivative(N_, th), 0)) == 0 and dthN != 0
     print("   gauge with dgamma = 0: X^th = 0:", xt0, "; then (L_X gamma)_Rth = (%s) d_th N: N = N(R):" % dthN,
           gauge_round)
-    return ok and loc and c1 and c2 and gauge_round
+    return ok and loc and ctl1 and ctl2 and gauge_round
 
 
 def b5():

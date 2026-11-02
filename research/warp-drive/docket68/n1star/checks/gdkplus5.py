@@ -9,8 +9,8 @@ root of round 5 is computed here, each with a control that mutates the computed 
      (t r^4), which is exactly the b-density (II.F' (1.6), (1.7)).  A function rho_+^A rho_K^B lies in rho_+^w1 rho_K^w2
      L^2_b near the corner iff A > w1 and B > w2.  So R2.5's source class (3b (a_sf + 2, 0)) is the b-class (g + 2, 1/2)
      with g := a_sf + 5/2, its window a_sf + 2 in (0, 1) is g - 1/2 in (0, 1), its solution weight -1 (3b) is -1/2 =
-     1/2 - 1 (b), and a b-weight a_K at K+ is the pointwise rate t^-a_K on compact sets: a_K = 1/2 + kappa.  Control: n = 3
-     gives the shift 2 at iota+, not 5/2.
+     1/2 - 1 (b), and a b-weight a_K at K+ is the pointwise rate t^-a_K on compact sets: a_K = 1/2 + kappa.
+     Control: n = 3 gives the shift 2 at iota+, not 5/2.
   Q2 (exact) The zero-energy gap of Box and the window.  r^2(-Delta) on r^-q Y_l in R^n has the indicial roots q = -l,
      l + n - 2 (on Cartesian components; the 1-form coupling is rho^2-relative, gdext5.py E1-E2).  In mu_b-weights (rho^q
      in rho^w L^2_b iff q > w; III.H's weight alpha on L^2(dx) is the mu_b-weight alpha + n/2) the root-free interval
