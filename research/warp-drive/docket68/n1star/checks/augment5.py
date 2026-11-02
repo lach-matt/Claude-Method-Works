@@ -7,8 +7,9 @@ gradient), its expansion th_A, its density q_A = F_A^2. P_A := g^-1 p_A. Equatio
   Ric^H(g) = T := sum_A q_A p_A p_A;  nabla_(P_A) p_A = 0;  P_A(q_A) = -th_A q_A;
   P_A(th_A) = -(th_A - k_A1 - k_A2)^2 - k_A1^2 - k_A2^2 - T(P_A, P_A),   k_Ai := g^-1(p_A, d psi_i)   (classchi5 (R)).
 
-  S1 (computed, a derivative ledger) with the energy at order m (d^j of dg, p_A, th_A, q_A in L^2 for j <= m), every
-     source is at order m in the class off the axes: the sources are built in sympy from jet symbols and the highest
+  S1 (deduced: a hand-typed derivative ledger whose levels sympy reads off; relabelled 2026-11-02 after the
+     independent reader, the sources and controls being typed, not derived) with the energy at order m (d^j of dg,
+     p_A, th_A, q_A in L^2 for j <= m), every source is at order m in the class off the axes: the sources are built in sympy from jet symbols and the highest
      derivative of each unknown in each source is read off. Controls (must fail): (a) the dust transport with th_A
      replaced by div P_A (no Raychaudhuri unknown) contains dp: order m - 1; (b) the general five-dimensional
      Raychaudhuri source |hess u|^2 = |dp|^2-type contains dp; (c) at an axis point kappa_2 = (1/a) d_3 p_3 + ...
@@ -21,7 +22,9 @@ gradient), its expansion th_A, its density q_A = F_A^2. P_A := g^-1 p_A. Equatio
      Christoffel term, P^b d_b p_a = 0, does not conserve N; Cartan's identity with a non-closed 2-form in place of dp.
   S3 (exact at jets) div T and tr T for one family: nabla^a T_ab = (P(q) + q div P) p_b + q (nabla_P p)_b and
      g^ab T_ab = q N; so under the augmented equations div T = -(th - div P) q p. Control (must fail): the density
-     transport P(q) = -th q/2 leaves a term not proportional to th - div P.
+     transport P(q) = -th q/2 leaves a term not proportional to th - div P. [Repaired 2026-11-02 after the independent
+     reader: the augmented equations are imposed on the jets at the point and the claim, its control and S5's are
+     compared with the div T computed from T, not with the formula itself.]
   S4 (exact algebra) with d := th - div P and the exact class identity (R) for div P = box u (classchi5 C3),
      P(d) = -d (th + div P - 2 k1 - 2 k2) - (T - Ric)(P, P): homogeneous in (d, T - Ric).
      Control (must fail): an augmented equation with the shear-free source -th^2/3 leaves an inhomogeneous term.
@@ -39,7 +42,7 @@ gradient), its expansion th_A, its density q_A = F_A^2. P_A := g^-1 p_A. Equatio
      an interval inside [-1, 1] that lies in (-oo, 0) where f < 0 (R = a trapped). So for EVERY family the transport
      boundary terms of the record's Lemma 2.4 have the record's sign (outer: b' - c <= -2 + 1; inner: c(a) < 0), and the
      angular speed is at most 1/R <= 1/a. Control (must fail): e^psi f = 1.9 (excluded by psi <= 0, f <= 1) gives R
-     |dOmega| > 1.
+     |dOmega| > 1. [Repaired 2026-11-02: the grid and the control evaluate the computed bounds, not a typed formula.]
 
 Labels: computed (exact, sympy and Fractions at jets via checks/jetpoly5.py; S7's bound also on a floating grid).
 Run: python3 checks/augment5.py   (under a minute)
@@ -294,12 +297,12 @@ def s7():
             if ff < 0:
                 trapped_ok &= hi < 0
     ok3 = worst_ang <= 1 + 1e-12 and worst_hi <= 1 + 1e-12 and trapped_ok
-    e_bad = 1.9
     ctl = float(sp.sqrt(qmax.subs({psi: 0, f: sp.Rational(19, 10)}))) > 1   # the computed bound, outside the class
     print("S7 max R^2|dOmega|^2 = e^psi/(2 - e^psi f):", ok1, "; dR in [-1, e^psi f/(2 - e^psi f)]:", ok2,
           "; on psi in [-3,0], f in [-5,1]: R|dOmega| <= %.6f, dR <= %.6f, dR < 0 where f < 0: %s"
           % (worst_ang, worst_hi, trapped_ok))
-    print("   control: e^psi f = 1.9 gives R|dOmega| up to %.4f > 1: %s" % (math.sqrt(1.0 / (2 - e_bad)), ctl))
+    print("   control: e^psi f = 1.9 gives R|dOmega| up to %.4f > 1: %s"
+          % (float(sp.sqrt(qmax.subs({psi: 0, f: sp.Rational(19, 10)}))), ctl))
     return ok1 and ok2 and ok3 and ctl
 
 
