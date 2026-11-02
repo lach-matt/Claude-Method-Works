@@ -7887,3 +7887,18 @@ without stating it (the smoothing profile must stay between -1 and 1), now state
 without it. The geometry that lets the local existence theorems apply inside the horizon is verified as exact
 identities, and the first-order correction to the boundary condition is computed, showing that the wave itself drops out
 of it. Six of the nine remain.
+
+**D599 (2026-11-02): three more of the nine steps computed, after two bugs of my own were caught.** The structure of the
+gauge-fixed field equations that makes only one coefficient large is now verified exactly; so are the phase-shift
+identity behind the proof's key lemma and the cancellation that removes the large coefficient from the decisive
+component, both on the actual leading-order wave. The first runs of the last two had silently dropped the very terms
+being tested: a deliberately broken control that should have failed passed, which is how the fault was found. With the
+helper fixed and a control that genuinely breaks the structure, the checks pass and the controls fail.
+
+**D600 (2026-11-02): the paper's third audit batch (the settling section) read and repaired.** The reader found one
+serious overstatement: a sentence claimed more for a gluing construction than the supporting text proves, and it now
+says what is and is not shown. The settling theorem's statement was brought into exact agreement with the supplement's
+(a missing quantifier, the full condition on a decay parameter), stale 'not computed' and 'open' phrases were updated, a
+decay rate of a linear tail was no longer presented as the nonlinear rate, a mode frequency was converted to the paper's
+sign convention, and several sentences that rested on the review record rather than on the proofs themselves were
+rewritten. Eight steps lacking computational support were listed and queued.

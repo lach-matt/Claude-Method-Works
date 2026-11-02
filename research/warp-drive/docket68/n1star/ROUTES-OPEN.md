@@ -6265,6 +6265,39 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   m_rr), ♯dΦ = ∂_v + (f − r_q′) ∂_r having no angular part, so W_TT drops out exactly; a wave with a dr dr part would
   enter (control). The paper cites each at its claim (sections 5.2, 5.4, 6) and in Appendices A, C, D. Left of the list:
   C1-C3, C5, C7, C9.
+- D599 (computational support, verifier 257's C1-C3; `checks/support5.py`, saved as `checks/support5.out`): C1, exact:
+  for random rational Lorentzian metrics the part of Ric^H linear in the second derivatives S of g is exactly −½ g^ab
+  S_ab,mn (supplement (0.2), READ from [CBCM10]), and the chain rule's λ⁻¹ part of ∂_a∂_b[λ G(x, v/λ)] is v_a v_b G_θθ;
+  so (5.1)'s only λ⁻¹ coefficient is ½ w(ℓ_app, ℓ_app) ∂_θ²g1. Control: Ric without the gauge term has other
+  second-derivative terms. C2, exact, on lead5.py's stage-0 profile W = W_TT + χ dv² with χ generic: λ P([∂_s W]) = ∂_s
+  Ric^H(g0 + λW) order by order, no order below λ⁻¹, λ⁻¹ part zero, and λ⁰ part, T(∂_s W), equal to ∂_s R^(0) in every
+  component, so zero under (E2) by lead5 L3-L4 (Lemma 5.1). Control: χ = 0 gives T ≠ 0. C3, exact: in P(φ[∂_s W]), φ
+  generic, the ℓ ⊗ ℓ (rr) component has no λ⁻¹ or lower term and no second derivative of φ at λ⁰ (supplement Lemma 3.3).
+  Control: an oscillating dr² component (W(ℓ, ℓ) ≠ 0) gives a λ⁻¹ term. Two bugs in the helper were found and fixed
+  before these were accepted: the ε-linear part was first rebuilt unexpanded, then extracted unexpanded at the end, so
+  negative λ orders read as zero; C3's first control (χ on dv dr) keeps W(ℓ, ℓ) = 0 and passed vacuously, which is how
+  the bug showed. The paper cites C1-C3 at (5.1), Lemma 5.1 and the contraction in section 5.2. Left of the list: C5, C7,
+  C9.
+- D600 (verifier 258, the paper's audit batch 3, section 8; 1 major, 10 minor, 8 nits; 13 citations READ at source,
+  settle5 T1-T4, class5, general5, iplus5, transfer5, uniform5, eind5, hthresh5 T5, gluing5, gammac5 and admiss5 run):
+  MAJOR: 'the gluing shows only that every such perturbation agrees on a large ball with one to which the theorem
+  applies' was unproved and against its own source (PART-VII-ASSEMBLY 449-451, 484-485); now 'would at most show … not
+  proved here', with the cost R^(ℓ0−3) of a bump at radius R. MINOR: Theorem 4 matched to Theorem 0.2 (the ε_m
+  quantifier, smooth data, ε_K's full condition, the file path); the horizon threshold no longer 'not computed'
+  (supplement 10.79, hthresh5.py); the linear tail t^−7 no longer 'the rate a nonlinear argument would carry' (Theorem
+  4's rate is t*^(−2−ε)); 'both steps' narrowed (the second replaced by the gluing, Theorem 4 not shown to apply to g_λ's
+  own data); the gauge comparison labelled verified, not proved; γ_Υ's two conventions stated; ε_ind's certificate exact
+  and its scan numerical (also in section 9); 'proved by enumeration' qualified by its assumption; references to the
+  record, the rows, a finding and 'an independent verifier' as authority removed, the parts' own texts the authority and
+  the readings notes; [AHW24] Theorem 6.1, p. 35; [Hin26] Theorem 7.1(1)-(4) and (1.43), p. 29; the least-damped mode
+  written σ r_h = 0.9477 − 0.2561i in this paper's e^(−iσt) convention. Nits: the four route items 'carried out below';
+  g_app versus g_λ; the profiles' vanishing after the shell cited; 'self-contained' narrowed; the write-out's α ∈ (4 +
+  ε_K − ε′₀, 4 + ε_K] and rate α − 2; the parameter point's values distinguished from the write-out's proved set. Seated
+  by a builder to a written list and read here before commit. COMPUTATIONAL SUPPORT MISSING, queued: (c1) the oscillating
+  profiles' vanishing after the shell; (c2) the 𝔟_e0 flux 6π²m and the glued mass; (c3) boosted Myers-Perry data's
+  expansion at ρ → 0; (c4) an enumeration for (VII5); (c5) the h-dependence of each at-point conclusion; (c6) ε_ind
+  certified by interval root isolation; (c7) Proposition 10.1's coefficients bounded uniformly in l; (c8) the squashing's
+  dφ1 dφ2 coefficient (the verifier computed it, ∝ (e^(−4B) − e^(2B)) c² s²; to be scripted).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
