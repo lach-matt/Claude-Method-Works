@@ -6,3 +6,9 @@
       Sigma_tau0: packet at R in [1.861, 3.412], horizon 0.907, shell from R = 3.825 (rule True);
       |g^-1(dvhat, du)| in [0.1805, 2.1277] where R^2 >= 1.5 mu, least 0.1312 over every computed cell (not
       converged: G4), on R = a at v = 0.5, 1, 1.5: 0.8914 0.4452 0.2389
+    n = 80: mu0 = 0.82211, outer mass after the shell 3.6058; structure errors (I, III, before, after) 7.0e-05 1.5e-02 1.5e-02 8.9e-04;
+      min(mu - mu0) on R >= a -9.91e-03; R = a: 161 of 161 columns v <= 2, trapped True, min mu - a^2 0.3320;
+      mu_III >= 0.82196; past-closedness margin 0.00e+00; diamond: min R 2.590, untrapped True, max mu 3.6057;
+      Sigma_tau0: packet at R in [1.861, 3.425], horizon 0.907, shell from R = 3.825 (rule True);
+      |g^-1(dvhat, du)| in [0.1384, 2.1277] where R^2 >= 1.5 mu, least 0.0713 over every computed cell (not
+      converged: G4), on R = a at v = 0.5, 1, 1.5: 0.8919 0.4464 0.2396
