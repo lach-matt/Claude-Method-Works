@@ -8,3 +8,10 @@ M2 PASS
       5.7e-12, 1.3e-11, 2.7e-11, 5.6e-11, alternating: True; log10 T_1455^(i)(1), i = 1..4: 6.3257, 12.1743, 17.8011,
       23.2817  [1 s]
 M3 PASS
+  M4 log10 M_m^(1/m) <= 5.8886632.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)
+      log10 Lam_5' <= -35.7427 (binding i = 4); with C^DS_(i,m) log10 Lam_5' <= -2.92333 (binding i = 4); log10
+      C^DS_(i,m), i = 1..4: 3.89663, 7.31163, 10.501, 13.5406.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) =
+      1.2519e-12, Lam_5') = 1.2519e-12.  With C^DS at every i <= 26: log10 C_eps <= 220.0618 (round 3: 613.2166), so
+      Lam_8b, Lam_8d <= 10^(-296.754) min(C_L11, C_L4)^(-4/3) and Lam_8c <= 10^(-38.4893) C_L11^(-1/11.5)
+M4 PASS
+lamL5b: all checks pass, every control fails  [48 s]
