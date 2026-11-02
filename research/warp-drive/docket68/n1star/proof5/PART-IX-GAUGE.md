@@ -1,11 +1,13 @@
 # Part IX: the linear solution is unique up to a linearised diffeomorphism, n = 4
 
 *Status.* Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its minor findings M1-M4 and
-nits N1-N5 are seated (finding (IX4)).
+nits N1-N5 are seated (finding (IX4)). Repaired (D610): a later reading found that $\nu$ vanishes near $\{r = r_0\}$, so
+that $\Sigma_{\mathrm{IVP}}$ is there the boundary of the region where $\dot g$ lives; the comparison is now posed on the
+future half of a Cauchy development that extends past $\Sigma_{\mathrm{IVP}}$ (finding (IX5)).
 
 Part VIII Remark 2.4 (a) records what Theorem 2.2 there does not assert: that a linearised solution given in another
-gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the Cauchy development of
-$\Sigma_{\mathrm{IVP}}$ in the region where $\dot g$ lives, which contains its whole future (Lemma 1.2). Every
+gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the whole future of
+$\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Lemma 1.2), the future half of a Cauchy development of $\Sigma_{\mathrm{IVP}}$. Every
 linearised vacuum solution whose data agree with $(\dot\gamma,\dot k)$ up to a linearised diffeomorphism is $\dot
 g+\mathcal L_Xg$ for a vector field $X$ (Corollary 2.3). So the linear stability of Part VIII holds in every gauge,
 modulo a linearised diffeomorphism. Nothing is asserted about the size or decay of $X$ (Remark 2.4).
@@ -19,9 +21,25 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
 
 - *The spacetime.* $g := g_{b_0}$ on $M$, the region $\{|x|\ge r_0\}$ in the coordinates $(t,x)$ of III.B, and $M^\circ
   := \{|x|>r_0\}$. $t_{\mathrm{IVP}}$ is III.B Lemma 3.7 (b)'s function and $\Sigma_{\mathrm{IVP}} :=
-  t_{\mathrm{IVP}}^{-1}(0)$; $\nu(r)$ is III.K Proposition 1.2's, positive, and $N := \{t_{\mathrm{IVP}}\ge-\nu(|x|)\}$
-  as in Part VIII section 0. Put $N^\circ := \{t_{\mathrm{IVP}}>-\nu(|x|)\}\cap M^\circ$ and $\Sigma^\circ :=
-  \Sigma_{\mathrm{IVP}}\cap M^\circ\subset N^\circ$.
+  t_{\mathrm{IVP}}^{-1}(0)$; $\nu(r)$ is III.K Proposition 1.2's, smooth and non-decreasing with $\nu = 0$ on
+  $[0,R_\nu]$, $R_\nu := \frac12(r_0+R)$ (III.K Proposition 1.2's proof), so $\nu\ge0$ but $\nu$ is not positive; and
+  $N := \{t_{\mathrm{IVP}}\ge-\nu(|x|)\}$ as in Part VIII section 0. On $\{|x|\le R_\nu\}$, then, $N$ ends at
+  $\Sigma_{\mathrm{IVP}}$, which is there part of its boundary, and $\dot g$ is not defined to its past. So the
+  comparison is posed in a region that extends past $\Sigma_{\mathrm{IVP}}$, where only $g$ is used, and the tensors
+  compared live on its future half. Put
+  $$U^\sharp := M^\circ\cap\{t_{\mathrm{IVP}}>-1\},\qquad\Sigma^\circ := \Sigma_{\mathrm{IVP}}\cap M^\circ\subset
+  U^\sharp,\qquad N^+ := M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}\subset N,$$
+  the inclusion as $\nu\ge0$. For an open $U\subset U^\sharp$ put $\Sigma_U := \Sigma_{\mathrm{IVP}}\cap U$ and $U_+ :=
+  U\cap\{t_{\mathrm{IVP}}\ge0\}$.
+
+- *Smooth up to $\Sigma_U$.* $U_+$ is a manifold with boundary $\Sigma_U$, as $dt_{\mathrm{IVP}}\ne0$. A tensor on
+  $U_+$ is *smooth up to $\Sigma_U$* if it is smooth on $U\cap\{t_{\mathrm{IVP}}>0\}$ and, in coordinates
+  $(t_{\mathrm{IVP}},y)$ near $\Sigma_U$, every derivative of its components extends continuously to $\Sigma_U$. Such a
+  tensor is the restriction to $U_+$ of a smooth tensor on an open neighbourhood of $U_+$ in $U$ (Seeley's extension
+  theorem [See64] in each chart $\{t_{\mathrm{IVP}}\ge0\}$, patched with a partition of unity subordinate to a cover of
+  $\Sigma_U$ by such charts). Part VIII's $\dot g$ is smooth on $N$ in this sense, up to its boundary; so its
+  restriction to $N^+$ is smooth up to $\Sigma^\circ$: where $\nu>0$, $\Sigma^\circ$ lies in the interior of $N$, and
+  where $\nu = 0$ it is part of the boundary of $N$.
 
 - *$\dot g$ lives on $N$.* $\Omega_*\cup\mathcal D = N$. Indeed $\Omega_* = \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.K
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
