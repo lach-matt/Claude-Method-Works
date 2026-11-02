@@ -67,8 +67,9 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '57d896ae1da4845f3c94c66d7b087a41'          # lzeroaudit5.py A0: md5 of lines 1-805 joined by newlines
-LAST = 805
+PIN = '6e8947ad2005ac587f9b632d0a1e8025'          # md5 of lines 1-812 (sections 0-6) joined by newlines (D614)
+LAST = 812                                         # was 805 (pin 57d896ae...) before D612/D614 added 7 lines at 87-93
+FILE_PIN = '02e7617602841a350a75349c44ab5fb6'     # the whole file at D614 (10853 lines), as the main session asked
 
 # the trace table: (term, factor, line, fragment found verbatim on that line, status)
 CERT, OPEN = 'certified here', 'not evaluated'
@@ -106,6 +107,22 @@ TRACE = [
      'keeps the iterates in the ball of radius 2 C0 lam^(N-2)', OPEN),
     ('D-a', 'N := K + 3 (P*: N = 9)', 795, 'N := K + 3', CERT),
 ]
+TRACE += [                                         # Round 4 (verifier m2, MAJOR A): pre-D612 numbering, as above
+    ('E-a', 'tau_end := max_{v <= V} (v - r_q(v))', 148, 'tau_end := max_{v <= V} (v - r_q(v))', CERT),
+    ('E-a', 'b(tau), the outer radius', 152, 'b(tau) = V + 1 - tau + (tau_end - tau)', CERT),
+    ('E-a', "mu' = (2/9) A^2 env^2 (mu_end)", 119, "on the background g0 with mu' = (2/9) A^2 env^2", CERT),
+    ('E-a', 'Lemma 2.3 takes eps1: |gt - g0| <= eps1', 215,
+     'Let gt be a Lorentzian metric on Omega with |gt - g0| <= eps1', CERT),
+    ('E-b', 'C_S (Lemma 2.1; certified in round 1, lzeroconst5 Z3)', 179,
+     '||f||_{L^inf} <= C sum_{i<=3} ||d_x^i f||', CERT),
+    ('E-d', 'C_R (E3)', 101, '|Ric^H(g_app)|_k (tau) <= C_R lam^K', OPEN),
+    ('E-d', 'C_D (E4)', 103, '<= C_D lam^K on', OPEN),
+    ('E-d', 'C2 (Steps 4-6)', 399, 'C2 independent of M and lam', OPEN),
+    ('D-a', 'C_c (Lemma 6.3\'s coefficients frozen at U_i)', 768, 'frozen at U_i they change by at most C lam^-1', OPEN),
+]
+TRACE = [(t, f, ln + 7 if ln > 86 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D612 + D614: +7 above line 86
+TRACE += [('E-a', "eps1 below g0's least absolute eigenvalue on Omega (D614)", 91,
+           "needs it below g0's least absolute eigenvalue on Omega", CERT)]
 TERMS = ['lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d']
 NEEDS = {
     'E-b': 'C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1\'s constant), M, eps2 (g_ext): the profiles',

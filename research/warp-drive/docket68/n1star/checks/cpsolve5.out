@@ -2,3 +2,5 @@ P1 Tangherlini, error of R at r > 1.5: 1.15e-02, 4.56e-04, 2.43e-04 (100, 200, 4
     3.41e-02, 2.90e-03 -> PASS
 P3 (reported) spurious max |m| on Tangherlini (the axis defect): 2.02e-02, 1.04e-03, 1.07e-04
    control (W_v in place of 2 W_v in the march): error ratio 0.78, errors 1.8e+00, 2.3e+00 -> fails (good)
+P2 record's data, v <= 1.5: |cpsolve5 - dnsolve5| 1.95e+00 (100 x 45) -> 1.34e-01 (200 x 90), ratio 14.60 -> PASS
+cpsolve5: all checks pass
