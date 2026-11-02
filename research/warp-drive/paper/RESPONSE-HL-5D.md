@@ -20,38 +20,39 @@ source, with identifier and page). "Proved" means proved in this sense, and noth
 ## Abstract
 
 Huneau and Luk proved that every generic, small-data, polarized U(1)-symmetric solution of the Einstein–null dust system
-is a weak limit of vacuum solutions on a fixed time interval, in an elliptic gauge in which smallness is needed even for
-local existence. We prove a five-dimensional counterpart on a large background. In the class of five-dimensional vacuum
-metrics with a T² isometry and both reflections, the Einstein equations reduce exactly to 2+1 gravity coupled to two
-free waves whose target metric, (3/2) dψ² + 2 dω², is flat and positive definite; this is Huneau and Luk's reduced
-system with one scalar replaced by two. The background is five-dimensional Vaidya, a black hole of mass μ0 that grows by
-an ingoing shell, and the domain runs from before the shell reaches the hole to the surface inside the horizon where the
-limit's curvature reaches a fixed scale (spacelike when μ0 > √72 l5²). For every amplitude A > 0 and every smooth
-compactly supported envelope, with no smallness of either, we construct a family of T²-symmetric vacuum metrics g_λ on
-that domain, of wavelength λ ≤ λ0, with |g_λ − g0| ≤ Cλ, ∂g_λ bounded, and ∂g_λ → ∂g0 weakly but not strongly, where g0
-is Vaidya with dμ/dv = (2/9) A² env²: Isaacson's flux, the null dust of one family. The proof uses the wave-map gauge
-relative to the limit itself and an approximate solution of arbitrarily high order, so that every nonlinear term is
-beaten by a power of λ rather than by the size of the data; what must be uniform in λ is then a linear estimate on the
-black-hole background, and its one large coefficient is removed by a phase-shift identity. The Cauchy data are
-constructed by solving the constraints outward in r as a parabolic–hyperbolic system from a sphere inside the shell.
-Part (iii) of the counterpart follows: on each column the outgoing expansion of the spheres {v, r = const} has one zero,
-converging at O(λ). So does a mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to
-O(λ²), by a quarter-turn symmetry of the two polarizations. The same solutions are constructed from the waves' free data
-at past null infinity, where before the shell they are the black hole exactly and their radiation field is the
-prescribed one at every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2),
-and the five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell
-passes and μ + (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate the numerics measure, with its coefficient.
-Beyond that domain, outside the black hole, we prove that in the class a continuation of their data beyond a ball about
-the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every perturbation of them
-without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black hole (Theorem 4).
-The proof is Hintz's proof of the nonlinear stability of Kerr carried into five dimensions and written out in full in
-the supplement: every section of his stability paper and of the companion papers that the route uses is proved at n =
-4, self-contained, from statements read at source that hold in every dimension, every input that depends on the
-dimension computed at Schwarzschild–Tangherlini and proved at nearby Myers–Perry parameters, and each part was read
-line by line by an independent reader, its findings repaired and the repairs read again. It replaces the censuses and
-the deductions by which an earlier version of this paper carried his arguments to five dimensions. The linear statement
--- the stability of five-dimensional Schwarzschild–Tangherlini against linearised perturbations, in the gauge of the
-nonlinear problem -- is proved with it, as the nonlinear theorem's linearisation. We list what is not proved, the
+with angularly separated dusts is a weak limit of vacuum solutions on a fixed time interval, in an elliptic gauge in
+which smallness is needed even for local existence. We prove a five-dimensional counterpart on a large background. In
+the class of five-dimensional vacuum metrics with a T² isometry and both reflections, the Einstein equations reduce
+exactly to 2+1 gravity coupled to two free waves whose target metric, (3/2) dψ² + 2 dω², is flat and positive definite;
+this is Huneau and Luk's reduced system with one scalar replaced by two. The background is five-dimensional Vaidya, a
+black hole of mass μ0 that grows by an ingoing shell, and the domain runs from before the shell reaches the hole to the
+surface, inside the horizon or on it, where the limit's curvature reaches a fixed scale (spacelike when μ0 > √72 l5²).
+For every amplitude A > 0 and every smooth compactly supported envelope, with no smallness of either, we construct a
+family of T²-symmetric vacuum metrics g_λ on that domain, of wavelength λ ≤ λ0, with |g_λ − g0| ≤ Cλ, ∂g_λ bounded, and
+∂g_λ → ∂g0 weakly but not strongly, where g0 is Vaidya with dμ/dv = (2/9) A² env²: Isaacson's flux, the null dust of one
+family. The proof uses the wave-map gauge relative to the limit itself and an approximate solution of arbitrarily high
+order, so that every nonlinear term is beaten by a power of λ rather than by the size of the data; what must be uniform
+in λ is then a linear estimate on the black-hole background, and its one large coefficient is removed by a phase-shift
+identity. The Cauchy data are constructed by solving the constraints outward in r as a parabolic–hyperbolic system from
+a sphere inside the shell. When μ0 > √72 l5², on each column the outgoing expansion of the spheres {v, r = const} has at
+most one zero, exactly one on the columns that reach across the limit's horizon, converging to it at O(λ). So does a
+mean-mass rate: after the shell, the mass of every sphere {v, r = const} is the limit's to O(λ²), by a quarter-turn
+symmetry of the two polarizations. Solutions with the same properties are constructed from the waves' free data at past
+null infinity, where before the shell they are the black hole exactly and their radiation field is the prescribed one at
+every λ (Theorem 2). At past null infinity they admit Bondi coordinates and an expansion in r^(−1/2), and the
+five-dimensional Bondi mass law holds for them (Theorem 3): their Bondi mass is μ(v) + O(λ) while the shell passes and μ
++ (2/9) λ² A² ∫ env'² + O(λ³) after it, the second-order rate measured on a numerical solution (section 6), with its
+coefficient. Beyond that domain, outside the black hole, we prove that in the class a continuation of their data beyond
+a ball about the hole settles at late times to five-dimensional Schwarzschild–Tangherlini, and that every perturbation
+of them without symmetry that is small in Hintz's data class settles to a slowly rotating Myers–Perry black hole
+(Theorem 4). The proof is Hintz's proof of the nonlinear stability of Kerr carried into five dimensions and written out
+in full in the supplement: every section of his stability paper and of the companion papers that the route uses is
+proved at n = 4, self-contained, from statements read at source that hold in every dimension, every input that depends
+on the dimension computed at Schwarzschild–Tangherlini and proved at nearby Myers–Perry parameters, and each part was
+read line by line by an independent reader, its findings repaired and the repairs read again. It replaces the censuses
+and the deductions by which an earlier version of this paper carried his arguments to five dimensions. The linear
+statement -- the stability of five-dimensional Schwarzschild–Tangherlini against linearised perturbations, in the gauge
+of the nonlinear problem -- is proved with it, as the nonlinear theorem's linearisation. We list what is not proved, the
 application at physical wavelengths among it.
 
 ---
@@ -104,9 +105,10 @@ and 7.2 but such that the limiting solution is far away from Minkowski spacetime
 We prove the counterpart of Theorem 4.2 in five dimensions, for one family of null dust, on a background that is far
 from Minkowski: a black hole growing by an ingoing shell, on a fixed domain that reaches inside the horizon to the
 surface where the limit's curvature reaches a fixed scale (Theorem 1, section 3). It is an instance of Problem 8.6 in a
-five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which concerns four dimensions. The same
-solutions are also constructed from the waves' free data at past null infinity (Theorem 2, section 3), and at past null
-infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field (Theorem 3, section 3).
+five-dimensional symmetry class, not an answer to Problem 8.6 as posed, which concerns four dimensions. Solutions with
+the same properties are also constructed from the waves' free data at past null infinity (Theorem 2, section 3), and at
+past null infinity they obey the five-dimensional Bondi mass law with the prescribed radiation field (Theorem 3, section
+3).
 
 Beyond that domain, and outside the black hole, we prove that in the class a continuation of their data beyond a ball
 about the hole settles at late times to five-dimensional Tangherlini of a nearby mass, and that their perturbations
@@ -124,12 +126,13 @@ the dimension, and the completeness of the censuses was evidenced by two methods
 census of the source papers; its own three completeness claims are settled by enumeration and by a reading (section
 8.8).
 
-The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity
-coupled to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an
-approximate solution by geometric optics and correct it on a fixed interval; both conclude with uniform convergence of
-the metric and weak, not strong, convergence of its derivatives, the defect being null dust. They differ in what is
-large: Huneau and Luk allow any finite number of angularly separated dusts on a small background; we allow one dust on
-a large one, and the amplitude of the waves is not small either.
+The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity coupled
+to free waves with a flat, positive-definite target (Proposition 2.1 here; [HL18] (1.3)); both build an approximate
+solution by geometric optics and correct it on a fixed interval; both conclude with uniform convergence of the metric
+and weak, not strong, convergence of its derivatives (in Huneau and Luk, of the 3+1 metric; their reduced metric's
+derivatives converge uniformly, [HL18] Remark 4.3, p. 10), the defect being null dust. They differ in what is large:
+Huneau and Luk allow any finite number of angularly separated dusts on a small background; we allow one dust on a large
+one, and the amplitude of the waves is not small either.
 
 ### 1.4 Why five dimensions and a black hole
 
@@ -196,7 +199,8 @@ the slices {τ = const} are spacelike everywhere, and the lines of constant x ar
     [L0, □̃] u = (2/r)(□̃ u + (∂_τ + ∂_r) L0 u) − (3/r²) ∂_r u,                                          (2.4)
 
 the mass dropping out (ks5.py K3, checked on every monomial of degree ≤ 3 with a symbolic base point). This is the
-five-dimensional form of Touati's commutator lemma (READ, [Tou23a] Lemma 3.1, p. 21), here an exact identity.
+five-dimensional form of Touati's commutator lemma ([Tou23a] Lemma 3.1, p. 21, which bounds [L0, □]f by ∂L0 f, □f and
+∂f), here an exact identity.
 
 ### 2.3 The curvature boundary and the domain
 
@@ -216,11 +220,17 @@ of dependence of Σ_τ0 ∩ Ω, and so is every C⁰-small perturbation of g0 (s
 ### 2.4 The waves and their average
 
 The waves are two polarizations a quarter turn apart, with amplitude A, envelope env(v) supported in [v_start, v_end],
-angular profile h(ζ) = √(2/(1 + ζ²)) on the orbit space (ζ = cos 2θ, c² = (1 + ζ)/2, s² = (1 − ζ)/2; the programs
-call ζ "x") and phase v/λ; at past null infinity their free data are F = λ A env(v) h(ζ) sin(v/λ),
-G = λ A env(v) h(ζ) cos(v/λ). In the gauge of
-section 2.5 the leading wave W_TT is traceless, transverse to ℓ, of amplitude r^(−3/2), and smooth at both axes
-(computed, `docket68/n1star/ansatz5.py` A3).
+angular profile h(ζ) = √(2/(1 + ζ²)) on the orbit space (ζ = cos 2θ, c² = (1 + ζ)/2, s² = (1 − ζ)/2; the programs call ζ
+"x") and phase v/λ; at past null infinity their free data are F = λ A env(v) h(ζ) sin(v/λ), G = λ A env(v) h(ζ)
+cos(v/λ). In the gauge of section 2.5 the leading wave W_TT is traceless, transverse to ℓ, of amplitude r^(−3/2), and
+smooth at both axes (computed, `docket68/n1star/ansatz5.py` A3). Explicitly, with c = cos θ and s = sin θ on the orbit
+space (the round metric of S³ being dθ² + c² dφ1² + s² dφ2²) and the profile taken at the phase θ-variable v/λ,
+
+    λ W_TT = 2 r^(1/2) (c² p1 dφ1² + s² p2 dφ2² − (p1 + p2) dθ²),   p1 := (2c² G − s² F)/3,   p2 := (2s² F − c² G)/3,
+                                                                                                         (2.5′)
+
+traceless on the spheres and with no dv or dr component (computed: the components are those of the supplement's
+programs, `data5.py` and `ansatz5.py` A3, and of Theorem M (b) of its section 11).
 
 **Proposition 2.3 (the limit; computed: `docket68/n1star/lead5.py` L2; `docket68/lemmas/hf_theorem5.py` F3;
 `paper/response5.py` R6).** The θ-mean of the leading equation of the two-scale expansion (section 4) vanishes exactly
@@ -242,21 +252,22 @@ The gauge is the wave-map gauge relative to g0 itself. For a Lorentzian metric g
                  = −(1/2) g^(ab) ∂_a ∂_b g_mn + Q_mn(X; g)(∂g, ∂g),                                               (2.7)
 
 ∇̂ the connection of g0 and Q a quadratic polynomial in ∂g, with a linear and a constant part (Ric^H(g0) = Ric(g0) ≠ 0
-needs one), whose coefficients are rational in g and smooth in X on r > 0 (READ: [CBCM10] (2.7)–(2.9), arXiv HTML,
-unpaginated, in n + 1 dimensions, formulae transcribed: "R_(α β) = R^(H)_(α β) + 1/2 (g_(α λ) D̂_β H^λ + g_(β λ)
-D̂_α H^λ)", "R^(H)_(α β) = −1/2 g^(λ μ) D̂_λ D̂_μ g_(α β) + f̂[g, D̂ g]_(α β)", f̂ "independent of the second
-derivatives of g"). D and Ric^H are built from g and g0 alone, so they are invariant under the isometries of g0, which
-include T² and both reflections. Ric^H(g) = 0 is a quasilinear wave system, D(g0) = 0, Ric^H(g0) = Ric(g0), and a
-solution with D = 0 is vacuum.
+needs one), whose coefficients are rational in g and smooth in X on r > 0 (READ: [CBCM10] (2.7)–(2.9), arXiv v1 PDF p.
+8, in n + 1 dimensions, formulae transcribed: "R_(α β) = R^(H)_(α β) + 1/2 (g_(α λ) D̂_β H^λ + g_(β λ) D̂_α H^λ)",
+"R^(H)_(α β) = −1/2 g^(λ μ) D̂_λ D̂_μ g_(α β) + f̂[g, D̂ g]_(α β)", f̂ "independent of the second derivatives of g"). D
+and Ric^H are built from g and g0 alone, so they are invariant under the isometries of g0, which include T² and both
+reflections. Ric^H(g) = 0 is a quasilinear wave system, D(g0) = 0, Ric^H(g0) = Ric(g0), and a solution with D = 0 is
+vacuum.
 
 ---
 
 ## 3. The theorem
 
-**Theorem 1 (the five-dimensional counterpart).** Let l5 > 0, μ0 ≥ √72 l5², A > 0 and env ∈ C_c^∞([v_start, v_end]), and
-let g0 be the Vaidya metric (2.3) with μ(v) = μ0 + (2/9) A² ∫_(−∞)^v env². Fix T > 0, τ0 with v_start − τ0 > √μ0 + 1,
-and K ≥ 6. There are λ0 > 0 and C, depending on (l5, μ0, A, env, T, τ0, K) and the inner radius a of Ω, and not on λ,
-such that for every λ ∈ (0, λ0] there is a smooth Lorentzian metric g_λ on Ω ⊃ D_T ∩ {τ ≥ τ0} with:
+**Theorem 1 (the five-dimensional counterpart; deduced, supplement sections 1–8, as summarized below).** Let l5 > 0, μ0
+≥ √72 l5², A > 0 and env ∈ C_c^∞([v_start, v_end]), and let g0 be the Vaidya metric (2.3) with μ(v) = μ0 + (2/9) A²
+∫_(−∞)^v env². Fix T > 0, τ0 with v_start − τ0 > √μ0 + 1, and K ≥ 6. There are λ0 > 0 and C, depending on (l5, μ0, A,
+env, T, τ0, K) and the inner radius a of Ω, and not on λ, such that for every λ ∈ (0, λ0] there is a smooth Lorentzian
+metric g_λ on Ω ⊃ D_T ∩ {τ ≥ τ0} with:
 
 1. **Vacuum and symmetry.** Ric(g_λ) = 0 on Ω, and g_λ is invariant under the T² action and both reflections. 2.
 **Data.** On Σ_τ0, the Cauchy data of g_λ satisfy the vacuum constraints exactly, equal the data of the seed
@@ -267,35 +278,35 @@ g_app = g0 + λ [g1] + Σ_(j=2)^N λ^j [g_j] with smooth profiles g_j(X, θ), 2�
 **Convergence.** |g_λ − g0| ≤ C λ and |∂g_λ| ≤ C on Ω; ∂g_λ − ∂g0 = dv ⊗ [∂_θ g1] + O(λ), so ∂g_λ → ∂g0 weakly in L²(Ω),
 and not strongly wherever env ≠ 0. The limit g0 satisfies Ric(g0) = (3 μ'/(2 r³)) dv ⊗ dv with (2.6): it is not vacuum
 but Einstein–null dust with one family. 5. **Gauge and uniqueness.** D(g_λ) = 0 on Ω, and g_λ is the only C² solution of
-Ric^H(g) = 0 on Ω with its data. 6. **The spheres' horizon.** If μ0 > √72 l5² and λ ≤ λ1 (Proposition 3.3), the outgoing
-expansion of the spheres {v, r = const} has at most one zero on each column (v and the angles fixed), exactly one within
-C λ of √μ(v) on the columns that reach across it, the spheres below it being trapped and those above it untrapped: no
-inner zero, and the zero converges to √μ at O(λ) (Proposition 3.3). 7. **Mean mass.** For every sphere S_(v,r) of the
-domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before and after the shell (v ≤ v_start or v ≥ v_end), and
-≤ C λ within it (Proposition 3.4).
+Ric^H(g) = 0 on Ω with its data within ε1 of g0 (supplement section 4, Step 8). 6. **The spheres' horizon.** If μ0 > √72
+l5² and λ ≤ λ_H (Proposition 3.3), the outgoing expansion of the spheres {v, r = const} has at most one zero on each
+column (v and the angles fixed), exactly one within C λ of √μ(v) on the columns that reach across it, the spheres with r
+≤ √μ(v) − C λ being trapped and those with r ≥ √μ(v) + C λ untrapped: no inner zero, and the zero converges to √μ at
+O(λ) (Proposition 3.3). 7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ)
+− μ(v)| ≤ C λ² before and after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it (Proposition 3.4).
 
 The constants that the argument fixes explicitly: the order of the energy is k = 6, the approximant used has N = K + 3
-stages, λ ≤ λ1 := min(1, δ0)/10 where δ0 := r_q(μ0) − a, and the data are solved in H^s(S³) with s > 3/2 + 4. λ0 and C
-are not evaluated. Every constant of the approximant's own estimates is λ-independent, because its profiles are
-(deduced: supplement 5.4); the waves are high-frequency on all of D once λ < l5/10 (computed:
-`docket68/lemmas/counterpart5.py` P1).
+stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a bound below which
+the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4. λ0 and C are not evaluated. Every
+constant of the approximant's own estimates is λ-independent, because its profiles are (deduced: supplement 5.4); the
+waves are high-frequency on all of D_T once λ < l5/10 (computed: `docket68/lemmas/counterpart5.py` P1).
 
 **Proposition 3.2 (the boundary; computed R6, deduced).** On x_K = 1, with Φ := r − r_q(v),
 
     g0⁻¹(dΦ, dΦ) = 1 − √(μ/(√72 l5²)) − r_q μ'/(2 μ),                                                     (3.1)
 
-so the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and every future causal curve that meets it leaves
-D_T there and does not return. If μ0 > √72 l5² the margin is uniform, g0⁻¹(dΦ, dΦ) ≤ −δ with δ := √(μ0/(√72 l5²)) − 1 >
-0, and for g_λ the margin is −δ + C λ ≤ −δ/2 once C λ ≤ δ/2 (deduced: |g_λ⁻¹ − g0⁻¹| ≤ C λ on Ω by item 4, and the cone
-of future causal covectors moves continuously). If μ0 = √72 l5² exactly, the boundary coincides with the seed's horizon
-for v ≤ v_start and is null there; g_λ equals the seed on {v ≤ inf supp env}, so it is null for g_λ too, and after
-the shell starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ (supplement
-`docket68/n1star/EQUALITY5.md`, Propositions E.2-E.4).
+so, μ being at least μ0 ≥ √72 l5² throughout, the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and every
+future causal curve that meets it leaves D_T there and does not return. If μ0 > √72 l5² the margin is uniform, g0⁻¹(dΦ,
+dΦ) ≤ −δ with δ := √(μ0/(√72 l5²)) − 1 > 0, and for g_λ the margin is −δ + C λ ≤ −δ/2 once C λ ≤ δ/2 (deduced: |g_λ⁻¹ −
+g0⁻¹| ≤ C λ on Ω by item 4, and the cone of future causal covectors moves continuously). If μ0 = √72 l5² exactly, the
+boundary coincides with the seed's horizon for v ≤ v_start and is null there; g_λ equals the seed on {v ≤ inf supp env},
+so it is null for g_λ too, and after the shell starts it is spacelike for g_λ outside a layer whose width tends to 0
+with λ (supplement `docket68/n1star/EQUALITY5.md`, Propositions E.2-E.4).
 
 **Proposition 3.3 (one zero per column of the spheres' outgoing expansion; deduced, with `docket68/n1star/horizon5.py`
 H1–H3; supplement Proposition 8.1).** Let μ0 > √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
-g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω. There are λ1 ∈ (0, λ0] and C, δ1 > 0 such
-that for λ ≤ λ1: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero, positive
+g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω. There are λ_H ∈ (0, λ0] and C, δ1 > 0 such
+that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero, positive
 above it and negative below; on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one, R_λ(v, ω), with |R_λ − √μ(v)| ≤
 C λ; and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ untrapped.
 
@@ -303,7 +314,7 @@ C λ; and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥
 whose one zero r = √μ is simple, ∂_r θ⁺ = 3/μ there, and the ingoing expansion is −3/r (computed, H1). θ⁺ is a smooth
 function of g, linear in ∂g. The approximant's leading wave enters θ⁺ at order λ⁰ only as (1/2) k(ℓ) ∂_θ(tr_S W), and
 tr_S W = tr_g0 W = 0 because W(ℓ, ·) = 0 (computed: H2 for a sample profile tangent and traceless on the spheres, and
-H2b for the record's wave itself at the shifted phase θ + φ1, with χ dv² and a mean m1, symbolically in every function;
+H2b for the wave (2.5′) itself at the shifted phase θ + φ1, with χ dv² and a mean m1, symbolically in every function;
 a trace gives an O(1) oscillation); the mean m1 has no θ-dependence and the higher profiles enter at O(λ). Along a
 column v is constant (H3), so the r-derivative of a profile term [f] is [∂_r f], with no λ⁻¹: θ⁺(g_app) − θ⁺(g0) and its
 r-derivative along columns are O(λ). The remainder contributes C(|w| + |∂w| + |∂²w|) ≤ C λ^(K−5) ≤ C λ (Theorem E,
@@ -335,12 +346,13 @@ implies for a mass there is in section 6, and what it does not, in section 9.
 
 *How Theorem 1 follows.* It is the conjunction of three theorems proved in the supplement and summarized in sections 4
 and 5: Theorem A (the approximant to any order), Theorem D (exact data within O(λ^K) of it) and Theorem E (existence on
-Ω with λ-uniform remainder estimates). D(g_λ) solves a homogeneous linear wave system by the contracted Bianchi
-identity and vanishes with its first derivative on Σ_τ0 (the gauge condition and the constraints), so D = 0 on Ω and
-g_λ is vacuum (deduced; the identity READ in [LR05] p. 1 and, in n + 1 dimensions, [CBCL06] section 3: "the
-harmonicity functions F^μ := □_g x^μ satisfy an homogeneous linear system of wave equations on (V, g), with also
-∂_t F^μ = 0, hence F^μ = 0 if (V, g) is globally hyperbolic"). The symmetry follows from uniqueness, since Ric^H and D
-are built from g and the O(4)-invariant g0 alone and the data are invariant.
+Ω with λ-uniform remainder estimates). D(g_λ) solves a homogeneous linear wave system by the contracted Bianchi identity
+and vanishes with its first derivative on Σ_τ0 (the gauge condition and the constraints), so D = 0 on Ω and g_λ is
+vacuum (deduced; the identity READ in [LR05] p. 1 and, in n + 1 dimensions, [CBCL06] section 3: "the harmonicity
+functions F^μ := □_g x^μ satisfy an homogeneous linear system of wave equations on (V, g), with also ∂_t F^μ = 0, hence
+F^μ = 0 if (V, g) is globally hyperbolic"; for the wave-map gauge, [CBCM10] Theorem 3.3, (3.10)–(3.11), p. 14). The
+symmetry follows from uniqueness, since Ric^H and D are built from g and the O(4)-invariant g0 alone and the data are
+invariant.
 
 **Theorem 2 (the construction from past null infinity; deduced, supplement section 9; computed:
 `docket68/n1star/past5.py` P1–P8).** Let the waves at past null infinity be the free data F, G of section 2.4, on the
@@ -353,27 +365,30 @@ boundary v + ½(1 + τ0 − τ)^(−1/4) = V_P that is spacelike, chosen so that
    r^(3/2)(g_λ − g0 − λ[W_TT]) → 0 as r → ∞, at every λ;
 3. on P, |g_λ − g_app| ≤ C λ^(K−3) t^(−2), with t = 1 + τ0 − τ and g_app the approximant built from past null
    infinity;
-4. on Ω, the conclusions of Theorem 1 hold, with the data on Σ_τ0 now the trace of g_λ itself;
-5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions with item 1 whose difference from g_app is O(t^(−3/2))
-   with its first derivatives and whose energy on the slices tends to zero at past null infinity.
+4. on Ω, the conclusions of Theorem E hold (items 1 and 3–5 of Theorem 1), with the data on Σ_τ0 now the trace of g_λ
+   itself; items 6–7 are proved for Theorem 1's solutions, and the supplement carries them to these by the same argument
+   without writing it out (supplement section 9.5);
+5. g_λ is T² × Z2 × Z2-invariant, and unique among solutions with item 1 whose difference from g_app is, with its first
+   derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices
+   tends to zero at past null infinity.
 
 So the counterpart holds with the waves' own free data at past null infinity, and the constraints need not be solved
 on this route (section 5.5 is the other route).
 
-*How Theorem 2 is proved.* Before the shell the solution is the black hole: the region v ≤ v_start is a past set for
-the black hole's cones, and the data there are the black hole's. Near past null infinity every stage of the approximant
-is solved with nothing coming in. Each stage has an explicit leading term in r and a remainder half a power of r
-better, and no source of the stages ever falls off like r^(−5/2), the rate that would produce a logarithm (P2–P5). So
-the residual decays like r^(−3), and the remainder can be estimated with the rotations as commutators, which gain
-t^(−3/2) in Sobolev's inequality. The past is split at t = λ^(−2). Before the split, the one large coefficient of
-section 5.1 integrates in time to a constant, and no decomposition is needed. After it, the decomposition of section
-5.2 runs over an interval of length λ^(−2). There the transport of its auxiliary field loses a logarithm per unit of
-log t, which weights (T/t)^β0 absorb at a cost λ^(−2β0); β0 does not depend on the order of the approximant, so a
-higher order pays it. The mollifier's commutator with the wave operator is, apart from decaying terms, an exact
-derivative along the generators (P8), and is absorbed into the auxiliary field. The limit is vacuum because the gauge
-field of the approximant decays at past null infinity, so its energy tends to zero there and the gauge field vanishes.
-A first independent verifier found the near-region estimate incomplete: that commutator was missing. A second found
-that the repair closes it (supplement log D34–D35).
+*How Theorem 2 is proved.* Before the shell the solution is the black hole: the region v ≤ v_start is a past set for the
+black hole's cones, and the data there are the black hole's. Near past null infinity every stage of the approximant is
+solved with nothing coming in. Each stage has an explicit leading term in r and a remainder half a power of r better,
+and no source of the stages ever falls off like r^(−5/2), the rate that would produce a logarithm (P2–P5). So the
+residual decays like r^(−3), and the remainder can be estimated with the rotations as commutators, which gain t^(−3/2)
+in Sobolev's inequality. The past is split at t = λ^(−2). Before the split, the one large coefficient of section 5.1
+integrates in time to a constant, and no decomposition is needed. After it, the decomposition of section 5.2 runs over
+an interval of length λ^(−2). There the transport of its auxiliary field loses a logarithm per unit of log t, which
+weights (T/t)^β0 absorb at a cost λ^(−2β0); β0 does not depend on the order of the approximant, so a higher order pays
+it. The mollifier's commutator with the wave operator is, apart from decaying terms, an exact derivative along the
+generators (P8), and is absorbed into the auxiliary field. The limit is vacuum because the gauge field of the
+approximant decays at past null infinity, so its energy tends to zero there and the gauge field vanishes. A first
+independent verifier found the near-region estimate incomplete: that commutator was missing. A second found that the
+repair closes it (supplement section 9).
 
 **Theorem 3 (the Bondi mass at past null infinity; deduced, supplement section 11; computed:
 `docket68/n1star/bondi5.py` B1–B4).** Let g_λ be the metric of Theorem 2, 0 < λ ≤ λ_P. Near past null infinity it
@@ -386,8 +401,9 @@ the generators, r_B the areal radius — in which
 with P1, P2, β, U, W − 1 expanded in r_B^(−1/2) to order r_B^(−3) with o(r_B^(−3)) remainders, coefficients smooth in
 (v_B, θ_B) and zero for v_B ≤ v_start. In it:
 
-1. P_i = r_B^(−3/2) p_i + O(r_B^(−5/2)), p_i the free data of section 2.4 at phase v_B/λ (the radiation field of
-   Theorem 2, item 2); the r_B^(−2) coefficients vanish;
+1. P_i = r_B^(−3/2) p_i + O(r_B^(−5/2)), p1 = (2c² G − s² F)/3 and p2 = (2s² F − c² G)/3 as in (2.5′), with c = cos θ_B,
+   s = sin θ_B and the free data F, G of section 2.4 at phase v_B/λ (the radiation field of Theorem 2, item 2;
+   supplement Theorem M (b)); the r_B^(−2) coefficients vanish;
 2. W = 1 + r_B^(−3/2) V1 − r_B^(−2) M + O(r_B^(−5/2)), with V1 a divergence on S³ and the mass aspect M obeying,
    pointwise, the five-dimensional Bondi law [TTS09] (28) time-reversed,
 
@@ -400,8 +416,8 @@ with P1, P2, β, U, W − 1 expanded in r_B^(−1/2) to order r_B^(−3) with o(
 4. the Hawking mass M[S] of Proposition 3.4 of the Bondi spheres S = {v_B, r_B = const} tends to μ_B(v_B) as
    r_B → ∞.
 
-This is the record's "mean mass at past null infinity" — the sphere mean of the Bondi mass aspect, the quantity the
-numerical solver integrates — now proved for g_λ.
+This is the mean mass at past null infinity, the sphere mean of the Bondi mass aspect, the quantity the numerical
+solution of section 6 integrates, now proved for g_λ.
 
 *How Theorem 3 is proved.* At fixed λ the far region of Theorem 2 is a neighbourhood of past null infinity, and
 there the remainder g_λ − g_app is a solution of a wave equation whose source decays like r^(−3): subtracting its
@@ -453,9 +469,9 @@ with the fixed phase v, the profiles g_j satisfy (supplement 0.4):
 - (E2) the leading equation: R^(0) ≡ 0 in (X, θ);
 - (E3) the residual: |Ric^H(g_app)|_k ≤ C λ^(N−1).
 
-**Theorem A (deduced, supplement section 5; verified, see Appendix C).** For every N and every smooth choice of stage
-data there are profiles with (E1)–(E3), whose oscillating part of g1 is the waves of section 2.4 with the second
-harmonic χ dv² and a phase shift, on the background (2.6).
+**Theorem A (deduced, supplement section 5; read by independent verifiers, supplement section 7).** For every N and
+every smooth choice of stage data there are profiles with (E1)–(E3), whose oscillating part of g1 is the waves of
+section 2.4 with the second harmonic χ dv² and a phase shift, on the background (2.6).
 
 ---
 
@@ -581,7 +597,7 @@ N − 2, by a hierarchy that propagates the gauge order by order (supplement Lem
 g_λ, λ ≤ λ0, when μ0 > √72 l5²; every future causal curve that meets it leaves D_T there. Exact for g0 (computed R6, and
 `docket68/lemmas/hf_theorem5.py` F2, there also machine-checked with Z3); deduced for g_λ.
 
-**(iii) The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ, λ ≤ λ1, each column carries at most one zero of
+**(iii) The horizon.** Proposition 3.3 and item 6 of Theorem 1: for g_λ, λ ≤ λ_H, each column carries at most one zero of
 the outgoing expansion of the spheres {v, r = const}, exactly one within C λ of √μ on the columns that reach across it,
 trapped spheres below and untrapped above; no inner zero (deduced). The per-column zero set is not itself a marginally
 trapped surface; the statement is about the round family, as the numerics' is. Although ∂g_λ converges only weakly, the
@@ -1284,7 +1300,7 @@ Theorem 4 with them.
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
   = l5, and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ
   = 1000 l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are
-  high-frequency on all of D once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the
+  high-frequency on all of D_T once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the
   curvature varies, r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is
   the parameter a construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a
   locally linear background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was used",
@@ -2051,7 +2067,7 @@ concisely); the retrieval message of 2026-10-20 is the protocol by which the sta
 ## Appendix C. Source map
 
 Paths are relative to the root of the research tree; "supplement" is `docket68/n1star/N1STAR-PROOF.md`, the proof in
-full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D135).
+full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 
 | claim | where it is established |
 | --- | --- |
@@ -2184,7 +2200,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-fourth Part II.D (D204) |
 | | the eighty-fifth Part II.D′ (D206) |
 | | the eighty-sixth Part II.E (D207) |
-| | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
+| | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their |
+| | repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
 | | the hundred-and-fifty-fifth to the two-hundred-and-fifty-fifth the work of section 9 since (D338–D590) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
@@ -2276,7 +2293,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | --- | --- |
 | `paper/response5.py` | `21d4879694b85ccc99d6c4e1ca24df4d` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `c8cabb9ec3a142301731aaafd0febe23` |
+| `docket68/n1star/N1STAR-LOG.md` | `3f21f133d37939215a8125961339c455` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |

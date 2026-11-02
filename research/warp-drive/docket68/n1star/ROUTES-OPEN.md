@@ -6182,6 +6182,19 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   coefficients in the waves it reduces to single-wave parts, three already computed (data5.py S2, S4; T4, T6) and the
   fourth, the outgoing χ₂ du du alone, computed now: none, and the oscillating-trace control has one. So none with both
   families and χ on Vaidya (deduced). Open: T10 direct, T11 (S6 with both families and χ, not linear in the waves).
+- D593 (verifier 256, the paper's audit batch 1, the abstract and sections 1-4: 1 major, 5 minor, 10 nits; all seated in
+  paper/RESPONSE-HL-5D.md): MAJOR: Theorem 3 item 1 used the leading wave's TT form and its map to the two profiles p_1,
+  p_2 without printing either; section 2.4 now prints it as (2.5′), λ W_TT = 2 r^(1/2) (c² p1 dφ1² + s² p2 dφ2² − (p1 +
+  p2) dθ²) with p1 = (2c² G − s² F)/3, p2 = (2s² F − c² G)/3, and item 1 cites it. MINOR: the symbol λ1 named two
+  different constants, now λ_Ω (the angular one, with a clause saying what it is) and λ_H (Proposition 3.3, Theorem 1
+  item 6, section 6); 'the same solutions' is now 'solutions with the same properties'; the uniqueness of ε1 carries its
+  rate ε_P t^(−3/2) (Lemma 9.1 (f)); Theorem 2 item 4 is narrowed to Theorem E's conclusions, items 6-7 transferred by
+  the same argument and not written out (section 9.5); three references to the board's record ('the record's', 'Part
+  (iii)', 'the numerics') removed. Nits: the abstract's and item 6's qualifiers; ε1's uniqueness at Step 8; Touati's
+  lemma no longer labelled READ where it is used, not quoted; Theorem A's and Theorem 1's labels; [CBCM10] cited as arXiv
+  v1 PDF p. 8 and its Theorem 3.3 pointed; [HL18] Remark 4.3; D_T named twice where it was implicit; μ ≥ μ0 ≥ √72 l5²;
+  log names removed from the text; a long Appendix C row split; 'angularly separated dusts'. The paper's structure is
+  unchanged (39 headings, 173 bullets, 10 numbered items; two displays added).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

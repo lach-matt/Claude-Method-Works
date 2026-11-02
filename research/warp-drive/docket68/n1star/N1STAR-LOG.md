@@ -7840,3 +7840,12 @@ large coefficients are linear in the waves, it splits into one-wave pieces; thre
 the outgoing family's second harmonic alone, is checked now and gives no large coefficient, while a deliberately broken
 version does. So the whole case has none. The direct run, and the companion check on the principal coefficients, are
 still going.
+
+**D593 (2026-11-02): the paper's first audit batch read and repaired.** An independent reader went through the abstract
+and the first four sections looking for anything a referee would reject. The one serious finding: Theorem 3 rested on
+the explicit form of the leading wave and on how its two profiles combine, and the paper never wrote either down; it now
+does, as a displayed equation in section 2.4 that the theorem cites. The lesser findings were one symbol used for two
+different constants (now two symbols), a uniqueness claim missing its rate, a statement about Theorem 2 that promised
+more than was written out (narrowed, and the rest said to follow by the same argument), and three phrases that leaned on
+the board's internal record, which the paper must not do. Ten small corrections to wording, labels and citations went in
+with them. Sections 5-10 and the appendices are next, one batch at a time.
