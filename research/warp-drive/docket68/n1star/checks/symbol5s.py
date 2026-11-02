@@ -21,9 +21,10 @@ symbol5.py Y1 took the 4 x 4 system (R, m, n, W)_uv with the shift held fixed.  
      projections are printed; a nonzero one means the eigenvalue-0 sector is driven by k^2 int (d zeta . f) dv.
   S5 (exact) the constraint-preserving block (cpsolve5: Ric_11, Ric_22, Ric(Y, d_v) for (m, n, W), Ric_vx for s, R
      given) with s_vx eliminated likewise: characteristic polynomial and Jordan test; whether W keeps a W_xx term.
-  S6 (computed) a frozen-coefficient check of S4 at a spherical background point: the eigenvalue-0 sector's model
-     z_uv = -kappa k^2 int_v z, with kappa = the S4 projection times d zeta's weight on that sector, solved exactly by
-     its series; its response at k = 2 .. 32 against the frozen-shift Jordan model's k^2.
+  S6 (computed, a model only) the case the S4 numbers decide: if the eigenvalue-0 sector is forced by k^2 int_v of
+     itself, its scalar caricature z_uv = -kappa k^2 int_v z has Goursat solutions growing faster than any power of k
+     (exact series, evaluated in mpmath at k = 2 .. 64).  If it is forced only by the wave sector, the forcing is
+     k^2 times the v-integral of an oscillation of frequency ~k, and the loss is a power of k (Y5's count).
 
   python3 checks/symbol5s.py
 """
@@ -119,18 +120,23 @@ def main():
     print('   charpoly %s, rank A3 = %d, rank(A3 + I) = %d, Jordan block: %s; the W row\'s own W_xx coefficient: %s' % (
         cp3, rA3, rI3, jb3, wxx))
     # S6: frozen-coefficient model of the eigenvalue-0 sector driven by s_x
-    print('S6 (computed) the model z_uv = -kappa k^2 Z, Z_v = z, data z = 1 on u = 0 and v = 0 (Goursat), solved by its')
-    print('   series Z = sum (-kappa k^2)^j u^j v^(2j+1)/(j! (2j+1)!) + ...; |z(1, 1)| against the Jordan model k^2:')
+    import mpmath as mp
+    mp.mp.dps = 60
+    print('S6 (computed, mpmath) the scalar model z_uv = -kappa k^2 Z, Z_v = z, Goursat data z = 1 on u = 0 and v = 0;')
+    print('   exact series z(u, v) = sum_j a^j u^j v^(2j)/(j! (2j)!), a = -kappa k^2; |z(1, 1)| against k^2:')
+    grow = {}
     for kap in (1.0, -1.0):
-        row = []
-        for k in (2, 4, 8, 16, 32):
-            a = -kap * k * k
-            # z = d/dv of Z with Z = sum_j a^j u^j v^(2j+1)/(j! (2j+1)!) solves Z_uvv = a Z, Z(0, v) = v, Z(u, 0) = 0
-            z = sum(a ** j / (math.factorial(j) * math.factorial(2 * j)) for j in range(0, 400) if abs(a) ** j < 1e300)
-            row.append('k = %d: %.3g' % (k, z))
-        print('   kappa = %+.0f: %s' % (kap, ', '.join(row)))
-    print('   (kappa > 0: bounded, oscillatory; kappa < 0: grows like exp(c k^(2/3)), faster than any power of k --')
-    print('    no estimate with finite loss.  Which sign holds on the record\'s solution is not computed here.)')
+        vals = []
+        for k in (2, 4, 8, 16, 32, 64):
+            a_ = mp.mpf(-kap * k * k)
+            z = mp.nsum(lambda j: a_ ** j / (mp.factorial(j) * mp.factorial(2 * j)), [0, mp.inf])
+            vals.append((k, float(abs(z))))
+        grow[kap] = vals
+        print('   kappa = %+.0f: %s' % (kap, ', '.join('k = %d: %.3g' % kv for kv in vals)))
+    sup_pow = all(v2 / v1 > (k2 / k1) ** 2 for (k1, v1), (k2, v2) in zip(grow[-1.0][-3:-1], grow[-1.0][-2:]))
+    print('   kappa = -1 outgrows every k^2 step at the top of the range: %s (the series grows like exp(c k^(2/3)));' %
+          sup_pow)
+    print('   kappa = +1 (a < 0) also grows: 0F2 with negative argument has exponential growth along the cube roots.')
     print('symbol5s:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 

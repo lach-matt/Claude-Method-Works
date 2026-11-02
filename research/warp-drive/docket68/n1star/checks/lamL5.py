@@ -36,6 +36,10 @@ tau0 <= 5.937209 (certified there); Theorem L's parameters (rounds 1-2): p = 14,
      0 is an upper bound), Lam_5 (L.4's hypothesis eps_M <= lam^3), Lam_8a (the margin against the signal), for the
      round-1 constants and the amended ones; and the rest are printed as formulas in C1, C_Phi, C_L11, C_L4 and lam0.
      Control: at 1.01 times each computed threshold its inequality fails.
+     [Round 4, verifier of round 3 (M2): Lam_4, Lam_5 and Lam_8b-d decrease in M_m, and B is an UPPER bound of M_m, so
+     the thresholds printed here are LOWER bounds of the thresholds the proof delivers (values of lam below which each
+     condition certainly holds), not upper bounds; certified upper bounds use a lower bound of M_m and are in
+     lamL5b.py M5.]
 
 Labels: computed (exact rationals and integers; mpmath interval arithmetic, outward rounded, for B(m), the Chebyshev
 sum and the thresholds; the m = 400 series value in floating point at 200 and 280 digits).  Every bound on lam_L here is
@@ -314,7 +318,8 @@ def l4(control=False):
     ok = mono and abs(sp.N(dmin2 - sp.Rational(64, 9), 30)) < 1e-25 and nus == sp.Rational(-196, 15625)
     gain = 3*Ks*ds/32
     out("  L4 nu(5/2) = %s; d nu/d rho = %s (so |nu| increases on rho > rho*): %s; d_*^2 = %s at zeta = 0 (critical"
-        " points %d); C_m0 = %s.  Thresholds (no constant of Theorem 1): Lam_4(C1 = 0), Lam_5, round 1's L.5: %s, %s;"
+        " points %d); C_m0 = %s.  Thresholds (no constant of Theorem 1; with B >= M_m, so lower bounds of the"
+        " proof's thresholds): Lam_4(C1 = 0), Lam_5, round 1's L.5: %s, %s;"
         " amended L.5: %s, %s; with Chebyshev nodes at i = 1: Lam_4(0) = %s; Lam_8a = %s.  Formulas: Lam_4(C1) ="
         " Lam_4(0) (1 + C1 dtau/(2 pi))^(-m/(m - p)), dtau <= 5.937209; Lam_6 = (288 mu0 C_Phi/(25 A^2))^(1/27);"
         " Lam_8b = (G/(C_L11 C_eps))^(4/3), Lam_8c = (G/(C_L11 C_eps^2))^(1/11.5), Lam_8d = (G/(C_L4 C_eps))^(4/3), G :="
