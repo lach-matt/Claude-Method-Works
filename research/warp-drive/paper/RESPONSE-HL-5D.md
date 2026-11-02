@@ -2771,7 +2771,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `e3efff8d4189bdbd38f2e695175fb234` |
+| `docket68/n1star/N1STAR-PROOF.md` | `fc53b76ab873cedb61761c20bc202bb8` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2928,13 +2928,13 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
-| `docket68/n1star/checks/secondzero5.py` | `fa5d979ad1cabb4f8eed1c3467a2b3bb` |
-| `docket68/n1star/checks/secondzero5.out` | `93f58cbf143406d695629580430bc9f0` |
+| `docket68/n1star/checks/secondzero5.py` | `79cf3b6a7c0cf65ac0ef0a23c5ab40ba` |
+| `docket68/n1star/checks/secondzero5.out` | `e6c54e237a365541f23db2e966cedaf4` |
 | `docket68/n1star/checks/secondzero5_trunc.out` | `8b4adb55bfeb51ba2e2823b1e0306604` |
 | `docket68/n1star/checks/secondzero5_edges.out` | `c0df225b38566ca5fea8442e4beee66b` |
 | `docket68/n1star/checks/bondisph5.py` | `9803376f7d211fe9447979e22c4a2486` |
 | `docket68/n1star/checks/szrun5.py` | `f27923471b2c1e362b3a65d9f80bbac6` |
-| `docket68/n1star/checks/cdata5.py` | `0da359e91b49e6b4693bce8402a85f0f` |
+| `docket68/n1star/checks/cdata5.py` | `c76bf8f4a8cadb4285ef88058d79bc15` |
 | `docket68/n1star/checks/cdata5.out` | `eec6767b776658abc2bec59f477a0d9d` |
 | `docket68/n1star/checks/resid5.py` | `cfbfa68ce8b353b6ced0b20562c9ade4` |
 | `docket68/n1star/checks/resid5.out` | `fb54bab514ffcd7cb4bb12c4a69abe6e` |
