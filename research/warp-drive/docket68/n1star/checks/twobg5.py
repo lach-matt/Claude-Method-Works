@@ -39,12 +39,33 @@ K_in R^3 = A(v), K_out R^3 = B(u) (twodust5 B1-B3), mu := R^2 (1 + 2 e^(-2s) R_u
            seed's horizon sqrt(mu0) and the shell's inner edge, and the shell's inner edge satisfies the record's rule
            v_start - tau0 > sqrt(mu0) + 1;
      (vii) the mixed symbol: with the phases vhat and u (the outgoing phase normalised by the affine parameter of
-           the data cone N'; any lam-independent normalisation serves), |g0^-1(dvhat, du)| = e^(-2s) vhat'(v) is
-           positive on every computed cell; off the trapped region (R^2 >= 1.5 mu) its least value is stable in n to
-           10 %; on R = a it is converged (to 1 %) at v = 0.5, 1, 1.5 and halves with each 0.5 in v (printed): the
-           outgoing rays that reach R = a later leave N' from an exponentially narrower range of u (the redshift at
-           the horizon), so the lower bound is a positive constant on the compact Omega that degenerates exponentially
-           with the time spent in the hole.
+           the data cone N'; any lam-independent normalisation serves), |g0^-1(dvhat, du)| = e^(-2s) vhat'(v): off the
+           trapped region (R^2 >= 1.5 mu) its least value is stable in n to 10 % (0.18, 0.14, 0.15 at n = 40, 80,
+           160); on R = a it is converged (to 1 %) at v = 0.5, 1, 1.5 and halves with each 0.5 in v. (Round 2, the
+           verifier's items 4 and 5: round 1 also tested that the least value over every computed cell is positive,
+           which e^(-2s) > 0 makes true of any grid; that test is removed. That least value, 0.131, 0.071, 0.042 at n =
+           40, 80, 160, is printed and is NOT converged: G4 resolves it.)
+  G3 (computed; round 2, the verifier's item 1) the outer data cone N = {u = u0} must not meet the domain: N cap {tau >=
+     tau0} in {R > b(tau)}. The domain from the record's rule with T = 1 and delta0 = 0.05 (q0 = r_q(mu0) = a + delta0
+     fixes l5; the seed condition is checked), tau_end bounded above by V - q0 (so b is overstated). The example's own
+     N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 inside the domain: the verifier's case, rejected. Region I (u <= u1) is
+     explicit ingoing Vaidya with the data's mu(vhat), so the cone can be moved out at no cost: the least R at v = 0
+     whose outgoing ray keeps R - b(tau) >= 1 on all of [tau0, tau_end] is found by bisection, and the margin printed.
+  G4 (computed; round 2, the verifier's nit 5) the mixed symbol on R = a resolved where the grid thins: in region III
+     (u >= u2, B = 0) psi and mu depend on v alone (G1 (a), (b)), and along an outgoing ray dR/dv = vhat' e^psi (1 -
+     mu/R^2)/2 and d ln|R_u|/dv = vhat' e^psi mu/R^3 (from R_uv = -e^(2s) mu/R^3, G1 (c)), while |g0^-1(dvhat, du)| =
+     e^(-psi)/|R_u|. The coefficients are read on u = u2 + 0.1 and on N (resolved there), the rays start on N', and the
+     ray that reaches R = a at v = 0.5, 1, ..., 4.9 is found by bisection: the values agree with the grid at v = 0.5, 1,
+     1.5 to 1 %, with n = 80 and 160 coefficients to 2 %, and decrease in v (the redshift). The analytic statement:
+     d ln(sym)/dvhat = -psi' - e^psi mu/R^3 >= -psi' - mu_max/a^3 on R >= a, so the symbol is bounded below on the
+     compact domain by a positive constant that falls at most exponentially in the time spent in the hole.
+     Control: the rays without the redshift term must miss the grid's values, and do.
+  G5 (computed; item 6) the outgoing packet stays outside its columns' background horizon band: on a column {vhat
+     fixed} R_v is strictly decreasing in u (R_uv < 0), so the background's outgoing expansion has one zero there, in
+     region III when the packet is untrapped, at R_H = sqrt(mu_III(vhat)); the least over v <= 5 of R(u2, v) -
+     sqrt(mu_III(v)) is positive and converged, and R_v(u2, v) > 0 throughout. For v >= 5 (A = 0) R grows along the
+     untrapped ray u2 and mu_III is constant (G1 (d)), so the minimum over all v is attained on the grid.
+     Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge and the gap is negative.
   Control (computed): the same run with B -> -B (a negative-energy outgoing dust, A B < 0): mu falls below mu0 by an
      amount that does not shrink with n, so (ii) fails; the bound needs A B >= 0, as G1 (c) says.
 
@@ -52,7 +73,7 @@ Reach: the numbers are one example of the stated data. The proof (FAMILIES5-FULL
 record's twoext5 X1-X2, twodomain5 D1-D2; G2 illustrates it, and later v inside the hole (region u >= u2, which is
 ingoing Vaidya by G1 (a)-(b)) is left to the explicit form, the double-null grid thinning there.
 
-Run: python3 checks/twobg5.py   (about three minutes)
+Run: python3 checks/twobg5.py   (about ten minutes)
 """
 import math
 import os
