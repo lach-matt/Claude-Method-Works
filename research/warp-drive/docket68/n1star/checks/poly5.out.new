@@ -16,3 +16,8 @@ P3  the Gronwall factors
   P3b control: over the near region [1, lam^-2] the lam^-1 kernel gives exp(2C(1/lam - 1)), beating every lam^-M: pass
         2*C*(1 - lambda)/lambda
 P4  the data constants: d_tau^m w on the initial slice (1+1 model, N = 6)
+     orders of d_tau^m w on the slice, m = 2..6: [5, 4, 3, 2, 1]
+  P4a d_tau^m w has order exactly N + 1 - m (one lam^-1 per derivative): polynomial: pass
+  P4b control: the claim 'order N - 1 at every m' fails (m = 3): pass
+P5  Lemma 11.0 as written: the exponent recursion
+  P5a the record's split: floor((N + 2)/2) <= max(4, N - 3) for N = 1..199: pass
