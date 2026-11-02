@@ -1,0 +1,17 @@
+  K1: exponents at r_h: 0 (N times) and i sigma + lam_j; lam_j (multiplicity), the same at two angles:
+      box^C: -5000 (3), -2560487/512 (1), -9999 (1); sigma part i sigma Id: True, angle-free: True; max lam -5000;
+        positive-integer exponents at sigma != 0, Im sigma >= 0: none
+      P_0 (1-forms): 1 (1), 0 (3), -1 (1); sigma part i sigma Id: True, angle-free: True; max lam 1; positive-integer
+        exponents at sigma != 0, Im sigma >= 0: none
+      scalar wave: 0 (1); sigma part i sigma Id: True, angle-free: True; max lam 0; positive-integer exponents at
+        sigma != 0, Im sigma >= 0: none
+      2 L, gam_C = gam_H = 0: 2 (1), 1 (3), 0 (7), -1 (3), -2 (1); sigma part i sigma Id: True, angle-free: True; max
+        lam 2; positive-integer exponents at sigma != 0, Im sigma >= 0: sigma = 1 i
+      2 L, record's point: 0 (6), -1 (3), -2 (1), -4999 (3), -2559975/512 (1), -9998 (1); sigma part i sigma Id: True,
+        angle-free: True; max lam 0; positive-integer exponents at sigma != 0, Im sigma >= 0: none
+      so for P_0, box^C and 2 L at the record's point and the scalar wave the smooth solutions at r_h are
+      the exponent-0 family; at gam = 0, 2 L has exponent 1 at sigma = i (Lemma 10.56 does not need either)
+K1 PASS
+  K2: rho^beta in rho^q L^2(r^(n-1) dr) iff beta > q + n/2; at q = -1/2 + S-bar: n = 4 Sbar + 3/2, n = 3 Sbar + 1 (his
+      Theorem 9.5(5)); integrals finite at crit + 1/10 and infinite at crit - 1/10
+K2 PASS

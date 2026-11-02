@@ -14,7 +14,7 @@
      orders lam^-1 and lam^0 (c symbolic; compared as R[W(s + c)](s - c) = R[W](s)). The program prints how many of the
      30 parts are nonzero, i.e. tested nontrivially: the 15 lam^0 parts; the 15 lam^-1 parts vanish identically for
      generic W (g0^vv = 0), so they test nothing. Control: every component shifted but W_vv (the slot of chi dv^2: the
-     waves shifted, chi not; not a phase shift of the profile) breaks the identity.
+     waves shifted, chi not; not a phase shift of the profile) breaks the identity (at vv, order lam^0).
 
 Labels: S3 computed (text census); S6 computed (exact, sympy).
 

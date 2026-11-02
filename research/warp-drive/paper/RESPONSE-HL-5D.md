@@ -457,11 +457,12 @@ computed exactly in `past5.py` P7.
 
 ## 4. The approximant
 
-**Phase and profiles.** The phase is v, an exact eikonal of g0 (Proposition 2.2(c)). A profile is a smooth f(X, θ) on Ω
-× S¹; [f](X) := f(X, v(X)/λ); ⟨f⟩ is its θ-mean. Derivatives are measured in the λ-scaled norm |f|_j := Σ_(i≤j) λ^i ‖∂^i
+**Phase and profiles.** The phase is v, an exact eikonal of g0 (Proposition 2.2(c)). A profile is a smooth f(X, θ) on Ω ×
+S¹; [f](X) := f(X, v(X)/λ); ⟨f⟩ is its θ-mean. Derivatives are measured in the λ-scaled norm |f|_j := Σ_(i≤j) λ^i ‖∂^i
 f‖_(L²(Σ_τ)), in which an oscillation costs nothing: ∂_a [f] = λ⁻¹ (∂_a v)[∂_θ f] + [∂_a f]. For a profile G the
-two-scale operator R[G] is Ric^H with ∂_a replaced by ∂_a + λ⁻¹ (∂_a v) ∂_θ; it contains no explicit θ (computed on the
-stage-0 profile, the second harmonic included: `docket68/n1star/checks/support9.py` S6), so
+two-scale operator R[G] is Ric^H with ∂_a replaced by ∂_a + λ⁻¹ (∂_a v) ∂_θ; it contains no explicit θ (computed for a
+generic profile, all fifteen components functions of (X, θ) shifted by a symbolic c: `docket68/n1star/checks/support9.py`
+S6), so
 
     R[G(·, · + c)](X, θ) = R[G](X, θ + c)   for every constant c.                                       (4.1)
 
@@ -1372,24 +1373,26 @@ III–IV that names an averaged or equivariant choice by its printed symbol is l
   1 for the inverse of its model at the transition face, a loss fixed by the threshold at the incoming radial set, which
   is 0 here (deduced from an exact computation, `checks/thetain5.py`). That is a floor for what this proof's bookkeeping
   delivers, not for the optimal loss. A round of the write-out's iteration at future timelike infinity is charged 15
-  derivatives when the order ℓ_I to which it expands at future null infinity is taken in (3, 3.5), 17 on [3.5, 4.5), and
-  2 more for each further unit of ℓ_I, 19, 21 and 23 to ℓ_I = 7.5 (deduced; the steps counted exactly,
-  `checks/prop31loss5.py` and `checks/charge5.py`): sufficient charges, not shown minima. Still open: numbers for the
-  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
-  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
-  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
-  not a number. For the first constant of the linear theory, the resolvent of the scalar wave operator on
-  five-dimensional Tangherlini of mass 1 cut off to an interval about the photon sphere, a bound is certified for every
-  real 0 < |σ| ≤ 384 and every harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the constant bounding the
-  radial derivative is at most 963.4 for every harmonic l ≥ 1 and 1516 at l = 0, which also bounds the radial and angular
-  derivatives summed over the harmonics (`E2-PILOT.md`; certified in exact rational and interval arithmetic,
-  `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound lies 9.5 to 22 times above the computed norm at the
-  sampled frequencies (computed, floating point, `docket68/n1star/checks/e2meas5.py`); certified lower bounds for the
-  norm, by test functions with compact support in the interval (for which the resolvent is inverted exactly), are 0.450,
-  0.250, 0.147, 0.0827, 0.0448 and 0.0241 at σ = 3, 6, 12, 24, 48 and 96, about 40–46 % of the computed values, so the
-  certified bound lies at most 24.6, 23.4, 25.7, 28.7, 34.0 and 41.4 times above the true norm there (certified, exact
-  arithmetic, `docket68/n1star/checks/e2lower5.py`). The passage to the write-out's own function spaces and the other
-  constants are not done, so λ1 and δ are still not evaluated.
+  derivatives when the order ℓ_I to which it expands at future null infinity is taken in (3, 3.5), and 4 more for each
+  further unit of ℓ_I, 19 on (3.5099, 4.5), then 23, 27 and 31 to ℓ_I = 7.5, with 17, 21, 25 and 29 on the short windows
+  [k + 1/2, k + 0.5099] where a round is added before the loss d_G = 7 + 2⌈ℓ_I − Re λ⌉ rises (deduced; the steps counted
+  exactly, `checks/prop31loss5.py` and `checks/charge5.py`, which reproduces the d_G of the supplement's loss record at
+  its own points): sufficient charges, not shown minima. Still open: numbers for the weights the write-out chooses under
+  its inequalities (ℓ_I among them), the logarithmic terms of one index set, the count of one regularity step beyond its
+  floor, the loop counts themselves, and the evaluation of the recursion that composes them (`LOSS-D.md` section 4; the
+  logarithmic terms and the regularity step, its finding LD16); so d is still not a number. For the first constant of the
+  linear theory, the resolvent of the scalar wave operator on five-dimensional Tangherlini of mass 1 cut off to an
+  interval about the photon sphere, a bound is certified for every real 0 < |σ| ≤ 384 and every harmonic, ‖χ_I R_l(σ)
+  χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the constant bounding the radial derivative is at most 963.4 for every harmonic
+  l ≥ 1 and 1516 at l = 0, which also bounds the radial and angular derivatives summed over the harmonics (`E2-PILOT.md`;
+  certified in exact rational and interval arithmetic, `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound
+  lies 9.5 to 22 times above the computed norm at the sampled frequencies (computed, floating point,
+  `docket68/n1star/checks/e2meas5.py`); certified lower bounds for the norm, by test functions with compact support in
+  the interval (for which the resolvent is inverted exactly), are 0.450, 0.250, 0.147, 0.0827, 0.0448 and 0.0241 at σ =
+  3, 6, 12, 24, 48 and 96, about 40–46 % of the computed values, so the certified bound lies at most 24.6, 23.4, 25.7,
+  28.7, 34.0 and 41.4 times above the true norm there (certified, exact arithmetic,
+  `docket68/n1star/checks/e2lower5.py`). The passage to the write-out's own function spaces and the other constants are
+  not done, so λ1 and δ are still not evaluated.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in the
   numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L = l5,
@@ -2124,8 +2127,10 @@ Programs behind section 9, in `docket68/n1star/`:
   difference bound of step (6) is argued, not computed) (supplement Part VII Lemma 2.1 (c), Proposition 2.2 step (6)).
   Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms (F3). Exact; a few minutes.
 - `checks/vii5census.py` V1: an enumeration for (VII5): every line of Parts III–IV that names an averaged or equivariant
-  choice by its printed symbol, the site where it is chosen marked; the reading it makes finite is not performed.
-  Control: each site must be found, and a planted symbol is reported absent. A second.
+  choice by its printed symbol -- the cut-offs (χ_K, χ_r, χ_∞, χ_−, Θ and those inside t♭_* among them), the states and
+  towers of III.G'' as maps (h̆, h^(μ), h_(b,s1), h^(0)_(b,s0)) and their domain -- each symbol's own site marked as its
+  site, not as a use; the reading it makes finite is not performed. Control: every symbol must be found at its site, so a
+  planted symbol and a site moved are reported. A second.
 - `checks/hclass5.py` H1–H2: the h-dependence of the conclusions drawn at the parameter point, by class: the quantities
   proportional to 1/h, A_0's diagonal among them, positive at the record's signs (c_2 < 0) and growing as h falls on (0,
   10⁻⁶] (H1); for l ≤ 20, box^C's discriminant (simplicity), its values at the integers |n| ≤ 52, the vector quadratic
@@ -2141,14 +2146,18 @@ Programs behind section 9, in `docket68/n1star/`:
   around the first whose barrier top lies above σ², for comparison with the certified band bound. Floating point (a
   numerical ODE solve), not certified; one to two hours per σ.
 - `checks/support9.py` S3, S6: the census of the arguments that give no number (contradiction, compactness, Fredholm and
-  their kin over the write-out's parts) and the ledger's classes recounted (S3, a text census); (4.1) on the stage-0
-  profile with the second harmonic (S6, exact). Controls: an absent word; the waves shifted but not χ. A few minutes.
-- `checks/charge5.py` G1: the charge of a round for larger ℓ_I by `checks/prop31loss5.py`'s rules: 15 on (3, 3.5), then 2
-  more for each unit of ℓ_I, 17, 19, 21 and 23 to ℓ_I = 7.5; a sufficient charge, not a shown minimum. Control: windows
-  of width 1/2. Exact rationals; under a minute.
+  their kin over the write-out's parts) and the ledger's classes recounted (S3, a text census); (4.1) for a generic
+  profile, all fifteen components functions of (s, v, r, θ) shifted by a symbolic c, the λ⁰ parts nonzero in all fifteen
+  and the λ⁻¹ parts identically zero (g0^vv = 0) (S6, exact). Controls: an absent word; W_vv not shifted. About five
+  minutes.
+- `checks/charge5.py` G1–G2: the charge of a round for larger ℓ_I by `checks/prop31loss5.py`'s rules with d_G = 7 + 2⌈ℓ_I
+  − Re λ⌉ per ℓ_I: 15 on (3, 3.5), then 4 more for each unit of ℓ_I, 19, 23, 27 and 31 to ℓ_I = 7.5 (17, 21, 25, 29 on [k
+  + 1/2, k + 0.5099]); a sufficient charge, not a shown minimum (G1); d_G = 9, 11, 13, 15 at the loss record's own points
+  (G2). Controls: windows of width 1/2 (J exactly {3}); d_G frozen at 11. Exact rationals; under a minute.
 - `checks/eqlayer5.py` L1–L2: the equality layer for a flat-edged envelope: the margin o((v − v_s)^k) for every k tested
-  and bounded below by a multiple of env² (L1); env' and env'' not bounded by the margin's order (L2). Control: an
-  envelope with an edge of finite order. Exact; a few seconds.
+  and positive, bounded below by a multiple of env² (L1, read from the lower bound); env' and env'' not bounded by the
+  margin's order (L2). Controls: an envelope with an edge of finite order (L1); env = 1 + x, for which the ratio stays
+  bounded (L2). Exact; a few seconds.
 - `checks/e2lower5.py` E1: certified lower bounds for ‖χ_I R_l(σ) χ_I‖ by test functions with compact support in I, and
   the ratio of the certified upper bound to them. Control: a test function vanishing only to first order at the ends.
   Exact; about ten minutes.
@@ -2405,7 +2414,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
 | | `checks/e2h1band5.out`; R11 |
 | section 9, settling: the constants without a number | `docket68/n1star/checks/support9.py` S3 |
-| section 9, settling: the charge for larger ℓ_I | `docket68/n1star/checks/charge5.py` G1 |
+| section 9, settling: the charge for larger ℓ_I | `docket68/n1star/checks/charge5.py` G1–G2 |
 | section 9, settling: the certified lower bound | `docket68/n1star/checks/e2lower5.py` E1 |
 | section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
 | | `checks/g1curv5.py` |
@@ -2446,8 +2455,8 @@ imports `class5.py`, `damping5.py`, `iplus5.py` and `window5.py`, `general5.py` 
 imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5.py`, `past5.py` and `mass5.py`,
 `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports `checks/support5.py`,
 `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
-`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py`, `checks/twodomainx5.py`
-imports `checks/twodomain5.py`; the others import nothing from the research tree:
+`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
+`checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2521,7 +2530,7 @@ imports `checks/twodomain5.py`; the others import nothing from the research tree
     python3 checks/flux5.py                              # a few minutes
     python3 checks/vii5census.py                         # a second
     python3 checks/hclass5.py                            # a few minutes
-    python3 checks/support9.py                           # a few minutes
+    python3 checks/support9.py                           # about five minutes
     python3 checks/charge5.py                            # under a minute
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
@@ -2694,6 +2703,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/support9.out` | `121cfd535964b2b8123500b8ffba91b0` |
 | `docket68/n1star/checks/charge5.py` | `79305f3ccb2ee4cf8dd77a713cf2b2dc` |
 | `docket68/n1star/checks/charge5.out` | `e9375c55cee6ec9df77dd3fc6ebf53ac` |
+| `docket68/n1star/checks/dg5.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/eqlayer5.py` | `d7a1288744dc556ede95c486bffc915e` |
 | `docket68/n1star/checks/eqlayer5.out` | `43d95eb4505ae0a32c64c179e808b8e9` |
 | `docket68/n1star/checks/e2lower5.py` | `d3e494e451d09f0396f78e0675888c4d` |

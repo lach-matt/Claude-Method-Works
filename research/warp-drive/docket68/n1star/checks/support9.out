@@ -1,2 +1,5 @@
   S3: 76 PART files (D338 counted 75); counts now {'contradiction': 19, 'compactness': 44, 'Rellich': 5, 'compact inclusion or embedding': 5, 'Fredholm': 74, 'subsequence': 28}, in 35 files; D338's {'contradiction': 19, 'compactness': 44, 'Rellich': 5, 'compact inclusion or embedding': 5, 'Fredholm': 74, 'subsequence': 28}; the ledger's rows per class: {'F': 41, 'G': 37, 'N1': 6, 'N2': 15, 'N3': 1, 'N4': 13, 'X': 52}
 S3 PASS
+  S6: Ric^H of g0 + lam W, W generic in (s, v, r, th), at W(s + c) equals R[W](s + c) in all 15 components, orders lam^-1 and lam^0: True; parts nonzero (tested nontrivially): lam^-1 0 of 15, lam^0 15 of 15
+  S6 control (W_vv not shifted): Ric^H of g0 + lam W, W generic in (s, v, r, th), at W(s + c) equals R[W](s + c) in all 15 components, orders lam^-1 and lam^0: False; parts nonzero (tested nontrivially): lam^-1 0 of 15, lam^0 15 of 15; identity fails at (component, order) [((0, 0), 0)]
+S6 PASS

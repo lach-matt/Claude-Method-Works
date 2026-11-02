@@ -48,10 +48,11 @@ step from q to the class, not Theorem 9.5(1); K3 covers the l scanned and the bo
 the resonances themselves (iota5.py I5's connection is not run above 5/2); K4 computes the Ricci part of the coupling
 at one ray and one tangential tensor, not the gauge term's h-dependence or Proposition 11.16 in five dimensions.
 
-Run: python3 checks/support8c.py   (about fifteen minutes)
+Run: python3 checks/support8c.py   (about nine minutes)
 """
 import os
 import sys
+import textwrap
 
 import mpmath as mp
 import sympy as sp
@@ -132,11 +133,11 @@ def k1(control=False):
         lams = out[0][1]
         top = max(lams)
         pos = [(lam, m_) for lam in lams if lam > 1 for m_ in range(1, int(sp.ceiling(lam)))]
-        print("      %-26s %s; sigma part i sigma Id: %s, angle-free: %s; max lam %s; positive-integer exponents at"
-              " sigma != 0, Im sigma >= 0: %s" % (name, ", ".join("%s (%d)" % (k_, v_) for k_, v_ in
+        print(textwrap.fill("%s: %s; sigma part i sigma Id: %s, angle-free: %s; max lam %s; positive-integer "
+              "exponents at sigma != 0, Im sigma >= 0: %s" % (name, ", ".join("%s (%d)" % (k_, v_) for k_, v_ in
                                                  sorted(lams.items(), key=lambda kv: -kv[0])), sig_ok, same, top,
                                                  ", ".join("sigma = %s i" % (lam - m_) for lam, m_ in pos) or "none"),
-              flush=True)
+                            118, initial_indent="      ", subsequent_indent="        "), flush=True)
         ok &= sig_ok and same and all(sp.im(k_) == 0 for k_ in lams)
         want_top = 2 if name.startswith("2 L, gam") else None
         ok &= (top == want_top) if want_top else (top <= 1)
@@ -191,7 +192,7 @@ def k3(control=False):
             cnt[name] = cnt.get(name, 0) + len(w)
             cplx += sum(1 for z in w + tw if abs(mp.im(z)) > tiny)
             win += [(name, lv, z) for z in w]
-            tower += [(name, lv, z) for z in tw if mp.re(z) <= hi]
+            tower += [(name + " tower", lv, z) for z in tw if mp.re(z) <= hi]
     allc = win + tower
     above = [(nm, lv, mp.re(z)) for nm, lv, z in allc if mp.re(z) > 3 + tiny]
     least = min(above, key=lambda x: x[2])
@@ -201,13 +202,14 @@ def k3(control=False):
     ok = least[2] > 3 + EIND and inside and not any(lv >= 10**4 for _, lv, _ in win)
     if control:
         return ok
-    print("  K3: box^C's roots at the record's point with real part in (5/2, 13/4]: %d (s0 %d, scalar l >= 1 %d, last"
-          " at l = %s;\n      vector %d, last at l = %s), none at l = 10^4, 10^5; tower images of the roots in (2, 5/2):"
-          " %d; non-real: %d;\n      real parts %s to %s; exactly 3: %s; least above 3: %s + %s (%s, l = %d) > 3 + "
-          "eps_ind = 3 + %s: no\n      candidate in (3, 3 + eps_+]; all >= alpha_min = 1.5099: %s"
+    print(textwrap.fill("K3: box^C's roots at the record's point with real part in (5/2, 13/4]: %d (s0 %d, scalar l "
+          ">= 1 %d, last at l = %s; vector %d, last at l = %s), none at l = 10^4, 10^5; tower images of the roots in "
+          "(2, 5/2): %d; non-real: %d; real parts %s to %s; exactly 3: %s; least above 3: %s + %s (%s, l = %d) > 3 + "
+          "eps_ind = 3 + %s: no candidate in (3, 3 + eps_+]; all >= alpha_min = 1.5099: %s"
           % (len(win), cnt["s0"], cnt["sl"], last.get("sl"), cnt["vl"], last.get("vl"), len(tower), cplx,
              mp.nstr(min(mp.re(z) for _, _, z in allc), 12), mp.nstr(max(mp.re(z) for _, _, z in allc), 12),
-             at3, 3, mp.nstr(least[2] - 3, 8), least[0], least[1], mp.nstr(EIND, 6), inside), flush=True)
+             at3, 3, mp.nstr(least[2] - 3, 8), least[0], least[1], mp.nstr(EIND, 6), inside),
+                        118, initial_indent="  ", subsequent_indent="      "), flush=True)
     return ok
 
 
@@ -278,10 +280,11 @@ def k4(control=False):
     coef = -(z5 - sp.Rational(3, 2) - A77)
     cpt = coef.subs(gU, sp.Rational(1, 100))
     ok = o5 == 3 and z5 == 2 and o4 == 2 and z4 == 1 and lead_ok and A77 == 2 * gU and cpt == sp.Rational(-12, 25)
-    print("  K4: Ric''(h, k)(d_1, d_1) along the ray at fixed t*: r^-%s at n = 4, p = 3/2; r^-%s at n = 3, p = 1;\n"
-          "      L_0's I+ exponent 3/2 (iplus5.py P1: remainder in rho_I Diff_b: %s); indicial matching: z = %s at\n"
-          "      n = 4 (his z = %s at n = 3); A_0's (7, 7) entry %s, coefficient -(z - 3/2 - 2 gam_Ups) = %s, %s at"
-          " the point" % (o5, o4, lead_ok, z5, z4, A77, coef, cpt), flush=True)
+    print(textwrap.fill("K4: Ric''(h, k)(d_1, d_1) along the ray at fixed t*: r^-%s at n = 4, p = 3/2; r^-%s at n = "
+          "3, p = 1; L_0's I+ exponent 3/2 (iplus5.py P1: remainder in rho_I Diff_b: %s); indicial matching: z = %s at "
+          "n = 4 (his z = %s at n = 3); A_0's (7, 7) entry %s, coefficient -(z - 3/2 - 2 gam_Ups) = %s, %s at the point"
+          % (o5, o4, lead_ok, z5, z4, A77, coef, cpt), 118, initial_indent="  ", subsequent_indent="      "),
+          flush=True)
     return ok
 
 
