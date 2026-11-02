@@ -1,1 +1,6 @@
   N1: sym(n1, n2) = -n1*n2*exp(-2*sigma(u, v))*Derivative(f(v), v)*Derivative(h(u), u): the stated form True; zero on pure harmonics and |sym| >= e^(-2 sig) |f' h'| on every mixed one with |n1|, |n2| <= 12: True
+  N2: the lam-coefficient of the corrected symbol is a quadratic form in (n1, n2) (monomials [(0, 2), (1, 1), (2, 0)]), its lam^0 part the symbol of N1: True
+  control (two ingoing phases): sym = 0 on every harmonic, so N1's lower bound fails (resonant); f2 = 2 f1: d(2 f1 - f2) = 0: True
+N1 PASS
+N2 PASS
+control PASS
