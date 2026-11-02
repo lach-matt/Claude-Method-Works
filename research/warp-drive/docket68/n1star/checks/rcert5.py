@@ -378,7 +378,9 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
                 cc = fp[k8].c[i] if sum(m) < Q else fb[k8].c[i]
                 bnd = bnd + abs(cc) * hpow[m]
             up = arb(bnd.mid() + bnd.rad())
-            if up > sup[k8]:
+            if not up.is_finite():
+                sup[k8] = arb('inf')
+            elif up > sup[k8]:
                 sup[k8] = up
             cv = abs(fp[k8].c[0]); cu = arb(cv.mid() + cv.rad())
             if cu > cen[k8]:

@@ -9,3 +9,5 @@ C3  T6c's control: a wrong subtraction is not in the class
 C4  T8g's control: the bump has nonzero time integral
   C4a the claim 'ehat_b(0) = 0' is rejected: int env_b > 0.3: pass 0.66599072
   C4b env_b' has zero time integral (T8g's statement): pass 0.0
+  C4c T8c's test (|ehat_b| > 1e-30) fails at T8f's first zero omega* (round 3): pass omega* = 3.3310293, |ehat_b(omega*)| = 7.54e-35
+FAILED: none

@@ -28,7 +28,8 @@ gamma := gamma_Ups, so sigma_Ups = {0, delta, gamma, 2 gamma} (III.C (3.1)); rea
      largest log order at real part <= 5 is 7 for both. Control: "the half-integer log orders are unchanged" fails.
   H5 (exact) LOSS-D's one-off count (`prop31loss5.py`'s chain(), D576): the L_b applications of III.I' Proposition
      3.1 below l_I, 1 + J + L (J windows, L log steps), for both seeds, sharp and record's (M = 4, 8), over a grid of
-     l_I in (3, 7/2). Control: the log-free class (empty seed) gives LOSS-D Q2's (2, 0, 3).
+     l_I in (3, 7/2); and (round 3, H5c) over l_I in (7/2, 4) for the sharp sets. Control: the log-free class
+     (empty seed) gives LOSS-D Q2's (2, 0, 3).
   H6 (exact) Step 1 at I_0 (III.C' Theorem 3.1): R = prod over E_(0, <=) of (X_0 - z), N = |E_(0,<=)|: 2 for Part
      VII's E_0 and 3 for E_0^(1/2) when l_0 in (3, 7/2), 4 when l_0 in (7/2, 4).
   H7 (exact) the same log orders at a second sample (gamma, e) = (1/5, 1/3): the formal computation does not depend on
@@ -317,6 +318,16 @@ def h5(C, G, rows):
     ctl = sorted({chain(C, E, l) for l in grid if l not in vals})
     check("H5b control: the log-free least E^C_I (empty seed) gives LOSS-D Q2's (2, 0, 3)", ctl == [(2, 0, 3)],
           str(ctl))
+    grid2 = [Fr(7, 2) + Fr(k, 200) for k in range(1, 100)]
+    hi = {}
+    for nm in ("int sharp", "half sharp"):
+        E = cands[nm]
+        vals = {C.val(z) for z in E}
+        hi[nm] = sorted({chain(C, E, l) for l in grid2 if l not in vals})
+        print(f"     l_I in (7/2, 4), {nm}: (J, L, applications) = {hi[nm]}")
+    check("H5c (round 3) l_I in (7/2, 4): the half class costs 9 applications (loss 18), Part VII's class fewer",
+          max(x[2] for x in hi["half sharp"]) == 9 and max(x[2] for x in hi["int sharp"]) < 9,
+          str({k: max(x[2] for x in v) for k, v in hi.items()}))
     return res
 
 
