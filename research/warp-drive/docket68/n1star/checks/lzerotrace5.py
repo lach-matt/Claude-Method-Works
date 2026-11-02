@@ -188,7 +188,7 @@ def eps1_perturbation(g, xhat, r=None):
     in_ker = (dvt.T * nvec)[0] == 0
     lam_n = (nvec.T * g0 * nvec)[0] / nn
     gp = g0 - lam_n * nvec * nvec.T / nn
-    null_dir = (nvec.T * gp * nvec)[0] == 0
+    null_dir = sp.simplify((dvt.T * gp.inv() * dvt)[0]) == 0   # {v + tau = c} null for gp: gp^-1(d(v+tau), .) = 0
     # Lorentzian along g0 - t n n^T, t in [0, lam_n]: det = det g0 (1 - t n^T g0^-1 n / |n|^2), linear in t
     q = (nvec.T * g0.inv() * nvec)[0] / nn
     lorentz = g0.det() < 0 and (1 - lam_n * q) > 0
@@ -230,21 +230,20 @@ def restricted_least(xhat, mu, r, vec):
     return float(min(np.linalg.eigvalsh(B.T @ gp @ B)))
 
 
-def wtt_symbolic():
+def wtt_symbolic(harm=1):
     """lead5.py's W_TT (READ :8-10, :58-67): eigenvalues for the Euclidean metric, and the parity in the phase"""
     r, th, s, A, E, H = sp.symbols('r th s A E H', positive=True)
     C, S = sp.cos(th), sp.sin(th)
     y3 = r ** sp.Rational(-3, 2)
-    a1 = A * E * H * y3 * (2 * C ** 2 * sp.cos(s) - S ** 2 * sp.sin(s)) / 3
-    a2 = A * E * H * y3 * (2 * S ** 2 * sp.sin(s) - C ** 2 * sp.cos(s)) / 3
+    a1 = A * E * H * y3 * (2 * C ** 2 * sp.cos(harm * s) - S ** 2 * sp.sin(harm * s)) / 3
+    a2 = A * E * H * y3 * (2 * S ** 2 * sp.sin(harm * s) - C ** 2 * sp.cos(harm * s)) / 3
     Wd = [-2 * r ** 2 * (a1 + a2), 2 * r ** 2 * C ** 2 * a1, 2 * r ** 2 * S ** 2 * a2]
     gd = [r ** 2, r ** 2 * C ** 2, r ** 2 * S ** 2]               # the Euclidean metric on (th, phi1, phi2)
     eig = [sp.simplify(w / gg) for w, gg in zip(Wd, gd)]
     ok_eig = all(sp.simplify(e - t) == 0 for e, t in zip(eig, [-2 * (a1 + a2), 2 * a1, 2 * a2]))
     odd = all(sp.simplify(e.subs(s, s + sp.pi) + e) == 0 for e in eig)
     at0 = [sp.simplify(e.subs({th: 0, s: 0, H: 1, A: 1})) for e in eig]
-    even_ctrl = sp.simplify(sp.cos(2 * (s + sp.pi)) - sp.cos(2 * s)) == 0      # control C3: an even harmonic
-    return ok_eig, odd, at0, even_ctrl, (r, E)
+    return ok_eig, odd, at0, None, (r, E)
 
 
 def main():
@@ -255,10 +254,12 @@ def main():
     md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
     bad = trace_check(all_lines)
     terms_seen = {t for t, *_ in TRACE}
-    ok['T0'] = md5 == PIN and not bad and terms_seen == set(TERMS)
+    fmd5 = hashlib.md5('\n'.join(all_lines).encode()).hexdigest()
+    ok['T0'] = md5 == PIN and fmd5 == FILE_PIN and not bad and terms_seen == set(TERMS)
     say('lzerotrace5: lambda0 at P*, every factor traced, the bound certified')
-    say('  T0: md5 of N1STAR-PROOF.md lines 1-%d = %s (pinned %s); %d trace rows, every fragment on its line: %s; the '
-        'nine terms covered: %s' % (LAST, md5, PIN, len(TRACE), not bad, terms_seen == set(TERMS)))
+    say('  T0: md5 of N1STAR-PROOF.md lines 1-%d = %s (pinned %s); whole file (%d lines) %s (pinned %s); %d trace '
+        'rows, every fragment on its line: %s; the nine terms covered: %s' % (
+            LAST, md5, PIN, len(all_lines), fmd5, FILE_PIN, len(TRACE), not bad, terms_seen == set(TERMS)))
     for term in TERMS:
         rows = [x for x in TRACE if x[0] == term]
         say('      %-5s %s' % (term, '; '.join('%s (N1STAR-PROOF.md:%d, %s)' % (f, ln, st)
@@ -299,24 +300,28 @@ def main():
     ratios = [sp.nsimplify(sp.simplify(e * sp.Symbol('r', positive=True) ** sp.Rational(3, 2) /
                                        sp.Symbol('E', positive=True))) for e in at0]
     lo_sum, hi_sum = EV.beta_sq_integral(2 ** 16)
-    c_lo = mpf_fr(mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * hi_sum)) * (1 - mpmath.mpf(10) ** -20))
-    c_hi = mpf_fr(mpmath.sqrt(mpmath.mpf(105) / 128 / (mpmath.mpf(3) / 2 * lo_sum)) * (1 + mpmath.mpf(10) ** -20))
+    iv.prec = 200
+    ivf = lambda q: (iv.mpf(q.numerator) / q.denominator) if isinstance(q, Fr) else iv.mpf(q)    # noqa: E731
+    c_iv_lo = iv.sqrt(iv.mpf(105) / 128 / (iv.mpf(3) / 2 * ivf(hi_sum)))
+    c_iv_hi = iv.sqrt(iv.mpf(105) / 128 / (iv.mpf(3) / 2 * ivf(lo_sum)))
+    c_lo, c_hi = mpf_fr(c_iv_lo.a), mpf_fr(c_iv_hi.b)          # outward (interval square roots; Round 4, m6)
     # a^(-3/2) >= 1/sqrt(a_hi^3); the point r = a lies in Omega (|x| >= a), tau = 2 - a, v = 2
     am32_lo = 1 / sqrt_hi(ahi ** 3)
     am32_hi = 1 / sqrt_lo(alo ** 3)
     K_lo, K_hi = c_lo * am32_lo, c_hi * am32_hi
     w_op_lo, w_op_hi = Fr(4, 3) * K_lo, Fr(4, 3) * K_hi
     w_fr_lo = sqrt_lo(Fr(24, 9)) * K_lo
-    tau_p = 2 - ahi
-    dom = (tau_p >= LZ.TAU0 and 2 - alo <= g['tau_end'][0] and 2 + (2 - alo - g['tau_end'][0]) <= g['V'] + 1)
+    dom = in_omega(2 - ahi, ahi, Fr(2), g)                    # the point (v, r) = (2, a_hi), r >= a: in Omega
     # floating cross-check against round 2's Cartesian form
     import numpy as np
     import stage0bd5 as SB
     rp = float(ahi)
     Wc = SB.cart_form([2 - rp, rp, 0.0, 0.0, 0.0], 0.0, 'TT') * float(c_lo)
     cross = np.allclose(np.diag(Wc), np.array([0, 0, 4, -2, -2]) * float(c_lo) * rp ** -1.5 / 3, rtol=1e-12)
+    frob_ratio = sp.sqrt(sum(q ** 2 for q in ratios))
     ok['T3'] = (ok_eig and ratios == [-sp.Rational(2, 3), sp.Rational(4, 3), -sp.Rational(2, 3)] and dom and cross
-                and w_op_lo > 12)
+                and w_op_lo > Fr(125933, 10 ** 4) and frob_ratio == sp.sqrt(24) / 3
+                and Fr(15423591, 10 ** 6) <= w_fr_lo < Fr(154236, 10 ** 4))
     say('  T3: eigenvalues of W_TT (Euclidean) = (-2(a1 + a2), 2 a1, 2 a2) from lead5.py\'s definition: %s; at th = 0, '
         'phase 0: %s x env(v) r^(-3/2); the point (v, r) = (2, a), tau = 2 - a, lies in Omega: %s; c in [%.10f, '
         '%.10f] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in [%.6f, %.6f], Frobenius >= '

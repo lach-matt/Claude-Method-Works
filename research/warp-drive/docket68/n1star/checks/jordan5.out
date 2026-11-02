@@ -2,3 +2,5 @@
       wave-vector source 2.382e+01
   k = 2: response (max |delta f|/eps): free, W source 3.748e+00; constraint-preserving, W source 1.063e+00; free,
       wave-vector source 1.338e+01
+  k = 4: response (max |delta f|/eps): free, W source 2.414e+01; constraint-preserving, W source 9.102e-01; free,
+      wave-vector source 1.553e+01

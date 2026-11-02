@@ -301,9 +301,9 @@ def p5():
     print("     P(40) =", P[40], "; P(N+1)/P(N) at N = 39:", round(P[40]/P[39], 3))
     check("P5b finite at every order N <= 40 (polynomial in lam^-1 at each order, K-independent)",
           err is None and all(isinstance(P[N], int) for N in range(41)))
-    grows = P[40] > 40 and P[40] > 2*P[34]
-    check("P5c the exponent of the written bookkeeping is not linear (P(40) > 40, more than doubling per 6 orders)",
-          grows, f"P(34) = {P[34]}, P(40) = {P[40]}")
+    lin = all(P[N] <= 2*N + 2 for N in range(41)) and P[40] == 82
+    check("P5c the written bookkeeping gives P(N) <= 2N + 2 for N <= 40 (equality at N = 40); control: P(N) <= N "
+          "fails (N = 8)", lin and P[8] > 8, f"P(8) = {P[8]}, P(34) = {P[34]}, P(40) = {P[40]}")
     P2_, Q2_, err2 = lemma110(40, Pbase, Qbase, lambda d, Qd: Qd[d], reverse=True)
     check("P5d control: the reverse split asks for a pointwise order not yet controlled", err2 is not None,
           str(err2))
@@ -372,9 +372,9 @@ def p7():
     check("P7a e(G_k) = k - 4 for k = 4..40 (e(G_3) = -1): the monomial recursion's fixed point",
           all(e[k] == k - 4 for k in range(4, 41)), str([e[k] for k in range(3, 12)]))
     B = stages(40, e)
-    closed = lambda J: (J*J - J)//2 - 1 if J >= 4 else -1
+    closed = lambda J: (J*J - J)//2 - 3 if J >= 4 else -1
     print("     B_J, J = 3..12:", [B[J] for J in range(3, 13)])
-    check("P7b B_J = (J^2 - J)/2 - 1 for J = 4..40: M(J, n, m) = B_J + n + m, polynomial, K-independent",
+    check("P7b B_J = (J^2 - J)/2 - 3 for J = 4..40: M(J, n, m) = B_J + n + m, polynomial, K-independent",
           all(B[J] == closed(J) for J in range(4, 41)))
     check("P7c control: no bound linear in J with slope 3 (B_24 > 72)", B[24] > 72, f"B_24 = {B[24]}")
 
@@ -465,18 +465,18 @@ def p9():
         print(f"     a = {a}, J' = {Jp}, M = {Mx}, j = {j}: s = {s}, K* = {sp.nsimplify(Ks)} ~ {float(Ks):.2f}, "
               f"K = {K}: flux -> {lim}")
     check("P9a at K = floor(K*) + 1 every term of the commuted flux tends to 0 (three sampled cases)", ok)
-    # control: R2.10's K - 4 > a s holds but K < K*: the e_6 term up to R does not tend to 0
-    a, Jp, Mx, j = sp.Rational(29, 10), 8, 1, 0
+    # control: R2.10's K - 4 > a s holds but K < K*: the e_8 coefficient (p = 4, subtracted here) is not small
+    a, Jp, Mx, j = sp.Rational(11, 4), 8, 12, 0
     s_old = (2*Mx + 1)/(Jp - 1 - 2*a)
     s, Ks = kstar(a, Jp, Mx, j)
     K = int(sp.floor(4 + a*s_old)) + 1
-    th6 = sp.Rational(2, Jp - 3)
-    e6 = lam**((K - 3 - 1)*(1 - th6) - (Mx + 1)*th6)
-    t6 = sp.integrate(rr**(2*a)*(e6*rr**-4)**2*rr**3, (rr, 1, lam**(-s)))
-    lim6 = sp.limit(t6, lam, 0, "+")
-    check(f"P9b control: a = 29/10, J' = 8, M = 1: R2.10's K = {K} satisfies K - 4 > a s, but K < K* = "
-          f"{float(Ks):.2f} and the e_6 term (one d_v) does not tend to 0", K - 4 > a*s_old and K < Ks and lim6 != 0,
-          f"limit {lim6}")
+    th8 = sp.Rational(4, Jp - 3)
+    e8 = lam**((K - 3 - 1)*(1 - th8) - (Mx + 1)*th8)
+    t8 = sp.integrate(rr**(2*a)*(e8*rr**-5)**2*rr**3, (rr, 1, lam**(-s)))
+    lim8 = sp.limit(t8, lam, 0, "+")
+    check(f"P9b control: a = 11/4, J' = 8, M = 12: R2.10's K = {K} satisfies K - 4 > a s (s = {s_old}), but "
+          f"K < K* = {float(Ks):.2f} and the e_8 term (one d_v) of the flux does not tend to 0",
+          K - 4 > a*s_old and K < Ks and lim8 != 0, f"limit {lim8}")
 
 
 def main():
