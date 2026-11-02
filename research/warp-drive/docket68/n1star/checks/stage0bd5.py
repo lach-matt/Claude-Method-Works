@@ -55,8 +55,10 @@ said); deduced (the bound calculus below).
      singularities (q = +-i, at imaginary distance 0.44 in th), and the Leibniz sums lose more.
   X4 (certified) a lower bound: at v = 2, r = 0.27 > a, the operator norm of W_TT exceeds a certified value, so every
      admissible C_app (|g_app - g0| <= C_app lam, which forces C_app >= sup |W_TT|_op: g_1 = m_1 + W(X, th + phi_1),
-     and W_TT changes sign under th -> th + pi while m_1 and chi do not) is at least that, and lambda0 <=
-     eps1/(2 C_app) <= 0.60132/(2 C_app) for every admissible eps1 (eps1hyp5.py H3).
+     and W_TT changes sign under th -> th + pi while m_1 and chi do not) is at least that, so lambda0 < eps1/C_app <=
+     0.6013096/C_app for any split of eps1 between g_app and w, and <= eps1/(2 C_app) at round 1's even split, in the
+     operator norm (eps1hyp5.py H3). Round 3 (the verifier's M1): round 2 printed only the even split and called it
+     "below lambda_Omega"; split-free the term is about 0.0478, above lambda_Omega = 0.026986 (lzerotrace5.py T5).
   Controls (must fail, and do): C1 a sign flipped in Gc's cross term breaks X1; C2 the majorant (3/2)_m of |x|^(-3/2)
   equals its radial derivative at every order (exact), so "half the majorant" is refuted; C3 the order-1 bound for
   W_TT is above a finite-difference value at one point (floating point) and the claim D/1e9 is refuted by it.
@@ -518,12 +520,14 @@ def main():
             Wq[i][j] = iv.mpf(clo) * k / 3 * (gc * iv.cos(sq) + gs_ * iv.sin(sq))
     quad = sum((uq[i] * Wq[i][j] * uq[j] for i in range(5) for j in range(5)), iv.mpf(0)) / nu ** 2
     capp_lo = min(abs(lo_end(quad)), abs(hi_end(quad))) if (lo_end(quad) > 0 or hi_end(quad) < 0) else 0
-    lam_ub = mpmath.mpf('0.60132') / (2 * capp_lo)
+    lam_ub = mpmath.mpf('0.6013096') / (2 * capp_lo)
+    lam_sf = mpmath.mpf('0.6013096') / capp_lo
     ok['X4'] = capp_lo > 1 and float(capp_lo) <= best_pt[0] * float(chi_) * (1 + 1e-6)   # best_pt has E = 1
     say('  X4: at v = 2, r = 0.27 (tau = 1.73 in [tau0, tau_end], r > a), th = %.4f, s = %.4f: |W_TT|_op >= u^T W_TT u '
-        '= %s (certified, E = c taken at c_lo); so every admissible C_app >= %s and lambda0 <= 0.60132/(2 C_app) <= '
-        '%s (against lambda_Omega <= 0.026986)' % (th_, s_, mpmath.nstr(capp_lo, 8), mpmath.nstr(capp_lo, 6),
-                                                   mpmath.nstr(lam_ub, 6)))
+        '= %s (certified, E = c taken at c_lo); so every admissible C_app >= %s and lambda0 < 0.6013096/C_app <= %s '
+        'for any split (above lambda_Omega = 0.026986), <= %s at the even split (operator norm; Round 3, M1)' % (
+            th_, s_, mpmath.nstr(capp_lo, 8), mpmath.nstr(capp_lo, 6), mpmath.nstr(lam_sf, 6),
+            mpmath.nstr(lam_ub, 6)))
     say('      (%.0f s)' % (time.time() - t_start))
     for kk, vv in ok.items():
         print(kk, 'PASS' if vv else 'FAIL')
