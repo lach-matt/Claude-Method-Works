@@ -93,7 +93,7 @@ def _gamma(g, gi):
 def g1(control=False, seed=62):
     t0 = time.time()
     rnd = random.Random(seed)
-    mons = [m for d in (1, 2) for m in sp.itermonomials(X5, d, d)]
+    mons = [m for d in (1, 2) for m in sorted(sp.itermonomials(X5, d, d), key=sp.default_sort_key)]
 
     def rmat():
         M = sp.zeros(5)
@@ -273,7 +273,7 @@ def g2(control=False):
 def g3(control=False):
     t0 = time.time()
     t, a1, dd, d1 = sp.symbols("t a1 d d1", positive=True)
-    rho, q = sp.symbols("rho q", positive=True)
+    rho = sp.Symbol("rho", positive=True)
     vol = sp.integrate(sp.cos(th)*sp.sin(th), (th, 0, sp.pi/2))*(2*sp.pi)**2
     N2 = lambda qq: sp.simplify(vol*sp.integrate(rho**(3 - 2*qq), (rho, t + a1, t + a1 + dd)))  # noqa: E731
     n2 = N2(2)
