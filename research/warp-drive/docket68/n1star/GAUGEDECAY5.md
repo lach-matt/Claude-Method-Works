@@ -345,6 +345,14 @@ supplement Proposition 10.2 (iv)). This is a time-domain statement for $\Box$, a
 3. *The $l = 0$ sector* is homogeneous ($\Box Z'_0 = 0$, Proposition 2.1 (c)); its decay modulo $W^*$ is the radial
    1-form problem the supplement's section 10.11 takes by another route (deduced there, not proved).
 
+**Corollary 2.6 (conditional; deduced).** Suppose (Adm$\Box$): every $G$-invariant $Z'$ on $N^{\mathcal D}$ with $\Box Z'
+= J$, $J$ $G$-invariant with $J_0 = 0$ and $|J|_k\le Ct_*^{-w+\epsilon'}$ for every $k$ on compact $r$-sets (in whatever
+weighted class at $\mathscr I^+$ the theorem needs), satisfies $|Z'-cW^*-c'(\partial_t)^\flat|_k\le C_kt_*^{-\kappa}$ on
+each $\{r_0<r\le R'\}$ for some constants $c,c'$ and some $\kappa>0$. Then every harmonic-gauge solution of Proposition
+2.1 is $\dot g_H = \dot\mu K^*+c\,\mathcal L_{W^*}g+O(t_*^{-\min(\kappa,w-\epsilon')})$ there, with a loss of
+derivatives, and $4\pi^2(c+\mu_0c') = \lim_{v\to\infty}Q[Z-\dot\mu W^{**}_H]$. (Insert $Z'$ in Proposition 2.1 (a);
+$\mathcal L_{(\partial_t)^\flat}g = 0$; the charge by Lemma 2.2 (b) and Theorem 2.3.) (Adm$\Box$) is what is open.
+
 So the paper's harmonic-gauge route (supplement Propositions 10.2-10.5, sections 10.7-10.11) keeps its status as a
 deduction; what is now proved is its non-decaying part: the linear growth $\frac{\dot\mu}2v\,\mathcal L_{W^*}g$ is
 forced (Theorem 2.3), with the explicit horizon-regular $W^{**}$, and the stationary freedom is exactly

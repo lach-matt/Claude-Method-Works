@@ -10,3 +10,10 @@ R2 PASS
   R3 (b) D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 3) tau: True
   R3 (c) class 1-forms with zero divergence: Eq(a(theta), C1/sin(2*theta)) (smooth on S^3 only for C1 = 0)
   R3 (d) the divergence of a class symmetric tensor has no phi components: True
+  R3 (e) j = 1 (l = 2): ||P||^2 = 2*pi**2/3, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 2 (l = 4): ||P||^2 = 2*pi**2/5, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 3 (l = 6): ||P||^2 = 2*pi**2/7, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 4 (l = 8): ||P||^2 = 2*pi**2/9, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (f) (1+k^2)^2/((2/3)k^2(k^2-3)) has derivative -3*(x + 1)*(5*x - 3)/(2*x**2*(x - 3)**2), negative for k^2 >= 8 (coefficients of -num(x+8) and den(x+8) >= 0: True); sup at l = 2: 243/80; (1+k^2)/k^2 decreasing, sup 9/8 at l = 2
+  R3 (b) control D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 2) tau: False
+R3 PASS
