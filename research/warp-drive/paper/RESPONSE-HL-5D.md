@@ -1117,8 +1117,9 @@ G-invariant ones are ∂_t's alone, so only the mass is matched, and on G-invari
 flux identity bounds the glued mass's distance from μ_end by the data's deviation (computed:
 `docket68/n1star/checks/flux5.py` — the flux of the Kerr–Schild slice is 6π²m at every radius and its remainder q
 vanishes there, the flux is the divergence of the linearised scalar curvature with a remainder quadratic at flat data,
-and the remainder scales as R⁻⁶ on the annulus, which with its volume gives the bound; the difference bound for the
-quadratic remainder is argued, not computed), so the glued data stay O(λ)-close to Tangherlini in Hintz's weighted norm
+and the remainder scales as R⁻⁶ on the annulus, which with its volume gives the bound; the difference of two remainders
+is at most C ε (|B| + ε) R⁻⁶ + C ε R⁻⁸ for data of size B and a deviation of size ε, the bilinear bound the mass estimate
+uses), so the glued data stay O(λ)-close to Tangherlini in Hintz's weighted norm
 at a fixed gluing radius. Hintz's argument, run on G-invariant spaces with its smoothing operators and right inverses
 averaged over G and its choices made symmetric, then gives a G-invariant development whose final parameters, fixed by G,
 are a mass alone (supplement `proof5/PART-VII-ASSEMBLY.md`, Proposition 2.2 and Proposition 3.2). Without the class, his
@@ -2155,10 +2156,13 @@ Programs behind section 9, in `docket68/n1star/`:
   supplement Part VII Lemma 0.1, ρ²C^∞ and ρ³C^∞ of the radial compactification. Controls: a mass term falling as ρ (B1,
   B4); a split-signature form, which vanishes on the sphere (B2); the projection term dropped (B3). Exact series; about
   four minutes.
-- `checks/flux5.py` F1–F3: the flux 6π²m of the Kerr–Schild slice (F1–F2) and the glued mass bound's ingredients (F3: R⁶
-  q_2 = −10294529/36000, the annulus volume 255π²R⁴/2, |δm| ≤ C η (R² + 1)/(6π²R² − C) for C < 6π²R²; the bilinear
-  difference bound of step (6) is argued, not computed) (supplement Part VII Lemma 2.1 (c), Proposition 2.2 step (6)).
-  Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms (F3). Exact; a few minutes.
+- `checks/flux5.py` F1–F4: the flux 6π²m of the Kerr–Schild slice (F1–F2), the glued mass bound's ingredients (F3: R⁶
+  q_2 = −10294529/36000, the annulus volume 255π²R⁴/2, |δm| ≤ C η (R² + 1)/(6π²R² − C) for C < 6π²R²) and step (6)'s
+  bilinear difference bound (F4: for generic data of size B and a deviation of size ε, both at the annulus scaling, the
+  remainder's difference has no term linear in the data, its quadratic part is R⁻⁶ times ε B and ε² and its cubic part
+  R⁻⁸ times ε B², ε² B and ε³, so it is at most C ε (|B| + ε) R⁻⁶ + C ε R⁻⁸) (supplement Part VII Lemma 2.1 (c),
+  Proposition 2.2 step (6)). Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms
+  (F3); the remainder without its linear part (F4). Exact; about twenty minutes.
 - `checks/vii5census.py` V1: an enumeration for (VII5): every line of Parts III–IV that names an averaged or equivariant
   choice by one of thirty-three printed symbols -- the cut-offs (χ_K, χ_r, χ_∞, χ_−, Θ and those inside t♭_* among them),
   the states and towers of III.G'' Table 1.1 as maps (h̆, h^(μ), h_(b,s1), h^(0)_(b,s0), h^(−2)_b, h^(≤k)_(b,s1),
@@ -2499,7 +2503,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 8.5: (8.13) off a countable set of h, not at every h | `docket68/n1star/checks/re813.py` R1–R3 |
 | sections 8.4–8.5: the exponent 2, the class, r_h, roots past 5/2 | `docket68/n1star/checks/support8c.py` K1–K4 |
 | sections 8.5, 9: the point's conclusions, the losses, the lowered boundary | `docket68/n1star/checks/census9.py` |
-| section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F3 |
+| section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F4 |
 | section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
 | section 8.8: the sites of the averaged choices enumerated | `docket68/n1star/checks/vii5census.py` V1 |
 | section 8.8: every listed use of the averaged choices read | `docket68/n1star/checks/vii5read.py` Q1–Q3 |
@@ -2626,7 +2630,7 @@ imports `checks/vii5census.py`; the others import nothing from the research tree
     python3 checks/eindcert5.py                          # about ten minutes
     python3 checks/kirecon5.py                           # about half a minute
     python3 checks/mpdata5.py                            # about four minutes
-    python3 checks/flux5.py                              # a few minutes
+    python3 checks/flux5.py                              # about twenty minutes
     python3 checks/vii5census.py                         # a second
     python3 checks/vii5read.py                           # about fifteen seconds
     python3 checks/hclass5.py                            # a few minutes
@@ -2798,8 +2802,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/kirecon5.out` | `32adeaa42985094794fde34fb95b27fe` |
 | `docket68/n1star/checks/mpdata5.py` | `681c8b0f36027724f1146945decd6efe` |
 | `docket68/n1star/checks/mpdata5.out` | `2095b2cfc3584b322e8603301cbb815f` |
-| `docket68/n1star/checks/flux5.py` | `14267c91243caab38b53eb66b180b7eb` |
-| `docket68/n1star/checks/flux5.out` | `2764f0c5d211c1470b1fa0a03fd49dad` |
+| `docket68/n1star/checks/flux5.py` | `9ab6b48f425633ab7806c3bab1576238` |
+| `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
 | `docket68/n1star/checks/vii5census.py` | `72bd25c139eb7fd1d50047e54081300d` |
 | `docket68/n1star/checks/vii5census.out` | `0c0af2356bbe42ee7dc272dadc492969` |
 | `docket68/n1star/checks/vii5read.py` | `5fe023d9f991eb39404e709ae8811f86` |

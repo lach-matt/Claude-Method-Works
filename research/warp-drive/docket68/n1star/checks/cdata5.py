@@ -142,6 +142,8 @@ class ArbPrinter(PythonCodePrinter):
         name = {'sin': 'jsin', 'cos': 'jcos', 'log': 'jlog'}[e.func.__name__]
         return '%s(%s)' % (name, ', '.join(self._print(a) for a in e.args))
 
+    _print_sin = _print_cos = _print_log = _print_Function
+
 
 def compile_arb(expr, args):
     code = 'def _f(%s):\n    return %s\n' % (', '.join(str(a) for a in args), ArbPrinter().doprint(expr))
