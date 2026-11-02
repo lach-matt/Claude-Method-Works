@@ -88,10 +88,21 @@ def D(expr, a, vfield=None):
                if c != 0)
 
 
+PTS = [{t: sp.Rational(1, 3), x1: sp.Rational(7, 5), x2: sp.Rational(-2, 3), x3: sp.Rational(5, 4),
+        x4: sp.Rational(1, 2), th: sp.Rational(3, 7)},
+       {t: sp.Rational(-2, 5), x1: sp.Rational(1, 2), x2: sp.Rational(9, 4), x3: sp.Rational(-1, 3),
+        x4: sp.Rational(6, 5), th: sp.Rational(11, 5)}]
+
+
+def nonzero(c):
+    """a coefficient is nonzero if it is nonzero at one of two rational points (30 digits)"""
+    return any(abs(sp.N(c.subs(p), 30)) > 1e-20 for p in PTS)
+
+
 def order_L(expr, j=0):
     """lam-order of lam^j * expr, expr a polynomial in Li = 1/lam: j - (top Li-degree with nonzero coefficient)"""
     P = sp.Poly(sp.expand(expr), Li)
-    degs = [m[0] for m, c in zip(P.monoms(), P.coeffs()) if sp.simplify(c) != 0]
+    degs = [m[0] for m, c in zip(P.monoms(), P.coeffs()) if nonzero(c)]
     return j - max(degs) if degs else sp.oo
 
 
@@ -103,7 +114,7 @@ def top_L(expr):
 
 def p1():
     print("P1  the two-scale chain rule: one lam^-1 per Cartesian derivative, none per rotation")
-    A = sp.Function("A")(*XS)
+    A = 1 + t*x1 + x2**2*x3 + x4*t**2  # an explicit slow amplitude
     j = 1
     F = A*sp.sin(th)  # times lam^j
     ok = True
@@ -120,7 +131,10 @@ def p1():
     # validate the two-scale formula against the true derivative of A sin(v/lam)
     true = sp.diff(A*sp.sin(V/lam), x1, t)
     two = D(D(A*sp.sin(th), 0), 1).subs({th: V/lam, Li: 1/lam})
-    check("P1c the two-scale formula equals the true d_1 d_t of A sin(v/lam)", sp.simplify(true - two) == 0)
+    lv = {lam: sp.Rational(1, 7)}
+    diffs = [abs(sp.N((true - two).subs(lv).subs({k: v for k, v in p.items() if k != th}), 30)) for p in PTS]
+    check("P1c the two-scale formula equals the true d_1 d_t of A sin(v/lam) (two points, lam = 1/7)",
+          max(diffs) < 1e-25)
     Nr = [0, x2, x1, 0, 0]  # x2 d_1 + x1 d_2: not a rotation
     e = D(F, None, Nr)
     check("P1d control: x2 d_1 + x1 d_2 (not a rotation) costs lam^-1: order 0", order_L(e, 1) == 0)
@@ -137,7 +151,7 @@ def ks():
 
 def p2():
     print("P2  the coefficients of Lemma 11.0's energy identity")
-    W = sp.Function("W")(*XS)
+    W = 1 + x1*x3 + t**2
     e = D(W*sp.sin(th), 0)
     check("P2a d_t (lam W sin th) has order 0: the kernel ||d g|| <= C t^(-3/2) is lam-free", order_L(e, 1) == 0)
     g0, g0i, mu = ks()
@@ -159,7 +173,7 @@ def p2():
     rhs = sp.simplify(-(ell.T*U*ell)[0, 0])
     check("P2c (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2), ell = g0^-1 dv", sp.simplify(lhs - rhs) == 0)
     # the quasilinear term of (11.4) on lam [W]: its lam^-1 part is (1/2)(g^-1 - g0^-1)^(ab) d_a v d_b v (-W sin th)
-    Wf = sp.Function("Wf")(*XS)
+    Wf = 2 + t*x2 + x1**2
     Y = Wf*sp.sin(th)  # times lam
     hess = sp.Matrix(5, 5, lambda a, b: D(D(Y, a), b))
     Hm = sp.Matrix(5, 5, lambda a, b: sp.Symbol(f"H{min(a, b)}{max(a, b)}"))
@@ -167,9 +181,10 @@ def p2():
     deg, lead = top_L(q)  # lam * Li^deg: order 1 - deg
     target = -sp.Rational(1, 2)*Wf*sp.sin(th)*sum(Hm[a, b]*sp.diff(V, XS[a])*sp.diff(V, XS[b])
                                                   for a in range(5) for b in range(5))
+    hv = {sp.Symbol(f"H{a}{b}"): sp.Rational(a + 2*b + 1, 5) for a in range(5) for b in range(a, 5)}
     check("P2d (1/2) H^ab d_a d_b (lam [W]) = -(1/2) lam^-1 H(dv, dv) [W] + O(lam^0): with H(dv, dv) = -u(ell, ell)"
           " the term is +(1/2) lam^-1 u_1(ell, ell) [W], linear in u_1, at order -1",
-          1 - deg == -1 and sp.simplify(lead - target) == 0)
+          1 - deg == -1 and not nonzero((lead - target).subs(hv)))
     tt = sp.simplify((sp.Matrix([1, 0, 0, 0, 0]).T*first*sp.Matrix([1, 0, 0, 0, 0]))[0, 0] - rhs)
     check("P2e control: the dt dt component of (g^-1 - g0^-1) is not -u(ell, ell)", tt != 0)
 

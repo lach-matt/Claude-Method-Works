@@ -2236,6 +2236,32 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/secondzero5.py` S1–S7: section 9's statement that the earlier scheme's second zero belongs to its chart's
+  areal spheres, measured on double-null runs at the first seed against the deductions whose identities `sectexp5.py`
+  computes. S1, R_v < 0 at every kept cell with u > −1 and v ≤ 1.8 away from the cut; S2, every further zero of R_v
+  along an ingoing cone lies within a few rows of the cut, where none is the exact solution's; S3, the Bondi spheres
+  rebuilt on the seed reproduce Tangherlini to 10⁻⁷; S4 (reported), the rebuilt outer zero against the earlier scheme's
+  recorded zeros; S5 (reported), the zero set per column; S6, that difference falling as the data cone recedes (R0 =
+  10, 20, 40), at most 0.05 at R0 = 20 and 40; S7, the untrapped band at one radius against the earlier scheme's
+  columns. Controls: the test over u > −1.02, which takes in leaves outside the horizon generator; the classifier
+  applied to the first zero; the leaves' expansion in place of the spheres'. Computed, floating point. The runs are
+  scratch runs of `dnsolve5.py` through `checks/szrun5.py` (supplement `CERTIFY-10L5-RESULT.md` section 4), two to ten
+  minutes each at M = 16; the checks a few minutes.
+- `checks/cdata5.py` C1–C2: section 9's certified step. On the data cone u = −10 the characteristic data are
+  approximated by an explicit series, Tangherlini where the envelope vanishes and a tensor Chebyshev series in (r, x)
+  on its support, at both seeds. C1, the Raychaudhuri constraint along the outgoing generators, sup |Ric_vv[g_app]| ≤
+  4.97 × 10⁻⁵ at the first seed and 2.29 × 10⁻⁵ at the second, against terms of size 1.20 × 10⁻³ and 5.28 × 10⁻⁴ that
+  cancel in it; C2, the jumps of R_rr where the series meets Tangherlini, at most 3.6 × 10⁻⁸ and 8.5 × 10⁻⁸. Certified
+  in ball arithmetic (Arb, through python-flint), by the mean-value form on a grid of boxes with Markov's inequality
+  for the Chebyshev derivatives. Control: the coefficients perturbed by 10⁻⁶ give bounds 465 and 4,259 and jumps above
+  100, each at least 100 times larger. About 17 minutes.
+- `checks/resid5.py` Q1–Q2: section 9's computed residual. Every field of a double-null run at the first seed (800 ×
+  360, M = 16) is fitted by a tensor Chebyshev series on the box u ∈ [−4, −1.1], v ∈ [0.55, 1.6], so that g_app is an
+  explicit smooth metric of the class. Q1, the fit within 7 × 10⁻¹¹ of the run at its nodes; Q2, every frame component
+  of Ric[g_app], from the exact symbolic Ricci tensor of the ansatz, at most 2.46 × 10⁻³ of the curvature scale √K_0 at
+  the same areal radius, against 9.64 × 10⁻³ on the next coarser run (400 × 180), a ratio of 3.92: the residual is the
+  discretisation's, at second order. Control: the lapse moved off the solution (W + 0.01 v) gives a residual 140 times
+  larger. Floating point, not certified. About 11 minutes, given the runs.
 - `checks/gdrepair5.py` V1–V5: section 8.2's gauge-fixed mass change. V1, the representative with the static time and
   coefficient 1 is singular at the horizon ((r − 1)K*_vr → −3/8, (r − 1)²K*_rr → 3/8 at μ = 1); V2, K* = K + π_{W**},
   W** = (v/2)W* + A dv + B dr, has Θ(K*) = 0, linearised mass 1 and is finite at r_h, and a stationary horizon-regular
@@ -2568,6 +2594,9 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 8.2: the gauge-fixed mass change regular at the horizon | `docket68/n1star/checks/gdrepair5.py` V1–V5 |
 | section 8.2: harmonic gauge, l = 0 settling modulo W* | `docket68/n1star/checks/admbox5.py` B1–B8 |
 | section 9: the second zero is not a second MOTS | `docket68/n1star/checks/sectexp5.py` X1–X3 |
+| section 9: the second zero in the runs; the zero set | `docket68/n1star/checks/secondzero5.py` S1–S7 |
+| section 9: certified constraint on the data cone | `docket68/n1star/checks/cdata5.py` C1–C2 |
+| section 9: residual of a smoothed 3D approximant | `docket68/n1star/checks/resid5.py` Q1–Q2 |
 | sections 8.4–8.5: the exponent 2, the class, r_h, roots past 5/2 | `docket68/n1star/checks/support8c.py` K1–K4 |
 | sections 8.5, 9: the point's conclusions, the losses, the lowered boundary | `docket68/n1star/checks/census9.py` |
 | section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F4 |
@@ -2598,36 +2627,37 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 
 ## Appendix D. Reproduction
 
-Python 3 with sympy (Python 3.13.16, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3, scipy 1.18.1, z3 5.3.1 in the runs recorded
-here); z3-solver for `foliation5.py`; numpy for `bondi5.py` and `growth5.py`, numpy and scipy for `settle5.py`; mpmath
-for `damping5.py` and every program that imports it, and for `lowenergy5.py`. `growth5.py` imports the solver
-`docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`, `growing5.py`, `lzero5.py` and
-`coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`, `semiclass5.py` imports `damping5.py`,
-`cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports `damping5.py`, `modes5.py` imports
-`gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`, `damping5.py` and `modes5.py`,
-`hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`, `lowenergy5.py` imports `thresh5.py`
-and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports `cform5.py` and `damping5.py`, `tface5.py`
-imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`, `lin5.py` imports `damping5.py` and
-`gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import `damping5.py`, `genstates5.py` imports
-`damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`, `genstates5.py` and `zstates5.py`, `dual5.py`
-imports `damping5.py`, `genstates5.py` and `puregauge5.py`, `pairing5.py` imports `damping5.py`, `static5.py` imports
-`damping5.py` and `gmodes5.py`, `physical5.py` imports `damping5.py` and `lin5.py`, `window5.py` imports `damping5.py`
-and `lin5.py`, `mp5.py` imports `damping5.py` and `dual5.py`, `iota5.py` imports `damping5.py` and `lin5.py`, `scri5.py`
-imports `damping5.py`, `iota5.py`, `lin5.py` and `sbar5.py`, `aug5.py` imports `damping5.py` and `sbar5.py`,
-`lowfreq5.py` imports `aug5.py`, `damping5.py` and `sbar5.py`, `cone5.py`, `class5.py`, `eind5.py`, `uniform5.py` and
-`transfer5.py` import `damping5.py`, `iplus5.py` imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py`
-imports `class5.py`, `damping5.py`, `iplus5.py` and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`,
-`window5.py` and `iplus5.py`, `checks/csolve5.py` imports `data5.py`, `checks/eindcert5.py` imports `eind5.py` and
-`damping5.py`, `checks/hclass5.py` imports `damping5.py`, `checks/re813.py` imports `damping5.py`, `checks/support5b.py`
-imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5.py`, `past5.py` and `mass5.py`,
-`checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports `checks/support5.py`,
-`checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
-`checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
-`checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports `growth5.py`,
-`checks/stage5.py` imports `lead5.py`, `checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`,
-`checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
-`checks/twodomainx5.py` imports `checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`; the others
-import nothing from the research tree:
+Python 3 with sympy (Python 3.13.16, sympy 1.14.0, mpmath 1.3.0, numpy 2.5.3, scipy 1.18.1, z3 5.3.1 in the runs
+recorded here); z3-solver for `foliation5.py`; python-flint for `cdata5.py`; numpy for `bondi5.py` and `growth5.py`,
+numpy and scipy for `settle5.py`; mpmath for `damping5.py` and every program that imports it, and for `lowenergy5.py`.
+`growth5.py` imports the solver `docket68/lemmas/hf_mirror5.py` and `hf_core5.y_core`, `past5.py` imports `lead5.py`,
+`growing5.py`, `lzero5.py` and `coupled5.py` import `wavegauge5.py`, `lzerorate5.py` imports `hierarchy5.py`,
+`semiclass5.py` imports `damping5.py`, `cform5.py` imports `semiclass5.py` and `damping5.py`, `gaugepot5.py` imports
+`damping5.py`, `modes5.py` imports `gaugepot5.py` and `damping5.py`, `trap5.py` and `thresh5.py` import `gaugepot5.py`,
+`damping5.py` and `modes5.py`, `hienergy5.py` imports `gaugepot5.py`, `damping5.py`, `thresh5.py` and `trap5.py`,
+`lowenergy5.py` imports `thresh5.py` and `damping5.py`, `cpmodes5.py` imports `damping5.py`, `solv5.py` imports
+`cform5.py` and `damping5.py`, `tface5.py` imports `cform5.py`, `gaugepot5.py`, `semiclass5.py` and `damping5.py`,
+`lin5.py` imports `damping5.py` and `gaugepot5.py`, `sbar5.py`, `strap5.py`, `gmodes5.py` and `zstates5.py` import
+`damping5.py`, `genstates5.py` imports `damping5.py` and `zstates5.py`, `puregauge5.py` imports `damping5.py`,
+`genstates5.py` and `zstates5.py`, `dual5.py` imports `damping5.py`, `genstates5.py` and `puregauge5.py`, `pairing5.py`
+imports `damping5.py`, `static5.py` imports `damping5.py` and `gmodes5.py`, `physical5.py` imports `damping5.py` and
+`lin5.py`, `window5.py` imports `damping5.py` and `lin5.py`, `mp5.py` imports `damping5.py` and `dual5.py`, `iota5.py`
+imports `damping5.py` and `lin5.py`, `scri5.py` imports `damping5.py`, `iota5.py`, `lin5.py` and `sbar5.py`, `aug5.py`
+imports `damping5.py` and `sbar5.py`, `lowfreq5.py` imports `aug5.py`, `damping5.py` and `sbar5.py`, `cone5.py`,
+`class5.py`, `eind5.py`, `uniform5.py` and `transfer5.py` import `damping5.py`, `iplus5.py` imports `damping5.py`,
+`lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py` imports `class5.py`, `damping5.py`, `iplus5.py` and `window5.py`,
+`general5.py` imports `damping5.py`, `sharp5.py`, `window5.py` and `iplus5.py`, `checks/csolve5.py` imports `data5.py`,
+`checks/eindcert5.py` imports `eind5.py` and `damping5.py`, `checks/hclass5.py` imports `damping5.py`, `checks/re813.py`
+imports `damping5.py`, `checks/support5b.py` imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports
+`lead5.py`, `past5.py` and `mass5.py`, `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports
+`checks/support5.py`, `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports
+`checks/level2loop5.py`, `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py`
+and `scri5.py`, `checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports
+`growth5.py`, `checks/stage5.py` imports `lead5.py`, `checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`,
+`secondzero5.py` and `resid5.py` import `bondisph5.py`, which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import
+`dnsolve5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and
+`checks/dg5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`, `checks/vii5read.py` imports
+`checks/vii5census.py`; the others import nothing from the research tree:
 
     cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
@@ -2707,6 +2737,10 @@ import nothing from the research tree:
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/szrun5.py 1 0.3 16 800 360 2.0 RUNDIR/l1_M16_800.npz ld 3   # one scratch run (CERTIFY-10L5-RESULT 4)
+    python3 checks/secondzero5.py RUNDIR t_l1_r03_M16_200 l1_M16_400 l1_M16_800   # and --truncation, --edges
+    python3 checks/cdata5.py                              # about 17 minutes
+    python3 checks/resid5.py RUNDIR l1_M16_800 l1_M16_400    # about 11 minutes, given the runs
     python3 checks/gdrepair5.py                           # a few minutes
     python3 checks/admbox5.py                             # several minutes
     python3 checks/sectexp5.py                            # about a minute
@@ -2894,6 +2928,16 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/secondzero5.py` | `fa5d979ad1cabb4f8eed1c3467a2b3bb` |
+| `docket68/n1star/checks/secondzero5.out` | `93f58cbf143406d695629580430bc9f0` |
+| `docket68/n1star/checks/secondzero5_trunc.out` | `8b4adb55bfeb51ba2e2823b1e0306604` |
+| `docket68/n1star/checks/secondzero5_edges.out` | `c0df225b38566ca5fea8442e4beee66b` |
+| `docket68/n1star/checks/bondisph5.py` | `9803376f7d211fe9447979e22c4a2486` |
+| `docket68/n1star/checks/szrun5.py` | `f27923471b2c1e362b3a65d9f80bbac6` |
+| `docket68/n1star/checks/cdata5.py` | `0da359e91b49e6b4693bce8402a85f0f` |
+| `docket68/n1star/checks/cdata5.out` | `eec6767b776658abc2bec59f477a0d9d` |
+| `docket68/n1star/checks/resid5.py` | `cfbfa68ce8b353b6ced0b20562c9ade4` |
+| `docket68/n1star/checks/resid5.out` | `fb54bab514ffcd7cb4bb12c4a69abe6e` |
 | `docket68/n1star/checks/gdrepair5.py` | `3c17fae47ffea22448dac167cd0f257c` |
 | `docket68/n1star/checks/gdrepair5.out` | `0520ad35df8df60010e036de2f3fa4d8` |
 | `docket68/n1star/checks/admbox5.py` | `91854b2cfb4c1b7b28b145b622ff9d83` |

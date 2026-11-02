@@ -7,8 +7,10 @@
       3.796e+9, 4.214e+10, 4.552e+11, 5.248e+12
   E3: max_j sup_{t <= delta/2^m} |phi1^(j)| at m = 0, 4, 8: 1.13e+25, 2.2e-431, 4.98e-8215: every derivative of env tends
       to 0 at the ends (smooth, compactly supported)
-  C1 (control): (1 - y^2)^4 at y = 1: derivatives 0..5 = ['0', '0', '0', '0', '384', '3840']: the end test fails at order
-      4
+  C1 (control): E3 with the factor exp(-1/(2t)) removed: 4.23e+57, 3.14e+90, 1.42e+124 at m = 0, 4, 8: E3 fails for it:
+      True; (1 - y^2)^4 at y = 1: derivatives 0..5 = ['0', '0', '0', '0', '384', '3840']: C^3, not C^4
+  P0 (computed, floating point): the plain bump exp(1 - 1/(1 - y^2)), normalised to int env^2 = 105/128: e_11 ~ 3.294e+18
+      near y = 0.975 (round 2 printed 3.6e22, reproduced by no program)
   C2 (control): for every k <= 14 a sampled |beta^(k)(y)| (mpmath.diff, 120 points) lies in (bound/2, bound]: True [True,
       True, True, True, True, True, True, True, True, True, True, True, True, True, True]
   C3 (control): an envelope normalised to int env^2 = 105/128 + 1e-4 has c >= 1.324184197, outside E1's interval: True
@@ -16,5 +18,6 @@ E1 PASS
 E2 PASS
 E3 PASS
 C1 PASS
+P0 PASS
 C2 PASS
 C3 PASS
