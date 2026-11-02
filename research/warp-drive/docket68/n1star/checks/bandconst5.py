@@ -108,7 +108,7 @@ def at_point(expr, funcs, pt):
     for name, lam in funcs.items():
         e = e.replace(sp.Function(name), lam)
     e = e.doit().subs(pt)
-    return sp.nsimplify(sp.simplify(e))
+    return sp.radsimp(sp.simplify(e))
 
 
 # explicit test functions built from sin th and cos th (rational at th = atan(3/4), atan(5/12), atan(8/15))
@@ -172,7 +172,6 @@ def b1():
         roots = sp.solve(dl, lam)
         want = at_point(sp.sqrt(G) * sp.sqrt(-ksol / (Kt * R**2)), fz, pt)
         ok_sp &= len(roots) == 2 and all(sp.simplify(rt**2 - want**2) == 0 for rt in roots)
-        print("      DEBUG roots", roots, "want", want, "dl", dl)
         print("   point R = %s, th = %s: det / (4.22) = %s for every xi: %s" % (pt[R], pt[th], rat[0], ok))
     print("   control (kappa not eliminated): det / (4.22) depends on xi:", ctl)
     print("   speeds at p = 0: dth/dR = +- sqrt(G) sqrt(-kappa/(Kt R^2)):", ok_sp)
