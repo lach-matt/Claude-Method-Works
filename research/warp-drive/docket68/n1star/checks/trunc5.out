@@ -22,3 +22,7 @@ T7  the Cauchy sequence: tails
   T7a the flux tails on N beyond r = |T| tend to 0 (a0 = 9/20 with ell-gain; a = 59/20 for h_R): pass 10/(11*T**(11/10)), 10/(11*T**(11/10))
   T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0: pass 
 T3  the energy identity for a non-stationary metric (mpmath, 40 digits)
+  T3a div(T(X)) = (box_g phi) X phi + T(grad w, d_t) + (1/2) w T^ab d_t g_ab (relative, 6 cases): pass 1.26e-40
+  T3b g^ab d_a d_b phi = box_g phi + g^ab Gamma^c_ab d_c phi: pass 6.31e-41
+  T3c control: without the deformation term the identity fails at every point: pass 1.72e-5
+FAILED: none

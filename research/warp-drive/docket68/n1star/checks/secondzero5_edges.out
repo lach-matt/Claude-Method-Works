@@ -1,3 +1,6 @@
 # python3 checks/secondzero5.py --edges RUNDIR l1_M16_800 l1_M16_800_R20 G5ZEROS  (round 2;
 #    G5ZEROS: g5zeros5.py's run L100_lam1_20x16)
   S7 the untrapped band at r* on growth5's 17 columns (l1_M16_800, R0 = 10):
+     v = 1.425 (growth5 v = 1.427), r* = 0.650: untrapped columns of 17: growth5 2 [10, 11]; rebuild 2 [9, 10];
+        differ at [9, 11]; edges: growth5 between [(-0.195, -0.383), (-0.556, -0.707)], rebuild at x = [-0.53, -0.086];
+        rebuilt edges outside growth5's brackets by [0.17, 0.58] column spacings -> agree
