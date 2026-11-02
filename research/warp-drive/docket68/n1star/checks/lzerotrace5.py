@@ -173,6 +173,22 @@ def eps1_perturbation(g, xhat, r=None):
                 maxe=mx, det=gp.det())
 
 
+def norm_proposal():
+    """the pointwise norm Lemma 1.1 (e) needs (exact, sympy, m = mu/r^2 symbolic; xhat = e1 by O(4) invariance):
+    least eigenvalues of (g0 - eps I) on ker dtau, ker dr, ker d(v + tau), and the signature of g0 - eps I"""
+    m, e = sp.symbols('m eps', nonnegative=True)
+    U = sp.Matrix([1, 1, 0, 0, 0])
+    g0 = sp.diag(-1, 1, 1, 1, 1) + m * U * U.T
+    out = {}
+    for name, cov in (('ker dtau', [1, 0, 0, 0, 0]), ('ker dr', [0, 1, 0, 0, 0]), ('ker d(v + tau)', [2, 1, 0, 0, 0])):
+        B = sp.Matrix([cov]).nullspace()
+        Q, _ = sp.Matrix.hstack(*B).QRdecomposition()
+        Gr = sp.simplify(Q.T * (g0 - e * sp.eye(5)) * Q)
+        out[name] = sorted(set(sp.simplify(x) for x in Gr.eigenvals()), key=str)
+    full = [sp.simplify(x) for x in (g0 - e * sp.eye(5)).eigenvals()]
+    return out, full, m, e
+
+
 def restricted_least(xhat, mu, r, vec):
     """least eigenvalue of (g0 - lam w w^T) restricted to ker d(v + tau) (floating; control C5)"""
     import numpy as np
