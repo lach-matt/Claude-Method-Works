@@ -86,6 +86,11 @@ def say(s):
 lo_end, hi_end = EV.lo_end, EV.hi_end
 
 
+def fiv(q):
+    """a Fraction as a (narrow) mpmath.iv interval"""
+    return iv.mpf(q.numerator) / q.denominator
+
+
 class CI:
     """complex rectangle: re + i im, re and im mpmath.iv intervals"""
     __slots__ = ('re', 'im')
@@ -385,7 +390,7 @@ def main():
     for bi in range(len(rb) - 1):
         r1, r2 = rb[bi], rb[bi + 1]
         r1m = mpmath.mpf(r1.numerator) / r1.denominator
-        V = [None, iv.sqrt(iv.mpf(2))] + [iv.mpf(math.factorial(m)) * iv.mpf(r1m) ** (1 - m) * iv.mpf(gs[m])
+        V = [None, iv.sqrt(iv.mpf(2))] + [iv.mpf(math.factorial(m)) * fiv(r1) ** (1 - m) * fiv(gs[m])
                                           for m in range(2, KMAX + 1)]
         B = bell(V, KMAX)
         FE = [fdb(E, B, n) for n in range(KMAX + 1)]
@@ -468,11 +473,11 @@ def main():
                 best_pt = (abs(ev_[i]), th_, s_, evec[:, i])
     _, th_, s_, u = best_pt
     # certify u^T W_TT u at that point with interval arithmetic (u rounded to rationals, then normalised in iv)
-    uq = [iv.mpf(Fr(float(c)).limit_denominator(10 ** 9)) for c in u]
+    uq = [fiv(Fr(float(c)).limit_denominator(10 ** 9)) for c in u]
     nu = iv.sqrt(sum((c * c for c in uq), iv.mpf(0)))
-    xq = [iv.mpf(Fr(27, 100)) * iv.cos(iv.mpf(Fr(th_).limit_denominator(10 ** 6))), iv.mpf(0),
-          iv.mpf(Fr(27, 100)) * iv.sin(iv.mpf(Fr(th_).limit_denominator(10 ** 6))), iv.mpf(0)]
-    sq = iv.mpf(Fr(s_).limit_denominator(10 ** 6))
+    thq = fiv(Fr(float(th_)).limit_denominator(10 ** 6))
+    xq = [fiv(Fr(27, 100)) * iv.cos(thq), iv.mpf(0), fiv(Fr(27, 100)) * iv.sin(thq), iv.mpf(0)]
+    sq = fiv(Fr(float(s_)).limit_denominator(10 ** 6))
     z = [CI(c) for c in xq]
     p1 = z[0].sq() + z[1].sq()
     p2 = z[2].sq() + z[3].sq()

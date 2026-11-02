@@ -68,3 +68,6 @@ T9  the cubic part is beyond all orders: its integrand has no zeroth phase harmo
   T9a the theta-mean of G3 S3 vanishes identically in (lam, e, e'): pass 0
   T9b only odd phase harmonics occur (1 and 3): pass 
   T9c control: an even product, (d_v G3)^2, has a nonzero mean (an O(1) source, not O(lam^oo)): pass e0**2/2 + e1**2*lambda**2/2
+     bump: lam, int G3 S3: [('0.125', '3.287e-7'), ('0.0625', '4.76e-8'), ('0.0313', '4.615e-9'), ('0.0156', '5.658e-12')]
+  T9d bump: the cubic model coefficient falls faster than lam^4 over [2^-6, 2^-3]: pass 5.275
+FAILED: none

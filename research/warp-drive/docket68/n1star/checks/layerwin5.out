@@ -1,2 +1,9 @@
   W1 (i, m) = (1, 6): C = 47131/15, max over the grid of lhs/rhs = 0.00059667
   W1 (i, m) = (3, 6): C = 213, max over the grid of lhs/rhs = 0.017582
+  W1 (i, m) = (2, 8): C = 5302829/45, max over the grid of lhs/rhs = 2.7295e-5
+  W1 control (i, m) = (1, 6): C = 47131/15, max over the grid of lhs/rhs = 3.1826
+  W1 control (i, m) = (3, 6): C = 213, max over the grid of lhs/rhs = 4.416e+9
+  W1 control (i, m) = (2, 8): C = 5302829/45, max over the grid of lhs/rhs = 831.63
+W1 PASS
+  W2 exp(-1/x)              rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 7.77e+17, 5.81e+6, 3.72, 2.4e-14; window in [y/2, 2y] and in the layer: [False, True, True, True]
+  W2 exp(-1/x^2)            rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 3.64e+8, 1.12e+4, 0.00255, 5.79e-18; window in [y/2, 2y] and in the layer: [False, True, True, True]
