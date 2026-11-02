@@ -64,8 +64,12 @@ def main():
     cs = sp.simplify(co(E['Evx'], 's_vv'))
     cvec = sp.Matrix([[sp.simplify(co(E['Evx'], f + '_vx')) for f in F4]])
     dz = sp.Matrix([[2 / R, (1 + x) / 3, (1 - x) / 3, 1]])
-    good = (present['E11'] == [] and present['E22'] == [] and present['Exx'] == ['vx'] and present['EYv'] == ['vx']
+    eyv_svv = sp.simplify(co(E['EYv'], 's_vv') - (1 - x ** 2) * s * cs)
+    good = (present['E11'] == [] and present['E22'] == [] and present['Exx'] == ['vx']
+            and present['EYv'] == ['vv', 'vx'] and eyv_svv == 0
             and present['Evx'] == ['vv'] and sp.simplify(cvec + dz) == sp.zeros(1, 4))
+    print('   Ric(Y, d_v) carries s_vv only through (1 - x^2) s Ric_vx (exact: %s), which the solver removes with Ric_vx;'
+          % (eyv_svv == 0))
     print('S1 second derivatives of s by row:', present, '; s_vx column (E11, E22, Exx, EYv):', list(nvec),
           '; Ric_vx: s_vv coefficient', cs, ', f_vx coefficients = -d zeta:', sp.simplify(cvec + dz) == sp.zeros(1, 4),
           '->', 'PASS' if good else 'FAIL')
@@ -107,6 +111,15 @@ def main():
     nz = any(p[1] != 0 for p in proj)
     print('   so the eigenvalue-0 sector %s driven by s_x on spherical states (the Levi term of Y5).' % (
         'IS' if nz else 'is NOT'))
+    # d zeta = l_1 + (2/R) l_0: the combination that s itself carries
+    dzp = sp.simplify((dz * Minv * sig1)[0].subs(sph))
+    evx_sx = sp.simplify(co(E['Evx'], 's_x').subs(sph)); evx_s = sp.simplify(co(E['Evx'], 's').subs(sph))
+    print('   d zeta . M^-1 (s_x column) on spherical states: %s  (so delta zeta is not driven at order k^2 by its own '
+          'shift; delta R, the l_0 component, is: l_0 . M^-1 (s_x column) = %s)' % (dzp, proj[0][1]))
+    print('   Ric_vx\'s own s_x and s coefficients on spherical states: %s, %s  (zero: there s_v = zeta_x/c_s + O(1) '
+          'and s ~ (ik/c_s) int (d zeta . f) dv at angular frequency k)' % (evx_sx, evx_s))
+    ok &= dzp == 0
+    S4res = (proj[0][1], cs.subs(sph))
     # S5: the constraint-preserving block with s_vx
     lab3 = ['E11', 'E22', 'EYv']
     M3f, N3f, _ = S5.mats(E, lab3)
@@ -119,6 +132,13 @@ def main():
     print('S5 constraint-preserving block with s_vx: A3 ='); print(sp.pretty(A3, num_columns=118))
     print('   charpoly %s, rank A3 = %d, rank(A3 + I) = %d, Jordan block: %s; the W row\'s own W_xx coefficient: %s' % (
         cp3, rA3, rI3, jb3, wxx))
+    sig3 = sp.Matrix([sp.simplify(co(E[lab], 's_x')) for lab in lab3])
+    pW = sp.simplify((M3f[:, 1:].inv() * sig3)[2].subs(sph))
+    print('   the W row (after M3^-1) carries s_x with coefficient %s on spherical states; with s ~ (ik/c_s) int '
+          '(d zeta . f) and d zeta . e_W = 1, W is driven by k^2 int W dv there: the eigenvalue-0 mode drives itself.'
+          % pW)
+    good3 = not jb3 and wxx == 0 and pW != 0
+    print('S5', 'PASS' if good3 else 'FAIL'); ok &= good3
     # S6: frozen-coefficient model of the eigenvalue-0 sector driven by s_x
     import mpmath as mp
     mp.mp.dps = 60
