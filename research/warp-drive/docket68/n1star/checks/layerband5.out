@@ -1,2 +1,6 @@
   B1 min over 400 points of int env^2/(E^3/(8 eps_1)): exp(-1/x) sin^2(pi/x) 4.317; exp(-1/x) cos^2(30 x) 2.841; record
       C_c^inf 3.79
+B1 PASS
+  B2 (i) upper layer, every K in [6, 40] at sigma_K: True; (ii) windows at p = 31/10 and 50 (K = 6): True; (iii) band,
+      every K in [10, 40]: True; at K = 9: {'b1 lam^4 eps': True, 'b2 lam eps^2': True, 'b3 w': False}
+B2 PASS
