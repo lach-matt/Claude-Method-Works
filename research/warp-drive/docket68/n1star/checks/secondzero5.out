@@ -347,3 +347,9 @@ secondzero5: all checks pass
          r_AH ranges 0.972-1.026 and 0.972-1.019
       v = 1.300: max |r_AH(double null) - r_AH(growth5)| = 0.011 (at x = 0.00);
          r_AH ranges 0.963-1.038 and 0.957-1.027
+      v = 1.400: max |r_AH(double null) - r_AH(growth5)| = 0.018 (at x = 0.00);
+         r_AH ranges 0.948-1.056 and 0.941-1.047
+      v = 1.450: max |r_AH(double null) - r_AH(growth5)| = 0.023 (at x = 0.00);
+         r_AH ranges 0.939-1.076 and 0.938-1.062
+      v = 1.500: max |r_AH(double null) - r_AH(growth5)| = 0.027 (at x = 0.00);
+         r_AH ranges 0.912-1.098 and 0.927-1.081
