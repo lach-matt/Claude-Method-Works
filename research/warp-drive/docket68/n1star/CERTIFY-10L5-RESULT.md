@@ -124,7 +124,8 @@ two at seed 2, cut 0.18. Results are in `checks/secondzero5.out`.
 
 - **S1.** On v ≤ 1.8, every kept cell with u > −1 and at least Nu/40 rows from the cut has R_v < 0, in all eight runs.
   The violations of D1 all lie within Nu/40 rows of the cut: at seed 1, 12, 22 and 253 cells at 200, 400 and 800 rows
-  (M = 16) and 195 at M = 24; at seed 2, 25 and 20.
+  (M = 16) and 195 at M = 24; at seed 2, 25 and 20. That band is excluded, not converging: the largest excess of R_v
+  over D1's bound there grows with resolution, 1.3, 4.9 and 9.0 × 10³ at 200, 400 and 800 rows (round 2, V7).
   - *Control.* The same test over u > −1.02 fails, in every run.
   - *Beyond v = 1.8.* At seed 1, 800 × 360, there are 1,822 far violations on (1.8, 2] at M = 16 and 441 at M = 24,
     from v ≈ 1.9: the unconverged region of section 3. At seed 2 there are none far from the cut.
