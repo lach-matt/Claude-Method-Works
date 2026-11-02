@@ -24,8 +24,9 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
      structure: the dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40
      (`growth5`: 1.419), 28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40,
      the largest difference of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows),
-     while the leaves' own zero stays 0.22 away: the two formulations converge on each other as the data truncation is
-     removed. At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
+     and from 0.110 to 0.051 at 800 rows (R0 = 10, 20; round 2), while the leaves' own zero stays 0.22 away. But at
+     fixed R0 it grows from 400 to 800 rows at v ≥ 1.3 (0.025 → 0.051 at R0 = 20, v = 1.375): the fall with R0 is
+     shown at two resolutions, the agreement itself only to v ≈ 1.2 (0.011 at 800 rows, R0 = 20; section 6.1, V2). At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
    - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
      recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
      to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
@@ -172,8 +173,9 @@ at seed 2, where its control passes. S1–S3 pass in all eight runs.
   v = 1.375 on 400 and 800 rows, and M = 24 changes nothing to three digits. At fixed resolution it falls by a factor
   1.5–4 at every v ≥ 1.2 when the data cone moves from R0 = 10 to 20, and further at R0 = 40: 0.081, 0.031 and 0.020
   at worst (S6, `checks/secondzero5_trunc.out`, PASS; its control, the leaves' expansion, stays at 0.22).
-- *Not measured:* R0 = 20 on the 800-row grid. Since at R0 = 10 the difference grew by 0.03 from 400 to 800 rows, the
-  agreement at R0 = 20 is shown at one resolution only.
+- *Measured in round 2 (section 6.1, V2):* R0 = 20 on the 800-row grid. The difference falls from R0 = 10 to 20 by
+  2.0–2.3 at every v ≥ 1.2 there too, but at R0 = 20 it also grows from 400 to 800 rows at v ≥ 1.3 (0.021 → 0.027,
+  0.031 → 0.036, 0.025 → 0.051): at v ≥ 1.3 the remaining difference is not resolved in (u, v).
 - *Why.* `dnsolve5` places only the leading Bondi term of the wave on u = −R0 (m = y³G/2, n = y³F/2), and labels by
   the angle there, not at past null infinity. So the remaining difference is the truncation of the data, a property of
   the two problems, not of either scheme.
@@ -199,7 +201,9 @@ at seed 2, where its control passes. S1–S3 pass in all eight runs.
   - the first column with no zero is at v = 1.419;
   - there are 2, 2, 5 and 8 of 17 at v = 1.427, 1.452, 1.500 and 1.548.
 - *Comparison.* The fractions agree: 28 % and 29 % at v = 1.50, 41 % and 47 % at 1.55. The onset is at most 0.02 earlier
-  in the double-null rebuild, whose R0 = 10 dip is the deeper one (see S4).
+  in the double-null rebuild, whose R0 = 10 dip is the deeper one (see S4). [Round 2, V3: these counts are not over
+  the same radii (the rebuild reaches r = 0.71 only at v = 1.50) nor the same columns (32 against 17); S7 compares
+  the bands at one radius on growth5's 17 columns, section 6.1.]
 - The excision radius 0.54 itself is not reached before the cut at these grids. Over r ≥ 0.54 `growth5`'s first
   zero-less column is at v = 1.4355.
 - *Seed 2 (M = 16, 400 × 180 and 800 × 360).*
