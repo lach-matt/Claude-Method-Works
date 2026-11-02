@@ -87,8 +87,7 @@ of u. Controls (rejected): g_(φ1φ2) ≠ 0 (T²-invariant, not Z2 × Z2), a Kal
 u + w cos φ1 each break it.
 
 [Amendment 2026-11-02 (the independent reader). The third control here (a φ1-dependent phase) and jetpoly5 J1's
-control (a truncation one degree lower) reject, but trivially; they are recorded as weak, not repaired. The reader's
-mutations of the computed paths (C-M1 to C-M4, J-M1, J-M2) all fail as they must.]
+control (a truncation one degree lower) reject, but trivially; they are recorded as weak, not repaired.]
 
 (C2, exact at rational jets, three seeds) Where g⁻¹(du, du) vanishes to first order,
 
