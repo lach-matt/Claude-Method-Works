@@ -257,7 +257,7 @@ def main():
     L0, ls1 = sp.symbols('L_0 l_star_plus_1', positive=True)
     S_i = P_i * (L0 + 1) + T_i * (NSTAR + 1) * ls1
     S_W = P_W * (L0 + 1) + T_W * (NSTAR + 1) * ls1
-    floorB = 5                                         # B = max(beta_K, beta_iota) = w_+ - eps = 5 + eps_+ - eps
+    floorB = floor(5 + w['eps_p'] - w['eps'])          # B = max(beta_K, beta_iota) = w_+ - eps = 5 + eps_+ - eps
     prop42 = 1 + S_i + 2 * floorB
     base = 3 * (c['R2'] + c['R3']) + Lb * (15 * W_IOTA + 10 + 48)
     per_exp = sp.expand(base + La * (3 * P_W + prop42 + 15 * W_IOTA))
@@ -270,12 +270,20 @@ def main():
         print('      at the least admissible L_0 = 1, l_* = l_C(R0) = %d: d <= %.6e + %d X_7 + %d c\'; N = 21 d + 6 '
               '<= %.6e + ... (exact integer %d)' % (lC['R0'], float(least), La, K + 1, float(21 * least + 6),
                                                        int(least)))
-    ok['D6'] = all(v > 10 ** 29 for v in vals.values()) and per_ak.coeff(ls1) > per_exp.coeff(ls1)
+    # Round 4 (verifier): D6 asserts the exact forms (reproduced by the round-3 reader, R3.1) and its constant term
+    # rebuilt from its parts, so a mutated step changes the result and fails
+    R2_, R3_ = c['R2'], c['R3']
+    A_parts = 3 * (R2_ + R3_) + La * (3 * P_W + 11 + P_i + 15 * W_IOTA) + Lb * (15 * W_IOTA + 58)
+    ok['D6'] = (per_exp.coeff(L0) == 4527175422273024 and per_exp.coeff(ls1) == 2986797742916004835692267122688
+                and per_exp.subs({L0: 0, ls1: 0}) == 28864786304360710 == A_parts
+                and per_ak.coeff(L0) == 18108701529357888
+                and per_ak.coeff(ls1) == 11947190968141150306670744890368 and La * P_i == 4527175422273024)
     ratio = float(min(vals.values())) / FLOOR_W3
     print('      against the floor d >= %d (W3): the record\'s accounting leaves a factor of at least %.2e between '
           'floor and ceiling; III.A Proposition 4.2\'s n_iota alone is <= %.3e per level' % (
               FLOOR_W3, ratio, float(prop42.subs({L0: 1, ls1: lC['R0'] + 1}))))
-    ok['D5'] = True
+    ok['D5'] = (prop42 - S_i == 1 + 2 * 5 and floorB == 5 and La == 53244736
+                and float(S_i.subs({L0: 1, ls1: 1})) > 5.6e22)      # Round 4: computed, not hard-coded
     e_empty = 1 + 0 + 2 * floorB
     ok['C4'] = e_empty == 11 and float(prop42.subs({L0: 1, ls1: 1})) > 10 ** 20
     print('  C4 (control): III.A Proposition 4.2 (1) at Step 0 read with E_iota empty: l = %d; with E^flat bounded by '

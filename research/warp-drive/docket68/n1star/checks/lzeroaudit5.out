@@ -1,10 +1,10 @@
-  A0: md5 of N1STAR-PROOF.md lines 1-805 = 57d896ae1da4845f3c94c66d7b087a41, the pinned 57d896ae1da4845f3c94c66d7b087a41:
-      True
-  A1: N1STAR-PROOF.md lines 1-805 (md5 57d896ae1da4845f3c94c66d7b087a41): 61 hits, 0 unclassified; classes {'E': 8, 'G':
+  A0: md5 of N1STAR-PROOF.md lines 1-812 = 6e8947ad2005ac587f9b632d0a1e8025, the pinned 6e8947ad2005ac587f9b632d0a1e8025;
+      whole file 02e7617602841a350a75349c44ab5fb6, the pinned 02e7617602841a350a75349c44ab5fb6: True
+  A1: N1STAR-PROOF.md lines 1-812 (md5 6e8947ad2005ac587f9b632d0a1e8025): 63 hits, 0 unclassified; classes {'E': 10, 'G':
       3, 'T': 15, 'X': 35}; class N (kinds N1-N4): 0
   A2: the T rows reach the formula terms ['D-a', 'D-b', 'D-c', 'D-d', 'E-a', 'E-b', 'E-c', 'E-d', 'lam1']; every term has
       a source row: True
-  A3: citations in lines 1-805: ['AO14', 'BH17', 'CBCL06', 'CBCM10', 'CD03', 'DS23', 'GO13', 'Hua15', 'LR05', 'LY22',
+  A3: citations in lines 1-812: ['AO14', 'BH17', 'CBCL06', 'CBCM10', 'CD03', 'DS23', 'GO13', 'Hua15', 'LR05', 'LY22',
       'MM10', 'Rac16', 'SY21', 'Tou23a']; all listed: True
       AO14    local theory (1.3); Kato-Majda scheme section 4.1 | enters lam0: scheme yes (Prop 6.5) | contraction with
       explicit factor
@@ -22,11 +22,11 @@
       Rac16   constraints as evolution in r | enters lam0: no | structure
       SY21    Stein/Rychkov extension of the profiles | enters lam0: through eps2 | explicit operator
       Tou23a  comparison | enters lam0: no | -
-  C1 (control): a planted sentence leaves 3 hits unclassified: [(806, 'compact'), (806, 'contradict'), (806,
+  C1 (control): a planted sentence leaves 3 hits unclassified: [(813, 'compact'), (813, 'contradict'), (813,
       'subsequen')]
   C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds ['contradict', 'limit',
       'subsequen']
-  C3 (control): with the row (745, limit) removed, 1 hit unclassified
+  C3 (control): with the row (752, limit) removed (745 before D612/D614), 1 hit unclassified
 A0 PASS
 A1 PASS
 A2 PASS

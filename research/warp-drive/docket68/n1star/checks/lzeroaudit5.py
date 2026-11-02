@@ -5,7 +5,7 @@ lambda0 is the threshold of N1STAR-PROOF.md sections 0-6 (Theorem E, section 4 S
 6.5; the standing lam1 of section 2), the paper's sections 3-5 restating it. The same three theorems at order k = J + 4
 are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANTS.md E5's first item (C_J, lambda_1.1).
 
-  A1 (computed) a census of N1STAR-PROOF.md lines 1-805 (sections 0-6) for the words of the four non-effective kinds of
+  A1 (computed) a census of N1STAR-PROOF.md lines 1-812 (sections 0-6; 1-805 before D612 and D614) for the words of the four non-effective kinds of
      EFFECTIVE-CONSTANTS.md section 3 (contradiction, compactness, Rellich, Fredholm, subsequence, closed graph, Baire,
      weak limits, open conditions, "small enough") and for every threshold phrase (lam0, lam1, eps1, eps2, "lam small",
      "depending only on", Gronwall, Picard, "there is/are"); every hit is classified by the table below, read in context:
@@ -15,7 +15,7 @@ are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANT
        T  a threshold, one term of lambda0's formula (lzeroconst5.py Z4);
        N  a step of kind N1-N4 (none found).
   A2 (computed) every T row maps to a term of the formula, and every term has a source row.
-  A3 (deduced, READ) every citation in lines 1-805 is listed with whether it enters lambda0 and whether its constant is
+  A3 (deduced, READ) every citation in lines 1-812 is listed with whether it enters lambda0 and whether its constant is
      effective.
   Controls (must fail, and do): C1 a planted "by contradiction ... subsequence ... compactness" sentence is not
   classified; C2 the census finds the ledger's N1 site PART-I-C-LOWENERGY.md:495-498 (positive control); C3 a table row
@@ -106,6 +106,8 @@ FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D
 PIN = '6e8947ad2005ac587f9b632d0a1e8025'        # md5 of lines 1-812 at D614 (round 1's 57d896ae... of lines 1-805)
 FILE_PIN = '02e7617602841a350a75349c44ab5fb6'   # the whole file at D614 (10853 lines)
 TABLE = {((ln + 7 if ln > 86 else ln), kw): val for (ln, kw), val in TABLE.items()}   # D612 + D614: +7 above 86
+TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) at 3/5 (lzerotrace5 T6)'),
+              (90, 'eps1'): (E, 'eps1: Lemma 2.3 below g0\'s least absolute eigenvalue (D614; lzerotrace5 T7)')})
 CITES = {
     'BH17': ('Sobolev H^3 -> L^inf in 4D', 'enters (C_S)', 'effective: certified constant, lzeroconst5 Z3'),
     'DS23': ('local existence Thms 2.4, 2.6; Remark 2.3 commutators', 'Thm 2.4/2.6 no; Remark 2.3 via Lemma 6.4',
@@ -186,7 +188,7 @@ def main():
     t2 = dict(TABLE)
     del t2[(752, 'limit')]
     _, u3 = census(lines, t2)
-    ok['C3'] = len(u3) == 1
+    ok['C3'] = len(u3) == 1 and not uncl
     say('  C3 (control): with the row (752, limit) removed (745 before D612/D614), %d hit unclassified' % len(u3))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
