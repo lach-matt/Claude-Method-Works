@@ -22,9 +22,10 @@ dominates the layer's deep part, and the two signs make the boundary spacelike t
      r^(-3/2) breaks the telescoping.
   G3 (computed, mpmath; a model with unit constants, env = exp(-1/x), psi := env^(2/3), N = 9, M* = 26) At lam =
      10^-100 and 10^-1000: the free term 2 lam^N psi''/2 exceeds ten times the sum of every other term the record bounds
-     at the boundary point -- the rule's first-degree part lam^3 eps_26(x), the degree-two part eps_26(x)^2, the
-     remainder lam^(N-5) eps_26(x + lam) (Lemma L.4, its tilt reaching v + c lam, c = 1) and its change lam^(N-5)
-     psi_26(x + lam) eps_26(x + lam), the margin m0 -- at every point of a 1200-point log grid of [3 lam, x_1], x_1
+     at the boundary point -- the rule's first-degree part lam^3 eps_26(x), the degree-two part eps_26(x)^2 and its
+     change lam^(N-1) psi_26(x) eps_26(x) (the new mean against the waves), the remainder lam^(N-5) eps_26(x + lam)
+     (Lemma L.4, its tilt reaching v + c lam, c = 1) and its change lam^(N-5) psi_26(x + lam) eps_26(x + lam), the
+     margin m0 -- at every point of a 1200-point log grid of [3 lam, x_1], x_1
      found by bisection, env(x_1) = lam^(p_1) with p_1 printed (p_1 -> 3N - 9 = 18 as lam -> 0, the factors x^-4M*
      aside); and at Theorem L's window (env = lam^14) the free term is below a tenth of the signal lam^3 env.  Control:
      psi := env (as flat as env) dominates nowhere on [3 lam, x_b].
@@ -187,8 +188,9 @@ def domination(lam, psi_a=mp.mpf(2)/3, N=9, npts=1200):
         e26 = eps(PE, 1, x)
         e26s = eps(PE, 1, x + lam)
         p26s = eps(polysP, psi_a, x + lam)
+        p26 = eps(polysP, psi_a, x)
         m0 = (env(x)**2 + x*env(x)**2)/9
-        bound = lam**3*e26 + e26**2 + lam**(N - 5)*e26s + lam**(N - 5)*p26s*e26s + m0
+        bound = lam**3*e26 + e26**2 + lam**(N - 1)*p26*e26 + lam**(N - 5)*e26s + lam**(N - 5)*p26s*e26s + m0
         return free >= 10*bound
     xs = [3*lam*(mp.mpf('0.05')/(3*lam))**(mp.mpf(k)/npts) for k in range(npts + 1)]
     dom = [terms(x) for x in xs]
