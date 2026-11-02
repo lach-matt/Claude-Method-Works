@@ -1,11 +1,20 @@
   G1: E^C_I below 7.6 has 880 points, all log-free: True; on (3, 3.5099) prop31loss5.py's counts: True, rounds [15, 17]
-      l_I in [3.001, 3.499]: round applications 1, charge 15; Proposition 3.1's J = 2, remainder loss 6
-      l_I in [3.501, 3.999]: round applications 2, charge 17; Proposition 3.1's J = 2, remainder loss 6
-      l_I in [4.001, 4.499]: round applications 2, charge 17; Proposition 3.1's J = 3, remainder loss 8
-      l_I in [4.501, 4.999]: round applications 3, charge 19; Proposition 3.1's J = 3, remainder loss 8
-      l_I in [5.001, 5.499]: round applications 3, charge 19; Proposition 3.1's J = 4, remainder loss 10
-      l_I in [5.501, 5.999]: round applications 4, charge 21; Proposition 3.1's J = 4, remainder loss 10
-      l_I in [6.001, 6.499]: round applications 4, charge 21; Proposition 3.1's J = 5, remainder loss 12
-      l_I in [6.501, 6.999]: round applications 5, charge 23; Proposition 3.1's J = 5, remainder loss 12
-      l_I in [7.001, 7.499]: round applications 5, charge 23; Proposition 3.1's J = 6, remainder loss 14
+      l_I in [3.001, 3.499]: d_G 11, round applications 1, charge 15; Proposition 3.1's J = 2, remainder loss 6
+      l_I in [3.501, 3.509]: d_G 11, round applications 2, charge 17; Proposition 3.1's J = 2, remainder loss 6
+      l_I in [3.511, 3.999]: d_G 13, round applications 2, charge 19; Proposition 3.1's J = 2, remainder loss 6
+      l_I in [4.001, 4.499]: d_G 13, round applications 2, charge 19; Proposition 3.1's J = 3, remainder loss 8
+      l_I in [4.501, 4.509]: d_G 13, round applications 3, charge 21; Proposition 3.1's J = 3, remainder loss 8
+      l_I in [4.511, 4.999]: d_G 15, round applications 3, charge 23; Proposition 3.1's J = 3, remainder loss 8
+      l_I in [5.001, 5.499]: d_G 15, round applications 3, charge 23; Proposition 3.1's J = 4, remainder loss 10
+      l_I in [5.501, 5.509]: d_G 15, round applications 4, charge 25; Proposition 3.1's J = 4, remainder loss 10
+      l_I in [5.511, 5.999]: d_G 17, round applications 4, charge 27; Proposition 3.1's J = 4, remainder loss 10
+      l_I in [6.001, 6.499]: d_G 17, round applications 4, charge 27; Proposition 3.1's J = 5, remainder loss 12
+      l_I in [6.501, 6.509]: d_G 17, round applications 5, charge 29; Proposition 3.1's J = 5, remainder loss 12
+      l_I in [6.511, 6.999]: d_G 19, round applications 5, charge 31; Proposition 3.1's J = 5, remainder loss 12
+      l_I in [7.001, 7.499]: d_G 19, round applications 5, charge 31; Proposition 3.1's J = 6, remainder loss 14
+      charges at l_I = 3.6, 4.0, 4.55, 5.0, 6.0, 7.0, 7.4: 19, 19, 23, 23, 27, 31, 31 (growth 4 per unit of l_I)
+  G1 control: width-1/2 windows give J = [3] on (3, 3.5)
 G1 PASS
+  G2: d_G at l_I = 2.2, 3.6, 4.55: [9, 13, 15] (LOSS-D: 9, 13, 15); on (3, 3.5099]: [11] (LOSS-D: 11)
+  G2 control (d_G frozen at 11): d_G at l_I = 2.2, 3.6, 4.55: [11, 11, 11] (LOSS-D: 9, 13, 15); on (3, 3.5099]: [11] (LOSS-D: 11)
+G2 PASS
