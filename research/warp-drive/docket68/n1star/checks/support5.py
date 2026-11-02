@@ -31,6 +31,165 @@ import sympy as sp
 import z3
 
 
+def c1(control=False):
+    """(5.1): the only lam^-1 coefficient of the linearization P(w) of Ric^H at g_app is (1/2) w(l, l) [d_th^2 g1].
+    (a) Exact at a point, for random rational Lorentzian g (two trials): the part of Ric^H(g) = Ric(g) - (1/2)(g_m rho
+    Dh_n D^rho + g_n rho Dh_m D^rho), D^rho = g^ab (Gamma[g] - Gamma[g0])^rho_ab, that is linear in the second
+    derivatives S of g is exactly -(1/2) g^ab S_ab,mn (the supplement's (0.2), READ from [CBCM10]); second derivatives of
+    g enter nowhere else, and g0 and the first derivatives not at all. (b) Exact: d/ds -(1/2)((g + s w)^-1)^ab =
+    (1/2) (g^-1 w g^-1)^ab, and the lam^-1 part of d_a d_b [lam G(x, v(x)/lam)] is v_a v_b G_thth (chain rule, two
+    variables, G and v generic); so the lam^-1 part of P(w) is (1/2) w^ab v_a v_b [d_th^2 g1] = (1/2) w(l_app, l_app)
+    [d_th^2 g1], l_app = g_app^-1 dv, the remaining terms of P carrying at most first derivatives of g_app, which are
+    O(1). Control: Ric without the gauge term has other second-derivative terms."""
+    import random
+    rnd = random.Random(1)
+    ok = True
+    for trial in range(2):
+        A = sp.Matrix(5, 5, lambda i, j: 0)
+        for i in range(5):
+            for j in range(i, 5):
+                A[i, j] = A[j, i] = sp.Rational(rnd.randint(-3, 3), 17)
+        g = sp.diag(-1, 1, 1, 1, 1) + A
+        gi = g.inv()
+        S = {}
+
+        def Sj(e, f, p, q):
+            key = (min(e, f), max(e, f), min(p, q), max(p, q))
+            if key not in S:
+                S[key] = sp.Symbol("S_%d%d_%d%d" % key)
+            return S[key]
+        dG = [[[[sp.Rational(1, 2) * sum(gi[a, d] * (Sj(e, b, d, c) + Sj(e, c, d, b) - Sj(e, d, b, c)) for d in range(5))
+                 for c in range(5)] for b in range(5)] for a in range(5)] for e in range(5)]
+        ric = [[sum(dG[a][a][b][d] - dG[d][a][b][a] for a in range(5)) for d in range(5)] for b in range(5)]
+        dD = [[sum(gi[a, b] * dG[e][r][a][b] for a in range(5) for b in range(5)) for r in range(5)] for e in range(5)]
+        for m in range(5):
+            for n in range(m, 5):
+                ricH = ric[m][n] if control else ric[m][n] - sp.Rational(1, 2) * sum(
+                    g[m, r] * dD[n][r] + g[n, r] * dD[m][r] for r in range(5))
+                target = -sp.Rational(1, 2) * sum(gi[a, b] * Sj(a, b, m, n) for a in range(5) for b in range(5))
+                ok &= sp.expand(ricH - target) == 0
+    if control:
+        return ok
+    x1, x2, lam, th, s_ = sp.symbols("x1 x2 lam theta s")
+    X = (x1, x2)
+    v = x1 + x2**2 / 2 + x1 * x2                                       # a phase and a profile, concrete and generic
+    G = (x1**2 * x2 + 3 * x2) * sp.cos(th) + x1 * sp.sin(2 * th) + x2**3 * sp.cos(3 * th)
+
+    def D(e, k):                                                       # the two-scale derivative d_k + lam^-1 v_k d_th
+        return sp.diff(e, X[k]) + sp.diff(v, X[k]) / lam * sp.diff(e, th)
+    chain = True
+    for i in range(2):
+        for j in range(2):
+            lhs = sp.diff((lam * G).subs(th, v / lam), X[i], X[j])
+            rhs = D(D(lam * G, j), i)
+            chain &= sp.simplify(lhs - rhs.subs(th, v / lam)) == 0
+            c1_ = sp.expand(rhs).coeff(lam, -1)
+            chain &= sp.simplify(c1_ - sp.diff(v, X[i]) * sp.diff(v, X[j]) * sp.diff(G, th, 2)) == 0
+    rnd2 = random.Random(2)
+    w = sp.Matrix(5, 5, lambda i, j: 0)
+    for i in range(5):
+        for j in range(i, 5):
+            w[i, j] = w[j, i] = sp.Rational(rnd2.randint(-5, 5), 3)
+    g = sp.diag(-1, 1, 1, 1, 1) + sp.diag(0, *[sp.Rational(1, 7)] * 4)
+    deriv = sp.diff(-sp.Rational(1, 2) * (g + s_ * w).inv(), s_).subs(s_, 0)
+    lin = sp.simplify(deriv - sp.Rational(1, 2) * g.inv() * w * g.inv()) == sp.zeros(5)
+    print("  C1: second derivatives of g enter Ric^H only through -(1/2) g^ab d_a d_b g (two random metrics): %s;\n"
+          "      the chain rule's lam^-1 part v_a v_b G_thth: %s; d/ds of -(1/2) g^-1 is (1/2) g^-1 w g^-1: %s"
+          % (ok, chain, lin), flush=True)
+    return ok and chain and lin
+
+
+def _lin_ricH(W, Y, scale):
+    """the eps-linear part of Ric^H(g0 + lam W + eps scale Y) in lead5's gauge and coordinates, every lam order from
+    -3 to 0 kept (lead5.reduced_ricci reports -1 and 0 only); returns {(b, c): {k: coefficient of lam^k}}"""
+    import os
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    import lead5 as L
+    lam, eps = L.lam, sp.Symbol("eps")
+    g0, g0i = L.background()
+
+    def tr(e, top):                                   # lam orders -3..top, eps orders 0..1
+        e = sp.expand(e)
+        e = sp.expand(e.coeff(eps, 0) + eps * e.coeff(eps, 1))     # expanded again: lam must be visible to coeff
+        return sum(e.coeff(lam, k) * lam**k for k in range(-3, top + 1))
+    Z = scale * Y
+    g = g0 + lam * W + eps * Z
+    Wu = g0i * W * g0i
+    giW = g0i - lam * Wu + lam**2 * Wu * W * g0i
+    gi = (giW - eps * giW * Z * giW).applyfunc(lambda e: tr(e, 2))
+    G = L.christoffel(g, gi, L.D)
+    G = [[[tr(x, 1) for x in row] for row in M2] for M2 in G]
+    Gh = L.christoffel(g0, g0i, lambda e, k: sp.diff(e, L.X[k]))
+    n = 5
+    Dv = [tr(sum(gi[a, b] * (G[rho][a][b] - Gh[rho][a][b]) for a in range(n) for b in range(n)), 1) for rho in range(n)]
+    out = {}
+    for b in range(n):
+        for c in range(b, n):
+            e = 0
+            for a in range(n):
+                e += L.D(G[a][b][c], a) - L.D(G[a][b][a], c)
+                for d in range(n):
+                    e += G[a][a][d] * G[d][b][c] - G[a][c][d] * G[d][b][a]
+            hb = sum(g[b, rho] * (L.D(Dv[rho], c) + sum(Gh[rho][c][sg] * Dv[sg] for sg in range(n))) for rho in range(n))
+            hc = sum(g[c, rho] * (L.D(Dv[rho], b) + sum(Gh[rho][b][sg] * Dv[sg] for sg in range(n))) for rho in range(n))
+            e = tr(e - (hb + hc) / 2, 0).coeff(eps, 1)
+            out[(b, c)] = {k: sp.expand(e).coeff(lam, k) for k in range(-3, 1)}
+    return out, L
+
+
+def c2(control=False):
+    """Lemma 5.1 on the stage-0 profile of the proof's gauge (lead5.py's W = W_TT + chi dv dv, chi generic): with
+    G = lam W, the linearization in the direction d_s G = lam d_s W is lam P([d_s W]), and the two-scale operator has no
+    explicit s, so lam P([d_s W]) = d_s Ric^H(g0 + lam W) order by order: its lam^-1 part is d_s R^(-1) = 0 and its
+    lam^0 part, T(d_s W) of Lemma 5.1, is d_s R^(0), computed and compared exactly in every component. By lead5 L3-L4,
+    d_s R^(0) vanishes exactly when chi solves (E2)'s transport. Control: chi = 0, where T(d_s W) is not zero."""
+    import time
+    t0 = time.time()
+    sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(
+        __file__))))
+    import lead5 as L
+    W = L.wave(with_chi=not control)
+    Y = W.applyfunc(lambda e: sp.diff(e, L.s))
+    Q, _ = _lin_ricH(W, Y, L.lam)
+    if control:
+        return all(sp.simplify(Q[k][0]) == 0 for k in Q)
+    R = L.reduced_ricci(W)
+    lower = all(sp.simplify(Q[k][j]) == 0 for k in Q for j in (-3, -2))
+    minus1 = all(sp.simplify(Q[k][-1] - sp.diff(R[k][0], L.s)) == 0 for k in Q)
+    zero = all(sp.simplify(Q[k][0] - sp.diff(R[k][1], L.s)) == 0 for k in Q)
+    print("  C2: lam P([d_s W]) = d_s Ric^H(g0 + lam W): no order below lam^-1: %s; lam^-1: %s (d_s R^(-1) = 0);\n"
+          "      lam^0: %s, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [%.0fs]"
+          % (lower, minus1, zero, time.time() - t0), flush=True)
+    return lower and minus1 and zero
+
+
+def c3(control=False):
+    """supplement Lemma 3.3: in P(phi [d_s W]), phi = phi(v, r, theta) generic, the l (x) l component (l = g0^-1 dv
+    = d_r, so the rr component) has no lam^-1 term (and none lower), and its lam^0 part holds no second derivative of
+    phi: contracting the h-equation with l (x) l kills every large coefficient and the box-tilde phi term. Control: an
+    oscillating dr dr component added to W, so W(l, l) != 0. (chi on dv dr, lead5's mutant chi_dvdr, keeps W(l, l) = 0
+    and is no control here.)"""
+    import time
+    t0 = time.time()
+    sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(
+        __file__))))
+    import lead5 as L
+    W = L.wave(with_chi=True)
+    if control:
+        W[1, 1] = L.A * L.Ef * L.Hf * L.r**sp.Rational(-3, 2) * sp.cos(L.s)
+    phi = sp.Function("phi")(L.v, L.r, L.th)
+    Y = W.applyfunc(lambda e: phi * sp.diff(e, L.s))
+    Q, _ = _lin_ricH(W, Y, sp.Integer(1))
+    rr = Q[(1, 1)]
+    large = all(sp.simplify(rr[j]) == 0 for j in (-3, -2, -1))
+    second = [d for d in sp.expand(rr[0]).atoms(sp.Derivative) if d.expr == phi and d.derivative_count >= 2]
+    if control:
+        return large
+    print("  C3: P(phi [d_s W]) contracted with l (x) l: no lam^-1 or lower term: %s; no second derivative of phi at\n"
+          "      lam^0: %s [%.0fs]" % (large, not second, time.time() - t0), flush=True)
+    return large and not second
+
+
 def c4(control=False):
     a, b, rho, lam, s, z1, w, t = z3.Reals("a b rho lam s z1 w t")
     hyp = [a > 0, b - a >= 1, lam > 0, lam <= z3.RealVal("1/10"), rho >= a, rho <= b, w >= 0, z1 * z1 + w < 1,
@@ -151,7 +310,7 @@ def c8(control=False):
     return ok
 
 
-CHECKS = [("C4", c4), ("C6", c6), ("C8", c8)]
+CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C6", c6), ("C8", c8)]
 
 
 def main():
