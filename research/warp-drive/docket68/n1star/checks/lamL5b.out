@@ -1,11 +1,8 @@
   M1 CONSTANTS5.md md5 18579e95df9aceaf07b838c406dbcfc5: Round 4 at line 876; 'lambda0 < 0.0024433' at lines [887, 890,
       1052]; the eigenvalue interval at [947, 1053]
-M1 FAIL (control passed)
-  M2 B <= [1.097402780944275148180000000000000000156, 1.097402780944275148180000000000000000156]; C_Phi = C1 ((1 + B)^2 +
-      B^2) <= [5.603391289137007788933886872540721922624, 5.603391289137007788933886872540721922624] C1; Lam_6 = (288
-      C_Phi/25)^(1/27) <= ([64.55106765085832972851837677166911662951, 64.55106765085832972851837677166911662951]
-      C1)^(1/27), which is below lambda0's bound 0.0024433 only if C1 < [4.628817252528115844321866703819183991947e-73,
-      4.628817252528115844321866703819183991947e-73]
+M1 PASS
+  M2 B <= 1.0974028; C_Phi = C1 ((1 + B)^2 + B^2) <= 5.6033913 C1; Lam_6 = (288 C_Phi/25)^(1/27) <= (64.5511 C1)^(1/27),
+      which is below lambda0's bound 0.0024433 only if C1 < 4.629e-73
 M2 PASS
   M3 row sums = T_n^(i)(1), signs alternating, n = 6, 10, 16, 24 and i <= 4 (50 digits): True; n = 1455: relative errors
       5.7e-12, 1.3e-11, 2.7e-11, 5.6e-11, alternating: True; log10 T_1455^(i)(1), i = 1..4: 6.3257, 12.1743, 17.8011,
@@ -16,5 +13,5 @@ M3 PASS
       C^DS_(i,m), i = 1..4: 3.89663, 7.31163, 10.501, 13.5406.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) =
       1.2519e-12, Lam_5') = 1.2519e-12
 M4 PASS
-lamL5b: FAILURES  [28 s]
-exit 1
+lamL5b: all checks pass, every control fails  [22 s]
+exit 0

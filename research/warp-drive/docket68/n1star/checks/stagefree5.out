@@ -1,3 +1,7 @@
   G4 N1STAR-PROOF.md md5 02e7617602841a350a75349c44ab5fb6: Lemma 6.2 statement 631; Lemma 6.2 proof range 634; 6.4 802;
       6.4 seed data 809; RESPONSE-HL-5D.md md5 a69a94534969c3d37b88ab3ccd5c3c29: Theorem A 492
 G4 PASS
+  G2 box f_M = -2 Psi_M Q b_M (M = 3): True; b_1 = -(3/8)(r^(-5/2) + mu0 r^(-9/2)): True; b_2 = -3*(-27*mu0**2 +
+      10*mu0*r**2 + 5*r**4)/(128*r**(15/2)); Hessian vv = d_v^2 f - (F'/2) d_v f - (F F'/2) d_r f: True; at the horizon
+      (grad grad f_M)_vv = mu0**(-3/4) psi'' + -7/(4*mu0**(5/4)) psi' + ...: True
+G2 PASS

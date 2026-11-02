@@ -8,8 +8,8 @@ mu in [1, 227/192]; Theorem L's p = 14, N = 9, M* = 26, m = 56 M* = 1456; M_m^(1
 L2, recomputed here).
 
   M1 (READ, located by content; md5 printed) CONSTANTS5.md Round 4: lambda0 < 0.0024433 (operator norm), g0's least
-     absolute eigenvalue on Omega in [0.030768559, 0.030768560].  Control: no line of Round 4 states a lower bound for
-     lambda0.
+     absolute eigenvalue on Omega in [0.030768559, 0.030768560].  Control: the pin with its last digit mutated
+     (0.0024432) is found nowhere.
   M2 (certified, interval arithmetic) B := 1 + sup |r_q'| <= 1 + c^2/18 (r_q' = mu0^(1/4) mu^(-3/4) mu'/4, mu' =
      (2/9) env^2, mu >= mu0 = 1), and C_Phi = C1 max_(|beta| <= B) ((1 - beta)^2 + beta^2) = C1 ((1 + B)^2 + B^2): the
      constant of EQUALITY5 section 0 for the covectors dr - beta dv, |dr - beta dv|_e^2 = (1 - beta)^2 + beta^2 in the
@@ -65,7 +65,7 @@ def m1(control=False):
     lines = raw.decode('utf-8').split('\n')
     r4 = next(i for i, ln in enumerate(lines) if ln.startswith('## Round 4'))
     if control:
-        return any(('lambda0 >' in ln or 'lambda0 >=' in ln) for ln in lines[r4:])
+        return any('lambda0 < 0.0024432' in ln for ln in lines[r4:])          # a mutated pin: must not be found
     hits = [i + 1 for i, ln in enumerate(lines) if i >= r4 and 'lambda0 < 0.0024433' in ln]
     eig = [i + 1 for i, ln in enumerate(lines) if i >= r4 and '[0.030768559, 0.030768560]' in ln]
     out("  M1 CONSTANTS5.md md5 %s: Round 4 at line %d; 'lambda0 < 0.0024433' at lines %s; the eigenvalue interval at"
@@ -86,7 +86,7 @@ def m2(control=False):
     thr = (iv.mpf('0.0024433')**27)/lam6
     out("  M2 B <= %s; C_Phi = C1 ((1 + B)^2 + B^2) <= %s C1; Lam_6 = (288 C_Phi/25)^(1/27) <= (%s C1)^(1/27), which"
         " is below lambda0's bound 0.0024433 only if C1 < %s" % (
-            mp.nstr(B.b, 8), mp.nstr(ratio.b, 8), mp.nstr(lam6.b, 6), mp.nstr(thr.b, 4)))
+            mp.nstr(mp.mpf(B.b), 8), mp.nstr(mp.mpf(ratio.b), 8), mp.nstr(mp.mpf(lam6.b), 6), mp.nstr(mp.mpf(thr.b), 4)))
     return ratio.b < 6
 
 

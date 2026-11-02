@@ -32,3 +32,11 @@ O4  the commutation facts (Lemma 9.6 transports, the Z's of N_P, the rotations)
   O4b [d_r, r^-c] = -c r^(-c-1), [Omega, r^-c] = [d_tau, r^-c] = 0 (the transports keep c0 at every order): pass
   O4c control: the Cartesian d_1 does not commute with L0 (hence N_P's Z are d_tau, d_r, Omega): pass
   O4d [Omega_12, box~] = 0 on every function, g0 = eta + mu(v) r^-2 dv dv (P6 of past5.py, recomputed): pass
+  O4e control: x1 d_2 + x2 d_1 does not commute with box~: pass
+O5  Theorem P at order k: the same g_lam, and the orders used later
+  O5a N(k) = K + 4 + ceil(4 beta0(k)) grows with C(k) (K = 6; C = 1/2, 1, 3, 10): pass [22, 30, 62, 174]
+  O5b g_app^(N(k)) - g_app^(N(6)) is lam^N(6) (1 + O(lam)) t^(-3/2) in C^1: inside (P-v)'s class |g - g_app| + |d(g -
+        g_app)| <= eps_P t^(-3/2) for lam small, so the order-k solution is g_lam: pass
+  O5c (P-iii) at order k bounds d^i e for i <= k - 3; Proposition R3.1 at n derivatives needs k = n + 4: both finite for
+        every n: pass
+FAILED: ['O3b log(T/t) <= (T/t)^beta / beta (beta > 1: equality-free at x = 1, increasing gap)']

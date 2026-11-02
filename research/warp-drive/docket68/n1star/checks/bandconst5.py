@@ -63,6 +63,7 @@ import sys
 
 import numpy as np
 import sympy as sp
+from scipy.linalg import solve_banded
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 R, th, f1, f2 = sp.symbols('R theta phi1 phi2', positive=True)
@@ -397,7 +398,12 @@ def b5():
         for target in (r1 + 0.01, r1 + 0.05, r1 + 0.2):
             while Rcur < target - 1e-12:
                 G = 1 + mu0 / Rcur**2
-                a = np.linalg.solve(np.eye(nth) - dR * G / (3 * Rcur) * Lop, a)
+                M_ = np.eye(nth) - dR * G / (3 * Rcur) * Lop                  # tridiagonal: banded solve
+                ab = np.zeros((3, nth))
+                ab[0, 1:] = np.diag(M_, 1)
+                ab[1] = np.diag(M_)
+                ab[2, :-1] = np.diag(M_, -1)
+                a = solve_banded((1, 1), ab, a)
                 Rcur += dR
             outs.append((target - r1, a[0], a[-1], a.max()))
         return outs
@@ -408,7 +414,7 @@ def b5():
     ctl = march(np.zeros_like(L))
     ctl_ok = all(o[1] == 0 and o[2] == 0 for o in ctl)
     print("   control (no angular operator, the ODE structure of B6): the axes stay exactly %r, %r: %s"
-          % (ctl[-1][1], ctl[-1][2], ctl_ok))
+          % (float(ctl[-1][1]), float(ctl[-1][2]), ctl_ok))
     hyp_ok = ctl_ok
     return par_ok and hyp_ok
 
