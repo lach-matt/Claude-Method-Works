@@ -982,7 +982,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   (250000 x^2 - 750000 x - 1)(cubic), four roots with Re <= 0, and in (0, 4] the simple roots 1.0000747438, 2, 3 + d0,
   4. Poles at Re <= 5: 2.0000747, 3.0000747, 4.0000747, 3, 4, 4 + d0 (order 1 each) and 5, where N(4) and N(2) are both
   singular: the exact Laurent expansion of Pi_4(5 + eps)^-1 has order 1, residue of rank 2 (control C4: the adjugate for
-  N(2 + eps)^-1 gives order 0). t2 (K = 1): det N = -(x - 4)(x + 2)/2, one pole, 5, order 1. Every even l >= 2: the
+  N(2 + eps)^-1 gives order 0) [Round 5, R5.1 (b): C4 is (order - 1, rank) of this answer whatever it is, so it cannot
+  fail on its own; `iotamut5.py` U3 and X1 replace it]. t2 (K = 1): det N = -(x - 4)(x + 2)/2, one pole, 5, order 1. Every even l >= 2: the
   physical root 4 at l = 2 only; box^Ups's roots plus 1 never in (0, 4]; box^C's roots minus 1 from damping5.py's
   sextic: its discriminant and its resultants with its shifts by 1, 2, 3, and its values at 5/2 + s + m, have no root
   kappa = l (l + 2) at any even l >= 2 (exact isolation), and at l = 2 no box^C root is an integer. So at every even l
@@ -1000,6 +1001,9 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   3, 4, 5, ... gives log order 2w at k + w, so **E_ind has log order 10 at real part 5** (9 at k = 1); control C6 (plain
   unions) gives 0. So l_* >= 10 on this reading; the other constituent sites (III.D''' with bases <= 0, III.F''' 2.2,
   E^iota_ind's list at G3:338-339) are not computed, so 10 is a lower bound for l_*, not yet an upper one.
+  [Round 5, R5.1 (c): M5's root set is every type's, on which E_ind also holds (d0, 0) below 1 (the widest reading);
+  on the block reading that the lines support at b0 the offsets below 1 are {d1} and the log order at 5 is still 10,
+  from v1 (`eflat5.py` F1, C3).]
 - *l_*'s other items.* Pole orders: 1 (above). Multiplicities of the indicial roots of L-hat_b0(0): 1 at every class
   root with 0 < Re <= 4, and every box^C root simple at every even l (the discriminant). E^C_I: 4 (R0) or 16 (R1).
 - *L_0, X_7, c' (deduced; not settled).* L_0 >= 2 on the same reading (G = (2,0) U (2 + E_ind) carries (3, 2)); its
@@ -1012,6 +1016,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   chains (I11 Lemma 1.2 (c)), and the pole orders enter K(lambda) only through l_*. As a measure of where the size
   sits: with log order <= 2 at every exponent of E^flat (n_iota <= 3 P_iota), the same accounting gives d <=
   37,919,137,148,906,758 + 53,244,736 X_7 + 106,489,470 c' (3.7919e16; N <= 7.9630e17 + ...), 4.5 times the floor.
+  [Round 5, R5.2: the construction's own log orders are <= 2 except at 26 points (excess 23 on R0, 44 on R1), so this
+  is the ceiling on the construction's count, not a hypothesis (deduced; `eflat5.py`).]
 - *The exact obstruction to a proved ceiling, now.* (1) The log orders of E^flat actually produced (the record's
   K(lambda) alone puts the ceiling at 1e31); (2) E_ind's and E^iota_ind's Lemma 1.4 log orders at every constituent
   site (one site computed, 10); (3) L_0; (4) X_7; (5) II.E's tame orders in c'; (6) round 1's three readings.
@@ -1027,6 +1033,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   on an even l >= 2 in decaying weights; and r^3 conj(u) A_l u = -(r^3 f conj(u) u')' + r^3 f |u'|^2 + l (l + 2) r
   |u|^2 (Z2) gives ||r^-1 u|| <= ||r A_l u||/(l (l + 2)) in L^2(r^3 dr), the constant <= 1/8 on every even l >= 2.
   Controls: C1 (the next polynomial), C2 (l (l + 1)) fail.
+  [Round 5, R5.1 (e): deduced from an exact identity, not certified; sharpened to 1/(l + 1)^2 for every l >= 0, sharp,
+  in R5.6.]
 - *Where it stops* (deduced). (3.2)'s norm crosses the horizon with s > 1/2 + theta_H derivatives, where f vanishes and
   the identity controls no u' (the radial-point estimate's constant is needed there); l = 0 needs a Hardy inequality with
   f's degeneracy; and the settling operator is L_b0 on 15 components, whose zero-energy kernel is eleven-dimensional
