@@ -14,3 +14,10 @@
     R^(-1) = 0 for the stage-0 waves with lam^2 Q: True; predictions, R^(0) nonzero: True;
     controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (428 s)
   control (a), plain Ric: J2 False, J3 False, J5 False (each must fail)  (442 s)
+  control (d), chi_out on du dv: J4 False (must fail)  (462 s)
+  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: True;
+      control (e) q = 1 passes: False
+  J9: box h(ell, ell) by the product rule: True; control (f) without the cross term passes: False
+J0-J9: PASS
+controls (a)-(f) rejected: PASS
+exit 0

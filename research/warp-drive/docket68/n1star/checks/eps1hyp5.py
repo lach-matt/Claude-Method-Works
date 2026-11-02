@@ -15,21 +15,27 @@ lzeroconst5.py's geometry); deduced (the reduction to the hyperplanes, and the c
        ker dr (on r = a):                eigenvalues 1 (x3), mu/a^2 - 1 >= mu0/a^2 - 1   -> lambda_min = 1 at P*;
        ker d(v + tau) (outer boundary):  eigenvalues 1 (x3), (3 + mu/r^2)/5            -> lambda_min >= 3/5.
      Checked symbolically (sympy: the restricted Gram matrices for generic mu, r and unit xhat) and exactly at P*.
-  H2 (deduced) so every eps1 < 3/5 serves Lemma 1.1 (e): the three hypersurfaces stay spacelike; along g0 + t(g - g0),
-     t in [0, 1], the covectors dtau, dr (at r = a) and d(v + tau) (outer) stay timelike, so the signs of g^-1(dr,
-     dtau) and g^-1(d(v + tau), dtau) (two timelike covectors are never orthogonal) and the time orientation are those
-     of g0; past causal curves then cannot leave Omega through {r = a}, the outer boundary or Sigma_tau_end, which is
-     the containment; L0(tau) = 1 does not involve g.
-  H3 (exact) sharpness: at the outer-boundary point with r = 67/5 (its tau = (V + 1 + tau_end - 67/5)/2 lies in
-     [tau0, tau_end], since b(tau0) > 67/5; there v > v_end and mu = mu_end = 227/192) the perturbation
-     delta g = -lambda n (x) n, n the unit vector of ker d(v + tau) along (1, -2 xhat)/sqrt5, lambda = (3 + mu_end/r^2)/5
-     = 0.6013169..., keeps det < 0 (Lorentzian) and makes g|ker d(v + tau) degenerate (the boundary null): no eps1
-     above 0.60132 serves. eps1* lies in [3/5, 0.60132].
-  Controls (must fail, and do): C1 the claim "eps1 = 0.61 serves" is refuted by H3's perturbation (exact rational
-  check that d(v + tau) is null for g); C2 a perturbation of norm 0.59 of the same shape keeps the boundary spacelike,
-  and 0.62 does not (floating point, the sign of g^-1(d(v + tau), d(v + tau))); C3 the hyperplane test applied to
-  ker dr at r = 1.5 (where mu/r^2 < 1, dr spacelike: {r = 1.5} is timelike for g0) returns a negative eigenvalue, so
-  the test does detect a non-spacelike hypersurface.
+  H2 (exact, sympy; deduced) so every eps1 <= 3/5 serves Lemma 1.1 (e), by the direct cone argument (Round 3, after
+     the verifier's m3, which found round 2's path argument assuming the intermediate metrics Lorentzian): |g - g0| <=
+     eps gives g >= g0 - eps I as forms; at eps = 3/5, g0 - eps I restricted to ker dtau, to ker dr at r = a and to
+     ker d(v + tau) has least eigenvalues 2/5, 2/5 (P*) and mu/(5 r^2) > 0, so the hypersurfaces stay spacelike; and
+     g0 - eps I has exactly one negative eigenvalue (m - eps - (1 + m^2)^(1/2), m = mu/r^2), so the g-causal vectors
+     lie in its causal double cone, whose two halves are convex and on which dtau, dr (at r = a) and d(v + tau) do not
+     vanish, hence keep the signs they have on g0's future cone: the time orientation, the containment and (L0(tau) =
+     1) the transversality follow.
+  H3 (exact) sharpness: at the corner of the outer boundary, r = b(tau0) taken at the lower end b_lo of its certified
+     interval (tau = tau0; v > v_end and mu = mu_end), the perturbation delta g = -lambda n (x) n, n the unit vector of
+     ker d(v + tau) along (1, -2 xhat)/sqrt5, lambda = (3 + mu_end/r^2)/5 = 0.6013096..., keeps det < 0 (Lorentzian)
+     and makes g|ker d(v + tau) degenerate (the boundary null): no eps1 above 0.6013096 serves (Round 3: the verifier's
+     corner; round 2's r = 67/5 gave the weaker 0.6013169, still printed). eps1* lies in [3/5, 0.6013096] in the
+     operator norm.
+  Controls (must fail, and do): C1 (Round 3, now mutating H3's code path) H3's degeneracy test run with the
+  perturbation's size lowered to 59/100 reports a non-degenerate restricted form, so the test does not certify a null
+  boundary where there is none; C2 a perturbation of norm 0.59 of the same shape keeps the boundary spacelike, and 0.62
+  does not (floating point, the sign of g^-1(d(v + tau), d(v + tau))); C3 the hyperplane test applied to ker dr at r =
+  1.5 (where mu/r^2 < 1, dr spacelike: {r = 1.5} is timelike for g0) returns a negative eigenvalue, so the test does
+  detect a non-spacelike hypersurface; C4 (Round 3) H2's test at eps = 0.61 finds a non-positive least eigenvalue on
+  ker d(v + tau) at the corner: the cone argument does not pass a too-large eps.
 
     python3 checks/eps1hyp5.py
 """
@@ -85,6 +91,34 @@ def main():
         'at P*: mu/a^2 - 1 >= %.4f > 1, so lambda_min = 1, 1 and >= 3/5' % (
             {k: [str(e) for e in v] for k, v in ev.items()}, same, float(m_dr)))
 
+    # H2 (Round 3): the direct cone argument at eps = 3/5, exact in m = mu/r^2
+    m_, e_ = sp.symbols('m eps', nonnegative=True)
+    U5 = sp.Matrix([1, 1, 0, 0, 0])
+    g0m = sp.diag(-1, 1, 1, 1, 1) + m_ * U5 * U5.T
+
+    def restricted_eps(cov):
+        Kc = sp.Matrix.hstack(*sp.Matrix([cov]).nullspace())
+        Qc, _ = Kc.QRdecomposition()
+        return sp.simplify(Qc.T * (g0m - e_ * sp.eye(5)) * Qc)
+
+    def least_restricted(cov, eps, mval):
+        return min(restricted_eps(cov).subs({e_: eps, m_: mval}).eigenvals(multiple=True), key=lambda z: float(z))
+
+    rest = {name: sorted({sp.simplify(z) for z in restricted_eps(cov).eigenvals()}, key=str)
+            for name, cov in (('dtau', dtau), ('dr', dr), ('d(v+tau)', dvt))}
+    full = [sp.simplify(z) for z in (g0m - e_ * sp.eye(5)).eigenvals()]
+    one_neg = all(sum(1 for z in full if float(z.subs({e_: sp.Rational(3, 5), m_: mv})) < 0) == 1
+                  for mv in (0, sp.Rational(1, 100), 1, 13, 1000))
+    m_a = sp.Rational((LZ.MU0 / a_hi ** 2).numerator, (LZ.MU0 / a_hi ** 2).denominator)
+    l_dt = min(float(z.subs({e_: sp.Rational(3, 5), m_: 0})) for z in rest['dtau'])
+    l_dr = min(float(z.subs({e_: sp.Rational(3, 5), m_: m_a})) for z in rest['dr'])
+    l_dv = [sp.simplify(z.subs(e_, sp.Rational(3, 5))) for z in rest['d(v+tau)']]
+    ok['H2'] = abs(l_dt - 0.4) < 1e-12 and abs(l_dr - 0.4) < 1e-12 and m_ / 5 in l_dv and one_neg
+    say('  H2: g0 - eps I on the kernels (exact, m = mu/r^2): %s; at eps = 3/5: least %.4f on ker dtau (m >= 0), %.4f '
+        'on ker dr at r = a (P*), %s on ker d(v + tau); one negative eigenvalue of g0 - (3/5) I at every m tested: %s; '
+        'so eps1 = 3/5 serves (direct cone argument)' % ({k: [str(z) for z in v] for k, v in rest.items()}, l_dt,
+                                                           l_dr, [str(z) for z in l_dv], one_neg))
+
     # H3: sharpness at the outer boundary on Sigma_tau0
     b_lo, b_hi = g['b0']
     mu_e = g['mu_end']
@@ -92,28 +126,38 @@ def main():
     lam_hi = (3 + mu_e / b_lo ** 2) / 5
     lam = lam_hi                                        # a rational at least lambda_min, used below exactly
     # exact check with r replaced by the rational b_lo (the boundary radius within 1e-25): build g at xhat = e1
-    rr = Fr(67, 5)
-    assert rr < b_lo and (LZ.VE + LZ.T + 1 + g['tau_end'][0] - rr) / 2 >= LZ.TAU0
-    g0 = sp.diag(-1, 1, 1, 1, 1) + (sp.Rational(mu_e.numerator, mu_e.denominator) / sp.Rational(rr.numerator,
-                                                                                             rr.denominator) ** 2) \
-        * sp.Matrix([1, 1, 0, 0, 0]) * sp.Matrix([1, 1, 0, 0, 0]).T
-    n = sp.Matrix([1, -2, 0, 0, 0]) / sp.sqrt(5)
-    lam_exact = (3 + sp.Rational(mu_e.numerator, mu_e.denominator) / sp.Rational(rr.numerator, rr.denominator) ** 2) / 5
-    gp = g0 - lam_exact * n * n.T
-    # the boundary is null for g iff g restricted to ker xi is degenerate (determinant 0)
-    K = sp.Matrix.hstack(*sp.Matrix([[2, 1, 0, 0, 0]]).nullspace())
-    Q, _ = K.QRdecomposition()
-    det_restr = sp.simplify((Q.T * gp * Q).det())
-    det_full = sp.simplify(gp.det())
-    ok['H3'] = det_restr == 0 and det_full < 0 and Fr(3, 5) < lam_lo and lam_exact < sp.Rational(60132, 100000)
-    say('  H3: lambda_min on the outer boundary: at tau0 (3 + mu_end/b(tau0)^2)/5 in [%.7f, %.7f]; at r = 67/5 it is '
-        '%s = %.7f, and -lambda n n^T there makes g|ker d(v + tau) degenerate (det = %s), with det g = %.4f < 0 '
-        '(Lorentzian): eps1* in [3/5, 0.60132]; round 1\'s eps1 = %.4e is %.0f times smaller than 3/5' % (
-            float(lam_lo), float(lam_hi), lam_exact, float(lam_exact), det_restr, float(det_full), EPS1_R1,
-            0.6 / EPS1_R1))
-    ok['C1'] = det_restr == 0 and float(lam_exact) < 0.61
-    say('  C1 (control): "eps1 = 0.61 serves" refuted: a perturbation of norm %.6f < 0.61 makes the outer boundary null'
-        % float(lam_exact))
+    def h3_null(rr, lam_override=None):
+        mue = sp.Rational(mu_e.numerator, mu_e.denominator)
+        rq = sp.Rational(rr.numerator, rr.denominator)
+        g0x = sp.diag(-1, 1, 1, 1, 1) + (mue / rq ** 2) * sp.Matrix([1, 1, 0, 0, 0]) * sp.Matrix([1, 1, 0, 0, 0]).T
+        nx = sp.Matrix([1, -2, 0, 0, 0]) / sp.sqrt(5)
+        lam_x = (3 + mue / rq ** 2) / 5 if lam_override is None else lam_override
+        gpx = g0x - lam_x * nx * nx.T
+        # the boundary is null for g iff g restricted to ker xi is degenerate (determinant 0)
+        Kx = sp.Matrix.hstack(*sp.Matrix([[2, 1, 0, 0, 0]]).nullspace())
+        Qx, _ = Kx.QRdecomposition()
+        return sp.simplify((Qx.T * gpx * Qx).det()), sp.simplify(gpx.det()), lam_x, g0x
+
+    rr = b_lo                                          # the corner, tau = tau0 at b_lo (Round 3)
+    assert (LZ.VE + LZ.T + 1 + g['tau_end'][0] - rr) / 2 >= LZ.TAU0 and LZ.TAU0 + rr > LZ.VE
+    det_restr, det_full, lam_exact, g0 = h3_null(rr)
+    det67, _, lam67, _ = h3_null(Fr(67, 5))
+    ok['H3'] = (det_restr == 0 and det_full < 0 and Fr(3, 5) < lam_lo and lam_exact < sp.Rational(60131, 100000)
+                and det67 == 0 and lam67 == sp.Rational(2591339, 4309440))
+    say('  H3: lambda_min on the outer boundary: at tau0 (3 + mu_end/b(tau0)^2)/5 in [%.8f, %.8f]; at the corner r = '
+        'b_lo it is %.8f, and -lambda n n^T there makes g|ker d(v + tau) degenerate (det = %s), with det g = %.4f < 0 '
+        '(Lorentzian): eps1* in [3/5, %.7f] (round 2\'s r = 67/5: %s = %.7f, also null); round 1\'s eps1 = %.4e is '
+        '%.0f times smaller than 3/5' % (float(lam_lo), float(lam_hi), float(lam_exact), det_restr, float(det_full),
+                                         float(lam_exact) + 5e-8, lam67, float(lam67), EPS1_R1, 0.6 / EPS1_R1))
+    det_m, _, _, _ = h3_null(rr, sp.Rational(59, 100))
+    ok['C1'] = not (det_m == 0)
+    say('  C1 (control): H3\'s test with the size lowered to 59/100: restricted determinant %.4e != 0, the boundary '
+        'stays spacelike: the test fails, as it must' % float(det_m))
+    l_dv61 = least_restricted(dvt, sp.Rational(61, 100), sp.Rational(mu_e.numerator, mu_e.denominator)
+                              / sp.Rational(rr.numerator, rr.denominator) ** 2)
+    ok['C4'] = float(l_dv61) <= 0
+    say('  C4 (control): H2\'s test at eps = 0.61 on ker d(v + tau) at the corner: least eigenvalue %.4e <= 0: the cone '
+        'argument does not pass eps = 0.61' % float(l_dv61))
     G0 = np.array(g0.evalf(30).tolist(), dtype=float)
     nn = np.array([1, -2, 0, 0, 0]) / np.sqrt(5)
     xv = np.array([2.0, 1, 0, 0, 0])
