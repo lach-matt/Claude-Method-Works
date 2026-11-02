@@ -209,7 +209,8 @@ smooth data and finitely many stages.
 
 ## 5. The uniform linear estimate and the bootstrap (Theorem E₂)
 
-**Theorem E₂ (deduced).** The record's Theorem E (N1STAR-PROOF.md 0.4) holds on Ω₂ for a two-phase approximant with
+**Theorem E₂ (deduced; round 1 gave it in outline, the verifier's item 3; Lemma 3.3₂ and Steps 4-6 are written in full
+in section 8, round 2).** The record's Theorem E (N1STAR-PROOF.md 0.4) holds on Ω₂ for a two-phase approximant with
 (E1) for each family, (E2), (E3), (E4), with w = h + φ_in Y_in + φ_out Y_out and the energy
 
     N₂(τ) := Σ_(j≤k) λ^j (‖∂^j ∂h‖ + Σ_K (‖∂^j Ψ_K‖ + ‖∂^j ∂φ_K‖ + λ ‖∂^j ∂_x² φ_K‖)) + ‖h‖ + Σ_K ‖φ_K‖,   K ∈ {in, out}.
@@ -226,7 +227,8 @@ domain, the transports and the mollifier in place):
 - *The λ⁻¹ structure* (computed, FAMILIES5.md 4d L1-L3, 4f Q2): the λ⁻¹ part of the linearisation is ½ λ⁻¹ Σ_K s_K
   G2^K, once per family and nothing else; after the decomposition the only λ⁻¹ coefficients left are ½ λ⁻¹ ((1 − 𝒫)
   s_K(h)) G2^K, each O(∂ s_K(h)) by (M3).
-- *Lemma 3.3₂* (deduced, 4g): contracting with ℓ_in ⊗ ℓ_in kills family in's λ⁻¹ term and its □̃φ_in term exactly;
+- *Lemma 3.3₂* (deduced, 4g; written in full and computed in section 8): contracting with ℓ_in ⊗ ℓ_in kills family
+  in's λ⁻¹ term and its □̃φ_in term exactly;
   family out's survive through χ′ alone: ½ λ⁻¹ ((1 − 𝒫) s_out(h)) e^(−4σ) F2² χ′ = O(∂ s_out(h)) and −q c_in Ψ_out, a
   bounded coefficient at the top order of Ψ_out; N_φ^out(ℓ_in, ℓ_in) keeps |w||∂²φ_out|, at most C M λ^(K−4) N₂ in the
   bootstrap. No large coefficient enters s_in's equation; s_out's is the mirror.
@@ -242,7 +244,8 @@ domain, the transports and the mollifier in place):
   a} and the outer boundary are spacelike with Ω₂ to their past (Proposition B(e)); the mollifier lives on the annuli
   A(τ) = {a ≤ |x| ≤ b(τ)} in the chart (τ, x = R x̂), which is global on Ω₂ since R_u < 0; Step 8 needs smooth bounded
   coefficients and spacelike slices.
-- *Steps 4-7*: every new term is a bounded two-phase profile times a quantity N₂ controls at the same scaled order; the
+- *Steps 4-7* (written term by term in section 8, the counting computed in `checks/twoledger5.py`): every new term is a
+  bounded two-phase profile times a quantity N₂ controls at the same scaled order; the
   nonlinear terms are at most C λ⁻⁵ N₂²; so N₂ ≤ C₃((C_D + 1 + C_R) λ^K + C M² λ^(K+1)) and the bootstrap closes at N₂ ≤
   M λ^K with M := C₃(C_D + 1 + C_R) + 1, the smallness a power of λ, never of the data.
 
@@ -295,15 +298,19 @@ The record's proof (N1STAR-PROOF.md section 6) carries over with:
 - Dynamic outgoing null phase: settled: exact eikonal, and not used by the data (S4) (§3, §6).
 - Approximant every order, interactions, non-resonance: deduced; symbol computed; constant computed on Ω₂ (§4, nonres5,
   twobg5).
-- Energy estimate, bootstrap: deduced, at the level of the record's section 4 with the changes listed (§5).
+- Energy estimate, bootstrap: deduced; Lemma 3.3₂ and Steps 4-6 written in full in round 2 (§8), the identities
+  computed (twodecomp5 J0-J9), the counting computed (twoledger5 T1-T2), each with failing controls.
 - Transport on Ω₂ for both generators: computed (twotransport5).
-- Theorem 1₂ items 1-5: **deduced, not independently verified** (§1).
-- Theorem 1 items 6-7 (horizon, mean mass) for two families: **not claimed**.
+- Theorem 1₂ items 1-5: **deduced** (§1); read by an independent verifier at commit 169c9b5 with no major gap; round 2's
+  sections 8-10 not yet read.
+- Theorem 1 item 6 (horizon) for two families: **deduced under the placement hypothesis (H6)** (§9; round 1: not
+  claimed).
+- Theorem 1 item 7 (mean mass) for two families: **deduced** (§10; round 1: not claimed).
 
-Item 6 would need the outgoing wave's O(1) oscillating contribution to ∂_R θ⁺ along the columns (the phase u is not
-constant along a column) to stay below 3/μ near the horizon; it holds where the outgoing packet stays away from √μ(v)
-(no oscillation there), which is not arranged above. Item 7's quarter-turn argument needs both families' first mean
-corrections odd; not computed.
+(Round 1 wrote here: item 6 would need the outgoing wave's O(1) oscillating contribution to ∂_R θ⁺ along the columns to
+stay below 3/μ near the horizon, which holds where the packet stays away from √μ; item 7 needs both families' first mean
+corrections odd. Round 2 does the first by placement (§9, with the O(1) term computed, H3) and the second by computing
+the outgoing family's parity base (§10).)
 
 ---
 

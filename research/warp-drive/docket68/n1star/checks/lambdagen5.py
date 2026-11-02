@@ -38,10 +38,11 @@ certified intervals, mpmath.iv at 200 bits; floating point where said).
      Lambda_* in III.J' are an induction in the proof that D_U Phi is injective (no map is built), and the pairs of
      III.I'''''''''''' Lemma 2.4 are removed by subtracting explicit tensors chi_K T_rho(a Y) with coefficients read off
      the expansion (linear and bounded at fixed index sets, no order spent). They enter C_k only.
-  Controls (must fail, and do): N1 a planted base 3 - n d1 + 1e-8 (n large) is caught by L4's search; N2 with the
-  shift bound -4 in place of -5 the bases 2 + delta_4, 3 + delta_5 and 3 + delta'_4 drop out, so L3's list depends on
-  the bound read at I12:93-96; N3 the container counted without deduplicating L3's bases against round 1's starts
-  differs.
+  Controls (must fail, and do): N1 (Round 3, the verifier's m2: round 2's N1 computed the planted residue by hand) L4's
+  search, now a function, is run on L3's bases plus a planted base 3 - n d1 + 1e-8 (n large) and returns it as
+  binding; N2 with the shift bound -4 in place of -5 four bases drop out (printed), so L3's list depends on the bound
+  read at I12:93-96; N3 (Round 3, m2: round 2's N3 re-tested round 1's deduplication) L5 now certifies that L3's bases
+  lie on distinct chains, off every existing start's chain, and a planted base on an existing chain is flagged.
 
     python3 checks/lambdagen5.py
 """
@@ -49,7 +50,7 @@ import os
 import sys
 import textwrap
 from fractions import Fraction as Fr
-from math import ceil
+from math import ceil, floor
 
 import mpmath
 from mpmath import iv
@@ -206,9 +207,20 @@ def main():
     cnt_r1 = sum(DW.chain_points(g, d1lo, d1hi, wlo, whi) for g in union_r1)
     add = 0
     seen = []
+    def dedup_flags(bases):
+        flags = []
+        for k, (name, lo, hi) in enumerate(bases):
+            for st in union_r1:
+                if same_chain((lo, hi), (st, st), d1lo, d1hi):
+                    flags.append((name, float(st)))
+            for name2, lo2, hi2 in bases[:k]:
+                if same_chain((lo, hi), (lo2, hi2), d1lo, d1hi):
+                    flags.append((name, name2))
+        return flags
+
+    flags = dedup_flags(in_w)
     for name, lo, hi in in_w:
-        # a base is a new chain unless it differs from an existing start by a multiple of d1 (impossible: rational
-        # starts, irrational offsets) -- the offsets are irrational (not rational squares), so each is new
+        # Round 3 (m2): each base is certified to lie on no existing chain and on no other base's chain (dedup_flags)
         c_lo = DW.chain_points(lo, d1lo, d1hi, wlo, whi)
         c_hi = DW.chain_points(hi, d1lo, d1hi, wlo, whi)
         assert c_lo == c_hi
@@ -220,7 +232,9 @@ def main():
         'above 3 at 3 per point the conditional bound grows by %d = %.4e' % (
             cnt_r1, len(in_w), add, ', '.join('%d' % x for _, x in seen), cnt_r1 + add, above, 3 * add * above,
             3 * add * above))
-    ok['L5'] = cnt_r1 == 52025761 and add > 0
+    ok['L5'] = cnt_r1 == 52025761 and add > 0 and not flags
+    say('      the %d bases certified pairwise on distinct chains and off the %d existing starts\' chains: %s'
+        % (len(in_w), len(union_r1), not flags))
 
     # L6: the windows above 3
     iota = int(ceil((2 - w['eps'] - DW.LSHARP) / d1lo))
@@ -238,20 +252,22 @@ def main():
     ok['L8'] = new_bound > w8
 
     # controls
-    planted = 3 - 2900000 * d1lo + Fr(1, 10 ** 8)
-    gap = 3 - planted
-    n = int(gap / d1lo) + 1
-    v_ = planted + n * d1lo - 3
-    ok['N1'] = 0 < v_ < Fr(2, 10 ** 8) and v_ < DELTA50
-    say('  N1 (control): a planted base 3 - 2,900,000 d1 + 1e-8 reaches 3 + %.3e < delta_50: the search catches a '
-        'binding base' % float(v_))
+    planted = ('planted', 3 - 2900000 * d1hi + Fr(1, 10 ** 8), 3 - 2900000 * d1lo + Fr(1, 10 ** 8))
+    best_p = g_search(in_w + [planted], d1lo, d1hi)
+    ok['N1'] = best_p[0] == 'planted' and best_p[1][1] < DELTA50
+    say('  N1 (control; Round 3: L4\'s search itself is run on the bases with one planted base 3 - 2,900,000 d1 + '
+        '1e-8): the search returns %s at 3 + %.3e < delta_50: L4\'s test fails for it' % (best_p[0],
+                                                                                         float(best_p[1][1])))
     b4 = {(n, int(lo)) for n, lo, hi in ecol_bases(-4)}
     b5 = {(n, int(lo)) for n, lo, hi in ecol_bases(-5)}
     ok['N2'] = b4 != b5
     say('  N2 (control): shift bound -4 in place of -5 drops %s' % sorted(b5 - b4))
-    double = sum(DW.chain_points(g, d1lo, d1hi, wlo, whi) for g in list(starts) + [g for g in ec if g < whi])
-    ok['N3'] = double != cnt_r1
-    say('  N3 (control): starts and E^C_I counted without deduplication: %d != %d' % (double, cnt_r1))
+    dup = ('duplicate', union_r1[3] + 7 * d1lo, union_r1[3] + 7 * d1hi)
+    flags_m = dedup_flags(in_w + [dup])
+    ok['N3'] = any(f[0] == 'duplicate' for f in flags_m)
+    say('  N3 (control; Round 3: L5\'s deduplication of L3\'s bases is run with one planted base on an existing '
+        'chain, start %.4f + 7 d1): flagged %s: L5\'s test fails for it' % (float(union_r1[3]),
+                                                                           [f for f in flags_m if f[0] == 'duplicate']))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1
