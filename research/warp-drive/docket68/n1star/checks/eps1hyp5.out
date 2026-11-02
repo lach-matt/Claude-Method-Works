@@ -1,0 +1,26 @@
+  H1: eigenvalues of g0 on the hyperplanes (sympy, generic mu, r): {'dtau': ['(mu + r**2)/r**2', '1', '1', '1'], 'dr':
+      ['-(-mu + r**2)/r**2', '1', '1', '1'], 'd(v+tau)': ['(mu + 3*r**2)/(5*r**2)', '1', '1', '1']}; equal to the closed
+      forms: True; on r = a at P*: mu/a^2 - 1 >= 12.7318 > 1, so lambda_min = 1, 1 and >= 3/5
+  H2: g0 - eps I on the kernels (exact, m = mu/r^2): {'dtau': ['-eps + m + 1', '1 - eps'], 'dr': ['-eps + m - 1', '1 -
+      eps'], 'd(v+tau)': ['-eps + m/5 + 3/5', '1 - eps']}; at eps = 3/5: least 0.4000 on ker dtau (m >= 0), 0.4000 on ker
+      dr at r = a (P*), ['m/5', '2/5'] on ker d(v + tau); one negative eigenvalue of g0 - (3/5) I at every m tested:
+      True; so eps1 = 3/5 serves (direct cone argument)
+  H3: lambda_min on the outer boundary: at tau0 (3 + mu_end/b(tau0)^2)/5 in [0.60130959, 0.60130959]; at the corner r =
+      b_lo it is 0.60130959, and -lambda n n^T there makes g|ker d(v + tau) degenerate (det = 0), with det g = -0.6463 <
+      0 (Lorentzian): eps1* in [3/5, 0.6013096] (round 2's r = 67/5: 2591339/4309440 = 0.6013169, also null); round 1's
+      eps1 = 5.2617e-04 is 1140 times smaller than 3/5
+  C1 (control): H3's test with the size lowered to 59/100: restricted determinant 1.1310e-02 != 0, the boundary stays
+      spacelike: the test fails, as it must
+  C4 (control): H2's test at eps = 0.61 on ker d(v + tau) at the corner: least eigenvalue -8.6904e-03 <= 0: the cone
+      argument does not pass eps = 0.61
+  C2 (control): g^-1(d(v + tau), d(v + tau)) after a perturbation of norm 0.59: -8.660e-02 (timelike), 0.62: 1.471e-01
+      (spacelike covector: the boundary is timelike) (floating point)
+  C3 (control): ker dr at r = 3/2, mu = mu_end: eigenvalues ['-205/432', '1', '1', '1']: a negative one, the test detects
+      a timelike hypersurface
+H1 PASS
+H2 PASS
+H3 PASS
+C1 PASS
+C4 PASS
+C2 PASS
+C3 PASS
