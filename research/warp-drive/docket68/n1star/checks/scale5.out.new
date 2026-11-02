@@ -23,3 +23,7 @@ Z8  the class on S from the S-flux
         '7/2', '4', '9/2', '5', '11/2']
   Z8d control: the pointwise reading O(rho^(1/2 + a)) (round 2 R2.8) fails at l0 = 3.8, a = 2.9: pass
 Z1  the exact scaling identity of the gauge-fixed operator (mpmath, 40 digits)
+  Z1a (Z + 2) P(h) = DP(h)[Z h] - 2 mu d_mu P(h), all components, three points: pass max |defect| 4.72e-41 against sizes
+        up to 0.444
+  Z1b control: without - 2 mu d_mu P the identity fails at every point: pass min defect 0.0285
+  Z1c control: the non-uniform dilation (t - v1) d_t + 2 x.d_x fails at every point: pass min defect 0.0653

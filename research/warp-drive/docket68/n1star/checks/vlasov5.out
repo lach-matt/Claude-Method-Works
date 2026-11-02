@@ -6,3 +6,6 @@ V3 (mpmath) a restricted density at the axis: continuous in alpha forbids it; co
    control: continuous f = 1 at the axis has T_rhorho = 0.5 (must be 1/2, not O(rho^2)): True
    concentrating f: T_rhorho/rho^2 = ['0.27652737', '0.28068901', '0.28174247', '0.28200666'] -> 1/(2 sqrt(pi)): True ; d_alpha f grows like 1/rho: True
 V4 (exact) N restricted families: the least mixed symbol is 1 - cos(2 pi/N) ~ 2 pi^2/N^2
+   least symbol: N=2: 2.00000, N=3: 1.50000, N=4: 1.00000, N=8: 0.292893, N=16: 0.0761205, N=32: 0.0192147, N=64: 0.00481527
+   matches 1 - cos(2 pi/N): True ; N^2 (1 - cos(2 pi/N)) -> 2 pi^2: True ; control N = 2 (in/out) gives 2: True
+PASS
