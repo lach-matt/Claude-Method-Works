@@ -40,8 +40,8 @@ III.G'' Corollary 4.3, G3:375-400):
      is the largest over the windows, not their sum. Result: log order <= 2 at every exponent of the window except at
      the 26 points of pi_1 E^C_I in [2, 3], where it is at most 5 (R0) or 11 (R1).
   F5 (exact) n_iota <= 3 P_iota + excess (the excess over 2 at those 26 points, 23 on R0, 44 on R1), so dceiling5 D6
-     per exponent gives d <= 37,919,137,148,906,758 + 53,244,736 (excess + X_7) + 106,489,470 c': the 3.79e16 that round 4
-     printed as a hypothesis, now with the construction's own log orders.
+     per exponent gives d <= 37,919,137,148,906,758 + 53,244,736 (excess + X_7) + 106,489,470 c': the 3.79e16 that
+     round 4 printed as a hypothesis, now with the construction's own log orders.
   F6 (exact; a bound with one reading) L_0, the log order of E^0_src U E_++ U G U (2 + E_col) below 2 lambda_sharp:
      at least 2 (G at 3), at most 7 on round 2's reading that the column shifts are >= -5 (R2.3 (b)): the E_ind log order
      at offset 4 of the s0 site (k = 1), 2 x 4 - 1.
@@ -225,8 +225,8 @@ def main():
     ok_A, at, hyp, (La, K1) = IP.m6()
     ceil = {nm: hyp + La * res[nm][1] for nm in ('R0', 'R1')}
     OK['F5'] = ok_A and hyp == 37919137148906758 and ceil['R0'] == hyp + La * 23
-    print('  F5: n_iota <= 3 P_iota + excess (excess %d on R0, %d on R1); per exponent: d <= %d (R0), %d (R1) + %d X_7 + '
-          '%d c\' (%.6e + ...; N = 21 d + 6 <= %.6e + ...), against the floor 8,407,505,890,317,054 (ratio %.3f)' % (
+    print('  F5: n_iota <= 3 P_iota + excess (excess %d on R0, %d on R1); per exponent: d <= %d (R0), %d (R1) + '
+          '%d X_7 + %d c\' (%.6e + ...; N = 21 d + 6 <= %.6e + ...), against the floor 8,407,505,890,317,054 (ratio %.3f)' % (
               res['R0'][1], res['R1'][1], ceil['R0'], ceil['R1'], La, K1, ceil['R1'], 21 * ceil['R1'] + 6,
               ceil['R1'] / 8407505890317054))
     # F6 L_0
@@ -237,8 +237,8 @@ def main():
                 max(E['III.D\'\' translations'][w] for w in E['III.D\'\' translations'] if w <= 2 * LSHARP - 2 - 3 + 5))
     l0_lo = G[Fr(3)]
     OK['F6'] = l0_lo == 2 and l0_hi == 7
-    print('  F6: L_0 in [%d, %d] (G at 3; the column classes (2, 0) U (2 + E_ind), (3, 0) U (3 + E_ind) at shifts >= -5, '
-          'round 2\'s reading)' % (l0_lo, l0_hi))
+    print('  F6: L_0 in [%d, %d] (G at 3; the column classes (2, 0) U (2 + E_ind), (3, 0) U (3 + E_ind) at shifts '
+          '>= -5, round 2\'s reading)' % (l0_lo, l0_hi))
     # F7 X_7
     bp_hi = Fr(3, 2)
     OK['F7'] = bp_hi < LSHARP

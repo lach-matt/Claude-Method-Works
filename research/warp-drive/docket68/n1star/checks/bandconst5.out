@@ -1,1 +1,4 @@
 B1 (exact at rational points) the class constraints in [Rac16]'s algebraic-hyperbolic split; the symbol
+   H linear in kappa: True ; coefficient 2 Kt: True
+   point R = 3/2, th = atan(3/4): det / (4.22) = 245/156 for every xi: True
+   point R = 2, th = atan(5/12): det / (4.22) = 91/43 for every xi: True
