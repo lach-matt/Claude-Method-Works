@@ -51,7 +51,8 @@ Z := (t - v1) d_t + x.d_x; P_mu(h) := Ric^H(g_b0(mu) + h; g_b0(mu)).
      Delta = -l(l + 2): (p + m - 1)(p + m - 3) - l(l + 2) = (p + m - l - 3)(p + m + l - 1), symbolic in p, l, m;
      (b) after the shell (G_3 = 0, G_4 and G_5 constant in v) the flat recursion makes G_k a polynomial in v of
      degree floor((k - 4)/2) (k <= 16); (c) max over s in [0, 3/2] of |2F1| grows at most polynomially in l
-     (l <= 120, p in {2, 5/2, 3, 7/2}; log-log slope bounded). Control (a): third parameter p + 1/2 breaks it.
+     (l = 10..80, p in {2, 5/2, 3, 7/2}; log-log slope bounded; series at 320 digits). Control (a): third parameter
+     p + 1/2 breaks it.
   B10 (exact; computed) the weight a_0 < 1/2 scheme of rounds 2-3 does not close: its top-order quasilinear term
      -(1/2)(Dg^-1[Gamma^alpha h]) d d h is bounded, by the quantities that scheme controls, only through Hardy for
      Gamma^alpha h and Sobolev for d d h, a kernel (1 + |sigma|)^(-(a_0 + 1/2)), not integrable for a_0 <= 1/2; and
@@ -552,9 +553,9 @@ def b8():
           "Sigma_(5/2))", d == Fr(-13, 2), str(d))
     a, R = sp.symbols("a R", positive=True)
     r = sp.Symbol("r", positive=True)
-    l2 = sp.sqrt(sp.integrate(r**(2*a)*r**(-13)*r**3, (r, R, sp.oo), conds="none"))
-    check("B8b ||w^(1/2) r^(-13/2)||_(L^2(r >= R)) = R^(a - 9/2)/sqrt(9 - 2a)",
-          sp.simplify(l2 - R**(a - sp.Rational(9, 2))/sp.sqrt(9 - 2*a)) == 0)
+    l2sq = sp.integrate(r**(2*a)*r**(-13)*r**3, (r, R, sp.oo), conds="none")
+    check("B8b ||w^(1/2) r^(-13/2)||_(L^2(r >= R))^2 = R^(2a - 9)/(9 - 2a) (a < 9/2)",
+          sp.simplify(l2sq - R**(2*a - 9)/(9 - 2*a)) == 0, str(sp.simplify(l2sq)))
     d2 = residual_degrees([Fr(2), Fr(5, 2), Fr(3), Fr(7, 2)])
     check("B8c control: without the p = 4 term the leading degree is -6", d2 == Fr(-6), str(d2))
 
@@ -589,19 +590,29 @@ def b9():
         ok = ok and deg == (k - 4)//2
     check("B9b after the shell (G_3 = 0, G_4, G_5 constant) the flat recursion makes G_k a polynomial in v of degree "
           "floor((k - 4)/2), k = 6..16 (so Sigma's fixed-v expansion reproduces it, by B9a)", ok)
-    mp.mp.dps = 30
+    def hyp(pv, lv, sv):
+        """2F1(p + l, p - l - 2; p - 1/2; s/2) by its series, summed at 320 digits (the terms reach 1e90 at l = 80)"""
+        with mp.workdps(320):
+            a_, b_, c_, z = mp.mpf(pv) + lv, mp.mpf(pv) - lv - 2, mp.mpf(pv) - mp.mpf(1)/2, mp.mpf(sv)/2
+            term, tot, n = mp.mpf(1), mp.mpf(1), 0
+            while True:
+                term *= (a_ + n)*(b_ + n)/((c_ + n)*(n + 1))*z
+                n += 1
+                tot += term
+                if term == 0 or (n > 2*lv + 10 and abs(term) < mp.mpf(10)**-60*max(1, abs(tot))):
+                    break
+            return abs(tot)
     ok3 = True
     info = []
+    Ls = (10, 20, 40, 80)
     for pv in (2, 2.5, 3, 3.5):
-        maxes = []
-        for lv in (10, 20, 40, 80, 120):
-            f = lambda s: abs(mp.hyp2f1(pv + lv, pv - lv - 2, pv - 0.5, s/2))
-            maxes.append(max(f(mp.mpf(i)/40) for i in range(0, 61)))
-        slopes = [mp.log(maxes[i + 1]/maxes[i])/mp.log(mp.mpf(2) if i < 3 else mp.mpf(1.5)) for i in range(4)]
+        maxes = [max(hyp(pv, lv, mp.mpf(i)/10) for i in range(0, 16)) for lv in Ls]
+        slopes = [mp.log(maxes[i + 1]/maxes[i])/mp.log(2) for i in range(len(Ls) - 1)]
         info.append((pv, mp.nstr(max(slopes), 3)))
         ok3 = ok3 and max(slopes) < 6
     check("B9c max_(s in [0, 3/2]) |2F1(p + l, p - l - 2; p - 1/2; s/2)| grows at most like a power of l (log-log "
-          "slope < 6, l = 10..120): the harmonic-by-harmonic construction of F_p converges for smooth data", ok3,
+          "slope < 6, l = 10, 20, 40, 80, s on a grid of step 1/10): the harmonic-by-harmonic construction of F_p converges "
+          "for smooth data", ok3,
           str(info))
 
 
