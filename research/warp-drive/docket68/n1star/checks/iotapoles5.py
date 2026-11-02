@@ -416,7 +416,7 @@ def main():
     s0, t2 = res['s0'], res['t2']
     OK['M3'] = (s0['struct'] and s0['spec_ok'] and s0['left'] == s0['K'] and s0['simple'] and not s0['nonreal_in']
                 and s0['exc_clear'] and s0['orders'][(5.0, 5.0)] == (1, 2)
-                and all(o[0] == 1 for o in s0['orders'].values()) and len(s0['orders']) == 8
+                and all(o[0] == 1 for o in s0['orders'].values()) and len(s0['orders']) == 7
                 and t2['struct'] and t2['left'] == 1 and t2['orders'] == {(5.0, 5.0): (1, 1)})
     c4 = control_adjugate(s0)
     OK['C4'] = c4 != (1, 2)

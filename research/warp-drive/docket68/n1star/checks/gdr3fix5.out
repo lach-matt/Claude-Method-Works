@@ -11,3 +11,6 @@ T3 PASS
   T4 control (W*): components at r = 2 r_h bounded in v: True; v^-1 times them -> [0, 0]
 T4 PASS
   T5: Theta(r^-2 dv^2) = [-1/r**3, 0]: stationary True, nonzero True: K+-order 0, below the 1/2 of (1.4): True
+  T5 control: Theta(r^-2 dv^2 + L_{W**} g) has a nonzero (stationary) part: False
+T5 PASS
+EXIT 0
