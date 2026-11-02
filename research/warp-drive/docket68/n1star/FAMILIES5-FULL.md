@@ -492,7 +492,9 @@ both families' stage-0 waves and a mixed λ² profile, from the full Ric^H; cont
   + B1^K · dφ + C1^K φ + N_φ^K, B1^K, C1^K bounded profiles, |N_φ^K| ≤ C |w| (λ⁻² |φ| + λ⁻¹ |dφ| + |d²φ|) with the second
   derivatives of φ in N_φ^K multiplying Y_K. Computed: the commutator P(φ Y_K) − φ P(Y_K) has no λ⁻² term (J1), its λ⁻¹
   term is −(ℓ_K · dφ) G2^K exactly, with no term in the other family's generator (J2), and with φ(p) = dφ(p) = 0 its λ⁰
-  term is −½ (g0^ab ∂_a ∂_b φ) Y_K (J3): second derivatives of φ enter only through □̃φ. Control (a): fails J2, J3.
+  term is −½ (g0^ab ∂_a ∂_b φ) Y_K (J3): second derivatives of φ enter only through □̃φ (J3 works in the double-null
+  chart; the Cartesian □̃ of section 2 differs from it by first-order terms in φ, which join B1^K · dφ). Control (a):
+  fails J2, J3.
 - (F3) Lemma 3.1₂: P(Y_K) = [T1^K], a bounded profile. Computed: D Ric^H[G](F_K G) = F_K Ric^H[G] at orders λ⁻², λ⁻¹,
   λ⁰ for G = g0 + λ W + λ² Q, both K (J0), which with (E2) (stage 0 solved: stage0two5 T1-T4) is T(F_K g1^(K)) +
   P_(−2)(F_K ĝ_2) = O(λ). Control (b): the direction λ F_1 W without λ² F_1 Q fails J0, so λ F_K ĝ_2 belongs in Y_K.
