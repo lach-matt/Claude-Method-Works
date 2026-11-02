@@ -160,7 +160,7 @@ def data_cone(E, G, data, A, pert=None):
         A['s'][0, j + 1] = b['s']; A['sv'][0, j + 1] = b['sv']
 
 
-def run(E, G, data, r_cut, iters=3, wcoef=2.0, pert=None):
+def run(E, G, data, r_cut, iters=3, wcoef=2.0, pert=None, source=None):
     Nu, Nv, M = G.Nu, G.Nv, G.M
     A = {f: np.full((Nu + 1, Nv + 1, M), np.nan) for f in ALL}
     data_cone(E, G, data, A, pert)
@@ -191,6 +191,8 @@ def run(E, G, data, r_cut, iters=3, wcoef=2.0, pert=None):
             env = d5.env_from(G, c, fu, fv, c['sv'])
             Ruv = (nn['R'] - e_['R'] - w_['R'] + s_['R']) / (du * G.dv)
             sol, cx = solve_mnw(E, env, Ruv, G)
+            if source is not None:            # an added source in the (m, n, W)_uv rows (jordan5.py's witness)
+                sol = sol + source(n1, m1, G)[..., 1:]
             for k, f in enumerate(('m', 'n', 'W')):
                 nn[f] = e_[f] + w_[f] - s_[f] + du * G.dv * sol[..., k]
             nn['cx'] = cx
