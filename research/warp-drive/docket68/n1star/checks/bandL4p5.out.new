@@ -8,3 +8,10 @@ H1 PASS
 H2 PASS
   H3 lam = 1e-1000: K = 6 covers [x_deep, x_top] = [5.753e-19, 0.0008697] with Lemma L.4': True; lam = 1e-3000: K = 6
       covers [x_deep, x_top] = [2.114e-56, 0.0002897] with Lemma L.4': True
+H3 PASS
+  H4 Theorem L's window conditions at every level lam^p, 3 + delta <= p <= P, generic and at rho*, with m = max(56 M, 4 P
+      M, 4 M/delta) and kappa = max(64, 8 P, 8/delta), every K in [6, 40], delta in {1/100, 1/20, 1/10, 1/4, 1/2}, P in
+      {50, 200}, under L.4 and under L.4': failures none; with round 3's m = 56 M, kappa = 64 (K = 6) the conditions
+      failing somewhere: ['e1', 'e2', 'e4', 'e6']
+H4 PASS
+bandL4p5: all checks pass, every control fails
