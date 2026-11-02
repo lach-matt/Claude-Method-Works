@@ -611,8 +611,8 @@ def b9():
         info.append((pv, mp.nstr(max(slopes), 3)))
         ok3 = ok3 and max(slopes) < 6
     check("B9c max_(s in [0, 3/2]) |2F1(p + l, p - l - 2; p - 1/2; s/2)| grows at most like a power of l (log-log "
-          "slope < 6, l = 10, 20, 40, 80, s on a grid of step 1/10): the harmonic-by-harmonic construction of F_p converges "
-          "for smooth data", ok3,
+          "slope < 6, l = 10, 20, 40, 80, s on a grid of step 1/10): the harmonic-by-harmonic construction of F_p "
+          "converges for smooth data", ok3,
           str(info))
 
 
