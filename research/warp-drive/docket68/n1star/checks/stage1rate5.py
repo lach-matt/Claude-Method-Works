@@ -7,15 +7,15 @@ plus the W_TT^2 means). Labels: computed (exact, sympy), certified (flint arb in
 Omega), deduced (the energy argument, Lemma 2.3's proof at N1STAR-PROOF.md:222-233 with its constant made explicit).
 
   K1 (exact) at xhat = e1 (O(4) invariance), with m = mu/r^2 and k = mu'/r, Y = -g0^-1 dtau = (1 + m, -m xhat), its
-     deformation tensor pi = L_Y g0 = (1/r) Pi(m, k): Pi_tautau = 2 m^2 - k, Pi_tau1 = 2 m + 2 m^2 - k, Pi_11 = 4 m + 2 m^2
-     - k, Pi_angular = -2 m; Gamma^b = d_a g0^{ab} = (1/r) gamma(m, k); g0(Y, Y) = -1 - m.
+     deformation tensor pi = L_Y g0 = (1/r) Pi(m, k): Pi_tautau = 2 m^2 - k, Pi_tau1 = 2 m + 2 m^2 - k,
+     Pi_11 = 4 m + 2 m^2 - k, Pi_angular = -2 m; Gamma^b = d_a g0^{ab} = (1/r) gamma(m, k); g0(Y, Y) = -1 - m.
   K2 (deduced; exact forms) with T_ab = d_a u d_b u - (1/2) g0_ab g0^-1(du, du), J^a = T^a_b Y^b, E(tau) = int T(Y, Y) dx
      (det g0 = -1, so d_a J^a is the divergence): d_a J^a = (1/2) T^{ab} pi_ab + (Y u)(box~ u + Gamma . du). As quadratic
      forms in p = du: T(Y, Y) = p^T Q p, Q = Y Y^T + (1/2)(1 + m) g0^-1; the bulk is p^T M p, M = (1/2)(g0^-1 pi g0^-1 -
      (1/2) tr(g0^-1 pi) g0^-1) + sym(Y Gamma^T). The lateral fluxes have the sign Lemma 2.3 drops. So dE/dtau <= kappa E
      + c_Y E^(1/2) ||box~ u||, kappa = sup |lambda(M, Q)| (generalized eigenvalues), c_Y^2 = sup Y^T Q^-1 Y, and with
-     -(1/2) box~ u = f: ||du(tau)|| <= q^(1/2) e^(kappa Dtau/2) ||du(tau0)|| + 2 c_Y q_lo^(-1/2) e^(kappa Dtau/2) int ||f||,
-     q = sup q_hi/inf q_lo, q_lo, q_hi the Euclidean eigenvalues of Q.
+     -(1/2) box~ u = f: ||du(tau)|| <= q^(1/2) e^(kappa Dtau/2) ||du(tau0)|| + 2 c_Y q_lo^(-1/2) e^(kappa Dtau/2)
+     int ||f||, q = sup q_hi/inf q_lo, q_lo, q_hi the Euclidean eigenvalues of Q.
   K3 (certified) on Omega at P*: r in [a, b(tau0)], m in [mu0/r^2, mu_end/r^2], k in [0, (2/9) c^2/r] (A = 1, env <=
      c <= 1.3241035, envelope5.out E1, READ), kappa <= sup over r-cells of (1/r_i) sup |K(m, k)|, K the generalized
      eigenvalues of (r M, Q) in closed form (2 x 2 block (tau, x1) and the angular ratios), on a cover of 400 r-cells x 8
@@ -145,7 +145,7 @@ def sup_kappa(M, Q, mm, kk, ncell=400):
 
 
 def q_bounds(Q, Ye, mm, ncell=4000):
-    """certified inf of Q's least eigenvalue, sup of its largest, and sup of Y^T Q^-1 Y over m in [mu0/b^2, mu_end/a^2]"""
+    """certified inf of Q's least eigenvalue, sup of its largest, sup of Y^T Q^-1 Y, m in [mu0/b^2, mu_end/a^2]"""
     lam = sp.Symbol('lam')
     blk = Q[:2, :2]
     tr, dt = sp.simplify(blk.trace()), sp.simplify(blk.det())
