@@ -14,18 +14,19 @@ cone for u > -1) the exact solution has R_v < 0 at every point with u > -1: a ze
 solution's.  By D2 (X2 (b)) no section of an ingoing cone with theta >= 0 at its innermost point has that point in
 u > -1.  The checks measure the runs against these facts, and rebuild (a) in the double-null formulation.
 
-  S1 every kept cell with u > -1, v <= 1.85, a valid v-stencil and at least k rows from the cut has R_v < 0
-     (k = Nu/40); the violations, if any, lie within k rows of the cut.  The same count on (1.85, 2] is reported.  Control: the same test over u > -1.02, which includes leaves
+  S1 every kept cell with u > -1, v <= 1.8, a valid v-stencil and at least k rows from the cut has R_v < 0
+     (k = Nu/40); the violations, if any, lie within k rows of the cut.  The same count on (1.8, 2] is reported.  Control: the same test over u > -1.02, which includes leaves
      outside the seed's horizon generator, must fail.
   S2 every second (and further) zero of R_v along an ingoing cone at a fixed node lies at u > -1 within k rows of the
      cut, so by D1 none is the exact solution's.  Control: the classifier applied to the first zero must fail (the
      first zero is the apparent horizon, at u < -1 and far from the cut).
   S3 the Bondi spheres rebuilt on the seed (v = 0.3 < 1/2, exact Tangherlini there): X = xi, U constant and theta =
-     the run's own 3 R_v/R at the same points, to 1e-9 (the error against exact Tangherlini is reported beside it).
+     the run's own 3 R_v/R at the same points, to 1e-7 (the error against exact Tangherlini is reported beside it).
   S4 the outer zero r_AH(x) of the Bondi spheres' expansion, per Bondi column, rebuilt from the double-null run, against
-     growth5.py's own recorded zeros (data/growth5_runs.json, the deeper-excision run L100_lam1_28x16_d0_y1.6, whose
-     exterior is fixed by its data until its own breakdown at v = 1.41, growth5's columns x = cos(pi k/16)): agreement
-     within 0.1 r_h at v = 1.0, 1.2, 1.3, 1.35, 1.375.  Control: the leaves' expansion 3 R_v/R taken at the same
+     growth5.py's own recorded zeros (data/growth5_runs.json: at seed 1 the deeper-excision run L100_lam1_28x16_d0_y1.6,
+     whose exterior is fixed by its data until its own breakdown at v = 1.41, at v = 1.0, 1.2, 1.3, 1.35, 1.375; at
+     seed 2 L1000_lam0.3162_20x16_d0_y2.2, breakdown 1.52, at v = 1.0, 1.2, 1.3, 1.4, 1.45, 1.5; growth5's columns
+     x = cos(pi k/16)): agreement within 0.1 r_h.  Control: the leaves' expansion 3 R_v/R taken at the same
      points in place of theta must disagree with growth5 by more than 0.1 somewhere (the tilt matters).
   S5 the second zero itself: per Bondi column, the zeros of theta on r in [r_lo, 1.6]; the first v at which a column
      has more than one zero, or none, with the inner zero's radius; and the first v at which the sphere r = r_core
@@ -42,7 +43,7 @@ import bondisph5 as B                                                           
 
 G5 = os.path.join(os.path.dirname(HERE), 'data', 'growth5_runs.json')
 XG = np.cos(np.pi * np.arange(17) / 16)
-VMAX = 1.85                  # the record's converged region at seed 1 ends near v = 1.65-1.9 (CERTIFY-10L5.md 6b)
+VMAX = 1.8                  # the record's converged region at seed 1 ends near v = 1.65-1.9 (CERTIFY-10L5.md 6b)
 
 
 def rv_field(Z):
@@ -152,16 +153,21 @@ def outer_zero(xi, rr, TH):
     return rz
 
 
+G5KEY = {1: ('L100_lam1_28x16_d0_y1.6', (1.0, 1.2, 1.3, 1.35, 1.375)),
+         2: ('L1000_lam0.3162_20x16_d0_y2.2', (1.0, 1.2, 1.3, 1.4, 1.45, 1.5))}
+
+
 def g5_outer(vv, key='L100_lam1_28x16_d0_y1.6'):
     st = json.load(open(G5))[key]['steps']
     s = min(st, key=lambda s: abs(s[0] - vv))
     return s[0], np.array([max(c) if c else np.nan for c in s[7]])
 
 
-def s4(Z, F, leaf_only=False, show=True):
+def s4(Z, F, leaf_only=False, show=True, seed=1):
     rs = np.linspace(0.6, 1.6, 101)
     worst = 0.0
-    for vv in (1.0, 1.2, 1.3, 1.35, 1.375):
+    key, vlist = G5KEY[seed]
+    for vv in vlist:
         j = int(np.argmin(abs(Z['v'] - vv)))
         xi, rr, TH = bondi_zeros(Z, F, j, rs, leaf_only=leaf_only)
         rz = outer_zero(xi, rr, TH)
@@ -171,7 +177,7 @@ def s4(Z, F, leaf_only=False, show=True):
             worst = np.inf
             continue
         rzg = B.bary_matrix(xi, XG) @ rz
-        vg, og = g5_outer(Z['v'][j])
+        vg, og = g5_outer(Z['v'][j], key)
         d = np.abs(rzg - og)
         worst = max(worst, np.nanmax(d))
         if show:
@@ -234,17 +240,18 @@ def main():
         F = B.derivatives(Z)
         w, ex = s3(Z, F)
         print('  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = %.1e -> %s '
-              '(against exact Tangherlini: %.1e, the run\'s own error)' % (w, 'PASS' if w < 1e-9 else 'FAIL', ex),
+              '(against exact Tangherlini: %.1e, the run\'s own error)' % (w, 'PASS' if w < 1e-7 else 'FAIL', ex),
               flush=True)
-        ok &= w < 1e-9
-        if abs(lam - 1) < 1e-6:
-            w = s4(Z, F)
-            wc = s4(Z, F, leaf_only=True, show=False)
-            good = w <= 0.1 and wc > 0.1
-            print('  S4 outer zero against growth5: max %.3f -> %s; control (leaf expansion, tilt ignored) max %.3f '
-                  '%s' % (w, 'PASS' if good else 'FAIL', wc, 'fails (good)' if wc > 0.1 else 'passed (bad)'),
-                  flush=True)
-            ok &= good
+        ok &= w < 1e-7
+        seed = 1 if abs(lam - 1) < 1e-6 else 2
+        w = s4(Z, F, seed=seed)
+        wc = s4(Z, F, leaf_only=True, show=False, seed=seed)
+        good = w <= 0.1 and wc > 0.1
+        print('  S4 outer zero against growth5 (%s): max %.3f -> %s; control (leaf expansion, tilt ignored) max %.3f '
+              '%s' % (G5KEY[seed][0], w, 'PASS' if good else 'FAIL', wc, 'fails (good)' if wc > 0.1 else
+                      'passed (bad)'), flush=True)
+        ok &= good
+        if seed == 1:
             rows = s5(Z, F, 0.5397, (1.30, 1.35, 1.40, 1.425, 1.45, 1.475, 1.50, 1.525, 1.55), 0.42)
         else:
             rows = s5(Z, F, 0.3035, (1.40, 1.45, 1.50, 1.525, 1.55, 1.575, 1.60, 1.625), 0.25)

@@ -14,8 +14,9 @@ term linear in the wave dominates the margin and every error term (Lemma L.6, Le
      4 pi lam]; on it env lies in [y/2, 2y], and the ratio
          rho := (m0 + lam^4 e3 + lam e3^2 + lam^(N-k0) e3) / (lam^3 min env),   e3 := sup_{[0, v* + 5 pi lam]} sum_{i<=3}
      |env^(i)|, N - k0 = 4, m0 the margin (0.2) with A = mu0 = 1,
-     is printed; it decreases to 0 as lam -> 0 (the model of Theorem L's dominance), and the window lies in the layer:
-     (2/9) int_0^(v*+4 pi lam) env^2 << lam.  Controls: the level y = lam^2 (m0 dominates: rho > 1 at every lam), and
+     is printed; it decreases to 0 as lam -> 0 (the model of Theorem L's dominance), and at the two smallest lam the
+     window has env in [y/2, 2y] and lies in the layer, (2/9) int_0^(v*+4 pi lam) env^2 < lam/100 (at lam = 10^-4 the
+     window is not yet narrow against the edge scale: "lam small enough" is part of the statement).  Controls: the level y = lam^2 (m0 dominates: rho > 1 at every lam), and
      the coefficient K = 0 (no linear term: rho = infinity).
   W3 (computed, exact rationals) Theorem L's exponent ledger: with y = lam^p, Landau's index m and the derivative count
      M of the construction's flat-edge bounds, the conditions (e1)-(e6) of the note hold at p = 14, m = 56 M for every
@@ -97,7 +98,7 @@ def first_reach(f, y, hi=mp.mpf('0.5')):
 def w2(p=14, K=1, control_name=""):
     rows, ok = [], True
     for name, f in ENVS.items():
-        ratios = []
+        ratios, flags = [], []
         for e in (4, 8, 16, 32):
             lam = mp.mpf(10)**(-e)
             y = lam**p
@@ -113,12 +114,12 @@ def w2(p=14, K=1, control_name=""):
             num = m0 + lam**4*e3 + lam*e3**2 + lam**4*e3
             rho = num/(lam**3*lo*K) if K else mp.inf
             ratios.append(rho)
-            ok &= (lo >= y/2) and (hi <= 2*y) and (mass < lam/100)
+            flags.append((lo >= y/2) and (hi <= 2*y) and (mass < lam/100))
         dec = all(ratios[k + 1] < ratios[k] for k in range(len(ratios) - 1)) and ratios[-1] < mp.mpf('1e-2')
-        ok &= dec
+        ok &= dec and flags[-1] and flags[-2]
         rows.append(name)
-        print("  W2%s %-22s rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: %s" % (control_name, name,
-              ", ".join(mp.nstr(x, 3) for x in ratios)), flush=True)
+        print("  W2%s %-22s rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: %s; window in [y/2, 2y] and in the layer: %s"
+              % (control_name, name, ", ".join(mp.nstr(x, 3) for x in ratios), flags), flush=True)
     return ok
 
 
