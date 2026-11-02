@@ -5,3 +5,7 @@
   P2: R^(1)[g0 + lam W_out] under sigma^* with s2 -> 3 pi/2 - s2:
       nonzero in [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)];
       odd in every component: True; components where it fails: []  [1164 s]
+  P2 control (one quadrature): W_out S-odd: False; R^(1) odd: False;
+      fails in [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)]  [1604 s]
+  P3: sigma is an isometry of the round double-null metric and the Hawking mass of {u, v = const} is the
+      Misner-Sharp mu: True; control (sheared angular metric) sigma-invariant: False

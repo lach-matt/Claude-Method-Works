@@ -1,1 +1,12 @@
 # python3 checks/rcert5.py RUNDIR l1_M16_800
+frame code generated and approximant fitted (366 s); fit error per field (computed): R 6.4e-13, m 6.7e-11, n 4.0e-11, W 5.3e-13, s 5.8e-12
+K1 certified |Ric(e_a, e_b)|/sqrt(K_0) at 16128 points (a 24 x 24 tensor grid in (t, sig), 28 graded x), the largest, against resid5.py's computed maxima at the run's cell midpoints:
+     ll: <= [0.00241 +/- 4.18e-6]   (resid5: 2.46e-03)
+     ln: <= [0.000144 +/- 4.56e-7]   (resid5: 1.53e-04)
+     nn: <= [7.23e-5 +/- 3.00e-8]   (resid5: 7.46e-05)
+     lx: <= [0.000403 +/- 4.2e-10]   (resid5: 4.25e-04)
+     nx: <= [2.22e-5 +/- 5.99e-9]   (resid5: 2.47e-05)
+     xx: <= [0.000187 +/- 2.81e-8]   (resid5: 2.02e-04)
+     11: <= [5.55e-5 +/- 7.82e-9]   (resid5: 6.24e-05)
+     22: <= [0.000199 +/- 3.12e-7]   (resid5: 2.14e-04)
+K1 PASS (the certified values within a factor 2 of the computed maxima where those exceed 1e-4)
