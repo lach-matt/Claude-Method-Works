@@ -247,3 +247,15 @@ secondzero5: all checks pass
         max theta on r_min 1.709; on r_core n/a
      v = 1.550 r_min 0.782: columns with 0 / 1 / 2+ zeros: 15 / 17 / 0; inner zeros at r = [];
         max theta on r_min 2.028; on r_core n/a
+== l1_M16_800_R20: lambda 1, M 16, 800 x 360, cut 0.30
+  S1 R_v < 0 at u > -1, >= 20 rows from the cut, v <= 1.80: violations 0 far, 217 near the cut,
+     of 34260 cells -> PASS; control (u > -1.02) fails (good)
+     near the cut (excluded band): largest excess of R_v over D1's bound e^{2W}(1 - 1/u^2) 1.59e+04
+     beyond, on (1.80, 2]: violations 787 far, 1951 near the cut
+  S2 further zeros of R_v along ingoing cones, v <= 1.80: 113, first at v = 1.675,
+     all at u > -1 within 20 rows of the cut: PASS; control (first zero near the cut) fails (good)
+     beyond, on (1.80, 2]: 269 further zeros, all near the cut: False
+  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = 5.3e-09 -> PASS
+     (against exact Tangherlini: 9.7e-04, the run's own error)
+      v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.002 (at x = 0.00);
+         r_AH ranges 0.983-1.013 and 0.985-1.012

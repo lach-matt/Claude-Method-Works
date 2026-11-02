@@ -501,7 +501,8 @@ both families' stage-0 waves and a mixed λ² profile, from the full Ric^H; cont
   bounded profiles oscillating in s2 with no λ⁻¹; ℓ_app^in − ℓ_in = λ e^(−2σ) χ_out ℓ_out + O(λ²) and g_app⁻¹(dv, dv) =
   −λ e^(−4σ) χ_out + O(λ²), and the mirrors. Control (d), χ_out on du dv: fails.
 - (F5) (J8) q := g0^ττ/g^ττ, c^ab := g0^ab − q g^ab: c^ττ = 0 and c^ab = (g0^ab (g^ττ − g0^ττ) − g0^ττ (g^ab −
-  g0^ab))/g^ττ, so |c| ≤ C |g⁻¹ − g0⁻¹| ≤ C (λ + |w|) (g^ττ ≤ −1 on Ω₂ for |w| small: Lemma 1.1′ (a)). (J9) □̃ s(h) =
+  g0^ab))/g^ττ, so |c| ≤ C |g⁻¹ − g0⁻¹| ≤ C (λ + |w|) (g0^ττ ≤ −1 on Ω₂, Lemma 1.1′ (a), so g^ττ ≤ −1/2 for |g −
+g0| small). (J9) □̃ s(h) =
   (□̃h)(ℓ, ℓ) + 2 g0^ab ∂_a(ℓ ⊗ ℓ) · ∂_b h + h · □̃(ℓ ⊗ ℓ). Controls (e) q = 1, (f) without the cross term: fail.
 - (F6) Lemma 3.4₂ (twophase5 Q1): Ψ_K := □̃ φ_K obeys L_K Ψ_K + a_K Ψ_K = ½ □̃ P s_K(h) − ½ M_K(P s_K(h)) − N_K φ_K, L_K
   := ℓ_K · ∂, a_K = 2 L_K R/R, M_K, N_K first order with bounded coefficients; every second derivative of φ_K is a

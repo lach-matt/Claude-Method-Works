@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """twoparity5: the quarter-turn parity for the outgoing family, and what the mean-mass statement (item 7) needs with two
-families (FAMILIES5-FULL.md section 9).
+families (FAMILIES5-FULL.md section 10).
 
 The record's Proposition 8.2 (the mean mass) rests on Lemma 8.2: under the combined map S (sigma: th -> pi/2 - th, p1 <->
 p2, an isometry of g0; the phase reflection s -> 3 pi/2 - s; lam -> -lam), every profile of the approximant has parity
