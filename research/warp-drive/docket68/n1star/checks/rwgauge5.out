@@ -1,0 +1,8 @@
+  R1: (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: True
+  R1 control (weight dropped): (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: False
+R1 PASS
+  R2 l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 control l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+  R2 control l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+R2 PASS

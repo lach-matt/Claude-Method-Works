@@ -143,7 +143,7 @@ def field_at(Z, F, j, rows_frac, Xpts):
     return out
 
 
-def sphere(Z, F, j, r, MB=32, gen=None):
+def sphere(Z, F, j, r, MB=32, gen=None, want_leaf=False):
     """the sphere R_B = r on C_{v_j}: xi, U(xi), X(xi), theta(xi); NaN where it is not inside the usable rows"""
     xi, X, J = gen if gen is not None else generators(Z, F, j, MB)
     u = Z['u']
@@ -172,7 +172,7 @@ def sphere(Z, F, j, r, MB=32, gen=None):
             need[b] = False
     fr = np.where(need, fr, np.nan)
     if np.isnan(fr).any():
-        return xi, None, None, np.full(len(xi), np.nan)
+        return (xi, None, None, np.full(len(xi), np.nan)) + ((None,) if want_leaf else ())
     # U(xi) and X(xi): interpolate the generators' u and x at the fractional rows
     iA = np.floor(fr).astype(int); t = fr - iA
     Ux = u[iA] + t * (u[iA + 1] - u[iA])               # u is smooth in the row index; refined below
@@ -189,4 +189,6 @@ def sphere(Z, F, j, r, MB=32, gen=None):
     Fd = {k: f[k] for k in NAMES}
     dF = {(k, c): f[(k, c)] for k in NAMES for c in 'uvx'}
     th = theta_fn()(Xx, Fd, dF, U1, X1, U2, X2)
+    if want_leaf:              # the leaves' expansion 3 R_v/R at the same points (tilt ignored)
+        return xi, Ux, Xx, np.asarray(th, float), 3 * f[('R', 'v')] / f['R']
     return xi, Ux, Xx, np.asarray(th, float)

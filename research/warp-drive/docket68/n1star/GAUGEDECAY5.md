@@ -20,13 +20,13 @@ two gauges of the paper's section 8.2.
   one power slower in its $l = 0$ time component and at the full rate otherwise. Proved from Part VIII (proved) and
   the lemmas here; the uniqueness of the gauge representative also uses Part IX (verified).
 - **Harmonic gauge: not closed; what is proved is the obstruction and its exact form.** The harmonic-gauge solutions
-  are $\dot g_{RW}+\dot\mu\,\mathcal L_{W^{**}}g+\mathcal L_{Z'}g$ with $\Box Z' = J$, $J$ supported in $l\ge2$ and
+  are $\dot g_{RW}+\dot\mu\,\mathcal L_{W^{**}_H}g+\mathcal L_{Z'}g$ with $\Box Z' = J$, $J$ supported in $l\ge2$ and
   decaying, and the $l = 0$ part of $Z'$ free ($\Box Z'_0 = 0$) (Proposition 2.1). A conserved horizon charge
   (Lemma 2.2, an exact identity) shows that when $\dot\mu\ne0$ **no** harmonic-gauge solution settles to $\dot\mu K$:
   the linear growth $\frac{\dot\mu}2\,v\,\mathcal L_{W^*}g$ is forced, with the explicit horizon-regular $W^{**}$
   (Theorem 2.3). Part III gives the frequency-domain counterpart (Proposition 2.5: a simple, rank-one pole of the
   unmodified 1-form resolvent at zero, range $W^*$, co-range the horizon functional). The time-domain decay of $Z'$
-  modulo $W^*$ is **not** proved: the obstruction is stated in section 2.6.
+  modulo $W^*$ is **not** proved: the obstruction is stated in section 2.5.
 
 ## 0. Setting
 
@@ -53,9 +53,10 @@ two gauges of the paper's section 8.2.
   $D\mathrm{Ric}(\dot g) = 0$. $N = \{t_{\mathrm{IVP}}\ge-\nu(r)\}$ is a union of spheres, $t_{\mathrm{IVP}} =
   t-\psi_{\mathrm{IVP}}(r)$ (III.B Lemma 3.7 (b)). Put $h := \dot g-\dot\mu K$ and $w := \alpha-2$; with Part VII
   section 4's $\alpha$, $w>2+\epsilon_t$ (Part VIII (2.3)). For a function or chart component $u$ put
-  $|u|_k(v,r) := \sum_{j\le k}\sup_{S^3_{v,r}}|D^ju|$, $D$ ranging over $\partial_v$, $\partial_r$ and the rotation
-  fields $\Omega_{ij} = x^i\partial_j-x^j\partial_i$. On $\{r_0\le r\le R'\}$ these and $\partial_t,\partial_x$ span the
-  same module with bounded coefficients, and $\partial_t$ costs a factor $t_*^{-1}$ against $t_*\partial_{t_*}$. So
+  $|u|_k(v,r) := \sum_{j\le k}\sup_{S^3_{v,r}}|D^ju|$, $D$ ranging over $\partial_v$, $\partial_r$ and the Lie
+  derivatives along the rotation fields $\Omega_{ij} = x^i\partial_j-x^j\partial_i$. On $\{r_0\le r\le R'\}$ these and
+  $\partial_t,\partial_x$ span the same module
+  with bounded coefficients, and $\partial_t$ costs a factor $t_*^{-1}$ against $t_*\partial_{t_*}$. So
   Part VIII (2.3) reads (deduced): for every $k$, $R'$, $\epsilon'>0$ there are $C$, $N_k$, $T'$ with
   $$|h|_k\le C\,\|(\dot\gamma,\dot k)\|_{H^{N_k}}\,t_*^{-w+\epsilon'}\quad\text{on}\ \{r_0\le r\le R',\ t_*\ge T'\}.
   \tag{0.2}$$
@@ -131,8 +132,8 @@ A\,dv^2+2B\,dv\,dr+C\,dr^2+2r^2H\gamma$, functions of $(v,r)$, on a simply conne
 $$\delta\mu[h_0] = 2\mu_0H+r^2(A+2fB+f^2C)-2r^2(\partial_v+f\partial_r)(rH).$$
 It vanishes on $\mathcal L_Yg$ for every spherically symmetric $Y$, $\delta\mu[r^{-2}dv^2] = 1$, so $\delta\mu[K] = 1$ by
 (0.1), and, with $\dot R := D\mathrm{Ric}(h_0)$,
-$$\partial_v\delta\mu = \tfrac23r^3\big(\dot R_{vv}+f\dot R_{vr}\big),\qquad\partial_r\delta\mu = \tfrac13r^3f\dot R_{rr}+
-r\dot R_{\theta\theta}$$
+$$\partial_v\delta\mu = \tfrac23r^3\big(\dot R_{vv}+f\dot R_{vr}\big),\qquad
+\partial_r\delta\mu = \tfrac13r^3f\dot R_{rr}+r\dot R_{\theta\theta}$$
 (R4 (a)-(d); control: without its term $2\mu_0H$ it is not gauge invariant).
 (b) If $D\mathrm{Ric}(h_0) = 0$ on $U$: $\delta\mu[h_0] =: c$ is constant, and with $h' := h_0-c\,r^{-2}dv^2+\mathcal
 L_{Y_1}g$, $Y_1 := -rH\partial_r$ (which removes $H$, R4 (e)), the 1-form $\omega := (B'+\frac f2C')dv+\frac12C'dr$ of

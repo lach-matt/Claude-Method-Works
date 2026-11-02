@@ -122,12 +122,10 @@ def s3(Z, F):
     gen = B.generators(Z, F, j, 24)
     worst, exact = 0.0, 0.0
     for r in (3.0, 1.5, 1.0, 0.8):
-        xi, U, X, th = B.sphere(Z, F, j, r, gen=gen)
+        xi, U, X, th, leaf = B.sphere(Z, F, j, r, gen=gen, want_leaf=True)
         if U is None:
             continue
-        u = Z['u']; i = np.searchsorted(u, U) - 1
-        f = B.field_at(Z, F, j, i + (U - u[i]) / (u[i + 1] - u[i]), X)
-        worst = max(worst, np.abs(X - xi).max(), np.abs(U - U.mean()).max(), np.abs(th - 3 * f[('R', 'v')] / f['R']).max())
+        worst = max(worst, np.abs(X - xi).max(), np.abs(U - U.mean()).max(), np.abs(th - leaf).max())
         exact = max(exact, np.abs(th - 3 * (1 - 1 / r ** 2) / (2 * r)).max())
     return worst, exact
 
@@ -136,14 +134,11 @@ def bondi_zeros(Z, F, j, rs, MB=32, leaf_only=False):
     gen = B.generators(Z, F, j, MB)
     TH, rr = [], []
     for r in rs:
-        xi, U, X, th = B.sphere(Z, F, j, r, gen=gen)
+        xi, U, X, th, leaf = B.sphere(Z, F, j, r, gen=gen, want_leaf=True)
         if U is None:
             continue
         if leaf_only:            # the control: the leaf expansion 3 R_v/R at the section's points, tilt ignored
-            u = Z['u']; i = np.searchsorted(u, U) - 1
-            frac = i + (U - u[i]) / (u[i + 1] - u[i])
-            f = B.field_at(Z, F, j, frac, X)
-            th = 3 * f[('R', 'v')] / f['R']
+            th = leaf
         TH.append(th); rr.append(r)
     return gen[0], np.array(rr), np.array(TH)
 
