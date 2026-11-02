@@ -349,8 +349,9 @@ programs changed and rerun: `dweights5.py`, `nrows5.py`, `deltacap5.py`, `lzeroc
   (computed, exact; round 1's 5.2617e-4 is valid but 1140 times smaller). Certified bounds to order 14 on every
   derivative of the explicit profiles: the wave W_TT, the second harmonic chi dv dv, and the stage-1 mean source S
   (computed). Every admissible C_app is at least 12.58, so **the lambda0 this proof delivers is at most 0.0239** at P*
-  with this envelope (computed), below lambda_Omega. Lemma 2.4's factor for Step 6's transport is e^44.0 = 1.29e19 as
-  the proof derives it (computed). **Stage 1 itself (m_1, phi_1, gh_2) is not bounded**: the exact cost is in R2.2.
+  with this envelope (computed), below lambda_Omega. Lemma 2.4's factor for Step 6's transport is e^44.0 = 1.29e19
+  (computed), and as Steps 6-7 are written it enters C2 and then a second exponential, so the literal C3 is doubly
+  exponential, ln C3 >= 7.65e19 (deduced reading, certified number). **Stage 1 itself (m_1, phi_1, gh_2) is not bounded**: the exact cost is in R2.2.
 - **(ii) d.** E_++ and G add no chain to Lambda (deduced; computed check). E_col's candidate bases, under the widest
   reading, are 11 (computed): they do not make (G) bind, though the nearest comes within 2.2 % of delta_50 (certified),
   and they lengthen the level-2 container to 85,025,783 per level. The windows of III.I'''''''''' Proposition 3.1 run
@@ -443,10 +444,15 @@ certify H's branch beyond radius 0.04 r. *A bound the other way* (computed, X4):
 admissible C_app is at least 12.58, and **lambda0 <= eps1/(2 C_app) <= 0.60132/25.17 < 0.0239** for every admissible
 eps1 (the lambda0 of this proof, V-M2; with this envelope).
 
-(d) *A stage-independent constant* (computed, `gronwall5.py`). Lemma 2.4 gives C = sup|c|; for Step 6's transport c =
-2/r <= 2/a, so its factor is **exp((2/a)(tau_end - tau0)) = 1.288e19 = e^44.00**, and C3 = C_st C2 e^(C2 (tau_end -
-tau0)) (1 + ...) carries at least that, as Steps 6-7 derive C2. Along L0 the equation's own growth is (r(tau0)/r)^2 <=
-(b(tau0)/a)^2 = 2479: a weighted energy would remove 5e15 of it (deduced; not a repair of the proof).
+(d) *A stage-independent constant* (computed, `gronwall5.py` G1-G3). Lemma 2.4 gives C = sup|c|; for Step 6's
+transport c = 2/r <= 2/a, so its factor is **exp((2/a)(tau_end - tau0)) = 1.288e19 = e^44.00**. Along L0 the equation's
+own growth is (r(tau0)/r)^2 <= (b(tau0)/a)^2 = 2479, so the exponential is the proof's, 5e15 above the equation's
+(computed). *A finding about Steps 6-7* (deduced from N1STAR-PROOF.md:382-401, the reading to be checked): Step 6
+writes the Psi-part as "at most C (N(tau0) + int (N + ...))", a C that carries Lemma 2.4's factor, so C2 >= e^44 as
+written; Step 7 then applies Gronwall again, C3 containing exp(C2 (tau_end - tau0)): **the literal constants are
+doubly exponential, ln C3 >= 7.65e19**. One Gronwall on the summed differential inequalities (rate >= 2/a) gives ln C3
+about 48 instead. Neither is a bound on lambda0 without lower bounds on C_N and C_st (taking them >= 1, ln lambda0 <=
+-2.29e20 literally, <= -143.8 after the rewrite: estimates, not bounds).
 
 (e) *Stage 1, as far as it went.* Its explicit inputs are now bounded: the coefficients built from W and chi, and the
 mean source S (the stage-5.py S2 source, a dv dth component only). Not bounded: the oscillating part of R^(1)[g0 + lam
@@ -463,9 +469,9 @@ explicit energy constants for the coupled system (Lemma 2.3 at g0 with its defor
 Lemma 2.4, now explicit), commuted to the order required; (3) Lemma 6.4's constant written out; (4) the order: each
 stage's source carries up to two derivatives of earlier profiles and its transports gain none, so for g_10 to order
 14 (11, plus 3 for Sobolev) stage 1 is needed to order between about 22 and 30. With constants of the size above (e^44
-per transport, 1e24-1e26 for the order-11 profile bounds at stage 0), the number lambda0 would come out is already
-below e^-130 from (d) alone if C2 >= 2/a enters to the third power (1/(C3 C_N M^2), M >= C3) and C_N >= 1; that last
-step assumes C_N >= 1, which is not shown, so it is recorded as an estimate, not a bound.
+per transport, 1e24-1e26 for the order-11 profile bounds at stage 0), (d) already places the number far below 1:
+ln lambda0 <= -143.8 after a one-Gronwall rewrite of Step 7, -2.29e20 as written, if C_N, C_st >= 1 (not shown, so
+an estimate).
 
 ### R2.3 (ii) d
 
@@ -552,7 +558,7 @@ delta) stand.
   windows run above 3 (R2.3 (c)); the explicit escape and time functions (R2.4 (a)); the Baire classification and
   III.H:425's replacement (R2.4 (b)); the ninth term of lambda0 (R2.1, V-m4).
 - *Computed, exact or certified*: the envelope's e_k (R2.2 (a)); eps1* in [3/5, 0.60132]; the D[n] table and C_app >=
-  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00 (R2.2 (d)); (G) unbound at 3 + 1.9841e-8, the container
+  12.58, lambda0 (this proof) < 0.0239 (R2.2 (c)); e^44.00, and ln C3 >= 7.65e19 on the literal reading (R2.2 (d)); (G) unbound at 3 + 1.9841e-8, the container
   85,025,783 (R2.3 (b)); N(I), H r = 2f, H log tan(phi/2) = -2 sigma0, lambda_L^2 = 1/(2 mu) (R2.4 (a)); the
   verifier's corrected figures (R2.1).
 - *Conditional, not proved*: d <= 2.4338e16 + 1.0649e8 c (R2.3 (d)).
