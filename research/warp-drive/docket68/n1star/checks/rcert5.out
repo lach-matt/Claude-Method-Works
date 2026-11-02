@@ -15,3 +15,13 @@ K1 PASS (the certified values within a factor 2 of the computed maxima where tho
   control (W + 0.01 v): certified values up to [0.272 +/- 2.75e-4] against [0.00241 +/- 4.18e-6] -> fails (good)
 K2 (reported) the certified sup over boxes, Taylor models of order 3 with Lagrange remainder, at 4 x 4 x graded x boxes:
   enclosures of the fields' Taylor coefficients on 416 boxes: 22 s
+  Taylor models on the boxes: 102 s
+     ll: sup <= [6.79e+4 +/- 29.9] (worst box at (t, sig, x) = (-0.75, 0.75, 0.625))
+     ln: sup <= [+/- inf] (worst box at (t, sig, x) = (0.75, 0.75, 0.994))
+     nn: sup <= [1.69e+8 +/- 2.69e+5] (worst box at (t, sig, x) = (-0.75, -0.75, -0.375))
+     lx: sup <= [+/- inf] (worst box at (t, sig, x) = (0.75, 0.75, 0.625))
+     nx: sup <= [+/- inf] (worst box at (t, sig, x) = (0.75, 0.75, 0.625))
+     xx: sup <= [6.21e+7 +/- 4.52e+4] (worst box at (t, sig, x) = (-0.75, -0.75, -0.994))
+     11: sup <= [6.16e+7 +/- 3.27e+4] (worst box at (t, sig, x) = (-0.75, -0.75, -0.994))
+     22: sup <= [6.07e+7 +/- 4.91e+4] (worst box at (t, sig, x) = (-0.75, -0.75, 0.994))
+rcert5: all checks pass (410 s)

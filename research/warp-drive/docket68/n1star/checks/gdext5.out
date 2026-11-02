@@ -1,1 +1,7 @@
   E1: det g = -1, g g^-1 = 1: True; d delta + delta d = 2 delta G delta^* (Ric = 0): True; no second-order coupling: True; C, D vanish at mu = 0: True; C = sum_k mu^k C_k, D = sum_k mu^k D_k with C_k, D_k t-independent and homogeneous of degrees -1-2k, -2-2k (k >= 1): True, powers present (C: 1, D: 2; k): [(1, 1), (2, 1)]; C_1 != 0: True (e.g. r^3 C_t^{x1 t} = -2*mu/5 at x = (1,2,2,4))
+  E1 control (non-vacuum V = mu/r): d delta + delta d = 2 delta G delta^* on test forms: False
+  E1 control (polar component of a dr, a = t, mu = 0): (Box Z)(d_r) - Box_0 a = (3) a r^-2, so the component is scalar: False
+E1 PASS
+  E2: d_t = rho_0 X_0 + (-rho_0) X_I, d_r = (-rho_0) X_0 + (-rho_0*(rho_I - 1)) X_I: True; every coupling coefficient after rho_I rho^-2 and the conjugation lies in rho_0^2 rho_I^2 C^oo: {'d_t -> X_0': True, 'd_t -> X_I': True, 'd_r -> X_0': True, 'd_r -> X_I': True, 'r^-1 d_omega -> x_I d_omega': True, 'conjugation (3/2) d_r log rho': True, 'zeroth order, degree -4': True}
+  E2 control (degree -1 coefficient): the coefficients lie in rho_0^2 rho_I^2 C^oo: False; that of X_0 from d_t is 1, order 0 at I+ and I_0
+E2 PASS
