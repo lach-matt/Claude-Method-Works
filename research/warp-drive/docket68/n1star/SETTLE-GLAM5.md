@@ -284,3 +284,265 @@ Lemma 5.1.
 
     python3 checks/tail5.py [t1 ... t9]     (about fifteen minutes; T4 and T8 most of it)
     python3 checks/wedge5.py [w1 ... w6]    (W1, fifty-digit numerical differentiation, most of it)
+
+## Round 2
+
+Status: written; not yet read by a verifier. Labels as in round 1, with **READ** for a statement of this repository
+quoted verbatim with file:line (no outside source is quoted). New programs, each with its `.out` and with controls that
+are claims the program must reject: `checks/halfclass5.py` (H1-H7, R1), `checks/scatter5.py` (S1-S5, R2),
+`checks/spatinf5.py` (Z1-Z5, U1-U3, R3-R4), `checks/r1controls5.py` (C1-C4, controls for round 1). Round 1 above is
+left as the verifier read it at a378adc; its corrections are in R2.0.
+
+### R2.0 The verifier's reading of round 1, and what was wrong
+
+*Reported to this workstream (not re-read here).* An independent verifier read round 1 at a378adc: the four claims of
+section 0 hold, the third ((C)) conditionally. It confirmed Proposition 4.1's transfer with its own Fourier-Bessel
+solution (l ≤ 14, agreement to 3e-30), Remark 4.3's curvature coefficient at ρ^(9/2) for l ≤ 9, Corollary 4.2's
+outside-the-class argument from Part VII (0.1) and Lemma 0.1, and the identity (5.1), exactly.
+
+Corrections (each states what was wrong; round 1's text is not changed):
+
+- **(m1) Sections 0 and 7.** "It cannot be done in that class" (line 15) and "in Part VII's class the obstruction of
+  Corollary 4.2" (line 279) were stated without condition. Corollary 4.2 is conditional on (b1)-(b2). Read: *under
+  (b1)-(b2) (the continuation exists on W, and has an expansion at spatial infinity), it cannot be done in that class.*
+- **(m2) Section 1, lines 52-56.** Lemma 1.1's bound |∂^j e| ≤ C λ^(K−3−j) with K = J + 4 gives at j = J only
+  |∂^J e| ≤ Cλ, so "g_λ − g_(b_0) = λ m_1 + O(λ²)" held in C^(J−1), not C^J; in C^J it is λ m_1 + O(λ). Corrected by
+  taking **K := d_1 + 15** (= J + 5), which gives |∂^J e| ≤ Cλ²; K is free (Theorem E at every order). Round 1's
+  "K = d_1 + 14" (lines 56, 255) reads d_1 + 15.
+- **(n1) Stale line cites in N1STAR-PROOF.md.** Proposition 11.1 is at 10613-10620 (cited 10575-10581); Ric(g0) =
+  (3μ′/(2r³)) dv dv at 10560 (cited 10522); the source's +½□̃(r^(−3/2) G_3) at 10622 (cited 10584-10585); "a
+  polynomial in (u, d u, d^2 u) with coefficients smooth in (X, g)" and the r^(−q) coefficient "a polynomial in the G_k,
+  k <= J, and their derivatives" at 10634-10637 (cited 10596-10599).
+- **(n2) Section 5 (iv), lines 214-217.** The operator with the damping 1-forms built on c = r^(−1) dt is III.K's (the
+  write-out's; `lin5.py`'s L̄, [Hin26] (8.1)), which BEYOND5.md:299-301 calls "the record's operator"; that clashed
+  with "posed in the record's own gauge" (the record's = N1STAR-PROOF.md's wave-map gauge relative to g0). And W4c
+  shows only that the *unsigned* Grönwall bound fails for III.K's operator (a divergent kernel), not that the problem
+  is ill-posed in that gauge.
+- **(n3) Lines 3-4** said every computed item has a failing control. False: T6c and T8g could not fail, and T2 and W1
+  had none. `r1controls5.py` adds them: C1 (T2: ₂F₁ with third parameter p + ½ leaves residual > 0.6), C2 (W1: (5.1)
+  at four points to 7e-41, and without its bulk term T(∇w, ∂_t) it fails at every point by more than 0.12, relative),
+  C3 (T6c: a subtraction with coefficient ½ is rejected, the integral diverging like ε^(−3/2)/6), C4 (T8g: "ê_b(0) = 0"
+  is rejected, ∫env_b = 0.666). T1 and T7 also have no failing control; they are exact identities and a rank and
+  eigenvalue computation, and are recorded here as such.
+- **(n4) Line 242.** "Through ρ^(7/2)" is not needed for the class when ℓ0 ∈ (3, 7/2): (b2) needs ρ², ρ^(5/2), ρ³ and
+  a remainder in ρ^(ℓ0) H_b^∞, which contains the ρ^(7/2) term. The *route* of R3 still subtracts the p = 7/2 term
+  (Z5 below: without it no weight serves), but its coefficient enters no statement.
+- **(n5) T9** checks a model integrand (G_3 S_3 with S_3 = (∂_v G_3)² − e²/2), not the cubic part of S_(7/2) itself.
+  Proposition 3.1 (c)'s "a_3 = O(λ^∞)" rests on the parity argument (deduced); T9 is a model check of it, no more.
+
+### R2.1 R1: the half-integer class through III.C′ and III.K
+
+Notation: ℰ_0^½ := {(2 + j/2, 0) : j ∈ ℕ_0}; Part VII's ℰ_0^ℤ := {(j, 0) : j ≥ 2}; Σ := {(3/2 + s, 0) : s ∈ σ_Υ};
+index sets, sums and extended unions as in III.A (PART-III-A-PREREQ.md:32-35); exponents formal in (½ℤ, δ, γ_Υ),
+δ := (1 − e_Υ)γ_Υ (generic parameters), computed at (γ_Υ, e_Υ) = (1/100, 1/100) and checked at (1/5, 1/3) (H7a).
+
+*READ.* III.C′ Step 2 takes, each round, "$\mathcal E'$ the smallest index set containing $\mathcal
+E_0\bar\cup\mathcal E^C_I$ and satisfying III.C Definition 3.1" (PART-III-C2-POLYHOM.md:248-250), and "reaches
+$\ell_I$ after $M\le4(\ell_I-\ell^\flat_I)+1$ rounds" (C2:256); the extended union is III.A Lemma 3.2's output
+"$u\in H^{k,(E,\alpha),((E+z)\bar\cup F,\beta)}_{\mathrm b}$" (PART-III-A-PREREQ.md:390). l_* is to "bound, at real
+part $\le5$, the log orders of $\mathcal E_{\mathrm{ind}}\cup\mathcal E^\iota_{\mathrm{ind}}\cup\mathcal E^C_I$"
+(PART-III-I11-SPACETIME.md:73-74). BEYOND5 D519: "Only the log orders of ℰ^C_I at the half-integers can rise ...
+which enter l_* and K(λ) (I11:71-81); not computed" (BEYOND5.md:242-244).
+
+**Lemma R2.1 (the class is admissible; computed H1, deduced).** ℰ_0^½ is an index set, closed under sums, with
+min Re = 2 > 3/2 + 2γ_Υ (γ_Υ < ¼, VI.C row u4): row d1 (PART-VI4-PARAMS.md:40) holds for every ℓ0 ∈ (3, 4) ∖ {7/2}.
+(Control H1c: (5/2, 0) + ℕ_0 alone is not closed under sums.)
+
+**Proposition R2.2 (the record's ℰ^C_I does not see the half-integers; computed H2, deduced at M = 0).** Run III.C′
+Step 2 as written, M rounds. For every M ≤ 8 (which covers M ≤ 4(ℓ_I − ℓ^♭_I) + 1 for ℓ_I < 7/2), the index set
+ℰ^(M) built from ℰ_0^½ *equals* the one built from ℰ_0^ℤ, log orders included, at every exponent below 11/2
+(H2b), and k(n) = k(n + ½) = M(n − 1) at n = 2, …, 5 (H2e). At M = 0 this is a proof: each least Definition 3.1 set
+contains the other's seed with log order 0 (ℰ^C_I + ½ ⊂ ℰ^C_I, III.C Lemma 3.2 (a)). For M ≥ 1 it is computed in the
+stated range; the range covers every use of ℰ^C_I's log orders (l_* at Re ≤ 5, the spaces below ℓ_I < 7/2, the cone's
+log count at Re ≤ 3 + ε_+, I11:96-107), and π_1 is equal at every M (H2a). Control H2f: an admissible seed (9/4, 0)
+outside ℰ^(0) changes ℰ^(0).
+
+So, with the record's construction, **D519's "can rise" is "do not rise"**: Λ, l_*, K(λ), ℰ_par, (G), (G+), ε_+,
+ε_K, α, row d2's exclusion sets and every LOSS-D count that passes through ℰ^C_I are unchanged by ℰ_0^½.
+
+*Finding (computed H2, H5).* The record's construction makes the log orders grow with the number of rounds: its
+ℰ^C_I part of l_* is 4M at Re ≤ 5 (16 at M = 4, 32 at M = 8), and LOSS-D's one-off application to the general class,
+left open there ("E^C_I's log terms below ℓ_I ... (loss 6 without them", LOSS-D.md:970-971), costs 1 + J + L = 3 + 3M
+applications of L_b (15 at M = 4, 27 at M = 8), loss 2(3 + 3M), for Part VII's class and the half class alike.
+
+**Lemma R2.3 (an M-independent ℰ^C_I; deduced, computed H3-H5).** Let G be the least fixed point of
+G = ℰ_0 ∪̄ F(G), F(G) the least +1-closed set containing G^tot + (G^tot − 1), G^tot := G ∪ Σ. (i) F(G) at z uses G only
+below z − ½ (a + b − 1 ≥ a + ½ for b ≥ 3/2), so G is defined by recursion on the real part (H3b: the recursion and the
+fixed-point iteration agree). (ii) G satisfies III.C Definition 3.1 (2)-(3) and contains ℰ_0 (H3a). (iii) III.C′
+Theorem 3.1 holds with ℰ^C_I := G for every number of rounds. *Proof of (iii).* By induction on the rounds, h's slots
+lie in (G ∪ {the slot's Σ point}, α_I) at 𝓘⁺. In (3.5) of C2 the C^∞ error maps them to G^tot + 1 and the perturbation
+part to ⋃_(j≥2) jG^tot − 1, both inside F(G) (G + (2,0) − 1 = G + 1, (2,0) ∈ F(G)), and below the new weight β < α_I +
+½ these involve G only below α_I. III.A Lemma 1.2 (slots 4, 5, 7: exponents 3/2 + Ā_jj ∈ Σ, which F(G) and ℰ_0 do not
+meet) and III.A Lemma 3.2 (z = 0, E = ℰ_0, hypotheses as in C2) give h ∈ (ℰ_0 ∪̄ F(G), β) = (G, β) in each slot. ∎
+The record's coarser round, ℰ_0 ∪̄ ℰ^C_I, cannot have a fixed point with finite logs (H3c, the control).
+
+With G (computed H4-H5): Part VII's class has k(n) = k(n + ½) = 2n − 3; the half class has k(2 + j/2) = j + 1, that
+is **one more at each half-integer**, the same at every integer, and 0 or 1 more off ½ℤ (53 of 273 exponents below
+11/2); the largest log order at Re ≤ 5 is 7 for both; π_1 is the same. LOSS-D's one-off count is 1 + 2 + 4 = 7 (loss
+14) for Part VII's class and 1 + 2 + 5 = 8 (loss 16) for the half class, ℓ_I ∈ (3, 7/2); the log-free control gives
+LOSS-D Q2's 3 (H5b).
+
+**What the half class does change (computed H6, READ, deduced).** (a) The data norm: H^(∞,(ℰ_0^½, ℓ0))_b admits the
+ρ^(5/2) (and, for ℓ0 > 7/2, ρ^(7/2)) coefficients; H^(∞,(ℰ_0^ℤ, ℓ0))_b lies in it continuously (the new coefficients
+are 0), so Part VII Lemma 0.1's bound carries over. (b) III.C′ Step 1 at I_0 uses R = ∏(X_0 − z) over ℰ_(0,≤):
+N = 3 factors for ℓ0 ∈ (3, 7/2) and 4 for ℓ0 ∈ (7/2, 4), against 2 (H6a); READ: "The converse of Lemma 1.3 loses n_H,
+each factor costing one derivative" (LOSS-D.md:90). So each Step 1 application costs one or two derivatives more, and
+d_1 changes by a finite amount; ε (and with it δ, λ_1) changes, as it must with any change of class. (c) α_1 and β of
+C2 must avoid Re π_1 ℰ_0^½: finitely many more points, removed by lowering η slightly, as C2 already does.
+
+**Theorem R2.4 (Theorem 4 in the half class; deduced, conditional on Part IV exactly as Part VII's Theorem 0.2).**
+Part VII Theorem 0.2 (PART-VII-ASSEMBLY.md:69-100), and Proposition 3.2 (373-375), hold with (0.1) replaced by
+ℰ_0 := ℰ_0^½, ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off row d2's exclusion sets, which are the same sets as for ℰ_0^ℤ
+(π_1ℰ^C_I and 3/2 + σ_Υ unchanged). *The rate is unchanged:* g − g_(m′,0) = O(t_*^(−2−ε_t)) on {r_0 ≤ r ≤ R′,
+t_* ≥ T′} for every ε_t < ε_K, with α ∈ (4 + ε_t, 4 + ε_K]. *The weights:* ℓ_I ∈ (3, ℓ0) ⊂ (3, 7/2) when ℓ0 < 7/2
+(the case g_λ's data need, R2.3 below); ε_K < ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3) as in row w1, and since
+"$<3\times10^{-6}$ at the record's parameter point" (PART-VI4-PARAMS.md:38) bounds ε_ind, the constraint ℓ_I − 3 binds
+only for ℓ_I < 3 + ε_ind, which is avoidable: **ε_K's admissible range is unchanged.** What changes: ε, d_1, δ, λ_1
+(through (a)-(b) above), none evaluated, as in round 1. *Proof.* ℰ_0 reaches the rest only through row d1, III.C′
+Theorem 3.1 (whose ℰ^C_I is unchanged, Proposition R2.2), Step 1's count, III.C″ Proposition 4.1 (any ℰ_0 with
+min Re > 0 and closed under sums, PART-III-C3-BOOSTDATA.md:162-163) and the norm (READ BEYOND5.md:237-239 for the list;
+not re-derived). ∎
+
+### R2.2 R2: the nonlinear scattering problem on W
+
+**Proposition R2.5 (scattering at weight a < ½; deduced as an outline, computed S1-S3).** Let a ∈ (0, ½). Suppose
+(N2): the data of h := g_λ − g_(b_0) on N, commuted with ∂_t and the rotations k ≤ k_0 times, have weighted flux
+(density r^(2a)(|∂_r ·|² + r^(−2)|∇_ω ·|²) r³) at most ε² with ε → 0 as λ → 0. Then there is a unique solution h on W
+of the record's gauge-fixed equation relative to g_(b_0) with those data and vanishing cap energy as T → −∞, and
+|∂^i Ω^β ∂h| ≤ Cε r^(−3/2−a), |h| ≤ Cε r^(−1/2−a) for i + |β| ≤ k_0 − 3. On W ∩ (P ∪ Ω) it agrees with g_λ
+(uniqueness; at fixed λ, u = O(r^(−2)) on P with its ℓ-gain by N1STAR-PROOF.md:10616, so g_λ − g_(b_0) is in the
+class there): it is g_λ's continuation.
+*Outline.* Truncate at {t = T} with zero data there (the mixed Cauchy-characteristic problem); energy identity (5.1)
+for the metric g itself (the quasilinear part enters the energy-momentum tensor, leaving errors |∂h||∂φ|²w); the bulk
+sign of Lemma 5.1 uses only w′ < 0 (W2), hence holds for every a > 0; commute with ∂_t and Ω (Killing for g_(b_0)),
+the radial derivatives from the equation; S1 (R^(2a+3) f(R)² ≤ 2‖r^(a+3/2)f‖‖r^(a+3/2)f_r‖, exact and at 200 random
+f; control: without the f_r factor no bound) with H²(S³) ⊂ L^∞ gives the pointwise decay; S2: the error kernel
+∫(v_1 − t)^(−3/2−a) dt = L^(−1/2−a)/(½ + a) is finite, so E ≤ E_0 e^(CεK_a) ≤ 2E_0 for ε small (control: in 3 + 1
+dimensions the kernel diverges at a = 0); the limit T → −∞ by the cap estimate (W5). Not written: the well-posedness
+of the truncated mixed problem, the commutator bookkeeping, the limit. (N2) itself is round 1's: S3 computes its
+dyadic sum Σ_k 2^(k(2a−1)), finite exactly for a < ½ (control: a = ½ diverges); the null-flux identity on P's annuli
+and the near region t ≤ λ^(−2) are not written.
+
+**Proposition R2.6 (exactly how a < ½ blocks; computed S4-S5, deduced).** The energy class of weight a < ½ does not
+exclude incoming radiation, so no bound in it places the data on S in III.K's class, in any gauge.
+(i) φ := r^(−3/2) ₂F₁(3/2 + l, −½ − l; 1; s/2) Y_l, s = (v − v_1)/r, solves □φ = 0 (S4a, exact, l ≤ 3), has
+radiation field r^(3/2)φ → 1·Y_l at past null infinity at every v ≥ v_1 (S4b: incoming, constant in v), flux through
+N with weight a finite and cap energy → 0 as T → −∞ exactly for a < ½ (S4c-d; control S4e: both diverge at a = ½).
+(ii) On a slice it reaches spatial infinity as ρ^(3/2) T_(3/2)(l) Y_l with T_(3/2)(l) ≠ 0, and ∂_t²φ = r^(−7/2)F″(s)
+with F″(1) ≠ 0 (S4f-g, l ≤ 20; for every l, deduced: Gauss's second theorem with Γ((5/2 − l)/2) pole-free): a curvature
+term ρ^(7/2) on S, while either class forces E_ij ∈ ρ⁴(...) by the Gauss equation (round 1 Remark 4.3; ℰ_0^½ starts at
+2). (iii) The linearized curvature is gauge invariant (S5a: all 55 components vanish on ∂ξ + ∂ξ, generic ξ; control
+S5b), and L_ξ E_(b_0) = O(|ξ|ρ⁵ + |∂ξ|ρ⁴) reaches ρ^(7/2) only for ξ growing like r^(3/2) (the nonlinear statement
+is not checked). So the threshold ½ of (N2)
+is exactly the weight below which the energy cannot see a radiation field: an estimate restriction, not a gauge
+artefact. **The record's gauge plus a gauge change at the end does not avoid it**: the change at the end is free
+(III.C″ Proposition 4.1 rebuilds III.K's gauge data from (γ, k), PART-III-C3-BOOSTDATA.md:162-171), but it cannot
+supply information the a < ½ bound lacks.
+
+*How it is avoided at fixed λ (deduced).* g_λ's data on N have, at fixed λ, Proposition 11.1's expansion
+u = Σ_(k=4)^J r^(−k/2) G_k(v_1, x̂) + u_J (G_3(v_1) = 0 after the shell). Subtract the self-similar solutions with data
+r^(−p)G_(2p)(v_1), p ∈ {2, 5/2, 3, 7/2} (round 1 T2, regular at N); the remainder's data are O(r^(−4)) with ℓ-gain;
+estimate it at a weight a ∈ (ℓ0 − ½, 3) (Z5) by the linear theory, the nonlinear terms entering as perturbations
+whose size Proposition R2.5 gives (their kernels are those of S2). Existence of the expansion needs no smallness of
+the high-weight data; the *smallness* of ‖·‖_(d_1) does, and that is R4.
+
+### R2.3 R3: the expansion at spatial infinity with a conormal remainder
+
+**Lemma R2.7 (computed Z1-Z4).** Z := (v − v_1)∂_v + r∂_r = (t − v_1)∂_t + r∂_r: (a) L_Z η = 2η and
+L_Z g_(b_0) − 2g_(b_0) = −2μ r^(−2) dv² (control: r∂_r alone is not homothetic); (b) □_g = □_η − μ r^(−3)∂_r(r∂_r)
+from the metric, [Z, □_η] = −2□_η, [Z, □_g] + 2□_g = 2μ r^(−3)∂_r(r∂_r), of relative order r^(−2) (control: [r∂_r, □]
+is not a multiple of □); (c) in (τ, ρ) = (t/r, 1/r), Z = −ρ∂_ρ − v_1ρ∂_τ, b-normal at I_0 (control: ∂_t = ρ∂_τ
+vanishes there); (d) (Z + p)(r^(−p)F(s)) = 0, so ∏_(p∈{2,5/2,3,7/2})(Z + p) annihilates the subtracted expansion
+(control: a log term needs (Z + p)²).
+
+**Lemma R2.8 (the weight window; computed Z5).** A conormal remainder O(r^(−q)) on N has finite weighted flux exactly
+for a < q − 1, and the weight-a class gives O(ρ^(1/2+a)) on S, in ρ^(ℓ0)L²_b exactly for a > ℓ0 − ½: a window exists
+iff ℓ0 < q − ½. q = 4 serves ℓ0 ∈ (3, 7/2); q = 9/2 (subtracting p = 4 too) serves (3, 4). Control: q = 7/2 serves no
+ℓ0 > 3.
+
+*Route (deduced, not written).* Commute the remainder's equation with ∏(Z + p), ∂_t and Ω: by (a)-(b) the commutators
+are the equation's own operator plus μ r^(−2)-relative terms and the nonlinear terms, whose degrees are ≤ −13/2 for the
+pairs (2, 5/2) and ≤ −6 for (2, 2), landing at q ≥ 4 (no logarithm for ℓ0 < 7/2, no two subtracted exponents differing
+by an integer reached); estimate at a ∈ (ℓ0 − ½, 3); the commuted energies are b-regularity at I_0 by (c), and III.A
+Lemma 1.3 with V = −Z (b-normal, (c)) turns them into the expansion through ρ³ with remainder in ρ^(ℓ0)H_b^∞ on S.
+Open: the commuted nonlinear estimate itself (the quasilinear term commuted with Z), and its restriction to the
+slice S.
+
+### R2.4 R4: the λ-dependence of Lemmas 11.0 and 11.2
+
+*READ.* "Throughout, lam is fixed, and every constant may depend on it. On the far region P cap {t >= T}, T = lam^-2"
+(N1STAR-PROOF.md:10514); "d^i [f] costs lam^-i, a constant now" (10516); Lemma 11.0, "with constants depending on lam
+and the order" (10522-10523); "||d U_n(tau_n)|| <= C(lam, j) t_n^(-1/2)" (10543); Lemma 9.3, "||d^i f||_inf <= C
+lam^(-3-i) t^(-3/2) |f|_(i+3,P)" (1105); (9.8)'s proof, "the 1/lam term: lam^-1 |s G2|_k <= C lam^-1 t^(-3/2) E"
+(1341-1342); Lemma 11.2's energy step with "k = C t^(-3/2), integrable" (10586-10588); and "the proposition claims
+nothing uniform in lam" (10641-10643).
+
+*Deduced (not line by line).* Every λ-dependence these proofs display is a power of λ^(−1) (a derivative of a profile,
+the scaled Sobolev of Lemma 9.3) or the Grönwall factor of Lemma 9.5, which on t ≥ λ^(−2) is e^(2C) even with the
+kernel Cλ^(−1)t^(−3/2) (U1a; control U1b: from t = λ^(−1) the factor e^(2Cλ^(−1/2)) beats every power). If the
+explicit data constants C(λ, j) of the approximating solutions and the near part of N (t ≤ λ^(−2), the λ^(−2β_0) loss)
+are polynomial in λ^(−1) as well, then (Poly): the constants of (11.7) at order J with N derivatives are O(λ^(−M(J,N)))
+with M independent of K, since g_λ is unique ((P-v), 1045-1047) and Theorem P at a fixed K_0 = 6 serves for them. In
+the linear model the expansion coefficients lose nothing: sup|I_j| ≤ Cλ^(j+1) for the j-fold integrals of
+λ env sin(v/λ), each ∂_v costing λ^(−1) (U3a-b; control U3c: a non-oscillating field loses λ^(−1)).
+
+**Proposition R2.9 ((Poly) gives the smallness; deduced, computed U2).** Under (Poly), let a < (J − 1)/2 and
+s := (2M + 1)/(J − 1 − 2a). With R = λ^(−s), the weighted flux on N of e's remainder is at most C(λ^(2(K−4)−2as) + λ),
+by (P-iii)'s λ-uniform |∂e| ≤ Cλ^(K−4)t^(−2) below R and (11.7) above (U2a, exact in sampled cases), so it tends to 0
+once K − 4 > as; K is free (for λ ≤ λ_P(K)). Control U2b: the λ-uniform bound alone gives an infinite flux at every
+a > 0 (W3c).
+
+### R2.5 The theorem that results
+
+**Theorem R2.10 (conditional; deduced).** Fix A, the C_c^∞ envelope of Theorem 1, the angular profile and the seed;
+let λ_P be Theorem P's. Run VI.C Theorem 2.1 with step (3) taken as ℰ_0 := ℰ_0^½, ℓ0 ∈ (3, 7/2), ℓ_I ∈ (3, ℓ0) off
+row d2's exclusion sets; given ε_m > 0 and ε_t < ε_K, let ε, d_1 be III.K Theorem 4.3's in this class (below Part VII
+Proposition 3.2's equivariant threshold) and J := d_1 + 10. Assume:
+
+- (P4) Part IV's outputs, as Part VII's Theorem 0.2 does (III.K (K2)).
+- (b1) (N2) at some a_0 ∈ (0, ½), with k_0 commutations, k_0 large enough for the H^(d_1) norm; and the outline of
+  Proposition R2.5 written.
+- (b2) the commuted estimate of R2.3 at a weight a ∈ (ℓ0 − ½, 3), for the remainder after the subtraction through
+  p = 7/2.
+- (Poly) for (11.7) at an order J′ ≥ 8 and N derivatives, N large enough for the H^(d_1) norm, with constant
+  O(λ^(−M)); and K := max(d_1 + 15, ⌊4 + a(2M + 1)/(J′ − 1 − 2a)⌋ + 1) (so K ≥ J + 5 and K − 4 > as).
+
+Then there is λ_2 ∈ (0, λ_P(K)] such that for every 0 < λ ≤ λ_2 (no exceptional set): g_λ continues to W; its data
+(γ, k) on Σ_IVP satisfy γ − γ_(b_0) ∈ H^(∞,(ℰ_0^½, ℓ0))_b, k − k_(b_0) ∈ H^(∞,(ℰ_0^½+1, ℓ0+1))_b with norm < ε in
+H^(d_1) (on Σ_IVP ∩ {r ≤ 4R} by Part VII Lemma 1.1 with K ≥ d_1 + 15; the coefficients at ρ², ρ³ are O(λ), that at
+ρ^(5/2) is O(λ^∞) (round 1, Proposition 3.1 and the transfer of Proposition 4.1); the remainder by Proposition R2.9);
+and there are m′ with |m′ − μ_end| < ε_m and a G-invariant (Part VII's G) metric g on Ω_* ∪ 𝒟_0 with Ric(g) = 0 inducing
+(γ, k), such that where χ_K = 1, g − g_(m′,0) = h_rem(q) + h with III.K Theorem 4.3 (3)-(4)'s classes, b = (m′, 0),
+S = 0 (Part VII Proposition 3.2), and |(t_*∂_(t_*))^i ∂_x^β (g − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_0 ≤ r ≤ R′,
+t_* ≥ T′}. That is, the development of g_λ's own data settles to the Tangherlini metric g_(m′,0) at the rate of
+Theorem 4, by Theorem 4 run in the half class (Theorem R2.4), with no gluing.
+
+*Proof.* (b1) gives the continuation (Proposition R2.5), (b2) the expansion (R2.3), (Poly) the smallness (Proposition
+R2.9 with the coefficient bounds of round 1); then III.K Theorem 4.3 in the half class (Theorem R2.4) and Part VII
+Proposition 3.2 apply to the G-invariant data. ∎ **Not proved:** (P4), (b1)'s two parts, (b2), (Poly). The ρ^(5/2) tail
+is no longer an obstruction: it is a term of the class.
+
+### R2.6 Ledger and next step
+
+- Computed: `halfclass5.py` H1-H7, `scatter5.py` S1-S5, `spatinf5.py` Z1-Z5 and U1-U3, `r1controls5.py` C1-C4, each
+  with its `.out` and controls.
+- Deduced: Lemma R2.1; Proposition R2.2 (proof at M = 0, computed for M ≤ 8 below 11/2); Lemma R2.3; Theorem R2.4
+  (conditional on Part IV); Propositions R2.5 (outline), R2.6, R2.9 (under (Poly)); Lemmas R2.7-R2.8; Theorem R2.10
+  (conditional on (P4), (b1), (b2), (Poly)).
+- READ: C2:248-250, 256; III.A:390; I11:73-74; BEYOND5.md:237-244; VI4:38, 40; LOSS-D.md:90, 970-971; N1STAR-PROOF.md
+  10514, 10516, 10522-10523, 10543, 1105, 1341-1342, 10586-10588, 10641-10643, 1045-1047; Part VII 69-100, 373-375.
+- Findings for other files (not edited here): BEYOND5 D519's open sentence is answered (no rise with the record's
+  construction; one more log at each half-integer with Lemma R2.3's); LOSS-D's open "E^C_I's log terms below ℓ_I" is
+  computed (3 + 3M applications with the record's ℰ^C_I, 7 with Lemma R2.3's).
+- Open: (b1) (the truncated mixed problem and the commutator bookkeeping of R2.5; (N2)'s dyadic identity), (b2) (the
+  Z-commuted nonlinear estimate), (Poly) (line by line through Lemma 11.0's data constants and the near region),
+  R5 (λ_1, δ; another workstream).
+
+**Next step.** (Poly) is the cheapest of the four: it is a reading of Lemma 11.0's proof with the powers of λ carried,
+the constants C(λ, j) of the approximating solutions' data (N1STAR-PROOF.md:10540-10543) first. Then (b2), whose
+commutators Lemma R2.7 has computed.
+
+    python3 checks/halfclass5.py     (about twenty seconds)
+    python3 checks/scatter5.py       (about a minute)
+    python3 checks/spatinf5.py       (about a minute; U3 most of it)
+    python3 checks/r1controls5.py    (about a minute)
