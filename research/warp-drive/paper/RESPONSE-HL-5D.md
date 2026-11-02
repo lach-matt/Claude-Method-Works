@@ -1430,58 +1430,63 @@ The verdicts are readings, not computations, and a choice named otherwise than b
   exact arithmetic, `docket68/n1star/checks/e2lower5.py`). The passage to the write-out's own function spaces and the
   other constants are not done, so λ1 and δ are still not evaluated.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
-  curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in the
-  numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L = l5,
-  and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ = 1000
-  l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are high-frequency
-  on all of D_T once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the curvature varies,
-  r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is the parameter a
-  construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a locally linear
-  background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was used", section 3.1);
-  it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed wavelength without a
-  small parameter, existence on D_T is a large-data question; a computed solution with a certified residual and a
-  certified linear estimate could settle it (the rigorous numerics cited in [AB26] as [4]), and that is not attempted.
-  Its first step was taken: the growth factor measured on the solver's own computed solution at 10 l5
+  curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
+  the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
+  = l5, and at the horizon L = √μ/72^(1/4). For λ = 10 l5 the ratio is 10 on x_K = 1, and 2.91 (μ = 100 l5²) or 0.92 (μ
+  = 1000 l5²) at the horizon (computed, R7): there is no separation of scales. The statement that the waves are
+  high-frequency on all of D_T once λ < l5/10 is about the approximant, not about λ0. Against the scale on which the
+  curvature varies, r, the ratio is 1.00 and 0.32 at the horizon and 1.85 and 1.04 on x_K = 1 (computed, R7). That is
+  the parameter a construction from exact waves would see, in the manner of [AB26], whose layers are waves exact on a
+  locally linear background, with amplitudes solving ordinary differential equations ("no sinusoidal identity was
+  used", section 3.1); it is not small either, and there the wavelengths are chosen, here prescribed. At a prescribed
+  wavelength without a small parameter, existence on D_T is a large-data question; a computed solution with a certified
+  residual and a certified linear estimate could settle it (the rigorous numerics cited in [AB26] as [4]), and that is
+  not attempted. Its first step was taken: the growth factor measured on the solver's own computed solution at 10 l5
   (`docket68/n1star/growth5.py`, supplement section 10.2). At both seeds that scheme's premise — one zero of the round
   spheres' expansion per column and the core boundary outflow, so that the exterior is fixed by its own data — fails
   before the shell's peak: a second zero holds over 0.04 in v from 1.50 r_h at μ = 100 l5² (1.496 on the finer grid,
   1.476 with a shorter hold; a single-step excursion at 1.45 is not it) and from 1.583 r_h at 1000 l5² (three grids
-  agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not later
-  (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too: with the breakdown read
-  as a second zero lasting 0.01 in v, the solver's criterion, the three move by 0.0008, 0.0025 and 0.0002 between the
-  grids and the standard excision by 0.0041 and 0.0004, and the order holds for every such duration from 0.005 to 0.06
-  (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at 10 l5 at the excision depths
-  run. The second zero belongs to that chart's areal spheres and is not a second marginally trapped surface: wherever a
-  smooth vacuum solution with these data exists in double-null gauge, every leaf inside the seed's horizon generator is
-  outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius 1.01–1.05 r_h
-  (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100 l5² for v ≤
-  1.75 r_h in `docket68/n1star/checks/secondzero5.py`; supplement note `CERTIFY-10L5-RESULT.md` section 1). At 100 l5²
-  the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns, which come from the spheres'
-  tilt against the null leaves (computed); at 1000 l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown times are
-  at one angular resolution (N_x = 16); the scheme is unstable at 24 and 32. Nothing is said of the event horizon. The
-  step is re-posed as the characteristic initial value problem in double-null gauge — the incoming wave on an ingoing
-  null hypersurface from past null infinity, the seed's outgoing cone as the other — where Luk's theorem gives local
-  existence without smallness ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2 is the a posteriori structure, introduced
-  there by the sentence "the difference of metrics is controlled by the difference of curvature residues" (section 2.3,
-  p. 6; the sentence before the theorem, not its text); its five-dimensional version in the class is not built. Up to
-  the failure the radiation field's growth factor exp ∫K dv is 1.9 and 2.1, and a finite-difference amplification of
-  the data along one direction, a lower bound for the propagator's norm, is 1.28 and 1.00; where the scheme completes
-  (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³: a certified
-  argument would need the propagator's norm, not a sup-norm bound. The linear scattering of the shell off the seed at
-  10 l5 is computed in `docket68/lemmas/seed_escape.py`. That problem has since been computed as a prototype
-  (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein equations in
-  double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength at both
-  seeds. At the first seed the Kretschmann scalar is moderate and converged in angle up to the point where the runs
-  stop converging, and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis are
-  not yet told apart. At the second seed, with the angular and null grids refined together, the two coarser angular
+  agreeing to 0.0005), and the boundary ceases to be outflow within 0.1 after; a deeper excision fails earlier, not
+  later (r = 0.39 and 0.25 r_h at the first seed, 0.21 r_h at the second), on the next finer grid too: with the
+  breakdown read as a second zero lasting 0.01 in v, the solver's criterion, the three move by 0.0008, 0.0025 and
+  0.0002 between the grids and the standard excision by 0.0041 and 0.0004, and the order holds for every such duration
+  from 0.005 to 0.06 (`docket68/n1star/checks/excise5.py`). So no approximant on D_T comes from that scheme at 10 l5 at
+  the excision depths run. The second zero belongs to that chart's areal spheres and is not a second marginally trapped
+  surface: wherever a smooth vacuum solution with these data exists in double-null gauge, every leaf inside the seed's
+  horizon generator is outer trapped, and every T²-invariant marginal section of an ingoing cone lies near areal radius
+  1.01–1.05 r_h (deduced, its identities computed in `docket68/n1star/checks/sectexp5.py`; the zero set computed at 100
+  l5² for v ≤ 1.75 r_h in `docket68/n1star/checks/secondzero5.py`; supplement note `CERTIFY-10L5-RESULT.md` section 1).
+  At 100 l5² the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns, which come from the
+  spheres' tilt against the null leaves (computed); at 1000 l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown
+  times are at one angular resolution (N_x = 16); the scheme is unstable at 24 and 32. Nothing is said of the event
+  horizon. The step is re-posed as the characteristic initial value problem in double-null gauge — the incoming wave on
+  an ingoing null hypersurface from past null infinity, the seed's outgoing cone as the other — where Luk's theorem
+  gives local existence without smallness ([Wu26] Theorem 2.1) and [Wu26]'s Theorem 2.2 is the a posteriori structure,
+  introduced there by the sentence "the difference of metrics is controlled by the difference of curvature residues"
+  (section 2.3, p. 6; the sentence before the theorem, not its text); its five-dimensional version in the class is not
+  built. Up to the failure the radiation field's growth factor exp ∫K dv is 1.9 and 2.1, and a finite-difference
+  amplification of the data along one direction, a lower bound for the propagator's norm, is 1.28 and 1.00; where the
+  scheme completes (λ = 0.1 r_h) they are 6.9 and 1.71, while the sup-norm Grönwall factor is 17, 2 × 10⁵ and 6 × 10³:
+  a certified argument would need the propagator's norm, not a sup-norm bound. The linear scattering of the shell off
+  the seed at 10 l5 is computed in `docket68/lemmas/seed_escape.py`. That problem has since been computed as a
+  prototype (supplement `docket68/n1star/CERTIFY-10L5.md` section 6b; computed, not certified): the class's Einstein
+  equations in double-null gauge, evolved in (u, v) with an expansion in the polar angle, at the prescribed wavelength
+  at both seeds. At the first seed the Kretschmann scalar is moderate and converged in angle up to the point where the
+  runs stop converging, and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis
+  are not yet told apart. At the second seed, with the angular and null grids refined together, the two coarser angular
   resolutions agree up to v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid,
   2400 × 1080, the second seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up
   to v = 4.5 (K_0 = 72/R⁸, Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48
   masks; M = 48 departs from v ≈ 3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step
   condition M²/N ≤ c it had been ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed,
   floating point: `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement
-  `CERTIFY-10L5.md` section 6b). No certified step has been taken, neither a certified residual nor the certified
-  linear estimate about the computed solution, so existence at 10 l5 remains open.
+  `CERTIFY-10L5.md` section 6b). A first certified step is taken: for an explicit approximant of the characteristic
+  data on the data cone, the constraint along its outgoing generators holds to a certified bound at both seeds (at the
+  second, 2.3 × 10⁻⁵ against terms of size 5.3 × 10⁻⁴; certified, ball arithmetic, `docket68/n1star/checks/cdata5.py`).
+  The full Einstein residual of a smoothed three-dimensional approximant built from a run is computed only, 2.5 × 10⁻³
+  of the curvature scale and falling at second order with the grid (`checks/resid5.py`, floating point), and no linear
+  estimate with explicit constants is available for the characteristic problem in the class, so existence at 10 l5
+  remains open (supplement `CERTIFY-10L5-RESULT.md` section 2).
 - **Beyond the boundary.** Theorems 1–3 are made on D_T and Ω, whose inner boundary r = a lies a fixed distance inside
   x_K = 1; beyond them Theorem 4 is stated outside the black hole. Its development also reaches inside the black hole
   after the shell, up to the curvature boundary (supplement `docket68/n1star/BEYOND5.md` Propositions 6.1–6.2, deduced;
