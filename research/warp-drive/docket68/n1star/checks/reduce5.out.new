@@ -7,3 +7,5 @@ R4 gt = R^6/16, the shift unchanged, Omt^2 = e^{2 zeta} (1 - x^2)/4 with zeta = 
    (58 s) checks ...
 R1 Ric5_11 = -e^{2A} rho^2 Box_ht A, Ric5_22 = -e^{2B} rho^2 Box_ht B: PASS
    control (c3) rho in place of rho^2: fails (good)
+R2 Ric5_ab = Ric(ht)_ab - (3/2) L_a L_b - 2 psi_a psi_b + (Box_ht L) ht_ab, ab in uu uv ux vv vx xx: uu+ uv+ ux+ vv+ vx+
+    xx+ PASS
