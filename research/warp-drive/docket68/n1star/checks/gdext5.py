@@ -60,7 +60,15 @@ XS = sp.symbols("x1:5", real=True)
 mu = sp.Symbol("mu", positive=True)
 X = [t] + list(XS)
 N = 5
-R = sp.sqrt(sum(xi**2 for xi in XS))
+RS = sp.Symbol("r", positive=True)
+R = RS                     # r = |x| as a symbol; D below differentiates with d_i r = x^i/r (exact chain rule)
+
+
+def D(e, a):
+    """d/dX[a] of an expression in (t, x, r), with r = |x|"""
+    if a == 0:
+        return sp.diff(e, t)
+    return sp.diff(e, XS[a - 1]) + sp.diff(e, RS)*XS[a - 1]/RS
 
 # integer points with integer r: (x1, x2, x3, x4) -> r
 PTS = [((1, 2, 2, 4), 5), ((2, 4, 5, 6), 9), ((2, 3, 6, 0), 7), ((1, 1, 1, 1), 2)]
@@ -79,28 +87,28 @@ class KS:
 
     def gam(self):
         if self._gam is None:
-            dg = [[[sp.diff(self.g[a, b], X[c]) for c in range(N)] for b in range(N)] for a in range(N)]
+            dg = [[[D(self.g[a, b], c) for c in range(N)] for b in range(N)] for a in range(N)]
             self._gam = [[[sp.Rational(1, 2)*sum(self.gi[c, d]*(dg[d][b][a] + dg[d][a][b] - dg[a][b][d])
                                                     for d in range(N))
                            for b in range(N)] for a in range(N)] for c in range(N)]
         return self._gam
 
     def box0(self, phi):
-        return -sum(sp.diff(self.gi[a, b]*sp.diff(phi, X[b]), X[a]) for a in range(N) for b in range(N))
+        return -sum(D(self.gi[a, b]*D(phi, b), a) for a in range(N) for b in range(N))
 
     def hodge(self, Z):
         gi, g = self.gi, self.g
-        dl = -sum(sp.diff(gi[a, b]*Z[b], X[a]) for a in range(N) for b in range(N))
-        F = [[sp.diff(Z[b], X[a]) - sp.diff(Z[a], X[b]) for b in range(N)] for a in range(N)]
+        dl = -sum(D(gi[a, b]*Z[b], a) for a in range(N) for b in range(N))
+        F = [[D(Z[b], a) - D(Z[a], b) for b in range(N)] for a in range(N)]
         Fu = [[sum(gi[a, e]*gi[b, f]*F[e][f] for e in range(N) for f in range(N)) for b in range(N)]
               for a in range(N)]
-        divF = [sum(sp.diff(Fu[a][b], X[a]) for a in range(N)) for b in range(N)]
-        return [sp.diff(dl, X[c]) - sum(g[c, b]*divF[b] for b in range(N)) for c in range(N)]
+        divF = [sum(D(Fu[a][b], a) for a in range(N)) for b in range(N)]
+        return [D(dl, c) - sum(g[c, b]*divF[b] for b in range(N)) for c in range(N)]
 
     def two_dGds(self, Z):
         """2 delta G delta^* Z with the Levi-Civita connection"""
         G_, g, gi = self.gam(), self.g, self.gi
-        nab = [[sp.diff(Z[b], X[a]) - sum(G_[c][a][b]*Z[c] for c in range(N)) for b in range(N)] for a in range(N)]
+        nab = [[D(Z[b], a) - sum(G_[c][a][b]*Z[c] for c in range(N)) for b in range(N)] for a in range(N)]
         k = [[(nab[a][b] + nab[b][a])/2 for b in range(N)] for a in range(N)]
         tr = sum(gi[a, b]*k[a][b] for a in range(N) for b in range(N))
         Gk = [[k[a][b] - g[a, b]*tr/2 for b in range(N)] for a in range(N)]
@@ -111,14 +119,14 @@ class KS:
                 for c in range(N):
                     if gi[a, c] == 0:
                         continue
-                    nk = sp.diff(Gk[a][b], X[c]) - sum(G_[d][c][a]*Gk[d][b] + G_[d][c][b]*Gk[a][d] for d in range(N))
+                    nk = D(Gk[a][b], c) - sum(G_[d][c][a]*Gk[d][b] + G_[d][c][b]*Gk[a][d] for d in range(N))
                     s_ += gi[a, c]*nk
             out.append(-2*s_)
         return out
 
 
 def at(e, pt, tval=sp.Rational(1, 3), muval=None):
-    sub = {t: tval}
+    sub = {t: tval, RS: sp.sqrt(sum(sp.Integer(q)**2 for q in pt))}
     sub.update({XS[i]: sp.Integer(pt[i]) for i in range(4)})
     if muval is not None:
         sub[mu] = muval
@@ -182,7 +190,7 @@ def e1(control=False):
         Z[nu] = phi
         H = G.hodge(Z)
         for c in range(N):
-            rest = H[c] - (G.box0(phi) if c == nu else 0) - sum(C[c][nu][q]*sp.diff(phi, X[q]) for q in range(N)) \
+            rest = H[c] - (G.box0(phi) if c == nu else 0) - sum(C[c][nu][q]*D(phi, q) for q in range(N)) \
                 - D[c][nu]*phi
             for pt, _ in pts[:1]:
                 ok_2 &= at(rest, pt) == 0
@@ -301,6 +309,7 @@ def e3(control=False):
             for cc in range(N):
                 e_ = H[cc]*pIC*rhoC**-sp.Rational(7, 2)/(p0C**A*pIC**L_)
                 sub = {XS[i]: om[i]/(r0*rI) for i in range(4)}
+                sub[RS] = 1/(r0*rI)
                 sub[t] = 2 - 1/r0 + 1/(r0*rI)
                 e_ = e_.subs(sub)
                 e_ = sp.simplify(sp.powsimp(sp.expand_power_base(e_, force=True), force=True))
