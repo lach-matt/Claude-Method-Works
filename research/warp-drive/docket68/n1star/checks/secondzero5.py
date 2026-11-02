@@ -33,7 +33,13 @@ u > -1.  The checks measure the runs against these facts, and rebuild (a) in the
      has more than one zero, or none, with the inner zero's radius; and the first v at which the sphere r = r_core
      (growth5's excision radius) has theta > 0 somewhere.  Reported (no pass/fail without a converged inner region).
 
+  S6 the truncation of the data (with --truncation): the same seed and grid with the data cone at R0 = 10, 20, 40;
+     S4's max |r_AH(double null) - r_AH(growth5)| must fall from R0 = 10 to 20 at every v of S4 from 1.2 on, and be
+     at most 0.05 at R0 = 20 and 40.  Control: the leaves' expansion in place of theta stays above 0.1 at R0 = 40.
+     S4's own threshold 0.1 is a per-run report; at R0 = 10 it fails on the finest grids at v = 1.375 (the truncation).
+
   python3 checks/secondzero5.py RUNDIR [run names ...]
+  python3 checks/secondzero5.py --truncation RUNDIR run_R10 run_R20 run_R40
 """
 import os, sys, json, warnings
 import numpy as np
@@ -213,7 +219,39 @@ def s5(Z, F, r_core, vlist, r_lo):
     return rows
 
 
+def s6(rundir, names):
+    per = {}
+    for nm in names:
+        Z = B.load(os.path.join(rundir, nm + '.npz')); F = B.derivatives(Z)
+        rows = []
+        for vv in G5KEY[1][1]:
+            j = int(np.argmin(abs(Z['v'] - vv)))
+            vals = []
+            for leaf in (False, True):
+                xi, rr, TH = bondi_zeros(Z, F, j, np.linspace(0.6, 1.6, 101), leaf_only=leaf)
+                rz = outer_zero(xi, rr, TH)
+                vg, og = g5_outer(Z['v'][j])
+                vals.append(float(np.nanmax(np.abs(B.bary_matrix(xi, XG) @ rz - og))))
+            rows.append((float(Z['v'][j]), vals[0], vals[1]))
+        per[nm] = rows
+        print('  %s (R0 = %g): max |r_AH - r_AH(growth5)| at v = %s: %s; leaves only: %s' % (
+            nm, float(Z['R0']) if 'R0' in Z else 10.0, ', '.join('%.3f' % r[0] for r in rows),
+            ', '.join('%.3f' % r[1] for r in rows), ', '.join('%.3f' % r[2] for r in rows)), flush=True)
+    a, b, c = [per[nm] for nm in names]
+    falls = all(b[i][1] < a[i][1] for i in range(len(a)) if a[i][0] >= 1.15)
+    small = max(r[1] for r in b) <= 0.05 and max(r[1] for r in c) <= 0.05
+    ctl = max(r[2] for r in c) <= 0.1
+    print('  S6 falls from R0 = 10 to 20 (v >= 1.2): %s; at most 0.05 at R0 = 20 and 40: %s -> %s; control (leaves '
+          'only at R0 = 40 within 0.1) %s' % (falls, small, 'PASS' if falls and small else 'FAIL',
+                                              'passed (bad)' if ctl else 'fails (good)'), flush=True)
+    return falls and small and not ctl
+
+
 def main():
+    if sys.argv[1] == '--truncation':
+        ok = s6(sys.argv[2], sys.argv[3:6])
+        print('secondzero5 --truncation:', 'all checks pass' if ok else 'FAILURES')
+        return 0 if ok else 1
     rundir = sys.argv[1]
     names = sys.argv[2:]
     ok = True
