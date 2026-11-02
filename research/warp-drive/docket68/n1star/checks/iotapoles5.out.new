@@ -2,3 +2,9 @@ iotapoles5: pole orders of N_iota+(L-bar, .)^-1 at Re <= 5 in the class; E_ind's
   M1: Mellin[(D - lam) L1(D) G + v N(D) G] = (zeta - lam) L1(zeta) Ghat(zeta) + N(zeta - 1) Ghat(zeta - 1) on G = v^a
       e^-v, L1, N symbolic: True
   C1 (control): the shift taken as zeta + 1: the identity fails: True
+  M2: free model: the pure states solve N_iota+(3 + l + k) G = 0 for l, k = 0, 1, 2: True; Gamma-coefficient zeros at Re
+      <= 5 (lam, order): {0: [(3, 1), (4, 1), (5, 1)], 1: [(4, 1), (5, 1)], 2: [(5, 1)], 3: []}; R4.3 product poles: {0:
+      {3: 1, 4: 1, 5: 1}, 1: {4: 1, 5: 1}, 2: {5: 1}, 3: {}}; agree: True
+  C2 (control): the constant 1 for 3/2: no state solves: True
+  C3 (control): the product with N(lam - i + 1): poles {0: {2: 1, 3: 1, 4: 1, 5: 1}, 1: {3: 1, 4: 1, 5: 1}, 2: {4: 1, 5:
+      1}}, not M2's: True
