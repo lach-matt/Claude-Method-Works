@@ -1,0 +1,39 @@
+lzerotrace5: lambda0 at P*, every factor traced, the bound certified
+  T0: md5 of N1STAR-PROOF.md lines 1-805 = 57d896ae1da4845f3c94c66d7b087a41 (pinned 57d896ae1da4845f3c94c66d7b087a41); 27
+      trace rows, every fragment on its line: True; the nine terms covered: True
+      lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:177, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
+      (N1STAR-PROOF.md:145, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:146, certified here)
+      E-a   eps1 of Lemma 1.1 (e) (N1STAR-PROOF.md:160, certified here); the lateral boundaries stay spacelike
+      (N1STAR-PROOF.md:161, certified here); the outer boundary {v + tau - tau_end = V + 1} (N1STAR-PROOF.md:150,
+      certified here); g = g_app + w must satisfy Lemma 1.1 (e) (N1STAR-PROOF.md:356, certified here); g_app = g0 + lam
+      [g1] + ... (0.4) (N1STAR-PROOF.md:94, certified here); profiles bounded independently of lam (N1STAR-PROOF.md:96,
+      certified here); |g - g0| <= C lam (C_app) (N1STAR-PROOF.md:113, certified here); g1 = m1 + W(X, th + phi1(X)), g_j
+      independent of lam (N1STAR-PROOF.md:541, certified here); W := W_TT + chi dv dv (N1STAR-PROOF.md:462, certified
+      here); W_TT the record's wave (lead5.py) (N1STAR-PROOF.md:461, certified here)
+      E-b   |w| <= C lam^(-3) N (Step 1, C_inf) (N1STAR-PROOF.md:348, not evaluated); |w| <= eps2/2 (Step 8 (iii), eps2)
+      (N1STAR-PROOF.md:427, not evaluated); eps2 (Step 8 (iii)) (N1STAR-PROOF.md:425, not evaluated)
+            to evaluate: C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1's constant), M, eps2 (g_ext): the
+      profiles
+      E-c   |d w| <= C M lam^(K-4) (C_dw), M1 independent of M (N1STAR-PROOF.md:356, not evaluated); M1 independent of M
+      (N1STAR-PROOF.md:357, not evaluated)
+            to evaluate: C_dw and M: Step 1's constant and the profiles g_1..g_10 to order about 11
+      E-d   C3 := C2 e^{C2 dtau} (1 + dtau) C (N1STAR-PROOF.md:400, not evaluated); M := C3 (C_D + 1 + C_R) + 1
+      (N1STAR-PROOF.md:400, not evaluated); C3 C M^2 lam0 <= 1 (C_N) (N1STAR-PROOF.md:401, not evaluated); k = 6, K >= 6
+      (P*: K = 6) (N1STAR-PROOF.md:92, certified here)
+            to evaluate: C2, C_st, C_N, C_R, C_D: Steps 2, 4-7 written with the profiles' bounds (R2.2 (d)-(f))
+      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:769, not evaluated);
+      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:795, certified here)
+            to evaluate: C0, C_c, m_c: Lemma 6.4's constant at s0 = 6, s = 8, and the stage data of Lemma 6.2
+      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:772, not evaluated)
+            to evaluate: C_k: the difference estimate of Lemma 6.4 at s0
+      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:692, not evaluated)
+            to evaluate: m_s, C_s: the O(lam) part of alpha and S A0 at the approximant's data (needs m_1)
+      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:771, not evaluated)
+            to evaluate: C_b, C0: the quadratic remainder Nl at the approximant's data
+  T1: q0 in [0.539717577094, 0.539717577094] (q0^8 = 9/1250), a = delta0 = q0/2 in [0.269858788547, 0.269858788547], lam1
+      = q0/20 in [0.026985878855, 0.026985878855] (certified)
+  T2: the corner of the outer boundary, r = b(tau0) (lower end of its interval, 13.437208254; tau = tau0), in Omega with
+      mu = mu_end: True; n in ker d(v + tau): True; g0 - lam_n n n^T Lorentzian (det -0.646301) with n null on the
+      boundary: True; lam_n = (3 + mu_end/r^2)/5 = 0.6013096 (exact rational; round 2's r = 67/5 gave 0.6013169); size of
+      the perturbation: operator = Frobenius = 0.6013096, largest entry 0.1202619 at xhat = (1,1,1,1)/2 (0.4810477 at
+      xhat = e1). So eps1 < 0.6013096 (operator, Frobenius) and eps1 < 0.1202619 (largest entry) (exact)

@@ -13,10 +13,12 @@ where said).
      the trace table carries a fragment found verbatim on its cited line. The table covers the nine terms of the
      minimum and every factor of the two terms that are evaluated.
   T1 (certified) the domain at P*: q0^8 = 9/1250, a = delta0 = q0/2, lam1 := min(1, delta0)/10 = q0/20 (:177).
-  T2 (certified, exact) Lemma 1.1 (e)'s eps1 (:159-162) is below lam_n := (3 + mu_end/r^2)/5 = 2591339/4309440 under
-     every reading of |.|: at the outer-boundary point with r = 67/5 (in Omega, mu = mu_end) the Lorentzian metric
-     g0 - lam_n n n^T, n = (1, -2 xhat)/5^(1/2) in ker d(v + tau), makes that boundary null. Its size is lam_n in the
-     Euclidean operator and Frobenius norms (rank one), and lam_n/5 in the largest-entry norm at xhat = (1,1,1,1)/2.
+  T2 (certified, exact) Lemma 1.1 (e)'s eps1 (:159-162) is below lam_n := (3 + mu_end/r^2)/5 = 0.6013096 under
+     every reading of |.|: at the corner of the outer boundary, r = b(tau0) (taken at the lower end of its certified
+     interval, so that tau >= tau0; mu = mu_end there), the Lorentzian metric g0 - lam_n n n^T, n = (1, -2 xhat)/5^(1/2)
+     in ker d(v + tau), makes that boundary null. Its size is lam_n in the Euclidean operator and Frobenius norms
+     (rank one), and lam_n/5 in the largest-entry norm at xhat = (1,1,1,1)/2. Round 2's point r = 67/5 (2591339/4309440
+     = 0.6013169) is reproduced and is the weaker bound; the verifier of rounds 1-2 found the corner's 0.6013096.
   T3 (deduced, certified) the wave's size at one point of Omega. From lead5.py's definition of W_TT (lead5.py:8-10,
      wave() at :58-67), W_TT has only angular components and is diagonal in (th, phi1, phi2), so its eigenvalues for
      the Euclidean metric are W_thth/r^2, W_p1p1/(r c)^2, W_p2p2/(r s)^2 = -2(a1 + a2), 2 a1, 2 a2 (sympy, exact). At
@@ -34,6 +36,13 @@ where said).
      min(lam1, eps1/C_app). Round 1's closed form (1.3) splits eps1 in halves, a choice the proof does not make (Step
      3 states no split), and gives eps1/(2 C_app). Both are printed for the three readings of |.|, which the proof does
      not define for arrays (it states the flat L^2 norm ||.|| of the arrays, :83, whose integrand is the Frobenius one).
+  T6 (exact; deduced) the pointwise norm the supplement should state: |A| the Euclidean operator norm of the array of
+     Cartesian components. Then g >= g0 - eps I as forms, and at eps = 3/5 the form g0 - eps I is positive definite on
+     ker dtau (least 2/5), on ker dr at r = a (least 2/5 at P*) and on ker d(v + tau) (least mu/(5 r^2)) and has
+     exactly one negative eigenvalue, so its causal set is a double cone with convex halves on which the three
+     covectors keep their signs: Lemma 1.1 (e) holds with eps1 = 3/5 (the direct cone argument the verifier asked for
+     in place of eps1hyp5.py H2's path argument), and eps1* in [3/5, 0.6013096]. Frobenius dominates it; under the
+     largest-entry norm, |A|_op <= 5 |A|_max gives eps1* in [3/25, 0.1202619].
   Controls (must fail, and do): C1 every trace row's line shifted by one: the fragments are not found; C2 the claim
   C_app >= 12.6 is refuted at the point: |W_TT| there is at most 12.60 - 0.003 (the certification cannot pass a false
   bound); C3 the parity argument on an even harmonic (cos 2s) gives a zero difference and no bound; C4 a point at r =
@@ -325,8 +334,6 @@ def main():
     # T6 the pointwise norm the supplement should state
     eigs, full, m, e = norm_proposal()
     at = {name: [sp.simplify(x.subs(e, sp.Rational(3, 5))) for x in v] for name, v in eigs.items()}
-    neg = [x for x in full if sp.simplify(x.subs(e, sp.Rational(3, 5)).subs(m, 0)) < 0]
-    sig_ok = all(sp.simplify(x.subs(e, sp.Rational(3, 5))).subs(m, mv) != 0 for x in full for mv in (0, 1, 10))
     one_neg = all(sum(1 for x in full if float(x.subs({e: sp.Rational(3, 5), m: mv})) < 0) == 1
                   for mv in (0, Fr(1, 100), 1, 13, 1000))
     m_a_lo = LZ.MU0 / ahi ** 2                         # mu/a^2 >= mu0/a^2 on {r = a}

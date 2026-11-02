@@ -212,3 +212,11 @@ secondzero5: all checks pass
      (against exact Tangherlini: 5.4e-03, the run's own error)
       v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.002 (at x = 0.83);
          r_AH ranges 0.985-1.015 and 0.985-1.012
+      v = 1.200: max |r_AH(double null) - r_AH(growth5)| = 0.008 (at x = -0.20);
+         r_AH ranges 0.919-1.068 and 0.928-1.062
+      v = 1.300: max |r_AH(double null) - r_AH(growth5)| = 0.017 (at x = 0.00);
+         r_AH ranges 0.856-1.113 and 0.864-1.111
+      v = 1.350: max |r_AH(double null) - r_AH(growth5)| = 0.015 (at x = 0.38);
+         r_AH ranges 0.788-1.152 and 0.801-1.142
+      v = 1.375: max |r_AH(double null) - r_AH(growth5)| = 0.020 (at x = 0.38);
+         r_AH ranges 0.779-1.175 and 0.759-1.158
