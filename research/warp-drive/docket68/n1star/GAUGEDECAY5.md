@@ -110,27 +110,30 @@ does not depend on $(v,r)$). No harmonic sum is formed, and no constant depends 
 
 **Lemma 1.3 (the gauge vector; computed R1, R2; READ [KI03]).** For a class tensor $h$ put
 $$\xi[h] := \Big(-\beta_a+\frac{r^2}2\partial_a\big(\tau/r^2\big)\Big)dy^a-\frac12\hat D\tau.\tag{1.1}$$
-(a) $\mathcal L_{\xi[h]}g$ has $a\theta$ components $-\partial_\theta\beta_a$, no $\phi$ components, and traceless angular
-part $-(\hat D\hat D-\frac13\gamma\hat\Delta)\tau$ (R1, for arbitrary functions $\beta_a,\tau$ of $(v,r,\theta)$; the
-control, with the weight $r^2\partial_a(\tau/r^2)$ replaced by $\partial_a\tau$, fails). So $h+\mathcal L_{\xi[h]}g$
-has $\beta = 0$, $\tau = 0$, the same $h^{\mathrm{TT}}$ and the same $l = 0$ part ($\xi$ has none).
+(a) $\mathcal L_{\xi[h]}g$ has $a\theta$ components $-\partial_\theta\beta_a$, no $\phi$ components, and traceless
+angular part $-(\hat D\hat D-\frac13\gamma\hat\Delta)\tau$ (R1, for arbitrary functions $\beta_a,\tau$ of
+$(v,r,\theta)$; the control, with the weight $r^2\partial_a(\tau/r^2)$ replaced by $\partial_a\tau$, fails). So
+$h+\mathcal L_{\xi[h]}g$ has $\beta = 0$, $\tau = 0$, the same $h^{\mathrm{TT}}$ and the same $l = 0$ part ($\xi$ has
+none).
 (b) For a scalar mode, $h_{ab} = f_{ab}S$, $h_{ai} = rf_aS_i$, $h_{ij} = 2r^2(H_L\gamma_{ij}S+H_TS_{ij})$ ([KI03] (2.4)-
 (2.6)), $\beta_a = -\frac rkf_aS$, $\tau = 2r^2H_TS/k^2$, the orbit part of $\xi$ is $X_aS$ with [KI03]'s
 $X_a = \frac rk(f_a+\frac rkD_aH_T)$ ((2.8)), and $h+\mathcal L_\xi g = F_{ab}S\,dy^ady^b+2r^2FS\gamma$ with [KI03]'s
 invariants $F,F_{ab}$ ((2.7a)-(2.7b)) (R2, at $l = 2$ and $l = 4$, exact; control: $(r/k)^2$ replaced by $r/k^2$ in
 $X_a$ fails). So the RW-type components are the gauge invariants, as supplement Proposition 10.1 (ii) states.
-(c) *Uniqueness.* For a class 1-form $Z$ with no $l = 0$ part, $\xi[\mathcal L_Zg] = -Z$ (deduced from (a): with $Z_\theta
-d\theta = d\eta$, $\langle\eta\rangle = 0$, $\mathcal L_Zg$ has $\beta_a = Z_a+r^2\partial_a(\eta/r^2)$, as $\partial_aZ_\theta
--\frac2r(\partial_ar)Z_\theta = \partial_\theta(r^2\partial_a(\eta/r^2))$, and $\tau = 2\eta$; insert in (1.1)). In
-particular $\mathcal L_Zg$ has $\beta = \tau = 0$ only if $Z = 0$.
+(c) *Uniqueness.* For a class 1-form $Z$ with no $l = 0$ part, $\xi[\mathcal L_Zg] = -Z$ (deduced from (a): with
+$Z_\theta d\theta = d\eta$, $\langle\eta\rangle = 0$, $\mathcal L_Zg$ has $\beta_a = Z_a+r^2\partial_a(\eta/r^2)$, as
+$\partial_aZ_\theta -\frac2r(\partial_ar)Z_\theta = \partial_\theta(r^2\partial_a(\eta/r^2))$, and $\tau = 2\eta$;
+insert in (1.1)). In particular $\mathcal L_Zg$ has $\beta = \tau = 0$ only if $Z = 0$.
 
-**Lemma 1.4 ($l = 0$: the linearised mass and Birkhoff; computed R4).** Let $h_0 = A\,dv^2+2B\,dv\,dr+C\,dr^2+2r^2H\gamma$,
-functions of $(v,r)$, on a simply connected open subset $U$ of the orbit space.
+**Lemma 1.4 ($l = 0$: the linearised mass and Birkhoff; computed R4).** Let $h_0 =
+A\,dv^2+2B\,dv\,dr+C\,dr^2+2r^2H\gamma$, functions of $(v,r)$, on a simply connected open subset $U$ of the orbit space.
 (a) The linearisation of the five-dimensional Misner-Sharp mass $m = R^2(1-|dR|^2)$ ($m(g) = \mu_0$) is
 $$\delta\mu[h_0] = 2\mu_0H+r^2(A+2fB+f^2C)-2r^2(\partial_v+f\partial_r)(rH).$$
 It vanishes on $\mathcal L_Yg$ for every spherically symmetric $Y$, $\delta\mu[r^{-2}dv^2] = 1$, so $\delta\mu[K] = 1$ by
-(0.1), and $\partial_v\delta\mu$, $\partial_r\delta\mu$ are combinations, with coefficients in $r$, of the components of
-$D\mathrm{Ric}(h_0)$ (R4 (a)-(d); control: without its term $2\mu_0H$ it is not gauge invariant).
+(0.1), and, with $\dot R := D\mathrm{Ric}(h_0)$,
+$$\partial_v\delta\mu = \tfrac23r^3\big(\dot R_{vv}+f\dot R_{vr}\big),\qquad\partial_r\delta\mu = \tfrac13r^3f\dot R_{rr}+
+r\dot R_{\theta\theta}$$
+(R4 (a)-(d); control: without its term $2\mu_0H$ it is not gauge invariant).
 (b) If $D\mathrm{Ric}(h_0) = 0$ on $U$: $\delta\mu[h_0] =: c$ is constant, and with $h' := h_0-c\,r^{-2}dv^2+\mathcal
 L_{Y_1}g$, $Y_1 := -rH\partial_r$ (which removes $H$, R4 (e)), the 1-form $\omega := (B'+\frac f2C')dv+\frac12C'dr$ of
 $h'$'s components is closed, and for $d\zeta = \omega$, $\mathcal L_{\zeta\partial_v}g = h'$ (R4 (f); control: $\omega$
@@ -149,7 +152,8 @@ $D\mathrm{Ric}(r^{-3}dv^2)\ne0$).
 $$X_{\mathrm{RW}} := \xi[h]-Y[h_0]^\flat,\qquad\dot g_{\mathrm{RW}} := \dot g+\mathcal L_{X_{\mathrm{RW}}}g =
 \dot\mu K+(h-h_0)+\mathcal L_{\xi[h]}g$$
 is a smooth $G$-invariant linearised vacuum solution on $N^\circ$, in the RW-type gauge with $l = 0$ part exactly
-$\dot\mu K$, inducing $(\dot\gamma,\dot k)$ plus the data of the linearised diffeomorphism $\mathcal L_{X_{\mathrm{RW}}}g$.
+$\dot\mu K$, inducing $(\dot\gamma,\dot k)$ plus the data of the linearised diffeomorphism
+$\mathcal L_{X_{\mathrm{RW}}}g$.
 (b) *Decay.* For every $k$, $R'$, $\epsilon'>0$, on $\{r_0<r\le R',\ t_*\ge T'\}$,
 $$|\dot g_{\mathrm{RW}}-\dot\mu K|_k\le C\,\|(\dot\gamma,\dot k)\|_{H^{N_{k+2}}}\,t_*^{-w+\epsilon'}:$$
 Part VIII's rate, with a loss of two derivatives, the horizon included, uniformly in $l$ (no mode sum is formed); the
@@ -257,10 +261,10 @@ where $g_{vv} = -f = 0$ and $g_{vr} = 1$, $(\delta F)_v = -\nabla_\mu F^{\mu r} 
 \sqrt\gamma F^{\mu r})$, with $F^{rr} = 0$ and $F^{vr} = F_{rv}$ ($g^{vv} = 0$), so $(\delta F)_v = \partial_vF_{vr}$
 plus a divergence on $S^3$. H2 is this computation in the class.) $Q[X]$ depends only on the $l = 0$ part of $X$ (H2:
 it vanishes on an $l = 2$ class 1-form; in general the $S^3$-integral sees only the average).
-(b) $\delta W^* = 0$, $(dW^*)_{vr} = 2r^{-3}$, $Q[W^*] = 4\pi^2$; the Killing 1-form $(\partial_v)^\flat = -f\,dv+dr$ has
-$Q = 4\pi^2\mu_0$ and $(\partial_v)^\flat-\mu_0W^*$ is closed; $\ell([\Box,v]W^*) = 4\pi^2$, III.D$'$ Lemma 3.1 (1)'s value;
-$\ell(\Theta(r^{-2}dv^2)) = -2\pi^2$, and by (0.1) $\ell(\Theta(K)) = -2\pi^2$ (H3; control: $W^*$ with its $dr$ term
-reversed is not in the kernel of $\Box$). And $\frac d{dv}Q[W^{**}] = 2\pi^2$ (H4).
+(b) $\delta W^* = 0$, $(dW^*)_{vr} = 2r^{-3}$, $Q[W^*] = 4\pi^2$; the Killing 1-form $(\partial_v)^\flat = -f\,dv+dr$
+has $Q = 4\pi^2\mu_0$ and $(\partial_v)^\flat-\mu_0W^*$ is closed; $\ell([\Box,v]W^*) = 4\pi^2$, III.D$'$ Lemma 3.1
+(1)'s value; $\ell(\Theta(r^{-2}dv^2)) = -2\pi^2$, and by (0.1) $\ell(\Theta(K)) = -2\pi^2$ (H3; control: $W^*$ with its
+$dr$ term reversed is not in the kernel of $\Box$). And $\frac d{dv}Q[W^{**}] = 2\pi^2$ (H4).
 
 (2.1) is the time-domain form of III.D$'$ Lemma 2.1 (1)-(3): $\ell$ annihilates $\Box$ of every stationary form smooth at
 the horizon (the case $\partial_v = 0$ of (2.1)) and spans the annihilator of the range at zero energy.
@@ -276,17 +280,18 @@ and $Q[Z-\dot\mu W^{**}_H](v)$ converges as $v\to\infty$. Consequently, if $\dot
 settles to $\dot\mu K$ near the horizon at any integrable rate: there are no $\delta,\epsilon>0$ for which $(\dot
 g_H-\dot\mu K)_0$ and its first derivatives are $O(t_*^{-1-\delta})$ on $\{|r-r_h|\le\epsilon\}$.
 
-*Proof.* $\Box Z = \Theta(\mathcal L_Zg) = -\Theta(\dot g) = -\dot\mu\Theta(K)-\Theta(h)$, and $\ell(\Theta(K)) = -2\pi^2$
-(Lemma 2.2 (b)); $\ell(\Theta(h))$ involves $h$ and its first derivatives at $r_h$, bounded by (0.2). Integrate (2.1).
-$\dot\mu W^{**}_H$ has $\frac d{dv}Q = 2\pi^2\dot\mu$ ($V = $ const$\cdot\partial_t$ near $r_h$, $Q[V^\flat]$ constant), so
-$Q[Z-\dot\mu W^{**}_H]$ has an integrable derivative. Now suppose $\dot\mu\ne0$ and $(\dot g_H-\dot\mu K)_0 =
-O(t_*^{-1-\delta})$ with first derivatives near $r_h$. Then $\mathcal L_{Z_0}g = (\dot g_H-\dot\mu K)_0-h_0$ is
+*Proof.* $\Box Z = \Theta(\mathcal L_Zg) = -\Theta(\dot g) = -\dot\mu\Theta(K)-\Theta(h)$, and $\ell(\Theta(K)) =
+-2\pi^2$ (Lemma 2.2 (b)); $\ell(\Theta(h))$ involves $h$ and its first derivatives at $r_h$, bounded by (0.2). Integrate
+(2.1). $\dot\mu W^{**}_H$ has $\frac d{dv}Q = 2\pi^2\dot\mu$ ($V = $ const$\cdot\partial_t$ near $r_h$, $Q[V^\flat]$
+constant), so $Q[Z-\dot\mu W^{**}_H]$ has an integrable derivative. Now suppose $\dot\mu\ne0$ and $(\dot g_H-\dot\mu
+K)_0 = O(t_*^{-1-\delta})$ with first derivatives near $r_h$. Then $\mathcal L_{Z_0}g = (\dot g_H-\dot\mu K)_0-h_0$ is
 $O(t_*^{-\min(1+\delta,w-\epsilon')})$ there with first derivatives, and $\delta\mu$ of it vanishes (Lemma 1.4 (a)). By
-Lemma 1.4 (b)-(c) (on a simply connected neighbourhood of the horizon's orbit), $Z_0 = (\zeta\partial_v+rH\partial_r)^\flat
-+c'(\partial_v)^\flat$ with $d\zeta$, $H$, $dH$ integrable in $v$, so $\zeta\to\zeta_\infty$. Since $(\zeta\partial_v)^\flat
-= \zeta(\partial_v)^\flat$ has $\delta = -\partial_v\zeta$ and $(d\,\cdot)_{vr} = \partial_v\zeta+f\partial_r\zeta+\zeta f'$,
-$Q[(\zeta\partial_v)^\flat] = 4\pi^2\mu_0\zeta$ at $r_h$; and $Q[(rH\partial_r)^\flat] = Q[rH\,dv]\to0$. So $Q[Z] =
-Q[Z_0]$ converges, against the growth $2\pi^2\dot\mu v$. $\square$
+Lemma 1.4 (b)-(c) (on a simply connected neighbourhood of the horizon's orbit), $Z_0 =
+(\zeta\partial_v+rH\partial_r)^\flat +c'(\partial_v)^\flat$ with $d\zeta$, $H$, $dH$ integrable in $v$, so
+$\zeta\to\zeta_\infty$. Since $(\zeta\partial_v)^\flat = \zeta(\partial_v)^\flat$ has $\delta = -\partial_v\zeta$ and
+$(d\,\cdot)_{vr} = \partial_v\zeta+f\partial_r\zeta+\zeta f'$, $Q[(\zeta\partial_v)^\flat] = 4\pi^2\mu_0\zeta$ at $r_h$;
+and $Q[(rH\partial_r)^\flat] = Q[rH\,dv]\to0$. So $Q[Z] = Q[Z_0]$ converges, against the growth $2\pi^2\dot\mu v$.
+$\square$
 
 *Remark 2.4 (the coefficient $\frac12$, and supplement Proposition 10.2 (iv)).* Horizon regularity fixes the coefficient:
 if $cvW^*+U$, $U$ stationary and smooth at the horizon, solves $\Box(cvW^*+U) = -\Theta(r^{-2}dv^2)$, applying $\ell$
@@ -299,8 +304,8 @@ horizon-regular one is $W^{**}$ above: the mass change in harmonic gauge grows a
 ### 2.4 What Part III gives: the frequency domain
 
 **Proposition 2.5 (deduced from III.D Propositions 6.1-6.2 and III.D$'$ Lemma 2.1 and Proposition 4.1, Step 1).** Let
-$\hat P(\sigma)$ be the spectral family of the unmodified 1-form wave operator $\Box$ at $b_0$ (III.D$'$'s $\hat P$,
-the parameter $\mathsf p_0$), on III.D$'$'s spaces $\mathcal X_\sigma\to\mathcal Y_\sigma$, $\mathcal X_0\to\mathcal Y_0$.
+$\hat P(\sigma)$ be the spectral family of the unmodified 1-form wave operator $\Box$ at $b_0$ (III.D$'$'s $\hat P$, the
+parameter $\mathsf p_0$), on III.D$'$'s spaces $\mathcal X_\sigma\to\mathcal Y_\sigma$, $\mathcal X_0\to\mathcal Y_0$.
 (i) $\hat P(\sigma)$ is invertible for every $\sigma\ne0$ with $\mathrm{Im}\,\sigma\ge0$ (III.D Proposition 6.2, "mode
 stability of $\Box$ on Tangherlini away from zero", READ at the supplement's proof5/PART-III-D-GAUGEPOT.md section 6).
 (ii) $\hat P(0)$ has index 0, kernel $\mathrm{span}\{W^*\}$, and the annihilator of its range is spanned by $\ell$
@@ -374,9 +379,9 @@ $\mathcal L_{W^*}g$ (Proposition 2.1 (e), Proposition 2.5 (ii)).
   growth $\frac{\dot\mu}2v\,\mathcal L_{W^*}g$ in the harmonic gauge (Theorem 2.3); the horizon-regular gauge-fixed mass
   change $K^*$ is explicit (Proposition 2.1 (d)). Supplement Proposition 10.2 (iv)'s coefficient 1 belongs to a
   representative singular at the horizon (Remark 2.4).
-- (GD4) Part III gives the unmodified 1-form resolvent on the closed upper half plane: invertible off 0, a simple rank-one
-  pole at 0 with range $W^*$ and co-range $\ell$ (Proposition 2.5). It does not give the time-domain decay of $Z'$
-  modulo $W^*$; the obstruction is section 2.5.
+- (GD4) Part III gives the unmodified 1-form resolvent on the closed upper half plane: invertible off 0, a simple
+  rank-one pole at 0 with range $W^*$ and co-range $\ell$ (Proposition 2.5). It does not give the time-domain decay of
+  $Z'$ modulo $W^*$; the obstruction is section 2.5.
 
 *Labels.* Computed: `checks/rwgauge5.py` R1-R5, `checks/hgauge5.py` H1-H4 (exact, with H4's second component also at 40
 digits, R3 (e) by quadrature at 40 digits; every check with a failing control). Deduced: Lemmas 1.2 (d), 1.3 (c),

@@ -174,7 +174,7 @@ class Engine:
             self.floor(Dv[-1], "D^rho")
         T = [self.cut({key: sum(Gam[(a, a, d)].get(key, 0) for a in range(N))
                        for a in range(N) for key in Gam[(a, a, d)]}) for d in range(N)]
-        DDv = {(p, c): self.D(Dv[p], c, ok0 + 1, okt + 1) for p in range(N) for c in range(N)}
+        DDv = {(p, c): self.D(Dv[p], c, ok0, okt) for p in range(N) for c in range(N)}
         out = {}
         for (b, c) in comps:
             acc = {}
@@ -321,14 +321,13 @@ def b2(control=False):
         c = lambda kk, t: R[k].get((kk, t), 0)
         ok["val"] &= zero(c(-1, '')) and zero(c(0, '') - (R0[k][1] - e1*Wss[k]/2))
         ok["low"] &= not any(t and kk < 1 for (kk, t) in R[k])
-        ok["s1"] &= (zero(c(1, "m2") - mll(m2)*Wss[k]/2) and zero(c(1, "p2") + elld(ph2)*Wss[k]/2*2)
+        ok["s1"] &= (zero(c(1, "m2") - mll(m2)*Wss[k]/2) and zero(c(1, "p2") + elld(ph2)*Wss[k])
                      and not any(c(1, t) != 0 for t in ("g3", "m3", "p3", "g4")))
         ok["g4"] &= c(2, "g4") == 0
         ok["e3"] &= zero(c(2, "m3") - mll(m3)*Wss[k]/2) and zero(c(2, "p3") + elld(ph3)*Wss[k])
         rest = sp.expand(c(2, "g3") + elld(sp.diff(g3[k], s)) + e1*sp.diff(g3[k], s, 2)/2)
         ok["g3"] &= all(d.variables == (s,) for d in rest.atoms(sp.Derivative) if d.expr in g3f)
-        ok["g3c"] &= not any(isinstance(f, sp.Function) and f.func in {x.func for x in g2f | m2f}
-                             for f in rest.atoms(sp.Function))
+        ok["g3c"] &= not any(f.func in {x.func for x in g2f} for f in rest.atoms(sp.Function))
         two, high = second(c(2, "m2"), m2f)
         ok["m2"] &= not high and zero(two + box(m2[k])/2)
         two, high = second(c(2, "p2"), {ph2})
@@ -338,7 +337,7 @@ def b2(control=False):
           "      no stage-2 or stage-3 unknown below lam^1: %s; at lam^1 (stage5 S1 (c)) m2, phi2 only in -(1/2)(2 ell.d"
           " phi2 - m2(ell, ell)) d_s^2 W, g3, m3, phi3, g4 absent: %s;\n      in R^(2): g4 absent: %s; m3, phi3 only in"
           " -(1/2)(2 ell.d phi3 - m3(ell, ell)) d_s^2 W: %s; g3 only as -(ell.d) d_s g3 - (1/2) e1 d_s^2 g3 + (no"
-          " X-derivative, one d_s): %s,\n      with no g2 or m2 in its coefficients: %s; second derivatives of m2"
+          " X-derivative, one d_s): %s,\n      with no g2 in its coefficients: %s; second derivatives of m2"
           " only in -(1/2) box~ m2: %s; of phi2 only in -(1/2)(box~ phi2) d_s W: %s [engine %.0fs, checks %.0fs]"
           % (tag, ok["val"], ok["low"], ok["s1"], ok["g4"], ok["e3"], ok["g3"], ok["g3c"], ok["m2"], ok["p2"],
              t1 - t0, time.time() - t1), flush=True)

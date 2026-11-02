@@ -25,3 +25,9 @@ R3 PASS
   R4 (e) Y1 = -r H dv (vector -r H d_r) has L_Y1 g angular part -2 r^2 H gamma: True
   R4 (f) H = 0: d omega in span DRic: True; L_{zeta d_v} g = h0 - (dmu/r^2) dv^2 when d zeta = omega: True (L_{zeta d_v} g computed: True)
   R4 (g) L_Z g = 0 for spherically symmetric Z forces Z^r = 0 (angular), d_r Z^v = 0, d_v Z^v = 0: True
+  R4 (h) DRic(L_Y g) = 0 for spherically symmetric Y: True
+  R4 controls: dmu without 2 mu H gauge invariant: False; omega without f C/2 closed mod DRic: False; DRic(dv^2/r^3) = 0: False
+R4 PASS
+  R5: Y = (1+v)^-3/2 d_v: v^(q+1) L_Y g -> [3*(r**2 - s**2)/r**2, -3/2, -3/2, 0] (finite, not all 0: True); v^q Y -> 1
+  R5 control: Y = O(v^-(q+1)) like L_Y g: False
+R5 PASS
