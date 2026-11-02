@@ -2,3 +2,6 @@
 P1 PASS
   P2 homogeneous solutions of T: r^(3/2)|h|_cart -> its free constant in rr, vr, vv, rth, vth, AB: [True, True, True, True, True, True]
 P2 PASS
+  P3 D_X H2inf = i A E d (r^-5/2 beta_inf, r^-7/2): True, True; R_X(H2inf) vv = 0: True, trace 0: True; H3 scalar sector: vv = -(mu0^2/9) A E d r^(-15/2): True; T(H3) + R_X(H2inf) = 0 in vv, vr, rr: [True, True, True], trace: True; i Pol(H3) + D_X H2inf = 0 in v, r: [True, True]; decays: True {(0, 0): '-6', (0, 1): '-4', (1, 1): '-2'}; H3_vv(sqrt mu0)/(A E d) = -1/(9*mu0**(7/4)), = -mu0^(-7/4)/9: True  [69 s]
+P3 PASS
+layerpast5: all checks pass, every control fails  [69 s]
