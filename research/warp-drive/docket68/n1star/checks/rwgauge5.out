@@ -17,3 +17,11 @@ R2 PASS
   R3 (f) (1+k^2)^2/((2/3)k^2(k^2-3)) has derivative -3*(x + 1)*(5*x - 3)/(2*x**2*(x - 3)**2), negative for k^2 >= 8 (coefficients of -num(x+8) and den(x+8) >= 0: True); sup at l = 2: 243/80; (1+k^2)/k^2 decreasing, sup 9/8 at l = 2
   R3 (b) control D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 2) tau: False
 R3 PASS
+  R4 (a) dmu[h0] = 2 mu H + r^2 (A + 2fB + f^2 C) - 2 r^2 (d_v + f d_r)(r H), m(g) = mu: True
+  R4 (b) dmu[L_Y g] = 0: True
+  R4 (c) d_v dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [2*r**3/3, 2*r*(r - s)*(r + s)/3, 0, 0]
+  R4 (c) d_r dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [0, 0, r*(r - s)*(r + s)/3, r]
+  R4 (d) dmu[dv^2/r^2] = 1, DRic(dv^2/r^2) = 0: True
+  R4 (e) Y1 = -r H dv (vector -r H d_r) has L_Y1 g angular part -2 r^2 H gamma: True
+  R4 (f) H = 0: d omega in span DRic: True; L_{zeta d_v} g = h0 - (dmu/r^2) dv^2 when d zeta = omega: True (L_{zeta d_v} g computed: True)
+  R4 (g) L_Z g = 0 for spherically symmetric Z forces Z^r = 0 (angular), d_r Z^v = 0, d_v Z^v = 0: True

@@ -270,7 +270,8 @@ the horizon (the case $\partial_v = 0$ of (2.1)) and spans the annihilator of th
 **Theorem 2.3 (deduced from Part VIII, Theorem 1.5, Lemmas 1.4 and 2.2).** Let $\dot g_H = \dot g+\mathcal L_Zg$ be a
 harmonic-gauge solution of Proposition 2.1 ($Z = X_{\mathrm{RW}}+\dot\mu W^{**}_H+Z'$, $G$-invariant). Then on the
 horizon, for $v\ge v_0$ ($t_*\ge T'$),
-$$Q[Z](v) = Q[Z](v_0)+2\pi^2\dot\mu\,(v-v_0)-\int_{v_0}^v\ell(\Theta(h))\,dv',\qquad|\ell(\Theta(h))|\le Cv^{-w+\epsilon'},$$
+$$Q[Z](v) = Q[Z](v_0)+2\pi^2\dot\mu\,(v-v_0)-\int_{v_0}^v\ell(\Theta(h))\,dv'\ ,$$
+$$|\ell(\Theta(h))|\le Cv^{-w+\epsilon'},$$
 and $Q[Z-\dot\mu W^{**}_H](v)$ converges as $v\to\infty$. Consequently, if $\dot\mu\ne0$, no harmonic-gauge solution
 settles to $\dot\mu K$ near the horizon at any integrable rate: there are no $\delta,\epsilon>0$ for which $(\dot
 g_H-\dot\mu K)_0$ and its first derivatives are $O(t_*^{-1-\delta})$ on $\{|r-r_h|\le\epsilon\}$.
@@ -307,7 +308,8 @@ stability of $\Box$ on Tangherlini away from zero", READ at the supplement's pro
 (iii) Near $\sigma = 0$, with the augmented operator $\mathcal P_0(\sigma)$ of III.D$'$ Proposition 4.1, Step 1
 (invertible for $|\sigma|\le c_0$, $\mathrm{Im}\,\sigma\ge0$, with a uniform bound) and $(u_\sigma,c_\sigma) :=
 \mathcal P_0(\sigma)^{-1}(0,1)$, $(w_\sigma,d_\sigma) := \mathcal P_0(\sigma)^{-1}(f,0)$:
-$$\hat P(\sigma)^{-1}f = w_\sigma-\frac{d_\sigma}{c_\sigma}u_\sigma,\qquad c_\sigma\ell(\psi) = 4\pi^2i\sigma+o(|\sigma|),
+$$\hat P(\sigma)^{-1}f = w_\sigma-\frac{d_\sigma}{c_\sigma}u_\sigma\ ,$$
+$$c_\sigma\ell(\psi) = 4\pi^2i\sigma+o(|\sigma|),
 \quad u_\sigma\to W^*,\quad d_\sigma\ell(\psi)\to\ell(f),$$
 the first two from III.D$'$ ((4.1) at $\gamma = 0$, with $\ell(TW^*) = -i\ell([\Box,t_*]W^*) = -4\pi^2i$), the third from
 its Claim, and the fourth by applying $\ell$ to $\hat P(\sigma)w_\sigma+d_\sigma\psi = f$ and using $\ell\circ\hat P(0) =
