@@ -348,8 +348,8 @@ v-band over kept cells at least Nu/40 rows from the cut.
     below 25 times its value on the first cone (e^{2W} = 1/2 there), the growth Tangherlini's own interior shows
     toward the cut.
   - The failure is therefore not a breakdown of the double-null gauge visible in its own functions.
-- **L4, the angular resolution.** At 800 × 360, M = 24 against M = 16, max |ρ| on [1.65, 1.8), [1.8, 1.9) and [1.9, 1.975)
-  is 1.84, 8.4 and 13.5 against 3.19, 14.9 and 55. It is smaller at the finer angular grid, but stays of the order of
+- **L4, the angular resolution.** At 800 × 360, M = 24 against M = 16, max |ρ| on [1.65, 1.8), [1.8, 1.9) and
+  [1.9, 1.975) is 1.84, 8.4 and 13.5 against 3.19, 14.9 and 55. It is smaller at the finer angular grid, but stays of the order of
   the terms. The maximum on [1.65, 1.8) is at u = −0.978, x ≈ −0.85, areal radius at the node 0.80, v = 1.79, at both M:
   inside the seed's horizon generator, toward the axis x = −1 where the record's angular failure begins (D351–D418).
 - **What this classifies.** From v ≈ 1.65 (M = 16; M = 24–40 move the angular onset to 1.65–1.93, CERTIFY-10L5.md

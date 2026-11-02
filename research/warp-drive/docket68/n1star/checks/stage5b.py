@@ -27,19 +27,24 @@ lead5 (R^(-1) = 0, R^(0) = lead5's R^(0)[W] - (1/2) e1 d_s^2 W, stage5 S1 (b)) a
      -(ell.d) d_s g3 - (1/2) e1 d_s^2 g3 plus terms with no X-derivative of g3 and at most one d_s (Lemma 5.2), with
      no g2 in its coefficients; second derivatives of m2 only as -(1/2) box~ m2, none higher; second derivatives of
      phi2 only as -(1/2)(box~ phi2) d_s W, none higher. Control: the non-null phase u = v + r/3 + ..., as stage5 S1.
-  B3 (exact; (c)) m1 from past null infinity. (i) The linearisation of Ric^H at g0 (the wave operator -1/2 box~ +
-     lower order of m1's equation) on the T^2-invariant scalar-type sector of a harmonic Y_k = P_k(cos 2th) of S^3
-     (eigenvalue -4k(k+1)): m = Y (f_vv dv^2 + 2 f_vr dv dr + f_rr dr^2) + 2 Y' (f_v dv + f_r dr) dth
-     + r^2 (H_L Y gamma + H_T nabla nabla Y), seven functions of (v, r). Computed with Y abstract (Y'' from the
-     harmonic equation, k symbolic): the sector is closed, the 1+1 system is printed by its size. sigma^* = (-1)^k on
-     the sector (k = 1, 2, 3 with P_k). (ii) S3's source, -4 A^2 E^2 h^2 sin 2th / (9 r^3) dv dth with h(cos^2 2th),
-     is d_th Z dv dth with Z odd in x = cos 2th, so it lies in the odd-k sectors only: for constant h, k = 1 alone
-     (sin 2th = -(1/2) d_th P_1), for the record's H every odd k (the Legendre coefficients k <= 7 computed, the even
-     ones zero). (iii) An exact solution of the reduced 1+1 system with the k = 1 source (constant h) is sought as a
-     Laurent polynomial in r with coefficients functions of v; what is found is printed. (iv) The whole m1-linear part
-     of <R^(1)[g0 + lam (W + m1)]> (stage5's W, chi with no radiation at past null infinity, S3), coefficients of every
-     derivative of the generic m1: sigma-equivariant, coefficient by coefficient. Controls: the k = 2 sector (even)
-     and, for (iv), one quadrature (the sin s term of W_TT removed), which must break the equivariance.
+  B3 (exact; (c)) m1 from past null infinity, on the equation of S2/S3: L0 m1 = -S, L0 the linearisation of Ric^H
+     at g0 (-1/2 box~ + lower order), S S3's source. (i) L0 on the T^2-invariant scalar-type sector of a harmonic Y of
+     S^3, Y'' = -2 cot 2th Y' - kappa2 Y (kappa2 = 4k(k+1), k symbolic): m = Y (f_vv dv^2 + 2 f_vr dv dr + f_rr dr^2)
+     + 2 Y' (f_v dv + f_r dr) dth + r^2 (H_L Y gamma + H_T nabla nabla Y), seven functions of (v, r). The sector is
+     closed (every component a th-free multiple of its harmonic tensor): a 1+1 system of seven equations.
+     sigma^* = (-1)^k on the sector, computed with Y = P_k(cos 2th), k = 1, 2, 3. (ii) S3's source,
+     -4 A^2 E^2 h^2 sin 2th/(9 r^3) dv dth, h(cos^2 2th) generic, is (4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth with
+     Z odd for every h, so it lies in the odd-k sectors only: k = 1 alone for constant h; every odd k for the
+     record's H (Z = -atan x; Legendre coefficients k <= 7 computed, the even ones 0). (iii) k = 1, constant h: the
+     solution with no radiation at past null infinity, as a series in integer powers of 1/r with coefficients of v,
+     solved order by order through j = 5: each order is a linear transport in v whose factors are half-odd, never
+     the radiation weight r^(-3/2), so with zero data before the shell every coefficient is fixed; the leading term
+     is printed. That is a formal solution: its convergence, and that it is the solution, rest on uniqueness
+     (supplement Lemma 9.1(f)), deduced. Every member of the k = 1 sector is sigma-odd, exactly. (iv) The whole
+     m1-linear part of <R^(1)[g0 + lam (W + m1)]> (W with chi of S3, so the W-dependent coefficients of Lemma 5.3(a)
+     included), m1 generic in the eight components: sigma-equivariant, coefficient by coefficient of every derivative
+     of m1. Not computed: the couplings of m1's equation to <Th g2> and <Wm_phi(d phi1)>. Controls: the k = 2 sector
+     must not be sigma-odd; for (iv), one quadrature (the sin s term of W_TT removed) must break the equivariance.
 
 Labels: computed (exact, sympy). Run: python3 checks/stage5b.py [B1 B2 B3]   (the record's .out is a full run)
 """

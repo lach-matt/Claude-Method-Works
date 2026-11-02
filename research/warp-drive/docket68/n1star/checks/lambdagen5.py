@@ -68,21 +68,9 @@ def say(s):
         print(textwrap.fill(line, 121, subsequent_indent='      ', break_long_words=False, break_on_hyphens=False))
 
 
-def to_fr_interval(x):
-    """an iv interval as a pair of Fractions (exact endpoints)"""
-    lo = mpmath.mpf(x._mpi_[0])
-    hi = mpmath.mpf(x._mpi_[1])
-    return Fr(*lo.as_integer_ratio()) if hasattr(lo, 'as_integer_ratio') else Fr(str(lo)), \
-        Fr(*hi.as_integer_ratio()) if hasattr(hi, 'as_integer_ratio') else Fr(str(hi))
-
-
 def mpf_fr(x):
     m, e = mpmath.mpf(x).man_exp
     return Fr(int(m)) * Fr(2) ** int(e)
-
-
-def ivfr(x):
-    return mpf_fr(x._mpi_[0] and mpmath.mpf(x._mpi_[0])), mpf_fr(mpmath.mpf(x._mpi_[1]))
 
 
 def sl_offsets_iv(l):
@@ -106,25 +94,33 @@ def frpair(x):
     return mpf_fr(lo), mpf_fr(hi)
 
 
-def ecol_bases(shift_min=-5):
-    """L3: the candidate bases e - 1 + j (>= 2, < 3 + 1/10) from E_ind's computed exponents e, which enter F through
-    the classes 2 + E_ind (j >= 0 with e + 2 + sigma >= 0, sigma >= shift_min); returned as (name, lo, hi)"""
+def ecol_bases(shift_min=-5, tower=True):
+    """L3: the candidate bases 2 + (an exponent of F of real part >= 0) that are not chains of 2 or 3, from E_ind's
+    computed exponents e (and e + N_0, E_ind being an index set). F's exponents are e_w + sigma, sigma >= shift_min,
+    e_w in 2 + E_ind or 3 + E_ind, or in E_ind itself for the tower (tower=True, the widest reading: the record says
+    only that E_ind contains the tower's index sets). Returned as (name, lo, hi) for the bases below 3 + 1/10."""
     out = []
     d0 = frpair(d0_iv())
+    d1lo, d1hi = DW.d1_interval()
     exps = [('1 + d0', (1 + d0[0], 1 + d0[1]))]
-    for l in range(1, 8):
+    for l in range(1, 9):
         dl, dpl = sl_offsets_iv(l)
-        exps.append(('(l-1) + delta_%d' % l, tuple(l - 1 + x for x in frpair(dl))))
+        dl_fr = frpair(dl)
+        if l == 1:
+            # delta_1 is d1 itself (the s1 root through 2): its base 2 + d1 is in the chain of 2
+            assert abs(dl_fr[0] - d1lo) < Fr(1, 10 ** 50) and abs(dl_fr[1] - d1hi) < Fr(1, 10 ** 50)
+        else:
+            exps.append(('(l-1) + delta_%d' % l, tuple(l - 1 + x for x in dl_fr)))
         exps.append(('l + delta\'_%d' % l, tuple(l + x for x in frpair(dpl))))
+    lift = 0 if tower else 2
     for name, (lo, hi) in exps:
-        # exponents of F: 2 + e + sigma, sigma >= shift_min, kept at real part >= 0; base = 2 + that
-        n_int = int(lo)                                       # integer part of e (lo and hi share it here)
+        n_int = int(lo)
         assert int(hi) == n_int
         frac = (lo - n_int, hi - n_int)
-        least_exp_int = max(0, 2 + n_int + shift_min)         # the least integer part an F-exponent can keep
-        base_int = 2 + least_exp_int
-        for bi in range(max(base_int, 2), 4):
-            out.append((name, bi + frac[0], bi + frac[1]))
+        least_exp_int = max(0, lift + n_int + shift_min)
+        for bi in range(2 + least_exp_int, 4):
+            if bi + frac[1] < 3 + Fr(1, 10):
+                out.append((name, bi + frac[0], bi + frac[1]))
     return out
 
 
@@ -141,12 +137,15 @@ def main():
     say('  L2: G = (2, 0) u (2 + E_ind) lies in the chain of 2: no base added')
 
     bases = ecol_bases()
-    new = [b for b in bases if b[2] < 3 + Fr(1, 10)]
+    narrow = ecol_bases(tower=False)
+    new = bases
     w = DW.weights(Fr(19, 10 ** 9), Fr(189, 10 ** 10), Fr(188, 10 ** 10), Fr(1, 10 ** 12))
     wlo, whi = 2 + w['eta1'], 3 + w['eta2']
     in_w = [b for b in new if b[1] < whi]
-    say('  L3: candidate bases from E_col with the record\'s computed roots (certified intervals): %s' % '; '.join(
-        '%s -> %.10f' % (n, float(lo)) for n, lo, hi in in_w))
+    say('  L3: candidate bases from E_col with the record\'s computed roots (certified intervals), widest reading '
+        '(the tower\'s exponents unshifted): %s' % '; '.join('%s -> %.10f' % (n, float(lo)) for n, lo, hi in in_w))
+    say('      reading the tower as 2 + E_ind (shifted like the other w_m): %d bases in W\'s range, %s' % (
+        len([b for b in narrow if b[1] < whi]), sorted({n for n, lo, hi in narrow if lo < whi})))
 
     # L4: (G) over these bases' chains: least value above 2 or 3 (increments d1 and 1), certified on intervals
     best = None
@@ -223,8 +222,8 @@ def main():
     ok['N1'] = 0 < v_ < Fr(2, 10 ** 8) and v_ < DELTA50
     say('  N1 (control): a planted base 3 - 2,900,000 d1 + 1e-8 reaches 3 + %.3e < delta_50: the search catches a '
         'binding base' % float(v_))
-    b4 = {n for n, lo, hi in ecol_bases(-4) if hi < 3 + Fr(1, 10)}
-    b5 = {n for n, lo, hi in ecol_bases(-5) if hi < 3 + Fr(1, 10)}
+    b4 = {(n, int(lo)) for n, lo, hi in ecol_bases(-4)}
+    b5 = {(n, int(lo)) for n, lo, hi in ecol_bases(-5)}
     ok['N2'] = b4 != b5
     say('  N2 (control): shift bound -4 in place of -5 drops %s' % sorted(b5 - b4))
     double = sum(DW.chain_points(g, d1lo, d1hi, wlo, whi) for g in list(starts) + [g for g in ec if g < whi])

@@ -9,10 +9,10 @@ non-round) families is **open**, with the obstruction stated. Part III: the lite
 T²-class reduction of the Vlasov passage to Part I is **deduced** with its identities computed; the non-round case is
 **open** and stops at Part II's obstruction. Nothing in FAMILIES5.md, the paper or the log is changed.
 
-Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that the program
-must reject), **deduced** (argued here, a standard step named as such), **READ** (verbatim, identifier and page, read at
-source through alphaXiv, 2026-11-02). New programs: `checks/twobg5.py`, `checks/twoslice5.py`, `checks/nonres5.py`,
-`checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`, each with its `.out`.
+Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that the
+program must reject), **deduced** (argued here, a standard step named as such), **READ** (verbatim, identifier and page,
+read at source through alphaXiv, 2026-11-02). New programs: `checks/twobg5.py`, `checks/twoslice5.py`,
+`checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`, each with its `.out`.
 
 ---
 
@@ -66,10 +66,10 @@ e^(−2s) R_u R_v) the Misner–Sharp mass; v̂ the ingoing coordinate with ψ =
 g0 = −e^(2ψ) f dv̂² + 2 e^ψ dv̂ dR + R² dΩ₃², f = 1 − μ/R² (twodomain5 D1).
 
 **Proposition B.** (a) *Structure (computed: twobg5 G1 (a)-(b), G2 (i)).* μ_u = −(2/3) ℬ e^(−2s) R_v and μ_v = −(2/3) 𝒜
-e^(−2s) R_u; ψ_u = ℬ/(3R² R_u), and the mirror ψ̃_v = 𝒜/(3R² R_v). So where ℬ = 0 the background is ingoing Vaidya in (v̂,
-R) after reparametrising v̂, and where 𝒜 = 0 (and R_v ≠ 0) outgoing Vaidya: the only region where it is not explicit
-Vaidya is the compact crossing diamond Q× = [u1, u2] × [v_start, v_end]. In the example the departures from Vaidya off
-Q× fall with resolution (1.8 × 10⁻⁵, 5.2 × 10⁻³, 5.2 × 10⁻³, 2.2 × 10⁻⁴ at n = 160 in the four regions, each falling with
+e^(−2s) R_u; ψ_u = ℬ/(3R² R_u), and the mirror ψ̃_v = 𝒜/(3R² R_v). So where ℬ = 0 the background is ingoing Vaidya in
+(v̂, R) after reparametrising v̂, and where 𝒜 = 0 (and R_v ≠ 0) outgoing Vaidya: the only region where it is not explicit
+Vaidya is the compact crossing diamond Q× = [u1, u2] × [v_start, v_end]. In the example the departures from Vaidya off Q×
+fall with resolution (1.8 × 10⁻⁵, 5.2 × 10⁻³, 5.2 × 10⁻³, 2.2 × 10⁻⁴ at n = 160 in the four regions, each falling with
 n).
 
 (b) *The mass bound μ ≥ μ0 on the whole development (deduced; computed G1 (c), G2 (ii)).* μ_uv = (2/9) 𝒜ℬ e^(−2s)/R² ≥ 0
@@ -81,12 +81,12 @@ bound fails.) This is where the choice of data matters: FAMILIES5.md 4i (D546-D5
 of fixed mass, which lowers the interior mass and can untrap R = a; with the packet inside the shell and outside the seed
 the interior mass is the seed's and the outgoing dust can only add to it.
 
-(c) *R_u < 0, the inner sphere and past-closedness (deduced; computed G2 (iii)-(iv)).* (e^(−2s) R_u)_u = −e^(−2s)ℬ/(3R²) ≤
-0 and R_u < 0 on the data, so R_u < 0 everywhere (twodomain5 D1). With a < q0 = r_q(μ0) ≤ √μ0 (the record's seed
+(c) *R_u < 0, the inner sphere and past-closedness (deduced; computed G2 (iii)-(iv)).* (e^(−2s) R_u)_u = −e^(−2s)ℬ/(3R²)
+≤ 0 and R_u < 0 on the data, so R_u < 0 everywhere (twodomain5 D1). With a < q0 = r_q(μ0) ≤ √μ0 (the record's seed
 condition), μ ≥ μ0 > a² makes {R = a} trapped and spacelike, with Ω₂ to its past (g0⁻¹(dR, dR) = 1 − μ/a² < 0; twodomain5
 D2's (b) now holds **unconditionally**). Past-closedness: if R(p) ≥ a then R ≥ min(R(p), √μ0) ≥ a on J⁻(p). *Proof.* For
-q = (u_q, v_q) ≤ p, R(q) ≥ R(u_p, v_q) by R_u < 0. If R(u_p, v′) < min(R(p), √μ0) for some v′ < v_p, then there R² < μ0
-≤ μ, so R_v < 0 (trapped, as R_u < 0); let v″ be the supremum of the v ∈ [v′, v_p] up to which this persists: R decreases
+q = (u_q, v_q) ≤ p, R(q) ≥ R(u_p, v_q) by R_u < 0. If R(u_p, v′) < min(R(p), √μ0) for some v′ < v_p, then there R² < μ0 ≤
+μ, so R_v < 0 (trapped, as R_u < 0); let v″ be the supremum of the v ∈ [v′, v_p] up to which this persists: R decreases
 on [v′, v″], so R(u_p, v″) < min(R(p), √μ0), and continuity forces v″ = v_p, contradicting R(p) ≥ min(R(p), √μ0). ∎ (On
 the grid the margin is 0 at every n; R = a is crossed in every resolved column and trapped there with μ − a² ≥ 0.332; the
 mass of region III, read on u = u2 + 0.1, is ≥ μ0 − 10⁻⁴ at n = 160.)
@@ -132,9 +132,9 @@ inward there; (b) is then not the bound used, and is not examined).
 
 ## 3. The phases
 
-The ingoing phase is v̂ (the record's v in region I: v̂ = τ0 + R on Σ_τ0) and the outgoing phase is the background's other
-double-null coordinate u, with any λ-independent normalisation (on N′ by its affine parameter, or on Σ_τ0 by u = τ0 −
-R). Both are **exact eikonals of g0** (double-null coordinates); this is the **dynamic outgoing null phase** that
+The ingoing phase is v̂ (the record's v in region I: v̂ = τ0 + R on Σ_τ0) and the outgoing phase is the background's
+other double-null coordinate u, with any λ-independent normalisation (on N′ by its affine parameter, or on Σ_τ0 by u = τ0
+− R). Both are **exact eikonals of g0** (double-null coordinates); this is the **dynamic outgoing null phase** that
 data5two.py could not hold (its code fixed ∂_τ(∂_τ u) = 0 on Σ). The ingoing generator ℓ_in = g0⁻¹ dv̂ = e^(−ψ) ∂_R|_(v̂)
 satisfies ℓ_in = −e^(−ψ) L0 with L0 = ∂_τ − x̂·∂_x **the record's operator** (deduced from the chart, τ = v̂ − R;
 twotransport5 T2: radial speed −1). The outgoing generator has radial speed c_out = y/(1 − y), y = e^ψ f/2 ∈ (−∞, 1/2],
@@ -151,14 +151,14 @@ The interaction terms and non-resonance, as computed:
 - *Stage 0* (FAMILIES5.md 4b, `stage0two5.py`): R^(−1) = 0; the mean of R^(0) is the two-dust equation with no cross
   term; the mixed harmonics (n1, n2), n1 n2 ≠ 0, of R^(0) are present and are removed by λ² ĝ_2^mix by division (T4).
 - *Every order* (`nonres5.py` N1-N2, computed): a term λ^j q e^(i(n1 s1 + n2 s2)) E first meets the reduced operator at
-  order j − 2, through −½ g^ab ∂_a ∂_b only, with symbol −e^(−2σ) f′h′ n1 n2 (phases f(v), h(u)): zero exactly on the pure
-  harmonics, which are transported along their own generator, and |sym| ≥ e^(−2σ) |f′h′| on **every** mixed harmonic.
-  So there are no small divisors and the division loses no derivative: this is the whole of Touati's strong coherence
-  condition (READ below, [Tou24] (1.18), p. 9) for all mixed phases at once, because in the (u, v) plane the null cone is
-  two lines. The corrected phases and the mean change the symbol by λ times a quadratic form in (n1, n2) (N2); at stage
-  m only |n1| + |n2| ≤ m + 2 occur (Lemma 5.1's weight count), so the change is moved to the next order, as the record's
-  e_j is. Control: two ingoing phases have symbol 0 on every harmonic (resonant), and commensurate ones a zero-frequency
-  combination.
+  order j − 2, through −½ g^ab ∂_a ∂_b only, with symbol −e^(−2σ) f′h′ n1 n2 (phases f(v), h(u)): zero exactly on the
+  pure harmonics, which are transported along their own generator, and |sym| ≥ e^(−2σ) |f′h′| on **every** mixed
+  harmonic. So there are no small divisors and the division loses no derivative: this is the whole of Touati's strong
+  coherence condition (READ below, [Tou24] (1.18), p. 9) for all mixed phases at once, because in the (u, v) plane the
+  null cone is two lines. The corrected phases and the mean change the symbol by λ times a quadratic form in (n1, n2)
+  (N2); at stage m only |n1| + |n2| ≤ m + 2 occur (Lemma 5.1's weight count), so the change is moved to the next order,
+  as the record's e_j is. Control: two ingoing phases have symbol 0 on every harmonic (resonant), and commensurate ones a
+  zero-frequency combination.
 - *The constant on Ω₂* (computed, twobg5 G2 (vii)): |g0⁻¹(dv̂, du)| is positive on every computed cell, ≥ 0.147 off the
   trapped region, and on R = a equals 0.892, 0.446, 0.240 at v = 0.5, 1, 1.5 (converged to 1 %): it halves with each 0.5
   in v. So the non-resonance constant is a positive constant on the compact Ω₂ that **degenerates exponentially with the
@@ -210,8 +210,8 @@ domain, the transports and the mollifier in place):
   A(τ) = {a ≤ |x| ≤ b(τ)} in the chart (τ, x = R x̂), which is global on Ω₂ since R_u < 0; Step 8 needs smooth bounded
   coefficients and spacelike slices.
 - *Steps 4-7*: every new term is a bounded two-phase profile times a quantity N₂ controls at the same scaled order; the
-  nonlinear terms are at most C λ⁻⁵ N₂²; so N₂ ≤ C₃((C_D + 1 + C_R) λ^K + C M² λ^(K+1)) and the bootstrap closes at N₂ ≤ M
-  λ^K with M := C₃(C_D + 1 + C_R) + 1, the smallness a power of λ, never of the data.
+  nonlinear terms are at most C λ⁻⁵ N₂²; so N₂ ≤ C₃((C_D + 1 + C_R) λ^K + C M² λ^(K+1)) and the bootstrap closes at N₂ ≤
+  M λ^K with M := C₃(C_D + 1 + C_R) + 1, the smallness a power of λ, never of the data.
 
 ## 6. The data on Σ_τ0 (Theorem D₂)
 
@@ -255,18 +255,17 @@ The record's proof (N1STAR-PROOF.md section 6) carries over with:
 
 ## 7. Part I: what is proved, and what is not
 
-| Item | Status | Where |
-|---|---|---|
-| Background on Ω₂, outgoing data stated | deduced; identities computed; example computed | §2, twobg5, twoext5 X1-X2 |
-| μ ≥ μ0, R = a trapped, past-closed | deduced; computed (G2) with a failing control | §2 (b)-(c) |
-| Regularity step of D558 | deduced (written) | §2 (d) |
-| Constraints on the slice | deduced; S1 symbolic, S2-S4 exact at random points | §6, twoslice5 |
-| Dynamic outgoing null phase | settled: exact eikonal, and not used by the data (S4) | §3, §6 |
-| Approximant every order, interactions, non-resonance | deduced; symbol computed; constant computed on Ω₂ | §4, nonres5, twobg5 |
-| Energy estimate, bootstrap | deduced, at the level of the record's section 4 with the changes listed | §5 |
-| Transport on Ω₂ for both generators | computed | twotransport5 |
-| Theorem 1₂ items 1-5 | **deduced, not independently verified** | §1 |
-| Theorem 1 items 6-7 (horizon, mean mass) for two families | **not claimed** | — |
+- Background on Ω₂, outgoing data stated: deduced; identities computed; example computed (§2, twobg5, twoext5 X1-X2).
+- μ ≥ μ0, R = a trapped, past-closed: deduced; computed (G2) with a failing control (§2 (b)-(c)).
+- Regularity step of D558: deduced (written) (§2 (d)).
+- Constraints on the slice: deduced; S1 symbolic, S2-S4 exact at random points (§6, twoslice5).
+- Dynamic outgoing null phase: settled: exact eikonal, and not used by the data (S4) (§3, §6).
+- Approximant every order, interactions, non-resonance: deduced; symbol computed; constant computed on Ω₂ (§4, nonres5,
+  twobg5).
+- Energy estimate, bootstrap: deduced, at the level of the record's section 4 with the changes listed (§5).
+- Transport on Ω₂ for both generators: computed (twotransport5).
+- Theorem 1₂ items 1-5: **deduced, not independently verified** (§1).
+- Theorem 1 items 6-7 (horizon, mean mass) for two families: **not claimed**.
 
 Item 6 would need the outgoing wave's O(1) oscillating contribution to ∂_R θ⁺ along the columns (the phase u is not
 constant along a column) to stay below 3/μ near the horizon; it holds where the outgoing packet stays away from √μ(v)
@@ -282,17 +281,17 @@ T²-invariant function F(τ, ρ1², ρ2²) on R × R⁴; its rays project to the
 edges. At every axis point the spatial gradient of such a function is along x̂ (A1, on both axes), so a null invariant
 phase has, there, the gradient dv or the outgoing radial covector. Non-radial invariant null phases exist: on Minkowski,
 w = τ + f, f the distance to the T²-orbit of an ellipse (α ≠ β) in the orbit plane, is an exact eikonal, even in ρ1 and
-ρ2, with rays radial **exactly at the axes** and tilted between them (A2). Control: τ − x3 (not invariant) leaves span(dτ,
-dr) at an axis point.
+ρ2, with rays radial **exactly at the axes** and tilted between them (A2). Control: τ − x3 (not invariant) leaves
+span(dτ, dr) at an axis point.
 
 **Angular separation (computed, A2; deduced).** Two families both ingoing (or both outgoing) at an axis point have
 parallel gradients there. For v = τ + r and w above, g0⁻¹(dv, dw) = −1 + cos β, and near the axis g0⁻¹(dv, dw)/(β²/2) →
-−1 with β/θ → 5/31, β the angle between the two rays: the mixed symbol −n1 n2 g0⁻¹(dv, dw) **vanishes like θ²** at the axes (a small
-divisor of the division of section 4; semi-axes 1/2, 1/3), and Huneau and Luk's angular separation (READ below,
-[HL18] Definition 4.1, p. 10) fails there, its cosine tending to 1. The radial in/out pair has g0⁻¹(dv, du) = −2 everywhere (separated). Hence:
-**with envelopes that do not vanish at the axes, at most two families can be angularly separated in the class, one
-ingoing and one outgoing at each axis** — Part I. Several radial families of one orientation are resonant (nonres5
-control): they are one family with a multi-frequency profile, not separated families.
+−1 with β/θ → 5/31, β the angle between the two rays: the mixed symbol −n1 n2 g0⁻¹(dv, dw) **vanishes like θ²** at the
+axes (a small divisor of the division of section 4; semi-axes 1/2, 1/3), and Huneau and Luk's angular separation (READ
+below, [HL18] Definition 4.1, p. 10) fails there, its cosine tending to 1. The radial in/out pair has g0⁻¹(dv, du) = −2
+everywhere (separated). Hence: **with envelopes that do not vanish at the axes, at most two families can be angularly
+separated in the class, one ingoing and one outgoing at each axis** — Part I. Several radial families of one orientation
+are resonant (nonres5 control): they are one family with a multi-frequency profile, not separated families.
 
 **More families, with envelopes vanishing near the axes.** Separation then needs only hold on the overlaps of supports,
 and any finite number of separated families is possible (e.g. non-radial phases of different ellipses, supported away
@@ -301,17 +300,17 @@ none), so **the background is not round**: the structure of section 2 (Vaidya of
 background is a T²-invariant, non-SO(4)-invariant Einstein–null dust solution, a 2+1 problem on the orbit space with
 the axes as boundary.
 
-**The exact obstruction: the background (open).** No existence theorem for that background on a domain like Ω₂,
-without smallness, is available here. What is known is small-data and four-dimensional: Huneau and Luk's background is
-their small-data local solution in an elliptic gauge, "smallness is required even for local existence of smooth
-solution" (READ, [HL24] p. 28, quoted in the record), and Touati assumes the background "close to Minkowski" and does
-not construct it (READ, [Tou24] (1.15) p. 8, and Remark 1.3 p. 11: "In this article, we don't prove that such a
-background spacetime (M, g0, uA, FA) can be constructed, this follows from [CBF06] adapted to the null dusts case."). The step that fails without these is the null dust's own regularity: the dust's density is
-transported by □_g u_A, one derivative below g, and coupled back into Einstein it loses a derivative (FAMILIES5.md 4i,
-`dustloss5.py`, in the characteristic setting); Huneau and Luk recover it in their Vlasov paper through the Raychaudhuri
-equation for the null expansions (READ, [HL25] p. 5: "we use the Raychaudhuri equation that χ_A satisfies"), again for
-small data. In Part I this never arises: with round radial dusts the background is 1+1 and the dust densities are
-functions of one null coordinate.
+**The exact obstruction: the background (open).** No existence theorem for that background on a domain like Ω₂, without
+smallness, is available here. What is known is small-data and four-dimensional: Huneau and Luk's background is their
+small-data local solution in an elliptic gauge, "smallness is required even for local existence of smooth solution"
+(READ, [HL24] p. 28, quoted in the record), and Touati assumes the background "close to Minkowski" and does not construct
+it (READ, [Tou24] (1.15) p. 8, and Remark 1.3 p. 11: "In this article, we don't prove that such a background spacetime
+(M, g0, uA, FA) can be constructed, this follows from [CBF06] adapted to the null dusts case."). The step that fails
+without these is the null dust's own regularity: the dust's density is transported by □_g u_A, one derivative below g,
+and coupled back into Einstein it loses a derivative (FAMILIES5.md 4i, `dustloss5.py`, in the characteristic setting);
+Huneau and Luk recover it in their Vlasov paper through the Raychaudhuri equation for the null expansions (READ, [HL25]
+p. 5: "we use the Raychaudhuri equation that χ_A satisfies"), again for small data. In Part I this never arises: with
+round radial dusts the background is 1+1 and the dust densities are functions of one null coordinate.
 
 **Conditions under which the proof extends (deduced, conditional).** Given (i) such a background on a domain Ω with the
 record's Lemma 1.1 (spacelike slices and lateral boundaries, every generator reaching Σ_τ0), (ii) pairwise separation on
@@ -329,13 +328,14 @@ bounded cross couplings. Without (i) nothing is proved.
 ## III.1 The literature, at source (READ, alphaXiv, 2026-11-02)
 
 - [HL18] C. Huneau, J. Luk, *High-frequency backreaction for the Einstein equations under polarized U(1) symmetry*,
-  arXiv:1706.09501v1. Abstract, p. 1: "We prove that any generic local-in-time small-data polarized-U(1)-symmetric solution
-  to the Einstein–multiple null dust system can be achieved as a weak limit of vacuum solutions. Our construction allows
-  the number of families to be arbitrarily large, and appears to be the first construction of such examples with more
-  than two families." P. 2: "one may hope to eventually construct more general solutions to the Einstein– massless
-  Vlasov system by taking the number of families of null dust to infinity." Definition 4.1, p. 10: "we say that the set
-  of eikonal functions {u_A}_(A∈A) is angularly separated if there exists η′ ∈ (0, 1) such that δ^(ij) (∂_i u_A1)(∂_j
-  u_A2) / (|∇u_A1||∇u_A2|) (t, x) < 1 − η′, ∀(t, x) ∈ I × R², ∀A1 ≠ A2." (fraction restored from the extraction.)
+  arXiv:1706.09501v1. Abstract, p. 1: "We prove that any generic local-in-time small-data polarized-U(1)-symmetric
+  solution to the Einstein–multiple null dust system can be achieved as a weak limit of vacuum solutions. Our
+  construction allows the number of families to be arbitrarily large, and appears to be the first construction of such
+  examples with more than two families." P. 2: "one may hope to eventually construct more general solutions to the
+  Einstein– massless Vlasov system by taking the number of families of null dust to infinity." Definition 4.1, p. 10: "we
+  say that the set of eikonal functions {u_A}_(A∈A) is angularly separated if there exists η′ ∈ (0, 1) such that δ^(ij)
+  (∂_i u_A1)(∂_j u_A2) / (|∇u_A1||∇u_A2|) (t, x) < 1 − η′, ∀(t, x) ∈ I × R², ∀A1 ≠ A2." (fraction restored from the
+  extraction.)
 - [HL19] C. Huneau, J. Luk, *Trilinear compensated compactness and Burnett's conjecture in general relativity*,
   arXiv:1907.10743v2. Abstract, p. 1: "In this paper, we prove Burnett's conjecture assuming that {h_n} and h_0 in
   addition admit a U(1) symmetry and obey an elliptic gauge condition." P. 4: "That (1.10) holds is due to the
@@ -356,12 +356,12 @@ bounded cross couplings. Without (i) nothing is proved.
   of solutions (gλ)λ∈(0,1] of the Einstein vacuum equations such that gλ −g0 and ∂(gλ −g0) converges respectively
   strongly and weakly to 0 when λ → 0." P. 4: "More importantly, this article completely leaves open the question of
   sending the number of null dusts to infinity and thus proving the reverse Burnett conjecture with the highest level of
-  generality. In particular, our local existence result in generalised wave gauge is not uniform in |A| and obtaining such
-  uniformity seems to require ideas beyond the present work." P. 8: "We assume that the metric g0 is close to Minkowski in
-  the following sense" ((1.15)). P. 9, the strong coherence assumption: "there exists a constant c_coherence > 0 such that
-  min_(v∈I) |g0⁻¹(dv, dv)| ≥ c_coherence. (1.18)". Touati's other two papers, *Geometric optics approximation for the
-  Einstein vacuum equations* (arXiv:2206.12318) and *High-frequency solutions to the constraint equations*
-  (arXiv:2206.13062), are the record's [Tou23a, Tou23b], single-phase; a search of the paper index (Firecrawl,
+  generality. In particular, our local existence result in generalised wave gauge is not uniform in |A| and obtaining
+  such uniformity seems to require ideas beyond the present work." P. 8: "We assume that the metric g0 is close to
+  Minkowski in the following sense" ((1.15)). P. 9, the strong coherence assumption: "there exists a constant c_coherence
+  > 0 such that min_(v∈I) |g0⁻¹(dv, dv)| ≥ c_coherence. (1.18)". Touati's other two papers, *Geometric optics
+  approximation for the Einstein vacuum equations* (arXiv:2206.12318) and *High-frequency solutions to the constraint
+  equations* (arXiv:2206.13062), are the record's [Tou23a, Tou23b], single-phase; a search of the paper index (Firecrawl,
   2026-11-02, author Touati) returned no Vlasov paper of his.
 - [LR20] J. Luk, I. Rodnianski, *High-frequency limits and null dust shell solutions in general relativity*,
   arXiv:2009.08968v1. Abstract, p. 1: "We show moreover that all sufficiently regular solutions to the Einstein–null dust
