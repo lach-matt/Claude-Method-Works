@@ -343,12 +343,13 @@ odd under σ combined with the phase reflection θ ↦ 3π/2 − θ: W_TT(σX, 3
 quadrature alone, or two in phase, is not odd). The two-scale operator is equivariant under θ ↦ c0 − θ with λ ↦ −λ
 (computed, M3), and every stage of the approximant is the unique solution of a problem that this combined map carries to
 itself, so the profiles obey σ*g_j(·, 3π/2 − ·) = (−1)^j g_j; for the first mean correction, σ*m1 = −m1 (its source in
-the proof's gauge, the phase mean of R^(1)[g0 + λW], is nonzero only in dv dθ, −(4/9) A² env² H² sin 2θ/r³, and odd:
-computed, `docket68/n1star/checks/stage5.py` S2). Outside the shell the oscillating profiles vanish, so g_app = g0 + λ m1
-+ O(λ²) there, and M[S](g_λ) = μ(v) + λ DM[m1] + O(λ²) + O(|w| + |∂w|). M is natural, so DM[σ*m] = DM[m], and DM[m1] =
-DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4) ≤ C λ². Inside the shell the wave enters M only through its
-trace on the sphere and the trace of its phase derivative, both zero, so the difference is O(λ) (computed: at order λ⁰
-only θ⁺ carries the wave, through ∂_θ tr_S W, and θ⁻, the area and g(n⁺, n⁻) do not;
+the proof's gauge, the phase mean of R^(1)[g0 + λW], is nonzero only in dv dθ, −(4/9) A² env² H² sin 2θ/r³, and odd, and
+the whole of R^(1)[g0 + λW], mean and oscillating part, is odd under the combined map in each of its seven nonzero
+components: computed, `docket68/n1star/checks/stage5.py` S2, S4). Outside the shell the oscillating profiles vanish, so
+g_app = g0 + λ m1 + O(λ²) there, and M[S](g_λ) = μ(v) + λ DM[m1] + O(λ²) + O(|w| + |∂w|). M is natural, so DM[σ*m] =
+DM[m], and DM[m1] = DM[σ*m1] = −DM[m1] = 0. The remainder is at most C λ^(K−4) ≤ C λ². Inside the shell the wave enters M
+only through its trace on the sphere and the trace of its phase derivative, both zero, so the difference is O(λ)
+(computed: at order λ⁰ only θ⁺ carries the wave, through ∂_θ tr_S W, and θ⁻, the area and g(n⁺, n⁻) do not;
 `docket68/n1star/checks/support5c.py` C13). ∎
 
 The numerics' "mean mass" is the angular mean of the mass aspect at past null infinity; the Hawking mass of the spheres
@@ -2208,16 +2209,18 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
-- `checks/stage5.py` S1–S3: the approximant's stages in the proof's gauge, from `lead5.py`'s reduced Ricci carried to
+- `checks/stage5.py` S1–S4: the approximant's stages in the proof's gauge, from `lead5.py`'s reduced Ricci carried to
   order λ¹ (its orders λ⁻¹ and λ⁰ reproduced exactly). S1, with generic stage-1 and stage-2 unknowns, in the eight
   components the symmetry leaves: (5.2)'s e1, e2 are the λ¹, λ² parts of ḡ⁻¹(du, du); in R^(1) the profile after next is
   absent, m2 and φ2 enter only through −½ e2 ∂_θ² W, g2 only through −(ℓ · ∂)∂_θ g2 − ½ e1 ∂_θ² g2 and terms with no
   X-derivative and at most one ∂_θ, the second derivatives of m1 only in −½ □̃ m1 and of φ1 only in −½ (□̃ φ1) ∂_θ W; S2,
   m1's source, the phase mean of R^(1)[g0 + λW] with χ from its transport, nonzero only in dv dθ, −(4/9) A² env² H² sin
-  2θ/r³, and σ-odd, g1 = W S-odd; S3, the same source with χ carrying no radiation at past null infinity. Not computed:
-  order λ², the other seven components, m1 from past null infinity. Controls: the non-null phase v + r/3 (six of the
-  eight structural checks fail); one quadrature (g1 no longer S-odd; the source alone stays odd). About forty-five
-  minutes.
+  2θ/r³, and σ-odd, g1 = W S-odd; S3, the same source with χ carrying no radiation at past null infinity; S4, the whole
+  of R^(1)[g0 + λW], mean and oscillating part, odd under σ* with θ ↦ 3π/2 − θ in each of its seven nonzero components,
+  which is what σ*m1 = −m1 and the next profile's parity rest on. Not computed: order λ², the other seven components, m1
+  from past null infinity. Controls: the non-null phase v + r/3 (six of the eight structural checks fail); one quadrature
+  (g1 no longer S-odd and S4 failing in all seven components; S2's source alone stays odd, so S2 has no control that can
+  fail, and S4 supplies one). About fifty minutes.
 - `checks/excise5.py` E1–E2: `growth5.py`'s deeper excisions on the next finer grid (Ny = 28 at μ0 = 100 l5², Ny = 20 at
   1000 l5²), the breakdown read by `growth5.py`'s criterion (a second zero of the round spheres' expansion lasting 0.01
   in v, or W ≥ 0 at the boundary): from v = 1.41033, 1.35549 and 1.52374, moved by 0.00076, 0.00251 and 0.00020 from the
@@ -2225,15 +2228,16 @@ Programs behind section 9, in `docket68/n1star/`:
   order the same for every duration from 0.005 to 0.06, the y = 2 run moving 0.0083 at 0.04 (E2). Control: each deeper
   run replaced by its seed's standard run, which the order must reject. Floating point (the solver's scheme, not
   certified); the runs one to three hours each, the check seconds.
-- `checks/gauge5.py` G1–G3: the gauge field. G1, supplement (6.2) exactly at a point of a random 4+1 metric over a random
-  background, D = 0 imposed along the slice, with `paper/response5.py` R14 rerun; G2, the order-λ gauge field D^(1) in
-  `lead5.py`'s coordinates with m1, the next oscillating profile and φ1 generic: D^(−1) = D^(0) = 0 off the slice, the
-  next profile entering D^(1) only through Pol(∂_θ ·), and on the slice Lemma 6.2's stage-1 choices kill the oscillating
-  part and the mean (a linear system in ∂_τ m1 of determinant −(r² + μ)⁵/(2r¹⁰)); G3, an r⁻² amplitude on a v-strip of
-  fixed width has L² norm at most π(2d1)^(1/2) t^(−1/2), the rate sharp, and r² D^(1) bounded at leading order with m1
-  generic. Not computed: (F2) at order 1, D^(2), Lemma 6.1's propagation off the slice; Pol⁺ taken in
-  Eddington–Finkelstein components. Controls: (6.2) without its Z term, and on a slice with ∂_i D ≠ 0; no choices, Pol^T
-  for Pol⁺; amplitude r⁻¹, W(ℓ, ·) ≠ 0. About five minutes.
+- `checks/gauge5.py` G1–G3: the gauge field. G1, supplement (6.2) exactly at one point of one random 4+1 metric over a
+  random background, D = 0 imposed along the slice, with `paper/response5.py` R14 rerun; G2, the order-λ gauge field
+  D^(1) in `lead5.py`'s coordinates with m1, the next oscillating profile and φ1 generic: D^(−1) = D^(0) = 0 off the
+  slice, the next profile entering D^(1) only through Pol(∂_θ ·), and on the slice Lemma 6.2's stage-1 choices kill the
+  oscillating part and the mean (a linear system in ∂_τ m1 of determinant −(r² + μ)⁵/(2r¹⁰); that the choices then kill
+  them holds by construction and is printed as a consistency check); G3, an r⁻² amplitude on a v-strip of fixed width has
+  L² norm at most π(2d1)^(1/2) t^(−1/2), the rate sharp, and r² D^(1) bounded at leading order with m1 generic. Not
+  computed: (F2) at order 1, D^(2), Lemma 6.1's propagation off the slice; Pol⁺ taken in Eddington–Finkelstein
+  components. Controls: (6.2) without its Z term, and on a slice with ∂_i D ≠ 0; no choices, Pol^T for Pol⁺ (a control of
+  the linear algebra, not of D^(1)); amplitude r⁻¹, W(ℓ, ·) ≠ 0. About five minutes.
 - `checks/support8c.py` K1–K4: section 8.4–8.5's deduced steps. K1, the Frobenius exponents at r_h of the scalar wave,
   P_0, box^C and 2L at the record's point (0 with the damping's negative ones, the σ part iσ, free of the angle), so the
   solutions smooth at r_h are the exponent-0 family (at γ = 0, 2L has 1 at σ = i, which the lemma does not use); K2, the
@@ -2256,12 +2260,14 @@ Programs behind section 9, in `docket68/n1star/`:
   g^rr = f(r_0) ≤ −3 for every final mass, exactly. Controls: a planted unlisted conclusion; a planted seventh loss; r_0
   = 2 r_h. A few seconds.
 - `checks/support5c.py` C11–C13: section 5's remaining steps. C11, |w|_7 ≤ C 𝒩 as an exponent ledger: each derivative of
-  [∂_θ g1] costs λ⁻¹ (computed), and every one of the 128 classes of Leibniz terms of w = h + φ[∂_θ g1] is covered by
+  [∂_θ g1] costs λ⁻¹ (computed), and every one of the 128 classes (by order and derivative count) of the 44 Leibniz terms
+  of w = h + φ[∂_θ g1] is covered by
   (5.4)'s weights with λ-exponent ≥ 0; C12, the first-order reduction in the Z-coordinates at random admissible rational
   points, A⁰ symmetric positive definite (Sylvester) and every A^k symmetric, the symmetry and positivity of (A1)–(A4)
   and not the rest; C13, M[S] at g0 + λ(W_TT + χ dv² + m1) to order λ⁰: only θ⁺ carries the wave there, through ∂_θ tr_S
-  W, zero for the TT wave. Controls: (5.4) without its ‖∂^j ∂φ‖ term (C11; without its λ‖∂^j ∂_x² φ‖ term nothing is
-  uncovered, that term being Step 4's); Vaidya's constant-x lines inside the horizon (C12); a wave with a trace on the
+  W, zero for the TT wave. Controls: (5.4) without its ‖∂^j ∂φ‖ term (56 classes uncovered), |w|_8 against the norm at
+  k = 6 (3) and one more λ⁻¹ on each differentiated oscillating factor (7) (C11; without its λ‖∂^j ∂_x² φ‖ term nothing
+  is uncovered, that term being Step 4's); Vaidya's constant-x lines inside the horizon (C12); a wave with a trace on the
   spheres (C13). Exact; about a minute.
 - `checks/ledger5.py` L1–L4: exponent ledgers. L1, supplement Propositions 9.8–9.9 with β0 symbolic (∫_(t≥λ⁻²) λ⁻¹
   t^(−3/2) dt = 2, K′ > 8 + 4β0, K′ − 2β0 − 1 ≥ K + 2, the Gronwall margin); L2, the bootstrap's ledger
@@ -2400,7 +2406,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | (5.1), Lemma 5.1, supplement Lemma 3.3 | `docket68/n1star/checks/support5.py` C1–C3; `docket68/n1star/lead5.py` |
 | section 5.2: supplement Lemma 3.2's (3.3) in every component | `docket68/n1star/checks/support5b.py` C10, C10b |
 | sections 5.2, 5.4, 6: mollifier, time lines, boundary for g_λ | `docket68/n1star/checks/support5.py` C4, C6, C8 |
-| sections 3, 4: the stages' structure at λ¹, m1's source and parity | `docket68/n1star/checks/stage5.py` S1–S3 |
+| sections 3, 4: the stages' structure at λ¹, m1's source and parity | `docket68/n1star/checks/stage5.py` S1–S4 |
 | sections 3, 5.5: (6.2), the gauge field's first order and decay | `docket68/n1star/checks/gauge5.py` G1–G3 |
 | sections 3, 5.3, 5.4: the remainder, the first-order system, M[S] | `docket68/n1star/checks/support5c.py` C11–C13 |
 | sections 3, 8.1, 8.7: the exponent ledgers, the stages after the shell | `docket68/n1star/checks/ledger5.py` L1–L4 |
@@ -2625,7 +2631,7 @@ imports `checks/vii5census.py`; the others import nothing from the research tree
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
-    python3 checks/stage5.py                              # about forty-five minutes
+    python3 checks/stage5.py                              # about fifty minutes
     python3 checks/excise5.py                             # seconds, on the runs merged into data/
     python3 checks/gauge5.py                              # about five minutes
     python3 checks/support8c.py                           # about nine minutes
@@ -2808,7 +2814,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
 | `docket68/n1star/checks/stage5.py` | `9ce714c13eb450223ddbdde68db53928` |
-| `docket68/n1star/checks/stage5.out` | `f5f85af8c080b0ccfd162ad58c60f211` |
+| `docket68/n1star/checks/stage5.out` | `b550d9d6673e97c2a1f4bc82eb12f339` |
 | `docket68/n1star/checks/excise5.py` | `dfa3d996d7acf9d79ea2de1fef1a6f08` |
 | `docket68/n1star/checks/excise5.out` | `8cc3d5d8a5fea8a901bf010c6bc0ff26` |
 | `docket68/n1star/checks/gauge5.py` | `0b34a91dde8253a839e62aff2904e19f` |

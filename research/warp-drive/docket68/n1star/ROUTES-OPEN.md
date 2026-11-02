@@ -6426,6 +6426,47 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   - Deeper excisions on a second grid (item 5), `checks/excise5.py`: breakdowns 1.41033, 1.35549, 1.52374 on the finer
     grids, moved 0.00076, 0.00251, 0.00020; deeper is earlier on both grids (the standard excision's own grid dependence
     0.0041). Runs merged into data/growth5_runs.json; the paper now says "at the excision depths run".
+- D608 (the second program-verifier round, on D607's checks: four verifiers, one per batch; their findings seated;
+  and (VII5) read).
+  - excise5 [M]: its control could not fail (deeper runs replaced by the standard ones still passed) and its docstring
+    named the breakdown criterion as 0.04 in v where growth5.py uses 0.01. Repaired: the control is that data swap; E1 at
+    the solver's 0.01 (moves 0.00076, 0.00251, 0.00020 against the standard excision's 0.0041 and 0.0004); E2 the order
+    at every duration 0.005-0.06 (at 0.04 the y = 2 run moves 0.0083). The paper states its figures at the criterion they
+    hold for.
+  - census9 C23 [M]: the pattern missed the point named by its tuple (17 sites); now 78 sites, 68 drawing a conclusion
+    at the point, each anchor required inside its class's own text (78 of 78). The paper's counts updated.
+  - vii5census [M]: III.G'' Table 1.1's h^(-2)_{b,tau} (printed also h^(-2)_b; 10 lines) and h^(<=k)_{b,s1},
+    h^(<=k)_{b,v1} were missing; added, with a same-file moved-site control. The paper says the enumeration covers the
+    program's 33 printed symbols and that a choice named another way would be missed.
+  - No majors in re813 (R1 confirmed at 120 digits; the countability argument complete), kirecon5 (P2 and the [HKW18]
+    reading confirmed at (124), (127), (169), (173)), support5b, support3, ledger5, support5c, stage5, gauge5, csolve5
+    C7c (every number reproduced), support8b, support8c, and the D607 repairs of hclass5, charge5, eqlayer5, support9,
+    eindcert5, mpdata5, flux5.
+  - Minors repaired: re813's root count and R2's gcd-branch control; hclass5 H2 now requires no root at l <= 20;
+    support8b M3's control the literal reading, M5 a real D row, M4 both inequalities; support8c K3's scope; ledger5 L4
+    holds by construction once the enumeration is right (its completeness deduced, the paper says so); C7c's quoted ratio
+    is d_1/d_0 (the next difference at roundoff at lam = 1/32), the rate test's tolerance stated; section 4's 'only
+    through' is for second derivatives; support9 S6's profile is (v, r, th) and the phase; eindcert5's control text; run
+    times.
+  - stage5 S4: the whole R^(1)[g0 + lam W], mean and oscillating part, odd under sigma^* with s -> 3 pi/2 - s in each
+    of its seven nonzero components (what sigma^* m1 = -m1 and the next profile's parity rest on; S2's mean-only oddness
+    has no control that can fail); one quadrature fails in all seven. support5c C11: two more controls, |w|_8 against
+    the norm at k = 6 (3 uncovered) and one more lam^-1 per differentiated oscillating factor (7); the 128 are classes
+    of the 44 Leibniz terms (the verifier's 52 not reproduced). gauge5: G1 one point of one random metric; G2's
+    killed-oscillation and mean checks labelled consistency checks (they hold by construction), the Pol^T control one of
+    the linear algebra, and the mean's freedom from the next profile printed. All three rerun in full, PASS.
+  - (VII5) read, the one check the paper listed as awaiting a reader: the 577 lines of Parts III-IV that name a choice
+    of Lemma 3.1's (C3), (C3') or (C4) outside its site (`checks/vii5census.py`), three readers a third each, every
+    verdict recorded (`checks/VII5-READING.tsv`; coverage, one row per line, notes and resolutions computed by
+    `checks/vii5read.py` Q1-Q2, five controls failing): SITE-ONLY 311, NAMING 189, HOMONYM 72 (mostly the Minkowski
+    model's bar-omega_s1 and the generic pairs of Lemmas), MORE 0, UNDECIDED 5. The five, and a caveat from each of the
+    other readers, have one cause: the proofs use the 1-form towers breve-omega^i_tau of every type themselves (m_nu's
+    dt * breve-omega^K term; III.I'''''''''' Lemma 2.1), and (C3) named 1-forms for s1 only. Lemma 3.1 (C3) amended:
+    those towers averaged, Table 1.1's towers at b0 taken as delta* of the averaged 1-forms (natural, so one choice
+    serves both; that delta* commutes with rotations and reflections computed exactly on Kerr-Schild Tangherlini,
+    vii5read Q3, a non-natural term and a shear failing). The three non-linear properties used (the s1/v1 states'
+    uniqueness, III.G'' Lemma 1.2's bijectivity, the isotypic types) recorded in Lemma 3.1 with why each is kept.
+    Section (VII5) and the paper's 8.8 and 9 updated.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

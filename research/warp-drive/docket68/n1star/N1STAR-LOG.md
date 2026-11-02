@@ -7942,3 +7942,12 @@ measured (rates 3.55, 4.03 against N - 3); the charges per round grow by 4 per u
 census's open rows: support5b, support5c, support3, ledger5, stage5, gauge5, support8b, support8c, census9, excise5;
 level2loop5, lambdacount5, twodomain5, r0census5 cited. Deeper excisions on a second grid: deeper is earlier on both.
 ROUTES-OPEN.md D607.
+
+**D608 (2026-11-02): the second program-verifier round seated; (VII5) read.** Four verifiers on D607's checks, one per
+batch: majors in excise5 (a control that could not fail; the breakdown criterion), census9 C23 (78 sites, not 17) and
+vii5census (three Table 1.1 symbols), repaired; no majors in the other twenty, minors repaired; stage5 S4 (the whole
+R^(1) odd under the combined map, one quadrature failing in all seven components), support5c's C11 controls, gauge5's
+labels. (VII5), the one check the paper listed as awaiting a reader: the 577 listed uses read by three readers
+(checks/VII5-READING.tsv, vii5read.py): none uses more than its site's conditions; five undecided for one reason -- the
+proofs use the 1-form towers of every type, which Lemma 3.1 (C3) named for s1 only -- so Lemma 3.1 amended, with
+delta*'s commuting with rotations and reflections computed (vii5read Q3). ROUTES-OPEN.md D608.

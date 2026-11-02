@@ -1,16 +1,21 @@
   S1: (5.2) e1, e2 as printed: True; no order below lam^0: True; R^(0) = R_v^(0)[W] - (1/2) e1 d_s^2 W: True;
       in R^(1): g3 absent: True; m2, phi2 only in -(1/2) e2 d_s^2 W: True; g2 only as -(ell.d) d_s g2 - (1/2) e1 d_s^2 g2 + (no X-derivative, one d_s): True;
-      second derivatives of m1 only in -(1/2) box~ m1: True; of phi1 only in -(1/2)(box~ phi1) d_s W: True; quadratic part = (1/2) q2 d_s^2 W: True [973s]
+      second derivatives of m1 only in -(1/2) box~ m1: True; of phi1 only in -(1/2)(box~ phi1) d_s W: True; quadratic part = (1/2) q2 d_s^2 W: True [966s]
   S1 control (u = v + r/3): (5.2) e1, e2 as printed: True; no order below lam^0: False; R^(0) = R_v^(0)[W] - (1/2) e1 d_s^2 W: False;
       in R^(1): g3 absent: False; m2, phi2 only in -(1/2) e2 d_s^2 W: False; g2 only as -(ell.d) d_s g2 - (1/2) e1 d_s^2 g2 + (no X-derivative, one d_s): False;
-      second derivatives of m1 only in -(1/2) box~ m1: True; of phi1 only in -(1/2)(box~ phi1) d_s W: True; quadratic part = (1/2) q2 d_s^2 W: False [1767s]
+      second derivatives of m1 only in -(1/2) box~ m1: True; of phi1 only in -(1/2)(box~ phi1) d_s W: True; quadratic part = (1/2) q2 d_s^2 W: False [1775s]
 S1 PASS
   S2: chi solves its transport (zero data on Sigma_tau0): True; F S-even: True; g1 = W (W_TT and chi) S-odd: True;
-      source nonzero in [(0, 2)]: [-4*A**2*E(v)**2*h(cos(2*theta)**2)**2*sin(2*theta)/(9*r**3)]; sigma^* S = -S (m1 odd): True [17s]
+      source nonzero in [(0, 2)]: [-4*A**2*E(v)**2*h(cos(2*theta)**2)**2*sin(2*theta)/(9*r**3)]; sigma^* S = -S (m1 odd): True [20s]
   S2 control (one quadrature): g1 = W S-odd: False; the source alone still odd, sigma^* S = -S: True
 S2 PASS
   S3: chi solves its transport (no radiation at past null infinity): True; F S-even: True; g1 = W (W_TT and chi) S-odd: True;
-      source nonzero in [(0, 2)]: [-4*A**2*E(v)**2*h(cos(2*theta)**2)**2*sin(2*theta)/(9*r**3)]; sigma^* S = -S (m1 odd): True [9s]
+      source nonzero in [(0, 2)]: [-4*A**2*E(v)**2*h(cos(2*theta)**2)**2*sin(2*theta)/(9*r**3)]; sigma^* S = -S (m1 odd): True [11s]
       S3's source equals S2's (chi enters no mean at lam^1): True
   S3 control (one quadrature): g1 = W S-odd: False; the source alone still odd, sigma^* S = -S: True
 S3 PASS
+  S4: R^(1)[g0 + lam W] (mean and oscillating part) under sigma^* with s -> 3 pi/2 - s: nonzero in [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)];
+      odd in every component: True; components where it fails: [] [120s]
+  S4 control (one quadrature): R^(1)[g0 + lam W] (mean and oscillating part) under sigma^* with s -> 3 pi/2 - s: nonzero in [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)];
+      odd in every component: False; components where it fails: [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 3), (4, 4)] [91s]
+S4 PASS
