@@ -11,3 +11,9 @@ iotamut5: iotapoles5.py read adversarially -- singleton orders computed, an inde
       2
   X1 (mutation): the shift N(lam0 + eps - i + 1) in the s0 product at 5: (order, rank) = (2, 1), not (1, 2): True
       (beside it, not a control: the product with the L1 factors dropped gives (2, 1))
+  X2 (mutation): last row of N times (x - 4): roots in (0, 4] with multiplicities [('2.000000', 1), ('4.000000', 2),
+      ('3.000001', 1), ('1.000075', 1)]; M3's simplicity test fails: True
+  X3: laurent_order on known matrices: diag(eps^-2, 1) (2, 1), eps^-1 I (1, 2), [[eps^-1, eps^-2], [0, 1]] (2, 1); the
+      mutated routine (stops at a finite (0, 0) entry) returns (1, 1) on the last: wrong, as it must be
+  X4 (mutation): Lemma 1.4 at k = 2 with F U-bar (E_j + 1) a plain union: log order at E_ind's 5 is 5 (iotapoles5.lemma14
+      on the same roots: 10): M5 fails on it: True
