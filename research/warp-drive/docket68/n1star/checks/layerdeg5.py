@@ -135,8 +135,8 @@ def d3(control=False):
 def d4(control=False):
     t = sp.Symbol('t', real=True)
     rng = random.Random(4)
-    const = sp.pi/4 if control else sp.pi
-    samples = [sp.cos(t)]
+    const = sp.pi
+    samples = [sp.cos(t), sp.cos(4*t)]
     for _ in range(4):
         Z = sum(sp.Rational(rng.randint(-5, 5), rng.randint(1, 4))*(sp.cos(j*t) if rng.random() < .5 else sp.sin(j*t))
                 for j in range(1, 5))
@@ -145,7 +145,11 @@ def d4(control=False):
     worst = 0
     grid = [2*sp.pi*j/400 for j in range(400)]
     for Z in samples:
-        Y = sp.integrate(Z, t)
+        if control:
+            # Round 4 (verifier of round 3, m6): mutate the operator under test, d_th^-1 -> d_th (cos 4t: ratio 4)
+            Y = sp.diff(Z, t)
+        else:
+            Y = sp.integrate(Z, t)
         Y = Y - sp.integrate(Y, (t, 0, 2*sp.pi))/(2*sp.pi)
         supY = max(abs(float(Y.subs(t, g_))) for g_ in grid)
         supZ = max(abs(float(Z.subs(t, g_))) for g_ in grid)
