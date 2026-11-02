@@ -8,9 +8,9 @@ largest-entry reading gets a sharper bound from it. Labels: certified (exact rat
 roots, lzerotrace5.py's geometry, imported), computed (exact, sympy), deduced (where said).
 
   R1 (exact, sympy, symbolic m > 0) g0 = eta + m U U^T, U = (1, xhat), xhat = e1 (O(4) invariance): the negative
-     eigenvalue m - s, s = (m^2 + 1)^(1/2), has the eigenvector v = (m, 1 - s, 0, 0, 0); with e = v/|v|, g0 + (s - m) e e^T
-     has determinant 0. So at the corner (tau_end, r = a), m = m*, the perturbation t e e^T leaves the Lorentzian class at
-     t = s - m = g0's least absolute eigenvalue, and its size is t in the operator AND in the Frobenius norm (rank one,
+     eigenvalue m - s, s = (m^2 + 1)^(1/2), has the eigenvector v = (m, 1 - s, 0, 0, 0); with e = v/|v|,
+     g0 + (s - m) e e^T has determinant 0. So at the corner (tau_end, r = a), m = m*, the perturbation t e e^T leaves
+     the Lorentzian class at t = s - m = g0's least absolute eigenvalue, and its size is t in the operator AND in the Frobenius norm (rank one,
      |e| = 1). Hence eps1 < 0.0307686 in the Frobenius reading by a valid argument, and lambda0 < 0.0019950 stands.
   R2 (certified) its largest entry: e e^T has entries e_tau^2, e_tau e_x xhat_i, e_x^2 xhat_i xhat_j, and e_tau^2 >
      e_x^2 exactly when s < m + 1, true for m > 0, so for every direction xhat the largest entry is t e_tau^2, e_tau^2 =
@@ -105,8 +105,8 @@ def main():
     e = v / np.linalg.norm(v)
     neg = [int(sum(np.linalg.eigvalsh(g0 + t * (ss - mm) * np.outer(e, e)) < 0)) for t in (0.99, 1.01)]
     OK['R3'] = neg == [1, 0]
-    print('  R3 (floating point): negative eigenvalues of g0 + t (s - m) e e^T at m*: t = 0.99: %d, t = 1.01: %d' % tuple(
-        neg))
+    print('  R3 (floating point): negative eigenvalues of g0 + t (s - m) e e^T at m*: t = 0.99: %d, t = 1.01: %d'
+          % tuple(neg))
     # controls
     Rp = rank_one(sign=+1)
     OK['C1'] = Rp['det'] != 0
