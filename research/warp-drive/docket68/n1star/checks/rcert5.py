@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""rcert5.py -- CERTIFY-10L5-RESULT.md round 2 (R): a certified bound on the Einstein residual of a smoothed
-three-dimensional approximant, the one resid5.py computed in floating point.  Labels: certified (Arb ball arithmetic,
-python-flint) for the bound; computed (floating point) for the fit that defines the approximant.
+"""rcert5.py -- CERTIFY-10L5-RESULT.md round 2 (R): the Einstein residual of a smoothed three-dimensional approximant,
+the one resid5.py computed in floating point, in ball arithmetic: certified values on a dense grid (K1) and a certified
+but loose sup over boxes (K2).  Labels: certified (Arb ball arithmetic, python-flint) for K1 and K2; computed (floating
+point) for the fit that defines the approximant.
 
 The approximant g_app (resid5.py's, exactly): on the box u in [-4, -1.1], v in [0.55, 1.6] (outside the seed's horizon
 generator, converged, CERTIFY-10L5.md D399-D432), every field F of (R, m, n, W, s) is the polynomial
@@ -28,14 +29,19 @@ their series), give the coefficients f_alpha (|alpha| <= Q) at c and over B; and
 Lagrange remainder
     sup_B |f| <= sum_{|alpha| < Q} |f_alpha(c)| h^alpha + sum_{|alpha| = Q} sup_B |f_alpha| h^alpha.
 
-  K1 (certified) per frame component, the sup over the covered box of |Ric(e_a, e_b)|/sqrt(K_0), the largest over
-     boxes of that bound; and the certified values at the box centres (max), against resid5.py's computed figures at
-     the run's cell midpoints (the largest 2.46e-3, the ll component).  Pass: every bound finite and below 0.1, and the
-     certified centre values within a factor 2 of resid5.py's computed maxima (the same function).
-  Control: the same certificate for the approximant with W replaced by W + 0.01 v (a lapse off the solution, resid5.py's
-     control): its certified centre values must exceed the approximant's tenfold.
+  K1 (certified) the eight scaled frame components enclosed in ball arithmetic at the centres of a tensor grid (24 x 24
+     in (t, sig), and the graded x-boxes' centres: 16,128 points); the largest of each, against resid5.py's computed
+     maxima at the run's cell midpoints (the largest 2.46e-3, the ll component).  Pass: within a factor 2 of
+     resid5.py's figures wherever those exceed 1e-4 (the same function at other points).
+  Control (K1): the same for the approximant with W replaced by W + 0.01 v (a lapse off the solution, resid5.py's
+     control): its certified values must exceed the approximant's tenfold.
+  K2 (certified, reported) the sup over boxes by the Taylor models above, on 4 x 4 x 26 boxes (416), with the box
+     where each component's bound is largest.  It is a valid bound and a useless one: the interval remainder of the
+     2,500-operation Ricci expression, whose terms cancel to 1e-3 of their size, is of order C h^Q with C huge, and
+     the boxes that would bring it to the residual's size cost more than this round can run (CERTIFY-10L5-RESULT.md
+     section 6.3).  So the certified statement is K1's, at points; the sup over the box is computed (resid5.py).
 
-  python3 checks/rcert5.py RUNDIR run [Nt Nsig Nx]        (run: l1_M16_800, the run resid5.py fits)
+  python3 checks/rcert5.py RUNDIR run [Nt Nsig Nmid]      (run: l1_M16_800, the run resid5.py fits)
 """
 import os, sys, time, math, importlib.util, itertools
 import numpy as np
@@ -436,21 +442,66 @@ def x_boxes(x1, ratio=1.5, d_mid=0.25, n_mid=6):
     return [c for c, _ in boxes], [w for _, w in boxes]
 
 
-def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
-    args = [-4.0, -1.1, 0.55, 1.6, 24, 30]
-    coef, err, geo = RS.fit(Z, *args)
+ARGS = [-4.0, -1.1, 0.55, 1.6, 24, 30]
+
+
+def prepare(Z, wshift=0.0):
+    """the approximant's coefficient tensors C_ijk (floats, hence exact) and the coordinate data"""
+    coef, err, geo = RS.fit(Z, *ARGS)
     M = len(Z['x'])
-    xn = Z['x']
-    Tm = np.cos(np.outer(np.arange(M), np.arccos(xn)))
+    Tm = np.cos(np.outer(np.arange(M), np.arccos(Z['x'])))
     Tinv = np.linalg.inv(Tm.T)
-    C3 = {}
+    C3 = {f: np.einsum('km,ijm->ijk', Tinv, coef[f]) for f in RS.NAMES}
+    hv = (ARGS[3] - ARGS[2]) / 2
+    g = dict(hxi=(geo['xb'] - geo['xa']) / 2, a=RS.A_GRID, psi=1 / hv, xa=geo['xa'], M=M, hv=hv)
+    return C3, g, err
+
+
+def shifted(C3, g, wshift):
+    """W + wshift v, v = v_a + (sig + 1) h_v: exact in the Chebyshev basis"""
+    C = dict(C3); C['W'] = C3['W'].copy()
+    C['W'][0, 0, 0] += wshift * (ARGS[2] + g['hv']); C['W'][0, 1, 0] += wshift * g['hv']
+    return C
+
+
+def certify_points(C3, g, Nt, Ns, Nx):
+    """certified values of the eight scaled frame components at the centres of the tensor grid (Nt x Ns x graded x)"""
+    M = g['M']
+    x1 = float(np.cos(np.pi / (2 * M)))
+    tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
+    scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
+    xcs, _ = x_boxes(x1, n_mid=Nx)
+    pts = {}
     for f in RS.NAMES:
-        C3[f] = np.einsum('km,ijm->ijk', Tinv, coef[f])
-    hv = (args[3] - args[2]) / 2
-    if wshift:                                   # W + wshift v, v = va + (sig + 1) hv: exact in the Chebyshev basis
-        C3['W'] = C3['W'].copy()
-        C3['W'][0, 0, 0] += wshift * (args[2] + hv); C3['W'][0, 1, 0] += wshift * hv
-    g = dict(hxi=(geo['xb'] - geo['xa']) / 2, a=RS.A_GRID, psi=1 / hv, xa=geo['xa'])
+        tens, _ = deriv_tensors(C3[f], 2)
+        pts[f] = point_coeffs(tens, tcs, scs, xcs, 2)
+    hxi, a, psi = arb(g['hxi']), arb(g['a']), arb(g['psi'])
+    best = [arb(0)] * 8
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+        xi = arb(g['xa']) + (arb(tcs[p]) + 1) * hxi
+        ch, th = xi.cosh(), xi.tanh()
+        phi1 = 1 / (hxi * a * ch); phi2 = -phi1 * phi1 * hxi * th
+        e = {'x': arb(xcs[r])}
+        for f in RS.NAMES:
+            c = lambda al: pts[f][al][p, q, r]
+            e[f] = c((0, 0, 0)); Ft = c((1, 0, 0))
+            e[f + '_u'] = phi1 * Ft; e[f + '_v'] = psi * c((0, 1, 0)); e[f + '_x'] = c((0, 0, 1))
+            e[f + '_uu'] = phi1 * phi1 * 2 * c((2, 0, 0)) + phi2 * Ft
+            e[f + '_uv'] = phi1 * psi * c((1, 1, 0)); e[f + '_ux'] = phi1 * c((1, 0, 1))
+            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1)); e[f + '_xx'] = 2 * c((0, 0, 2))
+        vals = certify_points.frame(*[e[k] for k in certify_points.names])
+        for k8 in range(8):
+            av = abs(vals[k8]); up = arb(av.mid() + av.rad())
+            if up > best[k8]:
+                best[k8] = up
+    return best, Nt * Ns * len(xcs)
+
+
+def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None, prep=None):
+    C3, g, err = prep if prep is not None else prepare(Z)
+    if wshift:
+        C3 = shifted(C3, g, wshift)
+    M = g['M']
     x1 = float(np.cos(np.pi / (2 * M)))
     ht, hs = 1.0 / Nt, 1.0 / Ns
     tcs = [-1 + (2 * p + 1) * ht for p in range(Nt)]
@@ -496,31 +547,37 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
 
 def main():
     rundir, run = sys.argv[1], sys.argv[2]
-    Nt, Ns, Nx = (int(a) for a in sys.argv[3:6]) if len(sys.argv) > 5 else (16, 16, 8)
+    Nt, Ns, Nx = (int(a) for a in sys.argv[3:6]) if len(sys.argv) > 5 else (24, 24, 8)
     t0 = time.time()
-    log = lambda s: print(s, flush=True)
+    log = lambda s_: print(s_, flush=True)
     frame, names = frame_code()
-    log('frame code generated (%.0f s); Taylor order %d, %d boxes (%d x %d x %d) in (t, sig, x)' % (
-        time.time() - t0, Q, Nt * Ns * Nx, Nt, Ns, Nx))
+    certify_points.frame, certify_points.names = frame, names
     Z = B.load(os.path.join(rundir, run + '.npz'))
-    labs = [lab for _, lab in RS.COMPS]
+    prep = prepare(Z)
+    log('frame code generated and approximant fitted (%.0f s); fit error per field (computed): %s' % (
+        time.time() - t0, ', '.join('%s %.1e' % (k, e) for k, e in prep[2].items())))
     frl = ['ll', 'ln', 'nn', 'lx', 'nx', 'xx', '11', '22']
-    sup, cen, err = certify(Z, frame, names, Nt, Ns, Nx, log=log)
-    log('  fit error per field (computed): %s' % ', '.join('%s %.1e' % (k, e) for k, e in err.items()))
-    log('K1 certified sup over the box of |Ric(e_a, e_b)|/sqrt(K_0), and the certified max at the box centres:')
-    for k, a, c in zip(frl, sup, cen):
-        log('     %s: sup <= %s; at the centres <= %s' % (k, a.str(3), c.str(3)))
     resid_comp = {'ll': 2.46e-3, 'ln': 1.53e-4, 'nn': 7.46e-5, 'lx': 4.25e-4, 'nx': 2.47e-5, 'xx': 2.02e-4,
                   '11': 6.24e-5, '22': 2.14e-4}
-    good = all(a < arb('0.1') for a in sup) and all(
-        arb(resid_comp[k]) / 2 < c < arb(resid_comp[k]) * 2 for k, c in zip(frl, cen) if resid_comp[k] > 1e-4)
-    log('K1 %s (every bound below 0.1; centre values within a factor 2 of resid5.py\'s computed maxima where those '
-        'exceed 1e-4)' % ('PASS' if good else 'FAIL'))
-    supc, cenc, _ = certify(Z, frame, names, max(Nt // 2, 2), max(Ns // 2, 2), max(Nx // 2, 2), wshift=0.01)
-    worst, worstc = max(cen), max(cenc)
-    ctl = worstc > 10 * worst
-    log('  control (W + 0.01 v): certified centre values up to %s against %s -> %s' % (
-        worstc.str(3), worst.str(3), 'fails (good)' if ctl else 'passed (bad)'))
+    best, npts = certify_points(prep[0], prep[1], Nt, Ns, Nx)
+    log('K1 certified |Ric(e_a, e_b)|/sqrt(K_0) at %d points (a %d x %d tensor grid in (t, sig), %d graded x), the '
+        'largest, against resid5.py\'s computed maxima at the run\'s cell midpoints:' % (
+            npts, Nt, Ns, npts // (Nt * Ns)))
+    for k, b in zip(frl, best):
+        log('     %s: <= %s   (resid5: %.2e)' % (k, b.str(3), resid_comp[k]))
+    good = all(arb(resid_comp[k]) / 2 < b < arb(resid_comp[k]) * 2 for k, b in zip(frl, best)
+               if resid_comp[k] > 1e-4)
+    log('K1 %s (the certified values within a factor 2 of the computed maxima where those exceed 1e-4)' % (
+        'PASS' if good else 'FAIL'))
+    bc, _ = certify_points(shifted(prep[0], prep[1], 0.01), prep[1], Nt // 2, Ns // 2, max(Nx // 2, 2))
+    ctl = max(bc) > 10 * max(best)
+    log('  control (W + 0.01 v): certified values up to %s against %s -> %s' % (
+        max(bc).str(3), max(best).str(3), 'fails (good)' if ctl else 'passed (bad)'))
+    log('K2 (reported) the certified sup over boxes, Taylor models of order %d with Lagrange remainder, at %d x %d x '
+        'graded x boxes:' % (Q, 4, 4))
+    sup, cen, _ = certify(Z, frame, names, 4, 4, 6, log=log, prep=prep)
+    for k, a_, w in zip(frl, sup, certify.where):
+        log('     %s: sup <= %s (worst box at (t, sig, x) = %s)' % (k, a_.str(3), tuple(round(z, 3) for z in w)))
     ok = good and ctl
     log('rcert5: %s (%.0f s)' % ('all checks pass' if ok else 'FAILURES', time.time() - t0))
     return 0 if ok else 1

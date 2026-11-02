@@ -350,7 +350,8 @@ def main():
     for n in (40, 80, 160):
         r = measure(n)
         res[n] = r
-        print('    n = %d: mu0 = %.5f, outer mass after the shell %.4f; structure errors (I, III, before, after) %s;\n'
+        print('    n = %d: mu0 = %.5f, outer mass after the shell %.4f;\n'
+              '      structure errors (I, III, before, after) %s;\n'
               '      min(mu - mu0) on R >= a %.2e; R = a: %d of %d columns v <= 2, trapped %s, min mu - a^2 %.4f;\n'
               '      mu_III >= %.5f; past-closedness margin %.2e; diamond: min R %.3f, untrapped %s, max mu %.4f;\n'
               '      Sigma_tau0: packet at R in [%.3f, %.3f], horizon %.3f, shell from R = %.3f (rule %s);\n'

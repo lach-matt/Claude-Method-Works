@@ -15,10 +15,12 @@ radius >= 1.0 (late5b.py: converged there to v ~ 1.9) and v in [0.5, 1.65].  Run
 (CERTIFY-10L5.md D445; M = 32, 800 x 360, cut 0.9) at A = 1, 7/8, 3/4.
 
   A1 F_low (secant, A = 7/8 to 1) and G_low (second difference), per field and overall.
-  A2 the closing condition's demand at those values: eps_max = 1/(4 G_low T F_low^2), T = 10 (the length of the
-     data cone's u-range, and CERTIFY-10L5.md 2(d)'s value), against the record's computed residual 2.5e-3
-     (resid5.py, relative to the curvature scale): the ratio of the two (reported).  Since F and G can only be larger,
-     and since in dnsolve5's formulation no F exists at all (symbol5.py Y3), this is the least the gap can be.
+  A2 the closing condition's demand eps_max = 1/(4 G T F^2) at F = F_low, T = 10 (CERTIFY-10L5.md 2(d)'s value, the
+     length of the data cone's u-range), with G = 10 (2(d)'s placeholder) and with G = G_low, against the record's
+     computed residual 2.5e-3 (resid5.py): the ratios (reported).  The residual is measured relative to the
+     curvature scale and the condition in the estimate's own norm, so the ratios are orders of magnitude, not a
+     theorem; F and G can only be larger than these lower estimates, and in dnsolve5's formulation no F exists at all
+     (symbol5.py Y3).
   Control (A1): the second difference applied to the data themselves (linear in A) must vanish to rounding: a G_low of
      the data above 1e-10 of the solution's fails, so A1's G_low is the solution's nonlinearity, not the step.
 
@@ -68,10 +70,11 @@ def main():
     print('   control (second difference of the data, linear in A): %.2e -> %s' % (
         dctl, 'passed (bad)' if ctl else 'fails (good)'))
     T = 10.0
-    eps_max = 1 / (4 * Gl * T * Fl ** 2)
-    print('A2 closing condition at F_low, G_low, T = %g: delta + int eps < %.3e; the record\'s residual 2.5e-3 is %.3g '
-          'times that (a lower bound on the gap; in dnsolve5\'s formulation the gap is infinite, symbol5.py Y3)' % (
-              T, eps_max, 2.5e-3 / eps_max))
+    for G_, lab in ((10.0, 'G = 10 (2(d)\'s placeholder)'), (Gl, 'G = G_low')):
+        eps_max = 1 / (4 * G_ * T * Fl ** 2)
+        print('A2 at F_low, %s, T = %g: delta + int eps < %.3e; the record\'s residual 2.5e-3 is %.3g times that' % (
+            lab, T, eps_max, 2.5e-3 / eps_max))
+    print('   (orders of magnitude, a lower bound on the gap; in dnsolve5\'s formulation it is infinite, symbol5.py Y3)')
     ok = not ctl and Fl > 0 and Gl > 0
     print('ampresp5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1

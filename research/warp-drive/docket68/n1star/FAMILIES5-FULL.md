@@ -667,7 +667,7 @@ on the data, not examined; the alternative route the round-1 note named is there
 *The example (twobg5 G5).* The least over v ≤ 5 of R(u2, v) − √μ_III(v) is 0.6127 at n = 40, 80, 160 (attained at v =
 0), with R_v(u2, v) > 0 throughout; for v ≥ 5 (𝒜 = 0) R grows along the untrapped ray and μ_III is constant (G1 (d)),
 so (H6) holds with δ6 = 0.61. Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge; the
-gap is G5CTL at n = 40, 80, and (H6) fails.
+gap is −0.617 at n = 40 and 80, and (H6) fails.
 
 ## 10. Item 7 for two families: the mean mass
 
