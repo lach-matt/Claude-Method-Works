@@ -28,36 +28,3 @@ E7 a = 0.5, T = 4.0: extremal f(T, T) = 617.1, bound e^{4aT} = 2981, below every
 E7 a = 3.0, T = 1.0: extremal f(T, T) = 2.713e+04, bound e^{4aT} = 1.628e+05, below everywhere: True; exceeds e^{a(u+v)}
     (control, must): True; growth rate log f/(2T) = 1.701 a
 E7 PASS
-   (40 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
-E4 the coefficient sums kappa_Z on the box (sup over the cells kept), by angular band |x| <= X:
-   X            dchi      deta      domb     dchib     detab       dom        dk        dw        db       da1       dc1
-       dd1       da2       dc2       dd2
-   0.5000       14.7      26.1      23.7       122      55.9      35.3      42.1      95.7      36.9      45.7      83.1
-       43.3        37      52.4      22.7
-   0.8000       16.6      34.3      27.4       171      89.8      40.4       124       166       115      77.5       160
-       74.6      56.8      84.4      41.8
-   0.9500       23.4      65.3      35.6       517       673      65.6  1.15e+03       581  1.91e+03       419  1.06e+03
-       388       249       519       228
-   0.9988       46.8       287      69.2  1.77e+04  5.73e+04  1.28e+03  1.66e+04  4.22e+04  1.82e+05  1.78e+04   7.1e+04
-       1.66e+04  9.61e+03  4.11e+04  9.59e+03
-   (rows: X; columns: kappa_Z sup.  a = the largest.)
-E4 X = 0.5000: a = 122, worst unknown dchib; F^2 = exp(2 a (Du + Dv)) = 10^420.2, F = 10^210.1
-E4 X = 0.8000: a = 171, worst unknown dchib; F^2 = exp(2 a (Du + Dv)) = 10^587.3, F = 10^293.6
-E4 X = 0.9500: a = 1.91e+03, worst unknown db; F^2 = exp(2 a (Du + Dv)) = 10^6552.1, F = 10^3276.1
-E4 X = 0.9988: a = 1.82e+05, worst unknown db; F^2 = exp(2 a (Du + Dv)) = 10^624562.5, F = 10^312281.3
-E5 the truncated domain on the box (sup |b| = 0.56): x-extent left at the far corner, X - c_u Du - c_v Dv with c_u =
-    sup|b| + lam, c_v = sup(Omt^2/gt)/lam, lam optimal:
-   X = 0.5000: sup(Omt^2/gt) = 2.94, shrink = 7.61 -> half-width left -7.11 (empty)
-   X = 0.8000: sup(Omt^2/gt) = 2.94, shrink = 7.61 -> half-width left -6.81 (empty)
-   X = 0.9500: sup(Omt^2/gt) = 2.94, shrink = 7.61 -> half-width left -6.66 (empty)
-   X = 0.9988: sup(Omt^2/gt) = 2.94, shrink = 7.61 -> half-width left -6.61 (empty)
-E6 the closing condition delta + int eps < 1/(4 G T F^2), T = Du + Dv = 3.95, at G = 10 and G = 382:
-   X = 0.5000, G = 10: demand 10^-422.4
-   X = 0.5000, G = 382: demand 10^-424.0
-   X = 0.8000, G = 10: demand 10^-589.5
-   X = 0.8000, G = 382: demand 10^-591.1
-   X = 0.9500, G = 10: demand 10^-6554.3
-   X = 0.9500, G = 382: demand 10^-6555.9
-   X = 0.9988, G = 10: demand 10^-624564.7
-   X = 0.9988, G = 382: demand 10^-624566.3
-linest5 (45 s): all checks pass

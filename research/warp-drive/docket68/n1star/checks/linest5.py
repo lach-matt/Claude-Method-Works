@@ -357,6 +357,25 @@ def main():
         lg = 2 * a_ * (Du + Dv) / np.log(10)
         print('E4 X = %.4f: a = %.3g, worst unknown %s; F^2 = exp(2 a (Du + Dv)) = 10^%.1f, F = 10^%.1f' % (
             Xb, a_, UNK[int(np.argmax(row))], lg, lg / 2))
+    # E4b: the same with the coefficients' own profile (the variable-coefficient lemma, E7's proof with
+    # U(u) = int a_o du, V(v) = int a_i dv): F^2 = exp(2 int a_o du + 2 int a_i dv)
+    outs = [n for n in UNK if TYPE[n] in ('out', 'both')]
+    ins = [n for n in UNK if TYPE[n] == 'in']
+    print('E4b the coefficients\' own profile: a_o(u) = max over the unknowns measured on outgoing cones of sup over '
+          '(v, x), a_i(v) likewise on ingoing cones; F^2 = exp(2 int a_o du + 2 int a_i dv):')
+    for Xb in (0.5, 0.8, 0.95, float(x[0])):
+        sel = inbox[:, :, None] & (np.abs(x)[None, None, :] <= Xb + 1e-12)
+        ao = np.nanmax(np.stack([np.nanmax(np.where(sel, kap[n] * np.ones_like(bg[Ew]), np.nan), axis=(1, 2))
+                                 for n in outs]), axis=0)
+        ai = np.nanmax(np.stack([np.nanmax(np.where(sel, kap[n] * np.ones_like(bg[Ew]), np.nan), axis=(0, 2))
+                                 for n in ins]), axis=0)
+        iu_ = ~np.isnan(ao); iv_ = ~np.isnan(ai)
+        Io = np.trapezoid(ao[iu_], uu[iu_]); Ii = np.trapezoid(ai[iv_], vv[iv_])
+        lg = 2 * (Io + Ii) / np.log(10)
+        print('   X = %.4f: int a_o du = %.3g (a_o from %.3g at u = %.2f to %.3g at u = %.2f), int a_i dv = %.3g; '
+              'F^2 = 10^%.1f; demand at G = 10: 10^%.1f' % (
+                  Xb, Io, ao[iu_][0], uu[iu_][0], ao[iu_][-1], uu[iu_][-1], Ii, lg,
+                  -(np.log10(4 * 10 * (Du + Dv)) + lg)))
     # E5: the domain
     print('E5 the truncated domain on the box (sup |b| = %.3g): x-extent left at the far corner, '
           'X - c_u Du - c_v Dv with c_u = sup|b| + lam, c_v = sup(Omt^2/gt)/lam, lam optimal:' % bsup)
@@ -365,6 +384,15 @@ def main():
         shrink = (bsup + lam) * Du + cv_sup / lam * Dv
         print('   X = %.4f: sup(Omt^2/gt) = %.3g, shrink = %.3g -> half-width left %.3g (%s)' % (
             Xb, cv_sup, shrink, Xb - shrink, 'empty' if Xb - shrink <= 0 else 'nonempty'))
+    # E5b: local speeds
+    sup_b_u = np.nanmax(np.where(inbox[:, :, None], np.abs(bg['b']), np.nan), axis=(1, 2))
+    sup_c_v = np.nanmax(np.where(inbox[:, :, None], bg['Om2_gt'], np.nan), axis=(0, 2))
+    iu_ = ~np.isnan(sup_b_u); iv_ = ~np.isnan(sup_c_v)
+    Ib = np.trapezoid(sup_b_u[iu_], uu[iu_]); Ic = np.trapezoid(sup_c_v[iv_], vv[iv_])
+    print('E5b with local speeds (c_u = sup_{v,x}|b| + lam, c_v = sup_{u,x}(Omt^2/gt)/lam): least shrink '
+          'int|b| du + 2 sqrt(Du int(Omt^2/gt) dv) = %.3g + %.3g = %.3g against the x-range 2: %s' % (
+              Ib, 2 * np.sqrt(Du * Ic), Ib + 2 * np.sqrt(Du * Ic),
+              'every truncated domain over the box is empty' if Ib + 2 * np.sqrt(Du * Ic) >= 1 else 'nonempty'))
     # E6: the demand
     print('E6 the closing condition delta + int eps < 1/(4 G T F^2), T = Du + Dv = %.2f, at G = 10 and G = 382:' % (
         Du + Dv))
