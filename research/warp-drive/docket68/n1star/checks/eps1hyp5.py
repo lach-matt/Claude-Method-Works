@@ -20,10 +20,11 @@ lzeroconst5.py's geometry); deduced (the reduction to the hyperplanes, and the c
      dtau) and g^-1(d(v + tau), dtau) (two timelike covectors are never orthogonal) and the time orientation are those
      of g0; past causal curves then cannot leave Omega through {r = a}, the outer boundary or Sigma_tau_end, which is
      the containment; L0(tau) = 1 does not involve g.
-  H3 (certified) sharpness: at the outer boundary on Sigma_tau0 (r = b(tau0), mu = mu_end = 227/192) the perturbation
-     delta g = -lambda_min n (x) n, n the unit vector of ker d(v + tau) along (1, -2 xhat)/sqrt5, has operator norm
-     lambda_min = (3 + mu_end/b(tau0)^2)/5 in [0.601313, 0.601314], keeps det < 0 (Lorentzian), and makes d(v + tau)
-     null: so no eps1 above 0.60132 serves. eps1* lies in [3/5, 0.60132].
+  H3 (exact) sharpness: at the outer-boundary point with r = 67/5 (its tau = (V + 1 + tau_end - 67/5)/2 lies in
+     [tau0, tau_end], since b(tau0) > 67/5; there v > v_end and mu = mu_end = 227/192) the perturbation
+     delta g = -lambda n (x) n, n the unit vector of ker d(v + tau) along (1, -2 xhat)/sqrt5, lambda = (3 + mu_end/r^2)/5
+     = 0.6013169..., keeps det < 0 (Lorentzian) and makes g|ker d(v + tau) degenerate (the boundary null): no eps1
+     above 0.60132 serves. eps1* lies in [3/5, 0.60132].
   Controls (must fail, and do): C1 the claim "eps1 = 0.61 serves" is refuted by H3's perturbation (exact rational
   check that d(v + tau) is null for g); C2 a perturbation of norm 0.59 of the same shape keeps the boundary spacelike,
   and 0.62 does not (floating point, the sign of g^-1(d(v + tau), d(v + tau))); C3 the hyperplane test applied to
@@ -91,7 +92,8 @@ def main():
     lam_hi = (3 + mu_e / b_lo ** 2) / 5
     lam = lam_hi                                        # a rational at least lambda_min, used below exactly
     # exact check with r replaced by the rational b_lo (the boundary radius within 1e-25): build g at xhat = e1
-    rr = b_lo
+    rr = Fr(67, 5)
+    assert rr < b_lo and (LZ.VE + LZ.T + 1 + g['tau_end'][0] - rr) / 2 >= LZ.TAU0
     g0 = sp.diag(-1, 1, 1, 1, 1) + (sp.Rational(mu_e.numerator, mu_e.denominator) / sp.Rational(rr.numerator,
                                                                                              rr.denominator) ** 2) \
         * sp.Matrix([1, 1, 0, 0, 0]) * sp.Matrix([1, 1, 0, 0, 0]).T
@@ -103,12 +105,12 @@ def main():
     Q, _ = K.QRdecomposition()
     det_restr = sp.simplify((Q.T * gp * Q).det())
     det_full = sp.simplify(gp.det())
-    ok['H3'] = det_restr == 0 and det_full < 0 and lam_lo > Fr(6013, 10000) and lam_hi < Fr(60132, 100000)
-    say('  H3: lambda_min on the outer boundary at tau0 = (3 + mu_end/b(tau0)^2)/5 in [%.7f, %.7f]; the perturbation '
-        '-lambda_min n n^T: g|ker d(v + tau) degenerate (det = %s), det g = %.4f < 0 (Lorentzian): eps1* in [3/5, '
-        '0.60132]; round 1\'s eps1 = %.4e is %.0f times smaller' % (float(lam_lo), float(lam_hi), det_restr,
-                                                                   float(det_full), EPS1_R1,
-                                                                   0.6 / EPS1_R1))
+    ok['H3'] = det_restr == 0 and det_full < 0 and Fr(3, 5) < lam_lo and lam_exact < sp.Rational(60132, 100000)
+    say('  H3: lambda_min on the outer boundary: at tau0 (3 + mu_end/b(tau0)^2)/5 in [%.7f, %.7f]; at r = 67/5 it is '
+        '%s = %.7f, and -lambda n n^T there makes g|ker d(v + tau) degenerate (det = %s), with det g = %.4f < 0 '
+        '(Lorentzian): eps1* in [3/5, 0.60132]; round 1\'s eps1 = %.4e is %.0f times smaller than 3/5' % (
+            float(lam_lo), float(lam_hi), lam_exact, float(lam_exact), det_restr, float(det_full), EPS1_R1,
+            0.6 / EPS1_R1))
     ok['C1'] = det_restr == 0 and float(lam_exact) < 0.61
     say('  C1 (control): "eps1 = 0.61 serves" refuted: a perturbation of norm %.6f < 0.61 makes the outer boundary null'
         % float(lam_exact))
