@@ -90,10 +90,8 @@ def q1(control=False):
     # interior of K+: rho_K = <x>/t at fixed x: dt = <x> rho_K^-2 drho_K = (<x>/rho_K) drho_K/rho_K: shift 1/2
     x = sp.Symbol('X', positive=True)
     tk = x/rk
-    kshift = sp.Rational(-sp.degree(sp.Poly(sp.simplify(sp.Abs(sp.diff(tk, rk))*rk/x), 1/rk), 1/rk), 1) \
-        if False else HALF
-    kint = sp.simplify(sp.Abs(sp.diff(tk, rk))*rk)          # = <x>/rho_K: L^2(dt) = rho_K^(1/2) L^2_b (x fixed)
-    kok = sp.simplify(kint - x/rk) == 0
+    kint = sp.simplify(sp.Abs(sp.diff(tk, rk))*rk)          # dt = (<x>/rho_K) drho_K/rho_K at fixed x
+    kok = sp.simplify(sp.log(kint/x).diff(rk)*rk) == -1     # rho_K^-1: L^2(dt) = rho_K^(1/2) L^2_b, shift 1/2
     # the dictionary: R2.5's classes
     asf = sp.Symbol('a_sf')
     g = asf + 2 + shifts[0]
@@ -133,25 +131,16 @@ def q2(control=False):
     # III.H's alpha (L^2(dx)) is the mu_b-weight alpha + n/2; Y_0 has mu_b-weight alpha + n/2 + 2; A^3 in Y_0 iff
     # 3 > alpha + n/2 + 2
     al = sp.Symbol('alpha')
-    col = sp.solve(sp.Lt(al + sp.Rational(n, 2) + 2, 3), al)    # alpha < 1 - n/2
-    win_hi = sp.Rational(1) - sp.Rational(n, 2) + sp.Rational(n, 2)  # mu_b-weight of the domain at that alpha: 1
-    win_hi = (1 - sp.Rational(n, 2)) + 2                          # alpha + 2 at the column's edge
-    # the outgoing threshold
-    F = sp.Function('F')
+    edge = sp.solve(sp.Eq(al + sp.Rational(n, 2) + 2, 3), al)[0]  # A^3 in Y_0 (mu_b-weight alpha + n/2 + 2) iff below
+    win_hi = edge + 2                                              # alpha + 2 at the column's edge
+    # the outgoing threshold: F = exp(k(t - r)), read the r^0 coefficient after multiplying by r^(p+1)
     tt = sp.Symbol('t')
-    u = rr**(-p)*F(tt - rr)
-    box0 = -sp.diff(u, tt, 2) + sp.diff(u, rr, 2) + sp.Rational(n - 1)/rr*sp.diff(u, rr)
-    lead = sp.simplify(sp.expand(box0*rr**(p + 1)).subs(rr, sp.oo)) if False else None
-    ex = sp.expand(box0*rr**(p + 1))
-    coefF1 = sp.simplify(ex.coeff(sp.Subs(sp.Derivative(F(sp.Symbol('_x')), sp.Symbol('_x')),
-                                             sp.Symbol('_x'), tt - rr)))
-    # robust: substitute F = exp(k(t - r)) and read the r^0 coefficient after multiplying by r^(p+1)
     kk = sp.Symbol('k')
     ue = rr**(-p)*sp.exp(kk*(tt - rr))
     be = sp.simplify((-sp.diff(ue, tt, 2) + sp.diff(ue, rr, 2) + sp.Rational(n - 1)/rr*sp.diff(ue, rr))
                      * rr**(p + 1)/sp.exp(kk*(tt - rr)))
     be = sp.expand(be)
-    lead = sp.simplify(be.subs(rr, sp.oo)) if False else sp.limit(be, rr, sp.oo)
+    lead = sp.limit(be, rr, sp.oo)
     root_p = sp.solve(sp.Eq(lead, 0), p)
     ok = gap == (0, 2) and win_hi == 1 and (0 < win_hi <= gap[1]) and root_p == [sp.Rational(3, 2)]
     if control:
@@ -181,9 +170,8 @@ def q3(control=False):
         if all(z.is_finite for z in lims) and any(z != 0 for z in lims):
             q = qq
             break
-    conormal = q is not None and all(
-        sp.limit(sp.simplify((r*sp.diff(1, r)) if False else sp.diff(r**q*w, r, j)*r**j), r, sp.oo).is_finite
-        for w in (Wt, Wr) for j in (1, 2, 3))
+    conormal = q is not None and all(                      # r^j d_r^j spans (r d_r)^i, i <= j
+        sp.limit(sp.simplify(sp.diff(r**q*w, r, j)*r**j), r, sp.oo).is_finite for w in (Wt, Wr) for j in (1, 2, 3))
     r3Wr = sp.limit(r**3*Wr, r, sp.oo)
     # Lemma 4.3: ||W^-1 Phi(sigma r) r^-q||^2_{L^2(dr/r, r >= 1)} = sigma^(2q) int_sigma^oo (1+x)^(2m) x^(-2eps-1) g(x) dx
     # with g = Phi^2 = e^(-2x^2); main term int_sigma^1 x^(-2eps-1) dx exact, remainder integrable (g - 1 = O(x^2))
@@ -201,8 +189,7 @@ def q3(control=False):
             rows.append((str(eps), m, lim_main, rem_ok, order))
             good &= lim_main == 1/(2*eps) and rem_ok and tail_ok
     tf_order_minus_a = [rw[4] for rw in rows]
-    ok = q == 2 and conormal and good and all(o == 2 - sp.Rational(e) for (e, _, _, _, o) in
-                                              [(rw[0], 0, 0, 0, rw[4]) for rw in rows])
+    ok = q == 2 and conormal and good and all(rw[4] == 2 - sp.Rational(rw[0]) for rw in rows)
     if control:
         print("  Q3 control ((d_v)^flat): decay order q = %s, tf-order minus a = %s; equal to 2 - eps: %s"
               % (q, tf_order_minus_a[:2], ok), flush=True)
@@ -224,26 +211,27 @@ def q4(control=False):
         z = e - sp.I*s
         expected = sp.gamma(1 - aK)*z**(aK - 1)
         if control:
-            finite = expected.has(sp.zoo) or not sp.gamma(1 - aK).is_finite
-            E1 = sp.expint(1, z)
-            ser = sp.series(E1.subs(e, 0).rewrite(sp.Ei) if False else sp.expint(1, sp.Symbol('w')), sp.Symbol('w'),
-                            0, 2).removeO()
+            power_law = sp.gamma(1 - aK).is_finite is True       # Gamma(0) = zoo: no power law at a_K = 1
+            w = sp.Symbol('w', positive=True)
+            ser = sp.series(sp.expint(1, w), w, 0, 2).removeO()  # the transform of t^-1 cut off at t = 1
             has_log = ser.has(sp.log)
             print("  Q4 control (a_K = 1): Gamma(1 - a_K) = %s, so no power law; E_1(w) = %s near 0, log: %s"
                   % (sp.gamma(1 - aK), ser, has_log), flush=True)
-            return not finite and not has_log
+            return power_law and not has_log
         # the transform, computed: int_0^oo t^lam e^(-z t) dt with z = e - i sigma, Re z = e > 0
         k = sp.Symbol('kk', positive=True)
         val = sp.integrate(t**lam*sp.exp(-k*t), (t, 0, sp.oo))
         tr_ok = sp.simplify(val - sp.gamma(1 - aK)*k**(aK - 1)) == 0      # analytic in k, continued to k = z
         # membership thresholds: t^-aK in H^(0,beta)_b at oo iff beta < aK; |sigma|^(aK-1) in X^(0, beta-1) iff
         # beta - 1 < aK - 1
+        # <t>^(beta-1/2) t^-aK in L^2(dt) at oo iff 2(beta - 1/2) - 2aK < -1 (II.G' Definition 2.1);
+        # |sigma|^(-(beta-1)-1/2) |sigma|^(aK-1) in L^2(dsigma) at 0 iff -2(beta - 1) - 1 + 2(aK - 1) > -1 (Def. 2.7)
         be = sp.Symbol('beta')
-        th_t = sp.solve(sp.Lt(2*be - 1 - 2*aK, -1), be)      # int^oo t^(2beta-1) t^(-2aK) dt/t... (<t>^(beta-1/2))
-        th_s = sp.solve(sp.Lt(-2*(be - 1) - 1 + 2*(aK - 1), -1) if False else
-                        sp.Gt(-2*(be - 1) - 1 + 2*(aK - 1) + 1, 0), be)
-        thr_t = sp.solve(sp.Eq(2*be - 1 - 2*aK, -1), be)[0]
+        thr_t = sp.solve(sp.Eq(2*(be - HALF) - 2*aK, -1), be)[0]
         thr_s = sp.solve(sp.Eq(-2*(be - 1) - 1 + 2*(aK - 1), -1), be)[0]
+        it = sp.integrate(t**(2*(thr_t - sp.Rational(1, 10) - HALF) - 2*aK), (t, 1, sp.oo))   # below: finite
+        it_edge = sp.integrate(t**(2*(thr_t - HALF) - 2*aK), (t, 1, sp.oo))                  # at: infinite
+        tr_ok = tr_ok and it.is_finite and it_edge == sp.oo
         rows.append((str(aK), tr_ok, thr_t, thr_s))
         ok &= tr_ok and thr_t == aK and thr_s == aK
     print("  Q4: (a_K, int_0^oo t^-a_K e^(-k t) dt = Gamma(1 - a_K) k^(a_K - 1), threshold of beta for t^-a_K in "
@@ -370,8 +358,9 @@ def q6(control=False):
     bG, kG = sp.symbols('beta_G kappa_G', positive=True)
     rp, rk = sp.symbols('rho_p rho_K', positive=True)
     tw = (1/(rp*rk))**kG*(1/rp)**bG                        # t^kappa r^beta in the corner chart
-    wts = (-sp.degree(sp.Poly(sp.powsimp(sp.expand_power_base(tw*rp**(bG + kG)*rk**kG, force=True)), rp)) + bG + kG
-           + sp.Rational(5, 2), kG + HALF)
+    ex_p = sp.simplify(rp*sp.diff(sp.expand_log(sp.log(1/tw), force=True), rp))   # f in tw^-1 L^2(dt dx)
+    ex_k = sp.simplify(rk*sp.diff(sp.expand_log(sp.log(1/tw), force=True), rk))
+    wts = (ex_p + sp.Rational(5, 2), ex_k + HALF)           # Q1's dictionary
     g_from = wts[0] - 2
     aK_from = wts[1]
     g4 = sp.simplify(g_from - aK_from - bG) == 0 and sp.simplify(aK_from - (HALF + kG)) == 0
