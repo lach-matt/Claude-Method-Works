@@ -5,11 +5,22 @@ C1 PASS
       lam^0: True, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [12s]
 C2 PASS
   C3: P(phi [d_s W]) contracted with l (x) l: no lam^-1 or lower term: True; no second derivative of phi at
-      lam^0: True [37s]
+      lam^0: True [33s]
 C3 PASS
   C4: the shifted ball and its segment stay in the annulus: True; length <= 3 lam and lam inside near
       either sphere: True; b(tau) - a >= 1 on [tau0, tau_end]: True; without |sigma0| <= 1 a point leaves: True
 C4 PASS
+  C5: the bootstrap's ledger at K = 6 (k = 6, s0 = 3; derived exponents: L^inf lam^(-3 - i), quadratic
+      lam^(-5)):
+      Sobolev range: the L^inf bounds needed up to i = 4 exist (k + 1 - s0 >= 4)                               True
+      Step 3: |w|_inf <= C M lam^(K-3) is small (K - 3 > 0)                                                    True
+      Step 3: |d w|_inf <= C M lam^(K-4) <= C M lam^2 (K - 4 >= 2)                                             True
+      Step 4: the w part of the commutators, C M lam^(K-4) N <= C N                                            True
+      Step 4: the worst nonlinear term lam^(-5) N^2 <= C M^2 lam^(K+1)                                         True
+      Step 4: the lower nonlinear term lam^(-3) N^2 <= C M^2 lam^(K+1)                                         True
+      the residual lam^(N_st - 1), N_st = K + 3, within C_R lam^K                                              True
+      Step 7: the nonlinear term one power above lam^K, so lam0 = 1/(C3 C M^2) closes it                       True
+C5 PASS
   C6: det g = -N^2 det gamma: True; g(Z, Z) = -N^2: True; g(Z, d_k) = 0: True; inverse along Z
       (g^00 = -N^-2, g^ij = gamma^-1): True; roots real, opposite, product -N^2 X: True; convex combinations: True
 C6 PASS

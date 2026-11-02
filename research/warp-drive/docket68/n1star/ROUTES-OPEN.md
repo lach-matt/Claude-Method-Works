@@ -6314,6 +6314,13 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   a2, bc, bs, kc, ks) and lead5.py's W_TT vanishes where E = 0, and χ's transport source, R^(0)_vv's second harmonic, has
   E-degree ≥ 2 in every term (the first version also counted the mean, whose M′ is a separate function in the code, and
   failed; the source is the harmonic). Control: a profile with an E-free part. Cited in the paper after audit batch 4.
+- D603 (computational support, verifier 257's C5; `checks/support5.py` C5, exact): the bootstrap of supplement section 4
+  (paper (5.4)-(5.5)) as a ledger whose exponents are derived from its rules, not typed: the Sobolev index s0 = 3 in four
+  spatial dimensions, ||∂^i w||_∞ ≤ C λ^(−3−i) N for i ≤ k + 1 − s0 = 4, |∂w|_k ≤ C λ⁻¹ N, one L^∞ factor per product (so
+  the worst nonlinear term is λ⁻⁵ N²), N_st = K + 3 stages. At K = 6 every requirement holds (the smallness of w and ∂w,
+  the w part of the commutators, both nonlinear terms within λ^(K+1), the residual within λ^K, the closing); at K = 5,
+  the control, |∂w| ≤ C M λ² and the worst nonlinear term fail. Left of verifier 257's list: C7 (the constraint solve's
+  scaling) and C9 (Propositions 3.3-3.4 at λ > 0).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

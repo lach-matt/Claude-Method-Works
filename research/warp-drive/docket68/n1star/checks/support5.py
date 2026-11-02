@@ -190,6 +190,43 @@ def c3(control=False):
     return large and not second
 
 
+def c5(control=False):
+    """supplement section 4, Steps 1-7 (paper (5.4)-(5.5)): the bootstrap's power counting as a ledger. Rules, from
+    Lemma 2.1 and Step 1: four spatial dimensions, so the L^inf bound costs the Sobolev index s0 = 4//2 + 1 = 3
+    derivatives, ||d^i w||_inf <= C lam^(-s0 - i) N for i <= k + 1 - s0, k = 6; |d w|_k <= lam^-1 |w|_(k+1) <= C
+    lam^-1 N; a product in the weighted norm costs one L^inf factor; the approximant has N_st = K + 3 stages with
+    residual lam^(N_st - 1). Each term's exponent is derived from the rules (not typed), then held against the step's
+    requirement under the bootstrap N <= 2 M lam^K. Every requirement holds at K = 6 (the supplement's choice holds
+    for every K >= 6); at K = 5 the closing ones fail (the control)."""
+    from fractions import Fraction as Fr
+    K = 5 if control else 6
+    k, n_sp = 6, 4
+    s0 = n_sp // 2 + 1
+    imax = k + 1 - s0
+    e_inf = lambda i: -s0 - i                      # ||d^i w||_inf <= C lam^e N
+    e_dwk = -1                                     # |d w|_k <= C lam^-1 N
+    e_quad = e_inf(0) + 2 * e_dwk                  # |d w d w|_k <= C lam^-s0 |d w|_k^2
+    e_quad0 = e_inf(0) + 0                         # |w d^2 w|-type, the lower term: lam^-3 N^2 (Step 4)
+    rows = [
+        ("Sobolev range: the L^inf bounds needed up to i = 4 exist (k + 1 - s0 >= 4)", imax >= 4),
+        ("Step 3: |w|_inf <= C M lam^(K-3) is small (K - 3 > 0)", K + e_inf(0) > 0),
+        ("Step 3: |d w|_inf <= C M lam^(K-4) <= C M lam^2 (K - 4 >= 2)", K + e_inf(1) >= 2),
+        ("Step 4: the w part of the commutators, C M lam^(K-4) N <= C N", K + e_inf(1) >= 0),
+        ("Step 4: the worst nonlinear term lam^(%d) N^2 <= C M^2 lam^(K+1)" % e_quad, 2 * K + e_quad >= K + 1),
+        ("Step 4: the lower nonlinear term lam^(%d) N^2 <= C M^2 lam^(K+1)" % e_quad0, 2 * K + e_quad0 >= K + 1),
+        ("the residual lam^(N_st - 1), N_st = K + 3, within C_R lam^K", (K + 3) - 1 >= K),
+        ("Step 7: the nonlinear term one power above lam^K, so lam0 = 1/(C3 C M^2) closes it", 2 * K + e_quad > K),
+    ]
+    ok = all(v for _, v in rows)
+    if control:
+        return ok
+    print("  C5: the bootstrap's ledger at K = %d (k = %d, s0 = %d; derived exponents: L^inf lam^(%d - i), quadratic\n"
+          "      lam^(%d)):" % (K, k, s0, -s0, e_quad), flush=True)
+    for name, v in rows:
+        print("      %-104s %s" % (name, v), flush=True)
+    return ok
+
+
 def c4(control=False):
     a, b, rho, lam, s, z1, w, t = z3.Reals("a b rho lam s z1 w t")
     hyp = [a > 0, b - a >= 1, lam > 0, lam <= z3.RealVal("1/10"), rho >= a, rho <= b, w >= 0, z1 * z1 + w < 1,
@@ -310,7 +347,7 @@ def c8(control=False):
     return ok
 
 
-CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C6", c6), ("C8", c8)]
+CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C5", c5), ("C6", c6), ("C8", c8)]
 
 
 def main():

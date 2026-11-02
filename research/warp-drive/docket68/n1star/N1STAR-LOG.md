@@ -7912,3 +7912,7 @@ unresolved.
 **D602 (2026-11-02): two of the settling section's steps computed.** That the class of an earlier stability result and
 this paper's symmetry class meet only in spherical symmetry is now an exact computation, and so is the first step of the
 induction showing that the waves' oscillating parts vanish once the shell has passed.
+
+**D603 (2026-11-02): the bootstrap's bookkeeping computed.** The counting of powers of the wavelength that makes the
+core estimate close is now a program: each term's power is derived from the stated rules, every condition holds at the
+order the proof uses, and the program shows the counting fails one order lower, as it should.
