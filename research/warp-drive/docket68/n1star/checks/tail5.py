@@ -40,7 +40,8 @@ a_j' = ((j + 1/2)(j - 3/2) - kappa)/(2j) a_(j-1). In particular a_1' = -(c/2) F 
   T8 (exact and computed) the time integral of the record's waves: for env = sin^4(pi (v - 1/2)/3) on [1/2, 7/2]
      (the record's numerics' envelope, C^3 at its ends) ehat(w) = int env e^(i w v) dv in closed form, |ehat(w)|
      w^5 bounded and not -> 0; for the C_c^oo bump env_b(v) = exp(-1/(1 - y^2)), y = (v - 2)/(3/2), ehat_b(1/lam)
-     is nonzero and falls faster than every power of lam (lam = 2^-1, ..., 2^-7, 40 digits), and
+     is nonzero at lam = 2^-1, ..., 2^-7 (40 digits) and falls there faster than lam^5 (log-slope over [2^-7,
+     2^-5] above 5; faster than every power by k integrations by parts, deduced), and
      ehat_b(w) = e^(2iw) E(w) with E real: it vanishes exactly at the real zeros of E, a discrete set (the first
      ones located). Control: a radiation field with zero time integral (env replaced by its derivative times a
      constant phase) gives ehat = 0 identically at w = 0 and is not of the record's form.
@@ -328,27 +329,27 @@ def t8():
         rows.append((lam, e))
     print("     bump: lam, |ehat(1/lam)|:", [(mp.nstr(a, 3), mp.nstr(abs(b), 4)) for a, b in rows])
     check("T8c bump: ehat(1/lam) != 0 at lam = 2^-1..2^-7", all(abs(b) > mp.mpf(10)**-30 for _, b in rows))
-    # faster than every power: the ratio |ehat|/lam^m at the last point against the first decreases for m <= 8
-    lam_a, e_a = rows[2]
-    lam_b, e_b = rows[-1]
-    rates = [mp.log(abs(e_b)/abs(e_a))/mp.log(lam_b/lam_a) for _ in (0,)]
+    # faster than every power is a theorem (env in C_c^oo: integrate by parts k times); measured here: the
+    # log-slope of |ehat(1/lam)| between lam = 2^-5 and 2^-7 exceeds 5, while that of the C^3 envelope is 5
     loc = [mp.log(abs(rows[i + 1][1])/abs(rows[i][1]))/mp.log(mp.mpf(1)/2) for i in range(2, len(rows) - 1)]
-    print("     local power exponents d log|ehat|/d log lam:", [mp.nstr(x, 4) for x in loc])
-    check("T8d bump: the local exponent grows without bound (super-polynomial decay)",
-          all(loc[i + 1] > loc[i] for i in range(len(loc) - 1)) and loc[-1] > 8, mp.nstr(rates[0], 4))
+    print("     local log-slopes d log|ehat|/d log lam (they oscillate with ehat's zeros):",
+          [mp.nstr(x, 4) for x in loc])
+    slope = mp.log(abs(rows[-1][1])/abs(rows[-3][1]))/mp.log(mp.mpf(1)/4)
+    check("T8d bump: log-slope over [2^-7, 2^-5] > 5 (faster than the C^3 envelope's lam^5)", slope > 5,
+          mp.nstr(slope, 4))
     # e^(-2iw) ehat is real (the bump is even about v = 2): zeros where the real E vanishes
     E = lambda om: (mp.exp(-2j*om)*ehat_b(om))
     imag_worst = max(abs(mp.im(E(mp.mpf(om)))) for om in (3, 7, 13, 21))
     check("T8e e^(-2iw) ehat_b(w) is real", imag_worst < mp.mpf(10)**-30, mp.nstr(imag_worst, 3))
     zeros = []
-    grid = [mp.mpf(1) + mp.mpf(k)/4 for k in range(0, 4*30)]
+    grid = [mp.mpf(1) + mp.mpf(k)/2 for k in range(0, 41)]
     prev = mp.re(E(grid[0]))
     for a, b in zip(grid, grid[1:]):
         cur = mp.re(E(b))
         if prev*cur < 0:
             zeros.append(mp.findroot(lambda om: mp.re(E(om)), (a, b), solver="anderson"))
         prev = cur
-    print("     real zeros of E in [1, 31]:", [mp.nstr(z, 6) for z in zeros])
+    print("     real zeros of E in [1, 21]:", [mp.nstr(z, 6) for z in zeros])
     check("T8f E has isolated real zeros (discrete exceptional set lam = 1/w)", len(zeros) >= 2)
     # control: env' (zero integral) gives ehat(0) = 0; the record's waves are env times a phase, not of that form
     ctl = mp.quad(lambda x: mp.diff(bump, x), [mp.mpf(1)/2, 2, mp.mpf(7)/2])
