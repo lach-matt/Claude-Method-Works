@@ -153,9 +153,11 @@ def l2(control=False):
     cross = all(mp.mpf(10)**best_B(k)[0] >= mp.mpf(E_K[k])/2 for k in range(1, 15))
     ok = cross and lser <= lb400 and stab < mp.mpf(10)**-100
     CACHE['logB'] = lb
+    thtxt = "1 - 2^-%d" % int(round(-mp.log(1 - th, 2))) if th > mp.mpf('0.99') else mp.nstr(th, 8)
     out("  L2 log10 B(1456) <= %s (theta = %s), so M_1456^(1/1456) <= %s; B(k) >= e_k/2 for k = 1..14: %s; at m = 400:"
-        " log10 B = %s, the series value log10 |env^(400)| = %s (precisions agree to %s): below B: %s  [%.0f s]"
-        % (mp.nstr(lb, 10), mp.nstr(th, 8), mp.nstr(mp.mpf(10)**(lb/MM), 5), cross, mp.nstr(lb400, 8),
+        " log10 B = %s, the series value log10 |env^(400)| = %s (200 and 280 digits agree, relative difference %s at"
+        " 150 digits): below B: %s  [%.0f s]"
+        % (mp.nstr(lb, 10), thtxt, mp.nstr(mp.mpf(10)**(lb/MM), 5), cross, mp.nstr(lb400, 8),
            mp.nstr(lser, 8), mp.nstr(stab, 3), lser <= lb400, time.time() - T0))
     return ok
 
