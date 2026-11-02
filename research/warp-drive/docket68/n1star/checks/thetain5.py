@@ -3,12 +3,12 @@
 (LOSS-D LD16, D588).
 
 III.F' Corollary 3.4 (proof5/PART-III-F2-INDICIAL.md:463-491) inverts N_tf(L_b, +-1) with a loss l: it takes r_out :=
-beta_sctf - 2 - eps/2, the orders of I.A Lemma 7.1 with that outgoing value (proof5/PART-I-SPECTRAL.md:1465-1489,
-taking values in [r_out, r_in], r_in > (1/2)(-1 + vartheta_in) - alpha_+, alpha_+ = 0), and II.G' Lemma 4.1's l :=
-max(ceil(sup r - r_out), ceil((s - 1)_+)), l~ := max(ceil(r_out - inf r), ceil((-s)_+)) (PART-II-G2-DECAY.md:627-633);
-its integer is l + l~. The record never evaluates vartheta_in (I.A (1.5), :160-172; :793-794), and fixes s only as
-"large" (F2:382). This computes vartheta_in for the tf model 2 L-bar, the spectral family on 4+1 Minkowski (F2:279-292),
-and the l it gives.
+beta_sctf - 2 - eps/2, the orders of I.A Lemma 7.1 with that outgoing value (proof5/PART-I-SPECTRAL.md:1465-1489, taking
+values in [r_out, r_in], r_in > (1/2)(-1 + vartheta_in) - alpha_+, alpha_+ = 0), and II.G' Lemma 4.1's l := max(ceil(sup
+r - r_out), ceil((s - 1)_+)), l~ := max(ceil(r_out - inf r), ceil((-s)_+)) (PART-II-G2-DECAY.md:627-633); its integer is
+l + l~. The record evaluates vartheta_in only for box^Ups (hienergy5.py V1, section 10.19: -2 S-bar), not for L (I.A
+(1.5), :160-172; :793-794), and fixes s only as "large" (F2:382). This computes vartheta_in for the tf model 2 L-bar,
+the spectral family on 4+1 Minkowski (F2:267-275), and the l it gives.
 
 The reduction (deduced from I.A's definitions). Write 2 L-bar = box + a^t d_t + a^i d_i + (order 0), the first-order
 coefficients r^-1 times functions of xhat: a^t = rho beta, a^i xhat_i = rho alpha_r. In t* = t - r (d_t = d_t*, d_i|_t =
@@ -33,7 +33,7 @@ constant eigenvalues: its spectral projections are smooth, sbar5.py S4's argumen
      incoming waves are rho^(3/2 - M), in rho^r L^2(|dx|) near infinity iff r < -1/2 - M, so the incoming estimate needs
      r_in > -1/2 - M = (1/2)(-1 + vartheta_in), as the reduction says. Control: the outgoing exponent with the sign of
      alpha flipped.
-  T4 (exact) the loss. Theorem 4.3 and Corollary 5.2 of I.C hold for every s (I.C :586-587, Definition 5.1: tf-
+  T4 (exact) the loss. Theorem 4.3 and Corollary 5.2 of I.C hold for every s (I.C :597, Definition 5.1: tf-
      admissibility does not depend on s), so Corollary 3.4 may take s = 1. With vartheta_in = 0, r_out = beta_sctf - 2 -
      eps/2 < -1/2 < r_in: l = ceil(r_in - r_out) = 1 for r_in in (-1/2, r_out + 1], l~ = 0 (inf r = r_out, s >= 0), so
      the corollary's integer is 1, for every beta_sctf in (1/2 + eps/2, 3/2) and every eps in (0, 1/4) on a grid of
@@ -41,16 +41,17 @@ constant eigenvalues: its spectral projections are smooth, sbar5.py S4's argumen
      2 max spec M, l would be about 3 * 10^6.
 
   T5 (exact) the same for the 1-form operators the record inverts beside L: box^Ups = box + 2 E^Ups G delta* and box^C =
-     box + 2 delta G E^C (sbar5.py's sbar_1form, with t* = t + r): incoming spec gam_U {1 - e_U, 2, 1 (3 times)} and
-     (1 + v) gam_C {1 - e_C, 2, 1 (3 times)}, all positive, so their vartheta_in may be taken any number above -2 (1 -
-     e_U) gam_U = -0.0198 and -2 (1 - e_C)(1 + v) gam_C, about -3.0 * 10^6, at the record's point. Control: the outgoing
-     spectra are thresh5.py U2's and cpmodes5.py K1's, (1 - v) for (1 + v).
-  T6 (exact) LOSS-D (2.3)-(2.4) for L_b (and for III.H's augmented L~_b, a finite-rank augmentation by compactly
-     supported rows and columns, with the same thresholds), with vartheta_in = 0 and the horizon threshold of III.F''
-     Lemma 1.1, vartheta_L = max(0, 2 - 2x) in [0, 2], x = a_v gam_C r_h (2 without the damping, lhor5.py H1; 0 once x
-     >= 1), s_c taken in (1/2 + vartheta_L, 3]: (2.3) l = max(ceil((3 - beta_scf)_+), ceil((s_c - 1)_+)) = 2 for beta_scf
-     in [1, 3/2), and (2.4) l = max(ceil((5/2 + eps/2 - beta_scf)_+), ceil((s_c - 1)_+)) = 2 for beta_scf in [1/2 +
-     eps/2, 3/2), on a grid, whichever vartheta_L in [0, 2] holds.
+     box + 2 delta G E^C (sbar5.py's sbar_1form, with t* = t + r): incoming spec gam_U {1 - e_U, 2, 1 (3 times)} and (1
+     + v) gam_C {1 - e_C, 2, 1 (3 times)}, all positive, so their vartheta_in may be taken any number above -2 (1 - e_U)
+     gam_U = -0.0198 and -2 (1 - e_C)(1 + v) gam_C, about -3.0 * 10^6, at the record's point. Control: the outgoing
+     spectra are thresh5.py U2's and cpmodes5.py K1's, (1 - v) for (1 + v); box^Ups's agrees with hienergy5.py V1's
+     vartheta_in = -2 S-bar.
+  T6 (exact) LOSS-D (2.3)-(2.4) for L_b (and for III.H's augmented L~_b, whose thresholds are its L_b block's: rows
+     compactly supported, columns conormal, in A^3 near the boundary, D590), with vartheta_in = 0 and the horizon
+     threshold of III.F'' Lemma 1.1, any number above vartheta_L = max(0, 2 - 2x) in [0, 2), x = a_v gam_C r_h (2
+     without the damping, lhor5.py H1; 0 once x >= 1), s_c taken in (1/2 + vartheta_L, 3]: (2.3) l = max(ceil((3 -
+     beta_scf)_+), ceil((s_c - 1)_+)) = 2 for beta_scf in [1, 3/2), and (2.4) l = max(ceil((5/2 + eps/2 - beta_scf)_+),
+     ceil((s_c - 1)_+)) = 2 for beta_scf in [1/2 + eps/2, 3/2), on a grid, whichever vartheta_L in [0, 2] holds.
 
 Labels: T1, T2, T3 and T5 computed (exact); the reduction, the choice s = 1, T4's and T6's readings deduced; vartheta_L
 is III.F'' Lemma 1.1's (lhor5.py).

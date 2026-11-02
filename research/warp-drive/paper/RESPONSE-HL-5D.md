@@ -1261,24 +1261,24 @@ Theorem 4 with them.
   21d + 6 in which its Nash–Moser step asks smallness (not the N of section 4, which counts the approximant's stages),
   is reduced to finitely many weights chosen under inequalities, six elementary losses given closed forms, and loop
   counts (`LOSS-D.md`, deduced from the write-out's text). At the write-out's own parameter point two nested loops
-  already give d > 7.9 × 10¹⁵ and N > 1.67 × 10¹⁷ in its accounting (deduced: lower bounds on the loops' rounds, about
+  already give d > 7.95 × 10¹⁵ and N > 1.66 × 10¹⁷ in its accounting (deduced: lower bounds on the loops' rounds, about
   ½/(ε_K ε_ind) for each loop, with ε_ind bounded by a number computed exactly), each round being charged 3 derivatives:
   2 for the operator and 1 for the inverse of its model at the transition face, a loss fixed by the threshold at the
-  incoming radial set, which is 0 here (computed exactly, `checks/thetain5.py`). That is a floor for what this proof's
-  bookkeeping delivers, not for the optimal loss. A round of the write-out's iteration at future timelike infinity is
-  charged 15 derivatives when the order ℓ_I to which it expands at future null infinity is taken in (3, 3.5), 17 just
-  above 3.5, and more for larger ℓ_I (deduced; the steps counted exactly, `checks/prop31loss5.py`): sufficient charges,
-  not shown minima. Still open: numbers for the weights the write-out chooses under its inequalities (ℓ_I among them),
-  the logarithmic terms of one index set, the count of one regularity step beyond its floor, the loop counts themselves,
-  and the evaluation of the recursion that composes them (`LOSS-D.md` section 4); so d is still not a number. For the
-  first constant of the linear theory, the resolvent of the scalar wave operator on five-dimensional Tangherlini of mass
-  1 cut off to an interval about the photon sphere, a bound is certified for every real 0 < |σ| ≤ 384 and every
-  harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the constant bounding the radial derivative is at most
-  963.4 for every harmonic l ≥ 1 and 1516 at l = 0, which also bounds the radial and angular derivatives summed over the
-  harmonics (`E2-PILOT.md`; certified in exact rational and interval arithmetic, `checks/e2trapband5_384.out`,
-  `checks/e2h1band5.out`); the bound lies 9.5 to 22 times above the computed norm at the sampled frequencies. The
-  passage to the write-out's own function spaces and the other constants are not done, so λ1 and δ are still not
-  evaluated.
+  incoming radial set, which is 0 here (deduced from an exact computation, `checks/thetain5.py`). That is a floor for
+  what this proof's bookkeeping delivers, not for the optimal loss. A round of the write-out's iteration at future
+  timelike infinity is charged 15 derivatives when the order ℓ_I to which it expands at future null infinity is taken in
+  (3, 3.5), 17 just above 3.5, and more for larger ℓ_I (deduced; the steps counted exactly, `checks/prop31loss5.py`):
+  sufficient charges, not shown minima. Still open: numbers for the weights the write-out chooses under its inequalities
+  (ℓ_I among them), the logarithmic terms of one index set, the count of one regularity step beyond its floor, the loop
+  counts themselves, and the evaluation of the recursion that composes them (`LOSS-D.md` section 4); so d is still not a
+  number. For the first constant of the linear theory, the resolvent of the scalar wave operator on five-dimensional
+  Tangherlini of mass 1 cut off to an interval about the photon sphere, a bound is certified for every real 0 < |σ| ≤
+  384 and every harmonic, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 on 3 ≤ σ ≤ 384, and there the constant bounding the radial
+  derivative is at most 963.4 for every harmonic l ≥ 1 and 1516 at l = 0, which also bounds the radial and angular
+  derivatives summed over the harmonics (`E2-PILOT.md`; certified in exact rational and interval arithmetic,
+  `checks/e2trapband5_384.out`, `checks/e2h1band5.out`); the bound lies 9.5 to 22 times above the computed norm at the
+  sampled frequencies. The passage to the write-out's own function spaces and the other constants are not done, so λ1
+  and δ are still not evaluated.
 - **Physical wavelengths.** λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
   curvature length, does not apply at a wavelength of 10 l5 here (λ is the reduced wavelength of the phase v/λ, as in
   the numerics' usage). The expansion parameter is the wavelength over the curvature length L = K^(−1/4); on x_K = 1, L
@@ -1427,7 +1427,9 @@ Theorem 4 with them.
   two-hundred-and-fifty-fourth (D589), after the two-hundred-and-fifty-third had read the entries it rests on (D586): no
   major finding; its minor ones (a derivative constant stated for every harmonic that holds for l ≥ 1, a ratio, which
   runs converge at the second seed, the open items of the loss, the range of the round charges) are repaired above. The
-  threshold and the charge of 3 per round (D588) have not been read by a verifier.
+  threshold and the charge of 3 per round (D588) were read by the two-hundred-and-fifty-fifth (D590): no major fault;
+  its findings (the threshold's label, the reason given for one operator's thresholds, the rounding of the floor) are
+  repaired.
 
 ---
 
@@ -2149,7 +2151,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision (D1–D1
 | | the eighty-fifth Part II.D′ (D206) |
 | | the eighty-sixth Part II.E (D207) |
 | | the eighty-seventh to the hundred-and-fifty-fourth the remaining parts of the write-out and their repairs (D208–D336; `proof5/README.md`, N1STAR-LOG) |
-| | the hundred-and-fifty-fifth to the two-hundred-and-fifty-fourth the work of section 9 since (D338–D589) |
+| | the hundred-and-fifty-fifth to the two-hundred-and-fifty-fifth the work of section 9 since (D338–D590) |
 | the standard theorems READ | supplement section 7, the retrieval table (log D17–D18) |
 
 ## Appendix D. Reproduction

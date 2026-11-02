@@ -6167,6 +6167,15 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   citation 490-506, its list with Γ[g0] for dd v, K1 and K5 at five points, K1 not testing products or means, K5 not
   d_X; and the two-dust existence is given its characteristic data. All seated; the D585-D587 entries above keep their
   text.
+- D590 (verifier 255 on D588-D589: no major; 3 minor, 5 nits; thetain5, closure5 and response5 rerun byte-identical or
+  passing; the reduction re-derived independently with non-commuting 2 × 2 A, B and h ≠ Id, and agreeing with
+  hienergy5.py V1's for □^Υ): D588's claim stands: ϑ_in = 0, ℓ = 1 at s = 1 (and ℓ ≥ 1 for every s, so the charge 3 per
+  round holds whatever s), (2.3) and (2.4) = 2. MINOR: the paper's "computed exactly" for the threshold is now "deduced
+  from an exact computation"; L̃_b's columns are conormal (𝒜³ near ∂X), not compactly supported, its thresholds being
+  its L̂_b block's for that reason; Appendix C's row now runs to D590, D588 having been read. Nits: thetain5's citations
+  (F2:267-275, I.C:597) and hienergy5 V1's earlier evaluation for □^Υ cited; the floor printed d > 7.959 × 10¹⁵, N >
+  1.671 × 10¹⁷ (7.9 × 10¹⁵ gives only 1.659 × 10¹⁷; the paper prints 7.95 and 1.66); ϑ_H any number above ϑ_L < 2; Γ[g0]
+  enters neither coupling, like dd v; I12:305 is Step 4's. The D588-D589 entries above keep their text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

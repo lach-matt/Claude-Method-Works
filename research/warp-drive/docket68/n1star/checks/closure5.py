@@ -28,7 +28,7 @@ well. An exact term is r^-p F(v, xhat, th), F smooth and bounded with all deriva
      weights) over every monomial of order m. A monomial contributes to a theta-mean only if it holds at least two
      oscillating factors, every oscillating profile having mean zero and every other factor (g0, m_i, dphi_i) being
      theta-independent. Then (a) the monomials of order m linear in gh_(m+1) with two oscillating factors are exactly W
-     gh_(m+1) with two lam^-1 dv d_th: <Th gh_(m+1)>'s coefficients are built from g0, g0^-1, dv, Gamma[g0] and W alone,
+     gh_(m+1) with two lam^-1 dv d_th: <Th gh_(m+1)>'s coefficients are built from g0, g0^-1, dv and W alone,
      exact, of order 3/2 (W_TT = r^-3/2 F) and in E_(3/2); (b) those holding dphi_m with two oscillating factors, at m
      >= 2, are exactly W W with one lam^-1 dv d_th: <Wm_phi(dphi_m)>'s coefficients are quadratic in W, exact, in E_3;
      no m_i and no dphi_i (i < m) enter either; closure (ii). At m = 1, dphi_1 d_th has weight 0, as d_X does, and the

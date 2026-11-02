@@ -7818,3 +7818,10 @@ section found nothing major. It found several statements a little broader than t
 holds for every harmonic but the lowest, a ratio quoted as 21 that is 22, a claim that all the finest runs agree to a
 late time when the finest departs earlier, and a list of what the loss still needs that left out the weights and counts
 themselves. All are repaired, with a wrong citation and several unexplained terms.
+
+**D590 (2026-11-02): the threshold result checked.** The independent check re-derived the threshold from the record's
+definitions by its own computation, with a harder test operator, and agreed: it is zero, and the inversion at the
+transition face costs one derivative, whatever regularity the proof chooses there. The repairs are small: the paper's
+label for the result now says it is deduced from an exact computation, one operator's thresholds are justified by the
+right reason, a range of entry numbers is corrected, and the printed lower bound on the loss is rounded so that its two
+figures agree.
