@@ -7,3 +7,7 @@ D2 PASS
       = sqrt(mu/mu0) - 1 + r_q mu'/(2 mu): True (so, with mu >= mu0, the stated bounds)
 D3 PASS
   D4 sup|Y|/sup|Z| over the samples: 1.0000 <= pi; square wave: pi/2 <= pi
+D4 PASS
+  D5 d_v^j (lam^m f(v, v/lam)) = sum_l binom(j, l) lam^(m-l) (d_th^l d_v^(j-l) f)(v, v/lam), j <= 4: True
+D5 PASS
+layerdeg5: all checks pass, every control fails  [79 s]
