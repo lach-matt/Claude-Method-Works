@@ -7,7 +7,8 @@ decides the causal character of x_K = 1 there.
      are of first order in d_v (the phase dv is null): for every T^2 x Z2 x Z2-invariant H(v, r, th),
          Q(H) := dRic^H(H) + i T(d_v H)   and   q(H) := dD(H) - Pol(d_v H)
      contain no v-derivative of H (T, Pol as tabulated in layerlin5 N1).  Hence R_X = -i T d_v + Q and D_X = Pol d_v +
-     q.  Control: the phase (v + r/5)/lam, not null, gives a nonzero lam^-2 part.
+     q.  This rests on g0^-1(dv, dv) = 0 (no d_v^2 term); a non-null covector, dv + dr/5, has g0^-1 = 2/5 + F/25.
+     Control (a mutation of the computed path): T with its vv mass coupling halved leaves a v-derivative in Q.
   V2 (exact, a model with the same structure) A three-component system with T = -i P (P first order in r, a mass
      coupling), R_X = -i T d_v + Q, D_X = Pol d_v + q, Pol^+ a right inverse, H1 transported with Pol H1 = 0, run by
      the record's recursion T(H_{j+1}) = -R_X(H_j) with data H_{j+1} = i Pol^+(D_X H_j) on the slice r0 = v - tau0 (and
@@ -74,23 +75,29 @@ def vfree(e):
 
 
 def v1(control=False):
-    if control:
-        H = sp.zeros(L.n)
-        H[1, 1] = sp.Function('Hrr')(L.v, L.r, L.th)
-        ph = sp.exp(I*(L.v + L.r/5)/L.lam)
-        R, _ = L.ops(H.applyfunc(lambda x: x*ph), twoscale=False)
-        m2 = [sp.expand(sp.simplify(R[i, j]/ph)).coeff(L.lam, -2) for i in range(L.n) for j in range(i, L.n)]
-        return all(L.is_zero(x) for x in m2)
     Hg = L.general_H()
-    Lone, Done = L.ops(Hg, twoscale=False)
+    if 'V1' not in CACHE:
+        CACHE['V1'] = L.ops(Hg, twoscale=False)
+    Lone, Done = CACHE['V1']
     dvH = Hg.applyfunc(lambda x: sp.diff(x, L.v))
     Tt = L.T_tab(dvH)
+    if control:
+        # a mutation of the computed path: the vv mass coupling 2 mu0 H_vr/r^3 of T halved
+        Tm = Tt.copy()
+        Tm[0, 0] = Tt[0, 0] + I*L.mu0*dvH[0, 1]/L.r**3
+        return vfree(Lone[0, 0] + I*Tm[0, 0])
     pt = L.pol_tab(dvH)
     q_ok = all(vfree(Lone[i, j] + I*Tt[i, j]) for i in range(L.n) for j in range(i, L.n))
     d_ok = all(vfree(Done[k] - pt[k]) for k in range(L.n))
+    xi = sp.Matrix([1, sp.Rational(1, 5), 0, 0, 0])
+    null = sp.simplify(L.gi[0, 0]) == 0 and sp.simplify((xi.T*L.gi*xi)[0]) != 0
     out("  V1 dRic^H(H) + i T(d_v H) free of v-derivatives (15 components): %s; dD(H) - Pol(d_v H) free of"
-        " v-derivatives (5): %s  [%.0f s]" % (q_ok, d_ok, time.time() - T0))
-    return q_ok and d_ok
+        " v-derivatives (5): %s; g0^-1(dv, dv) = 0 while g0^-1 of dv + dr/5 is %s  [%.0f s]"
+        % (q_ok, d_ok, sp.simplify((xi.T*L.gi*xi)[0]), time.time() - T0))
+    return q_ok and d_ok and null
+
+
+CACHE = {}
 
 
 # ------------------------------------------------------------------------------------------------------------ V2
