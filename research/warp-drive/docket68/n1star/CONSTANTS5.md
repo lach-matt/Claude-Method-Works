@@ -85,11 +85,13 @@ remainder; `lzeroconst5.py` and `lzeroaudit5.py` now carry it.]
 
 - *The terms.* lambda_Omega = min(1, delta0)/10 (section 2's standing condition, the paper's lambda_Omega). Step 3
   needs g = g_app + w within eps1 of g0 (|g_app - g0| <= C_app lam, |w| <= C_inf lam^-3 N <= 2 C_inf M lam^(K-3), each
-  within eps1/2), |w| <= eps2/2 for Step 8's cut-off, and |dw| <= 2 C_dw M lam^(K-4) <= 1 so that M1 does not depend on
-  M. Step 7 needs C3 C_N M^2 lam <= 1. Proposition 6.5 needs the frozen coefficients within their margin, 2 C_c C0
-  lam^(N-3) <= m_c, and the contraction factor C_k lam^(N-3) <= 1/2; Lemma 6.3 (c) needs the signs of alpha and S A0,
-  C_s lam <= m_s. Here C_inf, C_dw are C_S times Step 1's constant, C2 the constant of Steps 4-6, C_st Step 2's, C_N the
-  nonlinear one, C_R and C_D those of (E3) and (E4).
+  within eps1/2 [Round 3, M1: the halves are this note's choice; Step 3 (N1STAR-PROOF.md:355-357) asks only the sum,
+  so any split (1 - theta, theta) gives a valid closed form, and the proof's lambda0 is below eps1/C_app]), |w| <= eps2/2
+  for Step 8's cut-off, and |dw| <= 2 C_dw M lam^(K-4) <= 1 so that M1 does not depend on M. Step 7 needs C3 C_N M^2 lam
+  <= 1. Proposition 6.5 needs the frozen coefficients within their margin, 2 C_c C0 lam^(N-3) <= m_c, and the contraction
+  factor C_k lam^(N-3) <= 1/2; Lemma 6.3 (c) needs the signs of alpha and S A0, C_s lam <= m_s. Here C_inf, C_dw are C_S
+  times Step 1's constant, C2 the constant of Steps 4-6, C_st Step 2's, C_N the nonlinear one, C_R and C_D those of (E3)
+  and (E4).
 - *Z4 (computed, floating point).* On 400 random inputs the closed form meets every condition at lambda0 and fails one
   at lambda0 (1 + 10^-6); without its Step-7 term it violates a condition on 341 of them (control) [Round 3, nit:
   `lzeroconst5.out` prints 360].
@@ -246,7 +248,11 @@ The composition (1.1) over the levels, on these hypotheses:
 
 gives **d <= 17,892,090,290,788,934 + 106,489,470 c** [V-M1: was 18,126,947,816,279,750] (computed, W8: rounds 8.408e15,
 level-2 container 8.310e15 [was 8.545e15],
-iota+ 1.174e15, the rest 3.1e9). This is conditional. The exact obstructions to a certified upper bound:
+iota+ 1.174e15, the rest 3.1e9). This is conditional. [Round 3: c is not a small per-level constant. Among the steps it
+lumps, III.A Proposition 4.2 (1) at III.I''''''''''' Proposition 3.1's Step 0, repeated at every level above 3, loses
+1 + n_iota + 10, n_iota the number of (exponent, log order) pairs of E^flat below the weight, which the record bounds
+only by sum over Lambda of (K(lambda) + 1) >= 5.6e22 per level (`dceiling5.py` D5-D6).] The exact obstructions to a
+certified upper bound:
 
 1. Lambda's generators pi_1 E_++ (the least choice of III.I'''''''' (1.1)), G and 2 + pi_1 E_col are not computed at
    n = 4; without them neither |Lambda cap W| (H1) nor (G) nor the admissibility of the levels is decided.
@@ -543,6 +549,8 @@ as 2 + E_ind). Whether their coefficients vanish the record does not decide; an 
 
 (d) *The bound* (computed, conditional, L8): with H1 widened to admit (b)'s bases and H2 to the windows above 3,
 **d <= 24,337,610,296,395,590 + 106,489,470 c** (2.4338e16 + 1.0649e8 c), against the floor d >= 8,407,505,890,317,054.
+[Round 3: c contains III.A Proposition 4.2's index-set count, bounded in the record only through K(lambda); with it
+the record's own ceiling is at least 1.49e31 (R3.3).]
 
 (e) *Why it is not proved, step by step.* (1) **Lambda's increments are not listed**: pi_1 E^iota_ind (III.G''
 Theorem 4.2's index set, "depending only on L-bar and on whether lambda = 1") is never computed, and E_ind's exponents

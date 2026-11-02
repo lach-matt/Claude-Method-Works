@@ -32,19 +32,26 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   the inclusion as $\nu\ge0$. For an open $U\subset U^\sharp$ put $\Sigma_U := \Sigma_{\mathrm{IVP}}\cap U$ and $U_+ :=
   U\cap\{t_{\mathrm{IVP}}\ge0\}$.
 
-- *Smooth up to $\Sigma_U$.* $U_+$ is a manifold with boundary $\Sigma_U$, as $dt_{\mathrm{IVP}}\ne0$. A tensor on
-  $U_+$ is *smooth up to $\Sigma_U$* if it is smooth on $U\cap\{t_{\mathrm{IVP}}>0\}$ and, in coordinates
+- *Smooth up to $\Sigma_U$.* $U_+$ is a manifold with boundary $\Sigma_U$, as $dt_{\mathrm{IVP}}\ne0$. A tensor on $U_+$
+  is *smooth up to $\Sigma_U$* if it is smooth on $U\cap\{t_{\mathrm{IVP}}>0\}$ and, in coordinates
   $(t_{\mathrm{IVP}},y)$ near $\Sigma_U$, every derivative of its components extends continuously to $\Sigma_U$. Such a
   tensor is the restriction to $U_+$ of a smooth tensor on an open neighbourhood of $U_+$ in $U$ (Seeley's extension
   theorem [See64] in each chart $\{t_{\mathrm{IVP}}\ge0\}$, patched with a partition of unity subordinate to a cover of
   $\Sigma_U$ by such charts). The restriction of Part VIII's $\dot g$ to $N^+$ is smooth up to $\Sigma^\circ$. Where
   $\nu>0$, $\Sigma^\circ$ lies in the interior of $N$, where $\dot g$ is smooth. Where $\nu = 0$, $\Sigma^\circ$ is part
-  of the boundary of $N$; there $\dot g = \dot h+\dot g_{S'}$ (Part VIII Theorem 2.2 (2)), $\dot g_{S'} = -\mathcal
-  L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$ of the closed compact part of $\mathcal D$ on which Part
-  VIII Proposition 1.2's proof solves it by energy estimates ("bounded in every $H^k$ by finitely many norms of the
-  data"). In a chart $\{t_{\mathrm{IVP}}\ge0\}$ near such a point, $H^k$ for every $k$ gives every derivative continuous
-  up to $\Sigma^\circ$ (Sobolev embedding on a half-space, through its extension operator). Deduced from those readings;
-  neither Part states smoothness up to the boundary in these words.
+  of the boundary of $N$. Such points have $r\le R_\nu<r_1$: $R_\nu = \frac12(r_0+R)$ with $R\le5R_1$, $\phi_S$ being
+  the identity on $\{|x|\le5R_1\}$, and $r_1\ge R_6\ge R_3>5R_1$, as $\psi_{\mathrm{IVP}}' = \psi'>0$ at $5R_1$ and
+  $\psi_{\mathrm{IVP}}' = 0$ on $[R_3,\infty)$ (III.B Lemma 3.7 (b); III.K section 0). So of Part VIII's cover of
+  $\mathcal D$ only the compact part $\mathcal K$ reaches them: $\Omega_{\mathrm{ext},r_1}\subset\{r\ge r_1\}$, and the
+  slab $\mathcal S$ lies in $\{|x|>R_9\}$, where $\rho'_I>1$ on $\Sigma_{\mathrm{IVP}}$, so it does not meet
+  $\Sigma_{\mathrm{IVP}}$; a half-ball $\{t_{\mathrm{IVP}}\ge0\}$ about each such point lies in $\mathcal K$ (these
+  readings checked by the verifier of D610's repair). There $\dot g = \dot h+\dot g_{S'}$ (Part VIII Theorem 2.2 (2)),
+  $\dot g_{S'} = -\mathcal L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$ of the interior of $\mathcal
+  K$, bounded up to $\Sigma_{\mathrm{IVP}}$, where Part VIII Proposition 1.2's proof solves it by energy estimates
+  ("bounded in every $H^k$ by finitely many norms of the data"). In a chart $\{t_{\mathrm{IVP}}\ge0\}$ near such a
+  point, $H^k$ for every $k$ gives every derivative continuous up to $\Sigma^\circ$ (Sobolev embedding on a half-space,
+  through its extension operator). Deduced from those readings; neither Part states smoothness up to the boundary in
+  these words.
 
 - *$\dot g$ lives on $N$.* $\Omega_*\cup\mathcal D = N$. Indeed $\Omega_* = \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.K
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
@@ -91,8 +98,9 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
     3.2.4 applies.
   - Lemma A.5.9 (p. 176, as II.F section 1.4 reads it): for an acausal hypersurface $S$ of a time-oriented Lorentzian
     manifold, its Cauchy development $D(S)$ is open and globally hyperbolic, and $S$ is a Cauchy hypersurface of $D(S)$.
-  - In the proof of Proposition 3.2.5 (p. 81): a smooth section on $\{t\ge0\}$ that vanishes to infinite order along
-    $S$, extended by $0$ to $\{t<0\}$, is smooth. The same device is used in Theorem 2.2's Step 3 below.
+  - In the proof of Proposition 3.2.5 (p. 81): a section smooth on the whole manifold (there $P\hat u-f$) and vanishing
+    on one side of $S$ is restricted to the other side and extended by $0$. Theorem 2.2's Step 3 below uses the device
+    for a section given on one side only, and shows the zero extension smooth directly.
   - Connectedness. [BGP]'s globally hyperbolic manifolds are connected (Definition 1.3.8, p. 23). A Cauchy development
     below may have several connected components, and every statement taken from [BGP] is applied on each component
     $C$, with Cauchy hypersurface $S\cap C$: components of an open set are open and closed in it, so an inextendible
@@ -119,11 +127,11 @@ J(\mathrm{supp}\,\psi_i)$.
   M1: the cases $a_i = 0$ and $a_i+1 = 0$ are among them).
 
 - *Local finiteness.* Let $C\subset[-T,T]\times S$ be compact. $u_j\ne0$ somewhere on $C$ only if
-  $\mathrm{supp}\,\phi_j$ meets $J(C)\cap S$, which is compact (Lemma A.5.4 with the slab $[0,0]$, as applied in
-  Theorem 3.2.11's proof): finitely many $j$. If $a_i>0$, $v_i\ne0$ somewhere on $C$ only if $a_i\le T$ and
-  $\mathrm{supp}\,\psi_i$ meets $([0,T+1]\times S)\cap J(C)$, which is compact: finitely many $i$. The case $a_i+1<0$
-  is symmetric. If $-1\le a_i\le0$, then $\mathrm{supp}\,\psi_i\subset[-1,1]\times S$ meets the compact set
-  $([-1,1]\times S)\cap J(C)$: finitely many $i$.
+  $\mathrm{supp}\,\phi_j$ meets $J(C)\cap S$, which is compact (Corollary A.5.4, p. 174, with $S = \{0\}\times S$, as
+  applied in Theorem 3.2.11's proof): finitely many $j$. If $a_i>0$, $v_i\ne0$ somewhere on $C$ only if $a_i\le T$ and
+  $\mathrm{supp}\,\psi_i$ meets $([0,T+1]\times S)\cap J(C)$, which is compact: finitely many $i$. The case $a_i+1<0$ is
+  symmetric. If $-1\le a_i\le0$, then $\mathrm{supp}\,\psi_i\subset[-1,1]\times S$ meets the compact set $([-1,1]\times
+  S)\cap J(C)$: finitely many $i$.
 
 So $u := \sum_ju_j+\sum_iv_i$ is a locally finite sum of smooth sections, $Pu = \sum_i\psi_if = f$, $u|_S =
 \sum_j\phi_ju_0 = u_0$ and $\nabla_nu|_S = u_1$. $\square$
@@ -168,8 +176,9 @@ U^\sharp$.
   \subset U^\sharp\subset M^\circ$. $\square$
 
 The region $U^\sharp$ reaches to $t_{\mathrm{IVP}} = -1$ only so that $\Sigma^\circ$ lies inside it; nothing below uses
-$\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0\}$ beyond the background $g$, the extension of a source in Theorem 2.2's Step 1,
-and the zero extension in its Step 3.
+$\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0\}$ beyond the background $g$, the extension of a source in Theorem 2.2's Step 1
+with that step's solution $w$ and field $X := w^\sharp$, which live on all of $\Omega'$, and the zero extension in its
+Step 3.
 
 ## 2. The comparison
 
@@ -270,9 +279,12 @@ $\Theta(h) = 0$, so $L^0h = 0$ on $\Omega'_+$ by (0.1); $h$ is smooth up to $\Si
   is $-\frac12m(m-1)g^{tt}H$ for every $m\ge2$; the ungauged $D\mathrm{Ric}$ fails both.
 
 - *Extension by zero.* Put $\tilde h := h$ on $\Omega'_+$ and $\tilde h := 0$ on $\Omega'\cap\{t_{\mathrm{IVP}}<0\}$.
-  Every derivative of $h$ tends to 0 at $\Sigma_U$, so $\tilde h$ is smooth on $\Omega'$ ([BGP] p. 81's device, section
-  0). $L^0\tilde h$ is smooth and vanishes off $\Sigma_U$, so everywhere; and $\tilde h|_{\Sigma_U} = 0$, $\nabla_\nu
-  \tilde h|_{\Sigma_U} = 0$.
+  Every derivative of $h$ tends to 0 at $\Sigma_U$, so $\tilde h$ is smooth on $\Omega'$: each derivative of $\tilde h$
+  off $\Sigma_U$ extends continuously by 0 across $\Sigma_U$, and a continuous function on $\Omega'$ that is $C^1$ off
+  the hypersurface $\Sigma_U$, with first derivatives extending continuously across it, is $C^1$ (the mean value theorem
+  along curves transverse to $\Sigma_U$); induction on the order gives every $C^j$ ([BGP] p. 81's device, section 0,
+  shown directly). $L^0\tilde h$ is smooth and vanishes off $\Sigma_U$, so everywhere; and $\tilde h|_{\Sigma_U} = 0$,
+  $\nabla_\nu \tilde h|_{\Sigma_U} = 0$.
 
 $2L^0$ or its negative is normally hyperbolic (Lemma 2.1 (a)). [BGP] Corollary 3.2.4 on $\Omega'$, on each component,
 gives $\tilde h = 0$, so $h = 0$ on $\Omega'_+$. $\square$
@@ -306,16 +318,17 @@ Part VIII (2.2) with $\dot g = \dot g'-\mathcal L_Xg$. $\square$
 **Remark 2.4 (what is and is not asserted).** (a) The statement is the linear counterpart of the gauge comparison that
 Part VII Remark 4.1 leaves to the nonlinear theory; it is proved here for the linearisation only. (b) Nothing is
 asserted about the size or decay of $X$: $X$ solves a linear wave equation with source $\Theta(k)$ and its own Cauchy
-data, and its behaviour at $\mathscr I^+$ and $K^+$ depends on the gauge of $\dot g'$. So the paper's section 8.2
-routes keep their status: a solution in the Regge-Wheeler-type gauge or in the harmonic gauge with the same data is
-$\dot g+\mathcal L_Xg$ on the future of $\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Corollary 2.3), which settles modulo
-$\mathcal L_Xg$; the decay *in those gauges* is the decay of $\mathcal L_Xg$ there, which is what the deduced routes
-argue and is not proved here. (c) In the class of Part VII, if $U$ is $G$-invariant (for instance $U = U^\sharp$: $G$
-preserves $t_{\mathrm{IVP}}$ and $|x|$), so that $\Omega'$ and $\Omega'_+$ are $G$-stable, the data
-$(\dot\gamma,\dot k)$ are in the class of Part VIII Corollary 2.3, and $\dot g'$ and $Z$ are $G$-invariant, then $X$
-may be taken $G$-invariant. $G$ is compact and acts by isometries of $g$ (Part VIII Corollary 2.3's proof); $\dot g$
-is $G$-invariant by that Corollary, so $k = \dot g'-\dot g$ is; and the Haar average $X_G := \int_G\sigma_*X\,d\sigma$
-has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's M4).
+data, and its behaviour at $\mathscr I^+$ and $K^+$ depends on the gauge of $\dot g'$. So the paper's section 8.2 routes
+keep their status: a solution in the Regge-Wheeler-type gauge or in the harmonic gauge with the same data, given on that
+region and smooth up to the initial surface, is $\dot g+\mathcal L_Xg$ on the future of $\Sigma_{\mathrm{IVP}}$ in
+$\{r>r_0\}$ (Corollary 2.3), which settles modulo $\mathcal L_Xg$; the decay *in those gauges* is the decay of $\mathcal
+L_Xg$ there, which is what the deduced routes argue and is not proved here. (c) In the class of Part VII, if $U$ is
+$G$-invariant (for instance $U = U^\sharp$: $G$ preserves $t_{\mathrm{IVP}}$ and $|x|$), so that $\Omega'$ and
+$\Omega'_+$ are $G$-stable, the data $(\dot\gamma,\dot k)$ are in the class of Part VIII Corollary 2.3, and $\dot g'$
+and $Z$ are $G$-invariant, then $X$ may be taken $G$-invariant. $G$ is compact and acts by isometries of $g$ (Part VIII
+Corollary 2.3's proof); $\dot g$ is $G$-invariant by that Corollary, so $k = \dot g'-\dot g$ is; and the Haar average
+$X_G := \int_G\sigma_*X\,d\sigma$ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's
+M4).
 
 ## 3. Findings, labels and sources
 
@@ -349,18 +362,27 @@ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 1
   with $S = \{0\}\times S$; [BGP]'s connectedness handled per component; $k$'s $G$-invariance in Remark 2.4 (c) traced
   to Part VIII Corollary 2.3; $q'$ and $h'$ named in Corollary 2.3; `ix5.py`'s X5 comment corrected; `checks/ix5.out`
   recorded. The objects $N^\circ$ and $N^{\mathcal D}$ are withdrawn; a text that cites them reads $U^\sharp$,
-  $\Omega^\sharp$ and $N^+$ in their place.
+  $\Omega^\sharp$ and $N^+$ in their place. The verifier of the repair (D611) found no major gap. Seated: section 0
+  states why only $\mathcal K$ is involved where $\nu = 0$ (m2); BEYOND5-R0-PROOF.md section 11 is marked as the text of
+  before D610; GAUGEDECAY5.md Proposition 2.1 (a) and Theorem 1.5 (d), which still used $N^{\mathcal D}$ and $N^\circ$,
+  are restated in its round 3 with the source extended as in Step 1 and the result stated on $N^+$ (m1). Nits: Corollary
+  A.5.4 at the local-finiteness step; [BGP] p. 81's device as [BGP] applies it, and the zero extension's smoothness
+  shown in Step 3; Theorem 1.3.13 among the sources; Remark 2.4 (b) and the paper say the other solution is given on
+  that region and smooth up to the initial surface; Step 1's $w$ and $X$ among the uses of
+  $\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0\}$; III.K's \"two-sided neighbourhood\" qualified where $\nu = 0$.
 
 Labels: proved here from the cited parts and [BGP] (READ); Lemma 2.1's identities and Step 3's leading coefficient are
 derived in the text and computed in `checks/ix5.py` (X1-X8, with controls). [See64] is cited, not read here. The [BGP]
 readings were not re-read by verifier 162 (arXiv refused the fetch); D610's repair cites [BGP] pp. 23, 24, 81 and 174
-from the text the session holds.
+from the text the session holds; the verifier of the repair re-read them at source (arXiv:0806.1036v1, through a
+paper-reading tool): Definition 1.3.8 (p. 23), Corollary 1.3.12 and the Cauchy time-function (p. 24), Corollary 3.2.4
+(p. 76), the device of p. 81 (applied there to a section smooth on the whole manifold), Theorem 3.2.11's proof (pp.
+85-86), Corollary A.5.4 (p. 174) and Lemma A.5.9 (p. 176), each as cited.
 
 Sources: Part VIII (PART-VIII-LINEAR.md) section 0, Lemma 1.1, Proposition 1.2, Theorem 2.2, Corollary 2.3, Remark 2.4;
 III.B (PART-III-B-FAMILY.md) (3.5), (3.6), Lemma 3.7; II.C (PART-II-C-OPERATORS.md) Lemma 3.2; II.F (PART-II-F-IOTA.md)
 section 1.4, Lemma 1.3 and its proof; III.K (PART-III-K-NONLINEAR.md) section 0 and Proposition 1.2; [BGP]
-arXiv:0806.1036v1, Definition 1.3.8 (p. 23), Corollary 1.3.12 and the term Cauchy time-function (p. 24), section 1.5
-(p. 33), Corollary 3.2.4 (p. 76), Proposition 3.2.5's proof (p. 81), Theorem 3.2.11 with its proof (pp. 85-86),
-Corollary A.5.4 (p. 174), Lemma A.5.9 (p. 176). [See64] R. T. Seeley, Extension of $C^\infty$ functions defined in a
-half space, Proc. Amer. Math. Soc. 15 (1964) 625-626,
-doi:10.1090/s0002-9939-1964-0165392-8.
+arXiv:0806.1036v1, Definition 1.3.8 (p. 23), Corollary 1.3.12, Theorem 1.3.13 and the term Cauchy time-function (p. 24),
+section 1.5 (p. 33), Corollary 3.2.4 (p. 76), Proposition 3.2.5's proof (p. 81), Theorem 3.2.11 with its proof (pp.
+85-86), Corollary A.5.4 (p. 174), Lemma A.5.9 (p. 176). [See64] R. T. Seeley, Extension of $C^\infty$ functions defined
+in a half space, Proc. Amer. Math. Soc. 15 (1964) 625-626, doi:10.1090/s0002-9939-1964-0165392-8.

@@ -119,8 +119,9 @@ L_{\partial_{t_{\mathrm{IVP}}}}h_S = h_{S,1}\ \text{on }\Sigma_{\mathrm{IVP}},\t
 and:
 
 (1) $h_S = \phi_S^*h_0$ on a neighbourhood of $\Sigma_{\mathrm{IVP}}\cup\phi_S^{-1}(\Sigma_{\mathrm{IVP}})$ in $\mathcal
-D$, where $h_0 := h_S|_{S=0}$ on $\mathcal D$, a two-sided neighbourhood of $\Sigma_{\mathrm{IVP}}$ (so $\phi_S^*h_0$ is
-defined there); so $\phi_S^*g_{b_0}+h_S = \phi_S^*(g_{b_0}+h_0)$ there;
+D$, where $h_0 := h_S|_{S=0}$ on $\mathcal D$, a two-sided neighbourhood of $\Sigma_{\mathrm{IVP}}$ off $\{r\le
+R_\nu\}$, where it ends at $\Sigma_{\mathrm{IVP}}$ and $\phi_S$ is the identity (so $\phi_S^*h_0$ is defined there;
+D611); so $\phi_S^*g_{b_0}+h_S = \phi_S^*(g_{b_0}+h_0)$ there;
 
 (2) $\mathrm{Ric}(\phi_S^*g_{b_0}+h_S) = 0$ and
 $\Upsilon^{\chi^\natural_0E_\Upsilon}(\phi_S^*g_{b_0}+h_S,\phi_S^*g_{b_0}) = 0$ on $\mathcal D$; on $\mathcal
@@ -196,11 +197,12 @@ $\partial_\nu\Upsilon = 0$ (Lemma 4.1 below). The proof of III.C$''$ Theorem 3.1
 its smoothness.
 
 *(1)*: the order is that of III.C$''$ Theorem 3.1's proof: first $S = 0$, which defines $h_0$ on $\mathcal D$, a
-two-sided neighbourhood of $\Sigma_{\mathrm{IVP}}$ (the backward part lying in $N$); then $S\ne0$, which uses $h_0$ at
-$\phi_S(p)$ for $p$ near $\Sigma_{\mathrm{IVP}}\cup\phi_S^{-1}(\Sigma_{\mathrm{IVP}})$. III.C$''$ Theorem 3.1 (1) on
-$\Omega_{\mathrm{ext},r_1}$. On $\mathcal K$, $\phi_S$ is the identity near $\{r\le R\}$ (III.B section 5), where the
-data agree; elsewhere it is (1) of III.C$''$. Both use that the gauge is $\Upsilon^0$, which is natural (III.C$''$
-(2.2)), near $\Sigma_{\mathrm{IVP}}$ and near $\phi_{\pm S}(\Sigma_{\mathrm{IVP}})$ (Lemma 1.1 (d)).
+two-sided neighbourhood of $\Sigma_{\mathrm{IVP}}$ off $\{r\le R_\nu\}$ (the backward part lying in $N$; on $\{r\le
+R_\nu\}$ it ends at $\Sigma_{\mathrm{IVP}}$, which is harmless as $\phi_S$ is the identity there, D611); then $S\ne0$,
+which uses $h_0$ at $\phi_S(p)$ for $p$ near $\Sigma_{\mathrm{IVP}}\cup\phi_S^{-1}(\Sigma_{\mathrm{IVP}})$. III.C$''$
+Theorem 3.1 (1) on $\Omega_{\mathrm{ext},r_1}$. On $\mathcal K$, $\phi_S$ is the identity near $\{r\le R\}$ (III.B
+section 5), where the data agree; elsewhere it is (1) of III.C$''$. Both use that the gauge is $\Upsilon^0$, which is
+natural (III.C$''$ (2.2)), near $\Sigma_{\mathrm{IVP}}$ and near $\phi_{\pm S}(\Sigma_{\mathrm{IVP}})$ (Lemma 1.1 (d)).
 
 *(3)*: the exterior part is III.C$'$ (3.2) and III.C$''$ Theorem 3.1 (2); the slab part is Part IV's output; the compact
 part is Cauchy stability. For the $S$-derivatives, $\partial^j_Sh_S$ solves the linearised equation with data

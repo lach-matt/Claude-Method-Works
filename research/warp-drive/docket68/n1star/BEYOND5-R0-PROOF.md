@@ -469,7 +469,9 @@ Part VIII linearises III.K at b_0 (U = 0); its M, N = {t_IVP ≥ −ν(|x|)}, Ω
   N^𝒟. No radius enters.
 - Theorem 0.2 does not use Part IX.
 
-*Status:* Part IX re-proved at r_♭.
+*Status:* the Part IX of before D610 re-proved at r_♭. D610 withdrew that text's N° and N^𝒟
+(PART-IX-GAUGE.md (IX5)), and the line references above are to it. Theorem 0.2 does not use Part IX, so nothing
+in this note rests on it; the repaired Part IX is written at r_0, and its re-proof at r_♭ is not written here (D611).
 
 Footnote (reading pattern for section 2): lines of PART-I-*.md and PART-II-*.md matching
 `r_0(?![0-9])|r_\{0\}|\delta_0|r_2(?![0-9])|\partial_\sharp|artificial|inner`, then filtered for R_1, r_h, μ,
