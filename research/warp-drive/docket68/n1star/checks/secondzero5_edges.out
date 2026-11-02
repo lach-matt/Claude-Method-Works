@@ -45,3 +45,19 @@
         differ at [9, 10, 11, 12, 13, 14, 15, 16]; edges: growth5 between [(0.0, -0.195)], rebuild at x = [];
         rebuilt edges outside growth5's brackets by [] column spacings -> differ
   control fails (good)
+  S7 the untrapped band at r* on growth5's 17 columns (l1_M16_800_R20, R0 = 20):
+     v = 1.425 (growth5 v = 1.427), r* = 0.640: untrapped columns of 17: growth5 2 [10, 11]; rebuild 2 [9, 10];
+        differ at [9, 11]; edges: growth5 between [(-0.195, -0.383), (-0.556, -0.707)], rebuild at x = [-0.554, -0.183];
+        rebuilt edges outside growth5's brackets by [0.01, 0.06] column spacings -> agree
+     v = 1.450 (growth5 v = 1.452), r* = 0.670: untrapped columns of 17: growth5 4 [9, 10, 11, 12]; rebuild 3 [9, 10,
+         11];
+        differ at [12]; edges: growth5 between [(0.0, -0.195), (-0.707, -0.831)], rebuild at x = [-0.662, -0.08];
+        rebuilt edges outside growth5's brackets by [0.36, 0.0] column spacings -> differ
+     v = 1.475 (growth5 v = 1.476), r* = 0.700: untrapped columns of 17: growth5 4 [9, 10, 11, 12]; rebuild 4 [9, 10, 11,
+         12];
+        differ at []; edges: growth5 between [(0.0, -0.195), (-0.707, -0.831)], rebuild at x = [-0.775, -0.061];
+        rebuilt edges outside growth5's brackets by [0.0, 0.0] column spacings -> agree
+     v = 1.500 (growth5 v = 1.500), r* = 0.710: untrapped columns of 17: growth5 5 [9, 10, 11, 12, 13]; rebuild 5 [9, 10,
+         11, 12, 13];
+        differ at []; edges: growth5 between [(0.0, -0.195), (-0.831, -0.924)], rebuild at x = [-0.852, -0.024];
+        rebuilt edges outside growth5's brackets by [0.0, 0.0] column spacings -> agree

@@ -33,6 +33,8 @@ gamma := gamma_Ups, so sigma_Ups = {0, delta, gamma, 2 gamma} (III.C (3.1)); rea
      (empty seed) gives LOSS-D Q2's (2, 0, 3).
   H6 (exact) Step 1 at I_0 (III.C' Theorem 3.1): R = prod over E_(0, <=) of (X_0 - z), N = |E_(0,<=)|: 2 for Part
      VII's E_0 and 3 for E_0^(1/2) when l_0 in (3, 7/2), 4 when l_0 in (7/2, 4).
+  H8 (exact, round 3) G is contained in the record's E^(M) exactly from M = 2 on (both seeds); at M = 0, 1 it is
+     not (the control).
   H7 (exact) the same log orders at a second sample (gamma, e) = (1/5, 1/3): the formal computation does not depend on
      the sample. Control: gamma_Ups = 3/10 violates Definition 3.1 (2) ((2, 0) in E^C_I and 2 < 3/2 + 2 gamma).
 Labels: computed (exact rational arithmetic).
@@ -361,6 +363,11 @@ def main():
     G = h3(C)
     h4(C, G)
     h5(C, G, rows)
+    print("H8  (round 3) G against the record's E^(M)")
+    inc = {nm: [subset(G[nm], rows[nm][m][3]) for m in range(len(rows[nm]))] for nm in ("int", "half")}
+    print("     G subset E^(M), M = 0..12:", {k: "".join("1" if x else "0" for x in v) for k, v in inc.items()})
+    check("H8a G is contained in the record's E^(M) exactly from M = 2 on (both seeds); not at M = 0, 1 (control)",
+          all(inc[nm] == [False, False] + [True]*(len(inc[nm]) - 2) for nm in inc))
     h6()
     h7(G)
     print("FAILED:", FAIL if FAIL else "none")

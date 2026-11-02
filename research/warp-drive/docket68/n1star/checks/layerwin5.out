@@ -17,3 +17,7 @@ W1 PASS
       1.11e+31; window in [y/2, 2y] and in the layer: [True, True, True, True]
   W2 control y = lam^2 exp(-1/x) sin^2(pi/x)  rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: 8.78e+19, 1.35e+23, 1.52e+27,
       1.6e+31; window in [y/2, 2y] and in the layer: [False, True, True, True]
+  W2 control K = 0 exp(-1/x)              rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: +inf, +inf, +inf, +inf; window in [y/2,
+      2y] and in the layer: [False, True, True, True]
+  W2 control K = 0 exp(-1/x^2)            rho at lam = 1e-4, 1e-8, 1e-16, 1e-32: +inf, +inf, +inf, +inf; window in [y/2,
+      2y] and in the layer: [False, True, True, True]
