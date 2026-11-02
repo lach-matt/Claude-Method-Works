@@ -1,2 +1,6 @@
 # python3 checks/secondzero5.py --edges RUNDIR l1_M16_800 runs/g5_L100_lam1_20x16.json (round 2)
   S7 the untrapped band at r* on growth5's 17 columns (l1_M16_800 against /tmp/claude-0/-home-user-Claude-Method-Works/b0b84fdb-5234-5587-8dc6-391f626df59c/scratchpad/runs/g5_L100_lam1_20x16.json):
+     v = 1.425 (growth5 v = 1.427), r* = 0.650: untrapped columns of 17: growth5 2 [10, 11]; rebuild 2 [9, 10];
+        differ at [9, 11]; edges: growth5 between [(np.float64(-0.195), np.float64(-0.383)), (np.float64(-0.556), np.float64(-0.707))], rebuild at x = [-0.53, -0.086]
+     v = 1.450 (growth5 v = 1.452), r* = 0.660: untrapped columns of 17: growth5 3 [9, 10, 11]; rebuild 3 [9, 10, 11];
+        differ at []; edges: growth5 between [(np.float64(0.0), np.float64(-0.195)), (np.float64(-0.556), np.float64(-0.707))], rebuild at x = [-0.669, -0.054]
