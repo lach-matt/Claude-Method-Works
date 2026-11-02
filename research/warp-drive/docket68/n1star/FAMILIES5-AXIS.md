@@ -242,12 +242,14 @@ H^m in all directions (along the axis, planar, and in τ through the equations).
 (V) is the radial form of step 3. It shows the bound directly in the radial variable, with Hardy-type averages whose
 norms the reader computed (Af = κ2 bounded on every Ḣ^k).
 
-**E2 (computed, mpmath and scipy; a curved metric: A, B, C, D non-constant).**
-- For leaves concentrating at the axis, h_ε = ε² exp(−r²/ε²) with ε = 0.2, 0.1, 0.05, 0.025: ‖σ‖/‖H2‖ and ‖∂_rσ‖/‖∂_rH2‖
-  stay bounded and converge, while the first-order route ‖k_φ‖/‖h′‖ grows like 1/ε (the control, X2's loss with
-  curvature present). Numbers: `axisellip5.out`.
-- Integrating the leaf's equation from the axis with H2 given recovers h′ and σ to the integrator's tolerance.
-  Control (rejected): the flat equation h″ + h′/r = H2 misses h′ by the size of the metric's gradient.
+**E2 (computed, scipy; a curved metric: A, B, C, D non-constant, the background leaf z = 0 of O(1) mean curvature).**
+- Leaves concentrating at the axis, h_ε = ε² exp(−r²/ε²), ε = 0.2, 0.1, 0.05, 0.025, are measured against the
+  background leaf, on r < 1/2 with weight r dr.
+  - ‖δσ‖/‖δH2‖ = 0.49713, 0.49928, 0.49982, 0.49996 tends to the flat value 1/2.
+  - ‖∂_r δσ‖/‖∂_r δH2‖ = 0.28615, 0.28813, 0.28854, 0.28864 is bounded and converged.
+  - Control: the first-order route ‖δk_φ‖/‖h′‖ = 7.07, 14.14, 28.28, 56.57 grows like 1/ε (X2's loss, curvature present).
+- Integrating the leaf's equation from the axis with H2 given recovers h′ to 8.9 × 10⁻¹⁵ and σ to 1.8 × 10⁻¹³.
+  Control (rejected): the flat equation h″ + h′/r = H2 misses them by 0.146 and 2.91.
 
 ### 3.4 Theorem N′ (deduced; identities computed in classchi5, augment5, axisloss5, axisellip5)
 
@@ -304,7 +306,7 @@ cancellation for the second polarisation, is not examined.
 
 ### 3.5 Status of section 3
 
-- E0, E1 (a): exact. E1 (b): 50-digit evaluation of exact expressions. E2: floating point.
+- E0, E1 (a): exact. E1 (b): 50-digit evaluation of exact expressions. E2: floating point (scipy).
 - Lemma A: deduced, from standard elliptic regularity (not READ) and E0-E1.
 - Theorem N′ and Corollary N′1: deduced, at the record's section 4 level. Not independently read.
 - The one new analytic ingredient is Step 9's Kato iteration with a non-local Lipschitz source. It is standard in form,

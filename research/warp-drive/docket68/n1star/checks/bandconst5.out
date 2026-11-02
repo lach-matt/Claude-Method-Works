@@ -24,3 +24,7 @@ B5 (computed) the parabolic split spreads to the axes; without the angular opera
    parabolic: after dR = 0.20, a(axis 1) = 7.848e-02, a(axis 2) = 7.848e-02 (max 4.110e-01)
    control (no angular operator, the ODE structure of B6): the axes stay exactly 0.0, 0.0: True
 B3 (computed, floating point) Part I's Sigma_tau0 in the seed region: Nk < 0, the speed and the spread
+   n = 40: max Nk = -0.3181 < 0 on R in [a, r1]; psi_III in [-0.2550, -0.1554], |psi'| <= 0.117; c(a) = 1.270, c(r1) = 0.375; spread from a + 0.2 to a 0.213, over [a, r1] 0.752 rad
+   n = 80: max Nk = -0.3180 < 0 on R in [a, r1]; psi_III in [-0.2550, -0.1554], |psi'| <= 0.116; c(a) = 1.270, c(r1) = 0.375; spread from a + 0.2 to a 0.213, over [a, r1] 0.752 rad
+   hyperbolic on the seed region at both n: True ; spread converged to 0.02: True
+PASS

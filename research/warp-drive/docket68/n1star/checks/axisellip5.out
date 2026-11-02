@@ -1,0 +1,5 @@
+E0 (exact at jets) the Gauss formula (G) and the planar trace th - kappa1, in the class
+   seed 11: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+   seed 23: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+   seed 37: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+E1 (exact) the leaf's equation at the axis: a regular Volterra equation with first-order coefficients

@@ -17,3 +17,14 @@ iotamut5: iotapoles5.py read adversarially -- singleton orders computed, an inde
       mutated routine (stops at a finite (0, 0) entry) returns (1, 1) on the last: wrong, as it must be
   X4 (mutation): Lemma 1.4 at k = 2 with F U-bar (E_j + 1) a plain union: log order at E_ind's 5 is 5 (iotapoles5.lemma14
       on the same roots: 10): M5 fails on it: True
+  C4 (deduced, checked): det N(2 + eps) vanishes to order 1 at eps = 0, and the adjugate product gives (0, 2) = (order -
+      1, rank) of the main one: C4 is a function of M3's answer and cannot fail on its own: True
+  (2233 s)
+U1 PASS
+U2 PASS
+U3 PASS
+X1 PASS
+X2 PASS
+X3 PASS
+X4 PASS
+C4dep PASS
