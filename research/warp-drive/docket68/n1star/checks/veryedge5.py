@@ -22,7 +22,8 @@ decides the causal character of x_K = 1 there.
   V4 (computed, mpmath; exact for exp(-1/x^k)) The scale of the very edge, x_b(lam) := the x where lam |env'/env| = 1,
      for the edge classes exp(-1/x^k) (k = 1, 2, 3: x_b = (k lam)^(1/(k+1))), exp(-e^(1/x)) (x_b ln(1/lam) decreases
      towards 1), the record's C_c^inf envelope (an exp(-3/(4x)) edge: exponent 1/2) and sin^4 (a finite-order edge:
-     x_b ~ 4 lam, exponent 1); and that below x_b/2 the top terms of the lam-series increase (k = 0..6) and above 3 x_b they decrease.
+     x_b ~ 4 lam, exponent 1); and that below x_b/2 the top terms of the lam-series increase (k = 0..6) and above
+     3 x_b they decrease.
      Control: the claim "x_b ~ lam^(1/2) for every flat edge" fails for exp(-1/x^2), exp(-1/x^3) and exp(-e^(1/x)).
   V5 (computed, mpmath, a model with unit constants, A = mu0 = |d| = 1) For env = exp(-1/x), lam = 1e-6: the re-summed
      first-degree term F := lam (i/s)^2 E = -lam int_0^x (x - x') e^(-i (x - x')/lam) E(x') dx', s = d_v + i/lam,
