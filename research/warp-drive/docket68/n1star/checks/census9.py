@@ -5,14 +5,19 @@
       from this, is free of h, improves as h falls, or, like simplicity, fails at most on a countable set of h". Every
       line of N1STAR-PROOF.md section 10 that names the parameter point (gam_C = 10^6, h = 10^-6, (v, e_C) = (1/2,
       1/102400)) -- 'at the point', 'the record's point', 'the point's', 'at its point', 'at that point', 'Proposition
-      10.9's point', 'point of Proposition 10.9 / 10.2x', 'gam_C = 10^6', 'h = 10^-6' -- is listed in SITES below with
-      its class in section 10.54, as proof5/checks/gammac5.py lists its constants: a, b, c, d, e (10.54 (a)-(e); the
-      anchor, the words by which 10.54 names it, must occur in 10.54's text), b-lead (not in (b)'s enumeration but
-      under its lead sentence "Every conclusion the record drew from Proposition 10.9 at the point": the site's
-      subsection names Proposition 10.9), or x (no conclusion at the parameter point: a point of S^3, a statement for
-      every parameter, 10.54 itself, a setting). A hit no entry matches is UNLISTED and the check fails; so does an
-      entry no hit matches (a stale list). Which class a site is in is a reading, recorded in SITES; that every hit is
-      read and every anchor is in 10.54 is computed. Control: a planted line 'At the record's point the planted
+      10.9's point', 'point of Proposition 10.9 / 10.2x', 'gam_C = 10^6', 'h = 10^-6', or the coordinate tuple
+      '(1/2, 1/102400' with or without its h or gam_C entry -- is listed in SITES below with its class in section
+      10.54, as proof5/checks/gammac5.py lists its constants: a, b, c, d, e (10.54 (a)-(e)), b-lead (not in (b)'s
+      enumeration but under its lead sentence "Every conclusion the record drew from Proposition 10.9 at the point":
+      the site's subsection names Proposition 10.9), or x (no conclusion at the parameter point: a point of S^3, a
+      statement for every parameter, 10.54 itself, a setting). The anchor, the words by which 10.54 names the site,
+      must occur inside the text of the assigned item: (a)-(e) each from its label to the next; for b-lead, (b)'s
+      opening sentence, which must hold the lead sentence. An anchor written 'B5: ...' says it stands only in the
+      setting paragraph's B5 list "(10.21(e), 10.22, 10.23; B5)", not in the item; it passes only if it is in that
+      list, not in the item's text, and the item points to the list by naming the h_0 whose condition B5 is. A hit no
+      entry matches is UNLISTED and the check fails; so does an entry no hit matches (a stale list) and an anchor not
+      where its class puts it. Which class a site is in is a reading, recorded in SITES; that every hit is read and
+      every anchor stands in its item is computed. Control: a planted line 'At the record's point the planted
       quantity Q is positive.' in section 10 is reported unlisted.
   C29 (computed, a text census) Paper section 9 (lines 1346-1347): "reduced to finitely many weights chosen under
       inequalities, six elementary losses given closed forms". The write-out is LOSS-D.md: section 2's table of the
@@ -65,29 +70,39 @@ def paper_has(*phrases):
 # ---------------------------------------------------------------- C23 the point's conclusions against 10.54
 
 PAT = re.compile(r"at the point(?!s)|record's point|the point's|at its point|point of (?:Proposition 10\.9|10\.2\d)|"
-                 r"10\.9's point|at that point|gam_C = 10\^6|h = 10\^-6", re.I)
+                 r"10\.9's point|at that point|gam_C = 10\^6|h = 10\^-6|\(1/2, 1/102400", re.I)
 LEAD = "Every conclusion the record drew from Proposition 10.9 at the point"
 # (subsection, words of the line, class, anchor in 10.54 or the reason it is out of scope)
 SITES = [
-    ("10.12", "Both strips are clear at the point", "a", "[-100, 19/10]"),
+    ("10.12", "Both strips are clear at the point", "a", "Re lam >= 2 or Re lam < -C_0"),
+    ("10.12", "**Proposition 10.9 (computed; exact).** At (v, e, h)", "a", "Re lam >= 2 or Re lam < -C_0"),
     ("10.13", "Proposition 10.9's point (1/2, 1/102400, 10^-6) is admissible", "c", "10.13's Lemmas 3.3-3.8"),
+    ("10.14", "**Proposition 10.11 (computed; exact unless said).**", "c", "The symbols of the semiclassical argument"),
     ("10.14", "checks its conditions at the point of Pr", "c", "the e-bound of his Lemma 4.4"),
     ("10.14", "At the point of Proposition 10.9 its conditions", "c", "the e-bound of his Lemma 4.4"),
     ("10.14", "Theorem 4.9's at h = 10^-6", "a", "Theorem 4.9"),
     ("10.14", "so that h = 10^-6 is not", "d", "below the h_0 of his Theorems 5.2 and 6.2"),
+    ("10.21", "By Proposition 10.9, at (v, e, h)", "b", "10.21(d)'s index 0 and roots"),
     ("10.21", "1/2 + vartheta_H+ = -4995.33... at h = 10^-6", "e", "10.79"),
-    ("10.21", "and at h = 10^-6, the one point at which the roots are", "a", "10.21(e)"),
-    ("10.21", "so for C_0 <= 98 at that point", "a", "10.21(e)"),
-    ("10.22", "the invertibility of (2) at h = 10^-6", "a", "10.22"),
-    ("10.23", "at its point for C_0 <= 100", "a", "10.23"),
-    ("10.23", "C_0 <= 100, at that point", "a", "10.23"),
-    ("10.23", "real part >= 2 at that point, 2, 3 and 1", "a", "10.23"),
-    ("10.23", "and at h = 10^-6 provided that lies below", "a", "10.23"),
-    ("10.23", "the roots at Proposition 10.9's point and their counts", "a", "10.23"),
+    ("10.21", "and at h = 10^-6, the one point at which the roots are", "a", "B5: 10.21(e)"),
+    ("10.21", "so for C_0 <= 98 at that point", "a", "B5: 10.21(e)"),
+    ("10.22", "with his Proposition 5.1 (1)-(6) at (v, e)", "c", "The symbols of the semiclassical argument"),
+    ("10.22", "(iv) (the weights) In cform5.py's symbol T", "c", "cform5.py's and solv5.py's T at (v, e)"),
+    ("10.22", "not verified here line by line: at (v, e)", "a", "B5: 10.22"),
+    ("10.22", "the invertibility of (2) at h = 10^-6", "a", "B5: 10.22"),
+    ("10.23", "at its point for C_0 <= 100", "a", "B5: 10.23"),
+    ("10.23", "C_0 <= 100, at that point", "a", "B5: 10.23"),
+    ("10.23", "real part >= 2 at that point, 2, 3 and 1", "a", "B5: 10.23"),
+    ("10.23", "(iii) (the thresholds) At (v, e)", "c", "cform5.py's and solv5.py's T at (v, e)"),
+    ("10.23", "Theorem B.4 holds on 4+1 Minkowski at (v, e)", "a", "B5: 10.23"),
+    ("10.23", "the density r^3 |dr dg/|, at (v, e)", "a", "B5: 10.23"),
+    ("10.23", "and at h = 10^-6 provided that lies below", "a", "B5: 10.23"),
+    ("10.23", "the roots at Proposition 10.9's point and their counts", "a", "B5: 10.23"),
     ("10.24", "Proposition 10.9, at the point and for every l", "b", "10.24(a)'s gap"),
     ("10.24", "(1.000003 at l <= 12 at the", "b", "1.000003"),
     ("10.24", "closest pair at the point being at s1", "b", "the last two free of h"),
     ("10.24", "(b) (Lemma 8.5) At the point", "b-lead", "Lemma 8.5"),
+    ("10.24", "(iv) (the point) At (v, e_C, gam_C)", "b", "10.24(a)'s gap"),
     ("10.24", "10^-7 at the point (iv)", "b", "the last two free of h"),
     ("10.24", "gam_Ups small, at the point.", "b-lead", "Proposition 8.6"),
     ("10.24", "for every l at Proposition 10.9's point", "b", "10.24(a)'s gap"),
@@ -99,7 +114,7 @@ SITES = [
     ("10.27", "at that point, and so at every point", "x", "a point of S^3, not the parameter point"),
     ("10.27", "at Proposition 10.9's point with gam_Ups small, L-hat(sigma)", "b-lead", "Proposition 8.8"),
     ("10.27", "which Proposition 10.9's h = 10^-6 must lie", "d", "below the h_0 of his Theorems 5.2 and 6.2"),
-    ("10.31", "the one point h = 10^-6 of Proposition 10.9", "a", "10.21(e)"),
+    ("10.31", "the one point h = 10^-6 of Proposition 10.9", "a", "B5: 10.21(e)"),
     ("10.33", "the harmonics at the point of 10.27", "x", "a point of S^3 (10.27's sin chi = 3/5)"),
     ("10.34", "l = 2, 3, at Proposition 10.9's poin", "d", "Simplicity (10.52(i))"),
     ("10.34", "computed for l <= 12 at the point (section 10.24)", "d", "Simplicity (10.52(i))"),
@@ -112,6 +127,7 @@ SITES = [
     ("10.37", "on a further reading, at the record's point", "b", "10.37"),
     ("10.38", "sbar5.py's S-bar at the point", "c", "10.38"),
     ("10.44", "gam_C, at the record's", "c", "(10.44)"),
+    ("10.44", "gam_Ups) = (1/2, 1/102400, 10^6, 1/100, 1/100)", "c", "the I+ gap's upper end"),
     ("10.44", "nonzero at the point (P3)", "c", "(10.44)"),
     ("10.46", "499996.6171875 at the point", "c", "the I+ gap's upper end"),
     ("10.46", "K4 is exact at the point", "b", "(10.46)"),
@@ -124,9 +140,14 @@ SITES = [
     ("10.54", "The point's numbers themselves", "x", "10.54 itself"),
     ("10.54", "being the point's (10.52; D129)", "x", "10.54 itself"),
     ("10.54", "B5 is discharged", "x", "10.54 itself"),
+    ("10.54", "The record computed box^C's indicial roots at one point", "x", "10.54 itself"),
+    ("10.54", "**Proposition 10.44 (computed; exact).**", "x", "10.54 itself"),
     ("10.71", "A property holds at one point", "x", "a setting: 10.70's kind-C steps, no conclusion"),
     ("10.75", "(10.24 (iv)), at the record's point", "b-lead", "Lemma 8.5"),
     ("10.75", "the record's point", "c", "The quantities proportional to gam_C"),   # (xxv): gam_Ups, (1-e)(1-v)gam_C
+    ("10.75", "for every h in (0, 10^-6] at the record's (v, e)", "a", "Theorem 4.9"),
+    ("10.75", "the cf positivity holds for alpha_cf > 1 - b* at (v, e)", "c", "cform5.py's and solv5.py's T at (v, e)"),
+    ("10.75", "= (1/2, 1/102400) and r_0 = 100, (3) and (6)", "c", "The symbols of the semiclassical argument"),
     ("10.79", "### 10.79", "e", "10.79"),
     ("10.79", "At h = 10^-6, vartheta_H+ = -4995.83", "e", "10.79"),
     ("10.79", "so at h = 10^-6 and at", "e", "10.79"),
@@ -148,7 +169,17 @@ def c23(control=False):
         if PAT.search(L[i]):
             hits.append((i + 1, sec, L[i]))
     t54 = re.sub(r"\s+", " ", "\n".join(subs["10.54"]))
-    used, unlisted, cls = set(), [], {}
+    setting = t54.split("*The setting.*")[1].split("**Proposition 10.44")[0]
+    j = setting.index("; B5)")
+    k, depth = j, 0
+    while depth or setting[k] != "(":
+        depth += {")": 1, "(": -1}.get(setting[k], 0) if k < j else 0
+        k -= 1
+    b5 = setting[k:j + 5]
+    parts = re.split(r" \(([a-e])\) \(", t54.split("*Deduced.*")[1].split("B5 is discharged")[0])
+    item = dict(zip(parts[1::2], ["(" + x for x in parts[2::2]]))
+    opening = item["b"].split(": ")[0]
+    used, unlisted, cls, where = set(), [], {}, {}
     for n, sec, line in hits:
         m = [k for k, (s, key, c, x) in enumerate(SITES) if s == sec and key in line and k not in used]
         if len(m) == 0:
@@ -157,14 +188,20 @@ def c23(control=False):
         k = m[0]
         used.add(k)
         s, key, c, x = SITES[k]
-        if c in "abcde":
-            ok = x in t54
+        if c in "abcde" and x.startswith("B5: "):
+            ok = x[4:] in b5 and x[4:] not in item[c] and "h_0" in item[c]
+            w = "%s via the B5 list" % c
+        elif c in "abcde":
+            ok, w = x in item[c], "in (%s)" % c
         elif c == "b-lead":
-            ok = LEAD in t54 and "Proposition 10.9" in "\n".join(subs[sec])
+            ok = LEAD in opening and "Proposition 10.9" in "\n".join(subs[sec])
+            w = "in (b)'s opening sentence"
         else:
-            ok = c == "x"
+            ok, w = c == "x", "x"
         if not ok:
-            unlisted.append((n, sec, "anchor not in 10.54: %s" % x))
+            unlisted.append((n, sec, "anchor not in its item: %s %s" % (c, x)))
+        else:
+            where[w] = where.get(w, 0) + 1
         cls[c] = cls.get(c, 0) + 1
     stale = [SITES[k][:2] for k in range(len(SITES)) if k not in used]
     if not control:
@@ -172,6 +209,9 @@ def c23(control=False):
         print("  C23: %d lines of section 10 name the point, in %d subsections; by class %s; unlisted %s; stale "
               "entries %s" % (len(hits), len({h[1] for h in hits}), dict(sorted(cls.items())), unlisted or "none",
                               stale or "none"), flush=True)
+        print("  C23: anchors standing where the class puts them: %d of %d %s; the B5 list %s; items naming h_0 "
+              "(pointing to it) %s" % (sum(where.values()), len(hits), dict(sorted(where.items())), b5,
+                                       [c for c in "abcde" if "h_0" in item[c]]), flush=True)
         print("  C23: under (b)'s lead sentence only, not its enumeration: %s" % lead, flush=True)
     else:
         print("  C23 control: unlisted %s" % unlisted, flush=True)

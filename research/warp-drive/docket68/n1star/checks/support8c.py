@@ -26,7 +26,10 @@
      and l = 10^4, 10^5, vector l = 1, ..., LMAX; their roots in the window, and the images lam + 1 of the roots in (2,
      5/2) (the tower d/dt*, iota5.py's deduction). Reported: counts, whether any is non-real, the extremes, the last l
      with a root in the window, and the least real part above 3, which is held against 3 + eps_ind: no candidate has
-     real part in (3, 3 + eps_+], the (G+) condition of row w1, and every candidate lies in [alpha_min, 3 + eps_+].
+     real part in (3, 3 + eps_+], the (G+) condition of row w1, and every candidate has real part >= alpha_min (no
+     upper bound is checked: the window runs to 13/4 and candidates reach 3.2499). K3 computes candidates -- box^C's
+     roots and their tower images; that the resonances lie among them is iota5.py's deduction, not computed here --
+     and the scan covers l <= LMAX = 1200 and l = 10^4, 10^5, not every l.
      Control: the vector polynomial's constant term moved by 10^-9, which puts a root in (3, 3 + eps_ind].
   K4 (exact, sympy) section 8.4's 'its exceptional exponents are 2 and 3/2 + (1 - e_Ups) gam_Ups ... the exponent 2
      resting on a scaling argument' (supplement 10.38 (a), (c); iplus5.py P2's reading). The exponent 2 is the I+

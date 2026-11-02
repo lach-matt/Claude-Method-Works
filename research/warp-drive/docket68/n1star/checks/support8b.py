@@ -26,8 +26,9 @@
      read against Tangherlini's deviation at radius R, mu r^-2 in the metric and r^-3 in k: f_R = R^-3 chi(r/R) and k_R
      = R^-4 chi(r/R). For a generic chi, r = R s factors ||r^(l0) f_R||^2 = R^(2 l0 - 6) int s^(2 l0 - 1) chi^2 ds, and
      the weight r^(l0 + 1) on k_R gives the same power; (r d_r)^j chi(r/R) = ((s d_s)^j chi)(r/R) for j = 1, 2, so every
-     H_b^m norm scales alike; checked again at a concrete chi at l0 = 7/2, 13/4, R = 2, 3. Control: the weight
-     r^(-l0-1) gives R^(-l0-4), not R^(l0-3).
+     H_b^m norm scales alike; checked again at a concrete chi at l0 = 7/2, 13/4, R = 2, 3. Both readings are printed:
+     the literal amplitude R^-1 costs R^(l0-1). Control (discriminating): asserting R^(l0-3) under that literal
+     reading fails, since it gives R^(l0-1).
   M4 (computed, a census) sections 8.4 and 8.8's 'the iteration with alpha in (4 + eps_K - eps'_0, 4 + eps_K] and rate
      alpha - 2' and 'a consistent choice of the parameters ... in an order with no circular threshold' (proof5/PART-VI4-
      PARAMS.md). Its section 1 table is parsed (18 rows, the column 'threshold depends on', ranges such as c1-c3 and 'all
@@ -36,6 +37,8 @@
      gamma_C v_C >= 1/2 and s_C > 100 at (v_C, e_C) = (1/2, 1/102400) for every gamma_C > 10^6; z_Ups = 4 e_Ups
      gamma_Ups^2 <= 1/2 at gamma_Ups = 1/4, e_Ups = 1 (it increases in both); at the record's point (e_Ups, gamma_Ups)
      = (1/100, 1/100) row u4's bounds, z_Ups = 4 x 10^-6 and 3/2 + delta_sharp = 1.5099 (section 8.4's alpha_min);
+     eps_ind <= 1.94137 x 10^-8 (read from N1STAR-PROOF.md 10.52, the point's value, which row w1's eps_ind is) and
+     eps_ind < 3 x 10^-6 < delta_sharp, so row w1's eps_+ < min(delta_sharp, eps_ind) has room;
      row d2's interval nonempty; eps'_0 = (1/2) min(eps_K, eps_+ - eps_K) (PART-III-I11-SPACETIME.md) in (0, eps_K), so
      every alpha of row w2 has rate alpha - 2 > 2. Control: a planted edge (c1 depending on n1) makes a cycle, which
      the sort detects.
@@ -177,7 +180,8 @@ def m3(control=False):
         free = not sp.simplify(rest).has(R)
         return sp.simplify(p2 / 2), free
     if control:
-        p, free = power(r**(-l0 - 1), R**-3)
+        p, free = power(r**l0, R**-1)                                  # the literal reading: amplitude R^-1
+        print("  M3 control: literal amplitude R^-1 gives R^(%s); asserted R^(l0-3)" % p, flush=True)
         return sp.simplify(p - (l0 - 3)) == 0
     p_g, f_g = power(r**l0, R**-3)
     p_k, f_k = power(r**(l0 + 1), R**-4)
@@ -256,7 +260,10 @@ def m4(control=False):
     rec = zU == sp.Rational(4, 10**6) and 0 < zU <= sp.Rational(1, 2) and sp.Rational(3, 2) + dsh == sp.Rational(
         15099, 10000)
     d2 = all(3 < min(L, sp.Rational(3, 2) + sC.subs(e1, 0)) for L in (sp.Rational(301, 100), sp.Rational(399, 100)))
-    epsind_ok = sp.Rational(3, 10**6) < dsh                            # eps_ind < 3e-6 < delta_sharp: eps_+ room
+    s52 = open(os.path.join(HERE, "N1STAR-PROOF.md"), encoding="utf-8").read().split("### 10.52 ")[1]
+    m_ = re.search(r"eps_ind at most (\d)\.(\d+) x 10\^-(\d+)", s52.split("\n### ")[0])
+    eind = sp.Rational(int(m_.group(1) + m_.group(2)), 10**(len(m_.group(2)) + int(m_.group(3))))
+    epsind_ok = 0 < eind < sp.Rational(3, 10**6) < dsh                # eps_ind < 3e-6 < delta_sharp: eps_+ room
     ok_w = True
     for EK, EP in [(sp.Rational(1, 10**7), sp.Rational(2, 10**7)), (sp.Rational(1, 10**7), sp.Rational(29, 10**7)),
                    (sp.Rational(2, 10**6), sp.Rational(25, 10**7))]:
@@ -267,10 +274,11 @@ def m4(control=False):
     print("  M4: %d rows parsed, every dependency a row: %s; acyclic: %s; a topological order:\n        %s;\n"
           "      Theorem 2.1's steps (0)-(6) a linear extension: %s; (C5) and s_C > 100 for gamma_C > 10^6: %s;\n"
           "      z_Ups <= 1/2 at the extremes gamma_Ups = 1/4, e_Ups = 1: %s; record point: u4 %s, z_Ups = %s, 3/2 +\n"
-          "      delta_sharp = %s: %s; d2 nonempty: %s; eps_ind < 3e-6 < delta_sharp: %s; eps'_0 in (0, eps_K), rate\n"
-          "      alpha - 2 > 2 on row w2 (three witnesses; eps'_0 <= eps_K/2 < eps_K symbolically): %s, %s"
+          "      delta_sharp = %s: %s; d2 nonempty: %s; eps_ind <= %s (10.52) < 3e-6 < delta_sharp: %s;\n"
+          "      eps'_0 in (0, eps_K), rate alpha - 2 > 2 on row w2 (three witnesses; eps'_0 <= eps_K/2 < eps_K\n"
+          "      symbolically): %s, %s"
           % (len(rows), known, acyclic, " ".join(topo), ext, c5, z_ok, u4, zU, sp.Rational(3, 2) + dsh, rec, d2,
-             epsind_ok, ok_w, e0_sym), flush=True)
+             sp.Float(eind, 6), epsind_ok, ok_w, e0_sym), flush=True)
     return all([len(rows) == 18, known, acyclic, ext, c5, z_ok, u4, rec, d2, epsind_ok, ok_w, e0_sym])
 
 
@@ -297,7 +305,7 @@ PAPER = {"deduced": 248, "D": 90, "A": 29, "C": 31, "?": 38, "B": 60, "modificat
 def m5(control=False):
     ded = tsv("DEDUCTIONS.tsv")
     if control:
-        ded = ded + [dict(ded[0])]                                     # planted: one more D row
+        ded = ded + [dict(ded[0], category="D", final="D")]            # planted: one more D row
     bmap, rd = tsv("B-MAP.tsv"), tsv("READINGS.tsv")
     got = {"deduced": len(ded)}
     for c in "DACB?":

@@ -27,13 +27,15 @@ M2 PASS
       R^(l0 - 3), ||r^(l0+1) R^-4 chi(r/R)||_b ~ R^(l0 - 3), R-free remainders: True; (r d_r)^j chi(r/R) = ((s d_s)^j
       chi)(r/R), j = 1, 2: True; concrete chi, l0 = 7/2, 13/4, R = 2, 3: True; for the record, amplitude R^-1:
       R^(l0 - 1); Lebesgue |dx|, amplitude R^-3: R^(l0 - 1)
+  M3 control: literal amplitude R^-1 gives R^(l0 - 1); asserted R^(l0-3)
 M3 PASS
   M4: 18 rows parsed, every dependency a row: True; acyclic: True; a topological order:
         c1 u2 b1 c2 c4 u1 c3 u3 u4 u5 d1 b2 d2 b3 w1 w2 b4 n1;
       Theorem 2.1's steps (0)-(6) a linear extension: True; (C5) and s_C > 100 for gamma_C > 10^6: True;
       z_Ups <= 1/2 at the extremes gamma_Ups = 1/4, e_Ups = 1: True; record point: u4 True, z_Ups = 1/250000, 3/2 +
-      delta_sharp = 15099/10000: True; d2 nonempty: True; eps_ind < 3e-6 < delta_sharp: True; eps'_0 in (0, eps_K), rate
-      alpha - 2 > 2 on row w2 (three witnesses; eps'_0 <= eps_K/2 < eps_K symbolically): True, True
+      delta_sharp = 15099/10000: True; d2 nonempty: True; eps_ind <= 1.94137e-8 (10.52) < 3e-6 < delta_sharp: True;
+      eps'_0 in (0, eps_K), rate alpha - 2 > 2 on row w2 (three witnesses; eps'_0 <= eps_K/2 < eps_K
+      symbolically): True, True
 M4 PASS
   M5: counts in the files, each equal to the paper's unless listed below: deduced 248; D 90; A 29; C 31; ? 38; B 60;
       modification 61; places named 57; places none 4; short 45; long 16; reading 34; no step 12; proof level 25; one
