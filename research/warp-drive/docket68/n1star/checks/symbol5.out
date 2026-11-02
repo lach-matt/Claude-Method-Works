@@ -26,3 +26,4 @@ Y3 Jordan block: a = k^2 Lambda (u - u0)(v - v0), b = 1 solve a_uv = k^2 Lambda 
    control (semisimple block): J_0(2k sqrt(Lambda (u - u0)(v - v0))) solves f_uv = -k^2 Lambda f with data 1: True; |J_0| <= 1 for every k -> the bounded case, as it must be
    right Jordan chain A e0 = 0, A e1 = -e0 solvable: True
 Y3 PASS
+Y4 mode 1: second x-derivatives in the combined row: ['R_xx', 'm_xx'] -> PASS
