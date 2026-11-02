@@ -58,6 +58,7 @@ import textwrap
 from fractions import Fraction as Fr
 
 import mpmath
+from mpmath import iv
 import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -199,6 +200,41 @@ def eps1_perturbation(g, xhat, r=None):
                 maxe=mx, det=gp.det())
 
 
+def up(q, d):
+    """a decimal string >= q (outward for an upper bound; Round 4, m1)"""
+    n = -((-q.numerator * 10 ** d) // q.denominator)
+    return ('%d.%0' + str(d) + 'd') % divmod(n, 10 ** d) if n >= 0 else '-' + up(-q, d)
+
+
+def down(q, d):
+    """a decimal string <= q (outward for a lower bound)"""
+    n = (q.numerator * 10 ** d) // q.denominator
+    return ('%d.%0' + str(d) + 'd') % divmod(n, 10 ** d)
+
+
+def lemma23_threshold(g, mu=None):
+    """g0's least absolute Euclidean eigenvalue on Omega (MAJOR A of the round-3 reader; certified): the eigenvalues
+    of eta + m U U^T, U = (1, xhat), m = mu/r^2, are 1 (three times) and m +- (m^2 + 1)^(1/2) (exact, sympy); the
+    least absolute one, (m^2 + 1)^(1/2) - m, decreases in m; on Omega mu <= mu_end and r >= a, so its infimum is its
+    value at m* = mu_end/a^2, attained at the corner (tau_end, r = a), where v = tau_end + a > v_end. Returns an
+    enclosure [lo, hi] of the infimum, and the checks"""
+    mm = sp.Symbol('m', positive=True)
+    U = sp.Matrix([1, 1, 0, 0, 0])
+    ev = (sp.diag(-1, 1, 1, 1, 1) + mm * U * U.T).eigenvals()
+    closed = (ev.get(sp.Integer(1)) == 3 and any(sp.simplify(k - (mm - sp.sqrt(mm ** 2 + 1))) == 0 for k in ev)
+              and any(sp.simplify(k - (mm + sp.sqrt(mm ** 2 + 1))) == 0 for k in ev))
+    decr = sp.simplify(sp.diff(sp.sqrt(mm ** 2 + 1) - mm, mm) * sp.sqrt(mm ** 2 + 1) + sp.sqrt(mm ** 2 + 1) - mm) == 0
+    mu = g['mu_end'] if mu is None else mu
+    alo, ahi = g['a']
+    m_lo, m_hi = mu / ahi ** 2, mu / alo ** 2
+    # (m^2 + 1)^(1/2) - m = 1/((m^2 + 1)^(1/2) + m): enclose with rational square roots
+    lo = 1 / (sqrt_hi(m_hi ** 2 + 1) + m_hi)
+    hi = 1 / (sqrt_lo(m_lo ** 2 + 1) + m_lo)
+    te = g['tau_end'][0]
+    corner = (te + ahi >= LZ.VE and in_omega(te, ahi, te + ahi, g))
+    return lo, hi, closed, decr, corner, (m_lo, m_hi)
+
+
 def norm_proposal():
     """the pointwise norm Lemma 1.1 (e) needs (exact, sympy, m = mu/r^2 symbolic; xhat = e1 by O(4) invariance):
     least eigenvalues of (g0 - eps I) on ker dtau, ker dr, ker d(v + tau), and the signature of g0 - eps I"""
@@ -335,29 +371,33 @@ def main():
         'harmonic, lead5 L3-L4; m1 the mean), so g1(s) - g1(s + pi) = 2 W_TT(s + phi1) and every admissible C_app >= '
         'sup |W_TT| (deduced)' % odd)
 
-    # T5 the bound
+    # T5 the bound, with Lemma 2.3's requirement (Round 4, MAJOR A): eps1 < g0's least absolute eigenvalue on Omega
+    e_lo, e_hi, closed, decr, corner, (m_lo, m_hi) = lemma23_threshold(g)
     out = {}
-    for name, eps1, capp in (('operator', eps_op, w_op_lo), ('Frobenius', eps_op, w_fr_lo),
-                             ('largest entry', eps_mx, w_op_lo)):
-        e_a = eps1 / capp
-        out[name] = (min(lam1[1], e_a), e_a, min(lam1[1], e_a / 2))
-    split_free = max(v[0] for v in out.values())
-    halves = max(v[2] for v in out.values())
-    ok['T5'] = (split_free == lam1[1] and out['largest entry'][0] < Fr(96, 10000)
-                and out['operator'][2] < Fr(239, 10 ** 4) and out['operator'][1] < Fr(478, 10 ** 4))
-    say('  T5: lambda0 <= min(lam1, eps1/C_app) (split-free, Step 3) and <= min(lam1, eps1/(2 C_app)) (round 1\'s '
-        'halves), certified upper ends:')
-    for name, (sf, ea, hv) in out.items():
-        say('      |.| = %-13s eps1/C_app <= %.6f; lambda0 <= %.6f (split-free); <= %.6f (halves)' % (
-            name, float(ea), float(sf), float(hv)))
-    say('      every reading: lambda0 <= %.6f = lam1 at a = q0/2 (certified); round 2\'s 0.0239 holds with the halves '
-        '(operator norm: %.6f), not split-free' % (float(split_free), float(out['operator'][2])))
+    for name, eps1_11e, capp in (('operator', eps_op, w_op_lo), ('Frobenius', eps_op, w_fr_lo),
+                                 ('largest entry', eps_mx, w_op_lo)):
+        e_11e = eps1_11e / capp                       # Lemma 1.1 (e) alone (round 3)
+        e_23 = min(eps1_11e, e_hi) / capp             # with Lemma 2.3's requirement: every reading's ball contains the
+        out[name] = (min(lam1[1], e_23), e_23, e_11e)  # op-ball of the same radius, so eps1 < e_hi in each
+    lam0_op = out['operator'][0]
+    ok['T5'] = (lam0_op == out['operator'][1] and lam0_op < Fr(24434, 10 ** 7) and out['Frobenius'][0] < Fr(1995, 10 ** 6)
+                and out['largest entry'][0] == lam0_op and out['operator'][2] < Fr(477484, 10 ** 7)
+                and out['Frobenius'][2] < Fr(389865, 10 ** 7))
+    say('  T5: lambda0 <= min(lam1, eps1/C_app), eps1 limited by Lemma 1.1 (e) (T2) and by Lemma 2.3 (T7): eps1 < %s; '
+        'certified upper ends (rounded up):' % up(e_hi, 7))
+    for name, (lz, e23, e11) in out.items():
+        say('      |.| = %-13s eps1/C_app < %s with Lemma 2.3 (< %s with Lemma 1.1 (e) alone, round 3); lambda0 < %s'
+            % (name, up(e23, 7), up(e11, 7), up(lz, 7)))
+    say('      lam1 = %s does not bind: lambda0 < %s with the pointwise norm of the supplement (operator norm on '
+        'symmetric 2-tensors); 1/lambda0 > %s (certified)' % (up(lam1[1], 7), up(lam0_op, 7), down(1 / lam0_op, 1)))
 
     # T6 the pointwise norm the supplement should state
     eigs, full, m, e = norm_proposal()
     at = {name: [sp.simplify(x.subs(e, sp.Rational(3, 5))) for x in v] for name, v in eigs.items()}
-    one_neg = all(sum(1 for x in full if float(x.subs({e: sp.Rational(3, 5), m: mv})) < 0) == 1
-                  for mv in (0, Fr(1, 100), 1, 13, 1000))
+    one_neg = all(sum(1 for x in full if sp.simplify(x.subs({e: sp.Rational(3, 5), m: sp.Rational(mv)})).is_negative)
+                  == 1 for mv in (0, Fr(1, 100), 1, 13, 1000))                      # exact at these five m
+    one_neg_all = (len(full) == 3 and set(sp.simplify(x - (m - e)) for x in full) >= set()
+                   and any(sp.simplify(x - (1 - e)) == 0 for x in full))          # 1 - eps, and m - eps +- sqrt
     m_a_lo = LZ.MU0 / ahi ** 2                         # mu/a^2 >= mu0/a^2 on {r = a}
     least_dr = min(Fr(1), m_a_lo - 1) - Fr(3, 5)
     ok['T6'] = (sp.Rational(2, 5) in at['ker dtau'] and least_dr == Fr(2, 5) and one_neg
@@ -367,7 +407,8 @@ def main():
         '(for symmetric A, its largest absolute eigenvalue). For |g - g0| <= eps, g >= g0 - eps I as forms, so each '
         'hypersurface stays spacelike if (g0 - eps I) is positive definite on its kernel; at eps = 3/5 (m = mu/r^2) the '
         'restricted eigenvalues are %s on ker dtau, %s on ker dr (least %s at r = a, P*), %s on ker d(v + tau) '
-        '(least m/5 > 0) (exact); g0 - (3/5) I has exactly one negative eigenvalue for every m >= 0: %s, so its '
+        '(least m/5 > 0) (exact); g0 - (3/5) I has exactly one negative eigenvalue (exact at m = 0, 1/100, 1, 13, 1000; '
+        'every m >= 0 from its eigenvalues 1 - eps, m - eps +- (m^2 + 1)^(1/2), deduced): %s, so its '
         'causal set is a double cone of two convex halves on which dtau, dr (at r = a) and d(v + tau) keep their '
         'signs, which gives the causal containment and the transversality (deduced). So Lemma 1.1 (e) holds with '
         'eps1 = 3/5 and fails above %.7f (T2): eps1* in [3/5, %.7f]. The Frobenius norm dominates it (same eps1); '
@@ -375,18 +416,31 @@ def main():
         % ([str(x) for x in at['ker dtau']], [str(x) for x in at['ker dr']], least_dr,
            [str(x) for x in at['ker d(v + tau)']], one_neg, float(eps_op), float(eps_op), float(eps_mx)))
 
+    # T7 Lemma 2.3's requirement on eps1 (certified)
+    ok['T7'] = closed and decr and corner and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7)
+    say('  T7 (Round 4, MAJOR A): g0 = eta + m U U^T has the eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; the '
+        'least absolute one, (m^2 + 1)^(1/2) - m, decreases in m: %s; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [%s, '
+        '%s], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: %s. So inf over Omega of '
+        'g0\'s least absolute eigenvalue is in [%s, %s] (certified); Lemma 2.3 (N1STAR-PROOF.md:222, :89-92) needs eps1 '
+        'below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner, down(e_lo, 9), up(e_hi, 9)))
+
     # controls
     bad1 = trace_check(all_lines, shift=1)
     ok['C1'] = len(bad1) >= len(TRACE) - 1
     say('  C1 (control): every trace line shifted by one: %d of %d fragments not found' % (len(bad1), len(TRACE)))
     ok['C2'] = w_op_hi < Fr(126, 10) - Fr(3, 1000)
     say('  C2 (control): "C_app >= 12.6 at this point" refuted: |W_TT|_op there <= %.6f < 12.6' % float(w_op_hi))
-    ok['C3'] = even_ctrl
-    say('  C3 (control): an even harmonic, cos 2s: g(s) - g(s + pi) = 0, so the parity argument gives no bound: %s'
-        % even_ctrl)
+    odd2 = wtt_symbolic(harm=2)[1]
+    ok['C3'] = not odd2
+    say('  C3 (control): T4\'s parity test run on the wave with its phase doubled (cos 2s, sin 2s): odd: %s, so T4 '
+        'fails on it: %s' % (odd2, ok['C3']))
     bad_r = alo - Fr(1, 10 ** 6)
     ok['C4'] = not in_omega(2 - bad_r, bad_r, Fr(2), g)
-    say('  C4 (control): the point r = a - 1e-6 is rejected by the domain test: %s' % ok['C4'])
+    say('  C4 (control): T3\'s domain test at r = a - 1e-6: rejected: %s' % ok['C4'])
+    c_lo6 = lemma23_threshold(g, mu=LZ.MU0)[0]
+    ok['C6'] = not (c_lo6 < Fr(307687, 10 ** 7))
+    say('  C6 (control): T7 with mu0 for mu_end (the seed, not the grown hole): threshold >= %s, so T7\'s enclosure '
+        'fails for it: %s' % (down(c_lo6, 7), ok['C6']))
     lm = restricted_least((1, 0, 0, 0), float(g['mu_end']), 13.4, (1, 2, 0, 0, 0))
     ln = restricted_least((1, 0, 0, 0), float(g['mu_end']), 13.4, (1, -2, 0, 0, 0))
     ok['C5'] = lm > 1e-3 and abs(ln) < 1e-12

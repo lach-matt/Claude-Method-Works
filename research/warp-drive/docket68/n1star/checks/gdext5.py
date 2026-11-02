@@ -14,12 +14,13 @@ rho^(3/2) (Part IV (2.1)).
   E1 (exact, at integer points with integer r) The 1-form operator in Cartesian components.  (a) det g = -1 and
      g g^-1 = 1.  (b) d delta + delta d = 2 delta G delta^* on test 1-forms (so Ric = 0: this is III.D's Box).
      (c) (Box Z)_c = Box_0 Z_c + C_c^{nu b} d_b Z_nu + D_c^nu Z_nu: no second-order coupling; C and D vanish at mu = 0,
-     are t-independent and homogeneous in x of degrees -3 and -4, and C is not identically 0.  Controls: (b) on the
+     are t-independent, and are sums sum_{k>=1} mu^k C_k, mu^k D_k with C_k, D_k homogeneous in x of degrees -1-2k and
+     -2-2k (so O(r^-3) and O(r^-4), the leading terms of degrees -3 and -4); C_1 is not identically 0.  Controls: (b) on the
      non-vacuum Kerr-Schild metric with mu r^-1 in place of mu r^-2 the two operators differ; (c) in the polar
      component of a 1-form a dr (not Cartesian) the coupling at mu = 0 is 3 a r^-2, of degree -2 and nonzero.
   E2 (exact) The edge-b order of the coupling.  d_t = rho_0 (X_0 - X_I), d_r = rho_0 (-X_0 + (1 - rho_I) X_I) and
      r^-1 d_omega = rho_0 rho_I^(1/2) (x_I d_omega); with the prefactor rho_I rho^-2 and the conjugation by rho^(3/2),
-     a coefficient homogeneous of degree -3 times d_t, d_r, r^-1 d_omega, the conjugation term, and a degree -4
+     a coefficient homogeneous of degree -3 (or less) times d_t, d_r, r^-1 d_omega, the conjugation term, and a degree -4
      zeroth-order term all lie in rho_0^2 rho_I^2 C^infty (rho_0, rho_I): so L_Box = L (x) Id + rho_0^2 x_I^4
      Diff^1_eb, the first-order matrix A-bar of Part IV' (1.1) is 0.  Control: a degree -1 coefficient (a connection
      term of a non-Cartesian frame) gives an order-0 eb coefficient, which would enter the leading part.
@@ -197,24 +198,32 @@ def e1(control=False):
     ok_mu0 = True
     ok_hom = True
     nonzero = False
+    degs = set()
+
+    def mu_coeffs(e):
+        P = sp.Poly(sp.expand(e), mu)
+        return {m[0]: cf for m, cf in zip(P.monoms(), P.coeffs())}
     for pt, rr in pts:
         p2 = tuple(2*q for q in pt)
-        for c, nu in itertools.product(range(N), range(N)):
-            d1 = at(D[c][nu], pt)
-            d2 = at(D[c][nu], p2, tval=sp.Rational(7, 2))
-            ok_hom &= d2*16 == d1
-            ok_mu0 &= at(D[c][nu], pt, muval=0) == 0
-            for b in range(N):
-                c1 = at(C[c][nu][b], pt)
-                c2 = at(C[c][nu][b], p2, tval=sp.Rational(7, 2))
-                ok_hom &= c2*8 == c1
-                ok_mu0 &= at(C[c][nu][b], pt, muval=0) == 0
-                nonzero |= c1 != 0
+        entries = [(D[c][nu], 2) for c, nu in itertools.product(range(N), range(N))]
+        entries += [(C[c][nu][b], 1) for c, nu, b in itertools.product(range(N), range(N), range(N))]
+        for e_, base in entries:
+            k1 = mu_coeffs(at(e_, pt))
+            k2 = mu_coeffs(at(e_, p2, tval=sp.Rational(7, 2)))
+            ok_mu0 &= k1.get(0, 0) == 0
+            for k in set(k1) | set(k2):
+                # the mu^k part is homogeneous of degree -(base + 2k) and t-independent
+                ok_hom &= sp.Integer(2)**(base + 2*k)*k2.get(k, 0) == k1.get(k, 0)
+                if k1.get(k, 0) != 0:
+                    degs.add((base, k))
+            if base == 1 and k1.get(1, 0) != 0:
+                nonzero = True
     sample = at(C[0][1][0]*R**3, PTS[0][0])
     print("  E1: det g = -1, g g^-1 = 1: %s; d delta + delta d = 2 delta G delta^* (Ric = 0): %s; no second-order "
-          "coupling: %s; C, D vanish at mu = 0: %s; C(2x) = C(x)/8, D(2x) = D(x)/16, t-independent: %s; C != 0: %s "
-          "(e.g. r^3 C_t^{x1 t} = %s at x = (1,2,2,4))" % (ok_a, ok_b, ok_2, ok_mu0, ok_hom, nonzero, sample),
-          flush=True)
+          "coupling: %s; C, D vanish at mu = 0: %s; C = sum_k mu^k C_k, D = sum_k mu^k D_k with C_k, D_k "
+          "t-independent and homogeneous of degrees -1-2k, -2-2k (k >= 1): %s, powers present (C: 1, D: 2; k): %s; "
+          "C_1 != 0: %s (e.g. r^3 C_t^{x1 t} = %s at x = (1,2,2,4))"
+          % (ok_a, ok_b, ok_2, ok_mu0, ok_hom, sorted(degs), nonzero, sample), flush=True)
     return ok_a and ok_b and ok_2 and ok_mu0 and ok_hom and nonzero
 
 

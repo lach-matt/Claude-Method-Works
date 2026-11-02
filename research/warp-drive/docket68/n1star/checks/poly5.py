@@ -24,7 +24,7 @@ every K, g_lam being unique, (P-v)).
   P5 (exact, integer recursion) Lemma 11.0 as written: energies at order n carry lam^-P(n), pointwise bounds
      lam^-Q(n); Theorem P (K_0 = 6, k = 6) gives P(n) = n (n <= 6), Q(n) = n - 1 (n <= 4); the data P = n; the
      sources are products with the highest-order factor in L^2 and the others in sup, Q(n) = P(n + 2) by Lemma 9.3
-     (the cost of three). P(N) is finite at every N and grows: computed to N = 40 (P(40) and the doubling recorded).
+     (the cost of three). P(N) is finite at every N, and P(N) <= 9N/4 for 7 <= N <= 160 (computed; P(160) = 358).
      The record's split inequality floor((N + 2)/2) <= max(4, N - 3) holds for N >= 1. Control: the reverse split
      (the high factor in sup) needs a pointwise order not yet controlled, at every N >= 6.
   P6 (exact, integer recursion) the sharp reading: u_1 = a + w, a := g_app - g0 - r^(-3/2) G_3 explicit (order
@@ -296,14 +296,14 @@ def p5():
     check("P5a the record's split: floor((N + 2)/2) <= max(4, N - 3) for N = 1..199", ok)
     Pbase = {n: n for n in range(0, 7)}
     Qbase = {n: n - 1 for n in range(0, 5)}
-    P, Q, err = lemma110(40, Pbase, Qbase, lambda d, Qd: Qd[d])
+    P, Q, err = lemma110(160, Pbase, Qbase, lambda d, Qd: Qd[d])
     print("     P(N), N = 7..16:", [P[N] for N in range(7, 17)])
-    print("     P(40) =", P[40], "; P(N+1)/P(N) at N = 39:", round(P[40]/P[39], 3))
-    check("P5b finite at every order N <= 40 (polynomial in lam^-1 at each order, K-independent)",
-          err is None and all(isinstance(P[N], int) for N in range(41)))
-    lin = all(P[N] <= 2*N + 2 for N in range(41)) and P[40] == 82
-    check("P5c the written bookkeeping gives P(N) <= 2N + 2 for N <= 40 (equality at N = 40); control: P(N) <= N "
-          "fails (N = 8)", lin and P[8] > 8, f"P(8) = {P[8]}, P(34) = {P[34]}, P(40) = {P[40]}")
+    print("     P(N)/N at N = 40, 80, 120, 160:", [round(P[N]/N, 3) for N in (40, 80, 120, 160)])
+    check("P5b finite at every order N <= 160 (polynomial in lam^-1 at each order, K-independent)",
+          err is None and all(isinstance(P[N], int) for N in range(161)))
+    lin = all(4*P[N] <= 9*N for N in range(7, 161))
+    check("P5c the written bookkeeping gives P(N) <= 9N/4 for 7 <= N <= 160 (P(40) = 82, P(160) = 358); control: "
+          "P(N) <= N fails (N = 8)", lin and P[8] > 8, f"P(8) = {P[8]}, P(40) = {P[40]}, P(160) = {P[160]}")
     P2_, Q2_, err2 = lemma110(40, Pbase, Qbase, lambda d, Qd: Qd[d], reverse=True)
     check("P5d control: the reverse split asks for a pointwise order not yet controlled", err2 is not None,
           str(err2))

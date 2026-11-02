@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""twohorizon5: the record's Proposition 8.1 (one zero per column of the outgoing expansion) for two families: the exact
-facts the deduction in FAMILIES5-FULL.md section 9 uses, and the term that makes the packet's placement necessary.
+"""twohorizon5: the record's Proposition 8.1 (one zero per column of the outgoing expansion) for two families: the
+facts the deduction in FAMILIES5-FULL.md section 9 uses.
 
   H1 (exact) the background on its columns. Where the outgoing dust vanishes (region III, u >= u2) the two-dust
      background is g0 = -e^(2 psi) f dvhat^2 + 2 e^psi dvhat dR + R^2 dOmega_3^2, f = 1 - mu/R^2, psi <= 0 and mu
@@ -9,21 +9,24 @@ facts the deduction in FAMILIES5-FULL.md section 9 uses, and the term that makes
      c = 2 R^2 e^psi/(R^2 (2 - e^psi) + mu e^psi) > 0 (psi <= 0); its one zero on (0, oo) is R^2 = mu, simple, with
      d_R theta+ = 3 e^psi/mu there (the record's 3/mu at psi = 0, horizon5.py H1); the future ingoing normal has
      expansion -3/R < 0. Control (must fail): the ingoing normal's expansion does not vanish at R^2 = mu.
-  H2 (exact, symbolic in every function) on stage0two5.py's general round double-null background with both families'
+  H2 (exact, symbolic in every function) g0's expansion along g0^-1 du is -3 e^(-2 sig) R_v/R (so the normalised
+     theta+ is a positive multiple of R_v); on stage0two5.py's general round double-null background with both families'
      stage-0 waves (W_in = TT(s1) + chi dv^2, W_out = TT(s2) + chi' du^2), the expansions along g^-1 du (outgoing) and
      g^-1 dv (ingoing) have no lam^-1 term and no lam^0 term beyond g0's: theta(g0 + lam W) = theta(g0) + O(lam). The
      reason: the fast derivatives enter only as (1/2) g0^-1(k, d phase) F tr_S W, and tr_S W_k = 0 for both families.
      Control: the outgoing wave with a trace on the spheres (t z2 gamma0 added) gives a lam^0 oscillation in the
      ingoing expansion (g0^-1(dv, du) != 0); in the outgoing one it does not (g0^-1(du, du) = 0).
-  H3 (30-digit evaluation at a point; the reason for the placement hypothesis (H6)) with ghat_2's mixed harmonics fixed by stage 0's division
-     (ghat = e^(2 sig) R^(0)_(n1,n2)/(n1 n2), stage0two5 T4, T7), the lam^1 coefficient of the outgoing expansion has
-     nonzero mixed harmonics (n1, n2), n1 n2 != 0, wherever both families are present (evaluated with concrete smooth
-     functions at a point). Along a column {vhat fixed} the outgoing phase u varies (d_R u = 1/R_u != 0), so lam
-     [Th1] contributes (d_R u) [F2 Th1] = O(1) to d_R theta+ there: the record's monotonicity band argument needs the
-     band free of the outgoing family. Control (must fail): with the outgoing family removed the mixed harmonics vanish.
+  H3 (symbolic up to three sample points, then 30 digits) with both families' stage-0 waves and ghat_2's mixed harmonics
+     fixed by stage 0's division (ghat = e^(2 sig) R^(0)_(n1,n2)/(n1 n2), stage0two5 T4, T7), the lam^1 coefficient of
+     the expansion along g^-1 du has no harmonic depending on s2: its mixed harmonics (n1, n2), n1 n2 != 0, and its pure
+     (0, n2) harmonics are below 1e-20 at each point (concrete smooth functions for sig, R, H, the amplitudes and the
+     chi's), against harmonics in s1 alone of order one; no lam^-1 term and no lam^0 oscillation either. So along a
+     column {vhat fixed}, where s1 is constant and u is not, the outgoing expansion's O(lam) term contributes O(lam) to
+     d_R theta+, and the record's band argument needs no placement of the outgoing packet.
+     Control (must fail): with ghat_2 dropped the mixed harmonics are of order one: the cancellation is the division's.
 
-Labels: computed (H1, H2 exact, sympy; H3 symbolic up to the point, then 30-digit). Run: python3
-checks/twohorizon5.py   (a few minutes)
+Labels: computed (H1, H2 exact, sympy; H3 symbolic up to the points, then 30 digits: evidence at three points, not a
+proof for every function). Run: python3 checks/twohorizon5.py   (about half an hour)
 """
 import os
 import sys
