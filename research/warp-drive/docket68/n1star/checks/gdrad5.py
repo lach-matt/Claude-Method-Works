@@ -103,18 +103,16 @@ def d1(control=False):
     res = {}
     for q in ((1, 2, 3) if control else (2, 3)):
         inner = sp.integrate(sg**(1 - 2*gz), (sg, 0, 1/r), conds='none')     # valid for g_zf < 1
-        integrand = sp.simplify(r**(-2*q + 2 + 2*(gt - gz))*inner*r**-1)
-        expo = sp.simplify(sp.log(sp.simplify(integrand*(2 - 2*gz)))/sp.log(r))
-        res[q] = sp.simplify(expo)                                          # finite iff expo < -1
-    thr = {q: sp.solve(sp.Eq(res[q], -1), gt)[0] for q in res}
+        integrand = r**(-2*q + 2 + 2*(gt - gz))*inner*r**-1
+        res[q] = sp.expand(sp.expand_log(sp.log(integrand*(2 - 2*gz)), force=True)).coeff(sp.log(r))
+    thr = {q: sp.solve(sp.Eq(res[q], -1), gt)[0] for q in res}               # finite iff exponent < -1
     zf_cond = sp.integrate(sg**(1 - 2*sp.Rational(1, 2)), (sg, 0, 1))      # g_zf = 1/2: finite
-    zf_edge = sp.integrate(sg**(1 - 2*1)*1, (sg, sp.Rational(1, 10**8), 1))  # g_zf = 1: log divergence
-    # Lemma 1.1 (a): int |sigma|^(2j) rho^(-2(gtf - gzf)) |sigma|^(-2 gzf) 1_{sigma <= rho/4} dsigma/sigma: needs gzf < j
+    zf_edge = sp.integrate(sg**(1 - 2*1), (sg, sp.Rational(1, 10**8), 1))  # g_zf = 1: log divergence
+    # Lemma 1.1 (a): int |sigma|^(2j) rho^(-2(gtf - gzf)) |sigma|^(-2 gzf) 1_{sigma <= rho/4} dsigma/sigma
     j = sp.Symbol('j', positive=True)
-    inner11 = sp.integrate(sg**(2*j - 2*gz - 1), (sg, 0, 1/(4*r)), conds='none')
-    expo11 = sp.simplify(sp.log(sp.simplify(sp.expand_power_base(inner11*r**(2*(gt - gz))*(2*j - 2*gz)*4**(2*j - 2*gz),
-                                                                  force=True)))/sp.log(r))
-    l11 = sp.simplify(expo11 - (2*gt - 2*j))                                 # weight rho^(2(gtf - j)) vs P u_0
+    inner11 = sp.integrate(sg**(2*j - 2*gz - 1), (sg, 0, 1/(4*r)), conds='none')     # valid for g_zf < j
+    w11 = sp.expand(sp.expand_log(sp.log(inner11*r**(2*(gt - gz))*(2*j - 2*gz)), force=True)).coeff(sp.log(r))
+    l11 = sp.simplify(w11 - (2*gt - 2*j))                                    # the weight rho^(-2(g_tf - j))
     # (c) the cut-off state with W_beta: rho-hat = 1/z, W^-1 = (1 + z)^N (z/(1 + z))^(q - eps)
     z, eps = sp.symbols('z epsilon', positive=True)
     qc = 0 if control else 2
@@ -124,12 +122,13 @@ def d1(control=False):
         Nn = 3
         g = (1 + z)**(2*Nn)*(z/(1 + z))**(2*(qc - e_))*sp.exp(-2*z**2)*z**(-2*qc)      # times sigma^(2 qc)
         main = sp.integrate(sp.expand(sp.series(g, z, 0, 1).removeO())/z, (z, sg, 1))
-        lead = sp.limit(sg**(2*e_)*main, sg, 0)
-        order = qc - e_ if lead.is_finite and lead != 0 else None
-        rows.append((str(e_), lead, order))
-        okc &= order == 2 - e_
+        total = sg**(2*qc)*main                                                    # the squared norm, near 0
+        order2 = sp.limit(sp.log(total)/sp.log(sg), sg, 0)                         # computed, not assigned
+        lead = sp.limit(total/sg**order2, sg, 0)
+        rows.append((str(e_), lead, order2/2))
+        okc &= sp.simplify(order2/2 - (2 - e_)) == 0 and lead == 1/(2*e_)
     ok = (homog and thr.get(3) == 3 and thr.get(2) == 2 and zf_cond.is_finite and zf_edge > 18
-          and sp.simplify(l11) == 0 and okc)
+          and l11 == 0 and okc)
     if control:
         print("  D1 control (the Killing form's component r^0 / q = 1 / q = 0): r^2 [Box_0, chi] r^0 homogeneous of "
               "degree 0: %s; tf thresholds %s; cut-off state (eps, lim, order) %s; the claims hold: %s"
@@ -138,20 +137,18 @@ def d1(control=False):
     print("  D1: r^4 [Box_0, chi(r/t)] r^-2 = %s, a function of r/t alone: %s, so the column's transform is r^-3 G(sigma"
           " r); Fubini: finite iff g_zf < 1 and g_tf < q, thresholds %s (q = 3 column, q = 2 W*); Lemma 1.1 (a) weight "
           "rho^(2(g_tf - j)) exactly: %s; cut-off state with W_beta, (eps, lim sigma^(2 eps) int, tf-order) = %s"
-          % (sp.simplify(ex), homog, thr, sp.simplify(l11) == 0, rows), flush=True)
+          % (sp.simplify(ex), homog, thr, l11 == 0, rows), flush=True)
     return ok
 
 
 # --------------------------------------------------------------------------------------------------------------- D2
 def d2(control=False):
-    (U1, U2, U3, U4, U5), (u1, u2, u3, u4, u5) = box('U1', 'U2', 'U3', 'U4', 'U5')
-    pos = [U1, U2, U3, U4, U5]
+    (U1, U2, U3, U4), (u1, u2, u3, u4) = box('U1', 'U2', 'U3', 'U4')
+    pos = [U1, U2, U3, U4]
     aK = 1 + u1                                              # (1, 2)
     gp = aK + u2*(2 - aK)                                    # (alpha_K, 2)
     ep = u3*(2 - gp)/5                                       # small
     e1 = u4/2                                                # eps_1 in (0, 1/2)
-    wI = sp.Max(sp.Rational(5, 2), gp + 1 + e1)              # the least admissible I+-weight
-    wIs = [sp.Rational(5, 2) + U5, gp + 1 + e1 + U5]         # both branches of the max, plus slack
     conds = {
         'zero energy alpha + 2 = g - 1 in (0,1)': [gp - 1, 2 - gp],
         'Y_0: column A^3 at mu_b-weight g + 1 < 3': [2 - gp],
@@ -166,9 +163,9 @@ def d2(control=False):
         'II.G 2.8 beta = a_K in (1, 2), one Taylor term': [aK - 1, 2 - aK],
         'II.F b_+ = 1 <= g, b_I = 5/4 < 3/2': [gp - 1],
     }
-    for k, w in enumerate(wIs):
-        conds['L4.1 / (2.25a) w_I >= g + 1 + eps_1, >= 5/2 (branch %d)' % k] = [w - (gp + 1 + e1), w - sp.Rational(5, 2)]
-        conds['II.F source I+ w_I >= b_I + 1 (branch %d)' % k] = [w - sp.Rational(9, 4)]
+    # w_I >= max(5/2, g + 1 + eps_1) is the hypothesis; what is asked of it is dominated by those two bounds
+    conds['L4.1 / (2.25a): g + 2 - min(a_K, 1 - eps_1) = g + 1 + eps_1'] = [aK - (1 - e1)]
+    conds['II.F source I+: b_I + 1 = 9/4 <= 5/2'] = [sp.Rational(5, 2) - sp.Rational(9, 4)]
     if control:
         # step 3.1 dropped: Lemma 4.2 is applied to f-hat itself, whose zf part is ((0,0), a_K - 1): its plain zf-weight
         # is 0, which must be >= beta_zf = a_K - 1
@@ -179,18 +176,21 @@ def d2(control=False):
     res = {k: all(positive_sum(sp.simplify(e), pos) for e in v) for k, v in conds.items()}
     # Theorem R5.1's box (round-5 verifier's minor 3): a_K in [1/2, 1), gamma_+ in (a_K, 3/2), eps <= (3/2 - g)/5,
     # w_I from its minimum max(5/2, g + 2 - a_K)
-    (V1, V2, V3, V4), (v1, v2, v3, v4) = box('V1', 'V2', 'V3', 'V4')
-    posv = [V1, V2, V3, V4]
+    (V1, V2, V3), (v1, v2, v3) = box('V1', 'V2', 'V3')
+    posv = [V1, V2, V3]
     a5 = HALF + v1/2
     g5 = a5 + v2*(sp.Rational(3, 2) - a5)
     e5 = v3*(sp.Rational(3, 2) - g5)/5
-    w5s = [sp.Rational(5, 2) + V4, g5 + 2 - a5 + V4]
+    b5p = (HALF + g5)/2
+    b5I = (b5p + sp.Rational(3, 2))/2
     c5 = {'step 7: g <= 3/2 - 2 eps': [(sp.Rational(3, 2) - 2*e5) - g5],
           'L4.3 tf a_K + 1 - eps >= g': [(a5 + 1 - e5) - g5],
-          'window': [g5 - a5, 1 - (g5 - a5)]}
-    for k, w in enumerate(w5s):
-        c5['w_I >= max(5/2, g + 2 - a_K) (branch %d)' % k] = [w - sp.Rational(5, 2), w - (g5 + 2 - a5)]
-        c5['(2.25a) w_I >= g + 2 - min(a_K, 1 - eps) (branch %d)' % k] = [w - (g5 + 2 - a5)]
+          'window': [g5 - a5, 1 - (g5 - a5)],
+          # w_I >= max(5/2, g + 2 - a_K) is the hypothesis; (2.25a)'s g + 2 - min(a_K, 1 - eps') equals the second
+          # bound for eps' < 1 - a_K, and II.F's b_I + 1 is below the first
+          '(2.25a) with eps\' = (1 - a_K)/2': [(1 - (1 - a5)/2) - a5],
+          'II.F b_I + 1 <= 5/2': [sp.Rational(5, 2) - (b5I + 1)],
+          'II.F b_+ <= g, 1/2 < b_+ < b_I < 3/2': [g5 - b5p, b5p - HALF, b5I - b5p, sp.Rational(3, 2) - b5I]}
     res5 = {k: all(positive_sum(sp.simplify(e), posv) for e in v) for k, v in c5.items()}
     print("  D2: Theorem R6.4's conditions, each a positive sum on the box a_K in (1,2), g in (a_K, 2), eps, eps_1, w_I "
           "from its minimum: %s; Theorem R5.1's box with w_I free and step 7's g <= 3/2 - 2 eps: %s"

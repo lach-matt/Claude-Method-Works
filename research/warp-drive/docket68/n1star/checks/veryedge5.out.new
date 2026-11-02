@@ -17,3 +17,5 @@ V4 PASS
       on one period at the edge: {'1': 2, 'i': 2, 'e^(i pi/4)': 2, '0 (control)': 0}; log10 min |F|/margin = 1398.84.
       Ordering at the edge |F| < top data < U-bound: True (8.02e-21, 1.69e-13, 8.05e+105 per E); in the window (control):
       False
+V5 PASS
+veryedge5: all checks pass, every control fails  [725 s]
