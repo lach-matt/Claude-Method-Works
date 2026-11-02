@@ -320,27 +320,27 @@ def f1c():
 
 def f1d():
     print("F1d  the chain rule: the top-order terms of d^N F(x, u, u')")
-    x, U, P_ = sp.symbols("x U P")
-    u = sp.Function("u")(x)
-    F = sp.Function("F")
-    expr = F(x, u, sp.diff(u, x))
+    x = sp.Symbol("x")
+    us = sp.symbols("u0:9")  # u0 = u, u1 = u', ...
+    F = sp.Function("F")(x, us[0], us[1])
+
+    def Dx(f):  # the total x-derivative on functions of (x, u0, u1, ...)
+        return sp.diff(f, x) + sum(us[i + 1]*sp.diff(f, us[i]) for i in range(len(us) - 1))
+
+    Fp, Fu = sp.diff(F, us[1]), sp.diff(F, us[0])
     ok, ctl = True, True
-    for N in range(2, 7):
-        dN = sp.diff(expr, x, N)
-        Fp = sp.diff(F(x, U, P_), P_).subs({U: u, P_: sp.diff(u, x)})
-        Fu = sp.diff(F(x, U, P_), U).subs({U: u, P_: sp.diff(u, x)})
-        rem = sp.expand(dN - Fp*sp.diff(u, x, N + 1) - Fu*sp.diff(u, x, N))
-        top = sp.Symbol("TOP")
-        hasN1 = rem.subs(sp.diff(u, x, N + 1), top).has(top)
-        # the u^(N) terms of rem: their coefficient is N times the total x-derivative of F_p
-        coefN = sp.expand(rem.subs(sp.diff(u, x, N), top)).coeff(top) if N > 2 else None
-        if N > 2:
-            DFp = sp.diff(Fp, x)  # total derivative (u is a function of x)
-            ok = ok and sp.simplify(coefN - N*DFp) == 0
-        ok = ok and not hasN1
-        ctl = ctl and sp.expand(dN - Fu*sp.diff(u, x, N)).subs(sp.diff(u, x, N + 1), top).has(top)
-    check("F1d d^N F - F_p u^(N+1) - F_u u^(N) has no u^(N+1), and its u^(N) coefficient is N d/dx(F_p) (orders <= 2 "
-          "of u), N = 2..6", ok)
+    dN = F
+    for N in range(1, 7):
+        dN = sp.expand(Dx(dN))
+        if N < 2:
+            continue
+        rem = sp.expand(dN - Fp*us[N + 1] - Fu*us[N])
+        ok = ok and not rem.has(us[N + 1])
+        if N >= 3:
+            ok = ok and sp.simplify(rem.coeff(us[N]) - N*Dx(Fp)) == 0
+        ctl = ctl and sp.expand(dN - Fu*us[N]).has(us[N + 1])
+    check("F1d d^N F - F_p u^(N+1) - F_u u^(N) has no u^(N+1), and (N >= 3) its u^(N) coefficient is N D_x(F_p), "
+          "which involves u, u', u'' only (N = 2..6)", ok)
     check("F1d' control: without subtracting F_p u^(N+1) the top order u^(N+1) is present", ctl)
 
 
