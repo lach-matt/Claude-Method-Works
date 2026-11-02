@@ -6,8 +6,8 @@ tau0 <= 5.937209 (certified there); Theorem L's parameters (rounds 1-2): p = 14,
 
   L1 (exact) The paper's envelope sin^4(pi (v - 1/2)/3) is not flat at its edge: on v > v_s its derivatives at v_s+
      are 0, 0, 0, 0, 24 (pi/3)^4, 0, -480 (pi/3)^6, on v < v_s all zero: env^(4) jumps by 24 (pi/3)^4 = 28.86..., so
-     env is C^3 and not C^4, M_m := sup |env^(m)| is infinite for m >= 5 (env^(5) carries a Dirac mass), and Theorem 1 and
-     Theorem L do not apply to it; one-sided, sup_(v > v_s) |env^(m)| <= (pi/3)^m (4^m + 4 2^m)/8.  Control: the
+     env is C^3 and not C^4, M_m := sup |env^(m)| is infinite for m >= 5 (env^(5) carries a Dirac mass), and Theorem
+     1 and Theorem L do not apply to it; one-sided, sup_(v > v_s) |env^(m)| <= (pi/3)^m (4^m + 4 2^m)/8.  Control: the
      record's C_c^inf envelope (CONSTANTS5 R2.2 (a)) has |env^(4)| < 1e-100 at v_s + 1e-3 (flat).
   L2 (certified, interval arithmetic) For that C_c^inf envelope, env = c beta((2v - 4)/3), beta = cos^12(pi y/2)
      exp(-y^2/(1 - y^2)): by Cauchy's estimate on the disc of radius theta (1 - |y0|) about y0,
@@ -100,7 +100,8 @@ def l1(control=False):
 def log10_B(m, theta):
     th = iv.mpf(theta)
     lfac = iv.log(iv.mpf(math.factorial(m)))
-    val = (iv.log(C_HI) + m*iv.log(iv.mpf(2)/3) + lfac + iv.mpf(3)/4 + 12*iv.log((iv.exp(iv.pi*th/2) + iv.exp(-iv.pi*th/2))/2)
+    cosh = (iv.exp(iv.pi*th/2) + iv.exp(-iv.pi*th/2))/2
+    val = (iv.log(C_HI) + m*iv.log(iv.mpf(2)/3) + lfac + iv.mpf(3)/4 + 12*iv.log(cosh)
            + m*iv.log(2*(1 + th)*m/(iv.exp(1)*th)))
     return val/iv.log(10)
 
@@ -139,8 +140,10 @@ def l2(control=False):
     if 'ser' not in CACHE:
         a = series_value(m0, mp.mpf(1)/(4*m0), 200)
         b = series_value(m0, mp.mpf(1)/(4*m0), 280)
+        mp.mp.dps = 150
         CACHE['ser'] = (a, abs(a/b - 1))
-    ser, stab = CACHE['ser']
+        mp.mp.dps = 40
+    ser, stab = CACHE['ser']          # stab: relative difference of the two precisions, compared at 150 digits
     lser = mp.log10(ser*mp.mpf('1.3240711')*(mp.mpf(2)/3)**m0)          # |env^(400)| at that point, lower c
     lb400, th400 = best_B(m0)
     if control:
@@ -290,7 +293,8 @@ def l4(control=False):
         ck = 'eq' if kind == 'ch' else kind
         lam5 = min(((M + 1)*CACHE['Ci'][i][ck]*(mp.mpf(5)/4)**(1 - mp.mpf(i)/m)*Mm1m**i)
                    ** (-1/(p*(1 - mp.mpf(i)/m) - 3)) for i in range(0, M + 1))
-        res[kind] = (lam4, lam5)
+        ceps = sum(CACHE['Ci'][i][ck]*(mp.mpf(5)/4)**(1 - mp.mpf(i)/m)*Mm1m**i for i in range(0, M + 1))
+        res[kind] = (lam4, lam5, ceps)
     # Lam_8a: the margin, m0 <= C_m0 (25/16) y^2 (1 + 1) with v1 - v_s <= 1, against an eighth of lam^3 A (3y/4) nu_* d_*
     lam8a = (3*Ks*ds/(32*cm*mp.mpf(25)/8))**(1/mp.mpf(p - 3))
     if control:
@@ -304,12 +308,16 @@ def l4(control=False):
         bad |= cm*mp.mpf(25)/8*x**(2*p) <= 3*Ks*ds*x**(3 + p)/32
         return bad
     ok = mono and abs(sp.N(dmin2 - sp.Rational(64, 9), 30)) < 1e-25 and nus == sp.Rational(-196, 15625)
+    gain = 3*Ks*ds/32
     out("  L4 nu(5/2) = %s; d nu/d rho = %s (so |nu| increases on rho > rho*): %s; d_*^2 = %s at zeta = 0 (critical"
         " points %d); C_m0 = %s.  Thresholds (no constant of Theorem 1): Lam_4(C1 = 0), Lam_5, round 1's L.5: %s, %s;"
         " amended L.5: %s, %s; with Chebyshev nodes at i = 1: Lam_4(0) = %s; Lam_8a = %s.  Formulas: Lam_4(C1) ="
-        " Lam_4(0) (1 + C1 dtau/(2 pi))^(-m/(m - p)), dtau <= 5.937209"
+        " Lam_4(0) (1 + C1 dtau/(2 pi))^(-m/(m - p)), dtau <= 5.937209; Lam_6 = (288 mu0 C_Phi/(25 A^2))^(1/27);"
+        " Lam_8b = (G/(C_L11 C_eps))^(4/3), Lam_8c = (G/(C_L11 C_eps^2))^(1/11.5), Lam_8d = (G/(C_L4 C_eps))^(4/3), G :="
+        " 3 A nu_* d_*/32 = %s, log10 C_eps = %s (round 1), %s (amended)"
         % (nus, dnu, mono, dmin2, len(crit), sp.N(c_m0, 8), mp.nstr(res['r1'][0], 5), mp.nstr(res['r1'][1], 5),
-           mp.nstr(res['eq'][0], 5), mp.nstr(res['eq'][1], 5), mp.nstr(res['ch'][0], 5), mp.nstr(lam8a, 6)))
+           mp.nstr(res['eq'][0], 5), mp.nstr(res['eq'][1], 5), mp.nstr(res['ch'][0], 5), mp.nstr(lam8a, 6),
+           mp.nstr(gain, 6), mp.nstr(mp.log10(res['r1'][2]), 7), mp.nstr(mp.log10(res['eq'][2]), 7)))
     CACHE['L4'] = res, lam8a
     return ok and all(res[k][0] < 1 and res[k][1] < 1 for k in res) and lam8a < 1
 
