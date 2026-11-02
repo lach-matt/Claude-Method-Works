@@ -85,7 +85,8 @@ class Geo:
         return sum(self.gi[a, b]*h[a][b] for a in range(N) for b in range(N))
 
     def dric(self, h):
-        """DRic(h)_ab = (1/2)(nabla^c nabla_a h_bc + nabla^c nabla_b h_ac - nabla^c nabla_c h_ab - nabla_a nabla_b tr h)"""
+        """DRic(h)_ab = (1/2)(nabla^c nabla_a h_bc + nabla^c nabla_b h_ac - nabla^c nabla_c h_ab
+        - nabla_a nabla_b tr h)"""
         G, gi = self.Gam, self.gi
         T = self.cov2(h)                                     # T[c][a][b] = nabla_c h_ab
 
@@ -290,8 +291,8 @@ def r3(control=False):
         errs = [abs(nums[i] - mpmath.mpf(sp.N(tgt[i], 40)))/abs(mpmath.mpf(sp.N(tgt[i], 40))) for i in range(3)]
         e_ok = max(errs) < mpmath.mpf("1e-30")
         ok &= e_ok
-        print("  R3 (e) j = %d (l = %d): ||P||^2 = %s, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)"
-              "||P||^2, quadrature to 40 digits, relative error %s: %s"
+        print("  R3 (e) j = %d (l = %d): ||P||^2 = %s, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = "
+              "(2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error %s: %s"
               % (j, l, n0, mpmath.nstr(max(errs), 3), e_ok), flush=True)
     x = sp.Symbol("x", positive=True)
     q = (1 + x)**2/(sp.Rational(2, 3)*x*(x - 3))

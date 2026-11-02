@@ -5,14 +5,15 @@ the forced linear growth and the horizon-regular gauge-fixed mass change, comput
 Background and class as in rwgauge5.py (ingoing chart, s = sqrt(mu) = r_h).  Box := 2 delta G delta^* on 1-forms
 (III.D (1.1)), Theta(k) := delta G k with (delta k)_m = -nabla^a k_am (Part IX section 0); so Theta(L_X g) = Box X.
 ell(J) := r_h^3 int_{S^3} J(d_v)|_{r = r_h} dw (III.D' (1.1)), and for a 1-form X near the horizon
-    Q[X](v) := r_h^3 int_{S^3} (delta X + (dX)_{vr})|_{r = r_h} dw,   delta X = -nabla^a X_a,  (dX)_{vr} = d_v X_r - d_r X_v.
+    Q[X](v) := r_h^3 int_{S^3} (delta X + (dX)_{vr})|_{r = r_h} dw,
+with delta X = -nabla^a X_a and (dX)_{vr} = d_v X_r - d_r X_v.
 
   H1 (exact) On the class, with general coefficients, Theta(L_X g) = (d delta + delta d) X = -nabla^a nabla_a X.
      Control: on the non-vacuum metric with f = 1 - mu/r the first identity fails (it needs Ric = 0).
   H2 (exact) The horizon charge.  For every class 1-form X with general coefficients, at r = r_h,
          r^3 (Box X)_v = d_v [ r^3 (delta X + (dX)_{vr}) ] - (r/(sin th cos th)) d_th ( sin th cos th (dX)_{th v} ),
-     so, integrating over S^3, dQ[X]/dv = ell(Box X).  Control: at a general r the same identity fails.  Also: Q sees only
-     the l = 0 part of X (checked on an l = 2 class 1-form, whose Q vanishes).
+     so, integrating over S^3, dQ[X]/dv = ell(Box X).  Control: at a general r the same identity fails.  Also: Q sees
+     only the l = 0 part of X (checked on an l = 2 class 1-form, whose Q vanishes).
   H3 (exact) Values.  W* := dv/r^2 - dr/(r(r + s)) has Box W* = 0, delta W* = 0, (dW*)_{vr} = 2/r^3, Q[W*] = 4 pi^2;
      the Killing 1-form (d_v)^flat = -f dv + dr has Q = 4 pi^2 mu, and (d_v)^flat - mu W* is closed; ell([Box, v] W*)
      = 4 pi^2 (III.D' Lemma 3.1 (1)); Theta(dv^2/r^2) = -dv/r^3, so ell(Theta(dv^2/r^2)) = -2 pi^2; L_{W*} g != 0.
