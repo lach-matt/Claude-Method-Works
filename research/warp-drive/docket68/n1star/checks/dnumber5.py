@@ -419,8 +419,9 @@ def main():
         print('      c\' = %d: d <= %d (%.6e), N <= %d (%.6e)' % (cp, dv, dv, 21 * dv + 6, 21 * dv + 6))
     OK['K5'] = final['R1'] > A['R1'] and final['R1'] < 10 ** 17
     # K6: c' (READ, deduced): printed only
-    print('  K6: c\' >= D_0 + D_1 + d\' + d\'\' + 6 + 2 (BG) + the fixed MODs; D_0 >= II.A Lemma 8.5\'s d_0 = d_* + K + 1, d_* '
-          'from the closed graph theorem (II.A:955-967), and D_0 >= the d_0 of (L3)-(L4), fixed by d_0 - 2 >= M_2.4 + 2 '
+    print('  K6: c\' >= D_0 + D_1 + d\' + d\'\' + 6 + 2 (BG) + the fixed MODs; D_0 >= II.A Lemma 8.5\'s d_0 = '
+          'd_* + K + 1, d_* from the closed graph theorem (II.A:955-967), and D_0 >= the d_0 of (L3)-(L4), fixed by '
+          'd_0 - 2 >= M_2.4 + 2 '
           '(II.A2:722-723), M_2.4 a closed-graph seminorm count (II.A2:277-279); [SBG] Theorem 3.44 gives no count '
           '(READ). So c\' has no number in the record; d is A\' + 106,489,470 c\' with A\' above (deduced)')
     # C1: brute force on a scaled instance

@@ -631,10 +631,13 @@ scaled norm of the second term is <= C lam^-1 lam^(N-1), of the first <= C lam^(
 **Lemma 6.2 (the stage data; deduced, with Lemma 6.4).** For every N there are stage data for Theorem A satisfying (F1)
 and (F2), all vanishing on Sigma cap {r < v_start - tau0}.
 
-*Proof.* Stage 0: chi = 0 on Sigma, as chosen in 5.1. Stage m = 1, ..., N - 1, everything of the earlier stages given:
-put phi_m = 0 and (m_m)_{tau .} = 0 on Sigma. The unknowns left on Sigma are h_m and Q_m, the order-m means of the
-induced metric and second fundamental form (h_m is the spatial part of m_m, and given h_m, Q_m fixes d_tau of that
-spatial part), d_tau (m_m)_{tau .}, and gh_(m+1).
+*Proof.* Stage 0: chi = 0 on Sigma, as chosen in 5.1. Stage m = 1, ..., N, everything of the earlier stages given
+(stage N's data are not needed for (F1), (F2) but are fixed here, so every stage's data are smooth, T^2 x Z2 x
+Z2-invariant and vanish on Sigma cap {r < v_start - tau0}; at m = N step (iii) runs inside Theorem A of order N, since
+after stage N Rm^(N) = -(1/2) e_{N+1} d_th^2 W with e_{N+1} = -q_{N+1} independent of th; D615): put phi_m = 0 and
+(m_m)_{tau .} = 0 on Sigma. The unknowns left on Sigma are h_m and Q_m, the order-m means of the induced metric and
+second fundamental form (h_m is the spatial part of m_m, and given h_m, Q_m fixes d_tau of that spatial part), d_tau
+(m_m)_{tau .}, and gh_(m+1).
 
 (i) On Sigma the oscillating part of D^(m) is Pol(d_th gh_(m+1)) + Lambda_m(h_m) + (known), Pol(Y) := Y(ell, .) - (1/2)
 dv tr_g0 Y, and Lambda_m algebraic: the terms of the order-m oscillating part of D linear in m_m or in d phi_m

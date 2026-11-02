@@ -1,0 +1,8 @@
+dnumber5: X_7 summed over the levels; d up to c'
+  K1: A = 3 (R2 + R3) + L_above [3 P_W + 11 + 3 P_iota + excess + 15 W] + L_below [15 W + 58] = 37919138373535686 (R0),
+      37919139651409350 (R1) (eflat5 F5 as corrected in Round 6: R1's excess 47); P_W = 85025783, P_iota = 85025784, W =
+      1470302, |Lambda cap (2, 3)| = 85025782
+  C3 (control): K1 with F4's excess dropped: 37919137148906758, not eflat5's constant: True
+  K3: Lemma 1.4's rule with a general source agrees with iotapoles5.lemma14 on (k, 0) sources: True
+      E_col on [0, 1] (wide reading): log order 10 at 0, 12 at 1, at most 5 off the integers (12 points)
+      E_col on [0, 1] (shifted reading): log order 6 at 0, 8 at 1, at most 3 off the integers (8 points)

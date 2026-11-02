@@ -43,7 +43,8 @@ III.G'' Corollary 4.3, G3:375-400):
      [Round 6, the verifier of round 5 (M1): (3.2)'s extended unions complete by (2.2) between its rounds, so on R1
      the raise at 2 (to 5) reaches 3 before the round at 3: 5 + 8 + 1 = 14 there, not 11; R0 unchanged (the
      completion (3, 1) is below G's (3, 2)). Log order above 2 at 17 points (R0), 18 (R1), not 26. f4_table.]
-  F5 (exact) n_iota <= 3 P_iota + excess (the excess over 2 at those 26 points, 23 on R0, 44 on R1 [Round 6: 47]), so dceiling5 D6
+  F5 (exact) n_iota <= 3 P_iota + excess (the excess over 2 at those 26 points, 23 on R0, 44 on R1 [Round 6: 47]),
+     so dceiling5 D6
      per exponent gives d <= 37,919,137,148,906,758 + 53,244,736 (excess + X_7) + 106,489,470 c': the 3.79e16 that
      round 4 printed as a hypothesis, now with the construction's own log orders.
   F6 (exact; a bound with one reading) L_0, the log order of E^0_src U E_++ U G U (2 + E_col) below 2 lambda_sharp:
@@ -53,7 +54,8 @@ III.G'' Corollary 4.3, G3:375-400):
      |E_K,<=| (A-PREREQ:650-704); at Step 7 beta_iota = beta'_+ < 3/2 < lambda_sharp <= min Re E_iota, so |E_iota,<=| = 0
      and X_7 = |E_K,<=| + (2.26a)'s losses, E_K the K+-exponents of Step 5 below alpha - 2 - eps.
   Controls (each mutates the computed path and must fail): C1 the windows' raises summed instead of maximised: the log
-  order at 3 exceeds 1.5e7 and F4's bound fails [Round 6: F4's own loop rerun so; C4 F4 without the completion]; C2 the v1 site's extended unions counted twice: the log order at
+  order at 3 exceeds 1.5e7 and F4's bound fails [Round 6: F4's own loop rerun so; C4 F4 without the completion]; C2
+  the v1 site's extended unions counted twice: the log order at
   offset 1 becomes 4 and F4's "<= 2" fails; C3 Lemma 1.4 with every type's roots at k = 2: the offsets below 1 are
   {d0, d1} and F1's block-wise assertion fails on it.
 
