@@ -25,7 +25,8 @@ term linear in the wave dominates the margin and every error term (Lemma L.5, Le
 
 Labels: computed.  W2 is a qualitative model: it checks the arithmetic of the dominance with unit constants and three
 derivatives (e3), not the M* = 2N + 8 = 26 of the proof (with 26 the exp(-1/x) model needs far smaller lam:
-layerband5.py B3), and not Theorem L's constants, which are not evaluated (lamL5.py).  Run: python3 checks/layerwin5.py  (about a minute)
+layerband5.py B3), and not Theorem L's constants, which are not evaluated (lamL5.py).
+Run: python3 checks/layerwin5.py  (about a minute)
 """
 import sys
 from fractions import Fraction as Fr

@@ -23,10 +23,10 @@ P (N1STAR-PROOF.md:1053-1060): t_P := 1 + tau0 - tau, h(tau) = kappa t_P^(-1/4),
      at three points (two weights); and g^ab d_a d_b phi = box_g phi + g^ab Gamma^c_ab d_c phi (the reduced
      operator differs from box_g by a first-order term with coefficient Gamma[g] = Gamma[g_b0] + O(d h)). Control:
      without the deformation term (1/2) w T^ab d_t h_ab the identity fails.
-  T4 (exact) the radial derivatives from the equation: on phi(t, r), g_b0^ab d_a d_b phi = -(1 + mu/r^2) phi_tt
-     + 2 (mu/r^2) phi_tr + (1 - mu/r^2) phi_rr + (first order): the phi_rr coefficient g_b0^-1(dr, dr) = 1 - mu/r^2
-     is positive for r^2 > mu, so d_r^2 h is the equation's source plus d_t-commuted and angular terms. Control: at
-     r^2 = mu it vanishes.
+  T4 (exact) the radial derivatives from the equation: on phi(t, |x|), g_b0^ab d_a d_b phi = -(1 + mu/r^2) phi_tt
+     + 2 (mu/r^2) phi_tr + (1 - mu/r^2) phi_rr + (first order; angular terms on general phi): the phi_rr coefficient
+     g_b0^-1(dr, dr) = 1 - mu/r^2 is positive for r^2 > mu, so d_r^2 h is the equation's source plus d_t-commuted
+     and angular terms (with Omega, the rotations). Control: at r^2 = mu it vanishes.
   T5 (exact) (N2)'s flux identity on a dyadic piece: for phi(t, r) with phi = 0 near {v = v_start}, on
      D = {tau_- <= t <= tau_+, v_start <= v <= v1} (flat radial model, measure r^3 dr), with e := (1/2)(phi_t^2 +
      phi_r^2) r^3 and box phi := -phi_tt + phi_rr + 3 phi_r/r,
@@ -155,7 +155,7 @@ def t3():
         g, gi, sq = geo(y)
         d = dphif(y)
         nrm = sum(gi[i, j]*d[i]*d[j] for i in R5 for j in R5)
-        w = (sp.sqrt(0) if False else (mp.sqrt(sum(c*c for c in y[1:])) - y[0])**(2*aa))
+        w = (mp.sqrt(sum(c*c for c in y[1:])) - y[0])**(2*aa)
         T0 = [d[b]*d[0] - g[b, 0]*nrm/2 for b in R5]
         return sq*w*sum(gi[a, b]*T0[b] for b in R5)
 
@@ -180,9 +180,7 @@ def t3():
             Tup = [[sum(gi[a, c]*gi[b, e]*Tlow[c][e] for c in R5 for e in R5) for b in R5] for a in R5]
             rr_ = mp.sqrt(sum(c*c for c in y[1:]))
             wv = (rr_ - y[0])**(2*aa)
-            dw = [mp.diff(lambda z: (mp.sqrt(sum(c*c for c in (y[1:] if i == 0 else
-                                                                 y[1:i] + [z] + y[i + 1:]))) -
-                                     (z if i == 0 else y[0]))**(2*aa), y[i]) for i in R5]
+            dw = [-2*aa*(rr_ - y[0])**(2*aa - 1)] + [2*aa*(rr_ - y[0])**(2*aa - 1)*c/rr_ for c in y[1:]]
             gw = [sum(gi[i, j]*dw[j] for j in R5) for i in R5]
             Tgt = sum(gw[b]*Tlow[b][0] for b in R5)
             dtg = mp.matrix(dgf[0](y))
@@ -207,25 +205,28 @@ def t3():
 
 def t4():
     print("T4  the radial derivatives from the equation")
-    tt, r = sp.symbols("tt r", positive=True)
-    phi = sp.Function("phi")(tt, r)
+    r = sp.Symbol("r", positive=True)
+    Ftt, Ftr, Frr, Fr = sp.symbols("F_tt F_tr F_rr F_r")
+    xh = sp.symbols("y1:5", real=True)  # xhat, |xhat| = 1
     eta = sp.diag(-1, 1, 1, 1, 1)
-    k = sp.Matrix([1, x1/RR, x2/RR, x3/RR, x4/RR])
-    gi = eta - mu/RR**2*(eta*k)*(eta*k).T
-    f = sp.Function("F")
-    Fx = f(t, RR)
-    op = sum(gi[a, b]*sp.diff(Fx, XS[a], XS[b]) for a in range(5) for b in range(5))
-    pt = {x1: r, x2: 0, x3: 0, x4: 0, t: tt}
-    e = sp.simplify(op.subs(pt).doit())
-    Ftt = sp.Derivative(f(tt, r), tt, 2)
-    Frr = sp.Derivative(f(tt, r), r, 2)
-    Ftr = sp.Derivative(f(tt, r), tt, r)
-    e = e.subs({sp.Subs(sp.Derivative(f(t, sp.Symbol("_xi_2")), sp.Symbol("_xi_2"), 2), sp.Symbol("_xi_2"), r): Frr})
-    cr = sp.simplify(sp.expand(e).coeff(Frr))
-    ct = sp.simplify(sp.expand(e).coeff(Ftt))
-    check("T4a the phi_rr coefficient is g_b0^-1(dr, dr) = 1 - mu/r^2, the phi_tt one -(1 + mu/r^2)",
-          sp.simplify(cr - (1 - mu/r**2)) == 0 and sp.simplify(ct + 1 + mu/r**2) == 0, f"{cr}, {ct}")
-    check("T4b control: at r^2 = mu the phi_rr coefficient vanishes", sp.simplify(cr.subs(r, sp.sqrt(mu))) == 0)
+    k = sp.Matrix([1] + list(xh))
+    gi = eta - mu/r**2*(eta*k)*(eta*k).T
+    # chain rule for F(t, |x|): d_i d_j F = F_rr y_i y_j + F_r (delta_ij - y_i y_j)/r, d_t d_i F = F_tr y_i
+    hess = sp.zeros(5, 5)
+    hess[0, 0] = Ftt
+    for i in range(4):
+        hess[0, i + 1] = hess[i + 1, 0] = Ftr*xh[i]
+        for j in range(4):
+            hess[i + 1, j + 1] = Frr*xh[i]*xh[j] + Fr*((1 if i == j else 0) - xh[i]*xh[j])/r
+    op = sp.expand(sum(gi[a, b]*hess[a, b] for a in range(5) for b in range(5)))
+    unit = {xh[3]: sp.sqrt(1 - xh[0]**2 - xh[1]**2 - xh[2]**2)}
+    cr = sp.simplify(op.coeff(Frr).subs(unit))
+    ct = sp.simplify(op.coeff(Ftt).subs(unit))
+    ctr = sp.simplify(op.coeff(Ftr).subs(unit))
+    check("T4a coefficients: F_rr (1 - mu/r^2), F_tt -(1 + mu/r^2), F_tr 2 mu/r^2: the radial second derivative is "
+          "solved for where r^2 > mu", sp.simplify(cr - (1 - mu/r**2)) == 0 and sp.simplify(ct + 1 + mu/r**2) == 0
+          and sp.simplify(ctr - 2*mu/r**2) == 0, f"{cr}, {ct}, {ctr}")
+    check("T4b control: at r^2 = mu the F_rr coefficient vanishes", sp.simplify(cr.subs(r, sp.sqrt(mu))) == 0)
 
 
 def t5():
