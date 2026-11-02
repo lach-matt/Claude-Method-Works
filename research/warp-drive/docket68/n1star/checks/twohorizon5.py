@@ -172,10 +172,11 @@ def main():
     Rs = sp.Symbol("R", real=True)
     good1 = (len(r["roots"]) == 1 and r["zero_at"] and zero(sp.simplify(r["d_at"]*Rs**2 - 3*r["pos"]))
              and r["pos"].func == sp.exp)                                 # c = e^psi > 0 at R^2 = mu
-    print("  H1: one outgoing null covector dR + alpha dvhat, alpha = %s; theta+ = c 3 f/(2R) with c = %s;\n"
-          "      zero at R^2 = mu: %s; there d_R theta+ = %s = 3 c/mu with c = %s; ingoing (k = dvhat, n(tau) = %s):\n"
-          "      theta- = %s: %s" % (r["roots"], r["ratio"], r["zero_at"], r["d_at"], r["pos"], r["dtau_in"],
-                                   r["theta_in"], good1), flush=True)
+    print("  H1: one outgoing null covector dR + alpha dvhat, alpha = %s;\n"
+          "      theta+ = c 3 f/(2R) with c = %s;\n"
+          "      zero at R^2 = mu: %s; there d_R theta+ = %s = 3 c/mu with c = %s;\n"
+          "      ingoing (k = dvhat, n(tau) = %s): theta- = %s: %s"
+          % (r["roots"], r["ratio"], r["zero_at"], r["d_at"], r["pos"], r["dtau_in"], r["theta_in"], good1), flush=True)
     print("  H1 control (the ingoing normal): its expansion vanishes at R^2 = mu: %s (it must not)" % r["ctl"],
           flush=True)
     ok["H1"] = good1 and not r["ctl"]
