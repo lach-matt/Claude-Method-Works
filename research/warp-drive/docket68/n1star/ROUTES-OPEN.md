@@ -6147,6 +6147,26 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   lets m_1 in). (iii) The Taylor remainder's integral form and the chain rule with ℓv = Ωv = 0 give R_K ∈ E_(K+q)^ℓ at
   fixed λ. 3(b)'s induction then stands at the record's level with nothing asserted beyond the record's own lemmas;
   λ-uniformity is not covered, and the strip does not need it.
+- D588 (LOSS-D LD16 and 2b, computed: `checks/thetain5.py` T1-T6, exact; deduced): the thresholds the record never
+  evaluates, and the losses they fix. The incoming threshold of the tf model, 2L̄'s spectral family, is ϑ_in = −2 min
+  spec M with M the ∂_t* endomorphism in t* = t + r (= S + α_r, I.A Lemma 4.4's symbols; sign conventions checked on
+  incoming and outgoing waves); spec M ⊂ [0, ∞) with 0 five times, semisimple, so ϑ_in = 0, as for L̃_b; for □^Υ and □^C
+  it is negative. Corollary 3.4 may take s = 1 (I.C Theorem 4.3 and Corollary 5.2 hold for every s), and then its
+  integer is 1 for every β_sctf in the record's range: both kinds of round cost 2 + 1 = 3, the D563/D586 conditional
+  unneeded, and LD3's floor rises to d > 7.9 × 10¹⁵, N > 1.67 × 10¹⁷. With III.F″ Lemma 1.1's horizon threshold in [0,
+  2], LOSS-D (2.3) and (2.4) are 2 for L_b at β_scf in [1, 3/2). Open: the weights, the counts and (1.1) evaluated.
+- D589 (verifier 254 on D585-D587: no major; 6 minor, 8 nits; reruns of response5, e2h1band5 and closure5
+  byte-identical, `up()` tested on 10^5 random rationals, K4 re-enumerated independently with composite derivatives,
+  m_(m+1), gh_(m+2) and Γ[g0] added, unchanged): MINOR, in the paper's section 9: 963.4 holds for l ≥ 1 only (1516 at l
+  = 0); the ratio is 9.5 to 22, not 21; at the second seed M = 32 and 40 agree to v ≈ 3.5 while M = 48 departs from
+  3.25; the loss's open list must include E1'a and E1'c (LOSS-D section 4), not only LD16's per-round items; the round
+  charges 15 and 17 hold on ℓ_I in (3, 3.5) and [3.5, 3.5099), more above, sufficient not minimal. In LOSS-D and the
+  D586 entry, I12:293-294 is level 3's; level 2's interval is inferred (G5 Proposition 4.4, I12:131, 305). Nits: N = 21d
+  + 6 is not section 4's N, and 8d + 2 was unexplained (dropped); the counts are deduced bounds; D338, not D339, and
+  verifiers 253-254 recorded; Vaidya's outgoing phase is not null; supplement terms defined in the paper's words; D587's
+  citation 490-506, its list with Γ[g0] for dd v, K1 and K5 at five points, K1 not testing products or means, K5 not
+  d_X; and the two-dust existence is given its characteristic data. All seated; the D585-D587 entries above keep their
+  text.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

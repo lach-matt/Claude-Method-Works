@@ -7806,3 +7806,15 @@ without showing. All three now have short proofs: one derivative is just a coord
 coefficients that couple the unknowns are built from the background and the first wave alone, because averaging over the
 phase kills every other term, which a count of orders shows term by term; and the Taylor remainder keeps its decay
 because the phase is constant along the direction that matters. An exact check backs each one.
+
+**D588 (2026-11-02): one of the loss's unknowns becomes a number.** How many derivatives the proof loses each time it
+inverts the model operator at the transition between low frequencies and spatial infinity depends on a threshold the
+record never worked out. It is computed here, exactly: it is zero, as for the scalar wave. So that inversion costs one
+derivative, every round of the long loops costs three, and the two kinds of round cost the same without any extra
+condition. The record's own lower bound on the total loss rises accordingly, to more than 7.9 × 10¹⁵.
+
+**D589 (2026-11-02): the paper's new list of what is not proved, checked.** The independent check of the refreshed
+section found nothing major. It found several statements a little broader than the record: one derivative bound that
+holds for every harmonic but the lowest, a ratio quoted as 21 that is 22, a claim that all the finest runs agree to a
+late time when the finest departs earlier, and a list of what the loss still needs that left out the weights and counts
+themselves. All are repaired, with a wrong citation and several unexplained terms.

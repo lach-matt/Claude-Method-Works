@@ -22,18 +22,18 @@ well. An exact term is r^-p F(v, xhat, th), F smooth and bounded with all deriva
      inverse eta^-1 - mu(v) r^-2 V (x) V, V := eta^-1 dv, and pulls back to -(1 - mu/r^2) dv^2 + 2 dv dr on the radial
      plane: the record's Vaidya. Its components and its inverse's are exact finite sums (orders 0 and 2), as are dv's
      (order 0) and dd v's (d_i d_j v = (delta_ij - xhat_i xhat_j)/r, order 1).
-  K4 (exact enumeration, every order m <= 10) Lemma 5.1's weight count (N1STAR-PROOF.md:490-497: a derivative is d_X
+  K4 (exact enumeration, every order m <= 10) Lemma 5.1's weight count (N1STAR-PROOF.md:490-506: a derivative is d_X
      (weight 0), lam^-1 dv d_th (-1) or lam^(i-1) dphi_i d_th (i - 1); m_i has weight i, W weight 1, gh_i weight i; at
      most two derivatives per monomial; d_th only on the oscillating factors W, gh_i; the order is the sum of the
      weights) over every monomial of order m. A monomial contributes to a theta-mean only if it holds at least two
      oscillating factors, every oscillating profile having mean zero and every other factor (g0, m_i, dphi_i) being
      theta-independent. Then (a) the monomials of order m linear in gh_(m+1) with two oscillating factors are exactly W
-     gh_(m+1) with two lam^-1 dv d_th: <Th gh_(m+1)>'s coefficients are built from g0, g0^-1, dv and W alone, exact, of
-     order 3/2 (W_TT = r^-3/2 F) and in E_(3/2); (b) those holding dphi_m with two oscillating factors, at m >= 2, are
-     exactly W W with one lam^-1 dv d_th: <Wm_phi(dphi_m)>'s coefficients are quadratic in W, exact, in E_3; no m_i and
-     no dphi_i (i < m) enter either; closure (ii). At m = 1, dphi_1 d_th has weight 0, as d_X does, and the same holds
-     with W W lam^-1 dv d_th dphi_1 d_th the only such monomial. Control: allowing three derivatives lets m_1 enter
-     (a)'s mean.
+     gh_(m+1) with two lam^-1 dv d_th: <Th gh_(m+1)>'s coefficients are built from g0, g0^-1, dv, Gamma[g0] and W alone,
+     exact, of order 3/2 (W_TT = r^-3/2 F) and in E_(3/2); (b) those holding dphi_m with two oscillating factors, at m
+     >= 2, are exactly W W with one lam^-1 dv d_th: <Wm_phi(dphi_m)>'s coefficients are quadratic in W, exact, in E_3;
+     no m_i and no dphi_i (i < m) enter either; closure (ii). At m = 1, dphi_1 d_th has weight 0, as d_X does, and the
+     same holds with W W lam^-1 dv d_th dphi_1 d_th the only such monomial. Control: allowing three derivatives lets m_1
+     enter (a)'s mean.
   K5 (exact, sympy; Z, delta quadratics with symbolic coefficients, at the same points) the chain rule for the Taylor
      remainder's argument: for Z(tau, x, th) and Theta = v/lam + s delta, ell [Z(., Theta)] = (ell Z)(., Theta) + s (ell
      delta) (d_th Z)(., Theta) and Omega_ij likewise, with no lam^-1 term, since ell v = Omega v = 0; d_tau and d_i

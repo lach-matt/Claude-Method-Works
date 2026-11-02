@@ -828,24 +828,27 @@ What it does not give:
   derivatives 1194 displays), the couplings' coefficients exact (as B0 and C0 are, by deduction, D577), and the Taylor
   remainder's ℓ-gains (538-540 writes the remainder, not its gains). Not covered: λ-uniformity, which the strip does not
   need (D521). So 3(b)'s induction is written at the level of the record's own Proposition 11.1, given those three
-  (corrected D580: "closes" said more).] [D587, deduced, with `checks/closure5.py` K1-K5 (exact; K4 an enumeration of
-  every monomial of order m ≤ 10): the three closures shown. (i) ∂_v at fixed (r, x̂) is ∂_τ at fixed x, a Cartesian
-  derivative, and commutes with every d_X, every Ω and ℓ (K2), so ∂_v E_p ⊂ E_p and ∂_v E_p^ℓ ⊂ E_p^ℓ: Lemma 9.7 (a)'s
-  clause is shown, not only stated. (ii) A θ-mean of a monomial vanishes unless it holds two oscillating factors (with
-  their derivatives), every oscillating profile having mean zero and every other factor (g0, m_i, dφ_i) being
-  θ-independent. By Lemma 5.1's weight count (N1STAR-PROOF.md:490-497), the order-m monomials linear in gh_(m+1) with
-  two oscillating factors are exactly W gh_(m+1) under two λ⁻¹dv∂_θ, and those carrying dφ_m are exactly W W under
-  λ⁻¹dv∂_θ and dφ_m∂_θ (K4, the same at every m: what a monomial linear in gh_(m+1) can spend below m is −1 in all, two
+  (corrected D580: "closes" said more).] [D587, deduced, with `checks/closure5.py` K1-K5 (exact; K1 and K5 at five
+  points with rational |x|, K4 an enumeration of every weight pattern of order m ≤ 10): the three closures shown. (i)
+  ∂_v at fixed (r, x̂) is ∂_τ at fixed x, a Cartesian derivative, and commutes with every d_X, every Ω and ℓ (K2), so
+  ∂_v E_p ⊂ E_p and ∂_v E_p^ℓ ⊂ E_p^ℓ: Lemma 9.7 (a)'s clause is shown, not only stated. (ii) A θ-mean of a monomial
+  vanishes unless it holds two oscillating factors (with their derivatives), every oscillating profile having mean zero
+  and every other factor (g0, m_i, dφ_i) being θ-independent. By Lemma 5.1's weight count (stated at
+  N1STAR-PROOF.md:490-497, counted in its proof at 498-506), the order-m monomials linear in gh_(m+1) with two
+  oscillating factors are exactly W gh_(m+1) under two λ⁻¹dv∂_θ, and those carrying dφ_m are exactly W W under λ⁻¹dv∂_θ
+  and dφ_m∂_θ (K4, the same at every m: what a monomial linear in gh_(m+1) can spend below m is −1 in all, two
   derivatives of weight at least −1 each and every other factor of weight at least 0). So ⟨Th gh⟩'s coefficients are
-  polynomials in g0, g0⁻¹, dv, dd v and W, linear in W, and ⟨Wm_φ(dφ)⟩'s quadratic in W; no m_i or dφ_i enters either.
-  g0 = η + μ(v)r⁻²dv ⊗ dv, its inverse η⁻¹ − μ(v)r⁻²V ⊗ V, dv and dd v are exact sums (K3), as W = W_TT + χdv² is (stage
-  0); exact sums are closed under products, Cartesian derivatives, Ω, ∂_θ and θ-means (K1); so the coefficients are
-  exact, of orders 3/2 and 3. (iii) Taylor's formula with integral remainder, R_K = δ^K/(K − 1)! ∫_0^1 (1 − s)^(K−1)
-  ∂_θ^K Y(X, v/λ + sδ) ds. By the chain rule (K5) ℓ and Ω of a profile composed with Θ := v/λ + sδ fall on its
-  X-argument or on δ and produce no λ⁻¹, since ℓv = Ωv = 0, while d_X produces λ⁻¹dv, bounded at fixed λ; so the
-  composite of a profile in E_q^ℓ is in E_q^ℓ, the constants depending on λ and uniform in s ∈ [0, 1], δ^K ∈ E_K^ℓ by
-  Leibniz, and R_K ∈ E_(K+q)^ℓ. So 3(b)'s induction is written at the level of the record's Proposition 11.1 with these
-  three shown; λ-uniformity is not covered, and the strip does not need it (D521).]
+  polynomials in g0, g0⁻¹, dv, Γ[g0] and W, linear in W (dd v, listed here before, enters neither coupling: D589,
+  verifier 254), and ⟨Wm_φ(dφ)⟩'s quadratic in W; no m_i or dφ_i enters either. g0 = η + μ(v)r⁻²dv ⊗ dv, its inverse η⁻¹
+  − μ(v)r⁻²V ⊗ V, dv, dd v and Γ[g0] are exact sums (K3, with K1 for Γ[g0]), as W = W_TT + χdv² is (stage 0); exact sums
+  are closed under Cartesian derivatives, Ω, ∂_θ and ℓ (K1) and, at once, under products and θ-means; so the
+  coefficients are exact, of orders 3/2 and 3. (iii) Taylor's formula with integral remainder, R_K = δ^K/(K − 1)! ∫_0^1
+  (1 − s)^(K−1) ∂_θ^K Y(X, v/λ + sδ) ds. By the chain rule (K5 for ℓ and Ω; d_X the same way, by hand) ℓ and Ω of a
+  profile composed with Θ := v/λ + sδ fall on its X-argument or on δ and produce no λ⁻¹, since ℓv = Ωv = 0, while d_X
+  produces λ⁻¹dv, bounded at fixed λ; so the composite of a profile in E_q^ℓ is in E_q^ℓ, the constants depending on λ
+  and uniform in s ∈ [0, 1], δ^K ∈ E_K^ℓ by Leibniz, and R_K ∈ E_(K+q)^ℓ. So 3(b)'s induction is written at the level of
+  the record's Proposition 11.1 with these three shown; λ-uniformity is not covered, and the strip does not need it
+  (D521).]
 - **(c) Masses above (1.1).** Proposition 6.1 needs r_0 ≤ r_q.
   - III.B fixes r_0 = ½R_1 as a choice. Every Tangherlini metric g^KS_μ is regular on r > 0 with spacelike t_* slices,
     and a Myers-Perry metric of small spin has its inner horizon near r = 0. So any fixed r_0 ∈ (0, R_1) above the

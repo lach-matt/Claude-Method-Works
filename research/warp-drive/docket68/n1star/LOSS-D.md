@@ -7,7 +7,8 @@ findings seated. LD6-LD8 to be read (LD8: D397). LD9 (D408), LD10 (D420, D422), 
 verifier 218), LD12 (D514, corrected D516 after verifier 221), LD13 (D529, corrected D531 after verifier 229), LD14
 (D534, corrected D538 after verifier 232 and D541 after verifier 234; the reading settled at source D542, its argument
 corrected D544), LD15 (D550), LD16 (D553, corrected D557, D560, D562, D563, D565, D570, D573, D575, D576, D580, D582,
-D584, D586).
+D584, D586,
+D588, D589).
 
 EFFECTIVE-CONSTANTS.md (E1') called the loss d "bookkeeping": add up III.J″'s losses part by part, so that the
 exponent 8d+2 and N = 21d+6 become numbers. This note does that bookkeeping and finds that it does not end in a
@@ -153,7 +154,10 @@ the horizon (I.A); s_c the fixed regularity order of II.G' Corollary 4.2's proof
 **What this closes.** The six losses are now closed forms in the following data:
 
 - the weights: the β's, ℓ_I and ε;
-- the threshold quantities ϑ_in, ϑ_H of the operators at n = 4;
+- the threshold quantities ϑ_in, ϑ_H of the operators at n = 4 (D588: ϑ_in = 0 for L_b and for III.H's augmented L̃_b, a
+  finite-rank augmentation by compactly supported rows and columns; any number above −0.0198 for □^Υ and above about
+  −3.0 × 10⁶ for □^C, `checks/thetain5.py` T2, T5; ϑ_H = max(0, 2 − 2a_vγ_C r_h) ∈ [0, 2] for L_b, III.F″ Lemma 1.1;
+  with them (2.3) and (2.4) are 2 for L_b at β_scf in [1, 3/2), whichever ϑ_H in [0, 2] holds, T6);
 - the index-set counts n_H;
 - free choices still to be made: δ, the strip's ε and λ_−, s_c ≥ 0 and β'_K.
 
@@ -230,25 +234,26 @@ loop counts of section 3.
   the description is corrected there.
 
 - LD3 (two long loops at the record's parameter point; about the size of the d this proof produces, not a gap in any
-  proof). (i) I15's β-chain: α ∈ (4, 4 + ε_K] (I15:37) and α_1 ∈ (2, α − 2) (I15:305), so the chain climbs more than 2 in
-  steps below α − 4 ≤ ε_K, and K > 2/(α − 4) ≥ 2/ε_K. With ε_K < ε_ind < 3 × 10⁻⁶ (J-PARAM:34, F2:133-136), K > 6.8 ×
+  proof). (i) I15's β-chain: α ∈ (4, 4 + ε_K] (I15:37) and α_1 ∈ (2, α − 2) (I15:305), so the chain climbs more than 2
+  in steps below α − 4 ≤ ε_K, and K > 2/(α − 4) ≥ 2/ε_K. With ε_K < ε_ind < 3 × 10⁻⁶ (J-PARAM:34, F2:133-136), K > 6.8 ×
   10⁵. The levels are composed in the proof itself: level k + 1 takes R_q u with u at level k (I15:327-329), R_q is of
   second order (I15:179-181), and the one-step route of the source is closed at n = 4 (I15:12-17). Within III.J″'s
   accounting each level costs at least 2 (BG applied to R_q u, J3:115, 121), so the d it produces is at least 2K > 1.3 ×
-  10⁶, and N = 21d + 6 > 2.8 × 10⁷. (ii) Nested inside, at every β-level, I14's level-3 loop rises by ε_ind − ε per round
-  from about 1 to β − 2, so about (β − 3)/ε_ind rounds at the levels above 3, about 3 × 10⁵ near β = 4. Over the β-chain
-  this is of order (1/ε_K)(½/ε_ind) > 5 × 10¹⁰ rounds; if a round costs a derivative (it rests on III.F' Corollary 3.4's
-  ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that III.J″'s accounting of the
-  record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the optimal loss may be
-  far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than α − 4; a different
-  proof of the level step, keeping in mind that the source's one-step route is closed at n = 4 (I15:12-17). (iv) [D425:
-  with (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸ at the record's point (LD10, D422), (i) gives K > 2/ε_K > 1.03 × 10⁸, the d of
-  III.J″'s accounting at least 2K > 2.06 × 10⁸, and N = 21d + 6 > 4.3 × 10⁹. (ii)'s nested loop runs about (β − 3)/ε_ind
-  > 5.1 × 10⁷ rounds per level near β = 4, and more than (1/ε_K)(½/ε_ind) > 1.3 × 10¹⁵ rounds over the chain. These are
-  lower bounds for what the record's proof delivers, not for the optimal loss, as in (iii).] [D507, LD11: (ii)'s
-  condition holds, each round costing at least two derivatives in III.J″'s accounting (corrected D509), so that d exceeds
-  2.6 × 10¹⁵ and N exceeds 2.78 × 10¹⁶.] [D514, LD12: the levels below 3 run a loop of the same size, so d >
-  5.3 × 10¹⁵ and N > 1.11 × 10¹⁷.]
+  10⁶, and N = 21d + 6 > 2.8 × 10⁷. (ii) Nested inside, at every β-level, I14's level-3 loop rises by ε_ind − ε per
+  round from about 1 to β − 2, so about (β − 3)/ε_ind rounds at the levels above 3, about 3 × 10⁵ near β = 4. Over the
+  β-chain this is of order (1/ε_K)(½/ε_ind) > 5 × 10¹⁰ rounds; if a round costs a derivative (it rests on III.F'
+  Corollary 3.4's ℓ, section 2's table), the d this proof produces exceeds that. (iii) These bound the d that III.J″'s
+  accounting of the record's proof delivers: Lemma 1.2's rules are upper bounds, Theorem 4.1 is existential, and the
+  optimal loss may be far smaller. The levers: the parameter point (E1'a's first question); a per-level gain larger than
+  α − 4; a different proof of the level step, keeping in mind that the source's one-step route is closed at n = 4
+  (I15:12-17). (iv) [D425: with (1.1)'s ε_ind ≤ 1.94 × 10⁻⁸ at the record's point (LD10, D422), (i) gives K > 2/ε_K >
+  1.03 × 10⁸, the d of III.J″'s accounting at least 2K > 2.06 × 10⁸, and N = 21d + 6 > 4.3 × 10⁹. (ii)'s nested loop
+  runs about (β − 3)/ε_ind > 5.1 × 10⁷ rounds per level near β = 4, and more than (1/ε_K)(½/ε_ind) > 1.3 × 10¹⁵ rounds
+  over the chain. These are lower bounds for what the record's proof delivers, not for the optimal loss, as in (iii).]
+  [D507, LD11: (ii)'s condition holds, each round costing at least two derivatives in III.J″'s accounting (corrected
+  D509), so that d exceeds 2.6 × 10¹⁵ and N exceeds 2.78 × 10¹⁶.] [D514, LD12: the levels below 3 run a loop of the same
+  size, so d > 5.3 × 10¹⁵ and N > 1.11 × 10¹⁷.] [D588: every round of these loops is charged 2 + ℓ = 3, Corollary 3.4's
+  ℓ being 1 at the record's point (LD16), so d > 7.9 × 10¹⁵ and N = 21d + 6 > 1.67 × 10¹⁷.]
 
 - LD5 (E1'a's first question answered: no admissible point opens the gap; D353). The record's construction fixes the
   damping parameters (v, e, h) by e ≤ e_0(v) ≈ 6.9 × 10⁻⁵ v² (the interior saddle, semiclass5.py W4) and h below e (the
@@ -851,8 +856,10 @@ loop counts of section 3.
     apply it with β_sctf = ℓ_scf = 3/2 − ε (D560 with D563's citations). So a level-2 and a level-3 round cost the same
     2 + ℓ + ℓ̃ in this accounting: D563's "conditional" is resolved, on the reading that both kinds of round apply the
     one Corollary 3.4 (D560) rather than re-prove it. (Corrected D586, verifier 253: the record states β_sctf = 3/2 − ε
-    at level 3 (I9:287-288, I7:226) and at level 1 (I12:266-267), but at level 2 I12:278-281 does not restate it and
-    I12:293-294 pins it only to (3/2 − 2ε, 3/2 − ε]; ℓ being a ceiling in r_out = β_sctf − 2 − ε/2, the two kinds of
+    at level 3 (I9:287-288, I7:226) and at level 1 (I12:266-267), but at level 2 I12:278-281 does not restate it and no
+    level-2 line states it (the interval (3/2 − 2ε, 3/2 − ε] is inferred from G5 Proposition 4.4's output ∩_ε
+    H^(ℓ_scf−ε), the input 5/2 − ε at I12:131 and the assembly's β_scf := 3/2 − 2ε at I12:305; I12:293-294, cited here
+    before, is level 3's: corrected D589, verifier 254); ℓ being a ceiling in r_out = β_sctf − 2 − ε/2, the two kinds of
     round cost the same when level 2 takes β_sctf = 3/2 − ε, which the record admits there and does not fix, and D563's
     conditional stands in that form. Corollary 3.4's proof does not cite Lemma 3.2 or name r_in: it names r_out and the
     orders r_± of I.A Lemma 7.1 with that outgoing value (F2:480-481); Lemma 3.2 enters Proposition 3.3's proof (F2:382)
@@ -860,8 +867,18 @@ loop counts of section 3.
     above a threshold), not given values. That a corollary's constant depends only on its stated inputs stands. The two
     applications use different β_ztf (G5:211, 695) and the corollary's ℓ is quantified after β_ztf (F2:464-466), but its
     proof's ℓ does not depend on β_ztf (F2:385, 483-485); the fibre inner product h (F2:471-478), a third choice, is
-    made in the proof the same way.)] One application at (α_0, k) treats every log power up to k: its proof solves away
-    each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms
+    made in the proof the same way.)] [D588, computed (`checks/thetain5.py` T1-T4, exact) and deduced: Corollary 3.4's
+    integer at the record's point is 1. Its loss is II.G′ Lemma 4.1's with I.A Lemma 7.1's orders, ℓ = max(⌈r_in −
+    r_out⌉, ⌈(s − 1)₊⌉), ℓ̃ = max(⌈r_out − inf r⌉, ⌈(−s)₊⌉), r_in above the incoming threshold ½(−1 + ϑ_in). For the tf
+    model, 2L̄'s spectral family, ϑ_in = −2 min spec M, M the ∂_t* endomorphism in t* = t + r: by I.A Lemma 4.4's
+    symbols p_in − (S + S^{*h}) = −(M + M^{*h}) with M = S + α_r (T1), the sign conventions checked on the transport of
+    incoming and outgoing waves (T3); spec M = {0 (5 times), γ_Υ (3), 2γ_Υ, (1 − e_Υ)γ_Υ, (1 + v)γ_C (3), 2(1 + v)γ_C,
+    (1 − e_C)(1 + v)γ_C}, M semisimple at the record's point (T2), so ϑ_in = 0 and r_in > −1/2, the scalar wave's. I.C
+    Theorem 4.3 and Corollary 5.2 hold for every s, and tf-admissibility does not depend on s (I.C Definition 5.1), so
+    the corollary may take s = 1, and then ℓ = 1, ℓ̃ = 0 for every β_sctf in (1/2 + ε/2, 3/2) and ε in (0, 1/4) (T4). So
+    a level-2 and a level-3 round each cost 2 + 1 = 3, whatever β_sctf level 2 takes in the record's range, and D563's
+    and D586's conditional is not needed.] One application at (α_0, k) treats every log power up to k: its proof solves
+    away each of the k + 1 terms ρ_tf^(α_0)(log ρ_tf)^j f_0, and u is a sum of up to k-fold α_0-derivatives of terms
     holomorphic in α_0 (G5:474, 476-481, 489-491). So the applications at lower log orders that Step 3's "for each
     tf-exponent (α_0, k)" would add are redundant, if the top order at α_0 is treated first (I12:278-281 fixes no order;
     D557); LD15's per-(α_0, k) bound is the procedure as written, and its per-exponent bound |Λ ∩ W| the procedure
@@ -948,10 +965,9 @@ loop counts of section 3.
     with III.I′ Proposition 3.1; the per-round floors 2 and 4 + d_G on ℓ_I < 3.5 (6 + d_G on [3.5, 3.5099); D573's 8 +
     d_G withdrawn, D576), which a finer accounting might lower (as LD11 (ii) notes). Open: a_I (through ℓ_I, d_G's
     input), E^C_I's log terms below ℓ_I for the one-off application to the general class (loss 6 without them, D573,
-    D576), Proposition 2.1's count beyond its floor 8 per round raising α′_K (D582), and ℓ's value (equal at both kinds
-    of round when level 2 takes β_sctf = 3/2 − ε, which the record admits there and does not fix, the proof's own
-    choices being made once: D560, D563, D584, D586); the per-round loss is independent of k by J3's (g) (J3:157-158),
-    as it claims.
+    D576), Proposition 2.1's count beyond its floor 8 per round raising α′_K (D582), and, settled, ℓ = 1 at both kinds
+    of round for every β_sctf in the record's range (D588; before it, equal when level 2 takes β_sctf = 3/2 − ε: D560,
+    D563, D584, D586); the per-round loss is independent of k by J3's (g) (J3:157-158), as it claims.
 - LD4 (verifier 164, D348). No blocking finding. M1: section 1 described d as a flat sum over the table's rows; it is
   the recursion (1.1), with two rows outside Theorem 4.1. M2: LD3 bounds the d III.J″ produces, not the optimal loss.
   M3: the level-3 loop nested inside the β-chain was missing; it is LD3 (ii) and in the counts. m1: III.G' Theorem 3.1
