@@ -18,7 +18,7 @@ metric by Theorem 4 (ii), in III.K's own class as Part VII fixes it, ℰ_0 = {(j
   carries at past null infinity a constant coefficient G_5^∞ of r^(−5/2):
   G_5^∞ = A a_1(λ) + A³ a_3(λ), with a_1 = ½(Δ̊ − ¾)[λ h (T_F Im ê(1/λ) + T_G Re ê(1/λ))] explicit (ê the
   Fourier transform of the envelope, T_F, T_G the two polarizations of (2.5′)). Both a_1 and a_3 are O(λ^∞).
-  G_5^∞ vanishes identically in λ for at most one amplitude A*, and otherwise only on a discrete set of λ.
+  Its spatial part vanishes identically in λ for at most one amplitude A*, otherwise only on a discrete set of λ.
 - **(B) It reaches Hintz's initial surface** (deduced, Proposition 4.1 and Corollary 4.2, conditional on the
   continuation's existence and expansion; computed, T2-T6). A nonzero G_5^∞ puts a term ρ^(5/2) a(ω), a ≠ 0, into
   g_λ's data at spatial infinity, and a term ρ^(9/2) into the electric curvature there. ρ^(5/2) lies outside
