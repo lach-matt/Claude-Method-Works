@@ -1,0 +1,11 @@
+W2  the sign of the bulk term
+  W2a g0^-1(du, du) = -4 mu/r^2: pass 
+  W2b g0^-1(du, dt) = -1 - 2 mu/r^2 (grad u past-directed): pass 
+  W2c g0(d_t, d_t) = -(1 - mu/r^2): d_t timelike for r^2 > mu: pass 
+  W2d T(grad w, d_t) >= 0 for w = w(u), w' < 0 (2000 random points, mu, d phi): pass min 2.828e-02
+  W2e control: w = w(v), w' > 0 gives negative values: pass min -1.863e+01
+W3  the weighted flux through N
+  W3a with the ell-gain (phi = r^-2 M): finite at a = 9/10: pass 25/R**(1/5)
+  W3b ... and infinite at a = 1: pass oo
+  W3c control: no ell-gain (|d_r phi| ~ r^-2): infinite already at a = 0: pass oo
+W4  the Gronwall kernels along W
