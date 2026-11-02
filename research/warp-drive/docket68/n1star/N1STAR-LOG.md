@@ -7927,3 +7927,9 @@ bullet: no D-numbers or ordinals, the log provenance only, the readers called ve
 every computed clause) repaired, with minors m1-m8 and the nits; references completed; Appendix D refreshed (22 md5
 rows); a Computational support bullet in section 9. response5.py R1-R14 pass. Queued: verifier 259's
 computational-support items 1-7 and C7 (ROUTES-OPEN.md D605).
+
+**D606 (2026-11-02): computational support completed.** C7 (`checks/csolve5.py`), section 8's c2-c7 (flux5, mpdata5,
+eindcert5, kirecon5, vii5census, hclass5) and verifier 259's items 1-4, 6, 7 (eqlayer5, charge5, support9, e2lower5,
+twodomainx5) computed, each with a negative control; the paper cites each at its claim; response5.py R1-R14 pass. New:
+the constraint map's quadratic part has no 1/lam coefficient at the stage-0 data; eps_ind's scan certified; Proposition
+10.1's normalisation named; the E2 bound certified at most 23-41 times the norm. Item 5 running (ROUTES-OPEN.md D606).

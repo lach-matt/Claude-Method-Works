@@ -6348,6 +6348,34 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   the charge for larger l_I, a census of the constants from compactness or Fredholm arguments, a certified lower bound on
   the E2 norm, deeper excisions on a second grid, the shift-equivariance of (4.1), a convergence study of the two-dust
   background; and C7 (the constraint solve's lam^(N-2) scaling), in progress.
+- D606 (computational support: verifier 257's C7, verifier 258's c2-c7 and verifier 259's items 1-7, each with a negative
+  control; programs and saved outputs in `checks/`; the paper cites each at its claim, Appendices A, C, D updated,
+  response5.py R1-R14 pass). C7, `checks/csolve5.py`: at the stage-0 approximant's data (W_TT and chi) neither the linear
+  nor the quadratic part of data5.py's constraint map has a 1/lam coefficient (exact; the quadratic part new, so
+  Proposition 6.5's remainder has O(1) coefficients there); the linear solve (pseudo-spectral on the symmetric class,
+  implicit midpoint in r, source lam^4, N = 6) gives sup_r ||d_r^j U||_H2 at rates 4.00, 3.99, 3.00 over lam = 1/8 to
+  1/64, within lam^(N-2-j), the first r-derivative free; M = 12, 16, 20 and lam/32, lam/64 move the norms by 7e-5; the
+  frozen-coefficient iteration contracts by 5.2e-5, 3.8e-6, 2.5e-7 (rate N-2, the proof's bound N-3); control: the
+  trace_W mutant's 1/lam coefficient makes the first r-derivative cost lam^-1 (rate 3.16). c6, `checks/eindcert5.py`:
+  eind5.py E2's scan below l = 10^4 certified by Braess-Hadeler inclusion discs in exact rational arithmetic, delta_50 =
+  1.94137056846e-8 enclosed to 3e-48 at l = 50 (box^Ups), box^C's least 2.93e-6. c7, `checks/kirecon5.py`: Proposition
+  10.1 (iii)'s coefficients bounded on r >= r_h uniformly in l for psi = r^(3/2) Phi (the factor m/(6 r^2) through the
+  trace), not for Phi (r^(3/2)): the paper now names the normalisation. c3, `checks/mpdata5.py`: translated, rotated and
+  boosted Myers-Perry data in rho^2 C^inf x rho^3 C^inf. c2, `checks/flux5.py`: the Kerr-Schild slice's flux 6 pi^2 m at
+  every radius, q = 0 there; d_i b^i = DR(h), remainder quadratic; the R^-6 scaling and the solved mass inequality. c4,
+  `checks/vii5census.py`: every line of Parts III-IV naming a (VII5) choice listed (the reading made finite, not
+  performed). c5, `checks/hclass5.py`: classes (c) and (d) of section 10.54. Verifier 259's items: (1)
+  `checks/eqlayer5.py`, the margin o(x^k) for every k tested, and env'/(env^2 + int env^2) unbounded, why the layer is
+  not decided; (2) `checks/charge5.py`, charge 15, 17, 19, 21, 23 per unit of l_I from 5/2; (3) `checks/support9.py` S3,
+  D338's census reproduced exactly on 76 files and the ledger's classes; (4) `checks/e2lower5.py`, certified lower bounds
+  of the E2 norm by compactly supported test functions, 0.450 to 0.0241 at sigma = 3 to 96, so U/L = 24.6, 23.4, 25.7,
+  28.7, 34.0, 41.4 (certified) against the floating 9.8 to 19.2; (6) `checks/support9.py` S6, (4.1) on the stage-0
+  profile; (7) `checks/twodomainx5.py`, verifier 231's unbanked exit-tau probe banked (-0.960 to -0.702) and the
+  background on a rectangle reaching Sigma_-1.5 with the outgoing data moved to v = -1 (a choice), second order away from
+  the steep inner boundary. Item (5), deeper excisions on a second grid: running (growth5.py, Ny = 28 at y = 1.6 and 2,
+  Ny = 20 at y = 2.2). Caught by controls on the way: the march dropped 1/lam coefficients (the mutant control passed),
+  and lead5's undefined chi made S6 compare unequal representations; both fixed before acceptance. Independent verifiers
+  on the eleven new programs: reading.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
