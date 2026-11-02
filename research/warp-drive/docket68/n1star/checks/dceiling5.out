@@ -1,0 +1,5 @@
+  D1: Q_l's roots in closed form (discriminant (z + 2)^2 + 4 kappa) and l (l + 1), (l + 1)(l + 2) at z = 0: True;
+      non-integer roots of box^Ups(0) in (0, 7) at z = 4e-6: 10 (expected 1 + 5 + 4 = 10): 2 + d0 (1.3333e-06); 2 +
+      delta_1 (3.3333e-07); 3 + delta'_1 (6.0000e-07); 3 + delta_2 (2.6667e-07); 4 + delta'_2 (3.8095e-07); 4 + delta_3
+      (2.1429e-07); 5 + delta'_3 (2.7778e-07); 5 + delta_4 (1.7778e-07); 6 + delta'_4 (2.1818e-07); 6 + delta_5
+      (1.5152e-07); integer roots in (0, 7): [3, 4, 5, 6]; every offset in (0, 1.4e-6): True; delta_1 = d1: True

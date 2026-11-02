@@ -200,12 +200,14 @@ The interaction terms and non-resonance, as computed:
   (converged to 1 %). Its least value over every computed cell, 0.131, 0.071, 0.042 at n = 40, 80, 160, is **not
   converged**: each finer grid reaches further into the strip near R = a at late v (v ≈ 4.5-4.9), where the double-null
   grid thins. G4 resolves it along region III's outgoing rays, where ψ and μ depend on v alone and d ln|R_u|/dv = v̂′
-  e^ψ μ/R³: on R = a the symbol is G4VALS, agreeing with the grid at v = 0.5, 1, 1.5 to 1 % and decreasing in v, so its
-  least value over the computed part of Ω₂ (v ≤ 5) is the one on R = a at the latest v, about G4LAST. Analytically,
-  d ln(sym)/dv̂ = −ψ′ − e^ψ μ/R³ ≥ −ψ′ − μ_max/a³ on R ≥ a. So the non-resonance constant is a positive constant on the
-  compact Ω₂ that **degenerates exponentially with the time spent in the hole** (the redshift at the horizon; measured
-  rate G4RATES per unit v, against the crude analytic μ_max/a³ = G4BOUND). Theorem 1₂'s constants depend on it; this is
-  harmless for a fixed T, and is the quantitative cost of the black hole for the two-family problem.
+  e^ψ μ/R³: on R = a the symbol is 0.892, 0.446, 0.240, 0.134, 0.0758, 0.0434, 0.0266, 0.0212, 0.0183, 0.0156 at v =
+  0.5, 1, 1.5, ..., 4.5, 4.9 (agreeing with the grid at v = 0.5, 1, 1.5 to 1 %, with n = 80 and 160 coefficients to 2
+  %), decreasing in v, at a rate per unit v of 1.4 falling to 1.1 by v = 3 and 0.3-0.5 once the shell has raised the
+  mass. Its value at v = 4.9, about 0.016, is below the grid's least value at every n, which is what the grids were
+  approaching. Analytically d ln(sym)/dv̂ = −ψ′ − e^ψ μ/R³ ≥ −ψ′ − μ_max/a³ (= −ψ′ − 10.5 here) on R ≥ a. So the
+  non-resonance constant is a positive constant on the compact Ω₂ that **degenerates exponentially with the time spent
+  in the hole** (the redshift at the horizon). Theorem 1₂'s constants depend on it; this is harmless for a fixed T, and
+  is the quantitative cost of the black hole for the two-family problem.
 - *Stage data on Σ_τ0* (deduced): on Σ_τ0 the two families' supports are disjoint (section 1); the pure harmonics are
   transported along their own generators, so they keep their supports in v and in u, and the mixed harmonics are
   algebraic in products of the two families' profiles, so they vanish near Σ_τ0. So the mixed harmonics take no data
@@ -662,9 +664,9 @@ contributes (∂_R u) [F2 Th1] = O(1) to ∂_R θ⁺ there: if the packet met th
 O(1) term, proportional to the product of the two families' amplitudes, below 3 e^ψ/μ. That is a smallness condition
 on the data, not examined; the alternative route the round-1 note named is therefore not free, and placement is used.
 
-*The example (twobg5 G5).* The least over v ≤ 5 of R(u2, v) − √μ_III(v) is G5GAP at n = 40, 80, 160 (attained at v =
+*The example (twobg5 G5).* The least over v ≤ 5 of R(u2, v) − √μ_III(v) is 0.6127 at n = 40, 80, 160 (attained at v =
 0), with R_v(u2, v) > 0 throughout; for v ≥ 5 (𝒜 = 0) R grows along the untrapped ray and μ_III is constant (G1 (d)),
-so (H6) holds with δ6 = G5GAPONE. Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge; the
+so (H6) holds with δ6 = 0.61. Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge; the
 gap is G5CTL at n = 40, 80, and (H6) fails.
 
 ## 10. Item 7 for two families: the mean mass

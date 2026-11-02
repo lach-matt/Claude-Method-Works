@@ -402,26 +402,27 @@ def main():
     rates = [math.log(val[i] / val[i + 1]) / (r4[160][i + 1][0] - r4[160][i][0]) for i in range(len(val) - 1)]
     ctl4 = all(abs(x - y) < 0.05 * y for (_, x), y in zip(r4c, grid_ona))
     mu_max = max(res[160]['muend'], res[160]['mu0'])
-    print('  G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: %s at n = 40, 80, 160: NOT converged\n'
-          '      (each finer grid reaches further into the late-v strip near R = a, where the grid thins). Resolved on\n'
-          '      R = a by region III\'s rays (n = 160 coefficients):\n      %s\n      %s;\n'
+    print('  G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: %s at n = 40, 80, 160:\n'
+          '      NOT converged (each finer grid reaches further into the late-v strip near R = a, where the grid\n'
+          '      thins). Resolved on R = a by region III\'s rays (n = 160 coefficients):\n      %s\n      %s;\n'
           '      agrees with the grid at v = 0.5, 1, 1.5 to 1 %%: %s; n = 80 vs 160 coefficients agree to 2 %%: %s;\n'
-          '      positive and decreasing in v: %s; decay rate per unit v %s (redshift; the analytic bound\n'
+          '      positive and decreasing in v: %s; decay rate per unit v between those points:\n'
+          '      %s (the redshift; the analytic bound\n'
           '      d ln(sym)/dvhat >= -psi\' - mu_max/a^3 = -psi\' - %.2f on R >= a gives a positive lower bound on Omega)'
           % (' '.join('%.4f' % x for x in least),
              ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160][:5]),
              ' '.join('v = %.1f: %.3e' % (vt, x) for vt, x in r4[160][5:]), agree, conv, mono,
              ' '.join('%.2f' % x for x in rates), mu_max / AA**3), flush=True)
-    print('  G4 control: the same rays without the redshift term (d ln|R_u|/dv := 0) give %s on R = a at v = 0.5, 1,\n'
-          '      1.5 against the grid\'s %s: agreement %s (it must fail)'
+    print('  G4 control: the same rays without the redshift term (d ln|R_u|/dv := 0) give %s\n'
+          '      on R = a at v = 0.5, 1, 1.5 against the grid\'s %s: agreement %s (it must fail)'
           % (' '.join('%.4f' % x for _, x in r4c), ' '.join('%.4f' % x for x in grid_ona), ctl4), flush=True)
     ok['G4'] = agree and conv and mono and not ctl4
     # G5: the packet stays outside the background horizon band (item 6)
     gaps = {n: res[n]['gap6'] for n in (40, 80, 160)}
     g5 = all(g[0] > 0.1 and g[2] for g in gaps.values()) and abs(gaps[160][0] - gaps[80][0]) < 0.02 * gaps[160][0]
     print('  G5: min over v <= 5 of R(u2, v) - sqrt(mu_III(v)) (the packet\'s inner edge against its columns\'\n'
-          '      background horizon), at n = 40, 80, 160: %s (attained at v = %s); the inner edge untrapped\n'
-          '      (R_v > 0) at every v: %s; positive and converged: %s'
+          '      background horizon), at n = 40, 80, 160: %s (attained at v = %s);\n'
+          '      the inner edge untrapped (R_v > 0) at every v: %s; positive and converged: %s'
           % (' '.join('%.4f' % g[0] for g in gaps.values()), ' '.join('%.2f' % g[1] for g in gaps.values()),
              all(g[2] for g in gaps.values()), g5), flush=True)
     ok['G5'] = g5

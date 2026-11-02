@@ -95,10 +95,14 @@ def root_census(zval, top=7):
     lam, s, z, kap = sp.symbols('lam s z kappa')
     Q = s ** 2 - (2 + 2 * kap + z) * s + kap * (kap + 1) + z * kap
     sroots = sp.solve(Q, s)
-    disc_ok = any(sp.simplify(r - ((2 + 2 * kap + z) - sp.sqrt((z + 2) ** 2 + 4 * kap)) / 2) == 0 for r in sroots)
+    disc = (z + 2) ** 2 + 4 * kap
+    disc_ok = all(any(sp.simplify(r - ((2 + 2 * kap + z) + sg * sp.sqrt(disc)) / 2) == 0 for r in sroots)
+                  for sg in (1, -1))
     l = sp.symbols('l', positive=True, integer=True)
-    at0 = sorted(sp.simplify(r.subs({z: 0, kap: l * (l + 2)})) for r in sroots)
-    z0_ok = {sp.factor(x) for x in at0} == {sp.factor(l * (l + 1)), sp.factor((l + 1) * (l + 2))}
+    # at z = 0 the discriminant is 4 (l + 1)^2, so s = kappa + 1 -+ (l + 1) = l (l + 1), (l + 1)(l + 2)
+    d0_ok = sp.expand(disc.subs({z: 0, kap: l * (l + 2)}) - 4 * (l + 1) ** 2) == 0
+    at0 = [sp.expand(l * (l + 2) + 1 + sg * (l + 1)) for sg in (-1, 1)]
+    z0_ok = d0_ok and at0 == [sp.expand(l * (l + 1)), sp.expand((l + 1) * (l + 2))]
     zi = iv.mpf(zval.numerator) / zval.denominator if isinstance(zval, Fr) else iv.mpf(zval)
     nonint, ints = [], set()
     # s0: 0, 3, (1 +- (9 + 4z)^(1/2))/2
@@ -220,7 +224,7 @@ def main():
     P_W = range_count(allst, d1lo, d1hi, wlo, whi)
     nW = range_count(allst, d1lo, d1hi, Fr(0), wlo)
     T_i, T_W = ksum(P_i, n0), ksum(P_W, nW)
-    ok['D4'] = P_W == 85025783 and n0 == W_IOTA + 1 and P_i >= P_W
+    ok['D4'] = P_W == 85025783 and n0 == W_IOTA and P_i == P_W + 1 and nW == n0 + 1
     print('  D4: construction reading: n_0 = |Lambda cap {Re < 2}| = %d; P_iota = |Lambda cap [2, 3 + eps_+ - eps]| = '
           '%d; P_W = |Lambda cap W| = %d (round 2\'s container: %s); n_W = %d' % (n0, P_i, P_W, P_W == 85025783, nW))
     print('      S_iota = %d (L_0 + 1) + %d (N_* + 1)(l_* + 1); S_W = %d (L_0 + 1) + %d (N_* + 1)(l_* + 1) (exact)' % (

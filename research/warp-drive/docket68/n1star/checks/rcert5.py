@@ -386,31 +386,54 @@ def point_coeffs(tens, tcs, scs, xcs, order):
 
 
 def box_coeffs(pt, l1, h, order):
-    """enclosures of F_beta over each box, |beta| <= order, from the centre values to order + 1 and the l1 bounds"""
+    """enclosures of F_beta over each box, |beta| <= order, from the centre values to order + 1 and the l1 bounds;
+    h = (h_t, h_sig, [h_x per x-box])"""
     E = [tuple(int(i == d) for i in range(3)) for d in range(3)]
     add = lambda a, b: tuple(x + y for x, y in zip(a, b))
     out = {}
     unit = arb(0, 1)
+    hxs = h[2]
     for beta in pt:
         if sum(beta) > order:
             continue
-        lin = arb(0)
-        quad = arb(0)
-        for d in range(3):
-            g = add(beta, E[d])
-            lin_d = None
-            for d2 in range(3):
-                gg = add(g, E[d2])
-                k = (beta[d] + 1) * (g[d2] + 1)
-                quad = quad + arb(k) * l1[gg] * arb(h[d]) * arb(h[d2])
+        quads = []
+        for hx in hxs:
+            hh = (h[0], h[1], hx)
+            quad = arb(0)
+            for d in range(3):
+                g = add(beta, E[d])
+                for d2 in range(3):
+                    gg = add(g, E[d2])
+                    k = (beta[d] + 1) * (g[d2] + 1)
+                    quad = quad + arb(k) * l1[gg] * arb(hh[d]) * arb(hh[d2])
+            quads.append(quad / 2)
         arr = np.empty(pt[beta].shape, dtype=object)
         for idx in np.ndindex(arr.shape):
             v = pt[beta][idx]
+            hh = (h[0], h[1], hxs[idx[2]])
             for d in range(3):
-                v = v + unit * arb(h[d]) * (beta[d] + 1) * abs(pt[add(beta, E[d])][idx])
-            arr[idx] = v + unit * quad / 2
+                v = v + unit * arb(hh[d]) * (beta[d] + 1) * abs(pt[add(beta, E[d])][idx])
+            arr[idx] = v + unit * quads[idx[2]]
         out[beta] = arr
     return out
+
+
+def x_boxes(x1, ratio=1.5, d_mid=0.25, n_mid=6):
+    """centres and half-widths of x-boxes covering [-x1, x1], graded geometrically toward each axis (each box's
+    distance to the axis grows by `ratio`, so half-width/distance stays below (ratio - 1)/(ratio + 1)) and uniform on
+    [-(1 - d_mid), 1 - d_mid]"""
+    d0 = 1 - x1
+    edges = [d0]
+    while edges[-1] * ratio < d_mid:
+        edges.append(edges[-1] * ratio)
+    edges.append(d_mid)
+    side = [(1 - (a + b) / 2, (b - a) / 2) for a, b in zip(edges[:-1], edges[1:])]   # (centre, half) near x = 1
+    lo, hi = -(1 - d_mid), 1 - d_mid
+    hm = (hi - lo) / (2 * n_mid)
+    mid = [(lo + (2 * r + 1) * hm, hm) for r in range(n_mid)]
+    boxes = [(-c, w) for c, w in reversed(side)][::-1]
+    boxes = sorted([(-c, w) for c, w in side]) + mid + sorted(side)
+    return [c for c, _ in boxes], [w for _, w in boxes]
 
 
 def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
@@ -429,26 +452,26 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
         C3['W'][0, 0, 0] += wshift * (args[2] + hv); C3['W'][0, 1, 0] += wshift * hv
     g = dict(hxi=(geo['xb'] - geo['xa']) / 2, a=RS.A_GRID, psi=1 / hv, xa=geo['xa'])
     x1 = float(np.cos(np.pi / (2 * M)))
-    ht, hs, hx = 1.0 / Nt, 1.0 / Ns, x1 / Nx
+    ht, hs = 1.0 / Nt, 1.0 / Ns
     tcs = [-1 + (2 * p + 1) * ht for p in range(Nt)]
     scs = [-1 + (2 * q + 1) * hs for q in range(Ns)]
-    xcs = [-x1 + (2 * r + 1) * hx for r in range(Nx)]
+    xcs, hxs = x_boxes(x1, n_mid=Nx)
     t0 = time.time()
     fld_box, fld_pt = {}, {}
     for f in RS.NAMES:
         tens, l1 = deriv_tensors(C3[f], Q + 4)
         pt = point_coeffs(tens, tcs, scs, xcs, Q + 3)
         fld_pt[f] = {b: a for b, a in pt.items() if sum(b) <= Q + 2}
-        fld_box[f] = box_coeffs(pt, l1, (ht, hs, hx), Q + 2)
+        fld_box[f] = box_coeffs(pt, l1, (ht, hs, hxs), Q + 2)
     if log:
-        log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (Nt * Ns * Nx, time.time() - t0))
-    hpow = {m: arb(ht) ** m[0] * arb(hs) ** m[1] * arb(hx) ** m[2] for m in MONO}
-    sup = [arb(0)] * 8; cen = [arb(0)] * 8
+        log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (Nt * Ns * len(xcs), time.time() - t0))
+    hpows = [{m: arb(ht) ** m[0] * arb(hs) ** m[1] * arb(hx) ** m[2] for m in MONO} for hx in hxs]
+    sup = [arb(0)] * 8; cen = [arb(0)] * 8; where = [None] * 8
     t1 = time.time()
-    for p, q, r in itertools.product(range(Nt), range(Ns), range(Nx)):
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
         jb = {f: field_jet(fld_box[f], p, q, r) for f in RS.NAMES}
         jp = {f: field_jet(fld_pt[f], p, q, r) for f in RS.NAMES}
-        ib = inputs(jb, g, arb(tcs[p], ht), scs[q], arb(xcs[r], hx), True)
+        ib = inputs(jb, g, arb(tcs[p], ht), scs[q], arb(xcs[r], hxs[r]), True)
         ip = inputs(jp, g, arb(tcs[p]), scs[q], arb(xcs[r]), False)
         fb = frame(*[ib[k] for k in names])
         fp = frame(*[ip[k] for k in names])
@@ -456,17 +479,18 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None):
             bnd = arb(0)
             for i, m in enumerate(MONO):
                 cc = fp[k8].c[i] if sum(m) < Q else fb[k8].c[i]
-                bnd = bnd + abs(cc) * hpow[m]
+                bnd = bnd + abs(cc) * hpows[r][m]
             up = arb(bnd.mid() + bnd.rad())
             if not up.is_finite():
-                sup[k8] = arb('inf')
+                sup[k8] = arb('inf'); where[k8] = (tcs[p], scs[q], xcs[r])
             elif up > sup[k8]:
-                sup[k8] = up
+                sup[k8] = up; where[k8] = (tcs[p], scs[q], xcs[r])
             cv = abs(fp[k8].c[0]); cu = arb(cv.mid() + cv.rad())
             if cu > cen[k8]:
                 cen[k8] = cu
     if log:
         log('  Taylor models on the boxes: %.0f s' % (time.time() - t1))
+    certify.where = where
     return sup, cen, err
 
 
