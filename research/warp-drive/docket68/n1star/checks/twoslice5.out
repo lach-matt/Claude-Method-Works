@@ -4,3 +4,10 @@
     draw 11: the order-0 principal coefficients (d_R a (rho), d_th^2 a (rho), d_R d_th a (rho), d_R^2 a (rho), d_R w (J_R), d_th w (J_th), d_R q (J_th), d_th q (J_R)) equal the background's, every harmonic: True []; with the outgoing trace: False
     draw 12: the 1/lam coefficient of (J_R, J_th, rho) in a generic direction vanishes: [True, True, True]; with the outgoing trace: [True, True, False]
     draw 12: the order-0 principal coefficients (d_R a (rho), d_th^2 a (rho), d_R d_th a (rho), d_R^2 a (rho), d_R w (J_R), d_th w (J_th), d_R q (J_th), d_th q (J_R)) equal the background's, every harmonic: True []; with the outgoing trace: False
+    draw 13: the 1/lam coefficient of (J_R, J_th, rho) in a generic direction vanishes: [True, True, True]; with the outgoing trace: [True, True, False]
+    draw 13: the order-0 principal coefficients (d_R a (rho), d_th^2 a (rho), d_R d_th a (rho), d_R^2 a (rho), d_R w (J_R), d_th w (J_th), d_R q (J_th), d_th q (J_R)) equal the background's, every harmonic: True []; with the outgoing trace: False
+  S4: slice data unchanged under Pu -> Pu + c (t - t0)^2: True; control (Pu -> Pu + c (t - t0)(R - R0) changes K) True
+S1 PASS
+S2 PASS
+S3 PASS
+S4 PASS

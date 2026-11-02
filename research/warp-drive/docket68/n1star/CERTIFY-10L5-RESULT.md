@@ -198,7 +198,9 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
     36 per step at Nx = 32;
   - the solve fails at v = 0.34 and 0.08, and `breakdown()` reports 0.32 and 0.08.
 - So the record's breakdown times, "three grids agreeing", are three radial grids at one angular resolution.
-- A run at Nx = 24 with the step reduced (CFL 0.7) is recorded in section 4.
+- A run at Nx = 24 with the step reduced (`g5zeros5.py ... cfl 0.7`, 2.9 times as many steps) was started and stopped
+  unfinished: it had not reached v = 0.25 in about an hour on the shared machine. So `growth5`'s convergence in angle
+  remains untested; the step it needs at Nx = 24 is not known.
 
 ### 1.6 Verdict on priority 1
 
@@ -378,7 +380,8 @@ v-band over kept cells at least Nu/40 rows from the cut.
   - M = 24 at (800, 360), 2,175 s;
   - M = 16 at (400, 180) with R0 = 20 and 40, 639 s and 678 s.
 - Seed 2: λ = 0.316228 at M = 16, (400, 180) and (800, 360).
-- `growth5`: `python3 checks/g5zeros5.py 100 1 20 Nx 1.56 OUT [cfl c]` at Nx = 16, 24, 32, and Nx = 24 with cfl 0.7.
+- `growth5`: `python3 checks/g5zeros5.py 100 1 20 Nx 1.56 OUT` at Nx = 16 (1,201 s), 24 and 32; Nx = 24 with
+  cfl 0.7 not completed.
 
 *Timings.* The times are wall times on a shared machine.
 
