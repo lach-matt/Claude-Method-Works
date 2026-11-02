@@ -21,3 +21,11 @@ U1  the Gronwall factor on the far region
   U1a exp(int_(lam^-2)^oo C lam^-1 t^(-3/2) dt) = exp(2C): pass 2*C
   U1b control: from t = lam^-1 the factor exp(2C lam^(-1/2)) beats every lam^-M: pass 2*C/sqrt(lambda)
 U2  interpolation
+     a = 11/4, J = 9, M = 5, K = 30: s = 22/5, K - 4 > a s: True, flux -> 0
+     a = 29/10, J = 9, M = 12, K = 60: s = 125/11, K - 4 > a s: True, flux -> 0
+     a = 11/4, J = 12, M = 20, K = 40: s = 82/11, K - 4 > a s: True, flux -> 0
+     a = 29/10, J = 9, M = 12, K = 24: s = 125/11, K - 4 > a s: False, flux -> oo
+     a = 11/4, J = 9, M = 5, K = 16: s = 22/5, K - 4 > a s: False, flux -> oo
+  U2a the split flux tends to 0 exactly in the sampled cases with K - 4 > a s, and not in the two with K - 4 <= a s (K = 24, 16: the control): pass 
+  U2b control: the lam-uniform bound alone gives an infinite flux at a = 1/10: pass 
+U3  the linear model: iterated integrals of an oscillating radiation field

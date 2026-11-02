@@ -1,6 +1,7 @@
 # FAMILIES5-FULL -- two crossing families in full; several families in the class; Vlasov
 
-Status (2026-11-02). Part I: the two-family counterpart of the record's Theorem 1 (Theorem 1₂) is **deduced** here, from
+Status (2026-11-02, round 1; the next paragraph updates it). Part I: the two-family counterpart of the record's
+Theorem 1 (Theorem 1₂) is **deduced** here, from
 the record's proof (N1STAR-PROOF.md sections 1-6), FAMILIES5.md sections 4b-4i, and six new programs; it has **not been
 read by an independent verifier**, and items 6-7 of the record's Theorem 1 (horizon, mean mass) are not claimed for it.
 Part II: which null phases the T² class permits is **computed**; that angular separation in Huneau and Luk's sense fails
@@ -153,7 +154,8 @@ shell 𝒜 = 3.6 b(v; 3, 4.5) on N (b a C^∞ bump); seed μ0 = 0.82211; outer m
 160: structure, mass bound, trapped R = a, past-closedness as above; the diamond lies at R ≥ 2.59 and is untrapped; on
 Σ_τ0 (τ0 = −a + 0.02) the packet lies at R ∈ [1.861, 3.431] between the seed's horizon 0.907 and the shell's inner edge
 3.825, which meets the record's rule. The rectangle stops at v = 5: inside the hole the double-null grid thins
-exponentially (FAMILIES5.md 4i, D3), and there the background is the explicit ingoing Vaidya of region III (a).
+exponentially (FAMILIES5.md 4i, D3), and there the background is region III's ingoing Vaidya (a), whose mass and ψ
+are read on u = u2 + 0.1 from the diamond's solution (nit 7); twobg5 G4 integrates its outgoing rays (round 2).
 
 **What this settles.** FAMILIES5.md left open the background on the whole domain (D561: "Open: the cones' data, that is,
 the outgoing family's data at past null infinity") and the condition μ > a² on R = a (D546-D549). Both are settled for
