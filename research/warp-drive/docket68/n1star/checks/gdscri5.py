@@ -49,6 +49,11 @@ import sympy as sp
 from rwgauge5 import GEO, N, X, r, s, th, zero
 from hgauge5 import theta, box
 
+def finite(lim):
+    """a limit is finite if it is not a Limit object and contains no infinity or nan (symbols are finite jets)"""
+    return not isinstance(lim, sp.Limit) and not lim.has(sp.oo, -sp.oo, sp.zoo, sp.nan)
+
+
 # ---------------------------------------------------------------- S1
 
 
@@ -251,7 +256,7 @@ def s5(control=False):
         Cm = commutator(G, arg, Z, rep)
         frame = [1, 1, 1/r]
         lims = [sp.limit(sp.simplify(Cm[m]*frame[m]*r**(p + 1)), r, sp.oo) for m in range(3)]
-        fin = all(l_.is_finite for l_ in lims)
+        fin = all(finite(l_) for l_ in lims)
         report.append((str(p), fin))
         ok &= fin
     print("  S5%s: r^(p+1) [Box, chi(t_flat)] Z finite in an orthonormal frame, (p, finite): %s"
@@ -279,7 +284,7 @@ def s6(control=False):
         for m in range(3):
             ex = sp.simplify((Cm[m]*frame[m]*r**(p + 2)).subs(T, r/R0))
             lims.append(sp.limit(ex, r, sp.oo))
-        fin = all(l_.is_finite for l_ in lims)
+        fin = all(finite(l_) for l_ in lims)
         report.append((str(p), fin))
         ok &= fin
     print("  S6%s: r^(p+2) [Box, chi] Z finite at fixed R = r/T, (p, finite): %s"
@@ -311,8 +316,8 @@ def s8(control=False):
     from hgauge5 import A_EXPR, B_EXPR
     if control:
         lim = sp.limit((vv/2)*(1/r**2)*r, vv, sp.oo)            # (v/2) W*_v at fixed r, times r
-        print("  S8 control: r (v/2) W*_v at fixed r bounded as v -> oo: %s" % lim.is_finite, flush=True)
-        return bool(lim.is_finite)
+        print("  S8 control: r (v/2) W*_v at fixed r bounded as v -> oo: %s" % finite(lim), flush=True)
+        return finite(lim)
     l1 = sp.limit(rho*dmuT, rho, sp.oo)
     l2 = sp.limit(r*A_EXPR, r, sp.oo)
     l3 = sp.limit(r*B_EXPR, r, sp.oo)
@@ -320,7 +325,7 @@ def s8(control=False):
     # on iota+-interior: r = R0 t, v = t + r + O(log): r (v/2) |W*| -> (1 + R0)/(2 R0)
     t_ = sp.Symbol('t', positive=True)
     l4 = sp.limit(((t_ + R0*t_)/2)*(1/(R0*t_)**2)*(R0*t_), t_, sp.oo)
-    ok = l1 == 2 and l2 == sp.Rational(1, 2) and l3 == sp.Rational(-1, 4) and l4.is_finite
+    ok = l1 == 2 and l2 == sp.Rational(1, 2) and l3 == sp.Rational(-1, 4) and finite(l4)
     print("  S8: rho d_mu T_mu -> %s, r A -> %s, r B -> %s, r (v/2) W*_v on iota+-interior -> %s: %s"
           % (l1, l2, l3, l4, ok), flush=True)
     return ok

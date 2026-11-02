@@ -66,20 +66,16 @@ R = sp.sqrt(x1**2 + x2**2 + x3**2 + x4**2)
 V = t + R
 
 
-def lam_order(expr):
+def lam_order(expr, B=40):
     """lowest power of lam in a Laurent polynomial in lam (coefficients free of lam)"""
-    e = sp.expand(expr)
+    e = sp.expand(expr*lam**B)
     if e == 0:
         return sp.oo
-    pw = set()
-    for term in sp.Add.make_args(e):
-        c, p = term.as_coeff_exponent(lam)
-        if sp.simplify(term/lam**p).has(lam):
-            raise ValueError("not a Laurent polynomial in lam")
-        pw.add(p)
-    lo = min(pw)
-    coeff = sp.simplify(sum(term for term in sp.Add.make_args(e) if term.as_coeff_exponent(lam)[1] == lo))
-    return lo if coeff != 0 else sp.oo
+    P = sp.Poly(e, lam)
+    degs = [m[0] for m, c in zip(P.monoms(), P.coeffs()) if sp.simplify(c) != 0]
+    if not degs:
+        return sp.oo
+    return min(degs) - B
 
 
 def D(expr, a, vfield=None):
@@ -397,10 +393,7 @@ def kstar(a, Jp, Mx, j):
       (ii)  coefficient e_k with i <= j + 1 d_v's, up to R:   2[(K - 3 - i)(1 - th_k) - (M + i) th_k]
                                                                - s max(0, 2a + 2 - k) > 0
       (iii) above R, (11.7) with ell-gains:                   -2M + s(J' - 1 - 2a) > 0 (holds by the choice of s)"""
-    s = max(sp.Integer(2), (2*Mx + 1)/sp.Integer(Jp) - 0 if False else (2*Mx + 1)/(Jp - 1 - 2*a))
-    s = max(sp.Integer(2), s)
-    best = 0
-    Kk = sp.Symbol("Kk")
+    s = max(sp.Integer(2), (2*Mx + 1)/(Jp - 1 - 2*a))
     need = [4 + j + s*(a + j)]
     for k in range(4, 9):
         thk = sp.Rational(k - 4, Jp - 3)
@@ -421,7 +414,6 @@ def p9():
                          (sp.Rational(31, 11), 9, 20, 4)):
         s, Ks = kstar(a, Jp, Mx, j)
         K = int(sp.floor(Ks)) + 1
-        th6 = sp.Rational(2, Jp - 3)
         terms = []
         Rr = lam**(-s)
         terms.append(sp.integrate(rr**(2*a)*(lam**(K - 4 - j)*rr**(j - 2))**2*rr**3, (rr, 1, Rr)))

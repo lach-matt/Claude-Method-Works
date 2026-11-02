@@ -44,6 +44,11 @@ import sympy as sp
 
 # ---------------------------------------------------------------- K1
 
+def finite(lim):
+    """a limit is finite if it is not a Limit object and contains no infinity or nan (symbols are finite jets)"""
+    return not isinstance(lim, sp.Limit) and not lim.has(sp.oo, -sp.oo, sp.zoo, sp.nan)
+
+
 
 def k1(control=False):
     rp, rk, t, r, s = sp.symbols('rho_p rho_K t r s', positive=True)
@@ -162,7 +167,7 @@ def k3(control=False):
                 ex = ex.subs({sp.Derivative(fn, (th, k)): jets[sp.diff(fn, th, k)] for fn in (a, b, c)
                               for k in (2, 1)}).subs({fn: jets[fn] for fn in (a, b, c)})
                 lims.append(sp.limit(sp.simplify(ex*r**order), r, sp.oo))
-            fin = all(l.is_finite for l in lims)
+            fin = all(finite(l) for l in lims)
             report.append((str(q), 'A1' if coef == P1 else 'A2', fin))
             ok &= fin
     print("  K3%s: Box^Ups(phi(t_*) U), U of spatial order q: (q, coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U "
