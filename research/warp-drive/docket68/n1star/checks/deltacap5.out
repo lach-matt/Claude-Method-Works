@@ -4,9 +4,8 @@
   P3: lambda1 < delta: the same bounds (C_R >= 1)
   C1 (control): the unsound ratio 31/100 > log10 2 is refused (no bound returned): True
   C2 (control): at d = 1 the formula allows log10 delta up to -12.342
-  C3 (control): with A_2d >= 1/2 in place of A_2d >= 1 the bound moves up by 0.30103:
-      the printed number rests on the convention: True
-  C4 (control): the claim delta >= 10^(-7e16) contradicts log10 delta < -7.6666e+16: refuted
+  C3 (control): P2 with A_2d >= 2^-(32 d + 9) in place of A_2d >= 1: log10 delta < 2.4429e+12: P2 fails: True
+  C4 (control): P2 with theta0 >= 1 in place of theta0 >= 16: log10 delta < -0.3010: P2 fails: True
 P2 PASS
 C1 PASS
 C2 PASS

@@ -56,3 +56,6 @@ L6 angle (800 x 360, cut 0.9): max |rho| per band on the cells all of M = 24, 32
 L7 the small radii (cut 0.7, 800 x 360): max |rho| per band on 0.6 <= r_A < 0.9
   M = 24: 4.09e-04  4.89e-03  1.81e-02  3.60e-01  4.05e+00  1.50e+01  nan
      largest on [1.65, 1.8): 3.60e-01 at u = -0.9817, v = 1.788, r_A = 0.861
+  M = 32: 4.09e-04  4.90e-03  1.85e-02  2.94e-01  3.53e+00  7.67e+00  nan
+     largest on [1.65, 1.8): 2.94e-01 at u = -0.9817, v = 1.788, r_A = 0.860
+late5b: FAILURES

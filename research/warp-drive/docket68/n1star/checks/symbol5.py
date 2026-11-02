@@ -33,7 +33,7 @@ of the linearised system is  D_u d_v f + K d_xx f  with  K = M^-1 N  and  D_u = 
      x-derivative of the mode itself (no other field's), and the zeta row has no second x-derivative at all (exact).
 
   Y5 the shift loses an angular derivative in either formulation (exact): (a) the W row Ric(Y, d_v) contains s_x, and on
-     every spherical state (m = n = 0) its coefficient is (1 - x^2) R_v/R, nonzero wherever R_v is; (b) the shift's
+     every spherical state (m = n = 0) its coefficient is -(1 - x^2) R_v/R, nonzero wherever R_v is; (b) the shift's
      transport row Ric_vx contains W_vx with coefficient -1 and R_vx with -2/R, beside s_vv.  So the linearised shift
      at (u, v, x) is an integral along the outgoing generator of first x-derivatives of the other fields' v-derivatives
      (after one integration by parts in v, of their first x-derivatives), and the W row needs one x-derivative of it: an
@@ -169,11 +169,11 @@ def main():
     # Y5: the shift
     sph = {m: 0, n: 0, sp.Symbol('m_v'): 0, sp.Symbol('n_v'): 0, sp.Symbol('m_x'): 0, sp.Symbol('n_x'): 0}
     csx = sp.simplify(E['EYv'].coeff(sp.Symbol('s_x')).subs(sph))
-    a5 = sp.simplify(csx - (1 - x ** 2) * sp.Symbol('R_v') / R) == 0
+    a5 = sp.simplify(csx + (1 - x ** 2) * sp.Symbol('R_v') / R) == 0
     cw = sp.simplify(E['Evx'].coeff(sp.Symbol('W_vx'))); cr = sp.simplify(E['Evx'].coeff(sp.Symbol('R_vx')))
     b5 = cw == -1 and sp.simplify(cr + 2 / R) == 0 and E['Evx'].coeff(sp.Symbol('s_vv')) != 0
     ctl5 = sp.simplify(E['EYv'].coeff(sp.Symbol('s_xx'))) != 0
-    print('Y5 s_x in the W row, spherical state: coefficient %s (= (1 - x^2) R_v/R: %s); Ric_vx: W_vx coefficient %s, '
+    print('Y5 s_x in the W row, spherical state: coefficient %s (= -(1 - x^2) R_v/R: %s); Ric_vx: W_vx coefficient %s, '
           'R_vx coefficient %s, s_vv present: %s' % (csx, a5, cw, cr, E['Evx'].coeff(sp.Symbol('s_vv')) != 0))
     print('   control (s_xx in the W row): %s' % ('nonzero (bad)' if ctl5 else 'zero -> fails (good)'))
     good = a5 and b5 and not ctl5
