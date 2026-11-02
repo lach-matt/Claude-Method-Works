@@ -6329,6 +6329,25 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   M2-M4's equivariance). Control: S_vθ cos 2θ is even and fails. With C7 (the constraint solve's λ^(N−2) scaling, a
   numerical run) the last of verifier 257's list; the constants of the O(λ) remainders are not evaluated, as Theorem 1
   states.
+- D605 (audit batch 4, verifier 259 on the paper's sections 8-10 and Appendices A-D, seated in `paper/RESPONSE-HL-5D.md`;
+  `paper/response5.py --selftest` R1-R14 pass, R9 with 22 md5 rows refreshed). M1: section 9's Review bullet carried the
+  log's numbering and ordinals; rewritten without D-numbers or ordinals, the log named as provenance only, and the
+  readers called verifiers, so that no human review is implied. M2: computed clauses without their program; each now
+  names it (epsind5, eind5, e2meas5, coulomb5, coulombL5, harmonics5, uniform5, sources5, stripfull5, closure5,
+  stage0two5, chardust5, twodust5, data5two, eq5, ix5). Minors m1-m8 and nits, all repaired: the G1 sentence restated
+  from the 2400 x 1080 run (D601; K_0 = 72/R^8 defined); Theorem 4 (i) concerns glued data, settling of g_lam's own
+  continuation not shown; epsilon_ind any number below delta_50 = 1.94137057e-8, the floor computed from the upper bound
+  1.94138e-8 (R10); references completed ([CBCM10] Ann. Henri Poincare 12 (2011) 419-482, DOI 10.1007/s00023-011-0076-5;
+  [CBCL06] Class. Quantum Grav. 23 (2006) 7383-7394, DOI 10.1088/0264-9381/23/24/011; [LR05] and [SY21] titles; [DLMF]
+  version 1.2.8; [AB26] noted as having no identifier; Burnett's, Isaacson's and Choquet-Bruhat's identifiers; [Hin26c]'s
+  verifier mention dropped); Appendix A's wording and new bullets from each program's docstring; Appendix B's N1* and
+  SOURCE glossed; Appendix C's verification row replaced by one provenance row; Appendix D's log row dropped, 18 rows
+  added, the --mutants claim corrected, reproduction commands and versions added; section 8.1 cites support8.py K1 and
+  K8; [MP86]'s numbering, LD16, [Wu26]'s quotation placed. Section 9 gains a Computational support bullet naming what is
+  not yet computed. Queued with a control each (verifier 259's items 1-7): the equality layer's vanishing to all orders,
+  the charge for larger l_I, a census of the constants from compactness or Fredholm arguments, a certified lower bound on
+  the E2 norm, deeper excisions on a second grid, the shift-equivariance of (4.1), a convergence study of the two-dust
+  background; and C7 (the constraint solve's lam^(N-2) scaling), in progress.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

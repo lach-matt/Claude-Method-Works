@@ -7921,3 +7921,9 @@ order the proof uses, and the program shows the counting fails one order lower, 
 change sign under a reflection of the sphere for the mass to be unaffected at that order; its source is now computed to
 do so, with a deliberately symmetric control that fails. Of the nine steps the second reader listed, eight are now
 computed; the ninth needs a numerical run.
+
+**D605 (2026-11-02): audit batch 4 seated.** Verifier 259 on the paper's sections 8-10 and Appendices A-D. M1 (the Review
+bullet: no D-numbers or ordinals, the log provenance only, the readers called verifiers) and M2 (a program named after
+every computed clause) repaired, with minors m1-m8 and the nits; references completed; Appendix D refreshed (22 md5
+rows); a Computational support bullet in section 9. response5.py R1-R14 pass. Queued: verifier 259's
+computational-support items 1-7 and C7 (ROUTES-OPEN.md D605).
