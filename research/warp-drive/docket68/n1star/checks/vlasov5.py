@@ -18,10 +18,10 @@
   V3 (computed, mpmath) consequence for a restricted density f(rho2, alpha) >= 0, alpha the angle of the momentum
      with the axis in the meridional plane: T_rhorho = int f E^2 sin^2(alpha) d alpha / (2 pi) must vanish like
      rho2^2. A density continuous in alpha with f(0, alpha) = c > 0 gives T_rhorho(0) = c/2 != 0 (control: not
-     smooth); a density concentrating, f = exp(-alpha^2/rho2^2) + exp(-(alpha - pi)^2/rho2^2), gives T_rhorho/rho2^2
-     -> sqrt(pi)/(4 sqrt(pi))... computed and bounded, while its alpha-derivatives blow up like 1/rho2: at an axis a
-     restricted Vlasov field with smooth stress is, in the limit, the two radial dusts along the axis (Part I's), and a
-     density smooth in (x, alpha) must vanish there.
+     smooth); a density concentrating at the axial directions with fixed total density, f = rho2^-1 (exp(-alpha^2 /
+     rho2^2) + exp(-(|alpha| - pi)^2/rho2^2)), gives T_rhorho/rho2^2 -> 1/(2 sqrt(pi)) (computed), while d_alpha f
+     blows up: at an axis a restricted Vlasov field with smooth stress is either zero there or, in the limit, the two
+     radial dusts along the axis (Part I's); a density smooth in (x, alpha) must vanish there.
   V4 (exact, sympy) the high-frequency approximation by N families. For N restricted families with orbit-space
      directions alpha_k = 2 pi k / N, the mixed symbol g^-1(du_A, du_B) = -E_A E_B (1 - cos(alpha_A - alpha_B)) (flat
      orbit space, unit energies) has least modulus 1 - cos(2 pi / N), and N^2 (1 - cos(2 pi / N)) -> 2 pi^2: the
@@ -97,7 +97,6 @@ def v2():
     Trr = sp.expand(Ts[0, 0].subs({x3: rho, x4: 0}))
     Aexpr = Tpp
     Bexpr = sp.expand((Trr - Tpp) / rho**2)
-    form = sp.Matrix([[Aexpr.subs(rho**2, sv) if False else Aexpr, 0], [0, Aexpr]])
     # check T = A(s) delta + B(s) x x with A, B functions of s = rho^2 (even in rho)
     Af = sp.expand(Aexpr.subs(rho, sp.sqrt(sv)))
     Bf = sp.expand(Bexpr.subs(rho, sp.sqrt(sv)))
@@ -112,7 +111,6 @@ def v2():
     ctl = sp.limit((x3**2 / sv).subs({x3: rho, x4: 0}), rho, 0) == 1
     print("   the general invariant smooth planar tensor (degree <= 4) is A(s) delta + B(s) x x:", ok_form and even,
           "; T_phph = 0 gives T_rhorho = O(rho^2):", ok_flux, "; control xhat xhat has T_rhorho -> 1:", ctl)
-    _ = form
     return ok_form and even and bool(ok_flux) and ctl
 
 
@@ -127,20 +125,17 @@ def v3():
     iso = lambda rho, al: mp.mpf(1)                                                   # noqa: E731
     t_iso = Trr(iso, mp.mpf('1e-6'))
     ctl = abs(t_iso - mp.mpf(1) / 2) < mp.mpf('1e-20')
-    conc = lambda rho, al: mp.exp(-al**2 / rho**2) + mp.exp(-(abs(al) - mp.pi)**2 / rho**2)   # noqa: E731
-    ratios = []
-    dal = []
+    conc = lambda rho, al: (mp.exp(-al**2 / rho**2) + mp.exp(-(abs(al) - mp.pi)**2 / rho**2)) / rho   # noqa: E731
+    norm, dal = [], []
     for rho in ('0.2', '0.1', '0.05', '0.025'):
         r_ = mp.mpf(rho)
-        ratios.append(Trr(conc, r_) / r_**3)
+        norm.append(Trr(conc, r_) / r_**2)
         dal.append(mp.diff(lambda al: conc(r_, al), r_ / 2))
-    # the mass int f d alpha ~ rho sqrt(pi): normalise by it; T_rhorho / (mass rho^2) -> 1/2 * (1/2) = 1/4
-    norm = [ratios[i] / mp.sqrt(mp.pi) for i in range(4)]
-    conv = abs(norm[-1] - mp.mpf(1) / 4) < mp.mpf('1e-3')
+    conv = abs(norm[-1] - 1 / (2 * mp.sqrt(mp.pi))) < mp.mpf('1e-6')
     grows = all(abs(dal[i + 1]) > 1.8 * abs(dal[i]) for i in range(3))
     print("   control: continuous f = 1 at the axis has T_rhorho = %s (must be 1/2, not O(rho^2)): %s"
           % (mp.nstr(t_iso, 10), ctl))
-    print("   concentrating f: T_rhorho/(mass rho^2) =", [mp.nstr(x, 8) for x in norm], "-> 1/4:", conv,
+    print("   concentrating f: T_rhorho/rho^2 =", [mp.nstr(x, 8) for x in norm], "-> 1/(2 sqrt(pi)):", conv,
           "; d_alpha f grows like 1/rho:", grows)
     return ctl and conv and grows
 
