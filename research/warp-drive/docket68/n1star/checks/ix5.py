@@ -226,8 +226,8 @@ def x3_x5():
 
 
 def x8():
-    """(a) for every m: h = f(t) H, f arbitrary -- the coefficient of f'' in L^0 h is -(1/2) g^tt H and no derivative of f
-    of higher order occurs; (b) the example m = 2 with a t^3 remainder.  Control: DRic alone in both."""
+    """(a) every m: h = f(t) H, f arbitrary -- the coefficient of f'' in L^0 h is -(1/2) g^tt H and no derivative of
+    f of higher order occurs; (b) the example m = 2 with a t^3 remainder.  Control: DRic alone in both."""
     X, g, _ = curved_setting()
     t = X[0]
     gi = g.inv()

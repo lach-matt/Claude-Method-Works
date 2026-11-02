@@ -24,12 +24,13 @@ dv, ell_out := g0^-1 du, s_k(h) := h(ell_k, ell_k), e^(2 sig) =: E.
   J2 (exact) the lam^-1 coefficient of [P, phi] Y_k (phi slow, Y_k = F_k W_k) is -(ell_k . d phi) F_k Y_k = -(ell_k . d
      phi) G2^k, in every component: the record's cross term, once per family, with no term in the other family's
      generator.
-  J3 (exact) with phi(p) = d phi(p) = 0, the whole linearisation at p is -(1/2) (g_app^ab d_a d_b phi) Y_k; at order lam^0
-     -(1/2) (g0^ab d_a d_b phi) Y_k: second derivatives of phi enter only through box phi, multiplying Y_k (Lemma 3.2_2).
+  J3 (exact) with phi(p) = d phi(p) = 0, the linearisation at p of phi Y_k has no lam^-2 or lam^-1 term and its lam^0
+     term is -(1/2) (g0^ab d_a d_b phi) Y_k: second derivatives of phi enter only through box phi, multiplying Y_k (Lemma
+     3.2_2).
   J4 (exact) contractions: G1^in(ell_in, .) = G2^in(ell_in, .) = 0 and G1^out(ell_out, .) = G2^out(ell_out, .) = 0 in
-     every component; G1^out(ell_in, ell_in) = E^-2 F2 chi_out z2^2 =: c_in and G2^out(ell_in, ell_in) = E^-2 F2^2 (chi_out
-     z2^2), and the mirror ones (twophase5 Q2 recomputed); ell_app^in - ell_in = lam E^-1 chi_out z2^2 ell_out + O(lam^2)
-     and g_app^-1(dv, dv) = -lam E^-2 chi_out z2^2 + O(lam^2) (the record's n1, FAMILIES5 4g), and mirror.
+     every component; G1^out(ell_in, ell_in) = E^-2 F2 chi_out z2^2 =: c_in and G2^out(ell_in, ell_in) = E^-2 F2^2
+     (chi_out z2^2), and the mirror ones (twophase5 Q2 recomputed); ell_app^in - ell_in = lam E^-1 chi_out z2^2 ell_out
+     + O(lam^2) and g_app^-1(dv, dv) = -lam E^-2 chi_out z2^2 + O(lam^2) (the record's n1, FAMILIES5 4g), and mirror.
   J6 (exact; Lemma 3.3_2's content) the ell_in x ell_in contraction of J3's lam^0 term is -(1/2) (box phi_out) c_in:
      phi_in drops out exactly and phi_out survives only through box phi_out, with the bounded coefficient c_in (no
      lam^-1); and the mirror for ell_out x ell_out.
@@ -39,8 +40,8 @@ dv, ell_out := g0^-1 du, s_k(h) := h(ell_k, ell_k), e^(2 sig) =: E.
      (1/2) rho_out G2^out(ell_in, ell_in).
   J0 (exact; the identity behind Lemma 3.1_2) for G = g0 + lam W + lam^2 Q, D Ric^H[G](F_k G) = F_k (Ric^H[G]) at orders
      lam^-2, lam^-1, lam^0, for k = in and out: a constant shift of either phase is a symmetry of the two-scale operator.
-     With (E2) (stage 0 solved: R^(-1) = R^(0) = 0, stage0two5 T1-T4) it gives T(F_k g1^(k)) + P_(-2)(F_k ghat_2) = O(lam),
-     so P(Y_k) = O(1).
+     With (E2) (stage 0 solved: R^(-1) = R^(0) = 0, stage0two5 T1-T4) it gives T(F_k g1^(k)) + P_(-2)(F_k ghat_2) =
+     O(lam), so P(Y_k) = O(1).
 
   J8 (exact, generic symmetric matrices) Lemma 3.3_2's splitting of the principal part: with q := g0^tautau / g^tautau,
      c^ab := g0^ab - q g^ab has c^tautau = 0 and c^ab = (g0^ab (g^tautau - g0^tautau) - g0^tautau (g^ab - g0^ab)) /
@@ -206,7 +207,8 @@ def build(seed, control=None):
 
     def tt(amp):
         T = sp.zeros(N)
-        T[2, 2], T[3, 3], T[4, 4] = -2 * R**2 * (q1 + q2) * amp, 2 * R**2 * cth**2 * q1 * amp, 2 * R**2 * sth**2 * q2 * amp
+        T[2, 2] = -2 * R**2 * (q1 + q2) * amp
+        T[3, 3], T[4, 4] = 2 * R**2 * cth**2 * q1 * amp, 2 * R**2 * sth**2 * q2 * amp
         return T
     g0 = sp.zeros(N)
     g0[U, V] = g0[V, U] = -E
@@ -601,7 +603,8 @@ def main():
         good = all(r[k] for k in names) and r["R-1"] and r["nonvacuous"]
         ctl = r["ctl_b"] or r["ctl_c"]
         print("  point %d: %s; R^(-1) = 0 for the stage-0 waves with lam^2 Q: %s; predictions and R^(0) nonzero: %s;"
-              "\n    controls (b) J0 without lam^2 F_1 Q holds: %s, (c) phi_in along ell_out leaves J7 intact: %s  (%.0f s)"
+              "\n    controls (b) J0 without lam^2 F_1 Q holds: %s, (c) phi_in along ell_out leaves J7 intact: %s"
+              "  (%.0f s)"
               % (seed, ", ".join("%s %s" % (k, r[k]) for k in names), r["R-1"], r["nonvacuous"], r["ctl_b"],
                  r["ctl_c"], time.time() - t0), flush=True)
         ok &= good and not ctl
@@ -612,8 +615,8 @@ def main():
     rd = run(1, control="chi_dudv")
     print("  control (d), chi_out on du dv: J4 %s (must fail)  (%.0f s)" % (rd["J4"], time.time() - t0), flush=True)
     good8, good9, c8, c9 = j8(), j9(), j8(True), j9(True)
-    print("  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: %s; control (e) q = 1 "
-          "passes: %s" % (good8, c8), flush=True)
+    print("  J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: %s; control (e) "
+          "q = 1 passes: %s" % (good8, c8), flush=True)
     print("  J9: box h(ell, ell) by the product rule: %s; control (f) without the cross term passes: %s" % (good9, c9),
           flush=True)
     ctl_ok = not ctl_a and not rd["J4"] and not c8 and not c9

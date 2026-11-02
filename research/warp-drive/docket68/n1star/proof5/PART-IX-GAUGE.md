@@ -265,8 +265,9 @@ $\Theta(h) = 0$, so $L^0h = 0$ on $\Omega'_+$ by (0.1); $h$ is smooth up to $\Si
   $-g^{-1}(dt_{\mathrm{IVP}},dt_{\mathrm{IVP}})\partial^m_{t_{\mathrm{IVP}}}h$ is a derivative of order below $m$, or of
   order $m$ with at most $m-1$ derivatives in $t_{\mathrm{IVP}}$ (a tangential derivative of a vanishing normal one),
   so it vanishes; hence $\partial^m_{t_{\mathrm{IVP}}}h = 0$ on $\Sigma_U$. `ix5.py` X8 computes the leading
-  coefficient: for $h = t^mH+t^{m+1}K$ on a curved metric, the coefficient of $t^{m-2}$ in $L^0h$ at $t = 0$ is
-  $-\frac12m(m-1)g^{tt}H$, $m = 2,\dots,5$.
+  coefficient: for $h = f(t)H$ on a curved metric, $f$ arbitrary, no derivative of $f$ above the second occurs in
+  $L^0h$ and the coefficient of $f''$ is $-\frac12g^{tt}H$, so with $f = t^m$ the coefficient of $t^{m-2}$ at $t = 0$
+  is $-\frac12m(m-1)g^{tt}H$ for every $m\ge2$; the ungauged $D\mathrm{Ric}$ fails both.
 
 - *Extension by zero.* Put $\tilde h := h$ on $\Omega'_+$ and $\tilde h := 0$ on $\Omega'\cap\{t_{\mathrm{IVP}}<0\}$.
   Every derivative of $h$ tends to 0 at $\Sigma_U$, so $\tilde h$ is smooth on $\Omega'$ ([BGP] p. 81's device, section
