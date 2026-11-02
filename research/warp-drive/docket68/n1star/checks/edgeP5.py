@@ -37,7 +37,7 @@ then reduces to one-dimensional integrals of env.
      the deepest part).
 
 Labels: Q1 computed (exact rationals); Q2 computed, sampled (a check of the deduced Lemma L.16 on three classes);
-Q3, Q4 computed (mpmath), models with unit constants.  Run: python3 checks/edgeP5.py   (about four minutes)
+Q3, Q4 computed (mpmath), models with unit constants.  Run: python3 checks/edgeP5.py   (about half an hour)
 """
 import os
 import sys

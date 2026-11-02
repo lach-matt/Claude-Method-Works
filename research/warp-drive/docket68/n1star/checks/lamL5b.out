@@ -8,3 +8,18 @@ M2 PASS
       5.7e-12, 1.3e-11, 2.7e-11, 5.6e-11, alternating: True; log10 T_1455^(i)(1), i = 1..4: 6.3257, 12.1743, 17.8011,
       23.2817  [2 s]
 M3 PASS
+  M4 log10 M_m^(1/m) <= 5.8886632.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)
+      log10 Lam_5' <= -35.7427 (binding i = 4); with C^DS_(i,m) log10 Lam_5' <= -2.92333 (binding i = 4); log10
+      C^DS_(i,m), i = 1..4: 3.89663, 7.31163, 10.501, 13.5406.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) =
+      1.2519e-12, Lam_5') = 1.2519e-12.  With C^DS at every i <= 26: log10 C_eps <= 220.0618 (round 3: 613.2166), so
+      Lam_8b, Lam_8d <= 10^(-296.754) min(C_L11, C_L4)^(-4/3) and Lam_8c <= 10^(-38.4893) C_L11^(-1/11.5)
+M4 PASS
+  M5 log10 M_1456 >= 8091.603748 (Taylor at v_s + 0.00052, m! env(v)/(v - v_s)^m; certified at that point), against log10
+      B(1456) <= 8573.893584; at k = 1..14 the Taylor bound lies below CONSTANTS5's e_k: True.  UPPER bounds of the
+      proof's thresholds (with the lower bound of M_m): Lam_4(0): r1 10^-4654.278, ch 10^-11.56797; Lam_5 (L.4, its i =
+      26 term): r1 10^-434.3175, A15 10^-56.37539; Lam_5' (L.4', i = 4, Duffin-Schaeffer): 10^-2.82111; Lam_8b with C_L11
+      = 1 (C_eps >= its i = 26 term): A15 10^-809.477, DS 10^-285.2708.  LOWER bounds (with B): Lam_4(0): r1
+      10^-4654.612, ch 10^-11.90243; Lam_5: r1 10^-435.1187, A15 10^-57.17654; Lam_5': 10^-2.92333; Lam_8b: A15
+      10^-820.9601, DS 10^-296.7539.  Certified with L.4': lam_L <= 2.7041e-12
+M5 FAIL (control passed)
+lamL5b: FAILURES  [102 s]
