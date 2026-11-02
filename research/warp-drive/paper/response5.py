@@ -523,6 +523,92 @@ def r12(control=False):
     return bool(ok)
 
 
+def r13(control=False):
+    """(a) section 3's 'every constant of the approximant's own estimates is lam-independent, because its profiles are':
+    the stage profiles the supplement's programs compute -- the leading waves a1, a2 and the second-order terms bc, bs,
+    kc, ks of ansatz5.py -- contain no lam. (b) Proposition 3.2's uniform margin: with mu >= mu0 >= sqrt72 l5^2 and mu'
+    >= 0, (3.1) is at most -delta, delta = (mu0/(sqrt72 l5^2))^(1/2) - 1; the difference is (mu - mu0)/(c^(1/2)
+    (mu^(1/2) + mu0^(1/2))) + r_q mu'/(2 mu), c = sqrt72 l5^2, an exact identity whose terms are nonnegative.
+    Controls: (1) a profile carrying a factor 1 + lam; (2) + r_q mu'/(2 mu) in (3.1) in place of -."""
+    sys.path.insert(0, os.path.join(ROOT, "docket68", "n1star"))
+    import ansatz5 as a5
+    a1_, a2_ = a5._waves()
+    prof = [a1_*(1 + a5.lam) if control == 1 else a1_, a2_] + list(a5.g2_terms())
+    ok = not any(sp.sympify(q).has(a5.lam) for q in prof)
+    mu0, l5, rq, mup, tt = sp.symbols("mu0 l5 r_q mup t", positive=True)
+    mu = mu0 + tt                                               # mu >= mu0, t >= 0
+    c = sp.sqrt(72)*l5**2
+    sgn = 1 if control == 2 else -1
+    expr = 1 - sp.sqrt(mu/c) + sgn*rq*mup/(2*mu)                # (3.1)
+    delta = sp.sqrt(mu0/c) - 1
+    rep = tt/(sp.sqrt(c)*(sp.sqrt(mu) + sp.sqrt(mu0))) - sgn*rq*mup/(2*mu)
+    ok &= sp.simplify((-delta - expr) - rep) == 0 and bool(rep.is_nonnegative)
+    return bool(ok)
+
+
+def r14(control=False):
+    """section 3's vacuum step, that D(g_lam) solves a homogeneous linear wave system by the contracted Bianchi
+    identity: for any 4+1 metric g and covector field D, with E := Ric - nabla_(mu D_nu),
+        div(E - (1/2) g tr E)_nu + (1/2)(box D_nu + R_nu^mu D_mu) = 0,
+    so E = 0 (the reduced equations) gives box D + Ric(D) = 0. Checked exactly at a point for random metrics (g = eta
+    + cubic polynomial, vanishing at the point) and random quadratic D, rational coefficients, every series truncated
+    at the degree the point needs (gi, Gamma at 2; Ric, E at 1). Control: E - g tr E in place of E - (1/2) g tr E."""
+    X = sp.symbols("x0:5")
+    rnd = random.Random(14)
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    mons = [m for d in range(1, 4) for m in sp.itermonomials(X, d, d)]
+
+    def P(e):
+        return sp.Poly(e, *X, domain="QQ")
+
+    def tr(p, d):
+        return sp.Poly.from_dict({m: c for m, c in p.as_dict().items() if sum(m) <= d}, *X, domain="QQ")
+
+    def at0(p):
+        return p.as_dict().get((0,)*5, sp.Rational(0))
+    ok = True
+    for trial in range(2):
+        A = [[None]*5 for _ in range(5)]
+        for a in range(5):
+            for b in range(a, 5):
+                A[a][b] = A[b][a] = P(sum(sp.Rational(rnd.randint(-4, 4), 7)*m for m in mons))
+        g = [[P(eta[a, b]) + A[a][b] for b in range(5)] for a in range(5)]
+        etaP = [[P(eta[a, b]) for b in range(5)] for a in range(5)]
+
+        def mm(U, V, d):
+            return [[tr(sum((U[a][k]*V[k][b] for k in range(5)), P(0)), d) for b in range(5)] for a in range(5)]
+        eAe = mm(mm(etaP, A, 2), etaP, 2)
+        eAeAe = mm(mm(eAe, A, 2), etaP, 2)
+        gi = [[etaP[a][b] - eAe[a][b] + eAeAe[a][b] for b in range(5)] for a in range(5)]
+        dg = [[[tr(g[a][b].diff(X[c]), 2) for b in range(5)] for a in range(5)] for c in range(5)]
+        half = sp.Rational(1, 2)
+        Gm = [[[tr(sum((gi[a][d]*(dg[b][d][c] + dg[c][d][b] - dg[d][b][c]) for d in range(5)), P(0)).mul_ground(half),
+                   2) for c in range(5)] for b in range(5)] for a in range(5)]
+        Ric = [[tr(sum((Gm[a][b][d].diff(X[a]) - Gm[a][b][a].diff(X[d])
+                        + sum((Gm[a][a][e]*Gm[e][b][d] - Gm[a][d][e]*Gm[e][b][a] for e in range(5)), P(0))
+                        for a in range(5)), P(0)), 1) for d in range(5)] for b in range(5)]
+        Dv = [P(sum(sp.Rational(rnd.randint(-4, 4), 5)*m for m in [sp.Integer(1)] + mons if sp.Poly(m, *X).total_degree()
+                    <= 2)) for _ in range(5)]
+        T = [[tr(Dv[n].diff(X[m]) - sum((Gm[s][m][n]*Dv[s] for s in range(5)), P(0)), 1) for n in range(5)]
+             for m in range(5)]                                   # T[m][n] = nabla_m D_n
+        E = [[Ric[m][n] - (T[m][n] + T[n][m]).mul_ground(sp.Rational(1, 2)) for n in range(5)] for m in range(5)]
+        trE = tr(sum((gi[a][b]*E[a][b] for a in range(5) for b in range(5)), P(0)), 1)
+        k = 1 if control else sp.Rational(1, 2)
+        F = [[tr(E[m][n] - (g[m][n]*trE).mul_ground(k), 1) for n in range(5)] for m in range(5)]
+        gi0 = [[at0(gi[a][b]) for b in range(5)] for a in range(5)]
+        G0 = [[[at0(Gm[a][b][c]) for c in range(5)] for b in range(5)] for a in range(5)]
+        for n in range(5):
+            div = sum(gi0[m][a]*(at0(F[m][n].diff(X[a])) - sum(G0[s][a][m]*at0(F[s][n]) + G0[s][a][n]*at0(F[m][s])
+                                                                  for s in range(5)))
+                      for m in range(5) for a in range(5))
+            box = sum(gi0[a][b]*(at0(T[b][n].diff(X[a])) - sum(G0[s][a][b]*at0(T[s][n]) + G0[s][a][n]*at0(T[b][s])
+                                                                for s in range(5)))
+                      for a in range(5) for b in range(5))
+            ricD = sum(at0(Ric[n][m])*gi0[m][s]*at0(Dv[s]) for m in range(5) for s in range(5))
+            ok &= div + (box + ricD)/2 == 0
+    return bool(ok)
+
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
@@ -536,7 +622,9 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
           ("R9 Appendix D's md5 table matches the files at this commit", r9, 1),
           ("R10 section 9's floor: d > 7.95e15 and N > 1.66e17 from delta_50 and 3 per round", r10, 1),
           ("R11 section 9's H^1 constants at sigma = 384: X <= 963.4, X_0 <= 1516", r11, 1),
-          ("R12 (2.5'): the approximant's lam-linear part, traceless on S^3, its phase-mean flux (2.6)", r12, 1)]
+          ("R12 (2.5'): the approximant's lam-linear part, traceless on S^3, its phase-mean flux (2.6)", r12, 1),
+          ("R13 the profiles carry no lam; Proposition 3.2's uniform margin -delta, an exact identity", r13, 2),
+          ("R14 the vacuum step: div(E - g trE/2) = -(box D + Ric(D))/2 for random 4+1 metrics, exactly", r14, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 

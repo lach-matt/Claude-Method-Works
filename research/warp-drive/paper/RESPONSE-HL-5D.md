@@ -288,8 +288,9 @@ O(λ) (Proposition 3.3). 7. **Mean mass.** For every sphere S_(v,r) of the domai
 The constants that the argument fixes explicitly: the order of the energy is k = 6, the approximant used has N = K + 3
 stages, λ ≤ λ_Ω := min(1, δ0)/10 where δ0 := r_q(μ0) − a (a condition the construction imposes, not a bound below which
 the theorem holds: that is λ0), and the data are solved in H^s(S³) with s > 3/2 + 4. λ0 and C are not evaluated. Every
-constant of the approximant's own estimates is λ-independent, because its profiles are (deduced: supplement 5.4); the
-waves are high-frequency on all of D_T once λ < l5/10 (computed: `docket68/lemmas/counterpart5.py` P1).
+constant of the approximant's own estimates is λ-independent, because its profiles are (deduced: supplement 5.4; computed
+for the profiles the programs compute, `paper/response5.py` R13); the waves are high-frequency on all of D_T once λ <
+l5/10 (computed: `docket68/lemmas/counterpart5.py` P1).
 
 **Proposition 3.2 (the boundary; computed R6, deduced).** On x_K = 1, with Φ := r − r_q(v),
 
@@ -298,7 +299,8 @@ waves are high-frequency on all of D_T once λ < l5/10 (computed: `docket68/lemm
 so, μ being at least μ0 ≥ √72 l5² throughout, the boundary is spacelike for g0 wherever μ > √72 l5² or μ' > 0, and every
 future causal curve that meets it leaves D_T there and does not return. If μ0 > √72 l5² the margin is uniform, g0⁻¹(dΦ,
 dΦ) ≤ −δ with δ := √(μ0/(√72 l5²)) − 1 > 0, and for g_λ the margin is −δ + C λ ≤ −δ/2 once C λ ≤ δ/2 (deduced: |g_λ⁻¹ −
-g0⁻¹| ≤ C λ on Ω by item 4, and the cone of future causal covectors moves continuously). If μ0 = √72 l5² exactly, the
+g0⁻¹| ≤ C λ on Ω by item 4, and the cone of future causal covectors moves continuously; the margin −δ computed exactly,
+R13). If μ0 = √72 l5² exactly, the
 boundary coincides with the seed's horizon for v ≤ v_start and is null there; g_λ equals the seed on {v ≤ inf supp env},
 so it is null for g_λ too, and after the shell starts it is spacelike for g_λ outside a layer whose width tends to 0
 with λ (supplement `docket68/n1star/EQUALITY5.md`, Propositions E.2-E.4).
@@ -348,9 +350,11 @@ implies for a mass there is in section 6, and what it does not, in section 9.
 and 5: Theorem A (the approximant to any order), Theorem D (exact data within O(λ^K) of it) and Theorem E (existence on
 Ω with λ-uniform remainder estimates). D(g_λ) solves a homogeneous linear wave system by the contracted Bianchi identity
 and vanishes with its first derivative on Σ_τ0 (the gauge condition and the constraints), so D = 0 on Ω and g_λ is
-vacuum (deduced; the identity READ in [LR05] p. 1 and, in n + 1 dimensions, [CBCL06] section 3: "the harmonicity
-functions F^μ := □_g x^μ satisfy an homogeneous linear system of wave equations on (V, g), with also ∂_t F^μ = 0, hence
-F^μ = 0 if (V, g) is globally hyperbolic"; for the wave-map gauge, [CBCM10] Theorem 3.3, (3.10)–(3.11), p. 14). The
+vacuum (deduced; the identity, div(E − ½ g tr E) = −½ (□D + Ric(D)) with E := Ric − ∇_(μ D_ν), computed exactly at a
+point on random 4+1 metrics, `paper/response5.py` R14, and READ in [LR05] p. 1 and, in n + 1 dimensions, [CBCL06] section
+3: "the harmonicity functions F^μ := □_g x^μ satisfy an homogeneous linear system of wave equations on (V, g), with also
+∂_t F^μ = 0, hence F^μ = 0 if (V, g) is globally hyperbolic"; for the wave-map gauge, [CBCM10] Theorem 3.3,
+(3.10)–(3.11), p. 14). The
 symmetry follows from uniqueness, since Ric^H and D are built from g and the O(4)-invariant g0 alone and the data are
 invariant.
 
@@ -1354,16 +1358,16 @@ Theorem 4 with them.
   (deduced, with an exact check). The scattering estimate itself is not done. Inside x_K = 1 nothing is attempted.
 - **More families.** Angular separation and the passage to Vlasov matter are not attempted. Two crossing null dusts are
   scoped and taken through the leading orders (supplement `docket68/n1star/FAMILIES5.md`): the cross coupling of the two
-  families is a gauge artefact at leading order (deduced; stage 0 computed), and with two families the record's core
-  estimate, its approximant to every order and its lemma on the domain are deduced, the last given the two-dust
-  background on the whole domain. That background's existence is deduced with one step sketched, given its
-  characteristic data (the outgoing family's are open), and computed on a region that does not reach the initial slice.
-  The linearised constraint map at the approximant's slice data has no 1/λ coefficient with both families, on flat
-  space, on Vaidya with an outgoing phase that is not null there, and on a static background with both phases null
-  (computed, exactly), and with both families' second harmonics as well (computed on flat space; on Vaidya deduced from
-  its single-wave parts, each computed), and a wave with a trace on the spheres gives one. Not done: the background on
-  the whole domain, the constraints' solution on its slice, the dynamic outgoing null phase, and the proof at the
-  record's level. No statement about several families is proved.
+  families is a gauge artefact at leading order (deduced; stage 0 computed), and with two families the core estimate of
+  section 5, its approximant to every order and its lemma on the domain are deduced, the last given the two-dust
+  background on the whole domain. That background's existence is deduced with one step sketched, given its characteristic
+  data (the outgoing family's are open), and computed on a region that does not reach the initial slice. The linearised
+  constraint map at the approximant's slice data has no 1/λ coefficient with both families, on flat space, on Vaidya with
+  an outgoing phase that is not null there, and on a static background with both phases null (computed, exactly), and
+  with both families' second harmonics as well (computed exactly on flat space and on Vaidya; with them the constraint
+  system's principal coefficients are the background's, computed), and a wave with a trace on the spheres gives one. Not
+  done: the background on the whole domain, the constraints' solution on its slice, the dynamic outgoing null phase, and
+  the proof written out at the level of sections 5 and 6. No statement about several families is proved.
 - **The boundary at equality.** If μ0 = √72 l5² exactly (supplement `docket68/n1star/EQUALITY5.md`): g_λ equals the
   seed on {v ≤ v_s}, v_s := inf supp env, so x_K = 1 is the seed's horizon there; it is spacelike for g_λ on {v ≥
   v_s + η} once λ ≤ λ_η; in the layer between, whose width tends to 0 with λ, its causal character is not decided,
@@ -1664,8 +1668,16 @@ Paths are relative to the root of the research tree.
   check that imports one of them, `ansatz5.py`, to show that (2.5′) is the object they compute with); it is traceless
   on the round S³; and with Proposition 2.3's quadratic part of R_vv and R2, the phase mean of its flux is
   (2/9) A² env² h² (c⁴ + s⁴) = (2/9) A² env², the law (2.6). Control: the map p1 = F, p2 = G.
+- R13: the stage profiles the proof's programs compute (the leading waves and the second-order terms of
+  `ansatz5.py`) carry no λ; and Proposition 3.2's uniform margin, −δ − (3.1) = (μ − μ0)/(c^(1/2)(μ^(1/2) + μ0^(1/2)))
+  + r_q μ′/(2μ) with c = √72 l5², an exact identity whose terms are nonnegative. Controls: a profile carrying a
+  factor 1 + λ; the sign of the μ′ term reversed.
+- R14: the vacuum step of section 3: for any 4+1 metric and covector field D, with E := Ric − ∇_(μ D_ν),
+  div(E − ½ g tr E) = −½ (□D + Ric(D)), checked exactly at a point for two random metrics (Minkowski plus a cubic
+  polynomial vanishing there) and random quadratic D, every series truncated at the degree the point needs.
+  Control: E − g tr E in place of E − ½ g tr E.
 
-All twelve pass and every control is rejected (about 45 seconds). The proof's programs, in `docket68/n1star/`:
+All fourteen pass and every control is rejected (about a minute). The proof's programs, in `docket68/n1star/`:
 
 - `ks5.py` K1–K5: the Kerr–Schild form, its inverse, the commutator (2.4), div L0, the gauge source H0. 5/5;
   mutants 4/4.
@@ -2081,6 +2093,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | (2.4) | `docket68/n1star/ks5.py` K3; [Tou23a] Lemma 3.1 for comparison |
 | domain Ω | supplement (1.1), Lemma 1.1; `docket68/n1star/foliation5.py` B1–B4 |
 | (2.5′) | `paper/response5.py` R12; `docket68/n1star/ansatz5.py` A3–A4; `docket68/n1star/data5.py` |
+| section 3: λ-free profiles; Proposition 3.2's margin | `paper/response5.py` R13 |
+| section 3: the vacuum step | `paper/response5.py` R14; [LR05] p. 1; [CBCL06] section 3 |
 | Proposition 2.3, (2.6) | `docket68/n1star/lead5.py` L2; R6; `docket68/lemmas/hf_theorem5.py` F3 |
 | (2.7) | [CBCM10] (2.7)–(2.9); supplement 0.2 |
 | Theorem 1 items 1–5 | supplement 0.4–0.7 (Theorems E, A, D), sections 1–6 |
@@ -2234,7 +2248,7 @@ imports `damping5.py`, `lin5.py`, `sbar5.py` and `scri5.py`, `sharp5.py` imports
 `iplus5.py` and `window5.py`, `general5.py` imports `damping5.py`, `sharp5.py`, `window5.py` and `iplus5.py`; the
 others import nothing from the research tree:
 
-    cd paper && python3 response5.py --selftest          # R1-R12, about 45 seconds
+    cd paper && python3 response5.py --selftest          # R1-R14, about a minute
     python3 response5.py --selftest --full               # and the five proof programs, about 20 minutes
         cd ../docket68/n1star && python3 ks5.py --selftest   # and foliation5, ansatz5, lead5, data5, horizon5, mass5,
                                                          # past5 (about 4 minutes), settle5, bondi5 (about ten minutes)
@@ -2297,9 +2311,9 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 
 | file | md5 |
 | --- | --- |
-| `paper/response5.py` | `d4d945d6fc28e4400ab11aee2cdfd357` |
+| `paper/response5.py` | `42571e97deee86b5dd0f9c8e0d4fbad7` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `bde7f42ef951d156528e97ca84db3365` |
+| `docket68/n1star/N1STAR-LOG.md` | `ab201bc5c04dae80a3160ac33021f511` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2397,7 +2411,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/CERTIFY-10L5.md` | `932c277dc0262c62b220aba83bbb3289` |
 | `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
 | `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
-| `docket68/n1star/FAMILIES5.md` | `94314fd0bf0e126925e67933d06b4de8` |
+| `docket68/n1star/FAMILIES5.md` | `34c0c29c24010c93ac191c3351b1c564` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
 | `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
 | `docket68/n1star/checks/prop31loss5.py` | `7f8004a1801aca2a1aa3e777e6ee2907` |

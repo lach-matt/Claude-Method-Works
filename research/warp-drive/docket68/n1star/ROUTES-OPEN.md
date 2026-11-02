@@ -6214,6 +6214,20 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (both families' λ⁻¹ coefficient equal to the sum of the two families' own). First case (both families, no χ):
   agreement, 290 s; the run continues. The saved checks/data5two_t10b.out is reproduced byte for byte by the script's own
   run (FAMILIES5 4i's caveat dropped).
+- D596 (FAMILIES5 4i, computed: `checks/data5two.py`, exact, 331 minutes, saved as `checks/data5two.out`; and
+  paper/response5.py R13-R14): (a) the direct T10 and T11 finished: with both families and their second harmonics (χ dv
+  dv, χ₂ du du) on Vaidya with u = τ − r, the linearised constraint map has no 1/λ coefficient, and the order-0 principal
+  coefficients of data5.py's S6 are the background's on flat space and on Vaidya. D592's deduction by linearity is now
+  computed. --t10t's four agreement checks of its truncations against the full pipeline all pass (both nonzero controls
+  equal exactly, 2132 s); its own T10t and T11t are running. Still open for two families: data5.py's S3-S6 on the
+  two-dust slice (H > 0), the two-dust background on Ω, the dynamic outgoing null phase. (b) The deduced steps of the
+  paper's sections 1-4 audited for computational support: of ten, seven named a computation already; the three that did
+  not are now computed: the λ-independence of the approximant's constants rests on the profiles carrying no λ (R13, on
+  the profiles the programs compute; control a profile with 1 + λ); Proposition 3.2's uniform margin −δ, an exact
+  identity with nonnegative terms (R13; control the μ′ sign reversed); and the vacuum step, div(E − ½ g tr E) = −½(□D +
+  Ric(D)) for E := Ric − ∇_(μD_ν), checked exactly at a point on two random 4+1 metrics with random D (R14, 16 s; control
+  E − g tr E). The paper cites each at its claim and in Appendices A and C; section 9's more-families bullet records
+  T10-T11 computed and loses two references to 'the record'.
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

@@ -7862,3 +7862,12 @@ with a deliberately wrong formula as the control. And the two-family case of D59
 dangerous coefficients are linear in the waves); it is now being computed directly, by an exact method that keeps only
 the terms able to reach those coefficients, the method itself checked against the full computation on cases where that
 is affordable, including cases where the coefficient is nonzero. The first comparison agrees; the rest is running.
+
+**D596 (2026-11-02): the two-family check finished, and the first four sections' deductions given computations.** The
+direct computation that had run for five and a half hours finished and confirms what D592 had argued: with both wave
+families and their second harmonics on the growing black hole, the dangerous large coefficients are absent, and the
+leading coefficients of the constraint system are those of the background. Separately, every step the paper's first four
+sections call deduced was checked for a computation behind it; three had none, and each now has one in the paper's check
+script: that the approximation's building blocks carry no hidden wavelength, the exact margin by which the boundary of
+the domain is spacelike, and the identity that makes the constructed metric a vacuum solution, verified exactly on
+random five-dimensional metrics. Each comes with a deliberately broken control that fails.
