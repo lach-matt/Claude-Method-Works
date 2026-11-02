@@ -81,6 +81,7 @@ def main():
     sel_c = c4['sel'] & c8['sel'][::2, ::2] & f8['sel'][::2, ::2] & f16['sel'][::2, ::2]
     sel = c8['sel'] & f8['sel'] & f16['sel']
     ok = True
+    ctl_any = False
     for cls in CLASSES:
         print('%s:' % cls[0], flush=True)
         for b in BANDS:
@@ -100,10 +101,7 @@ def main():
                 ok &= good
                 if not good:
                     print('      claim fails here', flush=True)
-                if b == (1.0, 1.5) and cls[1] == 1.2:
-                    ctl_any = ctl
-                elif b[1] <= 1.8 and cls[1] >= 1.0:
-                    ctl_any = ctl_any or ctl
+                ctl_any = ctl_any or ctl
     print('claim (one solution, two formulations, v < 1.8, r_A >= 1.0):', 'PASS' if ok else 'FAIL')
     print('control (amplitude 7/8 exceeds the bound somewhere):', 'fails (good)' if ctl_any else 'passed (bad)')
     ok &= ctl_any

@@ -4,3 +4,5 @@ V1 PASS
   V2 model, j <= 9: c_(j,j-2) = i^(j-2) c_(2,0) and c_(j,j-3) = (j-2) i^(j-3) c_(3,0) in every component, slice data:
       True, data from infinity: True; frozen control: False; data carrying i d_v of the wave: False
 V2 PASS
+  V3 nu_hom(r0) = -mu0**(5/4)/(4*r0**6) (closed form -mu0^(5/4) r0^-6/4: True), homogeneous transport: True, no zero:
+      True; at P* (mu0 = 1, r0 = 5/2): nu_hom = -16/15625, nu = -0.012544000
