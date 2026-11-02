@@ -6,3 +6,9 @@ V1 PASS
 V2 PASS
   V3 nu_hom(r0) = -mu0**(5/4)/(4*r0**6) (closed form -mu0^(5/4) r0^-6/4: True), homogeneous transport: True, no zero:
       True; at P* (mu0 = 1, r0 = 5/2): nu_hom = -16/15625, nu = -0.012544000
+V3 PASS
+  V4 exponents d log x_b / d log lam at lam = 1e-16..1e-32: exp(-1/x) 0.5; exp(-1/x^2) 0.333333; exp(-1/x^3) 0.25;
+      exp(-e^(1/x)) 0.0210889; record C_c^inf 0.5; sin^4 (paper) 1.0; x_b = (k lam)^(1/(k+1)) exactly for exp(-1/x^k):
+      True; exp(-e^(1/x)): x_b ln(1/lam) = 1.39, 1.2266, 1.128 (decreasing to 1); sin^4: x_b/(4 lam) = 1.0; top terms
+      increase below x_b/2 and decrease above 3 x_b: {'exp(-1/x)': True, 'exp(-1/x^2)': True, 'record C_c^inf': True}
+V4 PASS
