@@ -39,8 +39,8 @@ and cos th become rational in t = tan(th/2), r = q^2, and the result is cancelle
      coupling 2 mu0 H_vr/r^3 violates the vv equation.
   N5 (exact) At the horizon r = sqrt(mu0): H3_vv = A E d K(r0), K = -mu0^(-7/4) (2 rho^3 - 3 rho^2 - 2)^2/(36 rho^6),
      rho := r0/sqrt(mu0) -- a negative square, zero only at rho* = 1.80644... (the real root, double), and -mu0^(-7/4)/9
-     as r0 -> infinity (data at past null infinity).  K = -mu0^(-1) r_h^(-3/2) (r_h^(1/2) beta(r_h))^2 (H2_vth at the
-     horizon, squared).  Control: a transverse angular tensor (a, b) = ((1 + 3 cos 2th)/2, (1 - 3 cos 2th)/2) has tau
+     as r0 -> infinity (data at past null infinity).  K = -r_h^(-3/2) beta(r_h)^2 (beta(r_h): the radial factor of
+     H2_vth at the horizon, squared).  Control: a transverse angular tensor (a, b) = ((1 + 3 cos 2th)/2, (1 - 3 cos 2th)/2) has tau
      = 0, so d = 0 and no signal.
   N6 (exact) For the paper's wave, T = T^G - i T^F: d^F = sqrt2 P(zeta)/(1 + zeta^2)^(5/2), d^G = sqrt2 P(-zeta)/(1 +
      zeta^2)^(5/2), zeta = cos 2th, P = -2 zeta^5 - (20/3) zeta^3 - (20/3) zeta^2 - (38/3) zeta + 4/3; gcd(P(zeta),
@@ -377,13 +377,13 @@ def n5(control=False):
     Kr = sp.simplify(K.subs(r0, rho*sp.sqrt(mu0)))
     closed = sp.simplify(Kr - KCLOSED) == 0
     rh = sp.sqrt(mu0)
-    viabeta = sp.simplify(Kr + mu0**-1*rh**sp.Rational(-3, 2)*(sp.sqrt(rh)*BETA.subs(r, rh).subs(r0, rho*rh))**2) == 0
+    viabeta = sp.simplify(Kr + rh**sp.Rational(-3, 2)*(BETA.subs(r, rh).subs(r0, rho*rh))**2) == 0
     clean = sp.simplify(sp.limit(Kr, rho, sp.oo) + mu0**sp.Rational(-7, 4)/9) == 0
     P = sp.Poly(2*rho**3 - 3*rho**2 - 2, rho)
     roots = [x for x in P.nroots() if abs(sp.im(x)) < 1e-30]
     rstar = roots[0]
     d2 = sp.diff(Kr*mu0**sp.Rational(7, 4), rho, 2).subs(rho, rstar)
-    print("  N5 K(r0) = H3_vv(sqrt mu0)/(A E d) = %s; the closed form: %s; = -mu0^-1 r_h^-3/2 (r_h^1/2 beta(r_h))^2: %s;"
+    print("  N5 K(r0) = H3_vv(sqrt mu0)/(A E d) = %s; the closed form: %s; = -r_h^-3/2 beta(r_h)^2: %s;"
           " r0 -> oo: -mu0^-7/4/9: %s; real root rho* = %s (one real root, double in K), K'' there %s"
           % (sp.factor(Kr), closed, viabeta, clean, sp.N(rstar, 12), sp.N(d2, 6)), flush=True)
     return closed and viabeta and clean and len(roots) == 1 and abs(d2) > 0

@@ -128,7 +128,7 @@ mass coupling 2μ0 H_vr/r³ violates the vv equation). In closed form, Q := r^(3
 r^(3/2)(H_vv + F H_vr) obeys ∂_r Q = i F ∂_r(r^(3/2)(D_X H_2)_v), and at r_h = √μ0, where F = 0, Q = r_h^(3/2) H_vv.
 
 (f) *The horizon value (N5).* H_3,vv(v, √μ0, θ) = A env(v) d(θ) K(r0) with K as in (0.2). Equivalently K =
-−μ0⁻¹ r_h^(−3/2) (r_h^(1/2) β(r_h))²: minus the square of the horizon value of H_2's vθ radial factor. K < 0 except at
+−r_h^(−3/2) β(r_h)²: minus the square of the horizon value of H_2's vθ radial factor β. K < 0 except at
 ρ* (the one real root of 2ρ³ − 3ρ² − 2, double in K, K'' ≠ 0 there), and K → −μ0^(−7/4)/9 as r0 → ∞, the value for
 data at past null infinity (the clean incoming wave). Control: a transverse angular tensor, (a, b) = ((1 + 3 cos 2θ)/2,
 (1 − 3 cos 2θ)/2), has τ = 0, so d = 0 and no signal.
