@@ -87,7 +87,8 @@ def s2():
     a = sp.Symbol("a", positive=True)
     L, tt, C, eps, E0 = sp.symbols("L tt C epsilon E_0", positive=True)
     K = sp.integrate(tt**(-sp.Rational(3, 2) - a), (tt, L, sp.oo), conds="none")
-    Kn = sp.gammasimp(sp.powsimp(K, force=True))
+    Kn = sp.powsimp(K, force=True).rewrite(sp.gamma)
+    Kn = Kn.subs(sp.gamma(a + sp.Rational(3, 2)), (a + sp.Rational(1, 2))*sp.gamma(a + sp.Rational(1, 2)))
     check("S2a int_L^oo (v1 - t)^(-3/2-a) = L^(-1/2-a)/(1/2+a), finite for every a > 0 (and a > -1/2)",
           sp.simplify(sp.powsimp(Kn - L**(-sp.Rational(1, 2) - a)/(sp.Rational(1, 2) + a), force=True)) == 0,
           str(Kn))

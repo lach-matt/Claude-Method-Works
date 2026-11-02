@@ -1,2 +1,0 @@
-S1  the weighted radial Sobolev inequality
-  S1a R^(2a+3) f(R)^2 <= 2 ||r^(a+3/2) f|| ||r^(a+3/2) f_r|| on f = r^-b, exact: pass 

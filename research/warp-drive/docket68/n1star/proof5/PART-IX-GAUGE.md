@@ -37,9 +37,14 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   $(t_{\mathrm{IVP}},y)$ near $\Sigma_U$, every derivative of its components extends continuously to $\Sigma_U$. Such a
   tensor is the restriction to $U_+$ of a smooth tensor on an open neighbourhood of $U_+$ in $U$ (Seeley's extension
   theorem [See64] in each chart $\{t_{\mathrm{IVP}}\ge0\}$, patched with a partition of unity subordinate to a cover of
-  $\Sigma_U$ by such charts). Part VIII's $\dot g$ is smooth on $N$ in this sense, up to its boundary; so its
-  restriction to $N^+$ is smooth up to $\Sigma^\circ$: where $\nu>0$, $\Sigma^\circ$ lies in the interior of $N$, and
-  where $\nu = 0$ it is part of the boundary of $N$.
+  $\Sigma_U$ by such charts). The restriction of Part VIII's $\dot g$ to $N^+$ is smooth up to $\Sigma^\circ$. Where
+  $\nu>0$, $\Sigma^\circ$ lies in the interior of $N$, where $\dot g$ is smooth. Where $\nu = 0$, $\Sigma^\circ$ is part
+  of the boundary of $N$; there $\dot g = \dot h+\dot g_{S'}$ (Part VIII Theorem 2.2 (2)), $\dot g_{S'} = -\mathcal
+  L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$ of the closed compact part of $\mathcal D$ on which Part
+  VIII Proposition 1.2's proof solves it by energy estimates ("bounded in every $H^k$ by finitely many norms of the
+  data"). In a chart $\{t_{\mathrm{IVP}}\ge0\}$ near such a point, $H^k$ for every $k$ gives every derivative continuous
+  up to $\Sigma^\circ$ (Sobolev embedding on a half-space, through its extension operator). Deduced from those readings;
+  neither Part states smoothness up to the boundary in these words.
 
 - *$\dot g$ lives on $N$.* $\Omega_*\cup\mathcal D = N$. Indeed $\Omega_* = \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.K
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
@@ -51,9 +56,10 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
 - *Time orientation.* As in II.B, $dt_*$ is past timelike. $dt_{\mathrm{IVP}}$ is timelike for $g$ on $M$ (III.B Lemma
   3.7 (b)) and past timelike: both $dt_*$ and $dt_{\mathrm{IVP}}$ are $dt-\phi'(|x|)\,d|x|$ with $\beta := \phi'-T'_\mu$
   in $(-1,1]$ (III.B Lemma 3.7's proof), so are all their convex combinations, which are therefore timelike, and the two
-  covectors lie in the same cone. So $t_{\mathrm{IVP}}$ is a time function on $M^\circ$ ([BGP] p. 18, as II.F section 1.4
-  uses the term): it is strictly increasing along future directed causal curves. Hence $\Sigma^\circ$ is a smooth
-  spacelike hypersurface of $M^\circ$, acausal in every open subset of $M^\circ$.
+  covectors lie in the same cone. So $t_{\mathrm{IVP}}$ is a time function on $M^\circ$ in the sense II.F section 1.4
+  uses: it is strictly increasing along future directed causal curves (the property [BGP] p. 24 records of a Cauchy
+  time-function; $t_{\mathrm{IVP}}$ is not claimed to be one). Hence $\Sigma^\circ$ is a smooth spacelike hypersurface
+  of $M^\circ$, acausal in every open subset of $M^\circ$.
 
 - *Operators.* For a 1-form $w$ and a symmetric 2-tensor $k$: $(\delta_gk)_\mu := -\nabla^\alpha k_{\alpha\mu}$,
   $G_gk := k-\frac12g\,\mathrm{tr}_gk$, $\delta^*_gw := \frac12(\nabla w+(\nabla w)^T)$, so that $\mathcal L_Xg =
@@ -78,11 +84,18 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
     unique smooth $u$ with $Pu = f$, $u|_S = u_0$, $\nabla_nu|_S = u_1$, and $\mathrm{supp}\,u\subset J(K)$, $K :=
     \mathrm{supp}\,u_0\cup\mathrm{supp}\,u_1\cup\mathrm{supp}\,f$.
   - In that theorem's proof (pp. 85-86): the manifold is isometric to $\mathbb R\times S$ with metric $-\beta
-    dt^2+g_t$, each $S_t := \{t\}\times S$ a smooth spacelike Cauchy hypersurface (Theorem 1.3.13); $([a,b]\times S)\cap
-    J(K)$ is compact for compact $K$ (Lemma A.5.4, as applied there); and each slab $(a,b)\times S$ is a globally
-    hyperbolic manifold in its own right, to which Corollary 3.2.4 applies.
+    dt^2+g_t$, each $S_t := \{t\}\times S$ a smooth spacelike Cauchy hypersurface (Theorem 1.3.13), the given $S$
+    corresponding to $\{0\}\times S$; $([a,b]\times S)\cap J(K)$ is compact for compact $K$ (Corollary A.5.4, p. 174, as
+    applied there); and each slab $(a,b)\times S$ is a globally hyperbolic manifold in its own right, to which Corollary
+    3.2.4 applies.
   - Lemma A.5.9 (p. 176, as II.F section 1.4 reads it): for an acausal hypersurface $S$ of a time-oriented Lorentzian
     manifold, its Cauchy development $D(S)$ is open and globally hyperbolic, and $S$ is a Cauchy hypersurface of $D(S)$.
+  - In the proof of Proposition 3.2.5 (p. 81): a smooth section on $\{t\ge0\}$ that vanishes to infinite order along
+    $S$, extended by $0$ to $\{t<0\}$, is smooth. The same device is used in Theorem 2.2's Step 3 below.
+  - Connectedness. [BGP]'s globally hyperbolic manifolds are connected (Definition 1.3.8, p. 23). A Cauchy development
+    below may have several connected components, and every statement taken from [BGP] is applied on each component
+    $C$, with Cauchy hypersurface $S\cap C$: components of an open set are open and closed in it, so an inextendible
+    causal curve of $C$ is one of $D(S)$ and meets $S$, and it does so in $C$.
 
 ## 1. The Cauchy problem, and the domain
 
@@ -114,14 +127,14 @@ J(\mathrm{supp}\,\psi_i)$.
 So $u := \sum_ju_j+\sum_iv_i$ is a locally finite sum of smooth sections, $Pu = \sum_i\psi_if = f$, $u|_S =
 \sum_j\phi_ju_0 = u_0$ and $\nabla_nu|_S = u_1$. $\square$
 
-**Lemma 1.2 (the domain).** $N^{\mathcal D} := D_{N^\circ}(\Sigma^\circ)$, the Cauchy development of $\Sigma^\circ$ in
-$N^\circ$, is open and globally hyperbolic, with smooth spacelike Cauchy hypersurface $\Sigma^\circ$. It contains
-$N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$. More generally, for every open $U\subset N^\circ$, $D_U(\Sigma_{\mathrm{IVP}}\cap
-U)$ is open and globally hyperbolic with smooth spacelike Cauchy hypersurface $\Sigma_{\mathrm{IVP}}\cap U$.
+**Lemma 1.2 (the domain).** For every open $U\subset U^\sharp$, $D_U(\Sigma_U)$, the Cauchy development of $\Sigma_U$
+in $U$, is open and globally hyperbolic (on each component, section 0), with smooth spacelike Cauchy hypersurface
+$\Sigma_U$. $\Omega^\sharp := D_{U^\sharp}(\Sigma^\circ)$ contains $N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$, so that
+$\Omega^\sharp_+ := \Omega^\sharp\cap\{t_{\mathrm{IVP}}\ge0\} = N^+$.
 
-*Proof.* $\Sigma_{\mathrm{IVP}}\cap U$ is a smooth hypersurface of $U$, as $dt_{\mathrm{IVP}}\ne0$, spacelike and
-acausal in $U$ (section 0). [BGP] Lemma A.5.9 gives the first and last assertions. Let $p\in N^\circ$ with
-$t_{\mathrm{IVP}}(p)\ge0$.
+*Proof.* $\Sigma_U$ is a smooth hypersurface of $U$, as $dt_{\mathrm{IVP}}\ne0$, spacelike and acausal in $U$ (section
+0). [BGP] Lemma A.5.9 gives the first assertion. Let $p\in M^\circ$ with $t_{\mathrm{IVP}}(p)\ge0$; then $p\in
+U^\sharp$.
 
 - *A compact set.* Along a past directed causal curve from $p$ in $M^\circ$:
   - $t_{\mathrm{IVP}}$ decreases (section 0), and $t = t_{\mathrm{IVP}}+\psi_{\mathrm{IVP}}(|x|)$ with
@@ -141,16 +154,21 @@ $t_{\mathrm{IVP}}(p)\ge0$.
   As $t(q)\ge t_{\mathrm{IVP}}(q)\ge0$, $|x(q)|\le B_p$. Hence
   $$J^-_{M^\circ}(p)\cap\{t_{\mathrm{IVP}}\ge0\}\subset L_p := \{0\le t_{\mathrm{IVP}}\le t_{\mathrm{IVP}}(p),\
   \min(|x(p)|,r^\natural)\le|x|\le\max(B_p,3R_1)\},$$
-  a compact subset of $N^\circ$ (closed and bounded in $(t,x)$, with $t\in[0,t_{\mathrm{IVP}}(p)+C_3]$; $|x|>r_0$ and
-  $t_{\mathrm{IVP}}\ge0>-\nu$ on it).
+  a compact subset of $U^\sharp$ (closed and bounded in $(t,x)$, with $t\in[0,t_{\mathrm{IVP}}(p)+C_3]$; $|x|>r_0$ and
+  $t_{\mathrm{IVP}}\ge0>-1$ on it).
 
-- *Every inextendible causal curve through $p$ meets $\Sigma^\circ$.* Let $\gamma$ be one, in $N^\circ$. If
+- *Every inextendible causal curve through $p$ meets $\Sigma^\circ$.* Let $\gamma$ be one, in $U^\sharp$. If
   $t_{\mathrm{IVP}}>0$ along its whole past half, that half lies in $L_p$. II.F Lemma 1.3's proof shows that a past
   inextendible causal curve along which a time function is bounded below, and which lies in a compact set, extends
   continuously to a past end point: its tangent, normalised by $dt_{\mathrm{IVP}} = 1$, ranges in a compact set over
-  $L_p$, so the curve is Lipschitz in $t_{\mathrm{IVP}}$ and converges in $L_p\subset N^\circ$. That contradicts
-  inextendibility in $N^\circ$. So $t_{\mathrm{IVP}}$ reaches 0 on $\gamma$, and $\gamma$ meets $\Sigma^\circ$, once by
-  acausality. Hence $p\in N^{\mathcal D}$. $\square$
+  $L_p$, so the curve is Lipschitz in $t_{\mathrm{IVP}}$ and converges in $L_p\subset U^\sharp$. That contradicts
+  inextendibility in $U^\sharp$. So $t_{\mathrm{IVP}}$ reaches 0 on $\gamma$, and $\gamma$ meets $\Sigma^\circ$, once by
+  acausality. Hence $p\in\Omega^\sharp$, and $N^+\subset\Omega^\sharp_+$; the reverse inclusion holds as $\Omega^\sharp
+  \subset U^\sharp\subset M^\circ$. $\square$
+
+The region $U^\sharp$ reaches to $t_{\mathrm{IVP}} = -1$ only so that $\Sigma^\circ$ lies inside it; nothing below uses
+$\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0\}$ beyond the background $g$, the extension of a source in Theorem 2.2's Step 1,
+and the zero extension in its Step 3.
 
 ## 2. The comparison
 
