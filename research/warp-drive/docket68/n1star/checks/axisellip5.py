@@ -23,8 +23,9 @@ the totally geodesic three-manifold M3 = Sigma_tau cap {phi1 = 0} (the fixed set
      from it); the leaf z = h(r), h = h(r^2) smooth. With F = z - h, k = hess(F)/|grad F|:
      (a) H2 = k_r + k_ph is linear in h'' with coefficient a, and E := r H2 / a - (r h')' contains no h''; E and k_ph
          contain only first derivatives of A, B, C, D (read off the expressions);
-     (b) on polynomial instances (three random metrics and leaves, h' = r w, exact rational arithmetic) E / r and
-         k_ph have finite limits at r = 0 (no 1/r): the leaf obeys the regular Volterra equation
+     (b) on polynomial instances (three random metrics and leaves with rational coefficients, h a polynomial in r^2;
+         evaluated at 50 digits at r = 1e-4, ..., 1e-8) E / r and k_ph settle to finite values at the axis (no 1/r):
+         the leaf obeys the regular Volterra equation
              r h'(r) = int_0^r (rho H2 / a - E) d rho,                                                        (V)
          and the leaf's planar shear is sigma := (k_r - k_ph)/2 = H2/2 - k_ph[h, h'].
      So the map H2 -> sigma involves gamma3 and its first derivatives only: the curved, non-planar terms are first
@@ -40,7 +41,8 @@ the totally geodesic three-manifold M3 = Sigma_tau cap {phi1 = 0} (the fixed set
      recovers h' and sigma = H2/2 - k_ph to the integrator's tolerance. Control (must fail): the same integration with
      the flat equation h'' + h'/r = H2 misses h' by the size of the metric's gradient.
 
-Labels: computed (E0 exact at jets, checks/jetpoly5.py and checks/classchi5.py; E1 exact, sympy; E2 mpmath).
+Labels: computed (E0 exact at jets, checks/jetpoly5.py and checks/classchi5.py; E1 (a) exact, sympy, (b) 50-digit
+evaluation of exact expressions; E2 mpmath and scipy).
 Run: python3 checks/axisellip5.py   (a few minutes)
 """
 from fractions import Fraction
@@ -213,13 +215,18 @@ def e1():
         hh = sp.Rational(rng.randint(1, 5), 10) + sum(sp.Rational(rng.randint(-5, 5), 11) * (r**2)**j
                                                        for j in range(1, 3))
         Ei, Ki = instance(Ai, Bi, Ci, Di, hh, 1)
-        lE, lK = sp.limit(Ei / r, r, 0), sp.limit(Ki, r, 0)
-        okb &= bool(lE.is_finite) and bool(lK.is_finite)
         Ec, Kc = instance(Ai, Bi, Ci, Di, hh, 0)
-        lKc = sp.limit(Kc, r, 0, '+')
-        ctl_con &= not bool(lKc.is_finite)
-        print("   instance %d: lim E/r = %s, lim k_ph = %s (finite: %s); control (cross term C dz dr): lim k_ph = %s"
-              % (trial, sp.nsimplify(lE), sp.nsimplify(lK), okb, lKc))
+        fE, fK, fKc = [sp.lambdify(r, x, 'mpmath') for x in (Ei / r, Ki, Kc)]
+        mp.mp.dps = 50
+        rs = [mp.mpf(10)**(-k) for k in (4, 5, 6, 7, 8)]
+        vE, vK, vC = [[f(q) for q in rs] for f in (fE, fK, fKc)]
+        settle = all(abs(v[-1] - v[-2]) < mp.mpf('1e-12') for v in (vE, vK))
+        okb &= settle
+        ctl_con &= all(abs(vC[i + 1]) > 5 * abs(vC[i]) for i in range(len(rs) - 1))
+        mp.mp.dps = 30
+        print("   instance %d: E/r -> %s, k_ph -> %s (settled to 1e-12 at r = 1e-8: %s); control (cross term C dz dr): "
+              "k_ph = %s at r = 1e-8, growing like 1/r: %s" % (trial, mp.nstr(vE[-1], 10), mp.nstr(vK[-1], 10), settle,
+                                                              mp.nstr(vC[-1], 4), ctl_con))
     return lin and noh2 and oE <= 1 and oK <= 1 and ctl_ord and okb and ctl_con
 
 
