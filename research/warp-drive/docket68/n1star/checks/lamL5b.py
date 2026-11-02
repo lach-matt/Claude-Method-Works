@@ -23,9 +23,9 @@ L2, recomputed here).
      Control: equally spaced nodes do not have that row sum.
   M4 (certified) The hypothesis of Lemma L.4' at the window, eps_4(v1) <= lam with y = lam^14: each term i = 1..4,
      C_(i,m) (5/4)^(1-i/m) M_m^(i/m) lam^(14(1-i/m)) <= lam/5, gives Lam_5' = min_i [5 C_(i,m) (5/4)^(1-i/m)
-     M_m^(i/m)]^(-1/(14(1-i/m)-1)); printed for C*_(i,m) (equal nodes, Round 3) and C^DS_(i,m).  The certified upper
-     bound of lam_L (no constant of Theorem 1) is then min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12 (lamL5 L4),
-     Lam_5').  And C_eps (the 26-derivative envelope cost of the error terms Lam_8b-d) with C^DS at every i <= 26.
+     M_m^(i/m)]^(-1/(14(1-i/m)-1)); printed for C*_(i,m) (equal nodes, Round 3) and C^DS_(i,m), and min(lambda0 <
+     0.0024433, Lam_4(0) = 1.2519e-12 (lamL5 L4), Lam_5').  And C_eps (the 26-derivative envelope cost of the error
+     terms Lam_8b-d) with C^DS at every i <= 26.
      Control: at 1.01 Lam_5' the binding term's inequality fails.  [These use B >= M_m, so, as the verifier of round
      3 found for lamL5 (M2), they are LOWER bounds of the proof's thresholds; M5 gives the upper bounds.]
   M5 (certified at the stated point) A lower bound of M_m = sup |env^(m)|: every derivative of env vanishes at v_s, so
@@ -233,7 +233,8 @@ def m4(control=False):
     l8c = (lG - 2*lce)/iv.mpf('11.5')
     out("  M4 log10 M_m^(1/m) <= %s.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)"
         " log10 Lam_5' <= %s (binding i = %d); with C^DS_(i,m) log10 Lam_5' <= %s (binding i = %d); log10 C^DS_(i,m),"
-        " i = 1..4: %s.  Certified: lam_L <= min(lambda0 < 0.0024433, Lam_4(0) = 1.2519e-12, Lam_5') = %s.  With"
+        " i = 1..4: %s.  With B (each term a lower bound; M5 gives the upper ones): min(lambda0 < 0.0024433, Lam_4(0) ="
+        " 1.2519e-12, Lam_5') = %s.  With"
         " C^DS at every i <= 26: log10 C_eps <= %s (round 3: 613.2166), so Lam_8b, Lam_8d <= 10^(%s) min(C_L11,"
         " C_L4)^(-4/3) and Lam_8c <= 10^(%s) C_L11^(-1/11.5)"
         % (mp.nstr(mp.mpf(lMm.b), 8), mp.nstr(mp.mpf(res['eq'][0].b), 6), res['eq'][1],
