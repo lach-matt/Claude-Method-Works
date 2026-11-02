@@ -6176,6 +6176,12 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (F2:267-275, I.C:597) and hienergy5 V1's earlier evaluation for □^Υ cited; the floor printed d > 7.959 × 10¹⁵, N >
   1.671 × 10¹⁷ (7.9 × 10¹⁵ gives only 1.659 × 10¹⁷; the paper prints 7.95 and 1.66); ϑ_H any number above ϑ_L < 2; Γ[g0]
   enters neither coupling, like dd v; I12:305 is Step 4's. The D588-D589 entries above keep their text.
+- D592 (FAMILIES5 4i, computed: `checks/data5two.py --t10b`, exact, saved as `checks/data5two_t10b.out`; deduced): the
+  two-family constraint linearisation with both families' second harmonics. On flat space with χ dv dv and χ₂ du du, no
+  1/λ coefficient (T9). On Vaidya the direct computation (T10) has run over four hours; by the linearity of the 1/λ
+  coefficients in the waves it reduces to single-wave parts, three already computed (data5.py S2, S4; T4, T6) and the
+  fourth, the outgoing χ₂ du du alone, computed now: none, and the oscillating-trace control has one. So none with both
+  families and χ on Vaidya (deduced). Open: T10 direct, T11 (S6 with both families and χ, not linear in the waves).
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

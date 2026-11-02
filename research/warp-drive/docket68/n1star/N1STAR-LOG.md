@@ -7833,3 +7833,10 @@ column on request, so the table cannot drift again unnoticed. The script also re
 independently: the lower bound on the loss (R10) and the derivative constants on the certified band (R11). Appendix A
 lists the programs behind section 9 and the script's checks R8-R11 (it still said seven checks); Appendix C maps section
 9's claims to their sources.
+
+**D592 (2026-11-02): the two-family check, with the second harmonics, by its parts.** The direct computation for both
+wave families with their second harmonics on the growing black hole has been running for hours. Because the dangerous
+large coefficients are linear in the waves, it splits into one-wave pieces; three were already checked, and the fourth,
+the outgoing family's second harmonic alone, is checked now and gives no large coefficient, while a deliberately broken
+version does. So the whole case has none. The direct run, and the companion check on the principal coefficients, are
+still going.

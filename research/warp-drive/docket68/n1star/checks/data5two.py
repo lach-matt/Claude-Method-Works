@@ -188,6 +188,36 @@ def run(flat, c, which, static=None):
     return has_inverse(lin)
 
 
+def run_out_chi(trace):
+    """D592: the outgoing family alone with chi_2 du du on Vaidya, u = tau - r; with trace, an oscillating trace in its
+    W (the control); returns whether a 1/lam coefficient appears"""
+    d5.D, d5.Dt, d5.wave, d5.slice_data = D, Dt, wave, slice_data2
+    SPEED["c"] = 1
+    WHICH.update({"in": False, "out": True, "trace_out": trace})
+    d5.mu = MU0
+    try:
+        lin, _ = d5.perturbed(True, True)
+    finally:
+        d5.slice_data = SLICE0
+        CHI["out"] = 0
+        WHICH["trace_out"] = False
+    return has_inverse(lin)
+
+
+def t10b():
+    """--t10b (D592): T10 by its single-wave parts. The 1/lam coefficients are linear in the waves (FAMILIES5 4i), the
+    ingoing W_TT and chi dv dv on Vaidya are data5.py S2 and S4, the outgoing W_TT is T4/T6; this is the last part, the
+    outgoing chi_2 du du alone, with an oscillating trace as the control (about half an hour)"""
+    a = run_out_chi(False)
+    print("  T10b: the outgoing family alone with chi_2 du du on Vaidya, u = tau - r: a 1/lam coefficient: %s" % a,
+          flush=True)
+    b = run_out_chi(True)
+    print("  T10b (control): the same with an oscillating trace: a 1/lam coefficient: %s" % b, flush=True)
+    ok = (not a) and b
+    print("T10b", "PASS" if ok else "FAIL")
+    return 0 if ok else 1
+
+
 def main():
     ok = {}
     t1 = run(True, 1, {"in": True, "out": True})
@@ -238,4 +268,4 @@ def main():
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(t10b() if '--t10b' in sys.argv else main())

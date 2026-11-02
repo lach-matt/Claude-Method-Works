@@ -1343,9 +1343,10 @@ Theorem 4 with them.
   characteristic data (the outgoing family's are open), and computed on a region that does not reach the initial slice.
   The linearised constraint map at the approximant's slice data has no 1/λ coefficient with both families, on flat
   space, on Vaidya with an outgoing phase that is not null there, and on a static background with both phases null
-  (computed, exactly), and a wave with a trace on the spheres gives one. Not done: the background on the whole domain,
-  the constraints' solution on its slice, the dynamic outgoing null phase, and the proof at the record's level. No
-  statement about several families is proved.
+  (computed, exactly), and with both families' second harmonics as well (computed on flat space; on Vaidya deduced from
+  its single-wave parts, each computed), and a wave with a trace on the spheres gives one. Not done: the background on
+  the whole domain, the constraints' solution on its slice, the dynamic outgoing null phase, and the proof at the
+  record's level. No statement about several families is proved.
 - **The boundary at equality.** If μ0 = √72 l5² exactly (supplement `docket68/n1star/EQUALITY5.md`): g_λ equals the
   seed on {v ≤ v_s}, v_s := inf supp env, so x_K = 1 is the seed's horizon there; it is spacelike for g_λ on {v ≥
   v_s + η} once λ ≤ λ_η; in the layer between, whose width tends to 0 with λ, its causal character is not decided,
@@ -2275,7 +2276,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | --- | --- |
 | `paper/response5.py` | `21d4879694b85ccc99d6c4e1ca24df4d` |
 | `docket68/n1star/N1STAR-PROOF.md` | `56e4e37ded37e80bf0b768cd69db6a34` |
-| `docket68/n1star/N1STAR-LOG.md` | `bd6fb4042e8cb1488eb9091ee331e8b6` |
+| `docket68/n1star/N1STAR-LOG.md` | `c8cabb9ec3a142301731aaafd0febe23` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2373,7 +2374,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/CERTIFY-10L5.md` | `932c277dc0262c62b220aba83bbb3289` |
 | `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
 | `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
-| `docket68/n1star/FAMILIES5.md` | `787b5b6b348c2f37b8be815f9676eb27` |
+| `docket68/n1star/FAMILIES5.md` | `55c24156ff085a6df978844a2c0ddb20` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
 | `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
 | `docket68/n1star/checks/prop31loss5.py` | `7f8004a1801aca2a1aa3e777e6ee2907` |
@@ -2384,7 +2385,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2h1band5.out` | `1fd8053f3fdac83cf070974bf7db38be` |
 | `docket68/n1star/checks/closure5.py` | `c65098b4a3c6f0a36b37a5de0ccf902b` |
 | `docket68/n1star/checks/closure5.out` | `8388cf3bd8a7eee36f599a210effd723` |
-| `docket68/n1star/checks/data5two.py` | `fc6fff725087c4d27194887c001b41e5` |
+| `docket68/n1star/checks/data5two.py` | `5d4117235d43da55022ddd12e1e583a9` |
 | `docket68/n1star/checks/g1curv5.py` | `d98ed86deaee1c04d6eb92653cf1cf2b` |
 | `docket68/n1star/dnsolve5.py` | `f5c59a474498f3e2a215acfbdf46dbbd` |
 | `docket68/n1star/checks/epsind5.py` | `8a255f7058dc653627001236cb7075ad` |
