@@ -54,3 +54,39 @@
          r_AH ranges 0.909-1.072 and 0.928-1.062
       v = 1.300: max |r_AH(double null) - r_AH(growth5)| = 0.076 (at x = -0.20);
          r_AH ranges 0.789-1.127 and 0.864-1.111
+      v = 1.350: max |r_AH(double null) - r_AH(growth5)| = 0.068 (at x = 0.00);
+         r_AH ranges 0.762-1.160 and 0.801-1.142
+      v = 1.375: max |r_AH(double null) - r_AH(growth5)| = 0.081 (at x = 0.00);
+         r_AH ranges 0.722-1.187 and 0.759-1.158
+  S4 (reported) outer zero against growth5 (L100_lam1_28x16_d0_y1.6): max 0.081 (round 1's 0.1: within);
+     control (leaf expansion, tilt ignored) max 0.223 fails (good)
+  S5 (reported) per Bondi column, zeros of theta on [r_min, 1.6]:
+     v = 1.300 r_min 0.609: columns with 0 / 1 / 2+ zeros: 0 / 31 / 1; inner zeros at r = [0.797];
+        max theta on r_min -1.424; on r_core n/a
+     v = 1.350 r_min 0.623: columns with 0 / 1 / 2+ zeros: 0 / 30 / 2; inner zeros at r = [0.652, 0.768];
+        max theta on r_min -0.135; on r_core n/a
+     v = 1.400 r_min 0.667: columns with 0 / 1 / 2+ zeros: 2 / 28 / 2; inner zeros at r = [0.667, 0.667];
+        max theta on r_min 0.819; on r_core n/a
+     v = 1.425 r_min 0.681: columns with 0 / 1 / 2+ zeros: 4 / 28 / 0; inner zeros at r = [];
+        max theta on r_min 1.459; on r_core n/a
+     v = 1.450 r_min 0.710: columns with 0 / 1 / 2+ zeros: 7 / 25 / 0; inner zeros at r = [];
+        max theta on r_min 1.393; on r_core n/a
+     v = 1.475 r_min 0.725: columns with 0 / 1 / 2+ zeros: 8 / 22 / 2; inner zeros at r = [0.754, 0.768];
+        max theta on r_min 1.530; on r_core n/a
+     v = 1.500 r_min 0.754: columns with 0 / 1 / 2+ zeros: 10 / 22 / 0; inner zeros at r = [];
+        max theta on r_min 1.844; on r_core n/a
+     v = 1.525 r_min 0.782: columns with 0 / 1 / 2+ zeros: 11 / 21 / 0; inner zeros at r = [];
+        max theta on r_min 1.979; on r_core n/a
+     v = 1.550 r_min 0.797: columns with 0 / 1 / 2+ zeros: 12 / 20 / 0; inner zeros at r = [];
+        max theta on r_min 2.279; on r_core n/a
+== l1_M16_800: lambda 1, M 16, 800 x 360, cut 0.30
+  S1 R_v < 0 at u > -1, >= 20 rows from the cut, v <= 1.80: violations 0 far, 253 near the cut,
+     of 35853 cells -> PASS; control (u > -1.02) fails (good)
+     beyond, on (1.80, 2]: violations 1822 far, 2247 near the cut
+  S2 further zeros of R_v along ingoing cones, v <= 1.80: 148, first at v = 1.65,
+     all at u > -1 within 20 rows of the cut: PASS; control (first zero near the cut) fails (good)
+     beyond, on (1.80, 2]: 298 further zeros, all near the cut: False
+  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = 4.9e-09 -> PASS
+     (against exact Tangherlini: 6.2e-04, the run's own error)
+      v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.004 (at x = 0.00);
+         r_AH ranges 0.981-1.014 and 0.985-1.012

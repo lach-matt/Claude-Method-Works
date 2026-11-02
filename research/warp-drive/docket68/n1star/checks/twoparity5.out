@@ -1,0 +1,4 @@
+  P1: ell_out = g0^-1 du = -d_r: True; R^(-1) = 0: True; F_out = r^-3 f(u, th, s): True; chi enters only the uu
+      harmonic, as c (d_r + 3/(2r)) d_s chi with c = 1: True; the transport solution solves it: True,
+      and (E2)'s uu second harmonic vanishes with it: True; F_out S-even: True;
+      W_out = W_TT + chi_out du^2 S-odd: True  [65 s]
