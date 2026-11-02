@@ -18,13 +18,18 @@ that on vacuum data d_i b^i = q (Part V Lemma 1.2's identity, integrated over an
      point, independent of R). The volume of Gamma(R, 4R) is 255 pi^2 R^4/2 (computed exactly). The inequality
      6 pi^2 |dm| <= C (eta + |dm|)/R^2 + C eta, dm = m - mubar, is linear in |dm| with coefficient (6 pi^2 R^2 - C)/R^2,
      positive exactly when C < 6 pi^2 R^2 (checked: positive for C = 6 pi^2 R^2/(1 + s), s > 0), and then it gives
-     |dm| <= C eta (R^2 + 1)/(6 pi^2 R^2 - C) (checked exactly: the bound is the equality's root). Not computed: the
-     bilinear difference bound |q(xhat) - q(gamma^mubar)| <= C (eta + |dm|) R^-6 on Gamma(R, 4R) of step (6) is deduced
-     from the scaling in prose, not checked here.
+     |dm| <= C eta (R^2 + 1)/(6 pi^2 R^2 - C) (checked exactly: the bound is the equality's root).
+  F4 (exact) The bilinear difference bound of step (6), |q(xhat) - q(gamma^mubar)| <= C (eta + |dm|) R^-6 on Gamma(R,
+     4R): for data x2 = B (H, K)(x/R) scaled R^-2, R^-3 (gamma^mubar - delta is of this form, B = mubar) and a
+     perturbation eps (D, E) of the same scaling, all generic, q(x2 + eps d) - q(x2) has no term linear in the data
+     (no order-A term), at order A^2 no eps B^0 term and its eps B, eps^2 coefficients exactly R^-6 times constants,
+     and at order A^3 coefficients exactly R^-8 times constants: so it is <= C eps (|B| + eps) R^-6 + C eps R^-8, with
+     eps of the size of eta + |dm| as step (6) has it.
   Controls: F1, F2, the flux built with + d_i tr h in place of - d_i tr h is not the divergence of DR(h) (F2's identity
      fails), and on F1's slice it gives -2 pi^2 m, not 6 pi^2 m. F3, the same computation with every Gamma.Gamma term of
      the scalar curvature deleted: R^6 q at order A^2 is still independent of R (that test alone is blind to it), but its
-     value is not -10294529/36000, and F3 rejects it.
+     value is not -10294529/36000, and F3 rejects it. F4, q without its linear part DR(h): an order-A term appears and
+     the bound fails.
 
 Sign convention: q_e0 here is DR_delta(h) - (R - |K|^2 + (tr K)^2), the negative of Part V (1.1)'s, and it omits the
 factor sqrt(det g); F1-F3 test vanishing, R-independence and a magnitude, so they are blind to both.
@@ -186,7 +191,58 @@ def f3(control=False):
     return ok and ok_coef and ok_sign and ok_bound and ok_vol
 
 
-CHECKS = [("F1", f1), ("F2", f2), ("F3", f3)]
+def f4(control=False):
+    """step (6)'s bilinear difference bound: data x2 = B (H, K)(x/R) scaled R^-2, R^-3, a perturbation eps (D, E) of
+    the same scaling, and A the amplitude's bookkeeping; Delta q := q(x2 + eps d) - q(x2) at a point with x/R fixed"""
+    rng = random.Random(13)
+    Yv = sp.symbols("y1:5", real=True)
+    B, e = sp.symbols("B e", real=True)
+    Hm, Km, Dm, Em = (sp.zeros(4) for _ in range(4))
+    for M_ in (Hm, Km, Dm, Em):
+        for i in range(4):
+            for j in range(i, 4):
+                M_[i, j] = M_[j, i] = rand_poly(rng).subs(dict(zip(X, Yv)))
+    scale = {Yv[i]: X[i]/Rr for i in range(4)}
+    pt = {X[i]: Rr*sp.Rational(rng.randint(-3, 3), 5) for i in range(4)}
+
+    def q_of(hY, KY):
+        h = A*hY.subs(scale)/Rr**2
+        K = A*KY.subs(scale)/Rr**3
+        h0 = h.subs(pt)
+        gi = sp.eye(4) - h0 + h0*h0 - h0**3
+        R, _, _ = curvature_at(sp.eye(4) + h, pt, inverse=gi)
+        Ku = gi*K.subs(pt)
+        ham = R - sum(Ku[i, j]*Ku[j, i] for i in range(4) for j in range(4)) + Ku.trace()**2
+        if control:                                                  # q without its linear part: not quadratic at 0
+            return sp.expand(-ham)
+        F = flux_vector(h)
+        DR = sum(sp.diff(F[i], X[i]) for i in range(4)).subs(pt)
+        return sp.expand(DR - ham)
+    dq = sp.expand(q_of(B*Hm + e*Dm, B*Km + e*Em) - q_of(B*Hm, B*Km))
+    dq = sum(dq.coeff(A, k)*A**k for k in (1, 2, 3))                      # through the cubic part
+    c = {}
+    for k in (1, 2, 3):
+        ck = sp.expand(dq.coeff(A, k))
+        for (i, j) in [(1, 0), (1, 1), (2, 0), (1, 2), (2, 1), (3, 0)]:
+            c[(k, i, j)] = sp.simplify(ck.coeff(e, i).coeff(B, j))
+    lin0 = c[(1, 1, 0)] == 0 and c[(1, 1, 1)] == 0 and c[(1, 2, 0)] == 0     # q has no linear part
+    eB0 = c[(2, 1, 0)] == 0                                                  # no eps^1 B^0 term at order A^2
+    r6 = [sp.simplify(c[(2, i, j)]*Rr**6) for (i, j) in [(1, 1), (2, 0)]]
+    r8 = [sp.simplify(c[(3, i, j)]*Rr**8) for (i, j) in [(1, 2), (2, 1), (3, 0)]]
+    sc6 = all(not x.has(Rr) for x in r6) and any(x != 0 for x in r6)
+    sc8 = all(not x.has(Rr) for x in r8) and any(x != 0 for x in r8)
+    ok = lin0 and eB0 and sc6 and sc8
+    if control:
+        return ok
+    print("  F4: Delta q has no order-A term: %s; at order A^2 no eps B^0 term: %s, and R^6 times the eps B and eps^2"
+          " coefficients = %s, independent of R: %s;\n      at order A^3, R^8 times the eps B^2, eps^2 B, eps^3"
+          " coefficients = %s, independent of R: %s.\n      So |q(x2 + eps d) - q(x2)| <= C eps (|B| + eps) R^-6"
+          " + C eps R^-8 near flat data: step (6)'s bound, with eps ~ eta + |dm|."
+          % (lin0, eB0, r6, sc6, r8, sc8), flush=True)
+    return ok
+
+
+CHECKS = [("F1", f1), ("F2", f2), ("F3", f3), ("F4", f4)]
 
 
 def main():
