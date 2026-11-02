@@ -309,12 +309,14 @@ Corrections (each states what was wrong; round 1's text is not changed):
   |∂^J e| ≤ Cλ, so "g_λ − g_(b_0) = λ m_1 + O(λ²)" held in C^(J−1), not C^J; in C^J it is λ m_1 + O(λ). Corrected by
   taking **K := d_1 + 15** (= J + 5), which gives |∂^J e| ≤ Cλ²; K is free (Theorem E at every order). Round 1's
   "K = d_1 + 14" (lines 56, 255) reads d_1 + 15.
-- **(n1) Stale line cites in N1STAR-PROOF.md.** Proposition 11.1 is at 10613-10620 (cited 10575-10581); Ric(g0) =
-  (3μ′/(2r³)) dv dv at 10560 (cited 10522); the source's +½□̃(r^(−3/2) G_3) at 10622 (cited 10584-10585); "a
-  polynomial in (u, d u, d^2 u) with coefficients smooth in (X, g)" and the r^(−q) coefficient "a polynomial in the G_k,
-  k <= J, and their derivatives" at 10634-10637 (cited 10596-10599).
-- **(n2) Section 5 (iv), lines 214-217.** The operator with the damping 1-forms built on c = r^(−1) dt is III.K's (the
-  write-out's; `lin5.py`'s L̄, [Hin26] (8.1)), which BEYOND5.md:299-301 calls "the record's operator"; that clashed
+- **(n1) Stale line cites in N1STAR-PROOF.md** (numbers as of e50e9bc; amended in round 3, R3.0 (c1)). Proposition
+  11.1 is at 10634-10641 (cited 10575-10581); Ric(g0) = (3μ′/(2r³)) dv dv at 10583 (cited 10522); the source's
+  +½□̃(r^(−3/2) G_3) at 10645-10646 (cited 10584-10585); "a polynomial in (u, d u, d^2 u) with coefficients smooth in
+  (X, g)" and the r^(−q) coefficient "a polynomial in the G_k, k <= J, and their derivatives" at 10657-10661 (cited
+  10596-10599).
+- **(n2) Section 5 (iv), lines 214-217.** The operator with the damping 1-forms, E^Υ built on c_Υ = r^(−1) dt and E^C
+  on c = r^(−1)(dt − v dr) (BEYOND5.md:300-301; round 1 and this line had "c = r^(−1) dt" for both; amended R3.0 (c2)),
+  is III.K's (the write-out's; `lin5.py`'s L̄, [Hin26] (8.1)), which BEYOND5.md:299-301 calls "the record's operator"; that clashed
   with "posed in the record's own gauge" (the record's = N1STAR-PROOF.md's wave-map gauge relative to g0). And W4c
   shows only that the *unsigned* Grönwall bound fails for III.K's operator (a divergent kernel), not that the problem
   is ill-posed in that gauge.
@@ -322,7 +324,8 @@ Corrections (each states what was wrong; round 1's text is not changed):
   had none. `r1controls5.py` adds them: C1 (T2: ₂F₁ with third parameter p + ½ leaves residual > 0.6), C2 (W1: (5.1)
   at four points to 7e-41, and without its bulk term T(∇w, ∂_t) it fails at every point by more than 0.12, relative),
   C3 (T6c: a subtraction with coefficient ½ is rejected, the integral diverging like ε^(−3/2)/6), C4 (T8g: "ê_b(0) = 0"
-  is rejected, ∫env_b = 0.666). T1 and T7 also have no failing control; they are exact identities and a rank and
+  is rejected, ∫env_b = 0.666; and C4c, round 3: T8c's test fails at T8f's first zero ω* = 3.3310, where
+  |ê_b| = 7.5 × 10^(−35), so T8c can fail; amended R3.0 (n6)). T1 and T7 also have no failing control; they are exact identities and a rank and
   eigenvalue computation, and are recorded here as such.
 - **(n4) Line 242.** "Through ρ^(7/2)" is not needed for the class when ℓ0 ∈ (3, 7/2): (b2) needs ρ², ρ^(5/2), ρ³ and
   a remainder in ρ^(ℓ0) H_b^∞, which contains the ρ^(7/2) term. The *route* of R3 still subtracts the p = 7/2 term
@@ -349,13 +352,16 @@ min Re = 2 > 3/2 + 2γ_Υ (γ_Υ < ¼, VI.C row u4): row d1 (PART-VI4-PARAMS.md:
 (Control H1c: (5/2, 0) + ℕ_0 alone is not closed under sums.)
 
 **Proposition R2.2 (the record's ℰ^C_I does not see the half-integers; computed H2, deduced at M = 0).** Run III.C′
-Step 2 as written, M rounds. For every M ≤ 8 (which covers M ≤ 4(ℓ_I − ℓ^♭_I) + 1 for ℓ_I < 7/2), the index set
+Step 2 as written, M rounds. For every M ≤ 12 (which covers M ≤ 4(ℓ_I − ℓ^♭_I) + 1, at most 8 for ℓ_I < 7/2 and 10
+for ℓ_I < 4; H2 was run to 8 in round 2 and is run to 12 in round 3, R3.0 (c3)), the index set
 ℰ^(M) built from ℰ_0^½ *equals* the one built from ℰ_0^ℤ, log orders included, at every exponent below 11/2
 (H2b), and k(n) = k(n + ½) = M(n − 1) at n = 2, …, 5 (H2e). At M = 0 this is a proof: each least Definition 3.1 set
 contains the other's seed with log order 0 (ℰ^C_I + ½ ⊂ ℰ^C_I, III.C Lemma 3.2 (a)). For M ≥ 1 it is computed in the
 stated range; the range covers every use of ℰ^C_I's log orders (l_* at Re ≤ 5, the spaces below ℓ_I < 7/2, the cone's
 log count at Re ≤ 3 + ε_+, I11:96-107), and π_1 is equal at every M (H2a). Control H2f: an admissible seed (9/4, 0)
-outside ℰ^(0) changes ℰ^(0).
+outside ℰ^(0) changes ℰ^(0). For every M (the verifier's induction, reported to this workstream and recorded, not
+re-derived here): within ½ℤ each a + b − 1 = n + ½ pairs an integer with a half-integer, so k(n + ½) ≤ k(n); the
+equality depends on Σ's point (3/2, 0) (amended R3.0 (c3)).
 
 So, with the record's construction, **D519's "can rise" is "do not rise"**: Λ, l_*, K(λ), ℰ_par, (G), (G+), ε_+,
 ε_K, α, row d2's exclusion sets and every LOSS-D count that passes through ℰ^C_I are unchanged by ℰ_0^½.
@@ -370,7 +376,7 @@ G = ℰ_0 ∪̄ F(G), F(G) the least +1-closed set containing G^tot + (G^tot −
 below z − ½ (a + b − 1 ≥ a + ½ for b ≥ 3/2), so G is defined by recursion on the real part (H3b: the recursion and the
 fixed-point iteration agree). (ii) G satisfies III.C Definition 3.1 (2)-(3) and contains ℰ_0 (H3a). (iii) III.C′
 Theorem 3.1 holds with ℰ^C_I := G for every number of rounds. *Proof of (iii).* By induction on the rounds, h's slots
-lie in (G ∪ {the slot's Σ point}, α_I) at 𝓘⁺. In (3.5) of C2 the C^∞ error maps them to G^tot + 1 and the perturbation
+lie in (G ∪ {the slot's Σ points}, α_I) at 𝓘⁺ (slot 7 has two; amended R3.0 (n2)). In (3.5) of C2 the C^∞ error maps them to G^tot + 1 and the perturbation
 part to ⋃_(j≥2) jG^tot − 1, both inside F(G) (G + (2,0) − 1 = G + 1, (2,0) ∈ F(G)), and below the new weight β < α_I +
 ½ these involve G only below α_I. III.A Lemma 1.2 (slots 4, 5, 7: exponents 3/2 + Ā_jj ∈ Σ, which F(G) and ℰ_0 do not
 meet) and III.A Lemma 3.2 (z = 0, E = ℰ_0, hypotheses as in C2) give h ∈ (ℰ_0 ∪̄ F(G), β) = (G, β) in each slot. ∎
@@ -379,29 +385,36 @@ The record's coarser round, ℰ_0 ∪̄ ℰ^C_I, cannot have a fixed point with 
 With G (computed H4-H5): Part VII's class has k(n) = k(n + ½) = 2n − 3; the half class has k(2 + j/2) = j + 1, that
 is **one more at each half-integer**, the same at every integer, and 0 or 1 more off ½ℤ (53 of 273 exponents below
 11/2); the largest log order at Re ≤ 5 is 7 for both; π_1 is the same. LOSS-D's one-off count is 1 + 2 + 4 = 7 (loss
-14) for Part VII's class and 1 + 2 + 5 = 8 (loss 16) for the half class, ℓ_I ∈ (3, 7/2); the log-free control gives
-LOSS-D Q2's 3 (H5b).
+14) for Part VII's class and 1 + 2 + 5 = 8 (loss 16) for the half class, ℓ_I ∈ (3, 7/2); for ℓ_I ∈ (7/2, 4) it is 7
+(loss 14) and 1 + 2 + 6 = 9 (loss 18) (H5c, round 3); the log-free control gives LOSS-D Q2's 3 (H5b). G is contained in
+the record's ℰ^(M) from M = 2 on, and not at M = 0, 1 (H8, round 3) (amended R3.0 (n3), (n4)).
 
 **What the half class does change (computed H6, READ, deduced).** (a) The data norm: H^(∞,(ℰ_0^½, ℓ0))_b admits the
 ρ^(5/2) (and, for ℓ0 > 7/2, ρ^(7/2)) coefficients; H^(∞,(ℰ_0^ℤ, ℓ0))_b lies in it continuously (the new coefficients
 are 0), so Part VII Lemma 0.1's bound carries over. (b) III.C′ Step 1 at I_0 uses R = ∏(X_0 − z) over ℰ_(0,≤):
 N = 3 factors for ℓ0 ∈ (3, 7/2) and 4 for ℓ0 ∈ (7/2, 4), against 2 (H6a); READ: "The converse of Lemma 1.3 loses n_H,
-each factor costing one derivative" (LOSS-D.md:90). So each Step 1 application costs one or two derivatives more, and
-d_1 changes by a finite amount; ε (and with it δ, λ_1) changes, as it must with any change of class. (c) α_1 and β of
+each factor costing one derivative" (LOSS-D.md:90). So each Step 1 application costs one or two derivatives more
+(N = 1 → 2, 2 → 3 for ℓ0 < 7/2; 1 → 2, 2 → 4, 2 → 4 for ℓ0 > 7/2: Step 1 loses 2 or 5 more derivatives, the verifier's
+count), and d_1 changes by a finite amount; ε (and with it δ, λ_1) changes, as it must with any change of class. This
+last statement is qualitative: none of ε, δ, λ_1 is computed here, in either class (amended R3.0 (c4)). (c) α_1 and β of
 C2 must avoid Re π_1 ℰ_0^½: finitely many more points, removed by lowering η slightly, as C2 already does.
 
-**Theorem R2.4 (Theorem 4 in the half class; deduced, conditional on Part IV exactly as Part VII's Theorem 0.2).**
+**Theorem R2.4 (Theorem 4 in the half class; deduced, conditional on Part IV exactly as Part VII's Theorem 0.2; the
+condition is on statements the record lists as proved, R3.1).**
 Part VII Theorem 0.2 (PART-VII-ASSEMBLY.md:69-100), and Proposition 3.2 (373-375), hold with (0.1) replaced by
 ℰ_0 := ℰ_0^½, ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off row d2's exclusion sets, which are the same sets as for ℰ_0^ℤ
 (π_1ℰ^C_I and 3/2 + σ_Υ unchanged). *The rate is unchanged:* g − g_(m′,0) = O(t_*^(−2−ε_t)) on {r_0 ≤ r ≤ R′,
 t_* ≥ T′} for every ε_t < ε_K, with α ∈ (4 + ε_t, 4 + ε_K]. *The weights:* ℓ_I ∈ (3, ℓ0) ⊂ (3, 7/2) when ℓ0 < 7/2
-(the case g_λ's data need, R2.3 below); ε_K < ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3) as in row w1, and since
+(the case round 2 took for g_λ's data, Lemma R2.8 in section R2.3; round 3 widens it to ℓ0 ∈ (3, 4) ∖ {7/2}, R3.4); ε_K < ε_+ < min(δ_♯, ε_ind, ¼, ℓ_I − 3) as in row w1, and since
 "$<3\times10^{-6}$ at the record's parameter point" (PART-VI4-PARAMS.md:38) bounds ε_ind, the constraint ℓ_I − 3 binds
 only for ℓ_I < 3 + ε_ind, which is avoidable: **ε_K's admissible range is unchanged.** What changes: ε, d_1, δ, λ_1
 (through (a)-(b) above), none evaluated, as in round 1. *Proof.* ℰ_0 reaches the rest only through row d1, III.C′
 Theorem 3.1 (whose ℰ^C_I is unchanged, Proposition R2.2), Step 1's count, III.C″ Proposition 4.1 (any ℰ_0 with
-min Re > 0 and closed under sums, PART-III-C3-BOOSTDATA.md:162-163) and the norm (READ BEYOND5.md:237-239 for the list;
-not re-derived). ∎
+min Re > 0 and closed under sums, PART-III-C3-BOOSTDATA.md:162-163) and the norm. [Amended R3.0 (c4): round 2 cited
+BEYOND5.md:237-239 for this list, which names neither Step 1's count nor III.C″ Proposition 4.1. The statements generic
+in ℰ_0 that carry it are III.C′ Theorem 3.1 under row d1, III.C″ Theorem 3.1 (2) and Proposition 4.1
+(PART-III-C3-BOOSTDATA.md:91-100, 162-171), Part IV‴ Corollary 2.3 (PART-IV4-SLAB.md:148-151), Part VIII Lemma 1.1
+(PART-VIII-LINEAR.md:66-72), and Step 1's count (H6a, computed).] ∎
 
 ### R2.2 R2: the nonlinear scattering problem on W
 
