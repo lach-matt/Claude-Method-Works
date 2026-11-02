@@ -1040,30 +1040,31 @@ every such h, by the point's line-crossing certificate with h as a second parame
 own threshold is not explicit — "there exists e₀ = e₀(v) in (0, 1) such that for all e in (0, e₀), there exists h₀ > 0
 such that for all h in (0, h₀)" ([Hin26a] Theorem 4.9, p. 37) — this removes the proviso that the point lie below it:
 every other conclusion drawn at the point inherits from this, is free of h, improves as h falls, or, like simplicity,
-fails at most on a countable set of h (the 62 lines of the supplement's section 10 that draw a conclusion at the point
-each placed in one of these classes, `docket68/n1star/checks/census9.py` C23; the last two classes computed:
-`docket68/n1star/checks/hclass5.py` — the quantities proportional to 1/h are positive at the record's signs and grow as h
-falls on (0, 10⁻⁶], and simplicity and the integer values are, for each l ≤ 20 and integer up to 52, nonvanishing
-polynomials in h with no root in (0, 10⁻⁶]; `docket68/n1star/checks/re813.py` — the distance condition (8.13) holds off a
-countable set of h but not at every h: at l = 1000 and h = 6.6526 × 10⁻⁷ two indicial roots are 2 ± 3.683 i, of integer
-real part, and for each l and each integer n with |n| ≤ 50 the h at which a non-real root has real part n are roots of a
-resultant that is a nonzero polynomial in h; exact), and the horizon threshold holds for small h by the sign of the
-damping. And the transfer from the Minkowski model is computed: five-dimensional Tangherlini is exactly η + (μ/r²) k ⊗ k
-with k = dt + dr null, its connection two orders below Minkowski's, so that every operator of the route differs from its
-model in ρ⁴ Diff_b against the model's ρ² Diff_b, one order better than four dimensions (`transfer5.py`; exact). READ at
-source, with the substitutions they imply deduced: [Hin26c]'s section 9 is set in general dimension (its Definitions
-9.3–9.4; its Theorem 9.38, Corollary 9.39 and Proposition 9.40 carry n), every three-dimensional numeral in it and in its
-sections 5–13 comes from (5.7)'s (n − 1)/2 or from a density, and bundles are, in its words, "purely notational" (p.
-158); [Hin26a]'s section 5.2 takes from the metric only symbol data, all computed here in five dimensions; [Hin23a]'s
-exterior estimates are needed only near a piece of null infinity for compactly supported data, its radiation couplings
-falling half an order at the five-dimensional radiative order r^(−3/2); [Hin26]'s Proposition 2.25 is stated on Rⁿ; and
-[CD03]'s gluing is independent of the dimension. Deduced: the kernel elements' class (its decay at infinity 3/2 + S̄ for
-his 1 + S̄, computed, `docket68/n1star/checks/support8c.py` K2); and the uniqueness inside the horizon, with the
-continuation there that Hintz's mode stability argument needs, by a lemma on the radial systems' simple zero at r_h
-proved in supplement section 10.76 (the Frobenius exponents at r_h computed, 0 with the damping's negative ones, so the
-solutions smooth there are the exponent-0 family, K1); the resonances at timelike infinity between 5/2 and 3 + ε_+, whose
-locations the bookkeeping of section 8.4 does not need (scanned for l ≤ 1200, 10⁴ and 10⁵: none in (3, 3 + ε_+] for any
-admissible ε_+, the nearest 3 + 2.932 × 10⁻⁶, K3); and the gluing of section 8.7.
+fails at most on a countable set of h (the 68 lines of the supplement's section 10 that draw a conclusion at the point,
+named by its value, each placed in one of these classes by the class's own text, `docket68/n1star/checks/census9.py` C23;
+the last two classes computed: `docket68/n1star/checks/hclass5.py` — the quantities proportional to 1/h are positive at
+the record's signs and grow as h falls on (0, 10⁻⁶], and simplicity and the integer values are, for each l ≤ 20 and
+integer up to 52, nonvanishing polynomials in h with no root in (0, 10⁻⁶]; `docket68/n1star/checks/re813.py` — the
+distance condition (8.13) holds off a countable set of h but not at every h: at l = 1000 and h = 6.6526 × 10⁻⁷ two
+indicial roots are 2 ± 3.683 i, of integer real part, and for each l and each integer n with |n| ≤ 50 the h at which a
+non-real root has real part n are roots of a resultant that is a nonzero polynomial in h; exact), and the horizon
+threshold holds for small h by the sign of the damping. And the transfer from the Minkowski model is computed:
+five-dimensional Tangherlini is exactly η + (μ/r²) k ⊗ k with k = dt + dr null, its connection two orders below
+Minkowski's, so that every operator of the route differs from its model in ρ⁴ Diff_b against the model's ρ² Diff_b, one
+order better than four dimensions (`transfer5.py`; exact). READ at source, with the substitutions they imply deduced:
+[Hin26c]'s section 9 is set in general dimension (its Definitions 9.3–9.4; its Theorem 9.38, Corollary 9.39 and
+Proposition 9.40 carry n), every three-dimensional numeral in it and in its sections 5–13 comes from (5.7)'s (n − 1)/2 or
+from a density, and bundles are, in its words, "purely notational" (p. 158); [Hin26a]'s section 5.2 takes from the metric
+only symbol data, all computed here in five dimensions; [Hin23a]'s exterior estimates are needed only near a piece of
+null infinity for compactly supported data, its radiation couplings falling half an order at the five-dimensional
+radiative order r^(−3/2); [Hin26]'s Proposition 2.25 is stated on Rⁿ; and [CD03]'s gluing is independent of the
+dimension. Deduced: the kernel elements' class (its decay at infinity 3/2 + S̄ for his 1 + S̄, computed,
+`docket68/n1star/checks/support8c.py` K2); and the uniqueness inside the horizon, with the continuation there that
+Hintz's mode stability argument needs, by a lemma on the radial systems' simple zero at r_h proved in supplement section
+10.76 (the Frobenius exponents at r_h computed, 0 with the damping's negative ones, so the solutions smooth there are the
+exponent-0 family, K1); the resonances at timelike infinity between 5/2 and 3 + ε_+, whose locations the bookkeeping of
+section 8.4 does not need (scanned for l ≤ 1200, 10⁴ and 10⁵: none in (3, 3 + ε_+] for any admissible ε_+, the nearest 3
++ 2.932 × 10⁻⁶, K3); and the gluing of section 8.7.
 
 ### 8.6 Without the class
 
@@ -2229,12 +2230,14 @@ Programs behind section 9, in `docket68/n1star/`:
   record's lemma on the domain for the two-dust background; `checks/r0census5.py`: every line of Parts III–VII naming the
   inner radius, with its class (323 lines, 121 of them using only that the boundary is spacelike; `BEYOND5-R0.tsv`). Each
   with its control. A few seconds each, `twodomain5.py` under a minute.
-- `checks/census9.py` C23, C29, C27: section 8.5's and section 9's censuses. C23, the 62 lines of the supplement's
-  section 10 that draw a conclusion at the parameter point, each placed in one of 10.54's classes (a 11, b 13, c 9, d 8,
-  e 5, b by its opening sentence 8, outside the classification 8), none unlisted; C29, `LOSS-D.md`'s six losses each with
-  its closed form, its nine weights each with its inequality, its three loop counts; C27, the lowered inner boundary of
-  `BEYOND5.md` spacelike, g^rr = f(r_0) ≤ −3 for every final mass, exactly. Controls: a planted unlisted conclusion; a
-  planted seventh loss; r_0 = 2 r_h. A few seconds.
+- `checks/census9.py` C23, C29, C27: section 8.5's and section 9's censuses. C23, the 78 lines of the supplement's
+  section 10 that name the parameter point by its value (γ_C = 10⁶, h = 10⁻⁶, or the tuple (1/2, 1/102400, …)), each
+  placed in one of 10.54's classes, the anchor standing in the class's own text (a 16, twelve of them through its
+  setting's list; b 15; b by its opening sentence 8; c 16; d 8; e 5; outside the classification 10), none unlisted; lines
+  naming the point another way are outside the pattern; C29, `LOSS-D.md`'s six losses each with its closed form, its nine
+  weights each with its inequality, its three loop counts; C27, the lowered inner boundary of `BEYOND5.md` spacelike,
+  g^rr = f(r_0) ≤ −3 for every final mass, exactly. Controls: a planted unlisted conclusion; a planted seventh loss; r_0
+  = 2 r_h. A few seconds.
 - `checks/support5c.py` C11–C13: section 5's remaining steps. C11, |w|_7 ≤ C 𝒩 as an exponent ledger: each derivative of
   [∂_θ g1] costs λ⁻¹ (computed), and every one of the 128 Leibniz terms of w = h + φ[∂_θ g1] is covered by (5.4)'s
   weights with λ-exponent ≥ 0; C12, the first-order reduction in the Z-coordinates at random admissible rational points,
@@ -2255,7 +2258,8 @@ Programs behind section 9, in `docket68/n1star/`:
   and 8 odd (translations, boosts); M2, supplement 10.50 (b)–(d)'s inequalities; M3, a bump of amplitude R⁻³ costs
   R^(ℓ0−3) in the norm's b-density; M4, `proof5/PART-VI4-PARAMS.md`'s 18 rows order without a cycle and Theorem 2.1's
   steps follow; M5, the counts 248 = 90 + 29 + 31 + 38 + 60, 61, 57/4, 45/16, 34 from the inventories. Controls: x1 ↦
-  −x1; T ≤ r_q(μ_end) − a; weight r^(−ℓ0−1); a planted cycle; a planted row. Exact; a few seconds.
+  −x1; T ≤ r_q(μ_end) − a; the literal reading, amplitude R⁻¹, whose cost R^(ℓ0−1) must not pass as R^(ℓ0−3); a planted
+  cycle; a planted row. Exact; a few seconds.
 - `checks/support3.py` D1–D4: section 3's steps. D1, √μ − r_q = μ^(1/4)(μ^(1/4) − (√72 l5²)^(1/4)), increasing for μ >
   √72 l5²/16; D2, the phase mean of ∂_θ g1 is 0 and that of its g0-norm squared (4/3) A² env² r⁻³ (χ drops out, g0^vv =
   0), with ∫ψ[∂_θ g1] → 0 by quadrature (floating point); D3, the six so(4) generators Killing and both reflections
@@ -2758,17 +2762,17 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/data5two.out` | `9d628d9645dff8a0ca17f68cf349937b` |
 | `docket68/n1star/checks/csolve5.py` | `96cb26fe819c4ef67f87b6e7705175ca` |
 | `docket68/n1star/checks/csolve5.out` | `01d62ffee616675b0e90773eed0d70a4` |
-| `docket68/n1star/checks/eindcert5.py` | `55fb80b4fed266384154ae736d844251` |
+| `docket68/n1star/checks/eindcert5.py` | `8d77fd0d316a9db49b6f16d5fa578b67` |
 | `docket68/n1star/checks/eindcert5.out` | `f09e6bfc454413da6a5b568636c0fea2` |
-| `docket68/n1star/checks/kirecon5.py` | `442f260af3a0c20cc460acb240139b7b` |
+| `docket68/n1star/checks/kirecon5.py` | `1ee4325b5c8c0594e7f535c60793acf9` |
 | `docket68/n1star/checks/kirecon5.out` | `32adeaa42985094794fde34fb95b27fe` |
 | `docket68/n1star/checks/mpdata5.py` | `681c8b0f36027724f1146945decd6efe` |
 | `docket68/n1star/checks/mpdata5.out` | `2095b2cfc3584b322e8603301cbb815f` |
 | `docket68/n1star/checks/flux5.py` | `a07d563b85624f31979317b22c671e84` |
 | `docket68/n1star/checks/flux5.out` | `2764f0c5d211c1470b1fa0a03fd49dad` |
-| `docket68/n1star/checks/vii5census.py` | `d9152582f3102a0f947204dd0f37ba02` |
-| `docket68/n1star/checks/vii5census.out` | `b26504f571d545408b063dfb8648c0eb` |
-| `docket68/n1star/checks/hclass5.py` | `0453ab3a0b83d3d3cf4a8488c221681e` |
+| `docket68/n1star/checks/vii5census.py` | `72bd25c139eb7fd1d50047e54081300d` |
+| `docket68/n1star/checks/vii5census.out` | `0c0af2356bbe42ee7dc272dadc492969` |
+| `docket68/n1star/checks/hclass5.py` | `8ad8a55f77406eb4a4d0e481fb1fe85c` |
 | `docket68/n1star/checks/hclass5.out` | `761509082809bc9a23fb1b876f3b0b0f` |
 | `docket68/n1star/checks/support9.py` | `617014162b849cf055ed4ca7d196141a` |
 | `docket68/n1star/checks/support9.out` | `552a1eaac629af5e1b5db1d68ac64be7` |
@@ -2783,11 +2787,11 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
 | `docket68/n1star/checks/stage5.py` | `6a4c9142921b6e72f749522f093b2bad` |
 | `docket68/n1star/checks/stage5.out` | `f5f85af8c080b0ccfd162ad58c60f211` |
-| `docket68/n1star/checks/excise5.py` | `bb0ade5fbf715861b389f4c1541dab69` |
-| `docket68/n1star/checks/excise5.out` | `5f13445739481d764ef99544f9e03fde` |
+| `docket68/n1star/checks/excise5.py` | `dfa3d996d7acf9d79ea2de1fef1a6f08` |
+| `docket68/n1star/checks/excise5.out` | `8cc3d5d8a5fea8a901bf010c6bc0ff26` |
 | `docket68/n1star/checks/gauge5.py` | `c2754b735462075545cfc637ec9b5ce8` |
 | `docket68/n1star/checks/gauge5.out` | `1900c7e4a3072ac9fce2230d0ba001e0` |
-| `docket68/n1star/checks/support8c.py` | `8178c350c227f17d344f7bb509bd9249` |
+| `docket68/n1star/checks/support8c.py` | `f79e1f948f8b06bd5595a3e01facdfb2` |
 | `docket68/n1star/checks/support8c.out` | `1cad614d5707093dea720c5779647754` |
 | `docket68/n1star/checks/level2loop5.py` | `0f30611bc4ab8b842ed10524032f012d` |
 | `docket68/n1star/checks/lambdacount5.py` | `9bf52dfa6ebad7e688399b2bfaa79668` |
@@ -2796,20 +2800,20 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/twodomain5.out` | `c0b6bf5ba5ce15583d0590d79398af0f` |
 | `docket68/n1star/checks/r0census5.py` | `929105da47fc44cd9c31a5d47a76866a` |
 | `docket68/n1star/BEYOND5-R0.tsv` | `11b1d5a98db3a2f9dab96eef6a813a21` |
-| `docket68/n1star/checks/census9.py` | `a26b681b701b73160b4c4dda99a16542` |
-| `docket68/n1star/checks/census9.out` | `6b74a0145a51221e8cdd16d5d1057f6e` |
+| `docket68/n1star/checks/census9.py` | `2df668cb63c0e15be15e346af3187d6d` |
+| `docket68/n1star/checks/census9.out` | `9ba93588dbc0dfa50fb6f3a0bf920a3f` |
 | `docket68/n1star/checks/support5c.py` | `f3f131731c372576a3b83eff313e5820` |
 | `docket68/n1star/checks/support5c.out` | `4ca721c80bc0fca7d13fce0f9d913c1e` |
-| `docket68/n1star/checks/ledger5.py` | `de4639928eefc1249cd8cb80b7cb72c2` |
+| `docket68/n1star/checks/ledger5.py` | `457f7834c9a7341f193b6ca05c676cbf` |
 | `docket68/n1star/checks/ledger5.out` | `ebeebba20e8ad1af2afbe1f72271a2c1` |
-| `docket68/n1star/checks/support8b.py` | `55c304a547e01b25d6e281e748e2b861` |
-| `docket68/n1star/checks/support8b.out` | `ae9b2c7f2aabe87ec0e2c4a30e23077c` |
+| `docket68/n1star/checks/support8b.py` | `04a01a972f84fd709e6ac0c67c1a9224` |
+| `docket68/n1star/checks/support8b.out` | `31f257595fe1ad9b21b656aa35d0755b` |
 | `docket68/n1star/checks/support3.py` | `ccb757a7004d3f01394df42509d0ac0b` |
 | `docket68/n1star/checks/support3.out` | `942b4bbb050bc43215891c1bd8b8b36d` |
 | `docket68/n1star/checks/support5b.py` | `138607d30937efd6098e1305a9621cf2` |
 | `docket68/n1star/checks/support5b.out` | `75905d3feccf03e6faa6bd60bdcc6743` |
-| `docket68/n1star/checks/re813.py` | `158aefd65dc34dbe3e4e5d514ea2e04d` |
-| `docket68/n1star/checks/re813.out` | `2db9b1419248d6afdb0377b94494d6c5` |
+| `docket68/n1star/checks/re813.py` | `3d6ee947bc9ff7c99ec8ec908866555d` |
+| `docket68/n1star/checks/re813.out` | `b46caeed4bdb7c0e9bcf6ccc8cacefd7` |
 | `docket68/lemmas/hf_mirror5.py` | `bbe7d6df6092609ee3c420f97b1dd733` |
 | `docket68/lemmas/data/hf_core5_runs.json` | `3e360c45bc4436c2e9012b9f88f7e1ed` |
 | `docket68/n1star/data/growth5_runs.json` | `c351486fa869bcb1864a637a6fe5cd0b` |
