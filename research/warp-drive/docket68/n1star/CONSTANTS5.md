@@ -948,7 +948,7 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
 - *What a value needs, and how far the stages went* (deduced; none solved). lambda0 is a minimum of the nine terms
   (R3.2's trace, 37 rows); each further term can only lower the bound, and a value needs lower bounds for all of them.
   Stage 0's profiles are certified to order 14 (round 2, `stage0bd5.py`). Stage 1 is Lemma 5.3 (a)-(c)
-  (N1STAR-PROOF.md:516-536): a wave equation for m_1 coupled to transports for phi_1, Psi_1 and Z. Its source is
+  (N1STAR-PROOF.md:521-539): a wave equation for m_1 coupled to transports for phi_1, Psi_1 and Z. Its source is
   explicit (`stage5.out` S2), but its lower-order coefficients B-bar, C-bar are not extracted by any instrument
   (`stage5.py` S1 checks the structure only), its data are Lemma 6.2's, and a certified a priori bound needs Lemma
   2.3's constant C(M1) at gt within 0.0307686 of g0, which is not written out. Interval arithmetic (Arb) cannot start
@@ -1070,7 +1070,7 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
 
 ### R4.7 Sources (round 4)
 
-N1STAR-PROOF.md:87-92, 101-126, 152-186, 222-233, 355-408, 516-536, 548, 699-802 (D614 numbering); proof5:
+N1STAR-PROOF.md:87-92, 101-126, 152-186, 222-233, 355-408, 521-539, 548, 699-802 (D614 numbering); proof5:
 PART-III-G2-IOTA.md:17-60, 205-240, 421-470; PART-III-G-SPECTRAL.md:60-135, 299-330, 890-930; PART-III-I11-SPACETIME.md:
 60-110, 330-345; PART-III-I12-SPECTRAL.md:236-256, 380-402; PART-III-A-PREREQ.md:176-182, 658; PART-III-F4-ZERO.md:
 20-35, 60-84; PART-III-D3-SYMSTATES.md:36-48; PART-III-D4-GENSTATES.md:50-60, 109-130; PART-III-I5-UNBOOST.md:185-195;
