@@ -473,7 +473,8 @@ def b3(control=False):
     zrec = zero(sp.diff(Zrec, x) + sp.Rational(1, 2)*(2/(1 + x**2)))
     coef = [sp.simplify(sp.Rational(2*k + 1, 2)*sp.integrate(Zrec*sp.legendre(k, x), (x, -1, 1))) for k in range(8)]
     print("  B3 (ii): S3's source = -(4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth, Z(x) = -(1/2) int_0^x h(y^2)^2: %s;"
-          " Z odd for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients k = 0..7: %s"
+          " Z odd for every h: %s;\n      record's H (h^2 = 2/(1 + x^2), Z = -atan x: %s): Legendre coefficients"
+          " k = 0..7: %s"
           % (rep, zodd, zrec, coef), flush=True)
     ii = rep and zodd and zrec and all(coef[k] == 0 for k in range(0, 8, 2)) and all(coef[k] != 0 for k in (1, 3, 5))
     # (iii) k = 1, constant h: the solution with no radiation at past null infinity, order by order in 1/r
@@ -494,7 +495,7 @@ def b3(control=False):
     print("  B3 (iv): the m1-linear part of <R^(1)[g0 + lam (W + m1)]> (W, chi of S3), generic m1 in the eight"
           " components:\n      %d coefficients (target component, m1 component, derivative); sigma-equivariant"
           " coefficient by coefficient: %s [%.0fs]" % (Lb, iv, time.time() - t0), flush=True)
-    return closed and par[1] and par[3] and not par[2] and ii and iii and iv
+    return closed and all(par.values()) and ii and iii and iv
 
 
 A2E2 = L.A**2*L.Ef**2

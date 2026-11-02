@@ -189,6 +189,13 @@ The R0 = 20 column is read off the per-column table in section 4; the .out has t
   in the double-null rebuild, whose R0 = 10 dip is the deeper one (see S4).
 - The excision radius 0.54 itself is not reached before the cut at these grids. Over r ≥ 0.54 `growth5`'s first
   zero-less column is at v = 1.4355.
+- *Seed 2 (400 × 180, M = 16).* The rebuilt outer zero agrees with `growth5`'s deep run L1000_lam0.3162_20x16_d0_y2.2
+  to 0.003, 0.007, 0.012, 0.020, 0.022 and 0.026 at v = 1.0, 1.2, 1.3, 1.4, 1.45 and 1.5.
+  - But there S4's control passes: the leaves' expansion is within 0.069. Before v = 1.5 the tilt is too small at
+    seed 2 to separate the two, so S4 is not informative there and is recorded as FAIL.
+  - Columns with more than one zero of θ (r ≥ r_min ≈ 0.59–0.63) first appear at v = 1.575: 2 of 32 there, 5 at 1.60
+    and 7 at 1.625, with inner zeros at r = 0.63–0.79. `growth5`'s second zero at seed 2 is from v = 1.583, at its
+    excision radius 0.30, which the rebuild does not reach.
 
 ### 1.5 `growth5` cannot be refined in angle at its own step (computed, `checks/g5angle5.py` A1–A2)
 

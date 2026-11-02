@@ -119,7 +119,7 @@ e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which gives R ≥ r_q(μ) ≥ q0 when 𝒜�
 shell 𝒜 = 3.6 b(v; 3, 4.5) on N (b a C^∞ bump); seed μ0 = 0.82211; outer mass after the shell 3.6058. At n = 40, 80,
 160: structure, mass bound, trapped R = a, past-closedness as above; the diamond lies at R ≥ 2.59 and is untrapped; on
 Σ_τ0 (τ0 = −a + 0.02) the packet lies at R ∈ [1.861, 3.431] between the seed's horizon 0.907 and the shell's inner edge
-3.68, which meets the record's rule. The rectangle stops at v = 5: inside the hole the double-null grid thins
+3.825, which meets the record's rule. The rectangle stops at v = 5: inside the hole the double-null grid thins
 exponentially (FAMILIES5.md 4i, D3), and there the background is the explicit ingoing Vaidya of region III (a).
 
 **What this settles.** FAMILIES5.md left open the background on the whole domain (D561: "Open: the cones' data, that is,
