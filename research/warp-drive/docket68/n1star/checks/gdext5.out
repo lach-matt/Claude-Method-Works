@@ -5,3 +5,17 @@ E1 PASS
   E2: d_t = rho_0 X_0 + (-rho_0) X_I, d_r = (-rho_0) X_0 + (-rho_0*(rho_I - 1)) X_I: True; every coupling coefficient after rho_I rho^-2 and the conjugation lies in rho_0^2 rho_I^2 C^oo: {'d_t -> X_0': True, 'd_t -> X_I': True, 'd_r -> X_0': True, 'd_r -> X_I': True, 'r^-1 d_omega -> x_I d_omega': True, 'conjugation (3/2) d_r log rho': True, 'zeroth order, degree -4': True}
   E2 control (degree -1 coefficient): the coefficients lie in rho_0^2 rho_I^2 C^oo: False; that of X_0 from d_t is 1, order 0 at I+ and I_0
 E2 PASS
+  E3 (conjugation by rho^(3/2)): radial limit = 2*lambda*(-a + lambda), equal to -2 lam (a - lam): True; full 1-form Box, components dt and dx^1 at a = 1/3, lam = 1/5, mu = 1, omega = (1,2,2,4)/5, diagonal -2 lam (a - lam), off-diagonal 0: True
+  E3 control (conjugation by rho): radial limit = Piecewise((nan, Eq(2*a*lambda - a - 2*lambda**2 + lambda, 0)), (oo*(-a*lambda + a + lambda**2 - lambda)/Abs(2*a*lambda - a - 2*lambda**2 + lambda), True)), equal to -2 lam (a - lam): False; full 1-form Box, components dt and dx^1 at a = 1/3, lam = 1/5, mu = 1, omega = (1,2,2,4)/5, diagonal -2 lam (a - lam), off-diagonal 0: True
+E3 PASS
+  E4: rho^(-2-alpha) Box_0(rho^alpha v(tau)) at rho = 0 = -alpha**2*v - 2*alpha*tau*v' + 2*alpha*v - tau**2*v'' + tau*v' + v''; v'' coefficient 1 - tau^2, independent of alpha: True
+  E4 control: rho^-2 (3 a r^-2) at I_0 = 3 a (nonzero: the polar component is not scalar at I_0)
+E4 PASS
+  E5: the slot form 4(0 - a_I)|Y|^2 + 4 kappa(a_0 - a_I)|Z|^2 and the angular coefficient are positive at every sample (a_I, a_0) = [('-1/3', '1/2'), ('-1/10', '-1/20'), ('-3/4', '-1/2'), ('-1/2', '2')]: True
+  E5 control: the slot form 4(0 - a_I)|Y|^2 + 4 kappa(a_0 - a_I)|Z|^2 and the angular coefficient are positive at every sample (a_I, a_0) = [('0', '1/2'), ('-1/2', '-1/2')]: False
+E5 PASS
+  E6: at 60 samples (gam, e, beta), beta in (0, delta_#): the interval (beta - 1, min(a_0, 0)) is non-empty and p = 3/2 + a_I > 1/2 + beta: True; with l_0^flat for beta < delta_#/2: True
+  E6 control (i) (l_0^flat, beta >= delta_#/2): the interval is non-empty at some sample: False
+  E6 control (ii) (no factor |x|^-1 in c_Ups): the interval is non-empty at some sample: False
+E6 PASS
+EXIT 0
