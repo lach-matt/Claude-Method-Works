@@ -4,3 +4,9 @@ B1 PASS
   B2 (i) upper layer, every K in [6, 40] at sigma_K: True; (ii) windows at p = 31/10 and 50 (K = 6): True; (iii) band,
       every K in [10, 40]: True; at K = 9: {'b1 lam^4 eps': True, 'b2 lam eps^2': True, 'b3 w': False}
 B2 PASS
+  B3 lam = 1e-1000: x_b = 1.0e-500, x_deep = 5.753e-19, level lam^3.1 at x = 0.0001401, x_top = 0.0008697; K = 10 covers
+      [x_deep, x_top]: True (first W, B, S at 5.753e-19, 0.0001357, 0.0001451); K = 6 covers it: False; lam = 1e-3000:
+      x_b = 1.0e-1500, x_deep = 2.114e-56, level lam^3.1 at x = 4.67e-5, x_top = 0.0002897; K = 10 covers [x_deep,
+      x_top]: True (first W, B, S at 2.114e-56, 4.713e-5, 4.832e-5); K = 6 covers it: False
+B3 PASS
+layerband5: all checks pass, every control fails
