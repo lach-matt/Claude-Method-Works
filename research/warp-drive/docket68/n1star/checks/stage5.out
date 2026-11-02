@@ -1,0 +1,3 @@
+  S1: (5.2) e1, e2 as printed: True; no order below lam^0: True; R^(0) = R_v^(0)[W] - (1/2) e1 d_s^2 W: True;
+      in R^(1): g3 absent: True; m2, phi2 only in -(1/2) e2 d_s^2 W: True; g2 only as -(ell.d) d_s g2 - (1/2) e1 d_s^2 g2 + (no X-derivative, one d_s): True;
+      second derivatives of m1 only in -(1/2) box~ m1: True; of phi1 only in -(1/2)(box~ phi1) d_s W: True; quadratic part = (1/2) q2 d_s^2 W: True [973s]
