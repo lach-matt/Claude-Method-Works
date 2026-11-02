@@ -24,8 +24,8 @@ in Cartesian components; Z := (t - v1) d_t + x.d_x, acting on components (the di
      Omega_ij h with coefficients bounded by 1 + 4/r on W, where |t - v1| <= r (W lies in {v >= v1, t <= v1}).
      Control: with |t - v1| > r (outside W) the coefficient of d d_t h is unbounded along t -> -oo at fixed r.
   Z5 (exact; an explicit h(t, r), f generic) on S = {t = f(r)}: r d/dr (h|_S) = (Z h)|_S + (v1 - f + r f')
-     (d_t h)|_S, so the b-derivative rho d_rho = -r d/dr of the data on S is a combination of the restrictions of Z h and d_t h with a coefficient smooth in
-     rho (f' in |x|^-2 C^oo, Part VII 162-177). Control: r d_r h alone is not (Z h)|_S.
+     (d_t h)|_S, so the b-derivative rho d_rho = -r d/dr of the data on S is a combination of the restrictions
+     of Z h and d_t h with a coefficient smooth in rho (f' in |x|^-2 C^oo, Part VII 162-177). Control: r d_r h alone is not (Z h)|_S.
   Z6 (exact) on N = {v = v1}: Z(v - v1) = v - v1, so Z is tangent to N, Z = r (d_r - d_t) there, and Z^j of a
      datum r^-q F(xhat) + (ell-gaining remainder) keeps the order r^-q (Z(r^-q F) = -q r^-q F). Control: d_t is
      transverse to N (d_t v = 1).
