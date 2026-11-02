@@ -29,3 +29,11 @@ U2  interpolation
   U2a the split flux tends to 0 exactly in the sampled cases with K - 4 > a s, and not in the two with K - 4 <= a s (K = 24, 16: the control): pass 
   U2b control: the lam-uniform bound alone gives an infinite flux at a = 1/10: pass 
 U3  the linear model: iterated integrals of an oscillating radiation field
+     lam = 0.12500: sup|I_j|/lam^(j+1) = [0.4213, 1.2504, 14.9226], lam sup|F'|/sup|F| = 1.0108, control sup|int lam env|/lam^2 = 5.33
+     lam = 0.06250: sup|I_j|/lam^(j+1) = [0.3846, 0.9251, 19.9975], lam sup|F'|/sup|F| = 1.0011, control sup|int lam env|/lam^2 = 10.66
+     lam = 0.03125: sup|I_j|/lam^(j+1) = [0.3706, 0.501, 11.6295], lam sup|F'|/sup|F| = 0.9995, control sup|int lam env|/lam^2 = 21.31
+     lam = 0.01562: sup|I_j|/lam^(j+1) = [0.3679, 0.3842, 3.1226], lam sup|F'|/sup|F| = 1.0000, control sup|int lam env|/lam^2 = 42.62
+  U3a sup|I_j| <= C lam^(j+1): the ratios stay below 25 and do not grow from lam = 1/8 to 1/64: pass largest 19.997, growth 0.873
+  U3b each d_v costs lam^-1: lam sup|F'|/sup|F| -> 1: pass 
+  U3c control: non-oscillating F = lam env: sup|I_1|/lam^2 doubles as lam halves: pass [5.33, 10.66, 21.31, 42.62]
+FAILED: none

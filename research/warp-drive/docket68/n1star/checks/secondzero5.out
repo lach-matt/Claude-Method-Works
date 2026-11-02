@@ -269,3 +269,24 @@ secondzero5: all checks pass
          r_AH ranges 0.739-1.166 and 0.759-1.158
   S4 (reported) outer zero against growth5 (L100_lam1_28x16_d0_y1.6): max 0.051 (round 1's 0.1: within);
      control (leaf expansion, tilt ignored) max 0.224 fails (good)
+  S5 (reported) per Bondi column, zeros of theta on [r_min, 1.6]:
+     v = 1.300 r_min 0.550: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -2.745; on r_core n/a
+     v = 1.350 r_min 0.580: columns with 0 / 1 / 2+ zeros: 0 / 32 / 0; inner zeros at r = [];
+        max theta on r_min -0.951; on r_core n/a
+     v = 1.400 r_min 0.623: columns with 0 / 1 / 2+ zeros: 0 / 31 / 1; inner zeros at r = [0.623];
+        max theta on r_min -0.074; on r_core n/a
+     v = 1.425 r_min 0.652: columns with 0 / 1 / 2+ zeros: 4 / 27 / 1; inner zeros at r = [0.768];
+        max theta on r_min 0.497; on r_core n/a
+     v = 1.450 r_min 0.667: columns with 0 / 1 / 2+ zeros: 7 / 25 / 0; inner zeros at r = [];
+        max theta on r_min 0.856; on r_core n/a
+     v = 1.475 r_min 0.696: columns with 0 / 1 / 2+ zeros: 8 / 24 / 0; inner zeros at r = [];
+        max theta on r_min 1.350; on r_core n/a
+     v = 1.500 r_min 0.710: columns with 0 / 1 / 2+ zeros: 10 / 22 / 0; inner zeros at r = [];
+        max theta on r_min 1.656; on r_core n/a
+     v = 1.525 r_min 0.739: columns with 0 / 1 / 2+ zeros: 12 / 20 / 0; inner zeros at r = [];
+        max theta on r_min 1.883; on r_core n/a
+     v = 1.550 r_min 0.768: columns with 0 / 1 / 2+ zeros: 13 / 19 / 0; inner zeros at r = [];
+        max theta on r_min 2.096; on r_core n/a
+secondzero5: all checks pass
+# python3 checks/secondzero5.py RUNDIR s2_M16_400 s2_M16_800
