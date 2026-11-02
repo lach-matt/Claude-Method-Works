@@ -5,3 +5,9 @@ T1 PASS
   T2 control (c_Ups = dt): Box^Ups(phi(t_*) U), U of spatial order q (symbolic): (coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite for every q): [('A1', False), ('A2', True)]
 T2 PASS
   T3: each condition is a positive sum on the whole box: {'K4 h iota+': True, 'K4 h K+': True, 'K4 rows iota+': True, 'S2 pi_1/ - lam': True, 'S4 b_I < 3/2': True, 'S4 b_+ < b_I': True, 'S4 I+': True, 'S4 iota+': True, 'S4 K+': True, 'S7 p > b_I': True}
+  T3 control (eta = d - beta): K4 h iota+ is positive on the box: False (it is 0)
+T3 PASS
+  T4: W**_H's components at r = 2 r_h (V^flat is stationary and drops out), v^-1 times them -> [1/(8*s**2), -1/(12*s**2)]: grow linearly, no K+-order: True
+  T4 control (W*): components at r = 2 r_h bounded in v: True; v^-1 times them -> [0, 0]
+T4 PASS
+  T5: Theta(r^-2 dv^2) = [-1/r**3, 0]: stationary True, nonzero True: K+-order 0, below the 1/2 of (1.4): True

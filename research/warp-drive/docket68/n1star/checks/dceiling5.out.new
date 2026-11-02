@@ -3,3 +3,14 @@
       delta_1 (3.3333e-07); 3 + delta'_1 (6.0000e-07); 3 + delta_2 (2.6667e-07); 4 + delta'_2 (3.8095e-07); 4 + delta_3
       (2.1429e-07); 5 + delta'_3 (2.7778e-07); 5 + delta_4 (1.7778e-07); 6 + delta'_4 (2.1818e-07); 6 + delta_5
       (1.5152e-07); integer roots in (0, 7): [3, 4, 5, 6]; every offset in (0, 1.4e-6): True; delta_1 = d1: True
+  D3: widest reading, increments d0 and d1: least 2 + n0 d0 + n1 d1 above 3 is 3 + [4.679010e-13, 4.679010e-13] at (n0,
+      n1) = (350001, 1599998), 4.15e+04 times below delta_50 (certified): (G) forces eps_K < 4.6790e-13 and K > 2/eps_K >
+      4.274e+12; at that eps_K the floor of W3 scales to about 3.4e+20 (estimate)
+  C3 (control): the same search with d0 removed (construction reading): 3 + 5.0191e-08 > delta_50: D3's conclusion fails
+      for it: True
+  D4: construction reading: n_0 = |Lambda cap {Re < 2}| = 1470302; P_iota = |Lambda cap [2, 3 + eps_+ - eps]| = 85025784;
+      P_W = |Lambda cap W| = 85025783 (round 2's container: True); n_W = 1470303
+      S_iota = 85025784 (L_0 + 1) + 3739705595186988 (N_* + 1)(l_* + 1); S_W = 85025783 (L_0 + 1) + 3739705593716685 (N_*
+      + 1)(l_* + 1) (exact)
+  C2 (control): scaled Lambda (489 points below 2, 2747 in [2, 3)): brute force 5117661 = closed form 5117661; without
+      the n_below term 3774378: differs
