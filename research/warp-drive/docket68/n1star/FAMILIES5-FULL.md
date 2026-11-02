@@ -192,11 +192,18 @@ The interaction terms and non-resonance, as computed:
   (N2); at stage m only |n1| + |n2| ≤ m + 2 occur (Lemma 5.1's weight count), so the change is moved to the next order,
   as the record's e_j is. Control: two ingoing phases have symbol 0 on every harmonic (resonant), and commensurate ones a
   zero-frequency combination.
-- *The constant on Ω₂* (computed, twobg5 G2 (vii)): |g0⁻¹(dv̂, du)| is positive on every computed cell, ≥ 0.147 off the
-  trapped region, and on R = a equals 0.892, 0.446, 0.240 at v = 0.5, 1, 1.5 (converged to 1 %): it halves with each 0.5
-  in v. So the non-resonance constant is a positive constant on the compact Ω₂ that **degenerates exponentially with the
-  time spent in the hole** (the redshift at the horizon). Theorem 1₂'s constants depend on it; this is harmless for a
-  fixed T, and is the quantitative cost of the black hole for the two-family problem.
+- *The constant on Ω₂* (computed, twobg5 G2 (vii) and G4; corrected in round 2, the verifier's nit 5): |g0⁻¹(dv̂, du)|
+  off the trapped region (R² ≥ 1.5μ) has least value 0.181, 0.138, 0.148 at n = 40, 80, 160 (stable to 10 %, not
+  monotone in n; round 1 quoted the n = 160 value alone), and on R = a it equals 0.892, 0.446, 0.240 at v = 0.5, 1, 1.5
+  (converged to 1 %). Its least value over every computed cell, 0.131, 0.071, 0.042 at n = 40, 80, 160, is **not
+  converged**: each finer grid reaches further into the strip near R = a at late v (v ≈ 4.5-4.9), where the double-null
+  grid thins. G4 resolves it along region III's outgoing rays, where ψ and μ depend on v alone and d ln|R_u|/dv = v̂′
+  e^ψ μ/R³: on R = a the symbol is G4VALS, agreeing with the grid at v = 0.5, 1, 1.5 to 1 % and decreasing in v, so its
+  least value over the computed part of Ω₂ (v ≤ 5) is the one on R = a at the latest v, about G4LAST. Analytically,
+  d ln(sym)/dv̂ = −ψ′ − e^ψ μ/R³ ≥ −ψ′ − μ_max/a³ on R ≥ a. So the non-resonance constant is a positive constant on the
+  compact Ω₂ that **degenerates exponentially with the time spent in the hole** (the redshift at the horizon; measured
+  rate G4RATES per unit v, against the crude analytic μ_max/a³ = G4BOUND). Theorem 1₂'s constants depend on it; this is
+  harmless for a fixed T, and is the quantitative cost of the black hole for the two-family problem.
 - *Stage data on Σ_τ0* (deduced): on Σ_τ0 the two families' supports are disjoint (section 1); the pure harmonics are
   transported along their own generators, so they keep their supports in v and in u, and the mixed harmonics are
   algebraic in products of the two families' profiles, so they vanish near Σ_τ0. So the mixed harmonics take no data
@@ -459,15 +466,275 @@ nor [Tou24] (p. 4) provides beyond small data.
 
 ---
 
+# Part V. Round 2 (2026-11-02)
+
+Labels as above. Programs added: `checks/twodecomp5.py` (exact rational arithmetic at random points, from the full
+reduced Ricci tensor; about four minutes), `checks/twoledger5.py` (seconds), `checks/twohorizon5.py` (exact, sympy;
+minutes), `checks/twoparity5.py` (exact, sympy; about half an hour); amended: `checks/twobg5.py` (G3-G5),
+`twotransport5.py` (T3), `axisphase5.py` (A4), `torusstress5.py` (V3, V4's control). Each has its `.out`; every check
+has a control that the program must reject, and does.
+
+## 8. Lemma 3.3₂ and Steps 4-6 of Theorem E₂, in full
+
+*Setting.* Ω₂, Σ_τ, A(τ) = {a ≤ |x| ≤ b(τ)} in the chart (τ, x = R x̂), τ = v̂ − R (section 2 (e)); k = 6, K ≥ 6; every
+constant depends on Ω₂, k, K and the profiles, never on λ. The phases are ϕ_in := v̂ and ϕ_out := u (section 3), s1 :=
+v̂/λ, s2 := u/λ, F_K := ∂_(s_K), k_in := dv̂, k_out := du, ℓ_K := g0⁻¹ k_K; g1^(K) is family K's wave with its second
+harmonic (χ_in dv̂², χ_out du²); Y_K := F_K g1^(K) + λ F_K ĝ_2 (a two-phase profile), G1^K := [F_K g1^(K)], G2^K :=
+[F_K² g1^(K)], c_in := G1^out(ℓ_in, ℓ_in), c_out := G1^in(ℓ_out, ℓ_out). P is the linearisation of Ric^H at g_app,
+written with the principal part −½ g^ab ∂_a ∂_b at the full metric g = g_app + w, as the record's (3.2).
+
+*The facts used, each computed (twodecomp5, at three random points of the general round double-null background with
+both families' stage-0 waves and a mixed λ² profile, from the full Ric^H; controls (a)-(f) rejected).*
+
+- (F1) λ⁻² and λ⁻¹ of P on a slow h: no λ⁻² term; the λ⁻¹ term is ½ λ⁻¹ Σ_K s_K(h) G2^K, s_K(h) := h(ℓ_K, ℓ_K), in all
+  fifteen components (J1, J5; twolin5 L1 had h constant). Control (a), plain Ric: fails.
+- (F2) Lemma 3.2₂: for φ(X), P(φ Y_K) = φ P(Y_K) − λ⁻¹ (ℓ_app^K · dφ) G2^K − ½ (□̃_app φ) G1^K − ½ λ (□̃_app φ) [F_K ĝ_2]
+  + B1^K · dφ + C1^K φ + N_φ^K, B1^K, C1^K bounded profiles, |N_φ^K| ≤ C |w| (λ⁻² |φ| + λ⁻¹ |dφ| + |d²φ|) with the second
+  derivatives of φ in N_φ^K multiplying Y_K. Computed: the commutator P(φ Y_K) − φ P(Y_K) has no λ⁻² term (J1), its λ⁻¹
+  term is −(ℓ_K · dφ) G2^K exactly, with no term in the other family's generator (J2), and with φ(p) = dφ(p) = 0 its λ⁰
+  term is −½ (g0^ab ∂_a ∂_b φ) Y_K (J3): second derivatives of φ enter only through □̃φ. Control (a): fails J2, J3.
+- (F3) Lemma 3.1₂: P(Y_K) = [T1^K], a bounded profile. Computed: D Ric^H[G](F_K G) = F_K Ric^H[G] at orders λ⁻², λ⁻¹,
+  λ⁰ for G = g0 + λ W + λ² Q, both K (J0), which with (E2) (stage 0 solved: stage0two5 T1-T4) is T(F_K g1^(K)) +
+  P_(−2)(F_K ĝ_2) = O(λ). Control (b): the direction λ F_1 W without λ² F_1 Q fails J0, so λ F_K ĝ_2 belongs in Y_K.
+- (F4) contractions (J4; twophase5 Q2): G1^in(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0 and G1^out(ℓ_out, ·) = G2^out(ℓ_out, ·) = 0;
+  c_in = e^(−4σ) F2 χ_out and G2^out(ℓ_in, ℓ_in) = e^(−4σ) F2² χ_out (double-null normalisation; with v̂ a factor v̂′²),
+  bounded profiles oscillating in s2 with no λ⁻¹; ℓ_app^in − ℓ_in = λ e^(−2σ) χ_out ℓ_out + O(λ²) and g_app⁻¹(dv, dv) =
+  −λ e^(−4σ) χ_out + O(λ²), and the mirrors. Control (d), χ_out on du dv: fails.
+- (F5) (J8) q := g0^ττ/g^ττ, c^ab := g0^ab − q g^ab: c^ττ = 0 and c^ab = (g0^ab (g^ττ − g0^ττ) − g0^ττ (g^ab −
+  g0^ab))/g^ττ, so |c| ≤ C |g⁻¹ − g0⁻¹| ≤ C (λ + |w|) (g^ττ ≤ −1 on Ω₂ for |w| small: Lemma 1.1′ (a)). (J9) □̃ s(h) =
+  (□̃h)(ℓ, ℓ) + 2 g0^ab ∂_a(ℓ ⊗ ℓ) · ∂_b h + h · □̃(ℓ ⊗ ℓ). Controls (e) q = 1, (f) without the cross term: fail.
+- (F6) Lemma 3.4₂ (twophase5 Q1): Ψ_K := □̃ φ_K obeys L_K Ψ_K + a_K Ψ_K = ½ □̃ P s_K(h) − ½ M_K(P s_K(h)) − N_K φ_K, L_K
+  := ℓ_K · ∂, a_K = 2 L_K R/R, M_K, N_K first order with bounded coefficients; every second derivative of φ_K is a
+  bounded combination of L_K P s_K, ∂_x P s_K, dφ_K and ∂_x² φ_K, and ∂_x² φ_K obeys L_K(∂_x² φ_K) = ½ ∂_x² P s_K(h) +
+  (bounded) ∂_x² φ_K + (bounded) ∂_x φ_K (the commutator [∂_x², L_K] has the smooth λ-independent coefficients ∂_x ℓ_K).
+- (F7) transports (twotransport5 T1-T3): in the chart ℓ_in = −e^(−ψ) L0 and ℓ_out = ℓ_out(τ) Z_out, Z_out = ∂_τ + c_out
+  x̂ · ∂_x, c_out ∈ (−1, 1], c_out(a) < 0; ℓ_out(τ) ≠ 0 on the compact Ω₂ (a null vector is never tangent to a spacelike
+  slice), so |ℓ_out(τ)| ≥ c > 0. Lemma 2.4 holds for both, the boundary terms having the record's sign.
+
+**The phases (3.4₂).** Given w on [τ0, τ*], (φ_in, φ_out) solves ℓ_K · dφ_K = ½ P s_K(h), h := w − Σ_J φ_J Y_J, φ_K = 0
+on Σ_τ0. Since s_K(h) = s_K(w) − Σ_J φ_J [Y_J(ℓ_K, ℓ_K)], this is a linear system of two transports along transversal
+null generators coupled through the bounded maps φ ↦ ½ P([Y_J(ℓ_K, ℓ_K)] φ) (M1); by (F7) and Lemma 2.4 the solution map
+of the transports is a contraction in C([τ0, τ0 + δ]; L²(A(τ)))² for δ small independently of the data, so Picard
+iteration on successive slabs gives a unique solution on [τ0, τ*] (deduced); it is smooth (P smooths in x at fixed λ,
+(M6) in τ). The estimates below use this form, with s_K(h): N₂ controls h, and the coupling is inside h.
+
+**The equation for h (3.5₂).** With F := −Ric^H(g_app) and N(w) the terms of second and higher order,
+
+    −½ g^ab ∂_a ∂_b h + B·dh + C·h = F + N(w) − Σ_K N_φ^K − ½ λ⁻¹ Σ_K ((1 − P) s_K(h)) G2^K
+          + λ⁻¹ Σ_K ((ℓ_app^K − ℓ_K) · dφ_K) G2^K − Σ_K φ_K [T1^K] + ½ Σ_K (□̃_app φ_K) G1^K
+          + ½ λ Σ_K (□̃_app φ_K) [F_K ĝ_2] − Σ_K (B1^K · dφ_K + C1^K φ_K).                                      (3.5₂)
+
+*Proof (deduced from F1-F3).* Write w = h + Σ_K φ_K Y_K in Ric^H(g_app + w) = 0, use P(φ_K Y_K) = φ_K P(Y_K) + (F2) and
+(F3). The λ⁻¹ terms are ½ λ⁻¹ Σ_K s_K(h) G2^K − λ⁻¹ Σ_K (ℓ_app^K · dφ_K) G2^K; by (3.4₂) this is ½ λ⁻¹ Σ_K ((1 − P)
+s_K(h)) G2^K − λ⁻¹ Σ_K ((ℓ_app^K − ℓ_K) · dφ_K) G2^K. Computed (J7): with dφ_K(p) fixed by ℓ_K · dφ_K = ½ (s_K(h) −
+ρ_K), ρ_K arbitrary (standing for (1 − P) s_K(h)), the λ⁻¹ coefficient of P(h) + Σ_K (P(φ_K Y_K) − φ_K P(Y_K)) is
+exactly ½ Σ_K ρ_K G2^K in all fifteen components. Control (c), φ_in transported along ℓ_out: a λ⁻¹ term remains. ∎
+
+**Lemma 3.3₂ (the ℓ_in ⊗ ℓ_in component; deduced from (3.5₂), F4, F5).** With s := s_in(h),
+
+    □̃ s = c1 · dh + c0 · h + Σ_K (c2^K · dφ_K + c3^K φ_K) − q c_in Ψ_out + q λ⁻¹ ((1 − P) s_out(h)) G2^out(ℓ_in, ℓ_in)
+          + Σ_K c4^(K,ab) ∂_a ∂_b φ_K − 2q F(ℓ_in, ℓ_in) − 2q N(w)(ℓ_in, ℓ_in) + 2q Σ_K N_φ^K(ℓ_in, ℓ_in)
+          + Σ_(a, i) c^(ai) ∂_a ∂_i h,
+
+with c0, c1, c2^K, c3^K bounded profiles, c_in and G2^out(ℓ_in, ℓ_in) bounded profiles oscillating in s2, |c4^K| ≤ C λ,
+|c^(ai)| ≤ C (λ + |w|), |∂ c^(ai)| ≤ C (1 + |∂w|), i spatial. N_φ^in(ℓ_in, ℓ_in) contains second derivatives of φ_in
+only with a factor λ |w|; N_φ^out(ℓ_in, ℓ_in) contains |w| |∂²φ_out|. The only coefficient of order λ⁻¹ multiplies
+(1 − P) s_out(h), which is O(λ ∂ s_out(h)) by (M3). The mirror statement holds for s_out(h), with ℓ_out ⊗ ℓ_out, c_out
+and Ψ_in.
+
+*Proof.* (J9): □̃ s = (□̃h)(ℓ_in, ℓ_in) + (terms c1 · dh + c0 · h, ℓ_in smooth and λ-independent). (F5): (□̃h)(ℓ_in,
+ℓ_in) = q (g^ab ∂_a ∂_b h)(ℓ_in, ℓ_in) + Σ c^(ai) ∂_a ∂_i h(ℓ_in, ℓ_in) + (first order), and (g^ab ∂_a ∂_b h)(ℓ_in, ℓ_in)
+= −2 × (the right side of (3.5₂) − B·dh − C·h)(ℓ_in, ℓ_in). Contract (3.5₂) with ℓ_in ⊗ ℓ_in using (F4). Family in: G1^in
+(ℓ_in, ·) = G2^in(ℓ_in, ·) = 0 remove its λ⁻¹ term, its (ℓ_app − ℓ) term and ½ (□̃_app φ_in) G1^in exactly; ½ λ
+(□̃_app φ_in) [F1 ĝ_2](ℓ_in, ℓ_in) is O(λ |∂²φ_in|). Family out: −½ λ⁻¹ ((1 − P) s_out) G2^out(ℓ_in, ℓ_in) survives (the
+λ⁻¹ term, times −2q); λ⁻¹ ((ℓ_app^out − ℓ_out) · dφ_out) G2^out(ℓ_in, ℓ_in) is O(|dφ_out|), |ℓ_app^out − ℓ_out| ≤ C λ
+(F4); ½ (□̃_app φ_out) c_in = ½ c_in Ψ_out + O(λ |∂²φ_out|) (□̃_app = □̃ + O(λ) ∂², the record's Lemma 3.4); the rest
+are first order or N_φ. Computed (J6): the ℓ_in ⊗ ℓ_in contraction of the commutator's λ⁰ term, with φ_in, φ_out
+quadratic at p, is −½ (□̃ φ_out) c_in exactly: φ_in drops out and φ_out enters only through □̃ φ_out, with no λ⁻¹;
+the mirror for ℓ_out ⊗ ℓ_out. And (J7) the contraction of the λ⁻¹ coefficient is ½ ρ_out G2^out(ℓ_in, ℓ_in). ∎
+
+**The norm, Steps 1-3.** N₂(τ) := Σ_(j≤k) λ^j (‖∂^j ∂h‖ + Σ_K (‖∂^j Ψ_K‖ + ‖∂^j ∂φ_K‖ + λ ‖∂^j ∂_x² φ_K‖)) + ‖h‖ +
+Σ_K ‖φ_K‖ (8.1). Step 1: λ^j ∂^j(φ_K Y_K) is a sum of λ^i ∂^i φ_K times bounded profiles, and λ^i ‖∂^i φ_K‖ ≤ λ N₂ (1
+≤ i ≤ k + 1), so |w|_(k+1) ≤ C N₂, ‖∂^i w‖_∞ ≤ C λ^(−3−i) N₂ (i ≤ 4), |∂w|_k ≤ C λ⁻¹ N₂. Step 2: φ_K = 0 on Σ_τ0, so h =
+w there; ∂_τ φ_K = ½ P s_K(h)/ℓ_K(τ) there (F7, no 1/λ), and the higher τ-derivatives follow from (3.4₂), (3.5₂) and
+the equation, so N₂(τ0) ≤ C (C_D + C_R) λ^K. Step 3: if N₂ ≤ 2M λ^K on [τ0, τ*], then |w| ≤ C M λ^(K−3), |∂w| ≤ C M
+λ^(K−4), and for λ ≤ λ0(M) g = g_app + w keeps Proposition B (e)'s open conditions (Σ_τ and the lateral boundaries
+spacelike, both generators transverse to Σ_τ) and |∂g| ≤ M1.
+
+**Step 4 (h).** Apply ∂^α, |α| = j ≤ k, to (3.5₂), Lemma 2.3 to each component, and multiply by λ^j. Term by term (the
+exponent and highest order of each computed in twoledger5 T1, 28 rows for this step):
+(a) the commutator [∂^α, g^ab] ∂_a ∂_b h: ‖∂^i g_app‖_∞ ≤ C λ^(1−i), so ≤ C N₂, and the w part ≤ C M λ^(K−4) N₂;
+(b) F: ≤ C_R λ^K by (E3); (c) B·dh, C·h: ≤ C N₂ (a derivative on a profile costs λ⁻¹, paid by the weight);
+(d) ½ λ⁻¹ ((1 − P) s_K(h)) G2^K: Σ_i λ^(i−1) ‖∂^i (1 − P) s_K‖ ≤ C Σ_i λ^i ‖∂^i ∂ s_K‖ ≤ C N₂ by (M3), (M4), (M6);
+(e) λ⁻¹ ((ℓ_app^K − ℓ_K) · dφ_K) G2^K: ℓ_app^K − ℓ_K is λ times a profile (F4), so ≤ C N₂;
+(f) φ_K [T1^K], B1^K · dφ_K, C1^K φ_K: ≤ C N₂;
+(g) ½ (□̃_app φ_K) G1^K = ½ Ψ_K G1^K + ½ (c^ab ∂_a ∂_b φ_K) G1^K, |c| ≤ C λ: the first ≤ C N₂ because both Ψ's are in
+    N₂ at every level; the second by (F6), λ^(j+1) ‖∂^j ∂² φ_K‖ ≤ C N₂ (λ^(j+1) ‖∂^j L_K P s_K‖ ≤ C λ^(j+1) ‖∂^j ∂ s_K‖
+    by (M4), (M6); no Bernstein inequality is needed here);
+(h) ½ λ (□̃_app φ_K) [F_K ĝ_2] = λ (Ψ_K + O(λ) ∂² φ_K) × profile: ≤ C λ N₂;
+(i) N_φ^K: ≤ C M λ^(K−5) N₂ ≤ C M λ N₂ (K ≥ 6; its |w| |∂² φ_K| part ≤ C M λ^(K−4) N₂);
+(j) N(w): ≤ C λ⁻⁵ N₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1) (K ≥ 6).
+So Σ_(j≤k) λ^j ‖∂^j ∂h(τ)‖ + ‖h(τ)‖ ≤ C (N₂(τ0) + ∫_(τ0)^τ (N₂ + C_R λ^K + C M² λ^(K+1))). Nothing in (a)-(j) has a
+coefficient of order λ⁻¹ beyond (d), which (M3) pays for; the two families enter (d)-(i) once each.
+
+**Step 5 (φ_in, φ_out).** Each φ_K obeys its own transport (3.4₂), with source ½ P s_K(h). For φ_in, L0 φ_in = −½ e^ψ
+P s_in(h) (F7: the record's (3.4) with the smooth bounded factor e^ψ); for φ_out, Z_out φ_out = ½ P s_out(h)/ℓ_out(τ).
+Apply ∂^α, |α| = j ≤ k: [Z_K, ∂^α] has smooth λ-independent coefficients and involves derivatives of φ_K of order at
+most j, and λ^j ‖∂^α ∂ P s_K‖ ≤ C λ^j ‖∂^(j+1) s_K(h)‖ ≤ C N₂ by (M1), (M4), (M6), s_K(h) = h(ℓ_K, ℓ_K) with ℓ_K smooth;
+for λ ∂_x² φ_K, the transport of (F6) with source ½ ∂_x²(P s_K/ℓ_K(τ)) and Bernstein (M2) on one spatial derivative:
+λ^(j+1) ‖∂^j ∂_x² P s_K‖ ≤ C λ^j ‖∂^j ∂_x s_K‖ ≤ C N₂. Lemma 2.4 (Lemma 2.4₂ for φ_out, F7) gives the φ-part of N₂(τ)
+at most C (N₂(τ0) + ∫ N₂). The form with s_K(h) is what makes this work: written through s_K(w), the source would
+contain P([Y_J(ℓ_K, ℓ_K)] φ_J) with an oscillating coefficient, and λ^j ‖∂^j ∂ P(c φ_J)‖ with every derivative on c
+costs λ⁻¹ ‖φ_J‖, a power of λ lost (twoledger5 control (a), exponent −1). Without (M2) the ∂_x² φ transport would need
+k + 2 derivatives of s (control (e)).
+
+**Step 6 (Ψ_in, Ψ_out).** Apply ∂^α to (F6)'s transport and Lemma 2.4 (c = a_K bounded). In ½ □̃ P s_in = ½ P □̃ s_in +
+½ [□̃, P] s_in, insert Lemma 3.3₂.
+(a) P of Lemma 3.3₂'s terms: c1 · dh, c0 · h, c2^K · dφ_K, c3^K φ_K ≤ C N₂; the coupling P(q c_in Ψ_out): ‖P(q c_in
+    Ψ_out)‖ ≤ C ‖Ψ_out‖ (M1) and λ^j ‖∂^j P(q c_in Ψ_out)‖ ≤ C Σ_(i≤j) λ^i ‖∂^i Ψ_out‖ ≤ C N₂, each derivative on the
+    profile q c_in costing λ⁻¹ and the weight paying for it; q λ⁻¹ ((1 − P) s_out) G2^out(ℓ_in, ℓ_in) ≤ C N₂ by (M3);
+    c4^K ∂² φ_K ≤ C N₂ by (F6); F, N(w), N_φ: C_R λ^K, C M² λ^(K+1), C M λ^(K−5) N₂; and Σ c^(ai) ∂_a ∂_i h, written
+    P ∂_i(c ∂_a h) − P((∂_i c) ∂_a h) with Bernstein on the ∂_i: ≤ C λ⁻¹ ‖c ∂h‖ + C ‖∂h‖ ≤ C N₂ (|c| ≤ C (λ + |w|)), and
+    at level j only k + 1 derivatives of h occur (taken directly it would need k + 2: control (c)).
+(b) [□̃, P] s_in: the terms with a spatial index by (M5)'s first form, ≤ C ‖∂ s_in‖; the τ-τ term rewritten through
+    ∂_τ² s_in = (□̃ s_in − 2 g0^τi ∂_τ ∂_i s_in − g0^ij ∂_i ∂_j s_in)/g0^ττ, after which (M5)'s second form gains λ on
+    every term of Lemma 3.3₂ (the coupling included: ≤ C λ N₂) except Σ c^(ai) ∂_a ∂_i h, written ∂_i(c ∂_a h) − (∂_i c)
+    ∂_a h and bounded by the first form (the second form on them would cost a derivative at j = k: control (d), the
+    record's own remark); g0^ab (∂_a ∂_b P − P ∂_a ∂_b) s_in ≤ C ‖∂ s_in‖ by (M4), (M6).
+(c) −½ M_in(P s_in), −N_in φ_in: first order, ≤ C N₂.
+So the Ψ_in-part of N₂(τ) is at most C (N₂(τ0) + ∫ (N₂ + C_R λ^K + C M² λ^(K+1))), and the mirror for Ψ_out, whose
+source contains P(q′ c_out Ψ_in). The coupling enters through ∫ N₂: Ψ_in and Ψ_out are estimated together, which is why
+both are in N₂. Treated as a generic second derivative of φ_out, the coupling would lose a power of λ (control (b),
+exponent −1).
+
+**Step 7 (closing).** Steps 4-6: N₂(τ) ≤ C2 (N₂(τ0) + ∫ N₂ + (τ_end − τ0)(C_R λ^K + C M² λ^(K+1))), C2 independent of M
+and λ. Gronwall and Step 2: N₂(τ) ≤ C3 ((C_D + 1 + C_R) λ^K + C M² λ^(K+1)). With M := C3 (C_D + 1 + C_R) + 1 and λ0
+with C3 C M² λ0 ≤ 1, N₂ ≤ M λ^K < 2M λ^K, improving the bootstrap (computed: twoledger5 T2, with K = 5 failing the
+non-linear row, control (f)). N₂ is continuous in τ for a smooth solution, so the bootstrap set is open and closed in
+the interval of existence; Step 8 (local existence, continuation, uniqueness) is the record's, on the polygon Ω₂ ⊂ (τ,
+R) with the slices spacelike (Proposition B (e)).
+
+*Labels.* Lemma 3.3₂ and Steps 4-7: **deduced**, written above; every identity behind them **computed** (twodecomp5
+J0-J9, twophase5 Q1-Q2, twotransport5 T1-T3), the power counting **computed** (twoledger5: 94 terms, each with its
+exponent and highest order, passing at k = K = 6 and on k = 6..12 × K = 6..10; controls (a)-(f) rejected). The energy
+estimates themselves (Lemmas 2.2-2.4) are the record's, deduced. Theorem E₂ is therefore **deduced**, with the same
+standing as the record's Theorem E; round 2's text has not been read by an independent verifier.
+
+## 9. Item 6 for two families: one zero per column of the outgoing expansion
+
+**Hypothesis (H6).** There is δ6 > 0 with R ≥ R_H(v̂) + δ6 on D_T ∩ {τ ≥ τ0} ∩ {u1 ≤ u ≤ u2}, where R_H(v̂) :=
+√μ_III(v̂) and μ_III is the mass of region III (u ≥ u2) on the column {v̂ fixed}. Equivalently (R decreasing in u on a
+column), R(u2, v̂) − √μ_III(v̂) ≥ δ6: the outgoing packet's inner edge stays untrapped, with a margin, on every column.
+
+**Proposition 8.1₂ (deduced, under (H6); computed twohorizon5 H1-H3, twobg5 G5).** For a column (v̂ and the angles
+fixed, R varying, in D_T ∩ {τ ≥ τ0}) let θ⁺_λ(R) be the outgoing expansion of the sphere S_(v̂,R) for g_λ. Under (H6)
+there are λ1 ∈ (0, λ0], C, δ1 > 0, independent of λ, such that for λ ≤ λ1 the record's Proposition 8.1 (a)-(c) hold with
+√μ(v) replaced by R_H(v̂): at most one zero per column, θ⁺ > 0 above it and < 0 below it; exactly one, R_λ(v̂, ω), with
+|R_λ − R_H(v̂)| ≤ C λ, on the columns with R_H(v̂) ≤ v̂ − τ0 − δ1; the spheres below R_H − C λ trapped, those above R_H
++ C λ untrapped; no inner apparent horizon.
+
+*Proof.* (i) The background. On a column R_v, which carries the sign of θ⁺(g0) (R_u < 0), is strictly decreasing in u
+(R_uv = −e^(2s) μ/R³ < 0, twobg5 G1 (c)), so θ⁺(g0) has at most one zero on each column, and under (H6) it lies in
+region III, where the background is ingoing Vaidya in (v̂, R) with ψ(v̂) ≤ 0. There (H1) θ⁺ = c 3 (1 − μ/R²)/(2R) with c
+= 2R² e^ψ/(R² (2 − e^ψ) + μ e^ψ) > 0, its one zero R² = μ_III is simple with ∂_R θ⁺ = 3 e^ψ/μ_III ≥ 3 e^(ψ_min)/μ_max
+> 0, and the ingoing expansion is −3/R < 0 (control: the ingoing normal's expansion has no zero there). (ii) The
+approximant. Neither family's fast derivative enters θ± at order λ⁻¹ or λ⁰ (H2, computed on the general round
+double-null background with both stage-0 waves: they enter only as ½ g0⁻¹(k, dϕ) F tr_S W, and tr_S W_K = 0; control: an
+outgoing wave with a trace on the spheres gives a λ⁰ oscillation in the ingoing expansion), so θ⁺(g_app) = θ⁺(g0) + λ
+[Th1] + λ² E, E bounded with its X-derivatives. On the band B_δ := {|R − R_H(v̂)| ≤ δ}, δ < δ6, every profile depending
+on s2 vanishes: family out's pure harmonics are transported along ℓ_out, on which u is constant, with data and sources
+supported in u ∈ [u1, u2], and the mixed harmonics are algebraic in products with an outgoing factor (section 4, the
+stage-data bullet). So on B_δ [Th1] depends on s1 = v̂/λ only, constant along the column, and ∂_R [Th1] = [∂_R Th1]: |θ⁺
+(g_app) − θ⁺(g0)| + |∂_R (θ⁺(g_app) − θ⁺(g0))| ≤ C λ on B_δ, and |θ⁺(g_app) − θ⁺(g0)| ≤ C λ everywhere. (iii) The
+remainder: θ⁺ is smooth in g and linear in ∂g, and ‖∂^i w‖_∞ ≤ C M λ^(K−3−i) (i ≤ 4, section 8 Step 1) give ≤ C λ^(K−5)
+≤ C λ. (iv) The zero: the record's (v) with R_H for √μ, D_T's r_q^♭ (section 2 (f)), and the band's monotonicity
+constant 3 e^(ψ_min)/(2 μ_max). ∎
+
+*Why (H6) is needed (computed, H3).* With ĝ_2's mixed harmonics fixed by stage 0's division, the λ¹ coefficient of the
+outgoing expansion has nonzero mixed harmonics where both families are present (12 of them; the largest of order 10 at
+the sample point; control: none without the outgoing family). Along a column u varies (∂_R u = 1/R_u ≠ 0), so λ [Th1]
+contributes (∂_R u) [F2 Th1] = O(1) to ∂_R θ⁺ there: if the packet met the band, the monotonicity in (iv) would need this
+O(1) term, proportional to the product of the two families' amplitudes, below 3 e^ψ/μ. That is a smallness condition
+on the data, not examined; the alternative route the round-1 note named is therefore not free, and placement is used.
+
+*The example (twobg5 G5).* The least over v ≤ 5 of R(u2, v) − √μ_III(v) is G5GAP at n = 40, 80, 160 (attained at v =
+0), with R_v(u2, v) > 0 throughout; for v ≥ 5 (𝒜 = 0) R grows along the untrapped ray and μ_III is constant (G1 (d)),
+so (H6) holds with δ6 = G5GAPONE. Control: a heavier shell (amplitude 16 for 3.6) traps the packet's inner edge; the
+gap is G5CTL at n = 40, 80, and (H6) fails.
+
+## 10. Item 7 for two families: the mean mass
+
+**Lemma 8.2₂ (deduced; computed twoparity5 P1-P4 and stage5.py S2, S4).** Let S act as in the record's Lemma 8.2 with
+the phase reflection applied to both phases, s_K → 3π/2 − s_K, and λ → −λ. (a) σ is an isometry of the two-dust g0
+fixing every sphere (P3: of every round double-null metric; control: a sheared angular metric is not σ-invariant), and
+Ric^H is built from g and g0, so R[S G] = S R[G], the record's (a), now with both phases. (b) The base: both families'
+stage-0 waves are S-odd (family in: stage5 S2's "g1 = W S-odd"; family out: P1, with χ_out the unique solution of its
+transport, on outgoing Vaidya, where the packet is posed), the whole R^(1) of each family is S-odd in every nonzero
+component (family in: stage5 S4; family out: P2, the same seven components; control: one quadrature, which fails in
+every component), and ĝ_2's mixed harmonics are S-even (P4: R^(0)'s mixed harmonics with both families on the general
+round double-null background satisfy J R^(0)_(−n)(σX) J i^(n1+n2) = R^(0)_n(X), 52 entries; division by −e^(−2σ) n1 n2
+is even under n → −n; control: family out with one quadrature fails). Every later stage of Theorem A₂ (Lemma 5.3₂
+(a)-(d)) and every choice of Lemma 6.2₂ (Pol O(4)-equivariant per family, the division, the means' and phases' data as the
+record's) is the unique solution of a problem that S maps to itself. Hence the two-family profiles have parity (−1)^j
+and the first mean correction m1 is σ-odd: σ^* m1 = −m1.
+
+**Proposition 8.2₂ (deduced).** For every sphere S_(v̂,R) in D_T ∩ {τ ≥ τ0} with v̂ ∉ (v_start, v_end) and u ∉ (u1, u2)
+(neither family oscillating there), |M[S](g_λ) − μ(S)| ≤ C λ², μ(S) the background's Misner-Sharp mass; elsewhere ≤
+C λ. Here M[S](g0) = μ (P3: the record's Hawking mass of the round spheres of every round double-null metric is
+R²(1 + 2 e^(−2σ) R_u R_v)).
+
+*Proof.* At such a sphere every oscillating profile vanishes (each family's are supported in its own range; the mixed
+ones are products), so g_app = g0 + λ m1 + λ² E there, and M[S](g_λ) = μ(S) + λ DM[m1] + O(λ²) + O(|w| + |∂w|).
+DM[σ^* m] = DM[m] by naturality (σ fixes g0 and S), so DM[m1] = −DM[m1] = 0 by Lemma 8.2₂; the remainder is ≤ C
+λ^(K−4) ≤ C λ². Elsewhere θ± have no λ⁰ oscillation (H2) and the area none (tr_S W_K = 0), so M[S](g_app) − μ(S) =
+O(λ). ∎
+
+**Theorem 1₂ items 6-7.** Item 7 follows for Theorem 1₂ as stated above (deduced; its parity base computed for both
+families and for the mixed stage-0 harmonics). Item 6 follows under (H6) (deduced), which the example satisfies
+(computed) and which a heavier shell violates (computed); without (H6) it is not claimed.
+
+## 11. The verifier's findings (commit 169c9b5) and their dispositions
+
+1. (Minor) Ω₂ inside Q_(a′) with u0 unconstrained; the first exit. **Repaired** in section 2 (d)-(e): N ∩ {τ ≥ τ0} ⊂
+   {R > b(τ)} is now required, at no cost (u ≤ u1 is explicit ingoing Vaidya); computed (twobg5 G3): the example's own
+   N fails it (R − b = G3EX at Σ_τ0, the verifier's case), and the cone from R = G3R0 at v = 0 satisfies it with margin
+   G3MIN. The least-(u + v) first-exit argument is written out, with D, G and ∂G ⊂ {R = a}.
+2. (Minor) V3 assumed an SO(3)-invariant measure. **Repaired** in Part III (c) and torusstress5 V3: Schur on T's round
+   angular block (computed), with T_φφ = 0 giving ∫ p_θ² dμ = 0 and, by positivity (computed), p_θ = 0; control: an
+   isotropic angular measure is round with T_θθ > 0, so without V2 the implication fails.
+3. (Minor) Theorem E₂ labelled deduced with Lemma 3.3₂ and Steps 4-6 unwritten. **Resolved** by section 8 (written, the
+   identities and the counting computed); the label in section 5 now says so.
+4. (Minor) Checks that could not fail. **Repaired**: twobg5's test of the least symbol over every cell (always > 0)
+   removed, the quantity reported as not converged and resolved by G4 (with a control that must and does fail);
+   torusstress5's (1/2)² > 0 replaced by the computed T_θθ of the V4 measure with a non-radial momentum added;
+   twotransport5's sign at a typed y = 0.2 replaced by T3, c_out(a) computed from the mass and the characteristics
+   traced back (none reach R = a when R = a is trapped; all 40 do in the untrapped control); axisphase5's typed −2
+   replaced by A4, computed from v = τ + r, u = τ − r in R⁴ and on Vaidya, with the control v, 2v rejected.
+5. (Nit) The constant's figures. **Repaired** in section 4: 0.181, 0.138, 0.148 off the trapped region at n = 40, 80,
+   160; the least over every computed cell (0.131, 0.071, 0.042) reported as not converged; resolved on R = a along
+   region III's rays (twobg5 G4).
+6. (Nit) dv → dv̂ in Theorem 1₂ item 4. **Repaired**.
+7. (Nit) Off the diamond, u > u2 and v > v_end are Vaidya with mass functions from the diamond's solution. **Repaired**
+   in section 2 (a).
+
+**What remains open (precisely).** (i) Item 6 without (H6): the O(1) term (∂_R u)[F2 Th1] of H3 at the band, i.e. a
+bound of the mixed second-order term of the outgoing expansion below 3 e^ψ/μ, or another argument. (ii) An independent
+reading of sections 8-10. (iii) The symbol on R = a beyond the computed rectangle (v > 5) is bounded only by G4's
+analytic rate μ_max/a³, which is far from the measured one. (iv) Part II's non-round background and Part III's
+non-round Vlasov case, unchanged.
+
+---
+
 # Part IV. Next step
 
-Have an independent verifier read sections 2 and 5 against N1STAR-PROOF.md sections 1 and 3-4 (the domain, and the
-extended (h, φ_in, φ_out) system with Lemmas 3.3₂, 3.4₂ written at the record's level), then write Lemma 3.3₂ and Steps
-4-6 for two families out in full; separately, decide item 6 (the horizon) for two families by placing the packet so that
-it stays outside √μ(v) + δ, or by bounding the outgoing wave's contribution to ∂_R θ⁺.
+Round 1's next step (an independent reading of sections 2 and 5, then Lemma 3.3₂ and Steps 4-6 written, then item 6)
+is done: the reading found no major gap, and Part V writes the rest. Next: an independent verifier on Part V (sections
+8-10 against N1STAR-PROOF.md sections 3-4 and 8, with twodecomp5, twoledger5, twohorizon5 and twoparity5); and, if item
+6 is wanted without (H6), a bound of the mixed term of H3 (section 9).
 
 ## Files
 
-`FAMILIES5-FULL.md` (this note); `checks/twobg5.py` (+ `.out`, about 45 s); `checks/twoslice5.py` (+ `.out`, about twenty
-minutes); `checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py` (+ `.out`
-each, seconds).
+`FAMILIES5-FULL.md` (this note); `checks/twobg5.py` (+ `.out`, about ten minutes); `checks/twoslice5.py` (+ `.out`,
+about twenty minutes); `checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`
+(+ `.out` each, seconds); round 2: `checks/twodecomp5.py` (+ `.out`, about four minutes), `checks/twoledger5.py`
+(+ `.out`, seconds), `checks/twohorizon5.py` (+ `.out`, minutes), `checks/twoparity5.py` (+ `.out`, about half an hour).
