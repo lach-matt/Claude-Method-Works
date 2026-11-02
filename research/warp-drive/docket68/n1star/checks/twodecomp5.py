@@ -537,6 +537,13 @@ def run(seed, gauge=True, control=None, verbose=False):
     res["J0"] = j0
     res["ctl_b"] = ctlb
     res["R-1"] = all(not order(RH[bc].s[0], -1) for bc in comps)
+    # non-vacuity: every prediction tested above is nonzero somewhere, and so is R^(0) (J0 is not 0 = 0)
+    nz = lambda d: any(order(d[bc], 0) for bc in comps)                    # noqa: E731
+    res["nonvacuous"] = (nz(pred5) and nz(pred2) and nz(pred3) and nz(pred4) and any(pred7[bc] for bc in comps)
+                         and c_in != 0 and c_out != 0 and bool(_contract(RH, 4, lin_v))
+                         and any(order(RH[bc].s[0], 0) for bc in comps)
+                         and any(order(pfast(RH[bc].s[0], 1), 0) for bc in comps))
+    res["sizes"] = (sum(len(RH[bc].s[i]) for bc in comps for i in range(m + 1)),)
     return res
 
 

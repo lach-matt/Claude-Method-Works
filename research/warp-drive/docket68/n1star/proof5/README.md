@@ -1451,14 +1451,17 @@ along a family whose second derivatives it did not control; it now differentiate
 seated.
 
 `PART-IX-GAUGE.md`. Part IX proves what Part VIII's Remark 2.4 (a) left out: a linearised vacuum solution whose data
-agree with Part VIII's up to those of a linearised diffeomorphism is $\dot g+\mathcal L_Xg$ on its Cauchy development
-(Theorem 2.2, Corollary 2.3). The domain $D_{N^\circ}(\Sigma^\circ)$ is globally hyperbolic and contains the whole future
-$N^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2); [BGP] Theorem 3.2.11 is extended to data without compact support
-(Lemma 1.1); the gauge vector solves $2\delta G\delta^*w = \Theta(k)$ with data that kill the Cauchy data of $k-\mathcal
-L_Xg$, which then vanishes by uniqueness for $D\mathrm{Ric}+\delta^*\Theta$. Nothing is asserted about the decay of $X$
-(Remark 2.4). Identities computed in `checks/ix5.py` X1-X7. Findings (IX1)-(IX4). Written (D345). Verified (D347):
-verifier 162 found no blocking or major gap; its four minor findings (a case split in Lemma 1.1, X5's test family, the
-settling clause's domain, $G$-invariance of $U$) and five nits are seated.
+agree with Part VIII's up to those of a linearised diffeomorphism is $\dot g+\mathcal L_Xg$ on the whole future $N^+ =
+M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Theorem 2.2, Corollary 2.3), the future half of the globally hyperbolic
+$D_{U^\sharp}(\Sigma^\circ)$, $U^\sharp := M^\circ\cap\{t_{\mathrm{IVP}}>-1\}$ (Lemma 1.2; since D610: III.K's $\nu$
+vanishes near $r_0$, so the old domain in $N^\circ$ did not contain $\Sigma^\circ$, finding (IX5)); [BGP] Theorem
+3.2.11 is extended to data without compact support (Lemma 1.1); the gauge vector solves $2\delta G\delta^*w =
+\Theta(k)$ with data that kill the Cauchy data of $k-\mathcal L_Xg$, which then vanishes to infinite order at the
+noncharacteristic $\Sigma^\circ$, is extended by zero, and vanishes by uniqueness for $D\mathrm{Ric}+\delta^*\Theta$.
+Nothing is asserted about the decay of $X$ (Remark 2.4). Identities computed in `checks/ix5.py` X1-X8. Findings
+(IX1)-(IX5). Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its four minor findings (a
+case split in Lemma 1.1, X5's test family, the settling clause's domain, $G$-invariance of $U$) and five nits are
+seated. Repaired (D610), finding (IX5); a reader is reading the repair.
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output
