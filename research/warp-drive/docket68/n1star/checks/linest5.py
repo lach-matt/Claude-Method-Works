@@ -30,13 +30,15 @@ e4 d - ex c), each equal to an explicit bilinear form G_P in (psi; a, c, d) when
      rates c_u = sup |b| + lam, c_v = sup(Omt^2/gt)/lam), every unknown's coefficient sum kappa_Z (coordinate-
      normalised, including the measure's own derivative and the split of each bilinear term) is evaluated on the
      record's computed solution (dnsolve5 --run 1 0.9 32 800 360, ld 3; D432) on rcert5's box u in [-4, -1.1],
-     v in [0.55, 1.6]; a = max_Z sup_D kappa_Z, and Theorem 7.L's constant F^2 = 2 exp(4 a (Delta u + Delta v)).
+     v in [0.55, 1.6]; a = max_Z sup_D kappa_Z, and Theorem 7.L's constant F^2 = exp(2 a (Delta u + Delta v)).
   E5 (computed) the domain: the x-extent of D left at the box's far corner, for each X and lam -- how much of the late
      region a truncated domain reaches.
   E6 (computed) the demand on the residual: CERTIFY-10L5.md 2(d)'s  delta + int eps < 1/(4 G T F^2)  at that F.
-  E7 (deduced; computed check) the two-variable Gronwall lemma: if f(u, v) <= A + a int_0^u f(u', v) du'
-     + a int_0^v f(u, v') dv' on [0, U] x [0, V], then f <= 2 A exp(4 a (u + v)).  The extremal solution is computed
-     and must lie below; control: the bound A exp(a (u + v)) must fail for it.
+  E7 (deduced; computed check) the two-variable Gronwall lemma: if f >= 0 is continuous and f(u, v) <= A + a int_0^u
+     f(u', v) du' + a int_0^v f(u, v') dv' on [0, U] x [0, V], then f <= A exp(2 a (u + v)).  (Proof: g = B e^{al (u+v)}
+     with al > 2a, B > A is a strict supersolution, since a int g du' + a int g dv' <= (2a/al)(g - B); compare along
+     u + v; let al -> 2a, B -> A.)  The extremal solution is computed and must lie below; control: the bound
+     A exp(a (u + v)) must fail for it.
 
   python3 checks/linest5.py RUN.npz        (RUN: the record's l1_rc0.9_M32.npz)
 """
@@ -97,7 +99,7 @@ TYPE = {'dchi': 'in', 'deta': 'in', 'domb': 'in', 'dk': 'in', 'dw': 'in', 'db': 
 SMAP = {chi: 'dchi', eta: 'deta', omb: 'domb', chib: 'dchib', etab: 'detab', om: 'dom',
         a1: 'da1', c1: 'dc1', d1: 'dd1', a2: 'da2', c2: 'dc2', d2: 'dd2'}
 # x-derivatives of the background state (spectral on the run), as symbols
-DX = {s_: sp.Symbol('dx_' + str(s_)) for s_ in STATE}
+DX = {s_: sp.Symbol('X_' + str(s_)) for s_ in STATE}
 
 
 def lin(Gexpr):
@@ -170,7 +172,8 @@ def table(R):
 
 
 def derivs_of_unknowns(rhs):
-    return sorted(str(q) for q in rhs.free_symbols if str(q).startswith('dx_d'))
+    """symbols dx_<unknown> (an x-derivative of an unknown) on a right side"""
+    return sorted(str(q) for q in rhs.free_symbols if str(q) in {'dx_' + n for n in UNK})
 
 
 def gronwall_check():
@@ -190,7 +193,7 @@ def gronwall_check():
                 Iu[i, j] = iu + (h / 2 * f[i, j] if i > 0 else 0)
                 Iv[i, j] = iv + (h / 2 * f[i, j] if j > 0 else 0)
         uu = np.linspace(0, T, n + 1)
-        bound = 2 * A * np.exp(4 * a * (uu[:, None] + uu[None, :]))
+        bound = A * np.exp(2 * a * (uu[:, None] + uu[None, :]))
         weak = A * np.exp(a * (uu[:, None] + uu[None, :]))
         out.append((a, T, f[-1, -1], bound[-1, -1], bool(np.all(f <= bound)), bool(np.any(f > weak)),
                     float(np.log(f[-1, -1]) / (2 * T))))
@@ -307,7 +310,7 @@ def main():
         print('   %-7s (%s, bounds %s): %s' % (nm, R[nm][0], R[nm][1], ' '.join(lst)))
     allsyms = set().union(*[r[2].free_symbols for r in R.values()])
     bgsyms = {str(q) for q in allsyms} - set(UNK)
-    good = not bad and all(s_.startswith('dx_') or s_ in {str(q) for q in STATE} | {'Ew', 'Ek'} for s_ in bgsyms)
+    good = not bad and all(s_.startswith('X_') or s_ in {str(q) for q in STATE} | {'Ew', 'Ek'} for s_ in bgsyms)
     print('   no derivative of an unknown on any right side: %s; background enters through its state and first '
           'x-derivatives only: %s ->' % (not bad, good), 'PASS' if good else 'FAIL')
     ok &= good
@@ -321,7 +324,7 @@ def main():
     gr = gronwall_check()
     good = all(r[4] and r[5] for r in gr)
     for a, T, fT, bT, below, exceeds, rate in gr:
-        print('E7 a = %.1f, T = %.1f: extremal f(T, T) = %.4g, bound 2 e^{8aT} = %.4g, below everywhere: %s; '
+        print('E7 a = %.1f, T = %.1f: extremal f(T, T) = %.4g, bound e^{4aT} = %.4g, below everywhere: %s; '
               'exceeds e^{a(u+v)} (control, must): %s; growth rate log f/(2T) = %.3f a' % (
                   a, T, fT, bT, below, exceeds, rate / a))
     print('E7', 'PASS' if good else 'FAIL'); ok &= good
@@ -346,13 +349,13 @@ def main():
             row.append(float(np.nanmax(np.where(sel, kz, np.nan))))
         a_ = max(row)
         cv_sup = float(np.nanmax(np.where(sel, bg['Om2_gt'], np.nan)))
-        F2 = 2 * np.exp(4 * a_ * (Du + Dv))
+        F2 = np.exp(2 * a_ * (Du + Dv))
         results.append((Xb, a_, F2, cv_sup, row))
         print('   %-7.4f' % Xb + ''.join('%10.3g' % r for r in row))
     print('   (rows: X; columns: kappa_Z sup.  a = the largest.)')
     for Xb, a_, F2, cv_sup, row in results:
-        lg = 4 * a_ * (Du + Dv) / np.log(10) + np.log10(2)
-        print('E4 X = %.4f: a = %.3g, worst unknown %s; F^2 = 2 exp(4 a (Du + Dv)) = 10^%.1f, F = 10^%.1f' % (
+        lg = 2 * a_ * (Du + Dv) / np.log(10)
+        print('E4 X = %.4f: a = %.3g, worst unknown %s; F^2 = exp(2 a (Du + Dv)) = 10^%.1f, F = 10^%.1f' % (
             Xb, a_, UNK[int(np.argmax(row))], lg, lg / 2))
     # E5: the domain
     print('E5 the truncated domain on the box (sup |b| = %.3g): x-extent left at the far corner, '
@@ -366,7 +369,7 @@ def main():
     print('E6 the closing condition delta + int eps < 1/(4 G T F^2), T = Du + Dv = %.2f, at G = 10 and G = 382:' % (
         Du + Dv))
     for Xb, a_, F2, cv_sup, row in results:
-        lg = 4 * a_ * (Du + Dv) / np.log(10) + np.log10(2)
+        lg = 2 * a_ * (Du + Dv) / np.log(10)
         for Gq in (10.0, 382.0):
             dem = -(np.log10(4 * Gq * (Du + Dv)) + lg)
             print('   X = %.4f, G = %g: demand 10^%.1f' % (Xb, Gq, dem))

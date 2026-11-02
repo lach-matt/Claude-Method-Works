@@ -1,0 +1,23 @@
+E1 pair identities P1-P4 (exact, Box f included where it enters): {'P1': True, 'P2': True, 'P3': True, 'P4': True} ;
+    control (P4 without 2 omega d): fails (good) -> PASS
+E2 the linearised rows (17), the unknowns on each right side:
+   chi     (e4, bounds dchi): dchi dom dw da1 da2
+   eta     (e4, bounds deta): dchi deta detab dw da1 dc1 da2 dc2
+   omb     (e4, bounds domb): deta domb detab dom dw da1 dc1 dd1 da2 dc2 dd2
+   chib    (e3, bounds dchib): domb dchib dw db dd1 dd2
+   etab    (e3, bounds detab): deta dchib detab dw db dc1 dd1 dc2 dd2
+   om      (e3, bounds dom): deta domb detab dom dw db da1 dc1 dd1 da2 dc2 dd2
+   k       (dv, bounds dk): dchi dw
+   w       (dv, bounds dw): dom dw
+   b       (dv, bounds db): deta detab dk dw
+   P1_1    (pair, bounds da1): dchi deta domb dchib dk dw db da1 dc1 dd1
+   P2_1    (pair, bounds dc1): dchi deta detab dk dw da1 dc1
+   P3_1    (pair, bounds dc1): deta dchib detab dk dw db dc1 dd1
+   P4_1    (pair, bounds dd1): dchi dchib detab dom dk dw da1 dc1 dd1
+   P1_2    (pair, bounds da2): dchi deta domb dchib dk dw db da2 dc2 dd2
+   P2_2    (pair, bounds dc2): dchi deta detab dk dw da2 dc2
+   P3_2    (pair, bounds dc2): deta dchib detab dk dw db dc2 dd2
+   P4_2    (pair, bounds dd2): dchi dchib detab dom dk dw da2 dc2 dd2
+   no derivative of an unknown on any right side: True; background enters through its state and first x-derivatives only:
+       True -> PASS
+E3 control: chib by null3.py N7's e4 equation: derivatives of unknowns on the right side: ['dx_detab'] -> fails (good)
