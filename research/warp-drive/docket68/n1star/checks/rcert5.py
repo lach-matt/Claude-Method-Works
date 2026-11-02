@@ -48,6 +48,20 @@ import numpy as np
 import sympy as sp
 from flint import arb, arb_mat, ctx
 
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
 ctx.prec = 128
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -488,7 +502,8 @@ def certify_points(C3, g, Nt, Ns, Nx):
             e[f + '_u'] = phi1 * Ft; e[f + '_v'] = psi * c((0, 1, 0)); e[f + '_x'] = c((0, 0, 1))
             e[f + '_uu'] = phi1 * phi1 * 2 * c((2, 0, 0)) + phi2 * Ft
             e[f + '_uv'] = phi1 * psi * c((1, 1, 0)); e[f + '_ux'] = phi1 * c((1, 0, 1))
-            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1)); e[f + '_xx'] = 2 * c((0, 0, 2))
+            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1))
+            e[f + '_xx'] = 2 * c((0, 0, 2))
         vals = certify_points.frame(*[e[k] for k in certify_points.names])
         for k8 in range(8):
             av = abs(vals[k8]); up = arb(av.mid() + av.rad())
@@ -515,7 +530,8 @@ def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None, prep=None):
         fld_pt[f] = {b: a for b, a in pt.items() if sum(b) <= Q + 2}
         fld_box[f] = box_coeffs(pt, l1, (ht, hs, hxs), Q + 2)
     if log:
-        log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (Nt * Ns * len(xcs), time.time() - t0))
+        log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (
+            Nt * Ns * len(xcs), time.time() - t0))
     hpows = [{m: arb(ht) ** m[0] * arb(hs) ** m[1] * arb(hx) ** m[2] for m in MONO} for hx in hxs]
     sup = [arb(0)] * 8; cen = [arb(0)] * 8; where = [None] * 8
     t1 = time.time()

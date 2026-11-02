@@ -22,10 +22,11 @@ below. K2 = x3 d_4 - x4 d_3, psi2 = (1/2) log |K2|^2, kappa2 = g^-1(du, d psi2).
          axis: it stays first order.
      (c) off the axis kappa2 is a function of the 1-jets, but the coefficient of d_3 u is 1/(a rho2) + O(1): unbounded
          as rho2 -> 0. The order-zero structure of classchi5's (R) has a coefficient ~ 1/dist(axis).
-     (d) at (rho2, 0) the planar Hessian components are chi(e4, e4) = kappa2 exactly (e4 = K2/|K2| there) and
-         chi(e3, e3) - kappa2 = 4 U_ss rho2^2/a + O(rho2^2)(other terms): the planar shear vanishes to second order at
-         the axis, so th_h = kappa2 on the axis and |chi|^2 -> kappa1^2 + (th - kappa1)^2/2 pointwise there; its
-         coefficient carries U_ss, two orders above the 1-jet.
+     (d) at (rho2, 0) the angular planar component is hess(u)(e4, e4) = kappa2 exactly (e4 = K2/|K2| there), and
+         hess(u)(d3, d3)/g33 - kappa2 = (4 U_ss/a + other terms) rho2^2 + o(rho2^2): the planar anisotropy vanishes to
+         second order at the axis, so th_h = kappa2 on the axis and |chi|^2 -> kappa1^2 + (th - kappa1)^2/2 pointwise
+         there; its coefficient carries U_ss, two orders above the 1-jet. (Off the axis d3 is tilted off the section by
+         g(d3, d_tau) = c_tau rho2, so the rho2^2 coefficient also holds the tilt's terms.)
   X2 (computed, mpmath quadrature) the size of the Hardy quotient: in the flat model (a = 1) kappa2 = d_rho u/rho; for
      the invariant family u_eps = exp(-rho^2/eps^2) concentrating at the axis, ||kappa2||/||grad u|| = sqrt(2)/eps in
      L^2(R^2) and grows like 1/eps in H^1 too: kappa2 is not bounded by any norm of du at the same order.
@@ -35,8 +36,9 @@ below. K2 = x3 d_4 - x4 d_3, psi2 = (1/2) log |K2|^2, kappa2 = g^-1(du, d psi2).
      u_rho/rho = f - 2 A f with f := u_rhorho + u_rho/rho (the planar Laplacian) and A f := rho^-2 int_0^rho r f dr
      (exact). A is bounded on L^2(R^2) uniformly up to the axis: ||A f||/||f|| and ||s_pl||/||f|| are scale-invariant
      and stay bounded for both families of X2 (an elliptic estimate: the integral runs in rho2, across the family's
-     generators, which at the axis lie in span(d_tau, d_rho1), axisphase5 A1). Control: the pointwise route, bounding
-     s_pl by f and the first-order quotient u_rho/rho against ||grad u||, is X2's blow-up.
+     generators, which at the axis lie in span(d_tau, d_rho1), axisphase5 A1). In fact ||s_pl|| = ||f|| exactly (flat
+     Bochner in the plane). Control: the pointwise route, bounding s_pl by f and the first-order quotient u_rho/rho
+     against ||grad u||, is X2's blow-up.
 
 Labels: computed (X1, X3's identity exact, sympy; X2, X3's bounds by mpmath quadrature at 30 digits). Run: python3
 checks/axisloss5.py   (about a minute)

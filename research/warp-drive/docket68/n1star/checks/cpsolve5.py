@@ -41,6 +41,20 @@ option ld k is given, as in dnsolve5 (D354).
 import os, sys, time, importlib.util
 import numpy as np
 
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOP = os.path.dirname(HERE)
 

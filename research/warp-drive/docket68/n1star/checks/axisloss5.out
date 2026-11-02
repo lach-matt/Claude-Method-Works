@@ -1,0 +1,2 @@
+X1 (a) |K2|^2 = a s: True ; g(d_rho2, d_rho2) = a + b s (-> a = |K2|^2/s at the axis): True
+   control: conical c = 3/2, g_xx -> 1 along the x-axis, 9/4 along the y-axis: discontinuous: True

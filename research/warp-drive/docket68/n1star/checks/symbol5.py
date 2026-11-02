@@ -50,6 +50,20 @@ of the linearised system is  D_u d_v f + K d_xx f  with  K = M^-1 N  and  D_u = 
 import os, sys, importlib.util
 import sympy as sp
 
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 _spec = importlib.util.spec_from_file_location('dnsolve5', os.path.join(os.path.dirname(HERE), 'dnsolve5.py'))
 d5 = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(d5)
@@ -98,7 +112,7 @@ def main():
     print('Y0 M^-1 V = (1 - x^2) s I:', 'PASS' if y0 else 'FAIL'); ok &= y0
     Lam = 4 * (1 - x ** 2) * sp.exp(2 * W + sp.Rational(2, 3) * ((1 + x) * m + (1 - x) * n)) / R ** 2
     A = sp.simplify(Minv * N / Lam)
-    print('Y1 K = M^-1 N = Lambda A, A ='); sp.pprint(A)
+    print('Y1 K = M^-1 N = Lambda A, A ='); print(sp.pretty(A, num_columns=118))
     cp, rA, rI, mult0, jordan0 = jordan_test(A)
     l1 = sp.Matrix([[3 / (R * (1 + x)), 1, 0, 0]]); l2 = sp.Matrix([[3 / (R * (1 - x)), 0, 1, 0]])
     l0 = sp.Matrix([[2 / R, (1 + x) / 3, (1 - x) / 3, 1]])

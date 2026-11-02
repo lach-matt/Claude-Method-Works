@@ -1,4 +1,4 @@
-# python3 checks/secondzero5.py RUNDIR t_l1_r03_M16_200 l1_M16_400 l1_M16_800 (round 2: S4 report-only; S1's near-cut excess)
+# python3 checks/secondzero5.py RUNDIR t_l1_r03_M16_200 l1_M16_400 l1_M16_800  (round 2)
 == t_l1_r03_M16_200: lambda 1, M 16, 200 x 90, cut 0.30
   S1 R_v < 0 at u > -1, >= 5 rows from the cut, v <= 1.80: violations 0 far, 12 near the cut,
      of 2192 cells -> PASS; control (u > -1.02) fails (good)

@@ -24,6 +24,20 @@ compares, D432), and in the monitored Ric_xx.
 import os, sys, warnings
 import numpy as np
 warnings.filterwarnings('ignore')
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
 BANDS = [(0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25)]
 CLASSES = [('r_A >= 1.2', 1.2, 99.0), ('1.0 <= r_A < 1.2', 1.0, 1.2), ('0.9 <= r_A < 1.0', 0.9, 1.0)]
 
