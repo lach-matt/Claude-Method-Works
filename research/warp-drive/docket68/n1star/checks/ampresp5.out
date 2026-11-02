@@ -1,1 +1,4 @@
 # python3 checks/ampresp5.py LD3DIR (the record's ld 3 amplitude runs, D445)
+A1 region: 48322 cells (v in [0.5, 1.65), areal radius >= 1.0, kept by all three runs); data step sup 2.258e-03
+   P   : sup |g(1) - g(7/8)| 1.618e-02 -> F_low 7.17;  sup |second difference| 3.987e-04 -> G_low 78.2
+   Q   : sup |g(1) - g(7/8)| 2.069e-02 -> F_low 9.16;  sup |second difference| 6.779e-04 -> G_low 133

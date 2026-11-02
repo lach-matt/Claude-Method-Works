@@ -10,3 +10,8 @@ seed 2 (lam = 0.316228): r in [10.247560, 11.735086] (v in [1/2, 7/2]), degrees 
   C1 certified: sup |Ric_vv[g_app]| <= [2.284e-5 +/- 3.83e-9]
      sup s <= [0.0005281 +/- 3.00e-8] (the terms that cancel); worst box near (r, x) = (10.8441, 0.453)
      certified pointwise at the 18432 box centres: max |Ric_vv| <= [1.757e-10 +/- 1.10e-14]
+  control (coefficients perturbed by 1e-6): bound [4.259e+3 +/- 0.0768] -> fails (good)
+  C1 PASS (bound below 5e-2 of the terms)
+  C2 certified: jump of R_rr at v = 1/2: <= [7.40e-8 +/- 1.27e-12]; at v = 7/2: <= [8.45e-8 +/- 2.71e-11]; sup |R_rr| on the cone <= [0.0111 +/- 1.91e-5] -> PASS (below 1e-3 of sup |R_rr|)
+     control (perturbed approximant): jumps [8.32e+2 +/- 0.0583], [1.11e+3 +/- 3.77] -> fails (good)
+cdata5: all checks pass
