@@ -173,12 +173,23 @@ def end_bounds(delta, K=KMAX):
     return out
 
 
-def interior_bounds(delta, cells=3000, K=KMAX):
+def interior_cells(delta):
+    """a cover of [0, 1 - delta]: 1500 equal cells on [0, 9/10], then cells of width (1 - y)^2/20 up to 1 - delta (the
+    scale on which 1/(1 - y^2) varies), so that the interval Taylor coefficients stay tight near the ends"""
+    cells = [(mpmath.mpf(i) * 9 / 15000, mpmath.mpf(i + 1) * 9 / 15000) for i in range(1500)]
+    y = mpmath.mpf(9) / 10
+    top = 1 - mpmath.mpf(delta.numerator) / delta.denominator
+    while y < top:
+        y2 = min(top, y + (1 - y) ** 2 / 20)
+        cells.append((y, y2))
+        y = y2
+    return cells
+
+
+def interior_bounds(delta, K=KMAX):
     """sup over 0 <= y <= 1 - delta of |beta^(k)| (|beta^(k)| is even), k = 0..K"""
     best = [mpmath.mpf(0)] * (K + 1)
-    top = 1 - mpmath.mpf(delta.numerator) / delta.denominator
-    for i in range(cells):
-        lo, hi = top * i / cells, top * (i + 1) / cells
+    for lo, hi in interior_cells(delta):
         s = beta_series(iv.mpf([lo, hi]))
         for k in range(K + 1):
             v = ivmax_abs(s[k]) * math.factorial(k) * SAFE
@@ -187,7 +198,7 @@ def interior_bounds(delta, cells=3000, K=KMAX):
     return best
 
 
-def beta_sq_integral(N=2 ** 15):
+def beta_sq_integral(N=2 ** 17):
     """int_{-1}^{1} beta^2 = 2 int_0^1 beta^2, beta^2 decreasing on [0, 1): lower sum at right ends, upper at left
     ends, each value enclosed by interval evaluation at exact rational points"""
     vals = []
@@ -253,12 +264,14 @@ def main():
         % [str(d) for d in ders])
 
     f = lambda yy: mpmath.cos(mpmath.pi * yy / 2) ** MPOW * mpmath.exp(-yy * yy / (1 - yy * yy))  # noqa: E731
+    pts = [mpmath.mpf(i) / 60 * mpmath.mpf(9) / 10 for i in range(60)]
+    pts += [1 - mpmath.mpf(10) ** (-1 - mpmath.mpf(i) / 50) for i in range(60)]     # 1 - y from 1e-1 to 1.6e-3
     refuted = []
     for k in range(KMAX + 1):
-        best = max(abs(mpmath.diff(f, mpmath.mpf(i) / 80 * (1 - mpmath.mpf(1) / 40), k)) for i in range(80))
+        best = max(abs(mpmath.diff(f, y, k)) for y in pts)
         refuted.append(bbeta[k] / 2 < best <= bbeta[k])
     ok['C2'] = all(refuted)
-    say('  C2 (control): for every k <= %d a sampled |beta^(k)(y)| (mpmath.diff, 80 points) lies in (bound/2, '
+    say('  C2 (control): for every k <= %d a sampled |beta^(k)(y)| (mpmath.diff, 120 points) lies in (bound/2, '
         'bound]: %s %s' % (KMAX, ok['C2'], refuted))
     off = Fr(105, 128) + Fr(1, 10 ** 4)
     c_off = mpmath.sqrt(mpmath.mpf(off.numerator) / off.denominator / (mpmath.mpf(3) / 2 * lo))

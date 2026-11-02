@@ -45,6 +45,11 @@ a_j' = ((j + 1/2)(j - 3/2) - kappa)/(2j) a_(j-1). In particular a_1' = -(c/2) F 
      ehat_b(w) = e^(2iw) E(w) with E real: it vanishes exactly at the real zeros of E, a discrete set (the first
      ones located). Control: a radiation field with zero time integral (env replaced by its derivative times a
      constant phase) gives ehat = 0 identically at w = 0 and is not of the record's form.
+  T9 (exact and computed) the A^3 part of the tail is beyond all orders too: in the model of its integrand
+     (G3 = lam e sin(theta), S3 = (d_v G3)^2 - e^2/2, the Isaacson balance) G3 S3 carries only the odd phase
+     harmonics 1 and 3, its theta-mean vanishing identically, so its v-integral is an oscillatory integral of a
+     C_c^oo profile; computed for the bump, falling faster than lam^4 on [2^-6, 2^-3]. Control: an even product
+     has a nonzero mean.
 Labels: computed (exact, sympy; mpmath at 30-40 digits).
 
     python3 checks/tail5.py [--selftest]
@@ -357,10 +362,49 @@ def t8():
           mp.nstr(ctl, 3))
 
 
+def t9():
+    print("T9  the cubic part is beyond all orders: its integrand has no zeroth phase harmonic")
+    th, lam, e0, e1 = sp.symbols("theta lambda e0 e1", real=True)
+    # model of the r^(-7/2) source at A^3: G3 = lam e(v) sin(theta), d_v G3 = lam e' sin + e cos (theta = v/lam),
+    # S3 = (d_v G3)^2 - e^2/2 (the Isaacson balance removes the mean at lam^0); after integration by parts the
+    # A^3 coefficient is -int G3 S3 dv, and int d_v G3 G4 = -2 int G3 S3 likewise
+    dG3 = lam*e1*sp.sin(th) + e0*sp.cos(th)
+    S3 = dG3**2 - e0**2/2
+    integrand = lam*e0*sp.sin(th)*S3
+    mean = sp.simplify(sp.integrate(sp.expand(integrand), (th, 0, 2*sp.pi))/(2*sp.pi))
+    check("T9a the theta-mean of G3 S3 vanishes identically in (lam, e, e')", mean == 0, str(mean))
+    harm = sp.expand(sp.fu(sp.expand(integrand)))
+    odd = all(sp.simplify(sp.integrate(sp.expand(integrand)*sp.cos(k*th), (th, 0, 2*sp.pi))) == 0 and
+              sp.simplify(sp.integrate(sp.expand(integrand)*sp.sin(k*th), (th, 0, 2*sp.pi))) == 0
+              for k in (0, 2, 4))
+    check("T9b only odd phase harmonics occur (1 and 3)", odd)
+    ctl = sp.simplify(sp.integrate(sp.expand(dG3**2), (th, 0, 2*sp.pi))/(2*sp.pi))
+    check("T9c control: an even product, (d_v G3)^2, has a nonzero mean (an O(1) source, not O(lam^oo))",
+          ctl != 0, str(ctl))
+    mp.mp.dps = 30
+    rows = []
+    for k in (3, 4, 5, 6):
+        lm = mp.mpf(2)**-k
+        n = int(3/(lm*mp.pi)) + 8
+        pts = [mp.mpf(1)/2 + 3*mp.mpf(j)/n for j in range(n + 1)]
+        db = lambda x: mp.diff(bump, x)
+
+        def f(x):
+            q = x/lm
+            g3 = lm*bump(x)*mp.sin(q)
+            d = lm*db(x)*mp.sin(q) + bump(x)*mp.cos(q)
+            return g3*(d*d - bump(x)**2/2)
+        rows.append((lm, mp.quad(f, pts)))
+    print("     bump: lam, int G3 S3:", [(mp.nstr(a, 3), mp.nstr(b, 4)) for a, b in rows])
+    slope = mp.log(abs(rows[-1][1])/abs(rows[0][1]))/mp.log(rows[-1][0]/rows[0][0])
+    check("T9d bump: the cubic model coefficient falls faster than lam^4 over [2^-6, 2^-3]", slope > 4,
+          mp.nstr(slope, 4))
+
+
 def main():
     only = sys.argv[1:]
     for name, f in (("t1", t1), ("t2", t2), ("t3", t3), ("t4", t4), ("t5", t5), ("t6", t6), ("t7", t7),
-                    ("t8", t8)):
+                    ("t8", t8), ("t9", t9)):
         if not only or name in only:
             f()
     print("FAILED:", FAIL if FAIL else "none")
