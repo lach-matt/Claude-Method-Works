@@ -1427,9 +1427,13 @@ listed by `docket68/n1star/checks/vii5census.py`, which makes the reading finite
   deduced, the last given the two-dust background on the whole domain. That background's existence is deduced with one
   step sketched, given its characteristic data (the outgoing family's are open; the dusts' stress in the characteristic
   constraints computed, `checks/chardust5.py`), and computed on a region that does not reach the initial slice
-  (`checks/twodust5.py` B5, floating point). The linearised constraint map at the approximant's slice data has no 1/λ
-  coefficient with both families, on flat space, on Vaidya with an outgoing phase that is not null there, and on a static
-  background with both phases null (computed, exactly, `checks/data5two.py`), and
+  (`checks/twodust5.py` B5, floating point). With the outgoing family's characteristic data moved to an earlier cone (a
+  choice, those data being open), it is computed on a rectangle reaching Σ_−1.5, every outgoing ray from the inner
+  boundary leaving it at τ ≤ −1.78, the constraint residuals converging at second order away from the steep inner
+  boundary and the inner boundary trapped (computed, floating point, `docket68/n1star/checks/twodomainx5.py`, which also
+  computes the earlier rectangle's exit range, τ from −0.960 to −0.702). The linearised constraint map at the
+  approximant's slice data has no 1/λ coefficient with both families, on flat space, on Vaidya with an outgoing phase
+  that is not null there, and on a static background with both phases null (computed, exactly, `checks/data5two.py`), and
   with both families' second harmonics as well (computed exactly on flat space and on Vaidya; with them the constraint
   system's principal coefficients are the background's, computed), and a wave with a trace on the spheres gives one. Not
   done: the background on the whole domain, the constraints' solution on its slice, the dynamic outgoing null phase, and
@@ -1454,10 +1458,11 @@ listed by `docket68/n1star/checks/vii5census.py`, which makes the reading finite
   `docket68/n1star/checks/support5.py` C1–C6, C8, C9, `checks/csolve5.py` C7, `checks/support8.py` K1, K8,
   `checks/flux5.py`, `checks/mpdata5.py`, `checks/kirecon5.py`, `checks/hclass5.py`, `checks/eindcert5.py` and
   `checks/vii5census.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`, `checks/eqlayer5.py` and
-  `checks/e2lower5.py`. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
-  Nash–Moser scheme, the settling write-out) are proved in the supplement and read by independent verifiers, not computed
-  (deduced). Not computed: a convergence study of the two-dust background on a rectangle reaching Σ_τ0, which needs
-  characteristic data for the outgoing family on a surface reaching that slice, among the items left open above.
+  `checks/e2lower5.py` and `checks/twodomainx5.py`. The analytic estimates themselves (the energy estimate and the
+  bootstrap's analysis, the Nash–Moser scheme, the settling write-out) are proved in the supplement and read by
+  independent verifiers, not computed (deduced). The two-dust background's convergence on a rectangle reaching Σ_τ0 is
+  computed for one choice of the outgoing family's characteristic data, those data themselves being among the items left
+  open above.
 
 ---
 
@@ -2098,6 +2103,9 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/e2lower5.py` E1: certified lower bounds for ‖χ_I R_l(σ) χ_I‖ by test functions with compact support in I, and
   the ratio of the certified upper bound to them. Control: a test function vanishing only to first order at the ends.
   Exact; about ten minutes.
+- `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
+  a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
+  second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
 - `checks/coulomb5.py` K1–K6: the Coulomb part of the means carried from the initial null hypersurface to spatial
   infinity, a Gegenbauer polynomial in (v − v1)/r on flat space (l ≤ 10), bounded uniformly in l, and on Tangherlini
   a recursion whose factor 1 + 2j never vanishes, so no logarithm (K6 exact rationals). Control: the cross term's sign
@@ -2300,6 +2308,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | the boundary at equality | `docket68/n1star/EQUALITY5.md`; `checks/eq5.py` E1–E6 |
 | the boundary at equality: the layer | `docket68/n1star/checks/eqlayer5.py` L1–L2 |
 | section 9, more families | `docket68/n1star/FAMILIES5.md` sections 1, 4b–4i; `checks/data5two.py` |
+| section 9, the two-dust background reaching Σ_τ0 | `docket68/n1star/checks/twodomainx5.py` X1–X2 |
 | provenance | the supplement's log `docket68/n1star/N1STAR-LOG.md` records the independent readings (not a source |
 | | for any claim) |
 | the standard theorems READ | supplement section 7, the retrieval table |
@@ -2407,6 +2416,7 @@ import nothing from the research tree:
     python3 checks/charge5.py                            # under a minute
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
+    python3 checks/twodomainx5.py                        # under a minute
     python3 dnsolve5.py --run lam rcut M Nu Nv out.npz   # the double-null runs; then checks/g1curv5.py --seed2-2400 DIR
     python3 data5.py --mutants                           # about 80 minutes
 
@@ -2550,7 +2560,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/g1curv5_seed2_2400.out` | `d4b3e16ed75dcaa2b17d5b674dd230a5` |
 | `docket68/n1star/checks/data5two.out` | `9d628d9645dff8a0ca17f68cf349937b` |
 | `docket68/n1star/checks/csolve5.py` | `c4beab544fc507c86b1cdc759fe58d17` |
-| `docket68/n1star/checks/csolve5.out` | `37e264d80f782a764446d7dddac41a2f` |
+| `docket68/n1star/checks/csolve5.out` | `0825ead5a038ec9fe6080499b4d84d91` |
 | `docket68/n1star/checks/eindcert5.py` | `38dff777740e9cb5b0627ddcd7274b08` |
 | `docket68/n1star/checks/eindcert5.out` | `a030dc112b7b0ef36d7c3039ac604015` |
 | `docket68/n1star/checks/kirecon5.py` | `d556d208c0e6b3c82227df0448be6fb2` |
@@ -2571,6 +2581,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/eqlayer5.out` | `43d95eb4505ae0a32c64c179e808b8e9` |
 | `docket68/n1star/checks/e2lower5.py` | `230c95c6cedbdcfda25558e6d510b3ad` |
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
+| `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
+| `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
 | `docket68/lemmas/hf_mirror5.py` | `bbe7d6df6092609ee3c420f97b1dd733` |
 | `docket68/lemmas/data/hf_core5_runs.json` | `3e360c45bc4436c2e9012b9f88f7e1ed` |
 | `docket68/n1star/data/growth5_runs.json` | `9aba49f0491bdd01c78e733ad3815e3c` |
