@@ -27,9 +27,14 @@ needs only eps_4(v1) <= lam, and returns the same bound |w| <= C lam^(N-5) eps_(
      10^-1000 and 10^-3000 with Lemma L.4' (windows: eps_4 <= lam; the remainder lam^(N-5) eps_26 wherever eps_4 <=
      lam, Theorem E's lam^(K-3) elsewhere): K = 6 covers [x_deep, x_top] with no gap.  Control: with Lemma L.4's rule
      (B3's) K = 6 is not covered (B3's result reproduced).
+  H4 (exact rationals; the verifier of round 3's M1) Theorem L's conditions (e1)-(e8) at a level lam^p are linear in
+     p; they hold at p = 3 + delta and p = P, generic and at the double root rho* (signal lam^3 y^(1 + 2/kappa)), for
+     every K in [6, 40], delta in {1/100, 1/20, 1/10, 1/4, 1/2} and P in {50, 200}, under L.4's hypothesis (e6) p (1 -
+     M/m) > 3 and under L.4''s p (1 - 4/m) > 1, once m := max(56 M, 4 P M, 4 M/delta) and kappa := max(64, 8 P,
+     8/delta).  Control: round 3's m = 56 M, kappa = 64 fail ((e6) at delta = 1/20; (e1), (e2), (e4) at rho*).
 
 Labels: H1, H2 computed (exact; H1 checks the bookkeeping of a deduced lemma, not the lemma); H3 a model with unit
-constants.  Run: python3 checks/bandL4p5.py   (about half a minute; imports layerband5.py)
+constants.  Run: python3 checks/bandL4p5.py   (about three minutes; imports layerband5.py)
 """
 import os
 import sys
@@ -48,7 +53,7 @@ def out(msg):
 
 # ------------------------------------------------------------------------------------------------------------ H1
 def coef_g(j, h):
-    """exponent of the size of d^j g_lam's non-seed part under eps_4 <= lam^h: lam^(1-j) eps_j <= lam^(1-j+h); g0's O(1)"""
+    """exponent of the size of d^j g_lam's non-seed part, eps_4 <= lam^h: lam^(1-j) eps_j <= lam^(1-j+h); g0's O(1)"""
     return min(Fr(0), Fr(1 - j) + h)
 
 
@@ -185,9 +190,59 @@ def h3(control=False):
     return ok
 
 
+# ------------------------------------------------------------------------------------------------------------ H4
+def params(K, delta, P, fix=True):
+    N = K + 3
+    M = 2*N + 8
+    if not fix:
+        return N, M, 56*M, 64
+    m = max(56*M, 4*P*M, -(-4*M//delta))          # ceil(4 M/delta) for a Fraction delta
+    kap = max(64, 8*P, -(-8//delta))
+    return N, M, int(m), int(kap)
+
+
+def ledger_window_fix(K, p, delta, P, rho_star, hyp, fix=True):
+    """Theorem L's conditions (e1)-(e8) at the level lam^p, generic or at rho* (signal lam^3 y^(1 + 2/kappa))"""
+    N, M, m, kap = params(K, delta, P, fix)
+    m = Fr(m)
+    p = Fr(p)
+    e = 1 - M/m
+    s = p*(1 + Fr(2, kap)) if rho_star else p
+    e6 = p*e > 3 if hyp == "L4" else p*(1 - 4/m) > 1
+    return {"e1": 2*p > 3 + s, "e2": 4 + p*e > 3 + s, "e3": 1 + 2*p*e > 3 + s, "e4": N - 5 + p*e > 3 + s,
+            "e5": p/m < 1, "e6": e6, "e7": 4 + 2*p*e > 3 + s, "e8": 2*p > 1}
+
+
+def h4(control=False):
+    deltas = (Fr(1, 100), Fr(1, 20), Fr(1, 10), Fr(1, 4), Fr(1, 2))
+    Ps = (50, 200)
+    if control:
+        # round 3's parameters (m = 56 M, kappa = 64): at least one case must fail (it does: e6 at delta = 1/20, L.4;
+        # e2, e4 at rho* for p >= 21)
+        return all(all(ledger_window_fix(6, pp, d, P, rs, "L4", fix=False).values())
+                   for d in deltas for P in Ps for rs in (False, True) for pp in (3 + d, P))
+    bad = []
+    for K in range(6, 41):
+        for d in deltas:
+            for P in Ps:
+                for rs in (False, True):
+                    for hyp in ("L4", "L4p"):
+                        for pp in (3 + d, P):
+                            led = ledger_window_fix(K, pp, d, P, rs, hyp)
+                            if not all(led.values()):
+                                bad.append((K, d, P, rs, hyp, pp, [k for k, vv in led.items() if not vv]))
+    old_fail = sorted({k for d in deltas for P in Ps for rs in (False, True) for pp in (3 + d, P)
+                       for k, vv in ledger_window_fix(6, pp, d, P, rs, "L4", fix=False).items() if not vv})
+    out("  H4 Theorem L's window conditions at every level lam^p, 3 + delta <= p <= P, generic and at rho*, with m ="
+        " max(56 M, 4 P M, 4 M/delta) and kappa = max(64, 8 P, 8/delta), every K in [6, 40], delta in {1/100, 1/20, 1/10,"
+        " 1/4, 1/2}, P in {50, 200}, under L.4 and under L.4': failures %s; with round 3's m = 56 M, kappa = 64 (K = 6)"
+        " the conditions failing somewhere: %s" % (bad if bad else "none", old_fail))
+    return not bad
+
+
 def main():
     ok = True
-    for name, f in (("H1", h1), ("H2", h2), ("H3", h3)):
+    for name, f in (("H1", h1), ("H2", h2), ("H3", h3), ("H4", h4)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))
