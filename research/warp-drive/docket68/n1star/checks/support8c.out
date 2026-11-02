@@ -15,3 +15,13 @@ K1 PASS
   K2: rho^beta in rho^q L^2(r^(n-1) dr) iff beta > q + n/2; at q = -1/2 + S-bar: n = 4 Sbar + 3/2, n = 3 Sbar + 1 (his
       Theorem 9.5(5)); integrals finite at crit + 1/10 and infinite at crit - 1/10
 K2 PASS
+  K3: box^C's roots at the record's point with real part in (5/2, 13/4]: 2771 (s0 0, scalar l >= 1 2272, last at l =
+      1117; vector 499, last at l = 499), none at l = 10^4, 10^5; tower images of the roots in (2, 5/2): 614; non-
+      real: 1726; real parts 2.5012520891 to 3.24999493752; exactly 3: [('vl', 1)]; least above 3: 3 + 2.9323504e-6
+      (sl tower, l = 2) > 3 + eps_ind = 3 + 1.94137e-8: no candidate in (3, 3 + eps_+]; all >= alpha_min = 1.5099:
+      True
+K3 PASS
+  K4: Ric''(h, k)(d_1, d_1) along the ray at fixed t*: r^-3 at n = 4, p = 3/2; r^-2 at n = 3, p = 1; L_0's I+ exponent
+      3/2 (iplus5.py P1: remainder in rho_I Diff_b: True); indicial matching: z = 2 at n = 4 (his z = 1 at n = 3);
+      A_0's (7, 7) entry 2*gam_U, coefficient -(z - 3/2 - 2 gam_Ups) = 2*gam_U - 1/2, -12/25 at the point
+K4 PASS

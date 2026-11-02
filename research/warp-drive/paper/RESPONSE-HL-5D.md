@@ -996,18 +996,19 @@ boost (supplement section 10.43, `class5.py`: the invariant harmonics counted tw
 With that, his sections 11–13 carry into five dimensions in the class (supplement sections 10.44–10.49). At null infinity
 the leading part of his normal operator is his with 3/2 for 1, its non-resonant gap at the parameter point is (38/25,
 499996.62) against his (51/50, 499996.12), and its exceptional exponents are 2 and 3/2 + (1 − e_Υ)γ_Υ for his 1 and 1 +
-(1 − e_Υ)γ_Υ (`iplus5.py`; computed, the exponent 2 resting on a scaling argument). The gauge parameter changes his steps
-solve for vanish in the class, and his bookkeeping of the terms at the Kerr face, run over every exponent at timelike
-infinity the class's sources carry — all at least α_min = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 — records no physical state: the
-class loses one order of decay at the Kerr face where he loses two, and the iteration needs its forcing at order 3 + ε_K
-there (ε_K a small decay parameter, chosen after ℓ0 and below ℓ0 − 3) (`sharp5.py`; computed, the bookkeeping deduced).
-The write-out runs the iteration with α ∈ (4 + ε_K − ε′₀, 4 + ε_K] and rate α − 2 (supplement
-`docket68/n1star/proof5/PART-VI4-PARAMS.md` row w2; deduced there; the table's order and its inequalities at witness
-values computed, `docket68/n1star/checks/support8b.py` M4). His Theorems 12.3 and 12.8, the exterior theorems of his
-section 5 with the radiative order 3/2 at null infinity, and his Theorem 13.1 follow: in the class, for every ε < ε_K,
-G-invariant data near five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and are small
-enough, depending on ε, have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at the rate
-t*^(−2−ε) in spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
+(1 − e_Υ)γ_Υ (`iplus5.py`; computed, the exponent 2 from the indicial equation of the quadratic radiative term, whose
+coefficient −12/25 does not vanish at the point, `docket68/n1star/checks/support8c.py` K4, on the Ricci part). The gauge
+parameter changes his steps solve for vanish in the class, and his bookkeeping of the terms at the Kerr face, run over
+every exponent at timelike infinity the class's sources carry — all at least α_min = 3/2 + (1 − e_Υ)γ_Υ = 1.5099 —
+records no physical state: the class loses one order of decay at the Kerr face where he loses two, and the iteration
+needs its forcing at order 3 + ε_K there (ε_K a small decay parameter, chosen after ℓ0 and below ℓ0 − 3) (`sharp5.py`;
+computed, the bookkeeping deduced). The write-out runs the iteration with α ∈ (4 + ε_K − ε′₀, 4 + ε_K] and rate α − 2
+(supplement `docket68/n1star/proof5/PART-VI4-PARAMS.md` row w2; deduced there; the table's order and its inequalities at
+witness values computed, `docket68/n1star/checks/support8b.py` M4). His Theorems 12.3 and 12.8, the exterior theorems of
+his section 5 with the radiative order 3/2 at null infinity, and his Theorem 13.1 follow: in the class, for every ε <
+ε_K, G-invariant data near five-dimensional Tangherlini of mass m₀ that satisfy the constraints, have his decay and are
+small enough, depending on ε, have a G-invariant vacuum development, and it settles to Tangherlini of a nearby mass at
+the rate t*^(−2−ε) in spatially compact sets (supplement section 10.49; deduced, on the readings of section 8.5).
 
 ### 8.5 The readings taken up
 
@@ -1044,10 +1045,13 @@ sections 5–13 comes from (5.7)'s (n − 1)/2 or from a density, and bundles ar
 158); [Hin26a]'s section 5.2 takes from the metric only symbol data, all computed here in five dimensions; [Hin23a]'s
 exterior estimates are needed only near a piece of null infinity for compactly supported data, its radiation couplings
 falling half an order at the five-dimensional radiative order r^(−3/2); [Hin26]'s Proposition 2.25 is stated on Rⁿ; and
-[CD03]'s gluing is independent of the dimension. Deduced: the kernel elements' class; and the uniqueness inside the
-horizon, with the continuation there that Hintz's mode stability argument needs, by a lemma on the radial systems' simple
-zero at r_h proved in supplement section 10.76; the resonances at timelike infinity between 5/2 and 3 + ε_+, whose
-locations the bookkeeping of section 8.4 does not need; and the gluing of section 8.7.
+[CD03]'s gluing is independent of the dimension. Deduced: the kernel elements' class (its decay at infinity 3/2 + S̄ for
+his 1 + S̄, computed, `docket68/n1star/checks/support8c.py` K2); and the uniqueness inside the horizon, with the
+continuation there that Hintz's mode stability argument needs, by a lemma on the radial systems' simple zero at r_h
+proved in supplement section 10.76 (the Frobenius exponents at r_h computed, 0 with the damping's negative ones, so the
+solutions smooth there are the exponent-0 family, K1); the resonances at timelike infinity between 5/2 and 3 + ε_+, whose
+locations the bookkeeping of section 8.4 does not need (scanned for l ≤ 1200, 10⁴ and 10⁵: none in (3, 3 + ε_+] for any
+admissible ε_+, the nearest 3 + 2.932 × 10⁻⁶, K3); and the gluing of section 8.7.
 
 ### 8.6 Without the class
 
@@ -2164,6 +2168,14 @@ Programs behind section 9, in `docket68/n1star/`:
 - `checks/twodomainx5.py` X1–X2: the two-dust background's exit range on the earlier rectangle (X1) and the background on
   a rectangle reaching Σ_−1.5 with the outgoing data moved to an earlier cone, its constraint residuals converging at
   second order away from the steep inner boundary (X2). Control: data off the constraint. Floating point; under a minute.
+- `checks/support8c.py` K1–K4: section 8.4–8.5's deduced steps. K1, the Frobenius exponents at r_h of the scalar wave,
+  P_0, box^C and 2L at the record's point (0 with the damping's negative ones, the σ part iσ, free of the angle), so the
+  solutions smooth at r_h are the exponent-0 family (at γ = 0, 2L has 1 at σ = i, which the lemma does not use); K2, the
+  kernel elements' decay class 3/2 + S̄ at n = 4 for his 1 + S̄; K3, box^C's roots with real part in (5/2, 13/4] (2,771
+  for l ≤ 1200, none at l = 10⁴, 10⁵; 614 tower images), exactly 3 only the vector l = 1 root, the nearest above 3 +
+  2.932 × 10⁻⁶ > 3 + ε_ind; K4, the exponent 2 of the quadratic radiative term from its indicial equation, coefficient
+  −12/25 at the point (his 1 at n = 3; the Ricci part). Controls: box^C's damping sign reversed; the wrong density; a
+  root at 3 + 10⁻⁹; decay r⁻². About nine minutes.
 - `checks/level2loop5.py` L1–L4, `checks/lambdacount5.py` C1–C5: the rounds of the write-out's loops, about ½/(ε_K ε_ind)
   per loop at the parameter point, counted from the write-out's own index sets; `checks/twodomain5.py` D1–D4: the
   record's lemma on the domain for the two-dust background; `checks/r0census5.py`: every line of Parts III–VII naming the
@@ -2405,6 +2417,7 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | sections 8.1–8.8: the half-turn, 10.50's bounds, the bump's cost | `docket68/n1star/checks/support8b.py` M1–M3 |
 | sections 8.4, 8.8: the parameter order, the inventories' counts | `docket68/n1star/checks/support8b.py` M4–M5 |
 | section 8.5: (8.13) off a countable set of h, not at every h | `docket68/n1star/checks/re813.py` R1–R3 |
+| sections 8.4, 8.5: the exponent 2, the class, r_h, the roots in (5/2, 13/4] | `docket68/n1star/checks/support8c.py` K1–K4 |
 | sections 8.5, 9: the point's conclusions, the losses, the lowered boundary | `docket68/n1star/checks/census9.py` |
 | section 8.7: the glued mass bound | `docket68/n1star/checks/flux5.py` F1–F3 |
 | section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
@@ -2455,6 +2468,7 @@ imports `class5.py`, `damping5.py`, `iplus5.py` and `window5.py`, `general5.py` 
 imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5.py`, `past5.py` and `mass5.py`,
 `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports `checks/support5.py`,
 `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports `checks/level2loop5.py`,
+`checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`,
 `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`,
 `checks/twodomainx5.py` imports `checks/twodomain5.py`; the others import nothing from the research tree:
 
@@ -2535,6 +2549,7 @@ imports `checks/support5.py` and `lead5.py`, `checks/support3.py` imports `lead5
     python3 checks/eqlayer5.py                           # a few seconds
     python3 checks/e2lower5.py                           # about ten minutes
     python3 checks/twodomainx5.py                        # under a minute
+    python3 checks/support8c.py                           # about nine minutes
     python3 checks/level2loop5.py; python3 checks/lambdacount5.py; python3 checks/twodomain5.py
     python3 checks/census9.py                             # a few seconds
     python3 checks/support5c.py                           # about a minute
@@ -2710,6 +2725,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
+| `docket68/n1star/checks/support8c.py` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/support8c.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/level2loop5.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/lambdacount5.py` | `00000000000000000000000000000000` |
 | `docket68/n1star/checks/lambdacount5.out` | `00000000000000000000000000000000` |

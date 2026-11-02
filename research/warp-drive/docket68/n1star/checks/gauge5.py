@@ -19,9 +19,11 @@ zero there". Supplement N1STAR-PROOF.md 6.1-6.2, 9.1, 9.3 and the proof of Theor
      g_app = G(X, u/lam), G = g0 + lam (W + m1) + lam^2 gh2, u = v + lam phi1, W = W_TT + chi dv dv (lead5.wave), with
      m1 (15 components) and gh2 (15) generic functions and phi1 generic: m1 is the O(lam) mean, OPEN in the record
      (ansatz5.py A5), so it stays a generic symbolic function throughout. Computed: (a) D^(-1) = D^(0) = 0 (lead5 L5 in
-     this form); (b) gh2 enters D^(1) only as Pol(d_s gh2), Pol(Y) = Y(ell, .) - (1/2) dv tr_g0 Y, everywhere on Omega;
-     then on Sigma = {tau = tau0} under Lemma 6.2's choices for stage 1 -- phi1 = 0, (m1)_(tau .) = 0 on Sigma (in these
-     coordinates m1(d_v, .) = 0, d_tau = d_v at fixed r), d_tau phi1 = -(1/2) m1(ell, ell) (Lemma 5.3(b), q1 = 0),
+     this form); m1 is written in the slice coordinates (tau = v - r, r, th, phi1, phi2), so that (m1)_(tau .) and
+     the spatial part h1 are separate components (in EF components d_v m_rr mixes d_tau h1 with d_tau m_(tau .));
+     (b) gh2 enters D^(1) only as Pol(d_s gh2), Pol(Y) = Y(ell, .) - (1/2) dv tr_g0 Y, everywhere on Omega;
+     then on Sigma = {tau = tau0} under Lemma 6.2's choices for stage 1 -- phi1 = 0, (m1)_(tau .) = 0 on Sigma
+     (d_tau = d_v at fixed r), d_tau phi1 = -(1/2) m1(ell, ell) (Lemma 5.3(b), q1 = 0),
      chi = 0 on Sigma (stage 0) with d_v chi there a second harmonic in s (its transport source is, lead5 L3-L4):
      (c) the oscillating part of D^(1) is Pol(d_s gh2) + an expression algebraic in m1 (no derivative of m1) + known;
      (d) Pol is onto (data5.py S1, imported) and d_s gh2 := -Pol^+(that) has zero s-mean and kills the oscillating
@@ -176,7 +178,9 @@ def d1_general(rr=False):
     W = L.wave(with_chi=True)
     if rr:
         W[1, 1] += L.A*L.Ef*L.Hf*r**sp.Rational(-3, 2)*sp.cos(s)
-    m, G2 = sp.Matrix(MF), sp.Matrix(GF)
+    Jt = sp.eye(5)
+    Jt[0, 1] = -1                                   # m1 = M_ab dy^a dy^b in the slice coordinates y = (v - r, r, ...)
+    m, G2 = Jt.T*sp.Matrix(MF)*Jt, sp.Matrix(GF)
 
     def d(e, k):
         out = sp.diff(e, L.X[k]) + sp.diff(e, s)*sp.diff(PHI, L.X[k])
@@ -226,7 +230,7 @@ def g2(control=False):
     Pv = sp.symbols("Pv0:5")                        # d_tau (m1)_(tau a) = d_v m_(v a) on Sigma, the unknowns of (ii)
     c2, s2 = sp.Function("c2")(r, th), sp.Function("s2")(r, th)
     chiv = c2*sp.cos(2*s) + s2*sp.sin(2*s)
-    mll = MF[1][1]                                  # m1(ell, ell), ell = d_r
+    mll = MF[1][1]                                  # m1(ell, ell) on Sigma, ell = d_r (EF), once (m1)_(tau .) = 0
     sub = {}
     for a in range(5):
         f = MF[0][a]
@@ -241,7 +245,8 @@ def g2(control=False):
     mean = [L.modes(e)[0] for e in rest]
     osc = [sp.expand(rest[c] - mean[c]) for c in range(5)]
     mfun = {MF[a][b].func for a in range(5) for b in range(5)}
-    algebraic = not any(dd.expr.func in mfun for e in osc for dd in e.atoms(sp.Derivative))
+    algebraic = all(sp.simplify(sp.diff(sp.expand(e).coeff(dd), s)) == 0 for e in rest for dd in e.atoms(sp.Derivative)
+                    if dd.expr.func in mfun)        # derivatives of m1 only in the mean
     onto = data5.s1()
     PPt = (P*P.T).applyfunc(sp.simplify)
     Pplus = P.T*PPt.inv()
