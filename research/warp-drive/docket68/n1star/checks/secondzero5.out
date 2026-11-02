@@ -339,3 +339,9 @@ secondzero5: all checks pass
   S2 further zeros of R_v along ingoing cones, v <= 1.80: 20, first at v = 1.6875,
      all at u > -1 within 20 rows of the cut: PASS; control (first zero near the cut) fails (good)
      beyond, on (1.80, 2]: 4 further zeros, all near the cut: True
+  S3 Bondi spheres on the seed (v = 0.3): max |X - xi|, |U - mean U|, |theta - 3 R_v/R| = 1.5e-09 -> PASS
+     (against exact Tangherlini: 6.0e-04, the run's own error)
+      v = 1.000: max |r_AH(double null) - r_AH(growth5)| = 0.002 (at x = 0.20);
+         r_AH ranges 0.990-1.010 and 0.990-1.008
+      v = 1.200: max |r_AH(double null) - r_AH(growth5)| = 0.007 (at x = 0.20);
+         r_AH ranges 0.972-1.026 and 0.972-1.019
