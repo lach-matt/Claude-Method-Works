@@ -126,16 +126,22 @@ def _series(s, coefs):
 
 
 def trecip(s):
+    if not isinstance(s, TJ):
+        return 1 / (s if isinstance(s, arb) else arb(s))
     a0 = s.c[0]; r = 1 / a0
     return _series(s, [r * (-r) ** k for k in range(Q + 1)])
 
 
 def texp(s):
+    if not isinstance(s, TJ):
+        return (s if isinstance(s, arb) else arb(s)).exp()
     e = s.c[0].exp()
     return _series(s, [e / math.factorial(k) for k in range(Q + 1)])
 
 
 def tsqrt(s):
+    if not isinstance(s, TJ):
+        return (s if isinstance(s, arb) else arb(s)).sqrt()
     a0 = s.c[0]; r = a0.sqrt()
     co = []
     for k in range(Q + 1):
@@ -301,7 +307,6 @@ def inputs(jets, geo, tc, sc, xc, box):
     """the named inputs of the frame code (fields and their u, v, x derivatives up to second order) as TJ jets"""
     hxi, a, psi = geo['hxi'], geo['a'], geo['psi']
     xi0 = geo['xa'] + (tc + 1) * hxi
-    xiJ = TJ([xi0, arb(hxi)] + [ZERO] * (NM - 2)) if False else None
     lin = lambda c0, ax: TJ([c0] + [arb(1) if MONO[i] == tuple(int(k == ax) for k in range(3)) else ZERO
                                     for i in range(1, NM)])
     xiJ = lin(xi0, 0) * 1
