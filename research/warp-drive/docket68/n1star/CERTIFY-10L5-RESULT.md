@@ -19,11 +19,13 @@ stopped at v = 2 (section 4); "seed 1" is μ0 = 100 l5² (λ = 1 in units of √
    - *Computed:* the leaves' expansion has one zero per angular node along every ingoing cone of the converged
      region. Every MOTS of the exact solution on that cone is then confined to a band of width 0.003–0.007 in u at
      areal radius 1.01–1.05 (seed 1, v ≤ 1.75).
-   - *Computed:* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero structure: the
-     dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40 (`growth5`: 1.419),
+   - *Computed (seed 1):* the Bondi spheres rebuilt from the double-null solution reproduce `growth5.py`'s zero
+     structure: the dip of the outer zero, and angular columns with no zero at all on r ≥ 0.64 from v ≈ 1.40
+     (`growth5`: 1.419),
      28 % of the columns at v = 1.50 against 29 %. As the data cone moves out, R0 = 10, 20, 40, the largest difference
      of the rebuilt outer zero from `growth5`'s falls from 0.081 to 0.031 to 0.020 (400 rows), while the leaves'
      own zero stays 0.22 away: the two formulations converge on each other as the data truncation is removed.
+     At seed 2 the rebuild does not reach the radii (≤ 0.3) where `growth5`'s second zero sits (section 1.4).
    - *Computed:* the double-null "second zero of R_v" (CERTIFY-10L5.md D344, v = 1.425 at cut 0.54, location not
      recorded) is numerical wherever it lies at u > −1, by D1. In the runs here (cut 0.3) every further zero of R_v up
      to v = 1.8 lies at u > −1 within Nu/40 rows of the cut, at alternate angular nodes, for one or two columns.
@@ -118,14 +120,15 @@ result.
 The runs are at seed 1, cut 0.3: 200 × 90, 400 × 180 and 800 × 360 at M = 16, and 800 × 360 at M = 24. There are
 two at seed 2, cut 0.18. Results are in `checks/secondzero5.out`.
 
-- **S1.** On v ≤ 1.8, every kept cell with u > −1 and at least Nu/40 rows from the cut has R_v < 0. The violations of
-  D1 all lie within Nu/40 rows of the cut: 12, 429 and 552 cells at 200, 400 and 800 rows.
-  - *Control.* The same test over u > −1.02 fails.
-  - *Beyond v = 1.8.* At 800 × 360, 1,822 far violations on (1.8, 2], all from v ≈ 1.9: the unconverged region of
-    section 3.
+- **S1.** On v ≤ 1.8, every kept cell with u > −1 and at least Nu/40 rows from the cut has R_v < 0, in all eight runs.
+  The violations of D1 all lie within Nu/40 rows of the cut: at seed 1, 12, 22 and 253 cells at 200, 400 and 800 rows
+  (M = 16) and 195 at M = 24; at seed 2, 25 and 20.
+  - *Control.* The same test over u > −1.02 fails, in every run.
+  - *Beyond v = 1.8.* At seed 1, 800 × 360, there are 1,822 far violations on (1.8, 2] at M = 16 and 441 at M = 24,
+    from v ≈ 1.9: the unconverged region of section 3. At seed 2 there are none far from the cut.
 - **S2.** Every second or further zero of R_v along an ingoing cone at a node, for v ≤ 1.8, lies at u > −1 within
-  Nu/40 rows of the cut. They first appear at v = 1.525–1.65, at alternate angular nodes, and last one or two columns.
-  By D1 none is the exact solution's.
+  Nu/40 rows of the cut, in all eight runs. At seed 1 they first appear at v = 1.65, 1.525, 1.65 and 1.64 (200, 400,
+  800 rows, and M = 24), at alternate angular nodes, for one or two columns. By D1 none is the exact solution's.
   - *Control.* Applied to the first zero, the classifier must place it away from the cut, and it does.
 - **The band.** The leaves' one zero per node, the marginal leaf, lies at
   - seed 1 (800 × 360, M = 24): u ∈ [−1.0070, −1.0035] and areal radius at the node 1.013–1.024 at v = 1.5;
@@ -196,13 +199,18 @@ matters.
   in the double-null rebuild, whose R0 = 10 dip is the deeper one (see S4).
 - The excision radius 0.54 itself is not reached before the cut at these grids. Over r ≥ 0.54 `growth5`'s first
   zero-less column is at v = 1.4355.
-- *Seed 2 (400 × 180, M = 16).* The rebuilt outer zero agrees with `growth5`'s deep run L1000_lam0.3162_20x16_d0_y2.2
-  to 0.003, 0.007, 0.012, 0.020, 0.022 and 0.026 at v = 1.0, 1.2, 1.3, 1.4, 1.45 and 1.5.
-  - But there S4's control passes: the leaves' expansion is within 0.069. Before v = 1.5 the tilt is too small at
+- *Seed 2 (M = 16, 400 × 180 and 800 × 360).*
+  - The rebuilt outer zero agrees with `growth5`'s deep run L1000_lam0.3162_20x16_d0_y2.2 to 0.002–0.003, 0.007,
+    0.011–0.012, 0.018–0.020, 0.022–0.023 and 0.026–0.027 at v = 1.0, 1.2, 1.3, 1.4, 1.45 and 1.5.
+  - But there S4's control passes: the leaves' expansion is within 0.070. Before v = 1.5 the tilt is too small at
     seed 2 to separate the two, so S4 is not informative there and is recorded as FAIL.
-  - Columns with more than one zero of θ (r ≥ r_min ≈ 0.59–0.63) first appear at v = 1.575: 2 of 32 there, 5 at 1.60
-    and 7 at 1.625, with inner zeros at r = 0.63–0.79. `growth5`'s second zero at seed 2 is from v = 1.583, at its
-    excision radius 0.30, which the rebuild does not reach.
+  - At 400 rows, columns with more than one zero of θ (inner zeros at r = 0.63–0.79) appear from v = 1.575. At 800 rows
+    there are none through v = 1.625, over r ≥ 0.51–0.57, which includes those radii. So the 400-row ones are the
+    coarse grid's, near its cut.
+  - `growth5`'s second zero at seed 2 holds from v = 1.583 at its excision radius 0.30; its deeper run shows inner
+    zeros at r = 0.21–0.27 from v = 1.524. The rebuild does not reach r < 0.5 there, so at seed 2 the second zero is
+    neither reproduced nor contradicted. At 800 rows, max θ on the innermost reachable sphere rises to −0.09 at
+    v = 1.625.
 
 ### 1.5 `growth5` cannot be refined in angle at its own step (computed, `checks/g5angle5.py` A1–A2)
 

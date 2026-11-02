@@ -27,8 +27,8 @@ rationals), deduced, READ (the lines cited).
      {phi >= pi - th_in} is (log tan((pi - th_in)/2) - log tan(th_out/2))/(2|sigma0|).
   V4 (exact; READ II-D-REGULARITY:1015-1032) II.D's cover at the trapped set (row 1032). Five-dimensional Tangherlini's
      photon sphere is r_c = (2 mu)^(1/2) and its radial instability, in Schwarzschild time, has Lyapunov exponent
-     lambda_L = (F''(r_c)/2)^(1/2), F = f^2 (1 - f b^2/r^2), b^2 = r_c^2/f(r_c): lambda_L = 1/(2 mu)^(1/2) x ...
-     (printed); so a backward segment starting at distance delta from the trapped set within distance D of it leaves it
+     lambda_L = (F''(r_c)/2)^(1/2), F = f^2 (1 - f b^2/r^2), b^2 = r_c^2/f(r_c): lambda_L^2 = 1/(2 mu); so a
+     backward segment starting at distance delta from the trapped set within distance D of it leaves it
      after at most log(D/delta)/lambda_L (to first order), the "bounded times" of row 1032 made explicit.
   V5 (deduced) what remains: the per-piece constants, the counts above giving how many of them are multiplied (I.A
      (7.1): the chain A -> B -> C -> D -> E -> F adds one constant per piece, so C(7.1) <= sum over the chain of
