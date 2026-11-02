@@ -3,20 +3,3 @@ zerohardy5: the scalar zero-energy bound at every l, sharp; across the horizon; 
   H2: r^3 f |(w phi)'|^2 = r^3 f w^2 |phi'|^2 - (r^3 f w')' w |phi|^2 + (r^3 f w w' |phi|^2)' (exact, symbolic phi,
       conj(phi)): True; so <A_l u, u> >= (l + 1)^2 ||r^-1 u||^2 and ||r^-1 u|| <= ||r A_l u||/(l + 1)^2, l >= 0:
       constants ['1', '1/9', '1/25', '1/49'] at l = 0, 2, 4, 6
-  H3: u = r^(-1-delta): <A_l u, u>/||r^-1 u||^2 = delta + l**2 + 2*l + 1 (exact): the constant (l + 1)^2 is sharp
-  H4: r^3 f = r*(-mu + r**2) = r (r - r_h)(r + r_h): True; (r - r_h)/(r^3 f) = 1/(r (r + r_h)) -> 1/(2 mu) at r_h
-  H5 (READ N1STAR-PROOF.md:4983-4984: True; deduced): {'s0': 1, 'v1 (so(4))': 6, 's1 (l = 1 harmonics on S^3)': 4}, sum
-      11; in the class (even scalar l, no vector type) {'s0': 1}: one direction
-  C1 (control): w = r^-2: residual (3*mu - r**2)/r**3, at r = 2 r_h -1/(8*sqrt(mu)) < 0: not a supersolution, H1's test
-      fails: True
-  C2 (control): the claim <A_l u, u> >= ((l + 1)^2 + 1/10) ||r^-1 u||^2 at delta = 1/20: ratio (l + 1)^2 + 1/20, refuted
-      at l = 0, 2, 4: True
-  C3 (control): r^3 f against r^3 (r - r_h): not equal, H4's test fails on it: True
-H1 PASS
-H2 PASS
-H3 PASS
-H4 PASS
-H5 PASS
-C1 PASS
-C2 PASS
-C3 PASS

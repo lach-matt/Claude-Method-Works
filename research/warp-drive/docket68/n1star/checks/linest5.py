@@ -147,7 +147,8 @@ def e1():
     ex = lambda F_: sp.exp(-c) * sp.diff(F_, x)
     X3 = [u, v, x]
     box = sum(sp.diff(sq * gi[i, j] * sp.diff(f, X3[j]), X3[i]) for i in range(3) for j in range(3)) / sq
-    fm = {'chi': sp.exp(-w) * sp.diff(c, v), 'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
+    fm = {'chi': sp.exp(-w) * sp.diff(c, v),
+          'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
           'om': -sp.exp(-w) * sp.diff(w, v) / 2, 'omb': -sp.exp(-w) * (sp.diff(w, u) + b * sp.diff(w, x)) / 2,
           'eta': -sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x),
           'etab': sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x)}
@@ -157,7 +158,7 @@ def e1():
     lhs = {'P1': e3(a) - ex(cc), 'P2': e4(cc) - ex(a), 'P3': e3(cc) - ex(d), 'P4': e4(d) - ex(cc)}
     boxc = {'P1': -1, 'P2': 0, 'P3': 0, 'P4': -1}
     res = {k_: N3.zero(lhs[k_] - gp[k_] - boxc[k_] * box) for k_ in lhs}
-    ctl = N3.zero(lhs['P4'] - gp['P4'].subs({}) - 0 * box)
+    ctl = N3.zero(lhs['P4'] - (gp['P4'] - 2 * fm['om'] * d) + box)        # P4 without its 2 omega d term
     return res, ctl
 
 
@@ -211,8 +212,8 @@ def background(path, box=(-4.0, -1.1, 0.55, 1.6), step=2):
     F = {k: Z[k][sl] for k in ('R', 'm', 'n', 'W', 's')}
     u, v = u[sl[0]], v[sl[1]]
     M = len(x)
-    _, D1, _ = D5.cheb_gauss(M)
-    assert np.allclose(_, x)
+    xg, D1, _ = D5.cheb_gauss(M)
+    assert np.allclose(xg, x), 'the run is not on the plain Chebyshev-Gauss grid'
     X = x[None, None, :]
     P = (2 * (1 + X) * F['m'] - (1 - X) * F['n']) / 3
     Q = (2 * (1 - X) * F['n'] - (1 + X) * F['m']) / 3
@@ -293,9 +294,10 @@ def kappas(R, bg, vals_needed=True):
 
 def main():
     t0 = time.time(); ok = True
-    res, _ = e1()
-    good = all(res.values())
-    print('E1 pair identities P1-P4 (exact, Box f included where it enters):', res, '->', 'PASS' if good else 'FAIL')
+    res, ctl = e1()
+    good = all(res.values()) and not ctl
+    print('E1 pair identities P1-P4 (exact, Box f included where it enters):', res, '; control (P4 without 2 omega d):',
+          'identity (bad)' if ctl else 'fails (good)', '->', 'PASS' if good else 'FAIL')
     ok &= good
     R = rows()
     tab = table(R)

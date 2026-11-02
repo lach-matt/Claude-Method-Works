@@ -26,8 +26,8 @@ A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u, f = 1 - mu/r^2, r_h = mu^(1/2) (ze
      the class is the single s0 state: I.C:497's sigma_min there is on the complement of one direction, in s0.
   Controls (mutating the computed path; each must fail): C1 H1 with w = r^-2: -(r^3 f w')' - (1 + mu r^-2) r w is not
   zero and is negative at r = 2 r_h, so the supersolution test fails; C2 H3's family at the claimed constant raised by
-  1/10: for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 H4 with r^3 f taken as
-  r^3 (r - r_h): the factorisation test fails.
+  1/10: for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 H4 with r^3 f
+  taken as r^3 (r - r_h): the factorisation test fails.
 
     python3 checks/zerohardy5.py       (seconds)
 """
