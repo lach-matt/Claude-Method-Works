@@ -45,12 +45,15 @@ constant eigenvalues: its spectral projections are smooth, sbar5.py S4's argumen
      (1 + v) gam_C {1 - e_C, 2, 1 (3 times)}, all positive, so their vartheta_in may be taken any number above -2 (1 -
      e_U) gam_U = -0.0198 and -2 (1 - e_C)(1 + v) gam_C, about -3.0 * 10^6, at the record's point. Control: the outgoing
      spectra are thresh5.py U2's and cpmodes5.py K1's, (1 - v) for (1 + v).
-  T6 (exact) LOSS-D (2.3)-(2.4) for L_b, with vartheta_in = 0 and lhor5.py's horizon threshold vartheta_H = 2 (s_c >
-     5/2, taken in (5/2, 3]): (2.3) l = max(ceil((3 - beta_scf)_+), ceil(s_c - 1)) = 2 for beta_scf in [1, 3/2), and
-     (2.4) l = max(ceil((5/2 + eps/2 - beta_scf)_+), ceil(s_c - 1)) = 2 for beta_scf in [1/2 + eps/2, 3/2), on a grid.
+  T6 (exact) LOSS-D (2.3)-(2.4) for L_b (and for III.H's augmented L~_b, a finite-rank augmentation by compactly
+     supported rows and columns, with the same thresholds), with vartheta_in = 0 and the horizon threshold of III.F''
+     Lemma 1.1, vartheta_L = max(0, 2 - 2x) in [0, 2], x = a_v gam_C r_h (2 without the damping, lhor5.py H1; 0 once x
+     >= 1), s_c taken in (1/2 + vartheta_L, 3]: (2.3) l = max(ceil((3 - beta_scf)_+), ceil((s_c - 1)_+)) = 2 for beta_scf
+     in [1, 3/2), and (2.4) l = max(ceil((5/2 + eps/2 - beta_scf)_+), ceil((s_c - 1)_+)) = 2 for beta_scf in [1/2 +
+     eps/2, 3/2), on a grid, whichever vartheta_L in [0, 2] holds.
 
-Labels: T1, T2, T3 and T5 computed (exact); the reduction, the choice s = 1, T4's and T6's readings deduced; vartheta_H
-= 2 is lhor5.py's (computed there).
+Labels: T1, T2, T3 and T5 computed (exact); the reduction, the choice s = 1, T4's and T6's readings deduced; vartheta_L
+is III.F'' Lemma 1.1's (lhor5.py).
 
     python3 checks/thetain5.py
 """
@@ -187,13 +190,13 @@ def t6():
     vals3, vals4 = set(), set()
     for i in range(1, 20):
         eps = Fr(i, 80)
-        for sc in (Fr(5, 2) + Fr(1, 100), Fr(11, 4), Fr(3)):
+        for sc in [Fr(1, 2) + th + Fr(1, 100) for th in (Fr(0), Fr(1, 2), Fr(1), Fr(3, 2), Fr(2))] + [Fr(11, 4), Fr(3)]:
             for j in range(0, 50):
                 b = Fr(1) + Fr(j, 100)
-                vals3.add(max(ceil(max(3 - b, 0)), ceil(sc - 1)))
+                vals3.add(max(ceil(max(3 - b, 0)), ceil(max(sc - 1, 0))))
                 b4 = Fr(1, 2) + eps / 2 + Fr(j, 50) * (1 - eps / 2)
                 if b4 < Fr(3, 2):
-                    vals4.add(max(ceil(max(Fr(5, 2) + eps / 2 - b4, 0)), ceil(sc - 1)))
+                    vals4.add(max(ceil(max(Fr(5, 2) + eps / 2 - b4, 0)), ceil(max(sc - 1, 0))))
     return vals3 == {2} and vals4 == {2}, vals3, vals4
 
 
@@ -220,7 +223,7 @@ def main():
           '%.4g); control (outgoing spectra): %s' % (a, tU, tC, float(tC), c))
     a, v3, v4 = t6()
     res['T6'] = a
-    print('  T6: L_b with vartheta_in = 0, vartheta_H = 2: (2.3) l over the grid %s, (2.4) l %s'
+    print('  T6: L_b with vartheta_in = 0, vartheta_L in [0, 2]: (2.3) l over the grid %s, (2.4) l %s'
           % (sorted(v3), sorted(v4)))
     for k, val in res.items():
         print(k, 'PASS' if val else 'FAIL')

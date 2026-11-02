@@ -3,7 +3,7 @@
   T3: outgoing k = [-alpha/2 + beta/2 + 3/2], incoming k = [-alpha/2 - beta/2 + 3/2]; incoming waves rho^(3/2 - M) leave rho^r L^2 iff r > -1/2 - M: True; control: True
   T4: with vartheta_in = 0 and s = 1, Corollary 3.4's l + l~ over the grid of (beta_sctf, eps): [1]; it cannot be 0; control (vartheta_in = 2 max spec M): l = 3000001
   T5: box^Ups and box^C incoming spectra as stated, all positive: True; vartheta_in above -99/5000 and -191998125/64 (about -3e+06); control (outgoing spectra): True
-  T6: L_b with vartheta_in = 0, vartheta_H = 2: (2.3) l over the grid [2], (2.4) l [2]
+  T6: L_b with vartheta_in = 0, vartheta_L in [0, 2]: (2.3) l over the grid [2], (2.4) l [2]
 T1 PASS
 T1ctl PASS
 T2 PASS
