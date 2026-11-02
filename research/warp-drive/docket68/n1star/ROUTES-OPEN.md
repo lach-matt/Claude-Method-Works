@@ -6376,6 +6376,56 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   Ny = 20 at y = 2.2). Caught by controls on the way: the march dropped 1/lam coefficients (the mutant control passed),
   and lead5's undefined chi made S6 compare unequal representations; both fixed before acceptance. Independent verifiers
   on the eleven new programs: reading.
+- D607 (the program verifiers of D606's checks and the census of deduced claims, seated; corrections to D606 below).
+  Verifiers: (A) vii5census, hclass5, support9, charge5, eqlayer5; (B) eindcert5, kirecon5, mpdata5, flux5. Findings and
+  repairs:
+  - (8.13) as h varies, a correction to the supplement: 10.54(d) said (8.13) holds at every h in (0, 10^-6]; at l = 1000,
+    h = 6.652623172e-7 two roots of L are 2 +- 3.6833i (|lam| = 4.19), integer real part (`checks/re813.py` R1, exact
+    resultant, root located at 60 digits). Corrected: a non-real root of real part n is a common root t = y^2 > 0 of A, B
+    (P(n + iy) = A(y^2) + iy B(y^2)); for |n| <= 50 and each of box^C's sextic, vector quadratic and l = 0 quartic,
+    Res_t(A, B) is a nonzero polynomial in h at every l (R2: the gcd of its h-coefficients has no root kappa = l(l + 2));
+    at each h finitely many roots have |lam| <= 50 (R3). So (8.13) holds off a countable set, which is all the theorems
+    use; hclass5's H2 could not see the case (it evaluated P at integers) and is restricted to simplicity and integer
+    values.
+  - Proposition 10.1's normalisation, a correction to D606: the uniform-in-l bound (P1) is for psi = r^(3/2) Phi, which
+    is not a field [HKW18] bound: their r^p energies are of Phi ((124), p. 43; (127), p. 46) and their scalar master
+    quantity (r^(1/2) Phi) Y has pointwise norm r^(-3/2)|Phi| ((173), pp. 60-61). In those fields the coefficients are
+    O(r^(3/2)) and O(r^3), uniformly in l, attained (`checks/kirecon5.py` P2). Proposition 10.1 (iii)-(iv) and the
+    paper's section 8.2 now state the Regge-Wheeler-gauge settling on each region r <= R; uniformly in r it is not shown.
+  - C7c, a correction to D606: "contracts ... rate N-2" measured the first correction, not the contraction ratio, and its
+    control could not fail; redesigned (ratio d_(i+1)/d_i against the proof's lam^(N-3), a 1/lam control with nonzero
+    phase mean): the ratio is 6.8e-3, 5.8e-4, 3.5e-5 at lam = 1/8, 1/16, 1/32 (rates 3.55, 4.03, at least the proof's N -
+    3), the first correction at rates 3.76, 3.97 (N - 2); the control slows the first correction to 2.96, 3.15 and is
+    rejected. C7a and C7b reproduce D606's values.
+  - charge5, a correction to D606: d_G is not constant (7 + 2 ceil(l_I - Re lam) on the iota+ window): the charges are 15
+    on (3, 3.5), then 4 more per unit of l_I, 19, 23, 27, 31 to 7.5 (17, 21, 25, 29 on [k + 1/2, k + 0.5099]), and G2
+    reproduces LOSS-D's own d_G = 9, 11, 13, 15; D606's 17, 19, 21, 23 (2 per unit) were understated.
+  - hclass5: c_2 < 0 restored (the printed signs were opposite to the record's), A_0's diagonal added, H2's control a
+    real mutant. vii5census: the cut-offs chi_K, chi_r, chi_inf, chi_-, Theta and those inside t^flat_*, and the C3 maps
+    (h-breve, h^(mu), h_(b,s1), h^(0)_(b,s0)) added, each symbol checked at its own site. eqlayer5: m0 > 0 read from the
+    lower bound, L2 given a control. support9 S6: a generic profile in all fifteen components (15 of 30 parts nonzero),
+    the control W_vv unshifted. eindcert5: I2, the gauge potential's quartic for l >= 52 (|lam| >= l - 1, exact; the
+    docstring's l <= 9999 was l <= 60 for that quartic), integer roots by disc test, hi's disc inside |lam| <= 50, a
+    control that a radius without the factor n fails. mpdata5: B2, B3 given controls. flux5: F3 asserts R^6 q_2 =
+    -10294529/36000, the volume, the bound and its sign condition; the quadratic difference bound is argued, not computed
+    (the paper says so). kirecon5: P1's control exercises the monomial reader; no silent fallback.
+  - The census of the paper's deduced claims (sections 1-9; 103 claims, 27 without a program): computed now, each with a
+    control -- support5b C10-C10b (Lemma 3.2's (3.3) in all 15 components; W(ell, ell) = 0 not needed), support3 D1-D4,
+    ledger5 L1-L4, support8b M1-M5, support5c C11-C13, census9 C23, C29, C27, and the cited level2loop5, lambdacount5,
+    twodomain5, r0census5; support8c K1-K4 (rows 20, 22: exponents at r_h, the kernel class, box^C's roots in (5/2, 13/4]
+    for l <= 1200, 10^4, 10^5, none in (3, 3 + eps_+], the exponent 2 from its indicial equation), stage5 S1-S3 (rows 2,
+    8, 13: the structure at lam^1 in eight components, m1's source -(4/9) A^2 env^2 H^2 sin 2th / r^3 and sigma-odd; m1
+    from past null infinity not computed), gauge5 G1-G3 (rows 1, 12: (6.2) exactly, D^(1) = 0 on the slice with m1
+    generic, the gauge field's t^(-1/2) decay, sharp). Every row now has a program or an explicit exemption; where a
+    check stops short of the step Appendix A says so. Row 26 reworded ("at the excision depths run"); row 30 named among
+    the analytic estimates (the mollifier's Bernstein/Friedrichs bounds); row 32 compliant.
+  - Smaller: support3 D1's monotonicity holds for mu > sqrt72 l5^2/16 (the paper's range inside it); support5c C11's
+    named control could not fail (|w|_7 never uses lam ||d^j d_x^2 phi||, Step 4 does); 10.75's thirty-five readings are
+    thirty-four since D174; B-MAP.tsv's 10.54 (a) marked "replaced, not carried" ((xxvi)); r0census5: 323 lines since
+    D378 (one SPC line, K-NONLINEAR:462), BEYOND5.md's record updated; Theorem 1's items split back into a list.
+  - Deeper excisions on a second grid (item 5), `checks/excise5.py`: breakdowns 1.41033, 1.35549, 1.52374 on the finer
+    grids, moved 0.00076, 0.00251, 0.00020; deeper is earlier on both grids (the standard excision's own grid dependence
+    0.0041). Runs merged into data/growth5_runs.json; the paper now says "at the excision depths run".
 - E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
   negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
   where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the

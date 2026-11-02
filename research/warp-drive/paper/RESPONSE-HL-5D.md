@@ -628,13 +628,15 @@ gives sup_r of the H²-type norms of U, ∂_r U and ∂_r² U scaling as λ^4.00
 1/32 to 1/64 (floating point; the earlier halvings pre-asymptotic; resolution varied by M = 12, 16, 20 modes and λ/32,
 λ/64 steps, the norms moving by 7 × 10⁻⁵), the solve uniform in λ and the first r-derivative costing nothing, both within
 the λ^(N−2−j) stated (control: the mutant with an oscillating trace on the spheres, which has a 1/λ coefficient, makes
-the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coefficients frozen, is run to measure its
-contraction ratio against the proof's λ^(N−3) and the size of the quadratic remainder's effect (`checks/csolve5.py` C7c,
-being rerun with a control that can fail). Beforehand the approximant's stage data are chosen so that its data satisfy
-the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by order (supplement Lemmas
-6.1–6.2; computed: the identity (6.2) exactly at points of random 4+1 metrics, and the first step, D^(1) = 0 on the slice
-under Lemma 6.2's stage-1 choices with m1 kept generic, its mean solved by a determinant −(r² + μ)⁵/(2r¹⁰) ≠ 0,
-`docket68/n1star/checks/gauge5.py` G1–G2; the later orders by the same induction, deduced).
+the first r-derivative cost λ⁻¹); and the scheme of the proof, principal coefficients frozen, contracts with ratio
+d_(i+1)/d_i = 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32 (d_i the successive differences), falling
+at rates 3.55 and 4.03, at least the proof's λ^(N−3), its first correction falling as λ^(N−2) (rates 3.76, 3.97); with a
+1/λ quadratic coefficient of nonzero phase mean put in, the first correction falls an order slower (rates 2.96, 3.15) and
+the check rejects it (`checks/csolve5.py` C7c, floating point). Beforehand the approximant's stage data are chosen so
+that its data satisfy the constraints and D = 0 to order N − 2, by a hierarchy that propagates the gauge order by order
+(supplement Lemmas 6.1–6.2; computed: the identity (6.2) exactly at points of random 4+1 metrics, and the first step,
+D^(1) = 0 on the slice under Lemma 6.2's stage-1 choices with m1 kept generic, its mean solved by a determinant −(r² +
+μ)⁵/(2r¹⁰) ≠ 0, `docket68/n1star/checks/gauge5.py` G1–G2; the later orders by the same induction, deduced).
 
 ---
 
@@ -1509,15 +1511,19 @@ III–IV that names an averaged or equivariant choice by its printed symbol is l
 - **Computational support.** Every computed claim names its program. The identities and bookkeeping behind the deductions
   of sections 3–6 and 8 are computed, each with a negative control: `paper/response5.py` R12–R14,
   `docket68/n1star/checks/support5.py` C1–C6, C8, C9, `checks/support5b.py`, `checks/support5c.py`, `checks/support3.py`,
-  `checks/ledger5.py`, `checks/csolve5.py` C7, `checks/support8.py` K1, K8, `checks/support8b.py`, `checks/flux5.py`,
-  `checks/mpdata5.py`, `checks/kirecon5.py`, `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`,
-  `checks/vii5census.py` and `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`,
-  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`,
-  `checks/twodomain5.py` and `checks/r0census5.py`. The analytic estimates themselves (the energy estimate and the
-  bootstrap's analysis, the mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling
-  write-out) are proved in the supplement and read by independent verifiers, not computed (deduced). The two-dust
-  background's convergence on a rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's
-  characteristic data, those data themselves being among the items left open above.
+  `checks/ledger5.py`, `checks/stage5.py`, `checks/gauge5.py`, `checks/csolve5.py` C7, `checks/support8.py` K1, K8,
+  `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/kirecon5.py`,
+  `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py` and `checks/census9.py`, and for
+  section 9 `checks/support9.py`, `checks/charge5.py`, `checks/eqlayer5.py`, `checks/e2lower5.py`,
+  `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`, `checks/twodomain5.py`,
+  `checks/r0census5.py` and `checks/excise5.py`. A census of the deduced claims in sections 1–9 (103 claims, of which 27
+  named no program for the step) left none without one but the analytic estimates named below, the settling write-out and
+  one step resting on a reading at source; where a check stops short of the step (an order λ¹ structure in place of every
+  order, eight of fifteen components, a scan to a finite l) its entry in Appendix A says so. The analytic estimates
+  themselves (the energy estimate and the bootstrap's analysis, the mollifier's Bernstein- and Friedrichs-type bounds,
+  the Nash–Moser scheme, the settling write-out) are proved in the supplement and read by independent verifiers, not
+  computed (deduced). The two-dust background's convergence on a rectangle reaching Σ_τ0 is computed for one choice of
+  the outgoing family's characteristic data, those data themselves being among the items left open above.
 
 ---
 
@@ -2118,10 +2124,11 @@ Programs behind section 9, in `docket68/n1star/`:
   is quadratic in it; control, a profile with an envelope-free term. Exact.
 - `checks/csolve5.py` C7a–C7c: the constraint solve's λ^(N−2) scaling (supplement Lemmas 6.3–6.4, Proposition 6.5): no
   coefficient of order 1/λ in the linear or the quadratic part of the constraint map at the stage-0 approximant's data
-  (C7a, exact); the linear solve's rates λ^(N−2), λ^(N−2), λ^(N−3) for U, ∂_r U and ∂_r² U (C7b) the nonlinear scheme's
-  contraction ratio against the proof's λ^(N−3) and its first correction at λ^(N−2) (C7c), floating point. Controls: an
-  oscillating trace on the spheres (C7a, C7b), a 1/λ quadratic coefficient with nonzero phase mean (C7c). About eighty
-  minutes.
+  (C7a, exact); the linear solve's rates λ^(N−2), λ^(N−2), λ^(N−3) for U, ∂_r U and ∂_r² U (C7b); the nonlinear scheme's
+  contraction ratio d_(i+1)/d_i, 6.8 × 10⁻³, 5.8 × 10⁻⁴, 3.5 × 10⁻⁵ at λ = 1/8, 1/16, 1/32 (rates 3.55, 4.03, at least
+  the proof's λ^(N−3)), and its first correction at λ^(N−2) (C7c), floating point. Controls: an oscillating trace on the
+  spheres (C7a, C7b), a 1/λ quadratic coefficient with nonzero phase mean, which slows the first correction by an order
+  (C7c). About two hours.
 - `checks/eindcert5.py` I1–I2: the scan of `eind5.py` E2 below l = 10⁴ made rigorous: every root it visits enclosed by an
   inclusion disc computed in exact rational arithmetic (the gauge potential's quartic for l ≤ 60), δ_50 certified,
   attained by the gauge potential's operator at l = 50, its disc inside |λ| ≤ 50 (I1); for l ≥ 52 no root of the gauge
@@ -2577,7 +2584,7 @@ nothing from the research tree:
     python3 checks/support5.py                           # about a minute; and checks/support8.py
     python3 checks/eq5.py                                # and checks/ix5.py (about 14 minutes)
     python3 checks/epsind5.py --selftest
-    python3 checks/csolve5.py                            # about eighty minutes
+    python3 checks/csolve5.py                            # about two hours
     python3 checks/eindcert5.py                          # a few minutes
     python3 checks/kirecon5.py                           # a few seconds
     python3 checks/mpdata5.py                            # about four minutes
@@ -2614,7 +2621,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `2fe46896ad472fe14d30f8bda86b3d60` |
+| `docket68/n1star/N1STAR-PROOF.md` | `69928b6a63e02cf22ef142c2318b0a60` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2689,7 +2696,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/bundle5.py` | `60755692ad9a4d2aaf6b94b8ad1e11f1` |
 | `docket68/n1star/synth5.py` | `f6a462a7f1f3bff318f6ea0ce75e4134` |
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
-| `docket68/n1star/B-MAP.tsv` | `9f27d6c25ade69aff81aa93ef814d6e9` |
+| `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
 | `docket68/n1star/proof5/README.md` | `82d46566d3bc11e766a7af9896a89d5d` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `901e27d95b65b7849494ece5bfed9505` |
@@ -2710,7 +2717,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `3a43fc786ec3d98b0f06e179dddc7814` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
 | `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
-| `docket68/n1star/BEYOND5.md` | `6d89a8cefbe237fdeeb952aa74b20ab5` |
+| `docket68/n1star/BEYOND5.md` | `967dac4b469933f49f796bb57486bace` |
 | `docket68/n1star/BEYOND5-R0-PROOF.md` | `08c7e0c71e22dc803f3332aad5b41433` |
 | `docket68/n1star/FAMILIES5.md` | `34c0c29c24010c93ac191c3351b1c564` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
@@ -2743,63 +2750,63 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/e2meas5.py` | `9142cd462955de2f7d832ea477a98a52` |
 | `docket68/n1star/checks/g1curv5_seed2_2400.out` | `d4b3e16ed75dcaa2b17d5b674dd230a5` |
 | `docket68/n1star/checks/data5two.out` | `9d628d9645dff8a0ca17f68cf349937b` |
-| `docket68/n1star/checks/csolve5.py` | `a8ec59d42b40222f42083f4f45ff4a56` |
-| `docket68/n1star/checks/csolve5.out` | `0825ead5a038ec9fe6080499b4d84d91` |
-| `docket68/n1star/checks/eindcert5.py` | `38dff777740e9cb5b0627ddcd7274b08` |
-| `docket68/n1star/checks/eindcert5.out` | `a030dc112b7b0ef36d7c3039ac604015` |
-| `docket68/n1star/checks/kirecon5.py` | `d556d208c0e6b3c82227df0448be6fb2` |
-| `docket68/n1star/checks/kirecon5.out` | `eb1bfab8228204bbb3447addb95e7fd4` |
-| `docket68/n1star/checks/mpdata5.py` | `f1c64b1fc5bd76da4fdf92e615992a7b` |
+| `docket68/n1star/checks/csolve5.py` | `96cb26fe819c4ef67f87b6e7705175ca` |
+| `docket68/n1star/checks/csolve5.out` | `01d62ffee616675b0e90773eed0d70a4` |
+| `docket68/n1star/checks/eindcert5.py` | `55fb80b4fed266384154ae736d844251` |
+| `docket68/n1star/checks/eindcert5.out` | `f09e6bfc454413da6a5b568636c0fea2` |
+| `docket68/n1star/checks/kirecon5.py` | `442f260af3a0c20cc460acb240139b7b` |
+| `docket68/n1star/checks/kirecon5.out` | `32adeaa42985094794fde34fb95b27fe` |
+| `docket68/n1star/checks/mpdata5.py` | `681c8b0f36027724f1146945decd6efe` |
 | `docket68/n1star/checks/mpdata5.out` | `2095b2cfc3584b322e8603301cbb815f` |
-| `docket68/n1star/checks/flux5.py` | `72374a63b15c029074a9c6f4e67ef4e9` |
-| `docket68/n1star/checks/flux5.out` | `ab84bb383fdce23d9f5031c0ea70e457` |
-| `docket68/n1star/checks/vii5census.py` | `59232388ea95eb796591e11570ca5f1b` |
-| `docket68/n1star/checks/vii5census.out` | `d442b1a1090c5bc46584b4606257453b` |
-| `docket68/n1star/checks/hclass5.py` | `3d62f2e9c7fd8b9018a8e4eede9b8fad` |
-| `docket68/n1star/checks/hclass5.out` | `152809dfa74196306aabf2cb57e3e0b6` |
-| `docket68/n1star/checks/support9.py` | `2550d59db1742ccaf48922b2ecb7aaca` |
-| `docket68/n1star/checks/support9.out` | `121cfd535964b2b8123500b8ffba91b0` |
-| `docket68/n1star/checks/charge5.py` | `79305f3ccb2ee4cf8dd77a713cf2b2dc` |
-| `docket68/n1star/checks/charge5.out` | `e9375c55cee6ec9df77dd3fc6ebf53ac` |
-| `docket68/n1star/checks/dg5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/eqlayer5.py` | `d7a1288744dc556ede95c486bffc915e` |
-| `docket68/n1star/checks/eqlayer5.out` | `43d95eb4505ae0a32c64c179e808b8e9` |
+| `docket68/n1star/checks/flux5.py` | `a07d563b85624f31979317b22c671e84` |
+| `docket68/n1star/checks/flux5.out` | `2764f0c5d211c1470b1fa0a03fd49dad` |
+| `docket68/n1star/checks/vii5census.py` | `d9152582f3102a0f947204dd0f37ba02` |
+| `docket68/n1star/checks/vii5census.out` | `b26504f571d545408b063dfb8648c0eb` |
+| `docket68/n1star/checks/hclass5.py` | `0453ab3a0b83d3d3cf4a8488c221681e` |
+| `docket68/n1star/checks/hclass5.out` | `761509082809bc9a23fb1b876f3b0b0f` |
+| `docket68/n1star/checks/support9.py` | `617014162b849cf055ed4ca7d196141a` |
+| `docket68/n1star/checks/support9.out` | `552a1eaac629af5e1b5db1d68ac64be7` |
+| `docket68/n1star/checks/charge5.py` | `7f78e7f02736f138363e4a8c277867cf` |
+| `docket68/n1star/checks/charge5.out` | `858fa75aa8361216f468484c6bfa3817` |
+| `docket68/n1star/checks/dg5.py` | `869df568b7e2aeacd00fe2204bcb70f4` |
+| `docket68/n1star/checks/eqlayer5.py` | `aceb659f3442f76e65b7abafa73e6617` |
+| `docket68/n1star/checks/eqlayer5.out` | `0d245a8e736d6253014280e6ac46c4ce` |
 | `docket68/n1star/checks/e2lower5.py` | `d3e494e451d09f0396f78e0675888c4d` |
 | `docket68/n1star/checks/e2lower5.out` | `52399ee19568a0c934fa4006f70e7025` |
 | `docket68/n1star/checks/twodomainx5.py` | `9c750e4d51193b98f9a9617b414f2ce3` |
 | `docket68/n1star/checks/twodomainx5.out` | `da73ca3c4e843bb4cf59f7a40db798d5` |
-| `docket68/n1star/checks/stage5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/stage5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/excise5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/excise5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/gauge5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/gauge5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support8c.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support8c.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/level2loop5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/lambdacount5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/lambdacount5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/twodomain5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/twodomain5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/r0census5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/BEYOND5-R0.tsv` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/census9.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/census9.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support5c.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support5c.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/ledger5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/ledger5.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support8b.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support8b.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support3.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support3.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support5b.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/support5b.out` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/re813.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/re813.out` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/stage5.py` | `6a4c9142921b6e72f749522f093b2bad` |
+| `docket68/n1star/checks/stage5.out` | `f5f85af8c080b0ccfd162ad58c60f211` |
+| `docket68/n1star/checks/excise5.py` | `bb0ade5fbf715861b389f4c1541dab69` |
+| `docket68/n1star/checks/excise5.out` | `5f13445739481d764ef99544f9e03fde` |
+| `docket68/n1star/checks/gauge5.py` | `c2754b735462075545cfc637ec9b5ce8` |
+| `docket68/n1star/checks/gauge5.out` | `1900c7e4a3072ac9fce2230d0ba001e0` |
+| `docket68/n1star/checks/support8c.py` | `8178c350c227f17d344f7bb509bd9249` |
+| `docket68/n1star/checks/support8c.out` | `1cad614d5707093dea720c5779647754` |
+| `docket68/n1star/checks/level2loop5.py` | `0f30611bc4ab8b842ed10524032f012d` |
+| `docket68/n1star/checks/lambdacount5.py` | `9bf52dfa6ebad7e688399b2bfaa79668` |
+| `docket68/n1star/checks/lambdacount5.out` | `8fe050e0aef4c0e3c23d9f83b23cc637` |
+| `docket68/n1star/checks/twodomain5.py` | `ae5a1243d42d239e268b5d7f199e8788` |
+| `docket68/n1star/checks/twodomain5.out` | `c0b6bf5ba5ce15583d0590d79398af0f` |
+| `docket68/n1star/checks/r0census5.py` | `929105da47fc44cd9c31a5d47a76866a` |
+| `docket68/n1star/BEYOND5-R0.tsv` | `11b1d5a98db3a2f9dab96eef6a813a21` |
+| `docket68/n1star/checks/census9.py` | `a26b681b701b73160b4c4dda99a16542` |
+| `docket68/n1star/checks/census9.out` | `6b74a0145a51221e8cdd16d5d1057f6e` |
+| `docket68/n1star/checks/support5c.py` | `f3f131731c372576a3b83eff313e5820` |
+| `docket68/n1star/checks/support5c.out` | `4ca721c80bc0fca7d13fce0f9d913c1e` |
+| `docket68/n1star/checks/ledger5.py` | `de4639928eefc1249cd8cb80b7cb72c2` |
+| `docket68/n1star/checks/ledger5.out` | `ebeebba20e8ad1af2afbe1f72271a2c1` |
+| `docket68/n1star/checks/support8b.py` | `55c304a547e01b25d6e281e748e2b861` |
+| `docket68/n1star/checks/support8b.out` | `ae9b2c7f2aabe87ec0e2c4a30e23077c` |
+| `docket68/n1star/checks/support3.py` | `ccb757a7004d3f01394df42509d0ac0b` |
+| `docket68/n1star/checks/support3.out` | `942b4bbb050bc43215891c1bd8b8b36d` |
+| `docket68/n1star/checks/support5b.py` | `138607d30937efd6098e1305a9621cf2` |
+| `docket68/n1star/checks/support5b.out` | `75905d3feccf03e6faa6bd60bdcc6743` |
+| `docket68/n1star/checks/re813.py` | `158aefd65dc34dbe3e4e5d514ea2e04d` |
+| `docket68/n1star/checks/re813.out` | `2db9b1419248d6afdb0377b94494d6c5` |
 | `docket68/lemmas/hf_mirror5.py` | `bbe7d6df6092609ee3c420f97b1dd733` |
 | `docket68/lemmas/data/hf_core5_runs.json` | `3e360c45bc4436c2e9012b9f88f7e1ed` |
-| `docket68/n1star/data/growth5_runs.json` | `9aba49f0491bdd01c78e733ad3815e3c` |
+| `docket68/n1star/data/growth5_runs.json` | `c351486fa869bcb1864a637a6fe5cd0b` |
 | `docket68/n1star/DEDUCTIONS.tsv` | `0234cb27d38a833ec4ab6768c5754f79` |
 
 The paper's own md5 is recorded in the commit that adds it, not in itself.

@@ -7933,3 +7933,12 @@ eindcert5, kirecon5, vii5census, hclass5) and verifier 259's items 1-4, 6, 7 (eq
 twodomainx5) computed, each with a negative control; the paper cites each at its claim; response5.py R1-R14 pass. New:
 the constraint map's quadratic part has no 1/lam coefficient at the stage-0 data; eps_ind's scan certified; Proposition
 10.1's normalisation named; the E2 bound certified at most 23-41 times the norm. Item 5 running (ROUTES-OPEN.md D606).
+
+**D607 (2026-11-02): the program verifiers seated; the census of deduced claims computed.** Two verifiers on D606's
+checks, nine programs repaired (controls that can fail, scopes stated). Corrections: (8.13) holds off a countable set of
+h, not at every h (re813.py; N1STAR-PROOF.md 10.54(d) corrected); Proposition 10.1's uniform bound is for r^(3/2) Phi,
+not the fields [HKW18] bound (kirecon5.py P2; Prop 10.1 (iii)-(iv) and the paper's 8.2 now on r <= R); C7c's contraction
+measured (rates 3.55, 4.03 against N - 3); the charges per round grow by 4 per unit of l_I, not 2. New checks for the
+census's open rows: support5b, support5c, support3, ledger5, stage5, gauge5, support8b, support8c, census9, excise5;
+level2loop5, lambdacount5, twodomain5, r0census5 cited. Deeper excisions on a second grid: deeper is earlier on both.
+ROUTES-OPEN.md D607.

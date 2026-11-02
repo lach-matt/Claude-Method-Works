@@ -40,8 +40,8 @@ are complete); the norms are the computed ones at one resolution set, not bounds
 spheres (coefficients in cos 2k th, sin 2k th for q, weighted by 1 + l (l + 2), l = 2k), not H^2(S^3) itself; the
 lam-rates do not depend on the choice, the angular profiles being lam-independent.
 
-Run: python3 checks/csolve5.py   (about eighty minutes: the sympy build of L and Q about twenty-five, C7b about
-     fifteen, C7c and its control about forty; saved as checks/csolve5.out)
+Run: python3 checks/csolve5.py   (about two hours on a shared machine: C7a about thirty minutes, C7b thirty, C7c
+     and its control fifty; saved as checks/csolve5.out)
 """
 import os
 import sys
