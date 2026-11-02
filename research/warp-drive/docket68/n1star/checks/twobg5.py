@@ -364,9 +364,8 @@ def main():
     print('  G3: the domain (T = 1, delta0 = 0.05, so l5 = %.4f, seed condition %s): V = %.3f, tau_end <= %.3f,\n'
           '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f:\n'
           '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I\n'
-          '      (explicit
- ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f on all of\n'
-          '      [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
+          '      (explicit ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f\n'
+          '      on all of [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)
     ok['G3'] = g3ok

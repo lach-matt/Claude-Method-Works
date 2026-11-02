@@ -1,0 +1,4 @@
+seed 1 (lam = 1.000000): r in [10.247560, 11.735086] (v in [1/2, 7/2]), degrees (40, 28), 12288 boxes, 276 s
+  C1 certified: sup |Ric_vv[g_app]| <= [4.966e-5 +/- 4.57e-9]
+     sup s <= [0.001201 +/- 3.12e-7] (the terms that cancel); worst box near (r, x) = (10.6775, -0.703)
+     certified pointwise at the 12288 box centres: max |Ric_vv| <= [6.623e-11 +/- 3.45e-16]
