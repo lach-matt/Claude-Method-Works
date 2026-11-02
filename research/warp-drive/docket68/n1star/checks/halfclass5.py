@@ -14,7 +14,9 @@ gamma := gamma_Ups, so sigma_Ups = {0, delta, gamma, 2 gamma} (III.C (3.1)); rea
   H2 (exact) the record's construction (III.C' Theorem 3.1, Step 2: E^(0) the least III.C Definition 3.1 set
      containing E_0, E^(m) the least one containing E_0 u-bar E^(m-1), M rounds, M <= 4(l_I - l_I^flat) + 1 <= 8 for
      l_I < 7/2): for both seeds and M = 0..8, the log orders at 2, 5/2, ..., 5, and the largest log order at real part
-     <= 5 (the E^C_I part of l_*, III.I'''''''''' Definition 1.1). pi_1 E^(M) is the same for both seeds at every M.
+     <= 5 (the E^C_I part of l_*, III.I'''''''''' Definition 1.1). E^(M) is the same index set for both seeds, log
+     orders included, at every M <= 8 (below 11/2), with k(n) = k(n + 1/2) = M(n - 1). Control: a seed (9/4, 0),
+     admissible but not in E^(0) of Part VII's seed, gives a different E^(0).
   H3 (exact) the sharp index set: G := E_0 u-bar F(G), F(G) the least +1-closed set containing
      G^tot + (G^tot - 1), G^tot := G u (3/2 + sigma_Ups, 0). F(G) at z uses G only below z - 1/2, so G is defined by
      recursion on the real part; G satisfies III.C Definition 3.1 (2)-(3), contains E_0 and E_0 u-bar F(G) (= G),
@@ -22,8 +24,8 @@ gamma := gamma_Ups, so sigma_Ups = {0, delta, gamma, 2 gamma} (III.C (3.1)); rea
      contain E_0 u-bar G (the coarse round of the record grows the log orders at every round).
   H4 (exact) the log orders of G: k(2 + j/2) = j + 1 for E_0^(1/2); for Part VII's E_0, k(n) = 2n - 3 and
      k(n + 1/2) = 2n - 3 (n >= 2 an integer). So the half class raises the log order at each half-integer by exactly
-     1 and leaves every integer, and every exponent off (1/2)Z, unchanged (checked below 11/2); the largest log
-     order at real part <= 5 is 7 for both. Control: "the half-integer log orders are unchanged" fails.
+     1, leaves every integer unchanged, and raises an exponent off (1/2)Z by 0 or 1 (checked below 11/2); the
+     largest log order at real part <= 5 is 7 for both. Control: "the half-integer log orders are unchanged" fails.
   H5 (exact) LOSS-D's one-off count (`prop31loss5.py`'s chain(), D576): the L_b applications of III.I' Proposition
      3.1 below l_I, 1 + J + L (J windows, L log steps), for both seeds, sharp and record's (M = 4, 8), over a grid of
      l_I in (3, 7/2). Control: the log-free class (empty seed) gives LOSS-D Q2's (2, 0, 3).
@@ -219,14 +221,14 @@ def h2(C, M=8):
               f"half {rows['half'][m][1]} max<=5: {rows['half'][m][2]}")
     samepi = all(set(rows['int'][m][3]) == set(rows['half'][m][3]) for m in range(M + 1))
     check("H2a pi_1 E^(M) is the same set for both seeds at every M <= 8 (below the top)", samepi)
-    ints = [i for i, p in enumerate(pts) if p.denominator == 1]
-    hs = [i for i, p in enumerate(pts) if p.denominator == 2]
-    same_int = all(rows['int'][m][1][i] == rows['half'][m][1][i] for m in range(M + 1) for i in ints)
-    up_half = all(rows['half'][m][1][i] > rows['int'][m][1][i] for m in range(1, M + 1) for i in hs)
-    check("H2b record's construction: integer points equal, every half-integer point strictly higher (M >= 1)",
-          same_int and up_half)
-    gap = sorted({rows['half'][m][1][i] - rows['int'][m][1][i] for m in range(1, M + 1) for i in hs})
-    print("     half minus int at the half-integers, M = 1..8:", gap)
+    same = all(rows['int'][m][3] == rows['half'][m][3] for m in range(M + 1))
+    check("H2b record's construction: E^(M) is the same index set for both seeds, log orders included, M <= 8",
+          same)
+    form = all(rows['int'][m][1][i] == m * (int(p) - 1) for m in range(M + 1) for i, p in enumerate(pts))
+    check("H2e record's construction: k(n) = k(n + 1/2) = M(n - 1) at n = 2, ..., 5", form)
+    E9 = least_def31(C, close(C, {(Fr(9, 4), 0, 0): 0, (Fr(9, 2), 0, 0): 0}))
+    check("H2f control: an admissible seed (9/4, 0) not in Part VII's E^(0) gives a different E^(0)",
+          E9 != rows['int'][0][3])
     lstar = [(rows['int'][m][2], rows['half'][m][2]) for m in range(M + 1)]
     check("H2c the largest log order at real part <= 5 is the same for both seeds at every M",
           all(a == b for a, b in lstar), str(lstar))
@@ -271,11 +273,12 @@ def h4(C, G):
     fh = all(lh[i] == int(2 * p) - 3 for i, p in enumerate(pts))
     check("H4a int: k(n) = k(n + 1/2) = 2n - 3; half: k(2 + j/2) = j + 1", fi and fh)
     off = [z for z in set(G['int']) | set(G['half']) if (z[1], z[2]) != (0, 0)]
-    same_off = all(G['int'].get(z, -1) == G['half'].get(z, -1) for z in off)
+    diffs = [G['half'].get(z, -1) - G['int'].get(z, -1) for z in off]
     same_int = all(li[i] == lh[i] for i, p in enumerate(pts) if p.denominator == 1)
     plus1 = all(lh[i] == li[i] + 1 for i, p in enumerate(pts) if p.denominator == 2)
-    check("H4b off (1/2)Z and at the integers the two G agree; at each half-integer half = int + 1",
-          same_off and same_int and plus1, f"{len(off)} exponents off (1/2)Z")
+    check("H4b the integers agree; each half-integer is raised by 1; an exponent off (1/2)Z by 0 or 1",
+          same_int and plus1 and set(diffs) <= {0, 1},
+          f"off (1/2)Z: {len(off)} exponents, {diffs.count(1)} raised by 1")
     mi, mh = maxlog(C, G['int'], 5), maxlog(C, G['half'], 5)
     check("H4c the largest log order at real part <= 5 is 7 for both", mi == mh == 7, f"{mi}, {mh}")
     check("H4d control: 'the half-integer log orders are unchanged' fails",

@@ -270,4 +270,4 @@ Open items.
   the oscillating stage data changes K (not the vanishing of the λ, λ² parts, which (c) of Proposition L.2 makes
   independent of any isotropic choice); it was not pursued.
 
-Files: this note; `checks/layerlin5.py` (+ `.out`, about ten minutes); `checks/layerwin5.py` (+ `.out`, about a minute).
+Files: this note; `checks/layerlin5.py` (+ `.out`, about five minutes); `checks/layerwin5.py` (+ `.out`, about a minute).

@@ -49,7 +49,7 @@ and cos th become rational in t = tan(th/2), r = q^2, and the result is cancelle
 
 Labels: computed (exact, sympy).  The identification of H1, H2, H3 with the linear part of the supplement's approximant
 is deduced in the note (Lemmas 5.1-5.3, 6.2 of N1STAR-PROOF.md, READ), not computed here.
-Run: python3 checks/layerlin5.py   (about ten minutes)
+Run: python3 checks/layerlin5.py   (about five minutes)
 """
 import random
 import sys
