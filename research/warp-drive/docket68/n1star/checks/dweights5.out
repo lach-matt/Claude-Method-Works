@@ -15,8 +15,8 @@
       Lambda below 2); eps, eps' off the finite sets of I9:290-291 and I14:124-126 (roots -mu of L_b(0) hat)
   W3: beta-levels K = 106489469 (53244734 below 3, 53244736 above); tf rounds below 3 R2 = 1401250931461121; level-3
       rounds above 3 R3 = 1401251031977897
-      floor: d >= 3 (R2 + R3) = 8407505890317054 = 8.4075e+15; N = 21 d + 6 >= 1.7656e+17; against LOSS-D's 7.959e15 at
-      eps_ind -> delta_50 without (G): x 1.06
+      floor: d >= 3 (R2 + R3) = 8407505890317054 >= 8.407505e15; N = 21 d + 6 >= 1.765576e17 (rounded down); against
+      LOSS-D's 7.959e15 at eps_ind -> delta_50 without (G): x 1.06
       control: exact floor-sum = level-by-level sum on a scaled instance (eps_K = 0.017): R2 1527 = 1527, R3 1639 = 1639,
       K 119 = 119
   W4: iota+ rounds per level below 3 <= ceil((2 - eps - lambda_sharp)/d1) = 1470302 (LD14: 1,470,302); N_* = ceil(5/d1) +

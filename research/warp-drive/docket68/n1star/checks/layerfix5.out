@@ -5,3 +5,6 @@ F1 PASS
       the (v, x) frame: -(rho - 1)**2*(rho**2 + rho + 1)**2/(9*mu0**(7/4)*rho**6) (= -mu0^(-7/4) (rho^3 - 1)^2/(9 rho^6):
       True); both -> -mu0^(-7/4)/9: True
 F2 PASS
+  F3 (a) nu = (0.2), and not with beta's mass term dropped: True; (b) d^F's closed form at 7 angles, and not with 38/3 ->
+      37/3: True; (c) nu_inf = -mu0^(-7/4)/9, and not with the vv coupling halved: True; (d) square wave: mean-zero
+      antiderivative of amplitude pi/2, refuting sup|Y| <= sup|Z|/2: True

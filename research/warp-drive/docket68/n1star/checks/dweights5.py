@@ -31,6 +31,7 @@ readings cited at each item); READ (delta_50 from checks/eindcert5.out I1, the f
   lambda_sharp + 1 = 2.5099 twice, disagrees with the count on the deduplicated union of the chain starts.
 
     python3 checks/dweights5.py
+Round 4 (the round-3 reader, m1): W3's floor printed rounded down (N >= 1.765576e17, not 1.7656e17).
 """
 import os
 import sys

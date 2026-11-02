@@ -59,6 +59,9 @@ in certified intervals, mpmath.iv at 200 bits and exact rationals), estimate (wh
   gives l = 11, so the size comes from E^flat's log orders.
 
     python3 checks/dceiling5.py
+Round 4 (the round-3 reader): D5 now computes its loss formula (1 + n_iota + 2 floor B, floor B from the weights)
+and its size, D6 asserts the exact forms and rebuilds the constant term from its parts, so a mutated step fails
+them (they were True and > 1e29 before). CONSTANTS5.md R4.
 """
 import builtins
 import os
