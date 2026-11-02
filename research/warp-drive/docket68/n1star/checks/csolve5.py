@@ -24,17 +24,17 @@ and its quadratic part Q, each a lam-series whose coefficients are exact sympy e
   C7c (numerical) The nonlinear solve, by Proposition 6.5's scheme: U_(i+1) solves the linear system whose principal
       coefficients (of d_r a, d_th^2 a in rho; of d_r w, d_r q, d_th w, d_th q and the whole coefficient of d_r a in J)
       are frozen at U_i, the remaining quadratic terms evaluated at U_i as a source, from U_0 the linear solution; the
-      source is taken 100 times the C7b one (Proposition 6.5's constant) so that the first successive differences
-      stay above roundoff (at lam = 1/32 the third, 3.7e-17, is at the floor, so d_2/d_1 there is roundoff and the
-      ratio printed in the paper is d_1/d_0); the rate test's tolerance (2.8) cannot tell 2.8 from the proof's 3,
-      though a 1/lam^2 term (rates 1.5-2.0) fails it. Two measurements. (i) The contraction ratio of the scheme, d_(i+1)/d_i with d_i = sup_r ||U_(i+1)
-      - U_i||: below 10^-1 at every step, and its rate in lam is printed beside the proof's bound C lam^(N-3); it is
-      not better than that bound by more than the measurement shows (the frozen coefficients differ by r-derivatives of
-      oscillating differences, each costing lam^-1). (ii) The first correction relative to the linear solution,
-      d_0/sup_r ||U_0||, the size of the quadratic remainder's effect: lam^(N-2), as O(1) coefficients of Nl give (C7a).
-      Control for (ii): a quadratic term a^2/lam added to rho (a 1/lam coefficient with nonzero phase mean) gives
-      lam^(N-3). (The trace_W mutant's 1/lam quadratic coefficient oscillates with zero phase mean and is averaged out
-      by the march, as its linear one is in C7b: it would not be a control.)
+      source is taken 100 times the C7b one (Proposition 6.5's constant) so that the first successive differences stay
+      above roundoff (at lam = 1/32 the third, 3.7e-17, is at the floor, so d_2/d_1 there is roundoff and the ratio
+      printed in the paper is d_1/d_0); the rate test's tolerance (2.8) cannot tell 2.8 from the proof's 3, though a
+      1/lam^2 term (rates 1.5-2.0) fails it. Two measurements. (i) The contraction ratio of the scheme, d_(i+1)/d_i with
+      d_i = sup_r ||U_(i+1) - U_i||: below 10^-1 at every step, and its rate in lam is printed beside the proof's bound C
+      lam^(N-3); it is not better than that bound by more than the measurement shows (the frozen coefficients differ by
+      r-derivatives of oscillating differences, each costing lam^-1). (ii) The first correction relative to the linear
+      solution, d_0/sup_r ||U_0||, the size of the quadratic remainder's effect: lam^(N-2), as O(1) coefficients of Nl
+      give (C7a). Control for (ii): a quadratic term a^2/lam added to rho (a 1/lam coefficient with nonzero phase mean)
+      gives lam^(N-3). (The trace_W mutant's 1/lam quadratic coefficient oscillates with zero phase mean and is averaged
+      out by the march, as its linear one is in C7b: it would not be a control.)
 
 Not reached: the approximant's higher stages (g_j, j >= 1, the means and the phase corrections; Lemma 6.3(b) gives them
 O(1) coefficients) and the O(lam) coefficients (data5.py truncates its series at lam^1, so only the orders -1 and 0
