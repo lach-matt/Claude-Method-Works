@@ -75,6 +75,7 @@ Labels: computed (B1-B2 random sampling; B5 mpmath at 60 digits; B9(c) mpmath); 
 import random
 import sys
 from fractions import Fraction as Fr
+from functools import lru_cache
 
 import mpmath as mp
 import sympy as sp
@@ -102,9 +103,15 @@ def check(name, ok, msg=""):
         FAIL.append(name)
 
 
-def integrable(q):
+@lru_cache(maxsize=None)
+def _integrable(q):
     s = sp.Symbol("s", positive=True)
-    return sp.integrate(s**(-sp.nsimplify(q)), (s, 1, sp.oo)).is_finite
+    return sp.integrate(s**(-q), (s, 1, sp.oo)).is_finite
+
+
+def integrable(q):
+    """int_1^oo s^-q ds is finite (computed by sympy, cached)"""
+    return _integrable(sp.nsimplify(q))
 
 
 # ---------------------------------------------------------------- B1, B2: the metric's margins
@@ -208,6 +215,8 @@ def b3():
         L = mp.quad(lambda x: x**(2*av + 1)*ph(x)**2, [1, 10, mp.inf])
         Rr = mp.quad(lambda x: x**(2*av + 3)*dph(x)**2, [1, 10, mp.inf])
         worst = max(worst, L*(av + 1)**2/Rr)
+    check("B3c 100 random phi = sum c_i r^(-b_i), b_i > a + 1 (quadrature on [1, oo)): ratio <= (a + 1)^-2",
+          worst <= 1 + mp.mpf(10)**-12, "max ratio x (a+1)^2 = " + mp.nstr(worst, 6))
     bad = (ratio*2*(a + 1)**2).subs({a: 1, eta: sp.Rational(1, 100)})
     check("B3d control: the constant (a + 1)^-2 / 2 is violated by r^(-a-1-eta), eta = 1/100", bad > 1, str(bad))
 
@@ -221,14 +230,14 @@ def b4():
     Zu = (t - v1)*sp.diff(u, t) + sum(c*sp.diff(u, c) for c in X)
     xd = sum(c*sp.diff(u, c) for c in X)
     check("B4a x.d_x = Z - (t - v1) d_t on every function", sp.simplify(Zu - (t - v1)*sp.diff(u, t) - xd) == 0)
-    rr, sig = sp.symbols("rr sigma", real=True)
-    f = sp.Function("f")
-    w = sp.Function("w")
-    along = sp.diff(w(f(rr) + sig, rr), rr)
-    tsym, rsym = sp.symbols("T Rr")
-    target = (sp.Derivative(w(tsym, rsym), rsym) + sp.diff(f(rr), rr)*sp.Derivative(w(tsym, rsym), tsym)
-              ).subs({tsym: f(rr) + sig, rsym: rr}).doit()
-    check("B4b along a ray of Sigma~_sigma: d/dr = d_r + f' d_t", sp.simplify(along - target) == 0)
+    rr, sig, tt = sp.symbols("rr sigma tt", real=True)
+    fcon = 3 + 1/rr + sp.Rational(1, 2)/rr**2           # a concrete f with f' in |x|^-2 C^oo
+    wcon = sp.sin(tt)*rr**2 + tt**3*sp.exp(-rr) + tt*rr  # a concrete function of (t, r)
+    along = sp.diff(wcon.subs(tt, fcon + sig), rr)
+    target = (sp.diff(wcon, rr) + sp.diff(fcon, rr)*sp.diff(wcon, tt)).subs(tt, fcon + sig)
+    wrong = sp.diff(wcon, rr).subs(tt, fcon + sig)
+    check("B4b along a ray of Sigma~_sigma: d/dr (w(f(r) + sigma, r)) = (d_r w + f' d_t w)(f(r) + sigma, r) (concrete "
+          "f, w); control: d_r w alone is not it", sp.simplify(along - target) == 0 and sp.simplify(along - wrong) != 0)
     vprime = 1 + fp_
     check("B4c v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2)",
           all(vprime.subs(fp_, c) >= sp.Rational(1, 2) for c in (sp.Rational(-1, 2), 0, sp.Rational(1, 2))))
@@ -405,13 +414,13 @@ def kernels(a):
     half = sp.Rational(1, 2)
     return {
         "residual P(Sigma) = O(lam r^(-13/2)), L^2 with weight": sp.Rational(9, 2) - a,
-        "explicit coefficients on d Gamma h_R ((lam + mu) r^-3)": 3,
-        "explicit coefficients on d d Gamma^beta h_R (lam r^-2, |beta| < |alpha|)": 2,
-        "explicit zero order with Hardy (lam r^-4 * r)": 3,
+        "explicit coefficients on d Gamma h_R ((lam + mu) r^-3)": sp.Integer(3),
+        "explicit coefficients on d d Gamma^beta h_R (lam r^-2, |beta| < |alpha|)": sp.Integer(2),
+        "explicit zero order with Hardy (lam r^-4 * r)": sp.Integer(3),
         "first order h_R coefficients (Q, Gamma[g], deformation: eps r^(-3/2-a))": sp.Rational(3, 2) + a,
         "zero order h_R with Hardy (r d d h_R <= eps r^(-1/2-a))": a + half,
         "bulk-sign error |w'||H|/w (r^-1 (lam r^-2 + eps r^(-1/2-a)))": sp.Min(3, sp.Rational(3, 2) + a),
-        "mu d_mu second-order source (mu r^-2 d d Gamma^beta h_R)": 2,
+        "mu d_mu second-order source (mu r^-2 d d Gamma^beta h_R)": sp.Integer(2),
         "multilinear terms: one L^2 factor, sup factors eps r^(-3/2-a) or eps r^(-1/2-a) r^-1 with Hardy":
             sp.Rational(3, 2) + a,
     }
@@ -424,11 +433,11 @@ def b6():
         ok = ok and all(integrable(q) for q in kernels(av).values())
     check("B6a every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3))", ok,
           str({kk[:40]: str(v) for kk, v in kernels(sp.Rational(11, 4)).items()}))
-    a = sp.Symbol("a", positive=True)
-    lo = max(sp.solve(sp.Eq(q, 1), a)[0] for q in kernels(a).values() if q.has(a) and sp.diff(q, a) > 0)
-    hi = min(sp.solve(sp.Eq(q, 1), a)[0] for q in kernels(a).values() if q.has(a) and sp.diff(q, a) < 0)
-    check("B6b the kernels are integrable exactly for a in (1/2, 7/2)", lo == sp.Rational(1, 2) and
-          hi == sp.Rational(7, 2), f"({lo}, {hi})")
+    grid = [sp.Rational(n, 100) for n in range(0, 501)]
+    good = [av for av in grid if all(integrable(q) for q in kernels(av).values())]
+    check("B6b on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2)",
+          min(good) == sp.Rational(51, 100) and max(good) == sp.Rational(349, 100) and
+          len(good) == 349 - 51 + 1, f"[{min(good)}, {max(good)}], {len(good)} points")
     bad1 = [kk for kk, q in kernels(sp.Rational(1, 2)).items() if not integrable(q)]
     bad2 = [kk for kk, q in kernels(sp.Rational(7, 2)).items() if not integrable(q)]
     check("B6c control: at a = 1/2 the zero-order h_R kernel is not integrable", len(bad1) == 1 and "zero order h_R"

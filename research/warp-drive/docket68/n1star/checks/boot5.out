@@ -2,30 +2,3 @@ B3  the Hardy inequality on the slices
   B3a phi = r^(-a-1-eta): ratio = 1/(a + 1 + eta)^2 -> (a + 1)^-2 (the constant is sharp): pass (a + eta + 1)**(-2)
   B3b the integration by parts behind it: d/dr (r^(2a+2) f^2/(2a+2)) = r^(2a+1) f^2 + r^(2a+2) f f'/(a+1); the boundary
         term at the inner edge enters as -R^(2a+2) f(R)^2/(2a+2) <= 0: pass
-  B3d control: the constant (a + 1)^-2 / 2 is violated by r^(-a-1-eta), eta = 1/100: pass 80000/40401
-B4  the radial derivatives from the commuted fields
-  B4a x.d_x = Z - (t - v1) d_t on every function: pass
-  B4b along a ray of Sigma~_sigma: d/dr = d_r + f' d_t: FAIL
-  B4c v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2): pass
-  B4d control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0): pass
-  B4e |t - v1| <= r on W (r >= 4R, |f'| <= 1/2): v1 + r - t >= (r + 12 R)/2 > 0: pass
-B6  the kernel table of the weighted energy at weight a
-  B6a every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3)): pass {'residual P(Sigma) = O(lam
-        r^(-13/2)), L^': '7/4', 'explicit coefficients on d Gamma h_R ((l': '3', 'explicit coefficients on d d Gamma^beta
-        ': '2', 'explicit zero order with Hardy (lam r^-4': '3', 'first order h_R coefficients (Q, Gamma[g': '17/4',
-        'zero order h_R with Hardy (r d d h_R <= ': '13/4', "bulk-sign error |w'||H|/w (r^-1 (lam r^-": '3', 'mu d_mu
-        second-order source (mu r^-2 d d': '2', 'multilinear terms: one L^2 factor, sup f': '17/4'}
-Traceback (most recent call last):
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 672, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 666, in main
-    f()
-    ~^^
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 428, in b6
-    lo = max(sp.solve(sp.Eq(q, 1), a)[0] for q in kernels(a).values() if q.has(a) and sp.diff(q, a) > 0)
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/boot5.py", line 428, in <genexpr>
-    lo = max(sp.solve(sp.Eq(q, 1), a)[0] for q in kernels(a).values() if q.has(a) and sp.diff(q, a) > 0)
-                                                                         ^^^^^
-AttributeError: 'int' object has no attribute 'has'
-exit 1
