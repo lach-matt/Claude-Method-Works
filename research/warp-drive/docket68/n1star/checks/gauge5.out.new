@@ -1,4 +1,0 @@
-  G1: (6.2) 2 G(n, .) = 2 Gt(E)(n, .) + d_n D, exact, at a point of a random 4+1 metric with D = 0 along the slice (one point, one random metric, seed 62): True (sum |Z_m| = 171/7, so Z is live);
-      response5 R14 (6.1's Bianchi step) rerun: True [174s]
-  G1 control: (6.2) without Z holds: False; (6.2) where d_i D != 0 holds: False; R14 control holds: False
-G1 PASS
