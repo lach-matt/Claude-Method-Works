@@ -28,3 +28,4 @@ Traceback (most recent call last):
     lo = max(sp.solve(sp.Eq(q, 1), a)[0] for q in kernels(a).values() if q.has(a) and sp.diff(q, a) > 0)
                                                                          ^^^^^
 AttributeError: 'int' object has no attribute 'has'
+exit 1

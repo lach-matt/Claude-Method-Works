@@ -14,4 +14,3 @@ G3 PASS
       -grad grad(box f): True  [229 s]
 G1 PASS
 stagefree5: all checks pass, every control fails  [234 s]
-exit 0

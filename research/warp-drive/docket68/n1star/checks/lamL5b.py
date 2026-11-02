@@ -36,9 +36,9 @@ L2, recomputed here).
      min(lambda0 < 0.0024433, Lam_4(0) upper, Lam_5' upper).  Control: the Taylor bound with m! mutated to (m + 40)!
      exceeds B(1456), so it is refuted.
 
-Labels: M1 READ; M2, M4, M5 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n, floating
-point at n = 1455).  Every bound is on the threshold the proof delivers, not on the largest lam for which Theorem L
-holds (CONSTANTS5 V-M2).  Run: python3 checks/lamL5b.py   (about two minutes; imports lamL5.py)
+Labels: M1 READ; M2, M4, M5 certified (mpmath interval arithmetic, outward); M3 computed (exact digits at small n,
+floating point at n = 1455).  Every bound is on the threshold the proof delivers, not on the largest lam for which
+Theorem L holds (CONSTANTS5 V-M2).  Run: python3 checks/lamL5b.py   (about two minutes; imports lamL5.py)
 """
 import hashlib
 import math
@@ -247,11 +247,11 @@ def m4(control=False):
 C_LO = iv.mpf('1.32407110621')         # CONSTANTS5 envelope5 E1: c in [1.32407110621, 1.3241034918]
 
 
-def log10_env_lo(x):
-    """a lower bound of log10 env(1/2 + x), interval arithmetic: env = c sin^12(pi t/2) exp(1 - 1/(t (2 - t)))"""
+def log10_env_iv(x):
+    """log10 env(1/2 + x) as an interval, c at its lower end: env = c sin^12(pi t/2) exp(1 - 1/(t (2 - t)))"""
     t = 2*iv.mpf(x)/3
     v = iv.log(C_LO) + 12*iv.log(iv.sin(iv.pi*t/2)) + 1 - 1/(t*(2 - t))
-    return (v/iv.log(10)).a
+    return v/iv.log(10)
 
 
 def taylor_low(m, extra=0):
@@ -263,9 +263,9 @@ def taylor_low(m, extra=0):
     best = max(xs, key=lambda x: float(mp.log10(C_LO.a) + 12*mp.log10(mp.sin(mp.pi*x/3))
                                        + (1 - 1/((2*x/3)*(2 - 2*x/3)))/mp.log(10) - m*mp.log10(x)))
     lfac = iv.log(iv.mpf(math.factorial(m + extra)))/iv.log(10)
-    val = lfac.a + log10_env_lo(best) - m*(iv.log(iv.mpf(best))/iv.log(10)).b
+    V = lfac + log10_env_iv(best) - m*iv.log(iv.mpf(best))/iv.log(10)
     mp.mp.dps = 40
-    return mp.mpf(val), best, lf
+    return mp.mpf(V.a), best, lf
 
 
 def m5(control=False):
