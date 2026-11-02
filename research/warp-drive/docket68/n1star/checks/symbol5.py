@@ -32,8 +32,18 @@ of the linearised system is  D_u d_v f + K d_xx f  with  K = M^-1 N  and  D_u = 
   Y4 the left eigenvectors of Y1, applied to the rows: the wave-mode rows have principal part -Lambda times the second
      x-derivative of the mode itself (no other field's), and the zeta row has no second x-derivative at all (exact).
 
+  Y5 the shift loses an angular derivative in either formulation (exact): (a) the W row Ric(Y, d_v) contains s_x, and on
+     every spherical state (m = n = 0) its coefficient is (1 - x^2) R_v/R, nonzero wherever R_v is; (b) the shift's
+     transport row Ric_vx contains W_vx with coefficient -1 and R_vx with -2/R, beside s_vv.  So the linearised shift
+     at (u, v, x) is an integral along the outgoing generator of first x-derivatives of the other fields' v-derivatives
+     (after one integration by parts in v, of their first x-derivatives), and the W row needs one x-derivative of it: an
+     energy estimate at any level k for (m, n, W) needs the fields at level k + 1 through this term.  No energy
+     estimate built on the metric functions alone closes; the curvature (Bianchi) level, where the shift's derivative
+     is a curvature component with its own flux, is the one [Wu26] Theorem 2.2's H^3/H^4 structure reflects.
+
   Control (Y1): the constraint-preserving 3 x 3 block of Y2, put through Y1's Jordan test, must NOT show a Jordan
-  block (it is diagonal), so the test is not satisfied by every matrix.
+  block (it is diagonal), so the test is not satisfied by every matrix.  Control (Y5): the same coefficient test applied
+  to a field the row does not contain (s_xx) must find zero.
 
   python3 checks/symbol5.py
 """
@@ -156,6 +166,18 @@ def main():
         print('Y4 %s: second x-derivatives in the combined row: %s -> %s' % (name, sorted(xx), 'PASS' if g else 'FAIL'))
         good &= g
     ok &= good
+    # Y5: the shift
+    sph = {m: 0, n: 0, sp.Symbol('m_v'): 0, sp.Symbol('n_v'): 0, sp.Symbol('m_x'): 0, sp.Symbol('n_x'): 0}
+    csx = sp.simplify(E['EYv'].coeff(sp.Symbol('s_x')).subs(sph))
+    a5 = sp.simplify(csx - (1 - x ** 2) * sp.Symbol('R_v') / R) == 0
+    cw = sp.simplify(E['Evx'].coeff(sp.Symbol('W_vx'))); cr = sp.simplify(E['Evx'].coeff(sp.Symbol('R_vx')))
+    b5 = cw == -1 and sp.simplify(cr + 2 / R) == 0 and E['Evx'].coeff(sp.Symbol('s_vv')) != 0
+    ctl5 = sp.simplify(E['EYv'].coeff(sp.Symbol('s_xx'))) != 0
+    print('Y5 s_x in the W row, spherical state: coefficient %s (= (1 - x^2) R_v/R: %s); Ric_vx: W_vx coefficient %s, '
+          'R_vx coefficient %s, s_vv present: %s' % (csx, a5, cw, cr, E['Evx'].coeff(sp.Symbol('s_vv')) != 0))
+    print('   control (s_xx in the W row): %s' % ('nonzero (bad)' if ctl5 else 'zero -> fails (good)'))
+    good = a5 and b5 and not ctl5
+    print('Y5', 'PASS' if good else 'FAIL'); ok &= good
     print('symbol5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
