@@ -6,11 +6,14 @@ computed here (CONSTANTS5.md, D3-D4).
      counts), each given the obstructions below; every row covered, none twice.
   R2 (computed) a kind the ledger's keywords did not search: bounds from the closed graph, open mapping and
      Banach-Steinhaus theorems (Baire category), which give a constant without a value. A census of proof5's PART files
-     finds 16 lines; each is classified (B: a constant enters; R: a remark or a citation list; Q: a quoted source).
+     finds 18 lines (16 in round 1, whose pattern missed "closed-graph" and "Banach and Steinhaus"); each is classified
+     (B: a constant or order enters; A: with a constructive alternative beside it; R: a remark, summary, list or
+     pointer; Q: a quoted source).
   R3 (deduced) the order the replacements must be built in: no N1 base bound can be certified in the record's norms
      before the calculus and covering constants (COVER, BAIRE) and the norm passage (NORM) are explicit.
-  Controls (must fail, and do): C1 a ledger row removed from the table is reported missing; C2 a planted
-  "closed graph" line is unclassified.
+  Controls (must fail, and do): C1 a ledger row removed from the table is reported missing; C2 a planted site is
+  unclassified, and the pattern itself is tested on planted phrasings (round 1's C2 injected a hit and never tested
+  the pattern; round 1's pattern misses three of the five phrasings).
 
 Codes. NORM: from per-harmonic L^2 bounds (E2-PILOT's kind) to the record's variable-order b-Sobolev norms, which needs
 the elliptic and propagation constants of I.A-I.B, themselves COVER rows. TENSOR: a system on 1-forms or symmetric
@@ -55,14 +58,21 @@ ROWS = {
     ('PART-III-D-GAUGEPOT.md', 365): 'TENSOR NORM LOWE', ('PART-III-D2-ZEROENERGY.md', 256): 'SIGMA LOWE TENSOR',
     ('PART-IV7-TFACE.md', 383): 'SIGMA TENSOR',
 }
-BAIRE_PAT = re.compile(r'closed graph|open mapping|uniform boundedness|banach[- ]steinhaus|baire', re.I)
-BAIRE = {  # B: a constant enters through the theorem; R: a remark or a list of theorems; Q: a quoted source
-    ('PART-II-A-SETUP.md', 960): 'B', ('PART-II-A-SETUP.md', 986): 'B', ('PART-II-A-SETUP.md', 1538): 'B',
-    ('PART-II-A2-STANDARD.md', 130): 'B', ('PART-II-A2-STANDARD.md', 188): 'B', ('PART-II-A2-STANDARD.md', 276): 'B',
-    ('PART-II-A2-STANDARD.md', 281): 'B', ('PART-II-A2-STANDARD.md', 811): 'B', ('PART-II-A2-STANDARD.md', 832): 'R',
-    ('PART-II-C2-TRAPPING.md', 406): 'Q', ('PART-II-F-IOTA.md', 1400): 'B', ('PART-III-H-AUGMENT.md', 425): 'B',
-    ('PART-III-I3-ALMOST.md', 436): 'R', ('PART-III-I4-BOOST.md', 274): 'B', ('PART-III-J3-TAME.md', 41): 'B',
-    ('PART-III-J3-TAME.md', 82): 'B',
+# Round 2 (verifier, V-m2): round 1's pattern, r'closed graph|open mapping|uniform boundedness|banach[- ]steinhaus|baire',
+# missed "closed-graph" (J4-EXACT:655) and "Banach and Steinhaus" (II.A2:186); any dash or space is allowed now.
+_D = r'[\s\-\u2010\u2011\u2012\u2013\u2014]*'
+BAIRE_PAT = re.compile(r'closed' + _D + 'graph|open' + _D + 'mapping|uniform' + _D + 'boundedness|steinhaus|baire', re.I)
+BAIRE_PAT_R1 = re.compile(r'closed graph|open mapping|uniform boundedness|banach[- ]steinhaus|baire', re.I)
+BAIRE = {  # B: a constant (or an order) enters through the theorem; A: the theorem with a constructive alternative
+    # stated beside it; R: a remark, a summary, a list of theorems or a pointer to a B row; Q: a quoted source.
+    # Round 2 (V-m2): II.A:986, 1538 and II.A2:811 are summaries (B -> R); I4:274 offers III.I' Proposition 2.1's
+    # constructive bound beside the closed graph theorem (B -> A); II.A2:186 and J4:655 are the new hits.
+    ('PART-II-A-SETUP.md', 960): 'B', ('PART-II-A-SETUP.md', 986): 'R', ('PART-II-A-SETUP.md', 1538): 'R',
+    ('PART-II-A2-STANDARD.md', 130): 'B', ('PART-II-A2-STANDARD.md', 186): 'B', ('PART-II-A2-STANDARD.md', 188): 'B',
+    ('PART-II-A2-STANDARD.md', 276): 'B', ('PART-II-A2-STANDARD.md', 281): 'B', ('PART-II-A2-STANDARD.md', 811): 'R',
+    ('PART-II-A2-STANDARD.md', 832): 'R', ('PART-II-C2-TRAPPING.md', 406): 'Q', ('PART-II-F-IOTA.md', 1400): 'B',
+    ('PART-III-H-AUGMENT.md', 425): 'B', ('PART-III-I3-ALMOST.md', 436): 'R', ('PART-III-I4-BOOST.md', 274): 'A',
+    ('PART-III-J3-TAME.md', 41): 'B', ('PART-III-J3-TAME.md', 82): 'B', ('PART-III-J4-EXACT.md', 655): 'R',
 }
 ORDER = ['COVER', 'NORM', 'TENSOR', 'LOWE', 'TRAP', 'SIGMA', 'BFAM']
 
@@ -112,7 +122,7 @@ def main():
     for h in hits:
         kinds[BAIRE.get(h, '?')] = kinds.get(BAIRE.get(h, '?'), 0) + 1
     in_ledger = [h for h in hits if h in led]
-    ok['R2'] = len(hits) == 16 and not uncl and not in_ledger
+    ok['R2'] = len(hits) == 18 and not uncl and not in_ledger and kinds == {'B': 10, 'R': 6, 'Q': 1, 'A': 1}
     say('  R2: Baire-category sites in proof5: %d (%s), none among the ledger\'s N-rows: %s; the B rows: %s' % (
         len(hits), kinds, not in_ledger, '; '.join('%s:%d' % (f.replace('PART-', '').replace('.md', ''), l)
                                                    for (f, l) in hits if BAIRE.get((f, l)) == 'B')))
@@ -128,8 +138,14 @@ def main():
     ok['C1'] = sorted(set(led) - set(t2)) == [('PART-I-C-LOWENERGY.md', 497)]
     say('  C1 (control): with I-C:497 removed from the table it is reported missing: %s' % ok['C1'])
     planted = baire_census(extra=[('PART-PLANTED.md', 1)])
-    ok['C2'] = [h for h in planted if h not in BAIRE] == [('PART-PLANTED.md', 1)]
-    say('  C2 (control): a planted closed-graph site is unclassified: %s' % ok['C2'])
+    texts = ['by the closed-graph theorem', 'by the closed graph theorem', 'the open\u2013mapping theorem',
+             'the theorem of Banach and Steinhaus', 'uniform boundedness principle']
+    pat_ok = all(BAIRE_PAT.search(t) for t in texts) and not BAIRE_PAT.search('a closed curve in the graph')
+    r1_miss = [t for t in texts if not BAIRE_PAT_R1.search(t)]
+    ok['C2'] = [h for h in planted if h not in BAIRE] == [('PART-PLANTED.md', 1)] and pat_ok and len(r1_miss) == 3
+    say('  C2 (control): a planted site is unclassified; the pattern finds %d planted phrasings (every dash) and not '
+        '"a closed curve in the graph"; round 1\'s pattern misses %d of them (%s): %s' % (
+            len(texts), len(r1_miss), '; '.join(r1_miss), ok['C2']))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

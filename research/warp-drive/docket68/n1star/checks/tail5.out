@@ -53,3 +53,6 @@ T7  the order count: only box~ puts the wave's linear part at r^(-7/2)
   T7c the polarizations T_F, T_G of (2.5') are linearly independent: pass 
   T7d -l(l+2) - 3/4 = -(l+1/2)(l+3/2) < 0: Laplacian - 3/4 is injective on S^3: pass 
 T8  the time integral of the record's waves
+  T8a the closed form agrees with quadrature: pass 8.0e-32
+     |ehat(w)| w^5 at w = 10..320: ['47.614', '60.311', '17.839', '33.63', '54.622', '35.567']
+  T8b sin^4 envelope: |ehat(w)| w^5 bounded, not -> 0 (C^3 ends: ehat ~ w^-5): pass 
