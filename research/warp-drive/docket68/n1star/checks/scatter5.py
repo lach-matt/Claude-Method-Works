@@ -87,8 +87,10 @@ def s2():
     a = sp.Symbol("a", positive=True)
     L, tt, C, eps, E0 = sp.symbols("L tt C epsilon E_0", positive=True)
     K = sp.integrate(tt**(-sp.Rational(3, 2) - a), (tt, L, sp.oo), conds="none")
+    Kn = sp.gammasimp(sp.powsimp(K, force=True))
     check("S2a int_L^oo (v1 - t)^(-3/2-a) = L^(-1/2-a)/(1/2+a), finite for every a > 0 (and a > -1/2)",
-          sp.simplify(K - L**(-sp.Rational(1, 2) - a)/(sp.Rational(1, 2) + a)) == 0, str(K))
+          sp.simplify(sp.powsimp(Kn - L**(-sp.Rational(1, 2) - a)/(sp.Rational(1, 2) + a), force=True)) == 0,
+          str(Kn))
     closes = sp.simplify(sp.exp(C*eps*K).subs(eps, sp.log(2)/(C*K)) - 2) == 0
     check("S2b E <= E_0 exp(C eps K_a) = 2 E_0 at eps = log 2/(C K_a): the bootstrap improves for smaller eps", closes)
     K3 = sp.integrate(tt**(-1), (tt, L, sp.oo))

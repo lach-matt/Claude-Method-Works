@@ -1,22 +1,2 @@
 S1  the weighted radial Sobolev inequality
   S1a R^(2a+3) f(R)^2 <= 2 ||r^(a+3/2) f|| ||r^(a+3/2) f_r|| on f = r^-b, exact: pass 
-  S1b 200 random f = r^-b (1 + c sin kr): ratio <= 1: pass max ratio 0.673133
-  S1c control: without the f_r factor (sup by ||r^(3/2) f|| alone) the ratio is unbounded: pass ['7.964', '79.79', '797.9']
-S2  the bootstrap kernel
-  S2a int_L^oo (v1 - t)^(-3/2-a) = L^(-1/2-a)/(1/2+a), finite for every a > 0 (and a > -1/2): FAIL L*L**(-a - 3/2)*gamma(a + 1/2)/gamma(a + 3/2)
-  S2b E <= E_0 exp(C eps K_a) = 2 E_0 at eps = log 2/(C K_a): the bootstrap improves for smaller eps: pass 
-  S2c control: n = 3 (|d h| ~ r^(-1-a)) at a = 0: the kernel diverges: pass oo
-S3  the weighted flux of e on N from the record's energy decay
-  S3a sum_k 2^(k(2a-1)) finite at a = 1/4, 49/100: pass 1/(1 - sqrt(2)/2)
-  S3b control: diverges at a = 1/2 and a = 3/4: pass 
-S4  a radiation field is invisible to the weight a < 1/2
-  S4a r^(-3/2) 2F1(3/2+l, -1/2-l; 1; s/2) Y_l solves box = 0 (l = 0..3, exact): pass 
-  S4b r^(3/2) phi -> F(0) = 1 at past null infinity (s -> 0 at fixed v), every v: incoming radiation: pass [1, 1, 1, 1]
-  S4c-d flux through N finite and cap energy -> 0 as T -> -oo, at a = 1/4, 9/20: pass 2/sqrt(R), 2/sqrt(Tm)
-  S4e control: at a = 1/2 both diverge (the weight sees the radiation field): pass 
-  S4f T_(3/2)(l) != 0 and F''(1) != 0 for l <= 20 (F'' by Gauss's second theorem, checked by differentiation): pass min |T|, |F''|: 0.1231, 0.4045
-  S4g on a slice t = c, d_t^2 phi = r^(-7/2) F''(s): a curvature term rho^(7/2) at spatial infinity: pass Subs(Derivative(F(_xi_1), (_xi_1, 2)), _xi_1, (r + t - v1)/r
-S5  the linearized curvature is gauge invariant
-  S5a pure gauge h = d xi + d xi: all 55 components of the linearized Riemann tensor vanish: pass 
-  S5b control: h = f(t, x1) dx2^2 is not pure gauge: some component is nonzero: pass 
-FAILED: ['S2a int_L^oo (v1 - t)^(-3/2-a) = L^(-1/2-a)/(1/2+a), finite for every a > 0 (and a > -1/2)']
