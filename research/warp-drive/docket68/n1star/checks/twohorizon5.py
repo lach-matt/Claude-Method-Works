@@ -3,12 +3,12 @@
 facts the deduction in FAMILIES5-FULL.md section 9 uses, and the term that makes the packet's placement necessary.
 
   H1 (exact) the background on its columns. Where the outgoing dust vanishes (region III, u >= u2) the two-dust
-     background is g0 = -e^(2 psi) f dvhat^2 + 2 e^psi dvhat dR + R^2 dOmega_3^2, f = 1 - mu/R^2, psi and mu functions of
-     vhat (twobg5 G1 (a)-(b)); the sphere S = {vhat, R} has the null normals dvhat (ingoing) and k = dR - (e^psi f/2)
-     dvhat (outgoing). With n = g0^-1 k normalised by n(tau) = 1, tau = vhat - R: theta+ = c(R) 3 f/(2R) with c =
-     2 R^2/(R^2 + mu e^psi ... ) printed, c > 0; its one zero on (0, oo) is R^2 = mu, simple, d_R theta+ = (3/mu) c >
-     0 there; the future ingoing normal -g0^-1 dvhat has expansion -3 e^(-psi)/R < 0. At psi = 0 this is the record's
-     H1 (horizon5.py). Control: the ingoing root in place of the outgoing one (its expansion has no zero).
+     background is g0 = -e^(2 psi) f dvhat^2 + 2 e^psi dvhat dR + R^2 dOmega_3^2, f = 1 - mu/R^2, psi <= 0 and mu
+     functions of vhat (twobg5 G1 (a)-(b)). The sphere S = {vhat, R} has one outgoing null covector dR + alpha dvhat,
+     alpha = -e^psi f/2, and the ingoing one dvhat. With n normalised by n(tau) = 1, tau = vhat - R: theta+ = c 3 f/(2R),
+     c = 2 R^2 e^psi/(R^2 (2 - e^psi) + mu e^psi) > 0 (psi <= 0); its one zero on (0, oo) is R^2 = mu, simple, with
+     d_R theta+ = 3 e^psi/mu there (the record's 3/mu at psi = 0, horizon5.py H1); the future ingoing normal has
+     expansion -3/R < 0. Control (must fail): the ingoing normal's expansion does not vanish at R^2 = mu.
   H2 (exact, symbolic in every function) on stage0two5.py's general round double-null background with both families'
      stage-0 waves (W_in = TT(s1) + chi dv^2, W_out = TT(s2) + chi' du^2), the expansions along g^-1 du (outgoing) and
      g^-1 dv (ingoing) have no lam^-1 term and no lam^0 term beyond g0's: theta(g0 + lam W) = theta(g0) + O(lam). The
@@ -171,7 +171,7 @@ def main():
     r = h1()
     Rs = sp.Symbol("R", real=True)
     good1 = (len(r["roots"]) == 1 and r["zero_at"] and zero(sp.simplify(r["d_at"]*Rs**2 - 3*r["pos"]))
-             and sp.simplify(r["pos"]) == 1)
+             and r["pos"].func == sp.exp)                                 # c = e^psi > 0 at R^2 = mu
     print("  H1: one outgoing null covector dR + alpha dvhat, alpha = %s; theta+ = c 3 f/(2R) with c = %s;\n"
           "      zero at R^2 = mu: %s; there d_R theta+ = %s = 3 c/mu with c = %s; ingoing (k = dvhat, n(tau) = %s):\n"
           "      theta- = %s: %s" % (r["roots"], r["ratio"], r["zero_at"], r["d_at"], r["pos"], r["dtau_in"],
@@ -181,7 +181,8 @@ def main():
     ok["H1"] = good1 and not r["ctl"]
     nolm1, l0 = h2()
     cn, cl0 = h2(control=True)
-    print("  H2: both families: no lam^-1 term in either expansion: %s; lam^0 term equal to g0's: out %s, in %s  [%.0f s]"
+    print("  H2: both families: no lam^-1 term in either expansion: %s; lam^0 term equal to g0's: out %s, in %s"
+          "  [%.0f s]"
           % (nolm1, l0["out"], l0["in"], time.time() - t0), flush=True)
     print("  H2 control (the outgoing wave with a trace on the spheres): lam^0 equal to g0's: out %s, in %s (the in\n"
           "      expansion must fail)  [%.0f s]" % (cl0["out"], cl0["in"], time.time() - t0), flush=True)

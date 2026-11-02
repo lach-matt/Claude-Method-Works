@@ -85,7 +85,7 @@ def last_rows(Z):
     return np.array([np.nonzero(ok[:, j])[0].max() if ok[:, j].any() else -1 for j in range(ok.shape[1])])
 
 
-def s1(Z, umin=-1.0, vmax=VMAX, vmin=0.0):
+def s1(Z, umin=-1.0, vmax=VMAX, vmin=0.0, size=False):
     Rv, okv = rv_field(Z)
     u, v = Z['u'], Z['v']
     k = (len(u) - 1) // 40
@@ -96,6 +96,11 @@ def s1(Z, umin=-1.0, vmax=VMAX, vmin=0.0):
     sel = okv & (u[:, None] > umin) & (v[None, :] <= vmax) & (v[None, :] > vmin)
     pos = sel[..., None] & (Rv > 0)
     n_far = int((pos & far[..., None]).sum()); n_near = int((pos & ~far[..., None]).sum())
+    if size:          # round 2: the largest excess of R_v over D1's bound e^{2W}(1 - 1/u^2), near the cut
+        W = np.where(Z['mask'][..., None], np.nan, Z['W'])
+        exc = Rv - np.exp(2 * W) * (1 - 1 / u[:, None, None] ** 2)
+        near = sel[..., None] & ~far[..., None] & np.isfinite(exc)
+        return float(np.nanmax(np.where(near, exc, np.nan))) if near.any() else np.nan
     return n_far == 0, n_far, n_near, k, int(sel.sum())
 
 
@@ -359,6 +364,8 @@ def main():
                                                                    'PASS' if good else 'FAIL',
                                                        'passed (bad)' if ctl else 'fails (good)'), flush=True)
         ok &= good and not ctl
+        print('     near the cut (excluded band): largest excess of R_v over D1\'s bound e^{2W}(1 - 1/u^2) %.3g' % s1(
+            Z, size=True), flush=True)
         late = s1(Z, vmax=2.0, vmin=VMAX)
         print('     beyond, on (%.2f, 2]: violations %d far, %d near the cut' % (VMAX, late[1], late[2]), flush=True)
         good, extra, fv, k = s2(Z)
