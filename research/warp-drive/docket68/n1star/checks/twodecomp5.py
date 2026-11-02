@@ -540,12 +540,17 @@ def run(seed, gauge=True, control=None, verbose=False):
     return res
 
 
+def tofr(x):
+    x = sp.Rational(x)
+    return Fr(int(x.p), int(x.q))
+
+
 def _contract(RH, slot, x, l=0):
     out = {}
     for a in range(N):
         for b in range(N):
             if x[a] and x[b]:
-                out = padd(out, pscale(order(RH[(min(a, b), max(a, b))].s[slot], l), Fr(x[a]) * Fr(x[b])))
+                out = padd(out, pscale(order(RH[(min(a, b), max(a, b))].s[slot], l), tofr(x[a]) * tofr(x[b])))
     return out
 
 
