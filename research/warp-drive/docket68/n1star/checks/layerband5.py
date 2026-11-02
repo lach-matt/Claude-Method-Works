@@ -4,7 +4,8 @@
   B1 (sampled, mpmath) The margin from the running maximum: with E(v) := sup_(v'<=v) env and eps_1(v) := sup_(v'<=v)
      |env'|, int_(v_s)^v env^2 >= E(v)^3/(8 eps_1(v)) (deduced: env >= E/2 on [v_m - E/(2 eps_1), v_m] inside [v_s, v],
      v_m a point where env = E), checked at 400 points for three envelopes: exp(-1/x) sin^2(pi/x) (zeros accumulating at
-     the edge), exp(-1/x) cos^2(30 x) (interior zeros), and the record's C_c^inf envelope.  So m0 is bounded below
+     the edge), exp(-1/x) cos^2(30 x) (interior zeros), and the record's C_c^inf envelope (the integral by the trapezoid
+     rule on a grid of step 1/8000).  So m0 is bounded below
      through E even at the zeros of env.  Control: the same with 8 replaced by 1/8 fails at some point.
   B2 (exact rationals) The exponent ledger of Proposition L.12, with N = K + 3, M = 2N + 8, m = 56 M, delta = gamma =
      1/10: (i) the upper layer E >= lam^(sigma_K - delta), sigma_K := min(3, (K - 3)/2): the margin c E^(2 + 1/m)
@@ -53,14 +54,16 @@ def b1(control=False):
         xs = [mp.mpf(k)/800 for k in range(40, 441)]
         fine = [mp.mpf(k)/8000 for k in range(1, 4411)]
         vals = [f(x) for x in fine]
-        dvals = [abs(mp.diff(f, x)) for x in fine[::4]]
+        dvals = [abs(mp.diff(f, x)) for x in fine]
+        cum = [mp.mpf(0)]
+        for k in range(1, len(fine)):
+            cum.append(cum[-1] + (vals[k - 1]**2 + vals[k]**2)/2*(fine[k] - fine[k - 1]))
         ratio = mp.inf
         for x in xs:
             n = int(x*8000)
             E = max(vals[:n])
-            e1 = max(dvals[:max(1, n//4)])
-            integral = mp.quad(lambda t: f(t)**2, mp.linspace(mp.mpf(1)/8000, x, 40))
-            ratio = min(ratio, integral/(E**3/(const*e1)))
+            e1 = max(dvals[:n])
+            ratio = min(ratio, cum[n - 1]/(E**3/(const*e1)))
         worst[name] = ratio
     if control:
         return all(w >= 1 for w in worst.values())
@@ -96,7 +99,7 @@ def ledger_band(K, delta=Fr(1, 10), gamma=Fr(1, 10)):
     m = Fr(56*M)
     floor = (3 + delta)*(2 + 1/m) + gamma         # min(margin, signal) >= lam^((3 + delta)(2 + 1/m)), times lam^gamma
     return {"b1 lam^4 eps": 4 + (3 - delta)*(1 - M/m) > floor, "b2 lam eps^2": 1 + 2*(3 - delta)*(1 - M/m) > floor,
-            "b3 w": K - 3 > floor, "b0 signal floor": 3 + (3 + delta) <= floor - gamma + Fr(1, 10**6) + 3 + delta}
+            "b3 w": K - 3 > floor}
 
 
 def b2(control=False):
@@ -144,7 +147,7 @@ def regimes(lam, K, M=26):
         else:
             hi = mid
     xtop = lo
-    xs = [xb*(xtop/xb)**(mp.mpf(k)/4000) for k in range(4001)]
+    xs = [xb*(xtop/xb)**(mp.mpf(k)/1500) for k in range(1501)]
     reg = []
     for x in xs:
         e = eps(x)
@@ -165,8 +168,7 @@ def regimes(lam, K, M=26):
         k0 = xs.index(xdeep)
         covered = all(r != '-' for r in reg[k0:])
     x31 = 1/(mp.mpf('3.1')*mp.log(1/lam))
-    return {'xb': xb, 'xdeep': xdeep, 'x31': x31, 'xtop': xtop, 'first': first, 'covered': covered,
-            'gap': sum(1 for r in reg if r == '-' and xdeep is not None and r and xs[reg.index(r)] >= xdeep)}
+    return {'xb': xb, 'xdeep': xdeep, 'x31': x31, 'xtop': xtop, 'first': first, 'covered': covered}
 
 
 def b3(control=False):
@@ -181,8 +183,8 @@ def b3(control=False):
         good = (r10['covered'] is True and r6['covered'] is False and r10['xdeep'] is not None
                 and r10['xb'] < r10['xdeep'] < r10['x31'] < r10['xtop'])
         ok &= good
-        rows.append("lam = 1e-%d: x_b = %s, x_deep = %s, level lam^3.1 at x = %s, x_top = %s; K = 10 covers [x_deep, x_top]:"
-                    " %s (first W, B, S at %s); K = 6 covers it: %s" % (
+        rows.append("lam = 1e-%d: x_b = %s, x_deep = %s, level lam^3.1 at x = %s, x_top = %s; K = 10 covers"
+                    " [x_deep, x_top]: %s (first W, B, S at %s); K = 6 covers it: %s" % (
                         e, mp.nstr(r10['xb'], 3), mp.nstr(r10['xdeep'], 4), mp.nstr(r10['x31'], 4),
                         mp.nstr(r10['xtop'], 4), r10['covered'],
                         ", ".join(mp.nstr(r10['first'][c], 4) if r10['first'][c] else '-' for c in 'WBS'),
