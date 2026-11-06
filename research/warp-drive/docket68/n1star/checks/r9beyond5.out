@@ -30,11 +30,15 @@ B4  the displacement of the null hypersurface through dS
   B4 I(-oo) = 2 C lam (tau_S - tau0 + 2) for eps = C lam min(1, t^(-3/2)), and int_(-oo)^(tau_max) (v1 - tau)^-2 dtau =
         1/(v1 - tau_max) (exact): pass 2*C*lam*(-tau0 + tauS + 2); 1/(-taumax + v1)
   B4' the past g-null generator from dS, eight directions of g^-1 - g0^-1 = eps n n^T, eps = 0.05 min(1, t^(-3/2)), down
-        to tau_S - 3000: |v - v1| <= I(tau) throughout: pass max(|v - v1| - I) over the eight: -0.0024
-  B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4: pass max excess 0.1286
+        to tau_S - 3000: |v - v1| <= I(tau) throughout; [R10] the largest ratio |v - v1|/I(tau): pass largest ratio over
+        the eight directions 0.5128; per direction 0.260, 0.444, 0.513, 0.428, 0.248, 0.073, 0.000, 0.075
+  B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4 (its ratio to I/4 exceeds 1): pass largest ratio to
+        I/4 2.0511
 B5  W = D^-(S; g0), sampled on a model, and the perturbed sandwich
   B5 (g0) from 300 points of W, 40 random future causal curves each meet S; at 600 random points the ingoing null ray
         meets S exactly when the point is in W: pass 300 in W, 600 decided
+  B5''' control: with F = 3 + 400/r (|F'| > 1 near 4R, r + F not increasing there) the ray's meeting S and W's definition
+        disagree at some points: pass 10 of 600 disagree
   B5' perturbed (n = dv, eps = 0.05 min(1, t^(-3/2))): from 120 points of {v >= v1 + I(tau), t~ <= 0} 20 random future
         g-causal curves each meet S; from 120 points of {v < v1 - I(tau), r >= 4R} the Y_e curve reaches r = 4R at v <
         v1, missing S: pass 120, 120

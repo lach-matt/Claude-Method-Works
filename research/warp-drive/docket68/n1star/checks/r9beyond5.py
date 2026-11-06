@@ -28,12 +28,16 @@ W := {v >= v1, t~ <= 0, r >= 4R}, N := {v = v1} cap W, Zb := {v <= v1, r >= 4R}.
      t^(-3/2)) on Zb (t = 1 + tau0 - tau), I(-oo) = 2 C lam (tau_S - tau0 + 2) (exact); for C (lam + eps_B) (v1 -
      tau)^-2 on W, int_(-oo)^(tau_max) (v1 - tau)^-2 = 1/(v1 - tau_max) (exact). On a radial model with g^-1 = g0^-1 +
      eps(tau) n n^T (eight directions n, eps = 0.05 min(1, t^(-3/2))), the past g-null generator from dS stays in |v -
-     v1| <= I(tau) down to tau_S - 3000; control: the extremal direction leaves |v - v1| <= I(tau)/4.
+     v1| <= I(tau) down to tau_S - 3000 (round 10, the round-9 reader's N2: the largest ratio |v - v1|/I(tau) is
+     reported, about 1/2); control: the extremal direction leaves |v - v1| <= I(tau)/4, its ratio to I/4 above 1.
   B5 (sampled, model F = F0 + c/r, |F'| <= 1/4) W = D^-(S; g0): from 300 points of W, 40 random future causal curves
-     each meet S; at 600 random points the ingoing null ray meets S exactly when the point is in W. Perturbed (eps
-     profile of B4, the direction n = dv): from points of {v >= v1 + I(tau)} random future g-causal curves meet S; from
-     points of {v < v1 - I(tau), r >= 4R} the Y_e curve reaches {r = 4R} at v < v1, missing S. Control: {v >= v1 - 2, t~
-     <= 0} has points whose ingoing ray misses S.
+     each meet S; at 600 random points the ingoing null ray meets S exactly when the point is in W (round 10, N1:
+     decided by the sign of t~ along the ray and bisection with the root's residual checked, not by W's definition;
+     control B5''': with F = 3 + 400/r, |F'| > 1 near 4R, the two disagree at some points). Perturbed (eps profile of
+     B4, the direction n = dv): from points of {v >= v1 + I(tau)} random future g-causal curves meet S; from points of
+     {v < v1 - I(tau), r >= 4R} the Y_e curve reaches {r = 4R} at v < v1, missing S (this part concerns Lemma R9.1 (iii)
+     (b), deleted in round 10, and stands as a computation). Control: {v >= v1 - 2, t~ <= 0} has points whose ingoing
+     ray misses S.
   B6 (READ, by content) the cited lines: Part VII Lemma 1.2's inequalities (PART-VII-ASSEMBLY.md 150-159), v >= v_end +
      2, the radiation field vanishing on {v > v_end} (124-129), Sigma_IVP = {t_KS = f} for r >= R_3 (162-163); (9.1)'s
      V_P, Lemma 9.1 (c), (P-iii) and the margin |g_app - g0| <= C lam t^(-3/2) (N1STAR-PROOF.md). Control: an altered
@@ -322,7 +326,7 @@ def null_slopes(g2):
 def generator(n, e0, tauS, v1, tau0, mu, steps=60000, dtau=0.05, factor=1.0):
     """the past g-null generator from dS = (tauS, r = v1 - tauS), ingoing branch, integrated to the past (RK2)"""
     tau, r = tauS, v1 - tauS
-    worst = -1e9
+    worst = 0.0
     for _ in range(steps):
         def slope(tau_, r_):
             return null_slopes(metric2(n, eps_profile(tau_, tau0, e0), mu/r_**2))[0]
@@ -330,8 +334,7 @@ def generator(n, e0, tauS, v1, tau0, mu, steps=60000, dtau=0.05, factor=1.0):
         k2 = slope(tau - dtau, r - dtau*k1)
         r -= dtau*(k1 + k2)/2
         tau -= dtau
-        dev = abs(tau + r - v1) - factor*I_profile(tau, tauS, tau0, e0)
-        worst = max(worst, dev)
+        worst = max(worst, abs(tau + r - v1)/(factor*I_profile(tau, tauS, tau0, e0)))   # [R10] the ratio
     return worst
 
 
@@ -350,10 +353,12 @@ def part_b4():
     dirs[2] = np.array([1.0, 1.0])/np.sqrt(2)               # n along dv: the extremal one
     w = [generator(n, 0.05, tauS_, v1_, tau0_, mu) for n in dirs]
     check("B4' the past g-null generator from dS, eight directions of g^-1 - g0^-1 = eps n n^T, eps = 0.05 min(1, "
-          "t^(-3/2)), down to tau_S - 3000: |v - v1| <= I(tau) throughout", max(w) < 0,
-          f"max(|v - v1| - I) over the eight: {max(w):.4f}")
+          "t^(-3/2)), down to tau_S - 3000: |v - v1| <= I(tau) throughout; [R10] the largest ratio |v - v1|/I(tau)",
+          max(w) <= 1, "largest ratio over the eight directions %.4f; per direction %s"
+          % (max(w), ", ".join("%.3f" % x for x in w)))
     wc = generator(dirs[2], 0.05, tauS_, v1_, tau0_, mu, factor=0.25)
-    check("B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4", wc > 0, f"max excess {wc:.4f}")
+    check("B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4 (its ratio to I/4 exceeds 1)", wc > 1,
+          "largest ratio to I/4 %.4f" % wc)
 
 
 # ---------------------------------------------------------------------------------------------------------- B5
@@ -366,19 +371,30 @@ def part_b5():
     rng = random.Random(95)
     inW = lambda tau, r: tau + r >= v1 and tau - F(r) <= 0 and r >= R4
 
-    def ray_meets(tau, r):
-        """the ingoing null ray from (tau, r): v fixed, r' decreasing from r; it meets S iff some r' in [4R, r] has
-        r' + F(r') = v (r + F is increasing, so bisection on [4R, r] decides it)"""
+    def ray_meets(tau, r, Fx=None):
+        """[R10] the ingoing null ray from (tau, r): v fixed, r' running from r down to 0; it meets S at a point (v - r',
+        r') with r' >= 4R and t~ = v - r' - F(r') = 0. Decided by the sign of t~ on a grid of r' in [4R, r] and
+        bisection of each sign change, the root's residual checked: W's definition is not used"""
+        Fx = Fx or F
         v = tau + r
-        if r < R4 or v < v1:
+        if r < R4:
             return False
-        lo, hi = R4, r
-        if hi + F(hi) < v:
-            return False
-        for _ in range(200):
-            mid = (lo + hi)/2
-            lo, hi = (mid, hi) if mid + F(mid) < v else (lo, mid)
-        return True
+        phi = lambda rr: v - rr - Fx(rr)
+        grid = np.linspace(R4, r, 2001)
+        vals = [phi(x) for x in grid]
+        for a_, b_, fa, fb in zip(grid[:-1], grid[1:], vals[:-1], vals[1:]):
+            if fa == 0 or fb == 0 or (fa > 0) != (fb > 0):
+                lo, hi = a_, b_
+                for _ in range(200):
+                    mid = (lo + hi)/2
+                    if (phi(lo) > 0) == (phi(mid) > 0):
+                        lo = mid
+                    else:
+                        hi = mid
+                root = (lo + hi)/2
+                if abs(phi(root)) < 1e-9 and R4 <= root <= r:
+                    return True
+        return False
 
     def curve_meets(tau, r, n=None, e0=0.0, tau0=0.0, dt=0.25, tol=1e-3):
         """a random future causal polygon (radial model) until t~ >= 0 (then: is v >= v1, i.e. on S?) or r < 4R"""
@@ -411,6 +427,18 @@ def part_b5():
         n_tot += 1
     check("B5 (g0) from 300 points of W, 40 random future causal curves each meet S; at 600 random points the ingoing "
           "null ray meets S exactly when the point is in W", okW and okRay, f"{n_in} in W, {n_tot} decided")
+    # [R10] a control that can fail: with F = 3 + 400/r, |F'| = 400/r^2 > 1 near r = 4R = 16 and r + F is not increasing
+    # there, so whether the ray meets S is no longer W's condition at every point
+    F2 = lambda r: F0 + 400.0/r
+    v12 = R4 + F2(R4)
+    inW2 = lambda tau, r: tau + r >= v12 and tau - F2(r) <= 0 and r >= R4
+    mism = 0
+    for _ in range(600):
+        r = rng.uniform(R4, R4 + 40)
+        tau = rng.uniform(-30, 60)
+        mism += ray_meets(tau, r, F2) != inW2(tau, r)
+    check("B5''' control: with F = 3 + 400/r (|F'| > 1 near 4R, r + F not increasing there) the ray's meeting S and "
+          "W's definition disagree at some points", mism > 0, f"{mism} of 600 disagree")
     # perturbed: n along dv, eps = 0.05 min(1, t^(-3/2)), tau0 = tau_S - 2
     n = np.array([1.0, 1.0])/np.sqrt(2)
     e0, tau0 = 0.05, tauS - 2

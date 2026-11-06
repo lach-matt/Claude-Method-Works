@@ -3304,6 +3304,7 @@ Blocks 1 and 2 ("whose Lemma 11.0 repair is seated and, with D618's edits to sec
 read") are superseded by R9-E, where the repair "has been read by a confirming reader (D632)" and section 11.1 is
 "proved (D632, D633)". [R9] notes are inserted at the four sites. E4 now reads R9-E's blocks, and E4c' checks that
 R8-E's blocks fail exactly the eight predicates round 9 adds.
+[R10 (nit N3): nine, not eight: Block 1's semicolons (nit 7) are the ninth, as the program says.]
 
 **Nits.**
 - (1) The paper's md5 was b21cd7ca when this round began and is 805be200 at the final run (D633); each differs from
@@ -3332,11 +3333,13 @@ R8-E's blocks fail exactly the eight predicates round 9 adds.
 **The promotion.** (a) Section 11 of N1STAR-PROOF.md has been read by an independent confirming reader with its findings
 seated (D632) and is marked proved by D633; Theorem R5.1's condition on it is stated "proved (D632, D633)" (R9-E). (b)
 BEYOND5 Lemma 6.4 (iv) (BEYOND5.md:198-212, "deduced, D400", read by verifier 180 at D405) is written out in full as
-Lemma R9.1 (R9-B), with the past domain of dependence for g_b0 exact, the O(lam) displacement of its null boundary under
-a nearby metric explicit and bounded, the placement of N in Omega' cup P' with its inequalities proved from Part VII
-Lemma 1.2's, and the radiation field's vanishing read; `r9beyond5.py` computes every inequality, with controls that
-fail. It is placed in this file, where it is used; BEYOND5.md is not edited. Theorem R5.1 stays "deduced" until an
-independent reader has read round 9; R9-E gives the paper's blocks for both outcomes.
+Lemma R9.1 (R9-B), with the past domain of dependence for g_b0 exact, all of W but a strip along N of explicit, bounded
+width in the domain of dependence under a nearby metric, the placement of N in Omega' cup P' with its inequalities
+proved from Part VII Lemma 1.2's, and the radiation field's vanishing read; `r9beyond5.py` computes every inequality,
+with controls that fail. It is placed in this file, where it is used; BEYOND5.md is not edited. Theorem R5.1 stays
+"deduced" until an independent reader has read round 9; R9-E gives the paper's blocks for both outcomes.
+[R10 (minor): this read "the O(lam) displacement of its null boundary under a nearby metric explicit and bounded";
+withdrawn with Lemma R9.1 (iii) (b) (R10.0).]
 
 **The reader's surviving mutants, rerun** (its scripts or their equivalents on the round-9 code, on scratch copies;
 outputs in this round's scratch, mutout9/): its r7settle5 mutants N1 and N8 (one factor s dropped in K5 and in K6) are
@@ -3379,24 +3382,33 @@ tau_top, q_end, r_0 and a' are Part VII Lemma 1.2's.
   of {v <= v1 + 1/2, r >= 4R} lies in Omega' if tau >= tau0 (with tau <= tau'_end - 1/2, v + (tau - tau'_end) <= V' - 1
   and r > a') and in P' if tau <= tau0 (with v + h(tau) <= V'_P - 3). So N and a strip of v-width 1/2 beyond it lie in
   Omega' cup P', and v1 = V'_P - kappa - (tau_S - tau0) - m_Omega <= V'_P - kappa - 1 - m_Omega.
-- (iii) *The displacement under a nearby metric.* Let g be a smooth Lorentzian metric on an open set M containing W cup
-  Zb, and eps a continuous function of tau, 0 <= eps <= 1/8, with |g - g0|_op, |g^-1 - g0^-1|_op <= eps(tau) at the
-  points of W cup Zb (Euclidean operator norms of the component matrices), and I(tau) := 2 int_tau^(tau_max) eps finite.
-  Then d_tau is g-timelike and taken future-directed, and: (a) W_+ := {v >= v1 + I(tau), t~ <= 0, r >= 4R} lies in
-  D^-(S; g); (b) from every p in {r >= 4R} with v(p) < v1 - I(tau(p)) a future g-timelike curve along which r decreases
-  reaches {r = 4R} at a point q with v(q) < v1, meeting no point of S; so p is not in D^-(S; g) whenever q has a
-  future-inextendible causal continuation along which r keeps decreasing (for g0, the ingoing null ray; for g, the curve
-  of Y below while |g - g0|_op <= 1/8 along it), and then D^-(S; g) cap {r >= 4R} lies in W_- := {v >= v1 - I(tau), t~
-  <= 0, r >= 4R}. The null boundary of D^-(S; g) through dS therefore lies in {|v - v1| <= I(tau)}: N displaced by at
-  most I(-oo).
-- (iv) *The size of the displacement.* For the record's g_lam on Zb, |g_lam - g0| <= C lam on the compact Omega'
-  (Theorem 1: g_lam - g_app = O(lam^K) and g_app - g0 = O(lam) there) and |g_lam - g0| <= C lam^(K-3) t^-2 + C lam
-  t^(-3/2) on P' ((P-iii) and (P-v)'s margin |g_app - g0| <= C lam t^(-3/2)), g_lam = g0 on {v <= v_start} (P-i); so
-  eps_lam := C_1 lam min(1, t^(-3/2)) (t = 1 + tau0 - tau) bounds both norms on Zb for lam small (the inverse by K3's
-  Neumann bound), and its I(-oo) = 2 C_1 lam (tau_S - tau0 + 2) = O(lam). For Theorem R5.1's continuation g on W,
-  |g - g0| <= C lam r^-2 + C_S eps r^(-1/2-a) <= C (lam + eps)(v1 - tau)^-2 (Step 2 as R8-A takes it, a >= 3/2, r >=
-  v1 - tau), eps Theorem R4.6's, which tends to 0 with lam; its integral is C (lam + eps)/(v1 - tau_max). So I(-oo) <= C
-  (lam + eps): the null boundary of D^-(S; g) is N displaced by O(lam + eps), by O(lam) on the record's side.
+- (iii) *The domain of dependence under a nearby metric.* Let g be a smooth Lorentzian metric on an open set M
+  containing W cup Zb, and eps a continuous function of tau, 0 <= eps <= 1/8, with |g - g0|_op, |g^-1 - g0^-1|_op <=
+  eps(tau) at the points of W cup Zb (Euclidean operator norms of the component matrices), and I(tau) := 2
+  int_tau^(tau_max) eps finite. Then d_tau is g-timelike and taken future-directed, and: (a) W_+ := {v >= v1 + I(tau),
+  t~ <= 0, r >= 4R} lies in D^-(S; g): all of W but the strip {v1 <= v < v1 + I(tau)} along N lies in the domain of
+  dependence of S for g.
+  [R10 (minor): deleted here, as more than Theorem R5.1 uses and more than the record supplies: a curve that enters r <
+  4R need not continue inward in the glued development, since the bounds and the placement reach only a' <= r <= 4R and
+  nothing is said for r < a' or about Sigma_IVP being a Cauchy surface of that development; the heading read "The
+  displacement under a nearby metric", and after "lies in D^-(S; g)" the item read "; (b) from every p in {r >= 4R} with
+  v(p) < v1 - I(tau(p)) a future g-timelike curve along which r decreases reaches {r = 4R} at a point q with v(q) < v1,
+  meeting no point of S; so p is not in D^-(S; g) whenever q has a future-inextendible causal continuation along which r
+  keeps decreasing (for g0, the ingoing null ray; for g, the curve of Y below while |g - g0|_op <= 1/8 along it), and
+  then D^-(S; g) cap {r >= 4R} lies in W_- := {v >= v1 - I(tau), t~ <= 0, r >= 4R}. The null boundary of D^-(S; g)
+  through dS therefore lies in {|v - v1| <= I(tau)}: N displaced by at most I(-oo)." (R10.0).]
+- (iv) *The width of the strip.* For the record's g_lam on Zb, |g_lam - g0| <= C lam on the compact Omega' (Theorem 1:
+  g_lam - g_app = O(lam^K) and g_app - g0 = O(lam) there) and |g_lam - g0| <= C lam^(K-3) t^-2 + C lam t^(-3/2) on P'
+  ((P-iii) and (P-v)'s margin |g_app - g0| <= C lam t^(-3/2)), g_lam = g0 on {v <= v_start} (P-i); so eps_lam := C_1 lam
+  min(1, t^(-3/2)) (t = 1 + tau0 - tau) bounds both norms on Zb for lam small (the inverse by K3's Neumann bound), and
+  its I(-oo) = 2 C_1 lam (tau_S - tau0 + 2) = O(lam). For Theorem R5.1's continuation g on W, |g - g0| <= C lam
+  r^-2 + C_S eps r^(-1/2-a) <= C (lam + eps)(v1 - tau)^-2 (Step 2 as R8-A takes it, a >= 3/2, r >= v1 - tau), eps
+  Theorem R4.6's, which tends to 0 with lam; its integral is C (lam + eps)/(v1 - tau_max). So I(-oo) <= C (lam + eps):
+  by (iii) (a), all of W but a strip along N of v-width at most C (lam + eps) lies in D^-(S; g), eps tending to 0 with
+  lam.
+  [R10 (minor): the heading read "The size of the displacement" and the last sentence "So I(-oo) <= C (lam + eps): the
+  null boundary of D^-(S; g) is N displaced by O(lam + eps), by O(lam) on the record's side."; withdrawn with (iii)
+  (b).]
 - (v) *Nothing incoming.* At past null infinity, for v >= v1 >= v_end + 2, the record's radiation field lam [W_TT]
   (P-ii) vanishes: W_TT is proportional to the envelope, which vanishes for v >= v_end, and every oscillating profile
   vanishes on {v > v_end} (PART-VII-ASSEMBLY.md 123-129). By (P-ii), r^(3/2)(g_lam - g0) -> 0 as r -> oo at every fixed
@@ -3435,16 +3447,17 @@ Y) + eps |Y|_E^2 = -2 eps + 4m eps^2 + 4 eps^3 < 0, dtau(Y) = 1 + 2 eps, dv(Y) =
 integral curves r decreases at unit rate and dv/dtau <= 2 eps. t~ stays a g-time function on {r >= 4R} with |dr(Y)| < 2
 dt~(Y) for future g-causal Y (K1, K5: eps <= 1/8 < 7/25). (a) For p in W_+ and gamma a future-inextendible g-causal
 curve from p, v >= v1 + I(tau) >= v1 along gamma while it is in W (v - I nondecreasing), and the argument of (i) applies
-verbatim: gamma meets S. (b) Along Y's integral curve from p, v(tau) <= v(p) + I(tau(p)) - I(tau) < v1 - I(tau) <= v1
-while r >= 4R (by continuity, the bound holding where v < v1); so its points have v < v1 and r >= 4R, hence tau = v - r
-< tau_S: they lie in Zb, where the bound holds, and none is on S (on S, v >= v1). r decreases at unit rate, so the curve
-reaches {r = 4R} at q with v(q) < v1, and any continuation along which r keeps decreasing stays in {r < 4R}, disjoint
-from S. The displacement bound follows: points of W_+ are in D^-(S; g), points below W_- are not. (iv) is the record's
-bounds read ((P-i), (P-iii), (P-v)'s margin, Theorem 1 on the compact Omega', Step 2's pointwise bound as R8-A takes it,
-Theorem R4.6's eps), with B4's integrals, exact: int_(-oo)^(tau0) (1 + tau0 - tau)^(-3/2) dtau = 2 and
-int_(-oo)^(tau_max) (v1 - tau)^-2 dtau = 1/(v1 - tau_max). (v) is READ (PART-VII-ASSEMBLY.md 123-129: "the leading wave,
-proportional to the envelope, vanishes on {v > v_end}", "every oscillating profile vanishes on {v > v_end}"; (P-ii)); B6
-finds each quoted passage by content. ∎
+verbatim: gamma meets S. (iv) is the record's bounds read ((P-i), (P-iii), (P-v)'s margin, Theorem 1 on the compact
+Omega', Step 2's pointwise bound as R8-A takes it, Theorem R4.6's eps), with B4's integrals, exact: int_(-oo)^(tau0)
+(1 + tau0 - tau)^(-3/2) dtau = 2 and int_(-oo)^(tau_max) (v1 - tau)^-2 dtau = 1/(v1 - tau_max). (v) is READ
+(PART-VII-ASSEMBLY.md 123-129: "the leading wave, proportional to the envelope, vanishes on {v > v_end}", "every
+oscillating profile vanishes on {v > v_end}"; (P-ii)); B6 finds each quoted passage by content. ∎
+[R10 (minor): the proof of (iii) (b) is deleted with it; it read "(b) Along Y's integral curve from p, v(tau) <=
+v(p) + I(tau(p)) - I(tau) < v1 - I(tau) <= v1 while r >= 4R (by continuity, the bound holding where v < v1); so its
+points have v < v1 and r >= 4R, hence tau = v - r < tau_S: they lie in Zb, where the bound holds, and none is on S (on
+S, v >= v1). r decreases at unit rate, so the curve reaches {r = 4R} at q with v(q) < v1, and any continuation along
+which r keeps decreasing stays in {r < 4R}, disjoint from S. The displacement bound follows: points of W_+ are in D^-(S;
+g), points below W_- are not."]
 
 *Computed (r9beyond5).* B1-B2 and B4's integrals exact (sympy, z3 with the vacuity guard); B3 in linear real arithmetic
 (z3); B2' samples 3000 perturbations of each kind and finds the sharp constant of the cone comparison in (1/2, 2] (so
@@ -3453,14 +3466,20 @@ g0^-1 + eps(tau) n n^T for eight directions n with eps = 0.05 min(1, t^(-3/2)), 
 <= I(tau) throughout, while along n proportional to dv it leaves |v - v1| <= I(tau)/4 (B4'', control); B5 samples (i) on
 the model F = 3 + 64/r (from 300 points of W, 40 random future causal curves each meet S; at 600 random points the
 ingoing null ray meets S exactly on W; control: {v >= v1 - 2, t~ <= 0, r >= 4R} has points whose ray misses S) and (iii)
-on the perturbed model.
+(a) on the perturbed model (its Y_e curves concern the deleted (iii) (b) and stand as a computation).
+[R10 (nits N1, N2): ray_meets now decides by the sign of t~ along the ray and bisection, the root's residual checked,
+not by W's definition, and B5''' is a control that fails (with F = 3 + 400/r the two disagree at 10 of 600 points); B4'
+reports the largest ratio |v - v1|/I(tau), 0.5128, and B4'' the ratio to I/4 along dv, 2.0511. This paragraph read "...
+and (iii) on the perturbed model."]
 
 *What Theorem R5.1 uses.* R4-D's setting uses (i): W, N, t~ and r >= v1 - tau on W. Lemma R3.3 and R4-D's truncations
 use (ii): g_lam's data on N, and on a strip beyond it, are the record's (V_T = V'_P - h(T) - delta_0/2 > v1 + 3 by
 (ii)). Proposition R5.2 (4) and the data beyond the band use (v). Theorem R5.1 (1)'s name, "the past domain of
-dependence W", is (i) for g_b0 and (iii)-(iv) for the continued metric: W and D^-(S; g) differ by a strip of v-width
-O(lam + eps) along N. The last step of (iii) (b), that a curve entering {r < 4R} can be continued inward, concerns the
-glued spacetime inside r < 4R; it holds for g0 and along the record's g_lam, and Theorem R5.1 does not use it.
+dependence W", is (i) for g_b0 and (iii)-(iv) for the continued metric: all of W but a strip along N of v-width at most
+I(tau) = O(lam + eps) lies in D^-(S; g) ((iii) (a)); Theorem R5.1 uses no more.
+[R10 (minor): this read "W and D^-(S; g) differ by a strip of v-width O(lam + eps) along N. The last step of (iii) (b),
+that a curve entering {r < 4R} can be continued inward, concerns the glued spacetime inside r < 4R; it holds for g0 and
+along the record's g_lam, and Theorem R5.1 does not use it."; withdrawn with (iii) (b).]
 
 ### R9-E Theorem R5.1's status (final), and the paper's text (final, two outcomes)
 
@@ -3485,10 +3504,11 @@ section 11.1, proved (D632, D633): outcome B below; until then outcome A. Both o
 lam_1 (another workstream), in either class. The list was made by reading every statement outside this file that rounds
 2-9 cite on the theorem's chain and the round-6 to round-8 readers' lists; nothing else is open in the theorem.
 
-*Computational support, stated as what was computed.* As R8-E's, with: the past domain of dependence, its placement and
-its displacement (Lemma R9.1, `r9beyond5.py` B1-B6); K5 and K6 attained, K2's worst directions computed (r7settle5);
-predicate (r) on the signs of f_gamma's and R_gamma's definitions (r6edits5); the file's own text against the round-7
-file, word by word (`r9text5.py`).
+*Computational support, stated as what was computed.* As R8-E's, with: the past domain of dependence, its placement and,
+under a nearby metric, the strip outside the domain of dependence (Lemma R9.1, `r9beyond5.py` B1-B6); K5 and K6
+attained, K2's worst directions computed (r7settle5); predicate (r) on the signs of f_gamma's and R_gamma's definitions
+(r6edits5); the file's own text against the round-7 file, word by word (`r9text5.py`).
+[R10 (minor): this read "its placement and its displacement".]
 
 *The text for the paper* (RESPONSE-HL-5D.md, not edited here; final, superseding R5-E's to R8-E's blocks). The three old
 texts are the same in both outcomes; each is located by content and occurs exactly once in the current file (md5
@@ -3564,6 +3584,9 @@ Block 2, new:
   pointwise bound, and of two further thresholds, which do not bind); the remaining kernel exponents, counted by hand
   with their integrability checked. Below the inner boundary the theorems are not
 ```
+[R10 (minor): superseded by R10-E: "and that boundary's displacement under g_λ, small with λ" reads "and that, under
+g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays in the domain of dependence" (Lemma
+R9.1 (iii) (a)).]
 
 Block 3 (section 8.1, for consistency with blocks 1-2), old:
 
@@ -3642,6 +3665,9 @@ Block 2, new:
   of the data class, of the pointwise bound, and of two further thresholds, which do not bind); the remaining kernel
   exponents, counted by hand with their integrability checked. Below the inner boundary the theorems are not
 ```
+[R10 (minor): superseded by R10-E: "and that boundary's displacement under g_λ, small with λ" reads "and that, under
+g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays in the domain of dependence" (Lemma
+R9.1 (iii) (a)).]
 
 Block 3 (section 8.1, for consistency with blocks 1-2), old:
 
@@ -3675,3 +3701,142 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r6edits5.py    (4 to 11 seconds)
 
 The times are wall-clock on this machine under the load of the other workstreams.
+
+## Round 10 (2026-11-06)
+
+### R10.0 The round-9 reader's findings, and their dispositions
+
+The round-9 reader confirmed round 9, with outcome B: no major finding, one minor finding and four nits. Each is
+re-derived below; the amended sites carry [R10] notes, the old text kept in each note. Changed: `r9beyond5.py`,
+`r6edits5.py`.
+
+**(minor) Lemma R9.1 (iii) (b) and the sentences resting on it.** Accepted. (iii) (b) says that a point with v <
+v1 - I(tau) is not in D^-(S; g) only if a curve entering {r < 4R} can be continued inward; for the glued development the
+record does not supply that hypothesis: the bounds and the placement reach only a' <= r <= 4R, and nothing is said for r
+< a' or about Sigma_IVP being a Cauchy surface of that development. Theorem R5.1 does not use (iii) (b), but three
+places stated its conclusion without its hypothesis: (iii)'s closing sentence ("The null boundary of D^-(S; g) through
+dS therefore lies in {|v - v1| <= I(tau)}"), "W and D^-(S; g) differ by a strip" in *What Theorem R5.1 uses*, and the
+paper's Computed clause "that boundary's displacement under g_λ"; so did R9.0's promotion paragraph, (iv)'s last
+sentence and heading, and R9-E's computational support. (iii) (b), its proof and those sentences are deleted, each by an
+[R10] note that keeps the old text, and (iii) (a), which is unconditional, is kept: W_+ := {v >= v1 + I(tau), t~ <= 0,
+r >= 4R} lies in D^-(S; g), so all of W but the strip {v1 <= v < v1 + I(tau)} along N lies in the domain of dependence
+of S for g. *The paper's wording, checked against (iii) (a).* The commission proposed "and that, under g_λ, all of it
+but a strip of width O(λ) along that boundary stays in the domain of dependence". (iii) (a) with (iv) gives the strip's
+v-width I(tau) <= I(-oo) <= C (lam + eps), with eps Theorem R4.6's, which tends to 0 with lam, and O(lam) only on the
+record's side, Zb, which (iii) (a) does not need. So the width is not shown to be O(lam), and the block reads "and that,
+under g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays in the domain of dependence"
+("it" is the far part's past domain of dependence for g_b0, W; "under g_λ" is the continued metric; the domain of
+dependence is that of the far part S). r6edits5 E4c checks this wording and the absence of "displacement under g_λ"
+(R10-E).
+
+**Nits.**
+- (N1) `ray_meets` in r9beyond5 B5 discarded its bisection and returned W's defining conditions, so "meets S exactly on
+  W" and B5'' held by construction. It now decides from the ray alone: the sign of t~ = v - r' - F(r') on a grid of r'
+  in [4R, r], a bisection of each sign change, the root's residual checked to 1e-9; W's definition enters only in the
+  comparison. A control that can fail is added, B5''': with F = 3 + 400/r, where |F'| > 1 near 4R and r + F is not
+  increasing, the ray's meeting S and W's definition disagree at 10 of 600 points (and agree at all 600 for B5's model).
+- (N2) B4' printed the first step's margin. It now reports the largest ratio |v - v1|/I(tau) along the generator, 0.5128
+  over the eight directions (0.513 along dv, 0.000 to 0.444 along the others), and B4'' the ratio to I/4 along dv,
+  2.0511 > 1.
+- (N3) R9.0 said E4c' checks "eight" predicates; it checks nine (Block 1's semicolons are the ninth). An [R10] note
+  corrects it.
+- (N4) The paper's section title is for the paper-wide pass; no change here.
+
+### R10-E The paper's text, final (outcome B)
+
+Round 9 is read and confirmed, so outcome B of R9-E applies: Theorem R5.1 is **proved**, conditional on supplement
+section 11.1, proved (D632, D633). R10-E's blocks are R9-E's outcome-B blocks with one clause of Block 2 changed, "and
+that boundary's displacement under g_λ, small with λ" to "and that, under g_λ, all of it but a strip along that
+boundary, of width tending to 0 with λ, stays in the domain of dependence" (R10.0). Each old text is located by content
+and occurs exactly once in RESPONSE-HL-5D.md (md5 805be200; Block 1's old text at line 1403, Block 2's at 1514, Block
+3's at 758), and every line of the edited file is within 121 characters (r6edits5 E4a, E4b). E4c checks outcome B's
+status words and the new clause; E4c' checks that R9-E's outcome-B blocks fail exactly the new clause's predicate, its
+outcome-A blocks that and outcome B's six status predicates, and R8-E's blocks the nine round 9 added. The same blocks
+are in the scratch directory, r10/block{1,2,3}_{old,new}.txt.
+
+Block 1, in "Settling", old:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball; settling of g_λ's own continuation
+  is not shown. Evaluating λ1 and δ would need every constant of the write-out made explicit, and several come from
+```
+
+Block 1, new:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball. That the development of g_λ's own
+  data settles, with no gluing, is proved in a data class wider than (ii)'s by half-integer orders (Beyond the
+  boundary, below), conditional on supplement section 11.1, which is proved (D632, D633). Evaluating λ1 and δ would
+  need every constant of the write-out made explicit, and several come from
+```
+
+Block 2, in "Beyond the boundary", old:
+
+```text
+  6.3, deduced). It is not shown that Theorem 4 applies to g_λ's own data: g_λ is given on Ω, which does not contain the
+  whole initial slice, and continuing it to spatial infinity asks for a scattering problem from past null infinity and an
+  expansion of its solution at spatial infinity. Parts of that are done (deduced, with exact computations, all under
+  `docket68/n1star/`): the leading Coulomb part carried to spatial infinity with no logarithm (`checks/coulomb5.py`, and
+  under the full operator `checks/coulombL5.py`), the map from data on the initial null hypersurface to the leading
+  coefficient at spatial infinity, under the write-out's full operator on Minkowski space, bounded uniformly in the
+  harmonic (reduced for every harmonic, `checks/harmonics5.py`; bounded, `checks/uniform5.py`), the remainder's sources,
+  supported where v is bounded along the initial null hypersurface, entering one order later at every harmonic computed
+  (l ≤ 12) (`checks/sources5.py`, `checks/stripfull5.py`), and the approximant's stage profiles expanded in powers of
+  r^(−1/2) at past null infinity, with the closure properties of that expansion shown (deduced, with an exact check,
+  `checks/closure5.py`). The scattering estimate itself is not done. Below the inner boundary the theorems are not
+```
+
+Block 2, new:
+
+```text
+  6.3, deduced). It is proved, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
+  (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–9, Theorem R5.1), conditional
+  on the write-out's Parts III, IV, VII and VIII, proved; on Theorem P, proved; and on supplement section 11.1, proved
+  (D632, D633), whose Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) has been read by a confirming reader (D632). BEYOND5
+  Lemma 6.4 (iv) is written out in full there (Lemma R9.1, every inequality computed) and read. After the shell
+  g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which for a C_c^∞ envelope and every amplitude
+  but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump
+  envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into g_λ's data at spatial infinity, outside
+  the integer orders of (ii)'s class. With the orders r^(−2), r^(−5/2), r^(−3), … below r^(−ℓ0) admitted in the metric
+  (ℓ0 ∈ (3, 4), ℓ0 ≠ 7/2, and one order more in the second fundamental form), Hintz's construction runs with the same
+  index sets for its iterates and finitely many more derivatives lost; its threshold ε, and with it λ1 and δ, change
+  and are not evaluated, in either class. g_λ continues to the past domain of dependence of the far part of Hintz's
+  initial surface as a vacuum metric in the record's wave-map gauge, by one weighted energy estimate at a weight a ∈
+  (ℓ0 − 1, 3), run on bounded domains of dependence, after its self-similar terms through r^(−4) are subtracted; it is
+  the only continuation in that gauge near Tangherlini whose commuted energies of weight a0 ∈ (0, ½) stay bounded, its
+  energy vanishing toward past null infinity, and its data lie in the widened class with small norm. So for every
+  0 < λ ≤ λ2, λ2 not evaluated, with no exceptional set, the maximal vacuum development of g_λ's own data on Hintz's
+  initial surface settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate
+  (proved, with the conditions above). Computed, all under `docket68/n1star/checks/`: the operator identities, on the
+  write-out's full operator; the far part's past domain of dependence, the place of its inner null boundary in the
+  record's domains and that, under g_λ, all of it but a strip along that boundary, of width tending to 0 with λ, stays
+  in the domain of dependence (`r9beyond5.py`); the coefficient decays and the residuals' degrees, measured on that
+  operator (`r5op5.py`, and `r6sigma5.py`, which also builds the r^(−4) term there for one example, the general case
+  being deduced); the caps and the null-hypersurface tails, measured on explicit fields; the weight window, computed
+  from those measured exponents and from exponents counted by hand (those of the data class, of the pointwise bound,
+  and of two further thresholds, which do not bind); the remaining kernel exponents, counted by hand with their
+  integrability checked. Below the inner boundary the theorems are not
+```
+
+Block 3 (section 8.1, for consistency with blocks 1-2), old:
+
+```text
+replaced by a gluing (section 8.7), and Theorem 4 is not shown to apply to g_λ's own data.
+```
+
+Block 3, new:
+
+```text
+replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
+half-integer orders, is proved in section 9 (Beyond the boundary), conditional on the supplement's section 11.1, proved.
+```
+
+Ledger (round 10). Changed and rerun: `r9beyond5.py` (18 checks, B5''' added) and `r6edits5.py` (29); rerun unchanged:
+`r9text5.py` (5), `r7settle5.py` (13); `r5edits5.py`, which reads R5-D and imports r6edits5, rerun after the last edit:
+its `.out` unchanged. Every changed or rerun `.out` is from a full run and byte-identical on a second run. Deduced:
+nothing new; withdrawn: Lemma R9.1 (iii) (b). READ: RESPONSE-HL-5D.md (md5 805be200). None from outside sources.
+
+    python3 checks/r9beyond5.py   (87 to 93 seconds)
+    python3 checks/r6edits5.py    (4 to 11 seconds)
+    python3 checks/r9text5.py     (about a second)
+    python3 checks/r7settle5.py   (4 to 6 seconds)

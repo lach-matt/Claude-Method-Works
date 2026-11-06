@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """mbslice5: Theorem T (iii) and Lemma X1 of FAMILIES5-MB.md on every class slice, as exact polynomial identities
-(FAMILIES5-MB.md section 2, minor 1 of its round-8 review; mbsign5 E2-E3 check them at three slice points only).
+(FAMILIES5-MB.md section 2, minor 1 of its round-8 review; mbsign5 E2-E3 check them at three slice points only); and
+[R10] mbsign5 E4 (a), (c) and qsign5 Q1 by the same route, for every (R, theta, mu) and every background.
 
 The slices. A class slice of Tangherlini in ingoing coordinates is v = V(R) with w := V' > 0 and f w < 2 (spacelike),
 f = 1 - mu/R^2. Every such slice is w = 2/(f + q^2) with q := sqrt(2/w - f) > 0, and then sqrt(gamma_RR) =
@@ -21,17 +22,32 @@ theta-integrated Q-density of tensor data on an abstract round slice is mbsign5'
 constraints_fast, and its theta integral; mbsign5 is imported, not modified); every abstract slice function and
 derivative in it is replaced by the exact quantity above, symbol by symbol.
 
-  S1 Theorem T (iii) on every class slice, l = 2 and l = 4: the Euler operator in H and in P of
-     (theta-integrated Q-density) + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) is the zero rational function of (R, mu, q,
-     q', ...): the Q-density is -2 |T|^2 T_m sqrt(gamma_RR) up to a d/dR, on every slice and every mu.
-  S2 Lemma X1 on every class slice, l = 2: with P = -(Y_s^R/N_s) H_R the Q-density plus |T|^2 (R^3 f H_R^2 +
-     (k_T^2 + 2) R H^2) has zero Euler operator in H; with H = 0 it equals -|T|^2 R^3 P^2 pointwise.
+  S1 Theorem T (iii) on every class slice, l = 2, 4, 6 and 8 [R10: 6 and 8 added]: the Euler operator in H and in P
+     of (theta-integrated Q-density) + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) is the zero rational function of (R, mu, q,
+     q', ...): the Q-density is -2 |T|^2 T_m sqrt(gamma_RR) up to a d/dR, on every slice and every mu. And the
+     theta-integrated density over |T|^2 at l = 6 and 8 is, pointwise, the affine interpolant in k_T^2 of l = 2 and 4
+     (FAMILIES5-MB.md minor 8 deduces this for every l; k_T^2 is not carried as a free symbol here, since the theta
+     integral is taken harmonic by harmonic, so "every l" stays deduced and is checked at two more l).
+  S2 Lemma X1 on every class slice, l = 2, 4, 6 and 8 [R10: 4, 6, 8 added]: with P = -(Y_s^R/N_s) H_R the Q-density
+     plus |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H; with H = 0 it equals -|T|^2 R^3 P^2
+     pointwise.
   S3 the slice identities N_s sqrt(gamma_RR) = 1 and N_s^2 - gamma_RR (Y_s^R)^2 = f, exactly in this representation.
-  Controls (each must fail, i.e. give a nonzero polynomial): S1 with |T|^2 halved (l = 2, 4); S1 with K_RR's w' term
-  dropped (a wrong slice); S2 with k_T^2 + 2 replaced by k_T^2 + 3; S2's pointwise identity with R^3 P^2 doubled.
+  S4 [R10] mbsign5 E4 (a) and (c) on the static slice for every (R, theta, mu), not at three points: mu = R^2 (1 -
+     nu^2) (so sqrt f = nu, R and nu free), theta by t = tan(theta/2), and every quantity a polynomial over a product
+     of powers of the atoms R, t, 1 - t, 1 + t, 1 + t^2, nu (the same route with more atoms; an inverse is taken only
+     of a constant times a product of atoms). (a) after Delta S = -k^2 S the constraints and energies have the stated
+     (S, S') structure and every coefficient has t-derivative zero, and they equal exactly the radial coefficients
+     mbsign5 E5-E9 use; (c) D R[L_X gamma] = 0, (D R)^* N = 0 in all five class components, M[k_psi] = 0 and the
+     Euler identity for B, for class fields of (R, theta) with every jet free.
+  S5 [R10] qsign5 Q1 for every background and every (R, theta), not at three points: G = g^2 with g, kappa0, Y0, nu
+     arbitrary positive functions and E = e^(Ia) a free symbol (its derivatives through Ia' = (3c - 1)/R); the seed
+     solves the linearised H, M_R, M_th identically and the Euler operator of (Q-density - decomposition) in psi and
+     s1 is the zero rational function, atoms R, t, 1 - t, 1 + t, 1 + t^2, E, g, Y0.
+  Controls (each must fail, i.e. give a nonzero polynomial): S1 with |T|^2 halved (l = 2..8); S1 with K_RR's w' term
+  dropped (a wrong slice); S2 with k_T^2 + 2 replaced by k_T^2 + 3, and with R^3 P^2 doubled (every l); S4 the lapse
+  direction without its curvature term; S5 with 4 nu E^2 -> 3 nu E^2 in Gamma.
 
-Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (under a
-minute)
+Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (a few minutes)
 """
 import importlib.util
 import os
@@ -371,6 +387,8 @@ def convert(e, F, table, th):
             out = sin_ * cos_.inv()
         elif x == sp.cot(th):
             out = cos_ * sin_.inv()
+        elif isinstance(x, (sp.sin, sp.cos, sp.tan, sp.cot)) and (x.args[0] / th).is_Integer:
+            out = cv(sp.expand_trig(x))                               # multiple angles, e.g. sin 2th = 2 sin cos
         elif x.is_Add:
             out = F.el(0)
             for a in x.args:
@@ -589,9 +607,13 @@ def s5():
         e = e.subs(G_, gfun**2).doit()
         for kk_ in range(7, 0, -1):
             e = e.subs(sp.Derivative(Ia_, (R, kk_)), sp.diff(a, R, kk_ - 1).subs(G_, gfun**2).doit())
-        return e
+        # (g^2)^(k/2) = g^k, g > 0; e^(k Ia) = EE^k
+        e = e.replace(lambda x: x.is_Pow and x.base == gfun**2 and x.exp.is_Rational and x.exp.q == 2,
+                      lambda x: gfun**x.exp.p)
+        return e.replace(lambda x: isinstance(x, sp.exp) and (x.args[0] / Ia_).is_Integer,
+                         lambda x: EE**int(x.args[0] / Ia_))
     fs = [gfun, k0_, Y0_, Nu_, PSI, S1]
-    EE = sp.exp(Ia_)
+    EE = sp.Symbol('EE', positive=True)
 
     def zero_all(es):
         es = [prep(x) for x in es]

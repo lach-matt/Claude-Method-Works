@@ -49,18 +49,16 @@ E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 M14: Edit 2's f = f_gamma^n -> R_gamma^n (b . d U taken as known): caught: pass failing: ['r']
   E3 M19: Edit 2's sums removed (Gronwall per gamma): caught: pass failing: ['s', 't']
   E3 M12: the family index |delta| = j + 1 -> j: caught: pass failing: ['t']
-E4  R9-E's paper blocks (final, two outcomes: A, round 9 not yet read; B, read) against RESPONSE-HL-5D.md (not edited)
-  E4a each old text occurs exactly once in the paper (the same three old texts in both outcomes): pass A: counts [1, 1,
-        1], long lines []; B: counts [1, 1, 1], long lines []
-  E4b the edited paper keeps every line within 121 characters, in either outcome: pass A: counts [1, 1, 1], long lines
-        []; B: counts [1, 1, 1], long lines []
-  E4c the new blocks state, in outcome A, deduced with section 11.1 proved (D632, D633) and round 9 (Lemma R9.1) unread,
-        the conditions separated by semicolons, 'It is deduced', 'is deduced in a data class', '(deduced, with the
-        conditions above)', 'is deduced, conditionally', no stronger word; in outcome B, proved, 'It is proved',
-        '(proved, with the conditions above)', 'is proved in section 9', no 'not yet read'; in both, Parts III, IV, VII,
-        VIII and Theorem P proved, R6-D read (D632), rounds 1-9, eps, Proposition 3.1 deduced, the r^(-4) term for one
-        example, the window's list, the domain of dependence computed, no stale status: pass []
-  E4c' controls: R8-E's blocks fail exactly the nine outcome-A predicates round 9 adds (section 11.1 proved, Lemma R9.1,
-        the semicolons, the rounds, the domain of dependence, the stale status); outcome A's blocks fail exactly the six
-        status predicates of outcome B: pass R8-E: []; A as B: []
+E4  R10-E's paper blocks (final, outcome B: round 9 read and confirmed) against RESPONSE-HL-5D.md (not edited)
+  E4a each old text occurs exactly once in the paper: pass [1, 1, 1]
+  E4b the edited paper keeps every line within 121 characters: pass []
+  E4c the new blocks state outcome B: proved, 'It is proved', '(proved, with the conditions above)', 'is proved in
+        section 9', no 'not yet read'; Parts III, IV, VII, VIII and Theorem P proved, section 11.1 proved (D632, D633)
+        with R6-D read (D632), rounds 1-9, eps, Proposition 3.1 deduced with its exceptional set, the r^(-4) term for one
+        example, the window's list, no stale status; and [R10] what Lemma R9.1 (iii) (a) gives, all of the domain of
+        dependence but a strip along its inner boundary, not that boundary's displacement: pass []
+  E4c' controls: R9-E's outcome-B blocks fail exactly the predicate round 10 adds (the boundary's displacement); R9-E's
+        outcome-A blocks fail exactly that and outcome B's six status predicates; R8-E's blocks fail exactly the nine
+        outcome-A predicates round 9 added: pass R9-E B: ['b2: Lemma R9.1 (iii) (a), no displacement of the boundary'];
+        R9-E A: []; R8-E: []
 FAILED: none

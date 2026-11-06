@@ -20,7 +20,7 @@ re-derived before it is accepted.
    it (the round-5 verifier's Major 4, decided). Gauge seeds have Q = 0 and give re-slicings. For seeds that perturb the
    metric the sign of Q is the canonical energy's; that is the one missing input, and nothing weaker settles exact
    vacuum localisation at second order (section 1.5). [R8: E is defined by Q =: −E (R7.2), and the canonical-energy
-   identification is set aside, FAMILIES5-R8.md R8.7; M_b is pending, R8.8.]
+   identification is set aside, FAMILIES5-R8.md R8.7; [R10] M_b is settled both ways, R8.7 and FAMILIES5-R10.md.]
 2. **(a) The band is crossed (Theorem L″).** The obstruction is a property of the slice: a slice equal to Σ_τ0 outside R
    ∈ [3.0, 5.75], bent by at most 0.00145 in τ, is spacelike and has Rácz's split hyperbolic at every point (computed,
    max κ′K′^l_l = −3.08 × 10⁻⁴). Data localised in an angle are posed there, for any radial support, and carried across
@@ -362,7 +362,8 @@ solutions.** ∎
   with three or more distinct families (from stage 1) are products of the same profiles at the same orders; there are
   O(N³) terms and the constants depend on N [R8: computed term by term (nledger5, FAMILIES5-R8.md R8.4): every term
   passes for N = 2..8, the term types are exactly the two-family ledger's, and with coefficient sources the count is a
-  polynomial of degree 4 in N, not O(N³)]. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
+  polynomial of degree 4 in N, not O(N³) [R10: degree M + 4 with stages 0..M, since stage m's mixed harmonics carry up
+  to m + 2 families; nledger5 L2, FAMILIES5-R10.md]]. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
 - **D₂_N (the data):** section 4.2.
 
 ### 4.2 Theorem D₂_N: the data with overlapping families (deduced; computed nfamily5 N1-N3)
