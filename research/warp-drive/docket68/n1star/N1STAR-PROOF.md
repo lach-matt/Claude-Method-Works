@@ -822,7 +822,10 @@ Phi(Psi(U)) = 0 on Sigma (Phi the constraint map) and sup_r ||d_r^j U(r)||_{H^s(
 remainder, quadratic in (U, dU, d d_S a) with coefficients involving at most two derivatives of gamma and
 one of K, hence of size <= C lam^-1. Phi(gamma, K) = O(lam^(N-2)) with all its angular derivatives (its
 profiles vanish below order N - 2 by Lemma 6.1, and angular derivatives of profiles cost nothing on
-Sigma), and it vanishes on r < v_start - tau0. The rho-component is linear in d_r a and in the angular
+Sigma), and it vanishes on r < v_start - tau0. [D619, n4: it is in fact O(lam^(N-1)) with all its angular
+derivatives: Lemma 6.1 gives d_th D^(N-1) = 0, so the phase part lam^(N-2) (d u) d_th D^(N-1) of d D(g_app)
+vanishes and d D = O(lam^(N-1)), while Ric^H(g_app) = O(lam^N). The order gained is not used; N >= K + 3 is
+kept.] The rho-component is linear in d_r a and in the angular
 second derivatives of a, with coefficients depending on a algebraically (the scalar curvature of gamma + a
 dr dr contains no (d_r a)^2), and the J-component is linear in d(w, q) with coefficients depending on a
 algebraically. Put ||U||_{X_s} := sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} + ||d_r
@@ -842,7 +845,11 @@ of the frozen coefficients multiplies U_i, estimated in the higher norm), a cont
 and contracting in X_(s0), the iterates converge to a solution in X_s (the scheme of Kato and Majda for
 quasilinear symmetric hyperbolic systems, READ in [DS23] section 4 and [AO14] section 4.1, section 7; the
 parabolic component obeys the same estimates). Uniqueness holds in the ball of radius 2 C0 lam^(N-2) of
-X_s, by the difference estimate. The r-derivatives follow from the equations, each d_r of a coefficient
+X_s, by the difference estimate. [D619, n3: U = 0 on r < v_start - tau0. There Phi(gamma, K) vanishes, and where
+U_i vanishes so do the quadratic terms at U_i; so for every r1 < v_start - tau0 the system for U_(i+1) has zero
+sources on [a, r1] and zero data at r = a, and Lemma 6.4 on [a, r1], whose bound there involves the sources on
+[a, r1] alone (it is causal in r), gives U_(i+1) = 0 on [a, r1]. By induction from U_0 = 0 every iterate, and so
+the limit, vanishes there.] The r-derivatives follow from the equations, each d_r of a coefficient
 costing at most lam^-1. Smoothness (persistence of regularity): the coefficients and sources of each step
 are smooth in the angles when the previous iterate is, so by Lemma 6.4 at every index the iterates U_i are
 smooth, by induction. At an index s'' > s the bound of Lemma 6.4 is linear in the top norms, those of the
@@ -851,7 +858,13 @@ depending only on the X_s bound; with E_i(r) the X_(s'') norm of U_i on [a, r] i
 W (int_a^r E_i^2)^(1/2), W uniform in i (by Lemma 6.4's tame form: the sources enter in L^2 H^(s''), and
 the weight built from ||d_r a_(i+1)||_inf and ||d_r (w, q)_(i+1)||_inf, bounded in L^2(a, R), through
 Cauchy-Schwarz, ||d_r (S A0)||_inf entering Gronwall's exponent; a source term carrying d_r a_i would put
-E_i(r) itself on the right, which is why the coefficient of d_r a is frozen); by induction and Minkowski's
+E_i(r) itself on the right, which is why the coefficient of d_r a is frozen; and the term ||m_(s'') omega_inf||_{L^2(a,
+r)} of the tame bound as corrected at D619 changes neither A's rate nor W's uniformity: omega_inf <= C
+||U_(i+1)||_{X_(s0)} <= C lam^(N-2) in the ball, the lower-order coefficients b, c, e, c', f', c'' are Lemma 6.3's
+at U = 0, independent of U and smooth in the angles uniformly in lam, and the others are functions of U_i entering
+linearly, so m_(s'')(r) <= C (1 + E_i(r)) and the term is at most C lam^(N-2) ((R - a)^(1/2) + (int_a^r
+E_i^2)^(1/2)), a part of A proportional to lam^(N-2) and a part of W bounded uniformly in i [D619, m1]); by
+induction and Minkowski's
 inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness, and the limit U
 lies in X_(s'') for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms
 are) and W does not depend on lam, so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the
@@ -10610,8 +10623,9 @@ and "mu(v) + O(lam) while the shell passes" below, are unchanged.]
 (d) The Hawking mass M[S] of section 8 of the Bondi spheres S = {v_B, r_B = const} tends to mu_B(v_B) as r_B -> oo
 (B3).
 
-So the record's mean mass at past null infinity -- the sphere mean of the Bondi mass aspect, the quantity the
-numerical solver integrates -- is, for g_lam, mu(v) + O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int
+So the record's mean mass at past null infinity -- the sphere mean of the Bondi mass aspect, the aspect being what the
+numerical solver integrates (its node mean is this sphere mean after the shell, to O(lam^3): 11.4) -- is, for g_lam,
+mu(v) + O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int
 env'^2 + O(lam^3) after it, with this coefficient: the O(lam^2) rate of the paper's section 6, now proved for g_lam. The
 proof is in 11.1-11.3; 11.4 compares with the numerics.
 

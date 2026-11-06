@@ -1,0 +1,4 @@
+  L1: Box on a S dv + b S dr + c dS reduces to (E_v, E_r, E_th) with kappa symbolic: True; delta omega: True; delta d
+      omega (Maxwell): True; vector type -r^-2 [r (r f psi')' - lambda psi] Y: True; cross-validation on explicit
+      harmonics [('scalar l=1', True), ('scalar l=2', True), ('scalar l=3', True), ('vector l=1', True), ('vector l=2',
+      True)]
