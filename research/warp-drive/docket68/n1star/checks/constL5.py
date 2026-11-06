@@ -22,6 +22,7 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      Control: a mutated assembly with a difference (C_tr - 1) is detected as not monotone.
   K3 (computed) at P* with the certified leaves inserted, printed in the remaining leaves; with the seed's constants
      and the profile bounds all equal to one (an illustration, not a bound), log10 C_L11 and log10 C_L4 are printed.
+     Control: C_S (Lemma 2.1) replaced by 10^-40 makes C_L4 < 1 (the formula is proportional to it).
 
 Labels: the formulas deduced (each from the proof step named beside it); K1-K3 computed.  Run: python3 checks/constL5.py
 """
@@ -142,15 +143,18 @@ def k2(control=False):
 
 def k3(control=False):
     C11, C4 = build()
-    c11 = C11.subs(CERT)
-    c4 = C4.subs(CERT)
+    cert = dict(CERT)
+    if control:
+        cert[C_S] = sp.Rational(1, 10**40)                   # a mutation: Lemma 2.1's constant dropped
+    c11 = C11.subs(cert)
+    c4 = C4.subs(cert)
     ones = {s_: 1 for s_ in (leafset(c11) | leafset(c4)) if s_ != lam0}
     ones[lam0] = sp.Rational(244, 100000)                    # lambda0 < 0.0024433 (CONSTANTS5 Round 4)
     import mpmath as mp
     l11 = mp.log10(mp.mpf(sp.N(c11.subs(ones), 30)))
     l4 = mp.log10(mp.mpf(sp.N(c4.subs(ones), 30)))
     if control:
-        return False
+        return l11 > 0 and l4 > 0
     out("  K3 at P* (certified leaves inserted) C_L11 and C_L4 depend on %s; with every remaining leaf equal to 1 and"
         " lambda0 = 0.00244 (an illustration of the formula, not a bound): log10 C_L11 = %s, log10 C_L4 = %s" % (
             sorted(map(str, leafset(c11) | leafset(c4))), mp.nstr(l11, 6), mp.nstr(l4, 6)))

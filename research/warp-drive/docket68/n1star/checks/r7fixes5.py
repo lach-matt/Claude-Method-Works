@@ -143,7 +143,8 @@ def wf_parts():
     a2 = K * (2 * sn ** 2 * sp.sin(s) - c ** 2 * sp.cos(s)) / 3
     WF2 = 4 * (a1 + a2) ** 2 + 4 * a1 ** 2 + 4 * a2 ** 2
     ang = 4 * sp.cos(2 * th) * sp.sin(2 * s) + sp.sin(2 * th) ** 2 * sp.cos(2 * s)
-    chi = -sp.Rational(1, 12) * E ** 2 * H2 * ang * (r ** -2 - (v - TAU0) ** sp.Rational(-1, 2) * r ** sp.Rational(-3, 2))
+    rad = r ** -2 - (v - TAU0) ** sp.Rational(-1, 2) * r ** sp.Rational(-3, 2)
+    chi = -sp.Rational(1, 12) * E ** 2 * H2 * ang * rad
     B = (WF2 + WF2.subs(s, s + sp.pi / 2)) / 2 + 4 * chi ** 2
     full = WF2 + 4 * chi ** 2
     return B, full, (s, th, r, v, E)
