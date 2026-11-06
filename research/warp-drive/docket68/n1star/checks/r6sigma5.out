@@ -16,3 +16,14 @@ S3  the degree -6 part of P(g_b0 + Sigma_2), exactly
         0, (2, 0): 0, (0, 1): 0}
   S3b Q_6 := the (e d) + (d^2) part is not 0 and has the harmonics l = 0, 1, 2 only: pass [0, 1, 2]
 S4  Sigma_4 on the full operator: the decay of P along a ray of W (s = 1/2)
+  S3c Q_6 (exact) agrees with the full operator's r^6 P(g_b0 + Sigma_2) on the ray (Richardson, r = 128, 512; next term
+        r^-8): pass max difference 4.53e-11
+    fitted decay exponents (r = 8 .. 2048): {'Sigma_2': [5.9965, 5.9998, 6.0, 6.0], 'Sigma_2 + Sigma_4': [7.9978, 7.9999,
+        8.0, 8.0], 'Sigma_2 + Sigma_(5/2) + Sigma_4': [6.5451, 6.5175, 6.508, 6.5039], 'control: l = 2 piece constant':
+        [5.978, 5.9986, 5.9999, 6.0], 'control: -Sigma_4': [5.9876, 5.9992, 6.0, 6.0], 'control: Sigma_2 + Sigma_(5/2),
+        no Sigma_4': [6.1922, 6.1153, 6.0634, 6.0334]}
+  S4 |P(g_b0 + Sigma_2)| decays like r^-6, |P(g_b0 + Sigma_2 + Sigma_4)| like r^-8 (F_4 cancels degree -6), |P(g_b0 +
+        Sigma_2 + Sigma_(5/2) + Sigma_4)| like r^(-13/2): P(Sigma) = O(lam r^(-13/2)) with Sigma_4: pass
+  S4' controls (the l = 2 piece constant; -Sigma_4; no Sigma_4 with Sigma_(5/2)): decay 6 each: pass
+W  the weight window, every condition an exponent computed here
+    h_R's leading decay at fixed v (exact): {'Sigma with p = 4': '9/2', 'control: p = 4 dropped': '4'}
