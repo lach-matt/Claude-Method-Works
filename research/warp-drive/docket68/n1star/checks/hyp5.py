@@ -218,16 +218,16 @@ def dn(p, d=5):
 
 def report(tag, name, ok, res, x0):
     if not ok:
-        out("  %s %s on [0, %s]: not certified: %s  [%.0f s]" % (tag, name, x0, res, time.time() - T0))
+        out("  %s %s on [0, %s]: not certified: %s" % (tag, name, x0, res))
         return
     out("  %s %s on [0, %s] (%d closed intervals, x = 0 included), on every interval: env^(k) > 0 for k <= %d;"
         " kappa_k/kappa in [%s, %s] (within [1/2, 2]), env^(k) log-concave and |kappa_k'| <= c_R kappa_k^(3/2) with"
         " c_R = %s, for k <= %d; |kappa'| >= c_t kappa^(3/2) with c_t = %s; |env^(j)| <= c_j kappa^j env with"
         " max_(j<=%d) c_j = %s; kappa x^2 in [c_*, M] = [%s, %s].  So (H_N) to N = %d, (H_N+2) to N = %d, (H_t),"
         " L.16 (c) to j = %d and"
-        " (H_rho*)'s first half hold on (v_s, v_s + %s]  [%.0f s]"
+        " (H_rho*)'s first half hold on (v_s, v_s + %s]"
         % (tag, name, x0, NSUB, KQ, dn(res['lo']), up(res['hi']), up(res['cR']), KQ - 1, dn(res['ct']), KQ - 1,
-           up(res['cj']), dn(res['cs']), up(res['M']), KQ - 1, KQ - 3, KQ - 1, x0, time.time() - T0))
+           up(res['cj']), dn(res['cs']), up(res['M']), KQ - 1, KQ - 3, KQ - 1, x0))
 
 
 RES = {}
@@ -325,7 +325,8 @@ def main():
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL",
                          " (control passed)" if ctl else " (control detected)"))
         ok &= good and not ctl
-    out("hyp5: %s  [%.0f s]" % ("all checks pass, every control fails" if ok else "FAILURES", time.time() - T0))
+    out("hyp5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
+    sys.stderr.write("hyp5: %.0f s\n" % (time.time() - T0))
     return 0 if ok else 1
 
 
