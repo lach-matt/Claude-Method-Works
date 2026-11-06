@@ -1202,6 +1202,7 @@ alone, so the late region depends on data at the axes, and any estimate that dec
 | `checks/rcert5b.py`, `.out` | B1–B2: one sub-box of rcert5's K2 refined, n = 1–8; control W + 0.01 v |
 | `checks/symbol5s.py`, `.out` | S1–S6: the symbol with s_vx kept (no Jordan block); the shift's Levi term |
 | `checks/cplate5c.py`, `.out` | C1–C3: the constraint-preserving scheme on a third null grid (task 3) |
+| `checks/rcert5c.py`, `.out` | P1–P2: rcert5's approximant saved with md5s (`data/rcert5_C3.npz`); K1 from it |
 
 Runs read in place (scratch, not committed): D432's `l1_rc0.9_M32.npz` (linest5), resid5's `l1_M16_800.npz`
 (rcert5b).
@@ -1301,7 +1302,13 @@ made this round.
 - The verifier reports that rcert5's least-squares fit is not bit-reproducible (K2's ll 6.79 × 10⁴ → 6.78 × 10⁴ on a
   rerun) and that a 10⁻⁹ change in one coefficient moves ln's maximum by 2.3 %. So K1 is certified for one fit's
   coefficients, which were not saved.
-- Saving C3 with an md5 is accepted and not done this round (rcert5b.py refits too; its figures are its own fit's).
+- *Done (certified, `checks/rcert5c.py`).* One fit's tensors are saved to `data/rcert5_C3.npz`, with the md5 of
+  each tensor's float64 bytes printed (R be89d629…, m 99434c1b…, n 7a0ab510…, W 3427e2bf…, s 1faa82de…).
+  - K1 recomputed from the saved file gives ll ≤ 2.414179 × 10⁻³, against the verifier's 2.4141757 × 10⁻³ from
+    another fit.
+  - *Control.* Changing C3[m][0, 0, 0] by 10⁻⁹ moves every maximum but ll, by at most 4 × 10⁻⁵ relative. The
+    verifier's 2.3 % for ln came from another coefficient and is not re-derived here.
+  - rcert5.py itself still refits; rcert5b.py's figures are those of its own fit.
 
 **A6 (M6; partly re-derived from `checks/late5b.out`).**
 - *Re-derived.* On [1.8, 1.9) at areal radius 1.0–1.2 the residual grows with M from 32 to 56 (3.14 → 3.59 × 10⁻²,
