@@ -2066,8 +2066,8 @@ right side's first are of the same type, on opposite sides of α: two signs. ∎
 **(f) Theorem L_1E (Theorem 1's deep layer and very edge; deduced from L.17, L.18, H_Σ, L.21, L.22 and Lemma W, with
 edge1_5 X1-X11 and degtwo5 T1-T4).** Let μ0 = √72 l5², K ≥ 6, N = K + 3, g_λ the metric of Theorem 1 built by the
 supplement with stage N's data by Lemma 6.2's rule (D615, D616), env satisfying (H_N) and (H_D), and τ0 admissible with
-ρ0² := (v_s − τ0)²/μ0 ∉ {N − 1, 2N − 1}. [round 6 [round 7: Theorem L_1E″, R7.3, excludes neither value], V5-M1, V5-m4,
-V5-m6: restated as Theorem L_1E′, R6.1] There are λ_1E >
+ρ0² := (v_s − τ0)²/μ0 ∉ {N − 1, 2N − 1}. [round 6, V5-M1, V5-m4, V5-m6: restated as Theorem L_1E′, R6.1] [round 7:
+Theorem L_1E″, R7.3, excludes neither value] There are λ_1E >
 0, x0′ ∈ (0, x0] and P1 (depending on K, the record's costs,
 the envelope's constants and the distance of ρ0² from {N − 1, 2N − 1}) such that for λ ≤ λ_1E, every v ∈ (v_s, v_s +
 x0′] with env(v + 4πλ) ≤ λ^(P1) and every ω ∈ S³: on [v, v + 4πλ] the boundary x_K = 1 has, at ω, points where it is
@@ -2432,8 +2432,8 @@ and Λ = Π_(k<N−1) (λκ_k) /λ ≍ T0^(N−2) κ up to 2^(±(N−1)). Fix M 
 R6-f1's repair), |ν|T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ — off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|) with ν_* := inf |ν| > 0; at ρ*, if x² <
 Mλ then κ ≥ c_*/(Mλ), T0 ≥ c_*/M and Λ ≍ T0^(N−2) κ ≫ λ, and if x² ≥ Mλ then Λ ≥ c M x² ≥ c M² λ (Λ ≥ M|ν|/(Γ_R|Ξ|), |ν|
 ≥ c_ν x²/2). The phase: arg(Γ_R i^N Ξ Λ) moves over J by O(κ^(α−1) + λ^(1−α)) (round 5), the rest by at most 2
-arcsin(2/M) + o(1) ≤ π/6. Lemma W (A), with ε ≤ m/4 once env ≤ λ^(P1) (round [round 7, V6-m2: pointwise, Lemma W (A′)]
-5).
+arcsin(2/M) + o(1) ≤ π/6. Lemma W (A), with ε ≤ m/4 once env ≤ λ^(P1) (round
+5). [round 7, V6-m2: pointwise, Lemma W (A′)]
 
 *Case 2.* Λ ≍ T0^(N−2) κ ≲ |ν| ≤ C with κ → ∞, so T0 → 0. |σ| ≥ |ν|(1 − 1/M) − |ê| ≥ |ν|/2, since λ ≪ |ν|: off ρ*
 trivially; at ρ*, x² ≥ Mλ (otherwise, as in Case 1, Λ ≫ λ ≳ x²/M ≳ |ν|/M, against Case 2). The phase: arg σ stays within
@@ -2519,8 +2519,9 @@ h_n ≈ λ⁴] on J_n) is detected.
 
 (b′) *The criterion, where it decides.* At a boundary point in the deep layer, g_λ⁻¹(dΦ0, dΦ0) = −m0 − Re[S e^(iv/λ)] + ρ
 with S the exact first-degree amplitude (Theorem 2: S = λ A ν∞ d I_2 + O(λ sup_(v′≤v) |I_3|), every envelope, L.15_P (b);
-Theorem 1: L.22′'s S where (H_N) holds on [round 7, V6-m6: L.22′ needs (H_N) on all of (v_s, v_s + x0]; R7.4] [v − 1/κ,
-v]) and |ρ| ≤ D(v), the degree-two bound available at v: L.18's C
+Theorem 1: L.22′'s S where (H_N) holds on [v − 1/κ,
+v] [round 7, V6-m6: L.22′ needs (H_N) on all of (v_s, v_s + x0]; R7.4]) and |ρ| ≤ D(v), the degree-two bound available at
+v: L.18's C
 κ^(2c′) env² where L.18's hypotheses hold, (a)'s on a zero interval as in (a) [round 7, V6-m6: there S := 0 and D is
 (a)'s bound; in the band S is L.12 (iii)'s; R7.4], L.17's otherwise. Every interval [v, v +
 4πλ] with S slowly varying on it has timelike points at ω if max_J (|S| − m0) ≥ C(λ^γ m0 + D) and none if max_J (|S| + D)

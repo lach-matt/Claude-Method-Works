@@ -16,3 +16,13 @@ M3 PASS
       log10 C_eps <= 220.0618 (an upper bound; round 3: 613.2166), so, as LOWER bounds of the thresholds: min(Lam_8b,
       Lam_8d) >= 10^(-296.754) max(C_L11, C_L4)^(-4/3) and Lam_8c >= 10^(-38.4893) C_L11^(-1/11.5)
 M4 PASS
+  M5 log10 M_1456 >= 8091.603748 (Taylor at v_s + 0.00052, m! env(v)/(v - v_s)^m; certified at that point), against log10
+      B(1456) <= 8573.893584; at k = 1..14 the Taylor bound lies below CONSTANTS5's e_k: True.  UPPER bounds of the
+      proof's thresholds (with the lower bound of M_m): Lam_4(0): r1 10^-4654.278, ch 10^-11.56797; Lam_5 (L.4, its i =
+      26 term): r1 10^-434.3175, A15 10^-56.37539; Lam_5' (L.4', i = 4, Duffin-Schaeffer): 10^-2.82111; Lam_8b with
+      max(C_L11, C_L4) = 1 (C_eps >= its i = 26 term): A15 10^-809.477, DS 10^-285.2708; Lam_8c with C_L11 = 1: A15
+      10^-105.3662, DS 10^-36.99152.  LOWER bounds (with B): Lam_4(0): r1 10^-4654.612, ch 10^-11.90243; Lam_5: r1
+      10^-435.1187, A15 10^-57.17654; Lam_5': 10^-2.92333; Lam_8b: A15 10^-820.9601, DS 10^-296.7539.  Certified with
+      L.4': lam_L <= 2.7041e-12
+M5 PASS
+lamL5b: all checks pass, every control fails  [141 s]

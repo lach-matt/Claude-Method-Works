@@ -5596,7 +5596,8 @@ Each result below now carries "proved [R10]" in its label, the old label kept.
   rate is superseded by Corollaries R6.6 and R7.4, which are also proved.
 - Corollary R4.4, on the round-4 verifier's line-by-line read ("R4.2, R4.3, R4.4, R4.6 hold", R6.g). report-vA9 read
   its statement and proof, R4.3's steps and (A37), (A40), (A42). It did not re-derive Proposition R4.2's transposition
-  of Part IV against Part IV. R4.2, R4.3 and R4.6 enter R4.4 through that read and are not separately promoted here.
+  of Part IV against Part IV. R4.2, R4.3 and R4.6 enter R4.4, and R4.2 and R4.6 enter Corollary R7.6, through that
+  read; they are not separately promoted here.
 - Corollary R6.6, with (A60).
 - Theorem R7.1, Lemma R7.2, Theorem R7.3, Corollary R7.4, Proposition R7.5, Corollaries R7.6-R7.7.
 - Lemmas R8.2-R8.4 and R8.8, Propositions R8.5-R8.6, Theorem R8.7, Corollary R8.9, Theorem R8.10, Corollaries
