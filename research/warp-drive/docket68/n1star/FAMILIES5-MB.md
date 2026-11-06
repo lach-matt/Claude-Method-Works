@@ -3,7 +3,8 @@
 Status (2026-11-06, workstream C, the missing input M_b of FAMILIES5-R6.md section 1.5). This note settles M_b, both
 ways: it fails on every vacuum band that meets the black-hole region and holds on every vacuum band outside the
 horizon. It does not edit the paper, N1STAR-PROOF.md, FAMILIES5-R6.md or any proof5 Part; its proposed text for the
-paper is in section 7. Program: `checks/mbsign5.py` (E1-E9, seven controls), its full run in `checks/mbsign5.out`.
+paper is in section 7. Program: `checks/mbsign5.py` (E1-E9, seven controls), its full run in `checks/mbsign5.out` (all
+PASS).
 
 **The quantity whose sign is decided.** With the record's constraint map (H = R + (tr K)² − |K|², M_i = D_jK^j_i −
 D_i tr K, K = ½ L_n γ, n the future unit normal; bandconst5) and its KID (N_s, 2Y_s), ξ = N_s n + Y_s the static
@@ -274,8 +275,9 @@ is p = (Rw′ + w)/f. Tensor modes: Theorem T at w = 1/f (the static slice), E_T
 Kodama–Ishibashi master equation, which that equation conserves.
 
 The radial identities of E5, E6, E8, E9 are exact, symbolic in k² and the jets, at four rational points (R, μ) with R
-and f rational squares (default), or symbolic in R and k² at μ = 1 (`--full`; the homothety (t, R) → (λt, λR) carries
-μ to λ²μ); E4 (a) keeps μ symbolic. In development E5 was also run symbolic in R, μ and k² (PASS).
+and f rational squares (the default run, `checks/mbsign5.out`), and symbolic in R and k² at μ = 1 (the `--full` run,
+`checks/mbsign5_full.out`, E4-E9 PASS; μ = 1 is general by the homothety (t, R) → (λt, λR), which carries μ to λ²μ);
+E4 (a) keeps μ symbolic. In development E5 was also run symbolic in R, μ and k² (PASS).
 
 ### 4.7 Theorem P
 
@@ -358,5 +360,7 @@ New:
 
 ## Files
 
-`FAMILIES5-MB.md` (this note); `checks/mbsign5.py` (E1-E9; controls in E1, E2, E3, E5, E6 (two), E7), and
-`checks/mbsign5.out`, its full run (`python3 checks/mbsign5.py --selftest`).
+`FAMILIES5-MB.md` (this note); `checks/mbsign5.py` (E1-E9; controls in E1, E2, E3, E5, E6 (two), E7);
+`checks/mbsign5.out`, its full run (`python3 checks/mbsign5.py --selftest`: E1-E9 PASS, seven controls rejected, about
+6 minutes under load); `checks/mbsign5_full.out` (`--selftest --full --only=E5,E6,E7,E8,E9`: E4-E9 PASS with the
+radial identities symbolic in R and k², about 6 minutes).

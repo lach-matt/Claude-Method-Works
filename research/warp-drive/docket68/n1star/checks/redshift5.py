@@ -551,6 +551,218 @@ def r14(control=False):
     return bool(cert)
 
 
+# ---------------------------------------------------------------- R15: the rotations' sum of squares on S^3 (D627)
+_R15 = {}
+
+
+def _r15_data():
+    """the numbers R15 tests, computed once (the control reuses them): on the unit S^3 in Hopf coordinates, the six
+    Killing fields Omega_ab = x_a d_b - x_b d_a; residual parts of -sum L^2 h - (nabla^* nabla h - 2 tr(h) g) and h
+    for two generic symmetric h; -sum L^2 U / U and nabla^* nabla U / U for two transverse traceless harmonics at
+    l = 2 (from the left-invariant frame); -sum L^2 Y_ab / Y_ab for the class's scalar-derived tensors at l = 2, 4"""
+    if _R15:
+        return _R15
+    with mp.workdps(30):
+        _r15_compute()
+    return _R15
+
+
+def _r15_compute():
+    import itertools
+    th, p1, p2 = Y = sp.symbols("theta phi1 phi2", real=True)
+    n = 3
+    x = sp.Matrix([sp.cos(th)*sp.cos(p1), sp.cos(th)*sp.sin(p1), sp.sin(th)*sp.cos(p2), sp.sin(th)*sp.sin(p2)])
+    J = x.jacobian(Y)
+    g = sp.diag(1, sp.cos(th)**2, sp.sin(th)**2)
+    gi = sp.diag(1, 1/sp.cos(th)**2, 1/sp.sin(th)**2)
+    metric_ok = sp.simplify(J.T*J - g) == sp.zeros(3)
+    Gam = [[[sum(gi[k, l]*(sp.diff(g[l, i], Y[j]) + sp.diff(g[l, j], Y[i]) - sp.diff(g[i, j], Y[l])) for l in range(n))
+             / 2 for j in range(n)] for i in range(n)] for k in range(n)]
+    KF = []
+    for a, b in itertools.combinations(range(4), 2):
+        B = sp.zeros(4)
+        B[a, b], B[b, a] = 1, -1
+        Om = B*x
+        KF.append([sp.simplify(sum(gi[m, nu]*(J[:, nu].T*Om)[0] for nu in range(n))) for m in range(n)])
+
+    def lie(X, h):
+        return sp.Matrix(n, n, lambda i, j: sum(X[k]*sp.diff(h[i, j], Y[k]) + h[k, j]*sp.diff(X[k], Y[i])
+                                                 + h[i, k]*sp.diff(X[k], Y[j]) for k in range(n)))
+
+    def cov(h):
+        return [[[sp.diff(h[i, j], Y[k]) - sum(Gam[l][k][i]*h[l, j] + Gam[l][k][j]*h[i, l] for l in range(n))
+                  for j in range(n)] for i in range(n)] for k in range(n)]
+
+    def rough(h):                                                    # nabla^* nabla h = -g^{kl} nabla_k nabla_l h
+        D = cov(h)
+        return sp.Matrix(n, n, lambda i, j: -sum(gi[k, l]*(sp.diff(D[l][i][j], Y[k]) - sum(
+            Gam[m][k][l]*D[m][i][j] + Gam[m][k][i]*D[l][m][j] + Gam[m][k][j]*D[l][i][m] for m in range(n)))
+            for k in range(n) for l in range(n)))
+
+    def msum(h):                                                     # -sum_ab L_(Omega_ab)^2 h
+        return -sum((lie(X, lie(X, h)) for X in KF), sp.zeros(n))
+
+    pts = [(mp.mpf(a)/97, mp.mpf(b)/31, mp.mpf(c)/37) for a, b, c in ((13, 7, 50), (41, 88, 3), (66, 20, 71))]
+
+    def at(M):
+        f = sp.lambdify(Y, M, "mpmath")
+        return [mp.matrix(f(*p)) for p in pts]
+
+    gen = []
+    terms = [sp.cos(th + p1), sp.sin(2*th - p2), sp.cos(p1 - 2*p2)*sp.sin(th), sp.cos(3*th)*sp.sin(p1)]
+    for seed in (1, 2):
+        cs = [((i + 2*j + seed) % 5) - 2 for i in range(6) for j in range(4)]
+        c = [sum(cc*t for cc, t in zip(cs[4*q:4*q + 4], terms)) + seed for q in range(6)]
+        h = sp.Matrix([[c[0], c[1], c[2]], [c[1], c[3], c[4]], [c[2], c[4], c[5]]])
+        trh = sum(gi[i, j]*h[i, j] for i in range(n) for j in range(n))
+        gen.append((at(msum(h) - rough(h) + 2*trh*g), at(h)))
+
+    def qr(q, u):
+        a, b, c_, d = q
+        e, f, gg, hh = u
+        return sp.Matrix([a*e - b*f - c_*gg - d*hh, a*f + b*e + c_*hh - d*gg, a*gg - b*hh + c_*e + d*f,
+                          a*hh + b*gg - c_*f + d*e])
+    s = [(qr(list(x), u).T*J) for u in ([0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1])]
+    lamC, lamR, tt = [], [], True
+    for U in (s[0].T*s[0] - s[1].T*s[1], s[0].T*s[2] + s[2].T*s[0]):
+        trU = sum(gi[i, j]*U[i, j] for i in range(n) for j in range(n))
+        D = cov(U)
+        div = sp.Matrix([sum(gi[k, i]*D[k][i][j] for k in range(n) for i in range(n)) for j in range(n)])
+        for vals in at(sp.Matrix.vstack(sp.Matrix([trU]), div)):
+            tt &= max(abs(e) for e in vals) < mp.mpf(10)**-20
+        for Cm, Rm, Um in zip(at(msum(U)), at(rough(U)), at(U)):
+            for i in range(n):
+                for j in range(n):
+                    if abs(Um[i, j]) > mp.mpf(10)**-6:
+                        lamC.append(Cm[i, j]/Um[i, j])
+                        lamR.append(Rm[i, j]/Um[i, j])
+    u = sp.cos(2*th)
+    scal = []
+    for l, P in ((2, u), (4, (3*u**2 - 1)/2)):
+        hess = sp.Matrix(n, n, lambda i, j: sp.diff(P, Y[i], Y[j])
+                         - sum(Gam[k][i][j]*sp.diff(P, Y[k]) for k in range(n)))
+        lap = sum(gi[i, j]*hess[i, j] for i in range(n) for j in range(n))
+        Yab = hess - g*lap/3
+        rr = []
+        for Cm, Um in zip(at(msum(Yab)), at(Yab)):
+            rr += [Cm[i, j]/Um[i, j] for i in range(n) for j in range(n) if abs(Um[i, j]) > mp.mpf(10)**-6]
+        scal.append((l, rr))
+    _R15.update(metric_ok=metric_ok, gen=gen, lamC=lamC, lamR=lamR, tt=tt, scal=scal)
+    return _R15
+
+
+def r15(control=False):
+    d = _r15_data()
+    c6 = 5 if control else 6                     # the control: the constant of the identity lowered to 5
+    res = max(max(abs(A[i, j] - c6*H[i, j]) for i in range(3) for j in range(3))
+              for parts, hs in d["gen"] for A, H in zip(parts, hs))
+    ident = res < mp.mpf(10)**-20
+    k2 = 8                                       # l = 2
+    tensor = all(abs(v - (k2 + 4)) < mp.mpf(10)**-20 for v in d["lamC"])
+    rough42 = all(abs(v - (k2 - 2)) < mp.mpf(10)**-20 for v in d["lamR"])
+    plus3 = all(abs(v - (k2 + 3)) < mp.mpf(10)**-3 for v in d["lamC"])     # k^2 + 3 = 11 must be rejected
+    scal = [all(abs(v - l*(l + 2)) < mp.mpf(10)**-20 for v in rr) for l, rr in d["scal"]]
+    ok = d["metric_ok"] and ident and d["tt"] and tensor and rough42 and not plus3 and all(scal)
+    say("  R15%s: -sum L^2 h = nabla^* nabla h + %d h - 2 tr(h) g for two generic symmetric h on the unit S^3 (residual "
+        "%s): %s; TT harmonics at l = 2 traceless and divergence-free: %s; -sum L^2 U / U = %s, k^2 + 4 = 12: %s; "
+        "nabla^* nabla U / U = k^2 - 2 = 6 ([HKW18] (42)): %s; k^2 + 3 = 11 matches: %s; scalar-derived Y_ab at l = 2, "
+        "4: -sum L^2 = k^2: %s" % (" control (5 h)" if control else "", c6, mp.nstr(res, 3), ident, d["tt"],
+                                    sorted({mp.nstr(v, 12) for v in d["lamC"]}), tensor, rough42, plus3, scal))
+    return bool(ok)
+
+
+# ---------------------------------------------------------------- R16: Lemma 10.1b's smooth approximants (D627)
+def r16(control=False):
+    import numpy as np
+    from scipy.special import gamma, gammainc, lambertw
+    kap, X, t0 = 1.0, 0.5, 0.25
+    t = sp.Symbol("t")
+    bump = sp.exp(-1/(1 - (8*t - 1)**2))                     # smooth, support (0, t0), t0 = 1/4
+    drho = [sp.lambdify(t, sp.diff(bump, t, a), "numpy") for a in range(4)]
+    tn, tw = np.polynomial.legendre.leggauss(120)
+    tt, tw = (tn + 1)*t0/2, tw*t0/2
+    norm = float(np.sum(tw*drho[0](tt)))
+    Rh = [drho[a](tt)/norm for a in range(4)]
+    xn, xw = np.polynomial.legendre.leggauss(12)
+    edges = np.concatenate([[0.0], X*10.0**np.arange(-30, 1)])
+    xs = np.concatenate([(a + b)/2 + (b - a)/2*xn for a, b in zip(edges[:-1], edges[1:])])
+    ws = np.concatenate([(b - a)/2*xw for a, b in zip(edges[:-1], edges[1:])])
+    V, XX = xs[:, None] + tt[None, :], np.broadcast_to(xs[:, None], (len(xs), len(tt)))
+    eps_list = (1e-3, 1e-5, 1e-7)
+    xe, ee = sp.symbols("x e", positive=True)
+    rows, ok = [], True
+    for alpha in (1.25, 1.5):
+        sig = kap*alpha
+
+        def C(v, e):                                         # the v-part of the exact solution of the naive data
+                return (-sig*e*np.exp(sig*e)*sig**(-alpha)*gamma(alpha)
+                    * (gammainc(alpha, sig*(v + e)) - gammainc(alpha, sig*e)))
+
+        def xi(y):                                           # xi e^(-kap xi) = y, xi < 1/kap
+            return -np.real(lambertw(-kap*y, 0))/kap
+
+        def Phi(v, x, e):
+            if e == 0:
+                return np.exp(-sig*v)*x**alpha
+            z = xi(x*np.exp(-kap*v))
+            return np.exp(-sig*z)*(z + e)**alpha - C(z, e) + C(v, e)
+
+        def dxPhi(v, x, e):
+            if e == 0:
+                return alpha*np.exp(-sig*v)*x**(alpha - 1)
+            z = xi(x*np.exp(-kap*v))
+            return alpha*np.exp(-(sig - kap)*z)*(z + e)**(alpha - 1)*np.exp(-kap*v)
+
+        def dx2Phi(v, x, e):
+            z = xi(x*np.exp(-kap*v))
+            dd = alpha*np.exp(-(sig - kap)*z)*(z + e)**(alpha - 2)*((alpha - 1) - (sig - kap)*(z + e))
+            return dd/(np.exp(-kap*z)*(1 - kap*z))*np.exp(-2*kap*v)
+
+        def averaged(e):                                     # T^a of the average = (-1)^a int rho^(a)(t) Phi o phi_t
+            P, D = Phi(V, XX, e), dxPhi(V, XX, e)
+            return ([(-1)**a*(P*Rh[a][None, :]) @ tw for a in range(4)],
+                    [(-1)**a*(D*Rh[a][None, :]) @ tw for a in range(3)])
+
+        def naive(e):                                        # the data's own jets: py/approx.py's recursion
+            G = [sp.exp(-sig*xe)*(xe + ee)**alpha]
+            G.append(-sig*G[0])
+            H = [sp.diff(G[0], xe) - G[1]]
+            for a in range(3):
+                H.append(-kap*sp.diff(xe*H[-1], xe)/(1 - kap*xe))
+                G.append(sp.diff(G[-1], xe) - H[-1])
+            return ([sp.lambdify(xe, q.subs(ee, e), "numpy")(xs) for q in G],
+                    [sp.lambdify(xe, q.subs(ee, e), "numpy")(xs) for q in H[:3]])
+
+        jets = naive if control else averaged
+        G0, H0 = jets(0)
+        err = []
+        for e in eps_list:
+            G, H = jets(e)
+            err.append([float(np.sum(ws*((G[a] - G0[a])**2 + (G[a + 1] - G0[a + 1])**2 + (H[a] - H0[a])**2)))
+                        for a in range(3)])
+        conv = all(err[i + 1][a] < err[i][a]/10 for i in range(2) for a in range(3)) and max(err[-1]) < 1e-8
+        c_rho = float(np.sum(tw*Rh[0]*np.exp(-sig*tt)))
+        limit = float(np.max(np.abs(averaged(0)[0][0]/(c_rho*np.exp(-sig*xs)*xs**alpha) - 1)))
+        xc, hh = np.array([1e-6, 1e-3, 0.1, 0.4]), 1e-6
+        dv = (Phi(xc + hh, xc, 1e-3) - Phi(xc - hh, xc, 1e-3))/(2*hh)
+        data = max(np.max(np.abs(Phi(xc, xc, 1e-3) - np.exp(-sig*xc)*(xc + 1e-3)**alpha)),
+                   np.max(np.abs(dv + sig*np.exp(-sig*xc)*(xc + 1e-3)**alpha)))
+        Q = [float(np.sum(ws*((dx2Phi(V, XX, e)*Rh[0][None, :]) @ tw)**2)) for e in eps_list]
+        grows = Q[0] < Q[1] < Q[2] and (alpha > 1.4 or Q[2] > 10*Q[0])
+        ok &= conv and limit < 1e-12 and data < 1e-8 and grows
+        rows.append((alpha, [["%.2e" % v for v in r] for r in err], conv, "%.1e" % limit, "%.1e" % data,
+                     ["%.4g" % q for q in Q], grows))
+    say("  R16%s (model of Lemma 10.1b near the horizon: 2 d_v d_x Phi + d_x (2 kappa x d_x Phi) = 0, f = 2 kappa x, "
+        "Sigma_0 = {v = x}, kappa = 1; Phi_eps the exact solution of the data R(x + eps) e^(-sigma x), Phi_eps -> "
+        "e^(-sigma v) x^(sigma/kappa); %s): per sigma/kappa, I_(T^a (Psi_eps - Psi)) for a = 0, 1, 2 at eps = 1e-3, "
+        "1e-5, 1e-7, convergence (each falls tenfold, the last below 1e-8), the averaged limit against (int rho "
+        "e^(-sigma t)) e^(-sigma v) x^(sigma/kappa), the exact solution's data against the naive data, Q(0) of the "
+        "averages and its growth: %s" % (" control (the data themselves, not averaged)" if control else "",
+                                        "the data themselves" if control else "averaged over the flow of T with a "
+                                        "smooth bump on (0, 1/4)", rows))
+    return bool(ok)
+
+
 # ---------------------------------------------------------------- R13: the paper's blocks and the seated text
 OLD82 = """\
 So in
@@ -690,7 +902,8 @@ def r13(control=False):
 
 
 CHECKS = [("R1", r1), ("R2", r2), ("R3", r3), ("R4", r4), ("R5", r5), ("R6", r6), ("R7", r7), ("R8", r8),
-          ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12), ("R14", r14), ("R13", r13)]
+          ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12), ("R14", r14), ("R15", r15), ("R16", r16),
+          ("R13", r13)]
 
 
 def main():

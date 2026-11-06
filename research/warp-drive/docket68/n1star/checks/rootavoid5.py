@@ -54,13 +54,18 @@ above 3): all rational (dweights5.weights and counts, imported).
      at level 1; Lemma 4.2's interval. Not decided: (4.2) at level 2 (its tf-exponents are not listed).
   R9 (computed, exact) Definition 1.1 (a) at the levels (beta - 2 not the real part of a rate), not asked by R9 but
      decided by the same arithmetic: rational candidates not levels; irrational parts never rational (Q(d1) tests).
+  R10 (computed, exact; certified margin) I9:55-58, the III.I'''''''' admissibility I11:157 assigns to the levels
+     alpha < 3 (the round-10 verifier's gap): at every one of the 53,244,734 levels in (2, 3), alpha_1 = beta_0
+     included, alpha - 2 != Re lambda - 1 and alpha - Re lambda not in {-Re mu} u Re pi_1 E_K for lambda in pi_1 M
+     = lambda_sharp + N_0 d1 (R9.1's reading); the range alpha in (2, min(a_K, 3)) (a_K at the base from R10.1).
   Negative controls (each mutates the computed path; each must fail): C1 a level planted at 3.5099 (R6 finds it);
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
   sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
-  2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it).
+  2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it); C8 a level below 3 planted at
+  lambda_sharp + 1 (R10 finds it).
 
-    python3 checks/rootavoid5.py [--selftest]      (a few minutes; --selftest skips the R6 margin enumeration)
+    python3 checks/rootavoid5.py [--selftest]      (some minutes; --selftest skips the R6 and R10 margin enumerations)
 """
 import builtins
 import contextlib
@@ -101,6 +106,9 @@ ANCHORS = [('PART-III-I11-SPACETIME.md', 156, 160, ['avoids the finite set of va
                                                     r'\mathrm{Re}\,\pi_1\mathcal E_K']),
            ('PART-III-I14-LEVELS.md', 36, 38, ['avoids the finite set of III.I', r'\mathrm{Re}\,\pi_1\mathcal E_K']),
            ('PART-III-I9-COMMOTION.md', 290, 291, ['avoid the discrete set of the $-\\mu$']),
+           ('PART-III-I9-COMMOTION.md', 55, 58, [r'*Admissible levels.* $\alpha\in(2,\min(a_K,3))$ is admissible if',
+                                                r'$\lambda\in\pi_1\mathcal M$ and every root $\mu$ of III.G']),
+           ('PART-III-I11-SPACETIME.md', 156, 157, [r'for $\alpha<3$, it is admissible in the sense of III.I']),
            ('PART-III-I14-LEVELS.md', 124, 126, [r'its conditions $w\ne-\mu$, $2-\tau+j\ne-\mu$ hold for $\epsilon$']),
            ('PART-III-I12-SPECTRAL.md', 289, 292, [r'$\alpha_\tau := \min(\tau,2-\delta)', r'$\{-\mu-j\}$']),
            ('PART-III-G5-TF.md', 624, 627, [r'with $2-\alpha+j\ne-\mu$ and $w\ne-\mu$ for']),
@@ -565,6 +573,70 @@ def r9(C):
     return dict(ok=not hits and not bad, cands=cands, hits=hits, bad=bad, ntests=2 * len(offs), eci=len(eci))
 
 
+def X9_set():
+    """I9:55-58 at a level alpha in (2, 3): x = alpha - lambda, lambda in pi_1 M = lambda_sharp + N_0 d1 (Re < 2), lies
+    in (0, 3 - lambda_sharp) = (0, 1.4901); there the roots -mu (R3) and Re pi_1 E_K give seven values; the first
+    clause, alpha - 2 != lambda - 1, is x = 1"""
+    return [('1', 1, None), ('d0', 0, 'd0'), ('d1', 0, 'd1'), ('1 + d0', 1, 'd0'), ('1 + d1', 1, 'd1'),
+            ("1 + delta'_1", 1, "delta'_1"), ('1 + delta_2', 1, 'delta_2')]
+
+
+def levels_margin(C, X, klo, khi, top=True):
+    """certified least distance from the levels beta_k, klo <= k <= khi (and alpha if top), to lambda_sharp + n d1 + x,
+    x in X, lambda_sharp + n d1 < 2 (fixed-point integers at 1/(D FIX), d1's enclosure rounded outward)"""
+    D, I = C['D'], C['I']
+    s = I['s'] * FIX
+    a1 = I['alpha1'] * FIX
+    lo_lev, hi_lev = beta(C, klo) * FIX, (I['alpha'] if top else beta(C, khi)) * FIX
+    tp = I['alpha'] * FIX
+    d1lo, d1hi = DW.d1_interval()
+    dlo = (d1lo * D * FIX).__floor__()
+    dhi = -((-d1hi * D * FIX).__floor__())
+    N = int((2 - DW.LSHARP) / d1lo) + 1
+    best, where = None, None
+    for xn, ip, off in X:
+        olo, ohi = offset_iv(off)
+        plo = ((DW.LSHARP + ip + olo) * D * FIX).__floor__()
+        phi = -((-(DW.LSHARP + ip + ohi) * D * FIX).__floor__())
+        for n in range(N + 1):
+            if n:
+                plo += dlo
+                phi += dhi
+            if Fr(plo, D * FIX) - DW.LSHARP - ip - olo >= 2 - DW.LSHARP:
+                break
+            if phi < lo_lev - s or plo > hi_lev + s:
+                continue
+            kk = (plo - a1) // s
+            dist = None
+            for k in (kk - 1, kk, kk + 1, kk + 2):
+                if klo <= k <= khi:
+                    b = a1 + k * s
+                    d_ = 0 if plo <= b <= phi else min(abs(b - plo), abs(b - phi))
+                    dist = d_ if dist is None else min(dist, d_)
+            if top:
+                d_ = 0 if plo <= tp <= phi else min(abs(tp - plo), abs(tp - phi))
+                dist = d_ if dist is None else min(dist, d_)
+            if dist is not None and (best is None or dist < best):
+                best, where = dist, (xn, n)
+    return Fr(best, D * FIX), where, N
+
+
+def r10(C, plant=None):
+    """I9:55-58 (III.I'''''''' admissibility) at every level below 3, alpha_1 = beta_0 included: alpha in (2, min(a_K,
+    3)); alpha - 2 != Re lambda - 1 and alpha - Re lambda not in {-Re mu} u Re pi_1 E_K, lambda in pi_1 M. Exact: the
+    only rational candidate is lambda_sharp + 1 (x = 1, n = 0); the irrational offsets d0, d1, delta'_1, delta_2 are
+    R6's field tests. Also the range: alpha_1 < a_K at the base (R10.1's a_K - 2 = (1 - 10^-9) eps_K)."""
+    D, I = C['D'], C['I']
+    cand = DW.LSHARP + 1
+    v = cand * D
+    a1 = I['alpha1'] if plant is None else int(plant * D) - 1234 * I['s']
+    hit = v.denominator == 1 and (int(v) - a1) % I['s'] == 0 and 0 <= (int(v) - a1) // I['s'] < C['k3']
+    eK = C['w']['eps_K']
+    aK_base = 2 + (1 - Fr(1, 10 ** 9)) * eK
+    rng = (Fr(I['alpha1'], D) > 2 and Fr(I['alpha1'], D) < aK_base and Fr(beta(C, C['k3'] - 1), D) < 3)
+    return dict(cand=cand, hit=hit, rng=rng, aK=aK_base)
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
@@ -672,6 +744,23 @@ def main(selftest=False):
           'delta\'_1..5; theta2 in {0, d0}; theta2 = d1 is n + 1): none in Q(d1) (%d exact tests, failures %s): %s' % (
               R9['eci'], [str(x) for x in R9['cands']], R9['hits'] or 'none', R9['ntests'], R9['bad'] or 'none',
               OK['R9']))
+    R10 = r10(C)
+    OK['R10'] = not R10['hit'] and R10['rng'] and OK['R6']
+    print('  R10 (exact): I9:55-58 (III.I\'\'\'\'\'\'\'\' admissibility), which I11:157 assigns to the levels '
+          'alpha < 3, '
+          'at every level in (2, 3), alpha_1 = beta_0 = %s included: the range alpha in (2, min(a_K, 3)) holds (at the '
+          'base a_K = 2 + (1 - 10^-9) eps_K = %s > alpha_1, R10.1; at the levels a_K >= 4 + eps_K): %s; x = alpha - '
+          'lambda, lambda in lambda_sharp + N_0 d1, lies in (0, 1.4901), where {-mu} u Re pi_1 E_K is {1, d0, d1, 1 + '
+          'd0, 1 + d1, 1 + delta\'_1, 1 + delta_2} (the first clause, alpha - 2 != lambda - 1, is x = 1); the offsets '
+          'are R6\'s, outside Q(d1), so the only rational candidate is alpha = lambda_sharp + 1 = %s, a level: '
+          '%s: %s' % (
+              Fr(I['alpha1'], D), R10['aK'], R10['rng'], R10['cand'], R10['hit'], OK['R10']))
+    if not selftest:
+        mg9, where9, N9 = levels_margin(C, X9_set(), 0, C['k3'] - 1, top=False)
+        OK['R10m'] = mg9 > 0
+        print('  R10 (certified margin): over the seven values x and n <= %d, the least distance of a level in (2, 3) '
+              '(alpha_1 included) from lambda_sharp + n d1 + x is %.6e (at x = %s, n = %d), > 0: %s' % (
+                  N9, float(mg9), where9[0], where9[1], OK['R10m']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])
@@ -699,6 +788,8 @@ def main(selftest=False):
     OK['C6'] = any((1 - v) % 1 == R7['frac'] for _n, _i, v in R7['vals'])
     print('  C6 (control): the value 2 - alpha = %s planted among R7\'s values: R7\'s test finds the hit: %s' % (
         1 - R7['frac'], OK['C6']))
+    OK['C8'] = r10(C, plant=DW.LSHARP + 1)['hit']
+    print('  C8 (control): a level below 3 planted at lambda_sharp + 1 = 2.5099: R10 finds it: %s' % OK['C8'])
     lam12 = algebraic_numbers()[0]
     try:
         sp.polys.numberfields.subfield.to_number_field(2 * (lam12 - 2) + sp.Rational(1, 3), lam12)
