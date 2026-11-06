@@ -109,6 +109,7 @@ class Engine:
         self.cache = {f: R5.deriv_tensors(C3[f], R5.Q + 4) for f in R5.RS.NAMES}
         self.hp = {}
         self.drop = drop_remainder
+        self.trace = None         # round 7: a list here records each child's box-path frame output (contain_control)
 
     def bound(self, vp, vb, hpow):
         """THE Taylor-model bound, used by kids() and by control C1 alike: sum_{|alpha| < Q} |f_alpha(c)| h^alpha +
@@ -144,6 +145,8 @@ class Engine:
             ip = R5.inputs(jp, self.g, arb(tcs[p]), scs[q], arb(xcs[r]), False)
             vb = self.frame(*[ib[k] for k in self.names])
             vp = self.frame(*[ip[k] for k in self.names])
+            if self.trace is not None:
+                self.trace.append(((p, q, r), vb))
             sup, cen = [], []
             for k8 in range(8):
                 sup.append(self.bound(vp[k8], vb[k8], hpow))
@@ -256,20 +259,107 @@ def kids_true(b):
     return [r1, r1, x1, x1, r1 * x1, max(abs(r0 - 0.3), abs(r1 - 0.3)), r1 * x1 + 0.05, r1 + x1]
 
 
+def kids_fields2():
+    """round 7 (the verifier of round 6, M6-A): test tensors varying in every direction -- R = t^4, m = sig^4 and the
+    FIELD n = x^4 (each (3 T_0 + 4 T_2 + T_4)/8 along its axis, exact in binary), W = s = 0"""
+    Ct = {f: np.zeros((6, 6, 6)) for f in R5.RS.NAMES}
+    for f, ax in (('R', 0), ('m', 1), ('n', 2)):
+        for k, c in ((0, 3 / 8), (2, 1 / 2), (4, 1 / 8)):
+            i = [0, 0, 0]; i[ax] = k; Ct[f][tuple(i)] = c
+    return Ct
+
+
+def kids_frame2(R, m, n):
+    """eight test components on the field inputs: sig and x alone, both signs, and products across directions"""
+    return [m, -m, n, -n, R * m, m * n - 0.3, -(R * n) - 0.05, R * m * n + m]
+
+
+def kids_true2(b):
+    """the exact sup over box b of each kids_frame2 component's absolute value (t^4, sig^4, x^4 >= 0, monotone in |.|,
+    and independent, so each product ranges over the products of the ranges)"""
+    tc, ht, sc, hs, xc, hx = b
+    rng = lambda c, h: ((0.0 if c - h < 0 < c + h else min(abs(c - h), abs(c + h)) ** 4),
+                        max(abs(c - h), abs(c + h)) ** 4)
+    (r0, r1), (s0, s1), (q0, q1) = rng(tc, ht), rng(sc, hs), rng(xc, hx)
+    return [s1, s1, q1, q1, r1 * s1, max(abs(s0 * q0 - 0.3), abs(s1 * q1 - 0.3)), r1 * q1 + 0.05, s1 * (r1 * q1 + 1)]
+
+
 def kids_control(make_engine, g):
-    """C1 (round 6, the verifier of round 5, M5-A): the bound END TO END through Engine.kids -- point_coeffs,
-    box_coeffs, inputs(..., box=True), the frame, Engine.bound -- on an engine built by make_engine(tensors, g, frame,
-    names) from kids_fields() and kids_frame, over the 8 children of each of KIDS_PARENTS (half-widths 0.005 to 0.25),
-    against the exact sups.  For t^4 and x^4 the sound order-3 Taylor-model bound is exact, (|c| + h)^4, so any
-    loss of the remainder, of the box enclosure or of its half-width, or of abs, gives a bound below the true sup.
-    Returns the largest true/bound: <= 1 (to rounding) for a sound engine"""
-    eng = make_engine(kids_fields(), g, kids_frame, ['R', 'x'])
+    """C1 (round 6, the verifier of round 5, M5-A; widened in round 7, the verifier of round 6, M6-A): the bound END
+    TO END through Engine.kids -- point_coeffs, box_coeffs, inputs(..., box=True), the frame, Engine.bound -- on
+    engines built by make_engine(tensors, g, frame, names), over the 8 children of each of KIDS_PARENTS (children's
+    half-widths 0.005 to 0.25, parents' 0.01 to 0.5), against the exact sups: (1) kids_fields() (R = t^4) with
+    kids_frame (the coordinate x enters as x^4); (2) round 7: kids_fields2() (t^4, sig^4 and the field x^4) with
+    kids_frame2, so that the sig- and x-direction terms of box_coeffs run on nonzero coefficients.  For each of t^4,
+    sig^4, x^4 the sound order-3 Taylor-model bound is (|c| + h)^4 + 3 h^4, which exceeds the true sup by only 3 h^4;
+    so a loss of the remainder, of a direction of the box enclosure (the linear term (|c| + h)^4 - h^4 is then below
+    the sup), of the coordinate's box, or of abs where a centre value is negative, gives a bound below the true sup.
+    Halving the enclosure's half-width (mA5) keeps the bound above it, (|c| + h)^4 + h^4: C1 does not catch mA5,
+    contain_control does.  Returns the largest true/bound: <= 1 (to rounding) for a sound engine"""
     worst = 0.0
-    for pb in KIDS_PARENTS:
-        for kb, sup, cen in eng.kids(pb):
-            for tv, bv in zip(kids_true(kb), sup):
-                worst = max(worst, tv / bv if bv > 0 else (float('inf') if tv > 0 else 0.0))
+    for tens, frame, names, true in ((kids_fields(), kids_frame, ['R', 'x'], kids_true),
+                                     (kids_fields2(), kids_frame2, ['R', 'm', 'n'], kids_true2)):
+        eng = make_engine(tens, g, frame, names)
+        for pb in KIDS_PARENTS:
+            for kb, sup, cen in eng.kids(pb):
+                for tv, bv in zip(true(kb), sup):
+                    worst = max(worst, tv / bv if bv > 0 else (float('inf') if tv > 0 else 0.0))
     return worst
+
+
+def contain_control(eng, parents):
+    """C1(b) (round 7, the verifier of round 6, M6-A): containment.  An enclosure over a box must contain what it
+    encloses at every point of the box, the corners included.  On eng (the real tensors and frame) and each parent:
+    (i) every enclosure box_coeffs returns during Engine.kids -- recorded as kids calls it, so the call's own arguments
+    are tested -- must contain point_coeffs at the 8 corners of its child box, for every field and every |beta| <= Q + 2;
+    (ii) every Taylor coefficient (|m| <= Q) of each child's box-path frame output (box_coeffs, inputs(..., box=True),
+    the frame, as kids computes it) must contain the same coefficient of the point-path frame output at each corner.
+    Returns ((checks, failures) of (i), (checks, failures) of (ii))."""
+    Q = R5.Q
+    rec = []
+    orig = R5.box_coeffs
+
+    def recording(pt, l1, h, order):
+        out = orig(pt, l1, h, order)
+        rec.append(out)
+        return out
+    n1 = f1 = n2 = f2 = 0
+    R5.box_coeffs = recording
+    try:
+        for pb in parents:
+            rec.clear()
+            eng.trace = []
+            eng.kids(pb)
+            trace, eng.trace = eng.trace, None
+            tc0, ht0, sc0, hs0, xc0, hx0 = pb
+            T, S, X = ([c0 - h0, c0, c0 + h0] for c0, h0 in ((tc0, ht0), (sc0, hs0), (xc0, hx0)))
+            pcs = {f: R5.point_coeffs(eng.cache[f][0], T, S, X, Q + 3) for f in R5.RS.NAMES}
+            for f, fb in zip(R5.RS.NAMES, rec):
+                for beta, arr in fb.items():
+                    for p, q, r in itertools.product(range(2), range(2), range(2)):
+                        for a, b_, c in itertools.product((p, p + 1), (q, q + 1), (r, r + 1)):
+                            n1 += 1
+                            f1 += not arr[p, q, r].contains(pcs[f][beta][a, b_, c])
+            corner = {}
+            for a, b_, c in itertools.product(range(3), range(3), range(3)):
+                jp = {f: R5.field_jet({k: v for k, v in pcs[f].items() if sum(k) <= Q + 2}, a, b_, c)
+                      for f in R5.RS.NAMES}
+                ip = R5.inputs(jp, eng.g, arb(T[a]), S[b_], arb(X[c]), False)
+                corner[(a, b_, c)] = eng.frame(*[ip[k] for k in eng.names])
+            for (p, q, r), vb in trace:
+                for a, b_, c in itertools.product((p, p + 1), (q, q + 1), (r, r + 1)):
+                    vc = corner[(a, b_, c)]
+                    for k8 in range(len(vb)):
+                        for i in range(R5.NM):
+                            n2 += 1
+                            f2 += not vb[k8].c[i].contains(vc[k8].c[i])
+    finally:
+        R5.box_coeffs = orig
+        eng.trace = None
+    return (n1, f1), (n2, f2)
+
+
+CONTAIN_PARENTS = [(-0.375, 0.125, -0.375, 0.125, 0.0625, 0.0625), (-0.37, 0.0156, -0.21, 0.0156, 0.1, 0.0078)]
 
 
 def collect(W, tau):
@@ -318,12 +408,22 @@ def collect(W, tau):
     k_real = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm), g)
     k_mut = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm, drop_remainder=True), g)
     c1 = w_real <= 1.0 and w_mut > 1.0 and k_real <= 1.0 + 1e-12 and k_mut > 1.0
-    print('C1 (control, round 6: END TO END through Engine.kids) test fields t^4 and x^4 and eight signed combinations '
-          'on the children of %d parent boxes (half-widths 0.005-0.25), exact sups known: largest true/bound %.10f '
-          '(must be <= 1); the same with the remainder dropped: %.4f (must exceed 1); and Engine.bound alone on the '
-          'round-5 test polynomials: %.4f and %.4f -> %s' % (
+    print('C1 (control, rounds 6-7: END TO END through Engine.kids) test fields t^4, sig^4, the field x^4 and the '
+          'coordinate x^4, in sixteen signed combinations and products across directions, on the children of %d parent '
+          'boxes (children\'s half-widths 0.005-0.25), exact sups known: largest true/bound %.10f (must be <= 1); the '
+          'same with the remainder dropped: %.4f (must exceed 1); and Engine.bound alone on the round-5 test '
+          'polynomials: %.4f and %.4f -> %s' % (
               len(KIDS_PARENTS), k_real, k_mut, w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else
               'BAD'))
+    t1 = time.time()
+    (n1, f1), (n2, f2) = contain_control(Engine(C3, g, frame, names), CONTAIN_PARENTS)
+    c1b = n1 > 0 and n2 > 0 and f1 == 0 and f2 == 0
+    print('C1(b) (control, round 7: containment, on the pinned tensors and the frame, %d parents) box_coeffs\' '
+          'enclosures against point_coeffs at their boxes\' corners: %d checks, %d not contained; the box-path frame '
+          'output\'s Taylor coefficients against the point path\'s at the corners: %d checks, %d not contained -> %s '
+          '(%.0f s)' % (len(CONTAIN_PARENTS), n1, f1, n2, f2, 'every enclosure contains its corners (good)' if c1b
+                        else 'BAD', time.time() - t1))
+    c1 = c1 and c1b
     t4 = time.time()
     worst, viol, npts = box_gate(C3, g, frame, names, acc)
     d4 = viol == 0
