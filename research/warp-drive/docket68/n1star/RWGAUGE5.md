@@ -19,9 +19,9 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   for any tau, nor the same with the L^2 norm of r^-1 h(e_a, e_b) along the leaf.
 - **The angular components and the tensor type settle uniformly in r**, and the orbit-space components do with the
   weight r^(-1/2), which is the exact growth: r^(-1/2)|h(e_a, e_b)| + r^(1/2)|h(e_i, e_j)| <= C delta^(-1/2) D^(1/2)
-  tau^(-1/2 + delta) on every leaf, uniformly in r >= R_1 and in l; with one more power, r^-1 |h(e_a, e_b)| + |h(e_i,
-  e_j)| <= C D^(1/2) tau^-1; and the L^2 norm along the leaf of r^(-3/2) h(e_a, e_b) and r^(-1/2) h(e_i, e_j) decays
-  at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated; every
+  tau^(delta - 1/2) on every leaf, uniformly in r >= R_1 and in l; with one more power, r^-1 |h(e_a, e_b)| + |h(e_i,
+  e_j)| <= C D^(1/2) tau^-1; and the squared L^2 norm along the leaf of r^(-3/2) h(e_a, e_b) and r^(-1/2) h(e_i, e_j)
+  decays at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated; every
   coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
   and the rotations. The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
 
@@ -93,8 +93,8 @@ with the 0's attained by T^2 P in h(e0, e0) and by TP in 2F. On r >= R_1 > r_h, 
 r^(-1/2) h(e_a, e_b) and r^(1/2) h(e_i, e_j) are bounded by the jets with weights r^beta, uniformly in r >= R_1 and in
 l (H >= 5, H <= (11/8) k^2).
 
-(The full table, coefficient by coefficient, is printed by U4 in `checks/rwgauge5u.out`. In h(e0, e0) the d_r TP terms
-cancel once d_r^2 P is eliminated.)
+(The full table, coefficient by coefficient, is printed by U4 in `checks/rwgauge5u.out`. Once d_r^2 P is eliminated,
+d_r TP survives only in h(e0, e1).)
 
 ## 3. Theorem 1: it fails uniformly in r
 
@@ -279,13 +279,14 @@ in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ 
 as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
 (supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, along the
 outgoing part of [HKW18]'s leaves, the orbit-space components of the scalar type grow as r^(1/2): for every leaf there
-is a single-mode perturbation of the class with finite [HKW18] data of every order whose component h(e_0, e_0) is
-B r^(1/2) f^(−1) S there, f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed exactly). With
-that weight they settle too, and the angular components and the tensor type settle without it: r^(−1/2)|h(e_a, e_b)|
-and r^(1/2)|h(e_i, e_j)| decay as τ^(−1/2+δ), r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), uniformly in r and l,
-and the norms along the leaf of r^(−3/2) h(e_a, e_b) and r^(−1/2) h(e_i, e_j) at [HKW18]'s rate, for data with two
-more commutations with T and the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every
-exponent and coefficient computed). The exponents 1/2 of the weights are attained, so they cannot be improved.
+is a single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
+B r^(1/2) f^(−1) S on that leaf, f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed
+exactly). With that weight they settle, and the angular components and the tensor type settle without it: on r ≥ R_1,
+r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2), r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1),
+and the squared L² norms along the leaf of r^(−3/2) h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate,
+all uniformly in r and l, for data with two more commutations with T and the rotations (Theorem 2, proved from
+[HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent computed). The powers r^(±1/2) are attained, so
+the weights cannot be improved.
 ```
 
 ## 7. Files

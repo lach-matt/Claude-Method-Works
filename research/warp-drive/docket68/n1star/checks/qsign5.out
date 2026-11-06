@@ -13,3 +13,7 @@ Q3 (computed) Gamma > 0 on Part I's seed region; psi_P = 0 on the gap and outsid
    converged (min Gamma/E^2 to 1%): True; psi_P = 0 outside the packet to discretisation (falling with n; exact by twobg5 G1 (b)): True
 Q3 PASS
 Q4 (computed) the bound on explicit seeds, with and without ds1
+   99 seeds (45 stream seeds as racglobal5 R4, 54 with ds1, three bands, one inside the horizon): Q < 0 for every one: True; |Q - int decomposition|/|Q| <= 1.2e-06; Q <= -int Gamma psi^2/sin 2th for every seed with psi != 0: True (closest: Q/|bound| = -2795.727, stream seed, band (0.75, 1.75), m = 6)
+   control: the decomposition without -Gamma psi^2/sin 2th misses Q by 0.0 % (rejected): False
+Q4 FAIL
+Q5 (exact) the KID (N_s, 2 Y_s), its pairing with Vaidya's constraint map, and the dust's sign

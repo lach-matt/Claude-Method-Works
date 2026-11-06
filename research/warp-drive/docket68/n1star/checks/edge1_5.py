@@ -9,54 +9,54 @@ the A-linear part U1 of Proposition 6.5's correction.  On the deep layer the hor
 terms: the stage term lam^3 A nu d env (Theorem L's) and a term carried by U1, which grows like lam^(N+1)
 env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program computes the pieces of that formula.
 
-  E1 (exact, every component) The characteristic form of the seed's linearised reduced operator in (v, r): with P :=
+  X1 (exact, every component) The characteristic form of the seed's linearised reduced operator in (v, r): with P :=
      i T (T of layerlin5's table) and L := d_v + (F/2) d_r (the outgoing null direction), dRic^H(h) + P(L h) contains
      no v-derivative and no second r-derivative (Q~ below), for every T^2 x Z2 x Z2-invariant h.  So along ell, P(L h)
      = Q~ h + source, and at the horizon L = d_v.  Control: L with F/4 in place of F/2 leaves d_r^2 terms.
-  E2 (exact) The outgoing form: in the outgoing coordinates (u, r), g0 = -F du^2 - 2 du dr + r^2 sigma, dRic^H(h) has
+  X2 (exact) The outgoing form: in the outgoing coordinates (u, r), g0 = -F du^2 - 2 du dr + r^2 sigma, dRic^H(h) has
      no d_u^2 and no d_u d_th, d_u d_phi terms (it is -P' d_u h + Q' h with P' of first order in r and Q' free of
      d_u): a leading outgoing solution e^(i psi(u)/lam) chi(u) c0(r; u), P' c0 = 0, has residual e^(i psi/lam) Q'(chi
      c0), free of 1/lam.  Control: in the Kerr-Schild (tau, r), where g0^-1(dtau, dtau) != 0, d_tau^2 terms occur.
-  E3 (exact) The leading projection and transport: on Sigma the null covectors with tangential part s dr are s dtau
+  X3 (exact) The leading projection and transport: on Sigma the null covectors with tangential part s dr are s dtau
      (ingoing) and -F s/(2 - F) dtau (outgoing); the ingoing amplitude of data (X, Xdot) is (F X + (2 - F) Xdot/s)/2 =
      (L X)/s; and the T = 0 transport of the scalar sector (vv, vr, rr) from r0 to sqrt(mu0) gives H_vv(sqrt mu0) =
      mu0^(-3/4) r0^(3/2) [X_vv + F(r0) X_vr + F(r0)^2 X_rr/4] (closed form checked against T's table).  Control: the
      transport with the vv mass coupling dropped does not solve T = 0.
-  E4 (exact) The first-degree constraint residual, rho component: for a covector field D = e^(i v/lam) (E1(v) f(r)
+  X4 (exact) The first-degree constraint residual, rho component: for a covector field D = e^(i v/lam) (E1(v) f(r)
      tau(th) dth + E0(v) d(th) (p(r) dv + q(r) dr)), 2 Gt(S(D))(n, n) has no s E1 term (s E := E' + i E/lam), its E1
      coefficient is f d/r^2 (d := (cos sin)^-1 d_th(cos sin tau)) and its s E0 coefficient d (2 (n.dv) D0(n) +
-     g0^-1(dv, D0)); with the families of D_X H_(N+1) on Sigma (E5) it is lam^(N+1) i^N A d r0^(-7/2) [env^(N) - c_N
+     g0^-1(dv, D0)); with the families of D_X H_(N+1) on Sigma (X5) it is lam^(N+1) i^N A d r0^(-7/2) [env^(N) - c_N
      s env^(N-1)], c_N := N mu0/(r0^2 + mu0).  Control: S(D) in place of Gt(S(D)) breaks the formula.
-  E5 (exact) The families on Sigma: from L.13 (b) and the data rule i Pol(H_(m+1)) = -D_X H_m on Sigma, the scalar
+  X5 (exact) The families on Sigma: from L.13 (b) and the data rule i Pol(H_(m+1)) = -D_X H_m on Sigma, the scalar
      part of the next-to-top family of D_X H_(N+1) is N i^(N-1) q(c_20)_sc, q(c_20)_sc = i A d (r^(-5/2) beta, r^(-7/2))
      (layerlin5 N4, READ), and its top family is i^N A tau r^(-3/2) dth (layerlin5 N3, READ); recursion checked N = 2
      ... 40.  Control: the data rule without its factor i gives a different count.
-  E6 (exact) alpha, the d_r a coefficient of the scalar constraint at the Kerr-Schild data, in the direction a dr dr:
+  X6 (exact) alpha, the d_r a coefficient of the scalar constraint at the Kerr-Schild data, in the direction a dr dr:
      3 r^3/(r^2 + mu)^2, with no d_r^2 a (Lemma 6.3, recomputed).  Control: the conformal direction a gamma has d_r^2 a.
-  E7 (exact) The data that U1's scalar part a gives on Sigma (spatial part a dr dr; d_tau of it from K fixed; d_tau of
+  X7 (exact) The data that U1's scalar part a gives on Sigma (spatial part a dr dr; d_tau of it from K fixed; d_tau of
      lapse and shift from D = 0), read with g_(tau mu) kept (reading 1) or with the ADM lapse and shift vector kept
      (reading 2): their ingoing amplitude, transported, gives H_vv(sqrt mu0) = K_R a with K_R = mu0^(-3/4) r0^(-5/2)
      (r0^2 - mu0)^2/4 (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0, and K_R does not depend on the
      d_tau gamma_rr datum at all (D = 0 fixes the combination that reaches the horizon; so neither K's sign
      convention nor the shift term enters).  Control: D = 0 without its trace term changes K_R in both readings.
-  E8 (exact) Xi(T) := [(1 - c) T - i c]/(T + i), T := lam kappa: |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1) >= min(c^2,
+  X8 (exact) Xi(T) := [(1 - c) T - i c]/(T + i), T := lam kappa: |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1) >= min(c^2,
      (1 - c)^2), zero only as T -> infinity at c = 1; Xi = -c - i T + O(T^2); where the two real leading coefficients
      cancel, the quadrature part is T nu (2 - 1/c) (either relative sign), zero only at c = 1/2.  Control: a sign
      slip in Xi's numerator breaks the lower bound.
-  E9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 4000 random amplitudes, in both cases
+  X9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 4000 random amplitudes, in both cases
      (|S| large with slowly varying phase; |S'| large with a zero inside the window).  Control: |S'| below the bound
      with an adversarial epsilon gives a window with one sign.
-  E10 (computed, mpmath, sampled) The hypothesis (H_N) of Theorem L_1E for exp(-1/x) and the record's C_c^inf
+  X10 (computed, mpmath, sampled) The hypothesis (H_N) of Theorem L_1E for exp(-1/x) and the record's C_c^inf
      envelope: env^(k), k <= 12, positive and log-concave on x = v - v_s <= 10^-2 with kappa_k/kappa in (1/2, 2) and
      |kappa_k'| <= c kappa_k^(3/2) (at x = 10^-1.5 it fails for k >= 7, resp. 10: x0' depends on N).  Control: sin^4
      (the solver's envelope, not flat) violates it.
-  E11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
+  X11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
      nu = -1/9, Gamma = 1, r0 = 3: S(v) = nu env (1 + 2 i lam kappa) - i^N Xi lam^(N-2) env^(N-1) (exact derivatives,
      exact Xi) for N = 9 (quadrature) and N = 12 (the real parts cancel at the crossover), over 2400 windows from
      env = lam^4 to x = 0.2 lam^(1/2): every window has both signs of -Re[S e^(i v/lam)] - m0 +- D2.  Control: D2
      multiplied by lam^-8 leaves windows with one sign.
 
-Labels: E1-E8 computed (exact, sympy); E9, E10 computed, sampled; E11 computed (mpmath), a model with unit constants.
+Labels: X1-X8 computed (exact, sympy); X9, X10 computed, sampled; X11 computed (mpmath), a model with unit constants.
 Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about 15 minutes)
 """
 import os
@@ -94,7 +94,7 @@ def ders(e, bad_if):
     return res
 
 
-# ------------------------------------------------------------------------------------------------------------ E1
+# ------------------------------------------------------------------------------------------------------------ X1
 CACHE = {}
 
 
@@ -113,12 +113,12 @@ def e1(control=False):
                 bad.append((i, j, nm, vc))
     if control:
         return not bad
-    out("  E1 dRic^H(h) + P(L h), L = d_v + (F/2) d_r, P = i T: v-derivatives or d_r^2 in any of the 15 components:"
+    out("  X1 dRic^H(h) + P(L h), L = d_v + (F/2) d_r, P = i T: v-derivatives or d_r^2 in any of the 15 components:"
         " %s  [%.0f s]" % (bad or "none", time.time() - T0))
     return not bad
 
 
-# ------------------------------------------------------------------------------------------------------------ E2
+# ------------------------------------------------------------------------------------------------------------ X2
 def ops_metric(g, X, H):
     """dRic^H of h = H (no phase) for the background g in the coordinates X (wave-map gauge relative to g)"""
     n = len(X)
@@ -167,12 +167,12 @@ def e2(control=False):
                 bad.append((i, j, nm, vc))
     if control:
         return not bad
-    out("  E2 outgoing (u, r): d_u^2 or d_u d_th terms in dRic^H (15 components): %s  [%.0f s]"
+    out("  X2 outgoing (u, r): d_u^2 or d_u d_th terms in dRic^H (15 components): %s  [%.0f s]"
         % (bad or "none", time.time() - T0))
     return not bad
 
 
-# ------------------------------------------------------------------------------------------------------------ E3
+# ------------------------------------------------------------------------------------------------------------ X3
 r_, mu_ = sp.symbols('r mu', positive=True)
 F_ = 1 - mu_/r_**2
 
@@ -212,13 +212,13 @@ def e3(control=False):
     sat = all(sp.simplify(e) == 0 for e in eq)
     if control:
         return sat
-    out("  E3 null covectors on Sigma: s dtau and -F s/(2 - F) dtau: %s; ingoing amplitude (F X + (2 - F) Xdot/s)/2: %s;"
+    out("  X3 null covectors on Sigma: s dtau and -F s/(2 - F) dtau: %s; ingoing amplitude (F X + (2 - F) Xdot/s)/2: %s;"
         " = (L X)/s: %s; transport closed form solves T = 0 (vv, vr, rr): %s; H_vv(sqrt mu) = %s" % (
             ok_roots, proj, projL, sat, sp.factor(hvv_h)))
     return ok_roots and proj and projL and sat
 
 
-# ------------------------------------------------------------------------------------------------------------ E4
+# ------------------------------------------------------------------------------------------------------------ X4
 def e4(control=False):
     v, r, th, lam, A, mu0 = L.v, L.r, L.th, L.lam, L.A, L.mu0
     g, gi, Gam, n = L.g, L.gi, L.Gam, L.n
@@ -246,7 +246,7 @@ def e4(control=False):
     cs1 = sp.simplify(rho.coeff(e1d))                       # coefficient of s E1
     c1 = sp.simplify(rho.coeff(e1s) - I/lam*cs1)            # E1 alone
     cs0 = sp.simplify(rho.coeff(e0d))                       # coefficient of s E0
-    # the families (E5): f = i^N A r^(-3/2), (p, q) = N i^N A (r^(-5/2) beta(r0), r^(-7/2)), beta(r0) = -1/(2 r0),
+    # the families (X5): f = i^N A r^(-3/2), (p, q) = N i^N A (r^(-5/2) beta(r0), r^(-7/2)), beta(r0) = -1/(2 r0),
     # evaluated on Sigma (r = r0); E1 = env^(N), E0 = env^(N-1)
     N = sp.Symbol('N', positive=True)
     fam = {f: I**N*A*r**sp.Rational(-3, 2), p: N*I**N*A*r**sp.Rational(-7, 2)*sp.Rational(-1, 2),
@@ -258,13 +258,13 @@ def e4(control=False):
     ok = (sp.simplify(cs1) == 0 and sp.simplify(c1f - want1) == 0 and sp.simplify(cs0f - want0) == 0)
     if control:
         return ok
-    out("  E4 n unit and normal to Sigma: %s; 2 Gt(S(D))(n, n): s E1 coefficient %s; E1 coefficient with the families"
+    out("  X4 n unit and normal to Sigma: %s; 2 Gt(S(D))(n, n): s E1 coefficient %s; E1 coefficient with the families"
         " %s; s E0 coefficient %s; equal to i^N A d r^(-7/2) [E1 - c_N s E0], c_N = N mu0/(r^2 + mu0): %s"
         % (unit, sp.simplify(cs1), sp.factor(c1f), sp.factor(cs0f), ok))
     return unit and ok
 
 
-# ------------------------------------------------------------------------------------------------------------ E5
+# ------------------------------------------------------------------------------------------------------------ X5
 def e5(control=False):
     Q = sp.Symbol('Q')
     ok = True
@@ -280,13 +280,13 @@ def e5(control=False):
             rows.append("N = %d: %s" % (N, sp.simplify(x)))
     if control:
         return ok
-    out("  E5 scalar part of the next-to-top family of D_X H_(N+1) on Sigma = N i^(N-1) q(c_20)_sc for N = 2..40: %s"
+    out("  X5 scalar part of the next-to-top family of D_X H_(N+1) on Sigma = N i^(N-1) q(c_20)_sc for N = 2..40: %s"
         " (%s); top family i^N A tau r^(-3/2) dth (from H_2, rth = i A E tau r^(-3/2): layerlin5 N3, READ)"
         % (ok, "; ".join(rows)))
     return ok
 
 
-# ------------------------------------------------------------------------------------------------------------ E6
+# ------------------------------------------------------------------------------------------------------------ X6
 def e6(control=False):
     r, th, p1, p2 = sp.symbols('r theta phi1 phi2', positive=True)
     mu, eps = sp.symbols('mu epsilon', positive=True)
@@ -324,12 +324,12 @@ def e6(control=False):
     if control:
         return arr == 0
     ok = arr == 0 and sp.simplify(ar - 3*r**3/(r**2 + mu)**2) == 0
-    out("  E6 scalar constraint at the Kerr-Schild data, direction a dr dr: d_r^2 a coefficient %s, d_r a coefficient"
+    out("  X6 scalar constraint at the Kerr-Schild data, direction a dr dr: d_r^2 a coefficient %s, d_r a coefficient"
         " %s (= 3 r^3/(r^2 + mu)^2: %s)  [%.0f s]" % (arr, sp.factor(ar), ok, time.time() - T0))
     return ok
 
 
-# ------------------------------------------------------------------------------------------------------------ E7
+# ------------------------------------------------------------------------------------------------------------ X7
 def chain(reading, shift=True, trace=True):
     a, s = sp.symbols('a s')
     r, mu = r_, mu_
@@ -370,14 +370,14 @@ def e7(control=False):
         res[k] = (Xin, KR, sp.simplify(KR - want[k]) == 0)
         free &= sp.simplify(chain(k, shift=Zs)[1] - KR) == 0       # any d_tau gamma_rr datum Z gives the same K_R
     ok = all(v_[2] for v_ in res.values()) and free
-    out("  E7 the ingoing amplitude of U1's scalar data (vv, vr, rr) per unit a and K_R = H_vv(sqrt mu0)/a: reading 1"
+    out("  X7 the ingoing amplitude of U1's scalar data (vv, vr, rr) per unit a and K_R = H_vv(sqrt mu0)/a: reading 1"
         " (g_(tau mu) kept): %s, K_R = %s; reading 2 (ADM lapse and shift vector kept): %s, K_R = %s; both as claimed"
         " and positive for r0 > sqrt(mu0): %s; K_R does not depend on the d_tau gamma_rr datum (any Z): %s"
         % ([sp.factor(x) for x in res[1][0]], res[1][1], [sp.factor(x) for x in res[2][0]], res[2][1], ok, free))
     return ok
 
 
-# ------------------------------------------------------------------------------------------------------------ E8
+# ------------------------------------------------------------------------------------------------------------ X8
 def e8(control=False):
     T, c, nu = sp.symbols('T c nu', positive=True)
     Xi = ((1 - c)*T - I*c)/(T + I) if not control else ((1 - c)*T + I*c)/(T - 2*I)
@@ -395,13 +395,13 @@ def e8(control=False):
     G, Lm = sp.symbols('G Lambda', positive=True)
     q1 = sp.simplify((2*T*nu + T*G*Lm).subs(G*Lm, -nu/c).subs(G, -nu/(c*Lm)) - T*nu*(2 - 1/c)) == 0
     q2 = sp.simplify((2*T*nu - T*G*Lm).subs(G, nu/(c*Lm)) - T*nu*(2 - 1/c)) == 0
-    out("  E8 |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1): %s, a weighted mean of (1 - c)^2 and c^2: %s (so >= min: %s);"
+    out("  X8 |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1): %s, a weighted mean of (1 - c)^2 and c^2: %s (so >= min: %s);"
         " Xi = -c - i T + O(T^2): %s; at a real cancellation the quadrature part is T nu (2 - 1/c), both signs: %s"
         % (form, wm, lower, ser, q1 and q2))
     return form and wm and lower and ser and q1 and q2
 
 
-# ------------------------------------------------------------------------------------------------------------ E9
+# ------------------------------------------------------------------------------------------------------------ X9
 def lemma_w(S0, S1, S2, eps, lam=1.0, pts=4000):
     """does f(t) = Re[(S0 + S1 t + S2 t^2/2) e^(i t/lam)] + eps(t) take both signs on [0, 4 pi lam]?"""
     import cmath
@@ -443,12 +443,12 @@ def e9(control=False):
             fails += 1
     if control:
         return fails == 0
-    out("  E9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows"
+    out("  X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows"
         " with one sign only: %d" % fails)
     return fails == 0
 
 
-# ------------------------------------------------------------------------------------------------------------ E10
+# ------------------------------------------------------------------------------------------------------------ X10
 def rec_ell(x):
     t = 2*x/3
     return 12*mp.log(mp.sin(mp.pi*t/2)) + 1 - 1/(t*(2 - t))
@@ -484,11 +484,11 @@ def e10(control=False):
                     "kappa_k^(3/2) = %s" % (nm, [mp.nstr(x, 2) for x in xs], mp.nstr(worst, 3)))
     if control:
         return ok
-    out("  E10 hypothesis (H_N) sampled: " + "; ".join(rows) + ": %s" % ok)
+    out("  X10 hypothesis (H_N) sampled: " + "; ".join(rows) + ": %s" % ok)
     return ok
 
 
-# ------------------------------------------------------------------------------------------------------------ E11
+# ------------------------------------------------------------------------------------------------------------ X11
 def e11(control=False):
     mp.mp.dps = 50
     lam = mp.mpf(10)**-6
@@ -534,15 +534,15 @@ def e11(control=False):
         ok &= bad == 0
     if control:
         return ok
-    out("  E11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); "
+    out("  X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); "
         "values per env): " + "; ".join(worst) + "  [%.0f s]" % (time.time() - T0))
     return ok
 
 
 def main():
     ok = True
-    for name, f in (("E1", e1), ("E2", e2), ("E3", e3), ("E4", e4), ("E5", e5), ("E6", e6), ("E7", e7), ("E8", e8),
-                    ("E9", e9), ("E10", e10), ("E11", e11)):
+    for name, f in (("X1", e1), ("X2", e2), ("X3", e3), ("X4", e4), ("X5", e5), ("X6", e6), ("X7", e7), ("X8", e8),
+                    ("X9", e9), ("X10", e10), ("X11", e11)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))

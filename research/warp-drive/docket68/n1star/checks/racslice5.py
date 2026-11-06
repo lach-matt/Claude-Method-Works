@@ -15,15 +15,16 @@ equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
      round slice (V' > 0, E V' f < 2): bending the slice toward the future raises kappa'. Control (must fail): the
      same formula with the Christoffel term dropped does not reduce to B2.
   S2 (computed, floating point; twobg5's background at n = 80 and 160) the slice Sigma' = {vhat - R - phi(R) = tau0},
-     phi = -A b(R; Rc - w, Rc + w) (b the C-infinity bump, A = 0.02, Rc = 4.41, w = 0.5), equal to Sigma_tau0 outside
-     R in [3.91, 4.91]: spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and kappa' K'^l_l
+     phi'' = A (b(R; 4.1, 4.7) - l1 b(R; 3.0, 4.0) - l2 b(R; 4.85, 5.75)) (b the C-infinity bump, A = 0.01, l1, l2 fixed
+     by the zeroth and first moments so that phi and phi' vanish outside [3.0, 5.75]): Sigma' equals Sigma_tau0 outside
+     R in [3.0, 5.75], is spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and kappa' K'^l_l
      < 0 at every slice point of Sigma' in Omega_2 (R from a to the grid's edge): Racz's split is hyperbolic on the
-     whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). Controls (must fail): A = 0 (Sigma_tau0
-     itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens the band.
-  S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.91, 4.91]} with time thickness <= A in tau, so
-     the domain of influence of a perturbation's support, carried from Sigma' to Sigma_tau0, widens its angular support
-     by at most A/R_min (R |dOmega/dtau| <= 1, augment5 S7): printed. The lens is inside the computed domain (every
-     slice point of Sigma' is a grid crossing).
+     whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). Controls (must fail): A = 0
+     (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens it.
+  S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.0, 5.75]} with time thickness max |phi| in tau,
+     so the domain of influence of a perturbation's support, carried from Sigma' to Sigma_tau0, widens its angular
+     support by at most max |phi|/R_min (R |dOmega/dtau| <= 1, augment5 S7): printed. The lens is inside the computed
+     domain (every slice point of Sigma' is a grid crossing).
 
 Labels: computed (S1 exact; S2, S3 floating point). Run: python3 checks/racslice5.py   (a few minutes)
 """
@@ -37,7 +38,8 @@ import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-A_DEF, RC, W = 0.02, 4.41, 0.5
+A_DEF = 0.01
+P_IV, L_IV, R_IV = (4.1, 4.7), (3.0, 4.0), (4.85, 5.75)
 
 
 def load(name):
@@ -114,7 +116,20 @@ def bumpd(x, a, b):
     return out
 
 
-def crossing(tb, bgd, A, Rc=RC, w=W):
+def make_phi(A):
+    """phi, phi', phi'' on a fine grid: phi'' a bump over the band minus two bumps, moments balanced."""
+    from scipy.integrate import cumulative_trapezoid
+    x = np.linspace(2.9, 5.9, 30001)
+    bP, bL, bR = [bumpd(x, *iv)[0] for iv in (P_IV, L_IV, R_IV)]
+    I = lambda y: np.trapezoid(y, x)                                          # noqa: E731
+    lam = np.linalg.solve(np.array([[I(bL), I(bR)], [I(x * bL), I(x * bR)]]), np.array([I(bP), I(x * bP)]))
+    pp = A * (bP - lam[0] * bL - lam[1] * bR)
+    p1 = cumulative_trapezoid(pp, x, initial=0)
+    p0 = cumulative_trapezoid(p1, x, initial=0)
+    return x, p0, p1, pp, lam
+
+
+def crossing(tb, bgd, A):
     uu, vv, R, S, Ru, Rv, mu = bgd
     dv = vv[1] - vv[0]
     vhp = -np.exp(2 * S[0]) / Ru[0]
@@ -124,11 +139,12 @@ def crossing(tb, bgd, A, Rc=RC, w=W):
     B = tb.BAMP * tb.sbump(uu, tb.U1P, tb.U2P)
     Sv = np.gradient(S, dv, axis=1, edge_order=2)
     lvpp = np.gradient(np.log(vhp), dv, edge_order=2)
+    x, p0, p1, pp, _ = make_phi(A)
+    ph = lambda r, arr: np.interp(r, x, arr, left=0.0, right=0.0)         # noqa: E731
     out = []
     for i in range(len(uu)):
         Ri = R[i]
-        b0, b1, b2 = bumpd(Ri, Rc - w, Rc + w)
-        tau = vh - Ri + A * b0                                         # vhat - R - phi(R), phi = -A b
+        tau = vh - Ri - ph(Ri, p0)                                     # vhat - R - phi(R)
         m = np.isfinite(tau)
         if not m.any():
             continue
@@ -154,9 +170,8 @@ def crossing(tb, bgd, A, Rc=RC, w=W):
         mu_v = -(2 / 3) * a_ * np.exp(-2 * s) * ru
         mu_R, mu_vh = mu_u / ru, (mu_v - rv / ru * mu_u) / vp
         fR, fv = 2 * M / Rr**3 - mu_R / Rr**2, -mu_vh / Rr**2
-        c0, c1, c2 = bumpd(np.array([Rr]), Rc - w, Rc + w)
-        V1, V2 = 1 - A * c1[0], -A * c2[0]
-        out.append((Rr, E, f, psi_R, psi_vh, fR, fv, V1, V2, A * c0[0]))
+        V1, V2 = 1 + ph(Rr, p1), ph(Rr, pp)
+        out.append((Rr, E, f, psi_R, psi_vh, fR, fv, V1, V2, ph(Rr, p0)))
     return np.array(out)
 
 
@@ -200,13 +215,13 @@ def s3(store):
     print("S3 (computed) the lens between Sigma' and Sigma_tau0, and the angular widening it causes")
     o = store[(160, A_DEF)]
     Rr, dt = o[:, 0], o[:, 9]
-    inlens = dt > 1e-12
+    inlens = np.abs(dt) > 1e-12
     rmin, rmax = float(Rr[inlens].min()), float(Rr[inlens].max())
-    thick = float(dt.max())
+    thick = float(np.abs(dt).max())
     spread = thick / rmin
-    ok = rmin >= RC - W - 1e-9 and rmax <= RC + W + 1e-9 and thick <= A_DEF + 1e-12
-    print("   the lens: R in [%.3f, %.3f] (inside [%.2f, %.2f]), thickness %.4f <= A in tau; angular widening <= "
-          "A/R_min = %.4f rad: %s" % (rmin, rmax, RC - W, RC + W, thick, spread, ok))
+    ok = rmin >= L_IV[0] - 1e-9 and rmax <= R_IV[1] + 1e-9 and thick < 0.01
+    print("   the lens: R in [%.3f, %.3f] (inside [%.2f, %.2f]), thickness %.5f in tau; angular widening <= "
+          "max |phi|/R_min = %.5f rad: %s" % (rmin, rmax, L_IV[0], R_IV[1], thick, spread, ok))
     return ok
 
 
