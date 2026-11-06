@@ -42,8 +42,8 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
       the computed spline (qsign5, n = 160) is within intcert5 C1d's tube of the true psi_III: certified bounds on sup
       |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2 (point rays at the cell ends, centred forms with the cells' enclosures
       for k = 0, 1, the cells' enclosures for k = 2) and on |mu3 - mu0|, all within C1d's d and d mu. C1d certifies
-      Gamma > 0 for every background in the tube, so for this one. Control: with B's amplitude x 1.001 in the reduction,
-      the spline is farther from it than that agreement.
+      Gamma > 0 for every background in the tube, so for this one. Controls: with B's amplitude x 1.001 in the reduction,
+      the spline is farther from it than that agreement; [R8] the tube shrunk to d/10 does not contain the background.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
@@ -63,6 +63,7 @@ import os
 import sys
 import time
 
+import mpmath
 import numpy as np
 import sympy as sp
 from mpmath import iv
@@ -94,6 +95,11 @@ UE = [U1 + k * (U2 - U1) / NST for k in range(NST)] + [U2]      # float step edg
 
 def mag(x):
     return max(abs(float(x.a)), abs(float(x.b)))
+
+
+def magI(x):
+    """max |x| over the interval x, exactly (an mpf endpoint, no rounding)"""
+    return max(abs(x.a), abs(x.b))
 
 
 def sub(x, y):
@@ -477,37 +483,44 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     bracket = s_lo == 1 and s_hi == -1
     ru2 = I(lo_, hi_) - T0
     # every slice point with vhat <= lo_ is in region III (g decreasing, g(lo_) > 0): the seed region is, if vb <= lo_
-    reg3, sup, cellw = slope_ok and bracket and vb <= lo_, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
+    reg3, sup = slope_ok and bracket and vb <= lo_, [mpmath.mpf(0)] * 3
     for a, b in cells:
         a_, b_ = max(a, va), min(b, vb)
-        Rs = I(a_, b_) - T0
         R1, Y2 = cache[(a, b)]
         p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
         reg3 &= bool(f3.a > 0)
         svc = spline_enclose(sp160, I(a_, b_))
         ec = [svc[k] - y for k, y in enumerate((p0, p1, p2))]       # e^(k) on the cell (cell variation included)
-        h = float((I(b_) - I(a_)).b)
-        # centred forms from both ends: |e(x)| <= |e(end)| + h sup|e'|, |e'(x)| <= |e'(end)| + h sup|e''|
-        b0 = min(mag(pe[a_][0]), mag(pe[b_][0])) + h * mag(ec[1])
-        b1 = min(mag(pe[a_][1]), mag(pe[b_][1])) + h * mag(ec[2])
-        b2 = mag(ec[2])
-        for k, v in enumerate((b0, b1, b2)):
-            sup[k] = max(sup[k], v)
-        for k in range(3):
-            cellw[k] = max(cellw[k], mag(ec[k]))
-    perr = [max(mag(pe[x][k]) for x in pts) for k in range(3)]
-    dmu_ = mag(nd.mu3 - I(bgs[160]['mu0']))
+        hI = I(b_) - I(a_)
+        # centred forms from both ends, in interval arithmetic: |e(x)| <= |e(end)| + h sup|e'|,
+        # |e'(x)| <= |e'(end)| + h sup|e''|; the bounds are upper ends of intervals (R8 nit: no float sums)
+        b0 = (iv.mpf(min(magI(pe[a_][0]), magI(pe[b_][0]))) + hI * iv.mpf(magI(ec[1]))).b
+        b1 = (iv.mpf(min(magI(pe[a_][1]), magI(pe[b_][1]))) + hI * iv.mpf(magI(ec[2]))).b
+        b2 = magI(ec[2])
+        sup = [max(x, y) for x, y in zip(sup, (b0, b1, b2))]
+    perr = [max(magI(pe[x][k]) for x in pts) for k in range(3)]
+    dmu_ = magI(nd.mu3 - I(bgs[160]['mu0']))
     inside = all(sup[k] <= d[k] for k in range(3)) and dmu_ <= dmu
+    inside10 = all(sup[k] <= d[k] / 10 for k in range(3)) and dmu_ <= dmu / 10
     print("   region III on the slice ends at R_u2 in [%.6f, %.6f] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 "
           "on every cell %s, signs certified at the bracket %s): the seed region, up to 1.861, lies in region III "
           "and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
           % (float(ru2.a), float(ru2.b), slope_ok, bracket, reg3, len(cells), len(pts), time.time() - t))
     print("   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= %.1e, %.1e, %.1e "
           "(k = 0, 1, 2) at the %d cell ends; on the whole region sup |e^(k)| <= %.1e, %.1e, %.1e (centred forms for "
-          "k = 0, 1, the cell enclosure for k = 2); |mu3 - mu0| <= %.1e" % (*perr, len(pts), *sup, dmu_))
+          "k = 0, 1, the cell enclosure for k = 2; every bound the upper end of an interval); |mu3 - mu0| <= %.1e"
+          % (*[float(x) for x in perr], len(pts), *[float(x) for x in sup], float(dmu_)))
     print("   within intcert5 C1d's tube d = %s, |d mu| <= %.0e, on which C1d certifies Gamma > 0 for R in [0.70, "
           "1.861]: %s -- so Gamma > 0 on the seed region for the background itself" %
           (d, dmu, inside))
+    # [R8 nit] the values at vhat = 0.5, n = 160, and the masses
+    R1h, Y2h = _pmap(_w_point, [0.5])[0]
+    tr5 = psi3(R1h, Y2h, nd.mu3)[0]
+    sv5 = spline_enclose(sp160, I(0.5))[0]
+    print("   at vhat = 0.5: psi_III in [%.8f, %.8f], the n = 160 spline %.8f, the n = 80 spline %.8f; mu3 in [%.8f, "
+          "%.8f], the computed mu0 (n = 160) %.8f" % (float(tr5.a), float(tr5.b), float(sv5.mid),
+                                                      float(bgs[80]['sp_psi'](0.5)), float(nd.mu3.a), float(nd.mu3.b),
+                                                      bgs[160]['mu0']))
     t0, Rs_ = bgs[160]['tau0'], np.linspace(lo, hi, 2001)
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']
     d8 = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs_) - s160.derivative(k)(t0 + Rs_)))) if k else
@@ -523,9 +536,10 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
         dd = spline_enclose(sp160, I(x))[0] - psi3(R1, Y2, nd2.mu3)[0]
         cerr = max(cerr, 0.0 if dd.a <= 0 <= dd.b else min(abs(float(dd.a)), abs(float(dd.b))))
     _W['nd'] = nd
-    print("   control: with B's amplitude x 1.001 in the reduction the spline is at least %.1e from it at the points, "
-          "more than the agreement %.1e above (rejected): %s" % (cerr, perr[0], cerr > perr[0]))
-    return reg3 and inside and cerr > perr[0]
+    print("   controls: with B's amplitude x 1.001 in the reduction the spline is at least %.1e from it at the points, "
+          "more than the agreement %.1e above (rejected): %s; [R8] the tube shrunk to d/10 and d mu/10 does not "
+          "contain the background (rejected): %s" % (cerr, float(perr[0]), cerr > perr[0], not inside10))
+    return reg3 and inside and cerr > perr[0] and not inside10
 
 
 # ---------------------------------------------------------------- T3

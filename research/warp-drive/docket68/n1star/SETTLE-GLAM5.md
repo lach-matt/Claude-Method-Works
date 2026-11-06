@@ -3306,8 +3306,8 @@ read") are superseded by R9-E, where the repair "has been read by a confirming r
 R8-E's blocks fail exactly the eight predicates round 9 adds.
 
 **Nits.**
-- (1) The paper's md5 is now b21cd7ca; it differs from 4c121081 in md5-table rows only. R9-E's old texts are located by
-  content and each occurs once in it (r6edits5 E4a).
+- (1) The paper's md5 was b21cd7ca when this round began and is 805be200 at the final run (D633); each differs from
+  4c121081 in md5-table rows only. R9-E's old texts are located by content and each occurs once in it (r6edits5 E4a).
 - (2) R8-A's 0.4520 and 0.2845 against K5's printed 0.4521 and K6's 0.2847: K5 and K6 now state and test the same
   numbers, |g - g_b0|_op <= 0.4520 (0.451961 at delta = 7/25) and <= 0.2845 r^-2 (0.2844468).
 - (3) K5 and K6 test attainment (the reader's N1, N8, one factor s dropped, survived): K5 takes delta = -sign(w) c e e^T
@@ -3339,7 +3339,18 @@ fail. It is placed in this file, where it is used; BEYOND5.md is not edited. The
 independent reader has read round 9; R9-E gives the paper's blocks for both outcomes.
 
 **The reader's surviving mutants, rerun** (its scripts or their equivalents on the round-9 code, on scratch copies;
-outputs in this round's scratch, mutout9/): @@MUT9@@
+outputs in this round's scratch, mutout9/): its r7settle5 mutants N1 and N8 (one factor s dropped in K5 and in K6) are
+killed by K5's and K6's attainment, and N9 and N10, which typed the worst direction, in their round-9 form (the worst f'
+typed as 0, without and with the drawn size 0.29) by K2'', as is N9'' (worst_fp taking the threshold's maximum); its
+other mutants N2-N7, N11 and N12, and N13 (K5's attainment along the eigenvector of largest |eigenvalue|), are killed
+too: 14 of 14 (mutout9/kmut.out). Its r6edits5 text mutants: V-X1 is killed by E1d's (r), the sign reading (round 8's
+program caught it only through E3); V-X2 and V-X3 by E1d as before; V-X4 ("- c U" -> "+ c U" in R_gamma's definition),
+which round 8's program let pass, by (r); on R9-E's blocks, P12 and P13 by E4c's status words, P14 by E4c's new
+predicate on Proposition 3.1's exceptional set, and P15-P19 (Block 1's semicolons; the stale "awaits a confirming read";
+outcome B's three proved forms) by E4c; its four E2i mutants by E2i: 16 of 16 (mutout9/textmut.out). And eight mutants
+of r9beyond5 itself, each changing one stated constant or inequality (the cone constant 2e to e/2, dv(Y_e) typed as e,
+m_Omega >= q_end + 4, the P' margin 4, a strip of width 3/2, the bound I/2, the record's integral, the sign of
+g0^-1(dt~, dt~)'s m-term), are killed: 8 of 8 (mutout9/bmut.out).
 
 ### R9-B Lemma R9.1: BEYOND5 Lemma 6.4 (iv), written out
 
@@ -3481,9 +3492,10 @@ file, word by word (`r9text5.py`).
 
 *The text for the paper* (RESPONSE-HL-5D.md, not edited here; final, superseding R5-E's to R8-E's blocks). The three old
 texts are the same in both outcomes; each is located by content and occurs exactly once in the current file (md5
-b21cd7ca at the final run), every line of the edited file is within 121 characters in either outcome, and the new
-texts state what the round-5 to round-8 readers asked, status words included (r6edits5 E4). Outcome A is for round 9 not
-yet read by an independent reader; outcome B for round 9 read and confirmed.
+805be200 at the final run, b21cd7ca when this round began, the two differing in md5-table rows only), every line of the
+edited file is within 121 characters in either outcome, and the new texts state what the round-5 to round-8 readers
+asked, status words included (r6edits5 E4). Outcome A is for round 9 not yet read by an independent reader; outcome B
+for round 9 read and confirmed.
 
 *Outcome A (round 9 not yet read).*
 
@@ -3644,20 +3656,22 @@ replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, w
 half-integer orders, is proved in section 9 (Beyond the boundary), conditional on the supplement's section 11.1, proved.
 ```
 
-Ledger (round 9). New: `r9beyond5.py` (17 checks) and `r9text5.py` (5 checks). Changed and rerun: `r7settle5.py`
-(13 checks), `r6edits5.py` (29). Every new or changed `.out` is from a full run and byte-identical on a second
-run; the other programs are unchanged and their `.out` files stand (r6sigma5 21, r6settle5 21, r5settle5 45, r5edits5 11, zinv5 3, r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks); r5edits5, which reads R5-D and imports
-r6edits5, was rerun after this round's last edit of the file: its `.out` unchanged. Deduced: Lemma R9.1. READ:
-PART-VII-ASSEMBLY.md 123-129, 150-159, 162-163, 177 (Lemma 1.2's proof, the radiation field after the shell, Sigma_IVP's
-form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1 (c), Theorem P (P-i)-(P-v), at md5 5c1a186a (5043cedf at D632;
-D633's edits since are to status lines); N1STAR-LOG.md D632; BEYOND5.md 177-212 (md5 b67a56b2, not edited);
-RESPONSE-HL-5D.md (md5 b21cd7ca); git 54c8634's SETTLE-GLAM5.md. None from outside sources.
+Ledger (round 9). New: `r9beyond5.py` (17 checks) and `r9text5.py` (5 checks). Changed and rerun: `r7settle5.py` (13
+checks), `r6edits5.py` (29). Every new or changed `.out` is from a full run and byte-identical on a second run; the
+other programs are unchanged and their `.out` files stand (r6sigma5 21, r6settle5 21, r5settle5 45, r5edits5 11, zinv5
+3, r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks);
+r5edits5, which reads R5-D and imports r6edits5, was rerun after this round's last edit of the file: its `.out`
+unchanged. Deduced: Lemma R9.1. READ: PART-VII-ASSEMBLY.md 123-129, 150-159, 162-163, 177 (Lemma 1.2's proof, the
+radiation field after the shell, Sigma_IVP's form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1 (c), Theorem P
+(P-i)-(P-v), at md5 5c1a186a (5043cedf at D632; D633's edits since are to status lines); N1STAR-LOG.md D632; BEYOND5.md
+177-212 (md5 b67a56b2, not edited); RESPONSE-HL-5D.md (md5 805be200; b21cd7ca when this round began); git 54c8634's
+SETTLE-GLAM5.md. None from outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
-    python3 checks/r9beyond5.py   (@@T_B@@)
-    python3 checks/r9text5.py     (@@T_T@@)
-    python3 checks/r7settle5.py   (@@T_K@@)
-    python3 checks/r6edits5.py    (@@T_E@@)
+    python3 checks/r9beyond5.py   (104 to 151 seconds)
+    python3 checks/r9text5.py     (about a second)
+    python3 checks/r7settle5.py   (4 to 6 seconds)
+    python3 checks/r6edits5.py    (4 to 11 seconds)
 
 The times are wall-clock on this machine under the load of the other workstreams.

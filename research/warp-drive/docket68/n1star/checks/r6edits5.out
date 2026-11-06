@@ -41,7 +41,7 @@ E2  the mathematics the edited Lemma 11.0 states, read from its text
 E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 E-m5: c U's bound lam^-1 -> lam^-3: caught: pass failing: ['E2b', 'E2c']
   E3 E-m6: the factor -> e^(2C/lam): caught: pass failing: ['E2d']
-  E3 the 1/2 of the |gamma'| = 1 sum dropped: caught: pass failing: ['E2a', 'b', 'g']
+  E3 the 1/2 of the |gamma'| = 1 sum dropped: caught: pass failing: ['E2a', 'b', 'g', 'r']
   E3 C(gamma, gamma') dropped at the |gamma'| >= 2 sum: caught: pass failing: ['E2a', 'b']
   E3 R_gamma's source E_3 -> E_(5/2): caught: pass failing: ['E2g']
   E3 max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read): caught: pass failing: ['E2h']
@@ -49,14 +49,18 @@ E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 M14: Edit 2's f = f_gamma^n -> R_gamma^n (b . d U taken as known): caught: pass failing: ['r']
   E3 M19: Edit 2's sums removed (Gronwall per gamma): caught: pass failing: ['s', 't']
   E3 M12: the family index |delta| = j + 1 -> j: caught: pass failing: ['t']
-E4  R8-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)
-  E4a each old text occurs exactly once in the paper: pass [1, 1, 1]
-  E4b the edited paper keeps every line within 121 characters: pass []
-  E4c the new blocks state the status words (deduced, conditional on; Parts III, IV, VII, VIII and Theorem P proved; no
-        stronger word), section 11.1's status, BEYOND5 Lemma 6.4 (iv) in blocks 1 and 2, the rounds read and unread, eps,
-        Proposition 3.1 as deduced, the r^(-4) term for one example, and the window's measured and hand-counted
-        exponents: pass []
-  E4c' control (R7-E's blocks, the round-7 reader's m1 and nit 6): they fail the three predicates on BEYOND5 in block 1,
-        the rounds, and the window's hand-counted list: pass ['b1: BEYOND5 Lemma 6.4 (iv)', 'b2: rounds 1-8, round 8
-        unread', 'b2: the window from measured and hand-counted exponents']
+E4  R9-E's paper blocks (final, two outcomes: A, round 9 not yet read; B, read) against RESPONSE-HL-5D.md (not edited)
+  E4a each old text occurs exactly once in the paper (the same three old texts in both outcomes): pass A: counts [1, 1,
+        1], long lines []; B: counts [1, 1, 1], long lines []
+  E4b the edited paper keeps every line within 121 characters, in either outcome: pass A: counts [1, 1, 1], long lines
+        []; B: counts [1, 1, 1], long lines []
+  E4c the new blocks state, in outcome A, deduced with section 11.1 proved (D632, D633) and round 9 (Lemma R9.1) unread,
+        the conditions separated by semicolons, 'It is deduced', 'is deduced in a data class', '(deduced, with the
+        conditions above)', 'is deduced, conditionally', no stronger word; in outcome B, proved, 'It is proved',
+        '(proved, with the conditions above)', 'is proved in section 9', no 'not yet read'; in both, Parts III, IV, VII,
+        VIII and Theorem P proved, R6-D read (D632), rounds 1-9, eps, Proposition 3.1 deduced, the r^(-4) term for one
+        example, the window's list, the domain of dependence computed, no stale status: pass []
+  E4c' controls: R8-E's blocks fail exactly the nine outcome-A predicates round 9 adds (section 11.1 proved, Lemma R9.1,
+        the semicolons, the rounds, the domain of dependence, the stale status); outcome A's blocks fail exactly the six
+        status predicates of outcome B: pass R8-E: []; A as B: []
 FAILED: none
