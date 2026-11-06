@@ -91,6 +91,7 @@ with contextlib.redirect_stdout(io.StringIO()):
     import data5 as D5                # noqa: E402  (lin_0, the record's linearisation)
 
 OK = {}
+B_FORM = {}
 T0 = time.time()
 C_LO, C_HI = flint.arb('1.32407110621'), flint.arb('1.3241034918')   # READ envelope5.out E1
 CAPP = Fr(12593309, 10 ** 6)                                         # READ lzerotrace5.out T3 (operator norm)
@@ -875,7 +876,8 @@ def check_d3_d4(F0):
         ok_p &= all(numzero(c5.get(k, 0) - mine.get(k, 0)) for k in set(c5) | set(mine))
     L_ = r ** 2 + mu
     h4 = A ** 2 * Ef ** 2 * Hf ** 2 * (C ** 4 + S ** 4)
-    B = {'Jr': -h4 / (3 * L_ ** sp.Rational(3, 2)), 'Jt': 0, 'rho': sp.Rational(2, 3) * r * h4 / L_ ** 2}
+    B = {'Jr': -h4 / (3 * L_ ** sp.Rational(3, 2)), 'Jt': sp.Integer(0), 'rho': sp.Rational(2, 3) * r * h4 / L_ ** 2}
+    B_FORM.update(B)
     Sv = {'Jr': 0, 'Jt': -A ** 2 * Ef ** 2 * Hf ** 2 * sp.sin(2 * th) / (3 * r ** 2 * sp.sqrt(L_)), 'rho': 0}
     ok_b = all(numzero(CO[nm].get('a', 0) - CO[nm].get('a', 0).subs(A, 0) - B[nm]) for nm in CO)
     ok_s = all(numzero(CO[nm].get('1', 0) + Sv[nm]) for nm in CO)
@@ -920,8 +922,7 @@ def check_d3_d4(F0):
                 print('        %s[%s] = %s' % (nm, k, c))
     M1 = {}
     for (i, j), nm in (((0, 0), 'rr'), ((0, 1), 'rth'), ((1, 1), 'thth'), ((2, 2), 'p1p1'), ((3, 3), 'p2p2')):
-        M1[nm] = sp.factor(sp.simplify(sp.expand(Km1[i][j].subs(dict(zip(
-            [sp.Symbol('dummy')], [0])))).subs(sp.Derivative(mu, v), mp)))
+        M1[nm] = sp.factor(sp.simplify(sp.expand(Km1[i][j]).subs(sp.Derivative(mu, v), mp)))
     print('      K\'s order-1 mean from the metric with d_tau h_1 = 0 (so Q_1 = M1 + d_tau h_1/(2 N0), N0 = (1 + '
           'mu/r^2)^(-1/2)); no W^2 term:')
     for nm, e in M1.items():
@@ -986,7 +987,10 @@ def check_d6(CO, M1, F0):
             cf = {k: sp.lambdify((RS, TS_), M.ex(c), 'numpy') for k, c in CO[nm].items()}
             vals = {k: np.broadcast_to(np.asarray(f(rr, tt), dtype=float), rr.shape) for k, f in cf.items()}
             pr[nm] = {k: float(np.sum(wq * vals[k] * jv[k])) for k in vals}
-        res[t_] = {'pred': pr}
+        Bf = {nm: sp.lambdify((RS, TS_), M.ex(e), 'numpy') for nm, e in B_FORM.items()}
+        pB = {nm: float(np.sum(wq * np.broadcast_to(np.asarray(Bf[nm](rr, tt), dtype=float), rr.shape) * jv['a']))
+              for nm in Bf}
+        res[t_] = {'pred': pr, 'pred_B': pB}
         for lam in (Fr(1, 32), Fr(1, 64)):
             X = jets_of(explicit_parts(M, sp.Rational(lam.numerator, lam.denominator), G2c, M1c), rr, tt)
             for lab, kw in (('data', {}), ('no phase', dict(phase=False))):

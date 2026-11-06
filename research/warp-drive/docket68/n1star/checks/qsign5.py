@@ -534,7 +534,8 @@ def q5():
     want = Es * fs * (2 - Es * fs) / (4 * sp.sqrt(2 / Es - fs))
     nulE = sp.simplify((loE.T * gmE * loE)[0]) == 0
     futE = sp.simplify((loE.T * nE)[0] + (2 - Es * fs) / (2 * sp.sqrt(2 / Es - fs))) == 0
-    cE_ok = nulE and futE and sp.simplify(TE - want) == 0 and sp.simplify(want.subs(Es, 1) - fs * sp.sqrt(2 - fs) / 4) == 0
+    cE_ok = nulE and futE and sp.simplify(TE - want) == 0 and \
+        sp.simplify(want.subs(Es, 1) - fs * sp.sqrt(2 - fs) / 4) == 0
     print("   (c') any psi_P (E = e^psi_P): l_out null and future (l.n = -(2 - E f)/(2 sqrt(2/E - f)) < 0): %s; "
           "T(xi, n)/q = E f (2 - E f)/(4 sqrt(2/E - f)), whose sign is f's: %s" % (nulE and futE, cE_ok))
     return a_ok and a_ctl and ein_ok and b_ok and c_ok and cE_ok
@@ -577,6 +578,70 @@ def q6(Gt, bg):
     return ok and ctl
 
 
+# ---------------------------------------------------------------- Q7
+def q7():
+    print("Q7 (computed) seeds that reach the axes: psi = sin^2 cos^2 F(R, cos 2th), s1 smooth in cos 2th")
+    mu = sp.Rational(82, 100)
+    f = 1 - mu / R**2
+    G = 2 - f
+    Kt0 = 3 * (f - 1) / (R * sp.sqrt(2 - f))
+    k0 = (mu / R**3) * (3 - f) / (2 - f)**sp.Rational(3, 2)
+    Y0 = Kt0 / 3
+    Ew = sp.sqrt(G) / R                                              # E at psi_P = 0 (Q2)
+    nu = R**3
+    c2 = sp.cos(2 * th)
+    sc = sp.sin(th) * sp.cos(th)
+    rng = np.random.default_rng(11)
+    out = []
+    for band in ((sp.Rational(1), sp.Rational(7, 4)), (sp.Rational(18, 25), sp.Rational(9, 10))):
+        R1, R2 = band
+        env = (R - R1)**4 * (R2 - R)**4 / ((R2 - R1) / 2)**8
+        for trial in range(3):
+            a = [sp.Rational(int(x), 7) for x in rng.integers(-9, 10, 3)]
+            b = [sp.Rational(int(x), 5) for x in rng.integers(-9, 10, 3)]
+            for kind in ('regular', 'irregular'):
+                if kind == 'regular':
+                    psi = sc**2 * env * (a[0] + 2 + a[1] * c2 + a[2] * c2**2 + (R - R1))
+                else:                                                     # psi = O(sc): Kt ~ 1/sc at the axes
+                    psi = sc * env * (a[0] + 2 + a[1] * c2)
+                s1 = env * (b[0] + b[1] * c2 + b[2] * c2**2)
+                _, _, _, E, Kt, ph, s2 = seed_fields(G, k0, Y0, sp.log(Ew), psi, s1)
+                cc = -(k0 + 2 * Y0) / (3 * Y0)
+                q = nu * sc * (2 * cc * Kt**2 + sp.Rational(2, 3) * Kt**2 - 2 * ph**2 - s1**2 - s2**2 - (s1 + s2)**2)
+                dec, Gam = decomposition(nu, G, E, psi, s1, s2)
+                gterm = -Gam * psi**2 / sp.sin(2 * th)
+                fq, fd, fg = [sp.lambdify([R, th], e, 'numpy') for e in (q, dec, gterm)]
+                xr, wr = np.polynomial.legendre.leggauss(60)
+                xt, wt = np.polynomial.legendre.leggauss(60 if kind == 'regular' else 400)
+                Rn = float(R1) + (float(R2) - float(R1)) * (xr + 1) / 2
+                Tn = (math.pi / 2) * (xt + 1) / 2
+                W = np.outer(wr * (float(R2) - float(R1)) / 2, wt * (math.pi / 4))
+                RR, TT = np.meshgrid(Rn, Tn, indexing='ij')
+                Iq, Id, Ig = [float(np.sum(W * fn(RR, TT))) for fn in (fq, fd, fg)]
+                Kax = float(sp.limit((Kt / Ew).subs(R, (R1 + R2) / 2), th, 0))
+                out.append((band, trial, kind, Iq, Id, Ig, Kax))
+    reg = [o for o in out if o[2] == 'regular']
+    irr = [o for o in out if o[2] == 'irregular']
+    rel = max(abs(o[3] - o[4]) / abs(o[3]) for o in reg)
+    relg = max(abs(o[3] - o[4]) / abs(o[5]) for o in reg)
+    neg = all(o[3] < 0 and o[3] <= o[5] + 1e-9 * abs(o[3]) for o in reg)
+    kax = min(abs(o[6]) for o in reg)
+    # control 1: the decomposition with Gamma -> (3/4) Gamma misses Q by a quarter of the Gamma term
+    o = reg[0]
+    mism = abs((o[3] - (o[4] - 0.25 * o[5])) / o[5])
+    ctl1 = abs(mism - 0.25) < 0.01
+    # control 2: psi = O(sc) (not axis-regular): the identity fails (boundary terms at the axes)
+    rel_irr = min(abs(o[3] - o[4]) / abs(o[4]) for o in irr)
+    ctl2 = rel_irr > 1e-3
+    print("   six regular seeds (two bands, one inside the horizon; Kt/E on the axis ranges down to %.3f, so they "
+          "reach it): Q equals the decomposition over the whole of [0, pi/2] to %.1e of Q and %.1e of its Gamma term, "
+          "Q < 0 and Q <= -int Gamma psi^2/sin 2th: %s" % (kax, rel, relg, neg))
+    print("   controls: Gamma -> (3/4) Gamma misses Q by %.4f of the Gamma term (a quarter; rejected): %s; seeds with "
+          "psi = O(sin th cos th), not axis-regular, miss it by at least %.1e of Q (axis boundary terms; rejected): %s" %
+          (mism, ctl1, rel_irr, ctl2))
+    return rel < 1e-8 and relg < 1e-4 and neg and kax > 0 and ctl1 and ctl2
+
+
 def main():
     res = {}
     res['Q1'] = q1()
@@ -593,6 +658,8 @@ def main():
     print('Q5', 'PASS' if res['Q5'] else 'FAIL', flush=True)
     res['Q6'] = q6(Gt, bgs[160])
     print('Q6', 'PASS' if res['Q6'] else 'FAIL', flush=True)
+    res['Q7'] = q7()
+    print('Q7', 'PASS' if res['Q7'] else 'FAIL', flush=True)
     return 0 if all(res.values()) else 1
 
 

@@ -23,15 +23,15 @@ P(h) := Ric^H(g_b0 + h; g_b0), g_b0 := eta + mu r^-2 k k, mu = 4/5, Cartesian; f
      operator's r^6 P(g_b0 + Sigma_2) along the ray (Richardson, r = 128, 512) to 1e-6.
   S4 (computed, 40 digits, full operator) Sigma_4 := r^-4 sum_l F_l(s) H_l(xhat), H_l the harmonic pieces of Q_6
      and L_l[F_l] = -1 (so -(1/2) box Sigma_4 = -Q_6): the fitted decay of |P| along the ray (s = 1/2,
-     r = 8 .. 512) is 6 for Sigma_2, 8 for Sigma_2 + Sigma_4 (degree -6 cancelled; next degree -8), 13/2 for
+     r = 8 .. 2048) is 6 for Sigma_2, 8 for Sigma_2 + Sigma_4 (degree -6 cancelled; next degree -8), 13/2 for
      Sigma_2 + Sigma_(5/2) + Sigma_4 (the mu Sigma_(5/2) and Sigma_2 Sigma_(5/2) terms). Controls (the code mutated): the l = 2 piece with a
      constant F (static, but not a solution of L_2 F = -1), and -Sigma_4: decay 6 each; Sigma_2 + Sigma_(5/2) without
      Sigma_4: decay 6.
   W (computed) the window as a whole. Each condition of the bootstrap is an exponent computed here, not typed:
      W1 the cap: the energy of the truncation's data on the band at t = T (the exact h_R of r5settle5 G1, its
         expansion at fixed v through r^-5, smoothstep cut-off, weight (2r)^(2a), l = 2) measured at |T| = 1e5, 1e6,
-        1e7 for 13 values of a in [1/2, 7/2]: exponent 2a - 6 to 1e-3, so the cap -> 0 exactly for a < 3 (the
-        crossing located by interpolation of the measured exponents);
+        1e7 for 13 values of a in [1/2, 7/2]: the measured exponents are the affine law 2a - 6 (least squares, its
+        coefficients identified as rationals, residual below 2e-3), so the cap -> 0 exactly for a < 3;
      W2 the N-flux tail of h_R(v1, .) (exact, sympy): exponent 2a - 7: finite and vanishing exactly for a < 7/2;
      W3 the residual's kernel from the degree q_R measured in S4: ||(2r)^a r^-q_R||_(L^2(r >= rho)) computed with
         symbolic a, integrable in sigma exactly for a < q_R - 3 (7/2 at q_R = 13/2; 3 at q_R = 6);
@@ -333,7 +333,7 @@ def part_s3():
 # ================================================================ S4: on the full operator
 
 XH = [mp.mpf("0.5")]*4
-RAYS = (8, 32, 128, 512)
+RAYS = (8, 32, 128, 512, 2048)
 
 
 def ray_point(r, s=mp.mpf("0.5")):
@@ -391,7 +391,7 @@ def part_s4(Q6):
     check("S3c Q_6 (exact) agrees with the full operator's r^6 P(g_b0 + Sigma_2) on the ray (Richardson, r = 128, "
           "512; next term r^-8)", worst < mp.mpf(10)**-6, f"max difference {mp.nstr(worst, 3)}")
     tl = {k: v[-1] for k, v in res.items()}
-    print("    fitted decay exponents (r = 8 .. 512):", {k: [round(x, 4) for x in v] for k, v in res.items()})
+    print("    fitted decay exponents (r = 8 .. 2048):", {k: [round(x, 4) for x in v] for k, v in res.items()})
     check("S4 |P(g_b0 + Sigma_2)| decays like r^-6, |P(g_b0 + Sigma_2 + Sigma_4)| like r^-8 (F_4 cancels degree -6), "
           "|P(g_b0 + Sigma_2 + Sigma_(5/2) + Sigma_4)| like r^(-13/2): P(Sigma) = O(lam r^(-13/2)) with Sigma_4",
           abs(tl["Sigma_2"] - 6) < 0.02 and abs(tl["Sigma_2 + Sigma_4"] - 8) < 0.02
@@ -462,24 +462,31 @@ def part_w(qR, qR_flat):
         flux_exp[name] = fe
 
     def crossing(meas):
-        """the a at which the measured exponent crosses 0 (linear interpolation on the grid)"""
-        pts = sorted(meas.items())
-        for (a0, e0), (a1_, e1) in zip(pts, pts[1:]):
-            if e0 < 0 <= e1:
-                return float(a0) + (0 - e0)*(float(a1_) - float(a0))/(e1 - e0)
-        return None
-    ok1 = all(abs(cap_exp["Sigma with p = 4"][av][1] - (2*float(av) - 6)) < 2e-3 for av in a_grid)
-    x_cap = crossing({av: v[1] for av, v in cap_exp["Sigma with p = 4"].items()})
-    x_cap7 = crossing({av: v[1] for av, v in cap_exp["control: p = 4 dropped"].items()})
-    check("W1 the cap's measured exponent is 2a - 6 (13 values of a, |T| = 1e6 .. 1e7, to 2e-3): it vanishes exactly "
-          "for a < 3", ok1 and abs(x_cap - 3) < 1e-3,
-          f"crossing at a = {x_cap:.5f}; p = 4 dropped: {x_cap7:.5f}; samples (a, exponent): "
+        """the measured exponents fitted by an affine function of a (least squares), its coefficients identified as
+        rationals of denominator at most 20 (tolerance 1e-3, the fit's residual checked below 2e-3), and its zero"""
+        pts = sorted((float(k), float(v)) for k, v in meas.items())
+        n_ = len(pts)
+        sx, sy = sum(p_[0] for p_ in pts), sum(p_[1] for p_ in pts)
+        sxx, sxy = sum(p_[0]**2 for p_ in pts), sum(p_[0]*p_[1] for p_ in pts)
+        slope = (n_*sxy - sx*sy)/(n_*sxx - sx**2)
+        icpt = (sy - slope*sx)/n_
+        sl_q = sp.nsimplify(slope, tolerance=1e-3, rational=True)
+        ic_q = sp.nsimplify(icpt, tolerance=1e-3, rational=True)
+        resid = max(abs(y - (float(sl_q)*x + float(ic_q))) for x, y in pts)
+        assert sl_q.q <= 20 and ic_q.q <= 20 and resid < 2e-3, (slope, icpt, resid)
+        return -ic_q/sl_q, (sl_q, ic_q, resid)
+    x_cap, fit_cap = crossing({av: v[1] for av, v in cap_exp["Sigma with p = 4"].items()})
+    x_cap7, fit_cap7 = crossing({av: v[1] for av, v in cap_exp["control: p = 4 dropped"].items()})
+    check("W1 the cap's measured exponents (13 values of a in [1/2, 7/2], |T| = 1e6 .. 1e7) are the affine law 2a - 6 "
+          "(fit residual below 2e-3): the cap vanishes exactly for a < 3", fit_cap[:2] == (2, -6) and x_cap == 3,
+          f"fit (slope, intercept, residual) {[str(fit_cap[0]), str(fit_cap[1]), round(fit_cap[2], 5)]}; p = 4 dropped: "
+          f"{[str(fit_cap7[0]), str(fit_cap7[1])]}, zero {x_cap7}; samples (a, exponent): "
           + str([(str(av), round(v[1], 4)) for av, v in list(cap_exp["Sigma with p = 4"].items())[::4]]))
-    x_fl = crossing({av: float(v) for av, v in flux_exp["Sigma with p = 4"].items()})
-    x_fl7 = crossing({av: float(v) for av, v in flux_exp["control: p = 4 dropped"].items()})
+    x_fl, _ = crossing({av: float(v) for av, v in flux_exp["Sigma with p = 4"].items()})
+    x_fl7, _ = crossing({av: float(v) for av, v in flux_exp["control: p = 4 dropped"].items()})
     ok2 = all(flux_exp["Sigma with p = 4"][av] == 2*av - 7 for av in a_grid)
     check("W2 the N-flux tail of h_R(v1, .) has exponent 2a - 7 (exact, 13 values of a): finite and vanishing "
-          "exactly for a < 7/2", ok2 and abs(x_fl - 3.5) < 1e-9, f"crossing {x_fl}; p = 4 dropped: {x_fl7}")
+          "exactly for a < 7/2", ok2 and x_fl == Q(7, 2), f"zero {x_fl}; p = 4 dropped: {x_fl7}")
     rho, r_ = sp.symbols("rho r", positive=True)
 
     def power(expr):
@@ -508,10 +515,7 @@ def part_w(qR, qR_flat):
     cls_exp = sp.simplify(-power(per)/2)
     check("W5 r = 1/rho: r^(2a+1) dr = rho^(-2(a+1)) drho/rho, the class exponent a + 1 (sympy); inside rho^(l0) L^2_b "
           "for a + 1 > l0", cls_exp == a + 1, str(cls_exp))
-    x_cap_r = sp.nsimplify(round(x_cap, 6))
-    x_fl_r = sp.nsimplify(round(x_fl, 6))
-    x_cap7_r = sp.nsimplify(round(x_cap7, 6))
-    x_fl7_r = sp.nsimplify(round(x_fl7, 6))
+    x_cap_r, x_fl_r, x_cap7_r, x_fl7_r = x_cap, x_fl, x_cap7, x_fl7
     step2 = sp.solve_univariate_inequality(beta0 >= 2, a, relational=False)
     hd = sp.integrate(r_**(2*a - 8), (r_, 1, sp.oo), conds="piecewise")
     cond45 = sp.solve_univariate_inequality(hd.args[0].cond, a, relational=False)   # sympy's convergence condition

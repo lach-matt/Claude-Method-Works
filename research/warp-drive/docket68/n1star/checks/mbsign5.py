@@ -457,3 +457,210 @@ def e3(bg, td, out):
     print("   control: the band moved to [0.92, 1.09] (0.92^2 > 0.84: outside the horizon): Q(0.80) = %.6e, Q(0.84) = "
           "%.6e, both < 0, no E < 0 seed (rejected): %s" % (float(cq_lo), float(cq_hi), ctl))
     report('E3', a_ok and b_ok and c_ok and qp < 0, [('band moved', ctl)])
+
+
+# ------------------------------------------------------------------ E4: the static slice, scalar modes
+X4 = [r, th, p1, p2]
+G0 = sp.diag(1 / f_, r**2, r**2 * s_**2, r**2 * c_**2)
+GHAT = sp.diag(0, 1, s_**2, c_**2)
+SF = sp.Function('S')(th)
+THPTS = [(sp.Rational(3, 5), sp.Rational(4, 5)), (sp.Rational(5, 13), sp.Rational(12, 13)),
+         (sp.Rational(8, 17), sp.Rational(15, 17))]
+s0, s1 = sp.symbols('s0 s1')
+JR = Jets(['A', 'F', 'p', 'q', 'w', 'a', 'b', 'c', 'e', 'z', 'Z', 'l', 'al', 'be', 'ps'])
+
+
+def shat():
+    """S_ij hat = D^D^S + (k^2/3) gammahat S on the unit sphere (class S), in (r, th, phi1, phi2) slots"""
+    DDS = sp.diag(0, sp.diff(SF, th, 2), s_ * c_ * sp.diff(SF, th), -s_ * c_ * sp.diff(SF, th))
+    return DDS + (k2 / 3) * GHAT * SF
+
+
+def eig_point(e, pt, fns):
+    """impose Delta S = -k^2 S, evaluate at a rational angle, radial jets as JR symbols"""
+    ct = c_ / s_ - s_ / c_
+    S2 = -k2 * SF - ct * sp.diff(SF, th)
+    S3 = sp.diff(S2, th).subs(sp.Derivative(SF, (th, 2)), S2)
+    S4 = sp.diff(S3, th).subs(sp.Derivative(SF, (th, 2)), S2)
+    e = e.subs(sp.Derivative(SF, (th, 4)), S4).subs(sp.Derivative(SF, (th, 3)), S3)
+    e = e.subs(sp.Derivative(SF, (th, 2)), S2).subs(sp.Derivative(SF, th), s1).subs(SF, s0)
+    e = JR.from_funcs(e, fns)
+    e = e.subs({sp.sin(th): pt[0], sp.cos(th): pt[1], sp.tan(th): pt[0] / pt[1], sp.cot(th): pt[1] / pt[0]})
+    return sp.expand(e)
+
+
+def angular_reduce(e, fns, label):
+    """the (S, S') structure of e at three rational angles; returns the common coefficients and theta-freeness"""
+    res = []
+    for pt in THPTS:
+        x = eig_point(e, pt, fns)
+        P = sp.Poly(x, s0, s1)
+        res.append({mm: sp.cancel(cf) for mm, cf in zip(P.monoms(), P.coeffs()) if sp.cancel(cf) != 0})
+    keys = set().union(*[set(x) for x in res])
+    free = all(sp.cancel(x.get(kk, 0) - res[0].get(kk, 0)) == 0 for kk in keys for x in res)
+    return {kk: res[0].get(kk, 0) for kk in keys}, free
+
+
+def e4():
+    print("E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance", flush=True)
+    names = ['A', 'F', 'p', 'q', 'w']
+    A, F, p, q, w = [sp.Function(nm)(r) for nm in names]
+    gh = sp.diag(1, 0, 0, 0) * A * SF + 2 * F * SF * r**2 * GHAT
+    kk = sp.zeros(4, 4)
+    kk[0, 0] = p * SF
+    kk[0, 1] = kk[1, 0] = r * q * sp.diff(SF, th)
+    kk += r**2 * w * SF * GHAT
+    Hc, _ = QS.constraints_fast(G0 + eps * gh, sp.zeros(4, 4), X4)
+    R1 = sp.diff(Hc, eps).subs(eps, 0)
+    R2 = sp.diff(Hc, eps, 2).subs(eps, 0)
+    Hk, Mk = QS.constraints_fast(G0, eps * kk, X4)
+    MK = [sp.diff(x, eps).subs(eps, 0) for x in Mk]
+    HK2 = sp.diff(Hk, eps, 2).subs(eps, 0)
+    N = sp.sqrt(f_)
+    fns = [A, F, p, q, w]
+    rC, ok1 = angular_reduce(R1, fns, 'C')
+    rM0, ok2 = angular_reduce(MK[0], fns, 'M_R')
+    rM1, ok3 = angular_reduce(MK[1], fns, 'M_th')
+    rM23 = [angular_reduce(MK[i], fns, 'M_phi') for i in (2, 3)]
+    rV, ok4 = angular_reduce(-N * R2 / 2, fns, 'E_V')
+    rK, ok5 = angular_reduce(-N * HK2 / 2, fns, 'E_K')
+    shape = (set(rC) <= {(1, 0)} and set(rM0) <= {(1, 0)} and set(rM1) <= {(0, 1)}
+             and all(set(x[0]) == set() for x in rM23) and set(rV) <= {(2, 0), (0, 2)} and set(rK) <= {(2, 0), (0, 2)})
+    vol = r**3 / sp.sqrt(f_)                       # sqrt(gamma) = vol sin th cos th; int S'^2 = k^2 int S^2
+    rad = dict(C=rC.get((1, 0), 0), M0=rM0.get((1, 0), 0), M1=rM1.get((0, 1), 0),
+               EV=sp.expand(vol * (rV.get((2, 0), 0) + k2 * rV.get((0, 2), 0))),
+               EK=sp.expand(vol * (rK.get((2, 0), 0) + k2 * rK.get((0, 2), 0))))
+    print("   (a) Regge-Wheeler-type gauge: C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2, every "
+          "coefficient free of th (equal at three rational angles): %s, %s" % (shape, ok1 and ok2 and ok3 and ok4
+                                                                                 and ok5))
+    # (b) the gauge maps
+    al, be, ps = [sp.Function(nm)(r) for nm in ('al', 'be', 'ps')]
+    gi, Gm = christoffel(G0, X4)
+    Xv = [al * SF, be * sp.diff(SF, th), 0, 0]
+    LX = sp.Matrix(4, 4, lambda i, j: sum(Xv[k] * sp.diff(G0[i, j], X4[k]) + G0[k, j] * sp.diff(Xv[k], X4[i])
+                                          + G0[i, k] * sp.diff(Xv[k], X4[j]) for k in range(4)))
+    da = sp.diff(1 / f_, r) * al + 2 * sp.diff(al, r) / f_
+    db = al / (r * f_) + r * sp.diff(be, r)
+    dc = 2 * al / r - 2 * k2 * be / 3
+    de = 2 * be
+    SH = shat()
+    claim = sp.diag(1, 0, 0, 0) * da * SF + r**2 * (dc * SF * GHAT + de * SH)
+    claim[0, 1] = claim[1, 0] = r * db * sp.diff(SF, th)
+    fb = [al, be]
+    gok = all(set(angular_reduce(LX[i, j] - claim[i, j], fb, 'LX')[0]) == set() for i in range(4) for j in range(i, 4))
+    Ric = ricci(X4, Gm)
+    kps = hess(ps * SF, X4, Gm) - ps * SF * Ric
+    zc = []
+    for i in (2, 3):              # the phi-components carry the z-shift: (D^D^S)_ii + ... compare to psi/r^2 S_hat
+        pass
+    # z-shift: the trace-free angular part of k_psi equals r^2 (psi/r^2) (S_hat)^TF
+    ang = sp.Matrix(3, 3, lambda i, j: kps[i + 1, j + 1])
+    SHa = sp.Matrix(3, 3, lambda i, j: SH[i + 1, j + 1])
+    gh3 = sp.diag(1, s_**2, c_**2)
+    tr_ang = sum(ang[i, i] / gh3[i, i] for i in range(3)) / 3
+    tf = ang - tr_ang * gh3
+    zok = all(set(angular_reduce(tf[i, i] - ps * (SHa[i, i] - k2 * SF * gh3[i, i] / 3 * 0) + ps * 0, [ps], 'z')[0])
+              == set() or True for i in range(3))
+    tf_claim = ps * (SHa - (sum(SHa[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3)
+    zok = all(set(angular_reduce(tf[i, i] - tf_claim[i, i], [ps], 'z')[0]) == set() for i in range(3))
+    # the spatial invariants are unchanged by the shifts
+    a_, b_, c__, e_ = [sp.Function(nm)(r) for nm in ('a', 'b', 'c', 'e')]
+
+    def inv(a, b, c, e):
+        alpha = -r * f_ * (b - r * sp.diff(e, r) / 2)
+        Ai = a + sp.diff(1 / f_, r) * alpha + 2 * sp.diff(alpha, r) / f_
+        Fi = c / 2 - f_ * b + k2 * e / 6 + f_ * r * sp.diff(e, r) / 2
+        return Ai, Fi
+    I0 = inv(a_, b_, c__, e_)
+    I1 = inv(a_ + da, b_ + db, c__ + dc, e_ + de)
+    invok = all(sp.simplify((x1 - x0).doit()) == 0 for x0, x1 in zip(I0, I1))
+    print("   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, alpha/(R "
+          "f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): %s; the lapse direction k_psi has trace-free angular "
+          "part psi (S_hat)^TF (z-shift psi/R^2): %s; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f "
+          "b + k^2 e/6 + f R e'/2 are invariant: %s" % (gok, zok, invok))
+    okc = mode_free(gi, Gm, Ric)
+    report('E4', shape and ok1 and ok2 and ok3 and ok4 and ok5 and gok and zok and invok and okc)
+    return rad
+
+
+def jet_points(e, fns, pts):
+    """e linear (or quadratic) in the jets of fns (functions of r, th): zero at the points, jets free"""
+    reps, syms = {}, []
+    for i, fn in enumerate(fns):
+        ds = sorted({d for d in e.atoms(sp.Derivative) if d.expr == fn}, key=lambda d: -len(d.variables))
+        for j, d in enumerate(ds):
+            s = sp.Symbol('jj%d_%d' % (i, j))
+            reps[d] = s
+            syms.append(s)
+    for d, s in reps.items():
+        e = e.subs(d, s)
+    for i, fn in enumerate(fns):
+        s = sp.Symbol('jz%d' % i)
+        e = e.subs(fn, s)
+        syms.append(s)
+    out = []
+    for pt in pts:
+        v = sp.expand(e.subs(pt))
+        out.append(v == 0 or all(sp.simplify(cf) == 0 for cf in sp.Poly(v, *syms).coeffs()))
+    return all(out)
+
+
+PTS2 = [{r: sp.Rational(3, 2), th: sp.atan(sp.Rational(3, 4)), mu: sp.Rational(7, 5)},
+        {r: 2, th: sp.atan(sp.Rational(5, 12)), mu: sp.Rational(9, 10)},
+        {r: sp.Rational(5, 2), th: sp.atan(sp.Rational(8, 15)), mu: 3}]
+
+
+def mode_free(gi, Gm, Ric):
+    """E4 (c): gauge invariance of E_V and E_K on the constraint surface, for class fields of (r, th)"""
+    n = 4
+    N = sp.sqrt(f_)
+    vol = r**3 * s_ * c_ / sp.sqrt(f_)
+
+    def lap0(u):
+        return sum(sp.diff(vol * gi[i, i] * sp.diff(u, X4[i]), X4[i]) for i in range(n)) / vol
+
+    def divv(V):                      # V lower-index covector
+        return sum(sp.diff(vol * gi[i, i] * V[i], X4[i]) for i in range(n)) / vol
+
+    def divT(T):
+        DT = cov2(T, X4, Gm)
+        return [sum(gi[c, a] * DT[a][b][c] for a in range(n) for c in range(n) if gi[c, a] != 0) for b in range(n)]
+
+    def trace(T):
+        return sum(gi[i, i] * T[i, i] for i in range(n))
+
+    def DR(h):
+        return -lap0(trace(h)) + divv(divT(h)) - sum(gi[i, i] * gi[j, j] * Ric[i, j] * h[i, j] for i in range(n)
+                                                       for j in range(n))
+
+    def Mom(k):
+        dk = divT(k)
+        tk = trace(k)
+        return [dk[i] - sp.diff(tk, X4[i]) for i in range(n)]
+    Xr, Xt = sp.Function('Xr')(r, th), sp.Function('Xt')(r, th)
+    Xv = [Xr, Xt, 0, 0]
+    LX = sp.Matrix(4, 4, lambda i, j: sum(Xv[k] * sp.diff(G0[i, j], X4[k]) + G0[k, j] * sp.diff(Xv[k], X4[i])
+                                          + G0[i, k] * sp.diff(Xv[k], X4[j]) for k in range(4)))
+    i_ok = jet_points(DR(LX), [Xr, Xt], PTS2)
+    hn = ['hrr', 'hrt', 'htt', 'h11', 'h22']
+    hf = [sp.Function(nm)(r, th) for nm in hn]
+    h = sp.Matrix([[hf[0], hf[1], 0, 0], [hf[1], hf[2], 0, 0], [0, 0, hf[3], 0], [0, 0, 0, hf[4]]])
+    L = N * DR(h) * vol
+    els = [eq.lhs for eq in euler_equations(L, hf, [r, th])]
+    ii_ok = all(sp.simplify(e.subs(pt)) == 0 for e in els for pt in PTS2)
+    ps = sp.Function('psi')(r, th)
+    kps = hess(ps, X4, Gm) - ps * Ric
+    iii_ok = all(jet_points(m, [ps], PTS2) for m in Mom(kps))
+    kn = ['krr', 'krt', 'ktt', 'k11', 'k22']
+    kf = [sp.Function(nm)(r, th) for nm in kn]
+    k = sp.Matrix([[kf[0], kf[1], 0, 0], [kf[1], kf[2], 0, 0], [0, 0, kf[3], 0], [0, 0, 0, kf[4]]])
+    b = N * (sum(gi[i, i] * gi[j, j] * k[i, j] * kps[i, j] for i in range(n) for j in range(n))
+             - trace(k) * trace(kps)) * vol
+    lhs = euler_equations(b, [ps], [r, th])[0].lhs
+    M = Mom(k)
+    rhs = vol * (2 * sum(gi[i, i] * sp.diff(N, X4[i]) * M[i] for i in range(n)) + N * divv(M))
+    iv_ok = jet_points(lhs - rhs, kf, PTS2)
+    print("   (c) mode-free, class fields of (R, th): D R[L_X gamma] = 0: %s; (D R)^* N = 0 (Euler operator of N D R[h] "
+          "sqrt(gamma) zero in all five components): %s; M[k_psi] = 0: %s; Euler_psi of N(<k, k_psi> - tr k tr k_psi) "
+          "sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): %s" % (i_ok, ii_ok, iii_ok, iv_ok), flush=True)
+    return i_ok and ii_ok and iii_ok and iv_ok
