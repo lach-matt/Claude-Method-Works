@@ -937,7 +937,14 @@ v_start - tau0}. []
   Proposition 6.5 whole with that repair: it holds; one minor gap (Lemma 6.4's tame clause, as stated, too weak for its
   use; restated in the integral form the proof gives, as it specified) and three notes (the weight list; the rate
   lam^(N-2) at every index; the status lines), applied. **Not read by a verifier after the edit:** the D21 restatement
-  and notes.
+  and notes. [corrected D619 (m2): section 6 was edited after D21 at D26 (91c3946, the tame clause's closing
+  sentence, its proposer having checked Proposition 6.5's use), D615 (2a69924, Lemma 6.2's proof fixes stage N's data,
+  re-derived by a round-4 reader of workstream E) and D616 (1b38ece, Lemma 6.2's statement names its stage data). A
+  reader of section 6 whole (D619, 2026-11-06), these edits included, found it proved once its findings are seated:
+  no major gap; three minor findings, the D26 form of the tame clause false (corrected in Lemma 6.4, computed in
+  `checks/tame5.py`), these status lines, and D616 unpinned (now `checks/stagen5.py` S5); thirteen notes, among them
+  the symmetrizer on all fields and with gamma_rA != 0 (`checks/indepcons5.py`, `checks/symmshift5.py`). All are
+  seated; **not read by a verifier after the edit:** the D619 seating.]
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho
