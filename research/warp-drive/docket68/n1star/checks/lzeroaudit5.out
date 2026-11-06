@@ -1,10 +1,10 @@
-  A0: md5 of N1STAR-PROOF.md lines 1-960 = 2b518284c417ef0b007ca1d30f4884f4, the pinned 2b518284c417ef0b007ca1d30f4884f4;
-      whole file 88179da4c73ade0b2ae6d3d8289d5e0c, the pinned 88179da4c73ade0b2ae6d3d8289d5e0c: True
-  A1: N1STAR-PROOF.md lines 1-960 (md5 2b518284c417ef0b007ca1d30f4884f4): 95 hits, 0 unclassified; classes {'E': 21, 'G':
+  A0: md5 of N1STAR-PROOF.md lines 1-962 = 0cd93b0ee16c9783e699775b9222a929, the pinned 0cd93b0ee16c9783e699775b9222a929;
+      whole file 5043cedfe02904bc06782ffd6efbb575, the pinned 5043cedfe02904bc06782ffd6efbb575: True
+  A1: N1STAR-PROOF.md lines 1-962 (md5 0cd93b0ee16c9783e699775b9222a929): 95 hits, 0 unclassified; classes {'E': 21, 'G':
       3, 'T': 15, 'X': 56}; class N (kinds N1-N4): 0
   A2: the T rows reach the formula terms ['D-a', 'D-b', 'D-c', 'D-d', 'E-a', 'E-b', 'E-c', 'E-d', 'lam1']; every term has
       a source row: True
-  A3: citations in lines 1-960: ['AO14', 'BH17', 'CBCL06', 'CBCM10', 'CD03', 'DS23', 'GO13', 'Hua15', 'LR05', 'LY22',
+  A3: citations in lines 1-962: ['AO14', 'BH17', 'CBCL06', 'CBCM10', 'CD03', 'DS23', 'GO13', 'Hua15', 'LR05', 'LY22',
       'MM10', 'Rac16', 'SY21', 'Tou23a']; all listed: True
       AO14    local theory (1.3); Kato-Majda scheme section 4.1 | enters lam0: scheme yes (Prop 6.5) | contraction with
       explicit factor
@@ -22,12 +22,12 @@
       Rac16   constraints as evolution in r | enters lam0: no | structure
       SY21    Stein/Rychkov extension of the profiles | enters lam0: through eps2 | explicit operator
       Tou23a  comparison | enters lam0: no | -
-  C1 (control): a planted sentence leaves 3 hits unclassified: [(961, 'compact'), (961, 'contradict'), (961,
+  C1 (control): a planted sentence leaves 3 hits unclassified: [(963, 'compact'), (963, 'contradict'), (963,
       'subsequen')]
   C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds ['contradict', 'limit',
       'subsequen']
-  C3 (control): with the row (875, limit) removed (873 at D627, 863 at D625, 838 before it, 793 at D623, 757 at D616, 752
-      at D614, 745 before D612/D614), 1 hit unclassified
+  C3 (control): with the row (877, limit) removed (875 at D631, 873 at D627, 863 at D625, 838 before it, 793 at D623, 757
+      at D616, 752 at D614, 745 before D612/D614), 1 hit unclassified
 A0 PASS
 A1 PASS
 A2 PASS

@@ -3474,6 +3474,10 @@ E^iota_ind adds no point.
   and, through [A(b), A_V'], with the v1 ones; at b0 the operators commute with the rotations (D4:174-176) and A(b0) =
   0, so those data vanish and S_1 = V_1 = 0. Near b0 the types mix (u_2 then takes every type's roots, still >= 2 + d1
   absolute) and the companions add the offset 1 (G3's (-1, 0) terms).
+  [R14: the reason S_1 = V_1 = 0 at b0 is that their data, lambda_s1 and the lambda^sharp of h-approx (F5:290-293),
+  pair the physical state (l = 2) with l = 1 dual states and vanish by type orthogonality (F5:210-211); A(b0) = 0
+  alone would not do it. iotaind5 I1 now runs the case near b0 with the types mixed too: window {1} (the round-13
+  reader's nits 4, 5).]
 - *The recipe's set.* III.D'' (3.4) writes h_b,s1 at 3 and h-breve^1_b,s1 at 2 with E_ind from (F1) at k = 2 and k = 1
   on the s1 block, h_b,v1 at 3 with the v1 block at k = 2, and III.D''' (3.1) writes 2 + E_ind with E_ind from the s0
   block at k = 1: these are eflat5 F1's four sites, whose window offsets and log orders are E_ind's. The other states
@@ -3497,6 +3501,11 @@ E^iota_ind adds no point.
   counts and the conditions the avoidances check: an over-count, not a reading. Lemma R12.1 holds without its qualifier
   (I4); INVERSE5-SCALAR.md part B's theorems are on this Lambda, so its "E^iota_ind's increments taken empty" is now
   derived (its author's file); d's integer does not move.
+  [R14: two of Lambda's generators are choices the write-out leaves free, not its statements: the least E^C_I (III.C
+  Definition 3.1 admits any index set with its (2), (3)) and the least E_+ (III.I (1.3), I5 (2.4), I9:41-44 constrain
+  E_+ without fixing it). I9 (1.1) closes E_++ under + E_+, a term R2.3 (a) omitted: harmless at the least E_+, whose
+  sums lie at >= 2 lambda_sharp = 3.0198, while an admissible E_+ containing 1.2 would add lambda_sharp + 1.2 = 2.7099
+  to Lambda (the round-13 reader's minor 1). R14.5 lists both among the choices.]
 
 ### R13.2 (ii) d: the parameter point
 
@@ -3505,6 +3514,8 @@ E^iota_ind adds no point.
   h_*) minus a countable set, h_* = min(10^-6, h_0, h_tf) (PART-VI4-PARAMS.md rows u3, u4, c2); the record's point has h
   = 10^-6, "not in H, since h_* <= 10^-6" (VI4:145-148), and gamma_Ups = e_Ups = 1/100 is not shown below eps_1
   (INVERSE5-SCALAR.md A.1; INVERSE5-SIX.md R2.0).
+  [R14: h = 10^-6 alone puts the point outside the proved set (VI4:147); for (gamma_Ups, e_Ups) = (1/100, 1/100),
+  through which d depends on the point (z, lambda_sharp), admissibility is undecided, not refuted (nit 8).]
 - *d is computed there.* Every count of d takes z = 4 e_Ups gamma_Ups^2 = 1/250000 and lambda_sharp = 3/2 + (1 - e_Ups)
   gamma_Ups = 1.5099: d0, d1 and the sl offsets (dceiling5's census), delta_50 and W1's weights (section 2.1,
   dweights5), the levels and rounds, P_W and W (dnumber5), and the avoidances (rootavoid5).
@@ -3539,6 +3550,9 @@ E^iota_ind adds no point.
   II.D's kappa := 2 (READ, II.D:221-223, 688) enters, independently of tau and J'. So round 8's box fails at both ends,
   and FWD 877 rests on kappa = 2 there as well (at a Sobolev top of 11: D_0 754, D_1 85, FWD 862, the reader's figures,
   reproduced here with d0count5's census_counts). C2 now asserts that the lower ends move and the top does not; C5 reads
+  [R14: kappa := 2 is assigned at II.D:686 (and :746), not 221-223, 688. At II.D:170 Lemma 2.1 may be read with II.A'
+  Lemma 4.1 (i)-(ii)'s kappa <= 1/4, which would give a Sobolev top of 12.25; the census takes kappa = 2, the upper
+  reading, so FWD 877 is an upper bound on either reading (the round-13 reader's nit 7).]
   kappa = 1 at II.D:170 and finds the top 13.
 - **Nits (accepted).** (1) D_1 <= 88 is an upper bound, d-tilde over the closed-graph sites' Sobolev range (said at
   R12.2). (2) N = 14 is a choice: at N = 10 the census gives [-57/2, 14] x [-55, 27], D_0 687, D_1 80, FWD 790 (computed
@@ -3560,15 +3574,19 @@ E^iota_ind adds no point.
 
 - *Proved* (Proposition R13.1, with `iotaind5.py` 10/10): E^iota_ind's elements below 2 are, at b0, none (least) or
   E_ind's (the recipe's), with E_ind's log orders; Lambda on (1, 3 + eps_K] is derived from the write-out.
+  [R14: the recipe's elements are E_ind's in the window (0, 1.4901], which is what I2 checks; Lambda is derived from
+  the write-out's statements and two choices it leaves free, the least E^C_I and E_+ (nit 3, minor 1).]
 - *Computed* (`iotaind5.py` I5): d's counts depend on the parameter point, without a uniform bound over the admissible
   set.
 - *Deduced (counts computed), unchanged*: **d <= 46,236,517,538,883,361, N <= 970,966,868,316,550,587, at the record's
   computational point (gamma_C = 10^6, gamma_Ups = e_Ups = 1/100)**, which lies outside the proved set.
 - *d's bound now.* Everything is the write-out's statement, derived or computed (R12.5's list, with Lambda derived),
   except the point at which it is evaluated. E_col is taken wide, an over-count.
+  [R14: except the point and the choices the write-out leaves free (the list below, with the least E^C_I and E_+).]
 - *Choices at the point* (not readings; each the write-out's freedom, taken at its economical end or as rounds 7-12
   did): W1's weights; the base level's a_K - 2, s_0, tau, t and alpha_0 := alpha_1 (R10.1); N = 14 (N >= 10 needed; at N
   = 10, d = 46,236,501,332,809,678, R13.3); E_col taken wide (an over-count); the window loop at its ceiling W.
+  [R14: and the least E^C_I and the least E_+, which Lambda rests on (the round-13 reader's minor 1).]
 - *Withdrawn*: R12.5's "One input is a reading, not a statement of the write-out: Lambda ..." and "d's reading has no
   part outside the write-out other than that one" (it had two; Lambda is now derived); R12.7 pair 1's "at a point where
   every admissibility condition holds" without the point named, and its Lambda sentence; Lemma R12.1's qualifier.
@@ -3588,6 +3606,7 @@ PART-II-D-REGULARITY.md:168-171. Programs (md5 of the .py, then the .out): iotai
 8b2ad318, 4e806b9b; modcount5 875026b6, 060bae4e; logind5 172d5999, affdb2c9; d0count5 20aad82e, b13dbb23 (unchanged).
 
 ### R13.7 Final replacement text for the paper (supersedes R12.7)
+[R14: superseded by R14.7.]
 
 Four old/new pairs for paper/RESPONSE-HL-5D.md, the single final set for every constants sentence of the paper. Against
 R12.7: pair 1 opens with the point ("carried to an integer at the write-out's own parameter point, the record's
@@ -3724,12 +3743,16 @@ Statuses behind the new texts. Pair 1: d's integer at the record's computational
 10/10); the floor, computed (dweights5 W3); the avoidances, proved with exact arithmetic and certified margins
 (rootavoid5, INVERSE5-SCALAR.md Theorems B.2-B.5); the point's role, computed (iotaind5 I5). Pairs 2-4 as R12.7 states
 them.
+[R14: pairs 2-4 are as R12.7 states them except that inverse6_5a is 12/12 now (INVERSE5-SIX.md round 5) and pair 3
+becomes LAMBDA0-DATA5.md's pair P (R14.7); pair 4 said "rounds 1-12" and "rounds 2-3" (nits 1, 2).]
 
 *Appendix D rows.* The paper's Appendix D lists LOSS-D.md, checks/thetain5.py and checks/prop31loss5.py of the files the
 pairs cite; the rows below are for the others, each `.py` with its `.out` where it has one, md5 measured when this round
 ended. CONSTANTS5.md's row is this file after round 13 (measured after this section was written, given in the round's
 report); the INVERSE5, LAMBDA0-DATA5 and their programs' rows belong to files other workstreams are still editing, so
 the main session measures every row again when it seats the pairs.
+[R14: the rows missed the modules the cited programs import and the outputs modcount5 and l2par5 read (the round-13
+reader's minor 2); R14.7 gives every row and the imports sentence.]
 
 | file | md5 |
 | --- | --- |

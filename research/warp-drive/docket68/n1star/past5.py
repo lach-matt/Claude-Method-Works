@@ -341,8 +341,11 @@ def p9(control=0):
           "(11.3)'s env'^2 coefficient": sp.simplify(lead113 - k*lam**2) == 0,
           "(11.3)'s boundary terms": sp.simplify(sp.expand(osc113 - want_osc)) == 0,
           "the coefficient is 1 - pi/2": sp.simplify(kap - (1 - sp.pi/2)) == 0}
-    print("      P9%s: %s" % ("" if not control else " control %d" % control,
-                             ", ".join("%s %s" % (x, y) for x, y in ok.items())), flush=True)
+    import textwrap
+    print(textwrap.fill("P9%s: %s" % ("" if not control else " control %d" % control,
+                                      ", ".join("%s %s" % (x, y) for x, y in ok.items())),
+                        width=121, initial_indent="      ", subsequent_indent="        ", break_on_hyphens=False),
+          flush=True)
     return all(ok.values())
 
 

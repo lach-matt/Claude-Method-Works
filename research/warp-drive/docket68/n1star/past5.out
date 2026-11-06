@@ -1,4 +1,4 @@
-# past5.py run in full, D618 (2026-11-06); past5.py md5 a6b4bc26f681093ee75aadf2daffe146; sympy 1.14.0, mpmath 1.3.0
+# past5.py run in full, D632 (2026-11-06); past5.py md5 6f363d664f224b3f5671305c55b46e72; sympy 1.14.0, mpmath 1.3.0
 $ python3 past5.py --selftest
 P1 the outer boundary of the past domain is spacelike, margin (kappa/2) t^(-5/4)                     PASS
 P2 box~ (r^-p M(v) Y): no r^(-5/2) term at p = 3/2; g0^-1 in (v, r)                                  PASS
@@ -7,8 +7,8 @@ P4 the transport from past null infinity: r^-p source, p > 5/2, gives r^(1-p); a
 P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2                    PASS
 P6 the rotations annihilate v and r and commute with L0 and box~                                     PASS
       P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = 1/2, 1/2, -1/2 + pi/4 (term by term, partial fractions in z)
-      P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = -0.5707963268; quadrature on S^3 at three points:
-        max deviation 0.0 at 30 digits (tolerance 1e-20)
+      P7: the oscillating coefficient -2 <H^2 c^2 s^2> = 1 - pi/2 = -0.5707963268, computed from the moment; quadrature
+        on S^3 at three points: max deviation 0.0 at 30 digits (tolerance 1e-20)
       P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature 0.19016176714, (9.10) 0.19016176714, the first
         (9.10) 0.174919726964
       P7: checks a moments True, b form True, c mean = (9.10) True, c mean = moments True, d quadrature True, e integral
@@ -20,7 +20,11 @@ P6 the rotations annihilate v and r and commute with L0 and box~                
       P7 control 4: failing checks ['d quadrature']
 P7 the sphere-mean flux of the record's radiation field (term by term; quadrature), its v-integral   PASS
 P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors                       PASS
-past5.py: 8/8
+      P9: (9.10) = the computed sphere mean True, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms True, the coefficient is 1 - pi/2 True
+      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 True
+      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 False
+P9 the printed (9.10) and (11.3) (N1STAR-PROOF.md) have the computed coefficients                    PASS
+past5.py: 9/9
 exit 0
 
 $ python3 past5.py --mutants
@@ -41,6 +45,10 @@ mutant 3 of P7: caught
 mutant 4 of P7: caught
 mutant 1 of P8: caught
 mutant 2 of P8: caught
-past5.py mutants: 12/12
+      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 True
+mutant 1 of P9: caught
+      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 False
+mutant 2 of P9: caught
+past5.py mutants: 14/14
 exit 0
-[572 s]
+[529 s]
