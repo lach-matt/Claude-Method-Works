@@ -16,3 +16,42 @@ S3  the degree -6 part of P(g_b0 + Sigma_2), exactly
         0, (2, 0): 0, (0, 1): 0}
   S3b Q_6 := the (e d) + (d^2) part is not 0 and has the harmonics l = 0, 1, 2 only: pass [0, 1, 2]
 S4  Sigma_4 on the full operator: the decay of P along a ray of W (s = 1/2)
+  S3c Q_6 (exact) agrees with the full operator's r^6 P(g_b0 + Sigma_2) on the ray (Richardson, r = 128, 512; next term
+        r^-8): pass max difference 4.53e-11
+    fitted decay exponents (r = 8 .. 2048): {'Sigma_2': [5.9965, 5.9998, 6.0, 6.0], 'Sigma_2 + Sigma_4': [7.9978, 7.9999,
+        8.0, 8.0], 'Sigma_2 + Sigma_(5/2) + Sigma_4': [6.5451, 6.5175, 6.508, 6.5039], 'control: l = 2 piece constant':
+        [5.978, 5.9986, 5.9999, 6.0], 'control: -Sigma_4': [5.9876, 5.9992, 6.0, 6.0], 'control: Sigma_2 + Sigma_(5/2),
+        no Sigma_4': [6.1922, 6.1153, 6.0634, 6.0334]}
+  S4 |P(g_b0 + Sigma_2)| decays like r^-6, |P(g_b0 + Sigma_2 + Sigma_4)| like r^-8 (F_4 cancels degree -6), |P(g_b0 +
+        Sigma_2 + Sigma_(5/2) + Sigma_4)| like r^(-13/2): P(Sigma) = O(lam r^(-13/2)) with Sigma_4: pass
+  S4' controls (the l = 2 piece constant; -Sigma_4; no Sigma_4 with Sigma_(5/2)): decay 6 each: pass
+W  the weight window: the cap's and the tail's exponents measured (W1-W2), the residual's degree measured (S4); the
+        rows', the class's and Step 2's exponents counted by hand ([arithmetic], W4-W8)
+    h_R's leading decay at fixed v (exact): {'Sigma with p = 4': '9/2', 'control: p = 4 dropped': '4'}
+  W1 the cap's measured exponents (13 values of a in [1/2, 7/2], |T| = 1e6 .. 1e7) are the affine law 2a - 6 (fit
+        residual below 2e-3): the cap vanishes exactly for a < 3: pass fit (slope, intercept, residual) ['2', '-6',
+        9e-05]; p = 4 dropped: ['2', '-5'], zero 5/2; samples (a, exponent): [('1/2', -4.9999), ('3/2', -2.9999), ('5/2',
+        -0.9999), ('7/2', 1.0001)]
+  W2 the N-flux tail of h_R(v1, .) has exponent 2a - 7 (exact, 13 values of a): finite and vanishing exactly for a < 7/2:
+        pass zero 7/2; p = 4 dropped: 3
+  W3 the residual's kernel from the measured degree q_R (S4): integrable in sigma exactly for a < q_R - 3: pass q_R =
+        13/2: Interval.open(0, 7/2); q_R = 6 (F_4 with no source): Interval.open(0, 3)
+  W4 [arithmetic: the scaling rules entered] S1's pointwise exponent is a + 3/2 and its integral from infinity a + 1/2
+        (sympy); the h_R rows 3/2 + a and a + 1/2 are > 1 exactly for a > 1/2; the coefficient rows (r5op5 O1) do not
+        depend on a: pass beta1 = a + 3/2, beta0 = a + 1/2, rows > 1 on Interval.open(1/2, oo)
+  W5 [arithmetic: the weight entered] r = 1/rho: r^(2a+1) dr = rho^(-2(a+1)) drho/rho, the class exponent a + 1 (sympy);
+        inside rho^(l0) L^2_b for a + 1 > l0: pass a + 1
+  W6-W8 [arithmetic: the thresholds entered] Step 2: a + 1/2 >= 2 on [3/2, oo); Lemma R4.5 widened: the flux (W2) and int
+        r^(2a-8) dr (sympy's own convergence condition) finite on (0, 7/2), Lemma R3.2 on (0, (J' - 1)/2) = (0, 7/2);
+        Proposition R5.2: min(3, a + 1/2) > 1 on (1/2, oo): pass Interval(3/2, oo), Interval.open(0, 7/2),
+        Interval.open(1/2, oo)
+  W the intersection of the conditions is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (its upper end from the measured cap
+        exponent, its lower end from W5's class exponent): pass {'31/10': 'Interval.open(21/10, 3)', '33/10':
+        'Interval.open(23/10, 3)', '18/5': 'Interval.open(13/5, 3)', '39/10': 'Interval.open(29/10, 3)'}
+  W' controls: p = 4 dropped from Sigma (W1-W2 recomputed: crossings 5/2 and 3) gives (l0 - 1, 5/2), empty for l0 >= 7/2;
+        Lemma R4.5 on (5/2, 7/2) gives (max(l0 - 1, 5/2), 3): pass
+  W'' with q_R = 6 (F_4 without its source: P(Sigma) = O(lam r^-6), measured in S4) the window is unchanged: the cap's a
+        < 3 binds first (R6.0 (r6-F4)): pass
+  W''' [R7] control (W5's class exponent mutated to a + 1/2): the window's lower end moves to l0 - 1/2, so W uses W5's
+        result: pass
+FAILED: none
