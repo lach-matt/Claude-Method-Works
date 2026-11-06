@@ -23,3 +23,17 @@ H4 (exact) coherence of every combination after hierarchical rescaling; the reso
 H4 PASS
 H5 (numpy RK4, Newton) separation is kept by the flow: d alpha/d w = det DPhi/det(dy/dx0) > 0
    12 (y, w) pairs: max relative |Schur - shooting| = 1.06e-09; least d alpha/d w = 0.7983 > 0; control (d alpha/d w at fixed x0) differs: True
+   least symbol/(Delta w)^2 over adjacent labels and four points: N = 8: 0.2923, N = 16: 0.2926, N = 32: 0.2927, N = 64: 0.2927; converged to 5 %: True
+H5 PASS
+H6 (mpmath; numpy) the label quadrature, and an N-uniform mean-field model
+   smooth density, T_11 error at N = 4, 8, 16, 32: 3.01e-01, 4.10e-03, 3.61e-13, 1.65e-38; faster than N^-6: True
+   control (a kink, |sin w|): 1.78e+00, 2.36e-01, 5.31e-02, 1.30e-02, about N^-2: rejected by the test: True
+   model: N = 4: |w_N - w_ref| = 9.34e-02, quadrature residual 5.53e+00, ratio 0.017; N = 8: |w_N - w_ref| = 3.24e-03, quadrature residual 1.28e+00, ratio 0.003; N = 16: |w_N - w_ref| = 2.28e-04, quadrature residual 4.83e-02, ratio 0.005
+   errors fall at least like N^-2 at each doubling: True; ratio to the residual bounded independently of N (within a factor 10, and below 10): True
+   control (weights 2 pi/(N + 1)): errors 5.28e-01, 3.07e-01, 1.63e-01, rejected: True
+H6 PASS
+H7 (exact) restricted particles focus at an axis
+   (a) sqrt|g5| = sqrt|h| e^(psi1 + psi2): True; the 5D divergence of a restricted current is e^-(psi1 + psi2) times the orbit divergence of e^(psi1 + psi2) J: True
+   (b) inward restricted flow solves the planar continuity equation: True; r n(r, t) -> v t n0(v t) as r -> 0 (so T5 ~ n v^2 is unbounded once the beam reaches the axis): True; control (axial momenta) bounded: True
+H7 PASS
+exit 0
