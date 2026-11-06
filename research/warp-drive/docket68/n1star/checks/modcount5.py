@@ -110,13 +110,13 @@ ANCHORS = [('I15', 323, 352, '*Step 2 (one level).*'),
            ('I14', 101, 170, "*Proof.* III.I$''''''''''$ Proposition 3.1 holds at the admissible $\\beta$"),
            ('I12', 110, 236, '**Lemma 2.1 (zero energy with expansions).**'),
            ('I12', 246, 428, '*Proof.* *Step 0 (decomposition and transform;'),
-           ('I11', 347, 403, "*Proof.* The construction is III.I$'''''$'s Steps 1-2"),
+           ('I11', 349, 403, "*Proof.* The construction is III.I$'''''$'s Steps 1-2"),
            ('I9', 206, 342, "*Proof.* Steps 0-2 of III.I$''''''$ Proposition 2.1's proof change."),
            ('I7', 190, 333, '*Step 3 (the decomposition).*')]
 # lines whose content pins a weight or a loss formula used below (READ)
 PINS = [('J3', 'III.I$\'\'$ Lemma 4.1 composes this with (e) and the invertibility of III.H Corollary 4.4'),
         ('J3', 'III.H Proposition 3.2 ($\\widetilde{L_b}(0)^{-1}$, loss\n1)'),
-        ('J3', '(order-2 operators'),
+        ('J3', '$\\|Au\\|_k\\le C_k(\\|u\\|_{k+2}+\\|\\beta\\|_{k+d}\\|u\\|_{d})$'),
         ('G2', 'So $\\ell := 2\\ell_3+\\ell_4+\\ell_5$.'),
         ('G2', '(4.4) holds with $\\ell := \\ell_1+\\ell_2+2N+\\lceil(\\delta_2-\\delta_1)_+\\rceil$.'),
         ('G2', '(1) (*Low energies.*) Let $\\ell := \\lceil(\\max(\\beta_\\iota-\\beta_{\\mathrm{scf}},\\beta_K)+'
@@ -388,7 +388,7 @@ def totals(ch):
     return ab, be, max(ab, be)
 
 
-C_PIN, D_PIN = 394, 45661425859424907
+C_PIN, D_PIN = 406, 45661427137374547
 
 
 def main():

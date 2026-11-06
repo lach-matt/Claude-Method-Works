@@ -381,7 +381,8 @@ def main():
     say('  H5 (D623): g0 = eta + m U U^T has eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; s(m) = (m^2 + '
         '1)^(1/2) - m decreases (exact): %s; grid of %d points over Omega (mu(v) from the envelope, mu_end = %.12f '
         'against 227/192): least |eigenvalue| = s(mu/r^2) at every point to %.1e; grid minimum %.12f on r = a with mu '
-        '= mu_end to 1e-12 (the corner\'s value): %s; s(m*) = %.12f; in T7\'s enclosure [%s, %s]: %s; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): %s' % (
+        '= mu_end to 1e-12 (the corner\'s value): %s; s(m*) = %.12f; in T7\'s enclosure [%s, %s]: %s; s0 < 2^(1/2) '
+        '- 1 < 3/5 (m* > 1, exact): %s' % (
             r5['closed'], r5['decr'], r5['n'], r5['mu_end_num'], r5['pointwise'], r5['gmin'], r5['corner'], s_star,
             float(E_LO), float(E_HI), float(E_LO) - TOL <= r5['gmin'] <= float(E_HI) + TOL, r5['below']))
 

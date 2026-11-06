@@ -591,7 +591,15 @@ N1* are chosen in Lemma 6.2.
 
 **Status.** Proved here (deduced), with the facts it uses about the approximant's slice data computed in `data5.py`
 (S0-S6) and the form of the constraints READ in [Rac16] (I. Racz, *Constraints as evolutionary systems*, Class. Quantum
-Grav. 33 (2016) 015014, arXiv:1508.01810v3, READ 2026-10-19); verified by two independent verifiers (D15, D16). No
+Grav. 33 (2016) 015014, arXiv:1508.01810v3, READ 2026-10-19); verified by two independent verifiers (D15, D16)
+[corrected D619 (m2): and since then read in parts by the verifiers of D18-D21 (the repairs, Proposition 6.5 whole at
+D21); edited after D21 at D26 (91c3946: the tame clause of Lemma 6.4), D615 (2a69924: Lemma 6.2's proof fixes stage
+N's data; re-derived by a round-4 reader of EQUALITY5-LAYER.md) and D616 (1b38ece: Lemma 6.2's statement says which
+stage data it means); read whole, with those three edits, by the section 6 reader of D619: proved once its findings
+are seated, no major gap, three minor findings and thirteen notes, all seated at D619 (the tame clause corrected,
+`checks/tame5.py`; D616 pinned, `checks/stagen5.py` S5; the symmetrizer on all fields, `checks/indepcons5.py` and
+`checks/symmshift5.py`). `checks/stagen5.py` S2 and S3 are a ledger of Lemma 5.1's weights and an identity, not
+computations from the operators (n12). The D619 seating itself is not yet read by a verifier]. No
 smallness of the background is used, so the data are posed on the slice Sigma := Sigma_tau0 of section 1, before the
 shell reaches the hole (route W item 4), and they coincide with the seed's data on Sigma cap {r < v_start - tau0}.
 
@@ -718,6 +726,11 @@ functions, q a covector tangent to the spheres) put, as in [Rac16] (the lapse of
 mixed and trace parts of K),
 
     Psi(U) := (gamma + a dr dr,  K + w Pi + q dr + dr q),     Pi the metric induced on the spheres.          (6.3)
+
+[D619, n7: four symbols carry two meanings in this section, each fixed by its context and none renamed, since other
+files cite these lines: a is the unknown of (6.3) and the inner radius r = a of section 1 ("zero data at r = a", "[a,
+R]"); K is the order of Theorem D (N >= K + 3) and the second fundamental form in (gamma, K); delta0 is Lemma 6.4's
+ellipticity constant and section 1's delta0 (a := q0 - delta0); S is the symmetrizer of Lemma 6.3 and S(D) of (6.1).]
 
 **Lemma 6.3 (the constraints as an evolution in r; computed `data5.py` S2-S4, S6; READ [Rac16]).** (a) The constraint
 map of Psi(U) is quasilinear in U: second order in a with no d_r^2 a and no d_r of a tangential derivative, first order
