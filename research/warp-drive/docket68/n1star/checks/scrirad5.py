@@ -32,9 +32,9 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
   R3 (numerical, floats) On that metric (eps = 1/10, g_0 = Minkowski), the past directed null curve of largest outward
      drift, dr/d(-t_*) = (1 + eps (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^5) down to t_* = 1: B = t_* + r increases
      towards the past (B is not monotone), F = t^flat_* + log r decreases, and r stays below the bound of Lemma 6.1 (b).
-  Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove): N1 kappa = 0 (alpha =
-     dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (26 C x <= 1); N4 the class's decay removed (the
-     coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
+  Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove):
+     N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (26 C x <= 1); N4 the class's
+     decay removed (the coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
 
 Labels: R1 computed (exact, z3 over the reals); R2 computed (exact, sympy); R3 computed (floats; a demonstration on
 one metric, not used by the proof). The constants C_1, rho_-, R_2, r'_0 of II.C are not computed; the lemma needs only
