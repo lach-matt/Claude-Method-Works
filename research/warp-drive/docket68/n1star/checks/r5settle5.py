@@ -34,8 +34,9 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     T(d_t, -grad Phi_W) for g = g_b0 + H, |H|_op <= r^-2/2, random d phi (6000 samples, floating point) is >= 0
     (dominant energy, both vectors future timelike). Control: with the spacelike normal grad r of a timelike cut-off
     {r = R} in place of -grad Phi_W it is negative somewhere (such a boundary's flux has no sign). F2 the
-    domain-of-dependence energy identity on a truncated diamond {t1 <= t <= t2, R + (t - t1) <= r <= R2 - (t - t1)} in the flat radial model (measure r^3 dr): E(t2) + both
-    null fluxes (each >= 0, tangential derivatives) = E(t1) - int int phi_t box phi r^3, exact for a polynomial phi.
+    domain-of-dependence energy identity on a truncated diamond {t1 <= t <= t2, R + (t - t1) <= r <= R2 - (t - t1)}
+    in the flat radial model (measure r^3 dr): E(t2) + both null fluxes (each >= 0, tangential derivatives) =
+    E(t1) - int int phi_t box phi r^3, exact for a polynomial phi.
     Control: with a transverse derivative in one flux it fails. F3 S1 and the Hardy inequality on a finite interval,
     with their boundary terms, exact identities; and if int^oo r^(2a+3) F^2 dr < oo then liminf R^(2a+4) F(R)^2 = 0
     (so the boundary term vanishes along a sequence): checked on F = r^(-a-2-eta) (-> 0); control F = r^(-a-2) (the

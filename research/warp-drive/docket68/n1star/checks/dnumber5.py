@@ -45,6 +45,9 @@ The chain (from the table: dweights5 W1/W3, dceiling5 D4/D6, eflat5 F4-F5, impor
      level range, at both ends of the d1 and base intervals (equal); the special points z = 1 and z = 2 and
      ceil(beta - 5/2) counted level by level in closed form.
   K5 (computed) the new constant: d <= A' + 106,489,470 c' (R0 and R1), N = 21 d + 6.
+  [Round 7, the round-6 verifier's M3: K4 and K5 now compare the four sums and both constants with pinned integers,
+  which x7indep5.py reproduces by an independent route (the swapped-order sum with its own floor sum) and through
+  which it runs four mutations of this production path (x7_totals), each of which must change a pinned figure.]
   K6 (READ; deduced) c': III.I Theorem 5.3's FWD loss D_0 + D_1 + d' + d'' + 6 (II.F2-TAME (3.2)-(3.3)), BG 2, and the
      fixed MODs. D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) contains d^T_0 = II.A Proposition 9.6's d_0, which is II.A Lemma
      8.5's (II.A:1306-1307), defined as d_* + K + 1 with d_* from the closed graph theorem (II.A:955-967), and
@@ -62,7 +65,7 @@ The chain (from the table: dweights5 W1/W3, dceiling5 D4/D6, eflat5 F4-F5, impor
   [2, beta - 1 - eps] fails. C3 K1 with F4's excess dropped: A differs from eflat5's printed constant. C4 the floor sum
   of K4 at a perturbed d1 (one part in 10^9): the two interval ends no longer agree with it.
 
-    python3 checks/dnumber5.py        (about a minute)
+    python3 checks/dnumber5.py        (about ten seconds)
 """
 import builtins
 import os
@@ -223,7 +226,7 @@ def chains(w, T, reading, ecol_rd, d1lo, d1hi):
     return out, sp
 
 
-def chain_level_sum(ch, w, c, d1, top3=3):
+def chain_level_sum(ch, w, c, d1, top3=3, top_level=True):
     """sum over the levels k3 <= k <= K of #{n >= n_a : g + n d1 < 3, g + n d1 <= beta_k - 1 - eps}, at one value of
     d1 and of g (rationals): exact"""
     g, n_a = ch['g'], ch['n_a']
@@ -254,15 +257,56 @@ def chain_level_sum(ch, w, c, d1, top3=3):
     nfull = max(0, (K - 1) - max(kb, ka) + 1) if kb <= K - 1 else 0
     tot += nfull * full
     assert al - 1 - eps > top3
-    tot += full                                                   # the top level
+    if top_level:
+        tot += full                                               # the top level
     return tot, full
 
 
-def certified_chain_sum(ch, w, c, d1lo, d1hi):
+def certified_chain_sum(ch, w, c, d1lo, d1hi, top_level=True):
+    """the chain sum at both ends of the d1 and base intervals. With n_a fixed (asserted equal at both ends in chains),
+    each indicator [g + n d1 < 3, g + n d1 <= beta_k - 1 - eps] is nonincreasing in g and in d1 (n >= 0), so the true
+    sum lies between the value at (g_hi, d1_hi) and at (g_lo, d1_lo); equal ends pin it (Round 7, verifier M3)"""
     lo_g, hi_g = ch['lo'], ch['hi']
-    s1, f1 = chain_level_sum(dict(g=hi_g, n_a=ch['n_a']), w, c, d1hi)   # fewest points: largest g and d1
-    s2, f2 = chain_level_sum(dict(g=lo_g, n_a=ch['n_a']), w, c, d1lo)
+    s1, f1 = chain_level_sum(dict(g=hi_g, n_a=ch['n_a']), w, c, d1hi, top_level=top_level)   # fewest points
+    s2, f2 = chain_level_sum(dict(g=lo_g, n_a=ch['n_a']), w, c, d1lo, top_level=top_level)
     return s1, s2, f1, f2
+
+
+def x7_totals(w, c, T, d1lo, d1hi, open23, per_point=3, top_level=True, lF_on=True, excess_on=True):
+    """K4's aggregation (Round 7: a function, so that x7indep5.py can run the production path and its mutations):
+    returns {(reading, E_col reading): dict(X7, tot, gen, spec, lF, sp, chs, lv)}"""
+    results = {}
+    for reading in ('R0', 'R1'):
+        for ecol_rd in ('wide', 'shifted'):
+            chs, sp = chains(w, T, reading, ecol_rd, d1lo, d1hi)
+            tot, full_pts, gen = 0, 0, 0
+            for ch in chs:
+                s1, s2, f1, f2 = certified_chain_sum(ch, w, c, d1lo, d1hi, top_level=top_level)
+                assert s1 == s2 and f1 == f2, (ch['name'], s1, s2)
+                ch['sum'], ch['full'] = s1, f1
+                tot += (per_point + (ch['e'] if excess_on else 0)) * s1
+                gen += per_point * s1
+                full_pts += f1
+            assert full_pts == open23
+            # special points z = 1 (levels with beta - 2 - eps >= 1) and z = 2 (beta - 2 - eps >= 2)
+            a1, s, eps, K, k3 = w['alpha1'], w['s'], w['eps'], c['K'], c['k3']
+            lv_z1 = (K - 1) - max(k3, ceil((3 + eps - a1) / s)) + 1 + 1
+            lv_z2 = (K - 1) - max(k3, ceil((4 + eps - a1) / s)) + 1 + 1
+            k72 = ceil((Fr(7, 2) - a1) / s)                       # first level index with beta > 7/2
+            assert a1 + (k72 - 1) * s < Fr(7, 2) < a1 + k72 * s
+            lF = (k72 - k3) * 1 + ((K - 1) - k72 + 1) * 2 + 2     # ceil(beta - 5/2): 1 up to 7/2, then 2; top 2
+            if not lF_on:
+                lF = (K + 1 - k3) * 1                             # mutation: ceil term set to 1 at every level
+            spec = lv_z1 * (sp['z1'] + 1) + lv_z2 * (sp['z2'] + 1)
+            X7 = tot + spec + lF
+            results[(reading, ecol_rd)] = dict(X7=X7, tot=tot, gen=gen, spec=spec, lF=lF, sp=sp, chs=chs,
+                                               lv=(lv_z1, lv_z2))
+    return results
+
+
+X7_PIN = {('R0', 'shifted'): 6553653743474486, ('R0', 'wide'): 7512059369168913,
+          ('R1', 'shifted'): 6783838625545958, ('R1', 'wide'): 7742244251240377}   # reproduced by x7indep5.py
+D_PIN = {'R0': 45431197742704599, 'R1': 45661383902649727}
 
 
 # ------------------------------------------------------------------------------------------- C1 brute force
@@ -358,30 +402,7 @@ def main():
         print('      E_col on [0, 1] (%s reading): log order %d at 0, %d at 1, at most %d off the integers (%d points)'
               % (rd, ec[Fr(0)], ec[Fr(1)], max(v for p, v in ec.items() if p not in (0, 1)),
                  len([p for p in ec if p not in (0, 1)])))
-    results = {}
-    for reading in ('R0', 'R1'):
-        for ecol_rd in ('wide', 'shifted'):
-            chs, sp = chains(w, T, reading, ecol_rd, d1lo, d1hi)
-            tot, full_pts, gen = 0, 0, 0
-            for ch in chs:
-                s1, s2, f1, f2 = certified_chain_sum(ch, w, c, d1lo, d1hi)
-                assert s1 == s2 and f1 == f2, (ch['name'], s1, s2)
-                ch['sum'], ch['full'] = s1, f1
-                tot += (3 + ch['e']) * s1
-                gen += 3 * s1
-                full_pts += f1
-            assert full_pts == open23
-            # special points z = 1 (levels with beta - 2 - eps >= 1) and z = 2 (beta - 2 - eps >= 2)
-            a1, s, eps, K, k3 = w['alpha1'], w['s'], w['eps'], c['K'], c['k3']
-            lv_z1 = (K - 1) - max(k3, ceil((3 + eps - a1) / s)) + 1 + 1
-            lv_z2 = (K - 1) - max(k3, ceil((4 + eps - a1) / s)) + 1 + 1
-            k72 = ceil((Fr(7, 2) - a1) / s)                       # first level index with beta > 7/2
-            assert a1 + (k72 - 1) * s < Fr(7, 2) < a1 + k72 * s
-            lF = (k72 - k3) * 1 + ((K - 1) - k72 + 1) * 2 + 2     # ceil(beta - 5/2): 1 up to 7/2, then 2; top 2
-            spec = lv_z1 * (sp['z1'] + 1) + lv_z2 * (sp['z2'] + 1)
-            X7 = tot + spec + lF
-            results[(reading, ecol_rd)] = dict(X7=X7, tot=tot, gen=gen, spec=spec, lF=lF, sp=sp, chs=chs,
-                                               lv=(lv_z1, lv_z2))
+    results = x7_totals(w, c, T, d1lo, d1hi, open23)
     # K2 (identity on the real data): the generic part is 3 x sum over levels of |Lambda cap (2, beta - 1 - eps]|
     r = results[('R1', 'wide')]
     top = sum(ch['full'] * (3 + ch['e']) for ch in r['chs']) + r['sp']['z1'] + 1 + r['sp']['z2'] + 1
@@ -403,7 +424,7 @@ def main():
         print('  K4 %s/%s: sum over the levels above 3 of X_7 = %d (generic 3 per point %d, excess %d, the points 1 and '
               '2 %d, ceil(beta - 5/2) %d); certified (each chain sum equal at both ends of the d1 and base intervals)'
               % (key[0], key[1], rr['X7'], rr['gen'], rr['tot'] - rr['gen'], rr['spec'], rr['lF']))
-    OK['K4'] = all(rr['X7'] > 0 for rr in results.values())
+    OK['K4'] = all(results[key]['X7'] == X7_PIN[key] for key in X7_PIN)       # pinned (Round 7, verifier M3)
     # K5
     final = {}
     for reading in ('R0', 'R1'):
@@ -417,7 +438,7 @@ def main():
     for cp in (10, 100, 10 ** 4, 10 ** 6):
         dv = final['R1'] + KPLUS1 * cp
         print('      c\' = %d: d <= %d (%.6e), N <= %d (%.6e)' % (cp, dv, dv, 21 * dv + 6, 21 * dv + 6))
-    OK['K5'] = final['R1'] > A['R1'] and final['R1'] < 10 ** 17
+    OK['K5'] = final == D_PIN                                                 # pinned (Round 7, verifier M3)
     # K6: c' (READ, deduced): printed only
     print('  K6: c\' >= D_0 + D_1 + d\' + d\'\' + 6 + 2 (BG) + the fixed MODs; D_0 >= II.A Lemma 8.5\'s d_0 = '
           'd_* + K + 1, d_* from the closed graph theorem (II.A:955-967), and D_0 >= the d_0 of (L3)-(L4), fixed by '

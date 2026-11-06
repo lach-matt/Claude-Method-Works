@@ -1,17 +1,1 @@
 O3  G-naturality of the gauge-fixed operator relative to g_b0
-  O3 P(sigma^* h) = Lambda^T P(h)(Lambda .) Lambda for the reflection x2 -> -x2 and the rotation (3/5, 4/5) (two points,
-        all components): pass {'reflection': ('1.43e-42', '0.107'), 'rotation': ('8.21e-42', '0.105'), 'shear (control)':
-        ('0.0133', '0.0723')}
-  O3' control (the shear x1 -> x1 + x2/2): the identity fails: pass
-O2  the degrees of P(g_b0 + Sigma_p) on the operator
-  O2 |P(g_b0 + Sigma_2)| decays like r^-6 and |P(g_b0 + Sigma_(5/2))| like r^(-13/2): the flat part cancels, the mu part
-        enters at -p - 4: pass 6.0, 6.512
-  O2' control (F = 1 + s, not a flat solution): decay 4: pass 4.0
-O1  the coefficients B(H), C(H) of DP(H) along a ray of W, and the kernels composed from them
-  O1 measured decay of B(0), C(0), B(H) - B(0), C(H) - C(0) along the ray: 3, 4, 3, 4: pass [3.0, 4.0, 3.0, 3.998]
-  O1' the kernels composed from them are all > 1 (integrable in sigma): pass {'B(0) . d phi': 3, 'C(0) phi (Hardy)': 3,
-        '(B(H) - B(0)) . d phi': 3, '(C(H) - C(0)) phi (Hardy)': 3, '(g^-1 - g_b0^-1) d d phi (Z4a)': 2}
-  O1'' control (H mutated to r^-2 F(v - v1) P): the H-coefficients decay like r^-2 and the zero-order kernel exponent is
-        1, not integrable: FAIL B: 1.013, C: 2.051
-FAILED: ["O1'' control (H mutated to r^-2 F(v - v1) P): the H-coefficients decay like r^-2 and the zero-order kernel
-        exponent is 1, not integrable"]
