@@ -62,6 +62,7 @@ from mpmath import iv, mp, mpf
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.dirname(HERE))
 with contextlib.redirect_stdout(io.StringIO()):
     import e2certify5 as EC                 # noqa: E402  (r_*(t), imported, not copied)
 
