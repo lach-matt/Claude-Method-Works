@@ -50,8 +50,8 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
      f = A(r) sin(v/lam) the ratio ||d_r^3 f||^2/||d_r f||^2 -> lam^-4 (the limit of lam^4 times it is 1): the sup
      bound costs lam^-2 beyond the energy level ||d f||, which is Proposition R5.4's "+2"; with it the stage recursion
      of r5settle5 A gives B_J = 3J - 9. Control: a cost of 3 (Sobolev to order 4) gives a different B_J.
-  A0 (exact) the coefficient list of r5settle5 A computed from g_b0: the decay degrees of g_b0^-1 - eta, d g_b0,
-     Gamma[g_b0], d d g_b0, d Gamma[g_b0] and Gamma Gamma along a ray are 2, 3, 3, 4, 4, 6, which with (0.2)'s
+  A0 (computed, 40 digits) the coefficient list of r5settle5 A from g_b0: the decay degrees of g_b0^-1 - eta,
+     d g_b0, Gamma[g_b0], d d g_b0, d Gamma[g_b0] and Gamma Gamma along a ray are 2, 3, 3, 4, 4, 6, which with (0.2)'s
      derivative counts (two on u through g^ab, one through Gamma[g0], none through d d g0 and (d g0)^2) is
      r5settle5.COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]. Control: the flat metric gives no coefficients.
   T (m5, exact and sampled) Theorem P's use of Lemmas 1.1(e) and 2.3 after D623 (N1STAR-PROOF.md 0.3: eps1 <
@@ -347,39 +347,36 @@ def part_l():
 
 def part_a0():
     print("A0  the coefficient list of r5settle5 A, from g_b0")
-    t, x1, x2, x3, x4 = X = sp.symbols("t x1 x2 x3 x4", real=True)
-    r = sp.sqrt(x1**2 + x2**2 + x3**2 + x4**2)
-    mu = Q(4, 5)
-    k = [1, x1/r, x2/r, x3/r, x4/r]
+    import f1lemma5 as F1
+    mp.mp.dps = 40
 
     def degrees(flat):
-        g = sp.diag(-1, 1, 1, 1, 1) + (0 if flat else mu/r**2)*sp.Matrix(5, 5, lambda i, j: k[i]*k[j])
-        gi = g.inv()
-        dg = [g.diff(X[c]) for c in range(5)]
-        Gam = [[[sum(gi[q, s]*(dg[a][s, b] + dg[b][s, a] - dg[s][a, b]) for s in range(5))/2 for b in range(5)]
-                for a in range(5)] for q in range(5)]
-        def deg(exprs):
-            """the decay degree along the ray x = R (1/2, 1/2, 1/2, 1/2): the slope of the largest |value| between
-            R = 1e6 and 1e7 (exact substitution, 30 digits); None if every expression vanishes"""
-            vals = []
-            for R_ in (10**6, 10**7):
-                pt = {x1: Q(R_, 2), x2: Q(R_, 2), x3: Q(R_, 2), x4: Q(R_, 2), t: Q(3, 10)}
-                vals.append(max(abs(sp.N(ex.subs(pt), 30)) for ex in exprs))
-            if vals[0] == 0:
-                return None
-            return int(round(float(sp.log(vals[0]/vals[1], 10))))
-        out = {"g^-1 - eta": deg([gi[i, j] - sp.diag(-1, 1, 1, 1, 1)[i, j] for i in range(5) for j in range(5)]),
-               "d g": deg([dg[c][i, j] for c in range(1, 5) for i in range(5) for j in range(5)][:40]),
-               "Gamma": deg([Gam[q][a][b] for q in range(5) for a in range(5) for b in range(5)][:40]),
-               "d d g": deg([dg[c][i, j].diff(X[d]) for c in (1, 2) for d in (1, 2) for i in (0, 1) for j in (0, 1)]),
-               "d Gamma": deg([Gam[q][a][b].diff(X[1]) for q in (0, 1) for a in (0, 1) for b in (0, 1)]),
-               "Gamma Gamma": deg([Gam[0][0][0]*Gam[1][1][1], Gam[1][0][0]*Gam[0][1][1], Gam[1][1][0]**2])}
+        J = F1.Jets(F1.gb0(flat=flat))
+        vals = {}
+        for R_ in (10**6, 10**7):
+            X = [mp.mpf("0.3")] + [mp.mpf(R_)/2]*4
+            g, dg, ddg = J.at(X, 0)
+            gi, dgi, G, dG = F1.christoffel(g, dg, ddg)
+            eta = mp.diag([-1, 1, 1, 1, 1])
+            R5_ = range(5)
+            vals[R_] = {
+                "g^-1 - eta": max(abs(gi[i, j] - eta[i, j]) for i in R5_ for j in R5_),
+                "d g": max(abs(dg[c][i][j]) for c in R5_ for i in R5_ for j in R5_),
+                "Gamma": max(abs(G[q][a_][b_]) for q in R5_ for a_ in R5_ for b_ in R5_),
+                "d d g": max(abs(ddg[c][d][i][j]) for c in R5_ for d in R5_ for i in R5_ for j in R5_),
+                "d Gamma": max(abs(dG[c][q][a_][b_]) for c in R5_ for q in R5_ for a_ in R5_ for b_ in R5_),
+                "Gamma Gamma": max(abs(sum(G[c][c][d]*G[d][a_][b_] - G[c][b_][d]*G[d][a_][c] for c in R5_
+                                           for d in R5_)) for a_ in R5_ for b_ in R5_)}
+        out = {}
+        for k_ in vals[10**6]:
+            v6, v7 = vals[10**6][k_], vals[10**7][k_]
+            out[k_] = None if v6 < mp.mpf(10)**-35 else int(mp.nint(mp.log10(v6/v7)))
         return out
     d = degrees(False)
     coefs = sorted({(0, 2), (d["g^-1 - eta"], 2), (d["Gamma"], 1), (d["d d g"], 0), (d["Gamma Gamma"], 0)})
-    check("A0 decay degrees along a ray: g^-1 - eta 2, d g 3, Gamma 3, d d g 4, d Gamma 4, Gamma Gamma 6 (exact); with "
-          "(0.2)'s derivative counts this is r5settle5.COEFS", d == {"g^-1 - eta": 2, "d g": 3, "Gamma": 3, "d d g": 4,
-                                                                     "d Gamma": 4, "Gamma Gamma": 6}
+    check("A0 decay degrees along a ray (R = 1e6, 1e7, 40 digits, f1lemma5's jets of g_b0): g^-1 - eta 2, d g 3, "
+          "Gamma 3, d d g 4, d Gamma 4, Gamma Gamma 6; with (0.2)'s derivative counts this is r5settle5.COEFS",
+          d == {"g^-1 - eta": 2, "d g": 3, "Gamma": 3, "d d g": 4, "d Gamma": 4, "Gamma Gamma": 6}
           and coefs == sorted(R5.COEFS), f"{d}; COEFS = {R5.COEFS}")
     dfl = degrees(True)
     check("A0' control (the flat metric): no coefficient beyond eta", all(v is None for v in dfl.values()), str(dfl))
