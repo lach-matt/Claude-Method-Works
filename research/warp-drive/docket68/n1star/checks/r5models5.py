@@ -24,9 +24,10 @@
      different value).
   M3 (numpy, finite differences) Lemma A' (b) on a model of the leaf map: w[U] solving -(A(U) w')' = f(U) on (0, 1),
      w = 0 at the ends (the leaf equation's ellipticity, with coefficients depending on U pointwise). On a small
-     H^2 ball, |w[U] - w[U']|_L2 / |U - U'|_L2 stays bounded over random pairs, high-frequency differences included.
-     Control (must fail; the verifier's minor 4): coefficients depending on U' = dU/dx when U does not carry dU as a
-     component (A = A(U')): the ratio grows like the difference's frequency.
+     H^2 ball, |w[U]' - w[U']'|_L2 / |U - U'|_L2 (the slope: the shear is first order in the leaf's normal) stays
+     bounded over random pairs, high-frequency differences included. Control (must fail; the verifier's minor 4):
+     coefficients depending on U' = dU/dx when U does not carry dU as a component (A = A(U')): the ratio grows like the
+     difference's frequency.
 
 Labels: computed (models). Run: python3 checks/r5models5.py   (about a minute)
 """
@@ -62,7 +63,7 @@ def d2(f):
 
 def Phi(u, v, w, kappa):
     vp = d1(v)
-    return d1(u) + d2(v) + w * (u**2 - kappa * vp**2)
+    return d1(u) + d1(vp) + w * (u**2 - kappa * vp**2)                     # d1 d1 so that u = -v' is an exact seed
 
 
 ZETA = bump(X, 0.3, 0.7)
@@ -93,7 +94,7 @@ def solve_up_to_kid(du, dv, eps, w, kappa, iters=12):
             e = np.zeros(NX)
             e[i] = 1.0
             J[:, k] = d1(e) + 2 * w * u * e
-            J[:, n + k] = d2(e) - 2 * w * kappa * vp * d1(e)
+            J[:, n + k] = d1(d1(e)) - 2 * w * kappa * vp * d1(e)
         J[:, -1] = -ZETA
         step = np.linalg.lstsq(J, -r0, rcond=None)[0]
         z = z + step
@@ -182,7 +183,7 @@ def m2():
     print("M2 (model) Theorem V's diagonal: weak convergence and an L^2 bound uniform in N")
     Fw = lambda w: 1.0 + 0.4 * math.cos(w) + 0.2 * math.sin(2 * w)                  # noqa: E731
     # F(x, w) = Fw(w) exp(-|x|^2/2); d g_N = sum_A F_A k_A sin(a_A k_A.x/lam)
-    energy = sum(Fw(2 * math.pi * j / 4096)**2 for j in range(4096)) * 2 * math.pi / 4096 * math.pi  # (1/2) int F^2
+    energy = 0.5 * sum(Fw(2 * math.pi * j / 4096)**2 for j in range(4096)) * 2 * math.pi / 4096 * math.pi
     tests = [(np.array([0.3 * j, -0.2 * j]), 0.5 + 0.1 * j) for j in range(40)]     # eta_j: centres, widths
 
     def pair_int(KA, KB, sA, sB):
@@ -262,22 +263,23 @@ def m3():
     print("M3 (model) Lemma A' (b): the leaf map is L^2-Lipschitz on a small H^2 ball when its coefficients are U's")
     n = 400
     x = np.linspace(0, 1, n + 1)
+    h = 1.0 / n
     rng = np.random.default_rng(7)
     good = lambda Um, Up: 1.0 + 0.5 * np.tanh(Um)                                   # noqa: E731
     bad = lambda Um, Up: 1.0 + 0.5 * np.tanh(Up)                                    # noqa: E731
     f_src = lambda U: 1.0 + U**2                                                     # noqa: E731
-    l2 = lambda f: float(np.sqrt(np.trapezoid(f**2, x)))                            # noqa: E731
+    l2 = lambda f: float(np.sqrt(np.sum(f**2) * h))                                 # noqa: E731
     U0 = 0.2 * np.sin(math.pi * x)
     rg, rb = [], []
     for kfreq in (2, 8, 32, 64):
         for _ in range(3):
-            dU = 0.01 * np.sin(kfreq * math.pi * x + rng.uniform(0, 6)) / (1 + kfreq**2) ** 0.0 * 1e-1
-            dU *= 1.0 / (1 + 0.0 * kfreq)
-            dU = dU / max(1.0, (kfreq * math.pi)**2 * 1e-3)                        # stays in a small H^2 ball
+            # a difference in a small H^2 ball: amplitude 1e-3/(k pi)^2
+            dU = 1e-3 / (kfreq * math.pi)**2 * np.sin(kfreq * math.pi * x + rng.uniform(0, 6))
             for coef, store in ((good, rg), (bad, rb)):
                 w1 = leaf(U0, coef, f_src, n)
                 w2 = leaf(U0 + dU, coef, f_src, n)
-                store.append((kfreq, l2(w2 - w1) / l2(dU)))
+                # the output is the leaf's slope (the shear is first order in the leaf's normal)
+                store.append((kfreq, l2(np.diff(w2 - w1) / h) / l2(dU)))
     gmax = max(r[1] for r in rg)
     by_k = lambda rows, k: max(r[1] for r in rows if r[0] == k)                     # noqa: E731
     good_ok = gmax < 2 * min(r[1] for r in rg if r[0] == 2) + 1.0
