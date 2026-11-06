@@ -94,6 +94,10 @@ def angular_bound(claim=Fr(1, 3)):
     return diff, at1
 
 
+def fa(x):
+    return flint.arb(flint.fmpq(x.numerator, x.denominator))
+
+
 def a_ball():
     q0 = flint.arb(9) / 1250
     q0 = q0 ** (flint.arb(1) / 8)
@@ -103,11 +107,11 @@ def a_ball():
 def env_sq_hi(vlo, vhi):
     """upper bound of E(v)^2 on [vlo, vhi] (Arb), E = c cos^12(pi y/2) exp(-y^2/(1 - y^2)), y = (2 v - 4)/3"""
     ylo, yhi = (2 * vlo - 4) / 3, (2 * vhi - 4) / 3
-    y = flint.arb((ylo + yhi) / 2, (yhi - ylo) / 2)
+    y = fa(ylo).union(fa(yhi))
     ymax = max(abs(ylo), abs(yhi))
     if ymax >= Fr(999, 1000):                    # end cells: cos^12 <= cos^12(pi ymin/2), exp <= 1
         ymin = min(abs(ylo), abs(yhi)) if ylo * yhi > 0 else Fr(0)
-        cmax = flint.arb(ymin) * flint.arb.pi() / 2
+        cmax = fa(ymin) * flint.arb.pi() / 2
         e = C_HI * cmax.cos() ** 12
         return (e * e).upper()
     cpart = (flint.arb.pi() * y / 2).cos() ** 12
@@ -120,8 +124,8 @@ def chi_sup(r_at, cells=4000):
     best = flint.arb(0)
     for i in range(cells):
         vlo, vhi = Fr(1, 2) + Fr(3 * i, cells), Fr(1, 2) + Fr(3 * (i + 1), cells)
-        E2 = flint.arb(env_sq_hi(vlo, vhi))
-        vb = flint.arb((vlo + vhi) / 2, (vhi - vlo) / 2)
+        E2 = env_sq_hi(vlo, vhi)
+        vb = fa(vlo).union(fa(vhi))
         rad = r_at ** -2 - (vb + 2) ** flint.arb(-0.5) * r_at ** flint.arb(-1.5)
         val = flint.arb((flint.arb(2) / 3 * E2 * rad).upper())
         if val > best:
@@ -135,8 +139,8 @@ def main():
     oddW, oddchi = stage0_forms()
     OK['S1'] = OK['S1'] and oddW and oddchi
     print('  S1: W_TT(s + pi) = -W_TT(s) and chi(s + pi/2) = -chi(s) on the closed forms (exact): %s, %s; the three '
-          'identities for g = M + W_TT + chi D (exact): so C_app >= max(sup|W_TT|, sup|m_1 + chi dv dv|) >= max(sup|W_TT|,'
-          ' 2 sup|chi|): %s' % (oddW, oddchi, OK['S1']))
+          'identities for g = M + W_TT + chi D (exact): so C_app >= max(sup|W_TT|, sup|m_1 + chi dv dv|) >= '
+          'max(sup|W_TT|, 2 sup|chi|): %s' % (oddW, oddchi, OK['S1']))
     diff, at1 = angular_bound()
     OK['S2a'] = sp.simplify(diff - 3 * (1 - sp.Symbol('q', real=True) ** 2) ** 2) == 0 and at1 == Fr(1, 9)
     a = a_ball()
@@ -145,8 +149,8 @@ def main():
     print('  S2: angular factor squared <= 1/9 with 36 (1 + q^2)^2/9 - (16 q^2 + (1 - q^2)^2) = %s (exact), equality at '
           'q^2 = 1; a = q0/2 in %s; 2 sup_Omega |chi| <= %s (certified, Arb) < 12.593309: the second harmonic does not '
           'raise C_app\'s lower bound: %s' % (diff, a.str(10), sup2chi.str(6), OK['S2']))
-    print('  S3 (deduced): stage 1 lowers the certified lambda0 bound iff a certified lower bound of sup |m_1 + chi dv dv|'
-          '_op exceeds 12.593309; Lemma 6.4\'s estimate, an upper bound for m_1, cannot do it')
+    print('  S3 (deduced): stage 1 lowers the certified lambda0 bound iff a certified lower bound of sup |m_1 + '
+          'chi dv dv|_op exceeds 12.593309; Lemma 6.4\'s estimate, an upper bound for m_1, cannot do it')
     # S4 principal constants on Sigma_tau0
     b = B_TAU0_HI
     mue = flint.arb(MUEND.numerator) / MUEND.denominator
