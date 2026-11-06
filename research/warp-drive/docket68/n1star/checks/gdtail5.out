@@ -48,12 +48,14 @@ T8 PASS
       each supremum reached: {'p-target': True, 'cap': True}; in the class p_0 > 1/2 + 2 gam > 1/2 + delta_#: {'1 - (1/2
       + delta_#)': True, '(q - 1) - (1/2 + 2 gam)': True, '2 gam - delta_#': True}
   T9 control ((i) p = 1/2: conditions failing ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'beta > 0', 'b_I
-      > b_+', 'p_slab > b_I', 'gamma_+ < b_+', 'alpha_K < gamma_+', 'alpha_K >= 1/2']; (ii) targets + 1 {'p-target': p +
-      1, 'cap': 5/2}: certificates {'p-target': ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'beta > 0',
-      'alpha_K < gamma_+', 'gamma_+ < 2 (R6.4) / 3/2 (R5.1)'], 'cap': ['alpha_I < 0', 'p_slab > 1/2 + beta', 'beta > 0',
-      'alpha_K < gamma_+', 'gamma_+ < 2 (R6.4) / 3/2 (R5.1)']}, reached {'p-target': False, 'cap': False}; (iii) targets
-      - 1/2 {'p-target': p - 1/2, 'cap': 1}: certificates {'p-target': None, 'cap': None}, reached {'p-target': False,
-      'cap': False})
+      > b_+', 'p_slab > b_I', 'gamma_+ < b_+', 'alpha_K < gamma_+', 'alpha_K >= 1/2']; (ii-p) the p-target + 1
+      {'p-target': p + 1, 'cap': 3/2}: certificates {'p-target': ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 +
+      beta', 'beta > 0', 'alpha_K < gamma_+', 'gamma_+ < 2 (R6.4) / 3/2 (R5.1)'], 'cap': ['alpha_K < gamma_+', 'gamma_+ <
+      2 (R6.4) / 3/2 (R5.1)']}, reached {'p-target': False, 'cap': True}; (ii-cap) the cap + 1 {'p-target': p, 'cap':
+      5/2}: certificates {'p-target': ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'gamma_+ < b_+', 'alpha_K
+      < gamma_+'], 'cap': ['alpha_I < 0', 'p_slab > 1/2 + beta', 'beta > 0', 'alpha_K < gamma_+', 'gamma_+ < 2 (R6.4) /
+      3/2 (R5.1)']}, reached {'p-target': True, 'cap': False}; (iii) targets - 1/2 {'p-target': p - 1/2, 'cap': 1}:
+      certificates {'p-target': None, 'cap': None}, reached {'p-target': False, 'cap': False})
 T9 PASS
   T10: each required slab order below Theorem R4.3's min(3/2, q - 1): {'R4.4 / R3.6: p > 1/2 + beta, beta in (0,
       delta_#)': True, 'R5.3 at kappa: p > 1/2 + beta, beta = (kappa + delta_#)/2': True, 'l >= 2 (Corollary R8.11): p >
@@ -78,12 +80,12 @@ T11 PASS
       True)]; joint orders >= (6, 9/2) and (6, 3): False
 T12 PASS
   T13: -Y[h_0]^flat = (f zeta - r H_0) dv - zeta dr: True; the model meets (c)'s hypotheses: True; the radial component r
-      H_0 and every derivative of zeta, r H_0 of order w: True; T^(w-1) times the dr component, d_r of the dv component,
-      the dv component -> -c_0, 2*c_0*s**2/r**3, (c_0*r**2 - c_0*s**2)/r**2 (f' zeta: True); order exactly w - 1: True;
-      the 1-form reading at order w: False
+      H_0 and the first and second derivatives of zeta, r H_0 of order w: True; T^(w-1) times the dr component, d_r of
+      the dv component, the dv component -> -c_0, 2*c_0*s**2/r**3, (c_0*r**2 - c_0*s**2)/r**2 (f' zeta: True); order
+      exactly w - 1: True; the 1-form reading at order w: False
   T13 control (c_0 = 0): -Y[h_0]^flat = (f zeta - r H_0) dv - zeta dr: True; the model meets (c)'s hypotheses: True; the
-      radial component r H_0 and every derivative of zeta, r H_0 of order w: True; T^(w-1) times the dr component, d_r of
-      the dv component, the dv component -> 0, 0, 0 (f' zeta: True); order exactly w - 1: False; the 1-form reading at
-      order w: True
+      radial component r H_0 and the first and second derivatives of zeta, r H_0 of order w: True; T^(w-1) times the dr
+      component, d_r of the dv component, the dv component -> 0, 0, 0 (f' zeta: True); order exactly w - 1: False; the
+      1-form reading at order w: True
 T13 PASS
 EXIT 0
