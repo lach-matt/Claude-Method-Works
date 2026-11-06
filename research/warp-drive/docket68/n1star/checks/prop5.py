@@ -15,8 +15,8 @@ five of the six components, and Box Phi_i = 0 (P1, P4).  Two things are then lef
      the lower-order coefficients printed.  The contracted Bianchi identity div(Ric - (1/2) R ht) = 0 and
      div T = sum (Box Phi_i) dPhi_i, T the scalars' stress tensor, give div S = -sum (Box Phi_i) dPhi_i = 0 once the
      wave equations hold: so q obeys a homogeneous linear transport along e4 (and e3), and q = 0 on one initial cone
-     implies q = 0 everywhere (Sachs and Rendall's lemma in the reduced system).  Control: the same with S_34 replaced
-     by q (1 + x) (a wrong trace) is not divergence-free-consistent: (div S)(ex) acquires e_x q... printed.
+     implies q = 0 everywhere (Sachs and Rendall's lemma in the reduced system).  Control: with E_xx = 2q (the imposed
+     combination E_34 + E_xx = 0 violated) S is not of that single-component form.
   Q2 (exact) the identity used: on the general (2+1)-metric and two scalars, div(Ric - (1/2) R ht - T) =
      -sum (Box Phi_i) dPhi_i, every component.
   Q3 (deduced, stated) the compatibility relations do not propagate by one-directional transport: chib = e^-w (k_u +
@@ -85,6 +85,12 @@ def main():
     print('Q1 E_34 = -q, E_xx = q (the five imposed components zero): tr E = 2q and S = E - (tr E/2) ht has S_34 = q '
           'only: %s' % single)
     ok &= single
+    Em = tensor_from_frame({('3', '4'): -q, ('x', 'x'): 2 * q}, q)
+    trm = sum(gi[a, cc] * Em[a, cc] for a in range(3) for cc in range(3))
+    Sm = Em - trm / 2 * g
+    single_m = N3.zero(fr(Sm, E3, E4) - q) and N3.zero(fr(Sm, EX, EX))
+    print('   control (E_xx = 2q): single-component form %s' % ('holds (bad)' if single_m else 'fails (good)'))
+    ok &= not single_m
     dS = div(S)
     vec = lambda X, F_: sum(X[n] * sp.diff(F_, X3[n]) for n in range(3))
     form = {'chi': sp.exp(-w) * sp.diff(c, v), 'chib': sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),

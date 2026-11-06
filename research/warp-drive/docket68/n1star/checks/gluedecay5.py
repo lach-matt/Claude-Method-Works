@@ -587,7 +587,7 @@ def e6():
         a0 = applied.find(start)
         return applied[a0:applied.find(end, a0 + len(start))] if a0 >= 0 else ""
     s87 = part("### 8.7 ", "### 8.8 ")
-    s9 = part("- **Computational support.**", "\n- **")
+    s9 = part("- **Computational support.**", "\n\n")                 # the item ends at a blank line
     sA = part("## Appendix A.", "## Appendix B.")
     sC = part("## Appendix C.", "## Appendix D.")
     sD = part("## Appendix D.", "The paper's own md5")
