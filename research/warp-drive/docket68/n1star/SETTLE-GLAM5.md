@@ -909,3 +909,519 @@ count at the order of D (one derivative more). Then (B) for Proposition R3.4, fr
     python3 checks/poly5.py      (about seven minutes; P4 most of it)
     python3 checks/scale5.py     (about three minutes; Z1-Z2 most of it)
     python3 checks/trunc5.py     (about two minutes; T3 most of it)
+
+## Round 4 (2026-11-02)
+
+Status: written; not yet read by a verifier. Labels as in rounds 2-3. New programs, each with its `.out` from a full
+run and with controls that mutate the code under test (the rule, the operator, the formula or the field), so that the
+claim checked fails under the mutation: `checks/order5.py` (O1-O5, (Pr)), `checks/f1lemma5.py` (F1a-F1e, F1),
+`checks/boot5.py` (B1-B13, (B)), `checks/vac5.py` (V1-V2, (V)). N1STAR-PROOF.md is cited as of 2a69924, where it last
+changed (from 82a7e95 only lines 631-640 moved, three lines added: numbers below 631 are 82a7e95's, numbers above are
+82a7e95's + 3; md5 f436ef75...2fbe2da3b); proof5/ as of 03d4fba. Sections R4.0 and R4-A … R4-G,
+statements R4.1 … R4.10, equations (R4a)-(R4e).
+
+What this round settles, in one paragraph. (Pr) holds at every order k: Propositions 9.8 and 9.9 are read line by line
+and the order enters only through constants and through the approximant's order N(k) (R4-A). F1 is restated (the term
+at the energy's own order is the Q-part's b . dU, not the λ^-1 term, which is one order lower) and repaired by exact
+replacement text for N1STAR-PROOF.md (R4-B). The existence bootstrap at weight a_0 < 1/2 planned in R2.5 and R3.4 does
+not close (Proposition R4.7: its top-order quasilinear kernel is (1 + |σ|)^(-a_0-1/2), and neither factor of the
+estimate can be improved in its class); it is not needed: the continuation, its expansion and the class on S come from
+one bootstrap at weight a in (max(ℓ0 - 1, 5/2), 3), written line by line (R4-D), whose data on N also need the
+approximant's means expanded through r^-4 at past null infinity, a gap in R3.6 closed by Lemma R4.4; uniqueness holds
+in the weight-a_0 class (Proposition R4.8); and the limit is vacuum (R4-F). Theorem R4.10 then states R3.7's conclusion
+with (Pr), (B) and (V) discharged. Not done here, by assignment: R5 (λ_1 and δ are not evaluated).
+
+### R4.0 The verifier's reading of round 3
+
+No finding had been forwarded when this round was written. Findings that arrive are seated here as "R4.0 (verifier
+...)", each with its disposition.
+
+### R4-A (Pr): Propositions 9.8 and 9.9 at every order
+
+*Where k enters (READ).* Proposition 9.8 (N1STAR-PROOF.md:1341-1361): E(τ) := sum_(i + |β| ≤ k) λ^i ||d^i
+Ω^β d w_n|| ≤ M_F λ^K' t^(-1/2) (9.8), proved for the k of Theorem E (k = 6, section 0.4). Its proof uses k
+in (i)-(v) (1350-1358), in Lemma 9.3(a) (1114-1116: the cost of three) and in Step 8 (1360-1361). Proposition 9.9
+(1363-1418): N_P at order k, β0 "depends only on the constants C of (9.9) below at the orders j ≤ k" (1374), "every
+line holds at every order j ≤ k with c0 unchanged" (1407-1408), N = K + 4 + ceil(4 β0) (1052-1053, 1324).
+
+**Proposition R4.1 (Proposition 9.8 at order k; deduced, computed O1-O2).** For every k ≥ 6 and every K' > 5 there are
+λ_F(k) > 0 and M_F(k), independent of τ_n, such that the conclusions of Proposition 9.8 hold with (9.8) at order k.
+
+*Proof.* Each step of 9.8's proof, with its dependence on k. (a) The bootstrap E ≤ 2 M_F λ^K' t^(-1/2) gives, by
+Lemma 9.3, |w_n| ≤ C M_F λ^(K'-3) t^-2 and |d w_n| ≤ C M_F λ^(K'-4) t^-2 (orders 0 and 1, which need k ≥ 3),
+hence the margin of Lemma 9.1(f) and, by Lemma 9.2, w_n = 0 on {v ≤ v_start}: independent of k. (b) The commuted
+equation λ^i d^i Ω^β [P(w) = F + N(w)], i + |β| ≤ k: (i) λ^-1 |s G2|_(k,P) ≤ C_k λ^-1 t^(-3/2) E by
+Leibniz, every factor λ^(i2) d^(i2) Ω^(β2) G2 being bounded by C_k t^(-3/2) (G2 = [∂_th^2 g1], a profile in
+E_(3/2), the chain rule (0.3)), and every factor λ^(i1) ||d^(i1) Ω^(β1) s|| by C E (for i1 = 0 through Lemma
+9.3(b): s = w(ℓ, ℓ) vanishes on {v = v_start}, [Ω, ∂_r] = 0 and Ω^β(ℓ ℓ) is bounded); (ii) B . d w,
+C . w: C_k t^(-3/2) E (profile coefficients in E_(3/2)); (iii) the commutators [λ^i d^i Ω^β, g^(ab) ∂_a ∂_b]:
+the g_app part as in the record (λ^i d^i g_app in λ E_(3/2) for i ≥ 1; [Ω_ab, □̃] = 0, O4d), the w part a
+sum of products d^(i') w . d^(j - i' + 1) d w; (iv) the nonlinear terms N(w), monomials of total w-order at most j + 2
+with no factor of order j + 2 (that is the principal part). For (iii)-(iv) the split "factor of highest w-order in L^2,
+every other factor in sup through Lemma 9.3(a)" exists exactly when k ≥ 5 (O1a: enumerated for k = 5..200, the
+second-largest w-order being at most floor((k + 2)/2) ≤ k - 2, O1b); so both are at most C_k λ^-5 t^(-3/2) E^2 at
+every k ≥ 6 (the record's λ^-5 is an upper bound: the scaled product costs λ^-3, the 1/λ monomial λ^-1 w w G2
+one more). Control: with the cost of four in place of three the minimal k is 7 (O1c); with the split reversed no k
+works (O1d). (v) |F|_(k,P) ≤ C_R(k) λ^K' t^(-3/2): Theorem A_P's residual λ^(N-1) [R_N] + λ^N [R'_N] with R
+in E_3 with all derivatives (1243-1245), in the scaled norm by (0.3). (c) Lemma 9.5 with the kernels C_k t^(-3/2) and
+C_k λ^-1 t^(-3/2): over t ≥ λ^-2 they integrate to 2 C_k λ and 2 C_k (O2a); the data at τ_n are E(τ_n) ≤
+C_k |F|_(k,P)(τ_n) (w_n = ∂_τ w_n = 0 there, the higher τ-derivatives from the equation); Gronwall gives E(τ)
+≤ C_k e^(2 C_k (1 + λ)) (2 C_R(k) λ^K' + C_k M_F^2 λ^(2K'-5)) t^(-1/2) ≤ M_F(k) λ^K' t^(-1/2) with M_F(k) :=
+4 C_k e^(6 C_k) C_R(k) + 1 and λ ≤ λ_F(k), since K' > 5 (O2b-O2d; control O2c: K' = 5 does not close). (d)
+Existence and continuation: Step 8 with [DS23] Theorem 2.4 at r = k > 3 (10.51(a), 6786-6791). Nothing else depends on
+k. ∎
+
+**Proposition R4.2 (Proposition 9.9 at order k; deduced, computed O1, O3-O4).** For every k ≥ 6 let C(k) be the sum of
+the constants of the lines of (9.9) at the orders j ≤ k, β0(k) := max(2, 4 C(k) + 1), and let the approximant have
+order N = K + 4 + ceil(4 β0(k)), K ≥ 6. There are λ_N(k) > 0 and M_N(k) such that (9.9a) holds at order k:
+N_P(τ) ≤ M_N(k) λ^K' t^(-1/2) (T/t)^β0(k) on [τ_T, τ0], and N_P(τ0) ≤ M_N(k) λ^(K' - 2 β0(k)).
+
+*Proof.* 9.9's proof (1379-1418) at order k. (a) The data: N_P(τ_T) ≤ C' E(τ_T) by Proposition R4.1 at order k.
+(b) Lemma 9.4b is stated for every j ≤ k (1143). (c) The transports keep c0 at every order: [Z, L0] = 0 for Z in
+{∂_τ, ∂_r, Ω} and [∂_r, r^-c] = -c r^(-c-1), [Ω, r^-c] = [∂_τ, r^-c] = 0 (O4a-O4b; control O4c: the
+Cartesian ∂_1 does not commute with L0, which is why N_P's Z are these). (d) The bootstrap integrals: for β > 1 and
+a > -β, ∫_t^T t'^(-1-a) (T/t')^β dt' = T^β (t^(-a-β) - T^(-a-β))/(a + β) ≤ t^(-a) (T/t)^β /
+(β + a), and log(T/t) ≤ (T/t)^β/β (O3a-O3b; control O3b': without the factor (T/t)^β the log of the
+Q'-line is unbounded), so each integral returns C(k)/(β0(k) - 1) ≤ 1/4 of its bound (O3c). (e) The nonlinear terms
+R_nl at order k by Lemma 9.3(a) and the split of R4.1 (b) (O1): C_k λ^-5 t^(-3/2) (B λ^(-2 β0 - 1))^2, whose
+contribution C B^2 λ^(-8 - 4 β0) is below B/2 for λ small exactly because K' = N - 1 > 8 + 4 β0(k), which N
+= K + 4 + ceil(4 β0(k)) gives for every K ≥ 6 (O3d; control O3e: with ceil(2 β0) in place of ceil(4 β0) it
+fails at K = 6, β0 = 4). (f) The margin of Lemma 9.1(f) as in R4.1 (a). ∎
+
+**Corollary R4.3 (Theorem P at order k; deduced, computed O5).** For every k ≥ 6 and K ≥ 6, with N(k) := K + 4 +
+ceil(4 β0(k)), there is λ_P(K, k) > 0 such that for λ ≤ λ_P(K, k) Theorem P's g_λ satisfies (9.8) at order
+k on the far region and (P-iii) at order k: |d^i(g_λ - g_app^(N(k)))| ≤ C_k λ^(K-3-i) t_P^-2 on P, i ≤ k - 3.
+
+*Proof.* The proof of Theorem P (1419-1449) at order k: Data(w_n) at τ0 by R4.2; Theorem E at order k (10.51); the
+limit n → ∞, the bounds at order k inherited by weak lower semicontinuity (for each τ the family λ^i d^i
+Ω^β d w_n(τ), i + |β| ≤ k, is bounded in L^2(A_P(τ)) uniformly in n; a subsequence converges weakly; its
+limit is the distributional derivative of the C^(k-5) limit, and norms do not increase). The solution built at order k
+is g_λ: g_app^(N(k)) - g_app^(N(6)) = sum_(j > N(6)) λ^j [g_j] is λ^N(6) (1 + O(λ)) t^(-3/2) in C^1 (O5b),
+inside the uniqueness class of (P-v) (1055-1057). ∎
+
+*So (Pr) is discharged at every order.* No order fails; what grows with k is the approximant's order N(k) (O5a: N =
+22, 30, 62, 174 at C(k) = 1/2, 1, 3, 10, K = 6) and λ_P(K, k) shrinks. Proposition R3.1's input "Proposition 9.8 at
+order n + 4" (R3-B (e)) and R3-B (g)'s "(9.9a) at every order k" are now Propositions R4.1-R4.2, no longer "deduced, not
+read line by line".
+
+### R4-B F1: what is at the top order in Lemma 11.0, and the replacement text
+
+*R3-B (b) corrected.* Lemma 11.0's induction (N1STAR-PROOF.md:10551-10579) controls, at the step |γ| = j + 1, the
+energy ||d U|| of U := d^γ u_1, the derivatives of u_1 of order j + 2; the energies of the lower steps already
+control those of order ≤ j + 1, U itself among them. F_1 = S(u) - (1/2)(g_λ^(ab) - g0^(ab)) ∂_a ∂_b u_1 + (1/2) □̃
+(r^(-3/2) G_3) equals -Ric^H(g_λ) - (1/2) g_λ^(ab) ∂_a ∂_b u_1 by (0.2), so (computed on the full five-dimensional
+operator, `f1lemma5.py`, 80 digits): (F1a) it has no second derivative of u_1 (the Hessian coefficient vanishes to 6e-53
+relative; control: in the □̃ form the coefficient remains); (F1b) its coefficient of u_1 is c = -(1/2) λ^-1
+(.)(ℓ, ℓ) [∂_th^2 W_TT] + O(1) (the remainder stays bounded at λ = 1e-2, 1e-3, 1e-4 while the λ^-1 term reaches
+4.6 x 10^3; the λ^-1 part is exactly the ℓ-ℓ one; control: with a non-oscillating wave the test fails); (F1c) its
+coefficient of d u_1 is b, of λ-order 0 and nonzero (control: b = 0 for g0 = η without the wave). By the chain rule
+(F1d), d^γ F_1 = b . d U + c U + (derivatives of u_1 of order ≤ j + 1). So: **the term at the energy's own order is
+b . d U, from Q, which the written proof counts among "the orders already controlled"**: that is the gap. The term
+-(1/2) λ^-1 U(ℓ, ℓ)[∂_th^2 W_TT] that R3-B (b) and R3-F (3) named is one order lower: the energies of the lower
+steps bound ||U||, and the written proof closes with it in the source, at the cost of one λ^-1 per order (F1e''). The
+repair puts both in Lemma 9.5's kernel: k = C(1 + λ^-1) t^(-3/2), whose integral over the far region is 2C(1 + λ)
+(F1e; control F1e': over [1, λ^-2] it is exp(2C(1 + λ^-1)(1 - λ))). That also makes Proposition R3.1's count "+1
+per order for F1" (P7) an overcount; R3.1's exponent stays an upper bound.
+
+*The replacement text* (for N1STAR-PROOF.md, not edited here; two edits, old strings quoted exactly from the file as of
+2a69924, each new string ending so that the unchanged continuation of its last line stays within 121 characters).
+
+Edit 1, old (lines 10551-10560, up to "in L^2."; it occurs once):
+
+```text
+*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3), and F_1 is in E_3 with all derivatives (S(u) by Lemma
+11.1; the second term is E_(3/2) E_2; the third is in E_(7/2) by Lemma 9.7(c) and P2), where "all derivatives" of a term
+containing u_1 means the orders already controlled. Induction on the order: for |gamma| = j + 1, U := d^gamma u_1 solves
+-(1/2) g_lam^{ab} d_a d_b U = d^gamma F_1 + sum_{0 < gamma' <= gamma} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b
+u_1. The terms with |gamma'| = 1 are (d g_lam) d U with d g_lam in E_(3/2), of the kind Lemma 9.5's kernel k absorbs; a
+term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and is
+estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C t^(-1/2))
+and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by Theorem P
+for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2.
+```
+
+Edit 1, new:
+
+```text
+*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3). By (0.2), F_1 = -Ric^H(g_lam) - (1/2) g_lam^{ab} d_a
+d_b u_1 with g_lam = g0 + r^(-3/2) G_3 + u_1, so F_1 contains no second derivative of u_1 (`checks/f1lemma5.py` F1a):
+it is a smooth function of (X, u_1, d u_1), in E_3 with all derivatives at u_1 = 0 (the terms of Lemma 11.1 in G_3 and
+g0, and the third term, in E_(7/2) by Lemma 9.7(c) and P2), and along g_lam its partial derivatives are b := dF_1/d(d
+u_1), in E_(3/2) and of lam-order 0 (Q's derivative, linear in d g0 + d u, with d u = dv [d_th W_TT] + O(lam)), and c :=
+dF_1/d u_1 = -(1/2) lam^-1 (.)(ell_lam, ell_lam) [d_th^2 W_TT] + E_2, ell_lam := g_lam^-1 dv (from -(1/2)(g_lam^-1 u_1
+g_lam^-1)^{ab} d_a d_b (lam [W_TT]), as in (3.2); F1b-F1c). Induction on the order: for |gamma| = j + 1, U := d^gamma
+u_1 solves
+
+    -(1/2) g_lam^{ab} d_a d_b U - b . d U - c U
+        - sum_{|gamma'| = 1} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b u_1 = R_gamma,
+
+where, by the chain rule (F1d), R_gamma := d^gamma F_1 - b . d U - c U + sum_{|gamma'| >= 2} (d^{gamma'} g_lam^{ab})
+d^{gamma - gamma'} d_a d_b u_1 contains derivatives of u_1 of order <= j + 1 only. On the left, b . d U is of the order
+this step estimates and is not a source; the terms with |gamma'| = 1 are (d g_lam) d U' with d g_lam in E_(3/2) and U'
+in the same family {d^gamma u_1 : |gamma| = j + 1}; and c U is one order lower. Lemma 9.5's identity, summed over the
+family, takes all three into its kernel: ||b . d U|| <= C t^(-3/2) ||d U||, and ||c U|| <= C lam^-1 t^(-3/2) ||U|| <= C
+lam^-1 t^(-3/2) ||d U|| by Lemma 9.3(b) (U vanishes on {v = v_start}); the kernel is k = C(1 + lam^-1) t^(-3/2), whose
+integral over the far region t >= lam^-2 is at most 2C(1 + lam) (F1e), a lam-free factor. (With c U taken as a source,
+through the energies of the lower steps, the step also closes at fixed lam, at one lam^-1 per order.) Each term of
+R_gamma is a product of a derivative of g_lam or of F_1's coefficients of order <= j + 1 with derivatives of u_1 of order
+<= j + 1, estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C
+t^(-1/2)) and the others in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and
+by Theorem P for the lowest), so ||R_gamma|| <= C(lam, j) t^(-3/2).
+```
+
+Edit 2, old (lines 10569-10570, from "Lemma 9.5's identity" to "uniformly in n."; it occurs once):
+
+```text
+Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d U_n(tau_n)|| +
+C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n.
+```
+
+Edit 2, new:
+
+```text
+Lemma 9.5's identity with that kernel and Gronwall's
+lemma give sum_{|gamma| = j + 1} ||d U_n(tau)|| <= C e^(2C(1 + lam)) sum_{|gamma| = j + 1} (||d U_n(tau_n)|| +
+int_{tau_n}^tau ||R_gamma^n|| dtau') <= C(lam, j) t^(-1/2) at every order, uniformly in n.
+```
+
+(Edit 1's last line is followed by " The identity is not run on the region between {v =" of line 10560; Edit 2's first
+line continues "U_n(τ_n)|| ≤ C(λ, j) t_n^(-1/2) with t_n ≥ t. " of line 10569 and its last is followed by " The
+bookkeeping of sup against" of line 10570. Applied to a copy of the file both edits leave every line within 121
+characters and nothing else changed (checked). R_γ^n is R_γ for u_1^n.)
+
+### R4-C The means at past null infinity: a gap in R3.6's data, closed
+
+R3.6 takes "the data on N small by Lemma R3.2 at weight a". Lemma R3.2 bounds e = g_λ - g_app only. On N, h_R :=
+g_λ - g_b0 - Σ is, by linearity of the coefficients, the sum of e's remainder and sum_j λ^j (m_j minus its
+coefficients through r^-4): its weighted flux at a > 5/2 is finite only if the means m_j (λ-independent, Part VII
+Lemma 1.1) have expansions through r^-4 with remainders O(r^(-9/2)) and their ℓ-gain. Theorem A_P gives m_j in L_2,
+the leading term only (1235-1246).
+
+**Lemma R4.4 (the means; deduced, computed B9, B13).** For every stage j ≥ 1 and J ≥ 4 there are smooth
+λ-independent tensors M_(j,k)(v, x̂), k = 4, ..., J, vanishing for v ≤ v_start, with m_j = sum_(k=4)^J r^(-k/2)
+M_(j,k) + m_(j,J) and ∂_X^α Ω^β ℓ^m m_(j,J) in E_((J+1)/2 + m) on the far part of P+, with constants
+independent of λ; no logarithm occurs; for v ≥ v_end every M_(j,k) is a polynomial in v, and for k ≤ 9 the
+M_(j,k) satisfy there the flat recursion (2q - 3) M_(j,2q)' = (Δ̊ + (q - 1)(q - 3)) M_(j,2q-2), so M_(j,k) has degree
+at most floor((k - 4)/2).
+
+*Proof.* Induction on the stage j and, within it, on J, as Proposition 11.1, for the stage system (a)-(c) of Lemma 5.3
+(N1STAR-PROOF.md:521-540) on P (Theorem A_P), whose coefficients and sources are polynomials in the earlier stages'
+profiles (expanded by the induction) and in W_TT, χ, g0 (exact: W_TT = r^(-3/2) F, χ = r^-2 X(v, th, s), g0 - η
+= μ r^-2 dv dv; 1235-1268). (a) is Lemma 11.2 with g0 in place of g_λ (no quasilinear term): u~ = m_j, the source
+r^-q S_q + S~ with q ≥ 3 (Theorem A_P's count: every monomial of the stage sources lies in L_3, 1248-1268), (H_m) from
+the induction. (c) is the transport of Lemma 9.7(d), iterated: at each order the leading term -r^(1-q) S_q/(q - 5/2)
+and a remainder whose source gains 1/2. (b) is L0 φ_j = -(1/2) m_j(ℓ, ℓ) - (1/2) q_j, integrated along ℓ from
+past null infinity: r^-q S → -r^(1-q) S/(q - 1). The thresholds q = 5/2 (Lemma 11.2: 2/(2q - 5); Lemma 9.7(d):
+1/(q - 5/2)) and q = 1 ((b)) are never met: the sources of (a) and (c) start at q = 3 and those of (b) at q = 2, and
+each order adds 1/2 (B13a, to exponent 12; control B13b). After the shell every oscillating profile vanishes (Part VII
+Lemma 1.1, PART-VII-ASSEMBLY.md:122-130) and μ = μ_end; the stage sources are then products of earlier means and
+μ-terms, every one O(r^-6) (two factors r^-2 and two derivatives, ∂_v of a leading coefficient vanishing by
+induction; -(μ/r^2) ℓ ℓ and Γ[g0] d each add r^-2 and r^-3 to r^-2), so they enter only from q = 6 (k = 10):
+through k = 9 the coefficients obey the flat recursion of Lemma 11.2, which raises the degree in v by one every second
+order (B9b), and from q = 6 on products of polynomials and the constant μ keep them polynomial. ∎
+
+**Lemma R4.5 (the data on N at weight a; deduced, computed B9, B12).** Let a in (5/2, 7/2), k1 ≥ 0 and Γ in {∂_t,
+L_Ω, Z}. (i) At fixed λ the commuted flux of h_R through N at weight a, |α| ≤ k for any k, is finite. (ii) It
+is at most C(λ^2 + ν(λ)) with ν(λ) → 0 as λ → 0 for |α| ≤ k1, once K > K*(a, 8, M, k1) of Lemma
+R3.2, M := M(8, k1 + 1, k1 + 1) of Proposition R3.1.
+
+*Proof.* On N, s = 0 and Σ = sum_(k=4)^8 r^(-k/2) G_k(v1); ∂_t^i Σ = sum_(p) r^(-p-i) F_p^(i)(0), and the
+fixed-v expansion of r^-p F_p((v - v1)/r) is sum_m r^(-p-m) F_p^(m)(0)(v - v1)^m/m!, which is the solution of the flat
+recursion with data G_(2p)(v1) (B9a: the 2F1 coefficient ratio equals the recursion's, symbolically in p, l, m; control
+B9a'': third parameter p + 1/2). After the shell G_k obeys the flat recursion for k ≤ 9 (B9b; Lemma R4.4 for the means,
+and the same count for g_λ - g0, whose sources after the shell are O(r^-6) too), so the r^(-k/2) coefficients of ∂_t^i
+(g_λ - g_b0) and of ∂_t^i Σ agree on N for k ≤ 8 and every i: h_R and every ∂_t^i h_R are O(r^(-9/2)) on N with
+their ℓ-gain, Z = r ℓ and Ω being tangent (scale5 Z6). (i): Proposition 11.1 at fixed λ; flux at weight a
+finite for a < 7/2 (R2.8, Z5); the N-flux for the metric g = g_b0 + H, H = O(λ r^-2), contains besides (ℓ φ)^2 and
+|r^-1 Ω φ|^2 (exact for g_b0, the null hypersurface) the term |H| |d φ|^2, whose weighted integral is ∫ λ
+r^(2a - 8) dr < ∞. (ii): the means' part is sum_j λ^j (m_j's remainder), λ-independent per j by Lemma R4.4,
+O(λ^2) in flux; e's part tends to 0 by Lemma R3.2, its inputs (P-iii) and (9.9a) at order k1 + 4 now being Corollary
+R4.3 and Proposition R4.2. ∎
+
+### R4-D (B): the bootstrap on W at weight a, line by line
+
+*Setting.* μ := μ_end; R ≥ R_3 so large that on r ≥ 4R, |f'| ≤ 1/2 and μ/r^2 ≤ 1/16 (R is free in Part VII
+Lemma 1.2, PART-VII-ASSEMBLY.md:140; f' in |x|^-2 C^∞, 177). Kerr-Schild Cartesian (t, x), g_b0 = η + μ r^-2 k k.
+W = {v ≥ v1, t ≤ f(r)} (BEYOND5 Lemma 6.4 (iv), BEYOND5.md:198-205). t̃ := t - f(r), Σ̃_σ := {t̃ = σ}
+cap W (σ ≤ 0; Σ̃_0 = S); on it v increases along the rays r → (f(r) + σ, r ω) (B4c), Σ̃_σ cap
+W = {r ≥ r_σ}, r_σ ≥ |σ| - C, and |t - v1| ≤ r on W (B4e). Fix ℓ0 in (3, 4) ∖ {7/2}, a in (max(ℓ0 - 1,
+5/2), 3), k1 := max(8, d_1 + 4). Σ := sum_(p in Pi) r^-p F_p(s, x̂), Pi := {2, 5/2, 3, 7/2, 4}, s := (v - v1)/r,
+with F_p(0, .) = G_(2p)(v1, .) (Proposition 11.1): for p ≤ 7/2 the regular solution of the flat degree -p equation,
+harmonic by harmonic sum_l G_(2p,l)(v1) 2F1(p + l, p - l - 2; p - 1/2; s/2) Y_l (round 1 T2; at s = 0 the other
+exponent is 3/2 - p < 0, BEYOND5 D530), convergent with all derivatives on s in [0, 3/2] (the 2F1 grow at most like a
+power of l there, B9c, and G_(2p)(v1, .) is smooth), W lying in {s ≤ 1 + C/r} subset {s ≤ 3/2}; F_4 the regular
+solution of the degree -4 equation with the degree -6 source of μ r^-2 F_2 and of the quadratic terms in r^-2 F_2.
+Weight w := (u* - u)^(2a), u := t - r, u* := 2 sup f - v1 + 1, so r ≤ u* - u ≤ 2r + C on W. Commutators Γ in
+{∂_t, L_Ω_ij, Z}, Z := (t - v1) ∂_t + x.∂_x on components; for a multi-index α, Γ^α their product. H :=
+Σ + h_R, g := g_b0 + H, P(h) := Ric^H(g_b0 + h; g_b0).
+
+*The truncations.* For T ≤ T_1 the Cauchy problem on Σ̃_T with data (g, ∂_t g) equal to g_λ's on {v ≤ V_T},
+V_T := V'_P - h(T) - δ_0/2, to (1 - χ_T) g_λ + χ_T (g_b0 + Σ) on the band {V_T ≤ v ≤ V_T + δ_0/2},
+and to g_b0 + Σ beyond (χ_T smooth, 0 below the band, 1 above). Lemma R3.3 holds with Σ̃_T in place of
+{t = T} (its proof uses only that the slice is spacelike with margin and lies in P' ∪ Ω' ∪ W, and the time
+functions Φ_P = v + h(τ) and v + ε(τ - τ0)): the solution g_T equals g_λ on {v ≤ v1, t̃ ≥ T} cap (P' cup
+Ω'), so N cap {t̃ ≥ T} carries g_λ's data. On W, Φ_W := v + 1/r is a time function for every g with |g^-1 -
+g_b0^-1| ≤ r^-2/2 (g_b0^-1(dΦ_W, dΦ_W) = -2 r^-2 + r^-4 (1 - μ r^-2), B2d), which localises the problem as in
+R3.3 (iii): data equal to g_b0 beyond v = V_* + 2, the record's local theory (Step 8, 412-456) on bounded pieces, the
+solutions for V_* → ∞ agreeing on overlaps.
+
+*The quantities.* For σ in [T, 0], with T_g[φ] the energy-momentum tensor of a function φ for g,
+
+    E_σ[φ] := ∫_(Σ̃_σ) √|g| T_g[φ](X, -∇ t̃) d^4x,   X := w ∂_t,                        (R4a)
+    F_N[φ; T, σ] := ∫_(N cap {T ≤ t̃ ≤ σ}) √|g| T_g[φ](X, -∇ v),
+    𝔈_k(σ) := sum_(|α| ≤ k) sum_(i ≤ j) E_σ[(Γ^α h_R)_ij],   𝔉_k likewise with F_N.
+
+**Step 1 (the margins; computed B1-B2).** If |H| ≤ 1/50, then on r ≥ 4R: c1 w |d φ|^2 ≤ √|g| T_g[φ](X, -∇
+t̃) ≤ c2 w |d φ|^2 with c1 = 0.24, c2 = 0.76 for X = ∂_t (B1a; control B1c: |f'| = 3/2 gives a negative value),
+√|det g| in [0.9, 1.1] (B1b). If |H| ≤ μ/(2 r^2), -∇ u and ∂_t are future timelike (B2a-b; control B2c), so the
+bulk term T(∇ w, ∂_t) = |w'| T(-∇ u, ∂_t) of (R3a) is ≥ 0.
+
+**Step 2 (the bootstrap assumption and the pointwise bounds; deduced, computed B3-B4).** (BA): 𝔈_k1(σ) ≤ 4 ε^2 on
+[T, σ*]. Under (BA), for σ in [T, σ*] and r ≥ r_σ:
+
+    |d Γ^β h_R| ≤ C_S ε r^(-3/2-a) (|β| ≤ k1 - 3),   |d d Γ^β h_R| ≤ C_S ε r^(-3/2-a)
+    (|β| ≤ k1 - 4),   |Γ^β h_R| ≤ C_S ε r^(-1/2-a) (|β| ≤ k1 - 3).                                (R4b)
+
+*Proof.* Along a ray of Σ̃_σ, d/dr = x̂.∂_x + f' ∂_t (B4b) and x̂.∂_x = r^-1 (Z - (t - v1) ∂_t) (B4a), with
+|t - v1| ≤ r (B4e): every r-derivative of d Γ^β h_R along the ray, and every second derivative of Γ^β h_R,
+is a combination with coefficients bounded by 1 + 4/r of first derivatives of Γ Γ^β h_R (Γ in {∂_t, Z,
+Ω}; scale5 Z4a) and of r^-1 Γ Γ^β h_R. Round 2's S1 (R^(2a+3) F(R)^2 ≤ 2 ||r^(a+3/2) F|| ||r^(a+3/2)
+F_r||, scatter5) on each ray, applied to Ω^γ d Γ^β h_R, |γ| ≤ 2, with H^2(S^3) in L^∞(S^3), gives
+the first bound with 𝔈_(|β|+3); the undifferentiated terms enter through the Hardy inequality of the slice,
+∫_(r_σ)^∞ r^(2a+1) φ^2 dr ≤ (a + 1)^-2 ∫ r^(2a+3) φ_r^2 dr, whose boundary term at the inner edge has
+the good sign and whose constant is sharp (B3a-B3c; control B3d); the second bound is the first with one more
+commutation; the third integrates the first from r = ∞ (the Hardy integral finite, the limit 0). ∎
+
+So under (BA), with ε ≤ ε_2 and λ ≤ λ_2: |H| ≤ C λ r^-2 + C_S ε r^(-1/2-a) ≤ min(1/50, μ/(2 r^2),
+r^-2/2) on W (a > 3/2), and Step 1 applies.
+
+**Step 3 (the commuted equations; computed B5, scale5 Z1-Z2).** With c_Γ := 2 and M_Γ := -2 μ ∂_μ for Γ =
+Z, c_Γ := 0 and M_Γ := 0 otherwise, the identity (Γ + c_Γ) P(h) = DP(h)[Γ h] + M_Γ P(h) holds
+for every h ((R3c), scale5 Z1a; Z2a-b), and differentiating it in h,
+
+    (Γ + c_Γ) DP(h)[k] = DP(h)[Γ k] + D^2P(h)[Γ h, k] + M_Γ DP(h)[k]                           (R4c)
+
+(B5a-b at 60 digits for Γ = Z and ∂_t; controls B5c-d: without D^2P they fail). Applied |α| times to P(Σ +
+h_R) = 0, and subtracting the same expansion of P(Σ) (which is not 0): Γ^α h_R solves
+
+    DP(H)[Γ^α h_R] = S^α := -R^α + (A) + (B) + (C),                                                (R4d)
+
+R^α the commuted residual of Σ (products of (Γ_i + c_i) and M_i applied to P(Σ)); (A) the terms linear
+in one Γ^β h_R, |β| ≤ |α|, with explicit coefficients built from Γ^γ Σ (from D^mP(H)
+[Γ^(α_1) ., ..., Γ^(α_m) .], m ≥ 2, one slot h_R and the others Σ, and from DP(H) - DP(Σ) on
+Γ^α Σ); (B) the terms with at least two slots h_R (m ≥ 2, every |α_i| ≥ 1, sum |α_i| ≤ |α|);
+(C) (μ ∂_μ)^j DP(H)[Γ^β h_R], j ≥ 1, |β| < |α|. Componentwise, DP(H)[k] = -(1/2) g^(ab) ∂_a ∂_b k +
+B(H) . d k + C(H) k with |B(H)| ≤ C(μ r^-3 + |d H|), |C(H)| ≤ C(μ r^-4 + |d d H| + |d H|^2) ((0.2): Q is quadratic
+in d g with coefficients rational in g and smooth through Γ[g_b0], and -(1/2)(Dg^-1[k])^(ab) ∂_a ∂_b (g_b0 + H) is
+the zero-order part).
+
+**Step 4 (the energy identity; computed trunc5 T3).** For φ := (Γ^α h_R)_ij, (R3a) on W_T cap {t̃ ≤ σ},
+whose boundary is Σ̃_σ (future), Σ̃_T cap W (past) and N cap {T ≤ t̃ ≤ σ} (past), with the co-area
+d^5x = dt̃ d^4x:
+
+    E_σ[φ] + ∫ ∫ √|g| |w'| T(-∇ u, ∂_t) = E_T[φ] + F_N[φ] - ∫ ∫ √|g| w (□_g φ) ∂_t φ
+                                                          - (1/2) ∫ ∫ √|g| w T^(ab) ∂_t g_ab,              (R4e)
+
+□_g φ = g^(ab) ∂_a ∂_b φ - g^(ab) Γ^c_ab[g] ∂_c φ (trunc5 T3b) = -2 S^α + 2 B(H) . d φ + 2 C(H) φ -
+g^(ab) Γ^c_ab ∂_c φ. The bulk term on the left is ≥ 0 (Step 1) and is dropped.
+
+**Step 5 (the error terms; computed B6-B8, B3).** Each error is ∫_T^σ ||w^(1/2) Y||_(L^2(Σ̃_σ')) E^(1/2)
+dσ' / c1^(1/2) for a term Y of □_g φ, and on Σ̃_σ' every r ≥ r_σ' ≥ |σ'| - C:
+
+| term | bound of ||w^(1/2) Y|| | kernel q in (1 + abs(σ))^-q |
+|---|---|---|
+| R^α (P(Σ) = O(λ r^(-13/2)), B8a; degree -6 cancelled by F_4) | C λ r_σ^(a - 9/2) (B8b) | 9/2 - a |
+| (A), coefficient on d Γ^β h_R (λ r^-3) | C λ r_σ^-3 𝔈^(1/2) | 3 |
+| (A), on d d Γ^β h_R, abs(β) < abs(α) (λ r^-2; Z4a) | C λ r_σ^-2 𝔈^(1/2) | 2 |
+| (A), on Γ^β h_R (λ r^-4, Hardy) | C λ r_σ^-3 𝔈^(1/2) | 3 |
+| (C) (μ r^-2 d d Γ^β h_R) | C μ r_σ^-2 𝔈^(1/2) | 2 |
+| B(H) . d φ, Γ[g] . d φ | C (μ + λ) r_σ^-3 + C ε r_σ^(-3/2-a) | 3, 3/2 + a |
+| C(H) φ (Hardy: r abs(d d h_R) ≤ C_S ε r^(-1/2-a)) | C (μ + λ) r_σ^-3 + C ε r_σ^(-1/2-a) | 3, a + 1/2 |
+| (B) (B7's split, (R4b)) | C ε r_σ^(-1/2-a) 𝔈^(1/2) | a + 1/2 |
+| deformation (1/2) w T^(ab) ∂_t g_ab | C (λ r_σ^-3 + ε r_σ^(-3/2-a)) | 3, 3/2 + a |
+
+(B6a: every kernel integrable on a in (5/2, 3); B6b: exactly on (1/2, 7/2); controls B6c-d: at a = 1/2 the C(H) φ
+kernel fails, at a = 7/2 the residual's.) (B): every multilinear term has one slot in L^2 (energy order ≤ k1: an
+undifferentiated slot through Hardy, a twice differentiated one through Z4a) and the others in sup by (R4b) (order + 3,
+or + 4 with two derivatives, ≤ k1), for every k1 ≥ 6 (B7a, enumerated to 30, minimal k1 = 6; control B7c: k1 = 5
+fails; B7d: with the smallest slot in L^2 it fails at every k1). Summing over |α| ≤ k1 and the components:
+
+    𝔈_k1(σ) ≤ C_E [ 𝔈_k1(T) + 𝔉_k1 + ∫_T^σ κ 𝔈_k1 + ∫_T^σ ρ 𝔈_k1^(1/2) ],
+
+κ := C(μ + λ)(1 + |σ|)^-2 + C ε (1 + |σ|)^(-1/2-a), ρ := C λ (1 + |σ|)^(a - 9/2), with
+∫ κ ≤ C(μ + 1) =: K_κ and ∫ ρ ≤ C λ/(7/2 - a) =: ρ_∞, independent of T (μ is fixed, the kernels
+integrable whatever their size).
+
+**Step 6 (closing; deduced).** With y(σ) := sup_[T, σ] 𝔈_k1^(1/2), Gronwall gives y^2 ≤ C_E e^(C_E K_κ)
+(𝔈_k1(T) + 𝔉_k1 + 2 y ρ_∞), so 𝔈_k1 ≤ C_* (𝔈_k1(T) + 𝔉_k1 + λ^2) on [T, σ*], C_* independent of T, λ,
+ε. Put ε^2 := C_* (sup_(T ≤ T_1) 𝔈_k1(T) + 𝔉_k1 + λ^2). 𝔉_k1 ≤ C(λ^2 + ν(λ)) (Lemma R4.5); 𝔈_k1(T),
+the cap, is at most C(λ) |T|^(2a - 6) (trunc5 T2b; B12a), below λ^2 for T ≤ T_1(λ). So ε ≤ ε_2 for λ ≤
+λ_2, and 𝔈_k1 ≤ ε^2 < 4 ε^2: (BA) is improved. 𝔈_k1 is continuous in σ for the smooth truncated solution,
+so (BA) holds on the whole interval of existence, and with Step 2's bounds the local theory continues g_T (Step 8 with
+Φ_W): g_T exists on all of W_T with 𝔈_k1 ≤ ε^2.
+
+**Step 7 (every order at fixed λ; computed B7b).** For k > k1, induction on k: the terms of order k are linear in the
+order-k quantities with coefficients bounded by (R4b) at orders ≤ k - 1 (B7b: with the sup factors at energy order ≤
+k - 1 every term splits, k = 9..30), so Step 5's inequality holds at order k with ε replaced by C_(k-1)(λ) in the
+sup factors and Gronwall closes without smallness: 𝔈_k ≤ C_k(λ) (𝔈_k(T) + 𝔉_k + λ^2), finite by Lemma R4.5 (i)
+and the cap. So no smallness is needed above k1.
+
+**Step 8 (the limit T → -∞; computed B11-B12).** For T' < T ≤ T_1, δ := g_T' - g_T on W_T solves the linear
+system obtained by subtracting the two equations, written with g_T' as principal part: -(1/2) g_T'^(ab) ∂_a ∂_b δ =
+(1/2)(g_T'^(ab) - g_T^(ab)) ∂_a ∂_b g_T + (Q(g_T') - Q(g_T)), linear in (δ, d δ) with zero-order coefficient d d
+H_T and first-order coefficients d H_T, d H_T' (Step 5's kernels). δ = 0 on N cap W_T. On Σ̃_T, δ = h_R,T'
+- h_R,T(T): the second is the cap; the first is bounded by Step 5 run on W_T' cap {t̃ ≤ T}, whose data are tails:
+𝔈[h_R,T'](T) ≤ C(𝔈(T') + 𝔉_k1(T', T) + (∫_(-∞)^T ρ)^2) =: ϑ(T), with 𝔉(T', T) ≤ C |T|^(2a-7), the cap
+≤ C |T|^(2a-6), ∫_(-∞)^T ρ ≤ C λ |T|^(a - 7/2) (B12a; control B12b: at a = 7/2 the residual tail is
+infinite). So E[δ] ≤ C ϑ(T) → 0 on W_T uniformly in T' < T: (g_T) is Cauchy in the weight-a energy on every
+W_T0, and with the uniform bounds at every order (Step 7) it converges in C^k on compact subsets of W for every k.
+The limit g is smooth on W, solves Ric^H(g) = 0, has h_R := g - g_b0 - Σ with 𝔈_k1 ≤ ε^2 and 𝔈_k ≤ C_k(λ)
+(lower semicontinuity), and E_σ[Γ^α h_R] ≤ C ϑ(σ) → 0 as σ → -∞ (vanishing cap energy);
+since every g_T equals g_λ on {v ≤ v1, t̃ ≥ T} near N, g_λ on P ∪ Ω and g on W join smoothly across N.
+
+**Step 9 (the class on S; computed scale5 Z5, Z8).** On S = Σ̃_0, r d/dr (h_R|_S) = (Z h_R)|_S + (v1 - f + r f')
+(∂_t h_R)|_S with a coefficient smooth in ρ := 1/r (scale5 Z5a; f' in |x|^-2 C^∞): every (ρ d_ρ)^j Ω^β
+(h_R|_S) is a restriction of commuted fields with smooth bounded coefficients, and by the Hardy inequality (Z8a, B3)
+h_R|_S lies in ρ^(a+1) H_b^k and d h_R|_S in ρ^(a+2) H_b^k (dρ/ρ dω) for every k, a + 1 > ℓ0. Σ|_S =
+sum_p ρ^p F_p(1 + ρ(f_∞ - v1) + ρ^2 C^∞, x̂) is polyhomogeneous with exponents p + j, all in ℰ_0^½
+(Z8c), its coefficients O(λ) (F_p(0) = G_(2p)(v1) = O(λ): Lemma R4.4 for the means, Lemma R3.2 for e; the
+ρ^(5/2) one O(λ^∞), round 1). The induced (γ, k) are smooth functions of (g, d g) on S and of (d f, d^2 f) in
+ρ^2 C^∞, ρ^3 C^∞ (Part VII Lemma 2.1's computation, 175-180), and ℰ_0^½ is closed under sums: γ -
+γ_b0 in H_b^(∞,(ℰ_0^½, ℓ0)), k - k_b0 in H_b^(∞,(ℰ_0^½ + 1, ℓ0 + 1)), with ||.||_(d_1) ≤ C(λ + ε)
+on S, since k1 ≥ d_1 + 4 covers the d_1 derivatives and the commutations of Steps 2 and 9.
+
+**Theorem R4.6 (the continuation; deduced, every identity and exponent computed).** Under the setting above there are
+λ_2 > 0 and T_1(λ) such that for 0 < λ ≤ λ_2: g_λ continues to W as a smooth metric g with Ric^H(g) = 0, the
+limit of the truncated problems, with g - g_b0 - Σ in the weight-a class with vanishing cap energy and 𝔈_k1 ≤ ε^2,
+ε → 0 as λ → 0, and 𝔈_k ≤ C_k(λ) at every k; its data on S are in III.K's half class with ||.||_(d_1) ≤
+C(λ + ε). *Proof.* Steps 1-9. ∎
+
+### R4-E (b1): the weight-a_0 bootstrap does not close; uniqueness holds at a_0
+
+**Proposition R4.7 (the scheme of R2.5 and R3.4 does not close; deduced, computed B10, B3).** Let a_0 in (0, 1/2], and
+consider the existence bootstrap of R2.5/R3.4: the energies (R4a) at weight a_0 of Γ^α h, h := g - g_b0 (no
+subtraction), Γ in {∂_t, L_Ω} (or with Z), |α| ≤ k0, pointwise bounds by S1 and H^2(S^3) as in Step 2.
+Its commuted equation contains, through C(H) of Step 3, the top-order term -(1/2)(Dg^-1[Γ^α h])^(ab) ∂_a ∂_b h,
+undifferentiated in Γ^α h. With the quantities that scheme controls, it is bounded only as ||w^(1/2) r^-1
+Γ^α h|| . sup r |d d h| ≤ C 𝔈^(1/2) ε r^(-1/2-a_0) (Hardy, Sobolev), a kernel (1 + |σ|)^(-a_0-1/2),
+not integrable for a_0 ≤ 1/2 (B10a); the energy inequality then carries the factor exp(C ε |T|^(1/2 - a_0)) (log T
+at a_0 = 1/2), unbounded as T → -∞, and the improvement step fails. Neither factor can be improved in the class: the
+Hardy constant is attained (B3a, B10c), and Sobolev's bound |d d h| ≤ C ε r^(-3/2-a_0) is attained by the band
+family R^(-a_0-3/2) ψ(r - R), of bounded weighted energy with R^(a_0+3/2) |φ| = ψ(1/2) at r = R + 1/2 (B10b).
+Control (B10d): the same chain at a = 11/4 is integrable. ∎
+
+This corrects round 1's (N1) and R2.5's "the bootstrap closes for small data with no null condition" (they counted
+the first-order kernel (v1 - t)^(-3/2-a), not the undifferentiated top-order one); R3-C's identities and R3.3's
+Cauchy problems stand. It is a statement about a scheme: the continuation of Theorem R4.6 has d d h = O(r^-4) on W and
+lies in the a_0-class. (b1)'s existence is not needed: Theorem R4.6 constructs the continuation, and (N2)'s dyadic
+identity at a_0 < 1/2 (R3-C) is no longer used. (b1)'s class enters only through uniqueness.
+
+**Proposition R4.8 (uniqueness at weight a_0; deduced, computed B11).** Let a_0 in (0, 1/2) and let g' = g_b0 + h' be a
+smooth metric on W with Ric^H(g') = 0, g' = g_λ on N with its first derivatives, |h'| ≤ 1/50, Γ^α h' (|α|
+≤ 3, Γ in {∂_t, L_Ω, Z}) of finite weight-a_0 energy on every Σ̃_σ, and E_σ[h'] → 0 as σ →
+-∞. Then g' = g of Theorem R4.6.
+
+*Proof.* (R4b) at weight a_0 gives |d h'| ≤ C r^(-3/2-a_0) and |h'| ≤ C r^(-1/2-a_0). δ := g' - g solves
+-(1/2) g'^(ab) ∂_a ∂_b δ = (1/2)(g'^(ab) - g^(ab)) ∂_a ∂_b g + (Q(g')(d g', d g') - Q(g)(d g, d g)): zero-order
+coefficient d d g of the constructed solution (r |d d H| ≤ C λ r^-3 + C ε r^(-1/2-a), a > 5/2) and |d g'|^2;
+first-order coefficients |d g| + |d g'|. (R4e) for δ with the metric g', weight a_0: the deformation |∂_t h'| and the
+bulk-sign error (T_g'(-∇_(g_b0) u, ∂_t) ≥ -C |h'| |d δ|^2, a kernel |w'| |h'| / w ≤ C r^(-3/2-a_0)) have q =
+3/2 + a_0; the zero-order term through Hardy has q = min(3, a + 1/2); all > 1 (B11a; control B11c: with the zero-order
+coefficient d d h' the kernel is q = a_0 + 1/2 ≤ 1). δ = 0 on N; on Σ̃_σ1 its energy is at most
+2 E[h'] + 2 E[h], both → 0 as σ1 → -∞ (Σ: |σ|^(2a_0 - 2), B11b; h_R: weight a > a_0). Gronwall from
+σ1 and σ1 → -∞: δ = 0. ∎
+
+So the continuation is the only one in the record's gauge with nothing incoming in the weight-a_0 sense, a class that
+contains every candidate with a radiation-free r^-2 approach; R2.6's r^(-3/2) tail constant in v has nonzero data on N
+and is no counterexample.
+
+### R4-F (V): the limit is vacuum
+
+**Proposition R4.9 (deduced, computed V1-V2).** The metric g of Theorem R4.6 has D(g) = 0 on W, hence Ric(g) = 0; with
+Theorem P, g_λ on P ∪ Ω ∪ W is vacuum, and its data (γ, k) on Σ_IVP satisfy the constraints.
+
+*Proof.* (i) The identity (V1, 60 digits, three points, for a g that solves nothing; controls V1b-c): for every g,
+
+    (1/2)(□_g D_n + Ric(g)_n^d D_d) + ∇^m Ein(C)_mn + ∇^m Ein(Ric^H(g))_mn = 0,
+
+Ein(X) := X - (1/2) g tr_g X, C_mn := (1/2)(g_(m ρ)(Γ[g_b0] - Γ[g])^ρ_(n s) + (m ↔ n)) D^s (the
+contracted Bianchi identity with Ric = Ric^H + Sym(g Dh D); READ in the record's 0.7 at [LR05], [CBCL06]). Where Ric^H
+= 0, D_n solves -(1/2) g^(ab) ∂_a ∂_b D_n = b . d D + c D, linear and homogeneous, with |b| ≤ C(μ r^-3 + |d H|) and
+|c| ≤ C(μ r^-4 + |d d H| + |d H|^2) (Ric(g) is a known coefficient). (ii) Each g_T solves Ric^H = 0 on W_T, so D_T :=
+D(g_T) solves (i)'s system there. Its weight-a_D energy, a_D in (0, 2), has the kernels of V2a (q = 3, 3/2 + a, a + 1/2;
+control V2e), all integrable. On N, D_T = D(g_λ) = 0 with its tangential derivatives (g_T = g_λ on {v ≤ v1}, its
+one-sided jet on N being g_λ's). On Σ̃_T: D_T = 0 on {v ≤ V_T}; on the band g_T = g_λ + χ_T (g_b0 + Σ -
+g_λ) with g_b0 + Σ - g_λ = O(r^(-9/2)) with derivatives (Lemma R4.5's proof), so D_T and d D_T are
+O(r^(-9/2)) there, energy ~ |T|^(2a_D - 6) (V2c); beyond, D_T = D(g_b0 + Σ) = O(λ r^-3) and d D_T = O(λ r^-4)
+(the second time derivative from Ric^H(g_T) = 0 differs from (g_b0 + Σ)'s by P(Σ) = O(λ r^(-13/2))), energy
+≤ C λ^2 |T|^(2a_D - 4) (V2b; control V2d: a_D = 2). So E_σ[D_T] ≤ C(λ^2 |T|^(2a_D - 4) + |T|^(2a_D - 6)) for
+every σ in [T, 0], with C independent of T. (iii) As T → -∞, g_T → g in C^2 on compact sets, so D(g_T) → D(g)
+there, and E_σ[D(g)] restricted to any compact set is 0: d D(g) = 0 on W, and D(g) = 0 on N gives D(g) = 0.
+Then Ric(g) = Ric^H(g) + Sym(g Dh D) = 0. g_λ is vacuum on P ∪ Ω (Theorem P), and the join across N is smooth
+(Step 8). ∎
+
+III.K receives (γ, k) only; its gauge data are rebuilt from them (III.C'' Proposition 4.1,
+PART-III-C3-BOOSTDATA.md:162-171), so D = 0 is needed only for the vacuum property, which it gives.
+
+### R4-G The theorem, the ledger, what remains
+
+**Theorem R4.10 (deduced; conditional only on statements the record lists as proved).** Fix A, the C_c^∞ envelope of
+Theorem 1, the angular profile and the seed. Let ℓ0 in (3, 4) ∖ {7/2}, ℓ_I in (3, ℓ0) off row d2's exclusion sets,
+ε_m > 0, ε_t < ε_K; let ε, d_1 be III.K Theorem 4.3's in the half class (Theorem R2.4); a in (max(ℓ0 - 1,
+5/2), 3); k1 := max(8, d_1 + 4); M := M(8, k1 + 1, k1 + 1) = 27 + 2 k1 (Proposition R3.1); K > max(d_1 + 14, K*(a, 8,
+M, k1)) (Lemma R3.2) and the approximant of order N(K, k1 + 4) (Corollary R4.3). Then there is λ_2 > 0 such that for
+every 0 < λ ≤ λ_2 (no exceptional set):
+
+- (1) g_λ continues to W as a smooth vacuum metric in the record's gauge (Theorem R4.6, Proposition R4.9), the only
+  such continuation with nothing incoming in the weight-a_0 sense, a_0 in (0, 1/2) (Proposition R4.8);
+- (2) its data (γ, k) on Σ_IVP lie in III.K's class with ℰ_0 = ℰ_0^½ and ||.||_(d_1) < ε (Step 9 on S;
+  Part VII Lemma 1.1 with K ≥ d_1 + 15 on Σ_IVP cap {r ≤ 4R});
+- (3) the maximal vacuum development of (γ, k) settles to a Tangherlini metric g_(m',0), |m' - μ_end| < ε_m, at the
+  rate |(t_* d_(t_*))^i ∂_x^β (g - g_(m',0))| ≤ C t_*^(-2-ε_t) on {r_0 ≤ r ≤ R', t_* ≥ T'}, by Theorem R2.4
+  (III.K Theorem 4.3 in the half class) and Part VII Proposition 3.2, with no gluing.
+
+*Proof.* Theorem R4.6 and Proposition R4.9 give (1) and the class on S; R4.8 the uniqueness; Part VII Lemma 1.1 the
+compact part of Σ_IVP; Theorem R2.4, whose Part IV condition is discharged by citation (R3-A), and Part VII
+Proposition 3.2 give (3), as in Theorem R2.10. ∎
+
+*What the theorem rests on.* (P4): Part IV's seven outputs, listed as proved in the record (R3-A). Theorem R2.4: R2.2
+computed for M ≤ 12 and the verifier's induction for every M (recorded in R2.2, not re-derived), Lemma R2.3. (Pr):
+Propositions R4.1-R4.2. (Poly): Proposition R3.1 with R4.1. (B): Theorem R4.6. (V): Proposition R4.9. The constant
+λ_2 is not evaluated (R5, another workstream): the theorem is qualitative in λ.
+
+*Changes to round 3, recorded.* R3.7's hypotheses (Pr), (B), (V) are discharged; its K*(a_0, ...) is dropped (no
+existence at a_0); R3.6's data need Lemma R4.4 (R4-C); R3-B (b) and R3-F (3) are corrected (R4-B); R3.4's bootstrap is
+replaced by Proposition R4.7 (it does not close) and Theorem R4.6; R2.5's and round 1's (N1) "closes with no null
+condition" is withdrawn.
+
+Ledger. Computed: `order5.py` O1-O5 (22 checks), `f1lemma5.py` F1a-F1e (12), `boot5.py` B1-B13 (48), `vac5.py`
+V1-V2 (8), every check with a control that mutates the code under test and fails as it must. Deduced: Propositions
+R4.1, R4.2, Corollary R4.3, Lemmas R4.4, R4.5, Theorem R4.6 (Steps 1-9), Propositions R4.7, R4.8, R4.9, Theorem R4.10.
+READ: N1STAR-PROOF.md (2a69924) 135-148, 366-411, 412-456, 521-540, 1043-1061, 1091-1102, 1114-1116, 1143,
+1170-1179, 1235-1268, 1324, 1341-1361, 1363-1418, 1419-1449, 6779-6804, 10548-10579, 10593-10668; PART-VII-ASSEMBLY.md
+122-130, 140, 175-180; BEYOND5.md 198-205; PART-III-C3-BOOSTDATA.md 162-171. None from outside sources.
+
+Open: nothing in (Pr), (B), (V) or F1. R5 (λ_1 and δ not evaluated) belongs to another workstream.
+
+*Proposed text for the paper's section 9, "Beyond the boundary"* (RESPONSE-HL-5D.md, replacing the sentences from "It is
+not shown that Theorem 4 applies to g_λ's own data" to "The scattering estimate itself is not done."; not edited here):
+
+```text
+  Theorem 4 does apply to g_λ's own data, in the half-integer class ℰ_0^½ = {(2 + j/2, 0)} (supplement
+  `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–4; deduced, every identity, exponent and kernel computed under
+  `checks/`). After the shell g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞) but nonzero off a
+  discrete set of λ, which puts a ρ^(5/2) term into the data at spatial infinity, outside Part VII's integer class;
+  with ℰ_0^½, III.K's class run changes only by finitely many derivatives (conditional, as Part VII, on Part IV's
+  outputs, listed as proved). g_λ continues to the past domain of dependence of the far initial slice as a vacuum
+  metric with nothing incoming, by a weighted energy bootstrap after subtracting its self-similar terms through r^(−4);
+  it is the only such continuation, and its data lie in that class with small norm. So for every 0 < λ ≤ λ_2, with no
+  exceptional set, the maximal development of g_λ's own data settles to a Tangherlini metric at Theorem 4's rate, with
+  no gluing. λ_2 is not evaluated.
+```
+
+    python3 checks/order5.py     (about two minutes)
+    python3 checks/f1lemma5.py   (about five minutes)
+    python3 checks/boot5.py      (about three minutes; B5 most of it)
+    python3 checks/vac5.py       (about half an hour; V1 most of it)
