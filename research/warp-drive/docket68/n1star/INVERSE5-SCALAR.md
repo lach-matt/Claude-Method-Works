@@ -542,16 +542,18 @@ is computed at the record's computational point, outside that set (A.1). What ca
   square, a countable set of z that does meet (0, 1/2] (z = 25/64 gives lam = 17/8, control C11): a further countable
   exclusion of the kind Z_exc is, not automatic. [vINV3 nit 5: z = 25/64 is not admissible: PART-VI4-PARAMS.md step (2)
   (VI4:62) has gam_Ups < 1/4 and e_Ups < 1, so z = 4 e_Ups gam_Ups^2 < 1/4; read "does meet the admissible range (z =
-  49/256 < 1/4 gives 9 + 4z = (25/8)^2 and lam = 33/16, control C11, rerun)". It meets that range whatever the
-  thresholds of rows u3-u4, which have no value: the range is (0, 4 e* gam*^2) minus Z_exc, e* and gam* the upper bounds
-  of e_Ups and gam_Ups, and 9 + 4z = (3 + r)^2 with r > 0 rational gives z = (6r + r^2)/4, as small as one likes (r =
-  1/8 gives 49/256). nit 6: read "a further countable exclusion of the kind Z_exc is needed; it is not automatic".] (c)
-  box^C with gam_C = N and kappa symbols (e_C, v_C fixed by row c1): N^3 times the scalar sextic, N^2 times the s0
-  quartic and N times the vector quadratic are, in lam, -1 or 1 times its top power plus coefficients in (1/102400) Z[N,
-  kappa] (R12; control C10 at e_C = 1/102401), so for every integer gam_C and every l a rational box^C root lies in
-  (1/102400) Z, the vector type's in Z. (The record's gam_C = 1/h need not be an integer; for rational gam_C the same
-  substitution bounds the denominators by 102400 times a power of gam_C's denominator, not computed here.) (d) Theorem
-  B.5's derivation of g_2's tf-exponents (no parameters). (e) The physical roots -l, l + 2.
+  49/256 < 1/4 gives 9 + 4z = (25/8)^2 and lam = 33/16, control C11, rerun)". The set meets the interval (0, 4 e*
+  gam*^2), e* and gam* the upper bounds of e_Ups and gam_Ups, whatever the thresholds of rows u3-u4, which have no
+  value: 9 + 4z = (3 + r)^2 with r > 0 rational gives z = (6r + r^2)/4, as small as one likes (r = 1/8 gives 49/256);
+  and Z_exc is the set of z at which a box^Ups root meets a box^C root (PART-III-F2-INDICIAL.md:126-128, 176-180), a
+  different condition, so this exclusion is not one Z_exc makes. nit 6: read "a further countable exclusion of the kind
+  Z_exc is needed; it is not automatic".] (c) box^C with gam_C = N and kappa symbols (e_C, v_C fixed by row c1): N^3
+  times the scalar sextic, N^2 times the s0 quartic and N times the vector quadratic are, in lam, -1 or 1 times its top
+  power plus coefficients in (1/102400) Z[N, kappa] (R12; control C10 at e_C = 1/102401), so for every integer gam_C and
+  every l a rational box^C root lies in (1/102400) Z, the vector type's in Z. (The record's gam_C = 1/h need not be an
+  integer; for rational gam_C the same substitution bounds the denominators by 102400 times a power of gam_C's
+  denominator, not computed here.) (d) Theorem B.5's derivation of g_2's tf-exponents (no parameters). (e) The physical
+  roots -l, l + 2.
 - *To be redone at an admissible point.* The weights (delta_50, hence eps_ind, eps_K, eps_+, moves with z); the class
   roots' values d0, d1, delta_l, delta'_l and their fields (the Q(d1) membership tests of B.5, B.5b, B.7, B.7b); the
   rational candidates and the congruences at the new weights; the margins; and the 2-adic sharpening of B.3 (iii)
