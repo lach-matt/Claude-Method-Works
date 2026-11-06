@@ -1,0 +1,1 @@
+# python3 checks/cpaxis5.py --kretschmann r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M32_800_reg.npz r4/cp4/cp_M40_800_reg.npz
