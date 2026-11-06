@@ -8,7 +8,7 @@ reading: which map a cited line applies, and the losses of J3 Lemma 2.1 and LOSS
 What a level is (READ, I15:323-352). III.I'''''''''''''' Theorem 3.1's Step 2 treats each beta-level: it forms
 G~ = F - Delta_q(p') - R_q u (BG) and G' (rows: FIN), and applies III.I''''''''''''' Lemma 2.2 (levels above 3) or
 III.I'''''''' Lemma 3.2 (levels below 3) to u. Lemma 2.2 is III.I''''''''''' Lemma 3.2's proof (I14:163-170) with
-III.I'''''''''' Proposition 3.1 at beta (I11:347-403) and III.I''''''''''''' Proposition 2.1 (I14:101-150, which is
+III.I'''''''''' Proposition 3.1 at beta (I11:349-403) and III.I''''''''''''' Proposition 2.1 (I14:101-150, which is
 III.I''''''''''' Proposition 3.1's proof, I12:246-401, with the changes of I14:108-150), whose Lemmas 2.1-2.5 are
 I12:110-236. Lemma 3.2 below 3 is I9:239-342 with Lemma 3.1's Steps 1-2 (I9:219-234) and III.I'''''' Proposition
 2.1's Steps 3-3.3 and 4-6 (I7:190-253, 287-333; its Steps 3.4-3.5 replaced by I9's 3.4'-3.5'). Those ranges are
@@ -362,8 +362,8 @@ def charges(w, oneoff_reading=7, level1_per_exponent=False, cor45_plus_one=True)
     ch['A26_iii'] = ('above', lF(Fr(3, 2) - 3 * eps, tau_hi + 2 - eps, alpha_hi - eps, eps),
                      "Step 5 (iii): (2.26a) at the last level's pieces")
     a3 = alpha_hi - 4 - eps                                                  # l_3 at the top level (a of Lemma 2.4)
-    colb = lF(Fr(10 ** 6), a3 + 5 - eps, a3 + 3, eps)                         # sigma^2 G_1: (N, a + 4 - eps, a + 2)
-    cols = lF(Fr(10 ** 6), a3 + 5 - eps, a3 + 2, eps)                         # sigma G_2: (N, a + 4 - eps, a + 1)
+    colb = lF(Fr(10 ** 6), a3 + 5 - eps, a3 + 3, eps)     # sigma^2 G_1: K+-weight a + 3 (Lemma 2.4), iota+ a + 5 - eps
+    cols = lF(Fr(10 ** 6), a3 + 5 - eps, a3 + 2, eps)     # sigma G_2: K+-weight a + 2, iota+ taken a + 5 - eps too
     ch['A422_col'] = ('above', colb + cols, 'Lemma 2.4 at j = 3: III.A Proposition 4.2 (2), n_iota = n_K = 0, l_F '
                       '%d + %d' % (colb, cols))
     ch['P21_above'] = ('above', 2 * (steps21 + 1), "III.I' Proposition 2.1 at Step 7: 2 x (%d + 1)" % steps21)
@@ -413,12 +413,23 @@ def dn_counts():
                     unif=int(m3.group(1)))
 
 
-def one_offs(w, cab, cbe, x7_term=True, factor=2):
-    """the steps of III.I'''''''''''''' Theorem 3.1 outside its levels (I15:296-452): Step 0 (FWD), Step 1 (the base
-    level, III.I'''''''' Proposition 4.1 at alpha_1: Lemma 3.1 with III.I''''' Proposition 2.1's rounds, and at most one
-    Lemma 3.2), Steps 3, 4' (FIN), Step 4 (III.I'''''''''''' Theorem 3.1 at the top, whose Step 0 runs one more level's
-    maps, Steps 1-6 subtractions and statements): bounded by 2 (M_above + 4 M_below) + 1000, M the largest total of one
-    level with its loops (deduced, a coarse reading: each one-off step is at most one level's composition)"""
+def one_offs(w, cab, cbe, x7_term=True, fwd=None, nb=6):
+    """the steps of III.I with fourteen primes, Theorem 3.1, outside its levels (I15:296-452), itemised (Round 9, the
+    round-8 verifier's minor 1; deduced on the reading, each term an upper bound):
+      Step 0, the forward solution: FWD;
+      Step 1, the base level, Proposition 4.1 of III.I with eight primes at alpha_1 = 2 + eps_K/2 < 2 + eps_ind: its
+        Lemma 3.1 (I9:201-237), whose Step 0 runs Proposition 2.1 of III.I with five primes (at most two rounds
+        raising alpha'_K, I6:85-90, 223, each at most a below-3 level's maps) and Step 2 on F_2 (u_F, the windows: at
+        most one level's), then Steps 1-6 (one level), and at most one Lemma 3.2 (one level): nb = 6 below-3 level
+        totals M_b (one spare);
+      Steps 3 and 4': the finite-dimensional inverses (-id + A_k)^-1 and the rotation coordinates: FIN, 0;
+      Step 4, Theorem 3.1 of III.I with twelve primes at the top (I13:298-447): its Step 0 runs one more level's maps
+        (M_a); its Step 1 (vi), (viii) and (ix) each apply III.A Proposition 4.2 (2) to a zf-remainder (parallel over
+        the pieces, Lemma 1.2 (a)), each at most (2.2)'s n_iota + n_K + l_F <= (3 P_iota + 47) + X_7(alpha) + 5
+        (n_iota as Step 0's count of E^flat's pairs, n_K at most the top level's X_7, l_F <= 5); (ii)-(v), (vii) and
+        Steps 2-6 are statements, Lemma 2.1 (b)'s identities, convolutions in t_* and the subtraction of explicit
+        towers (FIN, 0).
+    B_once := FWD + nb M_b + M_a + 3 (3 P_iota + 47 + X_7(alpha) + 5)."""
     ok, n = dn_counts()
     c = DW.counts(w)
     step = w['eps_ind'] - w['eps']
@@ -428,8 +439,28 @@ def one_offs(w, cab, cbe, x7_term=True, factor=2):
     ok = ok and x7top * c['levels_above3'] == n['unif'] + n['SX7']
     Ma = 3 * r3max + 3 * n['P_W'] + 11 + 3 * n['P_iota'] + 47 + 15 * n['W'] + (x7top if x7_term else 0) + cab
     Mb = 3 * r2max + 15 * n['W'] + 58 + cbe
-    B = factor * (Ma + 4 * Mb) + 1000
-    return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, B=B, levels=c, n=n)
+    zf = 3 * n['P_iota'] + 47 + x7top + 5
+    B = (fwd if fwd is not None else 0) + nb * Mb + Ma + 3 * zf
+    return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, zf=zf, B=B, levels=c, n=n)
+
+
+def admissibility(w):
+    """Round 9 (the round-8 verifier's MAJOR 2): the four admissibility conditions dweights5 W1 left undecided. (G)
+    over E_++, G and E_col: decided in rounds 1-2 (dweights5 W2, lambdagen5 L4). eta_1, eta_2 off Re Lambda at W's
+    ends (I12:58-60): Lambda has no point with real part in (2, 2 + m) or (3, 3 + m), m = 1.9841e-8 the least offset
+    above 2 or 3 (lambdagen5.out L4 over E_col's bases; dweights5.out W2 over the named generators and E^C_I's
+    chains, 5.0191e-8; both read and pinned), and 0 < eta_1 < eta_2 < m. The levels off I11:156-160's exclusion sets
+    and eps, eps' off I9:290-291's and I14:124-126's: not decided (they need the roots -mu of the class operators and
+    of L-hat_b0(0) as numbers, against the rational levels and rounds)."""
+    lg = open(os.path.join(HERE, 'lambdagen5.out'), encoding='utf-8').read()
+    dw = open(os.path.join(HERE, 'dweights5.out'), encoding='utf-8').read()
+    pins = (hashlib.md5(lg.encode('utf-8')).hexdigest() == '03645ae643b694197578381ea7614063'
+            and hashlib.md5(dw.encode('utf-8')).hexdigest() == 'db05eeb3a4b5afcc8c18abf8ac837730')
+    m1 = re.search(r"L4: \(G\) over L3's bases: least value above 3 is ([0-9.e+-]+)", ' '.join(lg.split()))
+    m2 = re.search(r'least value above 2 or 3 is 3 \+ ([0-9.e+-]+)', ' '.join(dw.split()))
+    mlo = min(Fr(m1.group(1)), Fr(m2.group(1))) * Fr(9999, 10000)        # rounded down (4 printed digits)
+    ok = pins and 0 < w['eta1'] < w['eta2'] < mlo
+    return ok, dict(m=mlo, eta1=w['eta1'], eta2=w['eta2'])
 
 
 B_PIN, DTOT_PIN = 3524217980, 45661454728212747
@@ -464,7 +495,7 @@ def main():
     A1 = DN.D_PIN['R1']
     d = A1 + DN.KPLUS1 * cp
     N = 21 * d + 6
-    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 474 and meta['k12'] == 10 and meta['oneoff'][7] == 48
+    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 510 and meta['k12'] == 10 and meta['oneoff'][7] == 48
     print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; d <= A\' + %d c\' = %d + %d = %d '
           '(%.6e); N = 21 d + 6 <= %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,
@@ -472,17 +503,26 @@ def main():
     print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
           'of itself; the floor 8,407,505,890,317,054 is %.4f of the bound' % (
               ab - meta['fwd'], be - meta['fwd'], DN.KPLUS1 * cp / d, 8407505890317054 / d))
-    okb, ob = one_offs(w, ab, be)
+    okb, ob = one_offs(w, ab, be, fwd=meta['fwd'])
     dtot = d + ob['B']
     OK['M4'] = okb and (ob['B'], dtot) == (B_PIN, DTOT_PIN)
-    print('  M4 (deduced, coarse; computed): the steps outside the levels (I15 Steps 0, 1, 3, 4\', 4; III.I\'\'\'\'\'\''
-          '\'\'\'\'\'\' Theorem 3.1 at the top): one level\'s largest total with its loops, above 3 M_a = 3 x %d '
-          '(level-3 rounds) + 3 P_W + 11 + 3 P_iota + 47 + 15 W + X_7(alpha) %d + c\'_above = %d, below 3 M_b = 3 x %d '
-          '(tf rounds) + 15 W + 58 + c\'_below = %d (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: %s); '
-          'B_once := 2 (M_a + 4 M_b) + 1000 = %d' % (ob['r3max'], ob['x7top'], ob['Ma'], ob['r2max'], ob['Mb'], okb,
-                                                    ob['B']))
+    print('  M4 (deduced on the reading; computed; Round 9: itemised): the steps outside the levels, I15 Step 0 (FWD), '
+          'Step 1 (the base: at most six below-3 level totals), Steps 3, 4\' (FIN), Step 4 (the top\'s Step 0: one '
+          'level above 3; its Step 1 (vi), (viii), (ix): three III.A Proposition 4.2 (2) applications, each <= 3 P_iota '
+          '+ 47 + X_7(alpha) + 5 = %d). A level\'s largest totals: above 3 M_a = 3 x %d (level-3 rounds) + 3 P_W + 11 '
+          '+ 3 P_iota + 47 + 15 W + X_7(alpha) %d + c\'_above = %d, below 3 M_b = 3 x %d (tf rounds) + 15 W + 58 + '
+          'c\'_below = %d (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: %s); B_once := FWD + 6 M_b + '
+          'M_a + 3 x %d = %d' % (ob['zf'], ob['r3max'], ob['x7top'], ob['Ma'], ob['r2max'], ob['Mb'], okb, ob['zf'],
+                                ob['B']))
     print('      d <= A\' + (K + 1) c\' + B_once = %d (%.10e); N = 21 d + 6 <= %d; B_once is %.2e of d: pinned: %s' % (
         dtot, dtot, 21 * dtot + 6, ob['B'] / dtot, OK['M4']))
+    oka, ad = admissibility(w)
+    OK['M5'] = oka
+    print('  M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = %.6e < eta_2 = %.6e < '
+          '%.4e, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5 '
+          'pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: %s; the levels off I11:156-160\'s sets and '
+          'eps, eps\' off I9:290-291\'s and I14:124-126\'s: not decided (the roots -mu as numbers)' % (
+              float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka))
     # controls
     t1 = dict(TABLE)
     t1.pop(('I12', 247, 'I3'))
@@ -504,7 +544,7 @@ def main():
     c5 = totals(charges(w, oneoff_reading=1)[0])[2]
     OK['C5'] = c5 != C_PIN
     print('  C5 (control): the one-off application on R0 (12): c\' = %d, not %d: %s' % (c5, C_PIN, OK['C5']))
-    OK['C7'] = one_offs(w, ab, be, x7_term=False)[1]['B'] != B_PIN
+    OK['C7'] = one_offs(w, ab, be, x7_term=False, fwd=meta['fwd'])[1]['B'] != B_PIN
     print('  C7 (control): M_a without X_7(alpha): B_once leaves its pin: %s' % OK['C7'])
     OK['C6'] = not ranges_ok(shift=1)
     print('  C6 (control): every range\'s opening line searched one line off: the anchors fail: %s' % OK['C6'])
