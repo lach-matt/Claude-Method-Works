@@ -412,7 +412,9 @@ def s4():
     musub = {MB.mu: r**2 * (1 - nu**2)}
 
     def pre(e):
-        return sp.sympify(e).subs(sp.sqrt(MB.f_), nu).subs(musub)
+        e = sp.sympify(e).subs(musub)
+        return e.replace(lambda x: x.is_Pow and x.exp.is_Rational and x.exp.q == 2,
+                         lambda x: sp.Pow(sp.factor(x.base), x.exp))          # sqrt(R^2 nu^2) = R nu (R, nu > 0)
     names = ['A', 'F', 'p', 'q', 'w']
     fns = [sp.Function(nm)(r) for nm in names]
     A, Fq, p, q, w = fns
