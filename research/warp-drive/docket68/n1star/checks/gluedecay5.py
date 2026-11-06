@@ -559,12 +559,55 @@ def block(lines, tag):
     return "\n".join(lines[j + 1:k])
 
 
-TAGS = "abcdefgh"                                                      # section 8.3's blocks; (a), (b) adjacent
+TAGS = "abcdefgh"                                                      # the current blocks; (a), (b) adjacent
+GONE = "abcdeg"                       # blocks whose old text is gone once seated ((f), (h) keep theirs inside the new)
+SECTION = "8.4"                                                        # the section of GLUEDECAY5.md holding them
 
 
-def span_of(paper, old):
-    k = paper.find(old)
-    return (k, k + len(old))
+def norm(t):
+    """md5 digits blanked, length kept, so that a seated paper whose md5 column was refreshed still matches"""
+    import re
+    return re.sub(r"`[0-9a-f]{32}`", lambda m_: "`" + "x" * 32 + "`", t)
+
+
+def apparatus(text):
+    """the places that must carry the change, in a paper with the blocks in place"""
+    import re
+
+    def part(start, end):
+        a0 = text.find(start)
+        return text[a0:text.find(end, a0 + len(start))] if a0 >= 0 else ""
+    s87 = part("### 8.7 ", "### 8.8 ")
+    s9 = part("- **Computational support.**", "\n\n")                 # the item ends at a blank line
+    sA = part("## Appendix A.", "## Appendix B.")
+    sC = part("## Appendix C.", "## Appendix D.")
+    sD = part("## Appendix D.", "The paper's own md5")
+    return {
+        "8.7 cites support8b.py M3 and GLUEDECAY5.md": "`docket68/n1star/checks/support8b.py` M3" in s87
+        and "GLUEDECAY5.md" in s87,
+        "section 9 lists gluedecay5.py": "`checks/gluedecay5.py`" in s9,
+        "Appendix A has its entry": "- `checks/gluedecay5.py` E1–E6" in sA,
+        "Appendix C maps it and the note": "checks/gluedecay5.py` E1–E6 |" in sC and "GLUEDECAY5.md" in sC,
+        "Appendix D runs it and records its import": "python3 checks/gluedecay5.py" in sD
+        and "`checks/gluedecay5.py` import" in sD,
+        "Appendix D's md5 rows": all(re.search(r"^\| `docket68/n1star/%s` \| `[0-9a-f]{32}` \|$" % re.escape(f_),
+                                               sD, re.M)
+                                     for f_ in ("checks/gluedecay5.py", "checks/gluedecay5.out", "GLUEDECAY5.md",
+                                                "proof5/PART-V-GLUING.md")),
+        "lines <= 121": max(len(l_) for l_ in text.split("\n")) <= 121,
+    }
+
+
+def seated_ok(text, news, olds):
+    """the seated state: every new block once, disjoint, (a) then (b), the old texts of GONE absent, the apparatus"""
+    T = norm(text)
+    N = {t_: norm(news[t_]) for t_ in TAGS}
+    if not all(T.count(N[t_]) == 1 for t_ in TAGS) or any(T.count(norm(olds[t_])) for t_ in GONE):
+        return False
+    spans = sorted((T.find(N[t_]), T.find(N[t_]) + len(N[t_])) for t_ in TAGS)
+    disjoint = all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
+    adj = T.find(N["a"]) + len(N["a"]) + 1 == T.find(N["b"])
+    return disjoint and adj and all(apparatus(text).values())
 
 
 def e6():
@@ -580,53 +623,48 @@ def e6():
         olds["b"] = olds["b"].replace("ρ", "p", 1)
     if MUT == "drop_m3":
         news["b"] = news["b"].replace("support8b.py` M3", "support8b.py`")
-    counts = {t_: paper.count(olds[t_]) for t_ in TAGS}
-    once = all(n_ == 1 for n_ in counts.values())
-    spans = sorted((span_of(paper, olds[t_]) + (t_,)) for t_ in TAGS) if once else []
-    disjoint = once and all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
-    adj = once and span_of(paper, olds["a"])[1] + 1 == span_of(paper, olds["b"])[0]
-    applied = paper
-    for (s0, s1, t_) in reversed(spans):
-        if MUT == "drop_c" and t_ == "c":
-            continue
-        applied = applied[:s0] + news[t_] + applied[s1:]
-
-    def part(start, end):
-        a0 = applied.find(start)
-        return applied[a0:applied.find(end, a0 + len(start))] if a0 >= 0 else ""
-    s87 = part("### 8.7 ", "### 8.8 ")
-    s9 = part("- **Computational support.**", "\n\n")                 # the item ends at a blank line
-    sA = part("## Appendix A.", "## Appendix B.")
-    sC = part("## Appendix C.", "## Appendix D.")
-    sD = part("## Appendix D.", "The paper's own md5")
-    import re
-    need = {
-        "8.7 cites support8b.py M3 and GLUEDECAY5.md": "`docket68/n1star/checks/support8b.py` M3" in s87
-        and "GLUEDECAY5.md" in s87,
-        "section 9 lists gluedecay5.py": "`checks/gluedecay5.py`" in s9,
-        "Appendix A has its entry": "- `checks/gluedecay5.py` E1–E6" in sA,
-        "Appendix C maps it and the note": "checks/gluedecay5.py` E1–E6 |" in sC and "GLUEDECAY5.md" in sC,
-        "Appendix D runs it and records its import": "python3 checks/gluedecay5.py" in sD
-        and "`checks/gluedecay5.py` import" in sD,
-        "Appendix D's md5 rows": all(re.search(r"^\| `docket68/n1star/%s` \| `[0-9a-f]{32}` \|$" % re.escape(f_),
-                                               sD, re.M)
-                                     for f_ in ("checks/gluedecay5.py", "checks/gluedecay5.out", "GLUEDECAY5.md",
-                                                "proof5/PART-V-GLUING.md")),
-        "applied paper lines <= 121": max(len(l_) for l_ in applied.split("\n")) <= 121,
-    }
     newlong = [l_ for t_ in TAGS for l_ in news[t_].split("\n") if len(l_) > 121]
-    say("E6: GLUEDECAY5.md lines over 121 characters: %s; section 8.3's old blocks (a)-(h) occur once each: %s (lines "
-        "%s); disjoint: %s; (a) immediately followed by (b): %s; new block lines over 121: %d; with all blocks applied: "
-        "%s" % (long_ or "none", once, ", ".join("%s %d" % (t_, paper[:span_of(paper, olds[t_])[0]].count("\n") + 1)
-                                                 for t_ in TAGS) if once else counts, disjoint, adj, len(newlong),
-                "; ".join("%s %s" % kv for kv in need.items())))
-    return not long_ and once and disjoint and adj and not newlong and all(need.values())
+    P = norm(paper)
+    pre = all(P.count(norm(olds[t_])) == 1 for t_ in TAGS) and not any(P.count(norm(news[t_])) for t_ in TAGS)
+    if pre:
+        state = "before seating"
+        spans = sorted((P.find(norm(olds[t_])), P.find(norm(olds[t_])) + len(olds[t_]), t_) for t_ in TAGS)
+        disjoint = all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
+        adj = P.find(norm(olds["a"])) + len(olds["a"]) + 1 == P.find(norm(olds["b"]))
+        applied = paper
+        for (s0, s1, t_) in reversed(spans):
+            if MUT == "drop_c" and t_ == "c":
+                continue
+            applied = applied[:s0] + news[t_] + applied[s1:]
+        need = apparatus(applied)
+        sim = applied.replace("`" + "0" * 32 + "`", "`" + "0123456789abcdef" * 2 + "`")   # as --update-md5 would
+        if MUT == "seated_keep_old_a":
+            sim = sim + "\n" + olds["a"] + "\n"
+        seated_sim = seated_ok(sim, news, olds)
+        ok = disjoint and adj and all(need.values()) and seated_sim
+        detail = ("old blocks (a)-(h) once each at lines %s; disjoint: %s; (a) immediately followed by (b): %s; "
+                  "with all blocks applied to a copy: %s; that copy, md5 column refreshed, passes the seated-state "
+                  "check: %s"
+                  % (", ".join("%s %d" % (t_, paper[:s0].count("\n") + 1) for (s0, s1, t_) in spans), disjoint, adj,
+                     "; ".join("%s %s" % kv for kv in need.items()), seated_sim))
+    elif seated_ok(paper, news, olds):
+        state, ok = "seated", True
+        detail = "new blocks (a)-(h) once each, disjoint, (a) then (b), old (a)-(e), (g) gone, the apparatus in place"
+    else:
+        state, ok = "neither", False
+        detail = "old block counts %s, new block counts %s" % (
+            {t_: P.count(norm(olds[t_])) for t_ in TAGS}, {t_: P.count(norm(news[t_])) for t_ in TAGS})
+    say("E6: GLUEDECAY5.md lines over 121 characters: %s; new block lines over 121: %d; section %s's blocks, state "
+        "of the paper found: %s; %s" % (long_ or "none", len(newlong), SECTION, state, detail))
+    return not long_ and not newlong and ok
 
 
 CHECKS = [("E1", e1, ["lebesgue"]), ("E2", e2, ["no_osc", "ss_sign", "lam_max"]),
           ("E3", e3, ["coef3", "second_r3", "mu0"]),
-          ("E4", e4, ["no_decouple", "box_strong", "energy_trsign", "mom_drop_x", "p3_strong", "box_weak"]),
-          ("E5", e5, ["mass", "dim3"]), ("E6", e6, ["char_a", "char_b", "drop_c", "drop_m3"])]
+          ("E4", e4, ["no_decouple", "box_strong", "energy_trsign", "mom_drop_x", "p3_strong", "box_weak",
+                      "drop_lapse"]),
+          ("E5", e5, ["mass", "dim3"]),
+          ("E6", e6, ["char_a", "char_b", "drop_c", "drop_m3", "seated_keep_old_a"])]
 
 
 def main():
