@@ -39,26 +39,26 @@ found section 8, Theorem P and Proposition 9.10 to hold once its minor findings 
 seated (D622), and a confirming reader found them seated correctly, its own findings then seated (D625); a reader of
 that seating found one minor gap, that Lemma 10.1b's case of smooth h assumed smooth approximants which the natural
 regularisation does not give, repaired by averaging over the flow of T (D627) [amended D627: this clause added]. Section
-8, sections 9.1-9.4 and Propositions 9.9-9.10 are proved, and so are Proposition 10.1 (i)-(iii) and (iv-b) with Lemmas
-10.1a-10.1b, the proof of Lemma 10.1b (b) repaired at D625 by the confirming reader's argument and its smooth case at
-D627; (iv-a) is deduced from GAUGEDECAY5 Theorem 1.5, which is proved
+8, sections 9.1-9.5 [amended D633: was "9.1-9.4"; 9.5 proved at D632] and Propositions 9.9-9.10 are proved, and so are
+Proposition 10.1 (i)-(iii) and (iv-b) with Lemmas 10.1a-10.1b, the proof of Lemma 10.1b (b) repaired at D625 by the
+confirming reader's argument and its smooth case at D627; (iv-a) is deduced from GAUGEDECAY5 Theorem 1.5, which is proved
 (GAUGEDECAY5 R10.p, R11.p, R12.p). [amended D631: WS-A R12.h text (11)] Section 9.5's (9.10) was
 corrected at D618 (below).
 
 **Theorem M (2026-10-20, D37)** gives the solution's Bondi mass at past null infinity: g_lam has Bondi coordinates there
 with an expansion in r^(-1/2), the five-dimensional Bondi mass law holds for it pointwise, and its mean mass is mu(v) +
 O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it, the rate the numerics measure
-(section 11, computed inputs in `bondi5.py`). It is deduced; a twelfth verifier found no major gap and five minor ones,
-repaired (D40), and a thirteenth found one major gap in a repair, Lemma 11.0's energy region, repaired by running the
-identity on the approximating solutions of Theorem P's construction (D44); those repairs were read by the fourteenth and
-fifteenth verifiers (D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's
-Major 1), that Lemma 11.0's induction counts the top-order term b.dU as known, answered by workstream B's R6-D, read by
-its round-6 verifier, seated in Lemma 11.0 (D630) and re-read line by line and found correct by its round-7 reader
-[amended D631: was "whose replacement (workstream B, R5-D) is pending"]; and that reader's Major 2, the factor 1 - pi/2
-missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with `past5.py` P7, with that reader's
-minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections 9.5 and 11 and Proposition 9.10, with R6-D, were read by
-an independent confirming reader, its findings seated (D632) [amended D632: was "D618's edits to sections 9.5 and 11
-await one confirming read"].
+(section 11, computed inputs in `bondi5.py`). It is proved (D632) [amended D633: was "It is deduced"]; a twelfth
+verifier found no major gap and five minor ones, repaired (D40), and a thirteenth found one major gap in a repair, Lemma
+11.0's energy region, repaired by running the identity on the approximating solutions of Theorem P's construction (D44);
+those repairs were read by the fourteenth and fifteenth verifiers (D45, D47) and hold. Two later findings:
+SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma 11.0's induction counts the top-order term
+b.dU as known, answered by workstream B's R6-D, read by its round-6 verifier, seated in Lemma 11.0 (D630) and re-read
+line by line and found correct by its round-7 reader [amended D631: was "whose replacement (workstream B, R5-D) is
+pending"]; and that reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3),
+corrected at D618 with `past5.py` P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections
+9.5 and 11 and Proposition 9.10, with R6-D, were read by an independent confirming reader, its findings seated (D632)
+[amended D632: was "D618's edits to sections 9.5 and 11 await one confirming read"].
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -1228,7 +1228,8 @@ to 9.1-9.4, 9.9 and 9.10 seat an independent reading of sections 8 and 9 that fo
 9.9-9.10 whole, with the D35 items and Proposition 9.10's D609 findings, and found every finding seated correctly
 (D625): **sections 9.1-9.4 and Propositions 9.9-9.10 are proved (D625).** Section 9.5's flux formula (9.10) lacked a
 factor 1 - pi/2 on its oscillating terms; corrected at D618, it was read, with Proposition 9.10, by an independent
-confirming reader, whose findings are seated (D632) [amended D632: was "it awaits one confirming read"] [amended D625:
+confirming reader, whose findings are seated (D632) [amended D632: was "it awaits one confirming read"],
+**and section 9.5 is proved (D632)** [amended D633: this clause added] [amended D625:
 the status listed as read by no verifier after the edit the D35 items, Proposition 9.10's D609 findings, the D622
 amendments and section 9.5, then being repaired (D618)].
 
@@ -10934,7 +10935,8 @@ proof level ((F1)-(F8), (a)-(x)); READ (the pages named, as in 10.84); nothing p
 
 ## 11. Theorem M: the Bondi mass at past null infinity (D37)
 
-**Status. Theorem M is deduced here, with its exact inputs computed in `bondi5.py` B1-B4, and was read by a twelfth
+**Status. Theorem M is proved here (D632) [amended D633: was "is deduced here"], with its exact inputs computed in
+`bondi5.py` B1-B4, and was read by a twelfth
 verifier (D40): no major finding; its five minor findings are repaired in place (Lemma 11.0; Lemma 11.2's hypothesis
 (H_m) and the induction in m at J = 3; Proposition 11.2(i) rebuilt by characteristics; B1's orders below s^3,
 Proposition 11.3(0); the coefficient of G_k) and its four notes seated (the J = 3 source, the areal coefficient 6 rho_k,

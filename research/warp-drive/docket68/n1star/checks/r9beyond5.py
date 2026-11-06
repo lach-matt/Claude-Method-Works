@@ -12,31 +12,32 @@ W := {v >= v1, t~ <= 0, r >= 4R}, N := {v = v1} cap W, Zb := {v <= v1, r >= 4R}.
      future, so dv(Y) >= -2e dtau(Y) for every future g-causal Y (g0^-1(omega, omega) + e |omega|_E^2 = -2e - 4m e^2 +
      4e^3 < 0); for |g - g0|_op <= e, Y_e := L0 + 2e d_tau is g-timelike and future, dv(Y_e) = 2e, dtau(Y_e) = 1 + 2e,
      dr(Y_e) = -1 (g0(Y_e, Y_e) + e |Y_e|_E^2 = -2e + 4m e^2 + 4e^3 < 0); both for 0 < e <= 1/8, 0 <= m <= 1/16 (z3,
-     with the vacuity guard). Sampled: 3000 random perturbations of each kind. The sharp constant of the first, over
-     the samples and the extremal direction, lies in (1/2, 2]. Controls: with 2e replaced by e/2 the extremal
-     perturbation makes omega spacelike and Y_e spacelike.
+     with the vacuity guard). Sampled: 3000 random perturbations of each kind. The sharp constant of the first, over the
+     samples and the extremal direction, lies in (1/2, 2]. Controls: with 2e replaced by e/2 the extremal perturbation
+     makes omega spacelike and Y_e spacelike.
   B3 (z3, linear real arithmetic) the placement, from Part VII Lemma 1.2's inequalities (tau_S >= tau0 + 1, tau_S <=
      tau_top, tau'_end >= tau_top + 1, tau'_end >= V' - q_end, V' >= tau_top + 2R + q_end + 1, q_end >= 0, 4R > a'):
      m_Omega := V' + 1 - (v1 + tau_S - tau'_end) >= q_end + 3; every point of {v <= v1 + 1/2, r >= 4R} lies in Omega'
-     (tau >= tau0: tau <= tau'_end - 1/2, v + (tau - tau'_end) <= V' - 1, r >= a') or in P' (tau <= tau0, 0 < h <= kappa:
-     v + h(tau) <= V'_P - 3); v1 = V'_P - kappa - (tau_S - tau0) - m_Omega <= V'_P - kappa - 1 - m_Omega. Vacuity guard:
-     the hypotheses are satisfiable in each case. Control: with V' >= tau_top + 2R + q_end - 3 a counterexample exists.
-  B3n (numeric) one instance of Lemma 1.2's construction (theta, r_q concrete): every point of a grid of
-     {v <= v1 + 1/2, r >= 4R} is in Omega' or P'. Control: V' three below Lemma 1.2's choice leaves grid points out.
+     (tau >= tau0: tau <= tau'_end - 1/2, v + (tau - tau'_end) <= V' - 1, r >= a') or in P' (tau <= tau0, 0 < h <=
+     kappa: v + h(tau) <= V'_P - 3); v1 = V'_P - kappa - (tau_S - tau0) - m_Omega <= V'_P - kappa - 1 - m_Omega. Vacuity
+     guard: the hypotheses are satisfiable in each case. Control: with V' >= tau_top + 2R + q_end - 3 a counterexample
+     exists.
+  B3n (numeric) one instance of Lemma 1.2's construction (theta, r_q concrete): every point of a grid of {v <= v1 + 1/2,
+     r >= 4R} is in Omega' or P'. Control: V' five below Lemma 1.2's choice (m_Omega < 0) leaves grid points out.
   B4 (exact and numeric) the displacement: I(tau) := 2 int_tau^tau_max eps; for the record's bound eps = C lam min(1,
-     t^(-3/2)) on Zb (t = 1 + tau0 - tau), I(-oo) = 2 C lam (tau_S - tau0 + 2) (exact); for C (lam + eps_B)
-     (v1 - tau)^-2 on W, int_(-oo)^(tau_max) (v1 - tau)^-2 = 1/(v1 - tau_max) (exact). On a radial model with g^-1 = g0^-1
-     + eps(tau) n n^T (eight directions n, eps = 0.05 min(1, t^(-3/2))), the past g-null generator from dS stays in
-     |v - v1| <= I(tau) down to tau_S - 3000; control: the extremal direction leaves |v - v1| <= I(tau)/4.
+     t^(-3/2)) on Zb (t = 1 + tau0 - tau), I(-oo) = 2 C lam (tau_S - tau0 + 2) (exact); for C (lam + eps_B) (v1 -
+     tau)^-2 on W, int_(-oo)^(tau_max) (v1 - tau)^-2 = 1/(v1 - tau_max) (exact). On a radial model with g^-1 = g0^-1 +
+     eps(tau) n n^T (eight directions n, eps = 0.05 min(1, t^(-3/2))), the past g-null generator from dS stays in |v -
+     v1| <= I(tau) down to tau_S - 3000; control: the extremal direction leaves |v - v1| <= I(tau)/4.
   B5 (sampled, model F = F0 + c/r, |F'| <= 1/4) W = D^-(S; g0): from 300 points of W, 40 random future causal curves
-     each meet S; from 300 points outside W the ingoing null ray misses S. Perturbed (eps profile of B4, the direction
-     n = dv): from points of {v >= v1 + I(tau)} random future g-causal curves meet S; from points of {v < v1 - I(tau),
-     r >= 4R} the Y_e curve reaches {r = 4R} at v < v1, missing S. Control: {v >= v1 - 2, t~ <= 0} has points whose
-     ingoing ray misses S.
-  B6 (READ, by content) the cited lines: Part VII Lemma 1.2's inequalities (PART-VII-ASSEMBLY.md 150-159), v >= v_end + 2,
-     the radiation field vanishing on {v > v_end} (124-129), Sigma_IVP = {t_KS = f} for r >= R_3 (162-163); (9.1)'s V_P,
-     Lemma 9.1 (c), (P-iii) and the margin |g_app - g0| <= C lam t^(-3/2) (N1STAR-PROOF.md). Control: an altered quote is
-     not found.
+     each meet S; at 600 random points the ingoing null ray meets S exactly when the point is in W. Perturbed (eps
+     profile of B4, the direction n = dv): from points of {v >= v1 + I(tau)} random future g-causal curves meet S; from
+     points of {v < v1 - I(tau), r >= 4R} the Y_e curve reaches {r = 4R} at v < v1, missing S. Control: {v >= v1 - 2, t~
+     <= 0} has points whose ingoing ray misses S.
+  B6 (READ, by content) the cited lines: Part VII Lemma 1.2's inequalities (PART-VII-ASSEMBLY.md 150-159), v >= v_end +
+     2, the radiation field vanishing on {v > v_end} (124-129), Sigma_IVP = {t_KS = f} for r >= R_3 (162-163); (9.1)'s
+     V_P, Lemma 9.1 (c), (P-iii) and the margin |g_app - g0| <= C lam t^(-3/2) (N1STAR-PROOF.md). Control: an altered
+     quote is not found.
 Labels: B1, B3, B4 (integrals) exact; B2 exact (z3) with samples; B3n, B4 (model), B5 numeric.
 
     python3 checks/r9beyond5.py     (20 to 90 seconds)
@@ -287,10 +288,11 @@ def part_b3n():
           "tau_top + 1), v1 >= v_end + 2, and all 24321 grid points lie in Omega' cup P'",
           lemma12 and P["v1"] >= P["v_end"] + 2 and not out, f"v1 = {P['v1']:.4f}, V'_P = {P['VPp']:.4f}; "
           f"outside: {len(out)}")
-    Pc = instance(-3.0)
+    Pc = instance(-5.0)
+    mO_c = Pc["Vp"] + 1 - (Pc["v1"] + Pc["tauS"] - Pc["tpe"])
     outc = [p for p in pts if not in_omega_or_p(Pc, *p)]
-    check("B3n' control: V' three below Lemma 1.2's choice leaves grid points outside Omega' cup P'", len(outc) > 0,
-          f"outside: {len(outc)}")
+    check("B3n' control: V' five below Lemma 1.2's choice (m_Omega < 0) leaves grid points outside Omega' cup P'",
+          len(outc) > 0 and mO_c < 0, f"m_Omega = {mO_c:.4f}; outside: {len(outc)}")
 
 
 # ---------------------------------------------------------------------------------------------------------- B4
@@ -382,7 +384,7 @@ def part_b5():
         """a random future causal polygon (radial model) until t~ >= 0 (then: is v >= v1, i.e. on S?) or r < 4R"""
         for _ in range(100000):
             if tau - F(r) >= 0:
-                return tau + r >= v1 - tol
+                return bool(tau + r >= v1 - tol)
             if r < R4:
                 return False
             m_ = mu/r**2

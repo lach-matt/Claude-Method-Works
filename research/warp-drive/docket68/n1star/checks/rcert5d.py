@@ -53,7 +53,9 @@ restricted to t (mB2) -- passed C1 and --collect while under-bounding sig^4 and 
 now also runs kids_fields2 (t^4, sig^4 and the field x^4) with products across directions (kids_frame2), and C1(b),
 contain_control, checks containment on the pinned tensors and the frame: every enclosure box_coeffs returns during
 kids must contain point_coeffs at its box's corners, and every Taylor coefficient of each child's box-path frame output
-must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.]
+must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.  A third kids test (R = t, the
+frame input R_u = phi1(t), the coordinate map's factor) shows the verifier's mB3 -- t taken at the centre in the box
+inputs -- unsound, true/bound 1.00097, and catches it.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
 engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
 engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a
@@ -258,7 +260,7 @@ def kids_frame(R, x):
     return [R, -R, x4, -x4, R * x4, R - 0.3, -(R * x4) - 0.05, R + x4]
 
 
-def kids_true(b):
+def kids_true(b, g=None):
     """the exact sup over box b of each test component's absolute value (t^4, x^4 monotone in |.|)"""
     tc, ht, sc, hs, xc, hx = b
     rng = lambda c, h: ((0.0 if c - h < 0 < c + h else min(abs(c - h), abs(c + h)) ** 4),
@@ -282,7 +284,7 @@ def kids_frame2(R, m, n):
     return [m, -m, n, -n, R * m, m * n - 0.3, -(R * n) - 0.05, R * m * n + m]
 
 
-def kids_true2(b):
+def kids_true2(b, g=None):
     """the exact sup over box b of each kids_frame2 component's absolute value (t^4, sig^4, x^4 >= 0, monotone in |.|,
     and independent, so each product ranges over the products of the ranges)"""
     tc, ht, sc, hs, xc, hx = b
@@ -292,13 +294,43 @@ def kids_true2(b):
     return [s1, s1, q1, q1, r1 * s1, max(abs(s0 * q0 - 0.3), abs(s1 * q1 - 0.3)), r1 * q1 + 0.05, s1 * (r1 * q1 + 1)]
 
 
+def kids_fields3():
+    """round 7 (the verifier of round 6's mB3): R = t (T_1), every other field 0, so that the frame input R_u is the
+    coordinate map's own factor phi1(t) = 1/(hxi a cosh(xa + (t + 1) hxi)) (rcert5.inputs)"""
+    Ct = {f: np.zeros((6, 6, 6)) for f in R5.RS.NAMES}
+    Ct['R'][1, 0, 0] = 1.0
+    return Ct
+
+
+def kids_frame3(R_u):
+    """eight components on the input R_u = phi1(t), both signs and shifted, so that the coordinate map's box enclosure
+    (inputs(..., box=True): t as a ball) is what is tested"""
+    return [R_u, -R_u, R_u - 3.0, -R_u + 1.0, R_u, -R_u, R_u - 3.0, -R_u + 1.0]
+
+
+def kids_true3(b, g):
+    """the sup over box b of each kids_frame3 component's absolute value: phi1 > 0 rises to its peak 1/(hxi a) at
+    xi = xa + (t + 1) hxi = 0 and falls after it, so its range over the box is fixed by its ends and, if the box holds
+    xi = 0, the peak (floating point in the exact formula; relative error ~1e-16, far inside the 1e-12 allowed)"""
+    tc, ht = b[0], b[1]
+    xi = lambda t: g['xa'] + (t + 1) * g['hxi']
+    phi = lambda t: 1 / (g['hxi'] * g['a'] * math.cosh(xi(t)))
+    lo_, hi_ = min(phi(tc - ht), phi(tc + ht)), max(phi(tc - ht), phi(tc + ht))
+    if xi(tc - ht) <= 0 <= xi(tc + ht):
+        hi_ = 1 / (g['hxi'] * g['a'])
+    s3, s1 = max(abs(lo_ - 3.0), abs(hi_ - 3.0)), max(abs(lo_ - 1.0), abs(hi_ - 1.0))
+    return [hi_, hi_, s3, s1, hi_, hi_, s3, s1]
+
+
 def kids_control(make_engine, g):
     """C1 (round 6, the verifier of round 5, M5-A; widened in round 7, the verifier of round 6, M6-A): the bound END
     TO END through Engine.kids -- point_coeffs, box_coeffs, inputs(..., box=True), the frame, Engine.bound -- on
     engines built by make_engine(tensors, g, frame, names), over the 8 children of each of KIDS_PARENTS (children's
     half-widths 0.005 to 0.25, parents' 0.01 to 0.5), against the exact sups: (1) kids_fields() (R = t^4) with
     kids_frame (the coordinate x enters as x^4); (2) round 7: kids_fields2() (t^4, sig^4 and the field x^4) with
-    kids_frame2, so that the sig- and x-direction terms of box_coeffs run on nonzero coefficients.  For each of t^4,
+    kids_frame2, so that the sig- and x-direction terms of box_coeffs run on nonzero coefficients; (3) round 7:
+    kids_fields3() (R = t) with kids_frame3, whose input R_u is the coordinate map's factor phi1(t), so that the box
+    enclosure of the coordinate t in inputs(..., box=True) is tested (the verifier of round 6's mB3).  For each of t^4,
     sig^4, x^4 the sound order-3 Taylor-model bound is (|c| + h)^4 + 3 h^4, which exceeds the true sup by only 3 h^4;
     so a loss of the remainder, of a direction of the box enclosure (the linear term (|c| + h)^4 - h^4 is then below
     the sup), of the coordinate's box, or of abs where a centre value is negative, gives a bound below the true sup.
@@ -306,11 +338,12 @@ def kids_control(make_engine, g):
     contain_control does.  Returns the largest true/bound: <= 1 (to rounding) for a sound engine"""
     worst = 0.0
     for tens, frame, names, true in ((kids_fields(), kids_frame, ['R', 'x'], kids_true),
-                                     (kids_fields2(), kids_frame2, ['R', 'm', 'n'], kids_true2)):
+                                     (kids_fields2(), kids_frame2, ['R', 'm', 'n'], kids_true2),
+                                     (kids_fields3(), kids_frame3, ['R_u'], kids_true3)):
         eng = make_engine(tens, g, frame, names)
         for pb in KIDS_PARENTS:
             for kb, sup, cen in eng.kids(pb):
-                for tv, bv in zip(true(kb), sup):
+                for tv, bv in zip(true(kb, g), sup):
                     worst = max(worst, tv / bv if bv > 0 else (float('inf') if tv > 0 else 0.0))
     return worst
 
@@ -416,9 +449,10 @@ def collect(W, tau):
     k_real = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm), g)
     k_mut = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm, drop_remainder=True), g)
     c1 = w_real <= 1.0 and w_mut > 1.0 and k_real <= 1.0 + 1e-12 and k_mut > 1.0
-    print('C1 (control, rounds 6-7: END TO END through Engine.kids) test fields t^4, sig^4, the field x^4 and the '
-          'coordinate x^4, in sixteen signed combinations and products across directions, on the children of %d parent '
-          'boxes (children\'s half-widths 0.005-0.25), exact sups known: largest true/bound %.10f (must be <= 1); the '
+    print('C1 (control, rounds 6-7: END TO END through Engine.kids) test fields t^4, sig^4, the field x^4, the '
+          'coordinate x^4 and the coordinate map phi1(t), in twenty-four signed combinations and products across '
+          'directions, on the children of %d parent boxes (children\'s half-widths 0.005-0.25), exact sups known: '
+          'largest true/bound %.10f (must be <= 1); the '
           'same with the remainder dropped: %.4f (must exceed 1); and Engine.bound alone on the round-5 test '
           'polynomials: %.4f and %.4f -> %s' % (
               len(KIDS_PARENTS), k_real, k_mut, w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else

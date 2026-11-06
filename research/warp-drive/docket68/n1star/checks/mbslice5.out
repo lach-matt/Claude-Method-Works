@@ -1,0 +1,18 @@
+mbslice5: Theorem T (iii) and Lemma X1 on every class slice, as exact polynomial identities
+   the abstract theta-integrand from mbsign5's constraint map (21 s)
+S3 N_s sqrt(gamma_RR) = 1: True; N_s^2 - gamma_RR (Y_s^R)^2 = f: True
+S3 PASS
+   S1, l = 2: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
+   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 24 s)
+   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 25 s)
+   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): True (27 s)
+   S1, l = 4: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
+   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 30 s)
+   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 32 s)
+S1 PASS
+   S2, l = 2: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (34 s)
+   controls: k_T^2 + 3 in place of k_T^2 + 2 fails (rejected): True; R^3 P^2 doubled fails (rejected): True
+S2 PASS
+controls rejected: PASS
+S1-S3: PASS (34 s)
+exit 0

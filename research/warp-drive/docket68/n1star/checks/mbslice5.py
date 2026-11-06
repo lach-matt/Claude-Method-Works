@@ -30,7 +30,8 @@ derivative in it is replaced by the exact quantity above, symbol by symbol.
   Controls (each must fail, i.e. give a nonzero polynomial): S1 with |T|^2 halved (l = 2, 4); S1 with K_RR's w' term
   dropped (a wrong slice); S2 with k_T^2 + 2 replaced by k_T^2 + 3; S2's pointwise identity with R^3 P^2 doubled.
 
-Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (a few minutes)
+Labels: computed, exact (polynomial identities over the rationals). Run: python3 checks/mbslice5.py   (under a
+minute)
 """
 import importlib.util
 import os
@@ -280,9 +281,13 @@ def main():
             L = cv(Iq + 2 * scale * nT * Tm * sp.sqrt(Gf))
             eH, eP = euler(L, HJ), euler(L, PJ)
             z = eH.iszero() and eP.iszero()
-            print("   S1, l = %d (|T|^2 = %s, k_T^2 = %d), %s: Euler operator in H zero %s, in P zero %s (numerator terms "
-                  "%d, %d; %.0f s)" % (l, nT, kT2, label, eH.iszero(), eP.iszero(), len(eH.n), len(eP.n),
-                                       time.time() - T0), flush=True)
+            if scale == 1:                                       # what the integrand depends on: the slice's generality
+                qs = [k for k in range(NJ) if L.n.diff(QJ[k]) != 0]
+                print("   S1, l = %d: the integrand's numerator has %d terms and involves mu: %s and the jets q^(%s) of "
+                      "the free slice function" % (l, len(L.n), L.n.diff(MU) != 0, ", ".join(map(str, qs))))
+            print("   S1, l = %d (|T|^2 = %s, k_T^2 = %d), %s: Euler operator in H zero %s, in P zero %s (numerator "
+                  "terms %d, %d; %.0f s)" % (l, nT, kT2, label, eH.iszero(), eP.iszero(), len(eH.n), len(eP.n),
+                                             time.time() - T0), flush=True)
             if scale == 1:
                 s1 &= z
             else:
@@ -292,8 +297,8 @@ def main():
             L = cv(Iq + 2 * nT * Tm * sp.sqrt(Gf))
             zb = euler(L, HJ).iszero() and euler(L, PJ).iszero()
             ctlK = not zb
-            print("   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): %s (%.0f s)"
-                  % (ctlK, time.time() - T0), flush=True)
+            print("   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): %s "
+                  "(%.0f s)" % (ctlK, time.time() - T0), flush=True)
     print('S1', 'PASS' if s1 else 'FAIL', flush=True)
     ok &= s1
     # S2: Lemma X1, l = 2
