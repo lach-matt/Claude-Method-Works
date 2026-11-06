@@ -1,0 +1,11 @@
+(T) non-frozen: lam^1 of theta_du = g0^uv F1 a2 + (s2-independent)
+  theta_du expanded  [2 s]
+  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: True  [2 s]
+  the remainder (s1-only, slow-derivative terms): -3*z1**2*ci(u, v, theta)*Derivative(R(u, v), u)/(E(u, v)**2*R(u, v))
+   H3-slow: PASS [2 s]
+  theta_du expanded  [0 s]
+  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: False  [0 s]
+  the remainder (s1-only, slow-derivative terms): z1*(-6*z1*ci(u, v, theta)*Derivative(R(u, v), u) + (-2*z1*a1(u, v, theta)**2 - 2*z1*a1(u, v, theta)*a2(u, v, theta) - 2*z1*a2(u, v, theta)**2 - 2*z2*a1(u, v, theta)*b1(u, v, theta) - z2*a1(u, v, theta)*b2(u, v, theta) - z2*a2(u, v, theta)*b1(u, v, theta) - 2*z2*a2(u, v, theta)*b2(u, v, theta))*E(u, v)*R(u, v))/(2*E(u, v)**2*R(u, v))
+   H3-slow (mutated): FAIL [0 s]
+   control rejected: True
+(S) frozen coefficients: (S1)-(S3) and the control
