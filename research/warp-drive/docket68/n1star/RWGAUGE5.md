@@ -456,7 +456,25 @@ The powers r^(±1/2) are attained, so the weights cannot be improved.
 
 ### R2.0.5 [HKW18] (169)'s Phi against (10.1)'s P
 
-PLACEHOLDER-169
+*Finding (agreed: not re-derived in round 1).* (R7) is the supplement's READ, and the constant between [HKW18]'s
+master field and the P of (10.1) was not re-derived; an l-dependent constant would touch only Theorem 2's uniformity
+in l. *Re-derived (computed: U10).* [HKW18] (159)-(162) give, in the gauge f_a = 0 = H_T (H_A = 0, H_2 = 0, e_A = 0),
+hcheck_AB = r F_AB and Hcheck = r F, the H of (55) being the coefficient of the unit-sphere metric, 2 r^2 F. With
+(163) read with mixed indices, X = hcheck^t_t - 2 Hcheck, Y = hcheck^r_r - 2 Hcheck, Z = hcheck^r_t (the reading
+(164)'s inversion through the traceless equation requires: hcheck^t_t + hcheck^r_r = -6 Hcheck at n = 3), and
+(168)-(169) at n = 3,
+
+    Ztilde = ( f (d_r X + d_r Y) - (f/r + f'/2) X + (2f/r - f'/2) Y ) / (k^2/r^2 - f'' - 3 f'/r),
+    Phi_HKW = ( 3 Ztilde - r (X + Y) ) / ( r^(1/2) (k^2 - 3 + 6 mu/r^2) ),
+
+applied to the perturbation that (10.1) builds from P give, once the master equation removes d_t^2 P,
+
+    Phi_HKW = P   exactly, at general l (every other jet of P cancels).
+
+So the constant is 1 for every l, and [HKW18]'s scalar quantity is Q^(+) = (r^(1/2) P) Y_αβ with Y_αβ of (35)
+unnormalised, ||Y_αβ||^2 = (2/3) k^2 (k^2 - 3) ||Y||^2 >= (80/3) ||Y||^2: Theorem 2's uniformity in l stands as
+written (Step 1's ratio ||Y_l||/||S_l|| bounded below). The control (V multiplied by 1 + mu/r^2) leaves a non-constant
+coefficient.
 
 ### R2.0.6 Mutants re-run
 

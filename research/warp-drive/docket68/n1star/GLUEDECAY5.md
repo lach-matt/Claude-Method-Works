@@ -61,6 +61,10 @@ guaranteed small enough for (ii) for $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-
 $2C\epsilon R_G^{\ell_0-a}<\delta$; for the examples of (C), no data in the class agreeing with them on $\{r<R\}$ do
 better than (C)'s lower bound.]
 
+[R3.0, nit 3: in (A), "its terms of orders $r^{-2}$, $r^{-3}$ being zero" is for the metric. In the second fundamental
+form the orders are $r^{-3}$ and $r^{-4}$, and these vanish too, as Proposition 1 states for all the coefficients
+$u^{(z)}$.]
+
 Two findings change what the gluing needs (section 7). (GD3): the Myers-Perry data on Part V's Kerr-Schild slices differ
 from Tangherlini's data on Hintz's surface by a fixed term of order $r^{-3}$ in the second fundamental form, of size
 $\mu_{\mathrm{end}}$. So the family must be taken on Hintz's surface, as Part VII Proposition 2.2 does in the class.
@@ -541,6 +545,11 @@ For it, every data set in the class agreeing with it on $\{r<R\}$ has norm at le
 $c_P\epsilon(\log_2(R/R_P))^{1/2}$), Proposition 3. The gluing of Proposition 4 attains this order for every
 perturbation of order $a$ (Corollary 4.3).
 
+[R3.0, A: Corollary 4.3 bounds the glued norm by this order from above for every perturbation of order $a$. The order is
+attained, with the matching lower bound, for the examples of Proposition 3, and at $a = \ell_0$ the order is
+$\epsilon(\log R)^{1/2}$. Read "does no worse than this order for every perturbation of order $a$, and attains it for
+the examples" (Minor 1).]
+
 So "Theorem 4 (ii) applies up to the gluing" is false for fixed $\epsilon$ and large $R$ at every
 $a\in(\frac32,\ell_0]$. Its uniform form is equivalent to (ii) applied directly, and the class in which Theorem 4 (ii)'s
 conclusion is reached, directly or through gluing, is exactly Hintz's class. The development of glued data is not the
@@ -568,6 +577,12 @@ $a\in(\frac32,\ell_0]$ there are $G$-invariant, pure-gauge vacuum perturbations 
 Theorem 4's $\ell_0\in(3,4)$ every $a>3$ is covered, the five-dimensional counterpart of [Hin26]'s footnote 1 (READ).
 The glued norm is $\asymp\epsilon R^{\ell_0-a}$: the lower bound holds for every data set (Proposition 3) and the upper
 bound for the gluing (Corollary 4.3).
+
+[R3.0, A: "$\asymp\epsilon R^{\ell_0-a}$" repeats M1's error at $a = \ell_0$, where the order is $\epsilon(\log
+R)^{1/2}$ by (4.1) and (5.5), and it overclaims as Minor 1 did. Read: for the examples of Proposition 3, the least norm
+of data in the class agreeing on $\{r<R\}$, and the glued norm, are $\asymp\epsilon R^{\ell_0-a}$ for $a<\ell_0$ and
+$\asymp\epsilon(\log R)^{1/2}$ at $a = \ell_0$, with $\epsilon\le\epsilon_1$ and $R\ge\max(R_P,R_G)$. For every
+perturbation of order $a$ only the upper bound holds (Corollary 4.3).]
 
 [R2.0, Minor 2: for that $\ell_0$, with the data of (i), $\lambda_1$ and $\delta$ taken for it, $\epsilon$ below
 $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$, and the rate $t_*^{-2-\epsilon'}$, $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary
@@ -1068,6 +1083,14 @@ fixed-point step all the same. For $a\le2+d$ the charge difference $\Delta\mathf
 vanish: a nearby member of Lemma 4.1's family differs from $(\gamma^{m_\lambda},k^{m_\lambda})$ at order 2 with
 different charges, and E4's fluxes at $a = 2+d$ are nonzero. A box of radius $C_0\epsilon R^{1+d-a}\to0$ cannot contain
 such a difference for $a>1+d$.
+
+[R3.0, nit 8: a tighter argument replaces the last paragraph's support, since a nearby member of the family is not a
+perturbation on $\Sigma$ and E4's profiles are not vacuum. For $d = 1$ pull the data of (i) back by $x\mapsto
+x+\chi_1(r)c$, a constant translation far out. This is a vacuum perturbation, pure gauge, of order 3 = 2 + d, since
+$\gamma^{m_\lambda}(x+c)-\gamma^{m_\lambda}(x)$ is conormal of order 3. It moves the centre of mass by the energy times
+$c$: Part V Proposition 2.3's $d = -6\pi^2\mu_0$ per unit translation, at the base mass $m_\lambda$. So $\Delta\mathfrak
+Q_{e'_l} = -6\pi^2m_\lambda c_l+O(|c|^2)\ne0$ does not depend on $R$. Then $Q_R-\tilde{\mathfrak
+q}(p_\lambda)\to\Delta\mathfrak Q$, since $T_X\to0$, and a box of radius tending to 0 excludes it.]
 
 (Minor 6) *The paper's :1137-1140.* `checks/mpdata5.py` B2 and B4 compute at $t' = 0$, on Kerr-Schild slices (its
 docstring). The data that matter for (ii) are those on Hintz's surface: by GD3 the slice data lie in the class but are

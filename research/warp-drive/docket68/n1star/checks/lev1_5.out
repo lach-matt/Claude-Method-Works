@@ -1,0 +1,31 @@
+L1 (exact) [e_x, e4] = chi e_x - (eta + etab)/2 e4: True; [e_x, e3] = chib e_x - (eta + etab)/2 e3: True; [e_x, d_v] =
+    e^w chi e_x: True; control (e4 without the (eta + etab)/2 term): fails (good) -> PASS
+L2 the level-1 rows (17), the unknowns on each right side:
+   pchi     (e4, bounds pdchi): dchi dom dw da1 da2 pdchi pdom pdw pda1 pda2
+   peta     (e4, bounds pdeta): dchi deta detab dw da1 dc1 da2 dc2 pdchi pdeta pdetab pdw pda1 pdc1 pda2 pdc2
+   pomb     (e4, bounds pdomb): deta domb detab dom dw da1 dc1 dd1 da2 dc2 dd2 pdeta pdomb pdetab pdom pdw pda1 pdc1 pdd1
+       pda2 pdc2 pdd2
+   pchib    (e3, bounds pdchib): domb dchib dw db dd1 dd2 pdomb pdchib pdw pdb pdd1 pdd2
+   petab    (e3, bounds pdetab): deta dchib detab dw db dc1 dd1 dc2 dd2 pdeta pdchib pdetab pdw pdb pdc1 pdd1 pdc2 pdd2
+   pom      (e3, bounds pdom): deta domb detab dom dw db da1 dc1 dd1 da2 dc2 dd2 pdeta pdomb pdetab pdom pdw pdb pda1
+       pdc1 pdd1 pda2 pdc2 pdd2
+   pk       (dv, bounds pdk): dchi dw pdchi pdk pdw
+   pw       (dv, bounds pdw): dom dw pdom pdw
+   pb       (dv, bounds pdb): deta detab dk dw pdeta pdetab pdk pdw pdb
+   pP1_1    (pair, bounds pda1): dchi deta domb dchib dk dw db da1 dc1 dd1 pdchi pdeta pdomb pdchib pdk pdw pdb pda1 pdc1
+       pdd1
+   pP2_1    (pair, bounds pdc1): dchi deta detab dk dw da1 dc1 pdchi pdeta pdetab pdk pdw pda1 pdc1
+   pP3_1    (pair, bounds pdc1): deta dchib detab dk dw db dc1 dd1 pdeta pdchib pdetab pdk pdw pdb pdc1 pdd1
+   pP4_1    (pair, bounds pdd1): dchi dchib detab dom dk dw da1 dc1 dd1 pdchi pdchib pdetab pdom pdk pdw pda1 pdc1 pdd1
+   pP1_2    (pair, bounds pda2): dchi deta domb dchib dk dw db da2 dc2 dd2 pdchi pdeta pdomb pdchib pdk pdw pdb pda2 pdc2
+       pdd2
+   pP2_2    (pair, bounds pdc2): dchi deta detab dk dw da2 dc2 pdchi pdeta pdetab pdk pdw pda2 pdc2
+   pP3_2    (pair, bounds pdc2): deta dchib detab dk dw db dc2 dd2 pdeta pdchib pdetab pdk pdw pdb pdc2 pdd2
+   pP4_2    (pair, bounds pdd2): dchi dchib detab dom dk dw da2 dc2 dd2 pdchi pdchib pdetab pdom pdk pdw pda2 pdc2 pdd2
+   no level-2 term on any right side: True; the background through state, DX, DXX, w_x, k_x only: True -> PASS
+L3 control: chib by null3.py N7's e4 equation, commuted: level-2 terms ['dxx_detab'] -> fails (good)
+L4 (computed) level 1 on |x| <= 1/2, unweighted: int a_o du = 366.6, int a_i dv = 2679.5, F_1^2 = 10^2645.7 (level 0:
+    10^138.0)
+   weighted (Theorem 8.W's optimum): log(max/min lam) = 12.68, int a_o du = 65.8, int a_i dv = 32.7, F_1^2 = 10^91.0
+       (level 0 weighted: 10^66.9)
+lev1_5 (571 s): all checks pass

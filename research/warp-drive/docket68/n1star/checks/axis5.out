@@ -1,0 +1,53 @@
+X1 (exact) Ric(ghat) - (3/2) dA dA = Ric5|_4 + (1/2) e^{-2A} Ric5_11 g4 on the eight components all hold; sqrt|det ghat|
+    exact True; Box_ghat A = -e^{-3A} Ric5_11 True; control (weight e^{2A}) fails (good)
+   at x = 1 in the record's variables: Omh^2 -> R*exp(P + 2*W); Y/s -> exp(P + 2*Q) (= e^{P+2Q}: True); P + 2Q at x = 1
+       with the record's P, Q of m, n: 0; control (P + 2Q -> c): Y/s -> e^c, = 1 only if c = 0: fails (good)
+X1 PASS
+   (15 s)
+X2 (exact) every Christoffel symbol with an odd number of phi indices vanishes: True
+   chi_12 = chib_12 = eta_2 = etab_2 = zeta_2 = 0: holds
+   chi_11 = e4 log sqrt(gh): holds
+   chi_22 = e4 log Y: holds
+   chib_11 = Omh^-1 ((d_u + b d_x) log sqrt(gh) + b_x): holds
+   chib_22 = e3 log Y: holds
+   omega = -(1/2) e4 log Omh: holds
+   omegab = -(1/2) e3 log Omh: holds
+   zeta = -(1/4) Omh^-2 sqrt(gh) b_v: holds
+   eta = zeta + e1 log Omh: holds
+   etab = -zeta + e1 log Omh: holds
+   K = -Y^-1 e1 e1 Y for the section metric: True; control (chi_22 = e4 log sqrt(gh)): fails (good)
+X2 PASS
+   (16 s)
+X3 (exact) d_v log(Y sqrt(gh)) = Omh tr chi: True; d_u(Y sqrt gh) + d_x(b Y sqrt gh) = Omh tr chib Y sqrt gh: True; K
+    div(Omh beta) + Omh beta e1 K = (Y sqrt gh)^-1 d_x(Y Omh K beta): True; control (measure sqrt(gh) dx): the remainder
+    is exactly (e1 log Y) Omh K beta, not zero: True
+X3 PASS
+X4 (deduced; computed check) Hardy at the axis, Y = s (1 + s^2/2) on [0, 1]:
+   n =   2000: C1 = 3.061, C2 = 2.295; worst ||k eta||/(C1 ||g||) = 0.244, ||k chih||/(C2 ||g||) = 0.190 (<= 1 required);
+       control, integrated from s = 1: 1498.519
+   n =   8000: C1 = 3.062, C2 = 2.296; worst ||k eta||/(C1 ||g||) = 0.244, ||k chih||/(C2 ||g||) = 0.190 (<= 1 required);
+       control, integrated from s = 1: 5992.355
+   n =  32000: C1 = 3.062, C2 = 2.296; worst ||k eta||/(C1 ||g||) = 0.244, ||k chih||/(C2 ||g||) = 0.190 (<= 1 required);
+       control, integrated from s = 1: 23967.696
+X4 PASS (the bounds hold; the control grows with the grid, unbounded)
+X6 (exact) under gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: True; with k ~ 1/s, Y ~ s:
+    int_a^1 k^2 Y ds = -log(a) -> oo as a -> 0 -> PASS
+X7 (exact) the cut-off identities: angular True, shift True; control (without the (e1 psi) term): fails (good) -> PASS
+X7 (computed) the glue's added coefficients for psi linear on 1/4 <= |x| <= 3/4: chart +: sup Omh |e1 psi| = 3.16, sup |b
+    d_x psi| = 0.924; chart -: 3.32, 1.01
+X5 (computed) the axis charts on the record's run (rcert5's box), frame quantities times Omh (as linest5.py E4 states
+    them), sup over the chart's half 0 < +-x < 1 including the outermost node:
+   chart +1: tr chi 0.577, chih 0.102, tr chib 5.58, chibh 0.236, omega 0.188, omegab 0.348, zeta 0.327, eta 0.61, etab
+       0.363, e4 Phi 0.283, e3 Phi 2.88, e1 Phi 0.998
+      toward the axis (nodes x = 0.9988, 0.9892, 0.9700, 0.9415): chih/(1-|x|) 0.114, 0.114, 0.114, 0.113;
+          eta/sqrt(1-|x|) 0.927, 0.5, 0.672, 0.559; zeta/sqrt(1-|x|) 0.374, 0.373, 0.373, 0.372; e1 Phi/sqrt(1-|x|) 1.63,
+          0.533, 0.979, 0.694
+   chart -1: tr chi 0.577, chih 0.166, tr chib 6.71, chibh 0.299, omega 0.277, omegab 0.648, zeta 0.432, eta 0.371, etab
+       0.953, e4 Phi 0.553, e3 Phi 2.17, e1 Phi 1.1
+      toward the axis (nodes x = -0.9988, -0.9892, -0.9700, -0.9415): chih/(1-|x|) 0.247, 0.246, 0.244, 0.241;
+          eta/sqrt(1-|x|) 0.629, 0.406, 0.362, 0.31; zeta/sqrt(1-|x|) 0.769, 0.767, 0.763, 0.757; e1 Phi/sqrt(1-|x|)
+          2.01, 0.723, 1.24, 0.905
+   against Theorem 7.L's coefficient sums in the three-dimensional frame: 122 on |x| <= 1/2, 1.8e5 at the outermost node
+       (linest5.out E4)
+X5 PASS (bounded up to the axis; the regular rates hold)
+axis5 (35 s): all checks pass

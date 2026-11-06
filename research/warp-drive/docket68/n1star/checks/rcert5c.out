@@ -1,4 +1,5 @@
-P1 coefficient tensors written to n1star/data/rcert5_C3.npz and read back identical: True (117 s)
+P1 (read only) n1star/data/rcert5_C3.npz loaded, file md5 698569f6faaab4420fe2e67abc860561 (equal to the committed
+    698569f6faaab4420fe2e67abc860561); its five tensors' md5s equal the pinned ones: True
    R: shape (25, 31, 16), md5 of the float64 bytes be89d629886bf9c61c098a76c22ad7ae
    m: shape (25, 31, 16), md5 of the float64 bytes 99434c1b9859c9fa03653b65148f8bdc
    n: shape (25, 31, 16), md5 of the float64 bytes 7a0ab510aec85e3329018558d5f76f91
@@ -9,4 +10,5 @@ P2 K1 from the saved tensors, 16128 points: ll <= 0.00241418, ln <= 0.000143545,
    ll: upper end 0.002414179 -> "<= 2.41e-3" false, "<= 2.42e-3" true: PASS
    control (C3[m][0, 0, 0] + 1e-9): relative shifts of the maxima ll 0, ln 4.7e-08, nn 2.2e-09, lx 7.6e-06, nx 6.5e-06,
        xx 1.5e-05, 11 3.9e-05, 22 3e-05 -> they move (good)
-rcert5c (133 s): all checks pass
+   the npz after the run: md5 698569f6faaab4420fe2e67abc860561, unchanged and the committed one: True
+rcert5c (102 s): all checks pass

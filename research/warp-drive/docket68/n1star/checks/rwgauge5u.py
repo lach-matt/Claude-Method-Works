@@ -20,42 +20,46 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
   U2 (exact) The growth.  The frame is orthonormal; the coefficient of T^2 P in h(e0, e0), h(e0, e1), h(e1, e1) is
      r^(1/2)/f, -r^(1/2)/f, r^(1/2)/f exactly, and T^2 P is absent from 2F; the coefficient of T P in 2F is -r^(-1/2).
      Control: Phi~ normalised as r H P (the weight 3/2 mutated to 1) gives r^0/f, and the identity fails.
-  U3 (exact) The master equation and the vacuum certificate.  (a) box_2 of the orbit metric in the outgoing chart is
-     -2 d_u d_r + d_r (f d_r), so (d_t^2 - d_r*^2 + V) P = 0 is 2 f P_ur = f d_r(f P_r) - V P; in the ingoing chart
-     box_2 = 2 d_v d_r + d_r (f d_r).  (b) With V the scalar potential of [CLY03b] (settle5.py T2), h built from (10.1)
-     at l = 2, 4 and 6 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution
-     of the master equation gives a linearised vacuum solution of the class in the gauge f_a = 0 = H_T.  Control: the
-     tensor potential in place of the scalar one leaves DRic(h) != 0.
+  U3 (exact) The master equation and the vacuum certificate.  (a) box_2 of the orbit metric in the outgoing chart is -2
+     d_u d_r + d_r (f d_r), so (d_t^2 - d_r*^2 + V) P = 0 is 2 f P_ur = f d_r(f P_r) - V P; in the ingoing chart box_2 =
+     2 d_v d_r + d_r (f d_r); U4's elimination of P_rr satisfies (2.1) identically, and potential_general is settle5.py's
+     potential at l = 2, 4, 6, 8.  (b) With V the scalar potential of [CLY03b] (settle5.py T2), h built from (10.1) at l
+     = 2, 4 and 6 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution of the
+     master equation gives a linearised vacuum solution of the class in the gauge f_a = 0 = H_T.  Control: the tensor
+     potential in place of the scalar one leaves DRic(h) != 0.
   U4 (exact) The weights, uniformly in r >= R_1 and in l.  With P_rr eliminated by U3 (a), r^(-1/2) h(e_a, e_b) and
-     r^(1/2) 2F are combinations of T^2 P, d_r T P, T P, d_r P, P whose coefficients are f^-K times sums of monomials
-     H^a r^b with a <= 0 (a <= 1 for P alone: the factor m, two angular derivatives) and b <= 0 for T^2 P, d_r T P;
-     b <= -1 (orbit) and b <= 0 (angular) for T P, d_r P; b <= -2 (orbit) and b <= -1 (angular) for P; the powers 0
-     are attained (T^2 P in h(e0, e0), T P in 2F), so r^(1/2) is the growth of the orbit block and r^(-1/2) the decay
-     of the angular block.  Control: the same reading on the unweighted h(e0, e0) finds r^(1/2) for T^2 P and rejects.
-  U5 (exact) The explicit family on a cone.  On C = {u = u_1} with P = 0 along C the master equation forces d_r P = 0,
-     d_r T P = 0, T P = A constant and d_r T^2 P = -A V/(2f); so on C h(e0, e0) = r^(1/2) f^-1 T^2 P S + (exact) A S and
-     h(e_i, e_j) = -A r^(-1/2) S delta_ij, and for A = 0, T^2 P = B: h(e0, e0) = B r^(1/2) f^-1 S, h(e0, e1) = -h(e0,
-     e0), h(e1, e1) = h(e0, e0), h(e_i, e_j) = 0.  Kruskal: -U V = e^(2 r/r_h) (r - r_h)/(r + r_h) (U = -e^(-u/r_h), V =
-     e^(v/r_h), kappa = 1/r_h), d(-UV)/dr = e^2/(2 r_h) at r_h, f/(-UV) = (r + r_h)^2 e^(-2r/r_h)/r^2, so the master
-     equation is d_U d_V P = c P with c = -(q/r^4)(r + r_h)^2 e^(-2r/r_h) r_h^2/4 smooth on r > 0 (q = r^2 V/f); d_u =
-     -U d_U/r_h and d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2; int_{r_h}^oo V/f dr is finite (exact at l = 2).  Control: a
-     long-range potential, V/f + 1/r, has int V/f dr = oo.
-  U6 (exact) The family's [HKW18] data are finite.  Along C, P_j := T^j P: the u-derivatives of U3 (a) give 2 f d_r P_j
-     = f d_r(f d_r P_(j-1)) - V P_(j-1); with P_0 = 0, P_1 = A, P_2(oo) = B, P_3(oo) = C3 the expansions at null infinity
-     (rho = 1/r) give d_r P_j = O(r^-2) for j = 2, 3, 4, so every r^p energy (p <= 2) and every energy of T^j Psi on C is
-     finite.  Control: with the long-range potential d_r P_2 = O(r^-1) and r^2 (d_r P_2)^2 tends to a nonzero constant.
+     r^(1/2) 2F are combinations of T^2 P, d_r T P, T P, d_r P, P whose coefficients are f^-K times sums of monomials H^a
+     r^b with a <= 0 (a <= 1 for P alone: the factor m, two angular derivatives) and b <= 0 for T^2 P, d_r T P; b <= -1
+     (orbit) and b <= 0 (angular) for T P, d_r P; b <= -2 (orbit) and b <= -1 (angular) for P; the powers 0 are attained
+     (T^2 P in h(e0, e0), T P in 2F), so r^(1/2) is the growth of the orbit block and r^(-1/2) the decay of the angular
+     block; Theorem 2's weights for (a), (b), (c) are checked on the measured powers of every entry. Control: the same
+     reading on the unweighted h(e0, e0) finds r^(1/2) for T^2 P and rejects.
+  U5 (exact) The explicit family on a cone.  On C = {u = u_1} with P = 0 along C the master equation, order by order in u
+     - u_1, forces d_r P = 0, d_r T P = 0, T P = A constant and d_r T^2 P = -A V/(2f); so on C h(e0, e0) = r^(1/2) f^-1
+     T^2 P S + (exact) A S and h(e_i, e_j) = -A r^(-1/2) S delta_ij, and for A = 0, T^2 P = B: h(e0, e0) = B r^(1/2) f^-1
+     S, h(e0, e1) = -h(e0, e0), h(e1, e1) = h(e0, e0), h(e_i, e_j) = 0.  Kruskal: -U V = e^(2 r/r_h) (r - r_h)/(r + r_h)
+     (U = -e^(-u/r_h), V = e^(v/r_h), kappa = 1/r_h), d(-UV)/dr = e^2/(2 r_h) at r_h, f/(-UV) = (r + r_h)^2
+     e^(-2r/r_h)/r^2, so the master equation is d_U d_V P = c P with c = -(q/r^4)(r + r_h)^2 e^(-2r/r_h) r_h^2/4 smooth
+     on r > 0 (q = r^2 V/f); d_u = -U d_U/r_h and d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2; d(-UV)/dr > 0 on r > 0; c_A asserted
+     exactly; int_{r_h}^oo V/f dr = 11/2 at l = 2, r_h = 1.  Control: a long-range potential, V/f + 1/r, has int V/f dr =
+     oo.
+  U6 (exact) The family's [HKW18] data are finite.  Along C, P_j := T^j P: the u-derivatives of U3 (a) give 2 f d_r P_j =
+     f d_r(f d_r P_(j-1)) - V P_(j-1); with P_0 = 0, P_1 = A, P_2(oo) = B, P_3(oo) = C3 the expansions at null infinity
+     (rho = 1/r) give d_r P_j = -(m + 15/4) P_(j-1)(oo) r^-2/2 + O(r^-3) for j = 2, 3, 4 (re-checked by
+     r-differentiation), so every r^p energy (p <= 2) and every energy of T^j Psi on C is finite.  Control: with the
+     long-range potential d_r P_2 = O(r^-1) and r^2 (d_r P_2)^2 tends to a nonzero constant.
   U7 (exact) The lemmas of Theorem 2.  (i) d_s(w^2/s) = 2 w w'/s - w^2/s^2, and the inequality sup_{r >= R} w^2/r <= 2
      (int w^2/s^2)^(1/2) (int w'^2)^(1/2) + int w^2/s^2 holds on the test functions w = 1, s^(1/4), s^(1/3), 1 + 1/s,
      exactly; (ii) [HKW18]'s L = d_t + d_r* is f d_r on the outgoing chart (their v is r* + const on an outgoing cone,
      dv = dr/f by U5), and their (89) gives T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 there; (iii) on S^3,
      int |D Y|^2 = (k^2 - 6) int |Y|^2 for Y = (D D - gamma Lap/3) P_j(cos 2 th), j = 1, 2, and the constant C_1 = 9/(2
      f_1) + 8; the mode comparisons for l >= 2: k^2 >= 8, H <= (11/8) k^2, k^4 - (1 + m)^2 = 4 k^2 - 4; (iv) the
-     exponents: s^p = s^(2 - p) (s^2)^(p - 1) (Hoelder), int_R^oo s^-p = R^(1-p)/(p-1), E^p <~ tau^-(2-p), and the rates
-     tau^-1 and tau^(delta - 1/2) at p = 1 + 2 delta.  Control: (i) without its second term fails for w = 1.
+     exponents: s^p = s^(2 - p) (s^2)^(p - 1), int_R^oo s^-p = R^(1-p)/(p-1), the interpolation E^p <= (E^1)^(2-p)
+     (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5, and -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta.
+     Controls: (i) without its second term fails for w = 1; the interpolation without the E^2 factor fails.
   U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
      text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
      "r <= R" for "r ≤ R" (a transcription slip) is not found.
-
   U9 (exact) The angular Sobolev inequality of RWGAUGE5.md R2.0.1 (Lemma A): the dimensions (l + 1)^2 of the degree-l
      harmonics on S^3, vol = 2 pi^2, 1 + l(l + 2) = (l + 1)^2, sum (l + 1)^-2 = pi^2/6 and the constant 1/12; the
      reproducing kernel ((l + 1)/(2 pi^2)) U_l(cos psi); sum of the six rotations squared = Lap; ||Lap w||^2 = sum
