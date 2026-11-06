@@ -72,8 +72,8 @@ above 3): all rational (dweights5.weights and counts, imported).
   sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
   2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it); C8 a level below 3 planted at
   lambda_sharp + 1 (R10 finds it); C9 a level planted at beta - eps = lambda_sharp + 2 (R11 finds it); C10 R12 at
-  e_C = 1/102401 (the integrality fails); C11 z = 49/256, admissible, where the s0 class root is rational (R12's
-  test reports it).
+  e_C = 1/102401 (the integrality fails); C11 z = 49/256, under PART-VI4-PARAMS.md step (2)'s bound z < 1/4, where
+  the s0 class root is rational (R12's test reports it; the family z = (6r + r^2)/4 reaches below every t > 0).
 
     python3 checks/rootavoid5.py [--selftest]      (some minutes; --selftest skips the R6 and R10 margin enumerations)
 """
@@ -717,11 +717,12 @@ def r12(polys, eC_val=Fr(1, 102400), z_samples=(Fr(4, 10 ** 6), Fr(1, 5), Fr(1, 
     symbolically. (a) box^Ups, z = p/q symbolic: (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2 q (l + 1))^2 = p^2 +
     4 p q (an identity in p, q, l, m), so for every rational z only the finitely many l from the divisor pairs of p
     (p + 4 q) can carry a rational Q_l root; the s0 class root is rational iff 9 + 4z is a rational square (a
-    countable set of z, met by admissible z < 1/4, e.g. z = 49/256). (b) box^C with gam_C = N symbolic and kappa
-    symbolic (e_C = 1/102400, v_C = 1/2, row c1): N^3 times the scalar sextic is -lam^6 + sum c_i lam^i with c_i in
-    (1/102400) Z[N, kappa]; so for every integer N and every l a rational root lies in (1/102400) Z (substitute lam =
-    y/102400: monic integer); the s0 quartic (times N^2) likewise; the vector quadratic (times N) is monic integer,
-    its rational roots integers."""
+    countable set of z meeting every (0, t): 9 + 4z = (3 + r)^2, z = (6r + r^2)/4, r = 1/8 giving z = 49/256, under
+    step (2)'s bound z < 1/4; no z is shown admissible, the thresholds of rows u3-u4 having no value). (b) box^C
+    with gam_C = N symbolic and kappa symbolic (e_C = 1/102400, v_C = 1/2, row c1): N^3 times the scalar sextic is
+    -lam^6 + sum c_i lam^i with c_i in (1/102400) Z[N, kappa]; so for every integer N and every l a rational root
+    lies in (1/102400) Z (substitute lam = y/102400: monic integer); the s0 quartic (times N^2) likewise; the vector
+    quadratic (times N) is monic integer, its rational roots integers."""
     p, q, l, m = sp.symbols('p q l m', integer=True)
     lhs = sp.expand(((p + 2 * q) ** 2 + 4 * q ** 2 * l * (l + 2)) - m ** 2)
     rhs = sp.expand(-(m ** 2 - (2 * q * (l + 1)) ** 2 - (p ** 2 + 4 * p * q)))
@@ -938,11 +939,17 @@ def main(selftest=False):
     print('  C10 (control): R12 with e_C = 1/102401: the coefficients leave (1/102400) Z[N, kappa]: %s' % OK['C10'])
     zc = Fr(49, 256)
     lam_c = (1 + Fr(25, 8)) / 2
+    fam = [(6 * r + r * r) / 4 for r in (Fr(1, 2 ** k) for k in range(3, 41))]
+    fam_ok = (fam[0] == zc and all(is_rat_square(9 + 4 * x) for x in fam) and all(b < a for a, b in zip(fam, fam[1:]))
+              and fam[-1] < Fr(1, 10 ** 11))
     OK['C11'] = (is_rat_square(9 + 4 * zc) and 9 + 4 * zc == Fr(25, 8) ** 2 and lam_c ** 2 - lam_c - 2 - zc == 0
-                 and zc < Fr(1, 4))
-    print('  C11 (control): z = 49/256, admissible (below 1/4 = 4 x 1 x (1/4)^2, PART-VI4-PARAMS.md step (2): gam_Ups '
-          '< 1/4, e_Ups < 1; the round-12 control used 25/64, which is not): 9 + 4z = (25/8)^2, the s0 class root lam '
-          '= 33/16 is rational (lam^2 - lam - 2 - z = 0, exact), and R12\'s test reports it: %s' % OK['C11'])
+                 and zc < Fr(1, 4) and fam_ok)
+    print('  C11 (control): z = 49/256, under the bound z < 1/4 that PART-VI4-PARAMS.md step (2) gives (gam_Ups < 1/4, '
+          'e_Ups < 1; the round-12 control used 25/64, which is above it; no z is shown admissible, the thresholds of '
+          'rows u3-u4 having no value): 9 + 4z = (25/8)^2, the s0 class root lam = 33/16 is rational (lam^2 - lam - 2 '
+          '- z = 0, exact), and R12\'s test reports it; the family z = (6r + r^2)/4, r = 2^-k (k = 3..40), starts at '
+          '49/256, decreases, has 9 + 4z a rational square throughout and ends below 10^-11, so such z lie in (0, t) '
+          'for every t (%s): %s' % (fam_ok, OK['C11']))
     lam12 = algebraic_numbers()[0]
     try:
         sp.polys.numberfields.subfield.to_number_field(2 * (lam12 - 2) + sp.Rational(1, 3), lam12)
