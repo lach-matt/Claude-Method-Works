@@ -94,6 +94,7 @@ scanned here.
   (round 9: 510). So c'_above = 1035, c'_below = 929, c' = 1035; per round c_r = c_S = 971, z = 889, c_51 = 967;
   B_once = 575,023,419,632,184 and d <= 46,236,517,538,883,361 (pins C_PIN, D_PIN, B_PIN, DTOT_PIN). The loop counts
   (BASE_PIN) do not move. M5 reads checks/rootavoid5.out (23 checks, all PASS): the finite avoidances are decided.]
+  [Round 13: M5 asks at least 23 checks, all PASS, as rootavoid5's author may add checks.]
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -729,16 +730,17 @@ def main():
         dtot, dtot, 21 * dtot + 6, ob['B'] / dtot, OK['M4']))
     oka, ad = admissibility(w)
     # Round 12: the finite avoidances are decided in checks/rootavoid5.py (Theorem B.5 at level 2 among them); its
-    # .out is read by content (another program's output: every check PASS, none FAIL, 23 in all), not md5-pinned
+    # .out is read by content (another program's output: every check PASS, none FAIL, at least 23; Round 13: its
+    # author may add checks), not md5-pinned
     ra = open(os.path.join(HERE, 'rootavoid5.out'), encoding='utf-8').read().split('\n')
     ra_ok = (ra[0].startswith('rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126')
-             and sum(x.endswith(' PASS') for x in ra) == 23 and not any(x.endswith(' FAIL') for x in ra))
+             and sum(x.endswith(' PASS') for x in ra) >= 23 and not any(x.endswith(' FAIL') for x in ra))
     OK['M5'] = oka and ra_ok
     print('  M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = %.6e < eta_2 = %.6e < '
           '%.4e, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5 '
           'pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: %s; the levels off I11:156-160\'s sets and '
           'eps, eps\' off I9:290-291\'s and I14:124-126\'s (Round 12): decided in checks/rootavoid5.py, its output '
-          'read: 23 checks, all PASS: %s' % (float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka, ra_ok))
+          'read: at least 23 checks, all PASS: %s' % (float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka, ra_ok))
     brows, buncl, bstale = base_census()
     bt = ob['base']
     bn, bc = bt['n'], bt['c']

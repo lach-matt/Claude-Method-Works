@@ -2102,8 +2102,8 @@ the exterior energy estimate is run on bounded regions cut by {Phi_W <= V_*}, bo
 future boundaries with a positive definite flux (computed, X1-X2), and the continuity of the energy follows from a
 dyadic tail bound uniform in sigma (X4); Hardy's inequality is used only after the field is shown to vanish at spatial
 infinity, which for h_R follows from its data and for Proposition R5.2's h' from the uniform bound on d h' (Y1-Y3), and
-the boundary term then vanishes at every radius, not along a sequence. Lemma R4.5 holds on (0, 7/2) (M), the window (l0
-- 1, 3) is computed as a whole from exponents measured on the fields and on the operator (r6sigma5 W), and F_4 is
+the boundary term then vanishes at every radius, not along a sequence. Lemma R4.5 holds on (0, 7/2) (M), the window
+(l0 - 1, 3) is computed as a whole from exponents measured on the fields and on the operator (r6sigma5 W), and F_4 is
 constructed on the full five-dimensional operator, which then decays two orders faster (S1-S4). F_4's source term turns
 out not to be needed: without it P(Sigma) = O(lam r^-6) and every estimate still closes on the window (R6.0 (r6-F4)).
 The flux sign is checked by an exact minimum over the covector (F1, F1x), and R6-D's mathematics is read from its text
@@ -2169,20 +2169,20 @@ R5-D.) (b) The list now names what the deduction also uses: N1STAR-PROOF.md's Th
 III.C'' Proposition 4.1 (III.K's gauge data rebuilt from (gamma, k), R4-F); BEYOND5 Lemma 6.4 (iv) (W and N); R5-C (v),
 F_4's existence, in this file's list (now computed, and not needed: (r6-F4)); and N1STAR-PROOF.md's Lemma 11.2 as
 amended by D618's repair. (c) Theorem P's uses of Lemma 1.1 (e) and Lemma 2.3 after D623 (and D625, D627), checked
-against the live 0.3 and Lemma 2.3: they stand. On P the margin of Lemma 9.1 (f) is a bound on the inverse metric, |g^-1
+against the live 0.3 and Lemma 2.3: they stand. On P the margin of Lemma 9.1 (f) is a bound on the inverse metric,
+|g^-1 - g0^-1| <= eps_P t^(-5/4); Lemma 9.1 (f) says "the causal claim follows as in Lemma 1.1(e)", which uses Lemma 1.1
+(e)'s argument (open conditions, past causal curves cannot cross the boundaries), not its eps1; and Lemma 9.5 says
+"Lemma 2.3's proof on P cap {tau1 <= s <= tau}", whose constants need |gt^-1| and |gt| bounded and Y = -gt^-1 dtau
+uniformly timelike. Those follow from the inverse margin: g0^-1(dtau, dtau) = -1 - m with m := mu/r^2, so
+(g0^-1 + delta)(dtau, dtau) <= -1 + eps_P; the least absolute eigenvalue of g0^-1 is s(m) = (1 + m^2)^(1/2) - m, so for
+eps_P < s(m*) (m* := sup_P+ m) every such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 by Weyl's inequality; and {r
+= a} stays spacelike for eps_P < mu0/a^2 - 1 (r6settle5 T, exact and 2000 samples; control T': |delta|_op = s(m) makes
+g^-1 singular). These are D623's two thresholds, in the form the inverse margin takes (g0 and g0^-1 have the same least
+absolute eigenvalue s(m), the (tau, r) block having determinant -1, so s0 of 0.3 is s(m*)); Lemma 9.1 (f)'s "There is
+eps_P > 0" allows them, and nothing in Theorem P's proof needs eps1 of 0.3. (A clarifying clause in Lemma 9.1 (f),
+naming eps_P < min(s(m*), mu0/a^2 - 1), would make this explicit; that is for the record's own session to decide.)
 [R7 (nit): on Omega, Theorem P's (P-iv) rests on Theorem E, which uses eps1 of 0.3 as D623 amended it; that use is
 inside Theorem E, proved, and the inverse margin of Lemma 9.1 (f) concerns P only.]
-- g0^-1| <= eps_P t^(-5/4); Lemma 9.1 (f) says "the causal claim follows as in Lemma 1.1(e)", which uses Lemma 1.1 (e)'s
-argument (open conditions, past causal curves cannot cross the boundaries), not its eps1; and Lemma 9.5 says "Lemma
-2.3's proof on P cap {tau1 <= s <= tau}", whose constants need |gt^-1| and |gt| bounded and Y = -gt^-1 dtau uniformly
-timelike. Those follow from the inverse margin: g0^-1(dtau, dtau) = -1 - m with m := mu/r^2, so (g0^-1 + delta)(dtau,
-dtau) <= -1 + eps_P; the least absolute eigenvalue of g0^-1 is s(m) = (1 + m^2)^(1/2) - m, so for eps_P < s(m*) (m* :=
-sup_P+ m) every such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 by Weyl's inequality; and {r = a} stays spacelike
-for eps_P < mu0/a^2 - 1 (r6settle5 T, exact and 2000 samples; control T': |delta|_op = s(m) makes g^-1 singular). These
-are D623's two thresholds, in the form the inverse margin takes (g0 and g0^-1 have the same least absolute eigenvalue
-s(m), the (tau, r) block having determinant -1, so s0 of 0.3 is s(m*)); Lemma 9.1 (f)'s "There is eps_P > 0" allows
-them, and nothing in Theorem P's proof needs eps1 of 0.3. (A clarifying clause in Lemma 9.1 (f), naming eps_P <
-min(s(m*), mu0/a^2 - 1), would make this explicit; that is for the record's own session to decide.)
 
 **(m6) The paper texts.** Accepted; R6-E's blocks replace R5-E's. They name condition (b) (rounds 5-6 of this file not
 yet read), say that R6-D is written and not applied, separate what is measured (the coefficient decays and the residual
@@ -2313,19 +2313,18 @@ T_g[phi](d_t, n) with n future timelike, >= 0 (r5settle5 F1x), and are dropped. 
 with both lateral fluxes and their quadratic forms (eigenvalues 1/2, 3/2 and (c -+ 1)/2, c = (1 - r^-2)^-1), is computed
 exactly in X1. Put e(sigma) := sum_(|alpha| <= k) (energy of Gamma^alpha h_R on the top + ||Gamma^alpha h_R||^2 on the
 top); the L^2 part obeys d/dsigma ||phi||^2 <= 2 ||phi|| ||d_t phi||, both lateral edges of the top moving so as to
-shrink it. The bulk terms are -int int sqrt|g| (box_g phi) d_t phi and the deformation term, with box_g phi = -2 S^alpha
-+ (terms linear in d phi, phi), S^alpha = -R^alpha + (A) + (B) + (C) (R4d), every coefficient bounded on X_(rho, V_*) by
-the choice of sigma_1', and R^alpha = O(lam r^(-13/2)) (r6sigma5 S4). So e(sigma) <= e(T) + C int_T^sigma (e +
-||R^alpha||_(L^2(top)) e^(1/2)), C independent of V_* and of rho >= rho_0, and by Gronwall's lemma e(sigma)^(1/2) <=
-e^(C(sigma - T)) (e(T)^(1/2) + int_T^sigma ||R^alpha||). At t~ = T beyond the band h_R and d_t h_R vanish and the higher
-time derivatives contained in Gamma^alpha are given by Ric^H(g_T) = 0, where g_T = g_b0 + Sigma: they are O(lam
+shrink it. The bulk terms are -int int sqrt|g| (box_g phi) d_t phi and the deformation term, with box_g phi = -2
+S^alpha + (terms linear in d phi, phi), S^alpha = -R^alpha + (A) + (B) + (C) (R4d), every coefficient bounded on X_(rho,
+V_*) by the choice of sigma_1', and R^alpha = O(lam r^(-13/2)) (r6sigma5 S4). So e(sigma) <= e(T) + C int_T^sigma
+(e + ||R^alpha||_(L^2(top)) e^(1/2)), C independent of V_* and of rho >= rho_0, and by Gronwall's lemma e(sigma)^(1/2)
+<= e^(C(sigma - T)) (e(T)^(1/2) + int_T^sigma ||R^alpha||). At t~ = T beyond the band h_R and d_t h_R vanish and the
+higher time derivatives contained in Gamma^alpha are given by Ric^H(g_T) = 0, where g_T = g_b0 + Sigma: they are O(lam
 r^(-13/2)). Hence e(T) <= C lam^2 int_rho^oo r^-13 r^3 dr = C lam^2 rho^-9 and ||R^alpha||_(L^2(r >= rho)) <= C lam
 rho^(-9/2), so e(sigma) <= C(sigma_1' - T) lam^2 rho^-9 for every sigma in [T, sigma_1'] and every V_*. As V_* -> oo the
 left side increases to the unweighted energy of Sigma~_sigma cap {r >= rho + 2(sigma - T)} (monotone convergence; X3),
-which is therefore at most C lam^2 rho^-9.
+which is therefore at most C lam^2 rho^-9. - g_b0^-1|_op < 7/25, with R7-A's cut; Step 6's openness at sigma* is R7-A.]
 [R7 (nits): S4 measures that degree for one static l = 0 example; the general statement is R5-C (v)'s deduction with
 S1-S2 and the degree count, and (r6-F4) makes it unnecessary. In (iv), continuity holds on every interval on which |g^-1
-- g_b0^-1|_op < 7/25, with R7-A's cut; Step 6's openness at sigma* is R7-A.]
 
 *(iii) The weighted tail.* On Sigma~_sigma, w <= (2r + C)^(2a). For rho >= max(rho_0, 4(sigma_1' - T)) the shell {2^j
 rho <= r <= 2^(j+1) rho} of Sigma~_sigma lies in {r >= rho_j + 2(sigma - T)} with rho_j := 2^(j-1) rho, so its weighted
@@ -2404,19 +2403,19 @@ piece constant, -Sigma_4, and Sigma_2 + Sigma_(5/2) without Sigma_4 each decay l
 O(lam r^(-13/2)) with Sigma_4, on the operator; and, by (r6-F4), neither is needed.
 
 **The window, computed** (r6sigma5 W). Each condition of the bootstrap is an exponent computed from a field or from the
-operator, not typed: the cap's exponent measured at thirteen a in [1/2, 7/2] on the exact h_R of G1 is the affine law 2a
+operator, not typed: the cap's exponent measured at thirteen a in [1/2, 7/2] on the exact h_R of G1 is the affine law
+2a - 6 (fit residual below 2e-3), so the cap vanishes exactly for a < 3 (W1); the N-flux tail of h_R(v1, .) has exponent
+2a - 7 (exact, W2); the residual's kernel from the degree measured in S4 is integrable exactly for a < q_R - 3 = 7/2
+(W3; with q_R = 6, a < 3); S1's pointwise exponent a + 3/2 and its integral a + 1/2 give the h_R rows, integrable for a
+> 1/2 (W4; the coefficient rows of r5op5 O1 do not depend on a); r = 1/rho gives the class exponent a + 1 on S (W5);
+Step 2 needs a >= 3/2, Lemma R4.5 (0, 7/2), Proposition R5.2 a > 1/2 (W6-W8). Their intersection, as sympy intervals, is
+(l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (W). Controls: p = 4 dropped from Sigma, with W1-W2 recomputed on that field
+(exponents 2a - 5 and 2a - 6), gives (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives
+(max(l0 - 1, 5/2), 3) (W'); and q_R = 6 leaves the window unchanged (W'').
 [R7 (minor 2): not "every condition computed": the cap's and the N-flux tail's exponents are measured and the residual's
 degree is measured; the rows', the class's and Step 2's exponents are counted by hand from typed scaling rules
 ([arithmetic], W4-W8), and in round 6 the class's lower end l0 - 1 was typed in the window and W5's result unused. Since
 round 7 the window's lower end is W5's exponent (control W''').]
-- 6 (fit residual below 2e-3), so the cap vanishes exactly for a < 3 (W1); the N-flux tail of h_R(v1, .) has exponent 2a
-- 7 (exact, W2); the residual's kernel from the degree measured in S4 is integrable exactly for a < q_R - 3 = 7/2 (W3;
-with q_R = 6, a < 3); S1's pointwise exponent a + 3/2 and its integral a + 1/2 give the h_R rows, integrable for a > 1/2
-(W4; the coefficient rows of r5op5 O1 do not depend on a); r = 1/rho gives the class exponent a + 1 on S (W5); Step 2
-needs a >= 3/2, Lemma R4.5 (0, 7/2), Proposition R5.2 a > 1/2 (W6-W8). Their intersection, as sympy intervals, is (l0 -
-1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (W). Controls: p = 4 dropped from Sigma, with W1-W2 recomputed on that field
-(exponents 2a - 5 and 2a - 6), gives (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives (max(l0 -
-1, 5/2), 3) (W'); and q_R = 6 leaves the window unchanged (W'').
 
 ### R6-D The replacement text for N1STAR-PROOF.md's Lemma 11.0 (final; supersedes R5-D)
 
@@ -2766,17 +2765,17 @@ t^-1 fails E2g. The flux check K2' reproduces its computation that R6-A's cut fa
 
 For rho >= rho_0 and V_* > 0 let X'_(rho, V_*) := W cap {T <= t~ <= sigma} cap {r - 2(t~ - T) >= rho} cap {r + 2(t~ - T)
 <= V_*}. It is bounded (r <= V_* on it) and does not meet N. Its lateral pieces are {r - 2(t~ - T) = rho}, with conormal
-alpha := d(r - 2 t~) = (1 + 2f') dr - 2 dt, and {r + 2(t~ - T) = V_*}, with conormal beta := d(r + 2 t~) = (1 - 2f') dr
-+ 2 dt. With m := mu r^-2 >= 0, g_b0^-1(alpha, alpha) = (2f' - 1)(2f' + 3) - m(3 + 2f')^2 and g_b0^-1(beta, beta) = (2f'
-- 3)(2f' + 1) - m(1 + 2f')^2, both at most -7/4 for |f'| <= 1/4; |alpha|_E^2, |beta|_E^2 <= 25/4; alpha(d_t) = -2 and
-beta(d_t) = 2 (r7settle5 K1, exact). So for every metric g with |g^-1 - g_b0^-1|_op < 7/25 both pieces are spacelike, r
-- 2 t~ decreases and r + 2 t~ increases along future causal curves, and X'_(rho, V_*) lies to the past of both: it is a
-domain of dependence of its bottom, and the fluxes T_g[phi](d_t, n) through its lateral pieces, n = g^-1 alpha and n =
--g^-1 beta future timelike, are >= 0 (r5settle5 F1x; K2: least eigenvalue 0.0355 at |delta|_op = 0.27; control K2': at
-0.30 beta can be spacelike, and 7/25 is sharp, K1'). R6-A (ii)-(iv) then hold verbatim with X'_(rho, V_*) in place of
-X_(rho, V_*) (the exhaustion V_* -> oo is the same, by monotone convergence), on every interval [T, sigma'] with sigma'
-< sigma_1 on which |g^-1 - g_b0^-1|_op < 7/25 on W_T cap {t~ <= sigma'}: 𝔈_k is finite and continuous there, whether or
-not (BA) holds. (The flat radial model of the identity with the cone's flux, exact: K4.)
+alpha := d(r - 2 t~) = (1 + 2f') dr - 2 dt, and {r + 2(t~ - T) = V_*}, with conormal beta := d(r + 2 t~) = (1 - 2f')
+dr + 2 dt. With m := mu r^-2 >= 0, g_b0^-1(alpha, alpha) = (2f' - 1)(2f' + 3) - m(3 + 2f')^2 and g_b0^-1(beta, beta) =
+(2f' - 3)(2f' + 1) - m(1 + 2f')^2, both at most -7/4 for |f'| <= 1/4; |alpha|_E^2, |beta|_E^2 <= 25/4; alpha(d_t) = -2
+and beta(d_t) = 2 (r7settle5 K1, exact). So for every metric g with |g^-1 - g_b0^-1|_op < 7/25 both pieces are
+spacelike, r - 2 t~ decreases and r + 2 t~ increases along future causal curves, and X'_(rho, V_*) lies to the past of
+both: it is a domain of dependence of its bottom, and the fluxes T_g[phi](d_t, n) through its lateral pieces, n = g^-1
+alpha and n = -g^-1 beta future timelike, are >= 0 (r5settle5 F1x; K2: least eigenvalue 0.0355 at |delta|_op = 0.27;
+control K2': at 0.30 beta can be spacelike, and 7/25 is sharp, K1'). R6-A (ii)-(iv) then hold verbatim with X'_(rho,
+V_*) in place of X_(rho, V_*) (the exhaustion V_* -> oo is the same, by monotone convergence), on every interval [T,
+sigma'] with sigma' < sigma_1 on which |g^-1 - g_b0^-1|_op < 7/25 on W_T cap {t~ <= sigma'}: 𝔈_k is finite and
+continuous there, whether or not (BA) holds. (The flat radial model of the identity with the cone's flux, exact: K4.)
 
 *Openness at sigma*.* Let (BA) hold on [T, sigma*], sigma* < sigma_1. Step 2 gives |H| <= 1/50 on W_T cap {t~ <=
 sigma*}, hence |g^-1 - g_b0^-1|_op <= s^2 |H|/(1 - s |H|) <= 0.0232 there, s := |g_b0^-1|_op <= 1/16 + (1 + 1/256)^(1/2)
