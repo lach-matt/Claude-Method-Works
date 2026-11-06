@@ -4,3 +4,8 @@ C1 (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]
    controls: Gamma with its sign flipped is not certified (600 cells fail; rejected): True; Gamma without its 4 nu E^2 term is not certified (600 cells fail; rejected): True
 C1 PASS
 C2 (interval arithmetic) kappa' K'^l_l < 0 on the whole of the bent slice, between its samples
+   n = 80, A = 0.010: 434 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (1732 interval evaluations; largest upper bound of kappa' K'^l_l = -2.9858e-04)
+   n = 160, A = 0.010: 867 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (3464 interval evaluations; largest upper bound of kappa' K'^l_l = -3.0320e-04)
+   controls: A = 0.001 not certified (221 sub-cells fail, largest upper bound 4.913e-05; rejected): True; A = 0 (Sigma_tau0) not certified (314 fail; rejected): True
+C2 PASS
+exit 0

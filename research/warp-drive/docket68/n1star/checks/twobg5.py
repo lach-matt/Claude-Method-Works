@@ -58,7 +58,8 @@ K_in R^3 = A(v), K_out R^3 = B(u) (twodust5 B1-B3), mu := R^2 (1 + 2 e^(-2s) R_u
      still positive;
      control (must fail): the independent check applied to the example's own cone (R0 = 5, the verifier's case) gives
      R - b < 0 at tau0. (A ray ODE x 1/2 inside the bisection still yields an admissible, more distant cone, the
-     verifier's observation; the independent check is what certifies the reported one.)
+     verifier's observation; the independent check is what certifies the reported one.) [R7, the round-6 verifier's
+     n6: "certifies" means an independent floating-point integration (DOP853), not interval arithmetic.]
   G4 (computed; round 2, the verifier's nit 5) the mixed symbol on R = a resolved where the grid thins: in region III
      (u >= u2, B = 0) psi and mu depend on v alone (G1 (a), (b)), and along an outgoing ray dR/dv = vhat' e^psi (1 -
      mu/R^2)/2 and d ln|R_u|/dv = vhat' e^psi mu/R^3 (from R_uv = -e^(2s) mu/R^3, G1 (c)), while |g0^-1(dvhat, du)| =
@@ -420,7 +421,7 @@ def main():
           '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f:\n'
           '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I\n'
           '      (explicit ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the bisection\'s RK4 gives\n'
-          '      R - b >= %.3f at its tau samples on [tau0, tau_end] (%.3f at its first sample); the certified\n'
+          '      R - b >= %.3f at its tau samples on [tau0, tau_end] (%.3f at its first sample); the checked\n'
           '      margin is the independent check\'s, below: N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)

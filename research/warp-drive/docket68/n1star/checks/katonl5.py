@@ -151,7 +151,8 @@ def main():
           (", ".join("%.4f" % v for v in n), bounded, lip))
     db, nb = iterate(F_bad, nit=6)
     grows = nb[-1] > 20 * nb[0] and nb[-1] > nb[-2] > nb[-3]
-    print("   control (F = 0.5 u_xx, not L2-Lipschitz): sup_t |u^n|_H2 = %s: grows without bound (rejected): %s" %
+    print("   control (F = 0.5 u_xx, which violates (K1) and (K2)): sup_t |u^n|_H2 = %s: grows without bound "
+          "(rejected): %s" %
           (", ".join("%.3g" % v for v in nb), grows))
     ok = geo and bounded and lip and grows
     print('K1', 'PASS' if ok else 'FAIL')

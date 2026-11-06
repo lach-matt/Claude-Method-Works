@@ -1,1 +1,9 @@
 R1 (computed) Nk on the whole of Part I's Sigma_tau0 (twobg5's background)
+   n = 40: 217 slice points, R in [0.683, 5.871]; Nk > 0 on R in [4.2920, 4.5277] (interpolated zero crossings; margins to [4.29, 4.53]: 0.0020, 0.0023); max Nk = 1.7588e-03 at R = 4.4116; max E f = 0.9051 < 1; region-I formula vs grid in the shell: 2.3e-06
+   n = 80: 434 slice points, R in [0.683, 5.882]; Nk > 0 on R in [4.2916, 4.5283] (interpolated zero crossings; margins to [4.29, 4.53]: 0.0016, 0.0017); max Nk = 1.7882e-03 at R = 4.3994; max E f = 0.9052 < 1; region-I formula vs grid in the shell: 5.1e-07
+   n = 160: 867 slice points, R in [0.683, 5.882]; Nk > 0 on R in [4.2914, 4.5284] (interpolated zero crossings; margins to [4.29, 4.53]: 0.0014, 0.0016); max Nk = 1.7925e-03 at R = 4.3994; max E f = 0.9052 < 1; region-I formula vs grid in the shell: 1.3e-07
+   the region-I formula agrees with the grid to an error falling at second order: True
+   converged (band edges to 1e-3, inside [4.29, 4.53]; max to 1e-5): True; controls: flux term dropped, max Nk = -0.0358 < 0: True; half the shell's amplitude, max Nk = -0.0166 < 0: True
+   so the split is hyperbolic on Sigma_tau0 except on the band, which the example's shell creates
+R1 PASS
+R2 (exact identities; signs over the tilts deduced, illustrated on 400 draws) the region-I criterion; where Nk > 0 no foliation is hyperbolic

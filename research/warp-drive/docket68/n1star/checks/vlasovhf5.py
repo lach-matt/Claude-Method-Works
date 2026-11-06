@@ -37,7 +37,9 @@
      pair and any third direction have the exactly null combination k_a + k_b - k_c (a resonance no division removes).
      [R6, the verifier of round 5: the random configurations are not resonant, so the main loop passed with a_A = 1.
      The main loop now also runs that resonant configuration (an antipodal pair of equal energies and a third
-     label) with the hierarchy, where the bound must hold; with a_A = 1 it fails there (mutation H4_NOHIER).]
+     label) with the hierarchy, where the bound must hold; with a_A = 1 it fails there (mutation H4_NOHIER).] [R7, the
+     round-6 verifier's n12: the mutation is caught by that configuration only; the four random trials are not
+     resonant and pass with a_A = 1, as non-resonant configurations must.]
   H5 (numpy RK4) separation is kept by the geodesic flow, with constant c/N^2. On the orbit space of Tangherlini
      (mu = 1), h = -f dt^2 + dR^2/f + R^2 dth^2, label phases u_w with initial gradient (cos w/sqrt f, R0 sin w) on
      t = 0: at a point y at t = T, d alpha/d w (alpha the momentum's angle) equals det DPhi / det(dy/dx0) (Phi the
