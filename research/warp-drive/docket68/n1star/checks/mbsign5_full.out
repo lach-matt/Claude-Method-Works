@@ -22,3 +22,14 @@ E7 (exact) positivity on the class spectrum, and the potential before the S-defo
    control (wrong sign): the potential c0 of the l-form at m = 5, mu = 1 changes sign on r > 1 (sign -1 at r = 1.01, 1 at r = 3): positivity is not automatic, the S-deformation is needed (rejected): True
 E7 PASS  (235 s)
 E8 (exact) l = 0: the energies are d/dR's on the constraint; compact support excludes the mass change
+   C_0(L_(R F d_R) gamma) = 0: True, and E_V on it has zero Euler operator in F: True; the other solution A = mu/(R^2 f^2) (the mass change, nowhere zero): True; kinetic: p = (R w' + w)/f solves M_R, E_K a d/dR: True
+   [R8] l = 0 kinetic part: k_psi (psi = psi(R)) has w_psi = (f N/R)(psi/N)': True, p_psi = (R w_psi' + w_psi)/f: True, isotropic angular part: True -- so p = (R w' + w)/f is k_psi with psi = N (c + int R w/(f N)), a constant times N on the inner side
+   control: X = F d_R in place of R F d_R does not solve C_0 (rejected): True
+E8 PASS  (243 s)
+E9 (exact) the static-slice E is Kodama-Ishibashi's master energy: Phi[2 N k] = (2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI)
+   Phi[2 N k] = +(2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI): True (with the opposite sign: False); hence E_K = (27 m/(2 k^2)) int Phi_t^2/f dR, and the static-slice E = (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, V_S = f Qp/(16 R^2 H_KI^2)
+   control (the input mutated): h = 2 k, the lapse dropped, gives neither sign of the target (rejected): True
+E9 PASS  (244 s)
+summary: E4 PASS, E5 PASS, E6 PASS, E7 PASS, E8 PASS, E9 PASS
+ALL PASS (244 s)
+exit 0
