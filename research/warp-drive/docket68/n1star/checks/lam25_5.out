@@ -8,3 +8,5 @@ L1 PASS
       delta = 1/2: E_25 = 19007279.0 (binding W1): with these inputs L.25'' (a) holds for lam <= min(lam_rec, 10^(-E_25))
 L2 PASS
   L3 at E_25 (1 + i/50), i = 0..199, both deltas: every condition holds with the actual n and h_n: True
+L3 PASS (control detected)
+lam25_5: all checks pass, every control fails
