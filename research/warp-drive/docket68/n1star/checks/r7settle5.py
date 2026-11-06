@@ -99,7 +99,8 @@ def part_k1():
     # sharpness: f' = -1/4, m = 0, delta = c beta beta^T/|beta|^2
     b0 = beta.subs(fp, -Q(1, 4))
     val = lambda c: (b0.T*eta*b0)[0] + c*(b0.T*b0)[0]
-    check("K1' control: 7/25 is sharp (f' = -1/4, m = 0, delta = c beta beta^T/|beta|^2): c = 7/25 makes beta null, "
+    check("K1' control: 7/25 is sharp for |f'| <= 1/4, m >= 0, attained only as m -> 0 (f' = -1/4, m = 0, delta = c "
+          "beta beta^T/|beta|^2): c = 7/25 makes beta null, "
           "c = 3/10 spacelike", val(Q(7, 25)) == 0 and val(Q(3, 10)) > 0, f"{val(Q(7, 25))}, {val(Q(3, 10))}")
 
 

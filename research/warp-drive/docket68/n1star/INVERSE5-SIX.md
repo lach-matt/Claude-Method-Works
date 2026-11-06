@@ -815,7 +815,7 @@ scalarblock5.py)", had no row for uniformity in b, and pinned R10.1's d, which C
   bound uniform in l (A.8)"; the value is INVERSE5-SCALAR's, not recomputed here.
 - A new row: "constants uniform over b in B_*-bar | not computed | I.B section 9 ...; III.F'' Proposition 4.1, III.D
   Proposition 6.3 | every bound of B1-B6 near b0 (R3.2)". A3 checks the inventory's 15 rows.
-*Re-derived* (A2, exact rationals to 60 digits): at d = 46,236,517,538,883,361 with every other input at its floor,
+*Re-derived* (A2, mpmath at 60 digits, formula matched to 10^-30): at d = 46,236,517,538,883,361 with every other input at its floor,
 theta0 = 16 and log10 delta = -(8d + 2) log10 16 - log10 2 = -4.45394517576 x 10^17, inside A2's pin [-4.4540,
 -4.4539] x 10^17 and agreeing with R12.2's -4.453945 and the reader's value; R2.1 item 6's -4.4539386 x 10^17 is
 R10.1's d (bracketed there). At theta0_bar = 10^6, A_bar = 10^12 the bound is -22.1935 x 10^17, item 6's -2.219 x
