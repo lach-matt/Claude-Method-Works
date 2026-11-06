@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """edge1_5.py -- the deep layer and the very edge for Theorem 1's solution (EQUALITY5-LAYER.md, Round 5, R5.3:
 Lemma H_Sigma, Lemma L.21 (the first-degree constraint correction), Proposition L.22 (the two-term formula), Lemma W,
-Theorem L_1E; and Round 6, R6.1: H_Sigma's exact form, L.21 (iv'), (v'), L.22', Theorem L_1E').
+Theorem L_1E; Round 6, R6.1: H_Sigma's exact form, L.21 (iv'), (v'), L.22', Theorem L_1E'; Round 7, R7.1-R7.3: Lemma
+W (A'), L.21 (iv''), L.21 at c_N = 1, Proposition L.26 (Case 3'), Theorem L_1E'').
 
 With stage N's data fixed by Lemma 6.2's rule (D615), the A-linear part h1 of g_lam is the linear solution of the
 seed's reduced operator with the A-linear Cauchy data: those of h_app1 := Re sum_(j<=N+1) lam^j H_j e^(i v/lam) and
@@ -48,16 +49,16 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      (1 - c)^2), zero only as T -> infinity at c = 1; Xi = -c - i T + O(T^2); where the two real leading coefficients
      cancel, the quadrature part is T nu (2 - 1/c) (either relative sign), zero only at c = 1/2.  Control: a sign
      slip in Xi's numerator breaks the lower bound.
-  X9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 4000 random amplitudes, in both cases
-     (|S| large with slowly varying phase; |S'| large with a zero inside the window).  Control: |S'| below the bound
-     with an adversarial epsilon gives a window with one sign.
-  X10 (computed, mpmath, sampled densely; round 6, the verifier of round 5's m2) The hypothesis (H_N) of Theorem L_1E
-     and L.16 (c)'s bounds for exp(-1/x) and the record's C_c^inf envelope, at 401 points of [10^-3.5, 10^-2] with
-     exact derivatives (Bell polynomials in the derivatives of log env): env^(k), k <= 13, positive and log-concave
-     with kappa_k/kappa in (1/2, 2); sup |kappa_k'|/kappa_k^(3/2) <= c_R = 3 (alpha = 1/2); sup |env^(j)|/(kappa^j
-     env), j <= 14, printed (L.16 (c)'s c_j); and |kappa_k - kappa| <= C k kappa^(1/2) with C below the c_R 2^(1/2) that
-     (H_N) implies (kappa_k - kappa_(k-1) = kappa_(k-1)'/kappa_(k-1)).  Control: the mutant log env = -1/x + 10
-     sin^16(4 pi log10 x)/x, flat at the four points round 5 sampled, fails at the dense ones.
+  X9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 5000 random amplitudes: (B) with a zero
+     of S inside the window, (A) with |S| >= m, and (round 7, the verifier of round 6's minor 2) (A') pointwise, |S(t)|
+     growing by up to e^50 across the window with |eps(t)| <= |S(t)|/4.  Controls: |S'| below the bound with an
+     adversarial epsilon, and |eps| = |S| in (A'), each leave a window with one sign.
+  X10 (computed, mpmath, sampled densely; rounds 6-7) (H_N), (H_t) and L.16 (c) for exp(-1/x) and the record's
+     C_c^inf envelope, at 401 points of [10^-3.5, 10^-2] with exact derivatives (Bell polynomials in the derivatives of
+     log env): env^(k), k <= 14, positive and log-concave with kappa_k/kappa in (1/2, 2); sup |kappa_k'|/kappa_k^(3/2)
+     <= c_R = 3 (alpha = 1/2); sup |env^(j)|/(kappa^j env), j <= 15, printed; |kappa_k - kappa| <= C k kappa^(1/2) with
+     C below the c_R 2^(1/2) that (H_N) implies; and (H_t): kappa - kappa_k >= c k kappa^(1/2) and |kappa'| >= c
+     kappa^(3/2), c > 0.  Control: the mutant log env = -1/x + 10 sin^16(4 pi log10 x)/x fails at the dense points.
   X11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
      nu = -1/9, Gamma = 1, r0 = 3: S(v) = nu env (1 + 2 i lam kappa) - i^N Xi lam^(N-2) env^(N-1) (exact derivatives,
      exact Xi) for N = 9 (quadrature) and N = 12 (the real parts cancel at the crossover), over 2400 windows from
@@ -66,21 +67,29 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      with one sign (the U^(1) term is what decides the very edge).
 
   X12 (computed, mpmath; unit constants; round 6, the verifier of round 5's MAJOR 1 (a)) Case 3 of Theorem L_1E at
-     a real cancellation, N = 12 (nu = -1/9 < 0, Gamma = 1, i^N = 1, r0 = 3, c_N = 6/5), for exp(-1/x) and the record's
-     envelope, exact derivatives, lam = 1e-10, 1e-20, 1e-40, 1e-80: on the whole crossover |S_U|/|S_st| in [1/4, 4]
-     (301 points) the main amplitude sigma_main = nu (1 + 2 i T0) - Xi Lambda against round 6's error bound (T0^2 + lam
-     |kappa_(N-1) - kappa| + 1/kappa + lam)(|nu| + |S_U|), T0 := lam kappa: the least ratio more than doubles at each
-     step and exceeds 100 at 1e-80, and arg sigma_main moves by at most pi/6 over 4 pi lam.  Control: round 5's bound
-     ((T0 + 1/kappa + lam)|S_U| + (T0^2 + lam)|nu|) in its place: the ratio stays near |1/c_N - 2| (same order, so no
-     constant C would do).
-  X13 (computed, mpmath, quadrature; round 6) L.21 (iv'): s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2
-     |kappa_g'|)) for g = env^(11) of exp(-1/x) (N = 12) at lam = 1e-6, 1e-7 and lam kappa = 1/5, ..., 1/40 (inside
-     X10's range): |difference|/(lam |g| (lam kappa)^2) <= 1, s^(-1) g computed by quadrature (the part below x/2
-     bounded and printed).  Control: g/(i/lam) (the first-order term dropped) fails the bound.
+     a real cancellation, N = 12, c_N = 6/5, nu = -1/9, Gamma = 1, exp(-1/x) and the record's envelope, lam = 1e-10 ...
+     1e-80: on the crossover |S_U|/|S_st| in [1/4, 4] the least ratio of |sigma_main| to L.22''s majorant |nu| T0^2 +
+     lam + (eps' + 1/kappa + lam)|S_U| (round 7: the stage lambda-term carries no |nu|) more than doubles at each step
+     and exceeds 100, the phase moving by at most pi/6.  Control: round 5's bound in its place stays bounded.
+  X13 (computed, mpmath, quadrature; rounds 6-7) L.21 (iv') in both regimes and (iv''): for env^(11) of exp(-1/x), lam
+     = 1e-6, 1e-9, lam kappa in [1/50, 10^4], s^(-1) g by Gauss-Legendre with 4 panels per carrier period (8 agree):
+     |rho_g| <= 3 eps', and |rho_g + lam^2 kappa_g'| <= 5 (lam kappa)^3 kappa^(-1/2) for lam kappa <= 1/4.  Control:
+     the first-order term and the correction dropped.
+  X14 (computed, mpmath; unit constants; round 7) Proposition L.26 (Case 3') at c_N(rho0) = 1/2 (rho0^2 = 23 = 2N - 1,
+     N = 12), nu = -1/9, exact derivatives, rho_g by (iv''), lam = 1e-40, 1e-80, 1e-160: every window of the crossover
+     is decided by Lemma W (A') (a log grid) or (B) (the windows around min |sigma|), and min |sigma| < 10^-3 |nu|
+     T0^2 (the leading model vanishes to all orders: the T0^2 route fails).  Control: round 5's error class (eps = lam
+     kappa with L.22's crude derivative bound) leaves windows undecided.
+  X15 (computed, mpmath; unit constants; round 7) Case 3' at rho0 = rho* with nu = K(r0), (H_rho*)'s first half only,
+     and an unknown structured stage family lam b4 (|b4| = 1, four phases): N = 12 and 10, exp(-1/x), the record's
+     envelope: every window decided.  Control: exp(-1/x^(1/2)) (kappa x^2 -> 0), N = 10, the family's coefficients b4,
+     b5 (moduli < 1) chosen with sigma = sigma' = 0 at a point: a window is undecided (the method fails there).
+  X16 (computed, sampled; round 7) L.21 at c_N = 1: the lower families against the bracket -(i/lam) s^-1 env^(N-1)
+     are O(lam + 1/kappa) for lam kappa in [10^-2, 10^4].  Control: a lower term with one s too many.
 
-Labels: X1-X8 computed (exact, sympy); X9, X10, X13 computed, sampled; X11, X12 computed (mpmath), models with unit
-constants.
-Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about 30 minutes)
+Labels: X1-X8 computed (exact, sympy); X9, X10, X13, X16 computed, sampled; X11, X12, X14, X15 computed (mpmath),
+with unit constants.
+Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about an hour)
 """
 import os
 import random
@@ -777,8 +786,9 @@ def e13(control=False):
             if tk <= mp.mpf(1)/4:
                 r2 = abs(rho + (0 if control else lam**2*kgp))/(tk**3*x)      # control: the correction dropped
                 w2 = max(w2, r2)
+            sharp = "" if r2 is None else ", |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) %s" % mp.nstr(r2, 4)
             rows.append("lam = %s, lam kappa = %s: |rho|/eps' %s%s" % (mp.nstr(lam, 2), mp.nstr(tk, 3), mp.nstr(r1, 4),
-                        "" if r2 is None else ", |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) %s" % mp.nstr(r2, 4)))
+                                                                        sharp))
     if control:
         return w1 <= 3 or w2 <= 5
     # convergence: the smallest lam kappa at lam = 10^-9 with 8 panels per period
@@ -818,8 +828,9 @@ def kvv(r0):
     return -(2*r0**3 - 3*r0**2 - 2)**2/(36*r0**6)
 
 
-def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
-    """sigma(x) = nu st(x) + lam b4 - i^N Xi_ex Lambda (Gamma_R = 1), Xi_ex with rho_g = -lam^2 kappa_g' (iv'');
+def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None, b5=0):
+    """sigma(x) = nu st(x) + lam (b4 + i lam kappa b5) - i^N Xi_ex Lambda (Gamma_R = 1), Xi_ex with rho_g = -lam^2
+    kappa_g' (iv''); lam (b4 + i T0 b5) models the stage family below the top (L.13 (c)), coefficients unknown;
     returns x -> (sigma, kappa, kappa_(N-1), T0, nu)"""
     f, ell = yfun(nm, N + 1)
 
@@ -835,14 +846,14 @@ def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
         Xi = (1 - cN) - 1j*(1 + rho_g)/(T + 1j)
         Lam = lam**(N - 2)*Y[N - 1] if freeze is None else freeze
         st = sum((k + 1)*(1j*lam)**k*Y[k] for k in range(N - 1))
-        return nu*st + lam*b4 - (1j)**N*Xi*Lam, kap, kN1, T0, nu
+        return nu*st + lam*(b4 + 1j*T0*b5) - (1j)**N*Xi*Lam, kap, kN1, T0, nu
     return sig, ell
 
 
-def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201):
+def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201, b5=0):
     """Lemma W (A) or (B) on every window: a log grid over the crossover and every window around min |sigma|.
     Unstructured errors (sigma units): |e| <= (1/kappa + lam)(|nu| + |B|), |e'| <= 2 kappa |e|, |e''| <= 4 kappa^2 |e|"""
-    sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4)
+    sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4, b5=b5)
     f, _ = yfun(nm, N + 1)
 
     def lamb(x):
@@ -949,8 +960,8 @@ CACHE15 = {}
 
 
 def x15_adversary(nm, lam, N, rs):
-    """for i^N = -1: the x* where Lambda c_N (kappa - kappa_(N-1)) = |nu'|, and b4 (|b4| < 1, Re b4 > 0) with sigma(x*)
-    = 0; then sigma' ~ nu' + |B| (kappa - kappa_(N-1)) cancels at x* to leading order"""
+    """for i^N = -1: the x* where Lambda c_N (kappa - kappa_(N-1)) = |nu'| (the real parts of sigma' cancel there), and
+    b4, b5 (|b4|, |b5| < 1) with sigma(x*) = sigma'(x*) = 0"""
     f, _ = yfun(nm, N + 1)
 
     def parts(x):
@@ -969,25 +980,32 @@ def x15_adversary(nm, lam, N, rs):
         else:
             hi = mid
     sig0, _ = sigma_model(nm, lam, N, rs, 'K', 0)
-    return -sig0(hi)[0]/lam                                # complex b4 with sigma(x*) = 0 exactly
+    xs = hi
+    s0 = sig0(xs)[0]
+    s0p = mp.diff(lambda t: sig0(t)[0], xs)
+    f2 = lambda t: 1j*lam*sig0(t)[3]                      # noqa: E731  the coefficient of b5 in sigma: i lam T0
+    b5 = -s0p/mp.diff(f2, xs)                              # sigma'(x*) = 0
+    b4 = -(s0 + f2(xs)*b5)/lam                             # sigma(x*) = 0
+    return b4, b5
 
 
 def e15(control=False):
     """Case 3' at rho0 = rho* (nu = K(r0)) with (H_rho*)'s first half only (kappa x^2 bounded below) and an unknown
     structured stage lambda-family lam b4, |b4| = 1, b4 in {1, i, -1, -i}: N = 12 (i^N = 1) and N = 10 (i^N = -1).
-    Control: exp(-1/x^(1/2)) (kappa x^2 -> 0: the first half fails), N = 10, b4 (|b4| < 1) chosen so that sigma
-    vanishes where the two transversal terms of sigma' cancel: a window is left undecided"""
+    Control: exp(-1/x^(1/2)) (kappa x^2 -> 0: the first half fails), N = 10, the unknown family coefficients b4, b5
+    (both of modulus < 1) chosen so that sigma and sigma' vanish together: a window is left undecided"""
     mp.mp.dps = 60
     rs = mp.findroot(lambda q: 2*q**3 - 3*q**2 - 2, mp.mpf('1.8'))
     rows, ok = [], True
     if control:
         nm, lam, N = "exp(-1/x^(1/2))", mp.mpf(10)**-40, 10
         if 'adv' not in CACHE15:
-            b4 = x15_adversary(nm, lam, N, rs)
-            CACHE15['adv'] = (b4, dichotomy(nm, lam, N, rs, 'K', b4=b4, nwin=40, ngrid=41))
-        b4, d = CACHE15['adv']
-        CACHE15['advrow'] = ("exp(-1/x^(1/2)), N = 10, lam = 1e-40, b4 = %s: lam/|nu| = %s at the crossover, windows"
-                             " decided: %s" % (mp.nstr(b4, 3), mp.nstr(lam/d['nuabs'], 3), d['ok']))
+            b4, b5 = x15_adversary(nm, lam, N, rs)
+            CACHE15['adv'] = (b4, b5, dichotomy(nm, lam, N, rs, 'K', b4=b4, b5=b5, nwin=40, ngrid=41))
+        b4, b5, d = CACHE15['adv']
+        CACHE15['advrow'] = ("exp(-1/x^(1/2)), N = 10, lam = 1e-40, |b4| = %s, |b5| = %s: lam/|nu| = %s at the"
+                             " crossover, windows decided: %s" % (mp.nstr(abs(b4), 3), mp.nstr(abs(b5), 3),
+                                                                 mp.nstr(lam/d['nuabs'], 3), d['ok']))
         return d['ok']
     for nm, N, E in (("exp(-1/x)", 12, 40), ("exp(-1/x)", 12, 80), ("exp(-1/x)", 10, 40), ("record C_c^inf", 12, 40)):
         lam = mp.mpf(10)**-E

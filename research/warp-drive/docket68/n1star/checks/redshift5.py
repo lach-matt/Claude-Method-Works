@@ -88,7 +88,9 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      converge in I_Psi and I_(T Psi) but not in I_(T^2 Psi) (0.70, 6.9, 69 at 5/4; about 0.070 at 3/2).
   R13 (text) The paper's replacement blocks (D622; D625: the 8.2 block restricts "that datum is needed" to the scalar
      type and names the measure dr dsigma, and the Proposition 3.3 proof block, two lines wider, says when its value at
-     mu0 is positive -- the confirming reader's m1, m5 and nit): each old text occurs exactly once in
+     mu0 is positive -- the confirming reader's m1, m5 and nit; D627: the 8.2 block re-keyed to the paper as it stands
+     since RWGAUGE5's block was seated there, so that it now replaces only 8.2's first sentence): each old text occurs
+     exactly once in
      paper/RESPONSE-HL-5D.md and its new text not at all; every line of the blocks and of this file is at most 121
      characters; and in N1STAR-PROOF.md the D622 text is seated: "N-th order" occurs only inside an [amended D622
      note, and Lemmas 10.1a-10.1b are present.  Control: a block whose old text is mutated does not occur.
@@ -796,42 +798,35 @@ def r16(control=False):
 
 
 # ---------------------------------------------------------------- R13: the paper's blocks and the seated text
+# D627: re-keyed to the paper as it stands since RWGAUGE5's section 6 block was seated in 8.2 (8a1f050), which
+# removed "(uniformly in r it is not shown)"; the block now replaces only the first sentence, the seated RWGAUGE5
+# text after it staying as printed
 OLD82 = """\
 So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
 in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
-as a power of R (uniformly in r it is not shown), with the loss of two derivatives so counted."""
+as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
+in r (supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the orthonormal frame of the static observers,"""
 
 NEW82 = """\
 So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change K = r^(−2) dv², v the ingoing time (the
-static chart's mass change is singular at the horizon), every metric component of a perturbation in the class settles
-to a change of mass on each region r ≤ R, the horizon included, uniformly in l, with the loss of two derivatives so
+static chart's mass change is singular at the horizon), every metric component of a perturbation in the class settles to
+a change of mass on each region r ≤ R, the horizon included, uniformly in l, with the loss of two derivatives so
 counted, in two data classes (supplement Proposition 10.1 (iv), repaired). For Hintz's data it settles pointwise, with
 all derivatives, at Part VIII's rate O(t*^(−2−ε)) (supplement GAUGEDECAY5 Theorem 1.5, a proof from Part VIII and Part
 IX, independently verified). For [HKW18]'s data it settles at their rate τ^(−2) in energy, the squared L² norm of the
 components against dr dσ (dσ the unit three-sphere's measure), with a constant growing as R⁵, once one more datum is
-finite: the master fields' second derivative transversal to the horizon, square integrable on the initial slice near
-it. For the scalar type that datum is needed (the tensor type's components carry no derivative of its master field),
-because [HKW18]'s energies are those of the red-shift multiplier
-N = T + Y ((115), p. 39), first order, and at the horizon, where the master equation's coefficient of that derivative
-vanishes, the equation does not give it; their class does not bound it, since solutions with every one of their
-energies finite can have it infinite. Given the datum, the red-shift commutation of Dafermos and Rodnianski ([DR08]
-Theorem 7.2, p. 87) carries it at the master fields' rate, because the surface gravity 1/r_h is positive ([HKW18]
-(20), p. 6): in the class it is exact, a transport along the outgoing null direction whose damping j f′/2 on the j-th
-transversal derivative does not involve the potential (computed: `docket68/n1star/checks/redshift5.py`). Uniformly in
-r the energy statement fails, and what holds instead is sharp (supplement RWGAUGE5,
-`docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, on the outgoing part of [HKW18]'s leaves,
-the orbit-space components of the scalar type can grow as, and no faster than, r^(1/2): for every leaf there is a
-single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
-B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant, f = 1 − μ/r² and S its harmonic (Theorem 1,
-proved; the components computed exactly). With that weight they settle, and the angular components and the tensor type
-settle without it, uniformly in r and l on the outgoing part of the leaves, in ‖·‖, the L² norm on the unit
-three-sphere at fixed (τ, r): r^(−1/2)‖h(e_a, e_b)‖ and r^(1/2)‖h(e_i, e_j)‖ decay at least as τ^(δ−1/2) for every
-δ ∈ (0, 1/2], r^(−1)‖h(e_a, e_b)‖ and ‖h(e_i, e_j)‖ at least as τ^(−1), and ∫ (r^(−3)‖h(e_a, e_b)‖² + r^(−1)‖h(e_i,
-e_j)‖²) dr over the outgoing part at least as τ^(−2), [HKW18]'s rate, for data with two more commutations with T and
-the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent
-computed). The powers r^(±1/2) are attained, so the weights cannot be improved."""
+finite: the master fields' second derivative transversal to the horizon, square integrable on the initial slice near it.
+For the scalar type that datum is needed (the tensor type's components carry no derivative of its master field), because
+[HKW18]'s energies are those of the red-shift multiplier N = T + Y ((115), p. 39), first order, and at the horizon,
+where the master equation's coefficient of that derivative vanishes, the equation does not give it; their class does not
+bound it, since solutions with every one of their energies finite can have it infinite. Given the datum, the red-shift
+commutation of Dafermos and Rodnianski ([DR08] Theorem 7.2, p. 87) carries it at the master fields' rate, because the
+surface gravity 1/r_h is positive ([HKW18] (20), p. 6): in the class it is exact, a transport along the outgoing null
+direction whose damping j f′/2 on the j-th transversal derivative does not involve the potential (computed:
+`docket68/n1star/checks/redshift5.py`). Uniformly in r the energy statement fails, and what holds instead is sharp in r
+(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the orthonormal frame of the static observers,"""
 
 OLDT7 = """\
 7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before and

@@ -1,44 +1,44 @@
 lzerotrace5: lambda0 at P*, every factor traced, the bound certified
-  T0: md5 of N1STAR-PROOF.md lines 1-948 = 0c9fa8c22c27ca3e93524546f2f38a68 (pinned 0c9fa8c22c27ca3e93524546f2f38a68);
-      whole file (11287 lines) 7400212b8ab4ab746fefc00381d6aa4e (pinned 7400212b8ab4ab746fefc00381d6aa4e); 39 trace rows,
+  T0: md5 of N1STAR-PROOF.md lines 1-958 = f32ebb1a717b08362c04569fb82973de (pinned f32ebb1a717b08362c04569fb82973de);
+      whole file (11310 lines) 223e17497eb670ae45f5d4ad28e0d9f5 (pinned 223e17497eb670ae45f5d4ad28e0d9f5); 39 trace rows,
       every fragment on its line: True; the nine terms covered: True
-      lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:221, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
-      (N1STAR-PROOF.md:188, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:189, certified here)
-      E-a   eps1 of Lemma 1.1 (e) (N1STAR-PROOF.md:203, certified here); the lateral boundaries stay spacelike
-      (N1STAR-PROOF.md:204, certified here); the outer boundary {v + tau - tau_end = V + 1} (N1STAR-PROOF.md:193,
-      certified here); g = g_app + w within eps1 of g0 (Lemma 1.1 (e), Lemma 2.3) (N1STAR-PROOF.md:419, certified here);
-      g_app = g0 + lam [g1] + ... (0.4) (N1STAR-PROOF.md:137, certified here); profiles bounded independently of lam
-      (N1STAR-PROOF.md:139, certified here); |g - g0| <= C lam (C_app) (N1STAR-PROOF.md:156, certified here); g1 = m1 +
-      W(X, th + phi1(X)), g_j independent of lam (N1STAR-PROOF.md:609, certified here); W := W_TT + chi dv dv
-      (N1STAR-PROOF.md:530, certified here); W_TT the record's wave (lead5.py) (N1STAR-PROOF.md:529, certified here);
-      tau_end := max_{v <= V} (v - r_q(v)) (N1STAR-PROOF.md:191, certified here); b(tau), the outer radius
-      (N1STAR-PROOF.md:195, certified here); mu' = (2/9) A^2 env^2 (mu_end) (N1STAR-PROOF.md:162, certified here); Lemma
-      2.3 takes eps1: |gt - g0| <= eps1 (N1STAR-PROOF.md:268, certified here); Lemma 1.1 (e): every eps1 <= 3/5 with eps1
-      < mu0/a^2 - 1 (D623) (N1STAR-PROOF.md:110, certified here); Lemma 2.3: eps1 below s0, g0's least absolute
-      eigenvalue on Omega (D614, D623) (N1STAR-PROOF.md:114, certified here); eps1 fixed with 0 < eps1 < min(s0, mu0/a^2
-      - 1) (D623) (N1STAR-PROOF.md:122, certified here)
-      E-b   |w| <= C lam^(-3) N (Step 1, C_inf) (N1STAR-PROOF.md:410, not evaluated); |w| <= eps2/2 (Step 8 (iii), eps2)
-      (N1STAR-PROOF.md:492, not evaluated); eps2 (Step 8 (iii)) (N1STAR-PROOF.md:490, not evaluated); C_S (Lemma 2.1;
-      certified in round 1, lzeroconst5 Z3) (N1STAR-PROOF.md:223, certified here)
+      lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:227, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
+      (N1STAR-PROOF.md:194, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:195, certified here)
+      E-a   eps1 of Lemma 1.1 (e) (N1STAR-PROOF.md:209, certified here); the lateral boundaries stay spacelike
+      (N1STAR-PROOF.md:210, certified here); the outer boundary {v + tau - tau_end = V + 1} (N1STAR-PROOF.md:199,
+      certified here); g = g_app + w within eps1 of g0 (Lemma 1.1 (e), Lemma 2.3) (N1STAR-PROOF.md:428, certified here);
+      g_app = g0 + lam [g1] + ... (0.4) (N1STAR-PROOF.md:143, certified here); profiles bounded independently of lam
+      (N1STAR-PROOF.md:145, certified here); |g - g0| <= C lam (C_app) (N1STAR-PROOF.md:162, certified here); g1 = m1 +
+      W(X, th + phi1(X)), g_j independent of lam (N1STAR-PROOF.md:619, certified here); W := W_TT + chi dv dv
+      (N1STAR-PROOF.md:540, certified here); W_TT the record's wave (lead5.py) (N1STAR-PROOF.md:539, certified here);
+      tau_end := max_{v <= V} (v - r_q(v)) (N1STAR-PROOF.md:197, certified here); b(tau), the outer radius
+      (N1STAR-PROOF.md:201, certified here); mu' = (2/9) A^2 env^2 (mu_end) (N1STAR-PROOF.md:168, certified here); Lemma
+      2.3 takes eps1: |gt - g0| <= eps1 (N1STAR-PROOF.md:276, certified here); Lemma 1.1 (e): every eps1 <= 3/5 with eps1
+      < mu0/a^2 - 1 (D623) (N1STAR-PROOF.md:114, certified here); Lemma 2.3: eps1 below s0, g0's least absolute
+      eigenvalue on Omega (D614, D623) (N1STAR-PROOF.md:119, certified here); eps1 fixed with 0 < eps1 < min(s0, mu0/a^2
+      - 1) (D623) (N1STAR-PROOF.md:128, certified here)
+      E-b   |w| <= C lam^(-3) N (Step 1, C_inf) (N1STAR-PROOF.md:419, not evaluated); |w| <= eps2/2 (Step 8 (iii), eps2)
+      (N1STAR-PROOF.md:502, not evaluated); eps2 (Step 8 (iii)) (N1STAR-PROOF.md:500, not evaluated); C_S (Lemma 2.1;
+      certified in round 1, lzeroconst5 Z3) (N1STAR-PROOF.md:229, certified here)
             to evaluate: C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1's constant), M, eps2 (g_ext): the
       profiles
-      E-c   |d w| <= C M lam^(K-4) (C_dw), M1 independent of M (N1STAR-PROOF.md:419, not evaluated); M1 independent of M
-      (N1STAR-PROOF.md:420, not evaluated)
+      E-c   |d w| <= C M lam^(K-4) (C_dw), M1 independent of M (N1STAR-PROOF.md:428, not evaluated); M1 independent of M
+      (N1STAR-PROOF.md:429, not evaluated)
             to evaluate: C_dw and M: Step 1's constant and the profiles g_1..g_10 to order about 11
-      E-d   C3 := C2 e^{C2 dtau} (1 + dtau) C (N1STAR-PROOF.md:464, not evaluated); M := C3 (C_D + 1 + C_R) + 1
-      (N1STAR-PROOF.md:464, not evaluated); C3 C M^2 lam0 <= 1 (C_N) (N1STAR-PROOF.md:465, not evaluated); k = 6, K >= 6
-      (P*: K = 6) (N1STAR-PROOF.md:135, certified here); C_R (E3) (N1STAR-PROOF.md:144, not evaluated); C_D (E4)
-      (N1STAR-PROOF.md:146, not evaluated); C2 (Steps 4-6) (N1STAR-PROOF.md:463, not evaluated)
+      E-d   C3 := C2 e^{C2 dtau} (1 + dtau) C (N1STAR-PROOF.md:474, not evaluated); M := C3 (C_D + 1 + C_R) + 1
+      (N1STAR-PROOF.md:474, not evaluated); C3 C M^2 lam0 <= 1 (C_N) (N1STAR-PROOF.md:475, not evaluated); k = 6, K >= 6
+      (P*: K = 6) (N1STAR-PROOF.md:141, certified here); C_R (E3) (N1STAR-PROOF.md:150, not evaluated); C_D (E4)
+      (N1STAR-PROOF.md:152, not evaluated); C2 (Steps 4-6) (N1STAR-PROOF.md:473, not evaluated)
             to evaluate: C2, C_st, C_N, C_R, C_D: Steps 2, 4-7 written with the profiles' bounds (R2.2 (d)-(f))
-      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:896, not evaluated);
-      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:935, certified here); C_c (Lemma 6.3's coefficients frozen at U_i)
-      (N1STAR-PROOF.md:895, not evaluated)
+      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:906, not evaluated);
+      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:945, certified here); C_c (Lemma 6.3's coefficients frozen at U_i)
+      (N1STAR-PROOF.md:905, not evaluated)
             to evaluate: C0, C_c, m_c: Lemma 6.4's constant at s0 = 6, s = 8, and the stage data of Lemma 6.2
-      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:899, not evaluated)
+      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:909, not evaluated)
             to evaluate: C_k: the difference estimate of Lemma 6.4 at s0
-      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:795, not evaluated)
+      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:805, not evaluated)
             to evaluate: m_s, C_s: the O(lam) part of alpha and S A0 at the approximant's data (needs m_1)
-      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:898, not evaluated)
+      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:908, not evaluated)
             to evaluate: C_b, C0: the quadratic remainder Nl at the approximant's data
   T1: q0 in [0.539717577094, 0.539717577094] (q0^8 = 9/1250), a = delta0 = q0/2 in [0.269858788547, 0.269858788547], lam1
       = q0/20 in [0.026985878855, 0.026985878855] (certified)
@@ -78,7 +78,7 @@ lzerotrace5: lambda0 at P*, every factor traced, the bound certified
       absolute one, (m^2 + 1)^(1/2) - m, decreases in m: True; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [16.234970,
       16.234971], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: True. So inf over Omega of
       g0's least absolute eigenvalue is in [0.030768559, 0.030768560] (certified; lo <= hi: True, width 9.1e-35 < 1e-12:
-      True); Lemma 2.3 (N1STAR-PROOF.md:268, :114-122) needs eps1 below it
+      True); Lemma 2.3 (N1STAR-PROOF.md:276, :119-128) needs eps1 below it
   C1 (control): every trace line shifted by one: 39 of 39 fragments not found
   C2 (control): "C_app >= 12.6 at this point" refuted: |W_TT|_op there <= 12.593926 < 12.6
   C3 (control): T4's parity test run on the wave with its phase doubled (cos 2s, sin 2s): odd: False, so T4 fails on it:

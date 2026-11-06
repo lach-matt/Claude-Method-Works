@@ -30,39 +30,43 @@ findings that are not measured on the full operator (those are in r5op5.py and c
   E (sampled; round 4 m3) the weight w = (u* - u)^(2a) on W = {v >= v1, t <= f(r), r >= 4R}: with u* := sup f + 1,
     r + 1 <= u* - u <= 2r + C at 4000 sampled points for 20 random f with |f'| <= 1/2 and v1 = f(4R) + 4R. Control
     (round 4's u* := 2 sup f - v1 + 1): r <= u* - u fails.
-  F (exact and sampled; round 4 M4) the localised energy argument: F1 the flux through {Phi_W = V_*} is >= 0:
-    T(d_t, -grad Phi_W) for g = g_b0 + H, |H|_op <= r^-2/2, random d phi (6000 samples, floating point) is >= 0
-    (dominant energy, both vectors future timelike). Control: with the spacelike normal grad r of a timelike cut-off
-    {r = R} in place of -grad Phi_W it is negative somewhere (such a boundary's flux has no sign). F2 the
-    domain-of-dependence energy identity on a truncated diamond {t1 <= t <= t2, R + (t - t1) <= r <= R2 - (t - t1)}
-    in the flat radial model (measure r^3 dr): E(t2) + both null fluxes (each >= 0, tangential derivatives) =
-    E(t1) - int int phi_t box phi r^3, exact for a polynomial phi.
-    Control: with a transverse derivative in one flux it fails. F3 S1 and the Hardy inequality on a finite interval,
-    with their boundary terms, exact identities; and if int^oo r^(2a+3) F^2 dr < oo then liminf R^(2a+4) F(R)^2 = 0
-    (so the boundary term vanishes along a sequence): checked on F = r^(-a-2-eta) (-> 0); control F = r^(-a-2) (the
-    integral diverges and R^(2a+4) F^2 = 1). F4 the rejected localisation (data g_b0 beyond V_* + 2, h_R = -Sigma there):
-    the weighted energy of -Sigma_2 = -r^-2 P beyond V_* is int r^(2a - 3) dr, infinite exactly for a >= 1 (exact).
-    F5 the exterior tail: with zero data beyond the band and the source P(Sigma) = O(r^(-13/2)) (r5op5 O2), the
-    unweighted energy beyond R after a time |T| is at most C |T|^2 R^-9 (finite speed), and the weighted energy
-    int r^(2a) d(-C R^-9) converges exactly for a < 9/2 (exact). Control: the source O(r^-6) of Sigma without F_4
-    gives a < 4.
+  F (exact and sampled; round 4 M4) the localised energy argument: F1 the flux through {Phi_W = V_*} is >= 0: T(d_t,
+    -grad Phi_W) for g = g_b0 + H, |H|_op <= r^-2/2, minimised over d phi exactly (the least eigenvalue of the
+    quadratic form; round 6, m4: round 5 sampled three random d phi and could not fail), at 2000 points, is > 0.
+    Control: with the spacelike normal grad r of a timelike cut-off {r = R} in place of -grad Phi_W it is negative
+    somewhere (such a boundary's flux has no sign). F1x (exact, round 6) the sign itself: for X = e_0 and n = (cosh
+    s, sinh s, 0, 0, 0) the form's characteristic roots are e^s/2, e^-s/2, cosh(s)/2 (x3); for n spacelike one root
+    is -e^-s/2. F2 the domain-of-dependence energy identity on a truncated diamond {t1 <= t <= t2, R + (t - t1) <= r
+    <= R2 - (t - t1)} in the flat radial model (measure r^3 dr): E(t2) + both null fluxes (each >= 0, tangential
+    derivatives) = E(t1) - int int phi_t box phi r^3, exact for a polynomial phi. Control: with a transverse
+    derivative in one flux it fails. F3 [arithmetic] S1 and the Hardy inequality on a finite interval, with their
+    boundary terms, exact identities; and if int^oo r^(2a+3) F^2 dr < oo then liminf R^(2a+4) F(R)^2 = 0 (so the
+    boundary term vanishes along a sequence): checked on F = r^(-a-2-eta) (-> 0); control F = r^(-a-2) (the integral
+    diverges and R^(2a+4) F^2 = 1) [arithmetic]. F4 [arithmetic] the rejected localisation (data g_b0 beyond V_* + 2,
+    h_R = -Sigma there): the weighted energy of -Sigma_2 = -r^-2 P beyond V_* is int r^(2a - 3) dr, infinite exactly
+    for a >= 1 (exact). F5 [arithmetic] the exterior tail: with zero data beyond the band and the source P(Sigma) =
+    O(r^(-13/2)) (r5op5 O2), the unweighted energy beyond R after a time |T| is at most C |T|^2 R^-9 (finite speed),
+    and the weighted energy int r^(2a) d(-C R^-9) converges exactly for a < 9/2 (exact). Control: the source O(r^-6)
+    of Sigma without F_4 gives a < 4.
   G (exact and quadrature; round 3 Z7, T2, T7, Z8, window; round 4 B12) the fields: data G_k(v1) = c_k (k = 4..9,
     random rationals; l = 2), the after-shell coefficients G_k(v) from the flat recursion (2q - 3) G_(2q)' = (Delta +
     (q - 1)(q - 3)) G_(2q - 2), Sigma = sum_(p in Pi) r^-p c_(2p) 2F1(p + l, p - l - 2; p - 1/2; s/2). G1: at fixed v
     the coefficients of r^(-k/2) of the truth minus Sigma vanish for k <= 8 and equal c_9 at k = 9 (exact), so h_R =
-    O(r^(-9/2)); with p = 4 dropped (control) the r^-4 coefficient survives. G2 (quadrature, 60 digits) the cap energy
-    of the truncation (unit band in v at t = T, smoothstep cut-off, weight (2r)^(2a)) has fitted exponent 2a - 6 in |T|
-    (a = 2.2, 2.75, 2.95), -> 0 exactly for a < 3; the control (p = 4 dropped) 2a - 5. G3 (exact, sympy) the N-flux
-    tail beyond |T| of the field h_R(v1, r) has exponent 2a - 7; the control (p = 4 dropped) 2a - 6. G4 the class on
-    S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside rho^(l0) L^2_b exactly when a + 1 >= l0
-    (exact on rho^beta). G5 the weight window: with the kernels of r5op5 O1
-    (> 1 for every a), the h_R rows 3/2 + a and a + 1/2 (from S1 and Hardy: exponents computed below), the residual
-    9/2 - a (degree -13/2), the cap (G2), the N-flux (G3) and G4, the set of admissible a on the grid a = 0, 1/100,
-    ..., 4 is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9: the lower bound 5/2 of rounds 3-4 is needed by nothing.
-    Controls: p = 4 dropped gives (l0 - 1, 5/2), empty for l0 >= 7/2; the pointwise reading of the class on S
-    (a > l0 - 1/2) gives (l0 - 1/2, 3), empty for l0 >= 7/2. G6 (exact) Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho +
-    f_2 rho^3) has the exponents p + j (j = 0..3, p in Pi; the Taylor composition F_p(1 + d) = sum F_p^(m)(1) d^m/m!
-    with the derivatives of the 2F1 at 1/2 by mpmath), all in E_0^(1/2); control: a p = 9/4 term gives 9/4.
+    O(r^(-9/2)); with p = 4 dropped (control) the r^-4 coefficient survives. G2 (quadrature, 60 digits) the cap
+    energy of the truncation (unit band in v at t = T, smoothstep cut-off, weight (2r)^(2a)) has fitted exponent 2a -
+    6 in |T| (a = 2.2, 2.75, 2.95), -> 0 exactly for a < 3; the control (p = 4 dropped) 2a - 5. G3 (exact, sympy) the
+    N-flux tail beyond |T| of the field h_R(v1, r) has exponent 2a - 7; the control (p = 4 dropped) 2a - 6. G4 the
+    class on S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside rho^(l0) L^2_b exactly when a + 1
+    >= l0 (exact on rho^beta). G5 [arithmetic; round 6: Lemma R4.5's hypothesis, widened to (0, 7/2), Step 2's a >=
+    3/2 and Proposition R5.2's a > 1/2 added to the list, and control G5c: R4.5's round-4 hypothesis (5/2, 7/2) gives
+    (max(l0 - 1, 5/2), 3); the window computed from the fields is r6sigma5 W] the weight window: with the kernels of
+    r5op5 O1 (> 1 for every a), the h_R rows 3/2 + a and a + 1/2 (from S1 and Hardy: exponents computed below), the
+    residual 9/2 - a (degree -13/2), the cap (G2), the N-flux (G3) and G4, the set of admissible a on the grid a = 0,
+    1/100, ..., 4 is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9: the lower bound 5/2 of rounds 3-4 is needed by nothing.
+    Controls: p = 4 dropped gives (l0 - 1, 5/2), empty for l0 >= 7/2; the pointwise reading of the class on S (a > l0
+    - 1/2) gives (l0 - 1/2, 3), empty for l0 >= 7/2. G6 (exact) Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3)
+    has the exponents p + j (j = 0..3, p in Pi; the Taylor composition F_p(1 + d) = sum F_p^(m)(1) d^m/m! with the
+    derivatives of the 2F1 at 1/2 by mpmath), all in E_0^(1/2); control: a p = 9/4 term gives 9/4.
   H (exact; round 4 m7) the means' exponents from Theorem A_P's coefficient classes (N1STAR-PROOF.md (9.6) and the
     count's last sentence): the inputs of (c) are E_(3/2) m_m, E_(3/2) Psi_m, E_(3/2) ell phi_m, E_(5/2) d_v phi_m,
     E_(5/2) r^-1 Omega phi_m and known sources in L_3; of (a) E_2 m_m, E_3 d phi_m, E_(3/2) gh_(m+1) and L_3; of (b)

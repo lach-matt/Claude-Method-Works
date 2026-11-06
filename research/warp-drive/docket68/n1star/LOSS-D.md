@@ -823,6 +823,10 @@ loop counts of section 3.
     bookkeeping does not bound the level-2 loop below the counted loops; counted per exponent (LD16: one application
     covers an exponent's log orders) its bound is |Λ ∩ W|, which the record leaves undecided; and the log orders
     actually produced might bound it, which the record does not compute.
+    [CONSTANTS5 R11 (deduced; `checks/l2par5.py`): for the loss the two readings agree. Per (α_0, k) the applications
+    at one exponent act on separate terms of one source and none on another's output, every remainder lying higher
+    (G5 (4.3)), so in III.J″'s accounting (J3 Lemma 1.2 (a)-(b)) losses add only along chains of exponents: at most
+    3 |Λ ∩ W| per level on either reading. The 5.83 × 10²⁰ counts applications, not compositions.]
   - *What it rests on, and what is needed.* The reading of W in u-exponents (I12:58-60's two excluded values are the
     level-2 window's ends); the construction's increments (D542-D544); for the second bound, a round per (α_0, k), as
     Step 3 writes it. Needed: ℰ_++ (whose part below 2 is π₁ℳ, I11:88), 𝒢, ℰ^C_I and ℰ_col listed at the record's point,

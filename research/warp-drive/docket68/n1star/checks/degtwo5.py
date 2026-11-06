@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """degtwo5.py -- the degree-two and localisation lemmas, the transition and the dips (EQUALITY5-LAYER.md, Round 5,
 R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one switch per column); Proposition L.25
-(envelopes with dips); and Round 6, R6.2: Proposition L.25').
+(envelopes with dips); Round 6, R6.2: Proposition L.25'; Round 7, R7.4: Proposition L.25'' (a)).
 
   T1 (exact; a three-dimensional instance of a dimension-free identity) The reduced Ricci operator relative to a
      background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a
@@ -32,27 +32,26 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      rho a slowly varying degree-two term of size lam^(1/10) m0 plus a structureless one of size lam^3 m0, the maxima
      over consecutive carrier periods decrease through the band and change sign once (lam = 1e-6, exp(-1/x)).  Control:
      rho structureless of size m0/3 gives more than one sign change.
-  T6 (computed; round 6, the verifier of round 5's MAJOR 2) Dips (Proposition L.25 (a)): env := sum_n exp(-n^2)
-     beta(2^(n+2) (x - 2^-n)) near v_s, beta = exp(-1/(1 - t^2)) on [-1, 1] (C_c^inf, flat at v_s, zero on the
-     intervals J_n = (1.25, 1.5) 2^-n between consecutive bumps).  (a) env vanishes on J_n (41 points), so every
-     oscillating profile of g_app does (each is a transport along ell at fixed v with sources and data local in v).
-     (b) For lam = 10^-E, E = 10^2, ..., 10^6, with n the bump of height h_n in [lam^3.5, lam^3.1], the remaining terms
-     of g_lam^-1(dPhi0, dPhi0) + m0 against m0's lower bound (2 A^2/(27 mu0)) h_n^2 int beta^2/s_n: Lemma L.4''s w
-     (lam^(N-5) eps_(M*), N = 9, M* = 26), Lemma L.4_P's (lam^(N_P-3) eps_(M_P), N_P = 18, M_P = 44) and L.3 (b)'s
-     means (lam^j eps_(2j)^2, j <= N_P), with eps_k(v1) <= 2 h_n s_n^k B_k (the bumps m > n included), s_n = 2^(n+2),
-     B_k = max_(i<=k) sup |beta^(i)| (beta^(k) = e^(-1/(1-t^2)) p_k/(1 - t^2)^(2k), p_k by recursion); and the two
-     lemmas' hypotheses, eps_4(v1) <= lam (L.4') and eps_(M_P)(v1) <= lam^3 (L.4_P).  The log10 ratios decrease
-     strictly in E and are below -1000 at E = 10^6 (they fall like lam^(N-8.5) e^(c sqrt(log 1/lam))), and from some E
-     of the grid on every ratio is below 0 with both hypotheses.  Unit constants: A = mu0 = 1 and the record's
-     unknown constants set to 1 (they shift the threshold, not the decay).
-     Control: J_n filled by an extra bump of height h_n/2 (no zero interval): env > 0 on J_n.
+  T6 (computed with unit constants; rounds 6-7) Dips (Proposition L.25'' (a)): env := sum_n exp(-n^2) beta(2^(n+2) (x
+     - 2^-n)) near v_s, beta = exp(-1/(1 - t^2)) on [-1, 1] (C_c^inf, flat at v_s, zero on the intervals J_n = (1.25,
+     1.5) 2^-n between consecutive bumps).  (a) env vanishes on J_n (41 points), so every oscillating profile of g_app
+     does.  (b) For delta = 1/10 and 1/2 and lam = 10^-E, E = 10^2, ..., 10^6, n the least index with h_n <=
+     lam^(3+delta) (so h_n >= lam^(3.4+delta) below lam_h(delta), printed), the remaining terms of g_lam^-1(dPhi0,
+     dPhi0) + m0 against m0's lower bound (2 A^2/(27 mu0)) h_n^2 int beta^2/s_n: Lemma L.4''s w (lam^(N-5) eps_(M*),
+     N = 9, M* = 26), Lemma L.4_P's (lam^(N_P-3) eps_(M_P), N_P = 18, M_P = 44) and L.3 (b)'s means, j-resolved
+     (max_j lam^j eps_(2j)^2, j <= N_P), with eps_k(v1) <= 2 h_n s_n^k B_k (the bumps m > n included), s_n = 2^(n+2),
+     B_k = max_(i<=k) sup |beta^(i)|; and the two lemmas' hypotheses, eps_4(v1) <= lam (L.4') and eps_(M_P)(v1) <=
+     lam^3 (L.4_P).  From some E of the grid on, every ratio is below 0 with both hypotheses and decreasing, and below
+     -1000 at E = 10^6 (the ratios fall like lam^(N-8.4-delta) e^(c sqrt(log 1/lam))).  Unit constants: A = mu0 = 1 and
+     the record's unknown constants set to 1.  Controls: round 5's bump choice h_n ~ lam^4 (the ratio grows), and J_n
+     filled by an extra bump (no zero interval).
   T7 (exact; round 6, the verifier of round 5's m9) L.17 (2)'s four-derivative form of Lemma L.4's energy argument:
      bandL4p5 H1's ledger at levels 0-4 with eps_6 <= lam^5: every coefficient bounded, so the non-triangular rule
      closes (every coefficient into Gronwall).  Control: at eps_6 <= lam^4 a coefficient of level 4 is unbounded.
 
 Labels: T1-T3, T7 computed (exact, sympy, exact rationals); T4, T6 computed (mpmath, bounds; T4 a model with unit
-constants, T6 with mu0 = A = 1 and the record's constants left as unknown factors); T5 computed (mpmath; m0's formula
-exact, S a model).  Run: python3 checks/degtwo5.py   (a few minutes)
+constants, T6 a computation with unit constants: mu0 = A = 1 and the record's constants set to 1); T5 computed
+(mpmath; m0's formula exact, S a model).  Run: python3 checks/degtwo5.py   (about ten minutes)
 """
 import math
 import os

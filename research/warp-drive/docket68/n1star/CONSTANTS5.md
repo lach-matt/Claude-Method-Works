@@ -243,6 +243,8 @@ The composition (1.1) over the levels, on these hypotheses:
 
 - H1: at each level above 3 the level-2 loop makes one application per exponent of Lambda cap W (LD16's
   redundancy-free reading), and E_++, G, E_col add no point to W;
+  [R11, R11.1: not needed for the bound: the applications at one exponent act in parallel, so a level's level-2
+  loss is at most 3 |Lambda cap W| read per exponent or per (alpha_0, k).]
 - H2: the iota+ loop at its ceiling at each level below 3, 15 per round (the construction's reading, m_iota = d1);
 - H3: at each call of III.I''''' one round raising alpha'_K, Proposition 2.1's 10 and the one-off application's 48;
   [R10, R10.0 (the round-9 verifier's MAJOR A): an over-charge at the levels below 3, where no round runs (Lemma 3.2's
@@ -268,6 +270,8 @@ certified upper bound:
 3. Three readings the record leaves open and the count depends on: l_I <= a_I or a_I = l_I (both used here, equal);
    III.C' (3.1) as written (R1) or one corner union (R0); one application per exponent or per (alpha_0, k) (LD15: the
    latter gives at least 5.83e20 rounds at a single level).
+   [R11, R11.1: the third is settled for the loss: per (alpha_0, k) the applications at one exponent act in
+   parallel (J3 Lemma 1.2 (a)), so the bound is the same on both; 5.83e20 counts applications, not compositions.]
 
 ## 3. lambda1 and delta (Theorem 4)
 
@@ -2176,6 +2180,8 @@ Its findings, each re-derived before it is seated:
   weights of W1 (four admissibility conditions undecided, 2.1), the order box above and the charges as listed, every
   one an upper bound. Each figure moves only by its own term: the MODs (158) and FWD (474) together move d by 1.5e-6 of
   itself.
+  [R11, R11.1: "one level-2 application per exponent" is no longer part of the reading: the bound holds per (alpha_0,
+  k) as well.]
 - *What is not a number and why it does not matter here.* Nothing in d's chain is now symbolic. What separates the
   integer from a theorem about the write-out is the reading, not a missing count: the log-order ceiling holds on the
   step-by-step reading of I11:352-387 (round 6's M2: a sharpened I11 Proposition 3.1 (c) written into the write-out
@@ -2477,6 +2483,7 @@ Its findings, each re-derived before it is seated:
   III.C' (3.1) as written, one level-2 application per exponent, the wide E_col; the order box of the calculus count,
   read from II.A2 sections 4-5 at s in [-10, 10] with both branches of II.C:767-768; the charges of R8.1 and the
   itemised one-off steps; and W1's weights, of whose admissibility two finite avoidance conditions are not decided.
+  [R11, R11.1: "one level-2 application per exponent" leaves the reading: the bound holds per (alpha_0, k) as well.]
 
 ### R9.5 Proved, computed, open
 
@@ -2639,6 +2646,8 @@ re-derived before it is seated:
   windows; n_51 = 26,595,745 steps of III.I'' Proposition 5.1. The same at choices 1000 times nearer the ends, and
   equal to the limits floor((alpha_1 - 1 - 2 eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2 and
   ceil(1/(2 eps_K)): the least counts the cited lines allow.
+  [R11, nit 2: at alpha_0 = alpha_1; alpha_0 -> 2+ gives the same counts and one Lemma 3.2 more, so alpha_0 :=
+  alpha_1 is the least total (modcount5 M6).]
 - *The charges* (READ; deduced; computed: M6's census of I6:77-227, I4:132-275 and I3:325-427, 89 rows, none
   unclassified, every charged site with a charge and every charge at a site). M2's per-step charges for the same maps:
   BG 2, the one-off III.I' Proposition 3.1 48, FWD 510 for u^flat (as at I9:260), III.I' Proposition 2.1 12, (2.25a)
@@ -2663,6 +2672,7 @@ re-derived before it is seated:
   above, the window loop of a round taken at its ceiling W (LD14's bound at each round's alpha#_+ would about halve
   that term), and FWD charged to every round and step for u^flat, as the census charges it at a level (4.07e10 of
   B_base).
+  [R11, R11.1: R9.1's reading less its level-2 clause, which R11.1 deduces; the integer is unchanged.]
 
 ### R10.5 Proved, computed, open
 
@@ -2684,6 +2694,8 @@ PART-III-I5-UNBOOST.md:316-406; PART-III-I4-BOOST.md:120-275; PART-III-I3-ALMOST
 PART-III-I8-UNPARAM.md:328-460; PART-III-J3-TAME.md:96-180; PART-II-G2-DECAY.md:233-262; LOSS-D.md:118-135, 606-650.
 
 ### R10.7 Proposed replacement for the paper's section 9 constants text (replaces R9.7)
+[R11: superseded by R11.7 (the round-10 verifier's minor 1 and nits; block 2's sentence left to INVERSE5-SIX.md
+R2.2).]
 
 Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content
 when this round ended); the new texts claim only what R8.1-R10.1 prove or compute, with their statements. Block 1
@@ -2763,3 +2775,182 @@ computed (deltacap5); the zero-energy constants, deduced from exact identities w
 10/10; tensorzero5 13/13, its T3c symbolic); lambda0's three bounds, certified for round 2's envelope (lzerotrace5
 T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
 (classm5 9/9).
+
+## Round 11 (2026-11-06)
+
+*Status.* Appended to rounds 1-10; not yet read by a verifier. R11.0 seats the round-10 verifier's findings (no Major;
+one minor, two nits), each re-derived first; bracketed `[R11, ...]` notes follow the lines they correct (round 1's H1
+and its section 2.6 item 3, R8.1's and R9.1's readings, R10.1, the R10.7 header, LOSS-D LD15), the old text kept.
+R11.1 settles the reading of the second Taylor level, R11.5-R11.6 are the statuses and sources, R11.7 the final
+replacement text: blocks 1 and 3 only, as INVERSE5-SIX.md R2.2's pair 1 now targets block 2's sentence. New, with its
+`.out`: `checks/l2par5.py` (8/8: P0-P4, controls C1-C3). Changed and rerun in full: `checks/modcount5.py` (18/18: M6
+counts the base at alpha_0 -> 2+ too; control C11). Rerun unchanged: `checks/d0count5.py` (20/20, its `.out`
+byte-identical). Not touched: the paper, N1STAR-PROOF.md, INVERSE5-SIX.md, INVERSE5-SCALAR.md, LAMBDA0-DATA5.md and
+checks/lam0data5.py.
+
+### R11.0 (verifier of round 10)
+
+The verifier found no Major: MAJOR A's repair holds at source, both loops and every count and charge are confirmed,
+no further loop or level is missing, and d <= 46,236,449,175,331,158 is proved on its stated reading. Its findings,
+each re-derived before it is seated:
+
+- **Minor 1 (accepted; deduced, `l2par5.py`).** Block 1 named three departures from the write-out where R9.1 and
+  R10.1 carry four: the fourth, "one level-2 application per exponent", is round 1's section 2.6 item 3, left open
+  there; I12:278 reads "for each tf-exponent (alpha_0, k)", and so read LD15 counts at least 5.83 x 10^20 applications
+  at one level. It is deduced now (R11.1): the applications at one exponent act in parallel, so the bound holds on both
+  readings, and the item leaves the reading.
+- **Nit 1 (accepted).** "8.0 x 10^7 rounds" counts R = 53,191,488 rounds and n_51 = 26,595,745 steps of III.I''
+  Proposition 5.1 (79,787,233): block 1 now says "rounds and steps".
+- **Nit 2 (accepted; computed, modcount5 M6, control C11).** R10.1's "the least counts the cited lines allow" is at
+  alpha_0 = alpha_1. At the other end of Lemma 3.1's range, alpha_0 = 2 + 10^-6 d, the cited conditions hold and R,
+  R_w, n_51 are the same, while III.I'''''''' Proposition 4.1 then needs one step from alpha_0 to alpha_1 (I9:374-375,
+  N = 1), a Lemma 3.2, one level's maps more: alpha_0 := alpha_1 is the least total.
+- **Coordination (INVERSE5-SIX.md R2.2).** Its pair 1 replaces the paper's sentence "The passage to ... still not
+  evaluated.", the old text of R9.7's and R10.7's block 2, and carries that block's content (deltacap5's bounds, the
+  zero-energy constants) in its own; its figure d <= 4.624 x 10^16 is R10.1's, which this round leaves unchanged. So
+  R11.7 drops block 2 and targets that sentence nowhere. R11.5 does not repeat the R10.5 clause R2.2's pair 2 targets.
+- **Coordination (INVERSE5-SCALAR.md part B, `rootavoid5.py`).** Landed this round: `rootavoid5.py` 21/21 decides both
+  avoidances at the weights used, exactly and with certified margins, at every level, the 53,244,734 below 3 (alpha_1
+  included) through I9:55-58 (its R10, the round-10 verifier's gap) and the 53,244,736 above 3 through I14 Definition
+  1.1, on R9.1's reading of Lambda below 2; one further condition of the same kind, (4.2) of III.G'''' Proposition 4.4
+  at the second Taylor level, it leaves waiting on g_2's tf-exponents, which the write-out does not list (its B.7). Its
+  C.1 proposes old/new text for R10.7's block 1; R11.7's block 1 carries that text, merged, so C.1 is superseded by
+  R11.7. d's integer is unchanged (the weights are those it was computed at), and its reading loses the admissibility
+  clause.
+- **The controls, rerun** (scratch copy of checks and proof5; each must fail): Ca: modcount5 M3, M4 FAIL; Cb: M0, M1,
+  M2 FAIL; Cc: M4 FAIL; Cd, Ce, Cf: d0count5 D0 FAIL; Cg: M3, M4 FAIL; Ch: M2 FAIL; Cn1: D0 FAIL; Cn2: M5 FAIL; Cn3
+  (nb = 3): M4 FAIL; the round-10 verifier's Cx1: M4, M6 FAIL; Cx2: M6 FAIL; Cx3: M0, M6, C10 FAIL; Cx4: M4, M6 FAIL;
+  Cx5: M4, M6, C8 FAIL; Cx6: M4 FAIL; round 10's Cr1: M4, M6 FAIL; Cr2: M0, M6 FAIL; Cr3: M4, M6 FAIL; Cr4: M6 FAIL.
+  New: Cm1 (base_counts' N set to 0, so that alpha_0 -> 2+ runs no Lemma 3.2): M6 FAIL; Cl1 (l2par5's loop charged in
+  series): P2, P3 FAIL; Cl2 (dnumber5.out's P_W edited): P4 FAIL; Cl3 (I12:278's "(alpha_0,k)" removed in a copy): P0,
+  P1 FAIL; Cl4 (a per-exponent application charged the sum of its terms' losses): P2, P3 FAIL.
+
+### R11.1 (i) d: the second Taylor level read both ways
+
+- *The question* (READ). I12 Step 3 (I12:278-281): "For each tf-exponent (alpha_0, k) of g_2 with 1 + eta_1 <= Re
+  alpha_0 < 2 + eta_2, III.G'''' Proposition 4.4 ...; its remainder exponents alpha_0 + E_ind may again lie below 2 +
+  eta_2, and are treated in turn". Read per (alpha_0, k), one level's applications number at least the sum over
+  Lambda_0 cap W of K(lambda) + 1, >= 5.83 x 10^20 (LD15); read per exponent (LD16: one application at (alpha_0, k)
+  treats every log power up to k, G5:476-481), at most |Lambda cap W| <= P_W = 85,025,783, which dnumber5 charges in
+  series, 3 each: 3 P_W per level above 3.
+- *The deduction* (deduced; READ G5:448-461, 476-481; J3:62-66; I11:96-107). An application at (alpha_0, j) acts on
+  the current source's term at (alpha_0, j), its coefficient of rho^alpha_0 (log rho)^j, and leaves its remainder at
+  the tf-index set ((alpha_0, j) + E_ind) u ((4, j + 1) + ...), every real part >= Re alpha_0 + eps_ind (min Re E_ind
+  >= eps_ind, the exponents at 4 above Re alpha_0 + eps_ind; (4.3)); Proposition 4.4's log raise at alpha_0 = 2
+  (Remark 4.5, I11:101-102) is in u, a piece, not in the remainder. So no application at alpha_0 takes another's
+  output as its input: at one exponent the map from the source to its u's and remainder is a sum of families, one per
+  log power (or one in all, per exponent), each a coefficient restriction composed with one Proposition 4.4, and a sum
+  has the loss of its worst summand (J3 Lemma 1.2 (a)), the number of summands being finite and fixed. Losses add only
+  along compositions (Lemma 1.2 (b), (e)), and a composition passes only through a remainder, which raises the real
+  part; so a chain of compositions visits distinct points of Lambda cap W (every exponent produced there lies in
+  Lambda, I11 Lemma 1.2 (c)), at most |Lambda cap W| <= P_W of them, and the loop's loss is at most 3 P_W on either
+  reading and in any order of treatment, revisits included. dnumber5's per-level charge is that bound; LD15's 5.83 x
+  10^20 counts applications, not compositions.
+- *Computational support* (computed, exact, `l2par5.py` P2-P3). A scaled model of the loop (exact rational exponents
+  in a window, three increments with log orders, so that the log powers grow along chains and chains merge), each
+  term's loss propagated by Lemma 1.2 (a sum takes the largest loss, an application adds 3): read per (alpha_0, k) and
+  per exponent, in increasing real part and in a seeded random order with revisits, the loop's loss is 24 = 3 x the
+  longest chain of exponents (8) in all four, while the applications number 123, 23, 547 and 38; per (alpha_0, k),
+  every term carries at most its exponent's per-exponent loss, the largest over its log powers equal to it. Controls:
+  an increment of real part 0 (a remainder at its own exponent, one log power up) breaks the bound (C1: 168 > 24);
+  charging the parallel sums in series gives 3 x the applications, LD15's way of counting, and the readings then
+  differ (C2: 369 and 69); an altered pin fails (C3).
+- *Consequence* (deduced). "One level-2 application per exponent" leaves d's reading: d <= 46,236,449,175,331,158 and
+  N <= 970,965,432,681,954,324 hold on both readings of I12:278, the rest of R10.1's reading unchanged, the
+  arithmetic exact. By the same argument the level-1 charge P44_L1 (3 x 11 per level above 3, per (alpha_0, k)) is an
+  over-count of 30 per level, left in place. The integer is unchanged.
+
+### R11.5 Proved, computed, open
+
+- *Deduced, with computational support* (`l2par5.py` 8/8): the level-2 applications at one exponent act in parallel;
+  d's bound holds on both readings of I12:278.
+- *Computed, exact* (modcount5 M6): at alpha_0 -> 2+ the base runs the same R, R_w, n_51 and one Lemma 3.2 more, so
+  alpha_0 := alpha_1 gives the least total.
+- *Unchanged*: **d <= 46,236,449,175,331,158, N <= 970,965,432,681,954,324**, deduced on R10.1's reading without its
+  level-2 clause.
+- *Withdrawn*: "one level-2 application per exponent" as part of d's reading; "the least counts" without "at alpha_0
+  = alpha_1".
+- *Open, each with its single missing input*: lambda0 (a certified enclosure of M_22 for round 2's envelope); I.C:497's
+  scalar-type blocks (sigma_min, uniform in l; INVERSE5-SCALAR.md part A); the six inverse bounds behind lambda1 and
+  delta as INVERSE5-SIX.md round 2 states them. For d, the two finite avoidances are now decided (rootavoid5); what
+  remains of the kind is III.G'''' (4.2) at the second Taylor level, its single missing input g_2's list of
+  tf-exponents (INVERSE5-SCALAR.md B.7); the logarithmic orders of E^flat (the step-by-step ceiling) and the calculus
+  count's order range are parts of d's reading, named in block 1.
+
+### R11.6 Sources (round 11)
+
+The round-10 verifier's findings as relayed (`vD10/`); proof5 read at PART-III-I12-SPECTRAL.md:255-283;
+PART-III-G5-TF.md:440-530, 602-615; PART-III-J3-TAME.md:40-95; PART-III-I11-SPACETIME.md:94-107;
+PART-III-I9-COMMOTION.md:363-382; LOSS-D.md:780-830, 886-894 (LD15, LD16); INVERSE5-SIX.md R2.2;
+INVERSE5-SCALAR.md part B (B.5b, B.7, B.8, C.1) and checks/rootavoid5.out (21/21).
+
+### R11.7 Proposed replacement for the paper's section 9 constants text (replaces R10.7; final)
+
+Two old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content, md5
+e94e239d..., when this round ended); the new texts claim only what R8.1-R11.1 prove or compute, with their statements,
+and on which reading. Pair 1 folds in the round-10 verifier's minor 1 and nit 1 (the second Taylor level read both
+ways; "rounds and steps") and INVERSE5-SCALAR.md C.1 (the two avoidances, decided); pair 2 is R10.7's block 3,
+unchanged. R10.7's block 2 is dropped: its old text, the "Settling" bullet's sentence "The passage to ... still not
+evaluated.", is targeted by INVERSE5-SIX.md R2.2's pair 1, which supersedes it and carries its content, and is targeted
+nowhere here.
+
+1. Section 9, "Settling", the loss d (old: the last sentence of the d passage).
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–11): the weights are taken at a point
+  meeting every condition decidable there, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
+  (`checks/dnumber5.py`, `checks/x7indep5.py`) and over the base level's 8.0 × 10⁷ rounds and steps (its background has
+  K⁺-order only (α − 2)−, so that a round raises the decay by less than α − 4), every fixed step of a level and every
+  step outside the levels is read at its source and charged an upper bound (`checks/modcount5.py`: 212 citations of the
+  families the write-out's tame calculus lists in the levels and 89 in the base level's loops, none left unclassified),
+  and the coefficient orders the write-out fixes by the closed graph theorem are replaced by explicit calculus estimates
+  whose derivative counts are computed over the symbol orders read from its propagation estimates (`checks/d0count5.py`).
+  On that reading d ≤ 46,236,449,175,331,158 ≈ 4.624 × 10¹⁶ and N = 21d + 6 ≤ 9.710 × 10¹⁷ (deduced on the reading, the
+  arithmetic exact; the base level's loops are 5.75 × 10¹⁴ of d), against the floor 8.41 × 10¹⁵ at the same weights. The
+  bound is the same whether the second Taylor level is read one application per exponent or, as the write-out words it,
+  one per exponent and log power: the applications at one exponent act on separate terms of one source and none on
+  another's output, so their losses do not add, whatever the order of treatment (`checks/l2par5.py`). Two parts of the
+  reading are not statements of the write-out: the logarithmic orders of one index set, a ceiling deduced step by step
+  from the proof of the write-out's coarser bound; and the order range of the calculus count, read from its estimates'
+  thresholds. The weights' admissibility conditions hold at the weights used, the two avoidances of finite sets of roots
+  among them, exactly and with certified margins, at every level below and above 3: the levels and rounds are rational,
+  every indicial root they can meet is an integer or irrational, and the two rational coincidences possible are not
+  levels (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py`), on the reading of the
+  exponents below 2 that the integer uses; one condition of the same kind at the second Taylor level waits on exponents
+  the write-out does not list. So the integer bounds the loss that this proof's bookkeeping produces on that reading, not
+  the optimal one.
+```
+
+2. Section 9, "Physical wavelengths", lambda0 (old: the bullet's opening words, to the line's end).
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0025 in the operator norm, 0.0020 in the
+  Frobenius norm and 0.00123 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times beyond
+  it. A value, or a lower certified bound, needs the approximant's linear stages solved. The first can lower the
+  operator-norm bound, for example through its mean correction at the point where the first-order wave is largest,
+  which the symmetry class reduces to one number (computed, `checks/classm5.py`); a certified value of that number
+  needs a validated solve of the first stage for that envelope, whose data on the initial slice are not computed. And
+  a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+Statuses behind the new texts: d's integer, deduced on R10.1's reading less its second-Taylor-level clause (R11.1)
+and its admissibility clause, with exact arithmetic (modcount5 18/18, d0count5 20/20, dnumber5 10/10, x7indep5 9/9,
+l2par5 8/8); the floor, computed (dweights5 W3); the two avoidances, proved with exact arithmetic and certified
+margins (rootavoid5 21/21); lambda0's three bounds, certified for round 2's envelope (lzerotrace5 T7, r7fixes5 R2,
+r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly (classm5 9/9).
+The statuses behind INVERSE5-SIX.md R2.2's pair 1 are stated there.

@@ -19,3 +19,31 @@ Y  the a priori decay behind Hardy; Proposition R5.2's uniformity in sigma (m2)
         psi with coefficients O(1/r): S1 for d h' uses first derivatives of Gamma h' only, no Hardy (c = t, x1, x3;
         generic psi): pass
   Y1' control (r^-1 d_c(Z psi) dropped): second derivatives of psi remain: pass
+  Y2 for phi -> 0 with finite derivative energy: R'^(2a+2) phi(R')^2 <= (2a+2)^-1 int_R'^oo s^(2a+3) phi'^2 (so the Hardy
+        boundary term vanishes at every R' -> oo) and Hardy on [R, oo) (24 random non-power-law fields): pass max
+        boundary/tail 0.9742, max Hardy lhs/rhs 0.9705
+  Y2' control (phi = c + r^-(a+2), c = 1/60: finite derivative energy, limit c): int r^(2a+1) phi^2 = oo, the boundary
+        term -> oo: Hardy fails without the decay: pass
+  Y3 model family (a0 = 1/4): c(sigma) = lim h'(sigma, r) is the same at sigma = 0, -3, -100 and equals lim h'|_N = 0;
+        |d_t h'| r^(3/2 + a0) bounded; |h'| <= C r^(-1/2-a0) with C independent of sigma: pass [0, 0, 0]
+  Y3' controls: h' + 1/60 has c = 1/60 != 0 and violates h'|_N -> 0; h' + t/(60(1 + t^2)) has a sigma-dependent limit and
+        |d_t h'| r^(3/2+a0) unbounded: pass [1/60, 1/60, 1/60]; [0, -1/200, -5/30003]
+M  Lemma R4.5 at every a in (0, 7/2): monotone in the weight (m3)
+  M1 w_a/w_(a') = (u* - u)^(-2(a' - a)) <= 1 for a <= a' since u* - u >= 1: R4.5's fluxes are monotone in a: pass
+  M1' control (u* - u = 1/2 allowed): the ratio exceeds 1: pass
+L  the '+2 for Lemma 9.3' of Proposition R5.4
+  L ||d_r^3 f||^2/||d_r f||^2 ~ lam^-4 on f = (1 + r) sin(v/lam) (lam^4 times it is 1 + O(lam): the exact integrals at
+        lam = 1e-2, 1e-3, 1e-4): Lemma 9.3(a)'s sup bound costs lam^-2 beyond ||d f||; with that cost the recursion is
+        B_J = 3J - 9 (= r5settle5 A2): pass [1.0002166, 1.0000024, 1.0000000]; B_J [Fraction(3, 1), Fraction(6, 1),
+        Fraction(9, 1), Fraction(12, 1), Fraction(15, 1), Fraction(18, 1), Fraction(21, 1), Fraction(24, 1), Fraction(27,
+        1)]
+  L' control (Sobolev to order 4, cost 3): lam^6 ||d_r^4 f||^2/||d_r f||^2 -> 1 and B_J changes: pass [Fraction(4, 1),
+        Fraction(8, 1), Fraction(12, 1), Fraction(16, 1), Fraction(20, 1), Fraction(24, 1), Fraction(28, 1), Fraction(32,
+        1), Fraction(36, 1)]
+A0  the coefficient list of r5settle5 A, from g_b0
+  A0 decay degrees along a ray (R = 1e6, 1e7, 40 digits, f1lemma5's jets of g_b0): g^-1 - eta 2, d g 3, Gamma 3, d d g 4,
+        d Gamma 4, Gamma Gamma 6; with (0.2)'s derivative counts this is r5settle5.COEFS: pass {'g^-1 - eta': 2, 'd g':
+        3, 'Gamma': 3, 'd d g': 4, 'd Gamma': 4, 'Gamma Gamma': 6}; COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]
+  A0' control (the flat metric): no coefficient beyond eta: pass {'g^-1 - eta': None, 'd g': None, 'Gamma': None, 'd d
+        g': None, 'd Gamma': None, 'Gamma Gamma': None}
+T  Theorem P's use of Lemmas 1.1(e) and 2.3 after D623 (m5)

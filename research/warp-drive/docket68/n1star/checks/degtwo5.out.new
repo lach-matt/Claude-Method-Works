@@ -1,5 +1,5 @@
   T1 Ric^H(g) + (1/2) g^ab d_a d_b g_mn free of second derivatives (R^3, g with g00, g01, g11, g22 general functions of
-      (x, y), flat background): True  [19 s]
+      (x, y), flat background): True  [11 s]
 T1 PASS
   T2 Gamma[g0] - Gamma[g0deg] a polynomial of degree <= 2 in (mu - mu0, mu') with coefficients in (r, th, mu0) and no
       constant term, every component: True
