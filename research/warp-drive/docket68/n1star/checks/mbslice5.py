@@ -729,7 +729,7 @@ def main():
     ok &= s4ok and s5ok
     ctl = ctl1 and ctlK and ctl2 and b_ctl and ctl4 and ctl5
     print("controls rejected:", 'PASS' if ctl else 'FAIL')
-    print("S1-S3:", 'PASS' if ok else 'FAIL', "(%.0f s)" % (time.time() - T0))
+    print("S1-S5:", 'PASS' if ok else 'FAIL', "(%.0f s)" % (time.time() - T0))
     return 0 if ok and ctl else 1
 
 

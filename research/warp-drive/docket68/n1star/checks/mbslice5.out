@@ -1,35 +1,35 @@
 mbslice5: Theorem T (iii) and Lemma X1 on every class slice, as exact polynomial identities
-   the abstract theta-integrand from mbsign5's constraint map (13 s)
+   the abstract theta-integrand from mbsign5's constraint map (36 s)
 S3 N_s sqrt(gamma_RR) = 1: True; N_s^2 - gamma_RR (Y_s^R)^2 = f: True
 S3 PASS
    S1, l = 2: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
-   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 14 s)
-   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 15 s)
-   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): True (16 s)
+   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 41 s)
+   S1, l = 2 (|T|^2 = 3/2, k_T^2 = 6), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 44 s)
+   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): True (47 s)
    S1, l = 4: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
-   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 18 s)
-   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 18 s)
+   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 53 s)
+   S1, l = 4 (|T|^2 = 15/2, k_T^2 = 22), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 57 s)
    S1, l = 6: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
-   S1, l = 6 (|T|^2 = 21, k_T^2 = 46), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 20 s)
-   S1, l = 6 (|T|^2 = 21, k_T^2 = 46), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 21 s)
+   S1, l = 6 (|T|^2 = 21, k_T^2 = 46), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 64 s)
+   S1, l = 6 (|T|^2 = 21, k_T^2 = 46), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 68 s)
    S1, l = 8: the integrand's numerator has 146 terms and involves mu: True and the jets q^(0, 1) of the free slice function
-   S1, l = 8 (|T|^2 = 45, k_T^2 = 78), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 23 s)
-   S1, l = 8 (|T|^2 = 45, k_T^2 = 78), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 24 s)
+   S1, l = 8 (|T|^2 = 45, k_T^2 = 78), identity: Euler operator in H zero True, in P zero True (numerator terms 0, 0; 77 s)
+   S1, l = 8 (|T|^2 = 45, k_T^2 = 78), |T|^2 halved: Euler operator in H zero False, in P zero False (numerator terms 207, 36; 81 s)
    the theta-integrated density over |T|^2 at l = 6 and 8 is the affine interpolant in k_T^2 of l = 2 and 4, pointwise, on every slice: True (every l: the minor-8 deduction, which this checks at two more l)
 S1 PASS
-   S2, l = 2: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (26 s)
-   S2, l = 4: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (26 s)
-   S2, l = 6: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (26 s)
-   S2, l = 8: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (26 s)
+   S2, l = 2: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (84 s)
+   S2, l = 4: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (84 s)
+   S2, l = 6: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (84 s)
+   S2, l = 8: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler operator in H: True; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: True (85 s)
    controls: k_T^2 + 3 in place of k_T^2 + 2 fails at every l (rejected): True; R^3 P^2 doubled fails at every l (rejected): True
 S2 PASS
 S4 mbsign5 E4 (a) and (c) exactly, on the static slice, every (R, theta, mu) (mu = R^2 (1 - nu^2), sqrt f = nu; theta by t = tan(theta/2))
-   (a) C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2: True; every coefficient free of theta (its t-derivative the zero rational function): True; the radial coefficients mbsign5 E5-E9 use are these exactly: True (50 s)
-   (c) D R[L_X gamma] = 0: True; the Euler operator of N D R[h] sqrt(gamma) zero in all five components: True; M[k_psi] = 0: True; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): True; control: k = D^2 psi without - psi Ric does not solve M (rejected): True (55 s)
+   (a) C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2: True; every coefficient free of theta (its t-derivative the zero rational function): True; the radial coefficients mbsign5 E5-E9 use are these exactly: True (126 s)
+   (c) D R[L_X gamma] = 0: True; the Euler operator of N D R[h] sqrt(gamma) zero in all five components: True; M[k_psi] = 0: True; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): True; control: k = D^2 psi without - psi Ric does not solve M (rejected): True (141 s)
 S4 PASS
 S5 qsign5 Q1 exactly: the momentum-seed identity for arbitrary G = g^2, kappa0, Y0, nu and E = e^(Ia), every (R, theta)
-   the seed (psi, s1) solves the linearised H, M_R, M_th identically: True; the Euler operator of (Q-density - decomposition) in psi and s1 is the zero rational function of (R, t, the jets of g, kappa0, Y0, nu, psi, s1, and e^(Ia)): True; control: 4 nu E^2 -> 3 nu E^2 gives a nonzero Euler operator (rejected): True (39 s)
+   the seed (psi, s1) solves the linearised H, M_R, M_th identically: True; the Euler operator of (Q-density - decomposition) in psi and s1 is the zero rational function of (R, t, the jets of g, kappa0, Y0, nu, psi, s1, and e^(Ia)): True; control: 4 nu E^2 -> 3 nu E^2 gives a nonzero Euler operator (rejected): True (77 s)
 S5 PASS
 controls rejected: PASS
-S1-S3: PASS (120 s)
+S1-S5: PASS (303 s)
 exit 0

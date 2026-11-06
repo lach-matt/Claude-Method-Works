@@ -29,10 +29,11 @@ Nothing in the paper or in N1STAR-PROOF.md is edited.
      error bound the reader asked for.
 3. **Theorem L″'s lobe is moved** (R8.3) to b(R; 3.5, 4.05), so that the bend lies in {u ≤ u1}. Σ′ = Σ_τ0 outside
    [3.5, 5.75]; it is bent by at most 0.00116, and the angular widening is at most 0.00033 rad.
-4. **The N-family ledger is computed** (R8.4, nledger5). Every term of the N-family linearisation is written out for
-   N = 2..8 and evaluated with twoledger5's rules, one by one. All pass. The term types are exactly the two-family
-   ledger's. The count is 16N² + 23N + 4 at the family level and a polynomial of degree 4 once coefficient sources
-   are counted. R6's "O(N³)" is corrected; the count enters only the constants.
+4. **The N-family ledger is computed** (R8.4, nledger5). Every term of the N-family linearisation is written out for N =
+   2..8 and evaluated with twoledger5's rules, one by one. All pass. The term types are exactly the two-family ledger's.
+   The count is 16N² + 23N + 4 at the family level and a polynomial of degree 4 once coefficient sources are counted.
+   R6's "O(N³)" is corrected; the count enters only the constants. [R10: with stages 0..M the degree is M + 4; nledger5
+   L2, FAMILIES5-R10.md.]
 5. **Lemma O″** (R8.5) states the tubes' dependence on u′, the condition supp q′ ⊂ int S, and the radial dusts'
    supports.
 6. **The axis computation is repaired** (R8.6, qsign5 Q7).
@@ -114,8 +115,9 @@ become interval quotients.
   - C2: certified at n = 80 and 160 (largest upper bounds −3.01 × 10⁻⁴ and −3.06 × 10⁻⁴).
   - C2d: on R < R_*, with every input widened by 10⁻³ of its size plus 10⁻⁶, it still certifies (upper bound
     −6.46 × 10⁻³ at n = 160). The margin below R_* is twenty times C2's, which is set in the bend.
-  - Controls, which fail as they must: Γ's sign flipped; Γ without 4νE²; d = (0.5, 0.5, 5); A = 0.001 (220
-    sub-cells fail, upper bound +4.9 × 10⁻⁵); A = 0 (314 fail); a widening of 0.5 (3,386 fail).
+  - Controls, which fail as they must: Γ's sign flipped; Γ without 4νE²; d = (0.5, 0.5, 5); A = 0.001 (220 sub-cells
+    fail, upper bound +4.9 × 10⁻⁵); A = 0 (314 fail); a widening of 0.5 (3,386 fail). [R10 (minor 5): Γ's sign flipped
+    is replaced by an input mutation, the mass μ0 → −μ0 (235 cells fail).]
 
 C1d and C2d concern the computed background's neighbourhood. C1d is what carries Γ > 0 to the background itself:
 truebg5 T2 certifies that the background itself lies in C1d's tube (R8.2). C2d is not needed, since T3 certifies the
@@ -167,7 +169,10 @@ N′ = {v = 0}. Those data are e^(2s) = 1/2 on both cones, the shell A = 3.6 b(v
   - The values agree with the computed background to its discretisation level. At v̂ = 0.5 the true ψ_III is
     −0.2060929, against the spline's −0.2061130; in the packet the six inputs agree with twobg5's crossing data to
     a few parts in 10³ of their sizes (T2, T4).
-  - μ3 ∈ [0.8220998, 0.8221253] contains the computed μ0 = 0.8221072.
+  - μ3 ∈ [0.8220998, 0.8221253] contains the computed μ0 = 0.8221072. [R10 (nits): the v̂ = 0.5 values and μ0 above were
+    from an n = 80 scratch run; truebg5.out (n = 160) prints ψ_III(0.5) ∈ [−0.20610997, −0.20607584] against the n = 160
+    spline's −0.20610803 (inside the enclosure), and μ0 = 0.82211118 (n = 160) inside μ3's enclosure. "A few parts in
+    10³" should read "up to 3 % of the smaller inputs" (T4).]
 
 **Validated integration.** The N′ data on [5.7, 7.2] are (R, R_u, R_v) with R″ = −B/(3R²) and
 R_v′ = −(1/2 + 2 R_v R_u)/R; before u1 they are exact. Each ray carries (R, J, K, L). Both are integrated by Taylor
@@ -183,7 +188,8 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
   R_*], the part of Σ′ in the development of the data below R_*. On every cell it is checked with the region I, packet
   and region III formulas, according to where the slice point can lie. It is certified on every cell: 276 rays, with 1
   region I piece, 8,834 packet step boxes and 119 region III pieces tested, and largest upper bound −4.76 × 10⁻³.
-  Control: with every packet input widened by half its size, all 8,834 step boxes fail.
+  Control: with every packet input widened by half its size, all 8,834 step boxes fail. [R10 (nit): v̂ = 0 is R = 0.680,
+  since τ0 = −0.68; truebg5 prints [0.68, R_*].]
 - **T2** (Corollary Q's margin, through C1d). Region III on Σ_τ0 ends at R_u2 ∈ [1.861394, 1.861466]: R2(v̂) =
   v̂ − τ0 has one zero, since dR2/dv̂ < 1 on every cell, and its signs are certified at the bracket. So the seed
   region R ∈ [0.70, 1.861] lies in region III, with f3 > 0 at u2 on every cell.
@@ -193,8 +199,11 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
     enclosures for k = 2. |μ3 − μ0| ≤ 1.4 × 10⁻⁵.
   - These lie inside C1d's tube, d = (10⁻³, 10⁻³, 3 × 10⁻²) and |Δμ| ≤ 10⁻⁴, on which C1d certifies Γ > 0. So
     Γ > 0 on the seed region for the background itself.
-  - The discretisation error is a few times larger than the n = 80 / 160 difference (1.1 × 10⁻⁵ in ψ): convergence
-    in n did not measure it, and the a posteriori bound does.
+  - The discretisation error is a few times larger than the n = 80 / 160 difference (1.1 × 10⁻⁵ in ψ): convergence in n
+    did not measure it, and the a posteriori bound does. [R10 (nit): withdrawn as stated. 5.1 × 10⁻⁵ is a certified
+    upper bound, not a measured error; at v̂ = 0.5 the n = 160 spline lies inside the true enclosure. The certificate
+    uses only the bounds; T2's bounds are now upper ends of intervals throughout, and a control (the tube shrunk to
+    d/10) fails.]
   - Control: with B's amplitude × 1.001 in the reduction, the spline is at least 2.3 × 10⁻⁴ from that ψ_III, more than
     the agreement above.
 - **T4** (a posteriori in the packet). At 40 of twobg5's n = 160 crossings in the packet, the computed inputs differ
@@ -209,7 +218,7 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
   10⁻⁶; A = 0 not hyperbolic (1,944 cells fail).
 
 **What is certified, exactly.** For the background defined by the stated characteristic data:
-- Rácz's split is hyperbolic on all of Σ′ ∩ {v̂ ≥ 0}, that is R ≥ 0.683 (T3 and C3; beyond 5.75 exact).
+- Rácz's split is hyperbolic on all of Σ′ ∩ {v̂ ≥ 0}, that is R ≥ 0.683 (T3 and C3; beyond 5.75 exact). [R10: R ≥ 0.680.]
 - Γ > 0 on the seed region (T2 with C1d).
 - Σ_τ0's band is the single interval of C3, up to its edge zones.
 
@@ -248,17 +257,19 @@ N-family linearisation itself and evaluates every term with twoledger5's own `we
   family, or a pair (stage 1's quadratic terms).
 
 **Results (nledger5.out).**
-- **L1.** For N = 2..8 every term passes at k = K = 6: 114 to 1,212 terms at the family level, and 285 to 19,464
-  with sources. The set of term types (U, p, κ, m, operations, extra, w) is exactly the two-family ledger's 45, for
-  every N. The N = 4 list (1,942 terms) passes every term on k = 6..12 × K = 6..10.
+- **L1.** For N = 2..8 every term passes at k = K = 6: 114 to 1,212 terms at the family level, and 285 to 19,464 with
+  sources. The set of term types (U, p, κ, m, operations, extra, w) is exactly the two-family ledger's 45, for every N.
+  The N = 4 list (1,942 terms) passes every term on k = 6..12 × K = 6..10. [R10 (minor 3): computed for N = 2..8; for
+  every N because the generator never reads a family label into a row's numbers.]
 - **L2.** The counts are 16N² + 23N + 4 at the family level and 3N⁴ + (21/2)N³ + 25N² + (49/2)N + 4 with sources
   (exact on N = 2..8). A Step 6 cross term (target A, unknown B) with a pair source {C, D} carries four labels, so
   R6's "O(N³) terms" is corrected to degree 4 [R8 note at R6 section 4]. The count enters only the constants M(N)
   and λ0(N).
 - **L3.** A product of one, two or three oscillating profiles with non-resonant phases has m-th derivatives exactly
   of order λ^(−m), for m = 0..4 (sympy). So κ = 1 holds for every source, and a resonant product costs less.
-- **L4.** The closing rows are N-independent in their powers. Step 7's M(N) := C3(C_D(N) + 1 + C_R(N)) + 1 and
-  λ0(N) := 1/(C3 C(N) M(N)²) close for any positive constants (exact).
+- **L4.** The closing rows are N-independent in their powers. Step 7's M(N) := C3(C_D(N) + 1 + C_R(N)) + 1 and λ0(N) :=
+  1/(C3 C(N) M(N)²) close for any positive constants (exact). [R10 (minor 3): a definition check -- it holds by λ0's
+  definition, so no control can fail; nledger5 now says so.]
 - **Controls**, which fail as they must:
   - (a) family A's own λ⁻¹ term left uncontracted (exponent −1);
   - (b) a cross term without its (1 − 𝒫) gain (−1);
@@ -340,6 +351,10 @@ error in Theorem X or Theorem P and re-derived every identity symbolically (R8.9
   non-gauge first-order part exist near Part I's data, for small amplitude, on every vacuum band meeting {f < 0}.
 - Outside the horizon E > 0 on every non-gauge perturbation. So no such data exist there at second order.
 
+[R10 (Major 1 of the round-8 confirming reader): read "inside the horizon" as {f < 0}, inside the apparent horizon R² =
+μ, and "outside the horizon" as {f > 0}, for invariant perturbations. Bands with √μ3 < R < R_EH meet the black-hole
+region with f > 0, and there Theorem P gives E > 0. The corrected block is FAMILIES5-R10.md R10.1.]
+
 The block's last sentences carry this, rebased onto R7.6's last sentence with its qualifiers (R8.8).
 
 ## R8.8 Proposed replacement for the paper's section 9 bullet "More families"
@@ -349,7 +364,8 @@ the passage to Vlasov matter are not attempted." and ends "No statement about se
 exactly once in `paper/RESPONSE-HL-5D.md` (section 9, "What is not proved"; at present the bullet starting at line
 1528). It is quoted verbatim in R7.6 and is unchanged in the paper. This block supersedes R7.6's, FAMILIES5-MB.md
 section 7's and every earlier proposal; its last four sentences, from "For first-order parts that perturb the metric",
-are the single M_b paper text.
+are the single M_b paper text. [R10: superseded by FAMILIES5-R10.md R10.1, which corrects the black-hole-region sentence
+(Major 1) and the labels (minors 1, 2, 4).]
 
 New:
 
@@ -427,12 +443,13 @@ control rejected: `checks/mbsign5.out` (the default run, 292 s) and `checks/mbsi
   (iii) and E3 (a)-(b) are exact at three rational slice points, a spot check in the slice. On every class slice they
   rest on the verifier's own symbolic check (w = 2/(f + q²), q free), which corroborates them; a symbolic run inside the
   record was tried in round 8 and did not finish in the time available. The final block accordingly says "computed" for
-  the tensor charge, without "on every slice".
+  the tensor charge, without "on every slice". [R10: computed in round 9-10 -- mbslice5 S1, S2 on every slice at l = 2,
+  4, 6, 8, every l deduced; E4 (a), (c) and qsign5 Q1 exact in S4, S5; FAMILIES5-R10.md.]
 - **Minor 2** (`--full` relied on a homothety that holds only for weight-homogeneous identities). *Repaired.* `--full`
   is now symbolic in R, μ and k² through μ = xR², with x a free symbol. This is a change of variables, so no
   homogeneity is assumed. Every E4-E9 identity passes (235 s), and a non-homogeneous mutation can no longer pass.
 - **Minor 3** (E9 did not enforce the sign). *Repaired.* The + sign is required, and its opposite is a control
-  (rejected).
+  (rejected). [R10 (minor 5): the control is now an input mutation, h = 2k (the lapse dropped).]
 - **Minor 4** (E4, E8 and E9 had no controls; the l = 0 kinetic part). *Repaired.*
   - Controls: E4, the lapse direction without −ψ Ric, does not solve M; E8, X = F∂_R in place of RF∂_R, does not
     solve the l = 0 constraint; E9, the opposite sign. All are rejected.
@@ -446,8 +463,9 @@ control rejected: `checks/mbsign5.out` (the default run, 292 s) and `checks/mbsi
   with B(δ0, ·) ≢ 0, Proposition L′ on δ0 + sη with s(ε) = O(ε) gives the data. δ0 in Q's radical is left to third
   order and not claimed.
 - **Minor 7** (the docstring identified E with the canonical energy). *Removed.*
-- **Minor 8** (Theorem T for every l). *Written* in a note: the θ-integrated density is |T|² times a quantity affine
-  in k_T², so the identity at l = 2 and 4 gives every l.
+- **Minor 8** (Theorem T for every l). *Written* in a note: the θ-integrated density is |T|² times a quantity affine in
+  k_T², so the identity at l = 2 and 4 gives every l. [R10: and computed at l = 6, 8 (mbslice5 S1); k_T² is not carried
+  as a free symbol, so every l stays deduced.]
 - **Section 5's gap** (re-slicing generators). *Stated.* "To every order" is claimed only where each order's generator
   can be chosen with the allowed support, and is otherwise excluded.
 - **Nits.**

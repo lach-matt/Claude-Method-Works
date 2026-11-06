@@ -43,7 +43,7 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
       |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2 (point rays at the cell ends, centred forms with the cells' enclosures
       for k = 0, 1, the cells' enclosures for k = 2) and on |mu3 - mu0|, all within C1d's d and d mu. C1d certifies
       Gamma > 0 for every background in the tube, so for this one. Controls: with B's amplitude x 1.001 in the reduction,
-      the spline is farther from it than that agreement; [R8] the tube shrunk to d/10 does not contain the background.
+      the spline is farther from it than that agreement; [R10] the tube shrunk to d/10 does not contain the background.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
@@ -525,8 +525,8 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']
     d8 = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs_) - s160.derivative(k)(t0 + Rs_)))) if k else
           float(np.max(np.abs(s80(t0 + Rs_) - s160(t0 + Rs_)))) for k in range(3)]
-    print("   (the n = 80 and 160 splines differ by %.1e, %.1e, %.1e, sampled: the discretisation error is larger than "
-          "the n-convergence suggested, and inside the tube)" % tuple(d8))
+    print("   (the n = 80 and 160 splines differ by %.1e, %.1e, %.1e, sampled; the bounds above are certified upper "
+          "bounds, not measured errors, and the certificate uses only them)" % tuple(d8))
     # control: B's amplitude shifted by 0.1 %: the spline is farther from that psi_III than the agreement above
     nd2 = NData(bamp=1.7 * 1.001)
     cerr = 0.0
@@ -537,7 +537,7 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
         cerr = max(cerr, 0.0 if dd.a <= 0 <= dd.b else min(abs(float(dd.a)), abs(float(dd.b))))
     _W['nd'] = nd
     print("   controls: with B's amplitude x 1.001 in the reduction the spline is at least %.1e from it at the points, "
-          "more than the agreement %.1e above (rejected): %s; [R8] the tube shrunk to d/10 and d mu/10 does not "
+          "more than the agreement %.1e above (rejected): %s; [R10] the tube shrunk to d/10 and d mu/10 does not "
           "contain the background (rejected): %s" % (cerr, float(perr[0]), cerr > perr[0], not inside10))
     return reg3 and inside and cerr > perr[0] and not inside10
 

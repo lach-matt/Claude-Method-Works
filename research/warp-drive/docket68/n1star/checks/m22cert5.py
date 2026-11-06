@@ -18,8 +18,9 @@ READ (cited values). It imports m22evol5.py (the system, the solver, the data) a
      above over m in [1/r^2, mu_end/r^2]. Its integral over [tau0, tau*] is a certified lower bound on the exponent of
      the estimate's Gronwall factor.
   X4 (computed, floating point) The residual: the tau-tau component of the PDE residual of the solver's interpolant,
-     measured off the collocation nodes (on the grid with twice the nodes) at eleven times, at Nr x Nx = 32 x 12,
-     40 x 12, 48 x 16; the route's bound int e^(Lambda(s)) ||rho(s)|| ds against what m_lo > 0 needs.
+     measured off the collocation nodes (on the grid with twice the nodes) at twelve times, at Nr x Nx = 32 x 12,
+     40 x 12, 48 x 16, 64 x 20; the route's bound int e^(Lambda(s)) ||rho(s)|| ds against what m_lo > 0 needs, and the
+     resolution at which it would fall below (extrapolated).
   X5 (computed) What m_lo buys (m22evol5's chain): the bounds at m_lo = 1 and 1/2.
   Controls (each mutates the computed path and must fail): C1 P_eta without its factor 1/2: X1's cancellation of the
   principal parts fails; C2 the envelope with each slope taken at the piece's end: X2's supersolution test fails; C3
@@ -282,7 +283,7 @@ def check_x4(funcs, env, fode, prof, s_tot):
     targets = list(np.linspace(-1.6, 1.6, 9)) + [1.7, float(ME.TAU_STAR) - 1e-9]
     s_arr, l_arr = np.array([p[0] for p in prof]), np.array([p[1] for p in prof])
     rows = {}
-    for cfg in ((32, 12, 1.0), (40, 12, 1.0), (48, 16, 1.0)):
+    for cfg in ((32, 12, 1.0), (40, 12, 1.0), (48, 16, 1.0), (64, 20, 1.0)):
         t1 = time.time()
         smp, m22v = run_with_samples(funcs, env, fode, *cfg, targets)
         taus = np.array([q[0] for q in smp])
@@ -337,15 +338,24 @@ def main():
     with contextlib.redirect_stdout(io.StringIO()):
         fode = ME.mode_setup()
     rows = check_x4(funcs, env, fode, prof, s_tot)
-    best = rows[(48, 16, 1.0)][3]
-    OK['X4'] = all(np.isfinite(r_[3]) for r_ in rows.values())
+    b48, b64 = rows[(48, 16, 1.0)][3], rows[(64, 20, 1.0)][3]
+    OK['X4'] = all(np.isfinite(r_[3]) for r_ in rows.values()) and b64 < b48 and b64 > need
     print('  X4 (computed, floating point): the route\'s bound for the solver\'s solution, int e^Lambda ||rho_tautau|| '
-          'ds, is %.2e at 48 x 16 against the %.2f it must stay below (a factor %.1e above it), %.2e at 40 x 12 and '
-          '%.2e at 32 x 12; rho_tautau alone, a lower bound on the residual the route needs: %s'
-          % (best, need, best / need, rows[(40, 12, 1.0)][3], rows[(32, 12, 1.0)][3], OK['X4']))
-    per = {k: v_[5] for k, v_ in rows.items()}
-    print('  Cost (measured): the three runs with their residuals took %s s' % ', '.join('%.0f' % v_ for v_ in
-                                                                                     per.values()))
+          'ds (rho_tautau alone, a lower bound on the residual the route needs), is %.2e at 32 x 12, %.2e at 40 x 12, '
+          '%.2e at 48 x 16 and %.2e at 64 x 20, against the %.2f it must stay below: still a factor %.1e above it at '
+          'the finest grid, though falling: %s' % (rows[(32, 12, 1.0)][3], rows[(40, 12, 1.0)][3], b48, b64, need,
+                                                  b64 / need, OK['X4']))
+    step = b48 / b64
+    k = math.log(b64 / need) / math.log(step)
+    kk = math.ceil(k)
+    Nr, Nx = 64 + 16 * kk, 20 + 4 * kk
+    t64 = rows[(64, 20, 1.0)][5]
+    cost = t64 * (Nr / 64) ** 2 * (Nr * Nx * (Nr + Nx)) / (64 * 20 * 84)
+    print('  Resolution and cost (extrapolated from the last two grids, floating point): one step (+16 in r, +4 in x) '
+          'divides the bound by %.1f, so it would fall below %.2f after %.1f more steps, at about %d x %d; the run with '
+          'its residual took %.0f s at 64 x 20, and scales as Nr^3 Nx (Nr + Nx), so about %.0f s there. That is for '
+          'the lower bound of X3 alone, with the residual measured, not certified, and of the tau-tau component only'
+          % (step, need, k, Nr, Nx, t64, cost))
     m1, mh = ME.lam_of(1.0), ME.lam_of(0.5)
     OK['X5'] = m1[0] < 0.0024433 and mh[0] < 0.0024433
     print('  X5 (computed): a certified m_lo would give lambda0 < %s at m_lo = 1 and %s at m_lo = 1/2 (operator norm, '
