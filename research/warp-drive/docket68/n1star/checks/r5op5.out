@@ -8,3 +8,10 @@ O2  the degrees of P(g_b0 + Sigma_p) on the operator
         enters at -p - 4: pass 6.0, 6.512
   O2' control (F = 1 + s, not a flat solution): decay 4: pass 4.0
 O1  the coefficients B(H), C(H) of DP(H) along a ray of W, and the kernels composed from them
+  O1 measured decay of B(0), C(0), B(H) - B(0), C(H) - C(0) along the ray: 3, 4, 3, 4: pass [3.0, 4.0, 3.0, 3.998]
+  O1' the kernels composed from them are all > 1 (integrable in sigma): pass {'B(0) . d phi': 3, 'C(0) phi (Hardy)': 3,
+        '(B(H) - B(0)) . d phi': 3, '(C(H) - C(0)) phi (Hardy)': 3, '(g^-1 - g_b0^-1) d d phi (Z4a)': 2}
+  O1'' control (H mutated to r^-2 F(v - v1) P): the H-coefficients decay like r^-2 and the zero-order kernel exponent is
+        1, not integrable: FAIL B: 1.013, C: 2.051
+FAILED: ["O1'' control (H mutated to r^-2 F(v - v1) P): the H-coefficients decay like r^-2 and the zero-order kernel
+        exponent is 1, not integrable"]
