@@ -805,8 +805,7 @@ def e7(c0):
           "H_KI = m + 6x > 0: %s" % (spec, quad, disc, m5, big, hk))
     # control: the l-form potential at m = 5, mu = 1 is negative near the horizon
     c05 = sp.factor(c0.subs({k2: 8, mu: 1}))
-    numc = sp.numer(sp.together(c05 / (1 - 1 / r**2)**3))
-    vals = [sp.sign(numc.subs(r, rv)) for rv in (sp.Rational(101, 100), 3)]
+    vals = [sp.sign(sp.nsimplify(c05.subs(r, rv))) for rv in (sp.Rational(101, 100), 3)]
     ctl = vals[0] != vals[1]
     print("   control (wrong sign): the potential c0 of the l-form at m = 5, mu = 1 changes sign on r > 1 (sign %s "
           "at r = 1.01, %s at r = 3): positivity is not automatic, the S-deformation is needed (rejected): %s"

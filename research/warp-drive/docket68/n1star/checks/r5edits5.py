@@ -11,7 +11,9 @@ new sentences state (the round-4 reader's m1-m2 and the section-11 reader's note
      (e) gives c's remainder as E_(3/2)
      and d u's phase-shift term as E_(5/2); (f) says that b . d U and c U enter through Lemma 9.5's source before
      Gronwall's lemma, not through its kernel. Control (the code under test applied to the original text): every one of
-     (a)-(f) fails on the current Lemma 11.0.
+     (a)-(f) fails on the current Lemma 11.0. E1f (round 6, exact): the mathematics the text states, read from it by
+     r6edits5.math_checks (E2a-E2d there), so that a mutation of a stated bound or factor fails (the round-5 reader's
+     E-m5 and E-m6 passed E1a-E1e).
   E2 (exact, sympy) d u's lam^0 terms by the two-scale chain rule, in the radial model: the lam^0 part of
      d(lam W(r, v/lam + phi_1)) is dv d_th W(r, theta + phi_1); its difference from dv d_th W(r, theta), with W =
      r^(-3/2) w(theta) and phi_1 = c r^-1 (phi_1 in L_1), decays exactly like r^(-5/2) (E_(5/2)), and the lam^0 part of
@@ -104,6 +106,14 @@ def e1():
           all(new_p.values()), str(new_p))
     check("E1e control (the same predicates on the current, unedited Lemma 11.0): every one fails",
           not any(old_p.values()), str(old_p))
+    # [R6 (m6 of the round-5 reader, its surviving mutants E-m5, E-m6)] the mathematics the text states, read from it
+    import r6edits5 as R6E
+    pre = Q[Q.index("### 11.1 The expansion of g_lam at past null infinity"):a2]
+    res = R6E.math_checks(re.sub(r"\s+", " ", lemma110(Q)), re.sub(r"\s+", " ", pre), r6=False)
+    check("E1f [R6] the mathematics of the edited Lemma 11.0, read from its text (r6edits5 E2a-E2d): Leibniz's rule "
+          "with the 1/2 and C(gamma, gamma') read; the bounds of b . d U and c U against the classes of b and c; the "
+          "kernel their sum; the factor exp of its integral over t >= lam^-2", all(v[0] for v in res.values()),
+          str({k: v[0] for k, v in res.items()}))
 
 
 def e2():

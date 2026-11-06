@@ -122,7 +122,8 @@ def read_bounds(L):
     rb = re.search(r"\|\|b \. d U\|\| <= C (?:lam\^(-?\d+) )?t\^\(([-\d/]+)\) \|\|d U\|\|", L)
     rc = re.search(r"\|\|c U\|\| <= C lam\^(-?\d+) t\^\(([-\d/]+)\) \|\|U\|\| <= C lam\^(-?\d+) t\^\(([-\d/]+)\) "
                    r"\|\|d U\|\|", L)
-    cf = re.search(r"c := dF_1/d u_1 = -\(1/2\) lam\^(-?\d+) \(\.\)\(ell_lam, ell_lam\) \[d_th\^2 W_TT\] \+ E_\(3/2\)", L)
+    cf = re.search(r"c := dF_1/d u_1 = -\(1/2\) lam\^(-?\d+) \(\.\)\(ell_lam, ell_lam\) \[d_th\^2 W_TT\] "
+                   r"\+ E_\(3/2\)", L)
     bf = re.search(r"b := dF_1/d\(d u_1\), in E_\(([\d/]+)\) and of lam-order (\d+)", L)
     ker = re.search(r"exp\(int C\(1 \+ lam\^(-?\d+)\) t\^\(([-\d/]+)\)\)", L)
     fk = re.search(r"\|\|f_gamma\|\| <= C\(1 \+ lam\^(-?\d+)\) t\^\(([-\d/]+)\) sum_\{\|(?:delta|gamma')\| = j \+ 1\} "
@@ -321,7 +322,8 @@ MUTANTS = [
      "        + sum_{gamma' <= gamma, |gamma'| = 1}"),
     ("C(gamma, gamma') dropped at the |gamma'| >= 2 sum", "|gamma'| >= 2} C(gamma, gamma') (d^{gamma'}",
      "|gamma'| >= 2} (d^{gamma'}"),
-    ("R_gamma's source E_3 -> E_(5/2)", "d_X^gamma F_1(X, 0, 0), in E_3, has", "d_X^gamma F_1(X, 0, 0), in E_(5/2), has"),
+    ("R_gamma's source E_3 -> E_(5/2)", "d_X^gamma F_1(X, 0, 0), in E_3, has",
+     "d_X^gamma F_1(X, 0, 0), in E_(5/2), has"),
     ("max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read)", "<= max(4, N - 3) for every N >= 1",
      "<= max(4, N - 4) for every N >= 1"),
 ]
