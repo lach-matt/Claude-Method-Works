@@ -384,6 +384,39 @@ def lead_numeric(a, b, c, nus, pred=None):
 NUS = [sp.Rational(k, 2) for k in range(1, 10)]
 
 
+def scalar_growth(nu_val=None):
+    """round 10: the leading Cartesian coefficients (a, b, c/r) of u_1, u_2, u_3 at r^(l - 1), r^(l + 1), r^l (the
+    limits as r -> oo of the components of their leading terms divided by those powers), nu symbolic or at nu_val;
+    all finite and not all 0 means Cartesian growth exactly that power"""
+    _, _, u1, u2, u3 = three_solutions()
+    sub = {} if nu_val is None else {nu: nu_val}
+    CP, CA = lead_coeff(-nu, nu + 1, 1), lead_coeff(1 - nu, nu + 2, 2)
+    kk = (4*nu*(nu + 1)).subs(sub)
+    lp, la = (CP*(r**2/mu)**nu).subs(sub), (-CA*(r**2/mu)**nu).subs(sub)
+    want = [w_.subs(sub) for w_ in (2*nu - 1, 2*nu + 1, 2*nu)]
+    lims = []
+    for u_, lead_sub, w_ in ((u1, {_psi: lp}, want[0]), (u2, {_psi: lp}, want[1]), (u3, {_A: la}, want[2])):
+        out = []
+        for c_ in (u_[0], u_[1], u_[2]/r):
+            c_ = sp.sympify(c_).subs(lead_sub).doit().subs(kap, kk)
+            e_ = sp.simplify(sp.powsimp(sp.expand_power_base(sp.expand(c_/r**w_), force=True), force=True))
+            out.append(sp.simplify(sp.limit(e_, r, sp.oo).subs(sub)))
+        lims.append(out)
+    exact = [all(q_.is_finite is not False and q_ not in (sp.oo, -sp.oo, sp.zoo, sp.nan) for q_ in L_) and
+             any(q_ != 0 for q_ in L_) for L_ in lims]
+    return want, lims, exact
+
+
+def vector_growth(l_val):
+    """round 10: the leading coefficient of psi/r at r^l for the horizon-regular vector solution of degree l_val"""
+    l = sp.Symbol('l', positive=True)
+    C = lead_coeff(-(l + 1)/2, (l + 1)/2, sp.Integer(1)).subs(l, l_val)
+    e_ = sp.simplify(sp.powsimp(sp.expand_power_base(C*(r**2/mu)**sp.Rational(l_val + 1, 2)/r/r**l_val, force=True),
+                                force=True))
+    lim = sp.simplify(sp.limit(e_, r, sp.oo))
+    return sp.Integer(l_val), lim, (lim.is_finite is not False and lim != 0 and lim not in (sp.oo, sp.zoo, sp.nan))
+
+
 def n2(control=False):
     odeP, odeA, u1, u2, u3 = three_solutions()
     redP, redA = _reducer(_psi, odeP), _reducer(_A, odeA)
@@ -420,19 +453,6 @@ def n2(control=False):
     # growth at infinity: psi ~ C_P (r^2/mu)^nu, A ~ -C_A (r^2/mu)^nu (C_A that of F_A, times (1 - x))
     CP, CA = lead_coeff(-nu, nu + 1, 1), lead_coeff(1 - nu, nu + 2, 2)
     numP, numA = lead_numeric(-nu, nu + 1, sp.Integer(1), NUS), lead_numeric(1 - nu, nu + 2, sp.Integer(2), NUS)
-    lp = CP*(r**2/mu)**nu
-    la = -CA*(r**2/mu)**nu
-
-    def growth(u, lead_sub, want):
-        """the limits as r -> oo of the Cartesian components a, b, c/r of the leading term, divided by r^want: all
-        finite and not all 0 means Cartesian growth exactly r^want"""
-        out = []
-        for c_ in (u[0], u[1], u[2]/r):
-            c_ = sp.sympify(c_).subs(lead_sub).doit().subs(kap, kk)
-            e_ = sp.simplify(sp.powsimp(sp.expand_power_base(sp.expand(c_/r**want), force=True), force=True))
-            out.append(sp.simplify(sp.limit(e_, r, sp.oo)))
-        return out
-
     def nonzero(co):
         """a product of signs, powers of nu, nu + 1, mu and Gamma functions of positive arguments: nonzero for nu > 0"""
         for fa in sp.Mul.make_args(sp.factor(co)):
@@ -448,11 +468,8 @@ def n2(control=False):
             if not (positive_sum(base, [nu, s]) or positive_sum(-base, [nu, s])):
                 return False
         return True
-    want = [2*nu - 1, 2*nu + 1, 2*nu]                       # u_1, u_2, u_3: l - 1, l + 1, l
-    lims = [growth(u_, sub_, w_) for u_, sub_, w_ in ((u1, {_psi: lp}, want[0]), (u2, {_psi: lp}, want[1]),
-                                                      (u3, {_A: la}, want[2]))]
-    exp_ok = all(all(q_.is_finite is not False and q_ not in (sp.oo, -sp.oo, sp.zoo, sp.nan) for q_ in L_) and
-                 any(q_ != 0 for q_ in L_) for L_ in lims)
+    want, lims, exact = scalar_growth()                      # u_1, u_2, u_3: l - 1, l + 1, l
+    exp_ok = all(exact)
     coefs = [q_ for L_ in lims for q_ in L_ if q_ != 0]
     nz_ok = len(coefs) == 6 and all(nonzero(co) for co in coefs)
     exps = want
@@ -461,10 +478,8 @@ def n2(control=False):
         # the same growth reading at l = 1 (nu = 1/2): u_1 = d(psi S) has Cartesian growth exactly r^0, so the least
         # exponent is below 1 and the conclusion fails: the four l = 1 kernel forms of (A71), at every weight in (-1, 0)
         sub_h = {nu: HALF}
-        lims_h = [growth(u_, {k_: v_.subs(sub_h) for k_, v_ in sub_.items()}, w_.subs(sub_h))
-                  for u_, sub_, w_ in ((u1, {_psi: lp}, want[0]), (u2, {_psi: lp}, want[1]), (u3, {_A: la}, want[2]))]
-        lims_h = [[sp.simplify(q_.subs(sub_h)) for q_ in L_] for L_ in lims_h]
-        exact = all(any(q_ != 0 for q_ in L_) and all(q_.is_finite for q_ in L_) for L_ in lims_h)
+        want_h, lims_h, exact_h = scalar_growth(HALF)
+        exact = all(exact_h)
         least = min(w_.subs(sub_h) for w_ in want)
         print("  N2 control (the same path at l = 1, nu = 1/2): leading Cartesian coefficients %s (exact growths "
               "r^0, r^2, r^1: %s); the least exponent %s >= 1: %s" % (lims_h, exact, least, least >= 1), flush=True)
