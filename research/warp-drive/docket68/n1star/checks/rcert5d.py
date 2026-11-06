@@ -137,10 +137,7 @@ def worker(w, W, tau):
     while st['queue']:
         st['queue'].sort(key=lambda e: e[1])
         b, d = st['queue'].pop(0)
-        if d == 0 or b is BOX:
-            kids = eng.kids(b)
-        else:
-            kids = eng.kids(b)
+        kids = eng.kids(b)
         st['nparents'] += 1; st['nboxes'] += 8
         for kb, sup, cen in kids:
             if max(sup) <= tau:

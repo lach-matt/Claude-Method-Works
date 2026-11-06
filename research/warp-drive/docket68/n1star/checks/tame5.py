@@ -26,8 +26,11 @@ c = M k^-(s'') cos(k th); then ||c||_(H^s), L, ||a||_(H^(s+1)) and omega stay bo
      from LHS = -||a||^2_(sig+2) + 2 Z - 2 <a, c a>_(sig+1) <= 2 Z + ||c a||^2_sig and the product bound
      ||c a||_sig <= 2^(sig-1) (||c||_sig sum|a_n| + sum|c_n| ||a||_sig) (<n + m'> <= <n> + <m'>, convexity, Young
      l^2 * l^1), on the family (both rows, every k) and on 300 random trigonometric polynomials (random frequencies up to
-     48 with a high-frequency spike in c, random rational coefficients).  Control: the same test with the term
-     2 * 4^(sig-1) m^2 omega^2 replaced by D26's 2 * 4^(sig-1) m omega Z^(1/2) fails on the family.
+     48 with a high-frequency spike in c, random rational coefficients), and each of the proof's two steps separately
+     at every state ((i) LHS <= 2 Z + ||c a||^2_sig, (ii) the product bound, squared).  T1 also computes d_r Z by a
+     second route, Z along a + h d_r a (a quadratic in h, so the central difference is exact), and requires the two to
+     agree.  Control: the test with the term 2 * 4^(sig-1) m^2 omega^2 replaced by D26's 2 * 4^(sig-1) m omega Z^(1/2)
+     fails on the family.
   T3 (computed, floating point) Proposition 6.5's induction: the extremal recursion E_(i+1)(r) = A + W (int_a^r
      E_i^2)^(1/2), E_0 = 0, A = 1, W = 3 on [0, 2] (4000 trapezoid steps, 60 iterates) stays below A sum_k W^k
      ((r - a)^k / k!)^(1/2) (ratio <= 1 + 1e-9); the bound is the fixed point of the Minkowski step, exact by
@@ -74,12 +77,16 @@ def lap(f):
     return {n: -n * n * c for n, c in f.items()}
 
 
+def rhs(row, a, coef, w=None):
+    """d_r a of the model, and the lower-order term c a (row c) or e w (row e)"""
+    low = mul(coef, a) if row == 'c' else mul(coef, w)
+    la = lap(a)
+    return {n: la.get(n, 0) - low.get(n, 0) for n in set(la) | set(low)}, low
+
+
 def state(row, a, coef, w=None):
     """the instantaneous quantities of the model at the state: LHS(c0) as a function, Z, m^2, L, omega"""
-    rhs_low = mul(coef, a) if row == 'c' else mul(coef, w)
-    la = lap(a)
-    keys = set(la) | set(rhs_low)
-    dra = {n: la.get(n, 0) - rhs_low.get(n, 0) for n in keys}
+    dra, _ = rhs(row, a, coef, w)
     dZ = 2 * inner(a, dra, SIG + 1)
     top = norm2(a, SIG + 2)
     Z = norm2(a, SIG + 1) + (norm2(w, SIG) if row == 'e' else 0)
@@ -87,13 +94,28 @@ def state(row, a, coef, w=None):
     return (lambda c0: dZ + c0 * top), Z, norm2(coef, SIG), wiener(coef), omega
 
 
-def family(k, row, drop=False):
+def dZ_independent(row, a, coef, w=None):
+    """d_r Z by a second route: Z(a + h d_r a) = Z + h dZ + h^2 ||d_r a||^2 is a quadratic in h, so
+    dZ = (Z(a + h d_r a) - Z(a - h d_r a)) / (2 h) exactly, for any h (h = 1/7 here); w is frozen (d_r w = 0)"""
+    dra, _ = rhs(row, a, coef, w)
+    h = Fr(1, 7)
+    ap = {n: a.get(n, 0) + h * dra.get(n, 0) for n in set(a) | set(dra)}
+    am = {n: a.get(n, 0) - h * dra.get(n, 0) for n in set(a) | set(dra)}
+    return (norm2(ap, SIG + 1) - norm2(am, SIG + 1)) / (2 * h)
+
+
+def family_state(k, row, drop=False):
     M = Fr(k ** (SIG - S_LOW), 10)
     a = {0: Fr(1), k: -M * Fr(1, k ** (SIG + 2)) / 2, -k: -M * Fr(1, k ** (SIG + 2)) / 2}
     coef = {k: M * Fr(1, k ** SIG) / 2, -k: M * Fr(1, k ** SIG) / 2}
     if drop:
         coef = {k: Fr(0), -k: Fr(0)}
     w = {0: Fr(1)} if row == 'e' else None
+    return a, coef, w
+
+
+def family(k, row, drop=False):
+    a, coef, w = family_state(k, row, drop)
     low = (norm2(coef, S_LOW), wiener(coef), norm2(a, S_LOW + 1), wiener(a))
     return state(row, a, coef, w), low
 
@@ -111,22 +133,24 @@ def t1(control=False):
     ok, rows = True, []
     for row in ('c', 'e'):
         for c0 in (Fr(1), Fr(1, 100)):
-            lowmax, grow, ratios = [0, 0, 0, 0], True, []
+            lowmax, grow, ratios, route = [0, 0, 0, 0], True, [], True
             for k in KS:
                 (LHS, Z, m2, L, om), low = family(k, row, drop=control)
                 lowmax = [max(x, float(y)) for x, y in zip(lowmax, low)]
                 lhs = LHS(c0)
+                route &= LHS(Fr(0)) == dZ_independent(row, *family_state(k, row, drop=control))
                 grow &= gt_sqrt(lhs, c0 * k / 16, Z, m2, om)
                 if not control and k in (4, 64, 2 ** 17):
                     ratios.append("k = %d: LHS/(Z + m omega Z^1/2) = %.4g, LHS/(m^2 omega^2) = %.4g" % (
                         k, float(lhs) / (float(Z) + math.sqrt(float(m2) * float(Z)) * float(om)),
                         float(lhs) / (float(m2) * float(om) ** 2)))
             bounded = lowmax[0] < 0.01 and lowmax[1] < 0.01 and lowmax[2] < 2 and lowmax[3] < 2
-            ok &= grow and (bounded or control)
+            ok &= grow and (bounded or control) and route
             if not control:
-                rows.append("row %s, c0 = %s: LHS > (c0 k/16)(Z + m omega Z^1/2) at every k: %s; low norms (max over k:"
-                            " ||c||^2_(H^4) %.3g, sum|c_n| %.3g, ||a||^2_(H^5) %.4g, omega_a %.4g) bounded: %s; %s" % (
-                                row, c0, grow, lowmax[0], lowmax[1], lowmax[2], lowmax[3], bounded,
+                rows.append("row %s, c0 = %s: LHS > (c0 k/16)(Z + m omega Z^1/2) at every k: %s; d_r Z equal to the"
+                            " second route's (Z along a + h d_r a): %s; low norms (max over k: ||c||^2_(H^4) %.3g,"
+                            " sum|c_n| %.3g, ||a||^2_(H^5) %.4g, omega_a %.4g) bounded: %s; %s" % (
+                                row, c0, grow, route, lowmax[0], lowmax[1], lowmax[2], lowmax[3], bounded,
                                 "; ".join(ratios)))
     if not control:
         out("  T1 " + " || ".join(rows))
@@ -141,6 +165,21 @@ def corrected(LHS, Z, m2, L, om, d26=False):
         d = lhs - base
         return d <= 0 or d * d <= B * B * m2 * om * om * Z
     return lhs <= base + B * m2 * om * om
+
+
+def steps(row, a, coef, w=None):
+    """the proof's two steps, each exact: (i) LHS(1) <= 2 Z + ||low||^2_sig (Cauchy-Schwarz and Young against the
+    gain); (ii) ||low||^2_sig <= 4^(sig-1) (m ||f||_l1 + L ||f||_sig)^2, f = a (row c) or w (row e), as
+    ||low||_sig <= 2^(sig-1) (m ||f||_l1 + L ||f||_sig); (ii) is tested squared, without square roots, through
+    (x + y)^2 <= 2 x^2 + 2 y^2 only where the exact square root is not rational (it is used as an upper bound)"""
+    LHS, Z, m2, L, om = state(row, a, coef, w)
+    _, low = rhs(row, a, coef, w)
+    f = a if row == 'c' else w
+    i_ok = LHS(Fr(1)) <= 2 * Z + norm2(low, SIG)
+    lhs2 = norm2(low, SIG)
+    x2, y = m2 * wiener(f) ** 2, L * L * norm2(f, SIG)
+    ii_ok = lhs2 <= 4 ** (SIG - 1) * 2 * (x2 + y)
+    return i_ok, ii_ok
 
 
 def rand_poly(rng, kmax, spike=None):
@@ -167,7 +206,10 @@ def t2(control=False):
     if control:
         return fam_ok
     rng = random.Random(619)
-    rnd_ok, n_rnd = True, 0
+    rnd_ok, step_ok, n_rnd = True, True, 0
+    for k in KS:
+        for row in ('c', 'e'):
+            step_ok &= all(steps(row, *family_state(k, row)))
     for i in range(300):
         row = 'c' if i % 2 == 0 else 'e'
         a = rand_poly(rng, 48)
@@ -175,10 +217,12 @@ def t2(control=False):
         coef = rand_poly(rng, 12, spike=(k, Fr(rng.randint(1, 50) * k ** (SIG - S_LOW), k ** SIG)))
         w = rand_poly(rng, 48) if row == 'e' else None
         rnd_ok &= corrected(*state(row, a, coef, w))
+        step_ok &= all(steps(row, a, coef, w))
         n_rnd += 1
     out("  T2 corrected inequality LHS <= (2 + 2 4^7 L^2) Z + 2 4^7 m^2 omega^2 (c0 = 1): family (%d states, rows c and"
-        " e) %s; random trigonometric polynomials (%d states) %s" % (n_fam, fam_ok, n_rnd, rnd_ok))
-    return fam_ok and rnd_ok
+        " e) %s; random trigonometric polynomials (%d states) %s; the proof's two steps, (i) LHS <= 2 Z + ||c a||^2_8"
+        " and (ii) the product bound, at every state: %s" % (n_fam, fam_ok, n_rnd, rnd_ok, step_ok))
+    return fam_ok and rnd_ok and step_ok
 
 
 def t3(control=False):
