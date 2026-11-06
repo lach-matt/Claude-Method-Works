@@ -204,6 +204,17 @@ def certify(Afun, x0=X0, nsub=NSUB, kq=KQ):
     return True, dict(cR=cR, ct=ct, cj=cj, cs=cs, lo=lo, hi=hi, M=M)
 
 
+def up(p, d=5):
+    """an upper bound of the point interval p, rounded up to d decimals"""
+    with mp.workdps(40):
+        return mp.nstr(mp.ceil(mp.mpf(p._mpi_[1])*10**d)/10**d, 12)
+
+
+def dn(p, d=5):
+    with mp.workdps(40):
+        return mp.nstr(mp.floor(mp.mpf(p._mpi_[0])*10**d)/10**d, 12)
+
+
 def report(tag, name, ok, res, x0):
     if not ok:
         out("  %s %s on [0, %s]: not certified: %s  [%.0f s]" % (tag, name, x0, res, time.time() - T0))
@@ -214,9 +225,8 @@ def report(tag, name, ok, res, x0):
         " max_(j<=%d) c_j = %s; kappa x^2 in [c_*, M] = [%s, %s].  So (H_N) to N = %d, (H_N+2) to N = %d, (H_t),"
         " L.16 (c) to j = %d and"
         " (H_rho*)'s first half hold on (v_s, v_s + %s]  [%.0f s]"
-        % (tag, name, x0, NSUB, KQ, mp.nstr(res['lo'], 6), mp.nstr(res['hi'], 6), mp.nstr(res['cR'], 6), KQ - 1,
-           mp.nstr(res['ct'], 6), KQ - 1, mp.nstr(res['cj'], 6), mp.nstr(res['cs'], 6), mp.nstr(res['M'], 6), KQ - 1,
-           KQ - 3, KQ - 1, x0, time.time() - T0))
+        % (tag, name, x0, NSUB, KQ, dn(res['lo']), up(res['hi']), up(res['cR']), KQ - 1, dn(res['ct']), KQ - 1,
+           up(res['cj']), dn(res['cs']), up(res['M']), KQ - 1, KQ - 3, KQ - 1, x0, time.time() - T0))
 
 
 RES = {}
@@ -277,7 +287,7 @@ def h4(control=False):
         kap = sp.diff(env, x)/env
         q = kap.subs(x, y/2)*kap.subs(x, 4*y)**30*env.subs(x, 4*y)
         return sp.limit(q, y, 0, '+') == 0
-    M = sp.Rational(mp.nstr(mp.mpf(RES['rec']['M'].a), 15)) + sp.Rational(1, 10**6)
+    M = sp.Rational(up(RES['rec']['M']))
     q_exp = (4/y**2)*(1/(16*y**2))**c*sp.exp(-1/(4*y))
     q_rc = M*(4/y**2)*(M/(16*y**2))**c*sp.exp(1 - sp.Rational(3, 16)/y)
     rows = []
