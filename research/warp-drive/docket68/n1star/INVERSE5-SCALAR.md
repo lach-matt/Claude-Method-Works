@@ -7,12 +7,18 @@ S5b and S8, and reran both programs; its Minor 5 (the parameter point of part A;
 file (the summary's margin, Lemma B.1's real-part clause, A.6's range, S5b symbolic in kappa) are seated in place. [A
 confirming reader (scratchpad report-vINV2.md) confirmed those seatings and reproduced S5b independently, no Major; its
 minor 2 (part B's parameter point) and nits 5-8 are seated as bracketed notes, the old text kept, with B.9 and
-rootavoid5 R12 new.] It takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a single missing input: **(A)**
-I.C:497's scalar-type blocks (a lower bound, uniform in l, for their least singular value in (3.2)'s norm), and **(B)**
-the two avoidances of finite sets of roots that are part of d's reading (the levels off I11:156-160's exclusion values;
-eps, eps' off I9:290-291's and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper and INVERSE5-SIX.md (the other
-six inverse bounds, a parallel workstream) are not edited; section C's old/new text for CONSTANTS5.md R10.7 is
-superseded by CONSTANTS5.md R12.7.
+rootavoid5 R12 new.] [A third reader confirmed follow-up 2: no Major, no minor; B.9's algebra checked with its own box^C
+code (the (1/102400) Z claim and both mutants). Its nits 5-7 (B.9 (b)'s control value and wording, B.9's first heading)
+are seated as bracketed notes marked vINV3, the old text kept, with rootavoid5's C11 rerun at an admissible z; and so is
+one consequence of CONSTANTS5.md round 13 (md5 b96178545d67619ab2bed9ecf1af714f): E^iota_ind, which this file took empty
+on R9.1's reading, is computed there (R13.1, `checks/iotaind5.py` 10/10) and adds no point of Lambda in the windows
+used, so that qualifier is derived (notes marked R13 in section 0, B.5, B.7c, B.8, C and C.1).] It takes the two items
+CONSTANTS5.md R9.5 and R10.5 leave with a single missing input: **(A)** I.C:497's scalar-type blocks (a lower bound,
+uniform in l, for their least singular value in (3.2)'s norm), and **(B)** the two avoidances of finite sets of roots
+that are part of d's reading (the levels off I11:156-160's exclusion values; eps, eps' off I9:290-291's and
+I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper and INVERSE5-SIX.md (the other six inverse bounds, a parallel
+workstream) are not edited; section C's old/new text for CONSTANTS5.md R10.7 is superseded by CONSTANTS5.md R12.7. [R13:
+and R12.7 in turn by CONSTANTS5.md R13.7, the single final set.]
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/scalarblock5.py` (part A; S0-S8, controls C1-C5; its data file `checks/scalarblock5_block.txt`, the block's
@@ -41,12 +47,15 @@ of the record.
   above, are not levels. Margins: w is at least 3.41 x 10^-13 (I9; 4.0 x 10^-13 from 0) and 2.0 x 10^-13 (I14) from
   every root it could meet; the levels are at least 8.91 x 10^-16 (below 3) and 3.19 x 10^-16 (above 3) from the
   excluded sets. Proposition 5.1's hypothesis holds even as literally stated (every j, every root). All on R9.1's
-  reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). I11:156-160's *appended* set is decided too, (4.2) of
-  III.G'''' Proposition 4.4 at the second Taylor level included, whose tf-exponents are derived from the write-out's own
-  dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists every condition with its range. [vINV2 minor 2: all of part
-  B's arithmetic is at the record's computational point (A.1: z = 4 e_U gam_U^2 = 1/250000, gam_C = 10^6, W1's weights
-  chosen on delta_50 there), outside the proved set; it is settled at that point, at which d's reading is computed; B.9
-  states what holds at every admissible point, proved symbolically (R12), and what would have to be redone.]
+  reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). [R13: that reading is derived (CONSTANTS5.md R13.1,
+  `checks/iotaind5.py` 10/10): E^iota_ind is computed and adds no point.] I11:156-160's *appended* set is decided too,
+  (4.2) of III.G'''' Proposition 4.4 at the second Taylor level included, whose tf-exponents are derived from the
+  write-out's own dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists every condition with its range. [vINV2
+  minor 2: all of part B's arithmetic is at the record's computational point (A.1: z = 4 e_U gam_U^2 = 1/250000, gam_C =
+  10^6, W1's weights chosen on delta_50 there), outside the proved set; it is settled at that point, at which d's
+  reading is computed; B.9 states what holds at every admissible point, proved symbolically (R12), and what would have
+  to be redone.] [vINV3 nit 7: at every admissible point with rational parameters and weights, box^C's part at integer
+  gam_C (B.9 (a), (c)).]
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
@@ -355,10 +364,13 @@ are lattice distances of their enclosures to A + 9 Z. []
 ### B.5 I11:156-160 (proved; R6)
 
 **Theorem B.3.** On R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1, lambdagen5 L1, md5-pinned: the
-chain of lambda_sharp = 1.5099 with E_ind's one increment in (0, 1/2), d1; E^iota_ind's increments are not listed by
-the record and are taken empty below 1/2, as rounds 1-9 did), no level beta in (3, 4 + eps_K] and not alpha satisfies
-beta - Re lambda_0 in {-Re mu} u Re pi_1 E_K for lambda_0 in Lambda, Re lambda_0 < 2. Certified: every level is at
-least 3.19 x 10^-16 from that set.
+chain of lambda_sharp = 1.5099 with E_ind's one increment in (0, 1/2), d1; E^iota_ind's increments are not listed by the
+record and are taken empty below 1/2, as rounds 1-9 did) [R13: derived (CONSTANTS5.md R13.1, `checks/iotaind5.py`
+10/10): E^iota_ind, computed from the constructions that define it, adds no point of Lambda on (1, 3 + eps_K], and below
+2 - lambda_sharp the offsets of E_ind u E^iota_ind are {d1} (iotaind5 I4); so Lambda below 2 is lambda_sharp + N_0 d1 on
+the write-out's own E^iota_ind, not on a reading of it], no level beta in (3, 4 + eps_K] and not alpha satisfies beta -
+Re lambda_0 in {-Re mu} u Re pi_1 E_K for lambda_0 in Lambda, Re lambda_0 < 2. Certified: every level is at least 3.19 x
+10^-16 from that set.
 
 *Proof (computed, exact; certified).* x := beta - lambda_0 lies in (1, 4 + eps_K - lambda_sharp] = (1, 2.4901 + eps_K].
 There the roots -mu (B.3) and Re pi_1 E_K = {-mu + n : Re mu <= 0, n >= 0} (III.G' Lemma 1.3) give eleven values:
@@ -492,8 +504,11 @@ Every item is at the weights of B.2 and on R9.1's reading of Lambda: below 2, la
 the rational points of B.7b plus N_0 d1 plus at most one offset from d0, delta_2..6, delta'_1..5 (the named generators,
 the least E^C_I, lambdagen5 L3's eleven E_col bases and LOSS-D LD9's once-usable increments); E^iota_ind's increments,
 unlisted by the record, are taken to add no point of Lambda in these windows, as in rounds 1-10 (were one listed, the
-same field tests and congruences would decide it). The base's own loops (R10.1) are not checked here; the round-10
-verifier finds that they add no fixed-weight condition, their exclusions being free choices per round.
+same field tests and congruences would decide it). [R13: derived (CONSTANTS5.md R13.1, `checks/iotaind5.py` 10/10):
+E^iota_ind is computed from the constructions that define it and adds no point of Lambda on (1, 3 + eps_K] (iotaind5
+I3), so R9.1's reading is the write-out's Lambda there (E_col taken wide, an over-count that only adds conditions to
+check), and every item above holds without that qualifier.] The base's own loops (R10.1) are not checked here; the
+round-10 verifier finds that they add no fixed-weight condition, their exclusions being free choices per round.
 
 ### B.8 Status
 
@@ -501,12 +516,13 @@ verifier finds that they add no fixed-weight condition, their exclusions being f
 is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda, at every level, the
 53,244,734 below 3 through I9:55-58 (B.5b) and the 53,244,736 above 3 through I14 Definition 1.1 (B.5, B.7b); I11:160's
 appended set, a further condition of the same kind, is decided as well, (4.2) at the second Taylor level included
-(Theorem B.5). Nothing of (B) is left open at these weights on that reading. [vINV2 minor 2: settled at the record's
-computational point (A.1), at which d's reading is computed; B.9 says what holds elsewhere. nit 5: part B does not move
-d, which is now CONSTANTS5.md R12.2's d <= 46,236,517,538,883,361; the round-10 value above is superseded.] d's integer
-(round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading loses the
-clause "two of the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices
-(a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
+(Theorem B.5). Nothing of (B) is left open at these weights on that reading. [R13: the reading is derived (CONSTANTS5.md
+R13.1, `checks/iotaind5.py` 10/10).] [vINV2 minor 2: settled at the record's computational point (A.1), at which d's
+reading is computed; B.9 says what holds elsewhere. nit 5: part B does not move d, which is now CONSTANTS5.md R12.2's d
+<= 46,236,517,538,883,361; the round-10 value above is superseded.] d's integer (round 10: d <= 46,236,449,175,331,158)
+is unchanged (the weights are those it was computed at); its reading loses the clause "two of the weights' admissibility
+conditions ... are not decided" (section C). Round 10's base-level choices (a_K - 2, s_0, tau, t of R10.1) are not
+checked here: they enter the loops, not the levels and rounds of B.2.
 
 ### B.9 What of part B holds at every admissible point (proved, symbolic; R12) [vINV2 minor 2]
 
@@ -515,19 +531,25 @@ c1); gam_C = 1/h, h in (0, h_*) \ Z (row c2); z_Ups = 4 e_Ups gam_Ups^2 in (0, 1
 and e_Ups below thresholds it gives no value (rows u3-u4); the weights then below that point's delta_50 (row w1). Part B
 is computed at the record's computational point, outside that set (A.1). What carries over:
 
-- *At every admissible point (proved; the arguments symbolic in the parameters).* (a) The reduction: with rational
-  parameters and rational weights every condition of part B compares a rational number with an indicial root, so only
-  rational roots can meet it, and the windows of B.3 contain the same kinds of root, type by type. (b) box^Ups, z = p/q:
-  (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2q (l + 1))^2 = p^2 + 4pq, an identity (R12), so at every rational z only
-  the finitely many l given by the divisor pairs of p (p + 4q) can carry a rational class root; the s0 class root is
-  rational iff 9 + 4z is a rational square, a countable set of z that does meet (0, 1/2] (z = 25/64 gives lam = 17/8,
-  control C11): a further countable exclusion of the kind Z_exc is, not automatic. (c) box^C with gam_C = N and kappa
-  symbols (e_C, v_C fixed by row c1): N^3 times the scalar sextic, N^2 times the s0 quartic and N times the vector
-  quadratic are, in lam, -1 or 1 times its top power plus coefficients in (1/102400) Z[N, kappa] (R12; control C10 at
-  e_C = 1/102401), so for every integer gam_C and every l a rational box^C root lies in (1/102400) Z, the vector type's
-  in Z. (The record's gam_C = 1/h need not be an integer; for rational gam_C the same substitution bounds the
-  denominators by 102400 times a power of gam_C's denominator, not computed here.) (d) Theorem B.5's derivation of
-  g_2's tf-exponents (no parameters). (e) The physical roots -l, l + 2.
+- *At every admissible point (proved; the arguments symbolic in the parameters).* [vINV3 nit 7: the heading overstates:
+  (a) needs rational parameters and rational weights, and (c) an integer gam_C (for rational gam_C only the parenthesis
+  after it); read "*At every admissible point with rational parameters and weights, (c) at integer gam_C (proved; the
+  arguments symbolic in the parameters).*"] (a) The reduction: with rational parameters and rational weights every
+  condition of part B compares a rational number with an indicial root, so only rational roots can meet it, and the
+  windows of B.3 contain the same kinds of root, type by type. (b) box^Ups, z = p/q: (z + 2)^2 + 4 l (l + 2) = (m/q)^2
+  iff m^2 - (2q (l + 1))^2 = p^2 + 4pq, an identity (R12), so at every rational z only the finitely many l given by the
+  divisor pairs of p (p + 4q) can carry a rational class root; the s0 class root is rational iff 9 + 4z is a rational
+  square, a countable set of z that does meet (0, 1/2] (z = 25/64 gives lam = 17/8, control C11): a further countable
+  exclusion of the kind Z_exc is, not automatic. [vINV3 nit 5: z = 25/64 is not admissible: PART-VI4-PARAMS.md step (2)
+  (VI4:62) has gam_Ups < 1/4 and e_Ups < 1, so z = 4 e_Ups gam_Ups^2 < 1/4; read "does meet (0, 1/4) (z = 49/256,
+  admissible, gives 9 + 4z = (25/8)^2 and lam = 33/16, control C11)", C11 rerun at 49/256. nit 6: read "a further
+  countable exclusion of the kind Z_exc is needed; it is not automatic".] (c) box^C with gam_C = N and kappa symbols
+  (e_C, v_C fixed by row c1): N^3 times the scalar sextic, N^2 times the s0 quartic and N times the vector quadratic
+  are, in lam, -1 or 1 times its top power plus coefficients in (1/102400) Z[N, kappa] (R12; control C10 at e_C =
+  1/102401), so for every integer gam_C and every l a rational box^C root lies in (1/102400) Z, the vector type's in Z.
+  (The record's gam_C = 1/h need not be an integer; for rational gam_C the same substitution bounds the denominators by
+  102400 times a power of gam_C's denominator, not computed here.) (d) Theorem B.5's derivation of g_2's tf-exponents
+  (no parameters). (e) The physical roots -l, l + 2.
 - *To be redone at an admissible point.* The weights (delta_50, hence eps_ind, eps_K, eps_+, moves with z); the class
   roots' values d0, d1, delta_l, delta'_l and their fields (the Q(d1) membership tests of B.5, B.5b, B.7, B.7b); the
   rational candidates and the congruences at the new weights; the margins; and the 2-adic sharpening of B.3 (iii)
@@ -538,11 +560,12 @@ is computed at the record's computational point, outside that set (A.1). What ca
 
 ## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied) -- superseded
 
-**Superseded by CONSTANTS5.md R12.7.** Round 12 carries this section's content into its own replacement text (C.1,
-C.2 with A.6's bound and the parameter-point caveat of A.1, and B.5); the pairs below are kept as they were written,
-for the record, and are not to be applied. One correction is made in place, the verifier's Minor 5: C.1's qualifier
-read "on the reading of that index set below 2", too narrow, as B.5 and B.7b use round 9's reading of Lambda on (1, 3
-+ eps_K]; it now says so. No new pairs are written here.
+**Superseded by CONSTANTS5.md R12.7.** [R13: R12.7 is superseded in turn by CONSTANTS5.md R13.7, the single final set,
+which also replaces the Lambda qualifier quoted at the end of C.1 by E^iota_ind computed.] Round 12 carries this
+section's content into its own replacement text (C.1, C.2 with A.6's bound and the parameter-point caveat of A.1, and
+B.5); the pairs below are kept as they were written, for the record, and are not to be applied. One correction is made
+in place, the verifier's Minor 5: C.1's qualifier read "on the reading of that index set below 2", too narrow, as B.5
+and B.7b use round 9's reading of Lambda on (1, 3 + eps_K]; it now says so. No new pairs are written here.
 
 R10.7's blocks (which replaced R9.7's while this file was written) are themselves proposed text for the paper; the
 old texts below are quoted from R10.7's *new* blocks as CONSTANTS5.md stands (not pinned: its author and a verifier
@@ -571,6 +594,12 @@ R10.7's block 1 (R9.7's superseded block 1 carries the same clause, wrapped diff
   least E^C_I, the E_col bases and the once-usable increments, the unlisted E^iota_ind increments taken to add
   nothing). So the integer bounds the loss this proof's bookkeeping produces on that reading, not the optimal one.
 ```
+
+[R13: the qualifier "the unlisted E^iota_ind increments taken to add nothing" in the new text above is derived
+(CONSTANTS5.md R13.1, `checks/iotaind5.py` 10/10: E^iota_ind computed, no point of Lambda added on (1, 3 + eps_K]);
+R13.7 pair 1 states it so ("the index set the write-out leaves unlisted at future timelike infinity is computed from the
+constructions that define it and adds no exponent to those the count uses"). The pair is kept as written and is not to
+be applied.]
 
 **C.2 Block 2 (lambda1 and delta), the scalar-type clause only.** The old text is the clause of R10.7's block 2 up to
 its semicolon (it stands identically in R9.7's superseded block 2, so it occurs twice in CONSTANTS5.md; the replacement
@@ -623,4 +652,5 @@ PART-III-D3-SYMSTATES.md:25-40, PART-III-F3-MODES.md:9-60, PART-III-G3-GRAFT.md:
 PART-I-C-LOWENERGY.md:366-500, PART-III-H-AUGMENT.md:30-40. N1STAR-PROOF.md 10.14 (Proposition 10.11, (10.48)-(10.49))
 and Proposition 10.44 (read by content). LOSS-D.md LD9. Instruments imported: damping5.py, dweights5.py, lambdagen5.py
 (and its pinned .out), prop31loss5.py (the least E^C_I); consulted: lin5.py, gaugepot5.py, tensorzero5.py, zeroext5.py,
-modcount5.py, lhor5.py (through III.F'' Lemma 1.1).
+modcount5.py, lhor5.py (through III.F'' Lemma 1.1). [R13: CONSTANTS5.md R13.1, R13.2 and R13.7 at md5
+b96178545d67619ab2bed9ecf1af714f, read by content; `checks/iotaind5.py` --selftest rerun here.]

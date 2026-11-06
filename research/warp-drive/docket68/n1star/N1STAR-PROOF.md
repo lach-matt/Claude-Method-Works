@@ -56,7 +56,9 @@ Major 1), that Lemma 11.0's induction counts the top-order term b.dU as known, a
 its round-6 verifier, seated in Lemma 11.0 (D630) and re-read line by line and found correct by its round-7 reader
 [amended D631: was "whose replacement (workstream B, R5-D) is pending"]; and that reader's Major 2, the factor 1 - pi/2
 missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with `past5.py` P7, with that reader's
-minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections 9.5 and 11 await one confirming read.
+minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections 9.5 and 11 and Proposition 9.10, with R6-D, were read by
+an independent confirming reader, its findings seated (D632) [amended D632: was "D618's edits to sections 9.5 and 11
+await one confirming read"].
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -1225,9 +1227,10 @@ to 9.1-9.4, 9.9 and 9.10 seat an independent reading of sections 8 and 9 that fo
 9.10 to hold once its minor findings are seated; a confirming reader of that seating read 9.1-9.4 and Propositions
 9.9-9.10 whole, with the D35 items and Proposition 9.10's D609 findings, and found every finding seated correctly
 (D625): **sections 9.1-9.4 and Propositions 9.9-9.10 are proved (D625).** Section 9.5's flux formula (9.10) lacked a
-factor 1 - pi/2 on its oscillating terms; corrected at D618, it awaits one confirming read [amended D625: the status
-listed as read by no verifier after the edit the D35 items, Proposition 9.10's D609 findings, the D622 amendments and
-section 9.5, then being repaired (D618)].
+factor 1 - pi/2 on its oscillating terms; corrected at D618, it was read, with Proposition 9.10, by an independent
+confirming reader, whose findings are seated (D632) [amended D632: was "it awaits one confirming read"] [amended D625:
+the status listed as read by no verifier after the edit the D35 items, Proposition 9.10's D609 findings, the D622
+amendments and section 9.5, then being repaired (D618)].
 
 **Theorem P.** Let the seed, A, env and the record's angular profile be as in section 0 (mu' = (2/9) A^2 env^2), and
 let W_TT be the record's first-order wave (section 5.1), whose r^(3/2)-normalised components at past null infinity
@@ -1656,12 +1659,13 @@ g_lam: N1* with the record's data at past null infinity. []
 
 By (P-ii) the radiation field of g_lam at past null infinity is lam [W_TT] exactly, at every lam: its two polarizations
 are the record's free data F, G, with no correction at any order. What that field carries is computed in P7. The flux
-density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2), the quadratic form whose phase mean is mu' (paper, Proposition 2.3), is
-(4/9) A^2 H^2 (cos^4 th D_c^2 + sin^4 th D_s^2 - cos^2 th sin^2 th D_c D_s), with D_c and D_s the v-derivatives of lam
-env cos(v/lam) and lam env sin(v/lam), so that D_c^2 + D_s^2 = env^2 + lam^2 env'^2 and D_c D_s = -(1/2)(env^2 - lam^2
-env'^2) sin(2v/lam) + lam env env' cos(2v/lam). Its angular moments on S^3 are <H^2 cos^4 th> = <H^2 sin^4 th> = 1/2 and
-<H^2 cos^2 th sin^2 th> = pi/4 - 1/2 (the mean is (1/2) int_{-1}^{1} dz in z = cos 2th, where H^2 = 2/(1 + z^2), H^2
-(cos^4 th + sin^4 th) being 1), so its sphere mean is exactly
+density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2), the quadratic form whose phase mean is mu' at leading order (paper,
+Proposition 2.3; the phase mean of its sphere mean is mu' + (2/9) lam^2 A^2 env'^2, P7 (e)) [amended D632: "at leading
+order" and its reason added], is (4/9) A^2 H^2 (cos^4 th D_c^2 + sin^4 th D_s^2 - cos^2 th sin^2 th D_c D_s), with D_c
+and D_s the v-derivatives of lam env cos(v/lam) and lam env sin(v/lam), so that D_c^2 + D_s^2 = env^2 + lam^2 env'^2 and
+D_c D_s = -(1/2)(env^2 - lam^2 env'^2) sin(2v/lam) + lam env env' cos(2v/lam). Its angular moments on S^3 are <H^2 cos^4
+th> = <H^2 sin^4 th> = 1/2 and <H^2 cos^2 th sin^2 th> = pi/4 - 1/2 (the mean is (1/2) int_{-1}^{1} dz in z = cos 2th,
+where H^2 = 2/(1 + z^2), H^2 (cos^4 th + sin^4 th) being 1), so its sphere mean is exactly
 
     (2/9) A^2 [ env^2 + lam^2 env'^2 + (1 - pi/2) ( -(1/2)(env^2 - lam^2 env'^2) sin(2v/lam)
                                                     + lam env env' cos(2v/lam) ) ],                            (9.10)
@@ -1676,13 +1680,16 @@ coefficient. So while the shell passes, the integrated flux oscillates about mu(
 in antiphase to the oscillation the first (9.10) gave (below); after it (env = env' = 0) it exceeds mu(v_end) - mu0 by
 exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3), which comes from the non-oscillating part and is untouched by the
 correction. [corrected D618: (9.10) read (2/9) A^2 [ env^2 + lam^2 env'^2 - (1/2)(env^2 - lam^2 env'^2) sin(2v/lam) +
-lam env env' cos(2v/lam) ], with coefficient 1 where 1 - pi/2 = 1 - 2 <H^2 cos^2 th sin^2 th> now stands, its integral's
-two boundary terms and O(lam^3) integral without the factor, and the amplitude (lam/18) A^2 env^2. P7 passed it because
-it integrated the expanded density over z at once, and sympy 1.14.0 then drops the pi term of <H^2 cos^2 th sin^2 th> =
-(1/4) int_{-1}^{1} (1 - z^2)/(1 + z^2) dz = pi/4 - 1/2, returning -1/2. Found by the reader of section 11 and confirmed
-by the reader of sections 8-9: at (lam, A, env, env', v) = (0.1, 1.3, 0.7, 0.4, 1.1) the sphere mean is 0.190161767 by
-quadrature and by (9.10), and the first (9.10) gives 0.174919727 (P7 prints the three). P7 now integrates term by term,
-through the three moments and against quadrature, and keeps the whole-sum route as a control, which fails.]
+lam env env' cos(2v/lam) ], with coefficient 1 where 1 - pi/2 = -2 <H^2 cos^2 th sin^2 th> now stands [amended D632: the
+identity read "1 - pi/2 = 1 - 2 <H^2 cos^2 th sin^2 th>", which is false: 1 - 2 (pi/4 - 1/2) = 2 - pi/2; the first
+coefficient 1 was -2 times sympy's -1/2], its integral's two boundary terms and O(lam^3) integral without the factor,
+and the amplitude (lam/18) A^2 env^2. P7 passed it because it integrated the expanded density over z at once, and sympy
+1.14.0 then drops the pi term of <H^2 cos^2 th sin^2 th> = (1/4) int_{-1}^{1} (1 - z^2)/(1 + z^2) dz = pi/4 - 1/2,
+returning -1/2. Found by the reader of section 11 and confirmed by the reader of sections 8-9: at (lam, A, env, env', v)
+= (0.1, 1.3, 0.7, 0.4, 1.1) the sphere mean is 0.190161767 by quadrature and by (9.10), and the first (9.10) gives
+0.174919727 (P7 prints the three). P7 now integrates term by term, through the three moments and against quadrature, and
+keeps the whole-sum route as a control, which fails; since D632 it computes the coefficient as -2 <H^2 cos^2 th sin^2
+th>, and P9 reads (9.10) and (11.3) from this file against it.]
 
 *What this does not prove.* The record's "mean mass" is the angular mean of the mass aspect at past null infinity. If
 that mass changes at the rate of this flux, as a mass law at null infinity asserts, its angular mean is mu(v) + O(lam)
@@ -1706,7 +1713,8 @@ between.
 P's g_lam. (1) The remainder bounds: g_lam = g_app + w on Omega with ||d^i w||_inf <= C M lam^(K-3-i), i <= 4 (section 4,
 Step 1, from (0.5)). (0.5) holds for g_lam itself on Omega: the w_n of section 9.4 (*The solution on P cup Omega*) have
 Data(w_n) <= C M_N lam^(K' - 2 beta0 - 1) <= C lam^(K+2) uniformly in n, and g_n -> g_lam on Sigma_tau0, so Data(w_lam)
-<= liminf Data(w_n) (the bound is uniform in n and the slice compact, so the derivatives to order k converge weakly in
+<= liminf Data(w_n) (the bound is uniform in n and the slice compact, so the derivatives to order k + 1 [amended D632:
+was "k"; Data(w) has d_x^j w to j = k + 1] converge weakly in
 L^2); Theorem E applied to g_lam's own trace on Sigma_tau0 gives a solution on Omega with (0.5), which is g_lam by the
 uniqueness on Omega (section 4, Step 8). So Step 1 gives (1), with g_app the approximant of Theorem A_P [amended D622:
 was "(P-iv) gives (0.5) for g_lam itself on Omega (the proof of Theorem P continues g_n to Omega by Theorem E with
@@ -10930,17 +10938,18 @@ proof level ((F1)-(F8), (a)-(x)); READ (the pages named, as in 10.84); nothing p
 verifier (D40): no major finding; its five minor findings are repaired in place (Lemma 11.0; Lemma 11.2's hypothesis
 (H_m) and the induction in m at J = 3; Proposition 11.2(i) rebuilt by characteristics; B1's orders below s^3,
 Proposition 11.3(0); the coefficient of G_k) and its four notes seated (the J = 3 source, the areal coefficient 6 rho_k,
-the orders of R_rr, the wording on derivatives). Proved means proved [amended D627, D630: pending the section 9.5/11
-confirming read]: the deduction rests on Theorem P and the computed B1-B3, and a thirteenth read the repairs (D44):
-Lemma 11.0's identity had been run on a region unbounded toward past null infinity, where the flux at the orders above
-Theorem P's is not known to vanish -- a major gap, repaired by running it on the approximating solutions g_n of
-Proposition 9.8 and passing to the limit -- with three minor findings in Proposition 11.2 and Theorem M(a), repaired;
-the repairs of D44 were read by the fourteenth and fifteenth verifiers (D45, D47) and hold. Two later findings:
-SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma 11.0's induction counts the top-order term
-b.dU as known, answered by workstream B's R6-D, read by its round-6 verifier and seated in Lemma 11.0 (D630) [amended
-D630: was "whose replacement (workstream B, R5-D) is pending"]; and that reader's Major 2, the factor 1 - pi/2 missing
-from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with P7, with that reader's minors m1, m2, m4-m6
-and nits n1-n5; D618's edits to sections 9.5 and 11 await one confirming read [amended D625: the status ended "the
+the orders of R_rr, the wording on derivatives). Proved means proved [amended D627, D630, D632: read by an independent
+confirming reader of sections 9.5, 9.10 and 11, its findings seated at D632]: the deduction rests on Theorem P and the
+computed B1-B3, and a thirteenth read the repairs (D44): Lemma 11.0's identity had been run on a region unbounded toward
+past null infinity, where the flux at the orders above Theorem P's is not known to vanish -- a major gap, repaired by
+running it on the approximating solutions g_n of Proposition 9.8 and passing to the limit -- with three minor findings
+in Proposition 11.2 and Theorem M(a), repaired; the repairs of D44 were read by the fourteenth and fifteenth verifiers
+(D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma
+11.0's induction counts the top-order term b.dU as known, answered by workstream B's R6-D, read by its round-6 verifier
+and seated in Lemma 11.0 (D630) [amended D630: was "whose replacement (workstream B, R5-D) is pending"]; and that
+reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with
+P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5; D618's edits to sections 9.5 and 11, with R6-D, were read by
+that confirming reader (D632) [amended D632: was "await one confirming read"] [amended D625: the status ended "the
 repairs of D44 have not themselves been read"].** It closes the first of
 the three items section 10 and the paper's section 8 left open: a mass law at past null infinity in five dimensions, and
 its application to g_lam. The law itself is published (Tanabe, Tanahashi and Shiromizu, READ in 11.3) and is recomputed
@@ -10963,10 +10972,11 @@ areal radius of the spheres {v_B, r_B = const}, and
 whose coefficients are smooth, bounded with all derivatives, T^2 x Z2 x Z2 invariant and g0's for v_B <= v_start (zero
 there, but for W - 1 = -mu0 s^4), and whose remainders have every (v_B, th_B)-derivative o(s^6) and gain an order -- one
 power of r_B, two of s -- under each r_B-derivative.
-(b) P_i = s^3 p_i + s^5 (...) + ...: the s^3 coefficients are the record's free data at phase v_B/lam, p_1 = (2
-cos^2 th_B G - sin^2 th_B F)/3, p_2 = (2 sin^2 th_B F - cos^2 th_B G)/3, F = lam A env(v_B) h sin(v_B/lam), G = lam A
-env(v_B) h cos(v_B/lam) (the radiation field of (P-ii); sin th_B is written out, s being r_B^(-1/2) here), and the s^4
-coefficients vanish.
+(b) P_i = s^3 p_i + s^5 (...) + ...: the s^3 coefficients are the record's free data at phase v_B/lam, p_1 = (2 cos^2
+th_B G - sin^2 th_B F)/3, p_2 = (2 sin^2 th_B F - cos^2 th_B G)/3, F = lam A env(v_B) h sin(v_B/lam), G = lam A env(v_B)
+h cos(v_B/lam) (the radiation field of (P-ii); h the angular profile, section 9.5's H, H^2 = 2/(1 + z^2), not 9.1's
+h(tau) [amended D632: this remark added]; sin th_B is written out, s being r_B^(-1/2) here), and the s^4 coefficients
+vanish.
 (c) W = 1 + s^3 V1 - s^4 M + ..., V1 a divergence on S^3, and the mass aspect M(v_B, th_B) satisfies, pointwise,
 
     d_v M = (4/3) (p1_v^2 + p1_v p2_v + p2_v^2),                                                             (11.2)
@@ -10992,10 +11002,11 @@ proof is in 11.1-11.3; 11.4 compares with the numerics.
 ### 11.1 The expansion of g_lam at past null infinity
 
 Throughout, lam is fixed, and every constant may depend on it. On the far region P cap {t >= T}, T = lam^-2 (section
-9.4), Theorem P gives u := g_lam - g0 = lam [W_TT] + u_1 with, by (P-ii)'s proof, u_1 in E_2 pointwise with all its
-Cartesian derivatives (m1, chi, gh_j, the Taylor terms and w; d^i [f] costs lam^-i, a constant now), and lam [W_TT] =
-r^(-3/2) G_3 with G_3(v, xhat) := the r^(3/2)-normalised Cartesian components of lam W_TT at phase v/lam, smooth and
-bounded with all derivatives, vanishing for v <= v_start (P3). Theorem P controls finitely many derivatives (k = 6:
+9.4), Theorem P gives u := g_lam - g0 = lam [W_TT] + u_1 with, by (P-ii)'s proof, u_1 in E_2 pointwise with the
+Cartesian derivatives Theorem P controls [amended D632: was "with all its Cartesian derivatives"] (m1, chi, gh_j, the
+Taylor terms and w; d^i [f] costs lam^-i, a constant now), and lam [W_TT] = r^(-3/2) G_3 with G_3(v, xhat) := the
+r^(3/2)-normalised Cartesian components of lam W_TT at phase v/lam, smooth and bounded with all derivatives, vanishing
+for v <= v_start (P3). Theorem P controls finitely many derivatives (k = 6:
 Proposition 9.8 with Lemma 9.3 gives d^i w in E_2 for i <= 4, the higher norms bounded); the approximating solutions of
 its construction give every order at fixed lam, uniformly, Lemma 11.0, which is what the induction below consumes.
 
@@ -11058,15 +11069,19 @@ t_n^(-1/2) <= C(lam, j) t^(-1/2) and int_{tau_n}^tau t'^(-3/2) dtau' <= 2 t^(-1/
 t^(-1/2) at every order, uniformly in n. [amended D630: WS-B round 6, R6-D: from "Lemma 9.5's energy inequality (9.3)"
 to here replaces the one-sentence step "Lemma 9.5's identity then gives ... uniformly in n", R6-D's "Edit 2, old"]
 The bookkeeping of sup against
-L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2), E_2 is in hand
-pointwise to order max(4, N - 3) (Theorem P for the lowest orders, Lemma 9.3 on the energies of the lower steps for the
-rest, at the cost of three), and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the energies of the
-next three orders into |d^gamma u_1^n| <= C(lam, j) t^(-3/2) t^(-1/2) = C(lam, j) t^-2, uniformly in n (with Omega^beta
-among the derivatives the same way: Lemma 9.3(a) with the rotation energies, the commutator [Omega, g_n^{ab} d_a d_b]
-absorbed as in 9.8(iii)), and the bounds pass to the limit: g_n -> g_lam with k - 5 derivatives on compact sets (section
-9.4, the proof of Theorem P), the higher derivatives of u_1^n are bounded uniformly in n on each compact set, so by
-Arzela-Ascoli a subsequence converges in every C^j, its limit is d^gamma u_1, and the bound is inherited: d^gamma u_1 is
-in E_2. []
+L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2), E_2 is in
+hand pointwise to order max(4, N - 3) ((9.8) with Lemma 9.3, for u_1^n, at the lowest orders [amended D632: was
+"Theorem P for the lowest orders"], Lemma 9.3 on the energies of the lower steps for the rest, at the cost of three),
+and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the energies of the next three orders into
+|d^gamma u_1^n| <= C(lam, j) t^(-3/2) t^(-1/2) = C(lam, j) t^-2, uniformly in n (with Omega^beta among the derivatives
+the same way: Lemma 9.3(a) with the rotation energies, the commutator [Omega, g_n^{ab} d_a d_b] absorbed as in
+9.8(iii); for pure rotations gamma the |gamma'| = |gamma| Leibniz term of R_gamma has the L^2 factor ||Omega^gamma
+u_1^n||, which the lower steps' energies bound only by C t^(1/2), |Omega f| <= 2 r |d f|, so that product is C
+t^(-3/2) and ||R_gamma|| <= C(lam, j) t^(-3/2) still holds, or the term can enter the Gronwall family through Lemma
+9.3(b), with kernel t^-2; and the aside on c U taken as a source is for Cartesian gamma [amended D632: this clause
+added]), and the bounds pass to the limit: g_n -> g_lam with k - 5 derivatives on compact sets (section 9.4, the proof
+of Theorem P), the higher derivatives of u_1^n are bounded uniformly in n on each compact set, so by Arzela-Ascoli a
+subsequence converges in every C^j, its limit is d^gamma u_1, and the bound is inherited: d^gamma u_1 is in E_2. []
 
 **Lemma 11.1 (the equation for u).** On P, -(1/2) box~ u = S(u) with
 
@@ -11100,8 +11115,10 @@ E_(q-1). *Energy.* Lemma 9.5 with gt = g_lam (the margin of Lemma 9.1(f) holds o
 t^(-3/2) on P+, integrable) and f = S', from tau1 -> -oo: ||d u~~(tau1)|| <= C t1^(3/2 - (q-1)) -> 0 since q > 5/2,
 and ||S'(tau')|| <= C t'^(3/2 - q - 1/2) = C t'^(1-q), so ||d u~~(tau)|| <= C int_{-oo}^{tau} t'^(1-q) dtau' = C
 t^(2-q)/(q-2). Commuting with d_X and Omega preserves the form: [d_X, g_lam^{ab} d_a d_b] = (d_X g_lam^{ab}) d_a d_b
-with d_X g_lam^{ab} in E_(3/2), a term of the kind Lemma 9.5's k absorbs (k = C t^(-3/2), integrable), and [Omega,
-box~] = 0 (P6); so every commuted energy is at most C t^(2-q). *Pointwise.* Lemma 9.3(b) (u~~ = 0 on {v = v_start})
+with d_X g_lam^{ab} in E_(3/2), a source in E_(q+1/2) by the hypothesis on u~~ (its second derivatives in E_(q-1)),
+within S''s bound t^(1-q) [amended D632: was "a term of the kind Lemma 9.5's k absorbs (k = C t^(-3/2), integrable)"],
+and [Omega, box~] = 0 (P6); so every commuted energy is at most C t^(2-q). *Pointwise.* Lemma 9.3(b) (u~~ = 0 on {v =
+v_start})
 and 9.3(a): |d_X^alpha Omega^beta u~~|_inf <= C t^(-3/2) t^(2-q) = C t^(1/2 - q): that is E_(q-1/2), since t and r are
 comparable on P+ (Lemma 9.1(d)). *The ell-gain.* Write the equation of u~~ through (9.5): with psi := ell u~~ (ell
 acting on Cartesian components),
@@ -11371,9 +11388,10 @@ H^2 (cos^4 th + sin^4 th) = 1 making the rest th-independent (P7 (f)). So after 
 by the solver, to O(lam^3), and its offset from mu(v) there should be (2/9) lam^2 A^2 int env'^2 +
 O(lam^3) = (5 pi^2/108) lam^2 for the solver's envelope sin^4(pi (v - 1/2)/3) on [1/2, 7/2] (int env'^2 = 5 pi^2/24, A =
 1; response5.py R8): 0.45693 lam^2. The runs give offset/lam^2 = 0.4589, 0.4577, 0.4568 at lam = 0.05, 0.025, 0.0125
-(mu0 = 100 l5^2) and 0.4578, 0.4569 at lam = 0.025, 0.0125 (1000 l5^2), converging to 0.4569 as O(lam) (B4; the run at
-lam = 0.00625 on the 32 x 16 grid gives 0.4535, 0.7 % low, the grid being coarse for that wavelength; the quartering
-hf_theorem5.py F4 recorded was this rate). This compares the law's integral with the solver's own integration of the
+(mu0 = 100 l5^2) and 0.4578, 0.4569 at lam = 0.025, 0.0125 (1000 l5^2), converging to 0.4569 [amended D632: was
+"converging to 0.4569 as O(lam)"; the errors show convergence, not its rate] (B4; the run at lam = 0.00625 on the 32 x
+16 grid gives 0.4535, 0.7 % low, the grid being coarse for that wavelength; the quartering hf_theorem5.py F4 recorded
+was this rate). This compares the law's integral with the solver's own integration of the
 same law; it does not test g_lam, which Theorem M does.
 
 Closed: the item "the mean mass at past null infinity" of the paper's section 8. Not claimed: uniformity in lam of the

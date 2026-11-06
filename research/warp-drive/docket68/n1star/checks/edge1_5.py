@@ -2,7 +2,7 @@
 """edge1_5.py -- the deep layer and the very edge for Theorem 1's solution (EQUALITY5-LAYER.md, Round 5, R5.3:
 Lemma H_Sigma, Lemma L.21 (the first-degree constraint correction), Proposition L.22 (the two-term formula), Lemma W,
 Theorem L_1E; Round 6, R6.1: H_Sigma's exact form, L.21 (iv'), (v'), L.22', Theorem L_1E'; Round 7, R7.1-R7.3: Lemma
-W (A'), L.21 (iv''), L.21 at c_N = 1, Proposition L.26 (Case 3'), Theorem L_1E'').
+W (A'), L.21 (iv''), L.21 at c_N = 1, Proposition L.26 (Case 3'), Theorem L_1E''; Round 8, R8.1: Lemma L.28).
 
 With stage N's data fixed by Lemma 6.2's rule (D615), the A-linear part h1 of g_lam is the linear solution of the
 seed's reduced operator with the A-linear Cauchy data: those of h_app1 := Re sum_(j<=N+1) lam^j H_j e^(i v/lam) and
@@ -76,19 +76,25 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      |rho_g| <= 3 eps', and |rho_g + lam^2 kappa_g'| <= 5 (lam kappa)^3 kappa^(-1/2) for lam kappa <= 1/4.  Control:
      the first-order term and the correction dropped.
   X14 (computed, mpmath; unit constants; round 7) Proposition L.26 (Case 3') at c_N(rho0) = 1/2 (rho0^2 = 23 = 2N - 1,
-     N = 12), nu = -1/9, exact derivatives, rho_g by (iv''), lam = 1e-40, 1e-80, 1e-160: every window of the crossover
-     is decided by Lemma W (A') (a log grid) or (B) (the windows around min |sigma|), and min |sigma| < 10^-3 |nu|
-     T0^2 (the leading model vanishes to all orders: the T0^2 route fails).  Control: round 5's error class (eps = lam
-     kappa with L.22's crude derivative bound) leaves windows undecided.
+     N = 12), nu = -1/9, exact derivatives, rho_g by (iv''), lam = 1e-40, 1e-80 [round 8, the verifier of round 7's m2:
+     the rows at 1e-160 were below the 60-digit resolution, x + 4 pi lam == x, and are dropped]: every window of the
+     crossover is decided by Lemma W (A') (a log grid) or (B) (the windows around min |sigma|), and min |sigma| < 10^-3
+     |nu| T0^2 (the leading model vanishes to all orders: the T0^2 route fails).  Control: round 5's error class (eps =
+     lam kappa with L.22's crude derivative bound) leaves windows undecided.
   X15 (computed, mpmath; unit constants; round 7) Case 3' at rho0 = rho* with nu = K(r0), (H_rho*)'s first half only,
      and an unknown structured stage family lam b4 (|b4| = 1, four phases): N = 12 and 10, exp(-1/x), the record's
      envelope: every window decided.  Control: exp(-1/x^(1/2)) (kappa x^2 -> 0), N = 10, the family's coefficients b4,
-     b5 (moduli < 1) chosen with sigma = sigma' = 0 at a point: a window is undecided (the method fails there).
+     b5 (moduli < 1) chosen with sigma = sigma' = 0 at a point: a window is undecided (the method cannot decide there
+     for some admissible b4, b5); its figures are printed [round 8, nit 6].
+  X17 (computed, mpmath; unit constants Gamma_R = 1; round 8) Lemma L.28: X15's model at rho0 = rho* on exp(-1/x^(1/2))
+     (kappa x^2 -> 0, (H_rho*)'s first half fails) with the computed b4 = i (366 rho*^2 - 153 rho* - 934)/420 =
+     -0.0381909... i and b5 = 3 b4 (bfam5 B5), lam = 1e-40: every window decided for N = 9, 10, 11, 12, 13, and with b5
+     in {0, 1, i, -1, -i} at N = 10.  Control: X15's adversarial (b4, b5) in place of the computed ones: undecided.
   X16 (computed, sampled; round 7) L.21 at c_N = 1: the lower families against the bracket -(i/lam) s^-1 env^(N-1)
      are O(lam + 1/kappa) for lam kappa in [10^-2, 10^4].  Control: a lower term with one s too many.
 
-Labels: X1-X8 computed (exact, sympy); X9, X10, X13, X16 computed, sampled; X11, X12, X14, X15 computed (mpmath),
-with unit constants.
+Labels: X1-X8 computed (exact, sympy); X9, X10, X13, X16 computed, sampled; X11, X12, X14, X15, X17 computed
+(mpmath), with unit constants.
 Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about an hour)
 """
 import os
@@ -936,7 +942,7 @@ def e14(control=False):
     N, rho0 = 12, mp.sqrt(23)
     rows, ok = [], True
     for nm in (("exp(-1/x)",) if control else ("exp(-1/x)", "record C_c^inf")):
-        for E in ((40,) if control else (40, 80, 160)):
+        for E in ((40,) if control else (40, 80)):
             lam = mp.mpf(10)**-E
             key = (nm, E, control)
             if key not in CACHE14:
@@ -1007,6 +1013,7 @@ def e15(control=False):
         CACHE15['advrow'] = ("exp(-1/x^(1/2)), N = 10, lam = 1e-40, |b4| = %s, |b5| = %s: lam/|nu| = %s at the"
                              " crossover, windows decided: %s" % (mp.nstr(abs(b4), 3), mp.nstr(abs(b5), 3),
                                                                  mp.nstr(lam/d['nuabs'], 3), d['ok']))
+        out("  X15 control [round 8, nit 6]: " + CACHE15['advrow'])
         return d['ok']
     for nm, N, E in (("exp(-1/x)", 12, 40), ("exp(-1/x)", 12, 80), ("exp(-1/x)", 10, 40), ("record C_c^inf", 12, 40)):
         lam = mp.mpf(10)**-E
@@ -1022,6 +1029,32 @@ def e15(control=False):
                     " -1, -i: %s" % (nm, N, E, mp.nstr(d['kx2'], 3), mp.nstr(lam/d['nuabs'], 3), allb))
     out("  X15 Case 3' at rho0 = rho* = %s, nu = K(r0), unit constants, with an unknown structured lambda-family"
         " lam b4: " % mp.nstr(rs, 7) + "; ".join(rows) + "; all decided: %s  [%.0f s]" % (ok, time.time() - T0))
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------------------ X17
+def e17(control=False):
+    """Lemma L.28 (round 8): rho0 = rho*, kappa x^2 -> 0 (exp(-1/x^(1/2))), the computed b4 = alpha4(rho*) =
+    i (366 rho*^2 - 153 rho* - 934)/420 and b5 = 3 b4 (bfam5 B5) in X15's model, lam = 1e-40: every window decided.
+    Control: X15's adversarial (b4, b5) in their place: a window undecided"""
+    mp.mp.dps = 60
+    rs = mp.findroot(lambda q: 2*q**3 - 3*q**2 - 2, mp.mpf('1.8'))
+    nm, lam = "exp(-1/x^(1/2))", mp.mpf(10)**-40
+    if control:
+        if 'adv' not in CACHE15:
+            e15(control=True)
+        return CACHE15['adv'][2]['ok']
+    b4 = 1j*(366*rs**2 - 153*rs - 934)/420
+    rows, ok = [], True
+    cases = [(N, 3*b4) for N in (9, 10, 11, 12, 13)] + [(10, b5) for b5 in (0, 1, 1j, -1, -1j)]
+    for N, b5 in cases:
+        d = dichotomy(nm, lam, N, rs, 'K', b4=b4, b5=b5, nwin=40, ngrid=41)
+        ok &= d['ok']
+        rows.append("N = %d, b5 = %s: kappa x^2 = %s, lam/|nu| = %s, by (A') %d, by (B) %d, decided: %s"
+                    % (N, "3 b4" if b5 == 3*b4 else mp.nstr(b5, 2), mp.nstr(d['kx2'], 3), mp.nstr(lam/d['nuabs'], 3),
+                       d['nA'], d['nB'], d['ok']))
+    out("  X17 Lemma L.28 at rho* on exp(-1/x^(1/2)) (kappa x^2 -> 0), lam = 1e-40, unit constants, the computed b4 = %s"
+        " (bfam5 B5): " % mp.nstr(b4, 12) + "; ".join(rows) + "; all decided: %s  [%.0f s]" % (ok, time.time() - T0))
     return ok
 
 
@@ -1057,7 +1090,7 @@ def main():
     ok = True
     for name, f in (("X1", e1), ("X2", e2), ("X3", e3), ("X4", e4), ("X5", e5), ("X6", e6), ("X7", e7), ("X8", e8),
                     ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12), ("X13", e13),
-                    ("X14", e14), ("X15", e15), ("X16", e16)):
+                    ("X14", e14), ("X15", e15), ("X16", e16), ("X17", e17)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))

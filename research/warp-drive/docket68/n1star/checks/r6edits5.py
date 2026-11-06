@@ -15,7 +15,11 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      only", (l) "by Lemma 9.3(b) (U vanishes on {v = v_start})", (m) "summed over the family, Gronwall's lemma then
      costs", (n) "b . d U is of the order this step estimates and is not known", (o) "obey the bounds on b and c
      above with the same constants"; and round 8 two more: (p) "and c U is one order lower.", (q) "(Lemma 11.1
-     applies to u_1^n verbatim". Control: on the live, unedited Lemma 11.0 every predicate fails.
+     applies to u_1^n verbatim"; and, read structurally on Edit 2 (the N1STAR reader's M14, M19, M12, which (m) and
+     (n), reading Edit 1, let pass): (r) the forcing of Edit 2's energy inequality is f_gamma^n, and the definition of
+     f_gamma read from Edit 1 contains b . d U (R_gamma's subtracts it); (s) both sides of Edit 2's Gronwall bound
+     are sums over the family; (t) the step's |gamma|, the family's |delta|, ||f_gamma||'s sum and Edit 2's two sums
+     read the same index. Control: on the live, unedited Lemma 11.0 every predicate fails.
   E2 (exact, sympy) what the edited text states, every quantity read from the text by a pattern:
      E2a Leibniz's rule with the sign, the coefficient and the binomial factor read from both sums: for generic g, u of
          (x, y) and every gamma of order 1..3, -(1/2) g d_x^2 d^gamma u = d^gamma(-(1/2) g d_x^2 u) + s c sum_{0 <
@@ -29,7 +33,8 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      E2c the Gronwall kernel read ("exp(int C(1 + lam^q) t^(e))") is the sum of the two bounds read, and so is
          ||f_gamma||'s.
      E2d the factor read ("at most e^(...) over the far region t >= lam^-2") equals exp of
-         int_(lam^-2)^oo (the kernel read) dt, computed (2C(1 + lam)), and is bounded as lam -> 0.
+         int_(lam^-2)^oo (the kernel read) dt, computed (2C(1 + lam)), and is bounded as lam -> 0; round 8 (the
+         N1STAR reader's M10): Edit 2's factor ("C e^(...)"), read, is the same computed one.
      E2e Gronwall's lemma in integral form on the model: y(tau) = y0 + int kappa y has y = y0 exp(int kappa) (exact),
          and the solutions of y' = kappa y - g with g >= 0 lie below it (20 sampled g).
      E2f Edit 2's closing bound, read: int_(tau_n)^tau t'^(-3/2) dtau' = 2 (t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) with
@@ -41,10 +46,16 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
          ||R_gamma|| is the largest of them.
          Round 8: the slice's volume read ("whose volume is at most C t^3") against the computed power.
      E2h the bookkeeping inequality read ("floor((N + 2)/2) <= max(4, N - 3)") holds for N = 1..2000.
+     E2i round 8 (the N1STAR reader's n3), not read from the text: the rotation case on E2g's model, exact: a rotation
+         keeps a field's class and d raises it (r^-q x_1/r along a ray), |Omega f| <= r |d f| (Lagrange's identity);
+         for pure-rotation gamma the |gamma'| = |gamma| product is t^(-3/2) (L^2 factor t^(1/2)), not <= t^(-2) as for
+         Cartesian gamma, yet <= the source's t^(-3/2), so ||R_gamma|| <= C t^(-3/2) stands; via Lemma 9.3(b) it is a
+         family term with kernel t^-2, integral lam^2; c U as a source integrates for Cartesian gamma only.
   E3 controls: the text under test mutated in memory, each mutation must make E1 or E2 fail: c U's bound lam^-1 ->
      lam^-3 (the reader's E-m5), the factor -> e^(2C/lam) (E-m6), the coefficient 1/2 of the |gamma'| = 1 sum dropped,
      C(gamma, gamma') dropped at the |gamma'| >= 2 sum, R_gamma's source E_3 -> E_(5/2), and max(4, N - 3) ->
-     max(4, N - 4).
+     max(4, N - 4); round 8 adds the N1STAR reader's four survivors: Edit 2's factor -> e^(2C/lam) (M10), Edit 2's
+     f = f_gamma^n -> R_gamma^n (M14), Edit 2's sums removed (M19), the family's |delta| = j + 1 -> j (M12).
   E4 (text) the final paper blocks, R8-E since round 8 (R7-E's in round 7, R6-E's in round 6), against
      RESPONSE-HL-5D.md (not edited); round 8 adds the status words (deduced, conditional on, proved, and no stronger
      word), BEYOND5 Lemma 6.4 (iv) in block 1 and block 3's "deduced, conditionally", with R7-E's blocks as the control.
@@ -176,6 +187,28 @@ def read_bounds(L):
     return rb, rc, cf, bf, ker, fk, fac
 
 
+def read_edit2(L):
+    """[R8, the N1STAR reader's M10, M14, M19] Edit 2's energy step, read: the forcing named, the index sets of its two
+    family sums (None where a sum is absent) and the Gronwall factor's exponent"""
+    m = re.search(r"Lemma 9\.5's energy inequality \(9\.3\) for U_n with f = (\S+), and Gronwall's lemma, give "
+                  r"(?:sum_\{\|gamma\| = ([^}]*)\} )?\|\|d U_n\(tau\)\|\| <= C e\^\((.+?)\) "
+                  r"(?:sum_\{\|gamma\| = ([^}]*)\} )?\(\|\|d U_n\(tau_n\)\|\| \+ int_\{tau_n\}\^tau "
+                  r"\|\|R_gamma\^n\|\| dtau'\)", L)
+    if not m:
+        return None
+    return {"f": m.group(1), "sum1": m.group(2), "exp": m.group(3), "sum2": m.group(4)}
+
+
+def family_indices(L):
+    """[R8, the N1STAR reader's M12] every place the text fixes the order of the step or of the family: the step's
+    |gamma|, the family's |delta|, the |delta| of ||f_gamma||'s sum, Edit 2's two sums"""
+    st = re.search(r"Induction on the order: for \|gamma\| = ([^,]*), by Leibniz's rule U := d\^gamma u_1", L)
+    fam = re.search(r"family \{d\^delta u_1 : \|delta\| = ([^}]*)\}", L)
+    fs = re.search(r"\|\|f_gamma\|\| <= C\(1 \+ lam\^-?\d+\) t\^\([-\d/]+\) sum_\{\|delta\| = ([^}]*)\}", L)
+    e2 = read_edit2(L)
+    return [x.group(1) if x else None for x in (st, fam, fs)] + ([e2["sum1"], e2["sum2"]] if e2 else [None, None])
+
+
 def bounds_ok(L, pre):
     rb, rc, cf, bf, ker, fk, fac = read_bounds(L)
     if not all((rb, rc, cf, bf, ker, fk, fac)):
@@ -207,8 +240,15 @@ def bounds_ok(L, pre):
     except Exception:  # noqa: BLE001
         fx = sp.nan
     okd = sp.simplify(fx - I) == 0 and sp.limit(I, LAM, 0, "+").is_finite
+    e2 = read_edit2(L)                    # [R8] Edit 2 states the factor again: it must be the same, computed one
+    try:
+        fx2 = parse_expr(e2["exp"].replace("lam", "LAM"), {"C": C, "LAM": LAM}, transformations=tr) if e2 else sp.nan
+    except Exception:  # noqa: BLE001
+        fx2 = sp.nan
+    okd = okd and sp.simplify(fx2 - I) == 0
     return {"E2b": (okb, r_b), "E2c": (okc, f"kernel C(1 + lam^{k_lam}) t^({k_t}); f's C(1 + lam^{f_lam}) t^({f_t})"),
-            "E2d": (okd, f"read e^({fac.group(1)}); computed exp({sp.simplify(I)})")}
+            "E2d": (okd, f"read e^({fac.group(1)}), Edit 2 e^({e2['exp'] if e2 else None}); computed "
+                         f"exp({sp.simplify(I)})")}
 
 
 def r6_only_ok(L):
@@ -257,6 +297,48 @@ def r6_only_ok(L):
     else:
         out["E2h"] = (False, "not read")
     return out
+
+
+def rotation_case():
+    """E2i [R8, the N1STAR reader's n3] the rotation case, exact (sympy), on the model of E2g: a rotation keeps a field's
+    class, a coordinate derivative raises it by one (r^-q x_1/r in R^4 along a ray), and |Omega f| <= r |d f|
+    (Lagrange's identity); so for pure-rotation gamma the |gamma'| = |gamma| Leibniz term (d g^{ab}/d g . Omega^gamma
+    u_1) d_a d_b u_1 has its L^2 factor ||Omega^gamma u_1|| only from the lower steps' energies with the loss of r,
+    t^(1/2), and the product is t^(-3/2): not at most t^(-2), as for Cartesian gamma (t^(-5/2)), but not above the
+    source's t^(-3/2), so ||R_gamma|| <= C t^(-3/2) stands; or, by Lemma 9.3(b), the term enters the family with kernel
+    t^-2, whose integral over t >= lam^-2 is lam^2 (a lam-free factor). The aside "c U taken as a source, through the
+    energies of the lower steps" needs Cartesian gamma: there lam^-1 t^(-2) is integrable, with a rotation lam^-1 t^-1
+    is not."""
+    x1, x2, x3, x4, rr, q = sp.symbols("x1 x2 x3 x4 r q", positive=True)
+    R = sp.sqrt(x1**2 + x2**2 + x3**2 + x4**2)
+    f = R**(-q)*x1/R
+    om = sp.simplify(x1*sp.diff(f, x2) - x2*sp.diff(f, x1))
+    grad2 = sum(sp.diff(f, xi)**2 for xi in (x1, x2, x3, x4))
+    ray = {x1: rr/2, x2: rr*sp.sqrt(3)/2, x3: 0, x4: 0}
+    qv = sp.Rational(5, 2)
+    p_om = sp.limit(sp.log(sp.Abs(om.subs(ray).subs(q, qv)))/sp.log(rr), rr, sp.oo)
+    p_d = sp.limit(sp.log(sp.sqrt(grad2.subs(ray).subs(q, qv)))/sp.log(rr), rr, sp.oo)
+    xa, xb, pa, pb = sp.symbols("xa xb pa pb", real=True)
+    lagr = sp.expand((xa**2 + xb**2)*(pa**2 + pb**2) - (xa*pb - xb*pa)**2 - (xa*pa + xb*pb)**2) == 0
+    r_, a1, a2 = sp.symbols("r_ a1 a2", positive=True)
+
+    def l2pow(qq):
+        I = sp.integrate(r_**(-2*qq)*r_**3, (r_, T + a1, T + a2))
+        return sp.limit(sp.log(I.subs({a1: 1, a2: 3}))/sp.log(T), T, sp.oo)/2
+    p_eng = l2pow(sp.Integer(2))                 # the lower steps' energies, a derivative in E_2
+    p_rot = l2pow(sp.Integer(1))                 # Omega^gamma u_1: the class of Omega^gamma'' u_1, one below its d
+    p_src = l2pow(sp.Integer(3))                 # d_X^gamma F_1(X, 0, 0) in E_3
+    sup2 = -2                                    # the second factor, d_a d_b u_1, in E_2, in sup norm
+    prod_rot, prod_cart = p_rot + sup2, p_eng + sup2
+    Ik = sp.integrate(C*T**-2, (T, LAM**-2, sp.oo))
+    cu_cart = sp.integrate(T**(-sp.Rational(3, 2) + p_eng), (T, LAM**-2, sp.oo))
+    cu_rot = sp.integrate(T**(-sp.Rational(3, 2) + p_rot), (T, LAM**-2, sp.oo))
+    ok = (p_om == -qv and p_d == -qv - 1 and lagr and prod_rot == -sp.Rational(3, 2) and prod_rot > -2
+          and prod_rot <= p_src and prod_cart <= -2 and sp.simplify(Ik - C*LAM**2) == 0
+          and cu_cart.is_finite and cu_rot == sp.oo)
+    return ok, (f"Omega: E_{qv} -> r^({p_om}), d: -> r^({p_d}); Lagrange {lagr}; product t^({prod_rot}) (rotation), "
+                f"t^({prod_cart}) (Cartesian), source t^({p_src}); kernel t^-2 -> {Ik}; c U as a source: "
+                f"{cu_cart} (Cartesian), {cu_rot} (rotation)")
 
 
 def math_checks(L, pre, r6=True):
@@ -325,6 +407,16 @@ def predicates6(L):
     p["o"] = "obey the bounds on b and c above with the same constants" in Ln   # b^n, c^n uniform in n
     p["p"] = "and c U is one order lower." in Ln                                 # [R8] c U is not of the top order
     p["q"] = "(Lemma 11.1 applies to u_1^n verbatim" in Ln                       # [R8] the lemma that applies to u_1^n
+    # [R8, the N1STAR reader's M14, M19, M12] Edit 2: the forcing is the one that contains the unknown b . d U (its
+    # definition in Edit 1, read), Gronwall acts on sums over the family on both sides, one family index throughout
+    e2 = read_edit2(Ln)
+    name = e2["f"][:-2] if e2 and e2["f"].endswith("^n") else "(no forcing read)"
+    dfn = re.search(re.escape(name) + r" := (.{0,40})", Ln)
+    p["r"] = bool(e2 and dfn and e2["f"].endswith("^n")
+                  and (dfn.group(1).startswith("b . d U +") or "+ b . d U" in dfn.group(1)))
+    idx = family_indices(Ln)
+    p["s"] = bool(e2 and e2["sum1"] is not None and e2["sum2"] is not None)
+    p["t"] = all(i is not None for i in idx) and len(set(idx)) == 1
     return p
 
 
@@ -362,7 +454,9 @@ def e1(blocks, P):
           "family index delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its "
           "reason, and [R7] (k) R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed "
           "over the family, (n) b . d U not known, (o) b^n, c^n with the same constants, [R8] (p) c U one order "
-          "lower, (q) Lemma 11.1 applies to u_1^n (text: the induction's structure is a read proof)",
+          "lower, (q) Lemma 11.1 applies to u_1^n, and on Edit 2 (r) the forcing is f_gamma^n, whose definition "
+          "contains b . d U, (s) Gronwall on sums over the family, (t) one family index throughout (text: the "
+          "induction's structure is a read proof)",
           all(new_p.values()), str(new_p))
     check("E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails",
           not any(old_p.values()), str(old_p))
@@ -381,11 +475,15 @@ def e2(Q):
              "E2f": "Edit 2's closing bound read: int t'^(-3/2) = 2(t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) (exact)",
              "E2g": "the L^2 powers on Sigma_tau cap P+ computed from the classes read match the bounds read",
              "E2h": "the bookkeeping inequality read holds for N = 1..2000"}
+    res["E2i"] = rotation_case()
+    names["E2i"] = ("[R8, n3] the rotation case: for pure-rotation gamma the |gamma'| = |gamma| product is "
+                    "t^(-3/2), not <= t^(-2), and ||R_gamma|| <= C t^(-3/2) stands (or the family, kernel t^-2); "
+                    "c U as a source needs Cartesian gamma (exact)")
     for k in ("E2a", "E2b", "E2c", "E2d"):
         check(f"{k} {names[k]}", *res[k])
     check("E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 20 "
           "sampled subsolutions stay below it", gronwall_model())
-    for k in ("E2f", "E2g", "E2h"):
+    for k in ("E2f", "E2g", "E2h", "E2i"):
         check(f"{k} {names[k]}", *res[k])
     return res
 
@@ -402,6 +500,16 @@ MUTANTS = [
      "d_X^gamma F_1(X, 0, 0), in E_(5/2), has"),
     ("max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read)", "<= max(4, N - 3) for every N >= 1",
      "<= max(4, N - 4) for every N >= 1"),
+    # [R8] the N1STAR reader's four survivors, on Edit 2 and the family index
+    ("M10: Edit 2's factor e^(2C(1 + lam)) -> e^(2C/lam)", "<= C e^(2C(1 + lam)) sum_{|gamma|",
+     "<= C e^(2C/lam) sum_{|gamma|"),
+    ("M14: Edit 2's f = f_gamma^n -> R_gamma^n (b . d U taken as known)", "with f = f_gamma^n, and Gronwall's",
+     "with f = R_gamma^n, and Gronwall's"),
+    ("M19: Edit 2's sums removed (Gronwall per gamma)",
+     "give sum_{|gamma| = j + 1} ||d U_n(tau)|| <= C e^(2C(1 + lam)) sum_{|gamma|\n= j + 1} (||d U_n(tau_n)||",
+     "give ||d U_n(tau)|| <= C e^(2C(1 + lam))\n(||d U_n(tau_n)||"),
+    ("M12: the family index |delta| = j + 1 -> j", "family {d^delta u_1 : |delta| = j + 1}",
+     "family {d^delta u_1 : |delta| = j}"),
 ]
 
 

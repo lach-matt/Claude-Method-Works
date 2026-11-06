@@ -76,6 +76,8 @@ D630 (WS-B's R6-D seated in Lemma 11.0, section 11's status, four notes in secti
 and every row unchanged); FILE_PIN re-pinned to the D630 file (11350 lines).
 D631 (WS-A's R12.h texts (1), (2), (9)-(12) and the header's sentence on R6-D): T0 re-pinned (lines 1-960, the whole
 file of 11382 lines); the header is two lines longer, so every row below line 58 outside section 6 moves by +2.
+D632 (the confirming reader of sections 9.5, 9.10 and 11 seated; the header two lines longer again): T0 re-pinned (lines
+1-962, 11400 lines); every row below line 59 outside section 6 moves by +2.
 """
 import hashlib
 import os
@@ -94,10 +96,10 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '2b518284c417ef0b007ca1d30f4884f4'          # md5 of lines 1-960 (sections 0-6, to '## 7.') joined by newlines
-LAST = 960                                         # D631; 958 at D627 (f32ebb1a...), 948 at D625 (0c9fa8c2...)
+PIN = '0cd93b0ee16c9783e699775b9222a929'          # md5 of lines 1-962 (sections 0-6, to '## 7.') joined by newlines
+LAST = 962                                         # D632; 960 at D631 (2b518284...), 958 at D627 (f32ebb1a...)
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '88179da4c73ade0b2ae6d3d8289d5e0c'     # the whole file at D631 (11382 lines); D630: 87501cfb... (11350)
+FILE_PIN = '5043cedfe02904bc06782ffd6efbb575'     # the whole file at D632 (11400 lines); D631: 88179da4... (11382)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 
@@ -184,6 +186,9 @@ TRACE = [(t, f, (ln if t.startswith('D-') else D627[ln]), fr, st) for t, f, ln, 
 # D631 (WS-A's R12.h text (11) and the Theorem M sentence on R6-D seated in the header, two lines longer): every row
 # outside section 6 below line 58 moves by +2 (checked line by line against the D630 file, md5 87501cfb...)
 TRACE = [(t, f, (ln if t.startswith('D-') or ln <= 58 else ln + 2), fr, st) for t, f, ln, fr, st in TRACE]
+# D632 (the header's Theorem M sentence on the section 9.5/11 confirming read, two lines longer): every row outside
+# section 6 below line 59 moves by +2 again (checked line by line against the D631 file, md5 88179da4...)
+TRACE = [(t, f, (ln if t.startswith('D-') or ln <= 59 else ln + 2), fr, st) for t, f, ln, fr, st in TRACE]
 
 
 def _repin_section6(rows):

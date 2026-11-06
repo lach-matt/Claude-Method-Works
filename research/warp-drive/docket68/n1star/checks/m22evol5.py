@@ -938,8 +938,8 @@ def main():
     OK['N1'] = conv and band[0] > 0
     print('  N1: radial refinement (Nx = 12) changes M_22 by %.1e, %.1e, %.1e (Nr 24 to 32, 32 to 40, 40 to 48); '
           'angular (Nr = 32) by %.1e, %.1e (Nx 12 to 16, 16 to 20), the same at Nr = 48 to %.0e; halving the step '
-          '(32 x 12) by %.1e. M_22 = %.8f (Nr = 48, Nx = 16), error estimate %.1e (the last radial, angular and time changes '
-          'summed); band [%.6f, %.6f] (ten times that; floating point, not an enclosure); 0 outside it: %s %s'
+          '(32 x 12) by %.1e. M_22 = %.8f (Nr = 48, Nx = 16), error estimate %.1e (the last radial, angular and time '
+          'changes summed); band [%.6f, %.6f] (ten times that; floating point, not an enclosure); 0 outside it: %s %s'
           % (dr_[0], dr_[1], dr_[2], dx_[0], dx_[1],
              abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])), dt, best, err,
              band[0], band[1], OK['N1'], el()))

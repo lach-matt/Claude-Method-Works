@@ -2,37 +2,42 @@
 """bfam5.py -- the family below the top at the horizon: b4 and b5 of R7.3 computed (EQUALITY5-LAYER.md, Round 8, R8.1).
 
 The first-degree profiles of Theorem 1's solution are H_j = sum_k env^(k)(v) c_(j,k)(r, r0, th), r0 = v - tau0 (L.13
-(b)); H_(j+1) solves T(H_(j+1)) + R_X(H_j) = 0 along ell with the data i Pol^+(D_X H_j) at r = r0 (Lemma 6.2 (i)),
-and d_v acts on r0: d_v (c E^(k)) = (d_(r0) c) E^(k) + c E^(k+1) (R7.3).  Here everything at mu0 = 1 (the horizon r =
-1), every T^2 x Z2 x Z2-invariant component, for every angular profile a(th), b(th) of the wave H1 = A E r^(1/2)
-diag(-(a + b), cos^2 a, sin^2 b) (layerlin5 N3).
+(b)); H_(j+1) solves T(H_(j+1)) + R_X(H_j) = 0 along ell with the data i Pol^+(D_X H_j) at r = r0 (Lemma 6.2 (i)), and
+d_v acts on r0: d_v (c E^(k)) = (d_(r0) c) E^(k) + c E^(k+1) (R7.3).  Everything at mu0 = 1 (the horizon r = 1), every
+T^2 x Z2 x Z2-invariant component, for every angular profile a(th), b(th) of the wave H1 = A E r^(1/2) diag(-(a + b),
+cos^2 a, sin^2 b) (layerlin5 N3).
 
 Method.  The operators are taken once from layerlin5.ops on the general profile (eight free functions of (v, r, th)):
-the lam^-1 and lam^0 parts of dRic^H and dD, each a list of (coefficient, component, derivative); applied to a family
-vector with d_v as above.  The angle is t := tan(th/2) (th in (0, pi/2) <-> t in (0, 1); d_th = (1 + t^2)/2 d_t), so
+the lam^-1 and lam^0 parts of dRic^H and dD, each a list of (coefficient, component, derivative), applied to family
+vectors with d_v as above.  The angle is t := tan(th/2) (th in (0, pi/2) <-> t in (0, 1); d_th = (1 + t^2)/2 d_t), so
 every coefficient is rational in t, and every profile is kept in a canonical form: a sum over (wave factor a^(k),
-b^(k); powers of r, log r, r0, log r0) of reduced rational functions of t.  A zero is then a zero (no trigonometric
-identity left to find).  The transports: (r^(3/2) H_rr)' = -i r^(3/2) R_rr, (r^(3/2) H_vr)' = r^(3/2) (-i R_vr -
-H_rr/r^3), (r^(3/2) H_vv)' = r^(3/2) (-i R_vv - 2 H_vr/r^3), (r^(1/2) H_rth)' = -i r^(1/2) R_rth, (r^(1/2) H_vth)' = r^(1/2) (-i
-R_vth - H_rth/r^3), (r^(-1/2) H_kk)' = -i r^(-1/2) R_kk, integrated from r0 termwise (powers of r and log r).
+b^(k); powers of r, log r, r0, log r0) of reduced rational functions of t, so that a zero test is an exact
+cancellation.  The transports, integrated from r0 termwise in powers of r and log r: (r^(3/2) H_rr)' = -i r^(3/2) R_rr,
+(r^(3/2) H_vr)' = r^(3/2) (-i R_vr - H_rr/r^3), (r^(3/2) H_vv)' = r^(3/2) (-i R_vv - 2 H_vr/r^3), (r^(1/2) H_rth)' = -i
+r^(1/2) R_rth, (r^(1/2) H_vth)' = r^(1/2) (-i R_vth - H_rth/r^3), (r^(-1/2) H_kk)' = -i r^(-1/2) R_kk.
 
   B1 (exact) H2 = c_(2,0) E: family 1 of R_X(H1), D_X(H1) vanishes; T(H2) + R_X(H1) = 0 (8 components) and i Pol(H2) +
      D_X(H1) = 0 (3), everywhere; H2 in S (no vv, vr, rr, sigma-trace).
-  B2 (exact) H3 = c_(3,1) E' + c_(3,0) E with d_v acting on r0: c_(3,1) = i c_(2,0) (L.13 (b)); c_(3,0)'s vv at r = 1 is
-     A d K(r0), K = -(2 r0^3 - 3 r0^2 - 2)^2/(36 r0^6) (layerlin5 N5, now with the r0-motion: L.13 (c) holds); the
-     transport and gauge equations, family by family.
-  B3 (exact) H4: c_(4,2) = -c_(2,0), c_(4,1) = 2i c_(3,0) (L.13 (b)'s top two families, with the r0-motion); c_(4,0)
-     computed; the equations.
-  B4 (exact) H5's family 1, c_(5,1): its vv, vr, rr components (all c_(5,1)_vv needs) and the equations there.
-  B5 (exact, then certified) b4(r0, th) := c_(4,0),vv(1; r0, th)/(A d), b5 := c_(5,1),vv(1; r0, th)/(i A d) (so that
-     the stage family below the top contributes lam (b4 + i T0 b5 + ...) to sigma, R7.3), at rho* = 1.80644... (the
-     real root of 2 rho^3 - 3 rho^2 - 2); their form for every wave and for the paper's wave T = T^G - i T^F (N6); for the
-     paper's wave, b4(th) on th in [0, pi/2] by interval arithmetic: where it is real, and its sign there.
-  Controls: (i) the vv transport with its mass coupling 2 H_vr/r^3 halved: B2's K and the vv equation fail; (ii) d_v
-     not acting on r0 (r0 frozen): c_(4,0),vv at the horizon differs (printed), so the r0-motion matters at this family.
+  B2 (exact) H3 = c_(3,1) E' + c_(3,0) E with d_v acting on r0: c_(3,1) = i c_(2,0) (L.13 (b)); both equations in both
+     families; c_(3,0)'s vv at r = 1 is A d K(r0), K = -(2 r0^3 - 3 r0^2 - 2)^2/(36 r0^6) (layerlin5 N5's closed form,
+     now with the r0-motion).
+  B3 (exact) H4: c_(4,2) = -c_(2,0), c_(4,1) = 2i c_(3,0) (L.13 (b)'s top two families, with the r0-motion); both
+     equations in families 0 and 1; c_(4,0) computed.
+  B4 (exact) H5's family 1, c_(5,1): its vv, vr, rr components (all c_(5,1),vv needs) and the equations there.
+  B5 (exact, then certified) the horizon values as combinations of d = div div T and Lap d (Lap the Laplacian of S^3),
+     exactly, for every angular profile: c_(3,0),vv = A K d; c_(4,0),vv = A (alpha4 d + beta4 Lap d) with beta4 = -i (r0
+     - 1) K/(2 r0); c_(5,1),vv = 3i c_(4,0),vv.  So b4 := c_(4,0),vv(1; r0, th)/(A d) = alpha4 + beta4 Lap d/d and b5 :=
+     c_(5,1),vv/(i A d) = 3 b4 (the stage family below the top contributes lam (b4 + i T0 b5 + ...) to sigma, R7.3);
+     at rho* = 1.80644... (the real root of 2 rho^3 - 3 rho^2 - 2, K's double root) beta4 = 0, so b4(rho*, th) =
+     alpha4(rho*) for every th and every wave: exact in Q(rho*), enclosed by interval arithmetic, purely imaginary and
+     nonzero; and for the paper's wave T = T^G - i T^F (N6) b4 avoids [0, oo) on all of th in [0, pi/2] (interval
+     arithmetic in zeta = cos 2th, where b4 = N(zeta)/((1 + zeta^2)^2 |P|^2) with N polynomial).
+  Controls: (i) the vv transport with its mass coupling 2 H_vr/r^3 halved: B2's K and the vv equation fail (detected);
+     (ii) d_v not acting on r0 (r0 frozen): c_(4,0),vv at the horizon differs (printed at rho*), so the r0-motion
+     matters at this family.
 
-Labels: B1-B4 and B5's forms computed (exact, sympy); B5's decision certified (interval arithmetic, mpmath.iv).
-Run: python3 checks/bfam5.py
+Labels: B1-B5's forms computed (exact, sympy); B5's values at rho* and the paper's-wave decision certified (interval
+arithmetic, mpmath.iv).  Run: PYTHONHASHSEED=0 python3 checks/bfam5.py   (about forty minutes under load)
 """
 import os
 import sys
@@ -489,13 +494,6 @@ def at_rho(e, rs):
     return ev(sp.expand(e), {r0: rs})
 
 
-def fmt(p):
-    with mp.workdps(50):
-        x, y = mp.mpf(p.a._mpi_[0] if hasattr(p.a, '_mpi_') else p.a), mp.mpf(p.b._mpi_[1] if hasattr(p.b, '_mpi_')
-                                                                              else p.b)
-        return mp.nstr((x + y)/2, 12)
-
-
 def chain(record):
     """B1-B4: H2, H3, H4 and H5's family 1; record collects the printed rows and the pass flags"""
     H1 = {0: H1prof()}
@@ -528,3 +526,94 @@ def chain(record):
     record['B4'] = b4
     log("B4 %s" % b4)
     return H2, H3, H4, H5
+
+
+def nstr(p, n=16):
+    with mp.workdps(50):
+        return mp.nstr((mp.mpf(p.a._mpi_[0]) + mp.mpf(p.b._mpi_[1]))/2, n)
+
+
+def in_rho(e):
+    """an expression rational in r0, at rho* exactly: its representative of degree <= 2 in Q(rho*)"""
+    x = sp.Symbol('x')
+    pr = 2*x**3 - 3*x**2 - 2
+    num, den = sp.fraction(sp.together(e.subs(r0, x)))
+    return sp.expand(sp.rem(sp.expand(num*sp.invert(den, pr, x)), pr, x)), x
+
+
+def main():
+    record = {}
+    ok = True
+    build_table()
+    H2, H3, H4, H5 = chain(record)
+    d = wave_d()
+    Ld = lap(d)
+    out("  B1 H2 = c_(2,0) E: family 1 vanishes, T(H2) + R_X(H1) = 0 (8), i Pol(H2) + D_X(H1) = 0 (3), H2 in S: %s"
+        % record['B1'])
+    out("  B2 H3 with the r0-motion: c_(3,1) = i c_(2,0), both equations in families 0 and 1 (all components), and"
+        " c_(3,0),vv(r = 1) = A d K(r0), K = -(2 r0^3 - 3 r0^2 - 2)^2/(36 r0^6): %s" % record['B2'])
+    out("  B3 H4: c_(4,2) = -c_(2,0), c_(4,1) = 2i c_(3,0), both equations in families 0 and 1: %s" % record['B3'])
+    out("  B4 H5's family 1: c_(5,1)'s vv, vr, rr and both equations there (vv, vr, rr; D_r): %s" % record['B4'])
+    ok &= record['B1'] and record['B2'] and record['B3'] and record['B4']
+    # B5: the fits, rho*, the paper's wave
+    c3, rem3 = fit(canon(horizon(H3[0])/A), [(d, 2), (Ld, 4)])
+    c4, rem4 = fit(canon(horizon(H4[0])/A), [(d, 2), (Ld, 4)])
+    c5, rem5 = fit(canon(horizon(H5[1])/(I*A)), [(d, 2), (Ld, 4)])
+    K = -(2*r0**3 - 3*r0**2 - 2)**2/(36*r0**6)
+    good = c3 is not None and rem3 == 0 and sp.cancel(c3[0] - K) == 0 and c3[1] == 0
+    good &= c4 is not None and rem4 == 0 and c5 is not None and rem5 == 0
+    a4, b4 = [sp.factor(c) for c in c4]
+    good &= sp.cancel(b4 + I*(r0 - 1)*K/(2*r0)) == 0
+    good &= sp.cancel(c5[0] - 3*c4[0]) == 0 and sp.cancel(c5[1] - 3*c4[1]) == 0
+    rep, x = in_rho(a4/I)
+    rs = rho_star()
+    al, be = ev(sp.expand(a4), {r0: rs}), ev(sp.expand(b4), {r0: rs})
+    good &= in_rho(b4/I)[0] == 0
+    mpoly = sp.minimal_polynomial(rep.subs(x, sp.CRootOf(2*x**3 - 3*x**2 - 2, 0)), x)
+    okw, bad, _ = decide(al, be)
+    good &= okw and al[0].a == 0 and al[0].b == 0 and al[1].b < 0
+    out("  B5 at the horizon, for every angular profile: c_(3,0),vv/A = K d; c_(4,0),vv/A = alpha4 d + beta4 Lap d with"
+        " alpha4 = %s, beta4 = %s = -i (r0 - 1) K/(2 r0); c_(5,1),vv/(i A) = 3 alpha4 d + 3 beta4 Lap d, so b5 = 3 b4"
+        " (the fits' remainders zero).  At rho* = %s (K's double root) beta4 = 0 exactly, so b4(rho*, th) = alpha4(rho*)"
+        " = i (%s) = %s i for every th and every wave with d != 0 (-i b4 a root of %s), and b5 = 3 b4 = %s i; for the"
+        " paper's wave b4 avoids [0, oo) on all of th in [0, pi/2] (interval arithmetic in zeta = cos 2th): %s"
+        % (a4, b4, nstr(rs, 12), rep.subs(x, sp.Symbol('rho*')), nstr(al[1]), mpoly, nstr(3*al[1]), okw))
+    record['B5'] = good
+    ok &= good
+    out("B1-B5 %s" % ("PASS" if ok else "FAIL"))
+    # control (i): the vv transport's mass coupling halved
+    R2, D2 = record['R2']
+    OPT['halfmass'] = True
+    Rk = {ij: sp.sympify(R2[ij].get(0, 0)) for ij in COMPS}
+    Dk = [sp.sympify(D2[kk].get(0, 0)) for kk in range(3)]
+    H3m = {0: transport(Rk, data(Dk))}
+    OPT['halfmass'] = False
+    kmut = canon(horizon(H3m[0]) - A*d*K) == 0
+    eqmut = equations(H3m, R2, D2, 0)[0]
+    ctl1 = kmut or eqmut
+    out("  control (i) the vv transport with its mass coupling halved: B2's K holds: %s, the vv equation holds: %s"
+        % (kmut, eqmut))
+    # control (ii): d_v not acting on r0
+    OPT['r0'] = False
+    H3n, _, _ = next_profile(H2, [0, 1])
+    H4n, _, _ = next_profile(H3n, [0], comps=[(0, 0), (0, 1), (1, 1)])
+    OPT['r0'] = True
+    c4n, remn = fit(canon(horizon(H4n[0])/A), [(d, 2), (Ld, 4)])
+    if c4n is None or remn != 0:
+        differs = True
+        out("  control (ii) r0 frozen (d_v not acting on r0): c_(4,0),vv is not of the form alpha d + beta Lap d")
+    else:
+        aln, bln = ev(sp.expand(c4n[0]), {r0: rs}), ev(sp.expand(c4n[1]), {r0: rs})
+        differs = sp.cancel(c4n[0] - c4[0]) != 0 or sp.cancel(c4n[1] - c4[1]) != 0
+        out("  control (ii) r0 frozen (d_v not acting on r0): c_(4,0),vv/A = alpha4' d + beta4' Lap d with alpha4' = %s,"
+            " beta4' = %s; at rho*: alpha4' = %s + %s i, beta4' = %s + %s i; differs from B5: %s"
+            % (sp.factor(c4n[0]), sp.factor(c4n[1]), nstr(aln[0]), nstr(aln[1]), nstr(bln[0]), nstr(bln[1]),
+               differs))
+    out("controls %s" % ("PASS (control (i) detected; (ii) differs)" if not ctl1 and differs else "FAIL"))
+    ok &= not ctl1 and differs
+    out("bfam5: %s" % ("all checks pass, every control fails" if ok else "FAILURES"))
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
