@@ -27,3 +27,37 @@ D  the causal structure on W: v is not a time function; v + eps t and Phi_W are 
   D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal cone is 0
         (T1a's sampled 5.7e-2 is an artefact): pass
   D3 g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu r^-2): margin 2 eps, uniform in r: pass
+  D4 Phi_W := v + 1/r: g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 - mu r^-2), |dPhi|_E^2 = 1 + (1 - r^-2)^2, and -grad Phi_W
+        has positive t-component (future directed) (exact): pass
+  D5 (g_b0^-1 + delta)(dPhi, dPhi) < 0 for |delta|_op <= r^-2/2 (2000 points, r in [4, 400]; bound -r^-2 + r^-4 deduced
+        in D4): pass max r^2 g^-1(dPhi, dPhi) = -1.084
+  D5' control: |delta|_op = 2 r^-2 makes dPhi_W spacelike somewhere: pass max 1.663
+E  the weight on W: u* := sup f + 1 (round 4, m3)
+  E1 r + 1 <= u* - u <= 2r + |u* - v1| on W (20 random f, 4000 points): pass max (u* - u)/r = 1.980
+  E1' control (round 4's u* = 2 sup f - v1 + 1): r <= u* - u fails: pass
+F  the localised energy argument on W (round 4, M4)
+  F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0 (g = g_b0 + H, |H|_op <= r^-2/2, 6000 samples): that
+        boundary is spacelike and its flux can be dropped: pass min 3.683e-02
+  F1' control (-grad v in place of -grad Phi_W; dv is spacelike for some of these g): negative somewhere: FAIL min
+        7.456e-03
+  F2 the domain-of-dependence identity on a truncated diamond (flat radial model, exact): E(t2) + inner and outer null
+        fluxes (tangential derivatives, each >= 0) = E(t1) - int int phi_t box phi r^3: pass E(t2) + fluxes =
+        16528.7870505
+  F2' control (the transverse derivative in the inner flux): the identity fails: pass
+  F3 the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = (2a+3) r^(2a+2) F^2 + 2 r^(2a+3) F F' and
+        d(r^(2a+2) F^2/(2a+2)) = r^(2a+1) F^2 + r^(2a+2) F F'/(a+1) (exact), with the boundary terms at R' kept: pass
+  F3' F = r^(-a-2-eta): int r^(2a+3) F^2 finite and R'^(2a+4) F(R')^2 -> 0 (the boundary terms vanish along R' -> oo);
+        control F = r^(-a-2): the integral diverges and R'^(2a+4) F^2 = 1: pass
+  F4 the rejected localisation: -Sigma_2 = -r^-2 P beyond V_* has weighted energy int r^(2a-3) dr, infinite at a = 1,
+        11/4, finite at a = 9/10 (exact): pass
+  F5 finite speed: the exterior energy beyond R is <= C |T|^2 R^-9 for the source O(r^(-13/2)), and its weighted integral
+        converges exactly for a < 9/2 (exact at a = 4.4, 4.5): pass
+  F5' control (source O(r^-6), Sigma without F_4): exactly a < 4: pass
+H  the means at past null infinity: inputs from Theorem A_P's coefficient classes (round 4, m7)
+  H1 every input of (a) and (c) has exponent >= 3, of (b) >= 2: 2/(2q - 5), 1/(q - 5/2), 1/(q - 1) finite at every order
+        to 20 (no logarithm): pass min (a) 3, (b) 2, (c) 3
+  H1' control (the code mutated: d_v phi_m's coefficient class E_(3/2) in (c)): an input at q = 5/2 appears: pass
+G  the fields after the shell: h_R, the caps, the N-flux tails, the window (rounds 3-4)
+  G1 at fixed v the r^(-k/2) coefficients of truth - Sigma vanish for k = 4..8 and equal c_9 at k = 9 (exact, l = 2): h_R
+        = O(r^(-9/2)): pass {4: '0', 5: '0', 6: '0', 7: '0', 8: '0', 9: '-3'}
+  G1' control (p = 4 dropped from Sigma): the r^-4 coefficient survives: pass 4
