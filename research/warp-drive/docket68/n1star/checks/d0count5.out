@@ -3,36 +3,44 @@ d0count5: the closed-graph orders of Part II counted (Appendix R7.A), and D_0 at
       True}; every "closed graph" line of Part II lies in II.A or II.A2 (9 lines): True
   Q1: Theorem A.1 with N = 11 pure derivatives each, delta = 1/100 < 2/(2 + 5n) = 2/27: adjacent-shell sums need N/2 > n:
       True; distant-shell exponent -0.4325 < 0: True
+  Q4b (READ; computed; Round 9): II.C:767-768 at the FWD use, both branches: alpha_K = -2 (III.I Theorem 5.3's proof),
+      theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6): the second branch of s_in needs s_in > 11/2 (beta_+
+      -> 1/2), below the first branch's 17/2; s_out's branch gives -6 - beta_+ - eps; the four lines read: [True, True,
+      True, True]; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: True
   Q4: s_in = 9 > 17/2, s_out = -8 < -15/2 (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): True; s
       in [-8, 9], s0 = s - 2 in [-10, 7]; the Sobolev orders in [-16, 11] (Round 8: down to the record's input order -N -
       m = -16, II.A2:389-391; round 7 stopped at -14), N <= 14; operator orders: round 7 took them <= 2; the commutants
       of II.A2 sections 4-5 have order k = s - 1/2 + delta, |s| <= 10, so every symbol and composite order of the chain
-      lies in the box (-22, 22) (Round 8)
+      lies in the box [-22, 22] (Round 8), the factors' orders in [-10.49, 9.51] (Round 9)
   Q2: D_a = 53 (J = 35, M0 = 9, t0 = -17), D_b = 64 (Jb = 35, sigma = 11, M1 = 9), Lemma 8.6 d_0 = 60; the remainder
       kernels converge: True; pinned: True
   Q3 (round 7's operator orders, constant, <= 2; corrected weight M2 = ceil(-t0/2) = 9): M_a = 81 (P1..P5 = (79, 75, 81,
       47, 44); J1 = 37, J2 = 33, J3 = 6); Proposition 2.4 (b)-(e): M_2.4 = 197 (C_ch = 108); (f) at its instances (q <=
       3, three operations, composite order 3): M_f = 224; D_0 <= 230 (203 without (f)); every remainder condition, 2K > n
       included, holds: True; pinned: True
-  Q3b (the box (-22, 22), every order variable within it): M_a = 138 (J1 = 80), M_2.4 = 374 (C_ch = 218), M_f = 393; D_0
-      <= max(M_2.4 + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = 399; pinned: True
+  Q3b (the box [-22, 22], every order variable within it; Round 9: the factors' Peetre exponents over their orders, 2L' =
+      18 for (b)-(e) at depth 1 and 20 for (f) at depth q + 1 = 4): M_a = 138 (J1 = 80), M_2.4 = 376 (C_ch = 218), M_f =
+      429; D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = 435; FWD <= 510; pinned: True
   Q5: 89 d_0 lines classified, 0 unclassified; classes ['closed graph (Lemma A.5/A.6)', 'constant 0', 'constant 1',
       'constant 2', 'constant 3', 'constant 5', 'increment 1', 'increment 2', 'increment 2 over d_1', 'increment 3',
       'increment 4', 'statement or largest-of']; largest explicit increment d_0 - 4
   Q6: d' = 8, d'' = 9; II.A Proposition 9.6 at s - 2 (Lemma 2.8, Corollary 9.7): d_1 = 20, d-tilde = 33; II.E Proposition
       4.4 d = d-tilde + 3 = 36 (round 7 wrote ">= 35"); every tame order of D_1 has the form d-tilde + 3 with d-tilde =
       s-bar + 2 max(s-under, s-under_0) + 6 at Sobolev orders in [-16, 11], so D_1 <= 52. FWD = D_0 + D_1 + d' + d'' + 6
-      <= 305 on round 7's operator orders and <= 474 on the box; c' = FWD + BG + the fixed MODs (checks/modcount5.py):
+      <= 305 on round 7's operator orders and <= 510 on the box; c' = FWD + BG + the fixed MODs (checks/modcount5.py):
       True
   C1 (control): Lemma A.5 with J one less: the remainder kernel converges: False, so Q2 fails: True
   C2 (control): Theorem A.1 at delta = 2/27: exponent 0.0, not negative: True
   C3 (control): census with the row ('PART-II-A-SETUP.md', 825) removed: 1 unclassified: True
   C4 (control): Proposition A.7 with the right expansion's 2L dropped: conditions hold: False: True
-  C5 (control, the verifier's A): round 7's weight ceil(sup t/2): D_0 = 369, not 399: True
+  C5 (control, the verifier's A): round 7's weight ceil(sup t/2): D_0 = 405, not 435: True
   C6 (control): Schur decay 2K = 2 (2K > n violated): the conditions hold: False: True
-  C7 (control): the change of chart dropped (C_ch = 0): D_0 = 181, not 399: True
-  C8 (control): delta = 1/20: D_0 = 428, not 399: True
-  C9 (control): round 7's Sobolev range [-14, 11]: D_0 = 389, not 399: True
+  C7 (control): the change of chart dropped (C_ch = 0): D_0 = 217, not 435: True
+  C8 (control): delta = 1/20: D_0 = 464, not 435: True
+  C9 (control): round 7's Sobolev range [-14, 11]: D_0 = 425, not 435: True
+  C10 (control, the round-8 verifier's MAJOR 1): (f) counted with factor order 2, as round 8 did: D_0 = 399, not 435:
+      True
+  C11 (control): (f)'s Peetre exponent at depth 1 in place of q + 1: D_0 = 429, not 435: True
 Q0 PASS
 Q1 PASS
 Q4 PASS
@@ -51,3 +59,5 @@ C6 PASS
 C7 PASS
 C8 PASS
 C9 PASS
+C10 PASS
+C11 PASS
