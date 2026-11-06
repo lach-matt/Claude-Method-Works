@@ -50,3 +50,23 @@
   K6 (certified): kappa = nu/8 = 2^(-3/2) (mu = 1): sup_(s >= 1) log s e^(-pi s/(2 kappa)) <= 8.8514e-04, so F <=
       1.002659e+00 and (6.11) holds with the constant 4 F C_a <= 4.01064e+00 C_a; Lemma 6.6's last inequality on a grid:
       True
+  C7 (control): kappa = nu/4: F = 1.04617e+00, outside the pin [1, 1.003]: True
+  K7 (exact): x = Q'T x + R'x: ||x|| <= ||Q'|| ||Tx|| + ||R'||_(Z->X) ||x||_Z on 400 rational vectors and on the kernel:
+      True; C8 (control) without the R' term it fails on the kernel: True
+  (8 s)
+K1 PASS
+C1 PASS
+K2 FAIL
+C2 PASS
+K3 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+K4 PASS
+C6 PASS
+K5 PASS
+K6 PASS
+C7 PASS
+K7 PASS
+C8 PASS
+exit 1

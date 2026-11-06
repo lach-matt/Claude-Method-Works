@@ -1,2 +1,6 @@
 C1 (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]
    n = 80: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
+   n = 160: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
+   controls: Gamma with its sign flipped is not certified (600 cells fail; rejected): True; Gamma without its 4 nu E^2 term is not certified (600 cells fail; rejected): True
+C1 PASS
+C2 (interval arithmetic) kappa' K'^l_l < 0 on the whole of the bent slice, between its samples

@@ -22,7 +22,10 @@ where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-
      xi_n (k'.xi_S) + kappa' |xi_S|^2 has discriminant -kappa' K'^l_l |xi_S|^2 < 0: complex characteristic roots, so
      no tilted foliation is hyperbolic (computed exactly here); control: for the mixed-sign K's hyperbolic tilt the
      discriminant is positive for the torus direction and for the in-plane one. This concerns foliations of the given
-     slice only; a different slice through the band is hyperbolic (racslice5).]
+     slice only; a different slice through the band is hyperbolic (racslice5).] [R7, the round-6 verifier's n4: the
+     exact parts are the identities (Nk, the criterion, K'^l_l and the discriminants as functions of the tilt); that
+     their signs hold for every tilt is the one-line deduction above (kappa' < 0, K'^l_l < 0); the 400 random draws
+     illustrate it.]
   R3 (exact, sympy) the invariant Killing fields of five-dimensional Tangherlini are the multiples of d_t: solving
      L_X g = 0 for X = X^t d_t + X^R d_R + X^th d_th, components functions of (t, R, th) (T^2 x Z2 x Z2-invariance
      excludes d_phi components, which are odd under phi_i -> -phi_i). Control (must fail): admitting d_phi components
@@ -39,7 +42,7 @@ where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-
      seed, ds1 included: Q <= -int Gamma psi^2/sin 2th, Gamma = 4 mu/R where psi_P = 0; the dust clause of round 5 is
      corrected there (Q5-Q6: inside the horizon outgoing dust has T(xi, n) < 0).]
 
-Labels: computed (R2, R3 exact; R1, R4 floating point). Run: python3 checks/racglobal5.py   (a few minutes)
+Labels: computed (R2's identities, R3 exact; R1, R4 floating point). Run: python3 checks/racglobal5.py   (a few minutes)
 """
 import importlib.util
 import math
@@ -153,7 +156,8 @@ def r1():
 
 # ---------------------------------------------------------------- R2
 def r2():
-    print("R2 (exact) the region-I criterion; where Nk > 0 no foliation is hyperbolic")
+    print("R2 (exact identities; signs over the tilts deduced, illustrated on 400 draws) the region-I criterion; where "
+          "Nk > 0 no foliation is hyperbolic")
     E, F0, pR, pv, fR, fv, R, mu, mup = sp.symbols('E f psi_R psi_v f_R f_v R mu mup', real=True)
     Nk = E**2 * F0**2 * pR + E**2 * F0 * fR / 2 - 3 * E * F0 * pR - E * fv / 2 - 3 * E * fR / 2 - pv + pR
     f = 1 - mu / R**2

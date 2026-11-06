@@ -1,0 +1,76 @@
+  N1: Omega_ij Killing for g^KS, reflections isometries, t and |x| fixed: True; model V = C^5 (x) H_<=2, dim 70: the T_g
+      isometries of the Gram matrix: True; su(2) + su(2): True; Casimirs diagonalisable: True; isotypic ranks [((0, 0),
+      2), ((0, 1), 3), ((1, 0), 3), ((1, 1), 18), ((1/2, 1/2), 12), ((1/2, 3/2), 8), ((3/2, 1/2), 8), ((3/2, 3/2), 16)] =
+      Clebsch-Gordan: True; Pi idempotent True, self-adjoint True, commutes with the rotations True, the reflections
+      True, the componentwise Laplacian True; spherical means (and ell) vanish on ran Pi: True; G-fixed space dim 4, Pi_G
+      a projection commuting with the torus: True; Pi_G kills {'(1/2,1/2)': True, '(1,0)+(0,1)': True, 'every j1 != j2':
+      True, '(3/2,3/2) (odd l)': True, 'not (0,0)': True, 'not (1,1)': True}; Pi_G Pi = Pi_G (1 - P_(0,0)) = Pi Pi_G:
+      True
+  N1 control (Pi with P_(0,1) not removed): idempotent True, self-adjoint True, commutes with the rotations True, with
+      the reflections False
+N1 PASS
+  N2: u_1, u_2, u_3 solve (R8.1), kappa symbolic: [True, True, True]; in x = r^2/mu the psi- and A-equations are
+      multiples -4*s*sqrt(1 - z), -4*s*z*sqrt(1 - z) of the hypergeometric operators (-nu, nu + 1; 1), (1 - nu, nu + 2;
+      2): True, True; jet determinant -16*nu**2*(nu + 1)**2 (= -kappa^2: True); horizon recursion matrix
+      Matrix([[-2*k*s**2*(k - 1), 0, 0], [0, -2*k*s**3*(k + 1), 0], [0, 0, -2*k**2*s**2]]) (= -2 s^2 k diag(k - 1, s (k +
+      1), k): True), order 0 a-row U_a*kappa*s (forces a(r_h) = 0: True); leading coefficients gamma(2*nu + 1)/gamma(nu +
+      1)**2, gamma(2*nu + 1)/(gamma(nu + 1)*gamma(nu + 2)) (mpmath at nu = 1/2..9/2, worst relative error 2.2e-12,
+      1.7e-12); leading Cartesian coefficients (a, b, c/r) of u_1, u_2, u_3 at r^(l - 1), r^(l + 1), r^l: [[0, 2**(2*nu +
+      1)*gamma(nu + 1/2)/(sqrt(pi)*s**(2*nu)*gamma(nu)), (4/s**2)**nu*gamma(nu + 1/2)/(sqrt(pi)*gamma(nu + 1))], [0,
+      -2**(2*nu + 2)*nu*(nu + 1)*gamma(nu + 1/2)/(sqrt(pi)*s**(2*nu)*gamma(nu)), 2**(2*nu + 1)*nu*gamma(nu +
+      1/2)/(sqrt(pi)*s**(2*nu)*gamma(nu))], [-(4/s**2)**nu*gamma(nu + 1/2)/(sqrt(pi)*gamma(nu + 2)),
+      (4/s**2)**nu*gamma(nu + 1/2)/(sqrt(pi)*gamma(nu + 2)), 0]] (finite, not all 0: True), nonzero coefficients for nu >
+      0: True; distinct: True; least exponent l - 1 >= 1 for every l >= 2: True
+  N2 control (the same path at l = 1, nu = 1/2): leading Cartesian coefficients [[0, 4/(pi*s), 4/(pi*s)], [0, -6/(pi*s),
+      2/(pi*s)], [-8/(3*pi*s), 8/(3*pi*s), 0]] (exact growths r^0, r^2, r^1: True); the least exponent 0 >= 1: False
+N2 PASS
+  N3: the vector equation in x is -4 times the hypergeometric operator ((l + 1)/2, -(l + 1)/2; 1): True; the
+      horizon-regular solution grows like r^(l + 1) with coefficient gamma(l + 1)/(gamma(l/2 + 1/2)*gamma(l/2 + 3/2))
+      (positive: True; mpmath worst relative error 7.9e-12); psi/r ~ 2**l*s**(-l - 1)*gamma(l/2 + 1)/(sqrt(pi)*gamma(l/2
+      + 3/2)) r^l, excluded at every weight beta > -1 for l >= 1: True
+  N3 control (lambda = l^2 in place of (l + 1)^2): the vector equation in x is not a multiple times the hypergeometric
+      operator ((l + 1)/2, -(l + 1)/2; 1): False; the horizon-regular solution grows like r^(l + 1) with coefficient
+      gamma(l + 1)/(gamma(l/2 + 1/2)*gamma(l/2 + 3/2)) (positive: True; mpmath worst relative error 7.9e-12); psi/r ~
+      2**l*s**(-l - 1)*gamma(l/2 + 1)/(sqrt(pi)*gamma(l/2 + 3/2)) r^l, excluded at every weight beta > -1 for l >= 1:
+      True
+N3 PASS
+  N4: horizon exponents of the scalar system {-1: 1, 1: 1, 0: 4} (det -8*k**4*s**7*(k - 1)*(k + 1)), of the vector
+      equation {0: 2}; all integers, 6 and 2 with multiplicity: True: a solution smooth across r_h vanishing on r > r_h
+      vanishes on (r_0, r_h)
+  N4 control (exponents shifted by 1/3): horizon exponents of the scalar system {2/3: 1, -4/3: 1, -1/3: 4} (det
+      -8*s**7*(3*k - 2)*(3*k + 1)**4*(3*k + 4)/729), of the vector equation {-1/3: 2}; all integers, 6 and 2 with
+      multiplicity: False: a solution smooth across r_h vanishing on r > r_h vanishes on (r_0, r_h)
+N4 PASS
+  N5: l = 0 solutions {'W*': True, '(d_v)^flat': True, '(0, (r^2 + mu)/r)': True, '(0, 1/(r (r^2 - mu)))': True};
+      independent: True; smooth at r_h {'W*': True, '(d_v)^flat': True, '(0, (r^2 + mu)/r)': True, '(0, 1/(r (r^2 -
+      mu)))': False}; growth exponents {'W*': -2, '(d_v)^flat': 0, '(0, (r^2 + mu)/r)': 1, '(0, 1/(r (r^2 - mu)))':
+      None}; kernel at weights in (-1, 0): ['W*', '(d_v)^flat'], in (0, 2): ['W*']; with the l = 1 forms d(psi S) (N2)
+      and none for vector l = 1 and l >= 2 (N2, N3): dimension 2 in the class, 6 on all 1-forms
+  N5 control (the same count at weights in (0, 2)): kernel ['W*'], dimension 1 (2 asked)
+N5 PASS
+  N6: (indicial det, root 0 simple, null space dimension) {'l = 0': (lam*(lam - 3)*(lam - 2)*(lam + 1), True, 1), 'scalar
+      l = 1': (-lam*(lam - 4)*(lam - 3)*(lam - 2)*(lam + 1)*(lam + 2), True, 1)}; 0 not a root of vector l = 1: True; the
+      index jumps from (0, 2) to (-1, 0) by 1 in the class and 5 on all 1-forms; with the kernels 2 and 6 (N5) the
+      cokernels are 1 and 1 (the deduced span{ell}: 1 and 1): True
+  N6 control (the l = 1 root counted once): (indicial det, root 0 simple, null space dimension) {'l = 0': (lam*(lam -
+      3)*(lam - 2)*(lam + 1), True, 1), 'scalar l = 1': (-lam*(lam - 4)*(lam - 3)*(lam - 2)*(lam + 1)*(lam + 2), True,
+      1)}; 0 not a root of vector l = 1: True; the index jumps from (0, 2) to (-1, 0) by 1 in the class and 2 on all
+      1-forms; with the kernels 2 and 6 (N5) the cokernels are 1 and 4 (the deduced span{ell}: 1 and 1): False
+N6 PASS
+  N7: l = 0 parts (means of h_vv, h_vr, h_rr, H) of L_Z g for class Z of degree l: [(2, [0, 0, 0, 0]), (4, [0, 0, 0,
+      0])]; L_{Z_0} g spherically symmetric for Z_0 = a_0 dv + b_0 dr: True; so (L_Z g)_>=2 = L_{Z_>=2} g
+  N7 control (S + 1/7): l = 0 parts of L_Z g [(2, [2*(r**5*Derivative(a(v, r), v) - r**2*s**2*(a(v, r) + b(v, r)) +
+      s**4*b(v, r))/(7*r**5), (r**3*(Derivative(a(v, r), r) + Derivative(b(v, r), v)) + 2*s**2*b(v, r))/(7*r**3),
+      2*Derivative(b(v, r), r)/7, (r**2*(a(v, r) + b(v, r)) - s**2*b(v, r))/(7*r**3)]), (4, [2*(r**5*Derivative(a(v, r),
+      v) - r**2*s**2*(a(v, r) + b(v, r)) + s**4*b(v, r))/(7*r**5), (r**3*(Derivative(a(v, r), r) + Derivative(b(v, r),
+      v)) + 2*s**2*b(v, r))/(7*r**3), 2*Derivative(b(v, r), r)/7, (r**2*(a(v, r) + b(v, r)) - s**2*b(v, r))/(7*r**3)])]
+N7 PASS
+  N8: (l, |g_j| r^(3/2) -> (2/pi)^(1/2), g_j conormal and e^(-2ir) g_2 not, |f_2| r^(l+2) -> 2^(l+1) l!/pi, Bessel
+      equation): [(0, True, True, True, True), (1, True, True, True, True), (2, True, True, True, True), (3, True, True,
+      True, True)]; at R_out g_1 excluded: True; at R_in e^(-2ir) g_2 admitted: True
+  N8 control (R_in's order replaced by R_out's): (l, |g_j| r^(3/2) -> (2/pi)^(1/2), g_j conormal and e^(-2ir) g_2 not,
+      |f_2| r^(l+2) -> 2^(l+1) l!/pi, Bessel equation): [(0, True, True, True, True), (1, True, True, True, True), (2,
+      True, True, True, True), (3, True, True, True, True)]; at R_out g_1 excluded: True; at R_in e^(-2ir) g_2 admitted:
+      False
+N8 PASS
+EXIT 0
