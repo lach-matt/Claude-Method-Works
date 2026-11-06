@@ -27,6 +27,11 @@ are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANT
   D619 (the section 6 reader's findings seated, section 6 66 lines longer): the rows in section 6 re-keyed by content
   in D616's numbering (so D623's shift carries them), the three new hits of the D619 text classified (X, none of kind
   N), and C3's row followed to its D619 line; the md5 pins are not re-pinned here either.
+  D625 (the confirming reads of D623 and D622 seated, with D618's status lines): A0 re-pinned to the D625 file (lines
+  1-948 and the whole file of 11287 lines); every row re-keyed by content, section 6's included (they were 1 to 4 lines
+  behind after D624, A1 failing with 24 hits unclassified); the header's old row dropped and the ten new hits
+  classified (X and E, none of kind N); C3 follows its row. Later edits (the confirming read of D618's sections 9.5 and
+  11, Lemma 11.0's replacement) will stale FILE_PIN again.
 
     python3 checks/lzeroaudit5.py
 """
@@ -111,8 +116,8 @@ TERMS = {'statement of lam0 (Theorem E)': None, 'lam1 = min(1, delta0)/10': 'lam
          'D-a, D-b and D-d (Proposition 6.5)': 'D-a,D-b,D-d'}
 FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D-d added in round 2 (V-m4): the
 # ball invariance of Proposition 6.5 (N1STAR-PROOF.md:771-772)
-PIN = '39acbcf0640c253b3d40f1dc2bd929dd'        # md5 of lines 1-817 at D616 (D614: 6e8947ad... of lines 1-812)
-FILE_PIN = '709c63be1748117de9fadf6410eb53a2'   # the whole file at D616 (10858 lines; D614: 02e76176..., 10853)
+PIN = '0c9fa8c22c27ca3e93524546f2f38a68'        # md5 of lines 1-948 at D625 (D616: 39acbcf0... of lines 1-817)
+FILE_PIN = '7400212b8ab4ab746fefc00381d6aa4e'   # the whole file at D625 (11287 lines; D616: 709c63be..., 10858)
 TABLE = {((ln + 7 if ln > 86 else ln), kw): val for (ln, kw), val in TABLE.items()}   # D612 + D614: +7 above 86
 TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) at 3/5 (lzerotrace5 T6)'),
               (90, 'eps1'): (E, 'eps1: Lemma 2.3 below g0\'s least absolute eigenvalue (D614; lzerotrace5 T7)')})
@@ -161,6 +166,42 @@ TABLE.update({
     (258, 'uniformly'): QUOTED,
     (265, 'gronwall'): (X, 'the program gronwall5.py cited (D623)'),
     (395, 'eps1'): (E, "Step 3: |g - g0| <= eps1, eps1 of 0.3 (D623)"),
+})
+# D625 (the confirming reads of D623 and D622 seated: the header rewritten; 0.3, 0.7, Lemmas 2.2 and 3.3 and Steps 6 and
+# 8 rewritten or reflowed): every row re-keyed by content, pre-D625 key -> D625 line (the unchanged lines matched line
+# by line against the pre-D625 file, md5 fb2fbf06..., a rewritten row at the line that now carries its keyword). In the
+# pre-D625 file section 6's rows were 1 to 4 lines behind (lines added to section 6 at D624, after D619's re-key: 24
+# hits unclassified, A1 failing); here each is keyed at its D625 line. The header's "stated more weakly" (20) is gone,
+# and the ten new hits of the D625 text are classified (none of kind N).
+D625 = {(41, 'compact'): 60, (91, 'eps1'): 110, (93, 'eps1'): 112, (95, 'eps1'): 113, (96, 'eps1'): 114,
+        (97, 'eps1'): 115, (98, 'eps1'): 120, (98, 'there are '): 120, (99, 'eps1'): 121, (100, 'eps1'): 122,
+        (101, 'eps1'): 123, (102, 'eps1'): 124, (103, 'eps1'): 125, (105, 'eps1'): 127, (127, 'lam0'): 149,
+        (127, 'there are '): 149, (128, 'lam0'): 150, (138, 'there are '): 160, (145, 'lam small'): 167,
+        (145, 'there is '): 167, (154, 'gronwall'): 176, (161, 'weak'): 183, (181, 'eps1'): 203, (192, 'compact'): 214,
+        (192, 'open condition'): 214, (199, 'lam1'): 221, (204, 'uniformly'): 226, (205, 'uniform constant'): 227,
+        (221, 'lam1'): 243, (223, 'uniformly'): 245, (234, 'uniformly'): 256, (244, 'eps1'): 268, (245, 'eps1'): 269,
+        (246, 'eps1'): 270, (256, 'eps1'): 280, (256, 'uniformly'): 280, (258, 'eps1'): 282, (258, 'uniformly'): 282,
+        (260, 'gronwall'): 284, (265, 'gronwall'): 289, (271, 'gronwall'): 295, (356, 'there is '): 380,
+        (394, 'lam0'): 419, (395, 'eps1'): 420, (440, 'gronwall'): 463, (441, 'lam0'): 464, (442, 'lam0'): 465,
+        (443, 'open and closed'): 466, (460, 'compact'): 483, (462, 'compact'): 485, (465, 'uniformly'): 487,
+        (468, 'eps2'): 490, (468, 'so small'): 490, (470, 'eps2'): 492, (474, 'compact'): 496,
+        (483, 'finitely many'): 505, (484, 'delta depending'): 506, (487, 'eps2'): 509, (489, 'gronwall'): 514,
+        (573, 'picard'): 598, (581, 'uniformly'): 606, (638, 'small enough'): 664, (678, 'there are '): 704,
+        (767, 'uniformly'): 793, (769, 'lam small'): 795, (770, 'uniformly'): 796, (782, 'there is '): 808,
+        (787, 'depending only on'): 813, (793, 'depending only on'): 819, (798, 'gronwall'): 824,
+        (821, 'gronwall'): 847, (828, 'finitely many'): 854, (830, 'picard'): 856, (836, 'uniformly'): 862,
+        (836, 'weak'): 862, (837, 'limit'): 863, (847, 'lam0'): 874, (847, 'there is '): 874, (871, 'lam small'): 898,
+        (881, 'limit'): 908, (886, 'depending only on'): 913, (889, 'gronwall'): 916, (893, 'uniformly'): 920,
+        (895, 'uniformly'): 922, (897, 'limit'): 926, (901, 'lam0'): 930}
+TABLE = {(D625[(ln, kw)], kw): val for (ln, kw), val in TABLE.items() if (ln, kw) != (20, 'weak')}
+HEADER = (X, 'the status summary in the header: no argument, no constant (D625)')
+TABLE.update({
+    (10, 'eps1'): HEADER, (22, 'eps1'): HEADER, (23, 'eps1'): HEADER, (25, 'eps1'): HEADER, (26, 'eps1'): HEADER,
+    (116, 'eps1'): (E, 'eps1: the Weyl bound |gt^-1| <= (s0 - eps1)^-1, deduced (D625; eps1hyp5 H6)'),
+    (117, 'eps1'): (E, 'eps1: the Weyl bound, deduced: one negative eigenvalue (D625; eps1hyp5 H6)'),
+    (178, 'eps1'): (X, "g_lam and its image within eps1 of g0: Step 8's uniqueness class, no new threshold (D625)"),
+    (510, 'eps1'): (X, 'the uniqueness class |g - g0| <= eps1 (D625): no new threshold'),
+    (513, 'eps1'): (X, 'uniqueness: the inverse bound of 0.3, no threshold (D625)'),
 })
 CITES = {
     'BH17': ('Sobolev H^3 -> L^inf in 4D', 'enters (C_S)', 'effective: certified constant, lzeroconst5 Z3'),
@@ -242,11 +283,12 @@ def main():
     ok['C2'] = 'subsequen' in kws and 'contradict' in kws
     say('  C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds %s' % kws)
     t2 = dict(TABLE)
-    del t2[(D619[757] + 36, 'limit')]                  # D623: +36; D619: 757 -> 801
+    c3 = D625[(D619[757] + 36, 'limit')]               # D625: 837 -> 863; D623: +36; D619: 757 -> 801
+    del t2[(c3, 'limit')]
     _, u3 = census(lines, t2)
     ok['C3'] = len(u3) == 1 and not uncl
-    say('  C3 (control): with the row (%d, limit) removed (793 at D623, 757 at D616, 752 at D614, 745 before D612/D614),'
-        ' %d hit unclassified' % (D619[757] + 36, len(u3)))
+    say('  C3 (control): with the row (%d, limit) removed (838 before D625, 793 at D623, 757 at D616, 752 at D614, 745 '
+        'before D612/D614), %d hit unclassified' % (c3, len(u3)))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

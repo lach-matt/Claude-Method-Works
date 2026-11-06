@@ -7,10 +7,14 @@ g0 = eta + mu r^-2 (dt + dr)^2 (5D Tangherlini, Kerr-Schild, polar coordinates).
 h spherically symmetric with ARBITRARY component functions A, B, C, E of (t, r) (no smallness): the defect is
 built symbolically (sympy, no simplification), then every jet of A..E up to order 3 is replaced by independent
 random rationals and the point by exact values; the defect must vanish exactly (checked at 60 digits) for every
-draw. Mutations (each must fail): m1 P + (3/10) h (mass term), m2 Z with 2 r d_r, m3 without the mu term, m4 gauge
-term with g0^ab.
+draw. Mutations (each must fail): m1 P + (3/10) h (mass term), m2 Z with 2 r d_r, m3 without the mu term, m5 the
+gauge term's background held at the fixed mass 1/2 (Gamma[g0(1/2)] in D and in its covariant derivative).
   ZI1 (computed) mode none: the defect vanishes (below 1e-50 against terms of size O(1)), five components.
-  ZI2 (computed) controls m1-m4: each mutated identity fails (defect above 1e-3 in some component).
+  ZI2 (computed) controls m1, m2, m3, m5: each mutated identity fails (defect above 1e-3 in some component).
+  ZI3 (computed; round 6) m4, the gauge term contracted with g0^ab in place of g^ab, is NOT a control: that operator
+     is still built covariantly from (g, g0) and is still invariant under (g, g0) -> (c g, c g0), which is all the
+     identity uses (R3-D: the dilation pulls g0(mu) back to kappa^2 g0(mu/kappa^2)), so (R3c) holds for it too; the
+     check asserts the defect vanishes (below 1e-50). The round-3 script expected m4 to fail; it does not.
 Labels: computed (sympy exact jets, evaluated at 60 digits). Run: python3 checks/zinv5.py (each mode is a separate
 process, run in parallel); python3 checks/zinv5.py MODE runs one mode.
 Round 6 (SETTLE-GLAM5 R6.0 (m8)): the round-5 run never finished (killed after 2 h 58 min with no RESULT line) for
@@ -21,8 +25,9 @@ and every A(t, r) node is replaced before its arguments are reached, then the sy
 exact numbers; the expression and the values substituted are the same, so the defect is the same exact algebraic
 number, evaluated at 60 digits; a component now takes under a second. (2) In mode m3 the mu term is the Python
 integer 0, which has no .doit(): that process died at once, so ZI2 could never have passed; it is now sympified. The
-driver also fails loudly on a missing RESULT line, and three random draws are taken (one in round 5). About ten
-minutes for all five modes on this loaded machine (load about 25 on four cores).
+driver also fails loudly on a missing RESULT line, and three random draws are taken (one in round 5). (3) The first
+complete run showed that m4 does not fail (ZI3 above); m5 replaces it as the fourth control. About eleven minutes for
+the six modes on this loaded machine (load about 25 on four cores).
 """
 
 import random
@@ -99,7 +104,7 @@ def lie(T, Zv):
 
 def _driver():
     import subprocess
-    modes = ["none", "m1", "m2", "m3", "m4"]
+    modes = ["none", "m1", "m2", "m3", "m5", "m4"]
     procs = {m: subprocess.Popen([sys.executable, __file__, m], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                  text=True) for m in modes}
     res, fails = {}, []
@@ -113,12 +118,17 @@ def _driver():
               + ("" if lines else " NO RESULT LINE: " + out.strip()[-300:]))
     ok1 = res["none"] < 1e-50  # a nan (no RESULT line) fails both comparisons
     print(f"  ZI1 (R3c) holds exactly for arbitrary spherically symmetric h (mode none): {'pass' if ok1 else 'FAIL'}")
-    ok2 = all(res[m] > 1e-3 for m in modes[1:])
-    print(f"  ZI2 controls m1-m4 each fail: {'pass' if ok2 else 'FAIL'}")
+    ok2 = all(res[m] > 1e-3 for m in ("m1", "m2", "m3", "m5"))
+    ok3 = res["m4"] < 1e-50
+    print(f"  ZI2 controls m1, m2, m3, m5 each fail: {'pass' if ok2 else 'FAIL'}")
+    print(f"  ZI3 m4 (g0^ab in D) is a no-op: covariant and homogeneous, so (R3c) holds for it (defect below 1e-50): "
+          f"{'pass' if ok3 else 'FAIL'}")
     if not ok1:
         fails.append("ZI1")
     if not ok2:
         fails.append("ZI2")
+    if not ok3:
+        fails.append("ZI3")
     print("FAILED:", fails if fails else "none")
     return 1 if fails else 0
 
@@ -132,8 +142,9 @@ else:
     k = lie(h, Zv) - 2*h
     ex = (lambda hh: sp.Rational(3, 10)*hh) if mut == "m1" else (lambda hh: None)
     gi_flag = True if mut == "m4" else None
-    Ph = P_op(g0 + h, g0, ex(h), gi_flag)
-    Pk = P_op(g0 + h + eps*k, g0, ex(h + eps*k), gi_flag)
+    g0g = g0m(sp.Rational(1, 2)) if mut == "m5" else g0  # m5: the gauge term's background at a fixed mass
+    Ph = P_op(g0 + h, g0g, ex(h), gi_flag)
+    Pk = P_op(g0 + h + eps*k, g0g, ex(h + eps*k), gi_flag)
     comps = ((0, 0), (0, 1), (1, 1), (2, 2), (4, 4))
     defect = {}
     for (a, b) in comps:
