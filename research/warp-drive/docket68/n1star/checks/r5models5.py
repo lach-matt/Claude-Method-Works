@@ -128,9 +128,12 @@ def m1():
     zint = float(np.trapezoid(ZETA, X))
     ratios = [r[2] / r[0]**2 * zint for r in rows]
     c_order = [r[1] / r[0]**2 for r in rows]
-    a_ok = abs(ratios[-1] - Q) < 0.05 * abs(Q) and max(c_order) < 1.5 * min(c_order) and all(r[3] < 1e-9 for r in rows)
+    conv_m = abs(ratios[2] - ratios[1]) < 0.6 * abs(ratios[1] - ratios[0])          # an O(eps) correction
+    conv_c = abs(c_order[2] - c_order[1]) < 0.6 * abs(c_order[1] - c_order[0])
+    a_ok = abs(ratios[-1] - Q) < 0.01 * abs(Q) and conv_m and conv_c and all(r[3] < 1e-9 for r in rows)
     b_ok = Q > 0 and all(r[2] > 0 for r in rows)
-    print("   (a) Q(delta) = %.6f; m(eps) int zeta/eps^2 = %s -> Q: %s; |c|/eps^2 = %s (c = O(eps^2)); residuals %s" %
+    print("   (a) Q(delta) = %.6f; m(eps) int zeta/eps^2 = %s -> Q (differences halving): %s; |c|/eps^2 = %s "
+          "(converging: c = O(eps^2)); residuals %s" %
           (Q, ", ".join("%.6f" % x for x in ratios), a_ok, ", ".join("%.4f" % x for x in c_order),
            ", ".join("%.1e" % r[3] for r in rows)))
     print("   (b) w > 0, kappa < 1: Q > 0 and m(eps) > 0 at every eps: no exactly localised solution: %s" % b_ok)
@@ -156,7 +159,7 @@ def m1():
     supp = bool(np.all(cu[~INS] == 0) and np.all(cv[~INS] == 0))
     c_ok = q0 * q1 < 0 and mlo * mhi < 0 and abs(mfin) < 1e-10 and float(np.max(np.abs(full))) < 1e-9 and supp
     print("   (c) w = tanh(8 (x - 1/2)): Q(s = 0) = %.5f, Q(s = 2) = %.5f; at eps = 0.02 the bisection gives s* = %.6f "
-          "with m = %.1e, max |Phi| = %.1e, c supported in U: exactly localised: %s" %
+          "with m = %.1e, max |Phi| = %.1e, c supported in U: %s; exactly localised: %s" %
           (q0, q1, hi, mfin, float(np.max(np.abs(full))), supp, c_ok))
     # control: a delta with DPhi(delta) != 0
     dub, dvb = seed()

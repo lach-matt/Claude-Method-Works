@@ -7,3 +7,6 @@ X2 (computed) the explicit family: caustic-free, direction-labelled, off the axe
    I1 outgoing (leaves through r = b), I2 ingoing (inside the horizon when it leaves): True; control: a family focused at distance 1 ahead has a Jacobian changing sign (least -0.0710; rejected): True
 X2 PASS
 X3 (computed) openness, illustrated: a nearby metric (mu = 1.05) and tilted directions
+   I1: least Jacobian 1.0000 (was 1.0000), axis distance 0.2909 (was 0.3134), d beta0/d w 0.9091 (was 0.9091): all positive: True
+   I2: least Jacobian 0.7784 (was 0.8978), axis distance 0.0738 (was 0.1955), d beta0/d w 0.9091 (was 0.9091): all positive: True
+X3 FAIL
