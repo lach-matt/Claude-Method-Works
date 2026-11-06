@@ -13,3 +13,10 @@
   D^(0) (lam^0 of the gauge vector) = 0: True
   symbol of lam^2 Q z1 z2^-1 at lam^0, per component: {-1/E}
   (S1) gamma0^AB R^(0)_AB |mixed = -2 g0^uv F1 F2 (a2) |mixed with Q = 0: True; mixed harmonics present: [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+  (S2) with Q from the division, R^(0) has no mixed harmonic in any component: True  [50 s]
+  (S2) a2 = (1/2) tr Q - (1/4)|W|^2: mixed part {} (must be empty)
+  (S3) theta_du: lam^-1 0, lam^0 0; lam^1 = g0^uv F1 a2 exactly: True; lam^1 harmonics depending on s2: {}
+  control (Q = 0): theta_du lam^1 mixed harmonics present: True (4 harmonics)
+   H3-structural: PASS [64 s]
+PASS [66 s]
+exit 0
