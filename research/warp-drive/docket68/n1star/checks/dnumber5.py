@@ -444,7 +444,10 @@ def main():
           'd_* + K + 1, d_* from the closed graph theorem (II.A:955-967), and D_0 >= the d_0 of (L3)-(L4), fixed by '
           'd_0 - 2 >= M_2.4 + 2 '
           '(II.A2:722-723), M_2.4 a closed-graph seminorm count (II.A2:277-279); [SBG] Theorem 3.44 gives no count '
-          '(READ). So c\' has no number in the record; d is A\' + 106,489,470 c\' with A\' above (deduced)')
+          '(READ). So c\' has no number in the record; d is A\' + 106,489,470 c\' with A\' above (deduced). '
+          '[Round 8: superseded. The record fixes those orders by the closed graph theorem; CONSTANTS5.md R7.A and R8 '
+          'replace them by explicit estimates, counted in checks/d0count5.py (D_0 <= 399 on the order box), and c\' '
+          'and d are computed in checks/modcount5.py.]')
     # C1: brute force on a scaled instance
     d1s = Fr(1, 97)
     st = [Fr(2), Fr(2) + Fr(1, 3) + Fr(1, 1000), Fr(5, 2), Fr(5, 2) + Fr(1, 7)]

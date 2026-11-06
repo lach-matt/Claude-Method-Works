@@ -77,9 +77,29 @@ u, v, x, ph = sp.symbols('u v x phi', real=True)
 C4 = [u, v, x, ph]
 
 
-def zero(e):
-    e = sp.simplify(sp.expand(e))
-    return e == 0
+def zero(e, trials=3, digits=60):
+    """the identity holds for every smooth choice of the functions: every function and every derivative of it is
+    replaced by an independent random rational (the expression is a rational-exponential function of these jets), and
+    the value is computed to 60 digits; three independent trials must each vanish below 1e-45 (an identity holds at
+    every jet; a false one fails at random jets with probability one)"""
+    from sympy.core.function import AppliedUndef
+    import random
+    e = sp.sympify(e)
+    if e == 0:
+        return True
+    rnd = random.Random(20261106)
+    for _ in range(trials):
+        sub = {}
+        for d in e.atoms(sp.Derivative):
+            sub[d] = sp.Rational(rnd.randint(-900, 900), rnd.randint(101, 997))
+        for f in e.atoms(AppliedUndef):
+            sub[f] = sp.Rational(rnd.randint(150, 900), rnd.randint(101, 997))      # positive (logs, roots)
+        e2 = e.xreplace(sub)
+        e2 = e2.xreplace({q: sp.Rational(rnd.randint(150, 900), rnd.randint(1001, 1997)) for q in e2.free_symbols})
+        val = sp.N(e2, digits)
+        if not val.is_number or abs(complex(val)) > 1e-45:
+            return False
+    return True
 
 
 def x1():
@@ -145,9 +165,9 @@ def x2():
     g[0, 1] = g[1, 0] = -2 * Om ** 2
     g[2, 2] = gg; g[0, 2] = g[2, 0] = -gg * b; g[0, 0] = gg * b ** 2; g[3, 3] = Y ** 2
     gi = g.inv()
-    Gam = [[[sp.simplify(sum(gi[a, d] * (sp.diff(g[d, bb], C4[c]) + sp.diff(g[d, c], C4[bb]) - sp.diff(g[bb, c], C4[d]))
-                                 for d in range(4)) / 2) for c in range(4)] for bb in range(4)] for a in range(4)]
-    odd = all(Gam[a][bb][c] == 0 for a in range(4) for bb in range(4) for c in range(4)
+    Gam = [[[sum(gi[a, d] * (sp.diff(g[d, bb], C4[c]) + sp.diff(g[d, c], C4[bb]) - sp.diff(g[bb, c], C4[d]))
+                 for d in range(4)) / 2 for c in range(4)] for bb in range(4)] for a in range(4)]
+    odd = all(sp.expand(Gam[a][bb][c]) == 0 for a in range(4) for bb in range(4) for c in range(4)
               if ([a, bb, c].count(3)) % 2 == 1)
     E = {'3': [1 / Om, 0, b / Om, 0], '4': [0, 1 / Om, 0, 0], '1': [0, 0, 1 / sp.sqrt(gg), 0], '2': [0, 0, 0, 1 / Y]}
 
@@ -155,7 +175,7 @@ def x2():
         """covariant derivative D_X Y of frame vectors (components)"""
         return [sum(X[c] * sp.diff(Yv[a], C4[c]) for c in range(4)) +
                 sum(Gam[a][c][d] * X[c] * Yv[d] for c in range(4) for d in range(4)) for a in range(4)]
-    gp = lambda X, Yv: sp.simplify(sum(g[a, c] * X[a] * Yv[c] for a in range(4) for c in range(4)))
+    gp = lambda X, Yv: sum(g[a, c] * X[a] * Yv[c] for a in range(4) for c in range(4))
     chi = {(A_, B_): gp(D(E[A_], E['4']), E[B_]) for A_ in '12' for B_ in '12'}
     chib = {(A_, B_): gp(D(E[A_], E['3']), E[B_]) for A_ in '12' for B_ in '12'}
     eta = {A_: -gp(D(E['3'], E[A_]), E['4']) / 2 for A_ in '12'}
@@ -186,7 +206,7 @@ def x2():
     # Gauss curvature of the section metric gg dx^2 + Y^2 dphi^2
     gs = sp.Matrix([[gg, 0], [0, Y ** 2]])
     Rs = dn.ricci(gs, [x, ph])
-    Kc = sp.simplify(Rs[0, 0] / gg)                    # 2D: Ric = K g
+    Kc = Rs[0, 0] / gg                                 # 2D: Ric = K g
     zK = zero(Kc + e1(e1(Y)) / Y)
     return odd, out, ctl, zK
 
