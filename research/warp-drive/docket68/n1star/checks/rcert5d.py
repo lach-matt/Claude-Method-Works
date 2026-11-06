@@ -22,6 +22,12 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
   Control C2: the approximant with W + 0.01 v (rcert5.py's control) must be refused at tau on the box's first child:
      a certified centre value above tau.
 
+  D3 (certified) the census over rcert5.py's whole box: K1's 16,128 certified point values (the pinned approximant)
+     mapped to K2's 416 boxes (4 x 4 in (t, sig), 26 graded in x).  A box holding a point whose certified value
+     exceeds tau cannot be certified at tau by any method; the count of such boxes at tau and at tau' is printed, with
+     the rest (certifiable in principle) and the cost of the rest at this box's measured count.
+
+  python3 checks/rcert5d.py --census [tau]          (D3 alone; writes its table to the checkpoint directory)
   python3 checks/rcert5d.py --worker w W [tau]     (chunk w of W of the box's 8 children; resumable checkpoints)
   python3 checks/rcert5d.py --collect W [tau]      (merge the W checkpoints, run D0-D2 and the controls, print)
 Checkpoints go to $RCERT5D_DIR (default: the scratch directory named in the round-4 record).
@@ -244,8 +250,69 @@ def collect(W, tau):
     return 0 if ok else 1
 
 
+def census(tau):
+    """D3: certified values at K1's points, every one kept, mapped to K2's boxes"""
+    t0 = time.time()
+    C3, g, md5s = load_pinned()
+    assert md5s == MD5
+    frame, names = frame_cached()
+    Nt = Ns = 24
+    M = g['M']
+    x1 = float(np.cos(np.pi / (2 * M)))
+    tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
+    scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
+    xcs, _ = R5.x_boxes(x1, n_mid=8)
+    pts = {}
+    for f in R5.RS.NAMES:
+        tens, _ = R5.deriv_tensors(C3[f], 2)
+        pts[f] = R5.point_coeffs(tens, tcs, scs, xcs, 2)
+    hxi, a, psi = arb(g['hxi']), arb(g['a']), arb(g['psi'])
+    vals = np.zeros((Nt, Ns, len(xcs), 8))
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+        xi = arb(g['xa']) + (arb(tcs[p]) + 1) * hxi
+        ch, th = xi.cosh(), xi.tanh()
+        phi1 = 1 / (hxi * a * ch); phi2 = -phi1 * phi1 * hxi * th
+        e = {'x': arb(xcs[r])}
+        for f in R5.RS.NAMES:
+            c = lambda al: pts[f][al][p, q, r]
+            e[f] = c((0, 0, 0)); Ft = c((1, 0, 0))
+            e[f + '_u'] = phi1 * Ft; e[f + '_v'] = psi * c((0, 1, 0)); e[f + '_x'] = c((0, 0, 1))
+            e[f + '_uu'] = phi1 * phi1 * 2 * c((2, 0, 0)) + phi2 * Ft
+            e[f + '_uv'] = phi1 * psi * c((1, 1, 0)); e[f + '_ux'] = phi1 * c((1, 0, 1))
+            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1))
+            e[f + '_xx'] = 2 * c((0, 0, 2))
+        vv_ = frame(*[e[k] for k in names])
+        for k8 in range(8):
+            av = abs(vv_[k8])
+            lo = av.mid() - av.rad()                       # a certified LOWER bound for |value|
+            vals[p, q, r, k8] = float(lo)
+    xb, hb = R5.x_boxes(x1, n_mid=6)
+    boxes = {}
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+        bt, bs = min(int((tcs[p] + 1) / 0.5), 3), min(int((scs[q] + 1) / 0.5), 3)
+        br = [i for i, (c_, h_) in enumerate(zip(xb, hb)) if c_ - h_ <= xcs[r] <= c_ + h_]
+        for b_ in br:
+            key = (bt, bs, b_)
+            boxes[key] = max(boxes.get(key, 0.0), vals[p, q, r].max())
+    over = sum(1 for v_ in boxes.values() if v_ > tau)
+    over2 = sum(1 for v_ in boxes.values() if v_ > TAU_G10)
+    inner = [k for k in boxes if k[0] == 1 and k[1] == 1 and xb[k[2]] - hb[k[2]] >= -1e-12 and
+             xb[k[2]] + hb[k[2]] <= 0.25 + 1e-12]
+    np.save(os.path.join(SCR, 'census_vals.npy'), vals)
+    print('D3 (certified) K1\'s %d points, certified lower bounds of |component|, over K2\'s %d boxes with points '
+          '(%.0f s):' % (vals[..., 0].size, len(boxes), time.time() - t0))
+    print('   boxes holding a point above tau = %.1e: %d of %d (no certificate at tau possible there); above tau\' = '
+          '%.1e: %d of %d' % (tau, over, len(boxes), TAU_G10, over2, len(boxes)))
+    print('   largest certified lower bound over all points: %.3e; per component: %s' % (
+        vals.max(), ', '.join('%s %.2e' % (k, vals[..., i].max()) for i, k in enumerate(FRL))))
+    return boxes
+
+
 if __name__ == '__main__':
     if sys.argv[1] == '--worker':
         worker(int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4]) if len(sys.argv) > 4 else 5.3e-4)
+    elif sys.argv[1] == '--census':
+        os.makedirs(SCR, exist_ok=True)
+        census(float(sys.argv[2]) if len(sys.argv) > 2 else 5.3e-4)
     elif sys.argv[1] == '--collect':
         sys.exit(collect(int(sys.argv[2]), float(sys.argv[3]) if len(sys.argv) > 3 else 5.3e-4))
