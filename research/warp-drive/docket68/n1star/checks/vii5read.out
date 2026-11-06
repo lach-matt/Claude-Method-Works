@@ -43,3 +43,8 @@
   control: dropped row fails True; doubled row fails True; misspelt verdict fails True; resolution removed fails True;
       census widened by chi_9 fails True; resolutions replaced by 'x' fail Q2 True; Part VII's (C3) reverted fails Q2
       True and Q4 True; an UNDECIDED row turned MORE (resolution kept) fails Q4 True; a dropped row fails Q4 True
+  Q3: (a) sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at three
+      rational points, exactly: True; (b) delta* w = (1/2) L_(w^#) g_b0, the Christoffel-free formula (Kerr-Schild
+      inverse checked), at the same points: True; (c) the hand value (delta* dt)_00 = -mu^2/r^5 = -1/108 at x = (1, 2,
+      2, 0): True (computed -1/108); (d) delta* of the Killing 1-forms g(d_t, .) and g(x^1 d_2 - x^2 d_1, .) vanishes
+      there: True

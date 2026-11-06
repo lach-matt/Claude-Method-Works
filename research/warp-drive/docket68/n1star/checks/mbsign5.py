@@ -266,3 +266,194 @@ def e1():
     print("   control: B with the derivative term's sign reversed (n = 1) is not divergence-free (rejected): %s" % ctl)
     report('E1', ok_s and ok_t and uniq, [('sign', ctl)])
     return norms
+
+
+# ------------------------------------------------------------------ E2
+R_ = sp.Symbol('R', positive=True)
+WJ = sp.symbols('w0:8')
+SQ = sp.Symbol('SQ', positive=True)        # sqrt(w (2 - f w)) on the slice
+
+
+def slice_background():
+    """the class slice v = V(R) of Tangherlini (ingoing (v, R)), w = V': gamma_RR, K_RR, n^R, N_s, Y_s^R"""
+    w = sp.Function('w')(R_)
+    f = 1 - mu / R_**2
+    v = sp.Symbol('v')
+    X5 = [v, R_, th, p1, p2]
+    g5 = sp.zeros(5, 5)
+    g5[0, 0], g5[0, 1], g5[1, 0] = -f, 1, 1
+    g5[2, 2], g5[3, 3], g5[4, 4] = R_**2, R_**2 * s_**2, R_**2 * c_**2
+    gi5, Gam = christoffel(g5, X5)
+    Del = w * (2 - f * w)
+    sq = sp.sqrt(Del)
+    nlow = [-1 / sq, w / sq, 0, 0, 0]                       # n = -(dv - w dR)/sqrt(Del): unit, future (n^v > 0)
+    nup = [sp.together(sum(gi5[a, b] * nlow[b] for b in range(5))) for a in range(5)]
+    eR = [w, 1, 0, 0, 0]
+    KRR = sum(eR[a] * eR[b] * (sp.diff(nlow[b], X5[a]) - sum(Gam[l][a][b] * nlow[l] for l in range(5)))
+              for a in range(5) for b in range(5))
+    N = -nlow[0]                                            # N = -g(xi, n), xi = d_v
+    YR = (1 - f * w) / Del
+    checks = dict(
+        unit=sp.simplify(sum(nup[a] * nlow[a] for a in range(5)) + 1) == 0,
+        future=sp.simplify(nup[0] * sq - w) == 0,
+        normal=sp.simplify(sum(nlow[a] * eR[a] for a in range(5))) == 0,
+        decomposition=sp.simplify(1 - N * nup[0] - w * YR) == 0 and sp.simplify(-N * nup[1] - YR) == 0,
+        NsqrtG=sp.simplify(N * sq - 1) == 0,
+        lapse_shift=sp.simplify(N**2 - Del * YR**2 - f) == 0,
+        KRR=sp.simplify(KRR - (R_**5 * sp.diff(w, R_) - R_**2 * mu * w**3 + 3 * R_**2 * mu * w**2 + mu**2 * w**3)
+                        / (R_**5 * sq)) == 0)
+    return dict(w=w, f=f, Del=Del, N=N, YR=YR, nR=nup[1], KRR=KRR, sq=sq, checks=checks)
+
+
+def tensor_density():
+    """theta-dependent Q-density of tensor data on an abstract round slice (TA generic, B and C from E1)"""
+    Gf, Kf, nf, Nf, Yf, H, P = [sp.Function(nm)(R_) for nm in ('Gf', 'Kf', 'nf', 'Nf', 'Yf', 'H', 'P')]
+    TA = sp.Function('TA')(th)
+    u = sp.cos(2 * th)
+    TB = (3 * u - 1) * TA / 2 + sp.sin(2 * th) * sp.diff(TA, th) / 2
+    TC = -TA - TB
+    Tu = sp.diag(0, TA * R_**2, TB * R_**2 * s_**2, TC * R_**2 * c_**2)
+    g = sp.diag(Gf, R_**2, R_**2 * s_**2, R_**2 * c_**2) + eps * 2 * H * Tu
+    K = sp.diag(Kf, R_ * nf, R_ * nf * s_**2, R_ * nf * c_**2) + eps * (P + 2 * nf * H / R_) * Tu
+    Hc, M = QS.constraints_fast(g, K, [R_, th, p1, p2])
+    lin = [sp.simplify(sp.expand(sp.diff(e, eps).subs(eps, 0))) for e in [Hc] + M]
+    dens = sp.expand((Nf * sp.diff(Hc, eps, 2).subs(eps, 0) / 2 + 2 * Yf * sp.diff(M[0], eps, 2).subs(eps, 0) / 2)
+                     * sp.sqrt(Gf) * R_**3 * s_ * c_)
+    return dict(lin=lin, dens=dens, F=(Gf, Kf, nf, Nf, Yf, H, P), TA=TA)
+
+
+def theta_integral(dens, TA, n):
+    A = class_tt(n)[0]
+    acc = {}
+    for term in sp.Add.make_args(dens):
+        ind, dep = term.as_independent(th, as_Add=False)
+        acc[dep] = acc.get(dep, 0) + ind
+    out = 0
+    for dep, ind in acc.items():
+        d = dep.subs(TA, A).doit()
+        out += ind * sp.integrate(sp.expand(sp.expand_trig(sp.expand(d))), (th, 0, sp.pi / 2))
+    return out
+
+
+def reduce_sq(e, bg):
+    """zero test in Q(R, mu, w-jets)[SQ]/(SQ^2 - Del): every derivative of the slice functions eliminated"""
+    w, Del = bg['w'], bg['Del']
+    e = e.subs(sp.sqrt(Del), SQ)
+    for k in range(7, 0, -1):
+        e = e.subs(sp.Derivative(w, (R_, k)), WJ[k])
+    e = e.subs(w, WJ[0])
+    D0 = Del.subs(w, WJ[0])
+    e = sp.together(e)
+    num = sp.expand(sp.numer(e))
+    rem = sp.rem(sp.Poly(num, SQ), sp.Poly(SQ**2 - D0, SQ))
+    return all(sp.cancel(cf) == 0 for cf in rem.all_coeffs())
+
+
+def field_jets_zero(e, fns, bg, order=5):
+    """e linear/quadratic in the jets of fns; every coefficient zero in the SQ-reduced field"""
+    e = sp.expand(e)
+    reps, syms = {}, []
+    for i, fn in enumerate(fns):
+        for k in range(order, 0, -1):
+            s = sp.Symbol('fj%d_%d' % (i, k))
+            reps[sp.Derivative(fn, (R_, k))] = s
+            syms.append(s)
+        s = sp.Symbol('fj%d_0' % i)
+        reps[fn] = s
+        syms.append(s)
+    e = sp.expand(e.subs(reps))
+    if e == 0:
+        return True
+    return all(reduce_sq(cf, bg) for cf in sp.Poly(e, *syms).coeffs())
+
+
+def substitute_bg(e, F, bg):
+    Gf, Kf, nf, Nf, Yf = F[:5]
+    e = e.subs(sp.sqrt(Gf), bg['sq'])
+    e = e.subs({Gf: bg['Del'], Kf: bg['KRR'], nf: bg['nR'], Nf: bg['N'], Yf: bg['YR']})
+    return e.doit()
+
+
+def e2():
+    print("E2 (exact; w(R), mu symbolic) the tensor sector on every class slice v = V(R): E = 2 |T|^2 int T_m(xi, n)",
+          flush=True)
+    bg = slice_background()
+    print("   the slice: n unit, future, normal; xi = N_s n + Y_s; N_s sqrt(gamma_RR) = 1; N_s^2 - gamma_RR (Y_s^R)^2 "
+          "= f; K_RR closed form: %s" % bg['checks'])
+    td = tensor_density()
+    print("   linearised constraints of the tensor data vanish identically (TA generic): %s"
+          % all(x == 0 for x in td['lin']))
+    Gf, Kf, nf, Nf, Yf, H, P = td['F']
+    HR = sp.diff(H, R_)
+    ok, ctl, out = True, True, {}
+    for n in (0, 1):
+        A, B, C, kT2, l = class_tt(n)
+        nT = sp.integrate(sp.expand(sp.expand_trig((A**2 + B**2 + C**2) * s_ * c_)), (th, 0, sp.pi / 2))
+        Iq = theta_integral(td['dens'], td['TA'], n)
+        Tm = R_**3 * ((Nf * P + Yf * HR) * P + sp.Rational(1, 2) * Nf * (-P**2 + HR**2 / Gf)) \
+            + sp.Rational(1, 2) * Nf * (kT2 + 2) * R_ * H**2
+        res = {}
+        for scale in (1, sp.Rational(1, 2)):
+            d = substitute_bg(Iq + 2 * scale * nT * Tm * sp.sqrt(Gf), td['F'], bg)
+            els = [eq.lhs for eq in euler_equations(d, [H, P], [R_])]
+            res[scale] = all(field_jets_zero(e, [H, P], bg) for e in els)
+        out[l] = (nT, kT2, Iq)
+        ok &= res[1]
+        ctl &= not res[sp.Rational(1, 2)]
+        print("   l = %d (|T|^2 = %s, k_T^2 = %d): Euler operator of Q-density + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) "
+              "zero in H and P: %s; control |T|^2 -> |T|^2/2 (rejected): %s" % (l, nT, kT2, res[1],
+                                                                               not res[sp.Rational(1, 2)]))
+    # the (P, H_R) block of T_m and its determinant
+    a11, a12, a22 = bg['N'] / 2, bg['YR'] / 2, bg['N'] / (2 * bg['Del'])
+    det = sp.simplify((a11 * a22 - a12**2) * bg['Del'] - bg['f'] / 4)
+    print("   T_m's (P, H_R) block R^3 [[N/2, Y/2], [Y/2, N/(2 gamma_RR)]] has determinant R^6 f/(4 gamma_RR) (N > 0): "
+          "%s -- positive definite iff f > 0" % (det == 0))
+    report('E2', ok and all(bg['checks'].values()) and all(x == 0 for x in td['lin']) and det == 0,
+           [('|T|^2/2', ctl)])
+    return bg, td, out
+
+
+# ------------------------------------------------------------------ E3
+def e3(bg, td, out):
+    print("E3 (exact) M_b fails inside the horizon: tensor seeds with E < 0 on Part I's slice", flush=True)
+    Gf, Kf, nf, Nf, Yf, H, P = td['F']
+    nT, kT2, Iq = out[2]
+    HR = sp.diff(H, R_)
+    # (a) P = -(Y/N) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2), on every slice
+    d = substitute_bg(Iq.subs(P, -Yf / Nf * HR).doit() + nT * (R_**3 * (1 - mu / R_**2) * HR**2 + (kT2 + 2) * R_ * H**2),
+                      td['F'], bg)
+    a_ok = field_jets_zero(euler_equations(d, [H], [R_])[0].lhs, [H], bg)
+    d0 = substitute_bg(Iq.subs(H, 0).doit() + nT * R_**3 * P**2, td['F'], bg)
+    b_ok = field_jets_zero(euler_equations(d0, [P], [R_])[0].lhs, [P], bg)
+    print("   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR on every class slice: %s;"
+          " with H = 0: Q = -|T|^2 int R^3 P^2 dR < 0: %s" % (a_ok, b_ok))
+
+    def Qband(R1, R2, mv, Hfun=None):
+        Rr = sp.Symbol('Rr')
+        Hh = (Rr - R1)**2 * (R2 - Rr)**2 if Hfun is None else Hfun(Rr)
+        f = 1 - mv / Rr**2
+        return -nT * sp.integrate(sp.expand(Rr**3 * f * sp.diff(Hh, Rr)**2 + (kT2 + 2) * Rr * Hh**2), (Rr, R1, R2))
+    R1, R2 = sp.Rational(18, 25), sp.Rational(89, 100)
+    mlo, mhi = sp.Rational(4, 5), sp.Rational(21, 25)
+    q_lo, q_hi = Qband(R1, R2, mlo), Qband(R1, R2, mhi)
+    mv = sp.Symbol('mv')
+    affine = sp.degree(sp.expand(Qband(R1, R2, mv)), mv) == 1
+    inside = R2**2 < mlo                        # the band lies inside the horizon for every mu in the interval
+    c_ok = q_lo > 0 and q_hi > 0 and affine and inside
+    print("   H = (R - R1)^2 (R2 - R)^2 on [R1, R2] = [0.72, 0.89] (R2^2 < 0.80: inside the horizon for every mu in "
+          "[0.80, 0.84]; Part I's seed region: inner edge 0.683, horizon 0.9067, mu0 = 0.8221, qsign5 Q3): Q is "
+          "affine in mu %s, Q(0.80) = %s = %.6e, Q(0.84) = %s = %.6e, both > 0: E < 0 for every mu there: %s"
+          % (affine, q_lo, float(q_lo), q_hi, float(q_hi), c_ok))
+    qp = -nT * sp.integrate(sp.Symbol('Rr')**3 * ((sp.Symbol('Rr') - R1)**2 * (R2 - sp.Symbol('Rr'))**2)**2,
+                            (sp.Symbol('Rr'), R1, R2))
+    print("   the momentum-only seed P = (R - R1)^2 (R2 - R)^2, H = 0, on the same band: Q = %.6e < 0 (any mu): %s; so Q "
+          "changes sign along s -> (s H, -s (Y/N) H_R + (1 - s) P), every member non-gauge (nonzero TT part)"
+          % (float(qp), qp < 0))
+    # control: the band moved outside the horizon
+    S1, S2 = sp.Rational(23, 25), sp.Rational(109, 100)
+    cq_lo, cq_hi = Qband(S1, S2, mlo), Qband(S1, S2, mhi)
+    outside = S1**2 > mhi
+    ctl = cq_lo < 0 and cq_hi < 0 and outside
+    print("   control: the band moved to [0.92, 1.09] (0.92^2 > 0.84: outside the horizon): Q(0.80) = %.6e, Q(0.84) = "
+          "%.6e, both < 0, no E < 0 seed (rejected): %s" % (float(cq_lo), float(cq_hi), ctl))
+    report('E3', a_ok and b_ok and c_ok and qp < 0, [('band moved', ctl)])

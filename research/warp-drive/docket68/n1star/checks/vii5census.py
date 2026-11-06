@@ -36,8 +36,8 @@ section only, the sentence there that fixes it) from the places it is used.
   V1 (computed, a census) Every occurrence of each symbol in the 46 Part III and 7 Part IV files (and the Part II site
      file) is classified per symbol: at that symbol's site, or a use. Since D626 a symbol printed across a line break
      (its lines joined with one space) is found too, at the line it starts on. --list prints every site line and every
-     use line. The reader's task for (VII5) is the list printed under 'used at': at each such line, that only the condition
-     stated at the site is used.
+     use line. The reader's task for (VII5) is the list printed under 'used at': at each such line, that only the
+     condition stated at the site is used.
   V2 (computed, D626) Completeness of the 1-form spellings: every distinct printed spelling of omega in Parts III-IV
      (with its accent and every sub- and superscript) either contains a C3/C3'/C4 symbol or is excluded by a rule with
      its reason (OMEGA_EXCLUDE: Minkowski models, dual states, the zero-energy gauge potential, generic forms and

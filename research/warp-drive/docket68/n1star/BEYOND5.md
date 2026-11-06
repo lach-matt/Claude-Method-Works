@@ -866,10 +866,10 @@ What it does not give:
       (III.B 102, 117);
     - 19 are the definition and the domain (DEF): III.B 49-79, 177-178 and 224-251 ((2.1), (3.6), Lemma 3.7);
       III.K 43-44; Part VII 40, 195, 258;
-    - 120 (121 since D378: PART-III-K-NONLINEAR.md:462's causal curves) use only that {r = r_0} is spacelike with dr
-      future timelike, inside the horizon (SPC): the artificial boundary, vanishing inside the horizon (III.E), the
-      radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES, F4-ZERO). IV6-SOLV's finding (IV′′′′′5) says its cut-offs and
-      energy estimates near Σ^♯ need only "the future timelike character of dr on [r_♯, r̂]";
+    - 120 (121 since D378: PART-III-K-NONLINEAR.md:462's, :465 since D611 and D621, causal curves) use only that {r =
+      r_0} is spacelike with dr future timelike, inside the horizon (SPC): the artificial boundary, vanishing inside the
+      horizon (III.E), the radial ODEs on (r_0 − δ_0, ∞) (D-GAUGEPOT, F3-MODES, F4-ZERO). IV6-SOLV's finding (IV′′′′′5)
+      says its cut-offs and energy estimates near Σ^♯ need only "the future timelike character of dr on [r_♯, r̂]";
     - 61 go through a constant chosen from it (CON; 48 before D373, the thirteen added being Part VI's amended lines):
       δ_0 of I.A's radii and the collar below r_0 (VI-DYN to VI3-TRAPPING),
       ν_0 = min(¼, r_0/8) and R_ν (III.K), δ_1 and the weights (H2-ADMISS), δ′_0 (Part VII Lemma 1.2);

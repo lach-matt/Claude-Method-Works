@@ -33,14 +33,19 @@ sum_A (u_A)_i d/ds_A):
      <= m has |Q_n| >= 2 a_T a_S (c - m M^2/Lam - m^2 M^2/(2 Lam)), c = min(pairwise |g(k_A, k_B)|) = min(the labels'
      own, the label-radial ones >= c(eta) = E E' (1 - cos eta) > 0) (Lemma C, sharpened constant). Control (must
      fail): a label along the ingoing radial direction has g(k_A, k_in) = 0 and Q_n = 0 for every n supported on the
-     pair, at any Lam: the hypothesis (V2') cannot be dropped.
+     pair, at any Lam: the hypothesis (V2') cannot be dropped. [R7] Second control (the round-6 verifier's mutation):
+     a label at 2.3 degrees from the outgoing direction, eta kept, violates (V2') and is rejected; the print now shows
+     each comparison's truth value.
   N5 (exact, sympy) FAMILIES5-FULL Lemma 2.4 holds for every family. On the record's g0 = eta + (mu/r^2) dv dv (any mu
-     > 0) every future null direction l with l(tau) = 1, radial or not, has dr(l) in [-1, (r^2 - mu)/(r^2 + mu)]; so
+     > 0) every future null direction l with l(tau) = 1, radial or not, has dr(l) in [-1, (r^2 - mu)/(r^2 + mu)]
+     ([R7] exact: the null condition's roots are (-f +- sqrt(1 - w^2 (1 + f)))/(1 + f), monotone in the root in [0, 1];
+     the 15 sampled directions are an illustration only); so
      at the outer boundary r = b(tau) (b' = -2) the flux coefficient b' - dr(l) <= -1 < 0, and at r = a < sqrt(mu)
      dr(l) <= (a^2 - mu)/(a^2 + mu) < 0: both boundary terms have the record's sign for every family, whatever its
-     direction. Control (must fail): at an untrapped r = a (a > sqrt(mu)) an outgoing direction has dr(l) > 0.
+     direction. Control (must fail): at an untrapped r = a (a > sqrt(mu)) an outgoing direction has dr(l) > 0. This is
+     an instance: for Theorem V's general g the signs come from its hypothesis (Omega) (FAMILIES5-R7.md, m4).
 
-Labels: computed (N1-N5 exact). Run: python3 checks/nfamily5.py   (about an hour under load; N1-N2 dominate)
+Labels: computed (N1-N5 exact). Run: python3 checks/nfamily5.py   (about 75 minutes under load; N1-N2 dominate)
 """
 from fractions import Fraction
 import itertools
@@ -479,9 +484,8 @@ def n5():
     quad = (1 + fs) * c**2 + 2 * fs * c + (fs - 1 + w**2)
     is_root = all(sp.simplify(quad.subs(c, rt).subs(sq, sp.sqrt(1 - w**2 * (1 + fs)))) == 0 for rt in roots)
     lo, hi = -1, (1 - fs) / (1 + fs)
-    ends = all(sp.simplify(rt.subs(sq, v) - e) == 0 or True for rt in roots for v, e in ((0, None), (1, None)))
     bounds_exact = (sp.simplify(roots[0].subs(sq, 1) - hi) == 0 and sp.simplify(roots[1].subs(sq, 1) - lo) == 0
-                    and sp.simplify(roots[0].subs(sq, 0) - roots[1].subs(sq, 0)) == 0 and ends)
+                    and sp.simplify(roots[0].subs(sq, 0) - roots[1].subs(sq, 0)) == 0)
     # the roots are monotone in sq (d/dsq = +-1/(1 + fs)), so for sq in [0, 1] they stay in [lo, hi]
     exact_inside = is_root and bounds_exact and sp.simplify(sp.diff(roots[0], sq) * (1 + fs) - 1) == 0
     # and the same on 15 sampled directions (an illustration)
