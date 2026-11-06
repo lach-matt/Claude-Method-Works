@@ -44,6 +44,8 @@ alpha + 2 = 1 lies in the indicial gap (0, 2) of the model at infinity (its root
   Z5b (exact) the near-extremal family u = r^(-1-delta) on [1/2, oo) (smooth there): A_l u = c1 r^(-3-delta) + c2
      r^(-5-delta), c1 = (l + 1)^2 - delta^2, c2 = (1 + delta)^2 (mu = 1), N^2 and F^2 integrated exactly; N/F -> 2^(1/2)
      at l = 0 as delta -> 0 (exterior Hardy sharpness), below C: the constant C is within a factor 2 of the best.
+  [Round 7, the round-6 verifier's m7: Z5, Z5b and C3 now test against Z4's computed C, Z4 pins C_0^2 in [7.84, 7.85],
+  and C4 drops the kappa (1 - a^2) piece from the derivation; the derivation itself is deduced (certified arithmetic).]
   Controls (each mutates the computed path; each must fail): C1 Z2 with w = 1: P' w - P w' = 3 r^2 - 1 < 0 at
   r = 1/2, the positivity test fails; C2 Z1 with the boundary term's L r w |u|^2 sign flipped: the identity fails;
   C3 Z5b's test against the claim C/4: refuted by u = r^(-1-1/100).
@@ -60,6 +62,7 @@ import numpy as np
 import sympy as sp
 
 OK = {}
+C_PIN = (Fr(784, 100), Fr(785, 100))          # Z4's C_0^2, pinned (Round 7, the round-6 verifier's m7)
 
 
 def print(*a, **k):  # noqa: A001
@@ -121,13 +124,14 @@ def z2(w):
     return pos, rw, bd
 
 
-def constants(a=Fr(1, 2), b1=Fr(6, 5), b2=Fr(2), lmax=200):
-    """certified C_l^2 (rational upper bounds; log(1/a) by an upper rational)"""
+def constants(a=Fr(1, 2), b1=Fr(6, 5), b2=Fr(2), lmax=200, drop_kappa=False):
+    """certified C_l^2 (rational upper bounds; log(1/a) by an upper rational); drop_kappa removes the inner region's
+    kappa (1 - a^2) piece (Round 7 control C4)"""
     kappa = b2 / (b2 - b1)
     finv = 1 / (1 - 1 / b1 ** 2)
     log_hi = Fr(693148, 10 ** 6)                           # log 2 = 0.693147... < 0.693148
     assert a == Fr(1, 2) and math.log(2) < float(log_hi)
-    C0 = 1 + kappa * (1 - a * a) + log_hi + 1 + finv
+    C0 = 1 + (0 if drop_kappa else kappa * (1 - a * a)) + log_hi + 1 + finv
     Cl = {0: C0}
     for l in range(1, lmax + 1):
         L = l * (l + 2)
@@ -183,7 +187,7 @@ def main():
     sup = max(Cl.values())
     lsup = max(Cl, key=lambda q: Cl[q])
     mono = all(Cl[q] >= Cl[q + 1] for q in range(1, 200))
-    OK['Z4'] = sup < Fr(785, 100) and lsup == 0 and mono and Cl[200] > tail
+    OK['Z4'] = sup < Fr(785, 100) and lsup == 0 and mono and Cl[200] > tail and C_PIN[0] < sup < C_PIN[1]
     C = math.sqrt(float(sup))
     print('  Z4 (certified, exact rationals): kappa = %s, 1/f(b1) = %s; C_0^2 <= %.6f, C_1^2 <= %.6f, C_2^2 <= %.6f, '
           'C_l^2 decreasing to 2 (checked to l = 200, each term decreasing beyond): sup_l C_l^2 = C_0^2 < 7.85, so '
@@ -203,9 +207,9 @@ def main():
             Nn, Fn = norms_numeric(fu, fd, fA, L)
             if Fn > 0:
                 worst = max(worst, Nn / Fn)
-    OK['Z5'] = worst <= 2.802
-    print('  Z5 (floating point): 300 test functions x l in {0, 2, 4, 6}: largest N(u)/F = %.4f <= 2.802: %s' % (
-        worst, OK['Z5']))
+    OK['Z5'] = worst <= C
+    print('  Z5 (floating point): 300 test functions x l in {0, 2, 4, 6}: largest N(u)/F = %.4f <= C = %.4f (Z4\'s, '
+          'computed): %s' % (worst, C, OK['Z5']))
     # controls
     pos1, _, _ = z2(sp.Integer(1))
     OK['C1'] = sp.simplify(pos1.subs(r, sp.Rational(1, 2))) < 0
@@ -228,13 +232,19 @@ def main():
             F2 = sp.integrate(sp.expand(r ** 5 * form ** 2), (r, sp.Rational(1, 2), sp.oo))
             ex[(str(dv), l)] = float(sp.sqrt(N2 / F2))
     lim0 = sp.limit((1 + (1 + dlt) ** 2) / (1 - dlt ** 2) ** 2, dlt, 0)
-    OK['Z5b'] = max(ex.values()) <= 2.802 and lim0 == 2
+    OK['Z5b'] = max(ex.values()) <= C and lim0 == 2
     print('  Z5b (exact): N/F for u = r^(-1-delta): %s; at l = 0 the leading-order ratio^2 (1 + (1 + delta)^2)/(1 - '
           'delta^2)^2 -> %s: %s' % ({k_: round(v_, 4) for k_, v_ in ex.items()}, lim0, OK['Z5b']))
     best = ex[('1/100', 0)]
-    OK['C3'] = best > 2.802 / 4
-    print('  C3 (control): the claim N(u) <= (2.802/4) F: refuted by u = r^(-1.01) at l = 0 (ratio %.4f): %s' % (
+    OK['C3'] = best > C / 4
+    print('  C3 (control): the claim N(u) <= (C/4) F: refuted by u = r^(-1.01) at l = 0 (ratio %.4f): %s' % (
         best, OK['C3']))
+    _, _, Cd, _ = constants(drop_kappa=True)
+    supd = max(Cd.values())
+    OK['C4'] = not (C_PIN[0] < supd < C_PIN[1])
+    print('  C4 (control): Z4 with the inner region\'s kappa (1 - a^2) piece dropped: C^2 = %.6f (C = %.4f), outside '
+          'the pinned interval, so Z4 fails on it: %s. (No test function is known that needs the piece: the derivation '
+          'is a valid, not a sharp, one.)' % (float(supd), math.sqrt(float(supd)), OK['C4']))
     for k_, v in OK.items():
         builtins.print(k_, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1
