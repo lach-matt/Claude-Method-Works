@@ -1,13 +1,16 @@
 # INVERSE5-SCALAR -- I.C:497's scalar-type blocks, and the two root avoidances of d's reading
 
 *Status.* Written 2026-11-06 for workstream D of `paper/RESPONSE-HL-5D.md` (CONSTANTS5.md rounds 7-10: R7.4, R8.3, R9.0
-MAJOR 2 (c), R9.5, R10.5); not yet read by a verifier. It takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a
-single missing input: **(A)** I.C:497's scalar-type blocks (a lower bound, uniform in l, for their least singular value
-in (3.2)'s norm), and **(B)** the two avoidances of finite sets of roots that are part of d's reading (the levels off
-I11:156-160's exclusion values; eps, eps' off I9:290-291's and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper
-and INVERSE5-SIX.md (the other six inverse bounds, a parallel workstream) are not edited; section C proposes old/new
-text for CONSTANTS5.md R10.7 blocks 1 and 2 (R10.7 replaced R9.7 while this file was written; the sentences concerned
-are R9.7's, unchanged).
+MAJOR 2 (c), R9.5, R10.5). Read by an independent verifier (scratchpad report-vINV.md): no Major; it re-derived Lemma
+B.1 (with the 2-adic step), the avoidance arithmetic and margins, Theorem B.5 at source, Lemma A.6 from the block file,
+S5b and S8, and reran both programs; its Minor 5 (the parameter point of part A; C.1's qualifier) and its nits on this
+file (the summary's margin, Lemma B.1's real-part clause, A.6's range, S5b symbolic in kappa) are seated in place. It
+takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a single missing input: **(A)** I.C:497's scalar-type blocks
+(a lower bound, uniform in l, for their least singular value in (3.2)'s norm), and **(B)** the two avoidances of finite
+sets of roots that are part of d's reading (the levels off I11:156-160's exclusion values; eps, eps' off I9:290-291's
+and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper and INVERSE5-SIX.md (the other six inverse bounds, a
+parallel workstream) are not edited; section C's old/new text for CONSTANTS5.md R10.7 is superseded by CONSTANTS5.md
+R12.7.
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/scalarblock5.py` (part A; S0-S8, controls C1-C5; its data file `checks/scalarblock5_block.txt`, the block's
@@ -188,8 +191,9 @@ compact set at bounded norm), so its component along the zero-energy state tends
 complement has the same limit. (Lemma A.6 is the elementary half of the b-calculus fact that the inverse norm on a
 weighted space is at least that of the indicial family on the weight line.) []
 
-**Corollary A.6 (certified, S6).** At alpha = -1 (beta = 1), with v the least right singular vector of N^n_l(1)
-(floating point; the bound is certified for that v by interval arithmetic at 200 bits):
+**Corollary A.6 (certified, S6; at the record's computational point, outside the proved set, A.1).** At alpha = -1 (beta
+= 1), with v the least right singular vector of N^n_l(1) (floating point; the bound is certified for that v by interval
+arithmetic at 200 bits):
 
     l   decaying root nearest 1    sigma_min(L_l) at alpha = -1 is at most    at alpha + 2 = 1/2
     0   1.0000747438               3.1412 x 10^-6 (complement of the state)   0.020
@@ -484,7 +488,13 @@ appended set, a further condition of the same kind, is decided as well, (4.2) at
 the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices (a_K - 2, s_0,
 tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
 
-## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied)
+## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied) -- superseded
+
+**Superseded by CONSTANTS5.md R12.7.** Round 12 carries this section's content into its own replacement text (C.1,
+C.2 with A.6's bound and the parameter-point caveat of A.1, and B.5); the pairs below are kept as they were written,
+for the record, and are not to be applied. One correction is made in place, the verifier's Minor 5: C.1's qualifier
+read "on the reading of that index set below 2", too narrow, as B.5 and B.7b use round 9's reading of Lambda on (1, 3
++ eps_K]; it now says so. No new pairs are written here.
 
 R10.7's blocks (which replaced R9.7's while this file was written) are themselves proposed text for the paper; the
 old texts below are quoted from R10.7's *new* blocks as CONSTANTS5.md stands (not pinned: its author and a verifier
@@ -509,8 +519,9 @@ R10.7's block 1 (R9.7's superseded block 1 carries the same clause, wrapped diff
   finite sets of roots among them, exactly and with certified margins, at every level below and above 3: the levels
   and rounds are rational, every indicial root they can meet is an integer or irrational, and the two rational
   coincidences possible are not levels (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B,
-  `checks/rootavoid5.py`), on the reading of that index set below 2 the integer uses. So the integer bounds the loss
-  this proof's bookkeeping produces on that reading, not the optimal one.
+  `checks/rootavoid5.py`), on round 9's reading of the index set Lambda on (1, 3 + eps_K] (its named generators, the
+  least E^C_I, the E_col bases and the once-usable increments, the unlisted E^iota_ind increments taken to add
+  nothing). So the integer bounds the loss this proof's bookkeeping produces on that reading, not the optimal one.
 ```
 
 **C.2 Block 2 (lambda1 and delta), the scalar-type clause only.** The old text is the clause of R10.7's block 2 up to
