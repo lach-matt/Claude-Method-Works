@@ -44,7 +44,7 @@ iotaind5: E^iota_ind (III.G'' (4.4)) at b0 from the construction, and what it ad
   C1 (control): the D'' sites with every type's roots: new increments ['1.3333e-06'] (d0 among them): I3 fails: True
   C2 (control): the 1-form statements' E_ind collected too (relative to mu + 2): new ['1.0000026667'] (1 + 2 d0 =
       1.0000026667): I3 fails: True
-  C3 (control): Proposition 5.1's u_b with the roots above -2 admitted: elements below 2: ['1 - delta_2', '2 - delta_2']:
+  C3 (control): Proposition 5.1's u_b with the roots above -2 admitted: elements below 2: ['2 - delta_2', '1 - delta_2']:
       I1 fails: True
   C4 (control): G3:339 altered in a copy: md5 and read fail, I0 fails: True
 I0 PASS

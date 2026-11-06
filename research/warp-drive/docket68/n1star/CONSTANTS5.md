@@ -3550,10 +3550,10 @@ E^iota_ind adds no point.
   II.D's kappa := 2 (READ, II.D:221-223, 688) enters, independently of tau and J'. So round 8's box fails at both ends,
   and FWD 877 rests on kappa = 2 there as well (at a Sobolev top of 11: D_0 754, D_1 85, FWD 862, the reader's figures,
   reproduced here with d0count5's census_counts). C2 now asserts that the lower ends move and the top does not; C5 reads
+  kappa = 1 at II.D:170 and finds the top 13.
   [R14: kappa := 2 is assigned at II.D:686 (and :746), not 221-223, 688. At II.D:170 Lemma 2.1 may be read with II.A'
   Lemma 4.1 (i)-(ii)'s kappa <= 1/4, which would give a Sobolev top of 12.25; the census takes kappa = 2, the upper
   reading, so FWD 877 is an upper bound on either reading (the round-13 reader's nit 7).]
-  kappa = 1 at II.D:170 and finds the top 13.
 - **Nits (accepted).** (1) D_1 <= 88 is an upper bound, d-tilde over the closed-graph sites' Sobolev range (said at
   R12.2). (2) N = 14 is a choice: at N = 10 the census gives [-57/2, 14] x [-55, 27], D_0 687, D_1 80, FWD 790 (computed
   here with d0count5's census_counts) and d = 46,236,501,332,809,678 (d moves by 186,276,709 per unit of FWD: the
