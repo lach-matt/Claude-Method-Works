@@ -2,3 +2,12 @@ mbsign5: the sign of Q = 2 int G^(2)[delta](xi, n) dvol =: -E on the band (FAMIL
 E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance
    (a) Regge-Wheeler-type gauge: C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2, every coefficient free of th (equal at three rational angles): True, True
    (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, alpha/(R f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): True; the lapse direction k_psi has trace-free angular part psi (S_hat)^TF (z-shift psi/R^2): True; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f b + k^2 e/6 + f R e'/2 are invariant: True
+   (c) mode-free, class fields of (R, th): D R[L_X gamma] = 0: True; (D R)^* N = 0 (Euler operator of N D R[h] sqrt(gamma) zero in all five components): True; M[k_psi] = 0: True; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): True
+   control: k = D^2 psi without - psi Ric does not solve the momentum constraint (rejected): True
+E4 PASS  (128 s)
+E5 (exact) the kinetic energy: E_K = 6 k^2 m Z^2/(R^3 H_KI^2) + d/dR on the momentum constraint
+   Z' + (R^2 H_KI/3) q + R^2 M_th + (R^3/3) M_R = 0 identically: True; q = -3 Z'/(R^2 H_KI) on the constraint (so the map below is onto): True
+   Z -> (p, q, w) solves M_R = M_th = 0 identically: True; Euler operator of E_K - 6 k^2 m Z^2/(R^3 H_KI^2) in Z is zero: True
+   control (a gauge-variant variable admitted): with R^3 w in place of Z the identity fails (rejected): True
+E5 PASS  (133 s)
+E6 (exact) the potential energy: E_V = (27 m/(2 k^2)) (f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)) + d/dR
