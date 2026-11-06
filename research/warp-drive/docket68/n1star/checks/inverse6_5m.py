@@ -328,6 +328,34 @@ def point_negative(mult, Pp, emag=None, tmin=-6, tmax=5, n=2000):
     return best[1].b < 0, best
 
 
+# ------------------------------------------------------------------------------------------------- M7's rows
+def transfer_rows(rr, Ph, gg, Bk, FY, ff, tensor_G_factor=1):
+    """per unit dr_* with the harmonic's norm factored out: (|u|^2 r^3 f, |G|^2, |F|^2 r^3 f, the operator's factor,
+    the printed transfer factor); scalar u = r^-3/2 Phi S, G = f r^3/2 g; vector A = r^-1/2 Phi Y, G = f r^1/2 F_Y,
+    |F|^2 = r^-2 F_Y^2; tensor h = 2 r^2 H T, |h|^2 = 4 |H|^2, F = L h = -r^2 B T, |F|^2 = B^2, G = -f r^3/2 B, and
+    the printed bound is for (2 L)^-1 (operator factor 2)"""
+    s32, s12 = rr**sp.Rational(3, 2), rr**sp.Rational(1, 2)
+    return [('scalar', rr**-3 * Ph**2 * rr**3 * ff, (ff * s32 * gg)**2, gg**2 * rr**3 * ff, 1, sp.Rational(15, 16)),
+            ('vector 1-form', rr**-3 * Ph**2 * rr**3 * ff, (ff * s12 * FY)**2, rr**-2 * FY**2 * rr**3 * ff, 1,
+             sp.Rational(15, 16)),
+            ('tensor 2-tensor', 4 * rr**-3 * Ph**2 * rr**3 * ff, (tensor_G_factor * ff * s32 * Bk)**2,
+             Bk**2 * rr**3 * ff, 2, sp.Rational(15, 16))]
+
+
+def transfer_factor(row):
+    """||u||_I^2 = c_h int c f Phi^2, ||G||^2 = int k f |F|^2 r^3 f <= k max f ||F||^2/c_h: so ||u||_I <= (c k)^(1/2)
+    (max_I f) B ||F||_I, and the printed operator's bound is that over its factor"""
+    name, un, Gn, Fn, opf, printed = row
+    rr = sp.Symbol('r', positive=True)
+    ffs = 1 - 1 / rr**2
+    Ph = sp.Symbol('Phi', positive=True)
+    c = sp.simplify(un / (ffs * Ph**2))
+    k = sp.simplify(Gn / (Fn * ffs))
+    if c.free_symbols or k.free_symbols:
+        return None
+    return sp.sqrt(c * k) * sp.Rational(15, 16) / opf
+
+
 # ------------------------------------------------------------------------------------------------- main
 def main():
     global VS_NUM, VS_EN
@@ -410,23 +438,25 @@ def main():
         import modes5 as MO                  # noqa: E402  (III.D (M2)-(M3), imported, not copied)
         import gmodes5 as GM                 # noqa: E402  (III.F'' / [KI03] tensor type, imported, not copied)
         rec_ok = MO.m2() and MO.m3() and GM.g1()
-    rr, Ph, gg, KK, FY = sp.symbols('r Phi g K F_Y', positive=True)
+    rr, Ph, gg, Bk, FY = sp.symbols('r Phi g B_k F_Y', positive=True)
     ff = 1 - 1 / rr**2
-    # pointwise, per unit dr_* (dr = f dr_*), harmonic norms factored out:
-    # scalar u = r^-3/2 Phi S, source g, G = f r^3/2 g;  vector A = r^-1/2 Phi Y, |A|^2 = r^-3 |Phi|^2, G = f r^1/2 F_Y,
-    # |F|^2 = r^-2 |F_Y|^2;  tensor h = 2 r^2 H T, H = r^-3/2 Phi, F = 2 r^2 K T, G = 2 f r^3/2 K
-    rows7 = {'scalar': ((rr**-3 * Ph**2) * rr**3 * ff, (ff * rr**sp.Rational(3, 2) * gg)**2, gg**2 * rr**3 * ff, 1),
-             'vector 1-form': ((rr**-3 * Ph**2) * rr**3 * ff, (ff * rr**sp.Rational(1, 2) * FY)**2,
-                               rr**-2 * FY**2 * rr**3 * ff, 1),
-             'tensor 2-tensor': (4 * rr**-3 * Ph**2 * rr**3 * ff, (2 * ff * rr**sp.Rational(3, 2) * KK)**2,
-                                 4 * KK**2 * rr**3 * ff, 4)}
-    ok7 = rec_ok
-    for name, (un, Gn, Fn, c) in rows7.items():
-        # ||u|| <= c^(1/2) max f B ||F||
-        ok7 &= sp.simplify(un - c * ff * Ph**2) == 0 and sp.simplify(Gn / Fn - ff) == 0
-    fmax = (1 - sp.Rational(1, 16))
-    ok7 &= fmax == sp.Rational(15, 16) and sp.diff(ff, rr).subs(rr, sp.Rational(6, 5)) > 0
-    # ||u||_I^2 = c int f |Phi|^2, ||G||^2 <= max_I f ||F||_I^2 / c'...: ||u||_I <= (max_I f) B ||F||_I in every case
+    # the tensor row's master relation, independently of gmodes5's internals (Round 3, the verifier's n5): with
+    # gmodes5 G1's bracket B[H] = box2 H + 3 f H_r/r - L H/r^2 (box2 H = -H_tt/f + (f H_r)_r, L = k_T^2 + 2), and
+    # D Ric(2 r^2 H T) = -r^2 B[H] T, f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi; so the master
+    # equation -Phi_** + V_T Phi - sigma^2 Phi = G has G = -f r^(3/2) B, and F := L h = -r^2 B T
+    tt, Lsym = sp.symbols('t L', positive=True)
+    PhiF = sp.Function('Phi')(tt, rr)
+    Hh = rr**sp.Rational(-3, 2) * PhiF
+    brk = (-sp.diff(Hh, tt, 2) / ff + sp.diff(ff * sp.diff(Hh, rr), rr) + 3 * ff * sp.diff(Hh, rr) / rr
+           - Lsym * Hh / rr**2)
+    VT = ff / rr**2 * (Lsym + sp.Rational(3, 4) + sp.Rational(9, 4) / rr**2)
+    ok_master = sp.simplify(ff * rr**sp.Rational(3, 2) * brk - (-sp.diff(PhiF, tt, 2)
+                                                            + ff * sp.diff(ff * sp.diff(PhiF, rr), rr) - VT * PhiF)) == 0
+    ok7 = rec_ok and ok_master
+    print('  M7 the tensor master relation f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi (exact, '
+          'independent of gmodes5\'s code): %s' % ok_master)
+    ok7 &= all(transfer_factor(row) == row[5] for row in transfer_rows(rr, Ph, gg, Bk, FY, ff))
+    ok7 &= ff.subs(rr, 4) == sp.Rational(15, 16) and sp.diff(ff, rr) == 2 / rr**3    # max_I f = f(4), f increasing
     OK['M7'] = ok7
     tf = lambda b: [dec((Q(Fr(15, 16)) * iv.mpf(x)).b, 4, True) for x in b]
     print('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the '
@@ -466,6 +496,10 @@ def main():
     OK['C4'] = ex.b < 0
     print('  C4 (control): family B with s_L = 3/2: 1/s_L - 1 = %s < 0, the left tail bound grows toward the horizon: %s'
           % (iv.nstr(ex, 4), OK['C4']))
+    mut = transfer_rows(rr, Ph, gg, Bk, FY, ff, tensor_G_factor=2)[2]
+    OK['C5'] = transfer_factor(mut) != mut[5]
+    print('  C5 (control): the tensor row with G = 2 f r^(3/2) B (round 1\'s reading of the bracket): the derived '
+          'factor is %s, not the printed 15/16: %s' % (transfer_factor(mut), OK['C5']))
     print('  (%.0f s)' % (time.time() - T0))
     for k_, v_ in OK.items():
         builtins.print(k_, 'PASS' if v_ else 'FAIL')

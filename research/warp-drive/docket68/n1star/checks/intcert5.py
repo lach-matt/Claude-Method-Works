@@ -2,10 +2,11 @@
 """intcert5: interval-arithmetic certificates for the margins of Theorem Q and Theorem L'' (FAMILIES5-R7.md section
 R7.3; FAMILIES5-R8.md section R8.2).
 
-Round 8 (the round-7 reader's r7-m1): every step is now in interval arithmetic (mpmath iv, 80 bits) -- the spline's
-derivative coefficients, the cell ends, the bump's edge branch -- and the slice's phi' and phi are enclosed by interval
-Riemann sums of the closed-form phi'' (no asserted pad). The bend's moment constants l1, l2 are enclosed by 40-digit
-quadrature with a margin of 1e-20. Three kinds of statement are certified:
+Round 8 (the round-7 reader's r7-m1): every step is in interval arithmetic (mpmath iv, 80 bits). The spline's piece
+coefficients enter as the floats that define the stated interpolant, and its derivative coefficients are formed in
+iv; the cell ends are floats whose differences are taken in iv; the bump's edge branch is a bound; phi' and phi are
+enclosed by interval Taylor sums of the closed-form phi'' (no pad). The bend's moment constants l1, l2 are exact up to
+outward rounding (the lobes are dilates of one even bump, class Bend). Three kinds of statement are certified:
 
   C1 (the computed background) Gamma > 0 on the whole seed region, R in [0.70, 1.861] (region III on Sigma_tau0):
      Gamma = E^2 (Gamma/E^2), E^2 > 0, Gamma/E^2 qsign5's closed form in (R, mu0, psi_P, psi_P', psi_P''), psi_P the
@@ -15,33 +16,32 @@ quadrature with a margin of 1e-20. Three kinds of statement are certified:
   C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 1e-2): Gamma > 0 for every
      background whose psi_III is within d of the computed spline in C^2 (the n = 80 and n = 160 splines differ by far
      less, printed). Control: d = (0.5, 0.5, 5) is not certified.
-  C2 (the computed background) kappa' K'^l_l < 0 on the whole bent slice Sigma' (racslice5, A = 0.01), between its grid
-     crossings, the background inputs (E, f, psi_R, psi_vhat, f_R, f_vhat) linear between crossings (the stated
-     interpolant), V'' and V' = 1 + phi' enclosed from phi''. Certified at n = 80 and 160. Controls (must fail): A = 0.001
-     (the round-6 verifier's mutation) and A = 0.
-  C2d (robustness) on R < R_* (the seed and packet regions, where Sigma' = Sigma_tau0) the same with every input widened
-     by 1e-3 of its size plus 1e-6: hyperbolic for every background within that of the computed one there. Control: a
-     widening of 0.5 is not certified.
-  C3 (the background itself) on R >= R_*, where the background is ingoing Vaidya. On {u <= u1} (B = 0) the mass depends on
-     v alone and psi = 0 (twobg5 G1 (a)-(b)), so the background is g0 = -f dvhat^2 + 2 dvhat dR + R^2 dOmega_3^2 with
-     f = 1 - mu(vhat)/R^2, mu(vhat) fixed by the data on N = {u = 0}: R'' = -A/(3 R^2), R(0) = 5, R'(0) = 1/2, and
-     Q = R_u with Q' = -(1/2 + 2 Q R')/R, Q(0) = (1.5/25 - 1)/2 (e^(2s) = 1/2 on N; twodomain5), mu = R^2 (1 + 4 Q R'),
-     vhat' = -1/(2 Q), mu'(vhat) = (8/3) A Q^2. Before the shell (v <= 3) this is exact: R = 5 + v/2, Q = 0.75/R^2 -
-     1/2, mu = 1.5, vhat in closed form; on the shell, v in [3, 4.5], it is enclosed by a validated integrator (Taylor
-     order one with an a priori enclosure and a second-order remainder over the step box); after it mu is constant. The
-     outgoing ray u = u1 starts on N' = {v = 0} at R = 5 - 0.47 x 5.7 = 2.321 (B = 0 for u < 5.7: R linear on N') and
-     before the shell is a null ray of Tangherlini (mu = 1.5), vhat = 2 R + sqrt(mu) ln((R - sqrt mu)/(R + sqrt mu)) +
-     const: its crossing R_* with Sigma_tau0 is enclosed, and every point of Sigma' with R >= R_* is in {u <= u1}
-     (tau = vhat - R increases along the ray and Sigma' lies to the past of Sigma_tau0). Certified, for the background
-     defined by the stated characteristic data: kappa' > 0 and K'^l_l < 0 on Sigma' from R_* to 5.75 (beyond, Sigma' =
-     Sigma_tau0 in Tangherlini of mass mu_end, where Nk = (mu/R^3)(f - 3) < 0 exactly); and on Sigma_tau0 the band:
-     Nk = (mu/R^3)(f - 3) + mu'/(2 R^2) is certified negative outside two enclosures of its edges and positive between
-     them. Controls (must fail): a float integration (scipy DOP853) of the same ODE lies inside the enclosures, and does
+  C2 (the computed background) kappa' K'^l_l < 0 on the whole bent slice Sigma' (racslice5, A = 0.01), between its
+     grid crossings, the inputs (E, f, psi_R, psi_vhat, f_R, f_vhat) linear between crossings (the stated
+     interpolant), V'' and V' = 1 + phi' enclosed from phi''. Certified at n = 80 and 160. Controls (must fail):
+     A = 0.001 (the round-6 verifier's mutation) and A = 0.
+  C2d (robustness) on R < R_* (the seed and packet regions, where Sigma' = Sigma_tau0) the same with every input
+     widened by 1e-3 of its size plus 1e-6. Control: a widening of 0.5 is not certified.
+  C3 (the background itself) on R >= R_*, where the background is ingoing Vaidya. On {u <= u1} (B = 0) the mass
+     depends on v alone and psi = 0 (twobg5 G1 (a)-(b)), so the background is g0 = -f dvhat^2 + 2 dvhat dR +
+     R^2 dOmega_3^2 with f = 1 - mu(vhat)/R^2, mu(vhat) fixed by the data on N = {u = 0}: R'' = -A/(3 R^2), R(0) = 5,
+     R'(0) = 1/2, and Q = R_u with Q' = -(1/2 + 2 Q R')/R, Q(0) = (1.5/25 - 1)/2 (e^(2s) = 1/2 on N; twodomain5),
+     mu = R^2 (1 + 4 Q R'), vhat' = -1/(2 Q), mu'(vhat) = (8/3) A Q^2. Before the shell (v <= 3) this is exact:
+     R = 5 + v/2, Q = 0.75/R^2 - 1/2, mu = 1.5, vhat in closed form; on the shell, v in [3, 4.5], it is enclosed by a
+     validated integrator (Taylor order one with an a priori enclosure and a second-order remainder over the step
+     box); after it mu is constant. The outgoing ray u = u1 starts on N' = {v = 0} at R = 5 + 5.7 R_u(0) = 2.321 (B = 0
+     for u < 5.7: R linear on N') and before the shell is a null ray of Tangherlini (mu = 1.5), vhat = 2 R +
+     sqrt(mu) ln((R - sqrt mu)/(R + sqrt mu)) + const: its crossing R_* with Sigma_tau0 is enclosed, and every point
+     of Sigma' with R >= R_* is in {u <= u1} (checked: printed). Certified, for the background defined by the stated
+     characteristic data: kappa' > 0 and K'^l_l < 0 on Sigma' from R_* to 5.75 (beyond, Sigma' = Sigma_tau0 in
+     Tangherlini of mass mu_end, where Nk = (mu/R^3)(f - 3) < 0 exactly); and on Sigma_tau0 the band: Nk = (mu/R^3)
+     (f - 3) + mu'/(2 R^2) is certified negative outside two enclosures of its edges and positive between them.
+     Controls (must fail): a float integration (scipy DOP853) of the same ODE lies inside the enclosures, and does
      not when its initial Q is shifted by 1e-6; A = 0 (Sigma_tau0) is not certified hyperbolic.
 
-Labels: certified (interval arithmetic). C1, C1d, C2, C2d concern the computed background (its discretisation error is
-converged between n = 80 and 160, not certified, and C1d, C2d bound how large it may be); C3 concerns the background
-itself. Run: python3 checks/intcert5.py   (about a quarter of an hour under load)
+Labels: certified (interval arithmetic). C1, C1d, C2, C2d concern the computed background; C3 concerns the background
+itself on R >= R_*. The background itself on R < R_* is certified by truebg5.py. Run: python3 checks/intcert5.py
+(about half an hour under load).
 """
 import bisect
 import importlib.util
@@ -134,8 +134,8 @@ class Bend:
             X = I(self.r[k], self.r[k + 1])
             w = I(self.r[k + 1]) - I(self.r[k])
             pp = self.phi2(X)
-            p1.append(p1[-1] + w * pp)                           # phi'(r_(k+1)) = phi'(r_k) + w phi''(xi)
-            p0.append(p0[-1] + w * p1[-2] + w * w / 2 * pp)      # phi(r_(k+1)) = phi(r_k) + w phi'(r_k) + w^2/2 phi''(xi)
+            p1.append(p1[-1] + w * pp)                    # phi'(r_(k+1)) = phi'(r_k) + w phi''(xi)
+            p0.append(p0[-1] + w * p1[-2] + w * w / 2 * pp)  # phi(r_(k+1)) = phi(r_k) + w phi'(r_k) + w^2/2 phi''(xi)
         self.p1, self.p0 = p1, p0
         self.end1, self.end0 = p1[-1], p0[-1]
 
@@ -231,12 +231,13 @@ def c1(bgs):
     for n, bg in bgs.items():
         good, least, cell, failed, nev = c1_run(bg, f)
         print("   C1, n = %d: certified on every cell: %s (%d interval evaluations; least lower bound of Gamma/E^2 = "
-              "%.4f on R in [%.5f, %.5f])" % (n, good, nev, least, cell[0], cell[1]))
+              "%.4f on R in [%.5f, %.5f])" % (n, good, nev, least or float('nan'), *(cell or (0, 0))))
         ok &= good
     dl = (1e-3, 1e-3, 1e-2)
     for n, bg in bgs.items():
         good, least, cell, failed, nev = c1_run(bg, f, dlt=dl)
-        print("   C1d, n = %d, d = %s: certified on every cell: %s (least lower bound %.4f)" % (n, dl, good, least))
+        print("   C1d, n = %d, d = %s: certified on every cell: %s (least lower bound %.4f)" % (n, dl, good,
+                                                                                               least or float('nan')))
         ok &= good
     # the scale of the computed background's error: the n = 80 and n = 160 splines and derivatives, sampled
     Rs = np.linspace(0.70, 1.861, 2001)
@@ -333,7 +334,8 @@ def c2(rstar):
 
 # ---------------------------------------------------------------- C3: the background itself on R >= R_*
 MU_OUT = 1.5
-R_N0, P_N, Q_N0 = 5.0, 0.5, (1.5 / 25 - 1) / 2
+R_N0, P_N = 5.0, 0.5
+QN0 = (I(MU_OUT) / I(R_N0 * R_N0) - I(1.0)) / I(2.0)               # R_u on N and on N' at the corner: -0.47, enclosed
 
 
 def vhat_before(Rn):
@@ -401,7 +403,7 @@ def ray_tau(Rr):
     """tau = vhat - R along the outgoing ray u = u1 of Tangherlini (mu = 1.5) from (vhat, R) = (0, 2.321)"""
     m = iv.sqrt(I(MU_OUT))
     F = lambda r: I(2.0) * r + m * iv.log((r - m) / (r + m))                        # noqa: E731
-    Rp = I(5.0) - I(0.47) * I(5.7)
+    Rp = I(R_N0) + QN0 * I(5.7)                                         # R on N' at u1 (B = 0 before u1: linear)
     return F(Rr) - F(Rp) - Rr
 
 
@@ -455,7 +457,9 @@ def c3():
         inside_ok.append(ins)
     print("   control: DOP853 inside the enclosures: %s; with Q(3) shifted by 1e-6 it leaves them (rejected): %s" %
           (inside_ok[0], not inside_ok[1]))
-    vstarts = [st[2][3].a for st in steps]
+    wlo = np.array([float(st[2][3].a) for st in steps])                # the step boxes' vhat ranges (increasing)
+    whi = np.array([float(st[2][3].b) for st in steps])
+    menc = [mu_enclosure(st[2], I(st[0], st[1])) for st in steps]
 
     def mu_on(VH):
         """enclosures of mu and mu'(vhat) for vhat in VH (region I)"""
@@ -465,16 +469,33 @@ def c3():
         if VH.b > vh_end.a:
             outs.append((mu_end, I(0.0)))
         if VH.b >= vh3.a and VH.a <= vh_end.b:
-            for (t0, t1, B, Y) in steps:
-                Wb = B[3]
+            k0 = max(0, int(np.searchsorted(whi, float(VH.a))) - 2)
+            k1 = min(len(steps), int(np.searchsorted(wlo, float(VH.b))) + 2)
+            for k in range(k0, k1):
+                Wb = steps[k][2][3]
                 if Wb.b < VH.a or Wb.a > VH.b:
                     continue
-                outs.append(mu_enclosure(B, I(t0, t1)))
+                outs.append(menc[k])
+            assert k0 == 0 or steps[k0 - 1][2][3].b < VH.a
+            assert k1 == len(steps) or steps[k1][2][3].a > VH.b
         return hull(*[o[0] for o in outs]), hull(*[o[1] for o in outs])
     kap, Kll = rs.slice_formulas()
     fk = sp.lambdify(rs.SYMS, kap, modules=MODS)
     fK = sp.lambdify(rs.SYMS, Kll, modules=MODS)
     bend = Bend(rs, rs.A_DEF)
+    # Sigma' with R >= R_* lies in {u <= u1}: tau = vhat - R increases along the ray u = u1 wherever it is untrapped
+    # (d tau/dR = 2/f - 1 > 0), the ray is untrapped there (R^2 > mu_end >= mu, mu nondecreasing in vhat), and on the
+    # bend's support tau0 + phi stays below tau_ray(3.5) <= tau_ray(R); so the ingoing ray through each point of
+    # Sigma' meets the ray u1 at a smaller R, that is, the point has u <= u1
+    phmax = max(float(bend.at(I(bend.r[k], bend.r[k + 1]))[0].b) for k in range(0, bend.n, 1))
+    t35 = ray_tau(I(bend.x0))
+    r_ok = (float(rstar.a) ** 2 > float(mu_end.b) and phmax < float((t35 - T0).a) and (I(bend.x0) + t35).b < vh3.a
+            and (vh_end - T0).b < bend.x1)
+    print("   Sigma' (R >= R_*) in {u <= u1}: R_*^2 > mu_end: %s; phi < tau_ray(%.2f) - tau0 = %.4f on the support "
+          "(phi <= %.1e): %s; the ray reaches R = %.2f before the shell: %s; the shell ends on Sigma_tau0 at R < %.4f "
+          "< %.2f: %s" % (float(rstar.a) ** 2 > float(mu_end.b), bend.x0, float((t35 - T0).a), phmax,
+                          phmax < float((t35 - T0).a), bend.x0, (I(bend.x0) + t35).b < vh3.a,
+                          float((vh_end - T0).b), bend.x1, (vh_end - T0).b < bend.x1))
 
     def cert(A_on, rlo, rhi, ncell=2300, depth=10):
         worst, failed, nev = None, 0, 0
@@ -533,7 +554,7 @@ def c3():
     print("   the band on Sigma_tau0, the background itself: Nk < 0 certified on [4.0, 4.8] outside the edge enclosures "
           "%s, Nk > 0 certified between them: %s" %
           (", ".join("[%.4f, %.4f]" % ed for ed in edges), band_ok))
-    ok = ok_br and before and W < 1e-6 and inside_ok[0] and not inside_ok[1] and good and not g0 and band_ok
+    ok = ok_br and before and W < 1e-6 and inside_ok[0] and not inside_ok[1] and good and not g0 and band_ok and r_ok
     return ok, rstar
 
 
