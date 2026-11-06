@@ -8,4 +8,7 @@ K2 PASS
       with every remaining leaf equal to 1 and lambda0 = 0.00244 (an illustration of the formula, not a bound): log10
       C_L11 = 179648.0, log10 C_L4 = 1.796e+6
 K3 PASS
+  K4 the DAG against an independent step-by-step transcription of R5.5's display (each line cited to its proof step), at
+      20 random points: largest relative difference 8.48e-35: True
+K4 PASS
 constL5: all checks pass, every control fails
