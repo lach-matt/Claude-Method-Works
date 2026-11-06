@@ -380,10 +380,10 @@ in FAMILIES5-AXIS.md as an [R5 verifier of round 4] amendment at the place it co
 >   caustic-free family of dusts labelled by initial direction, off the axes, on such a domain with data meeting the
 >   record's open conditions, is a weak limit of class vacuum metrics (deduced: N-dust approximants uniform in N, then
 >   torus-polarised waves at frequencies 1, Λ, …, Λ^(N−1), which leave no combination of phases resonant, and a
->   diagonal choice of λ_N, as Huneau and Luk do; supplement `FAMILIES5-VLASOV.md`, every identity computed). At an
->   axis point at most one ingoing and one outgoing family are separated. Data localised in an angle exist on cones
->   exactly, and on Part I's slice in a widened band wherever Rácz's split is hyperbolic: everywhere except a band
->   inside the shell, where the slice's extrinsic curvature is negative definite and no foliation is (computed).
+>   diagonal choice of λ_N, as Huneau and Luk do; supplement `FAMILIES5-VLASOV.md`, identities computed, not yet
+>   read independently). At an axis point at most one ingoing and one outgoing family are separated. Data localised
+>   in an angle exist on cones exactly, and on Part I's slice in a widened band where Rácz's split is hyperbolic: all
+>   of it but a band inside the shell, where the extrinsic curvature is negative definite and no foliation is (computed).
 
 ## Files
 

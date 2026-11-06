@@ -9,3 +9,10 @@ C1  F1b with an envelope on the wave
         ('2.12', '2.37', '3.35e+3')]
   C1' control (non-oscillating wave lam A env): the remainder is not bounded: pass
 C2  the class of c's remainder along a ray at fixed v
+  C2 with the envelope rem decays like r^(-3/2) (slopes < 1.75: E_(3/2), not E_2); after subtracting pred, and without
+        the envelope, like r^(-5/2) (slopes > 2.25): pass env [3.5, 0.86, 1.4], env - pred [2.78, 2.71, 2.62], no env
+        [2.67, 2.55, 2.5]
+  C2' control (pred with the opposite sign): the slope stays below 1.75: pass [2.41, 1.28, 1.45]
+FAILED: ['C3 b_W = b(g0 + U3) - b(g0) is of lam-order 0: bounded and bounded away from 0 (lam = 1e-2..1e-4)', 'C1 with
+        the envelope: D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A env sin(v/lam) stays bounded (lam = 1e-2, 1e-3, 1e-4) while
+        the lam^-1 term exceeds it 100-fold']
