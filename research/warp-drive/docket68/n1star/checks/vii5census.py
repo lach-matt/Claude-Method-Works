@@ -202,7 +202,7 @@ def at_site(sym_sites, f, i):
 
 def joined(path):
     """the file as one string, each line stripped and followed by one space, with the offset of each line's start: a
-    symbol printed across a line break (as $\\omega^{(0)}_{b_0,\\mathrm$ / $s1}$) is found, at the line it starts on (D626)"""
+    symbol printed across a line break (as omega^{(0)}_{b_0,mathrm / s1}) is found, at the line it starts on (D626)"""
     txt, starts = [], []
     n = 0
     for line in open(path, encoding="utf-8").read().split("\n"):
@@ -273,15 +273,14 @@ def control():
 
 def main():
     listing = "--list" in sys.argv
-    good = v1(listing)
+    good1 = v1(listing)
     good2 = v2()
     planted2 = not v2(extra=("\\omega^{(7)}_{b,\\mathrm s9}",), show=False)
     wrap("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s" % planted2)
     ctl = control() and planted2
-    good = good and good2
-    print("V1 %s; control (every symbol found at its own site; a planted and a moved site reported missing): %s"
-          % ("PASS" if good else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
-    return 0 if good and ctl else 1
+    print("V1 %s; V2 %s; control (a planted and a moved site, and a planted spelling, reported): %s"
+          % ("PASS" if good1 else "FAIL", "PASS" if good2 else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
+    return 0 if good1 and good2 and ctl else 1
 
 
 if __name__ == "__main__":

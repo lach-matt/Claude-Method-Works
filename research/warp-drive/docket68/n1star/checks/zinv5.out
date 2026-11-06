@@ -1,0 +1,8 @@
+  mode none: max defect 1.436e-188 (terms up to 1.463e+03)
+  mode m1: max defect 8.711e+01 (terms up to 1.473e+03)
+  mode m2: max defect 4.588e+01 (terms up to 2.905e+03)
+  mode m3: max defect 3.898e-01 (terms up to 1.463e+03)
+  mode m4: max defect 1.436e-188 (terms up to 6.927e+03)
+  ZI1 (R3c) holds exactly for arbitrary spherically symmetric h (mode none): pass
+  ZI2 controls m1-m4 each fail: FAIL
+FAILED: ['ZI2']

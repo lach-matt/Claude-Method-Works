@@ -454,8 +454,8 @@ def part_f():
                                                    + 2*rr_**(2*a + 3)*Ff(rr_)*sp.diff(Ff(rr_), rr_))
     hd = sp.diff(rr_**(2*a + 2)*Ff(rr_)**2/(2*a + 2), rr_) - (rr_**(2*a + 1)*Ff(rr_)**2
                                                            + rr_**(2*a + 2)*Ff(rr_)*sp.diff(Ff(rr_), rr_)/(a + 1))
-    check("F3 the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = (2a+3) r^(2a+2) F^2 + "
-          "2 r^(2a+3) F F' and "
+    check("F3 [arithmetic: the product rule] the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = "
+          "(2a+3) r^(2a+2) F^2 + 2 r^(2a+3) F F' and "
           "d(r^(2a+2) F^2/(2a+2)) = r^(2a+1) F^2 + r^(2a+2) F F'/(a+1) (exact), with the boundary terms at R' kept",
           sp.simplify(s1) == 0 and sp.simplify(hd) == 0)
     Fg = rr_**(-a - 2 - eta)
@@ -464,7 +464,8 @@ def part_f():
                    sp.oo)
     Fc = rr_**(-a - 2)
     Ic = sp.integrate((rr_**(2*a + 3)*Fc**2).subs(a, sp.Rational(11, 4)), (rr_, 1, sp.oo))
-    check("F3' F = r^(-a-2-eta): int r^(2a+3) F^2 finite and R'^(2a+4) F(R')^2 -> 0 (the boundary terms vanish along "
+    check("F3' [arithmetic: a power law; general fields and the a priori decay in r6settle5 Y] F = r^(-a-2-eta): "
+          "int r^(2a+3) F^2 finite and R'^(2a+4) F(R')^2 -> 0 (the boundary terms vanish along "
           "R' -> oo); control F = r^(-a-2): the integral diverges and R'^(2a+4) F^2 = 1",
           sp.simplify(I - 1/(2*eta)) == 0 and lim == 0 and Ic == sp.oo
           and sp.simplify(Rp**(2*a + 4)*Fc.subs(rr_, Rp)**2) == 1)
@@ -472,8 +473,8 @@ def part_f():
     dens = rr_**(2*a)*sp.diff(Sig2, rr_)**2*rr_**3
     ok4 = all(sp.integrate(dens.subs(a, av), (rr_, 10, sp.oo)) == sp.oo for av in (1, sp.Rational(11, 4))) and \
         sp.integrate(dens.subs(a, sp.Rational(9, 10)), (rr_, 10, sp.oo)).is_finite
-    check("F4 the rejected localisation: -Sigma_2 = -r^-2 P beyond V_* has weighted energy int r^(2a-3) dr, infinite at "
-          "a = 1, 11/4, finite at a = 9/10 (exact)", ok4)
+    check("F4 [arithmetic] the rejected localisation: -Sigma_2 = -r^-2 P beyond V_* has weighted energy "
+          "int r^(2a-3) dr, infinite at a = 1, 11/4, finite at a = 9/10 (exact)", ok4)
     Tq = sp.Symbol("T", positive=True)
     for q_src, amax in ((sp.Rational(13, 2), sp.Rational(9, 2)), (6, 4)):
         unweighted_tail = Tq**2*R**(3 - 2*q_src + 1)  # C |T|^2 int_R^oo r^(-2q) r^3 dr up to a constant
@@ -484,7 +485,8 @@ def part_f():
             okF5 = fin_ok == [True, False]
         else:
             ctlF5 = fin_ok == [True, False]
-    check("F5 finite speed: the exterior energy beyond R is <= C |T|^2 R^-9 for the source O(r^(-13/2)), and its "
+    check("F5 [arithmetic: the exponent typed; the identity and the tail in r6settle5 X] finite speed: the exterior "
+          "energy beyond R is <= C |T|^2 R^-9 for the source O(r^(-13/2)), and its "
           "weighted integral converges exactly for a < 9/2 (exact at a = 4.4, 4.5)", okF5)
     check("F5' control (source O(r^-6), Sigma without F_4): exactly a < 4", ctlF5)
 
@@ -617,7 +619,7 @@ def part_g():
     check("G4 rho^(a + 1 + 1/1000) (the S-energy's class, scale5 Z8a) lies in rho^(l0) L^2_b exactly when a + 1 >= l0 "
           "(three cases, one failing as it must)", ok4)
     # G5: the window from the computed exponents
-    def window(l0v, cap_exp, ptw=False):
+    def window(l0v, cap_exp, ptw=False, r45=(Fr(0), Fr(7, 2))):
         good = []
         for n in range(0, 401):
             av = Fr(n, 100)
@@ -626,7 +628,12 @@ def part_g():
             capok = cap_exp(av) < 0
             nflux = 2*av - 7 < 0
             scls = (av > l0v - HALF) if ptw else (av + 1 > l0v)
-            if ker and capok and nflux and scls:
+            # [R6 (m3)] Lemma R4.5's hypothesis, widened in R6.0 (m3) to (0, 7/2); Step 2's pointwise |H| <= r^-2/2
+            # (a + 1/2 >= 2); Proposition R5.2's kernel min(3, a + 1/2) > 1
+            lem45 = r45[0] < av < r45[1]
+            step2 = av + HALF >= 2
+            r52 = min(Fr(3), av + HALF) > 1
+            if ker and capok and nflux and scls and lem45 and step2 and r52:
                 good.append(av)
         return (min(good), max(good)) if good else None
     ok5, ctl5a, ctl5b, info5 = True, True, True, {}
@@ -639,10 +646,16 @@ def part_g():
         if l0v >= Fr(7, 2):
             ctl5a = ctl5a and wa is None
             ctl5b = ctl5b and wb is None
-    check("G5 the admissible weights on the grid are (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (no lower bound 5/2)", ok5,
-          str(info5))
+    check("G5 [arithmetic: the exponents typed; computed from the fields in r6sigma5 W] the admissible weights on the "
+          "grid are (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (no lower bound 5/2), with Lemma R4.5 widened to (0, 7/2), "
+          "Step 2 and Proposition R5.2 in the list", ok5, str(info5))
     check("G5' controls: p = 4 dropped (cap 2a - 5), or the pointwise reading on S (a > l0 - 1/2): no weight for "
           "l0 >= 7/2", ctl5a and ctl5b)
+    w_old = {str(l0v): window(l0v, lambda av: 2*av - 6, r45=(Fr(5, 2), Fr(7, 2))) for l0v in (Fr(31, 10), Fr(33, 10))}
+    ctl5c = all(w is not None and w[0] == Fr(251, 100) for w in w_old.values())
+    check("G5c [R6 (m3)] control: with Lemma R4.5 as stated in round 4, a in (5/2, 7/2), the window is "
+          "(max(l0 - 1, 5/2), 3), smaller for l0 < 7/2: the widening of R6.0 (m3) is what gives (l0 - 1, 3)", ctl5c,
+          str({k: (str(v[0]), str(v[1])) for k, v in w_old.items()}))
     # the h_R rows' exponents from S1 and Hardy (computed from the scaling of the inequalities)
     R_, c_ = sp.symbols("R c", positive=True)
     F_ = R_**(-c_)
