@@ -11,17 +11,20 @@ and the paper are not edited.
 
 ## 0. Summary
 
-| item | result | status |
-|---|---|---|
-| (a) S_1, B_1 | closed forms (3.2)-(3.3); the linear part is data5.py's linearisation | computed, exact (D3-D4) |
-| check of (a) | at lam = 1/32, 1/64 the constraint residual minus lam <Phi^(1)> falls as lam^2 (p 1.92-2.03) | computed, floating point (D6) |
-| the data on Sigma | the stage-1 constraint system splits into three ODEs per harmonic (5.2); solved for round 2's envelope: sup \|a\| = 9.7e-7 | reduction exact (D5); solution floating point (D7) |
-| the drop | with those data the residual's mean falls from order lam to lam^2 | computed, floating point (D8) |
-| the Cauchy data of stage 1 | complete on Sigma: m_1, d_tau m_1, phi_1, Psi_1 and gh_2 (both harmonics) | computed, exact (D2, D4); deduced (6) |
-| (c) the envelope | envelope5.py's env is C_c^oo on [1/2, 7/2] with the numerics' integral | proved (E1) |
-| (b) the constant | over X*'s past, 5.103e10 becomes <= 1391.72 (principal part) | certified (G1-G3) |
-| M_22 | not enclosed; 0 not decided | reduced to a validated solve of the stage-1 evolution on X*'s past |
-| lambda0 | not lowered: 0.0024433 (operator norm) stands | -- |
+- **(a) S_1 and B_1** (computed, exact; D3-D4): closed forms (3.2)-(3.3), the linear part being data5.py's
+  linearisation. **Check** (computed, floating point; D6): at lam = 1/32 and 1/64 the true constraint residual minus
+  lam <Phi^(1)> falls as lam^2 (orders 1.92-2.03 in all nine cases).
+- **The data on Sigma** (reduction exact, D5; solution floating point, D7): the stage-1 constraint system splits into
+  three ODEs per harmonic (5.2); solved for round 2's envelope, sup |a| = 9.7e-7 on the slice. **The drop** (D8): with
+  those data the residual's mean falls from order lam to lam^2.
+- **The Cauchy data of stage 1** (computed, exact, D2, D4; assembled, deduced, Section 6): complete on Sigma, m_1,
+  d_tau m_1, phi_1, Psi_1 and gh_2 with both its harmonics.
+- **(c) The envelope** (proved; E1): envelope5.py's env is C_c^oo on [1/2, 7/2] with the numerics' integral, and it is
+  the envelope the certified lambda0 bounds already use.
+- **(b) The constant** (certified; G1-G3): over X*'s past, read by domain of dependence, the principal-part factor
+  5.103e10 becomes <= 1391.72.
+- **M_22**: not enclosed, 0 not decided; reduced to a validated solve of the stage-1 evolution on X*'s past
+  (Section 8). **lambda0**: not lowered; 0.0024433 (operator norm) stands.
 
 What the round-8 text says that is now false: "neither the record nor this supplement has S_1 or B_1 in closed form or
 in a program" (R8.2) and, in R8.7/R9.7 block 3, "whose data on the initial slice are not computed". Section 10 gives
@@ -86,10 +89,12 @@ A^2 E^2 H^2 (C^4 + S^4) (it vanishes exactly under stage 0's energy condition, l
 with P the linearisation of the constraint map at g0's data on Sigma -- equal, coefficient by coefficient, to data5.py's
 lin_0 (40 digits at three rational points) --
 
-    P_rho  = (3 r^3/Lambda^2) d_r a - (1/Lambda) Lap a + 3 (2 r^6 + 6 r^4 mu + 4 r^2 mu^2 + 2 mu^3 - 2 mu' r^5 - mu' r^3 mu)
-             /(r^2 Lambda^3) a - 3 (mu' r^3 + 2 mu^2)/(r^2 Lambda^(3/2)) w,
+    P_rho  = (3 r^3/Lambda^2) d_r a - (1/Lambda) Lap a
+             + 3 (2 r^6 + 6 r^4 mu + 4 r^2 mu^2 + 2 mu^3 - 2 mu' r^5 - mu' r^3 mu)/(r^2 Lambda^3) a
+             - 3 (mu' r^3 + 2 mu^2)/(r^2 Lambda^(3/2)) w,
     P_Jr   = 6 d_r w + (6/r) w - (2/r^2) div(q dth) - 3 (mu' r^3 - 4 r^2 mu - 2 mu^2)/(r Lambda^(5/2)) a,
-    P_Jth  = -(2 r^2/Lambda) d_r q - r (6 r^2 + 8 mu - mu' r)/Lambda^2 q + 4 d_th w + r^2 (mu' r - 2 mu)/(2 Lambda^(5/2)) d_th a,
+    P_Jth  = -(2 r^2/Lambda) d_r q - r (6 r^2 + 8 mu - mu' r)/Lambda^2 q + 4 d_th w
+             + r^2 (mu' r - 2 mu)/(2 Lambda^(5/2)) d_th a,
 
 Lap a = d_th^2 a + 2 cot 2th d_th a and div(q dth) = d_th q + 2 cot 2th q on the T^2-invariant fields of S^3, and
 
@@ -139,7 +144,7 @@ from the prediction: orders near 1 in J_r and rho. So the sign of S_1, the phase
 th except the angular operators -(1/Lambda) Lap (in rho) and -(2/r^2) div (in J_r); Lap P_k(cos 2th) = -4k(k + 1)
 P_k(cos 2th); and
 
-    H^2 sin 2th = sum_(k >= 1) sigma_k d_th P_k(cos 2th),   sigma_k = -((2k + 1)/2) int_-1^1 atan(x) P_k(x) dx,      (5.1)
+    H^2 sin 2th = sum_(k >= 1) sigma_k d_th P_k(cos 2th),   sigma_k = -((2k + 1)/2) int_-1^1 atan(x) P_k(x) dx,  (5.1)
 
 exact: sigma_1 = 3/2 - 3 pi/4, sigma_3 = -49/6 + 21 pi/8, sigma_5 = 583/15 - 99 pi/8, sigma_7 = -1371/7 + 1995 pi/32,
 ..., zero for even k (atan is odd), decaying like (1 + 2^(1/2))^-k (the Bernstein ellipse of atan, whose poles are at
@@ -149,7 +154,7 @@ B_1 a = S_1 is, mode by mode (e := A^2 E^2 = (9/2) mu'),
 
     (3 r^3/Lambda^2) a_k' + [4k(k+1)/Lambda + 2 (9 (Lambda^3 - r^2 mu^2) - e r^5)/(3 r^2 Lambda^3)] a_k
                           - 2 (e r^3 + 9 mu^2)/(3 r^2 Lambda^(3/2)) w_k = 0,
-    6 w_k' + (6/r) w_k + (8k(k+1)/r^2) q_k - (e r (3 r^2 + mu) - 18 mu (2 r^2 + mu))/(3 r Lambda^(5/2)) a_k = 0,      (5.2)
+    6 w_k' + (6/r) w_k + (8k(k+1)/r^2) q_k - (e r (3 r^2 + mu) - 18 mu (2 r^2 + mu))/(3 r Lambda^(5/2)) a_k = 0,  (5.2)
     -(2 r^2/Lambda) q_k' - 2 r (27 r^2 + 36 mu - e r)/(9 Lambda^2) q_k + 4 w_k + r^2 (e r - 9 mu)/(9 Lambda^(5/2)) a_k
                           + e sigma_k/(3 r^2 Lambda^(1/2)) = 0,
 
@@ -261,7 +266,8 @@ rho~'(tau) >= (1 - m)/(1 + m) at (tau, rho~(tau)) wherever it is differentiable,
 = f on Omega and E_~(tau) := int_(A(tau), r >= rho~(tau)) T(Y, Y) dx with Lemma 2.3's multiplier Y = -g0^-1 dtau (gt =
 g0, as stage 1 needs). Then
 
-    d E_~ / d tau <= kappa~(tau) E_~ + c_Y E_~^(1/2) ||f||_(r >= rho~(tau)),   kappa~(tau) := sup_(r >= rho~(tau)) kappa(r),
+    d E_~ / d tau <= kappa~(tau) E_~ + c_Y E_~^(1/2) ||f||_(r >= rho~(tau)),
+    kappa~(tau) := sup_(r >= rho~(tau)) kappa(r),
 
 kappa(r) the local rate (1/r) sup |lambda(r M, Q)| of stage1rate5 K2 (m in [mu0/r^2, mu_end/r^2], k in [0, (2/9)
 c^2/r]), so the principal-part energy at X*'s slice grows from Sigma by at most e^(int_(tau0)^(tau*) kappa~).

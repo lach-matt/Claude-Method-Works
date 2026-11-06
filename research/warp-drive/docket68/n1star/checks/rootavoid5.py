@@ -323,7 +323,8 @@ def r5(C, roots):
     klo = max(C['k3'], -(A3c // s))
     khi = C['k4'] - 1                                      # beta < 4
     hits = congruence_hits(A3, s, st, klo, khi)
-    rmin, full, g = residue_min(A3 % st, s, st, klo, khi)
+    _r, full, g = residue_min(A3 % st, s, st, klo, khi)
+    rmin = lattice_dist(Fr(0), Fr(0), A3 % g, g)            # w may be negative (down to -eps): both sides
     margins = {}
     for nm, _t, lo, hi in roots:
         flo, fhi = Fr(lo) * D, Fr(hi) * D
@@ -339,7 +340,7 @@ def r5(C, roots):
         l3 = b - 4 - Fr(I['eps'], D)
         dl = (Fr(I['eps_ind'], D) - l3 - 2 * Fr(I['eps'], D)) / 2
         top.append((k, b, l3, dl, dl > 0 and dl < Fr(I['eps_ind'], D)))
-    return dict(hits=hits, rmin=Fr(rmin, D), full=full, g=g, margins=margins, klo=klo, khi=khi, top=top)
+    return dict(hits=hits, rmin=rmin / D, full=full, g=g, margins=margins, klo=klo, khi=khi, top=top)
 
 
 # ------------------------------------------------------------------------------------------------ R6 Lambda
@@ -366,6 +367,11 @@ def field_tests(fake_d1=None):
     deg = sp.degree(mp, x)
     thetas = [('d0', d0), ('d1', lam12 - 2), ("delta'_1", sl(1, 1)), ('delta_2', sl(2, 0)), ("delta'_2", sl(2, 1)),
               ('delta_3', sl(3, 0))]
+    try:
+        pos = sp.polys.numberfields.subfield.to_number_field(3 * (lam12 - 2) + sp.Rational(1, 7), lam12).coeffs()
+        pos = [sp.Rational(q) for q in pos][::-1][:2] == [sp.Rational(1, 7) - 6, 3]
+    except sp.polys.polyerrors.IsomorphismFailed:
+        pos = False
     out = []
     for nm, th in thetas:
         if fake_d1 is not None:
@@ -383,7 +389,7 @@ def field_tests(fake_d1=None):
         cs = [sp.Rational(q) for q in coords][::-1] + [0] * 4
         bad = (cs[2] == 0 and cs[3] == 0 and cs[1] <= 0 and cs[1].q == 1)
         out.append((nm, 'in Q(d1), coordinates %s' % [str(q) for q in cs[:4]], bad))
-    return deg, mp, out
+    return deg, mp, out, pos
 
 
 def X_set():
@@ -502,7 +508,7 @@ def main(selftest=False):
     OK['R4'] = not R4['hits'] and R4['full'] and R4['rmin'] > 0 and all(
         v > 0 for v in m4.values()) and R4['tau_in']
     print('  R4 (exact): levels below 3 with rounds: k in [%d, %d]; w = beta_k - eps\' - tau_i = 0 has no solution '
-          '(congruence A + k s = 0 mod step, gcd %d does not divide A mod gcd: hits %s); w >= %s = %.4e on every '
+          '(the congruence A + k s = 0 mod step: gcd(s, step) = %d does not divide A: hits %s); w >= %s = %.4e on every '
           '(k, i) (the residues cover a full cycle: %s); certified distance of w to d0: %.4e, to d1: %.4e; tau_i in '
           '(2, 3), so 2 - alpha_i = 3 - tau_i in (0, 1) is no integer and, rational, no irrational root: %s' % (
               R4['klo'], R4['khi'], R4['g'], R4['hits'], R4['rmin'], float(R4['rmin']), R4['full'],
@@ -518,13 +524,14 @@ def main(selftest=False):
               R5['klo'], R5['khi'], R5['hits'], float(R5['rmin']), float(m5.get('d0', -1)), float(m5.get('d1', -1)),
               ['beta_%d: l_3 = %.4e, delta = %.4e' % (k, float(l3), float(dl)) for k, _b, l3, dl, _o in R5['top']],
               OK['R5']))
-    deg, mp, ft = field_tests()
+    deg, mp, ft, pos = field_tests()
     cand, hit = r6_exact(C)
-    OK['R6'] = deg == 4 and not any(b for _n, _s, b in ft) and not hit
+    OK['R6'] = deg == 4 and not any(b for _n, _s, b in ft) and not hit and pos
     print('  R6 (exact): d1 = lambda_s1,2 - 2, lambda_s1,2 of degree %d over Q (minimal polynomial %s); for each '
           'irrational offset theta of X, n d1 + theta in Q for some n >= 0: %s; so the only rational candidate is '
-          'beta = lambda_sharp + 2 = %s (x = 2, n = 0), a level: %s: %s' % (
-              deg, mp, '; '.join('%s: %s -> %s' % (n, s_, b) for n, s_, b in ft), cand, hit, OK['R6']))
+          'beta = lambda_sharp + 2 = %s (x = 2, n = 0), a level: %s; the test recognises 3 d1 + 1/7 in Q(d1) with its '
+          'coordinates: %s: %s' % (deg, mp, '; '.join('%s: %s -> %s' % (n, s_, b) for n, s_, b in ft), cand, hit,
+                                   pos, OK['R6']))
     if not selftest:
         mg, where, N = r6_margin(C)
         OK['R6m'] = mg > 0
