@@ -41,20 +41,30 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       43234724820 = 45661427137374547 (4.566143e+16); N = 21 d + 6 <= 958889969884865493 (9.588900e+17); pinned: True
       against round 7's c' in [62, 250 + MODs]: the MODs are 158 above 3 and 52 below; c' moves d by 9.47e-07 of itself;
       the floor 8,407,505,890,317,054 is 0.1841 of the bound
+  M4 (deduced, coarse; computed): the steps outside the levels (I15 Steps 0, 1, 3, 4', 4; III.I'''''''''''' Theorem 3.1
+      at the top): one level's largest total with its loops, above 3 M_a = 3 x 52634350 (level-3 rounds) + 3 P_W + 11 + 3
+      P_iota + 47 + 15 W + X_7(alpha) 352162875 + c'_above = 1042275620, below 3 M_b = 3 x 52634349 (tf rounds) + 15 W +
+      58 + c'_below = 179957935 (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: True); B_once := 2 (M_a + 4
+      M_b) + 1000 = 3524215720
+      d <= A' + (K + 1) c' + B_once = 45661430661590267 (4.5661430662e+16); N = 21 d + 6 <= 958890043893395613; B_once is
+      7.72e-08 of d: pinned: True
   C1 (control): the row I12:247 (III.I'' Lemma 4.1) dropped: 1 unclassified: True
   C2 (control): the L-hat pattern dropped: 186 hits (not 212), charge ids lost ['FWD_below', 'LH_3', 'LH_31', 'LH_33']:
       True
   C3 (control): Corollary 4.5 charged l, not l + 1: c' = 405, not 406: True
   C4 (control): level 1 per exponent: c' = 376, not 406: True
   C5 (control): the one-off application on R0 (12): c' = 370, not 406: True
+  C7 (control): M_a without X_7(alpha): B_once leaves its pin: True
   C6 (control): every range's opening line searched one line off: the anchors fail: True
 M0 PASS
 M1 PASS
 M2 PASS
 M3 PASS
+M4 PASS
 C1 PASS
 C2 PASS
 C3 PASS
 C4 PASS
 C5 PASS
+C7 PASS
 C6 PASS

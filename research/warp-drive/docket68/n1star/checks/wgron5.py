@@ -44,7 +44,6 @@ import os, sys, time, importlib.util
 import numpy as np
 import sympy as sp
 from scipy.optimize import minimize
-from scipy.special import iv as besseli
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 _s = importlib.util.spec_from_file_location('linest5', os.path.join(HERE, 'linest5.py'))
@@ -96,26 +95,30 @@ class Bound:
     """the exponent J = log(max lam/min lam) + 2 int a_o du + 2 int a_i dv for weights t = log lam (per group) and
     splits s = log theta (per off-diagonal term), on a band of the background"""
 
-    def __init__(self, T, D, sel, uu, vv):
+    def __init__(self, T, D, sel, uu, vv, unk=None, typ=None, group=None, groups=None, mutate=False):
+        self.unk, self.typ = unk or UNK, typ or TYPE
+        self.group, self.groups = group or GROUP, groups or GROUPS
+        self.mutate = mutate
         self.uu, self.vv = uu, vv
-        self.outs = [n for n in UNK if TYPE[n] in ('out', 'both')]
-        self.ins = [n for n in UNK if TYPE[n] == 'in']
+        self.outs = [n for n in self.unk if self.typ[n] in ('out', 'both')]
+        self.ins = [n for n in self.unk if self.typ[n] == 'in']
         msk = lambda A: np.where(sel, A, np.nan)
         self.T = [(y, z, msk(c)) for y, z, c in T]
-        self.D = {n: msk(D[n]) for n in UNK}
+        self.D = {n: msk(D[n]) for n in self.unk}
         # relaxation for the optimiser: per-u sup over (v, x) and per-v sup over (u, x), term by term
         self.Tu = [(y, z, np.nan_to_num(np.nanmax(c, axis=(1, 2)))) for y, z, c in self.T]
         self.Tv = [(y, z, np.nan_to_num(np.nanmax(c, axis=(0, 2)))) for y, z, c in self.T]
-        self.Du = {n: np.nanmax(self.D[n], axis=(1, 2)) for n in UNK}
-        self.Dv = {n: np.nanmax(self.D[n], axis=(0, 2)) for n in UNK}
-        self.iu = ~np.isnan(self.Du[UNK[0]]); self.iv = ~np.isnan(self.Dv[UNK[0]])
+        self.Du = {n: np.nanmax(self.D[n], axis=(1, 2)) for n in self.unk}
+        self.Dv = {n: np.nanmax(self.D[n], axis=(0, 2)) for n in self.unk}
+        self.iu = ~np.isnan(self.Du[self.unk[0]]); self.iv = ~np.isnan(self.Dv[self.unk[0]])
 
     def kappa_exact(self, t, s):
-        lam = {g: t[i] for i, g in enumerate(GROUPS)}
-        K = {n: self.D[n].copy() for n in UNK}
+        lam = {g: t[i] for i, g in enumerate(self.groups)}
+        K = {n: self.D[n].copy() for n in self.unk}
+        sg = 1.0 if self.mutate else -1.0        # the mutation: the partner's share lam_Y theta/lam_Z (wrong)
         for k, (y, z, c) in enumerate(self.T):
             K[y] = K[y] + c * np.exp(s[k])
-            K[z] = K[z] + c * np.exp(lam[GROUP[y]] - lam[GROUP[z]] - s[k])
+            K[z] = K[z] + c * np.exp(lam[self.group[y]] - lam[self.group[z]] + sg * s[k])
         return K
 
     def J_exact(self, t, s):
@@ -126,13 +129,13 @@ class Bound:
         return (max(t) - min(t)) + 2 * Io + 2 * Ii, Io, Ii
 
     def J_relaxed(self, p, beta=60.0):
-        ng = len(GROUPS); t, s = p[:ng], p[ng:]
-        lam = {g: t[i] for i, g in enumerate(GROUPS)}
+        ng = len(self.groups); t, s = p[:ng], p[ng:]
+        lam = {g: t[i] for i, g in enumerate(self.groups)}
         def prof(Tl, Dl, names, axis_grid, idx):
-            K = {n: Dl[n][idx].copy() for n in UNK}
+            K = {n: Dl[n][idx].copy() for n in self.unk}
             for k, (y, z, c) in enumerate(Tl):
                 K[y] = K[y] + c[idx] * np.exp(s[k])
-                K[z] = K[z] + c[idx] * np.exp(lam[GROUP[y]] - lam[GROUP[z]] - s[k])
+                K[z] = K[z] + c[idx] * np.exp(lam[self.group[y]] - lam[self.group[z]] - s[k])
             S = np.stack([K[n] for n in names])
             m = S.max(0)
             sm = m + np.log(np.exp(beta * (S - m)).sum(0)) / beta          # smooth max over unknowns
@@ -145,58 +148,59 @@ class Bound:
 
 
 def model_check():
-    """W1: Y_v = m Z, Z_u = m Y, Y(0, v) = Z(u, 0) = 1 (m > 0: no cancellation, the Gronwall-extremal case).  Exact:
-    Y = sum_k (m^2 u v)^k/(k!)^2 + m v sum_k (m^2 u v)^k/(k! (k+1)!), Z symmetric.  The f of Theorem 7.L for it,
-    f(u, v) = int_0^u Y(., v)^2 + int_0^v Z(u, .)^2, against the weighted bound."""
-    m = 3.0
-    n = 400
-    g = np.linspace(0, 1, n + 1)
-    U, V = np.meshgrid(g, g, indexing='ij')
-    z = 2 * m * np.sqrt(U * V)
-    with np.errstate(all='ignore'):
-        r = np.where(U * V > 0, np.sqrt(V / np.where(U > 0, U, 1)), 0.0)
-        Y = besseli(0, z) + np.where(U * V > 0, r * besseli(1, z), m * V)
-        rz = np.where(U * V > 0, np.sqrt(U / np.where(V > 0, V, 1)), 0.0)
-        Zf = besseli(0, z) + np.where(U * V > 0, rz * besseli(1, z), m * U)
-    # check the ODEs numerically
-    Yv = np.gradient(Y, g, axis=1); Zu = np.gradient(Zf, g, axis=0)
-    ode = max(np.abs(Yv - m * Zf)[2:-2, 2:-2].max() / np.abs(m * Zf).max(), np.abs(Zu - m * Y)[2:-2, 2:-2].max()
-              / np.abs(m * Y).max())
-    F = np.zeros_like(U)
+    """W1: the model Y_v = m1 Z (Y transported in v, measured on ingoing cones), Z_u = m2 Y (measured on outgoing
+    ones), Y(u, 0) = Z(0, v) = 1 on [0, 1]^2, m1 = 9, m2 = 1, solved on a fine grid (second order); f(1, 1) of Theorem
+    7.L against e^J (D_lam/min lam) from Bound itself, at several (lam, theta); and the mutated Bound (partner share
+    lam_Y theta/lam_Z) at theta -> 0, which must fall below f."""
+    m1, m2, n = 9.0, 1.0, 800
+    g = np.linspace(0, 1, n + 1); h = g[1] - g[0]
+    Y = np.ones((n + 1, n + 1)); Z = np.ones((n + 1, n + 1))
     for i in range(n + 1):
         for j in range(n + 1):
-            F[i, j] = (np.trapezoid(Y[:i + 1, j] ** 2, g[:i + 1]) if i else 0) + \
-                      (np.trapezoid(Zf[i, :j + 1] ** 2, g[:j + 1]) if j else 0)
+            if i == 0 and j == 0:
+                continue
+            if j > 0 and i > 0:          # trapezoid in both, solved exactly for the 2 x 2 linear system
+                a = Y[i, j - 1] + h / 2 * m1 * Z[i, j - 1]
+                b = Z[i - 1, j] + h / 2 * m2 * Y[i - 1, j]
+                det = 1 - (h / 2) ** 2 * m1 * m2
+                Y[i, j] = (a + h / 2 * m1 * b) / det; Z[i, j] = (b + h / 2 * m2 * a) / det
+            elif j > 0:                  # u = 0: Z = 1 data, Y from its row
+                Y[i, j] = Y[i, j - 1] + h * m1 * (Z[i, j - 1] + Z[i, j]) / 2
+            else:                        # v = 0: Y = 1 data, Z from its row
+                Z[i, j] = Z[i - 1, j] + h * m2 * (Y[i - 1, j] + Y[i, j]) / 2
+    f11 = np.trapezoid(Y[:, -1] ** 2, g) + np.trapezoid(Z[-1, :] ** 2, g)
+    D11 = 2.0                            # int_0^1 Y(u, 0)^2 du + int_0^1 Z(0, v)^2 dv
+    sel = np.ones((n + 1, n + 1, 1), bool)
+    one = np.ones((n + 1, n + 1, 1))
+    T = [('Y', 'Z', m1 * one), ('Z', 'Y', m2 * one)]
+    D = {'Y': 0 * one, 'Z': 0 * one}
+    kw = dict(unk=['Y', 'Z'], typ={'Y': 'in', 'Z': 'out'}, group={'Y': 'Y', 'Z': 'Z'}, groups=['Y', 'Z'])
     rows = []
-    for q in (1.0, 0.25, 4.0, 16.0):
-        # weights lam_Y = q lam_Z ; f_lam = q int Y^2 du + int Z^2 dv ; Y measured on outgoing (in u), Z in v.
-        # Y row: 2 q |m| Y Z <= |m| th (q Y^2) + |m| q/th Z^2;  Z row: 2 |m| Z Y <= |m| th' Z^2 + |m|/(q th') (q Y^2)
-        th = np.sqrt(1.0 / q) if q != 1 else 1.0                       # balances the two coefficients
-        a_o = m * th + m / (q * th)                                    # coefficient of q Y^2 (outgoing)
-        a_i = m * q / th + m * th                                      # coefficient of Z^2
-        # data: D_lam = q * 0 (Y on u = 0 is the data on the ingoing cone ...) -> use f's own data term
-        D = (np.trapezoid(np.ones(n + 1) * q, g) * 0 + q * 0)
-        Dlam = q * 1.0 * 0 + 1.0 * 0
-        # f(0, v) = int_0^v Z(0, .)^2 = v; f(u, 0) = u: data norm D <= 1 + 1 (both cones), weighted D_lam <= q + 1
-        bound = (q + 1) * np.exp(2 * a_o * U + 2 * a_i * V) * max(q, 1) / min(q, 1)
-        bound_mut = (q + 1) * np.exp(2 * a_o * U + 2 * a_i * V) / max(q, 1) * min(q, 1)  # mutation: ratio inverted
-        ok = bool(np.all(F <= bound * (1 + 1e-9)))
-        mut_ok = bool(np.all(F <= bound_mut * (1 + 1e-9)))
-        rows.append((q, ok, mut_ok, float((F / bound).max()), float((F / bound_mut).max())))
-    return ode, rows
+    for lq, s1, s2 in ((0.0, 0.0, 0.0), (np.log(1 / 9), np.log(1 / 3), np.log(3)), (np.log(1 / 9), 0.0, 0.0),
+                       (1.0, 0.5, -0.5)):
+        t = np.array([lq, 0.0]); s_ = np.array([s1, s2])
+        J, _, _ = Bound(T, D, sel, g, g, **kw).J_exact(t, s_)
+        Dlam = np.exp(max(t)) * D11                     # D_lam <= max lam D ; f <= f_lam/min lam
+        bound = np.exp(J - (max(t) - min(t))) * Dlam / np.exp(min(t))
+        rows.append((np.exp(lq), np.exp(s1), np.exp(s2), f11, bound, f11 <= bound))
+    Jm, _, _ = Bound(T, D, sel, g, g, mutate=True, **kw).J_exact(np.zeros(2), np.array([-12.0, -12.0]))
+    mut = np.exp(Jm) * D11
+    return f11, rows, mut, f11 > mut
 
 
 def main():
     t0 = time.time()
     ok = True
-    ode, rows = model_check()
-    good = ode < 1e-3 and all(r[1] for r in rows)
-    caught = any(not r[2] for r in rows)
-    print('W1 model Goursat pair (m = 3 on [0, 1]^2; the exact solution satisfies its ODEs to %.1e relative):' % ode)
-    for q, ok_, mok, rb, rm in rows:
-        print('   lam_Y/lam_Z = %5.2f: max f/bound = %.3g (%s); with max/min lam inverted (mutation) %.3g (%s)' % (
-            q, rb, 'holds' if ok_ else 'FAILS', rm, 'holds' if mok else 'fails'))
-    print('W1', 'PASS (the weighted bound holds; the mutation is caught)' if good and caught else 'FAIL')
+    f11, rows, mut, caught = model_check()
+    good = all(r[5] for r in rows)
+    print('W1 model (Y_v = 9 Z, Z_u = Y on [0, 1]^2, data 1): f(1, 1) = %.4g; the weighted bound from Bound itself:' %
+          f11)
+    for q, th1, th2, f_, b_, ok_ in rows:
+        print('   lam_Y/lam_Z = %.3g, theta = %.3g, %.3g: bound %.4g (%s)' % (q, th1, th2, b_, 'holds' if ok_ else
+                                                                             'FAILS'))
+    print('   mutation (the partner\'s share lam_Y theta/lam_Z), theta = e^-12: bound %.4g -> %s' % (
+        mut, 'below f: caught (good)' if caught else 'not caught (bad)'))
+    print('W1', 'PASS' if good and caught else 'FAIL')
     ok &= good and caught
     if len(sys.argv) < 2:
         print('wgron5 (no run given; W2-W5 skipped):', 'all checks pass' if ok else 'FAILURES')
@@ -243,9 +247,6 @@ def main():
           'annihilates T_%d, so for the exact low-mode inverse (I - L A) T_%d = T_%d: defect 1 exactly.' % (N, N, N, N))
     # coupling of the record's coefficients into high modes: P_inf (m T_k) for k < N, relative to |m T_k|
     xs = np.cos(np.pi * (np.arange(4 * M) + 0.5) / (4 * M))
-    T_high = []
-    for name in ('chib', 'eta'):
-        pass
     # the largest single coefficient field (dw in the chib row), resampled in x by its Chebyshev interpolant
     syms = L5.STATE + [L5.Ew, L5.Ek] + list(L5.DX.values())
     co = R['chib'][2].coeff(L5.U['dw'])

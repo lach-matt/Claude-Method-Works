@@ -50,11 +50,21 @@ scanned here.
   M3 (computed) c'_above = FWD + the charges at a level above 3 (the beta > 4 extras included), c'_below likewise,
      c' := max, and d <= A' + 106,489,470 c' with A' = dnumber5's R1 constant 45,661,383,902,649,727 (imported);
      N = 21 d + 6. Pinned: c' and d.
+  M4 (deduced on a coarse reading; computed) the steps of III.I'''''''''''''' Theorem 3.1 outside its levels (I15:296-452:
+     Step 0 FWD, Step 1 the base level, III.I'''''''' Proposition 4.1 at alpha_1, Steps 3 and 4' FIN, Step 4
+     III.I'''''''''''' Theorem 3.1 at the top, whose Step 0 runs one more level's maps and whose Steps 1-6 subtract
+     towers and read coefficients, I13:298-447), each at most one level's composition, and the base at most four
+     levels below 3 (Lemma 3.1 with III.I''''' Proposition 2.1's rounds, I6:85-227, and one Lemma 3.2): B_once := 2 (M_a
+     + 4 M_b) + 1000, M_a and M_b the largest totals of one level above and below 3 with their loops (the per-level
+     maxima of the rounds at the record's weights, P_W, P_iota, W, the excess 47 and X_7(alpha) = (Sum X_7 + the
+     uniform bound's excess)/L_above, read from dnumber5.out, pinned by md5). Round 7's chain omitted these steps; they
+     are 7.7e-8 of d. Pinned: B_once and d <= A' + (K + 1) c' + B_once.
   Controls (each mutates the computed path and must fail): C1 TABLE with one row dropped: one hit unclassified;
   C2 FAM with the L-hat pattern dropped: the census's hit count and the charged sites change; C3 Corollary 4.5
   charged at J3's l instead of l + 1: c' leaves its pin; C4 the level-1 Proposition 4.4 read per exponent (3, the
   constant's level-2 reading) instead of per (alpha_0, k): c' leaves its pin; C5 the one-off application on R0 (12):
-  c' leaves its pin; C6 a moved anchor (a range's opening line searched one line off): the range check fails.
+  c' leaves its pin; C6 a moved anchor (a range's opening line searched one line off): the range check fails; C7 M_a
+  without its X_7(alpha) term: B_once leaves its pin.
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -427,7 +437,7 @@ def one_offs(w, cab, cbe, x7_term=True, factor=2):
     return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, B=B, levels=c, n=n)
 
 
-B_PIN, DTOT_PIN = 0, 0
+B_PIN, DTOT_PIN = 3524215720, 45661430661590267
 
 
 def main():

@@ -152,8 +152,8 @@ def y1(control=False):
     C_reader = all(res[(nm, "C")] == (1, True) for nm in names[:2])
     C_fail = [nm for nm in names if res[(nm, "C")][1] is not True]
     out("  Y1 12 metrics (the reader's two, gamma_rA = 0 and != 0, and ten random rational positive-definite ones with"
-        " gamma_rA != 0): reading R (normal-adapted, as in [Rac16]): a one-dimensional symmetrizer space with S A0 > 0 at all"
-        " 12: %s; reading C (coordinate): one-dimensional at all 12: %s, S A0 > 0 at the reader's two: %s, but no"
+        " gamma_rA != 0): reading R (normal-adapted, as in [Rac16]): a one-dimensional symmetrizer space with S A0 > 0"
+        " at all 12: %s; reading C (coordinate): one-dimensional at all 12: %s, S A0 > 0 at the reader's two: %s, but no"
         " symmetrizer with S A0 > 0 at %d of the ten random ones (%s: the coordinate reading is symmetric hyperbolic"
         " near gamma_rA = 0 only, Y2); at gamma_rA = 0, S = diag(1, -(1/2) Pi_ang^-1) in both readings: %s" % (
             R_all, C_dim, C_reader, len(C_fail), ", ".join(C_fail), diag0))

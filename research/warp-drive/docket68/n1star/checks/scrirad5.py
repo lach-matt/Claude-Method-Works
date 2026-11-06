@@ -6,7 +6,7 @@ II.C's class G~^{0,(2l,0,0)}_e3b. Lemma 1.3 needs, for each p, a compact set con
 the level sets of t^flat_* reach r = oo, so a bound on r along past causal curves is needed. II.F Lemma 1.4 (a) gives
 one (B := t_* + R~(r) is a time function) only for the convex combinations G_theta of g_0 and Minkowski; for g it can
 fail. III.K Lemma 6.1 proves the bound for every g of the class: alpha := dt^flat_* + r^-1 dr is past timelike near
-I+ on {1 <= t_* < T_1}, so F := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p)) e^(t^flat_*(p) - c).
+I+ on {1/2 <= t_* < T_1}, so F := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p)) e^(t^flat_*(p) - c).
 
 The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+, rho := rho_I = t_*/r, x := rho^l,
   - in the basis rho d_t*^2, d_t* (x)_s d_r, x_I d_t* (x)_s r^-1 d_w, rho^-1 d_r^2, x_I^-1 d_r (x)_s r^-1 d_w,
@@ -19,7 +19,7 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
   R1 (exact, z3) With alpha = A dt_* + B' dr, B' := B + kappa/r, kappa = 1, and the coefficients c_1, c_2, c_4 (the
      three basis elements not vanishing on alpha (x) alpha) anywhere in [-C x, C x] (c_2 in [-2 C x, 2 C x], which covers
      both conventions for (x)_s):  r g^-1(alpha, alpha) <= -1/2  whenever 0 < rho <= x <= 1 (rho^l >= rho), 0 < l <= 1/2,
-     1 <= t_* <= T_1, C >= 1 and 26 C T_1 x <= 1.  Proved by z3 (the negation is unsat); and alpha(V) = A t_* + B r +
+     1/2 <= t_* <= T_1, C >= 1 and 37 C T_1 x <= 1.  Proved by z3 (the negation is unsat); and alpha(V) = A t_* + B r +
      kappa > 0 (unsat negation), so alpha is past timelike. Vacuity guard: the hypotheses are satisfiable (sat), also
      with every coefficient at an end of its interval. Encoding guard: the encoded
      g^-1(alpha, alpha) equals the quadratic form of the matrix gbar^-1 + sum c_i e_i (all six basis elements, in the
@@ -33,7 +33,7 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      drift, dr/d(-t_*) = (1 + eps (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^5) down to t_* = 1: B = t_* + r increases
      towards the past (B is not monotone), F = t^flat_* + log r decreases, and r stays below the bound of Lemma 6.1 (b).
   Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove):
-     N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (26 C x <= 1); N4 the class's
+     N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (37 C x <= 1); N4 the class's
      decay removed (the coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
 
 Labels: R1 computed (exact, z3 over the reals); R2 computed (exact, sympy); R3 computed (floats; a demonstration on
@@ -57,8 +57,8 @@ HALF = z3.RealVal("1/2")
 def hyps(v, decay=True, t1=True):
     rho, x, t, T1, C, l, c1, c2, c4 = (v[k] for k in ("rho", "x", "t", "T1", "C", "l", "c1", "c2", "c4"))
     cx = C * x if decay else C
-    h = [rho > 0, rho <= x, x <= 1, l > 0, l <= HALF, t >= 1, t <= T1, C >= 1,
-         (26 * C * T1 * x <= 1) if t1 else (26 * C * x <= 1),
+    h = [rho > 0, rho <= x, x <= 1, l > 0, l <= HALF, t >= HALF, t <= T1, C >= 1,
+         (37 * C * T1 * x <= 1) if t1 else (37 * C * x <= 1),
          c1 >= -cx, c1 <= cx, c2 >= -2 * cx, c2 <= 2 * cx, c4 >= -cx, c4 <= cx]
     return h
 
@@ -185,7 +185,7 @@ def r3():
     eps, l, c, T = 0.1, 0.5, 1.0, 3.0
     C = 1.0                                                         # |c_4| = eps x <= C x
     T1 = T / 1.0 + 1.0                                              # g_0 = Minkowski: t^flat_* = t_* F_1, C' := 1 here
-    rhoT = (26 * C * T1) ** (-1 / l)
+    rhoT = (37 * C * T1) ** (-1 / l)
     RT = T1 / rhoT
     tf = lambda t, r: t * (1 - (t / r) ** l)                       # noqa: E731
     t, r = 3.0, 1.0e5

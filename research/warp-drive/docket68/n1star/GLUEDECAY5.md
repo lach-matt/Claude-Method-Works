@@ -733,3 +733,112 @@ the data of (i) (computed: the integrals, the exponents, the fluxes and the dist
 `docket68/n1star/checks/gluedecay5.py` E1–E6; the constants C, C_P, R_P, R_G, η0 and η1 are proved to exist, not
 computed).
 ```
+
+## R2.0 Round 2 (2026-11-06): the verifier's reading, re-derived and seated
+
+*The reading.* An independent verifier read the note in full. It recomputed $\kappa$, Lemma 4.1 (d) and the exponent
+inequalities by its own scripts, checked the READ quotes at source, and applied 22 mutations to the program. Its
+verdict: the mathematics holds; GD3 is right but is no defect in Part V; and $\ell_0$ is fixed consistently (the paper
+:1153 and :1027, Part VII (0.1), PART-VI4-PARAMS.md row d1). Each finding below was re-derived here before it was
+seated. The text above is kept as written, with a bracketed note at each place it changes.
+
+(M1) *The upper bound at $a = \ell_0$.* Round 1's new text bounded the glued norm by "C ε R^(ℓ0−a)", which at $a =
+\ell_0$ is $C\epsilon$ for every $R$. But Proposition 3's examples of order $\ell_0$ are perturbations to which
+Proposition 4 applies (size $C_P\epsilon\le\epsilon_0$ for $\epsilon$ small), and every data set agreeing with them has
+norm at least $c_P\epsilon(\log_2(R/R_P))^{1/2}$, unbounded in $R$. So that bound is false at $a = \ell_0$; the proved
+one is (5.5). Section 8.2 (b) states (5.5), with its hypotheses $\epsilon\le\epsilon_0$, $R\ge R_G$.
+
+(Minor 1) *"Only ... sharp".* Corollary 4.3 bounds the glued norm for every perturbation, so it gives a range of $R$ on
+which (ii) is guaranteed. "Only up to" would need a lower bound for every perturbation, and that is false: in the class,
+$N_R$ stays below the perturbation's own norm (Proposition 2 (b)). The lower bound is proved for the examples of
+Proposition 3 alone. At $a = \ell_0$ the range is $\log R<(\delta/(C\epsilon))^2-1$, not a power. Seated at (D), at
+Corollary 4.3 and in section 8.2 (b).
+
+(Minor 2) *The dependence on $\ell_0$.* Theorem 4 fixes $\ell_0$ first. Its $\lambda_1$, $\delta$, $d_1$, gluing order
+and radius, and so its data of (i), depend on $\ell_0$ (Part VII section 4). Its chain
+$\epsilon_K<\epsilon_+<\ell_I-3<\ell_0-3$ bounds the rate (the paper's Theorem 4). Corollary 1.1 said so, but (A), GD2
+and round 1's new text did not. Seated there.
+
+(Minor 3) *What is reached.* By Remark 3.2, $\Psi_\epsilon^*(\gamma_\lambda,k_\lambda)$ has a development isometric to
+that of $(\gamma_\lambda,k_\lambda)$, which settles by Theorem 0.2 (i). So settling, as a statement about the geometry,
+is not confined to the class. What is exact is the reach of (ii): it applies, directly or through gluing uniformly in
+$R$, to exactly the perturbations small in Hintz's class (Corollary 2.1). Seated in section 0, Theorem 5, GD1 and
+section 8.2 (b).
+
+(Minor 4) *What is computed.* E1-E6 compute the integrals, the exponents, the fluxes, the identities and $\kappa$, and
+hence $c_P$. The constants $C_1$, $C_1'$, $C_0$, $C_P$, $R_P$, $R_G$, $L$, $\epsilon_0$, $\epsilon_1$ and Corollary
+4.3's $C$ are proved to exist and are not computed. Seated at the labels and in section 8.2 (b).
+
+(Minor 5) *The program.* Re-derived from round 1's source:
+- E2 compared only the entries cc, cs, g1c and g2s with sympy and quadrature.
+- E2 printed $\kappa$ without asserting it.
+- E3's second-order test substituted $r = e^{t}$ after $\log r\to t$, so `.has(r)` was always False.
+- E4's "the flux vanishes iff $a>2+d$" compared an inequality with itself.
+- E5's control returned False on any failed series, so a broken series counted as the control failing.
+
+Changes, each now in `checks/gluedecay5.py`:
+- E2 checks all ten Gram entries against sympy's exact integrals and quadrature.
+- E2 asserts $\kappa(\frac52,\frac72)$: the closed forms against a direct quadrature of the Gram matrix in $s$ (no
+  closed form), to $10^{-25}$, and against the verifier's $7.6546\times10^{-4}$, to $10^{-8}$.
+- E3 checks the exact second-order identity and an $r$-free test after $\log r\to t$ alone. It also checks the
+  Tangherlini term of the instance pointwise, at $r = 10^2,10^3$: $(\tau_\mu-\tau_0)r^{2+a}/(\epsilon\mu)$ is within
+  $10^{-3}$ of $-2(a\cos\log r+\sin\log r)$.
+- E4 computes, exactly, the fluxes over $S_\rho$ of explicit order-$a$ profiles, with exact moments on $S^3$. Each is
+  $c_d(a)\rho^{2+d-a}$, with $c_d = 6\pi^2$ (energy), $3\pi^2$ (momentum), $\frac32\pi^2$ (centre of mass) and $2\pi^2$
+  (angular momentum). The limits are taken at six values of $a$.
+- E4 adds the condition that the box does not decay where a charge of the perturbation need not vanish, $a\le2+d$.
+- E5 raises on a failed series instead of returning False.
+- E6 checks both blocks of section 8.2, and that (a) is immediately followed by (b) in the paper.
+
+Every check now runs against named mutants of the code under test, each of which must fail:
+- E1: 'lebesgue';
+- E2: 'no_osc', 'ss_sign', 'lam_max';
+- E3: 'coef3', 'second_r3', 'mu0';
+- E4: 'no_decouple', 'box_strong';
+- E5: 'mass', 'dim3';
+- E6: 'char_a', 'char_b'.
+
+The verifier's five surviving mutations were the sign of ss, $\lambda_{\max}$ for $\lambda_{\min}$, the second-order
+expression times $r^3$, $\mu = 0$, and the box exponent $\min(0,1+d-a)$. All five are now among the mutants, and all
+five fail.
+
+On the last one the verifier noted that the stronger box is true as an inequality on $T_X$. Re-derived, it breaks the
+fixed-point step all the same. For $a\le2+d$ the charge difference $\Delta\mathfrak Q_X$ is $O(\epsilon)$ and need not
+vanish: a nearby member of Lemma 4.1's family differs from $(\gamma^{m_\lambda},k^{m_\lambda})$ at order 2 with
+different charges, and E4's fluxes at $a = 2+d$ are nonzero. A box of radius $C_0\epsilon R^{1+d-a}\to0$ cannot contain
+such a difference for $a>1+d$.
+
+(Minor 6) *The paper's :1137-1140.* `checks/mpdata5.py` B2 and B4 compute at $t' = 0$, on Kerr-Schild slices (its
+docstring). The data that matter for (ii) are those on Hintz's surface: by GD3 the slice data lie in the class but are
+not near the data of (i). On Hintz's surface membership is Lemma 4.1 (a), by the graph map. Section 8.2 (a) states "on
+Hintz's surface", and (b) cites Lemma 4.1 (a).
+
+(Nits)
+- GD3, precisely: $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} =
+  -\nabla^2f+\rho^5C^\infty$. Lemma 4.1 (d)'s proof gives both. The verifier's independent computation agrees: the slice
+  minus the graph, plus $\nabla^2f$, is $(8,-3)\mu^2r^{-5}$ in the components $(\hat x\hat x,\delta-\hat x\hat x)$, with
+  equal metrics.
+- $N_R$ is an infimum.
+- The examples have size $C_P\epsilon$ and need $\epsilon\le\epsilon_1$, and their lower bounds hold for $R\ge R_P$.
+- Corollary 4.3's window is $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, nonempty when $2C\epsilon
+  R_G^{\ell_0-a}<\delta$.
+- Proposition 3 takes $R_P\ge4r_2$.
+
+Each is seated where it occurs.
+
+*GD3 and Part V.* Re-derived from Part V Definition 2.1 (members on $\{y^0 = 0\}$) and Theorem 3.1 (abstract data on
+$\{r>R_0\}\subset\mathbb R^4$, nothing about $\Sigma_{\mathrm{IVP}}$ or the class). Its proof uses only Lemma 2.2's
+bounds and Corollary 2.4. Part VII uses that proof only in class form, with the members replaced by $(\gamma^m,k^m)$ on
+the graph (Proposition 2.2 (2); findings (VII1), (VII3)). So GD3 constrains Proposition 4 here, which uses Lemma 4.1's
+family, and Part V needs no repair.
+
+Its Remark 3.4 is stale: Part VII neither relates the transform to III.B's boosts or III.J's translations nor checks
+charges in $V$. It is amended in `proof5/PART-V-GLUING.md` by a bracketed note after the remark, the remark kept as
+written.
+
+*The paper.* Section 8.2 replaces round 1's block (section 8.1, kept) by two adjacent blocks, (a) at lines 1138-1140 and
+(b) at lines 1141-1149. Each old block occurs exactly once, and (a) is immediately followed by (b) (E6).
+
+*Ledger.* `checks/gluedecay5.py` E1-E6: all PASS, and all 13 mutants fail as they must; output in
+`checks/gluedecay5.out`. The verifier's report and scripts stay in its scratch space, outside the repository. Open:
+nothing.
