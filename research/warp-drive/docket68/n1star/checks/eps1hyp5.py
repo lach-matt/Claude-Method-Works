@@ -45,7 +45,8 @@ lzeroconst5.py's geometry); deduced (the reduction to the hyperplanes, and the c
      mu_end/a^2 at P* (the corner (tau_end, a) lies in Omega with v > v_end). By a grid: 41 slices tau (tau0 to
      tau_end), 161 radii (a to b(tau)), 4 directions xhat, mu(v) from envelope5.py's C_c^inf envelope (int env^2 =
      105/128, so mu_end = 227/192, checked); numpy's eigenvalues of the Cartesian 5 x 5 matrix: at every grid point the
-     least absolute one is s(mu/r^2) to 10^-12, and the grid's minimum, at the corner, equals s(m*) and lies in
+     least absolute one is s(mu/r^2) to 10^-12, and the grid's minimum, on r = a where mu = mu_end to 10^-12 (the
+     corner's value; the envelope is flat to that order from v = 3.1 on), equals s(m*) and lies in
      lzerotrace5.py T7's certified enclosure [0.030768559, 0.030768560] (to 10^-12). And s0 < s(1) = 2^(1/2) - 1 < 3/5
      (exact: m* >= mu0/a^2 > 1).
   H6 (computed, floating point; deduced: Weyl's inequality; D623) for eps1 < s0 every symmetric gt with |gt - g0| <=
@@ -231,7 +232,7 @@ def h5(g, r_cut=0.0):
     i = int(np.argmin(least))
     gmin = float(least[i])
     m_star = float(g['mu_end'] / g['a'][1] ** 2)
-    corner = abs(r[i] - float(g['a'][1])) < 1e-12 and tau[i] + r[i] >= float(LZ.VE)
+    corner = abs(r[i] - float(g['a'][1])) < 1e-12 and abs(m[i] * r[i] ** 2 - mu_end_num) < TOL   # mu = mu_end there
     m_lo = LZ.MU0 / g['a'][1] ** 2
     below = m_lo > 1 and sp.sqrt(2) - 1 < sp.Rational(3, 5)
     return dict(closed=closed, decr=decr, pointwise=pointwise, gmin=gmin, s_star=float(s_closed(np.array([m_star]))[0]),
@@ -379,8 +380,8 @@ def main():
                 and abs(r5['mu_end_num'] - 227 / 192) < 1e-9)
     say('  H5 (D623): g0 = eta + m U U^T has eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; s(m) = (m^2 + '
         '1)^(1/2) - m decreases (exact): %s; grid of %d points over Omega (mu(v) from the envelope, mu_end = %.12f '
-        'against 227/192): least |eigenvalue| = s(mu/r^2) at every point to %.1e; grid minimum %.12f at the corner '
-        '(r = a, v > v_end): %s; s(m*) = %.12f; in T7\'s enclosure [%s, %s]: %s; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): %s' % (
+        'against 227/192): least |eigenvalue| = s(mu/r^2) at every point to %.1e; grid minimum %.12f on r = a with mu '
+        '= mu_end to 1e-12 (the corner\'s value): %s; s(m*) = %.12f; in T7\'s enclosure [%s, %s]: %s; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): %s' % (
             r5['closed'], r5['decr'], r5['n'], r5['mu_end_num'], r5['pointwise'], r5['gmin'], r5['corner'], s_star,
             float(E_LO), float(E_HI), float(E_LO) - TOL <= r5['gmin'] <= float(E_HI) + TOL, r5['below']))
 

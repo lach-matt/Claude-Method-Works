@@ -731,7 +731,19 @@ real speeds c^2 = 2 (r^2 + mu)/(3 r^4) > 0. The raw coefficient of d_r (w, q), d
 indefinite; the symmetrizer S = diag(1, -1/(2 r^2)) gives S A0 = diag(6, 1/(r^2 + mu)) > 0 and S A^th = [[0, -2/r^2],
 [-2/r^2, 0]], symmetric, and S depends on gamma alone. In the symmetric class (fields of (r, th), q = q_th dth; q_phi1,
 q_phi2 and J_phi vanish by the reflections) these equations are the whole system, and the construction stays in that
-class; the closed forms printed by `--show` hold for every r > 0 (S3 checks the signs at one point). (b) At the
+class; the closed forms printed by `--show` hold for every r > 0 (S3 checks the signs at one point). [D619, n1: the
+symmetrizer serves all fields, as Lemma 6.4 needs, since commuting the Killing fields of S^3 leaves the symmetric
+class. On general (a, w, q_th, q_phi1, q_phi2), functions of all the angles, the principal parts at g0's data are:
+rho, alpha d_r a - theta^2 Delta_Pi a on all three angles, with no d_r^2 a, no d_r d_A a and no derivative of (w, q);
+J_r = 6 d_r w - 2 Pi^{AB} d_A q_B + ..., J_A = -2 gamma^{rr} d_r q_A + 4 d_A w + ...; and S = diag(1, -(1/2)
+Pi^-1) makes S A^B symmetric for every angle B, with S A0 = diag(6, gamma^{rr} Pi^-1) > 0 (computed,
+`checks/indepcons5.py` P1-P2, independently of `data5.py`). With gamma_rA != 0, as at the approximant's data (there
+gamma_rA = O(lam), since |g_app - g0| <= C lam; O(lam^2) by the reader's count, from gh_(m+1) through Pol^+), the
+symmetrizers still form a one-dimensional space, depending on gamma alone, whose generator keeps S A0 > 0 for
+gamma_rA small in both readings of "q tangent to the spheres" (q_r = 0 with Pi the angular block of gamma, or
+[Rac16]'s q(n^#) = 0 with Pi = gamma - n n); in [Rac16]'s reading it does so at every metric tested, in the
+coordinate one not at large gamma_rA (computed, `checks/symmshift5.py` Y1-Y2). The construction needs only gamma_rA
+small.] (b) At the
 approximant's data (the data of g0 + lam [W] on Sigma) the linearisation of the constraint map in U has no coefficient
 of order 1/lam (computed, S2; and S4, with the second harmonic chi dv dv nonzero on Sigma): the O(1/lam) second
 derivatives of gamma enter the coefficients of U only through traces of W on the spheres, which vanish, and the d_r
