@@ -53,7 +53,9 @@ K_in R^3 = A(v), K_out R^3 = B(u) (twodust5 B1-B3), mu := R^2 (1 + 2 e^(-2s) R_u
      whose outgoing ray keeps R - b(tau) >= 1 on all of [tau0, tau_end] is found by bisection, and the margin printed.
      Round 5 (the verifier of Part V, minor 4: the bisection made G3 pass by construction, a ray ODE x 1/2 passing with
      R0 = 10.719): the reported R0's ray is re-integrated independently (scipy DOP853) and R - b checked on [tau0,
-     tau_end]: the margin is 0.9958 (the bisection's RK4, sampling tau at its steps, reported 1.010), still positive;
+     tau_end]: the margin is 0.9951, attained at tau0 [R6, the verifier of round 5, minor 3: 0.9958 left the tau0
+     endpoint out of the minimum; the bisection's RK4, sampling tau at its steps, reports 1.010 at its samples only],
+     still positive;
      control (must fail): the independent check applied to the example's own cone (R0 = 5, the verifier's case) gives
      R - b < 0 at tau0. (A ray ODE x 1/2 inside the bisection still yields an admissible, more distant cone, the
      verifier's observation; the independent check is what certifies the reported one.)
@@ -316,7 +318,7 @@ def g3_indep(r3, R0):
     m = (taus >= tau0) & (taus <= tau_end)
     gap = Rs[m] - np.array([b(t) for t in taus[m]])
     at0 = float(np.interp(tau0, taus, Rs) - b(tau0))
-    return at0, float(gap.min())
+    return at0, min(float(gap.min()), at0)                                 # [R6] the tau0 endpoint included
 
 
 def g4(G, redshift=True, npts=(0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 4.9), steps=2000):
@@ -417,8 +419,9 @@ def main():
     print('  G3: the domain (T = 1, delta0 = 0.05, so l5 = %.4f, seed condition %s): V = %.3f, tau_end <= %.3f,\n'
           '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f:\n'
           '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I\n'
-          '      (explicit ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the cone has R - b >= %.3f\n'
-          '      on all of [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
+          '      (explicit ingoing Vaidya, the same solution there): from R = %.3f at v = 0 the bisection\'s RK4 gives\n'
+          '      R - b >= %.3f at its tau samples on [tau0, tau_end] (%.3f at its first sample); the certified\n'
+          '      margin is the independent check\'s, below: N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)
     print('      independent check (DOP853 on the reported R0): R - b = %.4f at tau0 (the bisection\'s RK4 samples tau\n'
