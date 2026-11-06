@@ -550,17 +550,12 @@ def e4():
     gok = all(set(angular_reduce(LX[i, j] - claim[i, j], fb, 'LX')[0]) == set() for i in range(4) for j in range(i, 4))
     Ric = ricci(X4, Gm)
     kps = hess(ps * SF, X4, Gm) - ps * SF * Ric
-    zc = []
-    for i in (2, 3):              # the phi-components carry the z-shift: (D^D^S)_ii + ... compare to psi/r^2 S_hat
-        pass
     # z-shift: the trace-free angular part of k_psi equals r^2 (psi/r^2) (S_hat)^TF
     ang = sp.Matrix(3, 3, lambda i, j: kps[i + 1, j + 1])
     SHa = sp.Matrix(3, 3, lambda i, j: SH[i + 1, j + 1])
     gh3 = sp.diag(1, s_**2, c_**2)
     tr_ang = sum(ang[i, i] / gh3[i, i] for i in range(3)) / 3
     tf = ang - tr_ang * gh3
-    zok = all(set(angular_reduce(tf[i, i] - ps * (SHa[i, i] - k2 * SF * gh3[i, i] / 3 * 0) + ps * 0, [ps], 'z')[0])
-              == set() or True for i in range(3))
     tf_claim = ps * (SHa - (sum(SHa[i, i] / gh3[i, i] for i in range(3)) / 3) * gh3)
     zok = all(set(angular_reduce(tf[i, i] - tf_claim[i, i], [ps], 'z')[0]) == set() for i in range(3))
     # the spatial invariants are unchanged by the shifts

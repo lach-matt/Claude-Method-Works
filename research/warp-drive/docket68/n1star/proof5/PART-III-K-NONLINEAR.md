@@ -572,13 +572,14 @@ Theorem 4.3 (Theorem 13.1) and Remark 4.4 (Remark 13.4).
 *Sources.* [Hin26] pp. 311-312 ((12.33)-(12.34), Lemma 12.7, Theorem 12.8 and its last paragraph), pp. 318-323 (section
 13.1: Theorem 13.1, Remarks 13.2-13.4, the proof's Steps 1-4), read at source; Corollary 5.15 read at source. Inputs:
 II.C Lemma 3.2; II.F Lemma 1.3 and section 7.4 [amended D621, D626: and Lemma 1.4; Lemmas 6.1-6.2]; II.G Theorem 2.1,
-Proposition 3.1 and Example 3.2; III.B (3.6), Lemma 3.7, section 5, Definition 6.1; III.C (1.6), (3.2)-(3.3), Lemma 3.2
-(a), Corollary 5.3; III.C$'$ Theorems 2.1, 3.1, Lemma 1.1; III.C$''$ section 2, Theorem 3.1, Proposition 4.1,
-(C$''$1)-(C$''$2); III.D$''$ Lemma 3.1, Proposition 4.1; III.E Theorem 1.1; III.F$'$ Proposition 3.3; III.G$''$ section
-4; III.H$''$ (B2); III.I (1.1), (1.2), (1.4); III.I$'''''''$ Lemma 2.2; III.I$'''''''''$ Definition 2.3, (2.3);
-III.I$''''''''''''''$ (1.2)-(1.3), Theorem 3.1, Lemma 2.4; III.I$'''''''''''''''$ Proposition 2.5, Corollary 3.2; III.J
-Definition 1.1, Theorem 2.4, (2.1); III.J$'$ Theorem 2.1; III.J$''$ section 1, Theorem 4.2, Proposition 4.3; III.J$'''$
-Definition 1.1, Corollary 6.6; Part IV (to be written).
+Proposition 3.1 and Example 3.2; III.B (3.6), Lemma
+3.7, section 5, Definition 6.1; III.C (1.6), (3.2)-(3.3), Lemma 3.2 (a), Corollary 5.3; III.C$'$ Theorems 2.1, 3.1,
+Lemma 1.1; III.C$''$ section 2, Theorem 3.1, Proposition 4.1, (C$''$1)-(C$''$2); III.D$''$ Lemma 3.1, Proposition 4.1;
+III.E Theorem 1.1; III.F$'$ Proposition 3.3; III.G$''$ section 4; III.H$''$ (B2); III.I (1.1), (1.2), (1.4);
+III.I$'''''''$ Lemma 2.2; III.I$'''''''''$ Definition 2.3, (2.3); III.I$''''''''''''''$ (1.2)-(1.3), Theorem 3.1, Lemma
+2.4; III.I$'''''''''''''''$ Proposition 2.5, Corollary 3.2; III.J Definition 1.1, Theorem 2.4, (2.1); III.J$'$ Theorem
+2.1; III.J$''$ section 1, Theorem 4.2, Proposition 4.3; III.J$'''$ Definition 1.1, Corollary 6.6; Part IV (to be
+written).
 
 ## 6. Amendments D621 and D626: past causal curves near $\mathscr I^+$ and near infinity
 

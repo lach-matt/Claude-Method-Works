@@ -336,7 +336,8 @@ def part_l():
     b2, b3 = stages_cost(2), stages_cost(3)
     check("L ||d_r^3 f||^2/||d_r f||^2 ~ lam^-4 on f = (1 + r) sin(v/lam) (lam^4 times it is 1 + O(lam): the exact "
           "integrals at lam = 1e-2, 1e-3, 1e-4): Lemma 9.3(a)'s sup bound costs lam^-2 beyond ||d f||; with that cost "
-          "the recursion is B_J = 3J - 9 (= r5settle5 A2)", l31 and all(b2[J] == 3*J - 9 for J in range(4, 13)) and all(b2[J] == B[J] for J in range(4, 13)),
+          "the recursion is B_J = 3J - 9 (= r5settle5 A2)",
+          l31 and all(b2[J] == 3*J - 9 for J in range(4, 13)) and all(b2[J] == B[J] for J in range(4, 13)),
           f"{[sp.N(x, 8) for x in rat3]}; B_J {[b2[J] for J in range(4, 13)]}")
     check("L' control (Sobolev to order 4, cost 3): lam^6 ||d_r^4 f||^2/||d_r f||^2 -> 1 and B_J changes",
           l41 and any(b3[J] != 3*J - 9 for J in range(4, 13)), str([b3[J] for J in range(4, 13)]))
@@ -413,8 +414,8 @@ def part_t():
         worst_ra = max(worst_ra, dr@(g0i_a + D)@dr)
         n += 1
     check("T g0^-1(dtau, dtau) = -1 - m and the least |eigenvalue| of g0^-1 is sqrt(1 + m^2) - m (exact); for "
-          "|delta|_op <= eps_P < min(s(m), mu0/a^2 - 1): (g0^-1 + delta)(dtau, dtau) <= -1 + eps_P, |g| <= (s - eps_P)^-1 "
-          "(Weyl) and {r = a} spacelike (2000 samples at 0.99 of the threshold)",
+          "|delta|_op <= eps_P < min(s(m), mu0/a^2 - 1): (g0^-1 + delta)(dtau, dtau) <= -1 + eps_P, "
+          "|g| <= (s - eps_P)^-1 (Weyl) and {r = a} spacelike (2000 samples at 0.99 of the threshold)",
           ok_ev and ok_tt and worst_tt <= 1e-12 and worst_inv <= 1 + 1e-9 and worst_ra < 0,
           f"max excess {worst_tt:.2e}, max |g| (s - eps_P) {worst_inv:.4f}, max g^-1(dr, dr) at r = a {worst_ra:.4f}")
     mv = Q(1, 3)

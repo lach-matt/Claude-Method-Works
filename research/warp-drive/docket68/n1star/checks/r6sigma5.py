@@ -24,9 +24,9 @@ P(h) := Ric^H(g_b0 + h; g_b0), g_b0 := eta + mu r^-2 k k, mu = 4/5, Cartesian; f
   S4 (computed, 40 digits, full operator) Sigma_4 := r^-4 sum_l F_l(s) H_l(xhat), H_l the harmonic pieces of Q_6
      and L_l[F_l] = -1 (so -(1/2) box Sigma_4 = -Q_6): the fitted decay of |P| along the ray (s = 1/2,
      r = 8 .. 2048) is 6 for Sigma_2, 8 for Sigma_2 + Sigma_4 (degree -6 cancelled; next degree -8), 13/2 for
-     Sigma_2 + Sigma_(5/2) + Sigma_4 (the mu Sigma_(5/2) and Sigma_2 Sigma_(5/2) terms). Controls (the code mutated): the l = 2 piece with a
-     constant F (static, but not a solution of L_2 F = -1), and -Sigma_4: decay 6 each; Sigma_2 + Sigma_(5/2) without
-     Sigma_4: decay 6.
+     Sigma_2 + Sigma_(5/2) + Sigma_4 (the mu Sigma_(5/2) and Sigma_2 Sigma_(5/2) terms). Controls (the code
+     mutated): the l = 2 piece with a constant F (static, but not a solution of L_2 F = -1), and -Sigma_4: decay 6
+     each; Sigma_2 + Sigma_(5/2) without Sigma_4: decay 6.
   W (computed) the window as a whole. Each condition of the bootstrap is an exponent computed here, not typed:
      W1 the cap: the energy of the truncation's data on the band at t = T (the exact h_R of r5settle5 G1, its
         expansion at fixed v through r^-5, smoothstep cut-off, weight (2r)^(2a), l = 2) measured at |T| = 1e5, 1e6,

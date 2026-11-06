@@ -1047,3 +1047,313 @@ def assess_d6(res, flipS=False, dropB=False, lab='data'):
             rem = [d[(lab, lam)][nm] - float(lam) * I1 for lam in (Fr(1, 32), Fr(1, 64))]
             ps[(t_, nm)] = (order_p(*rem), rem)
     return ps
+
+
+def env_float():
+    """envelope5.py's env, c from int beta^2 by mpmath quadrature (floating point; certified interval READ)"""
+    Ib = mpmath.quad(lambda y: (mpmath.cos(mpmath.pi * y / 2) ** 12 * mpmath.exp(-y ** 2 / (1 - y ** 2))) ** 2,
+                     [-1, 0, 1])
+    c = float(mpmath.sqrt((mpmath.mpf(105) / 128) / (mpmath.mpf(3) / 2 * Ib)))
+
+    def env(vv):
+        y = (2 * vv - 4) / 3
+        return c * math.cos(math.pi * y / 2) ** 12 * math.exp(-y * y / (1 - y * y)) if abs(y) < 1 else 0.0
+    return env, c
+
+
+def mode_jets(sols, ks, r0, r1, rr, tt, deg=40):
+    nodes = np.cos(np.pi * (np.arange(4 * deg) + 0.5) / (4 * deg))
+    xs = (r0 + r1) / 2 + (r1 - r0) / 2 * nodes
+    xi = (2 * rr - (r0 + r1)) / (r1 - r0)
+    sc = 2 / (r1 - r0)
+    out = {}
+    for nm, i in (('a', 0), ('w', 1), ('q', 2)):
+        v_, dr, dt, hrr, hrt, htt = (np.zeros_like(rr) for _ in range(6))
+        for k in ks:
+            ch = np.polynomial.chebyshev.Chebyshev.fit(nodes, sols[k].sol(xs)[i], deg, domain=[-1, 1])
+            f0, f1, f2 = ch(xi), ch.deriv(1)(xi) * sc, ch.deriv(2)(xi) * sc ** 2
+            P = legendre_jets(k, tt, odd_der=(nm == 'q'))
+            v_, dr, dt = v_ + f0 * P[0], dr + f1 * P[0], dt + f0 * P[1]
+            hrr, hrt, htt = hrr + f2 * P[0], hrt + f1 * P[1], htt + f0 * P[2]
+        out[nm] = J(v_, [dr, dt], [[hrr, hrt], [hrt, htt]], 2)
+    return out
+
+
+def check_d7(fode):
+    env, c = env_float()
+    ks = (1, 3, 5, 7, 9, 11)
+    s1 = solve_modes(fode, env, 2.5, 5.5, 1.0, ks)
+    s2 = solve_modes(fode, env, 2.5, 5.5, 1.0, ks, rtol=1e-9)
+    tt = np.linspace(1e-3, np.pi / 2 - 1e-3, 61)
+    sizes = {}
+    for lab, (lo, hi) in (('past of X* (r <= 4)', (2.5, 4.0)), ('slice (r <= 11/2)', (2.5, 5.5))):
+        rr = np.linspace(lo, hi, 301)
+        R_, T_ = np.meshgrid(rr, tt, indexing='ij')
+        tot = {nm: np.zeros_like(R_) for nm in 'awq'}
+        dif = 0.0
+        for k in ks:
+            y1, y2 = s1[k].sol(rr), s2[k].sol(rr)
+            dif = max(dif, float(np.max(np.abs(y1[:3] - y2[:3]))))
+            P = legendre_jets(k, T_)
+            dP = legendre_jets(k, T_, odd_der=True)
+            tot['a'] += y1[0][:, None] * P[0]
+            tot['w'] += y1[1][:, None] * P[0]
+            tot['q'] += y1[2][:, None] * dP[0]
+        sizes[lab] = ({nm: float(np.max(np.abs(x))) for nm, x in tot.items()}, dif)
+    mu_end = float(s1[1].sol(5.5)[3])
+    OK['D7'] = (abs(mu_end - 227 / 192) < 1e-9 and sizes['slice (r <= 11/2)'][1] < 1e-8
+                and sizes['slice (r <= 11/2)'][0]['a'] < 1e-3)
+    print('  D7 (computed, floating point): envelope5\'s envelope (c = %.10f by quadrature, inside envelope5\'s certified '
+          '[1.32407110621, 1.3241034918]: %s); the mode ODEs k = 1, ..., 11 (odd) from zero data at r = 5/2; mu '
+          'integrated beside them reaches %.13f at r = 11/2 (227/192 = %.13f)' % (
+              c, float(C_LO.lower()) <= c <= float(C_HI.upper()), mu_end, 227 / 192))
+    for lab, (mx, dif) in sizes.items():
+        print('      on %s: sup |a| = %.3e, sup |w| = %.3e, sup |q| = %.3e (sup over th on a grid; rtol 1e-11 against '
+              '1e-9: %.1e)' % (lab, mx['a'], mx['w'], mx['q'], dif))
+    print('      so h_1 = a dr dr is below 1e-3 on the slice, against the |a_1| > 12.37 the data alone would need to move '
+          'the operator-norm bound (R8.0 (6), classm5 K3): computed now, not only implausible; sup |a| < 1e-3: %s %s'
+          % (OK['D7'], el()))
+    return env, c, s1
+
+
+def check_d8(fode, M1, F0):
+    M = Model(lambda x: 1 + x / 4)
+    ks = (1, 3, 5, 7, 9, 11)
+    r0, r1 = 1.1, 5.9
+    mufl = sp.lambdify(M.vv, M.mu(M.vv))
+    sols = solve_modes(fode, lambda vv: 1 + vv / 4, r0, r1, float(mufl(TAU0 + r0)), ks)
+    rr, wq = gauss(3.5, 0.3)
+    G2c, M1c = harm_closed(F0), m1_coeffs(M1)
+    out = {}
+    for t_ in (0.35, 0.8, 1.2):
+        tt = np.full_like(rr, t_)
+        U = mode_jets(sols, ks, r0, r1, rr, tt)
+        Z = J(np.zeros_like(rr), o=9)
+        for lam in (Fr(1, 32), Fr(1, 64)):
+            X = jets_of(explicit_parts(M, sp.Rational(lam.numerator, lam.denominator), G2c, M1c), rr, tt)
+            for lab, args, kw in (('stage 0', (Z, Z, Z), dict(g2=False)), ('stage 1', (U['a'], U['w'], U['q']), {})):
+                Jr_, Jt_, rho_ = constraint_map(slice_jets(X, lam, *args, **kw))
+                out[(lab, lam, t_)] = [float(np.sum(wq * x_)) for x_ in (Jr_, Jt_, rho_)]
+        print('      th = %.2f done %s' % (t_, el()))
+    ok = True
+    for t_ in (0.35, 0.8, 1.2):
+        line = []
+        for lab in ('stage 0', 'stage 1'):
+            ps = [order_p(out[(lab, Fr(1, 32), t_)][i], out[(lab, Fr(1, 64), t_)][i]) for i in range(3)]
+            if lab == 'stage 0':
+                ok &= 0.85 <= ps[1] <= 1.15 and ps[0] >= 1.6 and ps[2] >= 1.6
+            else:
+                ok &= all(p >= 1.6 for p in ps)
+            line.append('%s: W(1/32) = %s, p = %s' % (lab, ['%.3e' % x for x in out[(lab, Fr(1, 32), t_)]],
+                                                      ['%.2f' % p for p in ps]))
+        print('      th = %.2f  %s' % (t_, '; '.join(line)))
+    OK['D8'] = ok
+    print('  D8 (computed, floating point): the weak residual (J_r, J_th, rho) of the stage-0 data is of order lam in '
+          'J_th (the mean -S_1) and of order lam^2 in J_r, rho; with the stage-1 data of D5 it is of order lam^2 in all '
+          'three (p from lam = 1/32 to 1/64): %s %s' % (ok, el()))
+
+
+def smooth_end(f, x, x0, side, kmax=8, eps=mpmath.mpf('1e-3')):
+    """the derivatives of f at x0 + side*eps, k = 1..kmax (mpmath.diff, 60 digits)"""
+    with mpmath.workdps(60):
+        return [abs(mpmath.diff(lambda t: f(t), x0 + side * eps, k)) for k in range(1, kmax + 1)]
+
+
+def check_e1():
+    t, xx = sp.symbols('t x', positive=True)
+    P = sp.Integer(1)
+    ok_rec, ok_lim = True, True
+    for k in range(1, 9):
+        P = sp.expand(xx ** 2 * (P - sp.diff(P, xx)))
+        ok_rec &= sp.simplify(sp.diff(sp.exp(-1 / t), t, k) - P.subs(xx, 1 / t) * sp.exp(-1 / t)) == 0
+        ok_lim &= sp.limit(P * sp.exp(-xx), xx, sp.oo) == 0
+    y = sp.Symbol('y', real=True)
+    ok_fac = sp.simplify(sp.exp(-y ** 2 / (1 - y ** 2)) - sp.E * sp.exp(-1 / (1 - y ** 2))) == 0
+    beta = lambda q: (mpmath.cos(mpmath.pi * q / 2) ** 12 * mpmath.exp(-q ** 2 / (1 - q ** 2))) if abs(q) < 1 else 0
+    d_end = smooth_end(beta, None, mpmath.mpf(1), -1)
+    sin4 = lambda vv: mpmath.sin(mpmath.pi * (vv - mpmath.mpf(1) / 2) / 3) ** 4
+    d_sin = smooth_end(sin4, None, mpmath.mpf(1) / 2, 1)
+    vv = sp.Symbol('vv')
+    j4 = sp.diff(sp.sin(sp.pi * (vv - sp.Rational(1, 2)) / 3) ** 4, vv, 4).subs(vv, sp.Rational(1, 2))
+    smooth = ok_rec and ok_lim and ok_fac and max(d_end) < 1e-100
+    OK['E1'] = smooth
+    OK['C4'] = not (max(d_sin) < 1e-100) and j4 != 0
+    print('  E1 (proved; computed): phi^(k)(t) = P_k(1/t) e^(-1/t) with P_(k+1)(x) = x^2 (P_k - P_k\'), k <= 8: %s; '
+          'P_k(x) e^(-x) -> 0 as x -> oo: %s; exp(-y^2/(1 - y^2)) = e exp(-1/(1 - y^2)): %s; so beta = e cos^12(pi '
+          'y/2) phi(1 - y^2) is C^oo with support [-1, 1] and env with support [1/2, 7/2]; the derivatives 1..8 of beta '
+          'at y = 1 - 1e-3 are at most %s (60 digits): %s' % (ok_rec, ok_lim, ok_fac, mpmath.nstr(max(d_end), 3),
+                                                               smooth))
+    print('  C4 (control): the numerics\' sin^4(pi (v - 1/2)/3): its derivatives 1..8 at v = 1/2 + 1e-3 reach %s, and '
+          'its fourth derivative at v = 1/2 is %s != 0 (0 from the left): not C^4, E1\'s test fails: %s' % (
+              mpmath.nstr(max(d_sin), 4), j4, OK['C4']))
+
+
+def gron_cells(ncell=600, mcells=8, kcells=4):
+    M_, Q_, P_, G_, Ye, mm, kk, R_ = SR.forms()
+    A_ = sp.simplify(Q_[0, 0] * Q_[1, 1] - Q_[0, 1] ** 2)
+    B_ = sp.simplify(M_[0, 0] * Q_[1, 1] + M_[1, 1] * Q_[0, 0] - 2 * M_[0, 1] * Q_[0, 1])
+    C_ = sp.simplify(M_[0, 0] * M_[1, 1] - M_[0, 1] ** 2)
+    fA, fB, fC = (SR.to_arb_fn(e, (mm, kk)) for e in (A_, B_, C_))
+    fang = SR.to_arb_fn(sp.simplify(M_[2, 2] / Q_[2, 2]), (mm, kk))
+    rs = [SR.A_LO + (SR.B_HI - SR.A_LO) * Fr(i, ncell) for i in range(ncell + 1)]
+    mup = Fr(2, 9) * SR.C_ENV ** 2
+    cells = []
+    for i in range(ncell):
+        r0, r1 = rs[i], rs[i + 1]
+        mlo, mhi, khi = SR.MU0 / r1 ** 2, SR.MU_END / r0 ** 2, mup / r0
+        loc = flint.arb(0)
+        for jm in range(mcells):
+            ml, mh = mlo + (mhi - mlo) * Fr(jm, mcells), mlo + (mhi - mlo) * Fr(jm + 1, mcells)
+            mbox = flint.arb((SR.arb_q(ml) + SR.arb_q(mh)) / 2, (SR.arb_q(mh) - SR.arb_q(ml)) / 2)
+            for jk in range(kcells):
+                kl, kh = khi * Fr(jk, kcells), khi * Fr(jk + 1, kcells)
+                kbox = flint.arb((SR.arb_q(kl) + SR.arb_q(kh)) / 2, (SR.arb_q(kh) - SR.arb_q(kl)) / 2)
+                Av, Bv, Cv = fA(mbox, kbox), fB(mbox, kbox), fC(mbox, kbox)
+                disc = Bv * Bv - 4 * Av * Cv
+                sq = disc.sqrt() if disc > 0 else abs(disc).sqrt()
+                lamb = (abs(Bv) + sq) / (2 * Av) if Av > 0 else flint.arb('inf')
+                lamb = max(lamb, abs(fang(mbox, kbox)), key=lambda z: float(z.upper()))
+                if float(lamb.upper()) > float(loc.upper()):
+                    loc = lamb
+        cells.append((r0, r1, (loc / SR.arb_q(r0)).upper()))
+    sm, best = [None] * ncell, flint.arb(0)
+    for i in range(ncell - 1, -1, -1):
+        if float(cells[i][2].upper()) > float(best.upper()):
+            best = cells[i][2]
+        sm[i] = best
+    return cells, sm
+
+
+def rate_at(rho_, cells, sm):
+    for i, (r0, r1, _) in enumerate(cells):
+        if r1 > rho_:
+            return sm[i]
+    return sm[-1]
+
+
+def boundary_curve(a_lo, dtau, n=2000, steep=Fr(1)):
+    """rho~ backwards from (tau*, a_lo): pieces (dt, rho at the later end, sigma = -slope); sigma rounded down"""
+    dt, rho_, out = Fr(dtau) / n, Fr(a_lo), []
+    for _ in range(n):
+        m_lo = 1 / (rho_ + dt) ** 2
+        sig = Fr(int((m_lo - 1) / (m_lo + 1) * 10 ** 9), 10 ** 9) if m_lo > 1 else Fr(0)
+        sig = sig * steep
+        out.append((dt, rho_, sig))
+        rho_ = rho_ + sig * dt
+    return out
+
+
+def slope_ok(pieces):
+    """exact: on each piece, every point (rho in [rho_i, rho_i + sigma dt]) has (m - 1)/(m + 1) >= sigma, m >= mu0/rho^2
+    with mu0 = 1 the least mu on Omega; sigma <= 1 keeps the piece inside [rho_i, rho_i + dt]"""
+    for dt, rho_, sig in pieces:
+        if sig > 1:
+            return False
+        if sig == 0:
+            if rho_ > 1:
+                return False
+            continue
+        m_lo = 1 / (rho_ + sig * dt) ** 2
+        if not (m_lo > 1 and (m_lo - 1) / (m_lo + 1) >= sig):
+            return False
+    return True
+
+
+def check_g():
+    flint.ctx.prec = 120
+    cells, sm = gron_cells()
+    a_lo = SR.A_LO
+    dtau = 4 - a_lo
+    pieces = boundary_curve(a_lo, dtau)
+    ok1 = slope_ok(pieces)
+    tot = flint.arb(0)
+    for dt, rho_, sig in pieces:
+        tot += rate_at(rho_, cells, sm) * SR.arb_q(dt)
+    fac = (tot / 2).exp()
+    rho_end = pieces[-1][1] + pieces[-1][2] * pieces[-1][0]
+    OK['G1'] = ok1 and rho_end < 1
+    OK['G2'] = flint.arb('12') < cells[0][2] < flint.arb('13.3')
+    OK['G3'] = fac < flint.arb('1500') and fac > flint.arb('1000')
+    print('  G1 (certified, exact rationals): rho~ from (tau*, a) back to tau0 = tau* - (4 - a) in 2000 pieces, every '
+          'slope >= (1 - m)/(1 + m) with m >= 1/rho~^2: %s; rho~(tau0) = %.6f < 1 (it approaches the horizon from '
+          'inside): %s' % (ok1, float(rho_end), OK['G1']))
+    print('  G2 (certified, Arb): the local rate kappa(r) on 600 r-cells of [a, b(tau0)]; at r = a: %s (stage1rate5\'s '
+          '13.2197 on 400 cells); sup over r >= 0.5: %s, >= 1: %s, >= 2: %s: %s' % (
+              cells[0][2].str(6), rate_at(Fr(1, 2), cells, sm).str(6), rate_at(Fr(1), cells, sm).str(6),
+              rate_at(Fr(2), cells, sm).str(6), OK['G2']))
+    print('  G3 (certified): int_(tau0)^(tau*) kappa(rho~(tau)) dtau <= %s, so the principal-part factor over X*\'s past '
+          'is e^((1/2) int) <= %s, against the record\'s e^(kappa Dtau*/2) <= 5.103e10 (classm5 K5): smaller by a '
+          'factor %s; pinned in (1000, 1500): %s %s' % (tot.str(6), fac.str(6), (RECORD_K5 / fac).str(3), OK['G3'],
+                                                         el()))
+    steep = boundary_curve(a_lo, dtau, steep=Fr(5, 4))
+    OK['C6'] = not slope_ok(steep)
+    print('  C6 (control): the slopes 1.25 times steeper (rho~ moving outward faster than the outgoing null rays): the '
+          'future-boundary check fails: %s' % OK['C6'])
+    return fac
+
+
+def check_chain(fac):
+    a = SR.a_ball() if hasattr(SR, 'a_ball') else None
+    q0 = (flint.arb(9) / 1250) ** (flint.arb(1) / 8)
+    a = q0 / 2
+    base = 4 * C_LO / 3 * a ** flint.arb(-1.5)
+    capp = flint.arb(CAPP.numerator) / CAPP.denominator
+    ok_base = base > capp
+    pert = 4 * C_HI / 3 * (a + flint.arb(1) / 100) ** flint.arb(-1.5)
+    OK['C5'] = not (pert > capp)
+    print('  The chain (deduced, R8.2, READ classm5 K1-K2, K4): C_app >= (4/3) K + |M_22| at X*, (4/3) K >= %s > '
+          '12.593309: %s; an enclosure [lo, hi] of M_22, 0 not in it, would give lambda0 < 0.0024433 x 12.593309/'
+          '(12.593309 + min(|lo|, |hi|)) (operator norm). No enclosure is computed here (LAMBDA0-DATA5.md, M_22).' % (
+              base.str(9), ok_base))
+    print('  C5 (control): X* perturbed to r = a + 1/100: (4/3) env(2) r^(-3/2) <= %s < 12.593309, so the base of the '
+          'chain fails there: %s' % (pert.str(9), OK['C5']))
+    tol = 1 / fac
+    print('  The tolerance (deduced, the reading of classm5 K5): an a posteriori enclosure of M_22 through Lemma 2.3\'s '
+          'principal part needs the residual below |M_22| times about %s (was 2e-11), before c_Y q^(1/2) (<= 2^(1/2) '
+          'x 37.8, stage1rate5 K3), the lower-order coefficients and the Sobolev constant of the point value; not met: '
+          'no approximate solution of the evolution exists here.' % tol.str(3))
+    return ok_base
+
+
+def main():
+    print('lam0data5: the stage-1 data on Sigma (S_1, B_1), an admissible envelope, and the stability constant over X*\'s '
+          'past (CONSTANTS5.md R8.2 blocks (a)-(c))')
+    F0, first = check_d1_d2()
+    CO, M1, g2 = check_d3_d4(F0)
+    fode, Mc = check_d5(CO)
+    print('  D6 (computed, floating point): the identity at finite lam, E = 1 + v/4, the record\'s H, A = 1, test a, w, q:')
+    res = check_d6(CO, M1, F0)
+    ps = assess_d6(res)
+    OK['D6'] = all(p >= 1.6 for p, rem in ps.values())
+    for t_ in sorted(res):
+        print('      th = %.2f: remainders W(lam) - lam I1 at lam = 1/32, 1/64 and orders p: %s' % (t_, '; '.join(
+            '%s %.2e %.2e p = %.2f' % (nm, ps[(t_, nm)][1][0], ps[(t_, nm)][1][1], ps[(t_, nm)][0])
+            for nm in ('Jr', 'Jt', 'rho'))))
+    print('  D6: every remainder of order lam^2 (p >= 1.6): %s %s' % (OK['D6'], el()))
+    p1 = assess_d6(res, flipS=True)
+    OK['C1'] = not all(p >= 1.6 for p, rem in p1.values())
+    print('  C1 (control): S_1 with its sign flipped: orders %s: D6 fails: %s' % (
+        ['%.2f' % p for (t_, nm), (p, rem) in sorted(p1.items()) if nm == 'Jt'], OK['C1']))
+    p2 = assess_d6(res, lab='no phase')
+    OK['C2'] = not all(p >= 1.6 for p, rem in p2.values())
+    print('  C2 (control): the phase d_tau phi_1 = -a/2 dropped from the data: orders (J_r, rho) %s: D6 fails: %s' % (
+        ['%.2f' % p for (t_, nm), (p, rem) in sorted(p2.items()) if nm != 'Jt'], OK['C2']))
+    p3 = assess_d6(res, dropB=True)
+    OK['C3'] = not all(p >= 1.6 for p, rem in p3.values())
+    print('  C3 (control): B_1 dropped from the prediction: orders (J_r, rho) %s: D6 fails: %s' % (
+        ['%.2f' % p for (t_, nm), (p, rem) in sorted(p3.items()) if nm != 'Jt'], OK['C3']))
+    check_d7(fode)
+    check_d8(fode, M1, F0)
+    check_e1()
+    fac = check_g()
+    check_chain(fac)
+    print('  Not decided here (LAMBDA0-DATA5.md): a certified enclosure of M_22 = (m_1)_phi1phi1(X*)/a^2, which needs a '
+          'validated solve of Lemma 5.3 (a)-(c) at m = 1 on X*\'s past from the Cauchy data of D2, D4, D5, D7.')
+    for k, val in OK.items():
+        builtins.print(k, 'PASS' if val else 'FAIL')
+    builtins.print('lam0data5: %d/%d %s' % (sum(OK.values()), len(OK), el()))
+    return 0 if all(OK.values()) else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
