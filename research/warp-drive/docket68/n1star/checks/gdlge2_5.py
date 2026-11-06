@@ -644,61 +644,122 @@ def l8(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------- L9
-def l9(control=False):
-    D, T, U, Wv, Zv, Qv, Yv = sp.symbols('D T U Wv Zv Qv Yv', positive=True)
+L9_SYMS = sp.symbols('D T U Wv Zv Qv Yv E1 Ep', positive=True)
+
+
+def l9_cases():
+    """the parameters of Theorem R8.10 / Corollary R8.11 on the box: delta_# in (0, 1/4), gamma_Upsilon in
+    (delta_#, 1/4), and three sub-boxes covering alpha_K in (1, 3/2 + delta_#): (1, 3/2), {3/2} (round 9: the
+    round-8 verifier's nit) and (3/2, 3/2 + delta_#), each with gamma_+ in (max(1/2, alpha_K - 1), 1/2 + delta_#)"""
+    D, T, U, Wv, Zv, Qv, Yv, E1, Ep = L9_SYMS
     u01 = lambda S_: S_/(1 + S_)
     dsh = u01(D)/4                                            # delta_# in (0, 1/4)
     gU = dsh + (sp.Rational(1, 4) - dsh)*u01(Yv)               # gamma_Upsilon in (delta_#, 1/4)
-    qh = sp.Rational(3, 2) + 2*gU + Qv                         # q > 3/2 + 2 gamma_Upsilon (K:54-57)
-    t_, u_, w_, z_ = u01(T), u01(U), u01(Wv), u01(Zv)
+    t_, u_ = u01(T), u01(U)
     cases = {
         "A: alpha_K in (1, 3/2)": (1 + t_/2, HALF + dsh*u_),
+        "C: alpha_K = 3/2": (sp.Rational(3, 2), HALF + dsh*u_),
         "B: alpha_K in (3/2, 3/2 + delta_#)": (sp.Rational(3, 2) + dsh*t_, HALF + dsh*(t_ + (1 - t_)*u_)),
     }
-    allok = True
+    return dsh, gU, cases
+
+
+def l9_run(gap):
+    """Theorem R8.10's conditions, with the window and the (Z)-weight in the interval 'gap' ((-1, 0) on the
+    subspace).  Round 9 (the round-8 verifier's Minor 9): w_I := max(5/2, gamma_+ + 1 + eps_1), eps_1 in (0, 1/2),
+    eps > 0 and II.G' Proposition 3.3 (1)'s eps_PP := min(eps, eps_1) are encoded; a max on the left (a min on the
+    right) is handled exactly, argument by argument, as T11 does"""
+    D, T, U, Wv, Zv, Qv, Yv, E1, Ep = L9_SYMS
+    pos = list(L9_SYMS)
+    u01 = lambda S_: S_/(1 + S_)
+    dsh, gU, cases = l9_cases()
+    qh = sp.Rational(3, 2) + 2*gU + Qv                         # q > 3/2 + 2 gamma_Upsilon (K:54-57)
+    w_, z_ = u01(Wv), u01(Zv)
+    e1 = u01(E1)/2                                            # eps_1 in (0, 1/2)
+    ep = u01(Ep)/4                                            # eps in (0, 1/4): "every small eps > 0"
+    lo, hi = gap
+
+    def nonneg(e):
+        e = sp.simplify(e)
+        return e == 0 or positive_sum(e, pos)
+
+    def gt(e):
+        return positive_sum(sp.simplify(e), pos)
     rep = {}
+    allok = True
     for name, (aK, gp) in cases.items():
         bet = (gp - HALF) + (dsh - (gp - HALF))*w_                    # Theorem R4.3 at beta in (gamma_+ - 1/2, d#)
         eta = (HALF + dsh - gp)*z_
+        WI = [sp.Rational(5, 2), gp + 1 + e1]                         # w_I = max(WI)
+        EPP = [ep, e1]                                                # eps_PP = min(EPP)
+        bp = (HALF + gp)/2                                            # the density pair b_+, b_I of II.F' (1.4)
+        bI = (bp + sp.Rational(3, 2))/2
+        maxge = lambda rhs: any(nonneg(a_ - rhs) for a_ in WI)        # max(WI) >= rhs
         cond = {
-            "alpha_K - 1 > 0 (Taylor term, alpha_K not an integer)": aK - 1,
-            "2 - alpha_K > 0 (II.G' Props 2.8, 3.3, 3.5; Lemma R6.2 (a) zf)": 2 - aK,
-            "(Z) weight gamma_+ - 1 > -1": gp,
-            "(Z) weight gamma_+ - 1 < 0": 1 - gp,
-            "window gamma_+ - alpha_K < 0": aK - gp,
-            "window gamma_+ - alpha_K > -1": gp + 1 - aK,
-            "density: b_+ = (1/2 + gamma_+)/2 in (1/2, gamma_+]": gp - HALF,
-            "scf: gamma_+ + 2 - eps_PP >= 5/2 - eps": gp - HALF,
-            "eta > 0": eta,
-            "cone source iota+: 5/2 + d# - eta > gamma_+ + 2": HALF + dsh - eta - gp,
-            "cone source K+: 2 - eta > alpha_K (w > 2)": 2 - eta - aK,
-            "commutator iota+: 1/2 + beta > gamma_+": HALF + bet - gp,
-            "beta > 0": bet,
-            "beta < delta_#": dsh - bet,
-            "slab: 1/2 + beta < 3/2": 1 - bet,
-            "slab: 1/2 + beta < q - 1": qh - sp.Rational(3, 2) - bet,
-            "Lemma 4.2: beta_scf = 3/2 - eps < 3/2": sp.Integer(1),
-            "h_>=2: w - eps' > alpha_K (w > 2)": 2 - aK,
-            "the claim: alpha_K < 3/2 + delta_#": sp.Rational(3, 2) + dsh - aK,
+            "alpha_K - 1 > 0 (Taylor term, alpha_K not an integer)": gt(aK - 1),
+            "2 - alpha_K > 0 (II.G' Props 2.8, 3.3, 3.5; Lemma R6.2 (a) zf)": gt(2 - aK),
+            "(Z) weight gamma_+ - 1 > lower end of the gap": gt(gp - 1 - lo),
+            "(Z) weight gamma_+ - 1 < upper end of the gap": gt(hi - (gp - 1)),
+            "window gamma_+ - alpha_K < upper end of the gap": gt(hi - (gp - aK)),
+            "window gamma_+ - alpha_K > lower end of the gap": gt(gp - aK - lo),
+            "Lemma 4.1: w_I - 1 >= 3/2": maxge(sp.Rational(5, 2)),
+            "Lemma 4.1: w_I >= gamma_+ + 1 + eps_1 (alpha_K > 1 - eps_1)": maxge(gp + 1 + e1) and gt(aK - 1 + e1),
+            "Lemma 4.1: beta_iota + 2 = gamma_+ + 2 >= 5/2": nonneg(gp - HALF),
+            "Prop 3.3 (1): eps_PP in (0, 1)": all(gt(e_) and gt(1 - e_) for e_ in EPP),
+            "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP": any(maxge(gp + 1 + e_) for e_ in EPP),
+            "Lemma 4.2: scf, w_I - eps_PP >= 5/2 - eps": any(maxge(sp.Rational(5, 2) - ep + e_) for e_ in EPP),
+            "Lemma 4.2: scf, gamma_+ + 2 - eps_PP >= 5/2 - eps": any(nonneg(gp + 2 - (sp.Rational(5, 2) - ep + e_))
+                                                                    for e_ in EPP),
+            "Lemma 4.2: beta_scf = 3/2 - eps < 3/2, eps in (0, 1)": gt(ep) and gt(1 - ep),
+            "Prop 3.5 (1): beta_scf = 3/2 - 2 eps >= gamma_+ (I-weight gamma_+ - eps)": nonneg(1 - 2*ep - gp + HALF),
+            "density: 1/2 < b_+ < b_I < 3/2": gt(bp - HALF) and gt(bI - bp) and gt(sp.Rational(3, 2) - bI),
+            "density: b_+ <= gamma_+": nonneg(gp - bp),
+            "density: b_I + 1 <= w_I": maxge(bI + 1),
+            "eta > 0": gt(eta),
+            "cone source iota+: 5/2 + d# - eta > gamma_+ + 2": gt(HALF + dsh - eta - gp),
+            "cone source K+: 2 - eta > alpha_K (w > 2)": gt(2 - eta - aK),
+            "commutator iota+: 1/2 + beta > gamma_+": gt(HALF + bet - gp),
+            "beta > 0": gt(bet),
+            "beta < delta_#": gt(dsh - bet),
+            "slab: 1/2 + beta < 3/2": gt(1 - bet),
+            "slab: 1/2 + beta < q - 1": gt(qh - sp.Rational(3, 2) - bet),
+            "h_>=2: w - eps' > alpha_K (w > 2)": gt(2 - aK),
+            "the claim: alpha_K < 3/2 + delta_#": gt(sp.Rational(3, 2) + dsh - aK),
         }
-        if control:
-            cond = {"full bundle window gamma_+ - alpha_K > 0": gp - aK}
-        res = {k_: positive_sum(sp.simplify(e_), [D, T, U, Wv, Zv, Qv, Yv]) for k_, e_ in cond.items()}
-        bad = [k_ for k_, val in res.items() if not val]
+        bad = [k_ for k_, val in cond.items() if not val]
         rep[name] = (len(cond), not bad, bad)
         allok &= not bad
-    tag = "  L9 control (the full bundle's window (0, 1))" if control else "  L9"
-    print("%s: (sub-box, conditions, all positive sums, failing): %s" % (tag, rep), flush=True)
-    return allok
+    # the box reaches the claim: sup of alpha_K over sub-box B is 3/2 + delta_# (L10 uses this supremum)
+    sup_B = sp.limit(cases["B: alpha_K in (3/2, 3/2 + delta_#)"][0], T, sp.oo)
+    reach = sp.simplify(sup_B - (sp.Rational(3, 2) + dsh)) == 0
+    return allok and reach, rep, reach, sup_B
+
+
+def l9(control=False):
+    # control (round 9: the round-8 verifier's Minor 8): the same conditions with the full bundle's gap, the window
+    # and the (Z)-weight in (0, 1) (Theorem R6.4's), must fail on the box
+    gap = (0, 1) if control else (-1, 0)
+    ok, rep, reach, sup_B = l9_run(gap)
+    tag = "  L9 control (the same conditions with the full bundle's window (0, 1))" if control else "  L9"
+    print("%s: (sub-box, conditions, all positive sums, failing): %s; sub-box B reaches sup alpha_K = %s: %s"
+          % (tag, rep, sup_B, reach), flush=True)
+    return ok
 
 
 # ------------------------------------------------------------------------------------------------------------ L10
 def l10(control=False):
     D, Yv, P, K = sp.symbols('D Yv P K', positive=True)
     u01 = lambda S_: S_/(1 + S_)
+    dsh9, gU9, cases = l9_cases()
+    # round 9: the l >= 2 exponent is the supremum of alpha_K over L9's box, computed, not typed
+    T9 = L9_SYMS[1]
+    sups = [sp.limit(aK, T9, sp.oo) for aK, _ in cases.values()]
+    top = [s_ for s_ in sups if all(sp.simplify(s_ - o_) == 0 or positive_sum(sp.simplify(s_ - o_), [L9_SYMS[0]])
+                                    for o_ in sups)]
+    e_box = top[0].subs(L9_SYMS[0], D) if top else sp.Integer(0)
     dsh = u01(D)/4
     gU = dsh + (sp.Rational(1, 4) - dsh)*u01(Yv)
-    e_lge2 = (HALF + dsh) if control else (sp.Rational(3, 2) + dsh)   # sup of the l >= 2 exponents
+    e_lge2 = (HALF + dsh) if control else e_box                # control: R5.3's exponent 1/2 + delta_#
     p0 = HALF + 2*gU + P                                      # p_0 > 1/2 + 2 gamma_Upsilon (Corollary R7.7 (a))
     cond = {
         "l >= 2 exponent above 3/2 (so min(p_0, 3/2) is the overall one)": e_lge2 - sp.Rational(3, 2),
@@ -706,12 +767,14 @@ def l10(control=False):
         "paper's data: l >= 2 exponent above p_0 = 1": e_lge2 - 1,
         "compact support: the l = 0 next term t^-2 below the l >= 2 exponent cap": 2 - e_lge2,
         "compact support: l >= 2 exponent above 3/2": e_lge2 - sp.Rational(3, 2),
+        "the l >= 2 exponent is 3/2 + delta_# (Corollary R8.11)": sp.Integer(1) if sp.simplify(
+            e_lge2 - sp.Rational(3, 2) - dsh) == 0 else sp.Integer(-1),
     }
     res = {k_: positive_sum(sp.simplify(e_), [D, Yv, P]) for k_, e_ in cond.items()}
     bad = [k_ for k_, val in res.items() if not val]
     tag = "  L10 control (R5.3's l >= 2 exponent 1/2 + delta_#)" if control else "  L10"
-    print("%s: %d conditions, all positive sums: %s%s" % (tag, len(cond), not bad, "; failing %s" % bad if bad else ""),
-          flush=True)
+    print("%s: the l >= 2 exponent (sup of L9's box) %s; %d conditions, all positive sums: %s%s"
+          % (tag, e_lge2, len(cond), not bad, "; failing %s" % bad if bad else ""), flush=True)
     return not bad
 
 
