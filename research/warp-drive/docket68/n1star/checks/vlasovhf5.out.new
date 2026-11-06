@@ -10,3 +10,4 @@ H2 (exact, two-scale jets) the constraints on a non-round slice, non-radial phas
    seed 23 (p = [7/5, 9/10]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
 H2 PASS
 H3 (exact) the orbit space has no shear: <Hess u, S> = (box u) tr S for S(ell, .) = 0
+   seed 31: 2+1: True (Hess u (ell, .) = 0: True); control 3+1 rejected: True; control Hess without Christoffels rejected: True
