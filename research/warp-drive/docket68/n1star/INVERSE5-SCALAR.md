@@ -30,23 +30,23 @@ of the record.
 
 - **(B) is settled.** Both avoidances hold at the weights of `dweights5.py` W1 (eps = eps' = 10^-12, eps_ind = 1.9 x
   10^-8, eps_K = 1.88 x 10^-8), at every one of the 106,489,470 levels and every round, exactly, with certified margins
-  (proved, Theorems B.2-B.5; `rootavoid5.py` 23/23). The levels' admissibility is settled on both sides of 3: below 3
-  through I9:55-58, which I11:156-157 assigns there (Theorem B.4, the round-10 verifier's gap, alpha_1 included), above
-  3 through I11:156-160 as I14 Definition 1.1 (b) applies it (Theorem B.3), with Definition 1.1 (a) besides (B.7b). The
-  mechanism is arithmetic: the levels, rounds and weights are rational; every indicial root of L-hat_b0(0) the
-  conditions can meet is an integer or irrational (Lemma B.1, every type and degree, the box^C sextic included through a
-  2-adic argument); so the conditions reduce to integer congruences, which have no solution in range, and to
-  field-membership tests over Q(d1), which fail as they must. The rational coincidences that could occur, alpha =
-  lambda_sharp + 1 = 2.5099 below 3 and beta = lambda_sharp + 2 = 3.5099 above, are not levels. Margins: w is at least
-  3.41 x 10^-13 (I9; 4.0 x 10^-13 from 0) and 2.0 x 10^-13 (I14) from every root it could meet; the levels are at least
-  8.91 x 10^-16 (below 3) and 3.19 x 10^-16 (above 3) from the excluded sets. Proposition 5.1's hypothesis holds even as
-  literally stated (every j, every root). All on R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1).
-  I11:156-160's *appended* set is decided too, (4.2) of III.G'''' Proposition 4.4 at the second Taylor level included,
-  whose tf-exponents are derived from the write-out's own dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists
-  every condition with its range. [vINV2 minor 2: all of part B's arithmetic is at the record's computational point
-  (A.1: z = 4 e_U gam_U^2 = 1/250000, gam_C = 10^6, W1's weights chosen on delta_50 there), outside the proved set; it
-  is settled at that point, at which d's reading is computed; B.9 states what holds at every admissible point, proved
-  symbolically (R12), and what would have to be redone.]
+  (proved, Theorems B.2-B.5; `rootavoid5.py` 23/23). [vINV2: 26/26 with R12 and controls C10-C11.] The levels'
+  admissibility is settled on both sides of 3: below 3 through I9:55-58, which I11:156-157 assigns there (Theorem B.4,
+  the round-10 verifier's gap, alpha_1 included), above 3 through I11:156-160 as I14 Definition 1.1 (b) applies it
+  (Theorem B.3), with Definition 1.1 (a) besides (B.7b). The mechanism is arithmetic: the levels, rounds and weights are
+  rational; every indicial root of L-hat_b0(0) the conditions can meet is an integer or irrational (Lemma B.1, every
+  type and degree, the box^C sextic included through a 2-adic argument); so the conditions reduce to integer
+  congruences, which have no solution in range, and to field-membership tests over Q(d1), which fail as they must. The
+  rational coincidences that could occur, alpha = lambda_sharp + 1 = 2.5099 below 3 and beta = lambda_sharp + 2 = 3.5099
+  above, are not levels. Margins: w is at least 3.41 x 10^-13 (I9; 4.0 x 10^-13 from 0) and 2.0 x 10^-13 (I14) from
+  every root it could meet; the levels are at least 8.91 x 10^-16 (below 3) and 3.19 x 10^-16 (above 3) from the
+  excluded sets. Proposition 5.1's hypothesis holds even as literally stated (every j, every root). All on R9.1's
+  reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). I11:156-160's *appended* set is decided too, (4.2) of
+  III.G'''' Proposition 4.4 at the second Taylor level included, whose tf-exponents are derived from the write-out's own
+  dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists every condition with its range. [vINV2 minor 2: all of part
+  B's arithmetic is at the record's computational point (A.1: z = 4 e_U gam_U^2 = 1/250000, gam_C = 10^6, W1's weights
+  chosen on delta_50 there), outside the proved set; it is settled at that point, at which d's reading is computed; B.9
+  states what holds at every admissible point, proved symbolically (R12), and what would have to be redone.]
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
