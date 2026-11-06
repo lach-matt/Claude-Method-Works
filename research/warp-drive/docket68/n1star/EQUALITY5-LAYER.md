@@ -2459,7 +2459,7 @@ m := c₃|ν|T0 λ³ A |d| env/2: ε ≤ C κ^(2c′) env² ≤ m/4 once env ≤
 X12 measures Case 3's inequality at a real cancellation with unit constants (N = 12, c_N = 6/5, ν = −1/9, Γ_R = 1, exact
 derivatives of exp(−1/x) and of the record's envelope): over the whole crossover |S_U|/|S_st| ∈ [1/4, 4] the least ratio
 of |σ_main| to the bound above is 5.76, 47.6, 3.1·10^3, 1.36·10^7 [round 7, V6-n13: with the stage λ-term carrying no
-|ν|, R7.5's numbers] at λ = 10^(−10), 10^(−20), 10^(−40), 10^(−80) (both
+|ν|, the numbers of R7.0] at λ = 10^(−10), 10^(−20), 10^(−40), 10^(−80) (both
 envelopes), and arg σ_main moves by at most 0.009 over 4πλ; to round 5's bound the ratio stays at 1.04-1.17 (the
 control). X13 checks (b) for g = env^(11) of exp(−1/x) by quadrature: |ρ_g|/(λκ)² ≤ 0.048 [round 7, V6-m4: an unconverged
 quadrature; converged ≤ 0.012, R7.1] at λ = 10^(−6), 10^(−7), λκ =

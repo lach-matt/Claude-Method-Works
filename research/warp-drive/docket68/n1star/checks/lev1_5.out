@@ -23,9 +23,12 @@ L2 the level-1 rows (17), the unknowns on each right side:
    pP3_2    (pair, bounds pdc2): deta dchib detab dk dw db dc2 dd2 pdeta pdchib pdetab pdk pdw pdb pdc2 pdd2
    pP4_2    (pair, bounds pdd2): dchi dchib detab dom dk dw da2 dc2 dd2 pdchi pdchib pdetab pdom pdk pdw pda2 pdc2 pdd2
    no level-2 term on any right side: True; the background through state, DX, DXX, w_x, k_x only: True -> PASS
+L5 (exact; round 5, the verifier of round 4, m2) the content of every level-1 row: L0(Z') - R1 = e_x(L0 Z - r) + h (L0 Z
+    - r) on the general (2+1)-metric, two scalars and arbitrary Z: all 17 rows hold -> PASS (17 s)
+   controls: (eta + etab)/2 * rhs dropped from the commuted chi row: fails (good); -chi dY' dropped: fails (good)
 L3 control: chib by null3.py N7's e4 equation, commuted: level-2 terms ['dxx_detab'] -> fails (good)
 L4 (computed) level 1 on |x| <= 1/2, unweighted: int a_o du = 366.6, int a_i dv = 2679.5, F_1^2 = 10^2645.7 (level 0:
     10^138.0)
    weighted (Theorem 8.W's optimum): log(max/min lam) = 12.68, int a_o du = 65.8, int a_i dv = 32.7, F_1^2 = 10^91.0
        (level 0 weighted: 10^66.9)
-lev1_5 (506 s): all checks pass
+lev1_5 (470 s): all checks pass

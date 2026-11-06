@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""gdr9_5.py -- GAUGEDECAY5.md Rounds 9-10: computational support for the round-8 claims that no check exercised (the
+"""gdr9_5.py -- GAUGEDECAY5.md Rounds 9-11: computational support for the round-8 claims that no check exercised (the
 round-8 verifier's list), each with a control that runs the computed path with a mutated input and must fail.
 
 Background as in gdlge2_5.py: the ingoing chart, g = -f dv^2 + 2 dv dr + r^2 gamma, f = 1 - mu/r^2, mu = s^2 = r_h^2;
@@ -640,11 +640,11 @@ def n5(control=False):
         return len(K['ker02']) == 2
     ok = (all(K['solve'].values()) and K['indep'] and K['ker'] == ["W*", "(d_v)^flat"] and K['ker02'] == ["W*"]
           and not K['smooth']["(0, 1/(r (r^2 - mu)))"] and K['l1_scalar'] == 1 and K['l1_vector'] == 0
-          and K['cls'] == 2 and K['full'] == 6)
+          and K['cls'] == 2 and K['full'] == 6 and K['dim_vec1'] == 6)          # round 11: dim (1,0) + (0,1) asserted
     print("  N5: l = 0 solutions %s; independent: %s; smooth at r_h %s; growth exponents %s; kernel at weights in "
           "(-1, 0) (growth below r^%s, from L2's gap): %s, in (0, 2): %s; scalar l = 1: %s per harmonic (N2's "
           "exponents at nu = 1/2: %s), vector l = 1: %s (N3 at l = 1), l >= 2: none (N2, N3); harmonics of degree "
-          "0, 1: %s, G-fixed among them %s (N1's model), vector l = 1 dimension %d: the kernel is %d-dimensional in "
+          "0, 1: %s, G-fixed among them %s (N1's model), vector l = 1 dimension %d (= 6, asserted): the kernel is %d-dimensional in "
           "the class and %d-dimensional on all 1-forms: %s"
           % (K['solve'], K['indep'], K['smooth'], K['grow'], K['p_claim'], K['ker'], K['ker02'], K['l1_scalar'],
              K['want_h'], K['l1_vector'], K['dimH'], K['fixG'], K['dim_vec1'], K['cls'], K['full'], ok), flush=True)

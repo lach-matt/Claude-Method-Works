@@ -15,10 +15,13 @@ and since min(lam) f <= f_lam <= max(lam) f,
 Every (lam, theta) gives a theorem; the choice only sets how sharp it is.  The exponent is convex in (log lam,
 log theta) (sums of exponentials of linear forms, maxima, integrals), so its minimum is computable.
 
-  W1 (computed check of the weighted lemma, mutation control) a model Goursat pair Y_v = m Z, Z_u = m Y on
-     [0, 1]^2 with data 1 on both cones (the extremal coupling, solved exactly as a Bessel series): the weighted bound
-     with lam_Y/lam_Z = q must hold for every q tried; with the factor max lam/min lam dropped (the mutation) it must
-     fail for some q.
+  W1 (computed check of the weighted lemma, mutation controls) a model Goursat pair Y_v = m1 Z, Z_u = m2 Y on
+     [0, 1]^2 with data 1 on both cones, solved on an 800 x 800 trapezoidal grid: the bound e^J D, J from Bound.J_exact
+     itself, must hold at every (lam, theta) tried (m1 = 9, m2 = 1 and m2 = 0.01).  Two mutations must each give a
+     bound below f: the partner share lam_Y theta/lam_Z (m2 = 1, theta -> 0), and the factor max lam/min lam dropped
+     from J (m2 = 0.01, at weights where it is essential).  [Round 5, the verifier of round 4, m16: this docstring
+     named the second mutation while W1 tested only the first, and W1 divided the factor out of J and put it back, so
+     it could not see the second.  Both are tested now, the bound read straight from J.]
   W2 (computed) control: lam = theta = 1 reproduces linest5.py E4b on |x| <= 1/2 (F^2 = 10^138.0): the code under test
      against the independent implementation.
   W3 (computed) the optimum: F_lam^2 on |x| <= 1/2 and 0.8, with the weights found, against 7.L's.
@@ -95,10 +98,12 @@ class Bound:
     """the exponent J = log(max lam/min lam) + 2 int a_o du + 2 int a_i dv for weights t = log lam (per group) and
     splits s = log theta (per off-diagonal term), on a band of the background"""
 
-    def __init__(self, T, D, sel, uu, vv, unk=None, typ=None, group=None, groups=None, mutate=False):
+    def __init__(self, T, D, sel, uu, vv, unk=None, typ=None, group=None, groups=None, mutate=False,
+                 mutate_ratio=False):
         self.unk, self.typ = unk or UNK, typ or TYPE
         self.group, self.groups = group or GROUP, groups or GROUPS
         self.mutate = mutate
+        self.mutate_ratio = mutate_ratio      # the mutation: the factor max lam/min lam dropped from J
         self.uu, self.vv = uu, vv
         self.outs = [n for n in self.unk if self.typ[n] in ('out', 'both')]
         self.ins = [n for n in self.unk if self.typ[n] == 'in']
@@ -126,7 +131,7 @@ class Bound:
         ao = np.nanmax(np.stack([np.nanmax(K[n], axis=(1, 2)) for n in self.outs]), axis=0)
         ai = np.nanmax(np.stack([np.nanmax(K[n], axis=(0, 2)) for n in self.ins]), axis=0)
         Io = np.trapezoid(ao[self.iu], self.uu[self.iu]); Ii = np.trapezoid(ai[self.iv], self.vv[self.iv])
-        return (max(t) - min(t)) + 2 * Io + 2 * Ii, Io, Ii
+        return (0.0 if self.mutate_ratio else (max(t) - min(t))) + 2 * Io + 2 * Ii, Io, Ii
 
     def J_relaxed(self, p, beta=60.0):
         ng = len(self.groups); t, s = p[:ng], p[ng:]
@@ -147,12 +152,8 @@ class Bound:
         return (tm - tn) + 2 * Io + 2 * Ii
 
 
-def model_check():
-    """W1: the model Y_v = m1 Z (Y transported in v, measured on ingoing cones), Z_u = m2 Y (measured on outgoing
-    ones), Y(u, 0) = Z(0, v) = 1 on [0, 1]^2, m1 = 9, m2 = 1, solved on a fine grid (second order); f(1, 1) of Theorem
-    7.L against e^J (D_lam/min lam) from Bound itself, at several (lam, theta); and the mutated Bound (partner share
-    lam_Y theta/lam_Z) at theta -> 0, which must fall below f."""
-    m1, m2, n = 9.0, 1.0, 800
+def model_solve(m1, m2, n=800):
+    """the model Y_v = m1 Z, Z_u = m2 Y on [0, 1]^2 with data 1, trapezoidal in both directions; f(1, 1)"""
     g = np.linspace(0, 1, n + 1); h = g[1] - g[0]
     Y = np.ones((n + 1, n + 1)); Z = np.ones((n + 1, n + 1))
     for i in range(n + 1):
@@ -169,39 +170,63 @@ def model_check():
             else:                        # v = 0: Y = 1 data, Z from its row
                 Z[i, j] = Z[i - 1, j] + h * m2 * (Y[i - 1, j] + Y[i, j]) / 2
     f11 = np.trapezoid(Y[:, -1] ** 2, g) + np.trapezoid(Z[-1, :] ** 2, g)
+    return g, f11
+
+
+def model_check():
+    """W1: the model Y_v = m1 Z (Y transported in v, measured on ingoing cones), Z_u = m2 Y (measured on outgoing
+    ones), Y(u, 0) = Z(0, v) = 1 on [0, 1]^2, solved on a fine grid (second order); f(1, 1) of Theorem 7.L against
+    the theorem's own bound F_lam^2 D = e^J D from Bound.J_exact itself (no factor taken out of J and put back), at
+    several (lam, theta), for m1 = 9 and m2 = 1, and for m1 = 9, m2 = 0.01 at weights where the factor max lam/min lam
+    is essential.  Mutations (each must give a bound below f): the partner share lam_Y theta/lam_Z (mutate) at
+    theta -> 0; and the factor max lam/min lam dropped from J (mutate_ratio) at the second model's weights.
+    [Round 5, the verifier of round 4, m16: the round-4 W1 divided the factor out of J and multiplied it back, so a
+    J_exact without it still passed; and its docstring named that mutation while testing the other.]"""
     D11 = 2.0                            # int_0^1 Y(u, 0)^2 du + int_0^1 Z(0, v)^2 dv
-    sel = np.ones((n + 1, n + 1, 1), bool)
-    one = np.ones((n + 1, n + 1, 1))
-    T = [('Y', 'Z', m1 * one), ('Z', 'Y', m2 * one)]
-    D = {'Y': 0 * one, 'Z': 0 * one}
     kw = dict(unk=['Y', 'Z'], typ={'Y': 'in', 'Z': 'out'}, group={'Y': 'Y', 'Z': 'Z'}, groups=['Y', 'Z'])
     rows = []
-    for lq, s1, s2 in ((0.0, 0.0, 0.0), (np.log(1 / 9), np.log(1 / 3), np.log(3)), (np.log(1 / 9), 0.0, 0.0),
-                       (1.0, 0.5, -0.5)):
-        t = np.array([lq, 0.0]); s_ = np.array([s1, s2])
-        J, _, _ = Bound(T, D, sel, g, g, **kw).J_exact(t, s_)
-        Dlam = np.exp(max(t)) * D11                     # D_lam <= max lam D ; f <= f_lam/min lam
-        bound = np.exp(J - (max(t) - min(t))) * Dlam / np.exp(min(t))
-        rows.append((np.exp(lq), np.exp(s1), np.exp(s2), f11, bound, f11 <= bound))
+    out = {}
+    for m1, m2, cases in ((9.0, 1.0, ((0.0, 0.0, 0.0), (np.log(1 / 9), np.log(1 / 3), np.log(3)),
+                                      (np.log(1 / 9), 0.0, 0.0), (1.0, 0.5, -0.5))),
+                          (9.0, 0.01, ((-5.0, -2.5, 2.5),))):
+        g, f11 = model_solve(m1, m2)
+        n = len(g) - 1
+        sel = np.ones((n + 1, n + 1, 1), bool)
+        one = np.ones((n + 1, n + 1, 1))
+        T = [('Y', 'Z', m1 * one), ('Z', 'Y', m2 * one)]
+        D = {'Y': 0 * one, 'Z': 0 * one}
+        for lq, s1, s2 in cases:
+            t = np.array([lq, 0.0]); s_ = np.array([s1, s2])
+            J, _, _ = Bound(T, D, sel, g, g, **kw).J_exact(t, s_)
+            bound = np.exp(J) * D11
+            rows.append((m2, np.exp(lq), np.exp(s1), np.exp(s2), f11, bound, f11 <= bound))
+        out[m2] = (g, f11, T, D, sel)
+    g, f11, T, D, sel = out[1.0]
     Jm, _, _ = Bound(T, D, sel, g, g, mutate=True, **kw).J_exact(np.zeros(2), np.array([-12.0, -12.0]))
     mut = np.exp(Jm) * D11
-    return f11, rows, mut, f11 > mut
+    g2, f2, T2, D2, sel2 = out[0.01]
+    Jr, _, _ = Bound(T2, D2, sel2, g2, g2, mutate_ratio=True, **kw).J_exact(np.array([-5.0, 0.0]),
+                                                                            np.array([-2.5, 2.5]))
+    mutr = np.exp(Jr) * D11
+    return f11, rows, (mut, f11 > mut), (f2, mutr, f2 > mutr)
 
 
 def main():
     t0 = time.time()
     ok = True
-    f11, rows, mut, caught = model_check()
-    good = all(r[5] for r in rows)
-    print('W1 model (Y_v = 9 Z, Z_u = Y on [0, 1]^2, data 1): f(1, 1) = %.4g; the weighted bound from Bound itself:' %
-          f11)
-    for q, th1, th2, f_, b_, ok_ in rows:
-        print('   lam_Y/lam_Z = %.3g, theta = %.3g, %.3g: bound %.4g (%s)' % (q, th1, th2, b_, 'holds' if ok_ else
-                                                                             'FAILS'))
-    print('   mutation (the partner\'s share lam_Y theta/lam_Z), theta = e^-12: bound %.4g -> %s' % (
+    f11, rows, (mut, caught), (f2, mutr, caught2) = model_check()
+    good = all(r[6] for r in rows)
+    print('W1 model (Y_v = 9 Z, Z_u = m2 Y on [0, 1]^2, data 1): f(1, 1) = %.4g at m2 = 1 and %.4g at m2 = 0.01; the '
+          'bound e^J D from Bound.J_exact itself:' % (f11, f2))
+    for m2, q, th1, th2, f_, b_, ok_ in rows:
+        print('   m2 = %g, lam_Y/lam_Z = %.3g, theta = %.3g, %.3g: bound %.4g against f %.4g (%s)' % (
+            m2, q, th1, th2, b_, f_, 'holds' if ok_ else 'FAILS'))
+    print('   mutation (the partner\'s share lam_Y theta/lam_Z), m2 = 1, theta = e^-12: bound %.4g -> %s' % (
         mut, 'below f: caught (good)' if caught else 'not caught (bad)'))
-    print('W1', 'PASS' if good and caught else 'FAIL')
-    ok &= good and caught
+    print('   mutation (the factor max lam/min lam dropped from J), m2 = 0.01 at the weights above: bound %.4g -> %s'
+          % (mutr, 'below f: caught (good)' if caught2 else 'not caught (bad)'))
+    print('W1', 'PASS' if good and caught and caught2 else 'FAIL')
+    ok &= good and caught and caught2
     if len(sys.argv) < 2:
         print('wgron5 (no run given; W2-W5 skipped):', 'all checks pass' if ok else 'FAILURES')
         return 0 if ok else 1

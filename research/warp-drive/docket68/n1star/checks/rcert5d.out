@@ -1,5 +1,6 @@
-# RCERT5D_DIR=<scratch>/r4/rcert5d python3 checks/rcert5d.py --collect 4 5.3e-4   (after --worker w 2, w = 0, 1, then
-#   --repartition 2 4 and --worker w 4, w = 0..3; and --census 5.3e-4, whose output follows the collect)
+# RCERT5D_DIR=<scratch>/r5/rcert5d_ck python3 checks/rcert5d.py --collect 4 5.3e-4   (round 5: the round-4
+#   checkpoints, copied unchanged, md5s as in r4/rcert5d; then --census 5.3e-4, whose output follows; the
+#   program repaired per the verifier of round 4, M-A: one assembly Engine.bound, upward rounding, the D4 gate)
 D0 the pinned tensors n1star/data/rcert5_C3.npz: md5s equal the record's (rcert5c.out)
    checkpoint 0/4: 13952 accepted, 0 queued, cpu 1733 s, wall 6430 s
    checkpoint 1/4: 6272 accepted, 0 queued, cpu 588 s, wall 6425 s
@@ -17,13 +18,15 @@ D1 (certified) the box t in [-1/2, 0], sig in [-1/2, 0], x in [0, 1/4], target t
 D1 PASS (every component certified <= tau on the whole box)
 D2 (certified) components whose certified centre value exceeds tau' = 3.0e-05 somewhere in the box: ll, lx; so no bound
     of any method meets tau' there
-C1 (control, remainder dropped) test polynomial: largest true/bound 0.2500 with the remainder (must be <= 1), inf without
-    (must exceed 1) -> the mutation is caught (good)
+C1 (control) the ENGINE's own assembly (Engine.bound) on the test polynomials: largest true/bound 0.2500 (must be <= 1);
+    the same engine with the remainder dropped: inf (must exceed 1) -> sound, and the mutation is caught (good)
+D4 (certified, independent of the engine) certified lower ends at the centre and 8 corners of every one of the 32768
+    accepted sub-boxes (68705 points, grid_values): largest (point value)/(box sup) 0.809, violations 0 -> PASS (86 s)
 C2 (control, W + 0.01 v) certified centre values up to 4.788e-02 on the first child's children against tau -> refused
     (good)
-rcert5d --collect (26 s): all checks pass
+rcert5d --collect (153 s): all checks pass
 
-D3 (certified) K1's 16128 points, certified lower bounds of |component|, over K2's 416 boxes with points (65 s):
+D3 (certified) K1's 16128 points, certified lower bounds of |component|, over K2's 416 boxes with points (128 s):
    boxes holding a point above tau = 5.3e-04: 193 of 416 (no certificate at tau possible there); above tau' = 3.0e-05:
        337 of 416
    largest certified lower bound over all points: 2.414e-03; per component: ll 2.41e-03, ln 1.44e-04, nn 7.23e-05, lx
