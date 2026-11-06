@@ -27,6 +27,9 @@ orthogonal (the round-4 instance's norm).
      The inverse blocks have norm >= 1 (their data part is the identity on the initial cones' fluxes, deduced), so
      the block condition needs ||L_Ninf|| ||L_infN|| < 1; it fails for every N >= 31 if the computed product exceeds 1.
      Also printed: the coupling for N = 8, 16, 24 at the worst point (full product matrix, T_0 weighted).
+     Two settings: the full angular range (where the (2+1) frame's coefficients grow toward the axes, 7.4), and the
+     band |x| <= 1/2 on which Theorem 8.W's F^2 = 10^66.9 is computed, with the record's interpolant restricted to it
+     and expanded in the band's own Chebyshev basis (so the split is the band's Galerkin split).
      Control (k2): the coefficient replaced by its x-mean has zero coupling (the cut decouples), as it must.
 
   python3 checks/blocks5.py RUN.npz      (RUN: the record's l1_rc0.9_M32.npz, as linest5.py and wgron5.py read it)
@@ -89,11 +92,11 @@ def h2(path, band=None, cache={}):
     if path not in cache:
         cache[path] = L5.background(path)
     bg, inbox, uu, vv, x = cache[path]
-    xs = x
-    if band is not None:
-        sel = np.abs(x) <= band + 1e-12
-        bg = {k_: (v_[..., sel] if (hasattr(v_, 'ndim') and v_.ndim == 3) else v_) for k_, v_ in bg.items()}
-        xs = x[sel] / band                 # the band mapped to [-1, 1]
+    M0 = len(x)
+    # on a band: the record's own degree-(M0 - 1) interpolant restricted to |x| <= band, re-expanded in the band's
+    # Chebyshev basis (t = x/band) from its values at 2 M0 Chebyshev points of the band: exact for that polynomial
+    tq = np.cos(np.pi * (np.arange(2 * M0) + 0.5) / (2 * M0))
+    xq = tq * (band if band is not None else 1.0)
     syms = L5.STATE + [L5.Ew, L5.Ek] + list(L5.DX.values())
     args = [bg[s_] for s_ in syms]
     one = np.ones_like(bg[L5.Ew])
@@ -105,14 +108,17 @@ def h2(path, band=None, cache={}):
             if co == 0 or n == bnd:
                 continue
             cv = sp.lambdify(syms, co, 'numpy')(*args) * fac_v * one
+            Cf = np.polynomial.chebyshev.chebfit(x, cv.reshape(-1, M0).T, M0 - 1)           # (M0, nu*nv)
+            cv = np.polynomial.chebyshev.chebval(xq, Cf).reshape(cv.shape[0], cv.shape[1], len(xq))
             sup = float(np.nanmax(np.where(inbox[:, :, None], np.abs(cv), np.nan)))
             fields.append((sup, name, bnd, n, cv))
     fields.sort(key=lambda t: -t[0])
-    M = len(xs)
+    M = M0
     out = []
     for sup, name, bnd, n, cv in fields[:6]:
         # Chebyshev coefficients of the degree-(M-1) interpolant at every (u, v)
-        C = np.polynomial.chebyshev.chebfit(xs, cv.reshape(-1, M).T, M - 1).T.reshape(cv.shape[0], cv.shape[1], M)
+        nq = len(tq)
+        C = np.polynomial.chebyshev.chebfit(tq, cv.reshape(-1, nq).T, M - 1).T.reshape(cv.shape[0], cv.shape[1], M)
         d = M - 1
         sig = np.zeros(cv.shape[:2])
         for i in range(cv.shape[0]):
@@ -188,8 +194,8 @@ def main():
 
 def report(res, band, t0):
     ok = True
-    d = ('the full angular range (the record\'s 32 nodes)' if band is None else
-         '|x| <= %.1f (its %d nodes, mapped to [-1, 1], the band\'s own Chebyshev basis)' % (band, res[0]['deg'] + 1))
+    d = ('the full angular range (the record\'s degree-31 interpolant in x)' if band is None else
+         '|x| <= %.1f (the record\'s interpolant restricted, in the band\'s own Chebyshev basis)' % band)
     print('H2 (computed) on %s: the six largest off-diagonal coefficient fields of the linearised table on rcert5\'s '
           'box (%.0f s):' % (d, time.time() - t0))
     for r in res:
