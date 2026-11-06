@@ -22,14 +22,25 @@ instrument of the record; nu, gamma_+-, kappa scale as mu^(-1/2), the rest is ho
 
 ## 0. Summary
 
-| bound | site, statement | non-constructive step | proved / computed here | where it stops (exactly) |
-|---|---|---|---|---|
-| B1 | I.B:1513, Prop. 6.4 (6.6), trapping estimate with loss 1 | defect-measure contradiction: C, h_0 | (Gamma.1)-(Gamma.4) data at b0 exact; lam_max(p_1) of 2L_b0 certified, its exact leading order, the admissible fibre metrics and their condition numbers | an explicit (C, h_0) in (6.6) |
-| B2 | I.B:1685, Prop. 6.7, absorbed inverse | none (Fredholm + (a)); absorption, interpolation | absorption h_0 = (2C_a)^(-1/N) and (6.11) with the constant 4 F C_a, F <= 1.002659 (certified) | C_a, the a priori constant of Prop. 6.7 (a) |
-| B3 | I.B:1978, Thm 1.3 (3), high energy | none (Fredholm + (1.6)) | the inverse bound is C_8.1 abs(sigma)^(-1+delta), C_0 = 1/h_0 explicit in C_8.1; every threshold the chain uses, computed | C_8.1, the chain constant of Prop. 8.1 |
-| B4 | III.F'':223, Prop. 3.1, L_b0 at sigma != 0 | Fredholm index 0 + injectivity | certified cut-off bounds for every Kodama-Ishibashi master operator, every l, every real sigma != 0; exact transfer to the tensor-type blocks; a gluing lemma | the gauge reconstruction (vector, scalar types) and C_ext(sigma) |
-| B5 | III.D:365, Prop. 6.2, box on 1-forms | Fredholm index 0 + injectivity | the same for V_0, V_1, V_2; exact transfer to the vector-type blocks | the scalar-type reconstruction and C_ext(sigma) |
-| B6 | II.F:1393, Lemma 5.2, weak-remainder estimate | Hahn-Banach projection, open mapping | eliminated: (5.5) holds with max(norm Q', norm R') of the parametrix already built | the two parametrix norms; downstream, the inverse of N^0(sigma) |
+- **B1, I.B:1513** (Prop. 6.4, (6.6), the trapping estimate with loss 1). Non-constructive: a defect-measure
+  contradiction gives no (C, h_0). Here: the (Gamma.1)-(Gamma.4) data at b0, exact; lam_max(p_1^Gamma) for 2 L_b0,
+  certified, with its exact leading order; the admissible fibre metrics and their condition numbers. Stops at: an
+  explicit (C, h_0) in (6.6).
+- **B2, I.B:1685** (Prop. 6.7, the absorbed inverse). No non-constructive step of its own. Here: absorption at
+  h_0 = (2 C_a)^(-1/N) and (6.11) with the constant 4 F C_a, F <= 1.002659 (certified). Stops at: C_a, the a priori
+  constant of Prop. 6.7 (a).
+- **B3, I.B:1978** (Thm 1.3 (3), high-energy invertibility). No non-constructive step of its own. Here: the inverse
+  bound is 2 C_8.1 |sigma|^(-1+delta) with C_0 explicit in C_8.1; every threshold the chain reads, computed. Stops at:
+  C_8.1, the chain constant of Prop. 8.1.
+- **B4, III.F'':223** (Prop. 3.1, L_b0 at sigma != 0). Non-constructive: Fredholm index 0 and injectivity. Here:
+  certified cut-off bounds for every Kodama-Ishibashi master operator at every l and every real sigma != 0; the exact
+  transfer to the tensor-type blocks; a gluing lemma. Stops at: the gauge reconstruction of the vector and scalar types,
+  and C_ext(sigma), the absorbed problem's inverse in the write-out's norms.
+- **B5, III.D:365** (Prop. 6.2, box on 1-forms at sigma != 0). The same, with V_0, V_1, V_2 certified and the exact
+  transfer to the vector-type blocks. Stops at: the scalar-type reconstruction, and C_ext(sigma).
+- **B6, II.F:1393** (Lemma 5.2, the weak-remainder estimate). Non-constructive: a Hahn-Banach projection and the open
+  mapping theorem. Here: eliminated; (5.5) holds with max(||Q'||, ||R'||) of the parametrix its proof already builds.
+  Stops at: the two parametrix norms (and, downstream of the site, the inverse of N^0(sigma)).
 
 No lower bound for lambda1 or delta follows yet; the upper bounds stand (log10 delta < -7.6666e16, lambda1 < delta).
 What changed: one of the six (B6) needs no inverse bound, two (B2, B3) have no non-constructive step of their own and
@@ -119,7 +130,8 @@ sup_g ||g||_(X->X) ||g||_(Y->Y), a calculus constant; not computed.)
 
 **Lemma R6 (gluing through complex absorption).** Let Q := chi W chi with chi supported in I, W bounded, P_1 :=
 P-hat(sigma) - iQ, and suppose P-hat(sigma) and P_1 invertible X_sigma -> Y_sigma. With C_ext := ||P_1^-1||_(Y->X),
-e_X := ||chi||_(X -> L^2(I)), e_Y := ||chi||_(L^2(I) -> Y) and C_D as in R5,
+e_X := ||chi||_(X -> L^2(I)), e_Y := ||chi||_(L^2(I) -> Y) (W smoothing when L^2(I) is not in Y_sigma,
+s > 1) and C_D as in R5,
 ||P-hat(sigma)^-1||_(Y_sigma -> X_sigma) <= C_ext + C_ext^2 e_X e_Y ||W|| (1 + ||W|| C_D).
 *Proof.* P-hat^-1 = P_1^-1 - i P_1^-1 Q P-hat^-1 and P-hat^-1 = P_1^-1 - i P-hat^-1 Q P_1^-1; inserting the second in
 the first, P-hat^-1 = P_1^-1 - i P_1^-1 Q P_1^-1 - P_1^-1 (Q P-hat^-1 Q) P_1^-1, and ||Q P-hat^-1 Q|| <= ||W||^2 C_D
@@ -185,11 +197,14 @@ exactly c = (-1/200, -1/(160 2^(1/2)), -1/200, 0, 0) in the normalised frame, ga
 gam c_2) (strap5 P2's, reproduced); A never raises III.F's grading W (W = 0, 2, 4, 5, 6, 8 on the seven pieces); the
 W-preserving part's symmetric part is <= 0. In h_Gamma(eta) = sum_P eta^(-2W(P)) <,>_0:
 
-| gamma_C | eta = 1/10 | 1/100 | 1/1000 | 1/10000 | (Gamma.4) holds at eta | delta_Gamma(0) <= 1/2 at eta | cond there |
-|---|---|---|---|---|---|---|---|
-| 10^6 | [52.143, 52.149] | [0.52072, 0.52078] | [5.2071, 5.2077] e-3 | [5.2071, 5.2077] e-5 | 0.01647 (fails at 0.01648) | 0.01165 (fails at 0.01166) | 3.41e28, 8.69e30 |
-| 10^7 | [521.53, 521.59] | [5.2082, 5.2089] | [5.2082, 5.2088] e-2 | [5.2082, 5.2088] e-4 | 0.00521 (fails at 0.00522) | 0.00368 (fails at 0.00369) | 3.39e36, 8.84e38 |
-| 10^8 | [5215.4, 5216.1] | [52.083, 52.090] | [0.52083, 0.52089] | [5.2083, 5.2089] e-3 | 0.00164 (fails at 0.00165) | 0.00116 (fails at 0.00117) | 3.65e44, 9.30e46 |
+- gamma_C = 10^6: lam_max in [52.143, 52.149], [0.52072, 0.52078], [5.2071, 5.2077] x 10^-3,
+  [5.2071, 5.2077] x 10^-5 at eta = 10^-1, ..., 10^-4; (Gamma.4) holds at eta = 0.01647 and fails at 0.01648;
+  delta_Gamma(0) <= 1/2 holds at 0.01165 and fails at 0.01166; cond(h_Gamma) = 3.41 x 10^28, resp. 8.69 x 10^30.
+- gamma_C = 10^7: [521.53, 521.59], [5.2082, 5.2089], [5.2082, 5.2088] x 10^-2, [5.2082, 5.2088] x 10^-4;
+  (Gamma.4) at 0.00521 (fails at 0.00522); delta_Gamma(0) <= 1/2 at 0.00368 (fails at 0.00369); cond 3.39 x 10^36,
+  8.84 x 10^38.
+- gamma_C = 10^8: [5215.4, 5216.1], [52.083, 52.090], [0.52083, 0.52089], [5.2083, 5.2089] x 10^-3; (Gamma.4) at
+  0.00164 (fails at 0.00165); delta_Gamma(0) <= 1/2 at 0.00116 (fails at 0.00117); cond 3.65 x 10^44, 9.30 x 10^46.
 
 (lam_max(p_1^Gamma), certified brackets: interval LDL of t I - p_1 above, a Rayleigh quotient below; "fails" is
 certified too, with no monotonicity in eta claimed.) **The exact leading order** (K3 (d), gamma_C symbolic): the
@@ -235,16 +250,21 @@ P_S' = P'_(a, -39/4) + E(y, 1/m) with
 Certificates (each: w >= 0 on R by adaptive bisection on t = log(r - 1) in [-120, log 119] plus the two tail bounds of
 Lemma R7; then m', M', min_I w over 2000 pieces of I):
 
-| certificate | multiplier (s_L, s_R, k_s, centre - r_*(2^(1/2))) | covers | min_I w | m' | M' | B(0+) | B(1) | B(3) | B(10) |
-|---|---|---|---|---|---|---|---|---|---|
-| M1 family A, (15/4, 5/4), (15/4, 9/4) | (23/25, 4, 1, 0) | V_0, V_1 at every l >= 1 | 0.071345 | 0.066138 | 0.69999 | 22.81 | 43.09 | 96.14 | 290.9 |
-| M2 family B, (35/4, -7/4), (35/4, 9/4) | (49/50, 4, 1, 0) | V_0, V_1, V_2, V_T at every l >= 2 | 0.15881 | 0.070729 | 0.66610 | 13.99 | 21.45 | 44.05 | 130.9 |
-| M3 family C, (63/4, -39/4), (63/4, 9/4) | (49/50, 2, 1, 0) | every a U + b Q, b in [-39/4, 9/4], l >= 3: V_V | 0.23036 | 0.040543 | 0.76964 | 15.02 | 18.94 | 32.83 | 91.35 |
-| M4 V_S majorant, (99/4, -39/4), eps <= 1/21 | (49/50, 2, 1, 0) | V_S at every l >= 4 | 0.28670 | 0.040543 | 0.76964 | 13.39 | 16.30 | 27.02 | 73.63 |
-| M5 V_2 at l = 1 | (49/50, 3/2, 1/2, 3/10) | V_2, l = 1 | 0.012006 | 0.041579 | 0.85611 | 95.35 | 246.2 | 574.6 | 1739 |
-| M5 V_V at l = 2 | (49/50, 3/2, 1/2, 4/5) | V_V, l = 2 | 0.12423 | 0.078951 | 0.85621 | 15.86 | 27.07 | 57.01 | 168.5 |
-| M5 V_S at l = 2 | (49/50, 3/2, 1/2, 7/10) | V_S, l = 2 | 0.018958 | 0.069537 | 0.85619 | 59.64 | 155.7 | 363.8 | 1101 |
-| M5 V_S at l = 3 | (49/50, 2, 1, 0) | V_S, l = 3 | 0.25443 | 0.040543 | 0.76964 | 14.25 | 17.68 | 30.04 | 82.82 |
+Each row: the certificate, its multiplier (s_L, s_R, k_s, centre minus r_*(2^(1/2))), what it covers, then min_I w,
+m', M' and B at sigma = 0+, 1, 3, 10.
+
+- M1, family A at (a, b) = (15/4, 5/4), (15/4, 9/4); (23/25, 4, 1, 0); V_0 and V_1 at every l >= 1;
+  0.071345, 0.066138, 0.69999; **22.81, 43.09, 96.14, 290.9**.
+- M2, family B at (35/4, -7/4), (35/4, 9/4); (49/50, 4, 1, 0); V_0, V_1, V_2, V_T at every l >= 2;
+  0.15881, 0.070729, 0.66610; **13.99, 21.45, 44.05, 130.9**.
+- M3, family C at (63/4, -39/4), (63/4, 9/4); (49/50, 2, 1, 0); every a U + b Q with b in [-39/4, 9/4] at l >= 3, so
+  V_V at every l >= 3; 0.23036, 0.040543, 0.76964; **15.02, 18.94, 32.83, 91.35**.
+- M4, the V_S majorant at (99/4, -39/4), eps <= 1/21; (49/50, 2, 1, 0); V_S at every l >= 4;
+  0.28670, 0.040543, 0.76964; **13.39, 16.30, 27.02, 73.63**.
+- M5, V_2 at l = 1; (49/50, 3/2, 1/2, 3/10); 0.012006, 0.041579, 0.85611; **95.35, 246.2, 574.6, 1739**.
+- M5, V_V at l = 2; (49/50, 3/2, 1/2, 4/5); 0.12423, 0.078951, 0.85621; **15.86, 27.07, 57.01, 168.5**.
+- M5, V_S at l = 2; (49/50, 3/2, 1/2, 7/10); 0.018958, 0.069537, 0.85619; **59.64, 155.7, 363.8, 1101**.
+- M5, V_S at l = 3; (49/50, 2, 1, 0); 0.25443, 0.040543, 0.76964; **14.25, 17.68, 30.04, 82.82**.
 
 (V_0 at l = 0 is E2-PILOT 3g's certificate: 164.5, 183.5, 275.2, 725.0; and on 3 <= sigma <= 384 E2-PILOT 3j's band
 certificate, 11.477 for every l, is the better bound for V_0 = V_T.) **So every master operator of III.D (M2)-(M4) and
@@ -258,9 +278,9 @@ sigma E2-PILOT's sigma-dependent multipliers are the route, not repeated here.
 *The exact transfers* (M7, deduced; modes5 M2-M3 and gmodes5 G1 rerun): with Lemma R8,
 
     ||chi_I box-hat_b0(sigma)^-1 chi_I|| <= (15/16) B_(V_1)(sigma)  on the vector-type 1-form blocks
-        (l = 1: 21.38, 40.40, 90.14, 272.8; l >= 2: 13.12, 20.11, 41.30, 122.8 at sigma = 0+, 1, 3, 10),
+        (l = 1: 21.39, 40.39, 90.14, 272.7; l >= 2: 13.12, 20.11, 41.30, 122.7 at sigma = 0+, 1, 3, 10),
     ||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T(sigma)  on the tensor-type blocks, every l >= 2
-        (13.12, 20.11, 41.30, 122.8),
+        (13.12, 20.11, 41.30, 122.7),
 
 and (15/16) times E2-PILOT's bounds for box on functions; by Lemma R5 these are the sup over the blocks of the type.
 
@@ -314,7 +334,7 @@ and at infinity in the variable-order norms, whose thresholds section 3 computes
 
 **B5. III.D:365, box on 1-forms at sigma != 0.** The same structure. *Certified:* V_0 (every l; E2-PILOT and section 4),
 V_1 and V_2 (every l >= 1), every real sigma != 0; on the vector-type 1-form blocks C_D <= (15/16) B_(V_1) exactly
-(21.38 at sigma -> 0, l = 1). *Where it stops, exactly:* (i) the scalar-type blocks' C_D needs the reconstruction of
+(21.39 at sigma -> 0, l = 1). *Where it stops, exactly:* (i) the scalar-type blocks' C_D needs the reconstruction of
 steps (a)-(c): omega from delta omega (V_0), F_tr (V_2) and the gauge step omega = (i/sigma)(d phi + iota_T d omega),
 phi = omega(T), with its 1/|sigma|, and the l = 0 sector -- per harmonic, not computed (the sources of steps (b)-(c) are
 not supported in I, so the cut-off bounds do not compose; global weighted forms of Lemma E2.8 are the route);

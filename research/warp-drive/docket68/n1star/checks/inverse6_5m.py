@@ -21,7 +21,8 @@ phi', M' = max_I phi', w_I = min_I w (and with 4|sigma| for Im sigma > 0, Lemma 
      (exact partial fraction of Q_S/(16 H^2)), so P_S' = P'_(a, -39/4) + E(y, 1/m) with E printed; U' = (2 f/r^3)(2y - 1)
      changes sign exactly at r = 2^(1/2), so for a multiplier centred at the photon sphere -phi U' >= 0 on R and w is
      nondecreasing in a and affine in b: a certificate at (a_0, b_lo) and (a_0, b_hi) covers every a >= a_0,
-     b in [b_lo, b_hi] with the same m', M' and w_I >= the two endpoints' least.
+     b in [b_lo, b_hi] with the same m', M' and w_I >= the two endpoints' least; and the elementary inequalities the
+     tail bounds use (the logistic derivatives' bounds, a monotone factor, f in terms of r_*).
   M1 (certified) family A, phi_A = tanh g (centre r_*(2^(1/2)), s_L = 23/25, s_R = 4, k_s = 1): w >= 0 on R at
      (a, b) = (15/4, 5/4), (15/4, 9/4): V_0 and V_1 at every l >= 1.
   M2 (certified) family B, (s_L, s_R, k_s) = (49/50, 4, 1): (35/4, -7/4), (35/4, 9/4): V_0, V_1, V_2, V_T at l >= 2.
@@ -345,10 +346,25 @@ def main():
     Up = sp.simplify(sp.diff(((1 - 1 / rr_**2) / rr_**2), rr_) * (1 - 1 / rr_**2))
     ok_U = sp.solve(sp.numer(sp.together(Up)), rr_) == [sp.sqrt(2)] or set(sp.solve(sp.numer(sp.together(Up)), rr_)) \
         == {1, sp.sqrt(2)}
-    OK['M0'] = ok0 and ok_ab and ok_U
+    # Lemma R7's elementary inequalities: |sigma'| <= 1/4 and |sigma''| = |p (1 - p)(1 - 2p)| <= 1/(6 3^(1/2)) < 1/10
+    # (p = 1/(1 + e^x)); (r + 1)^2 e^(-2r) r^-5 decreasing on r > 1; f = (r + 1)^2 e^(2 r_*) e^(-2r)/r^2 exactly
+    pp = sp.Symbol('p', positive=True)
+    s2p = pp * (1 - pp) * (1 - 2 * pp)
+    crit = sp.solve(sp.diff(s2p, pp), pp)
+    mx = max(abs(s2p.subs(pp, c_)) for c_ in crit)
+    ok_log = sp.simplify(mx - 1 / (6 * sp.sqrt(3))) == 0 and mx < sp.Rational(1, 10) and \
+        sp.maximum(pp * (1 - pp), pp, sp.Interval(0, 1)) == sp.Rational(1, 4)
+    dlog = sp.simplify(sp.diff(sp.log((rr_ + 1)**2 * sp.exp(-2 * rr_) / rr_**5), rr_))
+    ok_dec = sp.simplify(dlog - (2 / (rr_ + 1) - 2 - 5 / rr_)) == 0
+    rs_ = rr_ + sp.log((rr_ - 1) / (rr_ + 1)) / 2
+    ok_f = sp.simplify((rr_ + 1)**2 * sp.exp(2 * rs_) * sp.exp(-2 * rr_) / rr_**2 - (1 - 1 / rr_**2)) == 0
+    OK['M0'] = ok0 and ok_ab and ok_U and ok_log and ok_dec and ok_f
     print('  M0 (exact): V_0, V_1, V_2, V_V = (k + 3/4) U + b Q with b = 9/4, 5/4, -7/4, -27/4: %s; V_S = a U - (39/4) Q'
           ' + U g_m and P_S\' = P\'_(a, -39/4) + E(y, 1/m), E = %s: %s; U\' vanishes on r > 1 only at r = 2^(1/2): %s'
           % (ok_ab, sp.factor(Esym), ok0, ok_U))
+    print('  M0 (exact) Lemma R7\'s elementary inequalities: |sigma\'| <= 1/4, max |sigma\'\'| = 1/(6 3^(1/2)) < 1/10: %s;'
+          ' (r + 1)^2 e^(-2r) r^-5 decreasing (its log-derivative 2/(r + 1) - 2 - 5/r < 0): %s; f = (r + 1)^2 '
+          'e^(2 r_*) e^(-2r)/r^2: %s' % (ok_log, ok_dec, ok_f))
 
     fam = {}
     A = Mult(Fr(23, 25), 4, 1)

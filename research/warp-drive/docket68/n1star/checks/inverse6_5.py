@@ -50,7 +50,9 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
   C2 K2's claim lam_max = 2 eps refuted at eps = 1/8; C3 K3 at eta = 1 (no grading): lam_max > nu/2, (Gamma.4) fails;
   C4 K3 with c -> -c (future-pointing damping): lam_max >= 2 10^4 at every eta tested; C5 K3 with the trace weight 1
   (m = 1): the last charpoly factor moves to lam + 3 (1 - e_C) gam c_2; C6 K4 with a_v < 0: vartheta_L = 2 - 2x > 0;
-  C7 K6 with kappa = nu/4 (the gap doubled): F moves outside the pinned interval.
+  C7 K6 with kappa = nu/4 (the gap doubled): F moves outside the pinned interval; C8 K7 without the R' term;
+  C9 K8 without the last term of the identity.
+  K8 (exact) Lemma R6's gluing identity, exact over Q(i) on random rational matrices, and its norm bound.
 
     python3 checks/inverse6_5.py [--selftest]          (a few minutes)
 """
@@ -446,6 +448,31 @@ def k7(drop_R=False, seed=5):
     return good
 
 
+# ------------------------------------------------------------------------------------------------- K8
+def k8(drop=False, seed=11):
+    """Lemma R6's identity P^-1 = P1^-1 - i P1^-1 Q P1^-1 - P1^-1 (Q P^-1 Q) P1^-1, P1 = P - i Q, Q = chi W chi, exact
+    over Q(i) on random rational 6 x 6 matrices (chi the projection on the first three coordinates); and the bound
+    ||P^-1|| <= C_ext + C_ext^2 ||W|| (1 + ||W|| C_D) in the Frobenius norm, which dominates the operator norm"""
+    rnd = random.Random(seed)
+    n = 6
+    good = True
+    for _ in range(5):
+        P = sp.Matrix(n, n, lambda i, j: sp.Rational(rnd.randint(-9, 9), rnd.randint(1, 5)) + (6 if i == j else 0))
+        W = sp.Matrix(n, n, lambda i, j: sp.Rational(rnd.randint(-5, 5), rnd.randint(1, 4)))
+        chi = sp.diag(*([1] * 3 + [0] * 3))
+        Qm = chi * W * chi
+        P1 = P - sp.I * Qm
+        if P.det() == 0 or P1.det() == 0:
+            continue
+        Pi, P1i = P.inv(), P1.inv()
+        rhs = P1i - sp.I * P1i * Qm * P1i - (0 if drop else 1) * P1i * (Qm * Pi * Qm) * P1i
+        good &= sp.simplify(Pi - rhs) == sp.zeros(n, n)
+        fro = lambda M: sp.sqrt(sum(abs(x)**2 for x in M))
+        C_ext, C_D, nW = fro(P1i), fro(chi * Pi * chi), fro(W)
+        good &= float(fro(Pi)) <= float(C_ext + C_ext**2 * nW * (1 + nW * C_D)) * (1 + 1e-12)
+    return good
+
+
 # ------------------------------------------------------------------------------------------------- main
 def main():
     t0 = time.time()
@@ -532,6 +559,11 @@ def main():
     print('  K7 (exact): x = Q\'T x + R\'x: ||x|| <= ||Q\'|| ||Tx|| + ||R\'||_(Z->X) ||x||_Z on 400 rational vectors '
           'and on'
           ' the kernel: %s; C8 (control) without the R\' term it fails on the kernel: %s' % (OK['K7'], OK['C8']))
+    OK['K8'] = k8()
+    OK['C9'] = not k8(drop=True)
+    print('  K8 (exact, Q(i)): Lemma R6\'s identity P^-1 = P1^-1 - i P1^-1 Q P1^-1 - P1^-1 (Q P^-1 Q) P1^-1 on random '
+          'rational matrices, and its bound: %s; C9 (control) without the last term the identity fails: %s'
+          % (OK['K8'], OK['C9']))
     print('  (%.0f s)' % (time.time() - t0))
     for k_, v_ in OK.items():
         builtins.print(k_, 'PASS' if v_ else 'FAIL')

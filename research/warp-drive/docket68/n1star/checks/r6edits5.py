@@ -34,7 +34,11 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      lam^-3 (the reader's E-m5), the factor -> e^(2C/lam) (E-m6), the coefficient 1/2 of the |gamma'| = 1 sum dropped,
      C(gamma, gamma') dropped at the |gamma'| >= 2 sum, R_gamma's source E_3 -> E_(5/2), and max(4, N - 3) ->
      max(4, N - 4).
-Labels: E1 text checks; E2 exact (sympy), E2e partly sampled.
+  E4 (text) R6-E's three paper blocks against RESPONSE-HL-5D.md (not edited): each old text once, every line within
+     121 characters after the edit, and the new texts state what the round-5 reader's m6 asked (condition (b), R6-D
+     written and not applied, "supplement section 11.1", eps named, Proposition 3.1 deduced, the window computed from
+     measured exponents). Control: R5-E's blocks fail at least six of the eight.
+Labels: E1 and E4 text checks; E2 exact (sympy), E2e partly sampled.
 
     python3 checks/r6edits5.py     (about a minute)
 """
@@ -351,6 +355,51 @@ def e3(blocks, P):
         check(f"E3 {label}: caught", bool(failed), f"failing: {failed}")
 
 
+PAPER = os.path.join(os.path.dirname(os.path.dirname(ROOT)), "paper", "RESPONSE-HL-5D.md")
+
+
+def paper_predicates(b1, b2):
+    b1n, b2n = norm(b1), norm(b2)
+    return {"b1: section 11.1's repair not yet applied": "repair written and not yet applied" in b1n,
+            "b1: the last rounds not yet read": "not yet read by a verifier" in b1n,
+            "b1, b2: 'supplement section 11.1'": "supplement section 11.1" in b1n and "supplement section 11.1" in b2n,
+            "b2: condition (b), rounds 5-6 unread": "rounds 5–6 of SETTLE-GLAM5.md, not yet read by a verifier" in b2n,
+            "b2: R6-D written, not applied": "(R6-D) and not yet applied" in b2n,
+            "b2: eps named": "its threshold ε, and with it λ1 and δ" in b2n,
+            "b2: Proposition 3.1 deduced":
+                "(deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump envelope" in b2n,
+            "b2: the window computed, not measured": "the weight window, computed from those measured exponents" in b2n
+            and "weight window measured" not in b2n and "and weight window on explicit fields" not in b2n}
+
+
+def e4(S):
+    print("E4  R6-E's paper blocks against RESPONSE-HL-5D.md (not edited)")
+    a = S.index("### R6-E ")
+    b = S.index("Ledger. Computed (new)", a)
+    bl = re.findall(r"```text\n(.*?)\n```", S[a:b], flags=re.S)
+    if len(bl) != 6:
+        check("E4a six blocks read", False, str(len(bl)))
+        return
+    P = open(PAPER).read()
+    counts = [P.count(bl[i]) for i in (0, 2, 4)]
+    check("E4a each old text occurs exactly once in the paper", counts == [1, 1, 1], str(counts))
+    Q = P
+    for i in (0, 2, 4):
+        Q = Q.replace(bl[i], bl[i + 1], 1)
+    long_ = [(k + 1, len(l)) for k, l in enumerate(Q.split("\n")) if len(l) > 121]
+    check("E4b the edited paper keeps every line within 121 characters", not long_, str(long_[:5]))
+    pr = paper_predicates(bl[1], bl[3])
+    check("E4c the new blocks state condition (b), R6-D's status, 'supplement section 11.1', eps, Proposition 3.1 "
+          "as deduced, and the window as computed from measured exponents", all(pr.values()),
+          str([k for k, v in pr.items() if not v]))
+    a5 = S.index("### R5-E ")
+    b5 = S.index("Ledger. Computed: `r5settle5.py`", a5)
+    bl5 = re.findall(r"```text\n(.*?)\n```", S[a5:b5], flags=re.S)
+    pr5 = paper_predicates(bl5[1], bl5[3])
+    check("E4c' control (R5-E's blocks, the round-5 reader's m6): they fail at least six of the eight",
+          sum(not v for v in pr5.values()) >= 6, str(sum(not v for v in pr5.values())))
+
+
 def main():
     S = open(os.path.join(ROOT, "SETTLE-GLAM5.md")).read()
     blocks = section_blocks(S, "### R6-D ", "### R6-E ")
@@ -359,6 +408,7 @@ def main():
     if Q is not None:
         e2(Q)
         e3(blocks, P)
+    e4(S)
     print("FAILED:", FAIL if FAIL else "none")
     return 1 if FAIL else 0
 
