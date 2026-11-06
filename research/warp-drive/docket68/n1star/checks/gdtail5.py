@@ -92,30 +92,35 @@ def kernel(w, rr):
 
 
 # --------------------------------------------------------------------------------------------------------------- T1
+def switched_on(n):
+    """the field of the charge Q_n delta_0 switched on at t = 0 in flat n+1, for t > r: a = r^(2-n) - Q_n int_t^oo
+    E_int(tau, r) d tau, with E_int the interior part of the retarded fundamental solution of d_t^2 - Lap (Riesz):
+    (t^2 - r^2)^((1-n)/2) / (2 pi^((n-1)/2) Gamma((3-n)/2)), and Q_n = (n - 2)|S^(n-1)| (so a -> r^(2-n))"""
+    t, tau = sp.symbols('t tau', positive=True)
+    cn = 1/(2*sp.pi**sp.Rational(n - 1, 2)*sp.gamma(sp.Rational(3 - n, 2)))        # 0 for odd n (Gamma's pole)
+    Qn = (n - 2)*2*sp.pi**sp.Rational(n, 2)/sp.gamma(sp.Rational(n, 2))
+    Eint = lambda T_: cn*(T_**2 - r**2)**sp.Rational(1 - n, 2)
+    tail = sp.integrate(Eint(tau), (tau, t, sp.oo), conds='none') if cn != 0 else sp.Integer(0)
+    a = sp.simplify(r**(2 - n) - Qn*tail)
+    return a, t, Eint, Qn
+
+
 def t1(control=False):
-    t = sp.Symbol('t', positive=True)
+    n = 3 if control else 4                                     # control: the same path in 3+1 (Huygens)
+    a, t, Eint, Qn = switched_on(n)
     x = sp.Symbol('x', positive=True)
-    tau = sp.Symbol('tau', positive=True)
-    if control:
-        # 3+1: E_3 = delta(t - r)/(4 pi r) has no interior part; the switched-on field is H(t - r)/r
-        a = 1/r
-        eq = sp.diff(a, t, 2) - sp.diff(a, r, 2) - 2/r*sp.diff(a, r)
-        coef = sp.series((a - 1/r).subs(t, 1/x), x, 0, 5).removeO().coeff(x, 2)
-        print("  T1 control (3+1): H(t-r)/r solves the radial equation: %s; tail coefficient %s, = 1/2: %s"
-              % (sp.simplify(eq) == 0, coef, coef == HALF), flush=True)
-        return coef == HALF
-    a = t/(r**2*sp.sqrt(t**2 - r**2))
-    eq = sp.simplify(sp.diff(a, t, 2) - sp.diff(a, r, 2) - 3/r*sp.diff(a, r))
-    dta = sp.simplify(sp.diff(a, t) + (t**2 - r**2)**sp.Rational(-3, 2))
+    eq = sp.simplify(sp.diff(a, t, 2) - sp.diff(a, r, 2) - (n - 1)/r*sp.diff(a, r))
+    dta = sp.simplify(sp.diff(a, t) - Qn*Eint(t))
     stat = sp.limit(a, t, sp.oo)
-    ser = sp.expand(sp.series((a - 1/r**2).subs(t, 1/x), x, 0, 6).removeO())
+    ser = sp.expand(sp.series((a - r**(2 - n)).subs(t, 1/x), x, 0, 6).removeO())
     coef = ser.coeff(x, 2)
-    tailint = sp.integrate(-tau**-3/(4*sp.pi**2), (tau, t, sp.oo))
-    coef_k = sp.simplify(-4*sp.pi**2*tailint*t**2)
-    ok = eq == 0 and dta == 0 and sp.simplify(stat - 1/r**2) == 0 and coef == HALF and coef_k == HALF
-    print("  T1: a = t/(r^2 sqrt(t^2 - r^2)) solves the 4+1 radial equation: %s; d_t a = -(t^2-r^2)^(-3/2): %s; "
-          "a -> %s; a - r^-2 = %s; kernel route 4 pi^2 |int_t^oo E_4| t^2 = %s"
-          % (eq == 0, dta == 0, stat, sp.collect(ser.subs(x, 1/t), t), coef_k), flush=True)
+    closed = sp.simplify(a - t/(r**2*sp.sqrt(t**2 - r**2))) == 0
+    ok = eq == 0 and dta == 0 and sp.simplify(stat - r**(2 - n)) == 0 and coef == HALF and closed
+    tag = "  T1 control (the same path in 3+1)" if control else "  T1"
+    print("%s: n = %d, Riesz interior coefficient %s, Q_n = %s; a solves the radial equation: %s; d_t a = Q_n E_int: "
+          "%s; a -> %s; a - r^(2-n) = %s; = t/(r^2 sqrt(t^2 - r^2)): %s; t^-2 coefficient %s, = 1/2: %s"
+          % (tag, n, sp.simplify(Eint(t).subs({t: 2, r: 1})) if n == 4 else 0, Qn, eq == 0, dta == 0, stat,
+             sp.collect(ser.subs(x, 1/t), t), closed, coef, coef == HALF), flush=True)
     return ok
 
 
@@ -189,10 +194,11 @@ def t2(control=False):
     c_inf = sp.Symbol('c_inf')
     tail = sp.simplify((ratio.subs(b0, -kap2)*sp.I*c_zlogz).subs(lf, 4*sp.pi**2*c_inf))
     model = HALF*c_inf                                     # T1 and the model's A = (1/2) T^-2 (T6)
-    # u_2L = beta_0 (d_v)^flat + alpha W*, (d_v)^flat = -f dv + dr: log r coefficients (-beta_0, +beta_0) at r^0
+    # recorded, not checked: k_t + k_r = 0 holds for every source decaying like r^-2 (the round-7 verifier)
     killing = sp.simplify(k_t + k_r) == 0
-    ok = in_ker and c_zlogz == 1 and sp.simplify(tail - model) == 0 and killing
-    print("  T2: P-hat(0) W* = 0: %s; u_2's log r coefficients at r^0: dv %s, dr %s (a multiple of (d_v)^flat: %s); "
+    ok = in_ker and c_zlogz == 1 and sp.simplify(tail - model) == 0
+    print("  T2: P-hat(0) W* = 0: %s; u_2's log r coefficients at r^0: dv %s, dr %s (recorded: k_t + k_r = 0 is %s, as "
+          "for any source O(r^-2), not a check); "
           "sigma log sigma coefficient (%s) d psi; FT[t^-2 H(t-1)] = E_2(z), z = -i sigma, has z log z with coefficient "
           "%s; t^-2 tail from the resolvent (formal) (%s) d psi, from the time-domain model (%s) d psi: equal %s"
           % (in_ker, k_t, k_r, killing, sp.factor(ratio), c_zlogz, tail, model, sp.simplify(tail - model) == 0),
@@ -212,29 +218,53 @@ def outgoing():
     return _OUT['G'], _OUT['G0']
 
 
+_FZ = {}
+
+
+def far_zone():
+    """E := Box(chi(u) W* + A(u, r) d psi) in the outgoing chart; the relations Box_0(chi r^-2 + A) = 0 for the flat and
+    for the Tangherlini scalar operator, solved for d_u d_r A; E reduced by each"""
+    if not _FZ:
+        G, G0 = outgoing()
+        u = v
+        Ws = [1/r**2, 1/(r*(r - s)), 0, 0, 0]
+        dps = [sp.Integer(1), 1 + mu/(r*(r - s)), 0, 0, 0]
+        sol = all(zero(c) for c in hodge(G, Ws)[:2]) and all(zero(c) for c in hodge(G, dps)[:2])
+        A = sp.Function('A')(u, r)
+        chi = sp.Function('chi')(u)
+        Y = [chi*Ws[i] + A*dps[i] for i in range(N)]
+        E = [sp.expand(sp.simplify(c)) for c in hodge(G, Y)[:2]]
+        phi = sp.Function('phi')(u, r)
+        dudr = sp.Derivative(A, u, r)
+        red = {}
+        for name, GG in (("flat", G0), ("Tangherlini", G)):
+            box0 = sp.expand(sp.simplify(delta1(GG, [sp.diff(phi, u), sp.diff(phi, r), 0, 0, 0])))
+            rel = sp.expand(box0.subs(phi, chi/r**2 + A).doit())
+            sol_dudr = sp.solve(rel, dudr)[0]
+            red[name] = (rel, [sp.expand(sp.simplify(c.subs(dudr, sol_dudr))) for c in E])
+        _FZ.update(G=G, u=u, A=A, chi=chi, E=E, red=red, sol=sol)
+    return _FZ
+
+
 def t3(control=False):
-    G, G0 = outgoing()
-    u = v
-    Ws = [1/r**2, 1/(r*(r - s)), 0, 0, 0]
-    dps = [sp.Integer(1), 1 + mu/(r*(r - s)), 0, 0, 0]
-    sol = all(zero(c) for c in hodge(G, Ws)[:2]) and all(zero(c) for c in hodge(G, dps)[:2])
-    A = sp.Function('A')(u, r)
-    chi = sp.Function('chi')(u)
-    Y = [chi*Ws[i] + A*dps[i] for i in range(N)]
-    E = [sp.expand(sp.simplify(c)) for c in hodge(G, Y)[:2]]
-    # the flat scalar operator in (u, r), and the relation Box_0^flat (chi r^-2 + A) = 0 solved for d_u d_r A
-    phi = sp.Function('phi')(u, r)
-    box0 = sp.expand(sp.simplify(delta1(G0, [sp.diff(phi, u), sp.diff(phi, r), 0, 0, 0])))
-    aa = chi/r**2 + A
-    rel = sp.expand(box0.subs(phi, aa).doit())
-    dudr = sp.Derivative(A, u, r)
-    sol_dudr = sp.solve(rel, dudr)[0]
-    Ered = E if control else [sp.expand(sp.simplify(c.subs(dudr, sol_dudr))) for c in E]
+    FZ = far_zone()
+    u, A, chi, E, sol = FZ['u'], FZ['A'], FZ['chi'], FZ['E'], FZ['sol']
+    Ered = E if control else FZ['red']['flat'][1]
     flat0 = [sp.simplify(c.subs(s, 0)) for c in Ered]
     flat_ok = all(c == 0 for c in flat0)
     if control:
         print("  T3 control (no flat reduction): E at mu = 0 vanishes: %s" % flat_ok, flush=True)
         return flat_ok
+    # the reduction is the one A obeys: with A = K, chi = 1 the flat relation holds and the Tangherlini one does not,
+    # and E itself equals the flat-reduced E (not the Tangherlini-reduced one)
+    Ksub = lambda e: sp.simplify(e.subs(chi, 1).doit().subs(A, kernel(u, r)).doit())
+    rel_f, rel_T = FZ['red']['flat'][0], FZ['red']['Tangherlini'][0]
+    holds_f = Ksub(rel_f) == 0
+    holds_T = Ksub(rel_T) == 0
+    EK = [Ksub(c) for c in E]
+    match_f = all(sp.simplify(Ksub(c) - e_) == 0 for c, e_ in zip(FZ['red']['flat'][1], EK))
+    match_T = all(sp.simplify(Ksub(c) - e_) == 0 for c, e_ in zip(FZ['red']['Tangherlini'][1], EK))
+    consistent = holds_f and not holds_T and match_f and not match_T
     # monomials and their I+-orders: A, d_u A: 3/2; d_r A: 5/2; d_r^2 A: 7/2; chi, chi': 0
     ords = {A: HALF*3, sp.Derivative(A, u): HALF*3, sp.Derivative(A, r): HALF*5,
             sp.Derivative(A, (r, 2)): HALF*7, chi: 0, sp.Derivative(chi, u): 0}
@@ -257,22 +287,24 @@ def t3(control=False):
             worst = -sp.oo
     # with A = K(u, r) and chi = 1 (late): I+ at fixed u, iota+ along u = lam r
     uu, lam, z = sp.symbols('u_0 lambda z', positive=True)
-    El = [sp.simplify(c.subs(chi, 1).doit()) for c in E]
-    El = [sp.simplify(c.subs(A, kernel(u, r)).doit()) for c in El]
     I_ord = []
-    for c in El:
+    for c in EK:
         e = sp.simplify(c.subs({u: uu}).subs(r, 1/z**2))
         ser = sp.series(e, z, 0, 14).removeO()
         I_ord.append(sp.Rational(min(sp.Poly(sp.expand(ser), z).monoms())[0], 2) if ser != 0 else sp.oo)
     io_ord = []
-    for c in El:
+    for c in EK:
         e = sp.simplify(c.subs(u, lam*r).subs(r, 1/z))
         ser = sp.series(e, z, 0, 9).removeO()
         io_ord.append(min(sp.Poly(sp.expand(ser), z).monoms())[0] if ser != 0 else sp.oo)
-    ok = sol and flat_ok and worst >= 4 and min(I_ord) >= sp.Rational(9, 2) and min(io_ord) >= 6
+    ok = (sol and flat_ok and consistent and worst >= 4 and min(I_ord) >= sp.Rational(9, 2)
+          and min(io_ord) >= 6)
     print("  T3: W*, d psi solve Box in the outgoing chart: %s; E reduced by the flat equation vanishes at mu = 0: %s; "
-          "I+-orders of its terms %s (least %s); with A = K, chi = 1: I+-orders %s, iota+-orders %s"
-          % (sol, flat_ok, sorted(set(report), key=lambda p: p[1])[:6], worst, I_ord, io_ord), flush=True)
+          "with A = K, chi = 1 the flat relation holds: %s, the Tangherlini one: %s, E = flat-reduced E: %s, = "
+          "Tangherlini-reduced E: %s; I+-orders of its terms %s (least %s); with A = K, chi = 1: I+-orders %s, "
+          "iota+-orders %s" % (sol, flat_ok, holds_f, holds_T, match_f, match_T,
+                               sorted(set(report), key=lambda p_: (p_[1], p_[0]))[:6], worst, I_ord, io_ord),
+          flush=True)
     return ok
 
 

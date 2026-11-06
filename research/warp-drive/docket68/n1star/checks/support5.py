@@ -21,12 +21,26 @@ a negative control that must fail.
      toward (1, 0, delta) keeps N > 0 and gamma positive definite (an exact identity in v^T gamma_s v). Control: the
      original time lines of five-dimensional Vaidya, g0 = eta + (mu/r^2) k k with k = dtau + dr: the spatial block of
      g0^-1 is delta - (mu/r^2) xhat xhat, negative on radial xi where r^2 < mu (the case Step 8 exists for).
+  C14 (certified, Z3 over the reals; computed, floating point; D623, the section 0-4 reader's Minor 2) supplement Lemma
+     2.2's Jacobian. Phi(x) = (r + 2 lam sigma(r)) xhat is radial, so DPhi has the radial eigenvalue 1 + 2 lam
+     sigma0'/(b - a) and three angular ones 1 + 2 lam sigma/r. (a) Certified: for every lam, delta0, a, b with 0 < lam
+     <= min(1, delta0)/10, b - a >= 1 + delta0, every r in [a, b], every slope sigma0' in [-7, 0] and every sigma in
+     [-1, 1] with sigma < 0 only where r - a > (b - a)/3 (sigma0 = 1 on [0, 1/3]), the radial eigenvalue lies in
+     [3/10, 1] and the angular ones in [2/5, 1 + 2 lam/a]: the Jacobian is bounded above and below uniformly in lam.
+     (b) Computed: the supplement's sigma0, the linear ramp from 1 at 7/20 to -1 at 13/20 mollified by the standard
+     bump of radius 1/120, is non-increasing, 1 on [0, 1/3] and -1 on [2/3, 1] (to 1e-12), with sup |sigma0'| = 20/3 <=
+     7; DPhi's eigenvalues for it, over delta0 in {1/100, 1/10, 1/2, 1, 2, 10}, lam = min(1, delta0)/10 (the largest
+     allowed), b - a in {1 + delta0, 2 + delta0, 5 + delta0}, a in {1/100, 1/3, 1} and 2001 radii, are >= 3/10
+     (radial) and >= 2/5 (angular), and a central-difference Jacobian of Phi in R^4 at six points has these eigenvalues
+     to 1e-6. Control: the standard C^inf smooth step across the whole middle third, sup |sigma0'| = 12, gives the
+     radial eigenvalue -1/5 at delta0 = 1, lam = 1/10, b - a = 2 (b) and a Z3 counterexample with slope 12 (a).
 
 Labels: certified (Z3's unsat over the reals is a proof of the universally quantified statement) and computed (exact
-symbolic identities). Run: python3 checks/support5.py   (about a minute)
+symbolic identities; floating point where said). Run: python3 checks/support5.py   (about a minute)
 """
 import sys
 
+import numpy as np
 import sympy as sp
 import z3
 
@@ -266,6 +280,94 @@ def c4(control=False):
     return inside and near and width and needed
 
 
+def _ramp_sigma0(s, eps=1 / 120, nt=2001):
+    """the supplement's sigma0 (D623): the ramp from 1 at 7/20 to -1 at 13/20, mollified by the standard bump of radius
+    eps (floating point, Simpson in t); returns sigma0(s) and sigma0'(s) = (ramp' * bump)(s)"""
+    t = np.linspace(-1, 1, nt)
+    with np.errstate(divide='ignore', over='ignore'):
+        eta = np.where(np.abs(t) < 1, np.exp(-1 / np.maximum(1 - t * t, 1e-300)), 0.0)
+    wts = np.ones(nt)
+    wts[1:-1:2], wts[2:-1:2] = 4, 2
+    wts *= (t[1] - t[0]) / 3
+    wts *= eta / np.sum(wts * eta)
+    x = np.subtract.outer(s, eps * t)
+    ramp = np.clip(1 - (20 / 3) * (x - 7 / 20), -1, 1)
+    dramp = np.where((x > 7 / 20) & (x < 13 / 20), -20 / 3, 0.0)
+    return ramp @ wts, dramp @ wts
+
+
+def _step12_sigma0(s):
+    """control: the standard C^inf smooth step psi(t) = f(t)/(f(t) + f(1 - t)), f(t) = exp(-1/t), across the whole
+    middle third, sigma0(s) = 1 - 2 psi(3 (s - 1/3)); sup |sigma0'| = 12 (closed-form derivative)"""
+    t = np.clip(3 * (s - 1 / 3), 0, 1)
+    with np.errstate(divide='ignore', over='ignore', invalid='ignore'):
+        f = np.where(t > 0, np.exp(-1 / np.maximum(t, 1e-300)), 0.0)
+        g = np.where(t < 1, np.exp(-1 / np.maximum(1 - t, 1e-300)), 0.0)
+        fp = np.where(t > 0, f / np.maximum(t, 1e-300) ** 2, 0.0)
+        gp = np.where(t < 1, g / np.maximum(1 - t, 1e-300) ** 2, 0.0)
+        psi = f / (f + g)
+        dpsi = (fp * (f + g) - f * (fp - gp)) / (f + g) ** 2
+    dpsi = np.where((s > 1 / 3) & (s < 2 / 3), dpsi, 0.0)
+    return 1 - 2 * psi, -6 * dpsi
+
+
+def _dphi_eigs(sig, dsig, ss, d0, lam, w, a):
+    """DPhi's radial and angular eigenvalues at the radii r = a + s w"""
+    return 1 + 2 * lam * dsig / w, 1 + 2 * lam * sig / (a + ss * w)
+
+
+def c14(control=False):
+    slope = 12 if control else 7
+    lam, d0, w, a, r, sp_, sg = z3.Reals("lam d0 w a r sp sg")
+    hyp = [d0 > 0, lam > 0, 10 * lam <= 1, 10 * lam <= d0, w >= 1 + d0, a > 0, r >= a, r <= a + w,
+           sp_ >= -slope, sp_ <= 0, sg >= -1, sg <= 1, z3.Implies(sg < 0, 3 * (r - a) > w)]
+    S = z3.Solver()
+    S.set("timeout", 120000)
+    S.add(*hyp)
+    S.add(z3.Or(10 * (w + 2 * lam * sp_) < 3 * w, w + 2 * lam * sp_ > w, 5 * (r + 2 * lam * sg) < 2 * r,
+                a * (r + 2 * lam * sg) > r * (a + 2 * lam)))
+    cert = S.check() == z3.unsat
+    ss = np.linspace(0, 1, 2001)
+    sig, dsig = (_step12_sigma0 if control else _ramp_sigma0)(ss)
+    shape = (bool(np.all(np.diff(sig) <= 1e-12)) and float(np.max(np.abs(sig[ss <= 1 / 3] - 1))) < 1e-12
+             and float(np.max(np.abs(sig[ss >= 2 / 3] + 1))) < 1e-12 and float(np.max(np.abs(sig))) <= 1 + 1e-12)
+    smax = float(np.max(np.abs(dsig)))
+    rad_min, ang_min, worst = 9.0, 9.0, None
+    for d in (0.01, 0.1, 0.5, 1.0, 2.0, 10.0):
+        lm = min(1.0, d) / 10
+        for wd in (1 + d, 2 + d, 5 + d):
+            for aa in (0.01, 1 / 3, 1.0):
+                rad, ang = _dphi_eigs(sig, dsig, ss, d, lm, wd, aa)
+                rad_min, ang_min = min(rad_min, float(rad.min())), min(ang_min, float(ang.min()))
+    worst = float(_dphi_eigs(sig, dsig, ss, 1.0, 0.1, 2.0, 1 / 3)[0].min())       # delta0 = 1, lam = 1/10, b - a = 2
+    fd_ok = True
+    rng = np.random.default_rng(14)
+    aa, wd, lm = 0.3, 2.0, 0.1
+    one = (lambda x: _step12_sigma0(np.array([x]))) if control else (lambda x: _ramp_sigma0(np.array([x])))
+
+    def phi(x):
+        rr = np.linalg.norm(x)
+        return x + 2 * lm * one((rr - aa) / wd)[0][0] * x / rr
+    for _ in range(6):
+        xh = rng.standard_normal(4)
+        xh /= np.linalg.norm(xh)
+        x0 = (aa + rng.uniform(0.05, 0.95) * wd) * xh
+        h = 1e-6
+        J = np.array([(phi(x0 + h * e) - phi(x0 - h * e)) / (2 * h) for e in np.eye(4)]).T
+        r0 = np.linalg.norm(x0)
+        s0v, ds0 = one((r0 - aa) / wd)
+        want = np.sort([1 + 2 * lm * ds0[0] / wd] + [1 + 2 * lm * s0v[0] / r0] * 3)
+        fd_ok &= bool(np.max(np.abs(np.sort(np.linalg.eigvals(J).real) - want)) < 1e-6)
+    ok = cert and shape and smax <= 7 and rad_min >= 0.3 and ang_min >= 0.4 and fd_ok
+    print("  C14%s: sigma0 %s: non-increasing, 1 on [0, 1/3], -1 on [2/3, 1], |sigma0| <= 1: %s; sup |sigma0'| = %.6f;\n"
+          "      DPhi over the grid: min radial %.6f (>= 3/10), min angular %.6f (>= 2/5); radial at delta0 = 1, lam = "
+          "1/10,\n      b - a = 2: %.6f; central differences match: %s; Z3 with slope %d: Jacobian bounds hold for "
+          "every\n      admissible lam, delta0, a, b, r: %s"
+          % (" control" if control else "", "slope-12 smooth step" if control else "mollified ramp (7/20, 13/20)",
+             shape, smax, rad_min, ang_min, worst, fd_ok, slope, cert), flush=True)
+    return ok
+
+
 def c6(control=False):
     N = sp.Symbol("N", positive=True)
     be = sp.Matrix(sp.symbols("b1:5"))
@@ -374,7 +476,8 @@ def c9(control=False):
     return only_vth and nonzero and odd
 
 
-CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C5", c5), ("C6", c6), ("C8", c8), ("C9", c9)]
+CHECKS = [("C1", c1), ("C2", c2), ("C3", c3), ("C4", c4), ("C14", c14), ("C5", c5), ("C6", c6), ("C8", c8),
+          ("C9", c9)]
 
 
 def main():

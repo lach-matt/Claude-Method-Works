@@ -155,6 +155,27 @@ TRACE += [('E-a', 'Lemma 1.1 (e): every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 (D62
            "s0 := inf over Omega of g0's least absolute eigenvalue", CERT),
           ('E-a', 'eps1 fixed with 0 < eps1 < min(s0, mu0/a^2 - 1) (D623)', 100,
            'one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1)', CERT)]
+
+
+def _repin_section6(rows):
+    """D619: section 6's rows (the Theorem D terms D-a..D-d) re-pinned by content, since the section 6 seating moved
+    them and several agents edit the file at once: such a row takes the one line of section 6 (from its heading to
+    section 7's) that carries its fragment; a fragment on no line of section 6, or on two, keeps its number, and T0
+    then fails on it"""
+    with open(PROOF, encoding='utf-8') as fh:
+        L = fh.read().split('\n')
+    i = next((k for k, l in enumerate(L) if l.startswith('## 6. Theorem D')), None)
+    j = next((k for k, l in enumerate(L) if l.startswith('## 7. What is left')), None)
+    if i is None or j is None:
+        return rows
+    out = []
+    for t, f, ln, fr, st in rows:
+        hits = [k + 1 for k in range(i, j) if fr in L[k]]
+        out.append((t, f, hits[0] if t.startswith('D-') and len(hits) == 1 else ln, fr, st))
+    return out
+
+
+TRACE = _repin_section6(TRACE)
 TERMS = ['lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d']
 NEEDS = {
     'E-b': 'C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1\'s constant), M, eps2 (g_ext): the profiles',
