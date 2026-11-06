@@ -28,7 +28,8 @@ scanned here.
   M2 (deduced; computed) the charges, at the record's weights (dweights5 W1, imported) and, where a loss depends on
      the level, at the worst level of its range:
      - FWD: III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, from d0count5 as corrected in Round 8 (the round-7
-       verifier's A and A2: D_0 <= 399 and D_1 <= 52 on the order box, Q3b): 474 (round 7's 248 withdrawn);
+       verifier's A and A2: D_0 <= 399 and D_1 <= 52 on the order box, Q3b): 474 (round 7's 248 withdrawn); Round 9
+       (the round-8 verifier's MAJOR 1: the Peetre exponents over the factors' orders): D_0 <= 435, FWD <= 510;
      - BG: 2 per order-2 application (J3 (b)): I15's R_q u, Delta_q and Lemma 3.2's (L - L_b0) u;
      - III.I' Proposition 3.1 at I11's Step 1, the one-off application to the general class E^C_I: 2 (1 + J + L) by
        prop31loss5's chain on dweights5's data_ECI, 12 (R0), 30 (R1, 4 rounds), 48 (R1, 7 rounds): charged 48;
@@ -50,15 +51,17 @@ scanned here.
   M3 (computed) c'_above = FWD + the charges at a level above 3 (the beta > 4 extras included), c'_below likewise,
      c' := max, and d <= A' + 106,489,470 c' with A' = dnumber5's R1 constant 45,661,383,902,649,727 (imported);
      N = 21 d + 6. Pinned: c' and d.
-  M4 (deduced on a coarse reading; computed) the steps of III.I'''''''''''''' Theorem 3.1 outside its levels (I15:296-452:
-     Step 0 FWD, Step 1 the base level, III.I'''''''' Proposition 4.1 at alpha_1, Steps 3 and 4' FIN, Step 4
-     III.I'''''''''''' Theorem 3.1 at the top, whose Step 0 runs one more level's maps and whose Steps 1-6 subtract
-     towers and read coefficients, I13:298-447), each at most one level's composition, and the base at most four
-     levels below 3 (Lemma 3.1 with III.I''''' Proposition 2.1's rounds, I6:85-227, and one Lemma 3.2): B_once := 2 (M_a
-     + 4 M_b) + 1000, M_a and M_b the largest totals of one level above and below 3 with their loops (the per-level
-     maxima of the rounds at the record's weights, P_W, P_iota, W, the excess 47 and X_7(alpha) = (Sum X_7 + the
-     uniform bound's excess)/L_above, read from dnumber5.out, pinned by md5). Round 7's chain omitted these steps; they
-     are 7.7e-8 of d. Pinned: B_once and d <= A' + (K + 1) c' + B_once.
+  M4 (deduced on the reading; computed) the steps of III.I with fourteen primes, Theorem 3.1, outside its levels
+     (I15:296-452), which round 7's chain omitted. Round 8 bounded them coarsely by 2 (M_a + 4 M_b) + 1000; Round 9
+     (the round-8 verifier's minor 1) itemises them (one_offs): Step 0 FWD; Step 1, the base, at most six below-3
+     level totals; Steps 3 and 4' FIN; Step 4, the top's expansion theorem, one level above 3 for its Step 0 and three
+     III.A Proposition 4.2 (2) applications in its Step 1 (vi), (viii), (ix), each <= 3 P_iota + 47 + X_7(alpha) + 5.
+     M_a, M_b are the largest totals of one level above and below 3 with their loops (the per-level maxima of the
+     rounds at the record's weights, P_W, P_iota, W, the excess 47 and X_7(alpha) = (Sum X_7 + the uniform bound's
+     excess)/L_above, read from dnumber5.out, pinned by md5). Pinned: B_once and d <= A' + (K + 1) c' + B_once.
+  M5 (READ; computed; Round 9, the round-8 verifier's MAJOR 2) the four admissibility conditions dweights5 W1 left
+     undecided: (G) and eta_1, eta_2 off Re Lambda are decided (admissibility()); the levels off I11:156-160's
+     exclusion sets and eps, eps' off I9:290-291's and I14:124-126's are not (they need the roots -mu as numbers).
   Controls (each mutates the computed path and must fail): C1 TABLE with one row dropped: one hit unclassified;
   C2 FAM with the L-hat pattern dropped: the census's hit count and the charged sites change; C3 Corollary 4.5
   charged at J3's l instead of l + 1: c' leaves its pin; C4 the level-1 Proposition 4.4 read per exponent (3, the
@@ -393,7 +396,7 @@ def totals(ch):
     return ab, be, max(ab, be)
 
 
-C_PIN, D_PIN = 632, 45661451203994767
+C_PIN, D_PIN = 668, 45661455037615687
 
 
 # ------------------------------------------------------------------------------------------------ M4: the one-off steps
@@ -463,7 +466,7 @@ def admissibility(w):
     return ok, dict(m=mlo, eta1=w['eta1'], eta2=w['eta2'])
 
 
-B_PIN, DTOT_PIN = 3524217980, 45661454728212747
+B_PIN, DTOT_PIN = 3943746411, 45661458981362098
 
 
 def main():
