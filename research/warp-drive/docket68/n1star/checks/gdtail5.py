@@ -9,11 +9,13 @@ mutates the computed path and must fail.
      and a - r^-2 = (1/2) t^-2 + O(t^-4): the coefficient 1/2 = 4 pi^2 int_t^oo (4 pi^2)^-1 tau^-3 d tau t^2, the tail
      of the fundamental solution inside the cone.  Control: the same construction in 3+1 (E_3 has no interior part)
      gives the coefficient 0.
-  T2 (exact; the resolvent side formal) The coefficient the other way.  Round 6's D5 recomputed (kappa_2, the
-     coefficient of log r at the root 0 of u_2's time component, is -1/2), D6's formula gives the sigma log sigma
-     coefficient -(i ell(f)/8 pi^2) d psi, and FT[t^-2 H(t - 1)] = E_2(-i sigma) = 1 + (-i sigma) log(-i sigma) +
-     analytic (sympy's expint series): the t^-2 coefficient (c/2) d psi, c = ell(f)/4 pi^2, equal to T1's 1/2 and to
-     the model's (T6).  Control: kappa_2 replaced by 0 (no near-zone logarithm) gives 0.
+  T2 (exact; the resolvent side formal) The coefficient the other way.  Round 6's D5 chain recomputed here with both
+     components kept: P-hat(0) W* = 0 (u_0 in the kernel, which D5 did not check), and u_2's log r coefficients at r^0
+     are -1/2 in dv and +1/2 in dr, a multiple of (d_v)^flat = -f dv + dr (the round-6 verifier's recomputation); with
+     kappa_2 = -1/2 so computed, D6's formula gives the sigma log sigma coefficient -(i ell(f)/8 pi^2) d psi, and
+     FT[t^-2 H(t - 1)] = E_2(-i sigma) = 1 + (-i sigma) log(-i sigma) + analytic (sympy's expint series): the t^-2
+     coefficient (c/2) d psi, c = ell(f)/4 pi^2, equal to T1's and the model's (T6).  Control: W* with its dr
+     component dropped is not in the kernel of P-hat(0).
   T3 (exact) The model in the far zone.  In the outgoing chart (u, r), g = -f du^2 - 2 du dr + r^2 gamma, with W* =
      r^-2 du + dr/(r(r - r_h)) and d psi = du + (1 + mu/(r(r - r_h))) dr (both solutions), E := Box(chi(u) W* + A(u, r)
      d psi) for arbitrary chi, A, reduced by the flat equation of a := chi r^-2 + A, vanishes at mu = 0 and is a sum
@@ -44,8 +46,11 @@ mutates the computed path and must fail.
      statements asks p > 1/2 + beta with beta < delta_#, below Theorem R4.3's min(3/2, q - 1).  Control: an expansion
      of Z_1 to order 2 at null infinity (which no statement uses) is beyond that interval.
 
-Labels: computed (exact, sympy; T2's resolvent side reruns round 6's formal D5-D6; T7, T9, T10 on the whole parameter
-box).  Run: python3 checks/gdtail5.py   (a few minutes)
+  T11 (exact, whole box) Theorem R6.4's conditions with w_I = max(5/2, gamma_+ + 1 + eps_1) encoded and II.G'
+     Proposition 3.3 (1) taken with eps_PP = min(eps, eps_1) (the round-6 verifier's minor on D2; a max or min handled
+     exactly, argument by argument).  Control: Proposition 3.3's eps not reduced to min(eps, eps_1).
+Labels: computed (exact, sympy; T2's resolvent side recomputes round 6's formal D5-D6 chain; T7, T9, T10, T11 on the
+whole parameter box).  Run: python3 checks/gdtail5.py   (a few minutes)
 """
 import sys
 
@@ -238,7 +243,7 @@ def t3(control=False):
             ser = sp.series(co.subs(r, 1/y), y, 0, 8).removeO()
             lead = min(sp.Poly(sp.expand(ser), y).monoms())[0] if ser != 0 else sp.oo
             worst = min(worst, lead + o)
-            report.append((str(mon).replace('(u, r)', '').replace('(u)', ''), lead + o))
+            report.append((str(mon).replace('(v, r)', '').replace('(v)', '').replace(', v)', ', u)'), lead + o))
         rest = sp.simplify(c - sum(sp.expand(c).coeff(m)*m for m in ords))
         if rest != 0:
             worst = -sp.oo

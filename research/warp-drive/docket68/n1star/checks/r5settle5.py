@@ -50,10 +50,10 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     random rationals; l = 2), the after-shell coefficients G_k(v) from the flat recursion (2q - 3) G_(2q)' = (Delta +
     (q - 1)(q - 3)) G_(2q - 2), Sigma = sum_(p in Pi) r^-p c_(2p) 2F1(p + l, p - l - 2; p - 1/2; s/2). G1: at fixed v
     the coefficients of r^(-k/2) of the truth minus Sigma vanish for k <= 8 and equal c_9 at k = 9 (exact), so h_R =
-    O(r^(-9/2)); with p = 4 dropped (control) the r^-4 coefficient survives. G2 (quadrature, 50 digits) the cap energy
+    O(r^(-9/2)); with p = 4 dropped (control) the r^-4 coefficient survives. G2 (quadrature, 60 digits) the cap energy
     of the truncation (unit band in v at t = T, smoothstep cut-off, weight (2r)^(2a)) has fitted exponent 2a - 6 in |T|
-    (a = 2.2, 2.75, 2.95), -> 0 exactly for a < 3; the control (p = 4 dropped) 2a - 5. G3 (quadrature) the N-flux tail
-    beyond |T| has exponent 2a - 7. G4 the class on S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside
+    (a = 2.2, 2.75, 2.95), -> 0 exactly for a < 3; the control (p = 4 dropped) 2a - 5. G3 (exact, sympy) the N-flux
+    tail beyond |T| of the field h_R(v1, r) has exponent 2a - 7; the control (p = 4 dropped) 2a - 6. G4 the class on S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside
     rho^(l0) L^2_b exactly when a + 1 >= l0 (exact on rho^beta). G5 the weight window: with the kernels of r5op5 O1
     (> 1 for every a), the h_R rows 3/2 + a and a + 1/2 (from S1 and Hardy: exponents computed below), the residual
     9/2 - a (degree -13/2), the cap (G2), the N-flux (G3) and G4, the set of admissible a on the grid a = 0, 1/100,
@@ -544,12 +544,17 @@ def part_g():
             return (2*r)**(2*a)*((c*ht)**2 + hr**2 + L_HARM*(L_HARM + 2)*(c*hv)**2/r**2)*r**3
         return mp.quad(dens, [v1, V, V + dl])
 
-    def tail(h, R, a):
-        def dens(r):
-            hv = h(v1, r)
-            hr = mp.diff(lambda rr_: h(v1, rr_), r)
-            return (2*r)**(2*a)*(hr**2 + L_HARM*(L_HARM + 2)*hv**2/r**2)*r**3
-        return mp.quad(dens, [R, 10*R, 100*R, mp.inf])
+    def tail_exp(Pi_, av):
+        """the N-flux tail beyond R of h_R(v1, r), exactly (sympy): its leading power of R"""
+        rS, RS = sp.symbols("rS RS", positive=True)
+        v1s = sp.Rational(7, 10)
+        Gv1 = {k: flat_truth(cs, vv)[k].subs(vv, v1s) for k in range(4, 10)}
+        Gv1[10] = c10 + v1s
+        ph = sum(rS**sp.Rational(-k, 2)*Gv1[k] for k in range(4, 11)) - sum(rS**(-p)*cs[int(2*p)] for p in Pi_)
+        dens = sp.expand((2*rS)**(2*av)*(sp.diff(ph, rS)**2 + L_HARM*(L_HARM + 2)*ph**2/rS**2)*rS**3)
+        tl = sp.integrate(dens, (rS, RS, sp.oo), conds="none")
+        lead_ = sp.limit(sp.log(tl)/sp.log(RS), RS, sp.oo)
+        return lead_
 
     Ts = [mp.mpf(10)**4, mp.mpf(10)**5, mp.mpf(10)**6]
     ok2, ok2c, ok3, ok3c, info = True, True, True, True, []
@@ -558,10 +563,9 @@ def part_g():
         s5 = float(mp.log(e5[2]/e5[1])/mp.log(10))
         e7 = [cap(h7, -T, a) for T in Ts]
         s7 = float(mp.log(e7[2]/e7[1])/mp.log(10))
-        t5 = [tail(h5, T, a) for T in Ts[:2]]
-        q5 = float(mp.log(t5[1]/t5[0])/mp.log(10))
-        t7 = [tail(h7, T, a) for T in Ts[:2]]
-        q7 = float(mp.log(t7[1]/t7[0])/mp.log(10))
+        aq = sp.nsimplify(str(a))
+        q5 = float(tail_exp(Pi, aq))
+        q7 = float(tail_exp(Pi7, aq))
         info.append((float(a), round(s5, 3), round(s7, 3), round(q5, 3), round(q7, 3)))
         ok2 = ok2 and abs(s5 - (2*float(a) - 6)) < 0.02
         ok2c = ok2c and abs(s7 - (2*float(a) - 5)) < 0.02

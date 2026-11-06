@@ -21,11 +21,13 @@ g_1 = m_1 + W(X, th + phi_1(X)), W = W_TT + chi dv dv (:461-462, :548); round 4 
      (v - tau0)^(-1/2) r^(-3/2) is positive and decreasing in r on r <= v - tau0 (its derivative vanishes only at
      r = 16 (v - tau0)/9), so on Omega sup is at r = a (the points (v - a, a), v in [1/2, 7/2], lie in Omega); and
      2 sup |chi| = (2/3) sup_v E(v)^2 (a^-2 - (v + 2)^(-1/2) a^(-3/2)) < 11.92 (Arb over 4000 cells of v, envelope
-     c <= 1.32410349, READ envelope5.out E1), below 12.593309. So the m_1-free bound stays sup |W_TT|.
-  S3 (deduced) the criterion: stage 1 lowers the certified lambda0 bound if and only if a certified lower bound for
-     sup_{Omega x S^1} |m_1 + chi dv dv|_op exceeds 12.593309 (then lambda0 < eps1/that); an upper bound for m_1 (what
-     Lemma 6.4's estimate would give) does not move it. With 2 sup|chi| near 11.9, an |m_1| of order 1 at the right
-     point would.
+     c <= 1.3241034918, READ envelope5.out E1), below 12.593309. So the m_1-free bound stays sup |W_TT|.
+  S3 (deduced) the criterion [Round 7, the round-6 verifier's MAJOR 1: the round-6 "iff" with sup |m_1 + chi dv dv|
+     alone was false in its "only if" direction]: stage 1 lowers the certified operator-norm bound iff a certified
+     lower bound for sup_{Omega x S^1} |m_1 + W_TT + chi dv dv|_op exceeds 12.593309; the four-point bound above is
+     sufficient only, and m_1(X*) e_phi1 != 0 at W_TT's maximiser X* is sufficient too (r7fixes5.py R1). With m_1 = 0,
+     |W_TT + chi D|_op = max(|W_TT|_op, 2 |chi|) pointwise (W_TT U = 0, D = U U^T), which is why S2's 11.88 decides
+     that stage 0 does not move the operator-norm bound. An upper bound for m_1 does not move it.
   S4 (certified) Lemma 6.4's principal constants for stage 1's constraint solve at g0's data on Sigma = Sigma_tau0
      (Lemma 6.3 (a), closed forms READ there: alpha = theta^3 H = 3 r^3/(r^2 + mu)^2, angular principal coefficient
      (r^2 + mu)^-1, S A0 = diag(6, 1/(r^2 + mu)), c^2 = 2 (r^2 + mu)/(3 r^4)), r in [a, b(tau0)], mu in [mu0, mu_end]:
@@ -37,15 +39,21 @@ g_1 = m_1 + W(X, th + phi_1(X)), W = W_TT + chi dv dv (:461-462, :548); round 4 
     python3 checks/stage1cap5.py       (seconds)
 """
 import builtins
+import contextlib
+import io
+import os
 import sys
 import textwrap
 from fractions import Fraction as Fr
 
 import flint
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import sympy as sp
 
 OK = {}
-C_HI = flint.arb('1.32410349')                   # READ envelope5.out E1 (upper end of c)
+C_HI = flint.arb('1.3241034918')                 # READ envelope5.out E1 (upper end of c; Round 7, m5: was 1.32410349)
+SUP2CHI_PIN = (flint.arb('11.8820'), flint.arb('11.8822'))    # S2's certified value, pinned (Round 7, m5)
 CAPP = Fr(12593309, 10 ** 6)                     # READ lzerotrace5.out T3
 MU0, MUEND = Fr(1), Fr(227, 192)                 # READ CONSTANTS5.md 1.4
 TAU0 = -2
@@ -92,6 +100,13 @@ def angular_bound(claim=Fr(1, 3)):
     diff = sp.factor(sp.expand(claim ** 2 * 36 * (1 + q ** 2) ** 2 - (16 * q ** 2 + (1 - q ** 2) ** 2)))
     at1 = g2.subs(q, 1)
     return diff, at1
+
+
+def down7(x):
+    """a decimal string <= the real x (Round 7, m6: a lower bound is rounded down)"""
+    import math
+    q = flint.arb(x).lower()
+    return '%.7f' % (math.floor(float(q) * 10 ** 7) / 10 ** 7)
 
 
 def fa(x):
@@ -145,12 +160,23 @@ def main():
     OK['S2a'] = sp.simplify(diff - 3 * (1 - sp.Symbol('q', real=True) ** 2) ** 2) == 0 and at1 == Fr(1, 9)
     a = a_ball()
     sup2chi = chi_sup(a)
-    OK['S2'] = OK['S2a'] and sup2chi < flint.arb('11.92') and sup2chi < flint.arb(CAPP.numerator) / CAPP.denominator
+    with contextlib.redirect_stdout(io.StringIO()):
+        import lzeroconst5 as LZ
+        import lzerotrace5 as LT
+    g = LZ.geometry()
+    ahi = g['a'][1]
+    pts = [Fr(1, 2) + Fr(3 * i, 4000) for i in range(4001)]
+    inside = all(LT.in_omega(v - ahi, ahi, v, g) for v in pts)       # Round 7, m10: tested, not asserted
+    OK['S2'] = (OK['S2a'] and sup2chi < flint.arb(CAPP.numerator) / CAPP.denominator and inside
+                and SUP2CHI_PIN[0] < sup2chi < SUP2CHI_PIN[1])
     print('  S2: angular factor squared <= 1/9 with 36 (1 + q^2)^2/9 - (16 q^2 + (1 - q^2)^2) = %s (exact), equality at '
           'q^2 = 1; a = q0/2 in %s; 2 sup_Omega |chi| <= %s (certified, Arb) < 12.593309: the second harmonic does not '
-          'raise C_app\'s lower bound: %s' % (diff, a.str(10), sup2chi.str(6), OK['S2']))
-    print('  S3 (deduced): stage 1 lowers the certified lambda0 bound iff a certified lower bound of sup |m_1 + '
-          'chi dv dv|_op exceeds 12.593309; Lemma 6.4\'s estimate, an upper bound for m_1, cannot do it')
+          'raise C_app\'s lower bound; the points (v - a, a), v in [1/2, 7/2], lie in Omega (lzerotrace5.in_omega at '
+          'the 4001 cell ends): %s; pinned in [11.8820, 11.8822]: %s' % (diff, a.str(10), sup2chi.str(6), inside,
+                                                                         OK['S2']))
+    print('  S3 (deduced; Round 7): stage 1 lowers the certified operator-norm bound iff a certified lower bound of '
+          'sup |m_1 + W_TT + chi dv dv|_op exceeds 12.593309; m_1(X*) e_phi1 != 0 is sufficient (r7fixes5 R1); an '
+          'upper bound for m_1 cannot do it')
     # S4 principal constants on Sigma_tau0
     b = B_TAU0_HI
     mue = flint.arb(MUEND.numerator) / MUEND.denominator
@@ -167,7 +193,7 @@ def main():
     print('  S4 (certified): on Sigma_tau0, r in [a, b(tau0)], alpha = 3 r^3/(r^2 + mu)^2 >= alpha0 = %s (at r = a with '
           'mu_end; %s with mu0 = 1 there), angular ellipticity and A00 = min eig S A0 >= %s (at r = b(tau0)), the '
           'largest speed^2 2 (r^2 + mu)/(3 r^4) <= %s (at r = a): %s' % (
-              flint.arb(alpha0).str(6), al_a.str(6), flint.arb(delta0).str(6), flint.arb(cmax).str(6), OK['S4']))
+              down7(alpha0), down7(al_a.lower()), down7(delta0), flint.arb(cmax).str(6), OK['S4']))
     # controls
     OK['C1'] = not s1(chi_harm=1)
     print('  C1 (control): chi taken as a first harmonic: S1\'s identities fail: %s' % OK['C1'])
