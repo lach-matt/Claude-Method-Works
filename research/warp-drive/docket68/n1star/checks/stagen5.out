@@ -1,6 +1,6 @@
-  S1 N1STAR-PROOF.md md5 92c07c8d19768839508d3472f6db5712; lines: 5.4 stages 1..N 579; 6.2 statement 678; 6.2 proof range
-      684; 6.2 stage N fixed 685; 6.2 step at m = N 686; (F1) 654; (F2) 655; 6.5 uses 6.2 846; 6.4 uses 6.2 906; 6.4 seed
-      data 917
+  S1 N1STAR-PROOF.md md5 7400212b8ab4ab746fefc00381d6aa4e; lines: 5.4 stages 1..N 604; 6.2 statement 704; 6.2 proof range
+      710; 6.2 stage N fixed 711; 6.2 step at m = N 712; (F1) 680; (F2) 681; 6.5 uses 6.2 873; 6.4 uses 6.2 935; 6.4 seed
+      data 946
 S1 PASS
   S2 (a ledger of Lemma 5.1's weights, hand-coded) lowest order - N at which stage N's unknowns enter: D mean: 0 (m_j
       with d_X); D phase: 0 (dphi_j d_th W); D osc: 0 (lam^-1 d_th gh_j); RicH mean: -1 (m_j(ell, ell) in e_j, against
@@ -14,7 +14,7 @@ S3 PASS
   S4 top slice data, Lemma 6.2's rule at m = N over zero data for stage N: at the very edge 12.6527, in the window
       0.0400658
 S4 PASS
-  S5 N1STAR-PROOF.md md5 92c07c8d19768839508d3472f6db5712: D616's sentence inside Lemma 6.2's statement: True (from line
-      679)
+  S5 N1STAR-PROOF.md md5 7400212b8ab4ab746fefc00381d6aa4e: D616's sentence inside Lemma 6.2's statement: True (from line
+      705)
 S5 PASS
 stagen5: all checks pass, every control fails

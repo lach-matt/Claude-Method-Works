@@ -53,7 +53,7 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      k diag(2k - 2, 2k + 2, 2k), invertible for k >= 2, and order 0 forces a(r_h) = 0), and three explicit polynomial
      solutions realise those jets; no nonzero combination has Cartesian growth below r^1 (they grow like r^(l - 1),
      r^l, r^(l + 1)).  The method needs polynomial solutions, so even l (at odd l the horizon-regular potentials are
-     non-terminating hypergeometric series); every l is gdr9_5.py N5.  Control (round 9): L6's own path with E_r's
+     non-terminating hypergeometric series); every l is gdr9_5.py N2.  Control (round 9): L6's own path with E_r's
      coupling 3 kappa r c, and with the growth threshold raised to r^l, must fail both times.
   L7 (exact) The subspace.  The Cartesian components (in dt_*, dx^1, ..., dx^4) of the class forms S dv, S dr, dS (S
      = P_j(cos 2 th), l = 2j = 2, 4) have zero spherical means, the horizon functional ell vanishes on them, and the
