@@ -410,6 +410,9 @@ def s4():
     r, th, k2 = MB.r, MB.th, MB.k2
     nu = sp.Symbol('nu', positive=True)
     musub = {MB.mu: r**2 * (1 - nu**2)}
+
+    def pre(e):
+        return sp.sympify(e).subs(sp.sqrt(MB.f_), nu).subs(musub)
     names = ['A', 'F', 'p', 'q', 'w']
     fns = [sp.Function(nm)(r) for nm in names]
     A, Fq, p, q, w = fns
@@ -440,7 +443,7 @@ def s4():
     def eig(e):
         e = e.subs(sp.Derivative(SF, (th, 4)), S4_).subs(sp.Derivative(SF, (th, 3)), S3)
         e = e.subs(sp.Derivative(SF, (th, 2)), S2).subs(sp.Derivative(SF, th), MB.s1).subs(SF, MB.s0)
-        return MB.JR.from_funcs(e, fns).subs(musub)
+        return pre(MB.JR.from_funcs(e, fns))
     jets = [x for nm in names for x in MB.JR.J[nm]]
     gnames = ['r', 't', 'nu', 'k2', 's0', 's1'] + [str(x) for x in jets]
     F = GField(gnames, [lambda g: g['r']] + TRIG_ATOMS + [lambda g: g['nu']])
@@ -480,7 +483,7 @@ def s4():
     ref['EV'] = sp.expand(vols * (rV.get((2, 0), 0) + k2 * rV.get((0, 2), 0)))
     ref['EK'] = sp.expand(vols * (rK.get((2, 0), 0) + k2 * rK.get((0, 2), 0)))
     for kk_, v in ref.items():
-        rad_ok &= (rad_mine[kk_] - convert(sp.sympify(v).subs(musub), F, table, th)).iszero()
+        rad_ok &= (rad_mine[kk_] - convert(pre(v), F, table, th)).iszero()
     print("   (a) C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2: %s; every coefficient free of theta "
           "(its t-derivative the zero rational function): %s; the radial coefficients mbsign5 E5-E9 use are these "
           "exactly: %s (%.0f s)" % (shape_ok, free_ok, rad_ok, time.time() - t0), flush=True)
@@ -514,7 +517,7 @@ def s4():
         return [dk[i] - sp.diff(tk, X4[i]) for i in range(n)]
 
     def zero_all(es, fs):
-        es = [sp.sympify(x).subs(musub) for x in es]
+        es = [pre(x) for x in es]
         jn = jet_names(es, fs)
         Fc = GField(['r', 't', 'nu'] + sorted(set(jn.values())), [lambda g: g['r']] + TRIG_ATOMS + [lambda g: g['nu']])
         tb = {r: Fc.el(Fc.g['r']), nu: Fc.el(Fc.g['nu'])}
