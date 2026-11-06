@@ -395,7 +395,8 @@ def k6(kappa=None):
     tail = (iv.log(4) * iv.exp(-c * 4)).b <= best.b
     F = iv.exp(3 * best)
     # Lemma 6.6's last inequality: cosh(a)/cosh(2a) <= 2 e^(-a) for a >= 0 (a = pi L/4), on a grid
-    lem = all((iv.cosh(iv.mpf(a) / 10) / iv.cosh(iv.mpf(a) / 5)).b <= (2 * iv.exp(-iv.mpf(a) / 10)).a
+    ch = lambda x: (iv.exp(x) + iv.exp(-x)) / 2
+    lem = all((ch(iv.mpf(a) / 10) / ch(iv.mpf(a) / 5)).b <= (2 * iv.exp(-iv.mpf(a) / 10)).a
               for a in range(0, 400))
     return F, dec4 and tail and lem, best
 
