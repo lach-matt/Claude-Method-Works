@@ -370,7 +370,7 @@ def part_a0():
         out = {}
         for k_ in vals[10**6]:
             v6, v7 = vals[10**6][k_], vals[10**7][k_]
-            out[k_] = None if v6 < mp.mpf(10)**-35 else int(mp.nint(mp.log10(v6/v7)))
+            out[k_] = None if v6 == 0 else int(mp.nint(mp.log10(v6/v7)))   # flat: exact zeros
         return out
     d = degrees(False)
     coefs = sorted({(0, 2), (d["g^-1 - eta"], 2), (d["Gamma"], 1), (d["d d g"], 0), (d["Gamma Gamma"], 0)})
