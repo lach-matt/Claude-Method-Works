@@ -18,14 +18,15 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      n = 0..3, and the divergence condition fixes B from A (so the class TT tensors are these, one per even l >= 2).
      Control (must fail): B with the derivative term's sign reversed is not divergence-free.
   E2 (exact; the slice symbolic in w(R) and mu, the final identity exact at three rational slice points with every jet
-     of w free there -- a spot check in (R, mu, w), [R8] the round-8 reader's minor 1) The tensor sector on every class
-     slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's vacuum slices are these): N_s sqrt(gamma_RR) = 1,
-     N_s^2 - |Y_s|^2 = f; for delta gamma = 2 R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal
-     derivative), the linearised constraints vanish identically, and the theta-integrated Q-density equals -2 |T|^2
-     T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n) |dH|^2) - (1/2) g(xi, n)
-     (k_T^2 + 2) R H^2 is the flux of the conserved 2D master current of the tensor equation (Euler operator in H and P
-     zero; l = 2 and l = 4). So E = 2 |T|^2 int T_m(xi, n): positive definite in (H, P) where f > 0, indefinite where f
-     < 0 (the (P, H_R) block has determinant R^6 f/(4 gamma_RR)). Control (must fail): the identity with |T|^2 halved.
+     of w free there -- a spot check in (R, mu, w), [R8] the round-8 reader's minor 1; [R9] on every slice: mbslice5 S1)
+     The tensor sector on every class slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's vacuum slices are
+     these): N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2 R^2 H T, delta K = (R^2 P + 2 R n^R H) T
+     (P = n(H), the normal derivative), the linearised constraints vanish identically, and the theta-integrated
+     Q-density equals -2 |T|^2 T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n)
+     |dH|^2) - (1/2) g(xi, n) (k_T^2 + 2) R H^2 is the flux of the conserved 2D master current of the tensor equation
+     (Euler operator in H and P zero; l = 2 and l = 4). So E = 2 |T|^2 int T_m(xi, n): positive definite in (H, P) where
+     f > 0, indefinite where f < 0 (the (P, H_R) block has determinant R^6 f/(4 gamma_RR)). Control (must fail): the
+     identity with |T|^2 halved.
   E3 (exact, rational arithmetic; (a)-(b) at E2's three slice points) M_b fails inside the horizon. With P =
      -(Y_s^R/N_s) H_R (E2):
      Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR, the same on every slice; with H = (R - R1)^2 (R2 - R)^2 on
@@ -69,7 +70,7 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
   E9 (exact) The master energy: for k solving the momentum constraint (the E5 parametrisation), the configuration
      master field of h = 2 N k is Phi[2 N k] = (2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI); so on the static slice E =
      (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, Kodama-Ishibashi's conserved master energy.
-     [R8] The + sign is enforced; control (must fail): the opposite sign.
+     [R8] The + sign is enforced. [R9] Control (must fail, the input mutated): h = 2 k, the lapse dropped.
 
 Labels: computed, exact throughout. E4 (a) at three rational angles; E4 (c) at three rational points (R, th, mu) with
 every jet free; the radial identities of E5, E6, E8, E9 symbolic in k^2 and the jets, exact at four rational points
@@ -443,8 +444,8 @@ def substitute_bg(e, F, bg):
 
 
 def e2():
-    print("E2 (exact; w(R), mu symbolic) the tensor sector on every class slice v = V(R): E = 2 |T|^2 int T_m(xi, n)",
-          flush=True)
+    print("E2 (exact; the slice symbolic in w(R) and mu, the identity at three rational slice points; on every class "
+          "slice in mbslice5 S1) the tensor sector: E = 2 |T|^2 int T_m(xi, n)", flush=True)
     bg = slice_background()
     print("   the slice: n unit, future, normal; xi = N_s n + Y_s; N_s sqrt(gamma_RR) = 1; N_s^2 - gamma_RR (Y_s^R)^2 "
           "= f; K_RR closed form: %s" % bg['checks'])
@@ -469,7 +470,8 @@ def e2():
         ok &= res[1]
         ctl &= not res[sp.Rational(1, 2)]
         print("   l = %d (|T|^2 = %s, k_T^2 = %d): Euler operator of Q-density + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) "
-              "zero in H and P: %s; control |T|^2 -> |T|^2/2 (rejected): %s" % (l, nT, kT2, res[1],
+              "zero in H and P at the three slice points: %s; control |T|^2 -> |T|^2/2 (rejected): %s" % (l, nT, kT2,
+                                                                                                    res[1],
                                                                                not res[sp.Rational(1, 2)]))
     # the (P, H_R) block of T_m and its determinant
     a11, a12, a22 = bg['N'] / 2, bg['YR'] / 2, bg['N'] / (2 * bg['Del'])
@@ -509,8 +511,9 @@ def e3(bg, td, out):
     a_ok = all(field_jets_zero(eq.lhs, [H], bg) for eq in els) if els else field_jets_zero(d, [H], bg)
     d0 = substitute_bg(Iq.subs(H, 0).doit() + nT * R_**3 * P**2, td['F'], bg)
     b_ok = field_jets_zero(d0, [P], bg)                 # pointwise, not only up to d/dR
-    print("   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR on every class slice: %s;"
-          " with H = 0 the theta-integrated Q-density is -|T|^2 R^3 P^2 pointwise: %s" % (a_ok, b_ok))
+    print("   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR at the three slice points "
+          "(every class slice: mbslice5 S2): %s; with H = 0 the theta-integrated Q-density is -|T|^2 R^3 P^2 pointwise "
+          "there: %s" % (a_ok, b_ok))
 
     def Qband(R1, R2, mv, Hfun=None):
         Rr = sp.Symbol('Rr')
@@ -937,10 +940,21 @@ def e9(ktab):
     tgt = sp.Rational(2, 3) * k2 * N * Zs[0] / (r**sp.Rational(3, 2) * HKI)
     plus = JR.is_zero(Phi - tgt)
     minus = JR.is_zero(Phi + tgt)
+    # [R9] control on the input: h = 2 k, the lapse dropped (not a configuration of the static slice's time
+    # derivative), does not give the master field's time derivative
+    a2, b2, c2 = 2 * pe, 2 * qe, 2 * we
+    alpha2 = -r * f_ * b2
+    Ai2 = a2 + sp.diff(1 / f_, r) * alpha2 + 2 * JR.D(alpha2) / f_
+    Fi2 = c2 / 2 - f_ * b2
+    ell2 = Ai2 - 2 * r / f_ * JR.D(Fi2) + 2 * HKI / (3 * f_**2) * Fi2
+    Phi2 = r**sp.Rational(3, 2) * f_**2 * ell2 / HKI
+    ctl = not JR.is_zero(Phi2 - tgt) and not JR.is_zero(Phi2 + tgt)
     print("   Phi[2 N k] = +(2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI): %s (with the opposite sign: %s); hence E_K = (27 m/(2 "
           "k^2)) int Phi_t^2/f dR, and the static-slice E = (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S "
           "Phi^2) dr*, V_S = f Qp/(16 R^2 H_KI^2)" % (plus, minus))
-    report('E9', plus, [('opposite sign', not minus)])
+    print("   control (the input mutated): h = 2 k, the lapse dropped, gives neither sign of the target (rejected): %s"
+          % ctl)
+    report('E9', plus and not minus, [('h = 2 k', ctl)])
 
 
 def main():
