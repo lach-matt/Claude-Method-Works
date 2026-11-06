@@ -7,7 +7,8 @@ new sentences state (the round-4 reader's m1-m2 and the section-11 reader's note
      use and R_gamma^n inside the text ("R_gamma^n being R_gamma with ..."); (b) carries the factor 1/2 and the binomial
      coefficients C(gamma, gamma') at both Leibniz sums (the sums whose summand is (d^{gamma'} g_lam^{ab})
      d^{gamma - gamma'} d_a d_b u_1); (c) names the u_1-free source d_X^gamma F_1(X, 0, 0) in E_3;
-     (d) reads "and by (9.8) for u_1^n at the lowest)" where the original had "and by Theorem P for the lowest)"; (e) gives c's remainder as E_(3/2)
+     (d) reads "and by (9.8) for u_1^n at the lowest)" where the original had "and by Theorem P for the lowest)";
+     (e) gives c's remainder as E_(3/2)
      and d u's phase-shift term as E_(5/2); (f) says that b . d U and c U enter through Lemma 9.5's source before
      Gronwall's lemma, not through its kernel. Control (the code under test applied to the original text): every one of
      (a)-(f) fails on the current Lemma 11.0.
@@ -97,8 +98,9 @@ def e1():
     check("E1c the edit changes nothing outside Lemma 11.0", P[:a] == Q[:a2] and P[b:] == Q[b2:],
           f"{len(Q.split(chr(10))) - len(P.split(chr(10)))} lines added")
     new_p, old_p = predicates(lemma110(Q)), predicates(lemma110(P))
-    check("E1d the edited Lemma 11.0 satisfies (a) R_gamma, R_gamma^n defined, (b) 1/2 and C(gamma, gamma') at both sums, "
-          "(c) the u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before Gronwall",
+    check("E1d the edited Lemma 11.0 satisfies (a) R_gamma, R_gamma^n defined, (b) 1/2 and C(gamma, gamma') at both "
+          "sums, (c) the u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before "
+          "Gronwall",
           all(new_p.values()), str(new_p))
     check("E1e control (the same predicates on the current, unedited Lemma 11.0): every one fails",
           not any(old_p.values()), str(old_p))

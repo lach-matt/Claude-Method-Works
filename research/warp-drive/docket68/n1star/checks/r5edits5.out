@@ -3,8 +3,8 @@ E1  R5-D's replacement text for Lemma 11.0, applied to a copy of N1STAR-PROOF.md
   E1b the edited file keeps every line within 121 characters: pass []
   E1c the edit changes nothing outside Lemma 11.0: pass 23 lines added
   E1d the edited Lemma 11.0 satisfies (a) R_gamma, R_gamma^n defined, (b) 1/2 and C(gamma, gamma') at both sums, (c) the
-        u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before Gronwall: FAIL {'a':
-        True, 'b': False, 'c': True, 'd': False, 'e': True, 'f': True}
+        u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before Gronwall: pass {'a':
+        True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True}
   E1e control (the same predicates on the current, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False,
         'c': False, 'd': False, 'e': False, 'f': False}
 E2  the lam^0 terms of d u (two-scale chain rule, radial model)
@@ -15,5 +15,4 @@ E2  the lam^0 terms of d u (two-scale chain rule, radial model)
 E3  the u_1-free source F_1(X, 0, 0) on the full operator
   E3 |F_1(X, 0, 0)| = |Ric^H(g0 + U3)| decays like r^-3 along the ray (E_3): pass [3.006, 3.001, 3.0]
   E3' control (amplitude r^-1): decay 2: pass [2.005, 2.001, 2.0]
-FAILED: ["E1d the edited Lemma 11.0 satisfies (a) R_gamma, R_gamma^n defined, (b) 1/2 and C(gamma, gamma') at both sums,
-        (c) the u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before Gronwall"]
+FAILED: none

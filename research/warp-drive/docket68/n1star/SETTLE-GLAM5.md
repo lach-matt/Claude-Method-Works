@@ -1707,7 +1707,7 @@ folded into R5-D's text and given computational support:
 - (s11-1) c's remainder is E_(3/2), its lam^0 term -(.)(ell, ell)[d_v d_th W_TT] from the envelope: as (r4-m1);
   `cclass5.py` C1-C2.
 - (s11-2) R_gamma^n is defined inside Edit 2 ("R_gamma^n being R_gamma with g_n and u_1^n in place of g_lam and u_1");
-  `r5edits5.py` E1 checks that its first occurrence is that definition (control: R4-B's Edit 2 fails it).
+  `r5edits5.py` E1 checks that it is defined there, and R_gamma before it (control: the current text fails both).
 - (s11-3) d u's lam^0 terms: dv [d_th chi] dv dv in E_2 and the phase shift's term in E_(5/2), besides dv [d_th W_TT]:
   `r5edits5.py` E2 (two-scale chain rule, exact: the lam^0 part of d(lam [W_TT(. + phi_1)]) - dv [d_th W_TT] decays like
   r^(-5/2) for phi_1 in L_1, and that of d(lam [chi dv dv]) like r^-2; control: with phi_1 not decaying the first term
@@ -2020,7 +2020,7 @@ half-integer orders, is deduced in section 9 (Beyond the boundary).
 ```
 
 Ledger. Computed: `r5settle5.py` A-H (43 checks), `r5op5.py` O1-O3 (7), `cclass5.py` C1-C3 (6), `r5edits5.py` E1-E3
-(CNT_E), `zinv5.py` ZI1-ZI2 (2), each with controls that mutate the code under test; rerun: `poly5.py`, `scale5.py`,
+(10), `zinv5.py` ZI1-ZI2 (2), each with controls that mutate the code under test; rerun: `poly5.py`, `scale5.py`,
 `trunc5.py`, `scatter5.py`, `boot5.py`, `order5.py`, `f1lemma5.py`, `vac5.py`, all passing (28, 25, 23, 16, 48, 22, 12
 and 8 checks). Deduced: Propositions R5.2, R5.3, R5.4, Theorem R5.1′ (R4-D with R5-B), Theorem R5.1. READ:
 N1STAR-PROOF.md (709c63be) 24-27, 29-34, 412-456, 1172-1184 (Lemma 9.5), 1237-1239, 1266-1269, 1424-1425, 1428-1431,
@@ -2033,5 +2033,5 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r5settle5.py   (about four minutes on a loaded machine)
     python3 checks/r5op5.py       (about seven minutes)
     python3 checks/cclass5.py     (about nine minutes)
-    python3 checks/r5edits5.py    (about RT_E)
+    python3 checks/r5edits5.py    (about half a minute)
     python3 checks/zinv5.py       (five processes in parallel; about RT_Z on a loaded machine)

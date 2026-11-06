@@ -8036,3 +8036,28 @@ eight nits (Lemma 2.1 (f) cites X7; the status line records D611; the introducti
 the tensor is smooth on the interior of N and up to the initial surface; T' >= 0 in Corollary 2.3; R_nu's source; Remark
 2.4 (c) needs only k's invariance; checks/ix5.out.tmp removed and D611's entry corrected). Finding (IX6). Part IX is
 proved; the paper's section 8.2 says so. GAUGEDECAY5's citations of Part IX's lines go to workstream A's round 7.
+
+**D618-D620 (2026-11-06): four readers report; three repairs started; two censuses re-keyed.** Each reader is
+independent, and none edited a file.
+- The reader of N1STAR-PROOF.md section 11 (Theorem M) found two majors.
+  - Lemma 11.0 counts the top-order term b.dU as known. R4-B closes this once its notes 1-7 are repaired; they went
+    to workstream B's round 5, which owns that replacement text.
+  - (9.10) lacks a factor (1 - pi/2) on its oscillating terms, and so does Theorem M(c)'s (11.3). The angular means on
+    S^3 are <H^2 c^2 s^2> = pi/4 - 1/2, and `past5.py` P7 passed only because sympy's whole-sum integral drops a pi
+    term. The repair agent (D618) is re-deriving it and repairs (9.10), section 9.5, (11.3), P7 and section 11's
+    minors m1, m2, m4-m6.
+- The reader of section 6 found no major gap: 3 minor findings (the tame clause's D26 form, the status lines,
+  D616 unpinned) and 13 notes. They are being seated as D619.
+- The reader of workstream C's round 5 found Theorem V not yet a theorem (D2 with overlapping families, and N odd), with
+  three further majors (dust/label separation, Theorem K's Cauchy stability, the dust clause inside the horizon). This
+  went to round 6.
+- The reader of proof5's post-proof amendments found every amendment holds, and found that D611's two inserted lines
+  in III.K had left two line-keyed checks failing. D620 repairs this:
+  - `checks/vii5census.py`: chi_- moves to K:215-217 and chi_9 to K:338-339. V1 passes again, and the .out is
+    regenerated; vii5read still passes Q1-Q3.
+  - `checks/r0census5.py`: the K keys move to 135, 136 and 561. The selftest is ok, and BEYOND5-R0.tsv is regenerated.
+  - The rest of that reader's findings (m1-m6; m6 is far-region compactness near I+ in III.K) are being seated as D621.
+- Workstream D round 7 (D_0 <= 177; lambda0 < 0.0019079 in the Frobenius reading; L_b0(0)'s tensor blocks inverted
+  with constant 3.939), workstream E round 5 (Theorem L_1E), workstream F round 3 (Theorem 7.L off the axes) and
+  GLUEDECAY5 (gluing never extends Theorem 4 (ii) beyond Hintz's class) all reported. A reader of each is running,
+  and so are rounds D8 and F4.
