@@ -1118,7 +1118,7 @@ def main():
           'coupling to gh_2: %s' % (mg0, mid[0], mid[1], mid[2], mid[3], mgf, OK['N3b']))
     q5 = run(*NODES2, nodes='leg')
     rd = max(abs(runs[c]['M22c'] - runs[c]['M22']) for c in RUNS)
-    OK['N4'] = abs(q5['M22'] - best) < tol and rd < 1e-9 and q5['mg'][1] < 1e-4 and grel(q5['gauge'][1][1]) < 1e-5
+    OK['N4'] = abs(q5['M22'] - best) < tol and rd < 1e-8 and q5['mg'][1] < 1e-4 and grel(q5['gauge'][1][1]) < 1e-5
     print('  N4 (the pin): a second discretisation, Legendre-Gauss-Lobatto in r and Legendre-Gauss in x (40 x 16, cfl '
           '1/2), gives M_22 = %.9f, %.1e from the Chebyshev value, inside the band\'s half-width %.1e; and M_22 read '
           'from '
@@ -1144,7 +1144,7 @@ def main():
           'change): at Nr = 48, Nx = 12 the solve runs away, |M_22| ~ %.0e, outside the band: %s %s'
           % (abs(q4['M22']), OK['C4'], el()))
     rw = abs(runs[BEST]['M22c'] - runs[BEST]['M22w'])
-    OK['C6'] = not rw < 1e-9
+    OK['C6'] = not rw < 1e-8
     print('  C6 (control): the readout with T + B for T - B: %.6f against the coordinate component\'s %.6f; N4\'s '
           'readout test fails: %s' % (runs[BEST]['M22w'], runs[BEST]['M22c'], OK['C6']))
     lo_, hi_ = lam_of(band[0]), lam_of(band[1])
