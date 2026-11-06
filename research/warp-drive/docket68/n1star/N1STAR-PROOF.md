@@ -865,7 +865,8 @@ at U = 0, independent of U and smooth in the angles uniformly in lam, and the ot
 linearly, so m_(s'')(r) <= C (1 + E_i(r)) and the term is at most C lam^(N-2) ((R - a)^(1/2) + (int_a^r
 E_i^2)^(1/2)), a part of A proportional to lam^(N-2) and a part of W bounded uniformly in i [D619, m1]); by
 induction and Minkowski's
-inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness, and the limit U
+inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness (the extremal recursion
+computed, `checks/tame5.py` T3), and the limit U
 lies in X_(s'') for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms
 are) and W does not depend on lam, so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the
 equations gives the stated rate at every s and j. So U is smooth for lam <= lam0, lam0 independent of s''.

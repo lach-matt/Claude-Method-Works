@@ -128,8 +128,13 @@ def least_at(name, eps, m):
     return min((sp.simplify(z.subs({E_: eps, M_: m})) for z in rest_eigs(name)), key=float)
 
 
+FULL = []
+
+
 def one_negative(eps, ms=(0, sp.Rational(1, 100), 1, 13, 1000)):
-    full = [sp.simplify(z) for z in (G0M - E_ * sp.eye(5)).eigenvals()]
+    if not FULL:
+        FULL.extend(sp.simplify(z) for z in (G0M - E_ * sp.eye(5)).eigenvals())
+    full = FULL
     return all(sum(1 for z in full if sp.simplify(z.subs({E_: eps, M_: mv})).is_negative) == 1 for mv in ms)
 
 
@@ -303,8 +308,8 @@ def main():
     m_dr = LZ.MU0 / a_hi ** 2 - 1                      # mu >= mu0 on r = a
     ok['H1'] = same and m_dr > 0
     say('  H1: eigenvalues of g0 on the hyperplanes (sympy, generic mu, r): %s; equal to the closed forms: %s; on r = a '
-        'at P*: mu/a^2 - 1 >= %.4f > 0, so lambda_min = 1, min(1, mu0/a^2 - 1) = %s and >= 3/5' % (
-            {k: [str(e) for e in v] for k, v in ev.items()}, same, float(m_dr), min(Fr(1), m_dr) if m_dr < 1 else 1))
+        'at P*: mu/a^2 - 1 >= %.4f > 0, so lambda_min = 1, min(1, mu0/a^2 - 1) = %.4f and >= 3/5' % (
+            {k: [str(e) for e in v] for k, v in ev.items()}, same, float(m_dr), float(min(Fr(1), m_dr))))
 
     # H2 (Round 3; D623 general): the direct cone argument at an admissible eps, exact in m = mu/r^2
     m_a = sp.Rational((LZ.MU0 / a_hi ** 2).numerator, (LZ.MU0 / a_hi ** 2).denominator)
