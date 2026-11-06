@@ -55,7 +55,7 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      int |D Y|^2 = (k^2 - 6) int |Y|^2 for Y = (D D - gamma Lap/3) P_j(cos 2 th), j = 1, 2, and the constant C_1 = 9/(2
      f_1) + 8; the mode comparisons for l >= 2: k^2 >= 8, H <= (11/8) k^2, k^4 - (1 + m)^2 = 4 k^2 - 4; (iv) the
      exponents: s^p = s^(2 - p) (s^2)^(p - 1), int_R^oo s^-p = R^(1-p)/(p-1), the interpolation E^p <= (E^1)^(2-p)
-     (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5, and -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta.
+     (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5 (exact integrals compared at 40 digits), and -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta.
      Controls: (i) without its second term fails for w = 1; the interpolation without the E^2 factor fails.
   U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
      text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
@@ -63,13 +63,18 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
   U9 (exact) The angular Sobolev inequality of RWGAUGE5.md R2.0.1 (Lemma A): the dimensions (l + 1)^2 of the degree-l
      harmonics on S^3, vol = 2 pi^2, 1 + l(l + 2) = (l + 1)^2, sum (l + 1)^-2 = pi^2/6 and the constant 1/12; the
      reproducing kernel ((l + 1)/(2 pi^2)) U_l(cos psi); sum of the six rotations squared = Lap; ||Lap w||^2 = sum
-     ||Om_i Om_j w||^2; generators of operator norm 1, L_Om P = 0, and the constants of the tensor version.  Controls:
+     ||Om_i Om_j w||^2; generators of operator norm 1, L_Om P = 0, and Lemma A's constants derived (1/12, 1/6; 1/6 x
+     (2305, 192, 4)) and compared with those printed in RWGAUGE5.md.  Controls:
      the Casimir over ordered pairs fails; the series with (1 - Lap)^(3/4) diverges.
-  U10 (exact) R2.0.5: [HKW18] (163), (168), (169) applied to the perturbation (10.1) builds from P give Phi = P exactly,
+  U10 (exact) R2.0.5: [HKW18] (163) (its mixed indices), (168), (169) applied to the perturbation (10.1) builds from P
+     give the trace hcheck^t_t + hcheck^r_r = -2 Hcheck, X + Y = -6 Hcheck, and Phi = P exactly,
      at general l (every other jet cancels after the master equation).  Control: V times 1 + mu/r^2 leaves a
      non-constant coefficient.
+  U11 (exact) R3.0: the change of mass K = d g/d mu (Tangherlini Ricci-flat, K = [HKW18] (77) at n = 3) has static
+     frame components 1/(r^2 - mu), 0, 1/(r^2 - mu), 0 on the sphere, independent of t, and is L^2(S^3)-orthogonal to
+     the modes l >= 2: the decay statements are for (h - c K)(e_a, e_b).  Control: orthogonality at j = 0 fails.
 
-Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U10]   (U3 (b) takes the longest)
+Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U11]   (U3 (b) takes the longest)
 """
 import os
 import sys
@@ -615,7 +620,8 @@ def u7(control=False):
         rhs = 2*sp.sqrt(a2*b2) + (0 if control else a2)
         for Rv in (1, 2, 10, 1000):
             ok &= bool(sp.N((rhs - lhs).subs(R, Rv), 30) >= 0) and bool(sp.N(dec.subs(R, Rv), 30) <= 0)
-    # Hoelder for the r^p energies: int s^p w'^2 <= (int s w'^2)^(2-p) (int s^2 w'^2)^(p-1) on [1, oo), exactly
+    # Hoelder for the r^p energies: int s^p w'^2 <= (int s w'^2)^(2-p) (int s^2 w'^2)^(p-1) on [1, oo), the integrals
+    # exact and the two sides compared at 40 digits
     # for w' = s^-2, s^-3, s^-2 (1 + 1/s) and p = 6/5, 3/2, 9/5; the control drops the E^2 factor
     hold_ok = True
     for wp in (sv**-2, sv**-3, sv**-2*(1 + 1/sv)):
@@ -779,15 +785,39 @@ def u9(control=False):
     cs4 = sp.expand(4*(cA_**2 + cB_**2 + cC_**2 + cD_**2) - (cA_ + cB_ + cC_ + cD_)**2)  # = sum of squares of diffs
     cs4_ok = sp.expand(cs4 - sum((s1 - s2)**2 for i_, s1 in enumerate((cA_, cB_, cC_, cD_))
                                  for s2 in (cA_, cB_, cC_, cD_)[i_ + 1:])) == 0
-    consts = (4*1, 4*4*6 + 4*4*6, 4*16*36) == (4, 192, 2304)
-    ok = dims and vol == 2*sp.pi**2 and cas1 and zeta2 == sp.pi**2/6 and const == sp.Rational(1, 12) and ker and \
+    # the constants of Lemma A from the derivation: c_s = zeta(2)/vol; |Om(T)| <= |L T| + c1 |T| with c1 = 2 |om|_op;
+    # |Om_i Om_j T| <= |L_i L_j T| + c1 |L_j T| + c1 |L_i T| + c1^2 |T|, four terms (Cauchy-Schwarz factor 4), six
+    # rotations; sup|T|^2 <= c_s (2 ||T||^2 + 2 sum_AB ||Lap T_AB||^2)
+    import re
+    nrot = len(pairs)
+    c1 = 2*max(max(abs(e) for e in (sp.Matrix(4, 4, lambda A_, B_: (1 if (A_, B_) == (a, b) else
+                                                                     -1 if (A_, B_) == (b, a) else 0)).T *
+                                    sp.Matrix(4, 4, lambda A_, B_: (1 if (A_, B_) == (a, b) else
+                                                                    -1 if (A_, B_) == (b, a) else 0))).eigenvals())
+               for a, b in pairs)
+    nterms = 4
+    cLL, cL, cT = nterms*1, nterms*c1**2*nrot*2, nterms*c1**4*nrot**2
+    sc1, sc2 = const, 2*const                                       # scalar: c_s, then 2 c_s
+    tens = (2*const, 1 + cT, cL, cLL)                               # (1/6)(2305, 192, 4)
+    root = os.path.dirname(HERE)
+    note = open(os.path.join(root, "RWGAUGE5.md"), encoding="utf-8").read()
+    m1 = re.search(r"sup \|w\|\^2\s+<=\s+\((\d+)/(\d+)\) \|\|\(1 - Lap\) w\|\|\^2\s+<=\s+\((\d+)/(\d+)\)", note)
+    m2 = re.search(r"sup \|T\|\^2\s+<=\s+\((\d+)/(\d+)\) \( (\d+) \|\|T\|\|\^2 \+ (\d+) sum_i \|\|L_i T\|\|\^2 \+ (\d+) "
+                   r"sum_\{i,j\}", note)
+    stated = None
+    if m1 and m2:
+        g1, g2 = [int(x_) for x_ in m1.groups()], [int(x_) for x_ in m2.groups()]
+        stated = (sp.Rational(g1[0], g1[1]), sp.Rational(g1[2], g1[3]), sp.Rational(g2[0], g2[1]), g2[2], g2[3], g2[4])
+    consts = stated == (sc1, sc2) + tens
+    ok = dims and vol == 2*sp.pi**2 and cas1 and zeta2 == sp.pi**2/6 and ker and \
         cas and lapnorm and opn and proj and cs4_ok and consts
     say("  U9: dim of degree-l harmonics on S^3 = (l + 1)^2 (l <= 20) %s; vol = %s; 1 + l(l + 2) = (l + 1)^2 %s;"
         " sum (l + 1)^-2 = %s, so sup|w|^2 <= %s ||(1 - Lap) w||^2; the kernel ((l + 1)/(2 pi^2)) U_l: norm^2 = value"
         " = (l + 1)^2/vol, eigenvalue -l(l + 2), l <= 6: %s; sum over the six rotations of Om^2 = Lap on four test"
         " functions: %s; ||Lap w||^2 = sum ||Om_i Om_j w||^2 (test function): %s; rotation generators of norm 1: %s;"
-        " L_Om P = 0: %s; (a + b + c + d)^2 <= 4 (a^2 + ... + d^2): %s; the constants 4, 192, 2304: %s"
-        % (dims, vol, cas1, zeta2, const, ker, cas, lapnorm, opn, proj, cs4_ok, consts))
+        " L_Om P = 0: %s; (a + b + c + d)^2 <= 4 (a^2 + ... + d^2): %s; Lemma A's constants derived (%s, %s; %s (%s, %s,"
+        " %s)) and equal to RWGAUGE5.md's: %s" % (dims, vol, cas1, zeta2, const, ker, cas, lapnorm, opn, proj, cs4_ok,
+                                                  sc1, sc2, *tens, consts))
     return ok
 
 
@@ -870,15 +900,67 @@ def u10(control=False):
     Phi = scal(add(scal(Zt, n), scal(add(Xh, Yh), -r)), 1/(r**sp.Rational(1, 2)*(m + 3 - n + 6*x)))   # (169)
     res = {k: rat(val) for k, val in Phi.items()}
     res = {k: val for k, val in res.items() if val != 0}
-    ok = list(res) == [(0, 0)] and res[(0, 0)] == 1
+    tr = add(add(Xh, Yh), scal(rF, 4))                                 # hcheck^t_t + hcheck^r_r
+    trace = all(rat(val) == 0 for val in add(tr, scal(rF, 2)).values())                 # = -2 Hcheck
+    xy = all(rat(val) == 0 for val in add(add(Xh, Yh), scal(rF, 6)).values())           # X + Y = -6 Hcheck
+    ok = list(res) == [(0, 0)] and res[(0, 0)] == 1 and (control or (trace and xy))
+    if not control:
+        say("  U10: hcheck^t_t + hcheck^r_r = -2 Hcheck (the trace of (10.1); (164) at n = 3): %s; X + Y = -6 Hcheck: %s"
+            % (trace, xy))
     say("  U10%s: [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at general l: jets %s,"
         " coefficient of P %s: Phi = P exactly: %s" % (" control (V (1 + mu/r^2))" if control else "", sorted(res),
                                                       back(res.get((0, 0), 0)) if not control else "not 1", ok))
     return ok
 
 
+# -------------------------------------------------------------------------------------------------------------- U11
+def ricci_diag(gd, Y):
+    """Ricci tensor of a diagonal metric diag(gd) in coordinates Y"""
+    n_ = len(Y)
+    g = sp.diag(*gd)
+    gi = sp.diag(*[1/e for e in gd])
+    G = [[[sp.simplify(sum(gi[a, d]*(sp.diff(g[d, b], Y[c]) + sp.diff(g[d, c], Y[b]) - sp.diff(g[b, c], Y[d]))
+                           for d in range(n_))/2) for c in range(n_)] for b in range(n_)] for a in range(n_)]
+    return sp.Matrix(n_, n_, lambda b, c: sp.simplify(
+        sum(sp.diff(G[a][b][c], Y[a]) for a in range(n_)) - sum(sp.diff(G[a][b][a], Y[c]) for a in range(n_))
+        + sum(G[a][a][d]*G[d][b][c] - G[a][c][d]*G[d][b][a] for a in range(n_) for d in range(n_))))
+
+
+def u11(control=False):
+    """the l = 0 part c K: K = d/dmu of Tangherlini is [HKW18] (77) at n = 3 and a linearised vacuum solution; its static
+    frame components are 1/(r^2 - mu), 0, 1/(r^2 - mu) and 0 on the sphere, independent of t; it is L^2(S^3)-orthogonal
+    to every mode l >= 2 (the class's harmonics P_j(cos 2 th), j = 1..4), so ||h(e_a, e_b)||^2 = ||(h - c K)(e_a,
+    e_b)||^2 + 2 pi^2 c^2 K(e_a, e_b)^2 does not decay for c != 0.  Control: the orthogonality claimed at j = 0 fails"""
+    import rwgauge5 as RW
+    th = RW.th
+    t_, p1, p2 = sp.symbols("t phi1 phi2")
+    Y = [t_, r, th, p1, p2]
+    fm = 1 - mu/r**2
+    gd = [-fm, 1/fm, r**2, r**2*sp.cos(th)**2, r**2*sp.sin(th)**2]
+    sq = sp.sin(th)*sp.cos(th)
+    if control:
+        orth = sp.integrate(sp.legendre(0, sp.cos(2*th))*sq, (th, 0, sp.pi/2)) == 0
+        say("  U11 control (the orthogonality to the constants claimed at j = 0): holds: %s" % orth)
+        return orth
+    vac = all(e == 0 for e in ricci_diag(gd, Y))
+    K = [sp.simplify(sp.diff(e, mu)) for e in gd]                  # the mass derivative, diagonal
+    M2 = mu                                                         # 2M = mu at n = 3
+    hkw77 = sp.simplify(K[0] - 1/r**2) == 0 and sp.simplify(K[1] - r**2/(r**2 - M2)**2) == 0 and K[2:] == [0, 0, 0]
+    fr_ = [K[0]/fm, 0, K[1]*fm]                                     # K(e0, e0), K(e0, e1), K(e1, e1), e0 = f^-1/2 d_t
+    frame_ok = (sp.simplify(fr_[0] - 1/(r**2 - mu)) == 0 and sp.simplify(fr_[2] - 1/(r**2 - mu)) == 0
+                and all(sp.diff(e, t_) == 0 for e in K))
+    orth = all(sp.integrate(sp.expand(sp.legendre(j, sp.cos(2*th))*sq), (th, 0, sp.pi/2)) == 0 for j in range(1, 5))
+    vol = sp.integrate(sq, (th, 0, sp.pi/2))*(2*sp.pi)**2
+    ok = vac and hkw77 and frame_ok and orth and vol == 2*sp.pi**2
+    say("  U11: Tangherlini is Ricci-flat (static chart): %s; K = d g/d mu is [HKW18] (77) at n = 3, r^-2 dt^2 + r^2/(r^2 -"
+        " mu)^2 dr^2: %s; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j), t-independent: %s; int"
+        " P_j(cos 2 th) d sigma = 0 for j = 1..4: %s; so for c != 0, ||h(e_a, e_a)|| >= (2 pi^2)^(1/2) |c|/(r^2 - mu) at"
+        " every tau: the decay statements are for (h - c K)(e_a, e_b)" % (vac, hkw77, frame_ok, orth))
+    return ok
+
+
 CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7), ("U8", u8),
-          ("U9", u9), ("U10", u10)]
+          ("U9", u9), ("U10", u10), ("U11", u11)]
 
 
 def main():

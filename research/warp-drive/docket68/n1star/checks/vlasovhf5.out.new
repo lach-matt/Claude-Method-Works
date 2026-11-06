@@ -5,3 +5,8 @@ H1 (exact, two-scale jets) the torus polarisation: Ric's lam^-1 part and the amp
    control (fast derivative dropped along y1) rejected by (c): True
 H1 PASS
 H2 (exact, two-scale jets) the constraints on a non-round slice, non-radial phase: the lam^-1 coefficient
+   seed 21 (p = [11/10, 43/60]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+   seed 22 (p = [9/5, 8/15]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+   seed 23 (p = [7/5, 9/10]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+H2 PASS
+H3 (exact) the orbit space has no shear: <Hess u, S> = (box u) tr S for S(ell, .) = 0
