@@ -45,3 +45,4 @@ X10 PASS
   X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
       env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200
       [1139 s]
+X11 PASS

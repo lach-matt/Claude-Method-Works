@@ -454,18 +454,22 @@ def l5(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------- L6
-def poly_basis(l, m=1):
+def poly_basis(l, m=1, sysf=None):
+    sysf = sysf or sys_scalar
     k = l*(l + 2)
     deg = l + 3
     q = sp.symbols('q0:%d' % (3*(deg + 1)))
     pa = sum(q[i]*r**i for i in range(deg + 1))
     pb = sum(q[deg + 1 + i]*r**i for i in range(deg + 1))
     pc = sum(q[2*deg + 2 + i]*r**i for i in range(deg + 1))
-    E = sys_scalar(pa, pb, pc, k, m)
+    E = sysf(pa, pb, pc, k, m)
     eqs = []
     for e, pw in zip(E, (3, 4, 3)):
         eqs += sp.Poly(sp.expand(sp.simplify(e*r**pw)), r).coeffs()
-    sol = list(sp.linsolve(eqs, q))[0]
+    sols = list(sp.linsolve(eqs, q))
+    if not sols:
+        return []
+    sol = sols[0]
     free = sorted(set().union(*[sp.Tuple(x_).free_symbols for x_ in sol]), key=str)
     basis = []
     for f_ in free:
@@ -476,9 +480,10 @@ def poly_basis(l, m=1):
     return basis
 
 
-def horizon_free(l, K=7, m=1):
+def horizon_free(l, K=7, m=1, sysf=None):
     """the formal power series solutions at r = 1 (mu = 1): unknowns U_0..U_K, the equations of orders 0..K-1; returns
     the nullspace dimension and the matrix of its (a_1, b_0, c_0) coordinates"""
+    sysf = sysf or sys_scalar
     k = l*(l + 2)
     y = sp.Symbol('y')
     A = sp.symbols('A0:%d' % (K + 1))
@@ -487,7 +492,7 @@ def horizon_free(l, K=7, m=1):
     a = sum(A[i]*y**i for i in range(K + 1))
     b = sum(B[i]*y**i for i in range(K + 1))
     c = sum(C[i]*y**i for i in range(K + 1))
-    E = sys_scalar(a.subs(y, r - 1), b.subs(y, r - 1), c.subs(y, r - 1), k, m)
+    E = sysf(a.subs(y, r - 1), b.subs(y, r - 1), c.subs(y, r - 1), k, m)
     eqs = []
     for e, pw in zip(E, (3, 4, 3)):
         P = sp.Poly(sp.expand(sp.simplify(e*r**pw).subs(r, y + 1)), y)
@@ -497,49 +502,54 @@ def horizon_free(l, K=7, m=1):
     Mx = sp.Matrix([[sp.expand(e_).coeff(u_) for u_ in unknowns] for e_ in eqs])
     ns = Mx.nullspace()
     idx = [unknowns.index(A[1]), unknowns.index(B[0]), unknowns.index(C[0])]
-    sub = sp.Matrix([[vec[i] for i in idx] for vec in ns])
+    sub = sp.Matrix([[vec[i] for i in idx] for vec in ns]) if ns else sp.zeros(0, 3)
     return len(ns), sub
 
 
-def l6(control=False):
-    if control:
-        # l = 0: W* = (r^-2, -1/(r (r + 1))) and (d_v)^flat = (-f, 1) solve the l = 0 system (c absent), are smooth
-        # at r_h = 1, and grow below r^1: the growth test finds no obstruction
-        res = []
-        for a0, b0 in ((1/r**2, -1/(r*(r + 1))), (-(1 - 1/r**2), sp.Integer(1))):
-            E = sys_scalar(a0, b0, sp.Integer(0), 0, 1)
-            sol_ = zero(E[0]) and zero(E[1])
-            grow = sp.limit(a0/r, r, sp.oo) == 0 and sp.limit(b0/r, r, sp.oo) == 0
-            res.append(sol_ and grow)
-        print("  L6 control (l = 0): W*, (d_v)^flat are horizon-smooth solutions growing below r^1: %s" % res,
-              flush=True)
-        return not all(res)
+def l6_path(ls, sysf=None, pmin=lambda l: 1):
+    """L6's computed path: the polynomial solutions, the formal horizon data, the jets they realise, and the rank of
+    the growth map on the coefficients of r^p, p >= pmin(l), of the Cartesian-normalised components a, b, c/r"""
     allok = True
     rep = []
-    for l in (2, 4, 6, 8):
-        basis = poly_basis(l)
-        dim, sub = horizon_free(l)
-        jets = sp.Matrix([[sp.diff(bb[0], r).subs(r, 1), bb[1].subs(r, 1), bb[2].subs(r, 1)] for bb in basis])
+    for l in ls:
+        basis = poly_basis(l, sysf=sysf)
+        dim, sub = horizon_free(l, sysf=sysf)
+        jets = sp.Matrix([[sp.diff(bb[0], r).subs(r, 1), bb[1].subs(r, 1), bb[2].subs(r, 1)] for bb in basis]) \
+            if basis else sp.zeros(0, 3)
         free_ok = dim == 3 and sub.shape == (3, 3) and sub.det() != 0
-        jet_ok = jets.det() != 0
-        # growth map: coefficients of r^p, p >= 1, of the Cartesian-normalised components a, b, c/r
+        jet_ok = jets.shape == (3, 3) and jets.det() != 0           # round 9: guarded (no crash on a short basis)
         cols = []
         for bb in basis:
             vec = []
             for comp, sh in ((bb[0], 0), (bb[1], 0), (bb[2], 1)):
                 P = sp.Poly(sp.expand(comp), r)
-                for p in range(1, l + 5):
+                for p in range(pmin(l), l + 5):
                     vec.append(P.coeff_monomial(r**(p + sh)) if p + sh <= P.degree() else 0)
             cols.append(vec)
-        G = sp.Matrix(cols).T
-        rank_ok = G.rank() == 3
+        rank_ok = bool(cols) and sp.Matrix(cols).T.rank() == 3
         lead = []
         for bb in basis:
-            degs = [sp.Poly(bb[0], r).degree() if bb[0] != 0 else -99, sp.Poly(bb[1], r).degree(),
+            degs = [sp.Poly(bb[0], r).degree() if bb[0] != 0 else -99,
+                    sp.Poly(bb[1], r).degree() if bb[1] != 0 else -99,
                     sp.Poly(bb[2], r).degree() - 1 if bb[2] != 0 else -99]
             lead.append(max(degs))
         rep.append((l, len(basis), free_ok, jet_ok, rank_ok, sorted(lead)))
         allok &= len(basis) == 3 and free_ok and jet_ok and rank_ok
+    return allok, rep
+
+
+def l6(control=False):
+    if control:
+        # round 9 (the round-8 verifier's Minor 8): the control runs L6's own path with a mutated input, twice, and
+        # must fail both times: (i) the operator with E_r's coupling 2 kappa r c -> 3 kappa r c (L1's mutation);
+        # (ii) the true operator with the growth threshold raised from r^1 to r^l, which the gauge solution
+        # d((r^l + ...) S), growing like r^(l - 1), violates: the rank test sees the lowest growth
+        ok1, rep1 = l6_path((2, 4), sysf=sys_scalar_mut)
+        ok2, rep2 = l6_path((2, 4), pmin=lambda l: l)
+        print("  L6 control (L6's path (i) with E_r's coupling 3 kappa r c: %s; (ii) with the growth threshold r^l: "
+              "%s): passes %s, %s" % (rep1, rep2, ok1, ok2), flush=True)
+        return ok1 or ok2
+    allok, rep = l6_path((2, 4, 6, 8))
     print("  L6: (l, polynomial solutions, free formal data = (a'(r_h), b(r_h), c(r_h)), jets invertible, growth map "
           "rank 3, Cartesian growth exponents): %s" % rep, flush=True)
     return allok
@@ -621,11 +631,14 @@ def l8(control=False):
     beta = -1 + 4*Bs/(1 + Bs)                                 # beta in (-1, 3)
     q = 2 - beta
     lval = 1 + n
-    ker_out = positive_sum(sp.simplify(lval + q), [Bs, n])           # l + q > 0: r^(-l-2) not in rh^(q-2) L^2
-    adj_out = positive_sum(sp.simplify(lval + 2 - q), [Bs, n])       # q < l + 2: r^(-l-2) not in rh^(-q) L^2
+    # round 9 (the round-8 verifier's nit): the box is l = 1 + n with n > 0 and, separately, n = 0 (l = 1 included)
+    ker_e, adj_e = sp.simplify(lval + q), sp.simplify(lval + 2 - q)
+    ker_out = positive_sum(ker_e, [Bs, n]) and positive_sum(ker_e.subs(n, 0), [Bs])   # l + q > 0: not in rh^(q-2) L^2
+    adj_out = positive_sum(adj_e, [Bs, n]) and positive_sum(adj_e.subs(n, 0), [Bs])   # q < l + 2: not in rh^(-q) L^2
     print("  L8: N_tf(sigma) = e^(-i sigma r) (Lap_e - sigma^2) e^(i sigma r) on degree-l components: %s; Bessel "
           "order l + 1: %s; exponents at ztf {l, -l-2}: %s; on beta in (-1, 3), l >= 1: kernel element excluded "
-          "(l + q > 0): %s, adjoint element excluded (q < l + 2): %s" % (ok_conj, ok_bes, ok_exp, ker_out, adj_out),
+          "(l + q > 0): %s, adjoint element excluded (q < l + 2): %s (both at l = 1 and on l = 1 + n, n > 0)"
+          % (ok_conj, ok_bes, ok_exp, ker_out, adj_out),
           flush=True)
     return ok_conj and ok_bes and ok_exp and ker_out and adj_out
 
