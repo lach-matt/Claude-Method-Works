@@ -18,15 +18,16 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      n = 0..3, and the divergence condition fixes B from A (so the class TT tensors are these, one per even l >= 2).
      Control (must fail): B with the derivative term's sign reversed is not divergence-free.
   E2 (exact; the slice symbolic in w(R) and mu, the final identity exact at three rational slice points with every
-     jet of w free) The tensor sector on every class slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's
-     vacuum slices are these): N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2
-     R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal derivative), the linearised constraints vanish
+     jet of w free there -- a spot check in (R, mu, w), [R8] the round-8 reader's minor 1) The tensor sector on
+     every class slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's vacuum slices are these):
+     N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2 R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal derivative), the linearised constraints vanish
      identically, and the theta-integrated Q-density equals -2 |T|^2 T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where
      T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n) |dH|^2) - (1/2) g(xi, n) (k_T^2 + 2) R H^2 is the flux of the conserved
      2D master current of the tensor equation (Euler operator in H and P zero; l = 2 and l = 4). So E = 2 |T|^2 int
      T_m(xi, n): positive definite in (H, P) where f > 0, indefinite where f < 0 (the (P, H_R) block has determinant
      R^6 f/(4 gamma_RR)). Control (must fail): the identity with |T|^2 halved.
-  E3 (exact, rational arithmetic) M_b fails inside the horizon. With P = -(Y_s^R/N_s) H_R (E2):
+  E3 (exact, rational arithmetic; (a)-(b) at E2's three slice points) M_b fails inside the horizon. With P =
+     -(Y_s^R/N_s) H_R (E2):
      Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR, the same on every slice; with H = (R - R1)^2 (R2 - R)^2 on
      [R1, R2] = [0.72, 0.89] (inside Part I's seed region, horizon 0.9067, inner edge 0.683) Q > 0, i.e. E < 0, for
      every mu in [0.80, 0.84] (Q is affine in mu; exact at both ends). A momentum-only tensor seed (H = 0) has Q =
@@ -42,7 +43,8 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      (functions of (R, th)): D R[L_X gamma] = 0 for every class X; the Euler operator of N D R[h] sqrt(gamma) vanishes
      in all five class components of h ((D R)^* N = 0); M[k_psi] = 0; and the Euler operator in psi of N (<k, k_psi>
      - tr k tr k_psi) sqrt(gamma) equals sqrt(gamma) (2 dN . M[k] + N div M[k]) for every class k: so E_V and E_K are
-     unchanged by compactly supported spatial and lapse gauge on the constraint surface.
+     unchanged by compactly supported spatial and lapse gauge on the constraint surface. [R8] Control (must fail): the
+     lapse direction without its curvature term, D^2 psi alone, does not solve the momentum constraint.
   E5 (exact) The kinetic energy. With Z := R^3 (w - f q), H_KI := m + 6 mu/R^2, m := k^2 - 3: Z' + (R^2 H_KI/3) q +
      R^2 M_th + (R^3/3) M_R = 0 identically; the map Z -> (q, w, p) = (-3 Z'/(R^2 H_KI), Z/R^3 + f q, ((4 - 3x) q +
      R f q' - 2 w)/f) solves both constraints identically, and E_K - 6 k^2 m Z^2/(R^3 H_KI^2) has zero Euler operator in
@@ -57,23 +59,29 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      and constraint-blind variable) does not solve C; Phi with R^(1/2) in place of R^(3/2).
   E7 (exact) Positivity on the class spectrum. Class modes have l = 2j, so m = 4j(j + 1) - 3 in {5, 21, 45, ...}:
      Qp > 0 on x in [0, 1] (m = 5: 1296 x^3 >= 0 and the quadratic's discriminant < 0; m >= 21: every coefficient
-     >= 0, the constant > 0), H_KI > 0, f > 0 for R > sqrt(mu). Control (must fail, the wrong sign): the potential of
+     >= 0, the constant > 0), H_KI > 0, f > 0 for R > sqrt(mu); [R8] and for every l >= 2 (m = l(l + 2) - 3: m = 5,
+     and m = 12 + t with every coefficient >= 0). Control (must fail, the wrong sign): the potential of
      the l-form before the S-deformation, c0 l^2, is negative near the horizon at m = 5 (a root in (0, 1) in x).
   E8 (exact) l = 0: on the constraint, E_V and E_K are d/dR's; compactly supported h_0 = L_(R F d_R) gamma, the other
-     solution of the l = 0 constraint being the mass change, nowhere zero.
+     solution of the l = 0 constraint being the mass change, nowhere zero. [R8] The l = 0 k is the lapse direction
+     k_psi with psi = N (c + int R w/(f N)): a constant times N on the inner side (gauge in R6's extended sense).
+     Control (must fail): X = F d_R in place of R F d_R does not solve the l = 0 constraint.
   E9 (exact) The master energy: for k solving the momentum constraint (the E5 parametrisation), the configuration
      master field of h = 2 N k is Phi[2 N k] = (2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI); so on the static slice E =
      (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, Kodama-Ishibashi's conserved master energy.
+     [R8] The + sign is enforced; control (must fail): the opposite sign.
 
 Labels: computed, exact throughout. E4 (a) at three rational angles; E4 (c) at three rational points (R, th, mu) with
 every jet free; the radial identities of E5, E6, E8, E9 symbolic in k^2 and the jets, exact at four rational points
-(R, mu) (with R and f rational squares), or under --full symbolic in R and k^2 at mu = 1 (general by the homothety
-(t, R) -> (lam t, lam R), which carries mu to lam^2 mu; slower). Deduced in
+(R, mu) (with R and f rational squares), or under --full symbolic in R, mu and k^2 ([R8] mu = xs R^2 with xs a free
+symbol, a change of variables: no homothety or weight-homogeneity is assumed; the round-8 reader's minor 2; slower).
+Every check has a control it must reject ([R8] E4, E8, E9 new). Deduced in
 FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice (Stokes and the second-order Bianchi
 identity), the mode sum (orthogonality), the intermediate-value step (Proposition L').
 
-Run: python3 checks/mbsign5.py [--selftest] [--full] [--only=E1,E2,...]   (about 4 minutes under load; --full
-longer; --selftest: exit 1 unless every check passes and every control is rejected)
+Run: python3 checks/mbsign5.py [--selftest] [--full] [--only=E1,E2,...]   (the default run about 7 to 10 minutes under
+load, --full longer; the measured times are printed; --selftest: exit 1 unless every check passes and every control
+is rejected)
 """
 import importlib.util
 import os
