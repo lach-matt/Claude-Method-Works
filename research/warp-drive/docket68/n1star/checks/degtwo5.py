@@ -34,15 +34,18 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      rho structureless of size m0/3 gives more than one sign change.
   T6 (computed; round 6, the verifier of round 5's MAJOR 2) Dips (Proposition L.25 (a)): env := sum_n exp(-n^2)
      beta(2^(n+2) (x - 2^-n)) near v_s, beta = exp(-1/(1 - t^2)) on [-1, 1] (C_c^inf, flat at v_s, zero on the
-     intervals J_n = (1.25, 1.5) 2^-n between consecutive bumps).  (a) env vanishes on J_n (41 points), so the local
-     first-degree amplitude does there.  (b) For lam = 10^-E, E = 10^2, ..., 10^6, with n the bump of height in
-     [lam^3.5, lam^3.1], the record's bounds against m0's lower bound (2/27) h_n^2 int beta^2/s_n (mu0 = A = 1): Lemma
-     L.4's w (lam^(N-5) eps_(M*), N = 9, M* = 26), Lemma L.4_P's (lam^(N_P-3) eps_(M_P), N_P = 18, M_P = 44) and L.3
-     (b)'s means (lam^j eps_(2j+1)^2, j <= N), with eps_k <= h_n s_n^k B_k, s_n = 2^(n+2), B_k = max_(i<=k) sup
-     |beta^(i)| (computed exactly: beta^(k) = e^(-1/(1-t^2)) p_k/(1 - t^2)^(2k), p_k by recursion): the log10 ratios
-     decrease strictly in E and are below -1000 at E = 10^6 (they fall like lam^(1/2) e^(c sqrt(log 1/lam))).
-     Control: J_n filled by an extra bump of height h_n/2 (no zero interval): env > 0 on J_n and at lam = 10^-100 the
-     first-degree term lam^3 (8/3)|nu| env exceeds a quarter of m0 at J_n's midpoint.
+     intervals J_n = (1.25, 1.5) 2^-n between consecutive bumps).  (a) env vanishes on J_n (41 points), so every
+     oscillating profile of g_app does (each is a transport along ell at fixed v with sources and data local in v).
+     (b) For lam = 10^-E, E = 10^2, ..., 10^6, with n the bump of height h_n in [lam^3.5, lam^3.1], the remaining terms
+     of g_lam^-1(dPhi0, dPhi0) + m0 against m0's lower bound (2 A^2/(27 mu0)) h_n^2 int beta^2/s_n: Lemma L.4''s w
+     (lam^(N-5) eps_(M*), N = 9, M* = 26), Lemma L.4_P's (lam^(N_P-3) eps_(M_P), N_P = 18, M_P = 44) and L.3 (b)'s
+     means (lam^j eps_(2j)^2, j <= N_P), with eps_k(v1) <= 2 h_n s_n^k B_k (the bumps m > n included), s_n = 2^(n+2),
+     B_k = max_(i<=k) sup |beta^(i)| (beta^(k) = e^(-1/(1-t^2)) p_k/(1 - t^2)^(2k), p_k by recursion); and the two
+     lemmas' hypotheses, eps_4(v1) <= lam (L.4') and eps_(M_P)(v1) <= lam^3 (L.4_P).  The log10 ratios decrease
+     strictly in E and are below -1000 at E = 10^6 (they fall like lam^(N-8.5) e^(c sqrt(log 1/lam))), and from some E
+     of the grid on every ratio is below 0 with both hypotheses.  Unit constants: A = mu0 = 1 and the record's
+     unknown constants set to 1 (they shift the threshold, not the decay).
+     Control: J_n filled by an extra bump of height h_n/2 (no zero interval): env > 0 on J_n.
   T7 (exact; round 6, the verifier of round 5's m9) L.17 (2)'s four-derivative form of Lemma L.4's energy argument:
      bandL4p5 H1's ledger at levels 0-4 with eps_6 <= lam^5: every coefficient bounded, so the non-triangular rule
      closes (every coefficient into Gronwall).  Control: at eps_6 <= lam^4 a coefficient of level 4 is unbounded.
