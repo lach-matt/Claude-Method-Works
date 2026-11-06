@@ -11,8 +11,9 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
   C1 (the computed background) Gamma > 0 on the whole seed region, R in [0.70, 1.861] (region III on Sigma_tau0):
      Gamma = E^2 (Gamma/E^2), E^2 > 0, Gamma/E^2 qsign5's closed form in (R, mu0, psi_P, psi_P', psi_P''), psi_P the
      spline psi_III(tau0 + R) in its piecewise-polynomial form; cells cut at the knots in vhat; the polynomial and two
-     derivatives enclosed with interval coefficients. Certified at n = 80 and 160. Controls (must fail): Gamma's sign
-     flipped; Gamma without its 4 nu E^2 term.
+     derivatives enclosed with interval coefficients. Certified at n = 80 and 160. Controls (must fail): [R9] the input
+     mutated, mass mu0 -> -mu0 (replacing Gamma's sign flipped, which passing implied); Gamma without its 4 nu E^2
+     term.
   C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 3e-2) and mu0 by 1e-4 [R8: d''
      was 1e-2, mu0 not widened; 5e-2 is not certified]: Gamma > 0 for every background whose psi_III is within d of the
      computed spline in C^2 and whose mass is within 1e-4 of mu0. truebg5 T2 certifies that the background itself is
@@ -229,7 +230,7 @@ def c1(bgs):
     _, Gt, _ = q.gamma_formula()
     args = [q.R, q.MU] + list(q.PP)
     f = sp.lambdify(args, Gt, modules=MODS)
-    fneg = sp.lambdify(args, -Gt, modules=MODS)
+    fneg = (lambda R_, M_, a_, b_, c_: f(R_, -M_, a_, b_, c_))     # [R9] the input mutated: mass mu0 -> -mu0
     fdrop = sp.lambdify(args, Gt - 4 * q.R**3, modules=MODS)
     ok = True
     for n, bg in bgs.items():
@@ -255,7 +256,8 @@ def c1(bgs):
     g1, _, _, f1, _ = c1_run(bg, fneg, depth=0)
     g2, _, _, f2, _ = c1_run(bg, fdrop, depth=0)
     g3, _, _, f3, _ = c1_run(bg, f, dlt=(0.5, 0.5, 5.0), depth=0)
-    print("   controls: Gamma with its sign flipped not certified (%d cells fail; rejected): %s; without its 4 nu E^2 "
+    print("   controls: the background's mass mu0 -> -mu0 (the input mutated) not certified (%d cells fail; "
+          "rejected): %s; without its 4 nu E^2 "
           "term not certified (%d fail; rejected): %s; d = (0.5, 0.5, 5) not certified (%d fail; rejected): %s" %
           (f1, not g1, f2, not g2, f3, not g3))
     return ok and not g1 and not g2 and not g3 and max(diffs) < 1e-3
