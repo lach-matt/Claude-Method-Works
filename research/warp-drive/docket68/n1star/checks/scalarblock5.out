@@ -3,3 +3,5 @@ scalarblock5: the scalar-type blocks of L-hat_b0(0) on 5D Tangherlini, every har
   S1 (exact): every component of L h reconstructs from seven radial coefficients (15 residuals, all 0: True); real: True;
       l only through kappa = l (l + 2): True; second order in H with A2 = -(f/2) I_7: True; 301 lines written to
       checks/scalarblock5_block.txt and read back identically: True (167 s): True
+  S2 (exact): D Ric(delta* w) = 0 for every scalar-type w (l symbolic): True; Upsilon(delta* w) = (1/2) box^Ups w, so L
+      delta* w = delta*_{E^C} (1/2) box^Ups w: True: True

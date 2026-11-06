@@ -34,3 +34,4 @@ X8 PASS
   X9 Lemma W on 5000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m, and 1000 for (A)
       stated pointwise: |S(t)| growing by up to e^50 across the window, |eps(t)| <= |S(t)|/4): windows with one sign
       only: 0, 0
+X9 PASS
