@@ -3027,7 +3027,7 @@ E4 now reads; outputs in this round's scratch, mutout8/): of its 21 r7settle5 mu
 by K2's extremal directions, M12 by K3's attained bound, M17 by K4's derived form, the three that survived round 7), and
 M20, its own control of the worst direction at 0.27, below 7/25, passes, as it should (mutout8/r7mut.out); its 21
 r6edits5 text mutants (T1-T10 on R6-D and the seated Lemma 11.0, P1-P9 with P1' and P8' on R8-E's blocks) are all killed
-and the unmutated copy passes (mutout8/textmut.out: T3 by E2g, T6 and T7 by E1d's (p) and (q), T8 by E2a, P1' by E4c's
+and the unmutated copy passes (mutout8/textmut2.out: T3 by E2g, T6 and T7 by E1d's (p) and (q), T8 by E2a, P1' by E4c's
 BEYOND5 predicate on Block 1, P4, P5, P7, P8' and P9 by E4c's status words); and its two r6sigma5 mutant runs, which had
 not finished when round 7 was read, have finished since and are both killed, as R7.0 claimed (the W5 weight r^(2a+1) ->
 r^(2a+3) fails W5, W, W' and W'''; Step 2's threshold 2 -> 3 fails W6-W8, W and W').

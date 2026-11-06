@@ -7174,3 +7174,130 @@ New:
 (iv-a) deduced from Theorem 1.5, which is proved,
 GAUGEDECAY5 R10.p, R11.p, R12.p)
 ```
+
+## Round 13 (2026-11-06)
+
+*Status.* Written 2026-11-06 (round 13, this section). Round 13 seats report-vA12, the independent confirming read of
+round 12. Its verdict: round 12 is confirmed, with no Major and no minor. The round-11 findings are seated correctly,
+(A123)'s correction of the proposed wording is right, and the promotion is complete, every promoted proof's inputs
+promoted. Its three nits are re-derived and seated as (A130)-(A132). The affected lines carry [R13] notes, with the old
+text kept. Line numbers G:$n$ are those of the file as round 12 left it. Round 13 itself has not been read by a second
+reader. Its changes are:
+- notes;
+- T9's control (iii) run once per target, a control (iv), and per-target verdicts, in `checks/gdtail5.py`;
+- text (8).
+`checks/gdtail5.py` is rerun under two fresh hash seeds. `checks/gdr9_5.py` and `checks/gdlge2_5.py` are unchanged.
+
+### R13.0 Amendments: round 12's verifier
+
+(A130) *Nit 1, what the supplement cites* (G:6756-6761; the keep-list's preface, G:6739-6740). Re-derived by searching
+`N1STAR-PROOF.md` (md5 `87501cfb81d0e9632721e1e7944b9c38`) for "GAUGEDECAY5": thirteen sites. Besides what R12.p
+lists, it cites:
+- Lemma 1.3 (b), the angular part of $\xi[h]$;
+- Lemma 1.4 (b), the gauge vector $Y[h_0]$ of $h_0 = cK$;
+- Definition 1.1, the RW-type gauge, in (iv-a);
+- (0.1), the $K$ of Theorem 1.5;
+and it names the radius $R_1$. Lemmas 1.3 and 1.4 are proved (R10.p). Definition 1.1 and (0.1) are definitions. So the
+preface "neither the paper nor the supplement cites it" is false for Definition 1.1. Accepted. [R13] notes complete the
+list and except the definitions: a definition carries no proof status, and nothing rests on its being proved. The
+supplement's list, completed:
+- Theorem 1.5 with (b) and (d), Lemmas 1.3 (b) and 1.4 (b), Definition 1.1 and (0.1), all from round 1;
+- R2.V, (A2) and (A11);
+- Proposition R2.13 (b) and (c).
+The paper cites R2.13, and names "GAUGEDECAY5 round 2" in its list of checks. Every result among these is proved.
+
+(A131) *Nit 2, T9's control (iii)* (gdtail5.py, `t9`). Re-derived. (iii) moved both targets down together, so each
+target's certificate test was exercised only jointly. The reader's T9k and T9l, which drop one target's downward shift,
+survived. Accepted: (iii) runs once per target.
+- *A further gap.* Re-deriving this exposed one. A target moved down also fails "reached", which is an equality, so no
+  control tested the certificates alone. Removing the certificate requirement from the verdict survived: on the round-12
+  file, T9 passes.
+- *Its repair.* `t9_cap` returns its verdict per target, and each control is judged on its own target's verdict. A
+  control (iv) drops "$\alpha_K<\gamma_+$" from the condition list. The box still reaches both targets, but neither is
+  certified. A certificate's sum must have coefficient $-1$ on $\alpha_K$, and no other listed condition has a negative
+  one ("$\alpha_K\ge\frac12$" has $+1$).
+The mutants of the new controls die (R13.f).
+
+(A132) *Nit 3, R12.0's seeds* (G:6634). Re-derived from R12.f. `gdtail5.py` was reproduced under seed 77 and
+`gdr9_5.py` under seed 78, each also under the default seed. Accepted: an [R13] note says so.
+
+### R13.f Runs and mutations
+
+*Runs* (under load, `nice -n 10`, the program under two fresh hash seeds).
+- `python3 checks/gdtail5.py`, under `PYTHONHASHSEED=41` and `=42`: EXIT 0; T1-T13 PASS, thirteen controls failing. The
+  two stdouts are byte-identical (md5 `f8c56ff1ec538f9f1837b04d191d78aa`); about seven and a half minutes each, the two
+  in parallel with the mutation run. The program md5s were recorded before the runs and checked after them.
+- `checks/gdr9_5.py` and `checks/gdlge2_5.py` and the imported modules are unchanged (R12.f); their `.out` files stand.
+
+*Mutations*, on the round-13 file, each run on T9 or T13. "Killed" means exit 1.
+- *The round-12 verifier's list.*
+  - T9a, T9b, and T9m (the two shifts swapped): killed ("control passed"). T9m now dies because each control is judged on
+    its own target.
+  - T9i, T9j, T9k and T9l: no site left. Their analogues, each per-target control (ii-p), (ii-cap), (iii-p) and (iii-cap)
+    with its shift set to 0: killed ("control passed").
+  - T13i: killed.
+  - T13h (second derivatives dropped): survives, equivalent ((A127)). T13j (the order of $rH_0$ dropped from the
+    hypotheses): survives, equivalent, as the claim's list checks the same order.
+- *This round's.*
+  - Control (iv) neutered (nothing dropped): killed.
+  - The certificate requirement removed from the verdict: killed. Removed for the cap only, or for the $p$-target only:
+    killed.
+  - The reached requirement removed for the cap only: killed.
+  - A control judged on the other target's verdict: killed. All of these die with "control passed".
+  - `summed` removed from the verdict: survives, equivalent (T9e's analogue: the certificate search makes the sum
+    identically target $-\,\alpha_K$).
+- *R11.f's*, as a spot check: the $p$-target $+1$, the second limit $+1$, the certified sum compared with target $+1$:
+  killed.
+Every non-equivalent mutant dies.
+
+### R13.g Findings, labels and files
+
+*Findings.* (GD55) Round 12 holds (report-vA12: no Major and no minor; the promotion is complete). Its three nits are
+seated as (A130)-(A132). What the supplement cites from this note is proved, or is a definition.
+
+*Labels.* As in round 12. Computed: `checks/gdtail5.py` T1-T13, as repaired.
+
+*Files.* All under `docket68/n1star/`: `GAUGEDECAY5.md`, with this section appended and [R13] notes;
+`checks/gdtail5.py` with `checks/gdtail5.out`.
+
+### R13.h Replacement texts
+
+*Replacement texts.* Only text (8) changes: its two rows for `checks/gdtail5.py` carry the round-13 md5s. It
+supersedes R12.h's text (8). Texts (1)-(7) and (9)-(12) of R12.h stand. Texts (1), (2) and (9)-(12) have since been
+seated in `N1STAR-PROOF.md` (D631), and (3)-(7) are unchanged.
+
+A script checked text (8) together with R12.h's other eleven:
+- on the files of the brief (`N1STAR-PROOF.md` `87501cfb81d0e9632721e1e7944b9c38`, the paper
+  `5930486d79b2001589adb7eceb8b35be`);
+- on the files as they now stand (`N1STAR-PROOF.md` `88179da4c73ade0b2ae6d3d8289d5e0c`, after D631; the paper
+  `4c1210818f03bcf7d4875a5b11d8b568`), for the paper's texts (3)-(8).
+In each case, each old text occurs exactly once, the texts seat in forward, reverse and twenty random orders to the same
+files, each new text then occurs once, and every seated line is within 121 characters. Every md5 in the new text was
+measured on the file as it stands.
+
+(8) *The paper's md5 table*, after the row for `checks/admbox5.out` (md5s measured on the files as they stand when this
+round was written). Old:
+
+```text
+| `docket68/n1star/checks/admbox5.out` | `7c7b794f05e9c2536e2dae2d37a3c6eb` |
+```
+
+New:
+
+```text
+| `docket68/n1star/checks/admbox5.out` | `7c7b794f05e9c2536e2dae2d37a3c6eb` |
+| `docket68/n1star/checks/gdscri5.py` | `80beba46f3563ef26e94d3033d8039cb` |
+| `docket68/n1star/checks/gdscri5.out` | `4188f6ad77b4d177755df44f90c9d61f` |
+| `docket68/n1star/checks/gdext5.py` | `061d3dcfb594b76a3947223ee8b70227` |
+| `docket68/n1star/checks/gdext5.out` | `373b5629960a577400213eede77f80c0` |
+| `docket68/n1star/checks/gdkplus5.py` | `0ba1a17efc00b486928996b361758d78` |
+| `docket68/n1star/checks/gdkplus5.out` | `7ea3fa87d132f1fb147a69ec02a3a467` |
+| `docket68/n1star/checks/gdrad5.py` | `75983792199a9fb2f1919a6207f7cf22` |
+| `docket68/n1star/checks/gdrad5.out` | `dd8faaed179d1818553da73845cd5dad` |
+| `docket68/n1star/checks/gdtail5.py` | `91cc4bcfc08143bd6d1a5043f9f43386` |
+| `docket68/n1star/checks/gdtail5.out` | `f8c56ff1ec538f9f1837b04d191d78aa` |
+| `docket68/n1star/checks/gdlge2_5.py` | `1551b5fb7e9bf9664e75a16981bc347e` |
+| `docket68/n1star/checks/gdlge2_5.out` | `69d90e5181fff72c659fccb962b6230f` |
+| `docket68/n1star/checks/gdr9_5.py` | `3996477609597c82f91e883dd190b52e` |
+| `docket68/n1star/checks/gdr9_5.out` | `5526cb5601e867bc70fdbbd253b51d64` |
+```
