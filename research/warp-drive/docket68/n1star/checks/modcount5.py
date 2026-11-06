@@ -456,9 +456,10 @@ def one_offs(w, cab, cbe, x7_term=True, fwd=None, nb=2, ch=None, meta=None, aK2=
 def admissibility(w):
     """Round 9 (the round-8 verifier's MAJOR 2): the four admissibility conditions dweights5 W1 left undecided. (G)
     over E_++, G and E_col: decided in rounds 1-2 (dweights5 W2, lambdagen5 L4). eta_1, eta_2 off Re Lambda at W's
-    ends (I12:58-60): Lambda has no point with real part in (2, 2 + m) or (3, 3 + m), m = 1.9841e-8 the least offset
-    above 2 or 3 (lambdagen5.out L4 over E_col's bases; dweights5.out W2 over the named generators and E^C_I's
-    chains, 5.0191e-8; both read and pinned), and 0 < eta_1 < eta_2 < m. The levels off I11:156-160's exclusion sets
+    ends (I12:58-60): Lambda has no point with real part in (2, 2 + m) or (3, 3 + m), m = 1.9839e-8 (L4's printed
+    1.9841e-08 times 0.9999, rounded down; Round 10, the round-9 verifier's nit) the least offset above 2 or 3
+    (lambdagen5.out L4 over E_col's bases; dweights5.out W2 over the named generators and E^C_I's chains, 5.0191e-8;
+    both read and pinned), and 0 < eta_1 < eta_2 < m. The levels off I11:156-160's exclusion sets
     and eps, eps' off I9:290-291's and I14:124-126's: not decided (they need the roots -mu of the class operators and
     of L-hat_b0(0) as numbers, against the rational levels and rounds)."""
     lg = open(os.path.join(HERE, 'lambdagen5.out'), encoding='utf-8').read()
@@ -523,7 +524,8 @@ BASE_TABLE = {
     ('I4', 188, 'INT'): F0, ('I4', 190, 'INT'): F0, ('I4', 196, 'LF'): S, ('I4', 197, 'I3'): ('steps23', 'T_L42'),
     ('I4', 203, 'A42'): ('steps23', 'T_A26'), ('I4', 204, 'A42'): S, ('I4', 209, 'I3'): F0, ('I4', 209, 'INT'): F0,
     ('I4', 215, 'INT'): F0, ('I4', 224, 'I3'): ('steps23', 'T_L31'), ('I4', 228, 'I3'): S, ('I4', 233, 'I3'): F0,
-    ('I4', 245, 'A42'): S, ('I4', 271, 'P51'): S,
+    ('I4', 245, 'A42'): S, ('I4', 271, 'P51'): S, ('I4', 273, 'ZE'): S, ('I4', 273, 'I3'): S, ('I4', 273, 'I2'): S,
+    ('I4', 273, 'INT'): S, ('I4', 274, 'A42'): S, ('I4', 275, 'I2'): S,
     # I3, III.I'' Proposition 5.1's proof: Step 0 (once) and the iteration's Steps 1-3
     ('I3', 329, 'T53'): ('zero', 'Z_FWD'), ('I3', 330, 'I2'): ('zero', 'Z_P21'), ('I3', 347, 'BG'): ('iter', 'P_BG'),
     ('I3', 351, 'BG'): S, ('I3', 354, 'I2'): ('iter', 'P_P31'), ('I3', 359, 'LHAT'): S,
@@ -634,7 +636,9 @@ def base_total(w, ch, meta, Mb, W, nb=2, aK2=None, windows=True):
     return dict(b=b, c=c, n=n, loops=loops, total=loops + nb * Mb, win=n['Rw'] * 15 * W)
 
 
-B_PIN, DTOT_PIN = 3943746411, 45661458981362098
+KINDS = ('round', 'start', 'steps23', 'zero', 'iter')
+NB_ROWS, BASE_PIN = 88, (53191488, 26069149, 26595745)                     # Round 10: rows, (R, R_w, n_51)
+B_PIN, DTOT_PIN = 574994137715471, 46236449175331158                       # Round 10 (Round 9: 3943746411, ...)
 
 
 def main():
@@ -674,17 +678,18 @@ def main():
     print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
           'of itself; the floor 8,407,505,890,317,054 is %.4f of the bound' % (
               ab - meta['fwd'], be - meta['fwd'], DN.KPLUS1 * cp / d, 8407505890317054 / d))
-    okb, ob = one_offs(w, ab, be, fwd=meta['fwd'])
+    okb, ob = one_offs(w, ab, be, fwd=meta['fwd'], ch=ch, meta=meta)
     dtot = d + ob['B']
     OK['M4'] = okb and (ob['B'], dtot) == (B_PIN, DTOT_PIN)
-    print('  M4 (deduced on the reading; computed; Round 9: itemised): the steps outside the levels, I15 Step 0 (FWD), '
-          'Step 1 (the base: at most six below-3 level totals), Steps 3, 4\' (FIN), Step 4 (the top\'s Step 0: one '
+    print('  M4 (deduced on the reading; computed; Round 9: itemised; Round 10: the base counted, M6): the steps '
+          'outside the levels, I15 Step 0 (FWD), Step 1 (the base: M6\'s loops B_loops = %d and two below-3 level '
+          'totals), Steps 3, 4\' (FIN), Step 4 (the top\'s Step 0: one '
           'level above 3; its Step 1 (vi), (viii), (ix): three III.A Proposition 4.2 (2) applications, each <= 3 P_iota '
           '+ 47 + X_7(alpha) + 5 = %d). A level\'s largest totals: above 3 M_a = 3 x %d (level-3 rounds) + 3 P_W + 11 '
           '+ 3 P_iota + 47 + 15 W + X_7(alpha) %d + c\'_above = %d, below 3 M_b = 3 x %d (tf rounds) + 15 W + 58 + '
-          'c\'_below = %d (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: %s); B_once := FWD + 6 M_b + '
-          'M_a + 3 x %d = %d' % (ob['zf'], ob['r3max'], ob['x7top'], ob['Ma'], ob['r2max'], ob['Mb'], okb, ob['zf'],
-                                ob['B']))
+          'c\'_below = %d (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: %s); B_once := FWD + B_loops '
+          '+ 2 M_b + M_a + 3 x %d = %d' % (ob['base']['loops'], ob['zf'], ob['r3max'], ob['x7top'], ob['Ma'],
+                                         ob['r2max'], ob['Mb'], okb, ob['zf'], ob['B']))
     print('      d <= A\' + (K + 1) c\' + B_once = %d (%.10e); N = 21 d + 6 <= %d; B_once is %.2e of d: pinned: %s' % (
         dtot, dtot, 21 * dtot + 6, ob['B'] / dtot, OK['M4']))
     oka, ad = admissibility(w)
@@ -694,6 +699,52 @@ def main():
           'pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: %s; the levels off I11:156-160\'s sets and '
           'eps, eps\' off I9:290-291\'s and I14:124-126\'s: not decided (the roots -mu as numbers)' % (
               float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka))
+    brows, buncl, bstale = base_census()
+    bt = ob['base']
+    bn, bc = bt['n'], bt['c']
+    bids = {cls[1] for _, _, cls in brows if isinstance(cls, tuple) and cls[0] in KINDS}
+    bn2 = base_counts(w, theta=Fr(1, 10 ** 12), eta=Fr(1, 10 ** 9))
+    eK, a1 = w['eps_K'], w['alpha1']
+    lim = (int((a1 - 1 - 2 * eK) // eK) + 1, None, ceil(1 / (2 * eK)))
+    lim = (lim[0], lim[0] - ceil((DW.LSHARP - 1) / eK) + 2, lim[2])
+    trip = (bn['R'], bn['Rw'], bn['n51'])
+    OK['M6'] = (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale and len(brows) == NB_ROWS
+                and bids == set(bt['b']) and bn['req'] and trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim
+                and trip == BASE_PIN)
+    by = {}
+    for key, t, cls in brows:
+        k = cls if isinstance(cls, str) else cls[0]
+        by[k] = by.get(k, 0) + 1
+    print('  M6 (READ; deduced on the reading; computed; Round 10, the round-9 verifier\'s MAJOR A): the base level. '
+          'READ: the base runs on h + h_rem(q), of K+-order (alpha - 2)- (I15:305-308, Remark 3.2 (1) at I15:447), so '
+          'a_K - 2 < alpha - 4 = eps_K; Lemma 3.1 needs alpha\'_K > alpha_0 + 2 - a_K (I9:218); III.I\'\'\'\'\' '
+          'Proposition 2.1 starts below a_K - 1 (I6:81) and each round raises alpha\'_K by a_K - 2 (I6:90, 223), Step 2 '
+          'void when alpha#_+ < lambda_sharp (I6:110); its Start\'s III.I\'\'\' Step 0 runs III.I\'\'\' '
+          'Proposition 5.1 to alpha\'_K >= alpha_K - (a_K - 2) (I4:132), from 1/2 (I3:337) in steps a_K - 2 (I3:423): '
+          '%d statements found: %s. Census of the three ranges (I6:77-227, I4:132-275, I3:325-427; FAM with III.I '
+          'Theorem 5.3, III.I\'\' Proposition 5.1 and III.I\'\'\' / III.I\'\'\'\' citations added, and one '
+          'citation split over two lines, I4:261-262): %d rows, %d unclassified, %d stale; by class %s; every charged '
+          'site has a charge and every charge a site: %s' % (
+              len(BASE_READ), base_reads_ok(), len(brows), len(buncl), len(bstale), dict(sorted(by.items())),
+              bids == set(bt['b'])))
+    for k in sorted(bt['b'], key=lambda x: (KINDS.index(bt['b'][x][0]), x)):
+        kd, v, how = bt['b'][k]
+        print('      %-6s %-8s %4d  %s' % (k, kd, v, how))
+    print('      per round c_r = %d, the Start\'s pass c_S = %d (Steps 2-3 %d each), Proposition 5.1\'s Step 0 z = %d and '
+          'one of its steps c_51 = %d' % (bc['c_r'], bc['c_S'], bc['steps23'], bc['z'], bc['c_51']))
+    for u in buncl:
+        print('      unclassified %s' % (u,))
+    print('      the loops (computed, exact, at a_K - 2 = (1 - 10^-9) eps_K, alpha_0 := alpha_1, s_0 = 1 + d - 10^-6 d, '
+          'tau = alpha_1 - d + 10^-6 d, t = s_0 - d; every condition of the cited lines holds: %s): R = %d rounds of '
+          'III.I\'\'\'\'\' Proposition 2.1, R_w = %d of them with alpha~_K >= lambda_sharp (the first is round '
+          '%d), n_51 = %d steps of III.I\'\'\' Proposition 5.1; the same at 10^-12, 10^-9, and the limits '
+          'floor((alpha_1 - 1 - 2 eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2, ceil(1/(2 eps_K)): %s; '
+          'pinned: %s' % (bn['req'], bn['R'], bn['Rw'], bn['i0'], bn['n51'],
+                          trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim, trip == BASE_PIN))
+    print('      B_base = z + n_51 c_51 + c_S + R c_r + R_w 15 W + 2 M_b = %d + %d + %d + %d + %d + %d = %d (%.4e); the '
+          'windows are %.4f of it; Round 9\'s 6 M_b = %d withdrawn' % (
+              bc['z'], bn['n51'] * bc['c_51'], bc['c_S'], bn['R'] * bc['c_r'], bt['win'], 2 * ob['Mb'], bt['total'],
+              bt['total'], bt['win'] / bt['total'], 6 * ob['Mb']))
     # controls
     t1 = dict(TABLE)
     t1.pop(('I12', 247, 'I3'))
@@ -717,6 +768,21 @@ def main():
     print('  C5 (control): the one-off application on R0 (12): c\' = %d, not %d: %s' % (c5, C_PIN, OK['C5']))
     OK['C7'] = one_offs(w, ab, be, x7_term=False, fwd=meta['fwd'])[1]['B'] != B_PIN
     print('  C7 (control): M_a without X_7(alpha): B_once leaves its pin: %s' % OK['C7'])
+    c8 = one_offs(w, ab, be, fwd=meta['fwd'], ch=ch, meta=meta, aK2=2 + w['eps_K'])[1]
+    OK['C8'] = c8['base']['n']['R'] == 0 and c8['base']['n']['n51'] == 0 and c8['B'] != B_PIN
+    print('  C8 (control; Round 10): the base at h\'s a_K = 4 + eps_K (round 1\'s H3, LOSS-D LD12 (v)): R = %d rounds, '
+          'n_51 = %d: B_once = %d leaves its pin: %s' % (c8['base']['n']['R'], c8['base']['n']['n51'], c8['B'],
+                                                        OK['C8']))
+    c9 = one_offs(w, ab, be, fwd=meta['fwd'], ch=ch, meta=meta, windows=False)[1]
+    OK['C9'] = c9['B'] != B_PIN
+    print('  C9 (control; Round 10): no round charged the windows: B_once = %d leaves its pin: %s' % (c9['B'],
+                                                                                                   OK['C9']))
+    t10 = dict(BASE_TABLE)
+    t10.pop(('I6', 87, 'BG'))
+    _, u10, _ = base_census(table=t10)
+    OK['C10'] = len(u10) == 1
+    print('  C10 (control; Round 10): the base row I6:87 (a round\'s BG) dropped: %d unclassified: %s' % (
+        len(u10), OK['C10']))
     OK['C6'] = not ranges_ok(shift=1)
     print('  C6 (control): every range\'s opening line searched one line off: the anchors fail: %s' % OK['C6'])
     for k, v in OK.items():
