@@ -5,7 +5,8 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
   E1 (text) R6-D's four blocks, read from SETTLE-GLAM5.md as printed there, applied to a copy of the live
      N1STAR-PROOF.md (the file is not edited): each old block occurs exactly once, every line of the edited file is
      within 121 characters, nothing outside Lemma 11.0 changes, and the edited Lemma 11.0 satisfies r5edits5's
-     predicates (a)-(f) and four more: (g) "gamma' <= gamma" at both Leibniz sums; (h) the family is indexed by delta
+     predicates (a)-(f) ((a) and (b) read for R6-D's wording: R_gamma^n defined in the sentence that uses it, the
+     sums read structurally) and four more: (g) "gamma' <= gamma" at both Leibniz sums; (h) the family is indexed by delta
      (gamma' is not reused); (i) f_gamma^n, b^n, c^n and R_gamma^n are defined; (j) ||R_gamma^n|| <= C(lam, j) t^(-3/2)
      uniformly in n is stated, with its reason. Control: on the live, unedited Lemma 11.0 every predicate fails.
   E2 (exact, sympy) what the edited text states, every quantity read from the text by a pattern:
@@ -259,6 +260,12 @@ def predicates6(L):
     p = R5E.predicates(L)
     Ln = norm(L)
     sums = read_sums(Ln)
+    # (a) as r5edits5's, with R6-D's wording of the definition: R_gamma := precedes the first R_gamma^n, and R_gamma^n
+    # is defined in the sentence that uses it ("where f_gamma^n, b^n, c^n and R_gamma^n are ... with g_n and u_1^n")
+    first_Rn = Ln.find("R_gamma^n")
+    p["a"] = (first_Rn >= 0 and "R_gamma :=" in Ln and Ln.index("R_gamma :=") < first_Rn
+              and ("R_gamma^n being R_gamma with" in Ln
+                   or "c^n and R_gamma^n are f_gamma, b, c and R_gamma with g_n and u_1^n in place of" in Ln))
     # (b) read structurally (r5edits5's fixed windows are too short for the longer index sets of (g))
     p["b"] = len(sums) == 2 and all(sg == 1 and c_ == sp.Rational(1, 2) and bn for sg, c_, _, bn in sums)
     p["g"] = len(sums) == 2 and all(c.startswith("gamma' <= gamma, ") for _, _, c, _ in sums)

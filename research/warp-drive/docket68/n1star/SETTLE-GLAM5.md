@@ -2075,3 +2075,555 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r5edits5.py    (about half a minute)
     python3 checks/zinv5.py       (five processes in parallel; over two hours on this loaded machine)
 [R6 (m8, nit): measured run times are with round 6's run lines.]
+
+## Round 6 (2026-11-06)
+
+Status: written; not yet read by a verifier. Labels as in rounds 2-5: a check marked **[arithmetic]** computes a
+consequence of exponents or rules entered by hand, and its control cannot fail under a mutation of the operator. New
+programs, each with its `.out` from a full run, byte-identical on a second run, and with controls that mutate the code
+or the text under test: `checks/r6settle5.py` (X, Y, M, L, A0, T), `checks/r6sigma5.py` (S1-S4: F_4 on the full
+operator; W: the window computed as a whole), `checks/r6edits5.py` (E1-E3: R6-D applied to a copy of the live
+N1STAR-PROOF.md, and the mathematics it states read from the text and checked). Changed and rerun: `r5settle5.py` (F1
+exact, F1x; G5 with Lemma R4.5 widened, G5c; [arithmetic] labels), `r5edits5.py` (E1f: R5-D's mathematics read from its
+text), `zinv5.py` (its evaluation repaired; its first complete run; control m5 in place of m4, which is a no-op, ZI3).
+N1STAR-PROOF.md is cited here by quoted content, not by line number: another workstream (D625) is editing it while this
+is written; every R6-D old text is checked by r6edits5 E1a to occur exactly once in the file as it stood at the run (md5
+fb2fbf06). Rounds 1-5 are left as their verifiers read them; where a finding below withdraws or corrects a sentence, a
+bracketed note "[R6 (...)]" is inserted at the end of the paragraph or item that contains it, and the sentence is not
+changed. Sections R6.0 and R6-A ... R6-E.
+
+What this round settles, in one paragraph. The round-5 reader found no major gap and eight minors; each is re-derived
+and seated (R6.0), and every claim its list names as exercised by no check now has a computation or, where it is not
+computable, a complete proof. The two repairs of R5-B that the reader found incomplete are written out in full (R6-A):
+the exterior energy estimate is run on bounded regions cut by {Phi_W <= V_*}, both of whose lateral boundaries are
+future boundaries with a positive definite flux (computed, X1-X2), and the continuity of the energy follows from a
+dyadic tail bound uniform in sigma (X4); Hardy's inequality is used only after the field is shown to vanish at spatial
+infinity, which for h_R follows from its data and for Proposition R5.2's h' from the uniform bound on d h' (Y1-Y3), and
+the boundary term then vanishes at every radius, not along a sequence. Lemma R4.5 holds on (0, 7/2) (M), the window (l0
+- 1, 3) is computed as a whole from exponents measured on the fields and on the operator (r6sigma5 W), and F_4 is
+constructed on the full five-dimensional operator, which then decays two orders faster (S1-S4). F_4's source term turns
+out not to be needed: without it P(Sigma) = O(lam r^-6) and every estimate still closes on the window (R6.0 (r6-F4)).
+The flux sign is checked by an exact minimum over the covector (F1, F1x), and R6-D's mathematics is read from its text
+and checked (r6edits5 E2), so the reader's four surviving mutants die. zinv5 never finished in round 5 for two reasons
+that are not in the identity; repaired, it runs in thirteen minutes and shows that one of its four controls could not
+fail (R6.0 (m8)). R6-D is the final replacement text for N1STAR-PROOF.md's Lemma 11.0, with the reader's four nits; R6-E
+restates Theorem R5.1's status with a complete conditional list and gives the paper's texts.
+
+### R6.0 The round-5 reader's findings, and their dispositions
+
+**(m1) R5-B's exterior energy ran on an unbounded region.** Accepted. Re-derived and repaired in R6-A (i)-(iv): the
+identity is run on X_(rho, V_*) := W cap {T <= t~ <= sigma} cap {r - 2(t~ - T) >= rho} cap {Phi_W <= V_*}, which is
+bounded; its two lateral boundaries are spacelike, with the region to their past (the inner one by r6settle5 X2: with
+|f'| <= 1/4, g_b0^-1(alpha, alpha) <= -7/4 for alpha := d(r - 2 t~) and alpha(d_t) = -2 < 0; the outer one by D4-D5), so
+their fluxes are >= 0 (F1x) and are dropped; Gronwall on the bounded interval with constants independent of V_* and rho,
+then V_* -> oo by monotone convergence (X3). The identity with both lateral fluxes is computed exactly on the flat
+radial model (X1; control X1': a timelike inner boundary, speed 1/2, gives a flux form with the eigenvalue -1/4). The
+continuity of 𝔈 comes from the weighted tail bound C lam^2 rho^(2a - 9), uniform in sigma, summed over dyadic shells (X4
+[arithmetic]), not from dominated convergence: 𝔈 is a uniform limit of continuous functions. Notes inserted at R5-B.
+
+**(m2) Hardy's outer boundary term needs a priori decay.** Accepted. Re-derived in R6-A (v)-(vi) and R6-A's proof of
+Proposition R5.2. (a) S1 for F := Omega^gamma d Gamma^beta h needs no Hardy: along a ray of Sigma~_sigma, d/dr F is r^-1
+d(Z Gamma^beta h) - r^-1 (t - v1) d(d_t Gamma^beta h) + f' d(d_t Gamma^beta h) plus first derivatives of Gamma^beta h
+with coefficients O(1/r), exactly (r6settle5 Y1; Z4a); no undifferentiated term occurs, so the energies of first
+derivatives of commuted fields bound it. (b) For h_R, Gamma^beta h_R(sigma, .) -> 0 at spatial infinity: its data at t~
+= T vanish beyond the band except for time derivatives, which are O(lam r^(-13/2)), and |d_t Gamma^beta h_R| <= C
+r^(-3/2-a) on [T, sigma] by (a); integrated in time at fixed x. (c) For Proposition R5.2's h', (a) gives |d h'| <= C_0
+r^(-3/2-a_0) with C_0 independent of sigma; the limit c(sigma, xhat) of h' at spatial infinity exists, does not depend
+on sigma (|d_t h'| <= C_0 r^(-3/2-a_0), the time segments lying in W), and |c| <= |g_lam - g_b0|(r_sigma) + C
+r_sigma^(-1/2-a_0) -> 0 as sigma -> -oo, the inner edge of Sigma~_sigma cap W lying on N where h' = g_lam - g_b0 =
+O(r^-2): c = 0. (d) Then phi = -int_r^oo d_s phi and Cauchy-Schwarz give r^(2a+2) phi(r)^2 <= (2a + 2)^-1 int_r^oo
+s^(2a+3) (d_s phi)^2 ds -> 0 (Y2, 24 random fields that are not power laws), so Hardy's outer boundary term vanishes at
+every radius and Hardy holds on [r_sigma, oo). Control Y2': phi = c + r^(-a-2) has finite derivative energy and a
+nonzero limit, and Hardy fails for it. A model of (c) with its two controls (a constant added; a sigma-dependent limit):
+Y3. Notes inserted at R5-B and Proposition R5.2.
+
+**(m3) Lemma R4.5 is stated for a in (5/2, 7/2).** Accepted. Re-derived: its proof uses a only in (i) the finiteness of
+the N-flux, ∫ r^(2a) r^-9 r^3 dr, and of the |H| |d phi|^2 term, ∫ lam r^(2a-8) dr, both finite exactly for a < 7/2
+(r6sigma5 W2, W7), and in (ii) Lemma R3.2, stated for a in (0, (J' - 1)/2) = (0, 7/2) at J' = 8; nothing uses a > 5/2.
+So Lemma R4.5 holds for every a in (0, 7/2), with K > K*(a, 8, M, k1). Independently, its fluxes are monotone in a,
+since u* - u >= 1 on W (r5settle5 E1) gives w_a <= w_a' for a <= a' (r6settle5 M1; control M1'). G5 now includes R4.5's
+hypothesis with Step 2's a >= 3/2 and Proposition R5.2's a > 1/2, and is marked [arithmetic]; its control G5c shows that
+R4.5's round-4 hypothesis would give (max(l0 - 1, 5/2), 3). The window is computed as a whole in r6sigma5 W. Note
+inserted at Lemma R4.5.
+
+**(m4) F1 could not fail.** Accepted. F1 now takes the minimum over the covector exactly, as the least eigenvalue of the
+quadratic form p -> T_g[p](X, n) (the minimum of r^2 lambda_min over 2000 points is 0.2678 > 0); the verifier's
+mutations Phi = v - 1/r and |H| = 6 r^-2 now fail it (R6.0, mutants). The sign itself is computed exactly in F1x: for X
+= e_0 and n = (cosh s, sinh s, 0, 0, 0) the form has the characteristic roots e^s/2, e^-s/2 and cosh(s)/2 (three times),
+so it is positive definite for any two future timelike vectors (a g-orthonormal frame puts them in this position, and
+congruence keeps definiteness); for n spacelike it has the root -e^-s/2.
+
+**(m5) R5.1's conditional list.** Accepted; R6-E (status) replaces it. (a) The D44 clause was stale: D45 read the D44
+repairs and found that "Lemma 11.0's new argument closes the thirteenth verifier's gap rather than moving it", and D47
+found Lemma 11.0 "sound as repaired" (N1STAR-LOG.md, entries D45 and D47); the section-11 reader of D618 then found
+Lemma 11.0's top-order gap (its Major 1), which R5-D, now R6-D, repairs: written, not applied. (N1STAR-PROOF.md's status
+paragraph still reads "the repairs are not yet read" for D44; that line is the record's, not this file's, and is left to
+the session that seats R6-D.) (b) The list now names what the deduction also uses: N1STAR-PROOF.md's Theorem E with Step
+8's local theory (R5-B, Step 6); Part VII Lemma 1.2 (R4-D's setting: R is free) and Lemma 2.1 (Step 9's computation of
+(gamma, k)); III.C'' Proposition 4.1 (III.K's gauge data rebuilt from (gamma, k), R4-F); BEYOND5 Lemma 6.4 (iv) (W and
+N); R5-C (v), F_4's existence, in this file's list (now computed, and not needed: (r6-F4)); and N1STAR-PROOF.md's Lemma
+11.2 as amended by D618's repair. (c) Theorem P's uses of Lemma 1.1 (e) and Lemma 2.3 after D623, checked against the
+live 0.3 and Lemma 2.3: they stand. On P the margin of Lemma 9.1 (f) is a bound on the inverse metric, |g^-1 - g0^-1| <=
+eps_P t^(-5/4); Lemma 9.1 (f) says "the causal claim follows as in Lemma 1.1(e)", which uses Lemma 1.1 (e)'s argument
+(open conditions, past causal curves cannot cross the boundaries), not its eps1; and Lemma 9.5 says "Lemma 2.3's proof
+on P cap {tau1 <= s <= tau}", whose constants need |gt^-1| and |gt| bounded and Y = -gt^-1 dtau uniformly timelike.
+Those follow from the inverse margin: g0^-1(dtau, dtau) = -1 - m with m := mu/r^2, so (g0^-1 + delta)(dtau, dtau) <= -1
++ eps_P; the least absolute eigenvalue of g0^-1 is s(m) = (1 + m^2)^(1/2) - m, so for eps_P < s(m*) (m* := sup_P+ m)
+every such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 by Weyl's inequality; and {r = a} stays spacelike for eps_P
+< mu0/a^2 - 1 (r6settle5 T, exact and 2000 samples; control T': |delta|_op = s(m) makes g^-1 singular). These are D623's
+two thresholds, in the form the inverse margin takes; Lemma 9.1 (f)'s "There is eps_P > 0" allows them, and nothing in
+Theorem P's proof needs eps1 of 0.3. (A clarifying clause in Lemma 9.1 (f), naming eps_P < min(s(m*), mu0/a^2 - 1),
+would make this explicit; that is for the record's own session to decide.)
+
+**(m6) The paper texts.** Accepted; R6-E's blocks replace R5-E's. They name condition (b) (rounds 5-6 of this file not
+yet read), say that R6-D is written and not applied, separate what is measured (the coefficient decays and the residual
+degrees on the operator, the caps and the N-flux tails on explicit fields) from what is computed from those measurements
+(the window) and from what is counted by hand, write "supplement section 11.1" as the paper's Theorem 3 does, name eps
+among the thresholds not evaluated, and cite the r^(-5/2) coefficient as "deduced, SETTLE Proposition 3.1; computed for
+a bump envelope".
+
+**(m7) R5-D's line citations.** Accepted. R6-D keys every citation of N1STAR-PROOF.md by quoted content; its old texts
+are R5-D's, checked to occur exactly once in the live file (E1a). Re-keyed by the same rule, at the coordinator's report
+and verified against the current files (by content): PART-III-K-NONLINEAR.md's "Theorem 4.3 ([Hin26] Theorem 13.1 at n =
+4; conditional on Part IV)" is at its line 471 (cited as 468, and as 470 in R5.0's nit), and its (K2) "What Part IV must
+deliver here" through "Theorem 4.3 is conditional on these" at 513-521 (cited as 510-518 and 512-520), at md5 14b79c32;
+PART-VII-ASSEMBLY.md's paragraph *The metric.* ending "So b = (m',0) and S = S^(0)_1 = 0" is at 420-423 (cited as
+403-406), at md5 81a9effd, and its *The group.* paragraph is still at 31-38. Notes inserted at the citing lines.
+
+**(m8) Labels, and zinv5.** Accepted. F3 (the product rule), F3' (a power law), F4 and F5 (typed exponents) and G5 (a
+typed list) are marked [arithmetic] in r5settle5's output and docstring; what they stood for is now computed in
+r6settle5 X-Y and r6sigma5 W. zinv5: the round-5 run, started 07:59, had printed nothing after 2 h 58 min and was
+stopped (its processes identified by their command line and start time, killed by PID). Two causes, neither in the
+identity. (1) Each jet was substituted into the unsimplified defect with sympy's Expr.subs, which walks and rebuilds the
+whole tree at every key; one component took hours. Expr.xreplace replaces each Derivative node and each A(t, r) node
+structurally, before its arguments are reached, and then the symbols; the expression and the substituted values are
+unchanged, so the defect is the same exact algebraic number, now evaluated in under a second per component. (2) In mode
+m3 the mu term was the Python integer 0, which has no .doit(): that process died at once, so ZI2 could never have
+passed. With both repaired (and three random draws, not one), the first complete run found that mode m4, the gauge term
+contracted with g0^ab in place of g^ab, is not a control: that operator is still built covariantly from (g, g0) and is
+still invariant under (g, g0) -> (c g, c g0), which is all (R3c) uses (R3-D: the dilation pulls g0(mu) back to kappa^2
+g0(mu/kappa^2)), so the identity holds for it too (defect 1.4e-188, ZI3). Its place is taken by m5, the gauge background
+held at a fixed mass 1/2 (Gamma[g0(1/2)] in D and in its covariant derivative), which breaks the mu-scaling and fails
+(defect 0.53). Result: ZI1 (mode none, defect 1.4e-188 against terms up to 1.5e3), ZI2 (m1, m2, m3, m5 fail with defects
+87, 46, 0.39, 0.53), ZI3; about thirteen minutes for the six modes on this machine (load about 25 on four cores). Notes
+inserted at the round-5 header and ledger.
+
+**(r6-F4) F_4's source is not needed** (found in this round, computed). R5-C (v)'s F_4 solves the degree -4 equation
+with the degree -6 source, which makes P(Sigma) = O(lam r^(-13/2)) (r6sigma5 S4). If instead F_4 is the regular flat
+solution with data G_8(v1) (it exists as the other F_p do: the 2F1 with p = 4), h_R on N is unchanged (on N, s = 0 and
+Sigma's coefficients are G_(2p)(v1) whatever F_4's equation; off N, F_4's Taylor terms enter at r^-5 and beyond, so h_R
+= O(r^(-9/2)) still, G1), and P(Sigma) = O(lam r^-6) (measured, S4: Sigma_2 + Sigma_(5/2) without Sigma_4 decays like
+r^-6). Every use of the residual then still closes on the window: the residual's kernel is 4 - a > 1 (W3: a < 3),
+rho_inf = C lam/(3 - a), Step 8's tail ∫_(-oo)^T rho <= C lam |T|^(a - 3) -> 0, the exterior estimate of R6-A gives
+rho^(2a - 8), finite for a < 4 (X4'), and R4.9's d D_T = O(lam r^-4) is unchanged; the window is unchanged (W''). So
+R5-C (v) is not a condition of Theorem R5.1; it is kept, computed, as the sharper statement.
+
+**Nits.**
+- R5.0 (r4-m5): the last term is -M_Gamma(P(H) - P(Sigma)), not +. Re-derived: 0 = DP(H)[Gamma H] + M_Gamma P(H) and
+  DP(H)[Gamma Sigma] = (DP(H) - DP(Sigma))[Gamma Sigma] + (Gamma + c_Gamma) P(Sigma) - M_Gamma P(Sigma), so DP(H)[Gamma
+  h_R] = -(Gamma + c_Gamma) P(Sigma) - (DP(H) - DP(Sigma))[Gamma Sigma] - M_Gamma(P(H) - P(Sigma)). The term is bounded
+  in absolute value, so nothing changes. Note inserted.
+- R5-D's text: the sums lacked "gamma' <= gamma"; gamma' was reused as the family index; f^n, b^n, c^n were not defined;
+  ||R_gamma^n|| <= C t^(-3/2) uniformly in n was implicit. All four are repaired in R6-D, and checked (E1d (g)-(j)); the
+  uniformity in n is proved there: d_X^gamma F_1(X, 0, 0) does not depend on n, and every other factor of R_gamma^n is
+  bounded by the induction hypothesis for u_1^n, which is uniform in n, with (9.8) at the lowest orders.
+- R4-B ("puts both in Lemma 9.5's kernel") and R5.4 ("Lemma 9.5's kernel on the far region") against R5-D (s11-6) ("not
+  through its kernel"): R5-D's mechanism is the one written: b . d U, c U and the |gamma'| = 1 terms enter (9.3) through
+  its source f, and Gronwall's lemma, applied to the inequality summed over the family, turns their coefficient C(1 +
+  lam^-1) t^(-3/2) into the exponent; the factor is the same e^(2C(1 + lam)) either way, and "kernel" in R4-B and R5.4
+  means that exponent. Notes inserted.
+- (s11-6) cited the section-11 reader's `energy_kernel.py`, which is not in checks/. The structure of (9.3) is Lemma
+  9.5's proof ("Lemma 2.3's proof on P cap {tau1 <= s <= tau} ... the bulk is at most C k ||d u||^2 + ||f|| ||d u||.
+  Gronwall"); the factor's integral and Gronwall's lemma in integral form are computed in r6edits5 E2d-E2e. Note
+  inserted.
+- "a + 1 >= l0" (R5.0, the window) against Step 9's "a + 1 > l0": the inclusion rho^(a+1) L^2_b in rho^(l0) L^2_b holds
+  exactly for a + 1 >= l0 (G4 tests that), and the window is taken open, a + 1 > l0, as Step 9 says (r6sigma5 W5). Note
+  inserted.
+- R5.4's proof: "m = 1 with a coefficient of degree 2" reads "degree -2" (r-power 2 in A's list). Note inserted.
+- The count of bracketed notes in rounds 1-4 is 44: 40 "[R5.0", 2 "[Withdrawn, R5", 2 "[Superseded".
+- Run times, measured on this machine under load (about 25 on four cores), are given with the run lines below; the
+  round-5 figures were optimistic.
+
+**The reader's surviving mutants, rerun on the code and text as they now stand** (its scripts, applied to scratch
+copies, unchanged except for the path): F-m1 (Phi = v - 1/r in F1) and F-m2 (|H| = 6 r^-2 in F1) now fail F1 (r^2
+lambda_min -0.746 and -2.456); E-m5 (c U's bound lam^-1 -> lam^-3) and E-m6 (the factor -> e^(2C/lam)) now fail r5edits5
+E1f, and their counterparts on R6-D fail r6edits5 E2b-E2d (E3). Every other mutant of its report still fails as before
+(A-m1, A-m3, A-m2 by assertion, D-m1, F-m3, C-m1, E-m1-E-m4, E-m7, E-m8); A-m4 is still a no-op of the model, and G-m1's
+anchor (G5's condition line) has changed; its content is now G5c, a control that fails as it must. Counts: R6.0's
+ledger.
+
+**The claims the reader found exercised by no check**, each now: R5-D's mathematics and the uniformity in n (r6edits5
+E2a-E2h, E1d (j), with mutation controls E3); the exterior energy identity and the continuity of 𝔈 (r6settle5 X1-X4);
+the a priori decay behind Hardy (Y1-Y2); R5.2's uniformity in sigma (Y3, and the proof in R6-A); F_4's existence and
+P(Sigma) = O(lam r^(-13/2)) with Sigma_4 (r6sigma5 S1-S4, on the full operator); the window as a whole (W, from measured
+exponents); the "+2 for Lemma 9.3" (r6settle5 L) and part A's coefficient list (A0, computed from g_b0); the flux sign
+(F1, F1x); the completeness of the conditional list (R6-E, by hand: every statement outside this file that R4-D, R5-B,
+R5-C, R6-A and R6-B cite is listed); ZI1-ZI2 (zinv5, finished, with ZI3).
+
+### R6-A Theorem R4.6 at spatial infinity, written out (R5-B's two paragraphs and Proposition R5.2's proof)
+
+R5-B's localisation and its energy identity on D_*(sigma) stand. Throughout, g_T is the truncated solution on its
+interval of existence [T, sigma_1), which here means: g_T exists on W_T cap {t~ <= sigma'} with every derivative bounded
+there, for every sigma' < sigma_1. Beyond the band its data are g_b0 + Sigma, smooth with every derivative bounded, so
+the record's local theory (Step 8), applied on the balls of a fixed radius beyond the band, gives such a solution on a
+time interval that does not depend on the ball (finite speed of propagation); within [T, sigma_1') every coefficient of
+the commuted equations (R4d), which are built from Sigma, h_R and their derivatives, is bounded on W_T cap {t~ <=
+sigma_1'} for every sigma_1' < sigma_1. Fix such a sigma_1'. R is the radius of R4-D's setting; enlarging it, |f'| <=
+1/4 on r >= 4R (f' is in |x|^-2 C^oo).
+
+*(i) The exterior regions.* For rho >= rho_0 (rho_0 so large that {t~ = T, r >= rho_0} lies beyond the band and in {v >
+v1}) and V_* > 0 let X_(rho, V_*) := W cap {T <= t~ <= sigma} cap {r - 2(t~ - T) >= rho} cap {Phi_W <= V_*}, sigma <=
+sigma_1'. It is bounded (r <= V_* - T + sup|f| on it) and does not meet N. Its boundary consists of the bottom Sigma~_T
+cap {r >= rho} cap {Phi_W <= V_*}, the top Sigma~_sigma cap {r >= rho + 2(sigma - T)} cap {Phi_W <= V_*}, the inner
+piece {r - 2(t~ - T) = rho} and the outer piece {Phi_W = V_*}. The inner piece is spacelike with the region to its past:
+its conormal alpha := d(r - 2 t~) = (1 + 2 f') dr - 2 dt has g_b0^-1(alpha, alpha) = -4 + (1 + 2 f')^2 - mu r^-2 (3 + 2
+f')^2 <= -7/4 for |f'| <= 1/4, |alpha|_E^2 <= 25/4, so (g_b0^-1 + delta)(alpha, alpha) < 0 for every |delta|_op <=
+r^-2/2 at r >= 2, and alpha(d_t) = -2 < 0, so r - 2 t~ decreases along future causal curves (r6settle5 X2, exact, and
+2000 samples; control X2': at f' = 1/2 alpha is null for eta). The outer piece is spacelike with the region to its past
+by D4-D5. So X_(rho, V_*) is a domain of dependence of its bottom for every metric of the bootstrap class, and its
+solution is the one with data g_b0 + Sigma there.
+
+*(ii) The unweighted estimate.* For phi := (Gamma^alpha h_R)_ij, |alpha| <= k, the energy identity (R3a) with X := d_t
+(w = 1) on X_(rho, V_*) has, besides the top and the bottom, the fluxes of the two lateral pieces, which are
+T_g[phi](d_t, n) with n future timelike, >= 0 (r5settle5 F1x), and are dropped. The flat radial model of this identity,
+with both lateral fluxes and their quadratic forms (eigenvalues 1/2, 3/2 and (c -+ 1)/2, c = (1 - r^-2)^-1), is computed
+exactly in X1. Put e(sigma) := sum_(|alpha| <= k) (energy of Gamma^alpha h_R on the top + ||Gamma^alpha h_R||^2 on the
+top); the L^2 part obeys d/dsigma ||phi||^2 <= 2 ||phi|| ||d_t phi||, both lateral edges of the top moving so as to
+shrink it. The bulk terms are -int int sqrt|g| (box_g phi) d_t phi and the deformation term, with box_g phi = -2 S^alpha
++ (terms linear in d phi, phi), S^alpha = -R^alpha + (A) + (B) + (C) (R4d), every coefficient bounded on X_(rho, V_*) by
+the choice of sigma_1', and R^alpha = O(lam r^(-13/2)) (r6sigma5 S4). So e(sigma) <= e(T) + C int_T^sigma (e +
+||R^alpha||_(L^2(top)) e^(1/2)), C independent of V_* and of rho >= rho_0, and by Gronwall's lemma e(sigma)^(1/2) <=
+e^(C(sigma - T)) (e(T)^(1/2) + int_T^sigma ||R^alpha||). At t~ = T beyond the band h_R and d_t h_R vanish and the higher
+time derivatives contained in Gamma^alpha are given by Ric^H(g_T) = 0, where g_T = g_b0 + Sigma: they are O(lam
+r^(-13/2)). Hence e(T) <= C lam^2 int_rho^oo r^-13 r^3 dr = C lam^2 rho^-9 and ||R^alpha||_(L^2(r >= rho)) <= C lam
+rho^(-9/2), so e(sigma) <= C(sigma_1' - T) lam^2 rho^-9 for every sigma in [T, sigma_1'] and every V_*. As V_* -> oo the
+left side increases to the unweighted energy of Sigma~_sigma cap {r >= rho + 2(sigma - T)} (monotone convergence; X3),
+which is therefore at most C lam^2 rho^-9.
+
+*(iii) The weighted tail.* On Sigma~_sigma, w <= (2r + C)^(2a). For rho >= max(rho_0, 4(sigma_1' - T)) the shell {2^j
+rho <= r <= 2^(j+1) rho} of Sigma~_sigma lies in {r >= rho_j + 2(sigma - T)} with rho_j := 2^(j-1) rho, so its weighted
+energy is at most C (2^(j+1) rho)^(2a) lam^2 (2^(j-1) rho)^-9, and summing over j >= 0, the weighted energy of
+Sigma~_sigma cap {r >= rho} is at most C lam^2 rho^(2a - 9) for a < 9/2 (X4, the exact sum 2^(2a+9) rho^(2a-9)/(1 -
+2^(2a-9)) [arithmetic]), with C independent of sigma in [T, sigma_1'].
+
+*(iv) Finite and continuous.* 𝔈_k(sigma) is the energy of Sigma~_sigma cap {r <= rho}, the integral of a smooth function
+over a compact set varying continuously with sigma, hence continuous in sigma, plus the weighted tail beyond rho, at
+most C lam^2 rho^(2a - 9) uniformly in sigma. So 𝔈_k is finite and is the uniform limit, as rho -> oo, of continuous
+functions on [T, sigma_1']: it is continuous there, for every sigma_1' < sigma_1, as Step 6's continuity argument needs.
+(With F_4 the flat solution, (r6-F4), the same holds with rho^-8 and a < 4.)
+
+*(v) The pointwise bounds, first order (S1).* Fix sigma in [T, sigma_1). For F := Omega^gamma d Gamma^beta h_R, |gamma|
+<= 2, S1 on [r_sigma, R'] holds with its boundary term R'^(2a+3) F(R')^2 (F3). Its right side involves F and d/dr F
+along the ray, and d/dr F is a combination, with coefficients bounded on W, of first derivatives of Gamma Gamma^beta h_R
+(Gamma in {d_t, Z, Omega}) and of r^-1 times first derivatives of Gamma^beta h_R (exactly: d/dr (d_c psi) = r^-1 d_c(Z
+psi) - r^-1 (t - v1) d_c(d_t psi) + f' d_c(d_t psi) - r^-1 d_c psi, r6settle5 Y1); no undifferentiated term occurs, so 𝔈
+bounds it without Hardy. Since 𝔈(sigma) < oo by (iv), int^oo r^(2a+3) (F^2 + (d_r F)^2) dr < oo, and so liminf_(R' ->
+oo) R'^(2a+4) F(R')^2 = 0 (were R'^(2a+4) F^2 >= c > 0 beyond some R'_0, int r^(2a+3) F^2 >= c int dr/r = oo). Letting
+R' -> oo along that sequence gives S1 on [r_sigma, oo): the first two bounds of (R4b).
+
+*(vi) The a priori decay, and Hardy.* Every Gamma^beta h_R(sigma, .) tends to 0 at spatial infinity along Sigma~_sigma:
+at fixed x with r beyond the band, |Gamma^beta h_R(sigma, x)| <= |Gamma^beta h_R(T, x)| + (sigma - T) sup_[T, sigma]
+|d_t Gamma^beta h_R(., x)|; the first term is 0 or O(lam r^(-13/2)) (the time derivatives of the data), and the second
+is at most (sigma - T) C r^(-3/2-a) by (v), with C = C(sup_[T, sigma] 𝔈) finite by (iv); the time segment {x} x [f(r) +
+T, f(r) + sigma] lies in W_T. So phi := Gamma^beta h_R satisfies phi(r) = -int_r^oo d_s phi along the ray, and by
+Cauchy-Schwarz r^(2a+2) phi(r)^2 <= (2a + 2)^-1 int_r^oo s^(2a+3) (d_s phi)^2 ds, which tends to 0 as r -> oo (the tail
+of a convergent integral; r6settle5 Y2, 24 fields that are not power laws). Hardy's inequality on [r_sigma, R'] has the
+outer boundary term R'^(2a+2) phi(R')^2/(2a + 2), which therefore tends to 0 for every R' -> oo, and its inner one has
+the good sign: Hardy holds on [r_sigma, oo) as stated in Step 2, and the third bound of (R4b) is phi = -int_r^oo d_s phi
+with the first. So (R4b) holds as written. (Without the decay Hardy fails: Y2', phi = c + r^(-a-2).)
+
+**Proposition R5.2's proof (replacing R5-C's).** As R4.8, with (R4b) at weight a_0 uniform in sigma, in four steps. (1)
+S1 for F := Omega^gamma d Gamma^beta h', |gamma| + |beta| <= 2, needs only the energies of first derivatives of
+Gamma^alpha h', |alpha| <= 3 (Y1, as in (v)), and these are bounded uniformly in sigma by hypothesis; the sequence
+argument of (v) applies on each slice. So |d h'| <= C_0 r^(-3/2-a_0) on every Sigma~_sigma, C_0 independent of sigma.
+(2) For fixed sigma and xhat, h'(sigma, r xhat) has a limit c(sigma, xhat) as r -> oo along Sigma~_sigma, since |d/dr
+h'| <= (1 + |f'|) C_0 r^(-3/2-a_0) is integrable. (3) c does not depend on sigma: for sigma_1 < sigma_2 <= 0 and r large
+the time segment from (f(r) + sigma_1, r xhat) to (f(r) + sigma_2, r xhat) lies in W, and |h'(sigma_2, r xhat) -
+h'(sigma_1, r xhat)| <= (sigma_2 - sigma_1) C_0 r^(-3/2-a_0) -> 0. (4) c = 0: the inner edge of Sigma~_sigma cap W lies
+on N, where h' = g_lam - g_b0 (g' = g_lam on N), which is O(r^-2) there (u_1 in E_2, Theorem P; the radiation field
+vanishes on {v > v_end}); so |c(xhat)| <= |g_lam - g_b0|(r_sigma xhat) + 2 C_0 int_(r_sigma)^oo r^(-3/2-a_0) dr <= C
+r_sigma^-2 + C r_sigma^(-1/2-a_0), and r_sigma -> oo as sigma -> -oo. Hence h'(sigma, r xhat) = -int_r^oo d/ds h' ds,
+|h'| <= C r^(-1/2-a_0) with C independent of sigma, and Hardy holds on [r_sigma, oo) with sigma-independent constants,
+its outer boundary term vanishing as in (vi). The kernels q = 3/2 + a_0 and q = min(3, a + 1/2) of B11 are then
+integrable with sigma-independent constants; the zero-order coefficient is r |d d H| <= C (mu + lam) r^-3 + C eps_B
+r^(-1/2-a). ∎ (A model of (2)-(4), r6settle5 Y3: the limit is the same at three sigma and is 0; controls: a constant
+added keeps every derivative bound and |h'| <= 1/50 but violates g' = g_lam on N, and its limit is that constant; a
+sigma-dependent limit makes |d_t h'| fail to decay. The hypothesis |h'| <= 1/50 is used for Step 1's margins only.)
+
+### R6-B Lemma R4.5 on (0, 7/2), F_4 on the operator, and the window computed
+
+**Lemma R4.5 (widened).** Lemma R4.5 holds for every a in (0, 7/2), with K > K*(a, 8, M, k1) of Lemma R3.2. *Proof.*
+R4.5's proof, read at such a: (i) uses the N-flux of the commuted h_R, O(r^(-9/2)) on N with its ell-gains, at weight a,
+finite exactly for a < 7/2 (R2.8, Z5; r6sigma5 W2: the tail exponent is 2a - 7, computed at thirteen a in [1/2, 7/2]),
+and the term |H| |d phi|^2 of the N-flux for g, ∫ lam r^(2a - 8) dr, finite exactly for a < 7/2 (W7, sympy's own
+convergence condition); (ii) uses Lemma R4.4, which has no a, and Lemma R3.2, stated for a in (0, (J' - 1)/2) = (0, 7/2)
+at J' = 8. ∎ (Independently, the fluxes are monotone in a, since u* - u >= 1: r6settle5 M1.)
+
+**F_4 on the full operator** (R5-C (v), computed in r6sigma5). S1: for every F and every harmonic polynomial h_l of
+degree l = 0..4, -(1/2) box_eta (r^-4 F(s) h_l r^-l) = r^-6 h_l r^-l L_l[F] with L_l[F] = (s - s^2/2) F'' + (7/2)(1 - s)
+F' - (1/2)(8 - l(l + 2)) F, exactly R5-C (v)'s operator (control: 7/2 -> 3 fails). S2: the indicial roots at s = 0 are 0
+and -5/2; the recursion (n + 1)(n + 7/2) f_(n+1) = S_n + (n(n - 1)/2 + 7n/2 + kappa_l) f_n has a nonvanishing leading
+factor, so the solution analytic at 0 is unique given F(0) = G_(8,l)(v1), and f_(n+1)/f_n -> 1/2: radius 2, covering s
+in [0, 3/2] (the sources S_l are polynomials in s, F_2 = 2F1(2 + l, -l; 3/2; s/2) being one). S3: for the l = 0 field
+Sigma_2 = (3/10) r^-2 P of r5op5 O2, the degree -6 part Q_6 of P(g_b0 + Sigma_2) is computed exactly, by the
+second-order expansion of Ric^H(eta + e m + d sigma; eta + e m) as polynomials in (x, 1/r) restricted to S^3 harmonic by
+harmonic; the e, e^2 and d parts vanish (Tangherlini is vacuum; r^-2 is harmonic in R^4), Q_6 has the harmonics l = 0,
+1, 2, and it agrees with the full operator's r^6 P(g_b0 + Sigma_2) on a ray to 4.5e-11 (Richardson). S4: with Sigma_4 :=
+r^-4 sum_l F_l(s) H_l(xhat), F_0 = 1/4, F_1 = 2/5 and F_2 = -(2/7) s 3F2(1, 1, 7; 2, 9/2; s/2) (the l = 2 piece needs s:
+a constant is a homogeneous solution there), the full operator's |P| decays along the ray (s = 1/2, r = 8 .. 2048) like
+r^-6 for Sigma_2, r^-8 for Sigma_2 + Sigma_4 and r^(-13/2) for Sigma_2 + Sigma_(5/2) + Sigma_4; controls: the l = 2
+piece constant, -Sigma_4, and Sigma_2 + Sigma_(5/2) without Sigma_4 each decay like r^-6. So F_4 exists and P(Sigma) =
+O(lam r^(-13/2)) with Sigma_4, on the operator; and, by (r6-F4), neither is needed.
+
+**The window, computed** (r6sigma5 W). Each condition of the bootstrap is an exponent computed from a field or from the
+operator, not typed: the cap's exponent measured at thirteen a in [1/2, 7/2] on the exact h_R of G1 is the affine law 2a
+- 6 (fit residual below 2e-3), so the cap vanishes exactly for a < 3 (W1); the N-flux tail of h_R(v1, .) has exponent 2a
+- 7 (exact, W2); the residual's kernel from the degree measured in S4 is integrable exactly for a < q_R - 3 = 7/2 (W3;
+with q_R = 6, a < 3); S1's pointwise exponent a + 3/2 and its integral a + 1/2 give the h_R rows, integrable for a > 1/2
+(W4; the coefficient rows of r5op5 O1 do not depend on a); r = 1/rho gives the class exponent a + 1 on S (W5); Step 2
+needs a >= 3/2, Lemma R4.5 (0, 7/2), Proposition R5.2 a > 1/2 (W6-W8). Their intersection, as sympy intervals, is (l0 -
+1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (W). Controls: p = 4 dropped from Sigma, with W1-W2 recomputed on that field
+(exponents 2a - 5 and 2a - 6), gives (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives (max(l0 -
+1, 5/2), 3) (W'); and q_R = 6 leaves the window unchanged (W'').
+
+### R6-D The replacement text for N1STAR-PROOF.md's Lemma 11.0 (final; supersedes R5-D)
+
+Two edits, for N1STAR-PROOF.md as it stands (not edited here; another workstream is editing other sections of it, and
+the main session seats these after that). Every citation is by quoted content. The old texts are R5-D's: Edit 1's begins
+at Lemma 11.0's "*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves" and ends with its sentence "so the source
+is at most C(lam, j) t^(-3/2) in L^2."; Edit 2's begins "Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d
+U_n(tau_n)|| +" and ends "uniformly in n.", just before "The bookkeeping of sup against". `checks/r6edits5.py` E1 reads
+the four blocks below as printed here and applies them to a copy of the live file: each old text occurs there exactly
+once (md5 fb2fbf06 at the run, and again at 7400212b, after D625's later edit), the file gains 31 lines, every line
+stays within 121 characters, nothing outside Lemma 11.0 changes, and the edited lemma satisfies E1d's ten predicates
+(r5edits5's six and the reader's four nits) and E2's eight mathematical checks; E3's six mutations of the text each
+fail. Edit 1's new text is followed on its last line by the unchanged " The identity is not run on the region between {v
+="; Edit 2's is preceded on its first line by "U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. " and followed by "
+The bookkeeping of sup against".
+
+What changed against R5-D: the Leibniz sums carry "gamma' <= gamma"; the family is indexed by delta, so gamma' is not
+reused; f_gamma^n, b^n, c^n and R_gamma^n are defined, with the reason that b^n and c^n obey the bounds of b and c
+(Lemma 11.1 applies to u_1^n verbatim); ||R_gamma^n|| <= C(lam, j) t^(-3/2) uniformly in n is stated and proved
+(d_X^gamma F_1(X, 0, 0) does not depend on n, and every other factor is bounded by the induction hypothesis for u_1^n,
+uniform in n, with (9.8) at the lowest orders); the L^2 count behind ||R_gamma|| is written (E_3 on a slice of volume at
+most C t^3 gives C t^(-3/2), a product at most C t^(-2)); and Edit 2 closes with the two inequalities it uses, ||d
+U_n(tau_n)|| <= C(lam, j) t^(-1/2) and int_(tau_n)^tau t'^(-3/2) dtau' <= 2 t^(-1/2). Why the induction closes at the
+top order is R5-D's argument, read by the round-5 reader and unchanged: b . d U and the |gamma'| = 1 terms are linear in
+the unknown family with coefficient C t^(-3/2); c U <= C lam^-1 t^(-3/2) ||d U|| by Lemma 9.3(b), since U vanishes on {v
+= v_start}; Gronwall's lemma applied to the inequality summed over the family costs exp(int_(lam^-2)^oo C(1 + lam^-1)
+t^(-3/2) dt) = e^(2C(1 + lam)) (E2d); and R_gamma contains only orders <= j + 1.
+
+Edit 1, old:
+
+```text
+*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3), and F_1 is in E_3 with all derivatives (S(u) by Lemma
+11.1; the second term is E_(3/2) E_2; the third is in E_(7/2) by Lemma 9.7(c) and P2), where "all derivatives" of a term
+containing u_1 means the orders already controlled. Induction on the order: for |gamma| = j + 1, U := d^gamma u_1 solves
+-(1/2) g_lam^{ab} d_a d_b U = d^gamma F_1 + sum_{0 < gamma' <= gamma} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b
+u_1. The terms with |gamma'| = 1 are (d g_lam) d U with d g_lam in E_(3/2), of the kind Lemma 9.5's kernel k absorbs; a
+term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and is
+estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C t^(-1/2))
+and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by Theorem P
+for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2.
+```
+
+Edit 1, new:
+
+```text
+*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3). By (0.2), F_1 = -Ric^H(g_lam) - (1/2) g_lam^{ab} d_a
+d_b u_1 with g_lam = g0 + r^(-3/2) G_3 + u_1, so F_1 contains no second derivative of u_1 (`checks/f1lemma5.py` F1a):
+it is a smooth function F_1(X, u_1, d u_1), and F_1(X, 0, 0) is in E_3 with all derivatives (the terms of Lemma 11.1
+in G_3 and g0, and the third term, in E_(7/2) by Lemma 9.7(c) and P2; `checks/r5edits5.py` E3). Along g_lam its partial
+derivatives are b := dF_1/d(d u_1), in E_(3/2) and of lam-order 0 (the derivative of the Q-difference, linear in d g0 +
+d u; d u is of lam-order 0: dv [d_th W_TT], plus dv [d_th chi] dv dv in E_2 and the phase shift's term in E_(5/2), plus
+O(lam); `checks/cclass5.py` C3, r5edits5.py E2), and c := dF_1/d u_1 = -(1/2) lam^-1 (.)(ell_lam, ell_lam) [d_th^2
+W_TT] + E_(3/2), ell_lam := g_lam^-1 dv (the first term from -(1/2)(g_lam^-1 u_1 g_lam^-1)^{ab} d_a d_b (lam [W_TT]), as
+in (3.2); the E_(3/2) part contains -(.)(ell_lam, ell_lam) [d_v d_th W_TT], from the envelope's dependence on v; F1b,
+cclass5.py C1-C2). Induction on the order: for |gamma| = j + 1, by Leibniz's rule U := d^gamma u_1 solves
+
+    -(1/2) g_lam^{ab} d_a d_b U = f_gamma := b . d U + c U + R_gamma
+        + (1/2) sum_{gamma' <= gamma, |gamma'| = 1} C(gamma, gamma') (d^{gamma'} g_lam^{ab})
+              d^{gamma - gamma'} d_a d_b u_1,
+
+C(gamma, gamma') := gamma!/(gamma'! (gamma - gamma')!), where R_gamma := d^gamma F_1 - b . d U - c U + (1/2)
+sum_{gamma' <= gamma, |gamma'| >= 2} C(gamma, gamma') (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b u_1 contains
+derivatives of u_1 of order <= j + 1 only (the chain rule, F1d). In f_gamma, b . d U is of the order this step
+estimates and is not known; the terms with |gamma'| = 1 are (d g_lam) d U' with d g_lam in E_(3/2) and U' in the same
+family {d^delta u_1 : |delta| = j + 1}; and c U is one order lower. They enter through f_gamma in Lemma 9.5's energy
+inequality (9.3), before Gronwall's lemma, not through its kernel k: ||b . d U|| <= C t^(-3/2) ||d U||, ||c U|| <= C
+lam^-1 t^(-3/2) ||U|| <= C lam^-1 t^(-3/2) ||d U|| by Lemma 9.3(b) (U vanishes on {v = v_start}), so ||f_gamma|| <=
+C(1 + lam^-1) t^(-3/2) sum_{|delta| = j + 1} ||d d^delta u_1|| + ||R_gamma||; summed over the family, Gronwall's lemma
+then costs the factor exp(int C(1 + lam^-1) t^(-3/2)), at most e^(2C(1 + lam)) over the far region t >= lam^-2, a
+lam-free factor. (With c U taken as a source, through the energies of the lower steps, the step also closes at fixed
+lam, at one lam^-1 per order.) R_gamma is the sum of d_X^gamma F_1(X, 0, 0), the u_1-free source, in E_3, and of
+products of a derivative of g_lam or of F_1's coefficients of order <= j + 1 with derivatives of u_1 of order <= j + 1,
+each estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C
+t^(-1/2)) and the others in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by
+(9.8) for u_1^n at the lowest): d_X^gamma F_1(X, 0, 0), in E_3, has L^2 norm at most C t^(-3/2) on Sigma_tau, whose
+volume is at most C t^3, and each product at most C t^(-2) (a coefficient in E_(3/2), or a second factor of u_1 in
+E_2, times the L^2 factor), so
+||R_gamma|| <= C(lam, j) t^(-3/2).
+```
+
+Edit 2, old:
+
+```text
+Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d U_n(tau_n)|| +
+C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n.
+```
+
+Edit 2, new:
+
+```text
+Lemma 9.5's energy inequality (9.3) for U_n
+with f = f_gamma^n, and Gronwall's lemma, give sum_{|gamma| = j + 1} ||d U_n(tau)|| <= C e^(2C(1 + lam)) sum_{|gamma|
+= j + 1} (||d U_n(tau_n)|| + int_{tau_n}^tau ||R_gamma^n|| dtau'), where f_gamma^n, b^n, c^n and R_gamma^n are
+f_gamma, b, c and R_gamma with g_n and u_1^n in place of g_lam and u_1 (Lemma 11.1 applies to u_1^n verbatim, so b^n
+and c^n obey the bounds on b and c above with the same constants), and ||R_gamma^n|| <= C(lam, j) t^(-3/2) uniformly in
+n: d_X^gamma F_1(X, 0, 0) does not depend on n, and every other factor of R_gamma^n is bounded by the induction
+hypothesis for u_1^n, which is uniform in n, with (9.8) at the lowest orders. Since ||d U_n(tau_n)|| <= C(lam, j)
+t_n^(-1/2) <= C(lam, j) t^(-1/2) and int_{tau_n}^tau t'^(-3/2) dtau' <= 2 t^(-1/2), ||d U_n(tau)|| <= C(lam, j)
+t^(-1/2) at every order, uniformly in n.
+```
+
+### R6-E Theorem R5.1's status, and the paper's text
+
+Theorem R5.1 stands as stated in R5-E, with Proposition R5.2's proof as in R6-A and Lemma R4.5 as widened in R6-B; R5-C
+(v) is no longer among its conditions ((r6-F4)).
+
+*Status (replacing R5-E's).* **Deduced**, in this file (rounds 1-6; rounds 1-5 read by verifiers, every finding seated
+in R5.0 and R6.0; round 6 not yet read), and **conditional on**:
+
+- (a) statements the record lists as proved: Part IV's seven outputs (R3-A); III.K Theorem 4.3, with III.C' Theorem 3.1
+  under row d1 and III.C'' Theorem 3.1 (2) and Proposition 4.1 through Theorem R2.4, III.C'' Proposition 4.1 also
+  rebuilding III.K's gauge data from (gamma, k) (R4-F); Part VII Lemmas 1.1, 1.2 (R4-D's setting: R is free) and 2.1
+  (Step 9's computation of (gamma, k)) and Proposition 3.2 (all listed as proved in proof5/README.md); BEYOND5 Lemma 6.4
+  (iv) (W, N and their placement in Omega' cup P'); N1STAR-PROOF.md's Theorem E (sections 1-4, proved), whose Step 8
+  local theory R4-D Step 6, R5-B and R6-A use; and Theorem P (proved), used at every order through Corollary R4.3, its
+  uses of Lemma 1.1 (e) and Lemma 2.3 standing after D623 (R6.0 (m5) (c));
+- (b) N1STAR-PROOF.md section 11.1 (Lemmas 11.0, 11.1, 11.2 and Proposition 11.1), which the record lists as deduced,
+  with: its D44 repair read by D45 and D47 and found to close the thirteenth verifier's gap; Lemma 11.0's top-order gap
+  found by D618's section-11 reader (its Major 1), repaired by R6-D, written and not applied; and Lemma 11.2 as amended
+  by D618's repair, which another workstream is seating. Section 11.1 is used by Proposition R5.4, Lemma R3.2, Lemma
+  R4.4, Lemma R4.5 (i) and Step 9;
+- (c) this file's statements: Lemma R2.1, Proposition R2.2 (computed for every round count III.C' uses, M <= 12, exactly
+  below 11/2), Theorem R2.4, Lemmas R3.2-R3.3 (as amended), Propositions R4.1-R4.2, Corollary R4.3, Lemma R4.4, Lemma
+  R4.5 (as widened, R6-B), R4-D with R5-B and R6-A (Theorem R5.1′), Propositions R4.9, R5.4 and R5.2 (its proof as in
+  R6-A), and Theorem R5.1; rounds 5 and 6 are not yet read by a verifier;
+- (d) the programs they cite.
+
+It rests on no statement of Part IX. What has to be read for the label "proved": (b) with R6-D applied; (c), rounds 5
+and 6; (d). Not evaluated: lam_2, eps, delta, lam_1 (another workstream), in either class. The list was made by reading
+every statement outside this file that R4-D, R5-B, R5-C, R6-A and R6-B cite; nothing else is open in the theorem.
+
+*Computational support, stated as what was computed.* The operator identities ((5.1), (R3a), (R3c) in Cartesian form and
+in invariant form (zinv5, finished), (R4c), the contracted Bianchi identity, the localised and the exterior energy
+identities) are computed, on the full operator where the operator enters; the coefficients of DP(H), the degrees of
+P(g_b0 + Sigma_p) and the degree after Sigma_4 are measured on the full operator (O1-O2, S4), and Q_6, which F_4
+cancels, is computed exactly (S3); the class of c and the lam-order of b on it (C1-C3); h_R's decay, the caps, the
+null-hypersurface tails and the class on S on explicit fields (G1-G4, G6, W1-W2); the weight window from those measured
+exponents (W); the lam-orders of the expansion from every monomial, with the coefficient list computed from g_b0 and
+Lemma 9.3's cost measured (A, A0, L); the flux signs exactly (F1x, X1-X2); R6-D's mathematics read from its text
+(r6edits5 E2). The remaining kernel exponents (the bulk-sign error, the deformation, the uniqueness kernels and the
+D-system's) are counted by hand, their integrability checked ([arithmetic]).
+
+*The text for the paper's section 9* (RESPONSE-HL-5D.md, not edited here; it supersedes R5-E's blocks; each old text
+occurs exactly once in the current file, md5 7193c56e, checked by r6edits5's companion run below; the new lines are
+within 121 characters).
+
+Block 1, in "Settling", old:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball; settling of g_λ's own continuation
+  is not shown. Evaluating λ1 and δ would need every constant of the write-out made explicit, and several come from
+```
+
+Block 1, new:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball. That the development of g_λ's own
+  data settles, with no gluing, is deduced in a data class wider than (ii)'s by half-integer orders, conditional on
+  supplement section 11.1, deduced, whose Lemma 11.0 has a repair written and not yet applied, and on the last two
+  rounds of that deduction, not yet read by a verifier (Beyond the boundary, below). Evaluating λ1 and δ would need
+  every constant of the write-out made explicit, and several come from
+```
+
+Block 2, in "Beyond the boundary", old:
+
+```text
+  6.3, deduced). It is not shown that Theorem 4 applies to g_λ's own data: g_λ is given on Ω, which does not contain the
+  whole initial slice, and continuing it to spatial infinity asks for a scattering problem from past null infinity and an
+  expansion of its solution at spatial infinity. Parts of that are done (deduced, with exact computations, all under
+  `docket68/n1star/`): the leading Coulomb part carried to spatial infinity with no logarithm (`checks/coulomb5.py`, and
+  under the full operator `checks/coulombL5.py`), the map from data on the initial null hypersurface to the leading
+  coefficient at spatial infinity, under the write-out's full operator on Minkowski space, bounded uniformly in the
+  harmonic (reduced for every harmonic, `checks/harmonics5.py`; bounded, `checks/uniform5.py`), the remainder's sources,
+  supported where v is bounded along the initial null hypersurface, entering one order later at every harmonic computed
+  (l ≤ 12) (`checks/sources5.py`, `checks/stripfull5.py`), and the approximant's stage profiles expanded in powers of
+  r^(−1/2) at past null infinity, with the closure properties of that expansion shown (deduced, with an exact check,
+  `checks/closure5.py`). The scattering estimate itself is not done. Below the inner boundary the theorems are not
+```
+
+Block 2, new:
+
+```text
+  6.3, deduced). It is deduced, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
+  (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–6, Theorem R5.1), conditional
+  on Part IV, III.K and Part VII, proved; on Theorem P, proved; on supplement section 11.1, deduced, whose Lemma 11.0
+  has a repair written in SETTLE-GLAM5.md (R6-D) and not yet applied; and on rounds 5–6 of SETTLE-GLAM5.md, not yet
+  read by a verifier. After the shell g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which for
+  a C_c^∞ envelope and every amplitude but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md
+  Proposition 3.1; computed for a bump envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into
+  g_λ's data at spatial infinity, outside the integer orders of (ii)'s class. With the orders r^(−2), r^(−5/2),
+  r^(−3), … below r^(−ℓ0) admitted in the metric (ℓ0 ∈ (3, 4), ℓ0 ≠ 7/2, and one order more in the second fundamental
+  form), Hintz's construction runs with the same index sets for its iterates and finitely many more derivatives lost;
+  its threshold ε, and with it λ1 and δ, change and are not evaluated, in either class. g_λ continues to the past
+  domain of dependence of the far part of Hintz's initial surface as a vacuum metric in the record's wave-map gauge, by
+  one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, after its
+  self-similar terms through r^(−4) are subtracted; it is the only continuation in that gauge near Tangherlini whose
+  commuted energies of weight a0 ∈ (0, ½) stay bounded, its energy vanishing toward past null infinity, and its data
+  lie in the widened class with small norm. So for every 0 < λ ≤ λ2, λ2 not evaluated, with no exceptional set, the
+  maximal vacuum development of g_λ's own data on Hintz's initial surface settles to five-dimensional Tangherlini of a
+  mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate (deduced, with the conditions above). Computed, all under
+  `docket68/n1star/checks/`: the operator identities, on the write-out's full operator; the coefficient decays and the
+  residuals' degrees, measured on that operator (`r5op5.py`, `r6sigma5.py`, which also builds the r^(−4) term there);
+  the caps and the null-hypersurface tails, measured on explicit fields; the weight window, computed from those
+  measured exponents (`r6sigma5.py`); the remaining kernel exponents, counted by hand with their integrability
+  checked. Below the inner boundary the theorems are not
+```
+
+Block 3 (section 8.1, for consistency with blocks 1-2), old:
+
+```text
+replaced by a gluing (section 8.7), and Theorem 4 is not shown to apply to g_λ's own data.
+```
+
+Block 3, new:
+
+```text
+replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
+half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundary).
+```
+
+Ledger. Computed (new): `r6settle5.py` X, Y, M, L, A0, T (@@N_R6S@@ checks), `r6sigma5.py` S1-S4, W (@@N_R6G@@),
+`r6edits5.py` E1-E3 (@@N_R6E@@), each with controls that mutate the code or the text under test. Changed and rerun:
+`r5settle5.py` (@@N_R5S@@), `r5edits5.py` (@@N_R5E@@), `zinv5.py` (@@N_ZI@@). The other round-5 programs are unchanged
+and their `.out` files stand (r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22,
+f1lemma5 12, vac5 8 checks). Every new or changed `.out` is from a full run and byte-identical on a second run. The
+reader's surviving mutants, rerun: @@MUT@@. Deduced: R6-A (i)-(vi), Proposition R5.2's proof, Lemma R4.5 widened,
+(r6-F4). READ: N1STAR-PROOF.md by quoted content (0.3's eps1 sentences and their D623 note; Lemma 1.1 (e); Lemma 2.3;
+Lemma 9.1 (f) "the causal claim follows as in Lemma 1.1(e)"; Lemma 9.5 "Lemma 2.3's proof on P cap {tau1 <= s <= tau}";
+section 11.1 and Lemma 11.0); N1STAR-LOG.md entries D45, D47, D618-D620, D619/D623/D624; PART-III-K-NONLINEAR.md 471,
+513-521 (md5 14b79c32); PART-VII-ASSEMBLY.md 31-38, 420-423 (md5 81a9effd); RESPONSE-HL-5D.md (md5 7193c56e). None from
+outside sources.
+
+Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
+
+    python3 checks/r6settle5.py   (@@T_R6S@@)
+    python3 checks/r6sigma5.py    (@@T_R6G@@)
+    python3 checks/r6edits5.py    (@@T_R6E@@)
+    python3 checks/r5settle5.py   (@@T_R5S@@)
+    python3 checks/r5edits5.py    (@@T_R5E@@)
+    python3 checks/zinv5.py       (six processes in parallel; @@T_ZI@@)

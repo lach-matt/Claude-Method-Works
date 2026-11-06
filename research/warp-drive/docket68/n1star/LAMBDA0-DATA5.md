@@ -195,8 +195,8 @@ data built from that solution as in Section 4; the weak residual (J_r, J_th, rho
 | 0.80 | (3.26e-6, 6.64e-4, -3.49e-6), (2.00, 1.00, 2.00) | (1.84e-6, -2.94e-7, -1.00e-5), (2.00, 3.71, 2.00) |
 | 1.20 | (3.48e-6, 2.89e-4, -1.66e-6), (2.00, 1.00, 2.00) | (2.74e-6, 7.77e-7, -2.66e-6), (1.99, 1.91, 1.98) |
 
-The stage-0 data carry the order-lam mean -S_1 in J_th (p = 1.00, W/lam equal to -int f S_1 to four digits); with the
-stage-1 data it is gone (p >= 1.91): the residual drops by the predicted order.
+The stage-0 data carry the order-lam mean -S_1 in J_th (p = 1.00); with the stage-1 data it is gone (p >= 1.91): the
+residual drops by the predicted order, and J_r, rho stay of order lam^2 in both.
 
 ## 6. The complete stage-1 Cauchy data on Sigma (deduced from Sections 2, 3, 5; D2, D4)
 
@@ -351,7 +351,7 @@ solved data (floating point), Sections 3 and 5.
 
 ## 11. Programs, pass counts, what remains
 
-`checks/lam0data5.py --selftest` (output `checks/lam0data5.out`; about 25 minutes on the loaded machine): D1-D8
+`checks/lam0data5.py --selftest` (output `checks/lam0data5.out`, **18/18**; about 11 minutes on the loaded machine): D1-D8
 (Sections 2-6), E1 (Section 7), G1-G3 (Section 9), and controls C1-C6, each mutating the computed path: C1 S_1's sign
 (D6 fails), C2 the phase dropped from the data (D6 fails), C3 B_1 dropped from the prediction (D6 fails), C4 the
 numerics' sin^4 (E1's smoothness fails), C5 X* moved to r = a + 1/100 (the chain's base fails), C6 slopes 1.25 times

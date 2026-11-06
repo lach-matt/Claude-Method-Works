@@ -65,7 +65,7 @@ a non-oscillating factor, whose mean is zero; DOC below).
   1/100: the base of the chain, (4/3) env(2) r^(-3/2) >= 12.593309, fails there; C6 G1 with slopes 1.25 times too
   steep: the future-boundary check fails.
 
-    python3 checks/lam0data5.py [--selftest]      (every check; about 25 minutes on a loaded machine)
+    python3 checks/lam0data5.py [--selftest]      (every check; about 11 minutes on a loaded machine)
 """
 import builtins
 import contextlib
