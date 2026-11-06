@@ -41,9 +41,10 @@ T7 PASS
       components [r**(-2), -1/r**2] (order 2): the data of Z^(K) have order exactly 1
   T8 control (W*): r^-1 coefficients on {t = C''} [0, 0]; a nonzero r^-1 tail: False
 T8 PASS
-  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: True; and none beyond (p - alpha_K and 3/2
-      - alpha_K are sums of the chain's positive gaps: True, True); in the class p_0 > 1/2 + 2 gam > 1/2 + delta_#: {'1 -
-      (1/2 + delta_#)': True, '(q - 1) - (1/2 + 2 gam)': True, '2 gam - delta_#': True}
+  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: True; and none beyond: p - alpha_K is the
+      sum of the listed conditions ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'gamma_+ < b_+', 'alpha_K <
+      gamma_+'], 3/2 - alpha_K of ['alpha_K < gamma_+', 'gamma_+ < 2 (R6.4) / 3/2 (R5.1)']; in the class p_0 > 1/2 + 2
+      gam > 1/2 + delta_#: {'1 - (1/2 + delta_#)': True, '(q - 1) - (1/2 + 2 gam)': True, '2 gam - delta_#': True}
   T9 control (p = 1/2): conditions failing ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'beta > 0', 'b_I >
       b_+', 'p_slab > b_I', 'gamma_+ < b_+', 'alpha_K < gamma_+', 'alpha_K >= 1/2']
 T9 PASS

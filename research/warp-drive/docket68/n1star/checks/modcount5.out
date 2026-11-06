@@ -97,6 +97,10 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       III.I''''' Proposition 2.1, R_w = 26069149 of them with alpha~_K >= lambda_sharp (the first is round 27122340),
       n_51 = 26595745 steps of III.I'' Proposition 5.1; the same at 10^-12, 10^-9, and the limits floor((alpha_1 - 1 - 2
       eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2, ceil(1/(2 eps_K)): True; pinned: True
+      Round 11 (the round-10 verifier's nit 2): alpha_0 := alpha_1 is the least total. At alpha_0 = 2 + 10^-6 d, the
+      lower end of Lemma 3.1's range, the conditions hold (True), R = 53191488, R_w = 26069149, n_51 = 26595745 (the
+      same), and III.I'''''''' Proposition 4.1 then runs N = 1 step from alpha_0 to alpha_1, a Lemma 3.2 (one level's
+      maps, M_b): its total exceeds alpha_0 := alpha_1's: True
       B_base = z + n_51 c_51 + c_S + R c_r + R_w 15 W + 2 M_b = 522 + 15957447000 + 604 + 32127658752 + 574942828694970 +
       359916394 = 574991273718242 (5.7499e+14); the windows are 0.9999 of it; Round 9's 6 M_b = 1079749182 withdrawn
   C1 (control): the row I12:247 (III.I'' Lemma 4.1) dropped: 1 unclassified: True
@@ -110,6 +114,8 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       = 3223914749 leaves its pin: True
   C9 (control; Round 10): no round charged the windows: B_once = 51309020501 leaves its pin: True
   C10 (control; Round 10): the base row I6:87 (a round's BG) dropped: 1 unclassified: True
+  C11 (control; Round 11): at alpha_0 = 2 + 10^-6 d with its Lemma 3.2 not charged, alpha_0 := alpha_1 is no longer the
+      strictly least total: True
   C6 (control): every range's opening line searched one line off: the anchors fail: True
 M0 PASS
 M1 PASS
@@ -127,4 +133,5 @@ C7 PASS
 C8 PASS
 C9 PASS
 C10 PASS
+C11 PASS
 C6 PASS

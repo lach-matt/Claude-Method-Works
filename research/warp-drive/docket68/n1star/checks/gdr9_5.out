@@ -22,7 +22,8 @@ N1 PASS
       (4/s**2)**nu*gamma(nu + 1/2)/(sqrt(pi)*gamma(nu + 2)), 0]] (finite, not all 0: True), nonzero coefficients for nu >
       0: True; distinct: True; least exponent l - 1 >= 1 for every l >= 2: True
   N2 control (the same path at l = 1, nu = 1/2): leading Cartesian coefficients [[0, 4/(pi*s), 4/(pi*s)], [0, -6/(pi*s),
-      2/(pi*s)], [-8/(3*pi*s), 8/(3*pi*s), 0]] (exact growths r^0, r^2, r^1: True); the least exponent 0 >= 1: False
+      2/(pi*s)], [-8/(3*pi*s), 8/(3*pi*s), 0]] (exact growths [0, 2, 1]: True); the least exponent 0 >= 1 (the claim's
+      threshold): False
 N2 PASS
   N3: the vector equation in x is -4 times the hypergeometric operator ((l + 1)/2, -(l + 1)/2; 1): True; the
       horizon-regular solution grows like r^(l + 1) with coefficient gamma(l + 1)/(gamma(l/2 + 1/2)*gamma(l/2 + 3/2))
@@ -35,27 +36,33 @@ N2 PASS
       True
 N3 PASS
   N4: horizon exponents of the scalar system {-1: 1, 1: 1, 0: 4} (det -8*k**4*s**7*(k - 1)*(k + 1)), of the vector
-      equation {0: 2}; all integers, 6 and 2 with multiplicity: True: a solution smooth across r_h vanishing on r > r_h
-      vanishes on (r_0, r_h)
+      equation {0: 2}; = {-1: 1, 0: 4, 1: 1} and {0: 2}: True; all integers, 6 and 2 with multiplicity: True: a solution
+      smooth across r_h vanishing on r > r_h vanishes on (r_0, r_h)
   N4 control (exponents shifted by 1/3): horizon exponents of the scalar system {2/3: 1, -4/3: 1, -1/3: 4} (det
-      -8*s**7*(3*k - 2)*(3*k + 1)**4*(3*k + 4)/729), of the vector equation {-1/3: 2}; all integers, 6 and 2 with
-      multiplicity: False: a solution smooth across r_h vanishing on r > r_h vanishes on (r_0, r_h)
+      -8*s**7*(3*k - 2)*(3*k + 1)**4*(3*k + 4)/729), of the vector equation {-1/3: 2}; = {-1: 1, 0: 4, 1: 1} and {0: 2}:
+      False; all integers, 6 and 2 with multiplicity: False: a solution smooth across r_h vanishing on r > r_h vanishes
+      on (r_0, r_h)
 N4 PASS
   N5: l = 0 solutions {'W*': True, '(d_v)^flat': True, '(0, (r^2 + mu)/r)': True, '(0, 1/(r (r^2 - mu)))': True};
       independent: True; smooth at r_h {'W*': True, '(d_v)^flat': True, '(0, (r^2 + mu)/r)': True, '(0, 1/(r (r^2 -
       mu)))': False}; growth exponents {'W*': -2, '(d_v)^flat': 0, '(0, (r^2 + mu)/r)': 1, '(0, 1/(r (r^2 - mu)))':
-      None}; kernel at weights in (-1, 0): ['W*', '(d_v)^flat'], in (0, 2): ['W*']; with the l = 1 forms d(psi S) (N2)
-      and none for vector l = 1 and l >= 2 (N2, N3): dimension 2 in the class, 6 on all 1-forms
+      None}; kernel at weights in (-1, 0) (growth below r^1, from L2's gap): ['W*', '(d_v)^flat'], in (0, 2): ['W*'];
+      scalar l = 1: 1 per harmonic (N2's exponents at nu = 1/2: [0, 2, 1]), vector l = 1: 0 (N3 at l = 1), l >= 2: none
+      (N2, N3); harmonics of degree 0, 1: {0: 1, 1: 4}, G-fixed among them {0: 1, 1: 0} (N1's model), vector l = 1
+      dimension 6: the kernel is 2-dimensional in the class and 6-dimensional on all 1-forms: True
   N5 control (the same count at weights in (0, 2)): kernel ['W*'], dimension 1 (2 asked)
 N5 PASS
   N6: (indicial det, root 0 simple, null space dimension) {'l = 0': (lam*(lam - 3)*(lam - 2)*(lam + 1), True, 1), 'scalar
-      l = 1': (-lam*(lam - 4)*(lam - 3)*(lam - 2)*(lam + 1)*(lam + 2), True, 1)}; 0 not a root of vector l = 1: True; the
-      index jumps from (0, 2) to (-1, 0) by 1 in the class and 5 on all 1-forms; with the kernels 2 and 6 (N5) the
-      cokernels are 1 and 1 (the deduced span{ell}: 1 and 1): True
+      l = 1': (-lam*(lam - 4)*(lam - 3)*(lam - 2)*(lam + 1)*(lam + 2), True, 1)}; 0 not a root of vector l = 1 (det -(lam
+      - 3)*(lam + 1)): True; computed inputs: dimensions {'l = 0': 1, 'scalar l = 1': 4}, G-fixed {'l = 0': 1, 'scalar l
+      = 1': 0}, kernels 2 and 6 at (-1, 0), 1 at (0, 2) (N5); the index arithmetic, deduced (the relative index theorem):
+      jumps 1 in the class and 5 on all 1-forms, cokernels 1 and 1 (the deduced span{ell}: 1 and 1): True
   N6 control (the l = 1 root counted once): (indicial det, root 0 simple, null space dimension) {'l = 0': (lam*(lam -
       3)*(lam - 2)*(lam + 1), True, 1), 'scalar l = 1': (-lam*(lam - 4)*(lam - 3)*(lam - 2)*(lam + 1)*(lam + 2), True,
-      1)}; 0 not a root of vector l = 1: True; the index jumps from (0, 2) to (-1, 0) by 1 in the class and 2 on all
-      1-forms; with the kernels 2 and 6 (N5) the cokernels are 1 and 4 (the deduced span{ell}: 1 and 1): False
+      1)}; 0 not a root of vector l = 1 (det -(lam - 3)*(lam + 1)): True; computed inputs: dimensions {'l = 0': 1,
+      'scalar l = 1': 1}, G-fixed {'l = 0': 1, 'scalar l = 1': 0}, kernels 2 and 6 at (-1, 0), 1 at (0, 2) (N5); the
+      index arithmetic, deduced (the relative index theorem): jumps 1 in the class and 2 on all 1-forms, cokernels 1 and
+      4 (the deduced span{ell}: 1 and 1): False
 N6 PASS
   N7: l = 0 parts (means of h_vv, h_vr, h_rr, H) of L_Z g for class Z of degree l: [(2, [0, 0, 0, 0]), (4, [0, 0, 0,
       0])]; L_{Z_0} g spherically symmetric for Z_0 = a_0 dv + b_0 dr: True; so (L_Z g)_>=2 = L_{Z_>=2} g

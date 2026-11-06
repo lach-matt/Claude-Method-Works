@@ -5420,3 +5420,554 @@ New:
 | `docket68/n1star/checks/gdr9_5.py` | `b44ed9558bb0ef1d480e90c824759013` |
 | `docket68/n1star/checks/gdr9_5.out` | `b4a3f8c7c751265974a169ffc6203b46` |
 ```
+
+## Round 10 (2026-11-06)
+
+*Status.* Written 2026-11-06 (round 10, this section). Round 10 seats report-vA9, the independent confirming read of
+round 9 and of the results to be promoted, and records the promotion (R10.p). Each finding is re-derived before it is
+accepted, as amendments (A102)-(A110) in section R10.0. The affected earlier lines carry [R10] notes, with the old text
+kept, and each promoted result's label gains "proved [R10]", the old label kept. Line numbers G:$n$ are those of the
+file as round 9 left it, which are the report's.
+
+The coordinator promotes on report-vA9's verdict table once its findings are seated, and they are seated here. Round 10
+itself has not been read by a second reader. Its changes are:
+- the (F1) argument on graph-norm spaces ((A102));
+- check repairs: `checks/gdr9_5.py` N4-N6, `checks/gdlge2_5.py` L6 and L9 (with the shared helpers `indicial_vector`,
+  `gap_from_l2` and `root_free`), and `checks/gdtail5.py` T9;
+- labels and texts.
+
+All three programs are rerun under fresh hash seeds. Labels as in round 9, with *proved* for a part a reading has
+promoted.
+
+*The result, in one paragraph.*
+- **Round 9 holds** (report-vA9). There is no Major. Every finding of round 8's verifier is seated correctly, and R9.a,
+  R9.b and the sctf half of (A91) hold on re-derivation. Seated here are three minors and five nits ((A102)-(A109)):
+  - (F1)'s strong continuity on the graph-norm spaces;
+  - N5's and N6's typed inputs;
+  - N4's values;
+  - T9's identity, which could not fail;
+  - the averaged $h$'s reason;
+  - L9's typed gap and L6's free threshold;
+  - Theorem 1.5's stale symbols, and the supplement's equation of $N^+$ with $N_{r_0}$.
+- **The checks now compute what they state.** N4 asserts the exponents' values. N5 and N6 take every input from
+  computation: the $l = 1$ count from N2's exponents, the vector root from L2's determinant, and the dimensions from
+  N1's model. N6's index arithmetic is labelled deduced. T9 searches a certificate among its own conditions. L9's gap
+  and L6's threshold are read from L2's computed roots. The reader's three non-equivalent survivors, or their analogues
+  where the mutated line is gone, now die.
+- **Promotion** (R10.p). Theorem 1.5 (a)-(d) is proved. (b) and (d), with (a) as their input, carry supplement
+  Proposition 10.1 (iv-a). Also proved: Lemmas 1.2-1.4; Theorem 2.3 with Lemma 2.2; Proposition R2.13 (b); Corollary
+  R4.4; Corollary R6.6; Theorem R7.1 to Corollary R7.7; and Lemma R8.2 to Corollary R8.12, as seated in rounds 9-10.
+  The file's status line says so.
+- **Replacement texts** (R10.h) supersede R9.h's. Their status words now say "proved". Text (5) is corrected for N5-N6
+  and texts (9)-(10) are new: the supplement's (iv-a) domain sentence and its status sentence for Theorem 1.5.
+
+### R10.0 Amendments: round 9's verifier
+
+*The report* (relayed during round 10; its scratch code is its own, and nothing here depends on it). Its verdicts:
+- report-vA8's findings are seated correctly, item by item; R9.a and R9.b hold, (F1) with Minor 1; the sctf half of
+  (A91) holds on re-derivation.
+- The three programs reproduce their pinned `.out` byte for byte under hash seeds 5, 2 and 7.
+- Thirty-one mutants and five neutered controls die. Five mutants survive: N4 with $f$ dropped from the vector equation
+  (Minor 3), L9 with the gap typed $(-2,0)$ (nit 3), and L6's main path at threshold $r^0$ (nit 4) are real; L2's ends
+  $\{-1,4\}$ and L2's row exponents are equivalent.
+- Theorem 1.5 (b) and (d), with (A1)-(A2), (A11) and (A57), were read line by line, with Part IX Corollary 2.3, Remark
+  2.4 (c) and Part VIII Theorem 2.2, and independent code for Lemma 1.4 and Lemma 2.2's quantities: promote.
+- Every other item listed for promotion: promote (its section 5). Corollary R4.4 is promoted on the round-4
+  verifier's line-by-line read, with one caveat: Proposition R4.2's transposition of Part IV was not re-derived.
+
+(A102) *Minor 1, (F1) on the graph-norm spaces* (G:4826-4828). Re-derived. (F1) argued strong continuity from the
+density of smooth sections vanishing for large $r$, and called $T_g$ an isometry. That density is I.C Lemma 2.2 (d)'s,
+stated for the b-Sobolev spaces. It does not cover $\mathcal X_0$, $\mathcal X_\sigma$, $\mathcal X^*_0$,
+$\mathcal X^*_\sigma$ or the tf domains, which carry graph norms. And "isometry" needs an invariant choice of the
+operator that defines a variable-order scattering norm. Accepted. Read (F1)'s first three items as follows (deduced;
+standard: Banach-Steinhaus, Bochner integrals).
+- *Base spaces.* On the b-Sobolev spaces the weights are functions of $|x|$, or of $(t_*,r)$ on $M'$, and $T_g$ is an
+  isometry. On the scattering-b spaces with variable decay order, the norm is $\|Au\|+\|u\|_{-N}$ for an elliptic $A$
+  of that order. $T_g^{-1}AT_g$ is elliptic of the same order, which is a function of $\xi$ and $|\eta|^2$ (READ,
+  I.C:580-582), and depends continuously on $g$ in the calculus. On the compact $O(4)$ this gives $C_E := \sup_g\|T_g
+  \|_{E\to E}<\infty$. With a uniform bound, density of $C^\infty_c$ (or of Schwartz sections) gives strong continuity
+  by the $\epsilon/3$ argument.
+- *Graph-norm spaces.* $\mathcal X = \{u\in H:\ Pu\in Y\}$ with $\|u\|_{\mathcal X} = \|u\|_H+\|Pu\|_Y$, $P$ commuting
+  with every $T_g$ ((F1)'s commutation item), and $H$, $Y$ base spaces. Then $T_g\mathcal X\subset\mathcal X$ and
+  $\|T_g\|_{\mathcal X}\le\max(C_H,C_Y)$. Moreover $\|T_gu-u\|_{\mathcal X} = \|T_gu-u\|_H+\|T_g(Pu)-Pu\|_Y\to0$ as
+  $g\to e$, by strong continuity on $H$ applied to $u$ and on $Y$ applied to $Pu$ (the round-9 verifier's identity).
+  This covers $\mathcal X_0$, $\mathcal X_\sigma$, $\mathcal X^*_0$, $\mathcal X^*_\sigma$ (graph norms of $\hat P(0)$,
+  $\hat P(\sigma)$ and their adjoints) and the tf domains (of $N_{\mathrm{tf}}$ and its adjoint).
+- *Bounds.* $g\mapsto T_gu$ is continuous and bounded into each space. So $P_\tau$ is a Bochner integral with
+  $\|P_\tau\|\le(\dim\tau)^2C_E$, $\|\Pi_G\|\le C_E$ and $\|\Pi_{\ge2}\|\le1+(1+16+9+9)C_E$. These hold uniformly in
+  $\varsigma$, as $S_\varsigma$ commutes with every $T_g$.
+Nothing that uses (F1) needs more than boundedness and strong continuity. "Isometry" is used nowhere else.
+
+(A103) *Minor 2, N5 and N6 typed* (gdr9_5.py:577, 600, 601, 606, 607 as round 9 left it). Re-derived: N5 typed the
+$l = 1$ count; N6 typed the vector non-root, the dimensions, $\mathrm{ind}_{(0,2)}$ and the kernels; R9.c (G:4972-4975)
+and text (5) (G:5309-5310) called the arithmetic two agreeing routes. Accepted. `kernel_counts()` now computes every
+input:
+- the $l = 0$ kernel from the four $l = 0$ solutions;
+- the growth threshold $r^1$ from L2's computed gap ((A107));
+- the scalar $l = 1$ count from N2's growth reading at $\nu = \frac12$. The exponents $0,2,1$ are distinct, so the count
+  is the number below the threshold: 1;
+- the vector $l = 1$ count from N3's reading at $l = 1$ (exponent 1): 0;
+- the dimensions of the degree-0 and degree-1 harmonics, 1 and 4, and their $G$-fixed parts, 1 and 0, from N1's
+  model, and the vector $l = 1$ dimension, 6, from its ranks.
+N6 now takes:
+- the vector $l = 1$ indicial polynomial from `indicial_vector`, the code L2 uses;
+- the kernels from N5;
+- $\mathrm{ind}_{(0,2)} = \dim\ker-\dim\mathrm{coker}$, the kernel computed in N5 (span$\{W^*\}$), and the cokernel READ
+  as span$\{\ell\}$ (III.D$'$ Lemma 2.1 (3)).
+Its index arithmetic is labelled deduced: the relative index theorem, standard. R9.c's N6 bullet carries an [R10]
+note, and R10.h's text (5) says "N5, ... every count computed; N6, the simple indicial root 0 behind the index count,
+the count itself deduced". The verifier's three typed-input mutants have no site left. Their analogues die (R10.f):
+the $l = 1$ count with threshold $+1$, the vector polynomial at $\lambda = l^2$, and the class counted over every
+harmonic.
+
+(A104) *Minor 3, N4's values* (gdr9_5.py:531-532). Re-derived: N4 checked integrality and multiplicities only. With
+$f$ dropped from the vector equation the exponents are $\{-1,0\}$, and N4 passed. Accepted: N4 asserts `ex_s ==
+{-1: 1, 0: 4, 1: 1}` and `ex_v == {0: 2}`. The verifier's mutant now dies (R10.f).
+
+(A105) *Nit 1, T9's cap* ((A98) (x), gdtail5.py:530-531). Re-derived: $p-\alpha_K = \sum$(gaps) is an identity in free
+symbols, true for any values, so it cannot fail. Accepted, and replaced by a check that can. T9's conditions are now
+one list (`t9_conditions`, with free symbols and the proof's links $\beta = b_+-\frac12$, $p_{\mathrm{slab}} =
+\alpha_I+\frac32$). The box check substitutes the box into it. The cap is a certificate searched among the listed
+conditions: a sub-family whose sum is identically $p-\alpha_K$, resp. $\frac32-\alpha_K$. Each listed condition is
+positive on the chain, so the certificate gives $\alpha_K<\min(p,\frac32)$ everywhere on it. The search finds
+"$a_0<p-\frac32$, $\alpha_I<a_0$, $p_{\mathrm{slab}}>\frac12+\beta$, $\gamma_+<b_+$, $\alpha_K<\gamma_+$" for the first,
+and "$\alpha_K<\gamma_+$, $\gamma_+<\frac32$" for the second. Dropping "$\alpha_K<\gamma_+$" from the list kills T9.
+Changing "$\gamma_+<\frac32$" to "$\gamma_+<2$" survives, and is equivalent: the search then finds the slab route
+"$\alpha_I<0$, $p_{\mathrm{slab}}>\frac12+\beta$, $\gamma_+<b_+$, $\alpha_K<\gamma_+$", because $p_{\mathrm{slab}} =
+\alpha_I+\frac32<\frac32$ caps the chain by itself.
+
+(A106) *Nit 2, (F1)'s averaged $h$* (G:4850-4852). Re-derived. The operative reason has three parts.
+- The threshold conditions of I.A (1.5) and of (H1)-(H5) are inequalities $\mathrm{Re}\,h(Bu,u)\ge c\,h(u,u)$, or
+  $\le$, for endomorphisms $B$ built from $\hat P$'s subprincipal data at the radial sets. Such an inequality is convex
+  in $h$ (I.A Lemma 2.4's proof, READ: "It is also convex in $h$").
+- The data are $O(4)$-equivariant, $\hat P$ commuting with every $T_g$. So $h\mapsto T_g^*h$ preserves the inequality,
+  and so does the average $\bar h$.
+- At $b_0$ the point is moot: $S_0 = 0$ and $H_0 = \mathrm{Id}$ (III.D Lemma 7.1's proof at $\gamma_\Upsilon = 0$).
+Accepted. Read (F1)'s averaged-$h$ item with this reason in place of "are not affected".
+
+(A107) *Nit 3, L9's gap* (gdlge2_5.py:753). Re-derived: L9 typed its gap $(-1,0)$, and a wider typed gap $(-2,0)$
+passed, since the box lies inside it. Accepted. `gap_from_l2()` computes the gap from L2's code, the scalar and vector
+determinants with $l$ symbolic and the full bundle's at $l = 0$ and $l = 1$:
+- the restricted gap is $(\max\text{ lower roots at }l = 2,\ \min\text{ upper roots at }l = 2) = (-1,3)$;
+- the gap Theorem R8.10 uses (Theorem R8.7 (a)) is the full bundle's root-free interval just below its root 0, inside
+  the restricted gap: $(-1,0)$;
+- the control's gap is the full bundle's interval just above 0: $(0,2)$.
+L9 also checks, with `root_free`, that its gap holds no restricted root at any $l\ge2$ and no full-bundle root. The
+typed site is gone. Its analogue on the new file, $(-2,0)$ in place of the computed gap, dies: the root $-1$ at $l = 2$
+lies inside. The control's change from $(0,1)$ to $(0,2)$ is computed and still fails on the box.
+
+(A108) *Nit 4, L6's threshold* (gdlge2_5.py:564). Re-derived. The threshold was a free parameter, and $r^0$, a weaker
+claim, passed. Accepted. A kernel element at a b-weight of L9's gap $(\mathrm{lo},0)$ grows more slowly than
+$r^{-\mathrm{lo}}$. So the claim fixes the threshold at $p\ge-\mathrm{lo} = 1$, with lo read from `gap_from_l2()`. L6
+runs there, records the threshold in each row, and checks the record against lo. The verifier's mutant has no site
+left. Its analogue, the threshold $r^0$ at the call, dies (R10.f).
+
+(A109) *Nit 5, Theorem 1.5 and the supplement's (iv-a).*
+- The statement (G:152-172) still read $N^\circ$ and "Part IX, labelled verified". It carries [R10] notes: $N^\circ$ is
+  $N_{r_0}$ ((A11)); (a)-(c) are read on $N^+$ and proved on $\mathrm{int}\,N\cap M^\circ$ ((A2)); (d) is read as
+  (A2) (d); Part IX is proved ((A57)).
+- (c)'s clause "unique up to $c'\partial_t^\flat$" is proved by (d)'s argument, as the note at (c) says. For two such
+  vectors, $\mathcal L_{X'-X_{\mathrm{RW}}}g$ is in the RW-type gauge with $l = 0$ part 0, so it vanishes. The
+  difference is then a $G$-invariant Killing field, $c'\partial_v^\flat$ (G:191).
+- N1STAR-PROOF.md's (iv-a) said "Part VIII's $N^+$ down to $r_0$, Theorem 1.5's $N_{(r_0)} = N\cap\{r>r_0\}$", which
+  equates two sets. In fact $N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ is Part IX's, and lies in $N_{r_0}$, with
+  equality where $\nu = 0$. The equation is harmless, since (d) is applied on $N^+$ with $U = U^\sharp$. Text (9) of
+  R10.h is the old/new pair; text (10) updates the supplement's status sentence for Theorem 1.5.
+
+(A110) *The [R9] note count.* There are 18 [R9] notes in all: 17 in round 8 and one at line 6. Round 9's relay said
+"18 plus 1"; the file states no number. This is a correction to the relay, not to the file.
+
+### R10.p The promotion
+
+*Basis.* Two things together:
+- report-vA9's verdict table: section 4 for Theorem 1.5 (b) and (d), with (a) as their input, read line by line;
+  section 5 for the rest;
+- the seating of its findings, (A102)-(A110).
+By the corpus's rule, *proved* is kept for a part that a reading has promoted. The coordinator promotes on this basis.
+Each result below now carries "proved [R10]" in its label, the old label kept.
+
+*Proved.*
+- Lemmas 1.2-1.4.
+- Theorem 1.5 (a)-(d). (a)'s domain is read with (A1)-(A2) and (A11), and (d) with (A2) (d). Part IX is proved ((A57)).
+  (c)'s uniqueness clause is carried by (d)'s argument ((A109)).
+- Theorem 2.3, with Lemma 2.2 as its input. report-vA9 section 5 re-derives $dQ/dv = \ell(\Box Z)$ and Lemma 2.2's
+  values.
+- Proposition R2.13 (b), read with (A10) and (A23): data compactly supported on $\Sigma^\circ$, via Corollary R4.6. Its
+  rate is superseded by Corollaries R6.6 and R7.4, which are also proved.
+- Corollary R4.4, on the round-4 verifier's line-by-line read ("R4.2, R4.3, R4.4, R4.6 hold", R6.g). report-vA9 read
+  its statement and proof, R4.3's steps and (A37), (A40), (A42). It did not re-derive Proposition R4.2's transposition
+  of Part IV against Part IV. R4.2, R4.3 and R4.6 enter R4.4 through that read and are not separately promoted here.
+- Corollary R6.6, with (A60).
+- Theorem R7.1, Lemma R7.2, Theorem R7.3, Corollary R7.4, Proposition R7.5, Corollaries R7.6-R7.7.
+- Lemmas R8.2-R8.4 and R8.8, Propositions R8.5-R8.6, Theorem R8.7, Corollary R8.9, Theorem R8.10, Corollaries
+  R8.11-R8.12, as seated in round 9 (R9.a, R9.b with (A102) and (A106)). Lemma R8.4 has its second route, N2-N4.
+
+*Not promoted, keeping their labels.* Everything else, including:
+- Propositions 2.1 and 2.5, Remark 2.4 and Corollary 2.6 (withdrawn);
+- the rest of rounds 2-6;
+- Proposition R6.7 (formal), Proposition R7.8 and Remark R8.13;
+- the deductions inside R9.c and the index arithmetic of N6.
+No text in R10.h cites one of them as proved.
+
+*Supplement Proposition 10.1 (iv-a).* It rests on Theorem 1.5 (b) and (d), which are proved. R10.h's text (10)
+replaces its "verified, not yet promoted to proved".
+
+### R10.e What is not proved
+
+1. *Round 10 itself* has not been read by a second reader. That covers (A102)'s argument, the repaired N4-N6, L6, L9
+   and T9, and the texts.
+2. *Proposition R4.2's transposition* of Part IV, behind Corollary R4.4: promoted on the round-4 verifier's read, not
+   re-derived since. This is report-vA9's own caveat.
+3. As R9.e: R6.7 (b)-(c) are formal, and nothing rests on them. Sharpness is not computed and claimed nowhere.
+
+### R10.f Runs and mutations
+
+*Runs* (under load, `nice -n 10`, each program under two fresh hash seeds).
+
+- `python3 checks/gdr9_5.py`, under `PYTHONHASHSEED=13` and `=6`: EXIT 0; N1-N8 PASS, eight controls failing. The two
+  stdouts are byte-identical (md5 `3ee64abea65972c0e46d15fe47c4c050`); about eight minutes.
+  `python3 checks/gdr9_5.py --selftest`: PASS.
+- `python3 checks/gdlge2_5.py`, under `PYTHONHASHSEED=11` and `=4`: EXIT 0; L1-L10 PASS, ten controls failing. The two
+  stdouts are byte-identical (md5 `69d90e5181fff72c659fccb962b6230f`); under twenty minutes.
+- `python3 checks/gdtail5.py`, under `PYTHONHASHSEED=1` and `=9`: EXIT 0; T1-T12 PASS, twelve controls failing. The two
+  stdouts are byte-identical (md5 `a394bc99a9f4ea79750ffa9a30f44699`); under twenty minutes.
+Each `.out` is the first seed's stdout.
+
+*Mutations.* Each mutant is the file with one string replaced, run on the checks it touches. "Killed" means exit 1.
+
+- *Round 9's verifier's survivors, on the round-10 files.*
+  - N4 with $f$ dropped from the vector equation: killed (N4).
+  - L9's gap typed $(-2,0)$: no site left. Its analogue, $(-2,0)$ in place of the computed gap: killed (L9; the root
+    $-1$ at $l = 2$ lies inside).
+  - L6's main path at threshold $r^0$: no site left. Its analogue at the new call: killed (L6).
+  - L2's ends $\{-1,4\}$: survives, equivalent (4 is a root at $l = 2$). L2's row exponents: unchanged code,
+    equivalent as before.
+- *The typed-input mutants of N5 and N6* (killed in round 9): no site left. Their analogues:
+  - the $l = 1$ count with threshold $+1$: killed (N5, N6);
+  - the vector polynomial at $\lambda = l^2$: killed (N6);
+  - the class counted over every degree-1 harmonic: killed (N5, N6).
+- *L9's control neutered* (the subspace's gap): killed ("control passed").
+- *T9's certificate.* Dropping "$\alpha_K<\gamma_+$" from the list: killed. "$\gamma_+<\frac32$" changed to
+  "$\gamma_+<2$": survives, equivalent, as the certificate takes the slab route ((A105)).
+
+### R10.g Findings, labels and files
+
+*Findings.*
+- (GD49) Round 9 holds (report-vA9, no Major). Its findings are seated as (A102)-(A110): (F1) on graph-norm spaces,
+  the checks' typed inputs computed, and Theorem 1.5's stale symbols noted.
+- (GD50) The results R10.p lists are proved, on report-vA9's verdicts and this seating. Theorem 1.5 (b) and (d) carry
+  supplement Proposition 10.1 (iv-a).
+
+*Labels.* As in round 9, and *proved* (R10.p). Computed: `checks/gdr9_5.py` N1-N8, `checks/gdlge2_5.py` L1-L10 and
+`checks/gdtail5.py` T1-T12, as repaired. Deduced: (A102), (A106), and N6's index arithmetic. READ: I.C:580-582 and I.A
+Lemma 2.4's proof, as cited. Standard: Banach-Steinhaus and the relative index theorem.
+
+*Files.* All under `docket68/n1star/`:
+- `GAUGEDECAY5.md`: this section appended; [R10] notes; "proved [R10]" in the labels and the status line;
+- `checks/gdr9_5.py` with `checks/gdr9_5.out`;
+- `checks/gdlge2_5.py` with `checks/gdlge2_5.out`;
+- `checks/gdtail5.py` with `checks/gdtail5.out`.
+The `.py` files are repaired and the `.out` files rerun.
+
+### R10.h Replacement texts
+
+*Replacement texts.* Each is old (quoted from the file as it now stands, occurring there exactly once, located by its
+text, not its line) and new. Where an old text begins or ends inside a line, the new text's first and last lines are cut
+so that the seated lines stay within 121 characters (checked by a script on the files as they stand). Texts (1)-(8)
+supersede R9.h's, whose old texts (R8.h's) none has been seated; their status words now say proved (R10.p), and text
+(5) carries (A103). Texts (9)-(10) are new. For `N1STAR-PROOF.md` and the paper they are for the main session to seat;
+this round edits neither file, and another pass (D627) is editing `N1STAR-PROOF.md` now, so each old text is to be
+found by its text. Statuses are stated as the corpus has them: Part VIII and Part IX proved; the GAUGEDECAY5 results
+cited proved (R10.p).
+
+(1) *`N1STAR-PROOF.md`, 10.2 (iv)*, from "When" (at the end of a line) to "as in four dimensions.". Old:
+
+```text
+When
+Z has compactly supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the
+conserved horizon charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), with (Dyn), which Part
+VI.A Theorem 6.1 proves at b_0; `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions.
+```
+
+New:
+
+```text
+When
+Z has data compactly supported on the initial surface Sigma it settles to mu-dot K* + c pi_{W*} on each {r <= R}, c
+the conserved horizon charge of Z divided by that of W*, with an exact leading term: Z - c W* = (c/2) t_*^-2 varpi_K
++ O(t_*^(-3+eps)) for every eps > 0, varpi_K := mu W* - (d_v)^flat, so that pi_Z - c pi_{W*} = (mu c/2) t_*^-2
+pi_{W*} + O(t_*^(-3+eps)) (proved, GAUGEDECAY5 Proposition R2.13 (b) with Corollaries R6.6 and R7.4;
+`checks/admbox5.py` B1-B8, `checks/gdrad5.py` D1-D13, `checks/gdtail5.py` T1-T12); the mass change grows linearly in
+v, as in four dimensions. If instead Z's data are of order p > 1/2 at spatial infinity up to a Killing part
+c' (d_t)^flat, then Z minus c' (d_t)^flat and c W* is O(t_*^(-min(p,3/2)+eps)), and so is pi_Z - c pi_{W*}, now with
+c = (Q[Z] - c' Q[(d_t)^flat]) / Q[W*], Q[(d_t)^flat] = 4 pi^2 mu (proved, GAUGEDECAY5 Corollary R7.6 with
+(A72)-(A73); `checks/gdtail5.py` T9). For the harmonic-gauge representative of GAUGEDECAY5 Corollary R4.4, Z is the
+homogeneous 1-form whose data are those of the l = 0 gauge vector of the initial data less mu-dot W**: of order
+p > 1/2 + 2 gamma_Ups, and p = 1 for data that are a change of mass beyond a ball (proved, GAUGEDECAY5 Proposition
+R7.5 and Corollary R7.7; `checks/gdtail5.py` T8-T9). Its part with l >= 2 settles at t_*^(-3/2-kappa) for every
+kappa < delta_# = (1 - e_Ups) gamma_Ups: on the 1-forms with no l <= 1 part the zero-energy operator of box has no
+kernel and no cokernel at the weights used, and Part I.C's low-energy hypotheses hold there (proved, GAUGEDECAY5
+Corollaries R8.9 and R8.11; `checks/gdlge2_5.py` L1-L10, `checks/gdr9_5.py` N1-N8). So the representative settles to
+mu-dot K* + c pi_{W*} at t_*^(-min(p,3/2)+eps), at t_*^(-1+eps) for a change of mass beyond a ball, and for data with
+compact support mu-dot = 0 and it is c pi_{W*} + O(t_*^(-3/2-kappa)) (proved, GAUGEDECAY5 Corollary R8.12;
+`checks/gdlge2_5.py` L10). All of this is proved from Part VIII and the write-out's proved parts, Part IX among them:
+every round of GAUGEDECAY5 has been read by independent verifiers, their findings seated, and the results cited here
+are promoted (GAUGEDECAY5 R10.p).
+```
+
+(2) *`N1STAR-PROOF.md`, 10.8*, from "For W' with compactly supported data" (inside a line) to "proves at b_0);" (inside a
+line). Old:
+
+```text
+For W' with compactly supported data
+GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R} (deduced, with (Dyn), which Part VI.A Theorem
+6.1 proves at b_0);
+```
+
+New:
+
+```text
+For W' with data compactly supported
+on the initial surface Sigma, GAUGEDECAY5 Proposition R2.13 (b) with Corollaries R6.6 and R7.4 gives W' - c_1(oo) W*
+= (c_1(oo)/2) t_*^-2 varpi_K + O(t_*^(-3+eps)) on each {r <= R}, every eps > 0, varpi_K := mu W* - (d_v)^flat, so
+h_0 - c K* - c_1(oo) pi_{W*} = (mu c_1(oo)/2) t_*^-2 pi_{W*} + O(t_*^(-3+eps)); for data of order p > 1/2 at spatial
+infinity up to a Killing part c' (d_t)^flat, GAUGEDECAY5 Corollary R7.6 gives the rate t_*^(-min(p,3/2)+eps), with
+c_1(oo) replaced by (Q[W'] - c' Q[(d_t)^flat])/Q[W*] (proved, from Part VIII and the write-out's proved parts, Part IX
+among them; every round of GAUGEDECAY5 read by independent verifiers, their findings seated, these results
+promoted, GAUGEDECAY5 R10.p; `checks/gdrad5.py`,
+`checks/gdtail5.py`);
+```
+
+(3) *The paper, section 8.2*, from "In harmonic gauge the spherically symmetric part of a" to "does not decay at
+infinity;". Old:
+
+```text
+In harmonic gauge the spherically symmetric part of a
+perturbation is μ̇K* + π_Z, μ̇ the change of mass and Z a 1-form with □Z = 0; when Z has compactly supported data it
+settles on each region r ≤ R to μ̇K* + c π_{W*}, growing linearly in v, at the rate τ^(−1/2) (deduced from the
+zero-energy structure of the 1-form wave operator, supplement GAUGEDECAY5 R2.13, `docket68/n1star/checks/admbox5.py`,
+with the horizon and trapping hypotheses the supplement's Part VI verifies at Tangherlini); without decay of Z's data
+the growth can be traded for a stationary term that does not decay at infinity;
+```
+
+New:
+
+```text
+In harmonic gauge every perturbation in the class has a
+representative constructed on the whole domain: it is in harmonic gauge there, induces the given data and equals the
+solution above near the initial surface. On each region r ≤ R it settles to μ̇K* + c π_{W*}, growing linearly in v,
+at the rate τ^(−min(p,3/2)+ε) for every ε > 0. Here p > 1/2 + 2γ_Υ is the order of decay at spatial infinity of the
+data of the spherically symmetric gauge vector Z below (e_Υ and γ_Υ the constraint-damping parameters of Hintz's
+gauge, section 8.4), and c = (Q − 4π²r_h²c′)/4π², Q the limit of Z's horizon charge and c′(∂_t)^♭ the Killing part of
+Z's data (W*'s charge is 4π²). The part with l ≥ 2 settles faster, at τ^(−3/2−κ) for every κ < δ♯ = (1 − e_Υ)γ_Υ,
+the margin by which the constraint damping makes the gauge source decay along the forward cone: on the one-forms with
+no l = 0 and no l = 1 part the zero-energy operator of the one-form wave operator has no kernel and no cokernel at the
+weights used, and the low-energy hypotheses of the supplement's Part I.C hold there; on all one-forms the indicial
+gap holds there too, but the invertibility at zero energy and the transition-face condition fail. The spherically
+symmetric part is μ̇K* + π_Z exactly, μ̇ the change of mass and Z a one-form with □Z = 0 whose data are those of the
+spherically symmetric gauge vector of the initial data less μ̇W**. For the data of section 8.8, a change of mass
+beyond a ball, p = 1 and the rate is τ^(−1+ε). For data with compact support the change of mass vanishes and the
+representative is c π_{W*} + O(τ^(−3/2−κ)); its spherically symmetric part is c π_{W*} + (r_h²c/2) τ^(−2) π_{W*} +
+O(τ^(−3+ε)), with exactly that τ^(−2) term. A gauge change by a one-form Y with □Y = 0 and data compactly supported
+on the initial surface moves only c, by c_Y, Y's horizon charge over W*'s, and on each region r ≤ R,
+Y − c_Y W* = (c_Y/2) τ^(−2) ϖ_K + O(τ^(−3+ε)), ϖ_K := r_h²W* − (∂_v)^♭ (proved from Part VIII and the supplement's
+proved parts, Part IX among them: supplement GAUGEDECAY5 R4.4, R6.6, R7.1–R7.7 and R8.2–R8.12, every round of which
+independent verifiers have read, their findings seated, and these results promoted, GAUGEDECAY5 R10.p;
+`docket68/n1star/checks/gdscri5.py`, `checks/gdext5.py`, `checks/gdkplus5.py`, `checks/gdrad5.py`,
+`checks/gdtail5.py`, `checks/gdlge2_5.py`, `checks/gdr9_5.py`). Without decay of Z's data the growth can be traded for
+a stationary term that does not decay at infinity;
+```
+
+(4) *The paper, section 9, the "Settling" item*, from "The decay of X is not proved" to "deductions.". Old:
+
+```text
+The decay of X is not proved, so the routes in a Regge–Wheeler-type
+  gauge and in the harmonic gauge (Hung's sections 5–8 in five dimensions), which argue decay in those gauges, remain
+  deductions.
+```
+
+New:
+
+```text
+The gauge vector X is determined in a Regge–Wheeler-type gauge and
+  constructed in the harmonic gauge, where it is unique only up to solutions of □Y = 0 (supplement GAUGEDECAY5). In
+  the Regge–Wheeler-type gauge it is explicit, and the perturbation settles to the change of mass on each region
+  r ≤ R, the horizon included, at Part VIII's rate, O(τ^(−2−ε)) for some ε > 0, with two derivatives lost
+  (GAUGEDECAY5 Theorem 1.5). In the harmonic gauge a representative exists on the whole domain, induces the given
+  data and settles to μ̇K* + c π_{W*}, with c as in section 8.2, at τ^(−min(p,3/2)+ε), p > 1/2 + 2γ_Υ the order of
+  decay of its spherically symmetric gauge data at spatial infinity: at τ^(−1+ε) for the data of section 8.8, and for
+  data with compact support at τ^(−3/2−κ) for every κ < δ♯, its spherically symmetric part with an exact τ^(−2) term
+  (GAUGEDECAY5 R4.4, R7.3–R7.7, R8.9–R8.12). Both are proved from Part VIII and the supplement's proved parts, Part
+  IX among them: every round of GAUGEDECAY5 has been read by independent verifiers, and these results are promoted
+  (GAUGEDECAY5 R10.p). Hung's route in five dimensions (his sections 5–8) is needed for neither and remains
+  a deduction.
+```
+
+(5) *The paper's list of checks*, after the entry for `checks/admbox5.py` (it supersedes R9.h (5)). Old:
+
+```text
+  restrict the gauge data; B7, the source's weighted norm finite iff a > β + 5/2; B8, the gauge's linearisation −Θ(k).
+  Each with a control that must fail. Exact; several minutes.
+```
+
+New:
+
+```text
+  restrict the gauge data; B7, the source's weighted norm finite iff a > β + 5/2; B8, the gauge's linearisation −Θ(k).
+  Each with a control that must fail. Exact; several minutes.
+- `checks/gdscri5.py` S1–S8: section 8.2's harmonic gauge beyond the forward cone (supplement GAUGEDECAY5 round 3).
+  S1, the constraint damping's term E^Υ G does not see the trace-free angular part, the one slot with a radiation
+  field; S2, the source's order at null infinity, λ♯ + 1; S3–S4, the weights of the forward-solution theorem, and
+  membership by pointwise order; S5, a cut-off on the slab gains one order at null infinity (re-run in the supplement
+  with the slab's actual time function); S6, the cone cut-off gains two at timelike infinity; S7, the slab threshold
+  p > β + 1/2; S8, the orders of the horizon-regular gauge vector W**. Each with a control that must fail. Exact;
+  several minutes.
+- `checks/gdext5.py` E1–E6: section 8.2's harmonic gauge down to the initial surface (round 4). E1, in Cartesian
+  components the 1-form wave operator is the scalar one plus a coupling of order |x|⁻³; E2, after Part IV's
+  conjugation the coupling has no first-order matrix; E3, the indicial roots at null infinity, a radiation field in
+  every component; E4, no indicial restriction at spatial infinity; E5, the multiplier's sign condition; E6, the
+  weights on the initial slab. Each with a control that must fail (those of E3, E4 and E6 recomputed in
+  `checks/gdrad5.py`). Exact; up to half an hour under load.
+- `checks/gdkplus5.py` Q1–Q6: section 8.2's rate in harmonic gauge (round 5). Q1, the dictionary between time-weighted
+  and b-weighted spaces; Q2, the zero-energy gap (0, 2), the window (0, 1) inside it and the radiation root 3/2;
+  Q3–Q5, the cut-off state's order, the time transform t^(−α) ↔ σ^(α−1), the weight conditions (recomputed in
+  `checks/gdrad5.py` D1–D3 and `checks/gdtail5.py` T11); Q6, the rate: κ < min(1/2, a − 5/2) for a source of order a at
+  timelike infinity, every κ < δ♯ for the gauge source. Each with a control that must fail. Exact; under a minute.
+- `checks/gdrad5.py` D1–D13: section 8.2's rates past the first zero-frequency term (round 6). D1, the column's
+  homogeneity and the Fubini counts near zero energy; D2, the weight conditions of the carried-over steps on the whole
+  box; D3, the transform (1 + t)^(−α) ↔ ∫B + Γ(1 − α) w^(α−1) for α in (1, 2), and its failure at α = 2; D4, the
+  exponent's arithmetic; D5–D6, the low-frequency expansion on Tangherlini (formal); D7, the 1-form φ(v) ϖ: its
+  charge 0 and its source's orders; D8–D12, corrected checks for the earlier rounds; D13, the 1-form wave operator at
+  null infinity. Each with a control that must fail. Exact; under a minute.
+- `checks/gdtail5.py` T1–T12: section 8.2's τ^(−2) term for compactly supported gauge data and the spherically
+  symmetric part's rate (rounds 7–10). T1, the switched-on Coulomb field of flat 4+1, t/(r²√(t² − r²)), computed from
+  Riesz's interior coefficient, and its tail t^(−2)/2; T2, the same coefficient from the low-frequency chain
+  (formal); T3–T4, that field placed on Tangherlini: its source vanishes at zero mass once reduced by the flat wave
+  equation, which the kernel obeys and the Tangherlini wave equation does not, has no undifferentiated term, and has
+  orders 4 at null infinity, 6 at timelike infinity and 3 at late times on compact sets, where the coefficient 1/2 is
+  read off the kernel; T5, the horizon charge of φϖ_K; T6, the kernel and its expansions; T7, the conditions of the
+  zero-charge theorem on its own box; T8, the r⁻¹ tail of the spherically symmetric gauge data of a change of mass;
+  T9, the rate for data of order p at spatial infinity, and none faster along that chain, a certificate found among
+  its own conditions; T10, the slab order every
+  statement uses; T11, round 6's conditions with the null-infinity weight w_I encoded; T12, the source's joint orders
+  at the corners of timelike infinity. Each with a control that runs the computed path with a mutated input and must
+  fail. Exact; up to fifteen minutes under load.
+- `checks/gdlge2_5.py` L1–L10: section 8.2's part with l ≥ 2 (rounds 8–10). L1, the zero-energy one-form wave
+  operator by type, cross-validated on explicit harmonics; L2, its indicial roots, read from the computed
+  determinants, and the gap (−1, 3) on the one-forms with no l ≤ 1 part, uniformly in l; L3–L5, the divergence,
+  Maxwell and gauge steps that exclude a kernel at negative weights (Frobenius roots, and energy identities whose
+  potentials are positive for l ≥ 1); L6, the kernel cross-checked on the coupled system for l = 2, 4, 6, 8, at the
+  growth threshold the claim fixes; L7, the
+  class forms at l = 2, 4 have no degree-0 harmonics and the horizon functional vanishes on them (in general by
+  Schur's lemma); L8, the transition face: the Bessel reduction and both exclusions on the whole box, l = 1 included;
+  L9, the conditions of the zero-energy theorem with the window in (−1, 0), read from L2's roots, on the whole box,
+  the null-infinity weight
+  w_I and the margins ε, ε₁ encoded; L10, the rates. Each with a control that runs the computed path with a mutated
+  input and must fail. Exact; up to fifteen minutes under load.
+- `checks/gdr9_5.py` N1–N8: section 8.2's part with l ≥ 2, the claims no earlier check exercised (rounds 9–10). N1, the
+  projection onto the l ≥ 2 part on a finite model of the action of the rotations and reflections, which are
+  isometries; N2–N3, the kernel at every l, odd l included, by explicit hypergeometric solutions: their horizon data
+  and their growths r^(l−1), r^l, r^(l+1); N4, the values of the exponents at the horizon; N5, the kernels at weights
+  in (−1, 0), 2 in the class and 6 on all one-forms, every count computed; N6, the simple indicial root 0 behind
+  the index count of those weights, the count itself deduced by the relative index theorem; N7, the l ≥ 2 part of a
+  gauge change; N8, the transition face at its scattering end. Each with a control that runs the computed path with
+  a mutated input and must fail; `--selftest` checks the harness. Exact, with standard asymptotic formulas checked
+  numerically; a few minutes.
+```
+
+(6) *The paper's claims-to-checks table*, after the row for `checks/admbox5.py`. Old:
+
+```text
+| section 8.2: harmonic gauge, l = 0 settling modulo W* | `docket68/n1star/checks/admbox5.py` B1–B8 |
+```
+
+New:
+
+```text
+| section 8.2: harmonic gauge, l = 0 settling modulo W* | `docket68/n1star/checks/admbox5.py` B1–B8 |
+| section 8.2: harmonic gauge beyond the forward cone | `docket68/n1star/checks/gdscri5.py` S1–S8 |
+| section 8.2: harmonic gauge down to the initial surface | `docket68/n1star/checks/gdext5.py` E1–E6 |
+| section 8.2: harmonic gauge, the first rate τ^(−1/2−κ) | `docket68/n1star/checks/gdkplus5.py` Q1–Q6 |
+| section 8.2: rates past the first zero-frequency term | `docket68/n1star/checks/gdrad5.py` D1–D13 |
+| section 8.2: the τ^(−2) term; the spherically symmetric part's rate | `docket68/n1star/checks/gdtail5.py` T1–T12 |
+| section 8.2: the part with l ≥ 2, Part I.C on it, and the rates | `docket68/n1star/checks/gdlge2_5.py` L1–L10 |
+| section 8.2: the part with l ≥ 2 at every l; kernels and index | `docket68/n1star/checks/gdr9_5.py` N1–N8 |
+```
+
+(7) *The paper's run list*, after the line for `checks/admbox5.py`. Old:
+
+```text
+    python3 checks/admbox5.py                             # several minutes
+```
+
+New:
+
+```text
+    python3 checks/admbox5.py                             # several minutes
+    python3 checks/gdscri5.py                             # several minutes
+    python3 checks/gdext5.py                              # up to half an hour under load
+    python3 checks/gdkplus5.py                            # under a minute
+    python3 checks/gdrad5.py                              # under a minute
+    python3 checks/gdtail5.py                             # up to fifteen minutes under load
+    python3 checks/gdlge2_5.py                            # up to fifteen minutes under load
+    python3 checks/gdr9_5.py                              # a few minutes
+```
+
+(8) *The paper's md5 table*, after the row for `checks/admbox5.out` (md5s measured on the files as they stand when this
+round was written). Old:
+
+```text
+| `docket68/n1star/checks/admbox5.out` | `7c7b794f05e9c2536e2dae2d37a3c6eb` |
+```
+
+New:
+
+```text
+| `docket68/n1star/checks/admbox5.out` | `7c7b794f05e9c2536e2dae2d37a3c6eb` |
+| `docket68/n1star/checks/gdscri5.py` | `80beba46f3563ef26e94d3033d8039cb` |
+| `docket68/n1star/checks/gdscri5.out` | `4188f6ad77b4d177755df44f90c9d61f` |
+| `docket68/n1star/checks/gdext5.py` | `061d3dcfb594b76a3947223ee8b70227` |
+| `docket68/n1star/checks/gdext5.out` | `373b5629960a577400213eede77f80c0` |
+| `docket68/n1star/checks/gdkplus5.py` | `0ba1a17efc00b486928996b361758d78` |
+| `docket68/n1star/checks/gdkplus5.out` | `7ea3fa87d132f1fb147a69ec02a3a467` |
+| `docket68/n1star/checks/gdrad5.py` | `75983792199a9fb2f1919a6207f7cf22` |
+| `docket68/n1star/checks/gdrad5.out` | `dd8faaed179d1818553da73845cd5dad` |
+| `docket68/n1star/checks/gdtail5.py` | `d0b63c7a4de8818c9d4927cda8ba1df4` |
+| `docket68/n1star/checks/gdtail5.out` | `a394bc99a9f4ea79750ffa9a30f44699` |
+| `docket68/n1star/checks/gdlge2_5.py` | `1551b5fb7e9bf9664e75a16981bc347e` |
+| `docket68/n1star/checks/gdlge2_5.out` | `69d90e5181fff72c659fccb962b6230f` |
+| `docket68/n1star/checks/gdr9_5.py` | `9bc889fa938c0b1b8244dd7284a3c656` |
+| `docket68/n1star/checks/gdr9_5.out` | `3ee64abea65972c0e46d15fe47c4c050` |
+```
+
+(9) *`N1STAR-PROOF.md`, 10.1 (iv-a), its domain*, from "Let h be a solution on Part VIII's N^+ down to r_0, Theorem"
+(inside a line) to "(GAUGEDECAY5 (A2), (A11))," (inside a line); new ((A109)). Old:
+
+```text
+Let h be a solution on Part VIII's N^+ down to r_0, Theorem
+1.5's N_(r_0) = N cap {r > r_0} (GAUGEDECAY5 (A2), (A11)),
+```
+
+New:
+
+```text
+Let h be a solution on N^+ := M^o cap {t_IVP >= 0} (Part
+IX's; GAUGEDECAY5 (A2): Theorem 1.5 (a)-(c) are read on N^+, which lies in Theorem 1.5's N_(r_0) = N cap {r > r_0},
+(A11), with equality where nu = 0),
+```
+
+(10) *`N1STAR-PROOF.md`, 10.1's proof of (iv), the status of Theorem 1.5*, from "read by an independent verifier who
+confirmed it" (inside a line) to "verified, not yet promoted to proved." (inside a line); new (R10.p). Old:
+
+```text
+read by an independent verifier who confirmed it (GAUGEDECAY5 R2.V), its domain amended since on later
+verifiers' findings ((A2), (A11)): verified, not yet promoted to proved.
+```
+
+New:
+
+```text
+read by independent verifiers who confirmed it (GAUGEDECAY5 R2.V; its domain amended since on later
+verifiers' findings, (A2), (A11), and the amended theorem read line by line by GAUGEDECAY5's round-9 verifier, R10.0):
+proved (GAUGEDECAY5 R10.p).
+```

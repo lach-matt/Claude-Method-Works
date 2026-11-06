@@ -16,3 +16,4 @@ T4 PASS
       record C_c^inf: R = 1 at x = 0.069668; m0'/(kappa m0) >= 2.003, (m0' - |S'|)/(kappa m0) >= 0.9683 on R in [0.9,
       1.1].  Model (exp(-1/x), lam = 1e-6): maxima over 80 consecutive carrier periods around R = 1 strictly decreasing:
       True, sign changes: 1
+T5 PASS
