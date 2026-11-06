@@ -47,3 +47,9 @@ A0  the coefficient list of r5settle5 A, from g_b0
   A0' control (the flat metric): no coefficient beyond eta: pass {'g^-1 - eta': None, 'd g': None, 'Gamma': None, 'd d
         g': None, 'd Gamma': None, 'Gamma Gamma': None}
 T  Theorem P's use of Lemmas 1.1(e) and 2.3 after D623 (m5)
+  T g0^-1(dtau, dtau) = -1 - m and the least |eigenvalue| of g0^-1 is sqrt(1 + m^2) - m (exact); for |delta|_op <= eps_P
+        < min(s(m), mu0/a^2 - 1): (g0^-1 + delta)(dtau, dtau) <= -1 + eps_P, |g| <= (s - eps_P)^-1 (Weyl) and {r = a}
+        spacelike (2000 samples at 0.99 of the threshold): pass max excess -6.68e-02, max |g| (s - eps_P) 0.9905, max
+        g^-1(dr, dr) at r = a -0.0188
+  T' control: |delta|_op = s(m) (m = 1/3) makes g^-1 singular (exact): pass
+FAILED: none
