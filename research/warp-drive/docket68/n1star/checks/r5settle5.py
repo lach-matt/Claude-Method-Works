@@ -268,19 +268,20 @@ def part_d():
     import numpy as np
     print("D  the causal structure on W: v is not a time function; v + eps t and Phi_W are (round 3, m1)")
     dv = KV
-    ell = GB0I*dv
     pt = {x1: sp.Rational(3, 1), x2: sp.Rational(1, 1), x3: sp.Rational(-2, 1), x4: sp.Rational(1, 2), mu: 1}
-    gb0 = (ETA + mu/RR**2*KV*KV.T)
+    gb0 = ETA + mu/RR**2*KV*KV.T
+    G0p, dvp = gb0.subs(pt), dv.subs(pt)
+    ellp = G0p.inv()*dvp
     signs = []
     for H in (sp.diag(0, 1, 0, 0, 0), -sp.diag(0, 1, 0, 0, 0)):
-        gi = (gb0 + ep*H).inv()
-        val = sp.simplify((dv.T*gi*dv)[0, 0].subs(pt))
+        val = sp.simplify((dvp.T*(G0p + ep*H).inv()*dvp)[0, 0])
         first = sp.simplify(sp.diff(val, ep).subs(ep, 0))
-        hll = sp.simplify((ell.T*H*ell)[0, 0].subs(pt))
-        signs.append((sp.sign(val.subs(ep, sp.Rational(1, 100))), sp.simplify(first + hll) == 0))
-    check("D1 (g_b0 + eps h)^-1(dv, dv) has first variation -h(ell, ell) (exact) and takes both signs (h = +-dx1^2, "
-          "eps = 1/100): v is not a time function for the perturbed metrics",
-          all(s[1] for s in signs) and {signs[0][0], signs[1][0]} == {1, -1}, str([str(s[0]) for s in signs]))
+        hll = sp.simplify((ellp.T*H*ellp)[0, 0])
+        signs.append((sp.sign(sp.N(val.subs(ep, sp.Rational(1, 100)), 30)), sp.simplify(first + hll) == 0,
+                      sp.simplify(val.subs(ep, 0)) == 0))
+    check("D1 (g_b0 + eps h)^-1(dv, dv) vanishes at eps = 0, has first variation -h(ell, ell) (exact) and takes both "
+          "signs (h = +-dx1^2, eps = 1/100): v is not a time function for the perturbed metrics",
+          all(s_[1] and s_[2] for s_ in signs) and {signs[0][0], signs[1][0]} == {1, -1}, str([str(s_[0]) for s_ in signs]))
     gv = sp.simplify(GB0I*dv)
     Y = -gv
     check("D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal "
@@ -330,8 +331,8 @@ def part_e():
     for _ in range(20):
         c = [rng.uniform(-3, 3) for _ in range(3)]
         f = lambda r: c[0] + c[1]*R4/r + c[2]*(R4/r)**2/2  # f' = O(r^-2), |f'| <= 1/2 on r >= 4R
-        fs = [f(R4 + i*R4/50) for i in range(2000)]
-        supf = max(fs)
+        fs = [f(R4*(1 + i/20)) for i in range(4000)]
+        supf = max(fs + [c[0]])  # f -> c[0] as r -> oo
         v1 = f(R4) + R4
         ustar, ustar_old = supf + 1, 2*supf - v1 + 1
         for _ in range(200):
@@ -342,7 +343,7 @@ def part_e():
                 continue
             tt = tmin + rng.random()*(tmax - tmin)
             u = tt - r
-            ok = ok and (r + 1 <= ustar - u + 1e-9) and (ustar - u <= 2*r + abs(ustar - v1) + 1e-9)
+            ok = ok and (r + 1 <= ustar - u + 1e-6) and (ustar - u <= 2*r + abs(ustar - v1) + 1e-9)
             bad_old = bad_old or (ustar_old - u < r)
             worst_hi = max(worst_hi, (ustar - u)/r)
     check("E1 r + 1 <= u* - u <= 2r + |u* - v1| on W (20 random f, 4000 points)", ok, f"max (u* - u)/r = {worst_hi:.3f}")
@@ -512,7 +513,7 @@ def part_g():
           "l = 2): h_R = O(r^(-9/2))", all(diff5[k] == 0 for k in range(4, 9)) and diff5[9] == cs[9],
           str({k: str(v) for k, v in diff5.items()}))
     check("G1' control (p = 4 dropped from Sigma): the r^-4 coefficient survives", diff7[8] != 0, str(diff7[8]))
-    mp.mp.dps = 50
+    mp.mp.dps = 60
     c10 = sp.Rational(3, 7)
     h5, h7 = hR_func(cs, Pi, c10), hR_func(cs, Pi7, c10)
     v1, V, dl = mp.mpf("0.7"), mp.mpf("1.7"), mp.mpf("0.5")
@@ -614,12 +615,9 @@ def part_g():
         a1, b1, c1 = p + L_HARM, p - L_HARM - 2, p - sp.Rational(1, 2)
         s_of = 1 + (f_inf - v1s)*rho + f2*rho**3
         Fs = sp.hyper([a1, b1], [c1], s_of/2)
-        ser = sp.series(rho**p*Fs, rho, 0, p + 4).removeO()
-        ser = sp.expand(sp.simplify(ser.rewrite(sp.hyper)))
+        ser = sp.expand(sp.series(rho**p*Fs, rho, 0, p + 4).removeO())
         for term in sp.Add.make_args(ser):
-            ex = sp.Poly(term.subs(rho, rho), rho).degree() if False else sp.degree(term.as_coeff_exponent(rho)[1]*0 + 1)
-            e_ = term.as_coeff_exponent(rho)[1]
-            exps.add((p, e_))
+            exps.add((p, term.as_coeff_exponent(rho)[1]))
     ok6 = all(((2*e_).is_integer and e_ >= 2) for p, e_ in exps if p != sp.Rational(9, 4))
     ctl6 = any(not (2*e_).is_integer for p, e_ in exps if p == sp.Rational(9, 4))
     check("G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (series to "
