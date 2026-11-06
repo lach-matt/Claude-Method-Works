@@ -71,8 +71,8 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      type and names the measure dr dsigma, and the Proposition 3.3 proof block, two lines wider, says when its value at
      mu0 is positive -- the confirming reader's m1, m5 and nit): each old text occurs exactly once in
      paper/RESPONSE-HL-5D.md and its new text not at all; every line of the blocks and of this file is at most 121
-     characters; and in N1STAR-PROOF.md the D622 text is seated: "N-th order" occurs only inside an [amended D622 note, and Lemmas 10.1a-10.1b are
-     present.  Control: a block whose old text is mutated does not occur.
+     characters; and in N1STAR-PROOF.md the D622 text is seated: "N-th order" occurs only inside an [amended D622
+     note, and Lemmas 10.1a-10.1b are present.  Control: a block whose old text is mutated does not occur.
 
 READ (alphaXiv, 2026-11-06).  [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, arXiv:1809.05144v1: p. 6, (16) "-(1 - mu)
 dv-bar^2 + 2 dv-bar dR + R^2 sigma-ring", (20) "Along the event horizon, the Schwarzschild-Tangherlini solution has

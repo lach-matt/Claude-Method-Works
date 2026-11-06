@@ -1831,3 +1831,57 @@ The program was run in full with `nice -n 10`.
 *Ledger.* `checks/gluedecay5.py` E1-E6: all PASS, with all 21 mutants failing; output in `checks/gluedecay5.out`; E6
 reports the paper before seating. Section 8.4 (h) carries the md5 of this round's gluedecay5.py, gluedecay5.out and
 PART-V-GLUING.md, and zeros for GLUEDECAY5.md. The step after seating is named in section 8.4. Open: nothing.
+
+## R5.0 Round 5 (2026-11-06): the fourth reading, re-derived and seated
+
+*The reading.* The fourth reader found round 4's Minor 1 and all six nits seated, and the new flux right. It found Minor
+2 only half repaired, and raised three nits. Each is re-derived and seated below, with the old text kept and bracketed
+notes where it changes. The paper and N1STAR-PROOF.md are not edited.
+
+(Minor) *E6 in the seated state.* Re-derived from round 4's E6. Its mutants changed the old blocks (char_a, char_b), the
+applying step (drop_c) or the applied copy (seated_keep_old_a). All of these sit on the path taken before seating. On a
+seated paper E6 took the other path, and those four mutants left it unchanged, so they survived and the whole program
+exited 1 there. Only drop_m3, which changes a new block, was caught.
+
+The repair:
+- *Both texts in every run.* E6 builds the state the paper is not in from the one it finds, and checks both, naming the
+  state it found. Before seating, it applies all eight blocks and fills the zero md5. Seated, it replaces every new
+  block by its old, the md5 digits blanked so that a refreshed column still matches.
+- *Mutants on both texts.*
+  - char_a and char_b change one character of both the old and the new block.
+  - drop_c puts old (c) back in place of new (c) in the seated text.
+  - seated_keep_old_a appends old (a) to the seated text.
+  - drop_m3 removes M3 from new (b).
+
+  Each therefore acts in either state.
+- *`--paper PATH`.* The program checks another copy of the paper, so a reader can run it against a seated copy without
+  copying the tree.
+
+Run in full under `nice -n 10`:
+- on the unmodified paper: exit 0; E1-E6 PASS and all 21 mutants fail; E6 names the state "before seating";
+- on a seated scratch copy (all eight blocks of section 8.5 applied by an independent script, the zero md5 filled): exit
+  0; E1-E6 PASS and all 21 mutants fail, the same 21; E6 names the state "seated".
+
+The scratch copy and its output are outside the repository.
+
+(Nit 1) *The run time.* Section 8.4's (d) and (f) said "about seventy seconds", and section 7 and the docstring "about
+ninety". The program alone takes about 75-95 s wall on the loaded machine (the reader: 94 s and 85 s; here 73-88 s), and
+133 s when the two states are run at once. Section 8.5's (d) and (f), section 7 and the docstring now say "about ninety
+seconds".
+
+(Nit 2) *R4.0's example.* "The data of a nearby boosted Myers-Perry metric on Hintz's surface" is not a perturbation on
+$\Sigma$ (R3.0's nit 8). The example is now the translation pull-back $x\mapsto x+\chi_1(r)c$: vacuum, of order
+$3<\ell_0$, its difference in $\rho^3C^\infty\times\rho^4C^\infty$ by Lemma 4.1 (b)'s proof, and so in the class. Noted
+at R4.0's Minor 1.
+
+(Nit 3) *R4.0's formatting.*
+- Its nit list had sub-bullets run into the text of items (2), (4) and (5), and two paragraphs at column 0 that broke
+  the list. They are now nested bullets and indented paragraphs, with the text unchanged.
+- The missing blank line before "## R4.0" is restored.
+- In every superseded section the block tags were renamed, so that E6 finds only the current ones: section 8.2's to
+  "(round 2, x)", 8.3's to "(round 3, x)" and 8.4's to "(round 4, x)".
+
+*Ledger.* `checks/gluedecay5.py` E1-E6: all PASS on the paper before seating and on a seated copy, with all 21 mutants
+failing in each state. The output on the paper is in `checks/gluedecay5.out`, byte-identical on rerun. Section 8.5 (h)
+carries the md5 of this round's gluedecay5.py, gluedecay5.out and PART-V-GLUING.md, and zeros for GLUEDECAY5.md. The
+step after seating is named in section 8.5. Open: nothing.

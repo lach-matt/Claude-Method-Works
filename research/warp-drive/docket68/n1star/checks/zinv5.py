@@ -1,5 +1,5 @@
 """zinv5.py -- SETTLE-GLAM5 round 5: the round-3 verifier's independent check of (R3c), copied from its scratch
-script (zcheck3.py) with a driver added; the computation is unchanged.
+script (zcheck3.py) with a driver added; the symbolic construction of the defect is unchanged.
 
 (R3c), invariant form  L_Z P(h) = DP(h)[L_Z h - 2h] - 2 mu d_mu P(h),  Z = (t - v1) d_t + r d_r, for
 P(h) = Ric(g0 + h) - (1/2)(g_{m r} D0_n D^r + g_{n r} D0_m D^r), D^r = g^{ab}(Gam[g] - Gam[g0])^r_ab,
@@ -12,7 +12,17 @@ term with g0^ab.
   ZI1 (computed) mode none: the defect vanishes (below 1e-50 against terms of size O(1)), five components.
   ZI2 (computed) controls m1-m4: each mutated identity fails (defect above 1e-3 in some component).
 Labels: computed (sympy exact jets, evaluated at 60 digits). Run: python3 checks/zinv5.py (each mode is a separate
-process, run in parallel; about forty minutes on a loaded machine); python3 checks/zinv5.py MODE runs one mode.
+process, run in parallel); python3 checks/zinv5.py MODE runs one mode.
+Round 6 (SETTLE-GLAM5 R6.0 (m8)): the round-5 run never finished (killed after 2 h 58 min with no RESULT line) for
+two reasons, both in the evaluation and neither in the identity. (1) Each jet was substituted with Expr.subs into the
+unsimplified defect (millions of nodes), which re-walks and re-simplifies the whole tree at every key: a single
+component took hours. The substitution is now Expr.xreplace, a purely structural replacement (every Derivative node
+and every A(t, r) node is replaced before its arguments are reached, then the symbols), after which sympy folds the
+exact numbers; the expression and the values substituted are the same, so the defect is the same exact algebraic
+number, evaluated at 60 digits; a component now takes under a second. (2) In mode m3 the mu term is the Python
+integer 0, which has no .doit(): that process died at once, so ZI2 could never have passed; it is now sympified. The
+driver also fails loudly on a missing RESULT line, and three random draws are taken (one in round 5). About ten
+minutes for all five modes on this loaded machine (load about 25 on four cores).
 """
 
 import random
@@ -97,9 +107,11 @@ def _driver():
         out = procs[m].communicate()[0]
         lines = [l for l in out.split("\n") if l.startswith("RESULT")]
         val = float(lines[-1].split("max defect")[1].split()[0]) if lines else float("nan")
+        size = float(lines[-1].split("max size")[1].split()[0]) if lines else float("nan")
         res[m] = val
-        print(f"  mode {m}: max defect {val:.3e}")
-    ok1 = res["none"] < 1e-50
+        print(f"  mode {m}: max defect {val:.3e} (terms up to {size:.3e})"
+              + ("" if lines else " NO RESULT LINE: " + out.strip()[-300:]))
+    ok1 = res["none"] < 1e-50  # a nan (no RESULT line) fails both comparisons
     print(f"  ZI1 (R3c) holds exactly for arbitrary spherically symmetric h (mode none): {'pass' if ok1 else 'FAIL'}")
     ok2 = all(res[m] > 1e-3 for m in modes[1:])
     print(f"  ZI2 controls m1-m4 each fail: {'pass' if ok2 else 'FAIL'}")
@@ -133,7 +145,7 @@ else:
         defect[(a, b)] = (L - D + M, L, M)
     random.seed(5)
     worst, size = 0, 0
-    for draw in range(1):
+    for draw in range(3):
         jet = {}
         for f in F:
             for i in range(4):
@@ -144,11 +156,14 @@ else:
               th: sp.pi/3, ph: sp.pi/5, mu: sp.Rational(random.randint(1, 9), 10), v1: sp.Rational(7, 10)}
         for key, (d, L, M) in defect.items():
             def ev(e):
-                e = e.doit()
-                ders = sorted([dd for dd in e.atoms(sp.Derivative)], key=lambda q: -len(q.variables))
-                e = e.subs({dd: jet[(dd.expr, dd.variables.count(t), dd.variables.count(r))] for dd in ders})
-                e = e.subs({f: jet[(f, 0, 0)] for f in F}).subs(pt)
-                return sp.N(e, 60)
+                e = sp.sympify(e)  # mode m3's mu term is the integer 0 (round 5 died here)
+                rep = {dd: jet[(dd.expr, dd.variables.count(t), dd.variables.count(r))]
+                       for dd in e.atoms(sp.Derivative)}
+                rep.update({f: jet[(f, 0, 0)] for f in F})
+                rep.update(pt)
+                val = sp.N(e.xreplace(rep), 60)  # structural replacement (round 6); Expr.subs took hours
+                assert val.is_Number, val
+                return val
             dv, Lv, Mv = ev(d), ev(L), ev(M)
             worst = max(worst, abs(dv)); size = max(size, abs(Lv), abs(Mv))
             print(mut, draw, key, "defect", sp.N(dv, 6), "|L_Z P|", sp.N(Lv, 6), "|2 mu d_mu P|", sp.N(Mv, 6),
