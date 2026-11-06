@@ -1,20 +1,20 @@
-    jets 87 s
-    inverse 87 s
-    d inverse 87 s
-    Christoffels 88 s
-    Ricci 91 s
-    gauge 96 s
+    jets 8 s
+    inverse 8 s
+    d inverse 8 s
+    Christoffels 8 s
+    Ricci 8 s
+    gauge 8 s
   point 1: J1 True, J5 True, J2 True, J3 True, J4 True, J6 True, J7 True, J0 True;
-    R^(-1) = 0 for the stage-0 waves with lam^2 Q: True; predictions, R^(0) nonzero: True;
-    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (130 s)
+    R^(-1) = 0 with lam^2 Q (true for any W, not a TT test): True; predictions, R^(0) nonzero: True;
+    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (11 s)
   point 2: J1 True, J5 True, J2 True, J3 True, J4 True, J6 True, J7 True, J0 True;
-    R^(-1) = 0 for the stage-0 waves with lam^2 Q: True; predictions, R^(0) nonzero: True;
-    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (276 s)
+    R^(-1) = 0 with lam^2 Q (true for any W, not a TT test): True; predictions, R^(0) nonzero: True;
+    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (23 s)
   point 3: J1 True, J5 True, J2 True, J3 True, J4 True, J6 True, J7 True, J0 True;
-    R^(-1) = 0 for the stage-0 waves with lam^2 Q: True; predictions, R^(0) nonzero: True;
-    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (428 s)
-  control (a), plain Ric: J2 False, J3 False, J5 False (each must fail)  (442 s)
-  control (d), chi_out on du dv: J4 False (must fail)  (462 s)
+    R^(-1) = 0 with lam^2 Q (true for any W, not a TT test): True; predictions, R^(0) nonzero: True;
+    controls (b) J0 without lam^2 F_1 Q holds: False, (c) phi_in along ell_out leaves J7 intact: False  (37 s)
+  control (a), plain Ric: J2 False, J3 False, J5 False (each must fail)  (39 s)
+  control (d), chi_out on du dv: J4 False (must fail)  (41 s)
   J8: q = g0^tautau/g^tautau, c := g0^-1 - q g^-1 has c^tautau = 0 and the stated form: True;
       control (e) q = 1 passes: False
   J9: box h(ell, ell) by the product rule: True; control (f) without the cross term passes: False

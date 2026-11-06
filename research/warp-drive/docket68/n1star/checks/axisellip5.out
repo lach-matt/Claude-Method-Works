@@ -14,5 +14,6 @@ E2 (scipy) the estimate on a curved metric, for the perturbation of the backgrou
    eps = 0.05: ||d sigma||/||d H2|| = 0.499819, ||d_r d sigma||/||d_r d H2|| = 0.288539; control ||d k_ph||/||h'|| = 28.2834
    eps = 0.025: ||d sigma||/||d H2|| = 0.499955, ||d_r d sigma||/||d_r d H2|| = 0.288641; control ||d k_ph||/||h'|| = 56.5681
    bounded, the derivative ratio converged to 3 %: True; the ratio tends to the flat value 1/2: True; control grows like 1/eps: True
-   reconstruction from the axis with H2 given: max error in h' 8.87e-15, in sigma 1.77e-13; flat equation (control): 1.46e-01, 2.91e+00
+   reconstruction from the axis with H2 given: max error in h' 4.06e-11, in sigma 8.01e-10; flat equation (control): 1.46e-01, 2.91e+00
 PASS
+exit 0

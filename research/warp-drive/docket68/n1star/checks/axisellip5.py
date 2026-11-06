@@ -37,9 +37,12 @@ the totally geodesic three-manifold M3 = Sigma_tau cap {phi1 = 0} (the fixed set
      against the background leaf z = 0 (which has O(1) mean curvature in this metric), on the disc r < 1/2 with the
      weight r dr: ||d sigma|| / ||d H2|| tends to the flat value 1/2 and ||d_r d sigma|| / ||d_r d H2|| stays bounded
      and converges (to 3 % between the last two), while the first-order route ||d k_ph|| / ||h'|| grows like 1/eps
-     (X2's loss, here with curvature): control (must grow).
+     (X2's loss, here with curvature): control (must grow). (Round 5, the verifier of round 4, minor 6: these ratios
+     are frozen-coefficient limits -- 1/(2 sqrt 3) = 0.2887 is the flat Gaussian value -- and show no loss at m = 0,
+     1 only.)
      Reconstruction (scipy, DOP853): integrating the leaf's equation from the axis as an ODE for (h, h') with H2 given
-     recovers h' and sigma = H2/2 - k_ph to the integrator's tolerance. Control (must fail): the same integration with
+     and the axis regularity h'(r0) = 0 (round 5: not the exact leaf's slope; h(r0) is the leaf parameter) recovers h'
+     and sigma = H2/2 - k_ph to the integrator's tolerance. Control (must fail): the same integration with
      the flat equation h'' + h'/r = H2 misses h' by the size of the metric's gradient.
 
 Labels: computed (E0 exact at jets, checks/jetpoly5.py and checks/classchi5.py; E1 (a) exact, sympy, (b) 50-digit
@@ -296,7 +299,7 @@ def e2():
     qs = np.array([0.05, 0.1, 0.2, 0.3])
     errs = {}
     for name, rhs in (('curved', hpp_c), ('flat', hpp_f)):
-        sol = solve_ivp(lambda q, y: [y[1], rhs(q, y[0], y[1], fHn(q))], (r_0, r_1), [fhn(r_0), fhpn(r_0)],
+        sol = solve_ivp(lambda q, y: [y[1], rhs(q, y[0], y[1], fHn(q))], (r_0, r_1), [fhn(r_0), 0.0],
                         method='DOP853', rtol=1e-13, atol=1e-16, dense_output=True)
         yy = sol.sol(qs)
         eh = float(np.max(np.abs(yy[1] - fhpn(qs))))
@@ -305,6 +308,8 @@ def e2():
     print("   reconstruction from the axis with H2 given: max error in h' %.2e, in sigma %.2e; flat equation "
           "(control): %.2e, %.2e" % (errs['curved'] + errs['flat']))
     rec = errs['curved'][0] < 1e-9 and errs['curved'][1] < 1e-8 and errs['flat'][0] > 1e-4
+    # round 5 (the verifier of round 4, minor 6): the integration starts from axis regularity, h'(r0) = 0, not from the
+    # exact leaf's slope; h(r0) is the leaf parameter (where the leaf meets the axis)
     return bounded and flat and grows and rec
 
 

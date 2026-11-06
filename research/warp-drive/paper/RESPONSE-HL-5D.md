@@ -769,7 +769,7 @@ initial surface, the right inverse of the linearised operator at the zero pertur
 linearised at a Ricci-flat metric. It needs no new estimate. A linearised vacuum solution given in another gauge, such
 as the two below, with the same data up to those of a linearised diffeomorphism and given on the whole future of the
 initial surface outside r = r_0, smooth up to that surface, differs from this one there by a linearised diffeomorphism
-L_X g, X unique up to Killing fields (verified, not proved by the standard of section 8.8: supplement
+L_X g, X unique up to Killing fields (proved by the standard of section 8.8: supplement
 `proof5/PART-IX-GAUGE.md`, Theorem 2.2 and Corollary 2.3; the comparison is posed on the future half of a Cauchy
 development that extends past the initial surface, because near r = r_0 the linear solution's domain ends there, and
 the difference, which vanishes to infinite order on the noncharacteristic initial surface, is extended by zero:
@@ -2849,7 +2849,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `827cfcc0dbde107706a27e366498434c` |
+| `docket68/n1star/proof5/README.md` | `4d91656137e3080eceb7937ec0e9d49b` |
 | `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `ed98c26f5e7a4b3693f5c2d812768215` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
@@ -2860,7 +2860,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
 | `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e5ccb190d92288c1b8f489d3ed206495` |
 | `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `5fcfded92005ed06251f1216515d082f` |
-| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `0982c8f9d442e3a75359fb0f12c420e9` |
+| `docket68/n1star/proof5/PART-IX-GAUGE.md` | `134f0456cac9af73d12191ab93696ee2` |
 | `docket68/n1star/checks/ix5.py` | `6a3fb0bbf7858715eb8c6b96563b59c4` |
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |

@@ -10,9 +10,10 @@ m2 and nits n1-n8 are seated (finding (IX6)).
 Part VIII Remark 2.4 (a) records what Theorem 2.2 there does not assert: that a linearised solution given in another
 gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the whole future of
 $\Sigma_{\mathrm{IVP}}$ in $\{r>r_0\}$ (Lemma 1.2), the future half of a Cauchy development of $\Sigma_{\mathrm{IVP}}$.
-Every linearised vacuum solution whose data agree with $(\dot\gamma,\dot k)$ up to a linearised diffeomorphism is $\dot
-g+\mathcal L_Xg$ for a vector field $X$ (Corollary 2.3). So the linear stability of Part VIII holds in every gauge,
-modulo a linearised diffeomorphism. Nothing is asserted about the size or decay of $X$ (Remark 2.4).
+Every linearised vacuum solution ($D\mathrm{Ric} = 0$) given on the future half $\Omega'_+$ of a Cauchy development,
+smooth up to the initial surface, whose data agree with $(\dot\gamma,\dot k)$ up to a linearised diffeomorphism is
+$\dot g+\mathcal L_Xg$ there for a vector field $X$ (Corollary 2.3). So the linear stability of Part VIII holds in
+every gauge, modulo a linearised diffeomorphism. Nothing is asserted about the size or decay of $X$ (Remark 2.4).
 
 The argument is the standard one: put the difference into the linearised harmonic gauge by solving a linear wave
 equation for $X$, show that the result has vanishing Cauchy data, and conclude by uniqueness for a linear wave
@@ -46,14 +47,15 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   $\psi_{\mathrm{IVP}}' = 0$ on $[R_3,\infty)$ (III.B Lemma 3.7 (b); III.K section 0). So of Part VIII's cover of
   $\mathcal D$ only the compact part $\mathcal K$ reaches them: $\Omega_{\mathrm{ext},r_1}\subset\{r\ge r_1\}$, and the
   slab $\mathcal S$ lies in $\{|x|>R_9\}$, $R_9\ge R_3>5R_1>R_\nu$, and does not meet $\Sigma_{\mathrm{IVP}}$, as
-  $t_{\mathrm{IVP}}\ge\frac r4>0$ on $\mathcal S$ (III.K Proposition 1.2's proof, line 178); a half-ball $\{t_{\mathrm{IVP}}\ge0\}$ about each such point lies in $\mathcal K$ (these
-  readings checked by the verifier of D610's repair). There $\dot g = \dot h+\dot g_{S'}$ (Part VIII Theorem 2.2 (2)),
-  $\dot g_{S'} = -\mathcal L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$ of the interior of $\mathcal
-  K$, bounded up to $\Sigma_{\mathrm{IVP}}$, where Part VIII Proposition 1.2's proof solves it by energy estimates
-  ("bounded in every $H^k$ by finitely many norms of the data"). In a chart $\{t_{\mathrm{IVP}}\ge0\}$ near such a
-  point, $H^k$ for every $k$ gives every derivative continuous up to $\Sigma^\circ$ (Sobolev embedding on a half-space,
-  through its extension operator). Deduced from those readings; neither Part states smoothness up to the boundary in
-  these words.
+  $t_{\mathrm{IVP}}\ge\frac r4>0$ on $\mathcal S$ (III.K Proposition 1.2's proof, line 178); a half-ball
+  $\{t_{\mathrm{IVP}}\ge0\}$ about each such point lies in $\mathcal K$ (these readings checked by the verifier of
+  D610's repair and, with the slab's clause restated, by the re-read of D617). There $\dot g = \dot h+\dot g_{S'}$
+  (Part VIII Theorem 2.2 (2)), $\dot g_{S'} = -\mathcal L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$
+  of the interior of $\mathcal K$, bounded up to $\Sigma_{\mathrm{IVP}}$, where Part VIII Proposition 1.2's proof
+  solves it by energy estimates ("bounded in every $H^k$ by finitely many norms of the data"). In a chart
+  $\{t_{\mathrm{IVP}}\ge0\}$ near such a point, $H^k$ for every $k$ gives every derivative continuous up to
+  $\Sigma^\circ$ (Sobolev embedding on a half-space, through its extension operator). Deduced from those readings;
+  neither Part states smoothness up to the boundary in these words.
 
 - *$\dot g$ lives on $N$.* $\Omega_*\cup\mathcal D = N$. Indeed $\Omega_* = \mathrm{cl}_M\{t^\flat_*\ge1\}$ (III.K
   section 0) lies in $N$, as $t_{\mathrm{IVP}}\ge t_*\ge t^\flat_*$ (Part VIII section 0; III.B Lemma 3.7, II.C Lemma
@@ -216,7 +218,7 @@ $\Sigma_{\mathrm{IVP}}$ pointwise, so $\phi_s$ is an isometry from $(M,\phi_s^*g
 $\Sigma_{\mathrm{IVP}}$ and preserves the future normal for small $|s|$. So $\phi_s^*g$ induces exactly $(\gamma,K)$ on
 $\Sigma_{\mathrm{IVP}}$ for every small $s$. The induced data are smooth functions of the 1-jet of the metric at
 $\Sigma_{\mathrm{IVP}}$, whose $s$-derivative at 0 is that of $\mathcal L_Xg$. So the derivative of the data, which is
-the data induced by $\mathcal L_Xg$, vanishes. $\square$
+the data induced by $\mathcal L_Xg$, vanishes (`ix5.py` X7). $\square$
 
 **Theorem 2.2 (linearised vacuum solutions with gauge-equivalent data are gauge-equivalent).** Let $U\subset U^\sharp$
 be open, $\Omega' := D_U(\Sigma_U)$ and $\Omega'_+ := \Omega'\cap\{t_{\mathrm{IVP}}\ge0\}$, a manifold with boundary
@@ -302,21 +304,21 @@ for a vector field $X$ on $\Omega'_+$, smooth up to $\Sigma_U$. In particular, w
 $$\dot g'-\mathcal L_Xg-\partial_bg_b|_{b=b_0}(\dot b) = h_{b_0,\mathrm{rem}}(q')+h',$$
 with $q'$ and $h'$ the components of $D_0\Phi(U') = (h',\vec p\,',q')$ named in Part VIII Theorem 2.2 (3), as in its
 (2.2). For $U = U^\sharp$, $\Omega'_+ = N^+ = M^\circ\cap\{t_{\mathrm{IVP}}\ge0\}$ (Lemma 1.2). The region where Part
-VIII (2.3) is stated has $t_{\mathrm{IVP}}\ge t_*\ge T'$, so its part in $\{r>r_0\}$ lies in $N^+$, and there the
-remainder has the rate of Part VIII (2.3): every linearised vacuum solution with these data settles, up to the
-linearised diffeomorphism $\mathcal L_Xg$, to a linearised Myers-Perry metric, with $X$ itself not controlled (Remark
-2.4 (b)). For a general open $U$ this holds only on the part of that region which $\Omega'_+$ contains (verifier 162's
-M3).
+VIII (2.3) is stated has $t_{\mathrm{IVP}}\ge t_*\ge T'\ge0$ ((2.3) holds with $T'$ enlarged, so take $T'\ge0$), so its
+part in $\{r>r_0\}$ lies in $N^+$, and there the remainder has the rate of Part VIII (2.3): every linearised vacuum
+solution with these data settles, up to the linearised diffeomorphism $\mathcal L_Xg$, to a linearised Myers-Perry
+metric, with $X$ itself not controlled (Remark 2.4 (b)). For a general open $U$ this holds only on the part of that
+region which $\Omega'_+$ contains (verifier 162's M3).
 
-*Proof.* $\dot g$ is smooth on $N$ with $D\mathrm{Ric}(\dot g) = 0$ (section 0; Part VIII Theorem 2.2 (1)), and its
-restriction to $N^+\supset\Omega'_+$ is smooth up to $\Sigma^\circ$ (section 0). Near $\Sigma_{\mathrm{IVP}}$ in $N$,
-$\dot g = \dot h+\dot g_{S'}$ with $\dot g_{S'} = -\mathcal L_{V(S')}g$: the set $\mathcal D' = \mathcal
-D\setminus\{t^\flat_*\ge\hat T+\frac74\}$ of Part VIII Theorem 2.2 (2) contains $N\cap\{t_{\mathrm{IVP}}<\hat
-T+\frac74\}$, as $t^\flat_*\le t_*\le t_{\mathrm{IVP}}$ where $t^\flat_*$ is defined. $\dot h$ induces
-$(\dot\gamma,\dot k)$ (Part VIII Lemma 1.1 (1), which allows a tensor given on one side up to $\Sigma_{\mathrm{IVP}}$;
-Proposition 1.2's data). So $k := \dot g'-\dot g$ is smooth up to $\Sigma_U$ on $\Omega'_+$, has $D\mathrm{Ric}(k) = 0$
-there, and induces the data of $\mathcal L_{Z+V(S')}g$. Theorem 2.2 gives $k = \mathcal L_Xg$. The second display is
-Part VIII (2.2) with $\dot g = \dot g'-\mathcal L_Xg$. $\square$
+*Proof.* $\dot g$ is smooth on the interior of $N$ with $D\mathrm{Ric}(\dot g) = 0$ (section 0; Part VIII Theorem 2.2
+(1)), and its restriction to $N^+\supset\Omega'_+$ is smooth up to $\Sigma^\circ$ (section 0). Near
+$\Sigma_{\mathrm{IVP}}$ in $N$, $\dot g = \dot h+\dot g_{S'}$ with $\dot g_{S'} = -\mathcal L_{V(S')}g$: the set
+$\mathcal D' = \mathcal D\setminus\{t^\flat_*\ge\hat T+\frac74\}$ of Part VIII Theorem 2.2 (2) contains
+$N\cap\{t_{\mathrm{IVP}}<\hat T+\frac74\}$, as $t^\flat_*\le t_*\le t_{\mathrm{IVP}}$ where $t^\flat_*$ is defined.
+$\dot h$ induces $(\dot\gamma,\dot k)$ (Part VIII Lemma 1.1 (1), which allows a tensor given on one side up to
+$\Sigma_{\mathrm{IVP}}$; Proposition 1.2's data). So $k := \dot g'-\dot g$ is smooth up to $\Sigma_U$ on $\Omega'_+$,
+has $D\mathrm{Ric}(k) = 0$ there, and induces the data of $\mathcal L_{Z+V(S')}g$. Theorem 2.2 gives $k = \mathcal
+L_Xg$. The second display is Part VIII (2.2) with $\dot g = \dot g'-\mathcal L_Xg$. $\square$
 
 **Remark 2.4 (what is and is not asserted).** (a) The statement is the linear counterpart of the gauge comparison that
 Part VII Remark 4.1 leaves to the nonlinear theory; it is proved here for the linearisation only. (b) Nothing is
@@ -328,10 +330,10 @@ $\{r>r_0\}$ (Corollary 2.3), which settles modulo $\mathcal L_Xg$; the decay *in
 L_Xg$ there, which is what the deduced routes argue and is not proved here. (c) In the class of Part VII, if $U$ is
 $G$-invariant (for instance $U = U^\sharp$: $G$ preserves $t_{\mathrm{IVP}}$ and $|x|$), so that $\Omega'$ and
 $\Omega'_+$ are $G$-stable, the data $(\dot\gamma,\dot k)$ are in the class of Part VIII Corollary 2.3, and $\dot g'$
-and $Z$ are $G$-invariant, then $X$ may be taken $G$-invariant. $G$ is compact and acts by isometries of $g$ (Part VIII
-Corollary 2.3's proof); $\dot g$ is $G$-invariant by that Corollary, so $k = \dot g'-\dot g$ is; and the Haar average
-$X_G := \int_G\sigma_*X\,d\sigma$ has $\mathcal L_{X_G}g = \int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's
-M4).
+is $G$-invariant, then $X$ may be taken $G$-invariant ($Z$'s invariance is not needed; only $k$'s is used). $G$ is
+compact and acts by isometries of $g$ (Part VIII Corollary 2.3's proof); $\dot g$ is $G$-invariant by that Corollary,
+so $k = \dot g'-\dot g$ is; and the Haar average $X_G := \int_G\sigma_*X\,d\sigma$ has $\mathcal L_{X_G}g =
+\int_G\sigma_*(\mathcal L_Xg)\,d\sigma = k$ (verifier 162's M4).
 
 ## 3. Findings, labels and sources
 
@@ -374,13 +376,26 @@ M4).
   that region and smooth up to the initial surface; Step 1's $w$ and $X$ among the uses of
   $\Omega^\sharp\cap\{t_{\mathrm{IVP}}<0\}$; III.K's \"two-sided neighbourhood\" qualified where $\nu = 0$.
 
+- (IX6) A full line-by-line re-read (D617), for the promotion to proved, found no major gap and checked every step and
+  every citation into other parts and into [BGP] at source. Seated: section 0's slab clause, which said $\rho'_I>1$ on
+  $\Sigma_{\mathrm{IVP}}$ (true only if $T''>C''$, which nothing bounds), now uses $R_9>R_\nu$ and $t_{\mathrm{IVP}}\ge
+  r/4$ on $\mathcal S$ (m1); [BGP] p. 81's device is a section vanishing to infinite order along $S$, not on one side
+  (m2, D611's n2 completed). Nits: Lemma 2.1 (f) cites X7; the status line records D611; the introduction states
+  Corollary 2.3's hypotheses; $\dot g$ is smooth on the interior of $N$ and up to $\Sigma^\circ$; $T'\ge0$ in Corollary
+  2.3; $R_\nu$ is in III.K Proposition 1.2's statement; Remark 2.4 (c) needs only $k$'s $G$-invariance; outside this
+  part, `checks/ix5.out.tmp` removed, GAUGEDECAY5's line references and D611's log entry corrected. `ix5.py` rerun to the
+  byte-identical `checks/ix5.out` (X1-X8 pass, every control false), and each check fails under a mutation of the code it
+  tests; the noncharacteristic coefficient recomputed independently at m = 2 and m = 3. With these seated, Part IX is
+  proved.
+
 Labels: proved here from the cited parts and [BGP] (READ); Lemma 2.1's identities and Step 3's leading coefficient are
 derived in the text and computed in `checks/ix5.py` (X1-X8, with controls). [See64] is cited, not read here. The [BGP]
 readings were not re-read by verifier 162 (arXiv refused the fetch); D610's repair cites [BGP] pp. 23, 24, 81 and 174
 from the text the session holds; the verifier of the repair re-read them at source (arXiv:0806.1036v1, through a
 paper-reading tool): Definition 1.3.8 (p. 23), Corollary 1.3.12 and the Cauchy time-function (p. 24), Corollary 3.2.4
 (p. 76), the device of p. 81 (applied there to a section smooth on the whole manifold), Theorem 3.2.11's proof (pp.
-85-86), Corollary A.5.4 (p. 174) and Lemma A.5.9 (p. 176), each as cited.
+85-86), Corollary A.5.4 (p. 174) and Lemma A.5.9 (p. 176), each as cited; the re-read of D617 read them again at source
+and found p. 81 misread (finding (IX6)).
 
 Sources: Part VIII (PART-VIII-LINEAR.md) section 0, Lemma 1.1, Proposition 1.2, Theorem 2.2, Corollary 2.3, Remark 2.4;
 III.B (PART-III-B-FAMILY.md) (3.5), (3.6), Lemma 3.7; II.C (PART-II-C-OPERATORS.md) Lemma 3.2; II.F (PART-II-F-IOTA.md)

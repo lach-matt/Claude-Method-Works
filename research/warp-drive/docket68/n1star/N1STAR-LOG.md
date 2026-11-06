@@ -7975,7 +7975,8 @@ a second marginally trapped surface (sectexp5.py, secondzero5.py); the paper's s
 with no major gap. Readers and next rounds running for A, B, C, D and F.
 
 **D611 (2026-11-02): the gauge comparison's repair read; workstream A round 3.** A reader of D610's repair of Part IX
-found no major gap and recomputed the noncharacteristic coefficient independently (ix5.py X8, with m = 3 directly).
+found no major gap and recomputed the noncharacteristic coefficient independently with m = 3 (its own computation;
+ix5.py X8 covers every m >= 2 in (a) and computes m = 2 in (b); corrected at D617).
 Seated: section 0 now states why only the compact part of the linear solution's domain meets the initial hypersurface
 where nu = 0; the zero extension's smoothness is shown in Step 3 rather than taken from the reference's device, which
 there applies to a section smooth on the whole manifold; the reference re-read at source; III.K's 'two-sided
@@ -8023,3 +8024,15 @@ means these. stagen5.py and stagefree5.py rerun (all pass, every control fails).
 round 4 (Theorem L_E rests on two sketches; Proposition L.12 (iii) is shown only for delta < (1 - gamma)/4; the paper
 text overstates what decides Theorem 1's very edge) and seven minor ones went to round 5. Workstream B round 4 and
 workstreams A and D round 6 reported; readers of each, and rounds A7 and D7, are running.
+
+**D617 (2026-11-06): Part IX proved.** A full line-by-line re-read of PART-IX-GAUGE.md, for the promotion from
+verified, found no major gap: it checked every step by hand, opened every citation into Parts II, III, VII and VIII and
+the paper's section 8.2, re-read [BGP] at source, reran `ix5.py` to the byte-identical `checks/ix5.out` (X1-X8 pass,
+every control false), mutated the code each check tests (each fails under at least one mutation) and recomputed the
+noncharacteristic coefficient with its own code at m = 2 and m = 3. Seated: section 0's slab clause, which said
+rho'_I > 1 on the initial surface (true only if T'' > C'', which nothing bounds), now uses R_9 > R_nu and t_IVP >= r/4
+on the slab (m1); [BGP] p. 81's device is a section vanishing to infinite order along S (m2, completing D611's n2);
+eight nits (Lemma 2.1 (f) cites X7; the status line records D611; the introduction states Corollary 2.3's hypotheses;
+the tensor is smooth on the interior of N and up to the initial surface; T' >= 0 in Corollary 2.3; R_nu's source; Remark
+2.4 (c) needs only k's invariance; checks/ix5.out.tmp removed and D611's entry corrected). Finding (IX6). Part IX is
+proved; the paper's section 8.2 says so. GAUGEDECAY5's citations of Part IX's lines go to workstream A's round 7.

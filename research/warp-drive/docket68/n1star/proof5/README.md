@@ -10,7 +10,7 @@ needed for it.
 Labels as in the record. A part is **written** when its proofs are complete on the page; **verified** when an
 independent reader has checked it line by line and every finding is seated; **proved** only then. Every part below is
 **proved** (D333), and with them Theorem 4.
-Part VIII, the linear statement, is proved too (D336). Part IX, the comparison of gauges for it, is verified (D347).
+Part VIII, the linear statement, is proved too (D336). Part IX, the comparison of gauges for it, is proved (D617).
 
 ## The plan
 
@@ -92,7 +92,7 @@ Part VIII, the linear statement, is proved too (D336). Part IX, the comparison o
 | VI.C | the parts' parameter conditions | a consistent choice of the parameters the parts leave open, in an order with no circular threshold; III.E Theorem 1.1's proved range; III.F'' section 5 closed by III.H | written (D320); amended (D322: (H4) in rows d1-d2); verified (D323: order corrected, row b4); proved (D324); section 3 amended (D327-D328), read by verifier 150, widened (D331: G4-G5); **proved** (D332: verifier 151 read it, nits only); row w1's ε_ind amended (D390) |
 | VII | assembly | Theorem 4 from Parts III-VI and the record: (i) the record's data on III.K's initial surface, glued in the class to Tangherlini, and III.K run on G-fixed spaces; (ii) perturbations in III.K's data class | written (D322); verified (D323: verifier 140's three minors and twelve notes seated); proved (D324: verifier 141 read the repairs) |
 | VIII | III.K linearised at Tangherlini | linear stability of 5D Tangherlini in the gauge of the nonlinear problem: every linearised data set in III.K's class has a linearised vacuum development settling to a linearised Myers-Perry metric at $t_*^{-(\alpha-2)+\epsilon}$; in the class, to a change of mass alone | written (D334); verified (D335: verifier 153, no major gap, its minor m1 and six nits seated); **proved** (D336: verifier 154 read the repairs, three nits) |
-| IX | Part VIII in any gauge | a linearised vacuum solution whose Cauchy data are those of Part VIII's up to a linearised diffeomorphism differs from it by $\mathcal L_Xg$ on its Cauchy development, $X$ unique up to Killing fields; nothing on the decay of $X$ | written (D345); verified (D347: verifier 162, no blocking or major gap; minors M1-M4 and nits N1-N5 seated) |
+| IX | Part VIII in any gauge | a linearised vacuum solution whose Cauchy data are those of Part VIII's up to a linearised diffeomorphism differs from it by $\mathcal L_Xg$ on its Cauchy development, $X$ unique up to Killing fields; nothing on the decay of $X$ | written (D345); verified (D347: verifier 162, no blocking or major gap; minors M1-M4 and nits N1-N5 seated); repaired (D610), repair read (D611); **proved** (D617: full re-read, no major gap; m1, m2, n1-n8 seated) |
 
 Each part states its hypotheses for a class of operators. Part VI checks them for the record's operators, using the
 record's computed items (for Part I: 10.19, 10.36, 10.60 and 10.79) and turning each into a proof.
@@ -1459,9 +1459,10 @@ vanishes near $r_0$, so the old domain in $N^\circ$ did not contain $\Sigma^\cir
 \Theta(k)$ with data that kill the Cauchy data of $k-\mathcal L_Xg$, which then vanishes to infinite order at the
 noncharacteristic $\Sigma^\circ$, is extended by zero, and vanishes by uniqueness for $D\mathrm{Ric}+\delta^*\Theta$.
 Nothing is asserted about the decay of $X$ (Remark 2.4). Identities computed in `checks/ix5.py` X1-X8. Findings
-(IX1)-(IX5). Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its four minor findings (a
+(IX1)-(IX6). Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its four minor findings (a
 case split in Lemma 1.1, X5's test family, the settling clause's domain, $G$-invariance of $U$) and five nits are
-seated. Repaired (D610), finding (IX5); a reader is reading the repair.
+seated. Repaired (D610), finding (IX5); the repair read (D611, no major gap). Proved (D617): a full line-by-line
+re-read found no major gap; its two minor findings and eight nits are seated, finding (IX6).
 
 `PART-III-C2-POLYHOM.md`. [Hin26] sections 5.4-5.5 at n = 4. Lemma 1.1 is the exterior domain, the weights shifted by
 1/2 at null infinity ((1.1)). Theorem 2.1 is the exterior solution with the linear estimate (5.53), stated as the output

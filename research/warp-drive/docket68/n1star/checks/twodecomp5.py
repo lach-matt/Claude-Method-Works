@@ -603,7 +603,8 @@ def main():
         r = run(seed, verbose=(seed == 1))
         good = all(r[k] for k in names) and r["R-1"] and r["nonvacuous"]
         ctl = r["ctl_b"] or r["ctl_c"]
-        print("  point %d: %s;\n    R^(-1) = 0 for the stage-0 waves with lam^2 Q: %s; predictions, R^(0) nonzero: %s;"
+        print("  point %d: %s;\n    R^(-1) = 0 with lam^2 Q (true for any W, not a TT test): %s; predictions, R^(0) "
+              "nonzero: %s;"
               "\n    controls (b) J0 without lam^2 F_1 Q holds: %s, (c) phi_in along ell_out leaves J7 intact: %s"
               "  (%.0f s)" % (seed, ", ".join("%s %s" % (k, r[k]) for k in names), r["R-1"], r["nonvacuous"],
                               r["ctl_b"], r["ctl_c"], time.time() - t0), flush=True)

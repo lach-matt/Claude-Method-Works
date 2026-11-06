@@ -26,7 +26,9 @@ divergence form, sqrt|h| box_h f = d_a(sqrt|h| h^ab d_b f).
      e_p2)) is a multiple of the identity: solving [S, J_i] = 0 for a general symmetric S leaves S = c I. So T's
      angular block is c gamma, and T_(th th) = T_(p1 p1) = T_(p2 p2) in that frame. (b) With V2's T_(p p) = 0, c = 0,
      so int p_th^2 d mu = T_(th th) = 0: for a positive measure (weights w_i > 0) the quadratic form sum w_i p_th,i^2
-     has Hessian diag(2 w_i), positive definite, so p_th = 0 on the support. The momenta are radial.
+     has Hessian diag(2 w_i), positive definite, so p_th = 0 on the support. The momenta are radial. (Round 5, the
+     verifier's minor 3: the test now computes the least eigenvalue, and a control with one negative weight exhibits a
+     nonzero p_th with sum w p_th^2 = 0, which the test rejects.)
      Example: a measure with p_p = 0 and one momentum with p_th != 0 has T_(th th) > 0 = T_(p1 p1): not round.
      Control (must fail): without V2, roundness alone does not give p_th = 0: the measure with equal weights on
      +-e_th, +-e_p1, +-e_p2 (null, with p_r = 0) has a round angular block with T_(th th) > 0, so 'round => T_(th th)
@@ -34,8 +36,10 @@ divergence form, sqrt|h| box_h f = d_a(sqrt|h| h^ab d_b f).
   V4 (exact) radial null momenta at a point of Vaidya are multiples of dv or of the outgoing radial covector k_out, so a
      radial massless Vlasov measure has T = (int E^2 df_in) dv dv + (int E^2 df_out) k_out k_out: the stress of two null
      dusts, one ingoing and one outgoing (and radial momenta stay radial along radial geodesics).
-     Control (computed, must fail): the measure of V4 with one more momentum carrying p_th != 0 has a stress whose
-     (th th) component is positive, so it is not of the two-dust form (whose angular block vanishes).
+     Computed (round 5, the verifier's minor 3: the earlier test compared a sum with its own factoring): k_in and
+     k_out are the roots of the actual g0^-1, every momentum of the measure is null, and its stress is solved into
+     span(k_in k_in, k_out k_out). Controls (must fail): the measure with one more null momentum carrying p_th != 0
+     has no such solution; k_out taken from a wrong metric (mu -> mu/2) is not null for g0^-1.
 
 So inside the class, round massless Vlasov limits are exactly the two-dust limits of part I. Labels: computed (exact,
 sympy); the weak-limit step deduced. Run: python3 checks/torusstress5.py   (seconds)
@@ -118,14 +122,29 @@ def v2_v4(seed=5):
     sol = sp.solve(eqs, sorted(Ss.free_symbols, key=str), dict=True)
     Sinv = Ss.subs(sol[0]) if sol else None
     schur = Sinv is not None and sp.simplify(Sinv - Sinv[0, 0] * sp.eye(3)) == sp.zeros(3)
-    # V3 (b): with T_(p1 p1) = 0 the round block is 0, so sum w p_th^2 = 0; the form is positive definite
+    # V3 (b): with T_(p1 p1) = 0 the round block is 0, so sum w p_th^2 = 0; for positive weights this forces p_th = 0
+    # (round 5, the verifier's minor 3: the test now uses the weights' sign). The form's least eigenvalue is computed;
+    # control: one negative weight admits a nonzero p_th with sum w p_th^2 = 0.
     nw = 5
-    wv = sp.symbols("w0:%d" % nw, positive=True)
-    pth = sp.symbols("q0:%d" % nw, real=True)
-    form = sum(w * q**2 for w, q in zip(wv, pth))
-    Hs = sp.hessian(form, pth)
-    posdef = all(sp.simplify(Hs[i, i] - 2 * wv[i]) == 0 for i in range(nw)) and \
-        all(Hs[i, j] == 0 for i in range(nw) for j in range(nw) if i != j)
+
+    def forces_zero(ws_):
+        Hs = sp.diag(*[2 * w for w in ws_])
+        evs = list(Hs.eigenvals().keys())
+        if min(evs) > 0:
+            return True
+        # exhibit a nonzero null vector of the form when it exists (two weights of opposite signs)
+        ip = [i for i, w in enumerate(ws_) if w > 0]
+        im = [i for i, w in enumerate(ws_) if w < 0]
+        if ip and im:
+            q = [0] * nw
+            q[ip[0]] = sp.sqrt(-ws_[im[0]])
+            q[im[0]] = sp.sqrt(ws_[ip[0]])
+            assert sp.simplify(sum(w * x**2 for w, x in zip(ws_, q))) == 0 and any(x != 0 for x in q)
+        return False
+    wpos = [sp.Rational(rng.randint(1, 9), rng.randint(1, 5)) for _ in range(nw)]
+    wmix = list(wpos)
+    wmix[2] = -wmix[2]
+    posdef = forces_zero(wpos) and not forces_zero(wmix)
     # example: p_p = 0, one momentum with p_th != 0: T_thth > 0 = T_p1p1 -> not round
     moms_ex = moms_orbit[:4] + [null(sp.Rational(1, 3), sp.Rational(1, 2), 0, 0)]
     Tex = T(moms_ex)
@@ -138,27 +157,50 @@ def v2_v4(seed=5):
     iso_round = sp.simplify(blk - blk[0, 0] * sp.eye(3)) == sp.zeros(3)
     v3_ctl_implication = (not iso_round) or Tiso[2][2] == 0                     # 'round => T_thth = 0' on it
     v3 = schur and posdef and notround and not v3_ctl_implication
-    # V4: radial null covectors at a point of Vaidya, in (tau, r): eta^-1 - (mu/r^2) L0 L0; the stress of radial ones
+    # V4: radial null covectors at a point of Vaidya, in (tau, r): g0^-1 = eta^-1 - (mu/r^2) L0 L0 (round 5, the
+    # verifier's minor 3: the covectors are now tested to be roots of the actual g0^-1, the radial stress is shown to
+    # lie in span(k_in k_in, k_out k_out) by solving for its coefficients, and the controls are real)
     mu, r = sp.symbols('mu r', positive=True)
-    ginv = sp.Matrix([[-1, 0], [0, 1]]) - (mu / r**2) * sp.Matrix([[1, -1], [-1, 1]])
+
+    def ginv_of(m_):
+        return sp.Matrix([[-1, 0], [0, 1]]) - (m_ / r**2) * sp.Matrix([[1, -1], [-1, 1]])
+    ginv = ginv_of(mu)
     a = sp.Symbol('a')
-    sols = sp.solve(sp.Eq((sp.Matrix([1, a]).T * ginv * sp.Matrix([1, a]))[0], 0), a)
-    kin = sp.Matrix([1, 1])
-    kout = [sp.Matrix([1, s_]) for s_ in sols if sp.simplify(s_ - 1) != 0][0]
+    q2 = lambda G_, k: sp.simplify((k.T * G_ * k)[0])                                  # noqa: E731
+    sols = sp.solve(sp.Eq(q2(ginv, sp.Matrix([1, a])), 0), a)
+    ks = [sp.Matrix([1, s_]) for s_ in sols]
+    roots_ok = len(ks) == 2 and all(q2(ginv, k) == 0 for k in ks)
+    kin = [k for k in ks if sp.simplify(k[1] - 1) == 0][0]
+    kout = [k for k in ks if sp.simplify(k[1] - 1) != 0][0]
     E = [sp.Rational(rng.randint(1, 7), 3) for _ in range(6)]
-    Tr = sum((E[i]**2 * kin * kin.T for i in range(3)), sp.zeros(2, 2)) + \
-        sum((E[i]**2 * kout * kout.T for i in range(3, 6)), sp.zeros(2, 2))
-    two = sp.simplify(Tr - (sum(e**2 for e in E[:3]) * kin * kin.T + sum(e**2 for e in E[3:]) * kout * kout.T))
-    v4 = two == sp.zeros(2, 2) and len(sols) == 2
-    # control: the V4 measure with one momentum carrying p_th != 0 (orthonormal frame at the point; the radial plane
-    # Minkowski there): its stress has T_(th th) > 0, so it is not two-dust (whose angular block vanishes)
-    rad = [null(1, 0, 0, 0)] * 3 + [null(-1, 0, 0, 0)] * 3
-    Wv = [E[i]**2 for i in range(6)]
-    Trad = [[sum(w * p[a] * p[b] for w, p in zip(Wv, rad)) for b in range(5)] for a in range(5)]
-    extra = null(sp.Rational(2, 5), sp.Rational(3, 7), 0, 0)
-    Tbad = [[Trad[a][b] + extra[a] * extra[b] for b in range(5)] for a in range(5)]
-    two_dust_rad = all(Trad[a][b] == 0 for a in range(2, 5) for b in range(5))
-    ctl = not (two_dust_rad and all(Tbad[a][b] == 0 for a in range(2, 5) for b in range(5)))   # True: rejected
+    moms = [E[i] * kin for i in range(3)] + [E[i] * kout for i in range(3, 6)]
+    null_ok = all(q2(ginv, p) == 0 for p in moms)
+    Tr = sum((p * p.T for p in moms), sp.zeros(2, 2))
+    al, be = sp.symbols('alpha beta')
+    span = sp.solve(list(Tr - al * kin * kin.T - be * kout * kout.T), [al, be], dict=True)
+    in_span = bool(span) and all(sp.simplify(v) != 0 for v in span[0].values())
+    v4 = roots_ok and null_ok and in_span
+    # control 1 (must fail): one momentum with p_th != 0 (a null covector (p_tau, p_r, p_th) at the point): the stress,
+    # with its (th th) entry, is not of the two-dust form
+    pth = sp.Rational(3, 7)
+    # null: ginv(p, p) + p_th^2/r^2 = 0 with p = (1, x)
+    x = sp.Symbol('x')
+    xs = sp.solve(sp.Eq(q2(ginv, sp.Matrix([1, x])) + pth**2 / r**2, 0), x)
+    extra2 = sp.Matrix([1, xs[0]])
+    T3 = sp.zeros(3, 3)
+    for p in moms:
+        T3[:2, :2] += p * p.T
+    pe = sp.Matrix([1, xs[0], pth])
+    T3 += pe * pe.T
+    K3 = lambda k: sp.Matrix([k[0], k[1], 0]) * sp.Matrix([k[0], k[1], 0]).T   # noqa: E731
+    span_bad = sp.solve(list(T3 - al * K3(kin) - be * K3(kout)), [al, be], dict=True)
+    ctl1 = not span_bad
+    # control 2 (must fail): k_out taken from a wrong metric (mu -> mu/2) is not null for the actual g0^-1
+    solw = sp.solve(sp.Eq(q2(ginv_of(mu / 2), sp.Matrix([1, a])), 0), a)
+    koutw = [sp.Matrix([1, s_]) for s_ in solw if sp.simplify(s_ - 1) != 0][0]
+    ctl2 = q2(ginv, koutw) != 0
+    two_dust_rad = in_span
+    ctl = ctl1 and ctl2
     return v2a and v2b, (v3, schur, posdef, notround, iso_round, Tiso[2][2], not v3_ctl_implication), \
         v4 and two_dust_rad, ctl
 
@@ -174,12 +216,15 @@ def main():
           '      %s' % v2)
     v3, schur, posdef, notround, iso_round, tiso, rej = v3
     print('  V3: (a) an so(3)-commuting symmetric form on the angular space is c I (Schur): %s;\n'
-          '      (b) sum w p_th^2 has Hessian diag(2 w), positive definite: %s;\n'
+          '      (b) sum w p_th^2 = 0 forces p_th = 0 for positive weights (least eigenvalue of diag(2 w) > 0;\n'
+          '      control, one negative weight, admits a nonzero p_th and is rejected): %s;\n'
           '      a measure with p_p = 0 and one p_th != 0 is not round: %s' % (schur, posdef, notround))
     print('  V3 control: without V2, the isotropic angular measure is round (%s) with T_thth = %s > 0, so round\n'
           '      alone does not give p_th = 0: the implication is rejected: %s' % (iso_round, tiso, rej))
     print('  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: %s;\n'
-          '      control (one momentum with p_th != 0 added: T_thth > 0, not two-dust) rejected: %s' % (v4, ctl4),
+          '      (k_in, k_out roots of the actual g0^-1, every momentum null, the stress solved into span(k_in k_in,\n'
+          '      k_out k_out)); controls rejected (a momentum with p_th != 0 added: no solution; k_out from a wrong\n'
+          '      metric not null): %s' % (v4, ctl4),
           flush=True)
     ok = {'V1': lm1 and mean_ok and quad_ok and ctl1, 'V2': v2, 'V3': v3 and rej, 'V4': v4 and ctl4}
     for kname, val in ok.items():
