@@ -323,6 +323,26 @@ lambda_sharp + 2 = 35099/10000, which is not a level (exact). The margin: over t
 fixed-point integers at 2^-160 with d1's enclosure of width 3 x 10^-57 rounded outward, the least distance from the
 levels in (3, 4 + eps_K] and alpha is 3.185791 x 10^-16 (at x = 2, n = 1,041,470). []
 
+### B.5b I9:55-58 at the levels below 3, alpha_1 included (proved; R10)
+
+I11:156-157 makes a level alpha < 3 admissible "in the sense of III.I''", that is I9:55-58: alpha in (2,
+min(a_K, 3)) with alpha - 2 != Re lambda - 1 and alpha - Re lambda not in {-Re mu} u Re pi_1 E_K for every lambda in
+pi_1 M and every root mu (M = E_++ cap {Re < 2}, I9:46). This is the round-10 verifier's gap; it concerns the 53,244,734
+levels in (2, 3), beta_0 = alpha_1 = 2 + eps_K/2 among them.
+
+**Theorem B.4.** At the weights of B.2, on R9.1's reading (pi_1 M = lambda_sharp + N_0 d1, Re < 2), every level
+beta_k in (2, 3), k = 0, ..., 53,244,733, is admissible in the sense of I9:55-58. Certified: every such level is at
+least {R10M} from the excluded set.
+
+*Proof (computed, exact; certified).* The range: beta_k < 3 for k < k_3 (exact); at the levels the background is h,
+a_K >= 4 + eps_K (I15:332); at the base R10.1 fixes a_K = 2 + (1 - 10^-9) eps_K > alpha_1 = 2 + eps_K/2 (exact). With
+lambda = lambda_sharp + n d1 < 2, x := alpha - lambda lies in (0, 3 - lambda_sharp) = (0, 1.4901); there {-mu} (B.3's
+list) and Re pi_1 E_K (III.G' Lemma 1.3: the -mu with Re mu <= 0, plus N_0) give seven values, 1, d0, d1, 1 + d0, 1 + d1,
+1 + delta'_1, 1 + delta_2, and the first clause, alpha - 2 = lambda - 1, is x = 1. alpha rational forces n d1 + theta
+in Q, theta in {0, d0, d1, delta'_1, delta_2}: by Theorem B.3's field tests only theta = 0, n = 0, alpha = lambda_sharp
++ 1 = 25099/10000, which is not a level (exact). The margin: the same fixed-point enumeration as Theorem B.3's over the
+seven x and n <= 1,470,302 against the levels in (2, 3). Control C8: a level planted at 2.5099 is found. []
+
 ### B.6 The literal hypothesis "for every j" (proved; R7)
 
 Proposition 5.1's hypotheses hold as stated, for every j in N_0 and every root (Theorem B.2 covers them): the only
