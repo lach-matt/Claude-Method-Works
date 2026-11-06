@@ -504,7 +504,7 @@ PART-III-I5-UNBOOST.md	70	\breve h	NAMING	definition h^{<=1}(S)		3
 PART-III-I5-UNBOOST.md	71	\breve h | \breve\omega	NAMING	definition; kernel property is the site's		3
 PART-III-I5-UNBOOST.md	77	\breve\omega | \omega_{\mathrm s1}	NAMING	Definition 1.1		3
 PART-III-I5-UNBOOST.md	80	\omega_{\mathrm s1}	HOMONYM	Lemma 1.2 (a) is about the Minkowski forms bar omega_{s1}, breve bar omega_{s1} only		3
-PART-III-I5-UNBOOST.md	128	\omega_{\mathrm s1}	SITE-ONLY	asymptotic condition omega_{s1}-bar omega_{s1} in A^{(2,0)...}		3
+PART-III-I5-UNBOOST.md	128	\omega^{\le1}_\natural | \omega_{\mathrm s1}	SITE-ONLY	asymptotic condition omega_{s1}-bar omega_{s1} in A^{(2,0)...}; omega^{<=1}_natural's asymptotics likewise (D621)		3
 PART-III-I5-UNBOOST.md	129	\breve\omega | \omega_{\mathrm s1}	SITE-ONLY	asymptotic condition on breve omega		3
 PART-III-I5-UNBOOST.md	139	\breve h	SITE-ONLY	class A^G of h^{<=1}		3
 PART-III-I5-UNBOOST.md	414	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1}: the Minkowski translation 1-form		3
@@ -516,7 +516,7 @@ PART-III-I7-PARAMS.md	133	\breve h	SITE-ONLY	h^{<=3} = h - i sigma breve h^{<=3}
 PART-III-I7-PARAMS.md	134	\breve h	SITE-ONLY	h^{<=3} = h - i sigma breve h^{<=3} (III.G'''' 5.1) and polyhomogeneity		2
 PART-III-I8-UNPARAM.md	19	\omega_{\mathrm s1}	NAMING	intro		3
 PART-III-I8-UNPARAM.md	28	\omega_{\mathrm s1}	NAMING	notation		3
-PART-III-I8-UNPARAM.md	29	\omega_{\mathrm s1}	NAMING	notation		3
+PART-III-I8-UNPARAM.md	29	\omega^{(0)}_{b_0,\mathrm s1} | \omega_{\mathrm s1}	NAMING	notation		3
 PART-III-I8-UNPARAM.md	39	\omega_{\mathrm s1}	NAMING	restates the site asymptotics (1.1)		3
 PART-III-I8-UNPARAM.md	41	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1}(S_w)=w.dx, the Minkowski 1-form		3
 PART-III-I8-UNPARAM.md	55	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1}: Minkowski 1-form		3
@@ -534,7 +534,7 @@ PART-III-I9-COMMOTION.md	73	\breve\omega	NAMING	Definition/restatement of the II
 PART-III-I9-COMMOTION.md	74	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
 PART-III-I9-COMMOTION.md	76	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
 PART-III-I9-COMMOTION.md	92	\breve\omega	SITE-ONLY	(2.1) from the kernel conditions only.		1
-PART-III-I9-COMMOTION.md	107	\breve\omega	SITE-ONLY	Recursion and orders from the stated classes.		1
+PART-III-I9-COMMOTION.md	107	\breve\omega | \omega^{\le4}	SITE-ONLY	Recursion and orders from the stated classes.; omega^{<=4} likewise (D621)		1
 PART-III-I9-COMMOTION.md	109	\breve\omega	SITE-ONLY	Recursion and orders from the stated classes.		1
 PART-III-I9-COMMOTION.md	110	\breve\omega	SITE-ONLY	Recursion and orders from the stated classes.		1
 PART-III-I9-COMMOTION.md	111	\omega_{\mathrm s1}	SITE-ONLY	omega_s1-bar in A^G: stated asymptotics.		1
@@ -576,3 +576,58 @@ PART-III-J4-EXACT.md	553	h_{b,\mathrm{rem}}	SITE-ONLY	tower relations, smoothnes
 PART-III-J4-EXACT.md	561	\breve h	SITE-ONLY	tower relations, smoothness in b and the b-derivative classes of I15 Lemma 2.1		2
 PART-III-J4-EXACT.md	566	h_{b,\mathrm{rem}}	SITE-ONLY	tower relations, smoothness in b and the b-derivative classes of I15 Lemma 2.1		2
 PART-III-J4-EXACT.md	613	h_{b,\mathrm{rem}}	SITE-ONLY	tower relations, smoothness in b and the b-derivative classes of I15 Lemma 2.1		2
+PART-II-C-OPERATORS.md	123	\omega_\nu	HOMONYM	omega_kappa omega_nu: the components of the radial unit covector (omega^mu d_mu = d_r), II.C's Minkowski computation; no tower.		D621
+PART-II-C-OPERATORS.md	124	\omega_\nu	HOMONYM	as 123: d_nu omega^mu = r^-1(delta - omega_nu omega^mu), the radial unit covector.		D621
+PART-III-A2-HARMONICS.md	468	\omega_\nu	HOMONYM	a generic 1-form omega with d_mu omega_nu + d_nu omega_mu = 0 (Killing forms of Minkowski); not the tower combination.		D621
+PART-III-A2-HARMONICS.md	469	\omega_\nu	HOMONYM	as 468.		D621
+PART-III-D-GAUGEPOT.md	40	\omega_\nu	HOMONYM	Weitzenboeck computation for a generic 1-form omega (Box_g = 2 delta G delta*); not the tower combination.		D621
+PART-III-D-GAUGEPOT.md	41	\omega_\nu	HOMONYM	as 40.		D621
+PART-III-D3-SYMSTATES.md	95	\omega_\nu	HOMONYM	delta*_g omega = sym d omega - Gamma omega for a generic stationary 1-form; not the tower combination.		D621
+PART-III-F4-ZERO.md	374	\omega^{(0)}_{b_0,\mathrm s0}	NAMING	definition of D_pi with the s0 bottom omega^{(0)}_{b0,s0} = g_{b0}(d_t*,.), the natural Killing form.		D621
+PART-III-F4-ZERO.md	375	\omega^{(0)}_{b_0,\mathrm s1}	NAMING	definition of D_pi (scalar type 1).		D621
+PART-III-F4-ZERO.md	378	\omega^{(0)}_{b_0,\mathrm s0}	SITE-ONLY	delta* of the s0 bottom vanishes: it is Killing (III.D'' Prop 3.1 (2), the site's statement).		D621
+PART-III-F4-ZERO.md	379	\omega^{(0)}_{b_0,\mathrm s1}	NAMING	delta* omega^{(0)}_{b0,s1}(S') = h_{b0,s1}(S'): the state's definition.		D621
+PART-III-F4-ZERO.md	392	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	scalar type 1 from the site's conditions: in ker Box(0), leading term d(|x|S), and A^eps cap ker = 0; the projection commutes with the natural Box.		D621
+PART-III-F4-ZERO.md	393	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	as 392.		D621
+PART-III-F4-ZERO.md	394	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	as 392.		D621
+PART-III-F4-ZERO.md	398	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	delta* omega = 0 gives omega = 0 on {r>r_h} (F4 Cor 3.2 (c)), then the leading term d(|x|S) at the site gives S = 0.		D621
+PART-III-F4-ZERO.md	399	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	as 398.		D621
+PART-III-I10-CORR4.md	93	\omega^{(-1)}_{b_0,\mathrm v1}	SITE-ONLY	V_K is the kernel of the v1 state; it contains every V with R_V Killing (III.D'' Prop 3.1 (3), the site); at b0 V_K = V_1.		D621
+PART-III-I10-CORR4.md	156	\omega^{(-1)}_{b_0,\mathrm v1}	SITE-ONLY	(2.1) for v1 from the site's asymptotics omega^{(-1)}_{b0,v1}(V) - V in A^{(2,0)+F}.		D621
+PART-III-I10-CORR4.md	157	\omega^{(0)}_{b_0,\mathrm s0}	SITE-ONLY	(2.1) for s0: the bottom is g_{b0}(d_t*,.), natural and O(4)-invariant, not an averaged choice.		D621
+PART-III-I10-CORR4.md	164	\omega^{(0)}_{b_0,\mathrm s0}	SITE-ONLY	the s0 bottom is Killing (III.D'' Prop 3.1 (2)).		D621
+PART-III-I10-CORR4.md	165	\omega^{(0)}_{b_0,\mathrm s0}	SITE-ONLY	as 164.		D621
+PART-III-I10-CORR4.md	192	\omega_\nu	NAMING	statement of Lemma 2.2 (a), (2.2).		D621
+PART-III-I10-CORR4.md	195	\omega_\nu	NAMING	statement of Lemma 2.2 (b) (orders).		D621
+PART-III-I10-CORR4.md	202	\omega_\nu	NAMING	statement of Lemma 2.2 (d).		D621
+PART-III-I10-CORR4.md	216	\omega_\nu	SITE-ONLY	(2.2) from the tower relations omega^{<=k}_tau in ker Box only (B_j = 0, j <= K).		D621
+PART-III-I10-CORR4.md	218	\omega^{\le k}_\tau	SITE-ONLY	the tower relation Box omega^{<=k}_tau = 0, as defined at I10:148-149 from the site.		D621
+PART-III-I10-CORR4.md	225	\omega_\nu	SITE-ONLY	orders from (2.1), the site's asymptotic classes.		D621
+PART-III-I10-CORR4.md	234	\omega_\nu	SITE-ONLY	near K+: m_nu = delta* omega_nu, vartheta_nu = Box omega_nu / 2, by the definitions and chi_K = 1.		D621
+PART-III-I10-CORR4.md	235	\omega_\nu	SITE-ONLY	(2.2) from the tower relations; the K+-weight of the tower tops.		D621
+PART-III-I10-CORR4.md	242	\omega_\nu	SITE-ONLY	delta*(phi v) = phi delta-hat*(0) v + phi' dt_* (x)_s v (natural); delta-hat*(0) breve omega^0 = h_tau by definition.		D621
+PART-III-I10-CORR4.md	275	\omega_\nu	NAMING	zeta_nu := delta*(chi_K omega_nu): definition.		D621
+PART-III-I10-CORR4.md	276	\omega_\nu	SITE-ONLY	D Ric(zeta_nu) = 0, D Ric o delta* = 0 being natural; no property of the choice.		D621
+PART-III-I10-CORR4.md	313	\omega_\nu	NAMING	zeta_nu restated.		D621
+PART-III-I15-AUGMENT5.md	87	\omega_\nu	SITE-ONLY	rotation rows: the v1 1-form tower on all of V_1 (Definition 1.3); its tower relations and classes are the site's, (C3) naming it as a map of V_1 since D621 (m1).		D621
+PART-III-I16-BASEPOINTS.md	118	\omega_\nu	SITE-ONLY	vartheta_{nu,sharp} = Box omega_nu / 2 near K+, the K+-weight of the tower tops; b-differences by (P3).		D621
+PART-III-I5-UNBOOST.md	107	\omega^{\le1}_\natural	NAMING	Definition 2.1 of h^{(-1)}.		D621
+PART-III-I5-UNBOOST.md	108	\omega^{\le1}_\natural	NAMING	as 107.		D621
+PART-III-I5-UNBOOST.md	126	\omega^{\le1}_\natural	SITE-ONLY	smoothness, a site condition.		D621
+PART-III-I5-UNBOOST.md	134	\omega^{\le1}_\natural	SITE-ONLY	omega^{<=1}_natural - w in A^{(1,0)...}: from the site's asymptotics (Lemma 2.2's proof).		D621
+PART-III-I5-UNBOOST.md	160	\omega^{\le1}_\natural	NAMING	statement of Lemma 2.4, (2.3).		D621
+PART-III-I5-UNBOOST.md	170	\omega^{\le1}_\natural	SITE-ONLY	D Ric o delta* = 0 (natural) and the definitions.		D621
+PART-III-I5-UNBOOST.md	171	\omega^{\le1}_\natural	SITE-ONLY	as 170.		D621
+PART-III-I5-UNBOOST.md	178	\omega^{\le1}_\natural	SITE-ONLY	h^{<=1}_natural = delta* omega^{<=1}_natural lies in both kernels: the site's condition (I5:72-73, 77-78).		D621
+PART-III-I5-UNBOOST.md	180	\omega^{\le1}_\natural	SITE-ONLY	commutators with chi_K and the kernel conditions.		D621
+PART-III-I5-UNBOOST.md	182	\omega^{\le1}_\natural	SITE-ONLY	as 180.		D621
+PART-III-I8-UNPARAM.md	16	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	the source's term -d chi_K (x)_s omega^{(0)}_{b0,s1} has iota+-order 1: from the site's leading term d(|x|S).		D621
+PART-III-I8-UNPARAM.md	149	\omega^{(0)}_{b_0,\mathrm s1}	NAMING	a remark on the source's h^{(0)}_{s1}.		D621
+PART-III-I8-UNPARAM.md	461	\omega^{(0)}_{b_0,\mathrm s1}	SITE-ONLY	finding: the order of the source's term, from the site's leading term.		D621
+PART-III-I9-COMMOTION.md	81	\omega^{\le4}	NAMING	Definition 2.1 of m_{lambda,k}, h^{(lambda-1,k)}_{s1}.		D621
+PART-III-I9-COMMOTION.md	82	\omega^{\le4}	NAMING	as 81.		D621
+PART-III-I9-COMMOTION.md	91	\omega^{\le4}	NAMING	statement of Lemma 2.2, (2.1).		D621
+PART-III-I9-COMMOTION.md	93	\omega^{\le4}	NAMING	statement of Lemma 2.2 (orders).		D621
+PART-III-I9-COMMOTION.md	114	\omega^{\le4}	SITE-ONLY	orders from the stated classes.		D621
+PART-III-I9-COMMOTION.md	118	\omega^{\le4}	SITE-ONLY	near K+: vartheta = Box omega^{<=4} / 2, by (2.1) from the tower relations.		D621
+PART-III-I9-COMMOTION.md	144	\omega^{\le4}	SITE-ONLY	h^{(lambda-1,k)}_{s1} = m - delta*(chi_K omega^{<=4}): definitions and III.I'''' (1.2).		D621
