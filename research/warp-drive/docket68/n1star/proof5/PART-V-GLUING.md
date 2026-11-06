@@ -405,11 +405,11 @@ Tangherlini's data in $|||\cdot|||_{\alpha,2}$.
 sentences are stale. Part VII does not relate the transform to the boosts of III.B or the translations of III.J, and
 does not check charges in $V$ (Part VII finding (VII1)). Part VII uses only the proof of Theorem 3.1, in class form,
 with Tangherlini members on $\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2). The members here lie on Kerr-Schild
-slices, whose $K$ differs from the data on $\Sigma_{\mathrm{IVP}}$ by $\nabla^2f+\rho^4C^\infty$, $f$ the time function
-of $\Sigma_{\mathrm{IVP}}$'s far part (GLUEDECAY5 Lemma 4.1 (d)). So Theorem 3.1's glued data are not small in III.K's
-class at any $R$. Gluing a decaying perturbation with smallness in that class takes the members on
-$\Sigma_{\mathrm{IVP}}$ (GLUEDECAY5 Lemma 4.1 and Proposition 4). Theorem 3.1 itself, about abstract data, is
-unchanged.]
+slices, whose $K$ differs from the data on $\Sigma_{\mathrm{IVP}}$ by $\nabla^2f+\rho^4C^\infty$, $f$ the height
+function of the graph $\Sigma_{\mathrm{IVP}} = \{t_{\mathrm{KS}} = f(|x|)\}$ far out, not a time function (GLUEDECAY5
+Lemma 4.1 (d); wording corrected in GLUEDECAY5 R3.0). So Theorem 3.1's glued data are not small in III.K's class at any
+$R$. Gluing a decaying perturbation with smallness in that class takes the members on $\Sigma_{\mathrm{IVP}}$
+(GLUEDECAY5 Lemma 4.1 and Proposition 4). Theorem 3.1 itself, about abstract data, is unchanged.]
 
 ## 4. Findings, labels and sources
 

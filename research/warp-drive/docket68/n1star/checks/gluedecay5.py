@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """gluedecay5.py -- the norms, exponents and the distance kappa of GLUEDECAY5.md (which decaying perturbations
-Theorem 4 (ii) reaches, directly or through gluing). Round 2 (R2.0): every check runs against named mutants of the
-code under test, each of which must fail.
+Theorem 4 (ii) reaches, directly or through gluing). Rounds 2-3 (R2.0, R3.0): every check runs against named mutants
+of the code under test, each of which must fail.
 
 The paper's section 8.7 (paper/RESPONSE-HL-5D.md) left open whether a perturbation decaying like r^(-a), 3/2 < a,
 agrees on a ball B_R with data to which Theorem 4 (ii) applies, with smallness uniform as R -> oo. GLUEDECAY5.md
@@ -41,8 +41,12 @@ rho^2, rho^3 in H^d(S^3) plus the remainder in rho^(l0) H_b^d with the b-density
      (a, l0) on 3/2 <= a <= l0, 3 <= l0 <= 4, cut at a = 2, 3, checked at every vertex of each piece: the gluing
      terms' exponents below the box exponent min(0, 2 + d - a); the box radius not decaying where a charge of the
      perturbation need not vanish (a <= 2 + d); theta = O(eps R^(-a)); every piece of the glued norm O(eps
-     R^(l0-a)). Mutants: 'no_decouple' (mass and boost bounded only as the degree-1 charges), 'box_strong' (box
-     exponent min(0, 1 + d - a): true as an inequality on T, but it decays where the charges need not vanish).
+     R^(l0-a)); and the exponents of (5.2) derived from the box radii, p2exp = box(d = 0) and p3exp = max_d box(d),
+     at every vertex. The fluxes' constants are asserted: c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, 2 pi^2. Mutants:
+     'no_decouple' (mass and boost bounded only as the degree-1 charges), 'box_strong' (box exponent min(0, 1 + d - a):
+     true as an inequality on T, but it decays where the charges need not vanish), 'energy_trsign' and 'mom_drop_x'
+     (a sign and an index of the flux integrands), 'p3_strong' (p3exp = min(0, 2 - a)), 'box_weak' (box exponent
+     min(0, 3 + d - a)).
   E5 (exact, sympy series) Lemma 4.1's inputs. (a) The spin enters the Kerr-Schild metric at rho^3: every component of
      h k k at spins (1/3, 1/5) minus that at zero spin starts at rho^3 or later, some at rho^3 (checks/mpdata5.py's
      mp_ingredients, one rational point of S^3). (b) A translation enters at rho^3. (c) A radial Hessian carries no
@@ -50,15 +54,19 @@ rho^2, rho^3 in H^d(S^3) plus the remainder in rho^(l0) H_b^d with the b-density
      (d) Hintz's surface is not a Kerr-Schild slice: f' = 2 mu/(r^2 - mu) (III.B (3.3)) gives tr Hess f = 2 mu r^-3
      + O(r^-5). Mutants: 'mass' (a different mass in place of the spins: the difference starts at rho^2; a failed
      series raises instead of counting as a failure), 'dim3' (the three-dimensional Laplacian in (d): 0 at rho^3).
-  E6 (text) GLUEDECAY5.md: every line at most 121 characters; section 8's blocks (a) and (b): each old block occurs
-     exactly once in paper/RESPONSE-HL-5D.md, (a) immediately followed by (b), and the new blocks' lines are at most
-     121 characters. Mutants: 'char_a', 'char_b' (one character of an old block changed).
+  E6 (text) GLUEDECAY5.md: every line at most 121 characters; section 8.3's blocks (a)-(h): each old block occurs
+     exactly once in paper/RESPONSE-HL-5D.md, the blocks are disjoint, (a) is immediately followed by (b), and the new
+     blocks' lines are at most 121 characters. With all blocks applied to a copy of the paper: section 8.7 still cites
+     support8b.py M3 and cites GLUEDECAY5.md; section 9's computational-support list, Appendix A, Appendix C (the
+     source map) and Appendix D (the run list, the imports, the md5 table) carry gluedecay5.py and the note; no line
+     exceeds 121 characters. Mutants: 'char_a', 'char_b' (one character of an old block changed), 'drop_c' (block (c)
+     not applied), 'drop_m3' (block (b) without its citation of support8b.py M3).
 
 Labels: computed (exact, sympy; E2's positivity certified by interval arithmetic; E3's instances by mpmath at 30
 digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; E4 checks the exponents and the
 flux scalings, not the constants C_1, C_P, R_P, R_G, L; E5 checks the expansions that Lemma 4.1 uses, not the gluing.
 
-Run: python3 checks/gluedecay5.py   (about two minutes; E3 and E5 most of it)
+Run: python3 checks/gluedecay5.py   (about seventy seconds; E3 and E5 most of it)
 """
 import os
 import sys
@@ -446,8 +454,8 @@ def e4():
     res_i["norm: p3 + l0 - 4 <= l0 - a (outer)"] = holds(lambda a_, l_: p3exp(a_) + l_ - 4 - (l_ - a_), False)
     res_i["norm: 0 <= l0 - a (coefficients, compact part)"] = holds(lambda a_, l_: -(l_ - a_), False)
     res_i["norm: l0 - a > 0 off a = l0"] = holds(lambda a_, l_: -(l_ - a_), True, (on_al0,))
-    say("E4: exact fluxes over S_rho of order-a profiles, c_d(a) rho^(2+d-a) with c_d(a) != 0: %s; they tend to 0 "
-        "iff a > 2 + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): %s" % (flux_ok, lim_ok))
+    say("E4: exact fluxes over S_rho of order-a profiles are c_d rho^(2+d-a), with c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, "
+        "2 pi^2 asserted: %s; they tend to 0 iff a > 2 + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): %s" % (flux_ok, lim_ok))
     if MUT is None:
         for name, (d, coef, _) in res.items():
             print("        %-26s c(a) = %s" % (name, sp.factor(coef)), flush=True)
@@ -543,32 +551,74 @@ def block(lines, tag):
     return "\n".join(lines[j + 1:k])
 
 
+TAGS = "abcdefgh"                                                      # section 8.3's blocks; (a), (b) adjacent
+
+
+def span_of(paper, old):
+    k = paper.find(old)
+    return (k, k + len(old))
+
+
 def e6():
     doc = open(DOC, encoding="utf-8").read()
     paper = open(PAPER, encoding="utf-8").read()
     dl = doc.split("\n")
     long_ = [i + 1 for i, l_ in enumerate(dl) if len(l_) > 121]
-    oa, ob = block(dl, "Old (a):"), block(dl, "Old (b):")
-    na, nb = block(dl, "New (a):"), block(dl, "New (b):")
+    olds = {t_: block(dl, "Old (%s):" % t_) for t_ in TAGS}
+    news = {t_: block(dl, "New (%s):" % t_) for t_ in TAGS}
     if MUT == "char_a":
-        oa = oa.replace("ρ", "p", 1)
+        olds["a"] = olds["a"].replace("ρ", "p", 1)
     if MUT == "char_b":
-        ob = ob.replace("ρ", "p", 1)
-    n_a, n_b = paper.count(oa), paper.count(ob)
-    adj = n_a == 1 and n_b == 1 and paper.find(oa) + len(oa) + 1 == paper.find(ob)
-    line_a = paper[:paper.find(oa)].count("\n") + 1 if n_a else None
-    line_b = paper[:paper.find(ob)].count("\n") + 1 if n_b else None
-    newlong = [l_ for l_ in (na + "\n" + nb).split("\n") if len(l_) > 121]
-    say("E6: GLUEDECAY5.md lines over 121 characters: %s; old block (a) occurs %d time(s), from line %s (%d lines); "
-        "old block (b) %d time(s), from line %s (%d lines); (a) immediately followed by (b): %s; new block lines over "
-        "121: %d" % (long_ or "none", n_a, line_a, oa.count("\n") + 1, n_b, line_b, ob.count("\n") + 1, adj,
-                     len(newlong)))
-    return not long_ and adj and not newlong
+        olds["b"] = olds["b"].replace("ρ", "p", 1)
+    if MUT == "drop_m3":
+        news["b"] = news["b"].replace("support8b.py` M3", "support8b.py`")
+    counts = {t_: paper.count(olds[t_]) for t_ in TAGS}
+    once = all(n_ == 1 for n_ in counts.values())
+    spans = sorted((span_of(paper, olds[t_]) + (t_,)) for t_ in TAGS) if once else []
+    disjoint = once and all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
+    adj = once and span_of(paper, olds["a"])[1] + 1 == span_of(paper, olds["b"])[0]
+    applied = paper
+    for (s0, s1, t_) in reversed(spans):
+        if MUT == "drop_c" and t_ == "c":
+            continue
+        applied = applied[:s0] + news[t_] + applied[s1:]
+
+    def part(start, end):
+        a0 = applied.find(start)
+        return applied[a0:applied.find(end, a0 + len(start))] if a0 >= 0 else ""
+    s87 = part("### 8.7 ", "### 8.8 ")
+    s9 = part("- **Computational support.**", "\n- **")
+    sA = part("## Appendix A.", "## Appendix B.")
+    sC = part("## Appendix C.", "## Appendix D.")
+    sD = part("## Appendix D.", "The paper's own md5")
+    import re
+    need = {
+        "8.7 cites support8b.py M3 and GLUEDECAY5.md": "`docket68/n1star/checks/support8b.py` M3" in s87
+        and "GLUEDECAY5.md" in s87,
+        "section 9 lists gluedecay5.py": "`checks/gluedecay5.py`" in s9,
+        "Appendix A has its entry": "- `checks/gluedecay5.py` E1–E6" in sA,
+        "Appendix C maps it and the note": "checks/gluedecay5.py` E1–E6 |" in sC and "GLUEDECAY5.md" in sC,
+        "Appendix D runs it and records its import": "python3 checks/gluedecay5.py" in sD
+        and "`checks/gluedecay5.py` import" in sD,
+        "Appendix D's md5 rows": all(re.search(r"^\| `docket68/n1star/%s` \| `[0-9a-f]{32}` \|$" % re.escape(f_),
+                                               sD, re.M)
+                                     for f_ in ("checks/gluedecay5.py", "checks/gluedecay5.out", "GLUEDECAY5.md",
+                                                "proof5/PART-V-GLUING.md")),
+        "applied paper lines <= 121": max(len(l_) for l_ in applied.split("\n")) <= 121,
+    }
+    newlong = [l_ for t_ in TAGS for l_ in news[t_].split("\n") if len(l_) > 121]
+    say("E6: GLUEDECAY5.md lines over 121 characters: %s; section 8.3's old blocks (a)-(h) occur once each: %s (lines "
+        "%s); disjoint: %s; (a) immediately followed by (b): %s; new block lines over 121: %d; with all blocks applied: "
+        "%s" % (long_ or "none", once, ", ".join("%s %d" % (t_, paper[:span_of(paper, olds[t_])[0]].count("\n") + 1)
+                                                 for t_ in TAGS) if once else counts, disjoint, adj, len(newlong),
+                "; ".join("%s %s" % kv for kv in need.items())))
+    return not long_ and once and disjoint and adj and not newlong and all(need.values())
 
 
 CHECKS = [("E1", e1, ["lebesgue"]), ("E2", e2, ["no_osc", "ss_sign", "lam_max"]),
-          ("E3", e3, ["coef3", "second_r3", "mu0"]), ("E4", e4, ["no_decouple", "box_strong"]),
-          ("E5", e5, ["mass", "dim3"]), ("E6", e6, ["char_a", "char_b"])]
+          ("E3", e3, ["coef3", "second_r3", "mu0"]),
+          ("E4", e4, ["no_decouple", "box_strong", "energy_trsign", "mom_drop_x", "p3_strong", "box_weak"]),
+          ("E5", e5, ["mass", "dim3"]), ("E6", e6, ["char_a", "char_b", "drop_c", "drop_m3"])]
 
 
 def main():

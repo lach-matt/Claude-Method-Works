@@ -599,7 +599,8 @@ stage data it means); read whole, with those three edits, by the section 6 reade
 are seated, no major gap, three minor findings and thirteen notes, all seated at D619 (the tame clause corrected,
 `checks/tame5.py`; D616 pinned, `checks/stagen5.py` S5; the symmetrizer on all fields, `checks/indepcons5.py` and
 `checks/symmshift5.py`). `checks/stagen5.py` S2 and S3 are a ledger of Lemma 5.1's weights and an identity, not
-computations from the operators (n12). The D619 seating itself is not yet read by a verifier]. No
+computations from the operators (n12). The D619 seating was read by an independent verifier (D624, 2026-11-06):
+every finding seated correctly, no new major or minor finding, four nits applied]. **Proved (D624).** No
 smallness of the background is used, so the data are posed on the slice Sigma := Sigma_tau0 of section 1, before the
 shell reaches the hole (route W item 4), and they coincide with the seed's data on Sigma cap {r < v_start - tau0}.
 
@@ -834,8 +835,9 @@ energy identities are those above, with one addition: the commutator [X^I, S A0]
 (w, q)_L||_{H^(s-1)}, which testing the projected second equation with X^{J*} X^J d_r (w, q)_L, |J| = 0,
 ..., s - 1 in turn, bounds by C (||(w, q)_L||_{H^s} + ||d_r a_L||_{H^(s-1)} + ||F_J||_{H^(s-1)}) (S A0 > 0;
 the commutators are of lower order in J). So the bound holds for (a_L, (w, q)_L) uniformly in L; a weak-*
-limit L -> infinity solves (6.4) and obeys it, and uniqueness follows from the bound [D619, n13: from the bound at
-index 0, applied to the difference of two solutions whose left side is finite. For such a difference a lies in L^2
+limit L -> infinity solves (6.4) and obeys it, and uniqueness follows from the bound [D619, n13: from the proof's energy
+estimate at index 0, applied to the difference of two solutions whose left side is finite. For such a difference a lies
+in L^2
 H^(s+2) with d_r a in L^2 H^s, and (w, q) in L^inf H^s with d_r (w, q) in L^2 H^(s-1), by the equations; so at
 index 0 every pairing of the two energy identities is defined and absolutely continuous in r, which at index s it
 need not be. The index-0 estimate commutes no derivative and needs only the L^inf and W^(1,inf) norms of the
@@ -893,8 +895,10 @@ r)} of the tame bound as corrected at D619 changes neither A's rate nor W's unif
 at U = 0, independent of U and smooth in the angles uniformly in lam, and the others are functions of U_i entering
 linearly, so m_(s'')(r) <= C (1 + E_i(r)) and the term is at most C lam^(N-2) ((R - a)^(1/2) + (int_a^r
 E_i^2)^(1/2)), a part of A proportional to lam^(N-2) and a part of W at most C lam^(N-2) <= C, bounded uniformly
-in i and lam [D619, m1]); by induction and Minkowski's inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for
-every i, with no smallness (the extremal recursion computed, `checks/tame5.py` T3), and the limit U lies in X_(s'')
+in i and lam [D619, m1] [D624: since the frozen coefficients change by C lam^-1 ||U_i|| (above), the consistent bound
+is m_(s'') <= C (1 + lam^-1 E_i), so W's added part is C lam^(N-3), still <= C as N >= 4]); by induction and Minkowski's
+inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness (the extremal recursion computed,
+`checks/tame5.py` T3), and the limit U lies in X_(s'')
 for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms are) and W does not depend
 on lam [corrected D619 (m1): W is bounded independently of lam, which is all the rate uses; the term above adds to it
 at most C lam^(N-2)], so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the
@@ -905,11 +909,11 @@ Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 Take the stage data of Lemma 6.2 with N := K + 3 and U of Proposition 6.5. Put g on Sigma: the spatial part gamma + a
 dr dr, the lapse and shift of g_app, d_tau of the spatial part fixed by K + w Pi + q dr + dr q, and d_tau of the lapse
-and shift fixed by D(g) = 0 (as in 6.1, "What Theorem D asks") [corrected D619 (n8): cited (6.2) for this fixing,
+and shift fixed by D(g) = 0 (as in section 6.1, "What Theorem D asks") [corrected D619 (n8): cited (6.2) for this fixing,
 which is made in 6.1; (6.2) is where d_tau D = 0 comes from]. Then the constraints hold exactly (Proposition 6.5), D
 = 0 and, by (6.2), d_tau D = 0 on Sigma for the solution of Ric^H = 0 with these data. For w := g - g_app on Sigma
 [D619, n10: g_app is here (5.1)'s G(X, u/lam), while (E4) is stated for its (0.4) form; the two differ by
-O(lam^(N+1)) in scaled norms (5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and
+O(lam^(N+1)) in scaled norms (section 5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and
 its tangential derivative combinations, and d_tau w_{tau .} solves the linear relation D(g) - D(g_app) = -D(g_app)
 = O(lam^(N-1)) with invertible coefficient. So, each derivative costing at most lam^-1, Data(w) <= C lam^-1
 lam^(N-2) = C lam^K: (E4). The data are smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction
@@ -945,7 +949,8 @@ and equal to the seed's data on Sigma cap {r < v_start - tau0}. []
   no major gap; three minor findings, the D26 form of the tame clause false (corrected in Lemma 6.4, computed in
   `checks/tame5.py`), these status lines, and D616 unpinned (now `checks/stagen5.py` S5); thirteen notes, among them
   the symmetrizer on all fields and with gamma_rA != 0 (`checks/indepcons5.py`, `checks/symmshift5.py`). All are
-  seated; **not read by a verifier after the edit:** the D619 seating.]
+  seated. An independent verifier read the D619 seating (D624): every finding seated correctly, no new finding beyond
+  four nits, applied. Section 6 is **proved** (D624).]
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho

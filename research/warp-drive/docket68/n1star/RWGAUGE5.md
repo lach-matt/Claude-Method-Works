@@ -381,8 +381,8 @@ in place of (1 - Lap) diverges.
 Then for tau >= 1 and 0 < delta <= 1/2, with C depending on mu and R_1 only, |h_(ab)| the components as functions on
 S^3 and |h_(ij)| the norm of the angular block in the unit sphere's metric:
 
-    (b')  sup_{r >= R_1, omega in S^3} ( r^-1 |h_(ab)| + |h_(ij)| )(tau, r, omega)  <=  C D'^(1/2) tau^-1,
-    (c')  sup_{r >= R_1, omega in S^3} ( r^(-1/2) |h_(ab)| + r^(1/2) |h_(ij)| )  <=  C delta^(-1/2) D'^(1/2) tau^(delta-1/2).
+    (b')  sup_{r >= R_1, omega} ( r^-1 |h_(ab)| + |h_(ij)| )(tau, r, omega)  <=  C D'^(1/2) tau^-1,
+    (c')  sup_{r >= R_1, omega} ( r^(-1/2) |h_(ab)| + r^(1/2) |h_(ij)| )  <=  C delta^(-1/2) D'^(1/2) tau^(delta-1/2).
 
 *Proof.* At fixed (tau, r), h_(ab) is a function on S^3 and h_(ij) is the symmetric tensor r^-2 h restricted to the
 sphere, in the unit metric. The rotations commute with e0, e1 and with the restriction to the sphere, so Omega_i

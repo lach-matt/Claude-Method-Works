@@ -41,8 +41,8 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      (b)'s means (lam^j eps_(2j+1)^2, j <= N), with eps_k <= h_n s_n^k B_k, s_n = 2^(n+2), B_k = max_(i<=k) sup
      |beta^(i)| (computed exactly: beta^(k) = e^(-1/(1-t^2)) p_k/(1 - t^2)^(2k), p_k by recursion): the log10 ratios
      decrease strictly in E and are below -1000 at E = 10^6 (they fall like lam^(1/2) e^(c sqrt(log 1/lam))).
-     Control: bump n - 1 shifted onto J_n (no zero interval): env > 0 on J_n and at lam = 10^-100 the first-degree term
-     lam^3 (8/3)|nu| env exceeds a quarter of m0 at J_n's midpoint.
+     Control: J_n filled by an extra bump of height h_n/2 (no zero interval): env > 0 on J_n and at lam = 10^-100 the
+     first-degree term lam^3 (8/3)|nu| env exceeds a quarter of m0 at J_n's midpoint.
   T7 (exact; round 6, the verifier of round 5's m9) L.17 (2)'s four-derivative form of Lemma L.4's energy argument:
      bandL4p5 H1's ledger at levels 0-4 with eps_6 <= lam^5: every coefficient bounded, so the non-triangular rule
      closes (every coefficient into Gronwall).  Control: at eps_6 <= lam^4 a coefficient of level 4 is unbounded.
@@ -348,34 +348,34 @@ def t6(control=False):
             ok &= worst < prev
         prev = worst
     ok &= prev < -1000
-    # the local first-degree amplitude on J_n: env and every derivative vanish there when the bumps are disjoint;
-    # the control overlaps them (bump n-1 shifted onto J_n), so env > 0 there and the first-degree term
-    # lam^3 (8/3)|nu| env exceeds m0 at the midpoint of J_n (lam = 10^-100)
+    # the local first-degree amplitude on J_n: env and every derivative vanish there when the bumps are disjoint.
+    # The control fills J_n (no zero interval): an extra bump of height h_n/2 at J_n's midpoint, half-width 2^-n/10;
+    # then env > 0 there and, at lam = 10^-100, the first-degree term lam^3 (8/3)|nu| env exceeds m0/4 at the midpoint
     L10 = mp.mpf(100)
     n = int(mp.ceil(mp.sqrt(mp.mpf('3.1')*L10*mp.log(10))))
     h = lambda m: mp.exp(-m*m)                                                     # noqa: E731
     beta = lambda t: mp.exp(-1/(1 - t*t)) if abs(t) < 1 else mp.mpf(0)            # noqa: E731
-    shift = mp.mpf('0.6') if control else 0
 
     def env(x):
         tot = mp.mpf(0)
         for m in range(n - 3, n + 4):
-            c0 = mp.mpf(2)**-m*(1 - (shift if m == n - 1 else 0))
-            tot += h(m)*beta(2**(m + 2)*(x - c0))
+            tot += h(m)*beta(2**(m + 2)*(x - mp.mpf(2)**-m))
+        if control:
+            tot += h(n)/2*beta(10*mp.mpf(2)**n*(x - mp.mpf('1.375')*mp.mpf(2)**-n))
         return tot
     mid = mp.mpf('1.375')*mp.mpf(2)**-n                     # the midpoint of J_n = (1.25, 1.5) 2^-n
     pts = [mp.mpf(2)**-n*(mp.mpf('1.26') + mp.mpf('0.23')*k/40) for k in range(41)]
     zero_on_J = all(env(x) == 0 for x in pts)
     lam = mp.mpf(10)**-100
     first_mid = lam**3*mp.mpf(8)/3*mp.mpf(1)/9*env(mid)
-    m0_up = (env(mid)**2 + h(n)**2*2/mp.mpf(2)**(n + 2) + h(n - 1)**2*2/mp.mpf(2)**(n + 1))/9
+    m0_up = (env(mid)**2 + h(n)**2*2/mp.mpf(2)**(n + 2) + h(n + 1)**2*2/mp.mpf(2)**(n + 3) + h(n)**2/mp.mpf(2)**n)/9
     spacelike_local = first_mid < m0_up/4
     if control:
         return zero_on_J and spacelike_local and ok
     out("  T6 (round 6) on J_n, between bump n and bump n - 1: env vanishes at all 41 sample points: %s, so the local"
-        " first-degree amplitude is 0 there (at lam = 10^-100 its bound at J_n's midpoint, against m0, is below a quarter:"
-        " %s); the record's own remainder and mean bounds against m0's lower bound (2/27) int env^2, in log10 (times"
-        " the record's unknown constants): " % (zero_on_J, spacelike_local) + "; ".join(rows)
+        " first-degree amplitude is 0 there (at lam = 10^-100 its bound at J_n's midpoint is below m0/4: %s); the"
+        " record's own remainder and mean bounds against m0's lower bound (2/27) int env^2, in log10 (times the"
+        " record's unknown constants): " % (zero_on_J, spacelike_local) + "; ".join(rows)
         + "; strictly decreasing and below -1000 at the last: %s" % ok)
     return zero_on_J and spacelike_local and ok
 
@@ -392,8 +392,8 @@ def t7(control=False):
     if control:
         return ok
     out("  T7 L.17 (2): Lemma L.4's energy argument at levels 0-4 (the remainder w and its derivatives up to order 5)"
-        " with eps_6 <= lam^5 (L.17's hypothesis eps_M <= lam^5): %d terms, every coefficient bounded (the non-triangular"
-        " rule, every coefficient into Gronwall): %s" % (nterms, ok))
+        " with eps_6 <= lam^5 (L.17's hypothesis eps_M <= lam^5): %d terms, every coefficient bounded (the"
+        " non-triangular rule, every coefficient into Gronwall): %s" % (nterms, ok))
     return ok
 
 

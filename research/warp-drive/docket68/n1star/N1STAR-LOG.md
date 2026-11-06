@@ -8061,3 +8061,27 @@ independent, and none edited a file.
   with constant 3.939), workstream E round 5 (Theorem L_1E), workstream F round 3 (Theorem 7.L off the axes) and
   GLUEDECAY5 (gluing never extends Theorem 4 (ii) beyond Hintz's class) all reported. A reader of each is running,
   and so are rounds D8 and F4.
+
+**D619, D623, D624 (2026-11-06): sections 6 and 0-4 seated; section 6 proved.**
+- D619: the section 6 reader's findings are seated in N1STAR-PROOF.md.
+  - m1: the D26 form of Lemma 6.4's tame clause was false. The inequality lacked + C m^2 omega_inf^2; the corrected
+    form is computed in `checks/tame5.py`.
+  - m2: the status lines are corrected.
+  - m3: D616 is pinned by `checks/stagen5.py` S5.
+  - The thirteen notes are seated, including the symmetrizer on all fields (`checks/indepcons5.py`,
+    `checks/symmshift5.py`).
+- D624: an independent verifier read the D619 seating. Every finding is seated correctly and there is no new major or
+  minor finding. Its four nits are applied:
+  - W's added part is C lam^(N-3), not C lam^(N-2);
+  - "section 5.4";
+  - "the proof's energy estimate at index 0";
+  - "section 6.1".
+  It also found that the large-gamma_rA failure of the coordinate reading comes from Pi, not from q_r = 0. The seated
+  text, which pairs Pi with q_r in each reading, is accurate as written. Section 6 is proved.
+- D623: the sections 0-4 reader's findings are seated.
+  - Major: 0.3's eps1 sentences. Lemma 1.1 (e) needs eps1 < mu0/a^2 - 1, and Lemma 2.3 needs eps1 < s0, which gives
+    |gt^-1| <= (s0 - eps1)^-1 by Weyl's inequality (`checks/eps1hyp5.py` H4-H6).
+  - Minors: Lemma 2.2's mollifier Jacobian needs a slope bound |sigma0'| <= 7 (`checks/support5.py` C14, by Z3); the
+    [BH17] title; lzerotrace5 T7's enclosure, now two-sided; and Step 6's w-part.
+  - The six nits are applied.
+  - A confirming reader of the D623 seating is running.

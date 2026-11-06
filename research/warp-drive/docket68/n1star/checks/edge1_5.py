@@ -511,7 +511,7 @@ def e10(control=False):
     xs = [mp.mpf(10)**(-2 - mp.mpf(3)*k/800) for k in range(401)]        # 401 points on [10^-3.5, 10^-2]
     rows, ok = [], True
     for nm in names:
-        dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, kmax + 4)]
+        dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, len(Ls) + 1)]
         good, cR, cj, Cup, cdown = True, mp.mpf(0), mp.mpf(0), mp.mpf(0), mp.inf
         for x in xs:
             Lv = [f(x) for f in dl]

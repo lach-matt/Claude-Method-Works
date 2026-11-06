@@ -17,7 +17,15 @@ unchanged.
   Control: the same box for the approximant with W + 0.01 v (rcert5.py's control): its certified centre values at n = 4
      must exceed the approximant's tenfold.
 
-  python3 checks/rcert5b.py RUNDIR [nmax]          (RUNDIR holding l1_M16_800.npz, the run resid5.py fits)
+  B3 (round 4; the soundness gate the verifier of round 3 asked for) for each n, the certified sup of each component
+     must be at least (a) the certified values at the centres of the finer (2n)^3 grid and (b) the certified values at
+     500 random points of the box (both lower bounds of the true sup).  And the bound assembly itself is tested: on
+     f = T_3(t) T_3(sig) T_3(x), whose sup on a box is known, the same assembly must bound it, and with the Lagrange
+     remainder replaced by the point Taylor coefficients (the unsound mutant, which on the residual itself passes
+     (a) and (b)) it must not.
+
+  python3 checks/rcert5b.py [nmax]          (round 4: the PINNED approximant data/rcert5_C3.npz, read only, its five
+                                            md5s checked; round 3 refitted from RUNDIR, an unsaved fit)
 """
 import os, sys, time, itertools, importlib.util
 import numpy as np
@@ -25,9 +33,61 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import rcert5 as R5                                                              # noqa: E402
+import rcert5c as R5C                                                            # noqa: E402
 from flint import arb                                                             # noqa: E402
 print = R5.print
 FRL = ['ll', 'ln', 'nn', 'lx', 'nx', 'xx', '11', '22']
+
+
+def assemble(cp, cb, hpow, drop=False):
+    """the Taylor-model bound: sum_{|alpha| < Q} |f_alpha(c)| h^alpha + sum_{|alpha| = Q} sup_B |f_alpha| h^alpha (the
+    Lagrange remainder); drop=True is the unsound mutant (point coefficients at order Q too)"""
+    bnd = arb(0)
+    for i, m in enumerate(R5.MONO):
+        cc = cp.c[i] if (sum(m) < R5.Q or drop) else cb.c[i]
+        bnd = bnd + abs(cc) * hpow[m]
+    up = arb(bnd.mid() + bnd.rad())
+    return up
+
+
+def poly_test(drop):
+    """the assembly on f = T_3(t) T_3(sig) T_3(x) over boxes of half-width 0.3: the largest (grid lower bound of the
+    true sup)/(bound); <= 1 for a sound assembly"""
+    from rcert5 import TJ, MONO
+    worst = 0.0
+    for c in itertools.product((-0.6, 0.0, 0.55), repeat=3):
+        h = 0.3
+        lin = lambda c0, ax, box: TJ([arb(c0, h if box else 0)] + [arb(1) if MONO[i] == tuple(int(k == ax) for k in
+                                                                                             range(3)) else arb(0)
+                                                                for i in range(1, len(MONO))])
+        F = lambda t, s_, x: (t * t * t * 4 - t * 3) * (s_ * s_ * s_ * 4 - s_ * 3) * (x * x * x * 4 - x * 3)
+        vb = F(lin(c[0], 0, True), lin(c[1], 1, True), lin(c[2], 2, True))
+        vp = F(lin(c[0], 0, False), lin(c[1], 1, False), lin(c[2], 2, False))
+        hpow = {m: arb(h) ** sum(m) for m in MONO}
+        up = float(assemble(vp, vb, hpow, drop))
+        g = np.linspace(-h, h, 61)
+        T3 = lambda z: 4 * z ** 3 - 3 * z
+        tt, ss, xx = np.meshgrid(c[0] + g, c[1] + g, c[2] + g, indexing='ij')
+        worst = max(worst, float(np.abs(T3(tt) * T3(ss) * T3(xx)).max()) / up)
+    return worst
+
+
+def point_values(prep, frame, names, pts, cache):
+    """certified lower bounds of |component| at the points (t, sig, x)"""
+    C3, g, _ = prep
+    out = np.zeros((len(pts), 8))
+    for j, (t_, s_, x_) in enumerate(pts):
+        fp = {}
+        for f in R5.RS.NAMES:
+            tens, l1 = cache[f]
+            pt = R5.point_coeffs(tens, [t_], [s_], [x_], R5.Q + 2)
+            fp[f] = R5.field_jet({k: a for k, a in pt.items() if sum(k) <= R5.Q + 2}, 0, 0, 0)
+        ip = R5.inputs(fp, g, arb(t_), s_, arb(x_), False)
+        vp = frame(*[ip[k] for k in names])
+        for k8 in range(8):
+            av = abs(vp[k8].c[0])
+            out[j, k8] = float(av.mid() - av.rad())
+    return out
 
 
 def certify_box(prep, frame, names, box, n, cache):
@@ -58,11 +118,7 @@ def certify_box(prep, frame, names, box, n, cache):
         fb = frame(*[ib[k] for k in names])
         fp = frame(*[ip[k] for k in names])
         for k8 in range(8):
-            bnd = arb(0)
-            for i, m in enumerate(R5.MONO):
-                cc = fp[k8].c[i] if sum(m) < Q else fb[k8].c[i]
-                bnd = bnd + abs(cc) * hpows[m]
-            up = arb(bnd.mid() + bnd.rad())
+            up = assemble(fp[k8], fb[k8], hpows, certify_box.drop)
             sup[k8] = arb('inf') if not up.is_finite() else (up if up > sup[k8] else sup[k8])
             cv = abs(fp[k8].c[0]); cu = arb(cv.mid() + cv.rad())
             if cu > cen[k8]:
@@ -71,21 +127,40 @@ def certify_box(prep, frame, names, box, n, cache):
 
 
 def main():
-    rundir = sys.argv[1]
-    nmax = int(sys.argv[2]) if len(sys.argv) > 2 else 8
+    nmax = int(sys.argv[1]) if len(sys.argv) > 1 else 8
     t0 = time.time()
     frame, names = R5.frame_code()
-    Z = R5.B.load(os.path.join(rundir, 'l1_M16_800.npz'))
-    prep = R5.prepare(Z)
-    print('approximant fitted and frame code generated (%.0f s)' % (time.time() - t0), flush=True)
+    import hashlib
+    L = np.load(R5C.OUT)
+    C3 = {k: np.array(L[k]) for k in R5.RS.NAMES}
+    pinned = all(hashlib.md5(C3[k].tobytes()).hexdigest() == R5C.PINNED[k] for k in R5.RS.NAMES)
+    prep = (C3, R5C.geometry(C3['R'].shape[2]), None)
+    print('the pinned approximant %s loaded read only, its five md5s equal rcert5c.py\'s: %s; frame code generated '
+          '(%.0f s)' % (os.path.relpath(R5C.OUT, os.path.dirname(os.path.dirname(HERE))), pinned, time.time() - t0),
+          flush=True)
+    if not pinned:
+        print('rcert5b: FAILURES (not the pinned approximant)')
+        return 1
     box = (-0.25, 0.25, -0.25, 0.25, 0.125, 0.125)
     print('the box: t in [-0.5, 0], sig in [-0.5, 0], x in [0, 0.25] (rcert5.py coordinates)')
-    cache, hist = {}, []
+    cache, hist, gates = {}, [], []
     n = 1
     while n <= nmax:
         t1 = time.time()
         sup, cen = certify_box(prep, frame, names, box, n, cache)
         hist.append((n, sup, cen))
+        tc0, ht0, sc0, hs0, xc0, hx0 = box
+        m2 = 2 * n
+        fine = [(tc0 - ht0 + (2 * p + 1) * ht0 / m2, sc0 - hs0 + (2 * q + 1) * hs0 / m2, xc0 - hx0 + (2 * r + 1) * hx0 / m2)
+                for p in range(m2) for q in range(m2) for r in range(m2)] if n <= 4 else []
+        rng = np.random.default_rng(20261106 + n)
+        rand = [(tc0 + ht0 * a_, sc0 + hs0 * b_, xc0 + hx0 * c_) for a_, b_, c_ in rng.uniform(-1, 1, (500, 3))]
+        pv = point_values(prep, frame, names, fine + rand, cache)
+        gate = all(float(sup[k8].mid() + sup[k8].rad()) >= pv[:, k8].max() for k8 in range(8)
+                   if sup[k8].is_finite())
+        gates.append(gate)
+        print('B3 n = %d gate: certified sup >= the certified values at %d finer centres and 500 random points: %s '
+              '(largest point value %.3e)' % (n, len(fine), gate, pv.max()), flush=True)
         print('B1 n = %d (%d sub-boxes, %.0f s):' % (n, n ** 3, time.time() - t1), flush=True)
         print('   ' + '  '.join('%s: sup <= %s, centres <= %s' % (k, s_.str(3), c_.str(3))
                                 for k, s_, c_ in zip(FRL, sup, cen)))
@@ -108,6 +183,12 @@ def main():
         else:
             print('   %s: ratios %s; bound at n = %d: %s' % (k, ', '.join('%.2f' % r_ for r_ in rats), last_n,
                                                             last_s[k8].str(3)))
+    w_sound, w_mut = poly_test(False), poly_test(True)
+    t_ok = w_sound <= 1.0 and w_mut > 1.0
+    print('B3 the assembly on T_3 T_3 T_3: largest true/bound %.4f (sound, must be <= 1), %.4f with the point Taylor '
+          'polynomial in place of the remainder (the mutant, must exceed 1) -> %s' % (
+              w_sound, w_mut, 'the mutant is caught (good)' if t_ok else 'BAD'))
+    ok &= t_ok and all(gates)
     # control
     Cs = R5.shifted(prep[0], prep[1], 0.01)
     _, cen_s = certify_box((Cs, prep[1], prep[2]), frame, names, box, 4, {})
@@ -118,6 +199,8 @@ def main():
     print('rcert5b (%.0f s):' % (time.time() - t0), 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
+
+certify_box.drop = False
 
 if __name__ == '__main__':
     sys.exit(main())
