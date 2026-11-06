@@ -27,7 +27,8 @@ fixed gamma).
      Gamma/E^2 as an explicit function of (R, mu, psi_P, psi_P', psi_P''); where psi_P = 0 (outside the packet: the
      gap and outside the shell) E = sqrt(G)/R and Gamma = 4 mu/R exactly: the margin is the mass. Control (must fail):
      with P's coefficient 8 -> 6 Gamma at psi_P = 0 is not 4 mu/R.
-  Q3 (computed, floating point; twobg5's background at n = 80, 160) Gamma > 0 on the seed region (region III, psi_P =
+  Q3 (computed, floating point; twobg5's background at n = 80, 160) Gamma > 0 on the seed region ([R7] R in [0.70,
+     1.861], the whole of region III on the slice; region III, psi_P =
      psi_III(vhat) read as in racglobal5 R4), including its part inside the horizon; psi_P = 0 on the slice's vacuum
      points with u <= u1 (the gap and outside the shell), so Gamma = 4 mu/R > 0 there by Q2.
   Q4 (computed, floating point) the bound on explicit seeds: for racglobal5 R4's 45 stream seeds (ds1 = 0) and 54 seeds
@@ -44,13 +45,24 @@ fixed gamma).
          eps^2 Q/2 + O(eps^3) = int_U T(xi, n);
      (c) for radial null dust, T(xi, n) = q f sqrt(2 - f)/4 along l_out = d_vhat + (f/2) d_R and q/sqrt(2 - f) along
          l_in = -d_R: negative exactly for outgoing dust inside the horizon (f < 0); for xi future-causal (f >= 0) and
-         any matter with the dominant energy condition T(xi, n) >= 0.
+         any matter with the dominant energy condition T(xi, n) >= 0. [R7 (c'), the round-6 verifier's m9: for any
+         psi_P, with E = e^psi_P, T(xi, n)/q = E f (2 - E f)/(4 sqrt(2/E - f)) along l_out = d_vhat + (E f/2) d_R:
+         its sign is f's (exact).]
   Q6 (computed) on a band inside the horizon (R in [0.72, 0.9]) a momentum seed with Q < 0 and an outgoing dust profile
      q1 >= 0 there give int T1(xi, n) < 0, so the dust amplitude s* = Q/(2 int T1(xi, n)) > 0 cancels the charge at
      second order: the intermediate-value construction of exactly localised Einstein-null-dust data inside the horizon.
      Control: the same dust on a band outside the horizon gives int T1(xi, n) > 0 (no positive s*).
+  Q7 (computed, Gauss-Legendre quadrature of closed forms; R7, the round-6 verifier's m1) seeds that reach the axes. A
+     smooth invariant momentum seed has psi = sin^2 th cos^2 th F(R, cos 2th) and s1 smooth in cos 2th (Kt = E psi_th/
+     sc is then smooth and generally nonzero on the axes); for this class the theta boundary terms of Q1's integrations
+     by parts, psi psi_th/sc, psi s1 and (cos 2th/sc^2) psi^2, vanish at th = 0, pi/2 because psi = O(sc^2). On
+     Tangherlini's slice in Part I's chart (psi_P = 0, mu = 0.82), six such seeds (random F, s1 polynomial in cos 2th,
+     two bands, one inside the horizon, Kt != 0 on the axes) have Q equal to the decomposition integrated over the
+     whole of [0, pi/2] to rounding, and Q <= -int Gamma psi^2/sin 2th < 0. Controls (must fail): Gamma -> (3/4) Gamma
+     misses Q by a quarter of the Gamma term; seeds with psi = O(sin th cos th) (not axis-regular) miss it.
 
-Labels: computed (Q1, Q2, Q5 exact; Q3, Q4, Q6 floating point). Run: python3 checks/qsign5.py   (several minutes)
+Labels: computed (Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point; Q3's Gamma > 0 is certified by interval
+arithmetic in checks/intcert5.py C1). Run: python3 checks/qsign5.py   (about a quarter of an hour under load)
 """
 import importlib.util
 import math
