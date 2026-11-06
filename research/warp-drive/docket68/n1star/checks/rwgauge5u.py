@@ -271,10 +271,22 @@ def u3a(control=False):
     ok = sp.simplify(bB - tB) == 0 and sp.simplify(bI - tI) == 0 and sp.simplify(bS - tS) == 0
     say("  U3 (a)%s: box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 +"
           " d_r*^2) (static): %s" % (" control (cross term's sign flipped)" if control else "", ok))
-    return ok
+    if control:
+        return ok
+    # the elimination of P_rr used by U4 satisfies (2.1) identically, with potential_general's V
+    V, _ = potential_general()
+    el = eliminate_rr({"P_rr": sp.Integer(1)}, V)
+    Prr = sum(c*JS[j] for j, c in el.items())
+    E21 = 2*f*JS["P_ur"] - f*(sp.diff(f, r)*JS["P_r"] + f*Prr) + V*JS["P"]
+    elim = all(iszero(sp.expand(E21).coeff(JS[j])) for j in JS) and iszero(E21.subs({JS[j]: 0 for j in JS}))
+    # potential_general is settle5.py's potential ([CLY03b]) at l = 2, 4, 6, 8
+    pg = all(iszero(V.subs(m, ll*(ll + 2) - 3) - potential(ll)) for ll in (2, 4, 6, 8))
+    say("  U3 (a): P_rr = 2 P_ur/f - (f'/f) P_r + V P/f^2 satisfies (2.1) identically: %s; potential_general equals"
+        " settle5.py's scalar potential at l = 2, 4, 6, 8: %s" % (elim, pg))
+    return ok and elim and pg
 
 
-def u3b(control=False, ls=(2, 4)):
+def u3b(control=False, ls=(2, 4, 6)):
     """DRic of h_ab = F_ab S, h_ij = 2 r^2 F S gamma with abstract F's (rwgauge5.py's tensor calculus, ingoing chart),
     then F, F_ab replaced by (10.1) (kirecon5.py) as linear combinations of the jets J(a, b) = d_v^a d_r^b of the
     master field, every mixed jet reduced by the master equation 2 u_vr = (V/f) u - (f u_r)_r; every coefficient of
@@ -430,24 +442,30 @@ def u4(control=False):
                          % (k, j, K, amax, bmax, ba, bb, good))
     att = leading_r_power(tab["h00"]["P_uu"]) == 0 and leading_r_power(tab["2F"]["P_u"]) == 0
     if not control:
-        # the consequences used in Theorem 2: (a) r^-1 times the table in L^2(dr) against the energy weights
-        # (k/r for T^j P, 1 for d_r T^j P, k^2/r for P), (b) r^-1/2 times the table against sup r^-1/2 |T^j P|,
-        # sup |d_r T^j P|, sup r^-1/2 k^2 |P|
-        ea = all(BOUND_ORBIT[j][1] - 1 <= {"P_uu": -1, "P_u": -1, "P_ur": 0, "P_r": 0, "P": -1}[j] for j in BOUND_ORBIT)
-        ea &= all(BOUND_ANG[j][1] - 1 <= {"P_uu": -1, "P_u": -1, "P_ur": 0, "P_r": 0, "P": -1}[j] for j in BOUND_ANG)
-        eb = all(BOUND_ORBIT[j][1] - sp.Rational(1, 2) <= {"P_uu": -sp.Rational(1, 2), "P_u": -sp.Rational(1, 2),
-                                                           "P_ur": 0, "P_r": 0, "P": -sp.Rational(1, 2)}[j]
-                 for j in BOUND_ORBIT)
-        eb &= all(BOUND_ANG[j][1] - sp.Rational(1, 2) <= {"P_uu": -sp.Rational(1, 2), "P_u": -sp.Rational(1, 2),
-                                                         "P_ur": 0, "P_r": 0, "P": -sp.Rational(1, 2)}[j]
-                  for j in BOUND_ANG)
+        # Theorem 2's weights, from the measured (max H-power, max r-power) of every entry: the extra weight w (r^-1
+        # for (a), r^-1/2 for (b), r^0 for (c)) times the coefficient must be bounded by what the energies and Lemma S
+        # control: (a) k/r for T^j P, 1 for d_r T^j P, k^2/r for P (H <= (11/8) k^2); (b) r^-1/2 for T^j P and k^2 P,
+        # 1 for d_r T^j P; (c) 1 for T^j P (j = 1, 2) and d_r T^j P, r^-1/2 for k^2 P
+        need = {"a": {"P_uu": -1, "P_u": -1, "P_ur": 0, "P_r": 0, "P": -1},
+                "b": {"P_uu": -sp.Rational(1, 2), "P_u": -sp.Rational(1, 2), "P_ur": 0, "P_r": 0,
+                      "P": -sp.Rational(1, 2)},
+                "c": {"P_uu": 0, "P_u": 0, "P_ur": 0, "P_r": 0, "P": -sp.Rational(1, 2)}}
+        extra = {"a": -1, "b": -sp.Rational(1, 2), "c": 0}
+        meas = {}
+        for k, cs in tab.items():
+            for j, c in cs.items():
+                K, mons = monomials(c)
+                meas[(k, j)] = (max(a for a, _ in mons), max(b for _, b in mons))
+        wt = {e: all(bm + extra[e] <= need[e][j] and am <= (1 if j == "P" else 0) for (k, j), (am, bm) in meas.items())
+              for e in need}
+        ea, eb, ec = wt["a"], wt["b"], wt["c"]
         say("  U4: r^(-1/2) h(e_a, e_b) and r^(1/2) 2F in the jets (P_rr eliminated by U3 (a)), monomials H^a r^b:",
               flush=True)
         for ln in lines:
             say(ln)
-        say("  U4: the powers 0 attained (T^2 P in h00, T P in 2F): %s; Theorem 2 (a)'s weights %s, (b)'s %s"
-              % (att, ea, eb))
-        return ok and att and ea and eb
+        say("  U4: the powers 0 attained (T^2 P in h00, T P in 2F): %s; Theorem 2's weights from the measured powers:"
+            " (a) %s, (b) %s, (c) %s" % (att, ea, eb, ec))
+        return ok and att and ea and eb and ec
     say("  U4 control (unweighted h00, h01, h11, 2F, same reader and bounds): passes: %s" % ok)
     return ok
 
@@ -461,21 +479,27 @@ def u5(control=False):
         F, Fab = reconstruction()
         cs = {k: jets(e) for k, e in frame(F, Fab).items()}
         Bf = sp.Function("B")(r)                                    # T^2 P along C
-        Pc = {"P": 0, "P_r": 0, "P_rr": 0, "P_u": A, "P_uu": Bf}
-        # forced on C: P_ur from the master equation, and d_r P_u = P_ur
-        Pc["P_ur"] = rat((f*sp.diff(f*sp.diff(sp.Integer(0), r), r) - V*0)/(2*f))
-        dPuu = rat((f*sp.diff(f*sp.diff(A, r), r) - V*A)/(2*f))       # u-derivative of U3 (a) at P_u = A
-        forced = Pc["P_ur"] == 0 and iszero(dPuu + A*V/(2*f))
+        # forced on C: P = (u - u1) a(r) + (u - u1)^2 b(r)/2 + (u - u1)^3 c(r)/6 + ..., (2.1) order by order in u - u1
+        du_, af, bf_, cf = sp.Symbol("du"), sp.Function("a")(r), sp.Function("b")(r), sp.Function("c")(r)
+        Pt_ = du_*af + du_**2*bf_/2 + du_**3*cf/6
+        E21 = sp.expand(2*f*sp.diff(Pt_, du_, r) - f*sp.diff(f*sp.diff(Pt_, r), r) + V*Pt_)
+        o0, o1 = E21.coeff(du_, 0), E21.coeff(du_, 1)
+        da = sp.solve(o0, sp.diff(af, r))
+        db = sp.solve(o1.subs(sp.diff(af, r, 2), 0).subs(sp.diff(af, r), da[0] if da else 1), sp.diff(bf_, r))
+        forced = (len(da) == 1 and da[0] == 0 and len(db) == 1 and iszero(db[0] + af*V/(2*f)))
+        Pc = {"P": 0, "P_r": 0, "P_rr": 0, "P_ur": 0, "P_u": A, "P_uu": Bf}   # at u = u1: P_ur = a' = 0
         onC = {k: sp.expand(sum(c*Pc[j] for j, c in cs[k].items())) for k in cs}
         a0 = {k: onC[k].subs(A, 0) for k in onC}
         fam = (iszero(a0["h00"] - Bf*sp.sqrt(r)/f) and iszero(a0["h01"] + a0["h00"])
                and iszero(a0["h11"] - a0["h00"]) and iszero(a0["2F"]))
         ang = iszero(onC["2F"] + A/sp.sqrt(r))
         cA = back(rat((onC["h00"] - Bf*sp.sqrt(r)/f)/A))
+        cA_ok = iszero(cA + (2*m*r**4 - 3*m*mu*r**2 - 6*mu**2)/(sp.sqrt(r)*(r**2 - mu)*(m*r**2 + 6*mu)))
         say("  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): %s; with A = 0, h00 ="
               " B r^(1/2)/f, h01 = -h00, h11 = h00, 2F = 0: %s; 2F = -A r^(-1/2): %s; h00 = r^(1/2) B/f + (%s) A"
               % (forced, fam, ang, cA))
-        ok &= forced and fam and ang
+        say("  U5: c_A = -(2 m r^4 - 3 m mu r^2 - 6 mu^2)/(r^(1/2)(r^2 - mu)(m r^2 + 6 mu)): %s" % cA_ok)
+        ok &= forced and fam and ang and cA_ok
         # Kruskal: U = -e^(-u/r_h), V = e^(v/r_h), v - u = 2 r*
         rstar = r + (rh/2)*sp.log((r - rh)/(r + rh))
         k1 = sp.simplify(sp.diff(rstar, r) - 1/f) == 0
@@ -485,6 +509,7 @@ def u5(control=False):
         mUVr = sp.exp(2*r/rh)*(r - rh)/(r + rh)
         k3 = sp.simplify(sp.diff(mUVr, r).subs(r, rh) - sp.exp(2)/(2*rh)) == 0
         k4 = sp.simplify(f/mUVr - (r + rh)**2*sp.exp(-2*r/rh)/r**2) == 0
+        k3b = sp.simplify(sp.diff(mUVr, r) - 2*r**2*sp.exp(2*r/rh)/(rh*(r + rh)**2)) == 0   # F' > 0 on (0, oo)
         Uu, Vv, uu, vv = sp.symbols("U Wk uu vv")
         Uof, Vof = -sp.exp(-uu/rh), sp.exp(vv/rh)
         k5 = k6 = True
@@ -501,12 +526,13 @@ def u5(control=False):
                 {uu: tt - rs_, vv: tt + rs_})) == 0
         say("  U5: dr*/dr = 1/f %s; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) %s; d(-UV)/dr = e^2/(2 r_h) at r_h %s;"
               " f/(-UV) = (r + r_h)^2 e^(-2r/r_h)/r^2 %s; d_u d_v = -(UV/r_h^2) d_U d_V %s; d_u^2 = (U^2 d_U^2 + U d_U)"
-              "/r_h^2 %s; d_t^2 - d_r*^2 = 4 d_u d_v %s" % (k1, k2, k3, k4, k5, k6, k7))
-        ok &= k1 and k2 and k3 and k4 and k5 and k6 and k7
+              "/r_h^2 %s; d_t^2 - d_r*^2 = 4 d_u d_v %s; d(-UV)/dr = 2 r^2 e^(2r/r_h)/(r_h (r + r_h)^2) > 0 on"
+            " r > 0: %s" % (k1, k2, k3, k4, k5, k6, k7, k3b))
+        ok &= k1 and k2 and k3 and k4 and k5 and k6 and k7 and k3b
     Vl = potential(2).subs(mu, 1)
     integrand = sp.simplify(Vl/(1 - 1/r**2)) + (1/r if control else 0)
     I = sp.integrate(integrand, (r, 1, sp.oo))
-    fin = I.is_finite is True and I.is_real is not False
+    fin = I.is_finite is True and I.is_real is not False and (control or I == sp.Rational(11, 2))
     say("  U5%s: int_{r_h}^oo V/f dr at l = 2, r_h = 1: %s = %s, finite: %s"
           % (" control (V/f + 1/r)" if control else "", sp.simplify(I), sp.N(I, 12) if fin else I, fin))
     return ok and fin
@@ -543,8 +569,21 @@ def u6(control=False, order=8):
         # P_j = P_j(oo) + int_oo^r d_r P_j dr' = c_j - int_0^rho d_r P_j rho'^-2 d rho'   (dr = -d rho/rho^2)
         Pj.append(trunc(consts[j] - sp.integrate(sp.expand(dpj/rho**2), (rho, 0, rho))))
     lead_coef = [sp.factor(sp.Poly(d, rho).coeff_monomial(rho**2)) for d in dP[2:]] if ok else "-"
-    say("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s; r^p energies (p <= 2)"
-          " finite: %s" % (" control (V/f + 1/r)" if control else "", pw, lead_coef, ok))
+    if ok:
+        q0 = m + sp.Rational(15, 4)
+        ok &= all(sp.expand(lc + c*q0/2) == 0 for lc, c in zip(lead_coef, (A, B, C3)))
+        # independently: d/dr of P_j(1/r) is dP_j, and 2 f d_r P_j = f d_r(f d_r P_(j-1)) - V P_(j-1), to the order kept
+        Vr = f*(Q/(16*(m + 6*mu/r**2)**2))/r**2
+        for j in range(2, 5):
+            Pr_ = Pj[j].subs(rho, 1/r)
+            Pm = Pj[j - 1].subs(rho, 1/r)
+            d1 = sp.expand((sp.diff(Pr_, r) - dP[j].subs(rho, 1/r)).subs(r, 1/rho))
+            E = (2*f*sp.diff(Pr_, r) - f*sp.diff(f*sp.diff(Pm, r), r) + Vr*Pm).subs(r, 1/rho)
+            E = sp.expand(sp.series(sp.together(E), rho, 0, order).removeO())
+            ok &= d1 == 0 and all(E.coeff(rho, k) == 0 for k in range(order))
+    say("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s (= -(m + 15/4)/2 times A, B,"
+        " C3; the recursion re-checked by r-differentiation); r^p energies (p <= 2) finite: %s"
+        % (" control (V/f + 1/r)" if control else "", pw, lead_coef, ok))
     return ok
 
 
@@ -563,9 +602,19 @@ def u7(control=False):
         rhs = 2*sp.sqrt(a2*b2) + (0 if control else a2)
         for Rv in (1, 2, 10, 1000):
             ok &= bool(sp.N((rhs - lhs).subs(R, Rv), 30) >= 0) and bool(sp.N(dec.subs(R, Rv), 30) <= 0)
+    # Hoelder for the r^p energies: int s^p w'^2 <= (int s w'^2)^(2-p) (int s^2 w'^2)^(p-1) on [1, oo), exactly
+    # for w' = s^-2, s^-3, s^-2 (1 + 1/s) and p = 6/5, 3/2, 9/5; the control drops the E^2 factor
+    hold_ok = True
+    for wp in (sv**-2, sv**-3, sv**-2*(1 + 1/sv)):
+        Ef = lambda q_: sp.integrate(sv**q_*wp**2, (sv, 1, sp.oo))
+        for pp in (sp.Rational(6, 5), sp.Rational(3, 2), sp.Rational(9, 5)):
+            lhs_h = Ef(pp)
+            rhs_h = Ef(1) if control else Ef(1)**(2 - pp)*Ef(2)**(pp - 1)
+            hold_ok &= bool(sp.N(rhs_h - lhs_h, 40) >= 0)
     if control:
-        say("  U7 control (the lemma without int w^2/s^2): holds on the tests: %s" % ok)
-        return ok
+        say("  U7 control (the lemma without int w^2/s^2; Hoelder without the E^2 factor): hold on the tests: %s, %s"
+            % (ok, hold_ok))
+        return ok or hold_ok
     t_, p_, d_ = sp.symbols("t p delta", positive=True)
     # L = d_t + d_r* on w(t, r) = W(t - r*(r), r): d_r* = f d_r|_t; on the outgoing chart it is f d_r|_u (test functions)
     rs = r + (sp.sqrt(mu)/2)*sp.log((r - sp.sqrt(mu))/(r + sp.sqrt(mu)))
@@ -584,9 +633,7 @@ def u7(control=False):
     c3 = sp.expand(k2**2 - (1 + (k2 - 3))**2) == sp.expand(4*k2 - 4)                            # >= 0 for k2 >= 1
     holder = sp.simplify(sv**(2 - p_)*(sv**2)**(p_ - 1) - sv**p_) == 0 and sp.simplify((2 - p_) + (p_ - 1) - 1) == 0
     ip = sp.simplify(sp.integrate(sv**(-p_), (sv, R, sp.oo), conds="none") - R**(1 - p_)/(p_ - 1)) == 0
-    ep = sp.simplify((-1)*(2 - p_) + 0*(p_ - 1) + (2 - p_)) == 0                                   # E^1 ~ t^-1, E^2 ~ 1
-    rate_c = sp.simplify((-(2 - p_)/2).subs(p_, 1 + 2*d_) - (-sp.Rational(1, 2) + d_)) == 0
-    rate_b = sp.Rational(-2, 2) == -1
+    rate_c = sp.simplify((-(2 - p_)/2).subs(p_, 1 + 2*d_) - (-sp.Rational(1, 2) + d_)) == 0   # (c)'s exponent
     # (ii) [HKW18]'s (89) on the cone: T(L, T) with g = -4 f du dv + r^2 sigma (their u, v), L = d_v, T = (d_u + d_v)/2
     pu, pv, ang2 = sp.symbols("psi_u psi_v A2")
     gLT = -2*f/2                                                   # g(d_v, (d_u + d_v)/2) = (1/2) g_uv = -f
@@ -614,13 +661,14 @@ def u7(control=False):
     C1 = sp.Rational(9, 2)/f1 + 8
     chain = (sp.simplify(sp.Rational(9, 4)/f1 + 4 - 2/f1 - (sp.Rational(1, 4)/f1 + 4)) == 0      # 9/(4f1)+4 >= 2/f1
              and sp.expand(4*(k2 - 6) - k2 - 3*(k2 - 8)) == 0 and sp.simplify(C1 - 2*(sp.Rational(9, 4)/f1 + 4)) == 0)
-    ok &= iiL and c1 and c2 and c3 and holder and ip and ep and rate_c and rate_b and cone and sph and chain
+    ok &= iiL and c1 and c2 and c3 and holder and ip and hold_ok and rate_c and cone and sph and chain
     say("  U7 (ii)-(iii): T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 on the cone: %s; int |D Y|^2 = (k^2 - 6)"
           " int |Y|^2 at l = 2, 4: %s; C_1 = 9/(2 f_1) + 8 from k^2 <= 4 (k^2 - 6) (k^2 >= 8): %s" % (cone, sph, chain))
     say("  U7: d_s(w^2/s) and the lemma on w = 1, s^(1/4), s^(1/3), 1 + 1/s at R = 1, 2, 10, 1000: True; L = f d_r|_u:"
           " %s; k^2 >= 8 (l = 2..198): %s; H <= (11/8)k^2 at x <= 1: %s; k^4 - (1 + m)^2 = 4k^2 - 4: %s; Hoelder"
-          " s^p = s^(2-p) (s^2)^(p-1): %s; int_R^oo s^-p = R^(1-p)/(p-1): %s; E^p ~ tau^-(2-p): %s; rates tau^-1"
-          " and tau^(-1/2 + delta) at p = 1 + 2 delta: %s" % (iiL, c1, c2, c3, holder, ip, ep, rate_b and rate_c))
+          " s^p = s^(2-p) (s^2)^(p-1): %s; int_R^oo s^-p = R^(1-p)/(p-1): %s; the interpolation E^p <= (E^1)^(2-p)"
+          " (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5: %s; -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta:"
+          " %s" % (iiL, c1, c2, c3, holder, ip, hold_ok, rate_c))
     return ok
 
 
@@ -641,8 +689,9 @@ def u8(control=False):
                 .read().splitlines())
     ok = n_old == 1 and n_new == 0 and new.startswith(old.split(" (uniformly")[0]) and width <= 121
     say("  U8%s: the old text occurs %d time(s) in the paper, the new text %d; new keeps the old opening: %s;"
-          " widest line %d: %s" % (" control (r <= R)" if control else "", n_old, n_new,
-                                   new.startswith(old.split(" (uniformly")[0]), width, ok))
+        " widest line %d (<= 121: %s); all: %s" % (" control (r <= R)" if control else "", n_old, n_new,
+                                                    new.startswith(old.split(" (uniformly")[0]), width,
+                                                    width <= 121, ok))
     return ok
 
 

@@ -20,8 +20,9 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
   X3 (exact) The leading projection and transport: on Sigma the null covectors with tangential part s dr are s dtau
      (ingoing) and -F s/(2 - F) dtau (outgoing); the ingoing amplitude of data (X, Xdot) is (F X + (2 - F) Xdot/s)/2 =
      (L X)/s; and the T = 0 transport of the scalar sector (vv, vr, rr) from r0 to sqrt(mu0) gives H_vv(sqrt mu0) =
-     mu0^(-3/4) r0^(3/2) [X_vv + F(r0) X_vr + F(r0)^2 X_rr/4] (closed form checked against T's table).  Control: the
-     transport with the vv mass coupling dropped does not solve T = 0.
+     mu0^(-3/4) r0^(3/2) [X_vv + F(r0) X_vr + F(r0)^2 X_rr/4] (closed form checked against layerlin5's T_tab, whose
+     vv, vr, rr rows N1 (b) checks against the computed operator).  Control: the transport with the vv mass coupling
+     dropped does not solve T_tab = 0.
   X4 (exact) The first-degree constraint residual, rho component: for a covector field D = e^(i v/lam) (E1(v) f(r)
      tau(th) dth + E0(v) d(th) (p(r) dv + q(r) dr)), 2 Gt(S(D))(n, n) has no s E1 term (s E := E' + i E/lam), its E1
      coefficient is f d/r^2 (d := (cos sin)^-1 d_th(cos sin tau)) and its s E0 coefficient d (2 (n.dv) D0(n) +
@@ -35,8 +36,10 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      3 r^3/(r^2 + mu)^2, with no d_r^2 a (Lemma 6.3, recomputed).  Control: the conformal direction a gamma has d_r^2 a.
   X7 (exact) The data that U1's scalar part a gives on Sigma (spatial part a dr dr; d_tau of it from K fixed; d_tau of
      lapse and shift from D = 0), read with g_(tau mu) kept (reading 1) or with the ADM lapse and shift vector kept
-     (reading 2): their ingoing amplitude, transported, gives H_vv(sqrt mu0) = K_R a with K_R = mu0^(-3/4) r0^(-5/2)
-     (r0^2 - mu0)^2/4 (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0, and K_R does not depend on the
+     (reading 2, the supplement's convention, whose section 1 uses the shift as a vector, Z := d_tau - beta_ext): their
+     ingoing amplitude, transported, gives H_vv(sqrt mu0) = K_R a with K_R = mu0^(-3/4) r0^(-5/2) (r0^2 - mu0)^2/4
+     (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0; a third reading (ADM lapse and shift covector kept,
+     round 6, the verifier of round 5's m6) gives (r0^2 - 2 mu0)/(4 mu0^(3/4) r0^(1/2)); and K_R does not depend on the
      d_tau gamma_rr datum at all (D = 0 fixes the combination that reaches the horizon; so neither K's sign
      convention nor the shift term enters).  Control: D = 0 without its trace term changes K_R in both readings.
   X8 (exact) Xi(T) := [(1 - c) T - i c]/(T + i), T := lam kappa: |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1) >= min(c^2,
@@ -197,18 +200,21 @@ def e3(control=False):
     proj = sp.simplify(sol[a_in] - (F_*X_ + (2 - F_)*Xd/s)/2) == 0
     # L X / s with L = d_v + (F/2) d_r|_v, d_v = d_tau, d_r|_v = s - d_tau on the data
     projL = sp.simplify((Xd + F_/2*(s*X_ - Xd))/s - (F_*X_ + (2 - F_)*Xd/s)/2) == 0
-    # the transport closed form against T's table
+    # the transport closed form against layerlin5's T_tab (the lam^-1 part of dRic^H, N1 (b))
     W, V, R0 = sp.symbols('W V R0')
     r0 = sp.Symbol('r0', positive=True)
     hvv_h, hrr, hvr, _ = transport_vv(W, V, R0, r0, mass=not control)
     y = sp.Symbol('y', positive=True)
     x = sp.Symbol('x', positive=True)
-    Hrr = hrr*y**sp.Rational(-3, 2)
-    Hvr = hvr(y)*y**sp.Rational(-3, 2)
     k = 2 if not control else 0
     Hvv = (r0**sp.Rational(3, 2)*W - k*mu_*sp.integrate(hvr(x)*x**-3, (x, r0, y)))*y**sp.Rational(-3, 2)
-    eq = [sp.diff(Hvv, y) + 3*Hvv/(2*y) + 2*mu_*Hvr/y**3, sp.diff(Hvr, y) + 3*Hvr/(2*y) + mu_*Hrr/y**3,
-          sp.diff(Hrr, y) + 3*Hrr/(2*y)]
+    Hm = sp.zeros(5)
+    Hm[0, 0] = Hvv
+    Hm[0, 1] = Hm[1, 0] = hvr(y)*y**sp.Rational(-3, 2)
+    Hm[1, 1] = hrr*y**sp.Rational(-3, 2)
+    Hm = Hm.subs({y: L.r, mu_: L.mu0})
+    Tt = L.T_tab(Hm)
+    eq = [Tt[0, 0], Tt[0, 1], Tt[1, 1]]
     sat = all(sp.simplify(e) == 0 for e in eq)
     if control:
         return sat
@@ -339,6 +345,9 @@ def chain(reading, shift=True, trace=True):
     if reading == 1:
         X = (0, 0, a)
         dsp = -br*s*a if shift is True else shift
+    elif reading == 3:                       # ADM lapse N and shift covector beta_i = g_(tau i) kept
+        X = (-a*br**2, a*br**2, a - a*br**2)
+        dsp = -br*s*a if shift is True else shift
     else:
         X = (a*br**2, a*br - a*br**2, a*(1 - br)**2)
         dsp = br*s*a if shift is True else shift
@@ -357,7 +366,8 @@ def chain(reading, shift=True, trace=True):
 def e7(control=False):
     r, mu = r_, mu_
     want = {1: mu**sp.Rational(-3, 4)*r**sp.Rational(-5, 2)*(r**2 - mu)**2/4,
-            2: mu**sp.Rational(-3, 4)*r**sp.Rational(3, 2)/4}
+            2: mu**sp.Rational(-3, 4)*r**sp.Rational(3, 2)/4,
+            3: (r**2 - 2*mu)/(4*mu**sp.Rational(3, 4)*sp.sqrt(r))}
     if control:
         a1 = chain(1, trace=False)[1]
         a2 = chain(2, trace=False)[1]
@@ -365,15 +375,17 @@ def e7(control=False):
     res = {}
     Zs = sp.Symbol('Z')
     free = True
-    for k in (1, 2):
+    for k in (1, 2, 3):
         Xin, KR = chain(k)
         res[k] = (Xin, KR, sp.simplify(KR - want[k]) == 0)
         free &= sp.simplify(chain(k, shift=Zs)[1] - KR) == 0       # any d_tau gamma_rr datum Z gives the same K_R
     ok = all(v_[2] for v_ in res.values()) and free
     out("  X7 the ingoing amplitude of U1's scalar data (vv, vr, rr) per unit a and K_R = H_vv(sqrt mu0)/a: reading 1"
-        " (g_(tau mu) kept): %s, K_R = %s; reading 2 (ADM lapse and shift vector kept): %s, K_R = %s; both as claimed"
-        " and positive for r0 > sqrt(mu0): %s; K_R does not depend on the d_tau gamma_rr datum (any Z): %s"
-        % ([sp.factor(x) for x in res[1][0]], res[1][1], [sp.factor(x) for x in res[2][0]], res[2][1], ok, free))
+        " (g_(tau mu) kept): %s, K_R = %s; reading 2 (ADM lapse and shift vector kept, the supplement's convention:"
+        " Z := d_tau - beta_ext): %s, K_R = %s; reading 3 (ADM lapse and shift covector kept): %s, K_R = %s, zero at"
+        " r0^2 = 2 mu0 and negative below; all three as claimed: %s; K_R does not depend on the d_tau gamma_rr datum"
+        " (any Z): %s" % ([sp.factor(x) for x in res[1][0]], res[1][1], [sp.factor(x) for x in res[2][0]], res[2][1],
+                          [sp.factor(x) for x in res[3][0]], res[3][1], ok, free))
     return ok
 
 

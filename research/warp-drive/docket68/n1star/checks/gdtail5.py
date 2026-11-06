@@ -1,39 +1,43 @@
 #!/usr/bin/env python3
-"""gdtail5.py -- GAUGEDECAY5.md Round 7: the t^-2 term of a gauge vector with compactly supported data, proved by an
-explicit model and Theorem R6.4 carried past the window for sources of zero total charge; the spherically symmetric
-part of the harmonic-gauge representative; and the bookkeeping of the slab order.  Every check has a control that
-mutates the computed path and must fail.
+"""gdtail5.py -- GAUGEDECAY5.md Rounds 7-8: the t^-2 term of a gauge vector with compactly supported data, proved by
+an explicit model and Theorem R6.4 carried past the window for sources of zero total charge; the spherically symmetric
+part of the harmonic-gauge representative; and the bookkeeping of the slab order.  Repaired in round 8 as round 7's
+verifier asks ((A84)): every control runs the computed path with a mutated input and must fail.
 
-  T1 (exact) The time-domain model in flat 4+1.  The switched-on Coulomb field a = t/(r^2 sqrt(t^2 - r^2)), t > r,
-     solves the radial wave equation, d_t a = -(t^2 - r^2)^(-3/2) = 4 pi^2 E_4 inside the cone, a -> r^-2 = 4 pi^2 G_4,
-     and a - r^-2 = (1/2) t^-2 + O(t^-4): the coefficient 1/2 = 4 pi^2 int_t^oo (4 pi^2)^-1 tau^-3 d tau t^2, the tail
-     of the fundamental solution inside the cone.  Control: the same construction in 3+1 (E_3 has no interior part)
-     gives the coefficient 0.
+  T1 (exact) The time-domain model in flat n+1, n = 4.  The switched-on field of the charge Q_n delta_0, a = r^(2-n) -
+     Q_n int_t^oo E_int d tau with E_int = (t^2 - r^2)^((1-n)/2)/(2 pi^((n-1)/2) Gamma((3-n)/2)) (Riesz's interior
+     coefficient) and Q_n = (n - 2)|S^(n-1)|: it solves the radial equation, d_t a = Q_n E_int, a -> r^(2-n), a =
+     t/(r^2 sqrt(t^2 - r^2)) and a - r^-2 = (1/2) t^-2 + O(t^-4).  Control: the same path at n = 3, where the
+     coefficient vanishes (Gamma's pole; Huygens) and the t^-2 coefficient is 0.
   T2 (exact; the resolvent side formal) The coefficient the other way.  Round 6's D5 chain recomputed here with both
      components kept: P-hat(0) W* = 0 (u_0 in the kernel, which D5 did not check), and u_2's log r coefficients at r^0
-     are -1/2 in dv and +1/2 in dr, a multiple of (d_v)^flat = -f dv + dr (the round-6 verifier's recomputation); with
-     kappa_2 = -1/2 so computed, D6's formula gives the sigma log sigma coefficient -(i ell(f)/8 pi^2) d psi, and
-     FT[t^-2 H(t - 1)] = E_2(-i sigma) = 1 + (-i sigma) log(-i sigma) + analytic (sympy's expint series): the t^-2
-     coefficient (c/2) d psi, c = ell(f)/4 pi^2, equal to T1's and the model's (T6).  Control: W* with its dr
-     component dropped is not in the kernel of P-hat(0).
+     are -1/2 in dv and +1/2 in dr (recorded, not checked: their sum vanishes for every source O(r^-2)); with kappa_2 =
+     -1/2 so computed, D6's formula gives the sigma log sigma coefficient -(i ell(f)/8 pi^2) d psi, and FT[t^-2 H(t -
+     1)] = E_2(-i sigma) = 1 + (-i sigma) log(-i sigma) + analytic (sympy's expint series): the t^-2 coefficient (c/2) d
+     psi, c = ell(f)/4 pi^2, equal to T1's and the model's (T6).  Control: W* with its dr component dropped is not in
+     the kernel of P-hat(0).
   T3 (exact) The model in the far zone.  In the outgoing chart (u, r), g = -f du^2 - 2 du dr + r^2 gamma, with W* =
      r^-2 du + dr/(r(r - r_h)) and d psi = du + (1 + mu/(r(r - r_h))) dr (both solutions), E := Box(chi(u) W* + A(u, r)
      d psi) for arbitrary chi, A, reduced by the flat equation of a := chi r^-2 + A, vanishes at mu = 0 and is a sum
-     of coefficients times chi, chi', A, d_u A, d_r A, d_r^2 A; with the I+-orders of A (3/2, ..., d_r adding one) every
-     term has I+-order >= 4.  With A = K(u, r) (u > 0, chi = 1) E has I+-order >= 9/2 at fixed u and iota+-order 6
-     along u = lam r.  Control: without the flat reduction E does not vanish at mu = 0.
+     of coefficients times chi', d_u A, d_r A, d_r^2 A; with the I+-orders of A (3/2, ..., d_r adding one) every term
+     has I+-order >= 4.  The reduction is the one A obeys: with A = K, chi = 1 the flat relation holds and the
+     Tangherlini one does not, and E equals the flat-reduced E and not the Tangherlini-reduced one.  With A = K E has
+     I+-order >= 9/2 at fixed u and iota+-order 6 along u = lam r.  Control: without the flat reduction E does not
+     vanish at mu = 0.
   T4 (exact) The model near compact sets.  In the ingoing chart, for every phi(v, r): Box(phi d psi) = (Box_0 phi) d psi
-     - 2 nabla_{grad phi} d psi, and phi + const gives the same, so every term carries a derivative of phi; with A =
-     (1/2) T^-2 + O(T^-3) the source is O(T^-3).  Control: dv - dr (not a solution) in place of d psi.
+     - 2 nabla_{grad phi} d psi, and phi + const gives the same, so every term carries a derivative of phi.  With A =
+     K(T, r), T = v - 2 r (A = chi_1' * K = K + O(T^-3)): T^2 A -> 1/2 (Lemma R7.2 (d)'s coefficient, read off the
+     kernel) and the source is O(T^-3).  Control: dv - dr (not a solution) in place of d psi.
   T5 (exact) The charge: Q[phi(v, r) d psi] = -4 pi^2 r_h^3 d_r phi(v, r_h), Q[W*] = 4 pi^2, so Q[u_ex] -> 4 pi^2 and
      int ell(f_ex) = 4 pi^2.  Control: Q[phi W*] = 4 pi^2 phi, not a derivative.
-  T6 (exact) The kernel K(w, r) = r^-2 ((w + r)/sqrt(w (w + 2 r)) - 1): homogeneous of degree -2; K = (1/2) w^-2 - r
-     w^-3 + O(w^-4) at fixed r, d_r K = -w^-3 + O(w^-4); r^(3/2) K -> (2 w)^(-1/2) at fixed w; K + r^-2 solves the flat
-     equation in (u, r).  Control: the 3+1 kernel H(t - r)/r - 1/r vanishes inside the cone (no tail).
-  T7 (exact, whole box) Theorem R7.1's conditions (Theorem R6.4 past the window for sources of zero total charge,
-     alpha_K in (2, 3), gamma_+ in (alpha_K, min(3, alpha_K + 1))), and the model source's orders (I+ 4, iota+ 6, K+ 3)
-     against (R6.1), each a positive sum.  Control: with a nonzero charge the order-0 equation needs the column in
-     Y_0 at the weight beta_tf + 2, i.e. gamma_+ < 2, which fails on the box.
+  T6 (exact) The kernel K(w, r) = a(w + r, r) - r^-2 computed from T1's field: it is r^-2 ((w + r)/sqrt(w (w + 2 r))
+     - 1), homogeneous of degree -2; K = (1/2) w^-2 - r w^-3 + O(w^-4) at fixed r, d_r K = -w^-3 + O(w^-4); r^(3/2) K
+     -> (2 w)^(-1/2) at fixed w; K + r^-2 solves the flat equation in (u, r).  Control: the same path at n = 3 gives
+     the kernel 0.
+  T7 (exact, whole box) Theorem R7.1's conditions on its own box (alpha_K in (2, 3), gamma_+ in (alpha_K, 3), eps_1 in
+     (0, 3 - gamma_+), eps in (0, eps_1/3], the endpoint included), and the model source's orders (I+ 4, iota+ 6, K+
+     3) against (R6.1), each a positive sum.  Control: the same conditions with a nonzero charge, whose order-0
+     equation needs the column in Y_0 at the weight beta_tf + 2, i.e. gamma_+ < 2, which fails on the box.
   T8 (exact) The spherically symmetric gauge data of the paper's own perturbations.  In III.B's outgoing Kerr-Schild
      chart near infinity, where the initial surface is {t = C''}: W**_H = W** - V^flat restricted to it has the r^-1
      tail (-dt + dr/4)/r, its t-derivative is W*/2 = O(r^-2), and K = r^-2 (dt - dr)^2 has normal components of order
@@ -43,12 +47,16 @@ mutates the computed path and must fail.
      1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2); in the class p_0 >= min(1, q - 1) > 1/2 +
      2 gam > 1/2 + delta_#.  Control: p = 1/2 leaves the chain empty.
   T10 (exact, whole box) The slab order: every use of Z_1 at null infinity on the initial slab in the paper's
-     statements asks p > 1/2 + beta with beta < delta_#, below Theorem R4.3's min(3/2, q - 1).  Control: an expansion
-     of Z_1 to order 2 at null infinity (which no statement uses) is beyond that interval.
-
+     statements (R4.4 / R3.6, R5.3 at kappa, and Corollary R8.11's l >= 2 part) asks p > 1/2 + beta, each beta computed
+     from its statement's parameters, below Theorem R4.3's min(3/2, q - 1).  Control: with the source's margin delta_#
+     replaced by 1 the asked orders exceed that bound.
   T11 (exact, whole box) Theorem R6.4's conditions with w_I = max(5/2, gamma_+ + 1 + eps_1) encoded and II.G'
      Proposition 3.3 (1) taken with eps_PP = min(eps, eps_1) (the round-6 verifier's minor on D2; a max or min handled
      exactly, argument by argument).  Control: Proposition 3.3's eps not reduced to min(eps, eps_1).
+  T12 (exact) Lemma R7.2 (b)'s corners ((A78)): with chi = 1 the flat-reduced E is sum_m c_m(r) D_m K, D_m in {d_u,
+     d_r, d_r^2}, c_m ~ r^-p_m; D_m K(lam r, r) = r^-d_m k_m(lam) exactly; with a_m, b_m the exponents of k_m at lam ->
+     0, oo, every term has iota+-order p_m + d_m = 6, I+-order p_m + d_m + a_m >= 9/2 at iota+ cap I+ and K+-order
+     -b_m >= 3 at iota+ cap K+.  Control: the degree -2 kernel K + 1/(r u) fails at K+.
 Labels: computed (exact, sympy; T2's resolvent side recomputes round 6's formal D5-D6 chain; T7, T9, T10, T11 on the
 whole parameter box).  Run: python3 checks/gdtail5.py   (a few minutes)
 """

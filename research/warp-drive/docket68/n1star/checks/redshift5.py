@@ -559,18 +559,20 @@ N = T + Y ((115), p. 39), first order, and at the horizon, where the master equa
 vanishes, the equation does not give it; their class does not bound it, since solutions with every one of their
 energies finite can have it infinite. Given the datum, the red-shift commutation of Dafermos and Rodnianski ([DR08]
 Theorem 7.2, p. 87) carries it at the master fields' rate, because the surface gravity 1/r_h is positive ([HKW18]
-(20), p. 6): in the class it is exact, a transport along the outgoing null direction whose damping (j + 1) f′/2 on the
-j-th transversal derivative does not involve the potential (computed: `docket68/n1star/checks/redshift5.py`).
-Uniformly in r it fails, and what holds instead is sharp (supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`).
-In the frame of the static observers, along the outgoing part of [HKW18]'s leaves, the orbit-space components of the
-scalar type grow as r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data
-of every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on that leaf, f = 1 − μ/r² and S its harmonic
-(Theorem 1, proved; the components computed exactly). With that weight they settle, and the angular components and the
-tensor type settle without it, uniformly in r and l along the outgoing part of the leaves: r^(−1/2)|h(e_a, e_b)| and
-r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2) for every δ > 0, r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), and the
-squared L² norms along the leaf of r^(−3/2) h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate, for data
-with two more commutations with T and the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ;
-every coefficient and exponent computed). The powers r^(±1/2) are attained, so the weights cannot be improved."""
+(20), p. 6): in the class it is exact, a transport along the outgoing null direction whose damping j f′/2 on the j-th
+transversal derivative does not involve the potential (computed: `docket68/n1star/checks/redshift5.py`). Uniformly in
+r the energy statement fails, and what holds instead is sharp (supplement RWGAUGE5,
+`docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, on the outgoing part of [HKW18]'s leaves,
+the orbit-space components of the scalar type can grow as, and no faster than, r^(1/2): for every leaf there is a
+single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
+B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant, f = 1 − μ/r² and S its harmonic (Theorem 1,
+proved; the components computed exactly). With that weight they settle, and the angular components and the tensor type
+settle without it, uniformly in r and l on the outgoing part of the leaves, in ‖·‖, the L² norm on the unit
+three-sphere at fixed (τ, r): r^(−1/2)‖h(e_a, e_b)‖ and r^(1/2)‖h(e_i, e_j)‖ decay at least as τ^(δ−1/2) for every
+δ ∈ (0, 1/2], r^(−1)‖h(e_a, e_b)‖ and ‖h(e_i, e_j)‖ at least as τ^(−1), and ∫ (r^(−3)‖h(e_a, e_b)‖² + r^(−1)‖h(e_i,
+e_j)‖²) dr over the outgoing part at least as τ^(−2), [HKW18]'s rate, for data with two more commutations with T and
+the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent
+computed). The powers r^(±1/2) are attained, so the weights cannot be improved."""
 
 OLDT7 = """7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before and
    after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it (Proposition 3.4)."""
@@ -597,8 +599,33 @@ on the columns with μ(v) ≥ μ0 + δ1. ∎"""
 NEW33b = """monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
 on the columns with μ(v) ≥ μ0 + δ2 that satisfy √μ(v) ≤ v − τ0 − δ1. ∎"""
 
+OLD82o = """and in it the metric components are [KI03]'s (3.14), the master field normalised as r^(3/2) Φ and its derivatives to"""
+
+NEW82o = """and in it the metric components, in an ingoing chart and the spheres' orthonormal frame, are [KI03]'s (3.14), the
+master field normalised as r^(3/2) Φ and its derivatives to"""
+
+OLDT2 = """   derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices"""
+
+NEWT2 = """   derivatives, at most ε_U t^(−3/2) for a small ε_U > 0 (within the margin of supplement Lemma 9.1 (f)), and whose
+   energy on the slices"""
+
+OLDR1 = """  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
+- [Hin21]"""
+
+NEWR1 = """  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
+- [DR08] M. Dafermos, I. Rodnianski, *Lectures on black holes and linear waves*, arXiv:0811.0354v1. READ 2026-11-06:
+  p. 40, Proposition 3.3.2 (the commutation with Ŷ and the sign of its first term); p. 41; p. 87, Theorem 7.2 and its
+  proof (the commutation with the red-shift field Y, with κ_k > 0 on the horizon).
+- [Hin21]"""
+
+OLDR2 = """  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67)."""
+
+NEWR2 = """  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67). READ 2026-11-06:
+  p. 6, (16) and (20); pp. 8–9, (36) and (42); p. 12, (51); p. 49, (134)–(135); pp. 60–61, (170)–(174)."""
+
 BLOCKS = [("8.2", OLD82, NEW82), ("Theorem 1 item 7", OLDT7, NEWT7), ("Proposition 3.3", OLD33, NEW33),
-          ("Proposition 3.3 proof", OLD33b, NEW33b)]
+          ("Proposition 3.3 proof", OLD33b, NEW33b), ("8.2 orthonormal", OLD82o, NEW82o),
+          ("Theorem 2 item 5", OLDT2, NEWT2), ("references [DR08]", OLDR1, NEWR1), ("references [HKW18]", OLDR2, NEWR2)]
 
 
 def r13(control=False):
@@ -606,7 +633,7 @@ def r13(control=False):
     rows, ok = [], True
     for name, old, new in BLOCKS:
         if control:
-            old = old.replace("l", "I", 1)
+            old = old[:-1] + "#"
         n_old, n_new = paper.count(old), paper.count(new)
         width = max(len(ln) for ln in (old + "\n" + new).splitlines())
         rows.append((name, n_old, n_new, width))
