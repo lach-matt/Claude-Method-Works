@@ -17,7 +17,7 @@ settling development are related through their common data on a ball. (VII5): th
 III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge 1-forms are radial, and linear maps and
 families given by existence statements are averaged. The inputs are III.K Theorem 4.3, Part V's gluing lemmas, VI.C
 Theorem 2.1, II.G Theorem 2.1, and from the record sections 0-2, 10.50 (a) and the dependence of Theorem E on its order
-(written out in Lemma 1.1). Amended D608-D609, D621, D626 (Lemma 3.1); read (D621, D626): holds; record in section 6.
+(written out in Lemma 1.1). Amended D608-D609, D621, D626, D628 (Lemma 3.1); read (D621, D626): holds; see section 6.
 
 ## 0. Setting and statement
 
@@ -556,3 +556,9 @@ census of m2 covered seven further spellings of the towers, not all of them, and
 1-form towers at $b_0$ and in $b$ and to symbols printed across a line break, 713 lines, the 81 new ones read, none
 using more (`checks/vii5census.py` V1-V2, `checks/vii5read.py` Q1-Q4); in (C3), the pure-gauge rows outside $\mathcal
 T$ are $\delta^*$-images of 1-forms (C3) does not name, and m4's list of prescribed leading terms is completed.
+
+*D628.* A confirming reader of D626 found two nits here, seated (D628): (VII5)'s twenty-four symbols are the ones the
+widenings added, the census having twenty-six (amended in place); and `checks/vii5census.py` V2 dropped primes, so a
+primed spelling of $\omega$ was sorted as $\omega$. V2 now keeps them, and excludes a primed spelling only by its
+location: 150 spellings, 83 contain a symbol, 67 are excluded, none is left; none of the primed ones is an object of
+(C3), (C3$'$) or (C4).

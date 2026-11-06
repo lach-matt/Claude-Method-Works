@@ -333,7 +333,8 @@ I11:160 appends "the finite exclusion set of III.I''''''''''' section 1" (I12:61
 Definition 1.1 (c): (4.2) of III.G'''' Proposition 4.4 at levels 1 and 2 with l_zf = beta - 1 - j - eps, Proposition
 5.1 at level 3 (Theorem B.2), and III.I'' Lemma 4.2 and III.H (1.1) at level 3. Decided: l_zf is never an integer
 (beta - eps in Z has no solution, congruence); at level 1 the only tf-exponent in [2, 2 + eta_1) on R9.1's reading is
-2 (the u-exponent 3; no point of Lambda in (3, 3 + eta_1) by (G) and modcount5 M5), so (4.2)'s last condition asks
+2 (modcount5 M5: no point of Lambda in (2, 2 + m) or (3, 3 + m), m = 1.98 x 10^-8 > eta_1, whichever of I12 section
+1's dictionaries, u-exponent or source iota+-exponent, is read), so (4.2)'s last condition asks
 beta - 2 - eps != -mu, rational against Lemma B.1's roots, an integer never; Lemma 4.2's and III.H (1.1)'s condition
 beta_tf - beta_zf = tau - beta + 2 + eps in (0, 1) holds for the final tau in (beta - 2, beta - 1 - eps) (deduced).
 **Not decided**: (4.2) at level 2, l_2 - Re alpha_0 + 2 != -mu for the tf-exponents alpha_0 of g_2 in [1 + eta_1,
