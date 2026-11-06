@@ -5,8 +5,9 @@ d0count5: the closed-graph orders of Part II counted (Appendix R7.A), and D_0 at
       True; distant-shell exponent -0.4325 < 0: True
   Q4b (READ; computed; Round 9): II.C:767-768 at the FWD use, both branches: alpha_K = -2 (III.I Theorem 5.3's proof),
       theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6): the second branch of s_in needs s_in > 11/2 (beta_+
-      -> 1/2), below the first branch's 17/2; s_out's branch gives -6 - beta_+ - eps; the four lines read: [True, True,
-      True, True]; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: True
+      -> 1/2), below the first branch's 17/2; s_out's branch gives -6 - beta_+ - eps (theta_out >= -2 eps, Round 10:
+      taken at -2 eps with eps = 1/4, a margin 1/4 at beta_+ -> 3/2, so every eps <= 1/4 serves); the four lines read:
+      [True, True, True, True]; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: True
   Q4: s_in = 9 > 17/2, s_out = -8 < -15/2 (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): True; s
       in [-8, 9], s0 = s - 2 in [-10, 7]; the Sobolev orders in [-16, 11] (Round 8: down to the record's input order -N -
       m = -16, II.A2:389-391; round 7 stopped at -14), N <= 14; operator orders: round 7 took them <= 2; the commutants

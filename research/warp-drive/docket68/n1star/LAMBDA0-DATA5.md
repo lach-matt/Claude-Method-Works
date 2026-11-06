@@ -114,9 +114,14 @@ stage5.out S2): both are momentum along th, odd under th -> pi/2 - th.
 *Proof.* (i)-(iii) are the computed series of Section 1 (`lam0data5.py` D3-D4), whose order-1 mean is complete by the
 DOC argument; the comparison with data5.py's lin_0 is an independent implementation of P. []
 
-**K's order-1 mean** (computed, exact; D4). With d_tau h_1 = 0 the metric gives K's order-1 mean M1 (printed), linear
-in (a, d_r a, d_th a), with no W^2 term; so the datum Q_1 is reached by d_tau h_1 = 2 N0 (Q_1 - M1), N0 = (1 + mu/r^2)^
-(-1/2). (The record's phrase "Q_m fixes d_tau of that spatial part" is this formula.)
+**K's order-1 mean** (computed, exact; D4). With d_tau h_1 = 0 the metric gives K's order-1 mean M1, linear in (a,
+d_r a, d_th a), with no W^2 term:
+
+    M1_rr = mu [2 r^5 Lambda d_r a + (2 mu^3 + 4 mu^2 r^2 + 4 mu r^4 - 2 mu' r^5 - mu' mu r^3) a]/(4 r^6 Lambda^(3/2)),
+    M1_rth = mu d_th a/(2 r Lambda^(1/2)),   M1 on the spheres = mu (2 r^4 - mu^2) a/(2 r^4 Lambda^(3/2)) Pi;
+
+so the datum Q_1 is reached by d_tau h_1 = 2 N0 (Q_1 - M1), N0 = (1 + mu/r^2)^(-1/2). (The record's phrase "Q_m fixes
+d_tau of that spatial part" is this formula.)
 
 ## 4. The check at finite lam (D6) and three controls
 

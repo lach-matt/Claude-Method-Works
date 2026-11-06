@@ -11,3 +11,31 @@
   M3 family C, l >= 3, b in [-39/4, 9/4] (V_V and all aU + bQ): (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0
       on R True (453+219 enclosures; left tail ratio <= 0.0966, right <= 7.38e-47); min_I w >= 0.23036, m' >= 0.040543,
       M' <= 0.76964; B(0+, 1, 3, 10) <= 15.02, 18.94, 32.83, 91.35 (4 s)
+  M4 V_S, every l >= 4 (majorant, eps <= 1/21): (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0 on R True (535
+      enclosures; left tail ratio <= 0.0566, right <= 4.70e-47); min_I w >= 0.28670, m' >= 0.040543, M' <= 0.76964; B(0+,
+      1, 3, 10) <= 13.39, 16.30, 27.02, 73.63 (12 s)
+  M5 V_2 at l = 1: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 3/10): w >= 0 on R True (679 enclosures; left tail
+      ratio <= 0.105, right <= 2.53e-63); min_I w >= 0.012006, m' >= 0.041579, M' <= 0.85611; B(0+, 1, 3, 10) <= 95.35,
+      246.2, 574.6, 1739 (3 s)
+  M5 V_V at l = 2: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 4/5): w >= 0 on R True (281 enclosures; left tail
+      ratio <= 0.0378, right <= 2.11e-63); min_I w >= 0.12423, m' >= 0.078951, M' <= 0.85621; B(0+, 1, 3, 10) <= 15.86,
+      27.07, 57.01, 168.5 (3 s)
+  M5 V_S at l = 2: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 7/10): w >= 0 on R True (335 enclosures; left tail
+      ratio <= 0.0276, right <= 1.85e-63); min_I w >= 0.018958, m' >= 0.069537, M' <= 0.85619; B(0+, 1, 3, 10) <= 59.64,
+      155.7, 363.8, 1101 (3 s)
+  M5 V_S at l = 3: (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0 on R True (309 enclosures; left tail ratio
+      <= 0.0669, right <= 7.38e-47); min_I w >= 0.25443, m' >= 0.040543, M' <= 0.76964; B(0+, 1, 3, 10) <= 14.25, 17.68,
+      30.04, 82.82 (4 s)
+  M6 V_0 (scalar step), l = 0: ||chi_I R(sigma) chi_I|| <= E2-PILOT 3g: 164.5, 183.5, 275.2, 725.0 (cited) at sigma = 0+,
+      1, 3, 10
+  M6 V_0, V_1, l = 1: ||chi_I R(sigma) chi_I|| <= 22.81, 43.09, 96.14, 290.9 at sigma = 0+, 1, 3, 10
+  M6 V_0, V_1, V_2, V_T, l >= 2: ||chi_I R(sigma) chi_I|| <= 13.99, 21.45, 44.05, 130.9 at sigma = 0+, 1, 3, 10
+  M6 V_2, l = 1: ||chi_I R(sigma) chi_I|| <= 95.35, 246.2, 574.6, 1739 at sigma = 0+, 1, 3, 10
+  M6 V_V, l = 2: ||chi_I R(sigma) chi_I|| <= 15.86, 27.07, 57.01, 168.5 at sigma = 0+, 1, 3, 10
+  M6 V_V, l >= 3: ||chi_I R(sigma) chi_I|| <= 15.02, 18.94, 32.83, 91.35 at sigma = 0+, 1, 3, 10
+  M6 V_S, l = 2: ||chi_I R(sigma) chi_I|| <= 59.64, 155.7, 363.8, 1101 at sigma = 0+, 1, 3, 10
+  M6 V_S, l = 3: ||chi_I R(sigma) chi_I|| <= 14.25, 17.68, 30.04, 82.82 at sigma = 0+, 1, 3, 10
+  M6 V_S, l >= 4: ||chi_I R(sigma) chi_I|| <= 13.39, 16.30, 27.02, 73.63 at sigma = 0+, 1, 3, 10
+  M6 every master operator of III.D (M2)-(M4) and of III.F'' Theorem 2.2, every l in its range (l = 0 of V_0 by E2-PILOT
+      3g): ||chi_I R(sigma) chi_I|| <= max(the rows) = 95.35, 246.2, 574.6, 1739 at sigma = 0+, 1, 3, 10, and at every
+      real sigma != 0 by B(sigma), increasing in |sigma|

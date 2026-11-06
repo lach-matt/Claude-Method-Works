@@ -1,5 +1,5 @@
 modcount5: the fixed per-level steps of the beta-levels, read and counted; c' and d as integers
-  M0 (READ): 8 files at their pinned md5: True; 7 ranges found by content: True; 13 formula lines found: True
+  M0 (READ): 11 files at their pinned md5: True; 7 ranges found by content: True; 13 formula lines found: True
   M1 (census): 212 hits of the families in the per-level ranges, 0 unclassified, 0 stale rows; by class: {'base': 12,
       'charge': 35, 'counted': 10, 'fin0': 14, 'replaced': 2, 'route': 9, 'stmt': 129, 'top': 1}; 31 charge ids
   M2 (charges, at dweights5 W1's weights; eps_K = 47/2500000000 < the (G) bound 5.0191e-8): every charged site has a
@@ -41,19 +41,64 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       71134965960 = 45661455037615687 (4.566146e+16); N = 21 d + 6 <= 958890555789929433 (9.588906e+17); pinned: True
       against round 7's c' in [62, 250 + MODs]: the MODs are 158 above 3 and 52 below; c' moves d by 1.56e-06 of itself;
       the floor 8,407,505,890,317,054 is 0.1841 of the bound
-  M4 (deduced on the reading; computed; Round 9: itemised): the steps outside the levels, I15 Step 0 (FWD), Step 1 (the
-      base: at most six below-3 level totals), Steps 3, 4' (FIN), Step 4 (the top's Step 0: one level above 3; its Step 1
-      (vi), (viii), (ix): three III.A Proposition 4.2 (2) applications, each <= 3 P_iota + 47 + X_7(alpha) + 5 =
-      607240279). A level's largest totals: above 3 M_a = 3 x 52634350 (level-3 rounds) + 3 P_W + 11 + 3 P_iota + 47 + 15
-      W + X_7(alpha) 352162875 + c'_above = 1042275882, below 3 M_b = 3 x 52634349 (tf rounds) + 15 W + 58 + c'_below =
-      179958197 (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: True); B_once := FWD + 6 M_b + M_a + 3 x
-      607240279 = 3943746411
-      d <= A' + (K + 1) c' + B_once = 45661458981362098 (4.5661458981e+16); N = 21 d + 6 <= 958890638608604064; B_once is
-      8.64e-08 of d: pinned: True
+  M4 (deduced on the reading; computed; Round 9: itemised; Round 10: the base counted, M6): the steps outside the levels,
+      I15 Step 0 (FWD), Step 1 (the base: M6's loops B_loops = 574990913801848 and two below-3 level totals), Steps 3, 4'
+      (FIN), Step 4 (the top's Step 0: one level above 3; its Step 1 (vi), (viii), (ix): three III.A Proposition 4.2 (2)
+      applications, each <= 3 P_iota + 47 + X_7(alpha) + 5 = 607240279). A level's largest totals: above 3 M_a = 3 x
+      52634350 (level-3 rounds) + 3 P_W + 11 + 3 P_iota + 47 + 15 W + X_7(alpha) 352162875 + c'_above = 1042275882, below
+      3 M_b = 3 x 52634349 (tf rounds) + 15 W + 58 + c'_below = 179958197 (P_W, P_iota, W, Sum X_7 read from
+      dnumber5.out, md5 pinned: True); B_once := FWD + B_loops + 2 M_b + M_a + 3 x 607240279 = 574994137715471
+      d <= A' + (K + 1) c' + B_once = 46236449175331158 (4.6236449175e+16); N = 21 d + 6 <= 970965432681954324; B_once is
+      1.24e-02 of d: pinned: True
   M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = 1.884850e-08 < eta_2 = 1.889700e-08 <
       1.9839e-08, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5
       pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: True; the levels off I11:156-160's sets and eps,
       eps' off I9:290-291's and I14:124-126's: not decided (the roots -mu as numbers)
+  M6 (READ; deduced on the reading; computed; Round 10, the round-9 verifier's MAJOR A): the base level. READ: the base
+      runs on h + h_rem(q), of K+-order (alpha - 2)- (I15:305-308, Remark 3.2 (1) at I15:447), so a_K - 2 < alpha - 4 =
+      eps_K; Lemma 3.1 needs alpha'_K > alpha_0 + 2 - a_K (I9:218); III.I''''' Proposition 2.1 starts below a_K - 1
+      (I6:81) and each round raises alpha'_K by a_K - 2 (I6:90, 223), Step 2 void when alpha#_+ < lambda_sharp (I6:110);
+      its Start's III.I''' Step 0 runs III.I'' Proposition 5.1 to alpha'_K >= alpha_K - (a_K - 2) (I4:132), from 1/2
+      (I3:337) in steps a_K - 2 (I3:423): 13 statements found: True. Census of the three ranges (I6:77-227, I4:132-275,
+      I3:325-427; FAM with III.I Theorem 5.3, III.I'' Proposition 5.1 and III.I''' / III.I'''' citations added, and one
+      citation split over two lines, I4:261-262): 89 rows, 0 unclassified, 0 stale; by class {'counted': 7, 'fin0': 9,
+      'iter': 10, 'round': 4, 'route': 3, 'start': 4, 'steps23': 8, 'stmt': 42, 'zero': 2}; every charged site has a
+      charge and every charge a site: True
+      R_BG   round       2  BG: (L - L_b) u, III.I Proposition 4.1 (4.2) (J3 (b))
+      R_FWD  round     510  FWD: u^flat the forward solution (as FWD_below)
+      R_P21  round      12  III.I' Proposition 2.1 (as P21_below)
+      R_P31  round      48  III.I' Proposition 3.1, the one-off application (as P31_I11)
+      S_BG   start       2  BG: (L - L_b) u, III.I Proposition 4.1 (4.2) (J3 (b))
+      S_FWD  start     510  FWD: u^flat the forward solution (as FWD_below)
+      S_P21  start      12  III.I' Proposition 2.1 (as P21_below)
+      S_P31  start      48  III.I' Proposition 3.1, the one-off application (as P31_I11)
+      T_A25  steps23     1  (2.25a): II.G' Proposition 3.3 (1) (J3 (e))
+      T_A26  steps23     2  Step 3.2: (2.26a), beta_K = alpha~_K < 2
+      T_L31  steps23     2  Step 3.3: III.I'' Lemma 3.1 (beta_iota = alpha#_+ + 1, beta_K = alpha~_K - 1 in (0, 1))
+      T_L41  steps23    22  III.I'' Lemma 4.1 at beta_iota = alpha#_+ >= 3/2 - eps, beta_K in (1, 2)
+      T_L42  steps23     2  Step 3.2: III.I'' Lemma 4.2, (2.4) (as L42_34)
+      T_LH   steps23     2  Step 3.1: L-hat(sigma) in f_2 (as LH_31)
+      T_ZE   steps23     1  Step 3.1: III.H Proposition 3.2 (J3 (e))
+      Z_FWD  zero      510  Step 0: III.I Theorem 5.3, FWD
+      Z_P21  zero       12  Step 0: III.I' Proposition 2.1
+      P_A25  iter        1  Step 2b: (2.25a)
+      P_A26  iter        1  Step 2b: (2.26a), beta_K < 1
+      P_BG   iter        2  Step 1: BG
+      P_FWD  iter      510  Step 2a: u^flat the forward solution, FWD
+      P_L31  iter        2  Step 2b: III.I'' Lemma 3.1 (beta_iota = gamma_+ + 1, beta_K = alpha~_K - 1 in [-1/2, 0))
+      P_L41  iter       22  Step 2b: III.I'' Lemma 4.1 at beta_iota = gamma_+, beta_K in [1/2, 1)
+      P_L42  iter        2  Step 2b: III.I'' Lemma 4.2, (2.4)
+      P_P21  iter       12  Step 3: III.I' Proposition 2.1
+      P_P31  iter       48  Step 2a: III.I' Proposition 3.1, the one-off application
+      per round c_r = 604, the Start's pass c_S = 604 (Steps 2-3 32 each), Proposition 5.1's Step 0 z = 522 and one of
+      its steps c_51 = 600
+      the loops (computed, exact, at a_K - 2 = (1 - 10^-9) eps_K, alpha_0 := alpha_1, s_0 = 1 + d - 10^-6 d, tau =
+      alpha_1 - d + 10^-6 d, t = s_0 - d; every condition of the cited lines holds: True): R = 53191488 rounds of
+      III.I''''' Proposition 2.1, R_w = 26069149 of them with alpha~_K >= lambda_sharp (the first is round 27122340),
+      n_51 = 26595745 steps of III.I'' Proposition 5.1; the same at 10^-12, 10^-9, and the limits floor((alpha_1 - 1 - 2
+      eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2, ceil(1/(2 eps_K)): True; pinned: True
+      B_base = z + n_51 c_51 + c_S + R c_r + R_w 15 W + 2 M_b = 522 + 15957447000 + 604 + 32127658752 + 574942828694970 +
+      359916394 = 574991273718242 (5.7499e+14); the windows are 0.9999 of it; Round 9's 6 M_b = 1079749182 withdrawn
   C1 (control): the row I12:247 (III.I'' Lemma 4.1) dropped: 1 unclassified: True
   C2 (control): the L-hat pattern dropped: 186 hits (not 212), charge ids lost ['FWD_below', 'LH_3', 'LH_31', 'LH_33']:
       True
@@ -61,6 +106,10 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
   C4 (control): level 1 per exponent: c' = 638, not 668: True
   C5 (control): the one-off application on R0 (12): c' = 632, not 668: True
   C7 (control): M_a without X_7(alpha): B_once leaves its pin: True
+  C8 (control; Round 10): the base at h's a_K = 4 + eps_K (round 1's H3, LOSS-D LD12 (v)): R = 0 rounds, n_51 = 0: B_once
+      = 3223914749 leaves its pin: True
+  C9 (control; Round 10): no round charged the windows: B_once = 51309020501 leaves its pin: True
+  C10 (control; Round 10): the base row I6:87 (a round's BG) dropped: 1 unclassified: True
   C6 (control): every range's opening line searched one line off: the anchors fail: True
 M0 PASS
 M1 PASS
@@ -68,10 +117,14 @@ M2 PASS
 M3 PASS
 M4 PASS
 M5 PASS
+M6 PASS
 C1 PASS
 C2 PASS
 C3 PASS
 C4 PASS
 C5 PASS
 C7 PASS
+C8 PASS
+C9 PASS
+C10 PASS
 C6 PASS

@@ -466,8 +466,11 @@ def r6_margin(C):
 
 
 def r7(C, polys):
-    """the literal reading: rational roots of the scalar box^C sextic have denominators dividing q (every l);
-    no value 2 - alpha of I9, I14, I12 lies in (1/q) Z"""
+    """the literal reading. The scalar box^C sextic at the point, scaled to integer coefficients, is
+    -64 lam^6 + c5 lam^5 + c4(kappa) lam^4 + ... with c5 an odd constant: by the rational root theorem a rational root
+    has denominator 2^a, a <= 6; for 1 <= a <= 5 the term lam^5 alone has the least 2-adic valuation (so no root), and
+    for a = 6 the numerator is = c5 mod 64. So every rational root is an integer or = c5/64 mod 1, at every l. The
+    values 2 - alpha of I9, I14 and I12 in (1/64) Z are listed exactly; a hit needs 1 - (2 - alpha) = c5/64 mod 1."""
     D, I = C['D'], C['I']
     pk = polys[0]
     lam, K = DP.lam, DP.K
@@ -476,41 +479,33 @@ def r7(C, polys):
     den = sp.ilcm(*[sp.Rational(c_).q for cc in cs for c_ in sp.Poly(cc, K).all_coeffs()])
     csi = [sp.Poly(sp.expand(cc * den), K) for cc in cs]
     lead = csi[0].all_coeffs()
-    assert len(lead) == 1
-    lead = int(lead[0])
-
-    def val(n, pr):
-        n = int(n)
-        if n == 0:
-            return 10 ** 9
-        k = 0
-        while n % pr == 0:
-            n //= pr
-            k += 1
-        return k
-    ok5 = val(lead, 5) == 0
-    q = abs(lead)                          # rational root theorem: the denominator divides the leading coefficient
+    c5 = csi[1].all_coeffs()
+    struct = len(lead) == 1 and int(lead[0]) == -64 and len(c5) == 1 and int(c5[0]) % 2 == 1
+    c5 = int(c5[0])
+    frac_only = Fr(c5 % 64, 64)                       # the one non-integer fractional part a rational root can have
+    q = 64
     assert D % q == 0
     M = D // q
     st = I['step']
-    k_top3 = C['k3'] - 1
-    imax2 = (beta(C, k_top3) - I['epsp'] - I['tau0']) // st
+    imax2 = (beta(C, C['k3'] - 1) - I['epsp'] - I['tau0']) // st
     imax3 = (I['alpha'] - 2 * D - I['tau3']) // st
-    hits = []
+    vals = []
     for nm, A, imax in (('3 - tau_i', 3 * D - I['tau0'], imax2), ('2 - tau_i', 2 * D - I['tau3'], imax3)):
         g = gcd(st, M)
         if A % g == 0:
             m = M // g
-            i0 = ((A // g) * pow(st // g, -1, m)) % m
-            if i0 <= imax:
-                hits.append((nm, i0))
+            i = ((A // g) * pow(st // g, -1, m)) % m
+            while i <= imax:
+                vals.append((nm, i, Fr(A - i * st, D)))
+                i += m
     deltas = []
     for k in range(C['k4'], C['K'] + 1):
         l3 = Fr(beta(C, k), D) - 4 - Fr(I['eps'], D)
         deltas.append((Fr(I['eps_ind'], D) - l3 - 2 * Fr(I['eps'], D)) / 2)
     okd = all(0 < q * d < 1 for d in deltas)
-    return dict(ok=ok5 and not hits and okd, den=sp.factorint(den), lead=lead, q=q, imax2=imax2, imax3=imax3,
-                hits=hits, deltas=deltas)
+    hits = [(nm, i, v) for nm, i, v in vals if (1 - v) % 1 == frac_only]
+    return dict(ok=struct and not hits and okd, den=sp.factorint(den), lead=-64, c5=c5, frac=frac_only, q=q,
+                imax2=imax2, imax3=imax3, vals=vals, hits=hits, deltas=deltas)
 
 
 def r8(C):
@@ -601,14 +596,15 @@ def main(selftest=False):
     OK['R7'] = R7['ok']
     print('  R7 (exact): Proposition 5.1\'s hypothesis read for every j and every root: 2 - alpha + j is rational and '
           'never an integer, so it can meet only a non-integer rational root. R2 found none for box^Ups (every l), the '
-          'physical factors, box^C at s0, s1, the vector type (every l) and the scalar type at l <= %d; for the scalar '
-          'sextic at every l, scaled to integer coefficients (lcm %s), the leading coefficient is %s and the 5-adic '
-          'valuations of the others are >= 0, so a rational root has denominator dividing %d (rational root theorem). '
-          'The values 2 - alpha that occur, in units 1/%d: 3 - tau_i (I9, i <= %d), 2 - tau_i (I14 and the top levels, '
-          'i <= %d) and delta (%s): none is in (1/%d) Z (congruences mod D/%d: %s): %s' % (
-              LC, R7['den'], R7['lead'], R7['q'], R7['q'], R7['imax2'], R7['imax3'],
-              ', '.join('%.4e' % float(d) for d in R7['deltas']), R7['q'], R7['q'], R7['hits'] or 'no solution in '
-              'range', OK['R7']))
+          'physical factors, box^C at s0, s1 and the vector type (every l). The scalar sextic, scaled to integer '
+          'coefficients (lcm %s), is -64 lam^6 + %d lam^5 + ... with that coefficient odd and free of kappa: a rational '
+          'root, at any l, is an integer or has fractional part %s exactly (rational root theorem and 2-adic '
+          'valuations), so -mu = 1 - lam_C has fractional part 0 or %s. The values 2 - alpha in (1/64) Z that occur: %s '
+          '(3 - tau_i at I9, i <= %d; 2 - tau_i at I14 and the top levels, i <= %d: none); delta = %s, below 1/64. None '
+          'equals %s: %s' % (
+              R7['den'], R7['c5'], R7['frac'], 1 - R7['frac'],
+              ['%s = %s at i = %d' % (nm, v, i) for nm, i, v in R7['vals']], R7['imax2'], R7['imax3'],
+              ', '.join('%.4e' % float(d) for d in R7['deltas']), 1 - R7['frac'], OK['R7']))
     R8 = r8(C)
     OK['R8'] = R8['ok']
     print('  R8 (exact): the rest of I11:156-160\'s appended set (the exclusion set of III.I\'\'\'\'\'\'\'\'\'\'\' '
