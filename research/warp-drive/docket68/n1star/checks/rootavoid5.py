@@ -46,9 +46,14 @@ above 3): all rational (dweights5.weights and counts, imported).
      d1 has degree 4 over Q, d0 and the delta's lie outside Q(d1) or meet no relation (sympy, exact), so only x = 2,
      n = 0 survives: beta = lambda_sharp + 2 = 3.5099, which is not a level (exact). The least distance of the levels
      from the set, certified: printed.
-  R7 (computed, exact) the reading of Proposition 5.1's hypothesis "for all j": decided under it as well, except for
-     the box^C scalar-type roots of degree l > LC, whose rationality R2 does not decide; all of them have real part
-     < -100 (READ, Proposition 10.44 (i)), so -mu > 101, and no step of Proposition 5.1's proof uses a j > 2 (R0).
+  R7 (computed, exact) Proposition 5.1's hypothesis as literally stated (every j, every root): the scalar box^C
+     sextic, scaled to integer coefficients, is -64 lam^6 + c5 lam^5 + ..., c5 odd and free of kappa, so a rational
+     root (any l) is an integer or = c5/64 = 49/64 mod 1 (rational root theorem, 2-adic valuations); the values
+     2 - alpha in (1/64) Z are found by congruence and none has the fractional part 15/64 that -mu would need.
+  R8 (computed, exact) the rest of I11:160's appended set (I12 section 1's exclusion set): l_zf not an integer; (4.2)
+     at level 1; Lemma 4.2's interval. Not decided: (4.2) at level 2 (its tf-exponents are not listed).
+  R9 (computed, exact) Definition 1.1 (a) at the levels (beta - 2 not the real part of a rate), not asked by R9 but
+     decided by the same arithmetic: rational candidates not levels; irrational parts never rational (Q(d1) tests).
   Negative controls (each mutates the computed path; each must fail): C1 a level planted at 3.5099 (R6 finds it);
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
@@ -520,6 +525,46 @@ def r8(C):
     return dict(ok=ok, hits=hits + (['alpha'] if top_int else []))
 
 
+def r9(C):
+    """Definition 1.1 (a) at every level in (3, 4 + eps_K]: beta - 2 is not the real part of a rate (lambda - 1 at s1,
+    lambda at s0, s2, v1, lambda + d0 and lambda + d1 at c0, c1; lambda in Lambda; I10 section 1). On R9.1's reading
+    Lambda in (1, 3 + eps_K] is: the rational points R (lambda_sharp, 2, 3 and the least E^C_I's points, closed under
+    + 1), each plus n d1, plus at most one offset theta1 in {d0} u {delta_l, delta'_l} (the E_col bases and the
+    once-usable increments 1 + d0, 1 + delta_2, 1 + delta'_1); a c-rate adds d0 or d1. A rate is rational only if
+    n d1 + theta1 + theta2 is, theta2 in {0, d0, d1}: the field tests exclude it unless theta1 = theta2 = 0 and n = 0
+    (exact); the rational candidates for beta are then lambda + 2 and lambda + 1 (s1) for lambda in R."""
+    D, I = C['D'], C['I']
+    eK = C['w']['eps_K']
+    with contextlib.redirect_stdout(io.StringIO()):
+        import prop31loss5 as P31
+    eci = sorted(z for z in P31.least_ECI() if z <= 4)
+    R = set([DW.LSHARP, Fr(2), Fr(3)] + eci)
+    for _ in range(3):
+        R |= {x + 1 for x in R if x + 1 <= 4}
+    cands = sorted({x + 2 for x in R if 1 < x <= 2 + eK} | {x + 1 for x in R if 2 < x <= 3 + eK})
+    hits = []
+    for b in cands:
+        v = b * D
+        if v.denominator != 1:
+            continue
+        v = int(v)
+        k = (v - I['alpha1']) // I['s']
+        if ((v - I['alpha1']) % I['s'] == 0 and C['k3'] <= k < C['K']) or v == I['alpha']:
+            hits.append(b)
+    lam12, d0, sl = algebraic_numbers()
+    offs = [('d0', d0)] + [('delta_%d' % lv, sl(lv, 0)) for lv in range(2, 7)] + \
+           [("delta'_%d" % lv, sl(lv, 1)) for lv in range(1, 6)]
+    bad = []
+    for nm1, t1 in offs:
+        for nm2, t2 in (('0', 0), ('d0', d0)):
+            try:
+                sp.polys.numberfields.subfield.to_number_field(t1 + t2, lam12)
+                bad.append((nm1, nm2))
+            except sp.polys.polyerrors.IsomorphismFailed:
+                pass
+    return dict(ok=not hits and not bad, cands=cands, hits=hits, bad=bad, ntests=2 * len(offs), eci=len(eci))
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
@@ -617,6 +662,15 @@ def main(selftest=False):
           'eps in (0, 1) at level 3, which holds for the final tau in (beta - 2, beta - 1 - eps) (deduced): %s. Not '
           'decided here: (4.2) at level 2, whose tf-exponents in [1 + eta_1, 2 + eta_2) the record does not list' % (
               R8['hits'] or 'none', OK['R8']))
+    R9 = r9(C)
+    OK['R9'] = R9['ok']
+    print('  R9 (exact): Definition 1.1 (a) at every level in (3, 4 + eps_K] (not asked by R9, decided by the same '
+          'arithmetic): beta - 2 is never the real part of a rate. The rational candidates (lambda + 2 and lambda + 1 '
+          'for the rational points of Lambda, from lambda_sharp, 2, 3 and the least E^C_I\'s %d points): %s; levels '
+          'among them: %s; the irrational parts n d1 + theta1 + theta2 (theta1 in d0 and the E_col offsets delta_2..6, '
+          'delta\'_1..5; theta2 in {0, d0}; theta2 = d1 is n + 1): none in Q(d1) (%d exact tests, failures %s): %s' % (
+              R9['eci'], [str(x) for x in R9['cands']], R9['hits'] or 'none', R9['ntests'], R9['bad'] or 'none',
+              OK['R9']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])
