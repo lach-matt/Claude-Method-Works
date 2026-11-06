@@ -410,7 +410,7 @@ def main():
         print('      unclassified %s' % (u,))
     w = the_weights()
     ch, meta = charges(w)
-    OK['M2'] = set(charged_ids) <= set(ch) and {k for k in ch if k != 'BG_I15'} - set(charged_ids) == set()
+    OK['M2'] = set(charged_ids) == set(ch)
     print('  M2 (charges, at dweights5 W1\'s weights; eps_K = %s < the (G) bound 5.0191e-8): every charged site has a '
           'charge and every charge a site: %s' % (w['eps_K'], OK['M2']))
     for k in sorted(ch, key=lambda x: (ch[x][0], x)):

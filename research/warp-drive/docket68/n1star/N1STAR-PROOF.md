@@ -876,8 +876,11 @@ Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
 Take the stage data of Lemma 6.2 with N := K + 3 and U of Proposition 6.5. Put g on Sigma: the spatial part gamma + a
 dr dr, the lapse and shift of g_app, d_tau of the spatial part fixed by K + w Pi + q dr + dr q, and d_tau of the lapse
-and shift fixed by D(g) = 0 (6.2). Then the constraints hold exactly (Proposition 6.5), D = 0 and, by (6.2), d_tau D =
-0 on Sigma. For w := g - g_app on Sigma: the spatial part and d_tau of it are U and its tangential derivative
+and shift fixed by D(g) = 0 (as in 6.1, "What Theorem D asks") [corrected D619 (n8): cited (6.2) for this fixing,
+which is made in 6.1; (6.2) is where d_tau D = 0 comes from]. Then the constraints hold exactly (Proposition 6.5), D
+= 0 and, by (6.2), d_tau D = 0 on Sigma for the solution of Ric^H = 0 with these data. For w := g - g_app on Sigma
+[D619, n10: g_app is here (5.1)'s G(X, u/lam), while (E4) is stated for its (0.4) form; the two differ by
+O(lam^(N+1)) in scaled norms (5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and its tangential derivative
 combinations, and d_tau w_{tau .} solves the linear relation D(g) - D(g_app) = -D(g_app) = O(lam^(N-1)) with invertible
 coefficient. So, each derivative costing at most lam^-1, Data(w) <= C lam^-1 lam^(N-2) = C lam^K: (E4). The data are
 smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction commutes with the symmetries, by uniqueness in

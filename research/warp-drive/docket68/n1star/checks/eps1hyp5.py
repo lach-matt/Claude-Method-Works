@@ -12,9 +12,9 @@ basis of ker df) and |g - g0| <= eps < m, then g|ker df >= m - eps > 0. Round 1 
 lzeroconst5.py's geometry); deduced (the reduction to the hyperplanes, and the causal containment below).
 
   H1 (exact) g0 = eta + (mu/r^2) dv dv on the three hyperplanes, in Euclidean-orthonormal bases:
-       ker dtau (all of Omega):          eigenvalues 1 (x3), 1 + mu/r^2                 -> lambda_min = 1;
-       ker dr (on r = a):                eigenvalues 1 (x3), mu/a^2 - 1 >= mu0/a^2 - 1   -> lambda_min = min(1, mu0/a^2 - 1);
-       ker d(v + tau) (outer boundary):  eigenvalues 1 (x3), (3 + mu/r^2)/5            -> lambda_min >= 3/5.
+       ker dtau (all of Omega):         eigenvalues 1 (x3), 1 + mu/r^2                -> lambda_min = 1;
+       ker dr (on r = a):               eigenvalues 1 (x3), mu/a^2 - 1 >= mu0/a^2 - 1  -> min(1, mu0/a^2 - 1);
+       ker d(v + tau) (outer boundary): eigenvalues 1 (x3), (3 + mu/r^2)/5           -> lambda_min >= 3/5.
      Checked symbolically (sympy: the restricted Gram matrices for generic mu, r and unit xhat) and exactly at P*,
      where mu0/a^2 - 1 > 12 and so lambda_min = 1 on ker dr. (D623: the ker dr value is min(1, mu0/a^2 - 1) in
      general, and {r = a} is spacelike for g0 as long as mu0/a^2 > 1; until D623 H1 asked mu0/a^2 - 1 > 1.)
@@ -377,8 +377,8 @@ def main():
     ok['H5'] = (r5['closed'] and r5['decr'] and r5['pointwise'] < TOL and abs(r5['gmin'] - s_star) < TOL
                 and r5['corner'] and float(E_LO) - TOL <= r5['gmin'] <= float(E_HI) + TOL and r5['below']
                 and abs(r5['mu_end_num'] - 227 / 192) < 1e-9)
-    say('  H5 (D623): g0 = eta + m U U^T has eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; s(m) = (m^2 + 1)^(1/2) '
-        '- m decreases (exact): %s; grid of %d points over Omega (mu(v) from the envelope, mu_end = %.12f against '
+    say('  H5 (D623): g0 = eta + m U U^T has eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; s(m) = (m^2 + '
+        '1)^(1/2) - m decreases (exact): %s; grid of %d points over Omega (mu(v) from the envelope, mu_end = %.12f against '
         '227/192): least |eigenvalue| = s(mu/r^2) at every point to %.1e; grid minimum %.12f at the corner (r = a, v > '
         'v_end): %s; s(m*) = %.12f; in T7\'s enclosure [%s, %s]: %s; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): %s' % (
             r5['closed'], r5['decr'], r5['n'], r5['mu_end_num'], r5['pointwise'], r5['gmin'], r5['corner'], s_star,

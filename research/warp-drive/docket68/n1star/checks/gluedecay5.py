@@ -231,7 +231,7 @@ def e2():
 
 # ---------------------------------------------------------------------------------------------------------- E3
 def trh(x, a_, e_, m_):
-    """the exact trace of Psi^*(gamma) - gamma for gamma = (1 + m/r^2) dr^2 + r^2 dOmega^2, phi = r + e r^(1-a) cos log r"""
+    """the exact trace of Psi^*(gamma) - gamma, gamma = (1 + m/r^2) dr^2 + r^2 dOmega^2, phi = r + e r^(1-a) cos log r"""
     vv = x**(1 - a_) * mpm.cos(mpm.log(x))
     dv = x**(-a_) * ((1 - a_) * mpm.cos(mpm.log(x)) - mpm.sin(mpm.log(x)))
     p_, dp_ = x + e_ * vv, 1 + e_ * dv
@@ -352,8 +352,10 @@ def s3_moment(alpha):
 
 
 def sphere_flux(expr, X, w, rho):
-    """the flux over S_rho of expr dS, expr a function of x: substitute x = rho w, integrate the monomials in w"""
-    e_ = sp.expand(sp.powsimp(sp.expand(expr.subs({X[i]: rho * w[i] for i in range(4)})), force=True))
+    """the flux over S_rho of expr dS, expr a function of x: |x|^2 -> rho^2, then x = rho w, and the monomials in w
+    integrated exactly over S^3"""
+    e0 = expr.subs(sum(xi**2 for xi in X), rho**2)
+    e_ = sp.expand(sp.powsimp(sp.expand(e0.subs({X[i]: rho * w[i] for i in range(4)})), force=True))
     poly = sp.Poly(e_, *w)
     tot = sum(cf * s3_moment(mon) for mon, cf in poly.terms())
     return sp.simplify(tot * rho**3)
@@ -366,7 +368,6 @@ def fluxes():
     w = sp.symbols("w1:5", real=True)
     rr = sp.sqrt(sum(xi**2 for xi in X))
     nu = [xi / rr for xi in X]
-    rr_sub = {}
     out = {}
     h = sp.Matrix(4, 4, lambda i, j: X[i] * X[j] * rr**(-a - 2))                       # order a, energy
     tr_h = sum(h[i, i] for i in range(4))
@@ -391,10 +392,9 @@ def fluxes():
     out["angular momentum (d = 1)"] = (ba, 1)
     res = {}
     for name, (expr, d) in out.items():
-        fl = sphere_flux(sp.simplify(expr), X, w, rho)
+        fl = sphere_flux(expr, X, w, rho)
         coef = sp.simplify(fl / rho**(2 + d - a))
         res[name] = (d, coef, not coef.has(rho) and sp.simplify(coef.subs(a, sp.Rational(5, 2))) != 0)
-    del rr_sub
     return res, a, rho
 
 
@@ -445,10 +445,16 @@ def e4():
 
 
 # ---------------------------------------------------------------------------------------------------------- E5
+_E5 = {}
+
+
 def e5():
     sys.path.insert(0, os.path.join(HERE, "checks"))
     import mpdata5 as md
     rho, mu = md.rho, md.mu
+    if MUT != "mass" and "series" in _E5:                              # the series do not depend on 'dim3'
+        lows, tl = _E5["series"]
+        return e5_rest(lows, tl)
     om = md.POINTS[1]
     if MUT == "mass":                                                  # a mass change in place of the spins
         u, h, k, _ = md.mp_ingredients(om, 0, 0)
@@ -478,6 +484,13 @@ def e5():
             if not ok_:
                 raise RuntimeError("E5 (b): a series with a log or a fractional power")
             tl.append(99 if lo is None else lo)
+    if MUT is None:
+        _E5["series"] = (lows, tl)
+    return e5_rest(lows, tl)
+
+
+def e5_rest(lows, tl):
+    spin = min(lows) >= 3 and 3 in lows
     trans = min(tl) == 3
     X = sp.symbols("x1:5", real=True)
     rr = sp.sqrt(sum(e_**2 for e_ in X))
