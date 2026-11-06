@@ -30,11 +30,12 @@ place for the verifier of its Part V (its section 12).
 2. **(a) Rácz's split on the whole slice (computed).** On Part I's Σ_τ0 the algebraic-hyperbolic split is hyperbolic
    everywhere except a band R ∈ [4.30, 4.53] inside the shell (R1; converged, max N_k = 1.79 × 10⁻³ at R = 4.40), where
    the shell's flux exceeds 2μ(2 + μ/R²)/R (R2, exact). There K is negative definite and **no foliation** makes the
-   split hyperbolic (R2, exact). Replacement: Proposition L holds for every perturbation whose radial support avoids
-   the band; data meeting the band are posed on the cone N, where localisation is exact (B6).
-   [R6. The band is [4.29, 4.53] (interpolated edges 4.2914, 4.5284 at n = 160; racglobal5 R1 repaired); "no
-   foliation" holds for foliations of Σ_τ0 and is now proved from [Rac16] (4.22) (R2 repaired); a slice bent by
-   0.00145 is hyperbolic everywhere and carries band-localised data across the band (R6 section 2, Theorem L″).]
+   split hyperbolic (R2, exact). Replacement: Proposition L holds for every perturbation whose radial support avoids the
+   band; data meeting the band are posed on the cone N, where localisation is exact (B6). [R6. The band is [4.29, 4.53]
+   (interpolated edges 4.2914, 4.5284 at n = 160; racglobal5 R1 repaired); "no foliation" holds for foliations of Σ_τ0
+   and is now proved from [Rac16] (4.22) (R2 repaired); a slice bent by 0.00145 is hyperbolic everywhere and carries
+   band-localised data across the band (R6 section 2, Theorem L″).] [R8: with the lobe moved, 0.00116, and certified for
+   the background itself (FAMILIES5-R8.md R8.2-R8.3).]
 3. **(b) Exact compact support (READ, computed).** [CS06]/[CD03] give vacuum data equal to Part I's outside a band up
    to the invariant KIDs; in Part I's vacuum regions there is exactly one, the static one (R3), so one charge. On the
    stream-function seeds the charge is negative (R4, 45 seeds), so they do not complete to exactly localised vacuum

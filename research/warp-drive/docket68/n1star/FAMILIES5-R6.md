@@ -9,23 +9,26 @@ re-derived before it is accepted.
 **Verdict.**
 
 1. **(b) Exact compact support is settled for momentum seeds, and decided with matter (Theorem Q, Theorem Q′).** Every
-   momentum seed (δγ = 0, any δK solving the linearised constraints, compactly supported in a vacuum band U of Part
-   I's slice) is a pair (ψ, s1) of compactly supported functions, and its charge is, up to a divergence, minus two
-   squares minus Γψ²/sin 2θ, where Γ = 4μ/R exactly wherever Part I's ψ_P vanishes and Γ > 0 on the seed region
-   (computed): **Q < 0 for every nonzero momentum seed**, inside the horizon as well as outside. Hence no exactly
-   localised vacuum data with such a first-order part exist. With matter the charge must equal ∫T(ξ, n), ξ the static
-   Killing field (its KID is (N_s, 2Y_s), computed): where ξ is future causal (outside the horizon) the dominant energy
-   condition makes this impossible; **inside the horizon outgoing null dust has T(ξ, n) < 0 and exactly localised
-   Einstein–null-dust data exist** (constructed, the sign computed). Round 5's "nor with dust added" holds outside the
-   horizon and fails inside it (the round-5 verifier's Major 4, decided). Gauge seeds have Q = 0 and give re-slicings.
-   For seeds that perturb the metric the sign of Q is the canonical energy's; that is the one missing input, and
-   nothing weaker settles exact vacuum localisation at second order (section 1.5).
-2. **(a) The band is crossed (Theorem L″).** The obstruction is a property of the slice: a slice equal to Σ_τ0
-   outside R ∈ [3.0, 5.75], bent by at most 0.00145 in τ, is spacelike and has Rácz's split hyperbolic at every point
-   (computed, max κ′K′^l_l = −3.08 × 10⁻⁴). Data localised in an angle are posed there, for any radial support, and
-   carried across the thin lens to Σ_τ0, widening their angular support by at most 4.8 × 10⁻⁴ rad. So band-localised
-   data exist on all of Part I's slice. R2's "no foliation is hyperbolic" holds for foliations of Σ_τ0 itself, now
-   proved from [Rac16] (4.22) (the verifier's correction).
+   momentum seed (δγ = 0, any δK solving the linearised constraints, compactly supported in a vacuum band U of Part I's
+   slice) is a pair (ψ, s1) of compactly supported functions, and its charge is, up to a divergence, minus two squares
+   minus Γψ²/sin 2θ, where Γ = 4μ/R exactly wherever Part I's ψ_P vanishes and Γ > 0 on the seed region (computed): **Q
+   < 0 for every nonzero momentum seed**, inside the horizon as well as outside. Hence no exactly localised vacuum data
+   with such a first-order part exist. With matter the charge must equal ∫T(ξ, n), ξ the static Killing field (its KID
+   is (N_s, 2Y_s), computed): where ξ is future causal (outside the horizon) the dominant energy condition makes this
+   impossible; **inside the horizon outgoing null dust has T(ξ, n) < 0 and exactly localised Einstein–null-dust data
+   exist** (constructed, the sign computed). Round 5's "nor with dust added" holds outside the horizon and fails inside
+   it (the round-5 verifier's Major 4, decided). Gauge seeds have Q = 0 and give re-slicings. For seeds that perturb the
+   metric the sign of Q is the canonical energy's; that is the one missing input, and nothing weaker settles exact
+   vacuum localisation at second order (section 1.5). [R8: E is defined by Q =: −E (R7.2), and the canonical-energy
+   identification is set aside, FAMILIES5-R8.md R8.7; M_b is pending, R8.8.]
+2. **(a) The band is crossed (Theorem L″).** The obstruction is a property of the slice: a slice equal to Σ_τ0 outside R
+   ∈ [3.0, 5.75], bent by at most 0.00145 in τ, is spacelike and has Rácz's split hyperbolic at every point (computed,
+   max κ′K′^l_l = −3.08 × 10⁻⁴). Data localised in an angle are posed there, for any radial support, and carried across
+   the thin lens to Σ_τ0, widening their angular support by at most 4.8 × 10⁻⁴ rad. So band-localised data exist on all
+   of Part I's slice. R2's "no foliation is hyperbolic" holds for foliations of Σ_τ0 itself, now proved from [Rac16]
+   (4.22) (the verifier's correction). [R8: the left lobe is moved to [3.5, 4.05], so Σ′ = Σ_τ0 outside [3.5, 5.75],
+   bent by at most 0.00116, widening at most 3.3 × 10⁻⁴ rad; hyperbolicity certified for the background itself
+   (FAMILIES5-R8.md R8.2-R8.3).]
 3. **Theorem V's hypotheses are stated, open, and met (Lemma O, Proposition NE).** "The record's open conditions" are
    written out: the domain conditions of Lemma 1.1 (a)-(d) for g, and the two sign conditions of Lemma 6.3 (a) on the
    slice (positive mean curvature of the spheres, positive symmetrizer); (b)-(c) of Lemma 6.3 are properties of the
@@ -267,11 +270,14 @@ outside [3.0, 5.75]). Then:
   < θ < π/2 − θ1}, any [R1, R2] in [a, b(τ0)] (the band included), Proposition L on Σ′ gives constraint data on Σ′ equal
   to the background's outside {R ≤ R2, |θ − θ-band| ≤ Δ(R)} (solved inward from R2 to a, Theorem K′ on the whole
   interval).
-- Their development across the lens between Σ′ and Σ_τ0 (a compact region with no lateral boundary, R ∈ [3.026,
-  5.723], τ-thickness 0.00145, inside the computed domain; class Einstein–null-dust Cauchy stability near the smooth
-  background, the record's local theory in Theorem K′'s form) induces on Σ_τ0 constraint data equal to Part I's outside
-  the domain of influence of the support: the angular support widens by at most 0.00145/R_min = 4.8 × 10⁻⁴ rad and the
-  radial by at most 0.0015 (R|dΩ/dτ| ≤ 1, augment5 S7; computed, S3).
+- Their development across the lens between Σ′ and Σ_τ0 (a compact region with no lateral boundary, R ∈ [3.026, 5.723],
+  τ-thickness 0.00145, inside the computed domain; class Einstein–null-dust Cauchy stability near the smooth background,
+  the record's local theory in Theorem K′'s form) induces on Σ_τ0 constraint data equal to Part I's outside the domain
+  of influence of the support: the angular support widens by at most 0.00145/R_min = 4.8 × 10⁻⁴ rad and the radial by at
+  most 0.0015 (R|dΩ/dτ| ≤ 1, augment5 S7; computed, S3). [R8: with the lobe moved, φ″ = 0.01 (b(R; 4.1, 4.7) − l1 b(R;
+  3.5, 4.05) − l2 b(R; 4.85, 5.75)), l1, l2 exact (FAMILIES5-R8.md R8.1); Σ′ = Σ_τ0 outside [3.5, 5.75]; the lens R ∈
+  [3.519, 5.723], thickness 0.00116, widening ≤ 3.3 × 10⁻⁴ rad; κ′K′^l_l < 0 certified for the background itself on all
+  of Σ′ (R8.2-R8.3).]
 
 So **data localised in an angle exist on all of Part I's slice, the band included** (deduced). Proposition L's
 statement (FAMILIES5-VLASOV section 3) is superseded: no radial restriction remains, and the cone route (B6) is no
@@ -354,7 +360,9 @@ solutions.** ∎
   the N-family linearisation is a term type of the two-family ledger (twoledger5) with its family labels replaced; the
   ledger's counting (powers of λ, derivatives, which part of N₂ controls it) depends on the term type only, and terms
   with three or more distinct families (from stage 1) are products of the same profiles at the same orders; there are
-  O(N³) terms and the constants depend on N. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
+  O(N³) terms and the constants depend on N [R8: computed term by term (nledger5, FAMILIES5-R8.md R8.4): every term
+  passes for N = 2..8, the term types are exactly the two-family ledger's, and with coefficient sources the count is a
+  polynomial of degree 4 in N, not O(N³)]. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
 - **D₂_N (the data):** section 4.2.
 
 ### 4.2 Theorem D₂_N: the data with overlapping families (deduced; computed nfamily5 N1-N3)
