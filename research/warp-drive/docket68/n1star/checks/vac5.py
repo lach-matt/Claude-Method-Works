@@ -22,6 +22,9 @@ C_mn := (1/2)(g_(m rho) (Gamma[g_b0] - Gamma[g])^rho_(n s) + g_(n rho) (Gamma[g_
      g_b0 + Sigma - g_lam = O(r^(-9/2)) with derivatives), D-energy ~ |T|^(2 a_D - 6); on N, D = 0. So for a_D in
      (0, 2) the D-energy of g_T on W_T is at most C |T|^(2 a_D - 4) -> 0, uniformly in sigma. Controls: a_D = 2 (the
      cap does not vanish); the zero-order kernel with a = 1/2 (not integrable).
+Round 5 (SETTLE-GLAM5 R5.0, the round-4 verifier's reading): checks marked [arithmetic] (V2a-V2e) integrate kernels
+and caps whose exponents are entered by hand; the exponents of the coefficients are measured on the operator in
+r5op5.py O1, the caps' and tails' on explicit fields in r5settle5.py G.
 Labels: computed (V1 numerical at 60 digits; V2 exact, sympy).
 
     python3 checks/vac5.py
@@ -253,21 +256,24 @@ def v2():
                "zero order with Hardy, (lam + mu) r^-4 * r": 3, "zero order with Hardy, eps r^(-3/2-a) * r":
                av + sp.Rational(1, 2), "deformation d_t g: eps r^(-3/2-a) and lam r^-3": sp.Rational(3, 2) + av}
     ok = all(integrable(q) for q in kernels.values())
-    check("V2a every kernel of the D-system's energy at weight a_D is integrable along W (a = 11/4; the exponents "
+    check("V2a [arithmetic] every kernel of the D-system's energy at weight a_D is integrable along W (a = 11/4; the "
+          "exponents "
           "do not involve a_D)", ok, str({k: str(v) for k, v in kernels.items()}))
     r, T = sp.symbols("r T", positive=True)
     cap = sp.integrate(r**(2*aD)*(r**-4)**2*r**3, (r, T, sp.oo), conds="none")
     capv = [sp.limit(cap.subs(aD, av_), T, sp.oo) for av_ in (sp.Rational(1, 2), 1, sp.Rational(19, 10))]
-    check("V2b the cap beyond the band: int_(|T|)^oo r^(2 a_D) (r^-4)^2 r^3 dr = |T|^(2 a_D - 4)/(4 - 2 a_D) -> 0 for "
+    check("V2b [arithmetic] the cap beyond the band: int_(|T|)^oo r^(2 a_D) (r^-4)^2 r^3 dr = |T|^(2 a_D - 4)/(4 - 2 "
+          "a_D) -> 0 for "
           "a_D = 1/2, 1, 19/10", sp.simplify(cap - T**(2*aD - 4)/(4 - 2*aD)) == 0 and all(c == 0 for c in capv),
           str(sp.simplify(cap)))
     band = sp.integrate(r**(2*aD)*(r**sp.Rational(-9, 2))**2*r**3, (r, T, T + 1))
-    check("V2c the band (unit width at r ~ |T|): D-energy ~ |T|^(2 a_D - 6) -> 0 for a_D < 3 (a_D = 1)",
+    check("V2c [arithmetic] the band (unit width at r ~ |T|): D-energy ~ |T|^(2 a_D - 6) -> 0 for a_D < 3 (a_D = 1)",
           sp.limit(band.subs(aD, 1), T, sp.oo) == 0)
     capc = sp.integrate(r**(2*2)*(r**-4)**2*r**3, (r, T, sp.oo), conds="none")
-    check("V2d control: at a_D = 2 the cap's D-energy does not tend to 0 (it is infinite)", capc in (sp.oo, sp.zoo)
+    check("V2d [arithmetic] control: at a_D = 2 the cap's D-energy does not tend to 0 (it is "
+          "infinite)", capc in (sp.oo, sp.zoo)
           or not capc.is_finite, str(capc))
-    check("V2e control: the zero-order kernel with Hardy at a = 1/2 (q = a + 1/2 = 1) is not integrable",
+    check("V2e [arithmetic] control: the zero-order kernel with Hardy at a = 1/2 (q = a + 1/2 = 1) is not integrable",
           not integrable(sp.Rational(1, 2) + sp.Rational(1, 2)))
 
 

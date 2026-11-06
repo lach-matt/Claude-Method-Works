@@ -72,6 +72,13 @@ Z := (t - v1) d_t + x.d_x; P_mu(h) := Ric^H(g_b0(mu) + h; g_b0(mu)).
      count of Theorem A_P), so the wave integration 2/(2q - 5) and the transport 1/(q - 5/2) never meet q = 5/2, and
      phi's transport 1/(q - 1) never meets q = 1 (its source starts at q = 2): no logarithm at any order (exponent
      closure to 12). Control: a source at q = 5/2 would give 2/(2q - 5) = oo.
+Round 5 (SETTLE-GLAM5 R5.0, the round-4 verifier's reading): checks marked [arithmetic] compute a consequence of
+exponents or rules entered by hand, and their controls cannot fail under a mutation of the operator; the exponents
+are measured on the operator or on explicit fields in r5op5.py (O1: the coefficient rows of B6; O2: the degrees
+behind B8), r5settle5.py (G: the caps and tails of B12; H: replaces B13) and cclass5.py. B6's multilinear row is
+corrected to q = a + 1/2 (one slot undifferentiated, through Hardy), and B6c now expects the two rows with that
+exponent; B10b now tests the second derivative, R^(a+3/2) phi_R''(R + 1/2) = psi''(1/2) = -1, and the energy of
+phi_R' too. B1a's constants c1, c2 bound T(d_t, -grad(t - f)) without the factor sqrt|g| (B1b bounds that factor).
 Labels: computed (B1-B2 random sampling; B5 mpmath at 60 digits; B9(c) mpmath); the rest exact (sympy, integers).
 
     python3 checks/boot5.py
@@ -267,14 +274,14 @@ def b4():
     check("B4b along a ray of Sigma~_sigma: d/dr (w(f(r) + sigma, r)) = (d_r w + f' d_t w)(f(r) + sigma, r) (concrete "
           "f, w); control: d_r w alone is not it", sp.simplify(along - target) == 0 and sp.simplify(along - wrong) != 0)
     vprime = 1 + fp_
-    check("B4c v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2)",
+    check("B4c [arithmetic] v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2)",
           all(vprime.subs(fp_, c) >= sp.Rational(1, 2) for c in (sp.Rational(-1, 2), 0, sp.Rational(1, 2))))
-    check("B4d control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0)",
+    check("B4d [arithmetic] control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0)",
           vprime.subs(fp_, -sp.Rational(3, 2)) < 0)
     # |t - v1| <= r on W: t - v1 >= -r from v >= v1; t - v1 <= r from t <= f(r), v1 = f(4R) + 4R, |f'| <= 1/2, r >= 4R
     Rv = sp.Symbol("R", positive=True)
     worst = -(sp.Rational(1, 2)*(rr - 4*Rv)) + 4*Rv + rr  # v1 + r - t >= f(4R) - f(r) + 4R + r >= -(r - 4R)/2 + 4R + r
-    check("B4e |t - v1| <= r on W (r >= 4R, |f'| <= 1/2): v1 + r - t >= (r + 12 R)/2 > 0",
+    check("B4e [arithmetic] |t - v1| <= r on W (r >= 4R, |f'| <= 1/2): v1 + r - t >= (r + 12 R)/2 > 0",
           sp.simplify(worst - (rr + 12*Rv)/2) == 0)
 
 
@@ -449,8 +456,8 @@ def kernels(a):
         "zero order h_R with Hardy (r d d h_R <= eps r^(-1/2-a))": a + half,
         "bulk-sign error |w'||H|/w (r^-1 (lam r^-2 + eps r^(-1/2-a)))": sp.Min(3, sp.Rational(3, 2) + a),
         "mu d_mu second-order source (mu r^-2 d d Gamma^beta h_R)": sp.Integer(2),
-        "multilinear terms: one L^2 factor, sup factors eps r^(-3/2-a) or eps r^(-1/2-a) r^-1 with Hardy":
-            sp.Rational(3, 2) + a,
+        "multilinear terms: one slot in L^2 (an undifferentiated one through Hardy), the others in sup (r d d h_R "
+        "<= eps r^(-1/2-a))": a + half,
     }
 
 
@@ -459,18 +466,21 @@ def b6():
     ok = True
     for av in (sp.Rational(51, 20), sp.Rational(11, 4), sp.Rational(59, 20)):
         ok = ok and all(integrable(q) for q in kernels(av).values())
-    check("B6a every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3))", ok,
+    check("B6a [arithmetic] every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3))", ok,
           str({kk[:40]: str(v) for kk, v in kernels(sp.Rational(11, 4)).items()}))
     grid = [sp.Rational(n, 100) for n in range(0, 501)]
     good = [av for av in grid if all(integrable(q) for q in kernels(av).values())]
-    check("B6b on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2)",
+    check("B6b [arithmetic] on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2)",
           min(good) == sp.Rational(51, 100) and max(good) == sp.Rational(349, 100) and
           len(good) == 349 - 51 + 1, f"[{min(good)}, {max(good)}], {len(good)} points")
     bad1 = [kk for kk, q in kernels(sp.Rational(1, 2)).items() if not integrable(q)]
     bad2 = [kk for kk, q in kernels(sp.Rational(7, 2)).items() if not integrable(q)]
-    check("B6c control: at a = 1/2 the zero-order h_R kernel is not integrable", len(bad1) == 1 and "zero order h_R"
-          in bad1[0], str(bad1))
-    check("B6d control: at a = 7/2 the residual kernel is not integrable", len(bad2) == 1 and "residual" in bad2[0],
+    check("B6c [arithmetic] control: at a = 1/2 the zero-order h_R kernel and the multilinear one (both q = a + 1/2) "
+          "are not "
+          "integrable", len(bad1) == 2 and any("zero order h_R" in b for b in bad1) and
+          any("multilinear" in b for b in bad1), str(bad1))
+    check("B6d [arithmetic] control: at a = 7/2 the residual kernel is not "
+          "integrable", len(bad2) == 1 and "residual" in bad2[0],
           str(bad2))
 
 
@@ -549,7 +559,8 @@ def b8():
 
     Pi = [Fr(2), Fr(5, 2), Fr(3), Fr(7, 2), Fr(4)]
     d = residual_degrees(Pi)
-    check("B8a with p in {2, 5/2, 3, 7/2, 4} the residual's leading degree is -13/2 (mu Sigma_(5/2), Sigma_2 "
+    check("B8a [arithmetic] with p in {2, 5/2, 3, 7/2, 4} the residual's leading degree is -13/2 (mu Sigma_(5/2), "
+          "Sigma_2 "
           "Sigma_(5/2))", d == Fr(-13, 2), str(d))
     a, R = sp.symbols("a R", positive=True)
     r = sp.Symbol("r", positive=True)
@@ -557,7 +568,7 @@ def b8():
     check("B8b ||w^(1/2) r^(-13/2)||_(L^2(r >= R))^2 = R^(2a - 9)/(9 - 2a) (a < 9/2)",
           sp.simplify(l2sq - R**(2*a - 9)/(9 - 2*a)) == 0, str(sp.simplify(l2sq)))
     d2 = residual_degrees([Fr(2), Fr(5, 2), Fr(3), Fr(7, 2)])
-    check("B8c control: without the p = 4 term the leading degree is -6", d2 == Fr(-6), str(d2))
+    check("B8c [arithmetic] control: without the p = 4 term the leading degree is -6", d2 == Fr(-6), str(d2))
 
 
 # ---------------------------------------------------------------- B9: the self-similar terms
@@ -622,7 +633,8 @@ def b10():
     print("B10  the weight a_0 < 1/2 scheme of rounds 2-3 does not close")
     a0 = sp.Symbol("a0", positive=True)
     chain = a0 + sp.Rational(1, 2)
-    check("B10a the scheme's chain (Hardy on Gamma^alpha h, Sobolev on d d h) gives the kernel exponent a_0 + 1/2: "
+    check("B10a [arithmetic] the scheme's chain (Hardy on Gamma^alpha h, Sobolev on d d h) gives the kernel exponent "
+          "a_0 + 1/2: "
           "not integrable at a_0 = 1/4, 2/5, 1/2", all(not integrable(chain.subs(a0, c)) for c in
                                                        (sp.Rational(1, 4), sp.Rational(2, 5), sp.Rational(1, 2))))
     r, R, a = sp.symbols("r R a", positive=True)
@@ -633,18 +645,24 @@ def b10():
     # the weighted energy uses r^(2a) <= (R + 1)^(2a) on the band; with R^(2a) in place: bounded and -> int psi'^2
     lim = sp.limit(en.subs(a, sp.Rational(1, 4)), R, sp.oo)
     val = (R**(a + sp.Rational(3, 2))*phi).subs(r, R + sp.Rational(1, 2))
+    val2 = (R**(a + sp.Rational(3, 2))*sp.diff(phi, r, 2)).subs(r, R + sp.Rational(1, 2))
+    en1 = sp.integrate(sp.expand(r**3*sp.diff(phi, r, 2)**2*R**(2*a)), (r, R, R + 1))
+    lim1 = sp.limit(en1.subs(a, sp.Rational(1, 4)), R, sp.oo)
     yy = sp.Symbol("yy")
     psint = sp.integrate(sp.diff((yy*(1 - yy))**2, yy)**2, (yy, 0, 1))
-    check("B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has "
-          "weighted energy -> int_0^1 psi'^2 = 2/105 (bounded in R) and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16",
-          lim == psint == sp.Rational(2, 105) and sp.simplify(val - sp.Rational(1, 16)) == 0, f"limit {lim}")
+    psint2 = sp.integrate(sp.diff((yy*(1 - yy))**2, yy, 2)**2, (yy, 0, 1))
+    check("B10b Sobolev's bound on d d h is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) "
+          "has weighted energies of phi_R and of phi_R' bounded in R (-> 2/105, 4/5) and R^(a + 3/2) phi_R''(R + 1/2) = "
+          "psi''(1/2) = -1 (and R^(a+3/2) phi_R(R + 1/2) = 1/16)",
+          lim == psint == sp.Rational(2, 105) and lim1 == psint2 == sp.Rational(4, 5)
+          and sp.simplify(val2 + 1) == 0 and sp.simplify(val - sp.Rational(1, 16)) == 0, f"limits {lim}, {lim1}")
     eta = sp.Symbol("eta", positive=True)
     ph2 = r**(-a - 1 - eta)
     ratio = sp.simplify(sp.integrate(r**(2*a + 1)*ph2**2, (r, R, sp.oo), conds="none") /
                         sp.integrate(r**(2*a + 3)*sp.diff(ph2, r)**2, (r, R, sp.oo), conds="none"))
     check("B10c Hardy's constant is attained: the ratio for r^(-a-1-eta) tends to (a + 1)^-2 as eta -> 0",
           sp.limit(ratio, eta, 0) == 1/(a + 1)**2)
-    check("B10d control: at a = 11/4 (the weight of (b2)) the same chain is integrable",
+    check("B10d [arithmetic] control: at a = 11/4 (the weight of (b2)) the same chain is integrable",
           integrable(chain.subs(a0, sp.Rational(11, 4))))
 
 
@@ -658,14 +676,17 @@ def b11():
     for a0 in a0s:
         qs = [sp.Min(3, av + sp.Rational(1, 2)), sp.Rational(3, 2) + a0, sp.Rational(3, 2) + a0]
         ok = ok and all(integrable(q) for q in qs)
-    check("B11a the difference equation's kernels: zero order from the constructed solution (q = min(3, a + 1/2)), "
+    check("B11a [arithmetic] the difference equation's kernels: zero order from the constructed solution (q = min(3, "
+          "a + 1/2)), "
           "first order, deformation and bulk-sign error from h' (q = 3/2 + a_0): integrable for a_0 = 1/10, 1/4, 49/100",
           ok)
     r, S = sp.symbols("r S", positive=True)
     capS = [sp.integrate(r**(2*a0)*(r**-3)**2*r**3, (r, S, sp.oo)) for a0 in a0s]
-    check("B11b Sigma's cap energy at weight a_0: int_S^oo r^(2a_0) r^-6 r^3 = S^(2a_0 - 2)/(2 - 2a_0) -> 0",
+    check("B11b [arithmetic] Sigma's cap energy at weight a_0: int_S^oo r^(2a_0) r^-6 r^3 = S^(2a_0 - 2)/(2 - 2a_0) "
+          "-> 0",
           all(sp.limit(c, S, sp.oo) == 0 for c in capS))
-    check("B11c control: with the zero-order coefficient taken from h' (q = a_0 + 1/2) the kernel is not integrable "
+    check("B11c [arithmetic] control: with the zero-order coefficient taken from h' (q = a_0 + 1/2) the kernel is "
+          "not integrable "
           "at a_0 = 1/4, 1/2", not integrable(sp.Rational(3, 4)) and not integrable(1))
 
 
@@ -680,10 +701,11 @@ def b12():
     ok = True
     for av in (sp.Rational(51, 20), sp.Rational(11, 4), sp.Rational(59, 20)):
         ok = ok and all(sp.limit(e.subs(a, av), T, sp.oo) == 0 for e in tails.values())
-    check("B12a every tail tends to 0 as T -> -oo at a = 51/20, 11/4, 59/20", ok,
+    check("B12a [arithmetic] every tail tends to 0 as T -> -oo at a = 51/20, 11/4, 59/20", ok,
           str({k[:30]: str(sp.simplify(v)) for k, v in tails.items()}))
     bad = sp.integrate(s**(sp.Rational(7, 2) - sp.Rational(9, 2)), (s, T, sp.oo), conds="none")
-    check("B12b control: at a = 7/2 the residual tail is infinite", bad in (sp.oo, sp.zoo) or not bad.is_finite,
+    check("B12b [arithmetic] control: at a = 7/2 the residual tail is "
+          "infinite", bad in (sp.oo, sp.zoo) or not bad.is_finite,
           str(bad))
 
 
@@ -704,11 +726,13 @@ def b13():
     # closure: the outputs (q - 1) feed the next order's sources only through products with exponents >= 3/2
     outs = {q - 1 for q in src_ac} | {q - 1 for q in src_b}
     prods = {o + Fr(3, 2) for o in outs}
-    check("B13a the stage sources start at q = 3 ((a), (c)) and q = 2 ((b)); 2/(2q - 5), 1/(q - 5/2), 1/(q - 1) are "
+    check("B13a [arithmetic] the stage sources start at q = 3 ((a), (c)) and q = 2 ((b)); 2/(2q - 5), 1/(q - 5/2), "
+          "1/(q - 1) are "
           "finite at every exponent to 12, and products of outputs with the coefficient classes (>= 3/2) stay >= 5/2 "
           "for the transports' inputs", wave_ok and tr_ok and phi_ok and min(prods) >= Fr(5, 2) and
           all(q in src_ac or q < 3 for q in prods if q <= 12))
-    check("B13b control: a source at q = 5/2 would give 2/(2q - 5) = 1/0 (a logarithm)", 2*Fr(5, 2) - 5 == 0)
+    check("B13b [arithmetic] control: a source at q = 5/2 would give 2/(2q - 5) = 1/0 (a "
+          "logarithm)", 2*Fr(5, 2) - 5 == 0)
 
 
 def main():

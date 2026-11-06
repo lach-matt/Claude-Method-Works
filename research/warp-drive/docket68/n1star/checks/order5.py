@@ -35,6 +35,9 @@ orders 1 .. k + 1 (and order 0 through 9.3(b)); "w-order" of a factor = the numb
      g_app^(N(k)) - g_app^(N(6)) = sum_(j > N(6)) lam^j [g_j] is O(lam^N(6) t^(-3/2)) in C^1, inside (P-v)'s
      uniqueness class, so the solution built at order k is the g_lam built at order 6. And the orders used later:
      (P-iii) at order k gives d^i e for i <= k - 3; Proposition R3.1 at n derivatives needs k = n + 4.
+Round 5 (SETTLE-GLAM5 R5.0, the round-4 verifier's reading): checks marked [arithmetic] compute a consequence of
+rules or exponents entered by hand (the bootstrap's closing condition, the order rule, the growth of N(k)), and their
+controls cannot fail under a mutation of the operator: they check the arithmetic of the deduction, not the deduction.
 Labels: computed (exact; sympy and integer enumeration).
 
     python3 checks/order5.py
@@ -138,7 +141,8 @@ def o1():
     mk = min_k()
     check("O1a every source monomial has a split (highest w-order in L^2, the rest in sup with Lemma 9.3(a)) at "
           "every k = 5..200; minimal k = 5", allok and mk == 5, f"minimal k = {mk}")
-    check("O1b the record's k = 6 and every larger k are covered (10.51(a)'s split at k - 2: the sup factor has "
+    check("O1b [first clause arithmetic] the record's k = 6 and every larger k are covered (10.51(a)'s split at k - "
+          "2: the sup factor has "
           "w-order <= (k + 2)/2 <= k - 2); and for every k the second-largest w-order of a monomial with 3 or 4 "
           "factors is at most that of a pair (checked k <= 40), so pairs decide the split above 40",
           all((k + 2)//2 <= k - 2 for k in range(6, 201)) and all(dominated(k) for k in range(1, MCAP + 1)))
@@ -146,7 +150,7 @@ def o1():
     check("O1c control (Sobolev cost mutated 3 -> 4): the minimal k becomes 7, so 'k = 6 suffices' fails",
           mk4 == 7 and not split_ok(6, sob=4), f"minimal k with cost 4 = {mk4}")
     rk = min_k(reverse=True)
-    check("O1d control (split reversed: highest factor in sup): no k <= 200 works", rk is None)
+    check("O1d [arithmetic] control (split reversed: highest factor in sup): no k <= 200 works", rk is None)
 
 
 # ---------------------------------------------------------------- O2: Proposition 9.8's closing at order k
@@ -165,13 +169,14 @@ def o2():
     def closes(Kpv):
         expr = (Ck*M**2*lam**(2*Kpv - 5))/(M*lam**Kpv)
         return sp.limit(expr.subs({Ck: 7, M: 11}), lam, 0, "+") == 0
-    check("O2b the nonlinear return C_k M^2 lam^(2K'-5) is o(M lam^K') as lam -> 0 exactly when K' > 5 (K' = 6, 9, 30 "
+    check("O2b [arithmetic] the nonlinear return C_k M^2 lam^(2K'-5) is o(M lam^K') as lam -> 0 exactly when K' > 5 "
+          "(K' = 6, 9, 30 "
           "close; independent of k)", closes(6) and closes(9) and closes(30))
-    check("O2c control: K' = 5 does not close (the ratio tends to C_k M, not 0)", not closes(5))
+    check("O2c [arithmetic] control: K' = 5 does not close (the ratio tends to C_k M, not 0)", not closes(5))
     # M_F(k) := 4 C e^(6C) C_R + 1 returns E <= M_F lam^K' t^(-1/2) once lam is small
     Mf = 4*Ck*sp.exp(6*Ck)*CR + 1
     lhs = Ck*sp.exp(2*Ck*(1 + lam))*2*CR
-    check("O2d the data-and-residual part C_k e^(2 C_k (1 + lam)) 2 C_R is at most M_F(k)/2 for lam <= 1 "
+    check("O2d [arithmetic] the data-and-residual part C_k e^(2 C_k (1 + lam)) 2 C_R is at most M_F(k)/2 for lam <= 1 "
           "(M_F(k) := 4 C_k e^(6 C_k) C_R + 1, the record's choice with C = C_k)",
           sp.simplify(sp.expand(Mf/2 - lhs.subs(lam, 1))) .subs({Ck: 1, CR: 1}) > 0
           and all((Mf/2 - lhs.subs(lam, 1)).subs({Ck: c, CR: r}) > 0 for c in (sp.Rational(1, 10), 1, 5)
@@ -205,7 +210,8 @@ def o3():
           "so the bootstrap's weight (T/t)^beta is what absorbs the Q'-line's t^-1 H term", ctlb == sp.oo)
     b0 = sp.Max(2, 4*C + 1)
     ret = [(C/(b0 - 1)).subs(C, cv) for cv in (sp.Rational(1, 10), sp.Rational(1, 4), 1, 3, 40)]
-    check("O3c beta0(k) := max(2, 4 C(k) + 1): each integral of (9.9) returns C/(beta0 - 1) <= 1/4 of its bound, "
+    check("O3c [arithmetic] beta0(k) := max(2, 4 C(k) + 1): each integral of (9.9) returns C/(beta0 - 1) <= 1/4 of "
+          "its bound, "
           "at every C = C(k)", all(r <= sp.Rational(1, 4) for r in ret), str(ret))
     Kv = sp.Symbol("K", integer=True, positive=True)
 
@@ -220,7 +226,8 @@ def o3():
     check("O3d N = K + 4 + ceil(4 beta0(k)): K' = N - 1 > 8 + 4 beta0 (the nonlinear terms C B^2 lam^(-8-4beta0) "
           "small against B) and K' - 2 beta0 >= K ((P-iii)'s absorption), for every K >= 6 and every beta0", ok3)
     bad = lambda K, b: K + 4 + sp.ceiling(2*b)
-    check("O3e control (the order rule mutated to K + 4 + ceil(2 beta0)): the closing fails at K = 6, beta0 = 4",
+    check("O3e [arithmetic] control (the order rule mutated to K + 4 + ceil(2 beta0)): the closing fails at K = 6, "
+          "beta0 = 4",
           not closing(bad, 6, 4))
 
 
@@ -289,15 +296,16 @@ def o5():
     print("O5  Theorem P at order k: the same g_lam, and the orders used later")
     b0 = lambda Cv: max(2, 4*Cv + 1)
     Ns = [6 + 4 + sp.ceiling(4*b0(Cv)) for Cv in (sp.Rational(1, 2), 1, 3, 10)]
-    check("O5a N(k) = K + 4 + ceil(4 beta0(k)) grows with C(k) (K = 6; C = 1/2, 1, 3, 10)",
+    check("O5a [arithmetic] N(k) = K + 4 + ceil(4 beta0(k)) grows with C(k) (K = 6; C = 1/2, 1, 3, 10)",
           all(Ns[i] < Ns[i + 1] for i in range(len(Ns) - 1)), str(Ns))
     # g_app^(N(k)) - g_app^(N(6)) = sum_(j = N6 + 1)^(Nk) lam^j [g_j]: C^1 size lam^N6 t^(-3/2) (d [g_j] costs lam^-1)
     N6, Nk = 18, 30
     size = sum(lam**j*lam**-1 for j in range(N6 + 1, Nk + 1))
     lead = sp.limit(size/lam**N6, lam, 0, "+")
-    check("O5b g_app^(N(k)) - g_app^(N(6)) is lam^N(6) (1 + O(lam)) t^(-3/2) in C^1: inside (P-v)'s class "
+    check("O5b [arithmetic] g_app^(N(k)) - g_app^(N(6)) is lam^N(6) (1 + O(lam)) t^(-3/2) in C^1: inside (P-v)'s class "
           "|g - g_app| + |d(g - g_app)| <= eps_P t^(-3/2) for lam small, so the order-k solution is g_lam", lead == 1)
-    check("O5c (P-iii) at order k bounds d^i e for i <= k - 3; Proposition R3.1 at n derivatives needs k = n + 4: "
+    check("O5c [arithmetic] (P-iii) at order k bounds d^i e for i <= k - 3; Proposition R3.1 at n derivatives needs "
+          "k = n + 4: "
           "both finite for every n", all((n + 4) - 3 >= n + 1 for n in range(0, 100)))
 
 

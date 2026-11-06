@@ -1,2 +1,25 @@
 x7indep5: SUM X_7, d and N by an independent route; dnumber5's production path under test
   I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: True
+  I2: dnumber5.chain_level_sum equals brute-force enumeration on 600 random small instances: True
+  I3 R0/shifted: SUM X_7 = 6553653743474486 (swapped order), pinned in dnumber5: 6553653743474486
+  I3 R0/wide: SUM X_7 = 7512059369168913 (swapped order), pinned in dnumber5: 7512059369168913
+  I3 R1/shifted: SUM X_7 = 6783838625545958 (swapped order), pinned in dnumber5: 6783838625545958
+  I3 R1/wide: SUM X_7 = 7742244251240377 (swapped order), pinned in dnumber5: 7742244251240377
+      every chain sum equal at both ends and to chain_level_sum: True; d <= 45431197742704599 (R0), 45661383902649727
+      (R1) + 106489470 c', N = 21 d + 6 <= 958889061955644273 + 2236278870 c' (R1); equal to dnumber5's pins: True
+  I4: the chain 1 + d0 at the midpoint of its base and d1 intervals: 79866988988162, equal to both ends: True
+  M1 top level dropped (control): x7_totals changes a pinned total: True (R1/wide 7742243899077544)
+  M2 ceil term 1 (control): x7_totals changes a pinned total: True (R1/wide 7742244224618008)
+  M3 two per point (control): x7_totals changes a pinned total: True (R1/wide 5810616918341802)
+  M4 excess 0 (control): x7_totals changes a pinned total: True (R1/wide 5794882717499718)
+  M5 (control): chain_level_sum with the top level dropped disagrees with brute force on every instance with a point:
+      True
+I1 PASS
+I2 PASS
+I3 PASS
+I4 PASS
+M1 PASS
+M2 PASS
+M3 PASS
+M4 PASS
+M5 PASS

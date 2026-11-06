@@ -30,6 +30,10 @@ point x0 (k = K0; k = K1 (x - x0)_c; k = (1/2) K2 (x - x0)_c (x - x0)_d).
       c . U) integrates over t >= lam^-2 to 2 C (1 + lam): the factor e^(2C(1 + lam)) is lam-free; with c . U taken
       as a source instead (through the previous step's energy), each order costs one lam^-1. Control: the same
       kernel over the near region [1, lam^-2] gives exp(2C(1 + lam^-1)(1 - lam)), beating every power.
+Round 5 (SETTLE-GLAM5 R5.0, the round-4 verifier's reading): F1c shows only b != 0 (it passes with the wave's
+amplitude mutated to lam^2, b then coming from Gamma[g0]); the lam^0 wave part of b is cclass5.py C3. F1b's wave has no
+envelope; with one, cclass5.py C1-C2 (c's remainder is E_(3/2), not E_2). Checks marked [arithmetic] (F1e, F1e',
+F1e'') integrate a kernel or count a loop entered by hand.
 Labels: computed (F1a-F1c mpmath at 80 digits on sympy-differentiated metrics, central differences in eps;
 F1d-F1e exact).
 
@@ -314,7 +318,8 @@ def f1c():
             ctl = ctl and max(mp.mnorm(DF1(Jf, J0f, test_field("grad", K1, c)), 1) for c in (0, 1)) < mp.mpf(10)**-40
         info.append([mp.nstr(v, 4) for v in vals])
         ok = ok and max(vals) < 4*min(vals) and min(vals) > mp.mpf("0.01")
-    check("F1c the gradient coefficient b has lam-order 0: |D F_1[k_grad]| bounded and bounded away from 0 "
+    check("F1c [b != 0 only; its lam^0 wave part: cclass5 C3] the gradient coefficient b has lam-order 0: |D "
+          "F_1[k_grad]| bounded and bounded away from 0 "
           "(lam = 1e-2, 1e-3, 1e-4): b . d U is at the order the step estimates", ok, str(info))
     check("F1c' control (g0 -> eta, no wave): b = 0, so b comes from d(lam [W]) and Gamma[g0]", ctl)
 
@@ -349,11 +354,13 @@ def f1e():
     print("F1e  the Gronwall factors of the repaired step")
     C, tt, Mx, lm = sp.symbols("C tt M lm", positive=True)
     far = sp.integrate(C*(1 + 1/lm)*tt**sp.Rational(-3, 2), (tt, lm**-2, sp.oo))
-    check("F1e int_(lam^-2)^oo C (1 + lam^-1) t^(-3/2) dt = 2 C (1 + lam): the factor e^(2C(1 + lam)) is lam-free",
+    check("F1e [arithmetic] int_(lam^-2)^oo C (1 + lam^-1) t^(-3/2) dt = 2 C (1 + lam): the factor e^(2C(1 + lam)) "
+          "is lam-free",
           sp.simplify(far - 2*C*(1 + lm)) == 0, str(sp.simplify(far)))
     near = sp.integrate(C*(1 + 1/lm)*tt**sp.Rational(-3, 2), (tt, 1, lm**-2))
     lim = sp.limit(sp.exp(near.subs(C, 1))*lm**Mx, lm, 0, "+")
-    check("F1e' control: over the near region [1, lam^-2] the factor is exp(2C(1 + lam^-1)(1 - lam)), beating every "
+    check("F1e' [arithmetic] control: over the near region [1, lam^-2] the factor is exp(2C(1 + lam^-1)(1 - lam)), "
+          "beating every "
           "lam^-M", sp.simplify(near - 2*C*(1 + 1/lm)*(1 - lm)) == 0 and lim == sp.oo)
     # the order count: c . U as a source costs lam^-1 per step (through the previous energy), in the kernel nothing
     steps = 12
@@ -362,7 +369,8 @@ def f1e():
     for _ in range(steps):
         src.append(src[-1] + 1)
         ker.append(ker[-1])
-    check("F1e'' with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the kernel it "
+    check("F1e'' [arithmetic] with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the "
+          "kernel it "
           "carries lam^0: the kernel placement is the lam-sharp one (Proposition R3.1's count +1 per order is an "
           "overcount, harmless)", src[-1] == steps and ker[-1] == 0)
 

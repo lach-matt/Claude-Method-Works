@@ -20,7 +20,7 @@ scratch script x7indep.py, adopted here with its route unchanged). Labels: compu
   three; M4 E^flat's excess set to 0 on every chain. And M5: chain_level_sum with the top level dropped disagrees with
   I2's brute force.
 
-    python3 checks/x7indep5.py       (about ten seconds)
+    python3 checks/x7indep5.py       (about twenty seconds)
 """
 import builtins
 import contextlib
@@ -147,7 +147,8 @@ def main():
         bf = sum((a * i + b) // m for i in range(n))
         ok1 = ok1 and fs(n, m, a, b) == bf == DW.floor_sum(n, m, a, b)
     OK['I1'] = ok1
-    print('  I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: %s' % ok1)
+    print('  I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: %s'
+          % ok1)
     ok2, ok5 = True, True
     for _ in range(600):
         a1 = Fr(random.randint(150, 250), 100)
@@ -196,8 +197,8 @@ def main():
         r = DN.x7_totals(w, c, T, d1lo, d1hi, open23, **kw)
         changed = any(r[key]['X7'] != DN.X7_PIN[key] for key in DN.X7_PIN)
         OK[name.split()[0]] = changed
-        print('  %s (control): x7_totals changes a pinned total: %s (R1/wide %d)' % (name, changed,
-                                                                                   r[('R1', 'wide')]['X7']))
+        print('  %s (control): x7_totals changes a pinned total: %s (R1/wide %d)' % (
+            name, changed, r[('R1', 'wide')]['X7']))
     OK['M5'] = ok5
     print('  M5 (control): chain_level_sum with the top level dropped disagrees with brute force on every instance '
           'with a point: %s' % ok5)

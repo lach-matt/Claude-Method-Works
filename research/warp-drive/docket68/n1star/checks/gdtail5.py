@@ -47,8 +47,6 @@ mutates the computed path and must fail.
 Labels: computed (exact, sympy; T2's resolvent side reruns round 6's formal D5-D6; T7, T9, T10 on the whole parameter
 box).  Run: python3 checks/gdtail5.py   (a few minutes)
 """
-import contextlib
-import io
 import sys
 
 import sympy as sp
@@ -109,12 +107,58 @@ def t1(control=False):
 
 
 # --------------------------------------------------------------------------------------------------------------- T2
+def chain_round6(kill_dr=False):
+    """round 6's D5 chain (gdrad5.d5) recomputed here with both components of u_2 kept: returns (P-hat(0) W*,
+    time and radial components of u_1 and u_2)"""
+    from gdrad5 import chain_setup
+    C = chain_setup()
+    a, b, rr, f = C['a'], C['b'], C['r'], C['f']
+    x = sp.Symbol('x', positive=True)
+
+    def asym(e, n=7):
+        ex = sp.expand(sp.simplify(e.subs(rr, 1/x)))
+        ser = sp.series(ex, x, 0, n).removeO()
+        return sp.expand(sp.expand(ser).subs(sp.log(x), -sp.log(rr)).subs(x, 1/rr))
+
+    def integ(e):
+        e = sp.expand(e)
+        return sp.expand(sum(sp.integrate(tm, rr) for tm in e.as_ordered_terms())) if e != 0 else sp.Integer(0)
+
+    def drop_const(e):
+        e = sp.expand(e)
+        return sp.expand(e - sum(tm for tm in e.as_ordered_terms() if not tm.has(rr)))
+
+    def apply_op(op, A_, B_):
+        return [sp.simplify(o.subs({sp.Derivative(a, rr): sp.diff(A_, rr), sp.Derivative(b, rr): sp.diff(B_, rr)})
+                            .subs({a: A_, b: B_})) for o in op]
+
+    def solve_P0(sv, sr, kill=True):
+        q_ = integ(asym(rr**3*sv/f))
+        ph_ = integ(asym(sr + sv/f))
+        A_ = integ(asym(-q_/rr**3))
+        if kill:
+            A_ = drop_const(A_)
+        S_ = integ(asym(-rr**3*ph_))
+        return sp.expand(A_), sp.expand(asym((S_/rr**3 - A_)/f))
+
+    A0, B0 = C['W'][0], (0 if kill_dr else C['W'][1])
+    ker = [sp.simplify(z) for z in apply_op(C['P0'], A0, B0)]
+    s1 = [sp.I*z for z in apply_op(C['L1'], A0, B0)]
+    A1, B1 = solve_P0(s1[0], s1[1])
+    s2 = [sp.I*z for z in apply_op(C['L1'], A1, B1)]
+    A2, B2 = solve_P0(asym(s2[0]), asym(s2[1]), kill=False)
+    k_t = sp.simplify(sp.expand(A2).coeff(sp.log(rr)).coeff(rr, 0))
+    k_r = sp.simplify(sp.expand(B2).coeff(sp.log(rr)).coeff(rr, 0))
+    return ker, A1, k_t, k_r
+
+
 def t2(control=False):
-    import gdrad5
-    buf = io.StringIO()
-    with contextlib.redirect_stdout(buf):
-        good5 = gdrad5.d5()
-    kap2 = sp.Integer(0) if control else gdrad5._CHAIN.get('kappa2')
+    ker, A1, k_t, k_r = chain_round6(kill_dr=control)
+    in_ker = all(z == 0 for z in ker)
+    if control:
+        print("  T2 control (W* with its dr component dropped): P-hat(0) u_0 = 0: %s" % in_ker, flush=True)
+        return in_ker
+    kap2 = k_t
     sg, L, lf, mu0, al, b0, a1, Qw = sp.symbols('sigma L ell_f mu alpha beta_0 a_1 Q_w')
     W, Kf, u1 = sp.symbols('W K u_1', commutative=True)
     Q = {W: 4*sp.pi**2, Kf: 4*sp.pi**2*mu0}
@@ -132,12 +176,14 @@ def t2(control=False):
     c_inf = sp.Symbol('c_inf')
     tail = sp.simplify((ratio.subs(b0, -kap2)*sp.I*c_zlogz).subs(lf, 4*sp.pi**2*c_inf))
     model = HALF*c_inf                                     # T1 and the model's A = (1/2) T^-2 (T6)
-    ok = good5 and c_zlogz == 1 and sp.simplify(tail - model) == 0
-    tag = "  T2 control (kappa_2 = 0)" if control else "  T2"
-    print("%s: D5 rerun %s, kappa_2 = %s; sigma log sigma coefficient (%s) d psi; FT[t^-2 H(t-1)] = E_2(z), z = -i sigma,"
-          " has z log z with coefficient %s; t^-2 tail from the resolvent (%s) d psi, from the time-domain model (%s) "
-          "d psi: equal %s" % (tag, good5, kap2, sp.factor(ratio), c_zlogz, tail, model,
-                               sp.simplify(tail - model) == 0), flush=True)
+    # u_2L = beta_0 (d_v)^flat + alpha W*, (d_v)^flat = -f dv + dr: log r coefficients (-beta_0, +beta_0) at r^0
+    killing = sp.simplify(k_t + k_r) == 0
+    ok = in_ker and c_zlogz == 1 and sp.simplify(tail - model) == 0 and killing
+    print("  T2: P-hat(0) W* = 0: %s; u_2's log r coefficients at r^0: dv %s, dr %s (a multiple of (d_v)^flat: %s); "
+          "sigma log sigma coefficient (%s) d psi; FT[t^-2 H(t-1)] = E_2(z), z = -i sigma, has z log z with coefficient "
+          "%s; t^-2 tail from the resolvent (formal) (%s) d psi, from the time-domain model (%s) d psi: equal %s"
+          % (in_ker, k_t, k_r, killing, sp.factor(ratio), c_zlogz, tail, model, sp.simplify(tail - model) == 0),
+          flush=True)
     return ok
 
 
@@ -440,8 +486,52 @@ def t10(control=False):
     return ok
 
 
+# -------------------------------------------------------------------------------------------------------------- T11
+def t11(control=False):
+    """Theorem R6.4's conditions with w_I encoded (the round-6 verifier's minor on D2): alpha_K in (1, 2), gamma_+ in
+    (alpha_K, 2), eps_1 in (0, 1/2), eps in (0, (2 - gamma_+)/5], w_I = max(5/2, gamma_+ + 1 + eps_1) in its two cases,
+    and II.G' Proposition 3.3 (1) taken with eps_PP := min(eps, eps_1)"""
+    (x1, x2, x3, x4, x5), (y1, y2, y3, y4, y5) = pbox('x1', 'x2', 'x3', 'x4', 'x5')
+    pos = [x1, x2, x3, x4, x5]
+    aK = 1 + y1
+    gp = aK + y2*(2 - aK)
+    ep = y4*(2 - gp)/5
+    allres = {}
+    for case in ("w_I = gamma_+ + 1 + eps_1", "w_I = 5/2"):
+        if case == "w_I = 5/2":
+            g2 = aK + y2*(sp.Rational(3, 2) - aK)/1                # needs gamma_+ + 1 + eps_1 <= 5/2
+            a2 = 1 + y1/2                                          # alpha_K in (1, 3/2) so that gamma_+ < 3/2 is possible
+            g2 = a2 + y2*(sp.Rational(3, 2) - a2)
+            e1 = y3*(sp.Rational(3, 2) - g2)
+            wI, gpc, aKc = sp.Rational(5, 2), g2, a2
+        else:
+            e1 = y3/2
+            wI, gpc, aKc = gp + 1 + e1, gp, aK
+        epc = y4*(2 - gpc)/5
+        epp = epc if control else epc*e1/(epc + e1)                 # a positive lower bound of min(eps, eps_1)
+        cond = {
+            "Lemma 4.1: w_I - 1 >= 3/2": wI - sp.Rational(5, 2) + (y5 if case == "w_I = 5/2" else 0),
+            "Lemma 4.1: w_I >= gamma_+ + 1 + eps_1": wI - (gpc + 1 + e1) + (0 if case != "w_I = 5/2" else y5),
+            "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP": wI - (gpc + 1 + epp),
+            "scf: min(w_I, gamma_+ + 2) - eps_PP >= 5/2 - eps": (wI - epp) - (sp.Rational(5, 2) - epc) + y5,
+            "step 3.1: gamma_+ - 1 in (0, 1)": gpc - 1, "gamma_+ < 2": 2 - gpc,
+            "column: gamma_+ + 1 < 3": 2 - gpc, "f_2 tf: gamma_+ + 1 <= 3 - eps": 2 - gpc - epc,
+            "f_2 zf: alpha_K - 1 < 1 - eps": 2 - aKc - epc,
+            "density: b_+ = 1 <= gamma_+": gpc - 1, "density: b_I + 1 = 9/4 <= w_I": wI - sp.Rational(9, 4),
+            "step 3.3: eps <= (2 - gamma_+)/5": (2 - gpc)/5 - epc + y5*(2 - gpc),
+        }
+        for k, e in cond.items():
+            allres[case + ": " + k] = positive_sum(e, pos)
+    ok = all(allres.values())
+    bad = [k for k, val in allres.items() if not val]
+    tag = "  T11 control (Prop 3.3's eps not reduced to min(eps, eps_1))" if control else "  T11"
+    print("%s: %d conditions, all positive sums on the box: %s%s" % (tag, len(allres), ok,
+                                                                     "; failing %s" % bad if bad else ""), flush=True)
+    return ok
+
+
 CHECKS = [("T1", t1), ("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("T7", t7), ("T8", t8),
-          ("T9", t9), ("T10", t10)]
+          ("T9", t9), ("T10", t10), ("T11", t11)]
 
 
 def main():
