@@ -95,6 +95,89 @@ GROUPS = [
     ("C3' built object (not a choice: built from the C3' families)", [("h_{b,\\mathrm{rem}}", [(I15, 67, 72)])]),
     ("C4 the complement", [("\\mathcal V'", [("PART-III-I10-CORR4.md", 89, 94)])]),
 ]
+# V2 (D626): every printed spelling of omega in Parts III-IV is either covered by a C3/C3'/C4 symbol (it contains one)
+# or excluded here, by a rule with its reason; a spelling that is neither fails V2.
+OMEGA_EXCLUDE = [
+    (r"\\(?:bar\s*|breve\{\\bar)\\omega", "a Minkowski model 1-form (bar or breve-bar), explicit: III.D'' (1.2), "
+                                         "III.D''' (H1)-(H3), III.B section 5"),
+    (r"\\omega\^\{?\*", "a dual state, the kernel of an adjoint operator (III.D', III.E, III.E', III.F''): used in the "
+                       "zero-energy counts of III.D'-III.F'' only, in no file of the construction III.G-III.K"),
+    (r"\\dot\\omega", "the zero-energy gauge potential, the unique solution of a natural problem (III.F''' (2.1); Part "
+                      "VII Lemma 3.1's proof)"),
+    (r"\\omega_\{\(0\)\}", "the source's zero-energy state, in III.D' findings on the source"),
+    (r"\\omega\^\\sharp", "a musical dual or the explicit V_b + c_0|x|^-3 V(W) of III.E' (2.1)"),
+    (r"\\(?:tilde\\)?omega(?:_\\pi)?$", "a generic 1-form (or a coordinate on S^3), or its type-pi part"),
+    (r"\\omega(?:_[0-2]|_[abcdirt]|_\{[a-z];[a-z]?\}|_\\mu|_\\lambda|_V|\^[iaT]|\^\\beta|\^\\gamma|\^\{\([01]\)\})$",
+     "components of a generic 1-form or covector, a multi-index, or the Cauchy data of another equation (IV5, IV7)"),
+]
+OMEGA_TOKEN = re.compile(r"(\\(?:breve|bar|tilde|hat|dot|check)(?:\s*\{\\bar\\omega\}|\s*\\omega)|\\omega)(?![A-Za-z])")
+
+
+def _braced(t, i):
+    d = 0
+    for j in range(i, len(t)):
+        if t[j] == "{":
+            d += 1
+        elif t[j] == "}":
+            d -= 1
+            if d == 0:
+                return j + 1
+    return len(t)
+
+
+def omega_spellings(fs):
+    """{spelling: number of occurrences} over the joined text of fs: omega with its prefix accent and every sub- and
+    superscript that follows"""
+    out = {}
+    for path in fs:
+        txt, _ = joined(path)
+        for m in OMEGA_TOKEN.finditer(txt):
+            j, tok = m.end(), m.group(0)
+            while j < len(txt) and txt[j] in "^_":
+                k = j + 1
+                if k < len(txt) and txt[k] == " ":
+                    k += 1
+                if k < len(txt) and txt[k] == "{":
+                    e = _braced(txt, k)
+                elif k < len(txt) and txt[k] == "\\":
+                    mm = re.match(r"\\[A-Za-z]+", txt[k:])
+                    e = k + (len(mm.group(0)) if mm else 1)
+                else:
+                    e = k + 1
+                tok += txt[j:e]
+                j = e
+            out[tok] = out.get(tok, 0) + 1
+    return out
+
+
+def v2(extra=(), show=True):
+    fs = [f for f in files() if not f.endswith(IIC)]
+    syms = [sym for name, es in GROUPS if name.startswith(("C3", "C4")) for sym, _ in es]
+    sp = omega_spellings(fs)
+    for t in extra:
+        sp[t] = sp.get(t, 0) + 1
+    covered = {t for t in sp if any(sym in t for sym in syms)}
+    why = {}
+    for t in sp:
+        if t not in covered:
+            r = [reason for pat, reason in OMEGA_EXCLUDE if re.match(pat, t)]
+            why[t] = r[0] if r else None
+    left = sorted(t for t, r in why.items() if r is None)
+    if show:
+        print("  V2: %d distinct spellings of omega in Parts III-IV (%d occurrences): %d contain a C3/C3'/C4 symbol, "
+              "%d excluded by a rule with its reason, %d neither%s" % (len(sp), sum(sp.values()), len(covered),
+                                                                       len(why) - len(left), len(left),
+                                                                       (": " + " ".join(left)) if left else ""),
+              flush=True)
+        by = {}
+        for t, r in why.items():
+            if r:
+                by.setdefault(r, []).append(t)
+        for r, ts in sorted(by.items()):
+            print("      excluded (%d spellings, %d occurrences): %s" % (len(ts), sum(sp[t] for t in ts), r), flush=True)
+    return not left
+
+
 PLANT = ("\\mathfrak{Z}_{\\mathrm{planted}}", [(BF, 1, 10 ** 6)])
 MOVED = ("\\chi_9", CUT5)
 MOVED_IN = ("\\chi_9", [(K, 1, 10)])                                # same file, other lines
@@ -184,7 +267,11 @@ def control():
 def main():
     listing = "--list" in sys.argv
     good = v1(listing)
-    ctl = control()
+    good2 = v2()
+    planted2 = not v2(extra=("\\omega^{(7)}_{b,\\mathrm s9}",), show=False)
+    print("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s" % planted2, flush=True)
+    ctl = control() and planted2
+    good = good and good2
     print("V1 %s; control (every symbol found at its own site; a planted and a moved site reported missing): %s"
           % ("PASS" if good else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
     return 0 if good and ctl else 1

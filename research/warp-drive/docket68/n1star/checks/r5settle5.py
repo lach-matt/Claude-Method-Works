@@ -381,23 +381,44 @@ def part_f():
         gi = np.linalg.inv(g)
         X = np.array([1.0, 0, 0, 0, 0])
         dP = np.concatenate(([1.0], (1 - 1/r_**2)*xh))
-        dv = np.concatenate(([1.0], xh))
-        for _ in range(3):
-            p = np.array([rng.gauss(0, 1) for _ in range(5)])
-            pp = p@gi@p
+        # [R6 (m4)] T_g[phi](X, n) = (p.X)(p.n) - (1/2) g(X, n) g^-1(p, p) is the quadratic form p^T Q p of the
+        # covector p = d phi; its minimum over |p|_E = 1 is the least eigenvalue of Q, taken exactly (round 5 sampled
+        # three random p, which could not fail: the verifier's mutations Phi = v - 1/r and |H| = 6 r^-2 passed)
+        n = -gi@dP
 
-            def T(Y, Z):
-                return (p@Y)*(p@Z) - 0.5*(Y@g@Z)*pp
-            n = -gi@dP
-            worst = min(worst, T(X, n))
-            dr_ = np.concatenate(([0.0], xh))
-            nr = gi@dr_
-            ctl = min(ctl, T(X, nr)/(abs(p@p)))
-    check("F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0 (g = g_b0 + H, |H|_op <= r^-2/2, 6000 "
-          "samples): "
-          "that boundary is spacelike and its flux can be dropped", worst >= -1e-12, f"min {worst:.3e}")
+        def qform(nn):
+            return (np.outer(X, nn) + np.outer(nn, X))/2 - 0.5*(X@g@nn)*gi
+        worst = min(worst, np.linalg.eigvalsh(qform(n))[0]*r_**2)
+        dr_ = np.concatenate(([0.0], xh))
+        nr = gi@dr_
+        ctl = min(ctl, np.linalg.eigvalsh(qform(nr))[0])
+    check("F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0: its minimum over the covector d phi, the "
+          "least eigenvalue of the quadratic form, is positive at 2000 points (g = g_b0 + H, |H|_op <= r^-2/2): that "
+          "boundary is spacelike and its flux can be dropped", worst > 0, f"min over points of r^2 lambda_min = "
+          f"{worst:.4f}")
     check("F1' control (the normal grad r of a timelike cut-off {r = R} in place of -grad Phi_W): negative somewhere",
           ctl < 0, f"min {ctl:.3e}")
+    # [R6 (m4)] the sign, exactly: in a g-orthonormal frame with X = e_0 and n = (cosh s, sinh s, 0, 0, 0) (two
+    # future timelike vectors span such a frame; congruence preserves definiteness) the form has the eigenvalues
+    # e^s/2, e^-s/2 and cosh(s)/2 (three times): positive definite; for n spacelike, (sinh s, cosh s, 0, 0, 0), it
+    # has the eigenvalue (sinh s - cosh s)/2 < 0
+    sv = sp.Symbol("s", real=True)
+    etaI = sp.diag(-1, 1, 1, 1, 1)
+    e0 = sp.Matrix([1, 0, 0, 0, 0])
+
+    def qsym(nn):
+        gxn = (e0.T*sp.diag(-1, 1, 1, 1, 1)*nn)[0]
+        return (e0*nn.T + nn*e0.T)/2 - gxn*etaI/2
+    ev_t = qsym(sp.Matrix([sp.cosh(sv), sp.sinh(sv), 0, 0, 0])).eigenvals()
+    ev_s = qsym(sp.Matrix([sp.sinh(sv), sp.cosh(sv), 0, 0, 0])).eigenvals()
+    want_t = {sp.exp(sv)/2: 1, sp.exp(-sv)/2: 1, sp.cosh(sv)/2: 3}
+    okx = (sorted(sp.simplify(sp.expand(k.rewrite(sp.exp))) for k in ev_t for _ in range(ev_t[k]))
+           == sorted(sp.simplify(sp.expand(k.rewrite(sp.exp))) for k in want_t for _ in range(want_t[k])))
+    negs = [k for k in ev_s if k.subs(sv, sp.Rational(3, 7)).evalf() < 0]
+    check("F1x (exact) for X = e_0, n = (cosh s, sinh s, 0, 0, 0) the form p -> T(X, n) has eigenvalues e^s/2, e^-s/2, "
+          "cosh(s)/2 (x3), all > 0: T(X, n) >= 0 for X, n future timelike, the dominant energy condition; control: n "
+          "spacelike, (sinh s, cosh s, 0, 0, 0), gives a negative eigenvalue", okx and len(negs) >= 1,
+          f"{sorted(str(k) for k in ev_t)}; spacelike: {sorted(str(k) for k in ev_s)}")
     tt, rr = sp.symbols("tt rr", positive=True)
     t1, t2, R1, R2 = 0, sp.Rational(1, 2), 2, 6
     phi = 1 + tt*rr + tt**2 - rr**2/7 + tt*rr**2/5 + rr**3/30
