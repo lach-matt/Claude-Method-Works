@@ -207,25 +207,6 @@ def rpoly(rng, deg=DEG, scale=1, const=None):
     return TS.poly(co)
 
 
-def harmonics(vals, kl):
-    """the lam^kl part of an at0() dict as Fourier coefficients {m: complex Fraction pair (re, im)} of e^(i m s)"""
-    import sympy as sp
-    s = sp.Symbol('s', real=True)
-    e = sum(sp.Rational(v.numerator, v.denominator) * sp.cos(s)**kc * sp.sin(s)**kn
-            for (l, kc, kn), v in vals.items() if l == kl)
-    e = sp.expand(sp.expand_trig(sp.fu(e)) if e != 0 else 0)
-    z = sp.Symbol('z')
-    ez = sp.expand(sp.sympify(e).rewrite(sp.exp).subs(sp.exp(sp.I * s), z).subs(sp.exp(-sp.I * s), 1 / z))
-    out = {}
-    for t in sp.Add.make_args(sp.expand(ez)):
-        if t == 0:
-            continue
-        p = sp.degree(t, z) if t.has(z) else 0
-        pw = t.as_powers_dict().get(z, 0)
-        out[int(pw)] = sp.nsimplify(out.get(int(pw), 0) + t / z**pw)
-    return {m: sp.simplify(v) for m, v in out.items() if sp.simplify(v) != 0}
-
-
 def t1():
     global MUTATE_DS
     rng = random.Random(3)
