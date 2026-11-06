@@ -407,6 +407,30 @@ def q4(Gt, bg):
 
 
 # ---------------------------------------------------------------- Q5
+def constraints_fast(g, K, X):
+    """bandconst5.constraints without its per-entry simplification (same formulas: H = R + (tr K)^2 - |K|^2,
+    M_i = D_j K^j_i - D_i tr K)"""
+    n = len(X)
+    gi = g.inv()
+    Gm = [[[sum(gi[a, d] * (sp.diff(g[d, b], X[c]) + sp.diff(g[d, c], X[b]) - sp.diff(g[b, c], X[d]))
+                for d in range(n)) / 2 for c in range(n)] for b in range(n)] for a in range(n)]
+
+    def Ric(b, d):
+        return sum(sp.diff(Gm[a][b][d], X[a]) - sp.diff(Gm[a][b][a], X[d])
+                   + sum(Gm[a][a][e] * Gm[e][b][d] - Gm[a][d][e] * Gm[e][b][a] for e in range(n)) for a in range(n))
+    Rs = sum(gi[b, d] * Ric(b, d) for b in range(n) for d in range(n) if gi[b, d] != 0)
+    trK = sum(gi[i, j] * K[i, j] for i in range(n) for j in range(n))
+    KK = sum(gi[i, k] * gi[j, l] * K[i, j] * K[k, l] for i in range(n) for j in range(n) for k in range(n)
+             for l in range(n) if gi[i, k] != 0 and gi[j, l] != 0)
+    H = Rs + trK**2 - KK
+
+    def DK(c, a, b):
+        return sp.diff(K[a, b], X[c]) - sum(Gm[e][c][a] * K[e, b] + Gm[e][c][b] * K[a, e] for e in range(n))
+    M = [sum(gi[j, c] * DK(c, j, i) for j in range(n) for c in range(n) if gi[j, c] != 0) - sp.diff(trK, X[i])
+         for i in range(n)]
+    return H, M
+
+
 def q5():
     print("Q5 (exact) the KID (N_s, 2 Y_s), its pairing with Vaidya's constraint map, and the dust's sign")
     bc = load('bandconst5')
@@ -429,8 +453,8 @@ def q5():
     K[1, 1] = Rb**2 * (Kt0 / 3 + eps * F9[6])
     K[2, 2] = G1 * (Kt0 / 3 + eps * F9[7])
     K[3, 3] = G2 * (Kt0 / 3 + eps * F9[8])
-    H, M, _ = bc.constraints(g, K, bc.X4)
-    lin = [sp.expand(sp.diff(e, eps).subs(eps, 0)) for e in (H, M[0], M[1])]
+    H, M = constraints_fast(g, K, bc.X4)
+    lin = [sp.diff(e, eps).subs(eps, 0) for e in (H, M[0], M[1])]
     sqg = sp.sqrt(G) * Rb**3 * sp.sin(tb_) * sp.cos(tb_)
 
     def kid_ok(cY):
@@ -459,7 +483,7 @@ def q5():
     kapv = -Nkv / (sp.sqrt(2 - fv) * (2 - fv))
     g = sp.diag(Gv, Rb**2, G1, G2)
     K = sp.diag(Gv * kapv, Rb**2 * Ktv / 3, G1 * Ktv / 3, G2 * Ktv / 3)
-    H, M, _ = bc.constraints(g, K, bc.X4)
+    H, M = constraints_fast(g, K, bc.X4)
     pair = sp.simplify(H / sp.sqrt(2 - fv) + 2 * m / (Gv * Rb**2) * M[0])
     # T = (3 m'/(2 R^3)) dvhat dvhat (computed: the Einstein tensor of ingoing Vaidya), n^vhat = 1/sqrt(2 - f)
     vh, Rr = sp.symbols('vhat Rr')

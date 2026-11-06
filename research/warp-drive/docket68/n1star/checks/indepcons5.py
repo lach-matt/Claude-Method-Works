@@ -29,8 +29,8 @@ import textwrap
 
 import sympy as sp
 
-r, th, p1, p2, mu, eps = sp.symbols('r theta p1 p2 mu epsilon', positive=True)
-X = [r, th, p1, p2]
+r, th, ph1, ph2, mu, eps = sp.symbols('r theta p1 p2 mu epsilon', positive=True)
+X = [r, th, ph1, ph2]
 n = 4
 m = mu/r**2
 gam = sp.diag(1 + m, r**2, r**2*sp.cos(th)**2, r**2*sp.sin(th)**2)
@@ -117,7 +117,7 @@ def p1(control=False):
     _, rhol = linearised(mutate_R=control)
     alpha = co(rhol, a, r)
     ok = sp.simplify(alpha - 3*r**3/(r**2 + mu)**2) == 0
-    ok &= co(rhol, a, r, r) == 0 and all(co(rhol, a, r, x) == 0 for x in (th, p1, p2))
+    ok &= co(rhol, a, r, r) == 0 and all(co(rhol, a, r, x) == 0 for x in (th, ph1, ph2))
     theta2 = r**2/(r**2 + mu)
     for A in (1, 2, 3):
         ok &= sp.simplify(co(rhol, a, X[A], X[A]) + theta2*gi[A, A]) == 0
@@ -146,8 +146,8 @@ def p2(control=False):
                     for B in (1, 2, 3)))
     ok = second_a and sym and pos and form
     if not control:
-        out("  P2 A0 = %s; A^th = %s; A^p1 = %s; S A0 = %s.  J_r = 6 d_r w - 2 Pi^(AB) d_A q_B, J_A = -2 gamma^rr d_r q_A"
-            " + 4 d_A w: %s; no second derivative of a in J: %s; S A^B symmetric for B = th, p1, p2: %s; S A0 diagonal"
+        out("  P2 A0 = %s; A^th = %s; A^p1 = %s; S A0 = %s.  J_r = 6 d_r w - 2 Pi^(AB) d_A q_B, J_A = -2 gamma^rr"
+            " d_r q_A + 4 d_A w: %s; no second derivative of a in J: %s; S A^B symmetric for B = th, p1, p2: %s; S A0 diagonal"
             " positive at r^2 < mu and r^2 > mu: %s" % (
                 sp.simplify(A0).tolist(), sp.simplify(AB[0]).tolist(), sp.simplify(AB[1]).tolist(),
                 [sp.factor(SA0[i, i]) for i in range(4)], form, second_a, sym, pos))
