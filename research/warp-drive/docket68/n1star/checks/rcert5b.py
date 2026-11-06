@@ -51,26 +51,31 @@ def assemble(cp, cb, hpow, drop=False):
 
 
 def poly_test(drop):
-    """the assembly on f = T_3(t) T_3(sig) T_3(x) over boxes of half-width 0.3: the largest (grid lower bound of the
-    true sup)/(bound); <= 1 for a sound assembly"""
-    from rcert5 import TJ, MONO
+    """the bound assembly on two known functions: f1 = T_3(t) T_3(sig) T_3(x) on 27 boxes of half-width 0.3, and
+    f2 = t^4 + sig^4 + x^4 on the box of half-width 1/2 about the origin, whose Taylor coefficients of order <= 3 vanish
+    there (so the point Taylor polynomial bounds it by 0, while its sup is 3/16).  Returns the largest (grid lower
+    bound of the true sup)/(bound): <= 1 for a sound assembly"""
+    from rcert5 import TJ, MONO, Q
     worst = 0.0
-    for c in itertools.product((-0.6, 0.0, 0.55), repeat=3):
-        h = 0.3
+    cases = [(c, 0.3, 'T3') for c in itertools.product((-0.6, 0.0, 0.55), repeat=3)] + [((0.0, 0.0, 0.0), 0.5, 'P4')]
+    for c, h, kind in cases:
         lin = lambda c0, ax, box: TJ([arb(c0, h if box else 0)] + [arb(1) if MONO[i] == tuple(int(k == ax) for k in
                                                                                              range(3)) else arb(0)
                                                                 for i in range(1, len(MONO))])
-        F = lambda t, s_, x: (t * t * t * 4 - t * 3) * (s_ * s_ * s_ * 4 - s_ * 3) * (x * x * x * 4 - x * 3)
+        if kind == 'T3':
+            F = lambda t, s_, x: (t * t * t * 4 - t * 3) * (s_ * s_ * s_ * 4 - s_ * 3) * (x * x * x * 4 - x * 3)
+            Fn = lambda t, s_, x: (4 * t ** 3 - 3 * t) * (4 * s_ ** 3 - 3 * s_) * (4 * x ** 3 - 3 * x)
+        else:
+            F = lambda t, s_, x: t * t * t * t + s_ * s_ * s_ * s_ + x * x * x * x
+            Fn = lambda t, s_, x: t ** 4 + s_ ** 4 + x ** 4
         vb = F(lin(c[0], 0, True), lin(c[1], 1, True), lin(c[2], 2, True))
         vp = F(lin(c[0], 0, False), lin(c[1], 1, False), lin(c[2], 2, False))
-        hpow = {m: arb(h) ** sum(m) for m in MONO}
-        up = float(assemble(vp, vb, hpow, drop))
+        up = float(assemble(vp, vb, {m: arb(h) ** sum(m) for m in MONO}, drop))
         g = np.linspace(-h, h, 61)
-        T3 = lambda z: 4 * z ** 3 - 3 * z
         tt, ss, xx = np.meshgrid(c[0] + g, c[1] + g, c[2] + g, indexing='ij')
-        worst = max(worst, float(np.abs(T3(tt) * T3(ss) * T3(xx)).max()) / up)
+        true = float(np.abs(Fn(tt, ss, xx)).max())
+        worst = max(worst, true / up if up > 0 else float('inf'))
     return worst
-
 
 def point_values(prep, frame, names, pts, cache):
     """certified lower bounds of |component| at the points (t, sig, x)"""
