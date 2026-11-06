@@ -37,7 +37,7 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
        (finite derivative energy, nonzero limit): int r^(2a+1) phi^2 = oo and R'^(2a+2) phi^2 -> oo: Hardy fails,
        which is why the limit must be shown to vanish first.
     Y3 (exact, sympy) Proposition R5.2's argument on a model family on {v >= v1, t <= 0} (f = 0, t~ = t):
-       h'(t, r) = B(v) r^-2 + D r^(-1/2-a0) cos(t/r), a0 = 1/4, with |d h'| <= C r^(-3/2-a0) uniformly in t and
+       h'(t, r) = B(v) r^-2 + D r^(-1/2-a0) cos(t/r), B(v) = (3/10)/(1 + v^2), D = 1/100, a0 = 1/4, with |d h'| <= C r^(-3/2-a0) uniformly in t and
        h'|_N -> 0; the limit c(sigma) = lim_(r -> oo) h'(sigma, r) is the same for sigma = 0, -3, -100 and equals 0,
        and |h'(sigma, r)| <= C r^(-1/2-a0) with C independent of sigma (exact at the three sigma). Controls: h' + c0
        (c0 = 1/60: derivatives unchanged, |h'| <= 1/50 kept) violates h'|_N -> 0 and has c = c0 != 0; h' + c0 t/(1 + t^2)
@@ -264,7 +264,7 @@ def part_y():
     tt, rs = sp.symbols("t r", real=True)
     a0 = Q(1, 4)
     v = tt + rs
-    B = lambda vv: sp.Rational(3, 10)*sp.exp(-vv**2)
+    B = lambda vv: sp.Rational(3, 10)/(1 + vv**2)
     D = Q(1, 100)
 
     def family(kind):

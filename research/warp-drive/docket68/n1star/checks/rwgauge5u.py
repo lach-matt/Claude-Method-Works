@@ -55,7 +55,8 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      int |D Y|^2 = (k^2 - 6) int |Y|^2 for Y = (D D - gamma Lap/3) P_j(cos 2 th), j = 1, 2, and the constant C_1 = 9/(2
      f_1) + 8; the mode comparisons for l >= 2: k^2 >= 8, H <= (11/8) k^2, k^4 - (1 + m)^2 = 4 k^2 - 4; (iv) the
      exponents: s^p = s^(2 - p) (s^2)^(p - 1), int_R^oo s^-p = R^(1-p)/(p-1), the interpolation E^p <= (E^1)^(2-p)
-     (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5 (exact integrals compared at 40 digits), and -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta.
+     (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5 (exact integrals compared at 40 digits), and -(2 -
+     p)/2 = delta - 1/2 at p = 1 + 2 delta.
      Controls: (i) without its second term fails for w = 1; the interpolation without the E^2 factor fails.
   U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
      text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
@@ -952,8 +953,8 @@ def u11(control=False):
     orth = all(sp.integrate(sp.expand(sp.legendre(j, sp.cos(2*th))*sq), (th, 0, sp.pi/2)) == 0 for j in range(1, 5))
     vol = sp.integrate(sq, (th, 0, sp.pi/2))*(2*sp.pi)**2
     ok = vac and hkw77 and frame_ok and orth and vol == 2*sp.pi**2
-    say("  U11: Tangherlini is Ricci-flat (static chart): %s; K = d g/d mu is [HKW18] (77) at n = 3, r^-2 dt^2 + r^2/(r^2 -"
-        " mu)^2 dr^2: %s; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j), t-independent: %s; int"
+    say("  U11: Tangherlini is Ricci-flat (static chart): %s; K = d g/d mu is [HKW18] (77) at n = 3, r^-2 dt^2 + r^2/(r^2"
+        " - mu)^2 dr^2: %s; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j), t-independent: %s; int"
         " P_j(cos 2 th) d sigma = 0 for j = 1..4: %s; so for c != 0, ||h(e_a, e_a)|| >= (2 pi^2)^(1/2) |c|/(r^2 - mu) at"
         " every tau: the decay statements are for (h - c K)(e_a, e_b)" % (vac, hkw77, frame_ok, orth))
     return ok
