@@ -468,11 +468,12 @@ def e3(bg, td, out):
     # (a) P = -(Y/N) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2), on every slice
     d = substitute_bg(Iq.subs(P, -Yf / Nf * HR).doit() + nT * (R_**3 * (1 - mu / R_**2) * HR**2 + (kT2 + 2) * R_ * H**2),
                       td['F'], bg)
-    a_ok = field_jets_zero(euler_equations(d, [H], [R_])[0].lhs, [H], bg)
+    els = euler_equations(d, [H], [R_])
+    a_ok = all(field_jets_zero(eq.lhs, [H], bg) for eq in els) if els else field_jets_zero(d, [H], bg)
     d0 = substitute_bg(Iq.subs(H, 0).doit() + nT * R_**3 * P**2, td['F'], bg)
-    b_ok = field_jets_zero(euler_equations(d0, [P], [R_])[0].lhs, [P], bg)
+    b_ok = field_jets_zero(d0, [P], bg)                 # pointwise, not only up to d/dR
     print("   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR on every class slice: %s;"
-          " with H = 0: Q = -|T|^2 int R^3 P^2 dR < 0: %s" % (a_ok, b_ok))
+          " with H = 0 the theta-integrated Q-density is -|T|^2 R^3 P^2 pointwise: %s" % (a_ok, b_ok))
 
     def Qband(R1, R2, mv, Hfun=None):
         Rr = sp.Symbol('Rr')

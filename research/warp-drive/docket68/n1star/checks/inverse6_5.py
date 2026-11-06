@@ -147,7 +147,7 @@ def k2():
     kap = sp.Symbol('kappa', real=True)
     M[3, 4], M[4, 3] = -kap, kap                       # V_perp: skew rotation, no contribution
     p1 = -(M + M.T) / 2
-    cp = sp.factor(p1.charpoly(lam).as_expr())
+    cp = sp.factor((lam * sp.eye(5) - p1).det())
     lmax = sp.sqrt(2 * eps)
     ok_cp = sp.expand(cp - lam**3 * (lam**2 - 2 * eps)) == 0
     # the frame at Gamma (mu = 1): e_0/2 = (-dt_s + eta)/2, e_1/2 = -2^(1/2) dr, e_2/2 = (-dt_s - eta)/2; in the static

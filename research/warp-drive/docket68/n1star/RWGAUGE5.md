@@ -1,6 +1,7 @@
 # RWGAUGE5: the Regge-Wheeler-type gauge uniformly in r
 
-*Status.* Written (this note, workstream G). Not verified by a second reader. Labels as in the supplement:
+*Status.* Written (this note, workstream G). Not verified by a second reader. [R3.0: since read by two verifiers,
+round 2 (R2.0) and a confirming round 3 (R3.0); their findings are seated there.] Labels as in the supplement:
 *proved* (the argument is complete here, given the statements it cites), *computed* (`checks/rwgauge5u.py` with
 `checks/rwgauge5u.out`, exact, each check with a control that mutates the code under test and must fail), *READ*
 (verbatim, with identifier and page, read at source on 2026-11-06 through the alphaXiv reader). The program is not
@@ -24,7 +25,9 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   decays at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated;
   every coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
   and the rotations. The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
-  [R2.0 M1: Theorem 2 (b)-(c) bound the L^2(S^3) norm at fixed (tau, r); the pointwise |.| written here is Theorem 2'
+  [R3.0 m2: here and below read h(e_a, e_b) as (h - c K)(e_a, e_b), c K the change of mass: K(e0, e0) = K(e1, e1) =
+  1/(r^2 - mu) per unit c does not decay, while K(e_i, e_j) = 0.] [R2.0 M1: Theorem 2 (b)-(c) bound the L^2(S^3) norm
+  at fixed (tau, r); the pointwise |.| written here is Theorem 2'
   (R2.0.1), with D' (two more rotations) in place of D. R2.0 M2: "the squared L^2 norm along the leaf" is the
   integral against dr dsigma, dsigma the unit sphere's measure, which is Theorem 2 (a); against the leaf's own volume
   form it is false (R2.0.2).]
@@ -54,8 +57,9 @@ Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies);
   current J^N_a[Ψ] := T_ab[Ψ]T^b + Ť_ab[Ψ]Y^b, (114) and energies E^N_Ψ(Σ_τ) := ∫_Στ J^N_a[Ψ] n^a_Στ dVol_Στ, Ě^N_Ψ(Σ_τ)
   := ∫_Στ Ť_ab[Ψ] n^a_Στ N^b dVol_Στ. (115)"; "We extend Y to the exterior region such that Y is causal and Y = 0 for
   r ≥ r_1" (p. 39); the virtual stress tensor, p. 29: "Ť_ab[Ψ] := ∇_aΨ · ∇_bΨ − ½ g_ab (∇_cΨ · ∇^cΨ). (89)".
-- (R5) The r^p hierarchy, p. 43, "Φ := r^(n/2) Ψ (124)", and p. 46: "E^p_Ψ(Σ_τ) := ∫_{Στ∩{r≥R_1}} r^(p−n) (1 − μ)^k
-  |∇_L Φ|^2 (1 − μ) r^n dv dVol_S^n" (127), and Theorem 16: "For 1 ≤ p ≤ 2 and τ_1 < τ_2, we have the r^p-estimate:
+- (R5) [R3.0 m3: the (127) quote is corrected in place: the (1 − μ) factors are denominators.] The r^p hierarchy,
+  p. 43, "Φ := r^(n/2) Ψ (124)", and p. 46: "E^p_Ψ(Σ_τ) := ∫_{Στ∩{r≥R_1}} (r^(p−n)/(1 − μ)^k) (|∇_L Φ|^2/(1 − μ)) r^n
+  dv dVol_S^n" (127), and Theorem 16: "For 1 ≤ p ≤ 2 and τ_1 < τ_2, we have the r^p-estimate:
   E^p_Ψ(Σ_τ2) + (1/C) ∫_τ1^τ2 (E^(p−1)_Ψ(Σ_τ) + (2 − p) A^(p−1)_Ψ(Σ_τ)) dτ ≤ E^p_Ψ(Σ_τ1) + C Ě^N_Ψ(Σ_τ1). (128)"
 - (R6) Theorem 18, p. 47: "Ě^N_Ψ(Σ_τ) ≲ I_Ψ(Σ_0)/τ^2, (130) where I_Ψ(Σ_0) := E^2_{Ψ,L_K Ψ}(Σ_0) + E^N_{Ψ,L_K Ψ,
   L^2_K Ψ}(Σ_0). (131)", K = {T, Ω_i} (p. 47); and in its proof, with τ_k = 2^k: "there exist τ̃_k ∈ [τ_(k−1), τ_k]
@@ -247,9 +251,10 @@ orbit block and r^0 on the angular block, puts every term under one of these sup
 Step 4 (c). The new input is sup |T^2 P| and sup |TP| (the terms of weight r^0 in Lemma 1 (iii); the others are
 handled by Step 3). For w = T^a P (a = 1, 2) on C_tau and p = 1 + 2 delta: |w(r)| <= |w(R_1)| + int_{R_1}^oo |w'| <=
 R_1^(1/2) sup r^(-1/2) |w| + (int s^p w'^2)^(1/2) (R_1^(1-p)/(p - 1))^(1/2). The first is <= C D^(1/2) tau^-1 (Step 3);
-for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi] [R2.0 m9: k here is [HKW18]'s exponent in (127), written
-k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder with s^p = s^(2-p)
-(s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I
+for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi] [R3.0 m3: with (127) as READ, E^p = int r^p f^(-k_H)
+(d_r T^a P)^2 dr on the cone, so int s^p w'^2 <= E^p[T^a Psi], constant 1] [R2.0 m9: k here is [HKW18]'s
+exponent in (127), written k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder
+with s^p = s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I
 by [HKW18] Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
 for tau in [tau~_k, tau~_(k+1)], (128) at p = 1 from tau~_k and (R6)'s bound at tau~_k give E^1(tau) <= C (tau_k^-1 +
 tau~_k^-2) D, and tau <= tau_(k+1) = 2 tau_k. So the second term is <= C delta^(-1/2) D^(1/2) tau^(-(2-p)/2) = C
@@ -379,6 +384,8 @@ in place of (1 - Lap) diverges.
 
     D' := sum_{Y in {1, Omega_i, Omega_i Omega_j}} D[L_Y h]   (the I_{X Psi} with X = T^a Omega^b, a <= 2, b <= 4).
 
+[R3.0 nit: precisely D' <= C sum I_{X Psi} over X = T^a Omega^b with a <= 2, b <= 4 and a + b <= 4.]
+
 Then for tau >= 1 and 0 < delta <= 1/2, with C depending on mu and R_1 only, |h_(ab)| the components as functions on
 S^3 and |h_(ij)| the norm of the angular block in the unit sphere's metric:
 
@@ -462,7 +469,10 @@ master field and the P of (10.1) was not re-derived; an l-dependent constant wou
 in l. *Re-derived (computed: U10).* [HKW18] (159)-(162) give, in the gauge f_a = 0 = H_T (H_A = 0, H_2 = 0, e_A = 0),
 hcheck_AB = r F_AB and Hcheck = r F, the H of (55) being the coefficient of the unit-sphere metric, 2 r^2 F. With
 (163) read with mixed indices, X = hcheck^t_t - 2 Hcheck, Y = hcheck^r_r - 2 Hcheck, Z = hcheck^r_t (the reading
-(164)'s inversion through the traceless equation requires: hcheck^t_t + hcheck^r_r = -6 Hcheck at n = 3), and
+(164)'s inversion through the traceless equation requires: hcheck^t_t + hcheck^r_r = -6 Hcheck at n = 3) [R3.0 m1:
+that identity is false; (164) gives hcheck^t_t + hcheck^r_r = (n - 2)(X + Y)/n = -2(n - 2) Hcheck = -2 Hcheck at n = 3
+(X + Y = -6 Hcheck), the trace of (10.1), computed in U10; and the mixed indices are the source's, printed so in
+(163), not a reading chosen here], and
 (168)-(169) at n = 3,
 
     Ztilde = ( f (d_r X + d_r Y) - (f/r + f'/2) X + (2f/r - f'/2) Y ) / (k^2/r^2 - f'' - 3 f'/r),
