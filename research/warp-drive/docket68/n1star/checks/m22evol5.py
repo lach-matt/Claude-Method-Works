@@ -23,24 +23,35 @@ m_1(ell, ell) = 0 (Lemma 5.3 (b), ell = d_r).
      its own harmonic, so gh_2(r r) = 0 (zero data on Sigma); the first-harmonic equations of the four see no other
      gh_2 component but r r. So (m_1, phi_1, those four) is closed, and the rest of gh_2 is slaved to it.
   S4 (exact) The first harmonic of D^(1) (the gauge vector's, lowered) in terms of the same unknowns, for N3.
+  S4b (exact) Its harmonic-0 part: linear in m_1 and its first derivatives alone, no source, for N3b.
   N1 (computed, floating point) The solve on X*'s past: tau from tau0 = -2 to tau* = 2 - a in Kerr-Schild time
      (v = tau + r), the radial domain between the outgoing null ray through X* (backwards, DOP853) and the null
      surface v = 3, both boundaries characteristic or outflow for the null modes (no boundary condition);
      Chebyshev-Lobatto in r (first-order form, psi = d_r m_1), Chebyshev-Gauss in x = cos 2th with the axis-regular
      variables (h_vth/sin 2th, h_rth/sin 2th, h_thth, (h_thth - h_p2/S^2)/S^2, (h_thth - h_p1/C^2)/C^2), jets by the
      product rule, the axis divisions pointwise; RK4 with step cfl L(tau)/Nr^2. Data: lam0data5's (D2, D4, D5, D7;
-     LAMBDA0-DATA5.md section 6), envelope5's envelope. M_22 at seven resolutions; a band ten times the spread.
+     LAMBDA0-DATA5.md section 6), envelope5's envelope. M_22 at eight resolutions; a band ten times the spread.
   N2 (computed, floating point) Domain of dependence: the outer boundary moved to v = 2.6 leaves M_22 in the band.
-  N3 (computed, floating point) The gauge diagnostic: the first harmonic of D^(1), zero on Sigma by (F1), stays small
-     against the size of its terms along the solve (the contracted Bianchi identity, not built into the equations).
+  N3 (computed, floating point) The first harmonic of D^(1), zero on Sigma by (F1), stays small against the size of
+     its terms along the solve. Its scope is the gh_2 transports, m_1 (r th) and d_th phi_1: it does not see the mean
+     equations (it is unchanged under C1).
+  N3b (computed, floating point) The harmonic-0 part of D^(1), zero on Sigma by step (ii), falls with Nr along the
+     solve: a check of the mean equations, their source and their coupling to gh_2 (the contracted Bianchi identity,
+     not built into the equations).
+  N4 (computed, floating point) The pin: a second discretisation (Legendre-Gauss-Lobatto in r, Legendre-Gauss in x)
+     gives M_22 inside the band, and M_22 read from the coordinate component h_p1 agrees with the readout.
   CH (computed, floating point) The chain at X*: with m_1(X*) = M_22 e_phi1 e_phi1, sup over the phase of |g_1|_op
-     exceeds (4/3) K by |M_22|, and of |g_1|_F^2 by at least B + M_22^2 (classm5 K1-K2, r7fixes5 R1-R2, READ).
+     exceeds (4/3) K by |M_22|, and of |g_1|_F^2 by at least B + M_22^2 (classm5 K1-K2, r7fixes5 R1-R2, READ). The
+     sharpened bounds are computed from eps1 / C_app unrounded and rounded up.
+  R1, R2 (measured; printed, not checks) The lower-order coefficients' sizes at th = pi/4 over X*'s past, and the
+     cost of evaluating every coefficient function on one space-time box in Arb balls.
   Controls (each mutates the computed path and must fail): C1 the mean source S with its sign flipped: M_22 leaves the
-  band; C2 gh_2's coupling into the mean dropped: M_22 leaves the band; C3 gh_2's first-harmonic data on Sigma set to
-  zero (violating (F1)): the gauge diagnostic fails at tau0; C4 the axis division after removing the numerator's
-  interpolated axis value: at Nr = 48 the solve leaves the band; C5 M_22 placed off the class: CH's step fails.
+  band and N3b fails; C2 gh_2's coupling into the mean dropped: the same; C3 gh_2's first-harmonic data on Sigma set to
+  zero (violating (F1)): N3 fails at tau0; C4 the axis division after removing the numerator's interpolated axis
+  value: at Nr = 48 the solve leaves the band; C5 M_22 placed off the class: CH's step fails; C6 the readout with
+  T + B for T - B: N4's readout test fails.
 
-    python3 checks/m22evol5.py [--selftest]       (every check; about 1.5 hours on a loaded machine)
+    python3 checks/m22evol5.py [--selftest]       (every check; about an hour on this machine)
 """
 import builtins
 import contextlib
