@@ -23,8 +23,9 @@
       mu_end to 1e-12 (the corner's value): True; s(m*) = 0.030768559586; in T7's enclosure [0.030768559, 0.03076856]:
       True; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): True
   H6 (D623): 31 points (the corner and 30 random), eps1 = s0/2, 9 s0/10, 99 s0/100, 300 random symmetric perturbations of
-      norm eps1 each: one negative eigenvalue always: True; max |gt^-1| (s0 - eps1) = 0.865170154704 <= 1 (Weyl); along
-      the eigenvector of -s0 at the corner, eps1 = 9 s0/10: |gt^-1| (s0 - eps1) = 0.999999999995 (sharp) (floating point)
+      norm eps1 each and the two aligned ones +- eps1 e e^T (D625): one negative eigenvalue always: True; max |gt^-1| (s0
+      - eps1) = 1.000000000000 <= 1 (Weyl); along the eigenvector of -s0 at the corner, eps1 = 9 s0/10: |gt^-1| (s0 -
+      eps1) = 0.999999999995 (sharp) (floating point)
   C1 (control): H3's test with the size lowered to 59/100: restricted determinant 1.1310e-02 != 0, the boundary stays
       spacelike: the test fails, as it must
   C4 (control): H2's test at eps = 0.61 on ker d(v + tau) at the corner: least eigenvalue -8.6904e-03 <= 0: the cone
@@ -41,7 +42,7 @@
       Lorentzian (1 negative eigenvalue), |gt^-1| = 1.0000e+12 > (s0 - 99 s0/100)^-1 = 3250.1: H6's test rejects it:
       True; for eps1 >= s0 no bound holds
   C8 (control, D623): H6's test with the bound (1 - eps1)^-1 (g0's next eigenvalue for s0): max |gt^-1| (1 - eps1) =
-      230.822 > 1: rejected: True
+      3151.071 > 1: rejected: True
 H1 PASS
 H2 PASS
 H3 PASS

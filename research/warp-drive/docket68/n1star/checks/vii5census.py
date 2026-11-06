@@ -42,8 +42,10 @@ not computed.
 
 Run: python3 checks/vii5census.py [--list]   (a second; the saved .out is the --list run)
 """
+import bisect
 import glob
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,6 +54,7 @@ P5 = os.path.join(HERE, "proof5")
 BF, K, G3, I5, I15 = ("PART-III-B-FAMILY.md", "PART-III-K-NONLINEAR.md", "PART-III-G3-GRAFT.md",
                       "PART-III-I5-UNBOOST.md", "PART-III-I15-AUGMENT5.md")
 I10 = "PART-III-I10-CORR4.md"
+D3, D4, I16 = "PART-III-D3-SYMSTATES.md", "PART-III-D4-GENSTATES.md", "PART-III-I16-BASEPOINTS.md"
 IIC = "PART-II-C-OPERATORS.md"
 CUT5 = [(BF, 345, 349)]
 TABLE = [(G3, 40, 80), (G3, 179, 182)]
@@ -75,10 +78,20 @@ GROUPS = [
         ("\\omega^{(0)}_{b_0,\\mathrm s1}", [(I10, 127, 147)]), ("\\omega^{(-1)}_{b_0,\\mathrm v1}", [(I10, 127, 147)]),
         ("\\omega^{(0)}_{b_0,\\mathrm s0}", [(I10, 127, 147)]), ("\\omega^{\\le k}_\\tau", [(I10, 148, 149)]),
         ("\\omega_\\nu", [(I10, 174, 176)]), ("\\omega^{\\le4}", [("PART-III-I9-COMMOTION.md", 76, 77)]),
-        ("\\omega^{\\le1}_\\natural", [(I5, 77, 78)])]),
+        ("\\omega^{\\le1}_\\natural", [(I5, 77, 78)]), ("\\omega^{(-1)}_{b_0}", [(I10, 127, 147)])]),
     ("C3' families in b (averaged)", [
         ("T_{\\rho,b}", FAM), ("h^{\\le1}_{b,\\mathrm s1}", FAM), ("h_{b,\\mathrm v1}", FAM),
-        ("h^{\\le2}_{b,\\mathrm v1}", FAM)]),
+        ("h^{\\le2}_{b,\\mathrm v1}", FAM),
+        # D626: the 1-form towers and states at b, whose b0 values (C3) averages (a second reader's N2), each at its
+        # defining display: III.D'' Proposition 3.1 (3.1) and proof, III.D''' Proposition 3.1 and proof, I16 (P3)
+        ("\\omega^{(0)}_{b,\\mathrm s0}", [(D3, 138, 139)]), ("\\omega^{(0)}_{b,\\mathrm s1}", [(D3, 138, 139)]),
+        ("\\omega^{(-1)}_{b,\\mathrm v1}", [(D3, 138, 139)]), ("\\omega_{b,\\mathrm s0}", [(D3, 189, 189)]),
+        ("\\omega_{b,\\mathrm s1}", [(D3, 199, 199)]), ("\\omega_{b,\\mathrm v1}", [(D3, 269, 269)]),
+        ("\\omega^{\\le k}", [(D4, 37, 37)]), ("\\omega^{\\le k+1}", [(D4, 207, 207)]),
+        ("\\omega^{(0),\\le", [(D4, 119, 119)]), ("\\omega^{(-1),\\le k}_{b,\\mathrm v1}", [(D4, 148, 148)]),
+        ("\\omega^{(\\mu)}_b", [(D4, 162, 164)]), ("\\omega^{(\\mu),\\le k}_b", [(D4, 166, 166)]),
+        ("\\omega^{(\\mu-1)}_b", TABLE), ("\\omega_{\\mathrm s0}", [(D4, 184, 184)]),
+        ("\\omega_{\\mathrm v1}", [(D4, 223, 223)]), ("\\omega^{\\le1}_{b,\\natural}", [(I16, 385, 385)])]),
     ("C3' built object (not a choice: built from the C3' families)", [("h_{b,\\mathrm{rem}}", [(I15, 67, 72)])]),
     ("C4 the complement", [("\\mathcal V'", [("PART-III-I10-CORR4.md", 89, 94)])]),
 ]
@@ -97,15 +110,31 @@ def at_site(sym_sites, f, i):
     return any(f == sf and lo <= i <= hi for sf, lo, hi in sym_sites)
 
 
+def joined(path):
+    """the file as one string, each line stripped and followed by one space, with the offset of each line's start: a
+    symbol printed across a line break (as $\\omega^{(0)}_{b_0,\\mathrm$ / $s1}$) is found, at the line it starts on (D626)"""
+    txt, starts = [], []
+    n = 0
+    for line in open(path, encoding="utf-8").read().split("\n"):
+        starts.append(n)
+        t = line.strip() + " "
+        txt.append(t)
+        n += len(t)
+    return "".join(txt), starts
+
+
 def census(entries, fs):
-    """{(file, line): {symbol: is_site}} for every line naming a symbol of entries."""
+    """{(file, line): {symbol: is_site}} for every line on which a symbol of entries is printed or starts."""
     hits = {}
     for path in fs:
         f = os.path.basename(path)
-        for i, line in enumerate(open(path, encoding="utf-8"), 1):
-            for s, sites in entries:
-                if s in line:
-                    hits.setdefault((f, i), {})[s] = at_site(sites, f, i)
+        txt, starts = joined(path)
+        for s, sites in entries:
+            k = txt.find(s)
+            while k >= 0:
+                i = bisect.bisect_right(starts, k)
+                hits.setdefault((f, i), {})[s] = at_site(sites, f, i)
+                k = txt.find(s, k + 1)
     return hits
 
 

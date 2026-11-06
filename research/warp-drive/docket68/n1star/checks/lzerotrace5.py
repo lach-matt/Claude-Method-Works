@@ -40,9 +40,9 @@ where said).
      Cartesian components. Then g >= g0 - eps I as forms, and at eps = 3/5 the form g0 - eps I is positive definite on
      ker dtau (least 2/5), on ker dr at r = a (least 2/5 at P*) and on ker d(v + tau) (least mu/(5 r^2)) and has
      exactly one negative eigenvalue, so its causal set is a double cone with convex halves on which the three
-     covectors keep their signs: Lemma 1.1 (e) holds with eps1 = 3/5 (the direct cone argument the verifier asked for
-     in place of eps1hyp5.py H2's path argument), and eps1* in [3/5, 0.6013096]. Frobenius dominates it; under the
-     largest-entry norm, |A|_op <= 5 |A|_max gives eps1* in [3/25, 0.1202619].
+     covectors keep their signs: Lemma 1.1 (e) holds with eps1 = 3/5 at P* (the direct cone argument the verifier asked
+     for in place of eps1hyp5.py H2's path argument), and eps1* in [3/5, 0.6013096] there. Frobenius dominates it;
+     under the largest-entry norm, |A|_op <= 5 |A|_max gives eps1* in [3/25, 0.1202619].
   Controls (must fail, and do): C1 every trace row's line shifted by one: the fragments are not found; C2 the claim
   C_app >= 12.6 is refuted at the point: |W_TT| there is at most 12.60 - 0.003 (the certification cannot pass a false
   bound); C3 the parity argument on an even harmonic (cos 2s) gives a zero difference and no bound; C4 a point at r =
@@ -64,6 +64,11 @@ rows in sections 0-4 re-pinned by content (each fragment located in the D623 fil
 moved by +36, and D614's row (:91) replaced by three rows on 0.3's D623 text (Lemma 1.1 (e)'s general condition, s0,
 and eps1 fixed below both); LAST, the end of sections 0-6, located by content (the line '## 7. What is left'). The md5
 pins are not re-pinned here (the main session's pass).
+D625 (the confirming reads of D623 and D622 seated, with D618's status lines): T0 re-pinned to the D625 file (lines
+1-948, to '## 7. What is left', and the whole file of 11287 lines); every row outside section 6 re-keyed by content
+(the D625 map below), section 6's by _repin_section6; T6 says "at P*" (the confirming reader's nit 8: eps1 = 3/5 holds
+at the numerical point, not in general). Later edits to N1STAR-PROOF.md (the confirming read of D618's sections 9.5 and
+11, Lemma 11.0's replacement) will stale FILE_PIN again; PIN, of sections 0-6, only if they reach those sections.
 """
 import hashlib
 import os
@@ -82,10 +87,10 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '39acbcf0640c253b3d40f1dc2bd929dd'          # md5 of lines 1-817 (sections 0-6) joined by newlines (D616)
-LAST = 817                                         # 812 at D614 (pin 6e8947ad...); 805 (57d896ae...) before D612/D614
+PIN = '0c9fa8c22c27ca3e93524546f2f38a68'          # md5 of lines 1-948 (sections 0-6, to '## 7.') joined by newlines
+LAST = 948                                         # D625; 817 at D616 (pin 39acbcf0...), 812 at D614 (6e8947ad...)
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '709c63be1748117de9fadf6410eb53a2'     # the whole file at D616 (10858 lines), as the main session asked
+FILE_PIN = '7400212b8ab4ab746fefc00381d6aa4e'     # the whole file at D625 (11287 lines); D616: 709c63be... (10858)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 
@@ -155,6 +160,14 @@ TRACE += [('E-a', 'Lemma 1.1 (e): every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 (D62
            "s0 := inf over Omega of g0's least absolute eigenvalue", CERT),
           ('E-a', 'eps1 fixed with 0 < eps1 < min(s0, mu0/a^2 - 1) (D623)', 100,
            'one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1)', CERT)]
+# D625 (the two confirming reads seated; the header, 0.3, 0.7, Lemmas 2.2 and 3.3, Steps 6 and 8 rewritten or reflowed):
+# every row outside section 6 re-keyed by content (pre-D625 line -> D625 line: the unchanged lines matched line by line
+# against the pre-D625 file, md5 fb2fbf06..., and each fragment found once on its line in the D625 file); section 6's
+# rows are re-keyed by _repin_section6 below, as since D619
+D625 = {91: 110, 96: 114, 100: 122, 113: 135, 115: 137, 117: 139, 122: 144, 124: 146, 134: 156, 140: 162, 166: 188,
+        167: 189, 169: 191, 171: 193, 173: 195, 181: 203, 182: 204, 199: 221, 201: 223, 244: 268, 385: 410, 394: 419,
+        395: 420, 440: 463, 441: 464, 442: 465, 468: 490, 470: 492, 504: 529, 505: 530, 584: 609}
+TRACE = [(t, f, (ln if t.startswith('D-') else D625[ln]), fr, st) for t, f, ln, fr, st in TRACE]
 
 
 def _repin_section6(rows):
@@ -464,22 +477,24 @@ def main():
         'every m >= 0 from its eigenvalues 1 - eps, m - eps +- (m^2 + 1)^(1/2), deduced): %s, so its '
         'causal set is a double cone of two convex halves on which dtau, dr (at r = a) and d(v + tau) keep their '
         'signs, which gives the causal containment and the transversality (deduced). So Lemma 1.1 (e) holds with '
-        'eps1 = 3/5 and fails above %.7f (T2): eps1* in [3/5, %.7f]. The Frobenius norm dominates it (same eps1); '
+        'eps1 = 3/5 at P* and fails above %.7f (T2): eps1* in [3/5, %.7f]. The Frobenius norm dominates it (same eps1); '
         'the largest-entry norm satisfies |A|_op <= 5 |A|_max, so there eps1* in [3/25, %.7f]'
         % ([str(x) for x in at['ker dtau']], [str(x) for x in at['ker dr']], least_dr,
            [str(x) for x in at['ker d(v + tau)']], one_neg, float(eps_op), float(eps_op), float(eps_mx)))
 
     # T7 Lemma 2.3's requirement on eps1 (certified)
     width = e_hi - e_lo
+    L23 = [next(ln for _, _, ln, fr, _ in TRACE if fr.startswith(k)) for k in    # D625: the cited lines, from TRACE
+           ('Let gt be a Lorentzian metric', "s0 := inf over Omega", 'one fixed number with')]
     ok['T7'] = (closed and decr and corner and e_lo <= e_hi and width < Fr(1, 10 ** 12)         # D623: two-sided
                 and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7))
     say('  T7 (Round 4, MAJOR A): g0 = eta + m U U^T has the eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; the '
         'least absolute one, (m^2 + 1)^(1/2) - m, decreases in m: %s; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [%s, '
         '%s], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: %s. So inf over Omega of '
         'g0\'s least absolute eigenvalue is in [%s, %s] (certified; lo <= hi: %s, width %.1e < 1e-12: %s); Lemma 2.3 '
-        '(N1STAR-PROOF.md:244, :96-100) needs eps1 below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner,
-                                                                 down(e_lo, 9), up(e_hi, 9), e_lo <= e_hi,
-                                                                 float(width), width < Fr(1, 10 ** 12)))
+        '(N1STAR-PROOF.md:%d, :%d-%d) needs eps1 below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner,
+                                                               down(e_lo, 9), up(e_hi, 9), e_lo <= e_hi,
+                                                               float(width), width < Fr(1, 10 ** 12), *L23))
 
     # controls
     bad1 = trace_check(all_lines, shift=1)

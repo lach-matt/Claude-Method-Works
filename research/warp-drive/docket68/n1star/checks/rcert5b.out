@@ -1,24 +1,33 @@
-approximant fitted and frame code generated (451 s)
+the pinned approximant n1star/data/rcert5_C3.npz loaded read only, its five md5s equal rcert5c.py's: True; frame code
+    generated (55 s)
 the box: t in [-0.5, 0], sig in [-0.5, 0], x in [0, 0.25] (rcert5.py coordinates)
-B1 n = 1 (1 sub-boxes, 29 s):
+B3 n = 1 gate: certified sup >= the certified values at 8 finer centres and 500 random points: True (largest point value
+    1.538e-04)
+B1 n = 1 (1 sub-boxes, 411 s):
    ll: sup <= [8.09e+3 +/- 3.34], centres <= [4.31e-5 +/- 2.93e-8]  ln: sup <= [+/- inf], centres <= [9.08e-6 +/-
        3.20e-9]  nn: sup <= [3.35e+6 +/- 2.17e+3], centres <= [1.40e-5 +/- 2.95e-8]  lx: sup <= [3.22e+4 +/- 45.0],
        centres <= [3.36e-5 +/- 1.13e-8]  nx: sup <= [3.82e+5 +/- 4.13e+2], centres <= [4.89e-6 +/- 6.66e-10]  xx: sup <=
        [5.80e+4 +/- 16.0], centres <= [6.98e-6 +/- 6.20e-10]  11: sup <= [8.94e+4 +/- 47.8], centres <= [1.78e-5 +/-
        2.61e-8]  22: sup <= [1.04e+5 +/- 3.11e+2], centres <= [1.55e-5 +/- 4.00e-8]
-B1 n = 2 (8 sub-boxes, 6 s):
+B3 n = 2 gate: certified sup >= the certified values at 64 finer centres and 500 random points: True (largest point value
+    1.521e-04)
+B1 n = 2 (8 sub-boxes, 435 s):
    ll: sup <= [1.50e+2 +/- 0.404], centres <= [9.14e-5 +/- 4.26e-9]  ln: sup <= [3.42e+2 +/- 0.176], centres <= [1.11e-5
        +/- 2.87e-8]  nn: sup <= [5.89e+2 +/- 0.180], centres <= [1.97e-5 +/- 2.81e-8]  lx: sup <= [96.6 +/- 0.0140],
        centres <= [3.92e-5 +/- 4.18e-8]  nx: sup <= [2.19e+2 +/- 0.268], centres <= [7.29e-6 +/- 3.73e-9]  xx: sup <=
        [1.10e+2 +/- 0.381], centres <= [9.95e-6 +/- 3.08e-9]  11: sup <= [59.6 +/- 0.0142], centres <= [2.01e-5 +/-
        5.40e-9]  22: sup <= [70.3 +/- 0.0180], centres <= [1.92e-5 +/- 4.56e-8]
-B1 n = 4 (64 sub-boxes, 49 s):
+B3 n = 4 gate: certified sup >= the certified values at 512 finer centres and 500 random points: True (largest point
+    value 1.529e-04)
+B1 n = 4 (64 sub-boxes, 839 s):
    ll: sup <= [4.10 +/- 4.56e-3], centres <= [0.000129 +/- 4.09e-7]  ln: sup <= [2.54 +/- 2.56e-3], centres <= [1.21e-5
        +/- 3.37e-8]  nn: sup <= [3.72 +/- 1.52e-3], centres <= [2.25e-5 +/- 2.45e-8]  lx: sup <= [1.80 +/- 3.30e-3],
        centres <= [4.53e-5 +/- 6.11e-9]  nx: sup <= [1.70 +/- 1.10e-3], centres <= [8.65e-6 +/- 1.94e-9]  xx: sup <=
        [1.88 +/- 1.01e-3], centres <= [1.13e-5 +/- 3.98e-8]  11: sup <= [0.777 +/- 2.99e-4], centres <= [2.16e-5 +/-
        4.90e-8]  22: sup <= [0.940 +/- 4.99e-4], centres <= [2.10e-5 +/- 1.29e-8]
-B1 n = 8 (512 sub-boxes, 300 s):
+B3 n = 8 gate: certified sup >= the certified values at 0 finer centres and 500 random points: True (largest point value
+    1.589e-04)
+B1 n = 8 (512 sub-boxes, 278 s):
    ll: sup <= [0.124 +/- 1.76e-4], centres <= [0.000153 +/- 9.45e-8]  ln: sup <= [0.0490 +/- 1.07e-5], centres <=
        [1.26e-5 +/- 3.35e-8]  nn: sup <= [0.0934 +/- 2.20e-5], centres <= [2.39e-5 +/- 2.77e-8]  lx: sup <= [0.0486 +/-
        1.59e-5], centres <= [4.77e-5 +/- 4.60e-8]  nx: sup <= [0.0333 +/- 3.53e-5], centres <= [9.35e-6 +/- 3.44e-9]  xx:
@@ -42,5 +51,7 @@ B2 the ratio of the bound at n to that at n/2, per component, and the n at which
        sub-boxes for this one box)
    22: ratios 1484.16, 74.81, 36.56; at n = 8 bound/centre = 1.18e+03; reaches 2x the centre values at n ~ 27.3 (2e+04
        sub-boxes for this one box)
+B3 the assembly on T_3 T_3 T_3 and t^4 + s^4 + x^4: largest true/bound 0.2500 (sound, must be <= 1), inf with the point
+    Taylor polynomial in place of the remainder (the mutant, must exceed 1) -> the mutant is caught (good)
 control (W + 0.01 v, n = 4): centre values up to [0.0516 +/- 2.39e-6] against [0.000129 +/- 4.09e-7] -> fails (good)
-rcert5b (889 s): all checks pass
+rcert5b (2047 s): all checks pass
