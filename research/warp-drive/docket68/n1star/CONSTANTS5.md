@@ -1405,10 +1405,10 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
   box^Ups(0) at z = 4e-6 (-1, -2, -3 are not s0 or s1 roots, 0 is not a v1 root; `r6fixes5.py` F3, exact); at z = 0, -1
   is an s1 root (control C3), which is where the remark holds. III.F'''' (5.3) lives at offsets >= 2 (R5.2) and does not
   touch E^flat's window. What would make the ceiling proved: the reading written into the supplement as a sharpened I11
-  [Round 7, R7.0 m1: the tower list was incomplete; offset 1 lands on a root at (s0, -1), (s1, -1), (v1, -2), each
-  simple, so log order <= 1 below offset 1's 2: the table and the ceiling are unchanged (`r7fixes5.py` R3).]
   Proposition 3.1 (c) (log order <= 2 off the 18 points, the table at them), whose proof is I11:352-387 with the inputs
   computed in eflat5.py; it is implied by and much smaller than K(lambda). Not done here (it edits the write-out).
+  [Round 7, R7.0 m1: the tower list was incomplete; offset 1 lands on a root at (s0, -1), (s1, -1), (v1, -2), each
+  simple, so log order <= 1 below offset 1's 2: the table and the ceiling are unchanged (`r7fixes5.py` R3).]
 - **Minor 1 (accepted).** eflat5 C1 now reruns f4_table with the windows summed and F4's test fails on it.
 - **Minor 2 (accepted; computed, certified).** det(g0 + t v v^T) = 4 m t - 1 for v = e_tau - e_1 (sympy), every entry of
   t v v^T being t or 0: the largest-entry reading gives eps1 < 1/(4 m*) <= 0.0153989 and **lambda0 < 0.0012228**

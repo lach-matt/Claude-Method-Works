@@ -145,7 +145,7 @@ def positive_tree(e):
 def k2(control=False):
     d, C11, C4 = build(mutate="minus" if control else None)
     # the certified numbers (a, b(tau0), tau_end - tau0, mu_end, C_S, A, mu0) inserted first: monotone in the others
-    structural = all(positive_tree(sp.nsimplify(e.subs(CERT))) for _, e in d.defs)
+    structural = all(positive_tree(e.subs(CERT)) for _, e in d.defs)
     if control:
         return structural
     rng = random.Random(11)

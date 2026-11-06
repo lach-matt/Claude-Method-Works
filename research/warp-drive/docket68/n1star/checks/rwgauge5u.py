@@ -266,60 +266,115 @@ def u3a(control=False):
 
 
 def u3b(control=False, ls=(2,)):
+    """DRic of h_ab = F_ab S, h_ij = 2 r^2 F S gamma with abstract F's (rwgauge5.py's tensor calculus, ingoing chart),
+    then F, F_ab replaced by (10.1) (kirecon5.py) as linear combinations of the jets J(a, b) = d_v^a d_r^b of the
+    master field, every mixed jet reduced by the master equation 2 u_vr = (V/f) u - (f u_r)_r; every coefficient of
+    the reduced combination must vanish (trigonometric functions through w = tan(th/2), r = sigma^2: exact)"""
     import rwgauge5 as RW
     import kirecon5 as KR
-    v_, rr_, s = RW.v, RW.r, RW.s
+    v_, rr_, th, s = RW.v, RW.r, RW.th, RW.s
+    fs = 1 - s**2/rr_**2
     ok = True
     for l in ls:
         mval = l*(l + 2) - 3
-        V = potential(l, "tensor" if control else "scalar").subs(mu, s**2)
+        V = potential(l, "tensor" if control else "scalar").subs(mu, s**2).subs(r, rr_)
+        S = RW.legendre_S(l//2)
+        names = ("Fvv", "Fvr", "Frr", "FF")
+        Fs = {n: sp.Function(n)(v_, rr_) for n in names}
+        h = [[0]*5 for _ in range(5)]
+        h[0][0], h[0][1], h[1][1] = Fs["Fvv"]*S, Fs["Fvr"]*S, Fs["Frr"]*S
+        h[1][0] = h[0][1]
+        for i in range(3):
+            h[2 + i][2 + i] = 2*rr_**2*Fs["FF"]*S*RW.gam[i, i]
+        D = RW.GEO.dric(h)
+
+        def Dv(Am):
+            return {(a + 1, b): c for (a, b), c in Am.items()}
+
+        def Dr(Am):
+            out = {}
+            for (a, b), c in Am.items():
+                dc = sp.diff(c, rr_)
+                if dc != 0:
+                    out[(a, b)] = out.get((a, b), 0) + dc
+                out[(a, b + 1)] = out.get((a, b + 1), 0) + c
+            return out
+        base = {(0, 0): V/fs/2, (0, 1): -sp.diff(fs, rr_)/2, (0, 2): -fs/2}            # u_vr
+        memo = {}
+
+        def nf_jet(a, b):
+            if a == 0 or b == 0:
+                return {(a, b): sp.Integer(1)}
+            if (a, b) not in memo:
+                Xm = base
+                for _ in range(b - 1):
+                    Xm = normalize(Dr(Xm))
+                for _ in range(a - 1):
+                    Xm = normalize(Dv(Xm))
+                memo[(a, b)] = Xm
+            return memo[(a, b)]
+
+        def normalize(Am):
+            out = {}
+            for (a, b), c in Am.items():
+                if a and b:
+                    for k, x in nf_jet(a, b).items():
+                        out[k] = out.get(k, 0) + c*x
+                else:
+                    out[(a, b)] = out.get((a, b), 0) + c
+            return out
         uK, rF, rFab, _ = KR.reconstruction("Phi")
         sub = {KR.mu: s**2, KR.m: mval}
-        S = RW.legendre_S(l//2)
-        h = [[0]*5 for _ in range(5)]
-        for a in range(2):
-            for b in range(2):
-                h[a][b] = rFab[a][b].subs(sub)/rr_*S
-        for i in range(3):
-            for j in range(3):
-                h[2 + i][2 + j] = 2*rr_*rF.subs(sub)*S*RW.gam[i, j]
-        D = RW.GEO.dric(h)
-        fs = 1 - s**2/rr_**2
-        base = ((V/fs)*uK - sp.diff(fs*sp.diff(uK, rr_), rr_))/2           # d_v d_r u from 2 u_vr + (f u_r)_r = (V/f) u
+        nm2ab = {"u": (0, 0), "u_v": (1, 0), "u_r": (0, 1), "u_vv": (2, 0), "u_vr": (1, 1), "u_rr": (0, 2)}
 
-        def reduce_mixed(e):
-            e = e.doit()
-            for _ in range(20):
-                mixed = []
-                for d in e.atoms(sp.Derivative):
-                    if d.expr != uK:
-                        continue
-                    cnt = dict(d.variable_count)
-                    if cnt.get(v_, 0) >= 1 and cnt.get(rr_, 0) >= 1:
-                        mixed.append((d, cnt[v_], cnt[rr_]))
-                if not mixed:
-                    return e
-                rep = {}
-                for d, a, b in mixed:
-                    y = base
-                    if a > 1:
-                        y = sp.diff(y, v_, a - 1)
-                    if b > 1:
-                        y = sp.diff(y, rr_, b - 1)
-                    rep[d] = y
-                e = e.xreplace(rep).doit()
-            raise RuntimeError("no normal form")
+        def to_lc(e):
+            return normalize({nm2ab[k]: c for k, c in KR.jets(e.subs(sub), uK).items()})
+        Flc = {"FF": to_lc(rF/rr_), "Fvv": to_lc(rFab[0][0]/rr_), "Fvr": to_lc(rFab[0][1]/rr_),
+               "Frr": to_lc(rFab[1][1]/rr_)}
+        w, sg = sp.symbols("w sigma", positive=True)
+        cw, sw = (1 - w**2)/(1 + w**2), 2*w/(1 + w**2)
+        trig = {sp.tan(th): sw/cw, sp.cot(th): cw/sw, sp.sec(th): 1/cw, sp.csc(th): 1/sw, sp.cos(th): cw,
+                sp.sin(th): sw}
+
+        def zero_coeff(c):
+            c = sp.expand_trig(c).subs(trig).subs(rr_, sg**2)
+            return sp.cancel(sp.together(c)) == 0
         good = True
+        count = 0
         for a in range(5):
             for b in range(a, 5):
-                z = RW.zero(sp.expand(reduce_mixed(D[a][b])))
-                good &= z
-                if control and not z:
+                e = sp.expand(D[a][b].doit())
+                terms = {}
+                for term in sp.Add.make_args(e):
+                    if term == 0:
+                        continue
+                    key = None
+                    for fac in sp.Mul.make_args(term):
+                        if (isinstance(fac, sp.Derivative) and fac.expr in Fs.values()) or fac in Fs.values():
+                            key = fac
+                    if key is None:
+                        raise ValueError("a term of DRic without the perturbation: %s" % term)
+                    terms[key] = terms.get(key, 0) + term/key
+                total = {}
+                for key, coef in terms.items():
+                    fn, cnt = (key.expr, dict(key.variable_count)) if isinstance(key, sp.Derivative) else (key, {})
+                    Xm = Flc[[n for n, F_ in Fs.items() if F_ == fn][0]]
+                    for _ in range(cnt.get(rr_, 0)):
+                        Xm = normalize(Dr(Xm))
+                    for _ in range(cnt.get(v_, 0)):
+                        Xm = normalize(Dv(Xm))
+                    for k, x in Xm.items():
+                        total[k] = total.get(k, 0) + coef*x
+                comp = all(zero_coeff(c) for c in total.values())
+                count += len(total)
+                good &= comp
+                if control and not comp:
                     break
             if control and not good:
                 break
-        print("  U3 (b)%s l = %d: DRic(h) = 0 modulo the master equation (mixed derivatives eliminated): %s"
-              % (" control (tensor potential)" if control else "", l, good), flush=True)
+        print("  U3 (b)%s l = %d: DRic(h) = 0 modulo the master equation, %d jet coefficients over the 15 components "
+              "(mixed derivatives eliminated): %s" % (" control (tensor potential)" if control else "", l, count, good),
+              flush=True)
         ok &= good
     return ok
 
