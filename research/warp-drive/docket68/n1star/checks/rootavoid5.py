@@ -609,13 +609,14 @@ def main(selftest=False):
     R8 = r8(C)
     OK['R8'] = R8['ok']
     print('  R8 (exact): the rest of I11:156-160\'s appended set (the exclusion set of III.I\'\'\'\'\'\'\'\'\'\'\' '
-          'section 1, read at every level as I14 Definition 1.1 (c) does): l_zf = beta - 1 - j - eps is never an integer '
-          '(j = 1, 2, 3; beta - eps in Z has no solution: %s); at level 1 the only tf-exponent in [2, 2 + eta_1) on '
-          'R9.1\'s reading is 2 (the u-exponent 3 of Lambda; (G) and M5 leave no point of Lambda in (3, 3 + eta_1)), so '
-          '(4.2)\'s last condition asks beta - 2 - eps != -mu, rational against the roots: an integer never (beta - eps '
-          'not in Z); III.I\'\' Lemma 4.2 and III.H (1.1) ask beta_tf - beta_zf = tau - beta + 2 + eps in (0, 1) at '
-          'level 3, which holds for the final tau in (beta - 2, beta - 1 - eps): %s. Not decided here: (4.2) at level 2, '
-          'whose tf-exponents in [1 + eta_1, 2 + eta_2) the record does not list' % (R8['hits'] or 'none', OK['R8']))
+          'section 1, read at every level as I14 Definition 1.1 (c) does): l_zf = beta - 1 - j - eps is never an '
+          'integer (j = 1, 2, 3; beta - eps in Z has no solution: %s); at level 1 the only tf-exponent in [2, 2 + '
+          'eta_1) on R9.1\'s reading is 2 (the u-exponent 3 of Lambda; (G) and M5 leave no point of Lambda in (3, 3 + '
+          'eta_1)), so (4.2)\'s last condition asks beta - 2 - eps != -mu, rational against the roots: an integer '
+          'never (beta - eps not in Z); III.I\'\' Lemma 4.2 and III.H (1.1) ask beta_tf - beta_zf = tau - beta + 2 + '
+          'eps in (0, 1) at level 3, which holds for the final tau in (beta - 2, beta - 1 - eps) (deduced): %s. Not '
+          'decided here: (4.2) at level 2, whose tf-exponents in [1 + eta_1, 2 + eta_2) the record does not list' % (
+              R8['hits'] or 'none', OK['R8']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])
