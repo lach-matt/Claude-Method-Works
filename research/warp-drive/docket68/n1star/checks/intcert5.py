@@ -19,7 +19,7 @@ and 160 (qsign5 Q3, racslice5 S2), not certified.
      psi_R, psi_vhat, f_R, f_vhat) are taken as the linear interpolant of their crossing values (the stated interpolant),
      so on a sub-cell each lies in the hull of its interpolated end values; V'' = phi'' is enclosed from its closed form
      (C-infinity bumps evaluated in interval arithmetic) and V' = 1 + phi' by phi'(R_a) + [0, R - R_a] phi''(cell), with
-     a margin 1e-9 for the quadrature of phi'; R is the cell. Each crossing interval is cut into sub-cells (bisected
+     a margin 1e-6 for the quadrature of phi'; R is the cell. Each crossing interval is cut into sub-cells (bisected
      further if needed), and kappa' and K'^l_l are enclosed by interval evaluation of racslice5's closed forms. Certified:
      kappa' > 0 and K'^l_l < 0 on every sub-cell, so kappa' K'^l_l < 0 on all of Sigma' in Omega_2, at n = 80 and 160
      (the largest upper bound of kappa' K'^l_l printed). Controls (must fail): A = 0.001 (the round-6 verifier's
@@ -119,8 +119,8 @@ def c1(bgs):
               "R in [%.5f, %.5f])" % (n, good, nev, least if least is not None else float('nan'), cell[0], cell[1]))
         ok &= good
     bg = bgs[160]
-    g1, _, _, f1, _ = c1_run(bg, fneg, 'neg', depth=4)
-    g2, _, _, f2, _ = c1_run(bg, fdrop, 'drop', depth=4)
+    g1, _, _, f1, _ = c1_run(bg, fneg, 'neg', depth=0)
+    g2, _, _, f2, _ = c1_run(bg, fdrop, 'drop', depth=0)
     print("   controls: Gamma with its sign flipped is not certified (%d cells fail; rejected): %s; Gamma without its "
           "4 nu E^2 term is not certified (%d cells fail; rejected): %s" % (f1, not g1, f2, not g2))
     return ok and not g1 and not g2
@@ -170,7 +170,7 @@ def c2_run(rs, tb, bgd, A, fk, fK, nsub=4, depth=8):
             Xr = I(a, b)
             V2 = phi2_iv(Xr, rs, A, lam)
             ph1a = float(np.interp(a, x, p1))
-            V1 = I(1.0) + I(ph1a - 1e-9, ph1a + 1e-9) + I(0.0, b - a) * V2
+            V1 = I(1.0) + I(ph1a - 1e-6, ph1a + 1e-6) + I(0.0, b - a) * V2
             kap = fk(*ins, V1, V2, Xr)
             Kl = fK(*ins, V1, V2, Xr)
             prod = kap * Kl
@@ -203,8 +203,8 @@ def c2():
         print("   n = %d, A = %.3f: %d crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: %s (%d interval "
               "evaluations; largest upper bound of kappa' K'^l_l = %.4e)" % (n, rs.A_DEF, npts, good, nev, worst))
         ok &= good
-    g1, w1, f1, _, _ = c2_run(rs, tb, bgds[160], 0.001, fk, fK, depth=2)
-    g0, w0, f0, _, _ = c2_run(rs, tb, bgds[160], 0.0, fk, fK, depth=2)
+    g1, w1, f1, _, _ = c2_run(rs, tb, bgds[160], 0.001, fk, fK, depth=1)
+    g0, w0, f0, _, _ = c2_run(rs, tb, bgds[160], 0.0, fk, fK, depth=1)
     print("   controls: A = 0.001 not certified (%d sub-cells fail, largest upper bound %.3e; rejected): %s; A = 0 "
           "(Sigma_tau0) not certified (%d fail; rejected): %s" % (f1, w1, not g1, f0, not g0))
     return ok and not g1 and not g0

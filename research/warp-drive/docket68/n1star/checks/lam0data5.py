@@ -850,8 +850,10 @@ def check_d1_d2():
 DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean: a coefficient of lam^2 or higher
   reaches order 1 only through one fast derivative lam^-1 d_s (gamma's lam^2 terms in Gamma; K's lam^2 terms in div K
   and d tr K), and is then multiplied by an order-0 factor; the order-0 parts of gamma^-1 are g0's (not oscillating),
-  so these terms are d_s of something times a non-oscillating factor, of mean zero. gamma^-1 is kept to lam^2 since
-  it meets the lam^-1 of d_s^2 (lam W). The order-1 oscillating parts are incomplete and are not used."""
+  so these terms are d_s of something times a non-oscillating factor, of mean zero. A lam^3 term (gh_3) reaches order 1
+  only through d_s^2 in gamma^-1 d^2 gamma, again against g0^-1: mean zero; lam^2 means (m_2, phi_2) carry no fast
+  derivative and stay at order 2. gamma^-1 is kept to lam^2 since it meets the lam^-1 of d_s^2 (lam W); gh_2 (lam^2,
+  oscillating) is kept. The order-1 oscillating parts are incomplete and are not used."""
 
 
 def check_d3_d4(F0):
