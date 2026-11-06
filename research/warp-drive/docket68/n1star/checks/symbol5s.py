@@ -8,7 +8,7 @@ symbol5.py Y1 took the 4 x 4 system (R, m, n, W)_uv with the shift held fixed.  
 (R, m, n, W, s) and all five rows (Ric_11, Ric_22, Ric_xx, Ric(Y, d_v), Ric_vx) are kept.
 
   S1 (exact) which second derivatives of s enter which row: s_vx in Ric_xx and Ric(Y, d_v), s_vv in Ric_vx, none in
-     Ric_11 and Ric_22; no s_uu, s_uv, s_ux, s_xx anywhere.  The f_vx coefficients of Ric_vx are -d zeta (zeta = W +
+     Ric_11 and Ric_22; no s_uu, s_uv, s_ux, s_xx anywhere (Ric_uv's s_vv cancels in Ric(Y, d_v)).  The f_vx coefficients of Ric_vx are -d zeta (zeta = W +
      2 log R + P + Q, symbol5.py Y1's left null vector).
   S2 (exact) eliminate s at principal order through Ric_vx (c_s xi_v^2 s^ = xi_v xi_x d zeta . f^): the four rows'
      xi_x^2 matrix becomes N_eff = N + n d zeta / c_s (n the s_vx column).  A_eff = M^-1 N_eff / Lambda.
@@ -65,17 +65,17 @@ def main():
     E = S5.rows()
     co = lambda e, name: sp.expand(e).coeff(sp.Symbol(name))
     # S1
-    present = {lab: [d for d in TWO if co(E[lab], 's_' + d) != 0] for lab in LAB + ['Evx']}
+    present = {lab: [d for d in TWO if sp.simplify(co(E[lab], 's_' + d)) != 0] for lab in LAB + ['Evx']}
     nvec = sp.Matrix([sp.simplify(co(E[lab], 's_vx')) for lab in LAB])
     cs = sp.simplify(co(E['Evx'], 's_vv'))
     cvec = sp.Matrix([[sp.simplify(co(E['Evx'], f + '_vx')) for f in F4]])
     dz = sp.Matrix([[2 / R, (1 + x) / 3, (1 - x) / 3, 1]])
-    eyv_svv = sp.simplify(co(E['EYv'], 's_vv') - (1 - x ** 2) * s * cs)
+    euv_svv = sp.simplify(co(E['Euv'], 's_vv') + (1 - x ** 2) * s * cs)
     good = (present['E11'] == [] and present['E22'] == [] and present['Exx'] == ['vx']
-            and present['EYv'] == ['vv', 'vx'] and eyv_svv == 0
+            and present['EYv'] == ['vx'] and euv_svv == 0
             and present['Evx'] == ['vv'] and sp.simplify(cvec + dz) == sp.zeros(1, 4))
-    print('   Ric(Y, d_v) carries s_vv only through (1 - x^2) s Ric_vx (exact: %s), which the solver removes'
-          % (eyv_svv == 0))
+    print('   Ric_uv carries s_vv with coefficient -(1 - x^2) s c_s (exact: %s), which (1 - x^2) s Ric_vx cancels in '
+          'Ric(Y, d_v)' % (euv_svv == 0))
     print('S1 second derivatives of s by row:', present, '; s_vx column (E11, E22, Exx, EYv):', list(nvec),
           '; Ric_vx: s_vv coefficient', cs, ', f_vx coefficients = -d zeta:', sp.simplify(cvec + dz) == sp.zeros(1, 4),
           '->', 'PASS' if good else 'FAIL')

@@ -49,9 +49,9 @@ in its source class, III.I' at Box (the expansion at null infinity), and the cor
   D10 (exact) E3 of gdext5.py: the conjugation by rho (n = 3) run through the same radial and full 1-form pipeline.
   D11 (exact) G4 (b) of gdrate5.py with the convergence computed by integration; control at a = beta + 3.
   D12 (exact, rational samples) E6 of gdext5.py with the source's I+-weight computed and the interval reported.
-  D13 (exact) III.I' Lemma 1.1 and Proposition 3.1 at Box: rho_I^-1 rho_+^-2 Box_0 = (X_+ - X_I)(X_I - 3/2) + rho_I
-     (smooth) in III.I's chart, the coupling of Box gaining rho_I^2, and L_0 (rho_I^z u) = rho_I^z (z - 3/2)(X_+ - z) u.
-     Control: n = 3 gives the root 1.
+  D13 (exact) III.I' Lemma 1.1 and Proposition 3.1 at Box: rho_I^-1 rho_+^-2 Box_0 = 2 (X_+ - X_I)(X_I - 3/2) +
+     rho_I (smooth) in III.I's chart (the factor 2 is Box's normalisation; it moves no root), the coupling of Box gaining
+     rho_I^2, and L_0 (rho_I^z u) = rho_I^z (z - 3/2)(X_+ - z) u.  Control: n = 3 gives the root 1.
 
 Labels: computed (exact, sympy; D5-D6 compute a formal expansion; D8 and D2 on the whole parameter box, D12 at exact
 rational samples).  Run: python3 checks/gdrad5.py   (about ten minutes)
@@ -96,22 +96,23 @@ def d1(control=False):
     q_state = 0 if control else 2                           # (d_v)^flat ~ dt: r^0; W* ~ dt/r^2: r^-2
     st = r**(-q_state)
     com = box0(chi(r/t)*st) - chi(r/t)*box0(st)
-    ex = sp.simplify((r**(q_state + 2)*com).subs(t, r/lam).doit())
+    ex = sp.simplify((r**4*com).subs(t, r/lam).doit())                # the column order 3: r^4 [Box_0, chi]
     homog = not ex.has(r)
     # (b) Fubini: int_1^oo r^(-2q + 2 + 2(gtf - gzf)) [int_0^(1/r) s^(2 - 2 gzf) ds/s] r^-1 dr
-    gt, gz, sg, a_, p_ = sp.symbols('g_tf g_zf sigma a p', real=True)
+    gt, gz = sp.symbols('g_tf g_zf', real=True)
+    sg, kk = sp.symbols('sigma k', positive=True)            # k := 1 - g_zf > 0 (resp. j - g_zf): the zf condition
     res = {}
     for q in ((1, 2, 3) if control else (2, 3)):
-        inner = sp.integrate(sg**(1 - 2*gz), (sg, 0, 1/r), conds='none')     # valid for g_zf < 1
-        integrand = r**(-2*q + 2 + 2*(gt - gz))*inner*r**-1
-        res[q] = sp.expand(sp.expand_log(sp.log(integrand*(2 - 2*gz)), force=True)).coeff(sp.log(r))
+        inner = sp.integrate(sg**(1 - 2*(1 - kk)), (sg, 0, 1/r))                 # int_0^(1/r) s^(2 - 2 g_zf) ds/s
+        integrand = r**(-2*q + 2 + 2*(gt - (1 - kk)))*inner*r**-1
+        res[q] = sp.expand(sp.expand_log(sp.log(integrand*2*kk), force=True)).coeff(sp.log(r))
     thr = {q: sp.solve(sp.Eq(res[q], -1), gt)[0] for q in res}               # finite iff exponent < -1
     zf_cond = sp.integrate(sg**(1 - 2*sp.Rational(1, 2)), (sg, 0, 1))      # g_zf = 1/2: finite
     zf_edge = sp.integrate(sg**(1 - 2*1), (sg, sp.Rational(1, 10**8), 1))  # g_zf = 1: log divergence
-    # Lemma 1.1 (a): int |sigma|^(2j) rho^(-2(gtf - gzf)) |sigma|^(-2 gzf) 1_{sigma <= rho/4} dsigma/sigma
+    # Lemma 1.1 (a): int |sigma|^(2j) rho^(-2(gtf - gzf)) |sigma|^(-2 gzf) 1_{sigma <= rho/4} dsigma/sigma, g_zf = j - k
     j = sp.Symbol('j', positive=True)
-    inner11 = sp.integrate(sg**(2*j - 2*gz - 1), (sg, 0, 1/(4*r)), conds='none')     # valid for g_zf < j
-    w11 = sp.expand(sp.expand_log(sp.log(inner11*r**(2*(gt - gz))*(2*j - 2*gz)), force=True)).coeff(sp.log(r))
+    inner11 = sp.integrate(sg**(2*kk - 1), (sg, 0, 1/(4*r)))
+    w11 = sp.expand(sp.expand_log(sp.log(inner11*r**(2*(gt - (j - kk)))*2*kk*4**(2*kk)), force=True)).coeff(sp.log(r))
     l11 = sp.simplify(w11 - (2*gt - 2*j))                                    # the weight rho^(-2(g_tf - j))
     # (c) the cut-off state with W_beta: rho-hat = 1/z, W^-1 = (1 + z)^N (z/(1 + z))^(q - eps)
     z, eps = sp.symbols('z epsilon', positive=True)
@@ -130,8 +131,8 @@ def d1(control=False):
     ok = (homog and thr.get(3) == 3 and thr.get(2) == 2 and zf_cond.is_finite and zf_edge > 18
           and l11 == 0 and okc)
     if control:
-        print("  D1 control (the Killing form's component r^0 / q = 1 / q = 0): r^2 [Box_0, chi] r^0 homogeneous of "
-              "degree 0: %s; tf thresholds %s; cut-off state (eps, lim, order) %s; the claims hold: %s"
+        print("  D1 control (the Killing form's component r^0 / q = 1 / q = 0): r^4 [Box_0, chi] r^0 a function of r/t "
+              "alone: %s; tf thresholds %s; cut-off state (eps, lim, order) %s; the claims hold: %s"
               % (homog, thr, rows, homog and okc), flush=True)
         return homog and okc
     print("  D1: r^4 [Box_0, chi(r/t)] r^-2 = %s, a function of r/t alone: %s, so the column's transform is r^-3 G(sigma"
@@ -202,41 +203,42 @@ def d2(control=False):
 
 # --------------------------------------------------------------------------------------------------------------- D3
 def d3(control=False):
-    w, t = sp.symbols('w t', positive=True)
+    """B(t) = (1 + t)^-a_K on t > 0: its transform at sigma = i w, w > 0 (the boundary value is the same analytic
+    function), against the zf structure int B + C w^(a_K - 1) + O(w) of II.G' Definition 2.7 with one constant Taylor
+    term (a_K in (1, 2)); the control runs the same path at the integer a_K = 2"""
+    w, t, s_ = sp.symbols('w t s', positive=True)
     rows = []
     ok = True
     samples = [sp.Integer(2)] if control else [sp.Rational(11, 10), sp.Rational(5, 4), sp.Rational(3, 2),
                                                sp.Rational(19, 10)]
+    # the lower incomplete gamma by its series (DLMF 8.7.1), checked: d/dw [w^s sum] = w^(s-1) e^-w to O(w^(s+3))
+    K = 5
+    lg = lambda sv, wv: wv**sv*sum((-wv)**k/(sp.factorial(k)*(sv + k)) for k in range(K))
+    chk = sp.simplify(sp.expand(sp.diff(lg(s_, w), w)*w**(1 - s_)
+                                - sp.series(sp.exp(-w), w, 0, K).removeO()))
+    ser_ok = chk == 0
     for aK in samples:
-        if aK == 2:
-            # the main path at the integer: the one-sided t^-aK tail, transform at sigma = i w (Laplace)
-            tr = sp.integrate(sp.exp(-w*t)*(1 + t)**(-aK), (t, 0, sp.oo))
-            ser = sp.series(sp.simplify(tr), w, 0, 2).removeO()
-            power_law = not sp.expand(ser).has(sp.log)
-            rows.append((str(aK), sp.simplify(ser), power_law))
-            ok &= power_law
-            continue
-        nu = (aK - 1)/2
-        # FT of (1 + t^2)^(-s), s = a_K/2: (2 sqrt(pi)/Gamma(s)) (|sigma|/2)^nu K_nu(|sigma|), nu = s - 1/2
-        Kser = sp.gamma(nu)/2*(w/2)**(-nu) + sp.gamma(-nu)/2*(w/2)**nu            # K_nu(w) to O(w^(2 - nu))
-        B_hat = sp.expand(2*sp.sqrt(sp.pi)/sp.gamma(aK/2)*(w/2)**nu*Kser)
-        const = sp.simplify(B_hat.subs(w, 0)) if not B_hat.subs(w, 0).has(sp.zoo) else None
-        integral = sp.integrate((1 + t**2)**(-aK/2), (t, -sp.oo, sp.oo))
-        sing = sp.simplify(B_hat - const) if const is not None else None
-        expo = sp.simplify(sp.log(sp.simplify(sing/sing.subs(w, 1)))/sp.log(w)) if sing is not None else None
-        good = (const is not None and sp.simplify(const - integral) == 0 and expo is not None
-                and sp.simplify(expo - (aK - 1)) == 0)
-        # the membership threshold of II.G' Definition 2.1 at beta = a_K: <t>^(beta - 1/2) t^-a_K in L^2 iff beta < a_K
+        tr = sp.integrate(sp.exp(-w*t)*(1 + t)**(-aK), (t, 0, sp.oo))
+        if tr.has(sp.uppergamma):
+            tr = tr.rewrite(sp.lowergamma)
+        tr = tr.replace(lambda e: isinstance(e, sp.exp_polar), lambda e: sp.exp(e.args[0]))
+        tr = tr.replace(lambda e: isinstance(e, sp.lowergamma), lambda e: lg(e.args[0], e.args[1]))
+        integral = sp.integrate((1 + t)**(-aK), (t, 0, sp.oo))
+        c0 = sp.limit(tr, w, 0)
+        lead = sp.limit((tr - c0)/w**(aK - 1), w, 0)
+        good = (sp.simplify(c0 - integral) == 0 and lead.is_finite is True and lead != 0
+                and sp.simplify(lead - sp.gamma(1 - aK)) == 0)
         be = sp.Symbol('beta')
-        thr = sp.solve(sp.Eq(2*(be - HALF) - 2*aK, -1), be)[0]
-        rows.append((str(aK), good, thr))
+        thr = sp.solve(sp.Eq(2*(be - HALF) - 2*aK, -1), be)[0]      # <t>^(beta - 1/2) t^-a_K in L^2 iff beta < a_K
+        rows.append((str(aK), c0, lead, good, thr))
         ok &= good and thr == aK
     if control:
-        print("  D3 control (main path at a_K = 2): (a_K, transform near 0, a power law) = %s" % rows, flush=True)
+        print("  D3 control (the same path at a_K = 2): (a_K, transform at 0, lim (B-hat - B-hat(0))/w^(a_K - 1), "
+              "power law) = %s" % rows, flush=True)
         return ok
-    print("  D3: (a_K, transform = int B + C |sigma|^(a_K - 1) + O(sigma^2) with the constant = int B, the K+ threshold "
-          "beta = a_K) = %s" % rows, flush=True)
-    return ok
+    print("  D3: lower incomplete gamma series checked: %s; (a_K, B-hat(0) = int B, lim (B-hat - B-hat(0))/w^(a_K - "
+          "1) = Gamma(1 - a_K), structure as Definition 2.7, the K+ threshold beta) = %s" % (ser_ok, rows), flush=True)
+    return ok and ser_ok
 
 
 # --------------------------------------------------------------------------------------------------------------- D4
@@ -406,7 +408,6 @@ def d7(control=False):
         print("  D7 control (W* in place of d psi): Q[phi(v) W*] = %s, not 0: %s" % (Q, Q != 0), flush=True)
         return Q == 0
     BX = [sp.simplify(c) for c in hodge(GEO, Y)]
-    box0phi = sp.simplify(-sum(sp.diff(sp.sqrt(-GEO.g.det())*0, v) for _ in [0]))  # placeholder, replaced below
     # Box_0 phi(v) = -r^-3 d_r(r^3 g^{rv} phi') = -3 phi'/r
     box0phi = -sp.diff(r**3*sp.diff(phi, v), r)/r**3
     cov = GEO.cov1(dpsi)
@@ -501,7 +502,6 @@ def d9(control=False):
 # -------------------------------------------------------------------------------------------------------------- D10
 def d10(control=False):
     import gdext5
-    old = gdext5.e3
     c_val = 1 if control else sp.Rational(3, 2)
     a_, lam = gdext5.a_, gdext5.lam
     p0 = 1/(2 - gdext5.TT + gdext5.RR)
@@ -536,7 +536,6 @@ def d10(control=False):
         lm = sp.limit(e_, rI, 0)
         lims.append(lm)
         ok_full &= sp.simplify(lm + 2*L_*(A - L_)) == 0
-    del old
     print("  D10%s: radial limit %s (= -2 lam (a - lam): %s); full 1-form Box, dt component at (a, lam) = (1/3, 1/5): "
           "limit %s (= -2 lam (a - lam): %s)" % (" control (conjugation by rho)" if control else "", lim, ok_rad,
                                                   lims, ok_full), flush=True)
@@ -619,13 +618,13 @@ def d13(control=False):
     ex = ex.subs({T: 1/rp - 1, R: 1/(rp*rI)})
     ex = sp.simplify(sp.expand(ex/(rI*rp**2)))
     lead = sp.simplify(sp.limit(ex, rI, 0))
-    want = (m - lam)*(lam - sp.Rational(n - 1, 2))          # (X_+ - X_I)(X_I - (n-1)/2) on rho_+^m rho_I^lam
+    want = 2*(m - lam)*(lam - sp.Rational(n - 1, 2))        # 2 (X_+ - X_I)(X_I - (n-1)/2) on rho_+^m rho_I^lam
     ok_lead = sp.simplify(lead - want) == 0
     rest = sp.simplify((ex - lead)/rI)
     ok_rest = sp.limit(rest, rI, 0).is_finite                # smooth coefficients: the remainder gains rho_I
     roots = sp.solve(sp.Eq(lead.subs(m, lam + 1), 0), lam)
     # the coupling of Box (degrees -3 and -4, gdext5 E1): r^-3 d and r^-4 relative to rho_I rho_+^2
-    c3 = sp.simplify(((T + 1)*R**-3/(rI*rp**2)).subs({T: 1/rp - 1, R: 1/(rp*rI)}))   # d_t* in rho_+ V_b
+    c3 = sp.simplify((R**-3/(T + 1)/(rI*rp**2)).subs({T: 1/rp - 1, R: 1/(rp*rI)}))   # d_t* in rho_+ V_b
     c4 = sp.simplify((R**-4/(rI*rp**2)).subs({R: 1/(rp*rI)}))
     gain = [sp.Poly(c3, rI).degree() if c3.is_polynomial(rI) else None,
             sp.Poly(c4, rI).degree() if c4.is_polynomial(rI) else None]
@@ -637,13 +636,14 @@ def d13(control=False):
     tgt = rI**z*w(rp)
     L0 = Xp(XI(tgt) - sp.Rational(n - 1, 2)*tgt) - XI(XI(tgt) - sp.Rational(n - 1, 2)*tgt)
     fac = sp.simplify(L0/rI**z - (z - sp.Rational(n - 1, 2))*(Xp(w(rp)) - z*w(rp)))
-    ok = ok_lead and ok_rest and fac == 0 and sp.Rational(3, 2) in roots and gain == [3, 2]
+    ok = ok_lead and ok_rest and fac == 0 and sp.Rational(3, 2) in roots and gain == [2, 3]
     if control:
         print("  D13 control (n = 3): leading part %s, indicial roots %s; the root 3/2 present: %s"
               % (sp.factor(lead), roots, sp.Rational(3, 2) in roots), flush=True)
         return sp.Rational(3, 2) in roots
-    print("  D13: rho_I^-1 rho_+^-2 Box_0 on rho_+^m rho_I^lam -> %s = (X_+ - X_I)(X_I - 3/2): %s; the rest gains rho_I "
-          "(smooth): %s; I+ roots (with m = lam + 1) %s; the coupling r^-3 (rho_+ X), r^-4 relative to rho_I rho_+^2: "
+    print("  D13: rho_I^-1 rho_+^-2 Box_0 on rho_+^m rho_I^lam -> %s = 2 (X_+ - X_I)(X_I - 3/2): %s; the rest "
+          "gains rho_I (smooth): %s; I+ roots (with m = lam + 1) %s; the coupling r^-3 (rho_+ X), r^-4 relative to "
+          "rho_I rho_+^2: "
           "rho_I-degrees %s; L_0(rho_I^z w) = rho_I^z (z - 3/2)(X_+ - z) w: %s"
           % (sp.factor(lead), ok_lead, ok_rest, roots, gain, fac == 0), flush=True)
     return ok

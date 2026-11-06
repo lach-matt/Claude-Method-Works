@@ -2,10 +2,12 @@
 """stagen5.py -- stage N's data (EQUALITY5-LAYER.md, Round 3, R3.4; open item O6 of rounds 1-2).
 
   S1 (READ, located by content; the file's md5 printed) N1STAR-PROOF.md: Theorem A of order N solves stages m = 1, ...,
-     N, with gh_{N+1} from stage N (section 5.4); Lemma 6.2 states stage data "for every N" but its proof fixes stages m
-     = 1, ..., N - 1 only; Lemma 6.1 needs (F1) at orders 1, ..., N - 1 and (F2) at 1, ..., N - 2; Proposition 6.5 and
-     section 6.4 take "the stage data of Lemma 6.2 with N := K + 3"; section 6.4 asserts the data equal the seed's on
-     Sigma cap {r < v_start - tau0}.  Control: no line states the rule for m = 1, ..., N.
+     N, with gh_{N+1} from stage N (section 5.4); Lemma 6.2 states stage data "for every N", and its proof (as amended
+     at D615, after this check first found it fixing stages m = 1, ..., N - 1 only) fixes stages m = 1, ..., N, noting
+     that stage N's data are not needed for (F1), (F2) and that at m = N step (iii) runs inside Theorem A of order N
+     (S3); Lemma 6.1 needs (F1) at orders 1, ..., N - 1 and (F2) at 1, ..., N - 2; Proposition 6.5 and section 6.4 take
+     "the stage data of Lemma 6.2 with N := K + 3"; section 6.4 asserts the data equal the seed's on Sigma cap
+     {r < v_start - tau0}.  Control: the pre-D615 wording (stages 1, ..., N - 1) is no longer present.
   S2 (exact, the weights of the supplement's Lemma 5.1) The lowest order at which each unknown of stage m enters the
      two-scale expansions: the gauge vector D (first order): m_m, phi_m and gh_{m+1} at order m; Ric^H: m_m, phi_m at
      m - 1 only through e_m (which stage m's own transport (b) makes zero), gh_{m+1} at m (the lam^-2 part of Ric^H
@@ -46,7 +48,9 @@ def out(msg):
 PINS = {
     "5.4 stages 1..N": "Solve stage 0 (5.1) and the stages m = 1, ..., N (Lemma 5.3), with gh_{N+1} from stage N",
     "6.2 statement": "For every N there are stage data for Theorem A satisfying (F1)",
-    "6.2 proof range": "Stage m = 1, ..., N - 1, everything of the earlier stages given",
+    "6.2 proof range": "Stage m = 1, ..., N, everything of the earlier stages given",
+    "6.2 stage N fixed": "(stage N's data are not needed for (F1), (F2) but are fixed here",
+    "6.2 step at m = N": "at m = N step (iii) runs inside Theorem A of order N",
     "(F1)": "- (F1) D^(m)(X, th) = 0 for all th, m = 1, ..., N - 1;",
     "(F2)": "- (F2) d_tau <D^(m)> = 0, m = 1, ..., N - 2.",
     "6.5 uses 6.2": "Let the stage data be those of Lemma 6.2 with N >= K + 3",
@@ -59,7 +63,7 @@ def s1(control=False):
     raw = open(PROOF, 'rb').read()
     lines = raw.decode('utf-8').split('\n')
     if control:
-        return any("Stage m = 1, ..., N," in ln or "stages m = 1, ..., N, everything" in ln for ln in lines)
+        return any("Stage m = 1, ..., N - 1, everything of the earlier stages given" in ln for ln in lines)
     found = {}
     for key, pat in PINS.items():
         hits = [k + 1 for k, ln in enumerate(lines) if pat in ln]

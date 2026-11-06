@@ -633,9 +633,11 @@ def b10():
     # the weighted energy uses r^(2a) <= (R + 1)^(2a) on the band; with R^(2a) in place: bounded and -> int psi'^2
     lim = sp.limit(en.subs(a, sp.Rational(1, 4)), R, sp.oo)
     val = (R**(a + sp.Rational(3, 2))*phi).subs(r, R + sp.Rational(1, 2))
+    yy = sp.Symbol("yy")
+    psint = sp.integrate(sp.diff((yy*(1 - yy))**2, yy)**2, (yy, 0, 1))
     check("B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has "
-          "weighted energy -> int psi'^2 = 1/105 and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16",
-          lim == sp.Rational(1, 105) and sp.simplify(val - sp.Rational(1, 16)) == 0, f"limit {lim}")
+          "weighted energy -> int_0^1 psi'^2 = 2/105 (bounded in R) and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16",
+          lim == psint == sp.Rational(2, 105) and sp.simplify(val - sp.Rational(1, 16)) == 0, f"limit {lim}")
     eta = sp.Symbol("eta", positive=True)
     ph2 = r**(-a - 1 - eta)
     ratio = sp.simplify(sp.integrate(r**(2*a + 1)*ph2**2, (r, R, sp.oo), conds="none") /

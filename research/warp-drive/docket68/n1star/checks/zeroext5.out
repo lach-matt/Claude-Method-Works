@@ -1,0 +1,9 @@
+zeroext5: the scalar zero-energy bound in the norm of I.C (3.2), s = 1, alpha = -1, through the horizon
+  Z0: indicial roots of r^2 A_l at infinity in rho = 1/r: [-l, l + 2]; the gap containing alpha + 2 = 1 is (0, 2); scale
+      invariance under r -> mu^(1/2) r (A_l -> A_l/mu): True
+  Z1: d/dr[(1/2) P w |u'|^2 - (1/2) L r w |u|^2] + (1/2)(P'w - P w')|u'|^2 + (1/2) L (r w)' |u|^2 = -Re(r^3 g w conj u'),
+      g = A_l u, for every weight w (exact, polynomial in the jet): True
+  Z2: at w = r: P'w - P w' = 2*r**3, (r w)' = 2*r, -P(a) w(a) = -a**2*(a - 1)*(a + 1) (>= 0 for 0 < a < 1): True
+  Z4 (certified, exact rationals): kappa = 5/2, 1/f(b1) = 36/11; C_0^2 <= 7.840875, C_1^2 <= 4.922348, C_2^2 <= 3.202371,
+      C_l^2 decreasing to 2 (checked to l = 200, each term decreasing beyond): sup_l C_l^2 = C_0^2 < 7.85, so
+      ||u||_(1,-1) <= 2.8002 ||A u||_(0,1) on [r_h/2, oo) x S^3: True

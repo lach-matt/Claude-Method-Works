@@ -49,7 +49,7 @@ B10  the weight a_0 < 1/2 scheme of rounds 2-3 does not close
   B10a the scheme's chain (Hardy on Gamma^alpha h, Sobolev on d d h) gives the kernel exponent a_0 + 1/2: not integrable
         at a_0 = 1/4, 2/5, 1/2: pass
   B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has weighted energy
-        -> int psi'^2 = 1/105 and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16: FAIL limit 2/105
+        -> int_0^1 psi'^2 = 2/105 (bounded in R) and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16: pass limit 2/105
   B10c Hardy's constant is attained: the ratio for r^(-a-1-eta) tends to (a + 1)^-2 as eta -> 0: pass
   B10d control: at a = 11/4 (the weight of (b2)) the same chain is integrable: pass
 B11  uniqueness in the weight-a_0 class
@@ -82,11 +82,3 @@ B2  the bulk sign: grad u timelike
         <= r^-2/2 (2000 points): a time function on W for the perturbed metrics: pass max -1.173
   B2e control: |H| up to 4 r^-2 makes dPhi_W spacelike somewhere: pass max 4.676
 B5  the commuted equations' structure: the differentiated identities (60 digits)
-  B5a (Z + 2) DP(h)[k] = DP(h)[Z k] + D^2P(h)[Z h, k] - 2 mu d_mu DP(h)[k], 15 components, two points: pass max |defect|
-        1.47e-30 against terms up to 0.207
-  B5b d_t (DP(h)[k]) = DP(h)[d_t k] + D^2P(h)[d_t h, k]: pass max |defect| 1.08e-31
-  B5c control: without D^2P(h)[Z h, k] the first fails at every point: pass min defect 0.0577
-  B5d control: without D^2P(h)[d_t h, k] the second fails at every point: pass min defect 0.026
-FAILED: ["B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has weighted
-        energy -> int psi'^2 = 1/105 and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16"]
-exit 1

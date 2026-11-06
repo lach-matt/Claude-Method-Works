@@ -1,5 +1,5 @@
   D1 on H e^(i k v/lam), k symbolic: lam^-2 part 0: True; lam^-1 part = k T(H) (15): True; lam^0 part free of k: True;
-      dD: lam^-1 part = i k Pol(H): True, lam^0 part free of k: True  [7 s]
+      dD: lam^-1 part = i k Pol(H): True, lam^0 part free of k: True  [24 s]
 D1 PASS
   D2 harmonics j >= 0 of Re[a e^(i th)] Re[b e^(i th)]: [0, 2]; mean of (mean) x (first harmonic): 0
 D2 PASS
@@ -10,4 +10,4 @@ D3 PASS
 D4 PASS
   D5 d_v^j (lam^m f(v, v/lam)) = sum_l binom(j, l) lam^(m-l) (d_th^l d_v^(j-l) f)(v, v/lam), j <= 4: True
 D5 PASS
-layerdeg5: all checks pass, every control fails  [126 s]
+layerdeg5: all checks pass, every control fails  [336 s]

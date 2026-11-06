@@ -2,7 +2,9 @@
 """stagefree5.py -- the free stage-N data decide the deep layer for Theorem 1's g_lam (EQUALITY5-LAYER.md, Round 4,
 R4.2: Proposition L.19).
 
-As the supplement stands, stage N's data are free (Round 3, R3.4).  Adding to stage N's mean the Cauchy data on
+As the supplement stood until D615, stage N's data were free (Round 3, R3.4); D615 amended Lemma 6.2's proof
+to fix them by the rule of the earlier stages, because of what this program computes.  Adding to stage N's mean
+the Cauchy data on
 Sigma_tau0 of +-2 A grad grad f, f an exact solution of the scalar wave equation of the seed, changes the A-linear part
 of g_lam by exactly +-2 lam^N A grad grad f (a pure-gauge solution in the harmonic gauge; its data satisfy the
 linearised constraints, so the correction U does not change at first degree).  At the horizon its vv component is
@@ -30,8 +32,10 @@ dominates the layer's deep part, and the two signs make the boundary spacelike t
      aside); and at Theorem L's window (env = lam^14) the free term is below a tenth of the signal lam^3 env.  Control:
      psi := env (as flat as env) dominates nowhere on [3 lam, x_b].
   G4 (READ, located by content; md5 printed) N1STAR-PROOF.md: Lemma 6.2's statement ("For every N there are stage data
-     ..."), its proof's range ("Stage m = 1, ..., N - 1"), section 6.4 ("Take the stage data of Lemma 6.2 with N := K
-     + 3"); the paper: "every smooth choice of stage data" (Theorem A).  Control: no line fixes stage N's data.
+     ..."), its proof's range as amended at D615 ("Stage m = 1, ..., N", with "stage N's data are not needed for (F1),
+     (F2) but are fixed here"), section 6.4 ("Take the stage data of Lemma 6.2 with N := K + 3"); the paper: "every
+     smooth choice of stage data" (Theorem A, which holds for every choice; Lemma 6.2 now makes one).  Control: the
+     pre-D615 range ("Stage m = 1, ..., N - 1") is no longer present.
 
 Labels: G1, G2 computed (exact, sympy); G3 computed (mpmath), a model with unit constants; G4 READ.
 Run: python3 checks/stagefree5.py   (about two minutes; imports layerlin5.py)
@@ -235,7 +239,8 @@ def g3(control=False):
 # ------------------------------------------------------------------------------------------------------------ G4
 PINS_PROOF = {
     "Lemma 6.2 statement": "For every N there are stage data for Theorem A satisfying (F1)",
-    "Lemma 6.2 proof range": "Stage m = 1, ..., N - 1, everything of the earlier stages given",
+    "Lemma 6.2 proof range": "Stage m = 1, ..., N, everything of the earlier stages given",
+    "Lemma 6.2 stage N fixed": "(stage N's data are not needed for (F1), (F2) but are fixed here",
     "6.4": "Take the stage data of Lemma 6.2 with N := K + 3",
     "6.4 seed data": "equal to the seed's data on Sigma cap {r <",
 }
@@ -250,7 +255,7 @@ def g4(control=False):
     praw = open(paper, 'rb').read()
     plines = praw.decode('utf-8').split('\n')
     if control:
-        return any("Stage m = 1, ..., N," in ln or "stage N's data" in ln.lower() for ln in lines)
+        return any("Stage m = 1, ..., N - 1, everything of the earlier stages given" in ln for ln in lines)
     found = {k: [i + 1 for i, ln in enumerate(lines) if p in ln] for k, p in PINS_PROOF.items()}
     pfound = {k: [i + 1 for i, ln in enumerate(plines) if p in ln] for k, p in PINS_PAPER.items()}
     ok = all(len(h) == 1 for h in found.values()) and all(len(h) == 1 for h in pfound.values())
