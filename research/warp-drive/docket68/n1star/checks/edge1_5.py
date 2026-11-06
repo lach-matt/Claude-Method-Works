@@ -504,7 +504,7 @@ C_R_STATED = 3                      # |kappa_k'| <= c_R kappa_k^(3/2), alpha = 1
 
 def e10(control=False):
     mp.mp.dps = 50
-    kmax = 12
+    kmax = 13
     Ls, Y = bell_ratios(kmax + 2)
     Yf = [sp.lambdify(Ls, y, 'mpmath') for y in Y]
     names = ["sin^16 mutant"] if control else ["exp(-1/x)", "record C_c^inf"]
@@ -512,7 +512,7 @@ def e10(control=False):
     rows, ok = [], True
     for nm in names:
         dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, len(Ls) + 1)]
-        good, cR, cj, Cup, cdown = True, mp.mpf(0), mp.mpf(0), mp.mpf(0), mp.inf
+        good, cR, cj, Cup = True, mp.mpf(0), mp.mpf(0), mp.mpf(0)
         for x in xs:
             Lv = [f(x) for f in dl]
             Yv = [f(*Lv) for f in Yf]
@@ -523,23 +523,22 @@ def e10(control=False):
                 good &= Yv[k] > 0 and lc < 0 and mp.mpf(1)/2 < kk/kap < 2
                 if Yv[k] > 0 and kk > 0:
                     cR = max(cR, abs(lc)/kk**mp.mpf(1.5))
-                if kap <= 0:
-                    continue
-                if k >= 1:
+                if kap > 0 and k >= 1:
                     Cup = max(Cup, abs(kk - kap)/(k*mp.sqrt(kap)))
-                if 8 <= k <= 12:
-                    cdown = min(cdown, abs(kk - kap)/(k*mp.sqrt(kap)))
             cj = max(cj, max(abs(Yv[j])/kap**j for j in range(kmax + 2)))
-        good &= cR <= C_R_STATED and cdown > 0
+        # kappa_k - kappa_(k-1) = kappa_(k-1)'/kappa_(k-1), so (H_N) gives |kappa_k - kappa| <= k c_R 2^alpha kappa^alpha
+        derived = C_R_STATED*mp.sqrt(2)
+        good &= cR <= C_R_STATED and Cup <= derived
         ok &= good
-        rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 12, at all 401 points: %s; sup"
-                    " |kappa_k'|/kappa_k^(3/2) = %s <= c_R = %d; L.16 (c): max_j<=13 sup |env^(j)|/(kappa^j env) = %s;"
-                    " (H_N'): |kappa_k - kappa| <= %s k kappa^(1/2) (k <= 12) and >= %s k kappa^(1/2) (8 <= k <= 12)"
-                    % (nm, good, mp.nstr(cR, 4), C_R_STATED, mp.nstr(cj, 4), mp.nstr(Cup, 4), mp.nstr(cdown, 4)))
+        rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= %d, at all 401 points: %s; sup"
+                    " |kappa_k'|/kappa_k^(3/2) = %s <= c_R = %d; L.16 (c): max_(j<=%d) sup |env^(j)|/(kappa^j env) ="
+                    " %s; |kappa_k - kappa| <= %s k kappa^(1/2), below the bound c_R 2^(1/2) = %s that (H_N) implies"
+                    % (nm, kmax, good, mp.nstr(cR, 4), C_R_STATED, kmax + 1, mp.nstr(cj, 4), mp.nstr(Cup, 4),
+                       mp.nstr(derived, 4)))
     if control:
         return ok
-    out("  X10 hypotheses (H_N), (H_N') and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell"
-        " polynomials in the derivatives of log env): " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
+    out("  X10 hypotheses (H_N) and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell polynomials"
+        " in the derivatives of log env): " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
     return ok
 
 
