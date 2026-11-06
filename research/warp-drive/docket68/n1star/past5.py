@@ -265,16 +265,21 @@ def p7(control=0):
     point = k*(Ef**2 + lam**2*sp.diff(Ef, v)**2) + k*H2*((c2**2 - s2**2)*(sp.diff(B1, v) + lam**2/2*gg*sp.cos(2*ph))
                                                          - 2*c2*s2*(sp.diff(bound/k, v) + lam**2/4*gg*sp.sin(2*ph)))
     ok["f pointwise"] = sp.simplify(sp.expand(qf - sp.expand(point))) == 0
+    import textwrap
+
+    def say(msg):
+        print(textwrap.fill(msg, width=121, initial_indent="      ", subsequent_indent="        ",
+                            break_on_hyphens=False), flush=True)
     if control == 0:
-        print("      P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = %s (term by term, partial fractions in z)"
-              % ", ".join(str(sp.simplify(m)) for m in mom))
-        print("      P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = %.10f; quadrature on S^3 at three "
-              "points:\n      max deviation %s at 30 digits (tolerance 1e-20)" % (float(1 - sp.pi/2), devmax))
-        print("      P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature %s, (9.10) %s, the first "
-              "(9.10) %s" % first)
-        print("      P7: checks " + ", ".join(f"{a} {b}" for a, b in ok.items()), flush=True)
+        say("P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = %s (term by term, partial fractions in z)"
+            % ", ".join(str(sp.simplify(m)) for m in mom))
+        say("P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = %.10f; quadrature on S^3 at three points: "
+            "max deviation %s at 30 digits (tolerance 1e-20)" % (float(1 - sp.pi/2), devmax))
+        say("P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature %s, (9.10) %s, the first (9.10) %s"
+            % first)
+        say("P7: checks " + ", ".join(f"{a} {b}" for a, b in ok.items()))
     else:
-        print("      P7 control %d: failing checks %s" % (control, [a for a, b in ok.items() if not b]), flush=True)
+        say("P7 control %d: failing checks %s" % (control, [a for a, b in ok.items() if not b]))
     return bool(all(ok.values()))
 
 

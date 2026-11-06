@@ -322,6 +322,10 @@ CACHE6 = {}
 
 
 def t6(control=False):
+    """Proposition L.25 (a), round 6: on J_n' every term of g_lam^-1(dPhi0, dPhi0) + m0 is a mean of g_app (L.3 (b),
+    L.3_P on Omega) or the remainder w (L.4', L.4_P); their bounds against m0's lower bound (2 A^2/(27 mu0)) int env^2,
+    in log10, with the record's unknown constants set to 1 and A = mu0 = 1.  eps_k(v1) <= 2 h_n s_n^k B_k: the bumps
+    m > n add at most h_n s_n^k (h_(m+1) s_(m+1)^k <= h_m s_m^k/2 once e^(2m+1) >= 2^(k+1), checked)"""
     mp.mp.dps = 40
     if 'B' not in CACHE6:
         CACHE6['B'] = bump_sups(44)
@@ -329,28 +333,33 @@ def t6(control=False):
     B, ib2 = CACHE6['B'], CACHE6['ib2']
     N, Ms = 9, 26                                          # Theorem 1 at K = 6: N = K + 3, M* = 2N + 8
     NP, MP = 18, 44                                        # Theorem 2 at K = 6, beta_P = 2: N_P = K + 4 + 8, 2 N_P + 8
-    rows, ok, prev = [], True, None
+    l2 = mp.log10(2)
+    rows, ok, prev, hyp_from = [], True, None, None
     for E in (10**2, 10**3, 10**4, 10**5, 10**6):
         L10 = mp.mpf(E)                                    # lam = 10^-E
         Ln = L10*mp.log(10)
         n = int(mp.ceil(mp.sqrt(mp.mpf('3.1')*Ln)))        # the bump with e^(-n^2) in [lam^3.5, lam^3.1]
         lh = -n*n/mp.log(10)                               # log10 h_n
-        assert -mp.mpf('3.5')*L10 <= lh <= -mp.mpf('3.1')*L10
-        ls = (n + 2)*mp.log10(2)                           # log10 s_n, s_n = 2^(n+2)
-        lm0 = mp.log10(mp.mpf(2)/27*ib2) + 2*lh - ls       # log10 of m0's lower bound (2/27) h_n^2 int beta^2 / s_n
-        lw1 = -(N - 5)*L10 + lh + Ms*ls + mp.log10(B[Ms]) - lm0         # L.4 (L.4'): lam^(N-5) eps_(M*) / m0
-        lw2 = -(NP - 3)*L10 + lh + MP*ls + mp.log10(B[MP]) - lm0        # L.4_P: lam^(N_P-3) eps_(M_P) / m0
-        lme = max(-j*L10 + 2*(lh + (2*j + 1)*ls + mp.log10(B[2*j + 1])) - lm0 for j in range(1, N + 1))  # L.3 (b)
+        ok &= -mp.mpf('3.5')*L10 <= lh <= -mp.mpf('3.1')*L10 and mp.e**(2*n + 1) >= 2**(MP + 1)
+        ls = (n + 2)*l2                                    # log10 s_n, s_n = 2^(n+2)
+        le = lambda k: l2 + lh + k*ls + mp.log10(B[k])     # noqa: E731  log10 of the bound of eps_k(v1)
+        lm0 = mp.log10(mp.mpf(2)/27*ib2) + 2*lh - ls       # log10 of m0's lower bound
+        lw1 = -(N - 5)*L10 + le(Ms) - lm0                  # L.4': lam^(N-5) eps_(M*) / m0
+        lw2 = -(NP - 3)*L10 + le(MP) - lm0                 # L.4_P: lam^(N_P-3) eps_(M_P) / m0
+        lme = max(-j*L10 + 2*le(2*j) - lm0 for j in range(1, NP + 1))                  # L.3 (b): lam^j eps_(2j)^2
+        h1 = le(4) <= -L10                                 # L.4''s hypothesis eps_4(v1) <= lam
+        h2 = le(MP) <= -3*L10                              # L.4_P's hypothesis eps_(M_P)(v1) <= lam^3
         worst = max(lw1, lw2, lme)
-        rows.append("lam = 10^-%d: n = %d, log10 of w/m0 (Theorem 1) %s, (Theorem 2) %s, means/m0 %s" % (
-            E, n, mp.nstr(lw1, 6), mp.nstr(lw2, 6), mp.nstr(lme, 6)))
+        if h1 and h2 and worst < 0 and hyp_from is None:
+            hyp_from = E
+        rows.append("lam = 10^-%d: n = %d, log10 of w/m0 (Theorem 1) %s, (Theorem 2) %s, means/m0 %s; eps_4 <= lam:"
+                    " %s, eps_(M_P) <= lam^3: %s" % (E, n, mp.nstr(lw1, 6), mp.nstr(lw2, 6), mp.nstr(lme, 6), h1, h2))
         if prev is not None:
             ok &= worst < prev
         prev = worst
-    ok &= prev < -1000
-    # the local first-degree amplitude on J_n: env and every derivative vanish there when the bumps are disjoint.
-    # The control fills J_n (no zero interval): an extra bump of height h_n/2 at J_n's midpoint, half-width 2^-n/10;
-    # then env > 0 there and, at lam = 10^-100, the first-degree term lam^3 (8/3)|nu| env exceeds m0/4 at the midpoint
+    ok &= prev < -1000 and hyp_from is not None
+    # the local first-degree profiles on J_n: env and every derivative vanish there when the bumps are disjoint.
+    # The control removes the zero interval (an extra bump of height h_n/2 at J_n's midpoint, half-width 2^-n/10)
     L10 = mp.mpf(100)
     n = int(mp.ceil(mp.sqrt(mp.mpf('3.1')*L10*mp.log(10))))
     h = lambda m: mp.exp(-m*m)                                                     # noqa: E731
@@ -363,21 +372,16 @@ def t6(control=False):
         if control:
             tot += h(n)/2*beta(10*mp.mpf(2)**n*(x - mp.mpf('1.375')*mp.mpf(2)**-n))
         return tot
-    mid = mp.mpf('1.375')*mp.mpf(2)**-n                     # the midpoint of J_n = (1.25, 1.5) 2^-n
     pts = [mp.mpf(2)**-n*(mp.mpf('1.26') + mp.mpf('0.23')*k/40) for k in range(41)]
     zero_on_J = all(env(x) == 0 for x in pts)
-    lam = mp.mpf(10)**-100
-    first_mid = lam**3*mp.mpf(8)/3*mp.mpf(1)/9*env(mid)
-    m0_up = (env(mid)**2 + h(n)**2*2/mp.mpf(2)**(n + 2) + h(n + 1)**2*2/mp.mpf(2)**(n + 3) + h(n)**2/mp.mpf(2)**n)/9
-    spacelike_local = first_mid < m0_up/4
     if control:
-        return zero_on_J and spacelike_local and ok
-    out("  T6 (round 6) on J_n, between bump n and bump n - 1: env vanishes at all 41 sample points: %s, so the local"
-        " first-degree amplitude is 0 there (at lam = 10^-100 its bound at J_n's midpoint is below m0/4: %s); the"
-        " record's own remainder and mean bounds against m0's lower bound (2/27) int env^2, in log10 (times the"
-        " record's unknown constants): " % (zero_on_J, spacelike_local) + "; ".join(rows)
-        + "; strictly decreasing and below -1000 at the last: %s" % ok)
-    return zero_on_J and spacelike_local and ok
+        return zero_on_J and ok
+    out("  T6 (round 6) L.25 (a) on J_n' (between bump n and bump n - 1): env vanishes at all 41 sample points: %s, so"
+        " every oscillating profile of g_app vanishes there; the means (L.3 (b)) and the remainder w (L.4', L.4_P)"
+        " against m0's lower bound, in log10, unit constants: " % zero_on_J + "; ".join(rows)
+        + "; strictly decreasing, below -1000 at the last, and every bound below m0 with both hypotheses from lam ="
+        " 10^-%s: %s" % (hyp_from, ok))
+    return zero_on_J and ok
 
 
 # ------------------------------------------------------------------------------------------------------------ T7
