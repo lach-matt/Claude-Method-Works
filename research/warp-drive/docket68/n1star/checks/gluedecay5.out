@@ -13,3 +13,14 @@ E1 PASS (mutants failing as they must: lebesgue)
       l0 = 15/4  a = 8/5: kappa = 0.0007733  a = 2: kappa = 0.0006727  a = 5/2: kappa = 0.0007018
                  a = 3: kappa = 0.0009395  a = 27/8: kappa = 0.001371  a = 15/4: kappa = 0.002165
 E2 PASS (mutants failing as they must: no_osc, ss_sign, lam_max)
+  E3: tr(Psi^* delta - delta) identity: True; r^(2+a) d_eps E|_0 = -2 mu (a c + s): True; r^(2+2a) d_eps^2 E|_0 = mu
+      (2 w^2 - 8 c w + 6 c^2), w = (1-a) c - s: True; both free of r once log r -> t: True; pointwise Tangherlini term
+      (r = 10^2, 10^3): True; Psi^* of a radial tensor (generic phi, A, B, three points): True; quadrature instance of
+      Proposition 3 (within 1e-2 of the prediction, above the kappa bound): True
+      (a, l0) = (2.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.00768786, 2 A_a dist = 0.00773506, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0297314, 2 A_a dist = 0.0297312, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0468685, 2 A_a dist = 0.0468685, 2 A_a kappa 0.0027599
+      (a, l0) = (3.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.0565149, 2 A_a dist = 0.0567286, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0625504, 2 A_a dist = 0.062552, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0271175, 2 A_a dist = 0.0271175, 2 A_a kappa 0.00388379
+E3 PASS (mutants failing as they must: coef3, second_r3, mu0)

@@ -347,10 +347,10 @@ def main():
           '(lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in '
           'T3)' % (float(worst), OK['T3b']))
     OK['T3c'] = general_identity_symbolic()
-    print('  T3c (exact; Round 9): the same identity symbolically, A arbitrary (its jets independent), B from div T = 0, '
-          'every component of D Ric(r^2 H T) - (1/2) r^2 [(-r^-3 (P H\')\') T + r^-2 H (-lap T + 2 T)] reduces to 0 '
-          'modulo sin^2 + cos^2 = 1: %s; so with (lap + l (l + 2) - 2) T = 0 the t_l block is (1/2) r^2 A_l at every '
-          'even l (deduced from an exact identity)' % OK['T3c'])
+    print('  T3c (exact; Round 9): the same identity symbolically, A arbitrary (its jets independent), '
+          'B from div T = 0, every component of D Ric(r^2 H T) - (1/2) r^2 [(-r^-3 (P H\')\') T + r^-2 H '
+          '(-lap T + 2 T)] reduces to 0 modulo sin^2 + cos^2 = 1: %s; so with (lap + l (l + 2) - 2) T = 0 the '
+          't_l block is (1/2) r^2 A_l at every even l (deduced from an exact identity)' % OK['T3c'])
     cas = {l: casimir(angular_tensor(harm[l])) for l in (2, 4)}      # Round 8: l = 4 too, as the docstring said
     xs = sp.cos(th) * sp.cos(p1)
     sc = casimir(None, scalar=xs ** 2 - sp.Rational(1, 4))          # a scalar harmonic at l = 2 (degree 2, traceless)
