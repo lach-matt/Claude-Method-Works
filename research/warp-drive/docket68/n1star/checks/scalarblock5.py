@@ -622,9 +622,16 @@ def s7(mats, kv, v, W, x0=None):
     fU = [sp.lambdify(r, u, 'mpmath') for u in U]
     fUd = [sp.lambdify(r, sp.diff(u, r), 'mpmath') for u in U]
     mpm.mp.dps = 30
+    gx, gw = mpm.gauss_quadrature(48, 'legendre')
 
     def integ(fn):
-        return mpm.quad(lambda t: fn(mpm.e ** t) * mpm.e ** t, mpm.linspace(x0, x0 + W, 81))
+        tot = mpm.mpf(0)
+        for k in range(4):                         # four pieces, 48 Gauss-Legendre nodes each (smooth integrand)
+            a_, b_ = x0 + k * mpm.mpf(W) / 4, x0 + (k + 1) * mpm.mpf(W) / 4
+            for xx, ww in zip(gx, gw):
+                t = (a_ + b_) / 2 + (b_ - a_) / 2 * xx
+                tot += ww * (b_ - a_) / 2 * fn(mpm.e ** t) * mpm.e ** t
+        return tot
     Y2 = integ(lambda rr: rr ** 5 * sum(abs(f(rr)) ** 2 for f in fF))
     X2 = integ(lambda rr: sum(rr * abs(u(rr)) ** 2 + rr ** 3 * abs(ud(rr)) ** 2 + kv * rr * abs(u(rr)) ** 2
                               for u, ud in zip(fU, fUd)))
@@ -688,7 +695,7 @@ def main(selftest=False):
     OK['S6'] = all(b < bh / 100 for _l, b, bh, _u, _v in rows)
     print('  S6 (certified; the quasi-mode lemma deduced): sigma_min(L_l) on Hbar^(1,-1)_b -> Hbar^(0,1)_b is at most '
           '%s; so the scalar blocks\' inverse constant at alpha = -1 is at least %.4e (from l = 2); at alpha + 2 = 1/2 '
-          'the same bounds are %s (order one): %s' % (
+          'the same bounds are %s (about 10^-2: no root near that line): %s' % (
               '; '.join('%.4e at l = %d (root %s)' % (float(b), lv, mpm.nstr(u, 10)) for lv, b, _bh, u, _v in rows),
               1 / float(b2), ', '.join('%.3f' % float(bh) for _l, _b, bh, _u, _v in rows), OK['S6']))
     R8 = s8(B['mats'])
@@ -701,7 +708,7 @@ def main(selftest=False):
           'of route (a) exceeds %d: %s' % (R8['M33'], R8['kfree'], R8['bound'], float(R8['bmin']), float(R8['samp']),
                                             R8['l1'], R8['l1'], OK['S8']))
     if not selftest:
-        vals = [(W, s7(B['mats'], 8, v2, W)) for W in (200, 2000, 20000)]
+        vals = [(W, s7(B['mats'], 8, v2, W)) for W in (100, 1000, 10000)]
         OK['S7'] = vals[-1][1] < 2 * float(b2) + 1e-4 and vals[-1][1] < vals[0][1]
         print('  S7 (floating point): the quasi-mode on the full block at l = 2, x0 = log 400: ||L h||_Y/||h||_X = %s '
               '(widths W), tending to S6\'s %.4e: %s' % (

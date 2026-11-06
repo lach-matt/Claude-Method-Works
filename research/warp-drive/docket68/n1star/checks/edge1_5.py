@@ -1002,7 +1002,7 @@ def e16(control=False):
         top = abs(1/(T + 1j))                                   # |(i/lam) s^-1 env^(N-1)| / env^(N-1)
         lower = abs(1/(kN1 + 1j/lam)) + abs(1/kN2)              # s^-1 env^(N-1) and env^(N-2), per env^(N-1)
         if control:
-            lower += 1/(lam*abs(kN1 + 1j/lam))*0 + 1                # env^(N-1) itself, of the bracket's size
+            lower += 1/(lam*abs(kN1 + 1j/lam))                      # lam^-1 s^-1 env^(N-1): the bracket's size
         worst = max(worst, lower/top/(lam + 1/kap))
     ok = worst <= 4
     if control:

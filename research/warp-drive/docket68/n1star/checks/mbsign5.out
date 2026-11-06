@@ -23,3 +23,4 @@ E3 (exact) M_b fails inside the horizon: tensor seeds with E < 0 on Part I's sli
    control: the band moved to [0.92, 1.09] (0.92^2 > 0.84: outside the horizon): Q(0.80) = -2.786777e-08, Q(0.84) = -2.315474e-08, both < 0, no E < 0 seed (rejected): True
 E3 PASS  (92 s)
 E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance
+   (a) Regge-Wheeler-type gauge: C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2, every coefficient free of th (equal at three rational angles): True, True
