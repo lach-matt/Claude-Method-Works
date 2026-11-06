@@ -7,15 +7,17 @@ at u_1 = 0, its first variation tested on a value field K0 (coefficient c) and o
 The wave now carries an envelope: U3 := lam r^(-3/2) env(v) sin(v/lam) P, env := 2 + sin v.
 
   C1 (computed, 50 digits) F1b with the envelope: D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A env sin(v/lam) stays
-     bounded for lam = 1e-2, 1e-3, 1e-4 while the lam^-1 term grows more than 100-fold beyond it (two points).
+     bounded for lam = 1e-2, 1e-3, 1e-4 (it oscillates with the phase: no tenfold growth) while the lam^-1 term
+     exceeds it more than 100-fold (two points).
      Control (the wave mutated to the non-oscillating lam A env): the same test fails.
   C2 (computed, 50 digits) the class of c's remainder: along a ray at fixed v (r = 4, 16, 64, 256, lam = 1e-3) the
      remainder rem := D F_1[K0] - lead decays like r^(-3/2) with the envelope (fitted slopes below 1.75: E_(3/2),
      not E_2), and like r^(-5/2) once the predicted lam^0 term pred := -K0(ell, ell) A env' cos(v/lam) (the
      -(.)(ell, ell)[d_v d_th W_TT] of the envelope's v-dependence) is subtracted, and without the envelope (slopes
      above 2.25). Control (pred with the opposite sign): the slope stays below 1.75.
-  C3 (computed, 50 digits) the wave's part of b: b_W := D F_1[k_grad](g0 + U3) - D F_1[k_grad](g0) is of lam-order 0,
-     bounded and bounded away from 0 for lam = 1e-2, 1e-3, 1e-4 (two points). Control (the wave's amplitude
+  C3 (computed, 50 digits) the wave's part of b: b_W := D F_1[k_grad](g0 + U3) - D F_1[k_grad](g0) is of lam-order 0:
+     its largest value over four phases a quarter-period apart is bounded and bounded away from 0 for lam = 1e-2,
+     1e-3, 1e-4 (two points). Control (the wave's amplitude
      mutated from lam to lam^2): b_W falls with lam and the test fails. (f1lemma5's F1c shows only b != 0: it passes
      with the amplitude lam^2, b then coming from Gamma[g0].)
 Labels: computed (mpmath at 50 digits on sympy-differentiated metrics, central differences in eps).
@@ -88,7 +90,7 @@ def c1():
             leads.append(mp.mnorm(L, 1))
             nos.append(mp.mnorm(F.DF1(Jn, J0, F.test_field("val", K0)) - L, 1))
         info.append((mp.nstr(rems[0], 3), mp.nstr(rems[-1], 3), mp.nstr(leads[-1], 3)))
-        rem_ok = rem_ok and max(rems) < 3*min(rems) + 1
+        rem_ok = rem_ok and max(rems) < 10*(rems[0] + 1)
         grow_ok = grow_ok and max(leads) > 100*max(rems)
         ctl_ok = ctl_ok and max(nos) > 100*max(rems)
     check("C1 with the envelope: D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A env sin(v/lam) stays bounded "
@@ -152,9 +154,14 @@ def c3():
             K1 = F.symmat(rnd)
             vals = []
             for lv in lams:
-                Jw, J0 = Jw_s.at(X, lv), J0_s.at(X, lv)
-                vals.append(max(mp.mnorm(F.DF1(Jw, J0, F.test_field("grad", K1, c))
-                                         - F.DF1(J0, J0, F.test_field("grad", K1, c)), 1) for c in (0, 1)))
+                # b_W oscillates with the phase v/lam: take its largest value over a quarter-period grid of phases
+                best = mp.mpf(0)
+                for j in range(4):
+                    Xj = [X[0] + lv*mp.pi*j/4] + list(X[1:])
+                    Jw, J0 = Jw_s.at(Xj, lv), J0_s.at(Xj, lv)
+                    best = max(best, max(mp.mnorm(F.DF1(Jw, J0, F.test_field("grad", K1, c))
+                                                  - F.DF1(J0, J0, F.test_field("grad", K1, c)), 1) for c in (0, 1)))
+                vals.append(best)
             good = max(vals) < 4*min(vals) and min(vals) > mp.mpf("0.01")
             if store == "ok":
                 ok = ok and good
@@ -162,8 +169,8 @@ def c3():
             else:
                 ctl = ctl and not good
                 cinfo.append([mp.nstr(v, 4) for v in vals])
-    check("C3 b_W = b(g0 + U3) - b(g0) is of lam-order 0: bounded and bounded away from 0 (lam = 1e-2..1e-4)", ok,
-          str(info))
+    check("C3 b_W = b(g0 + U3) - b(g0), its largest value over the phases, is of lam-order 0: bounded and bounded away "
+          "from 0 (lam = 1e-2..1e-4)", ok, str(info))
     check("C3' control (amplitude lam^2): b_W falls with lam, the test fails", ctl, str(cinfo))
 
 

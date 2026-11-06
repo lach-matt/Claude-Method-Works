@@ -10,8 +10,8 @@ the invariance of the continuation (both verifiers' m4). Machinery: f1lemma5.py'
      terms) are 3, 4, 3, 4 (to 0.05). Composed by the code into the kernels of Step 5 of Theorem R4.6: a first-order
      coefficient of decay q gives the kernel exponent q, a zero-order one q - 1 (through the Hardy inequality), the
      principal-part difference |g^-1 - g_b0^-1| (decay 2, measured from H) the second-order row's 2: all > 1.
-     Control (H mutated to r^-2 F(v - v1) P, not self-similar): the H-coefficients decay like r^-2 and the zero-order
-     kernel exponent drops to 1, not integrable: the test fails.
+     Control (H mutated to r^-2 (1 + sin(v)/2) P, a profile in v that is not self-similar): the H-coefficients decay
+     like r^-2 and the zero-order kernel exponent drops to 1, not integrable: the test fails.
   O2 (computed, 40 digits) the degrees of P(g_b0 + Sigma_p) from the operator, for the regular flat solutions of
      degree -p, Sigma_p = r^-p F_p(s) P with F_p = 2F1(p, p - 2; p - 1/2; s/2) (l = 0 in every Cartesian component;
      F_2 = 1): the fitted decay of |P| is 6 for p = 2 (mu Sigma_2 and Sigma_2 Sigma_2: what Sigma_4 must cancel) and
@@ -91,7 +91,7 @@ def o1():
     G0 = F.gb0()
     J0_s = F.Jets(G0)
     H = RR**-2*(1 + S + S**2/3)*P_*sp.Rational(3, 10)
-    Hm = RR**-2*(1 + (t + RR - V1) + (t + RR - V1)**2/3)*P_*sp.Rational(3, 10)
+    Hm = RR**-2*(1 + sp.sin(t + RR)/2)*P_*sp.Rational(3, 10)
     out = {}
     for name, HH in (("ss", H), ("mut", Hm)):
         out[name] = coeffs(F.Jets(G0 + HH), J0_s)
@@ -109,8 +109,8 @@ def o1():
           str(kern))
     mb, mc = tail(out["mut"][2]), tail(out["mut"][3])
     kz = round(mc) - 1
-    check("O1'' control (H mutated to r^-2 F(v - v1) P): the H-coefficients decay like r^-2 and the zero-order kernel "
-          "exponent is 1, not integrable", abs(mb - 2) < 0.1 and abs(mc - 2) < 0.1 and not kz > 1,
+    check("O1'' control (H mutated to r^-2 (1 + sin(v)/2) P): the H-coefficients decay like r^-2 and the zero-order "
+          "kernel exponent is 1, not integrable", abs(mb - 2) < 0.1 and abs(mc - 2) < 0.1 and not kz > 1,
           f"B: {round(mb, 3)}, C: {round(mc, 3)}")
 
 

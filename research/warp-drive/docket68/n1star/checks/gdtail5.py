@@ -354,12 +354,12 @@ def t8(control=False):
         Wss = to_tr(vv/2*Wv + A_EXPR, vv/2*Wr + B_EXPR)
         Vflat = [dmuT*f, dmuT*mu/r**2]                          # V = -d_mu T d_t, (d_t)^flat = (-f, -mu/r^2)
         comp = [Wss[0] - Vflat[0], Wss[1] - Vflat[1]]
-    on = [sp.simplify(c.subs(t, C2)) for c in comp]
-    tail = []
+    on = [c.subs(t, C2) for c in comp]
+    tail, nxt = [], []
     for c in on:
-        e = sp.simplify(c.subs(r, 1/z))
-        ser = sp.series(e, z, 0, 3).removeO()
-        tail.append(sp.simplify(sp.expand(ser).coeff(z, 1)))
+        lead = sp.limit(r*c, r, sp.oo)
+        tail.append(sp.simplify(lead))
+        nxt.append(sp.limit(r**2*(c - lead/r)/sp.log(r), r, sp.oo))   # the remainder is O(r^-2 log r)
     if control:
         print("  T8 control (W*): r^-1 coefficients on {t = C''} %s; a nonzero r^-1 tail: %s"
               % (tail, any(c != 0 for c in tail)), flush=True)
@@ -367,7 +367,7 @@ def t8(control=False):
     dt_comp = [sp.simplify(sp.diff(c, t)) for c in comp]
     dt_lim = [sp.limit(sp.simplify(c*r**2), r, sp.oo) for c in dt_comp]
     Kn = [sp.Integer(1)/r**2, -sp.Integer(1)/r**2]              # K(d_t, d_t), K(d_t, d_r) for r^-2 (dt - dr)^2
-    ok = tail == [-1, sp.Rational(1, 4)] and all(l_.is_finite for l_ in dt_lim)
+    ok = tail == [-1, sp.Rational(1, 4)] and all(l_.is_finite for l_ in dt_lim) and all(n_.is_finite for n_ in nxt)
     print("  T8: W**_H on {t = C''} has the r^-1 tail (%s dt + %s dr)/r; r^2 d_t W**_H -> %s (= W*/2: order 2); K's "
           "normal components %s (order 2): the data of Z^(K) have order exactly 1" % (tail[0], tail[1], dt_lim, Kn),
           flush=True)

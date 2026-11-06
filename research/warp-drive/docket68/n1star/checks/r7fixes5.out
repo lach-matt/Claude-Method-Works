@@ -5,3 +5,35 @@ r7fixes5: the round-6 verifier's findings on lambda0 and the towers, re-derived;
       w^2)^(1/2): True. (4/3) K >= [12.593464 +/- 2.75e-7] (certified, c >= 1.32407110621, envelope5 E1). So sup_s |m_1 +
       W_TT + chi D|_op >= 12.5933 + |m_1(X*)_22|, and m_1(X*) e2 != 0 raises the bound; with m_1 = 0 it is max(|W_TT|, 2
       |chi|) pointwise: True
+  R2: the four-phase identity (exact): True; B maximised on a grid at (theta, v, s) = (0.0, 2.0, 0.7854) (floating point
+      260.09797), certified there: B >= [260.09797 +/- 4.92e-6], so C_app (Frobenius) >= [16.127553 +/- 2.12e-8] for
+      every m_1; the point (tau, r, v) = (v - a, a, v) lies in Omega: True; with eps1 <= 0.030768560: lambda0 (Frobenius)
+      < [0.00190783 +/- 4.31e-9] (certified; round 4-5: 0.0019950). If m_1 were 0: sup_s |W + chi D|_F there = 16.8866
+      (floating point): True
+  R3: towers (s0, s1 at 0..-4; v1 at -1..-4), offset 1 on a root of its type at z = 4e-6: [('s0', -1, 0, 1), ('s1', -1,
+      0, 1), ('v1', -2, -1, 1)] (type, exponent, root, multiplicity); at z = 0: [('s0', -2, -1, 1), ('s0', -1, 0, 1),
+      ('s1', -3, -2, 1), ('s1', -2, -1, 1), ('s1', -1, 0, 1), ('v1', -2, -1, 1)]; all simple, so the offset-1 log order
+      is <= 1 < 2 (E^iota_ind at offset 1, from v1): R5.2's table unchanged: True
+  R4: f4_table with (lambda#, 0) added to G (its (2.2)-completion reaching 2.5099): rows and excesses unchanged (R0, R1):
+      True; excesses (23, 47)
+  R5: q_lo >= [0.1966827384 +/- 1.86e-11], e^(kappa Dtau/2) <= [1.105172469e+17 +/- 1.63e+7], c_Y q_lo^(-1/2) e^(kappa
+      Dtau/2) <= [3.5242113e+17 +/- 1.54e+9], the factor-2 figure <= [7.0484226e+17 +/- 1.99e+9] (certified, Arb,
+      stage1rate5's forms and cover): True
+  C1 (control): U with an angular component: the M = 0 spectrum identity holds: False, W U = 0: None; R1's test fails:
+      True
+  C2 (control): chi a first harmonic: the four-phase identity fails: True
+  C3 (control): R2's point at r = a - 1e-6: in_omega rejects it: True
+  C4 (control): round 6's list (s0, s1 at -2, -3, -4; v1 at -1): resonances [], so R3's test fails: True
+  C5 (control): (lambda#, 9) in place of (lambda#, 0): the table changes: True
+  C6 (control): round 6's F2 input q_lo >= 0.196683 tested against the certified enclosure: false: True
+R1 PASS
+R2 PASS
+R3 PASS
+R4 PASS
+R5 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+C6 PASS

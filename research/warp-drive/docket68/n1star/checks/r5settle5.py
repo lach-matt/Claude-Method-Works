@@ -11,9 +11,9 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     4J - 13 + n + m for J >= 4 (so R3.1's stated bound holds a fortiori). Control (the code mutated: no trade): the
     explicit monomials' order grows with m_max (no bound exists).
   B (exact; round 3 m5, nit s > 2) K*(a, 8, M, k0) of Lemma R3.2 with s := max(5/2, (2M + 1)/(7 - 2a)) and
-    M = 27 + 2 k0 is quadratic in k0 (second differences constant and positive; a = 11/4: K* = 116, 821.5, 2071.5 at
-    k0 = 0, 10, 20), and with R5's M = 17 + 2 k0 too. Control (the code mutated: s held fixed, not growing with M):
-    K* becomes linear (second differences 0).
+    M = 27 + 2 k0 grows quadratically in k0 (a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20; K*/k0^2 converges
+    to a positive limit), and with R5's M = 17 + 2 k0 too. Control (the code mutated: s held fixed, not growing with
+    M): K*/k0^2 falls like 1/k0 (K* linear).
   C (exact; round 3 P8c-P8d) the interpolation optimum recomputed: the lam-exponent of L sigma^-(k-4)
     (lam^(K-3) + lam^-M sigma^(J'-3)) at sigma = lam^beta, maximised over beta on an exact grid, equals
     (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3), and beta* > 1 (sigma in the far region) exactly when
@@ -31,10 +31,10 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     r + 1 <= u* - u <= 2r + C at 4000 sampled points for 20 random f with |f'| <= 1/2 and v1 = f(4R) + 4R. Control
     (round 4's u* := 2 sup f - v1 + 1): r <= u* - u fails.
   F (exact and sampled; round 4 M4) the localised energy argument: F1 the flux through {Phi_W = V_*} is >= 0:
-    T(d_t, -grad Phi_W) for g = g_b0 + H, |H|_op <= r^-2/2, random d phi (2000 samples, 40 digits not needed: float)
-    is >= 0 (dominant energy, both vectors future timelike). Control: with -grad v in place of -grad Phi_W (v not a
-    time function for these g) it is negative somewhere. F2 the domain-of-dependence energy identity on a truncated
-    diamond {t1 <= t <= t2, R + (t - t1) <= r <= R2 - (t - t1)} in the flat radial model (measure r^3 dr): E(t2) + both
+    T(d_t, -grad Phi_W) for g = g_b0 + H, |H|_op <= r^-2/2, random d phi (6000 samples, floating point) is >= 0
+    (dominant energy, both vectors future timelike). Control: with the spacelike normal grad r of a timelike cut-off
+    {r = R} in place of -grad Phi_W it is negative somewhere (such a boundary's flux has no sign). F2 the
+    domain-of-dependence energy identity on a truncated diamond {t1 <= t <= t2, R + (t - t1) <= r <= R2 - (t - t1)} in the flat radial model (measure r^3 dr): E(t2) + both
     null fluxes (each >= 0, tangential derivatives) = E(t1) - int int phi_t box phi r^3, exact for a polynomial phi.
     Control: with a transverse derivative in one flux it fails. F3 S1 and the Hardy inequality on a finite interval,
     with their boundary terms, exact identities; and if int^oo r^(2a+3) F^2 dr < oo then liminf R^(2a+4) F(R)^2 = 0
@@ -205,22 +205,25 @@ def kstar(a, Jp, M, j, smin=Fr(5, 2), sfixed=None):
 def part_b():
     print("B  K* of Lemma R3.2 as a function of k0 (round 3, m5)")
     a = Fr(11, 4)
-    ks = [kstar(a, 8, 27 + 2*k0, k0)[1] for k0 in (0, 10, 20, 30)]
-    d2 = [ks[i + 2] - 2*ks[i + 1] + ks[i] for i in range(2)]
-    check("B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20; second differences constant and "
-          "positive (quadratic in k0)", ks[:3] == [116, Fr(1643, 2), Fr(4143, 2)] and d2[0] == d2[1] > 0,
-          f"{[str(x) for x in ks]}, second differences {[str(x) for x in d2]}")
-    ks2 = [kstar(a, 8, 17 + 2*k0, k0)[1] for k0 in (0, 10, 20, 30)]
-    d22 = [ks2[i + 2] - 2*ks2[i + 1] + ks2[i] for i in range(2)]
-    check("B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too, and smaller", d22[0] == d22[1] > 0 and
-          all(x < y for x, y in zip(ks2, ks)), f"{[str(x) for x in ks2]}")
+    ks = [kstar(a, 8, 27 + 2*k0, k0)[1] for k0 in (0, 10, 20)]
+    big = [kstar(a, 8, 27 + 2*k0, k0)[1]/k0**2 for k0 in (100, 200, 400, 800)]
+    conv = abs(big[-1] - big[-2]) < Fr(1, 50)*big[-1] and big[-1] > 1
+    check("B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and K*/k0^2 converges to a positive "
+          "limit (k0 = 100..800): K* grows quadratically in k0 (a maximum of quadratics), not linearly",
+          ks == [116, Fr(1643, 2), Fr(4143, 2)] and conv, f"{[str(x) for x in ks]}, K*/k0^2: "
+          f"{[round(float(x), 3) for x in big]}")
+    big2 = [kstar(a, 8, 17 + 2*k0, k0)[1]/k0**2 for k0 in (100, 200, 400, 800)]
+    ks2 = [kstar(a, 8, 17 + 2*k0, k0)[1] for k0 in (0, 10, 20)]
+    check("B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too, and smaller at every k0 sampled",
+          abs(big2[-1] - big2[-2]) < Fr(1, 50)*big2[-1] and all(x < y for x, y in zip(ks2, ks)),
+          f"{[str(x) for x in ks2]}")
     s_old = [kstar(a, 8, 27 + 2*k0, k0, smin=Fr(2))[1] for k0 in (0, 10, 20)]
     check("B3 the nit s > 2: s := max(5/2, ...) leaves K* unchanged wherever (2M + 1)/(7 - 2a) > 5/2 (here)",
-          s_old == ks[:3])
-    kl = [kstar(a, 8, 27 + 2*k0, k0, sfixed=Fr(37))[1] for k0 in (0, 10, 20, 30)]
-    dl = [kl[i + 2] - 2*kl[i + 1] + kl[i] for i in range(2)]
-    check("B4 control (the code mutated: s held fixed at 37): K* is linear (second differences 0), so the quadratic "
-          "term is s's growth with M", dl == [0, 0], str([str(x) for x in kl]))
+          s_old == ks)
+    kl = [kstar(a, 8, 27 + 2*k0, k0, sfixed=Fr(37))[1]/k0**2 for k0 in (100, 200, 400, 800)]
+    check("B4 control (the code mutated: s held fixed at 37): K*/k0^2 falls like 1/k0 (K* linear), so the quadratic "
+          "term is s's growth with M", all(kl[i + 1] < Fr(11, 20)*kl[i] for i in range(3)),
+          str([round(float(x), 4) for x in kl]))
 
 
 # ================================================================ C: the interpolation optimum
@@ -383,12 +386,13 @@ def part_f():
                 return (p@Y)*(p@Z) - 0.5*(Y@g@Z)*pp
             n = -gi@dP
             worst = min(worst, T(X, n))
-            nv = -gi@dv
-            ctl = min(ctl, T(X, nv)/(abs(p@p)))
+            dr_ = np.concatenate(([0.0], xh))
+            nr = gi@dr_
+            ctl = min(ctl, T(X, nr)/(abs(p@p)))
     check("F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0 (g = g_b0 + H, |H|_op <= r^-2/2, 6000 "
           "samples): "
           "that boundary is spacelike and its flux can be dropped", worst >= -1e-12, f"min {worst:.3e}")
-    check("F1' control (-grad v in place of -grad Phi_W; dv is spacelike for some of these g): negative somewhere",
+    check("F1' control (the normal grad r of a timelike cut-off {r = R} in place of -grad Phi_W): negative somewhere",
           ctl < 0, f"min {ctl:.3e}")
     tt, rr = sp.symbols("tt rr", positive=True)
     t1, t2, R1, R2 = 0, sp.Rational(1, 2), 2, 6
