@@ -1294,8 +1294,8 @@ certified step is taken" to "remains open"):
 > approximant is enclosed in ball arithmetic at 16,128 points away from the axis caps, ≤ 2.42 × 10⁻³ of the
 > curvature scale (`checks/rcert5.py`); its sup over the box is computed only. Existence at 10 l5 is not proved
 > beyond the seed. In the metric variables the numerics evolve, the shift's angular derivative is of principal size at
-> high angular frequency, so no linear estimate without loss of derivatives holds there (deduced,
-> `checks/symbol5s.py`). The class is (2+1)-dimensional gravity coupled to two free waves (deduced, exact:
+> high angular frequency, so no linear estimate without loss of derivatives holds there (deduced at frozen
+> coefficients, `checks/symbol5s.py`). The class is (2+1)-dimensional gravity coupled to two free waves (deduced, exact:
 > `checks/reduce5.py`), and in double-null gauge its Ricci coefficients obey transport equations with no angular loss
 > (`checks/null3.py`). So a linear estimate at the curvature level holds, with explicit constants, on domains of
 > dependence that avoid the axes (supplement `CERTIFY-10L5-RESULT.md` Theorem 7.L). Two things stop it short of a

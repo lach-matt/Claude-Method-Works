@@ -8,3 +8,5 @@ U1 PASS
 U2 PASS
   U3 (a): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 + d_r*^2) (static):
       True
+  U3 (b) l = 2: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True

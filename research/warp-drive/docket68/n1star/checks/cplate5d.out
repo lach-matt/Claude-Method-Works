@@ -1,4 +1,5 @@
-# python3 checks/cplate5d.py CP1600_M32 CP1600_M40 AMP875  (both cpsolve5.py --run 1 0.9 M 1600 720 2.25 out ld 3, round 3)
+# python3 checks/cplate5d.py CP1600_M32 CP1600_M40 AMP875
+#   (both: cpsolve5.py --run 1 0.9 M 1600 720 2.25 out ld 3, round 3)
 r_A >= 1.2:
    v in [0.50, 1.00): D1 Ric_xx M32 9.49e-03 (|x| <= 0.9: 1.90e-05), M40 3.53e-02 (2.11e-05), interior ratio 0.90; D2
        |P_32 - P_40| 1.29e-07; control |P_32 - P_7/8| 1.43e-03
