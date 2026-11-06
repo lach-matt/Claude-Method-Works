@@ -1,7 +1,6 @@
-# python3 checks/late5b.py RUNDIR --small RUN1600.npz  (RUN1600: szrun5.py 1 0.7 32 1600 720 1.85, run in round 3)
-L7 the null step at the small radii (M = 32, cut 0.7; 800 x 360 against
-    /tmp/claude-0/-home-user-Claude-Method-Works/b0b84fdb-5234-5587-8dc6-391f626df59c/scratchpad/r3/l1_rc0.7_M32_1600.npz
-    )
+# python3 checks/late5b.py RUNDIR --small RUN1600.npz  (RUN1600: szrun5.py 1 0.7 32 1600 720 1.85 out ld 3, round 3;
+#   md5 c326bd1908e7b68b864f6b7466e801d8; its scratch path, echoed by the program, is replaced by RUN1600 here)
+L7 the null step at the small radii (M = 32, cut 0.7; 800 x 360 against RUN1600)
   null step at M = 32 (800 against 1600 rows), 0.6 <= r_A < 0.9 and 0.9 <= r_A < 1.0:
      0.6 <= r_A < 0.9, v in [0.50, 1.00): 800 4.09e-04  1600 1.02e-04 (1.1e-04 of the largest term)  ratio 4.00
      0.6 <= r_A < 0.9, v in [1.00, 1.50): 800 4.90e-03  1600 1.22e-03 (6.5e-04 of the largest term)  ratio 4.01

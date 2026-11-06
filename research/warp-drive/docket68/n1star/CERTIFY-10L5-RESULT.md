@@ -984,7 +984,7 @@ READ). Machine load was 9–36 on 4 cores until the machine restarted on 2026-11
 3. **Task 3, the late region.** Run after the machine restarted and the load fell (7.7).
    - *Computed, below areal radius 0.9* (`checks/late5b_small.out`, M = 32, 800 against 1600 rows). The Raychaudhuri
      residual converges at second order to v = 1.65 (1.4 × 10⁻³ of its terms). It falls 2.9-fold on [1.65, 1.8), to
-     1.3 %, and does not converge from v = 1.8 (ratio 1.36, 17 %). Decided to v ≈ 1.8; not beyond.
+     1.3 %, and does not converge from v = 1.8 (ratio 1.36, 17 %). Converging to v = 1.8; not decided beyond.
    - *Computed, v ≥ 1.9 at areal radius 1.0–1.2* (`checks/cplate5c.out`, the constraint-preserving scheme on three
      null grids, M = 32).
      - The metric converges in the null step through v = 2.25 (800–1600 differences ≤ 1.0 × 10⁻³).
@@ -1302,8 +1302,9 @@ certified step is taken" to "remains open"):
 > proof. On the computed solution its constant is of order 10^69 before the axes enter, against a measured response of
 > 9.2 (`checks/linest5.py`). And the solution's late region lies within three angular crossing times of the axes, where
 > the reduction degenerates and the estimate must be made in four-dimensional axisymmetric form; that estimate is not
-> written. The computed solution converges at the first seed to v ≈ 1.8 r_h at areal radius ≥ r_h, and is unresolved
-> beyond (`checks/late5b.py`).
+> written. The computed solution converges at the first seed to v ≈ 1.8 r_h at areal radius ≥ r_h (to v ≈ 1.9 r_h at
+> areal radius ≥ 0.9 r_h in a constraint-preserving scheme on three null grids), and is unresolved beyond
+> (`checks/late5b.py`, `checks/cplate5c.py`).
 
 The verifier of round 2 also found that the paper's section 9 sentence on the rebuilt Bondi spheres ("reproduce the
 untrapped columns") claims more than 6.1's S7 supports (within one column spacing to v = 1.525; S7 fails at 1.55). It
