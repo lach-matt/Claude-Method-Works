@@ -56,22 +56,25 @@ rho^2, rho^3 in H^d(S^3) plus the remainder in rho^(l0) H_b^d with the b-density
      (d) Hintz's surface is not a Kerr-Schild slice: f' = 2 mu/(r^2 - mu) (III.B (3.3)) gives tr Hess f = 2 mu r^-3
      + O(r^-5). Mutants: 'mass' (a different mass in place of the spins: the difference starts at rho^2; a failed
      series raises instead of counting as a failure), 'dim3' (the three-dimensional Laplacian in (d): 0 at rho^3).
-  E6 (text) GLUEDECAY5.md: every line at most 121 characters, and so every new block's line; section 8.4's blocks
-     (a)-(h), against paper/RESPONSE-HL-5D.md in either state, named in the output (md5 digits blanked, so a refreshed
-     md5 column still matches). Before seating: each old block exactly once and no new block; the old blocks disjoint,
-     (a) immediately followed by (b); with all blocks applied to a copy, section 8.7 still cites support8b.py M3 and
+  E6 (text) GLUEDECAY5.md: every line at most 121 characters, and so every new block's line; section 8.5's blocks
+     (a)-(h), against paper/RESPONSE-HL-5D.md (or the copy given by --paper) in either state, which it names (md5
+     digits blanked, so a refreshed md5 column still matches). Every run checks both texts: the paper before seating
+     and the paper seated, the one it is not in built from the other (all blocks applied, the zero md5 filled; or every
+     new block replaced by its old). Before seating: each old block exactly once and no new block, the old blocks
+     disjoint, (a) immediately followed by (b); with all blocks applied, section 8.7 still cites support8b.py M3 and
      cites GLUEDECAY5.md, and section 9's computational-support list, Appendix A, Appendix C (the source map) and
-     Appendix D (the run list, the imports, the md5 table) carry gluedecay5.py and the note, no line over 121; and that
-     copy, its zero md5 replaced, passes the seated-state check. Seated: each new block exactly once, disjoint, (a)
-     immediately followed by (b), the old texts of (a)-(e), (g) gone, and the same places checked in the paper itself.
-     Mutants: 'char_a', 'char_b' (one character of an old block changed), 'drop_c' (block (c) not applied), 'drop_m3'
-     (block (b) without its citation of support8b.py M3), 'seated_keep_old_a' (the seated copy still holding old (a)).
+     Appendix D (the run list, the imports, the md5 table) carry gluedecay5.py and the note, no line over 121. Seated:
+     each new block exactly once, disjoint, (a) immediately followed by (b), the old texts of (a)-(e), (g) gone, and
+     the same places checked. Mutants, each acting on both texts in either state: 'char_a', 'char_b' (one character of
+     the old and the new block changed), 'drop_c' (the seated text with old (c) in place of new (c)), 'drop_m3' (new
+     (b) without its citation of support8b.py M3), 'seated_keep_old_a' (the seated text still holding old (a)).
 
 Labels: computed (exact, sympy; E2's positivity certified by interval arithmetic; E3's instances by mpmath at 30
 digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; E4 checks the exponents and the
 flux scalings, not the constants C_1, C_P, R_P, R_G, L; E5 checks the expansions that Lemma 4.1 uses, not the gluing.
 
-Run: python3 checks/gluedecay5.py   (about ninety seconds; E3 and E5 most of it)
+Run: python3 checks/gluedecay5.py [--paper PATH]   (about ninety seconds; E3 and E5 most of it). --paper checks
+another copy of the paper, for instance one with section 8.4's blocks seated.
 """
 import os
 import sys
@@ -566,7 +569,7 @@ def block(lines, tag):
 
 TAGS = "abcdefgh"                                                      # the current blocks; (a), (b) adjacent
 GONE = "abcdeg"                       # blocks whose old text is gone once seated ((f), (h) keep theirs inside the new)
-SECTION = "8.4"                                                        # the section of GLUEDECAY5.md holding them
+SECTION = "8.5"                                                        # the section of GLUEDECAY5.md holding them
 
 
 def norm(t):
@@ -615,6 +618,31 @@ def seated_ok(text, news, olds):
     return disjoint and adj and all(apparatus(text).values())
 
 
+def swap(text, frm, to):
+    """text with its one occurrence of frm (located with md5 digits blanked) replaced by to; None if not exactly one"""
+    T, F = norm(text), norm(frm)
+    if T.count(F) != 1:
+        return None
+    k = T.find(F)
+    return text[:k] + to + text[k + len(frm):]
+
+
+def pre_ok(text, olds, news):
+    """the state before seating: each old block once, no new block, disjoint, (a) then (b); and the places checked in
+    a copy with all blocks applied"""
+    T = norm(text)
+    if not all(T.count(norm(olds[t_])) == 1 for t_ in TAGS) or any(T.count(norm(news[t_])) for t_ in TAGS):
+        return False, {}
+    spans = sorted((T.find(norm(olds[t_])), T.find(norm(olds[t_])) + len(olds[t_]), t_) for t_ in TAGS)
+    disjoint = all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
+    adj = T.find(norm(olds["a"])) + len(olds["a"]) + 1 == T.find(norm(olds["b"]))
+    applied = text
+    for (s0, s1, t_) in reversed(spans):
+        applied = applied[:s0] + news[t_] + applied[s1:]
+    need = apparatus(applied)
+    return disjoint and adj and all(need.values()), need
+
+
 def e6():
     doc = open(DOC, encoding="utf-8").read()
     paper = open(PAPER, encoding="utf-8").read()
@@ -622,46 +650,47 @@ def e6():
     long_ = [i + 1 for i, l_ in enumerate(dl) if len(l_) > 121]
     olds = {t_: block(dl, "Old (%s):" % t_) for t_ in TAGS}
     news = {t_: block(dl, "New (%s):" % t_) for t_ in TAGS}
-    if MUT == "char_a":
-        olds["a"] = olds["a"].replace("ρ", "p", 1)
-    if MUT == "char_b":
-        olds["b"] = olds["b"].replace("ρ", "p", 1)
-    if MUT == "drop_m3":
-        news["b"] = news["b"].replace("support8b.py` M3", "support8b.py`")
     newlong = [l_ for t_ in TAGS for l_ in news[t_].split("\n") if len(l_) > 121]
     P = norm(paper)
-    pre = all(P.count(norm(olds[t_])) == 1 for t_ in TAGS) and not any(P.count(norm(news[t_])) for t_ in TAGS)
-    if pre:
-        state = "before seating"
-        spans = sorted((P.find(norm(olds[t_])), P.find(norm(olds[t_])) + len(olds[t_]), t_) for t_ in TAGS)
-        disjoint = all(spans[k][1] < spans[k + 1][0] for k in range(len(spans) - 1))
-        adj = P.find(norm(olds["a"])) + len(olds["a"]) + 1 == P.find(norm(olds["b"]))
-        applied = paper
-        for (s0, s1, t_) in reversed(spans):
-            if MUT == "drop_c" and t_ == "c":
-                continue
-            applied = applied[:s0] + news[t_] + applied[s1:]
-        need = apparatus(applied)
-        sim = applied.replace("`" + "0" * 32 + "`", "`" + "0123456789abcdef" * 2 + "`")   # as --update-md5 would
-        if MUT == "seated_keep_old_a":
-            sim = sim + "\n" + olds["a"] + "\n"
-        seated_sim = seated_ok(sim, news, olds)
-        ok = disjoint and adj and all(need.values()) and seated_sim
-        detail = ("old blocks (a)-(h) once each at lines %s; disjoint: %s; (a) immediately followed by (b): %s; "
-                  "with all blocks applied to a copy: %s; that copy, md5 column refreshed, passes the seated-state "
-                  "check: %s"
-                  % (", ".join("%s %d" % (t_, paper[:s0].count("\n") + 1) for (s0, s1, t_) in spans), disjoint, adj,
-                     "; ".join("%s %s" % kv for kv in need.items()), seated_sim))
+    # the state the paper is in, and the two texts every run checks: the paper before seating and seated
+    if all(P.count(norm(olds[t_])) == 1 for t_ in TAGS) and not any(P.count(norm(news[t_])) for t_ in TAGS):
+        state, t_pre, t_seat = "before seating", paper, paper
+        for t_ in TAGS:
+            t_seat = swap(t_seat, olds[t_], news[t_]) if t_seat is not None else None
+        if t_seat is not None:                                         # the zero md5, as --update-md5 would fill it
+            t_seat = t_seat.replace("`" + "0" * 32 + "`", "`" + "0123456789abcdef" * 2 + "`")
     elif seated_ok(paper, news, olds):
-        state, ok = "seated", True
-        detail = "new blocks (a)-(h) once each, disjoint, (a) then (b), old (a)-(e), (g) gone, the apparatus in place"
+        state, t_pre, t_seat = "seated", paper, paper
+        for t_ in TAGS:                                                # rebuild the text before seating
+            t_pre = swap(t_pre, news[t_], olds[t_]) if t_pre is not None else None
     else:
-        state, ok = "neither", False
-        detail = "old block counts %s, new block counts %s" % (
-            {t_: P.count(norm(olds[t_])) for t_ in TAGS}, {t_: P.count(norm(news[t_])) for t_ in TAGS})
-    say("E6: GLUEDECAY5.md lines over 121 characters: %s; new block lines over 121: %d; section %s's blocks, state "
-        "of the paper found: %s; %s" % (long_ or "none", len(newlong), SECTION, state, detail))
-    return not long_ and not newlong and ok
+        state, t_pre, t_seat = "neither", None, None
+    # the mutants act on both texts, whichever state was found
+    if MUT in ("char_a", "char_b"):
+        t_ = MUT[-1]
+        olds[t_] = olds[t_].replace("ρ", "p", 1)
+        news[t_] = news[t_].replace("ρ", "p", 1)
+    if MUT == "drop_m3":
+        news["b"] = news["b"].replace("support8b.py` M3", "support8b.py`")
+    if MUT == "drop_c" and t_seat is not None:
+        t_seat = swap(t_seat, news["c"], olds["c"])
+    if MUT == "seated_keep_old_a" and t_seat is not None:
+        t_seat = t_seat + "\n" + olds["a"] + "\n"
+    p_ok, need = pre_ok(t_pre, olds, news) if t_pre is not None else (False, {})
+    s_ok = seated_ok(t_seat, news, olds) if t_seat is not None else False
+    lines_at = (", ".join("%s %d" % (t_, paper[:norm(paper).find(norm(olds[t_]))].count("\n") + 1) for t_ in TAGS)
+                if state == "before seating" else
+                ", ".join("%s %d" % (t_, paper[:norm(paper).find(norm(news[t_]))].count("\n") + 1) for t_ in TAGS)
+                if state == "seated" else "none")
+    say("E6: GLUEDECAY5.md lines over 121 characters: %s; new block lines over 121: %d; section %s's blocks; state of "
+        "the paper found: %s, the blocks at lines %s. Before seating (%s): each old block once, no new block, disjoint, "
+        "(a) immediately followed by (b), and with all blocks applied: %s. Seated (%s): each new block once, disjoint, "
+        "(a) then (b), old (a)-(e), (g) gone, the same places in place: %s"
+        % (long_ or "none", len(newlong), SECTION, state, lines_at,
+           "the paper" if state == "before seating" else "rebuilt from the seated paper", "; ".join(
+               "%s %s" % kv for kv in need.items()) if need else p_ok,
+           "the paper" if state == "seated" else "a copy with all blocks applied, its zero md5 filled", s_ok))
+    return not long_ and not newlong and state != "neither" and p_ok and s_ok
 
 
 CHECKS = [("E1", e1, ["lebesgue"]), ("E2", e2, ["no_osc", "ss_sign", "lam_max"]),
@@ -673,7 +702,9 @@ CHECKS = [("E1", e1, ["lebesgue"]), ("E2", e2, ["no_osc", "ss_sign", "lam_max"])
 
 
 def main():
-    global MUT
+    global MUT, PAPER
+    if "--paper" in sys.argv:                                          # check another copy of the paper
+        PAPER = os.path.abspath(sys.argv[sys.argv.index("--paper") + 1])
     ok = True
     for name, f, mutants in CHECKS:
         MUT = None

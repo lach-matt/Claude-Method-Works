@@ -1,6 +1,6 @@
-  X1 dRic^H(h) + P(L h), L = d_v + (F/2) d_r, P = i T: v-derivatives or d_r^2 in any of the 15 components: none  [7 s]
+  X1 dRic^H(h) + P(L h), L = d_v + (F/2) d_r, P = i T: v-derivatives or d_r^2 in any of the 15 components: none  [27 s]
 X1 PASS
-  X2 outgoing (u, r): d_u^2 or d_u d_th terms in dRic^H (15 components): none  [18 s]
+  X2 outgoing (u, r): d_u^2 or d_u d_th terms in dRic^H (15 components): none  [62 s]
 X2 PASS
   X3 null covectors on Sigma: s dtau and -F s/(2 - F) dtau: True; ingoing amplitude (F X + (2 - F) Xdot/s)/2: True; = (L
       X)/s: True; transport closed form solves T = 0 (vv, vr, rr): True; H_vv(sqrt mu) = (R0*mu**2 - 2*R0*mu*r0**2 +
@@ -18,12 +18,14 @@ X4 PASS
       layerlin5 N3, READ)
 X5 PASS
   X6 scalar constraint at the Kerr-Schild data, direction a dr dr: d_r^2 a coefficient 0, d_r a coefficient 3*r**3/(mu +
-      r**2)**2 (= 3 r^3/(r^2 + mu)^2: True)  [49 s]
+      r**2)**2 (= 3 r^3/(r^2 + mu)^2: True)  [184 s]
 X6 PASS
   X7 the ingoing amplitude of U1's scalar data (vv, vr, rr) per unit a and K_R = H_vv(sqrt mu0)/a: reading 1 (g_(tau mu)
       kept): [a*mu*(-mu + r**2)/(2*r**2*(mu + r**2)), a*(-mu**2 - 2*mu*r**2 + r**4)/(4*r**2*(mu + r**2)), 0], K_R = (-mu
-      + r**2)**2/(4*mu**(3/4)*r**(5/2)); reading 2 (ADM lapse and shift vector kept): [a*mu/(2*(mu + r**2)),
-      a*r**2/(4*(mu + r**2)), 0], K_R = r**(3/2)/(4*mu**(3/4)); both as claimed and positive for r0 > sqrt(mu0): True;
+      + r**2)**2/(4*mu**(3/4)*r**(5/2)); reading 2 (ADM lapse and shift vector kept, the supplement's convention: Z :=
+      d_tau - beta_ext): [a*mu/(2*(mu + r**2)), a*r**2/(4*(mu + r**2)), 0], K_R = r**(3/2)/(4*mu**(3/4)); reading 3 (ADM
+      lapse and shift covector kept): [a*mu*(-2*mu + r**2)/(2*r**2*(mu + r**2)), a*(-2*mu + r**2)/(4*(mu + r**2)), 0],
+      K_R = (-2*mu + r**2)/(4*mu**(3/4)*sqrt(r)), zero at r0^2 = 2 mu0 and negative below; all three as claimed: True;
       K_R does not depend on the d_tau gamma_rr datum (any Z): True
 X7 PASS
   X8 |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1): True, a weighted mean of (1 - c)^2 and c^2: True (so >= min: True); Xi =
@@ -32,13 +34,39 @@ X8 PASS
   X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows with one
       sign only: 0
 X9 PASS
-  X10 hypothesis (H_N) sampled: exp(-1/x): env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in
-      ['0.01', '0.0032', '0.001', '0.00032']; sup |kappa_k'|/kappa_k^(3/2) = 2.76; record C_c^inf: env^(k) > 0,
-      log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in ['0.01', '0.0032', '0.001', '0.00032']; sup
-      |kappa_k'|/kappa_k^(3/2) = 2.75: True
+  X10 hypotheses (H_N) and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell polynomials in the
+      derivatives of log env): exp(-1/x): env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 13, at all 401
+      points: True; sup |kappa_k'|/kappa_k^(3/2) = 2.867 <= c_R = 3; L.16 (c): max_(j<=14) sup |env^(j)|/(kappa^j env) =
+      1.0; |kappa_k - kappa| <= 2.162 k kappa^(1/2), below the bound c_R 2^(1/2) = 4.243 that (H_N) implies; record
+      C_c^inf: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 13, at all 401 points: True; sup
+      |kappa_k'|/kappa_k^(3/2) = 2.855 <= c_R = 3; L.16 (c): max_(j<=14) sup |env^(j)|/(kappa^j env) = 1.0; |kappa_k -
+      kappa| <= 2.304 k kappa^(1/2), below the bound c_R 2^(1/2) = 4.243 that (H_N) implies  [530 s]
 X10 PASS
   X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
-      env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200  [333
-      s]
+      env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200
+      [1139 s]
 X11 PASS
-edge1_5: all checks pass, every control fails  [479 s]
+  X12 Case 3 of Theorem L_1E at a real cancellation, N = 12 (nu < 0, Gamma > 0, i^N = 1), r0 = 3, unit constants, on the
+      whole crossover |S_U|/|S_st| in [1/4, 4] (301 points): exp(-1/x), lam = 1e-10: x_c = 3.172e-5, lam kappa = 0.0994;
+      min |sigma_main|/(round 6's bound) = 5.761, /(round 5's) = 1.042; phase change over 4 pi lam <= 0.00762; exp(-1/x),
+      lam = 1e-20: x_c = 9.038e-10, lam kappa = 0.0122; min |sigma_main|/(round 6's bound) = 47.64, /(round 5's) = 1.152;
+      phase change over 4 pi lam <= 2.14e-7; exp(-1/x), lam = 1e-40: x_c = 7.331e-19, lam kappa = 0.000186; min
+      |sigma_main|/(round 6's bound) = 3135.0, /(round 5's) = 1.166; phase change over 4 pi lam <= 1.74e-16; exp(-1/x),
+      lam = 1e-80: x_c = 4.823e-37, lam kappa = 4.3e-8; min |sigma_main|/(round 6's bound) = 1.357e+7, /(round 5's) =
+      1.167; phase change over 4 pi lam <= 1.14e-34; record C_c^inf, lam = 1e-10: x_c = 2.747e-5, lam kappa = 0.0994; min
+      |sigma_main|/(round 6's bound) = 5.755, /(round 5's) = 1.042; phase change over 4 pi lam <= 0.0088; record C_c^inf,
+      lam = 1e-20: x_c = 7.827e-10, lam kappa = 0.0122; min |sigma_main|/(round 6's bound) = 47.64, /(round 5's) = 1.152;
+      phase change over 4 pi lam <= 2.47e-7; record C_c^inf, lam = 1e-40: x_c = 6.349e-19, lam kappa = 0.000186; min
+      |sigma_main|/(round 6's bound) = 3135.0, /(round 5's) = 1.166; phase change over 4 pi lam <= 2.01e-16; record
+      C_c^inf, lam = 1e-80: x_c = 4.177e-37, lam kappa = 4.3e-8; min |sigma_main|/(round 6's bound) = 1.357e+7, /(round
+      5's) = 1.167; phase change over 4 pi lam <= 1.32e-34; the ratio to round 6's bound more than doubles at each step
+      and exceeds 100 at lam = 1e-80, the phase moving by at most pi/6: True  [1467 s]
+X12 PASS
+  X13 L.21 (iv'): for g = env^(N-1), exp(-1/x), N = 12, s^(-1) g (by quadrature from x/2; the part below x/2 is at most
+      6.7e-56 of lam |g| (lam kappa)^2) against g/(kappa_(N-1) + i/lam), |difference|/(lam |g| (lam kappa)^2): lam =
+      1.0e-6, lam kappa = 0.2: 0.004175; lam = 1.0e-6, lam kappa = 0.1: 0.006669; lam = 1.0e-6, lam kappa = 0.05:
+      0.01244; lam = 1.0e-6, lam kappa = 0.025: 0.0476; lam = 1.0e-7, lam kappa = 0.2: 0.001355; lam = 1.0e-7, lam kappa
+      = 0.1: 0.00258; lam = 1.0e-7, lam kappa = 0.05: 0.007053; lam = 1.0e-7, lam kappa = 0.025: 0.04126; at most 1: True
+      [1482 s]
+X13 PASS
+edge1_5: all checks pass, every control fails  [1482 s]
