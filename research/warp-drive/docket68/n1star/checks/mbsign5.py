@@ -214,8 +214,15 @@ def ricci(X, Gm):
                                                   for e in range(n)) for a in range(n)))
 
 
+TW = sp.Symbol('TW')
+
+
 def trig_zero(e):
-    return sp.simplify(sp.expand_trig(sp.expand(e))) == 0
+    """exact zero test for a rational expression in sin th, cos th: Weierstrass substitution, then cancel"""
+    e = sp.expand_trig(sp.expand(e))
+    e = e.subs({sp.tan(th): s_ / c_, sp.cot(th): c_ / s_})
+    e = e.subs({sp.sin(th): 2 * TW / (1 + TW**2), sp.cos(th): (1 - TW**2) / (1 + TW**2)})
+    return sp.cancel(sp.together(e)) == 0
 
 
 # ------------------------------------------------------------------ E1
