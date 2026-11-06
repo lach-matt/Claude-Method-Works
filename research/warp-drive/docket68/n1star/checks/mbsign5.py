@@ -65,14 +65,14 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, Kodama-Ishibashi's conserved master energy.
 
 Labels: computed, exact throughout. E4 (a) at three rational angles; E4 (c) at three rational points (R, th, mu) with
-every jet free; the radial identities of E5-E9 symbolic in R, k^2 and the jets, at mu = 1 (general by the homothety
-(t, R) -> (lam t, lam R), which carries mu to lam^2 mu) with mu = 9/10 and 7/5 as cross-checks, or with mu symbolic
-under --full-mu (slower). Deduced in FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice
-(Stokes and the second-order Bianchi identity), the mode sum (orthogonality), the intermediate-value step
-(Proposition L').
+every jet free; the radial identities of E5, E6, E8, E9 symbolic in k^2 and the jets, exact at four rational points
+(R, mu) (with R and f rational squares), or under --full symbolic in R and k^2 at mu = 1 (general by the homothety
+(t, R) -> (lam t, lam R), which carries mu to lam^2 mu), with mu = 9/10 and 7/5 as cross-checks (slower). Deduced in
+FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice (Stokes and the second-order Bianchi
+identity), the mode sum (orthogonality), the intermediate-value step (Proposition L').
 
-Run: python3 checks/mbsign5.py [--selftest] [--full-mu] [--only=E1,E2,...]   (about 15 minutes under load;
---selftest: exit 1 unless every check passes and every control is rejected)
+Run: python3 checks/mbsign5.py [--selftest] [--full] [--only=E1,E2,...]   (about 10 minutes under load; --full
+longer; --selftest: exit 1 unless every check passes and every control is rejected)
 """
 import importlib.util
 import os
@@ -104,7 +104,21 @@ f_ = 1 - x_
 m_ = k2 - 3
 HKI = m_ + 6 * x_
 RESULTS = {}
-MU_TEST = [None] if '--full-mu' in sys.argv else [1, sp.Rational(9, 10), sp.Rational(7, 5)]
+FULL = '--full' in sys.argv
+
+
+def _radpts():
+    """(R, mu) with R and f = 1 - mu/R^2 rational squares (sqrt(R), sqrt(f) enter Phi and N): mu = R^2 (1 - q^2)"""
+    out = []
+    for R0, q in ((sp.Rational(9, 4), sp.Rational(4, 5)), (4, sp.Rational(1, 2)), (sp.Rational(25, 16),
+                                                                                     sp.Rational(3, 5)),
+                  (sp.Rational(49, 36), sp.Rational(5, 13))):
+        R0 = sp.Rational(R0)
+        out.append({r: R0, mu: R0**2 * (1 - q**2)})
+    return out
+
+
+RADPTS = _radpts()
 
 
 def report(name, ok, controls=()):
@@ -158,11 +172,11 @@ class Jets:
         return e.subs(reps)
 
     def is_zero(self, e):
-        """exact zero test, symbolic in R, k^2 and the jets; mu symbolic (--full-mu) or at MU_TEST (the homothety
-        (t, R) -> (lam t, lam R) carries mu to lam^2 mu, so mu = 1 is general; 9/10 and 7/5 are cross-checks)"""
-        for mv in MU_TEST:
-            ee = e if mv is None else e.subs(mu, mv)
-            ee = sp.together(sp.expand(ee))
+        """exact zero test, symbolic in k^2 and the jets: at the rational points RADPTS in (R, mu) (default), or
+        symbolic in R and k^2 at mu = 1, 9/10, 7/5 (--full; the homothety (t, R) -> (lam t, lam R) carries mu to
+        lam^2 mu, so mu = 1 is general and the other two are cross-checks)"""
+        for pt in (RADPTS if not FULL else [{mu: mv} for mv in (1, sp.Rational(9, 10), sp.Rational(7, 5))]):
+            ee = sp.together(e.xreplace(pt))
             num = sp.expand(sp.numer(ee))
             if num == 0:
                 continue

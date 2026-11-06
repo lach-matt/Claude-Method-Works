@@ -534,7 +534,7 @@ C_R_STATED = 3                      # |kappa_k'| <= c_R kappa_k^(3/2), alpha = 1
 
 def e10(control=False):
     mp.mp.dps = 50
-    kmax = 13
+    kmax = 14
     Ls, Y = bell_ratios(kmax + 2)
     Yf = [sp.lambdify(Ls, y, 'mpmath') for y in Y]
     names = ["sin^16 mutant"] if control else ["exp(-1/x)", "record C_c^inf"]
@@ -542,7 +542,7 @@ def e10(control=False):
     rows, ok = [], True
     for nm in names:
         dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, len(Ls) + 1)]
-        good, cR, cj, Cup = True, mp.mpf(0), mp.mpf(0), mp.mpf(0)
+        good, cR, cj, Cup, cdown, ct = True, mp.mpf(0), mp.mpf(0), mp.mpf(0), mp.inf, mp.inf
         for x in xs:
             Lv = [f(x) for f in dl]
             Yv = [f(*Lv) for f in Yf]
@@ -553,22 +553,28 @@ def e10(control=False):
                 good &= Yv[k] > 0 and lc < 0 and mp.mpf(1)/2 < kk/kap < 2
                 if Yv[k] > 0 and kk > 0:
                     cR = max(cR, abs(lc)/kk**mp.mpf(1.5))
-                if kap > 0 and k >= 1:
+                if kap <= 0:
+                    continue
+                if k == 0:
+                    ct = min(ct, abs(lc)/kap**mp.mpf(1.5))          # (H_t) through |kappa'| >= c_t kappa^(3/2)
+                if k >= 1:
                     Cup = max(Cup, abs(kk - kap)/(k*mp.sqrt(kap)))
+                    cdown = min(cdown, (kap - kk)/(k*mp.sqrt(kap)))  # kappa - kappa_k >= c k kappa^(1/2), signed
             cj = max(cj, max(abs(Yv[j])/kap**j for j in range(kmax + 2)))
         # kappa_k - kappa_(k-1) = kappa_(k-1)'/kappa_(k-1), so (H_N) gives |kappa_k - kappa| <= k c_R 2^alpha kappa^alpha
         derived = C_R_STATED*mp.sqrt(2)
-        good &= cR <= C_R_STATED and Cup <= derived
+        good &= cR <= C_R_STATED and Cup <= derived and cdown > 0 and ct > 0
         ok &= good
         rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= %d, at all 401 points: %s; sup"
                     " |kappa_k'|/kappa_k^(3/2) = %s <= c_R = %d; L.16 (c): max_(j<=%d) sup |env^(j)|/(kappa^j env) ="
-                    " %s; |kappa_k - kappa| <= %s k kappa^(1/2), below the bound c_R 2^(1/2) = %s that (H_N) implies"
+                    " %s; |kappa_k - kappa| <= %s k kappa^(1/2), below the bound c_R 2^(1/2) = %s that (H_N) implies;"
+                    " (H_t): kappa - kappa_k >= %s k kappa^(1/2) (1 <= k <= %d) and |kappa'| >= %s kappa^(3/2)"
                     % (nm, kmax, good, mp.nstr(cR, 4), C_R_STATED, kmax + 1, mp.nstr(cj, 4), mp.nstr(Cup, 4),
-                       mp.nstr(derived, 4)))
+                       mp.nstr(derived, 4), mp.nstr(cdown, 4), kmax, mp.nstr(ct, 4)))
     if control:
         return ok
-    out("  X10 hypotheses (H_N) and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell polynomials"
-        " in the derivatives of log env): " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
+    out("  X10 hypotheses (H_N), (H_t) and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell"
+        " polynomials in the derivatives of log env): " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
     return ok
 
 
@@ -679,7 +685,8 @@ def crossover12(nm, E):
         x = xl*(xh/xl)**(mp.mpf(k)/300)
         kap, kN1, T0, Xi, Lam, sm = parts(x)
         SU = Gam*abs(Xi)*Lam
-        b2 = (T0**2 + lam*abs(kN1 - kap) + 1/kap + lam)*(abs(nu) + SU)
+        epsp = min(T0**2 + lam*mp.sqrt(kap), 1/mp.sqrt(kap))           # eps' of L.21 (iv'), alpha = 1/2
+        b2 = abs(nu)*T0**2 + lam + (epsp + 1/kap + lam)*SU            # L.22': the stage lambda-term carries no nu
         b1 = (T0 + 1/kap + lam)*SU + (T0**2 + lam)*abs(nu)
         r2, r1 = min(r2, abs(sm)/b2), min(r1, abs(sm)/b1)
         phase = max(phase, abs(mp.arg(parts(x + 4*mp.pi*lam)[5]/sm)))
@@ -690,8 +697,8 @@ CACHE12R = {}
 
 
 def e12(control=False):
-    """Case 3 at a real cancellation (N = 12): |sigma_main| against round 6's error bound (L.21 (iv') and H_Sigma's exact
-    form: T0^2 + lam |kappa_(N-1) - kappa| + 1/kappa + lam, relative) and round 5's (eps = lam kappa)"""
+    """Case 3 at a real cancellation (N = 12): |sigma_main| against round 6's error bound (L.22': |nu| T0^2 + lam +
+    (eps' + 1/kappa + lam)|S_U|, round 7's correction of the stage lambda-term) and round 5's (eps = lam kappa)"""
     mp.mp.dps = 60
     rows, ok = [], True
     for nm in ("exp(-1/x)", "record C_c^inf"):

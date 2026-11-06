@@ -58,7 +58,7 @@ above 3): all rational (dweights5.weights and counts, imported).
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
   sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
-  2 - alpha (R7 finds the hit).
+  2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it).
 
     python3 checks/rootavoid5.py [--selftest]      (a few minutes; --selftest skips the R6 margin enumeration)
 """
@@ -698,6 +698,14 @@ def main(selftest=False):
     OK['C6'] = any((1 - v) % 1 == R7['frac'] for _n, _i, v in R7['vals'])
     print('  C6 (control): the value 2 - alpha = %s planted among R7\'s values: R7\'s test finds the hit: %s' % (
         1 - R7['frac'], OK['C6']))
+    lam12 = algebraic_numbers()[0]
+    try:
+        sp.polys.numberfields.subfield.to_number_field(2 * (lam12 - 2) + sp.Rational(1, 3), lam12)
+        OK['C7'] = True
+    except sp.polys.polyerrors.IsomorphismFailed:
+        OK['C7'] = False
+    print('  C7 (control): R9\'s test on the offset 2 d1 + 1/3 (in Q(d1)): reported as a possible rational sum: %s' %
+          OK['C7'])
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     builtins.print('%d/%d (%.0f s)' % (sum(OK.values()), len(OK), time.time() - t0))
