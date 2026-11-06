@@ -465,6 +465,65 @@ def r6_margin(C):
     return Fr(best, D * FIX), where, N
 
 
+def r7(C, polys):
+    """the literal reading: rational roots of the scalar box^C sextic have denominators dividing q (every l);
+    no value 2 - alpha of I9, I14, I12 lies in (1/q) Z"""
+    D, I = C['D'], C['I']
+    pk = polys[0]
+    lam, K = DP.lam, DP.K
+    Q = sp.Poly(sp.expand(pk.subs(boxC_point())), lam)
+    cs = Q.all_coeffs()
+    den = sp.ilcm(*[sp.Rational(c_).q for cc in cs for c_ in sp.Poly(cc, K).all_coeffs()])
+    csi = [sp.Poly(sp.expand(cc * den), K) for cc in cs]
+    lead = csi[0].all_coeffs()
+    assert len(lead) == 1
+    lead = int(lead[0])
+
+    def val(n, pr):
+        n = int(n)
+        if n == 0:
+            return 10 ** 9
+        k = 0
+        while n % pr == 0:
+            n //= pr
+            k += 1
+        return k
+    ok5 = val(lead, 5) == 0
+    q = abs(lead)                          # rational root theorem: the denominator divides the leading coefficient
+    assert D % q == 0
+    M = D // q
+    st = I['step']
+    k_top3 = C['k3'] - 1
+    imax2 = (beta(C, k_top3) - I['epsp'] - I['tau0']) // st
+    imax3 = (I['alpha'] - 2 * D - I['tau3']) // st
+    hits = []
+    for nm, A, imax in (('3 - tau_i', 3 * D - I['tau0'], imax2), ('2 - tau_i', 2 * D - I['tau3'], imax3)):
+        g = gcd(st, M)
+        if A % g == 0:
+            m = M // g
+            i0 = ((A // g) * pow(st // g, -1, m)) % m
+            if i0 <= imax:
+                hits.append((nm, i0))
+    deltas = []
+    for k in range(C['k4'], C['K'] + 1):
+        l3 = Fr(beta(C, k), D) - 4 - Fr(I['eps'], D)
+        deltas.append((Fr(I['eps_ind'], D) - l3 - 2 * Fr(I['eps'], D)) / 2)
+    okd = all(0 < q * d < 1 for d in deltas)
+    return dict(ok=ok5 and not hits and okd, den=sp.factorint(den), lead=lead, q=q, imax2=imax2, imax3=imax3,
+                hits=hits, deltas=deltas)
+
+
+def r8(C):
+    """l_zf not an integer at levels 1-3; (4.2) at level 1 with alpha_0 = 2; Lemma 4.2's interval at level 3"""
+    D, I = C['D'], C['I']
+    s = I['s']
+    A = I['alpha1'] - I['eps']                     # beta_k - eps = (A + k s)/D
+    hits = congruence_hits(A, s, D, 0, C['K'] - 1)
+    top_int = (I['alpha'] - I['eps']) % D == 0
+    ok = not hits and not top_int
+    return dict(ok=ok, hits=hits + (['alpha'] if top_int else []))
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
@@ -538,20 +597,28 @@ def main(selftest=False):
         print('  R6 (certified margin): over the %d values x and n <= %d, the least distance of a level in (3, 4 + '
               'eps_K] or of alpha from lambda_sharp + n d1 + x is %.6e (at x = %s, n = %d), > 0: %s' % (
                   len(X_set()), N, float(mg), where[0], where[1], OK['R6m']))
-    vfr = sorted(set(Fr(1) - rt for _l, rt in vec_ni))        # -mu = 1 - lambda_C, non-integers
-    frac_hit = []
-    for m in vfr:
-        fp = m - (m.numerator // m.denominator)
-        for (A, st, lo_i) in ((3 * D - I['tau0'], I['step'], 0), (2 * D - I['tau3'], I['step'], 0)):
-            v = A - fp * D
-            if v.denominator == 1 and int(v) % st == 0 and int(v) // st >= 0:
-                frac_hit.append((str(m), int(v) // st))
-    OK['R7'] = not frac_hit
-    print('  R7 (exact): Proposition 5.1\'s hypothesis read for every j: 2 - alpha + j is rational and never an '
-          'integer, so it can meet only a rational non-integer root: the %d vector-type ones of R2 give -mu = 1 - '
-          'lambda with fractional parts never equal to 3 - tau_i or 2 - tau_i: %s; undecided only the box^C scalar '
-          'roots at l > %d (real part < -100, so -mu > 101, beyond every j <= 2 the proof uses): %s' % (
-              len(vfr), frac_hit or 'no hit', LC, OK['R7']))
+    R7 = r7(C, polys)
+    OK['R7'] = R7['ok']
+    print('  R7 (exact): Proposition 5.1\'s hypothesis read for every j and every root: 2 - alpha + j is rational and '
+          'never an integer, so it can meet only a non-integer rational root. R2 found none for box^Ups (every l), the '
+          'physical factors, box^C at s0, s1, the vector type (every l) and the scalar type at l <= %d; for the scalar '
+          'sextic at every l, scaled to integer coefficients (lcm %s), the leading coefficient is %s and the 5-adic '
+          'valuations of the others are >= 0, so a rational root has denominator dividing %d (rational root theorem). '
+          'The values 2 - alpha that occur, in units 1/%d: 3 - tau_i (I9, i <= %d), 2 - tau_i (I14 and the top levels, '
+          'i <= %d) and delta (%s): none is in (1/%d) Z (congruences mod D/%d: %s): %s' % (
+              LC, R7['den'], R7['lead'], R7['q'], R7['q'], R7['imax2'], R7['imax3'],
+              ', '.join('%.4e' % float(d) for d in R7['deltas']), R7['q'], R7['q'], R7['hits'] or 'no solution in '
+              'range', OK['R7']))
+    R8 = r8(C)
+    OK['R8'] = R8['ok']
+    print('  R8 (exact): the rest of I11:156-160\'s appended set (the exclusion set of III.I\'\'\'\'\'\'\'\'\'\'\' '
+          'section 1, read at every level as I14 Definition 1.1 (c) does): l_zf = beta - 1 - j - eps is never an integer '
+          '(j = 1, 2, 3; beta - eps in Z has no solution: %s); at level 1 the only tf-exponent in [2, 2 + eta_1) on '
+          'R9.1\'s reading is 2 (the u-exponent 3 of Lambda; (G) and M5 leave no point of Lambda in (3, 3 + eta_1)), so '
+          '(4.2)\'s last condition asks beta - 2 - eps != -mu, rational against the roots: an integer never (beta - eps '
+          'not in Z); III.I\'\' Lemma 4.2 and III.H (1.1) ask beta_tf - beta_zf = tau - beta + 2 + eps in (0, 1) at '
+          'level 3, which holds for the final tau in (beta - 2, beta - 1 - eps): %s. Not decided here: (4.2) at level 2, '
+          'whose tf-exponents in [1 + eta_1, 2 + eta_2) the record does not list' % (R8['hits'] or 'none', OK['R8']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])

@@ -922,12 +922,13 @@ def check_d3_d4(F0):
         ch = {}
         for nm, X in o2.items():
             cf = coeffs(X.mean(1))
-            dk = {k: nice(cf.get(k, 0) - CO[nm].get(k, 0)) for k in set(cf) | set(CO[nm])
+            dk = {k: sp.sympify(cf.get(k, 0) - CO[nm].get(k, 0)) for k in set(cf) | set(CO[nm])
                   if not numzero(cf.get(k, 0) - CO[nm].get(k, 0))}
             if dk:
                 ch[nm] = dk
         changes[lab] = ch
-        print('      %s: change of <Phi^(1)>: %s %s' % (lab, ch if ch else 'none', el()))
+        shown = {nm: {k: nice(e) for k, e in d.items()} for nm, d in ch.items()}
+        print('      %s: change of <Phi^(1)>: %s %s' % (lab, shown if ch else 'none', el()))
     ph = changes['no phase']
     ph_ok = (set(ph) == {'Jr', 'rho'} and numzero(ph['Jr'].get('a', 0) - h4 * sp.sqrt(L_) / (3 * r ** 4))
              and numzero(ph['rho'].get('a', 0) + h4 / (3 * r ** 3)))

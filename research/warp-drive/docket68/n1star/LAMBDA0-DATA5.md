@@ -69,7 +69,7 @@ other component 0. Hence, solving Pol(d_s gh_2) = -(the rest of D^(1)'s oscillat
     second harmonic:  gh_2 = (A^2 E^2 H^2/(6 r^3)) (cos 2th cos 2s - (1/4) sin^2 2th sin 2s) Pi,              (2.2)
 
 Pi = r^2 (dth^2 + C^2 dphi1^2 + S^2 dphi2^2), every other component 0 (the second harmonic takes chi's d_tau on Sigma
-from stage0bd5.py's closed form of chi, READ, d_v of its factor r^-2 - (v - tau0)^(-1/2) r^(-3/2) being r^-3/2 there).
+from stage0bd5.py's closed form of chi, READ; d_v of its factor r^-2 - (v - tau0)^(-1/2) r^(-3/2) is (1/2) r^-3 there).
 
 *Proof.* (a)-(b) and (d) are exact identities (sympy), (c) is the computed first harmonic. (c) is also seen directly:
 the terms of D^(1) bilinear in (m_1, d_s W) or (d phi_1, d_s W) are contractions of d_s W with ell, with the trace or
@@ -102,8 +102,9 @@ Lap a = d_th^2 a + 2 cot 2th d_th a and div(q dth) = d_th q + 2 cot 2th q on the
     S_1   = ( 0,  -A^2 E^2 H^2 sin 2th / (3 r^2 Lambda^(1/2)),  0 ).                                            (3.3)
 
 (iii) B_1 is algebraic in h_1 (no other coefficient of (3.1) carries A); the phase d_tau phi_1 = -a/2 carries the part
-(-(1/3) r^-4 Lambda^(1/2), 0, (1/3) r^-3) A^2 E^2 H^2 (C^4 + S^4) a of it; gh_2 (both harmonics, (2.1)-(2.2), and a
-generic second harmonic besides) and chi's d_tau contribute nothing to (3.1) (each recomputed with it off or on).
+(-(1/3) r^-4 Lambda^(1/2), 0, (1/3) r^-3) A^2 E^2 H^2 (C^4 + S^4) a of it; gh_2's first harmonic (2.1), any second
+harmonic of gh_2 (generic, in all seven class components that enter the slice data, so (2.2) among them) and chi's
+d_tau contribute nothing to (3.1) (each recomputed with it off or on).
 
 So Lemma 6.2 (iii) at m = 1 reads P(h_1, Q_1) + B_1(h_1) = S_1 with these S_1 and B_1. In the record's class and
 with the record's H, B_1 is round: H^2 (C^4 + S^4) = 1, and A^2 E^2 = (9/2) mu'. S_1 has only a J_th component; it is
@@ -119,13 +120,14 @@ in (a, d_r a, d_th a), with no W^2 term; so the datum Q_1 is reached by d_tau h_
 
 ## 4. The check at finite lam (D6) and three controls
 
-The check shares nothing with the two-scale series: the slice data of g_app at a fixed lam (gamma, d_tau gamma with the
-phase, the shift, the lapse; gh_2 by (2.1); d_tau h_1 = 2 N0 (Q_1 - M1)) are evaluated pointwise as second-order jets
-in (r, th), and the constraint map is formed from them by its definition (Christoffel symbols, scalar curvature,
-div K), with no series, no cut and no mean. With E = 1 + v/4, mu' = (2/9) E^2, the record's H, A = 1 and test fields a =
-(1/7 + cos 2th/5)(1 + r/10), w = r cos 2th/9 + 1/11, q = r sin 2th/13, the weak residual W(lam) := int f(r)
-Phi_lam(r, th) dr against the Gaussian f of standard deviation 0.3 at r = 3.5 (every oscillating term contributes
-O(lam^oo)) is compared with lam I1, I1 := int f <Phi^(1)> from (3.1):
+The evaluation shares nothing with the two-scale series: the slice data of g_app at a fixed lam (gamma, d_tau gamma
+with the phase, the shift, the lapse; gh_2 by (2.1); d_tau h_1 = 2 N0 (Q_1 - M1)) are evaluated pointwise as
+second-order jets in (r, th), and the constraint map is formed from them by its definition (Christoffel symbols, scalar
+curvature, div K), with no series, no cut and no mean. (The data use (2.1) and M1, which the check therefore tests too:
+a wrong M1 would leave K's order-1 mean off Q_1 and the remainder of order lam.) With E = 1 + v/4, mu' = (2/9) E^2,
+the record's H, A = 1 and test fields a = (1/7 + cos 2th/5)(1 + r/10), w = r cos 2th/9 + 1/11, q = r sin 2th/13, the
+weak residual W(lam) := int f(r) Phi_lam(r, th) dr against the Gaussian f of standard deviation 0.3 at r = 3.5 (every
+oscillating term contributes O(lam^oo)) is compared with lam I1, I1 := int f <Phi^(1)> from (3.1):
 
 | th | J_r: W - lam I1 at 1/32, 1/64 (p) | J_th (p) | rho (p) |
 |---|---|---|---|
@@ -148,9 +150,9 @@ P_k(cos 2th); and
 
 exact: sigma_1 = 3/2 - 3 pi/4, sigma_3 = -49/6 + 21 pi/8, sigma_5 = 583/15 - 99 pi/8, sigma_7 = -1371/7 + 1995 pi/32,
 ..., zero for even k (atan is odd), decaying like (1 + 2^(1/2))^-k (the Bernstein ellipse of atan, whose poles are at
-+-i); |sum_(k<=11) sigma_k P_k + atan| <= 4.9e-6 on [-1, 1]. So with a = sum a_k(r) P_k, w = sum w_k(r) P_k, q = sum
-q_k(r) d_th P_k (x = cos 2th; the class's covectors q dth are gradients of class functions), the system P(h_1, Q_1) +
-B_1 a = S_1 is, mode by mode (e := A^2 E^2 = (9/2) mu'),
++-i); |sum_(k<=11) sigma_k P_k + atan| <= 4.9e-6 on a 41-point grid of [-1, 1] (floating point). So with a = sum
+a_k(r) P_k, w = sum w_k(r) P_k, q = sum q_k(r) d_th P_k (x = cos 2th; the class's covectors q dth are gradients of
+class functions), the system P(h_1, Q_1) + B_1 a = S_1 is, mode by mode (e := A^2 E^2 = (9/2) mu'),
 
     (3 r^3/Lambda^2) a_k' + [4k(k+1)/Lambda + 2 (9 (Lambda^3 - r^2 mu^2) - e r^5)/(3 r^2 Lambda^3)] a_k
                           - 2 (e r^3 + 9 mu^2)/(3 r^2 Lambda^(3/2)) w_k = 0,
@@ -160,9 +162,11 @@ B_1 a = S_1 is, mode by mode (e := A^2 E^2 = (9/2) mu'),
 
 mu = mu(tau0 + r), E = E(tau0 + r), from zero data at r = a; a_0 = w_0 = 0. Lemma 6.4's system is therefore a sequence
 of linear 3 x 3 ODE systems in r: the parabolic part is a_k' = -4k(k+1) (Lambda/(3 r^3)) a_k + ..., the hyperbolic
-pair (w_k, q_k) has speeds of order k (Lemma 6.3's c^2 = 2 Lambda/(3 r^4)). Each has a unique smooth solution on [a, R]
-(linear, smooth coefficients); the sum converges with the sigma_k and by Lemma 6.4's uniqueness is its solution
-(deduced).
+pair (w_k, q_k) has speeds of order k (Lemma 6.3's c^2 = 2 Lambda/(3 r^4)). Lemma 6.4's solution exists, is unique
+and smooth; the P_k(cos 2th) are a complete orthogonal basis of the T^2-invariant functions on S^3 (the measure C S dth
+is dx/4, x = cos 2th), the d_th P_k one of the class covectors q dth (each the gradient of a class function), the
+coefficients are th-free and Lap, div act diagonally, so the projections of that solution satisfy (5.2) with zero data
+and are its unique solutions: the modes computed below are Lemma 6.4's solution, harmonic by harmonic (deduced).
 
 **The data for round 2's envelope** (computed, floating point; D7). envelope5.py's env (c = 1.3240872987 by quadrature,
 inside envelope5's certified [1.32407110621, 1.3241034918]), A = 1, mu0 = 1; (5.2) for k = 1, 3, ..., 11 by Radau

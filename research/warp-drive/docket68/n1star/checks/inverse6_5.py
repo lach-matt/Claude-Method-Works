@@ -43,8 +43,8 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
      1/(2 sigma_0)]) this gives (6.11) as ||(P'_(h,z))^-1|| <= 4 F C_a h^(-1-(beta' - eta)/(beta' - beta)), C_a the
      constant of Proposition 6.7 (a); and the elementary inequality of Lemma 6.6's last line, certified on a grid.
   K7 (exact) II.F Lemma 5.2's replacement (INVERSE5-SIX.md Lemma R1): x = Q'T x + R'x gives ||x||_X <= ||Q'|| ||Tx||_Y
-     + ||R'||_(Z->X) ||x||_Z with no Hahn-Banach functional and no open mapping constant; checked on an exact model with a
-     kernel (the estimate holds on 400 rational vectors; without the R' term it fails on the kernel).
+     + ||R'||_(Z->X) ||x||_Z with no Hahn-Banach functional and no open mapping constant; checked on an exact model with
+     a     kernel (the estimate holds on 400 rational vectors; without the R' term it fails on the kernel).
   Controls (each mutates the computed path and must fail): C1 K1 with nu_1's sign reversed (H phi_1 = +nu_1 phi_1);
   C2 K2's claim lam_max = 2 eps refuted at eps = 1/8; C3 K3 at eta = 1 (no grading): lam_max > nu/2, (Gamma.4) fails;
   C4 K3 with c -> -c (future-pointing damping): lam_max >= 2 10^4 at every eta tested; C5 K3 with the trace weight 1
@@ -430,7 +430,8 @@ def main():
     t0 = time.time()
     ok1, nuG, pb, qG = k1()
     OK['K1'] = ok1
-    print('  K1 (exact, mu symbolic): on Sigma^s, H phi_1 = -nu_1 phi_1 and H phi_2 = nu_2 phi_2 with VI.A (3.2)\'s nu_1,2;'
+    print('  K1 (exact, mu symbolic): on Sigma^s, H phi_1 = -nu_1 phi_1 and H phi_2 = nu_2 phi_2 with VI.A (3.2)\'s '
+          'nu_1,2;'
           ' on Gamma nu = %s, {phi_1, phi_2} = %s, q^Gamma = %s, beta_0^Gamma = 2, nu/q^Gamma = (2 mu)^(-1/2): %s'
           % (sp.simplify(nuG), sp.simplify(pb), qG, ok1))
     c1, _, _, _ = k1(control=True)
@@ -440,7 +441,8 @@ def main():
     ok2, cp2, lmax, okf = k2()
     OK['K2'] = ok2
     eps = sp.Symbol('epsilon', positive=True)
-    print('  K2 (exact): 1-form p_1^Gamma in h_Gamma(eps): charpoly %s, lam_max = (2 eps)^(1/2); gamma_+ - gamma_- = nu/8,'
+    print('  K2 (exact): 1-form p_1^Gamma in h_Gamma(eps): charpoly %s, lam_max = (2 eps)^(1/2); gamma_+ - gamma_- = '
+          'nu/8,'
           ' delta_Gamma(0) = 2 lam_max/nu = (eps mu)^(1/2), (Gamma.4) iff eps < 1/mu; the frame at Gamma orthonormal for'
           ' the static coframe (cond(h_Gamma) = eps^-2): %s' % (cp2, ok2))
     OK['C2'] = sp.simplify(sp.sqrt(2 * eps).subs(eps, sp.Rational(1, 8)) - 2 * sp.Rational(1, 8)) != 0
@@ -449,7 +451,8 @@ def main():
 
     ok3, res, (A, pairs, s2, W) = k3()
     OK['K3'] = ok3
-    print('  K3 (a) charpoly(A) = lam^10 (lam + 2 gam c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) at c = (-1/200,'
+    print('  K3 (a) charpoly(A) = lam^10 (lam + 2 gam c_2)^3 (lam + 4 gam c_2)(lam + 2 (1 - e_C) gam c_2) at c = '
+          '(-1/200,'
           ' -1/(160 2^(1/2)), -1/200, 0, 0), gam = 2 gamma_C (gam c_2 = -gamma_C/100): %s; (b) A never raises W (W ='
           ' %s): %s; -(1/2)(D_0 + D_0^T) <= 0 at gamma_C = 10^6: %s' % (res['a'], W, res['b'], res['D0']))
     for gC, eta, lo, hi in res['rows']:
@@ -460,7 +463,8 @@ def main():
               % (klo, khi, round(math.log10(gC))))
     for gC, out in res['adm']:
         for name, e_lo, e_hi, good in out:
-            print('  K3 (Gamma.4) at gamma_C = 10^%d: lam_max < %s certified at eta = %s, > %s certified at eta = %s: %s;'
+            print('  K3 (Gamma.4) at gamma_C = 10^%d: lam_max < %s certified at eta = %s, > %s certified at eta = '
+                  '%s: %s;'
                   ' cond(h_Gamma) = eta^-16 = %.3e at the first' % (round(math.log10(gC)), name, e_lo, name, e_hi, good,
                                                                     float(e_lo) ** -16))
     ctl, lows = k3_controls(A, pairs, s2, W)
@@ -475,7 +479,8 @@ def main():
 
     ok4, av, roots, th6 = k4()
     OK['K4'] = ok4
-    print('  K4 (exact): beta_0 = f\'(r_h) = 2 (mu = 1); a_v = %s, x = gamma_C/200; III.F\'\' (1.1)\'s roots at y = 0: %s;'
+    print('  K4 (exact): beta_0 = f\'(r_h) = 2 (mu = 1); a_v = %s, x = gamma_C/200; III.F\'\' (1.1)\'s roots at y = 0: '
+          '%s;'
           ' vartheta_L = %s at gamma_C = 10^6 (s > 1/2); box 0, box^Ups 1: %s'
           % (av, {sp.simplify(k_): m_ for k_, m_ in roots.items()}, th6, ok4))
     ok4c, _, _, th6c = k4(control=True)
@@ -499,7 +504,8 @@ def main():
 
     OK['K7'] = k7()
     OK['C8'] = not k7(drop_R=True)
-    print('  K7 (exact): x = Q\'T x + R\'x: ||x|| <= ||Q\'|| ||Tx|| + ||R\'||_(Z->X) ||x||_Z on 400 rational vectors and on'
+    print('  K7 (exact): x = Q\'T x + R\'x: ||x|| <= ||Q\'|| ||Tx|| + ||R\'||_(Z->X) ||x||_Z on 400 rational vectors '
+          'and on'
           ' the kernel: %s; C8 (control) without the R\' term it fails on the kernel: %s' % (OK['K7'], OK['C8']))
     print('  (%.0f s)' % (time.time() - t0))
     for k_, v_ in OK.items():

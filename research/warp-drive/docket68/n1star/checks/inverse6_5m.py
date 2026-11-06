@@ -306,7 +306,8 @@ def certificate(name, mult, Pps, emag=None, verbose=True):
     Bs = [bound(wI, m1, M1, s) for s in (0, 1, 3, 10)] if good else []
     if verbose:
         sL, sR, ks, off = mult.fr
-        print('  %s: (s_L, s_R, k_s, centre offset) = (%s, %s, %s, %s): w >= 0 on R %s (%s enclosures; left tail ratio <= '
+        print('  %s: (s_L, s_R, k_s, centre offset) = (%s, %s, %s, %s): w >= 0 on R %s (%s enclosures; left tail '
+              'ratio <= '
               '%s, right <= %s); min_I w >= %s, m\' >= %s, M\' <= %s; B(0+, 1, 3, 10) <= %s (%.0f s)'
               % (name, sL, sR, ks, off, good, '+'.join(str(n) for n in ns), dec(rho[1].b, 3, True),
                  dec(rho[2].b, 3, True), dec(wI, 5, False), dec(m1, 5, False), dec(M1, 5, True),
@@ -382,7 +383,8 @@ def main():
         print('  M6 %s: ||chi_I R(sigma) chi_I|| <= %s at sigma = 0+, 1, 3, 10' %
               (name, c if c else ', '.join(dec(x, 4, True) for x in b)))
     worst = [max(b[i] for _, b, c in table if b) for i in range(4)]
-    print('  M6 every master operator of III.D (M2)-(M4) and of III.F\'\' Theorem 2.2, every l in its range (l = 0 of V_0'
+    print('  M6 every master operator of III.D (M2)-(M4) and of III.F\'\' Theorem 2.2, every l in its range (l = 0 of '
+          'V_0'
           ' by E2-PILOT 3g): ||chi_I R(sigma) chi_I|| <= max(the rows) = %s at sigma = 0+, 1, 3, 10, and at every real'
           ' sigma != 0 by B(sigma), increasing in |sigma|' % ', '.join(dec(x, 4, True) for x in worst))
 
@@ -403,18 +405,21 @@ def main():
                                  4 * KK**2 * rr**3 * ff, 4)}
     ok7 = rec_ok
     for name, (un, Gn, Fn, c) in rows7.items():
-        ok7 &= sp.simplify(un - c * ff * Ph**2) == 0 and sp.simplify(Gn / Fn * c - ff) == 0
+        # ||u|| <= c^(1/2) max f B ||F||
+        ok7 &= sp.simplify(un - c * ff * Ph**2) == 0 and sp.simplify(Gn / Fn - ff) == 0
     fmax = (1 - sp.Rational(1, 16))
     ok7 &= fmax == sp.Rational(15, 16) and sp.diff(ff, rr).subs(rr, sp.Rational(6, 5)) > 0
     # ||u||_I^2 = c int f |Phi|^2, ||G||^2 <= max_I f ||F||_I^2 / c'...: ||u||_I <= (max_I f) B ||F||_I in every case
     OK['M7'] = ok7
     tf = lambda b: [dec((Q(Fr(15, 16)) * iv.mpf(x)).b, 4, True) for x in b]
-    print('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the static '
-          'frame\'s pointwise norm, ||u||_I = c^(1/2) (int_I f |Phi|^2 dr_*)^(1/2) and ||G||_I <= (max_I f)^(1/2) ||F||_I '
-          '/c^(1/2) (pointwise identities exact: %s), max_I f = 15/16; so, Phi being the outgoing solution (the class of '
+    print('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the '
+          'static frame\'s pointwise norm, ||u||_I = c^(1/2) (int_I f |Phi|^2 dr_*)^(1/2) and ||G||_I <= (max_I '
+          'f)^(1/2) ||F||_I/c^(1/2) (pointwise identities exact: %s), max_I f = 15/16; so, Phi being the outgoing '
+          'solution (the class of '
           'III.D Proposition 6.2 and III.F\'\' Proposition 3.1): ||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on '
           'functions (E2-PILOT\'s B) and on the vector-type 1-form blocks (V_1: l = 1 %s, l >= 2 %s), and '
-          '||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 %s), at sigma = 0+, 1, '
+          '||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 %s), at sigma = '
+          '0+, 1, '
           '3, 10' % (rec_ok, ok7, ', '.join(tf(fam['A'][3])), ', '.join(tf(fam['B'][3])),
                      ', '.join(tf(fam['B'][3]))))
 
