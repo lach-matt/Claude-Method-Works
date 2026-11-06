@@ -12,15 +12,18 @@ For each reading the symmetrizers -- the 4 x 4 matrices S with S A^k symmetric f
 coefficient of d_r) -- are solved for exactly (a linear system in the sixteen entries of S).
 
   Y1 (exact) At the reader's two metrics (gamma_rA = 0 and != 0) and at ten random rational positive-definite metrics
-     with gamma_rA != 0, in both readings: the symmetrizers form a one-dimensional space; its generator normalised to
-     S_ww = 1 has S A0 positive definite (every leading principal minor > 0); at gamma_rA = 0 it is diag(1, -(1/2)
-     Pi_ang^-1) (Pi_ang the angular block), the S of Lemma 6.3 (a).  Control: J with its trace term d tr K scaled by 1/3
-     (the mutation that cancels the w part of the divergence) admits no symmetrizer with S A0 > 0 at any of them.
+     with gamma_rA != 0, in both readings: the symmetrizers form a one-dimensional space.  In reading R its generator
+     normalised to S_ww = 1 has S A0 positive definite (every leading principal minor > 0) at all twelve; in reading C
+     at the reader's two, but not at five of the random ones (large gamma_rA): there the coordinate reading is not
+     symmetric hyperbolic in r, so it serves only near gamma_rA = 0 (Y2), which is the case here.  At gamma_rA = 0 the
+     generator is diag(1, -(1/2) Pi_ang^-1) (Pi_ang the angular block), the S of Lemma 6.3 (a).  Control: J with its
+     trace term d tr K scaled by 1/3 (the mutation that cancels the w part of the divergence) admits no symmetrizer
+     with S A0 > 0 at any metric in either reading.
   Y2 (exact, symbolic delta) g0's slice metric at a point inside the horizon (mu = 1/2, r = 1/3, th = pi/4) with
-     gamma_(r th) = delta, gamma_(r p1) = delta/3: the symmetrizer space is one-dimensional for delta in a neighbourhood of
-     0, its normalised generator S(delta) is rational in delta and regular at 0, and the leading minors of S A0 are
-     positive at delta = 0, hence for |delta| small (the approximant's gamma_rA = O(lam^2)).  Control: the 1/3 mutant
-     has no symmetrizer with S A0 > 0 at delta = 0.
+     gamma_(r th) = delta, gamma_(r p1) = delta/3: the symmetrizer space is one-dimensional for generic delta (the
+     linear system solved with delta symbolic), its normalised generator S(delta) is rational in delta, regular at 0,
+     and the leading minors of S A0 are positive at delta = 0, hence for |delta| small (the approximant's gamma_rA =
+     O(lam^2)), in both readings.  Control: the 1/3 mutant has no symmetrizer with S A0 > 0 at delta = 0.
 
 Labels: Y1, Y2 computed (exact, sympy; principal symbols at points).  Run: python3 checks/symmshift5.py   (seconds)
 """
@@ -77,8 +80,9 @@ def minors(M):
     return [sp.simplify(M[:k, :k].det()) for k in range(1, 5)]
 
 
-def positive_symmetrizer(mats):
-    """(dimension, normalised generator or None, minors of S A0, decision: True / False)"""
+def positive_symmetrizer(mats, at=None):
+    """(dimension, normalised generator or None, minors of S A0, decision: True / False / None undecided); with at, a
+    substitution, the signs of the minors are decided there"""
     ns = symmetrizers(mats)
     A0 = mats[0]
     if len(ns) == 1:
@@ -87,8 +91,9 @@ def positive_symmetrizer(mats):
             return 1, None, None, False
         S = sp.simplify(S/S[0, 0])
         mins = minors(sp.simplify(S*A0))
+        vals = [sp.simplify(x.subs(at)) if at else x for x in mins]
         for sgn in (1, -1):
-            if all(sp.simplify(sgn**(k + 1)*x) > 0 for k, x in enumerate(mins)):
+            if all(sp.simplify(sgn**(k + 1)*x) > 0 for k, x in enumerate(vals)):
                 return 1, S, mins, True
         return 1, S, mins, False
     if len(ns) == 0:
@@ -109,7 +114,6 @@ def rnd_spd(rng, eps):
 def random_spd(rng):
     B = sp.Matrix(4, 4, lambda i, j: sp.Rational(rng.randint(-9, 9), rng.randint(1, 6)))
     g = B*B.T + sp.eye(4)/2
-    assert all(g[0, A] != 0 for A in (1, 2, 3)) or True
     return g
 
 
@@ -126,7 +130,7 @@ def metrics():
 
 def y1(control=False):
     tc = sp.Rational(1, 3) if control else 1
-    results, ok = [], True
+    res, diag0 = {}, True
     for name, g in metrics():
         for rd in "CR":
             dim, S, mins, dec = positive_symmetrizer(symbol(g, rd, tc))
@@ -134,21 +138,26 @@ def y1(control=False):
                 if dec is not False:
                     return True                    # the mutant admits (or may admit) a positive symmetrizer
                 continue
-            good = dim == 1 and dec is True
-            if name == "reader gamma_rA = 0" and good:
+            res[(name, rd)] = (dim, dec)
+            if name == "reader gamma_rA = 0":
                 cand = sp.zeros(4)
                 cand[0, 0] = 1
                 cand[1:, 1:] = -g[1:, 1:].inv()/2
-                good &= sp.simplify(S - cand) == sp.zeros(4)
-            ok &= good
-            results.append((name, rd, dim, dec))
+                diag0 &= S is not None and sp.simplify(S - cand) == sp.zeros(4)
     if control:
         return False
-    fails = [x for x in results if not (x[2] == 1 and x[3])]
-    out("  Y1 %d metric-reading pairs (12 metrics, 10 of them random with gamma_rA != 0, readings C and R): the"
-        " symmetrizer space one-dimensional with S A0 > 0 at every pair: %s%s; at gamma_rA = 0, S = diag(1, -(1/2)"
-        " Pi_ang^-1): %s" % (len(results), not fails, (" (fails: %s)" % fails) if fails else "", ok))
-    return ok
+    names = [nm for nm, _ in metrics()]
+    R_all = all(res[(nm, "R")] == (1, True) for nm in names)
+    C_dim = all(res[(nm, "C")][0] == 1 for nm in names)
+    C_reader = all(res[(nm, "C")] == (1, True) for nm in names[:2])
+    C_fail = [nm for nm in names if res[(nm, "C")][1] is not True]
+    out("  Y1 12 metrics (the reader's two, gamma_rA = 0 and != 0, and ten random rational positive-definite ones with"
+        " gamma_rA != 0): reading R (Racz's, normal-adapted): a one-dimensional symmetrizer space with S A0 > 0 at all"
+        " 12: %s; reading C (coordinate): one-dimensional at all 12: %s, S A0 > 0 at the reader's two: %s, but no"
+        " symmetrizer with S A0 > 0 at %d of the ten random ones (%s: the coordinate reading is symmetric hyperbolic"
+        " near gamma_rA = 0 only, Y2); at gamma_rA = 0, S = diag(1, -(1/2) Pi_ang^-1) in both readings: %s" % (
+            R_all, C_dim, C_reader, len(C_fail), ", ".join(C_fail), diag0))
+    return R_all and C_dim and C_reader and diag0
 
 
 def y2(control=False):
@@ -165,10 +174,10 @@ def y2(control=False):
             if dec is not False:
                 return True
             continue
-        dim, S, mins, dec = positive_symmetrizer(mats)
+        dim, S, mins, dec = positive_symmetrizer(mats, at={d: 0})
         regular = S is not None and all(sp.denom(sp.together(x)).subs(d, 0) != 0 for x in S)
         m0 = [sp.simplify(x.subs(d, 0)) for x in mins] if mins else []
-        pos0 = bool(m0) and all(x > 0 for x in m0)
+        pos0 = dec is True and bool(m0) and all(x > 0 for x in m0)
         good = dim == 1 and regular and pos0
         ok &= good
         rows.append("reading %s: dim %d, S(delta) regular at 0: %s, minors of S A0 at delta = 0: %s, S(delta)_(w, q_th)"

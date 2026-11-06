@@ -14,8 +14,8 @@ assumed (B1's `funcs`).
      Then, with P1, P2, b, U, W - 1 general series from s^1 (W) and s^3 (the rest) to s^K, the vacuum equations give,
      in order: from R_rr, b3 = b4 = b5 = 0 and
      b6 = -(1/4)(p3^2 + p3 q3 + q3^2); from R_rth, u3 = u4 = 0 and u5 = (12/5)(p3 + q3) tan th - (8 p3 + 16 q3)/(5 sin
-     2th) - (4/5) d_th (p3 + q3), u6 the same in the s^4 coefficients (p4, q4) with 4/3 for 4/5 (and 8/3, 16/3); from
-     R_vr,
+     2th) - (4/5) d_th (p3 + q3), u6 the same in the s^4 coefficients (p4, q4) with 4, 8/3, 16/3, 4/3 for 12/5, 8/5,
+     16/5, 4/5; from R_vr,
      w1 = w2 = 0 and w3 = -(2/3) (sin th cos th)^-1 d_th (u5 sin th cos th), a divergence; from the traceless part of
      R_AB at s^2, d_v p4 = d_v q4 = 0; R_vv at s^5 is then an identity, and at s^6 it is the mass law
          d_v M = (4/3)(p3_v^2 + p3_v q3_v + q3_v^2) + (2/3) (sin th cos th)^-1 d_th (sin th cos th d_v u6),   M := -w4,
@@ -29,10 +29,14 @@ assumed (B1's `funcs`).
      u(ell, ell)); th_B = th + sum s^k ϑ_k with ϑ_4 = -E4/2 - d_th C4/4 (E_k from u(e_th, ell) r^-1) solves
      g^-1(dv_B, dth_B) = 0; the areal radius r_B = r (1 + sum s^k rho_k) has rho_4 = (F4 + G4 + H4)/6 - (1/3) div ϑ_4
      (the trace of G_4 on the sphere, and the Jacobian of the angular shift).  In the chart, g^{v_B v_B} = g^{v_B th_B}
-     = 0 to the computed order, e^{2 P1_B} = 1 + 2 p1 s^3 + O(s^4) (the leading angular coefficient is the wave's), and
-     e^{-2 b_B} = 1 - (C4_v/2) s^2 - (C5_v/3) s^3 + ...: so the hierarchy's b3 = b4 = 0 forces C4 = C5 = 0 for a vacuum
-     metric (they vanish on the seed), as Lemma 11.3's argument predicts.  Control: with ů = 0 (no eikonal correction)
-     g^{v_B v_B} is C4 s^4 + ... and not zero.
+     = 0 to the computed order, e^{2 P1_B} = 1 + 2 p1 s^3 + O(s^4) and e^{2 P2_B} = 1 + 2 p2 s^3 + O(s^4) (the leading
+     angular coefficients are the wave's), and e^{-2 b_B} = 1 - (C4_v/2) s^2 - (C5_v/3) s^3 + O(s^4), each coefficient
+     asserted: so the hierarchy's b2 = b3 = 0 (b_k the s^k coefficient of b) forces d_v C4 = d_v C5 = 0, and C4 = C5 =
+     0 for a vacuum metric (they vanish on the seed), as Lemma 11.3's argument predicts.  Controls: (1) with ů = 0 (no
+     eikonal correction) g^{v_B v_B} is C4 s^4 + ... and not zero; (2) g^{v_B r_B} formed with the background dv for
+     dv_B loses the s^2 and s^3 coefficients of e^{-2 b_B}; (3) phi2 normalised by cos^2 th, as phi1 is, loses e^{2 P2_B}
+     -> 1.  [D618: B2 asserted only e^{-2 b_B} -> 1 and P1's coefficient; the s^2, s^3 coefficients of e^{-2 b_B} and
+     P2's, which N1STAR-PROOF.md Proposition 11.2 cites to B2, were printed under --verbose only.]
   B3 (computed, exact) The Hawking mass M[S] = R^2 (1 + (R^2/9) <Theta>) of section 8 for the Bondi spheres S = {v, r}
      in (11.1): R = r exactly, Theta = -(9/r^2) e^{-2b} (W + (2r/3)(sin cos)^-1 d_th (U sin cos)), and r^2 (1 - <...>) =
      -s^-1 <w3 + (2/3) div u5> - <w4 + (2/3) div u6> + O(s), whose divergences have zero mean: M[S] -> <M>.
@@ -398,8 +402,43 @@ def b1(control=0, K=K_DEFAULT, verbose=False):
 
 
 # ---------------------------------------------------------------------------------------------------------- B2
+_B2_CHART = {}
+
+
 def b2(control=0, verbose=False):
-    """the wave-gauge expansion to Bondi form, order by order"""
+    """the wave-gauge expansion to Bondi form, order by order, and the Bondi functions read off it.  Control 1 drops the
+    eikonal correction; controls 2 and 3 mutate only the read-out (2: g^{v_B r_B} formed with the background dv for
+    dv_B; 3: phi2 normalised by cos^2 th, as phi1 is), so they share the chart computed for the main check."""
+    key = 1 if control == 1 else 0
+    if key not in _B2_CHART:
+        _B2_CHART[key] = _b2_chart(key, verbose)
+    ok, d = _B2_CHART[key]
+    if d is None:
+        return False
+    gi, sol, rB, dvBs, drB, ginv, p1, p2 = (d[n] for n in ("gi", "sol", "rB", "dvBs", "drB", "ginv", "p1", "p2"))
+    chk = Checklist(verbose, quiet=control != 0)
+    # the Bondi functions from the pushed-forward inverse metric
+    rBs = rB.subs(sol)
+    e2P1 = (rBs*rBs*gi[3][3]*cs**2).inv()                    # 1/(r_B^2 cos^2 g^11), th_B = th + O(s^4)
+    chk("e^{2 P1_B} = 1 + O(s^3)", all(sp.simplify(e2P1.coeff(k) - (1 if k == 0 else 0)) == 0 for k in range(3)))
+    chk("the s^3 coefficient of e^{2 P1_B} is 2 p1", sp.simplify(e2P1.coeff(3) - 2*p1) == 0)
+    e2P2 = (rBs*rBs*gi[4][4]*(cs**2 if control == 3 else sn**2)).inv()     # 1/(r_B^2 sin^2 g^22)
+    chk("e^{2 P2_B} = 1 + O(s^3)", all(sp.simplify(e2P2.coeff(k) - (1 if k == 0 else 0)) == 0 for k in range(3)))
+    chk("the s^3 coefficient of e^{2 P2_B} is 2 p2", sp.simplify(e2P2.coeff(3) - 2*p2) == 0)
+    dvr = [Ser.const(1), Ser(), Ser(), Ser(), Ser()] if control == 2 else dvBs
+    gB_vr = ginv(dvr, [e.subs(sol) for e in drB])
+    C4, C5 = F("C", 4), F("C", 5)
+    chk("e^{-2 b_B} -> 1", sp.simplify(gB_vr.coeff(0) - 1) == 0)
+    chk("e^{-2 b_B} = 1 - (C4_v/2) s^2 - (C5_v/3) s^3 + O(s^4): no s^1 term, and these coefficients",
+        sp.simplify(gB_vr.coeff(1)) == 0 and sp.simplify(gB_vr.coeff(2) + sp.diff(C4, v)/2) == 0
+        and sp.simplify(gB_vr.coeff(3) + sp.diff(C5, v)/3) == 0)
+    if verbose and control == 0:
+        print("      e^{-2 b_B}:", {k: sp.simplify(gB_vr.coeff(k)) for k in range(1, 5)})
+    return bool(ok and chk.ok)
+
+
+def _b2_chart(control, verbose):
+    """the chart: the eikonal, angular and areal corrections, order by order (control 1: no eikonal correction)"""
     K = 6
     mu = sp.Function("mu")(v)
     p1, p2 = F("p", 1), F("p", 2)
@@ -461,7 +500,7 @@ def b2(control=0, verbose=False):
             cm = sp.solve(sp.Eq(c, 0), uk[m - 2])
             if len(cm) != 1:
                 chk(f"eikonal at s^{m} solvable", False)
-                return False
+                return False, None
             sol[uk[m - 2]] = sp.simplify(cm[0])
     C4, C5, C6, E4 = F("C", 4), F("C", 5), F("C", 6), F("E", 4)
     if control != 1:
@@ -480,7 +519,7 @@ def b2(control=0, verbose=False):
         cm = sp.solve(sp.Eq(c, 0), tk[m - 2])
         if len(cm) != 1:
             chk(f"angular transport at s^{m} solvable", False)
-            return False
+            return False, None
         sol[tk[m - 2]] = sp.simplify(cm[0])
     chk("ϑ_4 = -E4/2 - d_th C4/4", sp.simplify(sol[tk[4]] - (-E4/2 - sp.diff(C4, th)/4)) == 0)
     dtBs = [e.subs(sol) for e in dtB]
@@ -515,23 +554,14 @@ def b2(control=0, verbose=False):
         cm = sp.solve(sp.Eq(c, 0), rk[m])
         if len(cm) != 1:
             chk(f"areal equation at s^{m} solvable", False)
-            return False
+            return False, None
         sol[rk[m]] = sp.simplify(cm[0])
     F4, G4, H4 = F("F", 4), F("G", 4), F("H", 4)
     rho4 = (F4 + G4 + H4)/6 - sp.Rational(1, 3)*divergence(sol[tk[4]])   # the trace of G_4 and the angular shift's
     chk("rho_4 = (F4 + G4 + H4)/6 - (1/3) div ϑ_4", trig0(sol[rk[4]] - rho4))
     if verbose:
         print("      rho_4 =", sol[rk[4]])
-    # the Bondi functions from the pushed-forward inverse metric
-    rBs = rB.subs(sol)
-    e2P1 = (rBs*rBs*gi[3][3]*cs**2).inv()                    # 1/(r_B^2 cos^2 g^11), th_B = th + O(s^4)
-    chk("e^{2 P1_B} = 1 + O(s^3)", all(sp.simplify(e2P1.coeff(k) - (1 if k == 0 else 0)) == 0 for k in range(3)))
-    chk("the s^3 coefficient of e^{2 P1_B} is 2 p1", sp.simplify(e2P1.coeff(3) - 2*p1) == 0)
-    gB_vr = ginv(dvBs, [e.subs(sol) for e in drB])
-    chk("e^{-2 b_B} -> 1", sp.simplify(gB_vr.coeff(0) - 1) == 0)
-    if verbose:
-        print("      e^{-2 b_B}:", {k: sp.simplify(gB_vr.coeff(k)) for k in range(1, 5)})
-    return chk.ok
+    return chk.ok, dict(gi=gi, sol=sol, rB=rB, dvBs=dvBs, drB=drB, ginv=ginv, p1=p1, p2=p2)
 
 
 # ---------------------------------------------------------------------------------------------------------- B3
@@ -589,7 +619,8 @@ def b4(control=0):
 
 CHECKS = [("B1 the hierarchy in the class: b, U, W from R_rr, R_rth, R_vr; d_v a = 0; the mass law from R_vv at s^6",
            b1, 2),
-          ("B2 the chart: eikonal, angular and areal corrections order by order; the Bondi form; p_B = p", b2, 1),
+          ("B2 the chart: eikonal, angular and areal corrections order by order; the Bondi form; p_B = p, e^{-2b_B}",
+           b2, 3),
           ("B3 the Hawking mass of the Bondi spheres tends to the mean of the mass aspect", b3, 1),
           ("B4 the numerics' mean-mass offset is (2/9) lam^2 int env'^2 = 5 pi^2/108 lam^2 to 0.5 %", b4, 1)]
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """past5.py -- Theorem P (the construction from past null infinity): the exact facts its proof uses
-(N1STAR-PROOF.md section 9).  Labels: computed (exact, sympy).
+(N1STAR-PROOF.md section 9).  Labels: computed (exact, sympy; P7's cross-check by quadrature, mpmath).
 
 X = (tau, x) in R x R^4, r = |x|, v = tau + r, g0 = eta + (mu/r^2) dv dv, L0 = d_tau - xhat.d_x, box~ = g0^{ab} d_a d_b
 componentwise; t := 1 + tau0 - tau on the past region.  A profile is in E_p when it and its derivatives in X, under the
@@ -25,12 +25,28 @@ rotations and in th are O(r^-p) (section 9.2).
   P6 The rotations.  Omega = x1 d_2 - x2 d_1 annihilates v and r, commutes with L0 and with box~ (on any function).
      Control: the boost tau d_1 + x1 d_tau, a symmetry of eta and not of g0.
   P7 The flux at past null infinity.  With the record's free data, P1 = lam A E H (2 c^2 cos(v/lam) - s^2
-     sin(v/lam))/3, P2 = lam A E H (2 s^2 sin(v/lam) - c^2 cos(v/lam))/3 (the r^(3/2)-normalised wave), the sphere
-     mean of the flux density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2) (the normalisation of Proposition 2.3, whose phase
-     mean is mu') is exactly (2/9) A^2 [E^2 + lam^2 E'^2 - (E^2 - lam^2 E'^2) sin(2v/lam)/2 + lam E E' cos(2v/lam)];
-     its phase mean is (2/9) A^2 (E^2 + lam^2 E'^2), and its integral in v is (2/9) A^2 int (E^2 + lam^2 E'^2) plus
-     the boundary terms (2/9) A^2 ((lam/4) E^2 cos(2v/lam) + (lam^2/4) E E' sin(2v/lam)) plus the integral of
-     (2/9) A^2 (lam^2/4)(E'^2 - E E'') sin(2v/lam), which is O(lam^3).  Control: the two quadratures in phase.
+     sin(v/lam))/3, P2 = lam A E H (2 s^2 sin(v/lam) - c^2 cos(v/lam))/3 (the r^(3/2)-normalised wave; H^2 (c^4 + s^4)
+     = 1), the flux density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2) (the normalisation of Proposition 2.3, whose phase mean
+     is mu') is (4/9) A^2 H^2 (c^4 C^2 + s^4 S^2 - c^2 s^2 C S), C and S the v-derivatives of lam E cos(v/lam) and
+     lam E sin(v/lam).  (a) The S^3 moments, each integrated term by term over its partial fractions in z = cos 2th,
+     are <H^2 c^4> = <H^2 s^4> = 1/2 and <H^2 c^2 s^2> = pi/4 - 1/2.  (b) The quadratic form above.  (c) So the sphere
+     mean, the expanded density integrated one additive term at a time and again through the moments, is exactly
+     (2/9) A^2 [E^2 + lam^2 E'^2 + (1 - pi/2)(-(E^2 - lam^2 E'^2) sin(2v/lam)/2 + lam E E' cos(2v/lam))]: (9.10).
+     (d) mpmath quadrature in th on S^3's measure (30 digits; the wave differentiated in v for an explicit envelope,
+     at three points, one the readers' (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1)) agrees with it to 1e-20.  (e)
+     Its phase mean is (2/9) A^2 (E^2 + lam^2 E'^2), and its integral in v is (2/9) A^2 int (E^2 + lam^2 E'^2) plus
+     (1 - pi/2) times the boundary terms (2/9) A^2 ((lam/4) E^2 cos(2v/lam) + (lam^2/4) E E' sin(2v/lam)) and the
+     integral of (2/9) A^2 (lam^2/4)(E'^2 - E E'') sin(2v/lam), which is the v-derivative of a lam^3 term plus a lam^3
+     integrand.  (f) Pointwise, the density is (2/9) A^2 (E^2 + lam^2 E'^2) plus H^2 (c^4 - s^4) and H^2 c^2 s^2 times
+     v-derivatives of terms vanishing with E and E' and lam^2 integrands of O(lam^3) integral: after the shell the
+     aspect it integrates is th-independent to O(lam^3), so every mean of it there, a node mean included, is the
+     sphere mean (N1STAR-PROOF.md section 11.4).
+     [corrected D618: the first P7 integrated the expanded density over z at once; sympy 1.14.0 then drops the pi term
+     of <H^2 c^2 s^2>, returning -1/2, and P7 passed the first (9.10), whose oscillating coefficient was 1.]
+     Controls: (1) the two quadratures in phase; (2) the first (9.10)'s coefficient 1 for 1 - pi/2, which the
+     quadrature rejects; (3) the first P7's route, the expanded sum integrated at once: under sympy 1.14.0 it returns
+     the first (9.10), and the quadrature and the moments reject it (a sympy that integrates the sum correctly makes
+     this control pass, and the selftest says so); (4) the quadrature on the flat measure (2/pi) dth for S^3's.
 
   P8 The mollifier's commutator.  In the coordinates (tau, v, xhat) of the past slices, L0 = d_tau at fixed (v, xhat)
      and the radial part of box~ is -(1 + mu(v)/r^2) L0^2 - 2 d_v L0 + (3/r) d_v (d_v at fixed tau, r = v - tau),
@@ -164,7 +180,7 @@ def p7(control=0):
     E, Ep = sp.symbols("E Ep", real=True)                      # E(v) and E'(v), restored below
     ph = v/lam
     c2, s2 = (1 + z)/2, (1 - z)/2
-    H2 = 2/(1 + z**2)
+    H2 = 2/(1 + z**2)                                          # the record's H: H^2 (c^4 + s^4) = 1
 
     def dv(a, b):                                              # d_v of lam E (a cos + b sin)(v/lam), over A H
         return E*(b*sp.cos(ph) - a*sp.sin(ph)) + lam*Ep*(a*sp.cos(ph) + b*sp.sin(ph))
@@ -172,19 +188,94 @@ def p7(control=0):
     g = (1, 0)                                                 # G = cos(v/lam)
     P1v = dv(*[(2*c2*g[i] - s2*f[i])/3 for i in range(2)])
     P2v = dv(*[(2*s2*f[i] - c2*g[i])/3 for i in range(2)])
-    q = sp.Rational(4, 3)*A**2*H2*(P1v**2 + P1v*P2v + P2v**2)
-    # the S^3 mean: cos th sin th dth = -dz/4 on [0, pi/2], total 1/2, so the mean is (1/2) int_{-1}^{1} dz
-    mean = sp.integrate(sp.expand(q), (z, -1, 1))/2
+    q = sp.expand(sp.Rational(4, 3)*A**2*H2*(P1v**2 + P1v*P2v + P2v**2))
+    ok = {}
+
+    # the S^3 mean: cos th sin th dth = -dz/4 on [0, pi/2], total 1/2, so the mean is (1/2) int_{-1}^{1} dz, taken one
+    # additive term at a time (the first P7 integrated the expanded sum at once: sympy 1.14.0 drops its pi term)
+    def zmean(e):
+        return sum(sp.integrate(t, (z, -1, 1)) for t in sp.Add.make_args(sp.expand(e)))/2
+    if control == 3:
+        def zmean(e):                                          # noqa: F811 -- the first P7's route
+            return sp.integrate(sp.expand(e), (z, -1, 1))/2
+    # (a) the three angular moments, each integrated over its partial fractions in z
+    mom = [sum(sp.integrate(t, (z, -1, 1)) for t in sp.Add.make_args(sp.apart(sp.expand(H2*w), z)))/2
+           for w in (c2**2, s2**2, c2*s2)]
+    exact = (sp.Rational(1, 2), sp.Rational(1, 2), sp.pi/4 - sp.Rational(1, 2))
+    ok["a moments"] = all(sp.simplify(m - w) == 0 for m, w in zip(mom, exact))
+    # (b) the quadratic form: (4/3)(a^2 + ab + b^2) = (4/9) A^2 H^2 (c^4 C^2 + s^4 S^2 - c^2 s^2 C S), C and S the
+    # v-derivatives of lam E cos(v/lam) and lam E sin(v/lam)
+    Cv, Sv = dv(1, 0), dv(0, 1)
+    ok["b form"] = sp.simplify(q - sp.expand(sp.Rational(4, 9)*A**2*H2*(c2**2*Cv**2 + s2**2*Sv**2 - c2*s2*Cv*Sv))) == 0
+    # (c) the sphere mean, term by term, is the formula, and is the moments' route
+    mean = zmean(q)
     k = sp.Rational(2, 9)*A**2
-    want = k*(E**2 + lam**2*Ep**2 - (E**2 - lam**2*Ep**2)*sp.sin(2*ph)/2 + lam*E*Ep*sp.cos(2*ph))
-    ok = sp.simplify(sp.expand_trig(mean - want)) == 0
-    # its integral in v: k int (E^2 + lam^2 E'^2), the boundary terms k (lam/4) E^2 cos(2v/lam) + k (lam^2/4) E E'
-    # sin(2v/lam), and the integral of k (lam^2/4)(E'^2 - E E'') sin(2v/lam), which is O(lam^3)
+    kap = 1 if control == 2 else 1 - sp.pi/2                   # 1 - 2 <H^2 c^2 s^2>; control 2: the first (9.10)'s 1
+    osc = -(E**2 - lam**2*Ep**2)*sp.sin(2*ph)/2 + lam*E*Ep*sp.cos(2*ph)
+    want = k*(E**2 + lam**2*Ep**2 + kap*osc)
+    ok["c mean = (9.10)"] = sp.simplify(sp.expand_trig(mean - want)) == 0
+    momroute = sp.Rational(4, 9)*A**2*(mom[0]*Cv**2 + mom[1]*Sv**2 - mom[2]*Cv*Sv)
+    ok["c mean = moments"] = sp.simplify(sp.expand_trig(mean - momroute)) == 0
+    # (d) the cross-check by quadrature in th on S^3's measure 2 cos th sin th dth (control 4: the flat measure
+    # (2/pi) dth), with H = (c^4 + s^4)^(-1/2) and the wave differentiated in v for an explicit envelope: at the
+    # readers' point (lam, A, E, E', v) = (1/10, 13/10, 7/10, 2/5, 11/10) through a linear one, and at two more
+    import mpmath as mp
+    th = sp.Symbol("th", real=True)
+    c, sn = sp.cos(th), sp.sin(th)
+    Hth = (c**4 + sn**4)**sp.Rational(-1, 2)
+    trig = (sp.cos(ph), sp.sin(ph))
+    Fw, Gw = sum(f[i]*trig[i] for i in range(2)), sum(g[i]*trig[i] for i in range(2))
+    wavy = sp.exp(sp.sin(v)/2)*(2 + sp.cos(3*v))
+    pts = [({lam: sp.Rational(1, 10), A: sp.Rational(13, 10), v: sp.Rational(11, 10)},
+            sp.Rational(7, 10) + sp.Rational(2, 5)*(v - sp.Rational(11, 10))),
+           ({lam: sp.Rational(37, 100), A: sp.Rational(4, 5), v: sp.Rational(-3, 10)}, wavy),
+           ({lam: sp.Rational(1, 7), A: sp.Integer(2), v: sp.Rational(5, 2)}, wavy)]
+    dev, first = [], None
+    with mp.workdps(30):
+        wq = (lambda t: 2/mp.pi) if control == 4 else (lambda t: 2*mp.cos(t)*mp.sin(t))
+        for pt, env in pts:
+            P1 = lam*A*env*Hth*(2*c**2*Gw - sn**2*Fw)/3
+            P2 = lam*A*env*Hth*(2*sn**2*Fw - c**2*Gw)/3
+            dens = sp.Rational(4, 3)*(sp.diff(P1, v)**2 + sp.diff(P1, v)*sp.diff(P2, v) + sp.diff(P2, v)**2)
+            fq = sp.lambdify(th, dens.subs(pt), "mpmath")
+            quad = mp.quad(lambda t: fq(t)*wq(t), [0, mp.pi/4, mp.pi/2])
+            ev = {E: env.subs(v, pt[v]), Ep: sp.diff(env, v).subs(v, pt[v]), **pt}
+            dev += [abs(quad - mp.mpf(sp.N(mean.subs(ev), 40))), abs(quad - mp.mpf(sp.N(want.subs(ev), 40)))]
+            if first is None:
+                first = (mp.nstr(quad, 12), mp.nstr(mp.mpf(sp.N(want.subs(ev), 40)), 12),
+                         mp.nstr(mp.mpf(sp.N((k*(E**2 + lam**2*Ep**2 + osc)).subs(ev), 40)), 12))
+        devmax = mp.nstr(max(dev), 3)
+    ok["d quadrature"] = max(dev) < 1e-20
+    # (e) its integral in v: k int (E^2 + lam^2 E'^2) plus kap times the boundary terms k (lam/4) E^2 cos(2v/lam) + k
+    # (lam^2/4) E E' sin(2v/lam) and the integral of k (lam^2/4)(E'^2 - E E'') sin(2v/lam); that integrand is the
+    # v-derivative of -k (lam^3/8)(E'^2 - E E'') cos(2v/lam) plus k (lam^3/8)(E'^2 - E E'')' cos(2v/lam): O(lam^3)
     meanf = mean.subs({E: Ef, Ep: sp.diff(Ef, v)})
     bound = k*(lam/4*Ef**2*sp.cos(2*ph) + lam**2/4*Ef*sp.diff(Ef, v)*sp.sin(2*ph))
-    rest = k*lam**2/4*(sp.diff(Ef, v)**2 - Ef*sp.diff(Ef, v, 2))*sp.sin(2*ph)
-    ok &= sp.simplify(sp.expand(meanf - k*(Ef**2 + lam**2*sp.diff(Ef, v)**2) - sp.diff(bound, v) - rest)) == 0
-    return bool(ok)
+    gg = sp.diff(Ef, v)**2 - Ef*sp.diff(Ef, v, 2)
+    rest = k*lam**2/4*gg*sp.sin(2*ph)
+    ok["e integral"] = sp.simplify(sp.expand(meanf - k*(Ef**2 + lam**2*sp.diff(Ef, v)**2) - kap*sp.diff(bound, v)
+                                             - kap*rest)) == 0
+    ok["e lam^3"] = sp.simplify(sp.expand(rest - sp.diff(-k*lam**3/8*gg*sp.cos(2*ph), v)
+                                          - k*lam**3/8*sp.diff(gg, v)*sp.cos(2*ph))) == 0
+    # (f) pointwise: q = k (E^2 + lam^2 E'^2) + k H^2 ((c^4 - s^4) (B1' + (lam^2/2) gg cos(2v/lam)) - 2 c^2 s^2 (B2'
+    # + (lam^2/4) gg sin(2v/lam))), B1 = -(lam/2) E^2 sin(2v/lam) + (lam^2/2) E E' cos(2v/lam), B2 = bound/k: after
+    # the shell (E = E' = 0) the aspect is th-independent to O(lam^3), so every mean of it is the sphere mean there
+    qf = q.subs({E: Ef, Ep: sp.diff(Ef, v)})
+    B1 = -lam/2*Ef**2*sp.sin(2*ph) + lam**2/2*Ef*sp.diff(Ef, v)*sp.cos(2*ph)
+    point = k*(Ef**2 + lam**2*sp.diff(Ef, v)**2) + k*H2*((c2**2 - s2**2)*(sp.diff(B1, v) + lam**2/2*gg*sp.cos(2*ph))
+                                                         - 2*c2*s2*(sp.diff(bound/k, v) + lam**2/4*gg*sp.sin(2*ph)))
+    ok["f pointwise"] = sp.simplify(sp.expand(qf - sp.expand(point))) == 0
+    if control == 0:
+        print("      P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = %s (term by term, partial fractions in z)"
+              % ", ".join(str(sp.simplify(m)) for m in mom))
+        print("      P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = %.10f; quadrature on S^3 at three "
+              "points:\n      max deviation %s at 30 digits (tolerance 1e-20)" % (float(1 - sp.pi/2), devmax))
+        print("      P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature %s, (9.10) %s, the first "
+              "(9.10) %s" % first)
+        print("      P7: checks " + ", ".join(f"{a} {b}" for a, b in ok.items()), flush=True)
+    else:
+        print("      P7 control %d: failing checks %s" % (control, [a for a, b in ok.items() if not b]), flush=True)
+    return bool(all(ok.values()))
 
 
 def p8(control=0):
@@ -230,7 +321,7 @@ CHECKS = [("P1 the outer boundary of the past domain is spacelike, margin (kappa
           ("P4 the transport from past null infinity: r^-p source, p > 5/2, gives r^(1-p); a log at 5/2", p4, 1),
           ("P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2", p5, 1),
           ("P6 the rotations annihilate v and r and commute with L0 and box~", p6, 1),
-          ("P7 the sphere-mean flux of the record's radiation field, and its integral in v", p7, 1),
+          ("P7 the sphere-mean flux of the record's radiation field (term by term; quadrature), its v-integral", p7, 4),
           ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 2)]
 
 

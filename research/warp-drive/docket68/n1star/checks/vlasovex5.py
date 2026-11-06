@@ -154,8 +154,7 @@ def family_margins(ws, mu, tilt=0.0, focus=None, enlarge=1.2, ng=9, nst=600):
     axis = float(np.min(np.where(alive, np.minimum(th, math.pi / 2 - th), np.inf)))
     last = alive.sum(axis=0) - 1
     rexit = np.take_along_axis(r, last[None], axis=0)[0]
-    left_out = float(np.mean(rexit > 0.5 * (A_IN + b_out(0)) - 2))
-    return Jmin, Jneg, axis, rexit, left_out
+    return Jmin, Jneg, axis, rexit
 
 
 def b_label(ws):
@@ -171,21 +170,21 @@ def x2():
     I2 = np.linspace(math.pi - 0.5, math.pi + 0.5, 81)
     res = {}
     for nm, I in (('I1', I1), ('I2', I2)):
-        Jmin, Jneg, axis, rexit, lo = family_margins(I, MU)
+        Jmin, Jneg, axis, rexit = family_margins(I, MU)
         res[nm] = (Jmin, Jneg, axis, float(rexit.min()), float(rexit.max()), b_label(I))
         print("   %s: least Jacobian on the tubes' neighbourhood %.4f > 0 (no sign change: %s); least axis distance "
               "%.4f (delta = %.4f); exit radii in [%.3f, %.3f]; least d beta0/d w on B = %.4f" %
               (nm, Jmin, not Jneg, axis, axis / 2, res[nm][3], res[nm][4], res[nm][5]))
-    out_ok = res['I1'][3] > 2.5 or res['I2'][4] < 1.0
-    dirs = res['I1'][3] > 2.0 and res['I2'][4] <= A_IN + 0.05            # I1 outward, I2 inward through r = a
-    if not dirs:
-        dirs = res['I2'][3] > 2.0 and res['I1'][4] <= A_IN + 0.05
-    ok = all(res[k][0] > 0 and not res[k][1] and res[k][2] > 0 and res[k][5] > 0 for k in res) and dirs and out_ok
-    # control: a focusing family
-    Jf, Jfneg, _, _, _ = family_margins(np.array([0.0]), MU, focus=(RC + DR + 1.0, TH_C))
+    out_nm = 'I1' if res['I1'][3] > RC else 'I2'
+    in_nm = 'I2' if out_nm == 'I1' else 'I1'
+    dirs = res[out_nm][3] > RC and res[in_nm][4] < A_IN + 0.05             # out through r = b, in through r = a
+    ok = all(res[k][0] > 0 and not res[k][1] and res[k][2] > 0 and res[k][5] > 0 for k in res) and dirs
+    # control: a focusing family, its focus at distance 1 ahead in the direction the outgoing rays move
+    sgn = 1.0 if out_nm == 'I1' else -1.0
+    Jf, Jfneg, _, _ = family_margins(np.array([0.0]), MU, focus=(RC + sgn * (DR + 1.0), TH_C))
     ctl = Jfneg
-    print("   one interval outgoing (leaves through r = b), the other ingoing (through r = a): %s; control: a family "
-          "focused at distance 1 ahead has a Jacobian changing sign (least %.4f; rejected): %s" % (dirs, Jf, ctl))
+    print("   %s outgoing (leaves through r = b), %s ingoing (through r = a): %s; control: a family focused at "
+          "distance 1 ahead has a Jacobian changing sign (least %.4f; rejected): %s" % (out_nm, in_nm, dirs, Jf, ctl))
     return ok and ctl, res
 
 
@@ -193,7 +192,7 @@ def x3(res0):
     print("X3 (computed) openness, illustrated: a nearby metric (mu = 1.05) and tilted directions")
     ok = True
     for nm, I in (('I1', np.linspace(-0.5, 0.5, 41)), ('I2', np.linspace(math.pi - 0.5, math.pi + 0.5, 41))):
-        Jmin, Jneg, axis, rexit, _ = family_margins(I, 1.05, tilt=0.05)
+        Jmin, Jneg, axis, rexit = family_margins(I, 1.05, tilt=0.05)
         bl = b_label(I)
         J0, _, ax0, _, _, b0 = res0[nm]
         print("   %s: least Jacobian %.4f (was %.4f), axis distance %.4f (was %.4f), d beta0/d w %.4f (was %.4f): all "
