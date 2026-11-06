@@ -17,7 +17,7 @@ settling development are related through their common data on a ball. (VII5): th
 III-IV made O(4)-equivariant, which is possible (Lemma 3.1): cut-offs and gauge 1-forms are radial, and linear maps and
 families given by existence statements are averaged. The inputs are III.K Theorem 4.3, Part V's gluing lemmas, VI.C
 Theorem 2.1, II.G Theorem 2.1, and from the record sections 0-2, 10.50 (a) and the dependence of Theorem E on its order
-(written out in Lemma 1.1). Amended D608-D609 and D621 (Lemma 3.1); read (D621): holds; record in section 6.
+(written out in Lemma 1.1). Amended D608-D609, D621, D626 (Lemma 3.1); read (D621, D626): holds; record in section 6.
 
 ## 0. Setting and statement
 
@@ -308,16 +308,20 @@ states and towers of III.G$''$ Table 1.1, as linear maps of the coefficient spac
 PART-III-J-PARAM.md:225-227). Each is a linear map $L:V\to\mathcal T$ from an $O(4)$-representation into tensors. Its
 conditions are linear in $L$ [amended D621: affine, for the towers and the solution operators: the towers' leading terms
 ($d(|x|S)$ for s1, $V$ and $(1+\frac25\gamma_\Upsilon)|x|V$ for v1; PART-III-D4-GENSTATES.md Proposition 3.1,
-PART-III-I5-UNBOOST.md:63-68) and the operators' right sides are prescribed by $O(4)$-equivariant data, so an average of
-solutions is one] and $O(4)$-invariant: equations with natural operators of $g_{b_0}$, and asymptotic or support
-conditions at faces fixed by $O(4)$. So $L^{O(4)} := \int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them,
-with the same bounds. The 1-form towers are averaged once, and Table 1.1's towers at $b_0$ [amended D621: those of the
-types of $\mathcal T$, PART-III-I11-SPACETIME.md Lemma 2.1 (b) and, for v1, PART-III-D4-GENSTATES.md (3); Table 1.1's
-other rows, the physical ones at $\mu = -2$ and the pure-gauge ones outside $\mathcal T$, are not $\delta^*$-images and
-are averaged as the maps of $\mathcal Y_\tau$ above] are taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms, as they
-are of the unaveraged ones (PART-III-I11-SPACETIME.md Lemma 2.1 (b), PART-III-G3-GRAFT.md:63): $\delta^*_{g_{b_0}}$ is
-natural, so it commutes with the average, and one averaged choice serves both names (D608; the commutation with rotations
-and reflections computed exactly, `checks/vii5read.py` Q3).
+PART-III-I5-UNBOOST.md:63-68) [amended D626: and, for instance, $\chi_\partial\bar W$ for s0 and the model
+$\bar\omega(Y)$ for s2, c0, c1, PART-III-D4-GENSTATES.md Proposition 3.1 (1), (4)-(7)] and the operators' right sides are
+prescribed by $O(4)$-equivariant data, so an average of solutions is one] and $O(4)$-invariant: equations with natural
+operators of $g_{b_0}$, and asymptotic or support conditions at faces fixed by $O(4)$. So $L^{O(4)} :=
+\int_{O(4)}\sigma_*\circ L\circ\sigma^{-1}\,d\sigma$ meets them, with the same bounds. The 1-form towers are averaged
+once, and Table 1.1's towers at $b_0$ [amended D621: those of the types of $\mathcal T$, PART-III-I11-SPACETIME.md Lemma
+2.1 (b) and, for v1, PART-III-D4-GENSTATES.md (3); Table 1.1's other rows, the physical ones at $\mu = -2$ and the
+pure-gauge ones outside $\mathcal T$, are not $\delta^*$-images and are averaged as the maps of $\mathcal Y_\tau$ above]
+[amended D626: the pure-gauge ones outside $\mathcal T$ are $\delta^*\omega^{(\mu-1)}_b$ (PART-III-G3-GRAFT.md:62-63),
+images of 1-forms that (C3) does not name; only the physical rows are not $\delta^*$-images; both are averaged as the
+maps of $\mathcal Y_\tau$] are taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms, as they are of the unaveraged ones
+(PART-III-I11-SPACETIME.md Lemma 2.1 (b), PART-III-G3-GRAFT.md:63): $\delta^*_{g_{b_0}}$ is natural, so it commutes with
+the average, and one averaged choice serves both names (D608; the commutation with rotations and reflections computed
+exactly, `checks/vii5read.py` Q3).
 
 (C3$'$) *Families in $b$:* the towers and states at $b$ used in $h_{b,\mathrm{rem}}(q)$, namely $T_{\rho,b}$,
 $h^{\le1}_{b,\mathrm s1}$, $h_{b,\mathrm v1}$ and $h^{\le2}_{b,\mathrm v1}$, chosen smooth in $b$ by
@@ -334,12 +338,15 @@ small $U\in\mathcal D_{\mathrm{ex}}$, $\Phi(\sigma\cdot U) = \sigma\cdot\Phi(U)$
 and $P_5(\Psi(\sigma\cdot U)) = \sigma_*P_5(\Psi(U))$. The proofs of Parts III-IV use the objects of (C3) and (C3$'$)
 only through the conditions stated at the sites listed, so the averaged choices are admissible: read at every use a
 literal census finds, 577 lines [amended D621: 632 lines since the census was widened by the towers' other spellings,
-none using more] (finding (VII5); `checks/VII5-READING.tsv`, `checks/vii5read.py`). Three properties used there are not
-themselves linear conditions, and each is kept. The s1 and v1 states are unique given their conditions ($P_b$ is
-injective at the weights in the gap; III.D$''$), so the average is the choice. The bijectivity of III.G$''$ Lemma 1.2
-(PART-III-G3-GRAFT.md:230, PART-III-I13-EXPANSION.md:175) is a statement about leading terms, which are prescribed by
-$O(4)$-equivariant maps onto kernels split by harmonic, and which the average keeps. The isotypic type of each
-construction (PART-III-I11-SPACETIME.md:232-235) is that of an equivariant map (Schur).
+none using more] [amended D626: the D621 widening added seven spellings, not all of them; widened again to every spelling
+of the 1-form towers at $b_0$ and in $b$, a completeness check over every spelling of $\omega$ in Parts III-IV, and to
+symbols printed across a line break, the census finds 713 lines, none using more] (finding (VII5);
+`checks/VII5-READING.tsv`, `checks/vii5read.py`). Three properties used there are not themselves linear conditions, and
+each is kept. The s1 and v1 states are unique given their conditions ($P_b$ is injective at the weights in the gap;
+III.D$''$), so the average is the choice. The bijectivity of III.G$''$ Lemma 1.2 (PART-III-G3-GRAFT.md:230,
+PART-III-I13-EXPANSION.md:175) is a statement about leading terms, which are prescribed by $O(4)$-equivariant maps onto
+kernels split by harmonic, and which the average keeps. The isotypic type of each construction
+(PART-III-I11-SPACETIME.md:232-235) is that of an equivariant map (Schur).
 
 *Proof.* By induction along the definitions; each object is natural, given (C1)-(C4) and (C3$'$).
 
@@ -505,11 +512,15 @@ object spelt the same, none uses more. [amended D621: the census missed the towe
 $\omega^{\le k}_\tau$, $\omega^{\le4}$, $\omega^{\le1}_\natural$, $\omega^{(0)}_{b_0,\mathrm s0}$,
 $\omega^{(-1)}_{b_0,\mathrm v1}$ and $\omega^{(0)}_{b_0,\mathrm s1}$ (an independent reader's m2). Widened, it finds 632
 lines, the 55 new ones read at D621: 343 use only the site's conditions, 205 only name the object, 79 name another object
-spelt the same, none uses more.] Five were undecided, and all three readers found the reason: the proofs use the 1-form
-towers $\breve\omega^i_\tau$ of every type themselves (in $m_\nu$), and (C3) named 1-forms only for s1. (C3) now names
-them, with Table 1.1's towers taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms. Every other ingredient is natural or
-the unique solution of a natural problem. III.C$''$ Proposition 4.1's data and the boosts $\phi_S$ are among the natural
-ones.
+spelt the same, none uses more.] [amended D626: that widening added seven spellings of the towers, not all of them (a
+second reader's N2). Widened again, to every spelling of the 1-form towers at $b_0$ and in $b$ (twenty-four symbols;
+`checks/vii5census.py` V2 checks that every other spelling of $\omega$ in Parts III-IV is excluded with a reason) and to
+symbols printed across a line break, it finds 713 lines, the 81 new ones read at D626: 375 use only the site's
+conditions, 246 only name the object, 87 name another object spelt the same, none uses more.] Five were undecided, and
+all three readers found the reason: the proofs use the 1-form towers $\breve\omega^i_\tau$ of every type themselves (in
+$m_\nu$), and (C3) named 1-forms only for s1. (C3) now names them, with Table 1.1's towers taken as $\delta^*_{g_{b_0}}$
+of the averaged 1-forms. Every other ingredient is natural or the unique solution of a natural problem. III.C$''$
+Proposition 4.1's data and the boosts $\phi_S$ are among the natural ones.
 
 (VII6) *Part V in the class.* Proposition 2.2 adds to Part V's proof the equivariance of its Step 1, a one-dimensional
 obstruction, and an a priori bound $|m-\bar\mu|\le C\eta$ from the flux identity. The bound makes the glued data
@@ -539,3 +550,9 @@ census widened by seven spellings of the towers, 632 lines, the 55 new ones read
 against the Christoffel-free formula $\delta^*w = \frac12\mathcal L_{w^\sharp}g$ and a hand value, and Q4 reads (C3)
 and the counts printed here and in (VII5); m4, the conditions affine, not linear; and three nits, at (C1) ($\chi_-$ in
 III.K section 2), (C3) ($h_\nu$) and Proposition 3.2 ($B^{\infty,G}_\eta$).
+
+*D626.* An independent verifier read D621's seating: m1, m3, m4 and the nits hold. Its findings are seated (D626): the
+census of m2 covered seven further spellings of the towers, not all of them, and is widened to every spelling of the
+1-form towers at $b_0$ and in $b$ and to symbols printed across a line break, 713 lines, the 81 new ones read, none
+using more (`checks/vii5census.py` V1-V2, `checks/vii5read.py` Q1-Q4); in (C3), the pure-gauge rows outside $\mathcal
+T$ are $\delta^*$-images of 1-forms (C3) does not name, and m4's list of prescribed leading terms is completed.

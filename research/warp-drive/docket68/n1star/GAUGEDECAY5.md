@@ -3,6 +3,9 @@
 *Status.* Written (this note). Not verified by a second reader. Labels as in the supplement: *computed* (a program in
 `checks/` with its `.out`, exact unless said otherwise, each with a negative control that fails), *deduced* (argument
 written out here), *READ* (verbatim, with identifier and page, read at source).
+[R9 (A101): "Not verified by a second reader" is stale. Every round has since been read by an independent verifier, its
+findings seated in the next round (round 1: R2.V; rounds 2-3: R4.c; rounds 4-5: R6.g; round 6: R7.0; round 7: R8.0;
+round 8: R9.0); round 9 is not yet read. The results are deduced; R9.d lists what each needs to be labelled proved.]
 
 *The item.* Part VIII (`proof5/PART-VIII-LINEAR.md`, Theorem 2.2, Corollary 2.3) proves that in the class every
 linearised data set has a development $\dot g$ in the gauge of the nonlinear problem which settles to a change of mass,
@@ -3761,6 +3764,8 @@ under load). Round 7's `checks/gdtail5.py` is repaired as that verifier asks and
 7: *computed*, *deduced*, READ, standard. Readings add I.A for `PART-I-SPECTRAL.md`, I.C for `PART-I-C-LOWENERGY.md`,
 III.A$'$ for `PART-III-A2-HARMONICS.md`, III.D for `PART-III-D-GAUGEPOT.md` and III.D$'$ for
 `PART-III-D2-ZEROENERGY.md` to round 7's, all under `proof5/`. Section headings are lettered (R8.0, R8.a-R8.h).
+[R9: round 8 has been read by an independent verifier: no Major, every claim holds (R9.0). "Every check has a control
+that mutates the computed path" was not true of L6's and L9's controls (its Minor 8); they do now ((A95)).]
 
 *The result, in one paragraph.*
 - **(M) is proved** (Corollary R8.9). On the 1-forms with no $l = 0$ and no $l = 1$ part (the $l\ge2$ subspace; the
@@ -3776,6 +3781,8 @@ III.A$'$ for `PART-III-A2-HARMONICS.md`, III.D for `PART-III-D-GAUGEPOT.md` and 
   harmonic-gauge representative is $O(t_*^{-\alpha})$ on compact sets for every $\alpha<\frac32+\delta_\sharp$. The
   window $\gamma_+-\alpha_K$ now runs in $(-1,0)$, and Theorem R6.4 carries over on the subspace with no column and no
   singular part.
+  [R9 (A97): literally true of its conclusion only. Its first clause is proved as Theorem R8.10 states it, for
+  $\alpha_K\in(1,2)$ with the window in $(-1,0)$; the rest is not needed and not claimed.]
 - **The representative** (Corollary R8.12). For every perturbation in the class it settles to $\dot\mu K^*+c\,
   \mathcal L_{W^*}g$ at $t_*^{-\alpha}$ for every $\alpha<\min(p_0,\frac32)$, $p_0>\frac12+2\gamma_\Upsilon$; for the
   data of the paper's settling statement at $t_*^{-1+\epsilon}$; for data with compact support at $t_*^{-3/2-\kappa}$ for
@@ -3815,6 +3822,8 @@ $\hat P$, do not apply there with any augmentation. Whether some other uniform e
 nothing uses it. On all 1-forms (outside the class) the kernel at those weights also contains the four $l = 1$ forms
 $d(\phi_1S)$, $S\in\mathcal S_1$, $\phi_1$ the horizon-regular solution of $(r^3f\phi')' = 3r\phi$, which grows like
 $r$: L3's identity forbids its decay, and L5's control shows that those weights do not exclude it.
+[R9 (A91), (A100): "(computed, L8's control)" above holds for the ztf condition only; the sctf membership is deduced,
+its inputs computed in N8. The four $l = 1$ forms and the index counts are computed in N2, N5 and N6.]
 
 (A72) *Major 2, texts (1) and (3) of R7.e* (lines 3564, 3612). Old: "it settles at t_*^(-p+eps), p > 1/2 + 2 gamma_Ups
 the order of those data" [R8: Corollary R7.6 proves $t_*^{-\alpha}$ for $\alpha<\min(p,\frac32)$ only]. Re-derived: for
@@ -3842,6 +3851,8 @@ for the 2+1 wave (READ, `paper/RESPONSE-HL-5D.md`:22, 182 and 167). Accepted: R8
 hole's mass ($m = r_h^2$) and $\varpi := mW^*-(\partial_v)^\flat$ for $d\psi$; the supplement's texts write varpi too.
 Text (5) called $w_I$ the initial-surface weight [R8: it is the weight at null infinity, $\mathscr I^+$]. Text (3)'s
 old text is at lines 805-810, not 805-811.
+[R9 (A89): text (3) writes $r_h^2$ for the hole's mass, not $m$. (A88): the paper's $\varpi$ is taken, so R9.h writes
+$\varpi_K$.]
 
 (A76) *Lemma R7.2, the display* (line 3248). Old: "$a(t,r) := r^{-2}H(t)+K(t-r,r) = \frac t{r^2\sqrt{t^2-r^2}}
 H(t-r)$" [R8: read $r^{-2}H(t-r)$; with $H(t)$ the identity fails on $0<t<r$, where the switched-on field vanishes by
@@ -3900,6 +3911,9 @@ T4 reads $A$ off the kernel near compact sets and checks $T^2A\to\frac12$: the m
 checks that $K$ obeys the flat relation and not the Tangherlini one, and that $E[K]$ equals the flat-reduced $E$ and not
 the Tangherlini-reduced one: the mutant reduced by the Tangherlini operator now dies. T12 is new ((A78)). The surviving
 mutant $d\psi\to du+(1+\frac\mu{r(r+s)})dr$ is harmless, that form being harmonic too.
+[R9 (A92): half true. The mutant at the reduction dies; the mutant at T3's point of use survived, the orders not
+depending on the reduction. T3 now also asserts that no undifferentiated $\chi$ or $A$ term remains, and that mutant
+dies.]
 
 (A85) *R7.d and R7.e.* R7.d item 1 is discharged (Corollary R8.9). R7.e's replacement texts (1)-(8) are superseded by
 R8.h's, which seat Majors 2-5.
@@ -3950,6 +3964,8 @@ $e_1\wedge e_2$, $e_3\wedge e_4$ are reversed by the reflections), so $\Pi_{\mat
 the class 1-forms with no $l = 0$ part, which carry only even $l\ge2$ and only the scalar type (Lemma 1.2 (a), (c)).
 Below $\Pi$ is either projection, and $h$ is an $O(4)$-invariant fibre inner product with $H_0 = \mathrm{Id}$ in I.A's
 frame (average any admissible choice over $O(4)$, as R2.1 does over $SO(4)$).
+[R9 (A100): the ranks, the $G$-fixed statements and $\Pi_{\mathrm{cl}} = \Pi_G(1-\Pi_0)$ are computed on a finite model
+in N1.]
 
 **Lemma R8.2 (the projections; deduced, computed L7).** (a) $\Pi$ is a projection; it commutes with $\hat P(\sigma)$,
 $\hat P(\sigma)^{*h}$, multiplication by functions of $r$, $\rho\partial_\rho$, the dilations $S_\varsigma$,
@@ -3984,6 +4000,9 @@ R^4$, of types $(0,0)\oplus(\frac12,\frac12)$, which $\mathrm{ran}\,\Pi$ does no
 $\Pi_{\mathrm{cl}}$ directly: $G$ contains each reflection $x_i\mapsto-x_i$, so a class 1-form's spatial Cartesian
 components are odd, and its time component's mean is its $l = 0$ part. L7 computes the means on the class forms $S\,dv$,
 $S\,dr$, $dS$, $l = 2,4$, and the $G$-average of $\mathbb R^4$. $\square$
+[R9 (A100): (a), (c), (d) and the commutations are computed on a finite model of the $O(4)$ action, with the Killing
+property, in N1; (b)'s boundedness on the infinite-dimensional spaces and the averaged $h$ are written out in R9.b
+(F1).]
 
 ### R8.b (G): the zero-energy operator by type
 
@@ -4015,6 +4034,8 @@ III.B (3.6)), which conjugates $I(\lambda)$ by $\Theta(0,\cdot)$ (the $O(\rho)$ 
 \rho\,\mathrm{Diff}^2_b$; I.C Lemma 5.6 for the constant part) and does not move the roots. L2 computes the determinants
 with $a,b\sim r^{-\lambda}$, $c\sim r^{1-\lambda}$, $\psi\sim r^{1-\lambda}$. (c) $\mathrm{ran}\,\Pi_\partial$ is the
 closed sum of the blocks of type $l\ge2$ (for $\Pi_{\mathrm{cl}}$: scalar, even $l\ge2$). $\square$
+[R9 (A93): L2's gap test now reads the roots of the computed determinants, each checked to be a root (the verifier's
+Minor 6).]
 
 ### R8.c (Z): the kernel and the cokernel
 
@@ -4053,6 +4074,8 @@ control: at $l = 1$ it fails). So $c = O(r^{-l-2})$ and (a)'s identity gives $c 
 *(d) Inside the horizon.* III.D Proposition 6.2 (d)'s argument, which uses only that $u$ is smooth across $r_h$, solves
 $\hat P(0)u = 0$ and vanishes on $r>r_h$ (as III.D$'$ Lemma 2.1 (2) (d) applies it at $\sigma = 0$), gives $u = 0$ on
 $(r_0,r_h)$. $\square$
+[R9 (A100): (d)'s Frobenius input, integer exponents at $r_h$, is computed in N4. The lemma has a second route at every
+$l$, by explicit hypergeometric solutions, in N2-N3 (R9.c).]
 
 *The cross-check* (L6, exact, not using (a)-(c)). For $l = 2,4,6,8$ the system (R8.1) has three polynomial solutions;
 at the horizon its formal power-series solutions are parametrised by $(a'(r_h),b(r_h),c(r_h))$ (order $k$ of the
@@ -4061,6 +4084,8 @@ and the three polynomials realise those jets; they grow like $r^{l-1}$, $r^l$, $
 combination grows more slowly than $r$. At $l = 2$ the three are $d((r^2-\frac{\mu_0}2)S)$ (Lemma R2.0's $d\phi_2$), the
 electrostatic solution $(r^2-\mu_0)S\,dv-r^2S\,dr$ and $-4r^3S\,dr+r^4dS$. Its control: at $l = 0$, $W^*$ and
 $(\partial_v)^\flat$ are horizon-smooth solutions growing more slowly than $r$.
+[R9 (A98) (iv), (A95): for $l = 2,4,6,8$ only, as the method needs polynomial solutions, which odd $l$ lacks (R9.c).
+L6's control did not run L6's path; it does now. N2 is the cross-check at every $l$.]
 
 **Proposition R8.5 ((Z) on the subspace; deduced).** Let $\Pi\in\{\Pi_{\ge2},\Pi_{\mathrm{cl}}\}$. (a) For every
 $\alpha$ with $\alpha+2\in(-1,0)\cup(0,2)$, $\hat P(0):\mathcal X_0\cap\mathrm{ran}\,\Pi\to\mathcal Y_0\cap\mathrm{ran}\,
@@ -4114,6 +4139,8 @@ r^{q-2}L^2(\mu_b)$ iff $\ell+q\ge0$, an adjoint one outside $\hat r^{-q}L^2(\mu_
 On all 1-forms (iii) fails at every $\beta\in(-1,0)$: at $\ell = 0$ the condition is $q>2$, which holds (L8's control).
 So III.D Lemma 7.1's interval $(0,2)$ is sharp at its lower end too, and I.C's route at negative weights needs the
 restriction.
+[R9 (A91): "L8's control" computes the ztf condition $q>2$ only; the sctf half is deduced, with its inputs computed in
+N8. (A98) (vii): L8 now also checks $\ell = 1$.]
 
 ### R8.e I.C on the subspace, and (M)
 
@@ -4163,6 +4190,9 @@ Fredholm of index 0 (it is a direct summand of $J$), so it fails to be invertibl
 as there. In Lemmas 2.6-2.7 the Mellin transform of $v = \Pi v$ takes values in $\mathrm{ran}\,\Pi_\partial$, the
 cut-offs are functions of $t$, $N(L)$ commutes with $\Pi$, and the proofs use $J(\lambda)^{-1}$ only on $\mathcal Mv$ and
 $\mathcal M(N(L)\chi v)$, both in $\mathrm{ran}\,\Pi_\partial$, where the restricted inverse replaces it. $\square$
+[R9 (A94): "Fredholm of index 0 (it is a direct summand of $J$)" is not a reason; a direct summand of an index-0
+operator can have any index. The restriction is an isomorphism composed with $\mathrm{Id}$ plus a compact operator,
+hence of index 0: R9.a.]
 Every use of the gap in I.C's proofs of Theorem 3.1, Theorem 4.3, Corollary 5.2 and Theorem 6.4 is one of these lemmas
 applied to an element of $\mathrm{ran}\,\Pi$: Lemma 2.6 at $c = \alpha+2$ to $\tilde\chi_\partial u$ and at $c =
 -\alpha$ to the adjoint's $v$ (I.C section 3.1); Lemma 2.7 for kernels and annihilators (sections 3.2-3.3); Lemmas
@@ -4234,6 +4264,9 @@ Every condition used is a positive sum on the whole box (L9, nineteen conditions
 (1,\frac32)$ and $(\frac32,\frac32+\delta_\sharp)$; its control, the full bundle's window $\gamma_+-\alpha_K\in(0,1)$,
 fails there). Where Theorem R6.4 needed $\gamma_+>\alpha_K$, the window's lower end $0$ being the root of $W^*$ and of
 the constants, here $\gamma_+-\alpha_K>-1$ suffices.
+[R9 (A96), (A98) (ix), (A95): L9 now encodes $w_I$, $\epsilon$, $\epsilon_1$ and $\epsilon_{\mathrm{PP}}$ with the
+weight hypotheses of the results cited (28 conditions), on three sub-boxes including $\alpha_K = \frac32$; its control
+runs them with the full bundle's gap.]
 
 **Corollary R8.11 (Proposition R7.8 (a), proved; deduced, computed L9).** Let $\dot g_H$ be Corollary R4.4's
 representative. For every $\alpha<\frac32+\delta_\sharp$, on each $\{r_0<r\le R',\ t_*\ge T'\}$ with every number of
@@ -4251,6 +4284,7 @@ $[\Box,\chi']Y\in H^{\infty,(N,b_++2,N)}_{\mathrm b}$ and $b_+>\gamma_+$ (S6); $
 classes. Theorem R8.10 gives $\Pi_{\mathrm{cl}}(\chi'Y) = O(t_*^{-\alpha_K})$ on compact sets with every derivative. At
 late times on compact sets $\chi' = \chi(t^\flat_*) = \chi_K = 1$, so $Z_{1,\ge2} = \Pi_{\mathrm{cl}}(\chi'Y)$, and
 $(\dot g_H)_{\ge2} = h_{\ge2}+\mathcal L_{Z_{1,\ge2}}g$ with $|h|_k = O(t_*^{-w+\epsilon'})$ ((0.2); R7.b). $\square$
+[R9 (A100): the step $(\mathcal L_Zg)_{\ge2} = \mathcal L_{Z_{\ge2}}g$ is computed in N7.]
 
 **Corollary R8.12 (the harmonic-gauge representative; deduced, computed L10).** Let $\dot g_H$ be Corollary R4.4's
 representative for data in Part VIII's class, $c := (Q[Z'_0]-4\pi^2\mu_0\zeta_\infty)/4\pi^2$ ((A73), (A79)). On each
@@ -4285,6 +4319,7 @@ whether $(\dot g_H)_{\ge2}$ attains $t_*^{-3/2-\delta_\sharp}$ is not computed, 
    or the part with $l\ge2$ attains $t_*^{-3/2-\delta_\sharp}$ is not computed. The paper states the proved rates and
    claims no sharpness, so this is not an open item of the paper.
 4. *A second reading* of round 8, in particular of Lemma R8.4, Theorem R8.7 (b)'s transposition and Theorem R8.10.
+   [R9: done; no Major (R9.0).]
 
 ### R8.h Findings, labels, files and replacement texts
 
@@ -4313,6 +4348,7 @@ Theorem R8.7, Corollary R8.9, Theorem R8.10, Corollaries R8.11-R8.12, Remark R8.
 named citations above. Standard: Schur's lemma and the labelling of $SO(4)$'s representations, the open mapping theorem,
 Frobenius' theorem at a regular singular point, b-Sobolev embedding. Everything is at $b_0$, where (Dyn) is Part VI.A
 Theorem 6.1; Part IX, used through Lemma R3.1 and IX Lemma 1.1, is proved ((A57)).
+[R9 (A95): L6's and L9's controls did not mutate the computed path; they do now.]
 
 *Files.* `GAUGEDECAY5.md` (this section appended); `checks/gdlge2_5.py` with `checks/gdlge2_5.out`;
 `checks/gdtail5.py` (repaired, T12 added) with `checks/gdtail5.out` (rerun).
@@ -4323,6 +4359,9 @@ old text begins or ends inside a line, the new text's first and last lines are c
 verifier's Majors 2-5 ((A72)-(A75)). For `N1STAR-PROOF.md` and the paper they are for the main session to seat after
 verification. Statuses are stated as the corpus has them: Part VIII and Part IX proved; GAUGEDECAY5 deduced, rounds 2-7
 read by independent verifiers with their findings seated, round 8 not yet read.
+[R9: superseded by R9.h. R9.h seats the round-8 verifier's Minors 1-3 and its nits on texts (1)-(5):
+$\varpi\to\varpi_K$, "(Z) and (TF)", $c_Y$, $c$ in text (4), "rounds 1-8", "2, 4, 6, 8", L7 by Schur, and the T3-T4
+phrase.]
 
 (1) *`N1STAR-PROOF.md`, 10.2 (iv)*, from "When" (at the end of a line) to "as in four dimensions.". Old:
 
