@@ -192,7 +192,8 @@ def main():
                                                             last_s[k8].str(3)))
     w_sound, w_mut = poly_test(False), poly_test(True)
     t_ok = w_sound <= 1.0 and w_mut > 1.0
-    print('B3 the assembly on T_3 T_3 T_3 and t^4 + s^4 + x^4: largest true/bound %.4f (sound, must be <= 1), %.4f with the point Taylor '
+    print('B3 the assembly on T_3 T_3 T_3 and t^4 + s^4 + x^4: largest true/bound %.4f (sound, must be <= 1), '
+          '%.4f with the point Taylor '
           'polynomial in place of the remainder (the mutant, must exceed 1) -> %s' % (
               w_sound, w_mut, 'the mutant is caught (good)' if t_ok else 'BAD'))
     ok &= t_ok and all(gates)

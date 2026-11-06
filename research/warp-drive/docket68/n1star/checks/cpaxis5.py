@@ -37,6 +37,12 @@ unresolved in angle.  Two candidates were named: cpsolve5 P3's axis defect and s
   python3 checks/cpaxis5.py --run lam rcut M Nu Nv vend out.npz [reg] [ld k]      (a run, with the regularisation if
                                                                                     'reg' is given)
   python3 checks/cpaxis5.py --compare M32.npz M40.npz M32reg.npz M40reg.npz      (A4)
+  python3 checks/cpaxis5.py --nullstep M32reg400.npz M32reg800.npz M40reg800.npz  (A5)
+
+  A5 (computed) the regularised scheme on two null grids: per band at areal radius 0.9-1.0, 1.0-1.2 and >= 1.2, the
+     interior monitor at 400 and 800 rows (the ratio; about 4 at second order), its M-dependence at 800 rows (M = 32
+     against 40), and max |P_400 - P_800| on the 400-row nodes.  Pass where the monitor falls at least twofold with the
+     null step and changes by less than 1.5 with M; reported per band, no single verdict beyond v = 1.9.
 """
 import os, sys, time, importlib.util
 import numpy as np
@@ -205,6 +211,39 @@ def main():
         np.savez_compressed(out, mask=mask, u=G.u, v=G.v, x=G.x, lam=lam, rcut=rcut, reg=reg,
                             **{f: A[f] for f in CP.ALL})
         print('written', out, 'reg' if reg else 'orig', '%.0f s' % (time.time() - t0), flush=True)
+        return 0
+    if a and a[0] == '--nullstep':
+        Za, Zb, Zc = (np.load(p_) for p_ in a[1:4])
+        bands = ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
+        print('A5 the regularised scheme, cut 0.9: the interior Ric_xx monitor (|x| <= 0.9) at 400 and 800 rows '
+              '(M = 32), at 800 rows M = 40, and max |P_400 - P_800| (800 sampled on the 400-row nodes):')
+        for cls, (lo, hi) in (('0.9-1.0', (0.9, 1.0)), ('1.0-1.2', (1.0, 1.2)), ('>= 1.2', (1.2, 99))):
+            print('  areal radius %s:' % cls)
+            for vb in bands:
+                vals = []
+                for z, sub in ((Za, 1), (Zb, 2), (Zc, 2)):
+                    x_, v_, mk = z['x'], z['v'], z['mask']
+                    M_ = len(x_)
+                    Rm = z['R'][::sub, ::sub][..., M_ // 2]
+                    jv = (v_[::sub] >= vb[0]) & (v_[::sub] < vb[1])
+                    sel = (~mk[::sub, ::sub])[:, jv] & (Rm[:, jv] >= lo) & (Rm[:, jv] < hi)
+                    cx = np.abs(z['cx'][::sub, ::sub][:, jv][sel][:, np.abs(x_) <= 0.9])
+                    vals.append(float(cx.max()) if cx.size else np.nan)
+                xa = Za['x']
+                Pa = (2 * (1 + xa) * Za['m'] - (1 - xa) * Za['n']) / 3
+                Pb = (2 * (1 + xa) * Zb['m'] - (1 - xa) * Zb['n']) / 3
+                Pb = Pb[::2, ::2]
+                keep = (~Za['mask']) & (~Zb['mask'][::2, ::2])
+                Rm = Za['R'][..., len(xa) // 2]
+                jv = (Za['v'] >= vb[0]) & (Za['v'] < vb[1])
+                sel = keep[:, jv] & (Rm[:, jv] >= lo) & (Rm[:, jv] < hi)
+                dP = np.abs(Pa[:, jv][sel] - Pb[:, jv][sel])
+                r_ns = vals[0] / vals[1] if vals[1] > 0 else np.nan
+                r_m = vals[2] / vals[1] if vals[1] > 0 else np.nan
+                verdict = 'converging' if (r_ns >= 2 and abs(np.log(r_m)) < np.log(1.5)) else 'not shown'
+                print('   v in [%.2f, %.2f): monitor 400: %.3g, 800: %.3g (ratio %.2f); 800 at M = 40: %.3g '
+                      '(M40/M32 %.2f); |dP| %.2e -> %s' % (vb[0], vb[1], vals[0], vals[1], r_ns, vals[2], r_m,
+                                            float(dP.max()) if dP.size else np.nan, verdict))
         return 0
     if a and a[0] == '--compare':
         res, tails, dP, bands = compare(a[1:5])

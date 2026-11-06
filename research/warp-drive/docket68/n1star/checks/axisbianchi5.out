@@ -1,17 +1,25 @@
 B1 W(e1, e2, e3, e4), W(e1, e2, e1, e4), W(e1, e2, e1, e3) at a random jet: 0.0, 0.0, 0.0 (zero); R(e1, e4, e3, e4) =
-    -1.2272 (not zero, the check is live) -> PASS (5 s)
-B2 Gauss: K = (-1) rho + (1/3) R + (1/2) Ric_34 + (1) chih chibh + (-1/4) tr chi tr chib; residual at fresh jets 4.07e-42
-    -> PASS (10 s)
+    5.9315 (not zero, the check is live) -> PASS (4 s)
+B2 Gauss: K = (-1) rho + (1/3) R + (1/2) Ric_34 + (1) chih chibh + (-1/4) tr chi tr chib; residual at fresh jets 3.35e-42
+    -> PASS (8 s)
 B3 (2.13) Om e4 K + Om tr chi K = (-1/2) div(Om etab tr chi) + (1) div(Om etab chih) + (-1) div(Om beta^r); residual
-    3.34e-44; dependent members dropped: ['Om chih (Ric_11 - Ric_22)'] (76 s)
+    2.31e-42; dependent members dropped: ['Om chih (Ric_11 - Ric_22)'] (73 s)
 B3 (2.14) Om e3 beta^r + Om (tr chib - 2 omegab) beta^r = (-1) Om e1 K + (2) Om chih betab^r + (-3) Om eta K + (1) Om
     e1(chih chibh) + (-1/4) Om e1(tr chi tr chib) + (3) Om eta chih chibh + (-3/4) Om eta tr chi tr chib + (1) Om
     e1(Ric_11 + Ric_22) + (-1) Om e1 Ric_11 + (-1) Om k (Ric_11 - Ric_22) + (1/2) Om tr chi Ric_31 + (-1) Om chih Ric_31
-    + (1) Om eta Ric_22; residual 6.45e-42; dependent members dropped: none (232 s)
+    + (1) Om eta Ric_22; residual 5.82e-42; dependent members dropped: none (213 s)
 B3 both fits exact at fresh jets: True; the principal coefficients div(Om beta^r): -1, Om e1 K: -1: an energy pair
     (equal): True -> PASS
-   control (beta for beta^r, the Ricci terms withheld): residual 3.82 -> fails (good)
-axisbianchi5 (236 s): all checks pass
-py", line 341, in householder
-    raise ValueError('matrix is numerically singular')
-ValueError: matrix is numerically singular
+B3b Om e3 K + Om tr chib K = (-1/2) div(Om eta tr chib) + (1) div(Om eta chibh) + (1) div(Om betab^r); residual 4.78e-42;
+    dropped ['Om chibh (Ric_11 - Ric_22)']
+B3b Om e4 betab^r + Om (tr chi - 2 omega) betab^r = (1) Om e1 K + (2) Om chibh beta^r + (3) Om etab K + (-1) Om e1(chih
+    chibh) + (1/4) Om e1(tr chi tr chib) + (-3) Om etab chih chibh + (3/4) Om etab tr chi tr chib + (-1) Om e1(Ric_11 +
+    Ric_22) + (1) Om e1 Ric_11 + (1) Om k (Ric_11 - Ric_22) + (-1/2) Om tr chib Ric_41 + (1) Om chibh Ric_41 + (-1) Om
+    etab Ric_22; residual 8.99e-42; dropped none (420 s)
+B3b both exact: True; principal coefficients div(Om betab^r): 1, Om e1 K: 1: an energy pair (equal): True -> PASS
+B4 (deduced) Lemma 8.A6: d_v int K^2 dmu = int (2 K F_K - 2 K div(Om beta^r) - Om tr chi K^2) dmu and d_u int (beta^r)^2
+    dmu = int (2 beta^r F_beta - 2 beta^r Om e1 K - Om (tr chib - 4 omegab) (beta^r)^2) dmu (axis5.py X3's measure
+    identities), the principal terms summing to -2 (Y sqrt gg)^-1 d_x(Y Om K beta^r), no boundary term at the axis;
+    likewise for (K, betab^r) with Om tr chib K^2 and Om (tr chi - 4 omega).
+   control (beta for beta^r, the Ricci terms withheld): residual 1.81 -> fails (good)
+axisbianchi5 (422 s): all checks pass

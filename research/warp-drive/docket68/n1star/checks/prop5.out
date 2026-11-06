@@ -8,4 +8,4 @@ Q2 div(Ric - R ht/2 - T) = -sum (Box Phi_i) dPhi_i on the general (2+1)-metric, 
    control (T with |dPhi|^2 g in place of |dPhi|^2 g/2): fails (good)
 Q3 (deduced, stated) the compatibility relations of chib, omegab, eta + etab with the metric are not propagated by any
     one-directional row: not shown (see the docstring).
-prop5 (196 s): all checks pass
+prop5 (59 s): all checks pass

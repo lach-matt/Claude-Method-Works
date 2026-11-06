@@ -36,12 +36,14 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      3 r^3/(r^2 + mu)^2, with no d_r^2 a (Lemma 6.3, recomputed).  Control: the conformal direction a gamma has d_r^2 a.
   X7 (exact) The data that U1's scalar part a gives on Sigma (spatial part a dr dr; d_tau of it from K fixed; d_tau of
      lapse and shift from D = 0), read with g_(tau mu) kept (reading 1) or with the ADM lapse and shift vector kept
-     (reading 2, the supplement's convention, whose section 1 uses the shift as a vector, Z := d_tau - beta_ext): their
+     (reading 2, the supplement's convention: its section 4 uses the shift as a vector, Z := d_tau - beta_ext): their
      ingoing amplitude, transported, gives H_vv(sqrt mu0) = K_R a with K_R = mu0^(-3/4) r0^(-5/2) (r0^2 - mu0)^2/4
      (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0; a third reading (ADM lapse and shift covector kept,
      round 6, the verifier of round 5's m6) gives (r0^2 - 2 mu0)/(4 mu0^(3/4) r0^(1/2)); and K_R does not depend on the
      d_tau gamma_rr datum at all (D = 0 fixes the combination that reaches the horizon; so neither K's sign
-     convention nor the shift term enters).  Control: D = 0 without its trace term changes K_R in both readings.
+     convention nor the shift term enters).  The solve treats s := d_v + i/lam acting on the amplitude as a symbol
+     and K_R comes out free of it, so the transport of U1's scalar data loses no power of lam kappa (round 6).
+     Control: D = 0 without its trace term changes K_R in both readings.
   X8 (exact) Xi(T) := [(1 - c) T - i c]/(T + i), T := lam kappa: |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1) >= min(c^2,
      (1 - c)^2), zero only as T -> infinity at c = 1; Xi = -c - i T + O(T^2); where the two real leading coefficients
      cancel, the quadrature part is T nu (2 - 1/c) (either relative sign), zero only at c = 1/2.  Control: a sign
@@ -49,13 +51,13 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
   X9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 4000 random amplitudes, in both cases
      (|S| large with slowly varying phase; |S'| large with a zero inside the window).  Control: |S'| below the bound
      with an adversarial epsilon gives a window with one sign.
-  X10 (computed, mpmath, sampled densely; round 6, the verifier of round 5's m2) The hypotheses (H_N) and (H_N') of
-     Theorem L_1E and L.16 (c)'s bounds for exp(-1/x) and the record's C_c^inf envelope, at 401 points of [10^-3.5,
-     10^-2] with exact derivatives (Bell polynomials in the derivatives of log env): env^(k), k <= 12, positive and
-     log-concave with kappa_k/kappa in (1/2, 2); sup |kappa_k'|/kappa_k^(3/2) <= c_R = 3 (alpha = 1/2); sup
-     |env^(j)|/(kappa^j env), j <= 13, printed (L.16 (c)'s c_j); and C_- k kappa^(1/2) <= |kappa_k - kappa| <= C_+ k
-     kappa^(1/2) with C_- > 0 for 8 <= k <= 12.  Control: the mutant log env = -1/x + 10 sin^16(4 pi log10 x)/x, flat at
-     the four points round 5 sampled, fails at the dense ones.
+  X10 (computed, mpmath, sampled densely; round 6, the verifier of round 5's m2) The hypothesis (H_N) of Theorem L_1E
+     and L.16 (c)'s bounds for exp(-1/x) and the record's C_c^inf envelope, at 401 points of [10^-3.5, 10^-2] with
+     exact derivatives (Bell polynomials in the derivatives of log env): env^(k), k <= 13, positive and log-concave
+     with kappa_k/kappa in (1/2, 2); sup |kappa_k'|/kappa_k^(3/2) <= c_R = 3 (alpha = 1/2); sup |env^(j)|/(kappa^j
+     env), j <= 14, printed (L.16 (c)'s c_j); and |kappa_k - kappa| <= C k kappa^(1/2) with C below the c_R 2^(1/2) that
+     (H_N) implies (kappa_k - kappa_(k-1) = kappa_(k-1)'/kappa_(k-1)).  Control: the mutant log env = -1/x + 10
+     sin^16(4 pi log10 x)/x, flat at the four points round 5 sampled, fails at the dense ones.
   X11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
      nu = -1/9, Gamma = 1, r0 = 3: S(v) = nu env (1 + 2 i lam kappa) - i^N Xi lam^(N-2) env^(N-1) (exact derivatives,
      exact Xi) for N = 9 (quadrature) and N = 12 (the real parts cancel at the crossover), over 2400 windows from
@@ -63,16 +65,22 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      round 5's m1): every window has both signs of -Re[S e^(i v/lam)] - m0 +- D2.  Control: S_U removed leaves windows
      with one sign (the U^(1) term is what decides the very edge).
 
-  X12 (computed, mpmath; a model with unit constants; round 6, the verifier of round 5's MAJOR 1 (a)) The crossover
-     for N = 12, lam = 1e-10, where the two real parts cancel, decided by Lemma W (B) applied to sigma := S/(lam^3 A d
-     env), env factored out: with an adversarial O(T) relative error that cancels the quadrature part at the cancellation
-     and a non-explicit error of size (lam + 1/kappa)|nu|, every window of the 81 around it has |sigma'| >= |nu|
-     kappa^(1/2), |sigma''| <= |sigma'|/(80 pi lam) and the non-harmonic error below pi lam |sigma'|/5, and has both
-     signs.  Control: Lambda frozen at its crossover value (no transversality) violates (B)'s first condition.
+  X12 (computed, mpmath; unit constants; round 6, the verifier of round 5's MAJOR 1 (a)) Case 3 of Theorem L_1E at
+     a real cancellation, N = 12 (nu = -1/9 < 0, Gamma = 1, i^N = 1, r0 = 3, c_N = 6/5), for exp(-1/x) and the record's
+     envelope, exact derivatives, lam = 1e-10, 1e-20, 1e-40, 1e-80: on the whole crossover |S_U|/|S_st| in [1/4, 4]
+     (301 points) the main amplitude sigma_main = nu (1 + 2 i T0) - Xi Lambda against round 6's error bound (T0^2 + lam
+     |kappa_(N-1) - kappa| + 1/kappa + lam)(|nu| + |S_U|), T0 := lam kappa: the least ratio more than doubles at each
+     step and exceeds 100 at 1e-80, and arg sigma_main moves by at most pi/6 over 4 pi lam.  Control: round 5's bound
+     ((T0 + 1/kappa + lam)|S_U| + (T0^2 + lam)|nu|) in its place: the ratio stays near |1/c_N - 2| (same order, so no
+     constant C would do).
+  X13 (computed, mpmath, quadrature; round 6) L.21 (iv'): s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2
+     |kappa_g'|)) for g = env^(11) of exp(-1/x) (N = 12) at lam = 1e-6, 1e-7 and lam kappa = 1/5, ..., 1/40 (inside
+     X10's range): |difference|/(lam |g| (lam kappa)^2) <= 1, s^(-1) g computed by quadrature (the part below x/2
+     bounded and printed).  Control: g/(i/lam) (the first-order term dropped) fails the bound.
 
-Labels: X1-X8 computed (exact, sympy); X9, X10 computed, sampled; X11, X12 computed (mpmath), models with unit
+Labels: X1-X8 computed (exact, sympy); X9, X10, X13 computed, sampled; X11, X12 computed (mpmath), models with unit
 constants.
-Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about 15 minutes)
+Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about 30 minutes)
 """
 import os
 import random
@@ -693,9 +701,10 @@ CACHE13 = {}
 
 
 def e13(control=False):
-    """s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2 kappa^(1+alpha))) for g = env^(N-1), exp(-1/x), N = 12,
-    lam kappa <= 1/5: s^(-1) g computed by quadrature"""
-    mp.mp.dps = 30
+    """s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2 kappa^(1+alpha))), g = env^(N-1), exp(-1/x), N = 12,
+    lam kappa <= 1/5, inside X10's range x <= 10^-2 (beyond it env^(11) changes sign and (H_N) fails): s^(-1) g by
+    quadrature"""
+    mp.mp.dps = 25
     N = 12
     u = sp.Symbol('u')
     Ps = [sp.Integer(1)]
@@ -703,31 +712,29 @@ def e13(control=False):
         Ps.append(sp.expand(u**2*(Ps[-1] - sp.diff(Ps[-1], u))))
     Pf = [sp.lambdify(u, pp, 'mpmath') for pp in Ps]
     g = lambda t: Pf[N - 1](1/t)*mp.exp(-1/t)                                       # noqa: E731
-    rows, ok, worst, tail = [], True, mp.mpf(0), mp.mpf(0)
-    rat = {}
-    for lam in (mp.mpf(10)**-4, mp.mpf(10)**-5):
-        for T0 in (mp.mpf('0.2'), mp.mpf('0.1'), mp.mpf('0.05'), mp.mpf('0.025')):
-            x = mp.sqrt(lam/T0)                                 # kappa = 1/x^2
-            key = (float(lam), float(T0))
+    rows, worst, tail = [], mp.mpf(0), mp.mpf(0)
+    for lam in (mp.mpf(10)**-6, mp.mpf(10)**-7):
+        for tk in (mp.mpf('0.2'), mp.mpf('0.1'), mp.mpf('0.05'), mp.mpf('0.025')):
+            x = mp.sqrt(lam/tk)                                 # kappa = 1/x^2, so lam kappa = tk
+            key = (float(lam), float(tk))
             if key not in CACHE13:
-                a0 = x/8
-                n = int(mp.ceil((x - a0)/(mp.pi*lam)))
+                a0 = x/2
+                n = int(mp.ceil((x - a0)/(2*mp.pi*lam)))
                 pts = [a0 + (x - a0)*i/n for i in range(n + 1)]
-                I = mp.quad(lambda t: mp.exp(1j*t/lam)*g(t), pts)
-                CACHE13[key] = (mp.exp(-1j*x/lam)*I, x/8*abs(g(a0)))       # g increases on (0, x/8]
+                I = mp.quad(lambda t: mp.exp(1j*t/lam)*g(t), pts, method='gauss-legendre')
+                CACHE13[key] = (mp.exp(-1j*x/lam)*I, a0*abs(g(a0)))       # g > 0 increases on (0, x/2]
             sinv, om = CACHE13[key]
             gx = g(x)
             kg = Pf[N](1/x)/Pf[N - 1](1/x)
-            approx = -1j*lam*gx if control else gx/(kg + 1j/lam)
-            r = abs(sinv - approx)/(lam*abs(gx)*T0**2)
-            rat[key] = r
+            approx = -1j*lam*gx if control else gx/(kg + 1j/lam)        # the control drops the first-order term
+            r = abs(sinv - approx)/(lam*abs(gx)*tk**2)
             worst = max(worst, r)
-            tail = max(tail, om/(lam*abs(gx)*T0**2))
-            rows.append("lam = %s, lam kappa = %s: %s" % (mp.nstr(lam, 2), mp.nstr(T0, 3), mp.nstr(r, 4)))
+            tail = max(tail, om/(lam*abs(gx)*tk**2))
+            rows.append("lam = %s, lam kappa = %s: %s" % (mp.nstr(lam, 2), mp.nstr(tk, 3), mp.nstr(r, 4)))
     ok = worst <= 1 and tail < mp.mpf(10)**-6
     if control:
         return ok
-    out("  X13 L.21 (iv'): for g = env^(N-1), exp(-1/x), N = 12, s^(-1) g (by quadrature from x/8; the part below x/8 is"
+    out("  X13 L.21 (iv'): for g = env^(N-1), exp(-1/x), N = 12, s^(-1) g (by quadrature from x/2; the part below x/2 is"
         " at most %s of lam |g| (lam kappa)^2) against g/(kappa_(N-1) + i/lam), |difference|/(lam |g| (lam kappa)^2): "
         % mp.nstr(tail, 3) + "; ".join(rows) + "; at most 1: %s  [%.0f s]" % (worst <= 1, time.time() - T0))
     return ok

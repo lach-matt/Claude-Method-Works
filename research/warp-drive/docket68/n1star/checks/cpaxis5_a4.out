@@ -1,0 +1,19 @@
+# python3 checks/cpaxis5.py --compare r2/cp/cp_M32_400.npz r4/cp4/cp_M40_400.npz r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M40_400_reg.npz
+#   (scratch runs: cpsolve5.py --run 1 0.9 32 400 180 2.25 ... ld 3 of round 2; cpaxis5.py --run ... [reg] ld 3)
+A4 the record's data at 400 x 180, cut 0.9, areal radius 1.0-1.2: the interior Ric_xx monitor (|x| <= 0.9), the Chebyshev
+    tail of m, and max |P_32 - P_40| (P of M = 40 interpolated to M = 32's nodes):
+   v in [0.50, 1.00): monitor M32 0.00156, M40 0.0249 (ratio 15.92); regularised 0.000818, 0.000903 (ratio 1.10); tail of
+       m: 3.5e-01, 4.3e-01; regularised 2.7e-02, 2.1e-02; |dP| 9.9e-05, regularised 1.3e-12
+   v in [1.00, 1.50): monitor M32 0.0738, M40 0.387 (ratio 5.25); regularised 0.0041, 0.00476 (ratio 1.16); tail of m:
+       1.9e-02, 7.5e-02; regularised 3.5e-10, 2.2e-10; |dP| 2.9e-03, regularised 3.4e-11
+   v in [1.50, 1.65): monitor M32 0.427, M40 0.928 (ratio 2.17); regularised 0.00463, 0.0057 (ratio 1.23); tail of m:
+       1.3e-03, 3.3e-03; regularised 1.7e-11, 2.1e-11; |dP| 3.6e-03, regularised 5.1e-11
+   v in [1.65, 1.80): monitor M32 5.29, M40 8.69 (ratio 1.64); regularised 0.00448, 0.00469 (ratio 1.05); tail of m:
+       3.8e-03, 3.0e-03; regularised 2.2e-11, 5.1e-11; |dP| 5.2e-03, regularised 5.4e-11
+   v in [1.80, 1.90): monitor M32 34, M40 68.4 (ratio 2.01); regularised 0.0148, 0.00696 (ratio 0.47); tail of m:
+       1.5e-02, 1.8e-02; regularised 1.4e-06, 1.7e-07; |dP| 1.6e-02, regularised 2.3e-07
+   v in [1.90, 2.00): monitor M32 125, M40 457 (ratio 3.65); regularised 5.21, 4.76 (ratio 0.91); tail of m: 1.4e-01,
+       5.8e-01; regularised 8.6e-05, 5.5e-05; |dP| 5.5e-02, regularised 1.7e-04
+   v in [2.00, 2.25): monitor M32 7.32e+03, M40 7.23e+03 (ratio 0.99); regularised 145, 397 (ratio 2.73); tail of m:
+       8.1e-01, 7.3e+00; regularised 3.1e-02, 2.2e-02; |dP| 1.0e+00, regularised 1.1e-02
+A4 PASS (the regularised monitor does not rise with M where the original did)
