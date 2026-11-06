@@ -83,6 +83,35 @@ def is_wave(f):
     return isinstance(f, sp.Derivative) and isinstance(f.expr, AppliedUndef) and f.expr.func in (AF, BF)
 
 
+def split(term):
+    """a monomial as (wave factor, power of r, of log r, of r0, of log r0, the rest); a factor mixing r or r0 with t is
+    factored first"""
+    w, rp, lr, r0p, lr0, rest = sp.Integer(1), sp.Integer(0), 0, sp.Integer(0), 0, []
+    queue = list(sp.Mul.make_args(term))
+    while queue:
+        fac = queue.pop()
+        base, ex = fac.as_base_exp()
+        if base not in (r, r0, LOGR, LOGR0) and not is_wave(fac) and (fac.has(r) or fac.has(r0)):
+            f2 = sp.Mul.make_args(sp.factor(fac))
+            assert len(f2) > 1 or f2[0] != fac, fac
+            queue.extend(f2)
+            continue
+        if is_wave(fac):
+            assert w == 1, term
+            w = fac
+        elif base == r:
+            rp += ex
+        elif base == LOGR:
+            lr += ex
+        elif base == r0:
+            r0p += ex
+        elif base == LOGR0:
+            lr0 += ex
+        else:
+            rest.append(fac)
+    return w, rp, lr, r0p, lr0, sp.Mul(*rest)
+
+
 def canon(e):
     """the canonical form: sum over (wave factor, powers of r, log r, r0, log r0) of reduced rational functions of t"""
     e = sp.expand(e)
@@ -90,31 +119,8 @@ def canon(e):
     for term in sp.Add.make_args(e):
         if term == 0:
             continue
-        w, rp, lr, r0p, lr0, rest = sp.Integer(1), sp.Integer(0), 0, sp.Integer(0), 0, []
-        queue = list(sp.Mul.make_args(term))
-        while queue:
-            fac = queue.pop()
-            base, ex = fac.as_base_exp()
-            if base not in (r, r0, LOGR, LOGR0) and not is_wave(fac) and (fac.has(r) or fac.has(r0)):
-                f2 = sp.Mul.make_args(sp.factor(fac))
-                assert len(f2) > 1 or f2[0] != fac, fac
-                queue.extend(f2)
-                continue
-            if is_wave(fac):
-                assert w == 1, term
-                w = fac
-            elif base == r:
-                rp += ex
-            elif base == LOGR:
-                lr += ex
-            elif base == r0:
-                r0p += ex
-            elif base == LOGR0:
-                lr0 += ex
-            else:
-                rest.append(fac)
-        key = (w, rp, lr, r0p, lr0)
-        acc.setdefault(key, []).append(sp.Mul(*rest))
+        w, rp, lr, r0p, lr0, rest = split(term)
+        acc.setdefault((w, rp, lr, r0p, lr0), []).append(rest)
     res = []
     for (w, rp, lr, r0p, lr0), cos_ in acc.items():
         co = sp.cancel(sp.together(sp.Add(*cos_)))
@@ -219,17 +225,8 @@ def integ(f, w):
     for term in sp.Add.make_args(e):
         if term == 0:
             continue
-        alpha, m, rest = sp.Integer(0), 0, []
-        for fac in sp.Mul.make_args(term):
-            base, ex = fac.as_base_exp()
-            if base == r:
-                alpha += ex
-            elif base == LOGR:
-                m += int(ex)
-            else:
-                assert not fac.has(r), fac
-                rest.append(fac)
-        res.append(sp.Mul(*rest)*(antider(alpha, m, r, LOGR) - antider(alpha, m, r0, LOGR0)))
+        wv, alpha, m, r0p, lr0, rest = split(term)
+        res.append(wv*r0**r0p*LOGR0**lr0*rest*(antider(alpha, int(m), r, LOGR) - antider(alpha, int(m), r0, LOGR0)))
     return canon(sp.Add(*res))
 
 
