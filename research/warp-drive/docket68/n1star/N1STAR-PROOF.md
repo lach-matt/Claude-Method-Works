@@ -69,7 +69,8 @@ The gauge is the wave-map gauge relative to g0. For a Lorentzian metric g put
 Dh the covariant derivative of g0. D is a vector field and Ric^H a tensor, built from g and g0 alone, so both are
 invariant under the isometries of g0 (O(4), with T^2 and both reflections) and may be computed in any coordinates. In
 the coordinates of 0.1, Q is a quadratic polynomial in dg (with a linear and a constant part) whose coefficients are
-rational in g and smooth in X through Gamma[g0] and its first derivatives (smooth on r > 0; its trace is H0 of K5).
+rational in g and smooth in X through Gamma[g0] and its first derivatives (smooth on r > 0; the trace g0^{ab}
+Gamma[g0]^rho_ab is H0 of K5 [amended D623: was "its trace is H0 of K5"]).
 (READ: [CBCM10] (2.7)-(2.9), in n + 1 dimensions, with H = D and D^ = Dh: Ric = Ric^H + (1/2)(g Dh D + g Dh D) and Ric^H
 = -(1/2) g^{ab} Dh_a Dh_b g + f^[g, Dh g], f^ free of second derivatives of g; in the coordinates of 0.1, Dh_a Dh_b g -
 d_a d_b g is Gamma[g0] and its first derivatives times (g, dg), which gives (0.2). Section 7.) Second derivatives of g
@@ -86,15 +87,28 @@ derivatives of order j and ||.|| the flat L^2(Sigma_tau),
 
 For pointwise bounds on a symmetric 2-tensor A of Cartesian components, |A| is the Euclidean operator norm (the
 largest absolute eigenvalue); for arrays of higher rank (|dw|, |dg|), |.| is the Frobenius norm, and ||.|| always
-integrates the Euclidean sum of squares, as Lemmas 2.3-2.4 use <u, d_tau u>. With it Lemma 1.1 (e) holds with eps1 =
-3/5 (D612; computed, `checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H2-H3); Lemma 2.3 takes the same eps1 and
-needs it below g0's least absolute eigenvalue on Omega (at the numerical point at most 0.0308, its value at r = a,
-mu = mu_end; D614). Any other norm on arrays changes only constants.
+integrates the Euclidean sum of squares, as Lemmas 2.3-2.4 use <u, d_tau u>. With it, Lemma 1.1 (e) holds for every
+eps1 <= 3/5 with eps1 < mu0/a^2 - 1: g0 restricted to ker dtau, to ker dr on {r = a} and to ker d(v + tau) has least
+eigenvalues 1, min(1, mu/a^2 - 1) and min(1, (3 + mu/r^2)/5), and where mu = mu0 on {r = a} a Lorentzian g with
+|g - g0| = mu0/a^2 - 1 makes it null (at the numerical point mu0/a^2 - 1 > 12, so every eps1 <= 3/5 serves there and
+none above 0.6013096;
+D612; computed, `checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H1-H4). Lemma 2.3 needs more of the same eps1:
+eps1 < s0, where s0 := inf over Omega of g0's least absolute eigenvalue = (m*^2 + 1)^(1/2) - m*, m* := sup_Omega
+mu/r^2 <= mu_end/a^2. Then every gt with |gt - g0| <= eps1 is Lorentzian with |gt^-1| <= (s0 - eps1)^-1 (Weyl's
+inequality), which Lemma 2.3's constants use; for eps1 >= s0 there are Lorentzian gt within eps1 of g0 with |gt^-1|
+unbounded (`checks/eps1hyp5.py` H5-H6). Since mu/a^2 > 1 on {r = a}, s0 < 2^(1/2) - 1 < 3/5. From here on eps1 is
+one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1). At the numerical point s0 is in [0.030768559, 0.030768560],
+its value at r = a, mu = mu_end (`checks/lzerotrace5.py` T7; CONSTANTS5.md R4.0 (i)), so there eps1 < 0.0308.
+[amended D623: these sentences replace "With it Lemma 1.1 (e) holds with eps1 = 3/5 (D612; computed,
+`checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H2-H3); Lemma 2.3 takes the same eps1 and needs it below g0's
+least absolute eigenvalue on Omega (at the numerical point at most 0.0308, its value at r = a, mu = mu_end; D614)":
+"eps1 = 3/5" is false as an equation (Lemma 2.3 needs eps1 < s0, and s0 < 3/5), Lemma 1.1 (e) needs eps1 < mu0/a^2 -
+1 in general, and the D614 log entry records only the norm sentence.] Any other norm on arrays changes only constants.
 
 Chain rule: d_a [f] = lam^-1 (d_a v)[d_th f] + [d_a f], so |[f]|_j <= C_j sup_{i<=j} |d^i_{(X,th)} f|_{L^inf}
 (the oscillation costs nothing in scaled norms), and ||d^i [f]||_{L^inf} <= C lam^-i.
 
-### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12; Step 8, D18-D20)
+### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12; Step 8, D18-D20; re-read whole, D623)
 
 Fix k = 6 and K >= 6. Let
 
@@ -165,8 +179,9 @@ along future causal curves near it: g0^-1(dr, dr) = 1 - mu/r^2 <= 1 - mu0/a^2 < 
 -2 - (1 + mu/r^2) < 0, g0^-1(dv, dtau) = -1. (d) L0 is future null with L0(tau) = 1, L0(v) = 0, L0(r) = -1; the
 integral curve of L0 through any point of Omega, followed to the past, stays in Omega and meets Sigma_tau0. (e) There
 is eps1 > 0 such that for every Lorentzian g with |g - g0| <= eps1 on Omega, J^-(p; g) cap {tau >= tau0} lies in
-Omega for every p in Omega, Sigma_tau and the two lateral boundaries stay spacelike for g, and L0 stays transverse
-to Sigma_tau. (f) b(tau) - a >= 1 + delta0, b <= b(tau0), and D_T cap {tau >= tau0} lies in Omega.
+Omega for every p in Omega, Sigma_tau and the two lateral boundaries stay spacelike for g, and L0 is transverse to
+Sigma_tau for every metric, since L0(tau) = 1 [amended D623: was "L0 stays transverse to Sigma_tau"]. (f) b(tau) -
+a >= 1 + delta0, b <= b(tau0), and D_T cap {tau >= tau0} lies in Omega.
 
 *Proof.* (a)-(c) are the contractions of g0^-1 = eta^-1 - (mu/r^2) L0 L0 with L0(tau) = 1, L0(r) = -1, L0(v) = 0:
 g0^-1(dtau, dtau) = -1 - mu/r^2, g0^-1(dr, dr) = 1 - mu/r^2, g0^-1(dr, dtau) = 0 - (mu/r^2)(-1)(1),
@@ -191,16 +206,22 @@ in four dimensions ([BH17] Theorem 7.26, READ) holds with a uniform constant; sc
 second form. For products, distribute lam^k d^k and put the factor with at most three derivatives in L^inf. The last
 claim is (0.3)'s chain-rule remark. []
 
-**The mollifier.** Fix rho in C_c^inf(B_1), rho >= 0, int rho = 1, and sigma0 in C^inf([0, 1]) non-increasing, with
-sigma0 = 1 on [0, 1/3], sigma0 = -1 on [2/3, 1], so |sigma0| <= 1, which the middle third below uses (D598;
-checks/support5.py C4 certifies the inclusion and that it fails without the bound). For f on A(tau) put sigma(tau, x) :=
-sigma0((|x| - a)/(b(tau) - a)), Phi(x) := x + 2 lam sigma xhat and
+**The mollifier.** Fix rho in C_c^inf(B_1), rho >= 0, int rho = 1, and sigma0 in C^inf([0, 1]) non-increasing with
+|sigma0'| <= 7 (a mollified linear ramp from 1 at 7/20 to -1 at 13/20) [amended D623: the slope bound added, which the
+Jacobian below uses], with sigma0 = 1 on [0, 1/3], sigma0 = -1 on [2/3, 1], so |sigma0| <= 1, which the middle third
+below uses (D598; checks/support5.py C4 certifies the inclusion and that it fails without the bound). For f on A(tau)
+put sigma(tau, x) := sigma0((|x| - a)/(b(tau) - a)), Phi(x) := x + 2 lam sigma xhat and
 
     P f (x) := int rho(z) f(Phi(x) - lam z) dz        (spatial, at fixed tau).                              (2.1)
 
 Near the inner sphere the ball is shifted outward by 2 lam, near the outer one inward, so Phi(x) - lam z lies in
 A(tau): |x + 2 lam xhat - lam z| >= xhat.(x + 2 lam xhat - lam z) >= |x| + lam, and in the middle third the
 distance to the boundary is at least (b - a)/3 >= 1/3 > 3 lam. DPhi = I + lam E with E bounded with all derivatives.
+Phi is radial, r -> r + 2 lam sigma, so DPhi has the radial eigenvalue 1 + 2 lam sigma0'/(b - a), in [3/10, 1] since
+lam/(b - a) <= 1/20 (lam <= lam1, b - a >= 1 + delta0), and the angular ones 1 + 2 lam sigma/r, in [2/5, 1 + 2 lam1/a]
+since sigma < 0 only where r - a > (b - a)/3 >= 1/3: Phi is a diffeomorphism onto its image with Jacobian bounded
+above and below uniformly in lam (computed, checks/support5.py C14, where a smooth step of slope 12 across the middle
+third fails: radial eigenvalue -1/5 at delta0 = 1, lam = 1/10, b - a = 2) [amended D623: these two sentences added].
 
 **Lemma 2.2 (the mollifier; deduced).** For f on A(tau) and a smooth bounded function or profile a:
 (M1) ||P f|| <= C ||f||;  (M2) ||d_x P f|| <= C lam^-1 ||f||;  (M3) ||f - P f|| <= C lam ||d_x f||;
@@ -209,8 +230,9 @@ distance to the boundary is at least (b - a)/3 >= 1/3 > 3 lam. DPhi = I + lam E 
 (M6) d_tau P f = P(d_tau f) + lam E2 P(d_x f);
 with E1, E2 bounded; iterating, lam^j ||d^j P f|| <= C sum_{i<=j} lam^i ||d^i f|| and the same with (1 - P).
 
-*Proof.* For fixed z, x -> Phi(x) - lam z is a diffeomorphism of A(tau) into itself with Jacobian 1 + O(lam), which
-gives (M1). P f(x) = lam^-4 int rho((Phi(x) - y)/lam) f(y) dy, and d_x falls on rho: (M2). For (M3), f(x) - f(Phi(x) -
+*Proof.* For fixed z, x -> Phi(x) - lam z is a diffeomorphism of A(tau) into itself with Jacobian bounded above and
+below uniformly (above) [amended D623: was "with Jacobian 1 + O(lam)"], which gives (M1). P f(x) = lam^-4 int
+rho((Phi(x) - y)/lam) f(y) dy, and d_x falls on rho: (M2). For (M3), f(x) - f(Phi(x) -
 lam z) is the integral of d_x f along the segment from x to Phi(x) - lam z, of length <= 3 lam; the segment stays in
 A(tau) by the estimate above (its radial component is at least lam toward the interior near either sphere), and the
 change of variables gives the bound. (M4): the chain rule, d_x[f(Phi - lam z)] = DPhi^T (d f)(Phi - lam z); and (d_j
@@ -219,9 +241,10 @@ form: [a, P] d_j f (x) = int rho(z)(a(x) - a(Phi(x) - lam z))(d_j f)(Phi(x) - la
 (M4), the factor lam^-1 meets either d_z of a(Phi(x) - lam z), which is O(lam), or a(x) - a(Phi(x) - lam z), which is
 O(lam). (M6): sigma depends on tau through b(tau). Higher derivatives by induction. []
 
-**Lemma 2.3 (energy; deduced).** Let gt be a Lorentzian metric on Omega with |gt - g0| <= eps1 and ||d gt||_inf <= M1,
-and let u (a function or a Cartesian array) satisfy -(1/2) gt^{ab} d_a d_b u = f on Omega. Then for tau in [tau0,
-tau_end],
+**Lemma 2.3 (energy; deduced).** Let gt be a Lorentzian metric on Omega with |gt - g0| <= eps1, eps1 the number fixed
+in 0.3 (so Lemma 1.1 (e) applies to gt and |gt^-1| <= (s0 - eps1)^-1; `checks/eps1hyp5.py` H6), and ||d gt||_inf <=
+M1 [amended D623: was "with |gt - g0| <= eps1 and ||d gt||_inf <= M1"], and let u (a function or a Cartesian array)
+satisfy -(1/2) gt^{ab} d_a d_b u = f on Omega. Then for tau in [tau0, tau_end],
 
     ||d u(tau)|| + ||u(tau)|| <= C(M1) ( ||d u(tau0)|| + ||u(tau0)|| + int_{tau0}^{tau} ||f(s)|| ds ).            (2.2)
 
@@ -229,17 +252,23 @@ tau_end],
 T_ab = d_a u d_b u - (1/2) gt_ab gt(du, du), the divergence theorem on Omega cap {tau0 <= s <= tau} in the coordinate
 density gives the flux through Sigma_tau equal to the flux through Sigma_tau0 minus the fluxes through the lateral
 boundaries plus the bulk. The lateral boundaries are spacelike with Omega to their past (Lemma 1.1(b), (c), (e)), so
-their fluxes are nonnegative and are dropped; the fluxes through Sigma_tau are comparable to ||d u||^2 (dominant energy,
-Y and the normal uniformly timelike); the bulk is bounded by C(M1)(||d u||^2 + ||f|| ||d u||) since d gt and d Y are
-bounded. ||u|| is added through d_tau ||u||^2 = 2 <u, d_tau u> plus a boundary term b'(tau) int_{|x|=b} |u|^2 <= 0.
+their fluxes are nonnegative and are dropped; the fluxes through Sigma_tau are comparable to ||d u||^2 (dominant energy;
+Y and the normal uniformly timelike by Lemma 1.1 (e) and |gt^-1| <= (s0 - eps1)^-1); the bulk is bounded by C(M1)(||d
+u||^2 + ||f|| ||d u||) since d gt, gt^-1 and d Y = gt^-1 (d gt) gt^-1 dtau are bounded (C depending also on Omega and
+s0 - eps1) [amended D623: was "(dominant energy, Y and the normal uniformly timelike)" and "since d gt and d Y are
+bounded"]. ||u|| is added through d_tau ||u||^2 = 2 <u, d_tau u> plus a boundary term b'(tau) int_{|x|=b} |u|^2 <= 0.
 Gronwall. []
 
-**Lemma 2.4 (transport; deduced, `ks5.py` K4).** If L0 phi - c(X) phi = f on Omega with c bounded, then ||phi(tau)|| <=
-e^{C(tau - tau0)} (||phi(tau0)|| + int ||f||).
+**Lemma 2.4 (transport; deduced, `ks5.py` K4).** If L0 phi - c(X) phi = f on Omega, phi a function or an array and c a
+bounded function or matrix acting on its components (Step 5's d_x^2 phi), then ||phi(tau)|| <= e^{C(tau - tau0)}
+(||phi(tau0)|| + int ||f||) with C := max(0, sup_Omega (c - 3/(2r))), c read as the largest eigenvalue of its
+symmetric part (Step 6's rate 1/(2a): `checks/gronwall5.py` G0-G1) [amended D623: was "with c bounded", the rate
+unstated].
 
 *Proof.* d_tau phi = L0 phi + xhat.d_x phi and int_{A(tau)} 2 phi xhat.d_x phi = int_{|x|=b} phi^2 - int_{|x|=a}
 phi^2 - int (3/r) phi^2 (div xhat = 3/r), so d_tau ||phi||^2 = 2 <phi, f + c phi> - int (3/r) phi^2 +
-(1 + b') int_{|x|=b} phi^2 - int_{|x|=a} phi^2, and 1 + b' = -1 < 0. Gronwall. []
+(1 + b') int_{|x|=b} phi^2 - int_{|x|=a} phi^2, and 1 + b' = -1 < 0; <phi, c phi> - int (3/(2r)) phi^2 <= sup (c -
+3/(2r)) ||phi||^2, so d_tau ||phi|| <= ||f|| + C ||phi||. Gronwall. []
 
 ## 3. The linear structure
 
@@ -321,7 +350,8 @@ O(lam d s) by (M3), and |ell_app - ell| <= C lam. Two things remain: box~_app ph
 phi is driven by s.
 
 **Lemma 3.3 (the ell-ell component; deduced).** box~ s = c1 . d h + c0 . h + c2 . d phi + c3 phi - 2q F(ell, ell) - 2q
-N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded profiles, the sum runs over
+N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded coefficients (profiles
+times q of the proof, which depends on w, so not profiles) [amended D623: was "bounded profiles"], the sum runs over
 pairs with i spatial, |c^{ai}| <= C(lam + |w|) and |d c^{ai}| <= C(1 + |d w|); N_phi(ell, ell) contains no second
 derivative of phi. There is no 1/lam coefficient.
 
@@ -356,12 +386,14 @@ C lam^(-3-i) N for i <= 4, and |d w|_k <= lam^-1 |w|_{k+1} <= C lam^-1 N.
 
 **Step 2 (data; deduced).** phi = 0 on Sigma_tau0, so h = w there; the derivatives of h, phi, Psi on Sigma_tau0 of
 order up to k + 1 in tau are fixed by (3.4), (3.5) and the equation for w, whose coefficients obey the scaled bounds
-of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + lam^K) <= C (C_D + C_R) lam^K. (d_tau phi =
+of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + C_R lam^K) <= C (C_D + C_R) lam^K [amended
+D623: was "C (Data(w) + lam^K)"]. (d_tau phi =
 -(1/2) P s on Sigma_tau0, and d_x P s = P d_x s + O(lam) P d_x s by (M4): no 1/lam enters.)
 
 **Step 3 (the bootstrap).** Suppose N <= 2 M lam^K on [tau0, tau*] with M to be fixed. Then (Step 1) |w| <=
-C M lam^(K-3), |d w| <= C M lam^(K-4) <= C M lam^2, so for lam <= lam0(M) the metric g = g_app + w satisfies Lemma
-1.1(e) and |d g| <= M1 with M1 independent of M.
+C M lam^(K-3), |d w| <= C M lam^(K-4) <= C M lam^2, so for lam <= lam0(M) the metric g = g_app + w satisfies
+|g - g0| <= eps1 (Lemma 1.1 (e) and Lemma 2.3) and |d g| <= M1 with M1 independent of M [amended D623: was "satisfies
+Lemma 1.1(e)"].
 
 **Step 4 (h; deduced).** Apply d^alpha, |alpha| = j <= k, to (3.5) and use Lemma 2.3 for each component, then
 multiply by lam^j. The commutator [d^alpha, g^{ab}] d_a d_b h has terms d^i g . d^(j-i+1) d h, i >= 1; with ||d^i
@@ -391,7 +423,9 @@ box~ s + [box~, P] s. By Lemma 3.3, box~ s is first order in (h, phi) up to F, t
 sum c^{ai} d_a d_i h; for the last, P(c d_a d_i h) = P d_i(c d_a h) - P((d_i c) d_a h) and ||P d_i f||
 <= C lam^-1 ||f|| (M2, M4), with |c| <= C(lam + |w|): at most C ||d h|| at level 0, and at level j,
 lam^j ||d^alpha P d_i (c d h)|| <= C lam^(j-1) sum_i ||d^i c||_inf ||d^(j-i) d h|| <= C N since ||d^i
-c||_inf <= C lam^(1-i). For the commutator, [g0^{ab}, P] d_a d_b s with at least one spatial index is
+c||_inf <= C lam^(1-i) (for the w-part of c only for i <= 4; for i >= 5 its d^i w is in L^2 and the other factor in
+L^inf by Lemma 2.1, as in Step 4) [amended D623: the parenthesis added]. For the commutator, [g0^{ab}, P] d_a d_b s
+with at least one spatial index is
 bounded by C ||d s|| by (M5); the tau-tau term is rewritten with d_tau^2 s = (box~ s - 2 g0^{tau i}
 d_tau d_i s - g0^{ij} d_i d_j s)/g0^{tautau} (g0^{tautau} = -1 - mu/r^2), after which (M5) applies to
 the spatial terms; in box~ s (Lemma 3.3) the first-order terms gain the factor lam of (M5)'s second
@@ -418,13 +452,15 @@ meet each other"). In the coordinates of 0.1 this fails on part of Omega: g0^{ij
 coordinates, in four steps. (i) The coefficients. On Omega the system for w is Ric^H(g_app + w) = 0 relative to g0, and
 the profiles of g_app are defined on Omega x S^1 (Lemma 5.3). Extend them to R^5 x S^1 by one universal extension
 operator acting in X, the same for every order (Stein's or Rychkov's, for the bounded Lipschitz domain Omega, a convex
-polygon in (tau, r) times S^3; [SY21], section 7): g_app extends smoothly with bounded derivatives of every order, for
+polygon in (tau, r) times S^3; [SY21] secs. 1, 2.1, READ in section 7 [amended D623: was "[SY21], section 7"]):
+g_app extends smoothly with bounded derivatives of every order, for
 all tau, and is unchanged on Omega. Outside a neighbourhood U of Omega, replace g_app and g0 by g_ext and g0_ext,
 obtained by interpolating lapse, shift and spatial metric (relative to tau) convexly to (1, 0, delta) on {r <= a/4} and
 on {r >= R2 + 1}, R2 := b(tau0) + 1. Every such combination is a Lorentzian metric with each Sigma_tau spacelike, so the
 system keeps its form, with coefficients smooth in X and equal to Minkowski's outside a compact set in x; on U nothing
 changes. (ii) The coordinates. Z := d_tau - beta_ext (beta_ext the shift of g_ext) has Z(tau) = 1, g_ext(Z, Z) =
--N_ext^2 <= -N_min^2 < 0, and Z = d_tau outside a compact set. Put X = (tau, Phi(tau, y)), Phi the flow of Z from tau0:
+-N_ext^2 <= -N_min^2 < 0, and Z = d_tau outside a compact set. Put X = (tau, Phi_Z(tau, y)), Phi_Z the flow of Z from
+tau0 [amended D623: was Phi, the mollifier's letter]:
 the slices are unchanged and d_tau at fixed y is Z, so in (tau, y) the matrix g_ext^{ij} is the inverse spatial metric,
 uniformly positive definite, and g_ext^{00} = -N_ext^-2. Only the independent variables change: the unknowns stay the
 Cartesian arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{ab} transformed as a tensor, and the
@@ -441,7 +477,7 @@ In V := (w, d_tau w, d_y w) it is symmetric hyperbolic, A^0 = diag(1, -g^{00}, g
 g^{ij} xi_i xi_j / g^{00} < 0, so they never meet; u_i = d_i w propagates, since d_tau (u_i - d_i w) = d_i (u_0 - d_tau
 w) = 0. (iv) The restarts. At tau_i extend the data from Sigma_tau_i cap Omega = A(tau_i), in x, by the universal
 Seeley-type operator of [LY22] Theorem 26 for the smooth annulus (one operator bounded on every H^m, so smooth data
-extend to smooth data), cut off, and compose with Phi(tau_i, .) to pass to y. The constants are uniform in tau, the
+extend to smooth data), cut off, and compose with Phi_Z(tau_i, .) to pass to y. The constants are uniform in tau, the
 annuli being images of a fixed one under radial diffeomorphisms with bounded derivatives (deduced: [LY22] Lemma 27
 states the composition bounded, and its proof, by chain and product rules and a change of variables, gives a bound
 through finitely many derivatives of the diffeomorphism and its inverse). [DS23] Theorem 2.4 with r = k > 4/2 + 1 (k =
@@ -917,10 +953,12 @@ v_start - tau0}. []
     + 1/2 (g_(alpha lambda) D^_beta H^lambda + g_(beta lambda) D^_alpha H^lambda)" (2.8), "R^(H)_(alpha beta) = -1/2
     g^(lambda mu) D^_lambda D^_mu g_(alpha beta) + f^[g, D^ g]_(alpha beta)", f^ "independent of the second derivatives
     of g" (2.9): this is (0.2), D = H, Dh = D^, in any dimension.
-  - [BH17] (A. Behzadan and M. Holst, *Multiplication in Sobolev spaces, revisited*): Theorem 7.21, "Let Omega in R^n
-    be a bounded open set with Lipschitz continuous boundary. Then for all s > 0 and for 1 <= p < infinity, there
-    exists a continuous linear extension operator"; Theorem 7.26, "If sp > n, then W^(s,p)(Omega) -> L^infinity(Omega)
-    cap C^0(Omega) and W^(s,p)(Omega) is a Banach algebra"; Theorem 9.14, the same embedding on compact manifolds.
+  - [BH17] (A. Behzadan and M. Holst, *Sobolev-Slobodeckij spaces on compact manifolds, revisited*, arXiv:1704.07930
+    [amended D623: was *Multiplication in Sobolev spaces, revisited*, their arXiv:1512.07379]): Theorem 7.21, "Let Omega
+    in R^n be a bounded open set with Lipschitz continuous boundary. Then for all s > 0 and for 1 <= p < infinity,
+    there exists a continuous linear extension operator"; Theorem 7.26, "If sp > n, then W^(s,p)(Omega) ->
+    L^infinity(Omega) cap C^0(Omega) and W^(s,p)(Omega) is a Banach algebra"; Theorem 9.14, the same embedding on
+    compact manifolds.
   - [GO13] (L. Grafakos and S. Oh, *The Kato-Ponce inequality*): "||J^s(fg) - f (J^s g)||_(L^p) <= C [||grad
     f||_(L^infinity) ||J^(s-1) g||_(L^p) + ||J^s f||_(L^p) ||g||_(L^infinity)] for 1 < p < infinity and s > 0".
     [DS23] Remark 2.3(i): "for any u in H^s ... ||N(u)||_s <= C_I + F_I(||u||_infinity) ||u||_s". On S^3 both follow
