@@ -2006,6 +2006,8 @@ Its findings, each re-derived before it is seated:
   the program reproduces the verifier's table (M_2.4 + 6 on Q4's range: 185 with -inf t, 193 with -t0; with T_LO =
   -16, the record's own input order -N - m of II.A2:389-391, 195 and 203). Both figures are below what the chain needs
   once A2 and the operator orders are counted (R8.1): D_0 <= 399, FWD <= 474, c' = 632. Pinned now: D_a = 53, D_b = 64,
+  [R9, R9.0 M1: on the box M_f was counted with factor order 2 (Peetre's 2L' = 8); with A.7 (3)'s exponent over the
+  factors' orders, M_2.4 = 376, M_f = 429, D_0 <= 435, FWD <= 510, c' = 668 (d0count5 and modcount5 re-pinned).]
   M_a = 81, M_2.4 = 197, M_f = 224, D_0 = 230 on round 7's operator orders, and M_a = 138, M_2.4 = 374, M_f = 393,
   D_0 = 399, FWD = 474 on the box. `OK['D0'] = D0 > 0` is replaced by the pins; the four mutations the verifier found
   undetected (2K = 2, C_ch = 0, delta = 1/20, M2 corrected) are controls C5-C8, and C9 is round 7's range. The
@@ -2017,6 +2019,8 @@ Its findings, each re-derived before it is seated:
 - **B (accepted; R8.7).** R7.7 repeated the round-6 "only through" at :1911-1913 (R7.3's criterion is a sup over
   Omega x S^1, X* sufficient): "for example through". The calculus bound is in CONSTANTS5.md, not the supplement, and
   its figures fall with A. "In the supplement's norm" needs "for one choice of generators" (m7). R8.7 is written so.
+  [R9, nit 7: "in CONSTANTS5.md, not the supplement" reads: in CONSTANTS5.md (a note of the supplement's tree),
+  not in the write-out; R8.7 uses the paper's broad "supplement".]
 - **C (accepted).** r7fixes5 prints C_app (Frobenius) as the ball [16.127553 +/- 2.12e-8], whose lower end is
   16.1275529788; the text's "C_app >= 16.127553" (:1615) rounded the ball's midpoint, the wrong way. Read >= 16.127552;
   lambda0 < 0.0019079 stands (0.0019078257 at the ball's end).
@@ -2035,6 +2039,8 @@ Its findings, each re-derived before it is seated:
   s, K and d1 large enough, 299 of 600 reach those levels, and I2 requires at least 100.
 - **(3) r6fixes5.out (accepted).** It printed "<= 3.5237e+17 ... True", below the certified 3.52422e17: its inputs were
   the round-6 roundings. They are now rounded outward (q_lo >= 0.1966827, e^(kappa Dtau/2) <= 1.1051725e17) and it
+  [R9, minor 4: the %.4e print still rounded the computed 3.524212e17 down to 3.5242e17; it is now printed rounded
+  up, 3.5243e17 (r6fixes5.py rerun, 6/6).]
   prints 3.5242e17.
 - **(4) R7.1 (accepted; reported).** 10857 lines, not 10858; lzerotrace5.py:12 says "lines 1-805". N1STAR-PROOF.md has
   moved since (11025 lines, md5 9e5363f1..., section 7 at 919 when this round ended): T0, A0, A1 fail at HEAD; not
@@ -2049,6 +2055,8 @@ Its findings, each re-derived before it is seated:
   (`classm5.py` K3): the angular maximum of |W_TT|_op/((4/3) E r^(-3/2)) is exactly 1 (H^2 (4 C^4 + S^4) = 5/2 + 3q/(1 +
   q^2) <= 4, equality at q = 1; H^2 (C^4 + S^4) = 1), so sup_Sigma |W_TT|_op <= 0.22189 (certified; round 7's 0.64
   carried a needless factor 2^(1/2)), and Sigma's data would need |a_1| > 12.37. "Stages 2-9 cannot change C_app's
+  [R9, nit 10: dropping 2^(1/2) alone gives 0.4466; the rest of the drop to 0.22189 is the envelope bounded cell by
+  cell on Sigma (E(v) small near v = 1/2, where r^(-3/2) is largest).]
   forced lower bound" holds for the lam -> 0 limit only; at a finite lambda0 the forced bound is a sup over lam in (0,
   lambda0], which g_2 and later stages can raise by O(lambda0): "final" is relative to this method.
 - **(7) R7.4 (accepted; `tensorzero5.py` rerun).** T3b evaluated the identity at one r with one H; it now evaluates it
@@ -2060,6 +2068,8 @@ Its findings, each re-derived before it is seated:
   computed at l = 2, 4 and the Casimir at l = 2; x7indep5 is independent in the summation only. Noted at :1783.
 - **(9) Q4 (accepted; recorded).** Q4 reads only the first branch of s_in (II.C:767-768's alpha_K/theta^3b_in branch is
   not read) and alpha_K = -2 behind "-6 - beta_+ - eps" is not sourced. Recorded, not re-derived: R8.1's order box
+  [R9, R9.0 M2: read and settled (d0count5 Q4b): alpha_K = -2 is III.I Theorem 5.3's ("uses them over K^+ with
+  weights alpha_+, -2"), theta^3b_in = theta_in = 0, and the second branch needs only s_in > 11/2.]
   takes s in [-10, 10], and a second branch giving s_in > 9 would widen the box and raise D_0 with it.
 - **(10) Theorem A.1 (accepted).** Shells k and k + 2 touch (both meet |xi| = 2^(k+1)), so the near group of steps
   (4)-(5) is |k - k'| <= 2 and |xi - xi'| >= 2^(k'-2) needs k' >= k + 3. Constants only; noted at :1838.
@@ -2092,6 +2102,8 @@ Its findings, each re-derived before it is seated:
   below 3 the one-off application), a statement or a lemma's own text charged where it is applied (129), FIN or INT
   of loss 0 (14), base level only (12), top level only (1), replaced at this use (2), routing to a scanned range (9).
   0 unclassified, no stale row. Controls: a row dropped leaves one hit unclassified (C1); the L-hat pattern dropped
+  [R9, nit 5: classified per (line, tag); the four doubled hits are single applications, and "none left" means none
+  left among the matched families (the verifier sorted the unmatched citations: none carries a loss).]
   loses 26 hits and four charges (C2); a range anchor one line off fails (C6).
 - *The charges* (deduced from J3 Lemma 2.1 and LOSS-D 2b at each site; computed at dweights5 W1's weights, at the
   worst level of each range; every charge an upper bound, branches of a sum summed rather than maximised). Above 3:
@@ -2118,6 +2130,7 @@ Its findings, each re-derived before it is seated:
   every order variable in that box. At the Sobolev orders [-16, 11] (Q4 with the record's input order -16):
   D_a = 53, D_b = 64, d_0(8.6) = 60; on the box M_a = 138 (J1 = 80), M_2.4 = 374 (C_ch = 218), M_f = 393 (Lemma A.9),
   D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = 399 and D_1 <= 52 (d-tilde + 3 over [-16, 11]), so
+  [R9, R9.0 M1: 435 and FWD <= 510 with the Peetre exponents over the factors' orders (18 for (b)-(e), 20 for (f)).]
   FWD = D_0 + D_1 + d' + d'' + 6 <= 474. On round 7's operator orders, corrected, D_0 <= 230 (203 without (f)); that
   reading is not the chain's and is not used.
 - **Lemma A.9 (= II.A2 Proposition 2.4 (f) at its instances, explicit; deduced, counts computed).** Let T be a sum of
@@ -2129,12 +2142,17 @@ Its findings, each re-derived before it is seated:
   bounded by Theorem A.1 after the conjugation by Lambda's (M_a), each having taken at most q more derivatives of a
   factor per operation, and remainders, each bounded by A.7's master estimate (3) with q + 1 + max(2L, 2L') derivatives
   of the factors it involves; one change of chart per factor (C_ch, A.8); the +1 is (d)'s Hamilton term. At
+  [R9, R9.0 M1: max(2L, 2L') here is A.7 (3)'s Peetre exponent for a factor differentiated to depth q + 1, maximised
+  over the factors' orders (s - 1/2 + delta in [-10.49, 9.51]): 2L' = 20 at q = 3. Nit 6: (f) is also used at
+  II.D:198 (q = 1), dominated by the II.A2 count.]
   II.A2:682-695, q <= 3 ([[D_a, A-check], A-check] and i[L_R, D_a-check A-check] with D_R inside L_R) and p <= 3. []
 - *The steps outside the levels* (deduced on a coarse reading; computed, M4). III.I with fourteen primes, Theorem
   3.1's Step 0 (FWD), Step 1 (the base level: III.I'''''''' Proposition 4.1 at alpha_1, Lemma 3.1 with III.I'''''
   Proposition 2.1's rounds and at most one Lemma 3.2), Steps 3, 4' (FIN) and Step 4 (III.I'''''''''''' Theorem 3.1 at
   the top, whose Step 0 runs one more level's maps and whose Steps 1-6 subtract towers and read coefficients) are not
   in A' + (K + 1) c', a term round 7's chain omitted. Each is at most one level's composition with its loops, the base
+  [R9, minor 1: itemised in R9.1 (the top's Step 1 (vi), (viii), (ix) apply III.A Proposition 4.2 (2) three times):
+  B_once = 3,943,746,411.]
   at most four levels below 3: B_once := 2 (M_a + 4 M_b) + 1000 = 3,524,217,980, M_a = 1,042,275,846 and M_b =
   179,958,161 the largest totals of one level (the per-level maxima of the rounds at W1's weights, P_W, P_iota, W, the
   excess 47 and X_7(alpha) = 352,162,875, read from dnumber5.out, pinned). It is 7.7e-8 of d.
@@ -2143,6 +2161,7 @@ Its findings, each re-derived before it is seated:
 
       d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 67,301,345,040 + 3,524,217,980
         =  45,661,454,728,212,747   (4.5661455 x 10^16),      N = 21 d + 6 <= 958,890,549,292,467,693 (9.588905 x 10^17).
+  [R9: with R9.0 M1 and minor 1, d <= 45,661,458,981,362,098 and N <= 958,890,638,608,604,064 (R9.1).]
 
   The floor at the same point is 8,407,505,890,317,054 (0.184 of the bound). The reading is: round 5-6's step-by-step
   log orders of E^flat (a deduced ceiling: the write-out states only K(lambda), I11 Proposition 3.1 (c)), the
@@ -2184,6 +2203,9 @@ Its findings, each re-derived before it is seated:
   record) are added. And m_1 depends on the envelope beyond its integral (its source is quadratic in the wave, whose
   amplitude carries env), while the numerics' sin^4 envelope is C^3 and not admissible (1.1): a value of M_22 exists
   only for a chosen smooth envelope, and the lowered bound would be a statement about that envelope, not about P* as
+  [R9, minor 2: the certified bounds are themselves statements about one smooth envelope, round 2's (envelope5.py,
+  with the numerics' integral): C_app goes through its peak c (lzerotrace5's K_lo = c_lo a^(-3/2)), not only through
+  int env^2. So M_22 is to be enclosed for that envelope too.]
   the certified leaves are. No ball or interval method was run: there is no system to enclose until (S1) exists.
 - *The single missing input* (deduced). A certified enclosure, excluding 0, of the one number M_22 = (m_1)_phi1phi1(X*)
   /a^2 for a fixed smooth envelope with the numerics' integral. Nothing weaker suffices (R7.3 (a)-(d), sharpened by K2):
@@ -2208,6 +2230,7 @@ Its findings, each re-derived before it is seated:
   computed here) gives 2 delta G L_b0 h = box^C Ups
   (box^C := 2 delta G delta*_{E^C}, lin5.py's definition), so L_b0 h = f gives Ups = (box^C(0))^-1 2 delta G f, then
   D Ric(h) = f - delta*_{E^C} Ups (the static scalar-type master equation of Kodama-Ishibashi type at zero frequency)
+  [R9, nit 9: that equation is gauge-dependent; it "reduces to" the static master equation, not "is" it.]
   and h's gauge part from (1/2) box^Ups(0) omega = Ups - Ups(h_RW): three inverse bounds (box^C(0) and box^Ups(0) on
   scalar-type 1-forms, the static master operator), each per harmonic, with the composition constants of delta G,
   delta*_{E^C} and the reconstruction in the norms of (3.2). The gam_C-dependence then sits in box^C(0) alone. This is
@@ -2236,7 +2259,9 @@ linearised operator. Not attempted this round: items (i)-(iii) and the verifier'
   each order range, with pins.
 - *Certified*: sup_Sigma |W_TT|_op <= 0.22189; the amplification 5.103e10 over X*'s past (from stage1rate5's kappa);
   r6fixes5's coefficient now printed outward-rounded, < 3.5243e17.
+  [R9, minor 4: printed 3.5242e17 until this round; now 3.5243e17, rounded up.]
 - *Deduced (counts computed)*: Lemma A.9; D_0 <= 399, D_1 <= 52, FWD <= 474 on the order box; the 31 charges of a level
+  [R9: D_0 <= 435, FWD <= 510, c' = 668, B_once = 3,943,746,411, d <= 45,661,458,981,362,098 (R9.1).]
   (158 above 3, 52 below), c' = 632, B_once = 3,524,217,980; **d <= 45,661,454,728,212,747 and N <= 958,890,549,
   292,467,693, deduced on the reading R8.1 states.**
 - *Withdrawn*: D_0 <= 177, FWD + BG <= 250, c' in [62, 250 + MODs], "C_app >= 16.127553" (read 16.127552), the stage-1
@@ -2260,6 +2285,7 @@ LOSS-D.md sections 1-3 and LD16; stage5.py, lead5.py (READ, the class and W_TT);
 prop31loss5, d0count5, dnumber5, stage1cap5.
 
 ### R8.7 Proposed replacement for the paper's section 9 constants text (replaces R7.7)
+[R9: superseded by R9.7 (the round-8 verifier's MAJOR 2 and minors 2, 3, 5).]
 
 Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content when
 this round ended); the new texts claim only what R8.1-R8.4 prove or compute, with their statements, and fold in the

@@ -252,7 +252,10 @@ def l2(control=False):
     det_s = sp.factor(sp.expand(M.det().subs(kap, l_*(l_ + 2))))
     want = sp.expand((lam + l_ + 1)*(lam + l_)*(lam + l_ - 1)*(lam - l_ - 1)*(lam - l_ - 2)*(lam - l_ - 3))
     ok_s = sp.simplify(sp.expand(det_s) - want*sp.Poly(det_s, lam).LC()/sp.Poly(want, lam).LC()) == 0
-    roots_s = sp.roots(sp.Poly(want, lam))
+    # round 9 (the round-8 verifier's Minor 6): the root lists of the gap test are the roots of the computed
+    # determinants, not typed lists; each root is linear in l, and its sign in l sorts it to the lower or upper side
+    roots_s = sp.roots(sp.Poly(sp.expand(det_s), lam))
+    mult_s = sum(roots_s.values()) == 6
     flat = set()
     for m in (l_ - 1, l_, l_ + 1):
         flat |= {sp.expand(-m), sp.expand(m + 2)}
@@ -262,16 +265,29 @@ def l2(control=False):
     ev = sp.expand(sp.simplify(sys_vector(r**(1 - lam)*P, l_*0 + (l_ + 1)**2)*r**(lam + 1)).subs(s, 0))
     det_v = sp.factor(ev.coeff(P))
     ok_v = sp.simplify(det_v/((lam + l_)*(lam - l_ - 2))).is_number
+    roots_v = sp.roots(sp.Poly(sp.expand(det_v), lam))
+    mult_v = sum(roots_v.values()) == 2
+
+    def split(rs):                                           # (roots decreasing in l, roots increasing in l, all linear)
+        cl = {x_: sp.Poly(sp.expand(x_), l_) for x_ in rs}
+        lin = all(P_.degree() == 1 for P_ in cl.values())
+        return ([x_ for x_ in rs if cl[x_].coeff_monomial(l_) < 0], [x_ for x_ in rs if cl[x_].coeff_monomial(l_) > 0],
+                lin)
+    neg, pos, lin_s = split(roots_s)
+    negv, posv, lin_v = split(roots_v)
     # uniform gap on the subspace: l = 2 + n, n >= 0
     n = sp.Symbol('n', nonnegative=True)
-    neg = [-l_ - 1, -l_, 1 - l_]
-    pos = [l_ + 1, l_ + 2, l_ + 3]
     def nonneg(e_):                                          # a polynomial in n >= 0 with coefficients >= 0
         P_ = sp.Poly(sp.expand(e_), n)
         return all(cf >= 0 for cf in P_.coeffs())
-    gap_s = all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg)
+    gap_s = lin_s and mult_s and len(neg) == 3 and len(pos) == 3
+    gap_s &= all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg)
     gap_s &= all(nonneg((x_ - 3).subs(l_, 2 + n)) for x_ in pos)
-    gap_v = nonneg((l_ - 2).subs(l_, 2 + n)) and nonneg((l_ + 2 - 4).subs(l_, 2 + n))
+    gap_v = lin_v and mult_v and len(negv) == 1 and len(posv) == 1
+    gap_v &= all(nonneg((-(x_ + 2)).subs(l_, 2 + n)) for x_ in negv)
+    gap_v &= all(nonneg((x_ - 4).subs(l_, 2 + n)) for x_ in posv)
+    ends = {sp.Integer(-1), sp.Integer(3)} <= set(x_.subs(l_, 2) for x_ in roots_s)     # the ends are l = 2 roots
+    gap_s &= ends
     # the full bundle: l = 0 (2 x 2 system, c absent) and l = 1 scalar
     M0, lam0 = indicial_scalar(0, with_c=False)
     r0 = sorted(sp.roots(sp.Poly(sp.factor(M0.det()), lam0)).keys())
@@ -284,10 +300,11 @@ def l2(control=False):
         print("  L2 control (the full bundle): roots at l = 0 %s, at l = 1 %s; roots in (-1, 0]: %s; root-free: %s"
               % (r0, r1, in_window, ok), flush=True)
         return ok
-    print("  L2: scalar det = %s (= the six roots: %s); the flat roots -m, m + 2 of m = l - 1, l, l + 1: %s; vector "
-          "det %s: %s; for l >= 2 every scalar root <= -1 or >= 3: %s, vector <= -2 or >= 4: %s; so (-1, 3) is an "
-          "indicial gap of the restricted operator, uniformly in l" % (det_s, ok_s, ok_dict, det_v, ok_v, gap_s,
-                                                                      gap_v), flush=True)
+    print("  L2: scalar det = %s (= the six roots: %s); its computed roots %s are the flat roots -m, m + 2 of m = l - "
+          "1, l, l + 1: %s; vector det %s: %s, roots %s; for l >= 2 every computed scalar root <= -1 or >= 3 (the ends "
+          "-1, 3 roots at l = 2): %s, vector <= -2 or >= 4: %s; so (-1, 3) is an indicial gap of the restricted "
+          "operator, uniformly in l" % (det_s, ok_s, sorted(roots_s, key=str), ok_dict, det_v, ok_v,
+                                       sorted(roots_v, key=str), gap_s, gap_v), flush=True)
     return ok_s and ok_dict and ok_v and gap_s and gap_v
 
 

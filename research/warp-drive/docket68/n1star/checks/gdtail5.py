@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""gdtail5.py -- GAUGEDECAY5.md Rounds 7-8: the t^-2 term of a gauge vector with compactly supported data, proved by
+"""gdtail5.py -- GAUGEDECAY5.md Rounds 7-9: the t^-2 term of a gauge vector with compactly supported data, proved by
 an explicit model and Theorem R6.4 carried past the window for sources of zero total charge; the spherically symmetric
 part of the harmonic-gauge representative; and the bookkeeping of the slab order.  Repaired in round 8 as round 7's
-verifier asks ((A84)): every control runs the computed path with a mutated input and must fail.
+verifier asks ((A84)), and in round 9 as round 8's asks (T3, T9; GAUGEDECAY5 section R9.0): every control runs the
+computed path with a mutated input and must fail.
 
   T1 (exact) The time-domain model in flat n+1, n = 4.  The switched-on field of the charge Q_n delta_0, a = r^(2-n) -
      Q_n int_t^oo E_int d tau with E_int = (t^2 - r^2)^((1-n)/2)/(2 pi^((n-1)/2) Gamma((3-n)/2)) (Riesz's interior
@@ -21,9 +22,10 @@ verifier asks ((A84)): every control runs the computed path with a mutated input
      d psi) for arbitrary chi, A, reduced by the flat equation of a := chi r^-2 + A, vanishes at mu = 0 and is a sum
      of coefficients times chi', d_u A, d_r A, d_r^2 A; with the I+-orders of A (3/2, ..., d_r adding one) every term
      has I+-order >= 4.  The reduction is the one A obeys: with A = K, chi = 1 the flat relation holds and the
-     Tangherlini one does not, and E equals the flat-reduced E and not the Tangherlini-reduced one.  With A = K E has
-     I+-order >= 9/2 at fixed u and iota+-order 6 along u = lam r.  Control: without the flat reduction E does not
-     vanish at mu = 0.
+     Tangherlini one does not, and E equals the flat-reduced E and not the Tangherlini-reduced one; and the reduced E
+     used for the orders has no undifferentiated chi or A term (round 9: the Tangherlini-reduced E keeps a chi term,
+     so a reduction by that operator at the point of use fails here).  With A = K E has I+-order >= 9/2 at fixed u and
+     iota+-order 6 along u = lam r.  Control: without the flat reduction E does not vanish at mu = 0.
   T4 (exact) The model near compact sets.  In the ingoing chart, for every phi(v, r): Box(phi d psi) = (Box_0 phi) d psi
      - 2 nabla_{grad phi} d psi, and phi + const gives the same, so every term carries a derivative of phi.  With A =
      K(T, r), T = v - 2 r (A = chi_1' * K = K + O(T^-3)): T^2 A -> 1/2 (Lemma R7.2 (d)'s coefficient, read off the
@@ -44,8 +46,10 @@ verifier asks ((A84)): every control runs the computed path with a mutated input
      2: the data of Z^(K) are of order exactly 1 at spatial infinity.  Control: W* in place of W**_H has no r^-1 term.
   T9 (exact, whole box) Corollary R7.6's chain for homogeneous solutions with data of order p in (1/2, 3/2) at spatial
      infinity (a_0 < p - 3/2, alpha_I < a_0, p_slab = alpha_I + 3/2, 1/2 + beta < b_I < p_slab, gamma_+ < b_+ =
-     1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2); in the class p_0 >= min(1, q - 1) > 1/2 +
-     2 gam > 1/2 + delta_#.  Control: p = 1/2 leaves the chain empty.
+     1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2), and none beyond (round 9: p - alpha_K and
+     3/2 - alpha_K are sums of the chain's gaps); in the class p_0 >= min(1, q - 1) > 1/2 + 2 gam > 1/2 + delta_#.
+     The chain is transcribed from Corollary R7.6's proof (a reading); T9 checks its arithmetic.  Control: p = 1/2
+     leaves the chain empty.
   T10 (exact, whole box) The slab order: every use of Z_1 at null infinity on the initial slab in the paper's
      statements (R4.4 / R3.6, R5.3 at kappa, and Corollary R8.11's l >= 2 part) asks p > 1/2 + beta, each beta computed
      from its statement's parameters, below Theorem R4.3's min(3/2, q - 1).  Control: with the source's margin delta_#
@@ -281,6 +285,14 @@ def t3(control=False):
     match_f = all(sp.simplify(Ksub(c) - e_) == 0 for c, e_ in zip(FZ['red']['flat'][1], EK))
     match_T = all(sp.simplify(Ksub(c) - e_) == 0 for c, e_ in zip(FZ['red']['Tangherlini'][1], EK))
     consistent = holds_f and not holds_T and match_f and not match_T
+    # round 9 (the round-8 verifier's Minor 5): the reduction used at this point leaves no undifferentiated chi or A
+    # term (with every derivative set to 0 nothing remains); the Tangherlini-reduced E keeps a chi term, as
+    # Box_0^Tangherlini(r^-2) != 0, so a mutant reduced by that operator here fails this item
+    undiff = []
+    for c in Ered:
+        c0 = sp.expand(c).subs({d_: 0 for d_ in sp.expand(c).atoms(sp.Derivative)})
+        undiff.append(sp.simplify(c0))
+    no_undiff = all(c0 == 0 for c0 in undiff)
     # monomials and their I+-orders: A, d_u A: 3/2; d_r A: 5/2; d_r^2 A: 7/2; chi, chi': 0
     ords = {A: HALF*3, sp.Derivative(A, u): HALF*3, sp.Derivative(A, r): HALF*5,
             sp.Derivative(A, (r, 2)): HALF*7, chi: 0, sp.Derivative(chi, u): 0}
@@ -313,14 +325,14 @@ def t3(control=False):
         e = sp.simplify(c.subs(u, lam*r).subs(r, 1/z))
         ser = sp.series(e, z, 0, 9).removeO()
         io_ord.append(min(sp.Poly(sp.expand(ser), z).monoms())[0] if ser != 0 else sp.oo)
-    ok = (sol and flat_ok and consistent and worst >= 4 and min(I_ord) >= sp.Rational(9, 2)
+    ok = (sol and flat_ok and consistent and no_undiff and worst >= 4 and min(I_ord) >= sp.Rational(9, 2)
           and min(io_ord) >= 6)
     print("  T3: W*, d psi solve Box in the outgoing chart: %s; E reduced by the flat equation vanishes at mu = 0: %s; "
           "with A = K, chi = 1 the flat relation holds: %s, the Tangherlini one: %s, E = flat-reduced E: %s, = "
-          "Tangherlini-reduced E: %s; I+-orders of its terms %s (least %s); with A = K, chi = 1: I+-orders %s, "
-          "iota+-orders %s" % (sol, flat_ok, holds_f, holds_T, match_f, match_T,
-                               sorted(set(report), key=lambda p_: (p_[1], p_[0]))[:6], worst, I_ord, io_ord),
-          flush=True)
+          "Tangherlini-reduced E: %s; no undifferentiated chi or A term in the reduced E: %s; I+-orders of its terms "
+          "%s (least %s); with A = K, chi = 1: I+-orders %s, iota+-orders %s"
+          % (sol, flat_ok, holds_f, holds_T, match_f, match_T, no_undiff,
+             sorted(set(report), key=lambda p_: (p_[1], p_[0]))[:6], worst, I_ord, io_ord), flush=True)
     return ok
 
 
@@ -509,6 +521,14 @@ def t9(control=False):
             "alpha_K < gamma_+": gp - aK, "alpha_K >= 1/2": aK - HALF,
             "gamma_+ < 2 (R6.4) / 3/2 (R5.1)": sp.Rational(3, 2) - gp}
     res = {k: positive_sum(e, pos) for k, e in cond.items()}
+    # round 9 (report-vA7's remark: T9 checks arithmetic on a chain it builds): the chain is read from Corollary R7.6's
+    # proof (a reading, deduced), and it reaches no alpha_K >= min(p, 3/2): with free symbols for every link and
+    # p_slab := alpha_I + 3/2, p - alpha_K and 3/2 - alpha_K are sums of the chain's gaps, each positive by a condition
+    Pp, A0, AI, BI, BP, GP, AK = sp.symbols('p a_0 alpha_I b_I b_+ gamma_+ alpha_K')
+    PS = AI + sp.Rational(3, 2)
+    gaps = [Pp - sp.Rational(3, 2) - A0, A0 - AI, PS - BI, BI - BP, BP - GP, GP - AK]
+    cap_p = sp.expand(Pp - AK - sum(gaps)) == 0
+    cap_32 = sp.expand(sp.Rational(3, 2) - AK - (-AI + sum(gaps[2:]))) == 0
     if control:
         bad = [k for k, val in res.items() if not val]
         print("  T9 control (p = 1/2): conditions failing %s" % bad, flush=True)
@@ -522,9 +542,10 @@ def t9(control=False):
     cls = {"1 - (1/2 + delta_#)": 1 - HALF - dsh, "(q - 1) - (1/2 + 2 gam)": q - 1 - HALF - 2*gam,
            "2 gam - delta_#": 2*gam - dsh}
     cres = {k: positive_sum(e, [a1, a2, a3]) for k, e in cls.items()}
-    ok = all(res.values()) and all(cres.values())
-    print("  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: %s; in the class p_0 > 1/2 + "
-          "2 gam > 1/2 + delta_#: %s" % (all(res.values()), cres), flush=True)
+    ok = all(res.values()) and all(cres.values()) and cap_p and cap_32
+    print("  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: %s; and none beyond (p - "
+          "alpha_K and 3/2 - alpha_K are sums of the chain's positive gaps: %s, %s); in the class p_0 > 1/2 + 2 gam > "
+          "1/2 + delta_#: %s" % (all(res.values()), cap_p, cap_32, cres), flush=True)
     return ok
 
 
