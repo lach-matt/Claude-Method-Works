@@ -33,3 +33,21 @@ E5 (exact) the kinetic energy: E_K = 6 k^2 m Z^2/(R^3 H_KI^2) + d/dR on the mome
    control (a gauge-variant variable admitted): with R^3 w in place of Z the identity fails (rejected): True
 E5 PASS  (288 s)
 E6 (exact) the potential energy: E_V = (27 m/(2 k^2)) (f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)) + d/dR
+   E_V = E_red + R^4 F' C + d/dR: True; l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C: True; l -> (A, F) solves C identically: True
+   Euler operator of E_V(l) - (27 m/(2 k^2))(f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)), Phi = R^(3/2) f^2 l/H_KI, zero in l: True
+   controls: l without its F-term fails the identity (rejected): True; Phi with R^(1/2) fails (rejected): True
+   no l''^2 term in E_V(l) (the principal parts cancel): True
+E6 PASS  (372 s)
+E7 (exact) positivity on the class spectrum, and the potential before the S-deformation
+   class modes l = 2j: m = 4j(j+1) - 3 = 5, 21, 45, ...: True; m = 5: Qp = 1296 x^3 + 2976*x**2 - 1260*x + 3500, discriminant -40076400 < 0, no root in [0, 1]: True; m = 21 + t (t >= 0): every coefficient of Qp in (x, t) >= 0, Qp(0, 0) > 0: True; H_KI = m + 6x > 0: True
+   control (wrong sign): the potential c0 of the l-form at m = 5, mu = 1 changes sign on r > 1 (sign -1 at r = 1.01, 1 at r = 3): positivity is not automatic, the S-deformation is needed (rejected): True
+E7 PASS  (372 s)
+E8 (exact) l = 0: the energies are d/dR's on the constraint; compact support excludes the mass change
+   C_0(L_(R F d_R) gamma) = 0: True, and E_V on it has zero Euler operator in F: True; the other solution A = mu/(R^2 f^2) (the mass change, nowhere zero): True; kinetic: p = (R w' + w)/f solves M_R, E_K a d/dR: True
+E8 PASS  (379 s)
+E9 (exact) the static-slice E is Kodama-Ishibashi's master energy: Phi[2 N k] = (2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI)
+   Phi[2 N k] = +(2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI): True (with the opposite sign: False); hence E_K = (27 m/(2 k^2)) int Phi_t^2/f dR, and the static-slice E = (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, V_S = f Qp/(16 R^2 H_KI^2)
+E9 PASS  (379 s)
+summary: E1 PASS, E2 PASS, E3 PASS, E4 PASS, E5 PASS, E6 PASS, E7 PASS, E8 PASS, E9 PASS
+ALL PASS (379 s)
+exit 0

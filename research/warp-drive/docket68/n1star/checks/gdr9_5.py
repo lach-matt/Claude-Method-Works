@@ -81,6 +81,7 @@ import sympy as sp
 from sympy import QQ
 from sympy.polys.matrices import DomainMatrix
 
+from gdlge2_5 import gap_from_l2, indicial_scalar, indicial_vector
 from gdrad5 import positive_sum
 from hgauge5 import GEO, WSTAR
 from rwgauge5 import p1, p2, r, s, th, v
@@ -469,6 +470,7 @@ def n2(control=False):
                 return False
         return True
     want, lims, exact = scalar_growth()                      # u_1, u_2, u_3: l - 1, l + 1, l
+    p_claim = -gap_from_l2()['gap'][0]                         # round 10: the threshold r^1 is the claim's (L2's gap)
     exp_ok = all(exact)
     coefs = [q_ for L_ in lims for q_ in L_ if q_ != 0]
     nz_ok = len(coefs) == 6 and all(nonzero(co) for co in coefs)
@@ -480,12 +482,13 @@ def n2(control=False):
         sub_h = {nu: HALF}
         want_h, lims_h, exact_h = scalar_growth(HALF)
         exact = all(exact_h)
-        least = min(w_.subs(sub_h) for w_ in want)
+        least = min(want_h)
         print("  N2 control (the same path at l = 1, nu = 1/2): leading Cartesian coefficients %s (exact growths "
-              "r^0, r^2, r^1: %s); the least exponent %s >= 1: %s" % (lims_h, exact, least, least >= 1), flush=True)
-        return exact and least >= 1
-    n_ = sp.Symbol('n', nonnegative=True)                    # l = 2 + n, nu = 1 + n/2: l - 1 - 1 = n >= 0
-    least_ok = all(c_ >= 0 for c_ in sp.Poly(sp.expand((2*nu - 1 - 1).subs(nu, 1 + n_/2)), n_).coeffs())
+              "%s: %s); the least exponent %s >= %s (the claim's threshold): %s"
+              % (lims_h, want_h, exact, least, p_claim, least >= p_claim), flush=True)
+        return exact and least >= p_claim
+    n_ = sp.Symbol('n', nonnegative=True)                    # l = 2 + n, nu = 1 + n/2: l - 1 - p_claim = n >= 0
+    least_ok = all(c_ >= 0 for c_ in sp.Poly(sp.expand((2*nu - 1 - p_claim).subs(nu, 1 + n_/2)), n_).coeffs())
     ok = (all(solves) and hP and hA and jets_ok and rec_ok and a0_ok and exp_ok and nz_ok and distinct and least_ok
           and numP < 1e-9 and numA < 1e-9)
     print("  N2: u_1, u_2, u_3 solve (R8.1), kappa symbolic: %s; in x = r^2/mu the psi- and A-equations are multiples "
@@ -545,11 +548,13 @@ def n4(control=False):
     ex_v = sp.roots(sp.Poly(sp.factor(ev.subs(k, k + shift)), k))
     integral = all(q.is_integer for q in ex_s) and all(q.is_integer for q in ex_v)
     count = sum(ex_s.values()) == 6 and sum(ex_v.values()) == 2
+    # round 10 (the round-9 verifier's Minor 3): the values, as R9.c states them, not only their integrality
+    values = ex_s == {-1: 1, 0: 4, 1: 1} and ex_v == {0: 2}
     tag = "  N4 control (exponents shifted by 1/3)" if control else "  N4"
-    print("%s: horizon exponents of the scalar system %s (det %s), of the vector equation %s; all integers, 6 and 2 "
-          "with multiplicity: %s: a solution smooth across r_h vanishing on r > r_h vanishes on (r_0, r_h)"
-          % (tag, ex_s, det, ex_v, integral and count), flush=True)
-    return integral and count
+    print("%s: horizon exponents of the scalar system %s (det %s), of the vector equation %s; = {-1: 1, 0: 4, 1: 1} "
+          "and {0: 2}: %s; all integers, 6 and 2 with multiplicity: %s: a solution smooth across r_h vanishing on "
+          "r > r_h vanishes on (r_0, r_h)" % (tag, ex_s, det, ex_v, values, integral and count), flush=True)
+    return integral and count and values
 
 
 # ----------------------------------------------------------------------------------------------------------------- N5
@@ -561,7 +566,17 @@ def l0_solutions():
     return {"W*": Ws, "(d_v)^flat": dv, "(0, (r^2 + mu)/r)": uc, "(0, 1/(r (r^2 - mu)))": us}
 
 
-def n5(control=False):
+_KC = {}
+
+
+def kernel_counts():
+    """round 10 (the round-9 verifier's Minor 2): every input of N5's and N6's counts computed.  The l = 0 kernel from
+    the four l = 0 solutions; the threshold from L2's computed gap; the scalar l = 1 count from N2's growth reading at
+    nu = 1/2 (the solutions' exponents are distinct, so the count is the number of exponents below the threshold);
+    the vector l = 1 count from N3's at l = 1; the representation dimensions and the class's G-fixed dimensions from
+    N1's model"""
+    if _KC:
+        return _KC
     sols = l0_solutions()
     solve = {k_: all(sp.simplify(e_) == 0 for e_ in sys_scalar(a_, b_, sp.Integer(0), 0)[:2])
              for k_, (a_, b_) in sols.items()}
@@ -569,8 +584,7 @@ def n5(control=False):
     W = sp.Matrix([[a_.subs(r, rr), sp.diff(a_, r).subs(r, rr), b_.subs(r, rr), sp.diff(b_, r).subs(r, rr)]
                    for a_, b_ in sols.values()])
     indep = sp.simplify(W.det()) != 0
-    smooth = {}
-    grow = {}
+    smooth, grow = {}, {}
     for k_, (a_, b_) in sols.items():
         smooth[k_] = all(sp.limit(c_, r, s).is_finite for c_ in (a_, b_)) and \
             all(sp.limit(sp.diff(c_, r), r, s).is_finite for c_ in (a_, b_))
@@ -581,27 +595,58 @@ def n5(control=False):
                 ex = p_
                 break
         grow[k_] = ex
-    # weights (-1, 0): smooth and growth below r^1; weights (0, 2): smooth and decaying (growth < 0)
-    if control:
-        ker = [k_ for k_ in sols if smooth[k_] and grow[k_] is not None and grow[k_] < 0]
-        print("  N5 control (the same count at weights in (0, 2)): kernel %s, dimension %d (2 asked)" % (ker, len(ker)),
-              flush=True)
-        return len(ker) == 2
-    ker = [k_ for k_ in sols if smooth[k_] and grow[k_] is not None and grow[k_] < 1]
+    p_claim = -gap_from_l2()['gap'][0]                         # growth below r^p_claim at the weights of (-1, 0)
+    ker = [k_ for k_ in sols if smooth[k_] and grow[k_] is not None and grow[k_] < p_claim]
     ker02 = [k_ for k_ in sols if smooth[k_] and grow[k_] is not None and grow[k_] < 0]
-    dim_cl, dim_full = len(ker), len(ker) + 4*1 + 0              # l = 1 scalar: one per S (N2 at nu = 1/2), S_1: 4
-    ok = (all(solve.values()) and indep and ker == ["W*", "(d_v)^flat"] and ker02 == ["W*"] and dim_cl == 2 and
-          dim_full == 6 and not smooth["(0, 1/(r (r^2 - mu)))"])
+    want_h, lims_h, exact_h = scalar_growth(HALF)
+    distinct = len(set(want_h)) == 3
+    l1_scalar = sum(1 for w_ in want_h if w_ < p_claim) if all(exact_h) and distinct else None
+    ev1, limv, exv = vector_growth(1)
+    l1_vector = (1 if ev1 < p_claim else 0) if exv else None
+    M = model(2)
+    dimH = {m_: sum(1 for mm, _ in M['H'] if mm == m_) for m_ in (0, 1)}
+    # the class: the G-fixed vectors of dt (x) H_m (the torus and the reflections x2 -> -x2, x4 -> -x4)
+    nH = M['nH']
+    fixG = {}
+    for m_ in (0, 1):
+        idx = [i_ for i_, (mm, _) in enumerate(M['H']) if mm == m_]          # the dt block, fibre index 0
+        blk = lambda D: D.to_Matrix().extract(idx, idx)
+        St = sp.Matrix.vstack(blk(M['X'][(0, 1)]), blk(M['X'][(2, 3)]), blk(M['R'][1]) - sp.eye(len(idx)),
+                              blk(M['R'][3]) - sp.eye(len(idx)))
+        fixG[m_] = len(St.nullspace())
+    P, _, _, _ = iso_projections(M)
+    dim_vec1 = P[(1, 0)].rank() + P[(0, 1)].rank()
+    full = len(ker)*dimH[0] + (l1_scalar or 0)*dimH[1] + (l1_vector or 0)*dim_vec1
+    cls = len(ker)*fixG[0] + (l1_scalar or 0)*fixG[1]                      # no vector type in the class (N1)
+    _KC.update(solve=solve, indep=indep, smooth=smooth, grow=grow, ker=ker, ker02=ker02, p_claim=p_claim,
+               l1_scalar=l1_scalar, l1_vector=l1_vector, want_h=want_h, dimH=dimH, fixG=fixG, dim_vec1=dim_vec1,
+               full=full, cls=cls, nH=nH)
+    return _KC
+
+
+def n5(control=False):
+    K = kernel_counts()
+    if control:
+        # the same count at the weights of (0, 2) (decay required): 1, not 2
+        print("  N5 control (the same count at weights in (0, 2)): kernel %s, dimension %d (2 asked)"
+              % (K['ker02'], len(K['ker02'])), flush=True)
+        return len(K['ker02']) == 2
+    ok = (all(K['solve'].values()) and K['indep'] and K['ker'] == ["W*", "(d_v)^flat"] and K['ker02'] == ["W*"]
+          and not K['smooth']["(0, 1/(r (r^2 - mu)))"] and K['l1_scalar'] == 1 and K['l1_vector'] == 0
+          and K['cls'] == 2 and K['full'] == 6)
     print("  N5: l = 0 solutions %s; independent: %s; smooth at r_h %s; growth exponents %s; kernel at weights in "
-          "(-1, 0): %s, in (0, 2): %s; with the l = 1 forms d(psi S) (N2) and none for vector l = 1 and l >= 2 (N2, "
-          "N3): dimension %d in the class, %d on all 1-forms" % (solve, indep, smooth, grow, ker, ker02, dim_cl,
-                                                                 dim_full), flush=True)
+          "(-1, 0) (growth below r^%s, from L2's gap): %s, in (0, 2): %s; scalar l = 1: %s per harmonic (N2's "
+          "exponents at nu = 1/2: %s), vector l = 1: %s (N3 at l = 1), l >= 2: none (N2, N3); harmonics of degree "
+          "0, 1: %s, G-fixed among them %s (N1's model), vector l = 1 dimension %d: the kernel is %d-dimensional in "
+          "the class and %d-dimensional on all 1-forms: %s"
+          % (K['solve'], K['indep'], K['smooth'], K['grow'], K['p_claim'], K['ker'], K['ker02'], K['l1_scalar'],
+             K['want_h'], K['l1_vector'], K['dimH'], K['fixG'], K['dim_vec1'], K['cls'], K['full'], ok), flush=True)
     return ok
 
 
 # ----------------------------------------------------------------------------------------------------------------- N6
 def n6(control=False):
-    from gdlge2_5 import indicial_scalar
+    K = kernel_counts()
     rep = {}
     mult = {}
     for name, (kk, with_c) in {"l = 0": (0, False), "scalar l = 1": (3, True)}.items():
@@ -611,22 +656,27 @@ def n6(control=False):
         nullity = M.shape[0] - M.subs(lam, 0).rank()
         mult[name] = nullity if simple else None
         rep[name] = (dt, simple, nullity)
-    lv = sp.Symbol('lam')
-    vec1 = ((lv + 1)*(lv - 3)).subs(lv, 0) != 0                # vector l = 1: (lam + l)(lam - l - 2), L2
-    dims = {"l = 0": 1, "scalar l = 1": 4}                     # the representations (0,0), (1/2,1/2): N1's model
+    dv1, lamv = indicial_vector(4)                              # vector l = 1, from L2's computation
+    vec1 = sp.expand(dv1).subs(lamv, 0) != 0
+    dims = {"l = 0": K['dimH'][0], "scalar l = 1": K['dimH'][1]}            # N1's model
+    fix = {"l = 0": K['fixG'][0], "scalar l = 1": K['fixG'][1]}
     if control:
         dims["scalar l = 1"] = 1                               # the representation dimension dropped
-    jump_cl = mult["l = 0"]*dims["l = 0"]                      # the class carries no (1/2,1/2) (N1)
+    jump_cl = sum(mult[k_]*fix[k_] for k_ in mult)
     jump_full = sum(mult[k_]*dims[k_] for k_ in mult)
-    ind02 = 1 - 1                                              # kernel span{W*}, cokernel span{ell} (III.D' Lemma 2.1)
-    ker_cl, ker_full = 2, 6                                    # N5
+    cok02 = 1                                                  # READ: III.D' Lemma 2.1 (3), cokernel span{ell}
+    ind02 = len(K['ker02']) - cok02                            # kernel span{W*} at (0, 2): N5 (III.D' Lemma 2.1 (2))
+    ker_cl, ker_full = K['cls'], K['full']                     # N5
+    # deduced (standard: the relative index theorem): ind(-1, 0) = ind(0, 2) + the jump; cokernel = kernel - index
     cok_cl, cok_full = ker_cl - (ind02 + jump_cl), ker_full - (ind02 + jump_full)
     ok = vec1 and None not in mult.values() and cok_cl == 1 and cok_full == 1 and jump_cl == 1 and jump_full == 5
     tag = "  N6 control (the l = 1 root counted once)" if control else "  N6"
-    print("%s: (indicial det, root 0 simple, null space dimension) %s; 0 not a root of vector l = 1: %s; the index "
-          "jumps from (0, 2) to (-1, 0) by %d in the class and %d on all 1-forms; with the kernels 2 and 6 (N5) the "
-          "cokernels are %d and %d (the deduced span{ell}: 1 and 1): %s" % (tag, rep, vec1, jump_cl, jump_full,
-                                                                            cok_cl, cok_full, ok), flush=True)
+    print("%s: (indicial det, root 0 simple, null space dimension) %s; 0 not a root of vector l = 1 (det %s): %s; "
+          "computed inputs: dimensions %s, G-fixed %s, kernels %d and %d at (-1, 0), %d at (0, 2) (N5); the index "
+          "arithmetic, deduced (the relative index theorem): jumps %d in the class and %d on all 1-forms, cokernels "
+          "%d and %d (the deduced span{ell}: 1 and 1): %s" % (tag, rep, dv1, vec1, dims, fix, ker_cl, ker_full,
+                                                             len(K['ker02']), jump_cl, jump_full, cok_cl, cok_full,
+                                                             ok), flush=True)
     return ok
 
 
