@@ -9,7 +9,7 @@ conditionally on Part IV, as III.C$'$ is. It also uses III.I$'''''''''''''''$ Co
 repairs are being read. Verifier 133's findings seated (D309): the support classes, $\chi_-$, $\mathcal D$ and the
 collar are again defined by $t^\flat_*$ (B-M1); to be read. Verifier 134 read the D309 repairs (D311): correct, but the
 restriction $r\ge R_9$ of the slab could give it a timelike side; repaired by $c\le1/R_9$ (D-m1), with one nit (D-n1);
-to be read. Proved (D312): verifier 135 read the D311 repair, correct. Amended D378, D611, D621: record in section 6.
+to be read. Proved (D312): verifier 135 read the D311 repair, correct. Amended D378-D628: record in section 6.
 
 The source's proof has four steps: the parameters, the solution up to $t_* = 2$, the Nash-Moser iteration, and
 constraint propagation ([Hin26] pp. 320-323). Section 0 fixes the parameters, section 1 builds the initial family,
@@ -603,6 +603,13 @@ Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ near infinity, for the perturbed metri
 text; Lemma 6.2 supplies it (D626). It also named two notational clashes, seated: Lemma 6.1's $\Xi$ was printed
 $F$, against section 0's $F(r)$, and its coefficient $B$ is now marked apart from the record's $B$ of II.F.
 
+*D628.* A confirming reader of D626 found Lemma 6.2's compact-set clause to claim more than it proves: for future curves
+$r$ is not bounded below by II.C Lemma 3.2 (1), which governs past curves only, and II.F Lemma 1.3's support hypothesis
+puts the level below $\Sigma_{\mathrm{IVP}}$, so the sets cross it. The near-infinity content holds. The clause and the
+proof's last sentence are amended in place (D628), the future-curve case computed (`checks/scrirad5.py` R5, with a
+control); the orientation of $dt$ on $\{r\ge R\}$ is now stated; and `checks/vii5census.py` V2 now keeps primes in the
+spellings of $\omega$ it sorts (D628).
+
 **Lemma 6.1 (the radius near $\mathscr I^+$ along past causal curves; D621).** Let $\ell$, $\epsilon_G$, $r'_0$,
 $r^\natural$ and $t^\flat_*$ be those of II.C Lemma 3.2 for $g_0 = g_{b_0}$, $C_\flat$ its $C'$ (section 0), and
 $T\ge\frac12$; put $T_1 := T/C_\flat+1$. There is $R_T<\infty$, depending only on $T$ and on the constants of II.C Lemma
@@ -679,14 +686,32 @@ case $h = 0$, where II.F Lemma 1.4 (a) at $\theta = 0$ gives such sets as well.
 **Lemma 6.2 (Proposition 1.2's uniqueness near infinity; D626).** Let $g_S := \phi_S^*g_{b_0}+h_S$ on $\mathcal D$, with
 $|S|$ and the data small. There is $R\ge R_5$ such that $\mathcal D\cap\{r\ge R\}\subset\Omega_{\mathrm{ext},r_1}
 \cup\mathcal S$, $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ there, and on $\mathcal D\cap\{r\ge R\}$: every Cartesian
-component of $g_S-\eta$ is at most $\frac1{20}$ in modulus, $g_S^{-1}(dt,dt)\le-\frac12$, and $|V^x|\le2|V^t|$ for every
-$g_S$-causal $V$. Hence $dt_{\mathrm{IVP}}$ is past timelike for $g_S$ on $\mathcal D$; along causal curves of $g_S$ in
-$\{r\ge R\}$, $r+2t_{\mathrm{IVP}}$ does not increase towards the past and $r-2t_{\mathrm{IVP}}$ does not increase
-towards the future; and II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ (forward from $\Sigma_{\mathrm{IVP}}$) or $\tau :=
--t_{\mathrm{IVP}}$ (backward to $\{t_{\mathrm{IVP}} = -\nu\}$), on the interior of $\mathcal D$ or of a part of it closed
-under the curves concerned, has the compact sets
+component of $g_S-\eta$ is at most $\frac1{20}$ in modulus, $g_S^{-1}(dt,dt)\le-\frac12$ [amended D628: $dt$ past, not
+future, timelike: along $\eta+s\delta$, $s\in[0,1]$, $dt$ stays timelike, the bound holding for each $s\delta$, so it
+stays in the past cone of $\eta$; and $g_S$ is time-oriented on $\mathcal D$ as a small deformation of $g_{b_0}$, for
+which $dt_{\mathrm{IVP}}$ is past timelike (III.B Lemma 3.7 (b))], and $|V^x|\le2|V^t|$ for every $g_S$-causal $V$. Hence
+$dt_{\mathrm{IVP}}$ is past timelike for $g_S$ on $\mathcal D$; along causal curves of $g_S$ in $\{r\ge R\}$,
+$r+2t_{\mathrm{IVP}}$ does not increase towards the past and $r-2t_{\mathrm{IVP}}$ does not increase towards the future;
+and II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ (forward from $\Sigma_{\mathrm{IVP}}$) or $\tau := -t_{\mathrm{IVP}}$
+(backward to $\{t_{\mathrm{IVP}} = -\nu\}$), on the interior of $\mathcal D$ or of a part of it closed under the curves
+concerned, has the compact sets
 $$L_p := \{c\le\tau\le\tau(p),\ \min(r(p),r^\natural)\le r\le\max(R,r(p))+2(\tau(p)-c)\}\cap\{t^\flat_*\le
 t^\flat_*(p)\ \text{where it is defined}\}.$$
+[amended D628: this clause claims more than is proved (an independent reader's confirmation of D626): for $\tau =
+-t_{\mathrm{IVP}}$ the lower bound on $r$ fails, as $r$ decreases along every future causal curve inside the horizon
+(`checks/scrirad5.py` R5), and II.F Lemma 1.3's support hypothesis puts the level below the support, so these sets cross
+$\Sigma_{\mathrm{IVP}}$ and on $\{r\le R_\nu\}$ leave $\mathcal D$. It reads: and along a past (future) directed causal
+curve of $g_S$ from $p$ on which $\tau := t_{\mathrm{IVP}}$ ($\tau := -t_{\mathrm{IVP}}$) stays $\ge c$,
+$r\le\max(R,r(p))+2(\tau(p)-c)$: the bound near infinity that II.F Lemma 1.3's compact sets need in Proposition 1.2's
+uses. There the solution is extended by 0 across $\Sigma_{\mathrm{IVP}}$ (beyond $\mathcal D$ on $\{r\le R_\nu\}$, the
+operator extended smoothly), the level lies below its support as at PART-II-F-IOTA.md:1929-1934, and away from infinity
+the sets are bounded as in Proposition 1.2's proof: past curves by II.C Lemma 3.2 (1); future curves, which lose $r$
+inside the horizon, by $N\cap\{t_{\mathrm{IVP}}<0\}\subset\{r>R_\nu\}$ ($\nu = 0$ on $[0,R_\nu]$), by $N$'s inflow
+boundary ($t_{\mathrm{IVP}}+\nu$ increases along future causal curves, $\{t_{\mathrm{IVP}} = -\nu\}$ being spacelike with
+$N$ to its future), and, in the thin slab $\{0\le t_{\mathrm{IVP}}\le|c|\}$ above, by the bounded radial speed there
+($|dr|\le C\,dt_{\mathrm{IVP}}$ along future causal curves, so $r\ge R_\nu-C|c|$). Proposition 1.2's uses need nothing
+more: away from infinity they rest on the compact $\mathcal K$, closed under past causal curves within $\mathcal D$, and
+on the exterior and slab problems near infinity.]
 
 *Proof.* $\mathcal K$ is compact, so for $R$ above its radius $\mathcal D\cap\{r\ge R\}$ lies in
 $\Omega_{\mathrm{ext},r_1}\cup\mathcal S$ (Proposition 1.2's cover), and $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ for
@@ -711,12 +736,16 @@ on $\mathcal K$, and the classes above). For a past directed causal $V$ in $\{r\
 $dr(V)\le|V^x|\le-2V^t$, so $d(r+2t_{\mathrm{IVP}})(V)\le0$; likewise for future directed $V$,
 $d(r-2t_{\mathrm{IVP}})(V)\le0$. The sets: for $q\in J^-(p)\cap\{\tau\ge c\}$ along a curve $\gamma$ from $p$, $\tau$
 decreases along $\gamma$, so $c\le\tau\le\tau(p)$ on it; $r\ge\min(r(p),r^\natural)$ by II.C Lemma 3.2 (1), as in
-Proposition 1.2's proof; $t^\flat_*\le t^\flat_*(p)$ where $t^\flat_*$ is defined, it being a time function of $g_S$
-(II.C Lemma 3.2 (2), as there), which keeps $\gamma$ off the top $\{t^\flat_* = \hat T+3\}$; and, as in Lemma 6.1 (b),
-with $s_0$ the last parameter before $q$ at which $r\le R' := \max(R,r(p))$, $r(q)+2\tau(q)\le R'+2\tau(\gamma(s_0))$ for
-$\tau = t_{\mathrm{IVP}}$ (and the same with $-\tau$ and future curves), so $r(q)\le R'+2(\tau(p)-c)$. $L_p$ is closed,
-bounded in $t$ and $r$, and its points have $\tau\ge c$ and $r\ge\min(r(p),r^\natural)$, which keeps it off the data
-surface and the boundary $\{r = \text{const}\}$ of $M$; so it is compact and lies in the domain. $\square$
+Proposition 1.2's proof [amended D628: for past curves only; future curves lose $r$ inside the horizon, and are bounded
+below as in the statement's amended clause]; $t^\flat_*\le t^\flat_*(p)$ where $t^\flat_*$ is defined, it being a time
+function of $g_S$ (II.C Lemma 3.2 (2), as there), which keeps $\gamma$ off the top $\{t^\flat_* = \hat T+3\}$; and, as in
+Lemma 6.1 (b), with $s_0$ the last parameter before $q$ at which $r\le R' := \max(R,r(p))$, $r(q)+2\tau(q)\le
+R'+2\tau(\gamma(s_0))$ for $\tau = t_{\mathrm{IVP}}$ (and the same with $-\tau$ and future curves), so $r(q)\le
+R'+2(\tau(p)-c)$. $L_p$ is closed, bounded in $t$ and $r$, and its points have $\tau\ge c$ and
+$r\ge\min(r(p),r^\natural)$, which keeps it off the data surface and the boundary $\{r = \text{const}\}$ of $M$; so it is
+compact and lies in the domain. [amended D628: withdrawn, with the statement's clause: the support hypothesis puts the
+level below $\Sigma_{\mathrm{IVP}}$, so the sets cross it; what is proved, and what Proposition 1.2's uses need, is the
+bound near infinity above, with the sets away from infinity as in Proposition 1.2's proof.] $\square$
 
 II.C's class alone would not do here: for $h$ merely small in $\tilde{\mathcal G}^{0,(1,0,0)}_{\mathrm{e3b}}$, $dt$ can
 be spacelike near $\mathscr I^+$ (`checks/scrirad5.py` R2), whereas $h_S$ lies in III.C's far smaller class, whose

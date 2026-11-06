@@ -19,3 +19,12 @@ D2 (certified) components whose certified centre value exceeds tau' = 3.0e-05 so
     of any method meets tau' there
 C1 (control, remainder dropped) test polynomial: largest true/bound 0.2500 with the remainder (must be <= 1), inf without
     (must exceed 1) -> the mutation is caught (good)
+C2 (control, W + 0.01 v) certified centre values up to 4.788e-02 on the first child's children against tau -> refused
+    (good)
+rcert5d --collect (26 s): all checks pass
+
+D3 (certified) K1's 16128 points, certified lower bounds of |component|, over K2's 416 boxes with points (65 s):
+   boxes holding a point above tau = 5.3e-04: 193 of 416 (no certificate at tau possible there); above tau' = 3.0e-05:
+       337 of 416
+   largest certified lower bound over all points: 2.414e-03; per component: ll 2.41e-03, ln 1.44e-04, nn 7.23e-05, lx
+       4.03e-04, nx 2.22e-05, xx 1.87e-04, 11 5.55e-05, 22 1.99e-04

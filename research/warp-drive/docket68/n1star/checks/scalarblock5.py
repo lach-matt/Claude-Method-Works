@@ -48,6 +48,10 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      1 + 2.93e-6 (box^C's lowest upper root at l = 2): certified, sigma_min(L_2) <= the printed bound, so the scalar
      blocks' inverse constant in (3.2)'s norm at alpha = -1 is at least its reciprocal. The same bound at alpha + 2 =
      1/2, mid-gap, is printed for comparison (it is of order one).
+  S8 (exact; deduced) route (a) of R8.3, perturbation from (1/2) A_l I_7: R_l's first-order (3, 3) entry in
+     orthonormal components is free of kappa and of size gam_C a / r^2, so ||R_l||_{X -> Y} >= 10^4 (order) for every l,
+     while sigma_min((1/2) A_l) <= (kappa + 1)/(2 (kappa + 2)^(1/2)): route (a) gives nothing at any even l up to the
+     printed l_1, so its threshold, if it has one, lies above l_1.
   S7 (floating point; a measurement) the lemma's quasi-mode on the actual block at l = 2, x0 = log 400, finite widths:
      ||L h||_Y / ||h||_X approaches S6's bound.
   Negative controls (each must fail): C1 D Ric without its -nabla nabla tr h term: S2's identity fails; C2 S3 with
@@ -553,6 +557,37 @@ def s6(N, kv, comps, beta_line):
     return q.b, S[k], [V[k, j] for j in range(n)]
 
 
+def s8(mats, r0=sp.Rational(1, 2)):
+    """route (a): the first-order part of R_l := L_l - (1/2) A_l I_7 in orthonormal components, at the record's inner
+    gauge data (c_C = (1/200) dt + (1/800) dr, c_U = r^-1 dt, c_H = -(1/2) dr, gam_H symbolic); its (3, 3) entry
+    M33(r) is kappa-free; high radial frequencies at r0 give ||R_l||_{X -> Y} >= r0 |M33(r0)| for every l
+    (deduced); the scalar model's quasi-mode at infinity gives sigma_min((1/2) A_l) <= (kappa + 1)/(2 (kappa + 2)^(1/2))
+    (Lemma A.6 for A_l, whose indicial family at 1 is kappa + 1); route (a) needs the second above the first"""
+    A, B, Pq, Q, K = jet('a'), jet('b'), jet('p'), jet('q'), jet('k')
+    sub = {A[0]: sp.Rational(1, 200), B[0]: sp.Rational(1, 800), Pq[0]: 1 / r, Pq[1]: -1 / r ** 2, Q[0]: 0, Q[1]: 0,
+           K[0]: sp.Rational(-1, 2), K[1]: 0}
+    sub.update(POINT)
+    f = 1 - 1 / r ** 2
+    a1 = sp.cancel(mats[1][3][3].subs(sub))
+    M33 = sp.cancel(a1 - f / r + (3 * r ** 2 - 1) / (2 * r ** 3))
+    kfree = not M33.has(kap)
+    val = M33.subs(r, r0)
+    bound = r0 * abs(val)
+    # sup over r in [1/2, 50] of r |M33(r)| (the inner piece of c_C), sampled at rationals (a lower bound suffices)
+    samp = max(abs(sp.N(rr * M33.subs(r, rr), 30)) for rr in [sp.Rational(k, 100) for k in range(50, 5001, 25)])
+    # the largest l with (kappa + 1)^2 < 4 bound^2 (kappa + 2): route (a) gives nothing at every even l up to it
+    gh = sp.Symbol('gH')
+    bmin = sp.N(bound.subs(gh, 0), 30) if bound.has(gh) else sp.N(bound, 30)
+    lo = 0
+    while True:
+        kv = (lo + 2) * (lo + 4)
+        if (kv + 1) ** 2 < 4 * bmin ** 2 * (kv + 2):
+            lo += 2
+        else:
+            break
+    return dict(M33=sp.factor(M33), kfree=kfree, val=val, bound=bound, samp=samp, l1=lo, bmin=bmin)
+
+
 # ------------------------------------------------------------------------------------------------ S7 the quasi-mode
 def s7(mats, kv, v, W, x0=None):
     """floating point: ||L h||_Y / ||h||_X for h = r^-1 psi(log r) v (normalized components), psi = sin^2 on
@@ -647,6 +682,15 @@ def main(selftest=False):
           'the same bounds are %s (order one): %s' % (
               '; '.join('%.4e at l = %d (root %s)' % (float(b), lv, mpm.nstr(u, 10)) for lv, b, _bh, u, _v in rows),
               1 / float(b2), ', '.join('%.3f' % float(bh) for _l, _b, bh, _u, _v in rows), OK['S6']))
+    R8 = s8(B['mats'])
+    OK['S8'] = R8['kfree'] and R8['bmin'] > 9000 and R8['l1'] >= 2
+    print('  S8 (exact; deduced): route (a). In orthonormal components the (3, 3) first-order entry of R_l = L_l - '
+          '(1/2) A_l I_7 at the record\'s inner gauge data is M33(r) = %s, free of kappa: %s; so ||R_l||_{X->Y} >= '
+          '(1/2) |M33(1/2)| = %s = %.6g at gam_H = 0 for every l (high radial frequencies at r = 1/2); r |M33(r)| on '
+          '[1/2, 50] reaches %.6g. The scalar model\'s own quasi-mode gives sigma_min((1/2) A_l) <= (kappa + 1)/(2 '
+          '(kappa + 2)^(1/2)), below that for every even l <= %d: there route (a) yields nothing, so any threshold l_0 '
+          'of route (a) exceeds %d: %s' % (R8['M33'], R8['kfree'], R8['bound'], float(R8['bmin']), float(R8['samp']),
+                                            R8['l1'], R8['l1'], OK['S8']))
     if not selftest:
         vals = [(W, s7(B['mats'], 8, v2, W)) for W in (200, 2000, 20000)]
         OK['S7'] = vals[-1][1] < 2 * float(b2) + 1e-4 and vals[-1][1] < vals[0][1]
