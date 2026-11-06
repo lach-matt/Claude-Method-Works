@@ -58,6 +58,12 @@ through gp^-1; T3's c by interval square roots and its domain by in_omega; T6's 
 that now mutate the computed path: C3 (T4's parity test on a doubled phase), C4 (T3's domain test), C6 (T7 with mu0).
 Round 7: T0 re-pinned to D616 (lines 1-817, the whole file of 10858 lines); the six trace rows above D614's line 637
 moved by +5 (Lemma 6.3 (c) 704, Proposition 6.5 780, 781, 783, 784, N := K + 3 at 807), each fragment found on its line.
+D623 (the section 0-4 reader's findings seated in sections 0-4, which gain 36 lines): T7 now also asks e_lo <= e_hi and a
+width below 10^-9 (the reader's Minor 3: with the lower end taken from the large eigenvalue, about 32.5, T7 passed); the
+rows in sections 0-4 re-pinned by content (each fragment located in the D623 file), every row below D616's line 457
+moved by +36, and D614's row (:91) replaced by three rows on 0.3's D623 text (Lemma 1.1 (e)'s general condition, s0,
+and eps1 fixed below both); LAST, the end of sections 0-6, located by content (the line '## 7. What is left'). The md5
+pins are not re-pinned here (the main session's pass).
 """
 import hashlib
 import os
@@ -78,6 +84,7 @@ PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
 PIN = '39acbcf0640c253b3d40f1dc2bd929dd'          # md5 of lines 1-817 (sections 0-6) joined by newlines (D616)
 LAST = 817                                         # 812 at D614 (pin 6e8947ad...); 805 (57d896ae...) before D612/D614
+SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
 FILE_PIN = '709c63be1748117de9fadf6410eb53a2'     # the whole file at D616 (10858 lines), as the main session asked
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
@@ -92,7 +99,8 @@ TRACE = [
     ('E-a', 'the lateral boundaries stay spacelike', 161, 'Sigma_tau and the two lateral boundaries stay spacelike',
      CERT),
     ('E-a', 'the outer boundary {v + tau - tau_end = V + 1}', 150, 'v + (tau - tau_end) <= V + 1', CERT),
-    ('E-a', 'g = g_app + w must satisfy Lemma 1.1 (e)', 356, 'so for lam <= lam0(M) the metric g = g_app + w', CERT),
+    ('E-a', 'g = g_app + w within eps1 of g0 (Lemma 1.1 (e), Lemma 2.3)', 356, 'so for lam <= lam0(M) the metric g = '
+     'g_app + w', CERT),
     ('E-a', 'g_app = g0 + lam [g1] + ... (0.4)', 94, 'g_app = g0 + lam [g1] + sum_{j=2}^{N} lam^j [g_j]', CERT),
     ('E-a', 'profiles bounded independently of lam', 96, 'bounded on Omega x S^1 independently of lam', CERT),
     ('E-a', '|g - g0| <= C lam (C_app)', 113, '|g - g0| <= C lam', CERT),
@@ -135,6 +143,18 @@ TRACE = [(t, f, ln + 7 if ln > 86 else ln, fr, st) for t, f, ln, fr, st in TRACE
 TRACE += [('E-a', "eps1 below g0's least absolute eigenvalue on Omega (D614)", 91,
            "needs it below g0's least absolute eigenvalue on Omega", CERT)]
 TRACE = [(t, f, ln + 5 if ln > 637 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D615 + D616: +5 above 637
+# D623: sections 0-4 re-pinned by content (D616 line -> D623 line, each fragment found once in the D623 file); every row
+# below D616's line 457 moves by +36; D614's row at 91 is replaced by three rows on 0.3's D623 text
+D623 = {99: 113, 101: 115, 103: 117, 108: 122, 110: 124, 120: 134, 126: 140, 152: 166, 153: 167, 155: 169, 157: 171,
+        159: 173, 167: 181, 168: 182, 184: 199, 186: 201, 222: 244, 355: 385, 363: 394, 364: 395, 406: 440, 407: 441,
+        408: 442, 432: 468, 434: 470}
+TRACE = [(t, f, (D623[ln] if ln <= 457 else ln + 36), fr, st) for t, f, ln, fr, st in TRACE if ln != 91]
+TRACE += [('E-a', 'Lemma 1.1 (e): every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 (D623)', 91,
+           'eps1 <= 3/5 with eps1 < mu0/a^2 - 1', CERT),
+          ('E-a', "Lemma 2.3: eps1 below s0, g0's least absolute eigenvalue on Omega (D614, D623)", 96,
+           "s0 := inf over Omega of g0's least absolute eigenvalue", CERT),
+          ('E-a', 'eps1 fixed with 0 < eps1 < min(s0, mu0/a^2 - 1) (D623)', 100,
+           'one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1)', CERT)]
 TERMS = ['lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d']
 NEEDS = {
     'E-b': 'C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1\'s constant), M, eps2 (g_ext): the profiles',
@@ -295,8 +315,10 @@ def wtt_symbolic(harm=1):
 
 def main():
     ok = {}
+    global LAST
     with open(PROOF) as fh:
         all_lines = fh.read().split('\n')
+    LAST = [i + 1 for i, ln in enumerate(all_lines) if ln == SEC7][0]       # D623: by content
     lines = all_lines[:LAST]
     md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
     bad = trace_check(all_lines)
@@ -427,12 +449,16 @@ def main():
            [str(x) for x in at['ker d(v + tau)']], one_neg, float(eps_op), float(eps_op), float(eps_mx)))
 
     # T7 Lemma 2.3's requirement on eps1 (certified)
-    ok['T7'] = closed and decr and corner and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7)
+    width = e_hi - e_lo
+    ok['T7'] = (closed and decr and corner and e_lo <= e_hi and width < Fr(1, 10 ** 9)          # D623: two-sided
+                and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7))
     say('  T7 (Round 4, MAJOR A): g0 = eta + m U U^T has the eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; the '
         'least absolute one, (m^2 + 1)^(1/2) - m, decreases in m: %s; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [%s, '
         '%s], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: %s. So inf over Omega of '
-        'g0\'s least absolute eigenvalue is in [%s, %s] (certified); Lemma 2.3 (N1STAR-PROOF.md:222, :89-92) needs eps1 '
-        'below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner, down(e_lo, 9), up(e_hi, 9)))
+        'g0\'s least absolute eigenvalue is in [%s, %s] (certified; lo <= hi: %s, width %.1e < 1e-9: %s); Lemma 2.3 '
+        '(N1STAR-PROOF.md:244, :96-100) needs eps1 below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner,
+                                                                 down(e_lo, 9), up(e_hi, 9), e_lo <= e_hi,
+                                                                 float(width), width < Fr(1, 10 ** 9)))
 
     # controls
     bad1 = trace_check(all_lines, shift=1)

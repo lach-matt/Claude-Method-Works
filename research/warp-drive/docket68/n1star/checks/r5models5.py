@@ -11,8 +11,8 @@
      on every seed, so no exactly localised solution near 0 (m != 0 for every eps small); (c) with w changing sign,
      Q changes sign along a one-parameter family of seeds, and the intermediate value theorem gives exactly localised
      solutions: m(eps, s(eps)) = 0 found by bisection, Phi = 0 to the solver's tolerance, c supported in U. Control
-     (must fail; the verifier of round 5, minor 5): a delta with DPhi(delta) != 0 gives |c|/eps -> const, not O(eps),
-     and m/eps^2 does not converge to Q.
+     (must fail; the verifier of round 5, minor 5): a delta with DPhi(delta) != 0 gives |c| = O(eps), not O(eps^2)
+     (|c|/eps^2 grows as eps falls), so the expansion m = eps^2 Q + O(eps^3) does not hold for it.
   M2 (numpy, closed forms) Theorem V's diagonal step: on R^2, N odd labels w_A = 2 pi A/N with weights 2 pi/N,
      hierarchical frequencies a_A = Lam^A, the oscillation d g_N = sum_A F_A k_A sin(a_A k_A . x/lam), F_A = sqrt(2 pi
      /N) F(x, w_A) (Gaussian in x, smooth in w). lam_N is chosen as in the proof (halved until |int eta_j d g_N| <=
@@ -163,16 +163,18 @@ def m1():
           (q0, q1, hi, mfin, float(np.max(np.abs(full))), supp, c_ok))
     # control: a delta with DPhi(delta) != 0
     dub, dvb = seed()
-    dub = dub + bump(X, 0.35, 0.65)                                           # leaves a linear residual
+    dub = dub + 3 * bump(X, 0.35, 0.65)                                       # leaves a linear residual
     rowsb = []
     for eps in (4e-2, 2e-2, 1e-2):
         cu, cv, m, r = solve_up_to_kid(dub, dvb, eps, wpos, kappa)
-        rowsb.append((eps, float(np.max(np.abs(np.concatenate([cu, cv])))) / eps, m / eps**2 * zint))
+        cmax = float(np.max(np.abs(np.concatenate([cu, cv]))))
+        rowsb.append((eps, cmax / eps, cmax / eps**2, m / eps**2 * zint))
     Qb = charge(dub, dvb, wpos, kappa)
-    ctl = min(r[1] for r in rowsb) > 0.1 and abs(rowsb[-1][2] - Qb) > 0.05 * abs(Qb)
-    print("   control (DPhi(delta) != 0): |c|/eps = %s (O(eps), not O(eps^2)); m int zeta/eps^2 = %s vs Q = %.4f "
-          "(rejected): %s" % (", ".join("%.4f" % r[1] for r in rowsb), ", ".join("%.3f" % r[2] for r in rowsb), Qb,
-                              ctl))
+    ctl = rowsb[2][2] > 1.3 * rowsb[1][2] > 1.3**2 * rowsb[0][2] and min(r[1] for r in rowsb) > 0.1
+    print("   control (DPhi(delta) != 0): |c|/eps = %s (c = O(eps)); |c|/eps^2 = %s grows (rejected: the expansion "
+          "m = eps^2 Q + O(eps^3) needs DPhi(delta) = 0): %s; m int zeta/eps^2 = %s against Q(delta) = %.3f" %
+          (", ".join("%.4f" % r[1] for r in rowsb), ", ".join("%.2f" % r[2] for r in rowsb), ctl,
+           ", ".join("%.3f" % r[3] for r in rowsb), Qb))
     return a_ok and b_ok and c_ok and ctl
 
 

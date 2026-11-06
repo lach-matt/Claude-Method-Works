@@ -912,9 +912,9 @@ which is made in 6.1; (6.2) is where d_tau D = 0 comes from]. Then the constrain
 O(lam^(N+1)) in scaled norms (5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and
 its tangential derivative combinations, and d_tau w_{tau .} solves the linear relation D(g) - D(g_app) = -D(g_app)
 = O(lam^(N-1)) with invertible coefficient. So, each derivative costing at most lam^-1, Data(w) <= C lam^-1
-lam^(N-2) = C lam^K: (E4). The data are smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction commutes with the symmetries, by uniqueness in
-Lemma 6.4, Proposition 6.5 and Lemma 5.3, Pol^+ being equivariant), and equal to the seed's data on Sigma cap {r <
-v_start - tau0}. []
+lam^(N-2) = C lam^K: (E4). The data are smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction
+commutes with the symmetries, by uniqueness in Lemma 6.4, Proposition 6.5 and Lemma 5.3, Pol^+ being equivariant),
+and equal to the seed's data on Sigma cap {r < v_start - tau0}. []
 
 ## 7. What is left
 

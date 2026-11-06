@@ -1,0 +1,17 @@
+  T1 row c, c0 = 1: LHS > (c0 k/16)(Z + m omega Z^1/2) at every k: True; d_r Z equal to the second route's (Z along a + h
+      d_r a): True; low norms (max over k: ||c||^2_(H^4) 0.00637, sum|c_n| 0.000391, ||a||^2_(H^5) 1, omega_a 1) bounded:
+      True; k = 4: LHS/(Z + m omega Z^1/2) = 3.431, LHS/(m^2 omega^2) = 1.131; k = 64: LHS/(Z + m omega Z^1/2) = 63.04,
+      LHS/(m^2 omega^2) = 1; k = 131072: LHS/(Z + m omega Z^1/2) = 1.311e+05, LHS/(m^2 omega^2) = 1 || row c, c0 = 1/100:
+      LHS > (c0 k/16)(Z + m omega Z^1/2) at every k: True; d_r Z equal to the second route's (Z along a + h d_r a): True;
+      low norms (max over k: ||c||^2_(H^4) 0.00637, sum|c_n| 0.000391, ||a||^2_(H^5) 1, omega_a 1) bounded: True; k = 4:
+      LHS/(Z + m omega Z^1/2) = 0.03431, LHS/(m^2 omega^2) = 0.01131; k = 64: LHS/(Z + m omega Z^1/2) = 0.6304, LHS/(m^2
+      omega^2) = 0.01; k = 131072: LHS/(Z + m omega Z^1/2) = 1311, LHS/(m^2 omega^2) = 0.01 || row e, c0 = 1: LHS > (c0
+      k/16)(Z + m omega Z^1/2) at every k: True; d_r Z equal to the second route's (Z along a + h d_r a): True; low norms
+      (max over k: ||c||^2_(H^4) 0.00637, sum|c_n| 0.000391, ||a||^2_(H^5) 1, omega_a 1) bounded: True; k = 4: LHS/(Z + m
+      omega Z^1/2) = 1.885, LHS/(m^2 omega^2) = 0.2827; k = 64: LHS/(Z + m omega Z^1/2) = 31.76, LHS/(m^2 omega^2) =
+      0.2501; k = 131072: LHS/(Z + m omega Z^1/2) = 6.554e+04, LHS/(m^2 omega^2) = 0.25 || row e, c0 = 1/100: LHS > (c0
+      k/16)(Z + m omega Z^1/2) at every k: True; d_r Z equal to the second route's (Z along a + h d_r a): True; low norms
+      (max over k: ||c||^2_(H^4) 0.00637, sum|c_n| 0.000391, ||a||^2_(H^5) 1, omega_a 1) bounded: True; k = 4: LHS/(Z + m
+      omega Z^1/2) = 0.01885, LHS/(m^2 omega^2) = 0.002827; k = 64: LHS/(Z + m omega Z^1/2) = 0.3176, LHS/(m^2 omega^2) =
+      0.002501; k = 131072: LHS/(Z + m omega Z^1/2) = 655.4, LHS/(m^2 omega^2) = 0.0025
+T1 PASS
