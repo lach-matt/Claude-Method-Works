@@ -193,7 +193,7 @@ def l1(control=False):
         top = sorted(rows, key=lambda x: -x[1].b)[:3]
         desc = ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in top)
         abc = [r_ for r_ in rows if r_[0] in ("W1", "W2", "H2")]
-        form = "; ".join("%s: a = %s, b = %s, c = %s" % (r_[0], up(r_[3][0]), up(r_[3][1]), up(r_[3][2]))
+        form = "; ".join("%s: a = %s, b = %s, c = %s" % (r_[0], up(r_[2][0]), up(r_[2][1]), up(r_[2][2]))
                          for r_ in abc)
         rows_out.append("delta = %s: E_25 = %s (binding %s; the three largest E_i: %s); %s"
                         % ("1/10" if delta.a < 0.2 else "1/2", up(E, 1), nm, desc, form))
