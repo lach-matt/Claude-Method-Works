@@ -7,3 +7,15 @@ X  the exterior energy identity on a bounded region, and the continuity of the e
   X2 alpha = d(r - 2 t~): g_b0^-1(alpha, alpha) <= -7/4 for |f'| <= 1/4, decreasing in mu (exact), < 0 with |delta|_op <=
         r^-2/2 at 2000 points; alpha(d_t) = -2: a future boundary: pass max -1.7572
   X2' control (f' in [1/2, 1]): alpha null or spacelike somewhere: pass max 4.9912
+  X3 the energy cut at Phi <= V_* increases with V_* (positive integrand) to the full slice energy as V_* -> oo (exact, a
+        = 11/4): pass 1024*sqrt(5)/5
+  X4 [arithmetic: q entered from the degree count] the weighted tail sum_j (2^(j+1) rho)^(2a) (2^(j-1) rho)^-q = 2^(2a+q)
+        rho^(2a-q)/(1 - 2^(2a-q)) (exact at a = 11/4), finite at a = q/2 - 1/10, infinite at q/2: for q = 9 the tail -> 0
+        uniformly in sigma, so the energy is continuous: pass [True, True, False, True]
+  X4' control (q = 8, F_4 with no source): finite exactly for a < 4, still above the window: pass [True, True, False,
+        True]
+Y  the a priori decay behind Hardy; Proposition R5.2's uniformity in sigma (m2)
+  Y1 d/dr along a ray of d_c psi = r^-1 d_c(Z psi) - r^-1 (t - v1) d_c d_t psi + f' d_c d_t psi + first derivatives of
+        psi with coefficients O(1/r): S1 for d h' uses first derivatives of Gamma h' only, no Hardy (c = t, x1, x3;
+        generic psi): pass
+  Y1' control (r^-1 d_c(Z psi) dropped): second derivatives of psi remain: pass
