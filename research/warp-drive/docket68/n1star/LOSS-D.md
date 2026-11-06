@@ -639,7 +639,12 @@ loop counts of section 3.
   optimal loss. (v) Toward an upper estimate (not made). The per-round loss is 2 + ℓ, with ℓ III.F′ Corollary 3.4's, a
   fixed integer from II.G′ Lemma 4.1's closed forms (section 2's table). Most of the other loops are short. The α-levels
   of III.I′′′′′′′′ step below a_K − 2 (I9:374-375), and a_K ≥ 4 + ε_K (I15:332), so there are finitely many,
-  independently of ε_K. III.I′′′′′′′′′′′ Step 4 runs about 1/ε_ind rounds, once (I12:287-298). Two loops have a length
+  independently of ε_K. [CONSTANTS5 R10 (its round-9 verifier's MAJOR A): a_K ≥ 4 + ε_K at I15:332 is h's; the base
+  level runs on h + h_rem(q), of K⁺-order (α − 2)− (I15:305-308, 447). There one α-level serves (α_0 = α_1), but
+  Lemma 3.1's Step 0 runs III.I′′′′′ Proposition 2.1's rounds, each raising α′_K by a_K − 2 < ε_K, and their Start's
+  III.I′′ Proposition 5.1 runs in the same steps: 53,191,488 rounds and 26,595,745 steps at CONSTANTS5's weights W1,
+  counted in CONSTANTS5 R10.1, and not independent of ε_K.]
+  III.I′′′′′′′′′′′ Step 4 runs about 1/ε_ind rounds, once (I12:287-298). Two loops have a length
   that depends on the index sets. The first is the level-2 rounds of III.I′′′′′′′′′′′ Step 3 and of their repetition at
   every β-level above 3: "its remainder exponents α_0 + E_ind may again lie below 2 + η_2, and are treated in turn
   (finitely many rounds, the real parts rising by ≥ ε_ind)" (I12:278-281). That is about (1 + η_2 − η_1)/ε_ind rounds

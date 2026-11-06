@@ -245,6 +245,10 @@ The composition (1.1) over the levels, on these hypotheses:
   redundancy-free reading), and E_++, G, E_col add no point to W;
 - H2: the iota+ loop at its ceiling at each level below 3, 15 per round (the construction's reading, m_iota = d1);
 - H3: at each call of III.I''''' one round raising alpha'_K, Proposition 2.1's 10 and the one-off application's 48;
+  [R10, R10.0 (the round-9 verifier's MAJOR A): an over-charge at the levels below 3, where no round runs (Lemma 3.2's
+  Step 0 is one application at h, I9:251-254), and an under-count at the base, on h + h_rem(q) of K+-order (alpha -
+  2)- (I15:305-308): there III.I''''' Proposition 2.1 runs 53,191,488 rounds and its Start's III.I'' Proposition 5.1
+  26,595,745 steps (R10.1).]
 - H4: III.J''s charges, and every other step of a level lumped into one unknown c,
 
 gives **d <= 17,892,090,290,788,934 + 106,489,470 c** [V-M1: was 18,126,947,816,279,750] (computed, W8: rounds 8.408e15,
@@ -2153,6 +2157,8 @@ Its findings, each re-derived before it is seated:
   in A' + (K + 1) c', a term round 7's chain omitted. Each is at most one level's composition with its loops, the base
   [R9, minor 1: itemised in R9.1 (the top's Step 1 (vi), (viii), (ix) apply III.A Proposition 4.2 (2) three times):
   B_once = 3,943,746,411.]
+  [R10, R10.0 MAJOR A: the base runs on h + h_rem(q), of K+-order (alpha - 2)-, and loops in steps below eps_K
+  (R10.1): B_once = 574,994,137,715,471.]
   at most four levels below 3: B_once := 2 (M_a + 4 M_b) + 1000 = 3,524,217,980, M_a = 1,042,275,846 and M_b =
   179,958,161 the largest totals of one level (the per-level maxima of the rounds at W1's weights, P_W, P_iota, W, the
   excess 47 and X_7(alpha) = 352,162,875, read from dnumber5.out, pinned). It is 7.7e-8 of d.
@@ -2162,6 +2168,7 @@ Its findings, each re-derived before it is seated:
       d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 67,301,345,040 + 3,524,217,980
         =  45,661,454,728,212,747   (4.5661455 x 10^16),      N = 21 d + 6 <= 958,890,549,292,467,693 (9.588905 x 10^17).
   [R9: with R9.0 M1 and minor 1, d <= 45,661,458,981,362,098 and N <= 958,890,638,608,604,064 (R9.1).]
+  [R10: with the base counted, d <= 46,236,449,175,331,158 and N <= 970,965,432,681,954,324 (R10.1).]
 
   The floor at the same point is 8,407,505,890,317,054 (0.184 of the bound). The reading is: round 5-6's step-by-step
   log orders of E^flat (a deduced ceiling: the write-out states only K(lambda), I11 Proposition 3.1 (c)), the
@@ -2262,6 +2269,7 @@ linearised operator. Not attempted this round: items (i)-(iii) and the verifier'
   [R9, minor 4: printed 3.5242e17 until this round; now 3.5243e17, rounded up.]
 - *Deduced (counts computed)*: Lemma A.9; D_0 <= 399, D_1 <= 52, FWD <= 474 on the order box; the 31 charges of a level
   [R9: D_0 <= 435, FWD <= 510, c' = 668, B_once = 3,943,746,411, d <= 45,661,458,981,362,098 (R9.1).]
+  [R10: B_once = 574,994,137,715,471, d <= 46,236,449,175,331,158 (R10.1).]
   (158 above 3, 52 below), c' = 632, B_once = 3,524,217,980; **d <= 45,661,454,728,212,747 and N <= 958,890,549,
   292,467,693, deduced on the reading R8.1 states.**
 - *Withdrawn*: D_0 <= 177, FWD + BG <= 250, c' in [62, 250 + MODs], "C_app >= 16.127553" (read 16.127552), the stage-1
@@ -2409,6 +2417,8 @@ Its findings, each re-derived before it is seated:
   Step 0 and three applications of (2.2) for (vi), (viii), (ix), each at most (3 P_iota + 47) + X_7(alpha) + 5
   (parallel over the pieces, Lemma 1.2 (a)): B_once = 510 + 6 x 179,958,197 + 1,042,275,882 + 3 x 607,240,279 =
   3,943,746,411.
+  [R10, R10.0 MAJOR A: "the base, at most six below-3 level totals" is withdrawn: on h + h_rem(q), of K+-order
+  (alpha - 2)-, Lemma 3.1 runs 53,191,488 rounds and 26,595,745 steps (R10.1); B_once = 574,994,137,715,471.]
 - **Minor 2 (accepted).** The certified C_app runs through envelope5's peak c (lzerotrace5.py's K_lo = c_lo
   a^(-3/2)), so the lambda0 bounds are statements about round 2's envelope (`checks/envelope5.py`, which has the
   numerics' integral), not about every smooth envelope with that integral. R8.2's "not about P* as the certified
@@ -2453,10 +2463,14 @@ Its findings, each re-derived before it is seated:
   X_7(alpha) + 5 = 607,240,279, and its other items and Steps 2-6 are statements, identities, convolutions in t_* and
   subtractions of explicit towers (FIN). With M_a = 1,042,275,882 and M_b = 179,958,197 (a level's largest totals with
   its loops): B_once = 3,943,746,411, 8.6e-8 of d.
+  [R10, R10.0 MAJOR A: "at most two rounds" is wrong: a_K - 2 < eps_K at the base (I15:305-308, 447), so Lemma 3.1's
+  Step 0 runs 53,191,488 rounds of III.I''''' Proposition 2.1 and their Start 26,595,745 steps of III.I'' Proposition
+  5.1; Lemma 3.2 does not run (N = 0). B_base = 574,991,273,718,242, B_once = 574,994,137,715,471 (R10.1).]
 - **The integer** (deduced on the reading; computed exactly):
 
       d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 71,134,965,960 + 3,943,746,411
         =  45,661,458,981,362,098   (4.5661459 x 10^16),      N = 21 d + 6 <= 958,890,638,608,604,064 (9.588906 x 10^17).
+  [R10: d <= 46,236,449,175,331,158 (4.6236449 x 10^16), N <= 970,965,432,681,954,324 (R10.1).]
 
   The floor at the same weights is 8,407,505,890,317,054. The reading, every step named: the log orders of one index
   set (E^flat) as round 5-6's step-by-step ceiling (the write-out states only K(lambda)); the construction's E_ind,
@@ -2470,6 +2484,7 @@ Its findings, each re-derived before it is seated:
   eta_2 off Re Lambda).
 - *Deduced (counts computed)*: D_0 <= 435, FWD <= 510, c' = 668, B_once = 3,943,746,411,
   **d <= 45,661,458,981,362,098, N <= 958,890,638,608,604,064, deduced on R9.1's reading**.
+  [R10: withdrawn with B_once = 3,943,746,411; d <= 46,236,449,175,331,158, N <= 970,965,432,681,954,324 (R10.5).]
 - *Withdrawn*: D_0 <= 399, FWD <= 474, c' = 632, d <= 45,661,454,728,212,747 (round 8); B_once's coarse form;
   "5.4 times the floor at the same point".
 - *Open, each with its single missing input* (unchanged from R8.5): lambda0 below 0.0024433 (a certified enclosure
@@ -2485,6 +2500,7 @@ PART-II-A2-STANDARD.md:639-695; thetain5.out T2, T6; lambdagen5.out L4 and dweig
 modcount5); lzerotrace5.py:393-401 and envelope5.py (round 2's envelope).
 
 ### R9.7 Proposed replacement for the paper's section 9 constants text (replaces R8.7)
+[R10: superseded by R10.7 (the round-9 verifier's MAJOR A: block 1's base level).]
 
 Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content
 when this round ended); the new texts claim only what R8.1-R9.1 prove or compute, with their statements, and fold in
@@ -2556,6 +2572,192 @@ The passage to the write-out's own function spaces and the
 ```
 
 Statuses behind the new texts: d's integer, deduced on R9.1's reading with exact arithmetic (modcount5 13/13,
+d0count5 20/20, dnumber5 10/10, x7indep5 9/9); the floor, computed (dweights5 W3); delta and lambda1's upper bounds,
+computed (deltacap5); the zero-energy constants, deduced from exact identities with certified arithmetic (zeroext5
+10/10; tensorzero5 13/13, its T3c symbolic); lambda0's three bounds, certified for round 2's envelope (lzerotrace5
+T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
+(classm5 9/9).
+
+## Round 10 (2026-11-06)
+
+*Status.* Appended to rounds 1-9; not yet read by a verifier. R10.0 seats the round-9 verifier's report, its MAJOR A
+re-read at source first; bracketed `[R10, ...]` notes follow the lines they correct (round 9's, round 8's notes on
+them, round 1's H3 and LOSS-D LD12 (v)), the old text kept. R10.1 counts the base level and restates d, R10.5-R10.6
+are the statuses and sources, R10.7 the replacement text. Changed and rerun in full, each with its `.out`:
+`checks/modcount5.py` (17/17: M6 the base level, read, censused and counted; M4 re-pinned; controls C8-C10; the
+admissibility docstring) and `checks/d0count5.py` (20/20: Q4b at theta_out = -2 eps; its pins unchanged). The
+verifier's controls Ca-Ch and Cn1-Cn3 (Cn3 adapted to nb's new default) and four new ones on the base count (Cr1-Cr4)
+were rerun on a scratch copy and each fails as it must (R10.0). Not touched: the paper, N1STAR-PROOF.md,
+LAMBDA0-DATA5.md, checks/lam0data5.py and the INVERSE5-SCALAR and INVERSE5-SIX files.
+
+### R10.0 (verifier of round 9)
+
+The verifier reran the four round-9 programs (fresh outputs byte-identical) and confirmed MAJOR 1's fix (depth q + 1,
+2L' = 20 for (f), M_f = 429, D_0 <= 435, FWD 510, c' = 668), the second branch of s_in (6 - beta_+ -> 11/2 < 17/2),
+M5 as a READ resting on lambdagen5 and dweights5, the exact arithmetic, T3c and blocks 2-3. Its findings, each
+re-derived before it is seated:
+
+- **MAJOR A (accepted; read at source, censused and counted, `modcount5.py` M6).** Re-read: I15 Step 1 fixes alpha_1
+  in (2, alpha - 2) and runs III.I'''''''' Proposition 4.1 on h + h_rem(q), "of K^+-order (alpha-2)-" (I15:305-308);
+  Remark 3.2 (1): "h+h_rem(q) has K^+-order (alpha-2)- only, against a_K >= 4+eps_K for h" (I15:446-448). I15:332's
+  a_K >= 4 + eps_K is h's (the rows' defects at h). So at the base a_K - 2 < alpha - 4 = eps_K. With alpha_0 := alpha_1
+  (admissible, and below a_K once a_K - 2 > eps_K / 2) Proposition 4.1 needs no step (N = 0, I9:374-375), and the base
+  is Lemma 3.1 (I9:201-237) with III.I''''''' Corollary 4.6 (FIN). Lemma 3.1's Step 0 needs alpha'_K > alpha_0 + 2 -
+  a_K, about 2 - eps_K / 2 (I9:218), from III.I''''' Proposition 2.1, which starts below a_K - 1 (I6:81) and raises
+  alpha'_K by a_K - 2 per round (I6:89-90, 223): the verifier's count, and its window rounds (Step 2 void exactly when
+  alpha#_+ < lambda_sharp, I6:110). One loop further, which the report does not name: that proposition's Start is
+  III.I'''' Proposition 4.1 (1), that is III.I''' Proposition 2.1 (I5:340-346), whose Step 0 runs III.I'' Proposition
+  5.1 to alpha'_K >= alpha_K - (a_K - 2), above 1 - eps_K (I4:132), and that proposition is itself a loop from 1/2 in
+  steps a_K - 2 (I3:337-427): about 1/(2 eps_K) more steps. Counted in R10.1: d moves by 1.24 % of itself.
+- **Round 1's H3 and LOSS-D LD12 (v) (accepted; bracketed).** H3's "at each call of III.I''''' one round raising
+  alpha'_K" over-charges the levels below 3, where no round runs (Lemma 3.2's Step 0 is one application at h,
+  I9:251-254; its Steps 1-2 are Lemma 3.1's, I9:256), and under-counts the base. LD12 (v)'s "a_K >= 4 + eps_K
+  (I15:332), so there are finitely many [alpha-levels], independently of eps_K" is h's; at the base one alpha-level
+  serves (N = 0), but the rounds and steps under it number about 1.5/eps_K. Nothing else in the d chain uses that
+  reading: the levels (I15 Step 2) and the top (I13) expand at h, where a_K >= 4 + eps_K (I15:12-21, 332, 346-348);
+  A' and (K + 1) c' charge all K + 1 levels, the base level beta_0 = alpha_1 among them, although I15 Step 2
+  expands only at beta_1, ..., beta_K (I15:323-352): an over-count of one level, left in place.
+- **Nit (accepted).** modcount5's admissibility() docstring now gives m = 1.9839e-8 (L4's printed 1.9841e-08 times
+  0.9999), the value it uses.
+- **Nit (accepted).** d0count5 Q4b takes s_out's branch at theta_out = -2 eps, its least (II.C:767-768), with eps =
+  1/4: the margin is 1/4 at beta_+ -> 3/2, so every eps <= 1/4 serves.
+- **The controls, rerun** (scratch copy of checks and proof5; each must fail): Ca: modcount5 M3, M4 FAIL; Cb: M0, M1,
+  M2 FAIL; Cc: M4 FAIL; Cd, Ce, Cf: d0count5 D0 FAIL; Cg: M3, M4 FAIL; Ch: M2 FAIL; Cn1: D0 FAIL; Cn2: M5 FAIL; Cn3
+  (nb = 7 for the new default 2): M4 FAIL. New, on the base count: Cr1 (the base at h's a_K - 2 = 2 + eps_K): M4, M6
+  FAIL; Cr2 (I6:223's "raises alpha'_K to min(alpha'_K + a_K - 2, alpha_K)" edited to "to alpha_K"): M0, M6 FAIL; Cr3
+  (the windows run only from 2, that is never): M4, M6 FAIL; Cr4 (III.I'' Lemma 3.1's site I3:397 classified as a
+  statement): M6 FAIL.
+
+### R10.1 (i) d, corrected: the base level counted
+
+- *The choices* (deduced, at the economical end of every open range the cited lines leave): a_K - 2 := (1 - 10^-9)
+  eps_K, below alpha - 4 (any value below it is an order of the background); alpha_0 := alpha_1 = 2 + eps_K / 2; the
+  Start at s_0 := 1 + d - 10^-6 d < a_K - 1; the target tau := alpha_1 - d + 10^-6 d > alpha_0 + 2 - a_K; III.I''
+  Proposition 5.1 at t := s_0 - d. Every condition of the cited lines holds at them (computed).
+- *The loops* (computed, exact, M6). R = 53,191,488 rounds of III.I''''' Proposition 2.1 (s_i = min(s_0 + i d, tau));
+  R_w = 26,069,149 of them, from round 27,122,340, with alpha~_K >= lambda_sharp = 1.5099, whose Step 2 runs the iota+
+  windows; n_51 = 26,595,745 steps of III.I'' Proposition 5.1. The same at choices 1000 times nearer the ends, and
+  equal to the limits floor((alpha_1 - 1 - 2 eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2 and
+  ceil(1/(2 eps_K)): the least counts the cited lines allow.
+- *The charges* (READ; deduced; computed: M6's census of I6:77-227, I4:132-275 and I3:325-427, 89 rows, none
+  unclassified, every charged site with a charge and every charge at a site). M2's per-step charges for the same maps:
+  BG 2, the one-off III.I' Proposition 3.1 48, FWD 510 for u^flat (as at I9:260), III.I' Proposition 2.1 12, (2.25a)
+  1, III.H Proposition 3.2 1, L-hat 2, III.I'' Lemma 4.2 2; the same formulas at the base's weights: III.I'' Lemma 4.1
+  22 (l_5 = 2 at beta_iota >= 3/2 - eps, against 1 at a level below 3), (2.26a) 2 in a round and 1 in Proposition
+  5.1; and III.I'' Lemma 3.1, which no level runs, l = 2 (read at source, I3:115-189: the largest of II.G'
+  Proposition 2.8 (2)'s l_+ = 2 for F_1, (2.26a)'s l_F <= 2 for F_2 and 1). Per round c_r = 604, the Start's III.I'''
+  pass 604, Proposition 5.1's Step 0 522 and one of its steps 600; a window 15, at most W = 1,470,302 in a window
+  round (H2's ceiling, alpha#_+ < 2 - eps).
+- *B_base* (deduced on the reading; computed) = 522 + 26,595,745 x 600 + 604 + 53,191,488 x 604 + 26,069,149 x 15 W +
+  2 M_b = 574,991,273,718,242 (5.7499 x 10^14), the windows 0.9999 of it. The two M_b are round 9's: u_F's windows on
+  F_2, and Lemma 3.1's Steps 1-2 with III.I'''''' Steps 3-6, one below-3 level's maps each. Round 9's two rounds at
+  "at most a below-3 level's maps" each, its Lemma 3.2 (none, N = 0) and its spare are withdrawn.
+- *B_once* = FWD + B_base + M_a + 3 x 607,240,279 = 510 + 574,991,273,718,242 + 1,042,275,882 + 1,821,720,837 =
+  574,994,137,715,471, 1.24e-2 of d.
+- **The integer** (deduced on the reading; computed exactly):
+
+      d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 71,134,965,960 + 574,994,137,715,471
+        =  46,236,449,175,331,158   (4.6236449 x 10^16),      N = 21 d + 6 <= 970,965,432,681,954,324 (9.709654 x 10^17).
+
+  The floor at the same weights, 8,407,505,890,317,054, is 0.182 of it. The reading is R9.1's with the base read as
+  above, the window loop of a round taken at its ceiling W (LD14's bound at each round's alpha#_+ would about halve
+  that term), and FWD charged to every round and step for u^flat, as the census charges it at a level (4.07e10 of
+  B_base).
+
+### R10.5 Proved, computed, open
+
+- *Computed, exact*: the base's loops R = 53,191,488, R_w = 26,069,149, n_51 = 26,595,745, and their limits (M6).
+- *Deduced (counts computed)*: B_base = 574,991,273,718,242, B_once = 574,994,137,715,471; **d <= 46,236,449,175,331,158,
+  N <= 970,965,432,681,954,324, deduced on R10.1's reading**.
+- *Withdrawn*: B_once = 3,943,746,411 (the base as six below-3 level totals); d <= 45,661,458,981,362,098 and N <=
+  958,890,638,608,604,064 (round 9).
+- *Open, each with its single missing input* (unchanged from R9.5): lambda0 below 0.0024433 (a certified enclosure of
+  M_22 for round 2's envelope); I.C:497's scalar-type blocks (sigma_min, uniform in l); the other six inverse bounds
+  (their microlocal constants at L_b0 and certified spectral bounds in the write-out's norms). For d, the two finite
+  avoidance conditions stay part of its reading.
+
+### R10.6 Sources (round 10)
+
+The round-9 verifier's report (`report-vD9.md`, `vD9/`); proof5 read at PART-III-I15-AUGMENT5.md:8-30, 145-160,
+296-352, 446-456; PART-III-I9-COMMOTION.md:199-262, 360-412; PART-III-I6-ALMOSTBDD.md:28-227;
+PART-III-I5-UNBOOST.md:316-406; PART-III-I4-BOOST.md:120-275; PART-III-I3-ALMOST.md:115-189, 309-441;
+PART-III-I8-UNPARAM.md:328-460; PART-III-J3-TAME.md:96-180; PART-II-G2-DECAY.md:233-262; LOSS-D.md:118-135, 606-650.
+
+### R10.7 Proposed replacement for the paper's section 9 constants text (replaces R9.7)
+
+Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content
+when this round ended); the new texts claim only what R8.1-R10.1 prove or compute, with their statements. Block 1
+folds in the round-9 verifier's MAJOR A (the base level counted); blocks 2 and 3 are R9.7's, which that verifier
+confirmed.
+
+1. Section 9, "Settling", the loss d (old: the last sentence of the d passage).
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–10): the weights are taken at a point
+  meeting every condition decidable there, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
+  (`checks/dnumber5.py`, `checks/x7indep5.py`) and over the base level's 8.0 × 10⁷ rounds (its background has K⁺-order
+  only (α − 2)−, so that a round raises the decay by less than α − 4), every fixed step of a level and every step outside
+  the levels is read at its source and charged an upper bound (`checks/modcount5.py`: 212 citations of the families the
+  write-out's tame calculus lists in the levels and 89 in the base level's loops, none left unclassified), and the
+  coefficient orders the write-out fixes by the closed graph theorem are replaced by explicit calculus estimates whose
+  derivative counts are computed over the symbol orders read from its propagation estimates (`checks/d0count5.py`). On
+  that reading d ≤ 46,236,449,175,331,158 ≈ 4.624 × 10¹⁶ and N = 21d + 6 ≤ 9.710 × 10¹⁷ (deduced on the reading, the
+  arithmetic exact; the base level's loops are 5.75 × 10¹⁴ of d), against the floor 8.41 × 10¹⁵ at the same weights.
+  Three parts of the reading are not statements of the write-out: the logarithmic orders of one index set, a ceiling
+  deduced step by step from the proof of the write-out's coarser bound; the order range of the calculus count, read from
+  its estimates' thresholds; and two of the weights' admissibility conditions, avoidances of finite sets of roots, which
+  are not decided at the weights used. So the integer bounds the loss this proof's bookkeeping produces on that reading,
+  not the optimal one.
+```
+
+2. Section 9, "Settling", lambda1 and delta (old: the bullet's last sentence).
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are not evaluated: what the proof's own formulas deliver is bounded above,
+  log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`), and no lower bound follows. Of
+  the seven inverse bounds a lower bound needs, the zero-energy one is proved for the scalar model (constant 2.81) and
+  for the tensor-type blocks of the linearised operator in the symmetry class (constant 3.94), every harmonic, through
+  the horizon, in the supplement's norm for one choice of generators (deduced from exact identities, with certified
+  arithmetic, `checks/zeroext5.py`, `checks/tensorzero5.py`). For its scalar-type blocks, whose gauge-damping terms
+  neither vanish nor are symmetric, the one input missing is a lower bound for their least singular value, uniform in
+  the harmonic; the other six need the constants of the write-out's microlocal estimates at the final black hole and
+  certified spectral bounds in its norms (supplement `CONSTANTS5.md` R8.3-R8.4).
+```
+
+3. Section 9, "Physical wavelengths", lambda0 (old: the bullet's opening words, to the line's end).
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0025 in the operator norm, 0.0020 in the
+  Frobenius norm and 0.00123 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times beyond
+  it. A value, or a lower certified bound, needs the approximant's linear stages solved. The first can lower the
+  operator-norm bound, for example through its mean correction at the point where the first-order wave is largest,
+  which the symmetry class reduces to one number (computed, `checks/classm5.py`); a certified value of that number
+  needs a validated solve of the first stage for that envelope, whose data on the initial slice are not computed. And
+  a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+Statuses behind the new texts: d's integer, deduced on R10.1's reading with exact arithmetic (modcount5 17/17,
 d0count5 20/20, dnumber5 10/10, x7indep5 9/9); the floor, computed (dweights5 W3); delta and lambda1's upper bounds,
 computed (deltacap5); the zero-energy constants, deduced from exact identities with certified arithmetic (zeroext5
 10/10; tensorzero5 13/13, its T3c symbolic); lambda0's three bounds, certified for round 2's envelope (lzerotrace5

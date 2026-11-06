@@ -16,9 +16,10 @@ controls C1-C4; about two minutes). Imported, not copied: `strap5.py` (III.F (4.
 (r_*(t), decimal rounding), `modes5.py` M2-M3 and `gmodes5.py` G1 (the master relations, rerun inside M7).
 
 *Labels.* Proved (a lemma with its proof here); computed (exact, sympy or exact rationals); certified (interval
-arithmetic, mpmath.iv at 30-40 digits, printed decimals rounded outward); deduced (from cited statements of the
-record); READ (a cited line). Units: five-dimensional Tangherlini at mu = 1 (r_h = 1, r_ph = 2^(1/2)), as every
-instrument of the record; nu, gamma_+-, kappa scale as mu^(-1/2), the rest is homothety invariant.
+arithmetic, mpmath.iv at 30-40 digits, printed decimals rounded outward; given mpmath.iv's correctness, as in
+E2-PILOT); deduced (from cited statements of the record); READ (a cited line). Units: five-dimensional Tangherlini
+at mu = 1 (r_h = 1, r_ph = 2^(1/2)), as every instrument of the record; nu, gamma_+-, kappa scale as mu^(-1/2), the
+rest is homothety invariant.
 
 ## 0. Summary
 
@@ -117,7 +118,7 @@ exp(3 log sigma_0 e^(-pi sigma_0/(2 kappa))). Then ||(P'_(h,z))^-1|| <= 4 F C_a 
 [2 sigma_0, 4 sigma_0]; there h = 1/Re sigma lies in [1/(4 sigma_0), 1/(2 sigma_0)], so sigma_0^(-theta) <= (4h)^theta
 <= 4 h^theta, and (P'_(h,z))^-1 = h^-2 P-hat'(z/h)^-1. []
 *At b0* q^Gamma = 4 on Gamma (K1), so (1.4)'s f(eta) = lam_max - 4 eta exactly, and with beta = gamma_- + eps,
-beta' = gamma_+ + eps, kappa = gamma_+ - gamma_- = nu/8 = 2^(-3/2) for every operator (K2): F <= 1.002659 for every
+beta' = gamma_+ + eps, kappa = gamma_+ - gamma_- = nu/8 = 2^(-3/2) for every operator (K1-K2): F <= 1.002659 for every
 h_0 <= 1 (certified, K6), so (6.11) holds with the constant 4.01064 C_a. Lemma 6.6's last inequality,
 cosh(a)/cosh(2a) <= 2 e^(-a), is checked on a grid (K6; control C7: with kappa = nu/4, F = 1.04617).
 
@@ -225,9 +226,10 @@ future-pointing damping: lam_max >= 4 10^4 at every eta), C5 (trace weight 1: th
 box 0; box^Ups 1 (s > 3/2, III.D Lemma 5.1); 2 L_b0: with (10.49)'s inner piece in the ingoing chart,
 (2 r_0)^-1 (dv - (3/4) dr), a_v = 1/(2 r_0), **x = a_v gamma_C r_h = gamma_C/200** and y = 0 (c_Ups,H = -(1/2) chi dr):
 III.F'' (1.1)'s fifteen roots are 0 (6), 1 - x (3), 2 - 2x, -(1 - e_C) x, -1 (3), -2, so **vartheta_L = 0 for gamma_C
->= 200** and the horizon needs only s > 1/2 for L_b0 at b0 (the record carries the bound 2, LOSS-D 2b; it is an upper
-bound and stands). Control C6: a_v < 0 gives vartheta_L = 10002. Not computed: the condition number of the fibre
-metric that makes K's Hermitian part <= vartheta_L + delta (K has entries of size x; lhor5.py's K is not rerun here).
+>= 200**: the horizon threshold of L_b0 at b0 is any number above 0 (s > 1/2 + delta in a fibre metric depending on
+delta), where the record carries the bound 2 (LOSS-D 2b), an upper bound that stands. Control C6: a_v < 0 gives
+vartheta_L = 10002. Not computed: the condition number of the fibre metric that makes K's Hermitian part
+<= vartheta_L + delta (K has entries of size x; lhor5.py's K is not rerun here).
 
 *Infinity* (K5, exact). spec S-bar of III.F (3.1) at (v_C, e_C) = (1/2, 1/102400) has least element 0, so S-bar = 0 for
 box, box^Ups and 2 L_b0, and with theta_in = 0 (thetain5) the decay order must exceed -1/2 at R_in and lie below -1/2
@@ -248,10 +250,8 @@ P_S' = P'_(a, -39/4) + E(y, 1/m) with
                 - 12 y + 3)/(1 + 6 eps y)^3.
 
 Certificates (each: w >= 0 on R by adaptive bisection on t = log(r - 1) in [-120, log 119] plus the two tail bounds of
-Lemma R7; then m', M', min_I w over 2000 pieces of I):
-
-Each row: the certificate, its multiplier (s_L, s_R, k_s, centre minus r_*(2^(1/2))), what it covers, then min_I w,
-m', M' and B at sigma = 0+, 1, 3, 10.
+Lemma R7; then m', M', min_I w over 2000 pieces of I). Each row: the certificate, its multiplier (s_L, s_R, k_s, centre
+minus r_*(2^(1/2))), what it covers, then min_I w, m', M' and B at sigma = 0+, 1, 3, 10.
 
 - M1, family A at (a, b) = (15/4, 5/4), (15/4, 9/4); (23/25, 4, 1, 0); V_0 and V_1 at every l >= 1;
   0.071345, 0.066138, 0.69999; **22.81, 43.09, 96.14, 290.9**.
@@ -330,7 +330,9 @@ Theorem 2.2 (Steps 1-6, the radial ODE for omega) with the inverses of box^C-hat
 modified 1-form operators, whose mode stability is III.E and III.D', not among the six) -- a per-harmonic ODE bound,
 computable, not computed; (ii) **C_ext(sigma)**, the inverse of the absorbed problem in X_sigma -> Y_sigma (with its
 invertibility), the non-trapping part of the write-out's Fredholm estimate: the radial-point constants at the horizon
-and at infinity in the variable-order norms, whose thresholds section 3 computes. Nothing else enters.
+and at infinity in the variable-order norms, whose thresholds section 3 computes. Beside these, e_X, e_Y (a cut-off's
+norms between the write-out's spaces and L^2(I)) and ||W|| are explicit once the norms are fixed, calculus constants of
+the same kind.
 
 **B5. III.D:365, box on 1-forms at sigma != 0.** The same structure. *Certified:* V_0 (every l; E2-PILOT and section 4),
 V_1 and V_2 (every l >= 1), every real sigma != 0; on the vector-type 1-form blocks C_D <= (15/16) B_(V_1) exactly
@@ -378,13 +380,15 @@ the other six need the constants of the write-out's microlocal estimates at the 
 
 ```new
 of the other six, one (a weak-remainder estimate at future timelike infinity) needs no inverse
-  bound once the parametrix it already builds is used, two (the high-energy ones) have no non-constructive step of their
-  own and reduce to the constant of the trapping estimate, whose symbol data at the final black hole are now computed,
-  among them the fibre metric it needs, of condition number about (gamma_C/271.5)^8, and the two mode-stability ones
-  have their spectral input certified harmonic by harmonic (every master equation, every harmonic, every real frequency,
-  in a cut-off norm, and exactly on the tensor-type and vector-type blocks), so that what remains for them is the gauge
-  reconstruction of the other types and the inverse of the absorbed, non-trapping problem in the write-out's norms
-  (supplement `docket68/n1star/INVERSE5-SIX.md`, `checks/inverse6_5.py`, `checks/inverse6_5m.py`).
+  bound once the parametrix its proof already builds is used; one, the trapping estimate, still has no constant, its
+  proof being by contradiction, though its symbol data at the final black hole are now computed, among them the fibre
+  metric it needs, of condition number about (gamma_C/271.5)^8; two (the high-energy inverses) have no non-constructive
+  step of their own and reduce to that constant and to calculus constants, their absorption and interpolation steps
+  being explicit; and the two mode-stability ones have their spectral input certified harmonic by harmonic (every
+  master equation, every harmonic, every real frequency, in a cut-off norm, and exactly on the tensor-type and
+  vector-type blocks), so that what remains for them is the gauge reconstruction of the other types and the inverse of
+  the absorbed, non-trapping problem in the write-out's norms (supplement `docket68/n1star/INVERSE5-SIX.md`,
+  `checks/inverse6_5.py`, `checks/inverse6_5m.py`).
 ```
 
 2. R9.5, the open bullet's clause on the six (optional, for the record's own status line). The old text occurs

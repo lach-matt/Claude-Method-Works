@@ -64,11 +64,15 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      master field of h = 2 N k is Phi[2 N k] = (2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI); so on the static slice E =
      (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S Phi^2) dr*, Kodama-Ishibashi's conserved master energy.
 
-Labels: computed (exact; E4 (a) at three rational angles, every radial identity symbolic in R, mu, k^2). Deduced in
-FAMILIES5-MB.md, not here: the transfer of E from Part I's slice to the static slice (Stokes and the second-order
-Bianchi identity), the mode sum (orthogonality), the intermediate-value step (Proposition L').
+Labels: computed, exact throughout. E4 (a) at three rational angles; E4 (c) at three rational points (R, th, mu) with
+every jet free; the radial identities of E5-E9 symbolic in R, k^2 and the jets, at mu = 1 (general by the homothety
+(t, R) -> (lam t, lam R), which carries mu to lam^2 mu) with mu = 9/10 and 7/5 as cross-checks, or with mu symbolic
+under --full-mu (slower). Deduced in FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice
+(Stokes and the second-order Bianchi identity), the mode sum (orthogonality), the intermediate-value step
+(Proposition L').
 
-Run: python3 checks/mbsign5.py [--selftest]   (--selftest: exit 1 unless every check passes and every control fails)
+Run: python3 checks/mbsign5.py [--selftest] [--full-mu] [--only=E1,E2,...]   (about 15 minutes under load;
+--selftest: exit 1 unless every check passes and every control is rejected)
 """
 import importlib.util
 import os
