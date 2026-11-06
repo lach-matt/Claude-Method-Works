@@ -2324,9 +2324,12 @@ higher time derivatives contained in Gamma^alpha are given by Ric^H(g_T) = 0, wh
 r^(-13/2)). Hence e(T) <= C lam^2 int_rho^oo r^-13 r^3 dr = C lam^2 rho^-9 and ||R^alpha||_(L^2(r >= rho)) <= C lam
 rho^(-9/2), so e(sigma) <= C(sigma_1' - T) lam^2 rho^-9 for every sigma in [T, sigma_1'] and every V_*. As V_* -> oo the
 left side increases to the unweighted energy of Sigma~_sigma cap {r >= rho + 2(sigma - T)} (monotone convergence; X3),
-which is therefore at most C lam^2 rho^-9. - g_b0^-1|_op < 7/25, with R7-A's cut; Step 6's openness at sigma* is R7-A.]
+which is therefore at most C lam^2 rho^-9.
 [R7 (nits): S4 measures that degree for one static l = 0 example; the general statement is R5-C (v)'s deduction with
-S1-S2 and the degree count, and (r6-F4) makes it unnecessary. In (iv), continuity holds on every interval on which |g^-1
+S1-S2 and the degree count, and (r6-F4) makes it unnecessary. In (iv), continuity holds on every interval on which
+|g^-1 - g_b0^-1|_op < 7/25, with R7-A's cut; Step 6's openness at sigma* is R7-A.]
+[R9 (m1): round 8's rewrap had moved this note's last words into the paragraph above; they are put back, the break
+before "|g^-1" so that no line begins with "- " (word sequence checked against round 7's file, R9.0).]
 
 *(iii) The weighted tail.* On Sigma~_sigma, w <= (2r + C)^(2a). For rho >= max(rho_0, 4(sigma_1' - T)) the shell {2^j
 rho <= r <= 2^(j+1) rho} of Sigma~_sigma lies in {r >= rho_j + 2(sigma - T)} with rho_j := 2^(j-1) rho, so its weighted

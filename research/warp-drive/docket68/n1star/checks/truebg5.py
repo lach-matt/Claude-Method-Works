@@ -452,14 +452,15 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
         pe[x] = [sv[k] - tr[k] for k in range(3)]
     # where region III ends on the slice: g(vhat) = R2(vhat) - (vhat - tau0) is decreasing (d R2/d vhat = J2 r1' < 1,
     # checked on every cell), so it has one zero vhat_u2; it is bracketed by point rays with certified signs
-    slope_ok = all(float((r1_derivs(cache[c][0])[0] * cache[c][1][1]).b) < 1 for c in cells)
+    slope_ok = all(float((r1_derivs(cache[c][0])[0] * cache[c][1][1]).b) < 1 for c in cache
+                   if c[1] > va and c[0] < vb + 0.02)
 
     def gsign(x):
         R1 = r1_enclose(I(x))
         Y2, _ = ray(nd, R1)
         g = Y2[0] - (I(x) - T0)
         return 1 if g.a > 0 else (-1 if g.b < 0 else 0)
-    lo_, hi_ = va, vb
+    lo_, hi_ = va, vb + 0.02
     s_lo, s_hi = gsign(lo_), gsign(hi_)
     if s_lo == 1 and s_hi == -1:
         for _ in range(14):
@@ -473,14 +474,13 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
                 break
     bracket = s_lo == 1 and s_hi == -1
     ru2 = I(lo_, hi_) - T0
-    reg3, sup, cellw = slope_ok and bracket, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
+    # every slice point with vhat <= lo_ is in region III (g decreasing, g(lo_) > 0): the seed region is, if vb <= lo_
+    reg3, sup, cellw = slope_ok and bracket and vb <= lo_, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
     for a, b in cells:
         a_, b_ = max(a, va), min(b, vb)
         Rs = I(a_, b_) - T0
         R1, Y2 = cache[(a, b)]
         p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
-        if b_ <= lo_:                                       # cells below the bracket lie in region III entirely
-            reg3 &= bool(Y2[0].a >= Rs.b)
         reg3 &= bool(f3.a > 0)
         svc = spline_enclose(sp160, I(a_, b_))
         ec = [svc[k] - y for k, y in enumerate((p0, p1, p2))]       # e^(k) on the cell (cell variation included)
@@ -497,14 +497,14 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     dmu_ = mag(nd.mu3 - I(bgs[160]['mu0']))
     inside = all(sup[k] <= d[k] for k in range(3)) and dmu_ <= dmu
     print("   region III on the slice ends at R_u2 in [%.6f, %.6f] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 "
-          "on every cell %s, signs certified at the bracket %s), below the computed background's 1.861; every cell "
-          "below it lies in region III and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
+          "on every cell %s, signs certified at the bracket %s): the seed region, up to 1.861, lies in region III "
+          "and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
           % (float(ru2.a), float(ru2.b), slope_ok, bracket, reg3, len(cells), len(pts), time.time() - t))
     print("   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= %.1e, %.1e, %.1e "
           "(k = 0, 1, 2) at the %d cell ends; on the whole region sup |e^(k)| <= %.1e, %.1e, %.1e (centred forms for "
           "k = 0, 1, the cell enclosure for k = 2); |mu3 - mu0| <= %.1e" % (*perr, len(pts), *sup, dmu_))
     print("   within intcert5 C1d's tube d = %s, |d mu| <= %.0e, on which C1d certifies Gamma > 0 for R in [0.70, "
-          "1.861]: %s -- so Gamma > 0 on the seed region, R in [0.70, R_u2], for the background itself" %
+          "1.861]: %s -- so Gamma > 0 on the seed region for the background itself" %
           (d, dmu, inside))
     t0, Rs_ = bgs[160]['tau0'], np.linspace(lo, hi, 2001)
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']

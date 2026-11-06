@@ -24,8 +24,9 @@ Nothing in the paper or in N1STAR-PROOF.md is edited.
      (upper bound −2.96 × 10⁻⁴) and truebg5 T3 on R < R_* (upper bound −4.76 × 10⁻³).
    - Corollary Q's Γ > 0 holds on the whole seed region (truebg5 T2: the background lies in intcert5 C1d's tube).
    - Rácz's band on Σ_τ0 is one interval, R ∈ [4.2955, 4.5258] certified, with edge zones of width ≤ 0.0073.
-   - A posteriori, the computed ψ_III is within XXSUP of the true one in C² on the seed region (and its packet
-     inputs within T4's bounds): this is the validated error bound the reader asked for.
+   - A posteriori, the computed ψ_III is within 1.3 × 10⁻⁴, 3.9 × 10⁻⁴ and 1.4 × 10⁻² (value, first and second
+     derivative) of the true one on the seed region (and its packet inputs within T4's bounds): this is the validated
+     error bound the reader asked for.
 3. **Theorem L″'s lobe is moved** (R8.3) to b(R; 3.5, 4.05), so that the bend lies in {u ≤ u1}. Σ′ = Σ_τ0 outside
    [3.5, 5.75]; it is bent by at most 0.00116, and the angular widening is at most 0.00033 rad.
 4. **The N-family ledger is computed** (R8.4, nledger5). Every term of the N-family linearisation is written out for
@@ -165,7 +166,7 @@ N′ = {v = 0}. Those data are e^(2s) = 1/2 on both cones, the shell A = 3.6 b(v
   - r1′, r1″, r1‴ agree with a 30-digit differentiation of F's inverse.
   - The values agree with the computed background to its discretisation level. At v̂ = 0.5 the true ψ_III is
     −0.2060929, against the spline's −0.2061130; in the packet the six inputs agree with twobg5's crossing data to
-    10⁻³ relative or better (T2, T4).
+    a few parts in 10³ of their sizes (T2, T4).
   - μ3 ∈ [0.8220998, 0.8221253] contains the computed μ0 = 0.8221072.
 
 **Validated integration.** The N′ data on [5.7, 7.2] are (R, R_u, R_v) with R″ = −B/(3R²) and
@@ -185,17 +186,21 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
   Control: with every packet input widened by half its size, all 8,834 step boxes fail.
 - **T2** (Corollary Q's margin, through C1d). Every cell of the seed region R ∈ [0.70, 1.861] lies in region III
   (R2 ≥ R on the slice, f3 > 0 at u2).
-  - The a posteriori bound for the computed background: the n = 160 spline differs from the true ψ_III by at most
-    XXPE (k = 0, 1, 2) at the XXNP cell ends. On the whole seed region the bound is XXSUP, from centred forms with
-    the cells' enclosures for k = 0, 1 and the cells' enclosures for k = 2. |μ3 − μ0| ≤ XXDMU.
+  - The a posteriori bound for the computed background: the n = 160 spline differs from the true ψ_III by at most 5.1 ×
+    10⁻⁵, 2.6 × 10⁻⁴ and 8.7 × 10⁻⁴ (k = 0, 1, 2) at the 118 cell ends. On the whole seed region the bound is 1.3 ×
+    10⁻⁴, 3.9 × 10⁻⁴ and 1.4 × 10⁻², from centred forms with the cells' enclosures for k = 0, 1 and the cells'
+    enclosures for k = 2. |μ3 − μ0| ≤ 1.4 × 10⁻⁵.
   - These lie inside C1d's tube, d = (10⁻³, 10⁻³, 3 × 10⁻²) and |Δμ| ≤ 10⁻⁴, on which C1d certifies Γ > 0. So
     Γ > 0 on the seed region for the background itself.
   - The discretisation error is a few times larger than the n = 80 / 160 difference (1.1 × 10⁻⁵ in ψ): convergence
     in n did not measure it, and the a posteriori bound does.
-  - Control: with B's amplitude × 1.001 in the reduction, the spline is at least XXCE from that ψ_III, more than the
-    agreement above.
-- **T4** (a posteriori in the packet). At XX of twobg5's n = 160 crossings in the packet, the computed inputs differ
-  from the true ones by at most XX. This is informational, since T3 does not use the computed background.
+  - Control: with B's amplitude × 1.001 in the reduction, the spline is at least 2.3 × 10⁻⁴ from that ψ_III, more than
+    the agreement above.
+- **T4** (a posteriori in the packet). At 40 of twobg5's n = 160 crossings in the packet, the computed inputs differ
+  from the true ones by at most (certified upper bounds) 2.0 × 10⁻³ in E, 1.1 × 10⁻³ in f, 2.7 × 10⁻³ in ψ_R (of
+  size 0.20), 2.0 × 10⁻³ in ψ_v̂ (of size 0.06), 2.8 × 10⁻³ in f_R and 7.7 × 10⁻⁴ in f_v̂. That is up to 3 % of the
+  smaller inputs, more than C2d's widening of 10⁻³ of their size. This is informational, since T3 does not use the
+  computed background.
 - **C3** (intcert5, R ≥ R_*). κ′ > 0 and K′^l_l < 0 are certified on Σ′ from R_* to 5.75, with largest upper bound
   −2.96 × 10⁻⁴. Beyond 5.75, Σ′ = Σ_τ0 in Tangherlini of mass μ_end ∈ [3.60577, 3.60583], where κK ∝ (μ/R³)(f − 3)
   < 0 exactly. On Σ_τ0, Nk is certified negative outside the edge zones [4.2882, 4.2955] and [4.5258, 4.5310], and

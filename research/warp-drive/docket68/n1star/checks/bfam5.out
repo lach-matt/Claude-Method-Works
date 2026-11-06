@@ -13,3 +13,9 @@
       [0, pi/2] (interval arithmetic in zeta = cos 2th): True
 B1-B5 PASS
   control (i) the vv transport with its mass coupling halved: B2's K holds: False, the vv equation holds: False
+  control (ii) r0 frozen (d_v not acting on r0): c_(4,0),vv/A = alpha4' d + beta4' Lap d with alpha4' = -I*(6376*r0**9 -
+      26460*r0**8 + 28350*r0**7 - 29505*r0**6 + 71820*r0**5 - 47061*r0**4 + 8400*r0**3 - 25920*r0**2 +
+      25340)/(90720*r0**9), beta4' = I*(r0 - 1)*(2*r0**3 - 3*r0**2 - 2)**2/(72*r0**7); at rho*: alpha4' = 0.0 +
+      0.003731992535128342 i, beta4' = 0.0 + 2.505716915711433e-52 i; differs from B5: True
+controls PASS (control (i) detected; (ii) differs)
+bfam5: all checks pass, every control fails
