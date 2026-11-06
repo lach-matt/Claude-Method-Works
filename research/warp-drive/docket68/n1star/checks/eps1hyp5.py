@@ -51,9 +51,11 @@ lzeroconst5.py's geometry); deduced (the reduction to the hyperplanes, and the c
      (exact: m* >= mu0/a^2 > 1).
   H6 (computed, floating point; deduced: Weyl's inequality; D623) for eps1 < s0 every symmetric gt with |gt - g0| <=
      eps1 is Lorentzian with |gt^-1| <= (s0 - eps1)^-1: at the corner and at 30 random points of the grid, for eps1 =
-     s0/2, 9 s0/10, 99 s0/100, 300 random symmetric perturbations of operator norm eps1 each give exactly one negative
-     eigenvalue and |gt^-1| (s0 - eps1) <= 1 + 10^-9; the perturbation eps1 e e^T along the eigenvector e of -s0 at the
-     corner attains it (|gt^-1| (s0 - eps1) = 1 to 10^-9), so the bound is sharp.
+     s0/2, 9 s0/10, 99 s0/100, 300 random symmetric perturbations of operator norm eps1 and the two aligned ones +- eps1
+     e e^T (e the eigenvector of the point's least absolute eigenvalue; D625, since a random direction misses a 5 %
+     inflation of the norm) each give exactly one negative eigenvalue and |gt^-1| (s0 - eps1) <= 1 + 10^-9; the
+     perturbation eps1 e e^T along the eigenvector e of -s0 at the corner attains it (|gt^-1| (s0 - eps1) = 1 to
+     10^-9), so the bound is sharp.
   Controls (must fail, and do): C1 (Round 3, now mutating H3's code path) H3's degeneracy test run with the
   perturbation's size lowered to 59/100 reports a non-degenerate restricted form, so the test does not certify a null
   boundary where there is none; C2 a perturbation of norm 0.59 of the same shape keeps the boundary spacelike, and 0.62
@@ -240,10 +242,15 @@ def h5(g, r_cut=0.0):
 
 
 def weyl_test(G, s0, eps1, rng, trials=300, bound_s=None):
-    """random symmetric E with |E|_op = eps1: (one negative eigenvalue, max |gt^-1| (bs - eps1)); bs = s0 unless set"""
+    """random symmetric E with |E|_op = eps1, and the two aligned ones +- e e^T (e the eigenvector of G's least absolute
+    eigenvalue, D625: the confirming reader's E8, a 5 % norm inflation that random directions miss), all normalised by
+    the same line: (one negative eigenvalue, max |gt^-1| (bs - eps1)); bs = s0 unless set"""
     bs = s0 if bound_s is None else bound_s
     E = rng.standard_normal((trials, 5, 5))
     E = E + np.transpose(E, (0, 2, 1))
+    lam0, Q0 = np.linalg.eigh(G)
+    e0 = Q0[:, int(np.argmin(np.abs(lam0)))]
+    E = np.concatenate([E, np.outer(e0, e0)[None], -np.outer(e0, e0)[None]])
     E *= (eps1 / np.max(np.abs(np.linalg.eigvalsh(E)), axis=1))[:, None, None]
     lam = np.linalg.eigvalsh(G[None] + E)
     neg = np.all(np.sum(lam < 0, axis=1) == 1)
@@ -391,7 +398,8 @@ def main():
     neg6, worst6, att6 = h6(r5, s0)
     ok['H6'] = neg6 and worst6 <= 1 + 1e-9 and abs(att6 - 1) < 1e-9
     say('  H6 (D623): 31 points (the corner and 30 random), eps1 = s0/2, 9 s0/10, 99 s0/100, 300 random symmetric '
-        'perturbations of norm eps1 each: one negative eigenvalue always: %s; max |gt^-1| (s0 - eps1) = %.12f <= 1 '
+        'perturbations of norm eps1 each and the two aligned ones +- eps1 e e^T (D625): one negative eigenvalue always: '
+        '%s; max |gt^-1| (s0 - eps1) = %.12f <= 1 '
         '(Weyl); along the eigenvector of -s0 at the corner, eps1 = 9 s0/10: |gt^-1| (s0 - eps1) = %.12f (sharp) '
         '(floating point)' % (neg6, worst6, att6))
 

@@ -67,9 +67,11 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      with 0 < lam <= 1/10 and lam <= d0/20 the radial eigenvalue 1 + 2 lam sigma0'/Delta lies in [3/10, 1] and the
      angular ones 1 + 2 lam sigma/r in [4/5, 6/5].  Control: without lam <= d0/20 (lam <= lam1 <= 1/10 alone) Z3 finds
      a point with a negative radial eigenvalue (at lam = 1/10, Delta = 1 it is 1 - 1.4).
-  R13 (text) The paper's replacement blocks (D622): each old text occurs exactly once in paper/RESPONSE-HL-5D.md and its
-     new text not at all; every line of the blocks and of this file is at most 121 characters; and in N1STAR-PROOF.md
-     the D622 text is seated: "N-th order" occurs only inside an [amended D622 note, and Lemmas 10.1a-10.1b are
+  R13 (text) The paper's replacement blocks (D622; D625: the 8.2 block restricts "that datum is needed" to the scalar
+     type and names the measure dr dsigma, and the Proposition 3.3 proof block, two lines wider, says when its value at
+     mu0 is positive -- the confirming reader's m1, m5 and nit): each old text occurs exactly once in
+     paper/RESPONSE-HL-5D.md and its new text not at all; every line of the blocks and of this file is at most 121
+     characters; and in N1STAR-PROOF.md the D622 text is seated: "N-th order" occurs only inside an [amended D622 note, and Lemmas 10.1a-10.1b are
      present.  Control: a block whose old text is mutated does not occur.
 
 READ (alphaXiv, 2026-11-06).  [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, arXiv:1809.05144v1: p. 6, (16) "-(1 - mu)

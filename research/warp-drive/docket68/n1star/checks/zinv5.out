@@ -1,0 +1,8 @@
+  mode none: max defect nan
+  mode m1: max defect nan
+  mode m2: max defect nan
+  mode m3: max defect nan
+  mode m4: max defect nan
+  ZI1 (R3c) holds exactly for arbitrary spherically symmetric h (mode none): FAIL
+  ZI2 controls m1-m4 each fail: FAIL
+FAILED: ['ZI1', 'ZI2']
