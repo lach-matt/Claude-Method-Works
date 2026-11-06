@@ -578,8 +578,8 @@
       used at PART-III-K-NONLINEAR.md:547  \chi_K
       used at PART-III-K-NONLINEAR.md:556  \chi_-
       used at PART-III-K-NONLINEAR.md:593  \tilde R(r)
-      used at PART-III-K-NONLINEAR.md:639  \tilde R(r)
-      used at PART-III-K-NONLINEAR.md:720  \chi_K \chi_{\mathrm{IVP}}
+      used at PART-III-K-NONLINEAR.md:646  \tilde R(r)
+      used at PART-III-K-NONLINEAR.md:733  \chi_K \chi_{\mathrm{IVP}}
       used at PART-IV4-SLAB.md:43  \chi_K \chi_{\mathrm{IVP}}
       used at PART-IV4-SLAB.md:44  \chi_K
       used at PART-IV4-SLAB.md:45  \chi^\sharp_K
@@ -1592,17 +1592,19 @@
         zero-energy uniqueness argument (III.D2 (c), omega' := omega - (q/2) W^*; III.F4 (ii), omega'_pi := omega_pi -
         dot omega_{b_0}(dot b_pi)), a point of S^3 near omega (III.F2), or a solution or test form of an estimate (IV5
         (1), IV6 (5.81), IV7 Theorem 2.1 (2))
-      excluded (1 spellings, 12 occurrences): a musical dual, or the explicit V_b + c_0|x|^-3 V(W) of
+      excluded (1 spellings, 12 occurrences): a musical dual (III.D''), or the explicit V_b + c_0|x|^-3 V(W) of
         PART-III-E2-V1STATES.md:129-130
-      excluded (23 spellings, 163 occurrences): components of a generic 1-form or covector, a multi-index, or the
-        Cauchy data of another equation (IV5, IV7)
+      excluded (21 spellings, 156 occurrences): components of a generic 1-form or covector, or a multi-index
+      excluded (2 spellings, 7 occurrences): the Cauchy data of another equation (IV5, IV7)
       excluded (1 spellings, 3 occurrences): the source's zero-energy state, in PART-III-D2-ZEROENERGY.md's remarks on
         the source
       excluded (3 spellings, 32 occurrences): the zero-energy gauge potential, the unique solution of a natural problem
-        (PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof)
+        (PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof), in III.F4, III.F5, III.I8, III.I16
   V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: True; since D628, a planted primed
         omega'^{(7)}_{b,s9} at PART-III-D3-SYMSTATES.md:200 (inside a location rule's range): True; omega'_b planted at
         PART-III-K-NONLINEAR.md:300 (outside its rules' ranges): True; the text $omega'^{(7)}_{b,s9}(S)$ planted as a
         last line of PART-III-I16-BASEPOINTS.md (through the tokenizer): True
+  V2 control since D629 (the narrow rules pinned to their files): omega^{(0)} planted as text in PART-III-G3-GRAFT.md:
+        True; dot omega_b planted as text in PART-III-K-NONLINEAR.md: True
   control: planted symbol reported missing its site: True; chi_9 with its site moved to PART-III-B-FAMILY.md:345-349 reported missing: True; moved within its own file (PART-III-K-NONLINEAR.md:1-10): True
-V1 PASS; V2 PASS; control (a planted and a moved site, and four planted spellings, reported): behaves
+V1 PASS; V2 PASS; control (a planted and a moved site, and six planted spellings, reported): behaves

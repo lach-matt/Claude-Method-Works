@@ -8206,3 +8206,79 @@ independent, and none edited a file.
   - SETTLE-GLAM5's re-keys (471, 513-521) have landed (workstream B). Its md5 pins of K and VII are f29e2aa8 and
     500c085b, the D628 files (:630, :936, :1576, :2068, :2628) [amended D629: this line first named 14b79c32 and
     81a9effd, the D626 files, which SETTLE-GLAM5 no longer pins]; D628 leaves the pinned lines unchanged.
+
+**D622 (2026-11-06; recorded at D627, as it had no entry of its own): the reader of sections 8, 9 and Proposition 10.1
+seated.** That reader found section 8, Theorem P with its proof, and Proposition 9.10 to hold once its findings were
+seated. It also confirmed the (9.10) error in 9.5 and found one major gap.
+- The Major: Proposition 10.1 (iv) misread [HKW18]'s E~^N as "N-th order" energies. They are the first-order energies of
+  the red-shift multiplier N = T + Y ((114)-(115), p. 39). At r = r_h the master equation does not give the transversal
+  d_r^2, so (iv) did not reach the horizon; it also used (i)'s static K, which is singular there.
+- Closed by two routes:
+  - (iv-a): Part VIII's data class, by GAUGEDECAY5 Theorem 1.5 (b), (d). It holds pointwise at t*^(-w+eps') with
+    w > 2, the horizon included, with a loss of two derivatives. Theorem 1.5 is verified, not proved.
+  - (iv-b): [HKW18]'s data with one red-shift datum Q_0, rate C R^5 (D + Q_0)(1 + tau)^-2 uniformly in l. It rests on two
+    new lemmas.
+    - Lemma 10.1a: the red-shift commutation is exact in 1+1. Its damping (j + 1) f'/2 does not involve the potential
+      and is (j + 1) kappa > 0 at the horizon, kappa = 1/r_h ([DR08] Theorem 7.2, p. 87; [Sch13] Lemma 3.2).
+    - Lemma 10.1b: Q_0 cannot be dropped. The modes e^(-sigma v)(r - r_h)^(sigma/kappa), 1/2 < sigma/kappa <= 3/2,
+      sigma/kappa != 1, have every I finite and Q_0 = oo.
+  - K is now Proposition 10.2 (iv)'s horizon-regular r^-2 dv^2. "N-th order" survives only inside the quoted
+    superseded text.
+- Minors M1-M5 and the nits, all seated with [amended D622] notes:
+  - M1: the status lines of section 9 and Proposition 9.10;
+  - M2: (vth, p1, p2) as the angles of S^3;
+  - M3: "orthonormal frame";
+  - M4: Proposition 9.9's bootstrap factors C/beta and C/(beta - 1), with beta0 = max(2, 4C + 1);
+  - M5: Proposition 9.10 (1) through Theorem E on g_lam's own trace, the lower semicontinuity of Data, and uniqueness
+    on Omega;
+  - the nits: Proposition 8.1's mu0 >= sqrt(72) l5^2 with delta2 and C = 2 C'; eight invariant components; Lemma 8.2's
+    wording; Proposition 8.2 citing `checks/support5c.py` C13; eps_U; gh~ in E_(5/2); and Proposition 10.1 (ii)'s
+    gauge vector with its angular part.
+- Lemma 9.4 gains lam <= d0/20, since without it the radial eigenvalue reaches 1 - 1.4 at lam = 1/10, Delta = 1.
+- New `checks/redshift5.py`: R1-R14 pass and every control fails; 16 of 16 mutants are caught. Eight paper blocks
+  are carried in its R13, not seated in the paper.
+- The confirming read is the one recorded at D625. The rest of D622's report is in the scratchpad's report-r622.md.
+
+**D627 (2026-11-06): the D625 seating read; its minor and eight notes seated.** An independent reader confirmed the D625
+seating, with one exception and eight notes. It also re-derived the tensor factor k^2 + 4 with sympy.
+- The exception, a minor: Lemma 10.1b's case of smooth h assumed smooth data converging to the singular modes in every
+  I_(X Psi)(Sigma_0). The natural R(r + eps) does not do this: its I_(T^2 Psi) error grows like eps^(-1/2) at
+  sigma/kappa = 5/4. The same gap reached (iv-b)'s "not bounded by any sum of I's".
+- That minor is seated in the reader's form, re-derived:
+  - average Phi_n over the flow of T with a smooth rho supported in (0, t_0), 0 < t_0 < s(rho_0) - s(r_h);
+  - T^a of the average is (-1)^a int rho^(a)(t) Phi_n o phi_t dt, so the energy bound on [0, t_0] gives convergence
+    in every I_(X Psi)(Sigma_0);
+  - near the horizon on Sigma_0 the averaged limit is (int rho e^(-sigma t) dt) e^(-sigma v) R, because phi_t of such a
+    point lies in the domain of dependence of Sigma_0 cap {r < rho_0};
+  - lower semicontinuity then gives Q(0) -> oo.
+- (iv-b)'s sentence now says "for smooth h either".
+- New `checks/redshift5.py` R16 (the reader's model, with the exact solution of the naive data). The averaged errors in
+  I_(T^a Psi), a = 0, 1, 2, fall as about eps^(3/2) (I_(T^2 Psi) 8.9e-6, 1.6e-9, 9.0e-13 at eps = 1e-3, 1e-5, 1e-7,
+  sigma/kappa = 5/4), and Q(0) of the averages grows (3.9, 42, 426). The averages' jets obey the model's relations.
+  Control: the naive data, 0.70, 6.9, 69.
+- The nits:
+  - the header's "found section 8, Theorem P and Proposition 9.10 to hold";
+  - [amended D625, noted D627] marks on the ten D625 edits that carried none;
+  - "for each type";
+  - Y_ab defined at (35) and carried in (173);
+  - "would meet that span";
+  - Step 6's clause on c0-c3 moved to the end of its parenthesis;
+  - "Step 8," back in the 0.4 heading, which now reads "re-read D623, D625" to fit 121 characters;
+  - new `checks/redshift5.py` R15 for k^2 + 4.
+- R15 checks -sum L_Omega^2 h = nabla^* nabla h + 6 h - 2 tr(h) g on generic symmetric h, and 12 = k^2 + 4 on two TT
+  harmonics at l = 2, where nabla^* nabla = 6 matches (42). k^2 + 3 = 11 is rejected. Control: 5 h in place of 6 h.
+- Section 11's "Proved means proved" is marked as pending the section 11 read (F1 on Lemma 11.0). Nothing else in
+  section 11 is changed; WS-B round 6's R6-D blocks are for a separate pass.
+- lzerotrace5 and lzeroaudit5 are re-pinned to the D627 file and re-keyed by content. Two of 0.3's audit rows now share
+  line 118.
+- redshift5 R13's 8.2 block is re-keyed to the paper as it stands since RWGAUGE5's block was seated in 8.2 (8a1f050).
+  It now replaces only 8.2's first sentence, which keeps "as a power of R"; the seated RWGAUGE5 text after it stays.
+- External mutants of R15 and R16: 4 of 4 caught (five Killing fields; a Lie-derivative term dropped; T^a not on rho; the
+  v-part of the exact solution dropped).
+- Runs, every .out saved:
+  - redshift5: R1-R16 pass, every control fails.
+  - Pass: eps1hyp5, support5, stagen5, r5edits5, census9, stagefree5, support8b, zerohardy5, lzerotrace5 (T0-T7,
+    C1-C6) and lzeroaudit5 (A0-A3, C1-C3).
+  - `response5.py --update-md5` refreshed six rows of Appendix D. Its selftest passes but for R9, on
+    PART-III-K-NONLINEAR.md and BEYOND5-R0.tsv, which another workstream was rewriting during the runs.
+- Not yet read: the D627 seating itself, and the D618 edits to sections 9.5 and 11.

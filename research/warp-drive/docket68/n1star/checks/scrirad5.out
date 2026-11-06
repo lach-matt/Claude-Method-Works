@@ -13,9 +13,10 @@
   R5 (III.K Lemma 6.2, the future-curve case, on g_b0 in Kerr-Schild form): form and inverse against the matrices True;
       future radial null slopes at (mu, r) = (1, 4/5) and (3/2, 1): (-1, -9/41), (-1, -1/5); z3, the negation of each
       claim: m > 1, future causal V has V^r < 0: unsat; past causal V has V^r > 0: unsat; m >= 0, future causal V has
-      |V^r| <= V^t: unsat; dt + a dr, a in [0, 1/32], past timelike: unsat, and positive on future causal V: unsat;
-      vacuity guard (sat): True
+      |V^r| <= V^t: unsat; m > 0, dt + a dr, -1 <= a < 1, past timelike: unsat, and positive on future causal V: unsat;
+      III.B Lemma 3.7's beta > -5/7, so the clause's a = nu' - beta lies in [-1, 3/4): unsat; vacuity guard (sat): True
   controls (each must make z3 find a counterexample): N1 kappa = 0 True; N2 kappa = -1 True; N3 threshold without T_1
       True; N4 decay removed True; N5 gbar^-1(dt_*, dr) = +1 True; N6 Lemma 6.2's cone at eps = 1/4 True; N7 r kept
-      along future curves inside the horizon True; N8 R5 (iv) with a up to 1 True
+      along future curves inside the horizon True; N8 R5 (iv) with a up to 1 True; N9 R5 (iv) with m = 0 allowed True;
+      N10 beta > -2/3 True
 R1 PASS; R2 PASS; R3 PASS; R4 PASS; R5 PASS; controls behave
