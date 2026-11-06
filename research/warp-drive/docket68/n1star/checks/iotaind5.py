@@ -356,8 +356,8 @@ def main():
     EG, _ = least(generic=True)
     w0, wG = window(E0), window(EG)
     OK['I1'] = not [w for w in E0 if val(w) < 2] and [val(w) for w in wG] == [1]
-    print('  I1 (computed): the least E^iota_ind at b0, the offsets of every tower term from its chain degree, %d states '
-          'and their towers: least offset of each state %s; elements of real part < 2: %s; at b near b0 (companions '
+    print('  I1 (computed): the least E^iota_ind at b0, the offsets of every tower term from its chain degree, %d '
+          'states and their towers: least offset of each state %s; elements of real part < 2: %s; at b near b0 (companions '
           'present): window %s: %s' % (len(rows), sorted({str(round(float(m), 9)) for _, m in rows}),
                                        [name(w) for w in E0 if val(w) < 2], [name(w) for w in wG], OK['I1']))
     for lab, m in rows:

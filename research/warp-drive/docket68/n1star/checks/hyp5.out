@@ -1,0 +1,2 @@
+  H0 the recursion for Q_k equals x^k Y_k(A_1/x, ...) exactly, k <= 12: True
+H0 PASS (control detected)
