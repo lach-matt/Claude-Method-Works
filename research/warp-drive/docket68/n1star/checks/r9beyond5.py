@@ -102,11 +102,8 @@ def part_b1():
     beta, alpha = dr + 2*dtt, dr - 2*dtt
     bb, aa = c(beta, beta), c(alpha, alpha)
     mb, ma = maximum(bb.subs(m, 0), fp, If), maximum(aa.subs(m, 0), fp, If)
-    decb = sp.simplify(sp.diff(bb, m) + (1 + fp)**2) == 0 and sp.simplify(sp.diff(aa, m) + (3 + fp*0 - 2*fp)**2 -
-                                                                           (3 - 2*fp)**2 + (3 + 2*fp)**2 -
-                                                                           (3 + 2*fp)**2) == 0
-    decb = sp.simplify(sp.diff(bb, m)) <= 0 if False else (sp.diff(bb, m).subs(fp, 0) < 0 and
-                                                          sp.diff(aa, m).subs(fp, 0) < 0)
+    decb = (sp.simplify(sp.diff(bb, m) + (1 + 2*fp)**2) == 0      # -(L0 . beta)^2: decreasing in m
+            and sp.simplify(sp.diff(aa, m) + (3 + 2*fp)**2) == 0)
     ok = inv_ok and cs and form and mx == -Q(15, 16) and dec and l_ok and mono and mb == -Q(7, 4) \
         and ma == -Q(7, 4) and decb and (beta.T*sp.Matrix([1, 0, 0, 0, 0]))[0] == 2
     check("B1 g0 g0^-1 = 1; dv null, g0^-1(dv, dtau) = -1, (dtau, dtau) = -1 - m, (dr, dr) = 1 - m, (dtau, dr) = m; "
@@ -361,56 +358,58 @@ def part_b4():
 def part_b5():
     print("B5  W = D^-(S; g0), sampled on a model, and the perturbed sandwich")
     R4, F0, cF, mu = 16.0, 3.0, 64.0, 1.0
-    F = lambda r: F0 + cF/r                                  # |F'| = cF/r^2 <= 1/4 on r >= 16
+    F = lambda r: F0 + cF/r                                  # |F'| = cF/r^2 <= 1/4 on r >= 16, r + F increasing
     tauS = F(R4)
     v1 = R4 + tauS
     rng = random.Random(95)
+    inW = lambda tau, r: tau + r >= v1 and tau - F(r) <= 0 and r >= R4
 
-    def meets_S(tau, r, n=None, e0=0.0, tau0=0.0, causal_rng=None, maxsteps=40000, dt=0.05):
-        """follow a random future causal curve (radial model) until t~ >= 0 or r < 4R: did it meet S?"""
-        for _ in range(maxsteps):
+    def ray_meets(tau, r):
+        """the ingoing null ray from (tau, r): v fixed, r' decreasing from r; it meets S iff some r' in [4R, r] has
+        r' + F(r') = v (r + F is increasing, so bisection on [4R, r] decides it)"""
+        v = tau + r
+        if r < R4 or v < v1:
+            return False
+        lo, hi = R4, r
+        if hi + F(hi) < v:
+            return False
+        for _ in range(200):
+            mid = (lo + hi)/2
+            lo, hi = (mid, hi) if mid + F(mid) < v else (lo, mid)
+        return True
+
+    def curve_meets(tau, r, n=None, e0=0.0, tau0=0.0, dt=0.25, tol=1e-3):
+        """a random future causal polygon (radial model) until t~ >= 0 (then: is v >= v1, i.e. on S?) or r < 4R"""
+        for _ in range(100000):
+            if tau - F(r) >= 0:
+                return tau + r >= v1 - tol
             if r < R4:
                 return False
-            if tau - F(r) >= 0:
-                return tau + r >= v1 - 1e-6
             m_ = mu/r**2
             if n is None:
                 yi, yo = -1.0, (1 - m_)/(1 + m_)
             else:
                 yi, yo = null_slopes(metric2(n, eps_profile(tau, tau0, e0), m_))
-            y = causal_rng.uniform(yi, yo)
+            y = rng.uniform(yi, yo)
             tau, r = tau + dt, r + dt*y
         return None
 
-    okW, okOut, n_in, n_out = True, True, 0, 0
+    okW, okRay, n_in, n_tot = True, True, 0, 0
     while n_in < 300:
         r = rng.uniform(R4, R4 + 300)
-        tt = rng.uniform(-150, 0)
-        tau = tt + F(r)
-        if tau + r < v1:
+        tau = rng.uniform(-150, 0) + F(r)
+        if not inW(tau, r):
             continue
         n_in += 1
-        for _ in range(40):
-            if meets_S(tau, r, causal_rng=rng, dt=0.25) is not True:
-                okW = False
-    while n_out < 300:
+        okW = okW and all(curve_meets(tau, r) is True for _ in range(40))
+    for _ in range(600):
         r = rng.uniform(1.0, R4 + 300)
         tau = rng.uniform(-150, 60)
-        inW = tau + r >= v1 and tau - F(r) <= 0 and r >= R4
-        if inW:
-            continue
-        n_out += 1
-        v = tau + r                                          # ingoing null ray: v fixed, r decreasing
-        rs = np.linspace(min(r, R4 + 2000), R4, 4001) if r >= R4 else []
-        hit = any(abs((v - rr) - F(rr)) < 1e-9 and v >= v1 - 1e-9 and rr <= r for rr in rs)
-        # exact: on the ray t~ = v - r' - F(r') increases as r' decreases; a meeting point needs r' <= r(p), r' >= 4R,
-        # v >= v1, and t~ = 0 there
-        sol = [rr for rr in rs if rr <= r]
-        ex = (v >= v1 and r >= R4 and (v - r) - F(r) <= 0)
-        okOut = okOut and not ex and not hit
-    check("B5 (g0) from 300 points of W, 40 random future causal curves each meet S; from 300 points outside W the "
-          "ingoing null ray misses S", okW and okOut, f"{n_in} in, {n_out} out")
-    # perturbed: n along dv, eps = 0.05 min(1, t^(-3/2)) with tau0 = tauS - 2
+        okRay = okRay and (ray_meets(tau, r) == inW(tau, r))
+        n_tot += 1
+    check("B5 (g0) from 300 points of W, 40 random future causal curves each meet S; at 600 random points the ingoing "
+          "null ray meets S exactly when the point is in W", okW and okRay, f"{n_in} in W, {n_tot} decided")
+    # perturbed: n along dv, eps = 0.05 min(1, t^(-3/2)), tau0 = tau_S - 2
     n = np.array([1.0, 1.0])/np.sqrt(2)
     e0, tau0 = 0.05, tauS - 2
     Iof = lambda tau: I_profile(min(tau, tauS), tauS, tau0, e0)
@@ -421,17 +420,14 @@ def part_b5():
         if tau + r < v1 + Iof(tau):
             continue
         k_in += 1
-        for _ in range(20):
-            if meets_S(tau, r, n=n, e0=e0, tau0=tau0, causal_rng=rng, dt=0.25) is not True:
-                okP = False
+        okP = okP and all(curve_meets(tau, r, n=n, e0=e0, tau0=tau0) is True for _ in range(20))
     while k_out < 120:
         r = rng.uniform(R4, R4 + 200)
         tau = rng.uniform(F(r) - 120, F(r))
         if tau + r >= v1 - Iof(tau):
             continue
         k_out += 1
-        # the Y_e curve: dtau = 1 + 2e, dr = -1, dv = 2e per unit parameter, until r = 4R
-        t_, r_ = tau, r
+        t_, r_ = tau, r                       # the Y_e curve: dtau = 1 + 2e, dr = -1, dv = 2e per unit parameter
         while r_ > R4:
             e_ = eps_profile(t_, tau0, e0)
             ds = min(0.05, r_ - R4)
@@ -440,18 +436,17 @@ def part_b5():
                 okM = False
                 break
         okM = okM and t_ + r_ < v1
-    check("B5' perturbed (n = dv, eps = 0.05 min(1, t^(-3/2))): from 120 points of {v >= v1 + I(tau)} 20 random future "
-          "g-causal curves each meet S; from 120 points of {v < v1 - I(tau), r >= 4R} the Y_e curve reaches r = 4R at "
-          "v < v1, missing S", okP and okM, f"{k_in}, {k_out}")
+    check("B5' perturbed (n = dv, eps = 0.05 min(1, t^(-3/2))): from 120 points of {v >= v1 + I(tau), t~ <= 0} 20 "
+          "random future g-causal curves each meet S; from 120 points of {v < v1 - I(tau), r >= 4R} the Y_e curve "
+          "reaches r = 4R at v < v1, missing S", okP and okM, f"{k_in}, {k_out}")
     bad = 0
     for _ in range(300):
         r = rng.uniform(R4, R4 + 50)
-        tau = rng.uniform(v1 - 2 - r, min(v1 - r, F(r)))
-        if tau + r >= v1:
-            continue
-        bad += 1                                              # in {v >= v1 - 2, t~ <= 0}, not in W: ray v < v1
-    check("B5'' control: {v >= v1 - 2, t~ <= 0} contains points not in W, whose ingoing null ray keeps v < v1 and "
-          "misses S", bad > 0, f"{bad} such points")
+        tau = rng.uniform(v1 - 2 - r, v1 - r)
+        if tau - F(r) <= 0 and not inW(tau, r) and not ray_meets(tau, r):
+            bad += 1
+    check("B5'' control: {v >= v1 - 2, t~ <= 0, r >= 4R} is not in D^-(S; g0): it has points whose ingoing null ray "
+          "misses S", bad > 0, f"{bad} of 300")
 
 
 # ---------------------------------------------------------------------------------------------------------- B6
