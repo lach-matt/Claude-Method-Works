@@ -14,3 +14,6 @@ T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself: th
    within intcert5 C1d's tube d = (0.001, 0.001, 0.03), |d mu| <= 1e-04, on which C1d certifies Gamma > 0 for R in [0.70, 1.861]: True -- so Gamma > 0 on the seed region for the background itself
    at vhat = 0.5: psi_III in [-0.20610997, -0.20607584], the n = 160 spline -0.20610803, the n = 80 spline -0.20611300; mu3 in [0.82209978, 0.82212534], the computed mu0 (n = 160) 0.82211118
    (the n = 80 and 160 splines differ by 1.1e-05, 9.4e-06, 6.0e-06, sampled: the discretisation error is larger than the n-convergence suggested, and inside the tube)
+   controls: with B's amplitude x 1.001 in the reduction the spline is at least 2.3e-04 from it at the points, more than the agreement 5.1e-05 above (rejected): True; [R8] the tube shrunk to d/10 and d mu/10 does not contain the background (rejected): True
+T2 PASS
+T4 a posteriori in the packet: the computed background's slice inputs (twobg5 n = 160, racslice5's crossing data, A = 0) against the background itself
