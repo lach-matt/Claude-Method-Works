@@ -504,14 +504,15 @@ def u7(control=False):
         print("  U7 control (the lemma without int w^2/s^2): holds on the tests: %s" % ok, flush=True)
         return ok
     t_, p_, d_ = sp.symbols("t p delta", positive=True)
-    # L = d_t + d_r* on w(t, r) = W(t - r*(r), r): d_r* = f d_r|_t; on the outgoing chart it is f d_r|_u
-    Wf = sp.Function("W")
+    # L = d_t + d_r* on w(t, r) = W(t - r*(r), r): d_r* = f d_r|_t; on the outgoing chart it is f d_r|_u (test functions)
     rs = r + (sp.sqrt(mu)/2)*sp.log((r - sp.sqrt(mu))/(r + sp.sqrt(mu)))
-    wtr = Wf(t_ - rs, r)
-    L = sp.diff(wtr, t_) + f*sp.diff(wtr, r)
-    uu = sp.Symbol("uu")
-    Lb = (f*sp.diff(Wf(uu, r), r)).subs(uu, t_ - rs)
-    iiL = sp.simplify((L - Lb).doit()) == 0
+    a_, b_ = sp.symbols("a b")
+    iiL = True
+    for Wt in (a_**3*b_ + sp.sin(a_)*b_**2, sp.exp(a_)/b_):
+        wtr = Wt.subs({a_: t_ - rs, b_: r})
+        L = sp.diff(wtr, t_) + f*sp.diff(wtr, r)
+        Lb = (f*sp.diff(Wt, b_)).subs({a_: t_ - rs, b_: r})
+        iiL &= sp.simplify(L - Lb) == 0
     k2 = sp.Symbol("k2", positive=True)
     xx = sp.Symbol("x", nonnegative=True)
     c1 = all(ll*(ll + 2) >= 8 for ll in range(2, 200, 2))

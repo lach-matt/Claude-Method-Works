@@ -17,8 +17,9 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      or a constant of the seed alone (Ks, the bound of the seed's operator coefficients on Omega with two derivatives,
      and C_S3, the Sobolev constant of H^2(S^3) in L^inf): no other quantity enters.  Control: a step that needs a
      profile bound beyond the derivative order lambda0 uses (P_12) is detected.
-  K2 (computed) both are increasing in every leaf (each node of the DAG a positive expression of its inputs, built
-     by +, *, exp, max and positive powers; checked structurally and by finite differences at 40 random points).
+  K2 (computed) with the certified numbers inserted, both are increasing in every remaining leaf (each node of the
+     DAG a positive expression of its inputs, built by +, *, exp, max and positive powers; checked structurally and by
+     finite differences at 40 random points), so upper bounds of the leaves give upper bounds of C_L11 and C_L4.
      Control: a mutated node with a difference (C_tr - 1) is detected as not monotone.
   K3 (computed) at P* with the certified leaves inserted, printed in the remaining leaves; with the seed's constants
      and the profile bounds all equal to one (an illustration, not a bound), log10 C_L11 and log10 C_L4 are printed.
@@ -143,21 +144,23 @@ def positive_tree(e):
 
 def k2(control=False):
     d, C11, C4 = build(mutate="minus" if control else None)
-    structural = all(positive_tree(e) for _, e in d.defs)
+    # the certified numbers (a, b(tau0), tau_end - tau0, mu_end, C_S, A, mu0) inserted first: monotone in the others
+    structural = all(positive_tree(sp.nsimplify(e.subs(CERT))) for _, e in d.defs)
     if control:
         return structural
     rng = random.Random(11)
     fd_ok = True
-    leaves = sorted(d.leaves(), key=str)
+    leaves = sorted(d.leaves() - set(CERT), key=str)
     for _ in range(40):
-        pt = {s_: sp.Rational(rng.randint(5, 150), 100) for s_ in leaves}
+        pt = dict(CERT)
+        pt.update({s_: sp.Rational(rng.randint(5, 150), 100) for s_ in leaves})
         k = rng.choice(leaves)
         pt2 = dict(pt)
         pt2[k] = pt[k]*sp.Rational(101, 100)
         v1, v2 = d.value(pt), d.value(pt2)
         fd_ok &= all(v2[c] - v1[c] >= 0 for c in (C11, C4))
-    out("  K2 C_L11 and C_L4 increasing in every leaf: every node of the DAG a positive expression of its inputs %s, by"
-        " finite differences at 40 random points %s" % (structural, fd_ok))
+    out("  K2 with the certified numbers inserted, C_L11 and C_L4 increasing in every remaining leaf: every node of the"
+        " DAG a positive expression of its inputs %s, by finite differences at 40 random points %s" % (structural, fd_ok))
     return structural and fd_ok
 
 

@@ -9,21 +9,22 @@ B4  the radial derivatives from the commuted fields
   B4a x.d_x = Z - (t - v1) d_t on every function: pass
   B4b along a ray of Sigma~_sigma: d/dr (w(f(r) + sigma, r)) = (d_r w + f' d_t w)(f(r) + sigma, r) (concrete f, w);
         control: d_r w alone is not it: pass
-  B4c v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2): pass
-  B4d control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0): pass
-  B4e |t - v1| <= r on W (r >= 4R, |f'| <= 1/2): v1 + r - t >= (r + 12 R)/2 > 0: pass
+  B4c [arithmetic] v = f(r) + sigma + r increases along the ray when |f'| <= 1/2 (v' = 1 + f' >= 1/2): pass
+  B4d [arithmetic] control: with f' = -3/2 the ray turns back in v (v' = -1/2 < 0): pass
+  B4e [arithmetic] |t - v1| <= r on W (r >= 4R, |f'| <= 1/2): v1 + r - t >= (r + 12 R)/2 > 0: pass
 B6  the kernel table of the weighted energy at weight a
-  B6a every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3)): pass {'residual P(Sigma) = O(lam
-        r^(-13/2)), L^': '7/4', 'explicit coefficients on d Gamma h_R ((l': '3', 'explicit coefficients on d d Gamma^beta
-        ': '2', 'explicit zero order with Hardy (lam r^-4': '3', 'first order h_R coefficients (Q, Gamma[g': '17/4',
-        'zero order h_R with Hardy (r d d h_R <= ': '13/4', "bulk-sign error |w'||H|/w (r^-1 (lam r^-": '3', 'mu d_mu
-        second-order source (mu r^-2 d d': '2', 'multilinear terms: one L^2 factor, sup f': '17/4'}
-  B6b on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2): pass [51/100,
-        349/100], 299 points
-  B6c control: at a = 1/2 the zero-order h_R kernel is not integrable: pass ['zero order h_R with Hardy (r d d h_R <= eps
-        r^(-1/2-a))']
-  B6d control: at a = 7/2 the residual kernel is not integrable: pass ['residual P(Sigma) = O(lam r^(-13/2)), L^2 with
-        weight']
+  B6a [arithmetic] every kernel is integrable at a = 51/20, 11/4, 59/20 (R3.6's window (5/2, 3)): pass {'residual
+        P(Sigma) = O(lam r^(-13/2)), L^': '7/4', 'explicit coefficients on d Gamma h_R ((l': '3', 'explicit coefficients
+        on d d Gamma^beta ': '2', 'explicit zero order with Hardy (lam r^-4': '3', 'first order h_R coefficients (Q,
+        Gamma[g': '17/4', 'zero order h_R with Hardy (r d d h_R <= ': '13/4', "bulk-sign error |w'||H|/w (r^-1 (lam r^-":
+        '3', 'mu d_mu second-order source (mu r^-2 d d': '2', 'multilinear terms: one slot in L^2 (an u': '13/4'}
+  B6b [arithmetic] on the grid a = 0, 1/100, ..., 5 the kernels are all integrable exactly for a in (1/2, 7/2): pass
+        [51/100, 349/100], 299 points
+  B6c [arithmetic] control: at a = 1/2 the zero-order h_R kernel and the multilinear one (both q = a + 1/2) are not
+        integrable: pass ['zero order h_R with Hardy (r d d h_R <= eps r^(-1/2-a))', 'multilinear terms: one slot in L^2
+        (an undifferentiated one through Hardy), the others in sup (r d d h_R <= eps r^(-1/2-a))']
+  B6d [arithmetic] control: at a = 7/2 the residual kernel is not integrable: pass ['residual P(Sigma) = O(lam
+        r^(-13/2)), L^2 with weight']
 B7  the split of the commuted multilinear terms
   B7a every multilinear term (m = 2..4 slots) has a split (one slot in L^2, the rest in sup) for every k0 in [6, 30];
         minimal k0 = 6: pass minimal k0 = 6
@@ -32,10 +33,10 @@ B7  the split of the commuted multilinear terms
   B7c control: k0 = 5 fails (a slot of order 2 with two derivatives against one of order 3): pass
   B7d control: the rule reversed (smallest slot in L^2, largest in sup) fails at every k0 <= 30: pass
 B8  the degree of the residual P(g_b0 + Sigma)
-  B8a with p in {2, 5/2, 3, 7/2, 4} the residual's leading degree is -13/2 (mu Sigma_(5/2), Sigma_2 Sigma_(5/2)): pass
-        -13/2
+  B8a [arithmetic] with p in {2, 5/2, 3, 7/2, 4} the residual's leading degree is -13/2 (mu Sigma_(5/2), Sigma_2
+        Sigma_(5/2)): pass -13/2
   B8b ||w^(1/2) r^(-13/2)||_(L^2(r >= R))^2 = R^(2a - 9)/(9 - 2a) (a < 9/2): pass -R**(2*a - 9)/(2*a - 9)
-  B8c control: without the p = 4 term the leading degree is -6: pass -6
+  B8c [arithmetic] control: without the p = 4 term the leading degree is -6: pass -6
 B9  the self-similar terms and the fixed-v expansion
   B9a (p + m - 1)(p + m - 3) - l(l + 2) = (p + m - l - 3)(p + m + l - 1) (symbolic): pass
   B9a' the 2F1 coefficient ratio equals the recursion's exactly at c = p - 1/2: pass
@@ -46,29 +47,31 @@ B9  the self-similar terms and the fixed-v expansion
         10, 20, 40, 80, s on a grid of step 1/10): the harmonic-by-harmonic construction of F_p converges for smooth
         data: pass [(2, '0.0'), (2.5, '0.0'), (3, '0.0'), (3.5, '0.0')]
 B10  the weight a_0 < 1/2 scheme of rounds 2-3 does not close
-  B10a the scheme's chain (Hardy on Gamma^alpha h, Sobolev on d d h) gives the kernel exponent a_0 + 1/2: not integrable
-        at a_0 = 1/4, 2/5, 1/2: pass
-  B10b Sobolev's bound is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has weighted energy
-        -> int_0^1 psi'^2 = 2/105 (bounded in R) and R^(a + 3/2) phi_R(R + 1/2) = psi(1/2) = 1/16: pass limit 2/105
+  B10a [arithmetic] the scheme's chain (Hardy on Gamma^alpha h, Sobolev on d d h) gives the kernel exponent a_0 + 1/2:
+        not integrable at a_0 = 1/4, 2/5, 1/2: pass
+  B10b Sobolev's bound on d d h is attained in the class: phi_R = R^(-a-3/2) psi(r - R) (psi = (y(1 - y))^2) has weighted
+        energies of phi_R and of phi_R' bounded in R (-> 2/105, 4/5) and R^(a + 3/2) phi_R''(R + 1/2) = psi''(1/2) = -1
+        (and R^(a+3/2) phi_R(R + 1/2) = 1/16): pass limits 2/105, 4/5
   B10c Hardy's constant is attained: the ratio for r^(-a-1-eta) tends to (a + 1)^-2 as eta -> 0: pass
-  B10d control: at a = 11/4 (the weight of (b2)) the same chain is integrable: pass
+  B10d [arithmetic] control: at a = 11/4 (the weight of (b2)) the same chain is integrable: pass
 B11  uniqueness in the weight-a_0 class
-  B11a the difference equation's kernels: zero order from the constructed solution (q = min(3, a + 1/2)), first order,
-        deformation and bulk-sign error from h' (q = 3/2 + a_0): integrable for a_0 = 1/10, 1/4, 49/100: pass
-  B11b Sigma's cap energy at weight a_0: int_S^oo r^(2a_0) r^-6 r^3 = S^(2a_0 - 2)/(2 - 2a_0) -> 0: pass
-  B11c control: with the zero-order coefficient taken from h' (q = a_0 + 1/2) the kernel is not integrable at a_0 = 1/4,
-        1/2: pass
+  B11a [arithmetic] the difference equation's kernels: zero order from the constructed solution (q = min(3, a + 1/2)),
+        first order, deformation and bulk-sign error from h' (q = 3/2 + a_0): integrable for a_0 = 1/10, 1/4, 49/100:
+        pass
+  B11b [arithmetic] Sigma's cap energy at weight a_0: int_S^oo r^(2a_0) r^-6 r^3 = S^(2a_0 - 2)/(2 - 2a_0) -> 0: pass
+  B11c [arithmetic] control: with the zero-order coefficient taken from h' (q = a_0 + 1/2) the kernel is not integrable
+        at a_0 = 1/4, 1/2: pass
 B12  the limit T -> -oo
-  B12a every tail tends to 0 as T -> -oo at a = 51/20, 11/4, 59/20: pass {'N-flux beyond |T| (h_R = O(r^(': '-T**(2*a -
-        7)/(2*a - 7)', 'cap (band, unit width, d h_R =': 'Piecewise(((T**5*(T + 1)**(2*a)*(2*a - 5) + T**(2*a)*(5 -
-        2*a)*(T + 1)**5)/(T**5*(T + 1)**5*(2*a - 5)**2), (a > 5/2) | (a < 5/2)), (log((T + 1)/T), True))', 'residual tail
-        int_(|T|)^oo s^(': 'T**(a - 7/2)*gamma(7/2 - a)/gamma(9/2 - a)'}
-  B12b control: at a = 7/2 the residual tail is infinite: pass oo
+  B12a [arithmetic] every tail tends to 0 as T -> -oo at a = 51/20, 11/4, 59/20: pass {'N-flux beyond |T| (h_R = O(r^(':
+        '-T**(2*a - 7)/(2*a - 7)', 'cap (band, unit width, d h_R =': 'Piecewise(((T**5*(T + 1)**(2*a)*(2*a - 5) +
+        T**(2*a)*(5 - 2*a)*(T + 1)**5)/(T**5*(T + 1)**5*(2*a - 5)**2), (a > 5/2) | (a < 5/2)), (log((T + 1)/T), True))',
+        'residual tail int_(|T|)^oo s^(': 'T**(a - 7/2)*gamma(7/2 - a)/gamma(9/2 - a)'}
+  B12b [arithmetic] control: at a = 7/2 the residual tail is infinite: pass oo
 B13  the means at past null infinity: no logarithm at any order
-  B13a the stage sources start at q = 3 ((a), (c)) and q = 2 ((b)); 2/(2q - 5), 1/(q - 5/2), 1/(q - 1) are finite at
-        every exponent to 12, and products of outputs with the coefficient classes (>= 3/2) stay >= 5/2 for the
+  B13a [arithmetic] the stage sources start at q = 3 ((a), (c)) and q = 2 ((b)); 2/(2q - 5), 1/(q - 5/2), 1/(q - 1) are
+        finite at every exponent to 12, and products of outputs with the coefficient classes (>= 3/2) stay >= 5/2 for the
         transports' inputs: pass
-  B13b control: a source at q = 5/2 would give 2/(2q - 5) = 1/0 (a logarithm): pass
+  B13b [arithmetic] control: a source at q = 5/2 would give 2/(2q - 5) = 1/0 (a logarithm): pass
 B1  the flux through the slices t - f(r) = sigma
   B1a c1 |p|^2 <= T(d_t, -grad(t - f)) <= c2 |p|^2 with c1 > 0.1, c2 < 3 (|H| <= 1/50, r >= 4, mu = 1, |f'| <= 1/2, 2000
         points): pass c1 = 0.247, c2 = 0.753
@@ -88,4 +91,3 @@ B5  the commuted equations' structure: the differentiated identities (60 digits)
   B5c control: without D^2P(h)[Z h, k] the first fails at every point: pass min defect 0.0577
   B5d control: without D^2P(h)[d_t h, k] the second fails at every point: pass min defect 0.026
 FAILED: none
-exit 0

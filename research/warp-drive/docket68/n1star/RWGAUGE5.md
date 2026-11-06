@@ -22,8 +22,8 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   tau^(-1/2 + delta) on every leaf, uniformly in r >= R_1 and in l; with one more power, r^-1 |h(e_a, e_b)| + |h(e_i,
   e_j)| <= C D^(1/2) tau^-1; and the L^2 norm along the leaf of r^(-3/2) h(e_a, e_b) and r^(-1/2) h(e_i, e_j) decays
   at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated; every
-  coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T and the rotations.
-  The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
+  coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
+  and the rotations. The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
 
 The rest of this note is: 1. what is READ; 2. the components on the outgoing chart (Lemma 1); 3. Theorem 1; 4.
 Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies); 6. the replacement text; 7. files.
@@ -186,8 +186,8 @@ let Psi_l be the master quantities of its modes (scalar and tensor). Write h_(ab
 
 (Omega standing for the six rotations, summed), [HKW18]'s data norm (R6) with at most two more commutations.
 
-**Theorem 2 (proved from (R1)-(R7) READ, applied as stated; the coefficients and exponents computed: U4, U7).** With C depending on mu
-and R_1 only, for tau >= 1 and every 0 < delta <= 1/2:
+**Theorem 2 (proved from (R1)-(R7) READ, applied as stated; the coefficients and exponents computed: U4, U7).** With C
+depending on mu and R_1 only, for tau >= 1 and every 0 < delta <= 1/2:
 
     (a)  int_{R_1}^oo ( r^-3 ||h_(ab)||^2 + r^-1 ||h_(ij)||^2 )(tau, r) dr  <=  C D tau^-2,
     (b)  sup_{r >= R_1} ( r^-1 ||h_(ab)|| + ||h_(ij)|| )(tau, r)  <=  C D^(1/2) tau^-1,
@@ -292,5 +292,5 @@ exponent and coefficient computed). The exponents 1/2 of the weights are attaine
 
 - `RWGAUGE5.md` (this note).
 - `checks/rwgauge5u.py` with `checks/rwgauge5u.out`: U1-U8 (U8 the replacement's uniqueness and the line widths),
-  exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3), `checks/rwgauge5.py`'s
-  tensor calculus (U3 (b)) and `settle5.py`'s potentials (U3, U5); writes nothing.
+  exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3),
+  `checks/rwgauge5.py`'s tensor calculus (U3 (b), U7) and `settle5.py`'s potentials (U3, U5); writes nothing.
