@@ -17,3 +17,7 @@ R3 (exact) the invariant Killing fields of Tangherlini; the static KID's lapse o
 R3 PASS
 R4 (computed) the charge of B4's linear data on Part I's seed slice has one sign
    pointwise, Tangherlini: (tr dK)^2 - |dK|^2 = -2/(3*f - 6) dKt^2 - 2 dp^2 - 2 ds2^2 (= 2/(3 (2 - f)) dKt^2 ...): True
+   45 seeds (bands (0.72, 0.9) inside the horizon, (0.75, 1.75), (1.0, 1.75); m = 2, 6, 24; five directions): Q < 0 for every one: True; the least negative -4.926e+03 (band (0.75, 1.75), m = 2, direction 1.57)
+   control: the integrand without its -2 ds2^2 term gives Q = 1.049e+03 > 0 for the th-seed (rejected): True
+R4 PASS
+exit 0

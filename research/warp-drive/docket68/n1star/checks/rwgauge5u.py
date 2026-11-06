@@ -954,9 +954,10 @@ def u11(control=False):
     vol = sp.integrate(sq, (th, 0, sp.pi/2))*(2*sp.pi)**2
     ok = vac and hkw77 and frame_ok and orth and vol == 2*sp.pi**2
     say("  U11: Tangherlini is Ricci-flat (static chart): %s; K = d g/d mu is [HKW18] (77) at n = 3, r^-2 dt^2 +"
-        " r^2/(r^2 - mu)^2 dr^2: %s; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j), t-independent: %s; int"
-        " P_j(cos 2 th) d sigma = 0 for j = 1..4: %s; so for c != 0, ||h(e_a, e_a)|| >= (2 pi^2)^(1/2) |c|/(r^2 - mu) at"
-        " every tau: the decay statements are for (h - c K)(e_a, e_b)" % (vac, hkw77, frame_ok, orth))
+        " r^2/(r^2 - mu)^2 dr^2: %s; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j),"
+        " t-independent: %s; int P_j(cos 2 th) d sigma = 0 for j = 1..4: %s; so for c != 0, ||h(e_a, e_a)|| >="
+        " (2 pi^2)^(1/2) |c|/(r^2 - mu) at every tau: the decay statements are for (h - c K)(e_a, e_b)"
+        % (vac, hkw77, frame_ok, orth))
     return ok
 
 
