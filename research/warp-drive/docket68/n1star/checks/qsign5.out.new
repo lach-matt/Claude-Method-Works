@@ -27,3 +27,7 @@ Q6 (computed) inside the horizon, outgoing dust cancels the charge at second ord
    control: band [1.0, 1.75] (f in [0.178, 0.732]): Q = -4.7882e+04, int T1(xi, n) = 1.6353e+00 > 0, no positive s*: True
 Q6 PASS
 Q7 (computed) seeds that reach the axes: psi = sin^2 cos^2 F(R, cos 2th), s1 smooth in cos 2th
+   six regular seeds (two bands, one inside the horizon; Kt/E on the axis ranges down to 2.464, so they reach it): Q equals the decomposition over the whole of [0, pi/2] to 2.2e-16 of Q and 5.1e-12 of its Gamma term, Q < 0 and Q <= -int Gamma psi^2/sin 2th: True
+   controls: Gamma -> (3/4) Gamma misses Q by 0.2500 of the Gamma term (a quarter; rejected): True; seeds with psi = O(sin th cos th), not axis-regular, miss it by at least 1.3e-01 of the Gamma term (axis boundary terms; rejected): True
+Q7 PASS
+exit 0

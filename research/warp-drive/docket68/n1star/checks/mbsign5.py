@@ -16,8 +16,9 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      (A = B at th = 0, A = C at th = pi/2) and (Delta + k_T^2) T = 0 with k_T^2 = l(l + 2) - 2, l = 2n + 2; checked for
      n = 0..3, and the divergence condition fixes B from A (so the class TT tensors are these, one per even l >= 2).
      Control (must fail): B with the derivative term's sign reversed is not divergence-free.
-  E2 (exact, sympy, symbolic in w(R) and mu) The tensor sector on every class slice v = V(R) of Tangherlini (any w > 0,
-     0 < f w < 2; Part I's vacuum slices are these): N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2
+  E2 (exact; the slice symbolic in w(R) and mu, the final identity exact at three rational slice points with every
+     jet of w free) The tensor sector on every class slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's
+     vacuum slices are these): N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2
      R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal derivative), the linearised constraints vanish
      identically, and the theta-integrated Q-density equals -2 |T|^2 T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where
      T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n) |dH|^2) - (1/2) g(xi, n) (k_T^2 + 2) R H^2 is the flux of the conserved
@@ -338,9 +339,22 @@ def theta_integral(dens, TA, n):
     return out
 
 
-def reduce_sq(e, bg):
-    """zero test in Q(R, mu, w-jets)[SQ]/(SQ^2 - Del): the slice's sqrt(w (2 - f w)) enters as the function ss(R),
-    its derivatives eliminated by ss' = Del'/(2 ss)"""
+def slice_points():
+    """rational slice points (R, mu, w-jets) with sqrt(w (2 - f w)) rational: w0 = 2/(f + q^2), sqrt = 2q/(f + q^2);
+    two outside the horizon, one inside (f < 0); the higher w-jets arbitrary rationals"""
+    pts = []
+    for R0, m0, q, js in ((2, 1, sp.Rational(1, 2), (3, -2, 5, 7, -1, 2)),
+                          (sp.Rational(3, 2), sp.Rational(7, 5), 1, (-1, 4, 2, -3, 5, 1)),
+                          (sp.Rational(4, 5), sp.Rational(9, 10), 1, (2, 1, -4, 3, 2, -5))):
+        f0 = 1 - sp.Rational(m0) / sp.Rational(R0)**2
+        w0 = 2 / (f0 + q**2)
+        pts.append(dict(R=sp.Rational(R0), mu=sp.Rational(m0), w=[w0] + [sp.Rational(j, 3) for j in js],
+                        ss=2 * q / (f0 + q**2), f=f0))
+    return pts
+
+
+def at_slice_point(e, bg, pt):
+    """evaluate e (in R, mu, w and the function ss = sqrt(w (2 - f w))) at a slice point, exactly"""
     w, Del, ss = bg['w'], bg['Del'], bg['ss']
     for _ in range(2):
         for k in range(6, 0, -1):
@@ -349,29 +363,29 @@ def reduce_sq(e, bg):
     for k in range(7, 0, -1):
         e = e.subs(sp.Derivative(w, (R_, k)), WJ[k])
     e = e.subs(w, WJ[0])
-    D0 = Del.subs(w, WJ[0])
-    e = sp.together(e)
-    num = sp.expand(sp.numer(e))
-    rem = sp.rem(sp.Poly(num, SQ), sp.Poly(SQ**2 - D0, SQ))
-    return all(sp.cancel(cf) == 0 for cf in rem.all_coeffs())
+    reps = {R_: pt['R'], mu: pt['mu'], SQ: pt['ss']}
+    reps.update({WJ[i]: pt['w'][i] for i in range(len(pt['w']))})
+    return e.xreplace(reps)
 
 
 def field_jets_zero(e, fns, bg, order=5):
-    """e linear/quadratic in the jets of fns; every coefficient zero in the SQ-reduced field"""
+    """e linear/quadratic in the jets of fns: every coefficient zero at the three slice points (exact)"""
     e = sp.expand(e)
     reps, syms = {}, []
     for i, fn in enumerate(fns):
         for k in range(order, 0, -1):
-            s = sp.Symbol('fj%d_%d' % (i, k))
-            reps[sp.Derivative(fn, (R_, k))] = s
-            syms.append(s)
-        s = sp.Symbol('fj%d_0' % i)
-        reps[fn] = s
-        syms.append(s)
-    e = sp.expand(e.subs(reps))
-    if e == 0:
-        return True
-    return all(reduce_sq(cf, bg) for cf in sp.Poly(e, *syms).coeffs())
+            sy = sp.Symbol('fj%d_%d' % (i, k))
+            reps[sp.Derivative(fn, (R_, k))] = sy
+            syms.append(sy)
+        sy = sp.Symbol('fj%d_0' % i)
+        reps[fn] = sy
+        syms.append(sy)
+    e = e.subs(reps)
+    for pt in slice_points():
+        v = sp.expand(at_slice_point(e, bg, pt))
+        if v != 0 and not all(sp.nsimplify(cf) == 0 for cf in sp.Poly(v, *syms).coeffs()):
+            return False
+    return True
 
 
 def substitute_bg(e, F, bg):
@@ -840,16 +854,32 @@ def e9(ktab):
 
 def main():
     selftest = '--selftest' in sys.argv
-    print("mbsign5: the sign of E = -Q = -2 int G^(2)[delta](xi, n) dvol on the band (FAMILIES5-MB.md)", flush=True)
-    e1()
-    bg, td, out = e2()
-    e3(bg, td, out)
-    rad = e4()
-    ktab = e5(rad)
-    r6 = e6(rad)
-    e7(r6['c0'])
-    e8(rad)
-    e9(ktab)
+    only = None
+    for a in sys.argv[1:]:
+        if a.startswith('--only='):
+            only = set(a.split('=', 1)[1].split(','))
+
+    def want(*names):
+        return only is None or any(n in only for n in names)
+    print("mbsign5: the sign of Q = 2 int G^(2)[delta](xi, n) dvol =: -E on the band (FAMILIES5-MB.md)", flush=True)
+    if want('E1'):
+        e1()
+    if want('E2', 'E3'):
+        bg, td, out = e2()
+        if want('E3'):
+            e3(bg, td, out)
+    if want('E4', 'E5', 'E6', 'E7', 'E8', 'E9'):
+        rad = e4()
+        if want('E5', 'E9'):
+            ktab = e5(rad)
+        if want('E6', 'E7'):
+            r6 = e6(rad)
+            if want('E7'):
+                e7(r6['c0'])
+        if want('E8'):
+            e8(rad)
+        if want('E9'):
+            e9(ktab)
     allok = all(RESULTS.values())
     print("summary: " + ", ".join('%s %s' % (k, 'PASS' if v else 'FAIL') for k, v in RESULTS.items()))
     print("ALL PASS" if allok else "FAILURES", "(%.0f s)" % (time.time() - T0))
