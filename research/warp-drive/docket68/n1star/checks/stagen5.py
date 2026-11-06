@@ -195,7 +195,7 @@ def s5(control=False):
         return d616_found(mutated) is not None
     stmt = d616_found(text)
     lines = text.split('\n')
-    hit = [k + 1 for k, ln in enumerate(lines) if "fixed by" in ln and "the seed and N" in " ".join(lines[k:k + 2])]
+    hit = [k + 1 for k, ln in enumerate(lines) if "The stage data constructed in the proof below" in ln]
     out("  S5 N1STAR-PROOF.md md5 %s: D616's sentence inside Lemma 6.2's statement: %s (from line %s)" % (
         hashlib.md5(raw).hexdigest(), stmt is not None, ",".join(map(str, hit)) or "missing"))
     return stmt is not None

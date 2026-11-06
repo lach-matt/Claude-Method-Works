@@ -143,8 +143,8 @@ def r1():
     tb.AAMP = keep
     ctl2 = float(o_h[:, 1].max()) < 0
     print("   converged (band edges to 1e-3, inside [4.29, 4.53]; max to 1e-5): %s; controls: flux term dropped, "
-          "max Nk = %.4f < 0: %s; half the shell's amplitude, max Nk = %.4f < 0: %s" % (conv, float(o_nf[:, 1].max()), ctl1, float(o_h[:, 1].max()),
-                                                        ctl2))
+          "max Nk = %.4f < 0: %s; half the shell's amplitude, max Nk = %.4f < 0: %s" %
+          (conv, float(o_nf[:, 1].max()), ctl1, float(o_h[:, 1].max()), ctl2))
     print("   so the split is hyperbolic on Sigma_tau0 except on the band, which the example's shell creates")
     return ok and ctl1 and ctl2
 
