@@ -22,8 +22,8 @@ equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
      R in [3.0, 5.75], is spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and kappa' K'^l_l
      < 0 at every slice point of Sigma' in Omega_2 (R from a to the grid's edge): Racz's split is hyperbolic on the
      whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). [R7: sampled at the grid crossings;
-     certified between them, for the linear interpolant of the crossing data, in intcert5 C2.] Controls (must fail): A = 0
-     (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens it.
+     certified between them, for the linear interpolant of the crossing data, in intcert5 C2.] Controls (must fail):
+     A = 0 (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens it.
   S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.0, 5.75]} with time thickness max |phi| in tau,
      so the domain of influence of a perturbation's support, carried from Sigma' to Sigma_tau0, widens its angular
      support by at most max |phi|/R_min (R |dOmega/dtau| <= 1, augment5 S7): printed. The lens is inside the computed
