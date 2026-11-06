@@ -152,12 +152,13 @@ u0} would be a null boundary of Ω₂ through which the ingoing waves enter, and
 condition costs nothing: u ≤ u1 is explicit ingoing Vaidya with the data's mass function (a), so N can be moved outward
 without changing the background elsewhere (uniqueness on the smaller rectangle). Computed (twobg5 G3, the example, T =
 1, δ0 = 0.05): the example's own N (R = 5 at v = 0) meets Σ_τ0 at R − b = −4.09, inside the domain, which is the
-verifier's case; the outgoing ray of region I from R = 7.505 at v = 0 keeps R − b ≥ 1.01 on all of [τ0, τ_end] (along it
-R and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold:
-(a), (c), (d), (e) as FAMILIES5.md 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c)
-above; (f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3)
-e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside
-Ω₂ (record's (d)-(e)), so both generators reach Σ_τ0 transversally (they are null, dτ timelike). Compactness is (d).
+verifier's case; the outgoing ray of region I from R = 7.505 at v = 0 keeps R − b ≥ 0.9958 [R5: re-integrated
+independently; round 2 printed 1.01, its RK4 sampling τ at its steps] on all of [τ0, τ_end] (along it R and τ increase
+while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d), (e) as FAMILIES5.md
+4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c) above; (f) with r_q^♭ := r_q(μ) ≥
+r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3) e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which
+gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside Ω₂ (record's (d)-(e)), so both
+generators reach Σ_τ0 transversally (they are null, dτ timelike). Compactness is (d).
 
 (f) *The computed example (twobg5 G2, floating point).* Corner mass 1.5 at R = 5; packet ℬ = 1.7 b(u; 5.7, 7.2) on N′;
 shell 𝒜 = 3.6 b(v; 3, 4.5) on N (b a C^∞ bump); seed μ0 = 0.82211; outer mass after the shell 3.6058. At n = 40, 80,
@@ -754,6 +755,44 @@ beyond the computed rectangle (v > 5) is bounded only by G4's analytic rate μ_m
 one. (v) J0-J7 of twodecomp5 are exact at three random points of a jet space (strong evidence, not a symbolic
 identity), and they exercise the principal part of Ric^H. (vi) Part II's non-round background and Part III's non-round
 Vlasov case: [R5] see FAMILIES5-NONROUND.md, FAMILIES5-AXIS.md and FAMILIES5-VLASOV.md.
+
+
+## 12. The verifier of Part V (commit 9872bb3) and the dispositions [R5]
+
+Verdicts (re-derived where a repair rests on them): Lemma 3.3₂ holds; Steps 4-7 hold, the 94 ledger rows matching; H3
+is provable, so item 6 is deduced; item 7 holds; section 2 (d)-(e) holds; V3's Schur argument holds; all eight
+programs rerun to their `.out` files.
+
+1. (Major) The last clause of Part III's consequence claimed more than Part III proves (two radial null dusts, not the
+   seed, shell and packet configuration). **Repaired** in Part III: every round limit is a two-radial-dust solution;
+   those of section 2's form are realised by Theorem 1₂.
+2. (Minor 1) "Item 6 deduced" against section 11 (i)'s "computed at three points". **Repaired**: the verifier's
+   structural proof is written in section 9 and banked as `checks/h3proof5.py` (from its h3struct/h3slow scripts; the
+   frozen part with the control "no division", the non-frozen part with the control "angular inverse without its λ
+   corrections", both rejected); section 11 (i) is withdrawn and the labels in the status, section 7 and section 10 say
+   "proved".
+3. (Minor 2) `twotransport5.py` T1 compared nothing (its boundary check was A − A). **Repaired**: lhs − rhs is reduced
+   to an r-integral of −∂_r(c φ² w) plus the boundary values, which cancel; the mutations "sign of b′ − c(b) flipped"
+   and "lhs = 0" are rejected (`.out` regenerated).
+4. (Minor 3) `torusstress5.py`'s tautologies. **Repaired**: V3 (b) computes the least eigenvalue and rejects a negative
+   weight (with an exhibited null vector); V4 tests that k_in, k_out are roots of the actual g0⁻¹, that every momentum
+   is null, and solves the radial stress into span(k_in k_in, k_out k_out); controls: a momentum with p_θ ≠ 0 admits no
+   solution, k_out from the metric with μ/2 is not null (`.out` regenerated).
+5. (Minor 4) `twobg5.py` G3 passed by construction of the bisection. **Repaired**: the reported cone's ray is
+   re-integrated independently (scipy DOP853) and R − b checked on [τ0, τ_end]. The margin is 0.9958, not the 1.010
+   the bisection's RK4 printed (it samples τ at its steps), and positive: the condition N ∩ {τ ≥ τ0} ⊂ {R > b(τ)}
+   holds; control: the same check on the example's own cone (R0 = 5) gives R − b < 0 at τ0, agreeing with the RK4
+   value (`.out` regenerated). Section 2 (e) now quotes the margin 0.9958.
+6. (Minor 5) Section 2 (d): **repaired** in place ("G closed in Q"; u-boundedness of {R ≥ a′} stated before step (1)).
+7. (Note) J1-J7 exercise the principal part of Ric^H only (dropping ΓΓ, or breaking the waves' tracelessness, leaves
+   them true), consistent with (F1)-(F3); J0 holds for any operator commuting with translations in s. **Reworded** in
+   the status and section 8. The ledger has no rows for [∂_x², L_K] in Step 5 or the g0 part of [∂^α, g^ab]
+   (trivially ≤ C N₂), and w at high derivatives needs Moser's estimate: **said** in Step 4 (j). "The background on the
+   whole domain" is deduced via D552/D558 and computed for v ≤ 5 only: **labelled** in section 7.
+8. (Nits) Section 11's duplicated "(iii)" renumbered; run times aligned with the docstrings (twoparity5 about ten
+   minutes, twodecomp5 about three); twodecomp5's printed "R^(−1) = 0 for the stage-0 waves" reworded to say it holds
+   for any W, not a TT test (`.out` regenerated); section 5's summary of Lemma 3.3₂ now lists the (ℓ_app − ℓ)·dφ_out
+   term beside the λ⁻¹((1 − 𝒫)s_out) term.
 
 ---
 

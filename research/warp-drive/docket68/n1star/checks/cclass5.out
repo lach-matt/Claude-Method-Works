@@ -1,0 +1,6 @@
+C3  the wave's part of the gradient coefficient b
+  C3 b_W = b(g0 + U3) - b(g0) is of lam-order 0: bounded and bounded away from 0 (lam = 1e-2..1e-4): FAIL [['3.096',
+        '2.339', '1.159'], ['2.125', '0.09127', '2.898']]
+  C3' control (amplitude lam^2): b_W falls with lam, the test fails: pass [['0.01832', '0.001385', '6.863e-5'],
+        ['0.03227', '0.0001376', '0.0004389']]
+C1  F1b with an envelope on the wave
