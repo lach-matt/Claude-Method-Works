@@ -3,7 +3,8 @@
 (FAMILIES5-R6.md section 2).
 
 racglobal5 R1-R2: on Part I's Sigma_tau0 Racz's algebraic-hyperbolic split is hyperbolic (kappa K^l_l < 0) except on
-a band R in [4.29, 4.53] inside the shell ([R7] the interpolated edges 4.2914, 4.5284), where K is negative definite, so no foliation OF THAT SLICE is hyperbolic.
+a band R in [4.29, 4.53] inside the shell ([R7] the interpolated edges 4.2914, 4.5284), where K is negative
+definite, so no foliation OF THAT SLICE is hyperbolic.
 The obstruction is a property of the slice, not of the spacetime: here a different spacelike slice through the band,
 equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
 
@@ -20,7 +21,8 @@ equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
      by the zeroth and first moments so that phi and phi' vanish outside [3.0, 5.75]): Sigma' equals Sigma_tau0 outside
      R in [3.0, 5.75], is spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and kappa' K'^l_l
      < 0 at every slice point of Sigma' in Omega_2 (R from a to the grid's edge): Racz's split is hyperbolic on the
-     whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). Controls (must fail): A = 0
+     whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). [R7: sampled at the grid crossings;
+     certified between them, for the linear interpolant of the crossing data, in intcert5 C2.] Controls (must fail): A = 0
      (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens it.
   S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.0, 5.75]} with time thickness max |phi| in tau,
      so the domain of influence of a perturbation's support, carried from Sigma' to Sigma_tau0, widens its angular

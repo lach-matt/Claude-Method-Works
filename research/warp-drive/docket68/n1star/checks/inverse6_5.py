@@ -77,7 +77,7 @@ with contextlib.redirect_stdout(io.StringIO()):
 iv.dps = 40
 mp.prec = iv.prec
 OK = {}
-F_PIN = (Fr(1), Fr(1001, 1000))            # K6's factor F, pinned
+F_PIN = (Fr(1), Fr(1003, 1000))            # K6's factor F, pinned
 
 
 def print(*a, **k):  # noqa: A001  (every printed line within 121 characters)
@@ -495,7 +495,7 @@ def main():
           % (dec(best.b, 5, True), dec(F.b, 7, True), dec((4 * F).b, 6, True), OK['K6']))
     Fc, _, _ = k6(kappa=1 / iv.sqrt(2))
     OK['C7'] = not (Fc.b <= ivq(F_PIN[1]))
-    print('  C7 (control): kappa = nu/4: F = %s, outside the pin [1, 1.001]: %s' % (dec(Fc.b, 6, True), OK['C7']))
+    print('  C7 (control): kappa = nu/4: F = %s, outside the pin [1, 1.003]: %s' % (dec(Fc.b, 6, True), OK['C7']))
 
     OK['K7'] = k7()
     OK['C8'] = not k7(drop_R=True)

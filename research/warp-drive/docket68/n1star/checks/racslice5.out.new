@@ -1,0 +1,4 @@
+S1 (exact) kappa' and K'^l_l on every round slice vhat = V(R); B2 at V' = 1; d kappa'/d V'' > 0
+   reduces to B2's kappa and Kt at V' = 1, V'' = 0: True; kappa' is affine in V'' with d kappa'/d V'' = 1/(E V' sqrt(V'(2 - E V' f)/E)(2 - E V' f)): True, True; control: Christoffel term dropped, no reduction (rejected): True
+S1 PASS
+S2 (computed) a deformed slice through the band on which Racz's split is hyperbolic everywhere
