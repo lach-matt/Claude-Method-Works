@@ -5,3 +5,5 @@ H0 PASS (control detected)
       c_R = 2.58122, for k <= 16; |kappa'| >= c_t kappa^(3/2) with c_t = 2.0; |env^(j)| <= c_j kappa^j env with
       max_(j<=16) c_j = 1.00001; kappa x^2 in [c_*, M] = [1.0, 1.0].  So (H_N) to N = 16, (H_N+2) to N = 14, (H_t), L.16
       (c) to j = 16 and (H_rho*)'s first half hold on (v_s, v_s + 1/200]
+  H1 exp(-1/x) [control] on [0, 1/40]: not certified: log-concavity of env^(16) fails on interval 130
+H1 PASS (control detected)

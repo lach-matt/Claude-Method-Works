@@ -14,20 +14,32 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      at f' = -1/4, m = 0, delta = (7/25) beta beta^T/|beta|^2 makes beta null, and 3/10 makes it spacelike.
   K2 (sampled, 4000 points) the flux forms p -> T_g[p](d_t, n) on the two pieces (n = -g^-1 beta and n = g^-1 alpha,
      future timelike) for g^-1 = g_b0^-1 + delta, |delta|_op = 0.27 (random direction), |f'| <= 1/4, m in [0, 1/16],
-     d_t future timelike: their least eigenvalue (exact over p) is positive at every point. Controls: R6-A's cut
-     {Phi_W = V_*}, conormal dt + (1 - r^-2) dr, at |delta|_op = 3 r^-2 (r in [8, 400]) has a negative least eigenvalue
-     somewhere (that cut needs the bootstrap's margin r^-2/2); and the cone at |delta|_op = 0.30 has a non-timelike
-     conormal somewhere.
+     d_t future timelike: their least eigenvalue (exact over p) is positive at every point; and (round 8) in the worst
+     directions at the size drawn, delta along beta beta^T at f' = -1/4 and along alpha alpha^T at f' = 1/4, m = 0,
+     where the conormals' thresholds attain 7/25. Controls: R6-A's cut {Phi_W = V_*}, conormal dt + (1 - r^-2) dr, at
+     |delta|_op = 3 r^-2 (r in [8, 400]) has a negative least eigenvalue somewhere (that cut needs the bootstrap's
+     margin); and the cone at |delta|_op = 0.30 has a non-timelike conormal somewhere.
   K3 (exact and sampled) the margins from |H|: with g = g_b0 + H, g^-1 - g_b0^-1 = -g_b0^-1 H g^-1, so |g^-1 -
      g_b0^-1|_op <= s^2 |H|/(1 - s |H|) with s := |g_b0^-1|_op = m + (1 + m^2)^(1/2) (the (t, r) block of g_b0^-1 has
      the eigenvalues -m -+ (1 + m^2)^(1/2), the rest 1); at m = 1/16 the bound is <= 0.0232 for |H|_op <= 1/50 and
-     <= 0.0474 for |H|_op <= 1/25 (0.0473378, attained, round 8), both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0 (exact); 2000 random H with |H|_op = 1/25
-     stay below the bound. Control: |H|_op = 1/4 gives a bound above 7/25.
+     <= 0.0474 for |H|_op <= 1/25 (0.0473378), both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0 (exact); 2000 random H
+     with |H|_op = 1/25 stay below the bound, and (round 8) H along g_b0's eigenvector of least |eigenvalue| attains it.
+     Control: |H|_op = 1/4 gives a bound above 7/25.
   K4 (exact, sympy) the energy identity on the flat radial model of the cone region {t1 <= t <= t2, R + 2(t - t1) <= r
      <= V_* - 2(t - t1)}: E(t2) + F_in + F_out = E(t1) - int int phi_t box phi r^3 for a polynomial phi, the outer flux
-     density r^3 (phi_t^2 + phi_r^2 - phi_t phi_r) with eigenvalues 1/2, 3/2. Control: the outer piece at speed 1/2
-     (timelike) has a flux form with the eigenvalue -1/4.
-Labels: computed (K1, K4 exact sympy; K2-K3 floating point, the least eigenvalue exact over the covector).
+     density r^3 (phi_t^2 + phi_r^2 - phi_t phi_r), whose form (round 8: derived from the identity's boundary term
+     -rout'(t) e - phi_t phi_r and checked equal to the one typed) has eigenvalues 1/2, 3/2. Control: the outer piece
+     at speed 1/2 (timelike) has a flux form with the eigenvalue -1/4.
+  K5 (exact; round 8, the round-7 reader's nit 3) every metric with |g^-1 - g_b0^-1|_op <= delta < 7/25 (m <= 1/16,
+     |f'| <= 1/4) has |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4521 (g - g_b0 = g (g_b0^-1 - g^-1) g_b0,
+     |g_b0|_op = s), so g(d_t, d_t) <= -1 + 1/16 + 0.4521 < -0.485, and g^-1(dt~, dt~) <= g_b0^-1(dt~, dt~) + delta
+     |dt~|_E^2 <= -15/16 + (7/25)(17/16) = -0.64 (g_b0^-1(dt~, dt~) = -1 + f'^2 - m(1 + f')^2): d_t is future timelike
+     and the slices Sigma~ spacelike, with margins uniform in delta < 7/25. Control: at delta = 0.9 the bound on
+     |g - g_b0| exceeds 15/16 and no longer keeps d_t timelike.
+  K6 (exact; round 8, nit 4) Step 4's margin: |H|_op <= r^-2/4 with r >= 8 and m <= 1/16 gives |g^-1 - g_b0^-1|_op
+     <= s^2 (r^-2/4)/(1 - s r^-2/4) <= 0.2847 r^-2 < r^-2/2, the margin of D4-D5 (B2d); |H|_op <= r^-2/2 would give
+     0.57 r^-2 (control).
+Labels: computed (K1, K4-K6 exact sympy; K2-K3 floating point, the least eigenvalue exact over the covector).
 
     python3 checks/r7settle5.py     (5 to 30 seconds)
 """
@@ -239,8 +251,47 @@ def part_k4():
           "-1/4", okc and Q(-1, 4) in evc, str(list(evc)))
 
 
+def part_k5():
+    print("K5  the general claim of R7-A, exact: d_t timelike and the slices spacelike for |delta|_op < 7/25")
+    m, d, fp = sp.symbols("m delta fp", nonnegative=True)
+    s_of = m + sp.sqrt(1 + m**2)
+    gbound = s_of**2*d/(1 - s_of*d)
+    g_at = sp.N(gbound.subs({m: Q(1, 16), d: Q(7, 25)}), 12)
+    mono = (sp.diff(gbound, d).subs({m: Q(1, 16), d: Q(1, 10)}) > 0
+            and sp.diff(gbound, m).subs({m: Q(1, 32), d: Q(1, 10)}) > 0)
+    tt = -1 + Q(1, 16) + g_at
+    fq = sp.Symbol("f", real=True)
+    gtt = -1 + fq**2 - m*(1 + fq)**2                     # g_b0^-1(dt~, dt~), dt~ = dt - f' dr, l = (-1, xhat)
+    I = sp.Interval(-Q(1, 4), Q(1, 4))
+    mx = maximum(gtt.subs(m, 0), fq, I)
+    nrm = maximum(1 + fq**2, fq, I)
+    dec = sp.simplify(sp.diff(gtt, m) + (1 + fq)**2) == 0
+    tslice = mx + Q(7, 25)*nrm
+    g_ctl = sp.N(gbound.subs({m: Q(1, 16), d: Q(9, 10)}), 8) if (1 - (Q(1, 16) + sp.sqrt(1 + Q(1, 256)))*Q(9, 10)) > 0 \
+        else sp.oo
+    check("K5 |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4521 at delta = 7/25, m = 1/16 (increasing in both), so "
+          "g(d_t, d_t) <= -1 + 1/16 + 0.4521 < -0.485; g^-1(dt~, dt~) <= max(g_b0^-1(dt~, dt~)) + (7/25) max |dt~|^2 = "
+          "-15/16 + (7/25)(17/16) = -0.64 (exact)", g_at < 0.4522 and tt < -0.485 and mono and mx == -Q(15, 16)
+          and nrm == Q(17, 16) and dec and tslice == -Q(16, 25), f"{g_at}, g(d_t, d_t) <= {sp.N(tt, 6)}, "
+          f"g^-1(dt~, dt~) <= {tslice}")
+    check("K5' control: at delta = 9/10 the bound on |g - g_b0| exceeds 15/16 (or is infinite): d_t no longer kept "
+          "timelike", g_ctl > Q(15, 16), str(g_ctl))
+
+
+def part_k6():
+    print("K6  Step 4's margin: |H| <= r^-2/4 keeps |g^-1 - g_b0^-1| below r^-2/2")
+    m, x = sp.symbols("m x", nonnegative=True)             # x := r^-2 <= 1/64
+    s_of = m + sp.sqrt(1 + m**2)
+    ratio = lambda c: sp.N((s_of**2*(c*x)/(1 - s_of*c*x)/x).subs({m: Q(1, 16), x: Q(1, 64)}), 10)
+    r4, r2 = ratio(Q(1, 4)), ratio(Q(1, 2))
+    check("K6 |H|_op <= r^-2/4 (r >= 8, m <= 1/16) gives |g^-1 - g_b0^-1|_op <= 0.2847 r^-2 < r^-2/2, the margin "
+          "of D4-D5 "
+          "(the bound increases with r^-2 and m)", r4 < 0.2848 and r4 < 0.5, str(r4))
+    check("K6' control: |H|_op <= r^-2/2 gives 0.57 r^-2 > r^-2/2", r2 > 0.5, str(r2))
+
+
 def main():
-    for f in (part_k1, part_k2, part_k3, part_k4):
+    for f in (part_k1, part_k2, part_k3, part_k4, part_k5, part_k6):
         f()
     print("FAILED:", FAIL if FAIL else "none")
     return 1 if FAIL else 0

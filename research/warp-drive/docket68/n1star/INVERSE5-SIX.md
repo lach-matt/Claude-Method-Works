@@ -732,3 +732,117 @@ rounds 1-2 unchanged (the transfers 13.12, 20.11, 41.30, 122.7 and 21.39, 40.39,
 found by content). `checks/inverse6_5.py` unchanged, 17/17, md5 650c62d0..., `.out` 781d06cf.... Sources read this
 round: the verifier's report-vINV.md; proof5/PART-I-B-HIGHENERGY.md:1905-1925, 2038-2055 (md5 df7e5206...);
 proof5/PART-VI4-PARAMS.md step (5) (e7eebbb5...).
+
+## Round 4 (2026-11-06): the second reader's findings seated
+
+*Status.* Appended; rounds 1-3 keep their text, with bracketed `[R4: ...]` notes after the lines amended here. The
+second independent reader (report-vINV2.md, on md5 0753ef7b...) CONFIRMED this file with no Major: it re-derived R3.1,
+found round 3's items seated correctly and raised one new minor here. Seated below, each re-derived: its minor 1 (the
+thresholds, R4.1), nits 1-2 (both cases of the bound, one name for the constant, R4.2), minor 3 (inverse6_5a's
+inventory and d, R4.3), nits 3-5 and its three optional remarks (R4.4). Its minor 2 and nits 6-8 are
+INVERSE5-SCALAR.md's; its inconsistency (a) (CONSTANTS5.md R12.5 and R12.7 pair 1 against A.1 and R2.0) is for
+CONSTANTS5.md's reader; neither is touched here. Rerun, each with its `.out`: `checks/inverse6_5a.py` 11/11 (A5 and
+control C5 new), `checks/inverse6_5.py` 17/17 and `checks/inverse6_5m.py` 13/13 (their exit code only changed).
+CONSTANTS5.md, INVERSE5-SCALAR.md, N1STAR-PROOF.md and the paper are not edited.
+
+### R4.1 Minor 1: the chains' own thresholds (Lemma R3; B2, B3)
+
+*The finding.* Lemma R3's thresholds are the absorption's alone, but its hypotheses are the record's displays before
+absorption, which hold only below thresholds of their own. *READ* (proof5/PART-I-B-HIGHENERGY.md, md5 df7e5206...).
+Prop. 8.1 (a): "There are nu_1 > 0, h_0 and C such that for z in z_0 + i[0, nu_1], h < h_0" (:1881-1882). Its proof
+assembles the display before absorption from Propositions 5.2, 5.3 and 5.5, Corollary 4.6, (7.2) and Theorem 6.8, the
+last "for z in z_0 + i[h beta, nu'], h < h_0" (:1704) and proved from (6.4), (6.6) and Proposition 6.7 (:1707-1716),
+(6.6) itself holding "for z in z_0 + i[h beta, nu'], h < h_0" (:1505); then "for h < h_0 the last two terms are
+absorbed, which is (8.1)" (:1929-1930). Prop. 6.7 (a) builds its display from Proposition 4.2, Corollary 4.6 and
+Proposition 6.4, i.e. (6.6) (:1674-1681), and "the last term is absorbed for h < h_0" (:1682-1683). So each record h_0
+is the minimum of a chain threshold and an absorption threshold, and Lemma R3 supplied only the second.
+
+*Corrected statement (proved).* Let h_ch' be the threshold below which Prop. 6.7 (a)'s display before absorption
+holds, and h_ch the smallest of those below which Prop. 8.1 (a)'s, (b)'s and (c)'s displays before absorption hold
+((b)-(c) run the same cover and absorption with delta = 0, :1931-1938). Both are at most B1's h_0, (6.6)'s: (6.6)
+enters Prop. 6.7 (a) directly and Prop. 8.1 (a) through Theorem 6.8.
+(a) If ||u|| <= C_a h^-2 ||P'u|| + C_a h^N ||u||_(-N 1) for h < h_ch' and ||u||_(-N 1) <= ||u||, then
+||u|| <= 2 C_a h^-2 ||P'u|| for h < h_0' := min(h_ch', (2 C_a)^(-1/N)).
+(b) If ||u||_o <= C (h^(-1-delta) ||Pu||_o' + h^N ||u||_o + ||u||_(-K 1)) for h < h_ch and ||u||_(-K 1) <=
+C_K h ||u||_o, then ||u||_o <= 2 C h^(-1-delta) ||Pu||_o' for h < h_1 := min(h_ch, (4C)^(-1/N), (4 C C_K)^-1), and
+R3.1's bounds hold for Im sigma >= 0, |sigma| >= C_0 := h_1^-1 (1 - nu'^2)^(-1/2).
+*Proof.* (a) For h < h_0', the display holds and C_a h^N <= 1/2, so its last term is at most ||u||/2 and moves to the
+left (||u|| is finite). (b) For h < h_1, the display holds, C h^N <= 1/4 and C C_K h <= 1/4, so the last two terms are
+at most ||u||_o/2. For R3.1: if Im sigma < nu' |sigma|, then |Re sigma|^2 = |sigma|^2 - (Im sigma)^2 > |sigma|^2
+(1 - nu'^2), so h = |Re sigma|^-1 < (1 - nu'^2)^(-1/2) |sigma|^-1 <= h_1 when |sigma| >= C_0; otherwise h = |sigma|^-1
+<= C_0^-1 = h_1 (1 - nu'^2)^(1/2) < h_1, as nu' > 0. So h < h_1 in both cases, the record's strict thresholds
+included, and R3.1's proof goes through unchanged. []
+*What it changes.* B2's threshold is h_0', not (2 C_a)^(-1/N); B3's C_0 is h_1^-1 (1 - nu'^2)^(-1/2), not explicit in
+C alone. The constants do not change: (6.11)'s 4 F C_a (8 F C_a in R3 (a)'s notation) and R3.1's 2 C. Nor does F:
+it is a sup over sigma_0 >= h_0'^-1, a set that shrinks with h_0', and K6 certifies F <= 1.002659 for every h_0' <= 1
+(C_a >= 1/2 may be assumed, as enlarging C_a keeps the hypothesis true, and then h_0' <= 1). The stated limit does not
+change: h_ch' and h_ch are composed, like C_a and C, of (6.6)'s (C, h_0) and the calculus constants of the other
+estimates in their chains, so "B2 and B3 contain B1" stands and no item is added to R3.4's order. [R4] notes: the
+status line, section 0 (B2, B3, "What changed"), section 1 (B3), Lemma R3, section 5 (B2, B3), R2.1 item 4, R3.1.
+
+### R4.2 Nits 1-2: both cases of I.B 8.4, and one name for the constant
+
+*Nit 1 (proved).* C may be taken >= 1/4 (enlarging C keeps R3 (b)'s hypothesis true), so h_1 <= (4C)^(-1/N) <= 1 and
+C_0 >= (1 - nu'^2)^(-1/2) >= 1. For |sigma| >= C_0 and delta in [0, 1] the second case's bound lies under the first's:
+2 C |sigma|^-1 <= 2 C |sigma|^(-1+delta) <= 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta). So one bound covers the
+whole range of Theorem 1.3 (3),
+
+    ||u||_o <= 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) ||P-hat(sigma) u||_o'   (Im sigma >= 0, |sigma| >= C_0),
+
+delta = delta_Gamma(Im sigma - epsilon) in [0, 1], in the semiclassical norms at h = h(sigma) (R3.1). *Computed*
+(floats on a sample; the proof is the line above): inverse6_5a A5 draws 2 x 10^5 random (sigma, nu', h_1, delta) with
+|sigma| > C_0 (h_1 is the program's h_0) and finds h^(1 - delta_case) <= (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta),
+h <= h_1 and C_0 >= 1 in both cases of I.B 8.4's h: 0 violations. Control C5, the exponent -(1-delta)/4: 18,694
+violations (the reader's mutant of the same exponent: 18,968 on its own sample).
+*Nit 2 (a convention, fixed from this round).* C is R3 (b)'s constant before absorption, the larger of the constants
+of Prop. 8.1 (a)'s and (b)-(c)'s displays before absorption (case 1 of I.B 8.4 is part (1) with nu = 2 nu', so (a) and
+possibly (b); case 2 is (c), Theorem 1.3 (2)); C_8.1 := 2 C, the constant with which (8.1) then holds after absorption.
+Round 1 used C_8.1 in both senses: in section 0 (B3) and section 5 (B3), "2 C_8.1" and "(4 C_8.1)^(-1/N)" have C_8.1
+for C; in section 1 (B3), "C_8.1 |sigma|^(-1+delta)" is (8.1)'s constant, 2 C. Each site carries an [R4] note saying
+which. In either reading the bound is 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) = C_8.1 (1 - nu'^2)^(-(1-delta)
+/2) |sigma|^(-1+delta). The same factor 2 for C_a was settled in R3.3 n6 (iv).
+
+### R4.3 Minor 3: inverse6_5a's inventory, and d
+
+*The finding.* A3 still printed "two avoidance conditions undecided" and "I.C:497 ... not computed (in progress,
+scalarblock5.py)", had no row for uniformity in b, and pinned R10.1's d, which CONSTANTS5.md R12.5 withdraws.
+*Seated* in `checks/inverse6_5a.py` (rerun, 11/11):
+- d's row: "d <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on its reading, Lambda on (1, 3 + eps_K] as R9.1
+  takes it; the avoidance conditions decided, rootavoid5 23/23)"; D_BAR and A0's quote of d are R12.2's (A0 finds it
+  by content in CONSTANTS5.md, md5 e4728113...).
+- I.C:497's row: "sigma_* not computed; computed: sigma_min(L_2) <= 2.6180e-7 at (s, alpha) = (1, -1), so the inverse
+  constant >= 3.81e6, at the record's computational point (INVERSE5-SCALAR.md A.6)", fed by "sigma_* > 0, a lower
+  bound uniform in l (A.8)"; the value is INVERSE5-SCALAR's, not recomputed here.
+- A new row: "constants uniform over b in B_*-bar | not computed | I.B section 9 ...; III.F'' Proposition 4.1, III.D
+  Proposition 6.3 | every bound of B1-B6 near b0 (R3.2)". A3 checks the inventory's 15 rows.
+*Re-derived* (A2, exact rationals to 60 digits): at d = 46,236,517,538,883,361 with every other input at its floor,
+theta0 = 16 and log10 delta = -(8d + 2) log10 16 - log10 2 = -4.45394517576 x 10^17, inside A2's pin [-4.4540,
+-4.4539] x 10^17 and agreeing with R12.2's -4.453945 and the reader's value; R2.1 item 6's -4.4539386 x 10^17 is
+R10.1's d (bracketed there). At theta0_bar = 10^6, A_bar = 10^12 the bound is -22.1935 x 10^17, item 6's -2.219 x
+10^18 to the figures printed. Control C2 still fails at alpha = 8d. The paper's -4.45e17 is unaffected.
+
+### R4.4 Nits 3-5 and the optional remarks
+
+- *Nit 3.* R2.1 item 2 now carries the radial note: Lemma R9 holds for radial q >= 0 (R3.3 n4), which is all R6 needs.
+  The wording "W >= 0" in R3.3 n4 and at R9 is read "q >= 0 radial": R9's operator is P-hat - i sgn(sigma) Q, Q = chi
+  q chi, so in R6's notation (P_1 = P-hat - i chi W chi) W = sgn(sigma) q, and R6's proof is the resolvent identity
+  with ||W|| = ||q|| (inverse6_5 K8), no sign used. Bracketed at R2.1 item 2, at R9 and at R3.3 n4.
+- *Nit 4.* R3.4 adds two items to R2.1 item 7's order, not one: Prop. 8.1's compactness choices at b0, and the
+  uniformity in b (compared line by line: item 7 lists the specification, (C, h_0), the gauge reconstruction, C_ext,
+  the parametrix norms, sigma_min and the chain's other inputs). Bracketed at R3.4.
+- *Nit 5.* d moved (R4.3); bracketed at R2.1 item 6.
+- *Optional.* The status line (:3) now says the file has been read by two verifiers, and section 0's "What changed"
+  paragraph (:52-55) carries the R3.2 caveat on "no non-constructive step of their own" (at b0, for one operator,
+  Prop. 8.1's cover and nu_1 aside). All three programs now end with `sys.exit(0 if all(OK.values()) else 1)` in
+  every mode, `--selftest` or not: a probe that forces inverse6_5a's A4 to fail in full mode exits 1, the unforced full
+  run exits 0 (the probe lives in the scratchpad, not in the tree).
+
+### R4.5 Programs and sources (round 4)
+
+`checks/inverse6_5a.py` 11/11 (A0-A5, C1-C5; 11 s), md5 132a57af...; its `.out` 9209e219.... `checks/inverse6_5.py`
+17/17 (171 s), md5 efa230b1... (round 3's 650c62d0... with the exit line changed), `.out` 595a36d5....
+`checks/inverse6_5m.py` 13/13 (278 s), md5 9f2eca91... (round 3's 5a8c3b3f... with the exit line changed), `.out`
+77de537c.... The printed values are unchanged: F <= 1.002659 and 4.01064 C_a; the transfers 13.12, 20.11, 41.30, 122.7
+and 21.39, 40.39, 90.14, 272.7. Sources read this round: report-vINV2.md; proof5/PART-I-B-HIGHENERGY.md:200-224,
+1498-1510, 1668-1717, 1878-1945, 1955-1980 (md5 df7e5206...); CONSTANTS5.md R12.2, R12.5 (md5 e4728113...);
+INVERSE5-SCALAR.md A.6, A.8 (md5 4e72dc60...).
