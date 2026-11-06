@@ -43,12 +43,24 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      a g-causal V has |V^x|^2 <= (5/3)|V^t|^2 (z3: w^2 - u^2 <= 5 eps (u^2 + w^2) forces it), and the Neumann bound
      5 eps/(1 - 5 eps) = 1/3 gives g^-1(dt, dt) <= -2/3; 300 exact random perturbations agree. Control N6: at eps = 1/4
      the cone bound fails (z3 sat).
+  R5 (exact, D628) III.K Lemma 6.2's amended clause, the future-curve case, on g_b0 in Kerr-Schild form (III.B:146),
+     g = eta + m (dt + dr)^2, m := mu/r^2, with V's angular part a2 := r^2 |V^w|^2 >= 0: (i) sympy: the form and the
+     inverse eta^-1 - m l# l# are checked against the matrices; the future radial null slopes dr/dt are -1 and
+     (1 - m)/(1 + m), so -1 and -9/41 at mu = 1, r = 4/5, and -1 and -1/5 at mu = 3/2, r = 1 (the confirming reader's
+     C4), both inside the horizon r = sqrt(mu); (ii) z3, m > 1: a future causal V has V^r < 0, so r decreases along
+     every future causal curve inside the horizon (II.C Lemma 3.2 (1) bounds r for past curves only), and a past causal
+     V has V^r > 0; (iii) z3, m >= 0: a future causal V has |V^r| <= V^t (the bounded radial speed of the amended
+     clause's slab); (iv) z3, m >= 0, 0 <= a <= 1/32 (N's nu'): dt + a dr is past timelike and positive on future causal
+     V, so {t + nu = 0} is spacelike with t + nu increasing along future causal curves. Vacuity: m > 1 with a future
+     causal V, a2 > 0, is sat. Control N7: the withdrawn lower bound, 'r does not decrease along future causal curves'
+     at m > 1, is refuted (z3 sat); N8: (iv) with a up to 1 fails (z3 sat; dt + dr is null).
   Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove):
      N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (37 C x <= 1); N4 the class's
      decay removed (the coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
 
 Labels: R1 computed (exact, z3 over the reals); R2 computed (exact, sympy); R3 computed (floats; a demonstration on
-one metric, not used by the proof); R4 computed (exact, z3 and rational arithmetic). The constants C_1, rho_-, R_2,
+one metric, not used by the proof); R4 computed (exact, z3 and rational arithmetic); R5 computed (exact, sympy and z3;
+on g_b0, a model of the amended clause's two cases, not a proof of it). The constants C_1, rho_-, R_2,
 r'_0 of II.C are not computed; the lemma needs only that they exist.
 
 Run: python3 checks/scrirad5.py   (seconds; the saved .out is this run)
@@ -394,10 +406,20 @@ def main():
         "negation %s); the Neumann bound %s < 1/2; 300 exact random perturbations, (eta + delta)^-1_00 <= -2/3: %s"
         % info4)
     ctl["N6 Lemma 6.2's cone at eps = 1/4"] = r4(sp.Rational(1, 4))[1][0] == z3.sat
+    e5, info5 = r5()
+    ok["R5"] = e5
+    say("  R5 (III.K Lemma 6.2, the future-curve case, on g_b0 in Kerr-Schild form): form and inverse against the "
+        "matrices %s; future radial null slopes at (mu, r) = (1, 4/5) and (3/2, 1): %s; z3 (negations), m > 1: future "
+        "causal V^r < 0 %s, past causal V^r > 0 %s; m >= 0: |V^r| <= V^t %s; dt + a dr past timelike, a in [0, 1/32], "
+        "%s, and positive on future causal V %s; vacuity guard (sat): %s"
+        % (info5[0], ", ".join("(%s, %s)" % sl for sl in info5[1]), info5[2]["future"], info5[2]["past"],
+           info5[2]["speed"], info5[2]["inflow"], info5[2]["inflow_v"], info5[3]))
+    ctl["N7 r kept along future curves inside the horizon"] = r5_future_keeps_r() == z3.sat
+    ctl["N8 R5 (iv) with a up to 1"] = r5_inflow(z3.RealVal(1)) == z3.sat
     say("  controls (each must make z3 find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()))
     good = all(ok.values())
-    print("R1 %s; R2 %s; R3 %s; R4 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in
-                                                             ("R1", "R2", "R3", "R4")] +
+    print("R1 %s; R2 %s; R3 %s; R4 %s; R5 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in
+                                                                    ("R1", "R2", "R3", "R4", "R5")] +
                                                             ["behave" if all(ctl.values()) else "MISBEHAVE"]),
           flush=True)
     return 0 if good and all(ctl.values()) else 1

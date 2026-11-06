@@ -473,11 +473,33 @@ def e9(control=False):
         e = rng.choice((1, -1))*m/4
         if not lemma_w(S0, S1, 0, lambda t, e=e: e):
             fails += 1
+    fails_c = 0
+    for k in range(1000):
+        # case A pointwise (round 7, the verifier of round 6's minor 2): |S(t)| growing by up to e^50 across the window
+        # (the deep very edge), the phase moving by less than pi/6, |eps(t)| <= |S(t)|/4 with an adversarial sign
+        kr = rng.uniform(0, 50)/(4*math.pi)
+        ph0 = rng.uniform(0, 2*math.pi)
+        dph = rng.uniform(-1, 1)*math.pi/6/(4*math.pi)
+        Sf = lambda t, kr=kr, ph0=ph0, dph=dph: math.exp(kr*t)*cmath.exp(1j*(ph0 + dph*t))      # noqa: E731
+        sg = rng.choice((1, -1))
+        if control:
+            epsf = lambda t, Sf=Sf: abs(Sf(t))                                    # noqa: E731  |eps| = |S|: too large
+        else:
+            epsf = lambda t, Sf=Sf, sg=sg: sg*abs(Sf(t))/4                        # noqa: E731
+        pos = neg = False
+        for j in range(4001):
+            t = 4*math.pi*j/4000
+            val = (Sf(t)*cmath.exp(1j*t)).real + epsf(t)
+            pos |= val > 0
+            neg |= val < 0
+        if not (pos and neg):
+            fails_c += 1
     if control:
-        return fails == 0
-    out("  X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows"
-        " with one sign only: %d" % fails)
-    return fails == 0
+        return fails == 0 and fails_c == 0
+    out("  X9 Lemma W on 5000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m, and 1000"
+        " for (A) stated pointwise: |S(t)| growing by up to e^50 across the window, |eps(t)| <= |S(t)|/4): windows with"
+        " one sign only: %d, %d" % (fails, fails_c))
+    return fails == 0 and fails_c == 0
 
 
 # ------------------------------------------------------------------------------------------------------------ X10
