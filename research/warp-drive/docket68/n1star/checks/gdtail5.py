@@ -53,8 +53,9 @@ fail.
      round 11: the targets are the box's suprema of alpha_K, computed as limits, p and 3/2, each checked reached); in the
      class p_0 >= min(1, q - 1) > 1/2 + 2 gam > 1/2 + delta_#.  The chain is transcribed from Corollary R7.6's proof
      (a reading); T9 checks its arithmetic.  Control: p = 1/2 leaves the chain empty; each target moved up by 1, one
-     at a time (round 12), is certified but not reached, and each moved down by 1/2, one at a time (round 13), is not
-     certified.
+     at a time (round 12), is certified but not reached; each moved down by 1/2, one at a time (round 13), is not
+     certified; and with "alpha_K < gamma_+" dropped from the list both are reached but neither is certified (round
+     13).  Each control is judged on its own target's verdict.
   T10 (exact, whole box) The slab order: every use of Z_1 at null infinity on the initial slab in the paper's
      statements (R4.4 / R3.6, R5.3 at kappa, and Corollary R8.11's l >= 2 part) asks p > 1/2 + beta, each beta computed
      from its statement's parameters, below Theorem R4.3's min(3/2, q - 1).  Control: with the source's margin delta_#
@@ -540,13 +541,15 @@ def t9_box(p):
     return dict(xs=[x1, x2, x3, x4, x5, x6, x7], p=pv, aK=aK, chain=(pv, a0, aI, bI, bp, gp, aK))
 
 
-def t9_cap(shift_p=0, shift_cap=0):
+def t9_cap(shift_p=0, shift_cap=0, drop=None):
     """round 11 (the round-10 verifier's nit 1): the cap is not typed.  Its targets are the box's suprema of alpha_K:
     over x7 (the limit of alpha_K as y7 -> 1), a function of the box's p, written in the free symbol p; and over x1 as
     well (p -> its supremum), the constant cap.  Each target is certified by a sub-family of T9's own conditions whose
     sum is identically target - alpha_K (round 10), and is checked tight: the box reaches it.  'shift_p' and
     'shift_cap' move the targets (the controls, one target at a time: rounds 12-13, the verifiers' nits 6 and 2):
-    upward the certificate still exists but the box does not reach it; downward no certificate exists"""
+    upward the certificate still exists but the box does not reach it; downward no certificate exists.  'drop' removes
+    a condition from the list (control (iv), round 13): the box still reaches both targets, but without "alpha_K <
+    gamma_+" neither is certified.  The verdict is returned per target as well, so that each control tests its own"""
     B = t9_box(None)
     x1, x7 = B['xs'][0], B['xs'][6]
     Pp, A0, AI, BI, BP, GP, AK = sp.symbols('p a_0 alpha_I b_I b_+ gamma_+ alpha_K')
@@ -554,7 +557,7 @@ def t9_cap(shift_p=0, shift_cap=0):
     sup_all = sp.limit(sup_p, x1, sp.oo)                        # the supremum over the box's p as well
     x1_of = sp.solve(sp.Eq(B['p'], Pp), x1)[0]                  # the box's p written in the free symbol p
     targets = {"p-target": sp.simplify(sup_p.subs(x1, x1_of)) + shift_p, "cap": sup_all + shift_cap}
-    free = t9_conditions(Pp, A0, AI, BI, BP, GP, AK)
+    free = {k_: e_ for k_, e_ in t9_conditions(Pp, A0, AI, BI, BP, GP, AK).items() if k_ != drop}
     syms = [Pp, A0, AI, BI, BP, GP, AK]
     vec = lambda e: tuple(sp.Poly(sp.expand(e), *syms).coeff_monomial(m_) for m_ in syms) + \
         (sp.Poly(sp.expand(e), *syms).coeff_monomial(1),)
@@ -571,12 +574,12 @@ def t9_cap(shift_p=0, shift_cap=0):
     certs = {k_: certificate(v_ - AK) for k_, v_ in targets.items()}
     # the certified sums, printed and compared with target - alpha_K
     sums = {k_: (sp.expand(sum(free[n_] for n_ in c_)) if c_ else None) for k_, c_ in certs.items()}
-    summed = all(sums[k_] is not None and sp.expand(sums[k_] - (targets[k_] - AK)) == 0 for k_ in targets)
+    summed = {k_: sums[k_] is not None and sp.expand(sums[k_] - (targets[k_] - AK)) == 0 for k_ in targets}
     # tight, computed afresh from the box (not from sup_p): alpha_K - target -> 0 along the box, so the box reaches it
     tight = {"p-target": sp.simplify(sp.limit(B['aK'] - targets["p-target"].subs(Pp, B['p']), x7, sp.oo)) == 0,
              "cap": sp.simplify(sp.limit(sp.limit(B['aK'], x7, sp.oo) - targets["cap"], x1, sp.oo)) == 0}
-    ok = all(c_ is not None for c_ in certs.values()) and summed and all(tight.values())
-    return ok, targets, certs, tight, sums
+    ok_t = {k_: certs[k_] is not None and summed[k_] and tight[k_] for k_ in targets}     # per target (round 13)
+    return all(ok_t.values()), targets, certs, tight, sums, ok_t
 
 
 def t9(control=False):
@@ -589,16 +592,20 @@ def t9(control=False):
         # that each target's reached test is exercised by itself; round 13: (iii) likewise, for each target's
         # certificate (the round-12 verifier's nit 2)
         bad = [k for k, val in res.items() if not val]
-        up_p, tu_p, cu_p, gu_p, _ = t9_cap(shift_p=1)
-        up_c, tu_c, cu_c, gu_c, _ = t9_cap(shift_cap=1)
-        dn_p, td_p, cd_p, gd_p, _ = t9_cap(shift_p=-HALF)
-        dn_c, td_c, cd_c, gd_c, _ = t9_cap(shift_cap=-HALF)
+        _, tu_p, cu_p, gu_p, _, up_p = t9_cap(shift_p=1)
+        _, tu_c, cu_c, gu_c, _, up_c = t9_cap(shift_cap=1)
+        _, td_p, cd_p, gd_p, _, dn_p = t9_cap(shift_p=-HALF)
+        _, td_c, cd_c, gd_c, _, dn_c = t9_cap(shift_cap=-HALF)
+        _, _, cv, gv, _, ov = t9_cap(drop="alpha_K < gamma_+")
         print("  T9 control ((i) p = 1/2: conditions failing %s; (ii-p) the p-target + 1 %s: certificates %s, reached "
               "%s; (ii-cap) the cap + 1 %s: certificates %s, reached %s; (iii-p) the p-target - 1/2 %s: certificates "
-              "%s, reached %s; (iii-cap) the cap - 1/2 %s: certificates %s, reached %s)"
-              % (bad, tu_p, cu_p, gu_p, tu_c, cu_c, gu_c, td_p, cd_p, gd_p, td_c, cd_c, gd_c), flush=True)
-        return all(res.values()) or up_p or up_c or dn_p or dn_c
-    cap_ok, targets, certs, tight, sums = t9_cap(0)
+              "%s, reached %s; (iii-cap) the cap - 1/2 %s: certificates %s, reached %s; (iv) 'alpha_K < gamma_+' "
+              "dropped from the list: certificates %s, reached %s)"
+              % (bad, tu_p, cu_p, gu_p, tu_c, cu_c, gu_c, td_p, cd_p, gd_p, td_c, cd_c, gd_c, cv, gv), flush=True)
+        # each control is judged on its own target's verdict
+        return (all(res.values()) or up_p["p-target"] or up_c["cap"] or dn_p["p-target"] or dn_c["cap"]
+                or ov["p-target"] or ov["cap"])
+    cap_ok, targets, certs, tight, sums, _ = t9_cap(0)
     # in the class: p_0 >= min(1, q - 1), q > 3/2 + 2 gam, gam in (0, 1/4), delta_# = (1 - e) gam, e in (0, 1)
     (a1, a2, a3), (b1, b2, b3) = pbox('a1', 'a2', 'a3')
     gam = b1/4

@@ -74,6 +74,8 @@ the whole file of 11310 lines) and every row outside section 6 re-keyed by conte
 seating's wraps keep every fragment on one line. The same later edits will stale FILE_PIN again.
 D630 (WS-B's R6-D seated in Lemma 11.0, section 11's status, four notes in section 10.3): lines 1-958 unchanged (PIN
 and every row unchanged); FILE_PIN re-pinned to the D630 file (11350 lines).
+D631 (WS-A's R12.h texts (1), (2), (9)-(12) and the header's sentence on R6-D): T0 re-pinned (lines 1-960, the whole
+file of 11382 lines); the header is two lines longer, so every row below line 58 outside section 6 moves by +2.
 """
 import hashlib
 import os
@@ -92,10 +94,10 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = 'f32ebb1a717b08362c04569fb82973de'          # md5 of lines 1-958 (sections 0-6, to '## 7.') joined by newlines
-LAST = 958                                         # D627; 948 at D625 (0c9fa8c2...), 817 at D616 (39acbcf0...)
+PIN = '2b518284c417ef0b007ca1d30f4884f4'          # md5 of lines 1-960 (sections 0-6, to '## 7.') joined by newlines
+LAST = 960                                         # D631; 958 at D627 (f32ebb1a...), 948 at D625 (0c9fa8c2...)
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '87501cfb81d0e9632721e1e7944b9c38'     # the whole file at D630 (11350 lines); D627: 223e1749... (11310)
+FILE_PIN = '88179da4c73ade0b2ae6d3d8289d5e0c'     # the whole file at D631 (11382 lines); D630: 87501cfb... (11350)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 
@@ -179,6 +181,9 @@ D627 = {110: 114, 114: 119, 122: 128, 135: 141, 137: 143, 139: 145, 144: 150, 14
         189: 195, 191: 197, 193: 199, 195: 201, 203: 209, 204: 210, 221: 227, 223: 229, 268: 276, 410: 419, 419: 428,
         420: 429, 463: 473, 464: 474, 465: 475, 490: 500, 492: 502, 529: 539, 530: 540, 609: 619}
 TRACE = [(t, f, (ln if t.startswith('D-') else D627[ln]), fr, st) for t, f, ln, fr, st in TRACE]
+# D631 (WS-A's R12.h text (11) and the Theorem M sentence on R6-D seated in the header, two lines longer): every row
+# outside section 6 below line 58 moves by +2 (checked line by line against the D630 file, md5 87501cfb...)
+TRACE = [(t, f, (ln if t.startswith('D-') or ln <= 58 else ln + 2), fr, st) for t, f, ln, fr, st in TRACE]
 
 
 def _repin_section6(rows):

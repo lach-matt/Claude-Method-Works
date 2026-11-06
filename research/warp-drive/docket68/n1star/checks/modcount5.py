@@ -709,8 +709,8 @@ def main():
     N = 21 * d + 6
     OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 877 and meta['k12'] == 10 and meta['oneoff'][7] == 48
     print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; the levels\' part of d (Round 13: a '
-          'partial sum, not a bound on d, which adds B_once, M4): A\' + %d c\' = %d + %d = %d (%.6e), and 21 times it + 6 '
-          '= %d (%.6e); pinned: %s' % (
+          'partial sum, not a bound on d, which adds B_once, M4): A\' + %d c\' = %d + %d = %d (%.6e), and 21 times it '
+          '+ 6 = %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,
               OK['M3']))
     print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
