@@ -326,17 +326,21 @@ def t4(control=False):
     grad = [sum(GEO.gi[m, n_]*sp.diff(phi, X[n_]) for n_ in range(2)) for m in range(N)]
     rhs = [box0phi*form[c] - 2*sum(grad[m]*cov[m][c] for m in range(N)) for c in range(N)]
     formula = all(zero(BX[c] - rhs[c]) for c in range(N))
-    # A = (1/2) T^-2 + O(T^-3), T = v - 2 r near compact sets: the source is O(T^-3)
-    T = sp.Symbol('T', positive=True)
-    Aser = HALF*(v - 2*r)**-2 + sp.Symbol('c3')*(v - 2*r)**-3
-    src = [sp.simplify(c.subs(phi, Aser).doit()) for c in BX[:2]]
+    # A near compact sets: A(T, r) = int chi_1'(s) K(T - s, r) ds = K(T, r) + O(T^-3) (int chi_1' = 1, d_T K =
+    # O(T^-3)), T = v - 2 r; the coefficient 1/2 of Lemma R7.2 (d) read off the kernel itself, and the source O(T^-3)
     vv = sp.Symbol('w', positive=True)
+    Ak = kernel(v - 2*r, r)
+    coef2 = sp.limit(sp.simplify(Ak.subs(v, vv + 2*r))*vv**2, vv, sp.oo)
+    coef3 = sp.limit(sp.simplify((Ak.subs(v, vv + 2*r) - coef2/vv**2))*vv**3, vv, sp.oo)
+    src = [sp.simplify(c.subs(phi, Ak).doit()) for c in BX[:2]]
     order = [sp.limit(sp.simplify(e.subs(v, vv + 2*r))*vv**3, vv, sp.oo) for e in src]
     finite = all(o.is_finite for o in order)
-    ok = deriv_only and formula and finite
+    ok = deriv_only and formula and finite and coef2 == HALF
     print("  T4: Box(phi d psi) = (Box_0 phi) d psi - 2 nabla_grad phi d psi for phi(v, r): %s; phi + const gives the "
-          "same (every term differentiates phi): %s; with A = T^-2/2 + c3 T^-3: T^3 x source -> %s (finite: %s)"
-          % (formula, deriv_only, [sp.simplify(o) for o in order], finite), flush=True)
+          "same (every term differentiates phi): %s; with A = K(T, r), T = v - 2 r: T^2 A -> %s (= 1/2: %s), T^3 (A - "
+          "T^-2/2) -> %s; T^3 x source -> %s (finite: %s)"
+          % (formula, deriv_only, coef2, coef2 == HALF, sp.simplify(coef3), [sp.simplify(o) for o in order], finite),
+          flush=True)
     return ok
 
 
@@ -362,15 +366,11 @@ def t5(control=False):
 # --------------------------------------------------------------------------------------------------------------- T6
 def t6(control=False):
     w, lam, x = sp.symbols('w lambda x', positive=True)
-    if control:
-        t = sp.Symbol('t', positive=True)
-        k3 = sp.Integer(1)/r - 1/r                              # inside the cone, t > r
-        tail = sp.limit(k3*t**2, t, sp.oo)
-        print("  T6 control (3+1 kernel H(t-r)/r - 1/r inside the cone): t^2 K -> %s, = 1/2: %s" % (tail, tail == HALF),
-              flush=True)
-        return tail == HALF
-    K = kernel(w, r)
-    hom = sp.simplify(kernel(lam*w, lam*r) - K/lam**2) == 0
+    n = 3 if control else 4                                     # control: the kernel the same path gives in 3+1
+    a, t, _, _ = switched_on(n)
+    K = sp.simplify(a.subs(t, w + r) - r**(2 - n))              # the kernel computed from T1's field, w = t - r > 0
+    same = sp.simplify(K - kernel(w, r)) == 0
+    hom = sp.simplify(K.subs({w: lam*w, r: lam*r}, simultaneous=True) - K/lam**2) == 0
     ser = sp.expand(sp.series(K.subs(w, 1/x), x, 0, 5).removeO())
     c2, c3 = ser.coeff(x, 2), ser.coeff(x, 3)
     dser = sp.expand(sp.series(sp.diff(K, r).subs(w, 1/x), x, 0, 5).removeO())
@@ -379,12 +379,13 @@ def t6(control=False):
     G, G0 = outgoing()
     phi = sp.Function('phi')(u, r)
     box0 = delta1(G0, [sp.diff(phi, u), sp.diff(phi, r), 0, 0, 0])
-    flat = sp.simplify(box0.subs(phi, kernel(u, r) + 1/r**2).doit())
-    ok = (hom and c2 == HALF and sp.simplify(c3 + r) == 0 and dser.coeff(x, 3) == -1
+    flat = sp.simplify(box0.subs(phi, K.subs(w, u) + 1/r**2).doit())
+    ok = (same and hom and c2 == HALF and sp.simplify(c3 + r) == 0 and dser.coeff(x, 3) == -1
           and sp.simplify(I_lim - 1/sp.sqrt(2*w)) == 0 and flat == 0)
-    print("  T6: K homogeneous of degree -2: %s; K = %s + O(w^-4); d_r K = %s + O(w^-4); r^(3/2) K -> %s; K + r^-2 "
-          "solves the flat equation in (u, r): %s" % (hom, sp.collect(ser.subs(x, 1/w), w), dser.coeff(x, 3)/w**3,
-                                                     I_lim, flat == 0), flush=True)
+    tag = "  T6 control (the same path in 3+1)" if control else "  T6"
+    print("%s: K from T1's field = the kernel of Lemma R7.2: %s; homogeneous of degree -2: %s; K = %s + O(w^-4); d_r K "
+          "= %s + O(w^-4); r^(3/2) K -> %s; K + r^-2 solves the flat equation in (u, r): %s"
+          % (tag, same, hom, sp.collect(ser.subs(x, 1/w), w), dser.coeff(x, 3)/w**3, I_lim, flat == 0), flush=True)
     return ok
 
 
@@ -392,34 +393,37 @@ def t6(control=False):
 def t7(control=False):
     (x1, x2, x3, x4), (y1, y2, y3, y4) = pbox('x1', 'x2', 'x3', 'x4')
     aK = 2 + y1                                                 # alpha_K in (2, 3)
-    gp = aK + y2*(3 - aK)                                       # gamma_+ in (alpha_K, min(3, alpha_K + 1))
+    gp = aK + y2*(3 - aK)                                       # gamma_+ in (alpha_K, 3) = (alpha_K, min(3, aK + 1))
     bt = gp - 1                                                 # beta_tf
-    e1 = y3*(3 - gp)/2                                          # eps_1
-    ep = y4*e1/2                                                # eps <= eps_1
-    wI = gp + 1 + e1                                            # w_I (>= 5/2 as gamma_+ > 2)
+    e1 = y3*(3 - gp)                                            # eps_1 in (0, 3 - gamma_+): Theorem R7.1's box
     pos = [x1, x2, x3, x4]
-    if control:
-        cond = {"column at beta_tf + 2 (charge != 0)": 1 - bt}
-    else:
-        cond = {
+    cond = {}
+    for tagE, ep in (("eps < eps_1/3", y4*e1/3), ("eps = eps_1/3", e1/3)):  # eps in (0, eps_0], eps_0 = eps_1/3
+        wI = gp + 1 + e1                                        # w_I (>= 5/2 as gamma_+ > 2)
+        cond.update({
             "window gamma_+ - alpha_K > 0": gp - aK, "window < 1": 1 - (gp - aK),
             "order 0: beta_tf in (0, 2)": bt, "beta_tf < 2 (W* in the domain)": 2 - bt,
             "order 1: beta_tf - 1 > 0": bt - 1, "order 1: beta_tf - 1 < 1": 2 - bt,
             "column in Y_0 at beta_tf + 1": 3 - (bt + 1),
             "zf of sigma^2 terms: alpha_K - 1 < 2": 3 - aK,
-            "column difference tf: 4 - eps >= beta_tf + 2": 2 - bt - ep,
-            "column difference zf: 2 - eps > alpha_K - 1": 3 - aK - ep,
+            "column difference tf: 4 - eps >= beta_tf + 2 (%s)" % tagE: 2 - bt - ep,
+            "column difference zf: 2 - eps > alpha_K - 1 (%s)" % tagE: 3 - aK - ep,
             "scf: min(w_I, gamma_+ + 2) >= 5/2": wI - sp.Rational(5, 2),
-            "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps": wI - (gp + 1 + ep),
+            "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps (%s)" % tagE: wI - (gp + 1 + ep),
             "Lemma 4.1: w_I - 1 >= 3/2": wI - sp.Rational(5, 2),
             "Prop 2.8 (2): alpha_K - 1 in (1, 2)": aK - 2,
             "model I+: 4 > w_I": 4 - wI, "model iota+: 6 > gamma_+ + 2": 4 - gp, "model K+: 3 > alpha_K": 3 - aK,
-            "eps small: 3 - gamma_+ > 3 eps (the choice of eps)": 3 - gp - 3*ep,
-        }
+            "eps small: 3 - gamma_+ > 3 eps (%s)" % tagE: 3 - gp - 3*ep,
+        })
+    if control:
+        # the same path with a nonzero total charge: the order-0 equation then needs the column in Y_0 at beta_tf + 2
+        cond["column in Y_0 at beta_tf + 2 (charge != 0)"] = 3 - (bt + 2)
     res = {k: positive_sum(e, pos) for k, e in cond.items()}
     ok = all(res.values())
-    tag = "  T7 control" if control else "  T7"
-    print("%s: %s" % (tag, res), flush=True)
+    tag = "  T7 control (the same conditions with a nonzero charge)" if control else "  T7"
+    bad = [k for k, val in res.items() if not val]
+    print("%s: %d conditions on Theorem R7.1's box (eps_1 < 3 - gamma_+, eps <= eps_1/3), all positive sums: %s%s"
+          % (tag, len(res), ok, "; failing %s" % bad if bad else ""), flush=True)
     return ok
 
 
@@ -510,25 +514,25 @@ def t9(control=False):
 
 # -------------------------------------------------------------------------------------------------------------- T10
 def t10(control=False):
-    (x1, x2, x3, x4), (y1, y2, y3, y4) = pbox('x1', 'x2', 'x3', 'x4')
-    pos = [x1, x2, x3, x4]
+    (x1, x2, x3, x4, x5), (y1, y2, y3, y4, y5) = pbox('x1', 'x2', 'x3', 'x4', 'x5')
+    pos = [x1, x2, x3, x4, x5]
     gam = y1/4
-    dsh = (1 - y2)*gam
+    dsh = sp.Integer(1) if control else (1 - y2)*gam            # control: the source's margin delta_# taken as 1
     q = sp.Rational(3, 2) + 2*gam + y3
-    P = sp.Min(sp.Rational(3, 2), q - 1)
-    kap = y4*dsh                                                # the rate exponent asked: kappa < delta_#
-    beta = (kap + dsh)/2                                        # R5.3's choice
-    uses = {"R4.4 / R3.6: p > 1/2 + beta": HALF + beta, "R5.3 at kappa: p > 1/2 + beta, beta > kappa": HALF + beta,
-            "l >= 2 under (M): p > 1/2 + beta": HALF + beta}
-    if control:
-        uses = {"an expansion of Z_1 to order 2 at I+ on the slab": sp.Integer(2)}
+    kap = y4*dsh                                                # R5.3's rate exponent: kappa < delta_#
+    beta53 = (kap + dsh)/2                                      # R5.3's choice
+    gp = HALF + y4*dsh                                          # Corollary R8.11: gamma_+ in (1/2, 1/2 + delta_#)
+    beta811 = (gp - HALF) + (dsh - (gp - HALF))*y5              # beta in (gamma_+ - 1/2, delta_#)
+    uses = {"R4.4 / R3.6: p > 1/2 + beta, beta in (0, delta_#)": HALF + y5*dsh,
+            "R5.3 at kappa: p > 1/2 + beta, beta = (kappa + delta_#)/2": HALF + beta53,
+            "l >= 2 (Corollary R8.11): p > 1/2 + beta, beta in (gamma_+ - 1/2, delta_#)": HALF + beta811}
     res = {}
     for k, need in uses.items():
         # need < 3/2 and need < q - 1, each a positive sum
         res[k] = positive_sum(sp.Rational(3, 2) - need, pos) and positive_sum(q - 1 - need, pos)
-    extra = positive_sum(beta - kap, pos) and positive_sum(dsh - beta, pos)
-    ok = all(res.values()) and (extra or control)
-    tag = "  T10 control" if control else "  T10"
+    extra = positive_sum(beta53 - kap, pos) and positive_sum(dsh - beta53, pos)
+    ok = all(res.values()) and extra
+    tag = "  T10 control (delta_# replaced by 1)" if control else "  T10"
     print("%s: each required slab order below Theorem R4.3's min(3/2, q - 1): %s; kappa < beta < delta_#: %s"
           % (tag, res, extra), flush=True)
     return ok
