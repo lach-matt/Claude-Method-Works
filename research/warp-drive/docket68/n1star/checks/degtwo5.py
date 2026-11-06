@@ -4,8 +4,9 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
 (envelopes with dips)).
 
   T1 (exact; a three-dimensional instance of a dimension-free identity) The reduced Ricci operator relative to a
-     background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a metric
-     g(x, y) on R^3 with four free functions (g00, g01, g11, g22) against the flat background.  So the quadratic remainder
+     background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a
+     metric g(x, y) on R^3 with four free functions (g00, g01, g11, g22) against the flat background.  So the
+     quadratic remainder
      N(u) := Ric^H(gb + u) - dRic^H(u) obeys |N(u)| <= C (|u| |d^2 u| + |du|^2 + |u|^2), with no (d^2 u)^2 term.
      Control: Ric itself (without the gauge term) keeps second derivatives outside g^ab d_a d_b.
   T2 (exact) The seed with mu(v) against the static seed mu0: every component of Gamma[g0] - Gamma[g0 deg] is a
@@ -33,11 +34,13 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      rho structureless of size m0/3 gives more than one sign change.
   T6 (computed, bounds) Dips (Proposition L.25): env := sum_n exp(-n^2) beta(2^(n+2) (x - 2^-n)) near v_s (beta =
      exp(-1/(1 - t^2)) on [-1, 1]; C_c^inf, flat at v_s since exp(-n^2) 2^(kn) -> 0 for every k, and zero on the
-     intervals J_n between the bumps); at lam = 1e-6 the bump with height in [lam^4, lam^3.1] has n = 7; on J_7 the
-     first-degree term is at most lam^9 int|d_u^8 (u bump)| (eight integrations by parts of I_2; sups of beta^(j) on a
-     grid of 799 points) and the U1-memory at most lam^(N+1) lam^8 sup|bump^(N+8)| times its width (Lemma 6.4's
-     solution operator is lam-independent), while m0 >= (2/27) int bump^2: the boundary is spacelike on every window of
-     J_7 at every angle.  Control: on the bump's top the first-degree term lam^3 env/9 exceeds the margin.
+     intervals J_n between the bumps); at lam = 1e-8, 1e-10, 1e-12, with n the bump whose height lies in [lam^4,
+     lam^3.1], on J_n the first-degree term is at most lam^9 int|d_u^8 (u bump)| (eight integrations by parts of I_2;
+     sups of beta^(j) on a grid of 799 points) and the U1-memory at most lam^(N+1) lam^8 sup|bump^(N+8)| times its
+     width (Lemma 6.4's solution operator is lam-independent), while m0 >= (2/27) int bump^2: the boundary is spacelike
+     on every window of J_n at every angle (at lam = 1e-6 eight integrations by parts do not yet suffice; the ratio
+     falls like (lam s)^9/h_n as lam -> 0, s = 2^(n+2)).  Control: on the bump's top the first-degree term lam^3 env/9
+     exceeds the margin.
 
 Labels: T1-T3 computed (exact, sympy); T4, T6 computed (mpmath, bounds; T4 a model with unit constants); T5 computed
 (mpmath; m0's formula exact, S a model).  Run: python3 checks/degtwo5.py   (a few minutes)
@@ -286,42 +289,49 @@ def t5(control=False):
 # ------------------------------------------------------------------------------------------------------------ T6
 def t6(control=False):
     mp.mp.dps = 40
-    lam = mp.mpf(10)**-6
     N, k = 9, 8
     tt = sp.Symbol('t')
-    bsym = sp.exp(-1/(1 - tt**2))
-    ders = [bsym]
-    for _ in range(N + k + 1):
-        ders.append(sp.diff(ders[-1], tt))
-    fd = [sp.lambdify(tt, d_, 'mpmath') for d_ in ders]
-    grid = [mp.mpf(i)/400 - mp.mpf('0.9975') for i in range(799)]
-    supb = [max(abs(f(t)) for t in grid) for f in fd]
-    n = None
-    for nn in range(2, 15):
-        h = mp.exp(-nn**2 - 1)
-        if lam**4 <= h <= lam**mp.mpf('3.1'):
-            n = nn
-            break
-    if n is None:
-        return False
-    hn = mp.exp(-mp.mpf(n)**2)
-    s = mp.mpf(2)**(n + 2)
-    width = 2/s
-    umax = mp.mpf(2)**(1 - n)
-    dk = hn*(umax*s**k*supb[k] + k*s**(k - 1)*supb[k - 1])           # sup |d_u^k (u bump_n(v - u))|
-    first = lam*lam**k*dk*width/9                                     # lam |I_2| |nu_inf d|, k integrations by parts
-    umem = lam**(N + 1)*lam**k*hn*s**(N + k)*supb[N + k]*width          # U1's memory (Lemma 6.4's operator)
-    l2 = hn**2*mp.quad(lambda t: fd[0](t)**2, [-1, 0, 1])/s
-    m0low = 2*l2/27                                                   # m0 >= (mu - mu0)/(3 mu0) = (2/27) int env^2
-    if control:
-        # on bump n's top, env = h_n e^-1: the first-degree term lam^3 env/9 against m0 <= h_n^2 (1 + width)/9
-        return lam**3*hn*mp.exp(-1)/9 < hn**2*(1 + width)/9
-    ok = first + umem < m0low/2
-    out("  T6 the bump with height in [lam^4, lam^3.1] at lam = 1e-6: n = %d (height lam^%s); on J_n, %d integrations"
-        " by parts: first-degree term <= %s, U1-memory <= %s, m0 >= %s: spacelike throughout: %s" % (
-            n, mp.nstr(mp.log(hn*mp.exp(-1))/mp.log(lam), 4), k, mp.nstr(first, 3), mp.nstr(umem, 3),
-            mp.nstr(m0low, 3), ok))
+    if 'supb' not in CACHE6:
+        ders = [sp.exp(-1/(1 - tt**2))]
+        for _ in range(N + k + 1):
+            ders.append(sp.simplify(sp.diff(ders[-1], tt)))
+        fd = [sp.lambdify(tt, d_, 'mpmath') for d_ in ders]
+        grid = [mp.mpf(i)/400 - mp.mpf('0.9975') for i in range(799)]
+        CACHE6['supb'] = [max(abs(f(t)) for t in grid) for f in fd]
+        CACHE6['l2'] = mp.quad(lambda t: fd[0](t)**2, [-1, 0, 1])
+    supb, intb2 = CACHE6['supb'], CACHE6['l2']
+    rows, ok = [], True
+    for e in ((8,) if control else (8, 10, 12)):
+        lam = mp.mpf(10)**-e
+        n = None
+        for nn in range(2, 30):
+            if lam**4 <= mp.exp(-nn**2 - 1) <= lam**mp.mpf('3.1'):
+                n = nn
+                break
+        if n is None:
+            return False
+        hn = mp.exp(-mp.mpf(n)**2)
+        s = mp.mpf(2)**(n + 2)
+        width = 2/s
+        umax = mp.mpf(2)**(1 - n)
+        dk = hn*(umax*s**k*supb[k] + k*s**(k - 1)*supb[k - 1])          # sup |d_u^k (u bump_n(v - u))|
+        first = lam*lam**k*dk*width/9                                    # lam |I_2| |nu_inf d|, k integrations by parts
+        umem = lam**(N + 1)*lam**k*hn*s**(N + k)*supb[N + k]*width         # U1's memory (Lemma 6.4's operator)
+        m0low = 2*hn**2*intb2/(27*s)                                     # m0 >= (2/27) int env^2
+        if control:
+            # on bump n's top, env = h_n e^-1: the first-degree term lam^3 env/9 against m0 <= h_n^2 (1 + width)/9
+            return lam**3*hn*mp.exp(-1)/9 < hn**2*(1 + width)/9
+        good = first + umem < m0low/2
+        ok &= good
+        rows.append("lam = 1e-%d: n = %d (height lam^%s), first-degree <= %s, U1-memory <= %s, m0 >= %s: %s" % (
+            e, n, mp.nstr(mp.log(hn*mp.exp(-1))/mp.log(lam), 4), mp.nstr(first, 3), mp.nstr(umem, 3),
+            mp.nstr(m0low, 3), good))
+    out("  T6 on J_n, the zero interval after the bump with height in [lam^4, lam^3.1], %d integrations by parts: " % k
+        + "; ".join(rows) + " (spacelike throughout J_n)")
     return ok
+
+
+CACHE6 = {}
 
 
 def main():

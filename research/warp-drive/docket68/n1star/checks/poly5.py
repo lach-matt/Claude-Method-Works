@@ -23,7 +23,8 @@ every K, g_lam being unique, (P-v)).
      (oscillating coefficients g^-1 - g0^-1 in lam E, the 1/lam coupling of (3.2), quadratic terms, residual
      lam^(N-1) [R]), with w = d_tau w = 0 on the initial slice, d_tau^m w there has order exactly N + 1 - m
      (m = 2..6, N = 6): one lam^-1 per derivative, polynomial. Control (round 5: the model's operator mutated, its
-     coupling lam^-1 replaced by lam^-2): the orders are no longer N + 1 - m (m = 2..4).
+     coupling lam^-1 replaced by lam^-3; lam^-2, the natural order of two derivatives, changes nothing): the orders
+     are no longer N + 1 - m (m = 2..4).
   P5 (exact, integer recursion) Lemma 11.0 as written: energies at order n carry lam^-P(n), pointwise bounds
      lam^-Q(n); Theorem P (K_0 = 6, k = 6) gives P(n) = n (n <= 6), Q(n) = n - 1 (n <= 4); the data P = n; the
      sources are products with the highest-order factor in L^2 and the others in sup, Q(n) = P(n + 2) by Lemma 9.3
@@ -241,7 +242,8 @@ def p3():
 
 
 def p4_orders(cpow, ms):
-    """the 1+1 model of (3.2): orders of d_tau^m w on the initial slice; cpow = 1 is the model, 2 the mutation"""
+    """the 1+1 model of (3.2): orders of d_tau^m w on the initial slice; cpow = 1 is the model, 3 the mutation
+    (a coupling lam^-2 has the natural order of two derivatives and changes nothing)"""
     tau, x, q = sp.symbols("tau x q", real=True)
     N = 6
     thf = (tau + x)/lam
@@ -272,9 +274,9 @@ def p4():
     print("     orders of d_tau^m w on the slice, m = 2..6:", [orders[m] for m in range(2, 7)])
     check("P4a d_tau^m w has order exactly N + 1 - m (one lam^-1 per derivative): polynomial",
           all(orders[m] == N + 1 - m for m in range(2, 7)))
-    N, om = p4_orders(2, range(2, 5))
-    print("     mutated model (coupling lam^-2), m = 2..4:", [om[m] for m in range(2, 5)])
-    check("P4b control (the model's operator mutated: the coupling lam^-1 of (3.2) replaced by lam^-2): the orders are "
+    N, om = p4_orders(3, range(2, 5))
+    print("     mutated model (coupling lam^-3), m = 2..4:", [om[m] for m in range(2, 5)])
+    check("P4b control (the model's operator mutated: the coupling lam^-1 of (3.2) replaced by lam^-3): the orders are "
           "not N + 1 - m", any(om[m] != N + 1 - m for m in range(2, 5)))
 
 

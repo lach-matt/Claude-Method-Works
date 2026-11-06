@@ -60,6 +60,7 @@ Run: python3 checks/gluedecay5.py   (about five minutes on a loaded machine)
 """
 import os
 import sys
+import textwrap
 from fractions import Fraction as Fr
 
 import mpmath as mpm
@@ -98,14 +99,21 @@ def e1(control=False):
         claim = sp.exp(-a * t) * sum(sp.binomial(j, k) * (-a)**(j - k) * sp.diff(psi(t), t, k) for k in range(j + 1))
         bder &= sp.simplify(g - claim) == 0
     uniq = all(2 * L0 - 4 > 0 and 2 * L0 - 6 > 0 for L0 in (Fr(301, 100), Fr(7, 2), Fr(399, 100)))
-    print("  E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4): "
+    say("E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4): "
           "%s;\n      = log(R/r1) at a = l0 and (R^2 - r1^2)/2 at (a, l0) = (5/2, 7/2): %s; (r d_r)^j [r^-a psi(log r)]"
           " = r^-a sum_k C(j,k) (-a)^(j-k) psi^(k), j <= 3: %s;\n      rho^2, rho^3 terms never remainders "
-          "(2 l0 - 4, 2 l0 - 6 > 0): %s" % (all(inst), ok, bder, uniq), flush=True)
+          "(2 l0 - 4, 2 l0 - 6 > 0): %s" % (all(inst), ok, bder, uniq))
     return ok and bder and uniq
 
 
 # ---------------------------------------------------------------------------------------------------------- E2
+def say(text):
+    """print a report wrapped to 118 columns, continuation lines indented"""
+    for k, para in enumerate(text.split("\n")):
+        print(textwrap.fill(para.strip(), 118, initial_indent="  " if k == 0 else "      ",
+                            subsequent_indent="      "), flush=True)
+
+
 def gram_closed(q, p1, p2, ivm=mpm.iv):
     """Gram matrix of (f_c, f_s, g1, g2) = (e^(qu) cos u, e^(qu) sin u, e^(p1 u), e^(p2 u)) on u in (-log 2, 0)"""
     L = ivm.log(2)
@@ -187,12 +195,12 @@ def e2(control=False):
             Sm, detm, lam = kappa2(mpm.mpf(A_.numerator) / A_.denominator, mpm.mpf(L0.numerator) / L0.denominator,
                                    mpm.mp)
             table.append((L0, A_, lam, pos))
-    print("  E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: %s; Gram closed forms = sympy exact"
+    say("E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: %s; Gram closed forms = sympy exact"
           " = quadrature (1e-35): %s;\n      kappa^2 = lambda_min(Schur), certified > 0 at every grid point: %s"
-          % (wr, cf, cert), flush=True)
+          % (wr, cf, cert))
     for L0 in (Fr(13, 4), Fr(7, 2), Fr(15, 4)):
-        print("      l0 = %-5s " % L0 + "  ".join("a = %s: kappa = %s" % (A_, mpm.nstr(mpm.sqrt(lam), 4))
-                                                   for (l_, A_, lam, _) in table if l_ == L0), flush=True)
+        row = ["a = %s: kappa = %s" % (A_, mpm.nstr(mpm.sqrt(lam), 4)) for (l_, A_, lam, _) in table if l_ == L0]
+        print("      l0 = %-5s " % L0 + "  ".join(row[:3]) + "\n" + " " * 17 + "  ".join(row[3:]), flush=True)
     return wr and cf and cert
 
 
@@ -271,10 +279,10 @@ def e3(control=False):
             lines.append("(a, l0) = (%s, %s), R = %s: D_R/(eps R^(l0-a)) = %s, 2 A_a dist = %s, 2 A_a kappa = %s"
                          % (mpm.nstr(A_, 3), mpm.nstr(L0, 3), mpm.nstr(RR, 3), mpm.nstr(ratio, 6),
                             mpm.nstr(pred, 6), mpm.nstr(2 * Aa * kap, 6)))
-    print("  E3: Psi^* of a radial tensor (generic phi, A, B, three points): %s; tr(Psi^* delta - delta) identity: %s;"
+    say("E3: Psi^* of a radial tensor (generic phi, A, B, three points): %s; tr(Psi^* delta - delta) identity: %s;"
           "\n      E = O(eps r^(-2-a)) at first and second order in eps, r^(2+a) d_eps E|_0 = -2 mu (a cos log r + "
           "sin log r): %s;\n      quadrature instance of Proposition 3 (within 1e-2 of the prediction, above the "
-          "kappa bound): %s" % (pullok, trok, rate, inst_ok), flush=True)
+          "kappa bound): %s" % (pullok, trok, rate, inst_ok))
     for ln in lines:
         print("        " + ln, flush=True)
     return pullok and trok and rate and inst_ok
@@ -383,10 +391,10 @@ def e5(control=False):
     trH3 = sp.series(f2 + 2 * f1 / r, r, sp.oo, 6).removeO()            # the three-dimensional factor (control (d))
     graph = sp.simplify(sp.limit(r**3 * trH, r, sp.oo) - 2 * m) == 0
     graph_c = sp.simplify(sp.limit(r**3 * trH3, r, sp.oo) - 2 * m) == 0
-    print("  E5: (a) spin enters the Kerr-Schild metric at rho^%s (15 components, one point, spins (1/3, 1/5)): %s;"
+    say("E5: (a) spin enters the Kerr-Schild metric at rho^%s (15 components, one point, spins (1/3, 1/5)): %s;"
           " (b) translation at rho^%s: %s;\n      (c) radial Hessian: (Hess f - Lap f delta) x = -3 (f'/r) x and (W x)"
           " . Hess f . x = 0: %s, %s; (d) tr Hess f = 2 mu r^-3 + ... for f' = 2 mu/(r^2 - mu): %s (three-dimensional"
-          " Laplacian: %s)" % (min(lows), spin, min(tl), trans, mom, ang, graph, graph_c), flush=True)
+          " Laplacian: %s)" % (min(lows), spin, min(tl), trans, mom, ang, graph, graph_c))
     return spin and trans and mom and ang and graph
 
 
@@ -428,9 +436,9 @@ def e6(control=False):
     newlong = [l_ for l_ in blk["New:"].split("\n") if len(l_) > 121]
     if control:
         return n == 1
-    print("  E6: GLUEDECAY5.md lines over 121 characters: %s; old block occurs %d time(s) in the paper, from line %s"
+    say("E6: GLUEDECAY5.md lines over 121 characters: %s; old block occurs %d time(s) in the paper, from line %s"
           " (%d lines); new block lines over 121: %d" % (long_ or "none", n, line, old.count("\n") + 1, len(newlong)),
-          flush=True)
+          )
     return not long_ and n == 1 and not newlong
 
 

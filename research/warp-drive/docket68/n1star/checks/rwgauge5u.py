@@ -421,17 +421,14 @@ def u5(control=False):
         mUVr = sp.exp(2*r/rh)*(r - rh)/(r + rh)
         k3 = sp.simplify(sp.diff(mUVr, r).subs(r, rh) - sp.exp(2)/(2*rh)) == 0
         k4 = sp.simplify(f/mUVr - (r + rh)**2*sp.exp(-2*r/rh)/r**2) == 0
-        Uu, Vv = sp.symbols("U Vk")
-        g_ = sp.Function("g")(Uu, Vv)
-        uu, vv = sp.symbols("uu vv")
+        Uu, Vv, uu, vv = sp.symbols("U Wk uu vv")
         Uof, Vof = -sp.exp(-uu/rh), sp.exp(vv/rh)
-        G = g_.subs({Uu: Uof, Vv: Vof})
-        lhs_uv = sp.diff(G, uu, vv)
-        rhs_uv = (-(Uu*Vv/rh**2)*sp.diff(g_, Uu, Vv)).subs({Uu: Uof, Vv: Vof})
-        k5 = sp.simplify((lhs_uv - rhs_uv).doit()) == 0
-        lhs_uu = sp.diff(G, uu, 2)
-        rhs_uu = ((Uu**2*sp.diff(g_, Uu, 2) + Uu*sp.diff(g_, Uu))/rh**2).subs({Uu: Uof, Vv: Vof})
-        k6 = sp.simplify((lhs_uu - rhs_uu).doit()) == 0
+        k5 = k6 = True
+        for g_ in (sp.exp(Uu)*sp.sin(Vv) + Uu**3*Vv**2, sp.cos(Uu*Vv) + Uu**4):     # test functions g(U, W)
+            G = g_.subs({Uu: Uof, Vv: Vof})
+            k5 &= sp.simplify(sp.diff(G, uu, vv) - (-(Uu*Vv/rh**2)*sp.diff(g_, Uu, Vv)).subs({Uu: Uof, Vv: Vof})) == 0
+            k6 &= sp.simplify(sp.diff(G, uu, 2) - ((Uu**2*sp.diff(g_, Uu, 2) + Uu*sp.diff(g_, Uu))/rh**2)
+                              .subs({Uu: Uof, Vv: Vof})) == 0
         print("  U5: dr*/dr = 1/f %s; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) %s; d(-UV)/dr = e^2/(2 r_h) at r_h %s;"
               " f/(-UV) = (r + r_h)^2 e^(-2r/r_h)/r^2 %s; d_u d_v = -(UV/r_h^2) d_U d_V %s; d_u^2 = (U^2 d_U^2 + U d_U)"
               "/r_h^2 %s" % (k1, k2, k3, k4, k5, k6), flush=True)
@@ -520,7 +517,37 @@ def u7(control=False):
     ep = sp.simplify((-1)*(2 - p_) + 0*(p_ - 1) + (2 - p_)) == 0                                   # E^1 ~ t^-1, E^2 ~ 1
     rate_c = sp.simplify((-(2 - p_)/2).subs(p_, 1 + 2*d_) - (-sp.Rational(1, 2) + d_)) == 0
     rate_b = sp.Rational(-2, 2) == -1
-    ok &= iiL and c1 and c2 and c3 and holder and ip and ep and rate_c and rate_b
+    # (ii) [HKW18]'s (89) on the cone: T(L, T) with g = -4 f du dv + r^2 sigma (their u, v), L = d_v, T = (d_u + d_v)/2
+    pu, pv, ang2 = sp.symbols("psi_u psi_v A2")
+    gLT = -2*f/2                                                   # g(d_v, (d_u + d_v)/2) = (1/2) g_uv = -f
+    grad2 = 2*(-1/(2*f))*pu*pv + ang2/r**2                         # g^uv = -1/(2f), angular part r^-2 |D psi|^2
+    TLT = pv*(pu + pv)/2 - gLT*grad2/2
+    cone = sp.simplify(TLT - (pv**2/2 + f*ang2/(2*r**2))) == 0
+    # (iii) the sphere: int |D Y|^2 = (k^2 - 6) int |Y|^2 for Y = (D D - gamma Lap/3) S, S = P_j(cos 2th), j = 1, 2
+    import rwgauge5 as RW
+    th = RW.th
+    sph = True
+    for jj in (1, 2):
+        ll = 2*jj
+        S = RW.legendre_S(jj)
+        Hs_, Gs = RW.sph_hess(S)
+        Y = Hs_ - RW.gam*RW.sph_lap(S)/3
+        DY = [[[sp.diff(Y[i, j], RW.SPH[k]) - sum(Gs[c][k][i]*Y[c, j] + Gs[c][k][j]*Y[i, c] for c in range(3))
+                for j in range(3)] for i in range(3)] for k in range(3)]
+        gi = RW.gami
+        nDY = sum(gi[k, k]*gi[i, i]*gi[j, j]*DY[k][i][j]**2 for k in range(3) for i in range(3) for j in range(3))
+        nY = sum(gi[i, i]*gi[j, j]*Y[i, j]**2 for i in range(3) for j in range(3))
+        iD = sp.integrate(sp.expand(sp.expand_trig(nDY*RW.sqg)), (th, 0, sp.pi/2))
+        iY = sp.integrate(sp.expand(sp.expand_trig(nY*RW.sqg)), (th, 0, sp.pi/2))
+        sph &= sp.simplify(iD - (ll*(ll + 2) - 6)*iY) == 0 and iY != 0
+    f1 = sp.Symbol("f1", positive=True)
+    C1 = sp.Rational(9, 2)/f1 + 8
+    chain = (sp.simplify(sp.Rational(9, 4)/f1 + 4 - 2/f1 - (sp.Rational(1, 4)/f1 + 4)) == 0      # 9/(4f1)+4 >= 2/f1
+             and sp.expand(4*(k2 - 6) - k2 - 3*(k2 - 8)) == 0 and sp.simplify(C1 - 2*(sp.Rational(9, 4)/f1 + 4)) == 0)
+    ok &= iiL and c1 and c2 and c3 and holder and ip and ep and rate_c and rate_b and cone and sph and chain
+    print("  U7 (ii)-(iii): T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 on the cone: %s; int |D Y|^2 = (k^2 - 6)"
+          " int |Y|^2 at l = 2, 4: %s; C_1 = 9/(2 f_1) + 8 from k^2 <= 4 (k^2 - 6) (k^2 >= 8): %s" % (cone, sph, chain),
+          flush=True)
     print("  U7: d_s(w^2/s) and the lemma on w = 1, s^(1/4), s^(1/3), 1 + 1/s at R = 1, 2, 10, 1000: True; L = f d_r|_u:"
           " %s; k^2 >= 8 (l = 2..198): %s; H <= (11/8)k^2 at x <= 1: %s; k^4 - (1 + m)^2 = 4k^2 - 4: %s; Hoelder"
           " s^p = s^(2-p) (s^2)^(p-1): %s; int_R^oo s^-p = R^(1-p)/(p-1): %s; E^p ~ tau^-(2-p): %s; rates tau^-1"

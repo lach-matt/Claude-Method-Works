@@ -69,9 +69,9 @@ class Dag:
         return used - self.names()
 
     def value(self, subs):
-        vals = dict(subs)
+        vals = {k: sp.Float(sp.N(v_, 40), 40) for k, v_ in subs.items()}
         for s_, e in self.defs:
-            vals[s_] = e.subs(vals)
+            vals[s_] = sp.Float(sp.N(e.subs(vals), 40), 40)
         return vals
 
 
@@ -155,7 +155,7 @@ def k2(control=False):
         pt2 = dict(pt)
         pt2[k] = pt[k]*sp.Rational(101, 100)
         v1, v2 = d.value(pt), d.value(pt2)
-        fd_ok &= all(sp.N(v2[c] - v1[c], 30) >= 0 for c in (C11, C4))
+        fd_ok &= all(v2[c] - v1[c] >= 0 for c in (C11, C4))
     out("  K2 C_L11 and C_L4 increasing in every leaf: every node of the DAG a positive expression of its inputs %s, by"
         " finite differences at 40 random points %s" % (structural, fd_ok))
     return structural and fd_ok
