@@ -627,7 +627,7 @@ deliver: "(a) III.C′ Theorem 2.1 in the cut-off gauge ... (b) Its continuation
 (constraint damping) ... Theorem 4.3 is conditional on these" (PART-III-K-NONLINEAR.md:510-518). Part VII Theorem 0.2
 uses III.K Theorem 4.3 (PART-VII-ASSEMBLY.md:69-92), and so did Theorem R2.4.
 [R5.0 (nit): PART-III-K-NONLINEAR.md:468 and 510-518 read 470 and 512-520.]
-[R6 (m7): now 471 and 513-521 (md5 14b79c32), keyed by content: "Theorem 4.3 ([Hin26] Theorem 13.1 at n = 4; conditional
+[R6 (m7): now 471 and 513-521 (md5 f29e2aa8), keyed by content: "Theorem 4.3 ([Hin26] Theorem 13.1 at n = 4; conditional
 on Part IV)" and (K2) through "Theorem 4.3 is conditional on these".]
 
 *READ, the statements that deliver them and their status (proof5/README.md:77-84).*
@@ -933,7 +933,7 @@ proof5/README.md:77-84; PART-IV3-NM.md:60-61, 229, 321, 382; PART-IV4-SLAB.md:86
 PART-IV5-CDMODES.md:154; PART-IV6-SOLV.md:742; PART-IV7-TFACE.md:348, 387; N1STAR-PROOF.md (as of 82a7e95) 1046,
 1052-1054, 1069-1078, 1234, 1348-1354, 1371, 1404-1405, 1423-1426, 1433-1440, 6776-6801, 10550-10551, 10563-10566,
 10625; BEYOND5.md:203-205, 300-301; PART-VII-ASSEMBLY.md:69-92, 162-177. None from outside sources.
-[R6 (m7): PART-III-K-NONLINEAR.md:468, 510-518 is now 471, 513-521 (md5 14b79c32).]
+[R6 (m7): PART-III-K-NONLINEAR.md:468, 510-518 is now 471, 513-521 (md5 f29e2aa8).]
 
 Open, precisely: (B) the two bootstraps on W written line by line (their identities, kernels, data and caps are
 computed here); (V) the vacuum condition of the limit (section 0.7's system with D = 0 on N; deduced); (Pr)
@@ -1573,7 +1573,7 @@ texts for N1STAR-PROOF.md's Lemma 11.0 and for the paper's section 9 are R5-D an
   uniqueness of its Cauchy problem, and so is the limit; independently, for sigma in G, sigma^* g satisfies every
   hypothesis of Proposition R5.2 (R5-C) and equals g. So (gamma, k) on Sigma_IVP is G-invariant (Sigma_IVP = {t_KS =
   f(|x|)} is), as Proposition 3.2 needs, and its conclusion gives b = (m', 0), S = 0 (PART-VII-ASSEMBLY.md:403-406).
-  [R6 (m7): the paragraph *The metric.* ending "So b = (m',0) and S = S^(0)_1 = 0" is now at 420-423 (md5 81a9effd).]
+  [R6 (m7): the paragraph *The metric.* ending "So b = (m',0) and S = S^(0)_1 = 0" is now at 420-423 (md5 500c085b).]
 - **(r3-m5) K* is quadratic in k0, not linear** (line 738). Computed, `r5settle5.py` B1: a = 11/4, M = 27 + 2 k0:
   K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and for k0 >= 400 the second differences are those of s (a + k0) with
   s = (2M + 1)/(7 - 2a) growing linearly in k0; control B4: with s held fixed K* is linear. Finite in every case,
@@ -1612,7 +1612,7 @@ texts for N1STAR-PROOF.md's Lemma 11.0 and for the paper's section 9 are R5-D an
   that the interpolation bound on the e_8 term diverges, not the flux (label corrected). The "(Z H) d d h" of R3.5 is
   DP(h)[Z h]'s zero-order part -(1/2)(Dg^-1[Z h])^(ab) d_a d_b (g_b0 + h), not D^2P(h)[Z h, h]'s principal part.
   `scatter5.out` is regenerated (rerun, 2026-11-06; all checks pass).
-  [R6 (m7): "read 470 and 512-520" is now 471 and 513-521 (md5 14b79c32).]
+  [R6 (m7): "read 470 and 512-520" is now 471 and 513-521 (md5 f29e2aa8).]
 - **The window.** Re-derived: nothing requires a > 5/2. The kernels allow (1/2, 7/2) (B6b; their coefficients'
   exponents measured, O1), the cap a < 3 (G2), the N-flux a < 7/2 (G3), the class on S a + 1 >= l0 (G4), uniqueness
   a > a_0 (R5.2), and Step 2 a > 3/2. Computed (G5): the admissible set on the grid is (l0 - 1, 3) for l0 = 3.1, 3.3,
@@ -2065,7 +2065,7 @@ R5.1. READ: N1STAR-PROOF.md (709c63be) 24-27, 29-34, 412-456, 1172-1184 (Lemma 9
 sources. The verifiers' scratch scripts relied on are in `checks/` as `zinv5.py` (copied with a driver); their other
 computations (K*, B_J, the class of c, B13's probe) are recomputed by this round's own programs (B, A, C2, H).
 [R6 (m7, m8): zinv5 finished in round 6 (ZI1-ZI3), its m4 not a control; PART-VII-ASSEMBLY.md 403-406 is now 420-423
-(md5 81a9effd) and PART-III-K-NONLINEAR.md 470, 512-520 is now 471, 513-521 (md5 14b79c32), by content.]
+(md5 500c085b) and PART-III-K-NONLINEAR.md 470, 512-520 is now 471, 513-521 (md5 f29e2aa8), by content.]
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
@@ -2157,23 +2157,24 @@ congruence keeps definiteness); for n spacelike it has the root -e^-s/2.
 repairs and found that "Lemma 11.0's new argument closes the thirteenth verifier's gap rather than moving it", and D47
 found Lemma 11.0 "sound as repaired" (N1STAR-LOG.md, entries D45 and D47); the section-11 reader of D618 then found
 Lemma 11.0's top-order gap (its Major 1), which R5-D, now R6-D, repairs: written, not applied. (N1STAR-PROOF.md's status
-paragraph still reads "the repairs are not yet read" for D44; that line is the record's, not this file's, and is left to
-the session that seats R6-D.) (b) The list now names what the deduction also uses: N1STAR-PROOF.md's Theorem E with Step
-8's local theory (R5-B, Step 6); Part VII Lemma 1.2 (R4-D's setting: R is free) and Lemma 2.1 (Step 9's computation of
-(gamma, k)); III.C'' Proposition 4.1 (III.K's gauge data rebuilt from (gamma, k), R4-F); BEYOND5 Lemma 6.4 (iv) (W and
-N); R5-C (v), F_4's existence, in this file's list (now computed, and not needed: (r6-F4)); and N1STAR-PROOF.md's Lemma
-11.2 as amended by D618's repair. (c) Theorem P's uses of Lemma 1.1 (e) and Lemma 2.3 after D623, checked against the
-live 0.3 and Lemma 2.3: they stand. On P the margin of Lemma 9.1 (f) is a bound on the inverse metric, |g^-1 - g0^-1| <=
-eps_P t^(-5/4); Lemma 9.1 (f) says "the causal claim follows as in Lemma 1.1(e)", which uses Lemma 1.1 (e)'s argument
-(open conditions, past causal curves cannot cross the boundaries), not its eps1; and Lemma 9.5 says "Lemma 2.3's proof
-on P cap {tau1 <= s <= tau}", whose constants need |gt^-1| and |gt| bounded and Y = -gt^-1 dtau uniformly timelike.
-Those follow from the inverse margin: g0^-1(dtau, dtau) = -1 - m with m := mu/r^2, so (g0^-1 + delta)(dtau, dtau) <= -1
-+ eps_P; the least absolute eigenvalue of g0^-1 is s(m) = (1 + m^2)^(1/2) - m, so for eps_P < s(m*) (m* := sup_P+ m)
-every such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 by Weyl's inequality; and {r = a} stays spacelike for eps_P
-< mu0/a^2 - 1 (r6settle5 T, exact and 2000 samples; control T': |delta|_op = s(m) makes g^-1 singular). These are D623's
-two thresholds, in the form the inverse margin takes; Lemma 9.1 (f)'s "There is eps_P > 0" allows them, and nothing in
-Theorem P's proof needs eps1 of 0.3. (A clarifying clause in Lemma 9.1 (f), naming eps_P < min(s(m*), mu0/a^2 - 1),
-would make this explicit; that is for the record's own session to decide.)
+paragraph, as edited today, records the D45 and D47 reads and names R5-D as the pending replacement; R6-D supersedes
+R5-D.) (b) The list now names what the deduction also uses: N1STAR-PROOF.md's Theorem E with Step 8's local theory
+(R5-B, Step 6); Part VII Lemma 1.2 (R4-D's setting: R is free) and Lemma 2.1 (Step 9's computation of (gamma, k));
+III.C'' Proposition 4.1 (III.K's gauge data rebuilt from (gamma, k), R4-F); BEYOND5 Lemma 6.4 (iv) (W and N); R5-C (v),
+F_4's existence, in this file's list (now computed, and not needed: (r6-F4)); and N1STAR-PROOF.md's Lemma 11.2 as
+amended by D618's repair. (c) Theorem P's uses of Lemma 1.1 (e) and Lemma 2.3 after D623 (and D625, D627), checked
+against the live 0.3 and Lemma 2.3: they stand. On P the margin of Lemma 9.1 (f) is a bound on the inverse metric, |g^-1
+- g0^-1| <= eps_P t^(-5/4); Lemma 9.1 (f) says "the causal claim follows as in Lemma 1.1(e)", which uses Lemma 1.1 (e)'s
+argument (open conditions, past causal curves cannot cross the boundaries), not its eps1; and Lemma 9.5 says "Lemma
+2.3's proof on P cap {tau1 <= s <= tau}", whose constants need |gt^-1| and |gt| bounded and Y = -gt^-1 dtau uniformly
+timelike. Those follow from the inverse margin: g0^-1(dtau, dtau) = -1 - m with m := mu/r^2, so (g0^-1 + delta)(dtau,
+dtau) <= -1 + eps_P; the least absolute eigenvalue of g0^-1 is s(m) = (1 + m^2)^(1/2) - m, so for eps_P < s(m*) (m* :=
+sup_P+ m) every such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 by Weyl's inequality; and {r = a} stays spacelike
+for eps_P < mu0/a^2 - 1 (r6settle5 T, exact and 2000 samples; control T': |delta|_op = s(m) makes g^-1 singular). These
+are D623's two thresholds, in the form the inverse margin takes (g0 and g0^-1 have the same least absolute eigenvalue
+s(m), the (tau, r) block having determinant -1, so s0 of 0.3 is s(m*)); Lemma 9.1 (f)'s "There is eps_P > 0" allows
+them, and nothing in Theorem P's proof needs eps1 of 0.3. (A clarifying clause in Lemma 9.1 (f), naming eps_P <
+min(s(m*), mu0/a^2 - 1), would make this explicit; that is for the record's own session to decide.)
 
 **(m6) The paper texts.** Accepted; R6-E's blocks replace R5-E's. They name condition (b) (rounds 5-6 of this file not
 yet read), say that R6-D is written and not applied, separate what is measured (the coefficient decays and the residual
@@ -2186,9 +2187,10 @@ a bump envelope".
 are R5-D's, checked to occur exactly once in the live file (E1a). Re-keyed by the same rule, at the coordinator's report
 and verified against the current files (by content): PART-III-K-NONLINEAR.md's "Theorem 4.3 ([Hin26] Theorem 13.1 at n =
 4; conditional on Part IV)" is at its line 471 (cited as 468, and as 470 in R5.0's nit), and its (K2) "What Part IV must
-deliver here" through "Theorem 4.3 is conditional on these" at 513-521 (cited as 510-518 and 512-520), at md5 14b79c32;
-PART-VII-ASSEMBLY.md's paragraph *The metric.* ending "So b = (m',0) and S = S^(0)_1 = 0" is at 420-423 (cited as
-403-406), at md5 81a9effd, and its *The group.* paragraph is still at 31-38. Notes inserted at the citing lines.
+deliver here" through "Theorem 4.3 is conditional on these" at 513-521 (cited as 510-518 and 512-520), at md5 f29e2aa8
+(after D628, whose changes in that file are all after line 605); PART-VII-ASSEMBLY.md's paragraph *The metric.* ending
+"So b = (m',0) and S = S^(0)_1 = 0" is at 420-423 (cited as 403-406), at md5 500c085b, and its *The group.* paragraph is
+still at 31-38 (31-37 and the blank line after it). Notes inserted at the citing lines.
 
 **(m8) Labels, and zinv5.** Accepted. F3 (the product rule), F3' (a power law), F4 and F5 (typed exponents) and G5 (a
 typed list) are marked [arithmetic] in r5settle5's output and docstring; what they stood for is now computed in
@@ -2623,7 +2625,7 @@ reader's surviving mutants, rerun: @@MUT@@. Deduced: R6-A (i)-(vi), Proposition 
 (r6-F4). READ: N1STAR-PROOF.md by quoted content (0.3's eps1 sentences and their D623 note; Lemma 1.1 (e); Lemma 2.3;
 Lemma 9.1 (f) "the causal claim follows as in Lemma 1.1(e)"; Lemma 9.5 "Lemma 2.3's proof on P cap {tau1 <= s <= tau}";
 section 11.1 and Lemma 11.0); N1STAR-LOG.md entries D45, D47, D618-D620, D619/D623/D624; PART-III-K-NONLINEAR.md 471,
-513-521 (md5 14b79c32); PART-VII-ASSEMBLY.md 31-38, 420-423 (md5 81a9effd); RESPONSE-HL-5D.md (md5 7193c56e). None from
+513-521 (md5 f29e2aa8); PART-VII-ASSEMBLY.md 31-38, 420-423 (md5 500c085b); RESPONSE-HL-5D.md (md5 7193c56e). None from
 outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.

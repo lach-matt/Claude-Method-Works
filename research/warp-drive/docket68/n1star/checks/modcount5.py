@@ -737,7 +737,8 @@ def main():
                             + m['N'] * l32)
     least_ok = (bl['req'] and bl['R'] == bn['R'] and bl['Rw'] == bn['Rw'] and bl['n51'] == bn['n51'] and bl['N'] == 1
                 and least(bl, ob['Mb']) > least(bn, ob['Mb']))
-    OK['M6'] = least_ok and (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale and len(brows) == NB_ROWS
+    OK['M6'] = least_ok and (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale
+                             and len(brows) == NB_ROWS
                 and bids == set(bt['b']) and bn['req'] and trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim
                 and trip == BASE_PIN)
     by = {}
