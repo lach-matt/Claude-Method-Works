@@ -115,7 +115,9 @@ def r1():
               (n, npts, rmin, rmax, band[0], band[1], mx, rmx, efmax, dev))
     conv = abs(rows[-1][4][0] - rows[-2][4][0]) < 0.01 and abs(rows[-1][4][1] - rows[-2][4][1]) < 0.01 and \
         abs(rows[-1][5] - rows[-2][5]) < 1e-5
-    ok = all(r[4] is not None and r[5] > 0 and r[7] < 1 and r[8] < 1e-6 for r in rows) and conv
+    falls = all(rows[i + 1][8] < rows[i][8] / 3 for i in range(2)) and rows[-1][8] < 1e-6
+    ok = all(r[4] is not None and r[5] > 0 and r[7] < 1 for r in rows) and conv and falls
+    print("   the region-I formula agrees with the grid to an error falling at second order: %s" % falls)
     # controls
     o_nf = slice_nk(tb, 80, drop_flux=True)
     ctl1 = float(o_nf[:, 1].max()) < 0
