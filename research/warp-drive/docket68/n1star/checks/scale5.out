@@ -13,15 +13,15 @@ Z6  Z on N
   Z6c Z (r^-q F(xhat)) = -q r^-q F along N: pass
   Z6d control: d_t v = 1, d_t is transverse to N: pass
 Z7  the kernels of the Z-commuted energy at weight a
-  Z7a every kernel is integrable for a = 51/20, 11/4, 59/20 (in (5/2, 3)): pass
-  Z7b control: at a = 3 the residual's kernel (v1 - t)^(a-4) is not integrable: pass sqrt(2)/(2*tt)
-  Z7c control: at a = 1/2 the quasilinear h_R-kernel (v1 - t)^(-1/2-a) is not integrable: pass
+  Z7a [arithmetic] every kernel is integrable for a = 51/20, 11/4, 59/20 (in (5/2, 3)): pass
+  Z7b [arithmetic] control: at a = 3 the residual's kernel (v1 - t)^(a-4) is not integrable: pass sqrt(2)/(2*tt)
+  Z7c [arithmetic] control: at a = 1/2 the quasilinear h_R-kernel (v1 - t)^(-1/2-a) is not integrable: pass
 Z8  the class on S from the S-flux
   Z8a the S-energy (Hardy) and rho^(a+1) L^2_b(drho/rho) agree on rho^beta, finite exactly for beta > a + 1: pass
-  Z8b l0 = 3.8, a = 2.9 in (l0 - 1, 3): rho^(a + 1 - 0.01) lies in rho^(l0) L^2_b: pass
-  Z8c Sigma|_S: rho^p F_p(1 - (v1 - f) rho) has exponents p + j, all in E_0^(1/2) = {2 + j/2}: pass ['2', '5/2', '3',
-        '7/2', '4', '9/2', '5', '11/2']
-  Z8d control: the pointwise reading O(rho^(1/2 + a)) (round 2 R2.8) fails at l0 = 3.8, a = 2.9: pass
+  Z8b [arithmetic] l0 = 3.8, a = 2.9 in (l0 - 1, 3): rho^(a + 1 - 0.01) lies in rho^(l0) L^2_b: pass
+  Z8c [arithmetic; recomputed in r5settle5 G6] Sigma|_S: rho^p F_p(1 - (v1 - f) rho) has exponents p + j, all in
+        E_0^(1/2) = {2 + j/2}: pass ['2', '5/2', '3', '7/2', '4', '9/2', '5', '11/2']
+  Z8d [arithmetic] control: the pointwise reading O(rho^(1/2 + a)) (round 2 R2.8) fails at l0 = 3.8, a = 2.9: pass
 Z1  the exact scaling identity of the gauge-fixed operator (mpmath, 40 digits)
   Z1a (Z + 2) P(h) = DP(h)[Z h] - 2 mu d_mu P(h), all components, three points: pass max |defect| 4.72e-41 against sizes
         up to 0.444
