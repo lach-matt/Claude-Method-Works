@@ -11,7 +11,8 @@ field Z = d_tau + c xhat.d_x (Z(tau) = 1):
 
   T1 (exact) d_tau int_(A(tau)) phi^2 = 2 <phi, Z phi> + int div(c xhat) phi^2 + (b' - c(b)) int_(|x| = b) phi^2 + c(a)
      int_(|x| = a) phi^2 (the divergence theorem on the annulus in R^4, computed on radial functions, |S^3| = 2 pi^2).
-     The record's case is c = -1.
+     The record's case is c = -1. (Round 5, the verifier's minor 2: lhs and rhs are now compared -- lhs - rhs is
+     reduced to an r-integral of zero -- and the mutations "sign of b' - c(b) flipped" and "lhs = 0" are rejected.)
   T2 (exact) the ingoing generator ell_in = e^(-psi) d_R|vhat has c = -1 (the record's L0, up to the factor e^(-psi));
      the outgoing generator ell_out = g0^-1 du has c_out = y/(1 - y), y := e^psi f/2. Since f <= 1 and psi <= 0, y <=
      1/2, so c_out in (-1, 1]: b' - c_out(b) <= -2 + 1 < 0 with the record's b' = -2. On R = a, where mu > a^2 (f < 0;
@@ -34,25 +35,40 @@ import sys
 import sympy as sp
 
 
-def t1():
+def t1(mutate=None):
+    """T1, with lhs and rhs compared: lhs - rhs, written as one integral over (a, b(tau)) plus boundary terms, must be
+    the integral of an exact r-derivative whose boundary values cancel the boundary terms (round 5, the verifier's
+    minor 2: the earlier version never compared them)."""
     tau, rr, a = sp.symbols('tau r a', positive=True)
     b = sp.Function('b')(tau)
     phi = sp.Function('phi')(tau, rr)
     c = sp.Function('c')(tau, rr)
     w = 2 * sp.pi**2 * rr**3                                                     # the area of the sphere of radius r
     lhs = sp.diff(sp.Integral(phi**2 * w, (rr, a, b)), tau).doit()
+    if mutate == 'lhs0':
+        lhs = sp.Integer(0)
     Zphi = sp.diff(phi, tau) + c * sp.diff(phi, rr)
     divc = sp.diff(rr**3 * c, rr) / rr**3                                        # div(c xhat) in R^4 for radial c
+    sgn = -1 if mutate == 'flip' else 1
     rhs = (sp.Integral(2 * phi * Zphi * w, (rr, a, b)) + sp.Integral(divc * phi**2 * w, (rr, a, b))
-           + (sp.diff(b, tau) - c.subs(rr, b)) * (phi**2 * w).subs(rr, b) + c.subs(rr, a) * (phi**2 * w).subs(rr, a))
-    # compare after moving everything under one integral: the integrand difference must be an exact r-derivative
-    # whose boundary values cancel the boundary terms
-    integrand = 2 * phi * Zphi * w + divc * phi**2 * w - 2 * phi * sp.diff(phi, tau) * w
-    total = sp.diff(c * phi**2 * w, rr)
-    ok = sp.simplify(integrand - total) == 0
-    bnd = sp.simplify((c * phi**2 * w).subs(rr, b) - (c * phi**2 * w).subs(rr, a)
-                      - (c.subs(rr, b) * (phi**2 * w).subs(rr, b) - c.subs(rr, a) * (phi**2 * w).subs(rr, a))) == 0
-    return ok and bnd, (lhs, rhs)
+           + sgn * (sp.diff(b, tau) - c.subs(rr, b)) * (phi**2 * w).subs(rr, b)
+           + c.subs(rr, a) * (phi**2 * w).subs(rr, a))
+    D = sp.expand(lhs - rhs)
+    # split D into its integrals over (a, b) and the rest (boundary terms)
+    integrand, bnd = sp.Integer(0), sp.Integer(0)
+    for term in sp.Add.make_args(D):
+        ints = [x for x in term.atoms(sp.Integral)]
+        if ints:
+            assert len(ints) == 1 and ints[0].limits == ((rr, a, b),)
+            coef = sp.simplify(term / ints[0])
+            integrand += coef * ints[0].function
+        else:
+            bnd += term
+    # lhs - rhs = int_a^b I dr + B must vanish: I = -d_r(F) with F(b) - F(a) = B, F = c phi^2 w
+    Fp = c * phi**2 * w
+    ok_int = sp.simplify(integrand + sp.diff(Fp, rr)) == 0
+    ok_bnd = sp.simplify(bnd - (Fp.subs(rr, b) - Fp.subs(rr, a))) == 0
+    return ok_int and ok_bnd, (lhs, rhs)
 
 
 def t2():
@@ -110,7 +126,12 @@ def main():
     cb, exb = t3(0.3)
     ok3 = ca < 0 and ex == 0
     ctl = cb > 0 and exb > 0                                           # True: the untrapped case is rejected
-    print('  T1: the transport energy identity on the annuli with the two boundary terms: %s' % ok1)
+    okf, _ = t1('flip')
+    ok0, _ = t1('lhs0')
+    print('  T1: the transport energy identity on the annuli with the two boundary terms (lhs - rhs reduces to the\n'
+          '      integral of -d_r(c phi^2 w) plus its boundary values, which cancel): %s; mutations rejected: the sign\n'
+          '      of b\' - c(b) flipped %s, lhs = 0 %s' % (ok1, not okf, not ok0))
+    ok1 = ok1 and not okf and not ok0
     print('  T2: c_in = -1; c_out = y/(1 - y), y = e^psi f/2, increasing in y, tending to -1 as y -> -oo,\n'
           '      so in (-1, 1] for y <= 1/2 and negative for y < 0 (R = a trapped): %s' % ok2)
     print('  T3: mu0 = 0.82211 > a^2: c_out(a) = %.4f < 0, and of 40 rays traced back from the annulus %d reach R = a: '

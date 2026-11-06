@@ -13,11 +13,18 @@ T²-class reduction of the Vlasov passage to Part I is **deduced** with its iden
 Round 2 (2026-11-02, Part V). An independent verifier read this note at commit 169c9b5 and found no major gap; its seven
 findings are seated (section 11, each with its disposition, the text corrected in place where it stood). Theorem E₂'s
 Lemma 3.3₂ and Steps 4-6 are written in full (section 8), every identity behind them computed (`checks/twodecomp5.py`,
-from the full reduced Ricci tensor) and the power counting computed term by term (`checks/twoledger5.py`): Theorem E₂,
+from the reduced Ricci tensor, whose principal part is what J1-J7 exercise [R5]) and the power counting computed term by term (`checks/twoledger5.py`): Theorem E₂,
 and with it Theorem 1₂ items 1-5, is **deduced**. The record's item 6 (one zero per column of the outgoing expansion) is
 **deduced for two families**, with no condition on where the outgoing packet lies: the outgoing wave's would-be O(1)
-contribution to ∂_R θ⁺ along a column is computed to vanish at stage 0 (section 9); item 7 (the mean mass) is **deduced**
-with the outgoing family's parity base computed (section 10). Not yet read by an independent verifier.
+contribution to ∂_R θ⁺ along a column is computed to vanish at stage 0 (section 9) [R5: and proved for every function,
+section 9, `checks/h3proof5.py`]; item 7 (the mean mass) is **deduced** with the outgoing family's parity base computed
+(section 10). [R5: read by an independent verifier at commit 9872bb3, findings in section 12.]
+
+Round 5 (2026-11-06). The independent verifier of Part V (sections 8-11, commit 9872bb3) found Lemma 3.3₂, Steps 4-7 (the
+94 ledger rows), item 7, section 2 (d)-(e) and V3's Schur argument sound, reran all eight programs to their `.out`
+files, and showed H3 provable. Its findings (one major, five minor, notes and nits) are repaired in place, each marked
+[R5], with their dispositions in section 12; H3's structural proof is banked as `checks/h3proof5.py` and section 11 (i)
+is withdrawn.
 
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that the
 program must reject), **deduced** (argued here, a standard step named as such), **READ** (verbatim, identifier and page,
@@ -122,7 +129,8 @@ b_h δ_h P) dv′, with a_h, b_h the mean values of ∇F on the segment, continu
 Q. So U ∈ C¹; the k-th derivatives solve linear Volterra equations of the same form with coefficients built from lower
 derivatives, so by induction U ∈ C^∞ for smooth data. *Boundedness of the domain.* On N′, in the gauge s = const there
 (twodomain5's cone()), R_uu = 0 for u ≥ u2, so R_u(u, v0) = c0 < 0 there; R_uv = −e^(2s) μ/R³ < 0 gives R_u ≤ c0 on
-{u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded. *The first exit* (written in round 2, the verifier's item 1: (c) assumes the
+{u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded, and by the same bound {R ≥ a′, v ≤ V1} for every a′ > 0 [R5: stated with
+a′ before step (1), which uses a uniform K_0 on {R ≥ a′}]. *The first exit* (written in round 2, the verifier's item 1: (c) assumes the
 solution on J⁻(p), so Ω₂ ⊂ Q_(a′) needs an argument). Fix a′ < a, K > K_0 (the chain's bound on {R ≥ a′}), the truncated
 fixed point Ũ on Q (F_K, G_K equal to F, G on {|U| ≤ K, R ≥ a′}) and Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p) ∩ Q}. (1) Ũ
 solves the true system on Q_(a′): for p ∈ Q_(a′), if |Ũ| ≥ K somewhere on the compact J⁻(p) ∩ Q, let q be such a point
@@ -131,7 +139,7 @@ there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, ope
 continuous in p), and the development D := ∪_(a″>0) Q_(a″) is a past set carrying one smooth solution (two truncations
 agree where both solve B1, by the contraction). (3) For p ∈ D with R(p) ≥ a, (c) applies, J⁻(p) ⊂ D, and gives R ≥
 min(R(p), √μ0) ≥ a > a′ on J⁻(p): p ∈ Q_(a′). (4) So G := {p ∈ D : R ≥ a on J⁻(p)} ⊂ Q_(a′), and G is not cut by the
-edge of the development: G is closed, and at p ∈ ∂G the least of R over J⁻(p) is a (were it larger, a neighbourhood of
+edge of the development: G is closed in Q [R5: G ⊂ Q_(a′) and R̃ is continuous on Q_(a′)], and at p ∈ ∂G the least of R over J⁻(p) is a (were it larger, a neighbourhood of
 p would lie in G), so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, i.e. R(p) = a: ∂G ⊂ {R = a}. Ω₂ ⊂ G below, and the
 background exists, smooth, on all of it.
 
@@ -240,8 +248,9 @@ domain, the transports and the mollifier in place):
   s_K(h)) G2^K, each O(∂ s_K(h)) by (M3).
 - *Lemma 3.3₂* (deduced, 4g; written in full and computed in section 8): contracting with ℓ_in ⊗ ℓ_in kills family
   in's λ⁻¹ term and its □̃φ_in term exactly;
-  family out's survive through χ′ alone: ½ λ⁻¹ ((1 − 𝒫) s_out(h)) e^(−4σ) F2² χ′ = O(∂ s_out(h)) and −q c_in Ψ_out, a
-  bounded coefficient at the top order of Ψ_out; N_φ^out(ℓ_in, ℓ_in) keeps |w||∂²φ_out|, at most C M λ^(K−4) N₂ in the
+  family out's survive through χ′ alone: ½ λ⁻¹ ((1 − 𝒫) s_out(h)) e^(−4σ) F2² χ′ = O(∂ s_out(h)), λ⁻¹ ((ℓ_app^out −
+  ℓ_out) · dφ_out) G2^out(ℓ_in, ℓ_in) = O(|dφ_out|) [R5: listed], and −q c_in Ψ_out, a bounded coefficient at the top
+  order of Ψ_out; N_φ^out(ℓ_in, ℓ_in) keeps |w||∂²φ_out|, at most C M λ^(K−4) N₂ in the
   bootstrap. No large coefficient enters s_in's equation; s_out's is the mirror.
 - *Lemma 3.4₂* (computed, 4f Q1): Ψ_K := □̃φ_K obeys L_K Ψ_K + a_K Ψ_K = ½ □̃ 𝒫 s_K(h) − ½ M_K(𝒫 s_K(h)) − N_K φ_K, the
   record's (3.6) form on any round double-null metric, both generators being shear-free; Ψ_in's source contains 𝒫(c_in
@@ -302,7 +311,8 @@ The record's proof (N1STAR-PROOF.md section 6) carries over with:
 
 ## 7. Part I: what is proved, and what is not
 
-- Background on Ω₂, outgoing data stated: deduced; identities computed; example computed (§2, twobg5, twoext5 X1-X2).
+- Background on Ω₂, outgoing data stated: deduced (via D552/D558, §2 (d)); identities computed; example computed on the
+  rectangle v ≤ 5 only (§2, twobg5, twoext5 X1-X2) [R5: label].
 - μ ≥ μ0, R = a trapped, past-closed: deduced; computed (G2) with a failing control (§2 (b)-(c)).
 - Regularity step of D558: deduced (written) (§2 (d)).
 - Constraints on the slice: deduced; S1 symbolic, S2-S4 exact at random points (§6, twoslice5).
@@ -314,7 +324,8 @@ The record's proof (N1STAR-PROOF.md section 6) carries over with:
 - Transport on Ω₂ for both generators: computed (twotransport5).
 - Theorem 1₂ items 1-5: **deduced** (§1); read by an independent verifier at commit 169c9b5 with no major gap; round 2's
   sections 8-10 not yet read.
-- Theorem 1 item 6 (horizon) for two families: **deduced**, with no placement condition (§9; round 1: not claimed).
+- Theorem 1 item 6 (horizon) for two families: **deduced**, with no placement condition (§9; round 1: not claimed); its
+  decisive cancellation proved structurally (h3proof5) [R5].
 - Theorem 1 item 7 (mean mass) for two families: **deduced** (§10; round 1: not claimed).
 
 (Round 1 wrote here: item 6 would need the outgoing wave's O(1) oscillating contribution to ∂_R θ⁺ along the columns to
@@ -453,9 +464,11 @@ radial momenta stay radial along radial geodesics, and the Einstein–(radial) m
 Einstein–two-null-dust system. Control (computed, round 2): the V4 measure with one more momentum carrying p_θ ≠ 0 has
 T_θθ > 0, so it is not of the two-dust form.
 
-**Consequence (deduced).** Within the round T² class the passage to Vlasov matter adds nothing to Part I: every round
-massless Vlasov limit in the class is a two-dust solution, and Theorem 1₂ realises those of section 2's form (a seed, an
-ingoing shell, an outgoing packet between them on Σ_τ0) as limits of vacuum metrics. No infinite number of families is
+**Consequence (deduced).** Within the round T² class every round massless Vlasov limit is a solution with two radial
+null dusts, one ingoing and one outgoing; those of section 2's form (a seed, an ingoing shell, an outgoing packet between
+them on Σ_τ0) are realised by Theorem 1₂ as limits of vacuum metrics. [R5, the verifier's major finding: Part III proves
+the two radial dusts, not that every round limit has section 2's configuration; the earlier "adds nothing to Part I" is
+withdrawn.] No infinite number of families is
 needed: in the round class there are only two null directions to oscillate in (Part II).
 
 **Where it stops (open).** A non-round T²-invariant massless Vlasov field has momenta with p_θ ≠ 0; approximating it by
@@ -472,9 +485,9 @@ nor [Tou24] (p. 4) provides beyond small data.
 # Part V. Round 2 (2026-11-02)
 
 Labels as above. Programs added: `checks/twodecomp5.py` (exact rational arithmetic at random points, from the full
-reduced Ricci tensor; about four minutes), `checks/twoledger5.py` (seconds), `checks/twohorizon5.py` (H1-H2 exact,
+reduced Ricci tensor; about three minutes), `checks/twoledger5.py` (seconds), `checks/twohorizon5.py` (H1-H2 exact,
 sympy; H3 symbolic up to three sample points, then 30 digits; about half an hour), `checks/twoparity5.py` (exact,
-sympy; about half an hour); amended: `checks/twobg5.py` (G3-G5),
+sympy; about ten minutes); amended: `checks/twobg5.py` (G3-G5),
 `twotransport5.py` (T3), `axisphase5.py` (A4), `torusstress5.py` (V3, V4's control). Each has its `.out`; every check
 has a control that the program must reject, and does.
 
@@ -488,7 +501,9 @@ harmonic (χ_in dv̂², χ_out du²); Y_K := F_K g1^(K) + λ F_K ĝ_2 (a two-pha
 written with the principal part −½ g^ab ∂_a ∂_b at the full metric g = g_app + w, as the record's (3.2).
 
 *The facts used, each computed (twodecomp5, at three random points of the general round double-null background with
-both families' stage-0 waves and a mixed λ² profile, from the full Ric^H; controls (a)-(f) rejected).*
+both families' stage-0 waves and a mixed λ² profile, from Ric^H; controls (a)-(f) rejected). [R5: J1-J7 exercise the
+principal part −½ g^ab ∂_a ∂_b of Ric^H, which is what (F1)-(F3) claim (dropping ΓΓ from Ric, or breaking the
+tracelessness of the waves, leaves them true); J0 holds for any operator commuting with translations in s.]*
 
 - (F1) λ⁻² and λ⁻¹ of P on a slow h: no λ⁻² term; the λ⁻¹ term is ½ λ⁻¹ Σ_K s_K(h) G2^K, s_K(h) := h(ℓ_K, ℓ_K), in all
   fifteen components (J1, J5; twolin5 L1 had h constant). Control (a), plain Ric: fails.
@@ -580,7 +595,9 @@ exponent and highest order of each computed in twoledger5 T1, 28 rows for this s
     by (M4), (M6); no Bernstein inequality is needed here);
 (h) ½ λ (□̃_app φ_K) [F_K ĝ_2] = λ (Ψ_K + O(λ) ∂² φ_K) × profile: ≤ C λ N₂;
 (i) N_φ^K: ≤ C M λ^(K−5) N₂ ≤ C M λ N₂ (K ≥ 6; its |w| |∂² φ_K| part ≤ C M λ^(K−4) N₂);
-(j) N(w): ≤ C λ⁻⁵ N₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1) (K ≥ 6).
+(j) N(w): ≤ C λ⁻⁵ N₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1) (K ≥ 6); at the top derivatives of w this uses Moser's product
+    estimate [R5]. (The g0 part of [∂^α, g^ab] in (a) and the commutator [∂_x², L_K] of Step 5 have smooth λ-independent
+    coefficients and no ledger row; they are ≤ C N₂ trivially [R5].)
 So Σ_(j≤k) λ^j ‖∂^j ∂h(τ)‖ + ‖h(τ)‖ ≤ C (N₂(τ0) + ∫_(τ0)^τ (N₂ + C_R λ^K + C M² λ^(K+1))). Nothing in (a)-(j) has a
 coefficient of order λ⁻¹ beyond (d), which (M3) pays for; the two families enter (d)-(i) once each.
 
@@ -649,9 +666,15 @@ oscillation in the ingoing expansion). At order λ the outgoing expansion has **
 computed): with both families' stage-0 waves and ĝ_2's mixed harmonics fixed by stage 0's division, the λ¹ coefficient
 of the expansion along g⁻¹ du has, at three sample points (concrete smooth functions, 30 digits), mixed harmonics and
 pure (0, n2) harmonics below 10⁻³¹, against harmonics in s1 alone of 0.37 to 0.91. Control: with ĝ_2 dropped the mixed
-harmonics are 4 × 10⁻³ to 0.12 at the three points, so the cancellation is stage 0's division at work (the bilinear term
-of the two waves' second-order area variation against tr_S ĝ_2; a structural proof, presumably through Raychaudhuri's
-equation along ℓ_out with R^(0) = 0, is not written). The stage-1 unknowns add no s2-dependence at order λ (deduced:
+harmonics are 4 × 10⁻³ to 0.12 at the three points, so the cancellation is stage 0's division at work. [R5, the
+verifier's proof, computed in `checks/h3proof5.py`:] the λ¹ term of θ_du is (terms in s1 alone, with slow derivatives)
++ g0^uv F1(a2), a2 := ½ tr_γ0 Q_AB − ¼ |W_AB|²_γ0 (non-frozen, symbolic in every function: (T)); the angular trace of
+Ric^H at λ⁰ is the λ⁰ form of the colliding-plane-wave identity γ^AB Ric_AB = −α⁻¹ □_h α, α = √det γ, whose gauge term
+carries only angular derivatives and so is slow, and the mixed harmonics need two fast derivatives, so γ0^AB
+R^(0)_AB|mixed = −2 g0^uv F1 F2 a2|mixed (S1); stage 0's division removes every mixed harmonic of R^(0) (S2), so
+a2|mixed = 0 for both sign patterns, (1, 1) and (1, −1), and θ_du's λ¹ term has no harmonic depending on s2, for every
+function (S3). Controls: without the division a2 has mixed harmonics; with the angular inverse metric's λ corrections
+dropped, (T) leaves an s2-dependent remainder. The stage-1 unknowns add no s2-dependence at order λ (deduced:
 ĝ_2's pure harmonics enter as ½ g0⁻¹(du, dϕ) F tr_S ĝ_2, which vanishes for ϕ = u since g0⁻¹(du, du) = 0 and is a
 harmonic in s1 alone for ϕ = v̂; φ1 enters through ½ g0⁻¹(du, dφ1) F tr_S W = 0; m1 carries no phase), and normalising
 the null covector, k_g = c(g)(du + β dv), adds at order λ only s1-dependence (β ∝ g^uu = −λ e^(−4σ) χ_in + O(λ²), c(g)
@@ -695,8 +718,8 @@ DM[σ^* m] = DM[m] by naturality (σ fixes g0 and S), so DM[m1] = −DM[m1] = 0 
 O(λ). ∎
 
 **Theorem 1₂ items 6-7.** Item 7 follows for Theorem 1₂ as stated above (deduced; its parity base computed for both
-families and for the mixed stage-0 harmonics). Item 6 follows (section 9, deduced, its decisive cancellation computed
-at three sample points).
+families and for the mixed stage-0 harmonics). Item 6 follows (section 9, deduced, its decisive cancellation proved for
+every function, h3proof5 [R5]; round 2 had it computed at three sample points).
 
 ## 11. The verifier's findings (commit 169c9b5) and their dispositions
 
@@ -722,14 +745,13 @@ at three sample points).
 7. (Nit) Off the diamond, u > u2 and v > v_end are Vaidya with mass functions from the diamond's solution. **Repaired**
    in section 2 (a).
 
-**What remains open (precisely).** (i) Item 6's decisive cancellation (no harmonic in s2 at order λ in the outgoing
-expansion) is computed at three sample points, not proved for every function: a structural proof (presumably
-Raychaudhuri's equation along ℓ_out with stage 0 solved) is not written. (ii) Item 7's induction past the base (every
-later stage S-symmetric by uniqueness) is deduced, as in the record, not computed. (iii) An independent reading of
-sections 8-10. (iii) The symbol on R = a beyond the computed rectangle (v > 5) is bounded only by G4's
-analytic rate μ_max/a³, which is far from the measured one. (iv) J0-J7 of twodecomp5 are exact at three random points
-of a jet space (strong evidence, not a symbolic identity). (v) Part II's non-round background and Part III's
-non-round Vlasov case, unchanged.
+**What remains open (precisely).** [R5: (i), item 6's decisive cancellation, is withdrawn: proved in section 9
+(h3proof5); (iii), an independent reading of sections 8-10, is done (section 12).] (ii) Item 7's induction past the
+base (every later stage S-symmetric by uniqueness) is deduced, as in the record, not computed. (iv) The symbol on R = a
+beyond the computed rectangle (v > 5) is bounded only by G4's analytic rate μ_max/a³, which is far from the measured
+one. (v) J0-J7 of twodecomp5 are exact at three random points of a jet space (strong evidence, not a symbolic
+identity), and they exercise the principal part of Ric^H. (vi) Part II's non-round background and Part III's non-round
+Vlasov case: [R5] see FAMILIES5-NONROUND.md, FAMILIES5-AXIS.md and FAMILIES5-VLASOV.md.
 
 ---
 
@@ -744,6 +766,6 @@ structural proof of H3's cancellation (section 9).
 
 `FAMILIES5-FULL.md` (this note); `checks/twobg5.py` (+ `.out`, about ten minutes); `checks/twoslice5.py` (+ `.out`,
 about twenty minutes); `checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`
-(+ `.out` each, seconds); round 2: `checks/twodecomp5.py` (+ `.out`, about four minutes), `checks/twoledger5.py`
+(+ `.out` each, seconds); round 2: `checks/twodecomp5.py` (+ `.out`, about three minutes), `checks/twoledger5.py`
 (+ `.out`, seconds), `checks/twohorizon5.py` (+ `.out`, about half an hour), `checks/twoparity5.py` (+ `.out`, about
-half an hour).
+ten minutes); round 5: `checks/h3proof5.py` (+ `.out`, about six minutes) [R5].

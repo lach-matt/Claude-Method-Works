@@ -3,7 +3,9 @@
 *Status.* Written (D345). Verified (D347): verifier 162 found no blocking or major gap; its minor findings M1-M4 and
 nits N1-N5 are seated (finding (IX4)). Repaired (D610): a later reading found that $\nu$ vanishes near $\{r = r_0\}$, so
 that $\Sigma_{\mathrm{IVP}}$ is there the boundary of the region where $\dot g$ lives; the comparison is now posed on the
-future half of a Cauchy development that extends past $\Sigma_{\mathrm{IVP}}$ (finding (IX5)).
+future half of a Cauchy development that extends past $\Sigma_{\mathrm{IVP}}$ (finding (IX5)). Repair read (D611: no
+major gap; m1, m2, n1-n6 seated). Proved (D617): a full line-by-line re-read found no major gap; its minor findings m1,
+m2 and nits n1-n8 are seated (finding (IX6)).
 
 Part VIII Remark 2.4 (a) records what Theorem 2.2 there does not assert: that a linearised solution given in another
 gauge differs from $\dot g$ by a linearised diffeomorphism. This part proves it, on the whole future of
@@ -22,7 +24,7 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
 - *The spacetime.* $g := g_{b_0}$ on $M$, the region $\{|x|\ge r_0\}$ in the coordinates $(t,x)$ of III.B, and $M^\circ
   := \{|x|>r_0\}$. $t_{\mathrm{IVP}}$ is III.B Lemma 3.7 (b)'s function and $\Sigma_{\mathrm{IVP}} :=
   t_{\mathrm{IVP}}^{-1}(0)$; $\nu(r)$ is III.K Proposition 1.2's, smooth and non-decreasing with $\nu = 0$ on
-  $[0,R_\nu]$, $R_\nu := \frac12(r_0+R)$ (III.K Proposition 1.2's proof), so $\nu\ge0$ but $\nu$ is not positive; and
+  $[0,R_\nu]$, $R_\nu := \frac12(r_0+R)$ (III.K Proposition 1.2's statement), so $\nu\ge0$ but $\nu$ is not positive; and
   $N := \{t_{\mathrm{IVP}}\ge-\nu(|x|)\}$ as in Part VIII section 0. On $\{|x|\le R_\nu\}$, then, $N$ ends at
   $\Sigma_{\mathrm{IVP}}$, which is there part of its boundary, and $\dot g$ is not defined to its past. So the
   comparison is posed in a region that extends past $\Sigma_{\mathrm{IVP}}$, where only $g$ is used, and the tensors
@@ -43,8 +45,8 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   the identity on $\{|x|\le5R_1\}$, and $r_1\ge R_6\ge R_3>5R_1$, as $\psi_{\mathrm{IVP}}' = \psi'>0$ at $5R_1$ and
   $\psi_{\mathrm{IVP}}' = 0$ on $[R_3,\infty)$ (III.B Lemma 3.7 (b); III.K section 0). So of Part VIII's cover of
   $\mathcal D$ only the compact part $\mathcal K$ reaches them: $\Omega_{\mathrm{ext},r_1}\subset\{r\ge r_1\}$, and the
-  slab $\mathcal S$ lies in $\{|x|>R_9\}$, where $\rho'_I>1$ on $\Sigma_{\mathrm{IVP}}$, so it does not meet
-  $\Sigma_{\mathrm{IVP}}$; a half-ball $\{t_{\mathrm{IVP}}\ge0\}$ about each such point lies in $\mathcal K$ (these
+  slab $\mathcal S$ lies in $\{|x|>R_9\}$, $R_9\ge R_3>5R_1>R_\nu$, and does not meet $\Sigma_{\mathrm{IVP}}$, as
+  $t_{\mathrm{IVP}}\ge\frac r4>0$ on $\mathcal S$ (III.K Proposition 1.2's proof, line 178); a half-ball $\{t_{\mathrm{IVP}}\ge0\}$ about each such point lies in $\mathcal K$ (these
   readings checked by the verifier of D610's repair). There $\dot g = \dot h+\dot g_{S'}$ (Part VIII Theorem 2.2 (2)),
   $\dot g_{S'} = -\mathcal L_{V(S')}g$ is smooth across, and $\dot h$ lies in every $H^k$ of the interior of $\mathcal
   K$, bounded up to $\Sigma_{\mathrm{IVP}}$, where Part VIII Proposition 1.2's proof solves it by energy estimates
@@ -58,7 +60,7 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   3.2 (b)); and a point of $N$ has either $t^\flat_*>\hat T+3\ge1$, so lies in $\Omega_*$, or lies in $\mathcal D =
   N\cap\{t^\flat_*\le\hat T+3\}$, with III.K section 0's convention that $\{t^\flat_*\le c\}$ is the
   complement of $\{t^\flat_*>c\}$, so that points where $t^\flat_*$ is undefined lie in it. So Part VIII Theorem
-  2.2's $\dot g$ is a smooth symmetric 2-tensor on $N$ with
+  2.2's $\dot g$ is a smooth symmetric 2-tensor on the interior of $N$, smooth up to $\Sigma^\circ$ (above), with
   $D\mathrm{Ric}(\dot g) = 0$ there.
 
 - *Time orientation.* As in II.B, $dt_*$ is past timelike. $dt_{\mathrm{IVP}}$ is timelike for $g$ on $M$ (III.B Lemma
@@ -99,7 +101,8 @@ hyperbolic manifolds ([BGP], READ) and the pointwise identities of Lemma 2.1 (`c
   - Lemma A.5.9 (p. 176, as II.F section 1.4 reads it): for an acausal hypersurface $S$ of a time-oriented Lorentzian
     manifold, its Cauchy development $D(S)$ is open and globally hyperbolic, and $S$ is a Cauchy hypersurface of $D(S)$.
   - In the proof of Proposition 3.2.5 (p. 81): a section smooth on the whole manifold (there $P\hat u-f$) and vanishing
-    on one side of $S$ is restricted to the other side and extended by $0$. Theorem 2.2's Step 3 below uses the device
+    to infinite order along $S$ is restricted to one side of $S$ and extended by $0$. Theorem 2.2's Step 3 below uses the
+    device
     for a section given on one side only, and shows the zero extension smooth directly.
   - Connectedness. [BGP]'s globally hyperbolic manifolds are connected (Definition 1.3.8, p. 23). A Cauchy development
     below may have several connected components, and every statement taken from [BGP] is applied on each component
