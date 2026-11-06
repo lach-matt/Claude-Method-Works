@@ -46,7 +46,8 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      R f q' - 2 w)/f) solves both constraints identically, and E_K - 6 k^2 m Z^2/(R^3 H_KI^2) has zero Euler operator in
      Z. Control (must fail, a gauge-variant variable admitted): Z replaced by R^3 w.
   E6 (exact) The potential energy. E_V = E_red + R^4 F' C + d/dR (Euler operator zero); l := A - (2R/f) F' +
-     (2 H_KI/(3 f^2)) F satisfies l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C, kappa = (k^2 + 6 + 6x)/(3 R f),
+     (2 H_KI/(3 f^2)) F satisfies l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C,
+     kappa = (k^2 + 6 + 6x)/(3 R f),
      x = mu/R^2; the map l -> (A, F) solves C identically; and with Phi := R^(3/2) f^2 l/H_KI,
          E_V = (27 m/(2 k^2)) (f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)) + d/dR,
          Qp = 1296 x^3 + (624 m - 144) x^2 + 36 m (m - 12) x + 16 m^3 + 60 m^2,
@@ -302,7 +303,9 @@ def slice_background():
         lapse_shift=sp.simplify(N**2 - Del * YR**2 - f) == 0,
         KRR=sp.simplify(KRR - (R_**5 * sp.diff(w, R_) - R_**2 * mu * w**3 + 3 * R_**2 * mu * w**2 + mu**2 * w**3)
                         / (R_**5 * sq)) == 0)
-    return dict(w=w, f=f, Del=Del, N=N, YR=YR, nR=nup[1], KRR=KRR, sq=sq, checks=checks)
+    checks['n^R'] = sp.simplify(nup[1] + (1 - f * w) / sq) == 0
+    return dict(w=w, f=f, Del=Del, N=N, YR=YR, nR=nup[1], KRR=KRR, sq=sq, checks=checks,
+                ss=sp.Function('ss')(R_))
 
 
 def tensor_density():
@@ -336,9 +339,13 @@ def theta_integral(dens, TA, n):
 
 
 def reduce_sq(e, bg):
-    """zero test in Q(R, mu, w-jets)[SQ]/(SQ^2 - Del): every derivative of the slice functions eliminated"""
-    w, Del = bg['w'], bg['Del']
-    e = e.subs(sp.sqrt(Del), SQ)
+    """zero test in Q(R, mu, w-jets)[SQ]/(SQ^2 - Del): the slice's sqrt(w (2 - f w)) enters as the function ss(R),
+    its derivatives eliminated by ss' = Del'/(2 ss)"""
+    w, Del, ss = bg['w'], bg['Del'], bg['ss']
+    for _ in range(2):
+        for k in range(6, 0, -1):
+            e = e.subs(sp.Derivative(ss, (R_, k)), sp.diff(sp.diff(Del, R_) / (2 * ss), R_, k - 1))
+    e = e.subs(ss, SQ)
     for k in range(7, 0, -1):
         e = e.subs(sp.Derivative(w, (R_, k)), WJ[k])
     e = e.subs(w, WJ[0])
@@ -368,9 +375,12 @@ def field_jets_zero(e, fns, bg, order=5):
 
 
 def substitute_bg(e, F, bg):
+    """the abstract slice functions replaced by their values on v = V(R), sqrt(Del) kept as the function ss(R)"""
     Gf, Kf, nf, Nf, Yf = F[:5]
-    e = e.subs(sp.sqrt(Gf), bg['sq'])
-    e = e.subs({Gf: bg['Del'], Kf: bg['KRR'], nf: bg['nR'], Nf: bg['N'], Yf: bg['YR']})
+    ss, w, Del = bg['ss'], bg['w'], bg['Del']
+    e = e.subs(sp.sqrt(Gf), ss)
+    KRR = (R_**5 * sp.diff(w, R_) - R_**2 * mu * w**3 + 3 * R_**2 * mu * w**2 + mu**2 * w**3) / (R_**5 * ss)
+    e = e.subs({Gf: Del, Kf: KRR, nf: -(1 - bg['f'] * w) / ss, Nf: 1 / ss, Yf: bg['YR']})
     return e.doit()
 
 
@@ -446,7 +456,8 @@ def e3(bg, td, out):
           % (affine, q_lo, float(q_lo), q_hi, float(q_hi), c_ok))
     qp = -nT * sp.integrate(sp.Symbol('Rr')**3 * ((sp.Symbol('Rr') - R1)**2 * (R2 - sp.Symbol('Rr'))**2)**2,
                             (sp.Symbol('Rr'), R1, R2))
-    print("   the momentum-only seed P = (R - R1)^2 (R2 - R)^2, H = 0, on the same band: Q = %.6e < 0 (any mu): %s; so Q "
+    print("   the momentum-only seed P = (R - R1)^2 (R2 - R)^2, H = 0, on the same band: Q = %.6e < 0 (any mu): %s; "
+          "so Q "
           "changes sign along s -> (s H, -s (Y/N) H_R + (1 - s) P), every member non-gauge (nonzero TT part)"
           % (float(qp), qp < 0))
     # control: the band moved outside the horizon
@@ -569,7 +580,8 @@ def e4():
     I0 = inv(a_, b_, c__, e_)
     I1 = inv(a_ + da, b_ + db, c__ + dc, e_ + de)
     invok = all(sp.simplify((x1 - x0).doit()) == 0 for x0, x1 in zip(I0, I1))
-    print("   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, alpha/(R "
+    print("   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, "
+          "alpha/(R "
           "f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): %s; the lapse direction k_psi has trace-free angular "
           "part psi (S_hat)^TF (z-shift psi/R^2): %s; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f "
           "b + k^2 e/6 + f R e'/2 are invariant: %s" % (gok, zok, invok))
@@ -733,7 +745,8 @@ def e6(rad):
         return 27 * m_ / (2 * k2) * (f_ * JR.D(Phi)**2 + QP * Phi**2 / (16 * r**2 * HKI**2))
     s4_ = JR.is_zero(JR.euler(Ered - target(sp.Rational(3, 2)), 'l'))
     ctl2 = not JR.is_zero(JR.euler(Ered - target(sp.Rational(1, 2)), 'l'))
-    print("   E_V = E_red + R^4 F' C + d/dR: %s; l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C: %s; l -> (A, F) "
+    print("   E_V = E_red + R^4 F' C + d/dR: %s; l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C: %s; "
+          "l -> (A, F) "
           "solves C identically: %s" % (s1_, s2_, s3_))
     print("   Euler operator of E_V(l) - (27 m/(2 k^2))(f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)), Phi = R^(3/2) f^2 "
           "l/H_KI, zero in l: %s" % s4_)

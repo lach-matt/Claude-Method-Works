@@ -666,15 +666,15 @@ there, and $T := \hat T+2$. [amended D626: as written this cannot work: Lemma 2.
 with $Y\subset\Omega^\circ_*$ the condition $L_p\subset X$ forces a level above 1, that is, the vanishing of $\tilde h'$
 on a slab above $\{t^\flat_* = 1\}$, which is what is to be proved. It reads: $\tilde h'$ has supported character at
 $\{t^\flat_* = 1\}$ (the $\bullet$-spaces of III.J Definition 1.1), so, extended by 0, it solves
-$L_{G_S,\phi_{-S}^*g_{b_0}}\tilde h' = 0$ on $X := \mathcal D^\circ_{-S}\cap\{\frac34<t^\flat_*<c\}$, and II.F Lemma 1.3
-is applied on $X$ at the level $\frac78$, below its support, as at PART-II-F-IOTA.md:1929-1934; Lemma 6.1 with $G_S$ for
-$g$, $Y := X$, $c := \frac78$ and $T := \hat T+2$ gives the sets ($L_p\subset X$: $\frac78\le t^\flat_*\le
-t^\flat_*(p)<c$ on it, and $\{\frac34<t^\flat_*\}$ lies in $\phi_{-S}^{-1}(\{t_{\mathrm{IVP}}\ge0\})$, $\phi_{-S}$ moving
-$t_{\mathrm{IVP}}$ by at most $C|S|r$ while $t_{\mathrm{IVP}}\ge t_*+\frac r4$ for $r\ge R_6$). $G_S$ lies in the class
-on $X$: on $\Omega_*$ as stated there, and below it near $\mathscr I^+$ by the same sources, $h_{-S}$ having III.C's
-orders on $\mathcal D$ near infinity (III.C$''$ Theorem 3.1 (2); Part IV$'''$ Corollary 2.3), and on the compact rest by
-its smallness in $C^0$.] Part VIII Step 4 is the case $h = 0$, where II.F Lemma 1.4 (a) at $\theta = 0$ gives such sets
-as well.
+$L_{G_S,\phi_{-S}^*g_{b_0}}\tilde h' = 0$ on $X := \mathcal D^\circ_{-S}\cap\{\frac34<t^\flat_*<c\}$, $c$ Lemma 2.3's
+level, and II.F Lemma 1.3 is applied on $X$ at the level $\frac78$, below its support, as at PART-II-F-IOTA.md:1929-1934;
+Lemma 6.1 with $G_S$ for $g$, $Y := X$, its $c$ equal to $\frac78$, and $T := \hat T+2$ gives the sets ($L_p\subset X$:
+$\frac78\le t^\flat_*\le t^\flat_*(p)<c$ on it, and $\{\frac34<t^\flat_*\}$ lies in
+$\phi_{-S}^{-1}(\{t_{\mathrm{IVP}}\ge0\})$, $\phi_{-S}$ moving $t_{\mathrm{IVP}}$ by at most $C|S|r$ while
+$t_{\mathrm{IVP}}\ge t_*+\frac r4$ for $r\ge R_6$). $G_S$ lies in the class on $X$: on $\Omega_*$ as stated there, and
+below it near $\mathscr I^+$ by the same sources, $h_{-S}$ having III.C's orders on $\mathcal D$ near infinity (III.C$''$
+Theorem 3.1 (2); Part IV$'''$ Corollary 2.3), and on the compact rest by its smallness in $C^0$.] Part VIII Step 4 is the
+case $h = 0$, where II.F Lemma 1.4 (a) at $\theta = 0$ gives such sets as well.
 
 **Lemma 6.2 (Proposition 1.2's uniqueness near infinity; D626).** Let $g_S := \phi_S^*g_{b_0}+h_S$ on $\mathcal D$, with
 $|S|$ and the data small. There is $R\ge R_5$ such that $\mathcal D\cap\{r\ge R\}\subset\Omega_{\mathrm{ext},r_1}

@@ -1,7 +1,7 @@
 # Part VIII: linear stability of the Schwarzschild-Tangherlini metric, n = 4 (III.K linearised at Tangherlini)
 
 *Status.* Written (D334); verified (D335: verifier 153 found no major gap; its minor finding m1 and six nits seated);
-proved (D336: verifier 154 read the repairs, correct; its three nits seated). Amended D378, D621: record at the end.
+proved (D336: verifier 154 read the repairs, correct; its three nits seated). Amended D378, D621, D626: record at end.
 
 This part proves the linear stability of five-dimensional Schwarzschild-Tangherlini $g_{b_0}$, $b_0 = (\mu_0,0)$, in
 the gauge of the nonlinear problem. Every solution $(\dot\gamma,\dot k)$ of the linearised constraint equations in
@@ -401,6 +401,7 @@ Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$ The
 
 *Amendment record (D621).* Amended D378 (Step 4: the input of II.C Lemma 3.2 (1), that past causal curves stay in
 $\{r\ge\min(r(p),r^\natural)\}$), read by an independent reader (D621): correct. The same reader found Step 4's other
-input mis-cited (m6): II.F section 7.4 is the $\iota^+$ model and gives no compact sets here; they are II.F Lemma 1.4
-(a) at $\theta = 0$, written out in Step 4 (D621). For the perturbed metrics of III.K the same sets come from III.K
-Lemma 6.1, proved there (D621; `checks/scrirad5.py`).
+input mis-cited (m6): II.F section 7.4 is the $\iota^+$ model and gives no compact sets here; they are II.F Lemma 1.4 (a)
+at $\theta = 0$, written out in Step 4 (D621). For the perturbed metrics of III.K the same sets come from III.K Lemma
+6.1, proved there (D621; `checks/scrirad5.py`). An independent verifier read D621 (D626): Step 4's sets hold; the Sources
+list now names II.F Lemma 1.4 and III.K Lemma 6.1 (D626).
