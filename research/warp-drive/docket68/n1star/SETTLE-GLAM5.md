@@ -702,7 +702,7 @@ Grönwall factor (Lemma 9.5 on the far region, P3a), Lemma 9.3 (+2), and the ℓ
 e^(3d1/(2r′))(d1/2) (+1 per ℓ, its forcing containing ∂_v u~~). u_J has λ-order −B_J, B_J = (J² − J)/2 − 3 (J ≥ 4), B_3
 = −1 (P7b; control P7c: no bound linear in J with slope 3, B_24 = 273).
 [R5.0 (r3-m7): the recursion omits products of three or more coefficients, whose orders grow without bound unless the far
-region's r^(−1/2) ≤ λ is used; with it every monomial gives B_J ≤ 3J − 9 (Proposition R5.0, r5settle5 A). P7c checks the
+region's r^(−1/2) ≤ λ is used; with it every monomial gives B_J ≤ 3J − 9 (Proposition R5.4, r5settle5 A). P7c checks the
 recursion, not the problem: [arithmetic].]
 
 **Proposition R3.1 ((Poly) on the far region; deduced, computed P1-P7).** For J ≥ 3 and n, m ≥ 0 there are C and
@@ -715,7 +715,7 @@ for |α| + |β| ≤ n:
 B_J = (J² − J)/2 − 3. So (Poly) holds with M(J, n, m) = B_J + n + m, polynomial and K-independent. Its inputs: (e),
 i.e. Proposition 9.8 at order n + 4 (deduced); without (e), Lemma 11.0 as written gives a larger finite exponent
 (P(N) ≤ 9N/4 at the base), still polynomial. ∎
-[R5.0 (r3-m7): an upper bound; derived, B_J ≤ 3J − 9 (Proposition R5.0), so this bound holds a fortiori and M(8, n, m) =
+[R5.0 (r3-m7): an upper bound; derived, B_J ≤ 3J − 9 (Proposition R5.4), so this bound holds a fortiori and M(8, n, m) =
 15 + n + m serves.]
 
 *Where polynomiality fails, exactly.* Only on the near region and only through the 1/λ coupling: Theorem P's
@@ -912,7 +912,7 @@ Findings:
    Proposition 9.8 at order n + 4; with Lemma 11.0 as written, still polynomial (P(N) ≤ 9N/4). The data constants are
    C(λ, j) ≤ C_j λ^(−(j+1)). The only non-polynomial factor in the record's fixed-λ arguments is the near region's
    smoothness argument (e^(C/λ)), which (11.7) does not use.
-   [R5.0 (r3-m7): an upper bound; B_J ≤ 3J − 9 derived (Proposition R5.0).]
+   [R5.0 (r3-m7): an upper bound; B_J ≤ 3J − 9 derived (Proposition R5.4).]
 3. F1: Lemma 11.0's proof treats a top-order term −½λ^(−1)(∂^γ u_1)(ℓ,ℓ)[∂_θ²W_TT] as a lower-order source; it belongs in
    Lemma 9.5's kernel, where on the far region it costs e^(2C). Finding for N1STAR-PROOF.md (not edited here).
    [Withdrawn, R5.0 (r3-M1); see R4-B and R5-D.]
@@ -1439,7 +1439,7 @@ Theorem 1, the angular profile and the seed. Let ℓ0 in (3, 4) ∖ {7/2}, ℓ_I
 5/2), 3); k1 := max(8, d_1 + 4); M := M(8, k1 + 1, k1 + 1) = 27 + 2 k1 (Proposition R3.1); K > max(d_1 + 14, K*(a, 8,
 M, k1)) (Lemma R3.2) and the approximant of order N(K, k1 + 4) (Corollary R4.3). Then there is λ_2 > 0 such that for
 every 0 < λ ≤ λ_2 (no exceptional set):
-[R5.0 (nit): N(K, k1 + 5), λ_2 ≤ λ_F(k1 + 5); M = 17 + 2 k1 suffices (Proposition R5.0); a ∈ (ℓ0 − 1, 3).]
+[R5.0 (nit): N(K, k1 + 5), λ_2 ≤ λ_F(k1 + 5); M = 17 + 2 k1 suffices (Proposition R5.4); a ∈ (ℓ0 − 1, 3).]
 [R5.0 (r4-M1): the label is wrong: the theorem also rests on N1STAR-PROOF.md section 11.1 (deduced, its D44 repair
 unread), on Lemma 11.0's repair (R5-D) and on this file's own deductions; Theorem R5.1 restates it with its status.]
 

@@ -105,14 +105,27 @@ def frame(F, Fab):
     return {"h00": c(E0, E0), "h01": c(E0, E1), "h11": c(E1, E1), "2F": 2*F}
 
 
+def rat(e):
+    """e as a reduced rational function of s = r^(1/2) (exact; half-integer powers of r become powers of s)"""
+    return sp.cancel(sp.together(sp.sympify(e).subs(r, s_**2)))
+
+
+def iszero(e):
+    return rat(e) == 0
+
+
+def back(e):
+    return sp.factor(sp.sympify(e).subs(s_, sp.sqrt(r)))
+
+
 def jets(e):
     """coefficients of e in the Bondi jets of P, exactly (a remainder raises)"""
     x = sp.expand(sp.sympify(e).doit())
     x = x.subs(sp.Derivative(P, r, u), sp.Derivative(P, u, r)).xreplace({k: JS[v_] for k, v_ in JET_NAMES.items()})
     out = {}
     for nm, sym in JS.items():
-        out[nm] = sp.simplify(x.coeff(sym))
-    rest = sp.simplify(x - sum(out[nm]*JS[nm] for nm in JS))
+        out[nm] = back(rat(x.coeff(sym)))
+    rest = rat(x.subs({sym: 0 for sym in JS.values()}))
     assert rest == 0, rest
     return out
 
@@ -140,7 +153,7 @@ def eliminate_rr(cs, V):
     c = dict(cs)
     a = c.pop("P_rr", 0)
     for k, w in rr_.items():
-        c[k] = sp.simplify(c.get(k, 0) + a*w)
+        c[k] = back(rat(c.get(k, 0) + a*w))
     return c
 
 
@@ -193,8 +206,8 @@ def u1(control=False):
     ok = True
     for k in direct:
         dj = jets(direct[k])
-        diff = sp.simplify(FB[k] - sum(dj[n]*JS[n] for n in dj))
-        ok &= diff == 0
+        diff = FB[k] - sum(dj[n]*JS[n] for n in dj)
+        ok &= all(iszero(sp.expand(diff).coeff(JS[n])) for n in JS) and iszero(diff.subs({JS[n]: 0 for n in JS}))
     print("  U1%s: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + %d dr/f: %s"
           % (" control" if control else "", c2, ok), flush=True)
     return ok
@@ -210,9 +223,9 @@ def u2(control=False):
     cs = {k: jets(e) for k, e in fr.items()}
     w = sp.sqrt(r)/f
     ok = orth
-    ok &= sp.simplify(cs["h00"]["P_uu"] - w) == 0 and sp.simplify(cs["h01"]["P_uu"] + w) == 0
-    ok &= sp.simplify(cs["h11"]["P_uu"] - w) == 0 and cs["2F"]["P_uu"] == 0
-    ok &= sp.simplify(cs["2F"]["P_u"] + 1/sp.sqrt(r)) == 0
+    ok &= iszero(cs["h00"]["P_uu"] - w) and iszero(cs["h01"]["P_uu"] + w)
+    ok &= iszero(cs["h11"]["P_uu"] - w) and cs["2F"]["P_uu"] == 0
+    ok &= iszero(cs["2F"]["P_u"] + 1/sp.sqrt(r))
     print("  U2%s: frame orthonormal %s; T^2 P coefficients (h00, h01, h11, 2F) = (%s, %s, %s, %s); T P in 2F: %s;"
           " the identities: %s" % (" control (weight 1)" if control else "", orth,
                                    *[sp.factor(cs[k]["P_uu"]) for k in ("h00", "h01", "h11", "2F")],
@@ -327,7 +340,7 @@ def weighted_table(weighted=True):
     for k, e in fr.items():
         wgt = (1 if not weighted else (r**sp.Rational(-1, 2) if k in ORBIT else sp.sqrt(r)))
         cs = eliminate_rr(jets(e), V)
-        out[k] = {j: sp.simplify(wgt*c) for j, c in cs.items() if sp.simplify(c) != 0}
+        out[k] = {j: back(rat(wgt*c)) for j, c in cs.items() if not iszero(c)}
     return out
 
 
@@ -381,15 +394,15 @@ def u5(control=False):
         Bf = sp.Function("B")(r)                                    # T^2 P along C
         Pc = {"P": 0, "P_r": 0, "P_rr": 0, "P_u": A, "P_uu": Bf}
         # forced on C: P_ur from the master equation, and d_r P_u = P_ur
-        Pc["P_ur"] = sp.simplify((f*sp.diff(f*sp.diff(sp.Integer(0), r), r) - V*0)/(2*f))
-        dPuu = sp.simplify((f*sp.diff(f*sp.diff(A, r), r) - V*A)/(2*f))  # u-derivative of U3 (a) at P_u = A
-        forced = Pc["P_ur"] == 0 and sp.simplify(dPuu + A*V/(2*f)) == 0
-        onC = {k: sp.simplify(sum(c*Pc[j] for j, c in cs[k].items())) for k in cs}
-        a0 = {k: sp.simplify(onC[k].subs(A, 0)) for k in onC}
-        fam = (sp.simplify(a0["h00"] - Bf*sp.sqrt(r)/f) == 0 and sp.simplify(a0["h01"] + a0["h00"]) == 0
-               and sp.simplify(a0["h11"] - a0["h00"]) == 0 and a0["2F"] == 0)
-        ang = sp.simplify(onC["2F"] + A/sp.sqrt(r)) == 0
-        cA = sp.factor(sp.simplify((onC["h00"] - Bf*sp.sqrt(r)/f)/A))
+        Pc["P_ur"] = rat((f*sp.diff(f*sp.diff(sp.Integer(0), r), r) - V*0)/(2*f))
+        dPuu = rat((f*sp.diff(f*sp.diff(A, r), r) - V*A)/(2*f))       # u-derivative of U3 (a) at P_u = A
+        forced = Pc["P_ur"] == 0 and iszero(dPuu + A*V/(2*f))
+        onC = {k: sp.expand(sum(c*Pc[j] for j, c in cs[k].items())) for k in cs}
+        a0 = {k: onC[k].subs(A, 0) for k in onC}
+        fam = (iszero(a0["h00"] - Bf*sp.sqrt(r)/f) and iszero(a0["h01"] + a0["h00"])
+               and iszero(a0["h11"] - a0["h00"]) and iszero(a0["2F"]))
+        ang = iszero(onC["2F"] + A/sp.sqrt(r))
+        cA = back(rat((onC["h00"] - Bf*sp.sqrt(r)/f)/A))
         print("  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): %s; with A = 0, h00 ="
               " B r^(1/2)/f, h01 = -h00, h11 = h00, 2F = 0: %s; 2F = -A r^(-1/2): %s; h00 = r^(1/2) B/f + (%s) A"
               % (forced, fam, ang, cA), flush=True)

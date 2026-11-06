@@ -61,7 +61,8 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     ..., 4 is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9: the lower bound 5/2 of rounds 3-4 is needed by nothing.
     Controls: p = 4 dropped gives (l0 - 1, 5/2), empty for l0 >= 7/2; the pointwise reading of the class on S
     (a > l0 - 1/2) gives (l0 - 1/2, 3), empty for l0 >= 7/2. G6 (exact) Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho +
-    f_2 rho^3) has the exponents p + j (j = 0..3, p in Pi), all in E_0^(1/2); control: a p = 9/4 term gives 9/4.
+    f_2 rho^3) has the exponents p + j (j = 0..3, p in Pi; the Taylor composition F_p(1 + d) = sum F_p^(m)(1) d^m/m!
+    with the derivatives of the 2F1 at 1/2 by mpmath), all in E_0^(1/2); control: a p = 9/4 term gives 9/4.
   H (exact; round 4 m7) the means' exponents from Theorem A_P's coefficient classes (N1STAR-PROOF.md (9.6) and the
     count's last sentence): the inputs of (c) are E_(3/2) m_m, E_(3/2) Psi_m, E_(3/2) ell phi_m, E_(5/2) d_v phi_m,
     E_(5/2) r^-1 Omega phi_m and known sources in L_3; of (a) E_2 m_m, E_3 d phi_m, E_(3/2) gh_(m+1) and L_3; of (b)
@@ -643,7 +644,8 @@ def part_g():
     ok6 = all(((2*e_).is_integer and e_ >= 2) for p, e_ in exps if p != sp.Rational(9, 4))
     ctl6 = any(not (2*e_).is_integer for p, e_ in exps if p == sp.Rational(9, 4))
     check("G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (Taylor "
-          "composition to rho^(p+3), coefficients by mpmath)", ok6, str(sorted({str(e_) for p, e_ in exps if p != sp.Rational(9, 4)})[:10]))
+          "composition to rho^(p+3), coefficients by mpmath)", ok6,
+          str(sorted({str(e_) for p, e_ in exps if p != sp.Rational(9, 4)})[:10]))
     check("G6' control (a p = 9/4 term): exponents outside E_0^(1/2)", ctl6)
 
 
