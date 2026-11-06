@@ -252,8 +252,9 @@ def rk4(f, y, t0, t1, n):
     return y
 
 
-def g3(G, T=1.0, delta0=0.05):
-    """the outer data cone N = {u = u0} against the domain's outer boundary R = b(tau), tau in [tau0, tau_end]"""
+def g3(G, T=1.0, delta0=0.05, ray_scale=1.0):
+    """the outer data cone N = {u = u0} against the domain's outer boundary R = b(tau), tau in [tau0, tau_end];
+    ray_scale != 1 is a mutation of the ray ODE (round 5 control)"""
     vv, R, vh, tau0, mu0 = G['vv'], G['R'], G['vh'], G['tau0'], G['mu0']
     q0 = AA + delta0                                                            # r_q(mu0) = q0 fixes l5
     l5sq = q0**4 / (math.sqrt(72) * mu0)
@@ -280,7 +281,7 @@ def g3(G, T=1.0, delta0=0.05):
                 worst = y[0] - b(tau) if worst is None else min(worst, y[0] - b(tau))
             if tau > tau_end:
                 return at0, worst
-            y = rk4(lambda t, z: [(1 - mu_of(t) / z[0]**2) / 2], y, x, x + h, 1)
+            y = rk4(lambda t, z: [ray_scale * (1 - mu_of(t) / z[0]**2) / 2], y, x, x + h, 1)
             x += h
     ex_at0, ex_worst = ray(float(R[0, 0]))                                      # the example's N: u0 = 0, R = 5
     lo, hi = float(R[0, 0]), 60.0                                               # the least R0 with R - b >= 1
@@ -292,7 +293,24 @@ def g3(G, T=1.0, delta0=0.05):
             lo = mid
     new_at0, new_worst = ray(hi)
     return dict(seed=seed, l5=math.sqrt(l5sq), V=V, tau_end=tau_end, b0=b(tau0), ex=(ex_at0, ex_worst),
-                R0new=hi, new=(new_at0, new_worst))
+                R0new=hi, new=(new_at0, new_worst), b=b, mu_of=mu_of, tau0=tau0)
+
+
+def g3_indep(r3, R0):
+    """round 5 (the verifier's minor 4): an independent check of the reported cone -- the ray of region I from
+    (vhat, R) = (0, R0) integrated by scipy's DOP853 (not the bisection's RK4), and R - b(tau) along it on [tau0,
+    tau_end]"""
+    from scipy.integrate import solve_ivp
+    b, mu_of, tau0, tau_end = r3['b'], r3['mu_of'], r3['tau0'], r3['tau_end']
+    sol = solve_ivp(lambda x, z: [(1 - mu_of(x) / z[0]**2) / 2], (0.0, 80.0), [R0], method='DOP853', rtol=1e-11,
+                    atol=1e-12, dense_output=True, max_step=0.05)
+    xs = np.linspace(0.0, 80.0, 160001)
+    Rs = sol.sol(xs)[0]
+    taus = xs - Rs
+    m = (taus >= tau0) & (taus <= tau_end)
+    gap = Rs[m] - np.array([b(t) for t in taus[m]])
+    at0 = float(np.interp(tau0, taus, Rs) - b(tau0))
+    return at0, float(gap.min())
 
 
 def g4(G, redshift=True, npts=(0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 4.9), steps=2000):
@@ -385,6 +403,12 @@ def main():
     # G3: the outer data cone (round 2, the verifier's item 1)
     r3 = g3(res[160]['grid'])
     g3ok = r3['seed'] and r3['ex'][0] < 0 and r3['new'][0] >= 1.0 and r3['new'][1] >= 1.0 - 1e-9
+    ind0, indmin = g3_indep(r3, r3['R0new'])
+    indep_ok = indmin >= 1.0 - 1e-6 and abs(ind0 - r3['new'][0]) < 1e-6
+    r3m = g3(res[160]['grid'], ray_scale=0.5)
+    indm0, indmmin = g3_indep(r3m, r3m['R0new'])
+    mut_rej = indmmin < 1.0 - 1e-3
+    g3ok = g3ok and indep_ok and mut_rej
     print('  G3: the domain (T = 1, delta0 = 0.05, so l5 = %.4f, seed condition %s): V = %.3f, tau_end <= %.3f,\n'
           '      b(tau0) = %.3f. The example\'s own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = %.3f:\n'
           '      inside the domain, the verifier\'s case (rejected, as it must be). Moving N out inside region I\n'
@@ -392,6 +416,9 @@ def main():
           '      on all of [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)
+    print('      independent check (DOP853 on the reported R0): R - b = %.4f at tau0, least %.4f: %s; mutation (ray ODE\n'
+          '      x 1/2, R0 = %.3f re-found by the bisection) fails the independent check (least R - b = %.4f): %s'
+          % (ind0, indmin, indep_ok, r3m['R0new'], indmmin, mut_rej), flush=True)
     ok['G3'] = g3ok
     # G4: the mixed symbol on R = a, resolved along region III's rays (round 2, the verifier's nit 5)
     least = [res[n]['symbol'][2] for n in (40, 80, 160)]
