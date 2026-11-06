@@ -9,3 +9,7 @@
    H3-slow (mutated): FAIL [1 s]
    control rejected: True
 (S) frozen coefficients: (S1)-(S3) and the control
+  R^(-1) = 0 in every component: True  [38 s]
+  D^(0) (lam^0 of the gauge vector) = 0: True
+  symbol of lam^2 Q z1 z2^-1 at lam^0, per component: {-1/E}
+  (S1) gamma0^AB R^(0)_AB |mixed = -2 g0^uv F1 F2 (a2) |mixed with Q = 0: True; mixed harmonics present: [(-1, -1), (-1, 1), (1, -1), (1, 1)]

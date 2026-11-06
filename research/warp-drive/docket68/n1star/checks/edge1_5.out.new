@@ -31,3 +31,9 @@ E7 PASS
 E8 PASS
   E9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows with one
       sign only: 0
+E9 PASS
+  E10 hypothesis (H_N) sampled: exp(-1/x): env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in
+      ['0.01', '0.0032', '0.001', '0.00032']; sup |kappa_k'|/kappa_k^(3/2) = 2.76; record C_c^inf: env^(k) > 0,
+      log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in ['0.01', '0.0032', '0.001', '0.00032']; sup
+      |kappa_k'|/kappa_k^(3/2) = 2.75: True
+E10 PASS

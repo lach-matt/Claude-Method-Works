@@ -4,3 +4,7 @@ O3  G-naturality of the gauge-fixed operator relative to g_b0
         ('0.0133', '0.0723')}
   O3' control (the shear x1 -> x1 + x2/2): the identity fails: pass
 O2  the degrees of P(g_b0 + Sigma_p) on the operator
+  O2 |P(g_b0 + Sigma_2)| decays like r^-6 and |P(g_b0 + Sigma_(5/2))| like r^(-13/2): the flat part cancels, the mu part
+        enters at -p - 4: pass 6.0, 6.512
+  O2' control (F = 1 + s, not a flat solution): decay 4: pass 4.0
+O1  the coefficients B(H), C(H) of DP(H) along a ray of W, and the kernels composed from them
