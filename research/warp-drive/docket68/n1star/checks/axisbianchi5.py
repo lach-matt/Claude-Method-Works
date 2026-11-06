@@ -108,11 +108,11 @@ def jet_values(exprs, rnd):
     atoms = set()
     for e in exprs:
         atoms |= e.atoms(sp.Derivative)
-    sub = {d: sp.Rational(rnd.randint(-900, 900), rnd.randint(101, 997)) for d in atoms}
+    sub = {d: sp.Rational(rnd.randint(-900, 900), rnd.randint(101, 997)) for d in sorted(atoms, key=str)}
     fs = set()
     for e in exprs:
         fs |= e.atoms(AppliedUndef)
-    for f in fs:
+    for f in sorted(fs, key=str):
         sub[f] = sp.Rational(rnd.randint(150, 900), rnd.randint(101, 997))
     out = []
     for e in exprs:
