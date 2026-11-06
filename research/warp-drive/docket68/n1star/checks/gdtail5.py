@@ -586,8 +586,50 @@ def t11(control=False):
     return ok
 
 
+# -------------------------------------------------------------------------------------------------------------- T12
+def t12(control=False):
+    """Lemma R7.2 (b): the joint orders of E[K] at the corners iota+ cap I+ and iota+ cap K+ (the round-7 verifier's
+    finding).  With chi = 1, E (reduced by the flat equation, which K obeys: T3) is a sum c_m(r) D_m A over D_m in
+    {d_u, d_r, d_r^2}, c_m rational in r with leading power r^-p_m at infinity.  K is homogeneous of degree -2, so
+    D_m K(lam r, r) = r^(-d_m) k_m(lam) exactly, d_m = 3, 3, 4.  Near iota+ cap I+ (rho_+ = 1/u, rho_I = lam = u/r)
+    the term is rho_+^(p_m + d_m) rho_I^(p_m + d_m + a_m), a_m the exponent of k_m at lam -> 0; near iota+ cap K+
+    (rho_+ = 1/r, rho_K = 1/lam) it is rho_+^(p_m + d_m) rho_K^(-b_m), b_m the exponent at lam -> oo.  Lower-order
+    terms of c_m add powers of 1/r and only raise these orders; b-derivatives (lam d_lam, r d_r) keep the forms."""
+    FZ = far_zone()
+    u, A, chi = FZ['u'], FZ['A'], FZ['chi']
+    Ered = [sp.expand(c.subs(chi, 1).doit()) for c in FZ['red']['flat'][1]]
+    lam, z, y = sp.symbols('lambda z y', positive=True)
+    Kk = kernel(u, r) + (1/(r*u) if control else 0)             # control: a degree -2 kernel decaying like 1/(r u)
+    mons = [(sp.Derivative(A, u), 3, lambda e: sp.diff(e, u)), (sp.Derivative(A, r), 3, lambda e: sp.diff(e, r)),
+            (sp.Derivative(A, (r, 2)), 4, lambda e: sp.diff(e, r, 2))]
+    others = [A] + [m_ for m_, _, _ in mons]
+    rows, ok = [], True
+    for ic, c in enumerate(Ered):
+        rest = sp.simplify(c - sum(c.coeff(m_)*m_ for m_, _, _ in mons))
+        ok &= rest == 0                                          # neither A nor chi undifferentiated
+        for m_, dm, D in mons:
+            co = sp.simplify(c.coeff(m_).subs({o: 0 for o in others if o != m_}))
+            if co == 0:
+                continue
+            ser = sp.series(co.subs(r, 1/y), y, 0, 8).removeO()
+            pm = min(sp.Poly(sp.expand(ser), y).monoms())[0]
+            km = sp.simplify(D(Kk).subs({u: lam*r}).subs(r, 1)*1)        # D_m K(lam, 1); homogeneity checked below
+            hom = sp.simplify(D(Kk).subs(u, lam*r) - r**(-dm)*km) == 0
+            s0 = sp.series(sp.simplify(km.subs(lam, z**2)), z, 0, 6).removeO()
+            am = sp.Rational(min(sp.Poly(sp.expand(s0*z**8), z).monoms())[0] - 8, 2)
+            s1 = sp.series(sp.simplify(km.subs(lam, 1/y)), y, 0, 8).removeO()
+            bm = -min(sp.Poly(sp.expand(s1), y).monoms())[0]
+            io, iI, iK = pm + dm, pm + dm + am, -bm
+            rows.append((ic, str(m_).replace('(v, r)', '').replace(', v)', ', u)'), pm, dm, am, bm, io, iI, iK, hom))
+            ok &= hom and io >= 6 and iI >= sp.Rational(9, 2) and iK >= 3
+    tag = "  T12 control (kernel K + 1/(r u))" if control else "  T12"
+    print("%s: (component, D_m, p_m, d_m, a_m, b_m, iota+, I+ at the corner, K+ at the corner, homogeneous): %s; "
+          "joint orders >= (6, 9/2) and (6, 3): %s" % (tag, rows, ok), flush=True)
+    return ok
+
+
 CHECKS = [("T1", t1), ("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("T7", t7), ("T8", t8),
-          ("T9", t9), ("T10", t10), ("T11", t11)]
+          ("T9", t9), ("T10", t10), ("T11", t11), ("T12", t12)]
 
 
 def main():

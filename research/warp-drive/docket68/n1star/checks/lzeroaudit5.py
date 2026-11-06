@@ -116,6 +116,18 @@ TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) 
 # D615 + D616 (Lemma 6.2: D614 line 632 -> 632-634, 634-637 -> 636-642): every D614 line above 637 moved by +5, text
 # unchanged (checked line by line against D614's file); no table row lies in 632-637
 TABLE = {((ln + 5 if ln > 637 else ln), kw): val for (ln, kw), val in TABLE.items()}
+# D619 (the section 6 reader's findings seated, section 6 66 lines longer): section 6's rows re-keyed by content, in
+# D616's numbering so that D623's shift below carries them with the lines above section 6 (D616 line -> D619 line - 36:
+# the unchanged lines matched line by line against the D616 file, the rows whose sentence D619 rewrote at the line that
+# now carries the keyword: 717, 721, 727, 757 and 799); the three new hits of the D619 text classified
+D619 = {594: 602, 631: 642, 702: 731, 704: 733, 705: 734, 717: 746, 721: 751, 727: 757, 730: 762, 741: 785, 748: 792,
+        750: 794, 756: 800, 757: 801, 762: 811, 783: 835, 794: 850, 797: 853, 799: 861, 802: 865}
+TABLE = {((D619.get(ln, ln) if 554 <= ln < 817 else ln), kw): val for (ln, kw), val in TABLE.items()}
+TABLE.update({
+    (845, 'limit'): (X, 'the limit of the iterates vanishes where they do (D619, n3): no constant'),
+    (857, 'uniformly'): (X, "Lemma 6.3's lower-order coefficients, bounded uniformly in lam (D619, m1): the smoothness "
+                            "bound, no threshold"),
+    (859, 'uniformly'): (X, 'W bounded uniformly in i and lam (D619, m1): the smoothness bound, no threshold')})
 # D623: sections 0-4 re-keyed by content (D616 line -> D623 line: the unchanged lines matched line by line against the
 # D616 file, the rows whose sentence D623 rewrote at the line that now carries the keyword); +36 below D616's line 457
 D623 = {20: 20, 41: 41, 89: 91, 90: 96, 113: 127, 114: 128, 124: 138, 131: 145, 140: 154, 147: 161, 167: 181, 177: 192,

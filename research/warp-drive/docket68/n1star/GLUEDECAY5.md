@@ -5,6 +5,9 @@ results of the supplement named at each use), *computed* (`checks/gluedecay5.py`
 a mutation control that must fail and does), *READ* (verbatim from the source, with its printed page; only where
 `proof5/` does not already state it). Results are numbered by the proposition they serve.
 
+[R2.0: read by an independent verifier, who found the mathematics to hold; its findings are re-derived and seated in
+section R2.0, with bracketed notes at each place they change, and section 8.2 is the current proposal for the paper.]
+
 ## 0. The item and the answer
 
 The paper's section 8.7 (`paper/RESPONSE-HL-5D.md`:1141-1149) says that a perturbation that only decays faster than
@@ -67,8 +70,8 @@ $\epsilon R^{\ell_0-2}$ for $2<a\le3$.
 [R2.0, nit: precisely, $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} =
 -\nabla^2f+\rho^5C^\infty$ (Lemma 4.1 (d)). GD3 constrains this note's Proposition 4 only. It is no defect of Part V:
 its Theorem 3.1 is about abstract data, and Part VII uses its proof only in class form, with Tangherlini members on
-$\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2, findings (VII1), (VII3)). Part V's Remark 3.4, which said otherwise,
-is amended (R2.0).]
+$\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2, findings (VII1), (VII3)). Part V's Remark 3.4, stale on how Part VII
+uses Theorem 3.1, is amended (R2.0).]
 
 ## 1. Setting
 

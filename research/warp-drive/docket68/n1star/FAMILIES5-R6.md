@@ -336,7 +336,8 @@ solutions.** ∎
   families by Lemma Ψ; (v) Lemma 2.4_N: every family's boundary terms have the record's sign, since every future null
   direction has dr/dτ ∈ [−1, (r² − μ)/(r² + μ)] (computed exactly, nfamily5 N5); (vi) Steps 4-7: every term of the
   N-family linearisation is a term type of the two-family ledger (twoledger5) with its family labels replaced; the
-  ledger's counting (powers of λ, derivatives, which part of N₂ controls it) depends on the term type only; there are
+  ledger's counting (powers of λ, derivatives, which part of N₂ controls it) depends on the term type only, and terms
+  with three or more distinct families (from stage 1) are products of the same profiles at the same orders; there are
   O(N³) terms and the constants depend on N. So the bootstrap closes at N₂ ≤ M(N) λ^K for λ ≤ λ0(N).
 - **D₂_N (the data):** section 4.2.
 
@@ -480,7 +481,7 @@ New:
 ```
 - **More families.** Two crossing radial null dusts, one ingoing and one outgoing, are carried through the record's
   argument: the two-dust background on the whole domain, the approximant to every order, the uniform estimate and the
-  data (deduced, every identity computed; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I). In the T² class each
+  data (deduced, the identities computed; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I). In the T² class each
   family's null second fundamental form is diag(θ_h, κ1, κ2), the torus terms first order, and at an axis the planar
   shear is recovered elliptically from the expansion, so the class Einstein–null-dust system is Cauchy-stable on compact
   domains of the record's type, without smallness, for caustic-free dusts whose lateral boundaries are adapted (one
@@ -498,10 +499,10 @@ New:
   and an explicit family on Tangherlini meets them (computed, `checks/vlasovex5.py`). Data localised in an angle exist
   on cones exactly (computed) and on all of Part I's slice in a band widened by a computed amount (deduced): Rácz's split
   is hyperbolic on the slice except a band inside the shell, where no foliation of that slice is hyperbolic and a slice
-  bent by 0.0015 is (computed, `checks/racglobal5.py`, `checks/racslice5.py`). Exactly localised data built on a
-  perturbation of the extrinsic curvature alone do not exist, with or without matter obeying the dominant energy
-  condition, outside the horizon: their charge is minus a sum of squares minus a term carrying the mass (deduced;
-  computed, `checks/qsign5.py`); inside the horizon they exist with outgoing null dust (deduced; the sign computed). For
+  bent by 0.0015 is (computed, `checks/racglobal5.py`, `checks/racslice5.py`). Exactly localised vacuum data built on a
+  perturbation of the extrinsic curvature alone do not exist: their charge is minus a sum of squares minus a term
+  carrying the mass (deduced; computed, `checks/qsign5.py`); with matter obeying the dominant energy condition they do
+  not exist outside the horizon, and inside it they exist with outgoing null dust (deduced; the sign computed). For
   perturbations of the metric itself the charge is the canonical energy, whose sign is not decided here: that is the one
   missing input, and nothing weaker settles exact vacuum localisation at second order.
 ```

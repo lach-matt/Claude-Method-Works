@@ -13,3 +13,51 @@ E1 PASS (mutants failing as they must: lebesgue)
       l0 = 15/4  a = 8/5: kappa = 0.0007733  a = 2: kappa = 0.0006727  a = 5/2: kappa = 0.0007018
                  a = 3: kappa = 0.0009395  a = 27/8: kappa = 0.001371  a = 15/4: kappa = 0.002165
 E2 PASS (mutants failing as they must: no_osc, ss_sign, lam_max)
+  E3: tr(Psi^* delta - delta) identity: True; r^(2+a) d_eps E|_0 = -2 mu (a c + s): True; r^(2+2a) d_eps^2 E|_0 = mu
+      (2 w^2 - 8 c w + 6 c^2), w = (1-a) c - s: True; both free of r once log r -> t: True; pointwise Tangherlini term
+      (r = 10^2, 10^3): True; Psi^* of a radial tensor (generic phi, A, B, three points): True; quadrature instance of
+      Proposition 3 (within 1e-2 of the prediction, above the kappa bound): True
+      (a, l0) = (2.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.00768786, 2 A_a dist = 0.00773506, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0297314, 2 A_a dist = 0.0297312, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0468685, 2 A_a dist = 0.0468685, 2 A_a kappa 0.0027599
+      (a, l0) = (3.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.0565149, 2 A_a dist = 0.0567286, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0625504, 2 A_a dist = 0.062552, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0271175, 2 A_a dist = 0.0271175, 2 A_a kappa 0.00388379
+E3 PASS (mutants failing as they must: coef3, second_r3, mu0)
+  E4: exact fluxes over S_rho of order-a profiles, c_d(a) rho^(2+d-a) with c_d(a) != 0: True; they tend to 0 iff a > 2
+      + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): True
+        energy (d = 0)             c(a) = 6*pi**2
+        momentum (d = 0)           c(a) = 3*pi**2
+        centre of mass (d = 1)     c(a) = 3*pi**2/2
+        angular momentum (d = 1)   c(a) = 2*pi**2
+      the exponent inequalities:
+        T: d-a<0 (d=0)                                   True
+        T: d+2-2a<0 (d=0)                                True
+        box d-2+p2 < box exponent (d=0)                  True
+        box d-3+p3 < box exponent (d=0)                  True
+        box d-a < box exponent (d=0)                     True
+        box d+2-2a < box exponent (d=0)                  True
+        box >= 0 where a <= 2+d (d=0)                    True
+        T: d-a<0 (d=1)                                   True
+        T: d+2-2a<0 (d=1)                                True
+        box d-2+p2 < box exponent (d=1)                  True
+        box d-3+p3 < box exponent (d=1)                  True
+        box d-a < box exponent (d=1)                     True
+        box d+2-2a < box exponent (d=1)                  True
+        box >= 0 where a <= 2+d (d=1)                    True
+        theta: p2 - 2 <= -a                              True
+        theta: p3 - 3 <= -a                              True
+        norm: p2 + l0 - 2 <= l0 - a                      True
+        norm: p3 + l0 - 3 <= l0 - a                      True
+        norm: p3 + l0 - 4 <= l0 - a (outer)              True
+        norm: 0 <= l0 - a (coefficients, compact part)   True
+        norm: l0 - a > 0 off a = l0                      True
+E4 PASS (mutants failing as they must: no_decouple, box_strong)
+  E5: (a) spin enters the Kerr-Schild metric at rho^3 (15 components, one point, spins (1/3, 1/5)): True; (b)
+      translation at rho^3: True; (c) radial Hessian: (Hess f - Lap f delta) x = -3 (f'/r) x and (W x) . Hess f . x =
+      0: True, True; (d) tr Hess f = 2 mu r^-3 + ... for f' = 2 mu/(r^2 - mu): True
+E5 PASS (mutants failing as they must: mass, dim3)
+  E6: GLUEDECAY5.md lines over 121 characters: none; old block (a) occurs 1 time(s), from line 1138 (3 lines); old
+      block (b) 1 time(s), from line 1141 (9 lines); (a) immediately followed by (b): True; new block lines over 121:
+      0
+E6 PASS (mutants failing as they must: char_a, char_b)
