@@ -184,8 +184,9 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
   and region III formulas, according to where the slice point can lie. It is certified on every cell: 276 rays, with 1
   region I piece, 8,834 packet step boxes and 119 region III pieces tested, and largest upper bound −4.76 × 10⁻³.
   Control: with every packet input widened by half its size, all 8,834 step boxes fail.
-- **T2** (Corollary Q's margin, through C1d). Every cell of the seed region R ∈ [0.70, 1.861] lies in region III
-  (R2 ≥ R on the slice, f3 > 0 at u2).
+- **T2** (Corollary Q's margin, through C1d). Region III on Σ_τ0 ends at R_u2 ∈ [1.861394, 1.861466]: R2(v̂) =
+  v̂ − τ0 has one zero, since dR2/dv̂ < 1 on every cell, and its signs are certified at the bracket. So the seed
+  region R ∈ [0.70, 1.861] lies in region III, with f3 > 0 at u2 on every cell.
   - The a posteriori bound for the computed background: the n = 160 spline differs from the true ψ_III by at most 5.1 ×
     10⁻⁵, 2.6 × 10⁻⁴ and 8.7 × 10⁻⁴ (k = 0, 1, 2) at the 118 cell ends. On the whole seed region the bound is 1.3 ×
     10⁻⁴, 3.9 × 10⁻⁴ and 1.4 × 10⁻², from centred forms with the cells' enclosures for k = 0, 1 and the cells'
@@ -462,7 +463,7 @@ control rejected: `checks/mbsign5.out` (the default run, 292 s) and `checks/mbsi
 ## Files
 
 `FAMILIES5-R8.md` (this note). New, with their `.out`, PASS:
-- `checks/truebg5.py` (T1-T4, certified, with controls; XX under load);
+- `checks/truebg5.py` (T1-T4, certified, with controls; about half an hour under load, in three worker processes);
 - `checks/nledger5.py` (L1-L4, computed, with controls; seconds).
 
 Changed and rerun in full, `.out` regenerated, PASS:

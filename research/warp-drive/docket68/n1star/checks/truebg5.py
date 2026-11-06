@@ -37,12 +37,13 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
   T1  the N' data on [u1, u2] enclosed; lambda > 0; mu3; checked against a float integration (scipy DOP853), which a
       shifted B amplitude (1.7 -> 1.7017) leaves (control, must fail).
   T2  Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (Theorem Q's margin), on T3's cells
-      clipped to the region: every cell lies in region III (R2 >= R on the slice, f3 > 0 at u2), and a posteriori the
-      computed spline (qsign5, n = 160) is within intcert5 C1d's tube of the true psi_III: certified bounds on
-      sup |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2 (point rays at the cell ends, centred forms with the cells'
-      enclosures for k = 0, 1, the cells' enclosures for k = 2) and on |mu3 - mu0|, all within C1d's d and d mu. C1d
-      certifies Gamma > 0 for every background in the tube, so for this one. Control: with B's amplitude x 1.001 in
-      the reduction, the spline is farther from it than that agreement.
+      clipped to the region: region III's end on the slice, R_u2 (R2(vhat) = vhat - tau0), is bracketed by point rays
+      with certified signs and is above 1.861 (one zero: d R2/d vhat < 1 on every cell), f3 > 0 at u2, and a posteriori
+      the computed spline (qsign5, n = 160) is within intcert5 C1d's tube of the true psi_III: certified bounds on sup
+      |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2 (point rays at the cell ends, centred forms with the cells' enclosures
+      for k = 0, 1, the cells' enclosures for k = 2) and on |mu3 - mu0|, all within C1d's d and d mu. C1d certifies
+      Gamma > 0 for every background in the tube, so for this one. Control: with B's amplitude x 1.001 in the reduction,
+      the spline is farther from it than that agreement.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
@@ -53,7 +54,8 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
 
 Labels: certified (interval arithmetic) for T2-T4; the reduction is deduced, its region I limit checked exactly, and
 its packet and region III values agree with the computed background to its discretisation level (T2, T4). Order of
-the run: T1, T3, T2, T4. Run: python3 checks/truebg5.py   (one to two hours under load)
+the run: T1, T3, T2, T4. Run: python3 checks/truebg5.py   (about half an hour under load; the rays run in three
+forked worker processes)
 """
 import importlib.util
 import math

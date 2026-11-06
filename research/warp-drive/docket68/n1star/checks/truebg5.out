@@ -16,3 +16,7 @@ T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself: th
    control: with B's amplitude x 1.001 in the reduction the spline is at least 2.3e-04 from it at the points, more than the agreement 5.1e-05 above (rejected): True
 T2 PASS
 T4 a posteriori in the packet: the computed background's slice inputs (twobg5 n = 160, racslice5's crossing data, A = 0) against the background itself
+   40 crossings in the packet: max |computed - true| (certified upper bound) / max |true|: E 2.0e-03/1.00, f 1.1e-03/0.87, psi_R 2.7e-03/0.20, psi_vhat 2.0e-03/0.06, f_R 2.8e-03/0.25, f_vhat 7.7e-04/0.07
+   (the computed inputs are linear interpolants of grid differences; their error is what C2's robustness widening would have to cover, and T3 does not need it)
+T4 PASS
+exit 0

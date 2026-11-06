@@ -1041,7 +1041,7 @@ def lam_of(M):
 
 
 def main():
-    print('m22evol5: the stage-1 evolution on X*\'s past and M_22 (LAMBDA0-DATA5.md section 12)')
+    print('m22evol5: the stage-1 evolution on X*\'s past and M_22 (LAMBDA0-DATA5.md sections 12-13)')
     out, unk = ric_h()
     check_s1(out, unk)
     res = extract(out, unk)
@@ -1050,17 +1050,21 @@ def main():
     low, gunk = gauge_first()
     gres = gauge_system(low, gunk)
     check_s4(gres)
+    mres = gauge_system(low, gunk, n=0, comps=range(5))
+    check_s4b(mres)
     funcs, gfun, env = load_system(res), load_gauge(gres), envelope()
+    mfun = load_gauge({b: d for b, d in mres.items() if d['coef']})
     fode = mode_setup()
     print('  system and data ready %s' % el())
-    runs = {}
-    for cfg in RUNS:
-        runs[cfg] = solve(funcs, gfun, env, fode, *cfg)
-        q = runs[cfg]
-        print('    Nr = %d, Nx = %d, cfl = %.1f: %d steps, M_22 = %.9f; gauge diagnostic (relative) %.1e at tau0, %.1e '
-              'at tau = %.2f, %.1e at tau* (%.0fs) %s' % (cfg + (q['steps'], q['M22'], grel(q['gauge'][0][1]),
-                                                           grel(q['gauge'][1][1]), q['gauge'][1][0],
-                                                           grel(q['gauge'][2][1]), q['secs'], el())))
+
+    def run(*cfg, **kw):
+        q = solve(funcs, gfun, mfun, env, fode, *cfg, **kw)
+        print('    Nr = %d, Nx = %d, cfl = %.1f%s: %d steps, M_22 = %.9f; first-harmonic gauge (N3) %.1e, %.1e, %.1e '
+              'and mean gauge (N3b) %.1e, %.1e, %.1e at tau0, tau = %.2f, tau* (relative) (%.0fs) %s'
+              % (cfg + (''.join(', %s = %s' % kv for kv in kw.items()), q['steps'], q['M22'])
+                 + tuple(grel(g) for _, g in q['gauge']) + tuple(q['mg']) + (q['gauge'][1][0], q['secs'], el())))
+        return q
+    runs = {cfg: run(*cfg) for cfg in RUNS}
     M = {c: runs[c]['M22'] for c in RUNS}
     best = M[BEST]
     dr_ = [abs(M[(n2, 12, 1.0)] - M[(n1, 12, 1.0)]) for n1, n2 in ((24, 32), (32, 40), (40, 48))]
@@ -1069,48 +1073,82 @@ def main():
     err = dr_[-1] + dx_[-1] + dt
     tol = max(10 * err, 1e-6)
     band = (best - tol, best + tol)
+    bout = (math.floor(band[0] * 1e7) / 1e7, math.ceil(band[1] * 1e7) / 1e7)
     conv = (all(np.isfinite(list(M.values()))) and dr_[0] > dr_[1] and dx_[0] > dx_[1] and err < 1e-5 * abs(best)
             and abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])) < 1e-6)
     OK['N1'] = conv and band[0] > 0
     print('  N1: radial refinement (Nx = 12) changes M_22 by %.1e, %.1e, %.1e (Nr 24 to 32, 32 to 40, 40 to 48); '
           'angular (Nr = 32) by %.1e, %.1e (Nx 12 to 16, 16 to 20), the same at Nr = 48 to %.0e; halving the step '
           '(32 x 12) by %.1e. M_22 = %.8f (Nr = 48, Nx = 16), error estimate %.1e (the last radial, angular and time '
-          'changes summed); band [%.6f, %.6f] (ten times that; floating point, not an enclosure); 0 outside it: %s %s'
-          % (dr_[0], dr_[1], dr_[2], dx_[0], dx_[1],
-             abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])), dt, best, err,
-             band[0], band[1], OK['N1'], el()))
-    q = solve(funcs, gfun, env, fode, 40, 12, 1.0, vout=2.6)
+          'changes summed); band [%.7f, %.7f] (ten times that, rounded outward; floating point, not an enclosure); 0 '
+          'outside it: %s %s' % (dr_[0], dr_[1], dr_[2], dx_[0], dx_[1],
+                                abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])), dt,
+                                best, err, bout[0], bout[1], OK['N1'], el()))
+    q = solve(funcs, gfun, mfun, env, fode, 40, 12, 1.0, vout=2.6)
     OK['N2'] = abs(q['M22'] - M[(40, 12, 1.0)]) < tol
     print('  N2: outer boundary at v = 2.6 instead of 3 (X*\'s past lies in v <= 2), Nr = 40, Nx = 12: M_22 = %.9f '
-          'against %.9f, within the band\'s half-width: %s %s' % (q['M22'], M[(40, 12, 1.0)], OK['N2'], el()))
+          'against %.9f, within the band\'s half-width: %s; the change is Nr = 40\'s radial truncation (the narrower '
+          'domain is resolved better): it is %.0e from 48 x 12 at v = 3 %s'
+          % (q['M22'], M[(40, 12, 1.0)], OK['N2'], abs(q['M22'] - M[(48, 12, 1.0)]), el()))
     FINE = [(48, 12, 1.0), (48, 16, 1.0), (32, 20, 1.0)]
     gz = [grel(g) for c in FINE for _, g in runs[c]['gauge']]
     OK['N3'] = max(gz) < 1e-5 and all(grel(runs[c]['gauge'][0][1]) < 1e-12 for c in FINE)
     print('  N3: the first harmonic of D^(1), zero on Sigma by (F1) to %.1e, stays below %.1e of its terms\' size at '
-          'mid-solve and at tau* on 48 x 12, 48 x 16 and 32 x 20: %s'
+          'mid-solve and at tau* on 48 x 12, 48 x 16 and 32 x 20: %s. Its scope: it sees the four gh_2 transports, '
+          'm_1 (r th) and d_th phi_1, not the mean equations (unchanged under C1 below)'
           % (max(grel(runs[c]['gauge'][0][1]) for c in FINE), max(gz), OK['N3']))
-    q1 = solve(funcs, gfun, env, fode, 32, 12, 1.0, src_sign=-1.0)
-    OK['C1'] = not band[0] <= q1['M22'] <= band[1]
-    print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band: %s %s' % (q1['M22'], OK['C1'], el()))
-    q2 = solve(funcs, gfun, env, fode, 32, 12, 1.0, gcouple=0.0)
-    OK['C2'] = not band[0] <= q2['M22'] <= band[1]
-    print('  C2 (control): gh_2\'s coupling into the mean dropped: M_22 = %.6f, outside the band: %s %s'
-          % (q2['M22'], OK['C2'], el()))
+    mid = [runs[(n, 12, 1.0)]['mg'][1] for n in (24, 32, 40, 48)]
+    mgf = max(x for c in FINE for x in runs[c]['mg'][1:])
+    mg0 = max(runs[c]['mg'][0] for c in RUNS)
+    OK['N3b'] = mid[0] > mid[1] > mid[2] and mgf < 1e-4 and mg0 < 1e-6
+    print('  N3b: the harmonic-0 part of D^(1) (S4b), zero on Sigma by step (ii) to %.1e (the floating data\'s floor), '
+          'is %.1e, %.1e, %.1e, %.1e at mid-solve for Nr = 24, 32, 40, 48 (Nx = 12), falling with Nr, and below %.1e at '
+          'mid-solve and tau* on 48 x 12, 48 x 16 and 32 x 20: it sees the mean equations, their source and their '
+          'coupling to gh_2: %s' % (mg0, mid[0], mid[1], mid[2], mid[3], mgf, OK['N3b']))
+    q5 = run(*NODES2, nodes='leg')
+    rd = max(abs(runs[c]['M22c'] - runs[c]['M22']) for c in RUNS)
+    OK['N4'] = abs(q5['M22'] - best) < tol and rd < 1e-9 and q5['mg'][1] < 1e-4 and grel(q5['gauge'][1][1]) < 1e-5
+    print('  N4 (the pin): a second discretisation, Legendre-Gauss-Lobatto in r and Legendre-Gauss in x (40 x 16, cfl '
+          '1/2), gives M_22 = %.9f, %.1e from the Chebyshev value, inside the band\'s half-width %.1e; and M_22 read '
+          'from '
+          'the coordinate component h_p1/(r C)^2 at the axis agrees with the readout (T - B)/a^2 to %.0e on every '
+          'grid: %s %s' % (q5['M22'], abs(q5['M22'] - best), tol, rd, OK['N4'], el()))
+    q1 = solve(funcs, gfun, mfun, env, fode, 32, 12, 1.0, src_sign=-1.0)
+    OK['C1'] = not band[0] <= q1['M22'] <= band[1] and not q1['mg'][1] < 1e-4
+    print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band, and the mean gauge (N3b) at '
+          'mid-solve is %.2f, so N3b fails; N3 is %.1e, %.1e at mid-solve and tau*, unchanged: %s %s'
+          % (q1['M22'], q1['mg'][1], grel(q1['gauge'][1][1]), grel(q1['gauge'][2][1]), OK['C1'], el()))
+    q2 = solve(funcs, gfun, mfun, env, fode, 32, 12, 1.0, gcouple=0.0)
+    OK['C2'] = not band[0] <= q2['M22'] <= band[1] and not q2['mg'][1] < 1e-4
+    print('  C2 (control): gh_2\'s coupling into the mean dropped: M_22 = %.6f, outside the band, and N3b at mid-solve '
+          'is %.2f: %s %s' % (q2['M22'], q2['mg'][1], OK['C2'], el()))
     Sv = Solver(32, 12, funcs, env)
     g0 = grel(gauge_residual(Sv, gfun, cauchy_data(Sv, fode, g_data=False), TAU0))
     OK['C3'] = not g0 < 1e-12
     print('  C3 (control): gh_2\'s first harmonic set to zero on Sigma, violating (F1): the gauge diagnostic at tau0 is '
           '%.2f of its terms\' size; N3\'s test fails: %s' % (g0, OK['C3']))
-    q4 = solve(funcs, gfun, env, fode, 48, 12, 1.0, axis_fix=True)
+    q4 = solve(funcs, gfun, mfun, env, fode, 48, 12, 1.0, axis_fix=True)
     OK['C4'] = not (np.isfinite(q4['M22']) and band[0] <= q4['M22'] <= band[1])
     print('  C4 (control): the axis division done after removing the numerator\'s interpolated axis value (a rank-one '
-          'change at the inner boundary): at Nr = 48, Nx = 12, M_22 = %.6g, outside the band: %s %s'
-          % (q4['M22'], OK['C4'], el()))
+          'change): at Nr = 48, Nx = 12 the solve runs away, |M_22| ~ %.0e, outside the band: %s %s'
+          % (abs(q4['M22']), OK['C4'], el()))
+    rw = abs(runs[BEST]['M22c'] - runs[BEST]['M22w'])
+    OK['C6'] = not rw < 1e-9
+    print('  C6 (control): the readout with T + B for T - B: %.6f against the coordinate component\'s %.6f; N4\'s '
+          'readout test fails: %s' % (runs[BEST]['M22w'], runs[BEST]['M22c'], OK['C6']))
+    lo_, hi_ = lam_of(band[0]), lam_of(band[1])
+    rep = lam_of(0.0)
     print('  The chain at the floating value (computed, floating point; NOT certified, so no bound is lowered): with '
-          'C_app >= %.6f + |M_22| (operator norm; the largest entry uses the same C_app) and C_app >= (%.6f^2 + '
-          'M_22^2)^(1/2) (Frobenius), M_22 = %.6f would give' % (K43, BFRO, best))
-    for (nm, l0), lo, hi in zip(LAM.items(), lam_of(band[0]), lam_of(band[1])):
-        print('    lambda0 < %.7f (%s), against the certified %.7f' % (max(lo, hi), nm, l0))
+          'eps1 < s0 <= %.9f (operator norm, Frobenius) or < %.7f (largest entry), C_app >= %.6f + |M_22| (operator '
+          'norm, largest entry) and C_app >= (%.6f^2 + M_22^2)^(1/2) (Frobenius), each rounded up; at M_22 = 0 these '
+          'give the certified %s: %s; at the band\'s lower end %.7f they would give'
+          % (S0_HI, EPS_ENT, K43, BFRO, ', '.join('%.7f' % x for x in rep),
+             all(abs(x - y) < 1e-12 for x, y in zip(rep, LAM.values())), bout[0]))
+    for (nm, l0), lo, hi in zip(LAM.items(), lo_, hi_):
+        print('    lambda0 < %.7f (%s), against the certified %.7f (the band\'s upper end gives %.7f)'
+              % (lo, nm, l0, hi))
+    print('    and a certified m_lo <= |M_22| would give %s at m_lo = 1, %s at m_lo = 1/2'
+          % (', '.join('%.7f' % x for x in lam_of(1.0)), ', '.join('%.7f' % x for x in lam_of(0.5))))
     exc, gap, kk = chain_at_xstar(best, env[2])
     kin = 12.5934637 - 1e-7 <= kk <= 12.5934637 * 1.3241034918 / 1.32407110621    # c's interval (READ envelope5 E1)
     OK['CH'] = abs(exc - abs(best)) < 1e-6 and gap > -1e-6 and kin
@@ -1123,9 +1161,25 @@ def main():
     OK['C5'] = not abs(exc5 - abs(best)) < 1e-6
     print('  C5 (control): the same number placed off the class, in e_phi1 e_th + e_th e_phi1: the excess is %.6f, not '
           '|M_22|; CH\'s operator step fails: %s' % (exc5, OK['C5']))
-    print('  Not decided here (LAMBDA0-DATA5.md section 12): a certified enclosure of M_22; the a posteriori closure '
-          'needs the residual of a space-time interpolant of the solve below the tolerance of section 12.5 in interval '
-          'arithmetic, which this machine cannot reach.')
+    R = lower_order_sizes(funcs, env)
+    ik = float(np.trapezoid(R[:, 1], R[:, 0]))
+    tol0 = abs(best) / 1391.72 / (2 ** 0.5 * 37.8)
+    print('  R1 (measured, floating point; the coefficients\' sizes, not a rate in Lemma 9.1\'s energy): at th = pi/4 '
+          'over X*\'s past the mean equations\' first-order coefficients (row sums, normalised by the d_tau^2 '
+          'coefficient) run from %.1f at tau0 to %.1f at tau*, the zero-order ones from %.1f to %.3g, the couplings to '
+          'gh_2 from %.2f to %.1f; int of the first-order size over [tau0, tau*] = %.1f, e^(int/2) = %.2e; the '
+          'tolerance '
+          '|M_22|/(1391.72 x 2^(1/2) x 37.8) = %.2e would fall to %.2e with that factor alone'
+          % (R[0, 1], R[-1, 1], R[0, 2], R[-1, 2], R[0, 3], R[-1, 3], ik, math.exp(ik / 2), tol0,
+             tol0 / math.exp(ik / 2)))
+    per, nex = arb_cost(res)
+    cells = BEST[0] * BEST[1] * runs[BEST]['steps']
+    print('  R2 (measured, this machine): every coefficient function of the closed system (%d expressions) on one '
+          'space-time box in Arb balls takes %.2e s, so over the %d cells of 48 x 16 about %.0f s: the interval '
+          'evaluation is not the obstacle' % (nex, per, cells, per * cells))
+    print('  Not decided here (LAMBDA0-DATA5.md sections 12.5, 13): a certified enclosure of M_22, or a certified '
+          'm_lo > 0: every route needs a certified rate for the lower-order terms, which no estimate here or in the '
+          'record bounds, and the constants of the point evaluation.')
     for k, val in OK.items():
         builtins.print(k, 'PASS' if val else 'FAIL')
     builtins.print('m22evol5: %d/%d %s' % (sum(OK.values()), len(OK), el()))

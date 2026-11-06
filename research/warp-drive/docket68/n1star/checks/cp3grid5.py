@@ -30,11 +30,16 @@ vsave 1.4); every comparison here is on the 400-row nodes, the finer grids sampl
      cell from the stored solution by the same formula on the same corner values: max |d+-| per band and areal-radius
      class, with max |d+-|/max |R_uv|, at each grid given, and the ratios between successive grids (4 if it is
      O(the truncation error) at second order; near 1 if it persists).
+  [Round 7: the M = 32 run at 1600 rows finished first.  --a7 without the M = 40 file, and --a8m32, give every
+     null-step quantity and verdict as before and print the M = 40 comparison as pending; with the M = 40 file the
+     code paths and verdicts are those of round 5.  --dpm compares a vsave file (v >= 1.4) only on bands it covers
+     whole.]
   Control: A7 run with the 800-row file given twice in place of 800 and 1600 must report a ratio of exactly 1 and
      'not converging' on every band (the verdict code cannot pass a persistent violation).
 
-  python3 checks/cp3grid5.py --a7 M32_400.npz M32_800.npz M32_1600.npz M40_1600.npz
+  python3 checks/cp3grid5.py --a7 M32_400.npz M32_800.npz M32_1600.npz [M40_1600.npz]
   python3 checks/cp3grid5.py --a8 M32_400.npz M32_800.npz [M32_1600.npz] M40_finest.npz
+  python3 checks/cp3grid5.py --a8m32 M32_400.npz M32_800.npz M32_1600.npz       (A8 with the M = 40 run pending)
   python3 checks/cp3grid5.py --pclass M32.npz M40.npz                  (A9)
   python3 checks/cp3grid5.py --dpm M32_400.npz M32_800.npz [M32_1600.npz]   (A10)
   python3 checks/cp3grid5.py --control M32_400.npz M32_800.npz M40_800.npz
@@ -91,10 +96,13 @@ def a7(paths, label='A7'):
         m_, n_ = field(z, 'm', rs, jv), field(z, 'n', rs, jv)
         xx = z['x']
         P.append((2 * (1 + xx) * m_ - (1 - xx) * n_) / 3)
-    keep = ~mask(Z[0], *idx[0]) & ~mask(Z[1], *idx[1]) & ~mask(Z[2], *idx[2]) & ~mask(Z[3], *idx[3])
+    keep = np.ones(Z[0]['mask'].shape, bool)
+    for z, ix in zip(Z, idx):
+        keep &= ~mask(z, *ix)
     Rm = Z[0]['R'][..., len(x) // 2]
-    print('%s the regularised scheme, cut 0.9, on three null grids (M = 32) and at 1600 rows M = 40; every quantity on '
-          'the 400-row nodes kept by all four runs:' % label)
+    m40 = len(Z) == 4                  # round 7: without the M = 40 file the M ratio is pending, the rest unchanged
+    print('%s the regularised scheme, cut 0.9, on three null grids (M = 32)%s; every quantity on the 400-row nodes kept '
+          'by all %d runs:' % (label, ' and at 1600 rows M = 40' if m40 else ' (M = 40 at 1600 rows pending)', len(Z)))
     verdicts = {}
     for cls, (lo, hi) in CLASSES:
         print('  areal radius %s:' % cls)
@@ -112,9 +120,9 @@ def a7(paths, label='A7'):
             d2 = float(np.nanmax(np.abs(P[1][:, jv][sel] - P[2][:, jv][sel])))
             r1, r2 = mon[0] / mon[1], mon[1] / mon[2]
             rp = d1 / d2 if d2 > 0 else np.inf
-            rm = mon[3] / mon[2]
-            if 3 <= r1 <= 5.5 and 3 <= r2 <= 5.5 and 3 <= rp <= 5.5 and 1 / 1.5 <= rm <= 1.5:
-                vd = 'second order'
+            rm = mon[3] / mon[2] if m40 else np.nan
+            if 3 <= r1 <= 5.5 and 3 <= r2 <= 5.5 and 3 <= rp <= 5.5 and (not m40 or 1 / 1.5 <= rm <= 1.5):
+                vd = 'second order' if m40 else 'second order in the null step (M pending)'
             elif r2 >= 2 and rp >= 2:
                 vd = 'converging'
             elif r2 < 1.5:
@@ -122,15 +130,17 @@ def a7(paths, label='A7'):
             else:
                 vd = 'undecided'
             verdicts[(cls, vb)] = vd
-            print('   v in [%.2f, %.2f): monitor %.3g, %.3g, %.3g (ratios %.2f, %.2f); M40/M32 at 1600: %.2f; |dP| '
-                  '%.2e, %.2e (ratio %.2f, order %.2f) -> %s' % (vb[0], vb[1], mon[0], mon[1], mon[2], r1, r2, rm, d1,
-                                                                d2, rp, np.log2(rp) if rp > 0 else np.nan, vd))
+            print('   v in [%.2f, %.2f): monitor %.3g, %.3g, %.3g (ratios %.2f, %.2f); M40/M32 at 1600: %s; |dP| '
+                  '%.2e, %.2e (ratio %.2f, order %.2f) -> %s' % (vb[0], vb[1], mon[0], mon[1], mon[2], r1, r2,
+                                                                '%.2f' % rm if m40 else 'pending', d1, d2, rp,
+                                                                np.log2(rp) if rp > 0 else np.nan, vd))
     return verdicts
 
 
-def a8(paths):
+def a8(paths, m40=True):
     """the Kretschmann scalar on the null grids paths[:-1] (M = 32, coarse to fine) and paths[-1] (M = 40, at the
-    finest null grid), per areal-radius class (the verifier of round 4, m3: A6 merged 1.0-1.4)"""
+    finest null grid), per areal-radius class (the verifier of round 4, m3: A6 merged 1.0-1.4); with m40 False
+    (round 7, --a8m32) every path is an M = 32 null grid and the angular difference is pending"""
     Z4 = np.load(paths[0])
     R4, mask4, v4 = Z4['R'], Z4['mask'], Z4['v']
     Rm = np.nanmean(R4, axis=2)
@@ -161,15 +171,16 @@ def a8(paths):
         Ks.append((Kp, Rp, Mp, Zr['x']))
     bands = ((1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
     xs = (0.97, 0.5, 0.0, -0.5, -0.97)
-    ng = len(paths) - 1
+    ng = len(paths) - 1 if m40 else len(paths)
 
     def cheb_x(Kc, xn, xe):
         M_ = len(xn); j = np.arange(M_)
         t = (-1.0) ** j * np.sin((2 * j + 1) * np.pi / (2 * M_)) / (xe - xn)
         return Kc @ (t / t.sum())
-    print('A8 the Kretschmann scalar on %d u-rows, at %d null grids (M = 32) and M = 40 at the finest: dev = max '
+    print('A8 the Kretschmann scalar on %d u-rows, at %d null grids (M = 32)%s: dev = max '
           '|K/K_0 - 1| (finest, M = 32); the successive null-step differences and the angular difference, over K_0; '
-          'per areal-radius class (K_0 = 72/R^8):' % (len(rows4), ng))
+          'per areal-radius class (K_0 = 72/R^8):' % (len(rows4), ng, ' and M = 40 at the finest' if m40 else
+                                                     ', M = 40 at the finest pending'))
     out = {}
     for cls, (lo, hi) in (('0.9-1.0', (0.9, 1.0)), ('1.0-1.2', (1.0, 1.2)), ('1.2-1.4', (1.2, 1.4))):
         print(' areal radius %s:' % cls)
@@ -188,14 +199,16 @@ def a8(paths):
                     print('   v in [%.2f, %.2f): no cells' % vb); continue
                 dev = float(np.nanmax(np.abs(k[ng - 1] / K0 - 1)[sel]))
                 dn = [float(np.nanmax(np.abs(k[i] - k[i + 1])[sel] / K0[sel])) for i in range(ng - 1)]
-                dm = float(np.nanmax(np.abs(k[ng - 1] - k[ng])[sel] / K0[sel]))
+                dm = float(np.nanmax(np.abs(k[ng - 1] - k[ng])[sel] / K0[sel])) if m40 else np.nan
                 rr = dn[-2] / dn[-1] if ng >= 3 and dn[-1] > 0 else np.nan
-                vd = 'resolved' if (max(dn[-1], dm) < 0.05 * max(dev, 1e-3) and (ng < 3 or rr >= 2)) \
+                vd = 'resolved' if (max(dn[-1], dm if m40 else 0.0) < 0.05 * max(dev, 1e-3) and (ng < 3 or rr >= 2)) \
                     else 'not resolved'
+                if not m40:
+                    vd += ' in the null step'
                 out[(cls, xe, vb)] = vd
-                print('   v in [%.2f, %.2f): dev %.3g; null step %s%s; in M %.2e -> %s' % (
+                print('   v in [%.2f, %.2f): dev %.3g; null step %s%s; in M %s -> %s' % (
                     vb[0], vb[1], dev, ', '.join('%.2e' % q for q in dn),
-                    ' (ratio %.2f)' % rr if ng >= 3 else '', dm, vd))
+                    ' (ratio %.2f)' % rr if ng >= 3 else '', '%.2e' % dm if m40 else 'pending', vd))
     return out
 
 
@@ -289,6 +302,8 @@ BANDS_D = ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2
 
 def dpm_report(paths):
     res = [dpm(p_) for p_ in paths]
+    # round 7: a file written from vsave on (the 1600-row runs, v >= 1.4) is compared only on bands it covers whole
+    vmin = max(float(np.load(p_)['v'][0]) for p_ in paths)
     print('A10 the regularisation\'s correction d+- (cpaxis5.py A3), replayed at every cell from the stored solution: '
           'max |d+-| per band and areal-radius class, with max |d+-|/max |R_uv| in brackets, at %s rows, and the '
           'successive ratios:' % ', '.join(str(n) for _, n in res))
@@ -296,7 +311,7 @@ def dpm_report(paths):
         print('  areal radius %s:' % cls)
         for vb in BANDS_D:
             vals = [r.get((cls, vb)) for r, _ in res]
-            if any(q is None for q in vals):
+            if any(q is None for q in vals) or vb[0] < vmin - 1e-9:
                 continue
             rat = ['%.2f' % (vals[i][0] / vals[i + 1][0]) if vals[i + 1][0] > 0 else 'inf' for i in range(len(vals) - 1)]
             print('   v in [%.2f, %.2f): %s; ratios %s' % (vb[0], vb[1], ', '.join('%.2e [%.1e]' % (q[0], q[0] / q[1])
@@ -310,6 +325,8 @@ def main():
         a7(a[1:5])
     elif a[0] == '--a8':
         a8(a[1:])
+    elif a[0] == '--a8m32':
+        a8(a[1:], m40=False)
     elif a[0] == '--pclass':
         pclass(a[1], a[2])
     elif a[0] == '--dpm':
