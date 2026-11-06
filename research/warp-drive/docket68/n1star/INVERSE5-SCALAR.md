@@ -33,25 +33,26 @@ of the record.
   2-adic argument); so the conditions reduce to integer congruences, which have no solution in range, and to
   field-membership tests over Q(d1), which fail as they must. The rational coincidences that could occur, alpha =
   lambda_sharp + 1 = 2.5099 below 3 and beta = lambda_sharp + 2 = 3.5099 above, are not levels. Margins: w is at least
-  4.0 x 10^-13 (I9) and 2.0 x 10^-13 (I14) from every root it could meet; the levels are at least 8.91 x 10^-16 (below
-  3) and 3.19 x 10^-16 (above 3) from the excluded sets. Proposition 5.1's hypothesis holds even as literally stated
-  (every j, every root). All on R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). I11:156-160's
-  *appended* set is decided too, (4.2) of III.G'''' Proposition 4.4 at the second Taylor level included, whose
-  tf-exponents are derived from the write-out's own dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists every
-  condition with its range.
+  3.41 x 10^-13 (I9; 4.0 x 10^-13 from 0) and 2.0 x 10^-13 (I14) from every root it could meet; the levels are at least
+  8.91 x 10^-16 (below 3) and 3.19 x 10^-16 (above 3) from the excluded sets. Proposition 5.1's hypothesis holds even as
+  literally stated (every j, every root). All on R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1).
+  I11:156-160's *appended* set is decided too, (4.2) of III.G'''' Proposition 4.4 at the second Taylor level included,
+  whose tf-exponents are derived from the write-out's own dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists
+  every condition with its range.
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
-  Tangherlini block, S5), and their horizon exponents do not depend on l (S5b). Two findings bound what can be had: (i)
-  **in (3.2)'s norm at (s, alpha) = (1, -1) the weight line alpha + 2 = 1 lies 2.93 x 10^-6 from the decaying indicial
-  root 1 + 2.93 x 10^-6 of the degree-2 block**, so sigma_min of that block is at most 2.6180 x 10^-7 (certified, Lemma
-  A.6, proved), and the scalar-type inverse constant in the class is at least 3.81 x 10^6, not of the tensor blocks'
-  order 3.939; at alpha + 2 = 1/2, mid-gap, the same bound is about 10^-2 (0.020, 0.015 and 0.012 at l = 0, 2, 4); (ii)
-  **route (a) of R8.3, a perturbation from the diagonal model, gives nothing at any even l <= 19,990** (the
-  gauge-damping part of the block has an l-free first-order entry of size 9996 in that norm, S8), so the large-l
+  Tangherlini block, S5), and their horizon exponents do not depend on l (S5b). Two findings bound what can be had, both
+  at the record's computational point (gam_C, gam_U, e_U) = (10^6, 1/100, 1/100), which lies outside the proved set
+  (A.1): (i) **in (3.2)'s norm at (s, alpha) = (1, -1) the weight line alpha + 2 = 1 lies 2.93 x 10^-6 from the decaying
+  indicial root 1 + 2.93 x 10^-6 of the degree-2 block**, so sigma_min of that block is at most 2.6180 x 10^-7
+  (certified, Lemma A.6, proved), and the scalar-type inverse constant in the class is at least 3.81 x 10^6, not of the
+  tensor blocks' order 3.939; at alpha + 2 = 1/2, mid-gap, the same bound is about 10^-2 (0.020, 0.015 and 0.012 at l =
+  0, 2, 4); (ii) **route (a) of R8.3, a perturbation from the diagonal model, gives nothing at any even l <= 19,990**
+  (the gauge-damping part of the block has an l-free first-order entry of size 9996 in that norm, S8), so the large-l
   threshold R8.3 asked for, if a perturbative regime exists at all, lies above 19,990. The single missing input stays
-  the one R9.5 and R10.5 name, now an exactly stated ODE inequality for the operator of `checks/scalarblock5_block.txt`
-  (A.8).
+  the one R9.5 and R10.5 name, now an exactly stated ODE inequality for the operator of `checks/scalarblock5_block.txt`,
+  with the stated limit of INVERSE5-SIX R2.0: that operator is not fixed numerically by the write-out (A.8).
 
 ## A. The scalar-type blocks of L-hat_b0(0) (I.C:497)
 
@@ -74,6 +75,15 @@ chi in C_c^oo, chi = 1 near r_h, and gam_H in (0, eps_0] for an eps_0 the record
 terms vanish, R7.4, for every such choice), the scalar-type blocks are. Every statement of part A is made for all
 admissible choices at once (S1-S5, S6: the block with general c_C, c_U, c_H) or at the record's fixed pieces only
 (S5b, S8: the inner piece of (10.49) and c_H = -(1/2) dr, with c_U = 0 or r^-1 dt near the horizon).
+
+**That point is not in the proved set** (the verifier of this file, its Minor 5; INVERSE5-SIX R2.0). III.E Theorem 1.1
+and IV'''' (0.1) take gam_C = 1/h with h < h_* = min(10^-6, h_0, h_tf) off a countable set, h_0 and h_tf proved to exist
+without a value, and PART-VI4-PARAMS.md:124 calls the record's computation at gam_C = 10^6 "outside the proved set";
+gam_U and e_U are chosen below an eps_1 that III.D' Proposition 4.1 proves to exist without a value, and so is gam_H's
+eps_0. S0-S4, S5b's exponents (x = gam_C/200) and Lemma A.6 hold with every parameter a symbol; the numbers of S5-S8
+(the indicial roots, the horizon exponents' values, the bound 2.6180 x 10^-7, route (a)'s 9996 and 19,990) are at the
+record's computational point (gam_C, gam_U, e_U, e_C) = (10^6, 1/100, 1/100, 1/102400), which is the record's own point
+of computation but not one at which its theorems are proved.
 
 ### A.2 The block, exactly (computed, exact; `scalarblock5.py` S0-S1)
 
@@ -126,18 +136,18 @@ the Tangherlini block in Kerr-Schild coordinates, an independent route. Control 
 
 r = 1 is a regular singular point of the block (A2 = -(f/2) I, f ~ 2 (r - 1)): the exponents are 0 (seven times) and
 1 + eig A1(1). With the record's inner c_C ((1/200) dt + (1/800) dr) and c_H = -(1/2) dr, the characteristic
-polynomial of A1(1), with gam_C, e_C, gam_U, e_U, gam_H as symbols, is the same at kappa = 8 and at kappa = 24, both
-with c_U = 0 near the horizon (as III.F'' Lemma 1.1 takes it: there E^Ups is its horizon part) and with c_U = r^-1 dt.
-At the record's point with c_U = 0 it is
+polynomial of A1(1), with kappa, gam_C, e_C, gam_U, e_U, gam_H as symbols, does not contain kappa, both with c_U = 0
+near the horizon (as III.F'' Lemma 1.1 takes it: there E^Ups is its horizon part) and with c_U = r^-1 dt. With c_U =
+0 its roots are, symbolically, those that make the exponents 0, 0, -1, -2, 1 - x, 2 - 2x and -(1 - e_C) x with x =
+gam_C a_v r_h = gam_C/200 (a_v = 1/200, the dv-component of c_C at r_h): exactly the scalar-type part of Lemma 1.1's
+horizon matrix K at y = 0, an independent check of the block and of `lhor5.py`. At the record's point it is
 
     (X + 1)^2 (X + 2)(X + 3)(X + 5000)(X + 9999)(X + 2560487/512),
 
-so the exponents are 0, 0, -1, -2, 1 - x, 2 - 2x and -(1 - e_C) x with x = gam_C a_v r_h = 5000 (a_v = 1/200, the
-dv-component of c_C at r_h): exactly the scalar-type part of Lemma 1.1's horizon matrix K at y = 0, an independent
-check of the block and of `lhor5.py`. With c_U = r^-1 dt up to the horizon instead they move by multiples of gam_U
-((X + 1)(X + 5000)(X + 9999)(X + 151/50)(X + 201/100)(X + 2560487/512)(X + 10099/10000)). Large l does not move the
-horizon part of the problem: whatever makes the scalar-type blocks invertible near and inside the horizon is the same
-at every l, and it carries exponents of size gam_C a_v r_h.
+x = 5000. With c_U = r^-1 dt up to the horizon instead the exponents move by multiples of gam_U ((X + 1)(X + 5000)(X +
+9999)(X + 151/50)(X + 201/100)(X + 2560487/512)(X + 10099/10000) at the point). Large l does not move the horizon part
+of the problem: whatever makes the scalar-type blocks invertible near and inside the horizon is the same at every l,
+and it carries exponents of size gam_C a_v r_h.
 
 ### A.6 The weight: an upper bound for sigma_min, a lower bound for the constant (proved; certified, S6-S7)
 
@@ -191,10 +201,10 @@ I.C:497 at (s, alpha) = (1, -1) is at least 3.81 x 10^6** (so the full inverse b
 against the tensor blocks' 3.939). The cause is the weight: the decaying root 1 + 2.93 x 10^-6 of the degree-2 block
 (box^C's lowest upper root at l = 2, minus 1; III.F' Proposition 2.3 notes epsilon_ind < 3 x 10^-6 because of it) lies
 that close to the line alpha + 2 = 1. At alpha + 2 = 1/2 the same bounds are 0.020, 0.015 and 0.012 at l = 0, 2, 4,
-about 10^5 times weaker, as no root lies near that line. III.H (1.1) itself asks alpha + 2 in (0, 1), open, so alpha =
--1 sits at the end of the range the record uses later; **a choice of alpha in the middle of the gap is recommended for
-any explicit constant** (the tensor blocks' 3.939 and the scalar model's 2.8002 were computed at alpha = -1 and would
-have to be recomputed there; their gaps (-l, l + 2) and (0, 2) contain 1/2, so nothing obstructs that).
+about 10^5 times weaker, as no root lies near that line. III.H (1.1) asks alpha + 2 in (0, 1), open, so alpha = -1 lies
+outside it, at the closed end of III.F''' Proposition 4.1's (0, 1] only; **a choice of alpha in the middle of the gap is
+recommended for any explicit constant** (the tensor blocks' 3.939 and the scalar model's 2.8002 were computed at alpha =
+-1 and would have to be recomputed there; their gaps (-l, l + 2) and (0, 2) contain 1/2, so nothing obstructs that).
 
 S7 (floating point) evaluates Lemma A.6's quasi-mode on the full block at l = 2, x0 = log 400 and widths W = 100,
 1000, 10000: the quotient ||L h||_Y/||h||_X is 1.3900 x 10^4, 1.3901 x 10^3 and 1.3901 x 10^2, and the
@@ -226,8 +236,8 @@ need at least 9,996 individual certifications of stiff problems; this is why no 
 ### A.8 Status, and the single missing input
 
 - *Computed, exact*: the block for every l (S1), with S0, S2-S5, S5b; *proved* (with certified numbers): Lemma A.6 and
-  its corollary, sigma_min(L_2) <= 2.6180 x 10^-7 at alpha = -1; *computed/deduced*: route (a)'s failure up to l =
-  19,990 (S8).
+  its corollary, sigma_min(L_2) <= 2.6180 x 10^-7 at alpha = -1 (at the record's computational point, A.1);
+  *computed/deduced*: route (a)'s failure up to l = 19,990 (S8).
 - *Not obtained*: a lower bound for sigma_min of the scalar-type blocks, uniform in l, hence I.C:497 in the class and
   the full inverse bound there; nothing here is a lower bound.
 - **The single missing input** (unchanged in substance from R9.5 and R10.5, now exactly stated): a number sigma_* > 0
@@ -236,11 +246,16 @@ need at least 9,996 individual certifications of stiff problems; this is why no 
       ||L_l H||_{Y_l} >= sigma_* ||H||_{X_l}   for every even l >= 0 and every H in X_l (at l = 0, H orthogonal in X_0 to
                                                 the zero-energy state),
 
-  L_l the operator of `checks/scalarblock5_block.txt` at the record's gauge data with fixed zeta, chi, gam_H (A.1) and
-  X_l, Y_l the norms of A.6 at a chosen (s, alpha); at (1, -1) necessarily sigma_* <= 2.6180 x 10^-7. With it,
-  ||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha). Route (c) (A.3's factorisation
-  through box^C(0), box^Ups(0) and the static master operator) replaces it by three bounds of the same kind, each
-  uniform in l; none is certified here.
+  L_l the operator of `checks/scalarblock5_block.txt` at the write-out's gauge data and X_l, Y_l the norms of A.6 at a
+  chosen (s, alpha). With it, ||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha).
+- **The stated limit** (as INVERSE5-SIX R2.0 has it for the other six): sigma_* is a constant of an operator the
+  write-out does not fix numerically. Its gauge and damping parameters are chosen below thresholds proved to exist
+  without a value (A.1), and zeta, chi and the smoothing of c_C are free; so before sigma_* can be certified the
+  operator must be fixed: explicit admissibility thresholds for gam_C, gam_U, e_U, gam_H, and explicit zeta, chi and
+  smoothing. At the record's computational point, outside the proved set, sigma_* <= 2.6180 x 10^-7 at (1, -1) (A.6).
+  This is a limit of the explicit computation, not of Theorem 4: each threshold exists by the cited statements. Route
+  (c) (A.3's factorisation through box^C(0), box^Ups(0) and the static master operator) replaces sigma_* by three
+  bounds of the same kind, each uniform in l and each with the same first input; none is certified here.
 
 ## B. The two avoidances of finite sets of roots (proved; `rootavoid5.py`)
 
@@ -274,8 +289,9 @@ levels below 3, 53,244,734 in (3, 4), two above 4 (beta_{K-1} and alpha).
 ### B.3 Which roots can be met (proved; computed, R2, R3, R7)
 
 **Lemma B.1.** At the record's point every indicial root of L-hat_b0(0), at every type and degree, is an integer, or
-irrational, or a box^C scalar-type root with fractional part 49/64 (real part < -100; whether one exists is not
-decided and does not matter, B.6).
+irrational, or a box^C scalar-type root with fractional part 49/64 (whether one exists is not decided and does not
+matter, B.6; by N1STAR-PROOF.md Proposition 10.44 (ii), READ, its real part is > 2 or < -100, as for every box^C root but
+the Coulomb root 2).
 
 *Proof (computed, exact).* (i) box^Ups, s0: lam(lam - 3)(lam^2 - lam - 2 - z), z = 4 e_U gam_U^2 = 1/250000; 9 + 4z =
 562501/62500 is not a rational square (562501 = 750^2 + 1), so lam_s0,2 is irrational. (ii) box^Ups, sl, l >= 1: (l + 3 -

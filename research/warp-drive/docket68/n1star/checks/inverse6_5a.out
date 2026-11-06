@@ -1,8 +1,8 @@
   A0 (READ): the ten quotes found by content: True; md5: EFFECTIVE-CONSTANTS.md a45e90dc075f5a5281941eb6f71c35c1;
       proof5/PART-VI4-PARAMS.md e7eebbb5382a2539f574b814e3c86659; proof5/PART-III-D2-ZEROENERGY.md
-      cdbe8fe88cd5286b9a0e3356185ecdd2; CONSTANTS5.md 0320dd9049430c771639045c46b19344
-  A1 (computed, 60 digits): on 3000 random points raising an upper-bound constant never raises delta or lambda1 and
-      raising a threshold never lowers them: True
+      cdbe8fe88cd5286b9a0e3356185ecdd2; CONSTANTS5.md f274beeeec6657843b892e142acc6feb
+  A1 (proved by inspection; checked at 60 digits): on 3000 random points and at engineered points raising an upper-bound
+      constant never raises delta or lambda1 and raising a threshold never lowers them: True
   A2 (computed): at d_bar = 46236449175331158 with every other input at its floor theta0 = 16 and log10 delta = -(8 d_bar
       + 2) log10 16 - log10 2 = -4.4539386 x 10^17 (pinned in [-4.4540, -4.4539]): True
   A2 the lower bound when eps_NM/A_2d binds: theta0_bar = 10^6, A_bar = 10^12: log10 delta >= -22.1935 x 10^17

@@ -17,9 +17,13 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
      explicit"; PART-VI4-PARAMS.md's h_* = min(10^-6, h_0, h_tf), gamma_Ups,H in (0, eps_0], and "outside the proved
      set" for the record's computational point gamma_C = 10^6; PART-III-D2-ZEROENERGY.md Proposition 4.1's "There is
      eps_0 > 0"; CONSTANTS5.md R10.1's d <= 46,236,449,175,331,158. Each file's md5 is printed.
-  A1 (computed) the formula, in log10 at 60 digits, is monotone: on 3000 random input points, raising any upper-bound
-     constant never raises delta or lambda1, and raising any threshold never lowers them (so certified one-sided bounds
-     of the inputs give a certified lower bound of delta, lambda1: deduced).
+  A1 (proved by inspection; checked at 60 digits) the formula is monotone: with K1 <= 2 C_d every K_i is
+     nondecreasing in the constants, theta0 is a max of nondecreasing functions of the constants and of eta_G^-2 and
+     (4 K3/delta_G)^(1/(6d+2)), eps_NM = theta0^-alpha, and delta, lambda1 are mins of nonincreasing functions of the
+     constants and nondecreasing functions of the thresholds (Round 3: the label was "computed"; the verifier's n6).
+     Checked on 3000 random input points and at engineered points where each branch binds: raising any upper-bound
+     constant never raises delta or lambda1, raising any threshold never lowers them. So certified one-sided bounds of
+     the inputs give certified lower bounds of delta and lambda1 (deduced).
   A2 (computed) at d = d_bar = 46,236,449,175,331,158 (R10.1, deduced on its reading; a larger loss is admissible) and
      every other input at its floor (constants 1, thresholds 1, eta_G = 1): theta0 = 16 exactly and log10 delta =
      -(8 d_bar + 2) log10 16 - log10 2, pinned; and the general lower bound
@@ -217,8 +221,8 @@ def main():
     print('  A0 (READ): the ten quotes found by content: %s; md5: %s' % (good0, '; '.join(
         '%s %s' % (k, v) for k, v in md5s.items())))
     OK['A1'] = a1()
-    print('  A1 (computed, 60 digits): on 3000 random points raising an upper-bound constant never raises delta or '
-          'lambda1 and raising a threshold never lowers them: %s' % OK['A1'])
+    print('  A1 (proved by inspection; checked at 60 digits): on 3000 random points and at engineered points raising an '
+          'upper-bound constant never raises delta or lambda1 and raising a threshold never lowers them: %s' % OK['A1'])
     good2, val, samples = a2()
     OK['A2'] = good2
     print('  A2 (computed): at d_bar = %d with every other input at its floor theta0 = 16 and log10 delta = -(8 d_bar + '

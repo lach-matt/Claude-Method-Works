@@ -39,12 +39,15 @@ phi', M' = max_I phi', w_I = min_I w (and with 4|sigma| for Im sigma > 0, Lemma 
      (modes5.py M2, M3; gmodes5.py G1, imported) and the exact pointwise norm identities, ||chi_I u|| <= (max_I f) B
      ||F|| with max_I f = 15/16, for box on functions, box on the vector-type 1-form blocks (V_1), and 2 L_b0 on the
      tensor-type blocks (V_T; the gauge terms vanish on TT angular tensors): in L^2(I x S^3, r^3 dr dw), SO(4)-
-     invariant, so the bound over all such blocks is the sup over l (Schur).
+     invariant, so the bound over all such blocks is the sup over l (Schur). Round 3 (the verifier's n5): the factor is
+     derived per row from the pointwise identities and tested against the printed 15/16; the tensor row's master
+     relation f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi is checked independently of gmodes5's code.
   Controls (each mutates the computed path and must fail): C1 family C's multiplier with its centre moved to
   r_*(2^(1/2)) + 1/2: -phi U' < 0 at a point (certified), so the monotonicity in a fails; C2 V_V at l = 1 (the
   exceptional Killing sector, a = 15/4, b = -27/4) with phi_A: the bisection fails and a point value is certified < 0;
   C3 the V_S majorant at l >= 3 (m >= 12, eps <= 1/12) with phi_C: fails (a point value certified < 0); C4 family B with
-  s_L = 3/2: the left tail's exponent 2 (1/s_L - 1) is negative, so the tail bound grows toward the horizon.
+  s_L = 3/2: the left tail's exponent 2 (1/s_L - 1) is negative, so the tail bound grows toward the horizon; C5 (Round 3)
+  M7's tensor row with G = 2 f r^(3/2) B: the derived factor is not the printed 15/16.
 
     python3 checks/inverse6_5m.py [--selftest]          (tens of minutes on a loaded machine)
 """
@@ -459,16 +462,18 @@ def main():
     ok7 &= ff.subs(rr, 4) == sp.Rational(15, 16) and sp.diff(ff, rr) == 2 / rr**3    # max_I f = f(4), f increasing
     OK['M7'] = ok7
     tf = lambda b: [dec((Q(Fr(15, 16)) * iv.mpf(x)).b, 4, True) for x in b]
-    print('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the '
-          'static frame\'s pointwise norm, ||u||_I = c^(1/2) (int_I f |Phi|^2 dr_*)^(1/2) and ||G||_I <= (max_I '
-          'f)^(1/2) ||F||_I/c^(1/2) (pointwise identities exact: %s), max_I f = 15/16; so, Phi being the outgoing '
-          'solution (the class of '
-          'III.D Proposition 6.2 and III.F\'\' Proposition 3.1): ||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on '
-          'functions (E2-PILOT\'s B) and on the vector-type 1-form blocks (V_1: l = 1 %s, l >= 2 %s), and '
-          '||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 %s), at sigma = '
-          '0+, 1, '
-          '3, 10' % (rec_ok, ok7, ', '.join(tf(fam['A'][3])), ', '.join(tf(fam['B'][3])),
-                     ', '.join(tf(fam['B'][3]))))
+    facs = [(row[0], transfer_factor(row)) for row in transfer_rows(rr, Ph, gg, Bk, FY, ff)]
+    head = ('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the '
+            'static frame\'s pointwise norm: per row, |u|^2 r^3 = c f |Phi|^2 and |G|^2 = k f |F|^2 r^3 f, so '
+            '||u||_I <= (c k)^(1/2) (max_I f) B ||F||_I, over the operator\'s factor; derived %s, each the printed '
+            '15/16 (tensor: c = 4, k = 1, factor 2 for (2 L)^-1): %s; '
+            % (rec_ok, ', '.join('%s %s' % (nm, fc) for nm, fc in facs), ok7))
+    tail = ('so, Phi being the outgoing solution (the class of III.D Proposition 6.2 and III.F\'\' Proposition 3.1): '
+            '||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on functions (E2-PILOT\'s B) and on the vector-type '
+            '1-form blocks (V_1: l = 1 %s, l >= 2 %s), and ||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on '
+            'the tensor-type blocks (l >= 2 %s), at sigma = 0+, 1, 3, 10'
+            % (', '.join(tf(fam['A'][3])), ', '.join(tf(fam['B'][3])), ', '.join(tf(fam['B'][3]))))
+    print(head + tail)
 
     # controls
     Cs = Mult(Fr(49, 50), 2, 1, Fr(1, 2))
