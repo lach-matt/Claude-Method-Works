@@ -35,3 +35,6 @@ D  the causal structure on W: v is not a time function; v + eps t and Phi_W are 
         in D4): pass max r^2 g^-1(dPhi, dPhi) = -1.084
   D5' control: |delta|_op = 2 r^-2 makes dPhi_W spacelike somewhere: pass max 1.663
 E  the weight on W: u* := sup f + 1 (round 4, m3)
+  E1 r + 1 <= u* - u <= 2r + |u* - v1| on W (20 random f, 4000 points): pass max (u* - u)/r = 1.980
+  E1' control (round 4's u* = 2 sup f - v1 + 1): r <= u* - u fails: pass
+F  the localised energy argument on W (round 4, M4)
