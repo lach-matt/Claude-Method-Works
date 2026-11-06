@@ -74,7 +74,7 @@ digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; 
 flux scalings, not the constants C_1, C_P, R_P, R_G, L; E5 checks the expansions that Lemma 4.1 uses, not the gluing.
 
 Run: python3 checks/gluedecay5.py [--paper PATH]   (about ninety seconds; E3 and E5 most of it). --paper checks
-another copy of the paper, for instance one with section 8.4's blocks seated.
+another copy of the paper, for instance one with section 8.5's blocks seated.
 """
 import os
 import sys

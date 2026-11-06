@@ -389,15 +389,15 @@ uniqueness class (p3).
 *Labels.* Lemma 1.1 (III.C$''$ Proposition 4.1 linearised), Proposition 1.2 (III.K Proposition 1.2 linearised), Lemma
 2.1, Theorem 2.2 (III.K Theorem 4.3 linearised), Corollary 2.3 (Part VII Proposition 3.2 linearised), Remark 2.4.
 
-*Sources.* No source paper is read here: every input is a proved part. II.C Lemma 3.2; II.F Lemma 1.3 and section 7.4;
-III.B Definition 6.1, (2.2), (4.1) and section 5 (PART-III-B-FAMILY.md:340-359); III.C Proposition 5.2 and Corollary
-5.3's proof; III.C$'$ Theorem 3.1 and its proof; III.C$''$ (2.1), Lemma 2.1, Proposition 4.1; III.I (1.1)-(1.2);
-PART-III-I8-UNPARAM.md Definition 2.3; PART-III-I9-COMMOTION.md Definition 2.1; PART-III-I10-CORR4.md Definitions 2.1
-and 2.3; PART-III-I15-AUGMENT5.md Definition 1.2 and Lemma 2.2; III.J Definition 1.1 and Theorem 2.4; III.J$''$ Theorem
-4.2; III.J$'''$ Proposition 5.4 and Corollary 6.6; III.K section 0, Lemma 1.1, Proposition 1.2 and its proof, (2.1),
-Lemmas 2.2-2.3, 4.1, Proposition 4.2 and Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$
-Theorem 2.1, Corollary 2.3; VI.C Theorem 2.1; Part VII section 0, Lemma 3.1, Proposition 3.2, Theorem 0.2 and
-section 4.
+*Sources.* No source paper is read here: every input is a proved part. II.C Lemma 3.2; II.F Lemma 1.3 and section 7.4
+[amended D626: and Lemma 1.4 (a); III.K Lemma 6.1]; III.B Definition 6.1, (2.2), (4.1) and section 5
+(PART-III-B-FAMILY.md:340-359); III.C Proposition 5.2 and Corollary 5.3's proof; III.C$'$ Theorem 3.1 and its proof;
+III.C$''$ (2.1), Lemma 2.1, Proposition 4.1; III.I (1.1)-(1.2); PART-III-I8-UNPARAM.md Definition 2.3;
+PART-III-I9-COMMOTION.md Definition 2.1; PART-III-I10-CORR4.md Definitions 2.1 and 2.3; PART-III-I15-AUGMENT5.md
+Definition 1.2 and Lemma 2.2; III.J Definition 1.1 and Theorem 2.4; III.J$''$ Theorem 4.2; III.J$'''$ Proposition 5.4 and
+Corollary 6.6; III.K section 0, Lemma 1.1, Proposition 1.2 and its proof, (2.1), Lemmas 2.2-2.3, 4.1, Proposition 4.2 and
+Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$ Theorem 2.1, Corollary 2.3; VI.C Theorem
+2.1; Part VII section 0, Lemma 3.1, Proposition 3.2, Theorem 0.2 and section 4.
 
 *Amendment record (D621).* Amended D378 (Step 4: the input of II.C Lemma 3.2 (1), that past causal curves stay in
 $\{r\ge\min(r(p),r^\natural)\}$), read by an independent reader (D621): correct. The same reader found Step 4's other

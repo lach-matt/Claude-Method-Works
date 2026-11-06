@@ -186,15 +186,15 @@ So the standard local theory for quasilinear wave equations with small smooth da
 $\mathcal K$ (existence, uniqueness by II.F Lemma 1.3, and Cauchy stability) gives $h_S$ there, forward from
 $\Sigma_{\mathrm{IVP}}$ and backward to $\{t_{\mathrm{IVP}} = -\nu\}$, small in every $H^k$ in terms of the data, and
 smooth in $S$ as its data are. The source cites the same theory as "standard local well-posedness results" (p. 320). By
-II.F Lemma 1.3 (with $\tau := t_{\mathrm{IVP}}$) the three solutions agree on overlaps.
+II.F Lemma 1.3 (with $\tau := t_{\mathrm{IVP}}$) the three solutions agree on overlaps. [amended D626: Lemma 6.2]
 
 *(2)* is III.C$''$ Theorem 3.1 (3)'s argument on $\mathcal D$. The data satisfy the constraints and
 $\Upsilon^{\chi^\natural_0E_\Upsilon} = \Upsilon^0 = 0$ at $\Sigma_{\mathrm{IVP}}$ (Lemma 1.1 (d); III.C$''$ Proposition
 4.1 (2)). The second Bianchi identity gives $\delta_gG_g\delta^*_{g_0,E_C}\Upsilon = 0$, a wave equation, whose solution
-vanishes by II.F Lemma 1.3 once its Cauchy data vanish. They do: $\Upsilon = 0$ at $\Sigma_{\mathrm{IVP}}$, and the
-constraints give $(G_g\delta^*_{g_0,E_C}\Upsilon)(\nu,\cdot) = 0$ there, which with $\Upsilon = 0$ gives
-$\partial_\nu\Upsilon = 0$ (Lemma 4.1 below). The proof of III.C$''$ Theorem 3.1 (3) uses no property of the cut-off but
-its smoothness.
+vanishes by II.F Lemma 1.3 once its Cauchy data vanish. [amended D626: $\tau := \pm t_{\mathrm{IVP}}$, Lemma 6.2] They
+do: $\Upsilon = 0$ at $\Sigma_{\mathrm{IVP}}$, and the constraints give $(G_g\delta^*_{g_0,E_C}\Upsilon)(\nu,\cdot) = 0$
+there, which with $\Upsilon = 0$ gives $\partial_\nu\Upsilon = 0$ (Lemma 4.1 below). The proof of III.C$''$ Theorem 3.1
+(3) uses no property of the cut-off but its smoothness.
 
 *(1)*: the order is that of III.C$''$ Theorem 3.1's proof: first $S = 0$, which defines $h_0$ on $\mathcal D$, a
 two-sided neighbourhood of $\Sigma_{\mathrm{IVP}}$ off $\{r\le R_\nu\}$ (the backward part lying in $N$; on $\{r\le
@@ -324,8 +324,8 @@ $\tilde h'$ is the forward solution's remainder there: the rows and towers are s
 the $\iota^+$-terms carry $\chi_\iota$. So $\tilde h' = 0$ on $\{t^\flat_*<c\}$ by II.F Lemma 1.3 with $\tau :=
 t^\flat_*$, whose differential is past timelike for $G_S$ there, $G_S-g_{b_0}$ being small in $\tilde{\mathcal
 G}^{0,(1,0,0)}_{\mathrm{e3b}}$ on $\Omega_*\cap\{t^\flat_*\le\hat T+2\}$ (II.C Lemma 3.2 (2); Proposition 1.2 (3), III.B
-Lemma 5.2; finding (K9), verifier 133's B-M1). [amended D621: its compact sets are Lemma 6.1 (c)'s, for $G_S$, which the
-earlier text did not give] Without the hypothesis on $\tilde h$, $D_U(P_5\circ\Psi)(U')$ contains $\partial_SQ(S,\tilde
+Lemma 5.2; finding (K9), verifier 133's B-M1). [amended D621, D626: its compact sets are Lemma 6.1 (c)'s for $G_S$; level
+and domain in section 6] Without the hypothesis on $\tilde h$, $D_U(P_5\circ\Psi)(U')$ contains $\partial_SQ(S,\tilde
 h)(S')$, which need not vanish there (verifier 132's A-M1, a gap also of the source's Step 3 (3)); II.G Theorem 2.1 (iii)
 asks the support property only at $U\in B^\infty_\eta$ (amended in D304), which is how Theorem 3.2 uses it. $\square$
 
@@ -571,16 +571,16 @@ Theorem 4.3 (Theorem 13.1) and Remark 4.4 (Remark 13.4).
 
 *Sources.* [Hin26] pp. 311-312 ((12.33)-(12.34), Lemma 12.7, Theorem 12.8 and its last paragraph), pp. 318-323 (section
 13.1: Theorem 13.1, Remarks 13.2-13.4, the proof's Steps 1-4), read at source; Corollary 5.15 read at source. Inputs:
-II.C Lemma 3.2; II.F Lemma 1.3 and section 7.4; II.G Theorem 2.1, Proposition 3.1 and Example 3.2; III.B (3.6), Lemma
-3.7, section 5, Definition 6.1; III.C (1.6), (3.2)-(3.3), Lemma 3.2 (a), Corollary 5.3; III.C$'$ Theorems 2.1, 3.1,
-Lemma 1.1; III.C$''$ section 2, Theorem 3.1, Proposition 4.1, (C$''$1)-(C$''$2); III.D$''$ Lemma 3.1, Proposition 4.1;
-III.E Theorem 1.1; III.F$'$ Proposition 3.3; III.G$''$ section 4; III.H$''$ (B2); III.I (1.1), (1.2), (1.4);
-III.I$'''''''$ Lemma 2.2; III.I$'''''''''$ Definition 2.3, (2.3); III.I$''''''''''''''$ (1.2)-(1.3), Theorem 3.1, Lemma
-2.4; III.I$'''''''''''''''$ Proposition 2.5, Corollary 3.2; III.J Definition 1.1, Theorem 2.4, (2.1); III.J$'$ Theorem
-2.1; III.J$''$ section 1, Theorem 4.2, Proposition 4.3; III.J$'''$ Definition 1.1, Corollary 6.6; Part IV (to be
-written).
+II.C Lemma 3.2; II.F Lemma 1.3 and section 7.4 [amended D621, D626: and Lemma 1.4; Lemmas 6.1-6.2]; II.G Theorem 2.1,
+Proposition 3.1 and Example 3.2; III.B (3.6), Lemma 3.7, section 5, Definition 6.1; III.C (1.6), (3.2)-(3.3), Lemma 3.2
+(a), Corollary 5.3; III.C$'$ Theorems 2.1, 3.1, Lemma 1.1; III.C$''$ section 2, Theorem 3.1, Proposition 4.1,
+(C$''$1)-(C$''$2); III.D$''$ Lemma 3.1, Proposition 4.1; III.E Theorem 1.1; III.F$'$ Proposition 3.3; III.G$''$ section
+4; III.H$''$ (B2); III.I (1.1), (1.2), (1.4); III.I$'''''''$ Lemma 2.2; III.I$'''''''''$ Definition 2.3, (2.3);
+III.I$''''''''''''''$ (1.2)-(1.3), Theorem 3.1, Lemma 2.4; III.I$'''''''''''''''$ Proposition 2.5, Corollary 3.2; III.J
+Definition 1.1, Theorem 2.4, (2.1); III.J$'$ Theorem 2.1; III.J$''$ section 1, Theorem 4.2, Proposition 4.3; III.J$'''$
+Definition 1.1, Corollary 6.6; Part IV (to be written).
 
-## 6. Amendment D621: past causal curves near $\mathscr I^+$
+## 6. Amendments D621 and D626: past causal curves near $\mathscr I^+$ and near infinity
 
 *Record.* The amendments of D378 (Proposition 4.2: past causal curves kept in $\{r\ge\min(r(p),r^\natural)\}$ by II.C
 Lemma 3.2 (1)) and D611 (Proposition 1.2 (1) and its proof: $h_0$ ends at $\Sigma_{\mathrm{IVP}}$ on $\{r\le R_\nu\}$)
@@ -591,8 +591,16 @@ sets of II.F Lemma 1.3 from II.F section 7.4, which is the $\iota^+$ model ($G_\
 nothing for $g$. Near $\mathscr I^+$ the levels of $t^\flat_*$ reach $r = \infty$, so these sets need a bound on $r$
 along past causal curves of $g$. II.F Lemma 1.4 (a) bounds $r$ by $B = t_*+\tilde R(r)$, a time function of $g_{b_0}$
 and of the combinations $G_\theta$ only: for some $h$ small in II.C's class, $dt$, and so $dB$, is spacelike near
-$\mathscr I^+$ (`checks/scrirad5.py` R2). Lemma 6.1 gives the bound for every metric of the class. Proposition 4.2 and
+$\mathscr I^+$ (`checks/scrirad5.py` R2, on Minkowski space and on $g_{b_0}$, whose inverse differs from
+$\eta^{-1}$ by $O(r^{-2})$ there; D626). Lemma 6.1 gives the bound for every metric of the class. Proposition 4.2 and
 Lemma 2.3 (whose support claim used II.F Lemma 1.3 in the same way, naming neither input) cite it (D621).
+
+An independent verifier read D621 (D626): Lemma 6.1, re-derived, holds, and its uses in Proposition 4.2 and Part
+VIII hold. It found Lemma 2.3's use of Lemma 6.1 unworkable as written (its level must lie below $\tilde h'$'s
+support, so the curves leave $\Omega_*$; repaired in *Uses*, D626), and it found that Proposition 1.2 applies II.F
+Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ near infinity, for the perturbed metric, with the check missing from the
+text; Lemma 6.2 supplies it (D626). It also named two notational clashes, seated: Lemma 6.1's $\Xi$ was printed
+$F$, against section 0's $F(r)$, and its coefficient $B$ is now marked apart from the record's $B$ of II.F.
 
 **Lemma 6.1 (the radius near $\mathscr I^+$ along past causal curves; D621).** Let $\ell$, $\epsilon_G$, $r'_0$,
 $r^\natural$ and $t^\flat_*$ be those of II.C Lemma 3.2 for $g_0 = g_{b_0}$, $C_\flat$ its $C'$ (section 0), and
@@ -601,7 +609,7 @@ $T\ge\frac12$; put $T_1 := T/C_\flat+1$. There is $R_T<\infty$, depending only o
 G}^{0,(2\ell,0,0)}_{\mathrm{e3b}}}<\epsilon_G$:
 
 (a) on $W_T := \Omega^\circ\cap\{\frac12<t_*<T_1,\ r>R_T\}$ the covector $\alpha := dt^\flat_*+r^{-1}dr$ is past
-timelike for $g$, so $F := t^\flat_*+\log r$ is a time function on $W_T$;
+timelike for $g$, so $\Xi := t^\flat_*+\log r$ is a time function on $W_T$;
 
 (b) if $\frac12<c<t^\flat_*(p)\le T$ and $\gamma$ is a past directed causal curve of $g$ in $\Omega^\circ$ from $p$ along
 which $t^\flat_*\ge c$, then $r\le R_p := \max(R_T,r(p))\,e^{t^\flat_*(p)-c}$ on $\gamma$;
@@ -613,15 +621,16 @@ the compact sets II.F Lemma 1.3 asks for, with $\tau := t^\flat_*$.
 The proof is pointwise along the curves, so (a)-(c) hold as well for $h$ given and small in that norm on an open
 $Y\subset\Omega^\circ$ only, with $W_T\cap Y$ in (a) and the curves and $X$ in $Y$ in (b)-(c).
 
-*Proof.* (a) II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421) gives, near $\mathscr I^+$ and with $\rho :=
-\rho_I = t_*/r$: the coefficients of $g^{-1}-\bar g^{-1}$ in the basis $\rho\,\partial_{t_*}^2$,
+*Proof.* (a) II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421) gives, near $\mathscr I^+$ and with $\rho := \rho_I
+= t_*/r$: the coefficients of $g^{-1}-\bar g^{-1}$ in the basis $\rho\,\partial_{t_*}^2$,
 $\partial_{t_*}\otimes_s\partial_r$, $x_I\partial_{t_*}\otimes_sr^{-1}\partial_\omega$, $\rho^{-1}\partial_r^2$,
 $x_I^{-1}\partial_r\otimes_sr^{-1}\partial_\omega$, $r^{-1}\partial_\omega\otimes_sr^{-1}\partial_\omega$ are at most
 $C_1(\epsilon_G+\rho^{1-\ell})\rho^\ell\le C\rho^\ell$ for $\rho\le1$, with $C := \max(1,C_1(\epsilon_G+1))$; $\bar
-g^{-1}(dt_*,dt_*) = 0$, $\bar g^{-1}(dt_*,dr) = -1$ and $\bar g^{-1}(dr,dr) = 1$; on $\{\rho\le\rho_-,\ r\ge
-r'_0+1\}$, $t^\flat_* = t_*F_1(\rho)$ and $dt^\flat_* = A\,dt_*+B\,dr$, $A = 1-(1+\ell)\rho^\ell$, $B =
-\ell\rho^{\ell+1}$; and $V := t\partial_t+r\partial_r$ is future timelike for $g$ on $\{r\ge R_V\}$ ($R_V$ the radius
-$R_2$ there), with $dt^\flat_*(V)>0$. Let $x := \rho^\ell$, so $\rho\le x\le1$ for $\rho\le1$, and
+g^{-1}(dt_*,dt_*) = 0$, $\bar g^{-1}(dt_*,dr) = -1$ and $\bar g^{-1}(dr,dr) = 1$; on $\{\rho\le\rho_-,\ r\ge r'_0+1\}$,
+$t^\flat_* = t_*F_1(\rho)$ and $dt^\flat_* = A\,dt_*+B\,dr$, $A = 1-(1+\ell)\rho^\ell$, $B = \ell\rho^{\ell+1}$
+[notation, D626: II.C's coefficients, not the record's $B = t_*+\tilde R(r)$]; and $V := t\partial_t+r\partial_r$ is
+future timelike for $g$ on $\{r\ge R_V\}$ ($R_V$ the radius $R_2$ there), with $dt^\flat_*(V)>0$. Let $x := \rho^\ell$,
+so $\rho\le x\le1$ for $\rho\le1$, and
 $$\rho_T := \min\big(\rho_-,(37CT_1)^{-1/\ell}\big),\qquad R_T := \max\big(R_V,r'_0+1,T_1/\rho_T\big).$$
 On $W_T$, $\rho<T_1/R_T\le\rho_T$, so all of this applies, and $x\le(37CT_1)^{-1}$. Then $\alpha = A\,dt_*+B'dr$ with
 $B' := B+r^{-1}$; $A\in[\frac12,1]$; and as $r^{-1} = \rho/t_*\in[\rho/T_1,2\rho]$ and $B\le\frac12\rho$,
@@ -637,8 +646,8 @@ with controls that must fail and do.)
 (b) $t^\flat_*$ is a time function of $g$ (II.C Lemma 3.2 (2)), so along $\gamma$, $c\le t^\flat_*\le t^\flat_*(p)\le T$,
 and $\frac12<t_*\le t^\flat_*/C_\flat<T_1$ (II.C Lemma 3.2 (b)). Let $R'_p := \max(R_T,r(p))$, suppose that $r>R_p$ at
 $\gamma(s_1)$, and let $s_0 := \sup\{s\le s_1:r(\gamma(s))\le R'_p\}$, which exists as $r(\gamma(0)) = r(p)$. On
-$(s_0,s_1]$, $r>R'_p\ge R_T$, so $\gamma$ lies in $W_T$ there and $F\circ\gamma$ is non-increasing ($dF = \alpha$ is
-negative on past causal vectors); by continuity $F(\gamma(s_1))\le F(\gamma(s_0))$. Hence $\log
+$(s_0,s_1]$, $r>R'_p\ge R_T$, so $\gamma$ lies in $W_T$ there and $\Xi\circ\gamma$ is non-increasing ($d\Xi = \alpha$ is
+negative on past causal vectors); by continuity $\Xi(\gamma(s_1))\le\Xi(\gamma(s_0))$. Hence $\log
 r(\gamma(s_1))\le\log R'_p+t^\flat_*(\gamma(s_0))-t^\flat_*(\gamma(s_1))\le\log R'_p+t^\flat_*(p)-c$, that is
 $r(\gamma(s_1))\le R_p$, which excludes $s_1$. So $r\le R_p$ on $\gamma$.
 
@@ -651,9 +660,68 @@ $L_p$ is compact. $\square$
 
 *Uses.* Proposition 4.2: $X := \Omega^\circ_*$, $c := \frac32$, $T := t^\flat_*(p)$; $L_p\subset X$, as $t^\flat_*\ge
 c>1$ on it. Lemma 2.3 (*Supports*): $G_S$ in place of $g$, which lies in the class on $\Omega_*\cap\{t^\flat_*\le\hat
-T+2\}$ (as stated there), so with $Y := \Omega^\circ_*\cap\{t^\flat_*<\hat T+2\}$, $X$ and the level of II.F Lemma 1.3
-as there, and $T := \hat T+2$. Part VIII Step 4 is the case $h = 0$, where II.F Lemma 1.4 (a) at $\theta = 0$ gives
-such sets as well.
+T+2\}$ (as stated there), so with $Y := \Omega^\circ_*\cap\{t^\flat_*<\hat T+2\}$, $X$ and the level of II.F Lemma 1.3 as
+there, and $T := \hat T+2$. [amended D626: as written this cannot work: Lemma 2.3 names neither $X$ nor the level, and
+with $Y\subset\Omega^\circ_*$ the condition $L_p\subset X$ forces a level above 1, that is, the vanishing of $\tilde h'$
+on a slab above $\{t^\flat_* = 1\}$, which is what is to be proved. It reads: $\tilde h'$ has supported character at
+$\{t^\flat_* = 1\}$ (the $\bullet$-spaces of III.J Definition 1.1), so, extended by 0, it solves
+$L_{G_S,\phi_{-S}^*g_{b_0}}\tilde h' = 0$ on $X := \mathcal D^\circ_{-S}\cap\{\frac34<t^\flat_*<c\}$, and II.F Lemma 1.3
+is applied on $X$ at the level $\frac78$, below its support, as at PART-II-F-IOTA.md:1929-1934; Lemma 6.1 with $G_S$ for
+$g$, $Y := X$, $c := \frac78$ and $T := \hat T+2$ gives the sets ($L_p\subset X$: $\frac78\le t^\flat_*\le
+t^\flat_*(p)<c$ on it, and $\{\frac34<t^\flat_*\}$ lies in $\phi_{-S}^{-1}(\{t_{\mathrm{IVP}}\ge0\})$, $\phi_{-S}$ moving
+$t_{\mathrm{IVP}}$ by at most $C|S|r$ while $t_{\mathrm{IVP}}\ge t_*+\frac r4$ for $r\ge R_6$). $G_S$ lies in the class
+on $X$: on $\Omega_*$ as stated there, and below it near $\mathscr I^+$ by the same sources, $h_{-S}$ having III.C's
+orders on $\mathcal D$ near infinity (III.C$''$ Theorem 3.1 (2); Part IV$'''$ Corollary 2.3), and on the compact rest by
+its smallness in $C^0$.] Part VIII Step 4 is the case $h = 0$, where II.F Lemma 1.4 (a) at $\theta = 0$ gives such sets
+as well.
+
+**Lemma 6.2 (Proposition 1.2's uniqueness near infinity; D626).** Let $g_S := \phi_S^*g_{b_0}+h_S$ on $\mathcal D$, with
+$|S|$ and the data small. There is $R\ge R_5$ such that $\mathcal D\cap\{r\ge R\}\subset\Omega_{\mathrm{ext},r_1}
+\cup\mathcal S$, $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ there, and on $\mathcal D\cap\{r\ge R\}$: every Cartesian
+component of $g_S-\eta$ is at most $\frac1{20}$ in modulus, $g_S^{-1}(dt,dt)\le-\frac12$, and $|V^x|\le2|V^t|$ for every
+$g_S$-causal $V$. Hence $dt_{\mathrm{IVP}}$ is past timelike for $g_S$ on $\mathcal D$; along causal curves of $g_S$ in
+$\{r\ge R\}$, $r+2t_{\mathrm{IVP}}$ does not increase towards the past and $r-2t_{\mathrm{IVP}}$ does not increase
+towards the future; and II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ (forward from $\Sigma_{\mathrm{IVP}}$) or $\tau :=
+-t_{\mathrm{IVP}}$ (backward to $\{t_{\mathrm{IVP}} = -\nu\}$), on the interior of $\mathcal D$ or of a part of it closed
+under the curves concerned, has the compact sets
+$$L_p := \{c\le\tau\le\tau(p),\ \min(r(p),r^\natural)\le r\le\max(R,r(p))+2(\tau(p)-c)\}\cap\{t^\flat_*\le
+t^\flat_*(p)\ \text{where it is defined}\}.$$
+
+*Proof.* $\mathcal K$ is compact, so for $R$ above its radius $\mathcal D\cap\{r\ge R\}$ lies in
+$\Omega_{\mathrm{ext},r_1}\cup\mathcal S$ (Proposition 1.2's cover), and $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ for
+$r\ge R_5$ (section 0). There $\phi_S^*g_{b_0}$ agrees with an element of III.C's background class $\mathcal G$, so
+$\phi_S^*g_{b_0}-\eta\in\rho_0^2\rho_I^2C^\infty$ (III.C Definition 3.4): on $\Omega_{\mathrm{ext},r_1}$ by III.C$''$
+Lemma 1.1, through III.C Lemma 3.5 (2), as $\Omega_{\mathrm{ext},r_1}\subset\{\chi_{\mathrm{IVP}}(1-\chi_K) = 1\}$; on
+$\mathcal S$ by Part IV$'''$ Lemma 0.1. And $h_S$ lies in III.C Definition 3.1's class $H^{k,(\mathcal
+E_0,\ell_0),\langle\mathcal E^C_I\rangle,\ell_I}_{\mathrm b}$, $k\ge5$, with norm $O(\|(\tilde\gamma,\tilde
+k)\|_{H^{d_1}})$: on $\Omega_{\mathrm{ext},r_1}$ by III.C$''$ Theorem 3.1 (2) and Proposition 1.2 (3), on $\mathcal S$ by
+Part IV$'''$ Corollary 2.3. Its slot coordinates are bounded pointwise by that norm (Sobolev embedding on the unit cubes
+of a b-metric, as in III.C Lemma 2.1's proof: $k\ge5>\frac52$, and the weights $\ell_0>0$, $\ell_I>\frac32$ and the index
+sets' real parts are positive), and they are bounded multiples of its Cartesian components (III.C Lemma 1.3: the frames
+are related by $F_0(\omega)(I+\rho^2C^\infty)$). So for $R$ large and the data and $|S|$ small, each Cartesian component
+of $\delta := g_S-\eta$ is at most $\epsilon := \frac1{20}$ on $\mathcal D\cap\{r\ge R\}$. Then
+$\|\eta^{-1}\delta\|\le5\epsilon$ in the maximum row-sum norm, and the Neumann series gives
+$|(g_S^{-1}-\eta^{-1})(dt,dt)|\le5\epsilon/(1-5\epsilon) = \frac13$, so $g_S^{-1}(dt,dt)\le-\frac23$; and for $V$ causal
+for $g_S$, $\eta(V,V)\le|\delta(V,V)|\le5\epsilon\big((V^t)^2+|V^x|^2\big)$, whence $|V^x|^2\le\frac{1+5\epsilon}{1-5
+\epsilon}(V^t)^2 = \frac53(V^t)^2$ (computed: `checks/scrirad5.py` R4). On $\mathcal D\cap\{r\le R\}$,
+$dt_{\mathrm{IVP}}$ is past timelike for $g_{b_0}$ (III.B Lemma 3.7 (b)), with a margin on this compact set, so also for
+$g_S$, $\phi_S$ tending to the identity there and $h_S$ being small in $C^0$ (Proposition 1.2's proof: Cauchy stability
+on $\mathcal K$, and the classes above). For a past directed causal $V$ in $\{r\ge R\}$, $dt(V) = V^t<0$ and
+$dr(V)\le|V^x|\le-2V^t$, so $d(r+2t_{\mathrm{IVP}})(V)\le0$; likewise for future directed $V$,
+$d(r-2t_{\mathrm{IVP}})(V)\le0$. The sets: for $q\in J^-(p)\cap\{\tau\ge c\}$ along a curve $\gamma$ from $p$, $\tau$
+decreases along $\gamma$, so $c\le\tau\le\tau(p)$ on it; $r\ge\min(r(p),r^\natural)$ by II.C Lemma 3.2 (1), as in
+Proposition 1.2's proof; $t^\flat_*\le t^\flat_*(p)$ where $t^\flat_*$ is defined, it being a time function of $g_S$
+(II.C Lemma 3.2 (2), as there), which keeps $\gamma$ off the top $\{t^\flat_* = \hat T+3\}$; and, as in Lemma 6.1 (b),
+with $s_0$ the last parameter before $q$ at which $r\le R' := \max(R,r(p))$, $r(q)+2\tau(q)\le R'+2\tau(\gamma(s_0))$ for
+$\tau = t_{\mathrm{IVP}}$ (and the same with $-\tau$ and future curves), so $r(q)\le R'+2(\tau(p)-c)$. $L_p$ is closed,
+bounded in $t$ and $r$, and its points have $\tau\ge c$ and $r\ge\min(r(p),r^\natural)$, which keeps it off the data
+surface and the boundary $\{r = \text{const}\}$ of $M$; so it is compact and lies in the domain. $\square$
+
+II.C's class alone would not do here: for $h$ merely small in $\tilde{\mathcal G}^{0,(1,0,0)}_{\mathrm{e3b}}$, $dt$ can
+be spacelike near $\mathscr I^+$ (`checks/scrirad5.py` R2), whereas $h_S$ lies in III.C's far smaller class, whose
+Cartesian components are bounded (an independent verifier's item 0; D626).
 
 *Sources for this section.* II.C Lemma 3.2 and its proof; II.F Lemmas 1.3 and 1.4; II.B section 7. Computed:
-`checks/scrirad5.py` (R1-R3 and five controls; the run is `checks/scrirad5.out`).
+`checks/scrirad5.py` (R1-R3 and five controls; the run is `checks/scrirad5.out`). [amended D626: and for Lemma 6.2, III.B
+Lemma 3.7 (b); III.C Lemmas 1.3, 2.1, 3.5 (2), Definitions 3.1, 3.4; III.C$''$ Lemma 1.1, Theorem 3.1 (2); Part IV$'''$
+Lemma 0.1, Corollary 2.3; computed, `checks/scrirad5.py` R4 and its sixth control.]

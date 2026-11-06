@@ -12,6 +12,10 @@ section R2.0, with bracketed notes at each place they change, and section 8.2 is
 was found to hold each time, and their findings are seated in sections R2.0, R3.0 and R4.0. Section 8.4 is the current
 proposal for the paper; sections 8.1-8.3 are superseded.]
 
+[Proved (2026-11-06): round 5's seating was confirmed by the round-3/4 reader with no new major or minor finding; the
+whole of `checks/gluedecay5.py` exits 0 with all 21 mutants failing on the paper as it stands and on a seated copy.
+Section 8.5 is the current proposal; sections 8.1-8.4 are superseded. Two optional nits seated with this note.]
+
 [R5.0: four readings now (rounds 2-5), the mathematics found to hold each time; section 8.5 is the current proposal and
 sections 8.1-8.4 are superseded.]
 

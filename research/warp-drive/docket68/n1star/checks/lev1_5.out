@@ -28,4 +28,4 @@ L4 (computed) level 1 on |x| <= 1/2, unweighted: int a_o du = 366.6, int a_i dv 
     10^138.0)
    weighted (Theorem 8.W's optimum): log(max/min lam) = 12.68, int a_o du = 65.8, int a_i dv = 32.7, F_1^2 = 10^91.0
        (level 0 weighted: 10^66.9)
-lev1_5 (571 s): all checks pass
+lev1_5 (506 s): all checks pass
