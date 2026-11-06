@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """vii5census.py -- c4: an enumeration for (VII5), every place Parts III-IV name an averaged or equivariant choice.
 
-Part VII's (VII5) and Lemma 3.1 (proof5/PART-VII-ASSEMBLY.md:280-313) say that the construction's choices -- cut-offs
+Part VII's (VII5) and Lemma 3.1 (proof5/PART-VII-ASSEMBLY.md, section 3) say that the construction's choices -- cut-offs
 (C1), the stationary gauge 1-forms (C2), the linear maps given by existence statements (C3) and their families in b
 (C3'), and one complement (C4) -- are radial, averaged or equivariant, and that "the proofs of Parts III-IV use the
 objects of (C3) and (C3') only through the conditions stated at the sites listed". That last step is a reading. This
@@ -18,7 +18,12 @@ section only, the sentence there that fixes it) from the places it is used.
      C2: c_Upsilon, c_{Upsilon,H}, c_C at III.B Definition 6.1 and the specific forms Lemma 3.1 cites.
      C3: omega_s1, breve omega; the domain Y_tau and the maps' printed names in III.G'' Table 1.1 and Definition 2.5
          (breve h, h^{(mu), h_{b,s1}, h^{(0)}_{b,s0}, h^{(-2)}_{b,tau} and its h^{(-2)}_b, h^{<=k}_{b,s1},
-         h^{<=k}_{b,v1}); S_{lambda_0}.
+         h^{<=k}_{b,v1}); S_{lambda_0}. Since D621 also the other spellings of the 1-form towers that (C3) names since
+         D608 (an independent reader's m2): the bottoms omega^{(0)}_{b0,s1}, omega^{(-1)}_{b0,v1}, omega^{(0)}_{b0,s0}
+         (site PART-III-I10-CORR4.md:127-147, the site (C3) cites), and four objects built from the towers, each at
+         the sentence that defines it: omega^{<=k}_tau (I10:148-149), omega_nu (I10 Definition 2.1, :174-176),
+         omega^{<=4} (PART-III-I9-COMMOTION.md:76-77) and omega^{<=1}_natural (PART-III-I5-UNBOOST.md Definition 1.1,
+         :77-78).
      C3': T_{rho,b}, h^{<=1}_{b,s1}, h_{b,v1}, h^{<=2}_{b,v1}. Beside them, h_{b,rem} is reported as the object built
          from (C3') (III.I'''''''''''''' Definition 1.2), not a choice.
      C4: the complement V'.
@@ -46,6 +51,7 @@ P5 = os.path.join(HERE, "proof5")
 
 BF, K, G3, I5, I15 = ("PART-III-B-FAMILY.md", "PART-III-K-NONLINEAR.md", "PART-III-G3-GRAFT.md",
                       "PART-III-I5-UNBOOST.md", "PART-III-I15-AUGMENT5.md")
+I10 = "PART-III-I10-CORR4.md"
 IIC = "PART-II-C-OPERATORS.md"
 CUT5 = [(BF, 345, 349)]
 TABLE = [(G3, 40, 80), (G3, 179, 182)]
@@ -65,7 +71,11 @@ GROUPS = [
         ("\\omega_{\\mathrm s1}", [(I5, 62, 66)]), ("\\breve\\omega", [(I5, 62, 66)]), ("\\mathcal Y_\\tau", TABLE),
         ("\\breve h", TABLE), ("h^{(\\mu)", TABLE), ("h_{b,\\mathrm s1}", TABLE), ("h^{(0)}_{b,\\mathrm s0}", TABLE),
         ("h^{(-2)}_", TABLE), ("h^{\\le k}_{b,\\mathrm s1}", TABLE), ("h^{\\le k}_{b,\\mathrm v1}", TABLE),
-        ("\\mathcal S_{\\lambda_0}", [("PART-III-J-PARAM.md", 225, 227)])]),
+        ("\\mathcal S_{\\lambda_0}", [("PART-III-J-PARAM.md", 225, 227)]),
+        ("\\omega^{(0)}_{b_0,\\mathrm s1}", [(I10, 127, 147)]), ("\\omega^{(-1)}_{b_0,\\mathrm v1}", [(I10, 127, 147)]),
+        ("\\omega^{(0)}_{b_0,\\mathrm s0}", [(I10, 127, 147)]), ("\\omega^{\\le k}_\\tau", [(I10, 148, 149)]),
+        ("\\omega_\\nu", [(I10, 174, 176)]), ("\\omega^{\\le4}", [("PART-III-I9-COMMOTION.md", 76, 77)]),
+        ("\\omega^{\\le1}_\\natural", [(I5, 77, 78)])]),
     ("C3' families in b (averaged)", [
         ("T_{\\rho,b}", FAM), ("h^{\\le1}_{b,\\mathrm s1}", FAM), ("h_{b,\\mathrm v1}", FAM),
         ("h^{\\le2}_{b,\\mathrm v1}", FAM)]),

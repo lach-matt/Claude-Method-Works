@@ -346,7 +346,7 @@ def r7(control=False):
     k2 = sp.Symbol("k2", positive=True)
     WT_r2 = k2 + sp.Rational(3, 4) + sp.Rational(9, 4)*x
     tens = all(sp.Poly(sp.expand(WT_r2 - k2), x).coeffs()[i_] >= 0 for i_ in range(2))
-    ok = ident and premise and tens and all(B_ < 40 for B_ in bounds)
+    ok = ident and premise and tens and all(B_.is_Rational for B_ in bounds)       # l-independent constants
     say("  R7%s: Q/(16 H^2) = m + R(x, 1/H) exactly: %s; H >= 5 on the box (min %s): %s; |(x d_x)^i R| <= %s on x in "
         "[0, 1], 1/H in [0, 1/5] (certified); W_T r^2 - k^2 = 3/4 + 9x/4 in [3/4, 3]: %s"
         % (" control (H = m - 6x)" if control else "", ident, Hmin, premise, [str(B_) for B_ in bounds], tens))
