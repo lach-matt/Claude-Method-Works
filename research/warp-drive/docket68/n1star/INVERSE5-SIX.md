@@ -902,8 +902,9 @@ nu'^2)^(-(1-delta)/4), which does not involve |sigma|.
   eps_K] as R9.1 takes it, at the record's computational point (R13.2); the avoidance conditions decided, rootavoid5
   26/26)". CONSTANTS5.md R13.2 names the point as part of d's bound ("the loss at the record's computational point,
   which lies outside the proved set", READ) and leaves the integer unmoved ("d's integer does not move", R13 status);
-  `checks/rootavoid5.out` (md5 d4b4e2a2..., the one CONSTANTS5.md R13 pins) ends "26/26", 26 PASS, 0 FAIL (counted
-  here). D_BAR, A0's quote of d and A2's -4.45394517576 x 10^17 are unchanged (bracketed at R4.3).
+  `checks/rootavoid5.out` at md5 d4b4e2a2..., the copy CONSTANTS5.md R13 pins (and the one committed), ends "26/26",
+  26 PASS, 0 FAIL (counted here); another workstream was rerunning rootavoid5 while this was written, so the count is
+  that pinned copy's. D_BAR, A0's quote of d and A2's -4.45394517576 x 10^17 are unchanged (bracketed at R4.3).
 - *Nit 9.* `checks/inverse6_5a.out` is regenerated: A0 finds its ten quotes by content in CONSTANTS5.md at md5
   b96178545d67619ab2bed9ecf1af714f and prints it.
 - *R12.7 -> R13.7.* CONSTANTS5.md R13.7, "Final replacement text for the paper (supersedes R12.7)" (READ), supersedes
