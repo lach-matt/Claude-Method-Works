@@ -1,6 +1,6 @@
-  Q1: 632 census use lines (C3, C3', the built object, C4) in 28 files; table rows 632; missing 0, extra 0, doubled 0,
+  Q1: 713 census use lines (C3, C3', the built object, C4) in 28 files; table rows 713; missing 0, extra 0, doubled 0,
       malformed 0
-  Q2: SITE-ONLY 343, NAMING 205, MORE 0, UNDECIDED 5, HOMONYM 79; MORE/UNDECIDED rows without a resolution: 0;
+  Q2: SITE-ONLY 375, NAMING 246, MORE 0, UNDECIDED 5, HOMONYM 87; MORE/UNDECIDED rows without a resolution: 0;
       resolutions whose cited text is not printed where they say: 0
       PART-III-I11-SPACETIME.md:182 UNDECIDED [\breve h] identifies Table 1.1 towers with delta* of the 1-form towers
         breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it names
@@ -38,16 +38,8 @@
         {PART-VII-ASSEMBLY.md (C3): "of every type $\tau\in\mathcal T$" "are taken as $\delta^*_{g_{b_0}}$ of the
         averaged 1-forms" "as a map of all of $\mathcal V_1$"}
   Q4: Part VII's (C3) prints the amendment's phrases ['of every type $\\tau\\in\\m...', 'are taken as $\\delta^*_{...',
-      'as a map of all of $\\mat...']: [True, True, True]; Lemma 3.1 states 632 lines and (VII5) (632, 343, 205, 79, 0,
-      5) (lines, site-only, naming, homonym, more, undecided), the table (632, 343, 205, 79, 0, 5): agree
+      'as a map of all of $\\mat...']: [True, True, True]; Lemma 3.1 states 713 lines and (VII5) (713, 375, 246, 87, 0,
+      5) (lines, site-only, naming, homonym, more, undecided), the table (713, 375, 246, 87, 0, 5): agree
   control: dropped row fails True; doubled row fails True; misspelt verdict fails True; resolution removed fails True;
       census widened by chi_9 fails True; resolutions replaced by 'x' fail Q2 True; Part VII's (C3) reverted fails Q2
       True and Q4 True; an UNDECIDED row turned MORE (resolution kept) fails Q4 True; a dropped row fails Q4 True
-  Q3: (a) sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at three
-      rational points, exactly: True; (b) delta* w = (1/2) L_(w^#) g_b0, the Christoffel-free formula (Kerr-Schild
-      inverse checked), at the same points: True; (c) the hand value (delta* dt)_00 = -mu^2/r^5 = -1/108 at x = (1, 2,
-      2, 0): True (computed -1/108); (d) delta* of the Killing 1-forms g(d_t, .) and g(x^1 d_2 - x^2 d_1, .) vanishes
-      there: True
-  Q3 control: delta* plus w (x)_s dx^1 fails (a) True; a shear fails (a) True; delta* without its Christoffel term
-      fails (b) and (c) True (hand value then 0); with the Christoffel sign flipped fails (b) and (c) True (1/108)
-Q1 PASS; Q2 PASS; Q3 PASS; Q4 PASS; control behaves

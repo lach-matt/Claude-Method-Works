@@ -159,3 +159,110 @@ class Jets:
         if not syms:
             return sp.cancel(num) == 0
         return all(sp.cancel(cf) == 0 for cf in sp.Poly(num, *syms).coeffs())
+
+
+# ------------------------------------------------------------------ tensors in the class (coordinates X, diagonal g)
+def christoffel(g, X):
+    n = len(X)
+    gi = g.inv()
+    return gi, [[[sp.together(sum(gi[a, d] * (sp.diff(g[d, b], X[c]) + sp.diff(g[d, c], X[b])
+                                                  - sp.diff(g[b, c], X[d])) for d in range(n)) / 2)
+                   for c in range(n)] for b in range(n)] for a in range(n)]
+
+
+def cov2(T, X, Gm):
+    """D_c T_ab as nested list [a][b][c]"""
+    n = len(X)
+    return [[[sp.diff(T[a, b], X[c]) - sum(Gm[e][c][a] * T[e, b] + Gm[e][c][b] * T[a, e] for e in range(n))
+              for c in range(n)] for b in range(n)] for a in range(n)]
+
+
+def div2(T, X, gi, Gm):
+    n = len(X)
+    DT = cov2(T, X, Gm)
+    return [sum(gi[c, a] * DT[a][b][c] for a in range(n) for c in range(n) if gi[c, a] != 0) for b in range(n)]
+
+
+def lap2(T, X, gi, Gm):
+    """rough Laplacian D^d D_d T_ab (diagonal metric)"""
+    n = len(X)
+    DT = cov2(T, X, Gm)
+    out = sp.zeros(n, n)
+    for a in range(n):
+        for b in range(n):
+            s = 0
+            for c in range(n):
+                e1 = sp.diff(DT[a][b][c], X[c]) - sum(Gm[e][c][a] * DT[e][b][c] + Gm[e][c][b] * DT[a][e][c]
+                                                       + Gm[e][c][c] * DT[a][b][e] for e in range(n))
+                s += gi[c, c] * e1
+            out[a, b] = s
+    return out
+
+
+def hess(psi, X, Gm):
+    n = len(X)
+    return sp.Matrix(n, n, lambda i, j: sp.diff(psi, X[i], X[j]) - sum(Gm[k][i][j] * sp.diff(psi, X[k])
+                                                                        for k in range(n)))
+
+
+def ricci(X, Gm):
+    n = len(X)
+    return sp.Matrix(n, n, lambda b, d: sum(sp.diff(Gm[a][b][d], X[a]) - sp.diff(Gm[a][b][a], X[d])
+                                            + sum(Gm[a][a][e] * Gm[e][b][d] - Gm[a][d][e] * Gm[e][b][a]
+                                                  for e in range(n)) for a in range(n)))
+
+
+def trig_zero(e):
+    return sp.simplify(sp.expand_trig(sp.expand(e))) == 0
+
+
+# ------------------------------------------------------------------ E1
+SX = [th, p1, p2]
+SG = sp.diag(1, s_**2, c_**2)
+
+
+def class_tt(n, flip=1):
+    """the class TT harmonic of E1: A = C_n^(3/2)(cos 2th), B from the divergence condition, C = -A - B"""
+    uu = sp.Symbol('uu')
+    Au = sp.gegenbauer(n, sp.Rational(3, 2), uu)
+    u = sp.cos(2 * th)
+    A = Au.subs(uu, u)
+    B = (3 * u - 1) * A / 2 - flip * (1 - u**2) * sp.diff(Au, uu).subs(uu, u)
+    return sp.expand(A), sp.expand(B), sp.expand(-A - B), 4 * n * (n + 3) + 6, 2 * n + 2
+
+
+def e1():
+    print("E1 (exact) the class harmonics on S^3: scalar P_j(cos 2th); tensor A = C_n^(3/2)(cos 2th)", flush=True)
+    gi, Gm = christoffel(SG, SX)
+    ok_s = True
+    for j in range(1, 5):
+        S = sp.legendre(j, sp.cos(2 * th))
+        lap = sp.diff(s_ * c_ * sp.diff(S, th), th) / (s_ * c_)
+        ok_s &= trig_zero(lap + 2 * j * (2 * j + 2) * S)
+    print("   scalar: Delta P_j(cos 2th) = -l(l + 2) P_j, l = 2j, j = 1..4: %s" % ok_s)
+    ok_t, norms = True, []
+    for n in range(4):
+        A, B, C, kT2, l = class_tt(n)
+        T = sp.diag(A, B * s_**2, C * c_**2)
+        dv = div2(T, SX, gi, Gm)
+        L = lap2(T, SX, gi, Gm)
+        ev = all(trig_zero((L[i, i] + kT2 * T[i, i]) / SG[i, i]) for i in range(3))
+        dz = all(trig_zero(d) for d in dv)
+        ax = sp.simplify((A - B).subs(th, 0)) == 0 and sp.simplify((A - C).subs(th, sp.pi / 2)) == 0
+        nr = sp.integrate(sp.expand(sp.expand_trig((A**2 + B**2 + C**2) * s_ * c_)), (th, 0, sp.pi / 2))
+        norms.append((l, kT2, nr))
+        ok_t &= ev and dz and ax and kT2 == l * (l + 2) - 2
+        print("   tensor n = %d (l = %d): trace-free, divergence-free %s, (Delta + %d) T = 0 %s, k_T^2 = l(l+2) - 2 %s, "
+              "regular at both axes %s, |T|^2 = %s" % (n, l, dz, kT2, ev, kT2 == l * (l + 2) - 2, ax, nr))
+    # the divergence condition fixes B from A (so one class TT tensor per eigenvalue)
+    Af, Bf = sp.Function('A')(th), sp.Function('B')(th)
+    dv = div2(sp.diag(Af, Bf * s_**2, (-Af - Bf) * c_**2), SX, gi, Gm)
+    Bsol = sp.solve(sp.Eq(sp.simplify(dv[0]), 0), Bf)
+    uniq = len(Bsol) == 1 and trig_zero(Bsol[0] - ((3 * sp.cos(2 * th) - 1) * Af / 2
+                                                    + sp.sin(2 * th) * sp.diff(Af, th) / 2))
+    print("   the divergence condition is solved by B = (3u - 1) A/2 + (sin 2th/2) A_th, uniquely: %s" % uniq)
+    A, B, C, kT2, l = class_tt(1, flip=-1)
+    ctl = not all(trig_zero(d) for d in div2(sp.diag(A, B * s_**2, C * c_**2), SX, gi, Gm))
+    print("   control: B with the derivative term's sign reversed (n = 1) is not divergence-free (rejected): %s" % ctl)
+    report('E1', ok_s and ok_t and uniq, [('sign', ctl)])
+    return norms

@@ -40,8 +40,11 @@ A MORE or UNDECIDED row must carry a resolution: where it is answered, or why th
 
 Lemma 3.1's (C3) names since D608 the 1-form towers of every type, with their site PART-III-I10-CORR4.md:127-147; the
 census keeps those lines as uses, and they were read as such (each NAMING, a definition). Since D621 the census also
-lists the towers' other spellings (vii5census.py's docstring), and the 55 lines it then adds were read at D621 (the
-reader column "D621").
+lists seven further spellings of the towers, and the 55 lines it then added were read at D621 (the reader column
+"D621"). Since D626 (a second reader's N2) it lists every spelling of the 1-form towers at b0 and in b (vii5census.py V2
+checks that every other spelling of omega is excluded with a reason) and finds symbols printed across a line break; the
+81 lines it then added were read at D626 (reader "D626"), and Q1's check that a line still prints its symbols reads the
+line together with the next (a symbol may run on across the break).
 
 Labels: computed (that the reading covers every listed use and is complete in form; Q3, exact; Q4); the verdicts are READ
 (each reader's reading of the proof at that line), not computed. Reach: vii5census.py's -- a literal census of printed

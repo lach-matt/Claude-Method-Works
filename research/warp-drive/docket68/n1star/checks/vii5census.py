@@ -25,12 +25,23 @@ section only, the sentence there that fixes it) from the places it is used.
          omega^{<=4} (PART-III-I9-COMMOTION.md:76-77) and omega^{<=1}_natural (PART-III-I5-UNBOOST.md Definition 1.1,
          :77-78).
      C3': T_{rho,b}, h^{<=1}_{b,s1}, h_{b,v1}, h^{<=2}_{b,v1}. Beside them, h_{b,rem} is reported as the object built
-         from (C3') (III.I'''''''''''''' Definition 1.2), not a choice.
+         from (C3') (III.I'''''''''''''' Definition 1.2), not a choice. Since D626 (a second reader's N2) C3 adds the s2
+         bottom omega^{(-1)}_{b_0}, and C3' every spelling of the 1-form towers and states at b: omega^{(0)}_{b,s0},
+         omega^{(0)}_{b,s1}, omega^{(-1)}_{b,v1} (III.D'' (3.1)), its proof's omega_{b,s0}, omega_{b,s1}, omega_{b,v1},
+         III.D''' Proposition 3.1's omega^{<=k} (bare: it also lies inside omega^{<=k}_tau and omega^{<=k}_b),
+         omega^{<=k+1}, omega^{(0),<=, omega^{(-1),<=k}_{b,v1}, omega^{(mu)}_b, omega^{(mu),<=k}_b, its proof's
+         omega_{s0}, omega_{v1}, Table 1.1's omega^{(mu-1)}_b, and I16's omega^{<=1}_{b,natural}; each at its defining
+         display.
      C4: the complement V'.
   V1 (computed, a census) Every occurrence of each symbol in the 46 Part III and 7 Part IV files (and the Part II site
-     file) is classified per symbol: at that symbol's site, or a use. --list prints every site line and every use line.
-     The reader's task for (VII5) is the list printed under 'used at': at each such line, that only the condition
+     file) is classified per symbol: at that symbol's site, or a use. Since D626 a symbol printed across a line break
+     (its lines joined with one space) is found too, at the line it starts on. --list prints every site line and every
+     use line. The reader's task for (VII5) is the list printed under 'used at': at each such line, that only the condition
      stated at the site is used.
+  V2 (computed, D626) Completeness of the 1-form spellings: every distinct printed spelling of omega in Parts III-IV
+     (with its accent and every sub- and superscript) either contains a C3/C3'/C4 symbol or is excluded by a rule with
+     its reason (OMEGA_EXCLUDE: Minkowski models, dual states, the zero-energy gauge potential, generic forms and
+     components). Control: a planted spelling must be reported as neither.
   Control (per symbol): every symbol must have at least one hit inside its own site ranges, else the run FAILs (a
      misspelt symbol or a wrong site is caught, not silently listed as absent). Negative controls: a planted symbol,
      and chi_9 with its site moved to PART-III-B-FAMILY.md:345-349, must each be reported as missing its site.

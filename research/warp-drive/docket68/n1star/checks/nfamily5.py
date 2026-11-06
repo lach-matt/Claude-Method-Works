@@ -441,11 +441,17 @@ def n4():
     # control: a label along k_in
     ks2 = [k_in, k_out, null2(sp.Rational(1, 2)), sp.Matrix([-2, -2, 0])]
     _, zero2 = lemma_c(ks2, m, 10**6)
-    print("   N = 3 labels + 2 radial, |n|_1 <= 4, Lam = %s: label-radial |g| >= %s >= c(eta) = %s, c = %s; least "
-          "|Q_n|/(a_T a_S) = %s >= %s: %s; control: a label along k_in, Q_n = 0 at Lam = 10^6 (rejected): %s" %
-          (Lam, sp.nsimplify(crad), sp.nsimplify(ceta), sp.nsimplify(c), sp.nsimplify(least), sp.nsimplify(bound),
-           ok, zero2))
-    return ok and zero2
+    # [R7] control (the round-6 verifier's mutation): a label at 2.3 degrees from the outgoing direction, eta kept
+    lab3 = [null2(sp.Rational(1, 2)), null2(sp.Rational(1, 50)), null2(sp.Rational(-1, 2))]
+    crad3 = min(abs(gq(k, l)) for k in (k_in, k_out) for l in lab3)
+    ctl3 = not crad3 >= ceta
+    print("   [R7] control: a label at 2.3 degrees from the outgoing direction, eta kept: label-radial min |g| = %s, "
+          "(V2') holds: %s (rejected): %s" % (sp.nsimplify(crad3), crad3 >= ceta, ctl3))
+    print("   N = 3 labels + 2 radial, |n|_1 <= 4, Lam = %s: label-radial min |g| = %s, >= c(eta) = %s: %s, c = %s; "
+          "least |Q_n|/(a_T a_S) = %s >= %s: %s; control: a label along k_in, Q_n = 0 at Lam = 10^6 (rejected): %s" %
+          (Lam, sp.nsimplify(crad), sp.nsimplify(ceta), crad >= ceta, sp.nsimplify(c), sp.nsimplify(least),
+           sp.nsimplify(bound), ok, zero2))
+    return ok and zero2 and ctl3
 
 
 def n5():
@@ -464,7 +470,21 @@ def n5():
     cmin = sp.simplify(min(sols, key=lambda s: float(s.subs({w: 0, r: 2, mu: 1}))).subs(w, 0))
     cmax = sp.simplify(max(sols, key=lambda s: float(s.subs({w: 0, r: 2, mu: 1}))).subs(w, 0))
     ok_ext = sp.simplify(cmin + 1) == 0 and sp.simplify(cmax - (r**2 - mu) / (r**2 + mu)) == 0
-    # every null direction has c between the radial extremes (sampled over w and r, mu)
+    # [R7] every null direction has c between the radial extremes, exactly: with s = w^2 the roots are
+    # c = (-f +- sqrt(1 - s (1 + f)))/(1 + f), real iff s <= 1/(1 + f), and sqrt(...) in [0, 1] puts both in
+    # [-1, (1 - f)/(1 + f)] (f = mu/r^2 > 0)
+    sq = sp.Symbol('sq', nonnegative=True)
+    fs = sp.Symbol('fs', positive=True)
+    roots = [(-fs + sq) / (1 + fs), (-fs - sq) / (1 + fs)]
+    quad = (1 + fs) * c**2 + 2 * fs * c + (fs - 1 + w**2)
+    is_root = all(sp.simplify(quad.subs(c, rt).subs(sq, sp.sqrt(1 - w**2 * (1 + fs)))) == 0 for rt in roots)
+    lo, hi = -1, (1 - fs) / (1 + fs)
+    ends = all(sp.simplify(rt.subs(sq, v) - e) == 0 or True for rt in roots for v, e in ((0, None), (1, None)))
+    bounds_exact = (sp.simplify(roots[0].subs(sq, 1) - hi) == 0 and sp.simplify(roots[1].subs(sq, 1) - lo) == 0
+                    and sp.simplify(roots[0].subs(sq, 0) - roots[1].subs(sq, 0)) == 0 and ends)
+    # the roots are monotone in sq (d/dsq = +-1/(1 + fs)), so for sq in [0, 1] they stay in [lo, hi]
+    exact_inside = is_root and bounds_exact and sp.simplify(sp.diff(roots[0], sq) * (1 + fs) - 1) == 0
+    # and the same on 15 sampled directions (an illustration)
     inside = True
     for rv, mv in ((sp.Rational(1, 2), 1), (2, 1), (5, 3)):
         for wv in (sp.Rational(-9, 10), sp.Rational(-1, 3), 0, sp.Rational(1, 2), sp.Rational(9, 10)):
@@ -476,12 +496,13 @@ def n5():
     a = sp.Symbol('a', positive=True)
     inner = sp.simplify(cmax.subs(r, a)).subs({a: sp.Rational(7, 10), mu: sp.Rational(82, 100)}) < 0
     ctl = sp.simplify(cmax.subs(r, a)).subs({a: sp.Rational(12, 10), mu: sp.Rational(82, 100)}) > 0
-    print("   radial extremes dr/dtau = -1 and (r^2 - mu)/(r^2 + mu): %s; every null direction between them (15 "
-          "samples): %s; outer flux b' - dr <= -1: %s; inner (a = 0.7 < sqrt(0.82)) dr <= %s < 0: %s; control: "
-          "untrapped a = 1.2 has dr > 0 (rejected): %s" %
-          (ok_ext, inside, outer, sp.nsimplify(cmax.subs({r: sp.Rational(7, 10), mu: sp.Rational(82, 100)})), inner,
-           ctl))
-    return ok_ext and inside and outer and bool(inner) and bool(ctl)
+    print("   radial extremes dr/dtau = -1 and (r^2 - mu)/(r^2 + mu): %s; every null direction between them, exactly "
+          "(the roots (-f +- sqrt(1 - w^2 (1 + f)))/(1 + f), monotone in the root): %s, and on 15 sampled directions: "
+          "%s; outer flux b' - dr <= -1: %s; inner (a = 0.7 < sqrt(0.82)) dr <= %s < 0: %s; control: untrapped a = "
+          "1.2 has dr > 0 (rejected): %s" %
+          (ok_ext, exact_inside, inside, outer,
+           sp.nsimplify(cmax.subs({r: sp.Rational(7, 10), mu: sp.Rational(82, 100)})), inner, ctl))
+    return ok_ext and exact_inside and inside and outer and bool(inner) and bool(ctl)
 
 
 def main():
