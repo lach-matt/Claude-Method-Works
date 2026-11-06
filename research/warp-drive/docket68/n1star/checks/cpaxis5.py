@@ -208,7 +208,8 @@ def main():
         return 0
     if a and a[0] == '--compare':
         res, tails, dP, bands = compare(a[1:5])
-        print('A4 the record\'s data at 400 x 180, cut 0.9, areal radius 1.0-1.2: the interior Ric_xx monitor (|x| <= 0.9)'
+        print('A4 the record\'s data at 400 x 180, cut 0.9, areal radius 1.0-1.2: the interior Ric_xx monitor '
+              '(|x| <= 0.9)'
               ', the Chebyshev tail of m, and max |P_32 - P_40| (P of M = 40 interpolated to M = 32\'s nodes):')
         ok = True
         for k, vb in enumerate(bands):

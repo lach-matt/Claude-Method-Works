@@ -188,7 +188,8 @@ def e9(R):
     w, c, b = N3.w, N3.c, N3.b
     u, v, x = N3.u, N3.v, N3.x
     g = N3.metric(); Gm = N3.christoffel(g); Ric = N3.ricci(g, Gm)
-    E4 = sp.Matrix([0, sp.exp(-w), 0]); E3 = sp.Matrix([sp.exp(-w), 0, sp.exp(-w) * b]); EXv = sp.Matrix([0, 0, sp.exp(-c)])
+    E4 = sp.Matrix([0, sp.exp(-w), 0]); E3 = sp.Matrix([sp.exp(-w), 0, sp.exp(-w) * b])
+    EXv = sp.Matrix([0, 0, sp.exp(-c)])
     fr = {'4': E4, '3': E3, 'x': EXv}
     Rf = {i + j: (fr[i].T * Ric * fr[j])[0] for i in '34x' for j in '34x'}
     vec = lambda X, F_: sum(X[n] * sp.diff(F_, (u, v, x)[n]) for n in range(3))
@@ -250,8 +251,8 @@ def e9(R):
             gp = GP(a_, c_, d_)
             P = name.split('_')[0]
             # P1 = e3 a - ex c, P2 = e4 c - ex a, P3 = e3 c - ex d, P4 = e4 d - ex c
-            first, second = {'P1': ('e3', a_, c_), 'P2': ('e4', c_, a_), 'P3': ('e3', c_, d_), 'P4': ('e4', d_, c_)}[P][0], \
-                {'P1': (a_, c_), 'P2': (c_, a_), 'P3': (c_, d_), 'P4': (d_, c_)}[P]
+            first = {'P1': 'e3', 'P2': 'e4', 'P3': 'e3', 'P4': 'e4'}[P]
+            second = {'P1': (a_, c_), 'P2': (c_, a_), 'P3': (c_, d_), 'P4': (d_, c_)}[P]
             f1, f2 = second
             # background: X f1 = ex f2 + G_P (the pair itself), ex f2 = DX[f2]/Ek
             Xf1 = DX[f2] / Ek + gp[P]
@@ -422,7 +423,8 @@ def main():
     ok &= good
     ra, rb, rc = e9(R)
     good = all(ra.values()) and all(rb.values()) and all(rc.values())
-    print('E9 (exact) the rows against the geometry: (a) e_X Y = G_y on the general (2+1)-metric: %s; (b) the metric rows '
+    print('E9 (exact) the rows against the geometry: (a) e_X Y = G_y on the general (2+1)-metric: %s; '
+          '(b) the metric rows '
           'from N0: %s; (c) every row\'s frame-change part from the perturbed frame operators: %s ->' % (
               ', '.join('%s %s' % kv for kv in ra.items()), ', '.join('%s %s' % kv for kv in rb.items()),
               'all hold' if all(rc.values()) else {k_: v_ for k_, v_ in rc.items() if not v_}),

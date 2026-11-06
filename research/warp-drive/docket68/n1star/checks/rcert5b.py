@@ -151,7 +151,8 @@ def main():
         hist.append((n, sup, cen))
         tc0, ht0, sc0, hs0, xc0, hx0 = box
         m2 = 2 * n
-        fine = [(tc0 - ht0 + (2 * p + 1) * ht0 / m2, sc0 - hs0 + (2 * q + 1) * hs0 / m2, xc0 - hx0 + (2 * r + 1) * hx0 / m2)
+        fine = [(tc0 - ht0 + (2 * p + 1) * ht0 / m2, sc0 - hs0 + (2 * q + 1) * hs0 / m2,
+                 xc0 - hx0 + (2 * r + 1) * hx0 / m2)
                 for p in range(m2) for q in range(m2) for r in range(m2)] if n <= 4 else []
         rng = np.random.default_rng(20261106 + n)
         rand = [(tc0 + ht0 * a_, sc0 + hs0 * b_, xc0 + hx0 * c_) for a_, b_, c_ in rng.uniform(-1, 1, (500, 3))]

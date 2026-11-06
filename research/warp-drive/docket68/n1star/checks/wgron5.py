@@ -327,7 +327,8 @@ def main():
     worst = max(out_rows, key=lambda r: r[1])
     print('W5 frozen-angle transport: the nine transported rows alone (pairs and the e3 rows\' x-motion dropped), '
           'signed, %d x %d nodes, the far corner\'s f against the data norm: the largest ratio f/D (the squared '
-          'norm of the solution map) per node |x| <= 1/2, with its own Gronwall factor e^J (absolute values):' % (nu, nv))
+          'norm of the solution map) per node |x| <= 1/2, with its own Gronwall factor e^J (absolute '
+          'values):' % (nu, nv))
     for xx_, r2, lj in out_rows:
         print('   x = %+.3f: f/D <= %.3g (computed, largest singular value squared); Gronwall 10^%.1f' % (xx_, r2, lj))
     print('   largest: %.3g at x = %+.3f.  This is the growth the signed coefficients produce in this subsystem; it is'

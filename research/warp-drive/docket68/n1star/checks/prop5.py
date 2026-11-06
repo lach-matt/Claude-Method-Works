@@ -118,7 +118,8 @@ def main():
         res[tag] = (chk, {l_: k for l_, k in zip(labels, coef) if k != 0})
     good = all(r_ is not None and r_[0] for r_ in res.values())
     for tag, r_ in res.items():
-        print('   (div S)(%s) = %s' % (tag, ' + '.join('(%s) %s' % (k, l_) for l_, k in r_[1].items()) if r_ else 'no fit'))
+        print('   (div S)(%s) = %s' % (tag, ' + '.join('(%s) %s' % (k, l_) for l_, k in r_[1].items())
+                                         if r_ else 'no fit'))
     tr4 = res['e4'] and res['e4'][1].get('e4 q', 0) != 0 and 'e3 q' not in res['e4'][1] and 'ex q' not in res['e4'][1]
     tr3 = res['e3'] and res['e3'][1].get('e3 q', 0) != 0 and 'e4 q' not in res['e3'][1] and 'ex q' not in res['e3'][1]
     print('Q1 (div S)(e4) is a transport of q along e4 alone: %s; (div S)(e3) along e3 alone: %s ->' % (tr4, tr3),

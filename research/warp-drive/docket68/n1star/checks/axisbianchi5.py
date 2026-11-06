@@ -182,7 +182,8 @@ def main():
     vals = jet_values([Wf('1', '2', '3', '4'), Wf('1', '2', '1', '4'), Wf('1', '2', '1', '3'), Rf('1', '4', '3', '4')],
                       rnd)
     b1 = all(abs(q) < 1e-30 for q in vals[:3]) and abs(vals[3]) > 1e-3
-    print('B1 W(e1, e2, e3, e4), W(e1, e2, e1, e4), W(e1, e2, e1, e3) at a random jet: %s (zero); R(e1, e4, e3, e4) = %s '
+    print('B1 W(e1, e2, e3, e4), W(e1, e2, e1, e4), W(e1, e2, e1, e3) at a random jet: %s (zero); '
+          'R(e1, e4, e3, e4) = %s '
           '(not zero, the check is live) -> %s (%.0f s)' % (', '.join(mp.nstr(q, 3) for q in vals[:3]),
                                                            mp.nstr(vals[3], 5), 'PASS' if b1 else 'FAIL',
                                                            time.time() - t0), flush=True)
@@ -219,8 +220,10 @@ def main():
     for nm_, f in (('chih', chih), ('tr chi', trchi)):
         for rn, r_ in (('Ric_34', R34), ('Ric_11', R11), ('Ric_22', R22), ('Ric_44', R44), ('Ric_33', R33)):
             add(Om * f * r_, 'Om %s %s' % (nm_, rn))
-    add(Om * e4(R11 + R22), 'Om e4(Ric_11 + Ric_22)'); add(Om * e4(R34), 'Om e4 Ric_34'); add(Om * e3(R44), 'Om e3 Ric_44')
-    add(Om * chibh * (R11 - R22), 'Om chibh (Ric_11 - Ric_22)'); add(Om * chih * (R11 - R22), 'Om chih (Ric_11 - Ric_22)')
+    add(Om * e4(R11 + R22), 'Om e4(Ric_11 + Ric_22)'); add(Om * e4(R34), 'Om e4 Ric_34')
+    add(Om * e3(R44), 'Om e3 Ric_44')
+    add(Om * chibh * (R11 - R22), 'Om chibh (Ric_11 - Ric_22)')
+    add(Om * chih * (R11 - R22), 'Om chih (Ric_11 - Ric_22)')
     lhs13 = Om * e4(K) + Om * trchi * K
     co13, res13 = fit(lhs13, lib, lab, seed=11)
     print('B3 (2.13) Om e4 K + Om tr chi K = %s; residual %s; dependent members dropped: %s (%.0f s)' % (

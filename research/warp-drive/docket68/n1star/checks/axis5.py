@@ -62,7 +62,8 @@ The chart at x = -1 is the same with (A, phi1) and (B, phi2) exchanged.
 
   X7 (exact; computed constant) the glue.  For a cut-off psi(x) (psi = 1 near the axis, 0 away from it):
         psi [K div(Omh beta) + Omh beta e1 K] = (Y sqrt gh)^-1 d_x(psi Y Omh K beta) - (e1 psi) Omh K beta,
-        d_u(psi f Y sqrt gh) + d_x(b psi f Y sqrt gh) = psi [d_u(f Y sqrt gh) + d_x(b f Y sqrt gh)] + b (d_x psi) f Y sqrt gh,
+        d_u(psi f Y sqrt gh) + d_x(b psi f Y sqrt gh)
+            = psi [d_u(f Y sqrt gh) + d_x(b f Y sqrt gh)] + b (d_x psi) f Y sqrt gh,
      so the cut-off energy obeys the axis chart's identity with two added bulk terms, (e1 psi) Omh K beta and
      b (d_x psi) f, supported where psi is not constant: Gronwall coefficients a_glue = sup Omh |e1 psi| (the angular
      term, split as |K beta| <= (K^2 + beta^2)/2, so 1/2 to each) and sup |b d_x psi| (the shift).  Computed on the
@@ -416,7 +417,8 @@ def main():
     Ilog = sp.integrate((1 / s_) ** 2 * s_, (s_, a_, 1))
     div = sp.limit(Ilog, a_, 0)
     good = zk and div == sp.oo
-    print('X6 (exact) under gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: %s; with k ~ 1/s, '
+    print('X6 (exact) under gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: %s; '
+          'with k ~ 1/s, '
           'Y ~ s: int_a^1 k^2 Y ds = %s -> %s as a -> 0 ->' % (zk, Ilog, div), 'PASS' if good else 'FAIL')
     ok &= good
     i1, i2, ctl = x7()
