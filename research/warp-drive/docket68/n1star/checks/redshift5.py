@@ -67,6 +67,23 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      with 0 < lam <= 1/10 and lam <= d0/20 the radial eigenvalue 1 + 2 lam sigma0'/Delta lies in [3/10, 1] and the
      angular ones 1 + 2 lam sigma/r in [4/5, 6/5].  Control: without lam <= d0/20 (lam <= lam1 <= 1/10 alone) Z3 finds
      a point with a negative radial eigenvalue (at lam = 1/10, Delta = 1 it is 1 - 1.4).
+  R15 (numerical, 30 digits; D627, the reader of D625's nit 8) The tensor type's rotation sum in the proof of (iv-b).
+     On the unit S^3 (Hopf coordinates, the six Killing fields Omega_ab = x_a d_b - x_b d_a), -sum L_(Omega)^2 h =
+     nabla^* nabla h + 6 h - 2 tr(h) g for two generic symmetric h at three points (residual < 1e-20), so on traceless
+     tensors -sum L^2 = nabla^* nabla + 6, which with [HKW18] (42) (nabla^* nabla U = (k^2 - 2) U) is k^2 + 4; two
+     transverse traceless harmonics at l = 2 from the left-invariant frame give -sum L^2 U = 12 U = (k^2 + 4) U and
+     nabla^* nabla U = 6 U, and k^2 + 3 = 11 is rejected; the class's scalar-derived Y_ab at l = 2, 4 give k^2.  The
+     reader's vD625/py/casimir*.py are the model.  Control: the identity with 5 h in place of 6 h fails.
+  R16 (numerical; D627, the reader of D625's minor) Lemma 10.1b's smooth approximants, in the reader's model near the
+     horizon: 2 d_v d_x Phi + d_x (2 kappa x d_x Phi) = 0 (f = 2 kappa x, W = 0), Sigma_0 = {v = x}, kappa = 1, the
+     mode e^(-sigma v) x^alpha, alpha = sigma/kappa in {5/4, 3/2}.  The naive data R(x + eps) e^(-sigma x) have the
+     exact solution Phi_eps = F_eps(x e^(-v)) + C_eps(v) (C_eps' = -sigma eps e^(-sigma v)(v + eps)^(alpha - 1), F_eps
+     through Lambert's W; its data checked).  Averaged over the flow of T with a smooth bump rho on (0, 1/4), T^a of the
+     average is (-1)^a int rho^(a)(t) Phi_eps(v + t, x) dt, and I_(T^a (Psi - Psi_0)) ~ int (G_a^2 + G_(a+1)^2 +
+     H_a^2) dx (G_a = T^a, H_a = d_x T^a, on Sigma_0) falls at least tenfold per step eps = 1e-3, 1e-5, 1e-7 for a = 0,
+     1, 2, to below 1e-8; the averaged limit is (int rho e^(-sigma t) dt) e^(-sigma v) x^alpha to 1e-12; and Q(0) of
+     the averages grows (3.9, 42, 426 at 5/4; 2.0, 3.7, 5.5 at 3/2).  Control: the naive data themselves, which
+     converge in I_Psi and I_(T Psi) but not in I_(T^2 Psi) (0.70, 6.9, 69 at 5/4; about 0.070 at 3/2).
   R13 (text) The paper's replacement blocks (D622; D625: the 8.2 block restricts "that datum is needed" to the scalar
      type and names the measure dr dsigma, and the Proposition 3.3 proof block, two lines wider, says when its value at
      mu0 is positive -- the confirming reader's m1, m5 and nit): each old text occurs exactly once in
@@ -93,7 +110,8 @@ kappa_k > 0", and its proof, "2 Y-pi^(alpha beta) nabla_alpha nabla_beta psi = k
 [Sch13] V. Schlue, arXiv:1012.5963v1, p. 15, Lemma 3.2 (surface gravity), (3.11) "kappa_n = (1/2)(n - 2)/(2m)^(1/(n -
 2)) > 0"; p. 16, Proposition 3.3 (redshift).
 
-python3 checks/redshift5.py [R1 R2 ...]   (about two minutes; writes nothing; R14 needs z3-solver)
+python3 checks/redshift5.py [R1 R2 ...]   (about four minutes under load; writes nothing; R14 needs z3-solver,
+R16 numpy and scipy)
 """
 import math
 import os
@@ -654,14 +672,15 @@ def _r15_compute():
 def r15(control=False):
     d = _r15_data()
     c6 = 5 if control else 6                     # the control: the constant of the identity lowered to 5
-    res = max(max(abs(A[i, j] - c6*H[i, j]) for i in range(3) for j in range(3))
-              for parts, hs in d["gen"] for A, H in zip(parts, hs))
-    ident = res < mp.mpf(10)**-20
-    k2 = 8                                       # l = 2
-    tensor = all(abs(v - (k2 + 4)) < mp.mpf(10)**-20 for v in d["lamC"])
-    rough42 = all(abs(v - (k2 - 2)) < mp.mpf(10)**-20 for v in d["lamR"])
-    plus3 = all(abs(v - (k2 + 3)) < mp.mpf(10)**-3 for v in d["lamC"])     # k^2 + 3 = 11 must be rejected
-    scal = [all(abs(v - l*(l + 2)) < mp.mpf(10)**-20 for v in rr) for l, rr in d["scal"]]
+    with mp.workdps(30):
+        res = max(max(abs(A[i, j] - c6*H[i, j]) for i in range(3) for j in range(3))
+                  for parts, hs in d["gen"] for A, H in zip(parts, hs))
+        ident = res < mp.mpf(10)**-20
+        k2 = 8                                   # l = 2
+        tensor = all(abs(v - (k2 + 4)) < mp.mpf(10)**-20 for v in d["lamC"])
+        rough42 = all(abs(v - (k2 - 2)) < mp.mpf(10)**-20 for v in d["lamR"])
+        plus3 = all(abs(v - (k2 + 3)) < mp.mpf(10)**-3 for v in d["lamC"])     # k^2 + 3 = 11 must be rejected
+        scal = [all(abs(v - l*(l + 2)) < mp.mpf(10)**-20 for v in rr) for l, rr in d["scal"]]
     ok = d["metric_ok"] and ident and d["tt"] and tensor and rough42 and not plus3 and all(scal)
     say("  R15%s: -sum L^2 h = nabla^* nabla h + %d h - 2 tr(h) g for two generic symmetric h on the unit S^3 (residual "
         "%s): %s; TT harmonics at l = 2 traceless and divergence-free: %s; -sum L^2 U / U = %s, k^2 + 4 = 12: %s; "
