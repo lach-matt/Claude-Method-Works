@@ -32,7 +32,7 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
   python3 checks/rcert5d.py --collect W [tau]      (merge the W checkpoints, run D0-D2 and the controls, print)
   python3 checks/rcert5d.py --repartition W W2 [tau]   (stopped workers only: merge W checkpoints and split the queue
                                                     round-robin into W2; accepted boxes and counters go to chunk 0)
-Checkpoints go to $RCERT5D_DIR (default: the scratch directory named in the round-4 record).
+Checkpoints go to $RCERT5D_DIR (default: <tmp>/rcert5d; round 4 used the session's scratch directory).
 """
 import os, sys, time, pickle, hashlib, itertools
 import numpy as np
@@ -48,8 +48,7 @@ MD5 = {'R': 'be89d629886bf9c61c098a76c22ad7ae', 'm': '99434c1b9859c9fa03653b6514
        'n': '7a0ab510aec85e3329018558d5f76f91', 'W': '3427e2bfe9009ffff09650606d2837b3',
        's': '1faa82dee965590cfac4cdf14e460214'}
 BOX = (-0.25, 0.25, -0.25, 0.25, 0.125, 0.125)            # (tc, ht, sc, hs, xc, hx): t, sig in [-1/2, 0], x in [0, 1/4]
-SCR = os.environ.get('RCERT5D_DIR', '/tmp/claude-0/-home-user-Claude-Method-Works/b0b84fdb-5234-5587-8dc6-'
-                     '391f626df59c/scratchpad/r4/rcert5d')
+SCR = os.environ.get('RCERT5D_DIR', os.path.join(__import__('tempfile').gettempdir(), 'rcert5d'))
 TAU_G10 = 3.0e-5
 
 

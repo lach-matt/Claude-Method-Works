@@ -479,4 +479,16 @@ coefficient.
 
 ### R2.0.6 Mutants re-run
 
-PLACEHOLDER-MUT
+The verifier's survivors and its two U5 survivors, applied to the round-2 program (copies of the files it reads, one
+textual mutation each; scratch driver, not seated):
+
+    mutant                                    checks run          result
+    M3  sign of r F g_ab in (10.1)            U2, U4, U5          U5 fails (c_A)
+    M4  V/f^2 -> V/f in the elimination       U3, U4              U3 fails (the elimination checked against (2.1))
+    M8  16 m^3 -> 15 m^3 in potential_general U3, U4, U5, U6      U3 fails (against settle5.py), U6 fails
+    M9  16 m^3 -> 15 m^3 in settle5.py        U5                  U5 fails (int V/f dr = 11/2)
+    M11 sign of U6's d_r                      U6                  U6 fails (the recursion re-checked)
+    M1  sign of e1 (a killed one, re-run)     U2, U5              both fail
+
+All six are now caught. The round-2 run of the whole program, `checks/rwgauge5u.out`, gives U1-U10 PASS with every
+control failing, EXIT 0.
