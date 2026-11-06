@@ -649,6 +649,7 @@ class Model:
     def ex(self, e, tf=None):
         """our symbols -> explicit (R, T); tf maps a, w, q to explicit expressions (or None)"""
         vv, vexp = self.vv, TAU0 + RS
+        e = e.subs(sp.Derivative(mu, (v, 2)), mpp).subs(sp.Derivative(mu, v), mp)
         e = e.subs({mpp: sp.diff(self.mu(vv), vv, 2).subs(vv, vexp), mp: sp.diff(self.mu(vv), vv).subs(vv, vexp)})
         e = e.subs(sp.Derivative(Ef, v), sp.diff(self.E(vv), vv).subs(vv, vexp))
         e = e.subs(sp.Derivative(Hf, th), sp.diff(self.H(TS_), TS_))
@@ -741,7 +742,8 @@ def legendre_jets(k, tt, odd_der=False):
 
 def mode_odes(Mc):
     """the right sides (a', w', q') of the mode ODEs, with E, mu, k, sigma as symbols"""
-    E_, mu_, k_, sg_ = sp.symbols('E_ mu_ k_ sg_')
+    E_, mu_, k_ = sp.symbols('E_ mu_ k_', positive=True)
+    sg_ = sp.Symbol('sg_')
     a_, w_, q_ = sp.symbols('a_ w_ q_')
     c = {key: sp.simplify(val.subs({Ef: E_, mu: mu_, A: 1})) for key, val in Mc.items()}
     L_ = r ** 2 + mu_
@@ -1026,7 +1028,7 @@ def m1_coeffs(M1):
     rest = sum(sp.expand(aj[nm]) for nm in aj) - sum(out[k] * (sar if k.endswith('ar') else (sat if k.endswith(
         'at') else sa)) for k in out)
     assert sp.simplify(sp.expand(rest)) == 0, 'M1 is not of the expected form'
-    return {k: c.subs(mp, sp.Derivative(mu, v)) for k, c in out.items()}
+    return out
 
 
 def order_p(x1, x2):

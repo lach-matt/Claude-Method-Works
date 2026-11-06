@@ -174,7 +174,7 @@ def part_x():
     # X3
     a = sp.Symbol("a", positive=True)
     Vs = sp.Symbol("V", positive=True)
-    phi_r = r**-3          # an explicit slice field, |d phi| ~ r^-4
+    phi_r = r**-4          # an explicit slice field, |d phi| ~ r^-5
     dens = (2*r)**(2*Q(11, 4))*sp.diff(phi_r, r)**2*r**3
     Ecut = sp.integrate(dens, (r, 10, Vs))
     full = sp.integrate(dens, (r, 10, sp.oo))
