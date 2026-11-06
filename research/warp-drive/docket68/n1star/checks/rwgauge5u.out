@@ -10,3 +10,36 @@ U2 PASS
       True
   U3 (b) l = 2: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
       eliminated): True
+  U3 (b) l = 4: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True
+  U3 (a) control (cross term's sign flipped): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r)
+      (ingoing), f^-1(-d_t^2 + d_r*^2) (static): False
+  U3 (b) control (tensor potential) l = 2: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+  U3 (b) control (tensor potential) l = 4: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+U3 PASS
+  U4: r^(-1/2) h(e_a, e_b) and r^(1/2) 2F in the jets (P_rr eliminated by U3 (a)), monomials H^a r^b:
+      h00  P     f^-0 x H^a r^b, max a = 1, max r-power -2 (allowed 1, -2): True
+      h00  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h00  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h00  P_r   f^-0 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h01  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h01  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h01  P_ur  f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h11  P     f^-0 x H^a r^b, max a = 1, max r-power -2 (allowed 1, -2): True
+      h11  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h11  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h11  P_r   f^-0 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      2F   P     f^-0 x H^a r^b, max a = 1, max r-power -1 (allowed 1, -1): True
+      2F   P_u   f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      2F   P_r   f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+  U4: the powers 0 attained (T^2 P in h00, T P in 2F): True; Theorem 2 (a)'s weights True, (b)'s True
+  U4 control (unweighted h00, h01, h11, 2F, same reader and bounds): passes: False
+U4 PASS
+  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): True; with A = 0, h00 = B r^(1/2)/f,
+      h01 = -h00, h11 = h00, 2F = 0: True; 2F = -A r^(-1/2): True; h00 = r^(1/2) B/f + (-(-3*m*mu*r**2 + 2*m*r**4 -
+      6*mu**2)/(sqrt(r)*(-mu + r**2)*(m*r**2 + 6*mu))) A
+  U5: dr*/dr = 1/f True; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) True; d(-UV)/dr = e^2/(2 r_h) at r_h True; f/(-UV) = (r +
+      r_h)^2 e^(-2r/r_h)/r^2 True; d_u d_v = -(UV/r_h^2) d_U d_V True; d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2 True; d_t^2 -
+      d_r*^2 = 4 d_u d_v True

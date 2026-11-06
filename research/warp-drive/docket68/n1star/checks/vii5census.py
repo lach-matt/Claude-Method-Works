@@ -11,7 +11,7 @@ section only, the sentence there that fixes it) from the places it is used.
 
   Symbols (READ from the proof5 files, spelled as printed):
      C1: the five cut-offs of PART-III-B-FAMILY.md:345-349, chi_r (:353), chi_infty (:165), chi_iota (III.K section 0,
-         and III.G'' section 4 where it is defined), chi_- (III.K Definition 2.1, :213-215 -- section 2, not 0 or 3 as
+         and III.G'' section 4 where it is defined), chi_- (III.K Definition 2.1, :215-217 -- section 2, not 0 or 3 as
          Lemma 3.1 prints), chi_9 (III.K section 3), Theta (III.I'''' :37-38), and the cut-offs inside t^flat_* (II.C
          Lemma 3.2: the smooth minimum's m_kappa and the smooth maximum tilde R(r), tilde R'), which are printed only in
          PART-II-C-OPERATORS.md; that one Part II file is searched as their site.
@@ -54,7 +54,7 @@ GROUPS = [
     ("C1 cut-offs (radial)", [
         ("\\chi^\\flat_K", CUT5), ("\\chi_K", CUT5), ("\\chi^\\sharp_K", CUT5), ("\\chi_{\\mathrm{IVP}}", CUT5),
         ("\\chi^\\sharp_{\\mathrm{IVP}}", CUT5), ("\\chi_r", [(BF, 353, 353)]), ("\\chi_\\infty", [(BF, 165, 165)]),
-        ("\\chi_\\iota", [(K, 62, 66), (G3, 263, 264)]), ("\\chi_-", [(K, 213, 215)]), ("\\chi_9", [(K, 336, 337)]),
+        ("\\chi_\\iota", [(K, 62, 66), (G3, 263, 264)]), ("\\chi_-", [(K, 215, 217)]), ("\\chi_9", [(K, 338, 339)]),
         ("\\Theta", [(I5, 37, 38)]), ("m_\\kappa", [(IIC, 433, 434)]), ("\\tilde R(r)", [(IIC, 444, 446)]),
         ("\\tilde R'", [(IIC, 445, 449)])]),
     ("C2 gauge 1-forms (stationary)", [

@@ -5,8 +5,9 @@ new sentences state (the round-4 reader's m1-m2 and the section-11 reader's note
      file is not edited): each old block occurs exactly once, the edited file has every line within 121 characters, it
      differs from the original only inside Lemma 11.0, and the edited Lemma 11.0 (a) defines R_gamma before its first
      use and R_gamma^n inside the text ("R_gamma^n being R_gamma with ..."); (b) carries the factor 1/2 and the binomial
-     coefficients C(gamma, gamma') at both Leibniz sums; (c) names the u_1-free source d_X^gamma F_1(X, 0, 0) in E_3;
-     (d) reads "(9.8) for u_1^n" where the original had "Theorem P for the lowest"; (e) gives c's remainder as E_(3/2)
+     coefficients C(gamma, gamma') at both Leibniz sums (the sums whose summand is (d^{gamma'} g_lam^{ab})
+     d^{gamma - gamma'} d_a d_b u_1); (c) names the u_1-free source d_X^gamma F_1(X, 0, 0) in E_3;
+     (d) reads "and by (9.8) for u_1^n at the lowest)" where the original had "and by Theorem P for the lowest)"; (e) gives c's remainder as E_(3/2)
      and d u's phase-shift term as E_(5/2); (f) says that b . d U and c U enter through Lemma 9.5's source before
      Gronwall's lemma, not through its kernel. Control (the code under test applied to the original text): every one of
      (a)-(f) fails on the current Lemma 11.0.
@@ -64,14 +65,17 @@ def lemma110(text):
 
 
 def predicates(L):
+    L = re.sub(r"\s+", " ", L)  # the text with its line breaks removed
     first_Rn = L.find("R_gamma^n")
     p = {}
     p["a"] = (first_Rn >= 0 and "R_gamma :=" in L and L.index("R_gamma :=") < first_Rn
               and "R_gamma^n being R_gamma with" in L)
-    sums = [m.start() for m in re.finditer(r"sum_\{\|gamma'\|", L)]
-    p["b"] = bool(sums) and all("(1/2)" in L[max(0, i - 14):i] and "C(gamma, gamma')" in L[i:i + 40] for i in sums)
+    # the Leibniz sums: those whose summand is (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b u_1
+    sums = [m.start() for m in re.finditer(r"sum_\{[^}]*gamma'[^}]*\}", L)
+            if "(d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b" in L[m.start():m.start() + 90]]
+    p["b"] = len(sums) == 2 and all("(1/2)" in L[max(0, i - 8):i] and "C(gamma, gamma')" in L[i:i + 40] for i in sums)
     p["c"] = "d_X^gamma F_1(X, 0, 0)" in L and "u_1-free source, in E_3" in L
-    p["d"] = "Theorem P for the lowest" not in L and "(9.8) for u_1^n" in L
+    p["d"] = "and by Theorem P for the lowest)" not in L and "and by (9.8) for u_1^n at the lowest)" in L
     p["e"] = "W_TT] + E_(3/2)" in L and "phase shift's term in E_(5/2)" in L
     p["f"] = "before Gronwall's" in L and "not through its kernel" in L
     return p

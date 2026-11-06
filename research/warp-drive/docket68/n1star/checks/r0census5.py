@@ -55,9 +55,9 @@ LINES = {  # (file, line): (class, note)
     ('PART-III-K-NONLINEAR.md', 44): ('DEF', ''),
     ('PART-III-K-NONLINEAR.md', 84): ('CON', 'nu_0 = min(1/4, r_0/8)'), ('PART-III-K-NONLINEAR.md', 86): ('CON', ''),
     ('PART-III-K-NONLINEAR.md', 103): ('CON', 'R_nu = (r_0+R)/2'),
-    ('PART-III-K-NONLINEAR.md', 134): ('OTHER', "III.C'''s exterior radius, stated"),
-    ('PART-III-K-NONLINEAR.md', 135): ('OTHER', 'as 134'),
-    ('PART-III-K-NONLINEAR.md', 559): ('CON', 'nu vanishes near r_0'),
+    ('PART-III-K-NONLINEAR.md', 135): ('OTHER', "III.C'''s exterior radius, stated"),
+    ('PART-III-K-NONLINEAR.md', 136): ('OTHER', 'as 135'),
+    ('PART-III-K-NONLINEAR.md', 561): ('CON', 'nu vanishes near r_0'),
     ('PART-IV5-CDMODES.md', 35): ('OTHER', "the source's r_0 = r_c"), ('PART-IV5-CDMODES.md', 36): ('OTHER', 'as 35'),
     ('PART-IV5-CDMODES.md', 186): ('SPC', 'continuity on [r_sharp, inf)'),
     ('PART-IV5-CDMODES.md', 209): ('SPC', 'supported at the inner boundary'),
@@ -115,7 +115,8 @@ def main():
         print('selftest', 'ok' if ok else 'FAIL'); sys.exit(0 if ok else 1)
 
 
-EXPECT = collections.Counter({'CON': 61, 'DEF': 19, 'OTHER': 108, 'SPC': 121, 'VAL': 14})   # 121 since D378 (K-NONLINEAR:462; D607)
+# SPC 121 since D378 (K-NONLINEAR:464; D607); the K keys moved by D611's two inserted lines (D620)
+EXPECT = collections.Counter({'CON': 61, 'DEF': 19, 'OTHER': 108, 'SPC': 121, 'VAL': 14})
 EXPECT_FILES = 25
 
 if __name__ == '__main__':
