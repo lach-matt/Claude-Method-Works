@@ -19,3 +19,7 @@ C2, C2d (interval arithmetic) kappa' K'^l_l < 0 on the bent slice between its sa
    C2, n = 80, A = 0.010: 434 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (1732 interval evaluations; largest upper bound of kappa' K'^l_l = -3.0105e-04)
    C2, n = 160, A = 0.010: 867 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (3464 interval evaluations; largest upper bound of kappa' K'^l_l = -3.0569e-04)
    C2d, n = 80, R < R_* = 3.4372, inputs widened by 1e-3 of their size + 1e-6: certified: True (largest upper bound -6.3897e-03)
+   C2d, n = 160, R < R_* = 3.4372, inputs widened by 1e-3 of their size + 1e-6: certified: True (largest upper bound -6.4648e-03)
+   controls: A = 0.001 not certified (220 sub-cells fail, largest upper bound 4.898e-05; rejected): True; A = 0 not certified (314 fail; rejected): True; a widening of 0.5 on R < R_* not certified (3386 fail; rejected): True
+C2 PASS
+exit 0
