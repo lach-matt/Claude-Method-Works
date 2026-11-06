@@ -204,9 +204,14 @@ def x2():
     # control: chi_22 claimed as e4 log sqrt(gh) (the wrong circle)
     ctl = zero(chi[('2', '2')] - e4(sp.log(gg) / 2))
     # Gauss curvature of the section metric gg dx^2 + Y^2 dphi^2
-    gs = sp.Matrix([[gg, 0], [0, Y ** 2]])
-    Rs = dn.ricci(gs, [x, ph])
-    Kc = Rs[0, 0] / gg                                 # 2D: Ric = K g
+    gs = sp.Matrix([[gg, 0], [0, Y ** 2]]); X2c = [x, ph]; gsi = gs.inv()
+    G2 = [[[sum(gsi[a, d] * (sp.diff(gs[d, bb], X2c[c]) + sp.diff(gs[d, c], X2c[bb]) - sp.diff(gs[bb, c], X2c[d]))
+                for d in range(2)) / 2 for c in range(2)] for bb in range(2)] for a in range(2)]
+    # R^a_{bcd} = d_c G^a_{db} - d_d G^a_{cb} + G^a_{ce} G^e_{db} - G^a_{de} G^e_{cb};  K = R_{x phi x phi}/det
+    Rud = lambda a, bb, c, d: (sp.diff(G2[a][d][bb], X2c[c]) - sp.diff(G2[a][c][bb], X2c[d])
+                               + sum(G2[a][c][e_] * G2[e_][d][bb] - G2[a][d][e_] * G2[e_][c][bb] for e_ in range(2)))
+    Rdown = sum(gs[0, a] * Rud(a, 1, 0, 1) for a in range(2))
+    Kc = Rdown / gs.det()
     zK = zero(Kc + e1(e1(Y)) / Y)
     return odd, out, ctl, zK
 

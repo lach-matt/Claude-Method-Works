@@ -126,7 +126,6 @@ def r1(control=False):
     ki_ok = sp.simplify(VT_KI/f - WT) == 0 and sp.simplify(settleT/f - WT) == 0
     # scalar-derived harmonic: (51) on r^(1/2) Phi, eigenvalue 6 - k^2; first-order terms must cancel (k = 1/2)
     S = sp.expand(slash(a, 6 - k2)/sp.sqrt(r))
-    first_order = sp.simplify(S.coeff(sp.Derivative(P, r)) - sp.diff(f, r) - 0) if False else None
     rest = sp.expand(S - boxt(P))
     dP = sp.Derivative(P, r)
     first = sp.simplify(rest.coeff(dP))
@@ -211,7 +210,6 @@ def r3(control=False):
         ds = _derivs(F, Phi)
         vfree = all(all(xx != V_ for xx, _ in d.variable_count) for d in ds)
         rord = max([sum(c for xx, c in d.variable_count if xx == R_) for d in ds] + [0])
-        topW = sp.simplify(sp.diff(F, sp.diff(W, R_, 0) if False else W)) if False else None
         ok &= vfree and rord <= j
         rows.append((j, vfree, rord))
     F1 = sp.expand(L(sp.diff(Phi, R_, 2)) + fp*sp.diff(Phi, R_, 2) - sp.diff(E, R_)/2)
@@ -408,64 +406,57 @@ def r8(control=False):
 
 # ---------------------------------------------------------------- R9: Proposition 9.9's bootstrap factors
 def r9(control=False):
-    t, T, beta, Bb = sp.symbols("t T beta B", positive=True)
+    t, T, beta = sp.symbols("t T beta", positive=True)
     tp = sp.Symbol("tp", positive=True)
-    Hb, Qb = Bb*tp**sp.Rational(-1, 2), Bb*tp**sp.Rational(-1, 2)            # times (T/t')^beta, factored out
-    Db = Bb*tp**sp.Rational(1, 2)
-    # (line, term, its kernel without (T/t')^beta, the line's target without (T/t)^beta)
-    lines = {
-        "H": ([("t^-3/2 (H + Q')", tp**sp.Rational(-3, 2)*Hb), ("t^-5/2 D1", tp**sp.Rational(-5, 2)*Db),
-               ("t^-3 (D0 + D2)", tp**-3*Db)], Bb*t**sp.Rational(-1, 2)),
-        "D0/D1": ([("t^-1/2 H", tp**sp.Rational(-1, 2)*Hb)], Bb),
-        "D2": ([("t^1/2 H", tp**sp.Rational(1, 2)*Hb)], Bb*t),
-        "Q'": ([("t^1/2 t^-1 H", tp**sp.Rational(1, 2)*tp**-1*Hb), ("t^1/2 t^-2 D1", tp**sp.Rational(1, 2)*tp**-2*Db),
-                ("t^1/2 t^-3/2 (H + Q')", tp**sp.Rational(1, 2)*tp**sp.Rational(-3, 2)*Qb),
-                ("t^1/2 t^-3 (D0 + D2)", tp**sp.Rational(1, 2)*tp**-3*Db)], Bb),
-    }
-    table, factors, ok = [], [], True
-    for line, (terms, target) in lines.items():
-        for name, ker in terms:
-            a = -sp.simplify(sp.log(sp.simplify(ker/Bb)).expand(force=True).coeff(sp.log(tp))) - 1   # t'^(-1-a)
-            if control and line == "D2":
-                a = sp.Rational(1, 2)
-            exact = sp.simplify(sp.integrate((ker/Bb).subs(tp, tp)*(T/tp)**beta, (tp, t, T)).subs(beta, 3))
-            bound = (t**(-a)*(T/t)**3/(3 + a))
-            ok &= sp.simplify(sp.expand((exact - bound)*t**3*(3 + a)/T**3).subs({t: 2, T: 7})) <= 0
-            fac = sp.simplify(Bb*t**(-a)/target)                     # the factor before 1/(beta + a)
-            table.append((line, name, a))
-            factors.append((a, fac))
-    a_D2 = [a for ln, nm, a in table if ln == "D2"][0]
-    exact_kernels = sorted(set(a for _, _, a in table if a <= 0))
-    ok &= a_D2 == -1 and exact_kernels == [-1, 0] and all(a > 0 for _, _, a in table if a not in (-1, 0))
+    h = sp.Rational(1, 2)
+    Hq, Dd = -h, h                                                    # H, Q' ~ t^(-1/2), D0-D2 ~ t^(1/2) (times B (T/t)^beta)
+    # (line, term, the power of t' in the integrand without (T/t')^beta, the power of t in the line's target)
+    terms = [("H", "t^-3/2 (H + Q')", -3*h + Hq, Hq), ("H", "t^-5/2 D1", -5*h + Dd, Hq), ("H", "t^-3 (D0 + D2)", -3 + Dd, Hq),
+             ("D0/D1", "t^-1/2 H", -h + Hq, 0), ("D2", "t^1/2 H", h + Hq, 1),
+             ("Q'", "t^1/2 t^-1 H", h - 1 + Hq, 0), ("Q'", "t^1/2 t^-2 D1", h - 2 + Dd, 0),
+             ("Q'", "t^1/2 t^-3/2 (H + Q')", h - 3*h + Hq, 0), ("Q'", "t^1/2 t^-3 (D0 + D2)", h - 3 + Dd, 0)]
+    table, ok = [], True
+    for line, name, e, target in terms:
+        a = -1 - e                                                    # the integrand is t'^(-1-a) (T/t')^beta
+        if control and line == "D2":
+            a = h
+        for bv in (sp.Rational(5, 2), 3, 7):                          # the bound int <= t^(-a) (T/t)^beta/(beta + a)
+            exact = sp.integrate(tp**(-1 - a)*(T/tp)**bv, (tp, t, T))
+            bound = t**(-a)*(T/t)**bv/(bv + a)
+            for tv, Tv in ((1, 2), (2, 7), (3, 100)):
+                ok &= bool(exact.subs({t: tv, T: Tv}) <= bound.subs({t: tv, T: Tv}))
+        p = -a - target                                               # the factor t^p beyond 1/(beta + a)
+        table.append((line, name, a, p))
+    exact_rows = [(ln, nm, a) for ln, nm, a, p in table if p == 0]
+    a_D2 = [a for ln, nm, a, p in table if ln == "D2"][0]
+    ok &= sorted(set(a for _, _, a in exact_rows)) == [-1, 0] and a_D2 == -1 and all(p < 0 for *_, p in table if p != 0)
+    ok &= all(p <= 0 for *_, p in table)
     C = sp.Symbol("C", positive=True)
-    b0 = sp.Max(2, 4*C + 1)
-    quarter = all(sp.N((C/(b0 - 1)).subs(C, c_)) <= sp.Rational(1, 4) + 1e-15 for c_ in (sp.Rational(1, 100),
-                                                                                        sp.Rational(1, 4), 1, 7, 1000))
+    quarter = all(sp.N(c_/(max(2, 4*c_ + 1) - 1)) <= 0.25 + 1e-15 for c_ in (0.01, 0.25, 1, 7, 1000))
     ok &= quarter
-    say("  R9%s: the exponent a of each kernel t'^(-1-a)(T/t')^beta: %s; exact kernels (no extra power) at a = %s, the "
-        "D2 line's at a = %s; C/(beta0 - 1) <= 1/4 for beta0 = max(2, 4C + 1): %s"
-        % (" control (D2 read with an extra power)" if control else "", table, exact_kernels, a_D2, quarter))
+    say("  R9%s: (line, term, a, extra power p) with integrand t'^(-1-a)(T/t')^beta and factor t^p/(beta + a): %s; "
+        "the terms with no extra power: %s; C/(beta0 - 1) <= 1/4 for beta0 = max(2, 4C + 1): %s"
+        % (" control (D2 read with an extra power)" if control else "", [(ln, a, p) for ln, nm, a, p in table],
+           exact_rows, quarter))
     return bool(ok)
 
 
 # ---------------------------------------------------------------- R10: Theorem A_P's classes
 def r10(control=False):
-    r = sp.Symbol("r", positive=True)
+    r, rp = sp.symbols("r rp", positive=True)
     s = sp.Symbol("s")
-    Z = sp.Function("Z")
-    sol = sp.dsolve(sp.Eq(sp.diff(Z(r), r) + sp.Rational(3, 2)/r*Z(r), r**sp.Rational(-7, 2)*s), Z(r)).rhs
-    C1 = [c_ for c_ in sol.free_symbols if c_.name.startswith("C")][0]
-    sol0 = sol.subs(C1, sp.solve(sp.limit(r**sp.Rational(3, 2)*sol, r, sp.oo), C1)[0]) \
-        if sp.limit(r**sp.Rational(3, 2)*sol, r, sp.oo) != 0 else sol
-    is_exact = sp.simplify(sol0 + r**sp.Rational(-5, 2)*s) == 0
-    E52 = sp.limit(r**sp.Rational(5, 2)*sol0, r, sp.oo).is_finite
-    ellE72 = sp.limit(r**sp.Rational(7, 2)*sp.diff(sol0, r), r, sp.oo).is_finite
-    weight = 3 if not control else sp.Rational(5, 2)
-    notE3 = sp.limit(r**weight*sol0, r, sp.oo) in (sp.oo, -sp.oo) or sp.limit(sp.Abs(r**weight*sol0), r, sp.oo) == sp.oo
-    ok = is_exact and E52 and ellE72 and notE3
-    say("  R10%s: Z = %s with r^(3/2) Z -> 0: = -r^(-5/2) s: %s; r^(5/2) Z bounded: %s; r^(7/2) d_r Z bounded: %s; "
-        "r^%s Z unbounded (so not E_3): %s" % (" control (claim r^(5/2)-weight unbounded)" if control else "",
-                                              sol0, is_exact, E52, ellE72, weight, notE3))
+    Z = -r**sp.Rational(-3, 2)*sp.integrate(rp**sp.Rational(3, 2)*rp**sp.Rational(-7, 2)*s, (rp, r, sp.oo))
+    solves = sp.simplify(sp.diff(Z, r) + sp.Rational(3, 2)/r*Z - r**sp.Rational(-7, 2)*s) == 0
+    decays = sp.limit(r**sp.Rational(3, 2)*Z, r, sp.oo) == 0
+    is_exact = sp.simplify(Z + r**sp.Rational(-5, 2)*s) == 0
+    E52 = sp.limit(r**sp.Rational(5, 2)*Z, r, sp.oo).is_finite
+    ellE72 = sp.limit(r**sp.Rational(7, 2)*sp.diff(Z, r), r, sp.oo).is_finite
+    weight = sp.Rational(5, 2) if control else 3
+    notE = sp.limit(sp.Abs(r**weight*Z/s), r, sp.oo) == sp.oo
+    ok = solves and decays and is_exact and E52 and ellE72 and notE
+    say("  R10%s: Z = %s solves (d_r + 3/(2r)) Z = r^(-7/2) s with r^(3/2) Z -> 0: %s; r^(5/2) Z bounded: %s; r^(7/2) "
+        "d_r Z bounded: %s; r^%s Z unbounded: %s" % (" control (weight 5/2)" if control else "", Z, solves and decays
+                                                     and is_exact, E52, ellE72, weight, notE))
     return bool(ok)
 
 

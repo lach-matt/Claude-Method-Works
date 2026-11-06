@@ -6,7 +6,9 @@ scratch script x7indep.py, adopted here with its route unchanged). Labels: compu
   I1 (computed) an independently written floor sum fs(n, m, a, b) = sum_{i<n} floor((a i + b)/m) (Euclid-like
      recursion) agrees with brute force and with dweights5.floor_sum on 3000 random cases.
   I2 (computed) dnumber5.chain_level_sum (the production function) against brute-force enumeration over the levels on
-     600 random small instances (alpha1, s, eps, alpha, k3, K, g, n_a, d1 rationals): equal on every one.
+     600 random small instances (alpha1, s, eps, alpha, k3, K, g, n_a, d1 rationals): equal on every one. [Round 8,
+     the round-7 verifier: the generator reached the levels counting every point in 1 instance of 600; every second
+     instance is now drawn with larger s, K and d1, and at least 100 must reach them.]
   I3 (computed) the swapped order: for each chain of dnumber5.chains, the sum over its points g + n d1 in (2, 3) of the
      number of levels counting them (levels k3..K-1 with beta_k - 1 - eps >= the point, and the top), with fs, at both
      ends of the d1 and base intervals (equal), equal to chain_level_sum chain by chain; the special points z = 1, 2 and
@@ -150,15 +152,18 @@ def main():
     print('  I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: %s'
           % ok1)
     ok2, ok5 = True, True
-    for _ in range(600):
+    every = 0                                   # Round 8 (the round-7 verifier): instances reaching the levels that
+    for i in range(600):                        # count every point; the odd ones are drawn to reach them
         a1 = Fr(random.randint(150, 250), 100)
-        s = Fr(random.randint(1, 30), 997)
+        s = Fr(random.randint(1, 30), 997) if i % 2 == 0 else Fr(random.randint(30, 300), 997)
         eps = Fr(1, random.randint(10 ** 3, 10 ** 4))
-        K = random.randint(5, 60)
+        K = random.randint(5, 60) if i % 2 == 0 else random.randint(60, 300)
         k3 = random.randint(0, K - 1)
         al = Fr(9, 2) + Fr(random.randint(0, 99), 100)
         g = Fr(random.randint(150, 299), 100)
-        d1 = Fr(random.randint(1, 40), 997)
+        d1 = Fr(random.randint(1, 40), 997) if i % 2 == 0 else Fr(random.randint(20, 40), 997)
+        pts_hi = g + (floor((3 - g) / d1) - (1 if (3 - g) / d1 == floor((3 - g) / d1) else 0)) * d1
+        every += any(a1 + k * s - 1 - eps >= pts_hi for k in range(k3, K))
         n_a = 0 if g > 2 else (floor((2 - g) / d1) + 1)
         w = dict(alpha1=a1, s=s, eps=eps, alpha=al)
         c = dict(k3=k3, K=K)
@@ -167,8 +172,9 @@ def main():
         mut = DN.chain_level_sum(dict(g=g, n_a=n_a), w, c, d1, top_level=False)[0]
         if brute_chain(g, n_a, d1, w, c) > 0:
             ok5 = ok5 and mut != brute_chain(g, n_a, d1, w, c)
-    OK['I2'] = ok2
-    print('  I2: dnumber5.chain_level_sum equals brute-force enumeration on 600 random small instances: %s' % ok2)
+    OK['I2'] = ok2 and every >= 100
+    print('  I2: dnumber5.chain_level_sum equals brute-force enumeration on 600 random small instances: %s; %d of them '
+          'reach a level that counts every point (Round 8: 1 of 600 before; required >= 100)' % (ok2, every))
     w = DW.weights(Fr(19, 10 ** 9), Fr(189, 10 ** 10), Fr(188, 10 ** 10), Fr(1, 10 ** 12))
     c = DW.counts(w)
     d1lo, d1hi = DW.d1_interval()
