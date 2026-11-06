@@ -37,3 +37,35 @@ T6 PASS
   T7 control (the same conditions with a nonzero charge): 23 conditions on Theorem R7.1's box (eps_1 < 3 - gamma_+, eps
       <= eps_1/3), all positive sums: False; failing ['column in Y_0 at beta_tf + 2 (charge != 0)']
 T7 PASS
+  T8: W**_H on {t = C''} has the r^-1 tail (-1 dt + 1/4 dr)/r; r^2 d_t W**_H -> [1/2, 0] (= W*/2: order 2); K's normal
+      components [r**(-2), -1/r**2] (order 2): the data of Z^(K) have order exactly 1
+  T8 control (W*): r^-1 coefficients on {t = C''} [0, 0]; a nonzero r^-1 tail: False
+T8 PASS
+  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: True; in the class p_0 > 1/2 + 2 gam > 1/2
+      + delta_#: {'1 - (1/2 + delta_#)': True, '(q - 1) - (1/2 + 2 gam)': True, '2 gam - delta_#': True}
+  T9 control (p = 1/2): conditions failing ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'beta > 0', 'b_I >
+      b_+', 'p_slab > b_I', 'gamma_+ < b_+', 'alpha_K < gamma_+', 'alpha_K >= 1/2']
+T9 PASS
+  T10: each required slab order below Theorem R4.3's min(3/2, q - 1): {'R4.4 / R3.6: p > 1/2 + beta, beta in (0,
+      delta_#)': True, 'R5.3 at kappa: p > 1/2 + beta, beta = (kappa + delta_#)/2': True, 'l >= 2 (Corollary R8.11): p >
+      1/2 + beta, beta in (gamma_+ - 1/2, delta_#)': True}; kappa < beta < delta_#: True
+  T10 control (delta_# replaced by 1): each required slab order below Theorem R4.3's min(3/2, q - 1): {'R4.4 / R3.6: p >
+      1/2 + beta, beta in (0, delta_#)': False, 'R5.3 at kappa: p > 1/2 + beta, beta = (kappa + delta_#)/2': False, 'l >=
+      2 (Corollary R8.11): p > 1/2 + beta, beta in (gamma_+ - 1/2, delta_#)': False}; kappa < beta < delta_#: True
+T10 PASS
+  T11: 12 conditions with w_I = max(5/2, gamma_+ + 1 + eps_1), all hold on the box: True
+  T11 control (Prop 3.3's eps not reduced to min(eps, eps_1)): 12 conditions with w_I = max(5/2, gamma_+ + 1 + eps_1),
+      all hold on the box: False; failing ['Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP']
+T11 PASS
+  T12: (component, D_m, p_m, d_m, a_m, b_m, iota+, I+ at the corner, K+ at the corner, homogeneous): [(0, 'Derivative(A,
+      u)', 3, 3, -3/2, -3, 6, 9/2, 3, True), (0, 'Derivative(A, r)', 3, 3, -1/2, -3, 6, 11/2, 3, True), (0,
+      'Derivative(A, (r, 2))', 2, 4, -1/2, -4, 6, 11/2, 4, True), (1, 'Derivative(A, u)', 3, 3, -3/2, -3, 6, 9/2, 3,
+      True), (1, 'Derivative(A, r)', 3, 3, -1/2, -3, 6, 11/2, 3, True), (1, 'Derivative(A, (r, 2))', 2, 4, -1/2, -4, 6,
+      11/2, 4, True)]; joint orders >= (6, 9/2) and (6, 3): True
+  T12 control (kernel K + 1/(r u)): (component, D_m, p_m, d_m, a_m, b_m, iota+, I+ at the corner, K+ at the corner,
+      homogeneous): [(0, 'Derivative(A, u)', 3, 3, -2, -2, 6, 4, 2, False), (0, 'Derivative(A, r)', 3, 3, -1, -1, 6, 5,
+      1, True), (0, 'Derivative(A, (r, 2))', 2, 4, -1, -1, 6, 5, 1, True), (1, 'Derivative(A, u)', 3, 3, -2, -2, 6, 4, 2,
+      False), (1, 'Derivative(A, r)', 3, 3, -1, -1, 6, 5, 1, True), (1, 'Derivative(A, (r, 2))', 2, 4, -1, -1, 6, 5, 1,
+      True)]; joint orders >= (6, 9/2) and (6, 3): False
+T12 PASS
+EXIT 0

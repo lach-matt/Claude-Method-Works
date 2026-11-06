@@ -4,7 +4,8 @@ Round 2, item (i): a stage-independent piece of C2; corrected in Round 3 after t
 
 Lemma 2.4 (N1STAR-PROOF.md, "**Lemma 2.4 (transport; deduced, `ks5.py` K4).**"; Round 8: re-pointed by content, the
 line numbers having moved with D623): L0 phi - c phi = f on Omega gives ||phi(tau)|| <= e^(C (tau - tau0))(||phi(tau0)||
-+ int ||f||). Its proof's identity (from "d_tau phi = L0 phi + xhat.d_x phi") is d_tau ||phi||^2 = 2 <phi, f + c phi> - int (3/r) phi^2 + (1 + b')
++ int ||f||). Its proof's identity (from "d_tau phi = L0 phi + xhat.d_x phi") is d_tau ||phi||^2 = 2 <phi, f + c phi>
+- int (3/r) phi^2 + (1 + b')
 int_{|x|=b} phi^2 - int_{|x|=a} phi^2, the 3/r being div xhat in R^4 and the boundary terms <= 0. Step 6 applies it to
 (3.6), L0 Psi - (2/r) Psi = ..., so c = 2/r and 2c - 3/r = 1/r <= 1/a: the identity gives d_tau ||Psi|| <= ||f|| +
 (1/(2a)) ||Psi||, rate 1/(2a). Round 2 took C = sup |c| = 2/a and dropped the -int (3/r) phi^2 term, which overstated

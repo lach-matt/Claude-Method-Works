@@ -60,6 +60,11 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
   R12 (exact) Proposition 8.1 (D622, nit): with the monotonicity slope s >= 3/(4 mu_max) and |theta(sqrt mu)| <= C0 lam,
      the zero lies within C' lam = (4 mu_max/3) C0 lam of sqrt mu, and at r = sqrt mu - 2 C' lam the expansion is <= -C0
      lam < 0, while at sqrt mu - C' lam it can vanish.  Control: (c) with C' in place of 2 C' is not strict.
+  R14 (certified, Z3 over the reals) Lemma 9.4's Jacobian (D622, from the D623 reading of Lemma 2.2).  Phi(x) = (r + 2
+     lam sigma) xhat on A_P(tau), thickness Delta >= d0 >= 1, r >= r_in >= 1, |sigma0'| <= 7, |sigma| <= 1: for every lam
+     with 0 < lam <= 1/10 and lam <= d0/20 the radial eigenvalue 1 + 2 lam sigma0'/Delta lies in [3/10, 1] and the
+     angular ones 1 + 2 lam sigma/r in [4/5, 6/5].  Control: without lam <= d0/20 (lam <= lam1 <= 1/10 alone) Z3 finds
+     a point with a negative radial eigenvalue (at lam = 1/10, Delta = 1 it is 1 - 1.4).
   R13 (text) The paper's replacement blocks (D622): each old text occurs exactly once in paper/RESPONSE-HL-5D.md and its
      new text not at all; every line of the blocks and of this file is at most 121 characters; and in N1STAR-PROOF.md
      the D622 text is seated: "N-th order" occurs only inside an [amended D622 note, and Lemmas 10.1a-10.1b are
@@ -83,7 +88,7 @@ kappa_k > 0", and its proof, "2 Y-pi^(alpha beta) nabla_alpha nabla_beta psi = k
 [Sch13] V. Schlue, arXiv:1012.5963v1, p. 15, Lemma 3.2 (surface gravity), (3.11) "kappa_n = (1/2)(n - 2)/(2m)^(1/(n -
 2)) > 0"; p. 16, Proposition 3.3 (redshift).
 
-python3 checks/redshift5.py [R1 R2 ...]   (about two minutes; writes nothing)
+python3 checks/redshift5.py [R1 R2 ...]   (about two minutes; writes nothing; R14 needs z3-solver)
 """
 import math
 import os
@@ -509,6 +514,32 @@ def r12(control=False):
     return bool(ok)
 
 
+# ---------------------------------------------------------------- R14: Lemma 9.4's Jacobian
+def r14(control=False):
+    import z3
+    lam, d0, D, r, sp_, sg = z3.Reals("lam d0 D r sp sg")
+    hyp = [lam > 0, 10*lam <= 1, d0 >= 1, D >= d0, r >= 1, sp_ >= -7, sp_ <= 0, sg >= -1, sg <= 1]
+    if not control:
+        hyp.append(20*lam <= d0)
+    S = z3.Solver()
+    S.set("timeout", 120000)
+    S.add(*hyp)
+    S.add(z3.Or(10*(D + 2*lam*sp_) < 3*D, D + 2*lam*sp_ > D, 5*(r + 2*lam*sg) < 4*r, 5*(r + 2*lam*sg) > 6*r))
+    res = S.check()
+    cert = res == z3.unsat
+    witness = None
+    if res == z3.sat:
+        M = S.model()
+        val = lambda e: float(M.eval(e, model_completion=True).as_fraction())
+        witness = (val(lam), val(D), val(sp_), 1 + 2*val(lam)*val(sp_)/val(D))
+    worst = 1 + 2*sp.Rational(1, 10)*(-7)/1                                     # lam = 1/10, Delta = 1, sigma0' = -7
+    say("  R14%s: Z3: radial eigenvalue in [3/10, 1] and angular in [4/5, 6/5] for 0 < lam <= min(1/10, d0/20), "
+        "Delta >= d0 >= 1, r >= 1: %s (%s)%s; at lam = 1/10, Delta = 1, sigma0' = -7 the radial eigenvalue is %s"
+        % (" control (lam <= 1/10 only)" if control else "", cert, res,
+           "" if witness is None else "; witness (lam, Delta, sigma0', radial eigenvalue) = %s" % (witness,), worst))
+    return bool(cert)
+
+
 # ---------------------------------------------------------------- R13: the paper's blocks and the seated text
 OLD82 = """So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
@@ -598,7 +629,7 @@ def r13(control=False):
 
 
 CHECKS = [("R1", r1), ("R2", r2), ("R3", r3), ("R4", r4), ("R5", r5), ("R6", r6), ("R7", r7), ("R8", r8),
-          ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12), ("R13", r13)]
+          ("R9", r9), ("R10", r10), ("R11", r11), ("R12", r12), ("R14", r14), ("R13", r13)]
 
 
 def main():

@@ -9,3 +9,10 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
       [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]: largest residual 7.3e-158 at 50 digits (three test A, three H, four r,
       three angles: 108 points; Round 8, one r and one H before): True; with the eigen-equation (lap + l (l + 2) - 2) T =
       0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in T3)
+  T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: 12, at l = 4: 28 (l (l + 2) + 4 = 12, 28; the so(4) Casimir 2 [j1
+      (j1 + 1) + j2 (j2 + 1)] at (j1, j2) = (l/2 + 1, l/2 - 1): ['12', '28']); for the scalar harmonic x1^2 - 1/4 at l =
+      2: 8 (l (l + 2) = 8): True
+  T5 (deduced; exact rationals): C_T,l^2 = (2 + 5/L)(1 + kappa q) + q + 4 q^2 + q/f(b1), kappa = 5/2, 1/f(b1) = 36/11:
+      C_T,2^2 = 55289/14256 = 3.878297, decreasing in l (checked to l = 200; every term decreasing), tending to 2; C_T =
+      1.9693, so ||h||_(1,-1) <= 3.9387 ||L-hat_b0(0) h||_(0,1) = 1.9693 ||2 L-hat_b0(0) h||_(0,1) on the t_l blocks
+      (T3's factor 1/2): True

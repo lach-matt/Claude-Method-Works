@@ -886,6 +886,11 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
 
 - **(i) lambda0 < 0.0024433 (certified), and lam1 no longer binds.** Lemma 2.3 takes Lemma 1.1 (e)'s eps1 and needs it
   below g0's least absolute Euclidean eigenvalue on Omega (N1STAR-PROOF.md:89-92, :222; the reader's MAJOR A). That
+  [Round 8, re-pointed by content (D623 moved sections 0-4 by 36 lines): N1STAR-PROOF.md 0.3, "Lemma 2.3 needs more of
+  the same eps1: eps1 < s0, where s0 := inf over Omega of g0's least absolute eigenvalue", with "one fixed number with
+  0 < eps1 < min(s0, mu0/a^2 - 1)"; Lemma 2.3 now carries "|gt^-1| <= (s0 - eps1)^-1". At the point mu0/a^2 - 1 > 12,
+  so the minimum is s0 in [0.030768559, 0.030768560], and every lambda0 bound here (eps1 < s0, C_app >= 12.593309)
+  agrees with the new 0.3.]
   infimum is (m*^2 + 1)^(1/2) - m*, m* = mu_end/a^2, attained at the corner (tau_end, r = a), and lies in [0.030768559,
   0.030768560] (`lzerotrace5.py` T7). With C_app >= 12.593309: **lambda0 < 0.0024433** in the operator norm the
   supplement now states (< 0.0019950 Frobenius), so 1/lambda0 > 409.2 against the wavelength 10 l5 = 1. No linear stage
@@ -1599,6 +1604,8 @@ and confirmed R6.0 M1, M2 and minors 2, 3, 5, 6, 8, 9, the [SBG] READ and the 2.
 interval arithmetic). Its findings, each re-derived before it is seated:
 
 - **MAJOR 1 (accepted; computed, `r7fixes5.py` R1; found independently here before the report arrived).** The stage-1
+  [Round 8, R8.0 (n1): "found independently here before the report arrived" cannot be checked from the record;
+  withdrawn as a claim.]
   "iff" (R6.2, R6.4, stage1cap5 S3) is false in its "only if" direction. At X* := (theta = 0, v = 2, r = a), tau =
   2 - a, in the frame (tau, x1, ..., x4) with xhat = e1, W_TT(s) = K cos s diag(0, 0, 4/3, -2/3, -2/3) and D = U U^T,
   U = (1, 1, 0, 0, 0) (exact); for every symmetric M, e2^T (M + W(s) + chi D) e2 = M_22 + (4/3) K cos s, so sup_s
@@ -1608,17 +1615,24 @@ interval arithmetic). Its findings, each re-derived before it is seated:
   bound iff a certified lower bound on sup_{Omega x S^1} |m_1 + W_TT + chi dv dv|_op exceeds 12.593309; the four-point
   bound is sufficient only. The reason stage 0 cannot move it is the block structure, now computed: W_TT U = 0, so
   |W_TT + chi D|_op = max(|W_TT|_op, 2 |chi|) pointwise, and 2 sup |chi| <= 11.8821. stage1cap5 S3 corrected.
+  [Round 8, R8.0 (1): r7fixes5 R1 certifies the excess K/3 + (K^2 + w^2)^(1/2) - (4/3) K only for M = w (e2 e3^T +
+  e3 e2^T). In the class no other M occurs at X*: m_1(X*) e_phi1 = M_22 e_phi1 exactly, and e2 is an eigenvector of
+  g(s) for every s (computed, exact, `classm5.py` K1-K2), so the excess is |M_22| and the general case cannot arise.]
 - **MAJOR 2 (accepted; computed, certified, R2).** In the Frobenius reading stage 0 moves the bound, for every m_1:
   sum_{j=0}^3 |M + W(s + j pi/2) + chi(s + j pi/2) D|_F^2 = 4 |M|_F^2 + 2 (|W(s)|_F^2 + |W(s + pi/2)|_F^2) + 4 chi^2
   |D|_F^2, |D|_F = 2 (exact; cross terms cancel in pairs), so sup_s |g_1|_F^2 >= B := (|W(s)|_F^2 + |W(s +
   pi/2)|_F^2)/2 + 4 chi(s)^2. A grid search over (theta, v, s) at r = a puts the maximum at X*, s = pi/4 (B =
   260.098); certified there **C_app >= 16.127553 and lambda0 < 0.0019079 (Frobenius)**, against round 4-5's
+  [Round 8, R8.0 C: rounded the wrong way. The certified lower end of B^(1/2) is 16.1275529788 (r7fixes5's ball
+  [16.127553 +/- 2.12e-8]): read C_app >= 16.127552. lambda0 < 0.0019079 stands (0.0019078257 at the ball's end).]
   0.0019950; the point lies in Omega (lzerotrace5.in_omega). With m_1 = 0 the sup there is 16.8866 (floating point,
   not a bound). "Certified" and "unchanged until a lower bound on m_1" are limited to the operator norm (R7.3).
 - **MAJOR 3 (accepted; computed, `x7indep5.py`).** dnumber5's headline figures were protected by no check. Now: the
   verifier's swapped-order sum, with its own floor sum (3000 random cases against brute force and dweights5), equals
   dnumber5's chain_level_sum chain by chain and at both interval ends, and gives the four Sum X_7 values, d and N
   exactly (I1, I3); chain_level_sum itself equals brute-force enumeration on 600 random small instances (I2, the
+  [Round 8, R8.0 (2): I3 is independent in the summation only (the chains, excesses, n_a and A are dnumber5's); I2's
+  generator reached the levels that count every point in 1 instance of 600; widened, 299 (`x7indep5.py`, rerun 9/9).]
   production path, replacing C1's scaled closed form); dnumber5 K4 and K5 now compare with pinned integers; and the
   four mutations of the production path (top level dropped, ceil term 1, two per point, excess 0) each change a pinned
   total (M1-M4), with chain_level_sum's top level dropped disagreeing with brute force (M5). The two-ends
@@ -1637,6 +1651,8 @@ interval arithmetic). Its findings, each re-derived before it is seated:
 - **m3 (accepted; certified, R5).** r6fixes5 F2's inputs were rounded the wrong way: q_lo >= 0.1966827 (not 0.196683),
   e^(kappa Dtau/2) <= 1.1051725e17 (not 1.105e17); in Arb from stage1rate5's forms the coefficient is <= 3.52422e17, so
   3.525e17 stands; stage1rate5's factor-2 figure is <= 7.04843e17 (it printed 7.048e17, rounded down; superseded). F2's
+  [Round 8, R8.0 (3): r6fixes5.out still printed "<= 3.5237e+17 ... True", below the certified value; its inputs are
+  now rounded outward and it prints 3.5242e17 (`r6fixes5.py` rerun, 6/6).]
   symbolic "check" and C2 proved nothing; the certified recomputation replaces them (r6fixes5 annotated).
 - **m4 (accepted).** R6.1's "Everything else in the chain is an integer" was unsupported (the orders at the record's
   point were not read; d^E's three pieces not read). Withdrawn; R7.2 reads the orders and bounds D_1, and names what is
@@ -1664,6 +1680,9 @@ interval arithmetic). Its findings, each re-derived before it is seated:
 ### R7.1 The re-pin (D615, D616)
 
 N1STAR-PROOF.md is md5 709c63be1748117de9fadf6410eb53a2, 10858 lines (split on newlines; `wc -l` 10857). Against the
+[Round 8, R8.0 (4): 10857 lines (the split counted the empty string after the final newline); lzerotrace5.py:12
+still says "lines 1-805". N1STAR-PROOF.md has moved since (D618-D623; 11025 lines, md5 9e5363f1... when this round
+ended, section 7 at line 919), so T0, A0 and A1 fail at HEAD; the re-pin is left to the main session's final pass.]
 D614 file (git 82a7e95, md5 02e76176...), D616 replaced line 632 by 632-634 and D615 lines 634-637 by 636-642; every
 other D614 line maps to identical text (checked line by line: lines <= 631 unmoved, 633 -> 635, every line above 637
 +5). lzerotrace5 T0: PIN 39acbcf0640c253b3d40f1dc2bd929dd (lines 1-817, section 7's heading at 817 as before at 812),
@@ -1692,6 +1711,8 @@ re-checked at the end of this round (R7.6).
   eta = m0 = 3 + delta + aleph = 5 (II.F2 Lemma 2.3; delta = 0, aleph = 2), theta_H <= 2 (> theta_L, LOSS-D 2b),
   theta_out >= 2 S-bar - 2 eps with S-bar = 0 (II.C Lemma 2.6), alpha_+ = beta_+ - 5/2, beta_+ in (1/2, 3/2): s_in = 9
   (an integer above 8.5) and s_out = -8 (below -6 - beta_+ - eps for every admissible beta_+). So s in [-8, 9], s0 = s -
+  [Round 8, R8.0 (9): Q4 reads only the first branch of s_in (II.C:767-768's alpha_K/theta^3b_in branch is not read)
+  and the alpha_K = -2 behind "-6 - beta_+ - eps" is not sourced; recorded, not re-derived.]
   2, the slab order s + 1, s_u = -10; every order at which a closed-graph site is invoked in D_0's chain lies in
   [-14, 11] with N <= 14 (deduced from the cited statements: shifts by m <= 2, by 1 and 2, error orders -N; the proofs'
   internal orders not all re-read).
@@ -1699,12 +1720,18 @@ re-checked at the end of this round (R7.6).
   Lemma 8.6's d_0 = 60, M_a = 73, M_2.4 = 171 (composition and chart change included), (L3) d_0 <= 173, (L4) d_0 <=
   175 (II.A2:722-723's d_0 - 2 >= M_2.4 + 2), II.D's trapped-set symbols in C^(d_0 - 4) (II.D:684, 725) d_0 <= 177:
   **D_0 <= 177**, an explicit integer upper bound (deduced on Q4's order range and Q5's census), the closed-graph
+  [Round 8, R8.0 A: not established. Proposition A.7's left remainder was weighted by sup t (d0count5 M2); it acts
+  through H^(t0), t0 = floor(inf t) - 1: 193 on Q4's range, 203 with the record's input order -N - m = -16, 230 with
+  Proposition 2.4 (f) counted (A2), and 399 once every operator order of the chain is admitted (the commutants of
+  II.A2 sections 4-5, orders s - 1/2 + delta, |s| <= 10, and their products): `d0count5.py` Q3b, R8.1.]
   obstruction of round 6 removed. Generous, not sharp: a sharper Calderon-Vaillancourt ([n/2] + 1) or a region split
   in place of Peetre would lower it.
 - *c'* (computed; deduced). d' = 8, d'' = 9; II.A Proposition 9.6 at s - 2 (Lemma 2.8, Corollary 9.7) d_1 = 20,
   d-tilde = 33; II.E Proposition 4.4 d = d-tilde + 3 >= 35; every tame order in D_1 is d-tilde + 3 with d-tilde =
   s-bar + 2 max(s-under, s-under_0) + 6 at orders in Q4's range, so D_1 <= 48. So FWD + BG = D_0 + D_1 + d' + d'' + 6
   + 2 lies in [D_0 + 60, 250], and **c' = (FWD + BG) + the fixed MODs of a level**, c' >= 62 (round 6: c' >= 14 + D_0).
+  [Round 8, R8.0 A: "d = d-tilde + 3 >= 35" reads 36 (d-tilde = 33); c' >= 62 assumed D_0 >= 2, which Q5's d_0 >= 5
+  gives; the upper end 250 falls with D_0: FWD <= 474 on the order box, and with the MODs counted c' = 632 (R8.1).]
   At MODs = 0 the bound would be d <= 45,661,383,902,649,727 + 106,489,470 x 250 = 45,661,410,525,017,227.
 - *What remains for d* (deduced). **No integer upper bound on d follows yet**: the single missing input is now the
   fixed per-level steps (MODs) of I14's Lemma 2.2 with their losses at the record's weights (among them III.A
@@ -1723,6 +1750,7 @@ re-checked at the end of this round (R7.6).
   0) suffices, with a certified excess |m_1(X*)_22| or K/3 + (K^2 + w^2)^(1/2) - (4/3) K. In the Frobenius reading
   any m_1 != 0 at X* raises B by |m_1|_F^2.
 - *The single missing input* (deduced). A certified enclosure of m_1(X*) e_phi1 (or of m_1 on a neighbourhood of the
+  [Round 8, R8.2: in the class m_1(X*) e_phi1 = M_22 e_phi1 (`classm5.py` K1); the input is the one number M_22.]
   maximisers X*, sigma(X*)), excluding 0. Nothing weaker suffices: (a) with m_1 = 0 the sup is exactly sup |W_TT|_op
   (R1's block structure), so no information that leaves m_1 free can move the bound; (b) an upper bound on m_1, which
   is all Lemma 6.4's or Lemma 2.3's estimates give (stage1rate5: Gronwall factor 1.105e17), cannot; (c) m_1(X*) is the
@@ -1733,6 +1761,9 @@ re-checked at the end of this round (R7.6).
   Sigma (r >= v_start - tau0 = 5/2 where W_TT is nonzero) |W_TT|_op <= (4/3) 2^(1/2) c (5/2)^(-3/2) < 0.64, so they
   could decide only through |a_1| > 11.9, which the size of S_1 (quadratic in W, r^-3) makes implausible and only a
   solve could certify. The second-order expansion of the constraints was therefore not carried out: it cannot decide.
+  [Round 8, R8.0 (6): "it cannot decide" is too strong; the argument shows it implausible. The bound on Sigma is now
+  computed: sup |W_TT|_op <= 0.22189 there (`classm5.py` K3, the angular maximum being exactly 1, so the factor
+  2^(1/2) above is not needed), and the data would need |a_1| > 12.37.]
 - *What m_1 is known to be* (READ stage5.out S2, S4). Its mean source is nonzero only in dv dth, -(4/9) A^2 E^2 h^2
   sin 2th r^-3, and R^(1)[g0 + lam W] is odd under sigma (th -> pi/2 - th, phi1 <-> phi2) with s -> 3 pi/2 - s, so
   sigma^* m_1 = -m_1: m_1(sigma X*) e_phi2 = -m_1(X*) e_phi1. Neither forces m_1(X*) e_phi1 = 0; whether it vanishes
@@ -1743,6 +1774,9 @@ re-checked at the end of this round (R7.6).
   stage5.py stopping at m = 1) and through M, but only in combination with constants the proof may enlarge (C3,
   C_inf, C_dw, C_N; Round 3 M2), which no certified bound fixes from below. So stages 2-9 cannot raise the certified
   bounds and cannot lower them by this method: for the certification used here the bounds are final beyond stage 1.
+  [Round 8, R8.0 (6): true of the lam -> 0 limit of (g_app - g0)/lam only. At a finite lambda0 the forced bound is a
+  sup over lam in (0, lambda0], which g_2 and later stages can raise by O(lambda0): "final" is relative to this
+  method.]
 
 ### R7.4 (iii) the inverse bounds: the tensor blocks proved (`tensorzero5.py`)
 
@@ -1752,6 +1786,8 @@ re-checked at the end of this round (R7.6).
   H(r) T on 5D Tangherlini: tr h = 0, div h = 0, iota_{dt#} h = 0, so E^Ups h = 0, delta_{E^Ups} G h = 0 and the gauge
   term of L_b vanishes; and D Ric(h) = (1/2) r^2 (A_l H) T exactly, every other component 0 (T2-T3, l = 2 and 4).
   As an operator identity, D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)] for every traceless
+  [Round 8, R8.0 (7): T3b evaluated this at one r and one H; it now evaluates it at 108 points (three A, three H, four
+  r, one inside the horizon, three angles; `tensorzero5.py` rerun): an evaluation, not a symbolic identity.]
   class tensor with div T = 0 (T3b, evaluated at 50 digits; residual below 1e-40; with -lap T + T it fails, C4), so
   with the harmonics' eigen-equation it holds at every even l: the t_l block of L-hat_b0(0) is one half of zeroext5's
   scalar model A_l at the same l. The norm's angular weight is the
@@ -1781,10 +1817,14 @@ re-checked at the end of this round (R7.6).
 ### R7.5 Proved, computed, open
 
 - *Certified*: lambda0 < 0.0024433 (operator), < 0.0019079 (Frobenius, new), < 0.0012228 (largest entry); the tensor
+  [Round 8, R8.0 (8): C_T is deduced with certified arithmetic, not certified (as m7 for zeroext5). The tensor
+  identities were computed at l = 2, 4 and the Casimir at l = 2 only (now l = 2, 4, with the so(4) Casimir for every
+  l, `tensorzero5.py` T4); x7indep5's route is independent in the summation only.]
   blocks' constant C_T = 1.9693 (deduced inequalities, certified arithmetic); r6fixes5 F2's coefficient < 3.52422e17.
 - *Computed, exact*: the re-pin; the stage-1 block structure at X*; the four-phase identity; the tower resonances;
   Sum X_7, d, N by an independent route; the tensor block identities D Ric(h) = (1/2) r^2 (A_l H) T and the Casimir.
 - *Deduced (counts computed)*: Appendix R7.A's theorems; D_0 <= 177 and D_1 <= 48 on Q4's order range; c' in [62,
+  [Round 8, R8.0 A: withdrawn; D_0 <= 399 and D_1 <= 52 on the order box, c' = 632, d an integer (R8.1).]
   250] + MODs.
 - *Open, each with its single missing input*: d as an integer (the per-level MODs at the record's weights, a reading);
   lambda0's value or a lower certified bound from stage 1 (a certified m_1(X*) e_phi1); I.C:497 for L_b0 (the
@@ -1836,6 +1876,8 @@ delta) - 3)N), the prefactor (h_k'/h_k)^(n/2), the number of j' overlapping j at
 number of i' in shell k' at most C 2^(k'(1 - delta)n); the sum of ||.||^(1/2) over shell k' is at most C A_x
 2^(k' E), E := delta n/4 + delta n + (1 - delta) n - (1 - delta) N/2, and E < 0 iff (1 - delta)/2 > (5/4) delta n at N
 = 2n + 1, i.e. delta < 2/(2 + 5n) (d0count5 Q1: E = -0.4325 at delta = 1/100; E = 0 at 2/27, control C2). k' <= k -
+[Round 8, R8.0 (10): shells k and k + 2 can touch (both meet |xi| = 2^(k+1)), so |xi - xi'| >= 2^(k'-2) needs k' >=
+k + 3, and the near group of steps (4)-(5) is |k - k'| <= 2. Constants only.]
 2 is symmetric, with at most k shells and a polynomial factor. (6) Cotlar-Stein: sum_I T_I converges strongly with
 norm <= C (A_x A_xi)^(1/2); on Schwartz functions the partial sums converge pointwise to Op(p)u (dominated
 convergence), so the limit is Op(p). []
@@ -1859,6 +1901,11 @@ moving (1 - Delta_y)^M0 onto the kernel puts at most 2 M0 more derivatives on d^
 1), on psi and on e^{-iy xi} (factors xi^gamma, |gamma| <= 2 M0): the kernel is at most C ||l||_{C^(J + 2 M0)} int
 <xi>^(sup t + delta - J(1 - delta) + 2 M0) dxi, finite by the choice of J, and supported in |x - y| <= R_psi; Schur's
 test gives ||Rem_J v|| <= C ||l||_{C^(J + 2 M0)} ||v||_{H^t0} (control C1: J - 1 fails). (6) Finite multiplicity and
+[Round 8, R8.0 (11): [SBG]'s cut-off localises to cells of B, not of rho B ((3.27), p. 44), so in rescaled
+coordinates it is psi(rho (x - y)) and "supported in |x - y| <= R_psi" is not uniform. The decay comes instead from
+integrating by parts in xi on the smooth factor: (x - y)^gamma e^{i(x - y)xi} = D_xi^gamma e^{i(x - y)xi}, the
+derivatives falling on D_xi^b lambda, which lowers its order by |gamma| and costs no derivative of l; with |gamma|
+= n + 1 Schur's test applies uniformly. The count D_a is unchanged.]
 sum_alpha ||theta_alpha u||^2_{H^t0} <= C ||u||^2_{H^t0} sum the charts. The b-regularity part is Leibniz on top. The
 direct proof needs no closed graph and no mollification. []
 
@@ -1895,6 +1942,9 @@ each factor beyond those taken; pieces in different charts need one change of ch
 (Kuranishi: kappa(x) - kappa(y) = Phi(x, y)(x - y); the amplitude a(kappa(x), Phi^-T eta) reduced to a left symbol,
 each term al costing 2|al| xi-derivatives for a gain |al|, the remainder by (3)): C_ch := 2 J1 + 2L'_1 + 2K. So M_b :=
 M_a(t, m1 + m2 - 1 + delta) + 1 + max(2L, 2L') + C_ch; (c) and (f) are the same count; (d) adds 1 (II.A2's (M + 1));
+[Round 8, R8.0 A2: "(c) and (f) are the same count" is unproved for (f), which II.A2:682-695 applies to [D_a,
+Op(a-check)], [[D_a, .], .] and i[L_R, D A]: up to three order drops, each needing one more term of every
+expansion. Counted in R8.1 (Lemma A.9) and `d0count5.py` M_f.]
 (e) (Lemma 1.2, disjoint supports) has no main terms, every Taylor term vanishing on disjoint supports, so it costs
 the remainder alone at order -N_e, at most M_b. The record's mollification (II.A2 Lemma 2.2) then carries these to
 symbols in C^(M + 2). M_2.4 := M_b + 1 = 171 at the record's orders (d0count5 Q3). []
@@ -1903,8 +1953,16 @@ symbols in C^(M + 2). M_2.4 := M_b + 1 = 171 at the record's orders (d0count5 Q3
 Lemmas 8.5-8.6; (L4) d_0 - 2 >= M_2.4 + 2 (II.A2:722-723); II.D's symbols in C^(d_0 - 4): d_0 >= M_2.4 + 6; the
 energy and slab estimates of II.E, II.D', II.F2 take the largest of these or add 2 (II.D2:248, II.E:868 over Lemma
 8.5's number). So D_0 <= max(M_2.4 + 6, d_0(8.6) + 2, D_a + 2) = 177 at the orders of R7.2.
+[Round 8, R8.0 A, (12): II.D's C^(d_0 - 3)/C^(d_0 - 4) multiplications add D_b + 4 to the maximum (68; no effect);
+A.7 (1)'s cut-off and residual errors were not shown free of derivatives of a: charged one change of chart they
+cost M_a + C_ch < M_2.4, inside the maximum. With A and A2 the figure is 399 on the order box (R8.1).]
 
 ### R7.7 Proposed text for the paper's section 9 (replaces R6.6; claims only what is proved or computed)
+[Round 8, R8.0 B: superseded by R8.7. Three claims exceed the record: "only through its mean correction at the point
+where the first-order wave is largest" (R7.3's criterion is a sup over Omega x S^1 with X* sufficient: "for example
+through"); "an explicit calculus bound in the supplement ... at most 177 ... at most 250" (the bound is in
+CONSTANTS5.md, not the supplement, and the figures fall with A); "in the supplement's norm" without "for one choice
+of generators" (m7).]
 
   The threshold lambda0 that the proof of Theorem 1 delivers is traced term by term to the supplement. At the numerical
   point it is below 0.0025 in the operator norm, 0.0020 in the Frobenius norm and 0.00123 in the largest entry
