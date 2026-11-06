@@ -150,20 +150,42 @@ def a3():
 def compare(paths):
     names = ('M32', 'M40', 'M32reg', 'M40reg')
     Z = {n: np.load(p) for n, p in zip(names, paths)}
-    res = {}
+    res, tails, dP = {}, {}, {}
+    bands = ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
     for n, z in Z.items():
         x, v, mask = z['x'], z['v'], z['mask']
         M = len(x)
+        T = np.cos(np.outer(np.arange(M), np.arccos(x))); Tinv = np.linalg.inv(T.T)
         R = z['R'][..., M // 2]
-        Gx = z['R'] ** 2 / (4 * (1 - x ** 2))            # the coordinate factor of Ric_xx, up to e^{-2(P+Q)}
-        row = []
-        for vb in ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25)):
+        row, trow = [], []
+        for vb in bands:
             jv = (v >= vb[0]) & (v < vb[1])
             sel = (~mask)[:, jv] & (R[:, jv] >= 1.0) & (R[:, jv] < 1.2)
             cx = np.abs(z['cx'][:, jv][sel][:, np.abs(x) <= 0.9])
             row.append((vb, float(cx.max()) if cx.size else np.nan))
-        res[n] = row
-    return res
+            C = z['m'][:, jv][sel] @ Tinv.T
+            trow.append(float((np.abs(C[:, -4:]).max(1) / np.abs(C[:, :4]).max(1)).max()) if C.size else np.nan)
+        res[n] = row; tails[n] = trow
+    # P difference between M = 32 and 40 at the common cells (same null grid), x interpolated to M = 32's nodes
+    for a_, b_ in (('M32', 'M40'), ('M32reg', 'M40reg')):
+        za, zb = Z[a_], Z[b_]
+        xa, xb = za['x'], zb['x']
+        Mb = len(xb)
+        Tb = np.cos(np.outer(np.arange(Mb), np.arccos(xb))); Tbi = np.linalg.inv(Tb.T)
+        Ta = np.cos(np.outer(np.arange(Mb), np.arccos(xa)))            # T_k(x_a), k < Mb
+        keep = (~za['mask']) & (~zb['mask'])
+        Pa = (2 * (1 + xa) * za['m'] - (1 - xa) * za['n']) / 3
+        Pb = (2 * (1 + xb) * zb['m'] - (1 - xb) * zb['n']) / 3
+        Pbi = np.einsum('...j,kj,ki->...i', Pb, Tbi, Ta)
+        R = za['R'][..., len(xa) // 2]
+        row = []
+        for vb in bands:
+            jv = (za['v'] >= vb[0]) & (za['v'] < vb[1])
+            sel = keep[:, jv] & (R[:, jv] >= 1.0) & (R[:, jv] < 1.2)
+            d = np.abs(Pa[:, jv][sel] - Pbi[:, jv][sel])
+            row.append(float(d.max()) if d.size else np.nan)
+        dP[a_ + '-' + b_] = row
+    return res, tails, dP, bands
 
 
 def main():
@@ -185,14 +207,17 @@ def main():
         print('written', out, 'reg' if reg else 'orig', '%.0f s' % (time.time() - t0), flush=True)
         return 0
     if a and a[0] == '--compare':
-        res = compare(a[1:5])
-        print('A4 the interior Ric_xx monitor (|x| <= 0.9, areal radius 1.0-1.2), 400 x 180, cut 0.9:')
+        res, tails, dP, bands = compare(a[1:5])
+        print('A4 the record\'s data at 400 x 180, cut 0.9, areal radius 1.0-1.2: the interior Ric_xx monitor (|x| <= 0.9)'
+              ', the Chebyshev tail of m, and max |P_32 - P_40| (P of M = 40 interpolated to M = 32\'s nodes):')
         ok = True
-        for k in range(len(res['M32'])):
-            vb = res['M32'][k][0]
+        for k, vb in enumerate(bands):
             r0 = res['M40'][k][1] / res['M32'][k][1]; r1 = res['M40reg'][k][1] / res['M32reg'][k][1]
-            print('   v in [%.2f, %.2f): M32 %.3g, M40 %.3g (ratio %.2f); regularised M32 %.3g, M40 %.3g (ratio %.2f)' % (
-                vb[0], vb[1], res['M32'][k][1], res['M40'][k][1], r0, res['M32reg'][k][1], res['M40reg'][k][1], r1))
+            print('   v in [%.2f, %.2f): monitor M32 %.3g, M40 %.3g (ratio %.2f); regularised %.3g, %.3g (ratio %.2f); '
+                  'tail of m: %.1e, %.1e; regularised %.1e, %.1e; |dP| %.1e, regularised %.1e' % (
+                      vb[0], vb[1], res['M32'][k][1], res['M40'][k][1], r0, res['M32reg'][k][1], res['M40reg'][k][1],
+                      r1, tails['M32'][k], tails['M40'][k], tails['M32reg'][k], tails['M40reg'][k],
+                      dP['M32-M40'][k], dP['M32reg-M40reg'][k]))
             if vb[1] <= 1.9 and r0 > 2:
                 ok &= r1 <= 1.5
         print('A4', 'PASS (the regularised monitor does not rise with M where the original did)' if ok else

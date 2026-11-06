@@ -78,3 +78,11 @@ U8 PASS
       1)^2/vol, eigenvalue -l(l + 2), l <= 6: True; sum over the six rotations of Om^2 = Lap on four test functions:
       True; ||Lap w||^2 = sum ||Om_i Om_j w||^2 (test function): True; rotation generators of norm 1: True; L_Om P = 0:
       True; (a + b + c + d)^2 <= 4 (a^2 + ... + d^2): True; the constants 4, 192, 2304: True
+  U9 control (the Casimir over ordered pairs; the series with (1 - Lap)^(3/4)): False, finite False
+U9 PASS
+  U10: [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at general l: jets [(0, 0)],
+      coefficient of P 1: Phi = P exactly: True
+  U10 control (V (1 + mu/r^2)): [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at
+      general l: jets [(0, 0)], coefficient of P not 1: Phi = P exactly: False
+U10 PASS
+EXIT 0
