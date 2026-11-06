@@ -19,13 +19,14 @@ where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-
      excludes d_phi components, which are odd under phi_i -> -phi_i). Control (must fail): admitting d_phi components
      adds d_phi1, d_phi2. The static KID on Part I's slice in a Tangherlini region (region III: psi = psi(vhat)), X =
      e^-psi d_vhat, has lapse N_s = e^-psi/sqrt(2 e^-psi - f) > 0 (computed as -g(X, n)).
-  R4 (computed, floating point) the charge is indefinite. For bandconst5 B4's compactly supported linear data (dgamma =
-     0, a stream function in a band of the seed region of Part I's slice, R in [0.75, 1.75], th in [pi/8, 3 pi/8]) the
-     second-order charge Q = int N_s ((tr dK)^2 - |dK|^2) dvol (the momentum constraint is linear in K at fixed gamma,
-     so it contributes none) is positive for a stream function oscillating in th and negative for one oscillating in
-     R: so a one-parameter family of seeds has a zero of the charge. Pointwise (exact on Tangherlini, psi = 0):
-     (tr dK)^2 - |dK|^2 = (2/(3 (2 - f))) dKt^2 - 2 dp^2 - 2 ds2^2 with dkappa from the linearised Hamiltonian
-     constraint. Control (must fail): the claim "Q has one sign" is rejected by the two values.
+  R4 (computed, floating point) the one charge has a sign on the stream-function seeds. For bandconst5 B4's compactly
+     supported linear data (dgamma = 0, a stream function in a band of the seed region of Part I's slice, th in
+     [pi/8, 3 pi/8]) the second-order charge against the static KID, Q = int N_s ((tr dK)^2 - |dK|^2) dvol (the
+     momentum constraint is linear in K at fixed gamma and contributes none), is negative for every seed tested: 45
+     seeds, three bands (one inside the horizon), three frequencies, five directions. Pointwise (exact on Tangherlini,
+     psi = 0): (tr dK)^2 - |dK|^2 = (2/(3 (2 - f))) dKt^2 - 2 dp^2 - 2 ds2^2, dkappa from the linearised Hamiltonian
+     constraint; the momentum constraint's ds2 makes it negative. Control (must flip): the integrand without its
+     -2 ds2^2 term gives Q > 0 for a seed oscillating in th.
 
 Labels: computed (R2, R3 exact; R1, R4 floating point). Run: python3 checks/racglobal5.py   (a few minutes)
 """
@@ -39,6 +40,7 @@ import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+DROP_S2 = False
 
 
 def load(name):
@@ -347,28 +349,32 @@ def r4():
         v = {nm: fn(RR, TT, *args) for nm, fn in lam.items()}
         dK_, dKt_, dp_, ds2_ = v['dk'], v['dKt'], v['dp'], v['ds2']
         dph = dp_ / RR
-        integrand = (dK_ + dKt_)**2 - dK_**2 - 2 * dph**2 - (dKt_**2 / 3 + 2 * ds2_**2)
+        integrand = (dK_ + dKt_)**2 - dK_**2 - 2 * dph**2 - (dKt_**2 / 3 + (0 if DROP_S2 else 2 * ds2_**2))
         Nsg = np.interp(RR, Rs, Ns)
         Gg = funs['G'](RR)
         dvol = np.sqrt(Gg) * RR**3 * np.sin(TT) * np.cos(TT)
         Q = np.trapezoid(np.trapezoid(Nsg * integrand * dvol, Th, axis=1), Rs)
         return float(Q) * (2 * math.pi)**2
-    import os as _os
-    if _os.environ.get('SCAN'):
-        for band in ((0.72, 0.9), (0.72, 1.1), (1.0, 1.75)):
-            for m_ in (0, 2, 6):
-                for phi in (0.0, 0.8, 1.2, math.pi / 2):
-                    print('   scan band %s m %d phi = %.3f: Q = %.4e' % (band, m_, phi,
-                          charge(float(phi), m_, band)), flush=True)
-    Qth = charge('th', 24)
-    QR = charge('R', 40)
-    Qth2 = charge('th', 32)
-    QR2 = charge('R', 56)
-    indef = Qth > 0 > QR and Qth2 > 0 > QR2
-    print("   Q(seed oscillating in th, m = 24, 32) = %.4e, %.4e; Q(seed oscillating in R, m = 40, 56) = %.4e, %.4e"
-          % (Qth, Qth2, QR, QR2))
-    print("   indefinite (control: 'one sign' rejected): %s" % indef)
-    return okA and indef
+    rows = []
+    for band in ((0.72, 0.9), (0.75, 1.75), (1.0, 1.75)):
+        for m_ in (2, 6, 24):
+            for phi in (0.0, 0.8, 1.2, math.pi / 2, 2.4):
+                rows.append((band, m_, phi, charge(float(phi), m_, band)))
+    allneg = all(r[3] < 0 for r in rows)
+    worst = max(rows, key=lambda r: r[3])
+    print("   %d seeds (bands (0.72, 0.9) inside the horizon, (0.75, 1.75), (1.0, 1.75); m = 2, 6, 24; five directions):"
+          " Q < 0 for every one: %s; the least negative %.3e (band %s, m = %d, direction %.2f)" %
+          (len(rows), allneg, worst[3], worst[0], worst[1], worst[2]))
+    # control (mutated integrand, must flip): without the -2 ds2^2 term forced by the momentum constraint, a seed
+    # oscillating in th has Q > 0
+    global DROP_S2
+    DROP_S2 = True
+    qmut = charge(math.pi / 2, 24)
+    DROP_S2 = False
+    ctl = qmut > 0
+    print("   control: the integrand without its -2 ds2^2 term gives Q = %.3e > 0 for the th-seed (rejected): %s" %
+          (qmut, ctl))
+    return okA and allneg and ctl
 
 
 def main():
