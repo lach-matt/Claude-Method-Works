@@ -308,8 +308,8 @@ def r4():
         out[mm] = np.exp(1 - 1 / (1 - y[mm]**2))
         return out
 
-    def charge(kind, m_):
-        Rb, Tb = bump(RR, 0.75, 1.75), bump(TT, math.pi / 8, 3 * math.pi / 8)
+    def charge(kind, m_, Rband=(0.75, 1.75)):
+        Rb, Tb = bump(RR, Rband[0], Rband[1]), bump(TT, math.pi / 8, 3 * math.pi / 8)
         if kind == 'th':
             core = Rb * Tb * np.sin(m_ * (TT - math.pi / 4))
         elif kind == 'R':
@@ -355,8 +355,11 @@ def r4():
         return float(Q) * (2 * math.pi)**2
     import os as _os
     if _os.environ.get('SCAN'):
-        for phi in np.linspace(0, math.pi, 25):
-            print('   scan phi = %.3f: Q = %.4e' % (phi, charge(float(phi), 24)), flush=True)
+        for band in ((0.72, 0.9), (0.72, 1.1), (1.0, 1.75)):
+            for m_ in (0, 2, 6):
+                for phi in (0.0, 0.8, 1.2, math.pi / 2):
+                    print('   scan band %s m %d phi = %.3f: Q = %.4e' % (band, m_, phi,
+                          charge(float(phi), m_, band)), flush=True)
     Qth = charge('th', 24)
     QR = charge('R', 40)
     Qth2 = charge('th', 32)

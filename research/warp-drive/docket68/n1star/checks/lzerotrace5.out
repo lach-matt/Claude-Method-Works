@@ -1,6 +1,6 @@
 lzerotrace5: lambda0 at P*, every factor traced, the bound certified
-  T0: md5 of N1STAR-PROOF.md lines 1-812 = 6e8947ad2005ac587f9b632d0a1e8025 (pinned 6e8947ad2005ac587f9b632d0a1e8025);
-      whole file (10853 lines) 02e7617602841a350a75349c44ab5fb6 (pinned 02e7617602841a350a75349c44ab5fb6); 37 trace rows,
+  T0: md5 of N1STAR-PROOF.md lines 1-817 = 39acbcf0640c253b3d40f1dc2bd929dd (pinned 39acbcf0640c253b3d40f1dc2bd929dd);
+      whole file (10858 lines) 709c63be1748117de9fadf6410eb53a2 (pinned 709c63be1748117de9fadf6410eb53a2); 37 trace rows,
       every fragment on its line: True; the nine terms covered: True
       lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:184, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
       (N1STAR-PROOF.md:152, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:153, certified here)
@@ -28,15 +28,15 @@ lzerotrace5: lambda0 at P*, every factor traced, the bound certified
       (P*: K = 6) (N1STAR-PROOF.md:99, certified here); C_R (E3) (N1STAR-PROOF.md:108, not evaluated); C_D (E4)
       (N1STAR-PROOF.md:110, not evaluated); C2 (Steps 4-6) (N1STAR-PROOF.md:406, not evaluated)
             to evaluate: C2, C_st, C_N, C_R, C_D: Steps 2, 4-7 written with the profiles' bounds (R2.2 (d)-(f))
-      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:776, not evaluated);
-      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:802, certified here); C_c (Lemma 6.3's coefficients frozen at U_i)
-      (N1STAR-PROOF.md:775, not evaluated)
+      D-a   frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2) (N1STAR-PROOF.md:781, not evaluated);
+      N := K + 3 (P*: N = 9) (N1STAR-PROOF.md:807, certified here); C_c (Lemma 6.3's coefficients frozen at U_i)
+      (N1STAR-PROOF.md:780, not evaluated)
             to evaluate: C0, C_c, m_c: Lemma 6.4's constant at s0 = 6, s = 8, and the stage data of Lemma 6.2
-      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:779, not evaluated)
+      D-b   contraction C lam^(N-3) (C_k) (N1STAR-PROOF.md:784, not evaluated)
             to evaluate: C_k: the difference estimate of Lemma 6.4 at s0
-      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:699, not evaluated)
+      D-c   alpha and S A0 keep their signs for lam small (m_s, C_s) (N1STAR-PROOF.md:704, not evaluated)
             to evaluate: m_s, C_s: the O(lam) part of alpha and S A0 at the approximant's data (needs m_1)
-      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:778, not evaluated)
+      D-d   iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b) (N1STAR-PROOF.md:783, not evaluated)
             to evaluate: C_b, C0: the quadratic remainder Nl at the approximant's data
   T1: q0 in [0.539717577094, 0.539717577094] (q0^8 = 9/1250), a = delta0 = q0/2 in [0.269858788547, 0.269858788547], lam1
       = q0/20 in [0.026985878855, 0.026985878855] (certified)
