@@ -83,7 +83,10 @@ scanned here.
   c' leaves its pin; C6 a moved anchor (a range's opening line searched one line off): the range check fails; C7 M_a
   without its X_7(alpha) term: B_once leaves its pin. Round 10: C8 the base at h's a_K = 4 + eps_K (round 1's H3,
   LOSS-D LD12 (v)): no round, and B_once leaves its pin; C9 no round charged the windows: B_once leaves its pin; C10
-  BASE_TABLE with one row dropped: one hit unclassified.
+  BASE_TABLE with one row dropped: one hit unclassified. Round 11 (the round-10 verifier's nit 2): M6 also counts the
+  base at the lower end alpha_0 -> 2+ of Lemma 3.1's range: the same R, R_w, n_51, plus one Lemma 3.2 (III.I''''''''
+  Proposition 4.1's one step to alpha_1), so alpha_0 := alpha_1 is the least total; C11 that comparison with the
+  Lemma 3.2 not charged: no longer strict.
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -738,9 +741,8 @@ def main():
     least_ok = (bl['req'] and bl['R'] == bn['R'] and bl['Rw'] == bn['Rw'] and bl['n51'] == bn['n51'] and bl['N'] == 1
                 and least(bl, ob['Mb']) > least(bn, ob['Mb']))
     OK['M6'] = least_ok and (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale
-                             and len(brows) == NB_ROWS
-                and bids == set(bt['b']) and bn['req'] and trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim
-                and trip == BASE_PIN)
+                             and len(brows) == NB_ROWS and bids == set(bt['b']) and bn['req']
+                             and trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim and trip == BASE_PIN)
     by = {}
     for key, t, cls in brows:
         k = cls if isinstance(cls, str) else cls[0]

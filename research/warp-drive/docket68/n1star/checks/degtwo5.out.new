@@ -12,3 +12,7 @@ T3 PASS
       '1.31e-10583']; record C_c^inf: log10 y_k = ['-4.0', '-325.3', '-8.574e+323']; y_(k+1) < y_k/2: True; (H_D)
       quantity at 1e-4, 3e-5, 1e-5: ['1.5e-646', '1.68e-2520', '2.42e-7925']
 T4 PASS
+  T5 exp(-1/x): R = 1 at x = 0.024127; m0'/(kappa m0) >= 2.001, (m0' - |S'|)/(kappa m0) >= 0.9363 on R in [0.9, 1.1];
+      record C_c^inf: R = 1 at x = 0.069668; m0'/(kappa m0) >= 2.003, (m0' - |S'|)/(kappa m0) >= 0.9683 on R in [0.9,
+      1.1].  Model (exp(-1/x), lam = 1e-6): maxima over 80 consecutive carrier periods around R = 1 strictly decreasing:
+      True, sign changes: 1

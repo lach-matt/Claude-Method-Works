@@ -848,6 +848,7 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
     def lamb(x):
         Y = f(x)
         return lam**(N - 2)*Y[N - 1]
+    nuabs = lambda x: abs(sig(x)[4] + lam*b4)              # noqa: E731  the stage's scale |nu + lam b4|
     x0 = (lam**(N - 2)/nuabs(mp.mpf(10)**-3))**(mp.mpf(1)/(2*N - 2))
 
     def bis(fun, lo, hi):
@@ -858,7 +859,6 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
             else:
                 hi = mid
         return hi
-    nuabs = lambda x: abs(sig(x)[4] + lam*b4)              # noqa: E731  the stage's scale |nu + lam b4|
     xl = bis(lambda x: lamb(x) - 4*nuabs(x), x0/10**6, x0*10**6)
     xh = bis(lambda x: lamb(x) - nuabs(x)/4, x0/10**6, x0*10**6)
     # min |sigma| on the crossover: coarse log grid, then golden section
