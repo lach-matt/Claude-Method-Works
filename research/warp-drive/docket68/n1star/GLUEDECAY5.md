@@ -18,7 +18,10 @@ or not.
 needed. At and below $\ell_0$ it holds exactly for the perturbations that are in Hintz's class, and for those Theorem 4
 (ii) applies directly. So the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's, with or without gluing.
 
-[R2.0, Minor 3: "the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's" overclaims. The pure-gauge examples of (C) lie outside the class, yet their developments are isometric to that of (i) (Remark 3.2). Read: the perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$, are exactly those small in Hintz's class.]
+[R2.0, Minor 3: "the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's" overclaims. The pure-gauge
+examples of (C) lie outside the class, yet their developments are isometric to that of (i) (Remark 3.2). Read: the
+perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$, are exactly those small in
+Hintz's class.]
 
 - **(A) Above the threshold** (proved, Proposition 1; computed, E1). If $a>\ell_0$, a conormal perturbation of order $a$
   lies in the class, its terms of orders $r^{-2}$, $r^{-3}$ being zero. Its norm is at most
@@ -45,7 +48,15 @@ needed. At and below $\ell_0$ it holds exactly for the perturbations that are in
   are small enough for (ii) only on balls of radius up to a multiple of $(\delta/\epsilon)^{1/(\ell_0-a)}$, and this is
   sharp by (C). The glued data's development is not the perturbation's.
 
-[R2.0. (A), Minor 2: the data of (i), $\lambda_1$ and $\delta$ are those of the theorem run with that $\ell_0$; $\epsilon$ is below $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$; and the rate is $t_*^{-2-\epsilon'}$ with $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary 1.1). (B), nit: $N_R$ is an infimum. (C), nits: the examples have size $C_P\epsilon$ and need $\epsilon\le\epsilon_1$, and the bounds hold for $R\ge R_P$. (D), Minor 1: "only ... and this is sharp" overclaims. Corollary 4.3 is a sufficient condition for every perturbation, sharpness is shown only for the examples of (C), and at $a = \ell_0$ the exponent $1/(\ell_0-a)$ is undefined. Read: for $a<\ell_0$ the glued data are guaranteed small enough for (ii) for $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, a range that is nonempty when $2C\epsilon R_G^{\ell_0-a}<\delta$; for the examples of (C), no data in the class agreeing with them on $\{r<R\}$ do better than (C)'s lower bound.]
+[R2.0. (A), Minor 2: the data of (i), $\lambda_1$ and $\delta$ are those of the theorem run with that $\ell_0$;
+$\epsilon$ is below $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$; and the rate is $t_*^{-2-\epsilon'}$ with
+$\epsilon'<\epsilon_K<\ell_0-3$ (Corollary 1.1). (B), nit: $N_R$ is an infimum. (C), nits: the examples have size
+$C_P\epsilon$ and need $\epsilon\le\epsilon_1$, and the bounds hold for $R\ge R_P$. (D), Minor 1: "only ... and this is
+sharp" overclaims. Corollary 4.3 is a sufficient condition for every perturbation, sharpness is shown only for the
+examples of (C), and at $a = \ell_0$ the exponent $1/(\ell_0-a)$ is undefined. Read: for $a<\ell_0$ the glued data are
+guaranteed small enough for (ii) for $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, a range that is nonempty when
+$2C\epsilon R_G^{\ell_0-a}<\delta$; for the examples of (C), no data in the class agreeing with them on $\{r<R\}$ do
+better than (C)'s lower bound.]
 
 Two findings change what the gluing needs (section 7). (GD3): the Myers-Perry data on Part V's Kerr-Schild slices differ
 from Tangherlini's data on Hintz's surface by a fixed term of order $r^{-3}$ in the second fundamental form, of size
@@ -53,7 +64,11 @@ $\mu_{\mathrm{end}}$. So the family must be taken on Hintz's surface, as Part VI
 (GD4): mass and boost are fixed by the energy and momentum alone (Lemma 4.1 (c)). Without this the upper bound would be
 $\epsilon R^{\ell_0-2}$ for $2<a\le3$.
 
-[R2.0, nit: precisely, $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} = -\nabla^2f+\rho^5C^\infty$ (Lemma 4.1 (d)). GD3 constrains this note's Proposition 4 only. It is no defect of Part V: its Theorem 3.1 is about abstract data, and Part VII uses its proof only in class form, with Tangherlini members on $\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2, findings (VII1), (VII3)). Part V's Remark 3.4, which said otherwise, is amended (R2.0).]
+[R2.0, nit: precisely, $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} =
+-\nabla^2f+\rho^5C^\infty$ (Lemma 4.1 (d)). GD3 constrains this note's Proposition 4 only. It is no defect of Part V:
+its Theorem 3.1 is about abstract data, and Part VII uses its proof only in class form, with Tangherlini members on
+$\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2, findings (VII1), (VII3)). Part V's Remark 3.4, which said otherwise,
+is amended (R2.0).]
 
 ## 1. Setting
 
@@ -220,7 +235,9 @@ $a\in\{\frac85,2,\frac52,3,\frac{3+\ell_0}2,\ell_0\}$, the class exponents 2 and
 $\kappa(\frac52,\frac72) = 7.655\times10^{-4}$ and $\kappa(\frac72,\frac72) = 1.737\times10^{-3}$. The constant is small
 because the annulus $(\frac R2,R)$ is short; only its positivity is used.
 
-[R2.0, Minor 5: round 1's E2 checked four of the ten entries and asserted no value of $\kappa$. E2 now checks all ten against sympy's exact integrals and quadrature, and asserts $\kappa(\frac52,\frac72)$ against a direct quadrature of the Gram matrix in $s$ and against the verifier's $7.6546\times10^{-4}$.]
+[R2.0, Minor 5: round 1's E2 checked four of the ten entries and asserted no value of $\kappa$. E2 now checks all ten
+against sympy's exact integrals and quadrature, and asserts $\kappa(\frac52,\frac72)$ against a direct quadrature of the
+Gram matrix in $s$ and against the verifier's $7.6546\times10^{-4}$.]
 
 **Proposition 3 (perturbations outside the class).** Let $\frac32<a\le\ell_0$. Put $r_2 := 2r_\chi$, and take a cut-off
 $\chi_1(r)$ equal to 0 for $r\le r_2$ and to 1 for $r\ge2r_2$. Let
@@ -291,7 +308,10 @@ common to all annuli, so the infimum over them is at least the sum of the separa
 u\|^2\ge\sum_j(c_P\epsilon)^2$ over $\lfloor\log_2(R/R_P)\rfloor+1$ annuli. (c) follows from (4.1) at $d = d_1$.
 $\square$
 
-[R2.0, Minor 5: round 1's E3 test that $r^{2+2a}\partial^2_\epsilon e_{\alpha\beta}|_0$ is bounded was vacuous: it substituted $r = e^t$ before testing for $r$. E3 now checks the exact identity $r^{2+2a}\partial^2_\epsilon e_{\alpha\beta}|_0 = \mu(2w^2-8cw+6c^2)$, $w = (1-a)c-s$, $c = \cos\log r$, $s = \sin\log r$, which is bounded; and it checks the Tangherlini term of the instance pointwise, which round 1's quadrature did not test.]
+[R2.0, Minor 5: round 1's E3 test that $r^{2+2a}\partial^2_\epsilon e_{\alpha\beta}|_0$ is bounded was vacuous: it
+substituted $r = e^t$ before testing for $r$. E3 now checks the exact identity $r^{2+2a}\partial^2_\epsilon
+e_{\alpha\beta}|_0 = \mu(2w^2-8cw+6c^2)$, $w = (1-a)c-s$, $c = \cos\log r$, $s = \sin\log r$, which is bounded; and it
+checks the Tangherlini term of the instance pointwise, which round 1's quadrature did not test.]
 
 *Computed* (E3), an instance: $(a,\ell_0) = (\frac52,\frac72)$ and $(\frac72,\frac72)$, $\epsilon = 10^{-2}$, with the
 Tangherlini term $\alpha = r^{-2}$, at $R = 10^2,10^3,10^4$. By quadrature, $D_R/(\epsilon R^{\ell_0-a})$ is within a
@@ -473,7 +493,10 @@ So Theorem 4 (ii) applies to the glued data when $C\epsilon(1+R^{\ell_0-a})<\del
 $\epsilon<\delta/ (2C)$ for $R$ up to $(\delta/(2C\epsilon))^{1/(\ell_0-a)}$. By Proposition 3 (c) this window is sharp
 up to the constant, since no data in the class do better for the examples.
 
-[R2.0, nit and Minor 1: as $1+R^{\ell_0-a}\le2R^{\ell_0-a}$ for $R\ge1$ and Proposition 4 needs $R\ge R_G$, the window is $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, nonempty when $2C\epsilon R_G^{\ell_0-a}<\delta$. At $a = \ell_0$ it is $R_G\le R$ with $\log R<(\delta/(C\epsilon))^2-1$. "Sharp" holds for the examples of Proposition 3, not for every perturbation.]
+[R2.0, nit and Minor 1: as $1+R^{\ell_0-a}\le2R^{\ell_0-a}$ for $R\ge1$ and Proposition 4 needs $R\ge R_G$, the window
+is $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, nonempty when $2C\epsilon R_G^{\ell_0-a}<\delta$. At $a = \ell_0$ it
+is $R_G\le R$ with $\log R<(\delta/(C\epsilon))^2-1$. "Sharp" holds for the examples of Proposition 3, not for every
+perturbation.]
 
 *Proof.* Membership: the data are smooth, and for $r\ge4R$ the difference is $(\tilde g_{p_R}-\gamma^{m_\lambda},\tilde
 K_{p_R}-k^{m_\lambda})\in\rho^2C^\infty\times\rho^3C^\infty$, which lies in the class by Part VII Lemma 0.1. For the
@@ -521,7 +544,9 @@ conclusion is reached, directly or through gluing, is exactly Hintz's class. The
 perturbation's: on $\{r>R\}$ the data differ, and the late-time solution near the hole depends on them (Part VII finding
 (VII1)).
 
-[R2.0, Minor 3: read "the perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$, are exactly those small in Hintz's class". Settling itself is not confined to the class: the examples of Proposition 3 have developments isometric to that of (i) (Remark 3.2).]
+[R2.0, Minor 3: read "the perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$,
+are exactly those small in Hintz's class". Settling itself is not confined to the class: the examples of Proposition 3
+have developments isometric to that of (i) (Remark 3.2).]
 
 *Proof.* (i) is Proposition 1 with Corollary 1.1, and (ii) is Corollary 2.1 with Propositions 3 and 4 and Corollary 4.3.
 $\square$
@@ -532,7 +557,8 @@ $\square$
 on a large ball with one to which Theorem 4 (ii) applies" is, in its uniform form, equivalent to (ii) applied to the
 perturbation itself (Corollary 2.1). The perturbations so reached are exactly those in Hintz's class.
 
-[R2.0, Minor 3: "so reached" means reached by Theorem 4 (ii), directly or through gluing uniformly in $R$; see the note to section 0.]
+[R2.0, Minor 3: "so reached" means reached by Theorem 4 (ii), directly or through gluing uniformly in $R$; see the note
+to section 0.]
 
 (GD2) *The threshold.* At fixed $\ell_0$ the decay rate decides only above $\ell_0$ (Proposition 1). At every
 $a\in(\frac32,\ell_0]$ there are $G$-invariant, pure-gauge vacuum perturbations outside the class (Proposition 3). Over
@@ -540,7 +566,9 @@ Theorem 4's $\ell_0\in(3,4)$ every $a>3$ is covered, the five-dimensional counte
 The glued norm is $\asymp\epsilon R^{\ell_0-a}$: the lower bound holds for every data set (Proposition 3) and the upper
 bound for the gluing (Corollary 4.3).
 
-[R2.0, Minor 2: for that $\ell_0$, with the data of (i), $\lambda_1$ and $\delta$ taken for it, $\epsilon$ below $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$, and the rate $t_*^{-2-\epsilon'}$, $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary 1.1).]
+[R2.0, Minor 2: for that $\ell_0$, with the data of (i), $\lambda_1$ and $\delta$ taken for it, $\epsilon$ below
+$\delta/(C_1(1+(a-\ell_0)^{-1/2}))$, and the rate $t_*^{-2-\epsilon'}$, $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary
+1.1).]
 
 (GD3) *The gluing family.* The Myers-Perry data on Part V's Kerr-Schild slices $\{y^0 = 0\}$ differ from Tangherlini's
 data on Hintz's surface by $\nabla^2f$ in the second fundamental form, of trace $2\mu_{\mathrm{end}}r^{-3}$ (Lemma 4.1
@@ -549,7 +577,8 @@ glued data are not small in the class even at $\epsilon = 0$. The family must be
 as Part VII Proposition 2.2 does with Tangherlini in the class. The paper's "can be glued far out to such a metric" is
 true with this family, whose charge map Lemma 4.1 (c) shows to be a local diffeomorphism.
 
-[R2.0, nit: "differ by $\nabla^2f$" means $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} = -\nabla^2f+\rho^5C^\infty$. And GD3 is no defect of Part V (note to section 0; R2.0).]
+[R2.0, nit: "differ by $\nabla^2f$" means $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and
+$K_{p_\lambda}-k^{m_\lambda} = -\nabla^2f+\rho^5C^\infty$. And GD3 is no defect of Part V (note to section 0; R2.0).]
 
 (GD4) *Decoupling.* The energy and momentum of the family depend on mass and boost alone (Lemma 4.1 (c)). Without this,
 mass and boost would be bounded only as the degree-1 charges are, by $\epsilon R^{\min(0,3-a)}$. The term $|\Delta
@@ -562,7 +591,9 @@ bound, which decides the item, is Proposition 3.
 inputs below. Every integral, exponent, identity and constant they use is computed in `checks/gluedecay5.py` E1-E6.
 Brouwer's fixed point theorem and the inverse function theorem are cited, as in Part V.
 
-[R2.0, Minor 4: "every ... constant ... computed" overstates. Of the constants only $\kappa$ is computed (E2), and with it $c_P$. $C_1$, $C_1'$, $C_0$, $C_P$, $R_P$, $R_G$, $L$, $\epsilon_0$, $\epsilon_1$ and the $C$ of Corollary 4.3 are proved to exist, not computed.]
+[R2.0, Minor 4: "every ... constant ... computed" overstates. Of the constants only $\kappa$ is computed (E2), and with
+it $c_P$. $C_1$, $C_1'$, $C_0$, $C_P$, $R_P$, $R_G$, $L$, $\epsilon_0$, $\epsilon_1$ and the $C$ of Corollary 4.3 are
+proved to exist, not computed.]
 
 *Sources.* READ: [Hin26] (arXiv:2606.28253v2) pp. 2 ((1.4)-(1.5), footnote 1), 47 (Definition 2.6 (2)), 48 (Definition
 2.8, (2.3)), 318 (Theorem 13.1, (13.1b), footnote 146), read 2026-11-06. Nothing new from [CD03]: its estimates enter as
@@ -576,10 +607,14 @@ Brouwer's fixed point theorem and the inverse function theorem are cited, as in 
 
 ## 8. Proposed replacement for the paper
 
+[R2.0: section 8.2 is the current proposal. Section 8.1, round 1's, is kept as written and is superseded.]
+
+### 8.1 Round 1 (superseded)
+
 `paper/RESPONSE-HL-5D.md`, section 8.7, lines 1141-1149, from "a translation, and the structural step" to the end of the
 paragraph. The old text occurs exactly once (computed, E6); the paper is not edited here.
 
-Old:
+Old (round 1):
 
 ```text
 a translation, and the structural step that a Cartesian derivative gains a power of ρ). A perturbation that only decays,
@@ -593,7 +628,7 @@ computed for a bump of amplitude R^(−3), R^(−1) of the black hole's own devi
 b-density, `docket68/n1star/checks/support8b.py` M3).
 ```
 
-New:
+New (round 1, superseded):
 
 ```text
 a translation, and the structural step that a Cartesian derivative gains a power of ρ). It also contains every
@@ -619,4 +654,82 @@ for Theorem 4 (ii) only for R up to a multiple of (δ/ε)^(1/(ℓ0−a)), and th
 perturbation's: the solution near the hole at late times depends on the data near infinity. The class in which Theorem 4
 (ii)'s conclusion is reached, directly or through gluing, is exactly Hintz's class (computed: every integral, exponent
 and constant, `docket68/n1star/checks/gluedecay5.py` E1–E6).
+```
+
+[R2.0: superseded. At $a = \ell_0$ its upper bound "C ε R^(ℓ0−a)" contradicts its own lower bound (M1); "only ... and
+this is sharp" (Minor 1), the dropped dependence on ℓ0 (Minor 2), "the class in which ... is reached" (Minor 3) and
+"every integral, exponent and constant" (Minor 4) overclaim; and its first line keeps the Kerr–Schild slices of
+:1138-1141 (Minor 6).]
+
+### 8.2 Round 2 (current)
+
+Two blocks of `paper/RESPONSE-HL-5D.md`, section 8.7, applied together: (a) lines 1138-1140, from "theorem applies
+directly" to "a boost and"; (b) lines 1141-1149, round 1's old text, to the end of the paragraph. Each old block occurs
+exactly once, and (a) is immediately followed by (b) (computed, E6). The paper is not edited here. The text writes η for
+this note's ε, the size of the perturbation, since Theorem 4 already uses ε for its rate.
+
+Old (a):
+
+```text
+theorem applies directly to perturbations of these data in his data class, which contains the data of every nearby
+translated, rotated and boosted Myers–Perry metric (computed: their Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the
+radial compactification, `docket68/n1star/checks/mpdata5.py`, exact series at three points of S³ with spins, a boost and
+```
+
+New (a):
+
+```text
+theorem applies directly to perturbations of these data in his data class, which contains the data that every nearby
+translated, rotated and boosted Myers–Perry metric induces on Hintz's surface (computed: on Kerr–Schild slices their
+Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the radial compactification, `docket68/n1star/checks/mpdata5.py`, exact
+series at three points of S³ with spins, a boost and
+```
+
+Old (b):
+
+```text
+a translation, and the structural step that a Cartesian derivative gains a power of ρ). A perturbation that only decays,
+faster than r^(−3/2), can be glued far out to such a metric by [CD03]'s gluing, which in five dimensions needs no parity
+condition at that rate (section 8.6; supplement sections 10.63 and 10.66). But the glued data's development is not the
+perturbation's: the solution near the hole at late times depends on the data near infinity. So the gluing would at most
+show that such a perturbation agrees on a large ball with one to which Theorem 4 (ii) applies, and that is not proved
+here: the glued data's smallness in Hintz's weighted norm depends on the gluing radius, a bump of relative size R^(−1) at
+radius R costing about R^(ℓ0−3) there (deduced in supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` section 5;
+computed for a bump of amplitude R^(−3), R^(−1) of the black hole's own deviation from flat space at R, in the norm's
+b-density, `docket68/n1star/checks/support8b.py` M3).
+```
+
+New (b):
+
+```text
+a translation, and the structural step that a Cartesian derivative gains a power of ρ; on Hintz's surface the same holds
+by the graph map, proved in supplement `docket68/n1star/GLUEDECAY5.md` Lemma 4.1 (a)). The class also contains every
+perturbation conormal of an order a > ℓ0, with |∂^k h| ≤ η r^(−a−k) in the metric and η r^(−a−1−k) in the second
+fundamental form. Such a perturbation has no terms of orders r^(−2) and r^(−3), and its norm is at most C η (1 + (a −
+ℓ0)^(−1/2)). Theorem 4 holds for every ℓ0 ∈ (3, 4), with the data of (i), λ1 and δ taken for that ℓ0. So with ℓ0 ∈ (3,
+min(a, 4)) its (ii) covers every such perturbation with a > 3 and η below δ/(C (1 + (a − ℓ0)^(−1/2))), at the rate
+t*^(−2−ε) with ε < ε_K < ℓ0 − 3 (proved: GLUEDECAY5.md Proposition 1 and Corollary 1.1). For 3/2 < a ≤ ℓ0 the decay rate
+does not decide, and gluing does not enlarge the class. A perturbation agrees on every ball r < R with data to which
+Theorem 4 (ii) applies, uniformly in R in every norm of the class, if and only if Theorem 4 (ii) applies to the
+perturbation itself. Indeed the infimum of the norms of data in the class that agree with it on r < R is nondecreasing
+in R, and tends to its own norm if it lies in the class and to infinity if it does not lie in the class at the norm's
+regularity (proved: GLUEDECAY5.md Proposition 2 and Corollary 2.1). At every such a and every η ≤ η1 there are vacuum
+perturbations of size C_P η outside the class: the data of (i) pulled back by the radial diffeomorphism x ↦ (1 + η
+r^(−a) cos log r) x far out, which are pure gauge and G-invariant. For R ≥ R_P, every data set in the class that agrees
+with one of them on r < R has norm at least c η R^(ℓ0−a), with c > 0, and at least c η (log2(R/R_P))^(1/2) at a = ℓ0
+(proved: GLUEDECAY5.md Proposition 3). [CD03]'s gluing on the annulus R < r < 4R, which in five dimensions needs no
+parity condition at these rates (section 8.6; supplement sections 10.63 and 10.66), attains this order when its target
+is the family of translated, rotated and boosted Myers–Perry data on Hintz's surface. For η ≤ η0 and R ≥ R_G the glued
+data have norm at most C η (1 + R^(ℓ0−a)), and C η (1 + log R)^(1/2) at a = ℓ0 (proved: GLUEDECAY5.md Proposition 4 and
+Corollary 4.3, with the gluing's estimates as supplement `docket68/n1star/proof5/PART-V-GLUING.md` and
+`PART-VII-ASSEMBLY.md` Proposition 2.2 state them; the Myers–Perry data on PART-V-GLUING.md's Kerr–Schild slices differ
+from that family by a fixed term of order r^(−3) in the second fundamental form). So for a < ℓ0 the glued data are
+guaranteed small enough for Theorem 4 (ii) for R from R_G up to a multiple of (δ/η)^(1/(ℓ0−a)), a range that is nonempty
+for η small, and for the pulled-back examples no data in the class that agree with them on r < R do better. The
+development of the glued data is not the perturbation's: the solution near the hole at late times depends on the data
+near infinity. The perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in R, are exactly
+those small in Hintz's class; the pulled-back examples lie outside it, and their developments are isometric to that of
+the data of (i) (computed: the integrals, the exponents, the fluxes and the distance behind c,
+`docket68/n1star/checks/gluedecay5.py` E1–E6; the constants C, C_P, R_P, R_G, η0 and η1 are proved to exist, not
+computed).
 ```

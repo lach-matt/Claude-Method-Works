@@ -754,10 +754,10 @@ Pi^-1) makes S A^B symmetric for every angle B, with S A0 = diag(6, gamma^{rr} P
 `checks/indepcons5.py` P1-P2, independently of `data5.py`). With gamma_rA != 0, as at the approximant's data (there
 gamma_rA = O(lam), since |g_app - g0| <= C lam; O(lam^2) by the reader's count, from gh_(m+1) through Pol^+), the
 symmetrizers still form a one-dimensional space, depending on gamma alone, whose generator keeps S A0 > 0 for
-gamma_rA small in both readings of "q tangent to the spheres" (q_r = 0 with Pi the angular block of gamma, or
-[Rac16]'s q(n^#) = 0 with Pi = gamma - n n); in [Rac16]'s reading it does so at every metric tested, in the
-coordinate one not at large gamma_rA (computed, `checks/symmshift5.py` Y1-Y2). The construction needs only gamma_rA
-small.] (b) At the
+gamma_rA small in both readings of "q tangent to the spheres" (q_r = 0 with Pi the angular block of gamma, or,
+normal-adapted as in [Rac16], q(n^#) = 0 with Pi = gamma - n n); in the normal-adapted reading it does so at every
+metric tested, in the coordinate one not at large gamma_rA (computed, `checks/symmshift5.py` Y1-Y2). The
+construction needs only gamma_rA small.] (b) At the
 approximant's data (the data of g0 + lam [W] on Sigma) the linearisation of the constraint map in U has no coefficient
 of order 1/lam (computed, S2; and S4, with the second harmonic chi dv dv nonzero on Sigma): the O(1/lam) second
 derivatives of gamma enter the coefficients of U only through traces of W on the spheres, which vanish, and the d_r
@@ -892,12 +892,12 @@ r)} of the tame bound as corrected at D619 changes neither A's rate nor W's unif
 ||U_(i+1)||_{X_(s0)} <= C lam^(N-2) in the ball, the lower-order coefficients b, c, e, c', f', c'' are Lemma 6.3's
 at U = 0, independent of U and smooth in the angles uniformly in lam, and the others are functions of U_i entering
 linearly, so m_(s'')(r) <= C (1 + E_i(r)) and the term is at most C lam^(N-2) ((R - a)^(1/2) + (int_a^r
-E_i^2)^(1/2)), a part of A proportional to lam^(N-2) and a part of W bounded uniformly in i [D619, m1]); by
-induction and Minkowski's
-inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for every i, with no smallness (the extremal recursion
-computed, `checks/tame5.py` T3), and the limit U
-lies in X_(s'') for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms
-are) and W does not depend on lam, so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the
+E_i^2)^(1/2)), a part of A proportional to lam^(N-2) and a part of W at most C lam^(N-2) <= C, bounded uniformly
+in i and lam [D619, m1]); by induction and Minkowski's inequality E_i(r) <= A sum_k W^k ((r - a)^k / k!)^(1/2) for
+every i, with no smallness (the extremal recursion computed, `checks/tame5.py` T3), and the limit U lies in X_(s'')
+for every s''. A is proportional to lam^(N-2) (the source Phi(gamma, K) and the low norms are) and W does not depend
+on lam [corrected D619 (m1): W is bounded independently of lam, which is all the rate uses; the term above adds to it
+at most C lam^(N-2)], so ||U||_{X_(s'')} <= C_(s'') lam^(N-2) for every s'', which with the
 equations gives the stated rate at every s and j. So U is smooth for lam <= lam0, lam0 independent of s''.
 Theorem E needs only k + 1 = 7 derivatives of the data in any case. []
 
