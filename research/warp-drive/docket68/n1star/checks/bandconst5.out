@@ -28,3 +28,4 @@ B3 (computed, floating point) Part I's Sigma_tau0 in the seed region: Nk < 0, th
    n = 80: max Nk = -0.3180 < 0 on R in [a, r1]; psi_III in [-0.2550, -0.1554], |psi'| <= 0.116; c(a) = 1.270, c(r1) = 0.375; spread from a + 0.2 to a 0.213, over [a, r1] 0.752 rad
    hyperbolic on the seed region at both n: True ; spread converged to 0.02: True
 PASS
+exit 0

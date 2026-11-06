@@ -47,8 +47,9 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      (|S| large with slowly varying phase; |S'| large with a zero inside the window).  Control: |S'| below the bound
      with an adversarial epsilon gives a window with one sign.
   E10 (computed, mpmath, sampled) The hypothesis (H_N) of Theorem L_1E for exp(-1/x) and the record's C_c^inf
-     envelope: env^(k), k <= 12, positive and log-concave near the edge with kappa_k/kappa -> 1 and |kappa_k'| <= c
-     kappa_k^(3/2).  Control: sin^4 (the solver's envelope, not flat) violates it.
+     envelope: env^(k), k <= 12, positive and log-concave on x = v - v_s <= 10^-2 with kappa_k/kappa in (1/2, 2) and
+     |kappa_k'| <= c kappa_k^(3/2) (at x = 10^-1.5 it fails for k >= 7, resp. 10: x0' depends on N).  Control: sin^4
+     (the solver's envelope, not flat) violates it.
   E11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
      nu = -1/9, Gamma = 1, r0 = 3: S(v) = nu env (1 + 2 i lam kappa) - i^N Xi lam^(N-2) env^(N-1) (exact derivatives,
      exact Xi) for N = 9 (quadrature) and N = 12 (the real parts cancel at the crossover), over 2400 windows from
@@ -78,11 +79,18 @@ def out(msg):
     print(textwrap.fill(msg, width=121, subsequent_indent="      ", break_on_hyphens=False), flush=True)
 
 
-def ders(e):
-    """the derivative atoms of the free functions in e, as (function name, {variable: count})"""
+def ders(e, bad_if):
+    """the derivative atoms d of the free functions in e with bad_if({variable: count}) and a coefficient that is not
+    identically zero (exact test of layerlin5, after cancelling trigonometric identities)"""
+    e = sp.expand(e)
+    atoms = list(e.atoms(sp.Derivative))
+    rep = {d: sp.Symbol('DD%d' % k) for k, d in enumerate(atoms)}
+    e2 = e.xreplace(rep)
     res = []
-    for d in sp.expand(e).atoms(sp.Derivative):
-        res.append((str(d.expr.func), dict((str(vv), cnt) for vv, cnt in d.variable_count)))
+    for d in atoms:
+        vc = dict((str(vv), cnt) for vv, cnt in d.variable_count)
+        if bad_if(vc) and not L.is_zero(sp.diff(e2, rep[d])):
+            res.append((str(d.expr.func), tuple(sorted(vc.items()))))
     return res
 
 
@@ -101,9 +109,8 @@ def e1(control=False):
     bad = []
     for i in range(L.n):
         for j in range(i, L.n):
-            for nm, vc in ders(R[i, j] + PL[i, j]):
-                if vc.get('v', 0) > 0 or vc.get('r', 0) > 1:
-                    bad.append((i, j, nm, tuple(sorted(vc.items()))))
+            for nm, vc in ders(R[i, j] + PL[i, j], lambda vc: vc.get('v', 0) > 0 or vc.get('r', 0) > 1):
+                bad.append((i, j, nm, vc))
     if control:
         return not bad
     out("  E1 dRic^H(h) + P(L h), L = d_v + (F/2) d_r, P = i T: v-derivatives or d_r^2 in any of the 15 components:"
@@ -155,9 +162,9 @@ def e2(control=False):
     bad = []
     for i in range(5):
         for j in range(i, 5):
-            for nm, vc in ders(R[i, j]):
-                if vc.get('u', 0) > 1 or (vc.get('u', 0) == 1 and (vc.get('theta', 0) > 0)):
-                    bad.append((i, j, nm, tuple(sorted(vc.items()))))
+            for nm, vc in ders(R[i, j], lambda vc: vc.get('u', 0) > 1 or (vc.get('u', 0) == 1
+                                                                          and vc.get('theta', 0) > 0)):
+                bad.append((i, j, nm, vc))
     if control:
         return not bad
     out("  E2 outgoing (u, r): d_u^2 or d_u d_th terms in dRic^H (15 components): %s  [%.0f s]"
@@ -455,8 +462,8 @@ def env_derivs(ell, x, kmax):
 
 def e10(control=False):
     mp.mp.dps = 60
-    edges = [("exp(-1/x)", lambda x: -1/x, [mp.mpf(10)**-k for k in (1, 1.3, 1.6, 2, 2.3)]),
-             ("record C_c^inf", rec_ell, [mp.mpf(10)**-k for k in (1, 1.3, 1.6, 2, 2.3)])]
+    xs = [mp.mpf(10)**-k for k in (2, 2.5, 3, 3.5)]
+    edges = [("exp(-1/x)", lambda x: -1/x, xs), ("record C_c^inf", rec_ell, xs)]
     if control:
         edges = [("sin^4 (not flat)", lambda x: 4*mp.log(mp.sin(mp.pi*x/3)), [mp.mpf(10)**-k for k in (1, 1.5, 2)])]
     ok = True
@@ -472,9 +479,9 @@ def e10(control=False):
                 lc = D[k + 2]/D[k] - kk**2
                 ok &= D[k] > 0 and lc < 0 and kk/kap > mp.mpf(1)/2 and kk/kap < 2
                 if not control:
-                    worst = max(worst, abs(lc)/kk**3)
+                    worst = max(worst, abs(lc)/kk**mp.mpf(1.5))
         rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in %s; sup |kappa_k'|/"
-                    "kappa_k^3 = %s" % (nm, [mp.nstr(x, 2) for x in xs], mp.nstr(worst, 3)))
+                    "kappa_k^(3/2) = %s" % (nm, [mp.nstr(x, 2) for x in xs], mp.nstr(worst, 3)))
     if control:
         return ok
     out("  E10 hypothesis (H_N) sampled: " + "; ".join(rows) + ": %s" % ok)
