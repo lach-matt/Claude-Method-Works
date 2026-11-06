@@ -91,8 +91,15 @@ def canon(e):
         if term == 0:
             continue
         w, rp, lr, r0p, lr0, rest = sp.Integer(1), sp.Integer(0), 0, sp.Integer(0), 0, []
-        for fac in sp.Mul.make_args(term):
+        queue = list(sp.Mul.make_args(term))
+        while queue:
+            fac = queue.pop()
             base, ex = fac.as_base_exp()
+            if base not in (r, r0, LOGR, LOGR0) and not is_wave(fac) and (fac.has(r) or fac.has(r0)):
+                f2 = sp.Mul.make_args(sp.factor(fac))
+                assert len(f2) > 1 or f2[0] != fac, fac
+                queue.extend(f2)
+                continue
             if is_wave(fac):
                 assert w == 1, term
                 w = fac

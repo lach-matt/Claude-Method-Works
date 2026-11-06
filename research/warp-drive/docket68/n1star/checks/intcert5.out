@@ -7,3 +7,4 @@ C3 (interval arithmetic, the background itself) R >= R_*: hyperbolicity of Sigma
    control: Sigma_tau0 (A = 0) not certified (1944 cells fail; rejected): True
    the band on Sigma_tau0, the background itself, on [R_*, 5.75] (23000 cells): Nk < 0 certified outside the edge zones [4.2882, 4.2955], [4.5258, 4.5310], Nk > 0 certified on [4.2955, 4.5258] between them, the sign unresolved inside the zones (widest 0.0073): True
 C3 PASS
+C1, C1d (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]: the computed background, and every background within d of it
