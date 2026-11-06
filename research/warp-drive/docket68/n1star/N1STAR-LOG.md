@@ -8085,3 +8085,93 @@ independent, and none edited a file.
     [BH17] title; lzerotrace5 T7's enclosure, now two-sided; and Step 6's w-part.
   - The six nits are applied.
   - A confirming reader of the D623 seating is running.
+
+**D618, D621, D625 (2026-11-06): (9.10) corrected; III.K's far region; the confirming reads of D623 and D622, seated.**
+- D618: the section 11 reader's Major 2 is confirmed and repaired.
+  - (9.10)'s oscillating terms carry the factor 1 - pi/2. The moments <H^2 c^4> = <H^2 s^4> = 1/2 and <H^2 c^2 s^2> =
+    pi/4 - 1/2 were re-derived four ways: partial fractions in z, in u = sin^2 th, by hand, and 50-digit quadrature.
+  - The integrated flux oscillates with amplitude (pi/2 - 1)(lam/18) A^2 env^2, in antiphase to the old one. The
+    post-shell (2/9) lam^2 A^2 int env'^2 is unaffected.
+  - `past5.py` P7 had passed the old form because sympy 1.14.0's whole-sum integral drops the pi term. P7 now
+    integrates term by term, checks against quadrature, and keeps the whole-sum route as a control (selftest 8/8,
+    mutants 12/12).
+  - Seated in section 9.5, in Theorem M (c)'s (11.3) and its proof, and in section 11.4 (the solver's mean is a node
+    mean, the sphere mean only after the shell), with that reader's minors m1, m2, m4-m6 and nits n1-n5.
+  - `bondi5.py` B2 now asserts the coefficients of e^(2 P2) and e^(-2 b_B) (selftest 4/4, mutants 7/7).
+  - Lemma 11.0 is untouched; its replacement is workstream B's (R5-D). The paper's blocks P1-P3 are prepared, not
+    seated. D32's entry above quotes the old (9.10) and stays as written.
+- D621: the proof5 amendments reader's m1-m6 and nits are seated.
+  - m6 is proved by III.K Lemma 6.1, in a new section 6. For every h small in II.C's class, alpha = dt-flat_* + r^-1
+    dr is past timelike near I+, with r g^-1(alpha, alpha) <= -1/2. This gives II.F Lemma 1.3's compact sets.
+  - The lemma is cited at Proposition 4.2, Lemma 2.3 and (K9). Part VIII Step 4 now writes out II.F Lemma 1.4 (a).
+  - m1: Part VII names the v1 tower as a map of V_1 and restricts the delta* sentence to the types of T.
+  - m2: vii5census C3 gains seven spellings, giving 632 use lines, 55 of them new. All 55 were read: 343 / 205 / 79 /
+    0 MORE / 5 UNDECIDED, resolved.
+  - m3: vii5read Q2 checks content anchors, Q3 checks pointwise, and there is a new Q4.
+  - m4: the conditions are affine. m5: PART-VI4 row w1 has eps_ind <= delta_50 = 1.94137e-8.
+  - New `checks/scrirad5.py`, R1-R3: 11 of 12 external mutants are caught; the survivor has margin.
+  - Left open: III.K Proposition 1.2 applies II.F Lemma 1.3 on the slab near I+, where R2 shows dt can be spacelike for
+    h merely small in the class. This needs a reader.
+  - The paper's two blocks are prepared, not seated.
+- The confirming read of D623 (sections 0-4): **proved.**
+  - Every finding is seated correctly, and there is no new major or mathematical minor finding.
+  - The eps1 Major was checked independently: the least eigenvalue on ker d(v + tau) is min(1, (3 + m)/5); eps1 <
+    mu0/a^2 - 1 is sharp; and s0 = 0.0307685596.
+  - Two replacement texts were specified:
+    - Step 8's uniqueness, stated in the class |g - g0| <= eps1 that Lemma 2.3 needs. The solution and its image under
+      an isometry of g0 both lie in that class, which covers 0.7's symmetry argument. "eps2 <= eps1" would be neither
+      needed nor sufficient.
+    - The Weyl bound, deduced for the case used.
+  - Lemma 9.4's lam <= d0/20 is right and was already seated.
+  - Eight notes, two of them instrument gaps. lzerotrace5 T6's "eps1 = 3/5" holds at P* only. eps1hyp5 H6's random
+    sampling misses a 5 % inflation of the perturbation norm (mutant E8).
+- The confirming read of D622 (sections 8-9, Proposition 10.1, Lemmas 10.1a-10.1b).
+  - Proved: section 8, sections 9.1-9.4, Propositions 9.9-9.10, Proposition 10.1 (i)-(iii) and (iv-b), Lemma 10.1a and
+    Lemma 10.1b (a).
+  - (iv-a) is correctly deduced from GAUGEDECAY5 Theorem 1.5, which is verified, not proved.
+  - Lemma 10.1b (b) is true, with one wrong step. The first reader's Major is closed.
+  - Five minor findings:
+    - m1: Q_0 is necessary only for its scalar-type part, since the tensor-type components carry no derivative.
+    - m2: Lemma 10.1b (b)'s domain-of-dependence step is false for tau > s(rho_0) - s(r_h).
+    - m3: stale labels.
+    - m4: (iv-a)'s setting. h must reach inside the horizon; beyond 2 R_1, h = g-dot_RW - mu-dot L_V g; and R_1 names
+      two radii.
+    - m5: the paper block's R^5 names no measure.
+  - A check gap: redshift5 R8 never tested q(q - 1) != 0, so the mutant sigma/kappa = 1 survived.
+  - Nits.
+- D625: both readings are seated in N1STAR-PROOF.md, with D618's status lines (its m3). Status after D625:
+  - Sections 0-4 are proved (D625). Section 6 is proved (D624).
+  - Section 8, sections 9.1-9.4 and Propositions 9.9-9.10 are proved.
+  - Proposition 10.1 (i)-(iii), (iv-b) and Lemmas 10.1a-10.1b are proved. Lemma 10.1b (b)'s proof was repaired at
+    D625 by the reader's argument.
+  - (iv-a) is deduced from Theorem 1.5 (verified); workstream A's round 9 settles its status.
+- D625, sections 0-4:
+  - (a) and (b) are seated as specified, with 0.7's addition and the eight notes.
+  - lzerotrace5 T6 now says "at P*".
+  - eps1hyp5 H6 adds the aligned perturbations +-eps1 e e^T to every batch. The 5 % mutant now fails H6; it passed
+    before.
+- D625, sections 8-10.3:
+  - m1-m4 are seated. m2 uses the reader's argument: (a)'s backward Gronwall between the outgoing rays from (Sigma_0,
+    r_h + eps) and (Sigma_0, rho_1), letting eps -> 0.
+  - The nits are seated:
+    - the per-mode bounds over ||Y||^2;
+    - Q_0's harmonic named;
+    - the tensor type's rotation sum k^2 + 4;
+    - Lemma 10.1b for smooth h, by approximation;
+    - Lemma 9.4's min(lam1, d0/20);
+    - Proposition 9.10's last sentence cites C13.
+  - redshift5 R8 now tests q(q - 1). The mutant sigma/kappa = 1 now fails R8; it passed before.
+  - redshift5 R13's pending paper blocks carry m5, m1's paper part and the Proposition 3.3 proof nit.
+- D625, the rest:
+  - The header is rewritten to match.
+  - Sections 9.5 and 11 as edited at D618 await one confirming read. Lemma 11.0 awaits its replacement (workstream B,
+    R5-D).
+  - lzerotrace5 and lzeroaudit5 are re-pinned (T0, A0) to the D625 file and re-keyed by content. lzeroaudit5's
+    section 6 rows had been 1-4 lines behind since D624, so A1 was failing with 24 hits unclassified. They are
+    re-keyed, and the ten new hits are classified.
+  - Not yet read: the D625 seating itself.
+  - Left to the paper pass: the blocks of D618, D621 and D622, and the vocabulary of 8.2's block. That block calls
+    GAUGEDECAY5 Theorem 1.5 "independently verified" but RWGAUGE5 Theorems 1-2 "proved", though each has had one
+    reading.
+  - GAUGEDECAY5's own status line ("Not verified by a second reader") is stale against R2.V; that line is workstream
+    A's.

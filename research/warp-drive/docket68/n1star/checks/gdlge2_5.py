@@ -287,10 +287,15 @@ def l2(control=False):
     def nonneg(e_):                                          # a polynomial in n >= 0 with coefficients >= 0
         P_ = sp.Poly(sp.expand(e_), n)
         return all(cf >= 0 for cf in P_.coeffs())
-    gap_s = lin_s and mult_s and len(neg) == 3 and len(pos) == 3
+    # every root the gap test reads is a root of the computed determinant, and together they exhaust its degree
+    tied_s = all(sp.expand(det_s.subs(lam, x_)) == 0 for x_ in neg + pos) and len(set(neg + pos)) == 6 == \
+        sp.Poly(sp.expand(det_s), lam).degree()
+    tied_v = all(sp.expand(det_v.subs(lam, x_)) == 0 for x_ in negv + posv) and len(set(negv + posv)) == 2 == \
+        sp.Poly(sp.expand(det_v), lam).degree()
+    gap_s = tied_s and lin_s and mult_s and len(neg) == 3 and len(pos) == 3
     gap_s &= all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg)
     gap_s &= all(nonneg((x_ - 3).subs(l_, 2 + n)) for x_ in pos)
-    gap_v = lin_v and mult_v and len(negv) == 1 and len(posv) == 1
+    gap_v = tied_v and lin_v and mult_v and len(negv) == 1 and len(posv) == 1
     gap_v &= all(nonneg((-(x_ + 2)).subs(l_, 2 + n)) for x_ in negv)
     gap_v &= all(nonneg((x_ - 4).subs(l_, 2 + n)) for x_ in posv)
     ends = {sp.Integer(-1), sp.Integer(3)} <= set(x_.subs(l_, 2) for x_ in roots_s)     # the ends are l = 2 roots

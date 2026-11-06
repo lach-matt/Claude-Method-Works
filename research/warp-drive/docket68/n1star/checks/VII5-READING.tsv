@@ -2,9 +2,9 @@ file	line	symbols	verdict	note	resolution	reader
 PART-III-D3-SYMSTATES.md	58	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S), an explicit Minkowski 1-form, not the chosen omega_s1.		1
 PART-III-D3-SYMSTATES.md	139	\breve\omega	NAMING	Statement of III.D'' Prop 3.1, the existence statement (C3) cites.		1
 PART-III-D3-SYMSTATES.md	146	\breve\omega	NAMING	Statement of III.D'' Prop 3.1, the existence statement (C3) cites.		1
-PART-III-D3-SYMSTATES.md	153	\breve\omega	NAMING	Statement of III.D'' Prop 3.1, the existence statement (C3) cites.		1
+PART-III-D3-SYMSTATES.md	153	\breve\omega | \omega^{(0)}_{b,\mathrm s1}	NAMING	Statement of III.D'' Prop 3.1, the existence statement (C3) cites.; D626: also \omega^{(0)}_{b,\mathrm s1}, likewise		1
 PART-III-D3-SYMSTATES.md	161	h_{b,\mathrm s1}	NAMING	Definition h_{b,s1}:=delta*omega_{b,s1}.		1
-PART-III-D3-SYMSTATES.md	163	\breve\omega	NAMING	Prop 3.1 (2): definition of breve-h^1.		1
+PART-III-D3-SYMSTATES.md	163	\breve\omega | \omega^{(0)}_{b,\mathrm s1}	NAMING	Prop 3.1 (2): definition of breve-h^1.; D626: also \omega^{(0)}_{b,\mathrm s1}, likewise		1
 PART-III-D3-SYMSTATES.md	164	\breve h | h_{b,\mathrm s1}	NAMING	Prop 3.1 (2): definition of breve-h^1.		1
 PART-III-D3-SYMSTATES.md	165	\breve h | h_{b,\mathrm v1}	NAMING	Prop 3.1 (2) statement (classes of breve-h^1, h_{b,v1}).		1
 PART-III-D3-SYMSTATES.md	168	\breve h	NAMING	Prop 3.1 (2) statement.		1
@@ -22,8 +22,8 @@ PART-III-D3-SYMSTATES.md	211	\omega_{\mathrm s1}	HOMONYM	(3.5): hits are the mod
 PART-III-D3-SYMSTATES.md	215	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S), an explicit Minkowski 1-form, not the chosen omega_s1.		1
 PART-III-D3-SYMSTATES.md	221	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S), an explicit Minkowski 1-form, not the chosen omega_s1.		1
 PART-III-D3-SYMSTATES.md	225	\breve\omega	NAMING	Construction of the choice: breve-omega_{b,s1}:=bar+(-P_b^{-1} f_b).		1
-PART-III-D3-SYMSTATES.md	226	\breve\omega	NAMING	Construction of the choice: breve-omega_{b,s1}:=bar+(-P_b^{-1} f_b).		1
-PART-III-D3-SYMSTATES.md	227	\breve\omega	NAMING	Construction of the choice: breve-omega_{b,s1}:=bar+(-P_b^{-1} f_b).		1
+PART-III-D3-SYMSTATES.md	226	\breve\omega | \omega_{b,\mathrm s1}	NAMING	Construction of the choice: breve-omega_{b,s1}:=bar+(-P_b^{-1} f_b).; D626: also \omega_{b,\mathrm s1}, likewise		1
+PART-III-D3-SYMSTATES.md	227	\breve\omega | \omega_{b,\mathrm s1}	NAMING	Construction of the choice: breve-omega_{b,s1}:=bar+(-P_b^{-1} f_b).; D626: also \omega_{b,\mathrm s1}, likewise		1
 PART-III-D3-SYMSTATES.md	232	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S), an explicit Minkowski 1-form, not the chosen omega_s1.		1
 PART-III-D3-SYMSTATES.md	234	\breve h	SITE-ONLY	Class of breve-h^1 from the stated classes of omega'_b, breve-omega'_b.		1
 PART-III-D3-SYMSTATES.md	236	\breve\omega	SITE-ONLY	Class of breve-h^1 from the stated classes of omega'_b, breve-omega'_b.		1
@@ -36,23 +36,23 @@ PART-III-D3-SYMSTATES.md	259	\breve\omega	SITE-ONLY	Perturbation b vs b_S from t
 PART-III-D3-SYMSTATES.md	260	\breve\omega	SITE-ONLY	Perturbation b vs b_S from the stated classes only.		1
 PART-III-D3-SYMSTATES.md	261	\breve h	SITE-ONLY	Perturbation b vs b_S from the stated classes only.		1
 PART-III-D3-SYMSTATES.md	270	h_{b,\mathrm v1}	SITE-ONLY	Class of h_{b,v1} from the stated class of omega'_b.		1
-PART-III-D3-SYMSTATES.md	278	h_{b,\mathrm v1}	SITE-ONLY	Uniqueness with its hypotheses (kernel of P_b trivial at weights in (0,1)).		1
+PART-III-D3-SYMSTATES.md	278	\omega_{b,\mathrm v1} | h_{b,\mathrm v1}	SITE-ONLY	Uniqueness with its hypotheses (kernel of P_b trivial at weights in (0,1)).; D626: also \omega_{b,\mathrm v1}, likewise		1
 PART-III-D3-SYMSTATES.md	282	h_{b,\mathrm s1}	NAMING	Remark on decay rates.		1
-PART-III-D3-SYMSTATES.md	284	h_{b,\mathrm v1}	NAMING	Remark.		1
+PART-III-D3-SYMSTATES.md	284	\omega_{b,\mathrm v1} | h_{b,\mathrm v1}	NAMING	Remark.; D626: also \omega_{b,\mathrm v1}, likewise		1
 PART-III-D3-SYMSTATES.md	302	h_{b,\mathrm s1} | h_{b,\mathrm v1}	NAMING	Finding; restates classes.		1
 PART-III-D3-SYMSTATES.md	303	\breve h	NAMING	Finding; restates classes.		1
 PART-III-D3-SYMSTATES.md	304	h_{b,\mathrm v1}	NAMING	Finding.		1
 PART-III-D3-SYMSTATES.md	313	\breve h	NAMING	Finding; restates classes.		1
-PART-III-D4-GENSTATES.md	22	\breve\omega	NAMING	Setting recalls the III.D'' forms.		1
+PART-III-D4-GENSTATES.md	22	\breve\omega | \omega^{(-1)}_{b,\mathrm v1} | \omega^{(0)}_{b,\mathrm s1}	NAMING	Setting recalls the III.D'' forms.; D626: also \omega^{(-1)}_{b,\mathrm v1}, \omega^{(0)}_{b,\mathrm s1}, likewise		1
 PART-III-D4-GENSTATES.md	36	\breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
-PART-III-D4-GENSTATES.md	37	\breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
+PART-III-D4-GENSTATES.md	37	\breve\omega | \omega^{\le k}	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-D4-GENSTATES.md	39	\breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
 PART-III-D4-GENSTATES.md	40	\breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
-PART-III-D4-GENSTATES.md	42	\breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
+PART-III-D4-GENSTATES.md	42	\breve\omega | \omega^{\le k}	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-D4-GENSTATES.md	45	\breve\omega	HOMONYM	The source's recursion with generic breve-omega^l (finding D'''1); not the chosen tower.		1
-PART-III-D4-GENSTATES.md	46	\breve h	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
+PART-III-D4-GENSTATES.md	46	\breve h | \omega^{\le k}	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-D4-GENSTATES.md	48	\breve h | \breve\omega	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
-PART-III-D4-GENSTATES.md	50	\breve h	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.		1
+PART-III-D4-GENSTATES.md	50	\breve h | \omega^{\le k}	HOMONYM	Generic stationary 1-forms/tensors of the identity (1.3)-(1.4), valid for any; not the chosen tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-D4-GENSTATES.md	115	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	117	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	121	h^{(0)}_{b,\mathrm s0}	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
@@ -60,23 +60,23 @@ PART-III-D4-GENSTATES.md	128	\breve h	NAMING	Statement/definition in III.D''' Pr
 PART-III-D4-GENSTATES.md	130	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	131	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	134	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
-PART-III-D4-GENSTATES.md	136	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
-PART-III-D4-GENSTATES.md	138	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
+PART-III-D4-GENSTATES.md	136	\breve\omega | \omega^{(0),\le | \omega^{(0)}_{b,\mathrm s1}	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.; D626: also \omega^{(0),\le, \omega^{(0)}_{b,\mathrm s1}, likewise		1
+PART-III-D4-GENSTATES.md	138	\breve h | \omega^{(0),\le	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.; D626: also \omega^{(0),\le, likewise		1
 PART-III-D4-GENSTATES.md	141	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	143	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	146	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
-PART-III-D4-GENSTATES.md	149	h^{\le k}_{b,\mathrm v1}	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
+PART-III-D4-GENSTATES.md	149	\omega^{(-1),\le k}_{b,\mathrm v1} | h^{\le k}_{b,\mathrm v1}	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.; D626: also \omega^{(-1),\le k}_{b,\mathrm v1}, likewise		1
 PART-III-D4-GENSTATES.md	150	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	151	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
 PART-III-D4-GENSTATES.md	157	\breve h	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
-PART-III-D4-GENSTATES.md	165	\breve\omega	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
-PART-III-D4-GENSTATES.md	169	\breve h | h^{(\mu)	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.		1
+PART-III-D4-GENSTATES.md	165	\breve\omega | \omega^{(\mu)}_b	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.; D626: also \omega^{(\mu)}_b, likewise		1
+PART-III-D4-GENSTATES.md	169	\breve h | \omega^{(\mu),\le k}_b | h^{(\mu)	NAMING	Statement/definition in III.D''' Prop 3.1, the existence statement behind Table 1.1.; D626: also \omega^{(\mu),\le k}_b, likewise		1
 PART-III-D4-GENSTATES.md	172	\breve\omega	NAMING	Generic unknown of each construction step.		1
-PART-III-D4-GENSTATES.md	180	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1} in a Minkowski polynomial checked by computation.		1
-PART-III-D4-GENSTATES.md	187	\breve\omega	NAMING	Construction of the s0 companion.		1
+PART-III-D4-GENSTATES.md	180	\omega_{\mathrm s0} | \omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1} in a Minkowski polynomial checked by computation.; D626: also \omega_{\mathrm s0}, likewise		1
+PART-III-D4-GENSTATES.md	187	\breve\omega | \omega_{\mathrm s0}	NAMING	Construction of the s0 companion.; D626: also \omega_{\mathrm s0}, likewise		1
 PART-III-D4-GENSTATES.md	192	\breve\omega	NAMING	Construction of the s0 companion.		1
-PART-III-D4-GENSTATES.md	194	\breve\omega | h^{(0)}_{b,\mathrm s0}	SITE-ONLY	(3.1) from the explicit omega_s0 and the stated class of breve-omega'.		1
-PART-III-D4-GENSTATES.md	195	h^{(0)}_{b,\mathrm s0}	SITE-ONLY	(3.1) from the explicit omega_s0 and the stated class of breve-omega'.		1
+PART-III-D4-GENSTATES.md	194	\breve\omega | \omega_{\mathrm s0} | h^{(0)}_{b,\mathrm s0}	SITE-ONLY	(3.1) from the explicit omega_s0 and the stated class of breve-omega'.; D626: also \omega_{\mathrm s0}, likewise		1
+PART-III-D4-GENSTATES.md	195	\omega_{\mathrm s0} | h^{(0)}_{b,\mathrm s0}	SITE-ONLY	(3.1) from the explicit omega_s0 and the stated class of breve-omega'.; D626: also \omega_{\mathrm s0}, likewise		1
 PART-III-D4-GENSTATES.md	197	\breve\omega	SITE-ONLY	(3.1) from the explicit omega_s0 and the stated class of breve-omega'.		1
 PART-III-D4-GENSTATES.md	200	\breve\omega	SITE-ONLY	Recursion step uses only the earlier companions' classes and the model leading coefficient.		1
 PART-III-D4-GENSTATES.md	201	\breve\omega	SITE-ONLY	Recursion step uses only the earlier companions' classes and the model leading coefficient.		1
@@ -94,8 +94,8 @@ PART-III-D4-GENSTATES.md	218	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\o
 PART-III-D4-GENSTATES.md	219	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1} (Minkowski boost).		1
 PART-III-D4-GENSTATES.md	225	\breve\omega	NAMING	Construction step.		1
 PART-III-D4-GENSTATES.md	227	\breve h	SITE-ONLY	Leading term of breve-h^1_v1 from the stated classes.		1
-PART-III-D4-GENSTATES.md	228	\breve\omega	SITE-ONLY	Leading term of breve-h^1_v1 from the stated classes.		1
-PART-III-D4-GENSTATES.md	231	\breve h	SITE-ONLY	Uses omega_v1=g_b(R_V,.) for Killing R_V (III.D'' Prop 3.1(3)), which follows from the stated conditions by uniqueness.		1
+PART-III-D4-GENSTATES.md	228	\breve\omega | \omega_{\mathrm v1}	SITE-ONLY	Leading term of breve-h^1_v1 from the stated classes.; D626: also \omega_{\mathrm v1}, likewise		1
+PART-III-D4-GENSTATES.md	231	\breve h | \omega_{\mathrm v1}	SITE-ONLY	Uses omega_v1=g_b(R_V,.) for Killing R_V (III.D'' Prop 3.1(3)), which follows from the stated conditions by uniqueness.; D626: also \omega_{\mathrm v1}, likewise		1
 PART-III-D4-GENSTATES.md	242	\breve\omega	SITE-ONLY	Class-root recursion: orders and leading coefficients only.		1
 PART-III-D4-GENSTATES.md	245	\breve\omega	SITE-ONLY	Class-root recursion: orders and leading coefficients only.		1
 PART-III-D4-GENSTATES.md	246	\breve\omega	SITE-ONLY	Class-root recursion: orders and leading coefficients only.		1
@@ -104,10 +104,10 @@ PART-III-D4-GENSTATES.md	251	\breve h | h^{(\mu)	SITE-ONLY	From (1.4).		1
 PART-III-D4-GENSTATES.md	263	\breve\omega	NAMING	Remark comparing the source's s0 companion.		1
 PART-III-D4-GENSTATES.md	271	\breve\omega	HOMONYM	The source's recursion with generic breve-omega^l (finding D'''1); not the chosen tower.		1
 PART-III-D4-GENSTATES.md	272	\breve\omega	HOMONYM	The source's recursion with generic breve-omega^l (finding D'''1); not the chosen tower.		1
-PART-III-D4-GENSTATES.md	275	h^{(0)}_{b,\mathrm s0}	NAMING	Finding on the source's normalisation.		1
-PART-III-D4-GENSTATES.md	276	h^{(0)}_{b,\mathrm s0}	NAMING	Finding on the source's normalisation.		1
-PART-III-E-CONSTRAINT.md	127	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
-PART-III-E-CONSTRAINT.md	136	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
+PART-III-D4-GENSTATES.md	275	\omega^{(0),\le | h^{(0)}_{b,\mathrm s0}	NAMING	Finding on the source's normalisation.; D626: also \omega^{(0),\le, likewise		1
+PART-III-D4-GENSTATES.md	276	\omega^{(0),\le | h^{(0)}_{b,\mathrm s0}	NAMING	Finding on the source's normalisation.; D626: also \omega^{(0),\le, likewise		1
+PART-III-E-CONSTRAINT.md	127	\omega_{\mathrm s0} | \omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.; D626: also \omega_{\mathrm s0}, likewise		1
+PART-III-E-CONSTRAINT.md	136	\omega_{\mathrm s0} | \omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.; D626: also \omega_{\mathrm s0}, likewise		1
 PART-III-E-CONSTRAINT.md	138	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
 PART-III-E-CONSTRAINT.md	163	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
 PART-III-E-CONSTRAINT.md	164	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
@@ -115,11 +115,11 @@ PART-III-E-CONSTRAINT.md	165	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\o
 PART-III-E-CONSTRAINT.md	168	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
 PART-III-E-CONSTRAINT.md	172	\omega_{\mathrm s1}	HOMONYM	Hit is the model \bar\omega_{s1}=d(|x|S) (explicit), used to build the dual states omega^*; no (C3) object occurs.		1
 PART-III-F4-ZERO.md	141	h_{b,\mathrm v1}	SITE-ONLY	Remark 2.3 derived from III.D'' (3.2)-(3.3) and uniqueness (III.D' Prop 4.1), true for any omega meeting them		3
-PART-III-F4-ZERO.md	142	h_{b,\mathrm v1}	NAMING	definition h_{b,v1}=delta* omega^{(-1)}_{b,v1}		3
+PART-III-F4-ZERO.md	142	\omega^{(-1)}_{b,\mathrm v1} | h_{b,\mathrm v1}	NAMING	definition h_{b,v1}=delta* omega^{(-1)}_{b,v1}; D626: also \omega^{(-1)}_{b,\mathrm v1}, likewise		3
 PART-III-F4-ZERO.md	152	h_{b,\mathrm v1}	SITE-ONLY	conclusion of the uniqueness argument (D=0); no property of the choice beyond (3.2)-(3.3)		3
 PART-III-F4-ZERO.md	300	h_{b,\mathrm s1}	SITE-ONLY	kernel membership and A^(3,0) class of h_{b,s1} are III.D'' (3.4) conditions; spanning proof uses them and continuity in b		3
 PART-III-F4-ZERO.md	467	h_{b,\mathrm v1}	NAMING	finding; sign convention cited		3
-PART-III-F5-PAIRINGS.md	30	\omega_{\mathrm s1}	HOMONYM	here \bar\omega_{s1}(S)=xi_S.dx is the leading term of the dual 1-form omega*_{b,s1} (III.E Prop 3.1), not of the boost 1-form omega_s1(S) of (C3)		2
+PART-III-F5-PAIRINGS.md	30	\omega_{\mathrm s0} | \omega_{\mathrm s1}	HOMONYM	here \bar\omega_{s1}(S)=xi_S.dx is the leading term of the dual 1-form omega*_{b,s1} (III.E Prop 3.1), not of the boost 1-form omega_s1(S) of (C3); D626: also \omega_{\mathrm s0}, likewise		2
 PART-III-F5-PAIRINGS.md	36	h_{b,\mathrm s1} | h_{b,\mathrm v1}	NAMING	restates the weights (site classes A^3, A^2, A^-1) of the states		2
 PART-III-F5-PAIRINGS.md	37	\breve h	NAMING	restates the weights (site classes A^3, A^2, A^-1) of the states		2
 PART-III-F5-PAIRINGS.md	70	\breve h	HOMONYM	bound variable of Lemma 2.2: any pair (h, breve h) with the stated kernel and weight hypotheses; not the chosen boost companion		2
@@ -245,7 +245,7 @@ PART-III-G5-TF.md	400	\breve h | h^{(\mu)	NAMING	defines E'_k		3
 PART-III-G5-TF.md	401	h^{(\mu)	SITE-ONLY	(4.1) from tower relations via III.G'' Lemma 2.6		3
 PART-III-G5-TF.md	402	\breve h | h^{\le k}_{b,\mathrm s1} | h_{b,\mathrm s1}	SITE-ONLY	tower relations		3
 PART-III-G5-TF.md	403	h^{\le k}_{b,\mathrm v1}	SITE-ONLY	tower relations		3
-PART-III-G5-TF.md	408	h^{\le k}_{b,\mathrm s1}	SITE-ONLY	algebra of (2.7) with a=e^{-i sigma t}		3
+PART-III-G5-TF.md	408	h^{\le k}_{b,\mathrm s1} | h_{b,\mathrm s1}	SITE-ONLY	algebra of (2.7) with a=e^{-i sigma t}; D626: also h_{b,\mathrm s1}, likewise		3
 PART-III-G5-TF.md	409	\breve h | h^{\le k}_{b,\mathrm s1}	SITE-ONLY	algebra of (2.7)		3
 PART-III-G5-TF.md	412	h^{(\mu)	NAMING	defines G_{mu,tau}		3
 PART-III-G5-TF.md	413	h^{\le2}_{b,\mathrm v1}	NAMING	defines G_{v1}		3
@@ -254,7 +254,7 @@ PART-III-G5-TF.md	415	h_{b,\mathrm s1}	SITE-ONLY	tf-polyhomogeneity from A^3 cla
 PART-III-G5-TF.md	421	\breve h | h^{(\mu)	SITE-ONLY	leading term plus correction in A^{mu-j+E_ind}; class O(4)-invariant		3
 PART-III-G5-TF.md	427	h_{b,\mathrm v1}	SITE-ONLY	h_{b,v1} in A^3		3
 PART-III-G5-TF.md	430	\breve h	SITE-ONLY	breve h^1_{b,s1} in A^2		3
-PART-III-G5-TF.md	471	h_{b,\mathrm s1}	NAMING	restates (4.4)		3
+PART-III-G5-TF.md	471	\breve h | h_{b,\mathrm s1}	NAMING	restates (4.4); D626: also \breve h, likewise		3
 PART-III-G5-TF.md	472	h^{\le2}_{b,\mathrm v1}	NAMING	restates (4.4)		3
 PART-III-G5-TF.md	473	h^{(\mu)	NAMING	restates (4.4)		3
 PART-III-G5-TF.md	493	h_{b,\mathrm s1}	SITE-ONLY	zf-weight from a smooth stationary state		3
@@ -278,7 +278,7 @@ PART-III-G5-TF.md	771	h_{b,\mathrm s1}	NAMING	finding restates A^3		3
 PART-III-G5-TF.md	772	h_{b,\mathrm s1}	NAMING	finding restates A^3		3
 PART-III-H-AUGMENT.md	57	\breve h | h_{b,\mathrm s1}	NAMING	notation h(S), breve h(S)		3
 PART-III-H-AUGMENT.md	59	\breve h	SITE-ONLY	exact weights 3, 2: leading terms pinned by III.D'' (3.2), (3.4); the s1 states are unique given them		3
-PART-III-H-AUGMENT.md	60	\breve h	NAMING	generalised state definition		3
+PART-III-H-AUGMENT.md	60	\breve h | \omega^{(0)}_{b,\mathrm s1}	NAMING	generalised state definition; D626: also \omega^{(0)}_{b,\mathrm s1}, likewise		3
 PART-III-H-AUGMENT.md	61	\breve\omega	SITE-ONLY	1-form in ker Box^Upsilon_b (III.D'' (3.3))		3
 PART-III-H-AUGMENT.md	64	\breve h	SITE-ONLY	L_0h=0, L_1h+L_0 breve h=0: tower relation		3
 PART-III-H-AUGMENT.md	107	\breve h	SITE-ONLY	stationary, weight 2		3
@@ -342,9 +342,9 @@ PART-III-I11-SPACETIME.md	35	\breve\omega	NAMING	notation list		2
 PART-III-I11-SPACETIME.md	169	\breve h	NAMING	definition of breve h^i_tau from the 1-form towers		2
 PART-III-I11-SPACETIME.md	170	\breve\omega	NAMING	definition of breve h^i_tau from the 1-form towers		2
 PART-III-I11-SPACETIME.md	171	\breve\omega	NAMING	definition of breve h^i_tau from the 1-form towers		2
-PART-III-I11-SPACETIME.md	174	\breve\omega	SITE-ONLY	formal identity, valid for any 1-forms (delta* natural at b0)		2
+PART-III-I11-SPACETIME.md	174	\breve h | \breve\omega	SITE-ONLY	formal identity, valid for any 1-forms (delta* natural at b0); D626: also \breve h, likewise		2
 PART-III-I11-SPACETIME.md	175	\breve\omega	SITE-ONLY	formal identity, valid for any 1-forms (delta* natural at b0)		2
-PART-III-I11-SPACETIME.md	177	\breve\omega	SITE-ONLY	from (2.1); breve omega^0_s0 Killing is the time-translation site condition		2
+PART-III-I11-SPACETIME.md	177	\breve h | \breve\omega	SITE-ONLY	from (2.1); breve omega^0_s0 Killing is the time-translation site condition; D626: also \breve h, likewise		2
 PART-III-I11-SPACETIME.md	178	\breve h	SITE-ONLY	from (2.1); breve omega^0_s0 Killing is the time-translation site condition		2
 PART-III-I11-SPACETIME.md	182	\breve h	UNDECIDED	identifies Table 1.1 towers with delta* of the 1-form towers breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it names only omega_s1, breve omega)	Lemma 3.1 (C3) amended (D608): the 1-form towers of every type are averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so it commutes with the average); for v1 on all of V_1 since D621 (m1) {PART-VII-ASSEMBLY.md (C3): "of every type $\tau\in\mathcal T$" "are taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms" "as a map of all of $\mathcal V_1$"}	2
 PART-III-I11-SPACETIME.md	183	\breve h | h^{(\mu)	UNDECIDED	identifies Table 1.1 towers with delta* of the 1-form towers breve omega^i_tau of I10 Def 2.1 (used in m_nu); kept iff (C3) averages those 1-forms for all tau (it names only omega_s1, breve omega)	Lemma 3.1 (C3) amended (D608): the 1-form towers of every type are averaged, and Table 1.1's towers at b0 are taken as delta* of the averaged 1-forms (delta* natural, so it commutes with the average); for v1 on all of V_1 since D621 (m1) {PART-VII-ASSEMBLY.md (C3): "of every type $\tau\in\mathcal T$" "are taken as $\delta^*_{g_{b_0}}$ of the averaged 1-forms" "as a map of all of $\mathcal V_1$"}	2
@@ -419,11 +419,11 @@ PART-III-I15-AUGMENT5.md	85	\mathcal V'	NAMING	Recalls V'=0.		1
 PART-III-I15-AUGMENT5.md	119	\breve h | h^{(\mu)	NAMING	Inside the (C3') site :118-122.		1
 PART-III-I15-AUGMENT5.md	121	\breve h | h^{(\mu)	SITE-ONLY	Inside the site; this consequence is kept by the average (sigma_* preserves the index sets).		1
 PART-III-I15-AUGMENT5.md	123	T_{\rho,b}	SITE-ONLY	Lemma 2.1's conclusion, from b-independent leading terms and b-independent index sets; kept by the average.		1
-PART-III-I15-AUGMENT5.md	137	h_{b,\mathrm v1}	SITE-ONLY	A^3, smooth in b, zero at b0: kept.		1
+PART-III-I15-AUGMENT5.md	137	\omega^{(-1)}_{b,\mathrm v1} | h_{b,\mathrm v1}	SITE-ONLY	A^3, smooth in b, zero at b0: kept.; D626: also \omega^{(-1)}_{b,\mathrm v1}, likewise		1
 PART-III-I15-AUGMENT5.md	152	h_{b,\mathrm{rem}}	SITE-ONLY	Tower relations and smoothness in b (Lemma 2.1).		1
 PART-III-I15-AUGMENT5.md	158	\breve h	SITE-ONLY	h_{b0,s1} in A^3, breve-h^1 in A^2.		1
 PART-III-I15-AUGMENT5.md	164	T_{\rho,b}	SITE-ONLY	Tower relations for L_b.		1
-PART-III-I15-AUGMENT5.md	166	h^{\le1}_{b,\mathrm s1}	SITE-ONLY	Tower relations L_0h=0, L_0 breve-h^1+L_1h=0.		1
+PART-III-I15-AUGMENT5.md	166	\breve h | h^{\le1}_{b,\mathrm s1}	SITE-ONLY	Tower relations L_0h=0, L_0 breve-h^1+L_1h=0.; D626: also \breve h, likewise		1
 PART-III-I15-AUGMENT5.md	167	\breve h	SITE-ONLY	Tower relations for L_b.		1
 PART-III-I15-AUGMENT5.md	223	h_{b,\mathrm{rem}}	SITE-ONLY	Algebra; q enters only through h+h_rem.		1
 PART-III-I15-AUGMENT5.md	224	h_{b,\mathrm{rem}}	SITE-ONLY	Lemma 2.2(b).		1
@@ -445,7 +445,7 @@ PART-III-I16-BASEPOINTS.md	26	h_{b,\mathrm v1}	NAMING	intro		3
 PART-III-I16-BASEPOINTS.md	62	h_{b,\mathrm v1}	SITE-ONLY	parity under -1 in SO(4): automatic for O(4)-equivariant choices, and the states are unique		3
 PART-III-I16-BASEPOINTS.md	79	T_{\rho,b}	NAMING	convention (P6)		3
 PART-III-I16-BASEPOINTS.md	102	\omega_{\mathrm s1}	HOMONYM	hit is bar omega_{s1}, the Minkowski 1-form d(|x|S); the line's formula for omega_{b,s1} is forced by uniqueness (P_b invertible)		3
-PART-III-I16-BASEPOINTS.md	105	h_{b,\mathrm v1}	SITE-ONLY	parity from the construction, forced by uniqueness (P_b invertible)		3
+PART-III-I16-BASEPOINTS.md	105	\omega_{b,\mathrm s1} | \omega_{b,\mathrm v1} | h_{b,\mathrm v1}	SITE-ONLY	parity from the construction, forced by uniqueness (P_b invertible); D626: also \omega_{b,\mathrm s1}, \omega_{b,\mathrm v1}, likewise		3
 PART-III-I16-BASEPOINTS.md	158	h_{b,\mathrm v1}	SITE-ONLY	kernel membership, O(|b-b0|) from smoothness and vanishing at b0		3
 PART-III-I16-BASEPOINTS.md	162	h_{b,\mathrm v1}	SITE-ONLY	nullspace basis; III.H Prop 3.2		3
 PART-III-I16-BASEPOINTS.md	163	h_{b,\mathrm v1}	SITE-ONLY	parity (P3); see row 62		3
@@ -463,7 +463,7 @@ PART-III-I16-BASEPOINTS.md	344	h_{b,\mathrm{rem}}	SITE-ONLY	splitting by tower l
 PART-III-I16-BASEPOINTS.md	361	h_{b,\mathrm v1}	NAMING	remark		3
 PART-III-I16-BASEPOINTS.md	458	\breve h	SITE-ONLY	h_{b0,v1}=0 is a site condition (I15 Lemma 2.1); breve h^1 in ker L_0 by tower relation		3
 PART-III-I16-BASEPOINTS.md	459	h_{b,\mathrm v1}	SITE-ONLY	Lemma 1.2 remark		3
-PART-III-I16-BASEPOINTS.md	461	h_{b,\mathrm s1}	NAMING	notation		3
+PART-III-I16-BASEPOINTS.md	461	\breve h | h_{b,\mathrm s1}	NAMING	notation; D626: also \breve h, likewise		3
 PART-III-I16-BASEPOINTS.md	462	\breve h	NAMING	notation		3
 PART-III-I16-BASEPOINTS.md	463	\breve h | h_{b,\mathrm v1}	NAMING	notation T_{v1,b}, breve h^0_{b,v1}:=h_{b,v1}		3
 PART-III-I16-BASEPOINTS.md	465	\breve h	SITE-ONLY	tower relation and h_{b,v1}=gdot_b(bdot_V)		3
@@ -500,7 +500,7 @@ PART-III-I4-BOOST.md	253	\breve h	SITE-ONLY	breve-h in A^2, stationary.		1
 PART-III-I4-BOOST.md	255	h_{b,\mathrm s1}	NAMING	The source's notation.		1
 PART-III-I5-UNBOOST.md	68	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1}, breve bar omega_{s1}: the fixed Minkowski 1-forms d(|x|S) etc., not the chosen maps		3
 PART-III-I5-UNBOOST.md	69	\omega_{\mathrm s1}	NAMING	definition h(S)		3
-PART-III-I5-UNBOOST.md	70	\breve h	NAMING	definition h^{<=1}(S)		3
+PART-III-I5-UNBOOST.md	70	\breve h | \omega_{\mathrm s1}	NAMING	definition h^{<=1}(S); D626: also \omega_{\mathrm s1}, likewise		3
 PART-III-I5-UNBOOST.md	71	\breve h | \breve\omega	NAMING	definition; kernel property is the site's		3
 PART-III-I5-UNBOOST.md	77	\breve\omega | \omega_{\mathrm s1}	NAMING	Definition 1.1		3
 PART-III-I5-UNBOOST.md	80	\omega_{\mathrm s1}	HOMONYM	Lemma 1.2 (a) is about the Minkowski forms bar omega_{s1}, breve bar omega_{s1} only		3
@@ -530,9 +530,9 @@ PART-III-I8-UNPARAM.md	466	\omega_{\mathrm s1}	NAMING	finding		3
 PART-III-I9-COMMOTION.md	33	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
 PART-III-I9-COMMOTION.md	71	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
 PART-III-I9-COMMOTION.md	72	\breve\omega | \omega_{\mathrm s1}	NAMING	Definition/restatement of the III.D''' tower.		1
-PART-III-I9-COMMOTION.md	73	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
+PART-III-I9-COMMOTION.md	73	\breve\omega | \omega^{\le k}	NAMING	Definition/restatement of the III.D''' tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-I9-COMMOTION.md	74	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
-PART-III-I9-COMMOTION.md	76	\breve\omega	NAMING	Definition/restatement of the III.D''' tower.		1
+PART-III-I9-COMMOTION.md	76	\breve\omega | \omega^{\le k}	NAMING	Definition/restatement of the III.D''' tower.; D626: also \omega^{\le k}, likewise		1
 PART-III-I9-COMMOTION.md	92	\breve\omega	SITE-ONLY	(2.1) from the kernel conditions only.		1
 PART-III-I9-COMMOTION.md	107	\breve\omega | \omega^{\le4}	SITE-ONLY	Recursion and orders from the stated classes.; omega^{<=4} likewise (D621)		1
 PART-III-I9-COMMOTION.md	109	\breve\omega	SITE-ONLY	Recursion and orders from the stated classes.		1
@@ -601,7 +601,7 @@ PART-III-I10-CORR4.md	192	\omega_\nu	NAMING	statement of Lemma 2.2 (a), (2.2).		
 PART-III-I10-CORR4.md	195	\omega_\nu	NAMING	statement of Lemma 2.2 (b) (orders).		D621
 PART-III-I10-CORR4.md	202	\omega_\nu	NAMING	statement of Lemma 2.2 (d).		D621
 PART-III-I10-CORR4.md	216	\omega_\nu	SITE-ONLY	(2.2) from the tower relations omega^{<=k}_tau in ker Box only (B_j = 0, j <= K).		D621
-PART-III-I10-CORR4.md	218	\omega^{\le k}_\tau	SITE-ONLY	the tower relation Box omega^{<=k}_tau = 0, as defined at I10:148-149 from the site.		D621
+PART-III-I10-CORR4.md	218	\omega^{\le k} | \omega^{\le k}_\tau	SITE-ONLY	the tower relation Box omega^{<=k}_tau = 0, as defined at I10:148-149 from the site.; D626: also \omega^{\le k}, likewise		D621
 PART-III-I10-CORR4.md	225	\omega_\nu	SITE-ONLY	orders from (2.1), the site's asymptotic classes.		D621
 PART-III-I10-CORR4.md	234	\omega_\nu	SITE-ONLY	near K+: m_nu = delta* omega_nu, vartheta_nu = Box omega_nu / 2, by the definitions and chi_K = 1.		D621
 PART-III-I10-CORR4.md	235	\omega_\nu	SITE-ONLY	(2.2) from the tower relations; the K+-weight of the tower tops.		D621
@@ -631,3 +631,84 @@ PART-III-I9-COMMOTION.md	93	\omega^{\le4}	NAMING	statement of Lemma 2.2 (orders)
 PART-III-I9-COMMOTION.md	114	\omega^{\le4}	SITE-ONLY	orders from the stated classes.		D621
 PART-III-I9-COMMOTION.md	118	\omega^{\le4}	SITE-ONLY	near K+: vartheta = Box omega^{<=4} / 2, by (2.1) from the tower relations.		D621
 PART-III-I9-COMMOTION.md	144	\omega^{\le4}	SITE-ONLY	h^{(lambda-1,k)}_{s1} = m - delta*(chi_K omega^{<=4}): definitions and III.I'''' (1.2).		D621
+PART-III-D3-SYMSTATES.md	143	\omega^{(0)}_{b,\mathrm s0}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.2))		D626
+PART-III-D3-SYMSTATES.md	144	\omega^{(0)}_{b,\mathrm s1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.2))		D626
+PART-III-D3-SYMSTATES.md	148	\omega^{(-1)}_{b,\mathrm v1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.2))		D626
+PART-III-D3-SYMSTATES.md	152	\omega^{(0)}_{b,\mathrm s0} | \omega^{(0)}_{b,\mathrm s1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.3))		D626
+PART-III-D3-SYMSTATES.md	154	\omega^{(-1)}_{b,\mathrm v1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.3))		D626
+PART-III-D3-SYMSTATES.md	159	\omega^{(0)}_{b,\mathrm s0}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((2))		D626
+PART-III-D3-SYMSTATES.md	162	\omega^{(0)}_{b,\mathrm s1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.4), h_{b,s1} defined)		D626
+PART-III-D3-SYMSTATES.md	166	\omega^{(-1)}_{b,\mathrm v1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.4), h_{b,v1} defined)		D626
+PART-III-D3-SYMSTATES.md	172	\omega^{(-1)}_{b,\mathrm v1}	NAMING	Statement of III.D'' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3), Killing rotations)		D626
+PART-III-D3-SYMSTATES.md	190	\omega_{\mathrm s0} | \omega_{b,\mathrm s0}	NAMING	III.D'' Prop 3.1's proof: the construction of the state itself (its site): omega_{b,s0} = g_b(d_t*,.), natural; the omega_{s0} hit is the model bar omega_{s0}		D626
+PART-III-D3-SYMSTATES.md	201	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1} split across the line break: the Minkowski model d(|x|S), explicit		D626
+PART-III-D3-SYMSTATES.md	209	\omega_{b,\mathrm s1}	NAMING	III.D'' Prop 3.1's proof: the construction of the state itself (its site) ((3.5))		D626
+PART-III-D3-SYMSTATES.md	276	\omega_{b,\mathrm v1}	NAMING	III.D'' Prop 3.1's proof: the construction of the state itself (its site): (3) by uniqueness, omega_{b,v1}(V) = g_b(R_V,.)		D626
+PART-III-D3-SYMSTATES.md	283	\omega_{b,\mathrm s1}	NAMING	Remark (a) on decay rates; restates the classes		D626
+PART-III-D3-SYMSTATES.md	310	\omega_{b,\mathrm v1}	NAMING	finding (D''4)		D626
+PART-III-D4-GENSTATES.md	21	\omega^{(0)}_{b,\mathrm s0}	NAMING	Setting: the 1-forms of III.D'' named		D626
+PART-III-D4-GENSTATES.md	38	\omega^{\le k}	HOMONYM	omega^{<=k} for arbitrary stationary 1-forms (the generic notation of section 1), as rows 42, 46, 50		D626
+PART-III-D4-GENSTATES.md	51	\omega^{\le k}	HOMONYM	as 50: a generic identity, (F2)		D626
+PART-III-D4-GENSTATES.md	118	\omega^{(0)}_{b,\mathrm s0}	NAMING	Statement of III.D''' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((1))		D626
+PART-III-D4-GENSTATES.md	122	\omega^{(0),\le	NAMING	Statement of III.D''' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((3.1))		D626
+PART-III-D4-GENSTATES.md	127	\omega^{(0),\le | h^{(0)}_{b,\mathrm s0}	NAMING	Statement of III.D''' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((1), h^{(0),<=k}_{b,s0})		D626
+PART-III-D4-GENSTATES.md	137	h^{\le k}_{b,\mathrm s1}	NAMING	Statement of III.D''' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((2))		D626
+PART-III-D4-GENSTATES.md	167	\omega^{(\mu)}_b	NAMING	Statement of III.D''' Prop 3.1 at b, the existence statement (C3) and (C3') cite ((4)-(7))		D626
+PART-III-D4-GENSTATES.md	184	\omega^{(0)}_{b,\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	185	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	186	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	188	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	189	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	190	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	193	\omega_{\mathrm s0}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((1): omega_{s0} = omega^{(0)}_{b,s0}, Killing; bar omega_{s0} the model)		D626
+PART-III-D4-GENSTATES.md	223	\omega^{(-1)}_{b,\mathrm v1}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((3): omega_{v1} = omega^{(-1)}_{b,v1}(V); Killing case by III.D'' (3))		D626
+PART-III-D4-GENSTATES.md	224	\omega_{\mathrm v1}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((3): omega_{v1} = omega^{(-1)}_{b,v1}(V); Killing case by III.D'' (3))		D626
+PART-III-D4-GENSTATES.md	230	\omega_{\mathrm v1}	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((3): omega_{v1} = omega^{(-1)}_{b,v1}(V); Killing case by III.D'' (3))		D626
+PART-III-D4-GENSTATES.md	237	\omega^{(\mu)}_b	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((4)-(7))		D626
+PART-III-D4-GENSTATES.md	238	\omega^{(\mu)}_b	NAMING	III.D''' Prop 3.1's proof: the construction of the tower itself (its site) ((4)-(7))		D626
+PART-III-E-CONSTRAINT.md	159	\omega_{\mathrm s0}	HOMONYM	hit is the model bar omega_{s0} (explicit), used to build the dual states omega^*; no (C3) object, as 163		D626
+PART-III-E-CONSTRAINT.md	173	\omega_{\mathrm s1}	HOMONYM	bar omega_{s1} split across the line break: the model, as 172		D626
+PART-III-E-CONSTRAINT.md	174	\omega_{\mathrm s1}	HOMONYM	as 173		D626
+PART-III-F4-ZERO.md	144	\omega^{(-1)}_{b,\mathrm v1}	SITE-ONLY	D := 2V_b + omega-dot_b - 2 omega^{(-1)}_{b,v1}(V): the uniqueness argument, as 141		D626
+PART-III-F4-ZERO.md	148	\omega^{(-1)}_{b,\mathrm v1}	SITE-ONLY	the site's asymptotics omega^{(-1)}_{b,v1}(V) - V in A^{(2,0)...} (III.D'' (3.2))		D626
+PART-III-F4-ZERO.md	156	\omega^{(-1)}_{b,\mathrm v1}	SITE-ONLY	its leading term 2V: the site's (3.2)		D626
+PART-III-F5-PAIRINGS.md	173	\breve h	HOMONYM	breve h_{b,c}: the centre-of-mass companion, an explicit natural formula, not a Table 1.1 choice		D626
+PART-III-G3-GRAFT.md	123	\omega^{\le k}	SITE-ONLY	omega^{<=k} in ker Box_b as polynomials in t_*: the tower relations of III.D''' Prop 3.1		D626
+PART-III-G5-TF.md	432	h_{b,\mathrm s1}	SITE-ONLY	h_{b,s1} in rho^3 A^0: the site's class, as 430		D626
+PART-III-G5-TF.md	636	h^{\le2}_{b,\mathrm v1}	SITE-ONLY	(5.2): tower relations and leading terms, as 637		D626
+PART-III-H2-ADMISS.md	306	\breve h	SITE-ONLY	(5.4): the transform of the boost state, from h = delta* omega_s1 and h^{<=1} = t_* h + breve h		D626
+PART-III-I10-CORR4.md	148	\omega^{\le k}	NAMING	definition of omega^{<=k}_tau from the towers (the bare omega^{<=k} hit)		D626
+PART-III-I10-CORR4.md	162	\omega^{(0),\le	NAMING	definition h_s0 := delta* omega^{(0),<=1}_{b0,s0} (III.D''' (3.1))		D626
+PART-III-I11-SPACETIME.md	176	\breve h	SITE-ONLY	(2.1) restated for m_nu: a formal identity, as 175		D626
+PART-III-I11-SPACETIME.md	209	\omega^{\le k}	SITE-ONLY	Table 1.1's towers as delta* of the 1-form towers: the identification (C3) makes since D608 (rows 210-212, resolved)		D626
+PART-III-I12-SPECTRAL.md	172	\breve h	NAMING	definition of T_s1(sigma), as 175		D626
+PART-III-I12-SPECTRAL.md	191	\breve h	SITE-ONLY	III.G'''' (4.4)/(5.2) tower formulae, as 192		D626
+PART-III-I12-SPECTRAL.md	195	\breve h	SITE-ONLY	as 194		D626
+PART-III-I12-SPECTRAL.md	365	\breve h	SITE-ONLY	the expansion's tower terms: tower relations and leading terms		D626
+PART-III-I13-EXPANSION.md	50	\breve h	NAMING	definition of the spectral tower, as 49		D626
+PART-III-I13-EXPANSION.md	55	\breve h	NAMING	restates the site classes, as 56		D626
+PART-III-I13-EXPANSION.md	196	\breve h	SITE-ONLY	tower relation L_0 breve h^2 + L_1 breve h^1 + L_2 h = 0, as 197		D626
+PART-III-I13-EXPANSION.md	218	\breve h	SITE-ONLY	degrees of companions, as 219		D626
+PART-III-I13-EXPANSION.md	437	\breve h	SITE-ONLY	classes A^3, A^2 of the site		D626
+PART-III-I15-AUGMENT5.md	127	\omega^{\le k}	SITE-ONLY	pure gauge states delta* omega^{<=k}_b, omega^{<=k}_b in ker Box_b polynomial in t_*, smooth in b: III.D''' Prop 3.1's conditions		D626
+PART-III-I16-BASEPOINTS.md	55	h_{b,\mathrm v1}	SITE-ONLY	h_{b,v1} in A^3, smooth in b, zero at b0: I15 Lemma 2.1, the site		D626
+PART-III-I16-BASEPOINTS.md	76	\omega^{(0)}_{b,\mathrm s0}	SITE-ONLY	(P5): omega^{(0)}_{b,s0} = g_b(d_t*,.) is Killing: natural, no choice		D626
+PART-III-I16-BASEPOINTS.md	101	\omega_{\mathrm s1} | \omega_{b,\mathrm s1}	SITE-ONLY	parity: omega_{b,s1} is the unique solution (P_b invertible), and -I is an isometry of g_b; the omega_{s1} hit is the model		D626
+PART-III-I16-BASEPOINTS.md	103	\omega_{b,\mathrm v1}	SITE-ONLY	as 101: omega_{b,v1}(V) = V - P_b^-1 Box V, unique; parity even		D626
+PART-III-I16-BASEPOINTS.md	104	\omega_{b,\mathrm s1}	SITE-ONLY	as 101		D626
+PART-III-I16-BASEPOINTS.md	106	\omega_{b,\mathrm v1}	SITE-ONLY	as 101		D626
+PART-III-I16-BASEPOINTS.md	164	h_{b,\mathrm v1}	SITE-ONLY	parity (P3), as 163		D626
+PART-III-I16-BASEPOINTS.md	398	\omega^{\le1}_{b,\natural}	SITE-ONLY	h^{<=1}_{b,natural} = delta* omega^{<=1}_{b,natural} in both kernels: the site's (III.D''' at b, (P3))		D626
+PART-III-I16-BASEPOINTS.md	400	\omega^{\le1}_{b,\natural}	SITE-ONLY	as 398		D626
+PART-III-I16-BASEPOINTS.md	472	\breve h	SITE-ONLY	III.H (2.2) and Prop 3.2 at b, as 476		D626
+PART-III-I16-BASEPOINTS.md	483	h_{b,\mathrm v1}	NAMING	no map V -> h_{b,v1}(V) is inverted: a remark		D626
+PART-III-I16-BASEPOINTS.md	525	h_{b,\mathrm v1}	SITE-ONLY	its bottom h_{b,v1}'s K+-rate: the site's class		D626
+PART-III-I16-BASEPOINTS.md	850	\breve h	NAMING	finding, as 852		D626
+PART-III-I16-BASEPOINTS.md	859	h_{b,\mathrm v1}	NAMING	finding, as 858		D626
+PART-III-I5-UNBOOST.md	63	\omega^{(0)}_{b_0,\mathrm s1}	NAMING	notation omega_s1(S) := omega^{(0)}_{b0,s1}(S), the bottom of the s1 tower		D626
+PART-III-I5-UNBOOST.md	97	\breve h	SITE-ONLY	h^{<=1} = t_* h + breve h in A^{(2,0)...}: the site's classes		D626
+PART-III-I5-UNBOOST.md	113	\omega^{(0),\le	HOMONYM	bar omega^{(0),<=1}_{s1}: the source's Minkowski model		D626
+PART-III-I8-UNPARAM.md	224	\omega_{\mathrm s1}	SITE-ONLY	omega_s1 split across the line break: h = delta* omega_s1, kernel conditions, as 223		D626
+PART-III-I9-COMMOTION.md	108	\omega^{\le k}	SITE-ONLY	Box omega^{<=k} = 0: the tower relation, as 107		D626
+PART-III-J-PARAM.md	192	\breve h	SITE-ONLY	m_nu by I11 Lemma 2.1 (a): a formal identity, as 193		D626
+PART-III-J-PARAM.md	218	h_{b,\mathrm v1}	SITE-ONLY	h_{b,v1} in A^3, as 217		D626
