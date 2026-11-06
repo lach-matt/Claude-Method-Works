@@ -1395,6 +1395,8 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
   is **47**, the constant **37,919,139,651,409,350** (+159,734,208, the verifier's figure); R0's 23 and
   37,919,138,373,535,686 stand. No other completion meets a later raise: the windows raise only at real part >= 5/2
   (I11:382-386) and complete above 3 + eps_+; folded into `dnumber5.py`, whose log tables call f4_table.
+  [Round 7, R7.0 m2: false -- (lambda#, 0)'s completion at 2.5099 is raised in round 1 -- and harmless: the table is
+  unchanged (`r7fixes5.py` R4).]
 - **M2 (accepted).** The ceiling rests on a step-by-step reading of I11:352-387, while I11 Proposition 3.1 (c) and
   Lemma 1.2 (c) state K(lambda) only: it is a *deduced ceiling on that reading*, and R5.0's "settled", R5.7's "computed"
   and R4.3's bracketed "not a hypothesis" are withdrawn in place. The log order exceeds 2 at 17 points (R0) and 18 (R1),
@@ -1403,6 +1405,8 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
   box^Ups(0) at z = 4e-6 (-1, -2, -3 are not s0 or s1 roots, 0 is not a v1 root; `r6fixes5.py` F3, exact); at z = 0, -1
   is an s1 root (control C3), which is where the remark holds. III.F'''' (5.3) lives at offsets >= 2 (R5.2) and does not
   touch E^flat's window. What would make the ceiling proved: the reading written into the supplement as a sharpened I11
+  [Round 7, R7.0 m1: the tower list was incomplete; offset 1 lands on a root at (s0, -1), (s1, -1), (v1, -2), each
+  simple, so log order <= 1 below offset 1's 2: the table and the ceiling are unchanged (`r7fixes5.py` R3).]
   Proposition 3.1 (c) (log order <= 2 off the 18 points, the table at them), whose proof is I11:352-387 with the inputs
   computed in eflat5.py; it is implied by and much smaller than K(lambda). Not done here (it edits the write-out).
 - **Minor 1 (accepted).** eflat5 C1 now reruns f4_table with the windows summed and F4's test fails on it.
@@ -1473,6 +1477,7 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
   boundedness theorem (Calderon-Vaillancourt with a seminorm count) for variable-order symbols of finite regularity in
   [SBG]'s calculus, carried through Lemma 8.5, Proposition 2.4 and (L3)-(L4); the write-out has none, and none is
   proved here. Everything else in the chain is an integer.
+  [Round 7, R7.0 m4: unsupported, withdrawn; the orders are read and D_0, D_1 bounded in R7.2, the MODs remain.]
 
 ### R6.2 (ii) stage 1 of lambda0 (`stage1cap5.py`)
 
@@ -1486,6 +1491,8 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
 - *The criterion* (deduced). Stage 1 lowers the certified bound lambda0 < 0.0024433 iff a certified *lower* bound of
   sup |m_1 + chi dv dv|_op exceeds 12.593309; a stage-1 *upper* bound, which is what Lemma 6.4's estimate yields,
   cannot. With 2 sup |chi| at 11.88, an m_1 of order one at the right point would do it.
+  [Round 7, R7.0 MAJOR 1: the "iff" is false in its "only if" direction; the criterion is a certified lower bound
+  on sup |m_1 + W_TT + chi dv dv|_op above 12.593309, and m_1(X*) e_phi1 != 0 suffices (R7.3).]
 - *Lemma 6.4's principal constants at the background on Sigma_tau0* (certified; Lemma 6.3 (a)'s closed forms, READ):
   alpha = 3 r^3/(r^2 + mu)^2 >= 0.0374252 (r = a, mu_end; 0.0512241 with mu = mu0, its value there), angular
   ellipticity and min eig S A0 >= 0.00550234 (r = b(tau0)), speed^2 <= 157.778 (r = a).
@@ -1500,6 +1507,8 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
   computable but not computed. Stages 2-9 each need R^(m) to order m symbolically, which stage5.py could not reach at
   m = 2. So no stage is solved and lambda0 has no value; its certified bounds are those of R4-R6 (operator < 0.0024433,
   Frobenius < 0.0019950, largest entry < 0.0012228), unchanged by stage 1 until a lower bound on m_1 exists.
+  [Round 7, R7.0 MAJOR 2: Frobenius < 0.0019079, moved by stage 0 for every m_1; "unchanged by stage 1 until a lower
+  bound on m_1" holds for the operator norm only.]
 
 ### R6.3 (iii) the inverse bounds (`zeroext5.py`; `zerohardy5.py` changed)
 
@@ -1533,6 +1542,7 @@ interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry <
 
 - *Certified*: lambda0 < 0.0012228 (largest entry, R6.0); 2 sup_Omega |chi| <= 11.8821; Lemma 6.4's principal
   constants on Sigma_tau0; the scalar zero-energy bound 2.8002 in (3.2)'s norm at s = 1.
+  [Round 7, R7.0 m7: deduced, with certified arithmetic, for one choice of generators; not certified as a whole.]
 - *Computed, exact*: the completion at 3 (14, R1 excess 47, constant 37,919,139,651,409,350); E_K below beta_K; SUM X_7
   = 7,742,244,251,240,377 and d <= 45,661,383,902,649,727 + 106,489,470 c' (on the reading); the four-point identities;
   the multiplier identity; the tower roots at -k; stage1rate5's coefficient 3.525e17.

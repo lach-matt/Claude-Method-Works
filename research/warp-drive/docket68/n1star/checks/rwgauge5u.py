@@ -172,7 +172,7 @@ def monomials(c):
     while sp.simplify(den.subs(r, sp.sqrt(mu))) == 0:
         den = sp.factor(sp.cancel(den/(r**2 - mu)))
         K += 1
-    x = sp.expand(sp.together((num/den*(r**2 - mu)**K/r**(2*K)).subs(m, Hs - 6*mu/r**2).subs(r, s_**2)))
+    x = sp.expand(sp.together((num/den/r**(2*K)).subs(m, Hs - 6*mu/r**2).subs(r, s_**2)))   # c f^K
     nn, dd = sp.fraction(sp.factor(x))
     dpoly = sp.Poly(dd, Hs, s_)
     if len(dpoly.terms()) != 1:
