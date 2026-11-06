@@ -126,9 +126,30 @@ def lam_min(gi, X, n):
     return np.linalg.eigvalsh(Qf)[0], X@g@X, n@g@n
 
 
+def conormals(fp, xh):
+    """beta := d(r + 2 t~) and alpha := d(r - 2 t~) at f', in the frame (t, x), t~ = t - f(r)"""
+    return np.concatenate(([2.0], (1 - 2*fp)*xh)), np.concatenate(([-2.0], (1 + 2*fp)*xh))
+
+
+def worst_fp():
+    """[R9] the f' in [-1/4, 1/4] at which each conormal's threshold -g_b0^-1(c, c)/|c|_E^2 (m = 0, the worst m) is
+    least, computed exactly from K1's forms: beta's at f' = -1/4, alpha's at f' = 1/4 (both 7/25)"""
+    fp = sp.Symbol("fp", real=True)
+    tb = -((2*fp - 3)*(2*fp + 1))/(4 + (1 - 2*fp)**2)
+    ta = -((2*fp - 1)*(2*fp + 3))/(4 + (1 + 2*fp)**2)
+    If = sp.Interval(-Q(1, 4), Q(1, 4))
+    out = []
+    for th in (tb, ta):
+        mn = sp.minimum(th, fp, If)
+        args = [c for c in (-Q(1, 4), Q(1, 4)) + tuple(sp.solveset(sp.diff(th, fp), fp, If)) if th.subs(fp, c) == mn]
+        out.append((float(args[0]), mn))
+    return out
+
+
 def part_k2():
     print("K2  the flux forms on the cone's two pieces at |delta|_op = 0.27, the class not assumed")
     rng = random.Random(77)
+    (fpb, thb), (fpa, tha) = worst_fp()
     X = np.array([1.0, 0, 0, 0, 0])
     worst, worst_tt, ctl_phi, ctl_cone = 1e9, -1e9, 1e9, -1e9
     worst_x, worst_xtt = 1e9, -1e9
@@ -141,12 +162,12 @@ def part_k2():
         for n in (-gi@beta, gi@alpha):
             lm, xx, nn = lam_min(gi, X, n)
             worst, worst_tt = min(worst, lm), max(worst_tt, xx, nn)
-        # [R8] the worst directions at the size drawn: delta = size beta beta^T/|beta|^2 at f' = -1/4, m = 0 (beta's
-        # threshold attains 7/25 there) and size alpha alpha^T/|alpha|^2 at f' = 1/4, m = 0 (alpha's)
+        # [R8] the worst directions at the size drawn: delta = size beta beta^T/|beta|^2 at beta's worst f', m = 0,
+        # and size alpha alpha^T/|alpha|^2 at alpha's; [R9] the worst f' computed (worst_fp), not typed
         size = max(abs(np.linalg.eigvalsh(gi - g0i)))
         E0 = np.diag([-1.0, 1, 1, 1, 1])
-        bx = np.concatenate(([2.0], 1.5*xh))
-        ax = np.concatenate(([-2.0], 1.5*xh))
+        bx = conormals(fpb, xh)[0]
+        ax = conormals(fpa, xh)[1]
         for gx, n_of in ((E0 + size*np.outer(bx, bx)/(bx@bx), lambda g_: -g_@bx),
                          (E0 + size*np.outer(ax, ax)/(ax@ax), lambda g_: g_@ax)):
             lm, xx, nn = lam_min(gx, X, n_of(gx))
@@ -169,6 +190,17 @@ def part_k2():
     check("K2' controls: R6-A's cut {Phi_W = V_*} at |delta|_op = 3 r^-2 has a negative least eigenvalue somewhere; the "
           "cone at |delta|_op = 0.30 has a non-timelike conormal somewhere", ctl_phi < 0 and ctl_cone > 0,
           f"min r^2 lambda_min {ctl_phi:.4f}; max g^-1(beta, beta) {ctl_cone:.4f}")
+    # [R9] the worst directions are the worst: their thresholds are 7/25 (computed), and at size 7/25 along them the
+    # conormal is null (attained), at 0.27 timelike
+    xh0 = np.array([0.6, 0.0, 0.8, 0.0])
+    E0 = np.diag([-1.0, 1, 1, 1, 1])
+    bx0, ax0 = conormals(fpb, xh0)[0], conormals(fpa, xh0)[1]
+    att = [c@(E0 + sz*np.outer(c, c)/(c@c))@c for c in (bx0, ax0) for sz in (0.28, 0.27)]
+    check("K2'' [R9] the worst directions computed, not typed: the least thresholds over |f'| <= 1/4 are 7/25, at "
+          "f' = -1/4 for beta and 1/4 for alpha (exact), and along them delta of size 7/25 makes the conormal null, "
+          "of size 0.27 timelike", thb == Q(7, 25) and tha == Q(7, 25) and abs(att[0]) < 1e-12 and abs(att[2]) < 1e-12
+          and att[1] < 0 and att[3] < 0, f"f' = {fpb}, {fpa}; thresholds {thb}, {tha}; g^-1(c, c) at 7/25, 0.27: "
+          f"{att[0]:.1e}, {att[1]:.4f}, {att[2]:.1e}, {att[3]:.4f}")
 
 
 def part_k3():
@@ -270,11 +302,24 @@ def part_k5():
     tslice = mx + Q(7, 25)*nrm
     g_ctl = sp.N(gbound.subs({m: Q(1, 16), d: Q(9, 10)}), 8) if (1 - (Q(1, 16) + sp.sqrt(1 + Q(1, 256)))*Q(9, 10)) > 0 \
         else sp.oo
-    check("K5 |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4521 at delta = 7/25, m = 1/16 (increasing in both), so "
-          "g(d_t, d_t) <= -1 + 1/16 + 0.4521 < -0.485; g^-1(dt~, dt~) <= max(g_b0^-1(dt~, dt~)) + (7/25) max |dt~|^2 = "
-          "-15/16 + (7/25)(17/16) = -0.64 (exact)", g_at < 0.4522 and tt < -0.485 and mono and mx == -Q(15, 16)
+    # [R9] attained: delta = -sign(w) c e e^T along g_b0^-1's eigenvector e of least |eigenvalue| w (m = 1/16), c below
+    # 7/25: |g - g_b0|_op equals the bound
+    E = np.diag([-1.0, 1, 1, 1, 1])
+    k0 = np.array([1.0, 1.0, 0, 0, 0])
+    gbi = E - (1/16)*np.outer(E@k0, E@k0)
+    w, Vv = np.linalg.eigh(gbi)
+    i0 = int(np.argmin(abs(w)))
+    c_ = 0.2797
+    dlt = -np.sign(w[i0])*c_*np.outer(Vv[:, i0], Vv[:, i0])
+    diff = np.linalg.inv(gbi + dlt) - np.linalg.inv(gbi)
+    att5 = max(abs(np.linalg.eigvalsh((diff + diff.T)/2)))
+    b5 = float(sp.N(gbound.subs({m: Q(1, 16), d: Q(2797, 10000)}), 20))
+    check("K5 |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4520 at delta = 7/25, m = 1/16 (increasing in both), so "
+          "g(d_t, d_t) <= -1 + 1/16 + 0.4520 < -0.485; g^-1(dt~, dt~) <= max(g_b0^-1(dt~, dt~)) + (7/25) max |dt~|^2 = "
+          "-15/16 + (7/25)(17/16) = -0.64 (exact); [R9] attained at delta = 0.2797 along g_b0^-1's eigenvector of least "
+          "|eigenvalue|", g_at <= 0.4520 and abs(att5 - b5) < 1e-10 and tt < -0.485 and mono and mx == -Q(15, 16)
           and nrm == Q(17, 16) and dec and tslice == -Q(16, 25), f"{g_at}, g(d_t, d_t) <= {sp.N(tt, 6)}, "
-          f"g^-1(dt~, dt~) <= {tslice}")
+          f"g^-1(dt~, dt~) <= {tslice}; attained {att5:.7f} (bound {b5:.7f})")
     check("K5' control: at delta = 9/10 the bound on |g - g_b0| exceeds 15/16 (or is infinite): d_t no longer kept "
           "timelike", g_ctl > Q(15, 16), str(g_ctl))
 
@@ -285,9 +330,19 @@ def part_k6():
     sx = m + sp.sqrt(1 + m**2)
     ratio = lambda c: sp.N((sx**2*(c*x)/(1 - sx*c*x)/x).subs({m: Q(1, 16), x: Q(1, 64)}), 10)
     r4, r2 = ratio(Q(1, 4)), ratio(Q(1, 2))
-    check("K6 |H|_op <= r^-2/4 (r >= 8, m <= 1/16) gives |g^-1 - g_b0^-1|_op <= 0.2847 r^-2 < r^-2/2, the margin "
-          "of D4-D5 "
-          "(the bound increases with r^-2 and m)", r4 < 0.2848 and r4 < 0.5, str(r4))
+    # [R9] attained: H = -sign(w) (r^-2/4) e e^T along g_b0's eigenvector e of least |eigenvalue| w (m = 1/16, r = 8)
+    E = np.diag([-1.0, 1, 1, 1, 1])
+    k0 = np.array([1.0, 1.0, 0, 0, 0])
+    gb = np.linalg.inv(E - (1/16)*np.outer(E@k0, E@k0))
+    w, Vv = np.linalg.eigh(gb)
+    i0 = int(np.argmin(abs(w)))
+    Hx = -np.sign(w[i0])*(1/256)*np.outer(Vv[:, i0], Vv[:, i0])
+    diff = np.linalg.inv(gb + Hx) - np.linalg.inv(gb)
+    att6 = max(abs(np.linalg.eigvalsh((diff + diff.T)/2)))*64
+    check("K6 |H|_op <= r^-2/4 (r >= 8, m <= 1/16) gives |g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2, the margin "
+          "of D4-D5 (the bound increases with r^-2 and m); [R9] attained at r = 8 by H along g_b0's eigenvector of "
+          "least |eigenvalue|", r4 <= 0.2845 and r4 < 0.5 and abs(att6 - float(r4)) < 1e-8,
+          f"{r4}; attained {att6:.10f}")
     check("K6' control: |H|_op <= r^-2/2 gives 0.57 r^-2 > r^-2/2", r2 > 0.5, str(r2))
 
 
