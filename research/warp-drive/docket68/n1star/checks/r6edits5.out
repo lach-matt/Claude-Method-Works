@@ -44,5 +44,5 @@ E4  R7-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)
   E4c the new blocks state section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII, BEYOND5 Lemma
         6.4 (iv) deduced, eps, Proposition 3.1 as deduced, the r^(-4) term for one example, and the window as computed
         from measured and hand-counted exponents: pass []
-  E4c' control (R6-E's blocks, the round-6 reader's minors 2 and 4): they fail at least six of the ten: pass 7
+  E4c' control (R6-E's blocks, the round-6 reader's minors 2 and 4): they fail at least six of the eleven: pass 8
 FAILED: none

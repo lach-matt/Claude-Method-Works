@@ -2731,7 +2731,7 @@ record lists as proved (proof5/README.md): Part VIII Lemma 1.1 (D336), used in T
 3.2 (D231) and III.C Definition 3.1 and Lemma 3.2 (a) (D245), used in Lemma R2.1, Proposition R2.2 and Theorem R2.4;
 Part VII Lemma 0.1 and Theorem 0.2 (D324), used in Theorem R2.4. BEYOND5 Lemma 6.4 (iv) moves to the deduced conditions
 (deduced at D400, read by verifier 180 at D405), and the paper's Block 2 names it. Section 11.1's clause is updated:
-D618's amendment of Lemma 11.2 is already in the file, R6-D is being seated as D630, and sections 9.5 and 11 await a
+D618's amendment of Lemma 11.2 is already in the file, R6-D is seated as D630, and sections 9.5 and 11 await a
 confirming read that starts after D630.
 
 **Nits.**
@@ -2801,9 +2801,9 @@ round 6 by vB6, every finding seated in R5.0, R6.0 and R7.0; round 7 not yet rea
   and Lemma 2.3 standing after D623 (R6.0 (m5) (c));
 - (b) statements outside this file that the record lists as deduced: N1STAR-PROOF.md section 11.1 (Lemmas 11.0, 11.1,
   11.2 and Proposition 11.1), its D44 repair read by D45 and D47, Lemma 11.0's top-order repair (R6-D) read by the
-  round-6 reader and being seated as D630, D618's amendment of Lemma 11.2 already in the file, and D618's edits to
-  sections 9.5 and 11 awaiting a confirming read that starts after D630 (section 11.1 is used by Proposition R5.4, Lemma
-  R3.2, Lemma R4.4, Lemma R4.5 (i) and Step 9); and BEYOND5 Lemma 6.4 (iv) (W, N and their placement in Omega' cup P'),
+  round-6 reader and seated as D630, D618's amendment of Lemma 11.2 already in the file, and D618's edits to sections
+  9.5 and 11 awaiting a confirming read that starts after D630 (section 11.1 is used by Proposition R5.4, Lemma R3.2,
+  Lemma R4.4, Lemma R4.5 (i) and Step 9); and BEYOND5 Lemma 6.4 (iv) (W, N and their placement in Omega' cup P'),
   deduced at D400 and read by verifier 180 at D405;
 - (c) this file's statements: Lemma R2.1, Proposition R2.2 (computed for every round count III.C' uses, M <= 12, exactly
   below 11/2), Theorem R2.4, Lemmas R3.2-R3.3 (as amended), Propositions R4.1-R4.2, Corollary R4.3, Lemma R4.4, Lemma
@@ -2849,8 +2849,8 @@ Block 1, new:
 ```text
   not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball. That the development of g_λ's own
   data settles, with no gluing, is deduced in a data class wider than (ii)'s by half-integer orders, conditional on
-  supplement section 11.1, deduced, whose Lemma 11.0 repair is being seated and, with D618's edits to sections 9.5 and
-  11, awaits a confirming read, and on the last round of that deduction, not yet read by a verifier (Beyond the
+  supplement section 11.1, deduced, whose Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11,
+  awaits a confirming read, and on the last round of that deduction, not yet read by a verifier (Beyond the
   boundary, below). Evaluating λ1 and δ would need every constant of the write-out made explicit, and several come from
 ```
 
@@ -2876,8 +2876,8 @@ Block 2, new:
   6.3, deduced). It is deduced, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
   (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–7, Theorem R5.1), conditional
   on the write-out's Parts III, IV, VII and VIII, proved; on Theorem P, proved; on supplement section 11.1, deduced,
-  whose Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) is being seated and, with D618's edits to sections 9.5 and 11, awaits
-  a confirming read; on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier; and on round 7 of SETTLE-GLAM5.md, not
+  whose Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) is seated and, with D618's edits to sections 9.5 and 11, awaits a
+  confirming read; on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier; and on round 7 of SETTLE-GLAM5.md, not
   yet read by a verifier. After the shell g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which
   for a C_c^∞ envelope and every amplitude but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md
   Proposition 3.1; computed for a bump envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into

@@ -46,8 +46,8 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      each old text once, every line within 121 characters after the edit, and the new texts state what the round-5
      and round-6 readers asked (section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII,
      BEYOND5 Lemma 6.4 (iv) as deduced, eps named, Proposition 3.1 deduced, the r^(-4) term built for one example,
-     the window computed from measured and hand-counted exponents). Control: R6-E's blocks fail at least six of the
-     ten.
+     the window computed from measured and hand-counted exponents, R6-D seated). Control: R6-E's blocks fail at least
+     six of the eleven.
   D630: R6-D is seated in N1STAR-PROOF.md (each new block occurs there once, no old block); the program then undoes it
      in memory, with its two "[amended D630: WS-B round 6, R6-D ...]" marks, and runs E1-E3 on that copy, and E1s
      checks that re-applying the blocks gives the live file but for the two marks.
