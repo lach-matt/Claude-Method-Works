@@ -1,0 +1,20 @@
+  A1: an invariant phase has its gradient in span(dtau, dr) on both axes, and the null ones there are dv
+      and the outgoing radial covector (b/a = [a, a*(mu + r**2)/(mu - r**2)]): True;
+      control tau - x3 leaves span(dtau, dr): True
+  A2: f = distance to the ellipse orbit (al, be) = (1/2, 1/3): eikonal True, even in rho1 and rho2 True,
+      rays radial at both axes True and not between True
+      (cos beta at t = pi/8, pi/4, 3pi/8: 0.997620 0.996291 0.998466);
+      near the axis g^-1(dv, dw)/(beta^2/2) -> -1, beta/th -> 5/31 (beta ~ 5/24 t, th ~ 31/24 t):
+      the mixed symbol vanishes like th^2; HL's cosine -> 1 (separation fails)
+  A3: the th-th component of the family's stress, w_th at t = pi/5, s = 3/2: 0.165582 (nonzero: not round)
+  A3 control (al = be, a sphere): w_th = 0.00e+00, cos beta = [1.0, 1.0, 1.0]: radial everywhere, no small divisor:
+      True
+  A4: v = tau + r, u = tau - r on Minkowski: eta^-1(dv, du) = -2, HL's spatial cosine (at x = (1, 2, 2,
+      4)/5) = -1; on Vaidya
+      g0^-1(dv, k_out) = 2*r**2/(mu - r**2) (k_tau = 1): separated True
+  A4 control (v and 2 v, both ingoing): g^-1 = 0, cosine (at x = (1, 2, 2, 4)/5) = 1, Vaidya 0:
+      rejected True
+A1 PASS
+A2 PASS
+A3 PASS
+A4 PASS

@@ -1,0 +1,13 @@
+B1 (computed) the six largest band pairs of blocks5.out at W3's weights (wgron5.out, |x| <= 0.5):
+   chib row (bounds dchib, group dchib) <- dw (group dw): c >= 2.3, log(lam_Y/lam_Z) >= -4.08, c^2 lam_Y/lam_Z >= 0.0891
+   P4_1 row (bounds dd1, group phi1) <- dw (group dw): c >= 22, log(lam_Y/lam_Z) >= -2.12, c^2 lam_Y/lam_Z >= 57.8
+   P1_1 row (bounds da1, group phi1) <- dk (group dk): c >= 20.5, log(lam_Y/lam_Z) >= -2.69, c^2 lam_Y/lam_Z >= 28.4
+   P4_1 row (bounds dd1, group phi1) <- dk (group dk): c >= 20.5, log(lam_Y/lam_Z) >= -2.69, c^2 lam_Y/lam_Z >= 28.4
+   P1_1 row (bounds da1, group phi1) <- dw (group dw): c >= 21.9, log(lam_Y/lam_Z) >= -2.12, c^2 lam_Y/lam_Z >= 57.3
+   P3_1 row (bounds dc1, group phi1) <- dw (group dw): c >= 7, log(lam_Y/lam_Z) >= -2.12, c^2 lam_Y/lam_Z >= 5.87
+B2 the largest at N >= 31: P4_1 row <- dw, >= 57.8; blocks5's top pair (P4_1 row <- dw), whose minimum over N = 0..30 it
+    printed (22), weighted: >= 57.8 for EVERY N -> the block condition FAILS at W3's weights
+   control (k1) equal weights: 481.8 (blocks5: 484) -> reproduced
+   control (k2) the smallest pair in place of the largest: chib row <- dw, 0.0891 -> below 1, so the conclusion rests on
+       the largest (good)
+blockw5: all checks pass

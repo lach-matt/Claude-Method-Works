@@ -1,0 +1,42 @@
+# round 4, first run: python3 checks/cpaxis5.py FREE1600 CP1600 (FREE1600 = D432's l1_rc0.9_M32_1600.npz,
+#   removed from scratch at 10:03 by another session; CP1600 = round 3's cp_M32_1600.npz, md5 776da11e...);
+#   A3 here is under the first criterion, since replaced (cpaxis5.out); kept as the record of that failure
+A1 angular resolution at areal radius 1.0-1.2 (M = 32, 1600 x 720): Chebyshev tail (last four over first four
+    coefficients, the largest over the cells) and the outermost-node excess over a cubic extrapolation:
+   free m v in [1.00, 1.50): tail 4.76e-07, axis-node excess 7.03e-06
+   free m v in [1.50, 1.65): tail 1.74e-08, axis-node excess 5.06e-07
+   free m v in [1.65, 1.80): tail 1.03e-08, axis-node excess 1.20e-06
+   free m v in [1.80, 1.90): tail 1.00e-04, axis-node excess 1.90e-03
+   free m v in [1.90, 2.00): tail 2.19e-02, axis-node excess 9.88e-01
+   free m v in [2.00, 2.25): tail 1.54e+00, axis-node excess 3.57e+00
+   free n v in [1.00, 1.50): tail 1.32e-08, axis-node excess 2.94e-06
+   free n v in [1.50, 1.65): tail 7.19e-09, axis-node excess 1.16e-06
+   free n v in [1.65, 1.80): tail 6.81e-09, axis-node excess 1.17e-05
+   free n v in [1.80, 1.90): tail 1.61e-04, axis-node excess 3.64e-03
+   free n v in [1.90, 2.00): tail 4.05e-02, axis-node excess 9.01e-01
+   free n v in [2.00, 2.25): tail 2.08e-01, axis-node excess 1.13e+00
+   cp   m v in [1.00, 1.50): tail 2.53e-04, axis-node excess 1.40e-02
+   cp   m v in [1.50, 1.65): tail 1.58e-05, axis-node excess 9.11e-04
+   cp   m v in [1.65, 1.80): tail 2.90e-05, axis-node excess 1.75e-03
+   cp   m v in [1.80, 1.90): tail 5.75e-05, axis-node excess 5.07e-03
+   cp   m v in [1.90, 2.00): tail 2.90e-03, axis-node excess 1.77e-01
+   cp   m v in [2.00, 2.25): tail 1.51e-01, axis-node excess 1.08e+00
+   cp   n v in [1.00, 1.50): tail 6.35e-06, axis-node excess 4.60e-04
+   cp   n v in [1.50, 1.65): tail 6.35e-06, axis-node excess 3.87e-04
+   cp   n v in [1.65, 1.80): tail 5.08e-05, axis-node excess 3.31e-03
+   cp   n v in [1.80, 1.90): tail 3.65e-04, axis-node excess 1.93e-02
+   cp   n v in [1.90, 2.00): tail 2.20e-03, axis-node excess 3.70e-02
+   cp   n v in [2.00, 2.25): tail 3.78e-02, axis-node excess 8.50e-01
+A1 free resolved to v = 1.8 (tail <= 1e-6): True; free unresolved from 1.9 (tail >= 1e-2): True; cp tail at least ten
+    times the free one below 1.8: True -> PASS
+A2 (1 + x) d(m_uv)/d(R_uv) at the node nearest x = -1, and (1 - x) d(n_uv)/d(R_uv) at the node nearest x = +1,
+    Tangherlini cell R = 2: M = 8 (x = -0.98079): -1.5000, -1.5000; M = 16 (x = -0.99518): -1.5000, -1.5000; M = 32 (x =
+    -0.99880): -1.5000, -1.5000; M = 64 (x = -0.99970): -1.5000, -1.5000
+A2 the response is c/(1 + x) with c != 0, the same c at every M: PASS
+A3 Tangherlini (M = 8), spurious max |m| and the error of R at r > 1.5, at 100, 200, 400 rows:
+   orig: 100: |m| 2.02e-02, err R 1.15e-02; 200: |m| 1.04e-03, err R 4.56e-04; 400: |m| 1.10e-04, err R 2.43e-04
+   reg : 100: |m| 1.53e-12, err R 3.07e-03; 200: |m| 8.15e-13, err R 7.66e-04; 400: |m| 7.33e-13, err R 1.91e-04
+   ctl : 100: |m| 5.10e+03, err R 8.79e-01; 200: |m| 7.54e-03, err R 3.49e-03; 400: |m| 4.90e-04, err R 1.32e-04
+A3 the regularisation removes the spurious m at least tenfold without raising the error of R: False; control (sign
+    reversed) raises it: True -> FAIL
+cpaxis5 (813 s): FAILURES

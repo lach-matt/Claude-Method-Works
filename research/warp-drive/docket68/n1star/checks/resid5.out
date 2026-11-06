@@ -1,0 +1,12 @@
+box: u in [-4.00, -1.10], v in [0.55, 1.60], x in [-1, 1] (angular nodes); degrees D_xi 24, D_v 30
+  l1_M16_800: Q1 fit error per field: R 6.4e-13, m 6.7e-11, n 4.0e-11, W 5.3e-13, s 5.8e-12
+      Q2 residual, frame components, max |.| and (max |.|/sqrt(K_0)):
+         ll 2.89e-03 (2.46e-03), ln 7.16e-05 (1.53e-04), nn 9.31e-05 (7.46e-05), lx 2.79e-04 (4.25e-04)
+         nx 6.46e-05 (2.47e-05), xx 1.30e-04 (2.02e-04), 11 1.13e-04 (6.24e-05), 22 1.50e-04 (2.14e-04)
+  l1_M16_400: Q1 fit error per field: R 2.4e-12, m 1.6e-11, n 2.6e-11, W 2.8e-13, s 3.9e-12
+      Q2 residual, frame components, max |.| and (max |.|/sqrt(K_0)):
+         ll 1.11e-02 (9.64e-03), ln 2.59e-04 (5.92e-04), nn 3.47e-04 (2.93e-04), lx 1.08e-03 (1.66e-03)
+         nx 2.22e-04 (8.67e-05), xx 4.80e-04 (7.79e-04), 11 4.33e-04 (2.41e-04), 22 5.70e-04 (8.27e-04)
+  worst relative residual: 2.46e-03 (l1_M16_800), 9.64e-03 (l1_M16_400), ratio 3.92
+  control (W + 0.01 v): worst relative residual 3.44e-01, 140 times the approximant's -> fails (good)
+resid5: control behaves (650 s)

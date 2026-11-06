@@ -1,0 +1,76 @@
+  M0 (exact): V_0, V_1, V_2, V_V = (k + 3/4) U + b Q with b = 9/4, 5/4, -7/4, -27/4: True; V_S = a U - (39/4) Q + U g_m
+      and P_S' = P'_(a, -39/4) + E(y, 1/m), E = -48*epsilon*y*(162*epsilon**2*y**4 - 144*epsilon**2*y**3 +
+      18*epsilon**2*y**2 + 75*epsilon*y**3 - 72*epsilon*y**2 + 9*epsilon*y + 10*y**2 - 12*y + 3)/(6*epsilon*y + 1)**3:
+      True; U' vanishes on r > 1 only at r = 2^(1/2): True
+  M0 (exact) Lemma R7's elementary inequalities: |sigma'| <= 1/4, max |sigma''| = 1/(6 3^(1/2)) < 1/10: True; (r + 1)^2
+      e^(-2r) r^-5 decreasing (its log-derivative 2/(r + 1) - 2 - 5/r < 0): True; f = (r + 1)^2 e^(2 r_*) e^(-2r)/r^2:
+      True
+  M1 family A, l >= 1, b in [5/4, 9/4] (V_0, V_1): (s_L, s_R, k_s, centre offset) = (23/25, 4, 1, 0): w >= 0 on R True
+      (645+355 enclosures; left tail ratio <= 0.0000803, right <= 3.49e-20); min_I w >= 0.071345, m' >= 0.066138, M' <=
+      0.69999; B(0+, 1, 3, 10) <= 22.81, 43.09, 96.14, 290.9 (16 s)
+  M2 family B, l >= 2, b in [-7/4, 9/4] (V_0, V_1, V_2, V_T): (s_L, s_R, k_s, centre offset) = (49/50, 4, 1, 0): w >= 0
+      on R True (687+377 enclosures; left tail ratio <= 0.127, right <= 1.25e-20); min_I w >= 0.15881, m' >= 0.070729, M'
+      <= 0.66610; B(0+, 1, 3, 10) <= 13.99, 21.45, 44.05, 130.9 (15 s)
+  M3 family C, l >= 3, b in [-39/4, 9/4] (V_V and all aU + bQ): (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0
+      on R True (453+219 enclosures; left tail ratio <= 0.0966, right <= 7.38e-47); min_I w >= 0.23036, m' >= 0.040543,
+      M' <= 0.76964; B(0+, 1, 3, 10) <= 15.02, 18.94, 32.83, 91.35 (15 s)
+  M4 V_S, every l >= 4 (majorant, eps <= 1/21): (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0 on R True (535
+      enclosures; left tail ratio <= 0.0566, right <= 4.70e-47); min_I w >= 0.28670, m' >= 0.040543, M' <= 0.76964; B(0+,
+      1, 3, 10) <= 13.39, 16.30, 27.02, 73.63 (39 s)
+  M5 V_2 at l = 1: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 3/10): w >= 0 on R True (679 enclosures; left tail
+      ratio <= 0.105, right <= 2.53e-63); min_I w >= 0.012006, m' >= 0.041579, M' <= 0.85611; B(0+, 1, 3, 10) <= 95.35,
+      246.2, 574.6, 1739 (8 s)
+  M5 V_V at l = 2: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 4/5): w >= 0 on R True (281 enclosures; left tail
+      ratio <= 0.0378, right <= 2.11e-63); min_I w >= 0.12423, m' >= 0.078951, M' <= 0.85621; B(0+, 1, 3, 10) <= 15.86,
+      27.07, 57.01, 168.5 (8 s)
+  M5 V_S at l = 2: (s_L, s_R, k_s, centre offset) = (49/50, 3/2, 1/2, 7/10): w >= 0 on R True (335 enclosures; left tail
+      ratio <= 0.0276, right <= 1.85e-63); min_I w >= 0.018958, m' >= 0.069537, M' <= 0.85619; B(0+, 1, 3, 10) <= 59.64,
+      155.7, 363.8, 1101 (10 s)
+  M5 V_S at l = 3: (s_L, s_R, k_s, centre offset) = (49/50, 2, 1, 0): w >= 0 on R True (309 enclosures; left tail ratio
+      <= 0.0669, right <= 7.38e-47); min_I w >= 0.25443, m' >= 0.040543, M' <= 0.76964; B(0+, 1, 3, 10) <= 14.25, 17.68,
+      30.04, 82.82 (8 s)
+  M6 V_0 (scalar step), l = 0: ||chi_I R(sigma) chi_I|| <= E2-PILOT 3g: 164.5, 183.5, 275.2, 725.0 (cited) at sigma = 0+,
+      1, 3, 10
+  M6 V_0, V_1, l = 1: ||chi_I R(sigma) chi_I|| <= 22.81, 43.09, 96.14, 290.9 at sigma = 0+, 1, 3, 10
+  M6 V_0, V_1, V_2, V_T, l >= 2: ||chi_I R(sigma) chi_I|| <= 13.99, 21.45, 44.05, 130.9 at sigma = 0+, 1, 3, 10
+  M6 V_2, l = 1: ||chi_I R(sigma) chi_I|| <= 95.35, 246.2, 574.6, 1739 at sigma = 0+, 1, 3, 10
+  M6 V_V, l = 2: ||chi_I R(sigma) chi_I|| <= 15.86, 27.07, 57.01, 168.5 at sigma = 0+, 1, 3, 10
+  M6 V_V, l >= 3: ||chi_I R(sigma) chi_I|| <= 15.02, 18.94, 32.83, 91.35 at sigma = 0+, 1, 3, 10
+  M6 V_S, l = 2: ||chi_I R(sigma) chi_I|| <= 59.64, 155.7, 363.8, 1101 at sigma = 0+, 1, 3, 10
+  M6 V_S, l = 3: ||chi_I R(sigma) chi_I|| <= 14.25, 17.68, 30.04, 82.82 at sigma = 0+, 1, 3, 10
+  M6 V_S, l >= 4: ||chi_I R(sigma) chi_I|| <= 13.39, 16.30, 27.02, 73.63 at sigma = 0+, 1, 3, 10
+  M6 every master operator of III.D (M2)-(M4) and of III.F'' Theorem 2.2, every l in its range (l = 0 of V_0 by E2-PILOT
+      3g): ||chi_I R(sigma) chi_I|| <= max(the rows) = 95.35, 246.2, 574.6, 1739 at sigma = 0+, 1, 3, 10, and at every
+      real sigma != 0 by B(sigma), increasing in |sigma|
+  M7 the tensor master relation f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi (exact, independent of
+      gmodes5's code): True
+  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: True) on I x S^3 with r^3 dr dw and the static frame's
+      pointwise norm: per row, |u|^2 r^3 = c f |Phi|^2 and |G|^2 = k f |F|^2 r^3 f, so ||u||_I <= (c k)^(1/2) (max_I f) B
+      ||F||_I, over the operator's factor; derived scalar 15/16, vector 1-form 15/16, tensor 2-tensor 15/16, each the
+      printed 15/16 (tensor: c = 4, k = 1, factor 2 for (2 L)^-1): True; so, Phi being the outgoing solution (the class
+      of III.D Proposition 6.2 and III.F'' Proposition 3.1): ||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on functions
+      (E2-PILOT's B) and on the vector-type 1-form blocks (V_1: l = 1 21.39, 40.39, 90.14, 272.7, l >= 2 13.12, 20.11,
+      41.30, 122.7), and ||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 13.12,
+      20.11, 41.30, 122.7), at sigma = 0+, 1, 3, 10
+  C1 (control): family C's multiplier centred at r_*(2^(1/2)) + 1/2: -phi U' at r = 1.45 <= -0.005476 < 0, the
+      monotonicity in a fails: True
+  C2 (control): V_V at l = 1 with phi_A: the bisection fails (True) and w <= -0.3617 at t = [-3.4975, -3.4975]: True
+  C3 (control): the V_S majorant from l = 3 (eps <= 1/12) with phi_C: W_S <= -0.1777 at t = [-3.83, -3.83]: True
+  C4 (control): family B with s_L = 3/2: 1/s_L - 1 = [-0.3333, -0.3333] < 0, the left tail bound grows toward the
+      horizon: True
+  C5 (control): the tensor row with G = 2 f r^(3/2) B (round 1's reading of the bracket): the derived factor is 15/8, not
+      the printed 15/16: True
+  (278 s)
+M0 PASS
+M1 PASS
+M2 PASS
+M3 PASS
+M4 PASS
+M5 PASS
+M6 PASS
+M7 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS

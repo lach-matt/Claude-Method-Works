@@ -1,0 +1,10 @@
+  Z1: u_h = P_(l/2)(2 r^2/mu - 1) solves A_l u = 0 (exact): {0: True, 2: True, 4: True, 6: True, 8: True}
+  C1 (control): the next polynomial, P_((l+2)/2), in Z1's test: solves for none: True
+  Z2: r^3 conj(u) A_l u = -(r^3 f conj(u) u')' + r^3 f |u'|^2 + l (l + 2) r |u|^2 (exact, symbolic u): {1: True, 2: True,
+      4: True, 10: True}; so ||r^-1 u|| <= ||r A_l u||/(l (l + 2)) in L^2(r^3 dr) for l >= 1: constants ['1/8', '1/24',
+      '1/48', '1/80'] at l = 2, 4, 6, 8 (<= 1/8 for every even l >= 2)
+  C2 (control): the identity with l (l + 1): holds for none: True
+Z1 PASS
+C1 PASS
+Z2 PASS
+C2 PASS

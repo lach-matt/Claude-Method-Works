@@ -1,0 +1,25 @@
+  B1: g0 + h, h generic in the eight invariant components, phase v + psi generic, lam exact: in the seven components [(0, 3), (0, 4), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+      Ric = 0: True; gauge term = 0: True; so Ric^H = 0: True; no component of the fifteen contains phi1, phi2: True [68s]
+  B1 control (g0 + f dv dphi1): non-invariant components not identically zero: [(0, 3), (1, 3), (2, 3)]; coefficient of d_th^2 f in Ric^H_(v phi1): -1/(2*r**2)
+B1 PASS
+  B2: engine against lead5 and stage5 S1 (b): R^(-1) = 0, R^(0) = R_v^(0)[W] - (1/2) e1 d_s^2 W: True;
+      no stage-2 or stage-3 unknown below lam^1: True; at lam^1 (stage5 S1 (c)) m2, phi2 only in -(1/2)(2 ell.d phi2 - m2(ell, ell)) d_s^2 W, g3, m3, phi3, g4 absent: True;
+      in R^(2): g4 absent: True; m3, phi3 only in -(1/2)(2 ell.d phi3 - m3(ell, ell)) d_s^2 W: True; g3 only as -(ell.d) d_s g3 - (1/2) e1 d_s^2 g3 + (no X-derivative, one d_s): True,
+      with no g2 in its coefficients: True; second derivatives of m2 only in -(1/2) box~ m2: True; of phi2 only in -(1/2)(box~ phi2) d_s W: True [engine 185s, checks 6s]
+  B2 control (u = v + r/3): engine against lead5 and stage5 S1 (b): R^(-1) = 0, R^(0) = R_v^(0)[W] - (1/2) e1 d_s^2 W: False;
+      no stage-2 or stage-3 unknown below lam^1: True; at lam^1 (stage5 S1 (c)) m2, phi2 only in -(1/2)(2 ell.d phi2 - m2(ell, ell)) d_s^2 W, g3, m3, phi3, g4 absent: False;
+      in R^(2): g4 absent: False; m3, phi3 only in -(1/2)(2 ell.d phi3 - m3(ell, ell)) d_s^2 W: False; g3 only as -(ell.d) d_s g3 - (1/2) e1 d_s^2 g3 + (no X-derivative, one d_s): False,
+      with no g2 in its coefficients: True; second derivatives of m2 only in -(1/2) box~ m2: True; of phi2 only in -(1/2)(box~ phi2) d_s W: True [engine 185s, checks 29s]
+B2 PASS
+  B3 (i): the linearisation of Ric^H at g0 on the scalar-type sector of Y (Y'' = -2 cot 2th Y' - kappa2 Y) closes, every multiple free of th: True;
+      the reduced 1+1 system's terms per equation: {'(0, 0)': 23, '(0, 1)': 18, '(1, 1)': 12, '(0, 2)': 14, '(1, 2)': 16, 'L': 18, 'T': 11}; sigma^* = (-1)^k on the sector, k = 1, 2, 3 (P_k(cos 2th)): {1: True, 2: True, 3: True} [13s]
+  B3 (ii): S3's source = -(4 A^2 E^2/(9 r^3)) d_th Z(cos 2th) dv dth, Z(x) = -(1/2) int_0^x h(y^2)^2: True; Z odd for every h: True;
+      record's H (h^2 = 2/(1 + x^2), Z = -atan x: True): Legendre coefficients k = 0..7: [0, 3/2 - 3*pi/4, 0, -49/6 + 21*pi/8, 0, 583/15 - 99*pi/8, 0, -1371/7 + 1995*pi/32]
+  B3 (iii): k = 1, h constant, L0 m1 = -S, f = sum_j c_(f,j)(v) r^(-j - w), w = 1 for H_L, H_T, 0 else, j <= 5:
+      each order a linear transport c_j' = A c_j + (lower) in v with factors [-3/2, -1/2, 1/2, 3/2, 5/2, 7/2, 9/2], all half-odd (never the radiation weight); with zero data before the shell
+      (P = A^2 E^2 h0^2 = 0 there) 27 of 42 coefficients vanish identically; the first nonzero: c_(fv,2)' = -4*P(v)/27, so
+      m1_(v th) = 8*Q*sin(2*theta)/27 r^-2 + O(r^-3), Q = int_-oo^v P; sigma-odd (k = 1); equations satisfied through each order: True
+  B3 (iv): the m1-linear part of <R^(1)[g0 + lam (W + m1)]> (W, chi of S3), generic m1 in the eight components:
+      111 coefficients (target component, m1 component, derivative); sigma-equivariant coefficient by coefficient: True [129s]
+  B3 control: the k = 2 sector sigma-odd: False; one quadrature: m1's operator sigma-equivariant: False
+B3 PASS

@@ -1,0 +1,17 @@
+  G4 N1STAR-PROOF.md md5 5043cedfe02904bc06782ffd6efbb575: Lemma 6.2 statement 718; Lemma 6.2 proof range 724; Lemma 6.2
+      stage N fixed 725; 6.4 949; 6.4 seed data 960; RESPONSE-HL-5D.md md5 4c1210818f03bcf7d4875a5b11d8b568: Theorem A
+      492
+G4 PASS
+  G2 box f_M = -2 Psi_M Q b_M (M = 3): True; b_1 = -(3/8)(r^(-5/2) + mu0 r^(-9/2)): True; b_2 = -3*(-27*mu0**2 +
+      10*mu0*r**2 + 5*r**4)/(128*r**(15/2)); Hessian vv = d_v^2 f - (F'/2) d_v f - (F F'/2) d_r f: True; at the horizon
+      (grad grad f_M)_vv = mu0**(-3/4) psi'' + -7/(4*mu0**(5/4)) psi' + ...: True
+G2 PASS
+  G3 lam = 1e-100: dominated on [3 lam, x_1] with x_1 = 0.0001855 (env(x_1) = lam^23.413; x_b = 1.0e-50, window x_w =
+      0.00031021), free term at the window below a tenth of lam^3 env: True; lam = 1e-1000: dominated on [3 lam, x_1]
+      with x_1 = 2.326e-5 (env(x_1) = lam^18.671; x_b = 1.0e-500, window x_w = 3.1021e-5), free term at the window below
+      a tenth of lam^3 env: True
+G3 PASS
+  G1 h = 2 grad grad f, f(v, r, th) arbitrary: dD(h) = d(box f): True; dRic(h) = 0 (15 components): True; dRic^H(h) =
+      -grad grad(box f): True  [190 s]
+G1 PASS
+stagefree5: all checks pass, every control fails  [195 s]

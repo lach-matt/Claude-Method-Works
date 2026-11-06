@@ -1,0 +1,42 @@
+  K1: 18 sites; B and A sites 11, each classified: True; by effectiveness: {'calculus': 6, 'N1-kind': 1, 'base': 1, 'as
+      written': 1, 'proofs': 2}
+      II-A-SETUP:960 [calculus] boundedness of multiplication by C^(d0)_e3b on H^s_e3b by the symbol calculus of S5-S8 (a
+      direct estimate); hides: d0 (coefficient regularity); size: dimensional constant x a C^(d0) seminorm
+      II-A2-STANDARD:130 [calculus] integration by parts in the composition integral for uniformly separated essential
+      supports; hides: the residual order -N; size: product of symbol seminorms x separation^-N
+      II-A2-STANDARD:186 [calculus] the separate bounds of the multilinear map made explicit (then C = 2^r, printed);
+      hides: the seminorms p_i; size: C = 2^r times the explicit separate bounds
+      II-A2-STANDARD:188 [calculus] Calderon-Vaillancourt with an explicit seminorm order; hides: the seminorm order M;
+      size: dimensional constant x a seminorm of order M
+      II-A2-STANDARD:276 [calculus] Calderon-Vaillancourt for Op(a) on variable-order spaces; hides: the seminorm order
+      M; size: dimensional constant x ||a||_(M)
+      II-A2-STANDARD:281 [calculus] the composition remainder by Taylor's formula in the oscillatory integral; hides: the
+      seminorm order; size: product of seminorms
+      II-F-IOTA:1400 [N1-kind] a certified lower bound for T on ker Pi (its least singular value); hides: none; size:
+      1/sigma_min(T|ker Pi): not bounded by the a priori constants (K3)
+      III-H-AUGMENT:425 [base] the Neumann series of K2; hides: none; size: i! ||R*||^(i+1) (||T|| + 2|s*| ||P2|| +
+      ||P2||)^i, given ||R*||
+      III-I4-BOOST:274 [as written] III.I' Proposition 2.1's constructive bound (printed beside it); hides: none; size:
+      that proposition's explicit bound
+      III-J3-TAME:41 [proofs] read each statement's bound off its proof (J3:42-46 does so for eps'); hides: eps'(eps, k),
+      a weight loss; size: product of the chained constants
+      III-J3-TAME:82 [proofs] the chain of explicit estimates of the membership statement; hides: the loss d of the
+      statement; size: C_k: product of the chained constants
+  K2: ||c_i|| / ([h^i] ||R*||/(1 - a h - p h^2)) over 200 random families, i <= 8: largest 1.0000 <= 1; the recursion
+      equals finite differences of the inverse at i = 2: True
+  C2 (control): without the P2 term the bound is violated (A = 0, P2 = 5 I): True
+  K3: T = diag(0, eps), j = id: (C of the a priori estimate, ||T||, ||Pi||, open-mapping constant) = [('1', '0.1', '1',
+      '10'), ('1', '0.001', '1', '1e+03'), ('1', '1e-06', '1', '1e+06')] for eps = 1e-1, 1e-3, 1e-6 (computed): inputs
+      fixed, output 1/eps
+  C3 (control): K3's computation on T = diag(0, 1): output ['1', '1', '1'], not growing: K3 fails for it: True
+  C1 (control): a planted site is unclassified: True
+  K4: hidden orders and losses: II-A-SETUP:960 d0 (coefficient regularity); II-A2-STANDARD:130 the residual order -N;
+      II-A2-STANDARD:186 the seminorms p_i; II-A2-STANDARD:188 the seminorm order M; II-A2-STANDARD:276 the seminorm
+      order M; II-A2-STANDARD:281 the seminorm order; III-J3-TAME:41 eps'(eps, k), a weight loss; III-J3-TAME:82 the loss
+      d of the statement
+K1 PASS
+K2 PASS
+C2 PASS
+K3 PASS
+C3 PASS
+C1 PASS

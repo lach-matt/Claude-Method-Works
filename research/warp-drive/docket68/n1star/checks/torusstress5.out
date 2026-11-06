@@ -1,0 +1,20 @@
+  V1: lam^-1 coefficient of d_a(H^ab d_b f) vanishes on a null phase: True;
+      its lam^0 th-mean is d_a(H0^ab d_b f0) exactly: True;
+      the quadratic term of Ric[h] keeps its Isaacson mean (3/2) <(d_th psi1)^2> du du: True;
+      control (h^ab d_a d_b f) acquires a mean term: True
+  V2: T_(phi phi) = 0 exactly for a measure on momenta with p_phi = 0, > 0 once one has p_phi != 0:
+      True
+  V3: (a) an so(3)-commuting symmetric form on the angular space is c I (Schur): True;
+      (b) sum w p_th^2 = 0 forces p_th = 0 for positive weights (least eigenvalue of diag(2 w) > 0;
+      control, one negative weight, admits a nonzero p_th and is rejected): True;
+      a measure with p_p = 0 and one p_th != 0 is not round: True
+  V3 control: without V2, the isotropic angular measure is round (True) with T_thth = 2 > 0, so round
+      alone does not give p_th = 0: the implication is rejected: True
+  V4: radial null momenta at a point of Vaidya are dv and k_out, and their stress is two null dusts: True;
+      (k_in, k_out roots of the actual g0^-1, every momentum null, the stress solved into span(k_in k_in,
+      k_out k_out)); controls rejected (a momentum with p_th != 0 added: no solution; k_out from a wrong
+      metric not null): True
+V1 PASS
+V2 PASS
+V3 PASS
+V4 PASS

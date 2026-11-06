@@ -2,12 +2,14 @@
 
 *Status.* Written (D316); verified (D318: verifier 138's three minor findings and six notes repaired, findings
 (VI.B3)-(VI.B5)); the repairs read by verifier 139, whose one further minor finding (the Jacobian of $\Psi_b$ in $h'$)
-and two notes are repaired (D321). Proved (D323): verifier 140 read the D321 repairs, correct. This part carries Part
-VI.A's horizon hypotheses, the dynamical parts of (H3) and all of (H4), from $b_0$ to every $b$ near $b_0$, uniformly in
-$b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every $b\in\mathcal B$ by VI.A Lemma 1.1. The trapped
-set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and (H8), are Part VI.B$'$. The one new fact used is that the
-Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$ of III.B's Kerr-Schild form (Lemma 1.1). It is proved here
-by an exact identity. The rest is continuity on compact sets, after a diffeomorphism that fixes the horizon (Lemma 1.2).
+and two notes are repaired (D321). Proved (D323): verifier 140 read the D321 repairs, correct. Amended (D373): the radii
+are VI.A's repaired ones (VI.A finding (VI.A7)), and $\Psi_b$ and (H4) are read on $\{|x|\ge\frac38R_1\}$. This part
+carries Part VI.A's horizon hypotheses, the dynamical parts of (H3) and all of (H4), from $b_0$ to every $b$ near $b_0$,
+uniformly in $b$ as (H5) asks. (H6), (K1) and the first clause of (K4) hold for every $b\in\mathcal B$ by VI.A Lemma
+1.1. The trapped set and the global dynamics near $b_0$, (Γ.1)-(Γ.3), (K3) and (H8), are Part VI.B$'$. The one new fact
+used is that the Myers-Perry horizon is the null hypersurface $\{r_A = r_+\}$ of III.B's Kerr-Schild form (Lemma 1.1).
+It is proved here by an exact identity. The rest is continuity on compact sets, after a diffeomorphism that fixes the
+horizon (Lemma 1.2).
 
 ## 1. The horizon
 
@@ -37,7 +39,7 @@ $t$-independent components. $\square$
 (1.2) is the Boyer-Lindquist component $g^{rr} = \Delta/\varrho^2$ of the Myers-Perry metric, written in III.B's
 coordinates; the radius $r_A$ of the Kerr-Schild form is the Boyer-Lindquist $r$.
 
-**Lemma 1.2 (fixing the horizon).** There are $\epsilon_H>0$ and diffeomorphisms $\Psi_b$ of $\{|x|\ge\frac12R_1\}$, for
+**Lemma 1.2 (fixing the horizon).** There are $\epsilon_H>0$ and diffeomorphisms $\Psi_b$ of $\{|x|\ge\frac38R_1\}$, for
 $|b-b_0|<\epsilon_H$, smooth in $(b,x)$, with $\Psi_{b_0} = \mathrm{Id}$, $\Psi_b = \mathrm{Id}$ on
 $\{|x|\le\frac58R_1\}$ and on $\{|x|\ge\frac74R_1\}$, and $\Psi_b(\{|x| = r_h\}) = \mathcal H_b$. Its spacetime lift is
 $(t,x)\mapsto(t,\Psi_b(x))$.
@@ -48,8 +50,8 @@ contains $r_h = \mu_0^{1/2} = R_1$ (III.B section 2). Put $\tilde r_b :=
 3.1 (b)), $\tilde r_b\to|x|$ in $C^\infty$ as $b\to b_0$, and $\mathcal H_b = \{\tilde r_b = r_h\}$ near $\{|x| =
 r_h\}$. Define $\Psi_b(x) := \lambda\hat x$, with $\lambda = \lambda_b(x)$ solving $\tilde r_b(\lambda\hat x) = |x|$. As
 $\partial_\lambda\tilde r_b(\lambda\hat x) = 1+O(|b-b_0|)$, $\lambda\mapsto\tilde r_b(\lambda\hat x)$ is strictly
-increasing on $[\frac12R_1,\infty)$ and equal to $\lambda$ off $\mathrm{supp}\,\chi$, so it is a bijection of
-$[\frac12R_1,\infty)$, $\lambda_b$ is defined globally and smooth by the implicit function theorem, and $\Psi_b$ is a
+increasing on $[\frac38R_1,\infty)$ and equal to $\lambda$ off $\mathrm{supp}\,\chi$, so it is a bijection of
+$[\frac38R_1,\infty)$, $\lambda_b$ is defined globally and smooth by the implicit function theorem, and $\Psi_b$ is a
 diffeomorphism. It is the identity where $\chi = 0$, and it maps $\{|x| = r_h\}$ onto $\{\tilde r_b = r_h\}$, which is
 $\mathcal H_b$: on $\{\chi = 1\}$ it is $\{r_A = r_+\}$, and on the transition region, where
 $|x|\in(\frac58R_1,\frac34R_1)\cup(\frac32R_1,\frac74R_1)$, $\tilde r_b$ is $C^\infty$-close to $|x|$ and so differs
@@ -94,8 +96,8 @@ uniformly in $b$. So (H5)'s uniformity holds for these data.
 
 *Proof.* All symbols depend smoothly on $b$ in $C^\infty$, as $\Psi_b$ does. By the first step of (H4) below,
 $\partial\tilde\Sigma_{0,b}$ lies over $\{r<r_h+\frac12\delta_0\}$. At $b_0$, on $\partial\Sigma_0$ (over $r\le r_h$),
-$C/\xi^2 = -fr^2\le\sup_{[R_1/2,r_h]}(-fr^2)<\infty$, so $|\xi|\ge c|\zeta|$ there; by compactness of
-$S^*\{\frac12R_1\le r\le r_h+\frac12\delta_0\}$ this persists for $b$ near $b_0$. So $\xi\ne0$ on
+$C/\xi^2 = -fr^2\le\sup_{[3R_1/8,r_h]}(-fr^2)<\infty$, so $|\xi|\ge c|\zeta|$ there; by compactness of
+$S^*\{\frac38R_1\le r\le r_h+\frac12\delta_0\}$ this persists for $b$ near $b_0$. So $\xi\ne0$ on
 $\partial\tilde\Sigma_{0,b}$, $\mathrm{sgn}\,\xi$ splits it into two open and closed parts, and $\rho_\infty
 = |\xi|^{-1}$ and the future-directed rescaled field $\mathsf H_b := \mathrm{sgn}(\xi)\rho_\infty H_{\tilde G_{0,b}}$
 are defined on all of it.
@@ -129,7 +131,7 @@ $q_{\pm,b}$ grows forward at the rate $\ge\frac12\beta_0(b_0)$, so $\gamma$ leav
 H_bq_{\pm,b}\ge\frac12\beta_0(b_0)q_{\pm,b}>0$ on the closure of $U$, in particular on $\{q_{\pm,b} = \epsilon_q\}$, so
 the complement of $U$ in $\partial\tilde\Sigma_{0,b}$ is forward invariant and $\gamma$ does not re-enter $U$. Outside
 $U$, $r$ decreases at the rate $\ge\frac{c'}2$, so $\gamma$ reaches $\{r<r_0-\delta_0\}$ within time
-$2(r_h-\frac12R_1)/c'$ after leaving $U$. Backward, $r$ increases outside $U$, so $\gamma$ enters $U$ in finite time. In
+$2(r_h-\frac38R_1)/c'$ after leaving $U$. Backward, $r$ increases outside $U$, so $\gamma$ enters $U$ in finite time. In
 $U$, $q_{\pm,b}$ decreases exponentially backward, so $\gamma(s)\to\partial\mathcal R_\pm$ as $s\to-\infty$. The times
 are bounded uniformly in $b$ on compact sets of initial points away from $\partial\mathcal R_\pm$. $\square$
 

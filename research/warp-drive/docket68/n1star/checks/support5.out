@@ -1,0 +1,41 @@
+  C1: second derivatives of g enter Ric^H only through -(1/2) g^ab d_a d_b g (two random metrics): True;
+      the chain rule's lam^-1 part v_a v_b G_thth: True; d/ds of -(1/2) g^-1 is (1/2) g^-1 w g^-1: True
+C1 PASS
+  C2: lam P([d_s W]) = d_s Ric^H(g0 + lam W): no order below lam^-1: True; lam^-1: True (d_s R^(-1) = 0);
+      lam^0: True, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [58s]
+C2 PASS
+  C3: P(phi [d_s W]) contracted with l (x) l: no lam^-1 or lower term: True; no second derivative of phi at
+      lam^0: True [193s]
+C3 PASS
+  C4: the shifted ball and its segment stay in the annulus: True; length <= 3 lam and lam inside near
+      either sphere: True; b(tau) - a >= 1 on [tau0, tau_end]: True; without |sigma0| <= 1 a point leaves: True
+C4 PASS
+  C14: sigma0 mollified ramp (7/20, 13/20): non-increasing, 1 on [0, 1/3], -1 on [2/3, 1], |sigma0| <= 1:
+      True; sup |sigma0'| = 6.666667; DPhi over the grid: min radial 0.333333 (>= 3/10), min angular 0.848360 (>= 2/5);
+      radial at delta0 = 1, lam = 1/10, b - a = 2: 0.333333; central differences match: True; Z3 with slope 7:
+      Jacobian bounds hold for every admissible lam, delta0, a, b, r: True
+  C14 control: sigma0 slope-12 smooth step: non-increasing, 1 on [0, 1/3], -1 on [2/3, 1], |sigma0| <= 1:
+      True; sup |sigma0'| = 12.000000; DPhi over the grid: min radial -0.200000 (>= 3/10), min angular 0.840313 (>= 2/5);
+      radial at delta0 = 1, lam = 1/10, b - a = 2: -0.200000; central differences match: True; Z3 with slope 12:
+      Jacobian bounds hold for every admissible lam, delta0, a, b, r: False
+C14 PASS
+  C5: the bootstrap's ledger at K = 6 (k = 6, s0 = 3; derived exponents: L^inf lam^(-3 - i), quadratic
+      lam^(-5)):
+      Sobolev range: the L^inf bounds needed up to i = 4 exist (k + 1 - s0 >= 4)                               True
+      Step 3: |w|_inf <= C M lam^(K-3) is small (K - 3 > 0)                                                    True
+      Step 3: |d w|_inf <= C M lam^(K-4) <= C M lam^2 (K - 4 >= 2)                                             True
+      Step 4: the w part of the commutators, C M lam^(K-4) N <= C N                                            True
+      Step 4: the worst nonlinear term lam^(-5) N^2 <= C M^2 lam^(K+1)                                         True
+      Step 4: the lower nonlinear term lam^(-3) N^2 <= C M^2 lam^(K+1)                                         True
+      the residual lam^(N_st - 1), N_st = K + 3, within C_R lam^K                                              True
+      Step 7: the nonlinear term one power above lam^K, so lam0 = 1/(C3 C M^2) closes it                       True
+C5 PASS
+  C6: det g = -N^2 det gamma: True; g(Z, Z) = -N^2: True; g(Z, d_k) = 0: True; inverse along Z
+      (g^00 = -N^-2, g^ij = gamma^-1): True; roots real, opposite, product -N^2 X: True; convex combinations: True
+C6 PASS
+  C8: #dPhi = d_v + (f - r_q') d_r; the first-order term is -(chi + m_vv + 2 (f - r_q') m_vr
+      + (f - r_q')^2 m_rr), W_TT dropping out exactly: True
+C8 PASS
+  C9: m1's source, the lam^1 mean of R^(1) (ansatz5 A5, Bondi-type gauge): only dv dth: True; nonzero: True;
+      S_vth(sigma X) = S_vth(X), so sigma^* S = -S and m1 is odd: True (Proposition 3.3's facts: horizon5.py H1-H3)
+C9 PASS

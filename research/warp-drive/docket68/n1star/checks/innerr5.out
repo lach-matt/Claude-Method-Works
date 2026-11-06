@@ -1,0 +1,5 @@
+  I1: l5 = th a^2/(72^(1/4) mu_end^(1/2)) gives r_q(mu_end) = th^(1/2) a: True;
+      sqrt72 l5^2 = th^2 a^4/mu_end, below mu0 when a^4 < mu0 mu_end: True
+I1 PASS
+  I2: Kretschmann of 5D Vaidya with mu(v) symbolic = 72*M(v)**2/r**8; equals 72 mu^2/r^8: True
+I2 PASS

@@ -1,0 +1,28 @@
+# python3 checks/cp3grid5.py --dpm <scratch>/r4/cp4/cp_M32_400_reg.npz cp_M32_800_reg.npz
+A10 the regularisation's correction d+- (cpaxis5.py A3), replayed at every cell from the stored solution: max |d+-| per
+    band and areal-radius class, with max |d+-|/max |R_uv| in brackets, at 400, 800 rows, and the successive ratios:
+  areal radius 0.9-1.0:
+   v in [0.50, 1.00): 1.33e-03 [3.0e-04], 3.54e-04 [7.9e-05]; ratios 3.76
+   v in [1.00, 1.50): 2.03e-02 [2.3e-03], 5.40e-03 [6.0e-04]; ratios 3.75
+   v in [1.50, 1.65): 8.58e-02 [6.8e-03], 2.40e-02 [1.8e-03]; ratios 3.58
+   v in [1.65, 1.80): 8.90e-01 [4.0e-02], 2.52e-01 [1.1e-02]; ratios 3.52
+   v in [1.80, 1.90): 6.96e+00 [2.1e-01], 1.84e+00 [5.4e-02]; ratios 3.79
+   v in [1.90, 2.00): 9.39e+00 [2.6e-01], 6.24e+00 [1.7e-01]; ratios 1.50
+   v in [2.00, 2.25): 1.55e+01 [5.1e-01], 1.57e+01 [5.3e-01]; ratios 0.98
+  areal radius 1.0-1.2:
+   v in [0.50, 1.00): 4.05e-04 [1.5e-04], 1.04e-04 [3.8e-05]; ratios 3.91
+   v in [1.00, 1.50): 7.05e-03 [1.4e-03], 1.84e-03 [3.6e-04]; ratios 3.83
+   v in [1.50, 1.65): 2.47e-02 [3.6e-03], 6.51e-03 [9.4e-04]; ratios 3.80
+   v in [1.65, 1.80): 1.52e-01 [1.4e-02], 4.05e-02 [3.5e-03]; ratios 3.75
+   v in [1.80, 1.90): 9.24e-01 [5.2e-02], 2.41e-01 [1.3e-02]; ratios 3.84
+   v in [1.90, 2.00): 4.62e+00 [1.6e-01], 1.83e+00 [6.6e-02]; ratios 2.53
+   v in [2.00, 2.25): 2.13e+01 [7.4e-01], 2.12e+01 [7.5e-01]; ratios 1.01
+  areal radius >= 1.2:
+   v in [0.50, 1.00): 3.91e-05 [3.5e-05], 9.87e-06 [8.7e-06]; ratios 3.96
+   v in [1.00, 1.50): 1.15e-03 [6.5e-04], 2.99e-04 [1.7e-04]; ratios 3.84
+   v in [1.50, 1.65): 2.75e-03 [1.3e-03], 7.36e-04 [3.5e-04]; ratios 3.74
+   v in [1.65, 1.80): 7.79e-03 [2.9e-03], 1.98e-03 [7.4e-04]; ratios 3.93
+   v in [1.80, 1.90): 1.67e-02 [4.9e-03], 4.25e-03 [1.2e-03]; ratios 3.94
+   v in [1.90, 2.00): 3.42e-02 [7.3e-03], 9.39e-03 [1.9e-03]; ratios 3.64
+   v in [2.00, 2.25): 1.87e-01 [2.0e-02], 9.67e-02 [9.9e-03]; ratios 1.93
+cp3grid5 --dpm (878 s)

@@ -1,0 +1,551 @@
+#!/usr/bin/env python3
+"""lzerotrace5: Theorem 1's lambda0 at the paper's point, every factor traced to N1STAR-PROOF.md by line, and the
+certified upper bound recomputed from the record's own definitions (CONSTANTS5.md, Round 3, item (i)).
+
+lambda0 is the threshold of N1STAR-PROOF.md sections 0-6 (Theorem E with Theorem D): the minimum of nine terms
+(CONSTANTS5.md 1.3 and R2.1 V-m4), each the smallness condition of one step. The point P* is round 1's (l5 = 1/10,
+mu0 = 1, A = 1, T = 1, tau0 = -2, K = 6, N = 9, a = q0/2) with round 2's C_c^inf envelope (envelope5.py). Labels:
+READ (a quoted fragment asserted on the cited line), deduced (an argument from the cited lines), certified (exact
+rationals, square roots in certified rational bounds; mpmath.iv for the envelope constant), computed (floating point,
+where said).
+
+  T0 (READ, computed) N1STAR-PROOF.md lines 1-805 have the md5 round 2 pinned (lzeroaudit5.py A0), and every row of
+     the trace table carries a fragment found verbatim on its cited line. The table covers the nine terms of the
+     minimum and every factor of the two terms that are evaluated.
+  T1 (certified) the domain at P*: q0^8 = 9/1250, a = delta0 = q0/2, lam1 := min(1, delta0)/10 = q0/20 (:177).
+  T2 (certified, exact) Lemma 1.1 (e)'s eps1 (:159-162) is below lam_n := (3 + mu_end/r^2)/5 = 0.6013096 under
+     every reading of |.|: at the corner of the outer boundary, r = b(tau0) (taken at the lower end of its certified
+     interval, so that tau >= tau0; mu = mu_end there), the Lorentzian metric g0 - lam_n n n^T, n = (1, -2 xhat)/5^(1/2)
+     in ker d(v + tau), makes that boundary null. Its size is lam_n in the Euclidean operator and Frobenius norms
+     (rank one), and lam_n/5 in the largest-entry norm at xhat = (1,1,1,1)/2. Round 2's point r = 67/5 (2591339/4309440
+     = 0.6013169) is reproduced and is the weaker bound; the verifier of rounds 1-2 found the corner's 0.6013096.
+  T3 (deduced, certified) the wave's size at one point of Omega. From lead5.py's definition of W_TT (lead5.py:8-10,
+     wave() at :58-67), W_TT has only angular components and is diagonal in (th, phi1, phi2), so its eigenvalues for
+     the Euclidean metric are W_thth/r^2, W_p1p1/(r c)^2, W_p2p2/(r s)^2 = -2(a1 + a2), 2 a1, 2 a2 (sympy, exact). At
+     th = 0 (H = 1), phase 0, v = 2 (env = c) and r = a: -(2/3) K, (4/3) K, -(2/3) K, K = c a^(-3/2), so |W_TT| >=
+     (4/3) c a^(-3/2) (operator and largest entry) and (24)^(1/2)/3 c a^(-3/2) (Frobenius), certified with c's lower
+     end from envelope5.py's Riemann sums. Cross-check (floating point): stage0bd5.py's Cartesian form gives the same
+     matrix there.
+  T4 (deduced) every admissible C_app (|g_app - g0| <= C_app lam on Omega for 0 < lam <= lam0, the bound of (0.4)'s
+     profiles that Step 3 (:355-357) uses) is at least sup |W_TT|: g1 = m1 + W(X, th + phi1(X)) with the g_j independent
+     of lam (:541, (0.4) at :94-96); W_TT(s + pi) = -W_TT(s) and chi dv dv, m1 are even (sympy: the phase enters W_TT
+     only through cos s, sin s, and chi only through 2s, lead5 L3-L4), so g1(X, s) - g1(X, s + pi) = 2 W_TT(X, s +
+     phi1); and (g_app - g0)/lam -> g1(X, s0) along lam_j -> 0 with v/lam_j = s0 mod 2 pi.
+  T5 (certified) the bound. Step 3 asks |g_app + w - g0| <= eps1 for every w the bootstrap allows, so the proof's
+     lambda0 satisfies C_app lambda0 < eps1, whatever split between g_app and w is chosen; with :177, lambda0 <=
+     min(lam1, eps1/C_app). Round 1's closed form (1.3) splits eps1 in halves, a choice the proof does not make (Step
+     3 states no split), and gives eps1/(2 C_app). Both are printed for the three readings of |.|, which the proof does
+     not define for arrays (it states the flat L^2 norm ||.|| of the arrays, :83, whose integrand is the Frobenius one).
+  T6 (exact; deduced) the pointwise norm the supplement should state: |A| the Euclidean operator norm of the array of
+     Cartesian components. Then g >= g0 - eps I as forms, and at eps = 3/5 the form g0 - eps I is positive definite on
+     ker dtau (least 2/5), on ker dr at r = a (least 2/5 at P*) and on ker d(v + tau) (least mu/(5 r^2)) and has
+     exactly one negative eigenvalue, so its causal set is a double cone with convex halves on which the three
+     covectors keep their signs: Lemma 1.1 (e) holds with eps1 = 3/5 at P* (the direct cone argument the verifier asked
+     for in place of eps1hyp5.py H2's path argument), and eps1* in [3/5, 0.6013096] there. Frobenius dominates it;
+     under the largest-entry norm, |A|_op <= 5 |A|_max gives eps1* in [3/25, 0.1202619].
+  Controls (must fail, and do): C1 every trace row's line shifted by one: the fragments are not found; C2 the claim
+  C_app >= 12.6 is refuted at the point: |W_TT| there is at most 12.60 - 0.003 (the certification cannot pass a false
+  bound); C3 the parity argument on an even harmonic (cos 2s) gives a zero difference and no bound; C4 a point at r =
+  a - 10^-6 is outside Omega (the domain test rejects it); C5 a direction not in ker d(v + tau) does not make the
+  boundary null (the restricted form keeps a positive least eigenvalue).
+
+    python3 checks/lzerotrace5.py
+Round 4 (the round-3 reader's findings, D614): T0 re-pinned (lines 1-812 and the whole file; every trace line above 86
+moved by +7) with nine rows added (tau_end, b(tau), mu', Lemma 2.3's eps1, C_S, C_R, C_D, C2, C_c) and the D614 norm
+paragraph; T7 (certified) g0's least absolute Euclidean eigenvalue on Omega, which Lemma 2.3 needs eps1 below, and T5
+with it: lambda0 < 0.0024433 (operator norm), lam1 no longer binding; outward rounding (up/down); T2's nullness tested
+through gp^-1; T3's c by interval square roots and its domain by in_omega; T6's signature exact at five m. Controls
+that now mutate the computed path: C3 (T4's parity test on a doubled phase), C4 (T3's domain test), C6 (T7 with mu0).
+Round 7: T0 re-pinned to D616 (lines 1-817, the whole file of 10858 lines); the six trace rows above D614's line 637
+moved by +5 (Lemma 6.3 (c) 704, Proposition 6.5 780, 781, 783, 784, N := K + 3 at 807), each fragment found on its line.
+D623 (the section 0-4 reader's findings seated in sections 0-4, which gain 36 lines): T7 now also asks e_lo <= e_hi and a
+width below 10^-12 (the reader's Minor 3: with the lower end taken from the large eigenvalue, about 32.5, T7 passed); the
+rows in sections 0-4 re-pinned by content (each fragment located in the D623 file), every row below D616's line 457
+moved by +36, and D614's row (:91) replaced by three rows on 0.3's D623 text (Lemma 1.1 (e)'s general condition, s0,
+and eps1 fixed below both); LAST, the end of sections 0-6, located by content (the line '## 7. What is left'). The md5
+pins are not re-pinned here (the main session's pass).
+D625 (the confirming reads of D623 and D622 seated, with D618's status lines): T0 re-pinned to the D625 file (lines
+1-948, to '## 7. What is left', and the whole file of 11287 lines); every row outside section 6 re-keyed by content
+(the D625 map below), section 6's by _repin_section6; T6 says "at P*" (the confirming reader's nit 8: eps1 = 3/5 holds
+at the numerical point, not in general). Later edits to N1STAR-PROOF.md (the confirming read of D618's sections 9.5 and
+11, Lemma 11.0's replacement) will stale FILE_PIN again; PIN, of sections 0-6, only if they reach those sections.
+D627 (the reader of the D625 seating: one minor, eight notes, seated): T0 re-pinned to the D627 file (lines 1-958 and
+the whole file of 11310 lines) and every row outside section 6 re-keyed by content (the D627 map below); the
+seating's wraps keep every fragment on one line. The same later edits will stale FILE_PIN again.
+D630 (WS-B's R6-D seated in Lemma 11.0, section 11's status, four notes in section 10.3): lines 1-958 unchanged (PIN
+and every row unchanged); FILE_PIN re-pinned to the D630 file (11350 lines).
+D631 (WS-A's R12.h texts (1), (2), (9)-(12) and the header's sentence on R6-D): T0 re-pinned (lines 1-960, the whole
+file of 11382 lines); the header is two lines longer, so every row below line 58 outside section 6 moves by +2.
+D632 (the confirming reader of sections 9.5, 9.10 and 11 seated; the header two lines longer again): T0 re-pinned (lines
+1-962, 11400 lines); every row below line 59 outside section 6 moves by +2.
+D633 (status words after D632: the header's sections 9.1-9.5 and Theorem M proved, refilled in place; one line
+added in section 9's status and one in section 11's): T0 re-pinned (lines 1-962, the whole file of 11402 lines); no row
+moves (every edit above line 962 keeps its line count, every row below it is in section 6 or above line 59).
+"""
+import hashlib
+import os
+import sys
+import textwrap
+from fractions import Fraction as Fr
+
+import mpmath
+from mpmath import iv
+import sympy as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import lzeroconst5 as LZ  # noqa: E402  (round 1's certified geometry, imported, not copied)
+import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that enclose c)
+
+PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
+LEAD = os.path.join(HERE, '..', 'lead5.py')
+PIN = '111719cdec3f0fabeb4ef66b4eb1d7e7'          # md5 of lines 1-962 (sections 0-6, to '## 7.') joined by newlines
+LAST = 962                                         # D633 and D632 (0cd93b0e...); 960 at D631, 958 at D627
+SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
+FILE_PIN = '5c1a186aa2528e503e24c336f9a6dcef'     # the whole file at D633 (11402 lines); D632: 5043cedf... (11400)
+# D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
+# lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
+
+# the trace table: (term, factor, line, fragment found verbatim on that line, status)
+CERT, OPEN = 'certified here', 'not evaluated'
+TRACE = [
+    ('lam1', 'lam1 := min(1, delta0)/10', 177, 'lam1 := min(1, delta0)/10', CERT),
+    ('lam1', 'q0 = (sqrt72 mu0 l5^2)^(1/4)', 145, 'q0 := r_q(mu0) = (sqrt(72) mu0 l5^2)^(1/4)', CERT),
+    ('lam1', 'a := q0 - delta0 (P*: delta0 = q0/2)', 146, 'Fix 0 < delta0 < q0, a := q0 - delta0', CERT),
+    ('E-a', 'eps1 of Lemma 1.1 (e)', 160, 'is eps1 > 0 such that for every Lorentzian g with |g - g0| <= eps1', CERT),
+    ('E-a', 'the lateral boundaries stay spacelike', 161, 'Sigma_tau and the two lateral boundaries stay spacelike',
+     CERT),
+    ('E-a', 'the outer boundary {v + tau - tau_end = V + 1}', 150, 'v + (tau - tau_end) <= V + 1', CERT),
+    ('E-a', 'g = g_app + w within eps1 of g0 (Lemma 1.1 (e), Lemma 2.3)', 356, 'so for lam <= lam0(M) the metric g = '
+     'g_app + w', CERT),
+    ('E-a', 'g_app = g0 + lam [g1] + ... (0.4)', 94, 'g_app = g0 + lam [g1] + sum_{j=2}^{N} lam^j [g_j]', CERT),
+    ('E-a', 'profiles bounded independently of lam', 96, 'bounded on Omega x S^1 independently of lam', CERT),
+    ('E-a', '|g - g0| <= C lam (C_app)', 113, '|g - g0| <= C lam', CERT),
+    ('E-a', 'g1 = m1 + W(X, th + phi1(X)), g_j independent of lam', 541,
+     'profiles g_j(X, th) independent of lam with g1 = m1 + W(X, th + phi1(X))', CERT),
+    ('E-a', 'W := W_TT + chi dv dv', 462, 'W := W_TT + chi dv dv', CERT),
+    ('E-a', 'W_TT the record\'s wave (lead5.py)', 461, 'Let W_TT be the record\'s first-order wave', CERT),
+    ('E-b', '|w| <= C lam^(-3) N (Step 1, C_inf)', 348, 'C lam^(-3-i) N for i <= 4', OPEN),
+    ('E-b', '|w| <= eps2/2 (Step 8 (iii), eps2)', 427, 'agrees with the original where |w| <= eps2/2', OPEN),
+    ('E-b', 'eps2 (Step 8 (iii))', 425, 'with eps2 so small that every metric within eps2 of', OPEN),
+    ('E-c', '|d w| <= C M lam^(K-4) (C_dw), M1 independent of M', 356, '|d w| <= C M lam^(K-4) <= C M lam^2', OPEN),
+    ('E-c', 'M1 independent of M', 357, '|d g| <= M1 with M1 independent of M', OPEN),
+    ('E-d', 'C3 := C2 e^{C2 dtau} (1 + dtau) C', 400, 'C3 := C2 e^{C2 (tau_end - tau0)} (1 + tau_end - tau0) C', OPEN),
+    ('E-d', 'M := C3 (C_D + 1 + C_R) + 1', 400, 'Take M := C3 (C_D + 1 + C_R) + 1', OPEN),
+    ('E-d', 'C3 C M^2 lam0 <= 1 (C_N)', 401, 'small that C3 C M^2 lam0 <= 1 and Step 3 holds', OPEN),
+    ('E-d', 'k = 6, K >= 6 (P*: K = 6)', 92, 'Fix k = 6 and K >= 6', CERT),
+    ('D-a', 'frozen coefficients within their margin while ||U_i|| <= 2 C0 lam^(N-2)', 769,
+     'so while ||U_i||_{X_s}', OPEN),
+    ('D-b', 'contraction C lam^(N-3) (C_k)', 772, '<= C lam^(N-3) ||U_i - U_(i-1)||_{X_(s0)}', OPEN),
+    ('D-c', 'alpha and S A0 keep their signs for lam small (m_s, C_s)', 692,
+     'so alpha and S A0 keep their signs for lam small', OPEN),
+    ('D-d', 'iterates stay in the ball of radius 2 C0 lam^(N-2) (C_b)', 771,
+     'keeps the iterates in the ball of radius 2 C0 lam^(N-2)', OPEN),
+    ('D-a', 'N := K + 3 (P*: N = 9)', 795, 'N := K + 3', CERT),
+]
+TRACE += [                                         # Round 4 (verifier m2, MAJOR A): pre-D612 numbering, as above
+    ('E-a', 'tau_end := max_{v <= V} (v - r_q(v))', 148, 'tau_end := max_{v <= V} (v - r_q(v))', CERT),
+    ('E-a', 'b(tau), the outer radius', 152, 'b(tau) = V + 1 - tau + (tau_end - tau)', CERT),
+    ('E-a', "mu' = (2/9) A^2 env^2 (mu_end)", 119, "on the background g0 with mu' = (2/9) A^2 env^2", CERT),
+    ('E-a', 'Lemma 2.3 takes eps1: |gt - g0| <= eps1', 215,
+     'Let gt be a Lorentzian metric on Omega with |gt - g0| <= eps1', CERT),
+    ('E-b', 'C_S (Lemma 2.1; certified in round 1, lzeroconst5 Z3)', 179,
+     '||f||_{L^inf} <= C sum_{i<=3} ||d_x^i f||', CERT),
+    ('E-d', 'C_R (E3)', 101, '|Ric^H(g_app)|_k (tau) <= C_R lam^K', OPEN),
+    ('E-d', 'C_D (E4)', 103, '<= C_D lam^K on', OPEN),
+    ('E-d', 'C2 (Steps 4-6)', 399, 'C2 independent of M and lam', OPEN),
+    ('D-a', 'C_c (Lemma 6.3\'s coefficients frozen at U_i)', 768, 'frozen at U_i they change by at most C lam^-1', OPEN),
+]
+TRACE = [(t, f, ln + 7 if ln > 86 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D612 + D614: +7 above line 86
+TRACE += [('E-a', "eps1 below g0's least absolute eigenvalue on Omega (D614)", 91,
+           "needs it below g0's least absolute eigenvalue on Omega", CERT)]
+TRACE = [(t, f, ln + 5 if ln > 637 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D615 + D616: +5 above 637
+# D623: sections 0-4 re-pinned by content (D616 line -> D623 line, each fragment found once in the D623 file); every row
+# below D616's line 457 moves by +36; D614's row at 91 is replaced by three rows on 0.3's D623 text
+D623 = {99: 113, 101: 115, 103: 117, 108: 122, 110: 124, 120: 134, 126: 140, 152: 166, 153: 167, 155: 169, 157: 171,
+        159: 173, 167: 181, 168: 182, 184: 199, 186: 201, 222: 244, 355: 385, 363: 394, 364: 395, 406: 440, 407: 441,
+        408: 442, 432: 468, 434: 470}
+TRACE = [(t, f, (D623[ln] if ln <= 457 else ln + 36), fr, st) for t, f, ln, fr, st in TRACE if ln != 91]
+TRACE += [('E-a', 'Lemma 1.1 (e): every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 (D623)', 91,
+           'eps1 <= 3/5 with eps1 < mu0/a^2 - 1', CERT),
+          ('E-a', "Lemma 2.3: eps1 below s0, g0's least absolute eigenvalue on Omega (D614, D623)", 96,
+           "s0 := inf over Omega of g0's least absolute eigenvalue", CERT),
+          ('E-a', 'eps1 fixed with 0 < eps1 < min(s0, mu0/a^2 - 1) (D623)', 100,
+           'one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1)', CERT)]
+# D625 (the two confirming reads seated; the header, 0.3, 0.7, Lemmas 2.2 and 3.3, Steps 6 and 8 rewritten or reflowed):
+# every row outside section 6 re-keyed by content (pre-D625 line -> D625 line: the unchanged lines matched line by line
+# against the pre-D625 file, md5 fb2fbf06..., and each fragment found once on its line in the D625 file); section 6's
+# rows are re-keyed by _repin_section6 below, as since D619
+D625 = {91: 110, 96: 114, 100: 122, 113: 135, 115: 137, 117: 139, 122: 144, 124: 146, 134: 156, 140: 162, 166: 188,
+        167: 189, 169: 191, 171: 193, 173: 195, 181: 203, 182: 204, 199: 221, 201: 223, 244: 268, 385: 410, 394: 419,
+        395: 420, 440: 463, 441: 464, 442: 465, 468: 490, 470: 492, 504: 529, 505: 530, 584: 609}
+TRACE = [(t, f, (ln if t.startswith('D-') else D625[ln]), fr, st) for t, f, ln, fr, st in TRACE]
+# D627 (the D625 seating's reader's findings seated: the header, 0.3, 0.7, the mollifier, Lemmas 2.2 and 3.3 and Step
+# 6 rewritten or reflowed, with notes): the same re-key, D625 line -> D627 line, against the D625 file (md5 7400212b...)
+D627 = {110: 114, 114: 119, 122: 128, 135: 141, 137: 143, 139: 145, 144: 150, 146: 152, 156: 162, 162: 168, 188: 194,
+        189: 195, 191: 197, 193: 199, 195: 201, 203: 209, 204: 210, 221: 227, 223: 229, 268: 276, 410: 419, 419: 428,
+        420: 429, 463: 473, 464: 474, 465: 475, 490: 500, 492: 502, 529: 539, 530: 540, 609: 619}
+TRACE = [(t, f, (ln if t.startswith('D-') else D627[ln]), fr, st) for t, f, ln, fr, st in TRACE]
+# D631 (WS-A's R12.h text (11) and the Theorem M sentence on R6-D seated in the header, two lines longer): every row
+# outside section 6 below line 58 moves by +2 (checked line by line against the D630 file, md5 87501cfb...)
+TRACE = [(t, f, (ln if t.startswith('D-') or ln <= 58 else ln + 2), fr, st) for t, f, ln, fr, st in TRACE]
+# D632 (the header's Theorem M sentence on the section 9.5/11 confirming read, two lines longer): every row outside
+# section 6 below line 59 moves by +2 again (checked line by line against the D631 file, md5 88179da4...)
+TRACE = [(t, f, (ln if t.startswith('D-') or ln <= 59 else ln + 2), fr, st) for t, f, ln, fr, st in TRACE]
+
+
+def _repin_section6(rows):
+    """D619: section 6's rows (the Theorem D terms D-a..D-d) re-pinned by content, since the section 6 seating moved
+    them and several agents edit the file at once: such a row takes the one line of section 6 (from its heading to
+    section 7's) that carries its fragment; a fragment on no line of section 6, or on two, keeps its number, and T0
+    then fails on it"""
+    with open(PROOF, encoding='utf-8') as fh:
+        L = fh.read().split('\n')
+    i = next((k for k, l in enumerate(L) if l.startswith('## 6. Theorem D')), None)
+    j = next((k for k, l in enumerate(L) if l.startswith('## 7. What is left')), None)
+    if i is None or j is None:
+        return rows
+    out = []
+    for t, f, ln, fr, st in rows:
+        hits = [k + 1 for k in range(i, j) if fr in L[k]]
+        out.append((t, f, hits[0] if t.startswith('D-') and len(hits) == 1 else ln, fr, st))
+    return out
+
+
+TRACE = _repin_section6(TRACE)
+TERMS = ['lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d']
+NEEDS = {
+    'E-b': 'C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1\'s constant), M, eps2 (g_ext): the profiles',
+    'E-c': 'C_dw and M: Step 1\'s constant and the profiles g_1..g_10 to order about 11',
+    'E-d': 'C2, C_st, C_N, C_R, C_D: Steps 2, 4-7 written with the profiles\' bounds (R2.2 (d)-(f))',
+    'D-a': 'C0, C_c, m_c: Lemma 6.4\'s constant at s0 = 6, s = 8, and the stage data of Lemma 6.2',
+    'D-b': 'C_k: the difference estimate of Lemma 6.4 at s0',
+    'D-c': 'm_s, C_s: the O(lam) part of alpha and S A0 at the approximant\'s data (needs m_1)',
+    'D-d': 'C_b, C0: the quadratic remainder Nl at the approximant\'s data',
+}
+
+
+def say(s):
+    for line in s.split('\n'):
+        print(textwrap.fill(line, 121, subsequent_indent='      ', break_long_words=False, break_on_hyphens=False))
+
+
+def sqrt_lo(x, S=10 ** 30):
+    return LZ.root_iv(x, 2, S)[0]
+
+
+def sqrt_hi(x, S=10 ** 30):
+    return LZ.root_iv(x, 2, S)[1]
+
+
+def mpf_fr(x):
+    m, e = mpmath.mpf(x).man_exp
+    return Fr(int(m)) * Fr(2) ** int(e)
+
+
+def trace_check(lines, shift=0):
+    bad = []
+    for term, factor, ln, frag, _ in TRACE:
+        i = ln - 1 + shift
+        if not (0 <= i < len(lines)) or frag not in lines[i]:
+            bad.append((term, ln + shift))
+    return bad
+
+
+def in_omega(tau, r, v, g):
+    """exact interval test of Omega's three inequalities ((1.1), :150): True only if certain"""
+    te_lo, te_hi = g['tau_end']
+    return (tau >= LZ.TAU0 and tau <= te_lo and r >= g['a'][1] and v + (tau - te_lo) <= g['V'] + 1)
+
+
+def eps1_perturbation(g, xhat, r=None):
+    """g0 - lam n n^T at an outer boundary point (default the corner r = b(tau0), taken at the lower end of its
+    certified interval, so tau >= tau0) with direction xhat (rational, |xhat| = 1): exact"""
+    r = g['b0'][0] if r is None else r
+    mu = g['mu_end']
+    xh = [Fr(c) for c in xhat]
+    assert sum(c * c for c in xh) == 1
+    # the outer boundary: v + tau - tau_end = V + 1, v = tau + r, so tau = (V + 1 + tau_end - r)/2 (an interval)
+    tau_lo = (g['V'] + 1 + g['tau_end'][0] - r) / 2
+    tau_hi = (g['V'] + 1 + g['tau_end'][1] - r) / 2
+    inside = tau_lo >= LZ.TAU0 and tau_hi <= g['tau_end'][0] and tau_lo + r >= LZ.VE   # v > v_end: mu = mu_end
+    U = sp.Matrix([1] + [sp.Rational(c.numerator, c.denominator) for c in xh])          # dv = dtau + xhat.dx
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    g0 = eta + sp.Rational(mu.numerator, mu.denominator) / sp.Rational(r.numerator, r.denominator) ** 2 * U * U.T
+    nvec = sp.Matrix([1] + [-2 * sp.Rational(c.numerator, c.denominator) for c in xh])   # unnormalised (1, -2 xhat)
+    nn = (nvec.T * nvec)[0]                                                               # = 5
+    dvt = sp.Matrix([2] + [sp.Rational(c.numerator, c.denominator) for c in xh])         # d(v + tau) covector
+    in_ker = (dvt.T * nvec)[0] == 0
+    lam_n = (nvec.T * g0 * nvec)[0] / nn
+    gp = g0 - lam_n * nvec * nvec.T / nn
+    null_dir = sp.simplify((dvt.T * gp.inv() * dvt)[0]) == 0   # {v + tau = c} null for gp: gp^-1(d(v+tau), .) = 0
+    # Lorentzian along g0 - t n n^T, t in [0, lam_n]: det = det g0 (1 - t n^T g0^-1 n / |n|^2), linear in t
+    q = (nvec.T * g0.inv() * nvec)[0] / nn
+    lorentz = g0.det() < 0 and (1 - lam_n * q) > 0
+    op = lam_n                                          # rank one, unit n: operator norm = Frobenius norm = lam_n
+    frob = sp.sqrt(sum(e ** 2 for e in (lam_n * nvec * nvec.T / nn)))
+    mx = max(abs(e) for e in (lam_n * nvec * nvec.T / nn))
+    return dict(inside=inside, in_ker=in_ker, lam_n=lam_n, null_dir=null_dir, lorentz=lorentz, op=op, frob=frob,
+                maxe=mx, det=gp.det())
+
+
+def up(q, d):
+    """a decimal string >= q (outward for an upper bound; Round 4, m1)"""
+    n = -((-q.numerator * 10 ** d) // q.denominator)
+    return ('%d.%0' + str(d) + 'd') % divmod(n, 10 ** d) if n >= 0 else '-' + up(-q, d)
+
+
+def down(q, d):
+    """a decimal string <= q (outward for a lower bound)"""
+    n = (q.numerator * 10 ** d) // q.denominator
+    return ('%d.%0' + str(d) + 'd') % divmod(n, 10 ** d)
+
+
+def lemma23_threshold(g, mu=None):
+    """g0's least absolute Euclidean eigenvalue on Omega (MAJOR A of the round-3 reader; certified): the eigenvalues
+    of eta + m U U^T, U = (1, xhat), m = mu/r^2, are 1 (three times) and m +- (m^2 + 1)^(1/2) (exact, sympy); the
+    least absolute one, (m^2 + 1)^(1/2) - m, decreases in m; on Omega mu <= mu_end and r >= a, so its infimum is its
+    value at m* = mu_end/a^2, attained at the corner (tau_end, r = a), where v = tau_end + a > v_end. Returns an
+    enclosure [lo, hi] of the infimum, and the checks"""
+    mm = sp.Symbol('m', positive=True)
+    U = sp.Matrix([1, 1, 0, 0, 0])
+    ev = (sp.diag(-1, 1, 1, 1, 1) + mm * U * U.T).eigenvals()
+    closed = (ev.get(sp.Integer(1)) == 3 and any(sp.simplify(k - (mm - sp.sqrt(mm ** 2 + 1))) == 0 for k in ev)
+              and any(sp.simplify(k - (mm + sp.sqrt(mm ** 2 + 1))) == 0 for k in ev))
+    decr = sp.simplify(sp.diff(sp.sqrt(mm ** 2 + 1) - mm, mm) * sp.sqrt(mm ** 2 + 1) + sp.sqrt(mm ** 2 + 1) - mm) == 0
+    mu = g['mu_end'] if mu is None else mu
+    alo, ahi = g['a']
+    m_lo, m_hi = mu / ahi ** 2, mu / alo ** 2
+    # (m^2 + 1)^(1/2) - m = 1/((m^2 + 1)^(1/2) + m): enclose with rational square roots
+    lo = 1 / (sqrt_hi(m_hi ** 2 + 1) + m_hi)
+    hi = 1 / (sqrt_lo(m_lo ** 2 + 1) + m_lo)
+    te = g['tau_end'][0]
+    corner = (te + ahi >= LZ.VE and in_omega(te, ahi, te + ahi, g))
+    return lo, hi, closed, decr, corner, (m_lo, m_hi)
+
+
+def norm_proposal():
+    """the pointwise norm Lemma 1.1 (e) needs (exact, sympy, m = mu/r^2 symbolic; xhat = e1 by O(4) invariance):
+    least eigenvalues of (g0 - eps I) on ker dtau, ker dr, ker d(v + tau), and the signature of g0 - eps I"""
+    m, e = sp.symbols('m eps', nonnegative=True)
+    U = sp.Matrix([1, 1, 0, 0, 0])
+    g0 = sp.diag(-1, 1, 1, 1, 1) + m * U * U.T
+    out = {}
+    for name, cov in (('ker dtau', [1, 0, 0, 0, 0]), ('ker dr', [0, 1, 0, 0, 0]), ('ker d(v + tau)', [2, 1, 0, 0, 0])):
+        B = sp.Matrix([cov]).nullspace()
+        Q, _ = sp.Matrix.hstack(*B).QRdecomposition()
+        Gr = sp.simplify(Q.T * (g0 - e * sp.eye(5)) * Q)
+        out[name] = sorted(set(sp.simplify(x) for x in Gr.eigenvals()), key=str)
+    full = [sp.simplify(x) for x in (g0 - e * sp.eye(5)).eigenvals()]
+    return out, full, m, e
+
+
+def restricted_least(xhat, mu, r, vec):
+    """least eigenvalue of (g0 - lam w w^T) restricted to ker d(v + tau) (floating; control C5)"""
+    import numpy as np
+    xh = np.array(xhat, float)
+    U = np.concatenate([[1.0], xh])
+    g0 = np.diag([-1.0, 1, 1, 1, 1]) + (mu / r ** 2) * np.outer(U, U)
+    w = np.array(vec, float) / np.linalg.norm(vec)
+    lam = (3 + mu / r ** 2) / 5
+    gp = g0 - lam * np.outer(w, w)
+    d = np.concatenate([[2.0], xh])
+    _, _, vt = np.linalg.svd(d.reshape(1, 5))
+    B = vt[1:].T
+    return float(min(np.linalg.eigvalsh(B.T @ gp @ B)))
+
+
+def wtt_symbolic(harm=1):
+    """lead5.py's W_TT (READ :8-10, :58-67): eigenvalues for the Euclidean metric, and the parity in the phase"""
+    r, th, s, A, E, H = sp.symbols('r th s A E H', positive=True)
+    C, S = sp.cos(th), sp.sin(th)
+    y3 = r ** sp.Rational(-3, 2)
+    a1 = A * E * H * y3 * (2 * C ** 2 * sp.cos(harm * s) - S ** 2 * sp.sin(harm * s)) / 3
+    a2 = A * E * H * y3 * (2 * S ** 2 * sp.sin(harm * s) - C ** 2 * sp.cos(harm * s)) / 3
+    Wd = [-2 * r ** 2 * (a1 + a2), 2 * r ** 2 * C ** 2 * a1, 2 * r ** 2 * S ** 2 * a2]
+    gd = [r ** 2, r ** 2 * C ** 2, r ** 2 * S ** 2]               # the Euclidean metric on (th, phi1, phi2)
+    eig = [sp.simplify(w / gg) for w, gg in zip(Wd, gd)]
+    ok_eig = all(sp.simplify(e - t) == 0 for e, t in zip(eig, [-2 * (a1 + a2), 2 * a1, 2 * a2]))
+    odd = all(sp.simplify(e.subs(s, s + sp.pi) + e) == 0 for e in eig)
+    at0 = [sp.simplify(e.subs({th: 0, s: 0, H: 1, A: 1})) for e in eig]
+    return ok_eig, odd, at0, None, (r, E)
+
+
+def main():
+    ok = {}
+    global LAST
+    with open(PROOF) as fh:
+        all_lines = fh.read().split('\n')
+    LAST = [i + 1 for i, ln in enumerate(all_lines) if ln == SEC7][0]       # D623: by content
+    lines = all_lines[:LAST]
+    md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
+    bad = trace_check(all_lines)
+    terms_seen = {t for t, *_ in TRACE}
+    fmd5 = hashlib.md5('\n'.join(all_lines).encode()).hexdigest()
+    ok['T0'] = md5 == PIN and fmd5 == FILE_PIN and not bad and terms_seen == set(TERMS)
+    say('lzerotrace5: lambda0 at P*, every factor traced, the bound certified')
+    say('  T0: md5 of N1STAR-PROOF.md lines 1-%d = %s (pinned %s); whole file (%d lines) %s (pinned %s); %d trace '
+        'rows, every fragment on its line: %s; the nine terms covered: %s' % (
+            LAST, md5, PIN, len(all_lines), fmd5, FILE_PIN, len(TRACE), not bad, terms_seen == set(TERMS)))
+    for term in TERMS:
+        rows = [x for x in TRACE if x[0] == term]
+        say('      %-5s %s' % (term, '; '.join('%s (N1STAR-PROOF.md:%d, %s)' % (f, ln, st)
+                                               for _, f, ln, _, st in rows)))
+        if term in NEEDS:
+            say('            to evaluate: %s' % NEEDS[term])
+
+    # T1 the domain
+    g = LZ.geometry()
+    q0lo, q0hi = g['q0']
+    alo, ahi = g['a']
+    lam1 = g['lam1']
+    ok['T1'] = q0lo ** 8 <= Fr(9, 1250) <= q0hi ** 8 and lam1 == (q0lo / 20, q0hi / 20) and alo == q0lo / 2
+    say('  T1: q0 in [%.12f, %.12f] (q0^8 = 9/1250), a = delta0 = q0/2 in [%.12f, %.12f], lam1 = q0/20 in [%.12f, '
+        '%.12f] (certified)' % (q0lo, q0hi, alo, ahi, lam1[0], lam1[1]))
+
+    # T2 eps1
+    p_op = eps1_perturbation(g, (1, 0, 0, 0))
+    p_mx = eps1_perturbation(g, (Fr(1, 2), Fr(1, 2), Fr(1, 2), Fr(1, 2)))
+    lam_n = Fr(int(sp.fraction(p_op['lam_n'])[0]), int(sp.fraction(p_op['lam_n'])[1]))
+    eps_op = lam_n
+    eps_mx = Fr(int(sp.fraction(p_mx['maxe'])[0]), int(sp.fraction(p_mx['maxe'])[1]))
+    p67 = eps1_perturbation(g, (1, 0, 0, 0), Fr(67, 5))
+    lam_67 = Fr(int(sp.fraction(p67['lam_n'])[0]), int(sp.fraction(p67['lam_n'])[1]))
+    ok['T2'] = (all(p[k] for p in (p_op, p_mx, p67) for k in ('inside', 'in_ker', 'null_dir', 'lorentz'))
+                and lam_67 == Fr(2591339, 4309440) and lam_n < Fr(60131, 10 ** 5) and p_op['frob'] == p_op['op']
+                and eps_mx == lam_n / 5)
+    say('  T2: the corner of the outer boundary, r = b(tau0) (lower end of its interval, %.9f; tau = tau0), in Omega '
+        'with mu = mu_end: %s; n in ker d(v + tau): %s; g0 - lam_n n n^T Lorentzian (det %.6f) with n null on the '
+        'boundary: %s; lam_n = (3 + mu_end/r^2)/5 = %.7f (exact rational; round 2\'s r = 67/5 gave %.7f); size of the '
+        'perturbation: operator = Frobenius = %.7f, largest entry %.7f at xhat = (1,1,1,1)/2 (%.7f at xhat = e1). So '
+        'eps1 < %s (operator, Frobenius) and eps1 < %s (largest entry) (exact; rounded up)'
+        % (float(g['b0'][0]), p_op['inside'], p_op['in_ker'], float(p_op['det']), p_op['null_dir'], float(lam_n),
+           float(lam_67), float(eps_op), float(eps_mx), float(p_op['maxe']), up(eps_op, 7), up(eps_mx, 8)))
+
+    # T3 the wave at (v, th, s, r) = (2, 0, 0, a)
+    ok_eig, odd, at0, even_ctrl, _ = wtt_symbolic()
+    ratios = [sp.nsimplify(sp.simplify(e * sp.Symbol('r', positive=True) ** sp.Rational(3, 2) /
+                                       sp.Symbol('E', positive=True))) for e in at0]
+    lo_sum, hi_sum = EV.beta_sq_integral(2 ** 16)
+    iv.prec = 200
+    ivf = lambda q: (iv.mpf(q.numerator) / q.denominator) if isinstance(q, Fr) else iv.mpf(q)    # noqa: E731
+    c_iv_lo = iv.sqrt(iv.mpf(105) / 128 / (iv.mpf(3) / 2 * ivf(hi_sum)))
+    c_iv_hi = iv.sqrt(iv.mpf(105) / 128 / (iv.mpf(3) / 2 * ivf(lo_sum)))
+    c_lo, c_hi = mpf_fr(c_iv_lo.a), mpf_fr(c_iv_hi.b)          # outward (interval square roots; Round 4, m6)
+    # a^(-3/2) >= 1/sqrt(a_hi^3); the point r = a lies in Omega (|x| >= a), tau = 2 - a, v = 2
+    am32_lo = 1 / sqrt_hi(ahi ** 3)
+    am32_hi = 1 / sqrt_lo(alo ** 3)
+    K_lo, K_hi = c_lo * am32_lo, c_hi * am32_hi
+    w_op_lo, w_op_hi = Fr(4, 3) * K_lo, Fr(4, 3) * K_hi
+    w_fr_lo = sqrt_lo(Fr(24, 9)) * K_lo
+    dom = in_omega(2 - ahi, ahi, Fr(2), g)                    # the point (v, r) = (2, a_hi), r >= a: in Omega
+    # floating cross-check against round 2's Cartesian form
+    import numpy as np
+    import stage0bd5 as SB
+    rp = float(ahi)
+    Wc = SB.cart_form([2 - rp, rp, 0.0, 0.0, 0.0], 0.0, 'TT') * float(c_lo)
+    cross = np.allclose(np.diag(Wc), np.array([0, 0, 4, -2, -2]) * float(c_lo) * rp ** -1.5 / 3, rtol=1e-12)
+    frob_ratio = sp.sqrt(sum(q ** 2 for q in ratios))
+    ok['T3'] = (ok_eig and ratios == [-sp.Rational(2, 3), sp.Rational(4, 3), -sp.Rational(2, 3)] and dom and cross
+                and w_op_lo > Fr(125933, 10 ** 4) and frob_ratio == sp.sqrt(24) / 3
+                and Fr(15423591, 10 ** 6) <= w_fr_lo < Fr(154236, 10 ** 4))
+    say('  T3: eigenvalues of W_TT (Euclidean) = (-2(a1 + a2), 2 a1, 2 a2) from lead5.py\'s definition: %s; at th = 0, '
+        'phase 0: %s x env(v) r^(-3/2); the point (v, r) = (2, a), tau = 2 - a, lies in Omega: %s; c in [%.10f, '
+        '%.10f] (envelope5 sums at 2^16 cells); |W_TT| there: operator and largest entry in [%s, %s], Frobenius >= '
+        '%s (certified, rounded outward); Cartesian cross-check (floating point): %s'
+        % (ok_eig, [str(x) for x in ratios], dom, float(c_lo), float(c_hi), down(w_op_lo, 6), up(w_op_hi, 6),
+           down(w_fr_lo, 6), cross))
+
+    # T4 the parity argument
+    ok['T4'] = odd
+    say('  T4: W_TT(s + pi) = -W_TT(s) in every eigenvalue (sympy): %s; chi dv dv and m1 even (chi in the second '
+        'harmonic, lead5 L3-L4; m1 the mean), so g1(s) - g1(s + pi) = 2 W_TT(s + phi1) and every admissible C_app >= '
+        'sup |W_TT| (deduced)' % odd)
+
+    # T5 the bound, with Lemma 2.3's requirement (Round 4, MAJOR A): eps1 < g0's least absolute eigenvalue on Omega
+    e_lo, e_hi, closed, decr, corner, (m_lo, m_hi) = lemma23_threshold(g)
+    out = {}
+    for name, eps1_11e, capp in (('operator', eps_op, w_op_lo), ('Frobenius', eps_op, w_fr_lo),
+                                 ('largest entry', eps_mx, w_op_lo)):
+        e_11e = eps1_11e / capp                       # Lemma 1.1 (e) alone (round 3)
+        e_23 = min(eps1_11e, e_hi) / capp             # with Lemma 2.3's requirement: every reading's ball contains the
+        out[name] = (min(lam1[1], e_23), e_23, e_11e)  # op-ball of the same radius, so eps1 < e_hi in each
+    lam0_op = out['operator'][0]
+    ok['T5'] = (lam0_op == out['operator'][1] and lam0_op < Fr(24434, 10 ** 7) and out['Frobenius'][0] < Fr(1995, 10
+     ** 6)
+                and out['largest entry'][0] == lam0_op and out['operator'][2] < Fr(477484, 10 ** 7)
+                and out['Frobenius'][2] < Fr(389865, 10 ** 7))
+    say('  T5: lambda0 <= min(lam1, eps1/C_app), eps1 limited by Lemma 1.1 (e) (T2) and by Lemma 2.3 (T7): eps1 < %s; '
+        'certified upper ends (rounded up):' % up(e_hi, 7))
+    for name, (lz, e23, e11) in out.items():
+        say('      |.| = %-13s eps1/C_app < %s with Lemma 2.3 (< %s with Lemma 1.1 (e) alone, round 3); lambda0 < %s'
+            % (name, up(e23, 7), up(e11, 7), up(lz, 7)))
+    say('      lam1 = %s does not bind: lambda0 < %s with the pointwise norm of the supplement (operator norm on '
+        'symmetric 2-tensors); 1/lambda0 > %s (certified)' % (up(lam1[1], 7), up(lam0_op, 7), down(1 / lam0_op, 1)))
+
+    # T6 the pointwise norm the supplement should state
+    eigs, full, m, e = norm_proposal()
+    at = {name: [sp.simplify(x.subs(e, sp.Rational(3, 5))) for x in v] for name, v in eigs.items()}
+    one_neg = all(sum(1 for x in full if sp.simplify(x.subs({e: sp.Rational(3, 5), m: sp.Rational(mv)})).is_negative)
+                  == 1 for mv in (0, Fr(1, 100), 1, 13, 1000))                      # exact at these five m
+    m_a_lo = LZ.MU0 / ahi ** 2                         # mu/a^2 >= mu0/a^2 on {r = a}
+    least_dr = min(Fr(1), m_a_lo - 1) - Fr(3, 5)
+    ok['T6'] = (sp.Rational(2, 5) in at['ker dtau'] and least_dr == Fr(2, 5) and one_neg
+                and any(sp.simplify(x - m / 5) == 0 for x in at['ker d(v + tau)']) and eps_op > Fr(3, 5)
+                and eps_mx > Fr(3, 25))
+    say('  T6 (proposed definition, checked): |A| := the Euclidean operator norm of the array of Cartesian components '
+        '(for symmetric A, its largest absolute eigenvalue). For |g - g0| <= eps, g >= g0 - eps I as forms, so each '
+        'hypersurface stays spacelike if (g0 - eps I) is positive definite on its kernel; at eps = 3/5 (m = mu/r^2) the '
+        'restricted eigenvalues are %s on ker dtau, %s on ker dr (least %s at r = a, P*), %s on ker d(v + tau) '
+        '(least m/5 > 0) (exact); g0 - (3/5) I has exactly one negative eigenvalue (exact at m = 0, 1/100, 1, 13, 1000; '
+        'every m >= 0 from its eigenvalues 1 - eps, m - eps +- (m^2 + 1)^(1/2), deduced): %s, so its '
+        'causal set is a double cone of two convex halves on which dtau, dr (at r = a) and d(v + tau) keep their '
+        'signs, which gives the causal containment and the transversality (deduced). So Lemma 1.1 (e) holds with '
+        'eps1 = 3/5 at P* and fails above %.7f (T2): eps1* in [3/5, %.7f]. The Frobenius norm dominates it (same eps1); '
+        'the largest-entry norm satisfies |A|_op <= 5 |A|_max, so there eps1* in [3/25, %.7f]'
+        % ([str(x) for x in at['ker dtau']], [str(x) for x in at['ker dr']], least_dr,
+           [str(x) for x in at['ker d(v + tau)']], one_neg, float(eps_op), float(eps_op), float(eps_mx)))
+
+    # T7 Lemma 2.3's requirement on eps1 (certified)
+    width = e_hi - e_lo
+    L23 = [next(ln for _, _, ln, fr, _ in TRACE if fr.startswith(k)) for k in    # D625: the cited lines, from TRACE
+           ('Let gt be a Lorentzian metric', "s0 := inf over Omega", 'one fixed number with')]
+    ok['T7'] = (closed and decr and corner and e_lo <= e_hi and width < Fr(1, 10 ** 12)         # D623: two-sided
+                and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7))
+    say('  T7 (Round 4, MAJOR A): g0 = eta + m U U^T has the eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; the '
+        'least absolute one, (m^2 + 1)^(1/2) - m, decreases in m: %s; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [%s, '
+        '%s], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: %s. So inf over Omega of '
+        'g0\'s least absolute eigenvalue is in [%s, %s] (certified; lo <= hi: %s, width %.1e < 1e-12: %s); Lemma 2.3 '
+        '(N1STAR-PROOF.md:%d, :%d-%d) needs eps1 below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner,
+                                                               down(e_lo, 9), up(e_hi, 9), e_lo <= e_hi,
+                                                               float(width), width < Fr(1, 10 ** 12), *L23))
+
+    # controls
+    bad1 = trace_check(all_lines, shift=1)
+    ok['C1'] = len(bad1) >= len(TRACE) - 1
+    say('  C1 (control): every trace line shifted by one: %d of %d fragments not found' % (len(bad1), len(TRACE)))
+    ok['C2'] = w_op_hi < Fr(126, 10) - Fr(3, 1000)
+    say('  C2 (control): "C_app >= 12.6 at this point" refuted: |W_TT|_op there <= %.6f < 12.6' % float(w_op_hi))
+    odd2 = wtt_symbolic(harm=2)[1]
+    ok['C3'] = not odd2
+    say('  C3 (control): T4\'s parity test run on the wave with its phase doubled (cos 2s, sin 2s): odd: %s, so T4 '
+        'fails on it: %s' % (odd2, ok['C3']))
+    bad_r = alo - Fr(1, 10 ** 6)
+    ok['C4'] = not in_omega(2 - bad_r, bad_r, Fr(2), g)
+    say('  C4 (control): T3\'s domain test at r = a - 1e-6: rejected: %s' % ok['C4'])
+    c_lo6 = lemma23_threshold(g, mu=LZ.MU0)[0]
+    ok['C6'] = not (c_lo6 < Fr(307687, 10 ** 7))
+    say('  C6 (control): T7 with mu0 for mu_end (the seed, not the grown hole): threshold >= %s, so T7\'s enclosure '
+        'fails for it: %s' % (down(c_lo6, 7), ok['C6']))
+    lm = restricted_least((1, 0, 0, 0), float(g['mu_end']), 13.4, (1, 2, 0, 0, 0))
+    ln = restricted_least((1, 0, 0, 0), float(g['mu_end']), 13.4, (1, -2, 0, 0, 0))
+    ok['C5'] = lm > 1e-3 and abs(ln) < 1e-12
+    say('  C5 (control): least eigenvalue on ker d(v + tau) after the same-size perturbation along (1, 2 xhat), not in '
+        'the kernel: %.4f > 0 (floating point); along (1, -2 xhat): %.1e' % (lm, ln))
+    for k, v in ok.items():
+        print(k, 'PASS' if v else 'FAIL')
+    return 0 if all(ok.values()) else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

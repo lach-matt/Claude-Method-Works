@@ -1,0 +1,24 @@
+stage1cap5: stage 1 against the lambda0 bound; Lemma 6.4's principal constants at the background
+  S1: W_TT(s + pi) = -W_TT(s) and chi(s + pi/2) = -chi(s) on the closed forms (exact): True, True; the three identities
+      for g = M + W_TT + chi D (exact): so C_app >= max(sup|W_TT|, sup|m_1 + chi dv dv|) >= max(sup|W_TT|, 2 sup|chi|):
+      True
+  S2: angular factor squared <= 1/9 with 36 (1 + q^2)^2/9 - (16 q^2 + (1 - q^2)^2) = 3*(q - 1)**2*(q + 1)**2 (exact),
+      equality at q^2 = 1; a = q0/2 in [0.2698587885 +/- 4.71e-11]; 2 sup_Omega |chi| <= [11.8821 +/- 7.97e-7]
+      (certified, Arb) < 12.593309: the second harmonic does not raise C_app's lower bound; the points (v - a, a), v in
+      [1/2, 7/2], lie in Omega (lzerotrace5.in_omega at the 4001 cell ends): True; pinned in [11.8820, 11.8822]: True
+  S3 (deduced; Round 7): stage 1 lowers the certified operator-norm bound iff a certified lower bound of sup |m_1 + W_TT
+      + chi dv dv|_op exceeds 12.593309; m_1(X*) e_phi1 != 0 is sufficient (r7fixes5 R1); an upper bound for m_1 cannot
+      do it
+  S4 (certified): on Sigma_tau0, r in [a, b(tau0)], alpha = 3 r^3/(r^2 + mu)^2 >= alpha0 = 0.0374251 (at r = a with
+      mu_end; 0.0512240 with mu0 = 1 there), angular ellipticity and A00 = min eig S A0 >= 0.0055023 (at r = b(tau0)),
+      the largest speed^2 2 (r^2 + mu)/(3 r^4) <= [157.778 +/- 1.10e-4] (at r = a): True
+  C1 (control): chi taken as a first harmonic: S1's identities fail: True
+  C2 (control): angular factor claimed <= 1/4: the difference at q = 1 is -7 < 0: refuted: True
+  C3 (control): S2 at r = a/2 (outside Omega): 2 sup |chi| >= [52.4217 +/- 2.25e-5] > 12.593309: True
+S1 PASS
+S2a PASS
+S2 PASS
+S4 PASS
+C1 PASS
+C2 PASS
+C3 PASS

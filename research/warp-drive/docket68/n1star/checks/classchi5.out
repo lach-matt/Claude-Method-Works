@@ -1,0 +1,17 @@
+C1 (exact, symbolic): the Hessian of an invariant phase in the class
+   mixed components zero: True ; torus components = G_i kappa_i (first order): True
+   controls: g_(phi1 phi2) != 0 gives a mixed torus component: True ; g_(t phi1) != 0 gives a mixed component: True ; a phi1-dependent phase has a phi1-dependent torus component: True
+C2-C4 (exact at rational jets): the class identity, the class Raychaudhuri equation, the torus Riccati
+   seed 11: C2 True; Bochner True; (R) True; shear-free form rejected True; torus Riccati True (wrong sign rejected True)
+      th = -12524722642513439/3791491810683500, kappa1 = 267726/184877, kappa2 = 23269/13475, |hess u|^2 = 676331746093160719154411529900841/14375410150480045404737172250000, Ric(P,P) = 111291726196537252831/992572828946160000
+   seed 23: C2 True; Bochner True; (R) True; shear-free form rejected True; torus Riccati True (wrong sign rejected True)
+      th = 41435124364401281/14532913699735200, kappa1 = 358513/226380, kappa2 = -38033/188650, |hess u|^2 = 994100794286033136348602229215281/211205580603951058904550119040000, Ric(P,P) = -18425715639446775971/486158120300160000
+   seed 37: C2 True; Bochner True; (R) True; shear-free form rejected True; torus Riccati True (wrong sign rejected True)
+      th = 72766977919629479/11449233101758760, kappa1 = 136431/114268, kappa2 = 33753/20482, |hess u|^2 = 2161264687132301838884188198861861/131084938618408516417005236737600, Ric(P,P) = 24343372893189202707889/201219655400921203200
+   Bochner at a non-null jet: P(box u) + |hess u|^2 + Ric(P,P) = (1/2) box N: True (box N = -284487655435024820039/215884590295789800, nonzero: True)
+Controls (each must reject)
+   no null condition: C2 fails: True (difference 2784713426290167/27008784461120)
+   g_(phi1 phi2) = 1/3: C2 fails: True (difference 37344579316679119465305253/5480628118663440751903125)
+   phase u + (1/5) phi1^2: C2 fails: True (difference 180318742507803474/46445774680872875)
+   null only to first order: (R) fails: True ; C2 still holds: True
+PASS

@@ -1,0 +1,23 @@
+  R1: -(1/2) r^(p+2) box(r^-p F(s) Y_l) = (s - s^2/2)F'' + (p - 1/2)(1 - s)F' - (1/2)(p^2 - 2p - l(l+2))F, Gauss (a, b, c) = (p + l, p - l - 2, p - 1/2): PASS
+    K_(3, l), l = 0-6: -0.785398, -0.333333, 0.0, 0.0666667, 0.0, -0.0285714, 0.0
+    K_(3.25, l), l = 0-6: -0.816344, -0.389712, -0.0480202, 0.0556732, 0.0134457, -0.0211174, -0.00611166
+    K_(3.5, l), l = 0-6: -0.862964, -0.449654, -0.0958849, 0.0408776, 0.0221273, -0.0136259, -0.00911124
+    K_(4, l), l = 0-6: -1.0, -0.589049, -0.2, 0.0, 0.0285714, 0.0, -0.00952381
+    K_(4.5, l), l = 0-6: -1.19908, -0.767079, -0.327021, -0.0590061, 0.0218014, 0.0104128, -0.00573721
+    K_(5, l), l = 0-6: -1.47262, -1.0, -0.490874, -0.142857, 0.0, 0.015873, 0.0
+    K_(6, l), l = 0-6: -2.33333, -1.71806, -1.0, -0.429515, -0.111111, 0.0, 0.010101
+  R2: 2F1 against Gauss to 3.9e-31; C_l at p = 3; nonzero at p = 3.5, 4.5 for every l: PASS
+    q = 0.0, l = 0: r^(3+q) phi -0.78215 (r = 200), -0.78384 (r = 400), extrapolated -0.78552, K = -0.78540, relative 1.5e-04
+    q = 0.0, l = 1: r^(3+q) phi -0.33317 (r = 200), -0.33336 (r = 400), extrapolated -0.33356, K = -0.33333, relative 6.8e-04
+    q = 0.5, l = 0: r^(3+q) phi -0.85807 (r = 200), -0.86075 (r = 400), extrapolated -0.86342, K = -0.86296, relative 5.3e-04
+    q = 0.5, l = 1: r^(3+q) phi -0.44817 (r = 200), -0.44901 (r = 400), extrapolated -0.44985, K = -0.44965, relative 4.3e-04
+    q = 1.0, l = 0: r^(3+q) phi -0.99279 (r = 200), -0.99673 (r = 400), extrapolated -1.00067, K = -1.00000, relative 6.7e-04
+    q = 1.0, l = 1: r^(3+q) phi -0.58587 (r = 200), -0.58762 (r = 400), extrapolated -0.58938, K = -0.58905, relative 5.6e-04
+  R3: the PDE carries r^-(4+q) on the strip to rho^(3+q) K_(3+q,l): PASS
+    lambda = 10: max |r^3 phi| on [300, 400] 0.0463; r^4 phi = A cos(R/lambda) + B sin(R/lambda) + C, amplitude 13.920 = 1.3920 lambda (sqrt 2 = 1.4142), C = 0.065
+    lambda = 30: max |r^3 phi| on [300, 400] 0.1199; r^4 phi = A cos(R/lambda) + B sin(R/lambda) + C, amplitude 39.227 = 1.3076 lambda (sqrt 2 = 1.4142), C = -0.286
+  R4: a source oscillating in u at fixed v leaves no rho^3 term and a rho^4 term ~ sqrt(2) lambda rho^4 sin(1/(lambda rho)): PASS
+R1 PASS
+R2 PASS
+R3 PASS
+R4 PASS

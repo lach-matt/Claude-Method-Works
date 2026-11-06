@@ -1,0 +1,19 @@
+seed 1 (lam = 1.000000): r in [10.247560, 11.735086] (v in [1/2, 7/2]), degrees (40, 28), 12288 boxes, 741 s
+  C1 certified: sup |Ric_vv[g_app]| <= [4.966e-5 +/- 4.57e-9]
+     sup s <= [0.001201 +/- 3.12e-7] (the terms that cancel); worst box near (r, x) = (10.6775, -0.703)
+     certified pointwise at the 12288 box centres: max |Ric_vv| <= [6.623e-11 +/- 3.45e-16]
+  control (coefficients perturbed by 1e-6): bound [465.3 +/- 0.0166] -> fails (good)
+  C1 PASS (bound below 5e-2 of the terms)
+  C2 certified: jump of R_rr at v = 1/2: <= [3.10e-8 +/- 3.19e-11]; at v = 7/2: <= [3.59e-8 +/- 2.42e-11]; sup |R_rr| on
+      the cone <= [0.0236 +/- 4.63e-5] -> PASS (below 1e-3 of sup |R_rr|)
+     control (perturbed approximant): jumps [1.19e+2 +/- 0.139], [1.40e+2 +/- 0.265] -> fails (good)
+seed 2 (lam = 0.316228): r in [10.247560, 11.735086] (v in [1/2, 7/2]), degrees (64, 28), 18432 boxes, 1008 s
+  C1 certified: sup |Ric_vv[g_app]| <= [2.284e-5 +/- 3.83e-9]
+     sup s <= [0.0005281 +/- 3.00e-8] (the terms that cancel); worst box near (r, x) = (10.8441, 0.453)
+     certified pointwise at the 18432 box centres: max |Ric_vv| <= [1.757e-10 +/- 1.10e-14]
+  control (coefficients perturbed by 1e-6): bound [4.259e+3 +/- 0.0768] -> fails (good)
+  C1 PASS (bound below 5e-2 of the terms)
+  C2 certified: jump of R_rr at v = 1/2: <= [7.40e-8 +/- 1.27e-12]; at v = 7/2: <= [8.45e-8 +/- 2.71e-11]; sup |R_rr| on
+      the cone <= [0.0111 +/- 1.91e-5] -> PASS (below 1e-3 of sup |R_rr|)
+     control (perturbed approximant): jumps [8.32e+2 +/- 0.0583], [1.11e+3 +/- 3.77] -> fails (good)
+cdata5: all checks pass

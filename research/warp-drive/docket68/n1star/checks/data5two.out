@@ -1,0 +1,23 @@
+  T1: flat background, both families, null phases: a 1/lam coefficient: False
+  T2: flat background, the outgoing family alone: a 1/lam coefficient: False
+  T3: outgoing phase of slowness 1/2 (crest speed 2), not null: a 1/lam coefficient: False
+  T4: u = tau - r on Vaidya, not null there: a 1/lam coefficient: False
+  T5 (control): an outgoing wave with an oscillating trace: a 1/lam coefficient: True
+  T6: both families on Vaidya, u = tau - r: a 1/lam coefficient: False
+  T7: both families, static mu = 1/2, both phases null (outgoing c(r) = 2/f - 1, null: True): a 1/lam coefficient: False
+  T8 (control): T7's outgoing wave with an oscillating trace: a 1/lam coefficient: True
+  T9: both families with chi (chi dv dv and chi_2 du du) on the flat background: a 1/lam coefficient: False
+  T10: the same on Vaidya, u = tau - r: a 1/lam coefficient: False
+  T11: data5's S6 with both families and chi: the order-0 principal coefficients equal the background's
+       (flat True, Vaidya True)
+T1 PASS
+T2 PASS
+T3 PASS
+T4 PASS
+T5 PASS
+T6 PASS
+T7 PASS
+T8 PASS
+T9 PASS
+T10 PASS
+T11 PASS

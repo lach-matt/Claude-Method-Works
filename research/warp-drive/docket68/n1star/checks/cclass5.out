@@ -1,0 +1,16 @@
+C3  the wave's part of the gradient coefficient b
+  C3 b_W = b(g0 + U3) - b(g0), its largest value over the phases, is of lam-order 0: bounded and bounded away from 0 (lam
+        = 1e-2..1e-4): pass [['3.096', '3.187', '2.972'], ['3.027', '3.029', '2.898']]
+  C3' control (amplitude lam^2): b_W falls with lam, the test fails: pass [['0.01832', '0.001887', '0.000176'],
+        ['0.04585', '0.004588', '0.0004389']]
+C1  F1b with an envelope on the wave
+  C1 with the envelope: D F_1[K0] - (1/2) lam^-1 K0(ell, ell) A env sin(v/lam) stays bounded (lam = 1e-2, 1e-3, 1e-4)
+        while the lam^-1 term exceeds it 100-fold: pass (rem at 1e-2, 1e-4; lead at 1e-4) [('2.09', '0.674', '1.11e+4'),
+        ('2.12', '2.37', '3.35e+3')]
+  C1' control (non-oscillating wave lam A env): the remainder is not bounded: pass
+C2  the class of c's remainder along a ray at fixed v
+  C2 with the envelope rem decays like r^(-3/2) (slopes < 1.75: E_(3/2), not E_2); after subtracting pred, and without
+        the envelope, like r^(-5/2) (slopes > 2.25): pass env [3.5, 0.86, 1.4], env - pred [2.78, 2.71, 2.62], no env
+        [2.67, 2.55, 2.5]
+  C2' control (pred with the opposite sign): the slope stays below 1.75: pass [2.41, 1.28, 1.45]
+FAILED: none

@@ -1,0 +1,133 @@
+rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126, at dweights5 W1's weights
+  R0 (READ): the cited lines carry the conditions (by content), the files are md5-pinned, Proposition 5.1's proof uses 2
+      - alpha + j != -mu only for j = k_0, ..., floor(l_zf) ((5.3)) and w != -mu ((5.5)); lambdagen5.out L1 (pinned):
+      Lambda below 3.0198 is lambda_sharp + N_0 Inc: True
+  R1 (exact): D = 5000000000000; K = 106489469 steps, 53244734 levels below 3, 53244734 in (3, 4), 2 above 4
+      (beta_106489468 and alpha); s = 46953/2500000000000, tau step = 18999/1000000000000: True
+      (computing the box^C indicial polynomials, damping5.polys, about half a minute)
+  R2 (exact): 9 + 4z = 562501/62500 not a rational square: True; (z + 2)^2 + 4 l (l + 2) a rational square only at l in
+      [0] (divisor pairs of p^2 + 4pq = 1000001 = {101: 1, 9901: 1}); box^C rational roots: s0 quartic [2], s1 sextic
+      [2], scalar sextic at 2 <= l <= 120: none; vector quadratic ((l + 1)^2 + 250002000000 a square): 504 values of l,
+      1008 rational roots, 0 not integers (the least |lambda| of those: none; every one above 100: True); all other roots
+      of III.F' Proposition 2.3 are integers: True
+      the vector-type l with rational box^C roots (first ten): [1, 9899, 15749, 16524, 25659, 30328, 36189, 46124, 52779,
+      59025]
+  R3 (certified): the roots with -mu in (-1, 4) (box^C none: Proposition 10.44 (ii), READ): 0 = 0 [s0 (time translation),
+      s2 (2 - l)]; 1 = 1 [s1, v1 (-1); s3 (2 - l); v2 (1 - l)]; 2 = 2 [s2, v2, t2 (-l); s4 (2 - l); v3 (1 - l)]; 3 = 3
+      [s3, v3, t3 (-l); s5; v4]; d1 = 3.33333046296e-07 [s1 (2 - lambda_s1,2)]; d0 = 1.33333274074e-06 [s0 (2 -
+      lambda_s0,2)]; 1 + delta'_1 = 1.0000006 [s1 (2 - lambda_s1,3)]; 1 + delta_2 = 1.00000026667 [s2 (2 - lambda_s2,3)];
+      2 + delta'_2 = 2.00000038095 [s2 (2 - lambda_s2,4)]; 2 + delta_3 = 2.00000021429 [s3 (2 - lambda_s3,4)]; 3 +
+      delta'_3 = 3.00000027778 [s3 (2 - lambda_s3,5)]; 3 + delta_4 = 3.00000017778 [s4 (2 - lambda_s4,5)]: True
+  R4 (exact): levels below 3 with rounds: k in [1, 53244733]; w = beta_k - eps' - tau_i = 0 has no solution (the
+      congruence A + k s = 0 mod step: gcd(s, step) = 9 does not divide A: hits []); w >= 1/2500000000000 = 4.0000e-13 on
+      every (k, i) (the residues cover a full cycle: True); certified distance of w to d0: 3.4074e-13, to d1: 3.5370e-13;
+      tau_i in (2, 3), so 2 - alpha_i = 3 - tau_i in (0, 1) is no integer and, rational, no irrational root: True
+  R5 (exact): levels in (3, 4) with rounds: k in [53244735, 106489467]; w = beta - 2 - eps - tau_i in [-eps, 1): w = 0
+      has no solution (hits []); |w| >= 2.0000e-13 (no root in [-eps, 0), R3); distance to d0 8.5926e-13, to d1
+      2.4630e-13; 2 - tau_i in (0, 1); the two levels above 4: ['beta_106489468: l_3 = 5.8006e-09, delta = 6.5987e-09',
+      'beta_106489469: l_3 = 1.8799e-08, delta = 9.9500e-11'], each with delta = (eps_ind - l_3 - 2 eps)/2 in (0,
+      eps_ind) rational, w and 2 - alpha_tau rational in (0, 1): off every root: True
+  R6 (exact): d1 = lambda_s1,2 - 2, lambda_s1,2 of degree 4 over Q (minimal polynomial 250000*x**4 - 500000*x**3 -
+      1750001*x**2 + 2000001*x + 3000003); for each irrational offset theta of X, n d1 + theta in Q for some n >= 0: d0:
+      not in Q(d1) -> False; d1: (n + 1) d1 irrational (deg 4) -> False; delta'_1: not in Q(d1) -> False; delta_2: not in
+      Q(d1) -> False; delta'_2: not in Q(d1) -> False; delta_3: not in Q(d1) -> False; so the only rational candidate is
+      beta = lambda_sharp + 2 = 35099/10000 (x = 2, n = 0), a level: False; the test recognises 3 d1 + 1/7 in Q(d1) with
+      its coordinates: True: True
+  R6 (certified margin): over the 11 values x and n <= 1470302, the least distance of a level in (3, 4 + eps_K] or of
+      alpha from lambda_sharp + n d1 + x is 3.185791e-16 (at x = 2, n = 1041470), > 0: True
+  R7 (exact): Proposition 5.1's hypothesis read for every j and every root: 2 - alpha + j is rational and never an
+      integer, so it can meet only a non-integer rational root. R2 found none for box^Ups (every l), the physical
+      factors, box^C at s0, s1 and the vector type (every l). The scalar sextic, scaled to integer coefficients (lcm {2:
+      24, 5: 18}), is -64 lam^6 -255998991 lam^5 + ... with that coefficient odd and free of kappa: a rational root, at
+      any l, is an integer or has fractional part 49/64 exactly (rational root theorem and 2-adic valuations), so -mu = 1
+      - lam_C has fractional part 0 or 15/64. The values 2 - alpha in (1/64) Z that occur: ['3 - tau_i = 47/64 at i =
+      13980998'] (3 - tau_i at I9, i <= 52634347; 2 - tau_i at I14 and the top levels, i <= 52634349: none); delta =
+      6.5987e-09, 9.9500e-11, below 1/64. None equals 15/64: True
+  R8 (exact): the rest of I11:156-160's appended set (the exclusion set of III.I''''''''''' section 1, read at every
+      level as I14 Definition 1.1 (c) does): l_zf = beta - 1 - j - eps is never an integer (j = 1, 2, 3; beta - eps in Z
+      has no solution: none); at level 1 the only tf-exponent in [2, 2 + eta_1) on R9.1's reading is 2 (at level 1 a
+      tf-exponent is its u-exponent, I12:52-54, and modcount5 M5 leaves no point of Lambda in (2, 2 + m), m > eta_1), so
+      (4.2)'s last condition asks beta - 2 - eps != -mu, rational against the roots: an integer never (beta - eps not in
+      Z); III.I'' Lemma 4.2 and III.H (1.1) ask beta_tf - beta_zf = tau - beta + 2 + eps in (0, 1) at level 3, which
+      holds for the final tau in (beta - 2, beta - 1 - eps) (deduced): True; (4.2) at level 2 is R11
+  R9 (exact): Definition 1.1 (a) at every level in (3, 4 + eps_K] (not asked by R9, decided by the same arithmetic): beta
+      - 2 is never the real part of a rate. The rational candidates (lambda + 2 and lambda + 1 for the rational points of
+      Lambda, from lambda_sharp, 2, 3 and the least E^C_I's 86 points): ['30099/10000', '301/100', '15099/5000',
+      '30199/10000', '151/50', '30299/10000', '303/100', '76/25', '7/2', '35099/10000', '351/100', '17599/5000',
+      '35199/10000', '88/25', '35297/10000', '17649/5000', '35299/10000', '353/100', '17699/5000', '35399/10000',
+      '177/50', '35499/10000', '71/20', '89/25', '4']; levels among them: none; the irrational parts n d1 + theta1 +
+      theta2 (theta1 in d0 and the E_col offsets delta_2..6, delta'_1..5; theta2 in {0, d0}; theta2 = d1 is n + 1): none
+      in Q(d1) (22 exact tests, failures none): True
+  R10 (exact): I9:55-58 (III.I'''''''' admissibility), which I11:157 assigns to the levels alpha < 3, at every level in
+      (2, 3), alpha_1 = beta_0 = 10000000047/5000000000 included: the range alpha in (2, min(a_K, 3)) holds (at the base
+      a_K = 2 + (1 - 10^-9) eps_K = 5000000046999999953/2500000000000000000 > alpha_1, R10.1; at the levels a_K >= 4 +
+      eps_K): True; x = alpha - lambda, lambda in lambda_sharp + N_0 d1, lies in (0, 1.4901), where {-mu} u Re pi_1 E_K
+      is {1, d0, d1, 1 + d0, 1 + d1, 1 + delta'_1, 1 + delta_2} (the first clause, alpha - 2 != lambda - 1, is x = 1);
+      the offsets are R6's, outside Q(d1), so the only rational candidate is alpha = lambda_sharp + 1 = 25099/10000, a
+      level: False; Lemma 3.1's alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2) (in the range check above); Lemma 3.2 Step
+      3's Proposition 5.1 (I9:276-279) at every level below 3: w = alpha - eps' - 2 + eps in [9.4000e-09, 1.0000e+00] and
+      l_zf in (0, 1), rational, and 2 - alpha_P = eps below d1, the least positive root: off every root: True: True
+  R10 (certified margin): over the seven values x and n <= 1470302, the least distance of a level in (2, 3) (alpha_1
+      included) from lambda_sharp + n d1 + x is 8.911277e-16 (at x = 1 + delta_2, n = 982508), > 0: True
+  R11 (exact): (4.2) at the second Taylor level (I12 Step 3; I14:112-116), every level in (3, 4 + eps_K]: g_2's
+      tf-exponents in [1 + eta_1, 2 + eta_2) are lambda - 1, lambda in Lambda cap [2 + eta_1, 3 + eta_2) (READ:
+      I12:52-54's dictionary, the u-exponent of a tf-exponent zeta at level 2 is zeta + 1; I12:118 and I11 Lemma 1.2 (c),
+      I11:105: every exponent produced with real part in [2, 3 + eps_+] lies in Lambda); its inequalities hold at the
+      extreme levels: True; its root clause, beta - eps != lambda + (-mu), -mu in {0, d1, d0, 1, 1 + delta'_1, 1 +
+      delta_2, 2}: the 24 new field tests (theta1 + delta'_1, theta1 + delta_2) find no element of Q(d1) (failures none),
+      with R9's tests for theta_mu in {0, d0}; the 75 rational candidates x + m (x among the 25 rational points of Lambda
+      in the window, m = 0, 1, 2) meet no level (hits none; least distance 1.3300e-10, exact): True
+  R12 (exact, symbolic in the parameters; the round-2 confirming reader's minor 2): what of Lemma B.1 holds at every
+      admissible point. box^Ups, z = p/q: (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2 q (l + 1))^2 = p^2 + 4 p q, an
+      identity in p, q, l, m: True; so at every rational z only finitely many l (from the divisor pairs of p (p + 4q))
+      can carry a rational class root, and the s0 class root is rational exactly when 9 + 4z is a rational square (z, 9 +
+      4z square?, the exceptional l): [('1/250000', False, [0]), ('1/5', False, [0]), ('1/1000', False, [0]), ('49/256',
+      True, [0])]. box^C with gam_C = N and kappa symbols (e_C = 1/102400, v_C = 1/2 fixed by row c1): N^3 x sextic, N^2
+      x quartic, N x quadratic are, in lam, -1 or 1 times lam^deg plus coefficients in (1/102400) Z[N, kappa]
+      (monic-up-to-sign, integral after x 102400): {'sextic': (True, True), 'quartic': (True, True), 'vector': (True,
+      True), 'vector integer': (True, True)}; so for every integer gam_C and every l a rational box^C root lies in
+      (1/102400) Z (lam = y/102400 makes the polynomial monic with integer coefficients), the vector type's in Z: True
+  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: True
+  C2 (control): eps' = 93666931/5000000000000, chosen so that w = 0 at (k, i) = (1001, 3): R4 finds hits [1001, 11556,
+      22111]: True
+  C3 (control): z = 7/2 ((z + 2)^2 + 12 = (13/2)^2): rational class-root degrees [0, 1, 3, 12], not [0]: True
+  C4 (control): d1 replaced by a rational: the field argument reports rational sums: True
+  C5 (control): a root planted at w = 325451/5000000000000 (a value w takes): R4's margin 0: True
+  C6 (control): the value 2 - alpha = 15/64 planted among R7's values: R7's test finds the hit: True
+  C8 (control): a level below 3 planted at lambda_sharp + 1 = 2.5099: R10 finds it: True
+  C9 (control): a level planted at lambda_sharp + 1 + 1 + eps (beta - eps = (lambda_sharp + 1) + 1): R11 finds it: True
+  C10 (control): R12 with e_C = 1/102401: the coefficients leave (1/102400) Z[N, kappa]: True
+  C11 (control): z = 49/256, under the bound z < 1/4 that PART-VI4-PARAMS.md step (2) gives (gam_Ups < 1/4, e_Ups < 1;
+      the round-12 control used 25/64, which is above it; no z is shown admissible, the thresholds of rows u3-u4 having
+      no value): 9 + 4z = (25/8)^2, the s0 class root lam = 33/16 is rational (lam^2 - lam - 2 - z = 0, exact), and R12's
+      test reports it; the family z = (6r + r^2)/4, r = 2^-k (k = 3..40), starts at 49/256, decreases, has 9 + 4z a
+      rational square throughout and ends below 10^-11, so such z lie in (0, t) for every t (True): True
+  C7 (control): R9's test on the offset 2 d1 + 1/3 (in Q(d1)): reported as a possible rational sum: True
+R0 PASS
+R1 PASS
+R2 PASS
+R3 PASS
+R4 PASS
+R5 PASS
+R6 PASS
+R6m PASS
+R7 PASS
+R8 PASS
+R9 PASS
+R10 PASS
+R10m PASS
+R11 PASS
+R12 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+C6 PASS
+C8 PASS
+C9 PASS
+C10 PASS
+C11 PASS
+C7 PASS
+26/26 (582 s)
+exit 0

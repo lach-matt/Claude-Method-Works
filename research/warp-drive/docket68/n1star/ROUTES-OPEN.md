@@ -4539,11 +4539,2103 @@ Then the paper: Theorem 4 for both classes, one verifier on the whole, the PDF.
   (flat 2e-26; Tangherlini K median rel. error 6.4e-3), S3 (control W + 0.01 v, ratio 1.00) pass.
 - Coordinate: u := -r on the first cone squeezes the late interior (r - 1 ~ (r0 - 1) e^v); grid u = -1 + a sinh xi,
   a = 0.002, fixes it (107 rows in 0.54 <= R <= 1 at v = 1.6).
-- lambda = 1 (L = 100): second zero of R_v at v = 1.425 (the record's break, 1.45) passed; constraints converge at
-  second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q < {R >= r_core}; D_q computed
-  (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to v ~ 2.0 (400 vs 800), shears not
-  converged beyond; axis growth from v ~ 1.61 lies outside D_q.
+- lambda = 1 (L = 100): second zero of R_v at v = 1.425, before the record's persistent break at the first seed
+  (1.500; its 1.4516 was a single-step excursion, D43-D44; 1.583 at the second seed; corrected D346), passed;
+  constraints converge at second order to v = 1.5; x_K > 1 near the cut from v ~ 1.45 (wave curvature), so D_q <
+  {R >= r_core}; D_q computed (113,682 of 125,265 strip cells at 800 x 360, reaching v = 4.5); converged on D_q to
+  v ~ 2.0 (400 vs 800), shears not converged beyond; axis growth from v ~ 1.61 lies outside D_q.
 - lambda = 0.3162 (L = 1000): runs to v ~ 3.3-3.4; axis growth at x = +1 just outside the horizon, onset moving later
   with M (1.86, 3.28, 3.44 at M = 6, 8, 12) and with (u, v) (3.28, 3.36): resolution, not the gauge.
 - G1 not yet answered to the end of the domain; next: angular resolution with an axis filter, refinement at D_q's
   edge, D_q at lambda = 0.3162, then F3.
+
+### 4.268 The linear result in any gauge: Part IX (D345, D347)
+
+- proof5/PART-IX-GAUGE.md: on D_U(Sigma_U), U open in N°, a linearised vacuum solution whose Cauchy data are those of
+  L_Z g is L_X g, X unique up to Killing fields; Part VIII's solution in any gauge is dot g + L_X g (Corollary 2.3).
+  Domain: D_{N°}(Sigma°) globally hyperbolic, contains N° cap {t_IVP >= 0} (Lemma 1.2); [BGP] Theorem 3.2.11 for data
+  without compact support (Lemma 1.1). Gauge vector: 2 delta G delta^* w = Theta(k), w = 0 and nabla_nu w = Y^flat on
+  Sigma; then k - L_X g has zero data and vanishes (uniqueness for DRic + delta^* Theta, normally hyperbolic).
+- checks/ix5.py X1-X7 (identities by exact expansion or at four random rational points to 60 digits; seven controls).
+- Not proved: the size or decay of X, so the Regge-Wheeler-type and harmonic-gauge decay routes of section 8.2 stay
+  deductions. Verifier 162: sound; M1-M4, N1-N5 seated (D347).
+
+### 4.269 The equality case mu0 = sqrt72 l5^2 (D346, D347)
+
+- EQUALITY5.md: g_lam = g0 on Omega cap {v <= v_s} (Proposition E.2; the record's energy inequality with a null face);
+  the boundary is null there, spacelike for g_lam on v >= v_s + eta once lam <= lam_eta (E.3); the layer between, of
+  width -> 0 with lam, undecided (Remark E.6: margin and perturbation both flat at v_s); D_T^lam, within c lam eta* of
+  D_T inside x_K <= 1, whose inner boundary nothing enters (E.4); the spheres' horizon at equality (E.5).
+- checks/eq5.py E1-E6. Verifier 163: sound; MINOR-1..4 and nine nits seated (D347).
+- Open: the causal character of x_K = 1 itself for g_lam in the layer, a question about the exact solution near v_s.
+
+### 4.270 The loss d (E1'): bookkept, not a number (D347)
+
+- LOSS-D.md: d = sum over III.J''' section 3's rows of (steps x step loss). Step losses explicit in the weights
+  (II.G' Corollary 4.5's l = 2 l_3 + l_4 + l_5 and its parts, Proposition 3.5, III.F' Corollary 3.4, III.G''' 2.2/2.4,
+  III.G' Theorem 3.1 (2) <= 2(ceil(l_I - Re lambda) + 2), III.I Theorem 5.3's +5, N_*), except five (III.A Proposition
+  4.2 (1); II.G' Corollary 4.2; III.G''' Corollary 3.1 and Proposition 3.7; III.I'' Lemma 4.2). Weights fixed only by
+  inequalities at n = 4 (l_I > 3 + eps_+, alpha_K = 4 + eps_K, eps_ind, ...); level and round counts chosen.
+- Next: E1'a (numbers for the weights from the computed index sets), E1'b (the five losses), E1'c (the counts).
+- Finding LD1: k'' (III.K, Part VIII) was never defined; now k'' := max_{k <= N} k'_k from III.K Proposition 1.2 (3).
+- Finding LD3 (D348, restated after verifier 164): I15's beta-chain has steps below alpha - 4 <= eps_K and climbs
+  more than 2, so K > 2/eps_K > 6.8e5 at the record's parameter point (eps_K < eps_ind < 3e-6); each level costs 2 in
+  III.J''''s accounting, so the d it produces is > 1.3e6 and N = 21d + 6 > 2.8e7. Nested inside, I14's level-3 loop
+  rises by eps_ind per round at every beta-level: about 5e10 rounds over the chain, and d beyond that if a round costs a
+  derivative (E1'b). These bound the d this proof produces, not the optimal loss. Levers: the parameter point, a larger
+  per-level gain, another proof of the level step (the source's one-step route is closed at n = 4).
+- Verifier 164 (D348): M1 (d is a recursion over calls, not a flat sum over rows), M2 (LD3's scope), M3 (the nested
+  level-3 loop), m1-m4, nits; all seated, with the k'' scope in III.K repaired at the e_S bound.
+
+### 4.271 10 l5, G1: angular resolution at lambda = 1 (D351)
+
+- dnsolve5.py --run ... [p]: exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients in x after each
+  diamond. Runs (scratchpad): M = 12 (p 32) at 400 x 180 and 800 x 360, M = 16 (p 32, 64), 24 (p 64) at 400 x 180,
+  M = 12 (p 32), 16 (p 64) at 400 x 720; D_q recomputed on the M = 12 filtered 800 x 360 run (111,891 cells).
+- On D_q: converged in (u, v) and in M to v ~ 1.5 (M16 vs M24 |dm| <= 4e-5). On [1.5, 2): M12/M16/M24 differ by
+  0.36-0.44 in m (of 0.44-0.55); dv/4 changes M16 by 0.03 (not a step-size limit). The filter bounds the shears (no
+  growth to ~100 as unfiltered) but does not give convergence.
+- The discrepancy starts at the axis x = -1 near u ~ -1 (the seed's horizon generator), R ~ 0.7-1, from v ~ 1.6; the
+  M24 Chebyshev spectrum of m flattens (3e-7 at v = 1.6, 1e-3 at 1.75, unresolved at 2.2). M = 24 at dv/4 and M = 32
+  stop on a singular 4 x 4 solve.
+- Correction: D344's "converged on D_q to v ~ 2.0" was (u, v) convergence only; in angle, to v ~ 1.5-1.6.
+- Next: an axis treatment without division by 1 - x^2, or axis-concentrated angular grids; then D_q at lambda = 0.3162.
+
+### 4.272 E2 at one operator (D350)
+
+- E2-PILOT.md, checks/e2pilot5.py P1-P2: box on 5D Tangherlini by harmonics. V_l = f((l(l+2) + 3/4)/r^2 + 9 mu/(4r^4)),
+  I_l = (l(l+2) + 3/2)/sqrt(mu). Off the real axis ||R_l(sigma)|| <= 1/dist(sigma^2, [0, inf)), uniform in l. On it,
+  for every l and real sigma != 0: |W| >= 2|sigma| (flux), |u|^2 <= 2 exp(int V/|sigma|) (Gronwall), and the cut-off
+  resolvent <= (Lambda/|sigma|) exp(I_l/(2|sigma|)): III.D Proposition 6.2's injectivity with a constant, per harmonic.
+- Open: uniformity in l (an Agmon bound in the forbidden region), sigma -> 0, the trapping energies at large sigma, the
+  record's b-Sobolev norms, Im sigma -> 0 joined to the real axis.
+
+### 4.273 E1'a's first question: the indicial gap over the damping parameters (D353)
+
+- checks/gapscan5.py G1-G3: the gap near 2 of box^C's scalar indicial roots (damping5.py's polynomial, weight 2/3) is
+  about c(v) h for h << e (c(1/2) ~ 3.06), flat in e; over e <= e_0(v) ~ 6.9e-5 v^2 (semiclass5 W4) and h <= e (U6) its
+  largest value is ~3.1e-5 (v ~ 0.45, h -> e = e_0), against 2.93e-6 at the record's point. So eps_ind < 3.1e-5 at every
+  admissible point; LD3's counts improve by at most ~10 (K > 6.5e4, d > 1.3e5, nested rounds > 5e8). An order-one gap
+  needs another constraint damping.
+
+### 4.274 G1 at 10 l5: the axis nodes and 𝒟_q with |K| (D354)
+
+- The singular solves at M = 24, 32 and part of the angular disagreement were rounding in the 4 x 4 uv-solve at the
+  nodes next to an axis (error ~ (1 - |x|)^-4.5 eps). Fixed by an 80-bit long-double solve there (dnsolve5.py `ld k`,
+  selftest S4); `reg` does not cure it. 𝒟_q rebuilt from |K| (K < 0 where the runs disagree): 111,370 common cells at
+  M = 24, 32. Every field converges in M to v = 1.5; d(M24, M32) in m is 0.68 on [1.5, 2) and 3-20 later. The onset is
+  at x = -1 inside the horizon (d > 1e-4 at u = -0.964, v = 1.650), where x_K = 0.81: inside 𝒟_q, so not removed by
+  the curvature cut. Second seed: converges to v ~ 3-3.5, then n steepens at x = +1. Open: an axis treatment or a
+  mapped grid at the axes (CERTIFY-10L5.md section 6b).
+- D381 (checks/axisdrift5.py, computed on the saved runs): the shift drags the angle along the ingoing generators,
+  d ln(1+x)/du = 2 s(-1). At lambda = 1 the drag at x = -1 is e^-5.0 at the onset v = 1.65 (first node e^-6.15, M = 24)
+  and e^-13 by v = 1.8, inside the horizon (R ~ 0.52): the x = -1 non-convergence is largely the gauge's. Next: the shift
+  on dv, or a moving map at x = -1. At the second seed the x = +1 failure has drag < e^0.02: not this, still open.
+- D386 (dnsolve5v.py V1-V4, computed): the shift on dv. The Ricci tensors are exact u <-> v mirrors, so the scheme is
+  dnsolve5's mirrored; s_u on u = -R0 from Ric_vx with the transverse f_u carried by the uv-equations. The section
+  volume (invariant) agrees with dnsolve5 within (u, v) error, converging. lambda = 1, 800 x 360, ld 3: |dm| M24-M32 is
+  7e-6, 3e-5, 5e-5, 2e-4 on [1, 2) (dnsolve5: 2e-6, 4e-4, 0.43, 3.4); pressing drag <= e^-0.92. Converged in angle to
+  v ~ 2.1 (was 1.65).
+- D391 (verifier 177): D387 sound, decimals outward. MAJOR on D386: its onset R = 1.58 was read at the node next to
+  x = +1; at the failing node x = -0.998, R = 0.54, the run's cut, reached under the gauge's outward drift at x = -1
+  (up to e^+2.35, now reported by --drift); R at a node is not invariant, and x_K came from dnsolve5's unconverged run.
+  "The axis condition on m, not the drag" withdrawn: not yet separated. Next: an invariant cut, x_K from this run.
+  Minors: the volume gap is within the swapped gauge's (u, v) error (~3x dnsolve5's); V4 now tests s_u on u = -R0.
+- D392 (dnsolve5v.py ... vol, computed): a cut on the invariant areal radius keeps ~4,600 more cells, where R at the
+  x = -1 node falls to 0.27-0.34; they do not converge (|dm| M24-M32 > 1e-4 from v = 1.46). Under either cut the
+  converged region is where every node keeps R >= ~0.54; in dnsolve5 too the onset was at x = -1 with R ~ 0.52. K at
+  the onset cells is not computable (they border the cut); x_K = 0.048 inward at v = 1.9. Axis treatment at small R
+  versus geometry: not decided; next, the invariant circle g_22 on the axis across gauges.
+- D393 (checks/g1geom5.py, computed on the saved runs): m drops out of the metric at x = -1, so |dm| there is not a
+  geometric measure. In the swapped gauge the metric's fields P, Q, R, W converge in angle to v ~ 3 away from the cut
+  (|dP| M24-M32 1.7e-6, 2.0e-5, 3.7e-5 on [2, 3), falling 6-50 per step) and stay below 7e-4 to v = 4.6; the axis
+  circle g22 = R^2 e^(8n/3) on x = -1 converges to v = 2.5. dnsolve5: |dP| 0.019 on [1.65, 1.8), 2.75 on [2, 2.25).
+- D395 (verifier 178): D393 corrected. m at x = -1 is geometric (in the metric's x-derivative and the axis curvature,
+  K ~ (3 - 28m - 8n + 16 n_x) e^(4n/3)/(3R^2)); it does not converge on the axis beyond v ~ 2.25, so the axis
+  curvature is unconverged there. "To v ~ 3" depended on dropping k = 10 rows: k = 3, 10, 20, 40 give ~2.25, 3, 3.5,
+  4.6, the error rising toward the cut (frozen at u = -1.0557 from v ~ 2.4). "Below 7e-4" withdrawn: beyond v ~ 3 the
+  differences grow with M (kept-cell max 7e-3, at x = +1). M32 tails exceed M24's from v ~ 2. D388-D390 sound
+  (nits seated); g1geom5 now compares s, scans k, splits m on/off the axis, prints tails.
+- D399 (checks/g1uv5.py, checks/g1cells5.py, computed): G1 in (u, v), M = 24, grids 200x90, 400x180, 800x360. Swapped
+  gauge (k = 10): ratios 2.9-4.9 (s 3.4-6.9) to v = 4.6; 400-800 peaks 9.7e-3 in P, 0.26 in s on [1.65, 1.8), above
+  the angular differences in every band, so (u, v) sets the run's error. A cell is the same pair of null hypersurfaces
+  in both gauges: on the 164,827 cells both keep, dnsolve5 converges at ratio 3.7-4.5 with P errors 14-57x [D402:
+  12-56x; D405: in the invariant section volume 1-14x, equal on [0.5, 1)] smaller
+  before v = 2.5, and in angle to v ~ 3.5 at k = 10, axis included (swapped: 2.25). dnsolve5's failures lie on the
+  16,617 cells only it keeps, between the two cuts. So D386-D395's gauge comparison was mostly one of cell sets. The
+  swapped P ratio stays 2.9-3.0 on [1, 1.8) at k = 3-50: second order or ~1.6 undecided; a 1600x720 grid runs.
+- D402 (verifier 179 on D394-D399). MAJOR on D397: LD8's "four sources" missed that Lambda is closed under iterated
+  sums g + sum n_i w_i (I11:66-69), so a sum from any generator can reach the window above the next integer, and that
+  lambda + d_c, d_c in (0, 1), binds for lambda below 2 as well; LD8 now lists the two kinds. D394, D396, D398 hold;
+  D399's numbers reproduce, the cell identity across gauges is justified, and its conclusions stand. Minor: the factor
+  is 2-29 in W [D405: at equal labels only; the invariant V gives 1-14], P 12-56 before v = 2.5, not 14-57; the
+  swapped gauge is better in angle
+  on [1.8, 2.25); the (u, v)/angle factors compared different cells (like for like: ~700 to 1e5); k = 0 ratios named
+  per field; the 6b table is over D_q. T8's control could not fail; now a component-split check and a no-trace
+  control (12 of 24 unsolvable); the waves' D1 has no r = v part at pure harmonics, so G_uu = 0 there. Nits seated.
+- D403 (checks/g1uv5.py on 400x180, 800x360, 1600x720; checks/g1geom5.py on dnsolve5's M16/24/32, computed): the
+  swapped gauge is second order. On the finer triple (20 rows of the 400 grid dropped, D399's distance) the ratios are
+  P 3.5-4.3, W 3.6-4.4, s 3.8-4.9, m 3.4-5.5 in every band; the coarse triple was pre-asymptotic. Richardson: the
+  1600x720 run's P error is ~1.4e-3 (0.4 %) at its worst band. dnsolve5 on its own cells fails on [1.8, 2.25) even
+  60 rows from its cut, where it keeps ~230 rows per column beyond the swapped cut: its converged region ends near the
+  swapped gauge's cut. Both gauges stop converging at about the same events. [D405: scanned to 250 rows the error
+  falls steadily with no edge, so this is a trend, not a measured boundary.]
+- D410 [corrected D413, verifier 181: the cut cannot reach a kept cell (dnsolve5 masks every cell whose past touches a
+  masked one), so the onset "following the cut" is a selection effect, and at the 0.9 cut's edge the 0.54 run has the
+  same |dm|. One failure, at the events; the two-part split is withdrawn. Peak in x at -0.989 (0.23), 0.07 at x = -1.]
+  (checks/g1cut5.py, computed): dnsolve5 at r_cut = 0.54, 0.7, 0.9 (M24/M32, 800x360), events compared by areal
+  radius. The onset of |dm| > 1e-3 follows the cut (v = 1.55, 1.675, 1.825, 0-6 rows from it), and the near-cut error
+  falls as the cut rises (1.4e3 against 1.8). But at u = -1.003, v = 1.988, x = -0.989 (areal radius 1.000), 145-191
+  rows from either cut, |dm| = 0.23 at every cut (M16-24: 0.28), concentrated at the x = -1 axis: a failure of the
+  axis treatment or of the geometry, not of the cut. Next: the axis regularisation (reg) at r_cut = 0.9.
+- D405 (verifier 180 on D400-D404). MAJOR on D402's LD8 repair: its two worked lambda + d_c cases are excluded by the
+  record (mu_c are non-integer roots of F2 Prop 2.3, so d_c >= eps_ind; d_c0 <= z/3, d_c1 < 1/4): what remains is an
+  element of pi_1 M within d_c below 2, under 1.34e-6 at the record's point. Also eps_ind <= 7.4e-8 (N1STAR-PROOF
+  4071), so the 2.932e-6 figures are 40x loose. [D420: 7.38e-8 is delta_12, the l <= 12 cutoff, not a minimum;
+  under LD10's finite reading eps_ind < 1.46e-10 (D4), the distance from Z 9.47e-8.]
+  D400, D401 hold; D403, D404 reproduce. Minor: W is not gauge-free at a
+  node (labels differ off u = -R0): the invariant V(u, v) gives 1-14 (equal on [0.5, 1)); the record's k-scan falls
+  steadily to 250 rows, no edge; k = 0 off-asymptotic fields completed; factors 1e4-8e5 and 2.3e3 on [3, 3.5); psi's
+  range includes 0; e2h1_5 constants pinned and u' checked by a forward difference. Nits seated.
+
+### 4.275 E2.5: the cut-off resolvent uniformly in l at real sigma (D355)
+
+- E2-PILOT.md section 3b, checks/e2pilot5.py P3. Lemma E2.5a: H = |u'|^2 + (sigma^2 - V_l)|u|^2 has H' = -V_l' |u|^2,
+  so H <= 2 sigma^2 for u_h left of the barrier's peak and for u_inf right of it. Lemma E2.5b: with the flux, the signs
+  Re(conj(u_h) u_h') >= 0 at the left end of I and Re(conj(u_inf) u_inf') <= 0 at the right end. Proposition E2.5:
+  then ||chi_I R_l(sigma) chi_I|| <= 1/min_I (V_l - sigma^2). Corollary E2.6 (mu = 1, I = r in [1.2, 4]): closed-form
+  sufficient conditions, monotone in l; l_0 = 14, 19, 50 at sigma = 0.3, 1, 3 (3, 7, 18 by quadrature); bound
+  <= 1/((15/256)(L + 3/4) - sigma^2), asymptotically 17.07/L. Open: l < l_0, Proposition E2.4's constant (where
+  kappa_I^2 > 0 only the end signs are missing; where kappa_I^2 <= 0 another argument is needed); Im sigma -> 0; the
+  record's b-Sobolev norms. Verifier 165: sound, 7 minor and 6 nits seated (D356).
+
+### 4.276 E1'b: the six non-closed losses in closed form (D357)
+
+- LOSS-D.md section 2b. III.A Prop 4.2: (1) l = 1 + n_iota + 2 max(n_K + floor(beta_K), n_I + floor(B)), (2) l = n_iota +
+  n_K + ceil((max(beta_iota - beta_scf, beta_K) + eps - 1/2)_+). II.G' Cor 4.2 and III.I'' Lemma 4.2: ell =
+  max(ceil((theta_in/2 + 3 - beta_scf)_+), ceil((s_c - 1)_+)) (in the proofs, II.G2:698-702). III.G''' Prop 3.7 and Cor
+  3.1: Prop 2.4's l' = 2 ceil(ell_I) + 10 + sup d (Cor 3.1 (2): + 2). III.G' Thm 3.1 (2): d_1 = 0, d(lambda) = 6 +
+  ceil(max(0, Re lambda - 2 + delta)) + ceil(max(0, Re lambda - 3/2) + delta) + 2 ceil(ell_I - Re lambda), not monotone;
+  sup over a strip <= max(7 + 2 ceil(ell_I - lambda_-), 12) for 3 < ell_I < 3.5, so l' = 30 with lambda_- just below
+  3/2. Verifier 166 (D358): forms and d_1 = 0 hold; the strip rule repaired; s_c >= 0 chosen; Cor 3.1 (2) loses l'.
+  Remaining: E1'a (numbers for the data and the free choices) and E1'c (the counts).
+- D365 (LOSS-D LD6): the beta-chain's step alpha - 4 is the gain of R_q (coefficients of K+-order (alpha - 2)-), and the
+  cap alpha <= 4 + eps_K is the order four zero-energy solves reach (I12:14-16, 528-529), no obstruction named. Lever,
+  not examined: a fifth solve, if the sigma^4 zf term exists at n = 4 (logs in even n to check), takes alpha towards 5,
+  the step to about 1 and K from > 6.5 x 10^4 to about 3. The nested level-3 loop (eps_ind) is untouched.
+- D377 (LOSS-D LD7, deduced from the record's text): the cap alpha <= 4 + eps_K is not the number of solves --
+  four zf-Taylor terms serve every alpha <= 5 (I12:16) -- but I11 Definition 1.3 (G): no point of Lambda in
+  (3, 3 + eps_K], and Lambda contains 2 + E_ind, which has 3 + 2.93e-6 (the damping root lambda^C - 1). So
+  alpha - 4 < eps_K < gap, and LD6's lever reduces to LD5's (a damping with a gap of order one). Open: whether the
+  cascade can treat the point 3 + gap instead of excluding it.
+- D380 (verifier 174): LD7 repaired. The cap is I10 (1.1) eps_K < eps_+ < min(delta_sharp, eps_ind) with level 3's
+  eta_2 < eps_+ (I12:58, 349-350, 531-532), not (G); D377's 'lambda^C - 1 in E_ind' (so 3 + gap in Lambda) is withdrawn
+  (E_ind in Lambda comes from Box^Upsilon). The four-term Taylor count is not the cap. Open: lifting needs (1.1), eta_2,
+  delta_sharp and (G) relaxed together (I11:127, 434-438).
+- D397 (LOSS-D LD8, deduced): (G) is eps_K < delta_G, delta_G > 0 the least positive Re(lambda) - 2, - 3 over Lambda
+  (and lambda + d_c0, d_c1). The record's computed parts of Lambda cannot make it bind below eps_ind (integers on the
+  windows' open ends; translates by Re w >= eps_ind; 2 lambda_sharp = 3 + 2 delta_sharp, 2 delta_sharp > eps_+).
+  What could: lambda_sharp-translates near an integer, E_++ or E^C_I in a window, E_col in (0, eps_ind], or
+  d_c0, d_c1 <= eps_ind -- four index sets at n = 4 not computed. box^C's 2 + 2.93e-6 is not in Lambda.
+  [Corrected D402: the open set is every sum g + sum n_i w_i in (2, 2 + eps_ind) or (3, 3 + eps_ind), any generator g,
+  and lambda + d_c in (2, 2 + eps_ind) for lambda in pi_1 M (Re lambda < 2), i.e. Re lambda within d_c below 2;
+  d_c >= eps_ind (mu_c is a non-integer root of F2 Prop 2.3), d_c0 <= z/3, d_c1 < 1/4 (D405).]
+- D408 [corrected D413, verifier 181: the mass state's gauge part is in A^((1,0) u (1 + E_ind)) (I8:37-38) and the s0
+  state is rho^2 C^inf, so its rho^(2+d0) puts 1 + d0, not d0, into E_ind; only offsets with integer part 0 stack.
+  With {d1, 1 + d0, 1}: delta_G <= 5.02e-8 (from lambda_sharp; 1.39e-7 from 2), against eps_ind < 1.46e-10 (D4:54-57,
+  finite reading; D420 corrects D413's 3.7e-8, verifier 182).
+  The 4.7e-13 and K > 4e12 below rest on d0 in E_ind, which no cited state supports, and are withdrawn.]
+  (LOSS-D LD9, checks/gapsums5.py, computed, conditional): box^Ups's s0 and s1 roots through 2 sit d0 = z/3 +
+  O(z^2) and d1 = z/12 + O(z^2) above 2, with d0 - 4 d1 = 5.56e-13. If E_ind contains both offsets (the states'
+  expansions generically carry them; the record keeps E_ind as a bound), Lambda has 2 + n0 d0 + n1 d1 within
+  4.68e-13 above 3 (and lambda_sharp + sums within 5.1e-13 above 2): delta_G <= 4.7e-13, 1.6e5 below eps_ind, so
+  eps_K < 4.7e-13 and K > 4e12. Control: d0 alone gives 8.9e-7. Open: whether the coefficients are nonzero.
+  [D429, verifier 183: that is D4's, the gauge potential's, eps_ind; (1.1)'s is F' (2.2)'s, <= 1.94e-8 (D422).]
+- D412 (checks/s1reson5.py, exact): not forced locally. box^Ups_Tang(dx^1) starts at rho^4, resonant with 2 + d1;
+  F4 = mu(-2 gam(e + 2), -3, 1); det I(2) = 4z, but I(2)'s left null vector (0, 1, 3) at z = 0 annihilates F4, so the
+  particular solution stays finite (mu(0, 1/4 - 1/e, -1/4 - 1/e)) [D420: along gam -> 0 at fixed e; along e -> 0 it
+  is O(1/e), about -100 mu at the record's point; the conclusion stands]. The rho^(2+d1) coefficient is the homogeneous
+  solution's, fixed by horizon regularity: compute it at larger z (d1 ~ z/12) and follow it in z.
+- D413 (verifier 181 on D406-D410 seated; dnsolve5 `reg` at r_cut 0.9, computed): M1 (D408 classes) and M2 (D410 cut)
+  as bracketed above; LOSS-D LD9 rewritten, gapsums5 G4-G5. Minors: D406's r^-4 source condition (G(1) = -f/2 at
+  l = 0, re-run) and the rho^(2+k) wording; D407's W x g2 terms listed open (they reach (n, 0) through pure
+  harmonics too) and its Ric(g0) wording; D409's sum restricted to f with no l = 0 harmonic, the table rounded up;
+  D410's x-peak. Nits: stage1pure5 gains the G_uA control. Axis: with `reg`, |dm| (M24-M32) at the event
+  u = -1.003, v = 1.988, x = -0.989 is 0.308 against 0.232 plain; the two treatments agree to 2.3e-7 (M32, areal >= 1)
+  up to v = 1.8 and differ by 0.18 (M24) and 0.10 (M32) at the event's node (checks/g1axis5.py). Both fail there
+  alike. [D420: in m only; at x = -1 they settle 0.45 apart (a first derivative of the metric), while the metric
+  value P agrees to 1e-3.] Next: M = 40 at r_cut 0.9 (running).
+  [D429, verifier 183: plain m(-1) is 0.791, 0.765, 1.000 at M40-56, not settled; P differs 2.5e-3 between the
+  treatments at M24; at x = -1, P = -2n/3 has no m.]
+- D414 (FAMILIES5 section 4d, checks/twolin5.py A, L1-L3, control; exact): the lam^-1 coefficient of the two-phase
+  linearisation of Ric^H is (1/2)(s_in d^2_s1 W_in + s_out d^2_s2 W_out), s_k = w(ell_k, ell_k): the record's (5.1)
+  coefficient once per family, nothing else. E(ell_in, ell_in) = -2 e^(-4 sigma) s_out chi', E(ell_out, ell_out) =
+  -2 e^(-4 sigma) s_in chi, E(ell_in, ell_out) = 0: own contraction kills own coupling; the cross one survives through
+  the second-harmonic gauge terms alone, and vanishes with chi = chi' = 0. Without the gauge term the coefficient
+  gains k(Pwk)-type terms (control). Open: the cross coupling's absorption in the record's gauge, the energy estimate.
+- D415 (LOSS-D LD9, deduced): the s1 state is a global solution of box^Ups_b omega = 0, smooth on X (D4:109-111), and
+  the record fixes c_Ups only near infinity (c_Ups = zeta(|x|)|x|^-1 dt, zeta = 1 for large |x|; c_Ups,H = -chi d|x|/2,
+  III.B Def 6.1, D3:31-33). A compact change of zeta or chi changes box^Ups by 2(delta E)G delta*, and the rho^(2+d1)
+  coefficient by its pairing with the dual state of 2 + d1: generically nonzero. So d1 in E_ind is a property of the
+  cut-offs; one real condition on zeta removes it. Carry delta_G <= 5.0e-8 unless zeta is so chosen. Not computed.
+  [D429, verifier 183: asserted, not shown; it depends on the cut-offs unless the pairing integrand vanishes
+  identically, which is not computed.]
+- D416 (E2-PILOT 3i, Corollary E2.11', checks/e2h1_5.py H4; exact): l = 0 has a derivative bound. Lemma E2.8''s
+  identity carries 2 int (phi' - q)|u'|^2 with phi' - q >= 0 on R, so E2.11's algebra gives ||u'||_I <= X_0 ||f||;
+  X_0(3) <= 808.6 from section 3g's certified constants. Summed over every l >= 0: C <= 808.6, set by l = 0 (675.1
+  over l >= 1). D413's "3g gives no X_0" withdrawn. Computed at 3 + 0.25i: 0.846 against 1264.5.
+- D417 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q1-Q4): the record's full flat operator L = D Ric + delta*_(E^C)
+  delta_(E^Ups) G is homogeneous of degree -2, so data r^-2 F(0) on N give r^-2 F(v/r). l = 0 sector: a 4 x 4 ODE in s
+  with second-order part -(1/2) s (s - 2) F'' and polynomial coefficients, so I_0 (s = 1) is an ordinary point and the
+  Coulomb part is in rho^2 C^inf for every damping parameter (exact). Damping off: Lemma 6.5's polynomials, transfer
+  1, 0, -1/3, 1 (exact control). Exponents at N at the record's point: 0, -0.51, -0.52, -1.5e6, -3e6. Damping on, the
+  r^-2 coefficient is the transfer matrix's (gamma_C = 1: series = Radau to 1.6e-14). Open: Tangherlini, other l.
+  [D429, verifier 183: per harmonic, given uniqueness for the characteristic problem; for the sum over l a bound
+  uniform in l on the transfer's Taylor coefficients at s = 1 is missing, so Lemma 0.1's condition for the Coulomb
+  part stays open.]
+- D418 (CERTIFY 6b, checks/g1axis5.py --sweep, computed): M = 24, 32, 40, 48, 56 at 800 x 360, r_cut 0.9. At the event
+  node the successive |dm| are 0.232, 0.112, 0.0024, 0.083 (cell max over x 0.23, 0.17, 0.12, 0.24; band [1.8, 2)
+  0.23, 0.17, 0.12, 0.49): no convergence in M. Before v = 1.8 the differences grow with M (2.0e-6 -> 9.0e-5 on
+  [1.65, 1.8)): at a fixed null grid M degrades the solution. D410's "barely converges" withdrawn as a statement
+  about angle. Next: M = 32, 40 at 1600 x 720 (running).
+  [D429, verifier 183: the differences grow with M in every band, so an M-amplified error dominates; whether
+  the null step cures it is the running test.]
+- D419 (FAMILIES5 4e, checks/stage0h5.py; H2 exact): Stage 0 in section 1's generalised wave gauge. With chi = chi' = 0
+  the only pure harmonics of R^(0) - Ric(g0) are vv (+-2, 0) and uu (0, +-2); the source H = lam (h dv + h' du), whose
+  delta* is F1 h dv^2 + F2 h' du^2 at lam^0 (H1, deduced), meets them algebraically with h_(+-2) = -S_(+-2)/(+-2i)
+  (h_2 = (4i cos 2th - sin^2 2th) H^2 alpha^2/(48 R^3)). Control: h = 0 and the wrong sign fail. Open: Ups - H = 0 at
+  order lam (T8 with the source) and its propagation.
+- D420 (verifier 182 on D411-D414 seated; checks/epsind5.py E1-E2, g1axis5.py --nodes, gapsums5 G6; computed):
+  M1: N1STAR-PROOF's 7.3846e-8 is delta_12, the l <= 12 cutoff; delta_l -> 0, so D4's M read literally is infinite.
+  Finite reading (real parts in [-10, 10]): least distance between points 2.92e-10 (delta_7 vs delta'_8), so
+  eps_ind < 1.46e-10; from Z 9.47e-8. If (1.1)'s eps_ind is D4's, K > 1.4e10; if F' (2.2)'s, K > 2.1e7 (LOSS-D LD10).
+  M2: m at x = -1 is a first derivative of the metric; there the two axis treatments settle 0.45 apart, while the
+  metric value P agrees to 1e-3 at the event and converges slowly in M on [1.8, 2) (|dP| 5.9e-3 -> 1.6e-3); the
+  metric's failure starts on [2, 2.25) and grows with M (3.2e-2 ... 1.1e3). Minors: D412 non-resonance only along
+  gam -> 0; (G)'s third window 2.45e-7 (bound stands); D411's 2.0/r^2 and 1e-12; L1 does not test the ansatz.
+  [D429, verifier 183: the D4 reading is excluded by the record (LOSS-D LD10, F4:25-27): (1.1)'s eps_ind is
+  F' (2.2)'s, <= 1.94e-8, K > 1.03e8 (D422); D4's 1.46e-10 is the gauge potential's (and 2/1.462e-10 = 1.37e10).
+  M2: plain m(-1) has not settled by M56 (0.765, 1.000 at M48, 56); P differs 2.5e-3 between treatments at M24;
+  on [1.8, 2) the decrease stalls (1.6e-3, 1.6e-3).]
+- D421 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q5, exact): the l = 1 scalar-type sector (six functions) of the full
+  flat operator has the same structure: homogeneous, second-order part -(1/2) s (s - 2) I, polynomial coefficients,
+  exponents at N besides 0 all negative (-0.5099 ... -3e6). So "every harmonic" is now checked at l = 0 and l = 1.
+  [Verifier 184, D427: on two sectors, l = 0 and the l = 1 scalar type, all seven off-sector components included; the
+  l = 1 vector type and l >= 2 are not computed.]
+- D422 (LOSS-D LD10, checks/epsind5.py E3, exact): the record has two eps_ind. The gauge potential's is restricted to
+  |Re lam| <= 10 (F4:25-27, D3:44-45), settling D4's reading (< 1.46e-10). (1.1)'s is III.F' (2.2)'s (I10:48,
+  G5:122, 190): d(Re lam, Z) >= eps_ind for non-integer roots of L(0) with |lam| <= 50 (F2:130-132). With lin5 E2's
+  factorisation, box^Ups roots + 1 are such roots; their least distance from Z is delta_50 = 1.94e-8 (7.3846e-8 over
+  l <= 12, the record's computation, lin5 LMAX = 12). So eps_K < 1.94e-8 and K > 1.03e8, d >= 2.06e8.
+- D423 (FAMILIES5 4e, checks/stage0h5.py H3): Ups - H = 0 at order lam in the generalised wave gauge holds on every pure
+  harmonic: H's raised form enters only the r = u (v) row, which ghat_2's angular trace sets (T8); residual 6.6e-17 on 8
+  harmonics; control (no angular diagonal) fails exactly where that row has a term. Open: propagation (deduced only).
+- D424 (E2-PILOT 3i, Corollary E2.12, checks/e2h1_5.py H5): the multipliers are sigma-independent, so every bound is
+  explicit and increasing in |sigma|: the summed cut-off H^1 constant is C <= 808.6 on all of 0 < |sigma| <= 3
+  (528.3 at 0.01, 808.6 at 3), finite as sigma -> 0+. Uniform on a compact band, in the cut-off norm only.
+  [Verifier 184, D427: for real 0 < |sigma| <= 3; the sigma-independence is Lemmas E2.8/E2.8''s, which H5 cannot test;
+  528.3 is an upper bound (B_l(3) kept for l <= 5), not the constant at 0.01.]
+- D425 (LOSS-D LD3 (iv)): with (1.1)'s eps_ind <= 1.94e-8 (D422), K > 1.03e8, d >= 2K > 2.06e8, N = 21d + 6 > 4.3e9;
+  the nested level-3 loop > 5.1e7 rounds per level near beta = 4 and > 1.3e15 over the chain. Lower bounds for the
+  record's proof, not for the optimal loss. checks/g1axis5.py gains --refine for the 1600 x 720 comparison (pending).
+- D426 (BEYOND5 Lemma 6.5', checks/coulombL5.py Q6, exact): Tangherlini to O(mu), l = 0, with the full operator
+  (c's on the static t): h = r^-2 F(s) + mu r^-4 G(s); G obeys an ODE with principal part -(1/2) s (s - 2) I,
+  polynomial coefficients and source; exponents at N -2.51, -2.52, -1.5e6, -3e6. So r^2 h = F + mu rho^2 G + O(mu^2)
+  is smooth at I_0, no log at O(mu). Open: higher orders in mu, other sectors, the t_* reading of c.
+  [Verifier 184, D427: no log at s = 1 because s = 1 is an ordinary point, whatever the exponents; the negative
+  exponents make the regular branch at N exist and be unique. The t_* clause is deduced.]
+- D427 (verifier 184 on D421-D426; none refuted, three wording corrections): D421's Q5 checked 3 of the 7 off-sector
+  components; all 7 and phi phi = sin^2 theta theta theta now vanish in coulombL5 Q5. D422 cites G5:122, 190, and
+  lin5's other factors have integer roots, with D dividing. D423's residual only confirms the solve; the content is
+  solvability at 8 harmonics x 3 points. D424: the sigma-independence is the Lemmas', not H5's; C(sigma) are upper
+  bounds. D425 recomputes (1.0302e8, 2.0604e8, 4.327e9, 5.151e7, 1.327e15). D426: s = 1 is an ordinary point; the
+  exponents make N's regular branch unique; the t_* clause is deduced.
+- D428 (FAMILIES5 4e, checks/propagate5.py P1-P4, exact jets): the propagation of Ups - H = 0, D423's open item. For
+  any g and W: B_g Ric = 0; B_g dstar W = -(box W + Ric W)/2, so the vacuum reduced equation gives box W + Ric W = 0;
+  on {t = 0} with W = 0, G(n, .) = (1/2) g^00 d_t W, so the constraints give d_t W = 0; and W = 0 there is imposed by
+  d_t g_(0 mu), coefficient g^00 diag(1/2, 1, 1, 1). Controls fail. Deduced: uniqueness with zero data. Open: the
+  characteristic case, and that the record's solution solves the reduced equation exactly.
+- D429 (verifier 183 on D415-D420; 3 major, 9 minor, 6 nits; all selftests pass): M1, D420's two readings of
+  (1.1)'s eps_ind: the D4 one is excluded by the record; D422's 1.94e-8 and K > 1.03e8 stand; LOSS-D and the D408,
+  D420 records corrected. M2, the axis: plain m(-1) unsettled by M56, P differs 2.5e-3 between treatments at M24,
+  P(-1) has no m, the [1.8, 2) decrease stalls; CERTIFY 6b's settling, agreement and onset claims withdrawn. M3,
+  Lemma 6.5': per harmonic and given uniqueness; the sum over l needs an l-uniform bound, so Lemma 0.1's condition for
+  the Coulomb part is open. Minors: D415's pairing asserted; 1.3e10 not 1.4e10; (2.2) is bounded; both eps_ind
+  definitions cited; D418's null-step claim withdrawn; stage0h5 H1 uncounted and a factor-n mutant added (implied by H2
+  by linearity, not independent; D433);
+  gapsums5's 7.3846e-8 relabelled; coulombL5 Q1 checks phi phi and the off-diagonals.
+- D430 (LOSS-D LD9, checks/gapsums5.py G7, exact): (G) over every computed root at once. From 2, 3 and lambda_sharp,
+  d1 free and one of 1, 1 + d0, 1 + delta_2, 1 + delta'_1 (delta_2 = 2.67e-7, delta'_1 = 6.0e-7; delta_1 = d1 to 50
+  digits), the least value above 2 or 3 is still 3 + 5.02e-8 (lambda_sharp + 4470304 d1). So the computed roots do not
+  make (G) bind: delta_G = 5.02e-8 > 1.94e-8 >= eps_ind > eps_K; eps_ind binds (K > 1.03e8). Open: (G) through the
+  unlisted generators of I11 Definition 1.1 (E_++, G, E^C_I, E_col, E^iota_ind), and d1's coefficient.
+- D431 (E2-PILOT E2.12, checks/e2h1_5.py H6, exact): the angular derivative without psi on the band. Corollary E2.6
+  bounds B_l from l_0(sigma) (12, 16, 19, 33, 50 at sigma = 0.01 ... 3), the certified B_l below it; the unweighted
+  H^1 constant on I is <= 986.4 for real 0 < |sigma| <= 3 (set at sigma = 3 by l = 49), against 808.6 with psi.
+  Control: B_6 alone gives no l-uniform bound. Trapping costs only the constant on a compact band.
+- D432 (CERTIFY 6b, checks/g1axis5.py --refine, computed): joint refinement, M = 32, 40 at 800 x 360 and 1600 x 720,
+  |dP| on 186,869 common cells. Before v = 1.8 the null step sets the error (2e-6 ... 4e-5, the same at M32 and M40)
+  and M32-40 differs by 1e-9: D418's growth with M was in m, a derivative at the axis. On [1.8, 2) the error is angular
+  (3.0e-3 coarse, 3.2e-3 fine: the null step does not touch it) and confined to areal radius [1.0, 1.2) (1e-8 above).
+  From v = 2 neither converges at areal >= 1.0; at areal >= 1.2 both stay below 2.2e-3 to v = 3. Two grids, no order.
+- D433 (verifier 185 on D428-D432; none refuted, D431 confirmed): D428 needs vacuum constraint data and enough
+  regularity for the energy estimate, and "the constraints do not involve d_t g_(0 mu)" is standard, not computed.
+  D430's G7 "control" is a consistency check (the sl offsets forced once give >= 1.78e-7); with the reflected residues
+  1 - d0, 1 - delta_l, 1 - delta'_l too (probe, l <= 3000) the least value is 2.65e-8, still above 1.94e-8. D432: the
+  [1.8, 2) error depends on M, not the null step; M differences from v = 2 are 4.5e-2 to 0.22; only the M32-40 pair is
+  tested in P. stage0h5's factor-n mutant follows from H2 by linearity: relabelled.
+- D434 (BEYOND5 Q4, checks/transfer5.py T1-T3, computed): Lemma 6.5''s l = 0 transfer at the record's gamma_C =
+  1e6. Series (400 vs 600 terms) agree to 30 digits at gamma_C = 1 ... 1e6; Radau agrees to 1e-12 up to 1e4. The
+  transfer converges as gamma_C -> infinity (differences 1.3e-2, 1.2e-4, 1.2e-5, like 1/gamma_C). It departs from
+  Lemma 6.5's diag(1, 0, -1/3, 1) by up to 1.22 (b(1) gains 1.217 of (c + 3d)/4). Not certified.
+- D435 (verifier 186 on D434: confirmed with one correction): only l = 0 was computed, so the transfer gives the l = 0
+  part of the r^-2 coefficient, each other harmonic its own. The series has no transient (largest coefficient 2.0 at
+  n = 1; 60 digits differ by 5e-26); run to gamma_C = 1e12, T(1e6) is 1.36e-6 from the limit. transfer5's label fixed.
+- D436 (BEYOND5 Q7, checks/harmonics5.py S1-S3 exact, T and G computed): every harmonic at gamma_C = 1e6. With the
+  harmonic abstract (kappa = l(l + 2)), the scalar type is a 7 x 7 system and the vector type 3 x 3, both with principal
+  part -(1/2) s (s - 2) I, matching coulombL5 at l = 0, 1; on the tensor type w = 0, so its transfer is damping-free.
+  For l <= 12 all transfers are finite; the exponents at N are exactly l-independent (M1 carries no kappa; verifier 187),
+  so no harmonic is resonant; normalised, the first four Taylor coefficients at I_0 grow like l, l, l, l^2 (scalar) and
+  1, 1, l, l^2 (vector) for k = 0 ... 3. Polynomial up
+  to l = 12: evidence for Lemma 0.1's sum, not the uniform bound.
+- D437 (BEYOND5 Q8, Lemma 6.5''', checks/uniform5.py U1-U6): the transfer bounded uniformly in l, closing D429's M3
+  at the record's point. Normalised, M0 = x^2 I/2 + O(x), M1 = O(1), and A(0) = M1(0) - I/2 is l-independent with
+  eigenvalues >= 1 (exact); an exact Lyapunov H > 0 makes the singular friction at N dissipative. In T = int m2^(-1/2)
+  the energy <F_T, H F_T> + (x^2/2 + 1)<F, H F> has dE/dT <= C_E E, C_E independent of l: |F(s)| <= K0 |F(0)| on
+  [0, 3/2], derivatives <= K_k (1 + kappa)^(k/2); the tensor type by Lemma 6.5 on Cartesian components. So Lemma 0.1's
+  condition for the Coulomb term holds (flat, full operator, given uniqueness). ln K0 ~ 2e14: uniform, not good.
+- D438 (verifier 187 on D436; confirmed, nothing refuted): an explicit l = 2 harmonic reproduces the kappa = 8 system
+  (scalar and vector), independent of the shared code. M1 carries no kappa, so the exponents at N are exactly
+  l-independent (closed forms in BEYOND5 Q7): no harmonic is resonant at N for any l. The b weight counts tr and rt
+  (l = 12 norms 10.75, 15.7, 18.1, 148), the vector docstring's factor fixed; "Taylor coefficients" -> "the first four".
+- D439 (verifier 188 on D437; PROVED-WITH-CORRECTION): the l-uniform bound holds. The energy ratio <= 3.6 was over
+  coordinate data only; over all data its sup is 2.85e6 (scalar, l = 2), still far below e^(C_E T1). The closing
+  statement carries "at the record's point" and "when M_m is smooth on S^3"; the tensor type needs delta G h = 0 too,
+  each Cartesian component has degree exactly l and is Lemma 6.5's solution (exponents 0, -1/2 at N); l = 0, 1 need
+  only the ordinary point s = 1; W equivalent, not equal, to the L^2 size (ratios in [0.55, 0.82]).
+- D440 (FAMILIES5 4e, checks/charprop5.py N0-N4, exact in the transverse jets, n = 4, 5): D428's characteristic
+  case. N = {u = 0} null, generators d_v. W on N depends on the transverse jets only through d_u g_vv, d_u g_vA and
+  gamma^AB d_u g_AB (triangular, diagonal g^uv, g^uv, -1/2). E_vv = C_vv - d_v W_v + (kappa - theta/2) W_v; modulo
+  W_v's jets along N, E_vA = C_vA - d_v W_A + (chi_A^B - theta/2 delta) W_B; modulo W_v's and W_A's,
+  gamma^AB E_AB = C_tr + 2 g^uv d_v W_u - g^uv H_v W_u; the C's are data (the null constraints in the gauge W = 0).
+  So the constraints and W = 0 on S give W = 0 on N and on N', then W = 0 where P2's linear characteristic problem
+  has uniqueness (standard, not computed). Controls fail. Open: solving the gauge-reduced constraints with the corner
+  conditions at S, the dusts' stress, and the record's solution solving the reduced equation exactly.
+- D441 (verifier 189 on D440; CONFIRMED-WITH-CORRECTIONS, nothing refuted): an independent sympy computation (n = 4,
+  explicit metric, Ricci from Riemann, another pivot rule) reproduces N2, N3's chi_A^B - (theta/2) delta and N4's
+  2 g^uv d_v W_u - g^uv H_v W_u; N2 by hand for general n; candidates of full rank, so the checks are not vacuous.
+  Corrected: kappa contains d_u g_vv, so the W_v transport is linear only with the solution's kappa as a
+  coefficient (a Riccati equation in the data; W_v = 0 still solves it); "then everywhere" in D440 replaced by "where
+  the linear characteristic problem has uniqueness"; "exact" is exact in the transverse jets, the tangential data
+  spot-checked over 3 seeds per n; the non-null control also perturbs g_vA; "H" includes its derivatives.
+- D442 (LOSS-D LD9, checks/s1coef5.py S1-S5, computed): the rho^(2+d1) coefficient A of the s1 state, solved from the
+  horizon on Tangherlini (mu = 1, gam_H = 1/10) with c_Ups = zeta r^-1 dt and c_Ups,H = -(1/2) eta dr, in ingoing
+  coordinates. Horizon exponents 0 (x4), 1, -1 (the 1 a resonance, handled): three smooth solutions. A agrees to ten
+  digits across matching radii, starts and tolerances. A = 2.584 (z = 1/2), 2.662 (z = 1/8 along gam_U -> 0), 10.99 (z =
+  1/8 along e_U -> 0). Over 22 cut-off choices A changes with every one (by up to 1.8 at z = 1/2): D415's dependence on
+  the cut-offs, asserted until now, is computed. A stays positive throughout; no zeta with A = 0 found. Open: the
+  record's point, the dual state, whether some zeta removes the term, and the bumped cut-offs' admissibility for III.D'
+  Prop. 4.1 beyond the matching being solvable.
+
+- D443 (verifier 190 on D442; CONFIRMED-WITH-CORRECTIONS, nothing refuted): an independent symbolic derivation matches
+  derive() exactly, eta term included; Chebyshev collocation from the horizon (no horizon series) with its own infinity
+  series gives A = 2.58438959, 2.66237888, 10.98879846 and three bumped cases; A does not depend on the choice of c_4;
+  smooth across the horizon = analytic at r = 1, three such solutions. Corrected: 'every choice computed' covers z = 1/2
+  and 1/8 only, not the record's point; III.D' Prop. 4.1's eps_0, eps_1 at the baseline parameters not checked; three of
+  the 22 rows repeat the baseline, the largest change from it is 1.60 (the spread 1.75); 'as one expects' is 'consistent
+  with'; zeta = 0 near the horizon is one admissible choice (smoothness needs zeta = O(r - 1)); s1coef5's two z = 1/8
+  points had shared ok keys (both passed in run 3; keys now distinct).
+- D445 (CERTIFY-10L5 6b, checks/g1amp5.py, computed; dnsolve5.py --run gains amp): the first seed at amplitude A = 1,
+  7/8, 3/4, 1/2, 1/4, M = 32 and 40 at 800 x 360 with ld 3 (A = 1 reproduces D432's runs bit for bit). Over areal radius
+  >= 1.0, |P_32 - P_40| on [2, 2.25) is 0.15, 1.9e-3, 7.7e-5, 2.0e-8, 3.5e-9, and the relative Chebyshev tail at M = 40
+  there 1.0, 6.3e-2, 8.5e-4, <= 2.3e-6. So at A <= 1/2 the angular refinement converges to the end of the grid at 1e-8,
+  the axis included, and D432's failure needs an amplitude between 1/2 and 3/4 of the record's and comes with the angular
+  structure outrunning M = 40 near x = -1. Open (D446): at A = 1, a singularity, a steep smooth feature, or an axis
+  defect appearing only at large amplitude (M <= 56 does not resolve it, D418); an axis-concentrated grid or an invariant
+  along the axis would decide.
+- D446 (verifier 191 on D445; CONFIRMED-WITH-CORRECTIONS): the runs at A = 1 are byte-identical to D432's, amp scales the
+  waves linearly, P is D432's, all 18 quoted numbers match. Corrected: the scan shows the axis treatment sound at A <=
+  1/2 only; at A = 1 it cannot separate a singularity, a steep smooth feature and a large-amplitude axis defect (the tail
+  fills for any M-growing non-convergence; it tracks |dP| cell by cell, correlation 0.84-0.98); P/A changes by up to
+  about 20 % between A = 1/4 and 1/2, not a few per cent, so the converged response is already nonlinear; local exponents
+  about 20-50; the [0.5, 1) tail was noise at the waves' onset (now cells with largest coefficient > 1e-6, about 2e-4
+  there); areal radius [1.0, 1.2) is kept only to v = 3 at A <= 1/2; at A = 1 the [2, 2.25) maximum sits at x = +0.71,
+  the axis values alone agreeing; the no-ld floor is 1e-6 to 1e-5.
+- D447 (BEYOND5 3(b)'s source condition, checks/sources5.py Q1-Q3): for a static h = r^-2 H(x^) on 4+1 Minkowski the
+  quadratic parts of Ric and of delta*_(eta,E_C) Upsilon^0 (c = r^-1 dt) scale exactly as 2^-6 from p to 2p (30 digits,
+  from h's jets; controls: the linear part scales as 2^-4, a non-static h breaks it). Deduced: every term of P at least
+  quadratic in the static leading means is O(r^-6), o(r^-4) as D413's condition needs; Tangherlini's corrections lower
+  the degree. Open: the cross terms with the E_(5/2) remainder and the sources from g_lambda - g_app.
+- D448 (FAMILIES5 4e, checks/charcons5.py K1-K3, exact): D440's gauge-reduced null constraints as ODEs along the
+  generators. Modulo every W-jet, C_vv carries only gamma^AB d_v^2 g_AB (coefficient -1/2): Raychaudhuri for the
+  conformal factor; C_vA carries d_v^2 g_uB with coefficients g^uv delta_A^B and no d_v^2 g_uu; C_tr carries d_v^2 g_uu
+  with coefficient -2 (g^uv)^2. So with the conformal class of gamma, g_uv and H given, they are solved in turn for the
+  conformal factor, g_uA and g_uu from data at S. Open: the corner conditions at S, the dusts' stress, uniqueness for the
+  linear characteristic problem.
+- D449 (verifier 192 on D447-D448; both CONFIRMED-WITH-CORRECTIONS, nothing major): D447's fit degree 16 is above the
+  true degree 9 (degree 8 failed, 10 agrees to 3e-34); the record's c_C = r^-1 (dt - v_C dr) now used (v_C = 3/5; still
+  2^-6, as c_C has degree -1); only the quadratic part is of degree -6, higher orders <= -8. D448's three leading
+  coefficients re-derived independently; K4 added: the hierarchy closes (C_vv free of g_uu, g_uA; C_vA of g_uu and of
+  angular derivatives of g_uB; C_tr of angular derivatives of g_uu); solvability qualified (neighbourhoods of generators,
+  an interval uniform over S); the data at S corrected: g_uu = g_uA = 0 there, their first v-derivatives and theta fixed
+  by the corner conditions (mirror of N1, not computed), the conformal factor free.
+- D444 (E2-PILOT 4, checks/e2high5.py H1-H4, computed): the cut-off resolvent norm at large sigma. Max over l: 1.132,
+  0.618, 0.336, 0.181, 0.0972, 0.0519 at sigma = 3 ... 96, always at the trapped harmonic (barrier top first above
+  sigma^2); at those sigma, sigma * max = 2.887 + 0.459 log sigma (residuals <= 0.004; at the sampled phase only, the
+  maximum oscillating in sigma with period about 1/2 and about 9 % peak to trough, D453): a logarithmic loss, against
+  Lemma E2.8's linear growth. Per harmonic the worst sigma lies just below its barrier top (l = 4 at the window's edge).
+  D352's row reproduced; grid refinement 7e-4. Also: E2-PILOT 4's 'two kinds of l below l_0' are covered by Lemma E2.9
+  (section 3f) and, for l = 0 at sigma < 0.711, by Lemma E2.8' (section 3g, D453), bearing only on E2.5's constants.
+  Open: a proof of the log law (E4), the record's norms.
+- D450 (LOSS-D LD9, checks/s1coef5.py --record, S6, computed): the s1 coefficient at the record's point, gam_U = e_U =
+  1/100 (z = 4e-6, d1 = 3.3e-7): A = 141.4269, ten digits across matching radii and starts (condition <= 1e5). The
+  near-resonance forces A = -P_v + O(1) (P_v = -141.4214, u_0's rho^2 term from D412's (0, -99.75, -100.25) along v);
+  near I_0 the state carries A d1 rho^2 log rho plus the rho^2 vector (0.0133, 0.2473, -0.2395), and d1 is in E_ind at
+  the record's point. The cut-offs move A by 7e-6 to 0.17 (the gauge term is weak at gam_U = 1/100). Open: the parameters
+  against III.D' Prop. 4.1, whether some zeta removes the term, the dual state.
+- D451 (verifier 194 on D450; CONFIRMED-WITH-CORRECTIONS): A reproduced to 1e-9 by an independent Chebyshev collocation
+  from the horizon (N = 200, 400) and within 3e-10 across radii 3, 4, 6, tolerances and three integrators; the brief's
+  two other near-resonances vanish exactly (odd P_k are zero). Corrected: only A = -P_v + O(1) is forced; A + P_v =
+  0.0055 is small because the full rho^2 vector (0.0133, 0.2473, -0.2395), norm 0.345, lies near D412's (0, 1/4, -1/4),
+  nearly orthogonal to v (it changes sign along the branch between 1/30 and 1/100); the eta bump acts through gam_H eta
+  and moves the residual 32-fold; a second near-cancellation at rho^4 noted.
+- D452 (E2-PILOT 4, checks/e2high5.py --vs-e28, computed): Lemma E2.8's bound against D444's measured maxima. Its sup
+  over 1 <= l <= 12 is at l = 1 (w_I smallest): 253, 429, 800, 1554, 3068, 6099 at sigma = 3 ... 96 (about 63 sigma; 224
+  to 1.2e5 times the measured max); at the trapped l it is 21.4 to 66.8 (19 to 1300 times). The proved constant's growth
+  comes from the low harmonics, not from trapping. E2-PILOT 4's 'about 19-21 at sigma = 3' for 1 <= l <= 30 corrected:
+  253 at l = 1, about 19-21 from l = 5 (section 3e's own table).
+### 4.277 E2.7: the cut-off resolvent above the barrier (D359)
+
+- D453 (verifier 193 on D444; confirmed with corrections): the method holds (the Riccati-to-linear switch and scale,
+  Riccati stability from the flux, the tail and start errors about 1e-9 and 1e-22; power iteration against a dense SVD
+  and e2pilot5's independent solver to 1e-10 at (l, sigma) = (4, 3), (11, 6), (23, 12), (30, 12); at sigma = 48 80 points
+  per wavelength move l = 95 by 1.7e-4, and 12 l off the window lie below the maximum). Major: the log fit holds at the
+  sampled sigma = 3 * 2^k, all at one phase of the maximum's oscillation in sigma (period about 1/2, the barrier tops'
+  spacing); a fine scan of [11.50, 12.55] gives sigma * max 3.752-4.112, the sup about 1.7 % above the fit; the envelope
+  appears to share the slope (intercept about 2.955, one cycle scanned). Minor: H4 lies on the envelope, not the fit; l =
+  0 at sigma < 0.711 is E2.8', not E2.9; H2's Wronskian spread is in modulus only. sigma = 96 not refined or scanned
+  off-window (unverified).
+- D454 (BEYOND5 3(b), checks/sources5.py Q4-Q5, computed): the cross terms of the sources between N and S. With the
+  leading mean h static of degree -2 and the remainder rho in E_(5/2) as N1STAR-PROOF.md defines it (every Cartesian
+  derivative <= C r^-5/2, none gaining), the part of P bilinear in (h, rho) is O(r^-9/2), led by h d^2 rho and attained
+  (rho = r^-5/2 G sin(x1 + 2 x3 + t): R^(9/2) times the largest component 23.5-33.9 over R = 8-128 at 8 directions), the
+  part quadratic in rho O(r^-5) (R^5 times it 31.8-53.0); a remainder whose derivatives gain gives exactly 2^-13/2 under
+  doubling (Q4) and falls a further 1/256 over that range. All o(r^-4), the condition D413 needs. Open: the sources from
+  g_lambda - g_app.
+- D455 (FAMILIES5 4e, checks/charcorner5.py C1-C3, computed exactly): the corner conditions W = 0 on S = N cap N'. At S,
+  W depends on the first u- and v-jets only through X = (d_u g_vv, d_u g_vA, tau'; d_v g_uu, d_v g_uA, tau), tau =
+  gamma^(AB) d_v g_AB = 2 theta (N1 and its mirror at once), and its Jacobian is diagonal in pairs: W_u = g^(uv) d_v
+  g_uu - tau'/2 + f_u, W_v = g^(uv) d_u g_vv - tau/2 + f_v, W_A = g^(uv)(d_u g_vA + d_v g_uA) + f_A, f from g at S, its
+  angular derivatives and H. So both expansions and one of each mixed pair are free and n numbers fixed; D449's 'their
+  first v-derivatives and theta are what the corner conditions fix' qualified: given N''s numbers, not both cones at
+  once (D459). Open: the null dusts, linear uniqueness, the record's solution solving the reduced equation.
+- D456 (verifier 195 on D452 and D454; both confirmed with corrections): D452's --vs-e28 numbers reproduce (vs_e28 reuses
+  e2morawetz5.best). Corrected: 'optimised' is the best of 40 widths in [0.2, 0.98], and at l = 1 the best is at the edge
+  (widths to 0.999 admissible: 175 at sigma = 3, 4073 at 96, about 42 sigma); 'about 63 sigma' is the large-sigma slope
+  (B/sigma 84 to 64); the trapped l at sigma >= 24 lie beyond 3e's l <= 30; ratios at the sampled sigma; E2-PILOT's
+  'about 20 at sigma = 3'. D454: MAJOR, E_p bounds the rotations Omega too, so tangential derivatives gain and Q5's
+  sin(x1 + 2 x3 + t) was outside the class; Q5 now uses sin(r + t), inside it, and still attains r^-9/2 (fitted exponent
+  -0.07, where r^-5 gives -0.5; the old factor-5 test could not tell them apart). The bound stands; its margin over r^-4
+  is r^-1/2, and the rho^(5/2) term it produces bears on BEYOND5 3(b) (v)'s half-integer question.
+- D457 (LOSS-D LD9, checks/s1coef5.py --zeros, S7, computed): whether a cut-off makes the s1 coefficient A vanish at the
+  record's point. Variations on (1.25, 3): dA/dzeta -1.0e-5 to -3.1e-5, dA/deta 0.034-0.061 per unit integral (the
+  dual-state pairing, by bumps), so |A - A0| is about 0.084 to first order for cut-offs within 1 of the record's (an
+  estimate, not a bound: eta0 - 1 moves A by -0.098, D459); the extreme [0, 1]-valued cut-offs give 141.4177-141.4938;
+  bump amplitudes to 1e5 keep A in [123.95, 141.94] where the matching is reliable (eta at t <= -1000 undecided:
+  condition above 1e12). No zero: A is pinned by -P_v = 141.42. So d1 stays in E_ind for such cut-offs and LD9's delta_G
+  is carried. Open: variations outside (1.25, 3), non-rotation-invariant cut-offs, eta at large negative amplitude.
+- D458 (CERTIFY 6b, dnsolve5.py map a, checks/g1map5.py incl. --onset, computed): G1's failure at x = -1. The onset: m at
+  the node next to the axis, then a node-to-node alternation with a flat spectrum; the tail of (1 + x)m, (1 - x)n jumps
+  4-5 orders within 0.1 in v from 1.8 (A = 1). Seed test: at M = 32 the jump is the same with an 800-fold larger axis
+  rounding, so not amplified rounding; at M = 40 the long-double solve matters. A mapped grid concentrated at x = -1
+  (spacing 0.7x) brings the failure earlier and larger, and makes A = 3/4 fail where the plain grid converges; the onset
+  tail grows as the first node approaches the axis (3e-10, 2e-9, 2e-7, 8e-5 for 1 + x_0 = 1.2e-3 ... 3.8e-4). Inference
+  withdrawn (D462): the failing mapped run is its most rounding-affected and its error sits at the coarser +1 side, so
+  the mapped grid does not separate the readings. The axis invariant g_22 converges better than P on the plain grid.
+  Next: an axis treatment that keeps its digits (regular combinations as unknowns, or Gauss-Radau nodes at the axes).
+- D459 (verifier 196 on D455 and D457; both confirmed with corrections, nothing major): D455's Jacobian re-derived by
+  hand and by a symbolic n = 4 run, f_u = -H_u and f_v = -H_v exactly (now asserted in C3); D449's statement is right
+  once N''s numbers are given, its fault was fixing both cones at once, so 'theta is not fixed' overstated; two wording
+  nits. D457: every number reproduces and the large-amplitude zeta values are stable to 1e-8 in rtol and r0; corrected:
+  0.084 is an estimate, not a bound (eta0 - 1 moves A by -0.098); the amplitude ranges hold at the samples (121.42 at t =
+  1.5e4); at eta t = -1000 only the condition rules the value out; 'for every cut-off' rests on linearisation.
+  Unverified: the record's admissibility of large cut-offs (III.D' Prop. 4.1).
+- D460 (E2-PILOT 3i, checks/e2asym5.py A1-A5, computed in floating point, not certified): asymmetric multipliers, phi =
+  tanh(g), g' = 1/s, the width rising from 49/50 toward the horizon to s_R = 2 outside, centred at x_*. l = 1: B_1(3) =
+  95.6, X_1 = 80.5, C_1 = 184.2 (certified symmetric 264.5, 495.9, 675.1); l = 0 with section 3g's linear program for q:
+  X_0(3) = 117.3 (808.6); the same phi serves every l >= 1 (w_l >= w_1 as in 3f): C_l = 55-62 for l = 2-6. So the summed
+  H^1 constant at sigma = 3 would be 184.2, set by l = 1, against 808.6. Controls reproduce the certified symmetric chain
+  (254.6, 483.4, 801.5). Next: certify these multipliers by interval arithmetic (w >= 0 on R with the tails, the
+  constants on I).
+- D461 (BEYOND5 3(b), checks/sources5.py Q6, computed): the sources from e = g_lambda - g_app between N and S. The
+  record's (P-iii) (N1STAR-PROOF 1041-1042) bounds e and d e by C t^-2, no gain, nothing on d^2 e. With that, the terms
+  quadratic in e and h d^2 e are O(r^-4) at best, attained for e = r^-2 G sin(r + t) (R^4 times them 16.7 and 9.3 at R =
+  128, fitted exponents 0.015 and 0.105; a gaining control falls as R^-2.0), so not o(r^-4) as D413's condition needs,
+  and terms with d^2 e are unbounded by (P-iii); the lam^(K-3) factors do not change the power. Open: a strengthened
+  (P-iii), two derivatives with a decay gain, or the condition restated with an r^-4 source's own contribution at rho^2.
+  [Conclusion withdrawn, D464: e acts only in a strip of bounded v along N, where an r^-4 source enters at rho^3.]
+- D462 (verifier 197 on D458 and D460; both confirmed with corrections): D458's code and numbers hold (xgrid, a = 0
+  exact, interpolation in each run's variable; the seed test like for like, S4 3.9e-6 against 4.7e-9). MAJOR: the mapped
+  pair's failure is its M = 40 run alone, with 40 times plain M = 40's axis-node rounding (1.4e-6, ld 3 or 4 alike) and
+  its error near x = +1, the coarser side; the mapped M = 32 run tracks the plain runs; the onset tail's order is also
+  the rounding's; mapped D2 is 4 times larger. So 'points to the axis treatment' is withdrawn (CERTIFY 6b, G1 so far,
+  Next): the mapped grid does not separate the readings, the alternatives are the scheme's, no mechanism shown. Minor:
+  4-5 orders take 0.2 in v at A = 7/8, 3/4; 8.7e-5 at A = 3/4. D460: derivatives, lemma conditions, A5's argument and
+  formulas check; MAJOR: the infeasibility at x_* - 0.3, s_R >= 1.5 is on the horizon side (r_* in [-20.4, -1.0]), not
+  the outer tail; minor: for l >= 2 the weight -phi U' is 0.64-0.94 of psi_* (C_l <= 65 in psi_*'s, 184.2 stands); m'
+  certified 0.002580; docstring D-number.
+- D463 (FAMILIES5 4e, checks/chardust5.py D1-D5, exact): the null dusts' stress in the characteristic constraints. T =
+  sum rho_i k_i k_i is trace-free (k_i null) and algebraic, so N2-N4 hold with the C's shifted by -kap T components and
+  W's propagation uses div T = 0 (the dusts' equations). The hierarchy closes: T_vv = sum rho_i (g_uv k_i^u)^2 free of
+  g_uu, g_uA, gamma; T_vA free of g_uu, linear in g_uA; gamma^(AB) T_AB free of g_uu; a dust along N's generators drops
+  out on N. Open: the dusts' own data and transport, linear uniqueness.
+- D464 (verifier 198 on D461 and D463): D461's Q6 numbers hold but its conclusion is REFUTED. e = g_lambda - g_app is
+  bounded only on P', v <= V'_P (N1STAR-PROOF 1056), and I_0 is at v -> infinity, so its sources sit in a strip of
+  bounded v along N; in the scalar l = 0 model (checks/strip5.py T1-T3) r^-4 on all of v >= 0 gives r^2 phi -> -1/2, on
+  the strip v in [0, 1] r * r^2 phi -> -0.784: rho^3, not rho^2. And (9.8) with Lemma 9.3(a) does bound d^2 e (no gain).
+  So 'the record needs a stronger remainder bound' is withdrawn (BEYOND5 3(b), sources5's docstring). Open: the strip for
+  the full operator, its unstructured r^-3 against rho^3 C^infinity. D463 confirmed with corrections: the record's dusts
+  are the covectors sqrt K dv, sqrt K du (T_vA = T_AB = 0 on N); W's propagation also uses tr T = 0 off N, which geodesic
+  flow keeps.
+- D465 (LOSS-D LD9, checks/s1coef5.py --zeros-far, S8, computed): the cut-off sensitivities beyond r = 3. Matched at r =
+  8 (A0 identical); dA/dzeta falls from -2.7e-5 to -1.2e-5 over r = 3.2-7.6, dA/deta levels off near 0.068 (c_H = -eta
+  dr/2 does not decay). The record's chi is supported in |x| < 5 R_1, R_1 = sqrt(mu_end) = 1 here, so over that support
+  an eta within 1 of the record's moves A by about 0.21 to first order (zeta on (3, 8): 9e-5), far from the forced 141.4:
+  D457's conclusion extends to the record's whole support. Open: inside r = 1.25, non-rotation-invariant cut-offs.
+- D466 (E2-PILOT 3i, checks/e2asymcert5.py K0-K4, certified by interval arithmetic): D460's asymmetric multiplier for
+  every l >= 1, with the width interpolated harmonically (closed-form g; s_L = 49/50, s_R = 2, kap = 1/2, centre x_*).
+  w_1 >= 0 on R (bisection on t in [-120, ln 119], tails by explicit bounds, left ratio <= 0.0842, right <= 4.6e-47); m'
+  >= 0.05299, M' <= 0.7929 on I; B_1(3) <= 93.95, X_1(3) <= 87.61, C_1 <= 184.82, C_l <= 64.18 for l >= 2. So over l >= 1
+  the summed H^1 constant at sigma = 3 is certified <= 184.82 (675.1 before), in this multiplier's weight. Open: l = 0's
+  q (X_0 = 117.3 computed).
+- D467 (BEYOND5 3(b) (v), read): whether III.K's index sets admit half-integer exponents. They do: at scri+ the
+  expansion is in rho_I and functions smooth on M_(1/2) have index set (1/2)N_0 there, the slot index sets closed
+  under + 1/2 (PART-III-K-NONLINEAR 361-377, III.C Lemma 3.2 (a)); and the data index set E_0 is restricted only by
+  min Re E_0 > 3/2 + 2 gamma_Ups, j E_0 in E_0, ell_0 > 3, ell_0 not in Re pi_1 E_0 (III.K 53-57), not to integers. So
+  Lemma 0.1's integer powers are sufficient, not the class. Open: whether a rho^(5/2) term keeps the d_1-norm finite
+  (its weights not read).
+- D468 (verifier 199 on D464 and D465): both confirmed with corrections. strip5.py reproduced by a separate implicit
+  solver (−0.500 on all of v ≥ 0; on the strip about −0.785 extrapolated), G(1) = −f/2 by quadrature; the l = 0 kernel is
+  positive, so the model bounds every |S| ≤ r⁻⁴ on the strip, at l = 0 only. BEYOND5's 'enters at ρ³' and 'do not reach
+  the r⁻² coefficient' now carry 'in that model', and beyond V′_P the remainder is (b1)'s unknown; (9.8) with Lemma
+  9.3(a) gives |∂ʲw_n| ≲ λ^(K′−2−j) t⁻² on the far region, one power of λ better than stated, for w_n (the passage to e
+  not checked). FAMILIES5: T_vv = K_in comes from the √K dv dust, not the du-dust. strip5's T3 is now relative (4 × 10⁻⁴
+  measured, 2 × 10⁻³ asserted). D465: the 0.21 was S7's joint sum without the gaps (1.25, 1.3) and (2.9, 3); S8 now
+  computes them (0.0015, 0.0062), and η's first-order sum on (1.25, 5) is 0.221. dA/dζ falls like r^(−0.92), so ζ's
+  first-order effect grows like log R and (3, 8) is a choice; no curvature beyond r = 3.
+- D469 (verifier 200 on D466 and D467): both stand, no major finding. D466: K0-K4 reproduced; the closed forms exact by
+  sympy; the bisection pieces share endpoints and overlap K2's tails; both tail bounds re-derived as proofs (the left
+  needs a ≥ 9/4, true at l = 1); every l ≥ 2 proved (w_l ≥ w_6 on I, B, X, K decreasing in w_I, and l(l + 2)/(a − a_1)
+  = 1 + 3/(l(l + 2) − 3) decreasing, now stated and checked in K3); the formulas are E2-PILOT's (228, 463-487) with c =
+  M′ + 6; 50-digit sampling lies inside every bound. Added to K4: the tail bounds fail where they should (left ratio
+  2.42 at t = −3, right 2.66 at r = 2.5, not monotone there) and the constants step refuses l = 0 (min_I w_0 enclosed
+  from −0.032). The l ≥ 2 terms are in −φU′'s weight; ψ_*'s version is not certified. D467: the quotes are exact (ℓ_0 >
+  3 the D323 form); j ∈ ℕ and jℰ_0 is the j-fold sum, so the condition is closure under addition; 'not to integers' is
+  an inference from the hypotheses cited; the 𝓘⁺ evidence concerns another face, and the I_0 conclusion rests on III.K
+  53-57 and III.C′ Theorem 3.1 alone (ρ_0 = 1/(2 − x¹), about 1/r there). BEYOND5 (v) is reframed so.
+- D470 (FAMILIES5 4e, `checks/chardustdata5.py` T1-T5, exact, D = 4 and 5): the null dusts' own characteristic data. At a
+  point of N = {u = 0}, g_vv = g_vA = 0, every field a first-order jet. A dust tangent to N is along the generators; (div
+  T)^u = (div T)^A = 0 identically; (div T)^v = ∂_v q + c q, q = ρ(k^v)², c = (2∂_v g_uv − ∂_u g_vv)/g_uv + ½γ^(AB)∂_v
+  g_AB, ∂_u g_vv being its only transverse jet and fixed by W_v = H_v (coefficient 1/g_uv, no other transverse jet in
+  W_v). So the tangent dust is fixed on N by S. A crossing dust: div T = 0 and ∂_u g(k, k) = 0 have rank D in the D + 1
+  transverse derivatives, one dependency k_a(div T)^a = (ρ/2)k^u ∂_u g(k, k), one kernel vector, the rescaling; so ∂_u T
+  is fixed and ρ, k^u, k^A on N are free. Controls: the tangent dust's rank is 1; without Γ^a_bc k^b k^c the identity
+  fails. The record's dusts: K_out is transported along N from S, K_in free on N; on N′ the roles swap. Open: existence
+  for the transport off N, the corner, linear uniqueness.
+- D471 (verifier 201 on D470): stands, no major finding. The jet set-up is complete (div T is first order), div T and c
+  reproduce by hand, and T is q alone on N, so the ODE fixes T, not ρ and k^v apart. After the gauge c = 2∂_v ln|g_uv| −
+  W_v (now asserted exactly in T3), so the expansion cancels: ∂_v T_uu = H_v T_uu. T4's rank is D wherever ρ, k^u ≠ 0 (a
+  D × D block has determinant 2ρ^D(k^u)^D). Scope: a crossing dust has D − 1 free functions; the record's dv dust has
+  K_in alone, free where dv is null on N; N′ by symmetry, not computed; the transport reproduces 4c's K_out R³ = B(u).
+  T5's third control, which restated T2, is replaced: W_u has other transverse jets, so T3's test is not vacuous.
+  Recorded: whether the record's Υ is relative to g0 (Υ_v(g0) = −3R_v/R, order 1, against H of order λ) is not stated.
+- D472 (LOSS-D LD9, `checks/s1coef5.py --zeros-far-amp`, S9, computed): A at the record's point beyond first order
+  outside (1.25, 3). The extreme [0, 1] cut-offs the record's support allows move A by at most +0.168; amplitude scans of
+  η (bump at r = 4.8) and ζ (r = 3.2) bumps for |t| ≤ 10⁵ keep A in [107.42, 141.97]. Where the plain matching fails (η
+  at t ≤ −10³: radii disagree, condition 10¹² or more), the horizon columns are re-orthonormalised (QR) at every grid
+  step, which leaves A unchanged in exact arithmetic (A is an infinity column's coefficient); checked against the plain
+  matching to twelve digits and against itself (second radius, half steps) to 10⁻⁷. The plain matching's −166 at t = −3 ×
+  10⁴ was an artefact; no sign change. S7's undecided range (D457, η bump at r = 2.85, t = −10³ to −10⁵) is decided: A =
+  130.27 to 130.48. Open: variations inside r = 1.25, non-rotation-invariant cut-offs, the dual state as a function.
+- D473 (E2-PILOT 3i, `checks/e2asymlzero5.py` L1-L5, certified by interval arithmetic): l = 0 under D466's asymmetric
+  multiplier, with Lemma E2.8′'s Lagrangian term q (37 sech² bumps, κ_k < s_L, c_k from a linear program rounded to four
+  digits; the certificate checks this q). W_q ≥ 0 and φ′ − q ≥ 0 on t ∈ [−120, ln 119]; tails by explicit monotone bounds
+  (left 0.168, right 2.3 × 10⁻⁴⁶); on I, w_I ≥ 0.01776, m′ ≥ 0.05143, M′ ≤ 0.3201: B_0(3) ≤ 359.0, X_0(3) ≤ 158.57.
+  Controls fail as they should (no q; q″ at −1; the left tail at t = −3). With D466, one multiplier certifies every l ≥
+  0, and the summed H¹ constant at σ = 3 is ≤ 184.82, set by l = 1, against 808.6 before; in −φU′'s weight for l ≥ 2.
+  Open: the band 0 < |σ| ≤ 3 re-checked rather than deduced, and ψ_*'s weight.
+- D474 (BEYOND5 3(b), `checks/strip5.py` T4, computed): the strip in the scalar model at l = 1-4, potential (l(l + 2) +
+  3/4)/r². The full source r⁻⁴Y_l gives r²φ → −1/3, −1/6, −1/15, −1/30 (four digits). On the strip, r · r²φ → −1/3 at l =
+  1 and 1/15 at l = 3 (ρ³, as at l = 0), and falls like 1/r at l = 2 and 4, its ρ³ coefficient below resolution
+  (refinement moves it by up to 8 % at r = 200): ρ³ or later. In no harmonic computed does the strip reach ρ²; for l ≥ 1
+  these are values for S = r⁻⁴Y_l, not bounds (the kernel changes sign). Open: the full operator on the strip.
+- D476 (FAMILIES5 4e, read: [CP12] Chruściel-Paetz, arXiv:1203.4534v2): Theorem 2.1 (Rendall, p. 5) gives, for vacuum
+  characteristic data on N1 ∪ N2 meeting in S, a unique metric on an open neighbourhood of S in {x¹, x² ≥ 0}, extended to
+  matter whose T_22, T_2A, T_12 on {x¹ = 0} are fixed by matter data and listed jets (p. 5); Section 3 (p. 5, eq. (15))
+  treats T_μν ℓ^ν = T_μ(g, φ, ∂_∥ g, ∂_∥ φ, x) with matter well-posed given g, and gives a reduced solution near S (p. 9)
+  that solves Einstein iff the gauge vector vanishes on N1 ∪ N2; uniqueness is local (p. 16). The record's dusts fit (15)
+  with no derivative (D463), their characteristic data are D470's, and the gauge vector vanishes on N ∪ N′ (D440-D441,
+  D455): so, given the dusts' well-posedness (by characteristics, not written out), a solution near S; uniqueness is
+  stated for vacuum, locally. The corner needs no dust condition. Open: beyond a neighbourhood of S; the dusts'
+  well-posedness written out.
+- D477 (E2-PILOT 3i, `checks/e2asympsi5.py` P1-P3, certified): D466's l ≥ 2 constants in section 3i's weight ψ_* =
+  −φ_*U′. The ratio ψ/ψ_* = φ/φ_* (U′ cancels), certified ≥ 0.712 on I (interval division away from x_*, the mean value
+  theorem near it; floating-point minimum 0.7134 at r = 1.70). So C*_l ≤ 66.029 for l ≥ 2 in ψ_*'s weight, and the summed
+  H¹ constant at σ = 3 over every l ≥ 0 is ≤ 184.82 in section 3i's own weight, against 808.6. Control: φ_* off the
+  photon sphere makes the ratio change sign.
+- D478 (verifier 203 on D473): stands, no major finding. Every tail inequality re-derived (tail_right's V′ bound needs
+  only a > 0 and b ≥ 0, so it holds at l = 0); q″ ≥ 0 on the whole of each tail; no gap between bisection and tails; the
+  bump decimals enter as enclosures; B, X_0 and C_0 = X_0 as Lemma E2.8′ and Corollary E2.11′ (on the real axis q adds no
+  term; 2 max q only off it); independent 60-300-digit sampling inside every bound. MINOR: five stated bounds rounded to
+  nearest, not outward (w_I ≥ 0.01775, m′ ≥ 0.05142, B_0(3) ≤ 359.01, left ρ_3 + ρ_q ≤ 0.1684, w_0 ≤ −0.0219; and in
+  D466's bullet m′ ≥ 0.05298, M′ ≤ 0.7930, B_1(3) ≤ 93.96, X_1(3) ≤ 87.62): corrected in E2-PILOT 3i, and e2asymcert5,
+  e2asymlzero5 and e2asympsi5 now print every bound rounded outward; C_1 is recomputed in e2asymlzero5 (184.817); the
+  right tail checks tanh g_R, c_R > 0. The D466 and D473 entries above keep the values as first stated.
+- D479 (LOSS-D LD9, `checks/s1coef5.py --zeros-near`, S10, computed): cut-off variations inside r = 1.25. Started at r =
+  1.05 (A0 unchanged to ten digits; the horizon series converges there), bumps on (1.05, 1.25) give first-order effects
+  0.0037 (η) and 1.2 × 10⁻⁶ (ζ); amplitude scans to |t| = 10⁵ at r = 1.225 keep A in [140.34, 141.96], every value
+  reliable (QR matching where needed), no sign change. With D457, D465 and D472, no cut-off variation computed anywhere
+  on (1.05, 8) makes A vanish. Open: (1, 1.05), the series' own range; non-rotation-invariant cut-offs; the dual state as
+  a function.
+- D480 (verifier 204 on D476-D478): D477 and D478 stand. D477: φ_* is centred at x_* with s = 49/50 (e2certify5); the
+  factorisation, the interval division and the refinement are valid (ρ = 0.712004 certified, 40-digit sampling 0.71335);
+  A_l in ψ_*'s weight and the l ≥ 6 reduction right; C*_2 = 66.028, C_1 = 184.819. D478: up and dn round safely, negative
+  values included; the corrected values match the scripts; all three pass. MINOR: e2asymcert5's K4 control line still
+  rounded to nearest (now outward). D476: the verifier's route to arXiv was refused, so its quotations are checked here
+  against the alphaXiv text by the author, not independently (each word for word, pages as cited, one comma aside);
+  MINOR: the coupled reduced system's well-posedness, which [CP12] p. 9 assumes, is now stated separately from (15)'s;
+  the corner claim is limited to the record's gradient dusts (a general crossing dust may cross N′ too and need a
+  condition at S); whether [CP12] section 3's gauge covers this section's H and g0 is recorded as not checked.
+- D481 (verifier 202 on D472 and D474): both stand, no major finding. D472: A = x[3] is an infinity column's
+  coefficient, so x[3:] is invariant under any change of basis of the horizon columns (checked with a random T); S9
+  reproduces; an independent QR with a growth-adapted grid and DOP853, LSODA and Radau agrees to 5 × 10⁻⁸. MINOR: the
+  growth rate is |t|/5, not |t|/20 (docstring fixed; at most e^4 per chunk); 'half the chunks' meant steps half as long;
+  the ranges are over the sampled t (ζ at t = 1.3 × 10⁴ gives 119.208), now said so. D474: the potential is right; the
+  exact solution by the Riemann function P_(l+1/2) gives the full-source values −1/2, −1/3, −1/6, −1/15, −1/30 to twelve
+  digits and the strip's ρ³ coefficient C_l = −π/(4Γ(1 − l/2)Γ(2 + l/2)) (−π/4, −1/3, 0, 1/15, 0), zero at every even l
+  ≥ 2, where the strip enters at ρ⁴ (−1/6, 1/10 by quadrature); now strip5's T5.
+- D482 (verifier 205 on D479 and D481's T5): D479 refuted on a MAJOR point. The start at r0 = 1.05 is sound (the series
+  uses the record form ζ = 0, η = 1 below it; tail 1.1 × 10⁻⁷⁷; A0 the same from 1.25, 1.05 and 1.02), and the sampled
+  values reproduce, but [140.34, 141.96] was the range over twelve samples: between them A has real poles and zeros in t,
+  vanishing for η at t = −1642.825 and for ζ at t = −14570.834 (plain and QR matching, Radau, LSODA and a start at 1.02
+  agree; reproduced here: A = 416.8 at t = −1640, −111.1 at −1642, 37.3 at −1643.5). Definition 6.1 bounds neither c_Υ
+  nor c_Υ,H in size, so these cut-offs are admissible to it. Withdrawn: 'no cut-off computed on (1.05, 8) makes A
+  vanish'. Standing: A = 141.4 at the record's cut-offs, and within 0.25 to first order for cut-offs within 1 of them;
+  the scans of D457 and D472 are samples too, and are being scanned densely (D483). MINOR: nothing varied on (7.8, 8). T5
+  stands (C_l derived independently); its tolerance is tightened from 1 % to 0.3 %.
+- D484 (FAMILIES5 4e, read and deduced): D480's 'not checked', whether [CP12] section 3's gauge covers the record's.
+  [CP12]'s target ĝ 'plays no significant role in what follows' (p. 6), and its W̊ is fixed on N1 ∪ N2 by the data and
+  any smooth extension off them (p. 9). The record's target is g0 and its source E^Υ_(g0) G_(g0)(g − g0) is algebraic in
+  g, fixed on N1 ∪ N2 by the data; off them it alters the reduced system only by terms without derivatives of g, so the
+  system stays quasilinear wave (deduced; Rendall's [36] not read). (D483 is the dense amplitude scan, running.)
+- D475 (CERTIFY-10L5 6b, `checks/g1curv5.py`, computed on saved runs): G1's failure in the Kretschmann invariant. On the
+  amplitude runs of D445 (A = 1/4 to 1, M = 32 and 40), 24 u-rows over the failure region: where K converges in M it is
+  within order 1 of Tangherlini's 72/R⁸ (max |K/K_0 − 1| near the axis from 0.51 to 3.9 as A goes from 1/4 to 1, before v
+  = 1.75), growing roughly like A^1.3 to A², with no resolved growth before the failure; from v = 2 at A ≥ 3/4 it is
+  unresolved at every angle computed (x from −0.97 to 0.5), 10³ to 10⁷ K_0 with M-differences as large. The angular
+  derivatives are global, so the cause is not localised; the invariant shows the failure reaches the geometry and that
+  the resolved curvature is moderate. Open: an axis treatment judged by K at every angle. (A first run read the mask the
+  wrong way round, b6fb8e7.)
+- D485 (verifier 206 on D475 and D484): D475 stands, MINOR findings only; D484's conclusion stands on a corrected reason
+  (MAJOR). D475: the mask sense, the 24 of 438 rows, the plain Chebyshev nodes, K_0 = 72/R⁸ (μ = 1, R the 3-sphere's
+  volume radius) and every quoted number reproduce, and the interpolation is local. MINOR: over the converged bands the
+  exponent of A runs from 0.58 to 2.22, not 1.3 to 2; the unresolved values start near 3 K_0 (2.95, 11.6 and 225 inside
+  the region), not 10³; the onset is per column (at A = 3/4, x = −0.97 converges to v = 2.1; A = 7/8 is unresolved off
+  the axis on [1.75, 2), a band neither statement covered; A = 1 loses convergence off the axis first, near v = 1.875 to
+  1.9, and at x = −0.97 near 1.95 to 1.975); 'resolved' is in M, with (u, v) at 800 × 360, so in angle; dev also carries
+  the wave's rise in mass. Corrected in CERTIFY-10L5 6b and g1curv5's docstring. D484: the source is algebraic in g
+  (confirmed, III.B Definition 6.1), but 'only by terms without derivatives of g' is false: δ* of the source brings first
+  derivatives of g, and δ* taken with g0 and the damping E^C add first-order terms too. The principal part is unchanged,
+  so the conclusion survives, and Υ = 0 propagates by its homogeneous wave equation. MINOR: W̊ depends on g, so [CP12]'s
+  'any smooth vector field' does not literally cover it; Rendall's argument carries the step. The verifier could not
+  reach the paper (403); the quotations are as read here from the alphaXiv text. Corrected in FAMILIES5 4e. The D475 and
+  D484 entries above keep their text as first stated.
+- D486 (E2-PILOT 3j, `checks/e2trap5.py` T1-T5, computed, not certified): the large-σ gap, harmonic by harmonic. Lemma
+  E2.7 (proved) covers every harmonic above the barrier, Λ|σ|/(σ² − max V_l) with max V_l exact (1.446 at l = 1, σ = 3,
+  against E2.8's 253). Near and above the trapped harmonic E2.8's w_I is at most −φ‴(x_*)/2, so a fixed multiplier gives
+  B growing like |σ|; a narrow core at x_* with wide flanks (φ = tanh g, g′ = D466's plus β sech²((r_* − x_*)/κ), 645
+  multipliers) lets the core shrink like 2.4 l^(−1/2) while m′ stays bounded. Centred at x_*, w_l increases with l, so
+  the best bound is nonincreasing in l and l > 212 is covered by l = 212. The sup over every l ≥ 0 of min(E2.7, E2.8) is
+  10.97, 5.846, 3.755, 2.362, 1.512, 0.9886 at σ = 3, 6, ..., 96, at most 11.35 on [3, 96] in steps of 0.01, slope −0.63:
+  9.5 to 19 times the measured maximum, against 224 to 1.2 × 10⁵ for section 3e's 63σ. Controls: e2morawetz5's 21.35
+  reproduced; a too-narrow core fails w ≥ 0; every bound above e2high5's computed norm at four (l, σ). Open: a
+  certificate (interval arithmetic over the chosen multipliers); σ > 96 (σ^(−1/2) suggested by the scaling); section 3i's
+  H¹ constants with these multipliers.
+- D487 (BEYOND5 3(b), `checks/stripfull5.py` P1-P3, exact and computed): the strip for the full operator, D474's open
+  item. At radius r a strip-supported r⁻⁴ source is, on the degree −3 profile r⁻³F(s), a delta at N: with harmonics5's
+  reduction at degree −3 (exact, and at degree −2 equal to harmonics5's), the jump across the strip is F(0+) = (M1(0) −
+  I)⁻¹σd, and the ρ³ coefficient is T_3(M1(0) − I)⁻¹σd, T_3 the degree −3 transfer, when every eigenvalue of M1(0) has
+  real part > 1. Exact in the scalar model: the transfer is ₂F₁(3 + l, 1 − l; 5/2; 1/2) and Gauss's second summation
+  theorem gives C_l, D481's coefficient (to 10⁻³⁰). For the record's full operator at γ_C = 10⁶, every scalar- and
+  vector-type harmonic l ≤ 12: M1(0) at degree −3 is M1(0) at degree −2 plus I, eigenvalues 2.5, 2.51, 2.52, 1.5 × 10⁶, 3
+  × 10⁶; K finite, normalised norm at most 2.99. So the strip enters at ρ³ with no logarithm and does not reach r⁻²; its
+  width corrections enter at ρ^4.5, ρ^4.51, ρ^4.52. Open: the tensor type; uniformity in l at degree −3; whether the
+  record's index sets at I_0 contain 4.51 and 4.52; Lemma 0.1's ρ³C^∞ for the r⁻³ term.
+- D488 (FAMILIES5 4e, read: Cabet-Chruściel-Tagne Wafo arXiv:1406.3009v2; Chruściel-Tagne Wafo-Gray arXiv:2305.07306v1):
+  D476's open item, existence beyond a neighbourhood of S. The first proves the neighbourhood theorem for doubly-null
+  split symmetric hyperbolic systems in any dimension (Theorem 3.9, Corollary 3.11, pp. 32-35; the thickness may shrink
+  to zero at infinity, Remark 3.12), and applies it to Einstein in 4D only (Theorem 5.3, p. 54), through the Bianchi
+  equations because the harmonic reduction loses a derivative (p. 50), with matter obeying wave equations (section 5.2).
+  The second gives every higher dimension in vacuum with Λ: the maximal globally hyperbolic development "contains a
+  future neighborhood of the initial data hypersurfaces" (Theorem 1.1, pp. 2-3; J ≡ 0, (2.19)). So 5D vacuum has
+  existence on a future neighbourhood of N ∪ N′, independent of gauge; the record's null dusts are covered by neither
+  (vacuum, or wave-equation matter; the dusts obey transport equations). Open: the dusts added to the split system with
+  their first derivatives (deduced as the route, not checked); uniqueness beyond S.
+- D490 (verifier 209 on D488; `checks/dustloss5.py`, written by the verifier, exact): every quotation word for word with
+  its page and equation, reached through alphaXiv (and Firecrawl for 1406.3009); the readings stand (the 4D restriction,
+  wave-equation matter only, vacuum with Λ in every higher dimension, no compactness of S, no dust in either paper, the
+  5D vacuum statement gauge-independent). MAJOR: D488's "evident route", the dusts and their first derivatives added to
+  the split system, loses a derivative: the dust's transport ∂_u K = cK has c minus the null expansion, J contains ∂_x K,
+  and the transport of ∂_x K needs ∂_x c, an angular derivative of a connection coefficient outside the system's
+  unknowns, which in turn needs ∂J, and so on (shown at the level of the equations). The known treatment is
+  Luk-Rodnianski arXiv:2009.08968 Theorem 4.6 (4D, S = S², two null dusts, hyperbolic-elliptic-transport with
+  renormalised curvature), which the record's [Tou24] cites. MINOR: (2.3) named no paper (it is [CTWG23]'s); a dust
+  version also needs [CCTW16]'s Theorems 5.1 and 5.2 for the coupled system; the p. 50 loss and the 4D restriction are
+  explained on p. 40, and [CTWG23] counts two derivatives; [CTWG23]'s theorem is for smooth data; the log's "a whole band
+  along both surfaces" overstates Remark 3.12 (the thickness may shrink to zero at infinity). Corrected in FAMILIES5 4e;
+  the verifier's check is seated as dustloss5.py (its docstring's claim that c contains ∂_u W corrected: W drops out).
+  The D488 entry above keeps its text.
+- D483 (LOSS-D LD9, `checks/s1coef5.py --zeros-dense`, S11, computed): D482's poles and zeros, scanned densely by the
+  sign of the matching determinant (smooth in t, unlike A, which returns to its sign on both sides of a pole), in six
+  bumped families, t = ±10^k, k ∈ [0, 5], 30 per decade (20 for far η), every value reliable. Inside r = 1.25: η has one
+  pole, t = −1640.954, zero at −1642.825; ζ four, t = ±1946.6 and ±14560.9 (to 0.3), zeros at 1943.638, −1943.977,
+  14574.511, −14570.834, D482's among them. At r = 2.45-4.8 (bumps at 2.85, 2.45, 4.8, 3.2): none. Each zero within 0.2 %
+  of its pole, the matching's condition number about 10¹⁸ there. So A vanishes only beside a zero-energy state of the s1
+  sector, at amplitudes from 1640 concentrated inside r = 1.25. Not excluded: two poles within one grid step (8 %).
+- D491 (verifier 208 on D487): the headline stands, every harmonic computed has the strip at ρ³ with coefficient Kσd, no
+  r⁻² part and no logarithm (F(0+) = (M1(0) − I)⁻¹σd confirmed three ways: distributionally, by the PDE's inner transport
+  problem, and by the full-operator ODE with a source of width ε, |F(1) − K| ∝ ε; P2's shift holds for all s, (1 − s)I
+  per degree, from the principal part alone; strip5's scheme reproduces C_l at l = 0, 1, 3 to 2 × 10⁻⁴). MAJOR: the width
+  corrections are at integer powers, not ρ^(2+m): the operator is time-translation invariant, so a sheet at v_0 gives
+  r⁻³F(1 − v_0/r) at t = 0 and r³h(I_0) = dKσ + (d²/r)K4σ + …, K4 = −½T_3′(M1(0) − I)⁻¹: ρ⁴ first. The record already
+  said so: strip5's ρ⁴ at l = 2 and 4 is K4 = −1/6 and 1/10, and at l = 0 the drift −π/4 + 1/800 at r = 400. The
+  (sr/d)^(1−m) terms were an artefact of reading the strip's interior with the self-similar ODE at fixed r. Now
+  stripfull5's P1 (K4 exact, l = 0-6) and P3 (K4 at every l ≤ 12, normalised 1.70 to 3.31 scalar, 0.063 to 0.58 vector).
+  MINOR: the scalar range of ‖K‖ is 1.97 to 2.99 (l = 1 is 1.969); the jump is a distributional identity, the delta the
+  leading term in d; the eigenvalue 2.5 is absent at l = 0 and 1 (least 2.5099); Kσd assumes σ independent of r, and a
+  source only bounded by r⁻⁴ is not covered; P1's accuracy is 1.2 × 10⁻³⁰, not 25 digits. The question whether the index
+  sets contain 4.51 and 4.52 is moot. Corrected in BEYOND5 3(b) and stripfull5; the D487 entry above keeps its text.
+- D489 (CERTIFY-10L5 6b, `checks/g1curv5.py --null`, computed on saved runs): D485's caveat that K was resolved in angle
+  only. On D432's runs at A = 1 (M = 32, 40 at 800 × 360 and 1600 × 720), on v ∈ [1.5, 1.75) K converges in the null grid
+  too (differences 2.5-5.2 × 10⁻³ K_0 against departures of 0.42 to 3.9); on [1.75, 2) the angular difference (1-2.3)
+  dominates the null one (0.045-0.74) and does not change with the null grid, so the loss there is set by M; from v = 2
+  both are as large as the departure. So the curvature is moderate wherever resolved, in (u, v) as well, at the record's
+  amplitude. Open: an axis or angular treatment judged by K at every angle.
+- D492 (BEYOND5 3(b), `checks/uniform3_5.py` V1-V7, exact but for one 50-digit norm): D487's open uniformity in l. Lemma
+  6.5‴ (D437) needs the second-order part m2 I, M0 = x²I/2 + O(x), M1 = O(1), and A(0) = M1(0) − I/2 independent of x
+  with a positive Lyapunov metric; at degree −3 M1 gains (1 − s)I, so A_3(0) = A_2(0) + I (eigenvalues from 2), and the
+  same steps give |F(1)| ≤ K0_3|F(0)| for every l ≥ 2. The jump J = M1_3(0) − I = M1_2(0) is independent of x (|J⁻¹|_2 ≤
+  0.993 scalar, 0.698 vector), so the strip's ρ³ coefficient K is bounded uniformly in l in the normalised basis, ln of
+  the bound 5.99 × 10¹³ (scalar) and 5.87 × 10¹² (vector), against computed values 2.2-2.4 and 0.34-1.0 at l = 2-6. K4 at
+  most linear in l. Open: the tensor type.
+- D493 (verifier 207 on D486): the computation holds, reproduced cell for cell by an independent implementation (own grid
+  in r_*, sympy derivatives of g, admissibility as an exact threshold: the same 70,226 admissible cells; T2 and T3 at all
+  six σ with the same multipliers; the scan's 11.351, [9.678, 20.305], slope −0.630); Lemma E2.8's proof uses only φ ∈
+  C³, φ′ ≥ 0, |φ| ≤ 1 on I, φ(±∞) = ±1, φ′, φ″ → 0, which the family has (min g′ = 1/6); monotonicity in l exact (the
+  propagation step never acts); 50-digit admissibility margins a_l/a_min ≥ 3.78; tails bounded analytically; every bound
+  above an independently computed norm at 31 (l, σ), near the barrier tops included (bound/norm 3.1 to 36). MAJOR (no
+  number depends on it): 'where the sup is not at the trapped harmonic it is at the last one below the barrier top' is
+  false; it lies one to four below the trapped harmonic, where E2.7 and B* cross. MINOR: the grid missed I's ends (m′,
+  w_I at r = 4), so the bounds were low by up to 1.9 × 10⁻⁴ relative (now on the grid: 10.98 and 0.9717 at σ = 3 and 96);
+  'at most 6 %' holds for the six sup values (5.6 %), not for every value (trapped B* 6.2 %, single B*_l 8.9 %); s_c
+  l^(1/2) runs 2.18-2.45; the cores are set by B's balance, not by w ≥ 0; the σ^(−1/2) suggestion is at the trapped
+  harmonic only; '10 to 20' is 9.46-19.0, the ratio growing only from σ = 6. Corrected in E2-PILOT 3j and section 4 and
+  in e2trap5; the D486 entry above keeps its text.
+- D494 (FAMILIES5 4e, read: Luk-Rodnianski arXiv:2009.08968v1): the treatment D490 pointed to, at source. Theorem 4.6 (p.
+  29): for strongly angularly regular characteristic data on [0, I] × S² and [0, I̲] × S² (Definition 4.5, p. 28;
+  measure-valued dusts allowed), a unique angularly regular weak solution of Einstein-null dust on [0, u_∗] × [0, u̲_∗] ×
+  S² for every u_∗ ≤ I and u̲_∗ ≤ ε: a slab along a whole hypersurface. The dusts are the two families of the double null
+  foliation (only Ric(e_3, e_3), Ric(e_4, e_4) non-zero, p. 10), the record's kind (D470). The derivative loss is avoided
+  by renormalised curvature and transport estimates in suitable spaces (p. 10, sections 8.4, 8.7), with elliptic
+  estimates on 2-spheres; existence comes by approximating with 4D vacuum solutions. So: the right theorem in 4D, S = S²;
+  no 5D counterpart known here. Open: a 5D version.
+- D495 (verifier 213 on D494; the paper reached through alphaXiv and Firecrawl): no major finding; every quotation word
+  for word (one ellipsis dropping only "[in the sense of Definition 2.37]"); the slab, measure-valued dusts, the
+  existence route through [42] and the 4D setting confirmed; no mention of higher dimensions found. MINOR: the
+  hypersurface labels were swapped (H_0 = [0, I̲] × S², H̲_0 = [0, I] × S², so the slab runs along H̲_0); the p. 10 Ricci
+  sentence is about the limiting spacetime, and the dusts' form is Definition 2.2 and Remark 2.3 (p. 12): Ric = f² du ⊗
+  du + f̲² du̲ ⊗ du̲ with du, du̲ null, the record's T = K_in dv² + K_out du²; [LR17] was undefined (it is their [42],
+  Camb. J. Math. 2017); S² is notation (footnote 14: any compact 2-surface), the restriction being four dimensions.
+  Omitted: the solution is weak, unique in its class; the data are reduced (b ≡ 0 on H̲_0); the match needs the record's
+  dusts along optical functions, ∇v being null in the record's gauge only where g^vv = 0; and the paper's 'potential loss
+  of derivative' is in its uniqueness estimates, not identified with D490's (the D494 entry's 'the derivative loss is
+  avoided' says too much). Corrected in FAMILIES5 4e; the D494 entry above keeps its text.
+- D496 (BEYOND5 3(b), `checks/stripfull5.py 40`, computed): D487-D492's strip coefficients to l = 40, every check passing
+  (eigenvalues of M1(0) at degree −3 from 2.5, series converged). Scalar type: ‖K‖ 2.74 and ‖K4‖ 2.73 at l = 40, flat
+  from about l = 10 (D492 proves K uniform; K4 does not grow either, though its bound allows linear growth). Vector type:
+  both fall, 0.054 and 0.021 at l = 40. At γ_C = 10⁵ the scalar K departs from γ_C = 10⁶ by up to 6.8 at l = 40: the
+  computation is at the record's γ_C, not in the limit of large damping.
+- D497 (E2-PILOT 3j, `checks/e2trapcert5.py` C0-C5, certified by interval arithmetic): section 3j's bound at σ = 3 for
+  every l ≥ 0. l = 5's core-and-flank multiplier (s_c = 1.0174 rational, s_R = 4) certified admissible: w_5 ≥ 0 on t ∈
+  [−120, ln 119] (187 enclosures) and both tails by explicit bounds with the core's terms (left ≤ 0.0158, right ≤ 5.2 ×
+  10⁻²³); −φU′ ≥ 0 makes it admissible for every l ≥ 5 with B_l(3) ≤ B_5(3) ≤ 10.989 (m′ ≥ 0.052674, M′ ≤ 1.01, min_I w_5
+  ≥ 0.81423, 8000 pieces); Lemma E2.7 for l ≤ 4, at most 4.4422. So ‖χ_I R_l(3) χ_I‖ ≤ 10.989 for every l ≥ 0, certified,
+  against 359.01 (l = 0) before. Open: σ > 3 (more multipliers, the same route).
+- D498 (verifier 210 on D483; independent matching and finer scans): no major finding; the method is sound (A = N/D by
+  Cramer with N, D smooth in t, so a pole needs det = 0, and each det zero is a simple pole of A, A ≈ c/(t − t_p) with c
+  = 263.4 for η and 424.5, −425.2, −1641, 1678 for ζ; the positive-diagonal QR keeps det's sign), and every pole and zero
+  reproduces to the printed digits; at 150-200 amplitudes per decade the same sign changes and no others. MINOR: the
+  condition number falls like 1/|t − t_p|, 1.5 × 10¹³ plain (2.4 × 10⁹ QR) at t = −1640.954, 2 × 10⁻⁴ from the pole, 2.5
+  × 10⁵ to 1.5 × 10⁹ at the zeros; 10¹⁸ is its value at the bisected pole, so it said nothing. The step is 12 % for far η
+  (20 per decade), not 8 %. The ζ poles are 1946.632, −1946.977, 14562.909 and −14558.973, which miss the entry's
+  ±14560.9 by 2. A changes sign at each pole; it is the pole with its zero that returns it to its sign at the grid points
+  (the entry above put it loosely). A sign change shows an odd number of zeros, so two zeros of A in a step with no pole,
+  an even-multiplicity det zero or a second zero beside a pole would be missed too, and |t| < 1 is not scanned. S11's
+  reliability is one radius with condition below 10¹², no second radius, an unreliable point dropping both steps beside
+  it (none occurred). The ζ near-symmetry is that A is nearly even in t (odd part −2.2 × 10⁻⁷t to |t| = 10³), not a small
+  first-order dependence. Corrected in LOSS-D LD9 and s1coef5's zeros_dense; the D483 entry above keeps its text.
+- D499 (verifier 211 on D489; the runs re-identified, the fine runs re-marched, other interpolants): every number
+  reproduces, and the conclusion stands, but two findings change what the numbers mean. MAJOR 1: D475's caches match
+  plain amplitude runs without `ld 3`, not D445's `ld 3` runs as g1curv5 and CERTIFY 6b said; on [1.5, 1.75) the two
+  agree to three digits (so D489's 3.86 against D475's 3.9 is like for like there), but past v = 1.75 they do not: at A =
+  1 the `ld 3` runs lose convergence at v = 1.925-1.94 at every angle (the plain ones at 1.875-1.925, first off the
+  axis), with off-axis dev 2.9-3.2 on [1.75, 2) against 142-226. So D489 refined D432's `ld 3` runs, not D475's, and its
+  closing sentence holds for those. MAJOR 2: on [1.5, 1.75) the M-difference 2 × 10⁻⁴ to 1.3 × 10⁻³ is the error of
+  g1curv5's linear interpolation between nodes that differ with M; with the Chebyshev interpolant it is 1.3 × 10⁻⁷ to
+  10⁻⁶ (quadratic: 3 × 10⁻⁵ to 4.8 × 10⁻⁴), so there the null difference exceeds the angular one by 10³-10⁴, not 2-20, as
+  D432 found for P; D475's 'under 1.3 × 10⁻³' is on the same floor; on [1.75, 2) the interpolant does not matter. MINOR:
+  on [1.75, 2) near the axis the null difference rises first (x = −0.97: 4.4 × 10⁻³ to 4.7 × 10⁻² by v = 1.9) and M
+  dominates only from v ≈ 1.9; 'the same at both null grids' holds at the band maxima, within 15 %, not at x = −0.97 on v
+  = 1.825-1.875 (30-40 % lower on the fine grid); at the node x = −0.999 the null difference is 1.0 × 10⁻², and on seven
+  other rows 0.99 at x = 0; the null difference from v = 2 reaches 1.8 × 10⁵ at x = 0, not 1.6 × 10⁵ at x = 0.5; two
+  grids show agreement, not an order. Confirmed: D432's coarse runs by md5, the fine runs' flags by re-marching (bit for
+  bit with ld 3; ld 0 differs by 1.6 × 10⁻⁷), the nested grids, the exact row cut. Corrected in CERTIFY 6b and g1curv5's
+  docstring; the D489 entry above keeps its text.
+- D500 (verifier 212 on D492; Lemma 6.5‴ re-derived, the constants and K recomputed by three methods): no major finding.
+  The lemma's steps use only M2 = m2 I, U1-U4 and the regular branch, not the degree, so the checks on the degree −3
+  matrices prove the degree −3 bound; the jump solution H(s)F_reg is the one the energy estimate controls (F analytic in
+  s, so F_T(0) = 0); J = M1_2(0) exactly, |J⁻¹|_2 = 0.99293733 and 0.69807447 at 60 digits; A_3(0)'s eigenvalues, λ(H),
+  C_E and ln K0_3 reproduce (the record's slightly larger, rounded outward); V7's |K|_2 at l = 2-6 agrees to six digits
+  by Chebyshev collocation and by another Frobenius series. MINOR: the entry's 'normalised basis' is uniform5's W; in
+  harmonics5's weighting (P3's) K at l = 2-6 is 2.76-2.99 and 0.353-1.14, and the two differ by l-independent factors
+  ([0.645, 1.732], [1.118, 1.414]), so uniformity holds in either; V4-V5's constants were printed, not judged, and V7, at
+  a bound of e^(6 × 10¹³), cannot fail (V4-V5 now judged, finite and positive; V7 labelled a consistency check; the run
+  passes in 142 s); only s_1 = 1 is rerun, which covers K and K4 but not the ρ⁵ and later coefficients. Added: J's
+  eigenvalues (1.5, 1.5099, 1.51, 1.52, damping) are x-independent, so M1_3(0) has every real part > 1 at every l ≥ 2.
+  Corrected in BEYOND5 3(b) and uniform3_5; the D492 entry above keeps its text.
+- D501 (verifier 214 on D497; the closed forms by sympy, the tails by hand, an independent certificate in Arb): the
+  certificate stands. g′, g″, g‴ and φ′, φ‴ are exact; both branches of th_sech and mult are identities, so the branch
+  choice cannot break an enclosure; the tail bounds re-derive (the core adds at most 4βe^(±2y), 8βe^(±2y)/κ,
+  24βe^(±2y)/κ², the last tight at 16), are monotone as claimed and lie above the actual ratios at 60 digits to t = −5000
+  and r = 10⁶; C3's monotonicity in l is analytic (g′ > 0, g(x_*) = 0, U′ changing sign only at r = √2). Arb, with φ′, φ‴
+  by automatic differentiation and 200,000 pieces on I, gives B_5(3) ≤ 10.98250, inside the program's 10.988632; the
+  computed norms at σ = 3 lie below every bound (l = 5: 1.13). MINOR: the entry above rounds the tail bounds inward
+  (0.0158079… and 5.20205… × 10⁻²³; E2-PILOT has 0.01581 and 5.21 × 10⁻²³); and the 'before' figure is 275.2, section
+  3g's certified B_0(3) (D387), not 359.01. Corrected in E2-PILOT 3j and e2trapcert5's summary line; the D497 entry above
+  keeps its text.
+- D502 (BEYOND5 3(b), `checks/stripfull5.py` P4-P5, exact): the strip on the tensor type, the last type open since
+  D487. On h = r^(2−p)F(s)T_AB with T a level-l TT harmonic the gauge 1-form vanishes (harmonics5 S3), so L = D Ric =
+  −½□ on Cartesian components (δGh = 0), and those components are degree-l scalar harmonics (D439): the tensor type is
+  the scalar model at κ = l(l + 2). Checked on the record's operator at its point, exactly at three points: L computed
+  once on abstract angular components, then evaluated on random combinations of all the level-l harmonics (homogeneous
+  polynomial tensors on ℝ⁴, tangent, traceless, divergence-free, harmonic; 10, 24, 42 at l = 2, 3, 4, the full count
+  2(l + 3)(l − 1)): every component as predicted, w = 0; κ = 15 at l = 2 and an added trace part both fail. Gauss's
+  second summation theorem then gives K = 2(−1)^((l−1)/2)/(l(l + 2)), K4 = 0 at odd l and K = 0, K4 = −(−1)^(l/2)/(l +
+  1) at even l, exact for l ≤ 40. So on the tensor type the strip enters at ρ³ only at odd l (|K| ≤ 2/15) and at ρ⁴ at
+  even l (|K4| ≤ 1/3), falling with l, with no logarithm. Every type is now computed; open: whether the structureless
+  r⁻³ term is compatible with Lemma 0.1's ρ³C^∞, and the remainder beyond V′_P.
+- D503 (E2-PILOT 3j, `checks/e2trapcert5.py SIGMA`, certified by interval arithmetic): section 3j's bound at σ = 6, 12,
+  24, 48 and 96 for every l ≥ 0, by D497's route. e2trapcert5 now takes σ, the starting harmonic l_1 and the multiplier;
+  at each σ e2trap5's best multiplier at l_1 (s_c to four digits) is certified admissible at l_1 and, by the monotonicity
+  in l, for every l ≥ l_1, and E2.7 covers l < l_1: l_1 = 11, 22, 46, 93, 188, bounds ≤ 5.8726, 3.7719, 2.3724, 1.5222,
+  0.99697 (floating point 5.846, 3.755, 2.362, 1.512, 0.9886); every check and control passes, the tail controls moved
+  inward where the bound already holds at the old points; σ = 3 unchanged at 10.989. Open: between the sampled σ (an
+  interval needs only E2.7 at its left end and B at its right, deduced, not run), σ > 96, and the H¹ constants with these
+  multipliers.
+- D504 (verifier 215 on D502; an independent route, the basis checked, the closed forms re-derived): no major finding.
+  The reduction re-proved analytically (genstates5's dric is the standard δRic, = −½□h − δ*δGh on flat space; δh = 0 and
+  E^ΥGh = 0 for tangent traceless divergence-free h; □ of f(t, r)T_IJ is ∝ T) and by computation on the six
+  SU(2)-invariant l = 2 TT tensors with F free at six points (δGh, E^ΥGh, w separately zero); all 76 basis harmonics TT
+  with rough Laplacian −(l(l + 2) − 2); P4 exact, every angular entry's expected value nonzero, its own extra controls
+  failing (a traceless Hess⁰Y, not divergence-free: 45 entries, w ≠ 0); Gauss's theorem re-derived, hyperexpand to l =
+  60, the normalisation P3's, F(1) = −K/2 against P1. MINOR: the D502 log entry says 'every such mode' (one random
+  combination at three points) and 'vanishes for every even mode' (the ρ³ coefficient does; ρ⁴ remains); 'P5 exact for l
+  ≤ 40' needs LMAX = 40; the full count had no source (the SO(4) representations (l, ±2); arXiv:1709.08020 (39)-(40));
+  P4's guard nz > 0 was weak (now every angular entry). The full run passes P1-P5 in 27 minutes. Corrected in BEYOND5
+  3(b) and stripfull5; the D502 entries keep their text.
+- D505 (verifier 216 on D503; the tails re-derived, an independent Arb certificate, e2trap5's table rebuilt): the
+  certified bounds stand. Arb, with φ to φ⁗ by Taylor-jet automatic differentiation and I enclosed by the mean-value
+  form, certifies the same multipliers with B ≤ 5.84669, 3.75548, 2.36242, 1.51284, 0.98870, below the program's; w_(l_1)
+  ≥ 0 on the bisection range and the l = 1 control failing with certified negative w_1 at all five σ; the closed forms
+  agree with the automatic derivatives to 2 × 10⁻²⁷; the presets, sups and E2.7 values are e2trap5's; c = M′ + 2σ is
+  Lemma E2.8's; the computed cut-off norms lie 9.5 to 36 times below; the interval deduction is right. MAJOR (the
+  controls only): from σ = 24 the left-tail control at t = −1 lay outside the bound's hypotheses (the flank's g > 0, 1 −
+  6e^t < 0), its 'ratio' a product of two negatives; inside them the bound is below 1 at every point tried, so there is
+  no left control point there. Repaired: tail_left_valid guards the bound (C2 now checks it at t = −120), the left
+  control is taken only inside the hypotheses, and a further control, C2 rerun with s_L = 51/50, fails on its exponent;
+  every preset re-run, the same bounds. MINOR: the gap to e2trap5 is the 8000-piece enclosure on I (0.4 to 0.9 %), not
+  the rational s_c (under 0.1 %); C1 takes under 2 s, a run about 15 s; mult's docstring said s_R = 4; the tail bounds
+  assume κ_s ≤ 1/2 and s_L < s_R, which the command line now enforces; the right tail is monotone once r_* + d_R >
+  3s_R/2, 9 at s_R = 6. Corrected in E2-PILOT 3j and e2trapcert5; the D503 entry above keeps its text.
+- D506 (E2-PILOT 3j, `checks/e2trapband5.py` B1-B3, certified by interval arithmetic): section 3j's bound on the whole
+  band 3 ≤ σ ≤ 96. Admissibility and m′, M′, w_I do not involve σ; B_(l_1)(σ) increases and E2.7 decreases in σ (and
+  increases in l), so on [σ_a, σ_b], with max V_(l_1−1) < σ_a², max(E2.7(l_1 − 1, σ_a), B_(l_1)(σ_b)) bounds every σ and
+  every l. One multiplier certified at each l_1 = 5, …, 190 (186 certificates, e2trapcert5's functions), 1860 intervals
+  of width 1/20: for every 3 ≤ σ ≤ 96 and every l ≥ 0, ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 (on [3.2, 3.25]; the float sup 11.35 at
+  σ = 3.2), above e2trap5's float sup everywhere by 1.001 to 1.188. D505's left-tail guard, added after the run, holds
+  for every multiplier (only the flank's g enters, ≈ −62/s_L at t = −120). With sections 3f-3g this covers every real 0
+  < |σ| ≤ 96. Open: σ > 96 (more multipliers, the same route), the H¹ constants with these multipliers, and the factor
+  9.5 to 36 to the computed norms.
+- D507 (LOSS-D LD11, deduced from the record's text): LD3 (ii)'s condition, whether a level-3 round costs a derivative,
+  settled. The rounds compose (each round's source is the previous one's remainder, I14:121-128, I12:287-298); a round
+  applies III.G⁗ Proposition 5.1, which III.J‴'s accounting composes with L̃_b(0)⁻¹, loss 1 (J3:143-147, 167-171); and
+  Theorem 4.1 sums the losses of a composition (J3:288-293). So the d of that accounting is at least the number of
+  level-3 rounds over the β-chain, about ½/(ε_K ε_ind) > 1.33 × 10¹⁵ (ε_K < ε_ind ≤ 1.94 × 10⁻⁸), and N = 21d + 6 > 2.8 ×
+  10¹⁶, against LD3 (iv)'s 2.06 × 10⁸ and 4.3 × 10⁹. A floor (a round may cost more); it bounds what this proof's
+  accounting delivers, not the optimal loss. The lever is the round's step, (1.1)'s ε_ind. Open: E1'a, E1'c as numbers
+  (an upper bound needs every weight chosen).
+- D508 (BEYOND5 3(b), deduced; `checks/stripderiv5.py`, computed check): the strip's r⁻³ term is compatible with Lemma
+  0.1. The lemma asks only ρ²C^∞ and ρ³C^∞ components on the radial compactification, with no structure on the
+  coefficients. Harmonic by harmonic the strip's term on {t = 0} is r⁻³ ∫ σ(v) F(1 − vρ) dv, s = 1 an ordinary point; its
+  ρ-derivatives need F^(k) on [½, 1], where uniform5's induction from the s1 = 1 energy bound (held at degree −3, D492)
+  gives |F^(k)| ≤ K_k(1 + κ)^(k/2)|F(0)|, K_k independent of l; this also covers the ρ⁵ and later width coefficients D500
+  left open. Computed for l = 2-20: the normalised derivatives at I_0 grow at most about linearly in l (k = 0, scalar
+  type, 1.5 l) and fall with l for k ≥ 2. So for a source r⁻⁴σ(v, ω), σ smooth in ω with bounded v-support, the strip's
+  term is in ρ³C^∞, inside Lemma 0.1's condition. Not covered: the record's sources, known only by a bound O(r⁻⁴), and
+  half-integer exponents (D467). Open: an expansion of those sources, and the remainder beyond V′_P.
+- D509 (verifier 218 on D507; the record's text read again, the count summed): no major finding; the conclusion holds, a
+  level-3 round costs a derivative in the record's accounting, and the bound is qualified everywhere as what that
+  accounting delivers. MINOR: D507's reason (ii) cited J3:168-169's L̃_b(0)⁻¹ inside III.G⁗ Proposition 5.1, which G5
+  never applies (no III.H citation; its Remark 4.5; the zero-energy inverse is I12 Lemma 2.1's, once per level after the
+  rounds); the floor stands for another reason, the remainder being formed by second-order b-operators applied to
+  N_tf⁻¹'s output (G5:694, 713-715), loss 2 in J3's charging (J3:118-121, 164), so a round costs at least 2 + ℓ and d >
+  2.6 × 10¹⁵. The numbers: ½/δ_50² = 1.3266 × 10¹⁵, so 'more than 1.32 × 10¹⁵', not 1.33, and N > 2.78 × 10¹⁶;
+  PART-III-J3-TAME.md is III.J″, not III.J‴ (relabelled throughout LOSS-D); the lever wording named only the round's
+  step, the number of levels being the β-chain's; J3 (g)'s quoted clause on rounds supports (iii) (fixed means
+  k-independent, proved by Lemma 1.2 (e)). Confirmed: the rounds compose as maps, J3 adds their losses, the count and N =
+  21d + 6. Corrected in LOSS-D LD11 and LD3; the D507 entry above keeps its text.
+- D510 (verifier 219 on D508; Lemma 0.1 re-read, the induction written out at k = 2, stripderiv5 rerun and extended to l
+  = 40): no major finding; (a)-(d) hold (Lemma 0.1 asks only ρ²C^∞, ρ³C^∞ components; the time-translate gives F(1 −
+  v_0ρ) at t = 0, the damping covectors being t-independent; s = 1 ordinary, series radius 2; K_k independent of l, the
+  x-degrees kept under s-differentiation; the angular sum converges, W uniformly equivalent to L² size; the t-derivative
+  uses K_(k+1)). MINOR: BEYOND5's D500 sentence still said s_1 = 3/2 was needed, as did uniform3_5's docstring; the
+  tensor type (a Gegenbauer polynomial, |F| ≤ |F(0)|, Markov) and l = 0, 1 needed their own clause; Lemma 0.1 is posed on
+  Σ_IVP, not {t = 0} (far out a constant shift and an O(ρ) bending, so the argument carries over), and the support is v ∈
+  [0, d] after N; the integrand is ∫ T_l(1 − vρ) J_l⁻¹ σ_l(v) dv and σ ∈ L¹(dv; C^∞(S³)); 'about 3.0 at k = 1' is the
+  scalar type's; 'polynomial, as the induction says' overstated a check that is pre-asymptotic, at s = 1 only, and does
+  not probe uniformity. Corrected in BEYOND5 3(b), uniform3_5 and stripderiv5; the D508 entry above keeps its text.
+- D511 (verifier 217 on D506; the lemma's σ-independence re-derived, B1 re-run with D505's guard on all 186 multipliers,
+  an independent certificate in Arb with its own tail bounds, the band recomputed checking every l < l_1 directly): no
+  major finding; the bound stands, 11.4635 in Arb (σ = 6, …, 96: 5.8461, 3.7548, 2.3617, 1.5117, 0.98862). Confirmed: w
+  has no σ, so m′, M′, w_I and I do not depend on it; B increases and E2.7 decreases in σ, max V_l increases in l; the
+  1860 intervals are contiguous with exact endpoints, rounded outward; tail_left_valid(−120) holds for every multiplier
+  (the flank's g in [−60.864, −60.806]); no state leaks between set_mult calls; sections 3f-3g bound the same quantity.
+  MINOR: 95 to 187 enclosures (187 at l_1 = 5), not 95 to 145; the flank's g is about −60.8, not −62/s_L; B3 is checked
+  at every tenth grid point (on the full grid 1.001 to 1.265), and lying above the float sup is expected, not necessary
+  (with tighter constants a certified bound falls below it, by at most 0.009 %); at σ = 3 the band gives 11.086, not
+  D497's 10.989; on 0 < |σ| < 3 the constant is 275.2 (l = 0); at σ_(l_1) the first harmonic above the barrier is l_1 +
+  1, not l_1 (a selection detail); the LOG's 'computed worst case of 11.35' is the floating-point value of the same
+  bound, the computed norms being about ten times smaller. Corrected in E2-PILOT 3j and e2trapband5; the D506 entries
+  keep their text.
+- D512 (FAMILIES5 4f, deduced; `checks/twophase5.py` Q1-Q2, exact): the record's section 5.2 with two families. In the
+  record's gauge, w = h + φ_in Y_in + φ_out Y_out, Y_k := λ⁻¹ ∂_(c_k) G (the waves with χ, χ′ and λ F_k ĝ_2), L_k φ_k =
+  −½ P s_k(h) along each family's own generator. Each phase shift is a symmetry of the two-phase Stage 0, so P(Y_k) =
+  O(1) (Lemma 5.1 for each phase), and with D414's L1 the λ⁻¹ part of P(w) is Σ_k ½((1 − P) s_k) F_k² g1^(k), O(∂s_k):
+  D414's cross terms cancel with their own family's φ. Contracting with ℓ_in ⊗ ℓ_in leaves family out's terms through χ′
+  alone, [F2 g1^out](ℓ_in, ℓ_in) = e^(−4σ) F2 χ′ (Q2), so s_in's equation carries O(∂s_out) and −½ e^(−4σ)(F2 χ′) Ψ_out,
+  both with bounded coefficients. Q1: on every round double-null metric [□, L_k] = a_k □ + M_k ∘ L_k + first order, a_k
+  = 2 L_k R/R, no third derivative (the generators are shear-free; a sheared control fails), so Ψ_k := □φ_k obeys
+  (5.3)'s analogue, and (Ψ_in, Ψ_out) are two transports coupled through bounded coefficients, closed by Gronwall in L²
+  (deduced). In the generalised wave gauge the fixed H breaks the phase shift: P_H(Y_in) = −λ⁻¹ F1² h dv ⊗ dv + O(1), a
+  λ⁻¹ coupling of φ_in into s_out ((dv(ℓ_out))² = e^(−4σ)) that only a transported corrector, χ again, removes; so the
+  record's gauge is the better one for the estimate. Open: the two-family supplement Lemmas 3.3-3.4 written out,
+  (E1)-(E2) for two families, the mollifier against coefficients oscillating at scale λ.
+- D513 (verifier 220 on D512; Q1 re-derived with its own □ and ℓ_k, the coefficients and a_k = (2/3) div ℓ_k checked
+  exactly, the commutator's cross term re-derived, Lemma 5.1 per phase and the generalised gauge's defect re-derived):
+  MAJOR, a sign. The commutator's λ⁻¹ part is −(ℓ_k · ∇φ) F_k, so the cancellation needs ℓ_k · ∇φ_k = ½ P s_k(h); D512
+  wrote L_k φ_k = −½ P s_k(h) with L_k := ℓ_k · ∇, carrying over the sign of the record's L0, which is −ℓ
+  (RESPONSE-HL-5D.md:190). As written that gives ½((1 + P) s_k), not (1 − P). The mechanism stands; with the sign
+  corrected Ψ_k obeys L_k Ψ_k + a_k Ψ_k = ½ □P s_k − ½ M_k(P s_k) − N_k φ_k, which on Vaidya (a = 2/r) is the record's
+  (5.3) times −1. Confirmed: twophase5 and twolin5 pass; the remaining second derivatives are exactly the printed ones
+  (sympy's Derivative ordering hides none); the shear control is meaningful; each phase shift is a symmetry of the
+  record's two-scale operator (no explicit s_k), ĝ_2 belongs in Y_k and reaches λ⁻¹ through e^(−2σ) F1 F2, and
+  g_app⁻¹(dv, dv) = −λ e^(−4σ) χ′ + O(λ²), now oscillating in s2, sits inside T(Y_in) and cancels there; the Q2 factors
+  (½ e^(−4σ) s_out F2² χ′ = −2 e^(−4σ) s_out χ′, L2's); the generalised gauge's P_H(Y_in) = −λ⁻¹ F1² h dv ⊗ dv + O(1), a
+  genuine loss of λ⁻¹; the loop is not over-claimed given its caveats, the new terms being bounded in L² by the record's
+  (M1), (M3), and (M5) entering only with slow coefficients. MINOR: the check's header said D511; 'no third derivative'
+  cannot fail (it holds for any such commutator); s_k(w) ≠ s_k(h) here (s_in(w) − s_in(h) = e^(−4σ) φ_out F2 χ′ + O(λ)),
+  unlike the record's; the form of s_in's equation is deduced from Q2's contractions, not computed. Corrected in
+  FAMILIES5 4f and twophase5; the D512 entry above keeps its text.
+- D514 (LOSS-D LD12, deduced from the record's text): a second long loop at the β-levels below 3. I15 applies
+  III.I′′′′′′′′ Lemma 3.2 at every level β < 3 (I15:346-348). Each call makes its source afresh at tf-weight τ_0 = 2 +
+  ε_ind − 2ε (I9:276-282), then iterates III.G⁗ Proposition 5.1, raising τ by ε_ind − ε until it passes β − ε′
+  (I9:284-301): (β − 2)/ε_ind rounds, a count no index set enters. These are rounds that compose, at loss at least 2
+  each (LD11 (ii)), and over the levels in (2, 3), spaced below ε_K, they total about ½/(ε_K ε_ind) > 1.32 × 10¹⁵, as
+  many as LD11's. So d > 5.3 × 10¹⁵ and N = 21d + 6 > 1.11 × 10¹⁷ for the record's proof. Not an upper estimate: the
+  level-2 rounds at each level above 3 (up to (1 + η_2 − η_1)/ε_ind each, set by E_ind, I12:278-281) and III.I′′′′′′
+  Steps 3-3.3 at each level below 3 are not counted.
+- D515 (CERTIFY-10L5 6b; `checks/g1curv5.py --seed2`, computed, floating point, on saved runs): the second seed's x = +1
+  steepening, judged by the Kretschmann scalar. On the second seed's runs (λ = 0.3162, `ld 3`, M = 16, 24, 32 at 800 ×
+  360; 24 u-rows; the Chebyshev interpolant), K converges spectrally in M at every angle up to v = 3.25 (differences
+  10⁻⁸ to 10⁻⁵ of K_0), departing from 72/R⁸ by 0.2 to 1.9. Its angular convergence is lost first off the axis: the
+  24-32 difference passes 1 % of the departure at v = 3.74 (x = 0.5), 3.75 (0), 3.76 (−0.5) and 3.83 (0.9), and at the
+  axis only at 4.00 (0.97) and 4.04 (0.99). After v = 4 near x = +1 the departure of 19 to 206 K_0 is M = 32's alone (M
+  = 16 and 24 agree to 0.03-0.05 K_0). So the invariant does not single out x = +1, and the large values there come from
+  the finest grid only: this points to the scheme, without proving it. Open: a fourth M, or a grid concentrated at the
+  axes.
+- D516 (verifier 221 on D514; I15's chain and I9 Lemma 3.2 re-read, τ_0 traced to III.I′′′′′′ (2.7) at
+  PART-III-I7-PARAMS.md:250, Proposition 5.1 at k_0 = 1 checked, the count summed directly): no major finding; d >
+  5.3066 × 10¹⁵ and N > 1.1144 × 10¹⁷ (1.32664 × 10¹⁵ rounds over (2, 3), 51,510,015 levels at maximal spacing).
+  Confirmed: Lemma 3.2 is applied at every level below 3 with nothing carried from the previous level (its hypothesis on
+  u enters only its Step 7); the loop ends at the first τ_(i_0) > α − ε′, α the target level; at k_0 = 1 Step 1's sum is
+  empty and Step 2 is untouched, so LD11 (ii)'s cost argument transfers; the two loops are disjoint and add. MINOR: part
+  (v)'s second index-set loop is III.I′′′′′ Proposition 2.1's ι⁺ iteration, run by Lemma 3.2's Steps 1-2 (I9:230,
+  256-257; I6:167-172; J3:261), up to about (2 − λ_♯)/ε_ind rounds per level, not III.I′′′′′′ Steps 3-3.3 (J3:262, count
+  1); the level-2 bound is per chain, one chain per tf-exponent of g_2 in the window, and chains can interleave; the
+  α-levels' step bound is I9:374-375 (I15:332 gives a_K ≥ 4 + ε_K only). Corrected in LOSS-D LD12; the D514 entry above
+  keeps its text.
+- D517 (BEYOND5 3(b)(v), read and deduced): the half-integer exponents at I_0 and the data norm. ‖·‖_(d_1) is H^(d_1) of
+  H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, infinite outside (PART-VII-ASSEMBLY.md:52-54): finite on a ρ^(5/2) term
+  exactly when (5/2, 0) ∈ ℰ_0, so infinite for Part VII's ℰ_0 = {(j, 0) : j ≥ 2} (PART-VI4-PARAMS.md:69-70). Row d1's
+  hypotheses (VI4:40, III.C′ Theorem 3.1) admit ℰ_0^½ = {(2 + j/2, 0)}, ℓ_0 ∈ (3, 4) ∖ {7/2}, and Lemma 0.1's proof
+  carries over to data smooth in ρ^(1/2). The choice moves ℰ^C_I and Λ ⊃ π_1ℰ^C_I (I11:66), so (G+)'s margin, and with
+  it LOSS-D's counts; Λ stays finite below every real part, so (G) can still be met, at a smaller ε_K. Not read: whether
+  ℰ^C_I already has half-integers for Part VII's ℰ_0 (III.C Lemma 3.2 (a)). Not computed: (G+)'s margin with the
+  half-integers.
+- D518 (verifier 222 on D515; the run repeated from the caches, byte-identical; the interpolant tested on polynomials
+  and against numpy's; one row's K recomputed from the run, identical; dnsolve5's selftest, K_0's normalisation; the
+  wavelength checked from the files): no major finding, every figure confirmed. Claim 3 strengthened, computed per cell:
+  on [4, 4.5) the maxima of the departure and of the 24-32 difference coincide, and there K_32 is negative, −18 to −205
+  K_0, while K_24/K_0 is 0.08 to 1.7 and K_16 close to it; over the band max |K_24/K_0 − 1| is 0.72 to 0.92, and no cell
+  has it above 2 while 5 to 24 cells per angle have |K_32/K_0 − 1| > 2. The invariant converging where the gauge
+  function n does not (D354) is no contradiction. MINOR: the ratio falls to about 1 on [3.25, 3.5) only at four of the
+  seven angles (2.1 to 3.6 at 0.99, 0.97, −0.5); 'suggest' was measured; `ld 3` rests on the stated command, the files
+  recording no flags. Corrected in CERTIFY-10L5 6b and g1curv5; the D515 entry above keeps its text.
+- D519 (verifier 223 on D517; the data norm, row d1, III.C′ Theorem 3.1, III.C Definition 3.1 and Lemma 3.2 read; a grep
+  of ℰ_0 over proof5): MAJOR, the consequence. III.C Lemma 3.2 (a) gives ℰ^C_I + ½ ⊂ ℰ^C_I and (2, 0) ∈ ℰ^C_I
+  (PART-III-C-EXTERIOR.md:189-191), so ℰ^C_I already contains every (2 + j/2, 0) for every admissible ℰ_0, and Theorem
+  3.1's proof starts from the least Definition 3.1 set containing ℰ_0, the same for the integer and the half-integer
+  choice. So the switch leaves π_1ℰ^C_I, Λ, (G), (G+), ε_+, ε_K and LOSS-D's counts unchanged; only log orders at the
+  half-integers can rise (l_*, K(λ)). D517 said it moves (G+)'s margin, and left unread what this answers. Confirmed:
+  (a) a ρ^(5/2) term lies outside the integer class (the remainder cannot hold it, and III.A Lemma 1.3's converse fails,
+  (V − 2)(V − 3)ρ^(5/2)a = −¼ρ^(5/2)a); (b) no hypothesis anywhere imposes integrality (III.C″ Proposition 4.1
+  included); (c) the ρ^(1/2) Taylor argument, for both components. MINOR: ℰ_0 also reaches III.K Theorem 4.3's ε, d_1
+  and l_*; BEYOND5's "III.A2 (2.2)" is [Hin26]'s, cited at III.A:33. Corrected in BEYOND5 3(b); the D517 entry above
+  keeps its text.
+- D520 (BEYOND5 3(b), read and deduced): the strip's sources from e are known by more than a bound O(r⁻⁴). Proposition
+  9.8's energy (9.8) carries rotation derivatives at no cost in λ (N1STAR-PROOF.md:1335), and Lemma 9.3(a), Sobolev with
+  rotations, gives |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤ k − 3, uniformly in r. So r⁴ times the sources has about k −
+  4 angular derivatives bounded uniformly, and D508's argument at finite regularity puts the strip's term in ρ³C^m with
+  m about k − 6. Lemma 0.1 needs finitely many seminorms, a number set by d_1 = N + k″ (more than 10¹⁷). Section 9 fixes
+  k = 6, and 10.51 extends only Theorem E (section 4) to every order. Open: Proposition 9.8 at every order, and the
+  passage from w_n to e (D464).
+- D521 (verifier 224 on D520; (9.8), Lemma 9.3(a), the sources and Lemma 0.1 re-read, and section 11 searched): MAJOR,
+  the open items. D520's two open items are done in the record at fixed λ, which is all the strip needs: Lemma 11.0
+  (N1STAR-PROOF.md:10471-10501, "every order at fixed lam") runs Proposition 9.8's identity on the approximating g_n at
+  every order with the rotation energies, uniformly in n, and passes to g_λ by Arzelà-Ascoli, so every derivative of e,
+  rotations included, is in E_2 and r⁴ times the strip's sources is C^∞ in the angles uniformly. Caveats: Lemma 11.0's
+  D44 repair is unread; its constants depend on λ and the order; λ-uniformly the question stays open. Confirmed: (9.8)
+  with Lemma 9.3(a) gives |Ω^γ ∂w_n| ≤ C λ^(K′−3) t^(−2) for |γ| ≤ k − 3 (one power sharper than the record's own
+  |∂w_n|); the sources' derivative count; Lemma 0.1's finitely many seminorms and d_1 = N + k″; 10.51 reads sections 4-6
+  only. MINOR: section 9 inherits k = 6 from Theorem E (line 92 is section 0.4); "uniformly in r" is per annulus with t
+  ~ r; h is L_2, not E_(5/2); "m about k − 6" names its Sobolev loss on S³. Not checked by either, and now the open
+  item: the radial dependence of the sources (D508 treats r⁻⁴σ(v, ω); e's Cartesian derivatives gain no power of r).
+  Corrected in BEYOND5 3(b); the D520 entry above keeps its text.
+- D522 (FAMILIES5 4g, deduced): the record's section 3 (N1STAR-PROOF.md:240-337) with two families, term by term. Lemma
+  3.1′: T(F_k g1^(k)) + P_(−2)(F_k ĝ_2) = O(λ), ĝ_2 entering through the mixed symbol. (E1′): n1^in = −e^(−4σ)χ′ + O(λ),
+  oscillating in s2, and |ℓ_app^k − ℓ_k| ≤ Cλ. (3.4′): the phases solve the coupled linear system ℓ_k · dφ_k = ½ P
+  s_k(h), h = w − Σ φ_j Y_j, which is solvable by Picard. The record's s(w) = s(h) does not carry over, since defining
+  φ_k from s_k(w) would leave λ⁻¹ P(c_in φ_out) G2^in, not small. (3.5′): one 1/λ coefficient per family, O(∂s_k(h)).
+  Lemma 3.3′: s_in's equation has no large coefficient and couples to Ψ_out through −q c_in Ψ_out, c_in = e^(−4σ)F2χ′.
+  Lemma 3.4′: Ψ_in's source contains P(c_in Ψ_out), bounded; no □̃ falls on a fast coefficient. Section 4: N′ with both
+  families, every new term a bounded two-phase profile, so the bootstrap takes the record's form (not written step by
+  step). Open: (E2) for two families (the approximant beyond Stage 0), the two-dust domain and its transversality, the
+  mollifier there, section 4 written out.
+- D523 (verifier 225 on D522; (E1′), P_(−2) and the Q2 contractions computed with sympy on stage0two5's background and
+  waves, the cancellation bookkeeping checked both ways, the mollifier's factor on an oscillation at scale λ computed,
+  |ρ̂| = 0.92, 0.72, 0.19 at n = 1, 2, 4): no major finding. Confirmed: P_(−2) = e^(−2σ) F1 F2, and the λ-correction of
+  g_app⁻¹(dv, du) is zero; (E1′) exactly; s_k(w) never enters as a whole, the pieces s_j(φ_k Y_k) sit inside T(Y_k) and
+  cancel by Lemma 3.1′; defining φ_k from s_k(w) would leave −½ λ⁻¹ P(c_in φ_out) G2^in, not small; Lemma 3.3′'s factor
+  −2q and its one 1/λ term; Lemma 3.4′ computed the other way agrees (the λ⁻¹ terms from □̃ on c_in are those Lemma 3.1′
+  cancels). MINOR: Lemma 3.2′ omitted −½ λ (□̃_app φ) F_k ĝ_2, O(λ|d²φ|), and Lemma 3.3′ the matching O(λ|d²φ_in|), both
+  harmless for N′; Q1's □ is the covariant one on scalars; the −½ on the s_k(w) remark; T for two phases was not
+  restated. Corrected in FAMILIES5 4g; the D522 entry above keeps its text.
+- D524 (CERTIFY-10L5 6b; `checks/g1curv5.py --seed2-40`, computed, floating point, on saved runs): M = 40 at the second
+  seed. At 800 × 360 on the same rows, the 32-40 difference in K is 10 to 10³ times the 24-32 one at every angle from v
+  = 2.5 (10⁻⁶ to 10⁻⁴ of K_0 against 2 × 10⁻⁸ to 5 × 10⁻⁶), and from v = 3.5 M = 40 departs by 2 × 10³ to 2 × 10⁴ K_0 at
+  every angle (up to 2 × 10⁶ near x = +1 after v = 4), where M = 24 and 32 still agree to 4 × 10⁻⁴ to 3 × 10⁻². The
+  large values come earlier, and larger, the finer the angular grid (M = 32 from v ≈ 4 near x = +1, M = 40 from v ≈ 3.5
+  everywhere), D418's behaviour at the first seed. This points to the scheme, the angular resolution outrunning the null
+  step, more firmly than D515. Running: M = 32 and 40 at 1600 × 720.
+- D525 (verifier 226 on D524; the mode rerun from the caches, identical; the masks and the cut checked; the comparison
+  redone at M = 32's own nodes; single cells by hand): no major finding; the conclusion holds. Confirmed: every D515
+  cell with |K_32/K_0 − 1| > 2 on [4, 4.5) is excluded by M = 40's cut (its cut acts earlier on rows 321-345); the cut
+  cannot alter kept cells; at M = 32's nodes |K_40 − K_32| is 4 to 239 times |K_24 − K_32| on every band to v = 3.5; at
+  one row M = 40's whole angular profile swings between −2.5 × 10⁴ and 9.3 × 10³ K_0. MINOR: the quoted maxima sit on
+  cells whose K stencil reaches M = 40's cut; on stencil-interior cells the departure is 2 × 10² to 4 × 10³ (up to 2 ×
+  10⁴ near x = +1 after v = 4); the onset is v ≈ 3.5 to 3.7; the ratio range is 10 to 3 × 10³; D418's growth was in m,
+  and D432 found the null step not curing it at the first seed, so 'the angular resolution outrunning the null step' is
+  what the 1600 × 720 runs test, not yet the cause. Corrected in CERTIFY-10L5 6b and g1curv5; the D524 entry above keeps
+  its text.
+- D526 (FAMILIES5 4h, deduced): the record's Theorem A (N1STAR-PROOF.md:450-533) with two families. The ansatz has two
+  phase corrections, eikonals once per phase (e_j^k), and two-phase profiles. The one structural difference is
+  ḡ⁻¹(du_in, du_out) = −e^(−2σ) + O(λ) ≠ 0. A stage-(m + 1) factor reaches order m as a pure harmonic under one phase
+  derivative, transported along its own generator, or through e_(m+1)^k; a mixed harmonic of ĝ_(m+2) reaches it through
+  P_(−2), multiplication by −e^(−2σ) n1 n2 on e^(i(n1 θ1 + n2 θ2)), whose inverse is bounded by e^(2σ) uniformly in the
+  harmonic. So each stage is the record's linear hyperbolic system, with two phase transports and two pure transports,
+  plus an algebraic division with no small divisors, and closes without loss by Picard. For every N, residual λ^N. Open:
+  the two-dust domain and Lemma 1.1's transversality for both generators, the two-family data (Theorem D, Lemma 6.2),
+  the proof at the record's level.
+- D527 (verifier 227 on D526; the two-scale principal part with m1 and the phase corrections expanded by sympy,
+  stage0two5's selftest rerun): no major finding. Confirmed: P_(−2) on λ^j q e^(i(n1 θ1 + n2 θ2)) is exactly −e^(−2σ) n1
+  n2 q, its inverse a smooth X-function times a Fourier multiplier at most 1, losing no X-derivative; stage-(m + 1)
+  unknowns do not enter through the cross contraction; the eikonals are once per phase (F1 F2 W = 0); the mean receives
+  no mixed term; (c) decouples by family; the mixed harmonics take no data; W_out = 0 gives the record. MINOR: (d) gives
+  ĝ_(m+2)^mix one derivative below ĝ_(m+1)^mix (−(ℓ_in · ∂_X)F1 − (ℓ_out · ∂_X)F2 on it), one per stage, harmless; Th on
+  mixed profiles carries −c_1 F1 F2, c_1 the λ-coefficient of ḡ⁻¹(du_in, du_out); the projections in Rm^(m); the data
+  list; (E1′)-(E3) in Theorem A′; Picard closes within each stage. Corrected in FAMILIES5 4h; the D526 entry above keeps
+  its text.
+- D528 (E2-PILOT 3j, certified; `checks/e2trapband5.py 384 0.05 192`, output saved as `checks/e2trapband5_192.out`): the
+  band certificate of D506 run to σ = 192. B1 certifies one multiplier at every l_1 = 5, …, 384; B2 bounds all 3780
+  intervals of width 1/20 of [3, 192]; B3 lies above e2trap5's float sup at every 0.1, by 1.0010 to 1.1882. Certified:
+  ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤ 192 and every l ≥ 0, the sup unchanged on [3.2, 3.25]; 0.83951, 0.73083,
+  0.66429 on the intervals ending at σ = 128, 160, 192. σ^(1/2) times the bound is 9.77 at 96 and 9.20 at 192. With
+  3f-3g, every real 0 < |σ| ≤ 192. 98 minutes. Open: σ > 192, the H¹ constants of 3i with these multipliers, and the
+  measured (a + b log σ)/σ, which the bound still exceeds.
+- D529 (LOSS-D LD13, computed, conditional; `checks/level2loop5.py` L1-L4, exact): the level-2 loop's length.
+  III.I′′′′′′′′′′′ Step 3's chains are points α_0 + (sums of ℰ_ind) in a window of length below 1 + η_2 − η_1, η_2 − η_1
+  < δ_50 (I12:58, 278-281). III.D Lemma 4.1's root list is complete, and with the classes b ∈ {1, 2} (D3:143-148) every
+  element of ℰ_ind in [1, 2) exceeds 1 + δ_2 > 1 + δ_50, so only elements below 1 add inside the window. On LD9's
+  reading (s0 is ρ²C^∞) that is d1 = 3.33 × 10⁻⁷ alone, 17.2 δ_50: at most 3,000,003 rounds per chain, 0.1165 of a
+  β-level's level-3 rounds, so the level-2 rounds total about N_2 · 3.0 × 10⁶/ε_K and add no 1/(ε_K ε_ind) term unless
+  N_2 > 8.6; LD12 (v)'s case needs a class base l + 1. On the broad reading d0 is below 1 too, a chain has 1.125 × 10¹²
+  points, and the level-2 loop would dominate by 4.4 × 10⁴. Open: whether d0 ∈ ℰ_ind, N_2, log orders, Proposition 4.4's
+  loss, and the ι⁺ loop (E^ι_ind unread).
+- D530 (BEYOND5 3(b), exact in the scalar model, deduced for the full operator; `checks/stripradial5.py` R1-R4, output
+  saved): the strip's term inherits the sources' radial expansion at fixed v. Scalar model: φ = r^(−p)F(s)Y_l reduces to
+  Gauss's equation with (p + l, p − l − 2, p − ½) at every degree; a sheet r^(−4−q)σδ(v − v_0) has F(0+) = −σ/(2p − 3)
+  and the regular branch, so no logarithm at any p, and K_(p,l) = −√πΓ(p − ½)/((2p − 3)Γ((p + l + 1)/2)Γ((p − l − 1)/2))
+  (to 4 × 10⁻³¹; C_l at p = 3; nonzero at every l for half-integer p); strip5's scheme reproduces it to 0.07 % for q =
+  0, ½, 1. So r⁴S = Σρ^qσ_q(v, ω) gives exponents 3 + q. Full operator: M1_p(0) = M1_2(0) + (p − 2)I from the scalar
+  principal part, so J_p is invertible and log-free at every p ≥ 3. The open item is therefore e's expansion at I⁻ along
+  the strip (its u-dependence at fixed v), which Lemma 11.0 (∂, Ω only) does not give; the record's phase v/λ puts the
+  fast dependence in v. The stake: r⁴S = cos(2r/λ) gives no ρ³ term and ≈ √2λρ⁴sin(1/(λρ)), C¹ but not C²: outside Lemma
+  0.1 from m = 2. Open: conormality of e at I⁻ (commuting (9.8) with r∂_u or the scaling field), K_p's size for p > 3.
+- D531 (verifier 229 on D529; the root list, the classes, Step 3 and I14-I15 read at source; level2loop5 rerun and two
+  alternatives computed): MAJOR, the headline. LD13 called the level-2 loop shorter than the counted loops; 0.1165 is
+  per chain and per β-level, the loop is N_2 times that, and N_2 is not bounded in the record, so it is shorter only
+  while N_2 (with log orders) stays below about 8.6; the log's "record's own list of exponents" overstates (the record
+  lists roots, not ℰ_ind). MINOR: base-3 classes exist (F4:97, 299-300; I12:96-98) but are derivative images of base-2
+  terms with the same offsets (F4:89, 109; D3:201-202), so add nothing below 1; admitting δ′_1 or δ_2 as a second
+  element below 1 would give 2.50 × 10¹² or 5.63 × 10¹² per chain; the mirror roots' exclusion is forced (they would
+  give 1 − δ_l for every l, infinitely many rounds) and is now stated; the β-levels number at least about 1/ε_K
+  (I15:323-325), so the total "at most N_2 · 3.0 × 10⁶/ε_K" was not a bound. NITs: 1 itself is in ℰ_ind (roots 3 of s0,
+  v1 at b = 2), one more point per chain; the broad reading's factor over the counted loops is 2.2 × 10⁴, not 4.37 ×
+  10⁴. Confirmed: every figure; ε_ind ≤ δ_50 for I12's constant (F2, G5); elements in [1, 2) unusable by a margin of 14;
+  one round per (α_0, k), repeated at every β-level above 3 (I14:107-117); the cited states support d0 ∉ ℰ_ind (D3:143,
+  F4:107, F4:90). Corrected in LOSS-D LD13 and level2loop5's docstring; the D529 entry above keeps its text.
+- D532 (verifier 228 on D528; every figure parsed from the saved output; B2's logic on (96, 192] read; [191.95, 192] at
+  l_1 = 378 and [127.95, 128] at l_1 = 251 re-certified in Arb, python-flint 0.9.0, with the verifier's own formulas):
+  no major finding. B2 enforces max V_(l_1−1) < σ_a² by interval arithmetic, E2.7 decreases in σ and increases in l, and
+  383 is the largest admissible l_1 at σ ≤ 192, so LMAX1 = 384 suffices. Arb gives 0.66382 ≤ 0.66429 and 0.83904 ≤
+  0.83951, and 11.471 at [3.2, 3.25] (printed 11.477); the tail bounds were not re-derived. MINOR: the D528 entry's
+  "which the bound still exceeds" is not measured by this run (the fit of E2-PILOT 3j stops at σ = 96; extrapolated, the
+  bound is about 24 times it at 192); the log's "keeps falling" is wrong on [3, 3.25], where the bound rises from 11.086
+  to 11.477; E2-PILOT and e2trapband5 still gave the band as [3, 96] in three places, now [3, 192] or [3, SMAX]. NITs:
+  w_I ≥ 731.2 rounded a lower bound up (731.1); D506's values on [3, 96] were compared at the printed points only.
+  Corrected in E2-PILOT 3j and e2trapband5's docstring; the D528 entry above keeps its text.
+- D533 (FAMILIES5 4i, exact and computed; `checks/twodomain5.py` D1-D4, output saved): the record's Lemma 1.1 for two
+  dusts. The two-dust background takes the record's form with one more function, g0 = −e^(2ψ)(1 − μ/R²)dv̂² + 2e^ψ dv̂
+  dR + R²dΩ₃², wherever R_u < 0 (exact); the outgoing dust's constraint gives (e^(−2s)R_u)_u ≤ 0 and ψ_u = B/(3R²R_u) ≤
+  0, so R_u < 0 everywhere and ψ ≤ 0 with ψ = 0 on the outer cone. Then (a) g^(−1)(dτ, dτ) ≤ −1 − μ/R², (c) ≤ −3 − μ/R²,
+  (d)-(e) as in the record, with at least its margins; (b) holds exactly when μ > a² on R = a, i.e. the outgoing dust
+  carries off less than μ(v̂) − a² across each ray's untrapped part. Both generators are transverse to Σ_τ and their
+  past curves meet Σ_τ0: section 4g's (3.4′) has its domain. Computed: a seeded hole with both pulses, converging to
+  Vaidya at B = 0 (|ψ|, |μ − μ(v)| → 0) and trapped at R = a with B; control: a strong outgoing pulse leaves part of R =
+  a untrapped, (b) failing alone. Open: (f) and D_T for two dusts; existence on Ω beyond the rectangle; the outgoing
+  data.
+- D534 (LOSS-D LD14, deduced from the record's text): the ι⁺ loop's length. The iteration Lemma 3.2 runs at every
+  β-level below 3 is III.I′′′′′ Proposition 2.1's Step 2 (I9:231), whose ε_ind is min Re ℰ^ι_ind, III.G″ (4.4)'s index
+  set, "not (1.1)'s" (I6:118-119); LD12 (v) had read (1.1)'s. Each round treats the whole window and raises c_0 by at
+  least m_ι := min Re ℰ^ι_ind, from λ_♯ = 1.5099 to α♯_+ < 2 (I6:167-172), so a level runs at most ⌈0.4901/m_ι⌉ rounds,
+  with no factor for the number of exponents. m_ι is not computed in the record: (4.4) gives only min Re > 0, the set
+  coming from the Myers-Perry corrections to the Minkowski formal solutions at ι⁺ (G3:298-299, 305-311). If m_ι ≥ d1
+  (the classes' offsets), at most 1,470,302 rounds per level, 0.0571 of the levels' tf-rounds; if m_ι ≥ 1, one round.
+  LD12 (v) corrected. Open: m_ι from Definition 2.5's formal solutions on 5D Tangherlini.
+- D535 (verifier 230 on D530; R1 rederived by hand, R2 rerun, the jump and the time-translation checked, stripfull5's
+  reductions run in exact sympy at non-integer p, R3-R4 rerun with t = 0 exact, with dv/2 and 2n, and on later windows):
+  no major finding. Confirmed: the reduction and Gauss's second theorem; F(0+) = −σ/(2p − 3); the shifted sheet is
+  jointly homogeneous of degree −(p + 2), the solution vanishing between the two surfaces; for the full operator M1_p(s)
+  − M1_2(s) − (p − 2)(1 − s)I = 0 identically in both sectors at p = 3, 7/2, 4, 9/2, so (ii) is now computed there; the
+  phase v/λ; √2λ by parts. MINOR: the class test is stricter than stated: ρ⁻² times the oscillating term is not C¹, so
+  it leaves ρ²C^m from m = 1, and its t-derivative ρ³C^m from m = 1 (the verifier's "no derivative at 0" holds for the
+  latter only); "no logarithm at any p" needs p > 3/2; the λ = 30 amplitude 1.31λ is not converged (1.38λ, 1.40λ on
+  later windows); the script samples t up to about 0.1 off 0, no verdict changing. UNVERIFIED: the l = 0 remainder bound
+  rests on kernel positivity (D468), sampled, not proved. NITs: the t-derivative's constant −√2; E_p's C at fixed λ; the
+  class checks are on the flat slice, the bend of Σ_IVP not checked for the oscillating term. Corrected in BEYOND5 3(b)
+  and stripradial5's docstring; the D530 entry above keeps its text.
+- D536 (BEYOND5 3(b), read and deduced): what the record has toward e's expansion at I⁻ along the strip. The strip is
+  section 9's far region P (v bounded, r = t + O(1)); the radial derivative at fixed v is ℓ = −L0, and rℓ = S − v∂_v. In
+  the record: one step, the class O_p (rℓ of the remainder costs nothing, N1STAR-PROOF.md:1197), held by Lemma 9.7(d)'s
+  transport solutions and by W_TT, χ, gh_(m+1) (Theorem A_P). Not in it: m_m, φ_m (L_p only), the residual (E_3), and
+  u_1 (Lemma 11.0: Cartesian and rotation derivatives only). Route: commute Lemma 11.0's identity with S, given iterated
+  O-classes for the approximant and residual. Conormality alone gives the strip's term ρ²C^(0,1), not ρ²C¹ (ρ³ sin log
+  ρ); Lemma 0.1 needs the expansion, which the transport 2∂_v(ℓ + 3/(2r)) of (9.5) would give term by term with the q =
+  5/2 logarithm to control. Open: all of it.
+- D537 (verifier 231 on D533; twodomain5 rerun, identical; Ricci, the evolution and the mass laws recomputed
+  independently; probes at n = 320, on the whole curve R = a, and with U1 = 8): the algebra holds; two MAJOR findings on
+  coverage and one on a deduction. MAJOR: on D533's rectangle the curve R = a lies only at v ∈ [1.975, 2], about 1 % of
+  the v-range; on u ∈ [0, 8] it is crossed at every v, trapped, with min μ − a² = 0.510 (B = 0) and 0.413 (B = 0.4) (now
+  twodomain5 D3b). MAJOR: "meets Σ_τ0 by (e)" does not follow; (e) gives containment, the meeting needs the background
+  on all of Ω, and the rectangle does not reach Σ_τ0 (outgoing rays from R = a leave it at τ ≈ −0.7 to −1.0, above τ0 <
+  −1.47), so "has its domain" holds only given that background. MINOR: R_u < 0 on u_0 needs μ > 0 and R_u < 0 at the
+  corner; the carry-off condition is sufficient, not necessary (exact: μ(u_0, v) − (2/3)∫ Be^(−2s)R_v du > a²); Ω's
+  third constraint uses v̂, and V, T, τ_end need the two-dust r_q; Theorem E needs C^k and (E1), (e) being C⁰; min ψ and
+  μ's departure were unconverged (−0.077 to −0.0098; 0.156 to 0.098); the margin test has tolerance 0.99. NITs: the
+  corner gauge is not Tangherlini's; the maximum of g^(−1)(dτ, dτ) sits on the data cone. Confirmed: D1, the sign of B
+  (C_u = 0 iff Ric_uu = B/R³ ≥ 0), (a)-(c), (e), (b)'s equivalence, the convergence at B = 0 (0.0997 to 0.0048 at n =
+  40-320), the control on the full curve. Corrected in FAMILIES5 4i and twodomain5; the D533 entry above keeps its text.
+- D538 (verifier 232 on D534; I6, I9, I15, G3, D3, D4, F4 read at source; the arithmetic repeated): the bound holds, its
+  identity, window, per-round increase, log orders (one application takes every j ≤ k, G3:363-368), start and comparison
+  base all confirmed. MAJOR: LD14's account of m_ι was too weak. G3:338-339 builds ℰ^ι_ind from the states' index sets,
+  2 + ℕ_0 and (2, 1), classes (k, 0) ∪ (k + E) with E the indicial-root offsets, so on LD13's reading m_ι ∈ {d1} ∪ [1,
+  ∞) and m_ι ≥ d1 with no computation; "not tied to d(Re λ, ℤ)" was false (d1 = d(Re λ_s1,2, ℤ)). The open point is only
+  whether the ρ^(2+d1) term is present: at most 1,470,302 rounds per level, or one. MINOR: LD8 cited I6:119 for min Re
+  ℰ^ι_ind ≥ ε_ind, where I6 defines its own ε_ind (the inequality still holds); "distinct from (1.1)'s" holds for the
+  value, not the sets (I9:32-33). NITs: 0.0571 is about 1/17.5, not 1/20; the ratio reaches 1 at m_ι ≈ 1.90 × 10⁻⁸.
+  Corrected in LOSS-D LD14 and LD8; the D534 entry above keeps its text.
+- D539 (LOSS-D LD14, from LD9's record): D538 left open whether the ρ^(2+d1) term is present; LD9 computes it at the
+  record's point (A = 141.4269, D450-D451, ten digits, pinned by the near-resonance, nonzero at every cut-off computed),
+  its "not decided" being the bound over all cut-offs. So m_ι = d1 at the record's point and the ι⁺ loop runs up to
+  1,470,302 rounds per level, through λ_♯ + n d1, about 0.057 of the levels' tf-rounds. With LD13, both of LD12 (v)'s
+  uncounted loops are bounded per level by d1, the level-2 one up to N_2. Open: each round's loss.
+- D540 (verifier 233 on D536; the record's section 9.3, Lemma 11.0, Lemmas 11.1-11.2, Proposition 11.1 and Lemma 0.1
+  read; the identities and the class example checked in sympy): MAJOR, the inventory. D536 (and D530 (iii)) said the
+  record gives u_1 no ℓ-gain and no expansion at I⁻; Proposition 11.1 (N1STAR-PROOF.md:10562-10592) gives u = g_λ − g0 =
+  Σ_(k=3)^J r^(−k/2)G_k(v, x̂) + u_J with ℓ^m u_J ∈ E_((J+1)/2+m) for all m and J, at each fixed λ, the sources starting
+  at q = 3 (no r^(−5/2), no logarithm), checked by the record's own verifiers. So for g_λ the strip's expansion is in
+  hand at fixed λ, which is all the strip needs; what remains is the approximant's m_m, φ_m and residual R_N, the
+  products forming the sources (quadratic in e = g_λ − g_app), and λ-uniformity. MINOR: rℓ = S − (v − 1 − τ0)∂_v with
+  the record's t; φ_m has one condition, ℓφ_m ∈ L_2; the q = 5/2 logarithm multiplies the leading order and can only be
+  excluded; the sources are in e, not u_1; the exponents being half-integers, D517's ρ^(1/2) class applies. NITs: 2∂_v(ℓ
+  + 3/(2r)) is (9.5)'s ∂_v-part, not its leading part at fixed v. Confirmed: P is the strip; O_p's one step; [S, □] =
+  −2□ in 5D; ρ³ sin(log ρ) is in ρ²C^(0,1) and not ρ²C¹. Corrected in BEYOND5 3(b) (the D530 and D536 brackets); the
+  D536 entry above keeps its text.
+- D541 (verifier 234 on D539; s1coef5 --record rerun, A = 141.4268935 at r = 3, 4 and start 1.15; III.D″, III.D‴, F4,
+  G3, I5, I6 read): MAJOR, load-bearing. m_ι ≥ d1 (D538) and m_ι = d1 (D539) rest on reading the record's index sets as
+  root offsets (LD13); the record's convention is generic, "an index set with min Re ℰ_ind ≥ ε_ind, which may change
+  from line to line" (D3:46-47, D4:57-58, F4:28-29, G3:298-299), ε_ind the gauge potential's (< 9.47 × 10⁻⁸, < 1.46 ×
+  10⁻¹⁰ by D4's refinement). On it the ι⁺ ceiling is ⌈0.4901/ε_ind⌉: above 5.2 × 10⁶, up to 3.4 × 10⁹ per level, up to
+  about 130 times the counted tf-rounds; LD13's level-2 chains likewise. LD13 also leaves the III.D‴ class-root rows (G3
+  Table 1.1; D4:160-170): a base-3 class with λ_s2,3's own term would give δ_2 = z/15, 1,837,876 rounds. MINOR:
+  1,470,302 is a ceiling (rounds may skip, I6:167-168); A is S6's cut-offs' (the union reading, ℰ_ind fixed once,
+  I5:190, makes one A ≠ 0 enough); absent ρ^(2+d1), LD13's broad reading gives d0, 367,576 rounds, not one. NIT: 0.0571
+  ≈ 1/17.5. Confirmed: the s1 state is III.D″'s boost state at b_0; no shift (δ* keeps the offset, base 3 included); the
+  arithmetic. Corrected in LOSS-D LD14; the D539 entry above keeps its text. Open, and decisive for d's order: the
+  reading.
+- D542 (LOSS-D LD14 and LD13, read and deduced; III.D‴ section 1 and Lemma 2.1, III.D″ (3.2) and the s1 proof, III.G″
+  Table 1.1 and its (4.4) proof read): the reading D541 found decisive is the construction's. III.D‴ fixes ℳ (roots plus
+  integers) and says "every exponent below lies in ℳ" (D4:54-59), the generic index set being notation; Lemma 2.1 builds
+  each state's exponents as its base plus ℕ_0, smooth sources' plus ℕ_0, and the decaying part's at the roots with Re ≥
+  2 + d1, plus ℕ_0 (D4:76-100). So an offset in (0, 1) needs a base within 1 below such a root of the same type; of the
+  states III.G″ collects only the boost state does (base 2 in ω′, 3 in h_s1, root 2 + d1), the s0 state being ρ²C^∞ and
+  the class states' bases ≤ 0. Hence ℰ^ι_ind ∩ (0, 1) = {d1}, m_ι = d1 (A ≠ 0), at most 1,470,302 ι⁺ rounds per level
+  (1/17.5 of the tf-rounds), and LD13's ℰ_ind ∩ (0, 1) = {d1}. Not read: III.F⁗'s states (base −2, offsets above 4 by
+  the same count).
+- D543 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-1600`, output saved): the second seed jointly refined. M =
+  32 and 40 at 1600 × 720 on D524's rows: M = 40's departures vanish (|K/K_0 − 1| ≤ 1.95 below v = 4, as M = 32's;
+  1.22-3.11 on [4, 4.5) near the axis; against 2 × 10³ to 2 × 10⁶ at 800 × 360), cells above 2 from 11-49 per angle and
+  band to none (2 at x = 0.9 on [4, 4.5)); the 32-40 difference 3 × 10⁻⁷ to 1.4 × 10⁻² K_0 below v = 3.5, 0.02-1.0 on
+  [3.5, 4), 0.39-2.35 on [4, 4.5). So the M = 40 blow-up was the angular resolution outrunning the null step; the
+  curvature is resolved and of order K_0 to v = 3.5 at every angle. Open: convergence after v ≈ 3.5 near the axis (a
+  finer null grid at M = 40, or angular refinement at the axes).
+- D544 (verifier 235 on D542; D3, D4, F2, F4, F5, G3, III.A read; every state family checked): the value holds, ℰ^ι_ind
+  ∩ (0, 1) = {d1}, checked family by family (boost and breve, h_s1 and h̆¹, the s0 chain, the III.D‴ classes, III.F‴'s
+  mass states, III.F⁗'s physical states); the argument as written did not establish it. MAJOR: "integers or (root ≥ 2 +
+  d1) + j − base" is false (the boost's breve is sourced by [□, t_*]ω′ ∋ ρ^(3+d1) and has 1 + d1 at offset d1 from base
+  1; Lemma 1.4's source part was omitted); the correct argument: exponents are roots or source exponents shifted by
+  integers, the only positive roots below 3 are 2 + d1 and 2 + d0, so an offset below d1 needs a base in (2, 2 + d1],
+  which none has. MAJOR: III.F⁗ is F5; its set contains λ^C − 1 ≈ 1 + 2.93 × 10⁻⁶, offset 3.0000029 from base −2, not
+  "above 4", its bounds still ≥ 1; D542 asserted over a family it had not read. MINOR: F4 is III.F‴; ℳ binds III.D‴ only
+  and is finite; sources are not always smooth; the λ = 1 grafts outside G3:339's list add nothing below 1. Confirmed:
+  the quotes, the threshold, type preservation, the boost bases, the collected set, the arithmetic. Unverified by this
+  verifier: A ≠ 0 (rerun by verifier 234, 141.4268935). Corrected in LOSS-D LD14; the D542 entry above keeps its text.
+- D545 (BEYOND5 3(b), read and deduced): the approximant's parts at past null infinity. Theorem A_P builds each stage as
+  explicit leading terms (m^0 = r⁻²M_m, φ^0 = −½r⁻¹M_m(ℓ, ℓ), gh^0 from Lemma 9.7(d) at q = 3) plus remainders solving
+  Lemma 5.3's system with E_(7/2) sources (N1STAR-PROOF.md:1263-1298). Proposition 11.1's induction carries over stage
+  by stage: Lemma 11.2 for the wave equation (a), with B̄·dm + C̄m in its source, and Lemma 9.7(d) for the transports
+  (b), (c); the sources start at q = 3, so neither meets the q = 5/2 resonance. So m_m, φ_m, gh_(m+1), the residual and
+  the products forming the strip's sources expand in r^(−1/2), and the strip's term is polyhomogeneous in ρ^(1/2), in
+  D517's class, at each fixed λ. Not written: the induction on the coupled system ((H_m) for the couplings and
+  coefficients) and over the stages.
+- D546 (FAMILIES5 4i, exact; `checks/twodt5.py` T1-T2): D_T and (f) for two dusts. On shell, R_abcd R^abcd = 72μ²/R⁸ +
+  (8/3)e^(−4s)AB/R⁶ (the record's 72μ²/r⁸ at B = 0; the crossing term ≥ 0), so D_T := {v̂ ≤ V, K ≤ l5⁻⁴} ⊂ {R ≥ r_q(μ)}
+  with the Misner-Sharp μ, and the record's (f) runs with r_q^♭(v̂), the ray's least r_q. (b) and (f) follow from one
+  condition, the seed condition μ ≥ √72 l5² for the Misner-Sharp mass over the region: then q0 ≤ √μ_min and a := q0 − δ0
+  has a² < μ on R = a. Open: the background on Ω beyond the computed rectangle, and the outgoing data.
+- D547 (verifier 236 on D543; alignment and masks checked, all 995 numbers of the table reproduced from the caches, K
+  recomputed from the raw arrays at second and fourth order in v): the core result holds, M = 40's 800 × 360 blow-up
+  absent at 1600 × 720. MAJOR: the residual after v = 3.5 is not near the axis: the 32-40 difference peaks at 1.36 K_0
+  near x = 0.15, 0.15 at the axis (only the gauge fields peak there). MAJOR: the late figures depend on K's v-stencil
+  (dnsolve5's second order); at fourth order M = 40's |K/K_0 − 1| on [4, 4.5) is 0.89-1.11, the 32-40 difference
+  0.08-0.48, no cell above 2. MINOR: the 800 × 360 departures on those bands are 5.4 × 10⁴ to 2.4 × 10⁶ (1.9 × 10³ to
+  2.1 × 10⁴ on [3.5, 4)); M = 32's null-grid change is up to 0.012 below 3.5 and M = 40's up to 0.55 on [3.25, 3.5); `ld
+  3` is not recorded in the artefacts; halving du and dv together cannot say which step matters, and the 1600 solutions
+  are unconverged beyond 3.5. NITs: a docstring label; K_0 from one run's R (≲ 0.5 %). Corrected in CERTIFY-10L5 6b and
+  g1curv5; the D543 entry above keeps its text.
+- D548 (verifier 237 on D545; Lemmas 9.6-9.7, 11.2, Theorem A_P and Proposition 11.1 read): D545 not supported as
+  written. MAJOR: (b) is the c0 = 0 transport (N1STAR-PROOF.md:1185), not Lemma 9.7(d)'s c0 = 3/2 (its formula gives
+  +r⁻¹M(ℓ, ℓ), the record's φ^0 is −½r⁻¹M(ℓ, ℓ)); (b) expands by direct integration from past null infinity, resonant
+  only at q = 1, its sources from q = 2. MAJOR: Lemma 9.7(d) gives one leading term and a remainder, not an expansion;
+  iterating it needs (c)'s coefficient c (Lemma 5.2's, in E_(3/2)) expanded, which the record does not supply, so the
+  conclusion is conditional on it. MINOR: Ψ_m's c0 = 2 transport resonates at q = 3, but Ψ_m = □̃φ_m expands term by
+  term from φ_m (deduced); line 605's "no r^(−5/2)" should read no source at q = 5/2 (G_5 = ∫S_(7/2) is generically
+  nonzero); D517's class needs r⁴S from r⁰ on the half-integer lattice (D508's hypothesis, now stated); the
+  gh-coupling's r^(−5/2) in m_m is a q = 5/2 source for (b), harmless. Not taken: (11.5)'s operator is □̃ in Cartesian
+  coordinates (ℓ straight), as 10529-10530 use it. Nits: B̄, C̄ defined by (a) only; "for every J". Corrected in BEYOND5
+  3(b); the D545 entry above keeps its text.
+- D549 (verifier 238 on D546; T1 reproduced by a brute-force Riemann tensor in a stereographic chart on random on-shell
+  jets, 2.2 × 10⁻¹⁵): T1, the containment D_T ⊂ {R ≥ r_q^♭} and (f)'s inequalities hold. MAJOR: (b) did not close: q0 :=
+  min r_q^♭ is D_T's least value, and R = a lies outside D_T, where the outgoing flux may lower μ below D_T's least mass
+  (abstract instance, now `checks/twodt5.py` T3: μ = 10 on D_T, 8.6 on R = a, l5 = 1, q0 = 3.0351 > √8.6). Repaired: q0
+  := r_q(μ_min), μ_min a lower bound of μ over the region with R = a, as the record's q0 = r_q(μ0). MAJOR: (f) needs no
+  mass condition; "(b) and (f) from one condition" withdrawn. MINOR: the record's D_T is radial, {v ≤ V, r ≥ r_q(v)}
+  (N1STAR-PROOF.md:172-173), the l5⁻⁴ form ours; the dust term is ≥ 0 only for AB ≥ 0 (the record's dusts); T2 checked
+  three values (now symbolic: q0⁴ − μ² = μ(√72 l5² − μ), and R ≥ r_q ⟺ 72μ²/R⁸ ≤ l5⁻⁴); "exact" and "keeps the record's
+  shape" overstated. Corrected in FAMILIES5 4i and twodt5; the D546 entry above keeps its text.
+- D550 (LOSS-D LD15, deduced from I11 Definition 1.1 and Lemma 1.2 and I12:58-60; `checks/lambdacount5.py` C1-C5,
+  exact): LD13's open factors N_2 and the log orders are bounded by the record through Λ. Level 2's window in
+  u-exponents is W = [2 + η_1, 3 + η_2), every exponent there lies in Λ with log order ≤ K(λ), and Λ + d1 ⊂ Λ, so the
+  chains merge: a level's level-2 rounds are at most |Λ ∩ W| (per exponent) or Σ (K(λ) + 1) (per (α_0, k)). Not numbered
+  (ℰ_++, 𝒢, ℰ^C_I, ℰ_col unlisted); from the named generators λ_♯, 2, 3 with d1 and 1, |Λ ∩ W| ≥ 7,470,307, 0.290 of a
+  level's level-3 rounds (11,881,206 and 0.461 with LD9 G7's increments), so "shorter" needs the unlisted generators to
+  add fewer than about six chains. K(λ) ≥ 2.2055 × 10¹³ on W (N_* = 15,000,015, n(λ) ≥ 1,470,303), and per (α_0, k) the
+  record's bound on one level is ≥ 5.83 × 10²⁰, above the counted 2.65 × 10¹⁵: the record's log ceiling does not bound
+  the loop; the log orders produced are not computed.
+- D551 (BEYOND5 3(b), read and deduced): D548's open condition, the expansion of (c)'s coefficient c, holds. Th is
+  section 3.2's T at λ = 0; its ∂_θ² terms are −½e_1∂_θ² = 0, so m1 and φ1 drop out, and the rest is −(ℓ · d_X)∂_θ −
+  (3/(2r))∂_θ (□̃v = 3/r, Lemma 9.7(d)'s 3/(2r)) plus terms algebraic in g0, Γ[g0], ∂_θW and ∂_θ²W. g0 is Kerr-Schild
+  Vaidya (g0⁻¹ = η⁻¹ − (μ/r²)L0L0) and W_TT's Cartesian components are r^(−3/2)F exactly, so c is a finite sum Σ
+  r^(−p)c_p, p ≥ 3/2, the same at every stage, and Lemma 9.7(d) iterates (Z^0 solves (ℓ + 3/(2r))Z^0 = r^(−q)S_q
+  exactly; the remainder's source S̃ − cZ^0 starts at q + ½). (a)'s B̄, C̄ and the count's coupling coefficients are
+  expanded likewise; within a stage the half-order induction is triangular (m_m, then φ_m by integration, then
+  gh_(m+1)). Open: that induction with its ℓ-gains ((H_m) at m ≥ 2) and over the stages.
+- D552 (FAMILIES5 4i, `checks/twoext5.py` X1-X3; [Mos17] arXiv:1704.08685 Lemma 5.1 READ): an extension principle for
+  the two-dust background. Moschidis's continuation criterion for spherically symmetric Einstein-null dust (ingoing and
+  outgoing, 3 + 1: smooth to the closed rectangle if inf r > 0, sup r < ∞) carries to 5D with R³ for r²: (R³)_uv =
+  −3Re^(2s), s_uv = (3/2)e^(2s)μ/R⁴ on the evolution, μ_uv = (2/9)AB e^(−2s)/R² ≥ 0 with the constraints (exact). On a
+  rectangle with R ≥ a > 0 the data bound sup R, ∫∫Re^(2s), μ from below, s from below, μ from above and s from above in
+  turn, without a bootstrap; so the background exists wherever R stays ≥ a, and on Ω's past part of a rectangle given
+  its cones' data (R = a trapped, so {R ≥ a} is closed to the past). Computed on D3's background: identity residual 2.0
+  × 10⁻⁵ at n = 320, bounds hold. Open: the outgoing family's data at past null infinity.
+- D553 (LOSS-D LD16, read and deduced): the two uncounted loops' loss per round. A level-2 round is III.G⁗ Proposition
+  4.4, which builds u from N_tf⁻¹ and passes on source − L̂_b(σ)u (G5:484-488, 520): 2 + ℓ in III.J″'s accounting
+  (J3:164, 167-171), as a level-3 round, so LD13 and LD15 compare loss as well as rounds; one application at (α_0, k)
+  treats every log power ≤ k (G5:474-481), so per-(α_0, k) rounds are redundant beyond one per exponent. An ι⁺ round is
+  III.G″ Corollary 4.3 (loss d_G + 2, J3:160-164) then III.I′ Proposition 3.1 (≥ 2 through L̃, J3:173-176): ≥ 4 + d_G,
+  d_G the formula-less loss of III.G′ Theorem 3.1 (2); with LD14's 1/17.5 the ι⁺ loop's loss is at most (4 + d_G)/35 of
+  the counted loops' per level, below them only while d_G < 31. J3's table has no row for the ι⁺ rounds.
+- D554 (verifier 239 on D550; every figure reproduced independently at 90 digits, the tf ↔ u shift checked at I12:52-53,
+  278-279 and I11:145): no major finding. MINOR: the 5.83 × 10²⁰ rounds were set against the counted loops' loss 2.65 ×
+  10¹⁵, not their 1.33 × 10¹⁵ rounds (the inequality holds either way); the thresholds "six (four)" are those of ε_ind =
+  δ_50 and sufficient, not "only if" (83 and 81 at δ_50/10), and LD13's N_2 route stands beside them; the merging needs
+  d1 ∈ π₁(ℰ_ind ∪ ℰ^ι_ind), the construction's reading, the record giving finiteness only; the conclusion about the
+  record's bookkeeping holds per (α_0, k), per exponent it is undecided (with LD16, the per-exponent count is the one
+  that matters). NITs: the η tests had η_1 = η_2 (now η_1 < η_2); "at most six (four)". Corrected in LD15 and
+  lambdacount5; the D550 entry above keeps its text.
+- D555 (verifier 240 on D551; Th at λ = 0, the e_1 cancellation, B's λ⁰ part, □̃v = 3/r numerically, g0⁻¹ exact, W_TT
+  exact by past5.py's selftest): no break. MINOR: "known from S's and c's" holds one step at a time, S̃ being given only
+  as a class, so further steps need the source's expansion order by order and (H_m); W includes χ dv dv, exact as well
+  (N1STAR-PROOF.md:461, 1258-1260); the expansion is in the profile variables, section 9.4's fixed-phase form needing
+  φ1's expansion; B̄, C̄ asserted, not shown. NITs: p ∈ ½ℤ; dΓ[g0]; a wording slip in the record's Lemma 5.2 proof
+  (509), recorded. Corrected in BEYOND5 3(b); the D551 entry above keeps its text.
+- D556 (verifier 241 on D552; X1-X2 by a full 5D Ricci computation independent of the warped formulas, X3 by an
+  independent scheme, [Mos17] Lemma 5.1 read at pp. 42-43, the domain's past-closedness checked numerically): the
+  identities, the bound chain and the domain argument hold. MAJOR: existence on Ω's past and "the development ends only
+  where R → 0" are not established: Lemma 5.1 is an extension criterion for a solution already given on a half-open
+  rectangle; 5D local existence ([Mos17] Proposition 5.3, small-step, ∂_u r < 0) and the continuation loop of [Mos17]
+  section 5.4 are not written. MINOR: the bounds use a = min R, an interior value, not the data alone; R(U1, 2) ≈ 0.68
+  is the rectangle's least, 0.62 the threshold; the constraint residuals were not reported (now in X3: second order in
+  the bulk, falling at the far corner from n = 80); the log's "one change" understated the 5D form; R_u < 0 belongs in
+  the summaries; the trap condition is checkable from data (min D[μ] > a²). Corrected in FAMILIES5 4i, twoext5 and
+  twodomain5's docstring; the D552 entry above keeps its text.
+- D557 (verifier 242 on D553; Prop 4.4's structure, the log claim, I6's per-round Corollary 4.3 and Proposition 3.1, and
+  the arithmetic checked): MAJOR: d_G is not formula-less: section 2's item 6 (2.5) gives d = 7 + 2⌈ℓ_I − Re λ⌉ for Re λ
+  < 2 − δ, 11 on the ι⁺ window when 3 < ℓ_I < 3.5 (12 at the top, 13 at ℓ_I = 3.6); the open input is a_I. MAJOR: 4 +
+  d_G is a floor, used as a ceiling (Proposition 3.1's fixed loss has no value, and the replacement adds an L_b), and
+  the level-3 round was taken at 2, not 2 + ℓ: "at most (4 + d_G)/35, below while d_G < 31" withdrawn; what stands is
+  the ratio condition, ι⁺ below if a round costs under 17.52 level-3 rounds at ε_ind = δ_50. MINOR: no ε_ind qualifier;
+  J3:261 is the iteration's row, counting exponents, not rounds; 2 + ℓ is this note's sum, equal ℓ for 4.4 and 5.1
+  unverified. NITs: lower log orders redundant if the top goes first; J3's (g) asserts k-independence. Corrected in
+  LD16; the D553 entry above keeps its text.
+- D558 (FAMILIES5 4i, deduced; `checks/twoext5.py` X4 computed): existence for the two-dust background, which D556 left
+  open. The system's Volterra form in U = (R, s, R_u, R_v) with the cones' data, truncated outside {|U| ≤ K, R ≥ a}, K
+  above the chain's bound K_0(data, a, Q), has a unique continuous fixed point on the whole rectangle (Bielecki
+  contraction); taking a first point of |Ũ| ≥ K by least u + v, the chain shows Ũ solves the true system on the past of
+  every point whose past keeps R > a. So the development within a rectangle ends only where R → 0 (D552's claim, now
+  proved), and with R = a trapped the background exists on Ω's past part, given the cones' data. Computed: Picard on the
+  integral system converges on all of D3's rectangle (10⁻¹³ in 32-52 iterations), its limit the diamond scheme's to
+  second order. Open: the outgoing family's data at past null infinity.
+- D559 (BEYOND5 3(b), deduced at the level of the count, as Proposition 11.1's proof): the approximant's expansion with
+  its ℓ-gains. The class E_p^ℓ (ℓ^j f ∈ E_(p+j) for all j) contains the exact terms and is closed under products and
+  derivatives; the stage system's coefficients are exact (D551, D555). Inducting on the number of ℓ's in the order m̃,
+  φ̃, gh̃: (a) by Lemma 11.2, whose (H_m) needs gh̃, φ̃ at lower order and, in B̄·dm̃, one ℓ more on m̃, absorbed by
+  B̄'s E_2 decay; (b) and (c) inherit ℓ-gains from their equations. Over the orders and the stages as in Proposition
+  11.1's last step; to physical variables at fixed v by Taylor's formula in θ. So g_app and e = g_λ − g_app expand in
+  r^(−1/2) at fixed λ, and the strip's term is polyhomogeneous in ρ^(1/2). Open: the induction written line by line.
+- D560 (LOSS-D LD16, read): D557's open point, whether N_tf⁻¹'s loss ℓ is the same at Proposition 4.4's and 5.1's
+  weights, is settled: III.F′ Corollary 3.4's proof fixes its orders from β_sctf alone (r_out := β_sctf − 2 − ε/2, r_±
+  from I.A Lemma 7.1; the ztf weight enters without loss) and its loss is II.G′ Lemma 4.1's ℓ + ℓ̃
+  (PART-III-F2-INDICIAL.md:478-491); both rounds apply it with β_sctf = ℓ_scf = 3/2 − ε (I12:267; I12:293-294,
+  I14:128-129). So a level-2 and a level-3 round cost the same in this accounting.
+- D561 (verifier 243 on D558; twoext5 reproduced, X4 at n = 320, 640; B1, C_u and B2's propagation by a 5D Ricci
+  computation): no break of the existence chain. MINOR: the hypotheses were missing, cone data satisfying the
+  constraints and A, B ≥ 0 (with C_u violated on a cone the bulk residual stays at 2.4 × 10⁻³; Picard without the
+  truncation diverges); the far corner is resolved by neither scheme (R_uu 38 to 227 at n = 40 to 640, interior points
+  converging), so smoothness there is the argument's, not the computation's; "now proved" and "closed directly"
+  overstated a deduction whose smoothness step is sketched. NITs: the second-order figures quoted were the far corner's
+  (bulk 1.29 × 10⁻⁵ to 8.13 × 10⁻⁷, ratio 4.0, now in X4); the data are C³; X3's far-corner residuals fall by 1.4 and
+  2.0, not at second order; the open item now worded one way. Corrected in FAMILIES5 4i and twoext5; the D558 entry
+  above keeps its text.
+- D562 (LOSS-D LD16, E1'a for ℓ_I; `checks/dg5.py` G1-G3, exact): a_I is free in the record (> 3/2,
+  PART-III-I-CONE.md:65), (H4) asks a_I > 3 + ε_+, and the source fixes 3 + ε_I, ε_I < 1 (I-CONE:68, 472-473); ℓ_I^max >
+  100. So ℓ_I ∈ (3 + ε_+, 3.5) is admissible for every a_I, and there section 2's (2.5) gives d_G = 11 on the whole ι⁺
+  window (δ < ε): an ι⁺ round costs at least 15. At the source's a_I, d_G ≤ 13 for every admissible ℓ_I (14 at the
+  window's top if δ ≥ ε).
+- D563 (verifier 245 on D560; partial): the β_ztf-independence holds, and no other value of ℓ_scf than 3/2 − ε occurs in
+  the loops. MAJOR: the loss is not fixed by β_sctf alone: II.G′ Lemma 4.1's ℓ uses r_in and s, free in F2's proof and
+  fixed in II.G′ Corollary 4.2 through ϑ_in and s_c (PART-II-G2-DECAY.md:690-701); the two rounds cost the same if both
+  make the same choices, natural for one operator but not stated, so D560's "settled" is conditional. MINOR: I12:267 is
+  level 1; level 2 is Step 3, which does not restate ℓ_scf; level 3's value is at I9:287-288 and I7:226, not the lines
+  cited; "ℓ" named two objects; III.J″ gives only "fixed loss"; ℓ̃ = 0 under Corollary 4.2's choices. NIT: section 2's
+  item 2 ("no closed form in the lines read") is superseded by section 2b's (2.3). Corrected in LD16; the D560 entry
+  above keeps its text.
+- D564 (verifier 244 on D559; no break at the level of the count): verified the class E_p^ℓ, Lemma 11.2 with g0 ((9.5)
+  is the Cartesian principal part, numerically to 2.6 × 10⁻¹⁵), (H_m)'s exponents, the order m̃, φ̃, gh̃ and the
+  transfer of Proposition 11.1's last step. MINOR: the θ-Taylor series is a finite expansion with remainder (the full
+  series fails for smooth profiles); ℓ(E_p) ⊂ E_p (ℓ = x̂·∂_X − ∂_v) is the step that closes the term in m̃ and should
+  be cited; B̄, C̄'s expansions inherited as asserted (D555); "closed" is "deduced at the level of the count". NITs:
+  dφ̃'s extra ℓ; q_m; the record's sign slip [ℓ, 3/r] (10554); the start condition holds as e ∈ E_2. Corrected in
+  BEYOND5 3(b); the D559 entry above keeps its text.
+- D565 (verifier 246 on D562; the arithmetic holds, d_G = 11 on the window): MAJOR: the record holds two readings of
+  ℓ_I's upper bound, ℓ_I ≤ a_I (I5, I8-I11) and ℓ_I < a_I + ½ (I2:251-252), unreconciled; on the first, (3 + ε_+, 3.5)
+  is not admissible for every a_I, though some ℓ_I in (3 + ε_+, 3.5099] always is, and gives d_G = 11. MAJOR: "costs at
+  least 15" is III.J″'s charge (a sufficient one), through the assembly's single ℓ_I > 3 + ε_+. MINOR: ε_I < 1 is not
+  stated (ε_I = 1.6 would allow d_G = 15), so "d_G ≤ 13 at the source's a_I" is withdrawn; section 3 omitted I11:47's
+  ℓ_I ≤ a_I; dg5.py's G1 now argued by its breakpoints, G3 tests both readings. Corrected in LD16, section 3 and dg5.py;
+  the D562 entry above keeps its text.
+- D566 (FAMILIES5 4i, deduced; `checks/data5two.py` T1-T5, exact): Theorem D with two families, scoped. Lemma 6.1's
+  gauge propagation runs family by family along each generator (both reach Σ_τ0, D537), the mixed harmonics algebraic;
+  Lemma 6.2's polarization is onto for any null covector, the mixed harmonics take no data; the means' radial problem
+  moves to the two-dust slice (H > 0 there not checked). The constraint iteration's linearisation has no 1/λ coefficient
+  with both families (flat background) or the outgoing alone, even for a non-null phase (speed 1/2; u = τ − r on
+  Vaidya): the cancellation is the waves' tracelessness on the spheres (the control, an oscillating trace, gives one).
+  The outgoing data are posed on Σ_τ0 and v = v0, not at I⁻. Open: S3-S6 for two families.
+- D567 (E2-PILOT 3j, certified; `checks/e2trapband5.py 768 0.05 384`, output saved as `checks/e2trapband5_384.out`;
+  `checks/e2bandtop5.py` P0-P1, certified; `checks/e2meas5.py`, computed): the band certificate run to σ = 384. B1
+  certifies one multiplier at every l_1 = 5, …, 768; B2 bounds all 7620 intervals of width 1/20 of [3, 384]; B3 lies
+  above e2trap5's float sup at every 0.1, by 1.0010 to 1.2294. Certified: ‖χ_I R_l(σ) χ_I‖ ≤ 11.477 for every 3 ≤ σ ≤
+  384 and every l ≥ 0, the sup unchanged on [3.2, 3.25]; on the intervals ending at σ = 256, 320, 384, 0.56257, 0.49119,
+  0.47635 (e2bandtop5, which reproduces 0.66429 at 192), and 0.43792 at 384 with 24 l_1 in place of B2's eight, whose
+  window binds there. σ^(1/2) times the bound is 9.20 at 192 and 8.58 at 384. The measured norm at σ = 128 is 0.0400,
+  the bound 21.0 times it. With 3f-3g, every real 0 < |σ| ≤ 384. 194 minutes. Open: σ > 384, the H¹ constants of 3i with
+  these multipliers, and the measured (a + b log σ)/σ, which the bound still exceeds.
+- D568 (verifier 247 on D566: 1 major, 3 minor, 2 nits; `checks/data5two.py` T6-T8 added, exact): MAJOR, both
+  generators' reach of Σ_τ0 was cited as settled (D537), but it needs the two-dust background on all of Ω, which D558
+  deduces with one sketched step (D561): now a premise, and on the Open list. Minor: the LOG's "depends only on
+  tracelessness" is broader than tested (a trace breaks the cancellation, T5, T8; that nothing else does is not shown);
+  T4's phase is not the outgoing null family, so T6 (both families, Vaidya, u = τ − r) and T7 (both families, static μ =
+  1/2, both phases null, c(r) = 2/f − 1) are added, no 1/λ coefficient in either, and T8 a control; the dynamic outgoing
+  null phase is outside the code. The outgoing data's cone v = v0 was asserted, not argued, and is withdrawn (Σ_τ0 is
+  all the iteration asks). Nits: c is a slowness (c = 1/2 is crest speed 2); the two-family waves carry no χ. FAMILIES5
+  4i corrected; the D566 entry above keeps its text.
+- D569 (BEYOND5 3(b), computed: `checks/bbar5.py` K0-K4, Ctl, exact; and deduced): B̄ and C̄, the stage equation's
+  first- and zeroth-order coefficients for the means, shown rather than asserted. They are the same at every stage
+  (weight 0) and are read off at stage 1: B̄ = B0 is g0's alone (the wave's θ-mean carries no derivative of the mean),
+  and C̄ = C0 + ΔC, ΔC quadratic in the wave and of order r⁻³ in a frame (nine entries; χ contributes nothing, dv being
+  null). B0 and C0 are built from g0, exact with p ≥ 2. So both are exact and in E_2^ℓ, which discharges D564 (3). K0
+  reproduces (5.2)'s −½e_1∂_θ²W term; K4 the □̃ of Lemma 5.3 (a); the control (amplitude r^(−1/2)) moves the order. Open
+  in 3(b): the induction written line by line at the record's level.
+- D570 (LOSS-D LD16 and section 3, read at source): the record's two upper bounds on ℓ_I are not two readings. ℓ_I < a_I
+  + ½ is III.I′ Proposition 2.1's (I2:250-254); III.I′′′′ Proposition 4.1 adds ℓ_I ≤ a_I (I5:318-319), its forcing class
+  having ℐ⁺-weight ℓ_I + 1 and the parameter derivative weight a_I + 1 ((I′′′′5)); later parts carry ℓ_I ≤ a_I. Both
+  hold from I5 on and ℓ_I ≤ a_I binds, dg5's G3 reading. d_G = 11 stays attainable: (3 + ε_+, min(a_I, 3.5099)] is
+  nonempty for every a_I > 3 + ε_+, with ε_+ < ε_ind < 3 × 10⁻⁶ at the record's point. Open: a_I, the class's ℐ⁺-order,
+  free in the record.
+- D571 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-48`, output saved as `checks/g1curv5_seed2_48.out`): the
+  second seed at M = 48, 1600 × 720. Before v = 3.25 it agrees with M = 40 to 0.011 K_0; from v ≈ 3.25 it departs at
+  every angle, to 4.4 × 10⁵ K_0 by v = 4.5, while M = 32 and 40 agree to 0.097 K_0. D524's pattern one level up. The
+  four runs fit a step condition M²/N ≤ c with 1.28 ≤ c < 1.44 (consistent with, not shown). Convergence after v ≈ 3.5
+  is not decided: it needs M = 32, 40, 48 at one grid with N ≳ 1800, about 5.6 GB at N = 2000 against 3.8 GB free (not
+  run).
+- D573 (LOSS-D LD16; `checks/prop31loss5.py` Q1-Q3, exact, and deduced): III.I′ Proposition 3.1's fixed loss, counted.
+  Its proof applies L_b (loss 2) once in Step 1 and once per window of ℐ⁺-exponents below ℓ_I (the z's of a window
+  solved from one f), plus once per log step; the face integrations and (z − 3/2 − Ā)⁻¹ lose nothing (J3 (c)-(d), (g)).
+  The least E^C_I of III.C Definition 3.1 has no log orders, and for every admissible ℓ_I in (3, 3.5099) two windows,
+  [2, 3) and [3, 4): loss 6, not 2. So an ι⁺ round costs at least 8 + d_G = 19, not 15, on E^C_I without log terms below
+  ℓ_I; more with them. (D572 is the 2400 × 1080 runs' preparation, D571's test, running.)
+- D574 (verifier 248 on D567: no major; 3 minor, 4 nits; every figure and multiplier choice reproduces, the subset
+  tables equal the full one's): corrected the labels. The ratios 9.70, …, 19.0 are e2trap5's float sup over the
+  measured; on the certified bounds they are 9.79, 9.50, 11.24, 13.11, 15.66, 19.20 (9.5 to 21 stands). B2's window
+  binds in value at σ = 384 only (320 keeps l_1 = 632 with 24). The LOG's "0.44 at 384" is the wider window's value,
+  B2's own 0.48. Nits: B3 is computed, not part of the certificate; the interval argument is run by B2, not "not run";
+  two saved outputs predate print changes (values agree); e2meas5 had values at 96 and 128 only. Added: the measured
+  norm at σ = 160, 0.0326365 (l = 319), the certified bound 22.4 times it.
+- D575 (verifier 250 on D570 and D571: 1 major, 4 minor, nits; `checks/g1curv5.py --seed2-48` now reports each pair on
+  its own cells, output resaved): MAJOR, D571's agreements depend on the cells kept. Each pair on its own cells, the
+  cells beside the cut apart: M = 32 and 40 agree to 0.092 K_0 away from the cut, and differ by up to 1.3 × 10⁴ K_0
+  beside it after v = 3.5; M = 48 departs from M = 40 away from it; D515's M = 24-32 differences at 800 × 360 lie on
+  cells M = 40 masks. So the M²/N table holds only for interior departures, at (32, 800) unchecked, and four binary
+  outcomes do not test M²/N: a hypothesis, "one level up" withdrawn. Minor: in D570 III.I′′′′′ part (1) needs only ℓ_I <
+  a_I + ½ (I6:35), and the forcing-weight reason is this note's reading; I15:451 reads a_I = ℓ_I under one reading of
+  (H2), so d_G = 11 then asks a_I ≤ 3.5099 too; the disk figure's basis stated. The D570 and D571 entries above keep
+  their text.
+- D576 (verifier 251 on D573: 1 major, 4 minor, 2 nits; `checks/prop31loss5.py` Q3-Q4, exact): MAJOR, the ι⁺ round's
+  Proposition 3.1 acts on the round's error, whose ℐ⁺-exponents are 5/2 + σ_Υ + ℕ_0 only (I6:38-51, 143-145), with no
+  Step 1 term: one L_b application on ℓ_I < 3.5, two on [3.5, 3.5099). A round is charged 4 + d_G = 15 on ℓ_I < 3.5
+  (LD16's figure) or 17 above; D573's 19 is withdrawn, its 6 being the one-off application to the general class
+  (I6:103-108). Minor: sufficient charges, not minima; the counts at e_Υ = γ_Υ = 1/100; J = 2 analytic, Q2 a grid; one
+  solve per log level in a window (Q3: 5, not 17). Open: Proposition 2.1's count. The D573 entry above keeps its text.
+- D577 (verifier 249 on D569: no major; 4 minor, 4 nits; the rerun reproduces bbar5.out, the λ³ truncation and a
+  χ-on-dr⊗dr mutant confirm it, ΔC is one term r⁻³F(v, θ)): corrected the wording. The background part B0, C0 is
+  deduced, not computed; "in E_2, hence in E_2^ℓ" is replaced by "exact sums of r^(−p)F, p ≥ 2, each in E_p^ℓ"; χ is a
+  second-harmonic choice, P5 allowing any s-dependence, and the zero mode L4 leaves free changes nothing; K1 carries to
+  Cartesian components, the wave part being of order zero as a tensor operator. Nits: the run time, the polar-angle
+  notation, "polynomial" in g0 and g0⁻¹. The D569 entry above keeps its text.
+- D578 (BEYOND5 3(b), deduced): Proposition B.4, the approximant's stage profiles at past null infinity, written at the
+  level of the record's Proposition 11.1: every stage's mean, phase and oscillating profile has an expansion in r^(−1/2)
+  with remainders in E^ℓ, by induction on the stage, the order and the number of ℓ's, with Lemma 11.2 (g0 for g_λ) for
+  the mean, the c0 = 0 integral from past null infinity for the phase, Lemma 9.7(d) iterated for the oscillating part,
+  and the coefficients exact (D551, D555, D569); then Taylor in θ with remainder to the physical variables. Closes
+  3(b)'s open induction at the record's level; λ-uniformity is not needed.
+- D580 (verifier 252 on D578 and D576: 2 major, 2 minor, nits): D578 corrected. MAJOR, the base: Theorem A_P gives stage
+  i's remainders at level 0, not in E^ℓ, so the hypothesis on stage i is now level 0 only and each step J → J + 1 finds
+  the new remainders and then their ℓ-gains by induction on m, from the earlier stages' E^ℓ, the explicit terms and the
+  lower steps. MAJOR, the coefficients: the mean's is a v-integral of a polynomial, not a polynomial; Φ and Γ are
+  algebraic. Minor: three closures are asserted, not shown (∂_v on E_p, the couplings' exactness, the Taylor remainder's
+  ℓ-gains), so "closes" is replaced by "written at the record's level, given those three"; D573's withdrawn 19 marked in
+  place. D576's reading and code confirmed. The D578 entry above keeps its text.
+- D581 (E2-PILOT 3j; `checks/e2h1band5.py` W1-W3, exact): the H¹ constants of section 3i on the certified band.
+  Corollary E2.11 takes any valid resolvent bound, with φ_*'s m′, M′ (and l = 0's) independent of σ and l, so the band's
+  B gives them with no new multiplier: ‖u′‖_I ≤ X‖f‖ for every l ≥ 1, X from 205.4 (σ = 3) to 277.5 (σ = 384) on the
+  printed intervals, and the summed constant C, set by l = 0, from 420.3 to 514.4; uniformly on [3, 384], X ≤ 963.4 and
+  C ≤ 1516. The control reproduces H1's 224.5. Real σ only.
+- D582 (LOSS-D LD16, read at source, deduced): III.I′ Proposition 2.1's count, bounded below. A regularity statement
+  whose steps each apply L̃ (loss 2) and gain a weight below ½, in turn on the same u: its loss is twice its steps. Its
+  Step 2 alone sweeps from below ℓ_+ (≤ 3/2 − 4ε where III.I′′′′′ applies it) to ℓ_I > 3: at least 4 steps, a loss of at
+  least 8. It enters once per round raising α′_K (I6:216) and in the Step 8s of I9 and I12, not inside the ι⁺ rounds, so
+  the ι⁺ round's 4 + d_G stands. Open: its full count (Step 1 and Lemma 2.2's steps depend on the a priori weight).
+- D583 (CERTIFY-10L5 6b, computed; `checks/g1curv5.py --seed2-48`'s pair table split by mask, with the field R, output
+  resaved): D575's reading narrowed. M = 32 and 40 mask the same cells; M = 48 alone masks 104 more. Every cell where M
+  = 32 and 40 disagree borders one of those, and there their fields differ (R by up to 7.5 %), not only K; away from
+  every mask they agree (R to 2.4 × 10⁻⁴, K to 0.015 K_0). Masked cells hold NaN, so the difference is not K's stencil.
+  M = 48 departs away from every mask too (R by up to 19 %). One region, not two kinds: late v, where M = 48 fails first
+  and M = 32, 40 are unresolved.
+- D584 (LOSS-D LD16, read at source, deduced): D563's open condition resolved. F2's Corollary 3.4 fixes s (in
+  Proposition 3.3's proof, F2:382) and r_in (Lemma 3.2, α_+ = 0, F2:368-371, 478-481) from the operator alone, and makes
+  ℓ independent of ε (F2:491): choices of the proof, made once. Both kinds of round apply it with β_sctf = ℓ_scf = 3/2 −
+  ε (D560), so they cost the same 2 + ℓ + ℓ̃, on the reading that they apply that one corollary.
+- D586 (verifier 253 on D580, D581, D582, D584: no major; 2 minor, 6 nits; `checks/e2h1band5.py` repaired and rerun,
+  exact): MINOR (D581), the band's interval at σ = 3 is [3, 3.05], not [2.95, 3], so that row's X = 205.4 and C = 420.3
+  held at the point only; on the interval X ≤ 205.8, K ≤ 490.5, A ≤ 784.7, C = X_0 ≤ 420.7 (the verifier's exact
+  recomputation reproduced); the uniform bounds stand. MINOR (D584), the record fixes β_sctf = 3/2 − ε at levels 1 and 3
+  but at level 2 only admits it (I12:293-294, (3/2 − 2ε, 3/2 − ε]); ℓ being a ceiling in r_out = β_sctf − 2 − ε/2, equal
+  cost holds when level 2 takes that value, and D563's conditional stands in that form (the paper's section 9 says so).
+  Nits: Corollary 3.4's proof names r_out and I.A Lemma 7.1's orders, not Lemma 3.2 or r_in, and s and the incoming
+  order are constrained, not valued; its ℓ does not depend on β_ztf (F2:385, 483-485), though the two applications use
+  different β_ztf, and the fibre inner product is a third choice made the same way; I12:399 is Step 7, not Step 8; Lemma
+  2.2's steps are not shown to add to Proposition 2.1's loss (the floor 8 stands); e2h1band5's W2 passed whenever C > 0
+  (now checked against W3 and C = X_0), W3's monotonicity is the closed form's (the grid an illustration), W1 now
+  controls X_0 too (H4's 808.6), its printed decimals are rounded up exactly (no value moved), and X and A over the rows
+  run from 204.9 and 777.9 at σ = 6, not from the first row; Proposition B.4's gains are found at lower m or earlier at
+  the same m. The D580-D584 entries above keep their text.
+- D587 (BEYOND5 3(b), deduced; `checks/closure5.py` K1-K5, exact, K4 an enumeration at every order m ≤ 10): Proposition
+  B.4's three asserted closures (D580) shown. (i) ∂_v is ∂_τ at fixed x and commutes with d_X, Ω and ℓ, so it preserves
+  E_p and E_p^ℓ. (ii) A θ-mean sees only monomials with two oscillating factors; by Lemma 5.1's weights these are W
+  gh_(m+1) under two λ⁻¹dv∂_θ and W W under λ⁻¹dv∂_θ and dφ_m∂_θ, so the couplings' coefficients are built from g0,
+  g0⁻¹, dv, dd v and W alone, exact sums of orders 3/2 and 3, with no m_i or dφ_i (the control with three derivatives
+  lets m_1 in). (iii) The Taylor remainder's integral form and the chain rule with ℓv = Ωv = 0 give R_K ∈ E_(K+q)^ℓ at
+  fixed λ. 3(b)'s induction then stands at the record's level with nothing asserted beyond the record's own lemmas;
+  λ-uniformity is not covered, and the strip does not need it.
+- D588 (LOSS-D LD16 and 2b, computed: `checks/thetain5.py` T1-T6, exact; deduced): the thresholds the record never
+  evaluates, and the losses they fix. The incoming threshold of the tf model, 2L̄'s spectral family, is ϑ_in = −2 min
+  spec M with M the ∂_t* endomorphism in t* = t + r (= S + α_r, I.A Lemma 4.4's symbols; sign conventions checked on
+  incoming and outgoing waves); spec M ⊂ [0, ∞) with 0 five times, semisimple, so ϑ_in = 0, as for L̃_b; for □^Υ and □^C
+  it is negative. Corollary 3.4 may take s = 1 (I.C Theorem 4.3 and Corollary 5.2 hold for every s), and then its
+  integer is 1 for every β_sctf in the record's range: both kinds of round cost 2 + 1 = 3, the D563/D586 conditional
+  unneeded, and LD3's floor rises to d > 7.9 × 10¹⁵, N > 1.67 × 10¹⁷. With III.F″ Lemma 1.1's horizon threshold in [0,
+  2], LOSS-D (2.3) and (2.4) are 2 for L_b at β_scf in [1, 3/2). Open: the weights, the counts and (1.1) evaluated.
+- D589 (verifier 254 on D585-D587: no major; 6 minor, 8 nits; reruns of response5, e2h1band5 and closure5
+  byte-identical, `up()` tested on 10^5 random rationals, K4 re-enumerated independently with composite derivatives,
+  m_(m+1), gh_(m+2) and Γ[g0] added, unchanged): MINOR, in the paper's section 9: 963.4 holds for l ≥ 1 only (1516 at l
+  = 0); the ratio is 9.5 to 22, not 21; at the second seed M = 32 and 40 agree to v ≈ 3.5 while M = 48 departs from
+  3.25; the loss's open list must include E1'a and E1'c (LOSS-D section 4), not only LD16's per-round items; the round
+  charges 15 and 17 hold on ℓ_I in (3, 3.5) and [3.5, 3.5099), more above, sufficient not minimal. In LOSS-D and the
+  D586 entry, I12:293-294 is level 3's; level 2's interval is inferred (G5 Proposition 4.4, I12:131, 305). Nits: N = 21d
+  + 6 is not section 4's N, and 8d + 2 was unexplained (dropped); the counts are deduced bounds; D338, not D339, and
+  verifiers 253-254 recorded; Vaidya's outgoing phase is not null; supplement terms defined in the paper's words; D587's
+  citation 490-506, its list with Γ[g0] for dd v, K1 and K5 at five points, K1 not testing products or means, K5 not
+  d_X; and the two-dust existence is given its characteristic data. All seated; the D585-D587 entries above keep their
+  text.
+- D590 (verifier 255 on D588-D589: no major; 3 minor, 5 nits; thetain5, closure5 and response5 rerun byte-identical or
+  passing; the reduction re-derived independently with non-commuting 2 × 2 A, B and h ≠ Id, and agreeing with
+  hienergy5.py V1's for □^Υ): D588's claim stands: ϑ_in = 0, ℓ = 1 at s = 1 (and ℓ ≥ 1 for every s, so the charge 3 per
+  round holds whatever s), (2.3) and (2.4) = 2. MINOR: the paper's "computed exactly" for the threshold is now "deduced
+  from an exact computation"; L̃_b's columns are conormal (𝒜³ near ∂X), not compactly supported, its thresholds being
+  its L̂_b block's for that reason; Appendix C's row now runs to D590, D588 having been read. Nits: thetain5's citations
+  (F2:267-275, I.C:597) and hienergy5 V1's earlier evaluation for □^Υ cited; the floor printed d > 7.959 × 10¹⁵, N >
+  1.671 × 10¹⁷ (7.9 × 10¹⁵ gives only 1.659 × 10¹⁷; the paper prints 7.95 and 1.66); ϑ_H any number above ϑ_L < 2; Γ[g0]
+  enters neither coupling, like dd v; I12:305 is Step 4's. The D588-D589 entries above keep their text.
+- D592 (FAMILIES5 4i, computed: `checks/data5two.py --t10b`, exact, saved as `checks/data5two_t10b.out`; deduced): the
+  two-family constraint linearisation with both families' second harmonics. On flat space with χ dv dv and χ₂ du du, no
+  1/λ coefficient (T9). On Vaidya the direct computation (T10) has run over four hours; by the linearity of the 1/λ
+  coefficients in the waves it reduces to single-wave parts, three already computed (data5.py S2, S4; T4, T6) and the
+  fourth, the outgoing χ₂ du du alone, computed now: none, and the oscillating-trace control has one. So none with both
+  families and χ on Vaidya (deduced). Open: T10 direct, T11 (S6 with both families and χ, not linear in the waves).
+- D593 (verifier 256, the paper's audit batch 1, the abstract and sections 1-4: 1 major, 5 minor, 10 nits; all seated in
+  paper/RESPONSE-HL-5D.md): MAJOR: Theorem 3 item 1 used the leading wave's TT form and its map to the two profiles p_1,
+  p_2 without printing either; section 2.4 now prints it as (2.5′), λ W_TT = 2 r^(1/2) (c² p1 dφ1² + s² p2 dφ2² − (p1 +
+  p2) dθ²) with p1 = (2c² G − s² F)/3, p2 = (2s² F − c² G)/3, and item 1 cites it. MINOR: the symbol λ1 named two
+  different constants, now λ_Ω (the angular one, with a clause saying what it is) and λ_H (Proposition 3.3, Theorem 1
+  item 6, section 6); 'the same solutions' is now 'solutions with the same properties'; the uniqueness of ε1 carries its
+  rate ε_P t^(−3/2) (Lemma 9.1 (f)); Theorem 2 item 4 is narrowed to Theorem E's conclusions, items 6-7 transferred by
+  the same argument and not written out (section 9.5); three references to the board's record ('the record's', 'Part
+  (iii)', 'the numerics') removed. Nits: the abstract's and item 6's qualifiers; ε1's uniqueness at Step 8; Touati's
+  lemma no longer labelled READ where it is used, not quoted; Theorem A's and Theorem 1's labels; [CBCM10] cited as arXiv
+  v1 PDF p. 8 and its Theorem 3.3 pointed; [HL18] Remark 4.3; D_T named twice where it was implicit; μ ≥ μ0 ≥ √72 l5²;
+  log names removed from the text; a long Appendix C row split; 'angularly separated dusts'. The paper's structure is
+  unchanged (39 headings, 173 bullets, 10 numbered items; two displays added).
+- D594 (paper section 8, three stale phrases, held for audit batch 3 and repaired before it): section 8.2's 'its
+  five-dimensional counterpart is open', of Klainerman and Szeftel's polarized axisymmetric stability, read as if
+  settling in the class were open; it now says their method is not carried into five dimensions here and the class is
+  settled by Hintz's route (sections 8.3-8.4, Theorem 4). Section 8.3's 'the kernel elements' class open' and 'the
+  reading of [Hin26c]'s section 9 that is open below' predate section 8.5, which deduces the first and takes up the
+  second; both now point there. Wording only; two paragraph tails re-filled at 121.
+- D595 (computational support for two derived steps; paper/response5.py R12, checks/data5two.py --t10t): (a) the paper's
+  display (2.5′), written out at D593, is checked by R12: its components are λ times the λ-linear part of ansatz5.py's
+  approximant (imported), it is traceless on the round S³, and with Proposition 2.3's quadratic part of R_vv and R2 the
+  phase mean of its flux is (2/9) A² env² h² (c⁴ + s⁴) = (2/9) A² env², the law (2.6); the control p1 = F, p2 = G fails
+  (exact, 3 s; the first run compared W_TT with λ W_TT and failed, the display being right). Appendix A lists R12,
+  Appendix C maps (2.5′) to it. (b) D592's T10 rested on the linearity of the 1/λ coefficients in the waves, argued and
+  not computed. --t10t computes T10 and T11 directly by exact truncation: gamma, gi, beta, N² and K have no negative
+  order in λ (recorded), so the λ⁻¹ coefficients are exact with gi and K kept to order 0 (TOPS_10) and the order-0
+  principal coefficients with gi to order 1 (TOPS_11); each truncation is first held against the full pipeline exactly on
+  four cases, two of them controls with a nonzero λ⁻¹ coefficient, and the control of T10 checks the linearity itself
+  (both families' λ⁻¹ coefficient equal to the sum of the two families' own). First case (both families, no χ):
+  agreement, 290 s; the run continues. The saved checks/data5two_t10b.out is reproduced byte for byte by the script's own
+  run (FAMILIES5 4i's caveat dropped).
+- D596 (FAMILIES5 4i, computed: `checks/data5two.py`, exact, 331 minutes, saved as `checks/data5two.out`; and
+  paper/response5.py R13-R14): (a) the direct T10 and T11 finished: with both families and their second harmonics (χ dv
+  dv, χ₂ du du) on Vaidya with u = τ − r, the linearised constraint map has no 1/λ coefficient, and the order-0 principal
+  coefficients of data5.py's S6 are the background's on flat space and on Vaidya. D592's deduction by linearity is now
+  computed. --t10t's four agreement checks of its truncations against the full pipeline all pass (both nonzero controls
+  equal exactly, 2132 s); its own T10t and T11t are running. Still open for two families: data5.py's S3-S6 on the
+  two-dust slice (H > 0), the two-dust background on Ω, the dynamic outgoing null phase. (b) The deduced steps of the
+  paper's sections 1-4 audited for computational support: of ten, seven named a computation already; the three that did
+  not are now computed: the λ-independence of the approximant's constants rests on the profiles carrying no λ (R13, on
+  the profiles the programs compute; control a profile with 1 + λ); Proposition 3.2's uniform margin −δ, an exact
+  identity with nonnegative terms (R13; control the μ′ sign reversed); and the vacuum step, div(E − ½ g tr E) = −½(□D +
+  Ric(D)) for E := Ric − ∇_(μD_ν), checked exactly at a point on two random 4+1 metrics with random D (R14, 16 s; control
+  E − g tr E). The paper cites each at its claim and in Appendices A and C; section 9's more-families bullet records
+  T10-T11 computed and loses two references to 'the record'.
+- D597 (verifier 257, the paper's audit batch 2, sections 5-7, with the author's criterion that everything derived be
+  proved with computational support: no major; 8 minor, 11 nits; the analysis of section 5 matching the supplement step
+  for step; ks5, lead5, horizon5, mass5, past5, hf_theorem5, bondi5 B4 and response5 rerun; data5.py's selftest did not
+  finish under load). Seated in the paper: MINOR (1) F4's ratios at μ0 = 1000 l5² were a superseded sequence's (offset
+  4.65, 3.84; horizon 2.46, 2.26; P 2.43, 2.33), now this file's own output (4.00, 4.02; 2.26, 2.14; 2.33, 1.93), in the
+  paper and hf_theorem5.py's docstring; (2) the 'essentially kinematic (an assessment, not computed)' clause dropped, the
+  law being computed (P7) and proved (Theorem 3), and the two estimators named (F4 the largest offset after the shell, B4
+  the mean); (3) the part labels '(iv)', '(iii)' and 'N1* in the working notes' removed, the solver described at first
+  use; (4) C_D and C_R defined at (5.5); (5) symbols used twice in the batch renamed: the mollifier 𝒫, the energy 𝒩, the
+  commutator's function m, the data correction (α, ϖ, q) (the programs' a, w, q), the lapse factor ϑ; (6) [AO14]'s (1.3)
+  quoted for both halves, the A^ij condition for the time lines; (7) the λ = 0.00625 run (0.4535, −0.74 %, grid-limited)
+  and the 1000 l5² rows' dependence on the 100 l5² rows stated, the measured means recomputed here from the run file; (8)
+  'the one decision in which the proof departs from Touati's' → 'the decision on which the estimate turns'. Nits: T, P_0
+  bounded on profiles; the Touati sentence marked a remark; b(τ), τ_end defined; supplement Lemma 1.1(e) and 2.4 cited;
+  the clamp interval [τ0 − 2, τ_end + 2] as the supplement has it; O(λ^(N−2)) per angular norm, λ⁻¹ per r-derivative;
+  Proposition 3.2's C λ ≤ δ/2 and μ0 > √72 l5² stated in section 6; 'converging as O(λ)' dropped and B4's 0.5 % named;
+  Touati's λ ≤ λ0 (READ by the verifier, [Tou23a] Proposition 7.1, p. 13); data at past null infinity are this paper's,
+  not the others'. hf_theorem5.py's status row for existence now reads proved (Theorem E), its F7 kept as it stood. Kept:
+  (6.1)'s remainder O(λ³), true, the sharper O(λ^∞) not needed. COMPUTATIONAL SUPPORT MISSING, queued (each to be
+  computed with a control): (C1) (5.1), only w(ℓ, ℓ) carries λ⁻¹; (C2) Lemma 5.1, T(∂_θ g1) = O(λ) on the stage-0
+  profile; (C3) supplement Lemma 3.3, the ℓ ⊗ ℓ contraction; (C4) the mollifier's annulus (Lemma 2.2), certified; (C5)
+  the bootstrap's power counting, Steps 4-6, as a ledger failing at K = 5; (C6) section 5.4's extension, g(Z, Z) < 0 and
+  g^ij > 0 along the convex interpolation; (C7) the constraint solve's λ^(N−2) scaling (Lemma 6.4, Proposition 6.5); (C8)
+  the boundary for g_λ to O(λ); (C9) Propositions 3.3-3.4 at λ > 0, ∂_r θ⁺ to O(λ) and the oddness of m1.
+- D598 (computational support, verifier 257's C4, C6, C8; `checks/support5.py`, saved as `checks/support5.out`, about 30
+  s): C4, certified by Z3 over the reals: supplement Lemma 2.2's shifted ball and the segment to it stay in the annulus
+  A(τ) for every z in the unit ball and t in [0, 1], the segment's length is at most 3λ and its end lies λ inside near
+  either sphere, for b − a ≥ 1 and 0 < λ ≤ 1/10, the problem reduced exactly by rotation to (ρ, z1, |z⊥|²); b(τ) − a ≥ 1
+  follows from (1.1)'s definitions. The middle third uses |σ0| ≤ 1, which the supplement did not state; it now takes σ0
+  non-increasing, and the check shows a point leaves without the bound. Control: no shift leaves the annulus. C6, exact:
+  for lapse N, shift β and a symbolic spatial metric γ, det g = −N² det γ, g(Z, Z) = −N², g(Z, ∂_k) = 0, so along Z the
+  inverse metric is diag(−N⁻², γ⁻¹) and the characteristic roots are real and of opposite signs; convex combinations
+  toward (1, 0, δ) keep N > 0 and γ > 0. Control: Vaidya's original time lines give a negative spatial inverse inside the
+  horizon. C8, exact: on x_K = 1 the first-order term of g_λ⁻¹(dΦ, dΦ) is −(χ + m_vv + 2(f − r_q′) m_vr + (f − r_q′)²
+  m_rr), ♯dΦ = ∂_v + (f − r_q′) ∂_r having no angular part, so W_TT drops out exactly; a wave with a dr dr part would
+  enter (control). The paper cites each at its claim (sections 5.2, 5.4, 6) and in Appendices A, C, D. Left of the list:
+  C1-C3, C5, C7, C9.
+- D599 (computational support, verifier 257's C1-C3; `checks/support5.py`, saved as `checks/support5.out`): C1, exact:
+  for random rational Lorentzian metrics the part of Ric^H linear in the second derivatives S of g is exactly −½ g^ab
+  S_ab,mn (supplement (0.2), READ from [CBCM10]), and the chain rule's λ⁻¹ part of ∂_a∂_b[λ G(x, v/λ)] is v_a v_b G_θθ;
+  so (5.1)'s only λ⁻¹ coefficient is ½ w(ℓ_app, ℓ_app) ∂_θ²g1. Control: Ric without the gauge term has other
+  second-derivative terms. C2, exact, on lead5.py's stage-0 profile W = W_TT + χ dv² with χ generic: λ P([∂_s W]) = ∂_s
+  Ric^H(g0 + λW) order by order, no order below λ⁻¹, λ⁻¹ part zero, and λ⁰ part, T(∂_s W), equal to ∂_s R^(0) in every
+  component, so zero under (E2) by lead5 L3-L4 (Lemma 5.1). Control: χ = 0 gives T ≠ 0. C3, exact: in P(φ[∂_s W]), φ
+  generic, the ℓ ⊗ ℓ (rr) component has no λ⁻¹ or lower term and no second derivative of φ at λ⁰ (supplement Lemma 3.3).
+  Control: an oscillating dr² component (W(ℓ, ℓ) ≠ 0) gives a λ⁻¹ term. Two bugs in the helper were found and fixed
+  before these were accepted: the ε-linear part was first rebuilt unexpanded, then extracted unexpanded at the end, so
+  negative λ orders read as zero; C3's first control (χ on dv dr) keeps W(ℓ, ℓ) = 0 and passed vacuously, which is how
+  the bug showed. The paper cites C1-C3 at (5.1), Lemma 5.1 and the contraction in section 5.2. Left of the list: C5, C7,
+  C9.
+- D600 (verifier 258, the paper's audit batch 3, section 8; 1 major, 10 minor, 8 nits; 13 citations READ at source,
+  settle5 T1-T4, class5, general5, iplus5, transfer5, uniform5, eind5, hthresh5 T5, gluing5, gammac5 and admiss5 run):
+  MAJOR: 'the gluing shows only that every such perturbation agrees on a large ball with one to which the theorem
+  applies' was unproved and against its own source (PART-VII-ASSEMBLY 449-451, 484-485); now 'would at most show … not
+  proved here', with the cost R^(ℓ0−3) of a bump at radius R. MINOR: Theorem 4 matched to Theorem 0.2 (the ε_m
+  quantifier, smooth data, ε_K's full condition, the file path); the horizon threshold no longer 'not computed'
+  (supplement 10.79, hthresh5.py); the linear tail t^−7 no longer 'the rate a nonlinear argument would carry' (Theorem
+  4's rate is t*^(−2−ε)); 'both steps' narrowed (the second replaced by the gluing, Theorem 4 not shown to apply to g_λ's
+  own data); the gauge comparison labelled verified, not proved; γ_Υ's two conventions stated; ε_ind's certificate exact
+  and its scan numerical (also in section 9); 'proved by enumeration' qualified by its assumption; references to the
+  record, the rows, a finding and 'an independent verifier' as authority removed, the parts' own texts the authority and
+  the readings notes; [AHW24] Theorem 6.1, p. 35; [Hin26] Theorem 7.1(1)-(4) and (1.43), p. 29; the least-damped mode
+  written σ r_h = 0.9477 − 0.2561i in this paper's e^(−iσt) convention. Nits: the four route items 'carried out below';
+  g_app versus g_λ; the profiles' vanishing after the shell cited; 'self-contained' narrowed; the write-out's α ∈ (4 +
+  ε_K − ε′₀, 4 + ε_K] and rate α − 2; the parameter point's values distinguished from the write-out's proved set. Seated
+  by a builder to a written list and read here before commit. COMPUTATIONAL SUPPORT MISSING, queued: (c1) the oscillating
+  profiles' vanishing after the shell; (c2) the 𝔟_e0 flux 6π²m and the glued mass; (c3) boosted Myers-Perry data's
+  expansion at ρ → 0; (c4) an enumeration for (VII5); (c5) the h-dependence of each at-point conclusion; (c6) ε_ind
+  certified by interval root isolation; (c7) Proposition 10.1's coefficients bounded uniformly in l; (c8) the squashing's
+  dφ1 dφ2 coefficient (the verifier computed it, ∝ (e^(−4B) − e^(2B)) c² s²; to be scripted).
+- D601 (CERTIFY-10L5 6b, computed, floating point: `checks/g1curv5.py --seed2-2400`, saved as
+  `checks/g1curv5_seed2_2400.out`): the second seed at 2400 × 1080 with M = 32, 40 and 48. M = 32 and 40 agree to 0.09
+  K_0 up to v = 3.5 at all seven angles and to 0.53 K_0 on [4, 4.5); M = 48 departs from v ≈ 3.25 at every angle, as at
+  1600 × 720 and by as much, and masks 103 cells alone. The departure does not move with the null grid, and M²/N = 0.96
+  is below the 1.0 at which M = 40 held at 1600: the step condition M²/N ≤ c (D571's hypothesis) is refuted. Whether M =
+  48 meets another instability or resolves late structure that M = 32 and 40 miss where it masks is not decided; M = 32
+  and 40 agree away from that region to v ≈ 4.5, and the region is unresolved. The paper's section 9 sentence on these
+  runs waits for audit batch 4 to report (it reads that section now).
+- D602 (computational support, verifier 258's c8 and c1; `checks/support8.py`, saved as `checks/support8.out`): K8,
+  exact: the round S³ splits as base (σ1² + σ2²)/4 = dθ² + c²s²(dφ1 − dφ2)² plus fibre η², η = c² dφ1 + s² dφ2, and
+  [Hol08]'s squashed sphere e^(2B) base + e^(−4B) η² has dφ1 dφ2 coefficient 2c²s²(e^(−4B) − e^(2B)), zero for cs ≠ 0
+  only at B = 0: section 8.1's 'the two classes meet only in spherical symmetry'. Control: no squashing gives no cross
+  term for every B. K1, exact, the base of supplement 10.50(a)'s induction: every oscillating profile of ansatz5.py (a1,
+  a2, bc, bs, kc, ks) and lead5.py's W_TT vanishes where E = 0, and χ's transport source, R^(0)_vv's second harmonic, has
+  E-degree ≥ 2 in every term (the first version also counted the mean, whose M′ is a separate function in the code, and
+  failed; the source is the harmonic). Control: a profile with an E-free part. Cited in the paper after audit batch 4.
+- D603 (computational support, verifier 257's C5; `checks/support5.py` C5, exact): the bootstrap of supplement section 4
+  (paper (5.4)-(5.5)) as a ledger whose exponents are derived from its rules, not typed: the Sobolev index s0 = 3 in four
+  spatial dimensions, ||∂^i w||_∞ ≤ C λ^(−3−i) N for i ≤ k + 1 − s0 = 4, |∂w|_k ≤ C λ⁻¹ N, one L^∞ factor per product (so
+  the worst nonlinear term is λ⁻⁵ N²), N_st = K + 3 stages. At K = 6 every requirement holds (the smallness of w and ∂w,
+  the w part of the commutators, both nonlinear terms within λ^(K+1), the residual within λ^K, the closing); at K = 5,
+  the control, |∂w| ≤ C M λ² and the worst nonlinear term fail. Left of verifier 257's list: C7 (the constraint solve's
+  scaling) and C9 (Propositions 3.3-3.4 at λ > 0).
+- D604 (computational support, verifier 257's C9; `checks/support5.py` C9, exact): Propositions 3.3-3.4 at λ > 0. The
+  horizon's facts were already computed (horizon5.py H1: the simple zero √μ of θ⁺ with ∂_r θ⁺ = 3/μ; H2-H2b: no λ⁰
+  correction from the wave, χ or m1; H3: no λ⁻¹ in ∂_r along a column). The mean mass needs m1 odd under σ: its source,
+  the λ¹ mean of R^(1) computed by ansatz5.py A5 in its Bondi-type gauge, has only the dv dθ component, and S_vθ(σX) =
+  S_vθ(X), so σ*S = −S, the source is odd, and so is m1 by uniqueness (the gauge-independent argument being mass5.py
+  M2-M4's equivariance). Control: S_vθ cos 2θ is even and fails. With C7 (the constraint solve's λ^(N−2) scaling, a
+  numerical run) the last of verifier 257's list; the constants of the O(λ) remainders are not evaluated, as Theorem 1
+  states.
+- D605 (audit batch 4, verifier 259 on the paper's sections 8-10 and Appendices A-D, seated in `paper/RESPONSE-HL-5D.md`;
+  `paper/response5.py --selftest` R1-R14 pass, R9 with 22 md5 rows refreshed). M1: section 9's Review bullet carried the
+  log's numbering and ordinals; rewritten without D-numbers or ordinals, the log named as provenance only, and the
+  readers called verifiers, so that no human review is implied. M2: computed clauses without their program; each now
+  names it (epsind5, eind5, e2meas5, coulomb5, coulombL5, harmonics5, uniform5, sources5, stripfull5, closure5,
+  stage0two5, chardust5, twodust5, data5two, eq5, ix5). Minors m1-m8 and nits, all repaired: the G1 sentence restated
+  from the 2400 x 1080 run (D601; K_0 = 72/R^8 defined); Theorem 4 (i) concerns glued data, settling of g_lam's own
+  continuation not shown; epsilon_ind any number below delta_50 = 1.94137057e-8, the floor computed from the upper bound
+  1.94138e-8 (R10); references completed ([CBCM10] Ann. Henri Poincare 12 (2011) 419-482, DOI 10.1007/s00023-011-0076-5;
+  [CBCL06] Class. Quantum Grav. 23 (2006) 7383-7394, DOI 10.1088/0264-9381/23/24/011; [LR05] and [SY21] titles; [DLMF]
+  version 1.2.8; [AB26] noted as having no identifier; Burnett's, Isaacson's and Choquet-Bruhat's identifiers; [Hin26c]'s
+  verifier mention dropped); Appendix A's wording and new bullets from each program's docstring; Appendix B's N1* and
+  SOURCE glossed; Appendix C's verification row replaced by one provenance row; Appendix D's log row dropped, 18 rows
+  added, the --mutants claim corrected, reproduction commands and versions added; section 8.1 cites support8.py K1 and
+  K8; [MP86]'s numbering, LD16, [Wu26]'s quotation placed. Section 9 gains a Computational support bullet naming what is
+  not yet computed. Queued with a control each (verifier 259's items 1-7): the equality layer's vanishing to all orders,
+  the charge for larger l_I, a census of the constants from compactness or Fredholm arguments, a certified lower bound on
+  the E2 norm, deeper excisions on a second grid, the shift-equivariance of (4.1), a convergence study of the two-dust
+  background; and C7 (the constraint solve's lam^(N-2) scaling), in progress.
+- D606 (computational support: verifier 257's C7, verifier 258's c2-c7 and verifier 259's items 1-7, each with a negative
+  control; programs and saved outputs in `checks/`; the paper cites each at its claim, Appendices A, C, D updated,
+  response5.py R1-R14 pass). C7, `checks/csolve5.py`: at the stage-0 approximant's data (W_TT and chi) neither the linear
+  nor the quadratic part of data5.py's constraint map has a 1/lam coefficient (exact; the quadratic part new, so
+  Proposition 6.5's remainder has O(1) coefficients there); the linear solve (pseudo-spectral on the symmetric class,
+  implicit midpoint in r, source lam^4, N = 6) gives sup_r ||d_r^j U||_H2 at rates 4.00, 3.99, 3.00 over lam = 1/8 to
+  1/64, within lam^(N-2-j), the first r-derivative free; M = 12, 16, 20 and lam/32, lam/64 move the norms by 7e-5; the
+  frozen-coefficient iteration contracts by 5.2e-5, 3.8e-6, 2.5e-7 (rate N-2, the proof's bound N-3); control: the
+  trace_W mutant's 1/lam coefficient makes the first r-derivative cost lam^-1 (rate 3.16). c6, `checks/eindcert5.py`:
+  eind5.py E2's scan below l = 10^4 certified by Braess-Hadeler inclusion discs in exact rational arithmetic, delta_50 =
+  1.94137056846e-8 enclosed to 3e-48 at l = 50 (box^Ups), box^C's least 2.93e-6. c7, `checks/kirecon5.py`: Proposition
+  10.1 (iii)'s coefficients bounded on r >= r_h uniformly in l for psi = r^(3/2) Phi (the factor m/(6 r^2) through the
+  trace), not for Phi (r^(3/2)): the paper now names the normalisation. c3, `checks/mpdata5.py`: translated, rotated and
+  boosted Myers-Perry data in rho^2 C^inf x rho^3 C^inf. c2, `checks/flux5.py`: the Kerr-Schild slice's flux 6 pi^2 m at
+  every radius, q = 0 there; d_i b^i = DR(h), remainder quadratic; the R^-6 scaling and the solved mass inequality. c4,
+  `checks/vii5census.py`: every line of Parts III-IV naming a (VII5) choice listed (the reading made finite, not
+  performed). c5, `checks/hclass5.py`: classes (c) and (d) of section 10.54. Verifier 259's items: (1)
+  `checks/eqlayer5.py`, the margin o(x^k) for every k tested, and env'/(env^2 + int env^2) unbounded, why the layer is
+  not decided; (2) `checks/charge5.py`, charge 15, 17, 19, 21, 23 per unit of l_I from 5/2; (3) `checks/support9.py` S3,
+  D338's census reproduced exactly on 76 files and the ledger's classes; (4) `checks/e2lower5.py`, certified lower bounds
+  of the E2 norm by compactly supported test functions, 0.450 to 0.0241 at sigma = 3 to 96, so U/L = 24.6, 23.4, 25.7,
+  28.7, 34.0, 41.4 (certified) against the floating 9.8 to 19.2; (6) `checks/support9.py` S6, (4.1) on the stage-0
+  profile; (7) `checks/twodomainx5.py`, verifier 231's unbanked exit-tau probe banked (-0.960 to -0.702) and the
+  background on a rectangle reaching Sigma_-1.5 with the outgoing data moved to v = -1 (a choice), second order away from
+  the steep inner boundary. Item (5), deeper excisions on a second grid: running (growth5.py, Ny = 28 at y = 1.6 and 2,
+  Ny = 20 at y = 2.2). Caught by controls on the way: the march dropped 1/lam coefficients (the mutant control passed),
+  and lead5's undefined chi made S6 compare unequal representations; both fixed before acceptance. Independent verifiers
+  on the eleven new programs: reading.
+- D607 (the program verifiers of D606's checks and the census of deduced claims, seated; corrections to D606 below).
+  Verifiers: (A) vii5census, hclass5, support9, charge5, eqlayer5; (B) eindcert5, kirecon5, mpdata5, flux5. Findings and
+  repairs:
+  - (8.13) as h varies, a correction to the supplement: 10.54(d) said (8.13) holds at every h in (0, 10^-6]; at l = 1000,
+    h = 6.652623172e-7 two roots of L are 2 +- 3.6833i (|lam| = 4.19), integer real part (`checks/re813.py` R1, exact
+    resultant, root located at 60 digits). Corrected: a non-real root of real part n is a common root t = y^2 > 0 of A, B
+    (P(n + iy) = A(y^2) + iy B(y^2)); for |n| <= 50 and each of box^C's sextic, vector quadratic and l = 0 quartic,
+    Res_t(A, B) is a nonzero polynomial in h at every l (R2: the gcd of its h-coefficients has no root kappa = l(l + 2));
+    at each h finitely many roots have |lam| <= 50 (R3). So (8.13) holds off a countable set, which is all the theorems
+    use; hclass5's H2 could not see the case (it evaluated P at integers) and is restricted to simplicity and integer
+    values.
+  - Proposition 10.1's normalisation, a correction to D606: the uniform-in-l bound (P1) is for psi = r^(3/2) Phi, which
+    is not a field [HKW18] bound: their r^p energies are of Phi ((124), p. 43; (127), p. 46) and their scalar master
+    quantity (r^(1/2) Phi) Y has pointwise norm r^(-3/2)|Phi| ((173), pp. 60-61). In those fields the coefficients are
+    O(r^(3/2)) and O(r^3), uniformly in l, attained (`checks/kirecon5.py` P2). Proposition 10.1 (iii)-(iv) and the
+    paper's section 8.2 now state the Regge-Wheeler-gauge settling on each region r <= R; uniformly in r it is not shown.
+  - C7c, a correction to D606: "contracts ... rate N-2" measured the first correction, not the contraction ratio, and its
+    control could not fail; redesigned (ratio d_(i+1)/d_i against the proof's lam^(N-3), a 1/lam control with nonzero
+    phase mean): the ratio is 6.8e-3, 5.8e-4, 3.5e-5 at lam = 1/8, 1/16, 1/32 (rates 3.55, 4.03, at least the proof's N -
+    3), the first correction at rates 3.76, 3.97 (N - 2); the control slows the first correction to 2.96, 3.15 and is
+    rejected. C7a and C7b reproduce D606's values.
+  - charge5, a correction to D606: d_G is not constant (7 + 2 ceil(l_I - Re lam) on the iota+ window): the charges are 15
+    on (3, 3.5), then 4 more per unit of l_I, 19, 23, 27, 31 to 7.5 (17, 21, 25, 29 on [k + 1/2, k + 0.5099]), and G2
+    reproduces LOSS-D's own d_G = 9, 11, 13, 15; D606's 17, 19, 21, 23 (2 per unit) were understated.
+  - hclass5: c_2 < 0 restored (the printed signs were opposite to the record's), A_0's diagonal added, H2's control a
+    real mutant. vii5census: the cut-offs chi_K, chi_r, chi_inf, chi_-, Theta and those inside t^flat_*, and the C3 maps
+    (h-breve, h^(mu), h_(b,s1), h^(0)_(b,s0)) added, each symbol checked at its own site. eqlayer5: m0 > 0 read from the
+    lower bound, L2 given a control. support9 S6: a generic profile in all fifteen components (15 of 30 parts nonzero),
+    the control W_vv unshifted. eindcert5: I2, the gauge potential's quartic for l >= 52 (|lam| >= l - 1, exact; the
+    docstring's l <= 9999 was l <= 60 for that quartic), integer roots by disc test, hi's disc inside |lam| <= 50, a
+    control that a radius without the factor n fails. mpdata5: B2, B3 given controls. flux5: F3 asserts R^6 q_2 =
+    -10294529/36000, the volume, the bound and its sign condition; the quadratic difference bound is argued, not computed
+    (the paper says so). kirecon5: P1's control exercises the monomial reader; no silent fallback.
+  - The census of the paper's deduced claims (sections 1-9; 103 claims, 27 without a program): computed now, each with a
+    control -- support5b C10-C10b (Lemma 3.2's (3.3) in all 15 components; W(ell, ell) = 0 not needed), support3 D1-D4,
+    ledger5 L1-L4, support8b M1-M5, support5c C11-C13, census9 C23, C29, C27, and the cited level2loop5, lambdacount5,
+    twodomain5, r0census5; support8c K1-K4 (rows 20, 22: exponents at r_h, the kernel class, box^C's roots in (5/2, 13/4]
+    for l <= 1200, 10^4, 10^5, none in (3, 3 + eps_+], the exponent 2 from its indicial equation), stage5 S1-S3 (rows 2,
+    8, 13: the structure at lam^1 in eight components, m1's source -(4/9) A^2 env^2 H^2 sin 2th / r^3 and sigma-odd; m1
+    from past null infinity not computed), gauge5 G1-G3 (rows 1, 12: (6.2) exactly, D^(1) = 0 on the slice with m1
+    generic, the gauge field's t^(-1/2) decay, sharp). Every row now has a program or an explicit exemption; where a
+    check stops short of the step Appendix A says so. Row 26 reworded ("at the excision depths run"); row 30 named among
+    the analytic estimates (the mollifier's Bernstein/Friedrichs bounds); row 32 compliant.
+  - Smaller: support3 D1's monotonicity holds for mu > sqrt72 l5^2/16 (the paper's range inside it); support5c C11's
+    named control could not fail (|w|_7 never uses lam ||d^j d_x^2 phi||, Step 4 does); 10.75's thirty-five readings are
+    thirty-four since D174; B-MAP.tsv's 10.54 (a) marked "replaced, not carried" ((xxvi)); r0census5: 323 lines since
+    D378 (one SPC line, K-NONLINEAR:462), BEYOND5.md's record updated; Theorem 1's items split back into a list.
+  - Deeper excisions on a second grid (item 5), `checks/excise5.py`: breakdowns 1.41033, 1.35549, 1.52374 on the finer
+    grids, moved 0.00076, 0.00251, 0.00020; deeper is earlier on both grids (the standard excision's own grid dependence
+    0.0041). Runs merged into data/growth5_runs.json; the paper now says "at the excision depths run".
+- D608 (the second program-verifier round, on D607's checks: four verifiers, one per batch; their findings seated;
+  and (VII5) read).
+  - excise5 [M]: its control could not fail (deeper runs replaced by the standard ones still passed) and its docstring
+    named the breakdown criterion as 0.04 in v where growth5.py uses 0.01. Repaired: the control is that data swap; E1 at
+    the solver's 0.01 (moves 0.00076, 0.00251, 0.00020 against the standard excision's 0.0041 and 0.0004); E2 the order
+    at every duration 0.005-0.06 (at 0.04 the y = 2 run moves 0.0083). The paper states its figures at the criterion they
+    hold for.
+  - census9 C23 [M]: the pattern missed the point named by its tuple (17 sites); now 78 sites, 68 drawing a conclusion
+    at the point, each anchor required inside its class's own text (78 of 78). The paper's counts updated.
+  - vii5census [M]: III.G'' Table 1.1's h^(-2)_{b,tau} (printed also h^(-2)_b; 10 lines) and h^(<=k)_{b,s1},
+    h^(<=k)_{b,v1} were missing; added, with a same-file moved-site control. The paper says the enumeration covers the
+    program's 33 printed symbols and that a choice named another way would be missed.
+  - No majors in re813 (R1 confirmed at 120 digits; the countability argument complete), kirecon5 (P2 and the [HKW18]
+    reading confirmed at (124), (127), (169), (173)), support5b, support3, ledger5, support5c, stage5, gauge5, csolve5
+    C7c (every number reproduced), support8b, support8c, and the D607 repairs of hclass5, charge5, eqlayer5, support9,
+    eindcert5, mpdata5, flux5.
+  - Minors repaired: re813's root count and R2's gcd-branch control; hclass5 H2 now requires no root at l <= 20;
+    support8b M3's control the literal reading, M5 a real D row, M4 both inequalities; support8c K3's scope; ledger5 L4
+    holds by construction once the enumeration is right (its completeness deduced, the paper says so); C7c's quoted ratio
+    is d_1/d_0 (the next difference at roundoff at lam = 1/32), the rate test's tolerance stated; section 4's 'only
+    through' is for second derivatives; support9 S6's profile is (v, r, th) and the phase; eindcert5's control text; run
+    times.
+  - stage5 S4: the whole R^(1)[g0 + lam W], mean and oscillating part, odd under sigma^* with s -> 3 pi/2 - s in each
+    of its seven nonzero components (what sigma^* m1 = -m1 and the next profile's parity rest on; S2's mean-only oddness
+    has no control that can fail); one quadrature fails in all seven. support5c C11: two more controls, |w|_8 against
+    the norm at k = 6 (3 uncovered) and one more lam^-1 per differentiated oscillating factor (7); the 128 are classes
+    of the 44 Leibniz terms (the verifier's 52 not reproduced). gauge5: G1 one point of one random metric; G2's
+    killed-oscillation and mean checks labelled consistency checks (they hold by construction), the Pol^T control one of
+    the linear algebra, and the mean's freedom from the next profile printed. All three rerun in full, PASS.
+  - (VII5) read, the one check the paper listed as awaiting a reader: the 577 lines of Parts III-IV that name a choice
+    of Lemma 3.1's (C3), (C3') or (C4) outside its site (`checks/vii5census.py`), three readers a third each, every
+    verdict recorded (`checks/VII5-READING.tsv`; coverage, one row per line, notes and resolutions computed by
+    `checks/vii5read.py` Q1-Q2, five controls failing): SITE-ONLY 311, NAMING 189, HOMONYM 72 (mostly the Minkowski
+    model's bar-omega_s1 and the generic pairs of Lemmas), MORE 0, UNDECIDED 5. The five, and a caveat from each of the
+    other readers, have one cause: the proofs use the 1-form towers breve-omega^i_tau of every type themselves (m_nu's
+    dt * breve-omega^K term; III.I'''''''''' Lemma 2.1), and (C3) named 1-forms for s1 only. Lemma 3.1 (C3) amended:
+    those towers averaged, Table 1.1's towers at b0 taken as delta* of the averaged 1-forms (natural, so one choice
+    serves both; that delta* commutes with rotations and reflections computed exactly on Kerr-Schild Tangherlini,
+    vii5read Q3, a non-natural term and a shear failing). The three non-linear properties used (the s1/v1 states'
+    uniqueness, III.G'' Lemma 1.2's bijectivity, the isotypic types) recorded in Lemma 3.1 with why each is kept.
+    Section (VII5) and the paper's 8.8 and 9 updated.
+- E2-PILOT.md section 3c, checks/e2pilot5.py P4. V_l is unimodal for every l (r^3 V_l' a convex quadratic in 1/r^2
+  negative at 0). If sigma^2 > max V_l: |u_h|^2, |u_inf|^2 <= 2 sigma^2/(sigma^2 - max V_l) everywhere (H non-increasing
+  where V rises, H/(sigma^2 - V) where it falls), so ||chi_I R_l chi_I|| <= Lambda sigma/(sigma^2 - max V_l). Open: the
+  harmonics with max V_l >= sigma^2 below l_0 (5 <= l < 50 at sigma = 3).
+- D379 (E2-PILOT section 3e, checks/e2morawetz5.py M1-M3): Lemma E2.8, a 1D Morawetz bound. phi = tanh((r_* - x_p)/s),
+  s < 1 (horizon tail), w = -phi V_l' - phi'''/2 >= 0 gives
+  ||chi_I R_l chi_I|| <= ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^1/2
+  at every real sigma != 0, bounded as sigma -> 0. Every l >= 1 (computed to l = 30; l = 0 has no admissible s): B_l(3)
+  <= 21.3 on the band 5 <= l <= 17, where only e^54 held. Not certified (w >= 0 on a grid); coarser than computed norms.
+- D382 (verifier 175): E2.8's proof right; w >= 0 with wide margins. MAJOR: 'every l >= 1' was beyond the check --
+  computed for 1 <= l <= 30 (verifier's scans at 60, 100, 200 pass); a large-l proof plus a finite check would close
+  it. B(0+) = ((2/m' + M'^2/w_I)/w_I)^1/2; s <= 1; tail monotone checked; sigma = 0.3, 1 compared (all above); the
+  sigma-growth is the flux step; the 2/m' cut-off cost dominates. LD7: eps_ind is G'''' Prop 5.1's = F' (2.2)'s.
+- D384 (E2-PILOT section 3f, checks/e2certify5.py C1-C5, certified by interval arithmetic): Lemma E2.9. With phi
+  centred at the photon sphere, -phi U' >= 0, so w_l = w_1 + (a - a_1)(-phi U') grows with l; w_1 >= 0 on R certified
+  (adaptive bisection plus explicit tails), so E2.8 holds for every l >= 1. Certified B_l(3): 264.5, 51.12, 34.39,
+  26.02, 20.99 for l = 1-5 and <= 19.22 for every l >= 6 (rounded outward since D385). l = 0 still open.
+- D385 (verifier 176): E2.9, the interval arithmetic and both tails right. MAJOR: D384's decimals were rounded to
+  nearest, so m' >= 0.005794, left ratio <= 0.0391 and B_6(3) <= 19.21 sat below the enclosures; now every bound is
+  rounded outward by exact rationals. Endpoints carried at 103 bits; C4 now runs the bisection at l = 0 and s = 3/2
+  (both fail, with certified negative values); l = 0's failure is w_0 < 0 near r = 3.2, not only a < b.
+- D387 (E2-PILOT section 3g, checks/e2lzero5.py Z1-Z5, certified): l = 0 by Lemma E2.8', E2.8 with -2q u-bar added to
+  the multiplier: W_q = w + q'' - 2qV, m' = min_I (phi' - q), M' = max_I |phi' - 2q|, the sigma^2 q term good. q = 43
+  sech^2 bumps (widths < s) from a linear program, rounded and certified as is: W_q >= 0, phi' - q >= 0 on R, tails
+  explicit. B_0(0+, 1, 3, 10) <= 164.5, 183.5, 275.2, 725.0. Every harmonic l >= 0 now certified at real sigma != 0.
+- D394 (E2-PILOT section 3h, checks/e2cplx5.py J1-J3): Lemma E2.10, the Morawetz bounds off the real axis. For
+  Im sigma > 0 the flux term is replaced by -2b int phi Im(u u-bar') (sigma^2 = a + ib, identity exact), bounded via
+  the energy identity by 4|sigma| ||f|| ||u||_I: B+ = B with 4|sigma| for 2|sigma|, every l >= 1, and l = 0 when
+  |Re sigma| >= Im sigma. Computed at l = 1, sigma = 3 + i eta: 0.297-0.081, below B+ and below 1/|Im sigma^2|.
+- D398 (e2cplx5.py J4): l = 0 on the whole upper half plane. For a = Re sigma^2 < 0, |a| ||u||^2 <= ||f|| ||u||_I
+  bounds the q-term by 2 max q ||f|| ||u||_I, max q <= sum c_k = 0.6500188621: B+ with 4|sigma| + 2 sum c_k. Computed
+  l = 0 norms at 1 + 2i, 0.5 + i, 2 + i: 0.183, 0.594, 0.224, below B+ and below 1/dist(sigma^2, [0, oo)).
+- D404 (E2-PILOT section 3i, checks/e2h1_5.py H1-H2): Corollary E2.11, one derivative. With w_l = w_1 + (a - a_1) psi,
+  psi = -phi_* U' >= 0 (zero only at the photon sphere), (3.4) gives ||u'||_I <= X_l ||f|| and (a - a_1) int_I psi |u|^2
+  <= K_l ||f||^2, X_l = (1 + (1 + 2m'(M' + 2|sigma|) B_l)^(1/2))/(2m'). At sigma = 3, l >= 6 (exact, rounded up): 224.5
+  and l(l+2) int psi|u|^2 <= 632.6 ||f||^2 (632.5 before D413 sat below the value). Computed at l = 6,
+  3 + 0.25i: 0.752, 0.795 against 265.4, 29.7. Control:
+  centred off the photon sphere psi < 0. Not: the unweighted angular derivative (trapping), the b-Sobolev orders.
+- D409 (e2h1_5.py H3, exact): Corollary E2.11 at every l at sigma = 3 from section 3f's certified B_l: X_l = 495.9,
+  282.4, 254.6, 238.7, 228.4, 224.5 (l = 1..5, >= 6; rounded up since D413), angular bounds 209,881 (l = 1,
+  3 B_1^2), 1,478 ... 623. Summed
+  over harmonics: ||d_r* u||_I^2 + sum_l l(l+2) int_I psi |u_l|^2 <= C^2 ||f||^2, C <= 675.1, set by l = 1.
+- D609-D610 (2026-11-02). Part IX repaired (finding (IX5)): III.K's nu vanishes on [0, R_nu], so the old N° did not
+  contain Sigma°; the comparison now runs on the future half of D_{U#}(Sigma°), U# := M° cap {t_IVP > -1}, Theta(k)
+  extended across Sigma° (Seeley), h extended by 0 after ix5.py X8 (Sigma noncharacteristic for L^0). N° and N^D
+  withdrawn. Workstream A round 2 (GAUGEDECAY5): (Adm box) false as stated (R2.0); K* = K + pi_{W**}, W** = (v/2) W* +
+  A dv + B dr, the static representative singular at r_h (gdrepair5 V1); decay modulo W* at t^(-1/2) for compactly
+  supported gauge data (R2.13, admbox5); open: (S_K), harmonic gauge on all of N, better rates. Workstream B round 2
+  (SETTLE-GLAM5): Theorem 4 in the half class; open (b1), (b2), (Poly), Part IV. Workstream C (FAMILIES5-FULL): no
+  major gap; minors 1-4, nits 5-7 to seat; Lemma 3.3_2 and Steps 4-6 to write. Workstream F (CERTIFY-10L5-RESULT): D1,
+  D2 correct; the paper's second-zero sentence replaced; open: F5 (an explicit-constant linear estimate), a certified
+  3D residual, the late region. Rounds and readers running: A (reader of R2; round 3), B (reader of R2; round 3), C
+  (round 2), D (reader of rounds 1-2), E (round 2), F (round 2); Part IX's repair to be read.
+- D611-D612 (2026-11-02). Part IX's repair read: no major gap; m1 (GAUGEDECAY5 still on N°, N^D) seated by workstream A
+  round 3, m2 and nits n1-n6 seated. Workstream A round 3: (S_K) holds (Prop. R3.2); the harmonic gauge on the late
+  region (Thm R3.4); open (Ext box), a rate beyond t^(-1/2). Workstream D round 3: lambda0 <= 0.026986 certified
+  (operator norm, now defined after (0.3)); d >= 8.41e15, ceiling not below 1.49e31; open: the pole orders of the
+  iota+-normal operator's inverse below Re 5, E_ind, L_0, X_7, c', the nine stage solves, seven inverse bounds.
+  Running: readers of A round 2, A round 3, D round 3; rounds A4, B3, C2, C3, D4, E3, F2.
+
+### 4.278 Beyond D_T: the interior after the shell (D360)
+
+- BEYOND5.md. Theorem 0.2 (i)'s g lives on {r >= r_0 = sqrt(mu_end)/2} to the future of Sigma_IVP; if mu_end <= 16
+  sqrt72 l5^2 then r_q >= r_0 and g covers {r >= r_q} for all later times (Proposition 6.1, deduced). It agrees with
+  g_lambda on the domain of dependence of Sigma_IVP cap {r < R} (CB-G; (VII4) to write), not at late times near the hole
+  (VII1). Open: (a) write (VII4); (b) g_lambda's own data on all of Sigma_IVP, in III.K's class, then Theorem 0.2 (ii);
+  (c) r_0 lowered below r_q (census of r_0 in proof5); (d) or the finite-r-time slab by uniform Cauchy stability.
+- D363, (c): the census (checks/r0census5.py, BEYOND5-R0.tsv). 308 lines in 25 files of Parts III-VII: 108 another
+  r_0 (III.C''s exterior radius, the source's r_c), 19 definition and domain, 128 only "{r = r_0} spacelike, dr future
+  timelike, inside the horizon", 48 through a constant, 5 put R_1/2 into an inequality (III.B 157-159, 244; VI3 374),
+  each of which holds for every smaller radius once eps_param <= r/(4R_1). Proposition 6.2 (deduced from the census):
+  with r_0 := min(R_1, r_q)/2, Proposition 6.1 holds for every mu_end, without (1.1). Rests on: a reading, not a
+  re-proof; IV6's finding (IV'''''5) for [Hin26a] Prop 5.1 at m; Part VII's delta'_0 nearer q_0.
+- D366: verifier 168 seated. MAJOR: IV6-SOLV's Lemma 0.5 (6) (record 10.14 (ii)) was checked on [r_h/2, oo) only; 8
+  lines reclassed VAL (now SPC 120, VAL 13). It holds on (0, r_h) by hand: the inner piece dt + (v/2) dr has <c, dr> =
+  1/4 + 3mu/(4r^2) > 0 and G(c) < 0, and f < 0 there. Minor: eps_param := min(1/20, r/(4R_1)); Lemma 3.3 (c) via
+  r_A^2 > 3||A||^2; any delta_0 in (0, r) for F3/F4; r < 4R_1/7 in VI (r_h = R_1); Part IX outside the census.
+- D367, (a): (VII4) written as BEYOND5 Lemma 6.3 (deduced). g_lambda on the past domain of dependence of Sigma =
+  Sigma_IVP cap {r_0 < r < R} (in a neighbourhood V where t_IVP is a time function) and g after Sigma_IVP glue into one
+  smooth vacuum spacetime N, since Ric = 0 in Gaussian normal gauge fixes every normal jet from (gamma, k). The future
+  developments are identified on their maximal common development ([Sbi15] arXiv:1309.7591 Thms 2.6, 2.7, 3.4, 3.13,
+  READ). Open: how far that common development reaches; Sigma's acausality in all of Omega'.
+- D368-D372: BEYOND5-R0-PROOF.md re-proves each Part at r_flat (batches 1-3: Parts I-II, III.B-III.K, IV; verifiers
+  169-171). Found (verifiers 170-171): the record's Part VI puts Part I's artificial boundary at 5R_1/8, while III.K and
+  Part VII use III.B's R_1/2, so the record's development is controlled on {r >= 5R_1/8} only. Repair: r_0^A := r_flat
+  with the collar delta_0 := min(R_1/16, r_flat/4). Proposition 6.1's bound 135.76 l5^2 holds with the repair; without
+  it the condition is mu_end <= 55.61 l5^2, which the first seed fails. Proposition 6.2 assumes the repair. Batch 4
+  (V-IX, including Part VI's checks at the new radii) open.
+- D373: the repair is made in the record. Part VI now sets r_0 := R_1/2 (III.B's radius), delta_0 = R_1/16, so the
+  collar reaches 3R_1/8, where Lemma 1.1 defines g_b and t_* by III.B's formulas (Lemma 3.3 (c) at |x| >= R_1/4, as
+  IV6-SOLV section 0); VI2-VI3 read on {|x| >= 3R_1/8}; VI3 374-375's r_0 - delta_0 is 7R_1/16. Findings (VI.A7),
+  (VI.B'6). Census
+  320 lines (CON 60). Verifier 172 reads it.
+- D374: BEYOND5-R0-PROOF.md batch 4, sections 7 and 9-11: Part V (only |x| >= 50R_1 used), Part VII (delta'_0 in
+  (max(0, q_0 - r_flat/2), q_0), allowed by the record's (1.1); Lemma 1.2 from r_flat), Part VIII (III.K's sets at
+  U = 0; II.C Lemma 3.2 (2) at the repaired radii), Part IX (II.C Lemma 3.2 (1) cited from R_1/2: a third site of the
+  mismatch, closed by D373). Section 8 (Part VI at r_flat) after verifier 172; then one verifier for batch 4.
+- D375: verifier 172 seated. M1: the forms of III.B Definition 6.1 must exist on the collar; they are smooth for
+  r > 0, c_C past timelike (cform5.py C2), so the operators of III.D-III.F and IV'''' are defined on {r > 3R_1/8}
+  (VI.A7). m1: F1 cited for its Lorentzian argument only. Census VI-DYN 81 reclassed VAL (322 lines: CON 61, VAL 14).
+  Nits: VI3 and README marked amended, (VI.B'6) names Proposition 4.1. BEYOND5-R0-PROOF section 8 (Part VI at
+  r_flat) written; batch 4 to verifier 173.
+- D378: verifier 173 seated on batch 4 (no major). m1: II.F Lemma 1.3's compactness near {r = r_flat} needs
+  II.C Lemma 3.2 (1) (as II.F Lemma 1.4 (a)); the record cited II.F 7.4 (the iota+ model); now named at VIII:284-286
+  and III.K:459-463. m2: Part VII's constants depend on r_flat through delta'_0, c_0, T'. Nits seated. Re-proof done.
+- D388 (BEYOND5 (ii)): int D(Sigma) globally hyperbolic READ at source ([Chr11] Theorem 2.9.9, achronal hypersurface
+  without boundary; [Min19] Theorem 3.45 needs S closed, which Sigma is not); Sigma Cauchy in it proved from [Chr11]
+  Proposition 2.9.7 and achronality. Sigma in int D(Sigma) and the push-up are as [Chr11] remarks / invokes them.
+- D400 (BEYOND5 Lemma 6.4, deduced): (b)'s first step located. The record's g_lambda (Omega', P') lies in
+  {v <= V'_P}; Sigma_IVP ends at I_0, where v -> oo, so its end has no record data (Theorem 0.2 glues Tangherlini
+  there). Theorem P's constants depend on V_P (d1, a2: Lemma 9.3 (b), Lemma 9.6), lambda_1 on T': no fixed-lambda
+  reach. The rest is D^-(S), S = Sigma_IVP cap {r >= 4R}: bounded by N = {v = v1} (in Omega' cup P') and I^- at
+  v >= v1 > v_end, where nothing comes in. So (b1) a scattering problem near I_0 without incoming radiation, data
+  g_lambda on N; (b2) its expansion at I_0 (the means give r^-2 M_m + E_(5/2), a bound, not an expansion); (b3) VII 3.2.
+- D406 (BEYOND5 Lemma 6.5, checks/coulomb5.py K1-K4, exact): the Coulomb part carried to I_0. On 5D Minkowski the
+  solution with data M r^-2 Y_l on N and no incoming radiation is phi_l = M r^-2 U_l(1 - (v - v1)/r) Y_l/(l + 1)
+  (= 2F1(-l, l+2; 3/2; (v - v1)/2r)): the radial recursion stops at j = l + 1 (integer order in four space dimensions).
+  At t = const it is a polynomial in 1/r (rho^2 C^oo), |r^2 phi_l| <= M, value at I_0 M cos(pi l/2)/(l + 1). So the
+  means' leading term on N gives data on S in rho^2 C^oo at the principal level, if M_m is constant after the shell
+  (section 9.3's count suggests so; not checked term by term). Not: Tangherlini corrections, E_(5/2), uniqueness.
+- D411 (coulomb5.py K5-K6): the same on Tangherlini, scalar wave. f = 1 - mu/r^2 adds -mu r^-3 d_r(r d_r): the
+  recursion gains -mu (j-1)^2 a_(j-3); 1 + 2j never vanishes (no logs); mu enters only below top degree, so the
+  flat polynomial stays and mu enters r^2 phi at rho^2. The series converges (40 vs 60 terms: 1e-12 at r = 5-40,
+  l <= 3); l = 0: r^2 phi = 1 - 2.0/r^2 + ... (1.86 at r = 40; corrected D420).
+  Not proved for every l; tensor couplings not treated.
+
+### 4.279 More families: several dusts, angular separation, Vlasov (D361)
+
+- FAMILIES5.md (scoping, nothing proved). The single-family uses: exact eikonal v, one null dust, one lambda^-1 coupling
+  s = w(l, l), one phase-shift identity and transport. N families: N couplings and cross terms
+  [d^2_{theta_j} g1^(j)](l_k, l_k). READ abstracts: Touati arXiv:2402.17530 (multiphase, any number of dusts, 3+1, no
+  symmetry); Huneau-Luk arXiv:2506.21779 (Vlasov via dusts, U(1), small localized). First step proposed: two-phase
+  Stage 0 (v ingoing, u outgoing) in the class; mixed harmonics non-resonant, solved by division.
+- D363 (deduced from the record's Stage 0): the cross couplings enter only through the second-harmonic gauge terms
+  chi dv^2 and chi' du^2, W_TT being purely angular; a gauge removing chi, chi' at first order would remove them.
+- D364 (deduced): chi dv^2 is pure gauge at order lambda (L_Z g0 for Z = lambda^2 Phi(X, v/lambda) grad v,
+  d_theta Phi = chi/2). The record's wave-map gauge forces it, the reduced symbol vanishing at the null dv; a generalised
+  wave gauge with fixed source H = lambda h(X, v/lambda) dv meets the vv second harmonic algebraically, so
+  chi = chi' = 0 and the leading cross couplings vanish (a gauge artefact). Open: constraint propagation with H,
+  comparison of gauges, no other lambda^-1 coefficient in the two-family linearization (step 4).
+- D376 (FAMILIES5 section 4b; checks/stage0two5.py, computed): Stage 0 of the two-phase ansatz on a general round
+  double-null background closes. R^(-1) = 0; the double mean of R^(0) is Ric(g0) - K_in dv^2 - K_out du^2 with no
+  cross term, K R^3 = alpha(v)^2/3 and beta(u)^2/3 with the record's H (two round dusts, two Isaacson laws); the pure
+  harmonics are lead5's per family under the R^(-3/2) transports; the mixed harmonics are present and ghat_2 solves
+  them by division (symbol -e^(-2 sigma) n1 n2). Open: the two-dust background in the class; later stages; the
+  energy estimate with two couplings.
+- D380 (verifier 174): stage0two5 sound (order-by-order assembly equals lead5's truncation, 15/15). T5 asserts the chi
+  transports; mutants now 6 (both transports, chi on dv du, principal part without gauge). T1 and the no-interaction
+  of the mean are automatic; the Isaacson law is an input; gauge condition (L5 analogue) and H not derived: listed.
+- D381: stage0two5 T6: the gauge 1-form D vanishes at order lam^0 (each W transverse to its generator, traceless).
+  ghat_2's gauge condition at order lam is still not checked.
+- D383: stage0two5 T7 (--gauge): with ghat_2's mixed harmonics fixed by T4, the order-lam gauge 1-form vanishes on
+  them (numerical identity test on concrete functions: 5e-18 against 2.8e-2 over 16 harmonics; wrong sign fails).
+- D389 (FAMILIES5 section 4c, checks/twodust5.py B1-B5): the two-dust round background. Ric_uv = 0 and the angular
+  equation give R_uv = -(e^2s + 2 R_u R_v)/R, s_uv = 3(e^2s + 2 R_u R_v)/(2R^2); the dust enters only through the two
+  Raychaudhuri constraints, and d_v(R^2 C_u) = d_u(R^2 C_v) = 0 modulo the evolution exactly because B = B(u), A = A(v)
+  (the Isaacson laws). mu_v = -(2/3) A e^-2s R_u, mu_u = -(2/3) B e^-2s R_v. Computed: crossing pulses from flat data,
+  constraints second order (ratio 4.00), mu 1.001 -> 0.520 matching the edge fluxes, untrapped. Local existence:
+  standard Goursat iteration, not read at source.
+- D396 (stage0two5.py T8, with --gauge): the order-lam gauge 1-form's mean vanishes from the waves alone; each pure
+  harmonic (n, 0) is cancelled by ghat_2's pure harmonic in G_uu, G_uA and the angular trace (r = v, A, u; the G_uv
+  terms cancel in r = u), components that do not enter R^(0). 8 harmonics, residual 2e-16; control (angular
+  off-diagonal G) unsolvable. Open: agreement of those components with ghat_2's transport at the next stage.
+- D401 (FAMILIES5 4b, deduced): that agreement. Ric^H = Ric - Sym(g nabla0 D), linear in D; with R^(-1) = R^(0) = 0
+  (background on shell) and D^(0) = D^(1) = 0, the contracted Bianchi identity at order lam^0 and (n, 0) reads
+  g0^(vu) F1 (R^(1) - g0 tr R^(1)/2)_(u c) = g0^(ab) F_a F_b D^(2) = 0 (null symbol). So R^(1)_uu, R^(1)_uA and
+  g0^(AB) R^(1)_AB vanish identically: T8's five components need no transport; the other ten of R^(1) are transports
+  along d_u for the ten free ones. Not computed: R^(1) itself, which needs an on-shell background (a jet would do).
+- D407 (checks/stage1pure5.py P1-P2, exact): D401's linear core computed. The order-lam part of Ric^H linear in
+  ghat_2 at (n, 0) needs no background equation. With the five reachable components zero and the ten others
+  arbitrary, R^(1)_uu, R^(1)_uA and g0^AB R^(1)_AB vanish identically; each of the other ten contains -i n g0^uv d_u
+  of its own component. Control: G_uu or the angular trace nonzero breaks the corresponding one. n = 1, 2.

@@ -1,0 +1,50 @@
+B1  g0 in the record's chart, exact
+  B1 g0 g0^-1 = 1; dv null, g0^-1(dv, dtau) = -1, (dtau, dtau) = -1 - m, (dr, dr) = 1 - m, (dtau, dr) = m; g0^-1(dt~,
+        dt~) = -1 + F'^2 - m(1 + F')^2 <= -15/16 on |F'| <= 1/4 (decreasing in m); L0 future null, ingoing; 1 + F' >=
+        3/4; beta = d(r + 2t~), alpha = d(r - 2t~) with g0^-1 <= -7/4 (exact): pass max g0^-1(dt~, dt~) = -15/16; min(1 +
+        F') = 3/4; beta, alpha maxima -7/4, -7/4
+  B1' control: at F' = -1 the slice {t~ = 0} is null for every m (g0^-1(dt~, dt~) = 0) and r + F is constant along it:
+        pass
+B2  the cone comparisons, exact (z3) and sampled
+  B2 g0^-1(omega, omega) + e|omega|_E^2 = -2e - 4m e^2 + 4e^3 and g0(Y_e, Y_e) + e|Y_e|_E^2 = -2e + 4m e^2 + 4e^3, both <
+        0 on 0 < e <= 1/8, 0 <= m <= 1/16 (z3, box non-empty); d_tau and dtau stay timelike; dv(Y_e) = 2e, dtau(Y_e) = 1
+        + 2e, dr(Y_e) = -1 (exact): pass z3: True, True, True, True; guards True, True
+  B2' sampled (3000): omega stays g-timelike for |g^-1 - g0^-1|_op = e and Y_e g-timelike for |g - g0|_op = e; the sharp
+        constant c* := sup(-dv(Y)/(e dtau(Y))) over the samples and the extremal direction lies in (1/2, 2]: pass max
+        g^-1(omega, omega) -5.342e-04, max g(Y_e, Y_e) -4.339e-04, c* = 1.0667
+  B2'' control: with e/2 in place of 2e, the extremal perturbations (delta = e omega omega^T/|omega|^2, H = e Y
+        Y^T/|Y|^2) make omega and Y_e spacelike (e = 1/10, m = 0): pass 431/4000, 431/4000
+B3  the placement in Omega' cup P', from Part VII Lemma 1.2's inequalities (z3)
+  B3 m_Omega >= q_end + 3; {v <= v1 + 1/2, r >= 4R} cap {tau >= tau0} in Omega' (tau <= tau'_end - 1/2, v + (tau -
+        tau'_end) <= V' - 1, r >= a'), cap {tau <= tau0} in P' (v + h <= V'_P - 3); v1 = V'_P - kappa - (tau_S - tau0) -
+        m_Omega <= V'_P - kappa - 1 - m_Omega (each proved, hypotheses satisfiable): pass {'m_Omega': (True, True),
+        "Omega'": (True, True), "P'": (True, True), 'v1': (True, True)}
+  B3' control: with V' >= tau_top + 2R + q_end - 3 the Omega' claim has a counterexample: pass (False, True)
+B3n  one instance of Lemma 1.2's construction, on a grid of {v <= v1 + 1/2, r >= 4R}
+  B3n Lemma 1.2's construction holds (tau >= tau0 + 1, v >= v_end + 2 on Sigma_IVP cap {r <= 4R}, tau'_end >= tau_top +
+        1), v1 >= v_end + 2, and all 24321 grid points lie in Omega' cup P': pass v1 = 22.0000, V'_P = 35.8922; outside:
+        0
+  B3n' control: V' five below Lemma 1.2's choice (m_Omega < 0) leaves grid points outside Omega' cup P': pass m_Omega =
+        -2.6078; outside: 6
+B4  the displacement of the null hypersurface through dS
+  B4 I(-oo) = 2 C lam (tau_S - tau0 + 2) for eps = C lam min(1, t^(-3/2)), and int_(-oo)^(tau_max) (v1 - tau)^-2 dtau =
+        1/(v1 - tau_max) (exact): pass 2*C*lam*(-tau0 + tauS + 2); 1/(-taumax + v1)
+  B4' the past g-null generator from dS, eight directions of g^-1 - g0^-1 = eps n n^T, eps = 0.05 min(1, t^(-3/2)), down
+        to tau_S - 3000: |v - v1| <= I(tau) throughout; [R10] the largest ratio |v - v1|/I(tau): pass largest ratio over
+        the eight directions 0.5128; per direction 0.260, 0.444, 0.513, 0.428, 0.248, 0.073, 0.000, 0.075
+  B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4 (its ratio to I/4 exceeds 1): pass largest ratio to
+        I/4 2.0511
+B5  W = D^-(S; g0), sampled on a model, and the perturbed sandwich
+  B5 (g0) from 300 points of W, 40 random future causal curves each meet S; at 600 random points the ingoing null ray
+        meets S exactly when the point is in W: pass 300 in W, 600 decided
+  B5''' control: with F = 3 + 400/r (|F'| > 1 near 4R, r + F not increasing there) the ray's meeting S and W's definition
+        disagree at some points: pass 10 of 600 disagree
+  B5' perturbed (n = dv, eps = 0.05 min(1, t^(-3/2))): from 120 points of {v >= v1 + I(tau), t~ <= 0} 20 random future
+        g-causal curves each meet S; from 120 points of {v < v1 - I(tau), r >= 4R} the Y_e curve reaches r = 4R at v <
+        v1, missing S: pass 120, 120
+  B5'' control: {v >= v1 - 2, t~ <= 0, r >= 4R} is not in D^-(S; g0): it has points whose ingoing null ray misses S: pass
+        300 of 300
+B6  the cited lines, read by content
+  B6 each of the 13 quoted passages occurs in the file cited: pass []
+  B6' control: the altered quote 'v >= v_end + 3' is not found: pass
+FAILED: none

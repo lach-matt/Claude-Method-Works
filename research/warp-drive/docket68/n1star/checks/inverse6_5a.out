@@ -1,0 +1,63 @@
+  A0 (READ): the ten quotes found by content: True; md5: EFFECTIVE-CONSTANTS.md a45e90dc075f5a5281941eb6f71c35c1;
+      proof5/PART-VI4-PARAMS.md e7eebbb5382a2539f574b814e3c86659; proof5/PART-III-D2-ZEROENERGY.md
+      cdbe8fe88cd5286b9a0e3356185ecdd2; CONSTANTS5.md b96178545d67619ab2bed9ecf1af714f
+  A1 (proved by inspection; checked at 60 digits): on 3000 random points and at engineered points raising an upper-bound
+      constant never raises delta or lambda1 and raising a threshold never lowers them: True
+  A2 (computed): at d_bar = 46236517538883361 with every other input at its floor theta0 = 16 and log10 delta = -(8 d_bar
+      + 2) log10 16 - log10 2 = -4.4539452 x 10^17 (pinned in [-4.4540, -4.4539]): True
+  A2 the lower bound when eps_NM/A_2d binds: theta0_bar = 10^6, A_bar = 10^12: log10 delta >= -22.1935 x 10^17
+  A2 the lower bound when eps_NM/A_2d binds: theta0_bar = 10^30, A_bar = 10^100: log10 delta >= -110.968 x 10^17
+  A3 (READ; deduced) the inventory (input | status | what it is | fed by):
+      d (the loss), N = 21 d + 6 | explicit on a reading | d <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on its
+      reading, Lambda on (1, 3 + eps_K] as R9.1 takes it, at the record's computational point (R13.2); the avoidance
+      conditions decided, rootavoid5 26/26) | -
+      C_k (k <= N), C_(s,t), C1, C2 | not computed | III.K map and right inverses; smoothing constants explicit in
+      principle (EFFECTIVE-CONSTANTS section 2) | B1-B6 and I.C:497 through III.J's inverses and the linear theory
+      A_2d | not computed | III.K Lemma 2.2 (d) | the same
+      delta_K, eps_dat (the admissible pair) | not computed | thresholds of III.K sections 1-4, two further Nash-Moser
+      thresholds eps_ext, eps_slab (Parts IV-IV'''), the data map's modulus | the linear theory
+      eps_NM^G (G-sup norms) | explicit in principle | equivalence constants of the G-sup norms | -
+      eps_m, eps_t, eps_K | given / chosen | VI.C rows w1-w2 | -
+      C_J, lambda_1.1, eta_gl, C_R | not computed | Part VII (gluing by an implicit function theorem, [CD03]) | -
+      gauge and damping parameters | not explicit in the record | gamma_Ups,H <= eps_0, e_Ups < eps_1, eps_L, gamma_Ups <
+      gamma_1, gamma_C = 1/h, h < min(1e-6, h_0, h_tf), off countable sets (VI.C rows u2-u5, c2) | every operator of
+      B1-B6 is fixed only once these are
+      I.C:497, scalar-type blocks | sigma_* not computed; computed: sigma_min(L_2) <= 2.6180e-7 at (s, alpha) = (1, -1),
+      so the inverse constant >= 3.81e6, at the record's computational point (INVERSE5-SCALAR.md A.6) | sigma_* > 0, a
+      lower bound uniform in l (INVERSE5-SCALAR.md A.8) | -
+      constants uniform over b in B_*-bar | not computed | I.B section 9: compactness of the parameter set and the
+      arguments by contradiction (Proposition 6.4, the absorption of Proposition 6.7 (a)) run with sequences b_j; III.F''
+      Proposition 4.1, III.D Proposition 6.3 | every bound of B1-B6 near b0 (INVERSE5-SIX.md R3.2)
+      B1 (C, h_0) in I.B (6.6) | not computed | symbol data at b0 certified/exact (inverse6_5 K1-K3) | -
+      B2 C_a, B3 C_8.1 | not computed | absorption and interpolation explicit (R3, R4; F <= 1.002659) | B1
+      B4, B5 cut-off parts C_D | certified on the master operators and the tensor-, vector-type blocks; not computed for
+      the reconstruction | inverse6_5m M1-M7 | gauge operators box^C, box^Ups
+      B4, B5 C_ext(sigma) | not computed; invertibility of the absorbed problem proved for box on functions (A4) | R6 |
+      the write-out's norms
+      B6 | eliminated at the site (R1); parametrix norms and N^0(sigma) injectivity not computed | R1 | -
+  A4 (exact): Im int (-Phi'' + (V - sigma^2 - i s q) Phi) conj Phi = -Im[Phi' conj Phi] - s int q |Phi|^2 as an exact
+      derivative, and the end values sigma |c_+|^2 (outgoing), -sigma |c_-|^2 (horizon): True; so with s = sgn sigma, q
+      >= 0 the absorbed problem has trivial kernel on every mode, and is invertible (deduced)
+  A5 (computed; Round 4): R3.1's bound 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) covers both cases of I.B 8.4's h
+      (h = |Re sigma|^-1 with loss delta, h = |sigma|^-1 with delta = 0) for |sigma| >= C_0 >= 1, with h <= h_0:
+      violations in 2 x 10^5 random (sigma, nu', h_0, delta), |sigma| = C_0 (1 + 10^U(-8, 3)): 0
+  C1 (control): lambda1 with eta_gl C_R: monotonicity fails: True
+  C2 (control): alpha = 8d: log10 delta = -4.4539452 x 10^17 (2 log10 16 above A2's), A2's exact check fails: True
+  C3 (control): absorption sign -sgn sigma: -sigma (1/3 + 2/3) + 1 = 0 with |c_+|^2 = 1/3: the balance no longer forces
+      c_+ = 0: True
+  C5 (control; Round 4): the factor with exponent -(1-delta)/4: 18694 violations: True
+  C6 (control; Round 5): the reader's M2, C_0 = h_0^-1 (1 - nu'^2)^(-1/4): 11440 violations under U(-8, 3): True (under
+      round 4's U(0, 3): 0, which is why A5 was widened)
+  C4 (control): the quote mutated to "inside the proved set": not found: True
+A0 PASS
+A1 PASS
+A2 PASS
+A3 PASS
+A4 PASS
+A5 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C5 PASS
+C6 PASS
+C4 PASS

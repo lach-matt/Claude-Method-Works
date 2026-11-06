@@ -1,0 +1,13 @@
+  Y1 12 metrics (the reader's two, gamma_rA = 0 and != 0, and ten random rational positive-definite ones with gamma_rA !=
+      0): reading R (normal-adapted, as in [Rac16]): a one-dimensional symmetrizer space with S A0 > 0 at all 12: True;
+      reading C (coordinate): one-dimensional at all 12: True, S A0 > 0 at the reader's two: True, but no symmetrizer
+      with S A0 > 0 at 5 of the ten random ones (random 2, random 3, random 5, random 6, random 9: the coordinate reading
+      is symmetric hyperbolic near gamma_rA = 0 only, Y2); at gamma_rA = 0, S = diag(1, -(1/2) Pi_ang^-1) in both
+      readings: True
+Y1 PASS
+  Y2 g0's slice metric at (mu, r, th) = (1/2, 1/3, pi/4), gamma_(r th) = delta, gamma_(r p1) = delta/3: reading C: dim 1,
+      S(delta) regular at 0: True, minors of S A0 at delta = 0: [6, 108/11, 3888/121, 139968/1331], S(delta)_(w, q_th) =
+      9*delta*(12*delta**4 - 15*delta**2 + 5)/(2*(delta - 1)*(delta + 1)*(3*delta**2 - 1)); reading R: dim 1, S(delta)
+      regular at 0: True, minors of S A0 at delta = 0: [6, 108/11, 3888/121, 139968/1331], S(delta)_(w, q_th) = -9*delta
+Y2 PASS
+symmshift5: all checks pass, every control fails

@@ -1,0 +1,11 @@
+  E1 (hold = 0.01):
+  L100_lam1_d0_y1.6: breakdown 1.40957 (single grid), 1.41033 (finer grid), moved by 0.00076; standard excision 1.50000, 1.49590 (moved 0.00410); deeper is earlier on both grids: True
+  L100_lam1_d0_y2: breakdown 1.35298 (single grid), 1.35549 (finer grid), moved by 0.00251; standard excision 1.50000, 1.49590 (moved 0.00410); deeper is earlier on both grids: True
+  L1000_lam0.3162_d0_y2.2: breakdown 1.52354 (single grid), 1.52374 (finer grid), moved by 0.00020; standard excision 1.58294, 1.58252 (moved 0.00042); deeper is earlier on both grids: True
+E1 PASS
+  E2: deeper is earlier on both grids at hold = [0.005, 0.01, 0.02, 0.04, 0.06]: [True, True, True, True, True]
+  E2 at hold = 0.04:
+  L100_lam1_d0_y1.6: breakdown 1.40957 (single grid), 1.41033 (finer grid), moved by 0.00076; standard excision 1.50000, 1.49590 (moved 0.00410); deeper is earlier on both grids: True
+  L100_lam1_d0_y2: breakdown 1.36205 (single grid), 1.37037 (finer grid), moved by 0.00832; standard excision 1.50000, 1.49590 (moved 0.00410); deeper is earlier on both grids: True
+  L1000_lam0.3162_d0_y2.2: breakdown 1.55774 (single grid), 1.56223 (finer grid), moved by 0.00449; standard excision 1.58294, 1.58252 (moved 0.00042); deeper is earlier on both grids: True
+E2 PASS

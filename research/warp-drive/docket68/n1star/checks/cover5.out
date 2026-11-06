@@ -1,0 +1,27 @@
+  V1: [1/100, 100] by J(sigma_k), sigma_k = q^k/100, q = 8/5: 21 intervals (formula 1 + ceil(log(s_b/s_a)/log q) = 21),
+      consecutive ones overlapping
+  C1 (control): q = 5/3: consecutive open intervals (3 s/4, 5 s/4), (5 s/4, ...) only touch: no cover: True
+  V2: on Sigma_0 at fibre infinity, xi' = -2*xi**2/r, H r = -2*mu/r**2 + 2 (= 2 f < 0 for r < r_h): r is an exact escape
+      function; the time from r = r_h - eps to r0 - delta0 is int r^2 dr/(2 (mu - r^2)) = [-sqrt(mu)*log(-sqrt(mu) + r)/4
+      + sqrt(mu)*log(sqrt(mu) + r)/4 - r/2]; at mu = 1 from 9/10 to 1/2: -1/5 - log(2)/4 - log(3/2)/4 + log(19/10)/4 +
+      log(10)/4 = 0.261457
+  C2 (control): at r = 2 r_h (mu = 1), G0 = eta**2/4 + 3*xi**2/4 > 0 off the zero section: no characteristic point there
+  V3: the circle is the characteristic set: True; phi' = -2*sigma0*sin(phi), consistent with H |eta|^2 = -4 (sigma0 +
+      xi)|eta|^2: True; H log tan(phi/2) = -2*sigma0: an exact time function
+  C3 (control): H phi = -2*sigma0*sin(phi) is not constant: phi alone is not a time function
+  V4: photon sphere r_c = (2 mu)^(1/2): True; dr/dt = 0 and its derivative vanish there on the critical orbit: True;
+      Lyapunov exponent (Schwarzschild time) lambda_L^2 = F''(r_c)/2 = 1/(2*mu), lambda_L = sqrt(2)/(2*sqrt(mu)); a
+      backward segment from distance delta leaves the D-neighbourhood after about log(D/delta) (2 mu)^(1/2)
+  C4 (control): with b^2 = 11/10 of the critical value (mu = 1) F(r_c) = -1/40 < 0: no orbit reaches r_c, so the double
+      root, and the exponent, belong to the critical orbit only
+  V5: the counts: I.A (7.1) is a chain of six pieces (A)-(F) at each of N(I) sigma_0-neighbourhoods, with (B) and (D)
+      replaced by single commutators (V2, V3); II.D's cover at the trapped set has explicit escape times (V4). Not
+      explicit: the constants of the microlocal estimates of each piece (calculus constants).
+V1 PASS
+C1 PASS
+V2 PASS
+C2 PASS
+V3 PASS
+C3 PASS
+V4 PASS
+C4 PASS

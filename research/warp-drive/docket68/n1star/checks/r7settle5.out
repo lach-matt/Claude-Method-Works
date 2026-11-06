@@ -1,0 +1,43 @@
+K1  the cone's conormals: spacelike pieces for every |delta|_op < 7/25
+  K1 g_b0^-1(beta, beta) = (2f' - 3)(2f' + 1) - m(1 + 2f')^2 and g_b0^-1(alpha, alpha) = (2f' - 1)(2f' + 3) - m(3 +
+        2f')^2, both <= -7/4 on |f'| <= 1/4 (decreasing in m), |beta|_E^2, |alpha|_E^2 <= 25/4, beta(d_t) = 2, alpha(d_t)
+        = -2 (exact): (g_b0^-1 + delta) keeps both timelike for |delta|_op < 7/25: pass maxima -7/4, -7/4; |.|_E^2 <=
+        25/4, 25/4
+  K1' control: 7/25 is sharp for |f'| <= 1/4, m >= 0, attained only as m -> 0 (f' = -1/4, m = 0, delta = c beta
+        beta^T/|beta|^2): c = 7/25 makes beta null, c = 3/10 spacelike: pass 0, 1/8
+K2  the flux forms on the cone's two pieces at |delta|_op = 0.27, the class not assumed
+  K2 at |delta|_op = 0.27, |f'| <= 1/4, m <= 1/16 (4000 points): d_t and both normals are future timelike and the flux
+        forms' least eigenvalue (exact over the covector) is positive; [R8] so in the worst directions, delta = 0.27 beta
+        beta^T/|beta|^2 at f' = -1/4 and 0.27 alpha alpha^T/|alpha|^2 at f' = 1/4, m = 0: pass min lambda_min 0.0355, max
+        g(X, X), g(n, n) -0.2227; worst directions: 0.00997, -0.06250
+  K2' controls: R6-A's cut {Phi_W = V_*} at |delta|_op = 3 r^-2 has a negative least eigenvalue somewhere; the cone at
+        |delta|_op = 0.30 has a non-timelike conormal somewhere: pass min r^2 lambda_min -0.9489; max g^-1(beta, beta)
+        0.1162
+  K2'' [R9] the worst directions computed, not typed: the least thresholds over |f'| <= 1/4 are 7/25, at f' = -1/4 for
+        beta and 1/4 for alpha (exact), and along them delta of size 7/25 makes the conormal null, of size 0.27 timelike:
+        pass f' = -0.25, 0.25; thresholds 7/25, 7/25; g^-1(c, c) at 7/25, 0.27: 8.9e-16, -0.0625, 8.9e-16, -0.0625
+K3  the margin |g^-1 - g_b0^-1|_op from |H|_op
+  K3 |g^-1 - g_b0^-1|_op <= s^2|H|/(1 - s|H|), s = m + (1 + m^2)^(1/2) the norm of g_b0^-1 (exact); at m = 1/16: <=
+        0.0232 for |H| <= 1/50 and <= 0.0474 for |H| <= 1/25, both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0; 2000
+        random H with |H|_op = 1/25 below the bound; [R8] H along g_b0's eigenvector of least |eigenvalue| attains it:
+        pass bounds 0.023154055, 0.047337808; sampled max 0.0441; attained 0.0231541, 0.0473378
+  K3' control: |H|_op = 1/4 gives a bound above 7/25: pass 0.38597771
+K4  the energy identity on the flat radial model of the cone region
+  K4 E(t2) + F_in + F_out = E(t1) - int int phi_t box phi r^3 on {R + 2(t - t1) <= r <= V_* - 2(t - t1)} (exact); outer
+        flux form, derived from the identity's boundary term ([R8]) and equal to the one typed, eigenvalues 1/2, 3/2:
+        pass [3/2, 1/2]
+  K4' control (outer piece at speed 1/2, timelike): the identity holds with it, its flux form has the eigenvalue -1/4:
+        pass [3/4, -1/4]
+K5  the general claim of R7-A, exact: d_t timelike and the slices spacelike for |delta|_op < 7/25
+  K5 |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4520 at delta = 7/25, m = 1/16 (increasing in both), so g(d_t, d_t) <=
+        -1 + 1/16 + 0.4520 < -0.485; g^-1(dt~, dt~) <= max(g_b0^-1(dt~, dt~)) + (7/25) max |dt~|^2 = -15/16 +
+        (7/25)(17/16) = -0.64 (exact); [R9] attained at delta = 0.2797 along g_b0^-1's eigenvector of least |eigenvalue|:
+        pass 0.451961164565, g(d_t, d_t) <= -0.485539, g^-1(dt~, dt~) <= -16/25; attained 0.4512716 (bound 0.4512716)
+  K5' control: at delta = 9/10 the bound on |g - g_b0| exceeds 15/16 (or is infinite): d_t no longer kept timelike: pass
+        24.283306
+K6  Step 4's margin: |H| <= r^-2/4 keeps |g^-1 - g_b0^-1| below r^-2/2
+  K6 |H|_op <= r^-2/4 (r >= 8, m <= 1/16) gives |g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2, the margin of D4-D5 (the
+        bound increases with r^-2 and m); [R9] attained at r = 8 by H along g_b0's eigenvector of least |eigenvalue|:
+        pass 0.2844468342; attained 0.2844468342
+  K6' control: |H|_op <= r^-2/2 gives 0.57 r^-2 > r^-2/2: pass 0.5712789716
+FAILED: none

@@ -1,0 +1,48 @@
+# python3 checks/cpaxis5.py --nullstep r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M32_800_reg.npz r4/cp4/cp_M40_800_reg.npz
+A5 the regularised scheme, cut 0.9: the interior Ric_xx monitor (|x| <= 0.9) at 400 and 800 rows (M = 32), at 800 rows M
+    = 40, and max |P_400 - P_800| (800 sampled on the 400-row nodes):
+  areal radius 0.9-1.0:
+   v in [0.50, 1.00): monitor 400: 0.00204, 800: 0.000522 (ratio 3.90); 800 at M = 40: 0.000577 (M40/M32 1.10); |dP|
+       1.43e-05 -> converging
+   v in [1.00, 1.50): monitor 400: 0.00766, 800: 0.00195 (ratio 3.93); 800 at M = 40: 0.00229 (M40/M32 1.17); |dP|
+       8.11e-05 -> converging
+   v in [1.50, 1.65): monitor 400: 0.00797, 800: 0.00202 (ratio 3.94); 800 at M = 40: 0.00243 (M40/M32 1.20); |dP|
+       9.74e-05 -> converging
+   v in [1.65, 1.80): monitor 400: 0.0147, 800: 0.00384 (ratio 3.83); 800 at M = 40: 0.0046 (M40/M32 1.20); |dP| 2.42e-04
+       -> converging
+   v in [1.80, 1.90): monitor 400: 1.17, 800: 1.02 (ratio 1.15); 800 at M = 40: 0.53 (M40/M32 0.52); |dP| 9.43e-04 -> not
+       shown
+   v in [1.90, 2.00): monitor 400: 36, 800: 34 (ratio 1.06); 800 at M = 40: 39.7 (M40/M32 1.17); |dP| 2.89e-03 -> not
+       shown
+   v in [2.00, 2.25): monitor 400: 124, 800: 114 (ratio 1.09); 800 at M = 40: 211 (M40/M32 1.86); |dP| 6.26e-03 -> not
+       shown
+  areal radius 1.0-1.2:
+   v in [0.50, 1.00): monitor 400: 0.000818, 800: 0.000207 (ratio 3.95); 800 at M = 40: 0.000229 (M40/M32 1.10); |dP|
+       1.27e-05 -> converging
+   v in [1.00, 1.50): monitor 400: 0.0041, 800: 0.00104 (ratio 3.95); 800 at M = 40: 0.00121 (M40/M32 1.16); |dP|
+       6.46e-05 -> converging
+   v in [1.50, 1.65): monitor 400: 0.00463, 800: 0.00116 (ratio 3.99); 800 at M = 40: 0.00143 (M40/M32 1.23); |dP|
+       8.61e-05 -> converging
+   v in [1.65, 1.80): monitor 400: 0.00448, 800: 0.00118 (ratio 3.79); 800 at M = 40: 0.00128 (M40/M32 1.08); |dP|
+       9.25e-05 -> converging
+   v in [1.80, 1.90): monitor 400: 0.0148, 800: 0.0094 (ratio 1.58); 800 at M = 40: 0.00282 (M40/M32 0.30); |dP| 2.59e-04
+       -> not shown
+   v in [1.90, 2.00): monitor 400: 5.21, 800: 5.05 (ratio 1.03); 800 at M = 40: 4.13 (M40/M32 0.82); |dP| 1.00e-03 -> not
+       shown
+   v in [2.00, 2.25): monitor 400: 145, 800: 142 (ratio 1.03); 800 at M = 40: 374 (M40/M32 2.64); |dP| 7.40e-03 -> not
+       shown
+  areal radius >= 1.2:
+   v in [0.50, 1.00): monitor 400: 0.000252, 800: 6.35e-05 (ratio 3.98); 800 at M = 40: 7.03e-05 (M40/M32 1.11); |dP|
+       9.07e-06 -> converging
+   v in [1.00, 1.50): monitor 400: 0.00132, 800: 0.000337 (ratio 3.91); 800 at M = 40: 0.000391 (M40/M32 1.16); |dP|
+       3.84e-05 -> converging
+   v in [1.50, 1.65): monitor 400: 0.00174, 800: 0.000438 (ratio 3.98); 800 at M = 40: 0.000535 (M40/M32 1.22); |dP|
+       6.15e-05 -> converging
+   v in [1.65, 1.80): monitor 400: 0.00177, 800: 0.000444 (ratio 3.99); 800 at M = 40: 0.000558 (M40/M32 1.26); |dP|
+       7.63e-05 -> converging
+   v in [1.80, 1.90): monitor 400: 0.00155, 800: 0.0004 (ratio 3.88); 800 at M = 40: 0.000505 (M40/M32 1.26); |dP|
+       8.07e-05 -> converging
+   v in [1.90, 2.00): monitor 400: 0.00386, 800: 0.00101 (ratio 3.82); 800 at M = 40: 0.00115 (M40/M32 1.14); |dP|
+       8.17e-05 -> converging
+   v in [2.00, 2.25): monitor 400: 0.255, 800: 0.272 (ratio 0.94); 800 at M = 40: 0.164 (M40/M32 0.60); |dP| 3.74e-04 ->
+       not shown

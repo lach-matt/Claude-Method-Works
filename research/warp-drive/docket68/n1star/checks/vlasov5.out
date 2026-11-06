@@ -1,0 +1,11 @@
+V1 (exact) the geodesic flow on {p_phi = 0} is the orbit space's
+   on p_phi = 0: (dy, dp) = h's geodesic flow, p_phi conserved: True ; control (p_phi1 = 1) differs: True
+V2 (exact) a smooth invariant planar tensor: T_ij = A(s) delta_ij + B(s) x_i x_j
+   the general invariant smooth planar tensor (degree <= 4) is A(s) delta + B(s) x x: True ; T_phph = 0 gives T_rhorho = O(rho^2): True ; control xhat xhat has T_rhorho -> 1: True
+V3 (mpmath) a restricted density at the axis: continuous in alpha forbids it; concentrating gives dust
+   control: continuous f = 1 at the axis has T_rhorho = 0.5 (must be 1/2, not O(rho^2)): True
+   concentrating f: T_rhorho/rho^2 = ['0.27652737', '0.28068901', '0.28174247', '0.28200666'] -> 1/(2 sqrt(pi)): True ; d_alpha f grows like 1/rho: True
+V4 (exact) N restricted families: the least mixed symbol is 1 - cos(2 pi/N) ~ 2 pi^2/N^2
+   least symbol: N=2: 2.00000, N=3: 1.50000, N=4: 1.00000, N=8: 0.292893, N=16: 0.0761205, N=32: 0.0192147, N=64: 0.00481527
+   matches 1 - cos(2 pi/N): True ; N^2 (1 - cos(2 pi/N)) -> 2 pi^2: True ; control N = 2 (in/out) gives 2: True
+PASS

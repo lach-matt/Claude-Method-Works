@@ -1,0 +1,6 @@
+  C10: P(phi [d_s W]) in all 15 components: no order below lam^-1: True; lam^-1 part = -(ell . d phi) [d_s^2 W] + phi T(d_s W): True (the ell term nonzero in 4 components); at lam^0 the second derivatives of phi only in -(1/2)(box~ phi) [d_s W]: True [99s]
+  C10 control: mutant (b) holds: False; mutant (c) holds: False
+C10 PASS
+  C10b (W(ell, ell) != 0): P(phi [d_s W]) in all 15 components: no order below lam^-1: True; lam^-1 part = -(ell . d phi) [d_s^2 W] + phi T(d_s W): True (the ell term nonzero in 5 components); at lam^0 the second derivatives of phi only in -(1/2)(box~ phi) [d_s W]: True [345s]
+  C10b control: mutant (b) holds: False; mutant (c) holds: False
+C10b PASS

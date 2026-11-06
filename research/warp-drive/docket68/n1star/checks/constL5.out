@@ -1,0 +1,14 @@
+  K1 the DAG of C_L11 and C_L4 (83 named constants): its leaves ['A', 'C0', 'C2', 'C64', 'C_S', 'C_S3', 'K_s', 'M', 'P6',
+      'T', 'a', 'b', 'lambda0', 'mu0']; outside lambda0's leaves, the certified numbers and the seed's constants: none
+K1 PASS
+  K2 with the certified numbers inserted, C_L11 and C_L4 increasing in every remaining leaf: every node of the DAG a
+      positive expression of its inputs True, by finite differences at 40 random points True
+K2 PASS
+  K3 at P* (certified leaves inserted) C_L11 and C_L4 depend on ['C0', 'C2', 'C64', 'C_S3', 'K_s', 'M', 'P6', 'lambda0'];
+      with every remaining leaf equal to 1 and lambda0 = 0.00244 (an illustration of the formula, not a bound): log10
+      C_L11 = 179648.0, log10 C_L4 = 1.796e+6
+K3 PASS
+  K4 the DAG against an independent step-by-step transcription of R5.5's display (each line cited to its proof step), at
+      20 random points: largest relative difference 8.49e-35: True
+K4 PASS
+constL5: all checks pass, every control fails

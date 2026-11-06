@@ -1,0 +1,22 @@
+E1  R5-D's replacement text for Lemma 11.0, applied to a copy of N1STAR-PROOF.md
+  E1 is run on the live file with R6-D (seated at D630, superseding R5-D) and its marks undone in memory
+  E1a each old block occurs exactly once in the current file: pass 1, 1
+  E1b the edited file keeps every line within 121 characters: pass []
+  E1c the edit changes nothing outside Lemma 11.0: pass 23 lines added
+  E1d the edited Lemma 11.0 satisfies (a) R_gamma, R_gamma^n defined, (b) 1/2 and C(gamma, gamma') at both sums, (c) the
+        u_1-free source, (d) (9.8) for u_1^n, (e) E_(3/2) and E_(5/2), (f) through the source before Gronwall: pass {'a':
+        True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True}
+  E1e control (the same predicates on the current, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False,
+        'c': False, 'd': False, 'e': False, 'f': False}
+  E1f [R6] the mathematics of the edited Lemma 11.0, read from its text (r6edits5 E2a-E2d): Leibniz's rule with the 1/2
+        and C(gamma, gamma') read; the bounds of b . d U and c U against the classes of b and c; the kernel their sum;
+        the factor exp of its integral over t >= lam^-2: pass {'E2a': True, 'E2b': True, 'E2c': True, 'E2d': True}
+E2  the lam^0 terms of d u (two-scale chain rule, radial model)
+  E2a the phase shift phi_1 = c r^-1 (L_1) adds to dv [d_th W] a lam^0 term decaying exactly like r^(-5/2): pass r^(5/2)
+        x term -> -21*sin(1/3)/10
+  E2b the lam^0 part of d(lam chi), chi = r^-2 cos(2 theta), is d_th chi, decaying like r^-2 (E_2): pass
+  E2c control (phi_1 mutated to the constant c): the term decays only like r^(-3/2), the E_(5/2) claim fails: pass -oo
+E3  the u_1-free source F_1(X, 0, 0) on the full operator
+  E3 |F_1(X, 0, 0)| = |Ric^H(g0 + U3)| decays like r^-3 along the ray (E_3): pass [3.006, 3.001, 3.0]
+  E3' control (amplitude r^-1): decay 2: pass [2.005, 2.001, 2.0]
+FAILED: none

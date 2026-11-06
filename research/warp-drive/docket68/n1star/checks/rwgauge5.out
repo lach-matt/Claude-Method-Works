@@ -1,0 +1,34 @@
+  R1: (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: True
+  R1 control (weight dropped): (L_xi g)_{a th} = -d_th beta_a, no phi components, traceless angular part -(DD - gamma Lap/3) tau: False
+R1 PASS
+  R2 l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: True (R1's formula reproduced: True)
+  R2 control l = 2: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+  R2 control l = 4: KI's X_a is R1's vector and h + L_xi g = F_ab S dy dy + 2 r^2 F S gamma: False (R1's formula reproduced: False)
+R2 PASS
+  R3 (a) Lap P_j(cos 2th) = -l(l+2) P_j, l = 2j <= 10: True
+  R3 (b) D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 3) tau: True
+  R3 (c) class 1-forms with zero divergence: Eq(a(theta), C1/sin(2*theta)) (smooth on S^3 only for C1 = 0)
+  R3 (d) the divergence of a class symmetric tensor has no phi components: True
+  R3 (e) j = 1 (l = 2): ||P||^2 = 2*pi**2/3, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 2 (l = 4): ||P||^2 = 2*pi**2/5, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 3 (l = 6): ||P||^2 = 2*pi**2/7, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (e) j = 4 (l = 8): ||P||^2 = 2*pi**2/9, ||DP||^2 = k^2 ||P||^2, ||(DD - gamma Lap/3)P||^2 = (2/3)k^2(k^2-3)||P||^2, quadrature to 40 digits, relative error 0.0: True
+  R3 (f) (1+k^2)^2/((2/3)k^2(k^2-3)) has derivative -3*(x + 1)*(5*x - 3)/(2*x**2*(x - 3)**2), negative for k^2 >= 8 (coefficients of -num(x+8) and den(x+8) >= 0: True); sup at l = 2: 243/80; (1+k^2)/k^2 decreasing, sup 9/8 at l = 2
+  R3 (b) control D^i D^j (D_i D_j - gamma Lap/3) tau = (2/3) Lap(Lap + 2) tau: False
+R3 PASS
+  R4 (a) dmu[h0] = 2 mu H + r^2 (A + 2fB + f^2 C) - 2 r^2 (d_v + f d_r)(r H), m(g) = mu: True
+  R4 (b) dmu[L_Y g] = 0: True
+  R4 (c) d_v dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [2*r**3/3, 2*r*(r - s)*(r + s)/3, 0, 0]
+  R4 (c) d_r dmu = sum c_i DRic_i over (vv, vr, rr, th th): True, c = [0, 0, r*(r - s)*(r + s)/3, r]
+  R4 (d) dmu[dv^2/r^2] = 1, DRic(dv^2/r^2) = 0: True
+  R4 (e) Y1 = -r H dv (vector -r H d_r) has L_Y1 g angular part -2 r^2 H gamma: True
+  R4 (f) H = 0: d omega in span DRic: True; L_{zeta d_v} g = h0 - (dmu/r^2) dv^2 when d zeta = omega: True (L_{zeta d_v} g computed: True)
+  R4 (g) L_Z g = 0 for spherically symmetric Z forces Z^r = 0 (angular), d_r Z^v = 0, d_v Z^v = 0: True
+  R4 (h) DRic(L_Y g) = 0 for spherically symmetric Y: True
+  R4 controls: dmu without 2 mu H gauge invariant: False; omega without f C/2 closed mod DRic: False; DRic(dv^2/r^3) = 0: False
+R4 PASS
+  R5: Y = (1+v)^-3/2 d_v: v^(q+1) L_Y g -> [3*(r**2 - s**2)/r**2, -3/2, -3/2, 0] (finite, not all 0: True); v^q Y -> 1
+  R5 control: Y = O(v^-(q+1)) like L_Y g: False
+R5 PASS
+EXIT 0

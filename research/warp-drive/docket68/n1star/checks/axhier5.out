@@ -1,0 +1,66 @@
+A1 Om e4 tr chi + (1/2) Om (tr chi)^2 = (-2) Om chih^2 + (-2) Om omega tr chi + (-1) Om Ric_44; residual at fresh jets
+    1.64e-41; dependent members dropped: none -> PASS (4 s)
+A1 Om e3 tr chib + (1/2) Om (tr chib)^2 = (-2) Om chibh^2 + (-2) Om omegab tr chib + (-1) Om Ric_33; residual at fresh
+    jets 1.57e-41; dependent members dropped: none -> PASS (6 s)
+A2 Om e3 chih + (1/2) Om tr chib chih = (1) Om e1 eta + (-1) Om k eta + (1) Om eta^2 + (2) Om omegab chih + (-1/2) Om tr
+    chi chibh + (1/2) Om (Ric_11 - Ric_22); residual at fresh jets 1.3e-41; dependent members dropped: none -> PASS (9 s)
+A2 Om e4 chibh + (1/2) Om tr chi chibh = (1) Om e1 etab + (-1) Om k etab + (1) Om etab^2 + (2) Om omega chibh + (-1/2) Om
+    tr chib chih + (1/2) Om (Ric_11 - Ric_22); residual at fresh jets 5.87e-42; dependent members dropped: none -> PASS
+    (11 s)
+A3 Om e4 eta = (-1/2) Om tr chi eta + (-1) Om chih eta + (1/2) Om tr chi etab + (1) Om chih etab + (-1) Om beta^r + (-1)
+    Om Ric_41; residual at fresh jets 0; dependent members dropped: none -> PASS (12 s)
+A3 Om e3 etab = (-1/2) Om tr chib etab + (-1) Om chibh etab + (1/2) Om tr chib eta + (1) Om chibh eta + (1) Om betab^r +
+    (-1) Om Ric_31; residual at fresh jets 1.25e-41; dependent members dropped: none -> PASS (14 s)
+A4 Om e4 omegab = (2) Om omega omegab + (1/2) Om eta^2 + (-1) Om eta etab + (1/2) Om rho + (1/6) Om Ric_34 + (1/12) Om
+    (Ric_11 + Ric_22); residual at fresh jets 2.57e-42; dependent members dropped: ['Om R'] -> PASS (18 s)
+A4 Om e3 omega = (2) Om omega omegab + (-1) Om eta etab + (1/2) Om etab^2 + (1/2) Om rho + (1/6) Om Ric_34 + (1/12) Om
+    (Ric_11 + Ric_22); residual at fresh jets 4.85e-42; dependent members dropped: ['Om R'] -> PASS (22 s)
+A5 Om e4 tr chib + (1/2) Om tr chi tr chib = (2) Om omega tr chib + (2) Om rho + (-2) Om chih chibh + (2) Om div etab +
+    (2) Om etab^2 + (-1/3) Om Ric_34 + (1/3) Om (Ric_11 + Ric_22); residual at fresh jets 2.03e-41; dependent members
+    dropped: ['Om R'] -> PASS (27 s)
+A5 Om e3 tr chi + (1/2) Om tr chib tr chi = (2) Om omegab tr chi + (2) Om rho + (-2) Om chih chibh + (2) Om div eta + (2)
+    Om eta^2 + (-1/3) Om Ric_34 + (1/3) Om (Ric_11 + Ric_22); residual at fresh jets 2.1e-41; dependent members dropped:
+    ['Om R'] -> PASS (31 s)
+A6 e1 chih + 2 k chih = (1/2) e1 tr chi + (1/2) zeta tr chi + (-1) zeta chih + (-1) beta^r; residual at fresh jets
+    3.14e-42; dependent members dropped: none -> PASS (31 s)
+A6 e1 chibh + 2 k chibh = (1/2) e1 tr chib + (-1/2) zeta tr chib + (1) zeta chibh + (1) betab^r; residual at fresh jets
+    3.88e-42; dependent members dropped: none -> PASS (34 s)
+A7 (deduced) frame derivatives of Ricci coefficients on the right sides:
+   A1 Om e4 tr chi + (1/2) Om (tr chi)^2 ... : none
+   A1 Om e3 tr chib + (1/2) Om (tr chib)^2 ... : none
+   A2 Om e3 chih + (1/2) Om tr chib chih ... : Om e1 eta
+   A2 Om e4 chibh + (1/2) Om tr chi chibh ... : Om e1 etab
+   A3 Om e4 eta ... : none
+   A3 Om e3 etab ... : none
+   A4 Om e4 omegab ... : none
+   A4 Om e3 omega ... : none
+   A5 Om e4 tr chib + (1/2) Om tr chi tr chib ... : Om div etab
+   A5 Om e3 tr chi + (1/2) Om tr chib tr chi ... : Om div eta
+   A6 e1 chih + 2 k chih ... : e1 tr chi
+   A6 e1 chibh + 2 k chibh ... : e1 tr chib
+A7 the transport rows A1, A3, A4 carry none; A2 and A5 carry the angular derivatives of eta/etab (the losses the mass
+    aspects remove), A6 carries e1 tr chi -> PASS
+M1 e4 mu = R_M1, mu = div eta - K (div beta^r cancels; no e1 K, no e1 beta): identity at 3 random jets, relative residual
+    0 -> PASS (46 s)
+M1 e3 mub = R_M1b, mub = div etab - K (the mirror): identity at 3 random jets, relative residual 0 -> PASS (48 s)
+M2 e4 (e1 tr chi) = e1(e4 tr chi) - chi_11 e1 tr chi + (e1 log Om) e4 tr chi (A1 commuted): identity at 3 random jets,
+    relative residual 0 -> PASS (48 s)
+M2 e3 (e1 tr chib) (the mirror): identity at 3 random jets, relative residual 0 -> PASS (51 s)
+M3 e3 kappa = R_M3, kappa = e1 omega - beta^r/2 (e1 K cancels between e1 rho/2 and -e3 beta^r/2): identity at 3 random
+    jets, relative residual 0 -> PASS (56 s)
+M3 e4 kappab = R_M3b, kappab = e1 omegab + betab^r/2 (the mirror): identity at 3 random jets, relative residual 0 -> PASS
+    (66 s)
+control (c4) kappa with +beta^r/2 against the same right side: identity at 2 random jets, relative residual 0.777 ->
+    fails (good) (69 s)
+M4 (deduced) the right sides R_M1..R_M3b contain, besides the unknowns: e1 eta, e1 etab, e1 chih, e1 chibh, e1 tr chi, e1
+    tr chib, e1 omega, e1 omegab and first angular derivatives of Ric; no e1 K and no derivative of beta^r or betab^r (by
+    construction of the right sides above, which are checked identities).
+S1 Div(a^2 e3 + c^2 e4 - 2 a c e1) + 2 a Box f = (-1) tr chi a d + (-2) chih c^2 + (-2) omega c^2 + (2) omegab a^2 + (3)
+    eta a c + (-1) etab a c; residual at fresh jets 1.66e-41; dependent members dropped: none -> PASS (74 s)
+S2 Div(c^2 e3 + d^2 e4 - 2 c d e1) + 2 d Box f = (-1) tr chib a d + (-2) chibh c^2 + (2) omega d^2 + (-2) omegab c^2 +
+    (-1) eta c d + (3) etab c d; residual at fresh jets 2.93e-41; dependent members dropped: none -> PASS (80 s)
+S3 the pairs' quadratic forms contain the axis connection k = e1 log Y: none (none: the pairs carry no 1/s coefficient,
+    and their flux through the axis is Y times a bounded density, zero)
+controls: (c1) A1 with omega tr chi: residual 0.264; (c2) A3 with beta, Ric_41 withheld: residual 2.92; (c3) A6 without 2
+    k chih: residual 1.93 -> all fail (good)
+axhier5 (81 s): all checks pass

@@ -1,0 +1,73 @@
+  L1: Box on a S dv + b S dr + c dS reduces to (E_v, E_r, E_th) with kappa symbolic: True; delta omega: True; delta d
+      omega (Maxwell): True; vector type -r^-2 [r (r f psi')' - lambda psi] Y: True; cross-validation on explicit
+      harmonics [('scalar l=1', True), ('scalar l=2', True), ('scalar l=3', True), ('vector l=1', True), ('vector l=2',
+      True)]
+  L1 control (E_r's coupling 2 kappa r c -> 3 kappa r c): Box on a S dv + b S dr + c dS reduces to (E_v, E_r, E_th) with
+      kappa symbolic: False; delta omega: True; delta d omega (Maxwell): True; vector type -r^-2 [r (r f psi')' - lambda
+      psi] Y: True; cross-validation on explicit harmonics [('scalar l=1', False), ('scalar l=2', False), ('scalar l=3',
+      False), ('vector l=1', True), ('vector l=2', True)]
+L1 PASS
+  L2: scalar det = (l + lam)*(l - lam + 1)*(l - lam + 2)*(l - lam + 3)*(l + lam - 1)*(l + lam + 1) (= the six roots:
+      True); its computed roots [-l, -l - 1, 1 - l, l + 1, l + 2, l + 3] are the flat roots -m, m + 2 of m = l - 1, l, l
+      + 1: True; vector det (l + lam)*(l - lam + 2): True, roots [-l, l + 2]; for l >= 2 every computed scalar root <= -1
+      or >= 3 (the ends -1, 3 roots at l = 2): True, vector <= -2 or >= 4: True; so (-1, 3) is an indicial gap of the
+      restricted operator, uniformly in l
+  L2 control (the full bundle): roots at l = 0 [-1, 0, 2, 3], at l = 1 [-2, -1, 0, 2, 3, 4]; roots in (-1, 0]: [0];
+      root-free: False
+L2 PASS
+  L3: delta Box = Box_0 delta on the modes: True; energy identity: True; P_{l/2}(2x - 1) solves the mode equation and
+      grows like r^l, l = 0..10: True; roots at infinity [-l, l + 2]: True; rho^-l excluded at beta > -1: True
+  L3 control (energy weight r^2): delta Box = Box_0 delta on the modes: True; energy identity: False; P_{l/2}(2x - 1)
+      solves the mode equation and grows like r^l, l = 0..10: True; roots at infinity [-l, l + 2]: True; rho^-l excluded
+      at beta > -1: True
+L3 PASS
+  L4: Maxwell scalar type: M_r = (kappa/r^2)(a/f - e) on the v-equation: True, e = a/f makes M_th vanish: True; R[W] = 0
+      for W = r^3 a': True; Liouville forms V_2: True, V_1: True; V_2 > 0 (kappa >= 3): True, V_1 > 0: True; energy
+      identity: True; roots at infinity W [-l, l + 2], psi [-l - 1, l + 1]: True; r^(l + 3/2) excluded for l >= 1, beta >
+      -1: True; closed forms (electrostatic l = 2..8 [True, True, True, True], vector l = 1, 3, 5, 7 [True, True, True,
+      True])
+  L4 control: Liouville form with 5/4 in place of 7/4: False; at l = 0 the Coulomb a = 1/r^2 solves the electrostatic
+      equation: True, and r^2 V_2/f at r_h, kappa = 0, is -1 (not positive)
+L4 PASS
+  L5: l + beta - 1 = B + n > 0 for every l >= 2 and beta in (-1, 0]: True (at beta = -1/2, l = 2: 1/2)
+  L5 control (l = 1): l + beta - 1 = B + n - 1 > 0 for every l >= 1 and beta in (-1, 0]: False (at beta = -1/2, l = 1:
+      -1/2)
+L5 PASS
+  L6: (l, polynomial solutions, free formal data = (a'(r_h), b(r_h), c(r_h)), jets invertible, growth map rank 3,
+      Cartesian growth exponents, threshold p): [(2, 3, True, True, True, [1, 2, 3], 1), (4, 3, True, True, True, [3, 4,
+      5], 1), (6, 3, True, True, True, [5, 6, 7], 1), (8, 3, True, True, True, [7, 8, 9], 1)]; the threshold is the
+      claim's, r^(-lo) with lo = -1 the lower end of L2's computed gap: True
+  L6 control (L6's path (i) with E_r's coupling 3 kappa r c: [(2, 1, True, False, False, [2], 1), (4, 1, True, False,
+      False, [4], 1)]; (ii) with the growth threshold r^l: [(2, 3, True, True, False, [1, 2, 3], 2), (4, 3, True, True,
+      False, [3, 4, 5], 4)]): passes False, False
+L6 PASS
+  L7: spherical means of the Cartesian components (l, form, means): [(2, 'S dv (dt_*)', [0]), (2, 'S dr', [0, 0, 0, 0]),
+      (2, 'dS', [0, 0, 0, 0]), (4, 'S dv (dt_*)', [0]), (4, 'S dr', [0, 0, 0, 0]), (4, 'dS', [0, 0, 0, 0])]; ell vanishes
+      on them; the G-average of a constant spatial covector is [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]: True
+  L7 control: dv has spherical mean 1 and ell(dv) = 2*pi**2*s**3: degree-0 part present
+L7 PASS
+  L8: N_tf(sigma) = e^(-i sigma r) (Lap_e - sigma^2) e^(i sigma r) on degree-l components: True; Bessel order l + 1:
+      True; exponents at ztf {l, -l-2}: True; on beta in (-1, 3), l >= 1: kernel element excluded (l + q > 0): True,
+      adjoint element excluded (q < l + 2): True (both at l = 1 and on l = 1 + n, n > 0)
+  L8 control (l = 0, beta in (-1, 0)): the adjoint element r^-2 lies in X*_tf,0 (q - 2 > 0): True
+L8 PASS
+  L9 (the gap (-1, 0), read from L2's roots): (sub-box, conditions, all positive sums, failing): {'A: alpha_K in (1,
+      3/2)': (28, True, []), 'C: alpha_K = 3/2': (28, True, []), 'B: alpha_K in (3/2, 3/2 + delta_#)': (28, True, [])};
+      sub-box B reaches sup alpha_K = D/(4*D + 4) + 3/2: True; the gap is root-free for the restricted operator (every l
+      >= 2) and the full bundle: True
+  L9 control (the same conditions with the full bundle's gap (0, 2) above 0): (sub-box, conditions, all positive sums,
+      failing): {'A: alpha_K in (1, 3/2)': (28, False, ['(Z) weight gamma_+ - 1 > lower end of the gap', 'window gamma_+
+      - alpha_K > lower end of the gap']), 'C: alpha_K = 3/2': (28, False, ['(Z) weight gamma_+ - 1 > lower end of the
+      gap', 'window gamma_+ - alpha_K > lower end of the gap']), 'B: alpha_K in (3/2, 3/2 + delta_#)': (28, False, ['(Z)
+      weight gamma_+ - 1 > lower end of the gap', 'window gamma_+ - alpha_K > lower end of the gap'])}; sub-box B reaches
+      sup alpha_K = D/(4*D + 4) + 3/2: True; the gap is root-free for the restricted operator (every l >= 2) and the full
+      bundle: True
+L9 PASS
+  L10: the l >= 2 exponent D/(4*D + 4) + 3/2 (the supremum of L9's box: D/(4*D + 4) + 3/2); 6 conditions, all positive
+      sums: True
+  L10 control (R5.3's l >= 2 exponent 1/2 + delta_#): the l >= 2 exponent D/(4*(D + 1)) + 1/2 (the supremum of L9's box:
+      D/(4*D + 4) + 3/2); 6 conditions, all positive sums: False; failing ['l >= 2 exponent above 3/2 (so min(p_0, 3/2)
+      is the overall one)', "paper's data: l >= 2 exponent above p_0 = 1", 'compact support: l >= 2 exponent above 3/2',
+      'the l >= 2 exponent is 3/2 + delta_# (Corollary R8.11)']
+L10 PASS
+EXIT 0

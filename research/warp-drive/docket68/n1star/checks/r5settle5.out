@@ -1,0 +1,95 @@
+A  Proposition R3.1's lam-orders from the monomials of (11.4) (round 3, m7)
+  A1 e(G_k) = k - 4 for k = 4..13 from every monomial of r-order exactly (k + 2)/2 (m <= 6 factors): pass [-1, 0, 1, 2,
+        3, 4, 5, 6, 7]
+  A2 with the trade (r^-1/2 <= lam on r >= lam^-2) the recursion gives B_J = 3J - 9 (J = 4..12), the same at m_max = 6
+        and 7: pass [-1, Fraction(3, 1), Fraction(6, 1), Fraction(9, 1), Fraction(12, 1), Fraction(15, 1), Fraction(18,
+        1), Fraction(21, 1), Fraction(24, 1), Fraction(27, 1)]
+  A2' B_J = 3J - 9 <= 4J - 13 <= (J^2 - J)/2 - 3 for J = 4..12: the round-3 verifier's and R3.1's exponents are upper
+        bounds: pass
+  A2'' control (the code mutated: no trade): at J = 8 the explicit monomials' order grows with m_max (no bound): m_max =
+        4 gives 18, m_max = 7 gives 30: pass
+B  K* of Lemma R3.2 as a function of k0 (round 3, m5)
+  B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and for k0 >= 400 the second differences (step
+        100) are constant, 2 (4/(7 - 2a)) 100^2 = 160000/3: K* is quadratic in k0, not linear: pass ['116', '1643/2',
+        '4143/2'], second differences ['160000/3', '160000/3']
+  B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too (the same second differences), and smaller: pass ['76', '1303/2',
+        '10609/6']
+  B3 the nit s > 2: s := max(5/2, ...) leaves K* unchanged wherever (2M + 1)/(7 - 2a) > 5/2 (here): pass
+  B4 control (the code mutated: s held fixed at 37): the second differences vanish (K* linear), so the quadratic term is
+        s's growth with M: pass ['0', '0']
+C  the interpolation optimum recomputed (round 3, P8c-P8d)
+  C1 the optimum over sigma = lam^beta is (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3) (12 random K, M; k =
+        5, 6, 7): pass
+  C2 beta* > 1 (sigma inside the far region r >= lam^-2) exactly when K - 3 + M > J' - 3: pass
+  C3 control (the remainder exponent mutated to J' - 4): the formula fails: pass
+  C4 control (no optimisation, beta = 0: a fixed radius): the exponent is -M < 0: pass
+D  the causal structure on W: v is not a time function; v + eps t and Phi_W are (round 3, m1)
+  D1 (g_b0 + eps h)^-1(dv, dv) vanishes at eps = 0, has first variation -h(ell, ell) (exact) and takes both signs (h =
+        +-dx1^2, eps = 1/100): v is not a time function for the perturbed metrics: pass ['-1', '1']
+  D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal cone is 0
+        (T1a's sampled 5.7e-2 is an artefact): pass
+  D3 g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu r^-2): margin 2 eps, uniform in r: pass
+  D4 Phi_W := v + 1/r: g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 - mu r^-2), |dPhi|_E^2 = 1 + (1 - r^-2)^2, and -grad Phi_W
+        has positive t-component (future directed) (exact): pass
+  D5 (g_b0^-1 + delta)(dPhi, dPhi) < 0 for |delta|_op <= r^-2/2 (2000 points, r in [4, 400]; bound -r^-2 + r^-4 deduced
+        in D4): pass max r^2 g^-1(dPhi, dPhi) = -1.084
+  D5' control: |delta|_op = 2 r^-2 makes dPhi_W spacelike somewhere: pass max 1.663
+E  the weight on W: u* := sup f + 1 (round 4, m3)
+  E1 r + 1 <= u* - u <= 2r + |u* - v1| on W (20 random f, 4000 points): pass max (u* - u)/r = 1.980
+  E1' control (round 4's u* = 2 sup f - v1 + 1): r <= u* - u fails: pass
+F  the localised energy argument on W (round 4, M4)
+  F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0: its minimum over the covector d phi, the least
+        eigenvalue of the quadratic form, is positive at 2000 points (g = g_b0 + H, |H|_op <= r^-2/2): that boundary is
+        spacelike and its flux can be dropped: pass min over points of r^2 lambda_min = 0.2678
+  F1' control (the normal grad r of a timelike cut-off {r = R} in place of -grad Phi_W): negative somewhere: pass min
+        -5.000e-01
+  F1x (exact) for X = e_0, n = (cosh s, sinh s, 0, 0, 0) the form p -> T(X, n) has eigenvalues e^s/2, e^-s/2, cosh(s)/2
+        (x3), all > 0: T(X, n) >= 0 for X, n future timelike, the dominant energy condition; control: n spacelike, (sinh
+        s, cosh s, 0, 0, 0), gives a negative eigenvalue: pass timelike n: e^s/2, e^-s/2, cosh(s)/2 (x3); spacelike n:
+        e^s/2, -e^-s/2, sinh(s)/2 (x3) (characteristic polynomials, exact)
+  F2 the domain-of-dependence identity on a truncated diamond (flat radial model, exact): E(t2) + inner and outer null
+        fluxes (tangential derivatives, each >= 0) = E(t1) - int int phi_t box phi r^3: pass E(t2) + fluxes =
+        16528.7870505
+  F2' control (the transverse derivative in the inner flux): the identity fails: pass
+  F3 [arithmetic: the product rule] the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = (2a+3) r^(2a+2) F^2
+        + 2 r^(2a+3) F F' and d(r^(2a+2) F^2/(2a+2)) = r^(2a+1) F^2 + r^(2a+2) F F'/(a+1) (exact), with the boundary
+        terms at R' kept: pass
+  F3' [arithmetic: a power law; general fields and the a priori decay in r6settle5 Y] F = r^(-a-2-eta): int r^(2a+3) F^2
+        finite and R'^(2a+4) F(R')^2 -> 0 (the boundary terms vanish along R' -> oo); control F = r^(-a-2): the integral
+        diverges and R'^(2a+4) F^2 = 1: pass
+  F4 [arithmetic] the rejected localisation: -Sigma_2 = -r^-2 P beyond V_* has weighted energy int r^(2a-3) dr, infinite
+        at a = 1, 11/4, finite at a = 9/10 (exact): pass
+  F5 [arithmetic: the exponent typed; the identity and the tail in r6settle5 X] finite speed: the exterior energy beyond
+        R is <= C |T|^2 R^-9 for the source O(r^(-13/2)), and its weighted integral converges exactly for a < 9/2 (exact
+        at a = 4.4, 4.5): pass
+  F5' control (source O(r^-6), Sigma without F_4): exactly a < 4: pass
+H  the means at past null infinity: inputs from Theorem A_P's coefficient classes (round 4, m7)
+  H1 every input of (a) and (c) has exponent >= 3, of (b) >= 2: 2/(2q - 5), 1/(q - 5/2), 1/(q - 1) finite at every order
+        to 20 (no logarithm): pass min (a) 3, (b) 2, (c) 3
+  H1' control (the code mutated: d_v phi_m's coefficient class E_(3/2) in (c)): an input at q = 5/2 appears: pass
+G  the fields after the shell: h_R, the caps, the N-flux tails, the window (rounds 3-4)
+  G1 at fixed v the r^(-k/2) coefficients of truth - Sigma vanish for k = 4..8 and equal c_9 at k = 9 (exact, l = 2): h_R
+        = O(r^(-9/2)): pass {4: '0', 5: '0', 6: '0', 7: '0', 8: '0', 9: '-3'}
+  G1' control (p = 4 dropped from Sigma): the r^-4 coefficient survives: pass 4
+  G2 the cap energy of the truncation has fitted exponent 2a - 6 in |T| (a = 2.2, 2.75, 2.95; T = -1e5, -1e6): -> 0
+        exactly for a < 3: pass (a, cap, cap w/o p=4, tail, tail w/o p=4) [(2.2, -1.599, -0.599, -2.6, -1.6), (2.75,
+        -0.499, 0.501, -1.5, -0.5), (2.95, -0.099, 0.901, -1.1, -0.1)]
+  G2' control (p = 4 dropped): exponent 2a - 5 (-> 0 only for a < 5/2): pass
+  G3 the N-flux tail beyond |T| has fitted exponent 2a - 7 (finite flux and vanishing tail for a < 7/2): pass
+  G3' control (p = 4 dropped): 2a - 6: pass
+  G4 rho^(a + 1 + 1/1000) (the S-energy's class, scale5 Z8a) lies in rho^(l0) L^2_b exactly when a + 1 >= l0 (three
+        cases, one failing as it must): pass
+  G5 [arithmetic: the exponents typed; computed from the fields in r6sigma5 W] the admissible weights on the grid are (l0
+        - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (no lower bound 5/2), with Lemma R4.5 widened to (0, 7/2), Step 2 and
+        Proposition R5.2 in the list: pass {'31/10': ('211/100', '299/100'), '33/10': ('231/100', '299/100'), '18/5':
+        ('261/100', '299/100'), '39/10': ('291/100', '299/100')}
+  G5' controls: p = 4 dropped (cap 2a - 5), or the pointwise reading on S (a > l0 - 1/2): no weight for l0 >= 7/2: pass
+  G5c [R6 (m3)] control: with Lemma R4.5 as stated in round 4, a in (5/2, 7/2), the window is (max(l0 - 1, 5/2), 3),
+        smaller for l0 < 7/2: the widening of R6.0 (m3) is what gives (l0 - 1, 3): pass {'31/10': ('251/100', '299/100'),
+        '33/10': ('251/100', '299/100')}
+  G5'' S1's left side R^(2a+3) F(R)^2 is scale-invariant exactly at F ~ R^(-a-3/2): |d h_R| <= eps r^(-3/2-a), so the
+        first-order h_R row has q = 3/2 + a and, with Hardy (one power of r), the zero-order row a + 1/2: pass [a + 3/2]
+  G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (Taylor composition to
+        rho^(p+3), coefficients by mpmath): pass ['11/2', '13/2', '2', '4', '5/2', '6', '7/2', '9/2']
+  G6' control (a p = 9/4 term): exponents outside E_0^(1/2): pass
+FAILED: none

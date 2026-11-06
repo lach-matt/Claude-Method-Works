@@ -1,0 +1,168 @@
+lam0data5: the stage-1 data on Sigma (S_1, B_1), an admissible envelope, and the stability constant over X*'s past
+      (CONSTANTS5.md R8.2 blocks (a)-(c))
+  D1 (exact): on Sigma D^(0) = 0 (every component, every harmonic): True; with a generic gh_2 (eight class components,
+      harmonics 1, 2) the gh_2-part of D^(1) is Pol(d_s gh_2), lowered by g0: True [2s]
+  D2 (exact): the first harmonic of D^(1) at gh_2 = 0 lies in the th component only: True, independent of a (Lambda_1 = 0
+      in the class): True; Pol^+ maps (0, 0, c) to the class tensor with (tau th) component -c/2, (r th) component c/2,
+      every other 0: True; so gh_2 on Sigma, first harmonic: G2_(tau th) = -G2_(r th) = (A E/(6 r^(3/2))) [(5 H sin 2th +
+      2 S^2 H') cos s + (5 H sin 2th - 2 C^2 H') sin s]: True [16s]
+      gh_2 on Sigma, second harmonic (computed, exact; chi's d_tau READ from stage0bd5.py): (A^2 E^2 H^2/(6 r^3)) (cos
+      2th cos 2s - (1/4) sin^2 2th sin 2s) Pi, Pi = r^2 (dth^2 + C^2 dphi1^2 + S^2 dphi2^2), every other component 0:
+      True
+      step (ii), the mean of D^(1) on Sigma (= 0 fixes d_tau (m_1)_(tau .), the coefficient -(1 + mu/r^2) of T_tr, T_tth
+      being invertible):
+        D^(1)_tau mean = (-(r**2 + mu(v))/(2*r**2)) T_tt(r, theta) + (-(r**2 - mu(v))/(2*r**2)) H_rr(r, theta) +
+      (-1/(2*r**2)) H_thth(r, theta) + (-1/(2*r**2*cos(theta)**2)) H_p1(r, theta) + (-1/(2*r**2*sin(theta)**2)) H_p2(r,
+      theta)
+        D^(1)_r mean = (-(r**2 + mu(v))/r**2) T_tr(r, theta) + (mu(v)/r**2) H_rr(r, theta) + ((r**2 - mu(v))/(2*r**2))
+      Derivative(a(r, theta), r) + ((3*r**2 - mu(v))/r**3) a(r, theta)
+        D^(1)_th mean = (-(r**2 + mu(v))/r**2) T_tth(r, theta) + (mu(v)/r**2) H_rth(r, theta) + (-(r**2 -
+      mu(v))/(2*r**2)) Derivative(a(r, theta), theta)
+  D3 (exact): no lam^-1 term in (J_r, J_th, rho): True; the order-0 mean vanishes exactly at mu' = (2/9) A^2 E^2 H^2 (C^4
+      + S^4), stage 0's energy condition: {'Jr': True, 'Jt': True, 'rho': True} [33s]
+  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean. Every intermediate series but
+  gamma^-1 is cut at lam^1. A dropped lam^2 coefficient (of Gamma, of K or of tr K) reaches order 1 only through one fast
+  derivative lam^-1 d_s (in D Gamma, D K, D tr K), and is multiplied there by gamma^-1's order-0 part, which is g0's
+  (not oscillating), or by nothing: d_s of something times a non-oscillating factor, of mean zero. The data are kept to
+  the order that reaches lam^1: gamma^-1 to lam^2 (it meets the lam^-1 of d_s^2 (lam W)) and gh_2 at lam^2 (one fast
+  derivative brings it to order 1 against the oscillating d_s W). gh_3 (lam^3) reaches order 1 only through d_s^2 in
+  gamma^-1 d^2 gamma, against g0^-1: mean zero; m_2 and d_tau phi_2 carry no fast derivative there and stay at order 2.
+  The order-1 oscillating parts are incomplete and are not used.
+      no phase: change of <Phi^(1)>: {'Jr': {'a': A**2*sqrt(mu + r**2)*(sin(theta)**4 +
+      cos(theta)**4)*E(v)**2*H(theta)**2/(3*r**4)}, 'rho': {'a': -A**2*(sin(theta)**4 +
+      cos(theta)**4)*E(v)**2*H(theta)**2/(3*r**3)}} [160s]
+      no gh_2: change of <Phi^(1)>: none [192s]
+      gh_2 + generic second harmonic: change of <Phi^(1)>: none [222s]
+      chi's d_tau on: change of <Phi^(1)>: none [245s]
+  D4 (exact): <Phi^(1)> = P(h_1, Q_1) + B_1 a - S_1 with P = data5.py's lin_0 coefficient by coefficient (40 digits,
+      three points): True; B_1 = H^2 (C^4 + S^4) A^2 E^2 a (-(1/3) Lambda^(-3/2), 0, (2/3) r Lambda^-2): True; S_1 = (0,
+      -A^2 E^2 H^2 sin 2th/(3 r^2 Lambda^(1/2)), 0): True; no other coefficient carries A (B_1 algebraic in a): True; the
+      phase carries (-(1/3) r^-4 Lambda^(1/2), 0, (1/3) r^-3) A^2 E^2 H^2 (C^4 + S^4) a of B_1: True; gh_2 (both
+      harmonics) and chi's d_tau change nothing: True [248s]
+      the coefficients of <Phi^(1)> (key: the jet multiplied; '1' the term free of a, w, q; mp = mu'):
+        Jr[a] = -(A**2*mu*r*E(v)**2*H(theta)**2*sin(theta)**4 + A**2*mu*r*E(v)**2*H(theta)**2*cos(theta)**4 +
+      A**2*r**3*E(v)**2*H(theta)**2*sin(theta)**4 + A**2*r**3*E(v)**2*H(theta)**2*cos(theta)**4 + 9*mp*r**3 - 18*mu**2 -
+      36*mu*r**2)/(3*r*(mu + r**2)**(5/2))
+        Jr[q] = -4/(r**2*tan(2*theta))
+        Jr[q_t] = -2/r**2
+        Jr[w] = 6/r
+        Jr[w_r] = 6
+        Jt[1] = A**2*E(v)**2*H(theta)**2*sin(2*theta)/(3*r**2*sqrt(mu + r**2))
+        Jt[a_t] = r**2*(mp*r - 2*mu)/(2*(mu + r**2)**(5/2))
+        Jt[q] = -r*(-mp*r + 8*mu + 6*r**2)/(mu + r**2)**2
+        Jt[q_r] = -2*r**2/(mu + r**2)
+        Jt[w_t] = 4
+        rho[a] = (2*A**2*mu*r**3*E(v)**2*H(theta)**2*sin(theta)**4 + 2*A**2*mu*r**3*E(v)**2*H(theta)**2*cos(theta)**4 +
+      2*A**2*r**5*E(v)**2*H(theta)**2*sin(theta)**4 + 2*A**2*r**5*E(v)**2*H(theta)**2*cos(theta)**4 - 9*mp*mu*r**3 -
+      18*mp*r**5 + 18*mu**3 + 36*mu**2*r**2 + 54*mu*r**4 + 18*r**6)/(3*r**2*(mu + r**2)**3)
+        rho[a_r] = 3*r**3/(mu + r**2)**2
+        rho[a_t] = -2/((mu + r**2)*tan(2*theta))
+        rho[a_tt] = -1/(mu + r**2)
+        rho[w] = -3*(mp*r**3 + 2*mu**2)/(r**2*(mu + r**2)**(3/2))
+      K's order-1 mean from the metric with d_tau h_1 = 0 (so Q_1 = M1 + d_tau h_1/(2 N0), N0 = (1 + mu/r^2)^(-1/2)); no
+      W^2 term:
+        M1_rr = mu*(-mp*mu*r**3*a(r, theta) - 2*mp*r**5*a(r, theta) + 2*mu**3*a(r, theta) + 4*mu**2*r**2*a(r, theta) +
+      2*mu*r**5*Derivative(a(r, theta), r) + 4*mu*r**4*a(r, theta) + 2*r**7*Derivative(a(r, theta), r))/(4*r**6*(mu +
+      r**2)**(3/2))
+        M1_rth = mu*Derivative(a(r, theta), theta)/(2*r*sqrt(mu + r**2))
+        M1_thth = mu*(-mu**2 + 2*r**4)*a(r, theta)/(2*r**2*(mu + r**2)**(3/2))
+        M1_p1p1 = mu*(-mu**2 + 2*r**4)*a(r, theta)*cos(theta)**2/(2*r**2*(mu + r**2)**(3/2))
+        M1_p2p2 = mu*(-mu**2 + 2*r**4)*a(r, theta)*sin(theta)**2/(2*r**2*(mu + r**2)**(3/2))
+  D5 (exact): H_rec = (C^4 + S^4)^(-1/2): True; with it every coefficient of P + B_1 is free of th except the angular
+      operators: True; these are -(1/Lambda) Lap a (rho): True and -(2/r^2) div (q dth) (J_r): True; Lap P_k(cos 2th) =
+      -4 k (k + 1) P_k, k <= 4: True; the source is (A^2 E^2/(3 r^2 Lambda^(1/2))) H^2 sin 2th, H^2 sin 2th = sum sigma_k
+      d_th P_k: True; sigma_k = 0 for even k: True; |sum_(k<=11) sigma_k P_k + atan| <= 4.9e-06 on a 41-point grid of
+      [-1, 1] (floating point) [258s]
+      sigma_k (exact): 1: 3/2 - 3*pi/4 = -0.856194; 3: -49/6 + 21*pi/8 = 0.080014; 5: 583/15 - 99*pi/8 = -0.0105424; 7:
+      -1371/7 + 1995*pi/32 = 0.00152414; 9: 321404/315 - 10393*pi/32 = -0.000230294; 11: -18805076/3465 + 110561*pi/64 =
+      3.57112e-05
+      the mode ODEs (E_, mu_ for E(v), mu(v) at v = tau0 + r; k the mode; sg_ = sigma_k):
+        a_k' = 2*(-a_*(mu_ + r**2)**(5/2)*(-E_**2*r**5 + 6*k_*r**2*(k_ + 1)*(mu_ + r**2)**2 + 9*mu_**3 + 18*mu_**2*r**2 +
+      27*mu_*r**4 + 9*r**6) + w_*(mu_ + r**2)**4*(E_**2*r**3 + 9*mu_**2))/(9*r**5*(mu_ + r**2)**(7/2))
+        w_k' = (a_*r*(E_**2*mu_*r + 3*E_**2*r**3 - 18*mu_**2 - 36*mu_*r**2) - 24*k_*q_*(k_ + 1)*(mu_ + r**2)**(5/2) -
+      18*r*w_*(mu_ + r**2)**(5/2))/(18*r**2*(mu_ + r**2)**(5/2))
+        q_k' = (3*E_**2*sg_*(mu_ + r**2)**(9/2) + a_*r**4*(mu_ + r**2)**(5/2)*(E_**2*r - 9*mu_) - 2*q_*r**3*(mu_ +
+      r**2)**3*(-E_**2*r + 36*mu_ + 27*r**2) + 36*r**2*w_*(mu_ + r**2)**5)/(18*r**4*(mu_ + r**2)**4)
+  D6 (computed, floating point): the identity at finite lam, E = 1 + v/4, the record's H, A = 1, test a, w, q:
+      th = 0.35 done [369s]
+      th = 0.80 done [396s]
+      th = 1.20 done [422s]
+      th = 0.35: remainders W(lam) - lam I1 at lam = 1/32, 1/64 and orders p: Jr -3.07e-06 -8.10e-07 p = 1.92; Jt
+      1.85e-04 4.67e-05 p = 1.99; rho 5.44e-04 1.36e-04 p = 2.00
+      th = 0.80: remainders W(lam) - lam I1 at lam = 1/32, 1/64 and orders p: Jr 1.02e-05 2.56e-06 p = 1.99; Jt 9.81e-05
+      2.49e-05 p = 1.98; rho 2.08e-06 5.10e-07 p = 2.03
+      th = 1.20: remainders W(lam) - lam I1 at lam = 1/32, 1/64 and orders p: Jr 6.92e-06 1.76e-06 p = 1.97; Jt -4.78e-05
+      -1.18e-05 p = 2.02; rho 1.68e-04 4.20e-05 p = 2.00
+  D6: every remainder of order lam^2 (p >= 1.6): True [422s]
+  C1 (control): S_1 with its sign flipped: orders ['1.19', '1.05', '0.94']: D6 fails: True
+  C2 (control): the phase d_tau phi_1 = -a/2 dropped from the data: orders (J_r, rho) ['0.99', '2.62', '1.10', '0.97',
+      '2.94', '1.98']: D6 fails: True
+  C3 (control): B_1 dropped from the prediction: orders (J_r, rho) ['1.02', '1.63', '0.84', '1.01', '1.71', '2.03']: D6
+      fails: True
+  D7 (computed, floating point): envelope5's envelope (c = 1.3240872987 by quadrature, inside envelope5's certified
+      [1.32407110621, 1.3241034918]: True); the mode ODEs k = 1, ..., 11 (odd) from zero data at r = 5/2; mu integrated
+      beside them reaches 1.1822916666667 at r = 11/2 (227/192 = 1.1822916666667)
+      on past of X* (r <= 4): sup |a| = 2.132e-07, sup |w| = 1.988e-05, sup |q| = 2.177e-03 (sup over th on a grid; rtol
+      1e-11 against 1e-9: 4.8e-14)
+      on slice (r <= 11/2): sup |a| = 9.694e-07, sup |w| = 1.320e-04, sup |q| = 3.218e-03 (sup over th on a grid; rtol
+      1e-11 against 1e-9: 2.6e-13)
+      so h_1 = a dr dr is below 1e-3 on the slice, against the |a_1| > 12.37 the data alone would need to move the
+      operator-norm bound (R8.0 (6), classm5 K3): computed now, not only implausible; sup |a| < 1e-3: True [437s]
+      th = 0.35 done [563s]
+      th = 0.80 done [589s]
+      th = 1.20 done [614s]
+      th = 0.35  stage 0: W(1/32) = ['3.484e-06', '2.717e-04', '-1.601e-06'], p = ['2.00', '1.00', '2.00']; stage 1:
+      W(1/32) = ['2.849e-06', '-9.241e-07', '-2.550e-06'], p = ['2.01', '2.10', '2.02']
+      th = 0.80  stage 0: W(1/32) = ['3.262e-06', '6.637e-04', '-3.489e-06'], p = ['2.00', '1.00', '2.00']; stage 1:
+      W(1/32) = ['1.844e-06', '-2.938e-07', '-1.000e-05'], p = ['2.00', '3.71', '2.00']
+      th = 1.20  stage 0: W(1/32) = ['3.479e-06', '2.892e-04', '-1.663e-06'], p = ['2.00', '1.00', '2.00']; stage 1:
+      W(1/32) = ['2.738e-06', '7.773e-07', '-2.663e-06'], p = ['1.99', '1.91', '1.98']
+  D8 (computed, floating point): the weak residual (J_r, J_th, rho) of the stage-0 data is of order lam in J_th (the mean
+      -S_1) and of order lam^2 in J_r, rho; with the stage-1 data of D5 it is of order lam^2 in all three (p from lam =
+      1/32 to 1/64): True [614s]
+  E1 (proved; computed): phi^(k)(t) = P_k(1/t) e^(-1/t) with P_(k+1)(x) = x^2 (P_k - P_k'), k <= 8: True; P_k(x) e^(-x)
+      -> 0 as x -> oo: True; exp(-y^2/(1 - y^2)) = e exp(-1/(1 - y^2)): True; so beta = e cos^12(pi y/2) phi(1 - y^2) is
+      C^oo with support [-1, 1] and env with support [1/2, 7/2]; the derivatives 1..8 of beta at y = 1 - 1e-3 are at most
+      1.44e-205 (60 digits): True
+  C4 (control): the numerics' sin^4(pi (v - 1/2)/3): its derivatives 1..8 at v = 1/2 + 1e-3 reach 1.166e+4, and its
+      fourth derivative at v = 1/2 is 8*pi**4/27 != 0 (0 from the left): not C^4, E1's test fails: True
+  G1 (certified, exact rationals): rho~ from (tau*, a) back to tau0 = tau* - (4 - a) in 2000 pieces, every slope >= (1 -
+      m)/(1 + m) with m >= 1/rho~^2: True; rho~(tau0) = 0.984835 < 1 (it approaches the horizon from inside): True
+  G2 (certified, Arb): the local rate kappa(r) on 600 r-cells of [a, b(tau0)]; at r = a: [12.9289 +/- 2.78e-5]
+      (stage1rate5's 13.2197 on 400 cells); sup over r >= 0.5: [6.67086 +/- 4.97e-6], >= 1: [2.63054 +/- 2.70e-6], >= 2:
+      [0.680347 +/- 4.80e-7]: True
+  G3 (certified): int_(tau0)^(tau*) kappa(rho~(tau)) dtau <= [14.4766 +/- 6.69e-6], so the principal-part factor over
+      X*'s past is e^((1/2) int) <= [1391.72 +/- 1.38e-3], against the record's e^(kappa Dtau*/2) <= 5.103e10 (classm5
+      K5): smaller by a factor [3.67e+7 +/- 3.32e+4]; pinned in (1000, 1500): True [624s]
+  C6 (control): the slopes 1.25 times steeper (rho~ moving outward faster than the outgoing null rays): the
+      future-boundary check fails: True
+  The chain (deduced, R8.2, READ classm5 K1-K2, K4): C_app >= (4/3) K + |M_22| at X*, (4/3) K >= [12.5934637 +/- 2.53e-8]
+      > 12.593309: True; an enclosure [lo, hi] of M_22, 0 not in it, would give lambda0 < 0.0024433 x
+      12.593309/(12.593309 + min(|lo|, |hi|)) (operator norm). No enclosure is computed here (LAMBDA0-DATA5.md, M_22).
+  C5 (control): X* perturbed to r = a + 1/100: (4/3) env(2) r^(-3/2) <= [11.9248313 +/- 3.02e-8] < 12.593309, so the base
+      of the chain fails there: True
+  The tolerance (deduced, the reading of classm5 K5): an a posteriori enclosure of M_22 through Lemma 2.3's principal
+      part needs the residual below |M_22| times about [0.000719 +/- 4.66e-7] (was 2e-11), before c_Y q^(1/2) (<= 2^(1/2)
+      x 37.8, stage1rate5 K3), the lower-order coefficients and the Sobolev constant of the point value; not met: no
+      approximate solution of the evolution exists here.
+  Not decided here (LAMBDA0-DATA5.md): a certified enclosure of M_22 = (m_1)_phi1phi1(X*)/a^2, which needs a validated
+      solve of Lemma 5.3 (a)-(c) at m = 1 on X*'s past from the Cauchy data of D2, D4, D5, D7.
+D1 PASS
+D2 PASS
+D3 PASS
+D4 PASS
+D5 PASS
+D6 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+D7 PASS
+D8 PASS
+E1 PASS
+C4 PASS
+G1 PASS
+G2 PASS
+G3 PASS
+C6 PASS
+C5 PASS
+lam0data5: 18/18 [625s]

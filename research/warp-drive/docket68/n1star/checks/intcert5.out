@@ -1,0 +1,25 @@
+C3 (interval arithmetic, the background itself) R >= R_*: hyperbolicity of Sigma' and the band on Sigma_tau0
+   R_* in [3.437180, 3.437180] (tau along the ray brackets tau0: True; the crossing has vhat < vhat(v = 3) = 3.14533: True)
+   N's data on the shell, v in [3, 4.5]: 1500 validated steps, widest node enclosure 5.3e-07; vhat(4.5) in [4.692460, 4.692460]; mu_end in [3.605773, 3.605834]
+   control: DOP853 inside the enclosures: True; with Q(3) shifted by 1e-6 it leaves them (rejected): True
+   Sigma' (R >= R_*) in {u <= u1}: R_*^2 > mu_end: True; phi < tau_ray(3.50) - tau0 = 0.0807 on the support (phi <= 2.7e-06): True; the ray reaches R = 3.50 before the shell: True; the shell ends on Sigma_tau0 at R < 5.3725 < 5.75: True
+   Sigma' (A = 0.01) on R in [R_*, 5.75]: kappa' > 0 and K'^l_l < 0 certified on every cell: True (2300 interval evaluations; largest upper bound of kappa' K'^l_l = -2.9597e-04); beyond 5.75, Sigma' = Sigma_tau0 in Tangherlini of mass mu_end, Nk = (mu/R^3)(f - 3) < 0 exactly
+   control: Sigma_tau0 (A = 0) not certified (1944 cells fail; rejected): True
+   the band on Sigma_tau0, the background itself, on [R_*, 5.75] (23000 cells): Nk < 0 certified outside the edge zones [4.2882, 4.2955], [4.5258, 4.5310], Nk > 0 certified on [4.2955, 4.5258] between them, the sign unresolved inside the zones (widest 0.0073): True
+C3 PASS
+C1, C1d (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]: the computed background, and every background within d of it
+   C1, n = 80: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
+   C1, n = 160: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
+   C1d, n = 80, d = (0.001, 0.001, 0.03), mu0 widened by 1e-04: certified on every cell: True (least lower bound 0.0483)
+   C1d, n = 160, d = (0.001, 0.001, 0.03), mu0 widened by 1e-04: certified on every cell: True (least lower bound 0.0484)
+   the n = 80 and n = 160 splines differ by at most 1.1e-05, 9.4e-06, 6.0e-06 (psi_P, psi_P', psi_P'', sampled): far inside d (truebg5 T2 certifies the n = 160 spline's distance to the background itself)
+   controls: the background's mass mu0 -> -mu0 (the input mutated) not certified (235 cells fail; rejected): True; without its 4 nu E^2 term not certified (600 fail; rejected): True; d = (0.5, 0.5, 5) not certified (600 fail; rejected): True
+C1 PASS
+C2, C2d (interval arithmetic) kappa' K'^l_l < 0 on the bent slice between its samples: the computed background, and every background within a widening of it on R < R_*
+   C2, n = 80, A = 0.010: 434 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (1732 interval evaluations; largest upper bound of kappa' K'^l_l = -3.0105e-04)
+   C2, n = 160, A = 0.010: 867 crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: True (3464 interval evaluations; largest upper bound of kappa' K'^l_l = -3.0569e-04)
+   C2d, n = 80, R < R_* = 3.4372, inputs widened by 1e-3 of their size + 1e-6: certified: True (largest upper bound -6.3897e-03)
+   C2d, n = 160, R < R_* = 3.4372, inputs widened by 1e-3 of their size + 1e-6: certified: True (largest upper bound -6.4648e-03)
+   controls: A = 0.001 not certified (220 sub-cells fail, largest upper bound 4.898e-05; rejected): True; A = 0 not certified (314 fail; rejected): True; a widening of 0.5 on R < R_* not certified (3386 fail; rejected): True
+C2 PASS
+exit 0

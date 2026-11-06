@@ -1,0 +1,55 @@
+# python3 checks/rich5.py   (round 7; read only)
+R0 data/rcert5_C3R.npz (file md5 88e16664187868e47eaaaa18709cfc61, pinned 88e16664187868e47eaaaa18709cfc61): file and
+    five tensor md5s equal the pinned ones: True; data/rcert5_C3.npz md5 698569f6faaab4420fe2e67abc860561 (equal to the
+    committed 698569f6faaab4420fe2e67abc860561)
+   R: shape (25, 31, 16), md5 38d56f2c0e74ca1f98464535fc772b68
+   m: shape (25, 31, 16), md5 823816695d383bbaccd88cd05cec3102
+   n: shape (25, 31, 16), md5 25ca367fb31a26a7727b8272b3197f66
+   W: shape (25, 31, 16), md5 d6c979afce76ef042af7d73743b93f2e
+   s: shape (25, 31, 16), md5 eb5158067377eee0c20bf4758868af73
+C3 (census regression) round-3 tensors: boxes above tau 193, above tau' 337, of 416; largest certified lower end
+    2.4142e-03 (rcert5d.out D3: 193, 337, 416, 2.414e-3) -> reproduced (45 s)
+R2 (certified) Richardson approximant at the 16128 points: largest certified UPPER end 3.7217e-05; per component ll
+    3.72e-05, ln 1.24e-06, nn 3.10e-06, lx 3.23e-06, nx 3.46e-06, xx 1.71e-06, 11 2.09e-06, 22 1.59e-06
+   against the round-3 approximant's largest certified lower end 2.4142e-03: 64.9-fold lower
+   boxes holding a point whose UPPER end exceeds tau = 5.3e-04: 0 of 416; exceeds tau' = 3.0e-05: 3 (lower ends: 0 and 3,
+       so at least 3 boxes cannot be certified at tau' for it)
+   (the round-3 approximant: 193 and 337 boxes above tau and tau' by lower ends)
+R2 PASS (every certified point value of the Richardson approximant is below tau)
+C2 (control, W + 0.01 v) certified lower ends up to 3.124e-01 against tau -> refused (good)
+R3 (certified) K2 box (0, 3, 10) holds the round-3 point (t, sig, x) = (-0.9583, 0.9583, -0.6562) with certified |ll| >=
+    2.414e-03 > tau; its depth-4 sub-box t -0.9531 +- 0.0156, sig 0.9531 +- 0.0156, x -0.6484 +- 0.0078:
+   Richardson approximant: finished, tiles the box, 512 sub-boxes accepted (depths [3]), 584 evaluated, cpu 44 s;
+       certified sup ll <= 6.09e-05, ln <= 3.78e-06, nn <= 2.73e-06, lx <= 8.01e-06, nx <= 1.47e-06, xx <= 6.51e-06, 11
+       <= 4.43e-06, 22 <= 3.36e-06; largest centre 3.025e-05
+   gate (D4): 1241 points, largest (point value)/(sub-box sup) 0.519, violations 0
+   -> PASS (sup 6.091e-05 against the round-3 point value 2.414e-03: 39.6-fold lower)
+R3 (certified) K2 box (0, 3, 9) holds the round-3 point (t, sig, x) = (-0.9583, 0.9583, -0.7824) with certified |ll| >=
+    2.388e-03 > tau; its depth-4 sub-box t -0.9531 +- 0.0156, sig 0.9531 +- 0.0156, x -0.7845 +- 0.0020:
+   Richardson approximant: finished, tiles the box, 64 sub-boxes accepted (depths [2]), 72 evaluated, cpu 5 s; certified
+       sup ll <= 4.97e-04, ln <= 6.14e-05, nn <= 4.35e-05, lx <= 7.38e-05, nx <= 1.96e-05, xx <= 6.86e-05, 11 <=
+       5.00e-05, 22 <= 4.43e-05; largest centre 1.876e-05
+   gate (D4): 189 points, largest (point value)/(sub-box sup) 0.042, violations 0
+   -> PASS (sup 4.966e-04 against the round-3 point value 2.388e-03: 4.8-fold lower)
+R3 (certified) K2 box (0, 3, 8) holds the round-3 point (t, sig, x) = (-0.9583, 0.9583, -0.8457) with certified |ll| >=
+    2.348e-03 > tau; its depth-4 sub-box t -0.9531 +- 0.0156, sig 0.9531 +- 0.0156, x -0.8477 +- 0.0019:
+   Richardson approximant: finished, tiles the box, 64 sub-boxes accepted (depths [2]), 72 evaluated, cpu 5 s; certified
+       sup ll <= 4.93e-04, ln <= 6.02e-05, nn <= 4.34e-05, lx <= 6.41e-05, nx <= 2.13e-05, xx <= 8.82e-05, 11 <=
+       6.12e-05, 22 <= 4.42e-05; largest centre 2.508e-05
+   gate (D4): 189 points, largest (point value)/(sub-box sup) 0.055, violations 0
+   -> PASS (sup 4.932e-04 against the round-3 point value 2.348e-03: 4.8-fold lower)
+R3 (certified) K2 box (1, 2, 15) holds the round-3 point (t, sig, x) = (-0.4583, 0.4583, 0.6562) with certified |ll| >=
+    1.096e-03 > tau; its depth-2 sub-box t -0.4375 +- 0.0625, sig 0.4375 +- 0.0625, x 0.6562 +- 0.0312:
+   Richardson approximant: finished, tiles the box, 4096 sub-boxes accepted (depths [4]), 4680 evaluated, cpu 367 s;
+       certified sup ll <= 1.75e-04, ln <= 2.68e-05, nn <= 1.88e-05, lx <= 2.97e-05, nx <= 8.31e-06, xx <= 3.50e-05, 11
+       <= 2.26e-05, 22 <= 2.24e-05; largest centre 9.547e-06
+   gate (D4): 9009 points, largest (point value)/(sub-box sup) 0.072, violations 0
+   -> PASS (sup 1.747e-04 against the round-3 point value 1.096e-03: 6.3-fold lower)
+C1 (control, rounds 6-7: end to end through Engine.kids, rcert5d.kids_control, test fields in t, sig and x) largest
+    true/bound 0.9999999926 (<= 1: sound); with the remainder dropped 4.2542 (> 1); Engine.bound alone on the round-5
+    test polynomials 0.2500 and inf -> sound, and the mutation is caught (good)
+C1(b) (control, round 7: rcert5d.contain_control on the Richardson tensors and the frame) box_coeffs' enclosures against
+    point_coeffs at their corners: 35840 checks, 0 not contained; the box-path frame output against the point path at the
+    corners: 20480 checks, 0 not contained -> every enclosure contains its corners (good) (10 s)
+   data/rcert5_C3.npz md5 after: 698569f6faaab4420fe2e67abc860561 (unchanged)
+rich5 (1157 s): all checks pass

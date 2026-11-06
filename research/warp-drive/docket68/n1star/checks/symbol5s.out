@@ -1,0 +1,52 @@
+   Ric_uv carries s_vv with coefficient -(1 - x^2) s c_s (exact: True), which (1 - x^2) s Ric_vx cancels in Ric(Y, d_v)
+S1 second derivatives of s by row: {'E11': [], 'E22': [], 'Exx': ['vx'], 'EYv': ['vx'], 'Evx': ['vv']} ; s_vx column
+    (E11, E22, Exx, EYv): [0, 0, R**2*exp(-2*W - 2*m*x/3 - 2*m/3 + 2*n*x/3 - 2*n/3)/8, x**2/2 - 1/2] ; Ric_vx: s_vv
+    coefficient R**2*exp(-2*W - 2*m*x/3 - 2*m/3 + 2*n*x/3 - 2*n/3)/16 , f_vx coefficients = -d zeta: True -> PASS
+S2 A_eff = M^-1 (N + n dzeta/c_s)/Lambda =
+⎡    0        0      0    0⎤
+⎢                          ⎥
+⎢   -3                     ⎥
+⎢─────────   -1      0    0⎥
+⎢R⋅(x + 1)                 ⎥
+⎢                          ⎥
+⎢    3                     ⎥
+⎢─────────    0     -1    0⎥
+⎢R⋅(x - 1)                 ⎥
+⎢                          ⎥
+⎢    2      x   1  1   x   ⎥
+⎢    ─      ─ + ─  ─ - ─  0⎥
+⎣    R      3   3  3   3   ⎦
+S3 charpoly l**2*(l + 1)**2; rank A_eff = 2, rank(A_eff + I) = 2; Jordan block at 0: False -> PASS (no Jordan block)
+   control (n -> 0, the frozen shift of symbol5.py): rank A = 3, Jordan block: True -> the no-Jordan test fails (good)
+S4 eigenvalue-0 left eigenvectors of A_eff: [[1, 0, 0, 0], [0, x/3 + 1/3, 1/3 - x/3, 1]]
+   eigenvalue-0 right eigenvectors: [[R*(x - 1)/3, (1 - x)/(x + 1), 1, 0], [0, 0, 0, 1]]
+   left vector 0: l . M^-1 (s_x column) = 3; on spherical states (m = n = s = 0, their derivatives 0): R_v*(1 - x**2); d
+       zeta on the right eigenvectors: [0, 1]
+   left vector 1: l . M^-1 (s_x column) = 5; on spherical states (m = n = s = 0, their derivatives 0): 2*R_v*(x**2 -
+       1)/R; d zeta on the right eigenvectors: [0, 1]
+   so the eigenvalue-0 sector IS driven by s_x on spherical states (the Levi term of Y5).
+   d zeta . M^-1 (s_x column) on spherical states: 0  (so delta zeta is not driven at order k^2 by its own shift; delta
+       R, the l_0 component, is: l_0 . M^-1 (s_x column) = R_v*(1 - x**2))
+   Ric_vx's own s_x and s coefficients on spherical states: 0, 0  (zero: there s_v = zeta_x/c_s + O(1) and s ~ (ik/c_s)
+       int (d zeta . f) dv at angular frequency k)
+S5 constraint-preserving block with s_vx: A3 =
+⎡ -1      0    0⎤
+⎢               ⎥
+⎢  0     -1    0⎥
+⎢               ⎥
+⎢x   1  1   x   ⎥
+⎢─ + ─  ─ - ─  0⎥
+⎣3   3  3   3   ⎦
+   charpoly l*(l + 1)**2, rank A3 = 2, rank(A3 + I) = 1, Jordan block: False; the W row's own W_xx coefficient: 0
+   the W row (after M3^-1) carries s_x with coefficient R_v*(1 - x**2)/(2*R) on spherical states; with s ~ (ik/c_s) int
+       (d zeta . f) and d zeta . e_W = 1, W is driven by k^2 int W dv there: the eigenvalue-0 mode drives itself.
+S5 PASS
+S6 (deduced) free formulation, spherical states: delta R_uv = kappa_R k^2 int Z dv, kappa_R = 16*R_v*(1 -
+    x**2)*exp(2*W)/R**2, Z = delta zeta undriven at order k^2: delta R ~ kappa_R k^2 u v^2/2, growth k^2 (no estimate
+    without loss).
+   (computed, model) constraint-preserving W: z_uv = -kappa k^2 int z dv, Goursat data z = 1 on u = 0 and v = 0;
+   exact series z(u, v) = sum_j a^j u^j v^(2j)/(j! (2j)!), a = -kappa k^2; |z(1, 1)| against k^2:
+   kappa = +1: k = 2: 0.681, k = 4: 2.55, k = 8: 8.71, k = 16: 59.7, k = 32: 1.71e+03, k = 64: 3.27e+05
+   kappa = -1: k = 2: 3.35, k = 4: 15.4, k = 8: 199, k = 16: 1.33e+04, k = 32: 1.22e+07, k = 64: 6.98e+11
+   both signs outgrow k^2 at the top of the range: True, True (the series grows like exp(c k^(2/3)))
+symbol5s: all checks pass

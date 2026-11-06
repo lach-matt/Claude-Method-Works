@@ -44,6 +44,16 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
   R8 The mass law's coefficient for the numerical solver's envelope, sin^4(pi (v - 1/2)/3) on [1/2, 7/2], A = 1:
      (2/9) int env'^2 = 5 pi^2/108 = 0.456926 (Theorem 3, section 6), and the shell's mass (2/9) int env^2 = 35/192.
      Control: a sin^2 envelope gives pi^2/27.
+  R9 The md5 table.  Every row of Appendix D's table names a file under the research tree whose md5 at this commit is
+     the one printed (the paper's own md5 is in its commit, not in itself).  Control: one printed digit changed.
+  R10 Section 9's floor on the loss.  With epsilon_ind <= delta_50 = 1.94137 * 10^-8 (supplement LOSS-D LD10, exact
+     there), each of the two long loops runs more than (1/2)/delta_50^2 rounds, and each round is charged 3, so d > 3 *
+     2 * (1/2)/delta_50^2 > 7.95 * 10^15 and N = 21 d + 6 > 1.66 * 10^17, the figures section 9 prints (exact
+     rationals).  Control: 2 per round.
+  R11 Section 9's one-derivative constants on the band.  From the certified band bound B <= 11.477 on 3 <= sigma <= 384
+     and the certified multipliers (m' >= 0.005793, M' <= 1.02041; at l = 0, m0' >= 0.002580, M0' <= 0.3809),
+     X = (1 + (1 + 2 m' (M' + 2 sigma) B)^(1/2)) / (2 m') at sigma = 384 lies in (963.3, 963.4] and X_0 in (1515, 1516],
+     each increasing in sigma and B (exact rationals, the root bracketed by integer square roots).  Control: sigma = 3.
 
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
@@ -421,6 +431,184 @@ def r8(control=False):
     return bool(ok)
 
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, "..")
+PAPER = os.path.join(HERE, "RESPONSE-HL-5D.md")
+
+
+def md5_rows():
+    import re
+    S = open(PAPER, encoding="utf-8").read()
+    a = S.index("The md5 of each file this paper rests on")
+    return re.findall(r"^\| `([^`]+)` \| `([0-9a-f]{32})` \|$", S[a:], re.M)
+
+
+def md5_of(path):
+    import hashlib
+    return hashlib.md5(open(os.path.join(ROOT, path), "rb").read()).hexdigest()
+
+
+def r9(control=False):
+    """Appendix D's md5 table against the files at this commit"""
+    rows = md5_rows()
+    if control:
+        f, m = rows[0]
+        rows = [(f, ("0" if m[0] != "0" else "1") + m[1:])] + rows[1:]
+    return len(rows) > 0 and all(os.path.exists(os.path.join(ROOT, f)) and md5_of(f) == m for f, m in rows)
+
+
+def r10(control=False):
+    """section 9's floor: d > 7.95e15, N > 1.66e17 from delta_50 and 3 per round (2 in the control)"""
+    from fractions import Fraction as Fr
+    delta = Fr(194138, 10**13)          # above delta_50 = 1.94137057e-8 (epsind5.py E3): the floor is rigorous
+    rounds = 2 * (Fr(1, 2) / delta**2)
+    d = (2 if control else 3) * rounds
+    txt = " ".join(open(PAPER, encoding="utf-8").read().split())
+    printed = "d > 7.95 × 10¹⁵ and N > 1.66 × 10¹⁷" in txt
+    return printed and d > Fr(795, 100) * 10**15 and 21 * d + 6 > Fr(166, 100) * 10**17
+
+
+def r11(control=False):
+    """section 9's H^1 constants at sigma = 384, B = 11.477: X in (963.3, 963.4], X_0 in (1515, 1516]"""
+    from fractions import Fraction as Fr
+    from math import isqrt
+
+    def xb(mp, mm, sig, b):
+        q = 1 + 2 * mp * (mm + 2 * sig) * b
+        s = 10**12
+        n = isqrt(q.numerator * s * s // q.denominator)
+        lo, hi = Fr(n, s), Fr(n + 1, s)              # lo <= sqrt(q) < hi
+        assert lo * lo <= q < hi * hi
+        return (1 + lo) / (2 * mp), (1 + hi) / (2 * mp)
+    sig, b = Fr(3 if control else 384), Fr(11477, 1000)
+    xlo, xhi = xb(Fr(5793, 10**6), Fr(102041, 10**5), sig, b)
+    zlo, zhi = xb(Fr(2580, 10**6), Fr(3809, 10**4), sig, b)
+    return Fr(9633, 10) < xlo and xhi <= Fr(9634, 10) and 1515 < zlo and zhi <= 1516
+
+
+def update_md5():
+    """--update-md5: rewrite Appendix D's md5 column from the files at this commit"""
+    S = open(PAPER, encoding="utf-8").read()
+    n = 0
+    for f, m in md5_rows():
+        cur = md5_of(f)
+        if cur != m:
+            S = S.replace("| `%s` | `%s` |" % (f, m), "| `%s` | `%s` |" % (f, cur))
+            n += 1
+    open(PAPER, "w", encoding="utf-8").write(S)
+    print("updated %d rows" % n)
+
+
+def r12(control=False):
+    """(2.5'), the leading wave written from section 2.4's F, G: (a) its components are the lam-linear part of the
+    approximant the supplement's programs compute with (ansatz5.py's approximant(), imported), with no dv or dr
+    component; (b) it is traceless on the round S^3; (c) with Proposition 2.3's quadratic part of R_vv, -2 (P1_v^2 + P1_v
+    P2_v + P2_v^2) with P_i = r^(-3/2) p_i, against R2's Ric(g0) = (3 mu'/(2 r^3)) dv dv, the phase mean of mu' = (4/3)
+    (p1_v^2 + p1_v p2_v + p2_v^2) at leading order in lam is (2/9) A^2 env^2 h^2 (c^4 + s^4), which is (2/9) A^2 env^2
+    for section 2.4's h: the law (2.6). Control: the map p1 = F, p2 = G in place of (2.5')'s."""
+    sys.path.insert(0, os.path.join(ROOT, "docket68", "n1star"))
+    import ansatz5 as a5
+    r, th, s, lam, A, C, S, E, H = a5.r, a5.th, a5.s, a5.lam, a5.A, a5.C, a5.S, a5.Ef, a5.Hf
+    F, G = lam*A*E*H*sp.sin(s), lam*A*E*H*sp.cos(s)          # s stands for the phase v/lam
+    q1, q2 = (F, G) if control else ((2*C**2*G - S**2*F)/3, (2*S**2*F - C**2*G)/3)
+    W = sp.zeros(5)
+    W[2, 2], W[3, 3], W[4, 4] = -2*sp.sqrt(r)*(q1 + q2), 2*sp.sqrt(r)*C**2*q1, 2*sp.sqrt(r)*S**2*q2
+    g, _ = a5.approximant()
+    ok = all(sp.simplify(lam*sp.expand(g[i, j]).coeff(lam, 1) - W[i, j]) == 0 for i in range(5) for j in range(5))
+    ok &= sp.simplify(W[2, 2]/r**2 + W[3, 3]/(r**2*C**2) + W[4, 4]/(r**2*S**2)) == 0
+    d1, d2 = sp.diff(q1, s)/lam, sp.diff(q2, s)/lam            # d_v at leading order: lam^-1 d_s on the phase
+    mup = sp.integrate(sp.expand(sp.Rational(4, 3)*(d1**2 + d1*d2 + d2**2)), (s, 0, 2*sp.pi))/(2*sp.pi)
+    ok &= sp.simplify(mup - sp.Rational(2, 9)*A**2*E**2*H**2*(C**4 + S**4)) == 0
+    ok &= sp.simplify(a5.H_REC**2*(C**4 + S**4) - 1) == 0
+    return bool(ok)
+
+
+def r13(control=False):
+    """(a) section 3's 'every constant of the approximant's own estimates is lam-independent, because its profiles are':
+    the stage profiles the supplement's programs compute -- the leading waves a1, a2 and the second-order terms bc, bs,
+    kc, ks of ansatz5.py -- contain no lam. (b) Proposition 3.2's uniform margin: with mu >= mu0 >= sqrt72 l5^2 and mu'
+    >= 0, (3.1) is at most -delta, delta = (mu0/(sqrt72 l5^2))^(1/2) - 1; the difference is (mu - mu0)/(c^(1/2)
+    (mu^(1/2) + mu0^(1/2))) + r_q mu'/(2 mu), c = sqrt72 l5^2, an exact identity whose terms are nonnegative.
+    Controls: (1) a profile carrying a factor 1 + lam; (2) + r_q mu'/(2 mu) in (3.1) in place of -."""
+    sys.path.insert(0, os.path.join(ROOT, "docket68", "n1star"))
+    import ansatz5 as a5
+    a1_, a2_ = a5._waves()
+    prof = [a1_*(1 + a5.lam) if control == 1 else a1_, a2_] + list(a5.g2_terms())
+    ok = not any(sp.sympify(q).has(a5.lam) for q in prof)
+    mu0, l5, rq, mup, tt = sp.symbols("mu0 l5 r_q mup t", positive=True)
+    mu = mu0 + tt                                               # mu >= mu0, t >= 0
+    c = sp.sqrt(72)*l5**2
+    sgn = 1 if control == 2 else -1
+    expr = 1 - sp.sqrt(mu/c) + sgn*rq*mup/(2*mu)                # (3.1)
+    delta = sp.sqrt(mu0/c) - 1
+    rep = tt/(sp.sqrt(c)*(sp.sqrt(mu) + sp.sqrt(mu0))) - sgn*rq*mup/(2*mu)
+    ok &= sp.simplify((-delta - expr) - rep) == 0 and bool(rep.is_nonnegative)
+    return bool(ok)
+
+
+def r14(control=False):
+    """section 3's vacuum step, that D(g_lam) solves a homogeneous linear wave system by the contracted Bianchi
+    identity: for any 4+1 metric g and covector field D, with E := Ric - nabla_(mu D_nu),
+        div(E - (1/2) g tr E)_nu + (1/2)(box D_nu + R_nu^mu D_mu) = 0,
+    so E = 0 (the reduced equations) gives box D + Ric(D) = 0. Checked exactly at a point for random metrics (g = eta
+    + cubic polynomial, vanishing at the point) and random quadratic D, rational coefficients, every series truncated
+    at the degree the point needs (gi, Gamma at 2; Ric, E at 1). Control: E - g tr E in place of E - (1/2) g tr E."""
+    X = sp.symbols("x0:5")
+    rnd = random.Random(14)
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    mons = [m for d in range(1, 4) for m in sp.itermonomials(X, d, d)]
+
+    def P(e):
+        return sp.Poly(e, *X, domain="QQ")
+
+    def tr(p, d):
+        return sp.Poly.from_dict({m: c for m, c in p.as_dict().items() if sum(m) <= d}, *X, domain="QQ")
+
+    def at0(p):
+        return p.as_dict().get((0,)*5, sp.Rational(0))
+    ok = True
+    for trial in range(2):
+        A = [[None]*5 for _ in range(5)]
+        for a in range(5):
+            for b in range(a, 5):
+                A[a][b] = A[b][a] = P(sum(sp.Rational(rnd.randint(-4, 4), 7)*m for m in mons))
+        g = [[P(eta[a, b]) + A[a][b] for b in range(5)] for a in range(5)]
+        etaP = [[P(eta[a, b]) for b in range(5)] for a in range(5)]
+
+        def mm(U, V, d):
+            return [[tr(sum((U[a][k]*V[k][b] for k in range(5)), P(0)), d) for b in range(5)] for a in range(5)]
+        eAe = mm(mm(etaP, A, 2), etaP, 2)
+        eAeAe = mm(mm(eAe, A, 2), etaP, 2)
+        gi = [[etaP[a][b] - eAe[a][b] + eAeAe[a][b] for b in range(5)] for a in range(5)]
+        dg = [[[tr(g[a][b].diff(X[c]), 2) for b in range(5)] for a in range(5)] for c in range(5)]
+        half = sp.Rational(1, 2)
+        Gm = [[[tr(sum((gi[a][d]*(dg[b][d][c] + dg[c][d][b] - dg[d][b][c]) for d in range(5)), P(0)).mul_ground(half),
+                   2) for c in range(5)] for b in range(5)] for a in range(5)]
+        Ric = [[tr(sum((Gm[a][b][d].diff(X[a]) - Gm[a][b][a].diff(X[d])
+                        + sum((Gm[a][a][e]*Gm[e][b][d] - Gm[a][d][e]*Gm[e][b][a] for e in range(5)), P(0))
+                        for a in range(5)), P(0)), 1) for d in range(5)] for b in range(5)]
+        Dv = [P(sum(sp.Rational(rnd.randint(-4, 4), 5)*m for m in [sp.Integer(1)] + mons if sp.Poly(m, *X).total_degree()
+                    <= 2)) for _ in range(5)]
+        T = [[tr(Dv[n].diff(X[m]) - sum((Gm[s][m][n]*Dv[s] for s in range(5)), P(0)), 1) for n in range(5)]
+             for m in range(5)]                                   # T[m][n] = nabla_m D_n
+        E = [[Ric[m][n] - (T[m][n] + T[n][m]).mul_ground(sp.Rational(1, 2)) for n in range(5)] for m in range(5)]
+        trE = tr(sum((gi[a][b]*E[a][b] for a in range(5) for b in range(5)), P(0)), 1)
+        k = 1 if control else sp.Rational(1, 2)
+        F = [[tr(E[m][n] - (g[m][n]*trE).mul_ground(k), 1) for n in range(5)] for m in range(5)]
+        gi0 = [[at0(gi[a][b]) for b in range(5)] for a in range(5)]
+        G0 = [[[at0(Gm[a][b][c]) for c in range(5)] for b in range(5)] for a in range(5)]
+        for n in range(5):
+            div = sum(gi0[m][a]*(at0(F[m][n].diff(X[a])) - sum(G0[s][a][m]*at0(F[s][n]) + G0[s][a][n]*at0(F[m][s])
+                                                                  for s in range(5)))
+                      for m in range(5) for a in range(5))
+            box = sum(gi0[a][b]*(at0(T[b][n].diff(X[a])) - sum(G0[s][a][b]*at0(T[s][n]) + G0[s][a][n]*at0(T[b][s])
+                                                                for s in range(5)))
+                      for a in range(5) for b in range(5))
+            ricD = sum(at0(Ric[n][m])*gi0[m][s]*at0(Dv[s]) for m in range(5) for s in range(5))
+            ok &= div + (box + ricD)/2 == 0
+    return bool(ok)
+
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
@@ -430,7 +618,13 @@ CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) 
           ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)",
            r7, 1),
           ("R8 the mass law's coefficient for the solver's envelope: (2/9) int env'^2 = 5 pi^2/108; the shell 35/192",
-           r8, 1)]
+           r8, 1),
+          ("R9 Appendix D's md5 table matches the files at this commit", r9, 1),
+          ("R10 section 9's floor: d > 7.95e15 and N > 1.66e17 from delta_50 and 3 per round", r10, 1),
+          ("R11 section 9's H^1 constants at sigma = 384: X <= 963.4, X_0 <= 1516", r11, 1),
+          ("R12 (2.5'): the approximant's lam-linear part, traceless on S^3, its phase-mean flux (2.6)", r12, 1),
+          ("R13 the profiles carry no lam; Proposition 3.2's uniform margin -delta, an exact identity", r13, 2),
+          ("R14 the vacuum step: div(E - g trE/2) = -(box D + Ric(D))/2 for random 4+1 metrics, exactly", r14, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
@@ -460,4 +654,7 @@ def selftest(full=False):
 
 if __name__ == "__main__":
     random.seed(0)
+    if "--update-md5" in sys.argv:
+        update_md5()
+        sys.exit(0)
     sys.exit(0 if selftest("--full" in sys.argv) else 1)
