@@ -413,7 +413,7 @@ def r6_exact(C, plant_level=None):
     hit = False
     if v.denominator == 1:
         v = int(v)
-        a1 = I['alpha1'] if plant_level is None else int(plant_level * D) - 7 * I['s']
+        a1 = I['alpha1'] if plant_level is None else int(plant_level * D) - (C['k3'] + 7) * I['s']
         hit = (v - a1) % I['s'] == 0 and C['k3'] <= (v - a1) // I['s'] < C['K']
         hit = hit or v == I['alpha']
     return cand, hit
@@ -485,12 +485,12 @@ def main(selftest=False):
     print('  R2 (exact): 9 + 4z = %s not a rational square: %s; (z + 2)^2 + 4 l (l + 2) a rational square only at l in '
           '%s (divisor pairs of p^2 + 4pq = %d = %s); box^C rational roots: s0 quartic %s, s1 sextic %s, scalar sextic '
           'at 2 <= l <= %d: %s; vector quadratic ((l + 1)^2 + %d a square): %d values of l, %d rational roots, %d not '
-          'integers, the least |lambda| of those %s > 100: %s; all other roots of III.F\' Proposition 2.3 are '
-          'integers: %s' % (
+          'integers (the least |lambda| of those: %s; every one above 100: %s); all other roots of III.F\' '
+          'Proposition 2.3 are integers: %s' % (
               9 + 4 * DW.Z, not R2['s0_disc_square'], R2['Q_rational_l'], DW.Z.numerator ** 2 + 4 * DW.Z.numerator
               * DW.Z.denominator, sp.factorint(DW.Z.numerator ** 2 + 4 * DW.Z.numerator * DW.Z.denominator),
               R2['C_s0'], R2['C_s1'], LC, R2['C_sl'] or 'none', R2['c0'], len(vl), len(R2['C_vec']), len(vec_ni),
-              float(min(abs(rt) for _l, rt in vec_ni)), vec_ok, OK['R2']))
+              min((abs(rt) for _l, rt in vec_ni), default='none'), vec_ok, OK['R2']))
     print('      the vector-type l with rational box^C roots (first ten): %s' % vl[:10])
     roots = window_roots()
     OK['R3'] = len(roots) == 12 and all(0 < (hi - lo) < Fr(1, 10 ** 40) or lo == hi for _n, _t, lo, hi in roots)

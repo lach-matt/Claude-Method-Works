@@ -28,7 +28,7 @@
       b(tau0) = 12.995. The example's own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = -4.092:
       inside the domain, the verifier's case (rejected, as it must be). Moving N out inside region I
       (explicit ingoing Vaidya, the same solution there): from R = 7.505 at v = 0 the bisection's RK4 gives
-      R - b >= 1.010 at its tau samples on [tau0, tau_end] (1.010 at its first sample); the certified
+      R - b >= 1.010 at its tau samples on [tau0, tau_end] (1.010 at its first sample); the checked
       margin is the independent check's, below: N cap {tau >= tau0} lies in {R > b(tau)}: True
       independent check (DOP853 on the reported R0): R - b = 0.9951 at tau0 (the bisection's RK4 samples tau
       at its steps: within 0.02), least 0.9951 > 0: True; control: the same check on the example's own cone

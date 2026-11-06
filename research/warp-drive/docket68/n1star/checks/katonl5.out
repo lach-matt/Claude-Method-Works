@@ -6,7 +6,7 @@ K2 PASS
 K1 (numpy) Picard iteration with the non-local source -(1 - d_x^2)^-1 (u^2):
    sup_t |u^(n+1) - u^n|_L2: 4.07e-01, 4.49e-02, 4.36e-03, 3.97e-04, 3.14e-05, 2.19e-06, 1.31e-07, 6.99e-09; ratios 0.110, 0.097, 0.091, 0.079, 0.070, 0.060, 0.053 (< 0.5: True)
    sup_t |u^n|_H2: 2.2960, 2.3924, 2.4041, 2.4051, 2.4051, 2.4052, 2.4052, 2.4052 (bounded within 5 %: True); (K2) measured on 20 random pairs: True
-   control (F = 0.5 u_xx, not L2-Lipschitz): sup_t |u^n|_H2 = 2.07, 2.07, 2.07, 2.49, 4.84, 230: grows without bound (rejected): True
+   control (F = 0.5 u_xx, which violates (K1) and (K2)): sup_t |u^n|_H2 = 2.07, 2.07, 2.07, 2.49, 4.84, 230: grows without bound (rejected): True
 K1 PASS
 PASS
 exit 0

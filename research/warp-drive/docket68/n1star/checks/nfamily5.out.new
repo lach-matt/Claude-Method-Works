@@ -9,3 +9,4 @@ N5 (exact) Lemma 2.4's boundary signs for every family on the record's domain
    radial extremes dr/dtau = -1 and (r^2 - mu)/(r^2 + mu): True; every null direction between them, exactly (the roots (-f +- sqrt(1 - w^2 (1 + f)))/(1 + f), monotone in the root): True, and on 15 sampled directions: True; outer flux b' - dr <= -1: True; inner (a = 0.7 < sqrt(0.82)) dr <= -33/131 < 0: True; control: untrapped a = 1.2 has dr > 0 (rejected): True
 N5 PASS
 N1 (exact, multi-phase jets) N = 3 overlapping torus waves with lam^2 mixed harmonics: no lam^-1 coefficient
+   seed 31: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: [True, True, True] (rho's lam^0 part has 13 harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): True; mixed harmonics at order lam leave one (rejected): True

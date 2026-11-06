@@ -6,7 +6,7 @@ R1 (computed) Nk on the whole of Part I's Sigma_tau0 (twobg5's background)
    converged (band edges to 1e-3, inside [4.29, 4.53]; max to 1e-5): True; controls: flux term dropped, max Nk = -0.0358 < 0: True; half the shell's amplitude, max Nk = -0.0166 < 0: True
    so the split is hyperbolic on Sigma_tau0 except on the band, which the example's shell creates
 R1 PASS
-R2 (exact) the region-I criterion; where Nk > 0 no foliation is hyperbolic
+R2 (exact identities; signs over the tilts deduced, illustrated on 400 draws) the region-I criterion; where Nk > 0 no foliation is hyperbolic
    region I: Nk = (mu/R^3)(f - 3) + mu'/(2 R^2): True; hyperbolic iff mu' < 2 mu (2 + mu/R^2)/R: True
    [Rac16] (4.22): the discriminant for a torus direction (k' . e_phi = 0) is -kappa' K'^l_l: negative for every tilt of a negative definite K (400 draws): True; control: the mixed-sign K's hyperbolic tilt has both discriminants positive: True
    K negative definite: K'^l_l = sin^2 b k0 + (3 - sin^2 b) k (exact): True; kappa' K'^l_l > 0 for every tilt (400 draws): True; control (mixed signs) has a hyperbolic tilt: True
