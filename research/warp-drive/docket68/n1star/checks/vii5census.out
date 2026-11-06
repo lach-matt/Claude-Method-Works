@@ -578,8 +578,8 @@
       used at PART-III-K-NONLINEAR.md:547  \chi_K
       used at PART-III-K-NONLINEAR.md:556  \chi_-
       used at PART-III-K-NONLINEAR.md:593  \tilde R(r)
-      used at PART-III-K-NONLINEAR.md:632  \tilde R(r)
-      used at PART-III-K-NONLINEAR.md:695  \chi_K \chi_{\mathrm{IVP}}
+      used at PART-III-K-NONLINEAR.md:639  \tilde R(r)
+      used at PART-III-K-NONLINEAR.md:720  \chi_K \chi_{\mathrm{IVP}}
       used at PART-IV4-SLAB.md:43  \chi_K \chi_{\mathrm{IVP}}
       used at PART-IV4-SLAB.md:44  \chi_K
       used at PART-IV4-SLAB.md:45  \chi^\sharp_K
@@ -1570,23 +1570,38 @@
       used at PART-III-I10-CORR4.md:424  \mathcal V'
       used at PART-III-I15-AUGMENT5.md:85  \mathcal V'
       used at PART-III-I16-BASEPOINTS.md:737  \mathcal V'
-  V2: 137 distinct spellings of omega in Parts III-IV (1597 occurrences): 80 contain a C3/C3'/C4 symbol, 57 excluded by
+  V2: 150 distinct spellings of omega in Parts III-IV (1598 occurrences): 83 contain a C3/C3'/C4 symbol, 67 excluded by
         a rule with its reason, 0 neither
+      excluded (1 spellings, 1 occurrences): III.D''s omega'_b, its continuity in b, on a line V1 lists (with breve
+        omega'_b, a use of breve omega) and VII5-READING.tsv reads
       excluded (16 spellings, 73 occurrences): a Minkowski model 1-form (bar or breve-bar), explicit:
         PART-III-D3-SYMSTATES.md (1.2), PART-III-D4-GENSTATES.md section 3 (its models, genstates5.py H1-H3), III.B
         section 5
+      excluded (3 spellings, 20 occurrences): a correction term inside the proof that builds C3' objects at their
+        sites, used only through them: III.D'' Proposition 3.1's proof (omega'_b := -P_b^-1 f_b, unique; omega_{b,s1}
+        := bar omega_s1 + omega'_b, omega_{b,v1}(V) := V + omega'_b), III.D''' Proposition 3.1's proof (omega^{(mu)}_b
+        := chi_d bar omega + omega')
+      excluded (7 spellings, 36 occurrences): a correction term of a dual state omega^{*(.)}_b, inside the proofs that
+        build the dual states (III.E Proposition 3.1, III.E2 Proposition 3.1), used with them only (the rule for
+        omega^* above)
       excluded (9 spellings, 46 occurrences): a dual state, the kernel of an adjoint operator (PART-III-D2, -E, -E2,
         -F4, -F5): used in the zero-energy counts of those files only, in no file of the construction (the III.G-III.K
         files)
-      excluded (4 spellings, 840 occurrences): a generic 1-form (or a coordinate on S^3), or its type-pi part
+      excluded (4 spellings, 744 occurrences): a generic 1-form (or a coordinate on S^3), or its type-pi part
+      excluded (2 spellings, 43 occurrences): a generic 1-form outside the construction: a kernel element of a
+        zero-energy uniqueness argument (III.D2 (c), omega' := omega - (q/2) W^*; III.F4 (ii), omega'_pi := omega_pi -
+        dot omega_{b_0}(dot b_pi)), a point of S^3 near omega (III.F2), or a solution or test form of an estimate (IV5
+        (1), IV6 (5.81), IV7 Theorem 2.1 (2))
       excluded (1 spellings, 12 occurrences): a musical dual, or the explicit V_b + c_0|x|^-3 V(W) of
         PART-III-E2-V1STATES.md:129-130
       excluded (23 spellings, 163 occurrences): components of a generic 1-form or covector, a multi-index, or the
         Cauchy data of another equation (IV5, IV7)
       excluded (1 spellings, 3 occurrences): the source's zero-energy state, in PART-III-D2-ZEROENERGY.md's remarks on
         the source
-      excluded (3 spellings, 35 occurrences): the zero-energy gauge potential, the unique solution of a natural problem
+      excluded (3 spellings, 32 occurrences): the zero-energy gauge potential, the unique solution of a natural problem
         (PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof)
-  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: True
+  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: True; since D628, a planted primed
+        omega'^{(7)}_{b,s9} at PART-III-D3-SYMSTATES.md:200 (inside a location rule's range): True; omega'_b planted at
+        PART-III-K-NONLINEAR.md:300 (outside its rules' ranges): True
   control: planted symbol reported missing its site: True; chi_9 with its site moved to PART-III-B-FAMILY.md:345-349 reported missing: True; moved within its own file (PART-III-K-NONLINEAR.md:1-10): True
-V1 PASS; V2 PASS; control (a planted and a moved site, and a planted spelling, reported): behaves
+V1 PASS; V2 PASS; control (a planted and a moved site, and three planted spellings, reported): behaves

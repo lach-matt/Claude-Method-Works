@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""gdlge2_5.py -- GAUGEDECAY5.md Rounds 8-9: the input (M), I.C's (G), (Z) and (TF) for the 1-form wave operator Box of
+"""gdlge2_5.py -- GAUGEDECAY5.md Rounds 8-10: the input (M), I.C's (G), (Z) and (TF) for the 1-form wave operator Box of
 five-dimensional Tangherlini restricted to the 1-forms with no l = 0 and no l = 1 part (the l >= 2 subspace; the class
 1-forms with no l = 0 part lie in it), at the b-weights alpha + 2 in (-1, 0]; and the bookkeeping of the rate of the
 l >= 2 part of the harmonic-gauge representative that (M) gives.  Every check has a control that mutates the computed
-path and must fail (round 9: L6's and L9's controls now do; GAUGEDECAY5 section R9.0).
+path and must fail (round 9: L6's and L9's controls now do; GAUGEDECAY5 section R9.0; round 10: L6's threshold and
+L9's gap are computed from L2's roots, section R10.0).
 
 Background as in rwgauge5.py and hgauge5.py: the ingoing chart (v, r, th, phi1, phi2), g = -f dv^2 + 2 dv dr + r^2
 gamma, f = 1 - mu/r^2, mu = s^2 = r_h^2, Box := 2 delta G delta^* = d delta + delta d on 1-forms, the zero-energy
@@ -53,8 +54,10 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      k diag(2k - 2, 2k + 2, 2k), invertible for k >= 2, and order 0 forces a(r_h) = 0), and three explicit polynomial
      solutions realise those jets; no nonzero combination has Cartesian growth below r^1 (they grow like r^(l - 1),
      r^l, r^(l + 1)).  The method needs polynomial solutions, so even l (at odd l the horizon-regular potentials are
-     non-terminating hypergeometric series); every l is gdr9_5.py N2.  Control (round 9): L6's own path with E_r's
-     coupling 3 kappa r c, and with the growth threshold raised to r^l, must fail both times.
+     non-terminating hypergeometric series); every l is gdr9_5.py N2.  Round 10: the growth threshold r^1 is the
+     claim's, r^(-lo) with lo the lower end of L9's gap computed from L2's roots, and L6 checks it ran there.  Control
+     (round 9): L6's own path with E_r's coupling 3 kappa r c, and with the growth threshold raised to r^l, must fail
+     both times.
   L7 (exact) The subspace.  The Cartesian components (in dt_*, dx^1, ..., dx^4) of the class forms S dv, S dr, dS (S
      = P_j(cos 2 th), l = 2j = 2, 4) have zero spherical means, the horizon functional ell vanishes on them, and the
      G-average of a constant spatial covector is 0: the degree-0 harmonics, which carry the roots 0 and 2, are
@@ -69,8 +72,10 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      conditions for alpha_K in (1, 3/2 + delta_#) on three sub-boxes ((1, 3/2), {3/2}, (3/2, 3/2 + delta_#)), each a
      positive sum; round 9 adds the hypotheses of III.I'' Lemmas 4.1-4.2 and II.G' Propositions 3.3 (1) and 3.5 (1)
      with w_I = max(5/2, gamma_+ + 1 + eps_1), eps_1, eps and eps_PP = min(eps, eps_1) encoded (28 conditions), and
-     that the box reaches sup alpha_K = 3/2 + delta_#.  Control: the same conditions with the full bundle's window
-     and (Z)-weight in (0, 1) fail on the box.
+     that the box reaches sup alpha_K = 3/2 + delta_#.  Round 10: the gap (-1, 0) of the window and the (Z)-weight is
+     read from L2's computed roots (the full bundle's root-free interval below its root 0, inside the restricted
+     gap), and checked root-free.  Control: the same conditions with the full bundle's gap above 0, (0, 2), fail on
+     the box.
   L10 (exact, whole box) The rates: the representative settles at t^-alpha for every alpha < min(p_0, 3/2), above
      Corollary R5.3's 1/2 + delta_#; for the data of the paper's section 8.8 (p_0 = 1) at t^(-1+eps); for data with
      compact support at t^(-3/2-kappa), kappa < delta_#.  Round 9: the l >= 2 exponent is the supremum of alpha_K
@@ -593,7 +598,7 @@ def l6_path(ls, sysf=None, pmin=lambda l: 1):
                     sp.Poly(bb[1], r).degree() if bb[1] != 0 else -99,
                     sp.Poly(bb[2], r).degree() - 1 if bb[2] != 0 else -99]
             lead.append(max(degs))
-        rep.append((l, len(basis), free_ok, jet_ok, rank_ok, sorted(lead)))
+        rep.append((l, len(basis), free_ok, jet_ok, rank_ok, sorted(lead), pmin(l)))
         allok &= len(basis) == 3 and free_ok and jet_ok and rank_ok
     return allok, rep
 
@@ -609,10 +614,16 @@ def l6(control=False):
         print("  L6 control (L6's path (i) with E_r's coupling 3 kappa r c: %s; (ii) with the growth threshold r^l: "
               "%s): passes %s, %s" % (rep1, rep2, ok1, ok2), flush=True)
         return ok1 or ok2
-    allok, rep = l6_path((2, 4, 6, 8))
+    # round 10 (the round-9 verifier's nit 4): the growth threshold is fixed by the claim. A kernel element at the
+    # b-weights of the gap (lo, 0) of L9 grows more slowly than r^(-lo); so the claim excludes the coefficients of r^p,
+    # p >= -lo, with lo computed from L2's roots (gap_from_l2), and L6 checks that it ran at that threshold
+    p_claim = -gap_from_l2()['gap'][0]
+    allok, rep = l6_path((2, 4, 6, 8), pmin=lambda l: p_claim)
+    at_claim = all(row[-1] == -gap_from_l2()['gap'][0] for row in rep)
     print("  L6: (l, polynomial solutions, free formal data = (a'(r_h), b(r_h), c(r_h)), jets invertible, growth map "
-          "rank 3, Cartesian growth exponents): %s" % rep, flush=True)
-    return allok
+          "rank 3, Cartesian growth exponents, threshold p): %s; the threshold is the claim's, r^(-lo) with lo = %s "
+          "the lower end of L2's computed gap: %s" % (rep, gap_from_l2()['gap'][0], at_claim), flush=True)
+    return allok and at_claim
 
 
 # ------------------------------------------------------------------------------------------------------------- L7
@@ -796,14 +807,19 @@ def l9_run(gap):
 
 
 def l9(control=False):
-    # control (round 9: the round-8 verifier's Minor 8): the same conditions with the full bundle's gap, the window
-    # and the (Z)-weight in (0, 1) (Theorem R6.4's), must fail on the box
-    gap = (0, 1) if control else (-1, 0)
+    # control (round 9: the round-8 verifier's Minor 8): the same conditions with the full bundle's gap above its
+    # root 0 must fail on the box.  Round 10 (the round-9 verifier's nit 3): both gaps are read from L2's computed
+    # roots (gap_from_l2), not typed, and L9 checks that the gap it uses is root-free for them
+    G = gap_from_l2()
+    gap = G['above'] if control else G['gap']
     ok, rep, reach, sup_B = l9_run(gap)
-    tag = "  L9 control (the same conditions with the full bundle's window (0, 1))" if control else "  L9"
-    print("%s: (sub-box, conditions, all positive sums, failing): %s; sub-box B reaches sup alpha_K = %s: %s"
-          % (tag, rep, sup_B, reach), flush=True)
-    return ok
+    free = root_free(gap)
+    tag = "  L9 control (the same conditions with the full bundle's gap %s above 0)" % (G['above'],) if control else \
+        "  L9 (the gap %s, read from L2's roots)" % (G['gap'],)
+    print("%s: (sub-box, conditions, all positive sums, failing): %s; sub-box B reaches sup alpha_K = %s: %s; the gap "
+          "is root-free for the restricted operator (every l >= 2) and the full bundle: %s"
+          % (tag, rep, sup_B, reach, free), flush=True)
+    return ok and free
 
 
 # ------------------------------------------------------------------------------------------------------------ L10

@@ -227,11 +227,11 @@ is why no large-l theorem is stated here.
       ||L_l H||_{Y_l} >= sigma_* ||H||_{X_l}   for every even l >= 0 and every H in X_l (at l = 0, H orthogonal in X_0 to
                                                 the zero-energy state),
 
-L_l the operator of `checks/scalarblock5_block.txt` at the record's gauge data with fixed zeta, chi, gam_H (A.1) and
-X_l, Y_l the norms of A.6 at a chosen (s, alpha); at (1, -1) necessarily sigma_* <= 2.6180 x 10^-7. With it,
-||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha). Route (c) (A.3's factorisation through
-box^C(0), box^Ups(0) and the static master operator) replaces it by three bounds of the same kind, each uniform in l;
-none is certified here.
+  L_l the operator of `checks/scalarblock5_block.txt` at the record's gauge data with fixed zeta, chi, gam_H (A.1) and
+  X_l, Y_l the norms of A.6 at a chosen (s, alpha); at (1, -1) necessarily sigma_* <= 2.6180 x 10^-7. With it,
+  ||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha). Route (c) (A.3's factorisation
+  through box^C(0), box^Ups(0) and the static master operator) replaces it by three bounds of the same kind, each
+  uniform in l; none is certified here.
 
 ## B. The two avoidances of finite sets of roots (proved; `rootavoid5.py`)
 
