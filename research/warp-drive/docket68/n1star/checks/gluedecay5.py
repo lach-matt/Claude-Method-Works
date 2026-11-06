@@ -387,13 +387,18 @@ def fluxes():
     jj = 1 if MUT == "mom_drop_x" else 0
     bm = -2 * sum((K[0, j] - (trK if j == jj else 0)) * nu[j] for j in range(4))
     out["momentum (d = 0)"] = (bm, 0)
-    h3 = sp.Matrix(4, 4, lambda i, j: X[0] * X[i] * X[j] * rr**(-a - 3))               # order a, centre of mass
-    tr3 = sum(h3[i, i] for i in range(4))
     N = X[0]
-    bc = sum((N * (sum(sp.diff(h3[i, j], X[j]) for j in range(4)) - sp.diff(tr3, X[i]))
-              - (sum(sp.diff(N, X[j]) * h3[i, j] for j in range(4)) - sp.diff(N, X[i]) * tr3)) * nu[i]
-             for i in range(4))
-    out["centre of mass (d = 1)"] = (bc, 1)
+    lapse = 0 if MUT == "drop_lapse" else 1                            # the terms with the gradient of N = x1
+
+    def b_com(hh):
+        trh_ = sum(hh[i, i] for i in range(4))
+        return sum((N * (sum(sp.diff(hh[i, j], X[j]) for j in range(4)) - sp.diff(trh_, X[i]))
+                    - lapse * (sum(sp.diff(N, X[j]) * hh[i, j] for j in range(4)) - sp.diff(N, X[i]) * trh_)) * nu[i]
+                   for i in range(4))
+    h3 = sp.Matrix(4, 4, lambda i, j: X[0] * X[i] * X[j] * rr**(-a - 3))               # order a, centre of mass
+    out["centre of mass (d = 1)"] = (b_com(h3), 1)
+    h4 = sp.Matrix(4, 4, lambda i, j: (X[0] if i == j else 0) * rr**(-a - 1))           # order a: its N-gradient terms
+    out["centre of mass, x1 delta (d = 1)"] = (b_com(h4), 1)                            # do not vanish
     Wx = [X[1], -X[0], 0, 0]                                                           # Y = W_12 x (a rotation)
     Ka = sp.Matrix(4, 4, lambda i, j: (X[i] * Wx[j] + X[j] * Wx[i]) * rr**(-a - 3))   # order a + 1
     trKa = sum(Ka[i, i] for i in range(4))
@@ -404,14 +409,16 @@ def fluxes():
     for name, (expr, d) in out.items():
         fl = sphere_flux(expr, X, w, rho)
         coef = sp.simplify(fl / rho**(2 + d - a))
-        res[name] = (d, coef, not coef.has(rho) and sp.simplify(coef.subs(a, sp.Rational(5, 2))) != 0)
+        res[name] = (d, coef, not coef.has(rho) and all(sp.simplify(coef.subs(a, sp.Rational(k_, 4))) != 0
+                                                         for k_ in (7, 10, 14)))
     return res, a, rho
 
 
 def e4():
     res, a, rho = fluxes()
     want = {"energy (d = 0)": 6 * sp.pi**2, "momentum (d = 0)": 3 * sp.pi**2,
-            "centre of mass (d = 1)": sp.Rational(3, 2) * sp.pi**2, "angular momentum (d = 1)": 2 * sp.pi**2}
+            "centre of mass (d = 1)": sp.Rational(3, 2) * sp.pi**2, "angular momentum (d = 1)": 2 * sp.pi**2,
+            "centre of mass, x1 delta (d = 1)": sp.Rational(3, 2) * sp.pi**2 * (a + 1)}
     flux_ok = all(v[2] for v in res.values()) and all(sp.simplify(res[k_][1] - w_) == 0 for k_, w_ in want.items())
     lim_ok = True
     for name, (d, coef, _) in res.items():
@@ -455,10 +462,11 @@ def e4():
     res_i["norm: 0 <= l0 - a (coefficients, compact part)"] = holds(lambda a_, l_: -(l_ - a_), False)
     res_i["norm: l0 - a > 0 off a = l0"] = holds(lambda a_, l_: -(l_ - a_), True, (on_al0,))
     say("E4: exact fluxes over S_rho of order-a profiles are c_d rho^(2+d-a), with c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, "
-        "2 pi^2 asserted: %s; they tend to 0 iff a > 2 + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): %s" % (flux_ok, lim_ok))
+        "(3/2) (a + 1) pi^2 and 2 pi^2 asserted: %s; they tend to 0 iff a > 2 + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): %s"
+        % (flux_ok, lim_ok))
     if MUT is None:
         for name, (d, coef, _) in res.items():
-            print("        %-26s c(a) = %s" % (name, sp.factor(coef)), flush=True)
+            print("        %-34s c(a) = %s" % (name, sp.factor(coef)), flush=True)
         print("      the exponent inequalities:", flush=True)
         for k_, v_ in res_i.items():
             print("        %-48s %s" % (k_, v_), flush=True)

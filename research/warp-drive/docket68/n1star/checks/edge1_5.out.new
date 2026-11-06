@@ -33,3 +33,4 @@ X7 PASS
 X8 PASS
   X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows with one
       sign only: 0
+X9 PASS
