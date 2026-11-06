@@ -42,3 +42,6 @@ X9 PASS
       |kappa_k'|/kappa_k^(3/2) = 2.855 <= c_R = 3; L.16 (c): max_(j<=14) sup |env^(j)|/(kappa^j env) = 1.0; |kappa_k -
       kappa| <= 2.304 k kappa^(1/2), below the bound c_R 2^(1/2) = 4.243 that (H_N) implies  [530 s]
 X10 PASS
+  X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
+      env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200
+      [1139 s]

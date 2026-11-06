@@ -1,0 +1,37 @@
+# python3 checks/cpaxis5.py --kretschmann r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M40_400_reg.npz
+#   (all three at 400 rows: the 'null step' column compares a run with itself, 0 by construction; the M column is
+#   M = 32 against 40 at 400 rows; the program's first output line, its heading, was cut by the tail of this
+#   dry run, so the column labels below read '800 rows' where every run here is at 400)
+    differences in M (32 against 40, 800 rows) and in the null step (400 against 800 rows, M = 32), over K_0, at areal
+    radius 1.0-1.4:
+  x = +0.97:
+   v in [1.50, 1.65): dev 0.637, |dK| in M 5.11e-09, in the null step 0.00e+00 -> resolved
+   v in [1.65, 1.80): dev 0.939, |dK| in M 3.88e-08, in the null step 0.00e+00 -> resolved
+   v in [1.80, 1.90): dev 1.16, |dK| in M 1.66e-03, in the null step 0.00e+00 -> resolved
+   v in [1.90, 2.00): dev 1.2, |dK| in M 1.20e+00, in the null step 0.00e+00 -> not resolved
+   v in [2.00, 2.25): dev 1.83e+03, |dK| in M 6.83e+02, in the null step 0.00e+00 -> not resolved
+  x = +0.50:
+   v in [1.50, 1.65): dev 0.368, |dK| in M 6.53e-09, in the null step 0.00e+00 -> resolved
+   v in [1.65, 1.80): dev 0.722, |dK| in M 1.84e-07, in the null step 0.00e+00 -> resolved
+   v in [1.80, 1.90): dev 1.09, |dK| in M 4.09e-04, in the null step 0.00e+00 -> resolved
+   v in [1.90, 2.00): dev 1.36, |dK| in M 1.05e+00, in the null step 0.00e+00 -> not resolved
+   v in [2.00, 2.25): dev 259, |dK| in M 8.13e+02, in the null step 0.00e+00 -> not resolved
+  x = +0.00:
+   v in [1.50, 1.65): dev 0.406, |dK| in M 9.16e-09, in the null step 0.00e+00 -> resolved
+   v in [1.65, 1.80): dev 0.234, |dK| in M 7.54e-07, in the null step 0.00e+00 -> resolved
+   v in [1.80, 1.90): dev 0.663, |dK| in M 4.03e-03, in the null step 0.00e+00 -> resolved
+   v in [1.90, 2.00): dev 1.23, |dK| in M 1.04e-01, in the null step 0.00e+00 -> not resolved
+   v in [2.00, 2.25): dev 1.49e+03, |dK| in M 1.80e+03, in the null step 0.00e+00 -> not resolved
+  x = -0.50:
+   v in [1.50, 1.65): dev 1.15, |dK| in M 1.16e-08, in the null step 0.00e+00 -> resolved
+   v in [1.65, 1.80): dev 1.19, |dK| in M 9.10e-07, in the null step 0.00e+00 -> resolved
+   v in [1.80, 1.90): dev 0.907, |dK| in M 1.41e-02, in the null step 0.00e+00 -> resolved
+   v in [1.90, 2.00): dev 2.29, |dK| in M 3.41e+00, in the null step 0.00e+00 -> not resolved
+   v in [2.00, 2.25): dev 2.05e+03, |dK| in M 3.81e+03, in the null step 0.00e+00 -> not resolved
+  x = -0.97:
+   v in [1.50, 1.65): dev 2.83, |dK| in M 1.06e-08, in the null step 0.00e+00 -> resolved
+   v in [1.65, 1.80): dev 3.99, |dK| in M 4.02e-07, in the null step 0.00e+00 -> resolved
+   v in [1.80, 1.90): dev 4.11, |dK| in M 2.56e-02, in the null step 0.00e+00 -> resolved
+   v in [1.90, 2.00): dev 6.12, |dK| in M 7.06e+00, in the null step 0.00e+00 -> not resolved
+   v in [2.00, 2.25): dev 330, |dK| in M 1.73e+03, in the null step 0.00e+00 -> not resolved
+
