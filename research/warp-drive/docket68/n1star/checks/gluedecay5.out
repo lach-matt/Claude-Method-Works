@@ -1,3 +1,15 @@
   E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4), log(R/r1) at
       a = l0 and (R^2 - r1^2)/2 at (a, l0) = (5/2, 7/2): True; d_t^j [e^(-at) psi] = e^(-at) sum_k C(j,k) (-a)^(j-k)
       psi^(k), j <= 3: True; rho^2, rho^3 terms never remainders (2 l0 - 4, 2 l0 - 6 > 0): True
+E1 PASS (mutants failing as they must: lebesgue)
+  E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: True; all ten Gram closed forms = sympy exact =
+      quadrature (1e-35): True; kappa(5/2, 7/2) = 0.00076545965 from the closed forms, 0.00076545965 from a direct
+      quadrature in s (agree to 1e-25, and with 7.6546e-4 to 1e-8): True; kappa^2 = lambda_min(Schur), certified > 0
+      at every grid point: True
+      l0 = 13/4  a = 8/5: kappa = 0.0009158  a = 2: kappa = 0.0007982  a = 5/2: kappa = 0.0008349
+                 a = 3: kappa = 0.00112  a = 25/8: kappa = 0.001255  a = 13/4: kappa = 0.001425
+      l0 = 7/2   a = 8/5: kappa = 0.0008415  a = 2: kappa = 0.0007328  a = 5/2: kappa = 0.0007655
+                 a = 3: kappa = 0.001026  a = 13/4: kappa = 0.001304  a = 7/2: kappa = 0.001737
+      l0 = 15/4  a = 8/5: kappa = 0.0007733  a = 2: kappa = 0.0006727  a = 5/2: kappa = 0.0007018
+                 a = 3: kappa = 0.0009395  a = 27/8: kappa = 0.001371  a = 15/4: kappa = 0.002165
+E2 PASS (mutants failing as they must: no_osc, ss_sign, lam_max)

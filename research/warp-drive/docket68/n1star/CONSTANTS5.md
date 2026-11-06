@@ -2359,3 +2359,205 @@ d0count5 18/18, dnumber5 10/10, x7indep5 9/9); the floor, computed (dweights5 W3
 computed (deltacap5); the zero-energy constants, deduced with certified arithmetic (zeroext5 10/10, tensorzero5
 11/11); lambda0's three bounds, certified (lzerotrace5 T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md
 0.3 now states); the reduction to one number, computed exactly (classm5 9/9).
+
+## Round 9 (2026-11-06)
+
+*Status.* Appended to rounds 1-8; not yet read by a verifier. R9.0 seats the round-8 verifier's report, each item
+re-derived first; bracketed `[R9, ...]` notes follow the round-8 lines they correct, the old text kept. R9.1 is d
+corrected, R9.5-R9.6 the statuses and sources, R9.7 the replacement text (numbered as the round-8 sections they
+follow; R8.2-R8.4 need only their bracketed notes). Changed and rerun in full, each with its `.out`:
+`checks/d0count5.py` (20/20: the Peetre exponents over the factors' orders, Q4b, controls C10-C11),
+`checks/modcount5.py` (13/13: FWD 510, B_once itemised, M5 admissibility), `checks/r6fixes5.py` (6/6: F2 printed
+rounded up), `checks/tensorzero5.py` (13/13: T3c, T3b as a symbolic identity, control C5). The verifier's controls
+Ca-Ch, adapted to the changed code where they edit it, were rerun on a scratch copy and each fails as it must (R9.0).
+The files LAMBDA0-DATA5.md and checks/lam0data5.py belong to another workstream and are not touched; N1STAR-PROOF.md
+and the paper are not edited.
+
+### R9.0 (verifier of round 8)
+
+The verifier reran the eight round-8 programs (fresh outputs byte-identical), checked the census at all 31 charged
+sites and more than 60 others, sorted every citation no pattern matches (none carries a loss), and confirmed d's
+arithmetic, B_once's exact parts, K1-K2, the certified 0.22189, R8.0's re-derivations and the old texts' uniqueness.
+Its findings, each re-derived before it is seated:
+
+- **MAJOR 1 (accepted; computed, `d0count5.py`).** counts() called M_f on the box without the factors' orders, so
+  its Peetre exponent was 2L' = 8 (factor order 2) while the factors of II.A2:682-695 have orders s - 1/2 + delta in
+  [-10.49, 9.51] (s in [-10, 10]); and M_24 took 2L' from m1_hi alone (16), missing the negative end. Re-derived from
+  A.7 (3): 2L' > n + |mu_f|, mu_f the order of the factor after the expansion's xi-derivatives, m - J (1 - delta) at
+  depth J; so for (b)-(e) (J = 1) the maximum over the factors' orders is at -10.49: 2L' = 18, M_2.4 = 376; for (f)
+  (Lemma A.9, J = q + 1 = 4) it is 20, M_f = 138 + 3 (4 + 20) + 218 + 1 = 429, **D_0 <= 435, FWD <= 510**. The
+  verifier's two readings (M_f = 417 with m1 = 23/2, 423 with the negative end at depth 1) are the depth-1 readings;
+  the text of A.7 (3) and Lemma A.9 (remainders at depth q + 1) supports depth q + 1, the largest of the three, which
+  is used. d0count5 now passes the factor range into both counts (peetre(fac, depth)), PINS and modcount5's four pins
+  move, and controls C10 (round 8's factor order 2: 399) and C11 (depth 1: 429) fail on the pins.
+- **MAJOR 2 (accepted; settled where possible, named where not).** Block 1 said "a box containing every symbol order
+  of the chain" and named one step of the reading only. Now: (a) the box's s range rests on both branches of s_in,
+  read (II.C:767-768 in full, `d0count5.py` Q4b): with alpha_K = -2 (READ III.I Theorem 5.3's proof, "uses them over
+  K^+ with weights alpha_+, -2 and margin 1") and theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6) the
+  second branch needs only s_in > 11/2 (beta_+ -> 1/2), below the first branch's 17/2, so s_in = 9 stands and the
+  box is unchanged; s_out's branch is -6 - beta_+ - eps, as Q4 used. (b) B_once is itemised (minor 1, R9.1). (c) Of
+  the four admissibility conditions W1 left undecided, (G) was decided in rounds 1-2 and eta_1, eta_2 off Re Lambda
+  is decided now (`modcount5.py` M5): no point of Lambda has real part in (2, 2 + m) or (3, 3 + m), m = 1.9839e-8
+  (the least offset, lambdagen5 L4 over E_col's bases and dweights5 W2 over the named generators and E^C_I, read and
+  pinned, rounded down), and eta_1 = 1.88485e-8 < eta_2 = 1.88970e-8 < m. The two left are avoidances of finite sets
+  (the levels off I11:156-160's exclusion values; eps, eps' off I9:290-291's and I14:124-126's): they need the roots
+  -mu of the class operators and of L-hat_b0(0) as numbers against the rational levels and rounds, and are not
+  decided; block 1 names them.
+- **Minor 1 (accepted; R9.1).** "2 (M_a + 4 M_b) + 1000" was not derived, and the top theorem's Step 1 (I13:336-386,
+  (vi), (viii), (ix)) applies III.A Proposition 4.2 (2) to zf-remainders. Itemised (deduced on the reading): Step 0
+  FWD; Step 1 the base, at most six below-3 level totals; Steps 3, 4' FIN; Step 4 one level above 3 for the top's
+  Step 0 and three applications of (2.2) for (vi), (viii), (ix), each at most (3 P_iota + 47) + X_7(alpha) + 5
+  (parallel over the pieces, Lemma 1.2 (a)): B_once = 510 + 6 x 179,958,197 + 1,042,275,882 + 3 x 607,240,279 =
+  3,943,746,411.
+- **Minor 2 (accepted).** The certified C_app runs through envelope5's peak c (lzerotrace5.py's K_lo = c_lo
+  a^(-3/2)), so the lambda0 bounds are statements about round 2's envelope (`checks/envelope5.py`, which has the
+  numerics' integral), not about every smooth envelope with that integral. R8.2's "not about P* as the certified
+  leaves are" is corrected (bracketed there), and R9.7 block 3 names the envelope.
+- **Minor 3 (accepted; proved, `tensorzero5.py` T3c).** T3b is now a symbolic identity: with A arbitrary (its jets
+  and H's as independent symbols after differentiation) and B from div T = 0, every component of D Ric(r^2 H T) -
+  (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)] reduces to 0 modulo sin^2 + cos^2 = 1 (exact; control C5:
+  with -lap T + T it does not). With the TT harmonics' eigen-equation the t_l block is (1/2) r^2 A_l at every even l
+  (deduced from an exact identity), so block 2's "every harmonic" stands.
+- **Minor 4 (accepted).** r6fixes5 printed 3.5242e17 for the computed 3.524212e17 (%.4e rounds down); it now prints
+  3.5243e17 (rounded up). R8.0 (3) and R8.5 are bracketed.
+- **Minor 5 (accepted).** "5.4 times the floor at the same point" is replaced by the floor itself: 8.41 x 10^15 at
+  the same weights (dweights5 W3), against the paper's own 7.95 x 10^15, which is valid at every admissible weight.
+- **Nits (accepted).** (1) Q3b's printed formula now includes M_f + 6. (2) d0count5's docstrings: |s| <= 10, Q6's
+  stale "D_1 <= 48 ... 250" bracketed, the box printed [-22, 22]. (3) modcount5's A422_col comments now match the code
+  (K+-weights a + 3 and a + 2). (4) modcount5's docstring cites I11:349-403; no line exceeds 121 characters (line 53
+  had 122). (5) The census classifies per (line, tag); "none left" now reads "none left among the matched families".
+  (6) Proposition 2.4 (f) is also used at II.D:198 (q = 1, three factors), dominated by the II.A2 count. (7) R8.0 B's
+  wording is reconciled with R8.7's "supplement". (8) Block 1's last lines are re-filled. (9) R8.3 (c): the equation
+  "reduces to" the static master equation. (10) R8.0 (6): dropping 2^(1/2) gives 0.4466; the rest is the per-cell
+  envelope bound on Sigma.
+- **The controls, rerun** (scratch copy of checks and proof5; each must fail): Ca (P44_L1 charged 3 k_1(2)):
+  modcount5 M3, M4 FAIL; Cb (I12:266's citation replaced): M0, M1, M2 FAIL; Cc (one digit of P_W in dnumber5.out): M4
+  FAIL; Cd (BOX = (-20, 20)): d0count5 Q3b, D0 FAIL; Ce (M_f with two operations): Q3b, D0 FAIL; Cf (M_f with round
+  8's factor order 2, the inverse of the verifier's Cf now that the fix is in): Q3b, D0 FAIL; Cg (the same, run
+  through modcount5): M3, M4 FAIL; Ch (I12:266 reclassified as a statement): M2 FAIL.
+
+### R9.1 (i) d, corrected
+
+- *FWD* (deduced; computed, d0count5 Q3b). On the box, every order variable within [-22, 22] and the factors'
+  orders within [-10.49, 9.51]: M_a = 138, M_2.4 = 376 (2L' = 18), M_f = 429 (2L' = 20), D_0 <= max(M_2.4 + 6, M_f +
+  6, d_0(8.6) + 2, D_a + 2, D_b + 4) = 435, D_1 <= 52, FWD = D_0 + D_1 + d' + d'' + 6 <= 510.
+- *c'* (computed, modcount5 M3). c'_above = 510 + 158 = 668, c'_below = 510 + 52 = 562, c' = 668 (the 31 charges are
+  unchanged).
+- *B_once* (deduced on the reading; computed, M4), the steps of III.I with fourteen primes, Theorem 3.1, outside its
+  levels (I15:296-452), each term an upper bound: Step 0, FWD = 510; Step 1, the base level (Proposition 4.1 of
+  III.I with eight primes at alpha_1 = 2 + eps_K/2 < 2 + eps_ind: its Lemma 3.1, whose Step 0 runs at most two rounds
+  of III.I''''' Proposition 2.1 and the windows on F_2, then its Steps 1-6, and at most one Lemma 3.2), at most six
+  below-3 level totals, 6 M_b; Steps 3 and 4', the finite-dimensional inverses and the rotation coordinates: FIN, 0;
+  Step 4, the expansion theorem at the top (I13:298-447): its Step 0 is one more level above 3 (M_a), its Step 1
+  (vi), (viii), (ix) three applications of III.A Proposition 4.2 (2) to zf-remainders, each at most 3 P_iota + 47 +
+  X_7(alpha) + 5 = 607,240,279, and its other items and Steps 2-6 are statements, identities, convolutions in t_* and
+  subtractions of explicit towers (FIN). With M_a = 1,042,275,882 and M_b = 179,958,197 (a level's largest totals with
+  its loops): B_once = 3,943,746,411, 8.6e-8 of d.
+- **The integer** (deduced on the reading; computed exactly):
+
+      d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 71,134,965,960 + 3,943,746,411
+        =  45,661,458,981,362,098   (4.5661459 x 10^16),      N = 21 d + 6 <= 958,890,638,608,604,064 (9.588906 x 10^17).
+
+  The floor at the same weights is 8,407,505,890,317,054. The reading, every step named: the log orders of one index
+  set (E^flat) as round 5-6's step-by-step ceiling (the write-out states only K(lambda)); the construction's E_ind,
+  III.C' (3.1) as written, one level-2 application per exponent, the wide E_col; the order box of the calculus count,
+  read from II.A2 sections 4-5 at s in [-10, 10] with both branches of II.C:767-768; the charges of R8.1 and the
+  itemised one-off steps; and W1's weights, of whose admissibility two finite avoidance conditions are not decided.
+
+### R9.5 Proved, computed, open
+
+- *Computed, exact*: T3c (the tensor-block identity, symbolic, every class tensor); Q4b (both branches); M5 (eta_1,
+  eta_2 off Re Lambda).
+- *Deduced (counts computed)*: D_0 <= 435, FWD <= 510, c' = 668, B_once = 3,943,746,411,
+  **d <= 45,661,458,981,362,098, N <= 958,890,638,608,604,064, deduced on R9.1's reading**.
+- *Withdrawn*: D_0 <= 399, FWD <= 474, c' = 632, d <= 45,661,454,728,212,747 (round 8); B_once's coarse form;
+  "5.4 times the floor at the same point".
+- *Open, each with its single missing input* (unchanged from R8.5): lambda0 below 0.0024433 (a certified enclosure
+  of M_22 = (m_1)_phi1phi1(X*)/a^2, 0 excluded, for round 2's envelope); I.C:497's scalar-type blocks (sigma_min,
+  uniform in l); the other six inverse bounds (their microlocal constants at L_b0 and certified spectral bounds in
+  the write-out's norms). For d, the two admissibility conditions are part of its reading, not an input it lacks.
+
+### R9.6 Sources (round 9)
+
+The round-8 verifier's report (`report-vD8.md`, `vD8/`); proof5 read at PART-II-C-OPERATORS.md:280-326, 740-790,
+PART-III-I-CONE.md:394-432, PART-III-I13-EXPANSION.md:224-447, PART-II-D-REGULARITY.md:196-200,
+PART-II-A2-STANDARD.md:639-695; thetain5.out T2, T6; lambdagen5.out L4 and dweights5.out W2 (md5s pinned in
+modcount5); lzerotrace5.py:393-401 and envelope5.py (round 2's envelope).
+
+### R9.7 Proposed replacement for the paper's section 9 constants text (replaces R8.7)
+
+Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content
+when this round ended); the new texts claim only what R8.1-R9.1 prove or compute, with their statements, and fold in
+the round-8 verifier's MAJOR 2 (the reading named in full) and minors 2, 3 and 5.
+
+1. Section 9, "Settling", the loss d (old: the last sentence of the d passage).
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–9): the weights are taken at a point
+  meeting every condition decidable there, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
+  (`checks/dnumber5.py`, `checks/x7indep5.py`), every fixed step of a level and every step outside the levels is read at
+  its source and charged an upper bound (`checks/modcount5.py`: 212 citations of the families the write-out's tame
+  calculus lists, none left unclassified), and the coefficient orders the write-out fixes by the closed graph theorem are
+  replaced by explicit calculus estimates whose derivative counts are computed over the symbol orders read from its
+  propagation estimates (`checks/d0count5.py`). On that reading d ≤ 45,661,458,981,362,098 ≈ 4.566 × 10¹⁶ and
+  N = 21d + 6 ≤ 9.589 × 10¹⁷ (deduced on the reading, the arithmetic exact), against the floor 8.41 × 10¹⁵ at the same
+  weights. Three parts of the reading are not statements of the write-out: the logarithmic orders of one index set, a
+  ceiling deduced step by step from the proof of the write-out's coarser bound; the order range of the calculus count,
+  read from its estimates' thresholds; and two of the weights' admissibility conditions, avoidances of finite sets of
+  roots, which are not decided at the weights used. The integer bounds the loss this proof's bookkeeping produces on that
+  reading, not the optimal one.
+```
+
+2. Section 9, "Settling", lambda1 and delta (old: the bullet's last sentence).
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are not evaluated: what the proof's own formulas deliver is bounded above,
+  log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`), and no lower bound follows. Of
+  the seven inverse bounds a lower bound needs, the zero-energy one is proved for the scalar model (constant 2.81) and
+  for the tensor-type blocks of the linearised operator in the symmetry class (constant 3.94), every harmonic, through
+  the horizon, in the supplement's norm for one choice of generators (deduced from exact identities, with certified
+  arithmetic, `checks/zeroext5.py`, `checks/tensorzero5.py`). For its scalar-type blocks, whose gauge-damping terms
+  neither vanish nor are symmetric, the one input missing is a lower bound for their least singular value, uniform in
+  the harmonic; the other six need the constants of the write-out's microlocal estimates at the final black hole and
+  certified spectral bounds in its norms (supplement `CONSTANTS5.md` R8.3-R8.4).
+```
+
+3. Section 9, "Physical wavelengths", lambda0 (old: the bullet's opening words, to the line's end).
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0025 in the operator norm, 0.0020 in the
+  Frobenius norm and 0.00123 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times beyond
+  it. A value, or a lower certified bound, needs the approximant's linear stages solved. The first can lower the
+  operator-norm bound, for example through its mean correction at the point where the first-order wave is largest,
+  which the symmetry class reduces to one number (computed, `checks/classm5.py`); a certified value of that number
+  needs a validated solve of the first stage for that envelope, whose data on the initial slice are not computed. And
+  a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+Statuses behind the new texts: d's integer, deduced on R9.1's reading with exact arithmetic (modcount5 13/13,
+d0count5 20/20, dnumber5 10/10, x7indep5 9/9); the floor, computed (dweights5 W3); delta and lambda1's upper bounds,
+computed (deltacap5); the zero-energy constants, deduced from exact identities with certified arithmetic (zeroext5
+10/10; tensorzero5 13/13, its T3c symbolic); lambda0's three bounds, certified for round 2's envelope (lzerotrace5
+T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
+(classm5 9/9).
