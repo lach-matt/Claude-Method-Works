@@ -1313,8 +1313,7 @@ def check_g():
 
 
 def check_chain(fac):
-    a = SR.a_ball() if hasattr(SR, 'a_ball') else None
-    q0 = (flint.arb(9) / 1250) ** (flint.arb(1) / 8)
+    q0 = (flint.arb(9) / 1250) ** (flint.arb(1) / 8)            # a = q0/2, q0^8 = 9/1250 (CONSTANTS5.md 1.4)
     a = q0 / 2
     base = 4 * C_LO / 3 * a ** flint.arb(-1.5)
     capp = flint.arb(CAPP.numerator) / CAPP.denominator

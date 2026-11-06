@@ -1,3 +1,12 @@
   U1: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + 2 dr/f: True
   U1 control: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + 1 dr/f: False
 U1 PASS
+  U2: frame orthonormal True; T^2 P coefficients (h00, h01, h11, 2F) = (r**(5/2)/(-mu + r**2), -r**(5/2)/(-mu + r**2),
+      r**(5/2)/(-mu + r**2), 0); T P in 2F: -1/sqrt(r); the identities: True
+  U2 control (weight 1): frame orthonormal True; T^2 P coefficients (h00, h01, h11, 2F) = (r**2/(-mu + r**2), -r**2/(-mu
+      + r**2), r**2/(-mu + r**2), 0); T P in 2F: -1/r; the identities: False
+U2 PASS
+  U3 (a): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 + d_r*^2) (static):
+      True
+  U3 (a): P_rr = 2 P_ur/f - (f'/f) P_r + V P/f^2 satisfies (2.1) identically: True; potential_general equals settle5.py's
+      scalar potential at l = 2, 4, 6, 8: True

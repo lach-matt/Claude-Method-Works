@@ -240,20 +240,19 @@ def r2(z=Fr(4, 10 ** 6), polys=None):
 
 # ------------------------------------------------------------------------------------------------ R3 window roots
 def window_roots():
-    """every root mu with -mu in (-1, 4): (name, types, lo, hi); integers exact"""
-    d0 = LG.d0_iv()
+    """every root mu with -mu in (-1, 4): (name, types, lo, hi) as Fractions; integers exact"""
     d1lo, d1hi = DW.d1_interval()
-    out = [('0', 's0 (time translation), s2 (2 - l)', 0, 0), ('1', 's1, v1 (-1); s3 (2 - l); v2 (1 - l)', 1, 1),
-           ('2', 's2, v2, t2 (-l); s4 (2 - l); v3 (1 - l)', 2, 2), ('3', 's3, v3, t3 (-l); s5; v4', 3, 3)]
-    dd1 = (iv.mpf(d1lo.numerator) / d1lo.denominator, iv.mpf(d1hi.numerator) / d1hi.denominator)
-    out.append(('d1', 's1 (2 - lambda_s1,2)', dd1[0].a, dd1[1].b))
-    out.append(('d0', 's0 (2 - lambda_s0,2)', d0.a, d0.b))
+    d0lo, d0hi = LG.frpair(LG.d0_iv())
+    out = [('0', 's0 (time translation), s2 (2 - l)', Fr(0), Fr(0)),
+           ('1', 's1, v1 (-1); s3 (2 - l); v2 (1 - l)', Fr(1), Fr(1)),
+           ('2', 's2, v2, t2 (-l); s4 (2 - l); v3 (1 - l)', Fr(2), Fr(2)),
+           ('3', 's3, v3, t3 (-l); s5; v4', Fr(3), Fr(3)),
+           ('d1', 's1 (2 - lambda_s1,2)', d1lo, d1hi), ('d0', 's0 (2 - lambda_s0,2)', d0lo, d0hi)]
     for lv, (nm, j) in ((1, ("1 + delta'_1", 1)), (2, ('1 + delta_2', 0)), (2, ("2 + delta'_2", 1)),
                         (3, ('2 + delta_3', 0)), (3, ("3 + delta'_3", 1)), (4, ('3 + delta_4', 0))):
-        dl = LG.sl_offsets_iv(lv)
+        lo, hi = LG.frpair(LG.sl_offsets_iv(lv)[j])
         base = (lv - 1) if j == 0 else lv
-        x = base + dl[j]
-        out.append((nm, 's%d (2 - lambda_s%d,%d)' % (lv, lv, lv + 1 + j), x.a, x.b))
+        out.append((nm, 's%d (2 - lambda_s%d,%d)' % (lv, lv, lv + 1 + j), base + lo, base + hi))
     return out
 
 
@@ -478,21 +477,23 @@ def main(selftest=False):
     print('      (computing the box^C indicial polynomials, damping5.polys, about half a minute)')
     polys = DP.polys(4, sp.Rational(2, 3))
     R2 = r2(polys=polys)
-    vec_ok = all(abs(rt) > 100 for _l, rt in R2['C_vec'])
+    vec_ni = [(lv, rt) for lv, rt in R2['C_vec'] if rt.denominator != 1]
+    vec_ok = all(abs(rt) > 100 for _l, rt in vec_ni)
     OK['R2'] = (not R2['s0_disc_square'] and R2['Q_rational_l'] == [0] and R2['C_s0'] == [2] and R2['C_s1'] == [2]
                 and R2['C_sl'] == {} and vec_ok)
     vl = sorted(set(lv for lv, _ in R2['C_vec']))
     print('  R2 (exact): 9 + 4z = %s not a rational square: %s; (z + 2)^2 + 4 l (l + 2) a rational square only at l in '
           '%s (divisor pairs of p^2 + 4pq = %d = %s); box^C rational roots: s0 quartic %s, s1 sextic %s, scalar sextic '
-          'at 2 <= l <= %d: %s; vector quadratic ((l + 1)^2 + %d a square): %d values of l, %d rational roots, the '
-          'least |lambda| %s > 100: %s; all other roots of III.F\' Proposition 2.3 are integers: %s' % (
+          'at 2 <= l <= %d: %s; vector quadratic ((l + 1)^2 + %d a square): %d values of l, %d rational roots, %d not '
+          'integers, the least |lambda| of those %s > 100: %s; all other roots of III.F\' Proposition 2.3 are '
+          'integers: %s' % (
               9 + 4 * DW.Z, not R2['s0_disc_square'], R2['Q_rational_l'], DW.Z.numerator ** 2 + 4 * DW.Z.numerator
               * DW.Z.denominator, sp.factorint(DW.Z.numerator ** 2 + 4 * DW.Z.numerator * DW.Z.denominator),
-              R2['C_s0'], R2['C_s1'], LC, R2['C_sl'] or 'none', R2['c0'], len(vl), len(R2['C_vec']),
-              min(abs(rt) for _l, rt in R2['C_vec']), vec_ok, OK['R2']))
+              R2['C_s0'], R2['C_s1'], LC, R2['C_sl'] or 'none', R2['c0'], len(vl), len(R2['C_vec']), len(vec_ni),
+              float(min(abs(rt) for _l, rt in vec_ni)), vec_ok, OK['R2']))
     print('      the vector-type l with rational box^C roots (first ten): %s' % vl[:10])
     roots = window_roots()
-    OK['R3'] = len(roots) == 12 and all(0 < (hi - lo) < 1e-40 or lo == hi for _n, _t, lo, hi in roots)
+    OK['R3'] = len(roots) == 12 and all(0 < (hi - lo) < Fr(1, 10 ** 40) or lo == hi for _n, _t, lo, hi in roots)
     print('  R3 (certified): the roots with -mu in (-1, 4) (box^C none: Proposition 10.44 (ii), READ): %s: %s' % (
         '; '.join('%s = %s [%s]' % (nm, ('%.12g' % float(lo)) if lo != hi else lo, ty) for nm, ty, lo, hi in roots),
         OK['R3']))
@@ -530,7 +531,7 @@ def main(selftest=False):
         print('  R6 (certified margin): over the %d values x and n <= %d, the least distance of a level in (3, 4 + '
               'eps_K] or of alpha from lambda_sharp + n d1 + x is %.6e (at x = %s, n = %d), > 0: %s' % (
                   len(X_set()), N, float(mg), where[0], where[1], OK['R6m']))
-    vfr = sorted(set(Fr(1) - Fr(rt.numerator, rt.denominator) for _l, rt in R2['C_vec']))   # -mu = 1 - lambda_C
+    vfr = sorted(set(Fr(1) - Fr(rt.p, rt.q) for _l, rt in vec_ni))        # -mu = 1 - lambda_C, non-integers
     frac_hit = []
     for m in vfr:
         fp = m - (m.numerator // m.denominator)
