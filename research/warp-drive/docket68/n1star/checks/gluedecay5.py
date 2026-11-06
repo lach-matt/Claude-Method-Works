@@ -66,7 +66,7 @@ Labels: computed (exact, sympy; E2's positivity certified by interval arithmetic
 digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; E4 checks the exponents and the
 flux scalings, not the constants C_1, C_P, R_P, R_G, L; E5 checks the expansions that Lemma 4.1 uses, not the gluing.
 
-Run: python3 checks/gluedecay5.py   (about seventy seconds; E3 and E5 most of it)
+Run: python3 checks/gluedecay5.py   (about ninety seconds; E3 and E5 most of it)
 """
 import os
 import sys

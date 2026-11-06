@@ -621,7 +621,7 @@ proved to exist, not computed.]
 `proof5/PART-III-B-FAMILY.md` ((3.3), Lemma 3.5 (a), Proposition 3.4), `proof5/PART-III-A-PREREQ.md` section 1.1, and
 `checks/mpdata5.py` B2-B3. No file outside `research/warp-drive/` is cited.
 
-    python3 checks/gluedecay5.py   (about seventy seconds; output in checks/gluedecay5.out)
+    python3 checks/gluedecay5.py   (about ninety seconds; output in checks/gluedecay5.out)
 
 ## 8. Proposed replacement for the paper
 
@@ -926,7 +926,7 @@ New (d):
   momentum, and its trace 2μ r^(−3). E6, these replacements, applied to a copy of the paper. Controls: nineteen mutants
   of the program, among them the Lebesgue density, the class profile without its oscillation, the three-dimensional
   coefficient 3 − a, mass and boost not decoupled, and a mass change in place of the spins. Exact, with κ certified and
-  the instance by quadrature; about seventy seconds.
+  the instance by quadrature; about ninety seconds.
 ```
 
 (e) Appendix C (the source map), line 2604.
@@ -958,7 +958,7 @@ New (f):
 
 ```text
     python3 checks/flux5.py                              # about twenty minutes
-    python3 checks/gluedecay5.py                         # about seventy seconds
+    python3 checks/gluedecay5.py                         # about ninety seconds
 ```
 
 (g) Appendix D, the import paragraph, lines 2653-2661.
@@ -1186,8 +1186,8 @@ E6 applies all eight to a copy of the paper and checks each place.
 - (9) *Part V's amendment.* $f$ is the height function of the graph $\Sigma_{\mathrm{IVP}} = \{t_{\mathrm{KS}} = f\}$
   far out; the time function is III.B's $t$. Corrected in place in PART-V-GLUING.md's bracketed note, marked as
   corrected.
-- (10) *The run time.* About seventy seconds, measured: 68.5 s by the reader and 71 s here. The docstring and section 7
-  now agree.
+- (10) *The run time.* About ninety seconds, measured: 88 s here with this round's nineteen mutants (the reader
+  measured 68.5 s for round 2's thirteen). The docstring, section 7 and section 8.3's (d) and (f) now agree.
 
 *The program.* E4 and E6 are changed as above. The reader's four surviving mutations are now mutation controls, and all
 four fail:
