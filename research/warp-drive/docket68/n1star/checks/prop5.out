@@ -1,0 +1,11 @@
+Q1 E_34 = -q, E_xx = q (the five imposed components zero): tr E = 2q and S = E - (tr E/2) ht has S_34 = q only: True
+   control (E_xx = 2q): single-component form fails (good)
+   (div S)(e4) = (-1/2) chi q + (-1/2) e4 q
+   (div S)(e3) = (-1/2) chib q + (-1/2) e3 q
+   (div S)(ex) = (1/2) eta q + (1/2) etab q
+Q1 (div S)(e4) is a transport of q along e4 alone: True; (div S)(e3) along e3 alone: True -> PASS
+Q2 div(Ric - R ht/2 - T) = -sum (Box Phi_i) dPhi_i on the general (2+1)-metric, all three components: True -> PASS
+   control (T with |dPhi|^2 g in place of |dPhi|^2 g/2): fails (good)
+Q3 (deduced, stated) the compatibility relations of chib, omegab, eta + etab with the metric are not propagated by any
+    one-directional row: not shown (see the docstring).
+prop5 (196 s): all checks pass

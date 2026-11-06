@@ -137,7 +137,7 @@ def fit(lhs, lib, labels, n_extra=6, seed=1):
     worst = 0
     for _ in range(4):
         vals = jet_values([lhs] + lib, rnd2)
-        res = vals[0] - sum(mp.mpf(float(c)) * vv for c, vv in zip(coef, vals[1:]))
+        res = vals[0] - sum(mp.mpf(sp.Rational(c).p) / mp.mpf(sp.Rational(c).q) * vv for c, vv in zip(coef, vals[1:]))
         worst = max(worst, abs(res) / max(1, max(abs(q) for q in vals)))
     return {l_: c for l_, c in zip(labels, coef) if c != 0}, worst
 
