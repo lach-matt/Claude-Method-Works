@@ -845,11 +845,11 @@ def check_d1_d2():
     return F0, first
 
 
-DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean: a coefficient of lam^2 or higher reaches
-  order 1 only through one fast derivative lam^-1 d_s (gamma's lam^2 terms in Gamma; K's lam^2 terms in div K and d
-  tr K), and is then multiplied by an order-0 factor; the order-0 parts of gamma^-1 are g0's (not oscillating), so
-  these terms are d_s of something times a non-oscillating factor, of mean zero. gamma^-1 is kept to lam^2 since it
-  meets the lam^-1 of d_s^2 (lam W). The order-1 oscillating parts are incomplete and are not used."""
+DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean: a coefficient of lam^2 or higher
+  reaches order 1 only through one fast derivative lam^-1 d_s (gamma's lam^2 terms in Gamma; K's lam^2 terms in div K
+  and d tr K), and is then multiplied by an order-0 factor; the order-0 parts of gamma^-1 are g0's (not oscillating),
+  so these terms are d_s of something times a non-oscillating factor, of mean zero. gamma^-1 is kept to lam^2 since
+  it meets the lam^-1 of d_s^2 (lam W). The order-1 oscillating parts are incomplete and are not used."""
 
 
 def check_d3_d4(F0):
@@ -1103,14 +1103,16 @@ def check_d7(fode):
     mu_end = float(s1[1].sol(5.5)[3])
     OK['D7'] = (abs(mu_end - 227 / 192) < 1e-9 and sizes['slice (r <= 11/2)'][1] < 1e-8
                 and sizes['slice (r <= 11/2)'][0]['a'] < 1e-3)
-    print('  D7 (computed, floating point): envelope5\'s envelope (c = %.10f by quadrature, inside envelope5\'s certified '
+    print('  D7 (computed, floating point): envelope5\'s envelope (c = %.10f by quadrature, inside envelope5\'s '
+          'certified '
           '[1.32407110621, 1.3241034918]: %s); the mode ODEs k = 1, ..., 11 (odd) from zero data at r = 5/2; mu '
           'integrated beside them reaches %.13f at r = 11/2 (227/192 = %.13f)' % (
               c, float(C_LO.lower()) <= c <= float(C_HI.upper()), mu_end, 227 / 192))
     for lab, (mx, dif) in sizes.items():
         print('      on %s: sup |a| = %.3e, sup |w| = %.3e, sup |q| = %.3e (sup over th on a grid; rtol 1e-11 against '
               '1e-9: %.1e)' % (lab, mx['a'], mx['w'], mx['q'], dif))
-    print('      so h_1 = a dr dr is below 1e-3 on the slice, against the |a_1| > 12.37 the data alone would need to move '
+    print('      so h_1 = a dr dr is below 1e-3 on the slice, against the |a_1| > 12.37 the data alone would need to '
+          'move '
           'the operator-norm bound (R8.0 (6), classm5 K3): computed now, not only implausible; sup |a| < 1e-3: %s %s'
           % (OK['D7'], el()))
     return env, c, s1
@@ -1281,7 +1283,8 @@ def check_g():
           '13.2197 on 400 cells); sup over r >= 0.5: %s, >= 1: %s, >= 2: %s: %s' % (
               cells[0][2].str(6), rate_at(Fr(1, 2), cells, sm).str(6), rate_at(Fr(1), cells, sm).str(6),
               rate_at(Fr(2), cells, sm).str(6), OK['G2']))
-    print('  G3 (certified): int_(tau0)^(tau*) kappa(rho~(tau)) dtau <= %s, so the principal-part factor over X*\'s past '
+    print('  G3 (certified): int_(tau0)^(tau*) kappa(rho~(tau)) dtau <= %s, so the principal-part factor over X*\'s '
+          'past '
           'is e^((1/2) int) <= %s, against the record\'s e^(kappa Dtau*/2) <= 5.103e10 (classm5 K5): smaller by a '
           'factor %s; pinned in (1000, 1500): %s %s' % (tot.str(6), fac.str(6), (RECORD_K5 / fac).str(3), OK['G3'],
                                                          el()))
@@ -1316,12 +1319,14 @@ def check_chain(fac):
 
 
 def main():
-    print('lam0data5: the stage-1 data on Sigma (S_1, B_1), an admissible envelope, and the stability constant over X*\'s '
+    print('lam0data5: the stage-1 data on Sigma (S_1, B_1), an admissible envelope, and the stability constant over '
+          'X*\'s '
           'past (CONSTANTS5.md R8.2 blocks (a)-(c))')
     F0, first = check_d1_d2()
     CO, M1, g2 = check_d3_d4(F0)
     fode, Mc = check_d5(CO)
-    print('  D6 (computed, floating point): the identity at finite lam, E = 1 + v/4, the record\'s H, A = 1, test a, w, q:')
+    print('  D6 (computed, floating point): the identity at finite lam, E = 1 + v/4, the record\'s H, A = 1, test a, w, '
+          'q:')
     res = check_d6(CO, M1, F0)
     ps = assess_d6(res)
     OK['D6'] = all(p >= 1.6 for p, rem in ps.values())

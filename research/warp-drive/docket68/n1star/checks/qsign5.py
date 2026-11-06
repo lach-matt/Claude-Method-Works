@@ -631,13 +631,14 @@ def q7():
     mism = abs((o[3] - (o[4] - 0.25 * o[5])) / o[5])
     ctl1 = abs(mism - 0.25) < 0.01
     # control 2: psi = O(sc) (not axis-regular): the identity fails (boundary terms at the axes)
-    rel_irr = min(abs(o[3] - o[4]) / abs(o[4]) for o in irr)
+    rel_irr = min(abs(o[3] - o[4]) / abs(o[5]) for o in irr)
     ctl2 = rel_irr > 1e-3
     print("   six regular seeds (two bands, one inside the horizon; Kt/E on the axis ranges down to %.3f, so they "
           "reach it): Q equals the decomposition over the whole of [0, pi/2] to %.1e of Q and %.1e of its Gamma term, "
           "Q < 0 and Q <= -int Gamma psi^2/sin 2th: %s" % (kax, rel, relg, neg))
     print("   controls: Gamma -> (3/4) Gamma misses Q by %.4f of the Gamma term (a quarter; rejected): %s; seeds with "
-          "psi = O(sin th cos th), not axis-regular, miss it by at least %.1e of Q (axis boundary terms; rejected): %s" %
+          "psi = O(sin th cos th), not axis-regular, miss it by at least %.1e of the Gamma term (axis boundary terms; "
+          "rejected): %s" %
           (mism, ctl1, rel_irr, ctl2))
     return rel < 1e-8 and relg < 1e-4 and neg and kax > 0 and ctl1 and ctl2
 

@@ -659,3 +659,191 @@ def mode_free(gi, Gm, Ric):
           "sqrt(gamma) zero in all five components): %s; M[k_psi] = 0: %s; Euler_psi of N(<k, k_psi> - tr k tr k_psi) "
           "sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): %s" % (i_ok, ii_ok, iii_ok, iv_ok), flush=True)
     return i_ok and ii_ok and iii_ok and iv_ok
+
+
+def subs_jets(e, table):
+    """replace the jets name_k by D^k(expr) for every name in table"""
+    reps = {}
+    for nm, ex in table.items():
+        J = JR.J[nm]
+        top = max([i for i in range(len(J)) if e.has(J[i])], default=-1)
+        d = ex
+        for i in range(top + 1):
+            reps[J[i]] = d
+            d = JR.D(d)
+    return e.xreplace(reps)
+
+
+QP = 1296 * x_**3 + (624 * m_ - 144) * x_**2 + 36 * m_ * (m_ - 12) * x_ + 16 * m_**3 + 60 * m_**2
+
+
+# ------------------------------------------------------------------ E5
+def e5(rad):
+    print("E5 (exact) the kinetic energy: E_K = 6 k^2 m Z^2/(R^3 H_KI^2) + d/dR on the momentum constraint", flush=True)
+    p, q, w = JR.J['p'], JR.J['q'], JR.J['w']
+    M0, M1, EK = rad['M0'], rad['M1'], rad['EK']
+    Z = r**3 * (w[0] - f_ * q[0])
+    ident = JR.is_zero(JR.D(Z) + r**2 * HKI / 3 * q[0] + r**2 * M1 + r**3 / 3 * M0)
+    Zb = r**3 * w[0]
+    ctl = not JR.is_zero(JR.D(Zb) + r**2 * HKI / 3 * q[0] + r**2 * M1 + r**3 / 3 * M0)
+    Zs = JR.J['Z']
+    qe = -3 * Zs[1] / (r**2 * HKI)
+    we = Zs[0] / r**3 + f_ * qe
+    pe = ((4 - 3 * x_) * qe + r * f_ * JR.D(qe) - 2 * we) / f_
+    tab = {'p': pe, 'q': qe, 'w': we}
+    cons = JR.is_zero(subs_jets(M0, tab)) and JR.is_zero(subs_jets(M1, tab))
+    red = JR.is_zero(JR.euler(subs_jets(EK, tab) - 6 * k2 * m_ * Zs[0]**2 / (r**3 * HKI**2), 'Z'))
+    # completeness: on the constraint surface every (p, q, w) is the image of its own Z
+    back = JR.is_zero(subs_jets(qe, {'Z': Z}) - q[0] - 3 * (r**2 * M1 + r**3 / 3 * M0) / (r**2 * HKI))
+    print("   Z' + (R^2 H_KI/3) q + R^2 M_th + (R^3/3) M_R = 0 identically: %s; q = -3 Z'/(R^2 H_KI) on the constraint "
+          "(so the map below is onto): %s" % (ident, back))
+    print("   Z -> (p, q, w) solves M_R = M_th = 0 identically: %s; Euler operator of E_K - 6 k^2 m Z^2/(R^3 H_KI^2) "
+          "in Z is zero: %s" % (cons, red))
+    print("   control (a gauge-variant variable admitted): with R^3 w in place of Z the identity fails (rejected): %s"
+          % ctl)
+    report('E5', ident and back and cons and red, [('Z -> R^3 w', ctl)])
+    return tab
+
+
+# ------------------------------------------------------------------ E6
+def e6(rad):
+    print("E6 (exact) the potential energy: E_V = (27 m/(2 k^2)) (f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)) + d/dR",
+          flush=True)
+    A, F, L = JR.J['A'], JR.J['F'], JR.J['l']
+    EV, C = rad['EV'], rad['C']
+    EVred = (24 * r**3 * f_ * F[1]**2 + (14 * k2 - 24) * r * F[0]**2 - r**2 * f_ * (k2 + 12 * f_) * A[0] * F[1]
+             + k2 / 2 * r * f_**2 * A[0]**2 + 3 * k2 * r * f_ * A[0] * F[0])
+    d1 = EV - EVred - r**4 * F[1] * C
+    s1_ = JR.is_zero(JR.euler(d1, 'A')) and JR.is_zero(JR.euler(d1, 'F'))
+    kap = (k2 + 6 + 6 * x_) / (3 * r * f_)
+    g = 2 * HKI / (3 * f_**2)
+    Dd = 2 * k2 * HKI / (9 * r * f_**3)
+    ell = A[0] - 2 * r / f_ * F[1] + g * F[0]
+    s2_ = JR.is_zero(JR.D(ell) + kap * ell - Dd * F[0] - r / (3 * f_**2) * C)
+    ellb = A[0] - 2 * r / f_ * F[1]
+    ctl1 = not JR.is_zero(JR.D(ellb) + kap * ellb - Dd * F[0] - r / (3 * f_**2) * C)
+    Fe = (L[1] + kap * L[0]) / Dd
+    Ae = L[0] + 2 * r / f_ * JR.D(Fe) - g * Fe
+    tab = {'A': Ae, 'F': Fe}
+    s3_ = JR.is_zero(subs_jets(C, tab))
+    Ered = sp.together(subs_jets(EVred, tab))
+
+    def target(ex):
+        Phi = r**ex * f_**2 * L[0] / HKI
+        return 27 * m_ / (2 * k2) * (f_ * JR.D(Phi)**2 + QP * Phi**2 / (16 * r**2 * HKI**2))
+    s4_ = JR.is_zero(JR.euler(Ered - target(sp.Rational(3, 2)), 'l'))
+    ctl2 = not JR.is_zero(JR.euler(Ered - target(sp.Rational(1, 2)), 'l'))
+    print("   E_V = E_red + R^4 F' C + d/dR: %s; l' + kappa l - (2 k^2 H_KI/(9 R f^3)) F = (R/(3 f^2)) C: %s; l -> (A, F) "
+          "solves C identically: %s" % (s1_, s2_, s3_))
+    print("   Euler operator of E_V(l) - (27 m/(2 k^2))(f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)), Phi = R^(3/2) f^2 "
+          "l/H_KI, zero in l: %s" % s4_)
+    print("   controls: l without its F-term fails the identity (rejected): %s; Phi with R^(1/2) fails (rejected): %s"
+          % (ctl1, ctl2))
+    # the l-form potential before the S-deformation (E7's control)
+    num = sp.expand(sp.numer(Ered))
+    den = sp.denom(Ered)
+    P = sp.Poly(num, L[0], L[1], L[2])
+    cf = {mm: sp.cancel(c / den) for mm, c in zip(P.monoms(), P.coeffs())}
+    c20, c11, c101 = cf.get((2, 0, 0), 0), cf.get((1, 1, 0), 0), cf.get((1, 0, 1), 0)
+    c0 = sp.factor(sp.cancel(c20 - sp.diff(c11, r) / 2 + sp.diff(c101, r, 2) / 2))
+    nol2 = (0, 0, 2) not in cf
+    print("   no l''^2 term in E_V(l) (the principal parts cancel): %s" % nol2)
+    report('E6', s1_ and s2_ and s3_ and s4_ and nol2, [('l without F-term', ctl1), ('R^(1/2)', ctl2)])
+    return dict(tab=tab, c0=c0, ell=ell)
+
+
+# ------------------------------------------------------------------ E7
+def e7(c0):
+    print("E7 (exact) positivity on the class spectrum, and the potential before the S-deformation", flush=True)
+    j = sp.Symbol('j', positive=True, integer=True)
+    mj = sp.expand(4 * j * (j + 1) - 3)
+    spec = [mj.subs(j, i) for i in (1, 2, 3)] == [5, 21, 45]
+    xx, tt = sp.symbols('xx tt', nonnegative=True)
+    Q5 = sp.expand(QP.subs(x_, xx).subs(k2, 8))
+    quad = Q5 - 1296 * xx**3
+    disc = sp.discriminant(quad, xx)
+    m5 = disc < 0 and quad.subs(xx, 0) > 0 and sp.Poly(Q5, xx).count_roots(0, 1) == 0
+    Qt = sp.Poly(sp.expand(QP.subs(x_, xx).subs(k2, 24 + tt)), xx, tt)
+    big = all(cc >= 0 for cc in Qt.coeffs()) and Qt.as_expr().subs({xx: 0, tt: 0}) > 0
+    hk = all(cc > 0 for cc in sp.Poly(sp.expand(HKI.subs(x_, xx).subs(k2, 8 + tt)), xx, tt).coeffs())
+    print("   class modes l = 2j: m = 4j(j+1) - 3 = 5, 21, 45, ...: %s; m = 5: Qp = 1296 x^3 + %s, discriminant %s < 0, "
+          "no root in [0, 1]: %s; m = 21 + t (t >= 0): every coefficient of Qp in (x, t) >= 0, Qp(0, 0) > 0: %s; "
+          "H_KI = m + 6x > 0: %s" % (spec, quad, disc, m5, big, hk))
+    # control: the l-form potential at m = 5, mu = 1 is negative near the horizon
+    c05 = sp.factor(c0.subs({k2: 8, mu: 1}))
+    numc = sp.numer(sp.together(c05 / (1 - 1 / r**2)**3))
+    vals = [sp.sign(numc.subs(r, rv)) for rv in (sp.Rational(101, 100), 3)]
+    ctl = vals[0] != vals[1]
+    print("   control (wrong sign): the potential c0 of the l-form at m = 5, mu = 1 changes sign on r > 1 (sign %s "
+          "at r = 1.01, %s at r = 3): positivity is not automatic, the S-deformation is needed (rejected): %s"
+          % (vals[0], vals[1], ctl))
+    report('E7', spec and m5 and big and hk, [('c0 sign', ctl)])
+
+
+# ------------------------------------------------------------------ E8
+def e8(rad):
+    print("E8 (exact) l = 0: the energies are d/dR's on the constraint; compact support excludes the mass change",
+          flush=True)
+    A, F, p, w = JR.J['A'], JR.J['F'], JR.J['p'], JR.J['w']
+    EV0, C0 = rad['EV'].subs(k2, 0), rad['C'].subs(k2, 0)
+    EK0, M00 = rad['EK'].subs(k2, 0), rad['M0'].subs(k2, 0)
+    al = r * F[0]
+    AX = sp.diff(1 / f_, r) * al + 2 * JR.D(al) / f_               # (L_(R F d_R) gamma)_RR
+    c_ok = JR.is_zero(subs_jets(C0, {'A': AX}))
+    v_ok = JR.is_zero(JR.euler(subs_jets(EV0, {'A': AX}), 'F'))
+    # the homogeneous l = 0 solution of C0 at F = 0: A = mu/(R^2 f^2), the linearised mass, nowhere zero
+    Am = mu / (r**2 * f_**2)
+    h_ok = JR.is_zero(subs_jets(C0.subs({F[0]: 0, F[1]: 0, F[2]: 0}), {'A': Am}))
+    pe = (r * JR.D(w[0]) + w[0]) / f_
+    k_ok = JR.is_zero(subs_jets(M00.subs(JR.J['q'][0], 0), {'p': pe})) and \
+        JR.is_zero(JR.euler(subs_jets(EK0, {'p': pe}), 'w'))
+    print("   C_0(L_(R F d_R) gamma) = 0: %s, and E_V on it has zero Euler operator in F: %s; the other solution A = "
+          "mu/(R^2 f^2) (the mass change, nowhere zero): %s; kinetic: p = (R w' + w)/f solves M_R, E_K a d/dR: %s"
+          % (c_ok, v_ok, h_ok, k_ok))
+    report('E8', c_ok and v_ok and h_ok and k_ok)
+
+
+# ------------------------------------------------------------------ E9
+def e9(ktab):
+    print("E9 (exact) the static-slice E is Kodama-Ishibashi's master energy: Phi[2 N k] = (2 k^2/3) sqrt(f) "
+          "Z/(R^(3/2) H_KI)", flush=True)
+    N = sp.sqrt(f_)
+    pe, qe, we = ktab['p'], ktab['q'], ktab['w']
+    a, b, c = 2 * N * pe, 2 * N * qe, 2 * N * we                   # h = 2 N k, e = 0
+    alpha = -r * f_ * b
+    Ai = a + sp.diff(1 / f_, r) * alpha + 2 * JR.D(alpha) / f_
+    Fi = c / 2 - f_ * b
+    ell = Ai - 2 * r / f_ * JR.D(Fi) + 2 * HKI / (3 * f_**2) * Fi
+    Phi = r**sp.Rational(3, 2) * f_**2 * ell / HKI
+    Zs = JR.J['Z']
+    tgt = sp.Rational(2, 3) * k2 * N * Zs[0] / (r**sp.Rational(3, 2) * HKI)
+    plus = JR.is_zero(Phi - tgt)
+    minus = JR.is_zero(Phi + tgt)
+    print("   Phi[2 N k] = +(2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI): %s (with the opposite sign: %s); hence E_K = (27 m/(2 "
+          "k^2)) int Phi_t^2/f dR, and the static-slice E = (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S "
+          "Phi^2) dr*, V_S = f Qp/(16 R^2 H_KI^2)" % (plus, minus))
+    report('E9', plus or minus)
+
+
+def main():
+    selftest = '--selftest' in sys.argv
+    print("mbsign5: the sign of E = -Q = -2 int G^(2)[delta](xi, n) dvol on the band (FAMILIES5-MB.md)", flush=True)
+    e1()
+    bg, td, out = e2()
+    e3(bg, td, out)
+    rad = e4()
+    ktab = e5(rad)
+    r6 = e6(rad)
+    e7(r6['c0'])
+    e8(rad)
+    e9(ktab)
+    allok = all(RESULTS.values())
+    print("summary: " + ", ".join('%s %s' % (k, 'PASS' if v else 'FAIL') for k, v in RESULTS.items()))
+    print("ALL PASS" if allok else "FAILURES", "(%.0f s)" % (time.time() - T0))
+    if selftest:
+        return 0 if allok else 1
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
