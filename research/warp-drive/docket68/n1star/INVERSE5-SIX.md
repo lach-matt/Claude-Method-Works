@@ -421,3 +421,164 @@ PART-III-D-GAUGEPOT.md:1-60, 230-420 (e146c30e...); PART-III-F-LINEARISED.md:20-
 (10.48)-(10.49) (by content; md5 7400212b... when read); E2-PILOT.md sections 1-4 (d156cd3b...); CONSTANTS5.md rounds
 6-9; instruments imported: strap5.py, e2certify5.py, modes5.py, gmodes5.py; read: lhor5.py, nkind5.py, cover5.py
 (lambda_L), thetain5 (theta_in = 0, via CONSTANTS5.md R9.0).
+
+## Round 2 (2026-11-06): closing the inputs, and where the explicit-constant computation stops
+
+*Status.* Appended; round 1 (sections 0-8) stands as written and is not edited. Asked: close, in order, (1) the gauge
+reconstruction of B4-B5, (2) C_ext(sigma) and the absorbed problem's invertibility for box, box^Ups, box^C and L_b0,
+(3) (C, h_0) in (6.6), (4) C_a and C_8.1, (5) B6's parametrix norms and N^0(sigma)'s quantitative injectivity, (6) the
+lower bounds for lambda1 and delta through CONSTANTS5's chain, and (7) where an input cannot be made explicit at an
+affordable cost, stop and state what holds. New program `checks/inverse6_5a.py` (9/9: A0-A4, controls C1-C4; seconds);
+`checks/inverse6_5.py` (17/17) and `checks/inverse6_5m.py` (12/12) are unchanged and their round-1 outputs stand.
+CONSTANTS5.md (its round 10 read: md5 0320dd90...), N1STAR-PROOF.md, the paper and the scalar-block files are not
+edited; INVERSE5-SCALAR.md does not exist yet, and `checks/scalarblock5.py` (read: its docstring, no `.out`) is that
+work's state.
+
+### R2.0 Outcome
+
+**lambda1 and delta are positive (proved: Theorem 4's proof, as the record has it); explicit lower bounds are not
+computed.** Of the seven items, one is closed further here (the absorbed problem's invertibility, for box on functions
+at b0), one is assembled exactly (the chain to lambda1 and delta, as a monotone formula in its inputs, with every input's
+status), and the others stop at inputs that are not numbers in the record. The decisive finding is upstream of all six
+bounds and was not named in round 1: **the write-out does not fix its operators and spaces numerically.** The gauge and
+damping parameters are chosen below thresholds that the record proves to exist without a value (gamma_Ups,H in
+(0, eps_0] with "There is eps_0 > 0" (III.D' Proposition 4.1), e_Ups and gamma_Ups below eps_1, eps_L and gamma_1, and
+gamma_C = 1/h with h < h_* = min(10^-6, h_0, h_tf) off a countable set; PART-VI4-PARAMS.md rows u2-u5, c2), and the
+record's own computational point gamma_C = 10^6 lies "outside the proved set" (PART-VI4-PARAMS.md:124, READ, A0); the
+cut-offs zeta, chi of c_Ups, c_Ups,H, the smoothing of c_C near r_0/2 and 2 r_0, and the variable orders and
+quantisation of X_sigma, Y_sigma are "any admissible" and not chosen. A certified constant of an operator that is not
+specified, in a norm that is not specified, is not a number; so items (1), (2), (4), (5), and (3) for 2 L_b0 and
+box^Ups, stop at the same first input: **explicit admissibility thresholds for the gauge and damping parameters, and
+explicit choices of the cut-offs, orders and quantisation**. This is a limit of the explicit-constant computation, not
+of the theorem: each threshold exists, by the cited statements.
+
+### R2.1 Item by item
+
+1. **Gauge reconstruction (B4, B5): not computed.** Per mode, box^C and box^Ups are non-self-adjoint ODE systems
+   (scalar type: three components) whose first-order coefficients carry gamma_C c_C, of size gamma_C/100 = 10^4 at the
+   photon sphere at the record's point (computed, inverse6_5 K3) and gamma_C/200 at the horizon (K4); a certificate
+   uniform in l at real sigma != 0 needs the operator fixed (the smoothing of c_C beyond r = r_0/2, zeta, chi, and
+   gamma_Ups,H, which the record leaves "in (0, eps_0]", not a number; scalarblock5.py's docstring records the same for
+   gamma_H). The master parts of B4 and B5 stay certified (round 1, section 4); the reconstruction steps (a)-(c), the
+   l = 0 sector and the 1/sigma factor are not computed.
+2. **C_ext(sigma) and the absorbed problem.** *Proved and computed for box on functions at b0* (Lemma R9 below,
+   inverse6_5a A4): with Q = chi q chi, q >= 0, the absorbed operator box-hat(sigma) - i sgn(sigma) Q is invertible
+   X_sigma -> Y_sigma at every real sigma != 0, so R6's hypothesis holds for it. *Not proved* for box^Ups, box^C and
+   L_b0 as wholes: their blocks' imaginary parts are not sign-definite (the gauge terms are not symmetric), so the flux
+   argument does not apply, and no other argument is given; *not computed*: C_ext's value in the write-out's norms
+   (the norms are not fixed, R2.0).
+3. **(C, h_0) in (6.6): not computed.** The record's proof is a defect-measure contradiction; a constructive
+   replacement needs explicit semiclassical calculus constants for operators B, E, G that Proposition 6.4 chooses
+   without formulas, in a fibre metric whose condition number is eta^-16, about (gamma_C/271.5)^8 at the threshold
+   (certified, round 1: the factor eta^-8 = 1.85e14 at gamma_C = 10^6 multiplies any such C). For the scalar master
+   operators the per-harmonic route gives global cut-off bounds (certified: E2-PILOT's band 3 <= sigma <= 384, and every
+   real sigma with linear growth, round 1 section 4), which are not (6.6): (6.6) is microlocal and concerns the bundle
+   operators, near whose trapped set E^C does not vanish.
+4. **C_a and C_8.1: explicit in form, not computed in value.** Lemmas R3-R4 give them as functions of (C, h_0) and the
+   other estimates' constants (the absorption thresholds, the interpolation factor F <= 1.002659, certified); with (3)
+   not computed, neither is evaluated.
+5. **B6: not computed.** The parametrix of [0C] Theorem 3.4 is not quantified (the 0-calculus construction gives no
+   norms), and N^0(sigma)'s quantitative injectivity, per harmonic an explicit ODE at b0, is not computed.
+6. **The chain to lambda1 and delta: assembled** (inverse6_5a A1-A3; EFFECTIVE-CONSTANTS.md Propositions 2.1-2.2, READ
+   by content, A0). With alpha = 8d + 2, K1 <= 2 C_d (delta_G <= 1), K2 = C_(N-2d)(C_(N-d) + 1), K3 = C_(3d,d) K1, K4 =
+   2 C_(N,N-2d) K2, K5 = 2 C_(3d,N-2d) K2,
+
+       theta0 = max{16, 16 eta_G^-2, (4 K3/delta_G)^(1/(6d+2)), 1 + K4, C1 K5 + C2 K3^2/2},   eps_NM = theta0^-alpha,
+       delta = (1/2) min{1, eps_NM/A_2d, eps_NM^G/A_2d, eps_dat},
+       lambda1 = min(lambda_1.1, eta_gl/C_R, 2 delta/(4 C_R)),
+
+   and the formula is monotone (computed, A1: raising an upper-bound constant never raises delta or lambda1, raising a
+   threshold never lowers them, on 3000 random points and at engineered points where each branch binds; control C1),
+   so certified one-sided bounds of the inputs give certified lower bounds of delta and lambda1 (deduced). At the loss
+   d = 46,236,449,175,331,158 (CONSTANTS5 R10.1, deduced on its reading; a larger loss is admissible) and every other
+   input at its floor, theta0 = 16 and **log10 delta = -(8d + 2) log10 16 - log10 2 = -4.4539386 x 10^17** (A2, exact;
+   control C2): the formula at that d delivers no more. When eps_NM/A_2d binds, log10 delta >= -(8d + 2) log10
+   theta0_bar - log10(2 A_bar) for any certified theta0_bar >= theta0, A_bar >= A_2d (deduced; at theta0_bar = 10^6,
+   A_bar = 10^12 it is -2.219 x 10^18). The inputs and their statuses (A3): d explicit on a reading; the tame constants
+   C_k to order N = 21d + 6 ~ 9.7 x 10^17, C1, C2, A_2d, the admissible pair (delta_K, eps_dat, among them two further
+   Nash-Moser thresholds eps_ext, eps_slab of Parts IV-IV''' and the data map's modulus), C_J, lambda_1.1, eta_gl and
+   C_R not computed; the G-sup equivalence constants explicit in principle; eps_m, eps_t, eps_K chosen. The seven
+   inverse bounds enter the C_k, C1, C2, A_2d and delta_K through III.J's inverses and the linear theory; they are not
+   the only inputs missing.
+7. **The stated limit.** lambda1, delta > 0 exist (proved). Explicit lower bounds follow from item 6's formula once its
+   inputs are bounded; the inputs certified or explicit are listed above and in round 1; the first input not computed is
+   the numerical specification of the operators and spaces (R2.0), after which come (C, h_0), the gauge
+   reconstruction, C_ext, the parametrix norms, the scalar-type blocks' sigma_min (scalarblock5.py, in progress) and the
+   chain's other inputs.
+
+**Lemma R9 (the absorbed scalar problem is invertible).** At b0 let q >= 0 be smooth with compact support in
+{r_h < r}, Q the multiplication by q, s = sgn sigma, sigma real and nonzero. Then box-hat(sigma) - i s Q : X_sigma ->
+Y_sigma is invertible. *Proof.* It is a compact perturbation of box-hat(sigma) (a compactly supported multiplication
+gains one derivative and is compact X_sigma -> Y_sigma, Rellich), which is Fredholm of index 0 (I.A Theorem 7.2 (3),
+I.B Theorem 1.3 (3)); so it suffices that its kernel is trivial. On each harmonic the kernel solves -Phi'' + (V_l -
+sigma^2 - i s f q) Phi = 0 in the class (regular across the future horizon, outgoing). The exact identity Im((equation)
+conj Phi) = -(Im Phi' conj Phi)' - s f q |Phi|^2 (inverse6_5a A4) integrates, with the end values sigma |c_+|^2 and
+-sigma |c_-|^2 (A4), to 0 = -sigma (|c_+|^2 + |c_-|^2) - s int f q |Phi|^2; both terms have the sign of -sigma, so
+c_+ = 0 and Phi is a multiple of the outgoing Jost solution with coefficient 0: Phi = 0. Inside the horizon, Phi = 0
+follows as in III.D Proposition 6.2 (d) (the system (r - r_h) Y' = M Y and Gronwall). [] With the wrong sign (s =
+-sgn sigma) the two terms can cancel (control C3).
+
+### R2.2 Proposed texts (final; checked against the files as they stand)
+
+1. The paper, section 9, "Settling", the bullet's last sentence (occurs exactly once in paper/RESPONSE-HL-5D.md,
+   md5 7193c56e... when checked; this pair supersedes CONSTANTS5.md R10.7 block 2, which targets the same sentence):
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+λ1 and δ are positive, as the proof gives them; their values are not
+  computed, and the supplement states where the computation of explicit constants stops (supplement
+  `docket68/n1star/INVERSE5-SIX.md`, round 2). What the proof's own formulas deliver is bounded above, log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ
+  (computed, `docket68/n1star/checks/deltacap5.py`), and with the loss taken at the integer above the formula gives at
+  most log₁₀ δ = −4.45 × 10¹⁷ even with every other input at its least value (computed, `checks/inverse6_5a.py`); a lower
+  bound is that formula, monotone in each input (computed), evaluated at certified bounds of its inputs. In hand: the
+  zero-energy inverse bound for the scalar model (constant 2.81) and for the tensor-type blocks of the linearised
+  operator (3.94), every harmonic, through the horizon (deduced from exact identities, with certified arithmetic,
+  `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the final black hole (exact), with the fibre
+  metric the trapping estimate needs, of condition number about (γ_C/271.5)⁸ (certified, `checks/inverse6_5.py`); the
+  absorption and interpolation steps of the high-energy inverses (explicit; the interpolation factor at most 1.00266,
+  certified); the removal of one of the seven inverse bounds, which a parametrix replaces; and the resolvent of every
+  master operator behind the two mode-stability bounds, every harmonic and every real frequency, in a cut-off norm,
+  carried exactly to the tensor-type blocks of the linearised operator and the vector-type blocks of the 1-form wave
+  operator (certified, `checks/inverse6_5m.py`). Not computed: the constant of the trapping estimate, which the
+  write-out obtains by a defect-measure contradiction, and the a priori constants built on it; the gauge reconstruction
+  and the absorbed problem's inverse in the write-out's norms (the latter proved invertible for the scalar wave); the
+  parametrix norms at future timelike infinity; the least singular value of the scalar-type zero-energy blocks; and
+  the chain's other inputs (the tame constants to order N, the Nash–Moser thresholds of the exterior and slab problems,
+  the gluing's constants). The first of these is upstream of the rest: the write-out fixes its gauge and damping
+  parameters only below thresholds it proves to exist, and the cut-offs and orders of its function spaces only up to
+  admissibility, so explicit constants first need those choices made numerically. This is a limit of the explicit
+  computation, not a gap in Theorem 4.
+```
+
+2. CONSTANTS5.md, R10.5's open bullet, its clause on the six (occurs exactly once, md5 0320dd90... when checked):
+
+```old
+the other six inverse bounds
+  (their microlocal constants at L_b0 and certified spectral bounds in the write-out's norms). For d, the two finite
+  avoidance conditions stay part of its reading.
+```
+
+```new
+the other six inverse bounds, as
+  INVERSE5-SIX.md states them (round 1 section 5; round 2): I.B:1513's (C, h_0), its symbol data computed; I.B:1685's
+  and :1978's a priori constants, which contain it, their absorption and interpolation explicit; III.F'':223's and
+  III.D:365's gauge reconstruction and absorbed-problem inverse, their master parts certified (the absorbed problem
+  proved invertible for the scalar wave); II.F:1393 eliminated at its site, the parametrix norms and N^0(sigma)'s
+  injectivity not computed; and, upstream of all six, numerical admissibility thresholds for the gauge and damping
+  parameters and numerical choices of the spaces' cut-offs and orders, which the write-out does not make. The chain to
+  lambda1 and delta is assembled as a monotone formula in its inputs (checks/inverse6_5a.py), whose other inputs (the
+  tame constants to order N, the admissible pair, the gluing's constants) are not computed either. For d, the two
+  finite avoidance conditions stay part of its reading.
+```
+
+### R2.3 Programs (md5 at the end of this round)
+
+`checks/inverse6_5a.py` 9/9 (A0-A4, C1-C4); `checks/inverse6_5.py` 17/17 (K1-K8, C1-C9); `checks/inverse6_5m.py` 12/12
+(M0-M7, C1-C4); each with its `.out`; md5s in the round's report. Sources read this round: EFFECTIVE-CONSTANTS.md
+sections 2-3 (md5 a45e90dc...); proof5/PART-VI4-PARAMS.md sections 1-3 (e7eebbb5...); proof5/PART-III-D2-ZEROENERGY.md
+section 4 (cdbe8fe8...); CONSTANTS5.md round 10 (0320dd90...); paper/RESPONSE-HL-5D.md section 9 (7193c56e...);
+checks/scalarblock5.py's docstring.

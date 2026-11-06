@@ -119,11 +119,19 @@ at e_C = 1/10240 is not proportional. The decaying roots (real part > 1) nearest
 ### A.5 The horizon exponents do not depend on l (computed, exact; S5b)
 
 r = 1 is a regular singular point of the block (A2 = -(f/2) I, f ~ 2 (r - 1)): the exponents are 0 (seven times) and
-1 + eig A1(1). With the record's inner c_C ((1/200) dt + (1/800) dr), c_U = r^-1 dt, c_H = -(1/2) dr, the
-characteristic polynomial of A1(1), with gam_C, e_C, gam_U, e_U, gam_H as symbols, is the same at kappa = 8 and 24:
-(X + 1)^2 (X + 2)(X + 3)(X + 5000)(X + 9999)(X + 2560487/512) at the record's point with c_U = 0 near the horizon (as III.F'' Lemma 1.1 takes it), so the exponents are 0, 0, -1, -2, 1 - x, 2 - 2x and -(1 - e_C) x with x = 5000: exactly the scalar-type part of Lemma 1.1's horizon matrix K at y = 0 (an independent check of both); with c_U = r^-1 dt there instead, they move by multiples of gam_U ((X + 1)(X + 5000)(X + 9999)(X + 151/50)(X + 201/100)(X + 2560487/512)(X + 10099/10000)). Its roots carry x = gam_C a_v r_h = 5000 (III.F'' Lemma 1.1, a_v = 1/200 the dv-component of c_C at r_h).
-Large l does not move the horizon part of the problem: whatever makes the scalar-type blocks invertible near and inside
-the horizon is the same at every l.
+1 + eig A1(1). With the record's inner c_C ((1/200) dt + (1/800) dr) and c_H = -(1/2) dr, the characteristic
+polynomial of A1(1), with gam_C, e_C, gam_U, e_U, gam_H as symbols, is the same at kappa = 8 and at kappa = 24, both
+with c_U = 0 near the horizon (as III.F'' Lemma 1.1 takes it: there E^Ups is its horizon part) and with c_U = r^-1 dt.
+At the record's point with c_U = 0 it is
+
+    (X + 1)^2 (X + 2)(X + 3)(X + 5000)(X + 9999)(X + 2560487/512),
+
+so the exponents are 0, 0, -1, -2, 1 - x, 2 - 2x and -(1 - e_C) x with x = gam_C a_v r_h = 5000 (a_v = 1/200, the
+dv-component of c_C at r_h): exactly the scalar-type part of Lemma 1.1's horizon matrix K at y = 0, an independent
+check of the block and of `lhor5.py`. With c_U = r^-1 dt up to the horizon instead they move by multiples of gam_U
+((X + 1)(X + 5000)(X + 9999)(X + 151/50)(X + 201/100)(X + 2560487/512)(X + 10099/10000)). Large l does not move the
+horizon part of the problem: whatever makes the scalar-type blocks invertible near and inside the horizon is the same
+at every l, and it carries exponents of size gam_C a_v r_h.
 
 ### A.6 The weight: an upper bound for sigma_min, a lower bound for the constant (proved; certified, S6-S7)
 
@@ -136,7 +144,11 @@ u3 = (2 kappa)^(1/2) H3/r, u4 = (2 kappa)^(1/2) H4/r, u5 = 3^(1/2) H5, u6 = ((2/
 
 with the b-field r d_r and the Lie derivatives of the six Killing fields of S^3 as generators (their squares sum to
 kappa on every scalar-type piece: the so(4) Casimir on the representation (l/2, l/2) of S, dS and S_AB, as T4 of
-`tensorzero5.py` has it for the TT tensors); the choice of generators is R7.4's.
+`tensorzero5.py` has it for the TT tensors); the choice of generators is R7.4's. The fibre metric is the Euclidean
+one of the frame (dt, dr, r dOmega) with t the Kerr-Schild time; the record's trivialisation by dt_*, dx^i differs at
+large r by a frame change that is constant up to O(r^-2), dt_* = dt + c dr, and a bound for the quotient
+||L h||_Y/||h||_X in one of the two norms transfers to the other with at most the factor ((|c| + (c^2 + 4)^(1/2))/2)^4
+(the condition number of the change on symmetric 2-tensors; 34 at |c| = 2), a fixed number (deduced).
 
 **Lemma A.6.** Let beta = alpha + 2 lie in the indicial gap of the block at infinity, N_l^n(lam) the indicial family in
 orthonormal components (N^n_ij = nu_i N_ij / nu_j), and v in C^7 (C^4 at l = 0) non-zero. Then
@@ -331,16 +343,77 @@ list. Its single missing input is that list; with it, the arithmetic of B.4-B.5 
 (B) as R9 posed it -- the levels off I11:156-160's exclusion values, eps and eps' off I9:290-291's and I14:124-126's
 -- is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda; the one part of I11:160's
 appended set left (B.7) is a further condition of the same kind, not one of the two R9 named. d's integer
-d <= 45,661,458,981,362,098 is unchanged (the weights are those it was computed at); its reading loses the clause
-"two of the weights' admissibility conditions ... are not decided" (section C).
+(round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading loses the
+clause "two of the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices
+(a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
 
 ## C. Proposed replacement text for CONSTANTS5.md R9.7 (old/new; not applied)
 
-R9.7's blocks are themselves proposed text for the paper; the old texts below are quoted from R9.7's *new* blocks as
-CONSTANTS5.md stands (md5 at the end of this file's round, not pinned; another workstream and a verifier are working on
-it). INVERSE5-SIX.md proposes text for block 2's other six bounds; the pair below touches only its scalar-type sentence.
+R10.7's blocks (which replaced R9.7's while this file was written) are themselves proposed text for the paper; the
+old texts below are quoted from R10.7's *new* blocks as CONSTANTS5.md stands (not pinned: its author and a verifier
+are working on it). INVERSE5-SIX.md proposes text for block 2's other six bounds; C.2 touches only the scalar-type
+clause.
 
-{CTEXT}
+**C.1 Block 1 (the loss d), R10.7's new text, its last two sentences.** The old text occurs once in CONSTANTS5.md, in
+R10.7's block 1 (R9.7's superseded block 1 carries the same clause, wrapped differently).
+
+```old
+  Three parts of the reading are not statements of the write-out: the logarithmic orders of one index set, a ceiling
+  deduced step by step from the proof of the write-out's coarser bound; the order range of the calculus count, read from
+  its estimates' thresholds; and two of the weights' admissibility conditions, avoidances of finite sets of roots, which
+  are not decided at the weights used. So the integer bounds the loss this proof's bookkeeping produces on that reading,
+  not the optimal one.
+```
+
+```new
+  Two parts of the reading are not statements of the write-out: the logarithmic orders of one index set, a ceiling
+  deduced step by step from the proof of the write-out's coarser bound; and the order range of the calculus count, read
+  from its estimates' thresholds. The weights' admissibility conditions hold at the weights used, the two avoidances of
+  finite sets of roots among them, exactly and with certified margins: the levels and rounds are rational, every
+  indicial root they can meet is an integer or irrational, and the one rational coincidence possible is not a level
+  (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py`), on the reading of that index set
+  below 2 the integer uses; one condition of the same kind at the second Taylor level waits on exponents the write-out
+  does not list. So the integer bounds the loss this proof's bookkeeping produces on that reading, not the optimal one.
+```
+
+**C.2 Block 2 (lambda1 and delta), the scalar-type clause only.** The old text is the clause of R10.7's block 2 up to
+its semicolon (it stands identically in R9.7's superseded block 2, so it occurs twice in CONSTANTS5.md; the replacement
+is meant for R10.7's); the rest of the sentence ("the other six need ...") is INVERSE5-SIX.md's to replace.
+
+```old
+For its scalar-type blocks, whose gauge-damping terms
+  neither vanish nor are symmetric, the one input missing is a lower bound for their least singular value, uniform in
+  the harmonic;
+```
+
+```new
+For its scalar-type blocks, whose gauge-damping terms
+  neither vanish nor are symmetric, the one input missing is still a lower bound for their least singular value,
+  uniform in the harmonic; they are now written out exactly for every harmonic, with their gauge and Bianchi identities
+  and the record's indicial roots, and in that norm the least singular value of the degree-2 block is at most
+  2.62 × 10⁻⁷, because the norm's weight lies 2.93 × 10⁻⁶ from one of its indicial roots: the inverse bound in the
+  class is at least 3.8 × 10⁶ at that weight, whatever the missing input turns out to be, while at a weight in the
+  middle of the indicial gap that obstruction is about 10⁻² (proved, with certified arithmetic; supplement
+  `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py`);
+```
+
+**C.3 The statuses paragraph after R10.7's three pairs (an addition at its end; the same two lines close R9.7's
+paragraph too, so the replacement is meant for R10.7's).**
+
+```old
+T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
+(classm5 9/9).
+```
+
+```new
+T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
+(classm5 9/9); the two avoidances of finite sets of roots, proved with exact arithmetic and certified margins
+(rootavoid5 {RAPASS}); the scalar-type blocks written exactly and the upper bound for their least singular value,
+computed exactly and certified (scalarblock5 {SBPASS}).
+```
+
+The old texts were checked by content against CONSTANTS5.md as it stood when this file was written (C.1 once, C.2 and
+C.3 twice, once in R9.7 and once in R10.7); the paper carries none of them yet (they are R10.7's proposed new texts).
 
 ## D. Sources
 

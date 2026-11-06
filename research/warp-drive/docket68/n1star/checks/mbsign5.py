@@ -71,7 +71,7 @@ every jet free; the radial identities of E5, E6, E8, E9 symbolic in k^2 and the 
 FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice (Stokes and the second-order Bianchi
 identity), the mode sum (orthogonality), the intermediate-value step (Proposition L').
 
-Run: python3 checks/mbsign5.py [--selftest] [--full] [--only=E1,E2,...]   (about 10 minutes under load; --full
+Run: python3 checks/mbsign5.py [--selftest] [--full] [--only=E1,E2,...]   (about 4 minutes under load; --full
 longer; --selftest: exit 1 unless every check passes and every control is rejected)
 """
 import importlib.util

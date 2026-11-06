@@ -7,29 +7,6 @@ E1 (exact) the class harmonics on S^3: scalar P_j(cos 2th); tensor A = C_n^(3/2)
    tensor n = 3 (l = 8): trace-free, divergence-free True, (Delta + 78) T = 0 True, k_T^2 = l(l+2) - 2 True, regular at both axes True, |T|^2 = 45
    the divergence condition is solved by B = (3u - 1) A/2 + (sin 2th/2) A_th, uniquely: True
    control: B with the derivative term's sign reversed (n = 1) is not divergence-free (rejected): True
-E1 PASS  (4 s)
+E1 PASS  (5 s)
 E2 (exact; w(R), mu symbolic) the tensor sector on every class slice v = V(R): E = 2 |T|^2 int T_m(xi, n)
    the slice: n unit, future, normal; xi = N_s n + Y_s; N_s sqrt(gamma_RR) = 1; N_s^2 - gamma_RR (Y_s^R)^2 = f; K_RR closed form: {'unit': True, 'future': True, 'normal': True, 'decomposition': True, 'NsqrtG': True, 'lapse_shift': True, 'KRR': True, 'n^R': True}
-   linearised constraints of the tensor data vanish identically (TA generic): True
-   l = 2 (|T|^2 = 3/2, k_T^2 = 6): Euler operator of Q-density + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) zero in H and P: True; control |T|^2 -> |T|^2/2 (rejected): True
-   l = 4 (|T|^2 = 15/2, k_T^2 = 22): Euler operator of Q-density + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) zero in H and P: True; control |T|^2 -> |T|^2/2 (rejected): True
-   T_m's (P, H_R) block R^3 [[N/2, Y/2], [Y/2, N/(2 gamma_RR)]] has determinant R^6 f/(4 gamma_RR) (N > 0): True -- positive definite iff f > 0
-   the tensor master current J^a = T^a_b xi^b obeys d_a J^a = xi(H) (D_a(R^3 D^a H) - (k_T^2 + 2) R H), the tensor equation of static5 S1 / gmodes5 G1: True
-E2 PASS  (66 s)
-E3 (exact) M_b fails inside the horizon: tensor seeds with E < 0 on Part I's slice
-   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR on every class slice: True; with H = 0 the theta-integrated Q-density is -|T|^2 R^3 P^2 pointwise: True
-   H = (R - R1)^2 (R2 - R)^2 on [R1, R2] = [0.72, 0.89] (R2^2 < 0.80: inside the horizon for every mu in [0.80, 0.84]; Part I's seed region: inner edge 0.683, horizon 0.9067, mu0 = 0.8221, qsign5 Q3): Q is affine in mu True, Q(0.80) = 71057116987391/6000000000000000000000 = 1.184285e-08, Q(0.84) = 93707811736991/6000000000000000000000 = 1.561797e-08, both > 0: E < 0 for every mu there: True
-   the momentum-only seed P = (R - R1)^2 (R2 - R)^2, H = 0, on the same band: Q = -1.477397e-10 < 0 (any mu): True; so Q changes sign along s -> (s H, -s (Y/N) H_R + (1 - s) P), every member non-gauge (nonzero TT part)
-   control: the band moved to [0.92, 1.09] (0.92^2 > 0.84: outside the horizon): Q(0.80) = -2.786777e-08, Q(0.84) = -2.315474e-08, both < 0, no E < 0 seed (rejected): True
-E3 PASS  (92 s)
-E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance
-   (a) Regge-Wheeler-type gauge: C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2, every coefficient free of th (equal at three rational angles): True, True
-   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, alpha/(R f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): True; the lapse direction k_psi has trace-free angular part psi (S_hat)^TF (z-shift psi/R^2): True; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f b + k^2 e/6 + f R e'/2 are invariant: True
-   (c) mode-free, class fields of (R, th): D R[L_X gamma] = 0: True; (D R)^* N = 0 (Euler operator of N D R[h] sqrt(gamma) zero in all five components): True; M[k_psi] = 0: True; Euler_psi of N(<k, k_psi> - tr k tr k_psi) sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): True
-E4 PASS  (178 s)
-E5 (exact) the kinetic energy: E_K = 6 k^2 m Z^2/(R^3 H_KI^2) + d/dR on the momentum constraint
-   Z' + (R^2 H_KI/3) q + R^2 M_th + (R^3/3) M_R = 0 identically: True; q = -3 Z'/(R^2 H_KI) on the constraint (so the map below is onto): True
-   Z -> (p, q, w) solves M_R = M_th = 0 identically: True; Euler operator of E_K - 6 k^2 m Z^2/(R^3 H_KI^2) in Z is zero: True
-   control (a gauge-variant variable admitted): with R^3 w in place of Z the identity fails (rejected): True
-E5 PASS  (180 s)
-E6 (exact) the potential energy: E_V = (27 m/(2 k^2)) (f Phi'^2 + Qp Phi^2/(16 R^2 H_KI^2)) + d/dR
