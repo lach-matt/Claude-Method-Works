@@ -82,7 +82,9 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
      average is (-1)^a int rho^(a)(t) Phi_eps(v + t, x) dt, and I_(T^a (Psi - Psi_0)) ~ int (G_a^2 + G_(a+1)^2 +
      H_a^2) dx (G_a = T^a, H_a = d_x T^a, on Sigma_0) falls at least tenfold per step eps = 1e-3, 1e-5, 1e-7 for a = 0,
      1, 2, to below 1e-8; the averaged limit is (int rho e^(-sigma t) dt) e^(-sigma v) x^alpha to 1e-12; and Q(0) of
-     the averages grows (3.9, 42, 426 at 5/4; 2.0, 3.7, 5.5 at 3/2).  Control: the naive data themselves, which
+     the averages grows (3.9, 42, 426 at 5/4; 2.0, 3.7, 5.5 at 3/2); the averages' jets obey the model's relations
+     G_(a+1) = G_a' - H_a and H_(a+1) = -kappa (x H_a)'/(1 - kappa x) (central differences, to 1e-5), so T^a is the
+     weight rho^(a) on a solution.  Control: the naive data themselves, which
      converge in I_Psi and I_(T Psi) but not in I_(T^2 Psi) (0.70, 6.9, 69 at 5/4; about 0.070 at 3/2).
   R13 (text) The paper's replacement blocks (D622; D625: the 8.2 block restricts "that datum is needed" to the scalar
      type and names the measure dr dsigma, and the Proposition 3.3 proof block, two lines wider, says when its value at
@@ -737,10 +739,21 @@ def r16(control=False):
             dd = alpha*np.exp(-(sig - kap)*z)*(z + e)**(alpha - 2)*((alpha - 1) - (sig - kap)*(z + e))
             return dd/(np.exp(-kap*z)*(1 - kap*z))*np.exp(-2*kap*v)
 
-        def averaged(e):                                     # T^a of the average = (-1)^a int rho^(a)(t) Phi o phi_t
-            P, D = Phi(V, XX, e), dxPhi(V, XX, e)
+        def averaged(e, x1=None):                            # T^a of the average = (-1)^a int rho^(a)(t) Phi o phi_t
+            Vv, Xv = (V, XX) if x1 is None else (x1[:, None] + tt[None, :], np.broadcast_to(x1[:, None],
+                                                                                           (len(x1), len(tt))))
+            P, D = Phi(Vv, Xv, e), dxPhi(Vv, Xv, e)
             return ([(-1)**a*(P*Rh[a][None, :]) @ tw for a in range(4)],
                     [(-1)**a*(D*Rh[a][None, :]) @ tw for a in range(3)])
+
+        # the averages are solutions: their jets obey G_(a+1) = G_a' - H_a, H_(a+1) = -kappa (x H_a)'/(1 - kappa x)
+        x1, hd = np.linspace(0.05, 0.45, 9), 1e-4
+        Gm, Hm = averaged(1e-3, x1 - hd)
+        Gc, Hc = averaged(1e-3, x1)
+        Gp, Hp = averaged(1e-3, x1 + hd)
+        rel = max(max(float(np.max(np.abs((Gp[a] - Gm[a])/(2*hd) - Hc[a] - Gc[a + 1]))) for a in range(3)),
+                  max(float(np.max(np.abs(-kap*((x1 + hd)*Hp[a] - (x1 - hd)*Hm[a])/(2*hd)/(1 - kap*x1) - Hc[a + 1])))
+                      for a in range(2)))
 
         def naive(e):                                        # the data's own jets: py/approx.py's recursion
             G = [sp.exp(-sig*xe)*(xe + ee)**alpha]
@@ -768,15 +781,15 @@ def r16(control=False):
                    np.max(np.abs(dv + sig*np.exp(-sig*xc)*(xc + 1e-3)**alpha)))
         Q = [float(np.sum(ws*((dx2Phi(V, XX, e)*Rh[0][None, :]) @ tw)**2)) for e in eps_list]
         grows = Q[0] < Q[1] < Q[2] and (alpha > 1.4 or Q[2] > 10*Q[0])
-        ok &= conv and limit < 1e-12 and data < 1e-8 and grows
+        ok &= conv and limit < 1e-12 and data < 1e-8 and grows and rel < 1e-5
         rows.append((alpha, [["%.2e" % v for v in r] for r in err], conv, "%.1e" % limit, "%.1e" % data,
-                     ["%.4g" % q for q in Q], grows))
+                     ["%.4g" % q for q in Q], grows, "%.1e" % rel))
     say("  R16%s (model of Lemma 10.1b near the horizon: 2 d_v d_x Phi + d_x (2 kappa x d_x Phi) = 0, f = 2 kappa x, "
         "Sigma_0 = {v = x}, kappa = 1; Phi_eps the exact solution of the data R(x + eps) e^(-sigma x), Phi_eps -> "
         "e^(-sigma v) x^(sigma/kappa); %s): per sigma/kappa, I_(T^a (Psi_eps - Psi)) for a = 0, 1, 2 at eps = 1e-3, "
         "1e-5, 1e-7, convergence (each falls tenfold, the last below 1e-8), the averaged limit against (int rho "
         "e^(-sigma t)) e^(-sigma v) x^(sigma/kappa), the exact solution's data against the naive data, Q(0) of the "
-        "averages and its growth: %s" % (" control (the data themselves, not averaged)" if control else "",
+        "averages and its growth, the averages' jets against the model's relations: %s" % (" control (the data themselves, not averaged)" if control else "",
                                         "the data themselves" if control else "averaged over the flow of T with a "
                                         "smooth bump on (0, 1/4)", rows))
     return bool(ok)
