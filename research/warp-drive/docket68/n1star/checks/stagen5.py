@@ -8,7 +8,9 @@
      (S3); Lemma 6.1 needs (F1) at orders 1, ..., N - 1 and (F2) at 1, ..., N - 2; Proposition 6.5 and section 6.4 take
      "the stage data of Lemma 6.2 with N := K + 3"; section 6.4 asserts the data equal the seed's on Sigma cap
      {r < v_start - tau0}.  Control: the pre-D615 wording (stages 1, ..., N - 1) is no longer present.
-  S2 (exact, the weights of the supplement's Lemma 5.1) The lowest order at which each unknown of stage m enters the
+  S2 (a ledger, exact: the weights of the supplement's Lemma 5.1, deduced there, applied by the hand-coded rules of
+     lowest() below; it encodes Lemma 5.1 and computes nothing from the operators -- D619, the section 6 reader's
+     n12) The lowest order at which each unknown of stage m enters the
      two-scale expansions: the gauge vector D (first order): m_m, phi_m and gh_{m+1} at order m; Ric^H: m_m, phi_m at
      m - 1 only through e_m (which stage m's own transport (b) makes zero), gh_{m+1} at m (the lam^-2 part of Ric^H
      vanishes on oscillating profiles); the constraint map (second order, through Ric): gh_{m+1} at m - 1 (through the
@@ -16,7 +18,9 @@
      (F1) (orders <= N - 1) and (F2) (<= N - 2), and the constraint map at order >= N - 1, inside Lemma 6.1's bound
      O(lam^(N-2)): Theorems A, D and E hold for every smooth choice of stage N's data.  Control: stage N - 1's gh_N
      enters D at order N - 1, which (F1) constrains -- the same ledger does not call stage N - 1 free.
-  S3 (exact) Lemma 6.2's step at m = N runs inside Theorem A of order N: after stage N, Rm^(N) = -(1/2) e_{N+1}
+  S3 (an identity, exact: the th-mean of a th-independent coefficient times d_th^2 of a trigonometric polynomial
+     vanishes; that Rm^(N) has this form is Lemma 5.1's, READ in N1STAR-PROOF.md -- D619, n12) Lemma 6.2's step at
+     m = N runs inside Theorem A of order N: after stage N, Rm^(N) = -(1/2) e_{N+1}
      d_th^2 W with e_{N+1} = -q_{N+1} independent of th, and its th-mean vanishes (W a sum of first and second
      harmonics), which is all step (iii) uses of the order-m residual.  Control: a th-dependent coefficient (cos th)
      gives a nonzero mean.
@@ -25,8 +29,14 @@
      the top term lam^(N+1) (N - 1) E^(N-2) of the first is larger than lam^N (N - 2) E^(N-3) of the second by a factor
      above 10 (the choice is visible at leading order there, R3.2 (e)).  Control: in the window (env = lam^14) the ratio
      is below 10^-1 (the expansion is ordered there; the choice enters at relative order lam/x^2).
+  S5 (READ, located by content; D619, the section 6 reader's m3) N1STAR-PROOF.md: Lemma 6.2's statement carries D616's
+     sentence, "The stage data constructed in the proof below are fixed by the seed and N" and "means these, not any
+     others with the stated properties", in that order inside the statement (whitespace normalised, so a reflow does
+     not break the pin), and the statement ends before its proof.  Control: the same search on the file's text with
+     that sentence removed finds nothing (so the pin fails if D616's sentence is deleted or truncated).
 
-Labels: S1 READ; S2, S3 computed (exact); S4 computed (mpmath, a model with unit constants).
+Labels: S1, S5 READ; S2 a ledger (exact; it encodes Lemma 5.1, deduced, and computes nothing); S3 an identity (exact);
+S4 computed (mpmath, a model with unit constants).
 Run: python3 checks/stagen5.py   (a few seconds)
 """
 import hashlib
@@ -112,7 +122,8 @@ def s2(control=False):
     # Ric^H at order N - 1 only through e_N, which stage N's (b) makes zero; Ric (constraints) at order >= N - 1
     ric_ok = all(rows[("Ric", u)][0] >= -1 for u in ("mean", "phase", "osc"))
     ricH_e = rows[("RicH", "mean")][0] == -1 and rows[("RicH", "phase")][0] == -1 and rows[("RicH", "osc")][0] == 0
-    out("  S2 lowest order - N at which stage N's unknowns enter: " + "; ".join(
+    out("  S2 (a ledger of Lemma 5.1's weights, hand-coded) lowest order - N at which stage N's unknowns enter: "
+        + "; ".join(
         "%s %s: %s (%s)" % (op, u, v[0], v[1]) for (op, u), v in rows.items()) + ".  D: >= N, past (F1)'s N - 1: %s;"
         " constraint map: >= N - 1, inside O(lam^(N-2)): %s; Ric^H at N - 1 only through e_N: %s"
         % (D_ok, ric_ok, ricH_e))
@@ -127,7 +138,8 @@ def s3(control=False):
     ok = sp.simplify(mean) == 0
     if control:
         return ok
-    out("  S3 the th-mean of e_(N+1) d_th^2 W (e_(N+1) independent of th, W first and second harmonics): %s" % mean)
+    out("  S3 (an identity) the th-mean of e_(N+1) d_th^2 W (e_(N+1) independent of th, W first and second harmonics):"
+        " %s" % mean)
     return ok
 
 
@@ -152,9 +164,46 @@ def s4(control=False):
     return ratio["edge"] > 10
 
 
+# --------------------------------------------------------------------------------------------------------- S5
+D616_A = "The stage data constructed in the proof below are fixed by the seed and N"
+D616_B = "means these, not any others with the stated properties"
+STMT_HEAD = "**Lemma 6.2 (the stage data;"
+
+
+def d616_found(text):
+    """D616's sentence inside Lemma 6.2's statement (from its head to the first '*Proof.*' after it), in order"""
+    flat = " ".join(text.split())
+    i = flat.find(STMT_HEAD)
+    if i < 0 or flat.count(STMT_HEAD) != 1:
+        return None
+    j = flat.find("*Proof.*", i)
+    stmt = flat[i:j] if j > 0 else ""
+    pa, pb = stmt.find(D616_A), stmt.find(D616_B)
+    if pa < 0 or pb < pa or stmt.count(D616_A) != 1:
+        return None
+    return stmt
+
+
+def s5(control=False):
+    raw = open(PROOF, 'rb').read()
+    text = raw.decode('utf-8')
+    if control:
+        flat = " ".join(text.split())
+        a = flat.find(D616_A)
+        b = flat.find("(D616).", a)
+        mutated = flat[:a] + flat[b + len("(D616)."):] if a >= 0 and b > a else flat
+        return d616_found(mutated) is not None
+    stmt = d616_found(text)
+    lines = text.split('\n')
+    hit = [k + 1 for k, ln in enumerate(lines) if "fixed by" in ln and "the seed and N" in " ".join(lines[k:k + 2])]
+    out("  S5 N1STAR-PROOF.md md5 %s: D616's sentence inside Lemma 6.2's statement: %s (from line %s)" % (
+        hashlib.md5(raw).hexdigest(), stmt is not None, ",".join(map(str, hit)) or "missing"))
+    return stmt is not None
+
+
 def main():
     ok = True
-    for name, f in (("S1", s1), ("S2", s2), ("S3", s3), ("S4", s4)):
+    for name, f in (("S1", s1), ("S2", s2), ("S3", s3), ("S4", s4), ("S5", s5)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))
