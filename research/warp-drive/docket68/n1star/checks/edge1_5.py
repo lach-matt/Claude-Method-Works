@@ -36,8 +36,9 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
   E7 (exact) The data that U1's scalar part a gives on Sigma (spatial part a dr dr; d_tau of it from K fixed; d_tau of
      lapse and shift from D = 0), read with g_(tau mu) kept (reading 1) or with the ADM lapse and shift vector kept
      (reading 2): their ingoing amplitude, transported, gives H_vv(sqrt mu0) = K_R a with K_R = mu0^(-3/4) r0^(-5/2)
-     (r0^2 - mu0)^2/4 (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0.  Controls: d_tau gamma_rr without
-     the shift term, and D = 0 without its trace term, change K_R.
+     (r0^2 - mu0)^2/4 (reading 1) and mu0^(-3/4) r0^(3/2)/4 (reading 2), both > 0, and K_R does not depend on the
+     d_tau gamma_rr datum at all (D = 0 fixes the combination that reaches the horizon; so neither K's sign
+     convention nor the shift term enters).  Control: D = 0 without its trace term changes K_R in both readings.
   E8 (exact) Xi(T) := [(1 - c) T - i c]/(T + i), T := lam kappa: |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1) >= min(c^2,
      (1 - c)^2), zero only as T -> infinity at c = 1; Xi = -c - i T + O(T^2); where the two real leading coefficients
      cancel, the quadrature part is T nu (2 - 1/c) (either relative sign), zero only at c = 1/2.  Control: a sign
@@ -330,10 +331,10 @@ def chain(reading, shift=True, trace=True):
     Xvv, Xvr, Xrr = sp.symbols('Xvv Xvr Xrr')
     if reading == 1:
         X = (0, 0, a)
-        dsp = -br*s*a if shift else 0
+        dsp = -br*s*a if shift is True else shift
     else:
         X = (a*br**2, a*br - a*br**2, a*(1 - br)**2)
-        dsp = br*s*a if shift else 0
+        dsp = br*s*a if shift is True else shift
     dX = (Xvv, Xvr, Xrr)
     dr = lambda i: s*X[i] - dX[i]                                                  # noqa: E731
     k = 1 if trace else 0
@@ -351,18 +352,21 @@ def e7(control=False):
     want = {1: mu**sp.Rational(-3, 4)*r**sp.Rational(-5, 2)*(r**2 - mu)**2/4,
             2: mu**sp.Rational(-3, 4)*r**sp.Rational(3, 2)/4}
     if control:
-        a1 = chain(1, shift=False)[1]
+        a1 = chain(1, trace=False)[1]
         a2 = chain(2, trace=False)[1]
         return sp.simplify(a1 - want[1]) == 0 or sp.simplify(a2 - want[2]) == 0
     res = {}
+    Zs = sp.Symbol('Z')
+    free = True
     for k in (1, 2):
         Xin, KR = chain(k)
         res[k] = (Xin, KR, sp.simplify(KR - want[k]) == 0)
-    ok = all(v_[2] for v_ in res.values())
+        free &= sp.simplify(chain(k, shift=Zs)[1] - KR) == 0       # any d_tau gamma_rr datum Z gives the same K_R
+    ok = all(v_[2] for v_ in res.values()) and free
     out("  E7 the ingoing amplitude of U1's scalar data (vv, vr, rr) per unit a and K_R = H_vv(sqrt mu0)/a: reading 1"
         " (g_(tau mu) kept): %s, K_R = %s; reading 2 (ADM lapse and shift vector kept): %s, K_R = %s; both as claimed"
-        " and positive for r0 > sqrt(mu0): %s" % ([sp.factor(x) for x in res[1][0]], res[1][1],
-                                                   [sp.factor(x) for x in res[2][0]], res[2][1], ok))
+        " and positive for r0 > sqrt(mu0): %s; K_R does not depend on the d_tau gamma_rr datum (any Z): %s"
+        % ([sp.factor(x) for x in res[1][0]], res[1][1], [sp.factor(x) for x in res[2][0]], res[2][1], ok, free))
     return ok
 
 
