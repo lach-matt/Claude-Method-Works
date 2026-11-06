@@ -650,12 +650,12 @@ def e12(control=False):
     if control:
         return worst_cond
     out("  X12 the crossover by Lemma W (B), N = 12 (the real parts cancel: nu < 0, Gamma > 0, i^N = 1), exp(-1/x),"
-        " lam = 1e-6, r0 = 3: Re sigma_main = 0 at x_c = %s (lam kappa = %s); with an O(T) relative error that cancels the"
-        " quadrature part at x_c and a non-explicit error of size (lam + 1/kappa)|nu|, on the 81 windows around x_c:"
-        " (at lam = 1e-6 the margin lam (kappa_(N-1) - kappa) < 1/(80 pi) of (B)'s second condition is not yet met;"
-        " it tends to 0 like lam^(1 - (N-2)/(2(N-1))))"
+        " lam = 1e-10, r0 = 3: Re sigma_main = 0 at x_c = %s (lam kappa = %s); with an O(T) relative error that cancels"
+        " the quadrature part at x_c and a non-explicit error of size (lam + 1/kappa)|nu|, on the 81 windows around x_c:"
         " min |sigma'|/(|nu| kappa^(1/2)) = %s, Lemma W (B)'s conditions hold on every one: %s, windows without both"
-        " signs: %d" % (mp.nstr(xc, 6), mp.nstr(lam*kc, 4), mp.nstr(worst_L0, 4), worst_cond, bad_sign))
+        " signs: %d (at lam = 1e-6 the margin lam (kappa_(N-1) - kappa) < 1/(80 pi) of (B)'s second condition is not"
+        " yet met; it tends to 0 like lam^(1 - (N-2)/(2(N-1))))"
+        % (mp.nstr(xc, 6), mp.nstr(lam*kc, 4), mp.nstr(worst_L0, 4), worst_cond, bad_sign))
     return worst_cond and bad_sign == 0
 
 

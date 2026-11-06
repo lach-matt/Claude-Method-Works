@@ -286,7 +286,8 @@ sup_r of a sum at most the sum of the sups, so (a)-(c) for the modes add up to (
 
 ## 6. Proposed replacement for the paper (RESPONSE-HL-5D.md, section 8.2, lines 793-796)
 
-The old text occurs exactly once in the paper and the new text not at all (computed: U8).
+The old text occurs exactly once in the paper and the new text not at all (computed: U8). [R2.0: the block below is
+the round-2 text, for M1, M2 and the wording of the verifier's minor 3; the round-1 block is kept in R2.0.4.]
 
 ```old
 So in
@@ -300,16 +301,18 @@ So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
 in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
 as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
-(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, along the
-outgoing part of [HKW18]'s leaves, the orbit-space components of the scalar type grow as r^(1/2): for every leaf there
-is a single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
-B r^(1/2) f^(−1) S on that leaf, f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed
-exactly). With that weight they settle, and the angular components and the tensor type settle without it, uniformly in
-r and l along the outgoing part of the leaves: r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2) for
-every δ > 0, r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), and the squared L² norms along the leaf of r^(−3/2)
-h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate, for data with two more commutations with T and the
-rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent computed).
-The powers r^(±1/2) are attained, so the weights cannot be improved.
+(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, on the outgoing
+part of [HKW18]'s leaves (r ≥ R_1, their radius), the orbit-space components of the scalar type can grow as, and no
+faster than, r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data of
+every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant,
+f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed exactly). With that weight they settle,
+and the angular components and the tensor type settle without it, pointwise and uniformly in r ≥ R_1 and in l:
+r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay at least as τ^(δ−1/2) for every δ ∈ (0, 1/2], and
+r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| at least as τ^(−1), for data with [HKW18]'s I_{XΨ}(Σ_0) finite for X = T^a Ω^b,
+a ≤ 2, b ≤ 4, Ω the rotations; and, for b ≤ 2, the integral of r^(−3)|h(e_a, e_b)|² + r^(−1)|h(e_i, e_j)|² over
+r ≥ R_1 and the unit sphere, against dr dσ, decays at least as τ^(−2), [HKW18]'s rate (Theorems 2 and 2′, proved from
+[HKW18]'s Theorems 2, 16 and 18 as READ and a Sobolev inequality on S³; every coefficient and exponent computed). The
+powers r^(±1/2) are attained, so the weights cannot be improved.
 ```
 
 ## 7. Files
