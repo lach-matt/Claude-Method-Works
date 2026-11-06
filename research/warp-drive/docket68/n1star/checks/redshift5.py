@@ -42,8 +42,10 @@ m = k^2 - 3, H = m + 6x; master field Phi(v, r), u_j := d_r^j Phi at fixed v (d_
   R8 (exact) Lemma 10.1b (b).  For Phi = e^(-sigma v) R(r) the equation is f R'' + (f' - 2 sigma) R' - W R = 0; its
      indicial roots at r_h are 0 and sigma/kappa for W_S and W_T at l = 2 and l = 4, symbolic in sigma; at sigma/kappa =
      5/4 the Frobenius recursion's denominators 2 kappa n (n + 5/4) do not vanish and the first coefficient is computed;
-     R' ~ (r - r_h)^(1/4) is square integrable and R'' ~ (r - r_h)^(-3/4) is not.  Control: sigma/kappa = 7/4 makes R''
-     square integrable, so it is no counterexample.
+     R' ~ (r - r_h)^(1/4) is square integrable and R'' ~ (r - r_h)^(-3/4) is not, its leading coefficient q (q - 1), q
+     = sigma/kappa, computed from (r - r_h)^q and not 0 (D625, the confirming reader's check gap: at q = 1 it vanishes,
+     R is z times an analytic function and R'' is bounded, which is why sigma/kappa = 1 is excluded).  Control:
+     sigma/kappa = 7/4 makes R'' square integrable, so it is no counterexample.
   R9 (exact) Proposition 9.9's bootstrap (D622, minor 4).  With H, Q' <= B t^(-1/2) (T/t)^beta and D0, D1, D2 <= B
      t^(1/2) (T/t)^beta substituted, each integral of (9.9) is int_t^T t'^(-1-a) (T/t')^beta dt' <= t^(-a) (T/t)^beta/
      (beta + a) times B; the exponents a are computed per term: a = 0 for the Q'-line's t^-1 H and t^-2 D1 and the
@@ -76,7 +78,8 @@ positive surface gravity kappa_n := (n - 1)/(2 r_h)"; p. 12, (51) "box-slash_L(-
 D~_A t_ab + r^-2 Delta-ring t_ab + (6 - 2n) r^-2 r^A r_A t_ab - 2 r^-1 (box~ r) t_ab"; p. 8, (36) "Delta-ring
 Y_ab = (2n - l(l + n - 1)) Y_ab"; p. 9, (42) "Delta-ring U_ab = (2 - l(l + n - 1)) U_ab"; p. 38, "Y|_(r=r_h) =
 -d/dR", "kappa_n = (n - 1) M/r_h^n is the surface gravity"; p. 39, "We define the strictly timelike red-shift multiplier
-N := T + Y" and (114)-(115); p. 40, (116); p. 47, (129)-(131), "K := {T, Omega_i}"; p. 49, (134)-(135), "U := 2 r^-2";
+N := T + Y", (114)-(115) and (116) (D625: (116) is on p. 39, not p. 40); p. 47, (129)-(131), "K := {T, Omega_i}";
+p. 49, (134)-(135), "U := 2 r^-2";
 p. 60, (170)-(172); pp. 60-61, (173) with "k := (4 - n)/2"; p. 61, (174).  [KI03] H. Kodama, A. Ishibashi,
 arXiv:hep-th/0305147v3, p. 13, (5.4)-(5.6).  [DR08] M. Dafermos, I. Rodnianski, Lectures on black holes and linear
 waves, arXiv:0811.0354v1: p. 40, Proposition 3.3.2, "box_g (Y-hat psi) = (2/r) Y-hat (Y-hat (psi)) - (4/r) (Y-hat (T
@@ -404,10 +407,15 @@ def r8(control=False):
     e1, e2 = 2*(ratio - 1), 2*(ratio - 2)
     Rp_L2 = e1 > -1
     Rpp_notL2 = e2 <= -1
-    ok = roots_ok and denom_ok and frob_ok and Rp_L2 and Rpp_notL2
+    # D625: R'' ~ z^(ratio - 2) needs its leading coefficient q (q - 1), q = ratio, to be nonzero (computed from z^q)
+    qq1 = sp.simplify(sp.diff(z**ratio, z, 2)/z**(ratio - 2))
+    lead_ok = qq1 != 0
+    ok = roots_ok and denom_ok and frob_ok and Rp_L2 and Rpp_notL2 and lead_ok
     say("  R8%s: indicial roots {0, sigma/kappa} for W_S, W_T at l = 2, 4: %s; recursion denominators 2 kappa n (n + "
-        "%s): %s; Frobenius a1 at l = 2 = %s; R' in L^2: %s; R'' not in L^2: %s"
-        % (" control (sigma/kappa = 7/4)" if control else "", roots_ok, ratio, denom_ok, a1v, Rp_L2, Rpp_notL2))
+        "%s): %s; Frobenius a1 at l = 2 = %s; R' in L^2: %s; R'' not in L^2: %s, its leading coefficient q (q - 1) = %s "
+        "!= 0: %s"
+        % (" control (sigma/kappa = 7/4)" if control else "", roots_ok, ratio, denom_ok, a1v, Rp_L2, Rpp_notL2, qq1,
+           lead_ok))
     return bool(ok)
 
 
@@ -555,9 +563,11 @@ static chart's mass change is singular at the horizon), every metric component o
 to a change of mass on each region r ≤ R, the horizon included, uniformly in l, with the loss of two derivatives so
 counted, in two data classes (supplement Proposition 10.1 (iv), repaired). For Hintz's data it settles pointwise, with
 all derivatives, at Part VIII's rate O(t*^(−2−ε)) (supplement GAUGEDECAY5 Theorem 1.5, a proof from Part VIII and Part
-IX, independently verified). For [HKW18]'s data it settles at their rate τ^(−2) in energy, with a constant growing as
-R⁵, once one more datum is finite: the master fields' second derivative transversal to the horizon, square integrable
-on the initial slice near it. That datum is needed because [HKW18]'s energies are those of the red-shift multiplier
+IX, independently verified). For [HKW18]'s data it settles at their rate τ^(−2) in energy, the squared L² norm of the
+components against dr dσ (dσ the unit three-sphere's measure), with a constant growing as R⁵, once one more datum is
+finite: the master fields' second derivative transversal to the horizon, square integrable on the initial slice near
+it. For the scalar type that datum is needed (the tensor type's components carry no derivative of its master field),
+because [HKW18]'s energies are those of the red-shift multiplier
 N = T + Y ((115), p. 39), first order, and at the horizon, where the master equation's coefficient of that derivative
 vanishes, the equation does not give it; their class does not bound it, since solutions with every one of their
 energies finite can have it infinite. Given the datum, the red-shift commutation of Dafermos and Rodnianski ([DR08]
@@ -600,13 +610,18 @@ positive above it and negative below; if μ0 > √72 l5², on the columns with �
 R_λ(v, ω), with |R_λ − √μ(v)| ≤ C λ, and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ
 untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped)."""
 
+# D625: widened by two lines to carry the confirming reader's nit on the positivity at mu0 = sqrt72 l5^2
 OLD33b = """\
+strictly increasing in r; √μ(v) − r_q(v) = μ^(1/4)(μ^(1/4) − (√72 l5²)^(1/4)) ≥ its value at μ0 > 0, the right side
+increasing for μ > √72 l5²/16 (computed, `docket68/n1star/checks/support3.py` D1). The intermediate value theorem and the
 monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
 on the columns with μ(v) ≥ μ0 + δ1. ∎"""
 
 NEW33b = """\
-monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
-on the columns with μ(v) ≥ μ0 + δ2 that satisfy √μ(v) ≤ v − τ0 − δ1. ∎"""
+strictly increasing in r; √μ(v) − r_q(v) = μ^(1/4)(μ^(1/4) − (√72 l5²)^(1/4)) ≥ its value at μ0, which is positive when
+μ0 > √72 l5², the right side increasing for μ > √72 l5²/16 (computed, `docket68/n1star/checks/support3.py` D1). The
+intermediate value theorem and the monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement
+holds on every column, and the others on the columns with μ(v) ≥ μ0 + δ2 that satisfy √μ(v) ≤ v − τ0 − δ1. ∎"""
 
 OLD82o = """\
 and in it the metric components are [KI03]'s (3.14), the master field normalised as r^(3/2) Φ and its derivatives to"""

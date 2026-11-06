@@ -4,34 +4,53 @@ Commissioned at item 522 (N1STAR-LOG.md D7). Labels: **computed** (an instrument
 it catches), **deduced** (an argument written out here, or a standard theorem invoked **READ** with its hypotheses
 checked), **READ** (verbatim at source), **OPEN**.
 
-**Status (2026-10-20). N1* is PROVED** (N1STAR-LOG.md D21). It reduces to three theorems, all written out. **Theorem E**
-(evolution: existence on the domain and lam-uniform estimates for the remainder, given an approximant and data) is
-proved in sections 1-4 (deduced; its exact inputs computed in `ks5.py`, `foliation5.py`, `ansatz5.py`). **Theorem A**
-(the approximant to any order in the gauge used here) is proved in section 5 (deduced; its leading order computed in
-`lead5.py`). **Theorem D** (the data: an exact vacuum datum on the slice before the shell reaches the hole, within
-O(lam^K) of the approximant's) is proved in section 6 (deduced; the facts about the approximant's slice data computed in
-`data5.py`), by solving the constraints outward in r as a parabolic-hyperbolic system [Rac16] from a sphere inside the
-shell, where the approximant's data are the seed's exactly. Every standard theorem the proof invokes is READ at source
-by the site's retrieval protocol, most on two independent routes, its hypotheses checked against the statement READ
-(section 7, D17-D18); that check found one gap the verifiers had not (Step 8: the time lines of the coordinates of 0.1
-are spacelike inside the horizon), repaired. Seven independent verifiers, one at a time, checked the proof and each
-round of repairs: sections 0-4 (D12), sections 5-6 (D15), and the repairs (D16, D18, D19, D20, D21). None found a major
-gap; every minor gap and note was repaired, most as the verifier proposed. The last round read Proposition 6.5 whole and
-found it to hold, with one clause of Lemma 6.4 stated more weakly than its proof gives; that clause is restated (D21) in
-the form the verifier specified, and it and the three notes applied with it are the only text no verifier has read after
-the edit. The instruments' selftests and mutant runs pass (README.md).
+**Status (2026-10-20; updated 2026-11-06). N1* is PROVED** (N1STAR-LOG.md D21). It reduces to three theorems, all
+written out. **Theorem E** (evolution: existence on the domain and lam-uniform estimates for the remainder, given an
+approximant and data) is proved in sections 1-4 (deduced; its exact inputs computed in `ks5.py`, `foliation5.py`,
+`ansatz5.py`, its eps1 and the bound on gt^-1 in `checks/eps1hyp5.py`, the mollifier's Jacobian in `checks/support5.py`
+C14). **Theorem A** (the approximant to any order in the gauge used here) is proved in section 5 (deduced; its leading
+order computed in `lead5.py`). **Theorem D** (the data: an exact vacuum datum on the slice before the shell reaches the
+hole, within O(lam^K) of the approximant's) is proved in section 6 (deduced; the facts about the approximant's slice
+data computed in `data5.py`), by solving the constraints outward in r as a parabolic-hyperbolic system [Rac16] from a
+sphere inside the shell, where the approximant's data are the seed's exactly. Every standard theorem the proof invokes
+is READ at source by the site's retrieval protocol, most on two independent routes, its hypotheses checked against the
+statement READ (section 7, D17-D18); that check found one gap the verifiers had not (Step 8: the time lines of the
+coordinates of 0.1 are spacelike inside the horizon), repaired. Seven independent verifiers, one at a time, checked the
+proof and each round of repairs: sections 0-4 (D12), sections 5-6 (D15), and the repairs (D16, D18, D19, D20, D21). None
+found a major gap; every minor gap and note was repaired, most as the verifier proposed. Sections 0-4 and section 6 were
+later read whole again, with the edits made since, each by a reader whose findings were seated and then by a confirming
+reader of the seating. Sections 0-4 (D623): one major finding (0.3's eps1 sentences set eps1 = 3/5, while Lemma 2.3
+needs eps1 < s0 < 3/5 and Lemma 1.1 (e) needs eps1 < mu0/a^2 - 1), one minor gap (Lemma 2.2's mollifier Jacobian needs a
+slope bound on sigma0), three further minor findings and six notes, seated as it specified, with one correction (the ker
+d(v + tau) eigenvalue is min(1, (3 + mu/r^2)/5)) and one addition (the sharpness of eps1 < mu0/a^2 - 1), each derived
+step computed with a control that fails as it must (`checks/eps1hyp5.py` H4-H6, `checks/support5.py` C14,
+`checks/lzerotrace5.py` T7); a confirming reader found every finding seated correctly, and its two replacement texts
+(Step 8's uniqueness class; the Weyl bound, deduced) and eight notes are seated (D625). Section 6 (D619): no major gap,
+three minor findings (among them Lemma 6.4's tame clause, which lacked a term) and thirteen notes, seated, the seating
+confirmed (D624). The instruments' selftests and mutant runs pass (README.md).
 
 **Theorem P (2026-10-20, D32)** builds the same solution from the record's free data at past null infinity, so that the
 datum on Sigma_tau0 is the trace of the solution coming in and Theorem D is not needed on that route (section 9,
 computed inputs in `past5.py`). It is PROVED (D35): a verifier found one major gap in the near-region estimate (D34), it
-was repaired, and a second verifier found that the repair closes it.
+was repaired, and a second verifier found that the repair closes it. A later reader of sections 8-9 and Proposition 10.1
+found sections 8-9 to hold once its minor findings and notes were seated, and one major gap, in Proposition 10.1 (iv),
+which did not reach the horizon; all were seated (D622), and a confirming reader found them seated correctly, its own
+findings then seated (D625). Section 8, sections 9.1-9.4 and Propositions 9.9-9.10 are proved, and so are Proposition
+10.1 (i)-(iii) and (iv-b) with Lemmas 10.1a-10.1b, the proof of Lemma 10.1b (b) repaired at D625 by the confirming
+reader's argument; (iv-a) is deduced from GAUGEDECAY5 Theorem 1.5, which is verified and not yet proved. Section 9.5's
+(9.10) was corrected at D618 (below).
 
 **Theorem M (2026-10-20, D37)** gives the solution's Bondi mass at past null infinity: g_lam has Bondi coordinates there
 with an expansion in r^(-1/2), the five-dimensional Bondi mass law holds for it pointwise, and its mean mass is mu(v) +
 O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) after it, the rate the numerics measure
 (section 11, computed inputs in `bondi5.py`). It is deduced; a twelfth verifier found no major gap and five minor ones,
 repaired (D40), and a thirteenth found one major gap in a repair, Lemma 11.0's energy region, repaired by running the
-identity on the approximating solutions of Theorem P's construction (D44); the repairs are not yet read.
+identity on the approximating solutions of Theorem P's construction (D44); those repairs were read by the fourteenth and
+fifteenth verifiers (D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's
+Major 1), that Lemma 11.0's induction counts the top-order term b.dU as known, whose replacement (workstream B, R5-D) is
+pending; and that reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3),
+corrected at D618 with `past5.py` P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections
+9.5 and 11 await one confirming read.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -89,14 +108,17 @@ For pointwise bounds on a symmetric 2-tensor A of Cartesian components, |A| is t
 largest absolute eigenvalue); for arrays of higher rank (|dw|, |dg|), |.| is the Frobenius norm, and ||.|| always
 integrates the Euclidean sum of squares, as Lemmas 2.3-2.4 use <u, d_tau u>. With it, Lemma 1.1 (e) holds for every
 eps1 <= 3/5 with eps1 < mu0/a^2 - 1: g0 restricted to ker dtau, to ker dr on {r = a} and to ker d(v + tau) has least
-eigenvalues 1, min(1, mu/a^2 - 1) and min(1, (3 + mu/r^2)/5), and where mu = mu0 on {r = a} a Lorentzian g with
-|g - g0| = mu0/a^2 - 1 makes it null (at the numerical point mu0/a^2 - 1 > 12, so every eps1 <= 3/5 serves there and
-none above 0.6013096;
-D612; computed, `checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H1-H4). Lemma 2.3 needs more of the same eps1:
-eps1 < s0, where s0 := inf over Omega of g0's least absolute eigenvalue = (m*^2 + 1)^(1/2) - m*, m* := sup_Omega
-mu/r^2 <= mu_end/a^2. Then every gt with |gt - g0| <= eps1 is Lorentzian with |gt^-1| <= (s0 - eps1)^-1 (Weyl's
-inequality), which Lemma 2.3's constants use; for eps1 >= s0 there are Lorentzian gt within eps1 of g0 with |gt^-1|
-unbounded (`checks/eps1hyp5.py` H5-H6). Since mu/a^2 > 1 on {r = a}, s0 < 2^(1/2) - 1 < 3/5. From here on eps1 is
+eigenvalues 1, min(1, mu/a^2 - 1) and min(1, (3 + mu/r^2)/5), and where mu = mu0 on {r = a} a Lorentzian g with |g - g0|
+= mu0/a^2 - 1 makes {r = a} null (at the numerical point mu0/a^2 - 1 > 12, so every eps1 <= 3/5 serves there and none
+above 0.6013096; D612; computed, `checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H1-H4). Lemma 2.3 needs more of the
+same eps1: eps1 < s0, where s0 := inf over Omega of g0's least absolute eigenvalue = (m*^2 + 1)^(1/2) - m*, m* :=
+sup_Omega mu/r^2 <= mu_end/a^2. Then every gt with |gt - g0| <= eps1 is Lorentzian with |gt^-1| <= (s0 - eps1)^-1
+(deduced: every eigenvalue of g0 has absolute value >= s0, so |gt x| >= |g0 x| - |(gt - g0) x| >= (s0 - eps1)|x|; and
+x.gt x >= (s0 - eps1)|x|^2 on the four-dimensional span of g0's positive eigenvectors, while e.gt e <= -s0 + eps1 < 0
+for the unit eigenvector e of its negative one, so gt has exactly one negative eigenvalue, a second non-positive
+direction meeting that span; this is Weyl's inequality in the case used [amended D625: was "(Weyl's inequality)"]),
+which Lemma 2.3's constants use; for eps1 >= s0 there are Lorentzian gt within eps1 of g0 with |gt^-1| unbounded
+(`checks/eps1hyp5.py` H5-H6). Since mu/a^2 > 1 on {r = a}, s0 < 2^(1/2) - 1 < 3/5. From here on eps1 is
 one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1). At the numerical point s0 is in [0.030768559, 0.030768560],
 its value at r = a, mu = mu_end (`checks/lzerotrace5.py` T7; CONSTANTS5.md R4.0 (i)), so there eps1 < 0.0308.
 [amended D623: these sentences replace "With it Lemma 1.1 (e) holds with eps1 = 3/5 (D612; computed,
@@ -108,7 +130,7 @@ least absolute eigenvalue on Omega (at the numerical point at most 0.0308, its v
 Chain rule: d_a [f] = lam^-1 (d_a v)[d_th f] + [d_a f], so |[f]|_j <= C_j sup_{i<=j} |d^i_{(X,th)} f|_{L^inf}
 (the oscillation costs nothing in scaled norms), and ||d^i [f]||_{L^inf} <= C lam^-i.
 
-### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12; Step 8, D18-D20; re-read whole, D623)
+### 0.4 Theorem E (evolution) -- proved in sections 1-4 (deduced), verified (D12; D18-D20; re-read D623; confirmed D625)
 
 Fix k = 6 and K >= 6. Let
 
@@ -140,7 +162,7 @@ oscillating part of g1 is the record's waves (F, G of the instructions, section 
 and a phase shift, on the background g0 with mu' = (2/9) A^2 env^2. Stage data making the approximant's Cauchy data
 satisfy the constraints and D = 0 to order N - 2 exist (Lemma 6.2).
 
-### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verified (D15, D16, D18-D21)
+### 0.6 Theorem D (the data) -- proved in section 6 (deduced), verified (D15, D16, D18-D21; re-read D619; confirmed D624)
 
 For lam small there is a vacuum Cauchy datum (gamma, kappa) on Sigma_tau0 (the constraints hold exactly), with the
 gauge condition D = 0 imposed through d_tau g, whose w satisfies (E4); it equals the seed's datum on Sigma_tau0 cap
@@ -152,14 +174,14 @@ Given A and D, Theorem E gives g_lam on Omega. D(g_lam) solves a homogeneous lin
 identity) with D = d_tau D = 0 on Sigma_tau0 (the gauge condition and the constraints), so D = 0 on Omega and g_lam is
 vacuum (deduced: by the contracted Bianchi identity D solves -(1/2) g^{ab} d_a d_b D = f with f linear in (D, d D) with
 bounded coefficients, so Lemma 2.3 and Gronwall's lemma give D = 0 on Omega; the identity is READ in [LR05] and, in n +
-1 dimensions, [CBCL06] section 3). Its T^2 x Z2 x Z2 invariance follows from uniqueness on Omega (Step 8), since Ric^H
-and D are built from g and the O(4)-invariant g0 alone (0.2) and the data are invariant. D_T cap {tau >= tau0} lies in
-Omega (Lemma 1.1). Hence (i) on D_T cap {tau >= tau0} with the data on Sigma_tau0 (the instructions' route W item 4:
-"construct Cauchy data on a slice before the shell reaches the hole ... restate (i) on it"); the remainder estimate is
-(0.5); no derivative is lost (the bootstrap of section 4 closes at the fixed order k); the formulation is regular across
-the axes (Cartesian arrays on R^4); the background is the large g0. (ii): |g_lam - g0| <= C lam; d g_lam bounded; d
-g_lam - d g0 = dv [d_th g1] + O(lam) tends to zero weakly since <d_th g1> = 0. The rates of (ii)-(iii) beyond these rest
-on Theorem A's profiles.
+1 dimensions, [CBCL06] section 3). Its T^2 x Z2 x Z2 invariance follows from uniqueness on Omega (Step 8; g_lam and its
+image both lie within eps1 of g0), since Ric^H and D are built from g and the O(4)-invariant g0 alone (0.2) and the data
+are invariant. D_T cap {tau >= tau0} lies in Omega (Lemma 1.1). Hence (i) on D_T cap {tau >= tau0} with the data on
+Sigma_tau0 (the instructions' route W item 4: "construct Cauchy data on a slice before the shell reaches the hole ...
+restate (i) on it"); the remainder estimate is (0.5); no derivative is lost (the bootstrap of section 4 closes at the
+fixed order k); the formulation is regular across the axes (Cartesian arrays on R^4); the background is the large g0.
+(ii): |g_lam - g0| <= C lam; d g_lam bounded; d g_lam - d g0 = dv [d_th g1] + O(lam) tends to zero weakly since <d_th
+g1> = 0. The rates of (ii)-(iii) beyond these rest on Theorem A's profiles.
 
 ## 1. The domain
 
@@ -207,10 +229,10 @@ second form. For products, distribute lam^k d^k and put the factor with at most 
 claim is (0.3)'s chain-rule remark. []
 
 **The mollifier.** Fix rho in C_c^inf(B_1), rho >= 0, int rho = 1, and sigma0 in C^inf([0, 1]) non-increasing with
-|sigma0'| <= 7 (a mollified linear ramp from 1 at 7/20 to -1 at 13/20) [amended D623: the slope bound added, which the
-Jacobian below uses], with sigma0 = 1 on [0, 1/3], sigma0 = -1 on [2/3, 1], so |sigma0| <= 1, which the middle third
-below uses (D598; checks/support5.py C4 certifies the inclusion and that it fails without the bound). For f on A(tau)
-put sigma(tau, x) := sigma0((|x| - a)/(b(tau) - a)), Phi(x) := x + 2 lam sigma xhat and
+|sigma0'| <= 7 (the linear ramp from 1 at 7/20 to -1 at 13/20, mollified at radius 1/120 (<= 1/60)) [amended D623: the
+slope bound added, which the Jacobian below uses], with sigma0 = 1 on [0, 1/3], sigma0 = -1 on [2/3, 1], so |sigma0| <=
+1, which the middle third below uses (D598; checks/support5.py C4 certifies the inclusion and that it fails without the
+bound). For f on A(tau) put sigma(tau, x) := sigma0((|x| - a)/(b(tau) - a)), Phi(x) := x + 2 lam sigma xhat and
 
     P f (x) := int rho(z) f(Phi(x) - lam z) dz        (spatial, at fixed tau).                              (2.1)
 
@@ -231,15 +253,17 @@ third fails: radial eigenvalue -1/5 at delta0 = 1, lam = 1/10, b - a = 2) [amend
 with E1, E2 bounded; iterating, lam^j ||d^j P f|| <= C sum_{i<=j} lam^i ||d^i f|| and the same with (1 - P).
 
 *Proof.* For fixed z, x -> Phi(x) - lam z is a diffeomorphism of A(tau) into itself with Jacobian bounded above and
-below uniformly (above) [amended D623: was "with Jacobian 1 + O(lam)"], which gives (M1). P f(x) = lam^-4 int
-rho((Phi(x) - y)/lam) f(y) dy, and d_x falls on rho: (M2). For (M3), f(x) - f(Phi(x) -
-lam z) is the integral of d_x f along the segment from x to Phi(x) - lam z, of length <= 3 lam; the segment stays in
-A(tau) by the estimate above (its radial component is at least lam toward the interior near either sphere), and the
-change of variables gives the bound. (M4): the chain rule, d_x[f(Phi - lam z)] = DPhi^T (d f)(Phi - lam z); and (d_j
-f)(Phi(x) - lam z) = -lam^-1 d_{z_j}[f(Phi(x) - lam z)], integrated by parts onto rho. (M5) is Friedrichs' lemma in this
-form: [a, P] d_j f (x) = int rho(z)(a(x) - a(Phi(x) - lam z))(d_j f)(Phi(x) - lam z) dz; integrating by parts in z as in
-(M4), the factor lam^-1 meets either d_z of a(Phi(x) - lam z), which is O(lam), or a(x) - a(Phi(x) - lam z), which is
-O(lam). (M6): sigma depends on tau through b(tau). Higher derivatives by induction. []
+below uniformly (by the paragraph before Lemma 2.2) [amended D623: was "with Jacobian 1 + O(lam)"], which gives (M1).
+P f(x) = lam^-4 int rho((Phi(x) - y)/lam) f(y) dy, and d_x falls on rho: (M2). For (M3), f(x) - f(Phi(x) - lam z) is
+the integral of d_x f along the segment from x to Phi(x) - lam z, of length <= 3 lam; the segment stays in A(tau) by
+the estimate above (its radial component is at least lam toward the interior near either sphere), and the change of
+variables x -> x + t (Phi(x) - lam z - x), t in [0, 1], gives the bound (its Jacobian (1 - t) I + t DPhi has the
+eigenvalues 1 + t (e - 1), e those of DPhi, so at least 3/10 radially and 2/5 angularly). (M4): the chain rule,
+d_x[f(Phi - lam z)] = DPhi^T (d f)(Phi - lam z); and (d_j f)(Phi(x) - lam z) = -lam^-1 d_{z_j}[f(Phi(x) - lam z)],
+integrated by parts onto rho. (M5) is Friedrichs' lemma in this form: [a, P] d_j f (x) = int rho(z)(a(x) - a(Phi(x) -
+lam z))(d_j f)(Phi(x) - lam z) dz; integrating by parts in z as in (M4), the factor lam^-1 meets either d_z of
+a(Phi(x) - lam z), which is O(lam), or a(x) - a(Phi(x) - lam z), which is O(lam). (M6): sigma depends on tau through
+b(tau). Higher derivatives by induction. []
 
 **Lemma 2.3 (energy; deduced).** Let gt be a Lorentzian metric on Omega with |gt - g0| <= eps1, eps1 the number fixed
 in 0.3 (so Lemma 1.1 (e) applies to gt and |gt^-1| <= (s0 - eps1)^-1; `checks/eps1hyp5.py` H6), and ||d gt||_inf <=
@@ -350,10 +374,11 @@ O(lam d s) by (M3), and |ell_app - ell| <= C lam. Two things remain: box~_app ph
 phi is driven by s.
 
 **Lemma 3.3 (the ell-ell component; deduced).** box~ s = c1 . d h + c0 . h + c2 . d phi + c3 phi - 2q F(ell, ell) - 2q
-N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded coefficients (profiles
-times q of the proof, which depends on w, so not profiles) [amended D623: was "bounded profiles"], the sum runs over
-pairs with i spatial, |c^{ai}| <= C(lam + |w|) and |d c^{ai}| <= C(1 + |d w|); N_phi(ell, ell) contains no second
-derivative of phi. There is no 1/lam coefficient.
+N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded coefficients (profiles, and
+profiles times q of the proof, which depends on w, so not profiles; the terms 2 g0^{ab} d_a(ell ell) . d_b h and h .
+box~(ell ell) carry no q) [amended D623: was "bounded profiles"], the sum runs over pairs with i spatial, |c^{ai}| <=
+C(lam + |w|) and |d c^{ai}| <= C(1 + |d w|); N_phi(ell, ell) contains no second derivative of phi. There is no 1/lam
+coefficient.
 
 *Proof.* box~ s = (box~ h)(ell, ell) + 2 g0^{ab} d_a(ell ell) . d_b h + h . box~(ell ell). Write g0^{ab} d_a d_b =
 q g^{ab} d_a d_b + sum c^{ai} d_a d_i with q := g0^{tautau}/g^{tautau} (g^{tautau} != 0 by Lemma 1.1(e)); then
@@ -418,23 +443,21 @@ phi use the transport of Lemma 3.4: lam^(j+1) ||d^alpha d_x^2 P s|| = lam^(j+1) 
 <= C lam^j ||d^j d s|| by Bernstein (M2) in the one spatial derivative. Lemma 2.4 then gives the phi-part of N(tau) at
 most C (N(tau0) + int_{tau0}^{tau} N) (d_tau phi does not vanish on Sigma_tau0).
 
-**Step 6 (Psi; deduced).** Apply d^alpha to (3.6) and Lemma 2.4 (c = 2/r <= 2/a). The term box~ P s = P
-box~ s + [box~, P] s. By Lemma 3.3, box~ s is first order in (h, phi) up to F, the nonlinear terms and
-sum c^{ai} d_a d_i h; for the last, P(c d_a d_i h) = P d_i(c d_a h) - P((d_i c) d_a h) and ||P d_i f||
-<= C lam^-1 ||f|| (M2, M4), with |c| <= C(lam + |w|): at most C ||d h|| at level 0, and at level j,
-lam^j ||d^alpha P d_i (c d h)|| <= C lam^(j-1) sum_i ||d^i c||_inf ||d^(j-i) d h|| <= C N since ||d^i
-c||_inf <= C lam^(1-i) (for the w-part of c only for i <= 4; for i >= 5 its d^i w is in L^2 and the other factor in
-L^inf by Lemma 2.1, as in Step 4) [amended D623: the parenthesis added]. For the commutator, [g0^{ab}, P] d_a d_b s
-with at least one spatial index is
-bounded by C ||d s|| by (M5); the tau-tau term is rewritten with d_tau^2 s = (box~ s - 2 g0^{tau i}
-d_tau d_i s - g0^{ij} d_i d_j s)/g0^{tautau} (g0^{tautau} = -1 - mu/r^2), after which (M5) applies to
-the spatial terms; in box~ s (Lemma 3.3) the first-order terms gain the factor lam of (M5)'s second
-form, and the terms c^{ai} d_a d_i h are written d_i(c d_a h) - (d_i c) d_a h, so that (M5)'s first form
-bounds them by C ||c d h|| + C ||d c||_inf ||d h|| <= C N (at level j likewise; applying the second form
-to them would cost a derivative at j = k). The terms of g0^{ab}(d_a d_b P - P d_a d_b) s carry, by (M4)
-and (M6), a factor lam and a spatial derivative inside P, so they are at most C ||d s|| by (M4);
-likewise at level j. The other terms of (3.6) are first order in P s and phi. So the Psi-part of N(tau)
-is at most C (N(tau0) + int (N + C_R lam^K + C M^2 lam^(K+1))).
+**Step 6 (Psi; deduced).** Apply d^alpha to (3.6) and Lemma 2.4 (c = 2/r <= 2/a). The term box~ P s = P box~ s + [box~,
+P] s. By Lemma 3.3, box~ s is first order in (h, phi) up to F, the nonlinear terms and sum c^{ai} d_a d_i h; for the
+last, P(c d_a d_i h) = P d_i(c d_a h) - P((d_i c) d_a h) and ||P d_i f|| <= C lam^-1 ||f|| (M2, M4), with |c| <= C(lam +
+|w|): at most C ||d h|| at level 0, and at level j, lam^j ||d^alpha P d_i (c d h)|| <= C lam^(j-1) sum_i ||d^i c||_inf
+||d^(j-i) d h|| <= C N since ||d^i c||_inf <= C lam^(1-i) (for the w-part of c, and likewise for c0-c3's through q, only
+for i <= 4; for i >= 5 its d^i w is in L^2 and the other factor in L^inf by Lemma 2.1, as in Step 4) [amended D623: the
+parenthesis added]. For the commutator, [g0^{ab}, P] d_a d_b s with at least one spatial index is bounded by C ||d s||
+by (M5); the tau-tau term is rewritten with d_tau^2 s = (box~ s - 2 g0^{tau i} d_tau d_i s - g0^{ij} d_i d_j
+s)/g0^{tautau} (g0^{tautau} = -1 - mu/r^2), after which (M5) applies to the spatial terms; in box~ s (Lemma 3.3) the
+first-order terms gain the factor lam of (M5)'s second form, and the terms c^{ai} d_a d_i h are written d_i(c d_a h) -
+(d_i c) d_a h, so that (M5)'s first form bounds them by C ||c d h|| + C ||d c||_inf ||d h|| <= C N (at level j likewise;
+applying the second form to them would cost a derivative at j = k). The terms of g0^{ab}(d_a d_b P - P d_a d_b) s carry,
+by (M4) and (M6), a factor lam and a spatial derivative inside P, so they are at most C ||d s|| by (M4); likewise at
+level j. The other terms of (3.6) are first order in P s and phi. So the Psi-part of N(tau) is at most C (N(tau0) + int
+(N + C_R lam^K + C M^2 lam^(K+1))).
 
 **Step 7 (closing).** Steps 4-6: N(tau) <= C2 (N(tau0) + int_{tau0}^{tau} N + (tau_end - tau0)(C_R lam^K + C M^2
 lam^(K+1))), C2 independent of M and lam. Gronwall and Step 2: N(tau) <= C3 ((C_D + 1 + C_R) lam^K + C M^2
@@ -452,19 +475,18 @@ meet each other"). In the coordinates of 0.1 this fails on part of Omega: g0^{ij
 coordinates, in four steps. (i) The coefficients. On Omega the system for w is Ric^H(g_app + w) = 0 relative to g0, and
 the profiles of g_app are defined on Omega x S^1 (Lemma 5.3). Extend them to R^5 x S^1 by one universal extension
 operator acting in X, the same for every order (Stein's or Rychkov's, for the bounded Lipschitz domain Omega, a convex
-polygon in (tau, r) times S^3; [SY21] secs. 1, 2.1, READ in section 7 [amended D623: was "[SY21], section 7"]):
-g_app extends smoothly with bounded derivatives of every order, for
-all tau, and is unchanged on Omega. Outside a neighbourhood U of Omega, replace g_app and g0 by g_ext and g0_ext,
-obtained by interpolating lapse, shift and spatial metric (relative to tau) convexly to (1, 0, delta) on {r <= a/4} and
-on {r >= R2 + 1}, R2 := b(tau0) + 1. Every such combination is a Lorentzian metric with each Sigma_tau spacelike, so the
-system keeps its form, with coefficients smooth in X and equal to Minkowski's outside a compact set in x; on U nothing
-changes. (ii) The coordinates. Z := d_tau - beta_ext (beta_ext the shift of g_ext) has Z(tau) = 1, g_ext(Z, Z) =
--N_ext^2 <= -N_min^2 < 0, and Z = d_tau outside a compact set. Put X = (tau, Phi_Z(tau, y)), Phi_Z the flow of Z from
-tau0 [amended D623: was Phi, the mollifier's letter]:
-the slices are unchanged and d_tau at fixed y is Z, so in (tau, y) the matrix g_ext^{ij} is the inverse spatial metric,
-uniformly positive definite, and g_ext^{00} = -N_ext^-2. Only the independent variables change: the unknowns stay the
-Cartesian arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{ab} transformed as a tensor, and the
-system stays quasilinear with coefficients smooth in (tau, y). (iii) The cut-off. Let chi be a smooth map of the
+polygon in (tau, r) times S^3; [SY21] secs. 1, 2.1, READ in section 7 [amended D623: was "[SY21], section 7"]): g_app
+extends smoothly with bounded derivatives of every order, for all tau, and is unchanged on Omega. Outside a
+neighbourhood U of Omega, replace g_app and g0 by g_ext and g0_ext, obtained by interpolating lapse, shift and spatial
+metric (relative to tau) convexly to (1, 0, delta) on {r <= a/4} and on {r >= R2 + 1}, R2 := b(tau0) + 1. Every such
+combination is a Lorentzian metric with each Sigma_tau spacelike, so the system keeps its form, with coefficients smooth
+in X and equal to Minkowski's outside a compact set in x; on U nothing changes. (ii) The coordinates. Z := d_tau -
+beta_ext (beta_ext the shift of g_ext) has Z(tau) = 1, g_ext(Z, Z) = -N_ext^2 <= -N_min^2 < 0, and Z = d_tau outside a
+compact set. Put X = (tau, Phi_Z(tau, y)), Phi_Z the flow of Z from tau0 [amended D623: was Phi, the mollifier's
+letter]: the slices are unchanged and d_tau at fixed y is Z, so in (tau, y) the matrix g_ext^{ij} is the inverse spatial
+metric, uniformly positive definite, and g_ext^{00} = -N_ext^-2. Only the independent variables change: the unknowns
+stay the Cartesian arrays of 0.1, the principal part stays -(1/2) g^{ab} d_a d_b with g^{ab} transformed as a tensor,
+and the system stays quasilinear with coefficients smooth in (tau, y). (iii) The cut-off. Let chi be a smooth map of the
 components, the identity on |w| <= eps2/2 and into |w| <= eps2, with eps2 so small that every metric within eps2 of
 g_ext keeps (1.3) with fixed constants in (tau, y); put chi(w) for w in the coefficients and lower-order terms. The
 modified system agrees with the original where |w| <= eps2/2, which holds on Omega (|w| <= C M lam^(K-3), Step 3). The
@@ -484,12 +506,15 @@ through finitely many derivatives of the diffeomorphism and its inverse). [DS23]
 6) gives a solution on [tau_i, tau_i + delta], delta depending only on the norm of the data, which Steps 1 and 7 bound
 for each fixed lam (|w|_{k+1} <= C N <= C M lam^K); the data are smooth, and by [DS23] Theorem 2.6 the solution lies in
 every H^r on the same interval, so it is smooth. On Omega cap {tau_i <= tau <= tau_i + delta} it solves the original
-system while |w| <= eps2/2, and it is the only solution there with the data on Sigma_tau_i cap Omega: for two such,
--(1/2) g1^{ab} d_a d_b (w1 - w2) = (1/2) (g1^{ab} - g2^{ab}) d_a d_b w2 + F(X, w1, d w1) - F(X, w2, d w2) =: f, ||f|| <=
-C (||w1 - w2|| + ||d (w1 - w2)||) since d^2 w2 is bounded, and Lemma 2.3 from tau_i with Gronwall's lemma gives w1 = w2.
-This is the finite speed of propagation the proof uses, deduced from Lemma 2.3 with no citation, and the uniqueness 0.7
-uses for the symmetry. With Step 7 the bootstrap continues, so the solution exists on all of Omega with (0.5). The
-bounds after (0.5) are Step 1. []
+system while |w| <= eps2/2, and it is the only solution there with the data on Sigma_tau_i cap Omega and |g - g0| <=
+eps1 (the class Lemma 2.3 needs; the solution here is in it by Step 3, and so is its image under an isometry of g0,
+which fixes g0 and acts on Cartesian arrays by an orthogonal matrix: the class 0.7 uses): for two such, g_(i) := g_app +
+w_i, -(1/2) g_(1)^{ab} d_a d_b (w1 - w2) = (1/2) (g_(1)^{ab} - g_(2)^{ab}) d_a d_b w2 + F(X, w1, d w1) - F(X, w2, d w2)
+=: f, ||f|| <= C (||w1 - w2|| + ||d (w1 - w2)||) since d^2 w2 is bounded and |g_(i)^-1| <= (s0 - eps1)^-1 (0.3), and
+Lemma 2.3 from tau_i with Gronwall's lemma gives w1 = w2 [amended D625: the class and the inverse bound added, and
+g_(1), g_(2) written for the two metrics, which read g1, g2, the letter of the profile g1]. This is the finite speed of
+propagation the proof uses, deduced from Lemma 2.3 with no citation, and the uniqueness 0.7 uses for the symmetry. With
+Step 7 the bootstrap continues, so the solution exists on all of Omega with (0.5). The bounds after (0.5) are Step 1. []
 
 ## 5. Theorem A: the approximant
 
@@ -950,7 +975,12 @@ and equal to the seed's data on Sigma cap {r < v_start - tau0}. []
   `checks/tame5.py`), these status lines, and D616 unpinned (now `checks/stagen5.py` S5); thirteen notes, among them
   the symmetrizer on all fields and with gamma_rA != 0 (`checks/indepcons5.py`, `checks/symmshift5.py`). All are
   seated. An independent verifier read the D619 seating (D624): every finding seated correctly, no new finding beyond
-  four nits, applied. Section 6 is **proved** (D624).]
+  four nits, applied. Section 6 is **proved** (D624).] [D625: sections 0-4 were read whole again by an independent
+  reader (D623), with the D11 changes after D12's snapshot, D12's repairs, the D21 headings, D598, D612 and D614: one
+  major finding (0.3's eps1 sentences), one minor gap (Lemma 2.2's mollifier Jacobian), three further minor findings and
+  six notes, seated at D623; a confirming reader found every finding seated correctly, and its two replacement texts
+  (Step 8's uniqueness class, the Weyl bound deduced) and eight notes are seated (D625). Sections 0-4 are **proved**
+  (D625).]
 - **READ at source (D17).** By the retrieval protocol of the site's Ask prompt: targets enumerated, routes by type with
   the open ones first, the sources a source names followed back and the papers citing a target followed forward, a
   blocked route left for the next and not retried, two independent routes closing a fact and one route fragile. rho
@@ -1056,6 +1086,9 @@ and equal to the seed's data on Sigma cap {r < v_start - tau0}. []
   ([DS23]); none is for a domain with boundary, which Step 8 avoids by the torus and the uniqueness from Lemma 2.3.
 
 ## 8. Part (iii) for lam > 0 (D25)
+
+**Status.** Proved (deduced; D625): a reader of sections 8-9 found Propositions 8.1 and 8.2 and Lemma 8.2 to hold once
+its notes were seated (D622), and a confirming reader found them seated correctly (D625).
 
 **Proposition 8.1 (one zero per column of the spheres' outgoing expansion; deduced, with `horizon5.py` H1-H3).** Assume
 mu0 >= sqrt(72) l5^2 and the hypotheses of section 0.7 with K >= 6. For a column, the set of points of D_T cap {tau >=
@@ -1175,10 +1208,14 @@ transports Psi - (1/2) X_s, whose forcing decays. An eleventh verifier read the 
 (D35) and found that it closes the gap and that Theorem P holds as stated; its two minor findings and four notes are
 seated (the coefficient class of the angular derivatives of phi, the full commutator with mu(v) and psi(tau, v) in Lemma
 9.4b and P8, the data terms at tau_T, the constants, a rate in Theorem A_P). [amended D622: the sentence ended "and
-these are the only text of section 9 no verifier has read after the edit", which no longer holds.] Read by no verifier
-after the edit: those D35 items; Proposition 9.10's minor findings, seated at D609; the D622 amendments to 9.1-9.4, 9.9
-and 9.10, which seat an independent reading of sections 8 and 9 that found Theorem P, its proof and Proposition 9.10 to
-hold once its minor findings are seated; and section 9.5, whose flux formula (9.10) is being repaired separately (D618).
+these are the only text of section 9 no verifier has read after the edit", which no longer holds.] The D622 amendments
+to 9.1-9.4, 9.9 and 9.10 seat an independent reading of sections 8 and 9 that found Theorem P, its proof and Proposition
+9.10 to hold once its minor findings are seated; a confirming reader of that seating read 9.1-9.4 and Propositions
+9.9-9.10 whole, with the D35 items and Proposition 9.10's D609 findings, and found every finding seated correctly
+(D625): **sections 9.1-9.4 and Propositions 9.9-9.10 are proved (D625).** Section 9.5's flux formula (9.10) lacked a
+factor 1 - pi/2 on its oscillating terms; corrected at D618, it awaits one confirming read [amended D625: the status
+listed as read by no verifier after the edit the D35 items, Proposition 9.10's D609 findings, the D622 amendments and
+section 9.5, then being repaired (D618)].
 
 **Theorem P.** Let the seed, A, env and the record's angular profile be as in section 0 (mu' = (2/9) A^2 env^2), and
 let W_TT be the record's first-order wave (section 5.1), whose r^(3/2)-normalised components at past null infinity
@@ -1268,9 +1305,9 @@ each ray f(r) is the integral of d_r f from r_in, over a length at most d1, and 
 at most (1 + d1)^3 (r_in >= 1); Cauchy-Schwarz. []
 
 **Lemma 9.4 (the mollifier on the past slices).** The mollifier (2.1), with sigma(tau, x) := sigma0((|x| -
-r_in)/(r_out - r_in)) and rho radial, satisfies (M1)-(M6) on A_P(tau) for 0 < lam <= d0/20 [amended D622: the condition
-lam <= d0/20 added] with constants independent of tau, and commutes with the rotations (hence with T^2 and both
-reflections).
+r_in)/(r_out - r_in)) and rho radial, satisfies (M1)-(M6) on A_P(tau) for 0 < lam <= min(lam1, d0/20) [amended D622:
+the condition lam <= d0/20 added] with constants independent of tau, and commutes with the rotations (hence with T^2
+and both reflections).
 
 *Proof.* The proof of Lemma 2.2 is local at the scale lam and uses only that the annulus has thickness Delta := r_out -
 r_in at least d0 >= 1 and inner radius at least 1, that DPhi = I + lam E with E bounded with its derivatives (E involves
@@ -1647,8 +1684,8 @@ at past null infinity was later derived, section 11, the paper's Theorem 3; the 
 D32.)
 
 **Proposition 9.10 (Theorem 1's items 6-7 for Theorem P's solutions, on Omega; deduced, D609; read by an independent
-verifier, D609, whose minor findings were seated and not re-read; amended D622).** Let g_lam be the solution of Theorem
-P (the paper's Theorem 2), K >= 6, lam <= lam_P. Then on D_T cap
+verifier, D609, whose minor findings were seated; amended D622 on a second reading; proved, D625, on a confirming
+read).** Let g_lam be the solution of Theorem P (the paper's Theorem 2), K >= 6, lam <= lam_P. Then on D_T cap
 {tau >= tau0}: (a) if mu0 > sqrt(72) l5^2, Proposition 8.1 (a)-(c) holds for g_lam, with lam1 and C of the same form; (b)
 Proposition 8.2 holds for g_lam: |M[S_(v,r)](g_lam) - mu(v)| <= C lam^2 if v <= v_start or v >= v_end, and <= C lam in
 between.
@@ -1680,8 +1717,10 @@ components with a control failing in all seven, run with chi's free function k(v
 k = 0 (S3 checks the mean source alone, which its control cannot fail). With (1)-(4), the proofs of Propositions 8.1 and
 8.2 run verbatim: (i)-(ii) of 8.1 concern g0 and the expansion as a function of g; (iii) is (2); (iv) is (1), giving C
 lam^(K-5) <= C lam; (v) uses Omega, mu and r_q only. In 8.2, outside the shell g_app = g0 + lam m1 + lam^2 E by (3),
-DM[m1] = 0 by (4) and naturality, the remainder is O(lam^(K-4)) by (1), and inside the shell tr_S W = tr_S d_th W = 0 by
-(2). []
+DM[m1] = 0 by (4) and naturality, the remainder is O(lam^(K-4)) by (1), and inside the shell the wave enters M[S](g_app)
+at order lam^0 only through theta+, with d_th(tr_S W) = 0 by (2), theta-, the area and g(n+, n-) carrying none
+(`checks/support5c.py` C13, which covers chi dv^2 and m1) [amended D625: was "inside the shell tr_S W = tr_S d_th W = 0
+by (2)", 8.2's reason before D622]. []
 
 The columns of Proposition 8.1 (b) are those of D_T cap {tau >= tau0}; on P the columns continue below Sigma_tau0, where
 (P-iii) bounds g_lam - g_app and its first derivatives by C lam^(K-3) t^-2 and C lam^(K-4) t^-2, and the second
@@ -1850,9 +1889,11 @@ paper"). In the class, the gauge and the control are already written down in [KI
 arXiv:hep-th/0305147v3, READ 2026-10-20), and the following is what they give. The computed companion is `settle5.py`
 T5 and T6.
 
-**Proposition 10.1 (deduced from READ).** Let h be a smooth solution of the linearised vacuum equations about
-Tangherlini of mass mu_f on the domain of outer communication, T^2-invariant and even under both reflections, with
-the data [HKW18] Theorem 2 requires on a slice Sigma_0 of their decay foliation. Then:
+**Proposition 10.1 (deduced, from READ and, for (iv), Lemmas 10.1a-10.1b and GAUGEDECAY5 Theorem 1.5; (i)-(iii) and
+(iv-b) proved, D625; (iv-a) deduced from Theorem 1.5, which is verified and not yet proved) [amended D625: was "(deduced
+from READ)"].** Let h be a smooth solution of the linearised vacuum equations about Tangherlini of mass mu_f on the
+domain of outer communication, T^2-invariant and even under both reflections, with the data [HKW18] Theorem 2 requires
+on a slice Sigma_0 of their decay foliation. Then:
 
 (i) *Decomposition.* h = h_0 + h_S + h_T: h_0 is the l = 0 scalar part, a change of mass plus a pure gauge solution; h_S
 and h_T are the scalar- and tensor-type parts, h_S supported on the even harmonics l = 2, 4, ... (seed_escape.py E3) and
@@ -1894,37 +1935,48 @@ zeta' = (r^2 f^2)^-1, singular at r_h; the gauge h_0 = c K is reached by the gau
 1.4 (b), smooth wherever h_0 is), h settles to c K on each region {r <= R}, the horizon included, uniformly in l, in two
 data classes.
 
-(iv-a) *Part VIII's data class (GAUGEDECAY5 Theorem 1.5).* If the data h induces on Part VIII's initial surface
-Sigma_IVP are, up to those of a linearised diffeomorphism, data (gamma-dot, k-dot) of Part VIII's class (its Theorem
-2.2: gamma-dot in H_b^(oo,(E_0, l_0)), k-dot in H_b^(oo,(E_0 + 1, l_0 + 1)), solving the linearised constraints, T^2 x
-Z2 x Z2-invariant), then h is Theorem 1.5's g-dot_RW (by its (d)), with l = 0 part mu-dot K (Theorem 1.5's K, which is
-r^-2 dv^2 on {r <= 2 R_1}, GAUGEDECAY5 (0.1)), and for every k, R' and eps' > 0
-    |h - mu-dot K|_k <= C ||(gamma-dot, k-dot)||_(H^(N_(k+2))) t_*^(-w+eps')   on {r_0 < r <= R', t_* >= T'},
+(iv-a) *Part VIII's data class (GAUGEDECAY5 Theorem 1.5).* Let h be a solution on Part VIII's N^+ down to r_0, Theorem
+1.5's N_(r_0) = N cap {r > r_0} (GAUGEDECAY5 (A2), (A11)), which reaches inside the horizon (r_0 < r_h), and not only on
+the domain of outer communication. If the data h induces on Part VIII's initial surface Sigma_IVP are, up to those of a
+linearised diffeomorphism, data (gamma-dot, k-dot) of Part VIII's class (its Theorem 2.2: gamma-dot in H_b^(oo,(E_0,
+l_0)), k-dot in H_b^(oo,(E_0 + 1, l_0 + 1)), solving the linearised constraints, T^2 x Z2 x Z2-invariant), then h + c
+L_V g, which is in GAUGEDECAY5's RW-type gauge (its Definition 1.1: l = 0 part c K_V, K_V := r^-2 dv^2 + L_V g the K of
+its (0.1)), is Theorem 1.5's g-dot_RW (by its (d)), so c = mu-dot; L_V g = 0 on {r <= 2 R_B}, R_B the radius of III.B
+(GAUGEDECAY5's R_1), so h = g-dot_RW there, and h - c K = g-dot_RW - mu-dot K_V everywhere. For every k, R' and eps' > 0
+    |h - c K|_k <= C ||(gamma-dot, k-dot)||_(H^(N_(k+2))) t_*^(-w+eps')   on {r_0 < r <= R', t_* >= T'},
 w = alpha - 2 > 2: every component, with k derivatives along d_v, d_r and the rotations, pointwise, the horizon included
 (r_0 < r_h), uniformly in l (no mode sum is formed), with a loss of two derivatives and a constant depending on R' (not
-shown to grow as a power of R').
+shown to grow as a power of R') [amended D625: (iv-a) read "If the data h induces ... then h is Theorem 1.5's g-dot_RW
+(by its (d)), with l = 0 part mu-dot K (Theorem 1.5's K, which is r^-2 dv^2 on {r <= 2 R_1}, GAUGEDECAY5 (0.1))", with
+the bound on |h - mu-dot K|_k: Theorem 1.5 (d) needs h on N^+ down to r_0, inside the horizon; with h_0 = c K, h is
+g-dot_RW - mu-dot L_V g, not g-dot_RW, where r > 2 R_B, the bound unchanged; and R_1 was III.B's radius here and
+[HKW18]'s in (iv-b)].
 
 (iv-b) *[HKW18]'s data class, with the red-shift datum (Lemmas 10.1a-10.1b).* Let h be smooth up to and including the
 future horizon, with h_0 = c K. Put
     D := sum_X I_(X Psi)(Sigma_0),   X in {1, T, T^2, Omega, Omega^2}   (Omega: the six rotations, summed),
 summed over the scalar and tensor master quantities Psi of h, and the red-shift datum
     Q_0 := sum_l ||Y_l||^2 int_(Sigma_0 cap {r <= R_1}) |d_r^2 Phi_l|^2 dr,
-Phi_l the master field of the mode l, d_r at fixed v (transversal to the horizon), Y_l its harmonic, ||.|| the L^2 norm
-on the unit S^3, and R_1 [HKW18]'s radius below which Sigma_0 is spacelike (p. 30). Then for tau >= 0 and R >= R_1
+Phi_l the master field of the mode l, d_r at fixed v (transversal to the horizon), Y_l the harmonic that carries the
+mode in h's components (S for the scalar type and T for the tensor type, as in (ii); [HKW18]'s Y_ab of (173), with
+||Y_ab||^2 = (2/3) k^2 (k^2 - 3) ||S||^2, RWGAUGE5 R2.0.5, would make the datum k^4 heavier than the left side needs)
+[amended D625: was "Y_l its harmonic"], ||.|| the L^2 norm on the unit S^3, and R_1 [HKW18]'s radius below which Sigma_0
+is spacelike (p. 30). Then for tau >= 0 and R >= R_1
     int_(Sigma_tau cap {r <= R}) sum_c |(h - c K)_c|^2 dr domega <= C R^5 (D + Q_0) (1 + tau)^-2,
 domega the unit sphere's measure, the components c taken in the chart (v, r) and the spheres' orthonormal frame, C
 depending on mu_f and Sigma_0 only, uniformly in l: the squared L^2 norm of the components, which are second derivatives
-of the master fields, decays at [HKW18]'s energy rate for data with two more commutations. Q_0 cannot be dropped: with D
-it is bounded by the left side at any one time, and it is not bounded by any sum of I_(X Psi)(Sigma_0) over products X
-of the Killing fields (Lemma 10.1b).
+of the master fields, decays at [HKW18]'s energy rate for data with two more commutations. The scalar-type part of Q_0
+cannot be dropped: with D it is bounded by the left side at any one time, and it is not bounded by any sum of I_(X
+Psi)(Sigma_0) over products X of the Killing fields (Lemma 10.1b); the tensor-type part can, the tensor type's
+components, 2 r^(-3/2) Phi, carrying no derivative of Phi [amended D625: was "Q_0 cannot be dropped", for both types].
 
 So in the Regge-Wheeler-type gauge of (ii) for l >= 2, with h_0 = c K, every metric component of h settles to the change
 of mass c K on each region {r <= R}, the horizon included: pointwise with all derivatives at Part VIII's rate for Part
-VIII's data (iv-a); and at [HKW18]'s rate tau^-2 in energy, uniformly in l with a constant growing as R^5 and the loss
-of two derivatives counted as above, for [HKW18]'s data with the red-shift datum (iv-b). Uniformly in r the energy
-statement fails, and on the outgoing part of the leaves (r >= R_1) the components settle with the weights r^(-1/2) on
-the orbit block and r^(1/2) on the angular block, in the L^2 norm on the spheres at fixed (tau, r), weights that are
-attained (RWGAUGE5 Theorems 1 and 2).
+VIII's data (iv-a); and at [HKW18]'s rate tau^-2 in energy (against dr domega), uniformly in l with a constant growing
+as R^5 and the loss of two derivatives counted as above, for [HKW18]'s data with the red-shift datum (iv-b). Uniformly
+in r the energy statement fails, and on the outgoing part of the leaves (r >= R_1) the components settle with the
+weights r^(-1/2) on the orbit block and r^(1/2) on the angular block, in the L^2 norm on the spheres at fixed (tau, r),
+weights that are attained (RWGAUGE5 Theorems 1 and 2).
 
 [amended D622: (iv) as first written read: "[HKW18] Theorem 2 gives, in spacetime dimension five, E~^N_Psi(Sigma_tau) <=
 C(3, M) I_Psi(Sigma_0)/tau^2 for the master quantities of the scalar and tensor portions, the constant uniform in l
@@ -1942,48 +1994,54 @@ transversal second derivative is not given by them (Lemma 10.1b). It fixed h_0 =
 r_h; and its "uniformly in r it is not shown" is now decided: it fails (RWGAUGE5 Theorem 1).]
 
 *Proof.* (i) is `settle5.py` T1 for the absence of vector-type perturbations and of the linearised rotations (the
-co-closed T^2-invariant vector fields on S^3 and the Myers-Perry rotations are odd under the reflections), together
-with the parity of the invariant harmonics: a T^2-invariant scalar harmonic on S^3 is a function of theta alone,
-hence a Gegenbauer polynomial in cos 2theta, of even degree (seed_escape.py E3); so l = 1 is absent, and [HKW18]
-Theorem 1 ("delta g_(l<2) = pi_X + c K + sum d_m K_m", p. 3) reduces in the class to delta g_(l<2) = pi_X + c K, c the
-mass shift, the d_m being the rotations. (ii) is [KI03] (2.7)-(2.8) and (2.4): with f_a = H_T = 0 the invariants are
-F = H_L and F_ab = f_ab, and the gauge exists for k^2 (k^2 - 3) != 0, that is l >= 2 (p. 5); for l = 1 the authors
-show there is no physical degree of freedom (p. 7), and l = 1 is absent here anyway. For the tensor type, [KI03] §5.1:
-"H_T is gauge-invariant by itself". (iii) is [KI03] (3.13)-(3.14) at n = 3 with F~ = r F, F~_ab = r F_ab ((2.13)),
-and (5.4), Phi = r^(3/2) H_T. The bounds: H = m + 6x with 0 < x <= 1 on r >= r_h, so 5 <= m <= H <= m + 6 and
-1/H <= 1/5; 3 r f' = 6x <= 6; r^2 >= mu_f. (iv): (iv-a) is GAUGEDECAY5 Theorem 1.5 (b), with (d) for the identification:
-a proof from Part VIII (proved, D336) and Part IX (proved, D617), read by an independent verifier who confirmed it
-(GAUGEDECAY5 R2.V), its domain amended since on later verifiers' findings ((A2), (A11)): verified, not yet promoted to
-proved. It uses neither (10.1) nor [HKW18]. (iv-b): [HKW18]'s master quantities are, mode by mode, Psi = r^(1/2) Phi Y
-with Phi solving box~ Phi = W Phi, W = V/f smooth on r >= r_h ((169)-(174) for the scalar type, (134) with (51) and (42)
-for the tensor type; `checks/redshift5.py` R1), and every r-derivative of W is O(1 + k^2) uniformly in l (R7). [HKW18]
-Theorem 2 ((116), (130), with E^N ~ E~^N, Lemma 11, p. 39) gives E~^N[X Psi](Sigma_tau) <= C I_(X Psi)(Sigma_0) (1 +
-tau)^-2 for each X, which commutes with their equations, its fields being Killing; uniformly in l, summed over the modes
-((179)). N is timelike up to and including the horizon, so on the spacelike part Sigma_tau cap {r <= R_1} E~^N[Psi]
-bounds int ((d_v Phi)^2 + (d_r Phi)^2 + k^2 Phi^2) dr ||Y||^2, and on the outgoing part Step 1 of RWGAUGE5's Theorem 2
-bounds int ((d_r|_u Phi)^2 + k^2 Phi^2/r^2) dr ||Y||^2, uniformly in l. By (iii) every component in the chart (v, r) and
-the orthonormal frame is a combination of d_v^2 psi, d_v d_r psi, d_r^2 psi, d psi, psi and m psi, psi = r^(3/2) Phi,
-with coefficients bounded on r >= r_h uniformly in l, so O(r^(3/2)) in Phi (kirecon5.py P1, P2). On the spacelike part
-d_v^2 Phi = d_v (T Phi) and d_r d_v Phi = d_r (T Phi) are bounded by E~^N[T Psi], k^2 Phi by sum_i E~^N[Omega_i Psi] =
-k^2 E~^N[Psi] (per mode), and d_r^2 Phi by Lemma 10.1a, the horizon included; on the outgoing part (f >= f(R_1)), with
-d_r|_v = d_r|_u - (2/f) T, they are bounded by E~^N[T^2 Psi], E~^N[T Psi], E~^N[Omega Psi] and the equation, which gives
-d_r^2 Phi at fixed u (RWGAUGE5 (2.1)); there the zeroth-order terms carry the weight r^-2, which costs R^2 on {R_1 <= r
-<= R}, and the coefficients cost R^3: C R^5. The tensor type is the same with Psi = r^(1/2) Phi U, int |Dring U|^2 =
-(k^2 - 2) ||U||^2 ((42)), and components 2 r^(-3/2) Phi with no derivative. h_0 - c K = 0 by the gauge condition.
+co-closed T^2-invariant vector fields on S^3 and the Myers-Perry rotations are odd under the reflections), together with
+the parity of the invariant harmonics: a T^2-invariant scalar harmonic on S^3 is a function of theta alone, hence a
+Gegenbauer polynomial in cos 2theta, of even degree (seed_escape.py E3); so l = 1 is absent, and [HKW18] Theorem 1
+("delta g_(l<2) = pi_X + c K + sum d_m K_m", p. 3) reduces in the class to delta g_(l<2) = pi_X + c K, c the mass shift,
+the d_m being the rotations. (ii) is [KI03] (2.7)-(2.8) and (2.4): with f_a = H_T = 0 the invariants are F = H_L and
+F_ab = f_ab, and the gauge exists for k^2 (k^2 - 3) != 0, that is l >= 2 (p. 5); for l = 1 the authors show there is no
+physical degree of freedom (p. 7), and l = 1 is absent here anyway. For the tensor type, [KI03] §5.1: "H_T is
+gauge-invariant by itself". (iii) is [KI03] (3.13)-(3.14) at n = 3 with F~ = r F, F~_ab = r F_ab ((2.13)), and (5.4),
+Phi = r^(3/2) H_T. The bounds: H = m + 6x with 0 < x <= 1 on r >= r_h, so 5 <= m <= H <= m + 6 and 1/H <= 1/5; 3 r f' =
+6x <= 6; r^2 >= mu_f. (iv): (iv-a) is GAUGEDECAY5 Theorem 1.5 (b), with (d), applied to h + c L_V g, for the
+identification: a proof from Part VIII (proved, D336) and Part IX (proved, D617), read by an independent verifier who
+confirmed it (GAUGEDECAY5 R2.V), its domain amended since on later verifiers' findings ((A2), (A11)): verified, not yet
+promoted to proved. It uses neither (10.1) nor [HKW18]. (iv-b): [HKW18]'s master quantities are, mode by mode, Psi =
+r^(1/2) Phi Y with Phi solving box~ Phi = W Phi, W = V/f smooth on r >= r_h ((169)-(174) for the scalar type, (134) with
+(51) and (42) for the tensor type; `checks/redshift5.py` R1), and every r-derivative of W is O(1 + k^2) uniformly in l
+(R7). [HKW18] Theorem 2 ((116), (130), with E^N ~ E~^N, Lemma 11, p. 39) gives E~^N[X Psi](Sigma_tau) <= C I_(X
+Psi)(Sigma_0) (1 + tau)^-2 for each X, which commutes with their equations, its fields being Killing; uniformly in l,
+summed over the modes ((179)). N is timelike up to and including the horizon, so on the spacelike part Sigma_tau cap {r
+<= R_1} E~^N[Psi] bounds int ((d_v Phi)^2 + (d_r Phi)^2 + k^2 Phi^2) dr ||Y||^2, and on the outgoing part Step 1 of
+RWGAUGE5's Theorem 2 bounds int ((d_r|_u Phi)^2 + k^2 Phi^2/r^2) dr ||Y||^2, uniformly in l. By (iii) every component in
+the chart (v, r) and the orthonormal frame is a combination of d_v^2 psi, d_v d_r psi, d_r^2 psi, d psi, psi and m psi,
+psi = r^(3/2) Phi, with coefficients bounded on r >= r_h uniformly in l, so O(r^(3/2)) in Phi (kirecon5.py P1, P2). On
+the spacelike part d_v^2 Phi = d_v (T Phi) and d_r d_v Phi = d_r (T Phi) are bounded by E~^N[T Psi], k^2 Phi by sum_i
+E~^N[Omega_i Psi], which is k^2 E~^N[Psi] per mode for the scalar type and (k^2 + 4) E~^N[Psi] for the tensor type
+(deduced: on traceless symmetric tensors on the unit S^3, -sum_i L_(Omega_i)^2 = nabla^* nabla + 6, and (42) gives
+nabla^* nabla = k^2 - 2) [amended D625: was "= k^2 E~^N[Psi] (per mode)", exact for the scalar type only], and d_r^2 Phi
+by Lemma 10.1a, the horizon included; on the outgoing part (f >= f(R_1)), with d_r|_v = d_r|_u - (2/f) T, they are
+bounded by E~^N[T^2 Psi], E~^N[T Psi], E~^N[Omega Psi] and the equation, which gives d_r^2 Phi at fixed u (RWGAUGE5
+(2.1)); there the zeroth-order terms carry the weight r^-2, which costs R^2 on {R_1 <= r <= R}, and the coefficients
+cost R^3: C R^5. The tensor type is the same with Psi = r^(1/2) Phi U, int |Dring U|^2 = (k^2 - 2) ||U||^2 ((42)), and
+components 2 r^(-3/2) Phi with no derivative. h_0 - c K = 0 by the gauge condition.
 [amended D622: the proof of (iv) read: "(iv): [HKW18]'s scalar master quantity is Phi of (169), which is [KI03]'s (3.1)
 with x = mu, carried on the tensor harmonic ((174), (179)); their energies E~^N_Psi are the N-th order red-shift
 energies on the decay foliation, regular at the horizon ((115), (131)), and the T-derivatives in (10.1) are controlled
 through the equation and the commutation with T that I_Psi already carries. []"] []
 
-**Lemma 10.1a (the red-shift commutation for the class's master fields; proved, D622; the coefficients computed,
-`checks/redshift5.py` R2-R7).** Let Phi be a smooth solution, up to and including the future horizon, of box~ Phi = W
-Phi on {r >= r_h}, box~ = 2 d_v d_r + d_r (f d_r) the orbit d'Alembertian in the ingoing chart ([HKW18] (16), p. 6), W
-the potential of a mode of either type (proof of (iv-b)), and let s be the function with Sigma_tau cap {r <= R_1} = {v =
-tau + s(r)}, 0 < s' < 2/f ([HKW18]'s leaves are spacelike there). With u_j := d_r^j Phi (d_r at fixed v), for the mode l
+**Lemma 10.1a (the red-shift commutation for the class's master fields; deduced, D622; proved, D625; the coefficients
+computed, `checks/redshift5.py` R2-R7) [amended D625: was "proved, D622", the label of its seating].** Let Phi be a
+smooth solution, up to and including the future horizon, of box~ Phi = W Phi on {r >= r_h}, box~ = 2 d_v d_r + d_r (f
+d_r) the orbit d'Alembertian in the ingoing chart ([HKW18] (16), p. 6), W the potential of a mode of either type (proof
+of (iv-b)), and let s be the function with Sigma_tau cap {r <= R_1} = {v = tau + s(r)}, 0 < s' < 2/f ([HKW18]'s leaves
+are spacelike there). With u_j := d_r^j Phi (d_r at fixed v), for the mode l
     Q(tau) := int_(r_h)^(R_1) (1 - s' f/2) u_2^2 (tau + s(r), r) dr,
     D_l := I_Psi(Sigma_0) + sum_(i,j) I_(Omega_i Omega_j Psi)(Sigma_0),
-Q(tau) <= C (Q(0) + D_l) (1 + tau)^-2 with C depending on mu_f and Sigma_0 only; summed over the modes, int_(Sigma_tau
-cap {r <= R_1}) |d_r^2 Phi|^2 dr domega <= C (Q_0 + D) (1 + tau)^-2.
+Q(tau) <= C (Q(0) + D_l/||Y||^2) (1 + tau)^-2, ||Y|| the L^2 norm on the unit S^3 of the harmonic in Psi = r^(1/2) Phi Y
+(proof of (iv-b)), with C depending on mu_f and Sigma_0 only; summed over the modes with Q_0's weights ||Y_l||^2,
+int_(Sigma_tau cap {r <= R_1}) |d_r^2 Phi|^2 dr domega <= C (Q_0 + D) (1 + tau)^-2, Phi := sum_l Phi_l Y_l [amended
+D625: the per-mode bound read C (Q(0) + D_l)].
 
 *Proof.* (1) The commutation. With L := d_v + (f/2) d_r, the outgoing null direction, box~ = 2 L d_r + f' d_r, so the
 equation is the transport L u_1 + (f'/2) u_1 = W u_0/2 along L; [d_r, L] = (f'/2) d_r, and d_r^j of the equation is
@@ -2013,16 +2071,25 @@ of Q and the right side has d(0) = 0 and d(tau_2) + (b/2) int_(tau_1)^(tau_2) d 
 anywhere, since from its last zero tau' before such a point, d(tau) <= -(b/2) int_(tau')^tau d < 0. And int_0^tau e^(-c
 (tau - w)) (1 + w)^-2 dw <= C_c (1 + tau)^-2 with C_c = max(1, 16 e^(c/2 - 2)/c^2) + 4/c (split at tau/2; R6). Since
 c_Sigma int u_2^2 dr <= Q, c_Sigma := min (1 - s' f/2) > 0, this is the lemma for the mode; every constant is uniform in
-l, and summing the modes' inequalities, with sum_l ||Y_l||^2 Q_l(0) <= Q_0, gives the rest. []
+l, and summing the modes' inequalities times ||Y_l||^2, with sum_l ||Y_l||^2 Q_l(0) <= Q_0 and ||Y_l|| <= ||Y|| (for the
+tensor type the two are one harmonic; for the scalar type ||Y||^2 = (2/3) k^2 (k^2 - 3) ||S||^2 >= (80/3) ||S||^2,
+RWGAUGE5 R2.0.5), gives the rest. []
 
-**Lemma 10.1b (the red-shift datum cannot be dropped; proved, D622; computed, `checks/redshift5.py` R4, R8).** (a) For
-every tau >= 0 there is C(tau) with Q(0) <= C(tau) (Q(tau) + D_l + I_(T Psi)(Sigma_0) + sum_i I_(Omega_i Psi)(Sigma_0)):
-the conclusion of (iv-b) at any one time bounds the red-shift datum (in r F_rr the coefficient of d_r^2 psi is 1,
-kirecon5.py P1). (b) For each mode of either type and each sigma with 1/2 < sigma/kappa <= 3/2, sigma/kappa != 1, there
-are solutions of box~ Phi = W Phi, smooth on {r > r_h}, with every I_(X Psi)(Sigma_0) finite, X any product of T and the
-rotations, and Q(0) = oo; for them Q(tau) = oo for every tau. So no bound of the left side of (iv-b) by [HKW18]'s data,
-commuted with the Killing fields any number of times, holds up to the horizon: Q_0 is the one input their class lacks,
-and nothing weaker than it suffices.
+**Lemma 10.1b (the red-shift datum cannot be dropped; deduced, D622; proved, D625, the proof of (b) repaired at D625 by
+the confirming reader's argument; computed, `checks/redshift5.py` R4, R8) [amended D625: was "proved, D622", the label
+of its seating].** (a) For every tau >= 0 there is C(tau) with Q(0) <= C(tau) (Q(tau) + (D_l + I_(T Psi)(Sigma_0) +
+sum_i I_(Omega_i Psi)(Sigma_0))/||Y||^2), ||Y|| as in Lemma 10.1a: for the scalar type the conclusion of (iv-b) at any
+one time bounds the red-shift datum (in r F_rr the coefficient of d_r^2 psi is 1, kirecon5.py P1); the tensor type's
+components, 2 r^(-3/2) Phi, carry no derivative of Phi. (b) For each mode of either type and each sigma with 1/2 <
+sigma/kappa <= 3/2, sigma/kappa != 1, there are solutions of box~ Phi = W Phi, smooth on {r > r_h}, with every I_(X
+Psi)(Sigma_0) finite, X any product of T and the rotations, and Q(0) = oo; for them Q(tau) = oo for every tau. So, for
+the scalar type, no bound of the left side of (iv-b) by [HKW18]'s data, commuted with the Killing fields any number of
+times, holds up to the horizon, for smooth h too (smooth data converging to these in every I_(X Psi)(Sigma_0) have Q(0)
+-> oo, Q(0) being lower semicontinuous, while such a bound would bound Q(0) by (a)): the scalar-type part of Q_0 is the
+one input their class lacks, and nothing weaker than it suffices [amended D625: the scalar type named and smooth h
+added; (a) read "Q(0) <= C(tau) (Q(tau) + D_l + I_(T Psi)(Sigma_0) + sum_i I_(Omega_i Psi)(Sigma_0)): the conclusion of
+(iv-b) at any one time bounds the red-shift datum", and the last sentence "So no bound ... holds up to the horizon: Q_0
+is the one input their class lacks, and nothing weaker than it suffices"].
 
 *Proof.* (a) An outgoing null ray r = rho(v), rho' = f/2, carries no flux of (10.1b) (R4), so the identity on the region
 between Sigma_0, Sigma_tau, the horizon and the ray from (Sigma_0, rho_1), rho_1 close enough to r_h that the ray stays
@@ -2033,10 +2100,18 @@ Gronwall backward gives q(0) <= e^(C tau) (q(tau) + C int_0^tau G); on [rho_1, R
 e^(-sigma v) R(r): the equation is f R'' + (f' - 2 sigma) R' - W R = 0, whose indicial roots at r_h are 0 and
 sigma/kappa (R8, for W_S and W_T); take R = (r - r_h)^(sigma/kappa) (1 + O(r - r_h)), the convergent Frobenius series of
 the larger root (its recursion's denominators 2 kappa n (n + sigma/kappa) do not vanish, R8), and cut its data on
-Sigma_0 off outside a neighbourhood of the horizon. In the domain of dependence of that neighbourhood, which every
-Sigma_tau meets at the horizon, the solution is e^(-sigma v) R. There T^a Phi = (-sigma)^a Phi, and R and R' ~ (r -
-r_h)^(sigma/kappa - 1) are square integrable (sigma/kappa > 1/2), so every I_(X Psi)(Sigma_0) is finite, while R'' ~
-(r - r_h)^(sigma/kappa - 2) is not (sigma/kappa <= 3/2), on Sigma_0 and on every Sigma_tau. []
+Sigma_0 off outside a neighbourhood {r < rho_0} of the horizon. On Sigma_0 near the horizon the solution is e^(-sigma v)
+R, with T^a Phi = (-sigma)^a Phi, and R and R' ~ (r - r_h)^(sigma/kappa - 1) are square integrable (sigma/kappa > 1/2),
+so every I_(X Psi)(Sigma_0) is finite, while R'' ~ (sigma/kappa)(sigma/kappa - 1) (r - r_h)^(sigma/kappa - 2), its
+coefficient not 0 as sigma/kappa != 1 (R8), is not (sigma/kappa <= 3/2): Q(0) = oo. The solution is smooth on {r > r_h},
+since the past of each of its points meets Sigma_0 there. For tau > 0 run (a)'s argument between the outgoing rays from
+(Sigma_0, r_h + eps) and from (Sigma_0, rho_1), both of which carry no flux and stay in {r_h < r < R_1} until Sigma_tau:
+it gives q_eps(0) <= e^(C tau) (q_eps(tau) + C int_0^tau G), q_eps the integral of (1 - s' f/2) u_2^2 between the two
+rays and G bounded by the energies, which the finite I's bound; as eps -> 0, q_eps(0) -> oo, so q_eps(tau) -> oo, and
+q_eps(tau) <= Q(tau) [amended D625, by the confirming reader's argument: the proof read "In the domain of dependence of
+that neighbourhood, which every Sigma_tau meets at the horizon, the solution is e^(-sigma v) R" and closed "on Sigma_0
+and on every Sigma_tau"; for tau > s(rho_0) - s(r_h) the past ingoing ray from Sigma_tau's point on the horizon reaches
+Sigma_0 beyond the neighbourhood]. []
 
 *What this is.* The content of [HKW18]'s deferred sentence, in the class: a linear stability statement for every
 metric component, in a named gauge, at their rate. It is the analogue of Hung-Keller-Wang's four-dimensional result
@@ -10802,7 +10877,12 @@ the orders of R_rr, the wording on derivatives). Proved means proved: the deduct
 B1-B3, and a thirteenth read the repairs (D44): Lemma 11.0's identity had been run on a region unbounded toward past
 null infinity, where the flux at the orders above Theorem P's is not known to vanish -- a major gap, repaired by running
 it on the approximating solutions g_n of Proposition 9.8 and passing to the limit -- with three minor findings in
-Proposition 11.2 and Theorem M(a), repaired; the repairs of D44 have not themselves been read.** It closes the first of
+Proposition 11.2 and Theorem M(a), repaired; the repairs of D44 were read by the fourteenth and fifteenth verifiers
+(D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma
+11.0's induction counts the top-order term b.dU as known, whose replacement (workstream B, R5-D) is pending; and that
+reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with
+P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5; D618's edits to sections 9.5 and 11 await one confirming
+read [amended D625: the status ended "the repairs of D44 have not themselves been read"].** It closes the first of
 the three items section 10 and the paper's section 8 left open: a mass law at past null infinity in five dimensions, and
 its application to g_lam. The law itself is published (Tanabe, Tanahashi and Shiromizu, READ in 11.3) and is recomputed
 here in the class with every coefficient from s^1 general (B1); what is new is that g_lam has the asymptotic expansion

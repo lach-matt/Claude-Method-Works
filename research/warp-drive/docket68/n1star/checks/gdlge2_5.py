@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""gdlge2_5.py -- GAUGEDECAY5.md Round 8: the input (M), I.C's (G), (Z) and (TF) for the 1-form wave operator Box of
+"""gdlge2_5.py -- GAUGEDECAY5.md Rounds 8-9: the input (M), I.C's (G), (Z) and (TF) for the 1-form wave operator Box of
 five-dimensional Tangherlini restricted to the 1-forms with no l = 0 and no l = 1 part (the l >= 2 subspace; the class
 1-forms with no l = 0 part lie in it), at the b-weights alpha + 2 in (-1, 0]; and the bookkeeping of the rate of the
 l >= 2 part of the harmonic-gauge representative that (M) gives.  Every check has a control that mutates the computed
-path and must fail.
+path and must fail (round 9: L6's and L9's controls now do; GAUGEDECAY5 section R9.0).
 
 Background as in rwgauge5.py and hgauge5.py: the ingoing chart (v, r, th, phi1, phi2), g = -f dv^2 + 2 dv dr + r^2
 gamma, f = 1 - mu/r^2, mu = s^2 = r_h^2, Box := 2 delta G delta^* = d delta + delta d on 1-forms, the zero-energy
@@ -26,8 +26,9 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      (lam + l + 1)(lam + l)(lam + l - 1)(lam - l - 1)(lam - l - 2)(lam - l - 3), the flat roots -m, m + 2 of the
      Cartesian degrees m = l - 1, l, l + 1; vector type l: (lam + l)(lam - l - 2), degree m = l.  For every l >= 2
      every root is <= -1 or >= 3 (vector: <= -2 or >= 4): (-1, 3) is an indicial gap of the restricted operator,
-     uniformly in l.  Control: the full bundle (l = 0: roots -1, 0, 2, 3; l = 1 scalar: -2, -1, 0, 2, 3, 4) has the
-     root 0 in (-1, 0].
+     uniformly in l.  Round 9: the gap test runs on the roots of the computed determinants, sorted by their sign in
+     l, not on typed lists.  Control: the full bundle (l = 0: roots -1, 0, 2, 3; l = 1 scalar: -2, -1, 0, 2, 3, 4)
+     has the root 0 in (-1, 0].
   L3 (exact) The divergence step.  delta Box = Box_0 delta on the modes; psi := delta omega solves (r^3 f psi')' =
      kappa r psi, which in x = r^2/mu is Legendre's equation d/dx[x (x - 1) psi_x] = (l/2)(l/2 + 1) psi, solved by
      P_{l/2}(2x - 1), regular at the horizon, growing like r^l (l = 0, 2, ..., 10); Frobenius roots at infinity
@@ -51,7 +52,9 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      horizon the formal power-series solutions are parametrised by (a'(r_h), b(r_h), c(r_h)) (the order-k matrix is
      k diag(2k - 2, 2k + 2, 2k), invertible for k >= 2, and order 0 forces a(r_h) = 0), and three explicit polynomial
      solutions realise those jets; no nonzero combination has Cartesian growth below r^1 (they grow like r^(l - 1),
-     r^l, r^(l + 1)).  Control: at l = 0 the horizon-regular solutions W* and (d_v)^flat grow below r^1.
+     r^l, r^(l + 1)).  The method needs polynomial solutions, so even l (at odd l the horizon-regular potentials are
+     non-terminating hypergeometric series); every l is gdr9_5.py N5.  Control (round 9): L6's own path with E_r's
+     coupling 3 kappa r c, and with the growth threshold raised to r^l, must fail both times.
   L7 (exact) The subspace.  The Cartesian components (in dt_*, dx^1, ..., dx^4) of the class forms S dv, S dr, dS (S
      = P_j(cos 2 th), l = 2j = 2, 4) have zero spherical means, the horizon functional ell vanishes on them, and the
      G-average of a constant spatial covector is 0: the degree-0 harmonics, which carry the roots 0 and 2, are
@@ -60,14 +63,18 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      degree-l component reduces to Bessel's equation of order l + 1 (I.C Lemma 5.4 (a)), with exponents l and -l - 2
      at ztf; a kernel element ~ r^(-l-2) is not in X_tf (b-weight q - 2 at ztf, q = 2 - beta) iff l + q >= 0, and
      an adjoint element ~ r^(-l-2) is not in X*_tf,0 (b-weight -q) iff q <= l + 2: both for every degree l >= 1 and
-     beta in (-1, 3).  Control: at l = 0 and beta in (-1, 0) the adjoint condition fails (the full bundle).
+     beta in (-1, 3) (round 9: l = 1 checked separately, the box l = 1 + n having n > 0).  Control: at l = 0 and
+     beta in (-1, 0) the adjoint condition fails (the full bundle).
   L9 (exact, whole box) The l >= 2 version of Theorem R6.4 with the window gamma_+ - alpha_K in (-1, 0): its
-     nineteen conditions for alpha_K in (1, 3/2 + delta_#) (two sub-boxes), each a positive sum.  Control: the full
-     bundle's window gamma_+ - alpha_K in (0, 1) fails on the box.
+     conditions for alpha_K in (1, 3/2 + delta_#) on three sub-boxes ((1, 3/2), {3/2}, (3/2, 3/2 + delta_#)), each a
+     positive sum; round 9 adds the hypotheses of III.I'' Lemmas 4.1-4.2 and II.G' Propositions 3.3 (1) and 3.5 (1)
+     with w_I = max(5/2, gamma_+ + 1 + eps_1), eps_1, eps and eps_PP = min(eps, eps_1) encoded (28 conditions), and
+     that the box reaches sup alpha_K = 3/2 + delta_#.  Control: the same conditions with the full bundle's window
+     and (Z)-weight in (0, 1) fail on the box.
   L10 (exact, whole box) The rates: the representative settles at t^-alpha for every alpha < min(p_0, 3/2), above
      Corollary R5.3's 1/2 + delta_#; for the data of the paper's section 8.8 (p_0 = 1) at t^(-1+eps); for data with
-     compact support at t^(-3/2-kappa), kappa < delta_#.  Control: with R5.3's l >= 2 exponent the paper's t^(-1+eps)
-     fails.
+     compact support at t^(-3/2-kappa), kappa < delta_#.  Round 9: the l >= 2 exponent is the supremum of alpha_K
+     over L9's box, computed.  Control: with R5.3's l >= 2 exponent the paper's t^(-1+eps) fails.
 
 Labels: computed (exact, sympy; no floating point).
 Run: python3 checks/gdlge2_5.py   (several minutes under load)
@@ -773,8 +780,8 @@ def l10(control=False):
     res = {k_: positive_sum(sp.simplify(e_), [D, Yv, P]) for k_, e_ in cond.items()}
     bad = [k_ for k_, val in res.items() if not val]
     tag = "  L10 control (R5.3's l >= 2 exponent 1/2 + delta_#)" if control else "  L10"
-    print("%s: the l >= 2 exponent (sup of L9's box) %s; %d conditions, all positive sums: %s%s"
-          % (tag, e_lge2, len(cond), not bad, "; failing %s" % bad if bad else ""), flush=True)
+    print("%s: the l >= 2 exponent %s (the supremum of L9's box: %s); %d conditions, all positive sums: %s%s"
+          % (tag, e_lge2, e_box, len(cond), not bad, "; failing %s" % bad if bad else ""), flush=True)
     return not bad
 
 

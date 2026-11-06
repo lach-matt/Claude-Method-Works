@@ -12,6 +12,9 @@ section R2.0, with bracketed notes at each place they change, and section 8.2 is
 was found to hold each time, and their findings are seated in sections R2.0, R3.0 and R4.0. Section 8.4 is the current
 proposal for the paper; sections 8.1-8.3 are superseded.]
 
+[R5.0: four readings now (rounds 2-5), the mathematics found to hold each time; section 8.5 is the current proposal and
+sections 8.1-8.4 are superseded.]
+
 ## 0. The item and the answer
 
 The paper's section 8.7 (`paper/RESPONSE-HL-5D.md`:1141-1149) says that a perturbation that only decays faster than
@@ -1756,6 +1759,12 @@ surface, which are of order 2 (Lemma 4.1 (a)). That is why section 8.7 says the 
 integral of the bound $\epsilon r^{-a}$. Section 8.4 (d) now reads: "the bound of a conormal perturbation of order a
 lies in r^(−ℓ0) H_b exactly when a > ℓ0, its integral diverging logarithmically at a = ℓ0".
 
+[R5.0, nit 2: the example above, "the data of a nearby boosted Myers-Perry metric on Hintz's surface", conflicts with
+R3.0's nit 8, by which a nearby member of the family is not a perturbation on $\Sigma$. Read instead: the data of (i)
+pulled back by $x\mapsto x+\chi_1(r)c$, a vacuum perturbation of order $3\le\ell_0$ whose difference from
+$(\gamma_\lambda,k_\lambda)$ lies in $\rho^3C^\infty\times\rho^4C^\infty$ (Lemma 4.1 (b)'s proof), so in the class.
+Corollary 4.3's glued data, of order 2 and in the class, are another example.]
+
 (Minor 2) *E6 after seating.* Round 3's E6 required each old block exactly once, so after seating it found old (a)-(e)
 and (g) zero times and failed. Appendix D's run would then exit 1, and the .out pinned in (h) could not be reproduced.
 Re-derived on the blocks: the old texts of (f) and (h) are prefixes of their new texts and survive seating, and the
@@ -1764,6 +1773,10 @@ others do not. E6 now recognises the paper's state, with md5 digits blanked so t
   all eight applied to a copy, and the places checked there;
 - *seated:* each new block once, disjoint, (a) immediately followed by (b), and the old texts of (a)-(e) and (g) absent;
   the places checked in the paper itself.
+
+[R5.0, Minor: E6 was only half repaired. On a seated copy of the paper it read 'seated' and passed, but its mutants
+char_a, char_b, drop_c and seated_keep_old_a acted only on the text before seating and survived there, so the whole
+program exited 1. See R5.0.]
 
 It names the state it found, and before seating it also runs the seated check on the applied copy, its zero md5 replaced
 as `--update-md5` would replace it. So both paths are computed in every run, and the mutant 'seated_keep_old_a' (old (a)

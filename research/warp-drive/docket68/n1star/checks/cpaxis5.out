@@ -1,0 +1,13 @@
+# python3 checks/cpaxis5.py   (round 4, the rerun with A3's revised criterion; A1 needs D432's 1600-row run, removed
+#   from scratch at 10:03, so A1 is in cpaxis5_run1.out)
+A2 (1 + x) d(m_uv)/d(R_uv) at the node nearest x = -1, and (1 - x) d(n_uv)/d(R_uv) at the node nearest x = +1,
+    Tangherlini cell R = 2: M = 8 (x = -0.98079): -1.5000, -1.5000; M = 16 (x = -0.99518): -1.5000, -1.5000; M = 32 (x =
+    -0.99880): -1.5000, -1.5000; M = 64 (x = -0.99970): -1.5000, -1.5000
+A2 the response is c/(1 + x) with c != 0, the same c at every M: PASS
+A3 Tangherlini (M = 8), spurious max |m| and the error of R at r > 1.5, at 100, 200, 400 rows:
+   orig: 100: |m| 2.02e-02, err R 1.15e-02; 200: |m| 1.04e-03, err R 4.56e-04; 400: |m| 1.10e-04, err R 2.43e-04
+   reg : 100: |m| 1.53e-12, err R 3.07e-03; 200: |m| 8.15e-13, err R 7.66e-04; 400: |m| 7.33e-13, err R 1.91e-04
+   ctl : 100: |m| 5.10e+03, err R 8.79e-01; 200: |m| 7.54e-03, err R 3.49e-03; 400: |m| 4.90e-04, err R 1.32e-04
+A3 the regularisation removes the spurious m at least tenfold, its error of R converging at second order (ratios 4.00,
+    4.00) and at 400 rows no larger than the original's: True; control (sign reversed) raises it: True -> PASS
+cpaxis5 (1791 s): all checks pass
