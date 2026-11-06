@@ -35,7 +35,9 @@ where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-
      seeds, three bands (one inside the horizon), three frequencies, five directions. Pointwise (exact on Tangherlini,
      psi = 0): (tr dK)^2 - |dK|^2 = (2/(3 (2 - f))) dKt^2 - 2 dp^2 - 2 ds2^2, dkappa from the linearised Hamiltonian
      constraint; the momentum constraint's ds2 makes it negative. Control (must flip): the integrand without its
-     -2 ds2^2 term gives Q > 0 for a seed oscillating in th.
+     -2 ds2^2 term gives Q > 0 for a seed oscillating in th. [R6: qsign5 Q1-Q4 proves the sign for every momentum
+     seed, ds1 included: Q <= -int Gamma psi^2/sin 2th, Gamma = 4 mu/R where psi_P = 0; the dust clause of round 5 is
+     corrected there (Q5-Q6: inside the horizon outgoing dust has T(xi, n) < 0).]
 
 Labels: computed (R2, R3 exact; R1, R4 floating point). Run: python3 checks/racglobal5.py   (a few minutes)
 """
