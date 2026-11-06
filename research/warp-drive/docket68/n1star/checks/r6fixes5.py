@@ -16,7 +16,8 @@ R6.0). Labels: computed (exact, sympy), certified (exact rationals and outward-r
      e^(kappa Dtau/2), not 2 c_Y q_lo^(-1/2) e^(kappa Dtau/2). With stage1rate5.out K3's enclosures (READ: c_Y^2 <= 2,
      q_lo >= 0.196683, e^(kappa Dtau/2) <= 1.105e17, and its own product 7.048e17 for the factor 2) the coefficient
      is < 3.525e17. [Round 7, m3: those inputs were rounded the wrong way (q_lo >= 0.1966827, e^(...) <= 1.1051725e17,
-     7.04843e17); recomputed in Arb, r7fixes5.py R5: < 3.52422e17, so 3.525e17 stands as a bound.] The homogeneous factor q^(1/2) e^(kappa Dtau/2) <= 4.174e18 stands.
+     7.04843e17); recomputed in Arb, r7fixes5.py R5: < 3.52422e17, so 3.525e17 stands as a bound.] The homogeneous
+     factor q^(1/2) e^(kappa Dtau/2) <= 4.174e18 stands.
   F3 (M2 and minor 8; exact) D4 Proposition 3.1's towers at -k and D4 (R4)'s class roots: every leading exponent m
      there is <= -1, so Lemma 2.1's Lemma 1.4 part, whose exponents are >= lambda_s1,2 = 2 + d1 (D4 Lemma 2.1's
      proof), sits at offsets >= 3 + d1 from m, beyond (0, 1.4901]; and at offset 1 the formal solutions (Lemma 1.5)
