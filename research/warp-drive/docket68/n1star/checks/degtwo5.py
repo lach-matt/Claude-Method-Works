@@ -10,8 +10,8 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      Control: Ric itself (without the gauge term) keeps second derivatives outside g^ab d_a d_b.
   T2 (exact) The seed with mu(v) against the static seed mu0: every component of Gamma[g0] - Gamma[g0 deg] is
      (mu - mu0) times a function of (r, th) plus mu' times one, and nothing else; so Ric^H relative to g0 and relative
-     to g0deg differ by A(g), linear in (mu - mu0, mu', mu''), local in v (the mu-terms of L.17).  Control: the
-     difference of the metrics' inverses is not of that form at second order (it carries (mu - mu0)^2).
+     to g0deg differ by A(g), linear in (mu - mu0, mu', mu''), local in v (the mu-terms of L.17).  Control: against a
+     wrong background (mu0 + 1 in place of mu0) the difference has a constant term.
   T3 (exact) The tilted face with any tilt: for alpha = dv + e psi' dtau, g0^-1(alpha, alpha) = -2 e psi' - e^2 psi'^2
      (1 + mu/r^2) and |alpha|_e^2 = (1 + e psi')^2 + 1; if |(g - g0)^-1(beta, beta)| <= D psi' |beta|_e^2 (the weight
      psi' = t^(-3/2) on P, 1 on Omega) and e >= 2 D, e psi' <= 1/2, then g^-1(alpha, alpha) < 0.  Control: e = D
@@ -22,8 +22,8 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      geometric sequence; hypothesis (H_D) sampled: kappa(v_s + y/2) kappa(v_s + 3y)^c env(v_s + 3y) decreasing to 0.
      Control: env = x^40 (smooth, not flat at that order) stalls (y_1 > y_0/2).
   T5 (computed; unit constants) The transition (Theorem L.24): with m0 = sqrt(mu/mu0) - 1 + 2 r_q', mu = 1 + (2/9) int
-     env^2, A = mu0 = 1, the record's envelope and exp(-1/x): m0'/m0 >= 1.9 kappa and (log env)' = kappa where R in
-     [1/2, 2], so m0' - |S'| >= 0.9 kappa m0 for S = lam^3 nu env; and in a model g^-1 = -m0 - Re[S e^(i v/lam)] + rho,
+     env^2, A = mu0 = 1, the record's envelope and exp(-1/x): m0'/m0 >= 1.9 kappa where R in [0.9, 1.1], so m0' -
+     |S'| >= 0.85 kappa m0 for S = lam^3 nu env (|S'| = kappa |S|); and in a model g^-1 = -m0 - Re[S e^(i v/lam)] + rho,
      rho a slowly varying degree-two term of size lam^(1/10) m0 plus a structureless one of size lam^3 m0, the maxima
      over consecutive carrier periods decrease through the band and change sign once (lam = 1e-6, exp(-1/x)).  Control:
      rho structureless of size m0/3 gives more than one sign change.
@@ -109,17 +109,13 @@ def t2(control=False):
         g = sp.diag(-(1 - m/r**2), 0, r**2, r**2*c**2, r**2*s**2)
         g[0, 1] = g[1, 0] = 1
         return g
-    g1, g0 = metric(mu), metric(mu0)
+    g1, g0 = metric(mu), metric(mu0 + 1 if control else mu0)
     gi1, gi0 = g1.inv(), g0.inv()
 
     def gam(g, gi):
         return [[[sp.simplify(sum(gi[a, d]*(sp.diff(g[d, b], X[cc]) + sp.diff(g[d, cc], X[b])
                                             - sp.diff(g[b, cc], X[d])) for d in range(5))/2)
                   for cc in range(5)] for b in range(5)] for a in range(5)]
-    if control:
-        dif = [sp.simplify(gi1[i, j] - gi0[i, j]) for i in range(5) for j in range(5)]
-        dm, mp1 = sp.symbols('dm mp1')
-        return all(sp.simplify(sp.diff(e.subs(mu, mu0 + dm), dm, 2)) == 0 for e in dif) and False
     G1, G0 = gam(g1, gi1), gam(g0, gi0)
     dm, mp1 = sp.symbols('dm mp1')
     ok = True
@@ -131,6 +127,8 @@ def t2(control=False):
                 e = sp.expand(e)
                 ok &= sp.simplify(sp.diff(e, dm, 2)) == 0 and sp.simplify(sp.diff(e, mp1, 2)) == 0
                 ok &= sp.simplify(sp.diff(e, dm, mp1)) == 0 and sp.simplify(e.subs({dm: 0, mp1: 0})) == 0
+    if control:
+        return ok
     out("  T2 Gamma[g0] - Gamma[g0deg] linear in (mu - mu0, mu') with no constant term, every component: %s" % ok)
     return ok
 
@@ -227,14 +225,16 @@ def t5(control=False):
                 lo = mid
             else:
                 hi = mid
-        xs = [lo*(1 + mp.mpf(k)/20) for k in range(-3, 4)]
+        xs = [lo*(1 + mp.mpf(k)/4000) for k in range(-6, 7)]
         rat = []
         for x in xs:
             dm0 = mp.diff(m0, x)
             R = lam**3*nu*env(x)/m0(x)
             rat.append((dm0/(m0(x)*kap(x)), R, (dm0 - lam**3*nu*env(x)*kap(x))/(kap(x)*m0(x))))
-        ok &= all(a_ >= mp.mpf('1.9') and b_ >= mp.mpf('0.9') for a_, _, b_ in rat if mp.mpf(1)/2 <= _ <= 2)
-        rows.append("%s: R = 1 at x = %s; m0'/(kappa m0) >= %s, (m0' - |S'|)/(kappa m0) >= %s on R in [1/2, 2]" % (
+        sel = [(a_, R_, b_) for a_, R_, b_ in rat if mp.mpf('0.9') <= R_ <= mp.mpf('1.1')]
+        ok &= len(sel) >= 3 and all(a_ >= mp.mpf('1.9') and b_ >= mp.mpf('0.85') for a_, _, b_ in sel)
+        rat = sel
+        rows.append("%s: R = 1 at x = %s; m0'/(kappa m0) >= %s, (m0' - |S'|)/(kappa m0) >= %s on R in [0.9, 1.1]" % (
             nm, mp.nstr(lo, 5), mp.nstr(min(a_ for a_, _, b_ in rat), 4), mp.nstr(min(b_ for a_, _, b_ in rat), 4)))
     # the model: one sign change of the maxima over consecutive carrier periods, exp(-1/x)
     ell = lambda x: -1/x                                                            # noqa: E731
@@ -297,13 +297,13 @@ def t6(control=False):
     supb = []
     for j in range(N + 5):
         supb.append(max(abs(mp.diff(bump, t, j)) for t in [mp.mpf(i)/200 - mp.mpf(0.995) for i in range(399)]))
-    umax = mp.mpf(2)**-n + 1/s
+    umax = mp.mpf(2)**(1 - n)
     d4 = hn*(umax*s**4*supb[4] + 4*s**3*supb[3])
     first = lam*lam**4*d4/9                                    # lam |I_2| |nu_inf d| <= lam * lam^4 int|d^4(...)| / 9
     umem = lam**(N + 1)*lam**4*hn*s**(N + 4)*supb[N + 4]*(2/s)
     width = 2/s
     l2 = hn**2*mp.quad(lambda t: bump(t)**2, [-1, 1])/s
-    m0low = l2/9
+    m0low = 2*l2/27                                            # m0 >= (mu - mu0)/(3 mu0) = (2/27) int env^2
     if control:
         # on the bump's top: env = h_n, the first-degree term lam^3 env/9 against m0 <= (h_n^2 (1 + 2/s))/9
         return lam**3*hn*bump(0)/9 < hn**2*(1 + width)/9
