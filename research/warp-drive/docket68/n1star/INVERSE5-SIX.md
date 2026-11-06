@@ -10,6 +10,8 @@ stated input at which it stops. CONSTANTS5.md, N1STAR-PROOF.md and the paper are
 text for CONSTANTS5.md R9.7 block 2 and R9.5.
 [R4: read since by two verifiers (report-vINV.md, report-vINV2.md, no Major); rounds 3-4 seat their findings on this
 file; section 7 and R2.2 are superseded (R2.2 by CONSTANTS5.md R12.7).]
+[R5: read by a third (the confirming reader of round 4: no Major, no minor; Round 5); CONSTANTS5.md R12.7 is itself
+superseded by its R13.7, so R2.2 is now superseded by R13.7.]
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/inverse6_5.py` (the microlocal constants at L_b0 and the replacements' arithmetic; 17/17: K1-K8, controls
@@ -39,6 +41,7 @@ rest is homothety invariant.
   come by compactness and contradiction (I.B section 9), R3.2. With R3 (a)'s notation the constant is 8 F C_a, R3.3.]
   [R4: the absorption threshold is h_0 = min(h_ch', (2 C_a)^(-1/N)), h_ch' the threshold of Prop. 6.7 (a)'s own chain,
   which contains (6.6)'s h_0 (R4.1).]
+  [R5: this h_0 is the chain's threshold and the absorption threshold together, not "the absorption threshold".]
 - **B3, I.B:1978** (Thm 1.3 (3), high-energy invertibility). No non-constructive step of its own. Here: the inverse
   bound is 2 C_8.1 |sigma|^(-1+delta) with C_0 explicit in C_8.1; every threshold the chain reads, computed. Stops at:
   C_8.1, the chain constant of Prop. 8.1.
@@ -136,6 +139,7 @@ the h-dependent semiclassical norms ||.||_o, ||.||_o', not uniformly in X_sigma'
 [R4, the reader's minor 1: (a)'s hypothesis holds only for h below Prop. 6.7 (a)'s own threshold h_ch', and (b)'s only
 below Prop. 8.1's h_ch (I.B:1881, :1704 and (6.6)'s h_0 within it); so (a) holds for h <= min(h_ch', (2 C_a)^(-1/N)) and
 (b) for h <= min(h_ch, (4C)^(-1/N), (4 C C_K)^-1), with C_0 that minimum's inverse times (1 - nu'^2)^(-1/2) (R4.1).]
+[R5: read "h < min(...)" in both places, strict, as R4.1 proves.]
 
 **Lemma R4 (the interpolation constant of Proposition 6.7).** Let C_a be (a)'s constant on Im sigma in [beta, beta']
 (and C_a |sigma|^-1 on Im sigma = beta'), kappa := beta' - beta, and F := sup over sigma_0 >= h_0^-1 of
@@ -360,6 +364,8 @@ and B5's.
 8.1's finite cover and nu_1 are compactness choices, and uniformity over b is by compactness and contradiction (R3.2).]
 [R4: C_0 = min(h_ch, (4 C_8.1)^(-1/N), (4 C_8.1 C_K)^-1)^-1 (1 - nu'^2)^(-1/2), h_ch Prop. 8.1's chain threshold
 (R4.1); here C_8.1 is the constant before absorption, the record's (8.1) constant being twice it (R4.2).]
+[R5: so read "**The single missing input: C_8.1**, the constant of (8.1)" above as "(8.1)'s chain constant before
+absorption"; the record's (8.1) constant is 2 C_8.1 in this paragraph's sense (R4.2).]
 
 **B4. III.F'':223, L_b0 at sigma != 0.** *Proved/computed:* by Lemmas R5 and R6, ||L-hat_b0(sigma)^-1||_(Y_sigma ->
 X_sigma) <= C_ext + C_ext^2 e_X e_Y ||W|| (1 + ||W|| C_D(sigma)) with C_D = sup over types and l of the cut-off bounds.
@@ -573,6 +579,7 @@ sgn(sigma) q, and R6 needs no sign of W.]
 record's fibre metric", "on its reading", the convention that constants are taken >= 1); no new paper pair is given
 here. Pair 2's last sentence, "For d, the two finite avoidance conditions stay part of its reading", is no longer true
 (rootavoid5 decides them).]
+[R5: R12.7 is superseded in turn by CONSTANTS5.md R13.7; read "R13.7" for "R12.7" here.]
 
 These supersede section 7's two pairs: section 7's first old text now occurs twice in CONSTANTS5.md (R9.7 and R10.7
 carry the same block 2), and its second (R9.5's clause) is superseded by R10.5's, targeted below.
@@ -651,6 +658,7 @@ here. Its minor 5 and nits 1-3 are INVERSE5-SCALAR's. Changed and rerun, each wi
 `checks/inverse6_5m.py` (13/13: M7's tensor row from gmodes5's bracket, the factor derived and tested; control C5) and
 `checks/inverse6_5a.py` (9/9: A1 labelled proved by inspection). `checks/inverse6_5.py` is unchanged (17/17).
 CONSTANTS5.md, N1STAR-PROOF.md and the paper are not edited.
+[R5: R12.7 is superseded by CONSTANTS5.md R13.7; read "R13.7" for "R12.7" in this paragraph.]
 
 ### R3.1 Minor 3: the high-energy inverse, its factor and its norms (Lemma R3 (b); B3)
 
@@ -794,6 +802,9 @@ delta = delta_Gamma(Im sigma - epsilon) in [0, 1], in the semiclassical norms at
 |sigma| > C_0 (h_1 is the program's h_0) and finds h^(1 - delta_case) <= (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta),
 h <= h_1 and C_0 >= 1 in both cases of I.B 8.4's h: 0 violations. Control C5, the exponent -(1-delta)/4: 18,694
 violations (the reader's mutant of the same exponent: 18,968 on its own sample).
+violations (the reader's mutant of the same exponent: 18,968 on its own sample).
+[R5: that sample had |sigma| = C_0 (1 + 10^U(0, 3)) >= 2 C_0 and never reached the threshold region; widened to
+U(-8, 3) in R5.2, still 0 violations, and the mutant M2 is killed there.]
 *Nit 2 (a convention, fixed from this round).* C is R3 (b)'s constant before absorption, the larger of the constants
 of Prop. 8.1 (a)'s and (b)-(c)'s displays before absorption (case 1 of I.B 8.4 is part (1) with nu = 2 nu', so (a) and
 possibly (b); case 2 is (c), Theorem 1.3 (2)); C_8.1 := 2 C, the constant with which (8.1) then holds after absorption.
@@ -810,6 +821,8 @@ scalarblock5.py)", had no row for uniformity in b, and pinned R10.1's d, which C
 - d's row: "d <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on its reading, Lambda on (1, 3 + eps_K] as R9.1
   takes it; the avoidance conditions decided, rootavoid5 23/23)"; D_BAR and A0's quote of d are R12.2's (A0 finds it
   by content in CONSTANTS5.md, md5 e4728113...).
+  [R5: the row now reads "... as R9.1 takes it, at the record's computational point (R13.2); the avoidance conditions
+  decided, rootavoid5 26/26)"; d is unchanged; CONSTANTS5.md's md5 is now b9617854... (R5.3).]
 - I.C:497's row: "sigma_* not computed; computed: sigma_min(L_2) <= 2.6180e-7 at (s, alpha) = (1, -1), so the inverse
   constant >= 3.81e6, at the record's computational point (INVERSE5-SCALAR.md A.6)", fed by "sigma_* > 0, a lower
   bound uniform in l (A.8)"; the value is INVERSE5-SCALAR's, not recomputed here.
@@ -848,3 +861,57 @@ and 21.39, 40.39, 90.14, 272.7. Sources read this round: report-vINV2.md; proof5
 1498-1510, 1668-1717, 1878-1945, 1955-1980 (md5 df7e5206...); CONSTANTS5.md R12.2, R12.5 (md5 e4728113...);
 INVERSE5-SCALAR.md A.6, A.8 (read at md5 4e72dc60...; it has since moved, to 2c600b5b... at this writing, by its own
 round, with A.6's 2.6180 x 10^-7 and 3.81 x 10^6 and A.8's sigma_* > 0 uniform in l standing as A3 quotes them).
+
+## Round 5 (2026-11-06): the confirming reader's nits
+
+*Status.* Appended; rounds 1-4 keep their text, with bracketed `[R5: ...]` notes after the lines amended here. The
+confirming reader of round 4 CONFIRMED this file with no Major and no minor, and re-derived R4.1's strict threshold.
+Seated below: its nits 1-4, 8 and 9 (the others are not on this file), and the supersession of CONSTANTS5.md R12.7 by
+its R13.7. Rerun with its `.out`: `checks/inverse6_5a.py`, 12/12 (control C6 new); nothing else changes, so
+`checks/inverse6_5.py` and `checks/inverse6_5m.py` are not rerun. CONSTANTS5.md, INVERSE5-SCALAR.md, N1STAR-PROOF.md
+and the paper are not edited; no earlier note is edited.
+
+### R5.1 Nits 1-3: wording
+
+- *Nit 1 (Lemma R3's [R4] note).* It wrote "h <= min(...)"; R4.1 proves the conclusions for h < min(h_ch', (2 C_a)^(-1/N))
+  and h < min(h_ch, (4C)^(-1/N), (4 C C_K)^-1) only, the record's chain thresholds being strict ("h < h_0", I.B:1505,
+  :1704, :1881). Read "<" (bracketed there). R3.1 is unaffected: |sigma| >= C_0 gives h < h_1 (R4.1).
+- *Nit 2 (section 5, B3).* "The single missing input: C_8.1, the constant of (8.1)" read with the [R4] note below it
+  (C_8.1 before absorption there) said two things; it is read "(8.1)'s chain constant before absorption", the
+  record's (8.1) constant being twice it (R4.2; bracketed there).
+- *Nit 3 (section 0, B2).* h_0 = min(h_ch', (2 C_a)^(-1/N)) is the chain's threshold and the absorption threshold
+  together, not "the absorption threshold" (bracketed there).
+
+### R5.2 Nit 4: A5 now samples the threshold region
+
+*The finding.* A5 drew |sigma| = C_0 (1 + 10^U(0, 3)), so |sigma| >= 2 C_0 always and the region |sigma| -> C_0, where
+the threshold binds, was never tested; the reader's mutant M2 (C_0 = h_0^-1 (1 - nu'^2)^(-1/4)) survived. *Seated.*
+|sigma| = C_0 (1 + 10^U(-8, 3)), the rest unchanged (seed 3, 2 x 10^5 draws). *Computed* (inverse6_5a, rerun): A5, 0
+violations; new control C6, M2: 11,440 violations under U(-8, 3), and 0 under round 4's U(0, 3), printed beside it,
+which is the reader's finding reproduced. Why M2 needs the region (deduced): in case 1, h <= h_0 needs |Re sigma| >=
+h_0^-1, and |Re sigma| > |sigma| (1 - nu'^2)^(1/2); under M2, |sigma| >= C_0 gives only |Re sigma| > h_0^-1 (1 -
+nu'^2)^(1/4), short of h_0^-1, while |sigma| >= 2 C_0 gives 2 h_0^-1 (1 - nu'^2)^(1/4) >= h_0^-1 whenever nu'^2 <=
+15/16, which holds in all but a small corner of the draw nu' in [0.01, 0.99]. Control C5 is unchanged at 18,694: its
+violation, h^(1-delta) against the factor with exponent -(1-delta)/4, reduces to (cos theta)^(-(1-delta)) > (1 -
+nu'^2)^(-(1-delta)/4), which does not involve |sigma|.
+
+### R5.3 Nits 8-9: the inventory's d row, and A0's md5
+
+- *Nit 8.* The A3 row reads "d <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on its reading, Lambda on (1, 3 +
+  eps_K] as R9.1 takes it, at the record's computational point (R13.2); the avoidance conditions decided, rootavoid5
+  26/26)". CONSTANTS5.md R13.2 names the point as part of d's bound ("the loss at the record's computational point,
+  which lies outside the proved set", READ) and leaves the integer unmoved ("d's integer does not move", R13 status);
+  `checks/rootavoid5.out` (md5 d4b4e2a2..., the one CONSTANTS5.md R13 pins) ends "26/26", 26 PASS, 0 FAIL (counted
+  here). D_BAR, A0's quote of d and A2's -4.45394517576 x 10^17 are unchanged (bracketed at R4.3).
+- *Nit 9.* `checks/inverse6_5a.out` is regenerated: A0 finds its ten quotes by content in CONSTANTS5.md at md5
+  b96178545d67619ab2bed9ecf1af714f and prints it.
+- *R12.7 -> R13.7.* CONSTANTS5.md R13.7, "Final replacement text for the paper (supersedes R12.7)" (READ), supersedes
+  R12.7; the three notes here that send R2.2 to R12.7 (the status line, R2.2's [R3] note, round 3's status) now carry
+  `[R5]` notes reading R13.7. Round 4's mention of "R12.7 pair 1" names what the second reader read and is left.
+
+### R5.4 Programs (round 5)
+
+`checks/inverse6_5a.py` 12/12 (A0-A5, C1-C6; about 11 s), md5 550e88be...; its `.out` a70ec796.... Unchanged since
+round 4: `checks/inverse6_5.py` 17/17 (efa230b1..., `.out` 595a36d5...) and `checks/inverse6_5m.py` 13/13 (9f2eca91...,
+`.out` 77de537c...). Sources read this round: CONSTANTS5.md R13 status, R13.2 and R13.7's heading (md5 b9617854...);
+checks/rootavoid5.out.
