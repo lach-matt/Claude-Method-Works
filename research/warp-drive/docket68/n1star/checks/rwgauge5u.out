@@ -14,3 +14,11 @@ U2 PASS
       eliminated): True
   U3 (b) l = 4: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
       eliminated): True
+  U3 (b) l = 6: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True
+  U3 (a) control (cross term's sign flipped): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r)
+      (ingoing), f^-1(-d_t^2 + d_r*^2) (static): False
+  U3 (b) control (tensor potential) l = 2: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+  U3 (b) control (tensor potential) l = 4: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False

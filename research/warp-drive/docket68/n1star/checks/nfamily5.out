@@ -14,3 +14,6 @@ N1 (exact, multi-phase jets) N = 3 overlapping torus waves with lam^2 mixed harm
 N1 PASS
 N2 (exact) the lam^0 coefficient of d_R a in rho (theta^3 H) does not oscillate; nor do gamma-only ones
    seed 31: alpha at lam^0 = -880/13689, oscillating part empty: True; control: a wave with a trace on the leaves makes it oscillate (3 harmonics, rejected): True
+   seed 32: alpha at lam^0 = -7/75, oscillating part empty: True; control: a wave with a trace on the leaves makes it oscillate (3 harmonics, rejected): True
+N2 PASS
+exit 0

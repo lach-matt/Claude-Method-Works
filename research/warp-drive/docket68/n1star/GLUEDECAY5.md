@@ -1004,10 +1004,10 @@ New (h):
 
 ```text
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
-| `docket68/n1star/checks/gluedecay5.py` | `00000000000000000000000000000000` |
-| `docket68/n1star/checks/gluedecay5.out` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/gluedecay5.py` | `5419ce724e8f46273130375f29e02ede` |
+| `docket68/n1star/checks/gluedecay5.out` | `1ff0477a7b1c4008f114e13d8b7bb342` |
 | `docket68/n1star/GLUEDECAY5.md` | `00000000000000000000000000000000` |
-| `docket68/n1star/proof5/PART-V-GLUING.md` | `00000000000000000000000000000000` |
+| `docket68/n1star/proof5/PART-V-GLUING.md` | `df25f8231e6af8cc1cfd08069d2700aa` |
 ```
 
 ## R2.0 Round 2 (2026-11-06): the verifier's reading, re-derived and seated
