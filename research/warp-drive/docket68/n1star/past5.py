@@ -48,6 +48,14 @@ rotations and in th are O(r^-p) (section 9.2).
      the first (9.10), and the quadrature and the moments reject it (a sympy that integrates the sum correctly makes
      this control pass, and the selftest says so); (4) the quadrature on the flat measure (2/pi) dth for S^3's.
 
+  P9 (D632; the confirming reader of sections 9.5 and 11) The printed formulas.  (9.10) and (11.3) are read from
+     N1STAR-PROOF.md, parsed and compared with the computed objects: (9.10) with the sphere mean whose oscillating
+     coefficient is -2 <H^2 c^2 s^2> = 1 - pi/2 (computed term by term, as P7 (a)), and (11.3)'s env'^2 coefficient
+     and boundary terms with P7 (e)'s.  Controls: (1) the displays with their factor (1 - pi/2) replaced by the first
+     (9.10)'s 1; (2) the coefficient by the identity the D618 note stated, 1 - 2 <H^2 c^2 s^2> (= 2 - pi/2).
+     [D632: P7's coefficient is now computed, kap = -2 <H^2 c^2 s^2>; it was float(1 - pi/2), hard-coded, beside the
+     false identity "1 - pi/2 = 1 - 2 <H^2 c^2 s^2>" in a comment and in its printed message.]
+
   P8 The mollifier's commutator.  In the coordinates (tau, v, xhat) of the past slices, L0 = d_tau at fixed (v, xhat)
      and the radial part of box~ is -(1 + mu(v)/r^2) L0^2 - 2 d_v L0 + (3/r) d_v (d_v at fixed tau, r = v - tau),
      which is (9.5)'s (checked on explicit functions).  For the shift C f(tau, v) := f(tau, psi(tau, v)), exactly,
@@ -210,7 +218,8 @@ def p7(control=0):
     # (c) the sphere mean, term by term, is the formula, and is the moments' route
     mean = zmean(q)
     k = sp.Rational(2, 9)*A**2
-    kap = 1 if control == 2 else 1 - sp.pi/2                   # 1 - 2 <H^2 c^2 s^2>; control 2: the first (9.10)'s 1
+    kap = 1 if control == 2 else -2*mom[2]                     # -2 <H^2 c^2 s^2> = 1 - pi/2, computed (D632; it
+    #                                                            read 1 - 2 <H^2 c^2 s^2>); control 2: the first 1
     osc = -(E**2 - lam**2*Ep**2)*sp.sin(2*ph)/2 + lam*E*Ep*sp.cos(2*ph)
     want = k*(E**2 + lam**2*Ep**2 + kap*osc)
     ok["c mean = (9.10)"] = sp.simplify(sp.expand_trig(mean - want)) == 0
@@ -273,14 +282,68 @@ def p7(control=0):
     if control == 0:
         say("P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = %s (term by term, partial fractions in z)"
             % ", ".join(str(sp.simplify(m)) for m in mom))
-        say("P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = %.10f; quadrature on S^3 at three points: "
-            "max deviation %s at 30 digits (tolerance 1e-20)" % (float(1 - sp.pi/2), devmax))
+        say("P7: the oscillating coefficient -2 <H^2 c^2 s^2> = %s = %.10f, computed from the moment; quadrature on S^3 "
+            "at three points: max deviation %s at 30 digits (tolerance 1e-20)" % (sp.simplify(kap), float(kap), devmax))
         say("P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature %s, (9.10) %s, the first (9.10) %s"
             % first)
         say("P7: checks " + ", ".join(f"{a} {b}" for a, b in ok.items()))
     else:
         say("P7 control %d: failing checks %s" % (control, [a for a, b in ok.items() if not b]))
     return bool(all(ok.values()))
+
+
+def flux_coefficients():
+    """the computed objects P9 compares the printed formulas with: the sphere mean's oscillating coefficient -2 <H^2
+    c^2 s^2> (P7 (a), term by term), the sphere mean (9.10) and the boundary terms of its v-integral (P7 (c), (e))"""
+    z = sp.Symbol("z", real=True)
+    c2, s2, H2 = (1 + z)/2, (1 - z)/2, 2/(1 + z**2)
+    mom = sum(sp.integrate(t, (z, -1, 1)) for t in sp.Add.make_args(sp.apart(sp.expand(H2*c2*s2), z)))/2
+    return -2*mom
+
+
+def p9(control=0):
+    """the printed (9.10) and (11.3) of N1STAR-PROOF.md, read from the file, against the computed coefficients
+    (D632, the confirming reader of sections 9.5 and 11: no program read them, which let the first (9.10) stand).
+    Control 1: the displays read with their factor (1 - pi/2) replaced by the first (9.10)'s 1; control 2: the
+    coefficient computed by the false identity 1 - 2 <H^2 c^2 s^2>"""
+    import os
+    import re
+    from sympy.parsing.sympy_parser import implicit_multiplication, parse_expr, standard_transformations
+    text = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "N1STAR-PROOF.md"), encoding="utf-8").read()
+    a = text.index("so its sphere mean is exactly")
+    d910 = text[a + len("so its sphere mean is exactly"):text.index("(9.10)", a)]
+    b = text.index("    mu_B(v) = mu(v) + ")
+    d113 = text[b:text.index("(11.3)", b)]
+    if control == 1:
+        d910, d113 = d910.replace("(1 - pi/2)", "1"), d113.replace("(1 - pi/2)", "1")
+    lam, A, E, Ep, v_ = sp.symbols("lam A E Ep v", real=True)
+    tr = standard_transformations + (implicit_multiplication,)
+    names = {"lam": lam, "A": A, "E": E, "Ep": Ep, "v": v_, "pi": sp.pi, "sin": sp.sin, "cos": sp.cos}
+
+    def parse(t):
+        t = " ".join(t.split()).replace("env'", "Ep").replace("env", "E").replace("[", "(").replace("]", ")")
+        return parse_expr(t.replace("^", "**"), local_dict=names, transformations=tr)
+    printed910 = parse(d910.strip().rstrip(","))
+    m = re.match(r"\s*mu_B\(v\) = mu\(v\) \+ (.*?) int_\{-oo\}\^\{v\} env'\^2\s*\+ (.*?) \+ O\(lam\^3\),?\s*$",
+                 d113, re.S)
+    if not m:
+        print("      P9: (11.3) not found in the form expected")
+        return False
+    lead113, osc113 = parse(m.group(1)), parse(m.group(2))
+    kap = flux_coefficients()
+    if control == 2:
+        kap = 1 + kap                                          # 1 - 2 <H^2 c^2 s^2>, the identity the D618 note stated
+    k = sp.Rational(2, 9)*A**2
+    ph = v_/lam
+    want910 = k*(E**2 + lam**2*Ep**2 + kap*(-(E**2 - lam**2*Ep**2)*sp.sin(2*ph)/2 + lam*E*Ep*sp.cos(2*ph)))
+    want_osc = kap*k*(lam/4*E**2*sp.cos(2*ph) + lam**2/4*E*Ep*sp.sin(2*ph))
+    ok = {"(9.10) = the computed sphere mean": sp.simplify(sp.expand(printed910 - want910)) == 0,
+          "(11.3)'s env'^2 coefficient": sp.simplify(lead113 - k*lam**2) == 0,
+          "(11.3)'s boundary terms": sp.simplify(sp.expand(osc113 - want_osc)) == 0,
+          "the coefficient is 1 - pi/2": sp.simplify(kap - (1 - sp.pi/2)) == 0}
+    print("      P9%s: %s" % ("" if not control else " control %d" % control,
+                             ", ".join("%s %s" % (x, y) for x, y in ok.items())), flush=True)
+    return all(ok.values())
 
 
 def p8(control=0):
@@ -327,7 +390,8 @@ CHECKS = [("P1 the outer boundary of the past domain is spacelike, margin (kappa
           ("P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2", p5, 1),
           ("P6 the rotations annihilate v and r and commute with L0 and box~", p6, 1),
           ("P7 the sphere-mean flux of the record's radiation field (term by term; quadrature), its v-integral", p7, 4),
-          ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 2)]
+          ("P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors", p8, 2),
+          ("P9 the printed (9.10) and (11.3) (N1STAR-PROOF.md) have the computed coefficients", p9, 2)]
 
 
 def selftest():
