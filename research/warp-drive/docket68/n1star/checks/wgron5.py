@@ -268,58 +268,70 @@ def main():
     trans = ['dchi', 'deta', 'domb', 'dchib', 'detab', 'dom', 'dk', 'dw', 'db']
     rowof = {'dchi': 'chi', 'deta': 'eta', 'domb': 'omb', 'dchib': 'chib', 'detab': 'etab', 'dom': 'om',
              'dk': 'k', 'dw': 'w', 'db': 'b'}
+    e4set = ['dchi', 'deta', 'domb', 'dk', 'dw', 'db']; e3set = ['dchib', 'detab', 'dom']
     coef = {}
     for y in trans:
         op, bnd, rhs, fac = R[rowof[y]]
+        fac_v = bg[L5.Ew] if fac == L5.Ew else 1.0
         for z in trans:
             c_ = rhs.coeff(L5.U[z])
-            if c_ == 0:
-                continue
-            fac_v = bg[L5.Ew] if fac == L5.Ew else 1.0
-            coef[(y, z)] = sp.lambdify(syms, c_, 'numpy')(*[bg[s_] for s_ in syms]) * fac_v * np.ones_like(bg[L5.Ew])
+            if c_ != 0:
+                coef[(y, z)] = sp.lambdify(syms, c_, 'numpy')(*[bg[s_] for s_ in syms]) * fac_v * \
+                    np.ones_like(bg[L5.Ew])
     iu_ = np.where(inbox.any(1))[0]; iv_ = np.where(inbox.any(0))[0]
     us, vs = uu[iu_], vv[iv_]
-    e4set = ['dchi', 'deta', 'domb', 'dk', 'dw', 'db']; e3set = ['dchib', 'detab', 'dom']
-    worst = (0, None, 0)
+    nu, nv = len(us), len(vs)
+    wu = np.gradient(us); wv = np.gradient(vs)
+    wu[0] /= 2; wu[-1] /= 2; wv[0] /= 2; wv[-1] /= 2
+    nd = len(e4set) * nu + len(e3set) * nv
+    win = np.concatenate([np.tile(wu, len(e4set)), np.tile(wv, len(e3set))])
+    sub9 = [(y, z, c) for y, z, c in T if y in trans and z in trans]
+    D9 = {n: D[n] for n in trans}
     out_rows = []
     for jx in range(M):
         if abs(x[jx]) > 0.5:
             continue
-        nu, nv = len(us), len(vs)
-        ndata = len(e4set) * nu + len(e3set) * nv
-        sol_norms = []
-        Amat = np.zeros((len(trans) * nu * nv, ndata))
-        for col in range(ndata):
-            Y = {z: np.zeros((nu, nv)) for z in trans}
-            if col < len(e4set) * nu:
-                zi, ii = divmod(col, nu); Y[e4set[zi]][ii, 0] = 1.0
-            else:
-                zi, jj = divmod(col - len(e4set) * nu, nv); Y[e3set[zi]][0, jj] = 1.0
-            for i in range(nu):
-                for j in range(nv):
-                    if j > 0:      # e4 / d_v rows: Y_v = sum m Z (trapezoid, explicit predictor-corrector)
-                        dv_ = vs[j] - vs[j - 1]
-                        for y in e4set:
-                            r0 = sum(coef[(y, z)][iu_[i], iv_[j - 1], jx] * Y[z][i, j - 1] for z in trans
-                                     if (y, z) in coef)
-                            Y[y][i, j] = Y[y][i, j - 1] + dv_ * r0
-                    if i > 0:      # e3 rows: Y_u = sum m Z
-                        du_ = us[i] - us[i - 1]
-                        for y in e3set:
-                            r0 = sum(coef[(y, z)][iu_[i - 1], iv_[j], jx] * Y[z][i - 1, j] for z in trans
-                                     if (y, z) in coef)
-                            Y[y][i, j] = Y[y][i - 1, j] + du_ * r0
-            Amat[:, col] = np.concatenate([Y[z].ravel() for z in trans])
-        sv = np.linalg.svd(Amat, compute_uv=False)[0]
-        out_rows.append((x[jx], sv))
-        if sv > worst[0]:
-            worst = (sv, x[jx], 0)
-    gr = res[0.5][2] + res[0.5][3]
-    print('W5 frozen-angle transport (nine transported unknowns, signed coefficients, |x| <= 1/2, %d x %d nodes): '
-          'largest singular value of data -> solution (nodal l2 norms) %.3g at x = %.3f; per node: %s' % (
-              len(us), len(vs), worst[0], worst[1], ', '.join('%.3f: %.3g' % r for r in out_rows)))
-    print('   against the Gronwall factor of the same nine rows with absolute values: see W3 (all fifteen rows); '
-          'this measures bookkeeping against growth and is not a bound on the full operator')
+        Y = {z: np.zeros((nu, nv, nd)) for z in trans}
+        for zi, z in enumerate(e4set):            # data of the e4 / d_v rows on v = v0
+            Y[z][np.arange(nu), 0, zi * nu + np.arange(nu)] = 1.0
+        for zi, z in enumerate(e3set):            # data of the e3 rows on u = u0
+            Y[z][0, np.arange(nv), len(e4set) * nu + zi * nv + np.arange(nv)] = 1.0
+        for d in range(1, nu + nv - 1):           # march along diagonals: (i, j) needs (i, j-1) and (i-1, j)
+            for i in range(max(0, d - nv + 1), min(nu - 1, d) + 1):
+                j = d - i
+                if j > 0:
+                    dv_ = vs[j] - vs[j - 1]
+                    for y in e4set:
+                        acc = 0.0
+                        for z in trans:
+                            if (y, z) in coef:
+                                acc = acc + coef[(y, z)][iu_[i], iv_[j - 1], jx] * Y[z][i, j - 1]
+                        Y[y][i, j] = Y[y][i, j - 1] + dv_ * acc
+                if i > 0:
+                    du_ = us[i] - us[i - 1]
+                    for y in e3set:
+                        acc = 0.0
+                        for z in trans:
+                            if (y, z) in coef:
+                                acc = acc + coef[(y, z)][iu_[i - 1], iv_[j], jx] * Y[z][i - 1, j]
+                        Y[y][i, j] = Y[y][i - 1, j] + du_ * acc
+        outp = np.concatenate([Y[z][:, -1, :] for z in e4set] + [Y[z][-1, :, :] for z in e3set], 0)
+        wout = np.concatenate([np.tile(wu, len(e4set)), np.tile(wv, len(e3set))])
+        Aw = np.sqrt(wout)[:, None] * outp / np.sqrt(win)[None, :]
+        sv = np.linalg.svd(Aw, compute_uv=False)[0]
+        selx = np.zeros((1, 1, M), bool); selx[0, 0, jx] = True
+        B9 = Bound(sub9, D9, inbox[:, :, None] & selx, uu, vv, unk=trans, typ={n: TYPE[n] for n in trans},
+                   group={n: n for n in trans}, groups=trans)
+        J9, _, _ = B9.J_exact(np.zeros(len(trans)), np.zeros(len(sub9)))
+        out_rows.append((x[jx], sv ** 2, J9 / np.log(10)))
+    worst = max(out_rows, key=lambda r: r[1])
+    print('W5 frozen-angle transport: the nine transported rows alone (pairs and the e3 rows\' x-motion dropped), '
+          'signed, %d x %d nodes, the far corner\'s f against the data norm: the largest ratio f/D (the squared '
+          'norm of the solution map) per node |x| <= 1/2, with its own Gronwall factor e^J (absolute values):' % (nu, nv))
+    for xx_, r2, lj in out_rows:
+        print('   x = %+.3f: f/D <= %.3g (computed, largest singular value squared); Gronwall 10^%.1f' % (xx_, r2, lj))
+    print('   largest: %.3g at x = %+.3f.  This is the growth the signed coefficients produce in this subsystem; it is'
+          ' not a bound on the full operator (the pairs and the angular motion are dropped)' % (worst[1], worst[0]))
     print('wgron5 (%.0f s):' % (time.time() - t0), 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
