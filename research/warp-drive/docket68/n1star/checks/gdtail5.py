@@ -374,7 +374,7 @@ def t7(control=False):
             "Lemma 4.1: w_I - 1 >= 3/2": wI - sp.Rational(5, 2),
             "Prop 2.8 (2): alpha_K - 1 in (1, 2)": aK - 2,
             "model I+: 4 > w_I": 4 - wI, "model iota+: 6 > gamma_+ + 2": 4 - gp, "model K+: 3 > alpha_K": 3 - aK,
-            "eps <= (2 - gamma_+)/5 analogue: 3 - gamma_+ > 3 eps": 3 - gp - 3*ep,
+            "eps small: 3 - gamma_+ > 3 eps (the choice of eps)": 3 - gp - 3*ep,
         }
     res = {k: positive_sum(e, pos) for k, e in cond.items()}
     ok = all(res.values())
@@ -417,8 +417,11 @@ def t8(control=False):
         return any(c != 0 for c in tail)
     dt_comp = [sp.simplify(sp.diff(c, t)) for c in comp]
     dt_lim = [sp.limit(sp.simplify(c*r**2), r, sp.oo) for c in dt_comp]
-    Kn = [sp.Integer(1)/r**2, -sp.Integer(1)/r**2]              # K(d_t, d_t), K(d_t, d_r) for r^-2 (dt - dr)^2
-    ok = tail == [-1, sp.Rational(1, 4)] and all(l_.is_finite for l_ in dt_lim) and all(n_.is_finite for n_ in nxt)
+    # K = d_mu g_mu at fixed (t, x), g_mu of III.B (3.4): -f dt^2 - 2 mu r^-2 dt dr + (2 - f) dr^2
+    gm = [[-(1 - m_/r**2), -m_/r**2], [-m_/r**2, 1 + m_/r**2]]
+    Kn = [sp.simplify(sp.diff(gm[0][0], m_)), sp.simplify(sp.diff(gm[0][1], m_))]   # K(d_t, d_t), K(d_t, d_r)
+    ok = (tail == [-1, sp.Rational(1, 4)] and all(l_.is_finite for l_ in dt_lim) and all(n_.is_finite for n_ in nxt)
+          and Kn == [1/r**2, -1/r**2])
     print("  T8: W**_H on {t = C''} has the r^-1 tail (%s dt + %s dr)/r; r^2 d_t W**_H -> %s (= W*/2: order 2); K's "
           "normal components %s (order 2): the data of Z^(K) have order exactly 1" % (tail[0], tail[1], dt_lim, Kn),
           flush=True)

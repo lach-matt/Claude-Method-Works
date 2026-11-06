@@ -3,11 +3,13 @@ F1d  the chain rule: the top-order terms of d^N F(x, u, u')
         u', u'' only (N = 2..6): pass
   F1d' control: without subtracting F_p u^(N+1) the top order u^(N+1) is present: pass
 F1e  the Gronwall factors of the repaired step
-  F1e int_(lam^-2)^oo C (1 + lam^-1) t^(-3/2) dt = 2 C (1 + lam): the factor e^(2C(1 + lam)) is lam-free: pass 2*C*(lm +
-        1)
-  F1e' control: over the near region [1, lam^-2] the factor is exp(2C(1 + lam^-1)(1 - lam)), beating every lam^-M: pass
-  F1e'' with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the kernel it carries lam^0:
-        the kernel placement is the lam-sharp one (Proposition R3.1's count +1 per order is an overcount, harmless): pass
+  F1e [arithmetic] int_(lam^-2)^oo C (1 + lam^-1) t^(-3/2) dt = 2 C (1 + lam): the factor e^(2C(1 + lam)) is lam-free:
+        pass 2*C*(lm + 1)
+  F1e' [arithmetic] control: over the near region [1, lam^-2] the factor is exp(2C(1 + lam^-1)(1 - lam)), beating every
+        lam^-M: pass
+  F1e'' [arithmetic] with c . U in the source the step-N constant carries lam^-N (N = 12 gives 12); in the kernel it
+        carries lam^0: the kernel placement is the lam-sharp one (Proposition R3.1's count +1 per order is an overcount,
+        harmless): pass
 F1a-F1c  the first variation of F_1 at u_1 = 0 on the full gauge-fixed operator (80 digits)
   F1a the Hessian coefficient of F_1 vanishes: |D F_1[k_hess]| / |g^ab d_a d_b k| (two points, lam = 1e-2, 1e-3, three
         K2): pass max 5.74e-53
@@ -19,9 +21,8 @@ F1a-F1c  the first variation of F_1 at u_1 = 0 on the full gauge-fixed operator 
   F1b' for K0(ell, ell) = 0 the value coefficient is O(1): the lam^-1 part is exactly the ell-ell one: pass
   F1b'' control (the wave mutated to the non-oscillating lam A): the same test fails, the remainder reaching more than
         100 times the bound above (the lam^-1 coefficient is the oscillation's): pass
-  F1c the gradient coefficient b has lam-order 0: |D F_1[k_grad]| bounded and bounded away from 0 (lam = 1e-2, 1e-3,
-        1e-4): b . d U is at the order the step estimates: pass [['1.476', '0.7677', '0.6754'], ['0.6451', '0.4643',
-        '1.274']]
+  F1c [b != 0 only; its lam^0 wave part: cclass5 C3] the gradient coefficient b has lam-order 0: |D F_1[k_grad]| bounded
+        and bounded away from 0 (lam = 1e-2, 1e-3, 1e-4): b . d U is at the order the step estimates: pass [['1.476',
+        '0.7677', '0.6754'], ['0.6451', '0.4643', '1.274']]
   F1c' control (g0 -> eta, no wave): b = 0, so b comes from d(lam [W]) and Gamma[g0]: pass
 FAILED: none
-exit 0
