@@ -1,2 +1,7 @@
   H0 the recursion for Q_k equals x^k Y_k(A_1/x, ...) exactly, k <= 12: True
 H0 PASS (control detected)
+  H1 exp(-1/x) on [0, 1/200] (400 closed intervals, x = 0 included), on every interval: env^(k) > 0 for k <= 17;
+      kappa_k/kappa in [0.81866, 1.00301] (within [1/2, 2]), env^(k) log-concave and |kappa_k'| <= c_R kappa_k^(3/2) with
+      c_R = 2.58122, for k <= 16; |kappa'| >= c_t kappa^(3/2) with c_t = 2.0; |env^(j)| <= c_j kappa^j env with
+      max_(j<=16) c_j = 1.00001; kappa x^2 in [c_*, M] = [1.0, 1.0].  So (H_N) to N = 16, (H_N+2) to N = 14, (H_t), L.16
+      (c) to j = 16 and (H_rho*)'s first half hold on (v_s, v_s + 1/200]

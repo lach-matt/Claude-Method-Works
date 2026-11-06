@@ -10,8 +10,8 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      at m = 0, and decreasing in m); |beta|_E^2, |alpha|_E^2 <= 25/4; beta(d_t) = 2, alpha(d_t) = -2. Hence for every
      symmetric delta with |delta|_op < 7/25, (g_b0^-1 + delta)(beta, beta) < 0 and likewise alpha: both pieces are
      spacelike, r + 2 t~ increases and r - 2 t~ decreases along future causal curves, and the region between them lies
-     to their past. Control (exact): 7/25 is sharp: at f' = -1/4, m = 0, delta = (7/25) beta beta^T/|beta|^2 makes beta
-     null, and 3/10 makes it spacelike.
+     to their past. Control (exact): 7/25 is sharp for the hypotheses |f'| <= 1/4, m >= 0 (attained only as m -> 0):
+     at f' = -1/4, m = 0, delta = (7/25) beta beta^T/|beta|^2 makes beta null, and 3/10 makes it spacelike.
   K2 (sampled, 4000 points) the flux forms p -> T_g[p](d_t, n) on the two pieces (n = -g^-1 beta and n = g^-1 alpha,
      future timelike) for g^-1 = g_b0^-1 + delta, |delta|_op = 0.27 (random direction), |f'| <= 1/4, m in [0, 1/16],
      d_t future timelike: their least eigenvalue (exact over p) is positive at every point. Controls: R6-A's cut
@@ -20,8 +20,8 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      conormal somewhere.
   K3 (exact and sampled) the margins from |H|: with g = g_b0 + H, g^-1 - g_b0^-1 = -g_b0^-1 H g^-1, so |g^-1 -
      g_b0^-1|_op <= s^2 |H|/(1 - s |H|) with s := |g_b0^-1|_op = m + (1 + m^2)^(1/2) (the (t, r) block of g_b0^-1 has
-     the eigenvalues -m -+ (1 + m^2)^(1/2), the rest 1); at m = 1/16 the bound is 0.0232 for |H|_op <= 1/50 and 0.0473
-     for |H|_op <= 1/25, both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0 (exact); 2000 random H with |H|_op = 1/25
+     the eigenvalues -m -+ (1 + m^2)^(1/2), the rest 1); at m = 1/16 the bound is <= 0.0232 for |H|_op <= 1/50 and
+     <= 0.0474 for |H|_op <= 1/25 (0.0473378, attained, round 8), both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0 (exact); 2000 random H with |H|_op = 1/25
      stay below the bound. Control: |H|_op = 1/4 gives a bound above 7/25.
   K4 (exact, sympy) the energy identity on the flat radial model of the cone region {t1 <= t <= t2, R + 2(t - t1) <= r
      <= V_* - 2(t - t1)}: E(t2) + F_in + F_out = E(t1) - int int phi_t box phi r^3 for a polynomial phi, the outer flux
@@ -29,7 +29,7 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      (timelike) has a flux form with the eigenvalue -1/4.
 Labels: computed (K1, K4 exact sympy; K2-K3 floating point, the least eigenvalue exact over the covector).
 
-    python3 checks/r7settle5.py     (about a minute)
+    python3 checks/r7settle5.py     (5 to 30 seconds)
 """
 import random
 import sys
@@ -118,6 +118,7 @@ def part_k2():
     rng = random.Random(77)
     X = np.array([1.0, 0, 0, 0, 0])
     worst, worst_tt, ctl_phi, ctl_cone = 1e9, -1e9, 1e9, -1e9
+    worst_x, worst_xtt = 1e9, -1e9
     for _ in range(4000):
         r_, m_, xh, g0i = frame(rng)
         fp = rng.uniform(-0.25, 0.25)
@@ -127,6 +128,16 @@ def part_k2():
         for n in (-gi@beta, gi@alpha):
             lm, xx, nn = lam_min(gi, X, n)
             worst, worst_tt = min(worst, lm), max(worst_tt, xx, nn)
+        # [R8] the worst directions at the size drawn: delta = size beta beta^T/|beta|^2 at f' = -1/4, m = 0 (beta's
+        # threshold attains 7/25 there) and size alpha alpha^T/|alpha|^2 at f' = 1/4, m = 0 (alpha's)
+        size = max(abs(np.linalg.eigvalsh(gi - g0i)))
+        E0 = np.diag([-1.0, 1, 1, 1, 1])
+        bx = np.concatenate(([2.0], 1.5*xh))
+        ax = np.concatenate(([-2.0], 1.5*xh))
+        for gx, n_of in ((E0 + size*np.outer(bx, bx)/(bx@bx), lambda g_: -g_@bx),
+                         (E0 + size*np.outer(ax, ax)/(ax@ax), lambda g_: g_@ax)):
+            lm, xx, nn = lam_min(gx, X, n_of(gx))
+            worst_x, worst_xtt = min(worst_x, lm), max(worst_xtt, xx, nn)
         # control 1: R6-A's Phi_W cut at |delta| = 3 r^-2
         gi3 = g0i + randsym(rng, 3/r_**2)
         dP = np.concatenate(([1.0], (1 - 1/r_**2)*xh))
@@ -137,8 +148,11 @@ def part_k2():
         ctl_cone = max(ctl_cone, beta@(g0i + 0.30*bb)@beta)
     check("K2 at |delta|_op = 0.27, |f'| <= 1/4, m <= 1/16 (4000 points): d_t and both normals are future timelike "
           "and the "
-          "flux forms' least eigenvalue (exact over the covector) is positive", worst > 0 and worst_tt < 0,
-          f"min lambda_min {worst:.4f}, max g(X, X), g(n, n) {worst_tt:.4f}")
+          "flux forms' least eigenvalue (exact over the covector) is positive; [R8] so in the worst directions, "
+          "delta = 0.27 beta beta^T/|beta|^2 at f' = -1/4 and 0.27 alpha alpha^T/|alpha|^2 at f' = 1/4, m = 0",
+          worst > 0 and worst_tt < 0 and worst_x > 0 and worst_xtt < 0,
+          f"min lambda_min {worst:.4f}, max g(X, X), g(n, n) {worst_tt:.4f}; worst directions: {worst_x:.5f}, "
+          f"{worst_xtt:.5f}")
     check("K2' controls: R6-A's cut {Phi_W = V_*} at |delta|_op = 3 r^-2 has a negative least eigenvalue somewhere; the "
           "cone at |delta|_op = 0.30 has a non-timelike conormal somewhere", ctl_phi < 0 and ctl_cone > 0,
           f"min r^2 lambda_min {ctl_phi:.4f}; max g^-1(beta, beta) {ctl_cone:.4f}")
@@ -157,6 +171,21 @@ def part_k3():
     b4 = sp.N(bound.subs({m: Q(1, 16), h: Q(1, 4)}), 8)
     mono = sp.simplify(sp.diff(bound, m)) .subs({m: Q(1, 32), h: Q(1, 25)}) > 0
     tt = -1 + Q(1, 16) + Q(1, 25) < 0
+    # [R8] the bound is attained: H = -sign(w) |H| e e^T along g_b0's eigenvector e of least |eigenvalue| w (m = 1/16)
+    xh0 = np.array([1.0, 0, 0, 0])
+    E = np.diag([-1.0, 1, 1, 1, 1])
+    k0 = np.concatenate(([1.0], xh0))
+    g0i_x = E - (1/16)*np.outer(E@k0, E@k0)
+    g0_x = np.linalg.inv(g0i_x)
+    w, Vv = np.linalg.eigh(g0_x)
+    i0 = int(np.argmin(abs(w)))
+    att = {}
+    for hv in (1/50, 1/25):
+        Hx = -np.sign(w[i0])*hv*np.outer(Vv[:, i0], Vv[:, i0])
+        dx = np.linalg.inv(g0_x + Hx) - g0i_x
+        att[hv] = max(abs(np.linalg.eigvalsh((dx + dx.T)/2)))
+    attained = all(abs(att[hv] - float(sp.N(bound.subs({m: Q(1, 16), h: Q(1, 50) if hv == 1/50 else Q(1, 25)}), 20)))
+                   < 1e-12 for hv in att)
     rng = random.Random(78)
     worst = 0.0
     for _ in range(2000):
@@ -166,9 +195,11 @@ def part_k3():
         d = np.linalg.inv(g0 + H) - g0i
         worst = max(worst, max(abs(np.linalg.eigvalsh((d + d.T)/2))))
     check("K3 |g^-1 - g_b0^-1|_op <= s^2|H|/(1 - s|H|), s = m + (1 + m^2)^(1/2) the norm of g_b0^-1 (exact); at m = "
-          "1/16: 0.0232 for |H| <= 1/50 and 0.0473 for |H| <= 1/25, both < 7/25, and g(d_t, d_t) <= -1 + m + |H| < 0; "
-          "2000 random H with |H|_op = 1/25 below the bound", ok_s and b50 < 0.0233 and b25 < 0.0474 and b25 < 0.28
-          and tt and mono and worst <= float(b25), f"bounds {b50}, {b25}; sampled max {worst:.4f}")
+          "1/16: <= 0.0232 for |H| <= 1/50 and <= 0.0474 for |H| <= 1/25, both < 7/25, and g(d_t, d_t) <= -1 + m + |H| "
+          "< 0; 2000 random H with |H|_op = 1/25 below the bound; [R8] H along g_b0's eigenvector of least |eigenvalue| "
+          "attains it", ok_s and b50 < 0.0233 and b25 < 0.0474 and b25 < 0.28 and tt and mono
+          and worst <= float(b25) and attained,
+          f"bounds {b50}, {b25}; sampled max {worst:.4f}; attained {att[1/50]:.7f}, {att[1/25]:.7f}")
     check("K3' control: |H|_op = 1/4 gives a bound above 7/25", b4 > 0.28, str(b4))
 
 
@@ -186,14 +217,22 @@ def cone_identity(speed_out):
     F_out = sp.integrate((r**3*(speed_out*e - pt*pr)).subs(r, rout), (t, t1, t2))
     bulk = sp.integrate(sp.integrate(sp.expand(pt*box*r**3), (r, rin, rout)), (t, t1, t2))
     form_out = sp.Matrix([[speed_out/2, -Q(1, 2)], [-Q(1, 2), speed_out/2]])
-    return sp.simplify(E2 + F_in + F_out - (E1 - bulk)) == 0, form_out.eigenvals()
+    # [R8] derived, not typed: on {r = rout(t)}, the outer boundary of {r <= rout}, d_t(e r^3) - d_r(phi_t phi_r r^3) =
+    # -phi_t box phi r^3 leaves the boundary density -rout'(t) e - phi_t phi_r (times r^3); its form in (phi_t, phi_r)
+    P_, R_ = sp.symbols("P_ R_")
+    dens = -sp.diff(rout, t)*(P_**2 + R_**2)/2 - P_*R_
+    derived = sp.Matrix([[sp.diff(dens, P_, 2)/2, sp.diff(dens, P_, R_)/2], [sp.diff(dens, P_, R_)/2,
+                                                                             sp.diff(dens, R_, 2)/2]])
+    return (sp.simplify(E2 + F_in + F_out - (E1 - bulk)) == 0 and sp.simplify(form_out - derived) == sp.zeros(2, 2),
+            derived.eigenvals())
 
 
 def part_k4():
     print("K4  the energy identity on the flat radial model of the cone region")
     ok, ev = cone_identity(Q(2))
     check("K4 E(t2) + F_in + F_out = E(t1) - int int phi_t box phi r^3 on {R + 2(t - t1) <= r <= V_* - 2(t - t1)} "
-          "(exact); outer flux form eigenvalues 1/2, 3/2", ok and set(ev) == {Q(1, 2), Q(3, 2)}, str(list(ev)))
+          "(exact); outer flux form, derived from the identity's boundary term ([R8]) and equal to the one typed, "
+          "eigenvalues 1/2, 3/2", ok and set(ev) == {Q(1, 2), Q(3, 2)}, str(list(ev)))
     okc, evc = cone_identity(Q(1, 2))
     check("K4' control (outer piece at speed 1/2, timelike): the identity holds with it, its flux form has the "
           "eigenvalue "
