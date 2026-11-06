@@ -14,8 +14,9 @@ the cut, per v-band and areal-radius class, in P (cplate5.py's field).
   C2 the Ric_xx monitor (unimposed) at the three grids, max per band, and its ratios.
   C3 the two formulations at 1600 rows: max |P_cp - P_free| (the record's free run, D432), beside each scheme's own
      null-step difference (cp: d2; free: 800 against 1600).
-  Verdict (reported, not gated) per band at 1.0 <= r_A < 1.2: "converges" if d1/d2 >= 3 and d2 < 1e-2, "not shown"
-  otherwise.
+  Verdict (reported, not gated) per band at 1.0 <= r_A < 1.2 and 0.9 <= r_A < 1.0: P "converges" if d1/d2 >= 3 and
+  d2 < 1e-2; the unimposed constraint "falls" if Ric_xx falls at least threefold from 800 to 1600 rows.  A vacuum limit
+  is supported only where both hold: a metric that converges while Ric_xx does not is not converging to a solution.
   Control: C1 with the free run at amplitude 7/8 (D445, a different solution, M = 32, 800 x 360) in place of the 800-row
   cp run must not show convergence (d1/d2 < 3 on some band below v = 1.8): a ratio test that any pair of runs passes
   would mean nothing.
@@ -63,11 +64,14 @@ def main():
                       dcf, dfr, ca / cb if cb > 0 else np.nan), flush=True)
             if b[1] <= 1.8 and cls[1] >= 1.0 and cb > 0 and ca / cb < 3:
                 ctl_hit = True
-            if cls[1] == 1.0:
-                verdict.append((b, 'converges' if (r >= 3 and d2 < 1e-2) else 'not shown', r, d2))
-    print('verdict at 1.0 <= r_A < 1.2 (C1: ratio >= 3 and |dP| 800-1600 < 1e-2):')
-    for b, w, r, d2 in verdict:
-        print('   [%.2f, %.2f): %s (ratio %.2f, |dP| %.2e)' % (*b, w, r, d2))
+            if cls[1] in (1.0, 0.9):
+                rx = x8 / x16 if x16 > 0 else np.nan
+                verdict.append((cls[0], b, 'converges' if (r >= 3 and d2 < 1e-2) else 'not shown', r, d2,
+                                'falls' if rx >= 3 else 'does not fall', rx))
+    print('verdict (P: C1 ratio >= 3 and |dP| 800-1600 < 1e-2; constraint: Ric_xx falls >= 3x from 800 to 1600):')
+    for cl, b, w, r, d2, wx, rx in verdict:
+        print('   %s, [%.2f, %.2f): P %s (ratio %.2f, |dP| %.2e); Ric_xx %s (%.2f); vacuum limit %s' % (
+            cl, *b, w, r, d2, wx, rx, 'supported' if (w == 'converges' and wx == 'falls') else 'NOT supported'))
     print('control (amplitude 7/8 in place of the 800-row cp run shows no convergence on some band below v = 1.8):',
           'fails (good)' if ctl_hit else 'passed (bad)')
     ok &= ctl_hit

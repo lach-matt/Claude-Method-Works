@@ -16,13 +16,16 @@ T^2 x Z2 x Z2-invariant, coordinates R, th, phi1, phi2 with dOmega_3^2 = dth^2 +
      the Hamiltonian constraint is linear in kappa with coefficient 2 Kt, and after kappa is eliminated the principal
      symbol of (M_R, M_th) in (Kt, p) has determinant proportional to [Rac16] (4.22): Kt (nhat.xi)^2 - 2 (nhat.xi)
      (k.xi) + kappa |xi_S|^2. So in the class the angular characteristic speeds are
-     dth/dR = sqrt(G) (p/R^2 +- sqrt(p^2/R^4 - kappa Kt/R^2))/Kt: real exactly where kappa Kt < p^2/R^2.
+     dth/dR = sqrt(G) (p/R^2 +- sqrt(p^2/R^4 - kappa Kt/R^2))/Kt: real exactly where kappa Kt < p^2/R^2 -- for the
+     th-only symbol; the full system on S^3 is symmetrisable hyperbolic where kappa K^l_l < 0 ([Rac16] Lemma 4.1)
+     (round 5, the verifier of round 4, minor 4).
      Control (must fail): kappa treated as free data (not eliminated): the determinant is not (4.22).
   B2 (exact, sympy; the general case exact at four rational points) Part I's chart g0 = -e^(2 psi) f dvhat^2
      + 2 e^psi dvhat dR + R^2 dOmega_3^2, slice tau = vhat - R
      (FAMILIES5-FULL.md section 2): with E = e^psi, Kt = 3 (E f - 1)/(E R sqrt(2/E - f)) < 0 whenever E f < 1 (K =
      nabla n), and kappa = -Nk / (E sqrt(2/E - f) (2 - E f)) with Nk := E^2 f^2 psi_R + E^2 f f_R/2 - 3 E f psi_R
-     - E f_v/2 - 3 E f_R/2 - psi_v + psi_R, so the split is hyperbolic (kappa Kt < 0, p = 0) exactly where Nk < 0.
+     - E f_v/2 - 3 E f_R/2 - psi_v + psi_R, so the split is hyperbolic (kappa Kt < 0, p = 0) exactly where Nk < 0,
+     given E f < 1 (which Part I satisfies; round 5; on the whole slice: checks/racglobal5.py R1).
      On Tangherlini (psi = 0, f = 1 - mu/R^2): Nk = (mu/R^3)(f - 3) < 0, hyperbolic on the whole slice, angular speed
      c(R) = sqrt((2 + mu/R^2)/3)/R. Cross-check against a READ formula: the same code in four dimensions (f = 1 - 2M/r,
      spheres of dimension 2) gives -K^l_l/kappa = 2(1 + 2H)/(1 + H), H = M/r, exactly [Rac16] (4.30), p. 14.

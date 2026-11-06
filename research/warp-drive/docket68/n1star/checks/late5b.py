@@ -161,14 +161,14 @@ def main():
     del Fs
     print('L7 the small radii (cut 0.7, 800 x 360): max |rho| per band on 0.6 <= r_A < 0.9 (over the largest term)',
           flush=True)
-    small = ('', 0.6, 0.9)
+    sm_cls = ('', 0.6, 0.9)
     for M in (24, 32):
         F_ = rho_run(os.path.join(D, 'l1_rc0.7_M%d.npz' % M))
         sel = F_['far'] & F_['ok']
         row = []
         for b in BANDS:
-            a = band_cls(F_, sel, 'abs', b, small)
-            row.append('%.2e (%.1e)' % (a, a / band_cls(F_, sel, 'term', b, small)))
+            a = band_cls(F_, sel, 'abs', b, sm_cls)
+            row.append('%.2e (%.1e)' % (a, a / band_cls(F_, sel, 'term', b, sm_cls)))
         print('  M = %d: %s' % (M, '  '.join(row)), flush=True)
         vs = (F_['v'] >= 1.65) & (F_['v'] < 1.8)
         A = np.where(sel & vs[None, :] & (F_['rA'] < 0.9), F_['abs'], -1)
