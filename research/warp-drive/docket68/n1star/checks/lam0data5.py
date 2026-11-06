@@ -490,6 +490,7 @@ PTS = [dict(r=Fr(7, 3), th=Fr(2, 5), v=Fr(5, 7), mu=Fr(13, 10), mp=Fr(3, 11), mp
 
 def numzero(e, tol=1e-25):
     """zero at 40 digits at three rational points (E, H and their derivatives replaced by rationals)"""
+    e = sp.sympify(e)
     for pt in PTS:
         x = e.subs({sp.Derivative(Ef, (v, 2)): Fr(1, 3), sp.Derivative(Ef, v): Fr(-2, 7),
                     sp.Derivative(Hf, (th, 2)): Fr(3, 5), sp.Derivative(Hf, th): Fr(1, 6)})
@@ -831,19 +832,29 @@ def check_d1_d2():
               for a_ in range(5) for b_ in range(5) for sg in range(5)) for rh in range(5)]
     mean = [sp.simplify(sp.expand_trig(sum(g0[b, q_] * Dm[q_] for q_ in range(5)) + sp.expand(F0[b].get((1, 0), 0))))
             for b in range(3)]
-    OK['D2'] = only_th and a_free and pp_ok and g2_ok
+    cl2 = A ** 2 * Ef ** 2 * Hf ** 2 / (6 * r) * (sp.cos(2 * th) * sp.cos(2 * s)
+                                                  - sp.sin(2 * th) ** 2 * sp.sin(2 * s) / 4)
+    want2 = {'thth': cl2, 'p1p1': C ** 2 * cl2, 'p2p2': S ** 2 * cl2}
+    sec_ok = all(sp.simplify(sp.expand_trig(sec_real[nm] - want2.get(nm, 0))) == 0 for nm in NM)
+    OK['D2'] = only_th and a_free and pp_ok and g2_ok and sec_ok
     print('  D2 (exact): the first harmonic of D^(1) at gh_2 = 0 lies in the th component only: %s, independent of a '
           '(Lambda_1 = 0 in the class): %s; Pol^+ of (0, 0, c) is c (dr dth - dtau dth)/2 symmetrised (tth -c/2, rth '
           'c/2, others 0): %s; so gh_2 on Sigma, first harmonic: G2_(tau th) = -G2_(r th) = (A E/(6 r^(3/2))) [(5 H sin '
           '2th + 2 S^2 H\') cos s + (5 H sin 2th - 2 C^2 H\') sin s]: %s %s' % (only_th, a_free, pp_ok, g2_ok, el()))
-    print('      gh_2 on Sigma, second harmonic (computed, exact; chi\'s d_tau READ from stage0bd5.py):')
-    for nm in NM:
-        if sec_real[nm] != 0:
-            print('        G2_(%s) = %s' % (nm, sec_real[nm]))
+    print('      gh_2 on Sigma, second harmonic (computed, exact; chi\'s d_tau READ from stage0bd5.py): (A^2 E^2 H^2/(6 '
+          'r^3)) (cos 2th cos 2s - (1/4) sin^2 2th sin 2s) Pi, Pi = r^2 (dth^2 + C^2 dphi1^2 + S^2 dphi2^2), every '
+          'other component 0: %s' % sec_ok)
     print('      step (ii), the mean of D^(1) on Sigma (= 0 fixes d_tau (m_1)_(tau .), the coefficient -(1 + mu/r^2) of '
           'T_tr, T_tth being invertible):')
+    fns = [md[i, j] for (i, j) in nmd] + [sp.Derivative(af, r), sp.Derivative(af, th), af]
     for b, e in zip(('tau', 'r', 'th'), mean):
-        print('        D^(1)_%s mean = %s' % (b, sp.collect(sp.expand(e), list(md.atoms(sp.Function)))))
+        e = sp.expand(e)
+        terms = []
+        for f in fns:
+            c = sp.factor(sp.simplify(sp.trigsimp(e.coeff(f))))
+            if c != 0:
+                terms.append('(%s) %s' % (c, f))
+        print('        D^(1)_%s mean = %s' % (b, ' + '.join(terms)))
     return F0, first
 
 
@@ -884,7 +895,8 @@ def check_d3_d4(F0):
     B = {'Jr': -h4 / (3 * L_ ** sp.Rational(3, 2)), 'Jt': sp.Integer(0), 'rho': sp.Rational(2, 3) * r * h4 / L_ ** 2}
     B_FORM.update(B)
     Sv = {'Jr': 0, 'Jt': -A ** 2 * Ef ** 2 * Hf ** 2 * sp.sin(2 * th) / (3 * r ** 2 * sp.sqrt(L_)), 'rho': 0}
-    ok_b = all(numzero(CO[nm].get('a', 0) - CO[nm].get('a', 0).subs(A, 0) - B[nm]) for nm in CO)
+    ok_b = all(numzero(CO[nm].get('a', sp.Integer(0)) - CO[nm].get('a', sp.Integer(0)).subs(A, 0) - B[nm])
+               for nm in CO)
     ok_s = all(numzero(CO[nm].get('1', 0) + Sv[nm]) for nm in CO)
     alg = all(numzero(CO[nm].get(k, 0) - CO[nm].get(k, 0).subs(A, 0)) for nm in CO for k in CO[nm] if k not in
               ('a', '1'))

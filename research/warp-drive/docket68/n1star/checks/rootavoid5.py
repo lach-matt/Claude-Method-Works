@@ -5,7 +5,7 @@ at the weights of dweights5 W1 (INVERSE5-SCALAR.md part B). Labels: READ (cited 
 fixed-point integers with outward rounding), deduced (where said).
 
 The conditions (read by content):
-  (I)  I11:156-160 (III.I'''''''''' Definition 1.3) and I14:42-45 (Definition 1.1 (b)): a level beta in (3, 4 + eps_K]
+  (I)  I11:156-160 (III.I'''''''''' Definition 1.3) and I14:36-38 (Definition 1.1 (b)): a level beta in (3, 4 + eps_K]
        avoids the finite set of values for which beta - Re lambda_0, lambda_0 in Lambda, Re lambda_0 < 2, equals
        -Re mu for a root mu of L-hat_b0(0) or lies in Re pi_1 E_K (III.G' Lemma 1.3).
   (II) I9:290-291 (Step 3.4' at the levels below 3) and I14:124-126 (level 3 at the levels in (3, 4)), with I12:289-292
@@ -93,14 +93,14 @@ PINS = {'PART-III-I9-COMMOTION.md': 'ac9ba304de45a96da478856a208681fb',
 LG_OUT_MD5 = '03645ae643b694197578381ea7614063'
 ANCHORS = [('PART-III-I11-SPACETIME.md', 156, 160, ['avoids the finite set of values for which',
                                                     r'\mathrm{Re}\,\pi_1\mathcal E_K']),
-           ('PART-III-I14-LEVELS.md', 42, 45, ['avoids the finite set of III.I', r'\mathrm{Re}\,\pi_1\mathcal E_K']),
+           ('PART-III-I14-LEVELS.md', 36, 38, ['avoids the finite set of III.I', r'\mathrm{Re}\,\pi_1\mathcal E_K']),
            ('PART-III-I9-COMMOTION.md', 290, 291, ['avoid the discrete set of the $-\\mu$']),
            ('PART-III-I14-LEVELS.md', 124, 126, [r'its conditions $w\ne-\mu$, $2-\tau+j\ne-\mu$ hold for $\epsilon$']),
            ('PART-III-I12-SPECTRAL.md', 289, 292, [r'$\alpha_\tau := \min(\tau,2-\delta)', r'$\{-\mu-j\}$']),
            ('PART-III-G5-TF.md', 624, 627, [r'with $2-\alpha+j\ne-\mu$ and $w\ne-\mu$ for']),
-           ('PART-III-G5-TF.md', 652, 656, [r'For $j = k_0,k_0+1,\ldots,\lfloor\ell_{\mathrm{zf}}\rfloor$ in turn',
+           ('PART-III-G5-TF.md', 655, 659, [r'For $j = k_0,k_0+1,\ldots,\lfloor\ell_{\mathrm{zf}}\rfloor$ in turn',
                                             r'$2-\alpha+j\ne-\mu$, the roots being real']),
-           ('PART-III-F2-INDICIAL.md', 104, 117, [r'$\lambda^C_{\mathrm sl,\ll,j}-1$', r'tl, $l\ge2$: $-l$; $l+2$']),
+           ('PART-III-F2-INDICIAL.md', 104, 122, [r'$\lambda^C_{\mathrm sl,\ll,j}-1$', r'tl, $l\ge2$: $-l$; $l+2$']),
            ('PART-III-G2-IOTA.md', 104, 108, [r'$\lambda^\Upsilon_{\mathrm s0,2}-2\in(0,\frac{z_\Upsilon}3]$']),
            ('PART-III-I10-CORR4.md', 74, 75, [r'$d_{\mathrm c0} := -\mu_{\mathrm c0}$'])]
 LC = 120                       # the scalar box^C sextic is factored over Q for 2 <= l <= LC
@@ -119,7 +119,7 @@ def r0():
         m = hashlib.md5(open(os.path.join(P5, f), 'rb').read()).hexdigest()
         ok = ok and m == pin
     for f, a, b, keys in ANCHORS:
-        txt = ''.join(open(os.path.join(P5, f), encoding='utf-8').read().split('\n')[a - 1:b])
+        txt = ' '.join(open(os.path.join(P5, f), encoding='utf-8').read().split('\n')[a - 1:b])
         txt = ' '.join(txt.split())
         for kk in keys:
             ok = ok and (' '.join(kk.split()) in txt)
@@ -241,11 +241,8 @@ def r2(z=Fr(4, 10 ** 6), polys=None):
 # ------------------------------------------------------------------------------------------------ R3 window roots
 def window_roots():
     """every root mu with -mu in (-1, 4): (name, types, lo, hi); integers exact"""
-    z = iv.mpf(DW.Z.numerator) / DW.Z.denominator
     d0 = LG.d0_iv()
     d1lo, d1hi = DW.d1_interval()
-    d1 = iv.mpf([d1lo.numerator, d1lo.denominator]) if False else iv.mpf(d1lo.numerator) / d1lo.denominator
-    d1 = iv.mpf([float(d1lo), float(d1hi)]) if False else d1
     out = [('0', 's0 (time translation), s2 (2 - l)', 0, 0), ('1', 's1, v1 (-1); s3 (2 - l); v2 (1 - l)', 1, 1),
            ('2', 's2, v2, t2 (-l); s4 (2 - l); v3 (1 - l)', 2, 2), ('3', 's3, v3, t3 (-l); s5; v4', 3, 3)]
     dd1 = (iv.mpf(d1lo.numerator) / d1lo.denominator, iv.mpf(d1hi.numerator) / d1hi.denominator)
@@ -466,7 +463,7 @@ def r6_margin(C):
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
-    print('rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126, decided at dweights5 W1\'s weights')
+    print('rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126, at dweights5 W1\'s weights')
     OK['R0'] = r0()
     print('  R0 (READ): the cited lines carry the conditions (by content), the files are md5-pinned, Proposition 5.1\'s '
           'proof uses 2 - alpha + j != -mu only for j = k_0, ..., floor(l_zf) ((5.3)) and w != -mu ((5.5)); '
@@ -501,7 +498,7 @@ def main(selftest=False):
         OK['R3']))
     R4 = r4(C, roots)
     m4 = {k: v for k, v in R4['margins'].items() if v is not None}
-    OK['R4'] = (R0ok := OK['R0']) is not None and not R4['hits'] and R4['full'] and R4['rmin'] > 0 and all(
+    OK['R4'] = not R4['hits'] and R4['full'] and R4['rmin'] > 0 and all(
         v > 0 for v in m4.values()) and R4['tau_in']
     print('  R4 (exact): levels below 3 with rounds: k in [%d, %d]; w = beta_k - eps\' - tau_i = 0 has no solution '
           '(congruence A + k s = 0 mod step, gcd %d does not divide A mod gcd: hits %s); w >= %s = %.4e on every '

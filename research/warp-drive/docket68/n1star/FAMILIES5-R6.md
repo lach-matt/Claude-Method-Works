@@ -91,7 +91,7 @@ relied on). Each finding was re-derived before it was accepted.
   4.5283] at n = 80 and [4.2914, 4.5284] at n = 160; "exactly" is dropped; the band is [4.29, 4.53] with margins 0.0014
   and 0.0016.
 - **Minor 3 (twobg5 G3).** *Re-derived:* g3_indep's minimum left out the τ0 endpoint; the certified margin is 0.9951,
-  at τ0; the printed "R − b ≥ 1.010 on all of [tau0, tau_end]" was the bisection's RK4 at its samples. Repaired
+  at τ0; the printed "R − b ≥ 1.010 on all of [tau0, tau_end]" was the bisection's RK4 at its samples. [R7 (n6): "certified" here means an independent floating-point integration (DOP853), not interval arithmetic.] Repaired
   (twobg5.py, `.out` regenerated; FULL's figure amended).
 - **Minor 4 (Lemma A′).** *Accepted.* (b): the L²-Lipschitz bound holds for U whose components include ∂g (the
   record's first-order variable), on a ball small enough that L_U − L_ů is absorbed; with coefficients depending on a
@@ -138,7 +138,8 @@ D_i tr K) are, exactly (Q1 (i)):
   (3c − 1)/R = −3(1 − β)/R, β := −κ0/(3Y0);
 - δM_θ = (1/(√G R³)) ∂_R(R⁴p̂) − β ∂_θ Kt + ∂_θ s1 + (cot θ − 2 tan θ) s1 − s2/sc = 0, which fixes s2.
 
-So **every momentum seed is a pair (ψ, s1) of compactly supported functions, and every pair is one.** (B4's stream
+So **every momentum seed is a pair (ψ, s1) of compactly supported functions, and every pair is one.** [R7 (the round-6 verifier's m1): when U meets an axis, a smooth seed has ψ = sin²θ cos²θ F(R, cos 2θ) and s1 smooth
+in cos 2θ; "every pair" means pairs of this class; FAMILIES5-R7.md R7.1.] (B4's stream
 seeds are s1 = 0.) The quadratic part of H gives Q = ∫ N_s ((tr δK)² − |δK|²) dvol (the momentum constraint is linear
 in K at fixed γ), with integrand ν sc [(2β − 2/3) Kt² − 2p̂² − s1² − s2² − (s1 + s2)²], ν := N_s √G R³.
 
@@ -157,7 +158,8 @@ s1, and ∫ (ψ/sc) T s1 dθ = −∫ s1 X dθ. (iii) Completing the square in Z
 + (2/3)νE²(X² − ψ_θ²)], and the θ-integration of the cross term in X² − ψ_θ² gives ∫ (X² − ψ_θ²)/sc dθ = ∫ ψ² (6
 cos² 2θ − 12)/sin³ 2θ dθ, which collects the ψ² terms into −Γψ²/sin 2θ. Computed: the Euler operator of (Q-density −
 decomposition) vanishes in ψ and in s1, for arbitrary G, κ0, Y0, ν, exactly at three rational points (Q1 (ii));
-control: with 4νE² → 3νE² it does not. ∎
+control: with 4νE² → 3νE² it does not. ∎ [R7 (m1): at an axis the θ boundary terms of (i)-(iii) are
+ψψ_θ/sc, ψ s1 and (cos 2θ/sc²)ψ², each O(sc²) for the smooth class, so they vanish; computed, qsign5 Q7; R7.1.]
 
 **Corollary Q.** Wherever Γ > 0 on U, Q(δ) ≤ −(2π)² ∫∫ Γψ²/sin 2θ < 0 for every nonzero momentum seed; if ψ = 0, Q =
 −(2π)² ∫∫ ν sc (2(T s1)² + (3/2) s1²) < 0 unless s1 = 0.
@@ -171,7 +173,8 @@ control: with 4νE² → 3νE² it does not. ∎
 - ψ_P = 0 on the slice outside the outgoing packet (the gap and outside the shell; twobg5 G1 (b), and to 7.6 × 10⁻⁷
   on 391 slice points at n = 160), so Γ = 4μ/R > 0 there. On the seed region (ψ_P = ψ_III(v̂)), Γ/E² ≥ 0.6247 on R ∈
   [0.70, 1.85], horizon at 0.9067 included, Γ between 0.715 and 2.09 times its ψ_P = 0 value, converged between n =
-  80 and 160 (Q3).
+  80 and 160 (Q3). [R7: on the whole of region III, [0.70, 1.861], the ratio is in [0.715, 2.12]; Γ > 0 is
+  certified there by interval arithmetic for the computed background, intcert5 C1 (least lower bound of Γ/E² 0.4475).]
 - On 99 explicit seeds (R4's 45 stream seeds, 54 with s1 ≠ 0, among them s1 equal to the pointwise maximiser and s1
   alone; three bands, one inside the horizon) Q < 0, the decomposition reproduces Q to 1.2 × 10⁻⁶ of Q and 2.2 × 10⁻²
   of its Γ term, and Q ≤ −∫∫Γψ²/sin 2θ (Q4; control: the decomposition without its Γ term misses Q by that term).
@@ -193,7 +196,8 @@ stress T supported in U require
 **Theorem Q′.** (i) If f ≥ 0 on U (ξ future causal) and T obeys the dominant energy condition, T(ξ, n) ≥ 0, so (Q′)
 fails for ε small: no exactly localised Einstein–matter data from any momentum seed. (ii) If U meets {f < 0} (inside
 the horizon; on the seed region R < 0.9067), there are exactly localised Einstein–null-dust data: for radial null dust
-T(ξ, n) = q f √(2 − f)/4 along ℓ_out = ∂_v̂ + (f/2)∂_R and q/√(2 − f) along ℓ_in = −∂_R (ψ_P = 0; exact, Q5 (c)), so
+T(ξ, n) = q f √(2 − f)/4 along ℓ_out = ∂_v̂ + (f/2)∂_R and q/√(2 − f) along ℓ_in = −∂_R (ψ_P = 0; exact, Q5 (c)) [R7 (m9): for any ψ_P, with E = e^(ψ_P), T(ξ, n)/q = E f (2 − E f)/(4√(2/E −
+f)) along ℓ_out = ∂_v̂ + (E f/2)∂_R, whose sign is f's; qsign5 Q5 (c′)], so
 outgoing dust inside the horizon has T(ξ, n) < 0. Fix a momentum seed δ in U and an outgoing dust profile q1 ≥ 0 on U
 ∩ {f < 0}, with ∫T1(ξ, n) < 0, and put s* := Q(δ)/(2∫T1(ξ, n)) > 0. [CS06] Theorem 2 (READ in round 5) solves Φ(γ, K)
 = ε² s (2ρ1, J1)_γ up to the KID, the source depending on (γ, K) only through the dust direction's normalisation in
@@ -215,7 +219,8 @@ contributions can cancel; outside it is an energy, which the dominant energy con
 - *Configuration seeds* (δγ ≠ 0, not gauge): every seed is (h, k_h + (ψ, s1)) with h compactly supported and k_h
   found by quadratures (κ and s2 algebraic, (Kt, p̂) from a divergence equation whose source integrates to zero by the
   KID identity; deduced), and Q(δ) = −E(δ), E the canonical energy of the linearised solution relative to ξ (the
-  second-order quantity ∫G^(2)(ξ, n), conserved between slices of the vacuum region while the support stays in it).
+  second-order quantity ∫G^(2)(ξ, n), conserved between slices of the vacuum region while the support stays in it). [R7 (m2): corrected sign and factor: with the record's pairing (Q5 (b)), Q(δ) = 2∫G^(2)[δ](ξ, n) dvol =: −E(δ);
+  that E is the Hollands–Wald canonical energy is standard, not READ here, and not used; FAMILIES5-R7.md R7.2.]
   Its sign on configuration seeds is not determined here.
 
 **The missing input (M_b).** *E(δ) > 0 for every non-gauge compactly supported invariant linearised vacuum solution δ
@@ -243,14 +248,17 @@ concerns foliations of Σ_τ0 only.
 (T = V′∂_v̂ + ∂_R) and K′^l_l = 3n^R/R are explicit in (E, f, ψ_R, ψ_v̂, f_R, f_v̂, V′, V″); at V′ = 1, V″ = 0 they are
 B2's; and κ′ is affine in V″ with ∂κ′/∂V″ = 1/(E V′ √(V′(2 − EV′f)/E)(2 − EV′f)) > 0 on every spacelike round slice.
 On Σ_τ0 κ is positive outside the band and of size −1.5 × 10⁻³ inside it, while K^l_l ≈ −0.07: a small bend toward
-the future raises κ′ there.
+the future raises κ′ there. [R7 (n1): a convex bend, V″ > 0; the bend used has φ ≤ 0, so Σ′ lies to the past
+of Σ_τ0 where they differ.]
 
 **Theorem L″ (deduced from racslice5 S2-S3, Proposition L and Theorem K′).** Let Σ′ = {v̂ − R − φ(R) = τ0}, φ″ =
 0.01 (b(R; 4.1, 4.7) − 0.3 b(R; 3.0, 4.0) − (1/3) b(R; 4.85, 5.75)) (b the C^∞ bump; the weights fix φ = φ′ = 0
 outside [3.0, 5.75]). Then:
 
 - Σ′ equals Σ_τ0 outside R ∈ [3.0, 5.75], is spacelike (V′ ≥ 0.9982, E V′ f ≤ 0.9036 < 2), and κ′K′^l_l < 0 at every
-  point of Σ′ ∩ Ω₂ (max −3.08 × 10⁻⁴, the same to 0.03 % at n = 80 and 160): Rácz's split is hyperbolic on all of Σ′
+  point of Σ′ ∩ Ω₂ (max −3.08 × 10⁻⁴, the same to 0.03 % at n = 80 and 160) [R7 (n3): sampled at the grid
+  crossings, converged; certified between them, for the linear interpolant of the crossing data, by interval arithmetic:
+  upper bound −3.03 × 10⁻⁴ at n = 160, intcert5 C2]: Rácz's split is hyperbolic on all of Σ′
   (computed, S2; controls: φ = 0 has the band, φ → −φ widens it to [4.20, 4.62]).
 - For every invariant perturbation of Σ′'s free data ([Rac16] (4.28)), ε-small in C^∞, supported in {R1 < R < R2, θ1
   < θ < π/2 − θ1}, any [R1, R2] in [a, b(τ0)] (the band included), Proposition L on Σ′ gives constraint data on Σ′ equal
@@ -288,7 +296,9 @@ Then there are smooth T² × Z2 × Z2-invariant g_n on Ω with Ric(g_n) = 0, g_n
 L²(Ω), along odd N_n → ∞. Lemma 6.3 (b)-(c) (no λ⁻¹ coefficient; principal coefficients unchanged) are properties of
 the approximant, proved for torus-polarised waves (Lemma P (c), nfamily5 N1-N2), not hypotheses.
 
-**Lemma O (the hypotheses are open; deduced).** Each of (Ω), (V1)-(V3) is a finite set of strict inequalities, on the
+**Lemma O (the hypotheses are open; deduced).** [R7 (m3): openness holds for perturbations whose
+supports stay in a fixed compact neighbourhood on which the conditions hold (or vary in the Hausdorff metric inside
+it); FAMILIES5-R7.md R7.4, Lemma O′.] Each of (Ω), (V1)-(V3) is a finite set of strict inequalities, on the
 compact Ω̄ (or Ω̄ × S¹), between quantities that depend continuously on g in C² and on the slice data (q, u|Σ, ∂u|Σ) in
 C¹: the contractions of g⁻¹ in (Ω) are continuous in C⁰; the rays and their first variation (whose determinant is the
 Jacobian) solve ODEs whose coefficients are the Christoffel symbols and their first derivatives, so by continuous
@@ -328,14 +338,16 @@ solutions.** ∎
   Ω ((Ω), (V1), (V2)), so the record's Picard argument closes the stage system.
 - **E₂_N (the uniform estimate).** The record's Theorem E with w = h + Σ_A φ_A Y_A and N₂ summed over the N families:
   (i) the decomposition is N transports ℓ_A·dφ_A = ½ 𝒫 s_A(h), φ_A = 0 on Σ_τ0, coupled through the bounded maps φ ↦
-  𝒫([Y_B(ℓ_A, ℓ_A)] φ) (M1), a contraction on slabs of length independent of the data, by Picard; (ii) the λ⁻¹ part of
+  𝒫([Y_B(ℓ_A, ℓ_A)] φ) (M1) [R7 (n8): FULL's mollifier bound (M1), not r5models5's M1], a contraction on slabs of length independent of the data, by Picard; (ii) the λ⁻¹ part of
   the linearisation is ½ λ⁻¹ Σ_A s_A G2^A, linear in the waves; (iii) Lemma 3.3_N: contracting with ℓ_A ⊗ ℓ_A kills
   family A's λ⁻¹ term and its □̃φ_A term; every B ≠ A survives exactly as Lemma 3.3₂'s family out does, ½ λ⁻¹((1 −
   𝒫)s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)), λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B) G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), a bounded coefficient
   on Ψ_B; for torus-polarised waves the wave part of G2^B vanishes on orbit vectors (W_B(ℓ_A, ℓ_A) = 0), only the
   gauge part χ_B p_B ⊗ p_B remaining, as in two families; (iv) Lemma 3.4_N: Ψ_A := □̃φ_A closes for non-radial
   families by Lemma Ψ; (v) Lemma 2.4_N: every family's boundary terms have the record's sign, since every future null
-  direction has dr/dτ ∈ [−1, (r² − μ)/(r² + μ)] (computed exactly, nfamily5 N5); (vi) Steps 4-7: every term of the
+  direction has dr/dτ ∈ [−1, (r² − μ)/(r² + μ)] (computed exactly, nfamily5 N5) [R7 (m4): for Theorem V's
+  general g the signs are (Ω)'s: r decreases along future causal curves at r = a, and v + τ increases, which is
+  b′ − dr/dτ < 0 at the outer boundary; N5 is the instance for g0]; (vi) Steps 4-7: every term of the
   N-family linearisation is a term type of the two-family ledger (twoledger5) with its family labels replaced; the
   ledger's counting (powers of λ, derivatives, which part of N₂ controls it) depends on the term type only, and terms
   with three or more distinct families (from stage 1) are products of the same profiles at the same orders; there are
@@ -450,6 +462,8 @@ dust clause. Now:
 
 ## 8. Proposed replacement for the paper's section 9 bullet "More families"
 
+[R7: the new block below is superseded by FAMILIES5-R7.md R7.6, which folds in the round-6 verifier's m7-m8 and n9.]
+
 The old text occurs exactly once in `paper/RESPONSE-HL-5D.md` (section 9, "What is not proved"). It supersedes the
 replacements proposed in FAMILIES5-NONROUND, FAMILIES5-AXIS and FAMILIES5-VLASOV.
 
@@ -512,7 +526,8 @@ New:
 
 `FAMILIES5-R6.md` (this note). New, each with its `.out`, all PASS: `checks/qsign5.py` (Q1-Q6, several minutes),
 `checks/racslice5.py` (S1-S3, a few minutes), `checks/vlasovex5.py` (X1-X3, a few minutes), `checks/nfamily5.py`
-(N1-N5, about an hour under load), `checks/r5models5.py` (M1-M3, a few minutes). Repaired, `.out` regenerated,
+(N1-N5, about an hour under load) [R7 (n13): the `.out` was completed after this note was written;
+round 7 reran it with N4-N5 changed], `checks/r5models5.py` (M1-M3, a few minutes). Repaired, `.out` regenerated,
 PASS: `checks/racglobal5.py` (R1 interpolated edges and margins, R2 the discriminant of [Rac16] (4.22), R4 a note),
 `checks/vlasovhf5.py` (H4's resonant configuration and the mutation flag H4_NOHIER, H6 (b)'s stability constant),
 `checks/katonl5.py` (K2, the control's label), `checks/twobg5.py` (G3's τ0 endpoint and its print). Bracketed [R6]

@@ -330,6 +330,7 @@ the weights cannot be improved.
   exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3),
   `checks/rwgauge5.py`'s tensor calculus (U3 (b), U7) and `settle5.py`'s potentials (U3, U5); writes nothing.
   [R2.0: now U1-U10, U9 for Lemma A (R2.0.1) and U10 for R2.0.5; U3 (b) at l = 2, 4, 6; the .out is the round-2 run.]
+  [R3.0: now U1-U11, U11 for the change of mass (R3.0.2); the .out is the round-3 run.]
 
 ## R2.0 Round 2: the verifier's findings, re-derived and seated
 
@@ -505,3 +506,79 @@ textual mutation each; scratch driver, not seated):
 
 All six are now caught. The round-2 run of the whole program, `checks/rwgauge5u.out`, gives U1-U10 PASS with every
 control failing, EXIT 0.
+
+## R3.0 Round 3: the confirming reader's findings, re-derived and seated
+
+*Status.* Round 3, 2026-11-06. A confirming reader of round 2 found every round-1 finding seated, and Lemma A,
+Theorem 2' and U10's constant 1 correct (every [HKW18] reading verified at source except (127)); its verdict was "not
+proved" on three new minors and some nits, seated here. The text above is kept, with bracketed notes [R3.0 ...].
+
+### R3.0.1 Minor 1: the trace identity of R2.0.5
+
+*Re-derived.* The bracket of (10.1) is traceless, g^ab (r F_ab + r F g_ab) = 0, so g^ab r F_ab = -2 r F: hcheck^t_t +
+hcheck^r_r = -2 Hcheck at n = 3, which is (164)'s (n - 2)(X + Y)/n = -2(n - 2) Hcheck; then X + Y = -6 Hcheck. R2.0.5's
+"hcheck^t_t + hcheck^r_r = -6 Hcheck" confused the two and is false. U10 did not use it; it now computes both
+identities (both hold), and a control replacing -2 by -6 in the first fails. The mixed indices of (163) are the
+source's, not a reading chosen here.
+
+### R3.0.2 Minor 2: the change of mass in the decay statements
+
+*Re-derived (computed: U11).* K = d g/d mu of Tangherlini (Ricci-flat, so K is a linearised vacuum solution) is
+[HKW18]'s (77) at n = 3, K = r^-2 dt^2 + r^2/(r^2 - mu)^2 dr^2 per unit mass parameter. Its static frame components are
+K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 and K(e_i, e_j) = 0, independent of t. It is l = 0, and the class's
+harmonics P_j(cos 2 theta), j >= 1, integrate to zero on S^3, so ||h(e_a, e_a)||^2 = ||(h - c K)(e_a, e_a)||^2 + 2 pi^2
+c^2/(r^2 - mu)^2 at every (tau, r): for c != 0 it does not decay. Theorems 2 and 2' bound h_(ab) = (h - c K)(e_a, e_b)
+(section 4), as they should; the summary and the section-6 block wrote h(e_a, e_b), which is false for c != 0. Both now
+say (h - c K)(e_a, e_b), c K the change of mass (the summary by a note, the block in its text); the angular block is
+unaffected. U11's control (the orthogonality claimed against the constants, j = 0) fails.
+
+### R3.0.3 Minor 3: the (R5) quote of (127)
+
+*Re-read at source.* The ar5iv rendering of arXiv:1809.05144 (version not stated there) gives (127) as
+"\frac{r^{p-n}}{(1-\mu)^{k}}\frac{|\not{\nabla}_{L}\Phi|^{2}}{(1-\mu)}r^{n}dvdVol_{S^{n}}", the (1 - mu) factors in
+the denominators, consistent with the current r^p J_a[Phi]/(1 - mu)^k of Theorem 16's proof (p. 46). (R5) is corrected
+in place. *Re-derived.* On the cone L = f d_r|_u and dv = dr/f (U7 (ii)), so E^p = int r^p f^(-k_H) (d_r Phi)^2 dr >=
+int r^p (d_r Phi)^2 dr: Theorem 2 Step 4's bound holds with constant 1 (int s^p w'^2 <= E^p[T^a Psi]), and a fortiori
+as written; nothing downstream changes.
+
+### R3.0.4 Nits
+
+- *D'.* D' <= C sum I_{X Psi} over X = T^a Omega^b with a <= 2, b <= 4 and a + b <= 4 (noted at R2.0.1); the paper's
+  "a <= 2, b <= 4", a sufficient hypothesis, stands.
+- *The block.* "Sharp in r" (the rates are not claimed sharp, Remark 1); e_0 = f^(-1/2) d_t, e_1 = f^(1/2) d_r and the
+  unit frame e_i of the sphere defined in the block; "RWGAUGE5 Theorems 1, 2 and 2'" so that they are not read as
+  [HKW18]'s; [HKW18] Lemma 11 listed among the inputs.
+- *Status line.* Annotated (line 3).
+- *Program.* U7's interpolation check is described as exact integrals compared at 40 digits; U9 now derives Lemma A's
+  constants (c_s = zeta(2)/vol = 1/12, 2 c_s = 1/6; the tensor constants from c1 = 2 |omega|_op, the four terms of the
+  second-order bound and the six rotations: 4, 8 c1^2 6 = 192, 4 c1^4 36 = 2304, plus 1) and compares them with the
+  numbers printed in R2.0.1's two displays, so an error in the note's constants fails U9.
+- *(163).* The mixed indices are the source's (R3.0.1).
+
+### R3.0.5 The round-2 replacement block, kept for the record
+
+[Superseded by section 6's block: it wrote h(e_a, e_b) for (h - c K)(e_a, e_b) (minor 2), "sharp" for "sharp in r",
+left e_a, e_i undefined, could be read as citing [HKW18]'s Theorems, and did not list Lemma 11.]
+
+```round2-new
+So in
+that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
+in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
+as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
+(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, on the outgoing
+part of [HKW18]'s leaves (r ≥ R_1, their radius), the orbit-space components of the scalar type can grow as, and no
+faster than, r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data of
+every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant,
+f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed exactly). With that weight they settle,
+and the angular components and the tensor type settle without it, pointwise and uniformly in r ≥ R_1 and in l:
+r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay at least as τ^(δ−1/2) for every δ ∈ (0, 1/2], and
+r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| at least as τ^(−1), for data with [HKW18]'s I_{XΨ}(Σ_0) finite for X = T^a Ω^b,
+a ≤ 2, b ≤ 4, Ω the rotations; and, for b ≤ 2, the integral of r^(−3)|h(e_a, e_b)|² + r^(−1)|h(e_i, e_j)|² over
+r ≥ R_1 and the unit sphere, against dr dσ, decays at least as τ^(−2), [HKW18]'s rate (Theorems 2 and 2′, proved from
+[HKW18]'s Theorems 2, 16 and 18 as READ and a Sobolev inequality on S³; every coefficient and exponent computed). The
+powers r^(±1/2) are attained, so the weights cannot be improved.
+```
+
+### R3.0.6 Runs and controls
+
+PLACEHOLDER-R3RUNS
