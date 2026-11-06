@@ -55,7 +55,7 @@ contain_control, checks containment on the pinned tensors and the frame: every e
 kids must contain point_coeffs at its box's corners, and every Taylor coefficient of each child's box-path frame output
 must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.  A third kids test (R = t, the
 frame input R_u = phi1(t), the coordinate map's factor) shows the verifier's mB3 -- t taken at the centre in the box
-inputs -- unsound, true/bound 1.00097, and catches it.]
+inputs -- unsound, true/bound 1.0016, and catches it.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
 engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
 engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a

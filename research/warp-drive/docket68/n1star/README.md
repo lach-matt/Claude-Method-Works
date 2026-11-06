@@ -27,8 +27,9 @@ after the last edit are listed there. The response paper is `../../paper/RESPONS
   minutes), `--mutants` (5/5).
 - `past5.py`: Theorem P, the construction from past null infinity (section 9): the past domain, the operator and the
   transport near past null infinity, the leading wave's decay, the stage-0 source, the rotations, and the flux of the
-  record's radiation field, and the mollifier's commutator (P1-P8). `python3 past5.py --selftest` (8/8, about 4
-  minutes), `--mutants` (9/9).
+  record's radiation field, and the mollifier's commutator; and P9, which reads the printed (9.10) and (11.3) out of
+  `N1STAR-PROOF.md` and checks them against the computed values (P1-P9). `python3 past5.py --selftest` (9/9, about 6
+  minutes), `--mutants` (14/14).
 - `settle5.py`: late-time settling, linearly, on the copper study's barrier (seed_escape.py E1): the class's
   perturbation types, the potentials, the l = 2 ringdown against the published values, the settling times at the study's
   seeds (T1-T4); no growing mode for l = 2..10 to tau = 275 r_h and the late-time tail t^-7 against Cardoso, Yoshida,

@@ -78,6 +78,9 @@ D631 (WS-A's R12.h texts (1), (2), (9)-(12) and the header's sentence on R6-D): 
 file of 11382 lines); the header is two lines longer, so every row below line 58 outside section 6 moves by +2.
 D632 (the confirming reader of sections 9.5, 9.10 and 11 seated; the header two lines longer again): T0 re-pinned (lines
 1-962, 11400 lines); every row below line 59 outside section 6 moves by +2.
+D633 (status words after D632: the header's sections 9.1-9.5 and Theorem M proved, refilled in place; one line
+added in section 9's status and one in section 11's): T0 re-pinned (lines 1-962, the whole file of 11402 lines); no row
+moves (every edit above line 962 keeps its line count, every row below it is in section 6 or above line 59).
 """
 import hashlib
 import os
@@ -96,10 +99,10 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '0cd93b0ee16c9783e699775b9222a929'          # md5 of lines 1-962 (sections 0-6, to '## 7.') joined by newlines
-LAST = 962                                         # D632; 960 at D631 (2b518284...), 958 at D627 (f32ebb1a...)
+PIN = '111719cdec3f0fabeb4ef66b4eb1d7e7'          # md5 of lines 1-962 (sections 0-6, to '## 7.') joined by newlines
+LAST = 962                                         # D633 and D632 (0cd93b0e...); 960 at D631, 958 at D627
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '5043cedfe02904bc06782ffd6efbb575'     # the whole file at D632 (11400 lines); D631: 88179da4... (11382)
+FILE_PIN = '5c1a186aa2528e503e24c336f9a6dcef'     # the whole file at D633 (11402 lines); D632: 5043cedf... (11400)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 

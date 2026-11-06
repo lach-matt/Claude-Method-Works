@@ -124,8 +124,8 @@ TERMS = {'statement of lam0 (Theorem E)': None, 'lam1 = min(1, delta0)/10': 'lam
          'D-a, D-b and D-d (Proposition 6.5)': 'D-a,D-b,D-d'}
 FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D-d added in round 2 (V-m4): the
 # ball invariance of Proposition 6.5 (N1STAR-PROOF.md:771-772)
-PIN = '0cd93b0ee16c9783e699775b9222a929'        # md5 of lines 1-962 at D632 (D631: 2b518284... of lines 1-960)
-FILE_PIN = '5043cedfe02904bc06782ffd6efbb575'   # the whole file at D632 (11400 lines; D631: 88179da4..., 11382)
+PIN = '111719cdec3f0fabeb4ef66b4eb1d7e7'        # md5 of lines 1-962 at D633 (D632: 0cd93b0e...; D631: 2b518284...)
+FILE_PIN = '5c1a186aa2528e503e24c336f9a6dcef'   # the whole file at D633 (11402 lines; D632: 5043cedf..., 11400)
 TABLE = {((ln + 7 if ln > 86 else ln), kw): val for (ln, kw), val in TABLE.items()}   # D612 + D614: +7 above 86
 TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) at 3/5 (lzerotrace5 T6)'),
               (90, 'eps1'): (E, 'eps1: Lemma 2.3 below g0\'s least absolute eigenvalue (D614; lzerotrace5 T7)')})

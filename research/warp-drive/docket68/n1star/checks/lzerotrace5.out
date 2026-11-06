@@ -1,6 +1,6 @@
 lzerotrace5: lambda0 at P*, every factor traced, the bound certified
-  T0: md5 of N1STAR-PROOF.md lines 1-962 = 0cd93b0ee16c9783e699775b9222a929 (pinned 0cd93b0ee16c9783e699775b9222a929);
-      whole file (11400 lines) 5043cedfe02904bc06782ffd6efbb575 (pinned 5043cedfe02904bc06782ffd6efbb575); 39 trace rows,
+  T0: md5 of N1STAR-PROOF.md lines 1-962 = 111719cdec3f0fabeb4ef66b4eb1d7e7 (pinned 111719cdec3f0fabeb4ef66b4eb1d7e7);
+      whole file (11402 lines) 5c1a186aa2528e503e24c336f9a6dcef (pinned 5c1a186aa2528e503e24c336f9a6dcef); 39 trace rows,
       every fragment on its line: True; the nine terms covered: True
       lam1  lam1 := min(1, delta0)/10 (N1STAR-PROOF.md:231, certified here); q0 = (sqrt72 mu0 l5^2)^(1/4)
       (N1STAR-PROOF.md:198, certified here); a := q0 - delta0 (P*: delta0 = q0/2) (N1STAR-PROOF.md:199, certified here)

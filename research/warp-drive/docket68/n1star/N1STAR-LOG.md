@@ -8409,3 +8409,35 @@ It found one minor finding and eight nits; all are seated, each with an [amended
 - A first r5edits5 run during D632 failed E1f. It ran against workstream B's working copy of r6edits5.py, whose
   bounds_ok then read Edit 2's factor, which R5-D's text lacks. With r6edits5.py as committed at 480bc8b, r5edits5
   passes on the D632 file and its output is unchanged.
+
+**D633 (2026-11-06): the status words after D632.** Editorial; no mathematics is changed. D632 seated the confirming
+reader's findings on D618's edits to section 9.5, Proposition 9.10 and section 11, and on R6-D in Lemma 11.0, and that
+reader found section 9.5, Proposition 9.10 and section 11 correct line by line. So Theorem M and section 9.5 are written
+out and verified with every finding seated: proved, in the sense of N1STAR-PROOF.md's lines 1-8.
+- Theorem M is proved (D632).
+  - The header's Theorem M paragraph: "It is proved (D632) [amended D633: was "It is deduced"]". The verifier history
+    after it is unchanged.
+  - Section 11's status: "Theorem M is proved here (D632) [amended D633: was "is deduced here"]".
+- Section 9.5 is proved (D632).
+  - The header: "sections 9.1-9.5 [amended D633: was "9.1-9.4"; 9.5 proved at D632] and Propositions 9.9-9.10 are
+    proved".
+  - Section 9's status: "**and section 9.5 is proved (D632)** [amended D633: this clause added]", after the D632 note.
+- No other line gives Theorem M, section 11, section 9.5 or (9.10) as deduced or pending, and section 0 has no entry for
+  Theorem M or section 11. The method labels of headings and statements ("(deduced)", as in 9.1-9.4 and Proposition
+  11.2) are not status words and stand. Section 9's "P1-P8; D35" names Theorem P's inputs at D35 and stands.
+- The header's two edits are refilled within their paragraphs (lines 42-44 and 51-61), so lines 1-962 keep their
+  numbers and lzerotrace5's and lzeroaudit5's rows stand. Line 44 still ends "which is proved", so WS-A's R12.h text
+  (11) occurs as printed. Sections 9 and 11 each gain one line, split at the amendment as at D631.
+- README.md: the `past5.py` entry is P1-P9, with P9's clause, `--selftest` (9/9, about 6 minutes) and `--mutants`
+  (14/14). The selftest took 357 s at a load average near 18 on four cores; its output is the D632 run's.
+- Runs (the new outputs are not saved over the D632 .out files): past5 `--selftest` 9/9; stagen5, r5edits5, census9,
+  support8b, zerohardy5, stagefree5, lamL5b, redshift5 (R1-R16) and rwgauge5u (U1-U11) pass, redshift5's and
+  rwgauge5u's outputs the saved ones exactly. r6edits5 passes: as committed its output is the saved one exactly; the
+  working copy (another workstream's) catches one E3 control by one more predicate.
+- lzerotrace5's T0 and lzeroaudit5's A0 first failed, only on PIN and FILE_PIN, which are hand-set to the D632 file
+  with no update flag. T1-T7 and C1-C6 passed, every trace fragment on its line; A1-A3 and C1-C3 passed, 95 hits, 0
+  unclassified. Both were then re-pinned by the main session (lines 1-962 111719cdec3f0fabeb4ef66b4eb1d7e7, the file
+  5c1a186aa2528e503e24c336f9a6dcef, 11402 lines as the checks count them; each pin's history comment carries D633) and
+  rerun: lzerotrace5 T0-T7, C1-C6 and lzeroaudit5 A0-A3, C1-C3 all pass, exit 0; both .out files regenerated, differing
+  from the D632 ones only in the pinned md5s and the line count.
+- `response5.py --update-md5` refreshed two rows (the proof, README.md), and its selftest passes, R1-R14.
