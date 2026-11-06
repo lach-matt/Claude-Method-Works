@@ -321,3 +321,143 @@ powers r^(±1/2) are attained, so the weights cannot be improved.
 - `checks/rwgauge5u.py` with `checks/rwgauge5u.out`: U1-U8 (U8 the replacement's uniqueness and the line widths),
   exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3),
   `checks/rwgauge5.py`'s tensor calculus (U3 (b), U7) and `settle5.py`'s potentials (U3, U5); writes nothing.
+
+## R2.0 Round 2: the verifier's findings, re-derived and seated
+
+*Status.* Round 2, 2026-11-06, after an independent verifier's reading of this note and of `checks/rwgauge5u.py`.
+Its verdict: the mathematics holds. It recomputed Lemma 1, Theorem 1 and the vacuum check at l = 2 and 4 by its own
+code (a static-chart reconstruction and its own linearised Ricci), confirmed Theorem 2 as stated in section 4, and
+agreed with Remark 3. The text above is kept; where a finding corrects it, a bracketed note [R2.0 ...] points here.
+Each finding below was re-derived before it was seated. The verifier's minor 2 (the supplement's Proposition 10.1 (iv)
+at N1STAR-PROOF.md:1730 and :1805) is being repaired elsewhere, with the merged text of the paper's section 8.2; this
+note edits neither.
+
+(R8) READ, [HKW18] p. 39: "Lemma 11. Assume the T-energy comparison (111) holds. Defining the red-shift multiplier N as
+above, we have the pointwise density estimate [...] in addition to the energy comparison E^N_Ψ(Σ_τ) ≈ Ě^N_Ψ(Σ_τ)".
+(R9) READ, [HKW18] (36), p. 8: the tensors Y_αβ := ˚∇_α˚∇_βY − (1/n) ˚σ_αβ ˚∆Y of (35) satisfy "˚∆Y_αβ = (2n −
+ℓ(ℓ + n − 1)) Y_αβ", with ℓ ≥ 2.
+
+### R2.0.1 M1: the bounds of Theorem 2 (b)-(c) are L^2(S^3) norms; the pointwise statement, proved
+
+*Finding (agreed).* (b)-(c) bound ||.||, the L^2(S^3) norm at fixed (tau, r); the summary and the round-1
+replacement wrote |.|, which reads pointwise, and a zonal harmonic's sup over L^2 ratio grows with l. Of the two fixes
+the stronger is taken: the pointwise statement is proved below with two more rotations in the data.
+
+**Lemma A (proved; computed: U9).** Let Omega_i, i = 1, ..., 6, be the rotations x_a d_b - x_b d_a (a < b) of R^4 on
+S^3. For a function w on S^3,
+
+    sup |w|^2  <=  (1/12) ||(1 - Lap) w||^2  <=  (1/6) ( ||w||^2 + sum_{i,j} ||Omega_i Omega_j w||^2 ),
+
+and for a symmetric 2-tensor T on S^3, with L_i the Lie derivative along Omega_i,
+
+    sup |T|^2  <=  (1/6) ( 2305 ||T||^2 + 192 sum_i ||L_i T||^2 + 4 sum_{i,j} ||L_i L_j T||^2 ).
+
+*Proof.* The degree-l harmonics on S^3 have dimension (l + 1)^2. For an L^2-orthonormal basis Y_m of them, sum_m
+|Y_m(omega)|^2 does not depend on the basis and is carried to itself by the rotations, so it is constant, equal to
+(l + 1)^2/vol(S^3) = (l + 1)^2/(2 pi^2); hence |w_l(omega)| <= (l + 1) ||w_l||/(2 pi^2)^(1/2) for w_l of degree l.
+By Cauchy-Schwarz, sup |w| <= sum_l (l + 1) ||w_l||/(2 pi^2)^(1/2) <= (sum_l (l + 1)^-2)^(1/2) (sum_l (l + 1)^4
+||w_l||^2)^(1/2)/(2 pi^2)^(1/2), and (l + 1)^2 = 1 + l(l + 2), sum_l (l + 1)^-2 = pi^2/6: the first inequality, with
+the constant (pi^2/6)/(2 pi^2) = 1/12. Then (a + b)^2 <= 2a^2 + 2b^2 and ||Lap w||^2 = sum_{i,j} ||Omega_i Omega_j w||^2,
+since sum_i Omega_i^2 = Lap on S^3 and each Omega_i is skew and commutes with Lap. For T: extend T to R^4 by T(PX, PY),
+P = 1 - x x^T/|x|^2; its Cartesian components T_AB are functions on S^3 with sum_AB T_AB^2 = |T|^2. L_Omega P = 0, so
+the Lie derivative of the extension is the extension of L_Omega T, and in Cartesian components Omega(T_AB) = (L_Omega
+T)_AB - (omega^T T + T omega)_AB with omega the generator's constant matrix, of operator norm 1. So |Omega_i T|_F <=
+|L_i T| + 2 |T| and |Omega_i Omega_j T|_F <= |L_i L_j T| + 2 |L_j T| + 2 |L_i T| + 4 |T|; summing the scalar
+inequality over A, B, with (a + b + c + d)^2 <= 4 (a^2 + b^2 + c^2 + d^2) and six rotations, gives 4, 4 x 4 x 6 + 4 x 4 x
+6 = 192 and 4 x 16 x 36 = 2304, plus the ||T||^2 of the first term. []
+
+*U9 computes:* the dimensions (l + 1)^2 (l <= 20), vol(S^3) = 2 pi^2, 1 + l(l + 2) = (l + 1)^2, sum (l + 1)^-2 =
+pi^2/6 and the constant 1/12; the reproducing kernel ((l + 1)/(2 pi^2)) U_l(cos psi) (Chebyshev U) with norm^2 =
+value at its centre = (l + 1)^2/(2 pi^2) and eigenvalue -l(l + 2), l <= 6; sum_i Omega_i^2 = Lap on four test
+functions in Hopf coordinates (three zonal, one not); ||Lap w||^2 = sum ||Omega_i Omega_j w||^2 on a test function by
+exact integration; operator norm 1 of the six generators; L_Omega P = 0; the inequality (a + b + c + d)^2 <= 4 sum and
+the constants. Controls: the Casimir summed over ordered pairs (twice Lap) fails, and the series with (1 - Lap)^(3/4)
+in place of (1 - Lap) diverges.
+
+**Theorem 2' (proved from Theorem 2 and Lemma A).** With h as in Theorem 2, let
+
+    D' := sum_{Y in {1, Omega_i, Omega_i Omega_j}} D[L_Y h]   (the I_{X Psi} with X = T^a Omega^b, a <= 2, b <= 4).
+
+Then for tau >= 1 and 0 < delta <= 1/2, with C depending on mu and R_1 only, |h_(ab)| the components as functions on
+S^3 and |h_(ij)| the norm of the angular block in the unit sphere's metric:
+
+    (b')  sup_{r >= R_1, omega in S^3} ( r^-1 |h_(ab)| + |h_(ij)| )(tau, r, omega)  <=  C D'^(1/2) tau^-1,
+    (c')  sup_{r >= R_1, omega in S^3} ( r^(-1/2) |h_(ab)| + r^(1/2) |h_(ij)| )  <=  C delta^(-1/2) D'^(1/2) tau^(delta-1/2).
+
+*Proof.* At fixed (tau, r), h_(ab) is a function on S^3 and h_(ij) is the symmetric tensor r^-2 h restricted to the
+sphere, in the unit metric. The rotations commute with e0, e1 and with the restriction to the sphere, so Omega_i
+Omega_j (h_(ab)) = (L_i L_j h)_(ab) and L_i L_j (h_(ij)) = (L_i L_j h)_(ij). L_Y h is a linearised vacuum solution in
+the same gauge (the gauge f_a = 0 = H_T and the decomposition into types are SO(4)-equivariant), of scalar and tensor
+type only, with modes l >= 2 only and no l = 0 part (L_Y (c K) = 0). Theorem 2's proof uses the class only through
+these three properties: Lemma 1 holds for every scalar harmonic, its frame formulas seeing S only through k^2, and
+[HKW18]'s estimates are for every perturbation. So (b)-(c) hold for L_Y h with the data D[L_Y h], and Lemma A gives
+(b')-(c'). []
+
+So the pointwise |.| of the summary is Theorem 2' with D', and section 6 now says pointwise with the data stated.
+
+### R2.0.2 M2: the measure in (a)
+
+*Finding (agreed), re-derived.* Theorem 2 (a) is int_{R_1}^oo int_{S^3} ( ... ) dr dsigma, dsigma the unit sphere's
+measure: that is how Step 2 bounds it, by int (...) dr of Step 1's energies. Against the leaf's own volume form, r^3 dv
+dsigma = r^3 dr dsigma/f ([HKW18] p. 30, (127)), the bound is false: for Theorem 1's family on C_tau1, int r^-3
+|h(e0, e0)|^2 r^3 dr/f = ||S||^2 B^2 int r f^-3 dr = oo. The summary's "squared L^2 norm along the leaf" is meant in
+dr dsigma; section 6 now writes the integral and its measure out.
+
+### R2.0.3 The minor findings
+
+1. *Lemma 11.* Agreed: Ě^N(Sigma_0) <= C E^N(Sigma_0) <= C I, used in Step 4 of Theorem 2, is [HKW18] Lemma 11
+   ((R8)); cited there now.
+2. *The supplement.* Handled elsewhere (see the status paragraph).
+3. *Wording of the replacement.* Agreed; section 6 now reads "can grow as, and no faster than", "decay at least as",
+   "on the outgoing part of that leaf", "B != 0 a constant" and "delta in (0, 1/2]".
+4. *The Goursat domain.* Agreed, re-derived. F(r) := e^(2r/r_h)(r - r_h)/(r + r_h) = -UW has F' = 2 r^2
+   e^(2r/r_h)/(r_h (r + r_h)^2) > 0 on (0, oo) and F(0) = -1 (computed: U5), so r is a smooth function of UW on {UW <
+   1} and c is smooth there. The domain of (3.1) is the union of the rectangles Q = [U_-, U_+] x [0, W_+] with U_- <=
+   U_1 <= U_+ and U_+ W_+ < 1, on each of which the Picard bound holds; their union contains the exterior {U < 0, W >
+   0}, the future horizon and a neighbourhood of it inside. So the solution exists on the whole exterior and U_0' is
+   not needed; Step 5 is unchanged.
+5. *General even l.* The vacuum property for every even l rests on [KI03] as Proposition 10.1 (iii) READ it; U3 (b)
+   now computes l = 6 as well (l = 2, 4, 6).
+6. *The constant between [HKW18] (169)'s Phi and (10.1)'s P.* See R2.0.5.
+7. *The program.* Every item taken: U4's weights for (a), (b) and (c) are now computed from the measured powers of
+   every entry, not from the tables; U7's two tautologies are replaced by an exact check of the interpolation E^p <=
+   (E^1)^(2-p) (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5 (control: without the E^2 factor it fails);
+   U5 derives the cone relations from (2.1) order by order in u - u_1 (no longer restating them) and asserts c_A and
+   int V/f dr = 11/2 exactly; U3 (a) asserts that potential_general is settle5.py's potential at l = 2, 4, 6, 8 and
+   that U4's elimination of d_r^2 P satisfies (2.1) identically; U6 asserts the leading coefficients -(m + 15/4)/2
+   times A, B, C3 and re-checks the recursion by r-differentiation of the series; U8's label now says what it prints.
+   The verifier's surviving mutants M4 (V/f^2 -> V/f), M8 (potential_general's Q) and M11 (U6's d_r sign) and its
+   U5 survivors M3 and M9 are re-run against the new program in R2.0.6.
+8. *The (R1) quote.* Corrected in place to p. 67's wording ("ℓ and m, owing to convergence ...").
+9. *Nits.* "Two powers" (noted at the tensor type); the exponent k of [HKW18] (127) is k_H, not the k of k^2 = l(l + 2);
+   (k^2 - 6) for every l is [HKW18] (36), p. 8, (R9) (U7 computes it at l = 2, 4).
+
+### R2.0.4 The round-1 replacement block, kept for the record
+
+[Superseded by section 6's block; it wrote |.| where Theorem 2 bounds L^2(S^3) norms (M1), left the measure of the
+leaf norm unstated (M2), and is worded as the verifier's minor 3 records.]
+
+```round1-new
+So in
+that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
+in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
+as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
+(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, along the
+outgoing part of [HKW18]'s leaves, the orbit-space components of the scalar type grow as r^(1/2): for every leaf there
+is a single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
+B r^(1/2) f^(−1) S on that leaf, f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed
+exactly). With that weight they settle, and the angular components and the tensor type settle without it, uniformly in
+r and l along the outgoing part of the leaves: r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2) for
+every δ > 0, r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), and the squared L² norms along the leaf of r^(−3/2)
+h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate, for data with two more commutations with T and the
+rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent computed).
+The powers r^(±1/2) are attained, so the weights cannot be improved.
+```
+
+### R2.0.5 [HKW18] (169)'s Phi against (10.1)'s P
+
+PLACEHOLDER-169
+
+### R2.0.6 Mutants re-run
+
+PLACEHOLDER-MUT

@@ -32,18 +32,24 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      rho a slowly varying degree-two term of size lam^(1/10) m0 plus a structureless one of size lam^3 m0, the maxima
      over consecutive carrier periods decrease through the band and change sign once (lam = 1e-6, exp(-1/x)).  Control:
      rho structureless of size m0/3 gives more than one sign change.
-  T6 (computed, bounds) Dips (Proposition L.25): env := sum_n exp(-n^2) beta(2^(n+2) (x - 2^-n)) near v_s (beta =
-     exp(-1/(1 - t^2)) on [-1, 1]; C_c^inf, flat at v_s since exp(-n^2) 2^(kn) -> 0 for every k, and zero on the
-     intervals J_n between the bumps); at lam = 1e-8, 1e-10, 1e-12, with n the bump whose height lies in [lam^4,
-     lam^3.1], on J_n the first-degree term is at most lam^9 int|d_u^8 (u bump)| (eight integrations by parts of I_2;
-     sups of beta^(j) on a grid of 799 points) and the U1-memory at most lam^(N+1) lam^8 sup|bump^(N+8)| times its
-     width (Lemma 6.4's solution operator is lam-independent), while m0 >= (2/27) int bump^2: the boundary is spacelike
-     on every window of J_n at every angle (at lam = 1e-6 eight integrations by parts do not yet suffice; the ratio
-     falls like (lam s)^9/h_n as lam -> 0, s = 2^(n+2)).  Control: on the bump's top the first-degree term lam^3 env/9
-     exceeds the margin.
+  T6 (computed; round 6, the verifier of round 5's MAJOR 2) Dips (Proposition L.25 (a)): env := sum_n exp(-n^2)
+     beta(2^(n+2) (x - 2^-n)) near v_s, beta = exp(-1/(1 - t^2)) on [-1, 1] (C_c^inf, flat at v_s, zero on the
+     intervals J_n = (1.25, 1.5) 2^-n between consecutive bumps).  (a) env vanishes on J_n (41 points), so the local
+     first-degree amplitude does there.  (b) For lam = 10^-E, E = 10^2, ..., 10^6, with n the bump of height in
+     [lam^3.5, lam^3.1], the record's bounds against m0's lower bound (2/27) h_n^2 int beta^2/s_n (mu0 = A = 1): Lemma
+     L.4's w (lam^(N-5) eps_(M*), N = 9, M* = 26), Lemma L.4_P's (lam^(N_P-3) eps_(M_P), N_P = 18, M_P = 44) and L.3
+     (b)'s means (lam^j eps_(2j+1)^2, j <= N), with eps_k <= h_n s_n^k B_k, s_n = 2^(n+2), B_k = max_(i<=k) sup
+     |beta^(i)| (computed exactly: beta^(k) = e^(-1/(1-t^2)) p_k/(1 - t^2)^(2k), p_k by recursion): the log10 ratios
+     decrease strictly in E and are below -1000 at E = 10^6 (they fall like lam^(1/2) e^(c sqrt(log 1/lam))).
+     Control: bump n - 1 shifted onto J_n (no zero interval): env > 0 on J_n and at lam = 10^-100 the first-degree term
+     lam^3 (8/3)|nu| env exceeds a quarter of m0 at J_n's midpoint.
+  T7 (exact; round 6, the verifier of round 5's m9) L.17 (2)'s four-derivative form of Lemma L.4's energy argument:
+     bandL4p5 H1's ledger at levels 0-4 with eps_6 <= lam^5: every coefficient bounded, so the non-triangular rule
+     closes (every coefficient into Gronwall).  Control: at eps_6 <= lam^4 a coefficient of level 4 is unbounded.
 
-Labels: T1-T3 computed (exact, sympy); T4, T6 computed (mpmath, bounds; T4 a model with unit constants); T5 computed
-(mpmath; m0's formula exact, S a model).  Run: python3 checks/degtwo5.py   (a few minutes)
+Labels: T1-T3, T7 computed (exact, sympy, exact rationals); T4, T6 computed (mpmath, bounds; T4 a model with unit
+constants, T6 with mu0 = A = 1 and the record's constants left as unknown factors); T5 computed (mpmath; m0's formula
+exact, S a model).  Run: python3 checks/degtwo5.py   (a few minutes)
 """
 import math
 import os
@@ -287,56 +293,113 @@ def t5(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ T6
-def t6(control=False):
+def bump_sups(kmax):
+    """B_k := max_(i<=k) sup |beta^(i)|, beta = exp(-1/(1 - t^2)): beta^(k) = e^(-1/(1-t^2)) p_k(t)/(1 - t^2)^(2k) with
+    p_(k+1) = (1 - t^2)^2 p_k' + (4 k t (1 - t^2) - 2 t) p_k; sup on 4000 points and a local refinement"""
+    t = sp.Symbol('t')
+    p = sp.Poly(1, t)
+    sups = []
     mp.mp.dps = 40
-    N, k = 9, 8
-    tt = sp.Symbol('t')
-    if 'supb' not in CACHE6:
-        ders = [sp.exp(-1/(1 - tt**2))]
-        for _ in range(N + k + 1):
-            ders.append(sp.simplify(sp.diff(ders[-1], tt)))
-        fd = [sp.lambdify(tt, d_, 'mpmath') for d_ in ders]
-        grid = [mp.mpf(i)/400 - mp.mpf('0.9975') for i in range(799)]
-        CACHE6['supb'] = [max(abs(f(t)) for t in grid) for f in fd]
-        CACHE6['l2'] = mp.quad(lambda t: fd[0](t)**2, [-1, 0, 1])
-    supb, intb2 = CACHE6['supb'], CACHE6['l2']
-    rows, ok = [], True
-    for e in ((8,) if control else (8, 10, 12)):
-        lam = mp.mpf(10)**-e
-        n = None
-        for nn in range(2, 30):
-            if lam**4 <= mp.exp(-nn**2 - 1) <= lam**mp.mpf('3.1'):
-                n = nn
-                break
-        if n is None:
-            return False
-        hn = mp.exp(-mp.mpf(n)**2)
-        s = mp.mpf(2)**(n + 2)
-        width = 2/s
-        umax = mp.mpf(2)**(1 - n)
-        dk = hn*(umax*s**k*supb[k] + k*s**(k - 1)*supb[k - 1])          # sup |d_u^k (u bump_n(v - u))|
-        first = lam*lam**k*dk*width/9                                    # lam |I_2| |nu_inf d|, k integrations by parts
-        umem = lam**(N + 1)*lam**k*hn*s**(N + k)*supb[N + k]*width         # U1's memory (Lemma 6.4's operator)
-        m0low = 2*hn**2*intb2/(27*s)                                     # m0 >= (2/27) int env^2
-        if control:
-            # on bump n's top, env = h_n e^-1: the first-degree term lam^3 env/9 against m0 <= h_n^2 (1 + width)/9
-            return lam**3*hn*mp.exp(-1)/9 < hn**2*(1 + width)/9
-        good = first + umem < m0low/2
-        ok &= good
-        rows.append("lam = 1e-%d: n = %d (height lam^%s), first-degree <= %s, U1-memory <= %s, m0 >= %s: %s" % (
-            e, n, mp.nstr(mp.log(hn*mp.exp(-1))/mp.log(lam), 4), mp.nstr(first, 3), mp.nstr(umem, 3),
-            mp.nstr(m0low, 3), good))
-    out("  T6 on J_n, the zero interval after the bump with height in [lam^4, lam^3.1], %d integrations by parts: " % k
-        + "; ".join(rows) + " (spacelike throughout J_n)")
-    return ok
+    for k in range(kmax + 1):
+        f = sp.lambdify(t, p.as_expr(), 'mpmath')
+        g = lambda x, f=f, k=k: abs(mp.exp(-1/(1 - x*x))*f(x)/(1 - x*x)**(2*k))          # noqa: E731
+        grid = [mp.mpf(i)/2000 - 1 for i in range(1, 4000)]
+        vals = [g(x) for x in grid]
+        i0 = max(range(len(vals)), key=lambda i: vals[i])
+        best = vals[i0]
+        a_, b_ = grid[max(i0 - 1, 0)], grid[min(i0 + 1, len(grid) - 1)]
+        for j in range(201):
+            best = max(best, g(a_ + (b_ - a_)*j/200))
+        sups.append(best)
+        p = sp.Poly(sp.expand((1 - t**2)**2*sp.diff(p.as_expr(), t) + (4*k*t*(1 - t**2) - 2*t)*p.as_expr()), t)
+    B = []
+    for k in range(kmax + 1):
+        B.append(max(sups[:k + 1]))
+    return B
 
 
 CACHE6 = {}
 
 
+def t6(control=False):
+    mp.mp.dps = 40
+    if 'B' not in CACHE6:
+        CACHE6['B'] = bump_sups(44)
+        CACHE6['ib2'] = mp.quad(lambda t: mp.exp(-2/(1 - t*t)), [-1, 0, 1])
+    B, ib2 = CACHE6['B'], CACHE6['ib2']
+    N, Ms = 9, 26                                          # Theorem 1 at K = 6: N = K + 3, M* = 2N + 8
+    NP, MP = 18, 44                                        # Theorem 2 at K = 6, beta_P = 2: N_P = K + 4 + 8, 2 N_P + 8
+    rows, ok, prev = [], True, None
+    for E in (10**2, 10**3, 10**4, 10**5, 10**6):
+        L10 = mp.mpf(E)                                    # lam = 10^-E
+        Ln = L10*mp.log(10)
+        n = int(mp.ceil(mp.sqrt(mp.mpf('3.1')*Ln)))        # the bump with e^(-n^2) in [lam^3.5, lam^3.1]
+        lh = -n*n/mp.log(10)                               # log10 h_n
+        assert -mp.mpf('3.5')*L10 <= lh <= -mp.mpf('3.1')*L10
+        ls = (n + 2)*mp.log10(2)                           # log10 s_n, s_n = 2^(n+2)
+        lm0 = mp.log10(mp.mpf(2)/27*ib2) + 2*lh - ls       # log10 of m0's lower bound (2/27) h_n^2 int beta^2 / s_n
+        lw1 = -(N - 5)*L10 + lh + Ms*ls + mp.log10(B[Ms]) - lm0         # L.4 (L.4'): lam^(N-5) eps_(M*) / m0
+        lw2 = -(NP - 3)*L10 + lh + MP*ls + mp.log10(B[MP]) - lm0        # L.4_P: lam^(N_P-3) eps_(M_P) / m0
+        lme = max(-j*L10 + 2*(lh + (2*j + 1)*ls + mp.log10(B[2*j + 1])) - lm0 for j in range(1, N + 1))  # L.3 (b)
+        worst = max(lw1, lw2, lme)
+        rows.append("lam = 10^-%d: n = %d, log10 of w/m0 (Theorem 1) %s, (Theorem 2) %s, means/m0 %s" % (
+            E, n, mp.nstr(lw1, 6), mp.nstr(lw2, 6), mp.nstr(lme, 6)))
+        if prev is not None:
+            ok &= worst < prev
+        prev = worst
+    ok &= prev < -1000
+    # the local first-degree amplitude on J_n: env and every derivative vanish there when the bumps are disjoint;
+    # the control overlaps them (bump n-1 shifted onto J_n), so env > 0 there and the first-degree term
+    # lam^3 (8/3)|nu| env exceeds m0 at the midpoint of J_n (lam = 10^-100)
+    L10 = mp.mpf(100)
+    n = int(mp.ceil(mp.sqrt(mp.mpf('3.1')*L10*mp.log(10))))
+    h = lambda m: mp.exp(-m*m)                                                     # noqa: E731
+    beta = lambda t: mp.exp(-1/(1 - t*t)) if abs(t) < 1 else mp.mpf(0)            # noqa: E731
+    shift = mp.mpf('0.6') if control else 0
+
+    def env(x):
+        tot = mp.mpf(0)
+        for m in range(n - 3, n + 4):
+            c0 = mp.mpf(2)**-m*(1 - (shift if m == n - 1 else 0))
+            tot += h(m)*beta(2**(m + 2)*(x - c0))
+        return tot
+    mid = mp.mpf('1.375')*mp.mpf(2)**-n                     # the midpoint of J_n = (1.25, 1.5) 2^-n
+    pts = [mp.mpf(2)**-n*(mp.mpf('1.26') + mp.mpf('0.23')*k/40) for k in range(41)]
+    zero_on_J = all(env(x) == 0 for x in pts)
+    lam = mp.mpf(10)**-100
+    first_mid = lam**3*mp.mpf(8)/3*mp.mpf(1)/9*env(mid)
+    m0_up = (env(mid)**2 + h(n)**2*2/mp.mpf(2)**(n + 2) + h(n - 1)**2*2/mp.mpf(2)**(n + 1))/9
+    spacelike_local = first_mid < m0_up/4
+    if control:
+        return zero_on_J and spacelike_local and ok
+    out("  T6 (round 6) on J_n, between bump n and bump n - 1: env vanishes at all 41 sample points: %s, so the local"
+        " first-degree amplitude is 0 there (at lam = 10^-100 its bound at J_n's midpoint, against m0, is below a quarter:"
+        " %s); the record's own remainder and mean bounds against m0's lower bound (2/27) int env^2, in log10 (times"
+        " the record's unknown constants): " % (zero_on_J, spacelike_local) + "; ".join(rows)
+        + "; strictly decreasing and below -1000 at the last: %s" % ok)
+    return zero_on_J and spacelike_local and ok
+
+
+# ------------------------------------------------------------------------------------------------------------ T7
+def t7(control=False):
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import bandL4p5 as BL
+    from fractions import Fraction as Fr
+    h = Fr(4) if control else Fr(5)
+    bad = {i: BL.admissible(i, h, triangular=False) for i in range(5)}
+    nterms = sum(len(BL.terms(i, h)) for i in range(5))
+    ok = all(not b for b in bad.values())
+    if control:
+        return ok
+    out("  T7 L.17 (2): Lemma L.4's energy argument at levels 0-4 (the remainder w and its derivatives up to order 5)"
+        " with eps_6 <= lam^5 (L.17's hypothesis eps_M <= lam^5): %d terms, every coefficient bounded (the non-triangular"
+        " rule, every coefficient into Gronwall): %s" % (nterms, ok))
+    return ok
+
+
 def main():
     ok = True
-    for name, f in (("T1", t1), ("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6)):
+    for name, f in (("T1", t1), ("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("T7", t7)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))

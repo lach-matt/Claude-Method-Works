@@ -371,11 +371,13 @@ def fluxes():
     out = {}
     h = sp.Matrix(4, 4, lambda i, j: X[i] * X[j] * rr**(-a - 2))                       # order a, energy
     tr_h = sum(h[i, i] for i in range(4))
-    be = sum((sum(sp.diff(h[i, j], X[j]) for j in range(4)) - sp.diff(tr_h, X[i])) * nu[i] for i in range(4))
+    sg = 1 if MUT == "energy_trsign" else -1
+    be = sum((sum(sp.diff(h[i, j], X[j]) for j in range(4)) + sg * sp.diff(tr_h, X[i])) * nu[i] for i in range(4))
     out["energy (d = 0)"] = (be, 0)
     K = sp.Matrix(4, 4, lambda i, j: (X[0] if i == j else 0) * rr**(-a - 2))           # order a + 1, momentum e_1
     trK = sum(K[i, i] for i in range(4))
-    bm = -2 * sum((K[0, j] - (trK if j == 0 else 0)) * nu[j] for j in range(4))
+    jj = 1 if MUT == "mom_drop_x" else 0
+    bm = -2 * sum((K[0, j] - (trK if j == jj else 0)) * nu[j] for j in range(4))
     out["momentum (d = 0)"] = (bm, 0)
     h3 = sp.Matrix(4, 4, lambda i, j: X[0] * X[i] * X[j] * rr**(-a - 3))               # order a, centre of mass
     tr3 = sum(h3[i, i] for i in range(4))
@@ -400,7 +402,9 @@ def fluxes():
 
 def e4():
     res, a, rho = fluxes()
-    flux_ok = all(v[2] for v in res.values())
+    want = {"energy (d = 0)": 6 * sp.pi**2, "momentum (d = 0)": 3 * sp.pi**2,
+            "centre of mass (d = 1)": sp.Rational(3, 2) * sp.pi**2, "angular momentum (d = 1)": 2 * sp.pi**2}
+    flux_ok = all(v[2] for v in res.values()) and all(sp.simplify(res[k_][1] - w_) == 0 for k_, w_ in want.items())
     lim_ok = True
     for name, (d, coef, _) in res.items():
         for A_ in (Fr(8, 5), Fr(2), Fr(5, 2), Fr(3), Fr(13, 4), Fr(7, 2)):
@@ -409,7 +413,10 @@ def e4():
             lim_ok &= (L == 0) == (A_ > 2 + d) and cA != 0
     m0 = lambda x: min(Fr(0), x)                                       # noqa: E731
     p2exp = (lambda a_: m0(3 - a_)) if MUT == "no_decouple" else (lambda a_: m0(2 - a_))
-    p3exp = lambda a_: m0(3 - a_)                                      # noqa: E731
+    if MUT == "p3_strong":
+        p3exp = lambda a_: m0(2 - a_)                                  # noqa: E731
+    else:
+        p3exp = lambda a_: m0(3 - a_)                                  # noqa: E731
     on_a32 = lambda a_, l_: a_ == Fr(3, 2)                            # noqa: E731
     on_al0 = lambda a_, l_: a_ == l_                                  # noqa: E731
     res_i = {}
@@ -417,15 +424,21 @@ def e4():
         if MUT == "box_strong":
             box = lambda a_, d=d: m0(1 + d - a_)                      # noqa: E731
         else:
-            box = lambda a_, d=d: m0(2 + d - a_)                      # noqa: E731
+            box = lambda a_, d=d: m0((3 if MUT == "box_weak" else 2) + d - a_)   # noqa: E731
         res_i["T: d-a<0 (d=%d)" % d] = holds(lambda a_, l_, d=d: d - a_, True, (on_a32,))
         res_i["T: d+2-2a<0 (d=%d)" % d] = holds(lambda a_, l_, d=d: d + 2 - 2 * a_, True, (on_a32,))
         for name, ex in (("d-2+p2", lambda a_, d=d: d - 2 + p2exp(a_)), ("d-3+p3", lambda a_, d=d: d - 3 + p3exp(a_)),
                          ("d-a", lambda a_, d=d: d - a_), ("d+2-2a", lambda a_, d=d: d + 2 - 2 * a_)):
             res_i["box %s < box exponent (d=%d)" % (name, d)] = holds(lambda a_, l_, ex=ex, box=box: ex(a_) - box(a_),
                                                                      True, (on_a32,))
-        res_i["box >= 0 where a <= 2+d (d=%d)" % d] = holds(lambda a_, l_, box=box: -box(a_), False,
+        res_i["box radius constant where a <= 2+d (d=%d, def.)" % d] = holds(lambda a_, l_, box=box: -box(a_), False,
                                                             where=lambda a_, l_, d=d: a_ <= 2 + d)
+    boxes = [(lambda a_, d=d: m0((1 if MUT == "box_strong" else (3 if MUT == "box_weak" else 2)) + d - a_))
+             for d in (0, 1)]
+    verts = {v_ for pc in PIECES for v_ in pc}
+    res_i["(5.2): p2exp = box(d=0) at every vertex"] = all(p2exp(a_) == boxes[0](a_) for (a_, l_) in verts)
+    res_i["(5.2): p3exp = max_d box(d) at every vertex"] = all(p3exp(a_) == max(b_(a_) for b_ in boxes)
+                                                             for (a_, l_) in verts)
     res_i["theta: p2 - 2 <= -a"] = holds(lambda a_, l_: p2exp(a_) - 2 + a_, False)
     res_i["theta: p3 - 3 <= -a"] = holds(lambda a_, l_: p3exp(a_) - 3 + a_, False)
     res_i["norm: p2 + l0 - 2 <= l0 - a"] = holds(lambda a_, l_: p2exp(a_) + l_ - 2 - (l_ - a_), False)
