@@ -21,6 +21,8 @@ f = 1 - mu/r^2, mu = 1 (zeroext5 Z0: the bound is scale invariant). L_b = D Ric 
      an evaluation) the same for every traceless class tensor with div T = 0:
      D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]; with the eigen-equation of the TT harmonics
      (lap + l (l + 2) - 2) T = 0 it is T3's identity at every even l (deduced), which T3 checks exactly at l = 2, 4.
+  T3c (exact; Round 9, the round-8 verifier's minor 3) T3b symbolically: A's jets and H's as independent symbols,
+     every component's residual reduces to 0 modulo sin^2 + cos^2 = 1 (control C5: with -lap T + T it does not).
   T4 (exact) the norm's angular weight on the block: with the six rotation fields K_ij = x_i d_j - x_j d_i of R^4
      restricted to S^3, sum_ij ||L_{K_ij} T||^2 = (l (l + 2) + 4) ||T||^2 (L^2(S^3), round metric), at l = 2 and 4
      (Round 8: the code ran l = 2 only; it now runs both, beside the so(4) Casimir at (j1, j2) = (l/2 + 1, l/2 - 1));
@@ -215,6 +217,48 @@ def general_identity(shift=2):
     return divres == 0, worst
 
 
+def general_identity_symbolic(shift=2):
+    """Round 9 (the round-8 verifier's minor 3): T3b as a symbolic identity. A(theta) arbitrary (its jets A, A', A'',
+    ... and H, H', H'' replaced by independent symbols after differentiation), B from div T = 0; every component of
+    D Ric(r^2 H T) - (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + shift T)] written with s = sin, c = cos (tan as
+    sin/cos) has numerator in the ideal (s^2 + c^2 - 1): returns whether every component reduces to 0"""
+    A = sp.Function('A')(th)
+    B = sp.Function('B')(th)
+    Tang = [A, B * sp.cos(th) ** 2, -(A + B) * sp.sin(th) ** 2]
+    trh, div, iota, dR, h = gauge_and_dric(Tang)
+    O = CL._ode()
+    lapT = [O['lap'][i].subs({CL.th: th}) for i in range(3)]
+    P = r ** 3 - r
+    AH0 = -r ** -3 * sp.diff(P * sp.diff(Hf, r), r)
+    Bsol = -(sp.sin(2 * th) * sp.diff(A, th) + 3 * A * sp.cos(2 * th) + A) / 2
+    c, s = sp.symbols('c s', positive=True)
+    a = sp.symbols('a0:6')
+    hh = sp.symbols('h0:3')
+    ok = True
+    for i in range(5):
+        for j in range(i, 5):
+            if i == j and i >= 2:
+                tgt = sp.Rational(1, 2) * r ** 2 * (AH0 * Tang[i - 2] + r ** -2 * Hf * (-lapT[i - 2]
+                                                                                       + shift * Tang[i - 2]))
+            else:
+                tgt = 0
+            d = (dR[i, j] - tgt).subs(B, Bsol).doit()
+            for k in range(5, -1, -1):
+                d = d.subs(sp.Derivative(A, (th, k)) if k > 0 else A, a[k])
+            for k in range(2, -1, -1):
+                d = d.subs(sp.Derivative(Hf, (r, k)) if k > 0 else Hf, hh[k])
+            d = d.subs(sp.tan(th), sp.sin(th) / sp.cos(th))
+            d = sp.expand_trig(d)
+            d = d.subs(sp.tan(th), sp.sin(th) / sp.cos(th))
+            d = d.subs({sp.sin(th): s, sp.cos(th): c})
+            if d.has(th):
+                return False
+            num = sp.expand(sp.fraction(sp.together(d))[0])
+            red = sp.rem(sp.Poly(num, s), sp.Poly(s ** 2 - (1 - c ** 2), s))
+            ok = ok and sp.expand(red.as_expr()) == 0
+    return ok
+
+
 def casimir(Tang, scalar=None):
     """sum over the six rotation fields of ||L_K T||^2 / ||T||^2 on the round S^3 (Hopf coordinates)"""
     Y = (th, p1, p2)
@@ -302,6 +346,11 @@ def main():
           'three H, four r, three angles: 108 points; Round 8, one r and one H before): %s; with the eigen-equation '
           '(lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in '
           'T3)' % (float(worst), OK['T3b']))
+    OK['T3c'] = general_identity_symbolic()
+    print('  T3c (exact; Round 9): the same identity symbolically, A arbitrary (its jets independent), B from div T = 0, '
+          'every component of D Ric(r^2 H T) - (1/2) r^2 [(-r^-3 (P H\')\') T + r^-2 H (-lap T + 2 T)] reduces to 0 '
+          'modulo sin^2 + cos^2 = 1: %s; so with (lap + l (l + 2) - 2) T = 0 the t_l block is (1/2) r^2 A_l at every '
+          'even l (deduced from an exact identity)' % OK['T3c'])
     cas = {l: casimir(angular_tensor(harm[l])) for l in (2, 4)}      # Round 8: l = 4 too, as the docstring said
     xs = sp.cos(th) * sp.cos(p1)
     sc = casimir(None, scalar=xs ** 2 - sp.Rational(1, 4))          # a scalar harmonic at l = 2 (degree 2, traceless)
@@ -349,6 +398,8 @@ def main():
     OK['C4'] = not (worst4 < sp.Float('1e-40'))
     print('  C4 (control): T3b with -lap T + T in place of -lap T + 2 T: residual %.3e: fails: %s' % (
         float(worst4), OK['C4']))
+    OK['C5'] = not general_identity_symbolic(shift=1)
+    print('  C5 (control; Round 9): T3c with -lap T + T: the residuals do not reduce to 0: %s' % OK['C5'])
     OK['C2'] = cas[2] != 2 * 4
     print('  C2 (control): the scalar weight claimed on T at l = 2 (8): refuted by T4\'s %s: %s' % (cas[2], OK['C2']))
     CS2 = max(tensor_constant(l, weight_shift=0) for l in range(2, 201, 2))

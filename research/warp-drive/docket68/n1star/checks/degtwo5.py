@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """degtwo5.py -- the degree-two and localisation lemmas, the transition and the dips (EQUALITY5-LAYER.md, Round 5,
 R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one switch per column); Proposition L.25
-(envelopes with dips)).
+(envelopes with dips); and Round 6, R6.2: Proposition L.25').
 
   T1 (exact; a three-dimensional instance of a dimension-free identity) The reduced Ricci operator relative to a
      background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a

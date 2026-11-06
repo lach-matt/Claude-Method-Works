@@ -34,3 +34,11 @@ X8 PASS
   X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows with one
       sign only: 0
 X9 PASS
+  X10 hypotheses (H_N) and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell polynomials in the
+      derivatives of log env): exp(-1/x): env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 13, at all 401
+      points: True; sup |kappa_k'|/kappa_k^(3/2) = 2.867 <= c_R = 3; L.16 (c): max_(j<=14) sup |env^(j)|/(kappa^j env) =
+      1.0; |kappa_k - kappa| <= 2.162 k kappa^(1/2), below the bound c_R 2^(1/2) = 4.243 that (H_N) implies; record
+      C_c^inf: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 13, at all 401 points: True; sup
+      |kappa_k'|/kappa_k^(3/2) = 2.855 <= c_R = 3; L.16 (c): max_(j<=14) sup |env^(j)|/(kappa^j env) = 1.0; |kappa_k -
+      kappa| <= 2.304 k kappa^(1/2), below the bound c_R 2^(1/2) = 4.243 that (H_N) implies  [530 s]
+X10 PASS

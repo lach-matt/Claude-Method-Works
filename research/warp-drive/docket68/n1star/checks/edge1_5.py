@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """edge1_5.py -- the deep layer and the very edge for Theorem 1's solution (EQUALITY5-LAYER.md, Round 5, R5.3:
 Lemma H_Sigma, Lemma L.21 (the first-degree constraint correction), Proposition L.22 (the two-term formula), Lemma W,
-Theorem L_1E).
+Theorem L_1E; and Round 6, R6.1: H_Sigma's exact form, L.21 (iv'), (v'), L.22', Theorem L_1E').
 
 With stage N's data fixed by Lemma 6.2's rule (D615), the A-linear part h1 of g_lam is the linear solution of the
 seed's reduced operator with the A-linear Cauchy data: those of h_app1 := Re sum_(j<=N+1) lam^j H_j e^(i v/lam) and

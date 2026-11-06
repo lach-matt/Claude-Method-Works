@@ -36,7 +36,8 @@ C_delta <zeta>^(delta j)):
   Q6 (computed) d', d'' and the D_1 parts the record fixes in closed form at Q4's orders: d' = 8, d'' = 9; II.A
      Proposition 9.6 at s - 2: d_1 = 20, d-tilde = 33; II.E Proposition 4.4: d >= 35; every tame order in D_1 is
      d-tilde + 3 at orders in Q4's range, so D_1 <= 48 (deduced on that range). So FWD + BG = D_0 + D_1 + d' + d'' + 8
-     <= 250, and c' = FWD + BG + the fixed MODs of a level, which this program does not bound.
+     <= 250, and c' = FWD + BG + the fixed MODs of a level, which this program does not bound. [Round 8-9: superseded;
+     d = d-tilde + 3 = 36, D_1 <= 52 on [-16, 11], and FWD <= 510 on the box (Q3b, Q6).]
   Controls (each mutates the computed path; each must fail): C1 Q2 with the Peetre/convergence term dropped (J one
   less): the remainder's integrability check fails; C2 Q1 at delta = 2/27: the distant-shell exponent is >= 0; C3 Q5
   with one table row removed: a line is unclassified; C4 Q3 with the right expansion's 2L dropped: the y-integrability
@@ -52,6 +53,12 @@ C_delta <zeta>^(delta j)):
   checked in M_a. New controls: C5 round 7's weight ceil(sup t/2); C6 2K = 2; C7 C_ch = 0; C8 delta = 1/20; C9 round
   7's Sobolev range: each moves a pin or fails a condition. The verifier's mutations of these four were undetected
   before.]
+  [Round 9 (the round-8 verifier; CONSTANTS5.md R9.0). (6) M_f was called on the box with factor order 2, so its
+  Peetre exponent 2L' was 8 while the factors at II.A2:682-695 have orders s - 1/2 + delta in [-10.49, 9.51]: 2L' is
+  now A.7 (3)'s, n + |m - depth (1 - delta)| maximised over those orders, at depth q + 1 = 4 for (f) (20) and at depth
+  1 for (b)-(e) (18; M_2.4 = 376): M_f = 429, D_0 <= 435, FWD <= 510 (the verifier's 417/423/498 and 423/429/504 are
+  the depth-1 readings, C11). (7) Q4b reads II.C:767-768 in full: the second branch of s_in, with alpha_K = -2 and
+  theta_in = 0, needs only s_in > 11/2 and does not bind. Controls C10 (round 8's factor order) and C11 (depth 1).]
 
     python3 checks/d0count5.py       (seconds)
 """
@@ -171,37 +178,50 @@ def M_a(t_lo, t_hi, m_lo, m_hi, delta=DELTA, drop2L=False, m2mode='t0', twoK=Non
                 conv=conv1 and conv2 and schur, twoLp1=twoLp1, M2=M2, twoK=twoK)
 
 
-def M_24(t_lo, t_hi, m1_hi, m2_hi, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, mu_lo=None):
+def peetre(fac, depth, delta=DELTA):
+    """Round 9 (the round-8 verifier's MAJOR 1): the Peetre exponent of A.7 (3), 2L' > n + |mu_f|, mu_f the order of
+    the factor after depth xi-derivatives, m - depth (1 - delta), maximised over the factor orders m in fac = (lo, hi):
+    |m - depth (1 - delta)| <= max(|lo - depth|, |hi - depth|) + depth delta"""
+    lo, hi = fac
+    return even_above(n + max(abs(lo - depth), abs(hi - depth)) + depth * delta)
+
+
+def M_24(t_lo, t_hi, m1_hi, m2_hi, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, mu_lo=None, fac=None):
     """Proposition 2.4 (b)-(e), R7.A Proposition A.8: the J = 1 composition remainder's derivatives cost 1 + max(2L,
     2L') more of each factor; a change of chart costs C_ch = 2 J1 + 2L'_1 + 2K xi-derivatives; (d) one more.
-    [Round 8: (f) is not this count (the verifier's A2); see M_f. mu_lo: a variable composite order's infimum.]"""
+    [Round 8: (f) is not this count (the verifier's A2); see M_f. mu_lo: a variable composite order's infimum.]
+    [Round 9: 2L' from the factor-order range fac at depth 1 (peetre); round 8 used m1_hi alone, which on the box
+    missed the negative end (the round-8 verifier's MAJOR 1).]"""
     mu = m1_hi + m2_hi - 1 + delta
     base = M_a(t_lo, t_hi, mu if mu_lo is None else mu_lo, mu, delta=delta, m2mode=m2mode, twoK=twoK)
     twoL = even_above(n)
-    twoLp = even_above(n + abs(m1_hi - 1) + delta)
+    twoLp = peetre(fac if fac is not None else (m1_hi, m1_hi), 1, delta)
     C_ch = (2 * base['J1'] + base['twoLp1'] + base['twoK']) if Cch_on else 0
     Mb = base['M'] + 1 + max(twoL, twoLp) + C_ch
     return dict(M=Mb + 1, Mb=Mb, base=base, C_ch=C_ch, twoLmax=max(twoL, twoLp))
 
 
-def M_f(t_lo, t_hi, mu_lo, mu_hi, q, ops, m1_hi=2, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None):
+def M_f(t_lo, t_hi, mu_lo, mu_hi, q, ops, fac=(2, 2), delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, depth=None):
     """Round 8 (the verifier's A2): Proposition 2.4 (f) at an instance with q order drops (adjoint defects and
     commutators, each an exact cancellation of main terms in the symbol calculus) and ops binary operations
     (compositions and adjoints) through which a factor passes. Each operation on a factor is expanded to depth q + 1:
     its main terms take q more derivatives of the factor, its remainder (the master estimate of A.7 (3)) q + 1 +
     max(2L, 2L'); one change of chart per factor (C_ch); the composite, of order mu in [mu_lo, mu_hi], is then bounded
-    as in Proposition A.7 (M_a at its orders). M_f = M_a + ops (q + 1 + max(2L, 2L')) + C_ch + 1."""
+    as in Proposition A.7 (M_a at its orders). M_f = M_a + ops (q + 1 + max(2L, 2L')) + C_ch + 1.
+    [Round 9 (the round-8 verifier's MAJOR 1): 2L' is A.7 (3)'s Peetre exponent for the factor differentiated to the
+    expansion depth q + 1, maximised over the factor orders fac; round 8 called this with factor order 2 on the box.]"""
     base = M_a(t_lo, t_hi, mu_lo, mu_hi, delta=delta, m2mode=m2mode, twoK=twoK)
     twoL = even_above(n)
-    twoLp = even_above(n + abs(m1_hi - 1) + delta)
+    twoLp = peetre(fac, q + 1 if depth is None else depth, delta)
     C_ch = (2 * base['J1'] + base['twoLp1'] + base['twoK']) if Cch_on else 0
-    return dict(M=base['M'] + ops * (q + 1 + max(twoL, twoLp)) + C_ch + 1, base=base, C_ch=C_ch)
+    return dict(M=base['M'] + ops * (q + 1 + max(twoL, twoLp)) + C_ch + 1, base=base, C_ch=C_ch, twoLp=twoLp)
 
 
-def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None):
+def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, fac_f=None,
+           depth_f=None):
     """D_0 and D_1 at the Sobolev orders [T_LO, T_HI] (input order -N - m = -NMAX - 2). MU_BOX None: the operator
     orders of round 7 (constant, at most 2); MU_BOX = (lo, hi): every symbol and composite order variable within it
-    (the commutants of II.A2 sections 4-5 at |s| <= 9 and their products), and Proposition 2.4 (f)'s instances at
+    (the commutants of II.A2 sections 4-5 at |s| <= 10 and their products), and Proposition 2.4 (f)'s instances at
     II.A2:682-695 (q <= 3 drops, at most 3 operations per factor) counted."""
     da = D_a(T_LO, T_HI, delta=delta)
     db = D_b(T_HI, -NMAX - 2, delta=delta)
@@ -214,8 +234,9 @@ def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True,
         lo, hi = MU_BOX
         ma = M_a(T_LO, T_HI, lo, hi, delta=delta, m2mode=m2mode, twoK=twoK)
         m24 = M_24(T_LO, T_HI, Fr(hi + 1, 2), Fr(hi + 1, 2), delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK,
-                   mu_lo=lo)
-        mf = M_f(T_LO, T_HI, lo, hi, 3, 3, delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK)
+                   mu_lo=lo, fac=FAC)
+        mf = M_f(T_LO, T_HI, lo, hi, 3, 3, fac=FAC if fac_f is None else fac_f, delta=delta, m2mode=m2mode,
+                 Cch_on=Cch_on, twoK=twoK, depth=depth_f)
     M24 = max(m24['M'], mf['M'])
     L3 = max(M24 + 2, da['D'], d86)
     L4 = max(M24 + 4, L3, d86, 2)
@@ -230,8 +251,10 @@ def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True,
 
 Q4R = (-16, 11, 14)                     # Round 8: T_LO = -N - m = -16, the record's own input order (II.A2:389-391)
 BOX = (-22, 22)                         # Round 8: the operator-order box (II.A2 sections 4-5: k = s - 1/2, |s| <= 10)
+FAC = (Fr(-21, 2) + DELTA, Fr(19, 2) + DELTA)   # Round 9: the factors' orders there: a-check of order s - 1/2 + delta,
+#                                               # s in [-10, 10]; L (2) and D_R (1) inside
 PINS = dict(q4=dict(da=53, db=64, M_a=81, M24=197, M_f=224, D0=230),
-            box=dict(M_a=138, M24=374, M_f=393, D0=399, FWD=474))
+            box=dict(M_a=138, M24=376, M_f=429, D0=435, FWD=510))
 
 
 # ------------------------------------------------------------------------------------------------- Q5 census
@@ -301,15 +324,45 @@ def main():
     beta_hi = Fr(3, 2)
     bound_out = -6 - beta_hi                                      # s_out < -6 - beta_+ - eps for every beta_+ < 3/2
     bound_in = Fr(1, 2) + 2 + 5 + 1                               # s_in > 1/2 + theta_H + eta + 1 with theta_H <= 2
-    OK['Q4'] = s_out < bound_out and s_in > bound_in and s_in >= 4
+    # Round 9 (the round-8 verifier's MAJOR 2, R8.0 (9)): II.C:767-768 in full, both branches, at the FWD use:
+    # s_in > max(1/2 + theta_H + eta, 1/2 (-1 + theta^3b_in) + alpha_K + eta - alpha_+) + 1,
+    # s_out < min(s_in, 1/2 (-1 + theta_out) + alpha_K - eta - alpha_+) - 1, with alpha_K = -2 (III.I Theorem 5.3's
+    # proof: "uses them over K^+ with weights alpha_+, -2"), theta^3b_in = theta_in (II.C Lemma 2.6) = 0 (thetain5 T2,
+    # T6), alpha_+ = beta_+ - 5/2, beta_+ in (1/2, 3/2), eta = 5, theta_H <= 2, theta_out >= -2 eps (eps -> 0+)
+    src = {'C': open(os.path.join(P5, 'PART-II-C-OPERATORS.md'), encoding='utf-8').read(),
+           'I': open(os.path.join(P5, 'PART-III-I-CONE.md'), encoding='utf-8').read(),
+           'T': open(os.path.join(HERE, 'thetain5.out'), encoding='utf-8').read()}
+    reads = [src['C'].count('s_{\\mathrm{in}}>\\max\\Big(\\tfrac12+\\vartheta_{\\mathcal H}+\\eta,\\ \\tfrac12(-1+'
+                           '\\vartheta^{3b}_{\\mathrm{in}})+\\alpha_K+') == 1,
+             src['C'].count('Moreover $\\vartheta^{3b}_{\\mathrm{in}} = \\vartheta_{\\mathrm{in}}$') == 1,
+             src['I'].count('uses them over $K^+$ with weights $\\alpha_+$, $-2$ and margin 1') == 1,
+             'T6: L_b with vartheta_in = 0' in src['T']]
+    alK, th_in, eta, thH = -2, 0, 5, 2
+    br = []
+    for bp in (Fr(1, 2), Fr(3, 2)):                            # the ends of beta_+'s window (open: limits)
+        ap = bp - Fr(5, 2)
+        A1 = Fr(1, 2) + thH + eta
+        A2 = Fr(1, 2) * (-1 + th_in) + alK + eta - ap
+        O2 = Fr(1, 2) * (-1 + 0) + alK - eta - ap
+        br.append((A1, A2, O2))
+    in_ok = all(s_in > max(A1, A2) + 1 for A1, A2, _ in br)
+    out_ok = all(s_out < min(s_in, O2) - 1 for _, _, O2 in br)
+    second = max(A2 for _, A2, _ in br) + 1
+    OK['Q4'] = s_out < bound_out and s_in > bound_in and s_in >= 4 and all(reads) and in_ok and out_ok
+    print('  Q4b (READ; computed; Round 9): II.C:767-768 at the FWD use, both branches: alpha_K = -2 (III.I Theorem '
+          '5.3\'s proof), theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6): the second branch of s_in '
+          'needs s_in > %s (beta_+ -> 1/2), below the first branch\'s 17/2; s_out\'s branch gives -6 - beta_+ - eps; '
+          'the four lines read: %s; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: %s' % (
+              second, reads, in_ok and out_ok))
     T_LO, T_HI, NMAX = Q4R
     print('  Q4: s_in = %d > %s, s_out = %d < %s (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): '
           '%s; s in [%d, %d], s0 = s - 2 in [%d, %d]; the Sobolev orders in [%d, %d] (Round 8: down to the record\'s '
           'input order -N - m = -%d, II.A2:389-391; round 7 stopped at -14), N <= %d; operator orders: round 7 took '
           'them <= 2; the commutants of II.A2 sections 4-5 have order k = s - 1/2 + delta, |s| <= 10, so every '
-          'symbol and composite order of the chain lies in the box %s (Round 8)' % (
+          'symbol and composite order of the chain lies in the box [%d, %d] (Round 8), the factors\' orders in [%s, %s] '
+          '(Round 9)' % (
               s_in, bound_in, s_out, bound_out, OK['Q4'], s_out, s_in, s_out - 2, s_in - 2, T_LO, T_HI, NMAX + 2,
-              NMAX, BOX))
+              NMAX, BOX[0], BOX[1], float(FAC[0]), float(FAC[1])))
     # Q2, Q3, D_0: round 7's operator orders (corrected) and the box
     r7 = counts(T_LO, T_HI, NMAX)
     bx = counts(T_LO, T_HI, NMAX, MU_BOX=BOX)
@@ -330,10 +383,11 @@ def main():
               m24['M'] + 6, r7['conv'], OK['Q3']))
     OK['Q3b'] = bx['conv'] and (bx['ma']['M'], bx['m24']['M'], bx['mf']['M'], bx['D0'], bx['FWD']) == (
         PINS['box']['M_a'], PINS['box']['M24'], PINS['box']['M_f'], PINS['box']['D0'], PINS['box']['FWD'])
-    print('  Q3b (the box %s, every order variable within it): M_a = %d (J1 = %d), M_2.4 = %d (C_ch = %d), M_f = %d; '
-          'D_0 <= max(M_2.4 + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = %d; pinned: %s' % (
-              BOX, bx['ma']['M'], bx['ma']['J1'], bx['m24']['M'], bx['m24']['C_ch'], bx['mf']['M'], bx['D0'],
-              OK['Q3b']))
+    print('  Q3b (the box [%d, %d], every order variable within it; Round 9: the factors\' Peetre exponents over their '
+          'orders, 2L\' = %d for (b)-(e) at depth 1 and %d for (f) at depth q + 1 = 4): M_a = %d (J1 = %d), M_2.4 = %d '
+          '(C_ch = %d), M_f = %d; D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = %d; FWD <= %d; '
+          'pinned: %s' % (BOX[0], BOX[1], bx['m24']['twoLmax'], bx['mf']['twoLp'], bx['ma']['M'], bx['ma']['J1'],
+                          bx['m24']['M'], bx['m24']['C_ch'], bx['mf']['M'], bx['D0'], bx['FWD'], OK['Q3b']))
     # Q5 census
     rows, uncl = census()
     incs = [int(c.split()[1]) for _, c in rows if c.startswith('increment') and c.split()[1].isdigit()]
@@ -388,6 +442,14 @@ def main():
     OK['C9'] = c9 != PINS['box']['D0']
     print('  C9 (control): round 7\'s Sobolev range [-14, 11]: D_0 = %d, not %d: %s' % (c9, PINS['box']['D0'],
                                                                                         OK['C9']))
+    c10 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, fac_f=(2, 2))['D0']
+    OK['C10'] = c10 != PINS['box']['D0']
+    print('  C10 (control, the round-8 verifier\'s MAJOR 1): (f) counted with factor order 2, as round 8 did: D_0 = %d, '
+          'not %d: %s' % (c10, PINS['box']['D0'], OK['C10']))
+    c11 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, depth_f=1)['D0']
+    OK['C11'] = c11 != PINS['box']['D0']
+    print('  C11 (control): (f)\'s Peetre exponent at depth 1 in place of q + 1: D_0 = %d, not %d: %s' % (
+        c11, PINS['box']['D0'], OK['C11']))
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1

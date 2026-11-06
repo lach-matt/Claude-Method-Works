@@ -1371,7 +1371,8 @@ the unlocalised bound, squared, exceeds the first-degree term by 10^3553353; the
 10^(−4342893).) ∎
 
 **Theorem L_E (the very edge for Theorem 2's solution; deduced from L.15_P-L.18_P, with edgeP5 Q1-Q4).** Let μ0 = √72
-l5², K ≥ 6, g_λ the metric of Theorem 2, and env satisfying Lemma L.16's hypotheses (b), (c) on (v_s, v_s + x0]. There
+l5², K ≥ 6, g_λ the metric of Theorem 2, and env satisfying Lemma L.16's hypotheses (b), (c) [round 6, V5-m3: and (H_D)
+of Lemma L.18; A25] on (v_s, v_s + x0]. There
 are λ_E > 0, x0' ∈ (0, x0] and P0 (depending on K and the record's derivative costs) such that for λ ≤ λ_E, every v ∈
 (v_s, v_s + x0'] with env(v + 4πλ) ≤ λ^(P0) and every ω ∈ S³: on [v, v + 4πλ] the boundary has, at ω, points where it
 is timelike for g_λ and points where it is spacelike. In particular on the whole very edge {λκ ≥ 1}, down to v_s.
@@ -1741,7 +1742,8 @@ with U's bound summed to ε_(2N+3), now 8.05·10^105 per env where round 3 print
 
 ### R5.0 Findings
 
-1. **Theorem 1's deep layer, very edge included, is decided (Theorem L_1E, R5.3).** With stage N's data fixed by
+1. **Theorem 1's deep layer, very edge included, is decided (Theorem L_1E, R5.3).** [round 6, V5-M1, V5-M2: item 1 is
+   restated as Theorem L_1E′ and item 3's L.25 (a) proved anew, R6.1, R6.2] With stage N's data fixed by
    Lemma 6.2's rule (free until D615, fixed by that rule since), the part of g_λ⁻¹(dΦ0, dΦ0) linear in the waves is,
    at the boundary, the first harmonic −Re[S e^(iv/λ)] of a sum of two amplitudes: Theorem L's stage term λ³ A ν d env
    and a term carried by the first-degree constraint correction U^(1),
@@ -1751,7 +1753,8 @@ with U's bound summed to ε_(2N+3), now 8.05·10^105 per env where round 3 print
    the record's envelope) and every τ0 with (v_s − τ0)² ∉ {(N − 1)μ0, (2N − 1)μ0}, every interval of length 4πλ near
    the edge below a level λ^(P1) independent of λ, down to v_s, has timelike and spacelike points on every column.
    Lemma H_Σ is proved (R5.3 (b)); U^(1)'s leading part is computed (R5.3 (c)); the two readings of "the lapse and
-   shift of g_app" in the supplement's section 6.4 give the same conclusion. O1a′ is closed.
+   shift of g_app" in the supplement's section 6.4 give the same conclusion. [round 6, V5-m6: readings 1 and 2; reading 2
+   is the supplement's; A30] O1a′ is closed.
 2. **L.15_P (b), L.17_P and L.18_P are proved (R5.2)**, in one form (L.17, L.18) covering Theorem 2's solution and,
    with slice data, Theorem 1's. Theorem L_E is deduced on its stated hypotheses with no sketch under it (the verifier
    of round 4's MAJOR 1); the localisation holds at every depth, which repairs MINOR 3.
@@ -1825,7 +1828,7 @@ Amendments of this round:
 - **A22** (the coordinator's request). Where rounds 3-4 describe stage N's data as free in the present tense (R3.0 item
   5, R3.4 "the supplement leaves stage N's data free", R3.5 O6, R4.0 item 2, R4.2 (a) "which the supplement leaves
   free" and "not determined by Theorem 1 as the supplement now states it", R4.7 O1a′), read "free until D615, fixed by
-  Lemma 6.2's rule since". Proposition L.19 is a statement about the supplement before D615.
+  Lemma 6.2's rule since". Proposition L.19 is a statement about the supplement before D615. [round 6, V5-n7: A27]
 - **A23.** R4.0 item 1, A18 and R4.7 O1b: Theorem L_E's degree-two inputs are Lemmas L.17 and L.18 of R5.2, proved; in
   its proof the degree-two terms are bounded by L.18 at every depth (V4-m3), not by L.17_P with the tilt 4 C_P λ.
 - **A24.** R4.3, amended Proposition L.12: (iii) holds for every δ ∈ (0, 1/2] with γ = 1/10 (V4-M2), and (i) for every
@@ -1913,7 +1916,8 @@ Then for every e with 2Δ(V) ≤ e ≤ 2 C_P λ (resp. 2 C1 λ), g_λ⁻¹(α, �
 −2eψ′ − e²ψ′²(1 + μ/r²), |α|_e² ≤ 13/4 for eψ′ ≤ 1/2), so the proof of L.4_P (L.4) runs on R(V, e) := S(V) ∩ {v + e
 ψ(τ) ≤ V} with the same constants (the slices still shrink, ρ′ < 0), and so does its four-derivative form in L.17
 (2). Every X with v(X) + e ψ_max ≤ V lies in R(V, e), ψ_max := 2 + τ_end − τ0. (2) *Stage 0* is L.4_P (L.4) itself, e_0
-:= 2 C_P λ (2 C1 λ): |w| ≤ C λ^(N−3) ε_M(v(X) + e_0 ψ_max) at every depth. (3) *Stage k ≥ 1.* Put y_0 := x_D and, given
+:= 2 C_P λ (2 C1 λ): |w| ≤ C λ^(N−3) ε_M(v(X) + e_0 ψ_max) at every depth. [round 6, V5-n3: λ^(N−5) ε_(M*) for L.4, and
+so in δ_k; A26] (3) *Stage k ≥ 1.* Put y_0 := x_D and, given
 stage k − 1 valid at every depth with reach e_(k−1) ψ_max ≤ y_(k−1), put δ_k := C(λ ε_c(v_s + 4y_(k−1)) + λ^(N−3)
 ε_M(v_s + 4y_(k−1))), which bounds Δ(v_s + 3y_(k−1)) (|g_app⁻¹ − g0⁻¹| ≤ C λ ε_c with the weight, L.3_P (a_P), L.3 (a);
 |w| by stage k − 1 at depths ≤ 3y_(k−1), whose reach is ≤ y_(k−1)), e_k := 2δ_k, and y_k := the least y with
@@ -1944,7 +1948,8 @@ L.18 (case Ω).
 **(b) Lemma H_Σ (the ingoing projection; deduced, with edge1_5 X1-X3).** Let Ψ solve dRic^H(Ψ) = f on Ω with data
 (Ψ_Σ, ∂_τΨ_Σ) on Σ_τ0, all zero on {v ≤ v_s}, T² × Z2 × Z2-invariant and of the form e^(iv/λ) times amplitudes Â (as
 functions of v = τ0 + r on Σ_τ0 and of (v, r, θ) for f). Let 𝒟(v) be the supremum over Σ_τ0 ∩ {v′ ≤ v}, over Ω ∩ {v′ ≤
-v} for f, and over Ω^β, |β| ≤ 2, of |Â_Ψ| + |Â_∂Ψ|/|s̃| + |Â_f|/|s̃|, where s̃ := κ_𝒟 + i/λ and κ_𝒟 := (log 𝒟)′,
+v} for f, and over Ω^β, |β| ≤ 2, [round 6, V5-m8: |β| ≤ 6; A28] of |Â_Ψ| + |Â_∂Ψ|/|s̃| + |Â_f|/|s̃|, where s̃ := κ_𝒟 +
+i/λ and κ_𝒟 := (log 𝒟)′,
 and assume 𝒟 satisfies L.16 (b), (c)'s hypotheses and |∂_v Â| ≤ C κ_𝒟 𝒟 for every amplitude. Then at P = (v, √μ0,
 ω), v_s < v ≤ v_s + x0,
 
@@ -1952,7 +1957,8 @@ and assume 𝒟 satisfies L.16 (b), (c)'s hypotheses and |∂_v Â| ≤ C κ_�
     X_in := ½ (F Â_Ψ + (2 − F) Â_∂Ψ/s̃) at r0,   Z_f := s̃⁻¹ ∫_(√μ0)^(r0) G(√μ0 ← r′) Â_f(v, r′, ·) dr′,
 
 G the propagator of the transport T = 0 (the scalar sector's closed form: H_vv(√μ0) = μ0^(−3/4) r0^(3/2) [X_vv + F(r0)
-X_vr + F(r0)² X_rr/4], X3), and ϵ := λκ_𝒟 if λκ_𝒟 ≤ 1, C(κ_𝒟^(α−1) + 1/κ_𝒟) otherwise.
+X_vr + F(r0)² X_rr/4], X3), and ϵ := λκ_𝒟 if λκ_𝒟 ≤ 1, C(κ_𝒟^(α−1) + 1/κ_𝒟) otherwise. [round 6, V5-M1, R6-f1: the factor
+1 + O(ϵ) comes only from replacing s⁻¹ by 1/s̃; exact form R6.1 (a)]
 
 *Proof.* (1) *Characteristic form (X1, exact in all fifteen components).* With L := ∂_v + (F/2)∂_r, the outgoing null
 direction, and P := iT (T the transport of L.2 (b)), dRic^H(h) = −P(Lh) + Q̃h with Q̃ free of ∂_v and of ∂_r² (first
@@ -1991,10 +1997,12 @@ components of D_(N−1) are N i^N A d (−r^(−7/2)/2, r^(−7/2)). (iii) The �
 
 (iv) a^(1)(r0) = −λ^(N+1) Re{e^(iv/λ) i^N A d α(r0)⁻¹ r0^(−7/2) env^(N−1) Ξ} (1 + O(ϵ + 1/|s̃| + λ)), α(r) := 3r³/(r² +
 μ0)², Ξ := [(1 − c_N) λκ_(N−1) − i c_N]/(λκ_(N−1) + i), κ_k := (log env^(k))′; and |Ξ|² = [(1 − c_N)² T² + c_N²]/(T² + 1)
-≥ min(c_N², (1 − c_N)²), T := λκ_(N−1), Ξ = −c_N − iT + O(T²) (X8). (v) The ingoing amplitude of the scalar data
+≥ min(c_N², (1 − c_N)²), T := λκ_(N−1), Ξ = −c_N − iT + O(T²) (X8). [round 6: with ϵ replaced by ϵ′ := min{(λκ)² + λκ^α,
+κ^(α−1)}, (iv′), R6.1 (b)] (v) The ingoing amplitude of the scalar data
 a^(1) induces, transported to the horizon, is H_vv(√μ0) = K_R a^(1)(1 + O(1/|s̃|)) with K_R = μ0^(−3/4) r0^(−5/2) (r0²
 − μ0)²/4 if section 6.4's "lapse and shift of g_app" means g_(τμ) (reading 1) and K_R = μ0^(−3/4) r0^(3/2)/4 if it means
-the ADM lapse and shift vector (reading 2); K_R > 0 in both, and it depends neither on the τ-derivative of the spatial
+the ADM lapse and shift vector (reading 2); K_R > 0 in both, [round 6, V5-m6: a third reading gives (r0² − 2μ0)/(4
+μ0^(3/4) r0^(1/2)); A30] and it depends neither on the τ-derivative of the spatial
 part nor on K's sign convention (X7: D = 0 fixes the combination X_vv + F X_vr that reaches the horizon). (w^(1),
 q^(1)) and the stage profiles' data enter the scalar sector at relative order O(1/κ + 1/|s̃|).
 
@@ -2024,7 +2032,8 @@ amplitudes after division by s̃ are of relative order 1/|s̃| and lie in the ve
 which T = 0 does not take to vv; the stage profiles' scalar sector is a family lower (κ^(N−2) against κ^(N−1)). ∎
 
 **(d) Proposition L.22 (the first-degree horizon value; deduced).** Assume (H_N): env and env^(k), k ≤ N, are positive
-and log-concave on (v_s, v_s + x0] with κ_k/κ ∈ [1/2, 2], |κ_k′| ≤ c_R κ_k^(1+α) for an α < 1 − 1/(N − 2), and L.16
+and log-concave on (v_s, v_s + x0] with κ_k/κ ∈ [1/2, 2], |κ_k′| ≤ c_R κ_k^(1+α) for an α < 1 − 1/(N − 2), [round 6,
+V5-m4: α < 1 suffices, and E_S is L.22′'s; R6.1] and L.16
 (c)'s bounds |env^(j)| ≤ c_j κ^j env (sampled for exp(−1/x) and the record's envelope on x ≤ 10^(−2), k ≤ 12: X10).
 Then for v_s < v ≤ v_s + x0, h^(1)_vv(v, √μ0, θ) = Re[S(v, θ) e^(iv/λ)] with
 
@@ -2043,7 +2052,8 @@ times it, by (H_N). ∎
 
 **(e) Lemma W (two signs on a window; deduced, elementary; X9).** Let J := [v, v + 4πλ], S ∈ C²(J; ℂ), ε: J → R and
 f := Re[S e^(i·/λ)] + ε. (A) If |S| ≥ m on J, arg S varies by at most π/6 on J and |ε| ≤ m/4, f takes both signs on
-J. (B) If |S′| ≥ L0 and |S″| ≤ L0/(80πλ) on J and |ε| ≤ πλL0/5, f takes both signs on J.
+J. (B) If |S′| ≥ L0 and |S″| ≤ L0/(80πλ) on J and |ε| ≤ πλL0/5, f takes both signs on J. [round 6, V5-n6: (B) is used by
+no proof]
 *Proof.* (A) The phase t/λ + arg S(t) increases by at least 4π − π/6 on J, so it meets 0 and π modulo 2π, where f ≥
 m − m/4 and f ≤ −m + m/4. (B) S(t) = S′(v)(t − t0) + R(t), |R| ≤ πλL0/10, t0 = α + iβ. At the points t_k where
 e^(i(t/λ + arg S′(v))) = ±1 (spacing πλ, alternating), Re[S′(v)(t − t0) e^(it/λ)] = ±|S′(v)|(t_k − α) (the β part
@@ -2055,7 +2065,8 @@ right side's first are of the same type, on opposite sides of α: two signs. ∎
 **(f) Theorem L_1E (Theorem 1's deep layer and very edge; deduced from L.17, L.18, H_Σ, L.21, L.22 and Lemma W, with
 edge1_5 X1-X11 and degtwo5 T1-T4).** Let μ0 = √72 l5², K ≥ 6, N = K + 3, g_λ the metric of Theorem 1 built by the
 supplement with stage N's data by Lemma 6.2's rule (D615, D616), env satisfying (H_N) and (H_D), and τ0 admissible with
-ρ0² := (v_s − τ0)²/μ0 ∉ {N − 1, 2N − 1}. There are λ_1E > 0, x0′ ∈ (0, x0] and P1 (depending on K, the record's costs,
+ρ0² := (v_s − τ0)²/μ0 ∉ {N − 1, 2N − 1}. [round 6, V5-M1, V5-m4, V5-m6: restated as Theorem L_1E′, R6.1] There are λ_1E >
+0, x0′ ∈ (0, x0] and P1 (depending on K, the record's costs,
 the envelope's constants and the distance of ρ0² from {N − 1, 2N − 1}) such that for λ ≤ λ_1E, every v ∈ (v_s, v_s +
 x0′] with env(v + 4πλ) ≤ λ^(P1) and every ω ∈ S³: on [v, v + 4πλ] the boundary x_K = 1 has, at ω, points where it is
 timelike for g_λ and points where it is spacelike. In particular on the whole very edge {λκ ≥ 1}, down to v_s. With
@@ -2066,19 +2077,24 @@ min(λ_U(P1), λ_1E): every such interval below the level λ^(3+δ).
 ∂_v + β0 ∂_r with β0 = O(ε²), and h^(1)(Φ0♯, Φ0♯) = Re[S e^(iv′/λ)](1 + O(ε²)) + O(r_q − √μ0)|∂_r h^(1)| (D3). The
 non-harmonic part ε(v′) := −m0 − r2(Φ0♯, Φ0♯) + q + (the β0 and r_q shifts) is at most C κ^(2c′) env² by L.17, L.18 and
 m0 ≤ C(env² + ∫ env²) ≤ C env² (log-concavity). Fix ω, put J := [v, v + 4πλ]. *Case 1 (S_U ≥ S_st up to a factor, or
-λκ ≥ 1).* |Ξ| ≥ min(c_N, |1 − c_N|) ≥ c0 > 0 (x0′ small keeps c_N(r0) away from 1), so |S| ≥ (c0/2)|S_U| and Lemma W
+λκ ≥ 1).* |Ξ| ≥ min(c_N, |1 − c_N|) ≥ c0 > 0 (x0′ small keeps c_N(r0) away from 1), so |S| ≥ (c0/2)|S_U| [round 6, R6-f1:
+this needs (ϵ + 1/κ + λ) small, false at λκ ≈ 1 with ϵ = λκ; R6.1] and Lemma W
 (A) applies: arg S_U moves per carrier radian by O(κ^(α−1) + λ^(1−α)) (d arg Ξ/dT = O(1/(1 + T²)) and |dT/dv| ≤ c_R λ
 κ^(1+α)), env^(N−1) > 0, and ε ≤ C κ^(2c′) env² ≤ |S|/8 once env ≤ λ^(P1) (for λκ ≤ 1, κ ≤ 1/λ; for λκ > 1, env is
 smaller than every power of 1/κ by L.16 (c)'s second hypothesis). *Case 2 (S_st dominant, Λ := λ^(N−2) env^(N−1)/env ≪
 1)* is Theorem L's: |S| ≥ |S_st|/2 = λ³ A |ν| |d| env/2 (at the double root ρ* of ν, |ν| ≥ c x² as in round 1 section
-7, and x² ≫ λ in this case), phase as in Case 1, Lemma W (A). *Case 3 (the crossover, |S_st| ≈ |S_U|, λκ ≪ 1).* The
+7, and x² ≫ λ in this case) [round 6, V5-M1 (b): not for every edge (H_N) admits; (H_ρ*), R6.1], phase as in Case 1,
+Lemma W (A). *Case 3 (the crossover, |S_st| ≈ |S_U|, λκ ≪ 1).* The
 amplitudes are λ³ A d env [ν(1 + 2iT) + Γ_R i^N (c_N + iT) Λ] + E_S (Ξ = −c_N − iT + O(T²)). If i^N Γ_R c_N Λ/ν is not
 a negative real number the two real parts do not cancel and |S| ≥ c λ³ |ν| env (Lemma W (A)); if it is (N ≡ 0 or 2
 modulo 4, according to ν's sign), at the cancellation the quadrature part is T ν (2 − 1/c_N) ≠ 0 (X8; c_N ≠ 1/2), so
 |S| ≥ c T λ³ |ν| env, which exceeds |E_S| ≤ C (T² + λ + κ^(α−1) + 1/κ) λ³ |ν| env since at the crossover κ ≈
-λ^(−(N−2)/(N−1)) and (1 − α)(N − 2) > 1; Lemma W (A) again. In every case ε is below m/4. ∎
+λ^(−(N−2)/(N−1)) and (1 − α)(N − 2) > 1; [round 6, V5-M1 (a): this bound misquotes L.22 (it drops ϵ |S_U|, puts |ν| on
+the λ-term, and writes T for λκ and λκ_(N−1)) and does not close at a real cancellation; Case 3 is redone in R6.1] Lemma
+W (A) again. In every case ε is below m/4. ∎
 
-X11 runs the two-term formula with unit constants (exp(−1/x), λ = 10^(−6), r0 = 3, ν = −1/9) for N = 9 (the two
+X11 runs the two-term formula with unit constants [round 6, V5-m1: now with L.22's cutoff, and S_U removed as its
+control] (exp(−1/x), λ = 10^(−6), r0 = 3, ν = −1/9) for N = 9 (the two
 amplitudes in quadrature) and N = 12 (their real parts cancel at the crossover), over 1200 windows each from env = λ⁴
 to x = 0.2 λ^(1/2): every window has both signs (control: a degree-two term inflated by λ^(−8) leaves windows with one
 sign).
@@ -2087,7 +2103,8 @@ sign).
 edge of Theorem 1's solution the boundary is decided by the solve of section 6.3 at first degree. (2) The excluded τ0
 are two values: at ρ0² = N − 1 the coefficient (1 − c_N) of Ξ's limit vanishes and |S_U| falls to the size of E_S on
 the deep very edge; at ρ0² = 2N − 1 the quadrature part at a real cancellation vanishes. (3) The hypotheses (H_N),
-(H_D) are properties of the envelope near its edge, satisfied by exp(−a/x^q) edges and checked for the record's C_c^∞
+(H_D) are properties of the envelope near its edge, satisfied by exp(−a/x^q) edges [round 6, V5-m4: for q > 1/(N − 3)
+under round 5's α; every q > 0 under R6.1's] and checked for the record's C_c^∞
 envelope (X10, T4); the solver's sin⁴ envelope is not flat and is outside Theorem 1 (R3.3).
 
 ### R5.4 The transition, the dips, and the levels at fixed λ (task (b))
@@ -2105,7 +2122,8 @@ m_j, the second harmonics λ χ and their higher-order companions, and q of Lemm
 ε² and vary at rate C κ times that; ρ_r := w − e, the degree-two part of the remainder, at most C λ^(N−6) ε_c(v_1)² by
 L.4's energy argument applied to w − e, whose source and data are of degree two (Ric^H(g_app) minus its first-degree
 part, at most C λ^(N−1) ε² by (F2); the coefficient differences acting on w and e, at most C λ^(N−6) ε²; U − U^(1), L.17
-(4)), with v_1 − v = O(λ) and ε_c(v_1) ≤ 2 ε_c(v) at these levels (R2.6's window argument). For t ∈ I_k, g⁻¹(t + 2πλ) −
+(4)) [round 6, V5-m7: L.17 (4) gives C ε_c²; the bound used, C λ^(N−2−j) ε_c², is proved in R6.3], with v_1 − v = O(λ)
+and ε_c(v_1) ≤ 2 ε_c(v) at these levels (R2.6's window argument). For t ∈ I_k, g⁻¹(t + 2πλ) −
 g⁻¹(t) = −[m0(t + 2πλ) − m0(t)] − Re[(S(t + 2πλ) − S(t)) e^(it/λ)] + [ρ(t + 2πλ) − ρ(t)] (e^(2πi) = 1). With m0′ ≥ 1.9 κ
 m0 and |S′| ≤ (1 + O(λκ)) κ |S|, at R ≤ 1.1: m0′ − |S′| ≥ 0.93 κ m0 (T5: m0′/(κ m0) ≥ 2.001, resp. 2.003, and (m0′ −
 |S′|)/(κ m0) ≥ 0.936, resp. 0.968, for exp(−1/x), resp. the record's envelope, at R ∈ [0.9, 1.1], m0's formula exact).
@@ -2126,7 +2144,8 @@ while the first-degree term is the oscillatory tail of bump n: for Theorem 2 λ|
 integrations by parts of I_2), for Theorem 1 the same for the stage and source terms (H_Σ's representation (3),
 integrated by parts in v′; the stage profiles vanish on J_n) and the U^(1)-memory is at most λ^(N+9) sup|bump_n^(N+8)|
 times the bump's width (Lemma 6.4's solution operator does not depend on λ); the ratio to m0 falls like (λ 2^(n+2))^9
-e^(n²) → 0 as λ → 0. The degree-two terms are O(λ m0). T6 prints the three quantities at λ = 10^(−8), 10^(−10), 10^(−12)
+e^(n²) → 0 as λ → 0. The degree-two terms are O(λ m0). [round 6, V5-M2: asserted, not derived; (a) is proved by another
+route in R6.2] T6 prints the three quantities at λ = 10^(−8), 10^(−10), 10^(−12)
 (n = 8, 9, 10: the first-degree bound 1.0·10^(−69), 2.8·10^(−93), 9.9·10^(−118) against m0 ≥ 2.5·10^(−61), 2.1·10^(−76),
 3.3·10^(−93); at λ = 10^(−6) eight integrations by parts do not yet suffice); control: on a bump's top the first-degree
 term exceeds the margin. So "every interval of length 4πλ in the layer below λ^(3+δ) has timelike points" is false for
@@ -2135,7 +2154,8 @@ g_λ⁻¹(dΦ0, dΦ0) = −m0 − Re[S e^(iv/λ)] + O(degree two) with S the exa
 S = λ A ν∞ d I_2(v) + O(λ sup|I_3|) for every envelope (L.15_P (b) uses no property of env), for Theorem 1's S of L.22
 wherever (H_N)'s bounds hold on [v − 1/κ, v] (locally). So every interval [v, v + 4πλ] has timelike points at ω if max_J
 (|S| − m0) ≥ C(λ^γ m0 + degree two) and none if max_J (|S| + C degree two) < min_J m0: the causal character is decided
-by the ratio |S|/m0 up to the factor 1 ± 2λ^γ, at every point, dips and zeros included; at a transversal crossing of the
+by the ratio |S|/m0 up to the factor 1 ± 2λ^γ, at every point, dips and zeros included; [round 6, V5-m10: withdrawn;
+(b′), R6.2] at a transversal crossing of the
 ratio through 1 the switch is single (the proof of L.24, which uses only m0′ − |S′| ≥ c κ m0 there). (c) *True for
 log-concave edges:* Theorems L_E (Theorem 2) and L_1E (Theorem 1), down to v_s.
 
@@ -2143,7 +2163,7 @@ log-concave edges:* Theorems L_E (Theorem 2) and L_1E (Theorem 1), down to v_s.
 Proposition L.12 (ii) with P := P1 and L_1E together cover, for λ ≤ min(λ_U(P1), λ_1E), every level below λ^(3+δ) down
 to v_s: nothing is left between them.
 
-### R5.5 C_L11 and C_L4 as formulas (task (d); deduced, with constL5 K1-K3)
+### R5.5 C_L11 and C_L4 as formulas (task (d); deduced, with constL5 K1-K3) [round 6, V5-m11: and K4]
 
 Both constants are assembled from the steps of the proofs of Lemma L.3, Corollary L.11 and Lemma L.4, each step a
 monotone expression in the constants of the supplement it invokes. With K := K_s + P_6 (P_i := sup_(Ω×S¹) Σ_j |∂^i g_j|,
@@ -2187,13 +2207,14 @@ paper prints.
 
 ### R5.7 Open items
 
-None is left. O1a′: closed (Theorem L_1E). O1b: closed (Theorem L_E with L.17, L.18 proved). O1c: closed (round 4).
+None is left. O1a′: closed (Theorem L_1E). [round 6: V5-M1 and V5-M2 reopened O1a′ and O1d; closed again in R6.1, R6.2]
+O1b: closed (Theorem L_E with L.17, L.18 proved). O1c: closed (round 4).
 O1d: settled (Proposition L.25: false in general, true for log-concave edges, a criterion at every point). O1e: settled
 (Theorem L.24). The levels between λ^P and the very edge: covered (R5.4). O2: round 5 awaits an independent reader, as
 every round has. O4: λ_L is an explicit formula in λ0's leaves (R5.5, R5.6), certified below 2.71·10^(−12). O5:
 answered (A3). O6: closed (D615, D616).
 
-### R5.8 Proposed paper text (replaces R4.8's P1″ and P2″; P3-P6 stand, P3's list extended)
+### R5.8 Proposed paper text (replaces R4.8's P1″ and P2″; P3-P6 stand, P3's list extended) [round 6: superseded by R6.5]
 
 (P1‴) Proposition 3.2: replace the sentence from "If μ0 = √72 l5² exactly, the" to "Propositions E.2-E.4)." by:
 
@@ -2230,7 +2251,8 @@ lamL5b stand, with their new md5s.
 *Labels.* Computed: X1-X8, T1-T3 (exact, sympy); K1-K3 (exact rationals and sympy); X9, X10, T4, T6 (sampled or
 bounds, mpmath); X11, T5 (mpmath, models with unit constants; T5's m0 formula exact). Deduced: Lemma L.15_P (b) in full,
 Lemmas L.17, L.18, H_Σ, L.21, W, Proposition L.22, Theorems L_1E and L.24, Proposition L.25, the formulas of R5.5;
-L_E deduced on its hypotheses (A23); relabelled: L.19 (iv) a sketch (V4-m1). READ: N1STAR-PROOF.md (md5 709c63be…)
+L_E deduced on its hypotheses (A23); relabelled: L.19 (iv) a sketch (V4-m1). READ: N1STAR-PROOF.md (md5 709c63be…) [round
+6, V5-n8: commit 1b38ece]
 sections 0.2 ((0.2): the quasilinear form), 1, 2, 5.1-5.4, 6.1-6.4 (Lemma 6.2 as amended at D615, D616; Lemmas 6.3,
 6.4, Proposition 6.5; section 6.4's data assembly), 9.1-9.4 (Lemma 9.5, Proposition 9.8, Theorem P) as in R2.9;
 CONSTANTS5.md sections 1.3-1.5 and Round 4 (λ0's leaves; λ0 < 0.0024433); layerlin5 N3-N4 (H_2, D_X H_2); the verifier
@@ -2238,3 +2260,356 @@ of round 4's report (verdicts, findings, as relayed); the coordinator's re-pinni
 
 Files (round 5): this section; `checks/edge1_5.py`, `checks/degtwo5.py`, `checks/constL5.py`, each with its `.out`;
 changed and rerun: `checks/bandL4p5.py`, `checks/lamL5b.py`, each with its `.out`; round 4's reruns moved into place.
+
+## Round 6 (2026-11-06)
+
+This round seats the verifier of round 5, each finding re-derived before it is repaired (R6.0); repairs the two majors by
+proof, not by relabelling (R6.1: Theorem L_1E′; R6.2: Proposition L.25′); proves the smaller repairs (R6.3); and revises
+the paper texts (R6.5). Round 5's text stands; bracketed notes "[round 6, …]" at its sites point here.
+
+### R6.0 The verifier of round 5, seated (each finding re-derived)
+
+Verdicts READ from the report (as relayed) and confirmed here: L.22's two-term structure (c_N, α, X7's data, K_R in
+readings 1 and 2); Λ ≫ 1 before the very edge; Lemma H_Σ up to a derivative count; L.15_P (b), L.17 and L.18 in full;
+Theorem L.24; R5.5's formulas as transcribed; λ_L ≤ 2.7041·10^(−12) (lamL5b M5); R5.1's seating; the two old paper texts
+each once in RESPONSE-HL-5D.md (md5 7193c56e…, unchanged at this round's reading); all twelve programs reproduce.
+
+- **V5-M1 (a) (major).** Re-derived and confirmed. For N ≡ 0 mod 4 (K ≡ 1 mod 4) the real parts of S_st and S_U cancel
+  inside the crossover (ν < 0 off ρ*, Γ_R > 0, i^N = 1). There round 5 set the quadrature part T0 |ν| |2 − 1/c_N| λ³ A
+  |d| env, T0 := λκ, against a bound that misquotes L.22: L.22's E_S contains (ϵ + 1/κ + λ)|S_U| with ϵ = λκ (the factors
+  1 + O(ϵ) of H_Σ and of L.21 (iv)), and |S_U| ≈ |S_st| at the cancellation, so E_S may be C T0 |ν| λ³ A |d| env, the
+  quadrature part's own order with C unknown; the misquote drops that term, puts |ν| on the λ-term (the family below L.13
+  (c)'s top does not carry ν) and writes T for both λκ and λκ_(N−1). X12 measures it with unit constants: over the whole
+  crossover the least ratio of |σ_main| to round 5's bound stays at 1.04-1.17 from λ = 10^(−10) to 10^(−80). Repaired by
+  proof, for every N (R6.1).
+- **R6-f1 (found in this round; the same cause).** Round 5's Case 1 needs |E_S| ≤ (c0/4)|S_U|; at λκ ≈ 1 the term C ϵ
+  |S_U| with ϵ = λκ ≈ 1 does not give it. Repaired by the same sharpening: ϵ′ ≤ C κ^(α−1) for every λ (R6.1 (b)).
+- **V5-M1 (b) (major).** Re-derived and confirmed. At ρ0 = ρ*, ν(r0) = −c_ν x² (1 + o(1)), x := v − v_s, c_ν > 0 (round 1
+  section 7). Case 2 needs λ ≪ |ν|. For exp(−1/x^q) the Case 2/3 boundary λ^(N−2) κ^(N−1) ≍ x² lies at x ≍
+  λ^((N−2)/((q+1)(N−1)+2)), where x² ≫ λ iff q > (N − 5)/(N − 1); for 1/(N − 3) < q ≤ (N − 5)/(N − 1) it fails while
+  (H_N) holds (α = 1/(q + 1)). Round 5's stage error λ³ env (λκ)² carried no ν and also exceeds |S_st| at ρ* (for
+  exp(−1/x), N = 9, on x ∈ [λ^(5/12), λ^(1/3)]); by L.13 (c) it is λ³ env (|ν|(λκ)² + λ) (R6.1 (c)), so only the λ-term
+  needs a hypothesis. Repaired: ρ0 = ρ* is admitted under (H_ρ*) (κ x² ≥ c_* near the edge, → ∞ if N ≡ 0 mod 4) and
+  excluded otherwise (R6.1). The record's envelope (κ x² → 3/4) meets the first condition and not the second; P* (ρ0² =
+  6.25 against ρ*² = 3.2632…) is not affected.
+- **V5-M2 (major).** Re-derived and confirmed. Round 5's "the degree-two terms are O(λ m0)" on J_n is asserted. L.17's
+  C_2 ε_c(v)² is a past supremum, at least (h_n s_n^c B_c)² on J_n against m0 ≲ h_n²/s_n, a factor of about s_n^(2c+1)
+  too large; L.17's hypothesis ε_M(v_1) ≤ λ⁵ fails there; with round 5's choice h_n ≥ λ⁴, L.15_P (b)'s λ sup_(v′≤v) |I_3|
+  ≍ λ⁴ h_n can exceed m0 as well; T6 (round 5) bounded the first-degree tail only and did not see the zeros. Repaired by
+  proof (R6.2) through another decomposition — at a zero of every env^(k) every term of g_λ⁻¹(dΦ0, dΦ0) other than −m0 is
+  a mean of g_app or the remainder w — with h_n ∈ [λ^3.5, λ^3.1]; T6 rewritten.
+- **V5-m1.** Confirmed. X11 now cuts the stage term off at λκ > 1 (L.22), and its control is the run with S_U removed,
+  which leaves windows with one sign (the control fails, as it must).
+- **V5-m2.** Confirmed (the sin¹⁶ mutant passed round 5's four points). X10 now samples 401 points of [10^(−3.5),
+  10^(−2)] with exact derivatives (Bell polynomials in those of log env): (H_N) for k ≤ 13, L.16 (c)'s c_j for j ≤ 14
+  (printed: 1.0), sup |κ_k′|/κ_k^(3/2) = 2.867 and 2.855 against the stated c_R = 3, and |κ_k − κ| ≤ 2.16 k κ^(1/2),
+  resp. 2.30 k κ^(1/2), below the c_R 2^(1/2) k κ^(1/2) that (H_N) implies; the mutant is the control (detected). The
+  docstring's unchecked sentence on x = 10^(−1.5) is removed.
+- **V5-m3.** Confirmed: L.18, L_E's degree-two input since A23, needs (H_D), which L.16 (b), (c) do not give (they bound
+  κ′ and the derivatives, not κ^c env along the descent). A25 adds (H_D) to L_E's statement.
+- **V5-m4.** Confirmed for round 5 (its Case 3 needed κ^(α−1) ≪ T, i.e. (1 − α)(N − 2) > 1). Repaired by proof: R6.1's
+  Case 3 compares T0 κ^(α−1) with T0, so α < 1 suffices; Theorem L_1E′ holds with α < 1, the paper's "(α < 1)" is then
+  right, and Remark (3) holds for exp(−a/x^q) with every q > 0.
+- **V5-m5.** Confirmed. P2⁗ (R6.5) restores the spheres'-horizon clause verbatim, "inside x_K ≤ 1" and "future".
+- **V5-m6.** Confirmed: X7 computes reading 3 (ADM lapse and shift covector kept): K_R = (r0² − 2μ0)/(4 μ0^(3/4)
+  r0^(1/2)), zero at ρ0² = 2. The supplement's convention is reading 2: its section 4, step (ii), "Z := d_tau - beta_ext
+  (beta_ext the shift of g_ext)" makes the shift a vector field (N1STAR-PROOF.md line 461 at md5 fb2fbf06…; line 425 at
+  709c63be…). Theorem L_1E′ is stated for reading 2, and reading 1 gives the same; its proof uses only Γ_R ≠ 0 and which
+  N cancel, so under reading 3 it holds with ρ0² ≠ 2 excluded as well (for ρ0² < 2, Γ_R < 0, the cancelling N are ≡ 2 mod
+  4, and the quadrature part is the same). A30.
+- **V5-m7.** Confirmed: L.17 (4) gives |U − U^(1)| ≤ C ε_c² only. R6.3 proves |∂_r^j (U − U^(1))| ≤ C λ^(N−2−j) ε_c², j ≤
+  3, from the same three sources; A29.
+- **V5-m8.** Confirmed. 𝒟 is taken over |β| ≤ 6 (R6.3, A28); for the amplitudes used only constants change.
+- **V5-m9.** Confirmed (bandL4p5 H1's ledger stops at level 2). degtwo5 T7 runs the non-triangular ledger at levels 0-4
+  with ε_6 ≤ λ⁵, L.17 (2)'s hypothesis: every coefficient bounded; control: at ε_6 ≤ λ⁴ one of level 4 is not.
+- **V5-m10.** Confirmed. L.25 (b) is restated where it decides (L.25′ (b′), R6.2); "at every point, dips and zeros
+  included" is withdrawn.
+- **V5-m11.** Confirmed (K1, K2 pass Cd's power N + 5 and a dropped term of Ca). constL5 K4 holds the DAG against an
+  independent step-by-step transcription of R5.5's display at 20 random points (largest relative difference
+  8.5·10^(−35)); both mutations are its control and are detected. K1, K2 stand for what they state (the leaf set,
+  monotonicity).
+- **V5-n1.** X3's closed form is now checked against layerlin5's T_tab rows (vv, vr, rr); docstring corrected.
+- **V5-n2.** δ = 1/2 is in H2's grid (least slack 0.4818 at K = 6, P = 50, so γ(1/2) = 1/10).
+- **V5-n3.** A26: L.18's stage 0 reads |w| ≤ C λ^(N−5) ε_(M*) for L.4 (C λ^(N_P−3) ε_(M_P) for L.4_P), and δ_k's second
+  term likewise; the descent is unchanged.
+- **V5-n4.** m0 ≥ √(μ/μ0) − 1 ≥ (μ − μ0)/(3μ0) = (2A²/(27μ0)) ∫_(v_s)^v env² (μ′ = (2/9)A² env², μ − μ0 ≤ μ0 in the
+  layer); "(2/27)" was the case μ0 = A = 1 (A34). T6 no longer uses d or ν; the bumps m > n enter ε_k as a factor 2; its
+  unit constants are labelled.
+- **V5-n5.** lamL5b rerun; M1 pins CONSTANTS5.md at its md5 at this run.
+- **V5-n6.** Lemma W (B) is used by no proof, round 6's included (A35). It was tried for Case 3 and set aside: with
+  L.22's derivative bound |∂_v E_S| ≤ C κ |E_S| the error's derivative is not below (B)'s L0 ≍ |ν| κ^α at the crossover
+  (λ²κ^(3−α) and λκ^(2−α) both grow there for N = 12).
+- **V5-n7.** A27: A22 also covers "Stage N's data are left free by the record (R3.4)" and "which the record leaves free
+  (stage N)" (lines 1065, 1069 of the file as round 5 left it, md5 24e5c624…), and its quote "the supplement leaves stage
+  N's data free" is at R3.0 item 5 (line 914), not R3.4.
+- **V5-n8.** A33: R5.9's "md5 709c63be…" is N1STAR-PROOF.md at commit 1b38ece; the file is under live edits; at this
+  round's reading its md5 is fb2fbf06….
+
+### R6.1 Theorem L_1E repaired (V5-M1, R6-f1, V5-m4, V5-m6)
+
+Write s := ∂_v + i/λ acting on amplitudes, (s⁻¹g)(v) := ∫_(v_s)^v e^(−i(v−v′)/λ) g(v′) dv′ (so that ∫_(v_s)^v e^(iv′/λ) g
+dv′ = e^(iv/λ) s⁻¹g), T0 := λκ, T := λκ_(N−1), and ϵ′ := min{(λκ)² + λκ^α, κ^(α−1)}.
+
+**(a) Lemma H_Σ, exact form (deduced, from its proof).** Under H_Σ's hypotheses, with 𝒟 over |β| ≤ 6, at P = (v, √μ0, ω):
+
+    Ψ(P) = e^(iv/λ) s⁻¹[ G(√μ0 ← r0) y + ∫_(√μ0)^(r0) G(√μ0 ← r′) Â_f(·, r′) dr′ ](v) + O(𝒟(v)/|s̃(v)|),
+    y := ½ (2 − F(r0)) Â_∂Ψ + ½ F(r0) s Â_Ψ,      r0 = v′ − τ0 inside s⁻¹.
+
+*Proof.* Steps (1)-(5) stand. In step (6): on Σ_τ0, ∂_v|_r = ∂_τ and ∂_r|_v = ∂_r|_τ − ∂_τ, and Ψ_Σ = e^(i(τ0 + r)/λ)
+Â_Ψ(τ0 + r), so LΨ = (1 − F/2) ∂_τΨ + (F/2) ∂_r|_τ Ψ = e^(iv/λ) y exactly; the main term ∫_(v_s)^v G(√μ0 ← r0(v′)) Y(v′,
+r0(v′)) dv′ is e^(iv/λ) s⁻¹(G y) by definition, and the source's term is the second. ∎ Round 5's statement is this with
+s⁻¹h replaced by h/s̃; that replacement, with s̃ built from 𝒟 rather than from h, is the only source of its factor 1 +
+O(ϵ).
+
+**(b) Lemma L.21 (iv′) (deduced; X13).** Let g > 0 on (v_s, v], flat at v_s, log-concave with κ_g := (log g)′ ∈ [κ/2,
+2κ], |κ_g′| ≤ c_R κ_g^(1+α) (α < 1), and |g^(j)| ≤ c_j κ^j g (j ≤ 3). Then for every λ > 0
+
+    s⁻¹g = g (κ_g + i/λ)⁻¹ (1 + ρ_g),      |ρ_g| ≤ C ϵ′   (C from c_R, α, c_j; flat-edge tails included).
+
+For g = env^(N−1) these hypotheses are (H_N) of (d) below, and L.21 (iv) holds with 1 + O(ϵ + 1/|s̃| + λ) replaced by 1 +
+O(ϵ′ + 1/κ + λ).
+
+*Proof.* (i) λκ ≤ 1/4. Three integrations by parts (g and its derivatives vanish at v_s): s⁻¹g = −iλg + λ²g′ + iλ³g″ −
+iλ³ s⁻¹g‴. As g″ = (κ_g² + κ_g′) g and g(κ_g + i/λ)⁻¹ = −iλg(1 − iλκ_g)⁻¹ = −iλg(1 + iλκ_g − λ²κ_g²) + O(λ⁴κ³g), the
+difference is iλ³κ_g′ g − iλ³ s⁻¹g‴ + O(λ⁴κ³g). Near the edge (H_N) gives (κ(v′)/κ(v))^j g(v′)/g(v) = exp(−∫_(v′)^v (κ_g
+− j|κ′|/κ)) ≤ e^(−κ(v)(v−v′)/4) once 2j c_R (2κ)^(α−1) ≤ 1 (κ decreases, κ_g ≥ κ/2), so |s⁻¹g‴| ≤ c_3 ∫_(v_s)^v κ³ g ≤ 4
+c_3 κ² g, and |ρ_g| ≤ C(λ²κ^(1+α) + (λκ)²) ≤ C((λκ)² + λκ^α). (ii) Every λ. Put e^(−ψ(u)) := g(v − u) e^(κ_g u)/g(v)
+(zero for u ≥ x) and s̃_g := κ_g + i/λ; then g⁻¹ s⁻¹g − s̃_g⁻¹ = ∫_0^∞ e^(−s̃_g u)(e^(−ψ) − 1) du, and one integration by
+parts (ψ(0) = 0) gives ρ_g = −∫_0^∞ e^(−s̃_g u) ψ′ e^(−ψ) du, so |ρ_g| ≤ ∫_0^x ψ′(u) g(v − u)/g(v) du ≤ ∫_0^∞ ψ′(u)
+e^(−κ_g u) du; with ψ′(u) = κ_g(v − u) − κ_g(v) ≤ 2^(1+α) c_R κ_g^(1+α) u for u ≤ U_* (L.16 (b)'s U_*, for g), |ρ_g| ≤
+2^(1+α) c_R κ_g^(α−1) plus the part beyond U_*, smaller than every power of 1/κ at a flat edge (as in L.16 (b)). For λκ ≤
+1/4 take the smaller of (i) and (ii); for λκ > 1/4, (λκ)² > κ^(α−1) near the edge, and ϵ′ = κ^(α−1). For g = env^(N−1):
+log-concavity, κ_(N−1)/κ ∈ [1/2, 2] and the c_R bound are (H_N); |g^(j)| = |env^(N−1+j)| ≤ c_(N−1+j) κ^(N−1+j) env ≤ c
+2^(N−1) κ^j g, since env ≤ 2^(N−1) κ^(−(N−1)) env^(N−1) (env^(N−1)/env = Π_(k<N−1) κ_k, κ_k ≥ κ/2), so L.16 (c)'s first
+bound to j = N + 2 is used. In (iv)'s proof the only ϵ is "s⁻¹ env^(N−1) = env^(N−1)/(κ_(N−1) + i/λ)(1 + O(ϵ))"; the
+smooth coefficients α⁻¹ r^(−7/2) and c_N commute with s⁻¹ up to O(λ) relative (one integration by parts). ∎
+
+**(c) Lemma L.21 (v′) and Proposition L.22′ (deduced; X7, L.13 (c)).** L.21 (v) holds as stated, with no ϵ: in (a)'s form
+the data of a := a^(1) give y = s(Φa) + Φ_0 a, where Φ comes from X7's solve, in which s is a symbol and the coefficients
+are free of it, and Φ_0 from D's terms without derivatives; then s⁻¹(Gy) = GΦa − s⁻¹((GΦ)′a − GΦ_0 a), the horizon
+combination of GΦa is K_R a (X7: free of s and of the free datum ∂_τγ_rr), and the rest is O(λ|a|) (|s⁻¹h| ≤ λ|h| + λ ∫
+|h′| ≤ Cλ|h| for h a smooth multiple of a, since ∫_(v_s)^v κ_(N−1) env^(N−1) = env^(N−1)(v)). With (b), L.22 holds with
+
+    |E_S| ≤ C [λ³ env (|ν| (λκ)² + λ) 𝟙_(λκ≤1) + λ^(N+1) κ^(N−2) env 𝟙_(λκ>1) + (ϵ′ + 1/κ + λ) |S_U|],
+
+and its derivative bounds as stated. The stage part: by L.13 (c), Σ_j λ^j H_j,vv = λ³ A d ν Σ_(k≤N−2) (k + 1)(iλ)^k
+env^(k) + Σ_(j≥4) λ^j Σ_(k≤j−4) (…) env^(k); for λκ ≤ 1 the first is λ³ A d ν env (1 + 2iλκ) + O(|ν| λ³ (λκ)² env)
+(|env^(k)| ≤ 2^k κ^k env, (H_N); the sum is finite) and the second O(λ⁴ env). ∎
+
+**(d) Theorem L_1E′ (Theorem 1's deep layer and very edge; deduced from L.17, L.18, H_Σ (a), L.21 (iv′), (v′), L.22′ and
+Lemma W (A), with edge1_5 X1-X13 and degtwo5 T1-T4).** Let μ0 = √72 l5², K ≥ 6, N = K + 3, g_λ Theorem 1's metric with
+stage N's data by Lemma 6.2's rule (D615, D616) and section 6.4's "lapse and shift" read as the supplement reads the
+shift (reading 2; reading 1 gives the same), and env satisfying on (v_s, v_s + x0]:
+
+    (H_N)   env^(k), k ≤ N, positive and log-concave, κ_k/κ ∈ [1/2, 2], |κ_k′| ≤ c_R κ_k^(1+α) for an α < 1,
+            and |env^(j)| ≤ c_j κ^j env for j ≤ N + 2;
+    (H_D)   as in Lemma L.18.
+
+Let τ0 be admissible, ρ0 := (v_s − τ0)/√μ0, with ρ0² ≠ N − 1, ρ0² ≠ 2N − 1 if N ≡ 0 mod 4, and, if ρ0 = ρ*,
+
+    (H_ρ*)  κ(v)(v − v_s)² ≥ c_* > 0 on (v_s, v_s + x0], and κ(v)(v − v_s)² → ∞ as v ↓ v_s if N ≡ 0 mod 4.
+
+Then Theorem L_1E's conclusion holds, with λ_1E, x0′, P1 depending also on α, c_* and the distances of ρ0² from N − 1 and
+(if N ≡ 0 mod 4) 2N − 1, and of ρ0 from ρ* if ρ0 ≠ ρ*.
+
+*Proof.* As round 5's: Lemma L.1, the non-harmonic part ε ≤ C κ^(2c′) env² (L.17, L.18), J := [v, v + 4πλ], ω fixed. Put
+σ := S/(λ³ A d env), Λ := λ^(N−2) env^(N−1)/env, X := Γ_R c_N Λ/|ν|, and ê := E_S/(λ³ A d env), so σ = ν(1 +
+2iT0)𝟙_(T0≤1) − Γ_R i^N Ξ Λ + ê and, by L.22′, |ê| ≤ C[(|ν|T0² + λ)𝟙_(T0≤1) + Λ/κ 𝟙_(T0>1) + (ϵ′ + 1/κ + λ) Γ_R |Ξ| Λ].
+Two facts: T = T0(1 + O(κ^(α−1))), since κ_(N−1) − κ = Σ_(k<N−1) κ_k′/κ_k and each term is at most c_R 2^α κ^α by (H_N);
+and Λ = Π_(k<N−1) (λκ_k) /λ ≍ T0^(N−2) κ up to 2^(±(N−1)). Fix M ≥ 8, large against the constants. Case 1: Γ_R|Ξ|Λ ≥ M
+|ν| |1 + 2iT0|, or T0 > 1. Case 2: Γ_R|Ξ|Λ ≤ |ν|/M. Case 3: otherwise.
+
+*Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small: ϵ′ + 1/κ + λ → 0 (ϵ′ ≤ κ^(α−1) for every λ:
+R6-f1's repair), |ν|T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ — off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|) with ν_* := inf |ν| > 0; at ρ*, if x² <
+Mλ then κ ≥ c_*/(Mλ), T0 ≥ c_*/M and Λ ≍ T0^(N−2) κ ≫ λ, and if x² ≥ Mλ then Λ ≥ c M x² ≥ c M² λ (Λ ≥ M|ν|/(Γ_R|Ξ|), |ν|
+≥ c_ν x²/2). The phase: arg(Γ_R i^N Ξ Λ) moves over J by O(κ^(α−1) + λ^(1−α)) (round 5), the rest by at most 2
+arcsin(2/M) + o(1) ≤ π/6. Lemma W (A), with ε ≤ m/4 once env ≤ λ^(P1) (round 5).
+
+*Case 2.* Λ ≍ T0^(N−2) κ ≲ |ν| ≤ C with κ → ∞, so T0 → 0. |σ| ≥ |ν|(1 − 1/M) − |ê| ≥ |ν|/2, since λ ≪ |ν|: off ρ*
+trivially; at ρ*, x² ≥ Mλ (otherwise, as in Case 1, Λ ≫ λ ≳ x²/M ≳ |ν|/M, against Case 2). The phase: arg σ stays within
+2 arcsin(2/M) + o(1) of arg(ν(1 + 2iT0)), which moves by O(λ²|κ′|) = O(λ^(1−α)) over J. Lemma W (A).
+
+*Case 3.* Here κ ≍ (|ν| λ^(−(N−2)))^(1/(N−1)) and T0 → 0; λκ² → ∞ (off ρ*: λκ² ≍ λ^(−(N−3)/(N−1)); at ρ*: T0^(N−2) κ ≍
+|ν| ≳ x² ≳ c_*/κ gives T0 κ ≳ κ^(1−2/(N−2)) → ∞). With −Ξ = c_N + iT + O(T²):
+
+    σ_main := ν(1 + 2iT0) + Γ_R i^N (c_N + iT) Λ,      σ = σ_main + O(|ν| T0²) + ê.
+
+(i) N ≢ 0 mod 4. N odd: Re σ_main = ν(1 + O(T0)); N ≡ 2 mod 4: Re σ_main = ν − Γ_R c_N Λ, of modulus ≥ |ν|. So |σ_main| ≥
+|ν|/2, and |ê| ≤ C|ν|(T0² + λ/|ν| + M(ϵ′ + 1/κ + λ)) ≪ |ν| (at ρ*, λ ≪ |ν| as in Case 2). (ii) N ≡ 0 mod 4: Re σ_main =
+|ν|(X − 1), Im σ_main = 2νT0 + Γ_R T Λ = |ν| T0 (X/c_N − 2) + O(|ν| T0 κ^(α−1)). Put η := |1 − 2c_N|/4 > 0 (ρ0² ≠ 2N −
+1). If |X − 1| ≥ η, |σ_main| ≥ |ν|η/2; if |X − 1| < η, |X/c_N − 2| ≥ |1/c_N − 2| − η/c_N = (3/4)|1 − 2c_N|/c_N, so |Im
+σ_main| ≥ |ν| T0 |1 − 2c_N|/(2c_N). Either way |σ_main| ≥ c₃ |ν| T0, c₃ := min(η/2, |1 − 2c_N|/(2c_N)). And |ê| +
+O(|ν|T0²) ≤ C|ν|[T0² + λ/|ν| + M(T0² + T0 κ^(α−1) + 1/κ + λ)] ≤ c₃|ν|T0/2 for λ small: T0² ≪ T0; λκ^α = T0 κ^(α−1) ≪ T0
+for every α < 1 (all that Case 3 uses: V5-m4); 1/κ ≪ T0 as λκ² → ∞; λ ≪ T0; and λ/|ν| ≪ T0, i.e. |ν|κ → ∞: off ρ* as |ν|
+≥ ν_*, at ρ* by (H_ρ*) (|ν|κ ≥ (c_ν/2) x²κ → ∞). The phase: over J, Re σ_main moves by O(|ν| λ (κ^α + |ν′/ν|)) (Λ′/Λ =
+κ_(N−1) − κ = O(κ^α); |ν′/ν| = O(1) off ρ*, O(1/x) at ρ*), Im σ_main by O(|ν| λ²κ^(1+α)), and ê by O(λκ)|ê| (|∂_v E_S| ≤
+Cκ(…)); against |σ| ≥ c₃|ν|T0/2 = c₃|ν|λκ/2 these are O(κ^(α−1) + 1/(κx) + λκ^α) → 0 (κx ≥ c_*/x at ρ*). Lemma W (A) with
+m := c₃|ν|T0 λ³ A |d| env/2: ε ≤ C κ^(2c′) env² ≤ m/4 once env ≤ λ^(P1) (κ ≤ 1/λ here, and |ν| ≥ c_ν c_*/(2κ) at ρ*). ∎
+
+X12 measures Case 3's inequality at a real cancellation with unit constants (N = 12, c_N = 6/5, ν = −1/9, Γ_R = 1, exact
+derivatives of exp(−1/x) and of the record's envelope): over the whole crossover |S_U|/|S_st| ∈ [1/4, 4] the least ratio
+of |σ_main| to the bound above is 5.76, 47.6, 3.1·10^3, 1.36·10^7 at λ = 10^(−10), 10^(−20), 10^(−40), 10^(−80) (both
+envelopes), and arg σ_main moves by at most 0.009 over 4πλ; to round 5's bound the ratio stays at 1.04-1.17 (the
+control). X13 checks (b) for g = env^(11) of exp(−1/x) by quadrature: |ρ_g|/(λκ)² ≤ 0.048 at λ = 10^(−6), 10^(−7), λκ =
+1/5, …, 1/40 (control: dropping the first-order term breaks the bound).
+
+*Remarks.* (1) The excluded or conditioned τ0: ρ0² = N − 1 (|S_U| falls to E_S's size on the deep very edge), ρ0² = 2N −
+1 when N ≡ 0 mod 4 (no quadrature part at a real cancellation; for N ≢ 0 mod 4 nothing cancels and 2N − 1 is admitted),
+ρ0 = ρ* without (H_ρ*); under reading 3 also ρ0² = 2. (2) For exp(−a/x^q) edges (H_N), (H_D) hold for every q > 0 (α =
+1/(q + 1)) and (H_ρ*) for q ≥ 1, its second half for q > 1; for the record's envelope (H_N) and L.16 (c) are sampled
+(X10, k ≤ 13, j ≤ 14) and (H_D) in T4; it meets (H_ρ*)'s first half (κx² → 3/4), not its second. (3) Lemma W (B) is not
+used. (4) The levels between λ^P and the very edge at fixed λ (R5.4) are covered as there, with L_1E′.
+
+### R6.2 Proposition L.25 repaired (V5-M2, V5-m10)
+
+**Proposition L.25′ (dips; deduced, with degtwo5 T6).** (a) *False in general.* Let env := Σ_(n≥n0) h_n β(s_n(v − v_s −
+2^(−n))) near v_s, h_n := e^(−n²), s_n := 2^(n+2), β(t) := e^(−1/(1−t²)) on (−1, 1), continued to a C_c^∞ envelope (flat
+at v_s: h_n s_n^k → 0 for every k). Bump n lives on v − v_s ∈ [3/4, 5/4]·2^(−n), so env = 0 on J_n := v_s + (5/4,
+3/2)·2^(−n). There is λ_25 > 0 such that for λ ≤ λ_25, with n the least index with h_n ≤ λ^3.1 (then h_n ≥ λ^3.5), at
+every ω and every v ∈ J_n′ := v_s + [(5/4)2^(−n), (3/2)2^(−n) − ρ_w], ρ_w = O(λ) the reach of L.4′ (resp. L.4_P),
+
+    g_λ⁻¹(dΦ0, dΦ0)(v, r_q(v), ω) ≤ −m0(v)/2 < 0,
+
+for Theorem 1's g_λ (K ≥ 6) and for Theorem 2's. J_n′ lies in the layer below λ^(3+δ) for δ ≤ 1/10 (sup_(v′≤v) env =
+h_n/e ≤ λ^3.1) and is longer than 2^(−n−3) ≫ 4πλ: so "every interval of length 4πλ in the layer below λ^(3+δ) has
+timelike points" is false for this envelope, for every λ ≤ λ_25.
+
+*Proof.* Fix v ∈ J_n′, ω, and X := (v, r_q(v), ω). (1) *The oscillating profiles vanish at X.* W, χ, gh_m and the phase
+terms solve, at fixed v, transports along ℓ whose sources and data at that v are polynomials in env^(k)(v) and in the
+oscillating profiles at that v, every monomial with an oscillating factor (a monomial of means, phases and μ-terms alone
+has no θ-dependence and enters only the mean equations; Lemma 6.2's data are proportional to env and its derivatives at
+that v): the argument of the supplement's Proposition 8.2 (N1STAR-PROOF.md section 8) for v outside the shell, applied at
+a v with env^(k)(v) = 0 for every k. By induction on the order they vanish at X. So on J_n′, g_λ − g0 = Σ_(j≥1) λ^j m_j +
+w. (2) *Bounds.* ε_k(v_1) ≤ 2 h_n s_n^k B_k, B_k := max_(i≤k) sup |β^(i)|, v_1 := v + ρ_w (bump n − 1 starts at
+(3/2)2^(−n), beyond v_1; the bumps m > n add at most h_n s_n^k, as h_(m+1) s_(m+1)^k ≤ h_m s_m^k/2 once e^(2m+1) ≥
+2^(k+1)). L.3 (b) (L.3_P on Ω for Theorem 2): |m_j| ≤ C ε_(2j)(v)². L.4′ (Theorem 1): |w| ≤ C λ^(N−5) ε_(M*)(v_1) given
+ε_4(v_1) ≤ λ; L.4_P (Theorem 2): |w| ≤ C λ^(N_P−3) ε_(M_P)(v_1) given ε_(M_P)(v_1) ≤ λ³. Both hypotheses hold for λ
+small, since h_n ≤ λ^3.1 and s_n^k B_k = e^(O(√(log 1/λ))). (3) *The margin.* m0 ≥ (2A²/(27μ0)) ∫_(v_s)^v env² ≥
+(2A²/(27μ0)) h_n² s_n⁻¹ ∫β² (A34). (4) Lemma L.1 with k := g_λ − g0 gives |g_λ⁻¹(dΦ0, dΦ0) + m0| ≤ C|k| ≤ C′(λ ε_(2N)(v)²
++ λ^(N−5) ε_(M*)(v_1)) (Theorem 1; N_P, M_P for Theorem 2), whose ratio to (3)'s bound is at most C″(λ s_n^(4N+1) B_(2N)²
++ λ^(N−5) h_n⁻¹ s_n^(M*+1) B_(M*)) ≤ C″(λ s_n^(4N+1) B_(2N)² + λ^(N−8.5) s_n^(M*+1) B_(M*)) (h_n ≥ λ^3.5), which tends to
+0 since N ≥ 9 and s_n = 2^(n+2), n ≤ (3.5 log(1/λ))^(1/2) + 1, grows slower than every power of 1/λ; for Theorem 2 the
+same with λ^(N_P−6.5). So for λ ≤ λ_25 the ratio is at most 1/2. ∎
+
+Round 5's proof of (a) is withdrawn: its first-degree estimates are not needed (the first-degree memory is part of w),
+and its degree-two sentence was unproved. T6 computes (2)-(4) in log10 with unit constants (A = μ0 = 1, the record's
+constants 1): Theorem 1's ratio is +221 at λ = 10^(−100) and −86 at 10^(−1000), Theorem 2's −621 and −1.05·10^4, the
+means' −52 and −865; all fall strictly to below −8·10^5 at 10^(−10^6); L.4′'s hypothesis holds on the whole grid, L.4_P's
+only at 10^(−10^6) (it needs λ^0.1 s_n^44 B_44 ≤ 1). λ_25 is far below the paper's thresholds; the statement is "for
+every small λ" and no more. Control: the zero intervals removed (an extra bump on J_n) is detected.
+
+(b′) *The criterion, where it decides.* At a boundary point in the deep layer, g_λ⁻¹(dΦ0, dΦ0) = −m0 − Re[S e^(iv/λ)] + ρ
+with S the exact first-degree amplitude (Theorem 2: S = λ A ν∞ d I_2 + O(λ sup_(v′≤v) |I_3|), every envelope, L.15_P (b);
+Theorem 1: L.22′'s S where (H_N) holds on [v − 1/κ, v]) and |ρ| ≤ D(v), the degree-two bound available at v: L.18's C
+κ^(2c′) env² where L.18's hypotheses hold, (a)'s on a zero interval as in (a), L.17's otherwise. Every interval [v, v +
+4πλ] with S slowly varying on it has timelike points at ω if max_J (|S| − m0) ≥ C(λ^γ m0 + D) and none if max_J (|S| + D)
+< min_J m0. So the ratio |S|/m0 decides, up to the factor 1 ± 2λ^γ, where D ≤ λ^γ m0 — in the band λ^(3+δ) ≤ E ≤ λ^(3−δ)
+(L.12 (iii)) and on zero intervals as in (a) — and the sign is timelike where |S| exceeds m0 + D by such a margin (the
+very edge of L_E, L_1E′); at a dip where env > 0 and D exceeds m0 it decides nothing. A transversal crossing of the ratio
+through 1 in the band is a single switch (L.24's proof). (c) stands, with L_1E′.
+
+### R6.3 The smaller repairs proved, and the amendments
+
+**(m7) U − U^(1) (deduced).** On Σ_τ0 ∩ {τ0 + r ≤ v}, |∂_r^j (U − U^(1))| ≤ C λ^(N−2−j) ε_c(v)², j ≤ 3. *Proof.* U −
+U^(1) solves Lemma 6.4's system with source −(Φ − Φ^(1)) − Nl(U) − (L_app − L)U (L.17 (4)). (i) Φ(γ, K) vanishes below
+order N − 2 in its profiles (Lemma 6.1, READ; L.3 (e)); its part of degree ≥ 2 has every monomial with two factors of
+degree one or one of degree two (L.3 (b), (c)), each radial derivative costing λ⁻¹ (through the phase on Σ_τ0): ‖∂_r^j (Φ
+− Φ^(1))‖ ≤ C λ^(N−2−j) ε_c². (ii) Nl(U) ≤ C λ⁻¹ |U|²_(C¹) with |∂_r^j U| ≤ C λ^(N−2−j) ε (L.3 (e)): at most C λ^(2N−7−j)
+ε², below λ^(N−2−j) ε² for N ≥ 5. (iii) L_app − L, the coefficients at the approximant's data minus g0's, is of degree
+one, with ∂_r^j at most C λ^(−j) ε; times U: C λ^(N−2−j) ε². Lemma 6.4 on [a, r] (R2.3 (e)), with a constant independent
+of λ, and the derivative count of L.3 (e) give the bound. ∎ So L.24's ρ_r ≤ C λ^(N−6) ε_c(v_1)² stands with this input
+(A29).
+
+**(m8) H_Σ's angular count (deduced).** Step (4) bounds Ω^β e, |β| ≤ 2, pointwise through L.10 (H²(S³) ⊂ L^∞), which uses
+the energies of Ω^β e for |β| ≤ 4; their sources are Ω^β of the parametrix residuals e^(iv/λ) Q̃(…), with Q̃ of second
+order in the angles: |β| ≤ 6 on the amplitudes. The amplitudes of L.21-L.22 are smooth T² × Z2 × Z2-invariant multiples
+of d(θ), τ(θ), so only constants change (A28).
+
+*Amendments* (each re-derived above; the sites carry bracketed notes):
+
+- **A25** (V5-m3). Theorem L_E: "env satisfying Lemma L.16's hypotheses (b), (c)" reads "… (b), (c) and (H_D) of Lemma
+  L.18".
+- **A26** (V5-n3). Lemma L.18 (2), (3): stage 0 is |w| ≤ C λ^(N_P−3) ε_(M_P)(·) for L.4_P and C λ^(N−5) ε_(M*)(·) for
+  L.4, and δ_k's second term carries the same power.
+- **A27** (V5-n7). A22 extends to the two sentences of R3 named in R6.0 (V5-n7), and its quote is at R3.0 item 5.
+- **A28** (V5-m8). Lemma H_Σ: 𝒟 is the supremum over Ω^β, |β| ≤ 6.
+- **A29** (V5-m7). L.24's proof: "U − U^(1), L.17 (4)" reads "U − U^(1), at most C λ^(N−2−j) ε_c² with j derivatives
+  (R6.3)".
+- **A30** (V5-m6). R5.0 item 1 and L.21 (v): "the two readings" reads "readings 1 and 2 (reading 2 the supplement's)";
+  reading 3 is as in R6.0.
+- **A31** (V5-M1, V5-m4, R6-f1). R5.3 (f) is superseded by Theorem L_1E′; L.22's α < 1 − 1/(N − 2) reads α < 1, its E_S
+  bound is L.22′'s, and R5.3's citations of L_1E read L_1E′.
+- **A32** (V5-M2, V5-m10). R5.4's Proposition L.25 is superseded by L.25′.
+- **A33** (V5-n8). R5.9's md5 709c63be… is N1STAR-PROOF.md at commit 1b38ece.
+- **A34** (V5-n4). m0 ≥ (2A²/(27μ0)) ∫ env²; "(2/27)" is the case μ0 = A = 1.
+- **A35** (V5-n6). Lemma W (B) is used by no proof.
+
+### R6.4 Programs (round 6)
+
+- `checks/edge1_5.py`: X3 against T_tab (n1); X7 with reading 3 and s as a symbol (m6, R6.1 (c)); X10 dense (m2); X11
+  with L.22's cutoff, control S_U removed (m1); X12 Case 3 at a real cancellation (M1 (a)); X13 L.21 (iv′) by quadrature.
+  Full run with `.out`.
+- `checks/degtwo5.py`: T6 rewritten (M2: L.25′ (a)); T7 the ledger at levels 0-4 (m9). Full run with `.out`.
+- `checks/constL5.py`: K4, the formulas against an independent transcription, with two mutations as control (m11). Full
+  run with `.out`.
+- `checks/bandL4p5.py`: δ = 1/2 in H2's grid (n2); `checks/lamL5b.py` rerun (n5). Each with its `.out`.
+
+*Labels.* Computed, exact (sympy or exact rationals): X1-X8, T1-T3, T7, K1, K2; computed, sampled or bounds (mpmath): X9,
+X10, X13, T4, T6, K3, K4; models with unit constants: X11, X12, T5. Deduced: Lemma H_Σ (a), Lemma L.21 (iv′), (v′),
+Proposition L.22′, Theorem L_1E′, Proposition L.25′, R6.3's two lemmas; READ: as in R6.6.
+
+### R6.5 Proposed paper text (replaces R5.8's P1‴ and P2‴; P3-P6 stand, P3's list extended)
+
+(P1⁗) Proposition 3.2: P1‴ with "L_1E" read "L_1E′" (the verifier of round 5 confirmed that it claims nothing beyond
+Theorem L and Corollary L.7; the hypotheses of L_E and L_1E′ do not enter it). The old text, lines 302-305 of
+RESPONSE-HL-5D.md at md5 7193c56e…, from "If μ0 = √72 l5² exactly, the" to "(supplement `docket68/n1star/EQUALITY5.md`,
+Propositions E.2-E.4).", occurs once; it is replaced by:
+
+> If μ0 = √72 l5² exactly, the boundary is the seed's horizon, and null for g_λ, on {v ≤ inf supp env}; after the shell
+> starts it is spacelike for g_λ outside a layer whose width tends to 0 with λ (supplement
+> `docket68/n1star/EQUALITY5.md`, Propositions E.2-E.4), and inside that layer, for λ small, every column has points
+> where it is timelike for g_λ, so the no-return property stated above for μ0 > √72 l5² fails at equality
+> (`docket68/n1star/EQUALITY5-LAYER.md`, Theorems L, L_P, L_E and L_1E′, Corollary L.7).
+
+(P2⁗) Section 9: the bullet "**The boundary at equality.**", lines 1533-1541 at md5 7193c56e…, occurs once; it is
+replaced by:
+
+> - **The boundary at equality.** If μ0 = √72 l5² (deduced in `docket68/n1star/EQUALITY5.md` and `EQUALITY5-LAYER.md`
+>   [†], computed by the programs of Appendix A), x_K = 1 is the seed's horizon on {v ≤ v_s}, v_s := inf supp env, and is
+>   spacelike for g_λ on {v ≥ v_s + η} once λ ≤ λ_η. In the layer between, for λ small and 0 < δ ≤ 1/2, it is spacelike
+>   where sup_(v'≤v) env ≥ λ^(3−δ), and where λ^(3+δ) ≤ sup env ≤ λ^(3−δ) its character is that of the ratio of λ³ A env
+>   |ν| |d| to the margin, up to a factor 1 ± 2λ^(1/10) (d the double divergence of the waves' angular tensor, |d| ≥ 8/3;
+>   ν ≤ 0 a coefficient of the seed and τ0, with a double root at (v_s − τ0)/√μ0 = ρ* = 1.806…). Suppose that near v_s
+>   env and its first K + 3 derivatives are positive and log-concave, with logarithmic derivatives κ_k within a factor 2
+>   of κ := (log env)′ and |κ_k′| ≤ c κ_k^(1+α) for an α < 1, and that env obeys the derivative and decay bounds of
+>   `EQUALITY5-LAYER.md` R5.2 and R6.1 (checked by sampling for the C_c^∞ envelope used for the constants); for Theorem
+>   1's solution suppose also (v_s − τ0)²/μ0 ∉ {K + 2, 2K + 5, ρ*²}. Then that ratio crosses 1 once per column, and below
+>   λ^(3+δ), down to v_s, every interval of length 4πλ has timelike and spacelike points on every column; the term linear
+>   in the waves is computed there to leading order, for Theorem 1 carried by the constraint correction at first degree.
+>   With flat interior zeros accumulating at the edge, some such intervals are spacelike throughout, for every small λ.
+>   So timelike curves of g_λ cross x_K = 1 into D_T. A domain O(λ)-close to D_T, inside x_K ≤ 1, has an inner boundary
+>   that no future causal curve enters, and the spheres' horizon holds in the form: at most one zero per column, within C
+>   λ of √μ(v); exactly one on the columns with v ≤ v_s and on those that reach across √μ(v) + C λ with √μ(v) − r_q(v) ≥
+>   C' λ. λ_L is an explicit formula in the leaves of λ0, two constants of the seed and Theorem 1's C1, and the threshold
+>   this proof delivers is below 3·10^(−12).
+
+[†] "(rounds 1-5 read by independent verifiers; round 6 not yet read)". Each claim's source: the layer and band, L.12
+(i), (iii) (A24); the single crossing, L.24; the intervals below λ^(3+δ), L.12 (ii) with L_E (Theorem 2; A25) and L_1E′
+(Theorem 1; R6.1), every interval since env increases at its edge under these hypotheses; the linear term, L.15_P (b) and
+L.22′; the zeros, L.25′ (a); the crossing curves, Corollary L.7; the inner boundary and the spheres' horizon,
+EQUALITY5.md Propositions E.4, E.5; λ_L, R5.5, R5.6. ρ*² is excluded for Theorem 1 although L_1E′ admits it under (H_ρ*);
+the paper states the simpler, weaker claim. (P3⁗) Appendix A, C, D: `checks/edge1_5.py` X1-X13, `checks/degtwo5.py` T1-T7
+and `checks/constL5.py` K1-K4 beside round 4's entries, with the run times of their `.out` files and their controls as in
+their docstrings; P5's commands for bandL4p5 and lamL5b stand, with their new md5s.
+
+### R6.6 Open items, labels and sources
+
+None in section 9's sense: every claim of P1⁗ and P2⁗ is proved in the record on hypotheses the text states. What those
+hypotheses leave out is stated with them: Theorem 1's very edge at ρ0 = ρ* without (H_ρ*) (for N ≡ 0 mod 4 this includes
+the record's envelope) and at ρ0² = N − 1, or 2N − 1 with N ≡ 0 mod 4; envelopes with dips, beyond (b′). O2: round 6
+awaits an independent reader.
+
+READ: the verifier of round 5's report (as relayed); N1STAR-PROOF.md at md5 fb2fbf06… (section 4 step (ii), line 461;
+section 6.2's (F1), (F2) and Lemma 6.1; section 8, Proposition 8.2's proof); RESPONSE-HL-5D.md at md5 7193c56e… (lines
+302-305 and 1533-1541). Files (round 6): this section and its bracketed notes; `checks/edge1_5.py`, `checks/degtwo5.py`,
+`checks/constL5.py`, `checks/bandL4p5.py`, `checks/lamL5b.py`, each with its `.out`.

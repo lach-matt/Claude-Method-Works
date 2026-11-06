@@ -684,10 +684,10 @@ def main():
             if f():
                 survived.append(m_)
         MUT = None
-        print("%s %s (mutants failing as they must: %s%s)" % (
+        print(textwrap.fill("%s %s (mutants failing as they must: %s%s)" % (
             name, "PASS" if good and not survived else "FAIL",
             ", ".join(m_ for m_ in mutants if m_ not in survived) or "none",
-            "; survived: " + ", ".join(survived) if survived else ""), flush=True)
+            "; survived: " + ", ".join(survived) if survived else ""), 118, subsequent_indent="      "), flush=True)
         ok &= good and not survived
     return 0 if ok else 1
 
