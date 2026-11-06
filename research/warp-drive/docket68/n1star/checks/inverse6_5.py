@@ -484,8 +484,8 @@ def main():
               'leading order (gamma_C - 80 2^(1/2))^2/(192 gamma_C^2) = %.7f' % (klo, khi, round(math.log10(gC)),
                                                                        (gC - 80 * 2 ** 0.5) ** 2 / (192 * gC ** 2)))
     print('  K3 (d) (exact, gamma_C symbolic): the eta^1 term vanishes on ker M0, and the second-order matrix Z^T (M2 '
-          '- M1 M0^+ M1) Z has the eigenvalue (gamma_C - 80 2^(1/2))^2/(192 gamma_C), its largest at gamma_C = 10^6, 10^7, '
-          '10^8: lam_max(p_1^Gamma(eta)) = eta^2 (gamma_C - 80 2^(1/2))^2/(192 gamma_C) + O(eta^3): %s' % res['d'])
+          '- M1 M0^+ M1) Z has the eigenvalue (gamma_C - 80 2^(1/2))^2/(192 gamma_C), its largest at gamma_C = 10^6, '
+          '10^7, 10^8: lam_max(p_1^Gamma(eta)) = eta^2 (gamma_C - 80 2^(1/2))^2/(192 gamma_C) + O(eta^3): %s' % res['d'])
     for gC, out in res['adm']:
         for name, e_lo, e_hi, good in out:
             print('  K3 (Gamma.4) at gamma_C = 10^%d: lam_max < %s certified at eta = %s, > %s certified at eta = '

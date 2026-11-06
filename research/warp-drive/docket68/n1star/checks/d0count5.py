@@ -338,12 +338,13 @@ def main():
              src['I'].count('uses them over $K^+$ with weights $\\alpha_+$, $-2$ and margin 1') == 1,
              'T6: L_b with vartheta_in = 0' in src['T']]
     alK, th_in, eta, thH = -2, 0, 5, 2
+    eps_q = Fr(1, 4)                       # Round 10 (the round-9 verifier's nit): theta_out >= -2 eps, any eps <= 1/4
     br = []
     for bp in (Fr(1, 2), Fr(3, 2)):                            # the ends of beta_+'s window (open: limits)
         ap = bp - Fr(5, 2)
         A1 = Fr(1, 2) + thH + eta
         A2 = Fr(1, 2) * (-1 + th_in) + alK + eta - ap
-        O2 = Fr(1, 2) * (-1 + 0) + alK - eta - ap
+        O2 = Fr(1, 2) * (-1 - 2 * eps_q) + alK - eta - ap      # theta_out at its least, -2 eps
         br.append((A1, A2, O2))
     in_ok = all(s_in > max(A1, A2) + 1 for A1, A2, _ in br)
     out_ok = all(s_out < min(s_in, O2) - 1 for _, _, O2 in br)
@@ -351,9 +352,10 @@ def main():
     OK['Q4'] = s_out < bound_out and s_in > bound_in and s_in >= 4 and all(reads) and in_ok and out_ok
     print('  Q4b (READ; computed; Round 9): II.C:767-768 at the FWD use, both branches: alpha_K = -2 (III.I Theorem '
           '5.3\'s proof), theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6): the second branch of s_in '
-          'needs s_in > %s (beta_+ -> 1/2), below the first branch\'s 17/2; s_out\'s branch gives -6 - beta_+ - eps; '
-          'the four lines read: %s; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: %s' % (
-              second, reads, in_ok and out_ok))
+          'needs s_in > %s (beta_+ -> 1/2), below the first branch\'s 17/2; s_out\'s branch gives -6 - beta_+ - eps '
+          '(theta_out >= -2 eps, Round 10: taken at -2 eps with eps = 1/4, a margin %s at beta_+ -> 3/2, so every eps '
+          '<= 1/4 serves); the four lines read: %s; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: %s'
+          % (second, min(O2 for _, _, O2 in br) - 1 - s_out, reads, in_ok and out_ok))
     T_LO, T_HI, NMAX = Q4R
     print('  Q4: s_in = %d > %s, s_out = %d < %s (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): '
           '%s; s in [%d, %d], s0 = s - 2 in [%d, %d]; the Sobolev orders in [%d, %d] (Round 8: down to the record\'s '

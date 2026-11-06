@@ -42,3 +42,7 @@ A5 the regularised scheme, cut 0.9: the interior Ric_xx monitor (|x| <= 0.9) at 
        7.63e-05 -> converging
    v in [1.80, 1.90): monitor 400: 0.00155, 800: 0.0004 (ratio 3.88); 800 at M = 40: 0.000505 (M40/M32 1.26); |dP|
        8.07e-05 -> converging
+   v in [1.90, 2.00): monitor 400: 0.00386, 800: 0.00101 (ratio 3.82); 800 at M = 40: 0.00115 (M40/M32 1.14); |dP|
+       8.17e-05 -> converging
+   v in [2.00, 2.25): monitor 400: 0.255, 800: 0.272 (ratio 0.94); 800 at M = 40: 0.164 (M40/M32 0.60); |dP| 3.74e-04 ->
+       not shown

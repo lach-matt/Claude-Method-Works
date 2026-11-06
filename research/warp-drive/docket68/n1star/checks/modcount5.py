@@ -66,16 +66,16 @@ scanned here.
      undecided: (G) and eta_1, eta_2 off Re Lambda are decided (admissibility()); the levels off I11:156-160's
      exclusion sets and eps, eps' off I9:290-291's and I14:124-126's are not (they need the roots -mu as numbers).
   M6 (READ; deduced on the reading; computed; Round 10) the base level, I15 Step 1. READ (BASE_READ, pinned by content):
-     the background h + h_rem(q) has K+-order (alpha - 2)- (I15:305-308, 447), so a_K - 2 < alpha - 4 = eps_K; III.I''''''''
-     Proposition 4.1 at alpha_1 with N = 0 is its Lemma 3.1, whose Step 0 needs alpha'_K > alpha_0 + 2 - a_K (I9:218)
-     from III.I''''' Proposition 2.1: rounds from below a_K - 1 (I6:81), each raising alpha'_K by a_K - 2 (I6:90, 223),
-     Step 2's windows void when alpha#_+ < lambda_sharp (I6:110); its Start, III.I'''' Proposition 4.1 (1) = III.I'''
-     Proposition 2.1 (I5:340-346), whose Step 0 runs III.I'' Proposition 5.1 to alpha'_K >= alpha_K - (a_K - 2)
-     (I4:132), from 1/2 (I3:337) in steps a_K - 2 (I3:423). Census (BASE_TABLE, FAM_B) of I6:77-227, I4:132-275 and
+     the background h + h_rem(q) has K+-order (alpha - 2)- (I15:305-308, 447), so a_K - 2 < alpha - 4 = eps_K;
+     III.I'''''''' Proposition 4.1 at alpha_1 with N = 0 is its Lemma 3.1, whose Step 0 needs alpha'_K > alpha_0 + 2 -
+     a_K (I9:218) from III.I''''' Proposition 2.1: rounds from below a_K - 1 (I6:81), each raising alpha'_K by a_K - 2
+     (I6:90, 223), Step 2's windows void when alpha#_+ < lambda_sharp (I6:110); its Start, III.I'''' Proposition 4.1 (1)
+     = III.I''' Proposition 2.1 (I5:340-346), whose Step 0 runs III.I'' Proposition 5.1 to alpha'_K >= alpha_K - (a_K -
+     2) (I4:132), from 1/2 (I3:337) in steps a_K - 2 (I3:423). Census (BASE_TABLE, FAM_B) of I6:77-227, I4:132-275 and
      I3:325-427: every hit classified, every charge at a site, with M2's per-step charges (the same maps) and the same
      formulas at the base's weights (III.I'' Lemma 3.1's l read at source). The loops counted exactly at an explicit
-     choice at the economical end of every open range, and checked against the limits in closed form: R rounds, R_w
-     of them with the windows (at most W each, 15 per window), n_51 steps of Proposition 5.1. Pinned: (R, R_w, n_51).
+     choice at the economical end of every open range, and checked against the limits in closed form: R rounds, R_w of
+     them with the windows (at most W each, 15 per window), n_51 steps of Proposition 5.1. Pinned: (R, R_w, n_51).
   Controls (each mutates the computed path and must fail): C1 TABLE with one row dropped: one hit unclassified;
   C2 FAM with the L-hat pattern dropped: the census's hit count and the charged sites change; C3 Corollary 4.5
   charged at J3's l instead of l + 1: c' leaves its pin; C4 the level-1 Proposition 4.4 read per exponent (3, the
@@ -492,9 +492,9 @@ def admissibility(w):
 
 
 # ------------------------------------------------------------------------------------------------ M6: the base level
-# Round 10 (the round-9 verifier's MAJOR A). I15 Step 1 runs III.I'''''''' Proposition 4.1 at alpha_1 on the background
-# h + h_rem(q), whose K+-order is (alpha - 2)- (I15:305-308, Remark 3.2 (1)), so a_K - 2 < alpha - 4 = eps_K there, not
-# h's a_K >= 4 + eps_K (I15:332). Its base, Lemma 3.1 (I9:201-237), runs at its Step 0 the rounds of III.I''''' Proposition
+# Round 10 (the round-9 verifier's MAJOR A). I15 Step 1 runs III.I'''''''' Proposition 4.1 at alpha_1 on the background h
+# + h_rem(q), whose K+-order is (alpha - 2)- (I15:305-308, Remark 3.2 (1)), so a_K - 2 < alpha - 4 = eps_K there, not h's
+# a_K >= 4 + eps_K (I15:332). Its base, Lemma 3.1 (I9:201-237), runs at its Step 0 the rounds of III.I''''' Proposition
 # 2.1 (I6:77-227) up to alpha'_K > alpha_0 + 2 - a_K; their Start is III.I'''' Proposition 4.1 (1), that is III.I'''
 # Proposition 2.1 (I5:340-346; I4:132-275), whose Steps 2-3 every round reruns (I6:179-181) and whose Step 0 is III.I''
 # Proposition 5.1 (I3:325-427), itself a loop in steps a_K - 2. Those three ranges are scanned here.
@@ -641,7 +641,8 @@ def base_counts(w, aK2=None, theta=Fr(1, 10 ** 9), eta=Fr(1, 10 ** 6)):
     Rw = R - i0 + 1 if i0 <= R else 0
     n51 = max(0, ceil((t - Fr(1, 2)) / d))
     req = (0 < d < w['alpha'] - 4 and a1 < 2 + d and 1 < s0 < min(1 + d, Fr(3, 2), tau) and a1 - d < tau < 2
-           and Fr(1, 2) <= t < 1 and s0 - d <= t and s0 + (R - 1) * d < tau <= s0 + R * d and s0 + (i0 - 1) * d < ls <= s0 + i0 * d)
+           and Fr(1, 2) <= t < 1 and s0 - d <= t and s0 + (R - 1) * d < tau <= s0 + R * d
+           and s0 + (i0 - 1) * d < ls <= s0 + i0 * d)
     return dict(d=d, s0=s0, tau=tau, t=t, R=R, Rw=Rw, i0=i0, n51=n51, req=req)
 
 
@@ -748,8 +749,8 @@ def main():
     for k in sorted(bt['b'], key=lambda x: (KINDS.index(bt['b'][x][0]), x)):
         kd, v, how = bt['b'][k]
         print('      %-6s %-8s %4d  %s' % (k, kd, v, how))
-    print('      per round c_r = %d, the Start\'s pass c_S = %d (Steps 2-3 %d each), Proposition 5.1\'s Step 0 z = %d and '
-          'one of its steps c_51 = %d' % (bc['c_r'], bc['c_S'], bc['steps23'], bc['z'], bc['c_51']))
+    print('      per round c_r = %d, the Start\'s pass c_S = %d (Steps 2-3 %d each), Proposition 5.1\'s Step 0 z = %d '
+          'and one of its steps c_51 = %d' % (bc['c_r'], bc['c_S'], bc['steps23'], bc['z'], bc['c_51']))
     for u in buncl:
         print('      unclassified %s' % (u,))
     print('      the loops (computed, exact, at a_K - 2 = (1 - 10^-9) eps_K, alpha_0 := alpha_1, s_0 = 1 + d - 10^-6 d, '
