@@ -28,16 +28,16 @@ analytic on [0, x0]:
      On [0, 1/200] cut into 400 closed intervals (x = 0 included): Q_k > 0 for k <= 17; R_k/A_1 in [1/2, 2], P_k > 0 and
      the c_R bound for k <= 16 (so (H_N) to N = 16, (H_N+2) to N = 14, i.e. K <= 11); the c_t bound; |Q_j|/A_1^j for j
      <= 16; A_1 >= c_*.  The certified constants are printed.  (On [0, 1/100] kappa_16/kappa leaves [1/2, 2] near x =
-     0.0096; the theorem needs the hypotheses on some (v_s, v_s + x0] only.)  Control: the same on [0, 1/40], where Q_17 has its first root at
-     0.01868 (Q_15 at 0.02166): the certification fails, as it must.
+     0.0096; the theorem needs the hypotheses on some (v_s, v_s + x0] only.)  Control: the same on [0, 1/40], where Q_17
+     has its first root at 0.01868 (Q_15 at 0.02166): the certification fails, as it must.
   H2 (certified, as H1) the record's C_c^inf envelope (CONSTANTS5.md R2.2 (a), envelope5.py: env = c cos^12(pi y/2)
      exp(-y^2/(1 - y^2)), y = (2v - 4)/3, v_s = 1/2), whose log at its left edge, t := 2x/3 = 1 + y, is log c + 12 log
      sin(pi x/3) + 1 - 1/(t(2 - t)), so ell = -(3/4)/x - (3/4)/(3 - x) + 12 log x + 12 g(pi x/3) + const, g(z) := log(sin
      z/z) = sum_(n>=1) g_n z^(2n), g_n = (-1)^n 2^(2n-1) B_(2n)/(n (2n)!) exact for n <= 30, the tail enclosed by |g_n| =
      zeta(2n)/(n pi^(2n)) <= 2/(n pi^(2n)); hence A_j = (3/4)(-1)^(j+1) j! - (3/4) j! (x/(3 - x))^(j+1) + 12 (-1)^(j-1)
      (j-1)! x + 12 (pi/3)^j x^(j+1) g^(j)(pi x/3), analytic on |x| < 3, and A_j' likewise.  The checks of H1 on [0,
-     1/200] in 400 intervals.  Control: the solver's sin^4 envelope (log env = 4 log sin(pi x/3) + const, A_1(0) = 0) through
-     the same certifier: it fails on the first interval.
+     1/200] in 400 intervals.  Control: the solver's sin^4 envelope (log env = 4 log sin(pi x/3) + const, A_1(0) = 0)
+     through the same certifier: it fails on the first interval.
   H3 (exact values at x = 0; deduced for every K) every check is strict at x = 0: Q_k(0) = A_1(0)^k > 0, R_k(0) = A_1(0),
      P_k(0) = 2 A_1(0) > 0 (R_k'(0) finite), P_k/R_k^(3/2) and the c_t ratio -> 2 A_1(0)^(-1/2), Q_j/A_1^j -> 1; computed
      exactly from the recursion with the exact A_j(0), A_j'(0) of both envelopes for k <= 40.  The quantities being
@@ -210,8 +210,9 @@ def report(tag, name, ok, res, x0):
         return
     out("  %s %s on [0, %s] (%d closed intervals, x = 0 included), on every interval: env^(k) > 0 for k <= %d;"
         " kappa_k/kappa in [%s, %s] (within [1/2, 2]), env^(k) log-concave and |kappa_k'| <= c_R kappa_k^(3/2) with"
-        " c_R = %s, for k <= %d; |kappa'| >= c_t kappa^(3/2) with c_t = %s; |env^(j)| <= c_j kappa^j env with max_(j<=%d) c_j"
-        " = %s; kappa x^2 in [c_*, M] = [%s, %s].  So (H_N) to N = %d, (H_N+2) to N = %d, (H_t), L.16 (c) to j = %d and"
+        " c_R = %s, for k <= %d; |kappa'| >= c_t kappa^(3/2) with c_t = %s; |env^(j)| <= c_j kappa^j env with"
+        " max_(j<=%d) c_j = %s; kappa x^2 in [c_*, M] = [%s, %s].  So (H_N) to N = %d, (H_N+2) to N = %d, (H_t),"
+        " L.16 (c) to j = %d and"
         " (H_rho*)'s first half hold on (v_s, v_s + %s]  [%.0f s]"
         % (tag, name, x0, NSUB, KQ, mp.nstr(res['lo'], 6), mp.nstr(res['hi'], 6), mp.nstr(res['cR'], 6), KQ - 1,
            mp.nstr(res['ct'], 6), KQ - 1, mp.nstr(res['cj'], 6), mp.nstr(res['cs'], 6), mp.nstr(res['M'], 6), KQ - 1,
@@ -257,13 +258,13 @@ def h3(control=False):
             good &= all(Q[k + 1]/Q[k] == A10 for k in range(K3 + 1))
             Rd0 = [(Qd[k + 1]*Q[k] - Q[k + 1]*Qd[k])/Q[k]**2 for k in range(K3 + 1)]
             good &= all(d.is_finite for d in Rd0)
-            rows.append("%s: A_1(0) = %s; Q_k(0) = A_1(0)^k, R_k(0) = A_1(0), R_k'(0) finite (R_%d'(0) = %s) for k <= %d;"
-                        " so P_k(0) = %s, the c_R and c_t ratios -> %s"
+            rows.append("%s: A_1(0) = %s; Q_k(0) = A_1(0)^k, R_k(0) = A_1(0), R_k'(0) finite (R_%d'(0) = %s) for"
+                        " k <= %d; so P_k(0) = %s, the c_R and c_t ratios -> %s"
                         % (nm, A10, K3, Rd0[K3], K3, 2*A10, sp.nsimplify(2*A10/A10**sp.Rational(3, 2))))
         ok &= good
     if not control:
-        out("  H3 at x = 0, exact: " + "; ".join(rows) + ".  Every check is strict at x = 0, hence on some (0, x0(K)] for"
-            " every K: %s" % ok)
+        out("  H3 at x = 0, exact: " + "; ".join(rows) + ".  Every check is strict at x = 0, hence on some (0, x0(K)]"
+            " for every K: %s" % ok)
     return ok
 
 
