@@ -218,6 +218,49 @@ def test_poly_control(eng):
         worst = max(worst, true / up if up > 0 else float('inf'))
     return worst
 
+KIDS_PARENTS = [(0.5, 0.2, 0.0, 0.3, -0.55, 0.2), (-0.3, 0.02, 0.4, 0.02, 0.7, 0.01), (0.0, 0.5, 0.1, 0.5, 0.0, 0.5),
+                (0.85, 0.1, -0.6, 0.1, 0.35, 0.05)]
+
+
+def kids_fields():
+    """test tensors: R = t^4 (Chebyshev: t^4 = (3 T_0 + 4 T_2 + T_4)/8, exact in binary), every other field 0"""
+    Ct = {f: np.zeros((6, 6, 6)) for f in R5.RS.NAMES}
+    Ct['R'][0, 0, 0], Ct['R'][2, 0, 0], Ct['R'][4, 0, 0] = 3 / 8, 1 / 2, 1 / 8
+    return Ct
+
+
+def kids_frame(R, x):
+    """eight test components, on the inputs R (the field's box or point jet) and x (the coordinate's): signs both
+    ways, so that a dropped abs gives a bound below the true sup wherever a centre value is negative"""
+    x4 = x * x * x * x
+    return [R, -R, x4, -x4, R * x4, R - 0.3, -(R * x4) - 0.05, R + x4]
+
+
+def kids_true(b):
+    """the exact sup over box b of each test component's absolute value (t^4, x^4 monotone in |.|)"""
+    tc, ht, sc, hs, xc, hx = b
+    rng = lambda c, h: ((0.0 if c - h < 0 < c + h else min(abs(c - h), abs(c + h)) ** 4),
+                        max(abs(c - h), abs(c + h)) ** 4)
+    (r0, r1), (x0, x1) = rng(tc, ht), rng(xc, hx)
+    return [r1, r1, x1, x1, r1 * x1, max(abs(r0 - 0.3), abs(r1 - 0.3)), r1 * x1 + 0.05, r1 + x1]
+
+
+def kids_control(make_engine, g):
+    """C1 (round 6, the verifier of round 5, M5-A): the bound END TO END through Engine.kids -- point_coeffs,
+    box_coeffs, inputs(..., box=True), the frame, Engine.bound -- on an engine built by make_engine(tensors, g, frame,
+    names) from kids_fields() and kids_frame, over the 8 children of each of KIDS_PARENTS (half-widths 0.005 to 0.25),
+    against the exact sups.  For t^4 and x^4 the sound order-3 Taylor-model bound is exact, (|c| + h)^4, so any
+    loss of the remainder, of the box enclosure or of its half-width, or of abs, gives a bound below the true sup.
+    Returns the largest true/bound: <= 1 (to rounding) for a sound engine"""
+    eng = make_engine(kids_fields(), g, kids_frame, ['R', 'x'])
+    worst = 0.0
+    for pb in KIDS_PARENTS:
+        for kb, sup, cen in eng.kids(pb):
+            for tv, bv in zip(kids_true(kb), sup):
+                worst = max(worst, tv / bv if bv > 0 else (float('inf') if tv > 0 else 0.0))
+    return worst
+
+
 def collect(W, tau):
     t0 = time.time()
     C3, g, md5s = load_pinned()

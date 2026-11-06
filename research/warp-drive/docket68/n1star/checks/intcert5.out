@@ -10,3 +10,4 @@ C3 PASS
 C1, C1d (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]: the computed background, and every background within d of it
    C1, n = 80: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
    C1, n = 160: certified on every cell: True (600 interval evaluations; least lower bound of Gamma/E^2 = 0.4475 on R in [0.70000, 0.70193])
+exit 143
