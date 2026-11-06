@@ -42,7 +42,10 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      lam^-3 (the reader's E-m5), the factor -> e^(2C/lam) (E-m6), the coefficient 1/2 of the |gamma'| = 1 sum dropped,
      C(gamma, gamma') dropped at the |gamma'| >= 2 sum, R_gamma's source E_3 -> E_(5/2), and max(4, N - 3) ->
      max(4, N - 4).
-  E4 (text) the final paper blocks, R7-E since round 7 (R6-E's in round 6), against RESPONSE-HL-5D.md (not edited):
+  E4 (text) the final paper blocks, R8-E since round 8 (R7-E's in round 7, R6-E's in round 6), against
+     RESPONSE-HL-5D.md (not edited); round 8 adds the status words (deduced, conditional on, proved, and no stronger
+     word), BEYOND5 Lemma 6.4 (iv) in block 1 and block 3's "deduced, conditionally", with R7-E's blocks as the control.
+     As before:
      each old text once, every line within 121 characters after the edit, and the new texts state what the round-5
      and round-6 readers asked (section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII,
      BEYOND5 Lemma 6.4 (iv) as deduced, eps named, Proposition 3.1 deduced, the r^(-4) term built for one example,
@@ -53,7 +56,7 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      checks that re-applying the blocks gives the live file but for the two marks.
 Labels: E1 and E4 text checks; E2 exact (sympy), E2e partly sampled.
 
-    python3 checks/r6edits5.py     (one to two minutes on this loaded machine)
+    python3 checks/r6edits5.py     (5 to 35 seconds on this loaded machine)
 """
 import os
 import random
@@ -111,10 +114,31 @@ def read_sums(L):
     return out
 
 
-def leibniz_ok(sums):
-    """E2a: the identity with the parameters read (the |gamma'| = 1 part from the first sum, >= 2 from the second)"""
+def read_binomial(L):
+    """[R8] the text's own definition of C(gamma, gamma'), as a function of two multi-indices (None if not read)"""
+    m = re.search(r"C\(gamma, gamma'\) := (.+?), where", L)
+    if not m:
+        return None, "C(gamma, gamma') not defined"
+    ex = m.group(1).replace("(gamma - gamma')!", "F(D)").replace("gamma'!", "F(G1)").replace("gamma!", "F(G)")
+    ex = ex.replace(") F(", ")*F(")
+    if re.search(r"[^FDG1()*/ ]", ex):
+        return None, "unread: " + m.group(1)
+
+    def C(gam, gp):
+        fac = lambda t_: sp.Mul(*[sp.factorial(k_) for k_ in t_])
+        D_ = tuple(a_ - b_ for a_, b_ in zip(gam, gp))
+        return eval(ex, {"F": fac, "G": gam, "G1": gp, "D": D_})
+    return C, m.group(1)
+
+
+def leibniz_ok(sums, binom_def=(None, "")):
+    """E2a: the identity with the parameters read (the |gamma'| = 1 part from the first sum, >= 2 from the second),
+    and [R8] the binomial factor from the text's own definition of C(gamma, gamma')"""
+    Cdef, Ctext = binom_def
     if len(sums) != 2:
         return False, f"{len(sums)} sums read"
+    if Cdef is None:
+        return False, Ctext
     x, y = sp.symbols("x y")
     g, u = sp.Function("g")(x, y), sp.Function("u")(x, y)
     p1 = sums[0] if "= 1" in sums[0][2] else sums[1]
@@ -129,10 +153,10 @@ def leibniz_ok(sums):
                 if i + j == 0:
                     continue
                 s_, c_, _, binom = p1 if i + j == 1 else p2
-                B = sp.binomial(gam[0], i)*sp.binomial(gam[1], j) if binom else 1
+                B = Cdef(gam, (i, j)) if binom else 1
                 rhs += s_*c_*B*d(g, i, j)*d(sp.diff(u, x, 2), gam[0] - i, gam[1] - j)
         ok = ok and sp.expand(lhs - rhs) == 0
-    return ok, f"read {[(s_, str(c_), cond, b) for s_, c_, cond, b in sums]}"
+    return ok, f"read {[(s_, str(c_), cond, b) for s_, c_, cond, b in sums]}; C(gamma, gamma') := {Ctext}"
 
 
 def read_bounds(L):
@@ -203,7 +227,8 @@ def r6_only_ok(L):
     prd = re.search(r"each product at most C t\^\(([-\d/]+)\)", L)      # [R7] the text's own product bound
     eng = re.search(r"the energies of the lower steps, at most C t\^\(([-\d/]+)\)", L)
     rg = re.search(r"\|\|R_gamma\|\| <= C\(lam, j\) t\^\(([-\d/]+)\)\.", L)
-    if src and eng and rg and prd:
+    vol = re.search(r"whose volume is at most C t\^(\d+)", L)                # [R8] the slice's volume, read
+    if src and eng and rg and prd and vol:
         r, a1, a2 = sp.symbols("r a1 a2", positive=True)
 
         def l2pow(q):
@@ -213,10 +238,13 @@ def r6_only_ok(L):
         qs = frac(src.group(1).strip("()"))
         p_src, p_eng = l2pow(qs), l2pow(sp.Integer(2))
         p_prod = max(-sp.Rational(3, 2), -2) + p_eng  # a coefficient in E_(3/2) or a factor in E_2, times the L^2 factor
+        Iv = sp.integrate(r**3, (r, T + a1, T + a2)).subs({a1: 1, a2: 3})
+        p_vol = sp.limit(sp.log(Iv)/sp.log(T), T, sp.oo)                    # the volume of A_P(tau) ~ t^p_vol
         ok = (p_src == frac(src.group(2)) and p_eng == frac(eng.group(1)) and frac(prd.group(1)) == p_prod
-              and frac(rg.group(1)) == max(p_src, p_prod))
+              and frac(rg.group(1)) == max(p_src, p_prod) and int(vol.group(1)) == p_vol)
         out["E2g"] = (ok, f"E_{qs} -> t^({p_src}), E_2 -> t^({p_eng}), products <= t^({p_prod}) (read: "
-                          f"t^({prd.group(1)})); read ||R_gamma|| t^({rg.group(1)})")
+                          f"t^({prd.group(1)})); read ||R_gamma|| t^({rg.group(1)}); volume t^{p_vol} (read: "
+                          f"t^{vol.group(1)})")
     else:
         out["E2g"] = (False, "not read")
     bk = re.search(r"floor\(\(N \+ (\d+)\)/(\d+)\) <= max\((\d+), N - (\d+)\) for every N >= 1", L)
@@ -230,7 +258,7 @@ def r6_only_ok(L):
 
 def math_checks(L, pre, r6=True):
     """the mathematics of an edited Lemma 11.0 (whitespace-normalised) with the text before it (for W_TT's class)"""
-    res = {"E2a": leibniz_ok(read_sums(L))}
+    res = {"E2a": leibniz_ok(read_sums(L), read_binomial(L))}
     res.update(bounds_ok(L, pre))
     if r6:
         res.update(r6_only_ok(L))
@@ -292,6 +320,8 @@ def predicates6(L):
     p["m"] = "summed over the family, Gronwall's lemma then costs" in Ln         # Gronwall on the family
     p["n"] = "b . d U is of the order this step estimates and is not known" in Ln
     p["o"] = "obey the bounds on b and c above with the same constants" in Ln   # b^n, c^n uniform in n
+    p["p"] = "and c U is one order lower." in Ln                                 # [R8] c U is not of the top order
+    p["q"] = "(Lemma 11.1 applies to u_1^n verbatim" in Ln                       # [R8] the lemma that applies to u_1^n
     return p
 
 
@@ -328,8 +358,9 @@ def e1(blocks, P):
     check("E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the "
           "family index delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its "
           "reason, and [R7] (k) R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed "
-          "over the family, (n) b . d U not known, (o) b^n, c^n with the same constants (text: the induction's "
-          "structure is a read proof)", all(new_p.values()), str(new_p))
+          "over the family, (n) b . d U not known, (o) b^n, c^n with the same constants, [R8] (p) c U one order "
+          "lower, (q) Lemma 11.1 applies to u_1^n (text: the induction's structure is a read proof)",
+          all(new_p.values()), str(new_p))
     check("E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails",
           not any(old_p.values()), str(old_p))
     return Q
@@ -411,17 +442,29 @@ def paper_predicates(b1, b2):
 
 
 def paper_predicates7(b1, b2):
-    """[R7] what the final blocks must state (the round-6 reader's minors 2 and 4 and its nits)"""
+    """[R7] what round 7's blocks state (kept as the control's yardstick)"""
     b1n, b2n = norm(b1), norm(b2)
-    return {"b1: section 11.1's Lemma 11.0 repair seated, awaiting a confirming read":
-                "Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11, awaits a confirming "
-                "read" in b1n,
+    return {"b1 BEYOND5": "BEYOND5 Lemma 6.4 (iv)" in b1n, "b2 rounds": "rounds 1–7" in b2n}
+
+
+def paper_predicates8(b1, b2, b3):
+    """[R8] what the final blocks must state, status words included (the round-7 reader's m1, nits 6, 10)"""
+    b1n, b2n, b3n = norm(b1), norm(b2), norm(b3)
+    no_strong = all(w not in t for t in (b1n, b2n, b3n) for w in ("independent of", "unconditionally", "It is proved",
+                                                                  "is proved in section 9"))
+    return {"b1: conditional on section 11.1, its repair seated, awaiting a confirming read":
+                "half-integer orders, conditional on supplement section 11.1, deduced, whose Lemma 11.0 repair is "
+                "seated and, with D618's edits to sections 9.5 and 11, awaits a confirming read" in b1n,
+            "b1: BEYOND5 Lemma 6.4 (iv)": "on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier," in b1n,
             "b1: the last round not yet read": "the last round of that deduction, not yet read by a verifier" in b1n,
             "b1, b2: 'supplement section 11.1'": "supplement section 11.1" in b1n and "supplement section 11.1" in b2n,
-            "b2: rounds 1-7, round 7 unread": "rounds 1–7, Theorem R5.1" in b2n
-            and "round 7 of SETTLE-GLAM5.md, not yet read by a verifier" in b2n,
-            "b2: Parts III, IV, VII and VIII": "the write-out's Parts III, IV, VII and VIII, proved" in b2n,
-            "b2: BEYOND5 Lemma 6.4 (iv) deduced": "BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier" in b2n,
+            "b2: 'It is deduced'": "6.3, deduced). It is deduced, with no gluing," in b2n,
+            "b2: conditional on Parts III, IV, VII and VIII, proved, and Theorem P, proved":
+                "Theorem R5.1), conditional on the write-out's Parts III, IV, VII and VIII, proved; on Theorem P, "
+                "proved;" in b2n,
+            "b2: rounds 1-8, round 8 unread": "rounds 1–8, Theorem R5.1" in b2n
+            and "round 8 of SETTLE-GLAM5.md, not yet read by a verifier" in b2n,
+            "b2: BEYOND5 Lemma 6.4 (iv) deduced": "on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier;" in b2n,
             "b2: R6-D seated, awaiting a confirming read": "(SETTLE-GLAM5.md R6-D) is seated and, with D618's edits to "
             "sections 9.5 and 11, awaits a confirming read" in b2n,
             "b2: eps named": "its threshold ε, and with it λ1 and δ" in b2n,
@@ -429,14 +472,16 @@ def paper_predicates7(b1, b2):
                 "(deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump envelope" in b2n,
             "b2: the r^(-4) term for one example": "for one example, the general case being deduced" in b2n,
             "b2: the window from measured and hand-counted exponents":
-                "the weight window, computed from those measured exponents and from the exponents of the data class "
-                "and of the pointwise bound, which are counted by hand" in b2n}
+                "the weight window, computed from those measured exponents and from exponents counted by hand (those "
+                "of the data class, of the pointwise bound, and of two further thresholds, which do not bind)" in b2n,
+            "b3: deduced, conditionally": "is deduced, conditionally, in section 9" in b3n,
+            "no stronger status word in any block": no_strong}
 
 
 def e4(S):
-    print("E4  R7-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)")
-    a = S.index("### R7-E ")
-    b = S.index("Ledger (round 7).", a)
+    print("E4  R8-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)")
+    a = S.index("### R8-E ")
+    b = S.index("Ledger (round 8).", a)
     bl = re.findall(r"```text\n(.*?)\n```", S[a:b], flags=re.S)
     if len(bl) != 6:
         check("E4a six blocks read", False, str(len(bl)))
@@ -449,17 +494,17 @@ def e4(S):
         Q = Q.replace(bl[i], bl[i + 1], 1)
     long_ = [(k + 1, len(l)) for k, l in enumerate(Q.split("\n")) if len(l) > 121]
     check("E4b the edited paper keeps every line within 121 characters", not long_, str(long_[:5]))
-    pr = paper_predicates7(bl[1], bl[3])
-    check("E4c the new blocks state section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII, "
-          "BEYOND5 Lemma 6.4 (iv) deduced, eps, Proposition 3.1 as deduced, the r^(-4) term for one example, and the "
-          "window as computed from measured and hand-counted exponents", all(pr.values()),
-          str([k for k, v in pr.items() if not v]))
-    a6 = S.index("### R6-E ")
-    b6 = S.index("Ledger. Computed (new)", a6)
-    bl6 = re.findall(r"```text\n(.*?)\n```", S[a6:b6], flags=re.S)
-    pr6 = paper_predicates7(bl6[1], bl6[3])
-    check("E4c' control (R6-E's blocks, the round-6 reader's minors 2 and 4): they fail at least six of the eleven",
-          sum(not v for v in pr6.values()) >= 6, str(sum(not v for v in pr6.values())))
+    pr = paper_predicates8(bl[1], bl[3], bl[5])
+    check("E4c the new blocks state the status words (deduced, conditional on; Parts III, IV, VII, VIII and Theorem P "
+          "proved; no stronger word), section 11.1's status, BEYOND5 Lemma 6.4 (iv) in blocks 1 and 2, the rounds read "
+          "and unread, eps, Proposition 3.1 as deduced, the r^(-4) term for one example, and the window's measured and "
+          "hand-counted exponents", all(pr.values()), str([k for k, v in pr.items() if not v]))
+    a7 = S.index("### R7-E ")
+    b7 = S.index("Ledger (round 7).", a7)
+    bl7 = re.findall(r"```text\n(.*?)\n```", S[a7:b7], flags=re.S)
+    pr7 = paper_predicates8(bl7[1], bl7[3], bl7[5])
+    check("E4c' control (R7-E's blocks, the round-7 reader's m1 and nit 6): they fail at least four of the sixteen",
+          sum(not v for v in pr7.values()) >= 4, str(sum(not v for v in pr7.values())))
 
 
 def main():
