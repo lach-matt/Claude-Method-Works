@@ -46,7 +46,8 @@ of the record.
   **route (a) of R8.3, a perturbation from the diagonal model, gives nothing at any even l <= 19,990** (the
   gauge-damping part of the block has an l-free first-order entry of size 9996 in that norm, S8), so the large-l
   threshold R8.3 asked for, if a perturbative regime exists at all, lies above 19,990. The single missing input stays
-  the one R9.5 names, now an exactly stated ODE inequality for the operator of `checks/scalarblock5_block.txt` (A.8).
+  the one R9.5 and R10.5 name, now an exactly stated ODE inequality for the operator of `checks/scalarblock5_block.txt`
+  (A.8).
 
 ## A. The scalar-type blocks of L-hat_b0(0) (I.C:497)
 
@@ -220,7 +221,8 @@ is why no large-l theorem is stated here.
   19,990 (S8).
 - *Not obtained*: a lower bound for sigma_min of the scalar-type blocks, uniform in l, hence I.C:497 in the class and
   the full inverse bound there; nothing here is a lower bound.
-- **The single missing input** (unchanged in substance from R9.5, now exactly stated): a number sigma_* > 0 with
+- **The single missing input** (unchanged in substance from R9.5 and R10.5, now exactly stated): a number sigma_* > 0
+  with
 
       ||L_l H||_{Y_l} >= sigma_* ||H||_{X_l}   for every even l >= 0 and every H in X_l (at l = 0, H orthogonal in X_0 to
                                                 the zero-energy state),
@@ -341,16 +343,30 @@ beta_tf - beta_zf = tau - beta + 2 + eps in (0, 1) holds for the final tau in (b
 2 + eta_2) (I12 Step 3: those of u-hat_1 plus one, the remainder's minus one, 2 + E_col), which the record does not
 list. Its single missing input is that list; with it, the arithmetic of B.4-B.5 decides it.
 
+### B.7b Definition 1.1 (a) at the levels (computed, exact; R9)
+
+Not among the two R9 named, and not listed by dweights5 W1 either, but an admissibility condition of the same levels
+(I14:35-36): beta - 2 is not the real part of a rate (lambda - 1 at s1; lambda at s0, s2, v1; lambda + d0, lambda +
+d1 at c0, c1, I10:73-77; lambda in Lambda). Decided by the same arithmetic on R9.1's reading: Lambda in (1, 3 +
+eps_K] consists of rational points R (lambda_sharp, 2, 3 and the least E^C_I's 86 points up to 4, closed under + 1),
+each plus n d1, plus at most one offset theta1 from d0 and the E_col offsets delta_2, ..., delta_6, delta'_1, ...,
+delta'_5 (lambdagen5 L3; the once-usable increments 1 + d0, 1 + delta_2, 1 + delta'_1 of LOSS-D LD9); a c-rate adds d0
+or d1. A rate is rational only if n d1 + theta1 + theta2 is (theta2 in {0, d0, d1}); none of the 22 numbers theta1 +
+theta2 (theta2 in {0, d0}) lies in Q(d1) (exact), so only theta1 = theta2 = 0, n = 0 remains, and the 25 rational
+candidates lambda + 2, lambda + 1 (s1) for lambda in R in range are not levels (exact). Control C7: the test reports
+2 d1 + 1/3, which lies in Q(d1).
+
 ### B.8 Status
 
-(B) as R9 posed it -- the levels off I11:156-160's exclusion values, eps and eps' off I9:290-291's and I14:124-126's
--- is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda; the one part of I11:160's
-appended set left (B.7) is a further condition of the same kind, not one of the two R9 named. d's integer
-(round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading loses the
-clause "two of the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices
-(a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
+(B) as R9 posed it -- the levels off I11:156-160's exclusion values, eps and eps' off I9:290-291's and I14:124-126's --
+is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda, and with it Definition 1.1
+(a) at the levels (B.7b); the one part of I11:160's appended set left (B.7) is a further condition of the same kind, not
+one of the two R9 named. d's integer (round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was
+computed at); its reading loses the clause "two of the weights' admissibility conditions ... are not decided" (section
+C). Round 10's base-level choices (a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the
+levels and rounds of B.2.
 
-## C. Proposed replacement text for CONSTANTS5.md R9.7 (old/new; not applied)
+## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied)
 
 R10.7's blocks (which replaced R9.7's while this file was written) are themselves proposed text for the paper; the
 old texts below are quoted from R10.7's *new* blocks as CONSTANTS5.md stands (not pinned: its author and a verifier

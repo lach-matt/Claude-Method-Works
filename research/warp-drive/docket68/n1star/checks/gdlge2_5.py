@@ -268,9 +268,7 @@ def l2(control=False):
         flat |= {sp.expand(-m), sp.expand(m + 2)}
     ok_dict = set(sp.expand(x) for x in roots_s) == flat
     # vector type: psi = r^(1 - lam) P
-    P = sp.Symbol('P')
-    ev = sp.expand(sp.simplify(sys_vector(r**(1 - lam)*P, l_*0 + (l_ + 1)**2)*r**(lam + 1)).subs(s, 0))
-    det_v = sp.factor(ev.coeff(P))
+    det_v, _ = indicial_vector((l_ + 1)**2)
     ok_v = sp.simplify(det_v/((lam + l_)*(lam - l_ - 2))).is_number
     roots_v = sp.roots(sp.Poly(sp.expand(det_v), lam))
     mult_v = sum(roots_v.values()) == 2
@@ -318,6 +316,56 @@ def l2(control=False):
           "operator, uniformly in l" % (det_s, ok_s, sorted(roots_s, key=str), ok_dict, det_v, ok_v,
                                        sorted(roots_v, key=str), gap_s, gap_v), flush=True)
     return ok_s and ok_dict and ok_v and gap_s and gap_v
+
+
+def indicial_vector(lm):
+    """the indicial polynomial of the vector type at infinity, psi = r^(1 - lam) P (round 10: shared by L2, L9, L6 and
+    gdr9_5.py N6)"""
+    lam, P = sp.Symbol('lam'), sp.Symbol('P')
+    ev = sp.expand(sp.simplify(sys_vector(r**(1 - lam)*P, lm)*r**(lam + 1)).subs(s, 0))
+    return sp.factor(ev.coeff(P)), lam
+
+
+_GAP = {}
+
+
+def gap_from_l2():
+    """round 10 (the round-9 verifier's nits 3-4): the computed indicial data behind L9's window and L6's growth
+    threshold.  The roots of the restricted operator (scalar and vector, linear in l) and of the full bundle (l = 0,
+    scalar and vector l = 1); the gap Theorem R8.10 uses (Theorem R8.7 (a)) is the component of the full bundle's
+    root-free set just below its root 0, inside the restricted gap; 'above' is the full bundle's gap just above 0"""
+    if _GAP:
+        return _GAP
+    M, lam = indicial_scalar(kap)
+    det_s = sp.expand(M.det().subs(kap, l_*(l_ + 2)))
+    det_v, _ = indicial_vector((l_ + 1)**2)
+    restricted = list(sp.roots(sp.Poly(det_s, lam)).keys()) + list(sp.roots(sp.Poly(sp.expand(det_v), lam)).keys())
+    cl = lambda x_: sp.Poly(sp.expand(x_), l_).coeff_monomial(l_)
+    lower = [x_ for x_ in restricted if cl(x_) < 0]
+    upper = [x_ for x_ in restricted if cl(x_) > 0]
+    lo_r, hi_r = max(x_.subs(l_, 2) for x_ in lower), min(x_.subs(l_, 2) for x_ in upper)
+    M0, lam0 = indicial_scalar(0, with_c=False)
+    M1, lam1 = indicial_scalar(3)
+    dv1, lamv = indicial_vector(4)
+    full = set(sp.roots(sp.Poly(sp.factor(M0.det()), lam0)).keys()) | set(sp.roots(sp.Poly(sp.factor(M1.det()),
+                                                                                           lam1)).keys())
+    full = sorted(full | set(sp.roots(sp.Poly(sp.expand(dv1), lamv)).keys()))
+    lo = max([lo_r] + [x_ for x_ in full if x_ < 0])
+    hi = min([hi_r] + [x_ for x_ in full if x_ >= 0])
+    above = (hi, min([hi_r] + [x_ for x_ in full if x_ > hi]))
+    _GAP.update(lower=lower, upper=upper, full=full, restricted_gap=(lo_r, hi_r), gap=(lo, hi), above=above)
+    return _GAP
+
+
+def root_free(gap):
+    """no root of the restricted operator, at any l >= 2, and no root of the full bundle lies in the open interval"""
+    G = gap_from_l2()
+    a, b = gap
+    n = sp.Symbol('n', nonnegative=True)
+    nonneg = lambda e_: all(cf >= 0 for cf in sp.Poly(sp.expand(e_), n).coeffs())
+    ok = all(nonneg((a - x_).subs(l_, 2 + n)) for x_ in G['lower'])       # every lower root <= a for every l >= 2
+    ok &= all(nonneg((x_ - b).subs(l_, 2 + n)) for x_ in G['upper'])      # every upper root >= b
+    return ok and all(not (a < x_ < b) for x_ in G['full'])
 
 
 # ------------------------------------------------------------------------------------------------------------- L3
