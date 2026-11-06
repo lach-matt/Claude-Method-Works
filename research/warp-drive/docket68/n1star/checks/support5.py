@@ -359,10 +359,10 @@ def c14(control=False):
         want = np.sort([1 + 2 * lm * ds0[0] / wd] + [1 + 2 * lm * s0v[0] / r0] * 3)
         fd_ok &= bool(np.max(np.abs(np.sort(np.linalg.eigvals(J).real) - want)) < 1e-6)
     ok = cert and shape and smax <= 7 and rad_min >= 0.3 and ang_min >= 0.4 and fd_ok
-    print("  C14%s: sigma0 %s: non-increasing, 1 on [0, 1/3], -1 on [2/3, 1], |sigma0| <= 1: %s; sup |sigma0'| = %.6f;\n"
-          "      DPhi over the grid: min radial %.6f (>= 3/10), min angular %.6f (>= 2/5); radial at delta0 = 1, lam = "
-          "1/10,\n      b - a = 2: %.6f; central differences match: %s; Z3 with slope %d: Jacobian bounds hold for "
-          "every\n      admissible lam, delta0, a, b, r: %s"
+    print("  C14%s: sigma0 %s: non-increasing, 1 on [0, 1/3], -1 on [2/3, 1], |sigma0| <= 1:\n"
+          "      %s; sup |sigma0'| = %.6f; DPhi over the grid: min radial %.6f (>= 3/10), min angular %.6f (>= 2/5);\n"
+          "      radial at delta0 = 1, lam = 1/10, b - a = 2: %.6f; central differences match: %s; Z3 with slope %d:\n"
+          "      Jacobian bounds hold for every admissible lam, delta0, a, b, r: %s"
           % (" control" if control else "", "slope-12 smooth step" if control else "mollified ramp (7/20, 13/20)",
              shape, smax, rad_min, ang_min, worst, fd_ok, slope, cert), flush=True)
     return ok

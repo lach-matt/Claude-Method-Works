@@ -815,9 +815,9 @@ Hintz's surface", and (b) cites Lemma 4.1 (a).
 
 (Nits)
 - GD3, precisely: $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} =
-  -\nabla^2f+\rho^5C^\infty$. Lemma 4.1 (d)'s proof gives both. The verifier's independent computation agrees: the slice
-  minus the graph, plus $\nabla^2f$, is $(8,-3)\mu^2r^{-5}$ in the components $(\hat x\hat x,\delta-\hat x\hat x)$, with
-  equal metrics.
+  -\nabla^2f+\rho^5C^\infty$. Lemma 4.1 (d)'s proof gives both. The verifier's independent computation agrees: the graph
+  minus the slice, minus $\nabla^2f$, is $(8,-3)\mu^2r^{-5}$ in the components $(\hat x\hat x,\delta-\hat x\hat x)$,
+  with equal metrics.
 - $N_R$ is an infimum.
 - The examples have size $C_P\epsilon$ and need $\epsilon\le\epsilon_1$, and their lower bounds hold for $R\ge R_P$.
 - Corollary 4.3's window is $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, nonempty when $2C\epsilon

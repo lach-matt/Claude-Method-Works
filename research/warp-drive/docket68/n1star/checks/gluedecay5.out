@@ -1,55 +1,15 @@
-  E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4): True;
-      = log(R/r1) at a = l0 and (R^2 - r1^2)/2 at (a, l0) = (5/2, 7/2): True; (r d_r)^j [r^-a psi(log r)] = r^-a sum_k
-      C(j,k) (-a)^(j-k) psi^(k), j <= 3: True;
-      rho^2, rho^3 terms never remainders (2 l0 - 4, 2 l0 - 6 > 0): True
-E1 PASS
-  E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: True; Gram closed forms = sympy exact =
-      quadrature (1e-35): True;
-      kappa^2 = lambda_min(Schur), certified > 0 at every grid point: True
+  E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4), log(R/r1) at
+      a = l0 and (R^2 - r1^2)/2 at (a, l0) = (5/2, 7/2): True; d_t^j [e^(-at) psi] = e^(-at) sum_k C(j,k) (-a)^(j-k)
+      psi^(k), j <= 3: True; rho^2, rho^3 terms never remainders (2 l0 - 4, 2 l0 - 6 > 0): True
+E1 PASS (mutants failing as they must: lebesgue)
+  E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: True; all ten Gram closed forms = sympy exact =
+      quadrature (1e-35): True; kappa(5/2, 7/2) = 0.00076545965 from the closed forms, 0.00076545965 from a direct
+      quadrature in s (agree to 1e-25, and with 7.6546e-4 to 1e-8): True; kappa^2 = lambda_min(Schur), certified > 0
+      at every grid point: True
       l0 = 13/4  a = 8/5: kappa = 0.0009158  a = 2: kappa = 0.0007982  a = 5/2: kappa = 0.0008349
                  a = 3: kappa = 0.00112  a = 25/8: kappa = 0.001255  a = 13/4: kappa = 0.001425
       l0 = 7/2   a = 8/5: kappa = 0.0008415  a = 2: kappa = 0.0007328  a = 5/2: kappa = 0.0007655
                  a = 3: kappa = 0.001026  a = 13/4: kappa = 0.001304  a = 7/2: kappa = 0.001737
       l0 = 15/4  a = 8/5: kappa = 0.0007733  a = 2: kappa = 0.0006727  a = 5/2: kappa = 0.0007018
                  a = 3: kappa = 0.0009395  a = 27/8: kappa = 0.001371  a = 15/4: kappa = 0.002165
-E2 PASS
-  E3: Psi^* of a radial tensor (generic phi, A, B, three points): True; tr(Psi^* delta - delta) identity: True;
-      E = O(eps r^(-2-a)) at first and second order in eps, r^(2+a) d_eps E|_0 = -2 mu (a cos log r + sin log r):
-      True;
-      quadrature instance of Proposition 3 (within 1e-2 of the prediction, above the kappa bound): True
-      (a, l0) = (2.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.00768786, 2 A_a dist = 0.00773506, 2 A_a kappa 0.0027599
-      (a, l0) = (2.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0297314, 2 A_a dist = 0.0297312, 2 A_a kappa 0.0027599
-      (a, l0) = (2.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0468685, 2 A_a dist = 0.0468685, 2 A_a kappa 0.0027599
-      (a, l0) = (3.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.0565149, 2 A_a dist = 0.0567286, 2 A_a kappa 0.00388379
-      (a, l0) = (3.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0625504, 2 A_a dist = 0.062552, 2 A_a kappa 0.00388379
-      (a, l0) = (3.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0271175, 2 A_a dist = 0.0271175, 2 A_a kappa 0.00388379
-E3 PASS
-  E4: flux of the perturbation's charge of degree d vanishes iff a > 2 + d: True; the inequalities:
-        T: d-a<0 (d=0)                                   True
-        T: d+2-2a<0 (d=0)                                True
-        box d-2+p2 < min(0,2+d-a) (d=0)                  True
-        box d-3+p3 < min(0,2+d-a) (d=0)                  True
-        box d-a < min(0,2+d-a) (d=0)                     True
-        box d+2-2a < min(0,2+d-a) (d=0)                  True
-        T: d-a<0 (d=1)                                   True
-        T: d+2-2a<0 (d=1)                                True
-        box d-2+p2 < min(0,2+d-a) (d=1)                  True
-        box d-3+p3 < min(0,2+d-a) (d=1)                  True
-        box d-a < min(0,2+d-a) (d=1)                     True
-        box d+2-2a < min(0,2+d-a) (d=1)                  True
-        theta: p2 - 2 <= -a                              True
-        theta: p3 - 3 <= -a                              True
-        norm: p2 + l0 - 2 <= l0 - a                      True
-        norm: p3 + l0 - 3 <= l0 - a                      True
-        norm: p3 + l0 - 4 <= l0 - a (outer)              True
-        norm: 0 <= l0 - a (coefficients, compact part)   True
-        norm: l0 - a > 0 off a = l0                      True
-E4 PASS
-  E5: (a) spin enters the Kerr-Schild metric at rho^3 (15 components, one point, spins (1/3, 1/5)): True; (b)
-      translation at rho^3: True;
-      (c) radial Hessian: (Hess f - Lap f delta) x = -3 (f'/r) x and (W x) . Hess f . x = 0: True, True; (d) tr Hess f
-      = 2 mu r^-3 + ... for f' = 2 mu/(r^2 - mu): True (three-dimensional Laplacian: False)
-E5 PASS
-  E6: GLUEDECAY5.md lines over 121 characters: none; old block occurs 1 time(s) in the paper, from line 1141 (9
-      lines); new block lines over 121: 0
-E6 PASS
+E2 PASS (mutants failing as they must: no_osc, ss_sign, lam_max)
