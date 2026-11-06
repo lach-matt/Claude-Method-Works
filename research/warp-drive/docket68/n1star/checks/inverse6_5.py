@@ -29,8 +29,8 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
      A~_ij = A_ij eta^(W_j - W_i) (the inner product sum_P eta^(-2W(P)) <,>_0): certified brackets of lam_max at
      gamma_C = 10^6, 10^7, 10^8 and eta = 10^-1, ..., 10^-4 (interval LDL of t I - p_1 for the upper end, a Rayleigh
      quotient for the lower), the law lam_max ~ K gamma_C eta^2 and (d) its exact leading order eta^2 (gamma_C -
-     80 2^(1/2))^2/(192 gamma_C) (second-order perturbation, gamma_C symbolic), and certified eta at which (Gamma.4) holds
-     (lam_max < nu/2) and delta_Gamma(0) <= 1/2 (lam_max <= nu/4), with h_Gamma's condition number eta^-16.
+     80 2^(1/2))^2/(192 gamma_C) (second-order perturbation, gamma_C symbolic), and certified eta at which (Gamma.4)
+     holds (lam_max < nu/2) and delta_Gamma(0) <= 1/2 (lam_max <= nu/4), with h_Gamma's condition number eta^-16.
   K4 (exact) the horizon thresholds at b0 (I.A (1.5); III.D Lemma 5.1; III.F'' Lemma 1.1): beta_0 = f'(r_h) = 2 mu^-1/2;
      box: 0; box^Ups: 1 (s > 3/2); 2 L_b0: with (10.49)'s inner piece in the ingoing chart, (2 r_0)^-1 (dv - (3/4) dr),
      a_v = 1/(2 r_0), x = a_v gamma_C r_h = gamma_C/200 and y = 0 (c_Ups,H = -(1/2) chi dr): III.F'' (1.1)'s 15 roots,
@@ -480,11 +480,11 @@ def main():
         print('  K3 (c) gamma_C = 10^%d, eta = %s: lam_max(p_1^Gamma) in [%s, %s] (certified)'
               % (round(math.log10(gC)), eta, dec(ivq(lo).a, 6, False), dec(ivq(hi).b, 6, True)))
     for gC, klo, khi in res['K']:
-        print('  K3 the law at eta = 10^-4: lam_max/(gamma_C eta^2) in [%.6f, %.6f] at gamma_C = 10^%d; the exact leading '
-              'order (gamma_C - 80 2^(1/2))^2/(192 gamma_C^2) = %.7f' % (klo, khi, round(math.log10(gC)),
+        print('  K3 the law at eta = 10^-4: lam_max/(gamma_C eta^2) in [%.6f, %.6f] at gamma_C = 10^%d; the exact '
+              'leading order (gamma_C - 80 2^(1/2))^2/(192 gamma_C^2) = %.7f' % (klo, khi, round(math.log10(gC)),
                                                                        (gC - 80 * 2 ** 0.5) ** 2 / (192 * gC ** 2)))
-    print('  K3 (d) (exact, gamma_C symbolic): the eta^1 term vanishes on ker M0, and the second-order matrix Z^T (M2 - M1 '
-          'M0^+ M1) Z has the eigenvalue (gamma_C - 80 2^(1/2))^2/(192 gamma_C), its largest at gamma_C = 10^6, 10^7, '
+    print('  K3 (d) (exact, gamma_C symbolic): the eta^1 term vanishes on ker M0, and the second-order matrix Z^T (M2 '
+          '- M1 M0^+ M1) Z has the eigenvalue (gamma_C - 80 2^(1/2))^2/(192 gamma_C), its largest at gamma_C = 10^6, 10^7, '
           '10^8: lam_max(p_1^Gamma(eta)) = eta^2 (gamma_C - 80 2^(1/2))^2/(192 gamma_C) + O(eta^3): %s' % res['d'])
     for gC, out in res['adm']:
         for name, e_lo, e_hi, good in out:

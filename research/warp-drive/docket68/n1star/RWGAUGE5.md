@@ -581,4 +581,18 @@ powers r^(±1/2) are attained, so the weights cannot be improved.
 
 ### R3.0.6 Runs and controls
 
-PLACEHOLDER-R3RUNS
+The round-3 run, `nice -n 10 python3 checks/rwgauge5u.py`, is `checks/rwgauge5u.out`: U1-U11 PASS, every control
+failing, EXIT 0. The reader's controls, re-made on the round-3 program (copies of the files it reads, one textual
+mutation each; scratch driver, not seated), and the new ones for minors 1 and 2, are all caught:
+
+    control                                              check run   result
+    N1   Lemma A's 1/12 printed as 1/13 in this note     U9          fails (constants derived against the note's)
+    N1c  zeta(2) scaled by 12/13 in the derivation       U9          fails
+    N1b  the S^3 measure sin cos -> sin                  U9          fails
+    N2   the leaf's volume form in (a) (extra r^(3/2))   U4          fails ((a)'s weights)
+    N3   (169)'s r^(1/2) -> r^(3/2)                      U10         fails
+    N3b  (163) with lowered indices                      U10         fails
+    N3c  (168)'s n - 2 -> n - 1                          U10         fails
+    N5   the trace identity with -6 for -2 (minor 1)     U10         fails
+    N4   K's coordinate components for its frame ones    U11         fails (minor 2)
+    N4b  the orthogonality claimed from j = 0            U11         fails (minor 2)

@@ -21,3 +21,24 @@ A5 the regularised scheme, cut 0.9: the interior Ric_xx monitor (|x| <= 0.9) at 
        1.27e-05 -> converging
    v in [1.00, 1.50): monitor 400: 0.0041, 800: 0.00104 (ratio 3.95); 800 at M = 40: 0.00121 (M40/M32 1.16); |dP|
        6.46e-05 -> converging
+   v in [1.50, 1.65): monitor 400: 0.00463, 800: 0.00116 (ratio 3.99); 800 at M = 40: 0.00143 (M40/M32 1.23); |dP|
+       8.61e-05 -> converging
+   v in [1.65, 1.80): monitor 400: 0.00448, 800: 0.00118 (ratio 3.79); 800 at M = 40: 0.00128 (M40/M32 1.08); |dP|
+       9.25e-05 -> converging
+   v in [1.80, 1.90): monitor 400: 0.0148, 800: 0.0094 (ratio 1.58); 800 at M = 40: 0.00282 (M40/M32 0.30); |dP| 2.59e-04
+       -> not shown
+   v in [1.90, 2.00): monitor 400: 5.21, 800: 5.05 (ratio 1.03); 800 at M = 40: 4.13 (M40/M32 0.82); |dP| 1.00e-03 -> not
+       shown
+   v in [2.00, 2.25): monitor 400: 145, 800: 142 (ratio 1.03); 800 at M = 40: 374 (M40/M32 2.64); |dP| 7.40e-03 -> not
+       shown
+  areal radius >= 1.2:
+   v in [0.50, 1.00): monitor 400: 0.000252, 800: 6.35e-05 (ratio 3.98); 800 at M = 40: 7.03e-05 (M40/M32 1.11); |dP|
+       9.07e-06 -> converging
+   v in [1.00, 1.50): monitor 400: 0.00132, 800: 0.000337 (ratio 3.91); 800 at M = 40: 0.000391 (M40/M32 1.16); |dP|
+       3.84e-05 -> converging
+   v in [1.50, 1.65): monitor 400: 0.00174, 800: 0.000438 (ratio 3.98); 800 at M = 40: 0.000535 (M40/M32 1.22); |dP|
+       6.15e-05 -> converging
+   v in [1.65, 1.80): monitor 400: 0.00177, 800: 0.000444 (ratio 3.99); 800 at M = 40: 0.000558 (M40/M32 1.26); |dP|
+       7.63e-05 -> converging
+   v in [1.80, 1.90): monitor 400: 0.00155, 800: 0.0004 (ratio 3.88); 800 at M = 40: 0.000505 (M40/M32 1.26); |dP|
+       8.07e-05 -> converging

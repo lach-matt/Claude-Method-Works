@@ -59,15 +59,31 @@ scanned here.
      M_a, M_b are the largest totals of one level above and below 3 with their loops (the per-level maxima of the
      rounds at the record's weights, P_W, P_iota, W, the excess 47 and X_7(alpha) = (Sum X_7 + the uniform bound's
      excess)/L_above, read from dnumber5.out, pinned by md5). Pinned: B_once and d <= A' + (K + 1) c' + B_once.
+     [Round 10, the round-9 verifier's MAJOR A: the base is not "at most six below-3 level totals". It runs on h +
+     h_rem(q), of K+-order (alpha - 2)-, and its Lemma 3.1 loops in steps a_K - 2 < eps_K (M6); B_once := FWD + B_base
+     + M_a + 3 (3 P_iota + 47 + X_7(alpha) + 5), B_base := M6's loops + 2 M_b.]
   M5 (READ; computed; Round 9, the round-8 verifier's MAJOR 2) the four admissibility conditions dweights5 W1 left
      undecided: (G) and eta_1, eta_2 off Re Lambda are decided (admissibility()); the levels off I11:156-160's
      exclusion sets and eps, eps' off I9:290-291's and I14:124-126's are not (they need the roots -mu as numbers).
+  M6 (READ; deduced on the reading; computed; Round 10) the base level, I15 Step 1. READ (BASE_READ, pinned by content):
+     the background h + h_rem(q) has K+-order (alpha - 2)- (I15:305-308, 447), so a_K - 2 < alpha - 4 = eps_K; III.I''''''''
+     Proposition 4.1 at alpha_1 with N = 0 is its Lemma 3.1, whose Step 0 needs alpha'_K > alpha_0 + 2 - a_K (I9:218)
+     from III.I''''' Proposition 2.1: rounds from below a_K - 1 (I6:81), each raising alpha'_K by a_K - 2 (I6:90, 223),
+     Step 2's windows void when alpha#_+ < lambda_sharp (I6:110); its Start, III.I'''' Proposition 4.1 (1) = III.I'''
+     Proposition 2.1 (I5:340-346), whose Step 0 runs III.I'' Proposition 5.1 to alpha'_K >= alpha_K - (a_K - 2)
+     (I4:132), from 1/2 (I3:337) in steps a_K - 2 (I3:423). Census (BASE_TABLE, FAM_B) of I6:77-227, I4:132-275 and
+     I3:325-427: every hit classified, every charge at a site, with M2's per-step charges (the same maps) and the same
+     formulas at the base's weights (III.I'' Lemma 3.1's l read at source). The loops counted exactly at an explicit
+     choice at the economical end of every open range, and checked against the limits in closed form: R rounds, R_w
+     of them with the windows (at most W each, 15 per window), n_51 steps of Proposition 5.1. Pinned: (R, R_w, n_51).
   Controls (each mutates the computed path and must fail): C1 TABLE with one row dropped: one hit unclassified;
   C2 FAM with the L-hat pattern dropped: the census's hit count and the charged sites change; C3 Corollary 4.5
   charged at J3's l instead of l + 1: c' leaves its pin; C4 the level-1 Proposition 4.4 read per exponent (3, the
   constant's level-2 reading) instead of per (alpha_0, k): c' leaves its pin; C5 the one-off application on R0 (12):
   c' leaves its pin; C6 a moved anchor (a range's opening line searched one line off): the range check fails; C7 M_a
-  without its X_7(alpha) term: B_once leaves its pin.
+  without its X_7(alpha) term: B_once leaves its pin. Round 10: C8 the base at h's a_K = 4 + eps_K (round 1's H3,
+  LOSS-D LD12 (v)): no round, and B_once leaves its pin; C9 no round charged the windows: B_once leaves its pin; C10
+  BASE_TABLE with one row dropped: one hit unclassified.
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -721,7 +737,7 @@ def main():
           'READ: the base runs on h + h_rem(q), of K+-order (alpha - 2)- (I15:305-308, Remark 3.2 (1) at I15:447), so '
           'a_K - 2 < alpha - 4 = eps_K; Lemma 3.1 needs alpha\'_K > alpha_0 + 2 - a_K (I9:218); III.I\'\'\'\'\' '
           'Proposition 2.1 starts below a_K - 1 (I6:81) and each round raises alpha\'_K by a_K - 2 (I6:90, 223), Step 2 '
-          'void when alpha#_+ < lambda_sharp (I6:110); its Start\'s III.I\'\'\' Step 0 runs III.I\'\'\' '
+          'void when alpha#_+ < lambda_sharp (I6:110); its Start\'s III.I\'\'\' Step 0 runs III.I\'\' '
           'Proposition 5.1 to alpha\'_K >= alpha_K - (a_K - 2) (I4:132), from 1/2 (I3:337) in steps a_K - 2 (I3:423): '
           '%d statements found: %s. Census of the three ranges (I6:77-227, I4:132-275, I3:325-427; FAM with III.I '
           'Theorem 5.3, III.I\'\' Proposition 5.1 and III.I\'\'\' / III.I\'\'\'\' citations added, and one '
@@ -739,7 +755,7 @@ def main():
     print('      the loops (computed, exact, at a_K - 2 = (1 - 10^-9) eps_K, alpha_0 := alpha_1, s_0 = 1 + d - 10^-6 d, '
           'tau = alpha_1 - d + 10^-6 d, t = s_0 - d; every condition of the cited lines holds: %s): R = %d rounds of '
           'III.I\'\'\'\'\' Proposition 2.1, R_w = %d of them with alpha~_K >= lambda_sharp (the first is round '
-          '%d), n_51 = %d steps of III.I\'\'\' Proposition 5.1; the same at 10^-12, 10^-9, and the limits '
+          '%d), n_51 = %d steps of III.I\'\' Proposition 5.1; the same at 10^-12, 10^-9, and the limits '
           'floor((alpha_1 - 1 - 2 eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2, ceil(1/(2 eps_K)): %s; '
           'pinned: %s' % (bn['req'], bn['R'], bn['Rw'], bn['i0'], bn['n51'],
                           trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim, trip == BASE_PIN))
