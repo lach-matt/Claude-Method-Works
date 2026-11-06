@@ -98,6 +98,12 @@ def dec(x, sig, up):
     return ("%.*e" % (sig - 1, float(Fr(n) / Fr(10) ** k)))
 
 
+def mfr(x):
+    """an mpf (exactly) as a Fraction"""
+    sign, man, ex, _ = mpf(x)._mpf_
+    return Fr(-man if sign else man) * Fr(2) ** ex
+
+
 def ivq(q):
     q = Fr(q)
     return iv.mpf(q.numerator) / iv.mpf(q.denominator)
@@ -224,7 +230,7 @@ def rayleigh_lower(M, v):
     vv = [ivq(Fr(x).limit_denominator(10 ** 12)) for x in v]
     num = sum(vv[i] * M[i][j] * vv[j] for i in range(len(M)) for j in range(len(M)))
     den = sum(x * x for x in vv)
-    return (num / den).a
+    return mfr((num / den).a)
 
 
 def mid_matrix(M):
@@ -297,10 +303,10 @@ def k3(verbose=True):
                     hi_k = mid
             e_lo, e_hi = Fr(lo_k, 10 ** 5), Fr(hi_k, 10 ** 5)
             M_lo = p1_interval(parts, pairs, W, e_lo)
-            below = ldl_posdef(M_lo, Fr(mpf(thr.a)))           # lam_max < thr.a <= thr
+            below = ldl_posdef(M_lo, mfr(thr.a))           # lam_max < thr.a <= thr
             M_hi = p1_interval(parts, pairs, W, e_hi)
             w_, V_ = np.linalg.eigh(mid_matrix(M_hi))
-            above = rayleigh_lower(M_hi, V_[:, -1]) > thr.b
+            above = rayleigh_lower(M_hi, V_[:, -1]) > mfr(thr.b)
             out.append((name, e_lo, e_hi, below and above))
         adm.append((gC, out))
     res['adm'] = adm
@@ -315,7 +321,7 @@ def k3_controls(A, pairs, s2, W):
     # C3: eta = 1
     M = p1_interval(parts, pairs, W, Fr(1))
     w_, V_ = np.linalg.eigh(mid_matrix(M))
-    out['C3'] = rayleigh_lower(M, V_[:, -1]) > iv.sqrt(2).b
+    out['C3'] = rayleigh_lower(M, V_[:, -1]) > mfr(iv.sqrt(2).b)
     # C4: c -> -c (future-pointing c): lam_max >= 2 10^4 at every eta tested
     Af, pf, _, s2f = build_A(flip=True)
     partsf = exact_parts(Af, s2f, 10**6, sp.Rational(1, 102400))
@@ -447,8 +453,7 @@ def main():
           ' %s): %s; -(1/2)(D_0 + D_0^T) <= 0 at gamma_C = 10^6: %s' % (res['a'], W, res['b'], res['D0']))
     for gC, eta, lo, hi in res['rows']:
         print('  K3 (c) gamma_C = 10^%d, eta = %s: lam_max(p_1^Gamma) in [%s, %s] (certified)'
-              % (round(math.log10(gC)), eta, dec(mpf(lo.numerator) / lo.denominator if isinstance(lo, Fr) else lo, 6,
-                                                  False), dec(mpf(hi.numerator) / hi.denominator, 6, True)))
+              % (round(math.log10(gC)), eta, dec(ivq(lo).a, 6, False), dec(ivq(hi).b, 6, True)))
     for gC, klo, khi in res['K']:
         print('  K3 the law at eta = 10^-4: lam_max/(gamma_C eta^2) in [%.6f, %.6f] at gamma_C = 10^%d'
               % (klo, khi, round(math.log10(gC))))
@@ -463,7 +468,7 @@ def main():
     OK['C5'] = ctl['C5']
     print('  C3 (control): eta = 1 (no grading): lam_max > nu/2 = 2^(1/2), (Gamma.4) fails: %s' % OK['C3'])
     print('  C4 (control): c -> -c (future-pointing): lam_max >= %s at eta = 10^-1..10^-4 (>= 2 10^4 (1 - 10^-4)): %s'
-          % (', '.join('%.1f' % float(mpf(x)) for x in lows), OK['C4']))
+          % (', '.join('%.1f' % float(x) for x in lows), OK['C4']))
     print('  C5 (control): trace weight 1: the last factor becomes lam + 3 (1 - e_C) gam c_2 (strap5 P2\'s own '
           'control): %s' % OK['C5'])
 

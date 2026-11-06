@@ -28,9 +28,9 @@ fixed gamma).
      gap and outside the shell) E = sqrt(G)/R and Gamma = 4 mu/R exactly: the margin is the mass. Control (must fail):
      with P's coefficient 8 -> 6 Gamma at psi_P = 0 is not 4 mu/R.
   Q3 (computed, floating point; twobg5's background at n = 80, 160) Gamma > 0 on the seed region ([R7] R in [0.70,
-     1.861], the whole of region III on the slice; region III, psi_P =
-     psi_III(vhat) read as in racglobal5 R4), including its part inside the horizon; psi_P = 0 on the slice's vacuum
-     points with u <= u1 (the gap and outside the shell), so Gamma = 4 mu/R > 0 there by Q2.
+     1.861], the whole of region III on the slice; psi_P = psi_III(vhat) read as in racglobal5 R4), including its
+     part inside the horizon; psi_P = 0 on the slice's vacuum points with u <= u1 (the gap and outside the shell),
+     so Gamma = 4 mu/R > 0 there by Q2.
   Q4 (computed, floating point) the bound on explicit seeds: for racglobal5 R4's 45 stream seeds (ds1 = 0) and 54 seeds
      with ds1 != 0 (including ds1 equal to the maximiser 2 E X/(3 sc), and ds1 alone), Q computed directly equals the
      integral of the decomposition to the quadrature's accuracy (relative to Q, and relative to the decomposition's
@@ -315,8 +315,8 @@ def q3(Gt, bgs):
                      float(np.max(np.abs(bg['psi_out']))), len(bg['psi_out'])))
         ok &= np.min(g_over_E2) > 0
     for (n, mn, rmin, rmax, rh, po, npo) in rows:
-        print("   n = %d: R in [0.70, 1.861] (horizon at %.4f): min Gamma/E^2 = %.4f > 0; Gamma over its psi_P = 0 value "
-              "in [%.4f, %.4f]; |psi_P| <= %.1e on %d slice points with u <= u1 - 0.1" %
+        print("   n = %d: R in [0.70, 1.861] (horizon at %.4f): min Gamma/E^2 = %.4f > 0; Gamma over its psi_P = 0 "
+              "value in [%.4f, %.4f]; |psi_P| <= %.1e on %d slice points with u <= u1 - 0.1" %
               (n, rh, mn, rmin, rmax, po, npo))
     conv = abs(rows[0][1] - rows[1][1]) < 1e-2 * abs(rows[1][1])
     small = rows[-1][5] < 1e-3 and rows[-1][5] < rows[0][5]
