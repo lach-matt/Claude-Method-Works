@@ -59,6 +59,8 @@ C_delta <zeta>^(delta j)):
   1 for (b)-(e) (18; M_2.4 = 376): M_f = 429, D_0 <= 435, FWD <= 510 (the verifier's 417/423/498 and 423/429/504 are
   the depth-1 readings, C11). (7) Q4b reads II.C:767-768 in full: the second branch of s_in, with alpha_K = -2 and
   theta_in = 0, needs only s_in > 11/2 and does not bind. Controls C10 (round 8's factor order) and C11 (depth 1).]
+  [Round 10 (the round-9 verifier's nit; CONSTANTS5.md R10.0). Q4b takes s_out's branch at theta_out = -2 eps, its
+  least (II.C:767-768), with eps = 1/4: the margin 1/4 at beta_+ -> 3/2 covers every eps <= 1/4.]
 
     python3 checks/d0count5.py       (seconds)
 """
