@@ -3244,14 +3244,15 @@ integral over t >= lam^-2 is C lam^2, a lam-free factor. Edit 1's aside "(With c
 energies of the lower steps, the step also closes at fixed lam, at one lam^-1 per order.)" is right as printed, for
 coordinate derivatives (lam^-1 t^(-3/2) t^(-1/2) is integrable over t >= lam^-2); with rotations it is not (lam^-1
 t^(-3/2) t^(1/2) = lam^-1 t^-1), and c U goes into the family by Lemma 9.3(b), as Edit 1's main route does. So the note
-belongs at the rotation parenthetical (D632), not in R6-D. A wording for it: "for pure-rotation gamma the |gamma'| =
-|gamma| term (d g^{ab}/d g . Omega^gamma u_1) d_a d_b u_1 has ||Omega^gamma u_1|| <= C t^(1/2) from the lower steps
-(|Omega f| <= r |d f|), so that product is C t^(-3/2), not C t^(-2); ||R_gamma|| <= C t^(-3/2) is unchanged (or the term
-enters the family by Lemma 9.3(b), Omega v = 0, with kernel t^-2); and c U enters the family, not the source."
+belongs at the rotation parenthetical, not in R6-D, and D632 has seated one there since (N1STAR-PROOF.md md5 5043cedf,
+"for pure rotations gamma the |gamma'| = |gamma| Leibniz term of R_gamma has the L^2 factor ||Omega^gamma u_1^n||, which
+the lower steps' energies bound only by C t^(1/2) ... and the aside on c U taken as a source is for Cartesian gamma"):
+it states what E2i computes, with the constant 2 r where Lagrange's identity gives r, which is harmless.
 
 Ledger (R8-F). Changed and rerun: `r6edits5.py` (29 checks: E2i and four E3 controls added, E1d and E2d widened; FAILED
 none), byte-identical on two runs; `r5edits5.py`, which imports it, rerun: its .out unchanged. Deduced: n3's disposition
 (with E2i). READ: the section-9.5/11 reader's report (mutants and n3); N1STAR-PROOF.md's bookkeeping paragraph after
-Edit 2 (md5 88179da4). None from outside sources.
+Edit 2 (md5 88179da4 when read, 5043cedf with D632's note at the final run, on which r6edits5 and the mutants were run).
+None from outside sources.
 
     python3 checks/r6edits5.py    (9 to 11 seconds)
