@@ -67,3 +67,48 @@ rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126, at dw
       level: False; Lemma 3.1's alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2) (in the range check above); Lemma 3.2 Step
       3's Proposition 5.1 (I9:276-279) at every level below 3: w = alpha - eps' - 2 + eps in [9.4000e-09, 1.0000e+00] and
       l_zf in (0, 1), rational, and 2 - alpha_P = eps below d1, the least positive root: off every root: True: True
+  R10 (certified margin): over the seven values x and n <= 1470302, the least distance of a level in (2, 3) (alpha_1
+      included) from lambda_sharp + n d1 + x is 8.911277e-16 (at x = 1 + delta_2, n = 982508), > 0: True
+  R11 (exact): (4.2) at the second Taylor level (I12 Step 3; I14:112-116), every level in (3, 4 + eps_K]: g_2's
+      tf-exponents in [1 + eta_1, 2 + eta_2) are lambda - 1, lambda in Lambda cap [2 + eta_1, 3 + eta_2) (READ:
+      I12:52-54's dictionary, the u-exponent of a tf-exponent zeta at level 2 is zeta + 1; I12:118 and I11 Lemma 1.2 (c),
+      I11:105: every exponent produced with real part in [2, 3 + eps_+] lies in Lambda); its inequalities hold at the
+      extreme levels: True; its root clause, beta - eps != lambda + (-mu), -mu in {0, d1, d0, 1, 1 + delta'_1, 1 +
+      delta_2, 2}: the 24 new field tests (theta1 + delta'_1, theta1 + delta_2) find no element of Q(d1) (failures none),
+      with R9's tests for theta_mu in {0, d0}; the 75 rational candidates x + m (x among the 25 rational points of Lambda
+      in the window, m = 0, 1, 2) meet no level (hits none; least distance 1.3300e-10, exact): True
+  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: True
+  C2 (control): eps' = 93666931/5000000000000, chosen so that w = 0 at (k, i) = (1001, 3): R4 finds hits [1001, 11556,
+      22111]: True
+  C3 (control): z = 7/2 ((z + 2)^2 + 12 = (13/2)^2): rational class-root degrees [0, 1, 3, 12], not [0]: True
+  C4 (control): d1 replaced by a rational: the field argument reports rational sums: True
+  C5 (control): a root planted at w = 325451/5000000000000 (a value w takes): R4's margin 0: True
+  C6 (control): the value 2 - alpha = 15/64 planted among R7's values: R7's test finds the hit: True
+  C8 (control): a level below 3 planted at lambda_sharp + 1 = 2.5099: R10 finds it: True
+  C9 (control): a level planted at lambda_sharp + 1 + 1 + eps (beta - eps = (lambda_sharp + 1) + 1): R11 finds it: True
+  C7 (control): R9's test on the offset 2 d1 + 1/3 (in Q(d1)): reported as a possible rational sum: True
+R0 PASS
+R1 PASS
+R2 PASS
+R3 PASS
+R4 PASS
+R5 PASS
+R6 PASS
+R6m PASS
+R7 PASS
+R8 PASS
+R9 PASS
+R10 PASS
+R10m PASS
+R11 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+C6 PASS
+C8 PASS
+C9 PASS
+C7 PASS
+23/23 (902 s)
+exit 0

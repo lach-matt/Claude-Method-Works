@@ -2879,7 +2879,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
 | `docket68/n1star/LOSS-D.md` | `b5562c36ea65803ce361f0250af4c1df` |
-| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `2eb4af9d7bd58982faf7a4a9e6432bc9` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `5b0ad3f0a04b05f4161b7d5d05104d90` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
 | `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
 | `docket68/n1star/BEYOND5.md` | `b67a56b202fcdeba51e8118e71243c33` |
@@ -2926,7 +2926,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/flux5.py` | `9ab6b48f425633ab7806c3bab1576238` |
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
 | `docket68/n1star/checks/vii5census.py` | `9f3252397844bcba05defabdc55c960b` |
-| `docket68/n1star/checks/vii5census.out` | `28dc33ff2eee9ed4a88c0d912b0d1ed5` |
+| `docket68/n1star/checks/vii5census.out` | `6778acf85fe7b097e8ea8b457a3ccbf7` |
 | `docket68/n1star/checks/vii5read.py` | `f9bfa4b1478345122d53d2eac92a5698` |
 | `docket68/n1star/checks/vii5read.out` | `a85aa1ef7a5f4f086c88f0830a199b71` |
 | `docket68/n1star/checks/VII5-READING.tsv` | `d9bf818233f732c867a503355c610c18` |

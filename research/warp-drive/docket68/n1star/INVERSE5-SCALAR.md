@@ -25,7 +25,7 @@ of the record.
 
 - **(B) is settled.** Both avoidances hold at the weights of `dweights5.py` W1 (eps = eps' = 10^-12, eps_ind = 1.9 x
   10^-8, eps_K = 1.88 x 10^-8), at every one of the 106,489,470 levels and every round, exactly, with certified margins
-  (proved, Theorems B.2-B.5; `rootavoid5.py` {RAPASS}). The levels' admissibility is settled on both sides of 3: below 3
+  (proved, Theorems B.2-B.5; `rootavoid5.py` 23/23). The levels' admissibility is settled on both sides of 3: below 3
   through I9:55-58, which I11:156-157 assigns there (Theorem B.4, the round-10 verifier's gap, alpha_1 included), above
   3 through I11:156-160 as I14 Definition 1.1 (b) applies it (Theorem B.3), with Definition 1.1 (a) besides (B.7b). The
   mechanism is arithmetic: the levels, rounds and weights are rational; every indicial root of L-hat_b0(0) the
@@ -529,7 +529,7 @@ T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the redu
 ```new
 T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly
 (classm5 9/9); the two avoidances of finite sets of roots, proved with exact arithmetic and certified margins
-(rootavoid5 {RAPASS}); the scalar-type blocks written exactly and the upper bound for their least singular value,
+(rootavoid5 23/23); the scalar-type blocks written exactly and the upper bound for their least singular value,
 computed exactly and certified (scalarblock5 15/15).
 ```
 

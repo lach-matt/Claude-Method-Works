@@ -134,18 +134,7 @@ def h2(path, band=None, cache={}):
                             H[a, b_] = c[q] / 2
                 sig[i, j] = np.linalg.svd(H, compute_uv=False)[0]
         typ = L5.TYPE[n]
-        s2 = np.where(inbox, sig ** 2, 0.0)
-        best = 0.0
-        if typ in ('in', 'both'):           # the unknown's norm: sup_v int du; slabs in u, full v
-            for a in range(len(uu)):
-                for b_ in range(a + 1, len(uu)):
-                    num = np.trapezoid(np.trapezoid(s2[a:b_ + 1], vv, axis=1), uu[a:b_ + 1])
-                    best = max(best, num / (uu[b_] - uu[a]))
-        if typ in ('out', 'both'):
-            for a in range(len(vv)):
-                for b_ in range(a + 1, len(vv)):
-                    num = np.trapezoid(np.trapezoid(s2[:, a:b_ + 1], uu, axis=0), vv[a:b_ + 1])
-                    best = max(best, num / (vv[b_] - vv[a]))
+        best = slab_bound(sig, inbox, uu, vv, typ)
         iu, iv = np.unravel_index(np.argmax(np.where(inbox, sig, -1)), sig.shape)
         # direct couplings for small N at the worst point (orthonormal basis: T_0 row scaled by sqrt 2)
         c = C[iu, iv]
@@ -167,9 +156,44 @@ def h2(path, band=None, cache={}):
                 if 1 <= q <= d:
                     Hm[a, b_] = cm[q] / 2
         k2 = np.linalg.svd(Hm, compute_uv=False)[0]
-        out.append(dict(deg=d, sup=sup, row=name, bnd=bnd, unk=n, typ=typ, sigmax=float(sig[iu, iv]), at=(uu[iu], vv[iv]),
-                        lower=float(np.sqrt(best)), small=small, k2=k2, lb=float(np.linalg.norm(c[1:]) / 2)))
-    return out
+        out.append(dict(deg=d, sup=sup, row=name, bnd=bnd, unk=n, typ=typ, sigmax=float(sig[iu, iv]),
+                        at=(uu[iu], vv[iv]), lower=float(np.sqrt(best)), small=small, k2=k2,
+                        lb=float(np.linalg.norm(c[1:]) / 2), C=C))
+    # every N below the degree, for the field with the largest space-time coupling: the full product matrix
+    top = max(out, key=lambda r: r['lower'])
+    d = M - 1
+    lowN = {}
+    for N in range(0, d):
+        sg = np.zeros(inbox.shape)
+        for i in range(inbox.shape[0]):
+            for j in range(inbox.shape[1]):
+                if not inbox[i, j]:
+                    continue
+                A = np.zeros((N + 1, d + 1))
+                for kk in range(d + 1):
+                    prod = np.polynomial.chebyshev.chebmul(top['C'][i, j], np.eye(N + 2 + kk)[N + 1 + kk])
+                    A[:, kk] = prod[:N + 1]
+                A[0, :] *= np.sqrt(2.0)
+                sg[i, j] = np.linalg.svd(A, compute_uv=False)[0]
+        lowN[N] = float(np.sqrt(slab_bound(sg, inbox, uu, vv, top['typ'])))
+    return out, top, lowN
+
+
+def slab_bound(sig, inbox, uu, vv, typ):
+    """sup over slabs R of int int_R sigma^2 / |R| in the unknown's flux variable (u for 'in', v for 'out')"""
+    s2 = np.where(inbox, sig ** 2, 0.0)
+    best = 0.0
+    if typ in ('in', 'both'):           # the unknown's norm: sup_v int du; slabs in u, full v
+        for a in range(len(uu)):
+            for b_ in range(a + 1, len(uu)):
+                num = np.trapezoid(np.trapezoid(s2[a:b_ + 1], vv, axis=1), uu[a:b_ + 1])
+                best = max(best, num / (uu[b_] - uu[a]))
+    if typ in ('out', 'both'):
+        for a in range(len(vv)):
+            for b_ in range(a + 1, len(vv)):
+                num = np.trapezoid(np.trapezoid(s2[:, a:b_ + 1], uu, axis=0), vv[a:b_ + 1])
+                best = max(best, num / (vv[b_] - vv[a]))
+    return best
 
 
 def main():
@@ -192,7 +216,8 @@ def main():
     return 0 if ok else 1
 
 
-def report(res, band, t0):
+def report(rr, band, t0):
+    res, top, lowN = rr
     ok = True
     d = ('the full angular range (the record\'s degree-31 interpolant in x)' if band is None else
          '|x| <= %.1f (the record\'s interpolant restricted, in the band\'s own Chebyshev basis)' % band)
@@ -206,13 +231,14 @@ def report(res, band, t0):
                   r['lb'],
                   ', '.join('%.3g' % r['small'][N] for N in (8, 16, 24)), r['lower'], r['k2']))
         ok &= r['k2'] == 0.0 and r['sigmax'] >= r['lb'] * (1 - 1e-12)
-    top = res[0]
-    prod = top['lower'] ** 2
     dg = top['deg']
-    print('H2 the largest coupling (%s row <- %s): ||L_Ninf|| >= %.3g and ||L_infN|| >= %.3g (the transpose block, the '
-          'same sigma) for every N >= %d; with ||A_N||, F_inf >= 1 (deduced) the block product is >= %.3g -> the '
-          'block condition %s for every N >= %d' % (top['row'], top['unk'], top['lower'], top['lower'], dg, prod,
-                                                    'FAILS' if prod > 1 else 'is not excluded', dg))
+    lowest = min([top['lower']] + list(lowN.values()))
+    prod = lowest ** 2
+    print('H2 the largest space-time coupling (%s row <- %s): >= %.3g for every N >= %d (N-independent, H1), and for '
+          'N = 0..%d at least %.3g (N = %d smallest); the transpose block has the same norms.  With ||A_N||, F_inf >= 1 '
+          '(deduced) the block product is >= %.3g for EVERY N -> the block condition %s' % (
+              top['row'], top['unk'], top['lower'], dg, dg - 1, min(lowN.values()), min(lowN, key=lowN.get), prod,
+              'FAILS for every N' if prod > 1 else 'is not excluded'))
     ok &= prod > 1
     return ok
 

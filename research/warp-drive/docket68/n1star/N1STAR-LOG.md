@@ -8307,3 +8307,9 @@ seating, with one exception and eight notes. It also re-derived the tensor facto
   - Mutants: R5 9 of 9 caught by text mutation, plus a deleted check that survives as it must; V2 6 of 6; the D628 sets
     again 8/8 and 6/6; the reader's R5 M1-M5 and V2 W1-W8 all caught (W9, a bare omega in K, passes by design).
   - Paper Blocks 1-5 prepared, not seated; Block 3 now names V2's pinned rules.
+
+**D629 follow-up (2026-11-06).** The D629 confirming read confirmed D626, D628 and D629 with no finding open (no major,
+no minor) and two optional wording nits, both now seated in proof5/PART-III-K-NONLINEAR.md: the D629 record (:617) writes
+the Kerr-Schild $dt_{\mathrm{KS}}$, and the X-bracket (:725-727) adds that $X$ is closed, II.F Lemma 1.3 being applied on
+$X^\circ$ with the slab taken to $|c|+\delta$. K gains two lines after :725; `checks/vii5census.out` re-saved (its one C1
+use line K:733 is now K:735); r0census5 --selftest ok (323 lines) and vii5read unchanged.

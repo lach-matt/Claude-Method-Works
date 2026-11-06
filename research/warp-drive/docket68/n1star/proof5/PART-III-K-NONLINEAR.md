@@ -614,8 +614,8 @@ spellings of $\omega$ it sorts (D628).
 slab bound in Lemma 6.2's amended clause holds for curves entering the slab from below, so the backward problem's domain
 $X$ is now named and shown closed under future causal curves; the orientation of $dt$ is stated as the component that
 continues $\eta$'s past cone; and `checks/scrirad5.py` R5 (iv) now covers the clause's covector $d(t_{\mathrm{IVP}}+\nu)
-= dt+(\nu'-\beta)\,dr$, $\nu'-\beta\in[-1,\frac34)$, with two more controls. `checks/vii5census.py` V2 now pins its
-narrow exclusion rules to the files their reasons name.
+= dt_{\mathrm{KS}}+(\nu'-\beta)\,dr$, $\nu'-\beta\in[-1,\frac34)$, with two more controls. `checks/vii5census.py` V2 now
+pins its narrow exclusion rules to the files their reasons name.
 
 **Lemma 6.1 (the radius near $\mathscr I^+$ along past causal curves; D621).** Let $\ell$, $\epsilon_G$, $r'_0$,
 $r^\natural$ and $t^\flat_*$ be those of II.C Lemma 3.2 for $g_0 = g_{b_0}$, $C_\flat$ its $C'$ (section 0), and
@@ -722,7 +722,9 @@ slab from $N\cap\{t_{\mathrm{IVP}}<0\}$; a point of the slab over $\{r<R_\nu\}$ 
 nit). The backward problem is posed on $X := (N\cap\{t_{\mathrm{IVP}}<0\})\cup(\{0\le
 t_{\mathrm{IVP}}\le|c|\}\cap\{r+2Ct_{\mathrm{IVP}}\ge R_\nu\})$, which future causal curves do not leave while
 $t_{\mathrm{IVP}}\le|c|$: they meet $\Sigma_{\mathrm{IVP}}$ from $N\cap\{t_{\mathrm{IVP}}<0\}$ at $r\ge R_\nu$, and
-$d(r+2Ct_{\mathrm{IVP}})\ge C\,dt_{\mathrm{IVP}}>0$ along them. So $r\ge R_\nu-2C|c|$ on $X$].
+$d(r+2Ct_{\mathrm{IVP}})\ge C\,dt_{\mathrm{IVP}}>0$ along them. So $r\ge R_\nu-2C|c|$ on $X$, which is closed: II.F
+Lemma 1.3 is applied on $X^\circ$, the slab taken to $|c|+\delta$ so that $L_p\subset X^\circ$ (noted after D629's
+confirming read)].
 Proposition 1.2's uses need nothing more: away from infinity they rest on the compact $\mathcal K$, closed under past
 causal curves within $\mathcal D$, and on the exterior and slab problems near infinity.]
 

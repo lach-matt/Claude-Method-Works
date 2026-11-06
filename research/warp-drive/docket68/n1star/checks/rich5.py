@@ -310,7 +310,103 @@ def main():
     return 0 if ok else 1
 
 
+SCR = os.environ.get('RICH5_DIR', os.path.join(__import__('tempfile').gettempdir(), 'rich5'))
+
+
+def k2box(spec):
+    """K2 box 'bt,bs,bx' (4 x 4 in (t, sig), rcert5.x_boxes(n_mid=6) in x) -> (tc, ht, sc, hs, xc, hx)"""
+    bt, bs, bx = (int(q) for q in spec.split(','))
+    xb, hb = R5.x_boxes(float(np.cos(np.pi / 32)), n_mid=6)
+    return (-0.75 + 0.5 * bt, 0.25, -0.75 + 0.5 * bs, 0.25, xb[bx], hb[bx])
+
+
+def worker(spec, w, W, tau):
+    """rcert5d.py's resumable worker, on the Richardson tensors and the K2 box `spec`"""
+    import pickle
+    os.makedirs(SCR, exist_ok=True)
+    box = k2box(spec)
+    ck = os.path.join(SCR, 'ck_%s_%d_of_%d_tau%.1e.pkl' % (spec.replace(',', '-'), w, W, tau))
+    CR, g = load(OUT_R)
+    assert tmd5(CR) == PINNED_R, 'the Richardson tensors are not the pinned ones'
+    frame, names = RD.frame_cached()
+    eng = RD.Engine(CR, g, frame, names)
+    if os.path.exists(ck):
+        with open(ck, 'rb') as fh:
+            st = pickle.load(fh)
+    else:
+        st = dict(queue=[(c, 1) for i, c in enumerate(RD.children(box)) if i % W == w], acc=[], nparents=0,
+                  nboxes=0, cpu=0.0, wall=0.0, maxdepth=1)
+    print('rich5 worker %d/%d on K2 box %s %s: %d queued, %d accepted' % (w, W, spec, box, len(st['queue']),
+                                                                        len(st['acc'])), flush=True)
+    last = time.time(); c0, w0 = time.process_time(), time.time()
+    while st['queue']:
+        st['queue'].sort(key=lambda e: e[1])
+        b, d = st['queue'].pop(0)
+        st['nparents'] += 1; st['nboxes'] += 8
+        for kb, sup, cen in eng.kids(b):
+            if max(sup) <= tau:
+                st['acc'].append((kb, sup, cen, d + 1))
+            else:
+                st['queue'].append((kb, d + 1)); st['maxdepth'] = max(st['maxdepth'], d + 1)
+        if time.time() - last > 300 or not st['queue']:
+            st['cpu'] += time.process_time() - c0; st['wall'] += time.time() - w0
+            c0, w0 = time.process_time(), time.time()
+            with open(ck + '.tmp', 'wb') as fh:
+                pickle.dump(st, fh)
+            os.replace(ck + '.tmp', ck)
+            last = time.time()
+            print('  %s: parents %d, evaluated %d, accepted %d, queued %d, cpu %.0f s' % (
+                time.strftime('%H:%M:%S'), st['nparents'], st['nboxes'], len(st['acc']), len(st['queue']), st['cpu']),
+                flush=True)
+    print('rich5 worker %d/%d done' % (w, W), flush=True)
+
+
+def collect(spec, W, tau):
+    """merge the workers' checkpoints: the certified sup of the Richardson approximant over the K2 box, against the
+    round-3 approximant's largest certified point value in the same box (a lower bound for ITS sup)"""
+    import pickle
+    t0 = time.time()
+    box = k2box(spec)
+    CR, g = load(OUT_R)
+    ok = tmd5(CR) == PINNED_R and fmd5(OLD) == OLD_MD5
+    acc, nb, cpu, done = [], 0, 0.0, True
+    for w in range(W):
+        with open(os.path.join(SCR, 'ck_%s_%d_of_%d_tau%.1e.pkl' % (spec.replace(',', '-'), w, W, tau)), 'rb') as fh:
+            st = pickle.load(fh)
+        acc += st['acc']; nb += st['nboxes']; cpu += st['cpu']; done &= not st['queue']
+    vol0 = 8 * box[1] * box[3] * box[5]
+    tiles = abs(sum(8 * b[1] * b[3] * b[5] for b, _, _, _ in acc) - vol0) < 1e-12 * vol0
+    sup = [max(s_[k] for _, s_, _, _ in acc) for k in range(8)]
+    cen = [max(c_[k] for _, _, c_, _ in acc) for k in range(8)]
+    dist = {}
+    for _, _, _, d in acc:
+        dist[d] = dist.get(d, 0) + 1
+    frame, names = RD.frame_cached()
+    C3, _ = load(OLD)
+    loO, _, grid = point_values(C3, g, frame, names)
+    bxO, _, _ = census(loO, grid, float(np.cos(np.pi / 32)), TAU)
+    key = tuple(int(q) for q in spec.split(','))
+    old = bxO.get(key, float('nan'))
+    print('R4 (certified) K2 box %s: t in [%.2f, %.2f], sig in [%.2f, %.2f], x in [%.4f, %.4f]; target tau = %.2e' % (
+        spec, box[0] - box[1], box[0] + box[1], box[2] - box[3], box[2] + box[3], box[4] - box[5], box[4] + box[5], tau))
+    print('   %s; %d sub-boxes accepted (by depth: %s), %d evaluated, cpu %.0f s; the accepted tile the box: %s' % (
+        'finished' if done else 'NOT finished', len(acc), ', '.join('%d: %d' % kv for kv in sorted(dist.items())), nb,
+        cpu, tiles))
+    print('   Richardson approximant, certified sup over the box: ' + ', '.join('%s <= %.3e' % kv for kv in zip(FRL, sup)))
+    print('   largest certified centre values: ' + ', '.join('%s %.3e' % kv for kv in zip(FRL, cen)))
+    print('   the round-3 approximant\'s largest certified point value in this box: %.3e (> tau: %s), so no certificate '
+          'of it reaches tau here' % (old, old > tau))
+    good = ok and done and tiles and max(sup) <= tau and old > tau
+    print('R4 %s (%.0f s)' % ('PASS: the box the round-3 approximant cannot certify is certified for the Richardson one'
+                              if good else 'FAIL', time.time() - t0))
+    return 0 if good else 1
+
+
 if __name__ == '__main__':
+    if len(sys.argv) > 5 and sys.argv[1] == '--worker':
+        sys.exit(worker(sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), float(sys.argv[5])))
+    if len(sys.argv) > 4 and sys.argv[1] == '--collect':
+        sys.exit(collect(sys.argv[2], int(sys.argv[3]), float(sys.argv[4])))
     if len(sys.argv) > 2 and sys.argv[1] == '--write':
         sys.exit(write(sys.argv[2]))
     if len(sys.argv) > 2 and sys.argv[1] == '--runs':
