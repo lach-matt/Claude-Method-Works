@@ -7,7 +7,8 @@ written here, every step checked), **computed** (a program, exact unless it says
 balls or exact rationals), **deduced** (an argument from cited lines), **READ** (quoted or cited), **reduced to X**
 (what is left, named). One program, `checks/lam0data5.py` (`--selftest`; output `checks/lam0data5.out`), every check
 named and printed, six controls that mutate the computed path and fail as they must. CONSTANTS5.md, N1STAR-PROOF.md
-and the paper are not edited.
+and the paper are not edited. [Section 12 adds a second program, `checks/m22evol5.py` (output `checks/m22evol5.out`):
+the stage-1 evolution extracted, checked exactly and solved, and M_22's floating value.]
 
 ## 0. Summary
 
@@ -25,6 +26,9 @@ and the paper are not edited.
   5.103e10 becomes <= 1391.72.
 - **M_22**: not enclosed, 0 not decided; reduced to a validated solve of the stage-1 evolution on X*'s past
   (Section 8). **lambda0**: not lowered; 0.0024433 (operator norm) stands.
+  [Section 12: the stage-1 evolution is now extracted (exact, S1-S4) and solved on X*'s past; M_22 = 2.207738
+  (computed, floating point; error estimate 1.4e-7), positive, not enclosed. lambda0's three certified bounds stand;
+  the floating value would sharpen them to 0.0020789, 0.0018903 and 0.0010404 (not certified).]
 
 What the round-8 text says that is now false: "neither the record nor this supplement has S_1 or B_1 in closed form or
 in a program" (R8.2) and, in R8.7/R9.7 block 3, "whose data on the initial slice are not computed". Section 10 gives
@@ -258,7 +262,9 @@ at m = 1 -- the mean m_1 (eight class components, coupled by box~ componentwise,
 Psi_1 transported along ell, and Z = d_s gh_2 (harmonics 1 to 3) transported along ell with the couplings <Th gh_2>
 and <Wm_phi(d phi_1)> -- on X*'s past in Omega, a 2+1-dimensional (tau, r, th) linear system driven by S (stage5.out
 S2) and by the data of Section 6. This round extracted none of that system's coefficients as arrays and ran no solve
-of it, floating point or validated; a value of M_22 is therefore not claimed even approximately.
+of it, floating point or validated; a value of M_22 is therefore not claimed even approximately. [Section 12
+supersedes these two sentences: the coefficients are extracted and checked exactly (S1-S4), and the solve is done in
+floating point, M_22 = 2.207738.]
 
 **Reduced to:** a validated solve of the stage-1 evolution (Lemma 5.3 (a)-(c), m = 1) on X*'s past from the Cauchy
 data of Section 6, for envelope5's envelope, with an enclosure of the point value (m_1)_phi1phi1(X*). With the domain
@@ -266,7 +272,8 @@ of dependence of Section 9 the tolerance its residual must meet, in the reading 
 is about 7.19e-4 |M_22| in Lemma 2.3's energy, before c_Y q^(1/2) (<= 2^(1/2) x 37.8, stage1rate5 K3), the
 lower-order coefficients' rates (not computed: round 6's minor 9) and the Sobolev constant of the point evaluation;
 it is not met, since no approximate solution exists here. Nothing weaker suffices (R7.3, R8.2: an upper bound on m_1
-cannot raise a lower bound, and the data are too small, Section 5).
+cannot raise a lower bound, and the data are too small, Section 5). [Section 12.5: an approximate solution now
+exists; carried through c_Y q^(1/2) and any lower-order rate, the tolerance falls below what it reaches.]
 
 ## 9. Block (b): X*'s past by domain of dependence (step 3; certified, G1-G3)
 
@@ -347,7 +354,8 @@ fixed smooth envelope, that of supplement `checks/envelope5.py`. Its data on the
 ```
 
 "Certified" in the new texts refers to the principal-part factor (G3); "computed" to the closed forms (exact) and the
-solved data (floating point), Sections 3 and 5.
+solved data (floating point), Sections 3 and 5. [CONSTANTS5.md R12.7 pair 3 has since carried this correction; the
+final pairs, with M_22's floating value, are in Section 12.6.]
 
 ## 11. Programs, pass counts, what remains
 
@@ -368,4 +376,279 @@ excluded; the single missing input is now **a validated solve of the stage-1 evo
 = 1) on X*'s past from the Cauchy data of Section 6, for envelope5's envelope** -- the system's coefficient arrays,
 an approximate solution, and its residual below about 7.19e-4 |M_22| in the energy of Lemma 9.1 once the lower-order
 rates and the point evaluation's Sobolev constant are added. The data on Sigma, the envelope and the principal-part
-constant are no longer missing.
+constant are no longer missing. [Section 12: the coefficient arrays and an approximate solution now exist
+(`checks/m22evol5.py`, 13/13); the residual bound is what does not close (12.5), and the route ends at the floating
+value.]
+
+## 12. The stage-1 evolution solved, and M_22 (`checks/m22evol5.py`)
+
+*Status (2026-11-06).* New; not yet read by a verifier. It supersedes what Sections 0, 8, 10 and 11 say of M_22 (each
+marked there): the stage-1 evolution system is now extracted, checked exactly and solved on X*'s past, and M_22 has a
+floating-point value. It is not enclosed: the validated solve does not close at a cost this machine can meet (12.5),
+so lambda0's certified bounds stand unchanged, and the sharpened bounds M_22 gives are stated as computed, not
+certified. Program: `checks/m22evol5.py` (`--selftest`; output `checks/m22evol5.out`, **13/13**), the companion of
+lam0data5.py whose data on Sigma it evolves and whose functions it imports.
+
+### 12.1 The system (computed, exact; S1-S4)
+
+Lemma 5.3 (a)-(c) at m = 1 (READ by content) is read off the two-scale expansion of Ric^H(g_app) in lead5.py's ingoing
+Eddington-Finkelstein coordinates (v, r, th, phi1, phi2), g_app = g0 + lam (W + m_1) + lam^2 gh_2(X, u/lam), u = v +
+lam phi_1, W = W_TT + chi dv dv (chi stage0bd5.py's closed form): a series in lam^k z^n (z = e^(is)) and in d, the
+degree in the unknowns -- m_1's eight class components, phi_1, gh_2's eight components at the harmonics +-1, +-2, +-3
+-- cut at k <= 1 and d <= 1. The stage-1 system is the order-1 coefficient's part of degree <= 1 at every harmonic
+(its degree-2 part is the e_2 term the lemma leaves to stage 2), with e_1 = 2 ell.d phi_1 - m_1(ell, ell) = 0, ell =
+d_r (Lemma 5.3 (b)). The coefficients are extracted as sympy expressions and checked exactly:
+
+- **S1** (stage 0, verified): the six non-class components vanish to order 1, and so does order lam^-1; the order-0
+  coefficient's degree-1 part vanishes once e_1 = 0, in every component and harmonic (8 m_rr coefficients are live
+  before e_1 is used, so the check is not vacuous); its degree-0 part vanishes except in vv at harmonic 0, where it is
+  nonzero for a general mu' and zero under the energy condition mu' = (2/9) A^2 E^2 H^2 (C^4 + S^4).
+- **S2** (the structure): each mean equation's principal part is -(1/2) g0^ab d_a d_b = -d_v d_r - (f/2) d_r^2 -
+  (1/(2 r^2)) d_th^2 on its own component, with no second derivative of another; each equation at the harmonic n = 1,
+  2, 3 carries the transport -i n d_r of its own gh_2 component and no derivative of another; the mean's known source
+  is S = -(4/9) A^2 E^2 H^2 sin 2th r^-3 in v th alone (stage5.out S2's, READ, recovered here independently).
+- **S3** (the closed subsystem; deduced from the exact structure): the mean equations see gh_2 only through its first
+  harmonic in (r th, th th, phi1 phi1, phi2 phi2) and its second in r r; each r r equation (n = 1, 2, 3) is a
+  homogeneous transport of gh_2(r r) at its own harmonic, which is zero on Sigma, so gh_2(r r) = 0; and the first-
+  harmonic equations of the four see no other gh_2 component but r r. So (m_1, phi_1, those four) is closed: eight wave
+  equations, one transport (2 d_r^EF phi_1 = (m_1)_rr) and four complex transports along ell, the rest of gh_2
+  slaved to it.
+- **S4**: the first harmonic of the gauge vector D^(1), lowered, is algebraic in gh_2's first harmonic, m_1 and d_th
+  phi_1; its r component is gh_2(r r) alone, its th component carries the known source and gh_2(r th). It is the
+  diagnostic N3: zero on Sigma by (F1) and not imposed by the solve, it propagates by the contracted Bianchi identity,
+  so its staying small is a check on the solved equations and their coupling.
+
+### 12.2 The solve (computed, floating point; N1-N3)
+
+Kerr-Schild time tau = v - r, from tau0 = -2 to tau* = 2 - a. The region is X*'s past cut at the null surface v = 3: r
+between the outgoing null ray through X* (integrated backwards in floating point, DOP853) and 3 - tau. Both boundaries
+are null; every null mode of the system leaves through them or runs along them, so no boundary condition is imposed, and
+the domain of dependence makes the cut harmless (N2). Discretisation: Chebyshev-Lobatto in r in the frame moving with
+the boundaries, the wave equations in first-order form (psi = d_r m_1); Chebyshev-Gauss in x = cos 2th, with the
+axis-regular variables h_vth/sin 2th, h_rth/sin 2th, h_thth, (h_thth - h_p2/S^2)/S^2 and (h_thth - h_p1/C^2)/C^2 (and
+their counterparts for gh_2), whose th-jets are formed by the product rule from exact factors; RK4 with step L(tau)/Nr^2
+(cfl 1), L the domain's width. Data: Section 6 (D2, D4, D5, D7) on the solver's grid, for envelope5's envelope; gh_2's
+first harmonic by (2.1).
+
+| Nr x Nx (cfl) | M_22 | | Nr x Nx (cfl) | M_22 |
+|---|---|---|---|---|
+| 24 x 12 | 2.208069251 | | 32 x 12 (1/2) | 2.207746494 |
+| 32 x 12 | 2.207746494 | | 32 x 16 | 2.207741160 |
+| 40 x 12 | 2.207743389 | | 48 x 16 | 2.207738078 |
+| 48 x 12 | 2.207743412 | | 32 x 20 | 2.207741048 |
+
+Radial refinement changes M_22 by 3.2e-4, 3.1e-6 and 2.3e-8 (Nr 24 to 32 to 40 to 48), angular refinement by 5.3e-6
+and 1.1e-7 (Nx 12 to 16 to 20); the angular change is the same at Nr = 32 and 48 to 2e-11, and halving the step changes
+M_22 by 7.3e-11: spectral convergence in both directions, the time error negligible. So (**N1**, computed, floating
+point)
+
+    M_22 = 2.207738   (48 x 16), error estimate 1.4e-7 (the last radial, angular and time changes summed),
+
+and the band [2.207737, 2.207739], ten times that, lies 1.6 x 10^6 half-widths from 0: M_22 > 0. Each coarser run sits
+outside the band by its own truncation in the direction it is coarse in, which is what the band measures. The value is
+not an enclosure: the error estimate is the observed change under refinement, not a bound.
+
+**N2**: with the outer boundary at v = 2.6 instead of 3 (X*'s past lies in v <= 2), M_22 = 2.207743412 against
+2.207743389 at 40 x 12, a change of 2.3e-8, inside the band's half-width. **N3**: the gauge diagnostic, zero on Sigma
+to 2.2e-16 by (F1), stays below 3.1e-6 of its terms' size at mid-solve (tau = 0.54) and below 2.3e-7 at tau* on 48 x
+12, 48 x 16 and 32 x 20, and falls with Nr as M_22's radial error does (1.9e-4, 3.1e-6, 3.2e-9, 1.1e-9 at mid-solve
+for Nr = 24, 32, 40, 48): the solution respects a consequence of the Bianchi identity that the solve does not
+impose.
+
+*The axis.* A first version removed the numerator's interpolated axis value before each division by S^2 or C^2. That
+adds a rank-one term ~ (1 - x)/(1 + x) to the semi-discrete operator, and at 48 x 12 that version runs away (C4; a
+scratch growth-rate test, not part of the program, put the growing mode at the inner boundary next to the axis). The
+numerator is S^2 (C^2) times a regular expression identically in the jets (the jets are exact products), so the
+division is now pointwise, and the runs above converge.
+
+**Controls** (each mutates the computed path; must fail, and does; at 32 x 12 unless said): C1, S with its sign
+flipped: M_22 = -4.289491, outside the band (M_22 is affine in S, so S's share is 3.2486 and the rest -1.0409); C2,
+gh_2's coupling into the mean dropped: M_22 = 3.248207, outside the band; C3, gh_2's first harmonic set to zero on
+Sigma (violating (F1)): the gauge diagnostic at tau0 is 1.00 of its terms' size, and N3's test fails; C4, the axis
+division of the first version, at 48 x 12: M_22 = 9.8 x 10^4, outside the band; C5, M_22 placed off the class (CH below):
+the chain's step fails. So the sign of S, the coupling to gh_2, the gh_2 data and the axis treatment are each seen;
+the coupling to gh_2 alone moves M_22 by -1.04.
+
+### 12.3 The chain at the floating value (computed, floating point; not certified)
+
+**CH**: at X*, with m_1(X*) = M_22 e_phi1 e_phi1 (the class, READ classm5 K1-K2) and stage 0's W and chi D there, the
+supremum over the phase of |g_1|_op exceeds (4/3) K by |M_22| to rounding (the operator-norm step, and the largest
+entry's, which uses the same C_app), and that of |g_1|_F^2 exceeds B + M_22^2 (the Frobenius step; r7fixes5 R1-R2,
+READ). C5: off the class the excess is 0.2546, not |M_22|. With C_app >= 12.593309 + |M_22| (operator norm, largest
+entry) and C_app >= (16.127552^2 + M_22^2)^(1/2) (Frobenius), the floating value would give
+
+    lambda0 < 0.0020789 (operator norm),  < 0.0018903 (Frobenius),  < 0.0010404 (largest entry),
+
+against the certified 0.0024433, 0.0019079 and 0.0012228; the band's two ends give the same figures. These are what a
+certified enclosure of the band would deliver. They are not claimed.
+
+### 12.4 Step 4: what is certified
+
+M_22 is not certified, so step 4 is not reached: **lambda0 < 0.0024433 (operator norm), < 0.0019079 (Frobenius), <
+0.0012228 (largest entry)**, certified for round 2's envelope (READ lzerotrace5 T7, r7fixes5 R2, r6fixes5 F1), stand
+unchanged. The M_22 route is a sharpening, computed as far as floating point takes it: the system exact (S1-S4), its
+solve converged to about 1e-7, the sharpened numbers above.
+
+### 12.5 The validated enclosure: what it needs, and why it does not close here (deduced; the arithmetic exact)
+
+An a posteriori closure (R8.2 (S3)) bounds |M_22 - M_22^num| by the residual of an approximate solution times the
+stability constant of the closed system, through the energy of Lemma 9.1 and a Sobolev embedding for the point value.
+In the reading of Section 8 the residual must be below 7.19e-4 |M_22| in the principal-part energy, about 1.6e-3. Then:
+
+- c_Y q^(1/2) <= 2^(1/2) x 37.8 = 53.5 (stage1rate5 K3, READ) brings the tolerance to 3.0e-5;
+- the lower-order terms (the couplings to phi_1 and to gh_2, B-bar and C-bar in the record's notation, now explicit in
+  S2-S3) add their rate k to kappa~ on the same region (Lemma 9.1); the record bounds none (round 6's minor 9), and for
+  any k the factor is e^(k Dtau*/2), Dtau* = 3.7301: k = 10 already costs 1.3 x 10^8, which takes the tolerance to
+  2.4e-13;
+- the point value needs energies commuted at least twice (the slice is four-dimensional, so s > 2) and the Sobolev
+  constant of the evaluation, each with its own, larger rates.
+
+The converged floating solve reaches, by its own refinement, a truncation of about 1e-7 to 1e-8 in M_22; the residual
+would have to be pushed at least five orders below that, and bounded in interval arithmetic over every space-time cell
+of X*'s past (about 3.4 x 10^6 cells at 48 x 16 over 4479 steps, each with the closed system's coefficient functions
+and the commuted equations), with a lower-order rate that is itself not proved. That is not a cost this machine can
+meet, and nothing weaker certifies M_22's sign: an upper bound on m_1 cannot raise a lower bound (R7.3, R8.2), and the
+data alone are too small (Section 5). So the route stops at the floating value, and the certified bounds of 12.4 are
+the result.
+
+### 12.6 The replacement texts
+
+The paper's lambda0 sentence, and the current proposal for it (CONSTANTS5.md R13.7, which supersedes R12.7 and keeps
+its pair 3, the pair that carries Section 10's correction), now say less than is known: "The solve itself is not done"
+is false. Five pairs follow: P for the paper, C1-C4 for R13.7 (its pair 3's new text, made P's; the source-map row; the
+statuses; the Appendix D rows). Each old text occurs exactly once in its file as it stands, the four in CONSTANTS5.md
+are disjoint, and seating them leaves every line at most 121 characters with no continuation line opening a list
+(checked by content when this section was written: paper md5 4c121081..., CONSTANTS5.md md5 b9617854...; CONSTANTS5.md
+is being edited by another workstream, so C1, whose old text R12.7 also carries, is anchored on the last line of R13.7's
+pair 2). Each new text claims only what Sections 1-12 prove, certify or compute: the three certified bounds, the
+reduction to one number, the data, the floating value with its observed stability, and the sharpened numbers marked
+not certified. The pairs use ~~~ fences, since C1's texts contain the record's own ``` fences.
+
+**Pair P** (`paper/RESPONSE-HL-5D.md`, section 9, "Physical wavelengths", lambda0; old: the bullet's opening words,
+to the line's end -- the span of R13.7's pair 3, whose new text this replaces).
+
+~~~old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+~~~
+
+~~~new
+The threshold λ0 that the proof of Theorem 1 delivers is traced term by term (supplement
+  `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0024433 in the operator norm, 0.0019079 in the
+  Frobenius norm and 0.0012228 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times
+  beyond it. The approximant's first linear stage sharpens these through its mean correction at the point where the
+  first-order wave is largest, which the symmetry class reduces to one number (computed, `checks/classm5.py`). That
+  stage has been solved for this envelope on the point's past, from its data on the initial slice (the second-order
+  constraint expansion in closed form, solved harmonic by harmonic; supplement `docket68/n1star/LAMBDA0-DATA5.md`,
+  `checks/lam0data5.py`): the number is 2.207738, stable under refinement to 1.4 × 10⁻⁷ (computed, floating point,
+  `checks/m22evol5.py`), and with it the three bounds become 0.0020789, 0.0018903 and 0.0010404. That sharpening is
+  computed, not certified; the certified bounds are the ones stated. And a high-frequency theorem, whose expansion
+  parameter is λ over the
+~~~
+
+**Pair C1** (CONSTANTS5.md, R13.7 pair 3: its new text becomes Pair P's, so that the proposal and the paper agree;
+the old text opens with the last line of R13.7's pair 2, which makes it occur once, since R12.7 carries the same
+pair 3).
+
+~~~old
+  those choices made numerically. This is a limit of the explicit computation, not a gap in Theorem 4.
+```
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0025 in the operator norm, 0.0020 in the
+  Frobenius norm and 0.00123 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times beyond
+  it. A value, or a lower certified bound, needs the approximant's linear stages solved. The first can lower the
+  operator-norm bound, for example through its mean correction at the point where the first-order wave is largest, which
+  the symmetry class reduces to one number (computed, `checks/classm5.py`); a certified value of that number needs a
+  validated solve of the first stage for that envelope. Its data on the initial slice are now computed: the second-order
+  constraint expansion in closed form (exact), solved harmonic by harmonic (floating point; supplement
+  `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`), and too small to move the bound by themselves; over that
+  point's past the energy estimate's growth is at most 1.4 × 10³ by domain of dependence (certified), against 5.1 × 10¹⁰
+  over the whole slab, before the lower-order terms. The solve itself is not done. And a high-frequency theorem, whose
+  expansion parameter is λ over the
+```
+~~~
+
+~~~new
+  those choices made numerically. This is a limit of the explicit computation, not a gap in Theorem 4.
+```
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+The threshold λ0 that the proof of Theorem 1 delivers is traced term by term (supplement
+  `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0024433 in the operator norm, 0.0019079 in the
+  Frobenius norm and 0.0012228 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times
+  beyond it. The approximant's first linear stage sharpens these through its mean correction at the point where the
+  first-order wave is largest, which the symmetry class reduces to one number (computed, `checks/classm5.py`). That
+  stage has been solved for this envelope on the point's past, from its data on the initial slice (the second-order
+  constraint expansion in closed form, solved harmonic by harmonic; supplement `docket68/n1star/LAMBDA0-DATA5.md`,
+  `checks/lam0data5.py`): the number is 2.207738, stable under refinement to 1.4 × 10⁻⁷ (computed, floating point,
+  `checks/m22evol5.py`), and with it the three bounds become 0.0020789, 0.0018903 and 0.0010404. That sharpening is
+  computed, not certified; the certified bounds are the ones stated. And a high-frequency theorem, whose expansion
+  parameter is λ over the
+```
+~~~
+
+**Pair C2** (CONSTANTS5.md, R13.7 pair 4: the source-map row for lambda0 gains the program).
+
+~~~old
+| | `checks/lzerotrace5.py`, `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py` |
+```
+
+Statuses behind the new texts. Pair 1: d's integer at the record's computational point, deduced, with exact arithmetic
+~~~
+
+~~~new
+| | `checks/lzerotrace5.py`, `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`, |
+| | `checks/m22evol5.py` |
+```
+
+Statuses behind the new texts. Pair 1: d's integer at the record's computational point, deduced, with exact arithmetic
+~~~
+
+**Pair C3** (CONSTANTS5.md, R13.7's statuses: pair 3's).
+
+~~~old
+(rootavoid5, INVERSE5-SCALAR.md Theorems B.2-B.5); the point's role, computed (iotaind5 I5). Pairs 2-4 as R12.7 states
+them.
+~~~
+
+~~~new
+(rootavoid5, INVERSE5-SCALAR.md Theorems B.2-B.5); the point's role, computed (iotaind5 I5). Pairs 2 and 4 as R12.7
+states them, and pair 3's as R12.7 states them with the stage-1 solve and the sharpened numbers added, computed in
+floating point and not certified (m22evol5 13/13: the system exact, S1-S4; the solve, its convergence and the
+chain, N1-N3 and CH).
+~~~
+
+**Pair C4** (CONSTANTS5.md, R13.7's Appendix D rows: the program and its output; LAMBDA0-DATA5.md's own row
+changes with this section, and the main session measures every row again when it seats the pairs, as R13.7 says).
+
+~~~old
+| `docket68/n1star/checks/lam0data5.out` | `038021a1ad5ebc7df59a3720cc9da63b` |
+~~~
+
+~~~new
+| `docket68/n1star/checks/lam0data5.out` | `038021a1ad5ebc7df59a3720cc9da63b` |
+| `docket68/n1star/checks/m22evol5.py` | `abd935827c2a2fdc543d4e70eb6fe185` |
+| `docket68/n1star/checks/m22evol5.out` | `12beb54cff95722d1e7c433c47e2922b` |
+~~~
+
+### 12.7 Program and pass count
+
+`checks/m22evol5.py --selftest` (output `checks/m22evol5.out`, **13/13**, about 55 minutes on the loaded machine):
+S1-S4 (exact), N1-N3 and CH (floating point), controls C1-C5. Imported, not copied: lam0data5.py (gauge, the order-1
+mean, the mode ODEs and their solver, the envelope's c). READ: stage0bd5.py (chi's closed form), stage5.out S2 (the
+mean source, recovered by S2), classm5 K1-K2 and r7fixes5 R1-R2 (the chain's steps), lzerotrace5 T7, r7fixes5 R2,
+r6fixes5 F1 (the certified bounds), envelope5.out E1 (c's interval). md5: program abd935827c2a2fdc543d4e70eb6fe185
+(the run's source was 6f6413adcdabbf8a006cd57f43281f45; one string literal was rewrapped afterwards to keep lines at
+121 characters, the parsed program identical), output 12beb54cff95722d1e7c433c47e2922b.

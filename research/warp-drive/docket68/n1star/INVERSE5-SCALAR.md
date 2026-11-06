@@ -657,4 +657,4 @@ PART-I-C-LOWENERGY.md:366-500, PART-III-H-AUGMENT.md:30-40. N1STAR-PROOF.md 10.1
 and Proposition 10.44 (read by content). LOSS-D.md LD9. Instruments imported: damping5.py, dweights5.py, lambdagen5.py
 (and its pinned .out), prop31loss5.py (the least E^C_I); consulted: lin5.py, gaugepot5.py, tensorzero5.py, zeroext5.py,
 modcount5.py, lhor5.py (through III.F'' Lemma 1.1). [R13: CONSTANTS5.md R13.1, R13.2 and R13.7 at md5
-b96178545d67619ab2bed9ecf1af714f, read by content; `checks/iotaind5.py` --selftest rerun here.]
+b96178545d67619ab2bed9ecf1af714f, read by content; `checks/iotaind5.py` rerun here, 10/10 (its `.out` not touched).]

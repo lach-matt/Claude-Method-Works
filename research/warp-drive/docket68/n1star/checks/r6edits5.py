@@ -522,9 +522,11 @@ def e3(blocks, P):
         if hit:
             bl[hit[0]] = bl[hit[0]].replace(old, new, 1)
             PP = P
-        else:
-            assert P.count(old) == 1, label
+        elif P.count(old) == 1:
             PP = P.replace(old, new, 1)
+        else:       # [R8] the text under test is itself mutated: report, do not stop, so E1 and E2 are seen
+            results.append((label, None))
+            continue
         Q = apply(PP, bl)
         L, pre = lemma_and_pre(Q)
         res = math_checks(norm(L), norm(pre))
@@ -532,6 +534,9 @@ def e3(blocks, P):
         failed = [k for k, v in res.items() if not v[0]] + [k for k, v in preds.items() if not v]
         results.append((label, failed))
     for label, failed in results:
+        if failed is None:
+            check(f"E3 {label}: caught", False, "the text this control mutates is not in the text under test")
+            continue
         check(f"E3 {label}: caught", bool(failed), f"failing: {failed}")
 
 
