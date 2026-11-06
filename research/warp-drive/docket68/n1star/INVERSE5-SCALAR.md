@@ -4,13 +4,15 @@
 MAJOR 2 (c), R9.5, R10.5). Read by an independent verifier (scratchpad report-vINV.md): no Major; it re-derived Lemma
 B.1 (with the 2-adic step), the avoidance arithmetic and margins, Theorem B.5 at source, Lemma A.6 from the block file,
 S5b and S8, and reran both programs; its Minor 5 (the parameter point of part A; C.1's qualifier) and its nits on this
-file (the summary's margin, Lemma B.1's real-part clause, A.6's range, S5b symbolic in kappa) are seated in place. It
-takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a single missing input: **(A)** I.C:497's scalar-type blocks
-(a lower bound, uniform in l, for their least singular value in (3.2)'s norm), and **(B)** the two avoidances of finite
-sets of roots that are part of d's reading (the levels off I11:156-160's exclusion values; eps, eps' off I9:290-291's
-and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper and INVERSE5-SIX.md (the other six inverse bounds, a
-parallel workstream) are not edited; section C's old/new text for CONSTANTS5.md R10.7 is superseded by CONSTANTS5.md
-R12.7.
+file (the summary's margin, Lemma B.1's real-part clause, A.6's range, S5b symbolic in kappa) are seated in place. [A
+confirming reader (scratchpad report-vINV2.md) confirmed those seatings and reproduced S5b independently, no Major; its
+minor 2 (part B's parameter point) and nits 5-8 are seated as bracketed notes, the old text kept, with B.9 and
+rootavoid5 R12 new.] It takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a single missing input: **(A)**
+I.C:497's scalar-type blocks (a lower bound, uniform in l, for their least singular value in (3.2)'s norm), and **(B)**
+the two avoidances of finite sets of roots that are part of d's reading (the levels off I11:156-160's exclusion values;
+eps, eps' off I9:290-291's and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper and INVERSE5-SIX.md (the other
+six inverse bounds, a parallel workstream) are not edited; section C's old/new text for CONSTANTS5.md R10.7 is
+superseded by CONSTANTS5.md R12.7.
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/scalarblock5.py` (part A; S0-S8, controls C1-C5; its data file `checks/scalarblock5_block.txt`, the block's
