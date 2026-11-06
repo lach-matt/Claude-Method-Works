@@ -627,7 +627,7 @@ deliver: "(a) III.C′ Theorem 2.1 in the cut-off gauge ... (b) Its continuation
 (constraint damping) ... Theorem 4.3 is conditional on these" (PART-III-K-NONLINEAR.md:510-518). Part VII Theorem 0.2
 uses III.K Theorem 4.3 (PART-VII-ASSEMBLY.md:69-92), and so did Theorem R2.4.
 [R5.0 (nit): PART-III-K-NONLINEAR.md:468 and 510-518 read 470 and 512-520.]
-[R6 (m7): now 471 and 513-521 (md5 f29e2aa8), keyed by content: "Theorem 4.3 ([Hin26] Theorem 13.1 at n = 4; conditional
+[R6 (m7): now 471 and 513-521 (md5 21412b8f), keyed by content: "Theorem 4.3 ([Hin26] Theorem 13.1 at n = 4; conditional
 on Part IV)" and (K2) through "Theorem 4.3 is conditional on these".]
 
 *READ, the statements that deliver them and their status (proof5/README.md:77-84).*
@@ -933,7 +933,7 @@ proof5/README.md:77-84; PART-IV3-NM.md:60-61, 229, 321, 382; PART-IV4-SLAB.md:86
 PART-IV5-CDMODES.md:154; PART-IV6-SOLV.md:742; PART-IV7-TFACE.md:348, 387; N1STAR-PROOF.md (as of 82a7e95) 1046,
 1052-1054, 1069-1078, 1234, 1348-1354, 1371, 1404-1405, 1423-1426, 1433-1440, 6776-6801, 10550-10551, 10563-10566,
 10625; BEYOND5.md:203-205, 300-301; PART-VII-ASSEMBLY.md:69-92, 162-177. None from outside sources.
-[R6 (m7): PART-III-K-NONLINEAR.md:468, 510-518 is now 471, 513-521 (md5 f29e2aa8).]
+[R6 (m7): PART-III-K-NONLINEAR.md:468, 510-518 is now 471, 513-521 (md5 21412b8f).]
 
 Open, precisely: (B) the two bootstraps on W written line by line (their identities, kernels, data and caps are
 computed here); (V) the vacuum condition of the limit (section 0.7's system with D = 0 on N; deduced); (Pr)
@@ -1612,7 +1612,7 @@ texts for N1STAR-PROOF.md's Lemma 11.0 and for the paper's section 9 are R5-D an
   that the interpolation bound on the e_8 term diverges, not the flux (label corrected). The "(Z H) d d h" of R3.5 is
   DP(h)[Z h]'s zero-order part -(1/2)(Dg^-1[Z h])^(ab) d_a d_b (g_b0 + h), not D^2P(h)[Z h, h]'s principal part.
   `scatter5.out` is regenerated (rerun, 2026-11-06; all checks pass).
-  [R6 (m7): "read 470 and 512-520" is now 471 and 513-521 (md5 f29e2aa8).]
+  [R6 (m7): "read 470 and 512-520" is now 471 and 513-521 (md5 21412b8f).]
 - **The window.** Re-derived: nothing requires a > 5/2. The kernels allow (1/2, 7/2) (B6b; their coefficients'
   exponents measured, O1), the cap a < 3 (G2), the N-flux a < 7/2 (G3), the class on S a + 1 >= l0 (G4), uniqueness
   a > a_0 (R5.2), and Step 2 a > 3/2. Computed (G5): the admissible set on the grid is (l0 - 1, 3) for l0 = 3.1, 3.3,
@@ -2065,7 +2065,7 @@ R5.1. READ: N1STAR-PROOF.md (709c63be) 24-27, 29-34, 412-456, 1172-1184 (Lemma 9
 sources. The verifiers' scratch scripts relied on are in `checks/` as `zinv5.py` (copied with a driver); their other
 computations (K*, B_J, the class of c, B13's probe) are recomputed by this round's own programs (B, A, C2, H).
 [R6 (m7, m8): zinv5 finished in round 6 (ZI1-ZI3), its m4 not a control; PART-VII-ASSEMBLY.md 403-406 is now 420-423
-(md5 500c085b) and PART-III-K-NONLINEAR.md 470, 512-520 is now 471, 513-521 (md5 f29e2aa8), by content.]
+(md5 500c085b) and PART-III-K-NONLINEAR.md 470, 512-520 is now 471, 513-521 (md5 21412b8f), by content.]
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
@@ -2088,9 +2088,10 @@ exact, F1x; G5 with Lemma R4.5 widened, G5c; [arithmetic] labels), `r5edits5.py`
 text), `zinv5.py` (its evaluation repaired; its first complete run; control m5 in place of m4, which is a no-op, ZI3).
 N1STAR-PROOF.md is cited here by quoted content, not by line number: another workstream (D625) is editing it while this
 is written; every R6-D old text is checked by r6edits5 E1a to occur exactly once in the file as it stood at the final
-run (md5 7400212b; also at fb2fbf06, before D625's edit of that file). Rounds 1-5 are left as their verifiers read them;
-where a finding below withdraws or corrects a sentence, a bracketed note "[R6 (...)]" is inserted at the end of the
-paragraph or item that contains it, and the sentence is not changed. Sections R6.0 and R6-A ... R6-E.
+run (md5 223e1749; also at fb2fbf06 and 7400212b, earlier states of that file while it was being edited). Rounds 1-5 are
+left as their verifiers read them; where a finding below withdraws or corrects a sentence, a bracketed note "[R6 (...)]"
+is inserted at the end of the paragraph or item that contains it, and the sentence is not changed. Sections R6.0 and
+R6-A ... R6-E.
 
 What this round settles, in one paragraph. The round-5 reader found no major gap and eight minors; each is re-derived
 and seated (R6.0), and every claim its list names as exercised by no check now has a computation or, where it is not
@@ -2105,7 +2106,7 @@ constructed on the full five-dimensional operator, which then decays two orders 
 out not to be needed: without it P(Sigma) = O(lam r^-6) and every estimate still closes on the window (R6.0 (r6-F4)).
 The flux sign is checked by an exact minimum over the covector (F1, F1x), and R6-D's mathematics is read from its text
 and checked (r6edits5 E2), so the reader's four surviving mutants die. zinv5 never finished in round 5 for two reasons
-that are not in the identity; repaired, it runs in thirteen minutes and shows that one of its four controls could not
+that are not in the identity; repaired, it runs in 13 to 25 minutes and shows that one of its four controls could not
 fail (R6.0 (m8)). R6-D is the final replacement text for N1STAR-PROOF.md's Lemma 11.0, with the reader's four nits; R6-E
 restates Theorem R5.1's status with a complete conditional list and gives the paper's texts.
 
@@ -2187,10 +2188,10 @@ a bump envelope".
 are R5-D's, checked to occur exactly once in the live file (E1a). Re-keyed by the same rule, at the coordinator's report
 and verified against the current files (by content): PART-III-K-NONLINEAR.md's "Theorem 4.3 ([Hin26] Theorem 13.1 at n =
 4; conditional on Part IV)" is at its line 471 (cited as 468, and as 470 in R5.0's nit), and its (K2) "What Part IV must
-deliver here" through "Theorem 4.3 is conditional on these" at 513-521 (cited as 510-518 and 512-520), at md5 f29e2aa8
-(after D628, whose changes in that file are all after line 605); PART-VII-ASSEMBLY.md's paragraph *The metric.* ending
-"So b = (m',0) and S = S^(0)_1 = 0" is at 420-423 (cited as 403-406), at md5 500c085b, and its *The group.* paragraph is
-still at 31-38 (31-37 and the blank line after it). Notes inserted at the citing lines.
+deliver here" through "Theorem 4.3 is conditional on these" at 513-521 (cited as 510-518 and 512-520), at md5 21412b8f
+(after D628 and a later edit, neither touching those lines); PART-VII-ASSEMBLY.md's paragraph *The metric.* ending "So b
+= (m',0) and S = S^(0)_1 = 0" is at 420-423 (cited as 403-406), at md5 500c085b, and its *The group.* paragraph is still
+at 31-38 (31-37 and the blank line after it). Notes inserted at the citing lines.
 
 **(m8) Labels, and zinv5.** Accepted. F3 (the product rule), F3' (a power law), F4 and F5 (typed exponents) and G5 (a
 typed list) are marked [arithmetic] in r5settle5's output and docstring; what they stood for is now computed in
@@ -2207,7 +2208,7 @@ still invariant under (g, g0) -> (c g, c g0), which is all (R3c) uses (R3-D: the
 g0(mu/kappa^2)), so the identity holds for it too (defect 1.4e-188, ZI3). Its place is taken by m5, the gauge background
 held at a fixed mass 1/2 (Gamma[g0(1/2)] in D and in its covariant derivative), which breaks the mu-scaling and fails
 (defect 0.53). Result: ZI1 (mode none, defect 1.4e-188 against terms up to 1.5e3), ZI2 (m1, m2, m3, m5 fail with defects
-87, 46, 0.39, 0.53), ZI3; about thirteen minutes for the six modes on this machine (load about 25 on four cores). Notes
+87, 46, 0.39, 0.53), ZI3; 13 to 25 minutes for the six modes on this machine (load about 25 on four cores). Notes
 inserted at the round-5 header and ledger.
 
 **(r6-F4) F_4's source is not needed** (found in this round, computed). R5-C (v)'s F_4 solves the degree -4 equation
@@ -2403,12 +2404,12 @@ at Lemma 11.0's "*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves" an
 is at most C(lam, j) t^(-3/2) in L^2."; Edit 2's begins "Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d
 U_n(tau_n)|| +" and ends "uniformly in n.", just before "The bookkeeping of sup against". `checks/r6edits5.py` E1 reads
 the four blocks below as printed here and applies them to a copy of the live file: each old text occurs there exactly
-once (md5 fb2fbf06 when written, and 7400212b, after D625's edit, at the final run), the file gains 31 lines, every line
-stays within 121 characters, nothing outside Lemma 11.0 changes, and the edited lemma satisfies E1d's ten predicates
-(r5edits5's six and the reader's four nits) and E2's eight mathematical checks; E3's six mutations of the text each
-fail. Edit 1's new text is followed on its last line by the unchanged " The identity is not run on the region between {v
-="; Edit 2's is preceded on its first line by "U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. " and followed by "
-The bookkeeping of sup against".
+once (md5 fb2fbf06 when written, 7400212b and 223e1749 as the file was edited since, the last at the final run), the
+file gains 31 lines, every line stays within 121 characters, nothing outside Lemma 11.0 changes, and the edited lemma
+satisfies E1d's ten predicates (r5edits5's six and the reader's four nits) and E2's eight mathematical checks; E3's six
+mutations of the text each fail. Edit 1's new text is followed on its last line by the unchanged " The identity is not
+run on the region between {v ="; Edit 2's is preceded on its first line by "U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with
+t_n >= t. " and followed by " The bookkeeping of sup against".
 
 What changed against R5-D: the Leibniz sums carry "gamma' <= gamma"; the family is indexed by delta, so gamma' is not
 reused; f_gamma^n, b^n, c^n and R_gamma^n are defined, with the reason that b^n and c^n obey the bounds of b and c
@@ -2539,8 +2540,8 @@ Lemma 9.3's cost measured (A, A0, L); the flux signs exactly (F1x, X1-X2); R6-D'
 D-system's) are counted by hand, their integrability checked ([arithmetic]).
 
 *The text for the paper's section 9* (RESPONSE-HL-5D.md, not edited here; it supersedes R5-E's blocks; each old text
-occurs exactly once in the current file, md5 7193c56e, checked by r6edits5's companion run below; the new lines are
-within 121 characters).
+occurs exactly once in the current file, md5 7d9fc1be at the final run (7193c56e when written), checked by r6edits5 E4;
+the new lines are within 121 characters).
 
 Block 1, in "Settling", old:
 
@@ -2616,23 +2617,30 @@ replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, w
 half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundary).
 ```
 
-Ledger. Computed (new): `r6settle5.py` X, Y, M, L, A0, T (@@N_R6S@@ checks), `r6sigma5.py` S1-S4, W (@@N_R6G@@),
-`r6edits5.py` E1-E4 (@@N_R6E@@), each with controls that mutate the code or the text under test. Changed and rerun:
-`r5settle5.py` (@@N_R5S@@), `r5edits5.py` (@@N_R5E@@), `zinv5.py` (@@N_ZI@@). The other round-5 programs are unchanged
-and their `.out` files stand (r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22,
-f1lemma5 12, vac5 8 checks). Every new or changed `.out` is from a full run and byte-identical on a second run. The
-reader's surviving mutants, rerun: @@MUT@@. Deduced: R6-A (i)-(vi), Proposition R5.2's proof, Lemma R4.5 widened,
-(r6-F4). READ: N1STAR-PROOF.md by quoted content (0.3's eps1 sentences and their D623 note; Lemma 1.1 (e); Lemma 2.3;
-Lemma 9.1 (f) "the causal claim follows as in Lemma 1.1(e)"; Lemma 9.5 "Lemma 2.3's proof on P cap {tau1 <= s <= tau}";
-section 11.1 and Lemma 11.0); N1STAR-LOG.md entries D45, D47, D618-D620, D619/D623/D624; PART-III-K-NONLINEAR.md 471,
-513-521 (md5 f29e2aa8); PART-VII-ASSEMBLY.md 31-38, 420-423 (md5 500c085b); RESPONSE-HL-5D.md (md5 7193c56e). None from
-outside sources.
+Ledger. Computed (new): `r6settle5.py` X, Y, M, L, A0, T (21 checks), `r6sigma5.py` S1-S4, W (20), `r6edits5.py` E1-E4
+(23), each with controls that mutate the code or the text under test. Changed and rerun: `r5settle5.py` (45),
+`r5edits5.py` (11), `zinv5.py` (3). The other round-5 programs are unchanged and their `.out` files stand (r5op5 7,
+cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks). Every new or
+changed `.out` is from a full run and byte-identical on a second run. The reader's surviving mutants, rerun: F-m1 and
+F-m2 fail F1; E-m6 fails r5edits5 E1f; E-m5 and E-m4, applied inside R5-D, fail E1f and E1a, and inside R6-D r6edits5
+E2b-E2d and E1a (R6.0). Deduced: R6-A (i)-(vi), Proposition R5.2's proof, Lemma R4.5 widened, (r6-F4). READ:
+N1STAR-PROOF.md by quoted content (0.3's eps1 sentences and their D623 note; Lemma 1.1 (e); Lemma 2.3; Lemma 9.1 (f)
+"the causal claim follows as in Lemma 1.1(e)"; Lemma 9.5 "Lemma 2.3's proof on P cap {tau1 <= s <= tau}"; section 11.1
+and Lemma 11.0); N1STAR-LOG.md entries D45, D47, D618-D620, D619/D623/D624; PART-III-K-NONLINEAR.md 471, 513-521 (md5
+21412b8f); PART-VII-ASSEMBLY.md 31-38, 420-423 (md5 500c085b); RESPONSE-HL-5D.md (md5 7d9fc1be). None from outside
+sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
-    python3 checks/r6settle5.py   (@@T_R6S@@)
-    python3 checks/r6sigma5.py    (@@T_R6G@@)
-    python3 checks/r6edits5.py    (@@T_R6E@@)
-    python3 checks/r5settle5.py   (@@T_R5S@@)
-    python3 checks/r5edits5.py    (@@T_R5E@@)
-    python3 checks/zinv5.py       (six processes in parallel; @@T_ZI@@)
+    python3 checks/r6settle5.py   (4 minutes alone, 27 beside the five others)
+    python3 checks/r6sigma5.py    (18 to 29 minutes, beside the others; S4 most of it)
+    python3 checks/r6edits5.py    (one to two minutes)
+    python3 checks/r5settle5.py   (14 to 25 minutes, beside the others)
+    python3 checks/r5edits5.py    (5 to 8 minutes)
+    python3 checks/zinv5.py       (six processes in parallel; 13 to 25 minutes)
+    python3 checks/r5op5.py       (unchanged; 21 minutes as the round-5 reader measured it)
+    python3 checks/cclass5.py     (unchanged; 17 minutes, likewise)
+    python3 checks/vac5.py        (unchanged; 45 minutes, likewise)
+
+The times are wall-clock on this machine with the load at about 25 on four cores; round 5's figures (four, seven, nine
+and half a minute, and "about half an hour" for vac5) were optimistic.

@@ -51,7 +51,7 @@ above 3): all rational (dweights5.weights and counts, imported).
      root (any l) is an integer or = c5/64 = 49/64 mod 1 (rational root theorem, 2-adic valuations); the values
      2 - alpha in (1/64) Z are found by congruence and none has the fractional part 15/64 that -mu would need.
   R8 (computed, exact) the rest of I11:160's appended set (I12 section 1's exclusion set): l_zf not an integer; (4.2)
-     at level 1; Lemma 4.2's interval. Not decided: (4.2) at level 2 (its tf-exponents are not listed).
+     at level 1; Lemma 4.2's interval.
   R9 (computed, exact) Definition 1.1 (a) at the levels (beta - 2 not the real part of a rate), not asked by R9 but
      decided by the same arithmetic: rational candidates not levels; irrational parts never rational (Q(d1) tests).
   R10 (computed, exact; certified margin) I9:55-58, the III.I'''''''' admissibility I11:157 assigns to the levels
@@ -60,12 +60,15 @@ above 3): all rational (dweights5.weights and counts, imported).
      = lambda_sharp + N_0 d1 (R9.1's reading); the range alpha in (2, min(a_K, 3)) (a_K at the base from R10.1),
      Lemma 3.1's alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2), and Lemma 3.2 Step 3's Proposition 5.1 at each level
      (I9:276-279: w = alpha - eps' - 2 + eps, 2 - alpha_P = eps).
+  R11 (computed, exact) (4.2) of III.G'''' Proposition 4.4 at the second Taylor level, every level in (3, 4 + eps_K]:
+     g_2's tf-exponents are lambda - 1, lambda in Lambda cap [2 + eta_1, 3 + eta_2) (READ: I12's dictionary and I11
+     Lemma 1.2 (c)); the root clause beta - eps != lambda + (-mu) by field tests over Q(d1) and exact candidates.
   Negative controls (each mutates the computed path; each must fail): C1 a level planted at 3.5099 (R6 finds it);
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
   sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
   2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it); C8 a level below 3 planted at
-  lambda_sharp + 1 (R10 finds it).
+  lambda_sharp + 1 (R10 finds it); C9 a level planted at beta - eps = lambda_sharp + 2 (R11 finds it).
 
     python3 checks/rootavoid5.py [--selftest]      (some minutes; --selftest skips the R6 and R10 margin enumerations)
 """
@@ -649,6 +652,61 @@ def r10(C, plant=None):
     return dict(cand=cand, hit=hit, rng=rng, aK=aK_base, step3=step3, w=(lo_w, hi_w))
 
 
+def r11(C, plant=None):
+    """(4.2) of III.G'''' Proposition 4.4 at the second Taylor level (I12 Step 3; I14:112-116), at every level in (3, 4
+    + eps_K]. The tf-exponents alpha_0 of g_2 in [1 + eta_1, 2 + eta_2) are lambda - 1, lambda in Lambda cap [2 + eta_1,
+    3 + eta_2) (READ: the dictionary I12:52-54, at level j = 2 a tf-exponent zeta is the u-exponent zeta + 1; Lemma 2.1,
+    I12:118, and I11 Lemma 1.2 (c), I11:105, every exponent produced with real part in [2, 3 + eps_+] lies in Lambda).
+    With l_2 = beta - 3 - eps, (4.2)'s root clause is beta - eps != lambda + (-mu); -mu ranges over the roots in
+    (-eta_2 - eps, 2 + eps_K): 0, d1, d0, 1, 1 + delta'_1, 1 + delta_2, 2. On R9.1's reading lambda = x + n d1 + theta1,
+    x in R (R9's rational points), theta1 in {0, d0, delta_2..6, delta'_1..5}; a rational sum needs n d1 + theta1 +
+    theta_mu in Q, theta_mu in {0, d0, d1, delta'_1, delta_2}: field tests (R9's for theta_mu in {0, d0}; new ones for
+    theta_mu in {delta'_1, delta_2}); then beta - eps = x + m, m in {0, 1, 2}: exact against the levels."""
+    D, I = C['D'], C['I']
+    w = C['w']
+    eps, eK, eta1, eta2 = w['eps'], w['eps_K'], w['eta1'], w['eta2']
+    with contextlib.redirect_stdout(io.StringIO()):
+        import prop31loss5 as P31
+    eci = sorted(z for z in P31.least_ECI() if z <= 4)
+    R = set([DW.LSHARP, Fr(2), Fr(3)] + eci)
+    for _ in range(3):
+        R |= {x + 1 for x in R if x + 1 <= 4}
+    Rw = sorted(x for x in R if 2 + eta1 <= x < 3 + eta2)
+    cands = sorted({x + m for x in Rw for m in (0, 1, 2)})
+    a1 = I['alpha1'] if plant is None else int((plant + eps) * D) - (C['k3'] + 11) * I['s']
+    hits, dmin = [], None
+    for c_ in cands:
+        v = (c_ + eps) * D
+        if not (Fr(beta(C, C['k3']), D) - 1 < c_ + eps <= Fr(I['alpha'], D) + 1):
+            continue
+        k = (v - a1) // I['s']
+        for kk in (k, k + 1):
+            if C['k3'] <= kk < C['K']:
+                dist = abs(Fr(a1 + kk * I['s'], D) - c_ - eps)
+                dmin = dist if dmin is None else min(dmin, dist)
+                if dist == 0:
+                    hits.append(c_)
+        dist = abs(Fr(I['alpha'], D) - c_ - eps)
+        dmin = min(dmin, dist) if dmin is not None else dist
+        if dist == 0:
+            hits.append(c_)
+    lam12, d0, sl = algebraic_numbers()
+    offs = [('0', 0), ('d0', d0)] + [('delta_%d' % lv, sl(lv, 0)) for lv in range(2, 7)] + \
+           [("delta'_%d" % lv, sl(lv, 1)) for lv in range(1, 6)]
+    bad = []
+    for nm1, t1 in offs:
+        for nm2, t2 in (("delta'_1", sl(1, 1)), ('delta_2', sl(2, 0))):
+            try:
+                sp.polys.numberfields.subfield.to_number_field(t1 + t2, lam12)
+                bad.append((nm1, nm2))
+            except sp.polys.polyerrors.IsomorphismFailed:
+                pass
+    lo_b = Fr(beta(C, C['k3']), D)
+    ineq = (lo_b - 3 - eta2 - eps > -Fr(I['eps_ind'], D)) and (Fr(I['alpha'], D) - 3 - eps + 1 - eta1 < 3)
+    return dict(ok=not hits and not bad and ineq and OK.get('R9', False), Rw=len(Rw), cands=len(cands), hits=hits,
+                bad=bad, ntests=2 * len(offs), dmin=dmin, ineq=ineq)
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
@@ -740,12 +798,12 @@ def main(selftest=False):
     print('  R8 (exact): the rest of I11:156-160\'s appended set (the exclusion set of III.I\'\'\'\'\'\'\'\'\'\'\' '
           'section 1, read at every level as I14 Definition 1.1 (c) does): l_zf = beta - 1 - j - eps is never an '
           'integer (j = 1, 2, 3; beta - eps in Z has no solution: %s); at level 1 the only tf-exponent in [2, 2 + '
-          'eta_1) on R9.1\'s reading is 2 (modcount5 M5: no point of Lambda in (2, 2 + m) or (3, 3 + m), m > eta_1, '
-          'whichever of I12 section 1\'s dictionaries is read), so (4.2)\'s last condition asks beta - 2 - eps != '
+          'eta_1) on R9.1\'s reading is 2 (at level 1 a tf-exponent is its u-exponent, I12:52-54, and modcount5 M5 '
+          'leaves no point of Lambda in (2, 2 + m), m > eta_1), so (4.2)\'s last condition asks beta - 2 - eps != '
           '-mu, rational against the roots: an integer '
           'never (beta - eps not in Z); III.I\'\' Lemma 4.2 and III.H (1.1) ask beta_tf - beta_zf = tau - beta + 2 + '
-          'eps in (0, 1) at level 3, which holds for the final tau in (beta - 2, beta - 1 - eps) (deduced): %s. Not '
-          'decided here: (4.2) at level 2, whose tf-exponents in [1 + eta_1, 2 + eta_2) the record does not list' % (
+          'eps in (0, 1) at level 3, which holds for the final tau in (beta - 2, beta - 1 - eps) (deduced): %s; '
+          '(4.2) at level 2 is R11' % (
               R8['hits'] or 'none', OK['R8']))
     R9 = r9(C)
     OK['R9'] = R9['ok']
@@ -776,6 +834,18 @@ def main(selftest=False):
         print('  R10 (certified margin): over the seven values x and n <= %d, the least distance of a level in (2, 3) '
               '(alpha_1 included) from lambda_sharp + n d1 + x is %.6e (at x = %s, n = %d), > 0: %s' % (
                   N9, float(mg9), where9[0], where9[1], OK['R10m']))
+    R11 = r11(C)
+    OK['R11'] = R11['ok']
+    print('  R11 (exact): (4.2) at the second Taylor level (I12 Step 3; I14:112-116), every level in (3, 4 + eps_K]: '
+          'g_2\'s tf-exponents in [1 + eta_1, 2 + eta_2) are lambda - 1, lambda in Lambda cap [2 + eta_1, 3 + eta_2) '
+          '(READ: I12:52-54\'s dictionary, the u-exponent of a tf-exponent zeta at level 2 is zeta + 1; I12:118 and I11 '
+          'Lemma 1.2 (c), I11:105: every exponent produced with real part in [2, 3 + eps_+] lies in Lambda); its '
+          'inequalities hold at the extreme levels: %s; its root clause, beta - eps != lambda + (-mu), -mu in {0, d1, '
+          'd0, 1, 1 + delta\'_1, 1 + delta_2, 2}: the %d new field tests (theta1 + delta\'_1, theta1 + delta_2) find no '
+          'element of Q(d1) (failures %s), with R9\'s tests for theta_mu in {0, d0}; the %d rational candidates x + m '
+          '(x among the %d rational points of Lambda in the window, m = 0, 1, 2) meet no level (hits %s; least '
+          'distance %.4e, exact): %s' % (R11['ineq'], R11['ntests'], R11['bad'] or 'none', R11['cands'], R11['Rw'],
+                                          R11['hits'] or 'none', float(R11['dmin']), OK['R11']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])
@@ -805,6 +875,9 @@ def main(selftest=False):
         1 - R7['frac'], OK['C6']))
     OK['C8'] = r10(C, plant=DW.LSHARP + 1)['hit']
     print('  C8 (control): a level below 3 planted at lambda_sharp + 1 = 2.5099: R10 finds it: %s' % OK['C8'])
+    OK['C9'] = bool(r11(C, plant=DW.LSHARP + 2)['hits'])
+    print('  C9 (control): a level planted at lambda_sharp + 1 + 1 + eps (beta - eps = (lambda_sharp + 1) + 1): R11 '
+          'finds it: %s' % OK['C9'])
     lam12 = algebraic_numbers()[0]
     try:
         sp.polys.numberfields.subfield.to_number_field(2 * (lam12 - 2) + sp.Rational(1, 3), lam12)

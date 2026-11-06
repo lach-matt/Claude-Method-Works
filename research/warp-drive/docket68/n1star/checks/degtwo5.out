@@ -1,5 +1,5 @@
   T1 Ric^H(g) + (1/2) g^ab d_a d_b g_mn free of second derivatives (R^3, g with g00, g01, g11, g22 general functions of
-      (x, y), flat background): True  [28 s]
+      (x, y), flat background): True  [11 s]
 T1 PASS
   T2 Gamma[g0] - Gamma[g0deg] a polynomial of degree <= 2 in (mu - mu0, mu') with coefficients in (r, th, mu0) and no
       constant term, every component: True
@@ -17,20 +17,30 @@ T4 PASS
       1.1].  Model (exp(-1/x), lam = 1e-6): maxima over 80 consecutive carrier periods around R = 1 strictly decreasing:
       True, sign changes: 1
 T5 PASS
-  T6 (round 6) L.25 (a) on J_n' (between bump n and bump n - 1): env vanishes at all 41 sample points: True, so every
-      oscillating profile of g_app vanishes there; the means (L.3 (b)) and the remainder w (L.4', L.4_P) against m0's
-      lower bound, in log10, unit constants: lam = 10^-100: n = 27, log10 of w/m0 (Theorem 1) 221.451, (Theorem 2)
-      -620.851, means/m0 -51.9638; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; lam = 10^-1000: n = 85, log10 of w/m0
-      (Theorem 1) -85.9587, (Theorem 2) -10514.0, means/m0 -864.665; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; lam =
-      10^-10000: n = 268, log10 of w/m0 (Theorem 1) -6543.58, (Theorem 2) -114980.0, means/m0 -9589.22; eps_4 <= lam:
-      True, eps_(M_P) <= lam^3: False; lam = 10^-100000: n = 845, log10 of w/m0 (Theorem 1) -82949.5, (Theorem 2)
-      -1.17826e+6, means/m0 -98720.8; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; lam = 10^-1000000: n = 2672, log10
-      of w/m0 (Theorem 1) -877515.0, (Theorem 2) -1.18629e+7, means/m0 -995971.0; eps_4 <= lam: True, eps_(M_P) <= lam^3:
-      True; strictly decreasing, below -1000 at the last, and every bound below m0 with both hypotheses from lam =
-      10^-1000000: True
+  T6 (round 7) L.25' (a) on J_n' (between bump n and bump n - 1): env vanishes at all 41 sample points: True, so every
+      oscillating profile of g_app vanishes there; lam_h(delta), below which h_n >= lam^(3.4 + delta): 10^-35.8 (delta =
+      1/10), 10^-40.14 (delta = 1/2); the means (L.3 (b), j-resolved) and the remainder w (L.4', L.4_P) against m0's
+      lower bound, in log10, unit constants: delta = 0.1, lam = 10^-100: n = 27, log10 of w/m0 (Theorem 1) 221.451,
+      (Theorem 2) -620.851, max_j lam^j eps_(2j)^2/m0 -51.9638; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; delta =
+      0.1, lam = 10^-1000: n = 85, log10 of w/m0 (Theorem 1) -85.9587, (Theorem 2) -10514.0, max_j lam^j eps_(2j)^2/m0
+      -864.665; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; delta = 0.1, lam = 10^-10000: n = 268, log10 of w/m0
+      (Theorem 1) -6543.58, (Theorem 2) -114980.0, max_j lam^j eps_(2j)^2/m0 -9589.22; eps_4 <= lam: True, eps_(M_P) <=
+      lam^3: False; delta = 0.1, lam = 10^-100000: n = 845, log10 of w/m0 (Theorem 1) -82949.5, (Theorem 2) -1.17826e+6,
+      max_j lam^j eps_(2j)^2/m0 -98720.8; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; delta = 0.1, lam = 10^-1000000:
+      n = 2672, log10 of w/m0 (Theorem 1) -877515.0, (Theorem 2) -1.18629e+7, max_j lam^j eps_(2j)^2/m0 -995971.0; eps_4
+      <= lam: True, eps_(M_P) <= lam^3: True; delta = 0.5, lam = 10^-100: n = 29, log10 of w/m0 (Theorem 1) 286.348,
+      (Theorem 2) -545.117, max_j lam^j eps_(2j)^2/m0 -48.9535; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; delta =
+      0.5, lam = 10^-1000: n = 90, log10 of w/m0 (Theorem 1) 334.688, (Theorem 2) -10066.2, max_j lam^j eps_(2j)^2/m0
+      -857.139; eps_4 <= lam: True, eps_(M_P) <= lam^3: False; delta = 0.5, lam = 10^-10000: n = 284, log10 of w/m0
+      (Theorem 1) -2577.85, (Theorem 2) -110928.0, max_j lam^j eps_(2j)^2/m0 -9565.14; eps_4 <= lam: True, eps_(M_P) <=
+      lam^3: True; delta = 0.5, lam = 10^-100000: n = 898, log10 of w/m0 (Theorem 1) -42399.0, (Theorem 2) -1.13742e+6,
+      max_j lam^j eps_(2j)^2/m0 -98641.0; eps_4 <= lam: True, eps_(M_P) <= lam^3: True; delta = 0.5, lam = 10^-1000000: n
+      = 2839, log10 of w/m0 (Theorem 1) -476461.0, (Theorem 2) -1.1461e+7, max_j lam^j eps_(2j)^2/m0 -995719.0; eps_4 <=
+      lam: True, eps_(M_P) <= lam^3: True; for each delta, from some lam of the grid on, every ratio below 0 with both
+      hypotheses and decreasing, and below -1000 at the last: True
 T6 PASS
   T7 L.17 (2): Lemma L.4's energy argument at levels 0-4 (the remainder w and its derivatives up to order 5) with eps_6
       <= lam^5 (L.17's hypothesis eps_M <= lam^5): 75 terms, every coefficient bounded (the non-triangular rule, every
       coefficient into Gronwall): True
 T7 PASS
-degtwo5: all checks pass, every control fails  [637 s]
+degtwo5: all checks pass, every control fails  [388 s]

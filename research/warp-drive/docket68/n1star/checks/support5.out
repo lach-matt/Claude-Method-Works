@@ -2,10 +2,10 @@
       the chain rule's lam^-1 part v_a v_b G_thth: True; d/ds of -(1/2) g^-1 is (1/2) g^-1 w g^-1: True
 C1 PASS
   C2: lam P([d_s W]) = d_s Ric^H(g0 + lam W): no order below lam^-1: True; lam^-1: True (d_s R^(-1) = 0);
-      lam^0: True, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [64s]
+      lam^0: True, so T(d_s W) = d_s R^(0), zero exactly under (E2) by lead5 L3-L4 [102s]
 C2 PASS
   C3: P(phi [d_s W]) contracted with l (x) l: no lam^-1 or lower term: True; no second derivative of phi at
-      lam^0: True [120s]
+      lam^0: True [230s]
 C3 PASS
   C4: the shifted ball and its segment stay in the annulus: True; length <= 3 lam and lam inside near
       either sphere: True; b(tau) - a >= 1 on [tau0, tau_end]: True; without |sigma0| <= 1 a point leaves: True

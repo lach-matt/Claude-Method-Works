@@ -9,7 +9,7 @@ conditionally on Part IV, as III.C$'$ is. It also uses III.I$'''''''''''''''$ Co
 repairs are being read. Verifier 133's findings seated (D309): the support classes, $\chi_-$, $\mathcal D$ and the
 collar are again defined by $t^\flat_*$ (B-M1); to be read. Verifier 134 read the D309 repairs (D311): correct, but the
 restriction $r\ge R_9$ of the slab could give it a timelike side; repaired by $c\le1/R_9$ (D-m1), with one nit (D-n1);
-to be read. Proved (D312): verifier 135 read the D311 repair, correct. Amended D378-D628: record in section 6.
+to be read. Proved (D312): verifier 135 read the D311 repair, correct. Amended D378-D629: record in section 6.
 
 The source's proof has four steps: the parameters, the solution up to $t_* = 2$, the Nash-Moser iteration, and
 constraint propagation ([Hin26] pp. 320-323). Section 0 fixes the parameters, section 1 builds the initial family,
@@ -610,6 +610,13 @@ proof's last sentence are amended in place (D628), the future-curve case compute
 controls); the orientation of $dt$ on $\{r\ge R\}$ is now stated; and `checks/vii5census.py` V2 now keeps primes in the
 spellings of $\omega$ it sorts (D628).
 
+*D629.* A confirming reader of D628 found III.K's amendments sound, with three nits here, seated in place (D629): the
+slab bound in Lemma 6.2's amended clause holds for curves entering the slab from below, so the backward problem's domain
+$X$ is now named and shown closed under future causal curves; the orientation of $dt$ is stated as the component that
+continues $\eta$'s past cone; and `checks/scrirad5.py` R5 (iv) now covers the clause's covector $d(t_{\mathrm{IVP}}+\nu)
+= dt+(\nu'-\beta)\,dr$, $\nu'-\beta\in[-1,\frac34)$, with two more controls. `checks/vii5census.py` V2 now pins its
+narrow exclusion rules to the files their reasons name.
+
 **Lemma 6.1 (the radius near $\mathscr I^+$ along past causal curves; D621).** Let $\ell$, $\epsilon_G$, $r'_0$,
 $r^\natural$ and $t^\flat_*$ be those of II.C Lemma 3.2 for $g_0 = g_{b_0}$, $C_\flat$ its $C'$ (section 0), and
 $T\ge\frac12$; put $T_1 := T/C_\flat+1$. There is $R_T<\infty$, depending only on $T$ and on the constants of II.C Lemma
@@ -688,8 +695,9 @@ $|S|$ and the data small. There is $R\ge R_5$ such that $\mathcal D\cap\{r\ge R\
 \cup\mathcal S$, $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ there, and on $\mathcal D\cap\{r\ge R\}$: every Cartesian
 component of $g_S-\eta$ is at most $\frac1{20}$ in modulus, $g_S^{-1}(dt,dt)\le-\frac12$ [amended D628: $dt$ past, not
 future, timelike: along $\eta+s\delta$, $s\in[0,1]$, $dt$ stays timelike, the bound holding for each $s\delta$, so it
-stays in the past cone of $\eta$; and $g_S$ is time-oriented on $\mathcal D$ as a small deformation of $g_{b_0}$, for
-which $dt_{\mathrm{IVP}}$ is past timelike (III.B Lemma 3.7 (b))], and $|V^x|\le2|V^t|$ for every $g_S$-causal $V$. Hence
+stays in the component that continues $\eta$'s past cone [amended D629: not "in the past cone of $\eta$", which says
+nothing of $g_S$]; and $g_S$ is time-oriented on $\mathcal D$ as a small deformation of $g_{b_0}$, for which
+$dt_{\mathrm{IVP}}$ is past timelike (III.B Lemma 3.7 (b))], and $|V^x|\le2|V^t|$ for every $g_S$-causal $V$. Hence
 $dt_{\mathrm{IVP}}$ is past timelike for $g_S$ on $\mathcal D$; along causal curves of $g_S$ in $\{r\ge R\}$,
 $r+2t_{\mathrm{IVP}}$ does not increase towards the past and $r-2t_{\mathrm{IVP}}$ does not increase towards the future;
 and II.F Lemma 1.3 with $\tau := t_{\mathrm{IVP}}$ (forward from $\Sigma_{\mathrm{IVP}}$) or $\tau := -t_{\mathrm{IVP}}$
@@ -709,9 +717,14 @@ the sets are bounded as in Proposition 1.2's proof: past curves by II.C Lemma 3.
 inside the horizon, by $N\cap\{t_{\mathrm{IVP}}<0\}\subset\{r>R_\nu\}$ ($\nu = 0$ on $[0,R_\nu]$), by $N$'s inflow
 boundary ($t_{\mathrm{IVP}}+\nu$ increases along future causal curves, $\{t_{\mathrm{IVP}} = -\nu\}$ being spacelike with
 $N$ to its future), and, in the thin slab $\{0\le t_{\mathrm{IVP}}\le|c|\}$ above, by the bounded radial speed there
-($|dr|\le C\,dt_{\mathrm{IVP}}$ along future causal curves, so $r\ge R_\nu-C|c|$). Proposition 1.2's uses need nothing
-more: away from infinity they rest on the compact $\mathcal K$, closed under past causal curves within $\mathcal D$, and
-on the exterior and slab problems near infinity.]
+($|dr|\le C\,dt_{\mathrm{IVP}}$ along future causal curves, so $r\ge R_\nu-C|c|$) [amended D629: for curves entering the
+slab from $N\cap\{t_{\mathrm{IVP}}<0\}$; a point of the slab over $\{r<R_\nu\}$ is not so bounded (a confirming reader's
+nit). The backward problem is posed on $X := (N\cap\{t_{\mathrm{IVP}}<0\})\cup(\{0\le
+t_{\mathrm{IVP}}\le|c|\}\cap\{r+2Ct_{\mathrm{IVP}}\ge R_\nu\})$, which future causal curves do not leave while
+$t_{\mathrm{IVP}}\le|c|$: they meet $\Sigma_{\mathrm{IVP}}$ from $N\cap\{t_{\mathrm{IVP}}<0\}$ at $r\ge R_\nu$, and
+$d(r+2Ct_{\mathrm{IVP}})\ge C\,dt_{\mathrm{IVP}}>0$ along them. So $r\ge R_\nu-2C|c|$ on $X$].
+Proposition 1.2's uses need nothing more: away from infinity they rest on the compact $\mathcal K$, closed under past
+causal curves within $\mathcal D$, and on the exterior and slab problems near infinity.]
 
 *Proof.* $\mathcal K$ is compact, so for $R$ above its radius $\mathcal D\cap\{r\ge R\}$ lies in
 $\Omega_{\mathrm{ext},r_1}\cup\mathcal S$ (Proposition 1.2's cover), and $t_{\mathrm{IVP}} = t-c_{\mathrm{IVP}}$ for
@@ -756,3 +769,4 @@ Cartesian components are bounded (an independent verifier's item 0; D626).
 Lemma 3.7 (b); III.C Lemmas 1.3, 2.1, 3.5 (2), Definitions 3.1, 3.4; III.C$''$ Lemma 1.1, Theorem 3.1 (2); Part IV$'''$
 Lemma 0.1, Corollary 2.3; computed, `checks/scrirad5.py` R4 and its sixth control.]
 [amended D628: and R5, Lemma 6.2's future-curve case on $g_{b_0}$, with the seventh and eighth controls.]
+[amended D629: R5 (iv) widened to the clause's covector, with the ninth and tenth controls.]

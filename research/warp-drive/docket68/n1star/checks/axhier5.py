@@ -153,12 +153,90 @@ def main():
     print('A7 the transport rows A1, A3, A4 carry none; A2 and A5 carry the angular derivatives of eta/etab (the losses '
           'the mass aspects remove), A6 carries e1 tr chi -> %s' % ('PASS' if a7 else 'FAIL'))
     ok &= a7
+    # M: the renormalised rows, hand-derived from A1-A6 and axisbianchi5.py B2-B3b, checked as identities
+    l1O = e1(sp.log(O))
+    c11, c22 = trchi / 2 + chih, trchi / 2 - chih
+    cb11, cb22 = trchib / 2 + chibh, trchib / 2 - chibh
+    e4k = e1(c22) - c11 * k + l1O * c22
+    e3k = e1(cb22) - cb11 * k + l1O * cb22
+    mu, mub = dv1(eta) - K, dv1(etab) - K
+    rhsM1 = (-dv1(c11 * (eta - etab)) - dv1(R41) - c11 * e1(eta) - l1O * (c11 * (eta - etab) + R41) + e4k * eta
+             + trchi * K - dv1(etab * chih) - l1O * etab * chih + dv1(etab * trchi) / 2 + l1O * etab * trchi / 2)
+    rhsM1b = (-dv1(cb11 * (etab - eta)) - dv1(R31) - cb11 * e1(etab) - l1O * (cb11 * (etab - eta) + R31)
+              + e3k * etab + trchib * K - dv1(eta * chibh) - l1O * eta * chibh + dv1(eta * trchib) / 2
+              + l1O * eta * trchib / 2)
+    e4trchi = -trchi ** 2 / 2 - 2 * chih ** 2 - 2 * om * trchi - R44
+    e3trchib = -trchib ** 2 / 2 - 2 * chibh ** 2 - 2 * omb * trchib - R33
+    rhsM2 = e1(e4trchi) - c11 * e1(trchi) + l1O * e4trchi
+    rhsM2b = e1(e3trchib) - cb11 * e1(trchib) + l1O * e3trchib
+    G_ = Rs / 3 + R34 / 2 + chih * chibh - trchi * trchib / 4            # rho = -K + G_ (B2)
+    e3om_K = 2 * om * omb - eta * etab + etab ** 2 / 2 + R34 / 6 + (R11 + R22) / 12      # e3 omega minus rho/2 (A4)
+    e4omb_K = 2 * om * omb + eta ** 2 / 2 - eta * etab + R34 / 6 + (R11 + R22) / 12      # e4 omegab minus rho/2 (A4)
+    e3br_K = (-(trchib - 2 * omb) * betar + 2 * chih * betabr - 3 * eta * K + e1(chih * chibh) - e1(trchi * trchib) / 4
+              + 3 * eta * chih * chibh - 3 * eta * trchi * trchib / 4 + e1(R11 + R22) - e1(R11) - k * (R11 - R22)
+              + trchi * R31 / 2 - chih * R31 + eta * R22)                     # e3 beta^r + e1 K (B3)
+    e4bbr_K = (-(trchi - 2 * om) * betabr + 2 * chibh * betar + 3 * etab * K - e1(chih * chibh)
+               + e1(trchi * trchib) / 4 - 3 * etab * chih * chibh + 3 * etab * trchi * trchib / 4 - e1(R11 + R22)
+               + e1(R11) + k * (R11 - R22) - trchib * R41 / 2 + chibh * R41 - etab * R22)   # e4 betab^r - e1 K (B3b)
+    kap, kapb = e1(om) - betar / 2, e1(omb) + betabr / 2
+    rhsM3 = (e1(e3om_K) + e1(G_) / 2 - cb11 * e1(om) + l1O * (e3om_K + (-K + G_) / 2) - e3br_K / 2)
+    rhsM3b = (e1(e4omb_K) + e1(G_) / 2 - c11 * e1(omb) + l1O * (e4omb_K + (-K + G_) / 2) + e4bbr_K / 2)
+    rnd = AB.random.Random(171)
+
+    def ident(tag, lhs, rhs, n=3):
+        worst = 0
+        for _ in range(n):
+            d_, l_ = AB.jet_values([lhs - rhs, lhs], rnd)
+            worst = max(worst, abs(d_) / max(1, abs(l_)))
+        good = worst < 1e-30
+        print('%s: identity at %d random jets, relative residual %s -> %s (%.0f s)' % (
+            tag, n, mp.nstr(worst, 3), 'PASS' if good else 'FAIL', time.time() - t0), flush=True)
+        return good, worst
+    gm = [ident('M1 e4 mu = R_M1, mu = div eta - K (div beta^r cancels; no e1 K, no e1 beta)', e4(mu), rhsM1)[0],
+          ident('M1 e3 mub = R_M1b, mub = div etab - K (the mirror)', e3(mub), rhsM1b)[0],
+          ident('M2 e4 (e1 tr chi) = e1(e4 tr chi) - chi_11 e1 tr chi + (e1 log Om) e4 tr chi (A1 commuted)',
+                e4(e1(trchi)), rhsM2)[0],
+          ident('M2 e3 (e1 tr chib) (the mirror)', e3(e1(trchib)), rhsM2b)[0],
+          ident('M3 e3 kappa = R_M3, kappa = e1 omega - beta^r/2 (e1 K cancels between e1 rho/2 and -e3 beta^r/2)',
+                e3(kap), rhsM3)[0],
+          ident('M3 e4 kappab = R_M3b, kappab = e1 omegab + betab^r/2 (the mirror)', e4(kapb), rhsM3b)[0]]
+    ok &= all(gm)
+    _, wc4 = ident('control (c4) kappa with +beta^r/2 against the same right side', e3(e1(om) + betar / 2), rhsM3, 2)
+    c4 = wc4 > 1e-10
+    print('   control (c4): %s' % ('fails (good)' if c4 else 'holds (bad)'))
+    ok &= c4
+    print('M4 (deduced) the right sides R_M1..R_M3b contain, besides the unknowns: e1 eta, e1 etab, e1 chih, e1 chibh, '
+          'e1 tr chi, e1 tr chib, e1 omega, e1 omegab and first angular derivatives of Ric; no e1 K and no derivative of '
+          'beta^r or betab^r (by construction of the right sides above, which are checked identities).')
+    # S: the scalar's two pairs in the chart (N9's analogue in four dimensions, measure 2 Om^2 sqrt(gg) Y)
+    f = sp.Function('f')(u, v, x)
+    a_, c_, d_ = e4(f), e1(f), e3(f)
+    sg = 2 * O ** 2 * sp.sqrt(gg) * Y
+    coords = [u, v, x]
+    vec = lambda V4, V3, V1: [V3 / O, V4 / O, V3 * b / O + V1 / sp.sqrt(gg)]   # (u, v, x) components
+    Div = lambda Vc: sum(sp.diff(sg * Vc[i], coords[i]) for i in range(3)) / sg
+    gi = g.inv()
+    box = sum(sp.diff(sg * sum(gi[i, j] * sp.diff(f, coords[j]) for j in range(3)), coords[i]) for i in range(3)) / sg
+    rcs = {'tr chi': trchi, 'chih': chih, 'tr chib': trchib, 'chibh': chibh, 'omega': om, 'omegab': omb, 'eta': eta,
+           'etab': etab}
+    mons = {'a^2': a_ ** 2, 'c^2': c_ ** 2, 'd^2': d_ ** 2, 'a c': a_ * c_, 'a d': a_ * d_, 'c d': c_ * d_}
+    libS = [(rn + ' ' + mn, rv * mv) for rn, rv in rcs.items() for mn, mv in mons.items()]
+    libS += [('k ' + mn, k * mv) for mn, mv in mons.items()]
+    _, _, gs1 = run('S1 Div(a^2 e3 + c^2 e4 - 2 a c e1) + 2 a Box f =', Div(vec(c_ ** 2, a_ ** 2, -2 * a_ * c_))
+                    + 2 * a_ * box, libS, 181)
+    _, _, gs2 = run('S2 Div(c^2 e3 + d^2 e4 - 2 c d e1) + 2 d Box f =', Div(vec(d_ ** 2, c_ ** 2, -2 * c_ * d_))
+                    + 2 * d_ * box, libS, 182)
+    ks = [l_ for l_ in list(res['S1 Div(a^2 e3 + c^2 e4 - 2 a c e1) + 2 a Box f ='][0]) +
+          list(res['S2 Div(c^2 e3 + d^2 e4 - 2 c d e1) + 2 d Box f ='][0]) if l_.startswith('k ')]
+    print('S3 the pairs\' quadratic forms contain the axis connection k = e1 log Y: %s (none: the pairs carry no 1/s '
+          'coefficient, and their flux through the axis is Y times a bounded density, zero)' % (ks or 'none'))
+    ok &= gs1 and gs2 and not ks
     # controls
-    _, rc1, _ = AB.fit(O * e4(trchi) + O * trchi ** 2 / 2 + O * om * trchi,
+    _, rc1 = AB.fit(O * e4(trchi) + O * trchi ** 2 / 2 + O * om * trchi,
                        [O * chih ** 2, O * R44], ['Om chih^2', 'Om Ric_44'], seed=161)
-    _, rc2, _ = AB.fit(O * e4(eta), [e for l_, e in lib3 if l_ not in ('Om beta^r', 'Om Ric_41')] + [O * beta],
+    _, rc2 = AB.fit(O * e4(eta), [e for l_, e in lib3 if l_ not in ('Om beta^r', 'Om Ric_41')] + [O * beta],
                        [l_ for l_, _ in lib3 if l_ not in ('Om beta^r', 'Om Ric_41')] + ['Om beta'], seed=162)
-    _, rc3, _ = AB.fit(e1(chih), [e for _, e in lib6], [l_ for l_, _ in lib6], seed=163)
+    _, rc3 = AB.fit(e1(chih), [e for _, e in lib6], [l_ for l_, _ in lib6], seed=163)
     cts = [rc1 > 1e-10, rc2 > 1e-10, rc3 > 1e-10]
     print('controls: (c1) A1 with omega tr chi: residual %s; (c2) A3 with beta, Ric_41 withheld: residual %s; (c3) A6 '
           'without 2 k chih: residual %s -> %s' % (mp.nstr(rc1, 3), mp.nstr(rc2, 3), mp.nstr(rc3, 3),

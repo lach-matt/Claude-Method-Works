@@ -64,7 +64,7 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
      Control: |delta|_op = s(m) makes g^-1 singular (exact).
 Labels: computed (exact sympy; X2, Y2, T sampled in floating point or mpmath).
 
-    python3 checks/r6settle5.py     (about three minutes on this loaded machine)
+    python3 checks/r6settle5.py     (4 minutes alone, 27 beside five other programs, on this loaded machine)
 """
 import os
 import random

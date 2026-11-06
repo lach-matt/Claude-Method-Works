@@ -8203,5 +8203,6 @@ independent, and none edited a file.
   - Also seated: Lemma 6.2's time orientation, (VII5)'s "twenty-four further" and K's trailing newline.
   - The paper blocks: Block 1's completeness clause is reworded, and Blocks 3-5 (the Appendix entries and the claims
     table) are new; all are prepared, not seated.
-  - SETTLE-GLAM5's re-keys (471, 513-521) have landed (workstream B). Its md5 pins of K and VII (14b79c32, 81a9effd) are
-    the D626 files; D628 leaves the pinned lines unchanged.
+  - SETTLE-GLAM5's re-keys (471, 513-521) have landed (workstream B). Its md5 pins of K and VII are f29e2aa8 and
+    500c085b, the D628 files (:630, :936, :1576, :2068, :2628) [amended D629: this line first named 14b79c32 and
+    81a9effd, the D626 files, which SETTLE-GLAM5 no longer pins]; D628 leaves the pinned lines unchanged.

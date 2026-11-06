@@ -50,10 +50,14 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      C4), both inside the horizon r = sqrt(mu); (ii) z3, m > 1: a future causal V has V^r < 0, so r decreases along
      every future causal curve inside the horizon (II.C Lemma 3.2 (1) bounds r for past curves only), and a past causal
      V has V^r > 0; (iii) z3, m >= 0: a future causal V has |V^r| <= V^t (the bounded radial speed of the amended
-     clause's slab); (iv) z3, m >= 0, 0 <= a <= 1/32 (N's nu'): dt + a dr is past timelike and positive on future causal
-     V, so {t + nu = 0} is spacelike with t + nu increasing along future causal curves. Vacuity: m > 1 with a future
-     causal V, a2 > 0, is sat. Control N7: the withdrawn lower bound, 'r does not decrease along future causal curves'
-     at m > 1, is refuted (z3 sat); N8: (iv) with a up to 1 fails (z3 sat; dt + dr is null).
+     clause's slab); (iv) z3, m > 0, -1 <= a < 1: dt + a dr is past timelike and positive on future causal V (D629, a
+     confirming reader's nit: it was m >= 0, 0 <= a <= 1/32, but the clause's covector is d(t_IVP + nu) = dt + a dr
+     with a = nu' - beta, nu' in [0, 1/32] and beta := psi_IVP' - T_mu' of III.B Lemma 3.7's proof, at most 1, and
+     z3 proves beta > -5/7 from its formula, so a lies in [-1, 3/4)); so {t_IVP + nu = 0} is spacelike, with t_IVP + nu
+     increasing along future causal curves. Vacuity: m > 1 with a future causal V, a2 > 0, is sat. Control N7: the
+     withdrawn lower bound, 'r does not decrease along future causal curves' at m > 1, is refuted (z3 sat); N8: (iv)
+     with a up to 1 fails (z3 sat; dt + dr is null); N9: (iv) with m = 0 allowed fails (dt - dr is null for eta);
+     N10: beta > -2/3 fails (z3 sat).
   Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove):
      N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (37 C x <= 1); N4 the class's
      decay removed (the coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
@@ -315,11 +319,25 @@ def r5_future_keeps_r():
     return s.check()
 
 
-def r5_inflow(a_hi):
-    """z3 on the negation of 'beta := dt + a dr is past timelike for g_b0, 0 <= a <= a_hi, every m >= 0'."""
+def r5_inflow(a_hi=1, closed=False, m_pos=True, a_lo=-1):
+    """z3 on the negation of 'dt + a dr is past timelike for g_b0, for every a in [a_lo, a_hi) ([a_lo, a_hi] if
+    closed) and every m > 0 (m >= 0 if not m_pos)'; since D629 a_lo = -1, the clause's a = nu' - beta (control N8:
+    a up to 1 closed; N9: m = 0 allowed)."""
     m, a = z3.Reals("m a")
     s = z3.Solver()
-    s.add(m >= 0, a >= 0, a <= a_hi, ks_inv(m, 1, a) >= 0)
+    s.add(m > 0 if m_pos else m >= 0, a >= a_lo, a <= a_hi if closed else a < a_hi, ks_inv(m, 1, a) >= 0)
+    return s.check()
+
+
+def r5_beta(lo=sp.Rational(-5, 7)):
+    """z3 on the negation of III.B Lemma 3.7's beta > lo, for the formula of its proof (a), beta = 1 - chi (8 mu_0/rho^2
+    - 2 mu/(rho^2 - mu)), chi in [0, 1], rho^2 >= 4 mu_0, mu in (mu_0/2, 3 mu_0/2): with x := rho^2/mu_0 and
+    k := mu/mu_0, beta x (x - k) = x (x - k) - chi (8 (x - k) - 2 k x), x (x - k) > 0 (D629; control N10: lo = -2/3)."""
+    x, k, chi = z3.Reals("x k chi")
+    s = z3.Solver()
+    lo = z3.RealVal(str(lo))
+    s.add(x >= 4, k > HALF, k < 3 * HALF, chi >= 0, chi <= 1,
+          x * (x - k) - chi * (8 * (x - k) - 2 * k * x) <= lo * x * (x - k))
     return s.check()
 
 
@@ -331,6 +349,7 @@ def r5():
     (ii) z3, m > 1 (inside the horizon): V causal, V^t > 0 (future) gives V^r < 0; V^t < 0 (past) gives V^r > 0.
     (iii) z3, m >= 0: V causal, V^t > 0 gives |V^r| <= V^t (bounded radial speed).
     (iv) z3, m >= 0, 0 <= a <= 1/32 (nu' of N): dt + a dr past timelike, and (dt + a dr)(V) > 0 for future causal V.
+        [D629: m > 0 and -1 <= a < 1, which holds the clause's a = nu' - beta: beta > -5/7 (z3) and beta <= 1.]
     Vacuity: m > 1 with V^t > 0 causal and a2 > 0 is sat."""
     ms, vts, vrs, a2s, ps, qs, v = sp.symbols("m vt vr a2 p q v")
     eta = sp.diag(-1, 1)
@@ -356,11 +375,12 @@ def r5():
     s, m, vt, vr, a2 = r5_solver(0, strict=False)
     s.add(vt > 0, z3.Or(vr > vt, vr < -vt))
     res["speed"] = s.check()
-    res["inflow"] = r5_inflow(z3.RealVal("1/32"))
-    s, m, vt, vr, a2 = r5_solver(0, strict=False)
+    res["inflow"] = r5_inflow()                          # D629: m > 0, -1 <= a < 1 (was m >= 0, 0 <= a <= 1/32)
+    s, m, vt, vr, a2 = r5_solver(0)
     a = z3.Real("a")
-    s.add(a >= 0, a <= z3.RealVal("1/32"), vt > 0, vt + a * vr <= 0)
+    s.add(a >= -1, a < 1, vt > 0, vt + a * vr <= 0)
     res["inflow_v"] = s.check()
+    res["beta"] = r5_beta()
     s, m, vt, vr, a2 = r5_solver(1)
     s.add(vt > 0, a2 > 0)
     vac = s.check() == z3.sat
@@ -411,12 +431,14 @@ def main():
     say("  R5 (III.K Lemma 6.2, the future-curve case, on g_b0 in Kerr-Schild form): form and inverse against the "
         "matrices %s; future radial null slopes at (mu, r) = (1, 4/5) and (3/2, 1): %s; z3, the negation of each claim: "
         "m > 1, future causal V has V^r < 0: %s; past causal V has V^r > 0: %s; m >= 0, future causal V has |V^r| <= "
-        "V^t: %s; dt + a dr, a in [0, 1/32], past timelike: %s, and positive on future causal V: %s; vacuity guard "
-        "(sat): %s"
+        "V^t: %s; m > 0, dt + a dr, -1 <= a < 1, past timelike: %s, and positive on future causal V: %s; III.B Lemma "
+        "3.7's beta > -5/7, so the clause's a = nu' - beta lies in [-1, 3/4): %s; vacuity guard (sat): %s"
         % (info5[0], ", ".join("(%s, %s)" % sl for sl in info5[1]), info5[2]["future"], info5[2]["past"],
-           info5[2]["speed"], info5[2]["inflow"], info5[2]["inflow_v"], info5[3]))
+           info5[2]["speed"], info5[2]["inflow"], info5[2]["inflow_v"], info5[2]["beta"], info5[3]))
     ctl["N7 r kept along future curves inside the horizon"] = r5_future_keeps_r() == z3.sat
-    ctl["N8 R5 (iv) with a up to 1"] = r5_inflow(z3.RealVal(1)) == z3.sat
+    ctl["N8 R5 (iv) with a up to 1"] = r5_inflow(1, closed=True) == z3.sat
+    ctl["N9 R5 (iv) with m = 0 allowed"] = r5_inflow(m_pos=False) == z3.sat
+    ctl["N10 beta > -2/3"] = r5_beta(sp.Rational(-2, 3)) == z3.sat
     say("  controls (each must make z3 find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()))
     good = all(ok.values())
     print("R1 %s; R2 %s; R3 %s; R4 %s; R5 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in

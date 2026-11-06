@@ -41,14 +41,17 @@ section only, the sentence there that fixes it) from the places it is used.
   V2 (computed, D626) Completeness of the 1-form spellings: every distinct printed spelling of omega in Parts III-IV
      (with its accent, its primes since D628, and every sub- and superscript) either contains a C3/C3'/C4 symbol or is
      excluded by a rule with its reason (OMEGA_EXCLUDE: Minkowski models, dual states, the zero-energy gauge potential,
-     generic forms and components). Since D628 (a confirming reader's nit: V2 dropped primes, so omega'_b was sorted
+     generic forms and components; since D629, a confirming reader's nit, the dual states, the gauge potential, the
+     source's state, omega^sharp and the Cauchy data omega^{(0)}, omega^{(1)} only in the files their reasons name).
+     Since D628 (a confirming reader's nit: V2 dropped primes, so omega'_b was sorted
      as omega) a primed spelling is excluded only by location (OMEGA_EXCLUDE_AT): every occurrence must lie in a range
      of a rule it matches -- the correction terms inside the proofs that build C3' objects (III.D'', III.D''') or the
      dual states (III.E, III.E2), III.H:267 (a line V1 lists), and generic 1-forms of uniqueness and estimate arguments
      (III.D2, III.F2, III.F4, IV5-IV7). The run: 150 spellings, 83 covered, 67 excluded, 0 neither (137 = 80 + 57 + 0
      before D628). Controls: a planted spelling must be reported as neither; so must a planted primed spelling inside
      a location rule's range, omega'_b planted outside its rules' ranges, and a primed spelling planted as text (the
-     confirming reader's C1, which passed V2 before D628).
+     confirming reader's C1, which passed V2 before D628); since D629 also omega^{(0)} planted in III.G3 and dot omega_b
+     planted in III.K (that reader's W7 and W8, which passed V2 before).
   Control (per symbol): every symbol must have at least one hit inside its own site ranges, else the run FAILs (a
      misspelt symbol or a wrong site is caught, not silently listed as absent). Negative controls: a planted symbol,
      and chi_9 with its site moved to PART-III-B-FAMILY.md:345-349, must each be reported as missing its site.
@@ -116,25 +119,33 @@ GROUPS = [
 ]
 # V2 (D626): every printed spelling of omega in Parts III-IV is either covered by a C3/C3'/C4 symbol (it contains one)
 # or excluded here, by a rule with its reason; a spelling that is neither fails V2.
+# D629 (a confirming reader's nit: W7, W8): the narrow rules are pinned to the files their reasons name (the third
+# entry; None: anywhere). An occurrence outside them falls through to the later rules, and fails V2 if none takes it.
+F4_, F5_, I8_ = "PART-III-F4-ZERO.md", "PART-III-F5-PAIRINGS.md", "PART-III-I8-UNPARAM.md"
+D2_, E_, E2_ = "PART-III-D2-ZEROENERGY.md", "PART-III-E-CONSTRAINT.md", "PART-III-E2-V1STATES.md"
+IV5_, IV7_ = "PART-IV5-CDMODES.md", "PART-IV7-TFACE.md"
 OMEGA_EXCLUDE = [
     (r"\\(?:bar\s*|breve\{\\bar)\\omega", "a Minkowski model 1-form (bar or breve-bar), explicit: "
                                          "PART-III-D3-SYMSTATES.md (1.2), PART-III-D4-GENSTATES.md section 3 (its "
-                                         "models, genstates5.py H1-H3), III.B section 5"),
+                                         "models, genstates5.py H1-H3), III.B section 5", None),
     (r"\\omega\^\{?\*", "a dual state, the kernel of an adjoint operator (PART-III-D2, -E, -E2, -F4, -F5): used in the "
                        "zero-energy counts of those files only, in no file of the construction (the III.G-III.K "
-                       "files)"),
+                       "files)", (D2_, E_, E2_, F4_, F5_)),
     (r"\\dot\\omega", "the zero-energy gauge potential, the unique solution of a natural problem "
-                      "(PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof)"),
-    (r"\\omega_\{\(0\)\}", "the source's zero-energy state, in PART-III-D2-ZEROENERGY.md's remarks on the source"),
-    (r"\\omega\^\\sharp", "a musical dual, or the explicit V_b + c_0|x|^-3 V(W) of PART-III-E2-V1STATES.md:129-130"),
-    (r"\\(?:tilde\\)?omega(?:_\\pi)?$", "a generic 1-form (or a coordinate on S^3), or its type-pi part"),
-    (r"\\omega(?:_[0-2]|_[abcdirt]|_\{[a-z];[a-z]?\}|_\\mu|_\\lambda|_V|\^[iaT]|\^\\beta|\^\\gamma|\^\{\([01]\)\})$",
-     "components of a generic 1-form or covector, a multi-index, or the Cauchy data of another equation (IV5, IV7)"),
+                      "(PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof), in III.F4, III.F5, III.I8, III.I16",
+     (F4_, F5_, I8_, I16)),
+    (r"\\omega_\{\(0\)\}", "the source's zero-energy state, in PART-III-D2-ZEROENERGY.md's remarks on the source",
+     (D2_,)),
+    (r"\\omega\^\\sharp", "a musical dual (III.D''), or the explicit V_b + c_0|x|^-3 V(W) of "
+                         "PART-III-E2-V1STATES.md:129-130", (D3, E2_)),
+    (r"\\(?:tilde\\)?omega(?:_\\pi)?$", "a generic 1-form (or a coordinate on S^3), or its type-pi part", None),
+    (r"\\omega\^\{\([01]\)\}$", "the Cauchy data of another equation (IV5, IV7)", (IV5_, IV7_)),
+    (r"\\omega(?:_[0-2]|_[abcdirt]|_\{[a-z];[a-z]?\}|_\\mu|_\\lambda|_V|\^[iaT]|\^\\beta|\^\\gamma)$",
+     "components of a generic 1-form or covector, or a multi-index", None),
 ]
 # D628 (a confirming reader's nit): primes are kept in the spelling, as a prime marks another object. The rules above
 # are for unprimed spellings; a primed one is covered (it contains a symbol) or excluded here, by its location: every
 # occurrence must lie in a range of a rule whose pattern it matches, else it fails V2.
-E_, E2_, D2_ = "PART-III-E-CONSTRAINT.md", "PART-III-E2-V1STATES.md", "PART-III-D2-ZEROENERGY.md"
 OMEGA_EXCLUDE_AT = [
     (r"\\omega'(?:_b|_\{b_S\})?$", [(D3, 176, 280), (D4, 172, 252)],
      "a correction term inside the proof that builds C3' objects at their sites, used only through them: III.D'' "
@@ -223,6 +234,20 @@ def excluded_at(t, locs):
     return out or None
 
 
+def excluded_by(t, locs):
+    """{reason: occurrences} if every occurrence of the unprimed spelling t is taken by a rule of OMEGA_EXCLUDE whose
+    pattern t matches and whose files hold it (D629), else None; a planted occurrence without a location (None) is
+    taken only by a rule pinned to no file"""
+    out = {}
+    for loc in locs:
+        r = next((reason for pat, reason, fs in OMEGA_EXCLUDE if re.match(pat, t)
+                  and (fs is None or (loc is not None and loc[0] in fs))), None)
+        if r is None:
+            return None
+        out[r] = out.get(r, 0) + 1
+    return out or None
+
+
 def v2(extra=(), show=True, append=None):
     """extra: planted spellings, each a string (no location) or (spelling, file, line); append: planted text, as in
     omega_spellings"""
@@ -241,8 +266,7 @@ def v2(extra=(), show=True, append=None):
             if "'" in t:
                 why[t] = excluded_at(t, where[t])
                 continue
-            r = [reason for pat, reason in OMEGA_EXCLUDE if re.match(pat, t)]
-            why[t] = {r[0]: sp[t]} if r else None
+            why[t] = excluded_by(t, where[t])
     left = sorted(t for t, r in why.items() if r is None)
     if show:
         wrap("  V2: %d distinct spellings of omega in Parts III-IV (%d occurrences): %d contain a C3/C3'/C4 symbol, "
@@ -356,8 +380,12 @@ def main():
          "omega'^{(7)}_{b,s9} at %s:200 (inside a location rule's range): %s; omega'_b planted at %s:300 (outside its "
          "rules' ranges): %s; the text $omega'^{(7)}_{b,s9}(S)$ planted as a last line of %s (through the tokenizer): %s"
          % (planted2, D3, primed2, K, moved2, I16, text2))
-    ctl = control() and planted2 and primed2 and moved2 and text2
-    print("V1 %s; V2 %s; control (a planted and a moved site, and four planted spellings, reported): %s"
+    w7 = not v2(append={G3: "X $\\omega^{(0)}(S)$ Y"}, show=False)
+    w8 = not v2(append={K: "X $\\dot\\omega_b$ Y"}, show=False)
+    wrap("  V2 control since D629 (the narrow rules pinned to their files): omega^{(0)} planted as text in %s: %s; "
+         "dot omega_b planted as text in %s: %s" % (G3, w7, K, w8))
+    ctl = control() and planted2 and primed2 and moved2 and text2 and w7 and w8
+    print("V1 %s; V2 %s; control (a planted and a moved site, and six planted spellings, reported): %s"
           % ("PASS" if good1 else "FAIL", "PASS" if good2 else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
     return 0 if good1 and good2 and ctl else 1
 

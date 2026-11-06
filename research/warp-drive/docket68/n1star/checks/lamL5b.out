@@ -1,5 +1,6 @@
-  M1 CONSTANTS5.md md5 3282617b921cb3f71b136cd3721ceeb4: Round 4 at line 876; 'lambda0 < 0.0024433' at lines [887, 895,
-      1060, 1116, 1325, 1496, 1745, 1819, 2045]; the eigenvalue interval at [892, 952, 1061, 2044]
+  M1 CONSTANTS5.md md5 0320dd9049430c771639045c46b19344: Round 4 at line 880; 'lambda0 < 0.0024433' at lines [891, 899,
+      1064, 1120, 1329, 1500, 1749, 1823, 2055]; the eigenvalue interval at [896, 956, 1065, 2054]; N1STAR-PROOF.md md5
+      223e17497eb670ae45f5d4ad28e0d9f5: 'Z := d_tau - beta_ext' from line [493]
 M1 PASS
   M2 B <= 1.0974028; C_Phi = C1 ((1 + B)^2 + B^2) <= 5.6033913 C1; Lam_6 = (288 C_Phi/25)^(1/27) <= (64.5511 C1)^(1/27),
       which is below lambda0's bound 0.0024433 only if C1 < 4.629e-73
@@ -24,4 +25,4 @@ M4 PASS
       10^-435.1187, A15 10^-57.17654; Lam_5': 10^-2.92333; Lam_8b: A15 10^-820.9601, DS 10^-296.7539.  Certified with
       L.4': lam_L <= 2.7041e-12
 M5 PASS
-lamL5b: all checks pass, every control fails  [196 s]
+lamL5b: all checks pass, every control fails  [141 s]
