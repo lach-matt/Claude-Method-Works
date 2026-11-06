@@ -1,4 +1,5 @@
-# python3 checks/cpaxis5.py --compare r2/cp/cp_M32_400.npz r4/cp4/cp_M40_400.npz r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M40_400_reg.npz
+# python3 checks/cpaxis5.py --compare r2/cp/cp_M32_400.npz r4/cp4/cp_M40_400.npz \
+#   r4/cp4/cp_M32_400_reg.npz r4/cp4/cp_M40_400_reg.npz
 #   (scratch runs: cpsolve5.py --run 1 0.9 32 400 180 2.25 ... ld 3 of round 2; cpaxis5.py --run ... [reg] ld 3)
 A4 the record's data at 400 x 180, cut 0.9, areal radius 1.0-1.2: the interior Ric_xx monitor (|x| <= 0.9), the Chebyshev
     tail of m, and max |P_32 - P_40| (P of M = 40 interpolated to M = 32's nodes):

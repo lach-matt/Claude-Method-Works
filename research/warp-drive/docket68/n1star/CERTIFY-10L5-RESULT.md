@@ -1425,3 +1425,823 @@ contradict V2. They are withdrawn as stated; 6.1's V2 governs.
 
 **Confirmed by the verifier** (recorded): rcert5 K1 is ball arithmetic end to end, given the float coefficients as
 exact inputs. cdata5's clause is correct. Reruns of symbol5, ampresp5, cdata5 (seed 1) and cplate5 are identical.
+
+## 8. Round 4 (2026-11-06): the axis charts, the constant, one certified box, the late region's axis defect
+
+*Status.* Appended 2026-11-06; sections 0–7 are not rewritten. The verifier of round 3 reported during this round. Its
+findings are seated in 8.0 as amendments to section 7, each re-derived or marked as not, with section 7's text quoted
+and kept. Labels are as in section 0. [Wu26] was re-read at source for this round (arXiv 2609.08421v1: (2.1)–(2.17),
+pp. 4–6; Theorem 2.2 and its proof sketch, with the pairs it uses, pp. 6–8; READ).
+
+The machine's load was 13–30 on 4 cores. Free disk was 1.3 GB at the start and 18 GB after another session's cleanup
+at 10:03. That cleanup also removed the record's D432 runs, which this round read in place (8.8).
+
+### 8.0 The verifier of round 3: its findings, seated as amendments to section 7
+
+The verifier of round 3 read section 7 and reran its programs. Its scratch work is `vF3/work/` (myreduce.py,
+speeds.py, rcert5c_ro.py and mutant copies), not committed. It found the mathematics sound and one program unsafe.
+Each finding below quotes the text of section 7 it amends, which stays as it is, with a bracketed note. This round
+re-derived each one, or says that it did not. Where section 7 and this list disagree, this list governs.
+
+**M-1 (major, a program; re-derived and repaired).** `rcert5c.py:42` overwrote the tracked `data/rcert5_C3.npz` on
+every run with a fresh fit, which is not bit-reproducible. So its P2 certified that fit and not the committed file.
+`rcert5.py` and `rcert5b.py` refit too.
+- *Re-derived.* `rcert5c.py` as of round 3 calls `R5.prepare` and then `np.savez_compressed(OUT, …)` unconditionally
+  (round 3's line 42, kept at `scratchpad/r4/rcert5c.orig.py`).
+- The committed file's md5 is 698569f6faaab4420fe2e67abc860561 before and after every run of this round. No program of
+  this round writes it.
+- *Repaired.*
+  - `rcert5c.py` writes only under `--write RUNDIR`. By default it loads the npz read only, checks the file md5 and the
+    five tensor md5s against constants in the program, certifies those tensors, and checks the file md5 again
+    afterwards. Rerun: P1 equal, P2 ll ≤ 2.414179 × 10⁻³ (unchanged to 7 digits), control moves, the file unchanged
+    (`rcert5c.out`, all checks pass).
+  - `rcert5b.py` loads the pinned npz read only and checks its md5s. It has the soundness gate the verifier asked for
+    (B3): at each n the certified sup must be at least the certified values at the centres of the finer (2n)³ grid and
+    at 500 random points.
+  - The bound assembly is now one function, tested on two known functions, T_3(t)T_3(σ)T_3(x) and
+    t⁴ + σ⁴ + x⁴, about the origin.
+    - With the Lagrange remainder replaced by the point Taylor coefficients, the verifier's mutant, the test fails as
+      it must: the point polynomial bounds the quartic by 0.
+    - The first run of this round tested the T_3 product alone, which the mutant passes (0.68); the quartic was added
+      and the program rerun (`rcert5b_run1.out` is kept).
+    - On the residual itself the mutant stays above every sample, so no sample gate can catch it there.
+    - Rerun (`rcert5b.out`, all checks pass, 2,047 s). B1 reproduces round 3's table to the printed digits on the pinned
+      approximant (ll 8.09 × 10³, 150, 4.10, 0.124; centre values to 1.53 × 10⁻⁴). The B3 gate holds at n = 1–8
+      (largest point value 1.52–1.59 × 10⁻⁴). The assembly test gives 0.25 sound and ∞ for the mutant.
+  - `rcert5d.py` (task 3) was written this round to load the pinned file read only and to check its md5s.
+  - `rcert5.py` still refits. Its K1 and K2 figures (6.3) belong to an unsaved fit.
+- [7.6's table and 7.0 item 2's figures: "certified (rcert5b.py)" — verifier of round 3: they belong to an unsaved
+  fit; the pinned approximant's figures are rcert5b.out of round 4, B1.]
+
+**Reduction (re-derived from reduce5.py R2–R3; exact).**
+- [7.0 item 1, "two free waves"; 7.9, "two free waves": verifier of round 3: they are a wave map into the flat plane,
+  coupled through h̃ (in □_h̃ and in the source). "Free" means only that the target is flat: no potential and no Φ1–Φ2
+  coupling.]
+- [7.0 item 1, "A certified bound on one is a certified bound on the other": verifier of round 3: □_h̃ A =
+  −e^{−2A}ρ⁻² Ric5_11 = −ρ⁻² Ric5(ê1, ê1), and ρ⁻² = 4/(R⁴(1 − x²)e^{2(P+Q)}) diverges at the axes. So it holds only
+  away from the axes.] In the axis chart of 8.2 the factor is e^{−A} instead (X1: □_ĝ A = −e^{−3A} Ric5_11), which is
+  regular at x = +1.
+- [7.5 item 1, "Φ1, Φ2 carry ½ log(1 − x²) and ¼ log((1 + x)/(1 − x))": verifier of round 3: those logs belong to L
+  and ψ. Φ1 = √(3/2) L and Φ2 = √2 ψ carry them times √(3/2) and √2.]
+
+**null3 (re-derived by reading N0, N7, N10).**
+- [7.0 item 1, "a hierarchy with no angular loss": verifier of round 3: the absence of loss comes from the sections
+  being one-dimensional. There χ, χ̲ are scalars with no shear, there is no Gauss or Weyl curvature, and the induced
+  connection is trivial (δe_x = −δk e̊_x, N10). None of this carries over to the two-dimensional sections near the
+  axes.] 8.2's Lemma 8.A5 makes this exact: at the axis the section's connection k ~ 1/s does not perturb in L².
+- [7.0 item 1 and 7.2: "s enters only through η, η̲ (b_v) and χ̲ (b_x)": verifier of round 3: that holds for the
+  shift's derivatives. b itself enters e3, ω̲ (through b w_x), and the −e^{−ẘ}δb ∂_x Y̊ coefficients (N0; linest5.py's
+  e3 rows).]
+- [7.0 item 1, "the angular loss lives only in the two equations the hierarchy does not use", and line 945, "the loss
+  belongs to the metric formulation, not to the class": verifier of round 3: the angular derivatives are moved into
+  the unused N7 equations, not removed. The hierarchy leaves χ̲, ω̲ and η + η̲ free, and their agreement with the metric
+  and the N7 equations are never shown to propagate. This does not matter for an a priori estimate, but it matters
+  for an existence argument. So "belongs to the metric formulation" is withdrawn as stated. It reads: "the hierarchy
+  carries no angular derivative of its own unknowns on its right sides".]
+  - *Attempted this round (`checks/prop5.py`).* Q1 (exact): the one Einstein component the hierarchy does not impose,
+    E_34 − E_xx, propagates by a homogeneous transport along e4 and along e3, once the wave equations hold. Q2 (exact)
+    is the contracted Bianchi identity used. Q3: the compatibility relations of χ̲, ω̲ and η + η̲ with the metric are
+    not propagated by any one-directional row. Each needs a cross or angular derivative of an unknown transported in
+    the other direction. Their propagation is not shown, and it is added to 7.5's list (8.6, item 5).
+    - Q1's divergence is (div S)(e4) = −½(e4 q + χ q), (div S)(e3) = −½(e3 q + χ̲ q) and (div S)(e_x) = ½(η + η̲) q,
+      with S = E − ½ tr E h̃ reduced to S_34 = q by the five imposed components.
+    - So once the wave equations hold, q obeys a homogeneous transport along e4 and along e3, and it vanishes
+      algebraically wherever η + η̲ ≠ 0.
+
+**Theorem 7.L and its constants (re-derived).**
+- [7.4, "So the estimate exists and its constants are explicit, but (i) they are of size 10^138 and up where it
+  applies": verifier of round 3: the constants are computed on a band where, by E5, no domain of the theorem exists.
+  It reads "computed on |x| ≤ 1/2 over the box, where no truncated domain exists".] The same holds for 8.3's
+  Theorem 8.W figures, and 8.3 says so.
+- [7.0 item 1 and 7.4, "every point of the box, and of the late region, depends on data at the axes"; "about three
+  times over"; 7.7, "signals cross the angular range about three times": verifier of round 3: the speeds are suprema,
+  which bound the causal reach from above. They prove the theorem's domains empty, not that every point depends on the
+  axes.]
+  - *Re-derived (the verifier's speeds.py, rerun read only on D432's run).* In the regular angle θ (x = cos θ),
+    2√(Δu ∫ sup(Ω̃²/γ̃θ) dv) = 5.81 rad against a range of π: at most about 1.85 crossings. The inf-based reach is
+    1.13 rad, less than π/2. In x units the figures are 5.67 and 0.055.
+  - It reads "signals from the axes can reach the late region: the box spans up to about two angular crossings (by
+    the supremum of the speeds)".
+- [7.0 item 2 and 7.6, "the measured response is 9.2" and "F becomes … of the order of the measured 9.2": verifier of
+  round 3: 9.2 is F_low of ampresp5.py A1, a secant lower estimate in another norm (sup of P, Q, W, log R in data
+  units) and region (v ∈ [0.5, 1.65), areal radius ≥ 1). So the demand at F = 9.2 is the least stringent case, an
+  expectation and not a result.] It is so labelled in 8.3. 8.3 also shows that the approximate-inverse route cannot
+  deliver it (Lemma 8.F).
+- [E6 uses T = 3.95 and E8 uses T = 10: verifier of round 3. Recorded; 8.3 states both.]
+- [linest5.py E2, "no derivative of any unknown appears on any right side: the level-0 hierarchy closes", taken as a
+  check of the rows: verifier of round 3: E2 cannot fail on a wrong linearisation. The rows are typed by hand.
+  Dropping −e^{−ẘ}δb ∂_x Y̊, or ¼ → ½ in the ω̲ transport, both survive. E3 tests only a planted symbol.]
+  - *Repaired.* linest5.py gains E9 (exact). (a) Every transport right side G_y, its scalar sums replaced by the Ricci
+    components they stand for, satisfies e_X Y = G_y on the general (2+1)-metric. (b) The metric rows follow from N0.
+    (c) Every row's frame-change part equals −d/dε of the perturbed frame operators applied to the background, by sympy.
+  - Both of the verifier's surviving mutants now fail E9 (`scratchpad/r4/mut/ls_mut_db.out`,
+    `ls_mut_quarter.out`). linest5.py's rows, and so wgron5.py's and lev1_5.py's, are unchanged.
+  - Rerun: `linest5.out` regenerated, E4–E8 identical to round 3. E9 PASS, 24 s.
+- [7.10 A1, "both eigenvalues are semisimple, so there is no Jordan block": verifier of round 3: the no-block result is
+  non-generic. Changing the elimination coefficient's sign, or multiplying it by 2, brings the block back.]
+  - *Re-derived by reading S3.* Rank A_eff = 2 rests on the exact relation row 4 = −(1 + x)/3 · row 2 −
+    (1 − x)/3 · row 3. Any perturbation of the eliminated coefficient breaks it.
+  - So the result holds for the exact equations only. A scheme that perturbs the elimination (for instance by its
+    truncation error) is not covered by it.
+- [7.10 A4, "The gap is about 5 to 84": verifier of round 3: 4.6–81, as elsewhere. Re-derived: 2.42 × 10⁻³/5.26 ×
+  10⁻⁴ = 4.60 and 81.2.]
+
+**Task 2 of round 3 (re-derived from rcert5b.out of round 3).**
+- [7.0 item 2 and 7.6, "reaching twice the residual's size needs n ≈ 26–35 … about 2–4 × 10⁴ sub-boxes", and
+  "extrapolated: of the order of 10⁷ sub-boxes and 10⁷ s for all 416 … a matter of machine time, not of method":
+  verifier of round 3: at the asymptotic h³ ratio of 8 the gap needs n ≈ 59–104 (2 × 10⁵ to 1 × 10⁶ sub-boxes).
+  K2's ln, lx and nx bounds are infinite at boxes with x = 0.625 and 0.994, so nothing shows convergence there. The
+  10⁷ rests on the most favourable interior box.]
+  - *Re-derived.* bound/centre at n = 8 is 810–4,400, so the gap to twice the centre is 405–2,200, and
+    8 · gap^{1/3} = 59–104.
+  - It reads "a lower bound on machine time, for interior boxes only".
+  - 8.4 replaces the extrapolation by a measurement: adaptive bisection completes the interior box. And it replaces the
+    "all 416" claim by a certified census: on 193 of the 416 boxes a certified point value exceeds the target, so no
+    machine time suffices there.
+
+**Task 3 of round 3 (re-derived from cplate5d.out and cplate5c.out).**
+- [7.0 item 3 and 7.7, "M = 40 … raises the monitor 2–25-fold everywhere from v = 1.0, the scheme's angular defect",
+  and "Raising M to 40 raises the Ric_xx monitor on every band from v = 1.0 on, at every areal radius": verifier of
+  round 3: WRONG.]
+  - *Re-derived (cplate5d.out).* At areal radius 0.9–1.0 on [1.9, 2.0) and [2.0, 2.25) the interior monitor falls with
+    M: 29.7 → 24.0 and 69.4 → 60.3. cplate5d prints "not angle-limited" for the second.
+  - At areal radius ≥ 1.2 on [2.0, 2.25) the rise is 34-fold: 0.390 → 13.3.
+  - So the angular-defect explanation fails exactly at 0.9–1.0 from v = 1.9. There the violation does not change with
+    M, and it grows with the null step (Ric_xx 800 → 1600 rows: ratios 0.72 and 0.58, cplate5c.out). That leans against
+    a vacuum limit there, rather than "not decided".
+  - It reads: "M = 40 raises the interior monitor 2.3–34-fold on every band from v = 1.0 at areal radius ≥ 1.0, and
+    2.2–25-fold at 0.9–1.0 below v = 1.9, including bands where P has converged. At areal radius 0.9–1.0 from v = 1.9 it
+    falls slightly (ratios 0.81 and 0.87), and grows with the null step."
+- [7.0 item 3 and 7.7, "three null grids": verifier of round 3: in effect two, since the 400-row run is
+  pre-asymptotic (ratios 17–272). Accepted.]
+- [7.0 item 3, "≤ 1.0 × 10⁻³": 1.04 × 10⁻³. "14–22-fold to v = 1.9": it holds on [1.65, 1.9) only. Verifier of round
+  3; both re-derived from cplate5c.out.]
+
+**The proposed paper text of 7.9 (verifier of round 3, M-2).**
+- *Re-derived.* "remains open" occurs once (paper line 1490), followed by " (supplement `CERTIFY-10L5-RESULT.md` section
+  2)." The 7.9 span left that citation dangling.
+- 7.9's text claims more than the record in six ways, each confirmed by reading the cited sections:
+  - (a) the loss of derivatives is deduced at frozen coefficients, on spherical states, for the free formulation only,
+    and for the constraint-preserving one in a model only;
+  - (b) 7.5 lists four obstacles, not two;
+  - (c) the constant 10^69 is computed where no truncated domain exists;
+  - (d) "three angular crossing times" is over-counted;
+  - (e) the certificate's program refits;
+  - (f) the cdata5 figures lose their comparison scale, 4.1–4.3 % of the cancelling terms.
+- 7.9's proposal is withdrawn. 8.10 replaces it, with the span ending at "section 2)." and every item above folded in.
+
+### 8.1 Answers
+
+1. **Task 1, the axes.** Near each axis the class is four-dimensional, axisymmetric, twist-free Einstein–scalar, in a
+   chart that is regular there (deduced, exact: `checks/axis5.py`).
+   - *Proved (deduced, exact).*
+     - The reduction and the chart's regularity, including elementary flatness in the record's variables (8.A1).
+     - The reduced double-null structure, with σ = 0 (8.A2).
+     - [Wu26]'s Gauss equation (2.8) and the curvature pair (2.13)–(2.14) in the reduced form, found at random jets and
+       verified exactly at fresh ones (`checks/axisbianchi5.py` B1–B3). The conjugate pair (K, β̲^r) is verified
+       likewise (B3b).
+     - The pair's energy identity on the whole section, with no boundary term at the axis (8.A3, 8.A6).
+     - The axis's angular recoveries as Hardy inequalities with explicit constants (8.A4).
+     - The glue's cut-off identity, with explicit added coefficients (8.G).
+     - That nothing below the curvature level reaches the axis (8.A5).
+   - *Computed.* The chart's frame quantities are bounded up to the axis on the record's solution, at the regular rates
+     (X5). Theorem 7.L's coefficients grow from 122 to 1.8 × 10⁵ there.
+   - *Not done:* the closure inequality of the linearised axis hierarchy, and with it the glued estimate. That is task
+     1's single missing input (8.6).
+   - The glue to Theorem 7.L needs 7.L at level 1, since the cut-off terms are curvature-level. Theorem 8.L1 (exact,
+     `checks/lev1_5.py`) supplies it.
+2. **Task 2, the constant.**
+   - *Proved:* Theorem 8.W, 7.L with weights. On |x| ≤ 1/2 over the box, where no truncated domain exists, it lowers
+     F² from 10^138 to 10^66.9, and on |x| ≤ 0.8 from 10^222 to 10^93.1 (computed, `checks/wgron5.py`).
+   - *Proved (Lemma 8.F):* no approximate inverse of finite rank lowers F below the explicit constant applied to its
+     defect, since that defect is at least 1. So round 3's demand "at F = 9.2" is not delivered by that route.
+   - The closing condition with the new constant is (𝒟_δ + 𝒮_ε)^{1/2} < 1/(4 G F²). At F² = 10^66.9 it asks
+     10^−68/G in 2(d)'s convention.
+   - *Missing input:* an explicit estimate on the high angular modes with a small constant (8.6).
+   - *Computed:* in the transported subsystem the signed growth is 2 × 10⁶, against a Grönwall factor of 10^87–10^97.
+     The bookkeeping, not growth, makes the constant there.
+3. **Task 3, the residual.**
+   - *Certified (`checks/rcert5d.py`):* on rcert5's interior box t, σ ∈ [−1/2, 0], x ∈ [0, 1/4], every frame component
+     of the pinned approximant's residual is ≤ 3.01 × 10⁻⁴ of the curvature scale. That is below the target 5.3 × 10⁻⁴,
+     over 32,768 sub-boxes (37,440 Taylor-model evaluations, 3,500 CPU-seconds, 2.9 hours on the shared machine).
+   - *Certified:* on 193 of the 416 boxes no certificate can reach 5.3 × 10⁻⁴, since a certified point value exceeds
+     it. On the other 222 the cost is estimated in 8.4.
+4. **Task 4, level 1 and the late region.**
+   - *Level 1, proved:* Theorem 8.L1, the hierarchy commuted with e_x, closes (exact). Its constant is computed:
+     10^2645.7 unweighted, 10^91.0 weighted.
+   - *Late region, computed.* The free scheme is resolved in angle to v = 1.8 and loses it from there, the node next to
+     the axis first (A1).
+   - The constraint-preserving scheme's monitor rise with M is the singular R_uv coupling at the axes, −3/(R(1 ± x))
+     (A2).
+   - A regularisation removes the spurious axis field on Tangherlini to rounding, 10⁻¹² against 10⁻⁴–10⁻², and puts R
+     at second order (A3).
+   - On the record's data at 400 rows the regularised monitor no longer rises with M below v = 2.0, and M = 32 and 40
+     agree to 5.4 × 10⁻¹¹ to v = 1.8 (A4).
+   - From 400 to 800 rows the constraint converges at second order in the null step, and it is independent of M. This
+     holds to v = 2.0 at areal radius ≥ 1.2, and to v = 1.8 at 0.9–1.2 (A5).
+   - The Kretschmann scalar is resolved in M and in the null step, and moderate (|K/K_0 − 1| ≤ 4.1), to v ≈ 1.8–1.9;
+     from v = 1.9 it is unresolved in angle at every angle (A6).
+   - From v = 1.8 at areal radius 0.9–1.2 a constraint violation persists under both refinements. Not decided; it leans
+     against a vacuum limit there.
+   - The theorem's region is bounded to v ≤ 1.8 r_h at areal radius ≥ 0.9 r_h and v ≤ 2.0 r_h at ≥ 1.2 r_h (and
+     v ≤ 1.65 r_h at 0.6–0.9 r_h). Nothing is claimed beyond. The single missing input is a third null grid for the
+     regularised scheme.
+5. **Task 5.** The old and new text are in 8.9.
+
+**The verifier of round 3** is seated in 8.0. Its M-1 (rcert5c.py overwriting the tracked npz) is repaired. The file's
+md5, 698569f6…, is unchanged before and after every program of this round. linest5.py's rows are now checked against
+the geometry (E9), which catches both mutants it found surviving. The compatibility propagation it asked for is
+attempted (`checks/prop5.py`). The sixth Einstein component propagates (exact). The compatibility relations
+themselves are propagated by no one-directional row; their propagation is not shown, and is added to the missing
+inputs.
+
+### 8.2 Task 1: the axis charts (`checks/axis5.py`)
+
+**The chart.** Near x = +1 the φ2-circle degenerates and the φ1-circle does not, so the class is reduced on φ1 alone:
+g5 = g4 + e^{2A} dφ1², g4 = h + e^{2B} dφ2² (reduce5.py's A, B, h). In four dimensions the Einstein frame is
+ĝ = e^A g4, and for every metric of the class (X1, exact)
+
+    Ric(ĝ) − (3/2) dA dA = Ric5|_4 + (1/2) e^{−2A} Ric5_11 g4,     □_ĝ A = −e^{−3A} Ric5_11.
+
+So the vacuum class is four-dimensional Einstein–scalar ([Wu26] (1.4), READ; Φ = √(3/2) A), axisymmetric about the
+axis of ∂_φ2, twist free and reflection symmetric in φ2, and its residues are fixed combinations of Ric5, as in 7.1.
+In [Wu26]'s form (1.1), ĝ = −2Ω̂²(du dv + dv du) + ĝ_x (dx − b du)² + Y² dφ2², with Ω̂² = e^{A+2W}, ĝ_x = e^A Gx,
+Y = e^{A/2+B}, b = (1 − x²) s. The chart at x = −1 exchanges (A, φ1) and (B, φ2).
+
+- **Lemma 8.A1 (deduced, exact: X1).** In the record's variables the chart is regular at x = 1: Ω̂² → R e^{P+2W} > 0
+  (the three-dimensional Einstein frame of 7.1 has Ω̃² ∝ 1 − x² → 0 there), and with s the proper distance to the
+  axis, Y/s → e^{P+2Q} = e^{(1−x)n} → 1: elementary flatness, exact in the record's variables. *Controls* (fail): the
+  five-dimensional weight e^{2A} in place of e^A; a conical defect P + 2Q → c, which gives Y/s → e^c.
+- **Lemma 8.A2 (deduced, exact: X2).** For the general metric of this form, with e4 = Ω̂⁻¹∂_v,
+  e3 = Ω̂⁻¹(∂_u + b∂_x), e1 = ĝ_x^{−1/2}∂_x, e2 = Y⁻¹∂_φ, [Wu26] (2.1)'s Ricci coefficients have χ_12 = χ̲_12 = η_2
+  = η̲_2 = ζ_2 = 0 and χ_11 = e4 log √ĝ_x, χ_22 = e4 log Y, χ̲_11 = Ω̂⁻¹((∂_u + b∂_x) log √ĝ_x + b_x),
+  χ̲_22 = e3 log Y, ω = −½ e4 log Ω̂, ω̲ = −½ e3 log Ω̂, ζ = −¼ Ω̂⁻² √ĝ_x b_v, η = ζ + e1 log Ω̂, η̲ = −ζ + e1 log Ω̂.
+  Every Christoffel symbol with an odd number of φ indices vanishes, so σ = 0 and the reduced curvature is
+  (α_11, β_1, ρ, β̲_1, α̲_11) with the section's Gauss curvature K = −Y⁻¹ e1 e1 Y. With σ = 0 and curl η = 0,
+  [Wu26]'s auxiliary ω† vanishes. *Control* (fails): χ_22 taken from the other circle.
+- **Lemma 8.A3 (deduced, exact: X3).** With dμ = Y √ĝ_x dx, ∂_v log(Y √ĝ_x) = Ω̂ tr χ and
+  ∂_u(Y √ĝ_x) + ∂_x(b Y √ĝ_x) = Ω̂ tr χ̲ Y √ĝ_x; and for any scalar K and one-form component β,
+  K div(Ω̂β) + Ω̂ β e1 K = (Y √ĝ_x)⁻¹ ∂_x(Y Ω̂ K β), an exact derivative for dμ whose value at the axis vanishes with Y.
+  So [Wu26]'s curvature pairs (β, (K, curl η)) and ((K, curl η̲), β̲) (READ, (2.13)–(2.15) and p. 8), here (β^r, K)
+  and (K, β̲^r), have energy identities on the whole section, the axis included, with no boundary term there.
+  *Control* (fails): with the three-dimensional measure √ĝ_x dx the remainder is exactly (e1 log Y) Ω̂ K β, the
+  axis's 1/s term.
+- **The pairs themselves (deduced: `checks/axisbianchi5.py` B1–B3b; each equation found by a fit at random jets and
+  verified exactly at fresh jets, on the general metric of the chart, off shell).**
+  - The setup: Riemann from the Christoffel symbols, the Weyl tensor by [Wu26]'s formula, β = ½W(e1, e4, e3, e4),
+    β̲ = ½W(e1, e3, e3, e4), ρ = ¼W(e4, e3, e4, e3), and [Wu26] (2.12)'s β^r = β − ½Ric_41, β̲^r = β̲ + ½Ric_31.
+  - *B1.* W(e1, e2, e3, e4) = W(e1, e2, e1, e4) = W(e1, e2, e1, e3) = 0: σ and the twisted components vanish.
+  - *B2, Gauss.* K = −ρ + R/3 + ½Ric_34 + χ̂χ̲̂ − ¼ tr χ tr χ̲, which is [Wu26] (2.8) (χ̂·χ̲̂ = 2χ̂χ̲̂ in these
+    components).
+  - *B3, the pair (β^r, K).*
+
+        Ω̂ e4 K + Ω̂ tr χ K = −div(Ω̂ β^r) + div(Ω̂ η̲ χ̂) − ½ div(Ω̂ η̲ tr χ),
+        Ω̂ e3 β^r + Ω̂(tr χ̲ − 2ω̲) β^r = −Ω̂ e1 K + 2Ω̂ χ̂ β̲^r − 3Ω̂ η K + Ω̂ e1(χ̂χ̲̂) − ¼Ω̂ e1(tr χ tr χ̲)
+            + 3Ω̂ η χ̂χ̲̂ − ¾Ω̂ η tr χ tr χ̲ + Ω̂ e1(Ric_11 + Ric_22) − Ω̂ e1 Ric_11 − Ω̂ k(Ric_11 − Ric_22)
+            + ½Ω̂ tr χ Ric_31 − Ω̂ χ̂ Ric_31 + Ω̂ η Ric_22,
+
+    with k = e1 log Y. The principal parts are [Wu26] (2.13)–(2.14)'s. In (2.13)'s two lower-order terms the fit finds
+    the opposite signs to those read from [Wu26]. The fit is exact here; the difference is recorded, not resolved, and
+    it does not touch the energy structure.
+    - *Control* (fails): β in place of β^r, the Ricci terms withheld, leaves a residual of 1.8 at the fresh jets
+      (Ric enters).
+  - *B3b, the conjugate pair (K, β̲^r)*, with the mirrored library:
+
+        Ω̂ e3 K + Ω̂ tr χ̲ K = div(Ω̂ β̲^r) + div(Ω̂ η χ̲̂) − ½ div(Ω̂ η tr χ̲),
+        Ω̂ e4 β̲^r + Ω̂(tr χ − 2ω) β̲^r = Ω̂ e1 K + 2Ω̂ χ̲̂ β^r + 3Ω̂ η̲ K − Ω̂ e1(χ̂χ̲̂) + ¼Ω̂ e1(tr χ tr χ̲)
+            − 3Ω̂ η̲ χ̂χ̲̂ + ¾Ω̂ η̲ tr χ tr χ̲ − Ω̂ e1(Ric_11 + Ric_22) + Ω̂ e1 Ric_11 + Ω̂ k(Ric_11 − Ric_22)
+            − ½Ω̂ tr χ̲ Ric_41 + Ω̂ χ̲̂ Ric_41 − Ω̂ η̲ Ric_22.
+
+    That is the mirror image of the first pair (χ ↔ χ̲, η ↔ η̲, β ↔ β̲, 3 ↔ 4), with every term but 2Ω̂χ̲̂β^r of the
+    opposite sign. Both are exact at fresh jets (residuals ≤ 9 × 10⁻⁴²).
+  - The two principal coefficients are equal in each pair (−1 and −1; +1 and +1), which is the condition for an
+    energy pair (8.A3).
+- **Lemma 8.A6, the pair inequality on the whole section (deduced from B3 and 8.A3).** With F_K and F_β the
+  lower-order right sides above,
+  ∂_v ∫K² dμ = ∫(2K F_K − 2K div(Ω̂β^r) − Ω̂ tr χ K²) dμ and
+  ∂_u ∫(β^r)² dμ = ∫(2β^r F_β − 2β^r Ω̂ e1 K − Ω̂(tr χ̲ − 4ω̲)(β^r)²) dμ.
+  - The principal terms sum to −2(Y√ĝ_x)⁻¹ ∂_x(Y Ω̂ K β^r), with no boundary term at the axis (Y = 0, K and β^r
+    bounded).
+  - So on [u0, u] × [v0, v], with the energy cut off by ψ of 8.G to the part of each section where the chart is used,
+    ∫_{H_u} ψ(β^r)² dμ dv + ∫_{H̲_v} ψK² dμ du ≤ (data) + ∫∫ψ(2|K||F_K| + 2|β^r||F_β| + Ω̂|tr χ| K²
+    + Ω̂|tr χ̲ − 4ω̲|(β^r)²) dμ du dv, plus 8.G's two bulk terms. Likewise for (K, β̲^r), with Ω̂|tr χ̲| and
+    Ω̂|tr χ − 4ω|.
+  - This is the curvature-level estimate of the pairs at the axis, with explicit coefficient functions.
+  - What it leaves is F_K and F_β. They carry angular derivatives of Ricci-coefficient products, as [Wu26]'s do, and
+    bounding them is the rest of the hierarchy (below).
+- **Lemma 8.A4 (deduced; computed check: X4).** On [0, S] with Y = s y(s), 0 < y_min ≤ y ≤ y_max, |s y'/y| ≤ q, the
+  solutions regular at the axis of div η = g and of Codazzi's operator (e1 + 2 e1 log Y) χ̂ = g obey, in L²(Y ds),
+  ‖(e1 log Y) η‖ ≤ (1 + q)(y_max/y_min)^{3/2} ‖g‖ and ‖(e1 log Y) χ̂‖ ≤ ½(1 + q)(y_max/y_min)^{5/2} ‖g‖ (the weighted
+  Hardy inequality with r = 3 and r = 5). Checked on five test functions at three grids (the ratio to the bound is
+  ≤ 0.244 and ≤ 0.190); *control*: integrated from s = S instead of the axis, the ratio grows with the grid
+  (1.5 × 10³, 6.0 × 10³, 2.4 × 10⁴): unbounded. These are the angular recoveries [Wu26]'s proof makes by elliptic
+  estimates on spheres; at the axis they are explicit.
+- **Lemma 8.A5 (deduced, exact: X6): nothing weaker than the curvature level suffices at the axis.** The section has
+  the connection k = e1 log Y ~ 1/s. Under the regular perturbation ĝ_x → (1 + ε) ĝ_x, Y → (1 + ε)^{1/2} Y
+  (elementary flatness kept), δk = −(ε/2) k to first order, exactly, and ∫_a^1 k² Y ds = −log a → ∞. So no estimate
+  whose unknowns include δk in L²(dμ) exists. Theorem 7.L's unknowns cannot be carried to the axis, and the angular
+  derivatives of the metric differences must be carried as tensors (Codazzi, 8.A4), which is [Wu26]'s level.
+- **The constants near the axis (computed: X5, on D432's run over rcert5's box).** In chart + on 0 < x < 1, up to the
+  outermost node, the frame quantities times Ω̂ (as linest5.py E4 states them) are bounded: tr χ 0.577, χ̂ 0.102,
+  tr χ̲ 5.58, χ̲̂ 0.236, ω 0.188, ω̲ 0.348, ζ 0.327, η 0.61, η̲ 0.363, e4 Φ 0.283, e3 Φ 2.88, e1 Φ 0.998; in chart −
+  the largest is tr χ̲, 6.71. They vanish toward the axis at the rates regularity requires: χ̂/(1 − |x|) is 0.114
+  (chart +) and 0.247 (chart −) at each of the four outermost nodes, ζ/√(1 − |x|) 0.37 and 0.77. η/√(1 − |x|) and
+  e1 Φ/√(1 − |x|) are bounded but alternate between nodes (0.93, 0.50, 0.67, 0.56 for η in chart +): the outermost node
+  departs from its neighbours, the axis-node excess of 8.5 (A1), already at v ≤ 1.6. Theorem 7.L's three-dimensional
+  coefficient sums grow from 122 on |x| ≤ 1/2 to 1.8 × 10⁵ at the outermost node (linest5.out E4).
+- **Lemma 8.G, the glue (deduced, exact: X7; constants computed).** For a cut-off ψ(x),
+  ψ[K div(Ω̂β) + Ω̂ β e1 K] = (Y √ĝ_x)⁻¹ ∂_x(ψ Y Ω̂ K β) − (e1 ψ) Ω̂ K β, and the shift adds b (∂_x ψ) f under ∂_u. So
+  the cut-off energy obeys the chart's identity with two bulk terms supported where ψ is not constant, of
+  coefficients sup Ω̂|e1 ψ| and sup|b ∂_x ψ|. For ψ linear in x on 1/4 ≤ |x| ≤ 3/4 they are 3.16 and 0.924 (chart +),
+  3.32 and 1.01 (chart −). *Control* (fails): the identity without the (e1 ψ) term.
+  - The added terms are curvature-level (K β). An interior energy that does not control them on the strip cannot absorb
+    them. Theorem 7.L is level 0, so **the glue to 7.L needs 7.L at level 1 on the strip**, which Theorem 8.L1 (8.5)
+    supplies. A family with bounded level-0 norm and K unbounded on the strip (δΦ = ε sin(x/ε)) shows that nothing
+    weaker suffices.
+  - What the glue also needs is the equivalence constant C_eq between the chart's curvature-level unknowns and
+    Theorem 8.L1's (Z, Z′) on the strip. It is an explicit linear map of jets, regular on the strip, and it is not
+    computed here.
+
+**What is proved, and what is not.**
+- *Proved (deduced):*
+  - the axis charts exist and are regular (8.A1);
+  - their twist-free double-null structure (8.A2) is exact;
+  - both curvature pairs hold in reduced form and have energy identities on the whole section, so the pair inequality
+    holds there with explicit coefficients (8.A3, B1–B3b, 8.A6);
+  - the axis's angular recoveries hold with explicit constants (8.A4);
+  - no level-0 estimate reaches the axis (8.A5);
+  - the cut-off identity holds with explicit added coefficients (8.G).
+- *Computed:* the chart quantities are bounded up to the axis on the record's solution, at the regular rates.
+- *Not done: the axis estimate itself.* That is one Grönwall inequality, in chart ±, for the linearised unknowns at
+  [Wu26]'s level: δβ^r, δK, δβ̲^r; ∇δ tr χ, ∇δ tr χ̲; δ(div η − K), δ(div η̲ − K); δ(∇ω − ½β), δ(∇ω̲ + ½β̲); the
+  Ricci-coefficient differences; δ(e_a Φ), δ(e_a e_b Φ); the metric differences and their angular derivatives as
+  tensors. The angular recoveries in it are 8.A4's.
+  - Its curvature pairs are B3–B3b's. Its other ingredients are [Wu26]'s transport equations (2.2)–(2.6) and
+    (2.15)–(2.16) (READ). Those are not re-derived here in the reduced form, and the linearised coefficient table
+    (linest5.py E2's analogue) is not assembled.
+  - **This is the single missing input of task 1.** Together with C_eq it would give, through 8.G, an estimate on the
+    whole late region.
+  - By 8.A5 nothing weaker suffices at the axis.
+
+### 8.3 Task 2: the constant (`checks/wgron5.py`)
+
+**Theorem 8.W (deduced: Theorem 7.L's proof with weights; checked, W1).** Give each row group a weight λ > 0: one per
+transported unknown, and one per scalar for its three pair unknowns, since the pair identities fix a : c : d. Give
+each off-diagonal bilinear term a split θ > 0, 2λ_Y|m||Y||Z| ≤ |m|θ(λ_Y Y²) + |m|(λ_Y/(λ_Z θ))(λ_Z Z²). Then
+
+    f ≤ F_λ² (𝒟 + 𝒮),   F_λ² = (max λ/min λ) exp(2 ∫ a_o^λ du + 2 ∫ a_i^λ dv),
+
+with the κ's of 7.L reweighted. Every (λ, θ) gives a theorem; the exponent is convex in (log λ, log θ).
+- *W1.* On a model pair Y_v = 9Z, Z_u = Y, the bound from the program's own `Bound` holds at four (λ, θ). *Control*
+  (mutation of the code under test): the partner's share λ_Y θ/λ_Z gives a bound 2 below f(1, 1) = 1.34 × 10⁴, and
+  it is caught.
+- *W2.* λ = θ = 1 reproduces linest5.py E4b: 10^138.0 on |x| ≤ 1/2 (PASS).
+- *W3 (computed), the optimum.* F_λ² = 10^66.9 on |x| ≤ 1/2, with log(max/min λ) = 5.47, ∫a_o du = 49.8 and
+  ∫a_i dv = 24.4, against 10^138.0. On |x| ≤ 0.8 it is 10^93.1, against 10^222.2. The exponent is halved, and F_λ is
+  still 10^33.5.
+
+**The approximate-inverse route, as round 3 deduced it, does not lower F (deduced: W4).**
+- *Lemma 8.F.* If A has finite rank and L has infinite-dimensional range in a Hilbert space, then ‖I − LA‖ ≥ 1.
+  Proof: for f orthogonal to the finite-dimensional L(ran A), |(I − LA)f|² = |f|² + |LAf|².
+- So the bound ‖L⁻¹‖ ≤ ‖A‖ + F_E ‖I − LA‖, the explicit estimate applied only to the defect, is ≥ F_E for every
+  finite-rank approximate inverse. Round 3's demand 5.3 × 10⁻⁴ to 3.0 × 10⁻⁵ "at F = 9.2" (7.6) does not follow from
+  that construction, and is withdrawn as a consequence of it; it stays a conditional figure (below).
+- What can lower F is a block (Schur) argument. Validate the low angular modes numerically, and bound the high-mode
+  block L_∞∞ by an explicit estimate of constant F_∞. It closes only if ‖A_N‖ ‖L_N∞‖ F_∞ ‖L_∞N‖ < 1.
+- *Computed instance.* At the record's angular resolution (N = 32), the exact low-mode inverse has defect exactly 1
+  on T_32. The coupling across the cut, P_∞(m T_k)/|m T_k| for the largest coefficient (δw in the χ̲ row, sup 1.0 × 10³
+  at u = −1.10), is 0.48–0.59 for k = 28–31: the coefficient's own size, not small.
+- **The single missing input of task 2:** an explicit linear estimate on the high angular modes whose constant F_∞
+  meets that condition. Theorem 8.W's F_∞ is the full F_λ, so it does not. By Lemma 8.F nothing weaker suffices.
+- Neither ball nor interval arithmetic can supply this input. A certified defect is bounded below by 1 on the
+  complement of the discretisation.
+
+**How much of F is bookkeeping (computed: W5).**
+- The setup: the nine transported rows alone, the pair unknowns and the e3 rows' angular motion dropped, solved at each
+  angular node with the record's signed coefficients. The largest ratio f/𝒟 at the box's far corner is the squared
+  norm of the data-to-solution map.
+- On |x| ≤ 1/2 it is 4.8 × 10⁵ to 2.05 × 10⁶ (largest at x = −0.428). The same nine rows' Grönwall factor with
+  absolute values is 10^87.1–10^97.0.
+- So in that subsystem the absolute-value bookkeeping, not growth, makes the constant. This is not a bound on the full
+  operator.
+
+**The closing condition with the new constant.** In Theorem 8.W's norms the Newton–Kantorovich condition is
+(𝒟_δ + 𝒮_ε)^{1/2} < 1/(4 G F²), with F the solution operator's norm and G the quadratic constant in the same norms;
+in 2(d)'s convention, δ + ∫ε < 1/(4 G T F²).
+- *F of Theorem 8.W, computed on |x| ≤ 1/2 over the box, where no truncated domain exists (7.4):* F² = 10^66.9. The
+  demand is then 10^−69.1 at G = 10 and 10^−67.9 at G = 0.566 (T = 3.95). No approximant held in floating point meets
+  it.
+- *Conditional F² of the frozen-angle size, 2 × 10⁶ (computed, not proved):* 3.1 × 10⁻⁹ at G = 10 and 5.4 × 10⁻⁸
+  at G = 0.566 (T = 3.95).
+- *Conditional F = 9.2 (round 2's measured response along one direction):* 5.3 × 10⁻⁴ (G = 0.566) to 3.0 × 10⁻⁵
+  (G = 10), with 2(d)'s T = 10, as in round 3.
+- G is not computed. It needs level 1 for L^∞ control (8.5) and, at the axis, the missing estimate of 8.2.
+
+### 8.4 Task 3: the residual certified on one whole box (`checks/rcert5d.py`)
+
+**The target.** τ = 5.3 × 10⁻⁴ for every frame component over √K_0.
+- This is round 3's most favourable conditional demand: F = 9.2, G = 0.566, 2(d)'s T = 10. By 8.3 it is an expectation,
+  not a proved demand.
+- The approximant is the pinned one. D0: its five tensor md5s equal rcert5c.out's, and the file is unchanged.
+- The method is rcert5.py's order-3 Taylor models with the Lagrange remainder. The box splits adaptively: a box whose
+  eight bounds are not all ≤ τ is replaced by its 2 × 2 × 2 children, evaluated as one tensor grid.
+- The accepted boxes tile the box exactly, so their largest bound is a certified sup over it.
+
+**The run** (two workers, then four, checkpointed every five minutes; uptime 13–30 on 4 cores throughout).
+- Finished: 32,768 sub-boxes accepted, all at depth 5 (n = 32 per side; every depth-4 box failed τ and every depth-5
+  box met it). 37,440 boxes were evaluated: 3,500 CPU-seconds, 0.09 s per box, and 2.9 hours of wall time.
+  `rcert5d.out` gives the run's chunks.
+- **D1 (certified): the sup over the whole box.** ll ≤ 3.01 × 10⁻⁴, nn ≤ 2.44 × 10⁻⁴, lx ≤ 9.75 × 10⁻⁵, xx ≤ 7.27 ×
+  10⁻⁵, ln ≤ 7.03 × 10⁻⁵, 22 ≤ 6.22 × 10⁻⁵, nx ≤ 5.59 × 10⁻⁵, 11 ≤ 5.35 × 10⁻⁵ of the curvature scale. Every component
+  is below τ (PASS).
+  - The largest certified centre values are lower bounds for the sup: ll ≥ 1.73 × 10⁻⁴. So the sup of the ll component
+    over the box lies in [1.73, 3.01] × 10⁻⁴, a certified bracket within a factor 1.74.
+  - Σ vol × max_k sup_k² = 1.72 × 10⁻⁹ over a volume of 1/16 in (t, σ, x): an rms bound of 1.66 × 10⁻⁴.
+- **D2 (certified).** The certified centre values of ll and lx exceed τ′ = 3.0 × 10⁻⁵ (the demand at G = 10), so no
+  bound of any method meets τ′ on this box.
+- *Controls* (both fail, as they must).
+  - C1, the remainder dropped: the bound of t⁴ + σ⁴ + x⁴ about the origin is 0, so the true/bound ratio is ∞; with
+    the remainder it is 0.25.
+  - C2, W + 0.01 v: certified centre values to 4.8 × 10⁻², refused at τ.
+- This replaces round 3's extrapolation (7.6) by a measurement. That extrapolation was n ≈ 26–35, lower bound; at the
+  h³ ratio, 59–104 (verifier of round 3). The bound reached τ at n = 32: for ll it fell about 20-fold per halving, from
+  0.124 at n = 8 (rcert5b.out) to 3.0 × 10⁻⁴ at n = 32.
+
+**The census (D3, certified).** K1's 16,128 certified point values of the pinned approximant are mapped to K2's 416
+boxes (4 × 4 in (t, σ), 26 graded in x).
+- 193 of the 416 boxes hold a point whose certified value exceeds τ = 5.3 × 10⁻⁴. There no certificate of this
+  approximant, by any method, can reach τ.
+- 337 of the 416 hold one above τ′ = 3.0 × 10⁻⁵, the demand at 2(d)'s placeholder G = 10.
+- The largest certified value is 2.414 × 10⁻³ (ll).
+- The box certified here is one of the other 223.
+
+**The rest.**
+- *On the 193 boxes:* impossible at τ with this approximant (certified). A better approximant is the input there
+  (8.6 item 3).
+- *On the other 222 of the 223:* certifiable in principle. At this box's measured cost, 37,440 evaluations each,
+  they come to 8.3 × 10⁶ evaluations, about 7.7 × 10⁵ CPU-seconds (215 CPU-hours; about 2.2 days on the four cores
+  if they were free).
+  - That figure holds for boxes like this one. Near K2's corners and near x = 0.625 and 0.994, where K2's bounds were
+    infinite (verifier of round 3), nothing shows that n = 32 suffices.
+- *The axis caps |x| > cos(π/32):* not covered by rcert5's frame, whose 1/(1 − x²) factors cancel only analytically.
+  They need the axis chart of 8.2.
+- *How much it buys:* none of this closes anything at Theorem 8.W's constant, whose demand is 10^−68/G (8.3). The
+  certificate is the step that would follow a constant of the order of the true response.
+
+### 8.5 Task 4: level 1, and the late region beyond v = 1.8–1.9
+
+**Level 1 (`checks/lev1_5.py`).**
+- *The system.* Theorem 7.L's rows are commuted once with the background's e_x, with Z′ := e_x Z, using null3.py N4's
+  commutators: [e_x, e4] = χ e_x − ½(η + η̲) e4, [e_x, e3] = χ̲ e_x − ½(η + η̲) e3 and [e_x, ∂_v] = e^w χ e_x.
+  - Each row X(δY) = Σ m_Z Z + S becomes X(δY′) = Σ (e_x m_Z) Z + Σ m_Z Z′ − c_X δY′ + ½(η + η̲)(X δY) + e_x S.
+  - X δY is replaced by its own row. The pairs commute into pairs for (a′, c′) and (c′, d′) with the same principal
+    parts.
+- *L1 (exact).* The three commutators hold on the general (2+1)-metric. *Control* (fails): the e4 commutator without
+  its ½(η + η̲) e4 term.
+- *L2 (exact).* The thirty-unknown system closes: no level-2 term on any right side. The background enters through its
+  state, its first and second x-derivatives, and w_x, k_x. The table is in `lev1_5.out`.
+- *L3 (control, fails as it must).* Commuting linest5.py E3's control row (χ̲ by null3.py N7) puts e_x²δη̲ on a right
+  side.
+- **Theorem 8.L1 (deduced).** Theorem 7.L's proof, unchanged, gives f_1 ≤ (𝒟_1 + 𝒮_1) exp(2∫a_o^{(1)} + 2∫a_i^{(1)})
+  on the same truncated domains, for the level-0 norm of (Z, Z′).
+  - Since ‖f‖_∞ ≤ ‖f‖/√|I| + √|I| ‖f′‖ on a one-dimensional section, it bounds Z in L^∞: the control the quadratic
+    remainder needs away from the axes.
+  - Its domain restriction is 7.L's (7.4): it does not reach the axes.
+- *L4 (computed, on |x| ≤ 1/2).* Unweighted, ∫a_o du = 366.6 and ∫a_i dv = 2,679.5, so F_1² = 10^2645.7. Weighted
+  (Theorem 8.W's optimum), F_1² = 10^91.0 with log(max/min λ) = 12.68.
+  - The coefficients that make it are those of δw and δk in the commuted pair rows. They reach 1.07 × 10³ at the box's
+    corner u = −1.10, where the background's second x-derivatives are large: e^w ∂_x²η = 146, e^w ∂_x²c_1 = 178. These
+    come from a scratch diagnostic (`scratchpad/r4/l1diag.py`, not seated) and are labelled computed only.
+
+**The late region (`checks/cpaxis5.py`).**
+- **A1 (computed): where the angular resolution is lost.** This uses the record's free run (D432, M = 32, 1600 × 720)
+  and round 3's constraint-preserving run (the same grid), at areal radius 1.0–1.2. For each v-band it gives the
+  Chebyshev tail of m and n in x, and the excess of the outermost node over a cubic extrapolation of the next four.
+
+  | v-band | free: tail m / n | free: axis-node excess m / n | cp: tail m / n | cp: axis-node excess m / n |
+  |---|---|---|---|---|
+  | [1.0, 1.5) | 4.8e-7 / 1.3e-8 | 7.0e-6 / 2.9e-6 | 2.5e-4 / 6.4e-6 | 1.4e-2 / 4.6e-4 |
+  | [1.5, 1.65) | 1.7e-8 / 7.2e-9 | 5.1e-7 / 1.2e-6 | 1.6e-5 / 6.4e-6 | 9.1e-4 / 3.9e-4 |
+  | [1.65, 1.8) | 1.0e-8 / 6.8e-9 | 1.2e-6 / 1.2e-5 | 2.9e-5 / 5.1e-5 | 1.8e-3 / 3.3e-3 |
+  | [1.8, 1.9) | 1.0e-4 / 1.6e-4 | 1.9e-3 / 3.6e-3 | 5.8e-5 / 3.7e-4 | 5.1e-3 / 1.9e-2 |
+  | [1.9, 2.0) | 2.2e-2 / 4.1e-2 | 0.99 / 0.90 | 2.9e-3 / 2.2e-3 | 0.18 / 3.7e-2 |
+  | [2.0, 2.25) | 1.5 / 0.21 | 3.6 / 1.1 | 0.15 / 3.8e-2 | 1.1 / 0.85 |
+
+  - The free scheme is resolved in angle to v = 1.8 (tail ≤ 5 × 10⁻⁷). It loses resolution from 1.8, and the
+    outermost node departs first: from v = 1.9 its excess is of the size of the field.
+  - The constraint-preserving scheme's tail is 10²–10⁴ times the free one's from v = 1.0: its own axis defect.
+  - At [2.0, 2.25) the free run's n at the node next to x = +1 is 8.2 against 0.47 at the next node. This is from a
+    scratch diagnostic (`scratchpad/r4/diag_cp.py`, not seated), and A1's excess column is the seated measure.
+- **A2 (computed): the mechanism of the constraint-preserving defect.** cpsolve5 P3's mechanism, now measured.
+  - With R marched and the rows solved for (m, n, W)_uv, (1 + x) ∂(m_uv)/∂(R_uv) → −1.5 at the node nearest x = −1,
+    at M = 8, 16, 32 and 64 alike, and (1 − x) ∂(n_uv)/∂(R_uv) likewise at x = +1 (Tangherlini cell, R = 2:
+    −3/(R(1 ± x))).
+  - So the marched R_uv's truncation error, which nothing ties to the rows at the axis, enters m and n with the factor
+    1/(1 − |x_M|) = 830 at M = 32 and 1,300 at M = 40. That is the monitor's rise with M.
+- **A3 (computed): a regularisation.** At every cell the R_uv the rows use is corrected by d₋(1 − x)/2 + d₊(1 + x)/2.
+  - d± are chosen so that (1 + x) m_uv → 0 at x = −1 and (1 − x) n_uv → 0 at x = +1. The limits are read from the
+    Chebyshev interpolants of these regular products.
+  - R is still marched, and Raychaudhuri still imposed. The correction is O(the truncation error), so the limit is
+    unchanged.
+  - On Tangherlini (M = 8, where m = 0 exactly) the spurious max |m| falls from 2.0 × 10⁻², 1.0 × 10⁻³ and
+    1.1 × 10⁻⁴ (100, 200, 400 rows) to 1.5 × 10⁻¹², 8 × 10⁻¹³ and 7 × 10⁻¹³: to rounding.
+  - The error of R becomes second order (3.1 × 10⁻³, 7.7 × 10⁻⁴, 1.9 × 10⁻⁴, ratios 4.0 and 4.0). The original's is
+    not (1.2 × 10⁻², 4.6 × 10⁻⁴, 2.4 × 10⁻⁴, ratios 25 and 1.9).
+  - *Control* (fails): the correction with its sign reversed raises the spurious m to 5 × 10³ at 100 rows.
+  - *The criterion, recorded.* The first run used "the error of R no more than 1.5 times the original's at every
+    grid". It failed at 200 rows (7.7 × 10⁻⁴ against 4.6 × 10⁻⁴), where the original is not in its asymptotic range
+    (`cpaxis5_run1.out`). The criterion was replaced by "second order, and at 400 rows no larger than the original's",
+    and the program rerun (`cpaxis5.out`).
+- **A4 (computed): the record's data at 400 × 180, M = 32 and 40, with and without the regularisation**
+  (`cpaxis5_a4.out`; areal radius 1.0–1.2).
+
+  | v-band | monitor M32 / M40, orig (ratio) | monitor, reg (ratio) | tail of m, orig / reg | \|P₃₂ − P₄₀\|, orig / reg |
+  |---|---|---|---|---|
+  | [0.5, 1.0) | 1.6e-3 / 2.5e-2 (15.9) | 8.2e-4 / 9.0e-4 (1.10) | 0.35 / 2.7e-2 | 9.9e-5 / 1.3e-12 |
+  | [1.0, 1.5) | 7.4e-2 / 0.39 (5.25) | 4.1e-3 / 4.8e-3 (1.16) | 1.9e-2 / 3.5e-10 | 2.9e-3 / 3.4e-11 |
+  | [1.5, 1.65) | 0.43 / 0.93 (2.17) | 4.6e-3 / 5.7e-3 (1.23) | 1.3e-3 / 1.7e-11 | 3.6e-3 / 5.1e-11 |
+  | [1.65, 1.8) | 5.3 / 8.7 (1.64) | 4.5e-3 / 4.7e-3 (1.05) | 3.8e-3 / 2.2e-11 | 5.2e-3 / 5.4e-11 |
+  | [1.8, 1.9) | 34 / 68 (2.01) | 1.5e-2 / 7.0e-3 (0.47) | 1.5e-2 / 1.4e-6 | 1.6e-2 / 2.3e-7 |
+  | [1.9, 2.0) | 125 / 457 (3.65) | 5.2 / 4.8 (0.91) | 0.14 / 8.6e-5 | 5.5e-2 / 1.7e-4 |
+  | [2.0, 2.25) | 7.3e3 / 7.2e3 (0.99) | 145 / 397 (2.73) | 0.81 / 3.1e-2 | 1.0 / 1.1e-2 |
+
+  - With the regularisation the monitor no longer rises with M on any band below v = 2.0 (A4: PASS). It is 10–1,000
+    times smaller.
+  - m's angular tail falls to 10⁻¹⁰–10⁻¹¹ to v = 1.8, and the metric is independent of M to 5.4 × 10⁻¹¹ there, where
+    the original scheme's M = 32 and 40 differed by 3 × 10⁻³.
+  - So the constraint-preserving scheme's angular defect is the singular coupling of A2, and the regularisation
+    removes it.
+  - On [2.0, 2.25) the regularised monitor still rises 2.7-fold with M at 400 rows.
+- **A6 at 400 rows (computed): the invariant.** The Kretschmann scalar of the regularised runs (`dnsolve5.kretschmann`,
+  exact Christoffels) on 24 u-rows, at x = 0.97, 0.5, 0, −0.5, −0.97 and areal radius 1.0–1.4. The figures are
+  dev = max |K/K_0 − 1| and the M = 32 against 40 difference over K_0.
+  - To v = 1.8 the difference is ≤ 9 × 10⁻⁷, with dev 0.23–4.0, the largest at x = −0.97: resolved in angle.
+  - On [1.8, 1.9) it is 4 × 10⁻⁴ to 2.6 × 10⁻² against dev 0.66–4.1: resolved.
+  - On [1.9, 2.0) it is 0.10–7.1 against dev 1.2–6.1, at every angle: not resolved.
+  - On [2.0, 2.25) dev is 2.6 × 10² to 2.1 × 10³, with differences as large.
+  - So with the scheme's defect removed the metric converges in M (|P₃₂ − P₄₀| ≤ 1.7 × 10⁻⁴ on [1.9, 2.0)), but the
+    curvature invariant is not resolved in angle from v = 1.9, at every angle computed and not only at the axis.
+- **A5 (computed): the regularised scheme on a second null grid**, 800 × 360 at M = 32 and 40 (`cpaxis5_a5.out`).
+  The figures are the interior monitor at 400 / 800 rows (ratio), then M40/M32 at 800 rows.
+
+  | v-band | areal ≥ 1.2 | areal 1.0–1.2 | areal 0.9–1.0 |
+  |---|---|---|---|
+  | [1.0, 1.5) | 1.3e-3 / 3.4e-4 (3.91); 1.16 | 4.1e-3 / 1.0e-3 (3.95); 1.16 | 7.7e-3 / 1.9e-3 (3.93); 1.17 |
+  | [1.65, 1.8) | 1.8e-3 / 4.4e-4 (3.99); 1.26 | 4.5e-3 / 1.2e-3 (3.79); 1.08 | 1.5e-2 / 3.8e-3 (3.83); 1.20 |
+  | [1.8, 1.9) | 1.6e-3 / 4.0e-4 (3.88); 1.26 | 1.5e-2 / 9.4e-3 (1.58); 0.30 | 1.17 / 1.02 (1.15); 0.52 |
+  | [1.9, 2.0) | 3.9e-3 / 1.0e-3 (3.82); 1.14 | 5.2 / 5.1 (1.03); 0.82 | 36 / 34 (1.06); 1.17 |
+  | [2.0, 2.25) | 0.26 / 0.27 (0.94); 0.60 | 145 / 142 (1.03); 2.64 | 124 / 114 (1.09); 1.86 |
+
+  max |P₄₀₀ − P₈₀₀| to v = 1.8 is ≤ 9.3 × 10⁻⁵ at areal radius ≥ 1.0 and ≤ 2.4 × 10⁻⁴ at 0.9–1.0. On [1.9, 2.0) it is
+  8.2 × 10⁻⁵, 1.0 × 10⁻³ and 2.9 × 10⁻³ (≥ 1.2, 1.0–1.2, 0.9–1.0).
+
+  - With the defect removed, the unimposed constraint converges at second order in the null step (ratios 3.8–4.0) and
+    is independent of M (1.1–1.3). This holds to v = 2.0 at areal radius ≥ 1.2 r_h, and to v = 1.8 at 0.9–1.2. So a
+    vacuum limit is supported there (computed, two null grids). At areal radius ≥ 1.2 it now reaches v = 2.0 in a
+    scheme that converges in M.
+  - From v = 1.8 at areal radius 0.9–1.2 the constraint does not fall with the null step (ratios 1.0–1.6) and does not
+    rise with M (0.3–1.2 below v = 2.0). The discrete solutions agree in the metric (|P₄₀₀ − P₈₀₀| ≤ 1.0 × 10⁻³ on
+    [1.9, 2.0)), but they agree on a metric that violates Ric_xx = 0 by the same amount at both grids and both M.
+  - The verifier of round 3 found the same at 0.9–1.0 in the unregularised scheme (8.0). Now the scheme's angular
+    defect is removed, and at 1.0–1.2 too.
+  - Two readings remain:
+    - the region is approaching a singularity or a feature the null grids do not reach. A6 at 400 rows has K/K_0 of
+      order 10³ on [2.0, 2.25), unresolved;
+    - or the constraint-preserving system's limit is not vacuum there, which is the propagation question of 8.6
+      item 5, not shown.
+  - A third null grid would separate pre-asymptotic behaviour from the first two: 1600 × 720, about 4.5 hours at this
+    load per M, as computed from this round's 800-row 4,568–4,836 s. It was not run.
+- **A6 at 800 rows (computed): the invariant on two null grids** (`cpaxis5_a6.out`; the same 24 rows, 400 against 800
+  rows at M = 32, and M = 32 against 40 at 800).
+  - To v = 1.8, at every angle: the M-difference is ≤ 9 × 10⁻⁸ of K_0, and the null-step difference is 8 × 10⁻⁴ to
+    3.3 × 10⁻², against dev 0.24–4.0. Resolved.
+  - On [1.8, 1.9): M 5 × 10⁻⁴ to 8 × 10⁻³, null step 1.9 × 10⁻³ to 0.15, against dev 0.66–4.1. Resolved to a few per
+    cent, except at x = 0, where the null step is 7 % of dev.
+  - On [1.9, 2.0) the M-difference is 0.15–5.3 against dev 1.2–4.7, at every angle: not resolved in angle.
+  - On [2.0, 2.25) dev is 83–1,040, with differences larger still.
+  - So the curvature invariant is resolved, and moderate (|K/K_0 − 1| ≤ 4.1, largest near x = −1), to v ≈ 1.8–1.9. From
+    v = 1.9 it is not resolved in angle anywhere, and its computed values grow by two to three orders of magnitude by
+    v = 2.25. The grids cannot say whether that growth is the solution's.
+
+**Verdict, and the region the theorem may claim.**
+- *The defect is diagnosed and fixed (computed).* The constraint-preserving scheme's rise with M was its singular axis
+  coupling (A2). With the regularisation (A3), the scheme converges in M (|P₃₂ − P₄₀| ≤ 5.4 × 10⁻¹¹ to v = 1.8 at 400
+  rows), and its unimposed constraint converges at second order in the null step.
+- *What it decides (computed, two null grids, two M).* A vacuum limit is supported to v = 2.0 r_h at areal radius
+  ≥ 1.2 r_h, and to v = 1.8 r_h at 0.9–1.2 r_h. This replaces 6.5's and 7.7's figures, as corrected in 8.0.
+- *What it does not decide.* From v = 1.8 at areal radius 0.9–1.2 a constraint violation persists. Neither the null
+  step nor M reduces it, while the metrics agree; and the curvature invariant is not resolved in angle from v = 1.9
+  (A6). That leans against a vacuum limit there, without deciding between a singularity, a feature finer than the
+  grids, and a constraint-violating limit of the scheme.
+- *The region the theorem may claim (bounded):* v ≤ 1.8 r_h at areal radius ≥ 0.9 r_h; v ≤ 2.0 r_h at ≥ 1.2 r_h; and
+  v ≤ 1.65 r_h at 0.6–0.9 r_h (7.7, free scheme). Nothing is claimed beyond.
+- *The single missing input:* the regularised scheme on a third null grid (1600 × 720, M = 32 and 40, about 4.5 hours
+  each at this machine's load; command `cpaxis5.py --run 1 0.9 M 1600 720 2.25 OUT reg ld 3`), with A5 and A6 rerun on
+  the three grids. Two grids cannot separate a pre-asymptotic regime from a genuine non-vacuum limit, and nothing
+  weaker than an order of convergence does.
+
+### 8.6 What remains, precisely: one missing input per task
+
+Each task's missing input is stated with the proof that nothing weaker suffices.
+
+1. **Task 1 (the axes).** The estimate in the axis charts: one Grönwall inequality for [Wu26]'s linearised hierarchy
+   in the reduced axisymmetric form, with 8.A4's angular recoveries, and the strip constant C_eq of 8.G.
+   - *Nothing weaker:* no estimate at Theorem 7.L's level reaches the axis (8.A5, exact).
+   - 7.L at level 1 (8.L1) supplies the interior side of the glue.
+2. **Task 2 (the constant).** An explicit linear estimate on the high angular modes (the complement of a finite
+   Galerkin space in x) whose constant F_∞ satisfies the block condition ‖A_N‖ ‖L_N∞‖ F_∞ ‖L_∞N‖ < 1.
+   - *Nothing weaker:* for every finite-rank approximate inverse, the defect is at least 1 (Lemma 8.F), so "the
+     explicit estimate applied only to the defect" cannot go below the explicit constant.
+   - That constant is at best F_λ² = 10^66.9 on |x| ≤ 1/2 (Theorem 8.W), and the coupling across the cut is of the
+     coefficients' own size (W4).
+3. **Task 3 (the residual).** An approximant whose residual is below the demand everywhere. On 193 of rcert5's 416
+   boxes a certified point value exceeds even round 3's most favourable conditional demand, 5.3 × 10⁻⁴, and on 337
+   it exceeds 3.0 × 10⁻⁵ (8.4 D3).
+   - *Nothing weaker:* those certified lower bounds. No machine time or enclosure meets the demand on those boxes
+     with this approximant.
+4. **Level 1 and the quadratic constant G.** G needs L^∞ control of the unknowns. Away from the axes 8.L1 gives it
+   (H¹ ⊂ L^∞ on the sections); at the axes it needs item 1.
+5. **Propagation (the verifier of round 3, 2(b); added to 7.5's list).** For the hierarchy to be an existence
+   scheme and not only an a priori estimate, the compatibility relations of χ̲, ω̲ and η + η̲ with the metric must
+   propagate. The sixth Einstein component does propagate (prop5.py Q1, exact); the compatibility relations are not
+   shown (Q3).
+6. **The data.** The data at past null infinity (G3), and Ric_vx on the data cone: unchanged since round 1.
+7. **The late region.** The regularised scheme on a third null grid, 1600 × 720 at M = 32 and 40, with A5 and A6
+   rerun on the three grids (8.5).
+   - At areal radius 0.9–1.2 from v = 1.8 r_h the regularised scheme agrees with itself in M and in the null step on
+     a metric that violates Ric_xx = 0, and the curvature invariant is unresolved in angle from v = 1.9.
+   - *Nothing weaker suffices:* two grids cannot give an order of convergence, and without one a pre-asymptotic regime
+     is not told from a non-vacuum limit or a singularity.
+
+### 8.7 The region of existence at 10 l5, with labels (replacing 6.5's list)
+
+Seed 1 unless stated.
+- **v ≤ 1/2, all (u, x): proved (deduced).** The solution is the seed.
+- **Wherever a smooth vacuum solution with the data exists in dnsolve5's gauge: proved (deduced, D1–D2).** Every leaf
+  with u > −1 is outer trapped, and every T²-invariant MOTS section has its innermost point at u ≤ −1.
+- **The data cone u = −10, v ∈ [1/2, 7/2], both seeds: certified.** The Raychaudhuri constraint of an explicit
+  approximant is ≤ 5.0 × 10⁻⁵ and 2.3 × 10⁻⁵, 4.1 % and 4.3 % of the terms that cancel in it (`cdata5.py` C1).
+- **u ∈ [−4, −1.1], v ∈ [0.55, 1.6], |x| ≤ cos(π/32): certified at points, and as a sup on one box.**
+  - The pinned approximant (`data/rcert5_C3.npz`, md5 698569f6…) has Einstein residual ≤ 2.42 × 10⁻³ of the
+    curvature scale at 16,128 points (`rcert5c.py` P2).
+  - It is ≤ 3.01 × 10⁻⁴ as a sup over the box t, σ ∈ [−1/2, 0], x ∈ [0, 1/4] (`rcert5d.py` D1).
+  - On 193 of the 416 boxes a certified point value exceeds 5.3 × 10⁻⁴ (D3).
+- **Areal radius ≥ 0.9 r_h for v ≤ 1.8 r_h, and ≥ 1.2 r_h for v ≤ 2.0 r_h: computed, converged in the null step and
+  in angle.**
+  - The regularised constraint-preserving scheme's unimposed constraint is second order in the null step, ratios
+    3.8–4.0 (cpaxis5 A5).
+  - Its metric is independent of M to 5.4 × 10⁻¹¹ to v = 1.8 (A4), and its Kretschmann scalar is resolved in angle
+    and in the null step at areal radius 1.0–1.4 (A6).
+  - At areal radius ≥ 1.0 to v = 1.8 the free scheme agrees: second order (late5b L5), tails ≤ 5 × 10⁻⁷ (A1).
+- **Areal radius 0.6–0.9 r_h for v ≤ 1.65 r_h: computed, converged in the null step** (late5b_small.out).
+- **v ≥ 1.8 r_h at areal radius 0.9–1.2 r_h, and v ≥ 2.0 r_h at ≥ 1.2 r_h: computed, not converged.**
+  - There a constraint violation persists under both refinements, and the curvature invariant is unresolved in angle
+    from v = 1.9.
+  - Nothing is claimed.
+- **Seed 2, v ≤ 3.5 at every angle: computed, converged** (CERTIFY-10L5.md D543, D601).
+
+**No existence theorem beyond v ≤ 1/2 is proved at 10 l5, at either seed.** The missing inputs are 8.6's.
+
+### 8.8 Files and outputs (round 4)
+
+| file | what |
+|---|---|
+| `checks/axis5.py`, `.out` | X1–X7: the axis charts; reduction, regularity, structure, pair identity, Hardy, glue |
+| `checks/axisbianchi5.py`, `.out` | B1–B3b: σ = 0, Gauss (2.8), both pairs (2.13)–(2.14) in the axis frame |
+| `checks/wgron5.py`, `.out` | W1–W5: Theorem 8.W (weights), Lemma 8.F (finite rank), the frozen-angle growth |
+| `checks/lev1_5.py`, `.out` | L1–L4: Theorem 8.L1, the level-1 system and its constant |
+| `checks/cpaxis5.py`, `.out` | A2–A3: the defect's mechanism and its regularisation (Tangherlini); revised criterion |
+| `checks/cpaxis5_run1.out` | first run: A1 (D432's 1600-row run); A2–A3 under the first criterion (A3 FAIL) |
+| `checks/cpaxis5_a4.out` | A4: the record's data at 400 × 180, M = 32 and 40, with and without the regularisation |
+| `checks/cpaxis5_a5.out` | A5: the regularised scheme at 800 × 360, M = 32 and 40, against 400 × 180 |
+| `checks/cpaxis5_a6.out` | A6: the Kretschmann scalar of the regularised scheme, 400 and 800 rows, M = 32 and 40 |
+| `checks/cpaxis5_a6_400.out` | A6 at 400 rows only, M = 32 against 40 (a dry run; its heading line was cut) |
+| `checks/rcert5d.py`, `.out` | D0–D3, C1–C2: the certified sup over one whole box; the census over the 416 |
+| `checks/prop5.py`, `.out` | Q1–Q3: what the hierarchy imposes; the sixth component propagates; what does not |
+| `checks/rcert5c.py`, `.out` | repaired (M-1): read only by default, md5s checked before and after |
+| `checks/rcert5b.py`, `.out` | repaired (M-1): the pinned file; B3 the soundness gate and the assembly test |
+| `checks/rcert5b_run1.out` | its first run, whose assembly test (T_3 product alone) did not catch the mutant |
+| `checks/linest5.py`, `.out` | E9 added: the rows against the geometry; E1–E8 unchanged |
+
+Runs (scratch, not committed).
+- `cpaxis5.py --run 1 0.9 M Nu Nv 2.25 … [reg] ld 3`: at 400 × 180, M = 40 without the regularisation (959 s), and
+  M = 32 and 40 with it (1,303 s and 872 s). At 800 × 360, M = 32 and 40 with it (4,568 s and 4,836 s; md5 22b8815b…
+  and 7248a80a…).
+  These are under `scratchpad/r4/cp4/`, with round 2's M = 32 orig at `r2/cp/`.
+- `rcert5d.py --worker w 2` (w = 0, 1), 09:10–10:16. Then `--repartition 2 4` and `--worker w 4` (w = 0–3) to 12:06.
+  In all, 37,440 box evaluations and 3,500 CPU-seconds. The checkpoints are under `scratchpad/r4/rcert5d/`.
+- The verifier's linest5 mutants as rerun here are in `scratchpad/r4/mut/` (`ls_mut_db.out`, `ls_mut_quarter.out`).
+- Read in place: D432's runs (`g1c/l1_rc0.9_M32.npz` and `l1_rc0.9_M32_1600.npz`) and round 3's `r3/cp_M32_1600.npz`
+  (md5 776da11e…).
+- D432's two runs were removed from the scratch directory at 10:03 by another session's disk cleanup, not by this
+  workstream.
+  - `cpaxis5_run1.out` (A1) was produced from the 1600-row run before that, and A1 is not rerun.
+  - The 800-row run was regenerated with D432's command, `dnsolve5.py --run 1 0.9 32 800 360 OUT 0 ld 3`. It keeps the
+    same 187,284 of 289,161 cells, and its md5 is 3dad331505fb744d89a13b7be4ffda08 (kept under `scratchpad/r4/regen/`).
+  - On it axis5, linest5, wgron5 and lev1_5 reproduce their earlier outputs line for line, times apart. The seated
+    `.out` files are these reruns, from the programs as committed.
+
+The machine's load was 13–30 on 4 cores throughout, so the wall times are those of a shared machine.
+`data/rcert5_C3.npz` has md5 698569f6faaab4420fe2e67abc860561 before and after every run of this round.
+
+### 8.9 Task 5: the paper's "reproduce the untrapped columns" sentence
+
+The verifier of round 2 found that the sentence claims more than 6.1's S7 supports (7.9). The paper's current text,
+lines 1459–1461, already restricts it to "within one column spacing up to v = 1.525 (not at 1.55)". Re-derived from
+`checks/secondzero5_edges.out` and 6.1 V2, it still overstates in three ways:
+- the comparison is on one sphere per v, r* = 0.64–0.78, not along growth5's columns;
+- the sets are equal or shifted by one column, and at R0 = 20 the counts differ by one at v = 1.45 and 1.525;
+- it is made at one null resolution, where V2 found the rebuilt outer zero's agreement with growth5 unresolved in
+  (u, v) from v = 1.3.
+
+The old text occurs exactly once in the paper.
+
+**Old** (paper lines 1459–1461):
+
+```
+  At 100 l5² the Bondi spheres rebuilt on the double-null solution reproduce the untrapped columns to within one column
+  spacing up to v = 1.525 (not at 1.55), which come from the spheres' tilt against the null leaves (computed); at 1000
+  l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown times are at one angular resolution (N_x = 16); the scheme
+```
+
+**New:**
+
+```
+  At 100 l5², on the sphere of least areal radius the rebuild reaches before the cut (0.64–0.78 r_h), the band of
+  growth5's columns along which the Bondi spheres rebuilt on the double-null solution are untrapped has each edge within
+  one column spacing of growth5's own up to v = 1.525 r_h, at both data-cone radii run (the sets equal or shifted by one
+  column); at v = 1.55 r_h growth5's band reaches the axis and the rebuild's stops 3.8–4.0 spacings short. The
+  comparison is at one null resolution (800 × 360, M = 16), where the rebuilt outer zero's own agreement with growth5's
+  is unresolved in (u, v) from v = 1.3 r_h; the untrapping comes from the spheres' tilt against the null leaves, whose
+  own expansion leaves no column untrapped (computed, `docket68/n1star/checks/secondzero5.py --edges`; supplement
+  `CERTIFY-10L5-RESULT.md` section 6.1, V2–V3). At 1000 l5² the rebuild does not reach r ≤ 0.3 r_h. The breakdown
+  times are at one angular resolution (N_x = 16); the scheme
+```
+
+### 8.10 A proposed replacement for the paper's section 9 text on existence at 10 l5
+
+This replaces 7.9's proposal and 6.8's. It is proposed to the main session, which seats it; this note does not edit the
+paper or N1STAR-PROOF.md.
+- The span is the paper's lines 1484–1490, from "`CERTIFY-10L5.md` section 6b). A first certified step is taken"
+  through "(supplement `CERTIFY-10L5-RESULT.md` section 2).", in whole lines, so nothing is left dangling (the verifier
+  of round 3, M-2).
+- It occurs exactly once.
+- It folds in every item of the verifier of round 3: frozen coefficients, spherical states and the free formulation,
+  with the constraint-preserving case a model only; all the obstacles named; "computed where no truncated domain
+  exists"; "up to about two angular crossings"; rcert5c.py and the pinned npz cited for the certificate; and the
+  cdata5 figures' comparison scale.
+
+**Old** (paper lines 1484–1490):
+
+```
+  `CERTIFY-10L5.md` section 6b). A first certified step is taken: for an explicit approximant of the characteristic
+  data on the data cone, the constraint along its outgoing generators holds to a certified bound at both seeds (at the
+  second, 2.3 × 10⁻⁵ against terms of size 5.3 × 10⁻⁴; certified, ball arithmetic, `docket68/n1star/checks/cdata5.py`).
+  The full Einstein residual of a smoothed three-dimensional approximant built from a run is computed only, 2.5 × 10⁻³
+  of the curvature scale and falling at second order with the grid (`checks/resid5.py`, floating point), and no linear
+  estimate with explicit constants is available for the characteristic problem in the class, so existence at 10 l5
+  remains open (supplement `CERTIFY-10L5-RESULT.md` section 2).
+```
+
+**New:**
+
+```
+  `CERTIFY-10L5.md` section 6b). Existence at 10 l5 is not proved beyond the seed (v ≤ r_h/2). What is established
+  toward a computer-assisted proof is as follows, each with its status. Certified (ball arithmetic): on the data cone
+  the outgoing constraint of an explicit approximant holds to 5.0 × 10⁻⁵ and 2.3 × 10⁻⁵, 4.1–4.3 % of the terms that
+  cancel in it (`docket68/n1star/checks/cdata5.py`); the Einstein residual of an explicit three-dimensional approximant,
+  its coefficients pinned by md5 (`docket68/n1star/data/rcert5_C3.npz`), is at most 2.42 × 10⁻³ of the curvature
+  scale at 16,128 points away from the axis caps (`checks/rcert5c.py`) and at most 3.01 × 10⁻⁴ as a supremum over one
+  interior box of the 416 that cover u ∈ [−4, −1.1] r_h, v ∈ [0.55, 1.6] r_h (32,768 sub-boxes,
+  `checks/rcert5d.py`), while on 193 of the 416 a certified point value exceeds 5.3 × 10⁻⁴. Deduced: the class is
+  (2+1)-dimensional gravity coupled to a wave map into the flat plane (`checks/reduce5.py`); in the free metric
+  formulation, at frozen coefficients on spherical states, the shift's angular derivative is of principal size at high
+  angular frequency and drives δR at order k², so no estimate without loss of derivatives holds for the
+  frozen-coefficient problem (`checks/symbol5s.py`; for the constraint-preserving formulation a loss is indicated by a
+  model only); in double-null gauge the reduced transport equations carry no angular derivative of an unknown on their
+  right sides (`checks/null3.py`, `checks/linest5.py`), and a linear estimate with explicit constants holds on
+  truncated domains of dependence away from the axes, at level 0 and at level 1 (supplement Theorems 7.L and 8.L1;
+  `checks/lev1_5.py`); near each axis the class is four-dimensional axisymmetric Einstein–scalar in a chart regular at
+  the axis, where [Wu26]'s curvature pairs have energy identities on the whole section and the angular recoveries hold
+  with explicit Hardy constants (`checks/axis5.py`, `checks/axisbianchi5.py`). Computed on |x| ≤ 1/2 over the box above,
+  where no truncated domain exists: the estimate's constant is F² = 10^138, and 10^66.9 with optimised weights
+  (supplement Theorem 8.W, `checks/wgron5.py`). Among what stops this short of a proof: the estimate in the axis charts
+  is not assembled, and without it no domain reaches the late region, which signals from the axes can reach (the box
+  spans up to about two angular crossings); no approximate inverse of finite rank lowers the explicit constant applied
+  to its defect (deduced), so a usable constant needs an explicit estimate on the high angular modes with a small
+  constant, which is not had; at Theorem 8.W's constant the closing condition asks a residual of order 10⁻⁶⁸/G;
+  the quadratic constant G is not computed; and the compatibility relations of the transport hierarchy with the metric
+  are not shown to propagate (the one Einstein component it does not impose does propagate, `checks/prop5.py`). The
+  computed solution converges at the first seed, in the null step and in angle, to v ≈ 1.8 r_h at areal radius ≥ 0.9
+  r_h and to v ≈ 2.0 r_h at ≥ 1.2 r_h, in a constraint-preserving scheme whose singular coupling at the axes is
+  regularised (`checks/cpaxis5.py`; the record's free scheme agrees to v ≈ 1.8 r_h, `checks/late5b.py`); beyond, a
+  constraint violation persists under both refinements and the curvature invariant is unresolved in angle (computed;
+  supplement `CERTIFY-10L5-RESULT.md` sections 2 and 6–8).
+```
+
+Statuses, as the new text gives them:
+- *certified:* the data cone; the 16,128 points; the one box, with its census;
+- *deduced:* the reduction; the frozen-coefficient loss; the transport structure; Theorems 7.L and 8.L1; the axis
+  chart's pair identity and Hardy constants; Lemma 8.F;
+- *computed:* the constants, the late region's convergence, and what persists beyond it;
+- *not proved:* existence, and each missing input named.

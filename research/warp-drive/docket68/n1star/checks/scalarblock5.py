@@ -37,8 +37,10 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      gaugepot5 G1's formulas and P_C from damping5.polys: lin5 E2's factorisation reproduced from the Tangherlini
      block in Kerr-Schild coordinates (an independent route), with its roots, the decaying one nearest 1 printed.
   S5b (exact) the horizon r = 1 is a regular singular point of the block (A2 = -(f/2) I, f ~ 2 (r - 1)): exponents 0
-     and 1 + eig A1(1); A1(1)'s characteristic polynomial does not depend on l (kappa = 8, 24), its roots carry
-     x = gam_C a_v r_h = 5000 (III.F'' Lemma 1.1): large l does not move the horizon part of the problem.
+     and 1 + eig A1(1); A1(1)'s characteristic polynomial does not depend on l (kappa = 8, 24); with c_U = 0 near the
+     horizon (as III.F'' Lemma 1.1 takes it) the exponents are 0, 0, -1, -2, 1 - x, 2 - 2x, -(1 - e_C) x, x =
+     gam_C a_v r_h = 5000: the scalar part of Lemma 1.1's matrix K, an independent check of both; large l does not
+     move the horizon part of the problem.
   S6 (certified; deduced) the weight. (3.2) at (s, alpha) = (1, -1) is Hbar^(1,-1)_b -> Hbar^(0,1)_b; in the
      orthonormal components u_j (|h|^2 = sum |u_j|^2 on L^2(S^3)) the norm is sum_j int (r|u_j|^2 + r^3|u_j'|^2 + kappa
      r|u_j|^2) dr (the b-fields r d_r and the Lie derivatives of the six Killing fields, whose squares sum to kappa
@@ -505,17 +507,24 @@ def s5(mats, polys, eC_val=sp.Rational(1, 102400), levels=(0, 2, 4)):
     return out
 
 
-def horizon_exponents(mats, kv):
+def horizon_exponents(mats, kv, zeta_h=0):
     """the regular singular point r = 1: with A2 = -(f/2) I and f ~ 2 (r - 1), the exponents are 0 (seven times) and
-    1 + eig(A1(1)); A1(1) at the record's inner c_C = (1/200) dt + (1/800) dr, c_U = r^-1 dt, c_H = -(1/2) dr"""
+    1 + eig(A1(1)); A1(1) at the record's inner c_C = (1/200) dt + (1/800) dr, c_H = -(1/2) dr and c_U = zeta_h r^-1 dt
+    near the horizon (III.F'' Lemma 1.1 takes E^Ups to be its horizon part there: zeta_h = 0)"""
     A, B, Pq, Q, K = jet('a'), jet('b'), jet('p'), jet('q'), jet('k')
-    sub = {A[0]: sp.Rational(1, 200), B[0]: sp.Rational(1, 800), Pq[0]: 1 / r, Pq[1]: -1 / r ** 2, Q[0]: 0, Q[1]: 0,
-           K[0]: sp.Rational(-1, 2), K[1]: 0}
+    sub = {A[0]: sp.Rational(1, 200), B[0]: sp.Rational(1, 800), Pq[0]: zeta_h / r, Pq[1]: -zeta_h / r ** 2, Q[0]: 0,
+           Q[1]: 0, K[0]: sp.Rational(-1, 2), K[1]: 0}
     M = sp.Matrix(7, 7, lambda i, j: sp.cancel(mats[1][i][j].subs(sub).subs(kap, kv).subs(r, 1)))
     xs = sp.Symbol('x')
-    cp = sp.factor(M.subs(POINT).charpoly(xs).as_expr())
     gen = sp.factor(M.charpoly(xs).as_expr())
-    return M, cp, gen
+    cp = sp.factor(M.subs(POINT).charpoly(xs).as_expr())
+    # III.F'' Lemma 1.1 (READ), y = 0: K's roots 0, -1, -2, 1 - x, 2 - 2x, -(1 - e_C) x, x = gam_C a_v r_h; the
+    # scalar block's exponents 1 + eig A1(1) should be 0, 0, -1, -2, 1 - x, 2 - 2x, -(1 - e_C) x
+    X = POINT[gC] * sp.Rational(1, 200)
+    want = [0, 0, -1, -2, 1 - X, 2 - 2 * X, -(1 - POINT[eC]) * X]
+    target = sp.expand(sp.prod([xs - (w - 1) for w in want]))
+    match = sp.expand(sp.Poly(cp, xs).monic().as_expr() - target) == 0
+    return M, cp, gen, match
 
 
 # ------------------------------------------------------------------------------------------------ S6 the weight
@@ -658,16 +667,16 @@ def main(selftest=False):
     for lv, ok, rat, up, _N in S5:
         print('  S5 (exact): l = %d: det N_l(lam) / [(lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam)] = %s, '
               'a constant: %s; the least decaying root (real part > 1): %s' % (lv, rat, ok, mpm.nstr(up, 15)))
-    hx = [horizon_exponents(B['mats'], kv) for kv in (0, 8, 24)]
-    xs = sp.Symbol('x')
-    lfree = all(sp.expand(h[2] - hx[1][2]) == 0 for h in hx[1:])
-    gam_x = sp.Symbol('X')
-    OK['S5b'] = lfree
-    print('  S5b (exact): the horizon r = 1 is a regular singular point of the block; with c_C = (10.49)\'s inner '
-          'piece, c_U = r^-1 dt, c_H = -(1/2) dr, the exponents are 0 (seven) and 1 + eig A1(1), A1(1)\'s '
-          'characteristic polynomial (gam_C, e_C, gam_U, e_U, gam_H symbolic) is the same at kappa = 8 and 24 '
-          '(l-free): %s; at the record\'s point: %s (x = gam_C a_v r_h = 5000 in III.F\'\' Lemma 1.1)' % (
-              lfree, hx[1][1]))
+    hx = [horizon_exponents(B['mats'], kv, zh) for kv in (8, 24) for zh in (0, 1)]
+    lfree = (sp.expand(hx[0][2] - hx[2][2]) == 0 and sp.expand(hx[1][2] - hx[3][2]) == 0)
+    OK['S5b'] = lfree and hx[0][3] and hx[2][3]
+    print('  S5b (exact): r = 1 is a regular singular point of the block; with c_C = (10.49)\'s inner piece and c_H = '
+          '-(1/2) dr the exponents are 0 (seven) and 1 + eig A1(1); A1(1)\'s characteristic polynomial (gam_C, e_C, '
+          'gam_U, e_U, gam_H symbolic) is the same at kappa = 8 and 24, with c_U = 0 near the horizon (as III.F\'\' '
+          'Lemma 1.1 takes it) and with c_U = r^-1 dt: %s; at the record\'s point with c_U = 0 it is %s, so the '
+          'exponents are 0, 0, -1, -2, 1 - x, 2 - 2x, -(1 - e_C) x with x = gam_C a_v r_h = 5000: the scalar part of '
+          'Lemma 1.1\'s horizon matrix K (y = 0): %s; with c_U = r^-1 dt they move by multiples of gam_U: %s' % (
+              lfree, hx[0][1], hx[0][3] and hx[2][3], hx[1][1]))
     rows = []
     for lv, _ok, _r, up, N in S5:
         comps = [0, 1, 2, 5] if lv == 0 else list(range(7))
