@@ -29,8 +29,10 @@ tensor's float64 bytes, and every statement below is about those coefficients an
      (1/64) containing it.  Pass: the Richardson approximant's certified sup there is <= tau and below the round-3
      approximant's certified point value inside the same box.
   Controls (each must fail where it should):
-     C1 (rcert5d.py's, as repaired in round 5): the ENGINE's own assembly (Engine.bound) is sound on two known
-        polynomials, and the same engine with the Lagrange remainder dropped under-bounds them.
+     C1 (rcert5d.py's, as repaired in rounds 5 and 6): the engine END TO END (Engine.kids: point_coeffs, box_coeffs,
+        inputs(..., box=True), the frame, Engine.bound) on test fields with exact sups (rcert5d.kids_control), and
+        Engine.bound alone on two known polynomials, are sound; the same engine with the Lagrange remainder dropped
+        under-bounds them.  [Round 6, the verifier of round 5, M5-A: the round-5 C1 reached Engine.bound only.]
      C2 (rcert5.py's): the Richardson approximant with W + 0.01 v: its certified point values exceed tau (refused).
      C3 the census code: on the round-3 tensors it must find points above tau (the regression of R2) -- a census that
         under-reports would pass the Richardson approximant vacuously.
@@ -297,10 +299,13 @@ def main():
     ok &= r3
     w_real = RD.test_poly_control(RD.Engine(CR, g, frame, names))
     w_mut = RD.test_poly_control(RD.Engine(CR, g, frame, names, drop_remainder=True))
-    c1 = w_real <= 1.0 and w_mut > 1.0
-    print('C1 (control) the engine\'s own assembly on the test polynomials: largest true/bound %.4f (<= 1: sound); '
-          'with the remainder dropped %.4f (> 1) -> %s' % (w_real, w_mut, 'the mutation is caught (good)' if c1 else
-                                                           'BAD'))
+    k_real = RD.kids_control(lambda C_, g_, fr, nm: RD.Engine(C_, g_, fr, nm), g)
+    k_mut = RD.kids_control(lambda C_, g_, fr, nm: RD.Engine(C_, g_, fr, nm, drop_remainder=True), g)
+    c1 = w_real <= 1.0 and w_mut > 1.0 and k_real <= 1.0 + 1e-12 and k_mut > 1.0
+    print('C1 (control, round 6: end to end through Engine.kids, rcert5d.kids_control) largest true/bound %.10f '
+          '(<= 1: sound); with the remainder dropped %.4f (> 1); Engine.bound alone on the round-5 test polynomials '
+          '%.4f and %.4f -> %s' % (k_real, k_mut, w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else
+                                   'BAD'))
     ok &= c1
     old_after = fmd5(OLD)
     print('   data/rcert5_C3.npz md5 after: %s (%s)' % (old_after,

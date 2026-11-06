@@ -28,7 +28,8 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
        calls; their sites are Theorem 3.1's and Lemma 4.1's rows, at the ranges above; round 12's unused domain
        'T31E' is dropped (the round-12 reader's nit 4).]
      - II.D sections 2-4, II.D', II.E, II.F': the chain's orders s, s_0 = s - 2 and s + 1, tau <= 2 (II.D:287,
-       691): v in [-10, 10]; II.D's regulariser exponent kappa := 2 (II.D:221-223, 688) where it enters.
+       691): v in [-10, 10]; II.D's regulariser exponent kappa := 2 (II.D:686, 746; Round 14: not 221-223, 688) where
+       it enters.
   O3 (computed) every site's orders over its range: the Sobolev orders, the symbol orders and the factor orders of
      Proposition 2.4 (f), against round 8's box ([-16, 11] x [-22, 22], factors [-10.49, 9.51]).
   O4 (READ) K' (II.A2:439) is a regularity assumption only: every K' of the chain is the membership w in H^(K') or
@@ -40,10 +41,16 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
   on tau and J', while the Sobolev top 14 stays (Round 13, the round-12 reader's minor 3: round 12 said the box then
   shrinks inside round 8's, which it does not); C3 II.A2:727 altered in a copy: its md5 and its read fail; C4 N = 10
   in place of 14: the box moves; C5 (Round 13) II.D:170's kappa := 2 read as 1: the Sobolev top falls from 14 to 13,
-  so the top, and with it FWD's 877, rests on kappa = 2 there (II.D's regulariser exponent, READ at II.D:221-223, 688).
+  so the top, and with it FWD's 877, rests on kappa = 2 there (II.D's regulariser exponent, READ at II.D:686, 746).
   [Round 13 (the round-12 reader's minor 1): A85 also matches "and Lemma 8.6 (a)" (II.A2:769), BT the bare "Lemma
   2.3 (b)" (II.A2:465) and "Lemma 2.5 (ii)" (II.A2:658): 156 hits, of which 48 are other parts' own Lemma 1.2 or
   Proposition 2.4, so 108 cite the calculus; the ranges do not move.]
+  [Round 14 (the round-13 reader's nits 7, 9). kappa := 2 is section 4's regulariser (II.D:686, 746). At II.D:170
+  Lemma 2.1 may instead be read with II.A' Lemma 4.1 (i)-(ii)'s kappa <= 1/4, which would put the Sobolev top at 12.25:
+  the census takes the larger, kappa = 2, so its range, and FWD 877 with it, is an upper bound on either reading. Two
+  lines cite II.A' by part only, II.F:2334 and :2416 (real principal type propagation and elliptic estimates where P_+ =
+  N has smooth coefficients, at the chain's orders): they name no numbered statement, so the census lists neither, and
+  their orders lie inside its range.]
 
     python3 checks/ordcensus5.py        (seconds)
 """
@@ -92,7 +99,7 @@ FAM = [('A85', r"(?:II\.A |and )Lemmas? 8\.[56](?:-8\.6)?"
 # the chain's parameters (READ: d0count5 Q4/Q4b, II.D:1035, II.D:287, 691)
 S_LO, S_HI, OSC, NERR, M_OP = Fr(-10), Fr(10), Fr(17), Fr(14), Fr(2)
 DELTA_MAX, KAPPA_MAX = Fr(1, 100), Fr(1, 4)          # delta as d0count5's DELTA; kappa <= 1/4 (Lemma 4.1 (i))
-KAPPA_D = Fr(2)                                      # II.D's regulariser exponent, kappa := 2 (II.D:221-223, 688)
+KAPPA_D = Fr(2)                                      # II.D's regulariser exponent, kappa := 2 (II.D:686, 746)
 
 
 def domains(N=NERR, tau_full=True):
