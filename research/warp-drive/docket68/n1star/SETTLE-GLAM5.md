@@ -3202,3 +3202,54 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r6sigma5.py    (about five minutes, 304 and 311 seconds, beside the others; S4 most of it)
 
 The times are wall-clock on this machine under the load of the other workstreams.
+
+### R8-F The section-9.5/11 reader's findings on R6-D (added to round 8)
+
+The independent reader of N1STAR-PROOF.md sections 9.5 and 11 (the coordinator's report-vN95) confirmed R6-D seated
+byte-exact (D630) and its induction correct, and reported two things for this file, both re-derived here. Its other nits
+(n1, n2, n4-n8) are on N1STAR-PROOF.md outside R6-D's blocks and are D632's.
+
+*Its four surviving text mutants.* M10 (Edit 2's factor e^(2C(1 + lam)) -> e^(2C/lam)), M14 (Edit 2's f = f_gamma^n ->
+R_gamma^n, which treats b . d U as known there), M19 (Edit 2's sums removed, so Gronwall acts per gamma) and M12 (the
+family's |delta| = j + 1 -> j) passed r6edits5 as it stood in rounds 7 and 8: predicates (m) and (n) read only Edit 1,
+and E2d only Edit 1's factor. Accepted. r6edits5 now reads Edit 2 structurally (`read_edit2`): the forcing of its energy
+inequality, the index sets of the two sums of its Gronwall bound, and its factor's exponent. E1d gains three predicates:
+(r) the forcing is f_gamma^n, and the definition of f_gamma read from Edit 1 contains b . d U (R_gamma's subtracts it);
+(s) both sides of the Gronwall bound are sums over the family; (t) the step's |gamma|, the family's |delta|, the sum in
+||f_gamma||'s bound and Edit 2's two sums read one index. E2d now also requires Edit 2's factor, read, to equal the
+computed exp(int_(lam^-2)^oo C(1 + lam^-1) t^(-3/2) dt) = e^(2C(1 + lam)); for R5-D's text, which r5edits5 E1f reads
+through E2d and which states no second factor, the requirement is off, and r5edits5's output is unchanged. E1e's control
+still fails every predicate, (r)-(t) included, on the unedited Lemma 11.0. E3 carries the four as controls, each caught
+(M10 by E2d, M14 by (r), M19 by (s) and (t), M12 by (t)), and E3 now reports, instead of stopping, when the text under
+test lacks a control's target, so that E1's and E2's verdicts are printed. On scratch copies, each mutant applied to
+R6-D's printed block and to the seated text together (mutout8/textmut3.out), the four and five variants (M10', the
+factor e^(C(1 + lam)); M14', f = c^n U_n + R_gamma^n; M19' and M19'', one sum removed; M12', Edit 2's sums at |gamma| =
+j) are killed 9 of 9 by the new r6edits5 (by E2d for M10 and M10', by E1d for the rest; M14' also by E2d), against 1 of
+9 by the round-8 version (M14', by E1b's line length only). The round-7 reader's 21 text mutants are still killed, 21 of
+21 (mutout8/textmut4.out).
+
+*n3, the rotation case.* R6-D's printed text needs no wording change. Its induction is over coordinate derivatives (Edit
+1: "for |gamma| = j + 1, by Leibniz's rule U := d^gamma u_1"), where each product is at most C t^(-2) (E2g; the |gamma'|
+= |gamma| term, (d g^{ab}/d g . d^gamma u_1) d_a d_b u_1, is t^(-1/2) t^(-2) = t^(-5/2)). Rotations enter only in the
+unchanged text after Edit 2, the bookkeeping paragraph's "(with Omega^beta among the derivatives the same way: ...)" in
+N1STAR-PROOF.md, which R6-D does not edit. There the reader's point holds, computed in the new E2i (exact): a rotation
+keeps a field's class while a coordinate derivative raises it (r^-q x_1/r along a ray: r^(-q) against r^(-q-1)), and
+|Omega f| <= r |d f| (Lagrange's identity), so for pure-rotation gamma the lower steps' energies bound ||Omega^gamma
+u_1|| only by C t^(1/2), and that product is C t^(-3/2), not at most C t^(-2). It is not above the source's C t^(-3/2),
+so ||R_gamma|| <= C(lam, j) t^(-3/2) and Edit 2's integral stand as printed; alternatively, since Omega v = 0,
+Omega^gamma u_1 vanishes on {v = v_start} and Lemma 9.3(b) puts the term into the family, with kernel C t^-2, whose
+integral over t >= lam^-2 is C lam^2, a lam-free factor. Edit 1's aside "(With c U taken as a source, through the
+energies of the lower steps, the step also closes at fixed lam, at one lam^-1 per order.)" is right as printed, for
+coordinate derivatives (lam^-1 t^(-3/2) t^(-1/2) is integrable over t >= lam^-2); with rotations it is not (lam^-1
+t^(-3/2) t^(1/2) = lam^-1 t^-1), and c U goes into the family by Lemma 9.3(b), as Edit 1's main route does. So the note
+belongs at the rotation parenthetical (D632), not in R6-D. A wording for it: "for pure-rotation gamma the |gamma'| =
+|gamma| term (d g^{ab}/d g . Omega^gamma u_1) d_a d_b u_1 has ||Omega^gamma u_1|| <= C t^(1/2) from the lower steps
+(|Omega f| <= r |d f|), so that product is C t^(-3/2), not C t^(-2); ||R_gamma|| <= C t^(-3/2) is unchanged (or the term
+enters the family by Lemma 9.3(b), Omega v = 0, with kernel t^-2); and c U enters the family, not the source."
+
+Ledger (R8-F). Changed and rerun: `r6edits5.py` (29 checks: E2i and four E3 controls added, E1d and E2d widened; FAILED
+none), byte-identical on two runs; `r5edits5.py`, which imports it, rerun: its .out unchanged. Deduced: n3's disposition
+(with E2i). READ: the section-9.5/11 reader's report (mutants and n3); N1STAR-PROOF.md's bookkeeping paragraph after
+Edit 2 (md5 88179da4). None from outside sources.
+
+    python3 checks/r6edits5.py    (9 to 11 seconds)
