@@ -366,7 +366,7 @@ def k4(control=False):
 def k5():
     gC, gU, eU = sp.symbols('gamma_C gamma_U e_U', positive=True)
     vC, eC = sp.Rational(1, 2), sp.Rational(1, 102400)
-    spec = [0] * 5 + [gC * 2 * (1 - vC), gC * (1 - eC) * (1 - vC)] + [gC * (1 - vC)] * 3 + \
+    spec = [sp.Integer(0)] * 5 + [gC * 2 * (1 - vC), gC * (1 - eC) * (1 - vC)] + [gC * (1 - vC)] * 3 + \
         [2 * gU, gU * (1 - eU)] + [gU] * 3
     sub = {gC: 10**6, gU: sp.Rational(1, 100), eU: sp.Rational(1, 100)}
     vals = [sp.nsimplify(s_.subs(sub)) for s_ in spec]

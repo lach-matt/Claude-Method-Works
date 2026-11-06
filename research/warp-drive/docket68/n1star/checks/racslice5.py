@@ -3,7 +3,7 @@
 (FAMILIES5-R6.md section 2).
 
 racglobal5 R1-R2: on Part I's Sigma_tau0 Racz's algebraic-hyperbolic split is hyperbolic (kappa K^l_l < 0) except on
-a band R in [4.30, 4.53] inside the shell, where K is negative definite, so no foliation OF THAT SLICE is hyperbolic.
+a band R in [4.29, 4.53] inside the shell ([R7] the interpolated edges 4.2914, 4.5284), where K is negative definite, so no foliation OF THAT SLICE is hyperbolic.
 The obstruction is a property of the slice, not of the spacetime: here a different spacelike slice through the band,
 equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
 
@@ -12,7 +12,8 @@ equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
      T = V' d_vhat + d_R, and the sphere trace K'^l_l = 3 n^R/R are explicit in (E, f, psi_R, psi_vhat, f_R, f_vhat,
      V', V''); at V' = 1, V'' = 0 they are bandconst5 B2's kappa = -Nk/(E sqrt(2/E - f)(2 - E f)) and Kt = 3 (E f -
      1)/(E R sqrt(2/E - f)); and d kappa'/d V'' = 1/(E V' sqrt(V'(2 - E V' f)/E)(2 - E V' f)) > 0 on every spacelike
-     round slice (V' > 0, E V' f < 2): bending the slice toward the future raises kappa'. Control (must fail): the
+     round slice (V' > 0, E V' f < 2): a convex bend (V'' > 0) raises kappa' [R7: the bend used below has phi <= 0, so
+     Sigma' lies to the past of Sigma_tau0 where they differ]. Control (must fail): the
      same formula with the Christoffel term dropped does not reduce to B2.
   S2 (computed, floating point; twobg5's background at n = 80 and 160) the slice Sigma' = {vhat - R - phi(R) = tau0},
      phi'' = A (b(R; 4.1, 4.7) - l1 b(R; 3.0, 4.0) - l2 b(R; 4.85, 5.75)) (b the C-infinity bump, A = 0.01, l1, l2 fixed

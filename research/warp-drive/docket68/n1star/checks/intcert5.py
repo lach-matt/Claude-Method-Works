@@ -12,8 +12,8 @@ and 160 (qsign5 Q3, racslice5 S2), not certified.
      form. [0.70, 1.861] is cut at the spline's knots and into cells; on each cell the polynomial piece and its first two
      derivatives are enclosed by interval evaluation, and Gamma/E^2 is enclosed by interval evaluation of the closed
      form, cells whose lower bound is not positive being bisected (to a depth limit). Certified: the lower bound is
-     positive on every cell, at n = 80 and 160 (the least lower bound printed). Controls (must fail): Gamma with its sign flipped
-     (the round-6 verifier's mutation), and Gamma without its 4 nu E^2 term, fail on some cell.
+     positive on every cell, at n = 80 and 160 (the least lower bound printed). Controls (must fail): Gamma with its
+     sign flipped (the round-6 verifier's mutation), and Gamma without its 4 nu E^2 term, fail on some cell.
   C2 (mpmath interval arithmetic) Theorem L''s margin: kappa' K'^l_l < 0 on the whole of the bent slice Sigma'
      (racslice5, A = 0.01), not only at its grid crossings. Between consecutive crossings the background inputs (E, f,
      psi_R, psi_vhat, f_R, f_vhat) are taken as the linear interpolant of their crossing values (the stated interpolant),
@@ -22,8 +22,8 @@ and 160 (qsign5 Q3, racslice5 S2), not certified.
      a margin 1e-6 for the quadrature of phi'; R is the cell. Each crossing interval is cut into sub-cells (bisected
      further if needed), and kappa' and K'^l_l are enclosed by interval evaluation of racslice5's closed forms.
      Certified: kappa' > 0 and K'^l_l < 0 on every sub-cell, so kappa' K'^l_l < 0 on all of Sigma' in Omega_2, at n =
-     80 and 160 (the largest upper bound of kappa' K'^l_l printed). Controls (must fail): A = 0.001 (the round-6 verifier's
-     mutation) and A = 0 (Sigma_tau0 itself) are not certified.
+     80 and 160 (the largest upper bound of kappa' K'^l_l printed). Controls (must fail): A = 0.001 (the round-6
+     verifier's mutation) and A = 0 (Sigma_tau0 itself) are not certified.
 
 Labels: certified (interval arithmetic, for the computed background in the stated interpolant). Run:
 python3 checks/intcert5.py   (several minutes under load)

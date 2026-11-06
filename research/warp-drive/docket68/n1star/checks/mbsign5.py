@@ -439,7 +439,22 @@ def e2():
     det = sp.simplify((a11 * a22 - a12**2) * bg['Del'] - bg['f'] / 4)
     print("   T_m's (P, H_R) block R^3 [[N/2, Y/2], [Y/2, N/(2 gamma_RR)]] has determinant R^6 f/(4 gamma_RR) (N > 0): "
           "%s -- positive definite iff f > 0" % (det == 0))
-    report('E2', ok and all(bg['checks'].values()) and all(x == 0 for x in td['lin']) and det == 0,
+    # the master current is conserved on the tensor equation: d_a J^a = xi(H) (D_a(R^3 D^a H) - (k_T^2 + 2) R H)
+    v, kt = sp.Symbol('v'), sp.Symbol('kt')
+    Hv = sp.Function('Hv')(v, R_)
+    g2 = sp.Matrix([[-bg['f'], 1], [1, 0]])
+    g2i = g2.inv()
+    Y2 = [v, R_]
+    dH = [sp.diff(Hv, y) for y in Y2]
+    grad2 = sum(g2i[a, b] * dH[a] * dH[b] for a in range(2) for b in range(2))
+    Tab = sp.Matrix(2, 2, lambda a, b: R_**3 * (dH[a] * dH[b] - g2[a, b] * grad2 / 2) - g2[a, b] * (kt + 2) * R_ * Hv**2
+                    / 2)
+    J = [sum(g2i[a, c] * Tab[c, 0] for c in range(2)) for a in range(2)]              # xi = d_v, sqrt(-g2) = 1
+    eom = sum(sp.diff(R_**3 * sum(g2i[a, b] * dH[b] for b in range(2)), Y2[a]) for a in range(2)) - (kt + 2) * R_ * Hv
+    cons = sp.simplify(sum(sp.diff(J[a], Y2[a]) for a in range(2)) - dH[0] * eom) == 0
+    print("   the tensor master current J^a = T^a_b xi^b obeys d_a J^a = xi(H) (D_a(R^3 D^a H) - (k_T^2 + 2) R H), the "
+          "tensor equation of static5 S1 / gmodes5 G1: %s" % cons)
+    report('E2', ok and all(bg['checks'].values()) and all(x == 0 for x in td['lin']) and det == 0 and cons,
            [('|T|^2/2', ctl)])
     return bg, td, out
 
