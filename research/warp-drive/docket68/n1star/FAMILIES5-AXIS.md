@@ -37,6 +37,14 @@ dated bracketed amendments, which also seat the independent reader's findings on
    high-frequency approximation: N families have least mixed symbol 1 − cos(2π/N) ~ 2π²/N² (V4), and [HL25]'s
    constants grow like c^N N^N (READ).
 
+[R5 2026-11-06 (FAMILIES5-VLASOV.md, round 5; with the verifier of round 4, whose findings are seated below as
+"[R5 verifier of round 4]"). Item 3's last two sentences are withdrawn. For Vlasov the axes are an obstruction unless
+the non-axial field stays off them, and a smooth solution's field does: restricted particles that reach an axis focus
+there with density ~ 1/ρ2 (FAMILIES5-VLASOV Proposition Ax, vlasovhf5 H7; the verifier's MAJOR 1). N-dependence is not
+the obstruction: Vlasov limits in the class are proved along a diagonal (FAMILIES5-VLASOV Theorem V), the background
+step uniform in N, the high-frequency step made coherent by hierarchical frequencies, as in [HL25]. Item 2's band data
+hold on the whole slice except a band inside the shell, where no foliation is hyperbolic (racglobal5 R1-R2).]
+
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that it must
 reject), **deduced** (argued here), **READ** (verbatim, identifier and page, read at source through alphaXiv,
 2026-11-02). New programs: `checks/bandconst5.py` (B1-B6), `checks/axisellip5.py` (E0-E2), `checks/vlasov5.py`
@@ -138,6 +146,13 @@ The S_R are 3-spheres, so the axes are interior points of the leaves and regular
 statement is finite propagation speed in the domain of dependence ([Rac16] Theorem 4.3), with speeds within O(ε) of
 B1's. ∎
 
+[R5 verifier of round 4 (minor 4), re-derived. [Rac16] Theorem 4.3 is explicitly "(local)", for a "sufficiently small
+neighborhood of S_ρ0" (READ p. 14); its locality concerns existence only, the constraints holding identically for any
+solution of the system (READ p. 12). Existence on all of [a, R2] near the background is FAMILIES5-VLASOV Theorem K's
+Cauchy stability (proved there), the background solving the system on the interval. B1's real speeds are the θ-only
+symbol's; the full S³ system needs κ K^l_l < 0; B2's equivalence needs E f < 1, which Part I satisfies (bandconst5
+docstring corrected).]
+
 In the example, R2 = a + 0.2 gives Δ ≤ 0.213: a band θ ∈ [π/8, 3π/8] widens to [0.18, 1.39], away from both axes. A
 radially long perturbation spreads more: 0.752 rad across the seed region.
 
@@ -160,6 +175,12 @@ in R and θ, anywhere on the slice, the packet region included.
 The nonlinear version with exact compact support would need a correction of the quadratic error, which has one
 integral charge (the weighted θ-moment of M_R). That correction is not constructed here.
 
+[R5 (FAMILIES5-VLASOV section 4). [CS06] Theorem 2 and [CD03] Theorem 5.6 (READ) construct the correction up to the
+invariant KIDs; in Part I's vacuum regions the only one is the static Killing field (racglobal5 R3), so the charge is
+one number. On the stream-function seeds it is negative (R4: 45 seeds), so these seeds do not complete to exactly
+localised vacuum data, with or without dust added in the band. Exact compact support is not obtained; band
+localisation (Proposition L) and exact localisation on cones (B6) are what is proved.]
+
 ### 2.4 What this does to Corollary N2
 
 N2's domain argument survives with θ1 replaced by θ1 − Δ (deduced). N2's input is supplied: by Proposition L near
@@ -170,6 +191,12 @@ reader's MAJOR 2 for perturbations in the seed region. It is a construction near
 automatic (the leaves are 3-spheres), with a small non-round dust source allowed as free data. Elsewhere on Σ_τ0
 hyperbolicity (N_k < 0) has not been checked. B2's formula shows that a strong ingoing flux (the −½E f_v = μ′/(2R²)
 term) can break it in the shell region.
+
+[R5 (racglobal5 R1-R2). Checked on the whole slice: hyperbolic except on R ∈ [4.30, 4.53] inside the shell (max N_k =
+1.79 × 10⁻³, converged at n = 40, 80, 160), where the flux exceeds 2μ(2 + μ/R²)/R; there K is negative definite and no
+foliation is hyperbolic. Proposition L holds for perturbations whose radial support avoids the band; data meeting it
+are posed on the cone N (B6). Nit (the verifier of round 4): B6's "no smallness" concerns the localisation, not the
+existence of cone data.]
 
 ## 3. Task 2: the axis
 
@@ -193,6 +220,11 @@ first order in g. Neither a curvature component nor the torsion of the null hype
 FAMILIES5-NONROUND's version only because it used the null hypersurface's own Codazzi equation. Controls (rejected):
 (G) without the K term, and the trace over the coordinate plane span(∂_y1, ∂_φ2) in place of TΣ2 (the tilt of
 NONROUND X1 (d)).
+
+[R5 verifier of round 4 (minor 7 and a nit), re-derived. (G) is the Gauss formula and holds for any u; tr χ̸ = θ − κ1
+needs u null to first order. E0 alone does not exclude curvature terms: they drop out because on a surface of
+revolution k_φ = ν(log √g_φφ), the Killing identity (as in Proposition C), so the recovery never uses Codazzi or
+Ric_M3. In "K_rr − K_φφ" the r-direction is the leaf's tangent in the meridional plane, not ∂_r.]
 
 ### 3.2 The leaf's equation at the axis (computed: E1)
 
@@ -242,6 +274,13 @@ H^m in all directions (along the axis, planar, and in τ through the equations).
 (V) is the radial form of step 3. It shows the bound directly in the radial variable, with Hardy-type averages whose
 norms the reader computed (Af = κ2 bounded on every Ḣ^k).
 
+[R5 verifier of round 4 (minor 5, minor 6, nits), re-derived. Lemma A's constant as stated is circular (C² of u contains
+s); it depends on C¹ of u and L^∞ of θ (h′ from H2 by (V)), and FAMILIES5-VLASOV Lemma A′ states it in the two forms
+Theorem N′ uses, with Lemma E (interior regularity in two variables) proved there. ‖χ̸ − ½(tr χ̸)γ̸‖ = |s|/√2 is
+counted once. Lemma A's m ≥ 5 is used within Theorem N's m ≥ 6. E2's ratios are frozen-coefficient limits (0.2886 =
+1/(2√3) is the flat Gaussian value), showing no loss at m = 0, 1 only; the reconstruction now starts from axis
+regularity, h′(r0) = 0, and recovers h′ to 4.1 × 10⁻¹¹ and σ to 8.0 × 10⁻¹⁰ (axisellip5 rerun).]
+
 **E2 (computed, scipy; a curved metric: A, B, C, D non-constant, the background leaf z = 0 of O(1) mean curvature).**
 - Leaves concentrating at the axis, h_ε = ε² exp(−r²/ε²), ε = 0.2, 0.1, 0.05, 0.025, are measured against the
   background leaf, on r < 1/2 with weight r dr.
@@ -283,6 +322,16 @@ constants of Lemma A.
   term is a bounded L² → L² operator applied to d_A (the Volterra map of (V) is a Hardy average). With zero data the
   energy of (W, d_A) obeys a linear Gronwall inequality, as before, so d_A = 0. ∎
 
+[R5 verifier of round 4 (minors 1-2), re-derived. *Step 6.* "No cut-off is needed" holds for family A at its adapted
+boundary only: the leaves of another family B can cross that boundary at O(ε). So χ_B = 0 near the boundary–axis points
+for B ≠ A ((H2′) puts no B-dust there), and Step 10's d_B energy is taken on a leaf-saturated set inside {χ_B = 1}.
+*Step 9.* Lemma A is an inhomogeneous bound, not a difference estimate; Kato's iteration needs (K1) boundedness on H^m
+balls and (K2) L²-Lipschitz continuity there, which Lemma A′ (b) gives, and FAMILIES5-VLASOV Theorem K (proved there)
+is the iteration with a non-local source. [IT20] Theorem 1 is READ for ∂_t u = A^j(u)∂_j u with no source (corrected
+from "local sources"). On the extension to R⁴ the source is χ_A S^ax, and near an axis the leaves are defined by u_A's
+values on the axis (transported along it, the generator being along the axis there, axisphase5 A1) and by (V) from
+θ_A, so p_A need not be closed for them to exist. Nit: (H2′) is vacuous where no dust meets a boundary–axis point.]
+
 **Corollary N′1 (Part I with non-round perturbations, on the whole domain; deduced).** Let ů be Part I's round
 two-dust background on Ω₂ (FAMILIES5-FULL section 2). Replace Ω₂'s lateral boundaries by adapted ones:
 
@@ -299,6 +348,12 @@ extra small families whose tubes avoid the lateral boundaries near the axes. Thi
 corresponding item of FAMILIES5-NONROUND section 7. Data: section 2 (Proposition L), or any small invariant constraint
 solution.
 
+[R5 verifier of round 4 (minor 3), re-derived. (H2′) needs support conditions on the background families near the
+boundary–axis points: an ε-small shell density reaching the outer boundary near an axis, or packet density near the
+inner one, violates it. Add supp F_shell ⊂ {v̂ ≤ v_end + η} near the outer boundary's axis points and the packet's
+support in R ≥ R_H + 0.6 near the inner one. "R_H ≥ √μ0" is marginal (twobg5: μ_III ≥ 0.82207 against μ0 = 0.82211):
+R_H ≥ 0.906.]
+
 **What this does not give.** The high-frequency construction for non-round backgrounds still needs FAMILIES5-FULL Part
 II's (ii) and (iii). (ii), angular separation, fails at an axis for two families of one orientation (axisphase5 A2), so
 beyond one ingoing and one outgoing family the extra families must vanish near the axes. (iii), the constraint
@@ -311,6 +366,10 @@ cancellation for the second polarisation, is not examined.
 - Theorem N′ and Corollary N′1: deduced, at the record's section 4 level. Not independently read.
 - The one new analytic ingredient is Step 9's Kato iteration with a non-local Lipschitz source. It is standard in form,
   but its statement for non-local sources is not READ.
+
+[R5. Proved in the needed version: FAMILIES5-VLASOV Theorem K (the iteration computed in a model, katonl5). The
+verifier of round 4 adds that Step 9 also needed Lemma A step 4's uniform-in-leaf mixed norms, the solution-dependent
+domain, and the leaves' definition before p_A is closed; these are Lemma A′ and the Step 9 amendment above.]
 
 ## 4. Task 3: Vlasov in the class (computed: `vlasov5.py` V1-V4; deduced)
 
@@ -351,6 +410,14 @@ approximation's dependence on N.** [HL25]'s route approximates the Vlasov field 
 c^N N^N" (READ in FAMILIES5-FULL Part III), and Part II's division costs 1/(1 − cos(2π/N)) ~ N²/(2π²) per stage (V4).
 Touati's existence is "not uniform in |A|" ([Tou24] p. 4, READ). A construction uniform in N is not available, in the
 class or elsewhere.
+
+[R5 verifier of round 4 (MAJOR 1), re-derived (vlasovhf5 H7). V2-V3 show the non-axial density vanishes on the axis,
+not near it, and say nothing about propagation; restricted momenta at a nonzero orbit-plane angle reach the axis and
+converge cylindrically, with stress ~ 1/ρ2 in the non-smooth x̂ ⊗ x̂ form. "Axes included" is withdrawn for Vlasov: the
+restricted system is well posed around large solutions whose non-axial support stays off the axes on Ω (a property of
+every smooth solution, FAMILIES5-VLASOV Proposition Ax). The last paragraph is superseded: uniformity in N is not
+needed (FAMILIES5-VLASOV Theorem V, the diagonal of [HL25] p. 19, READ), and the obstruction to the every-order scheme
+is resonance among three or more phases, removed by hierarchical frequencies (Lemma C).]
 
 ## 5. Literature (READ, alphaXiv, 2026-11-02)
 
@@ -404,6 +471,10 @@ FAMILIES5-NONROUND.md as a dated bracketed amendment at the place it concerns. I
   - N3 needs Ω's boundaries spacelike for the data's metric.
 - *Nits (seated).* The wording of the verdict, and κ2 = (θ − κ1)/2 on the axis. X2 tests m = 0 and 1 only.
 
+[R5 verifier of round 4 (nits). X3's ‖Af‖ = ‖f‖/√2 holds for the Gaussian family; only ‖s‖ = ‖f‖ is an identity
+(FAMILIES5-NONROUND line 313's amendment should be read so). B5's 4.0 × 10⁻⁹ comes from ten implicit-Euler steps and is
+qualitative, not converged.]
+
 ## 7. What is proved, and what is not
 
 - Characteristic band data: exact localisation (B6, computed); the data themselves deduced.
@@ -429,6 +500,12 @@ FAMILIES5-NONROUND.md as a dated bracketed amendment at the place it concerns. I
   - a high-frequency construction uniform in N;
   - hyperbolicity of the algebraic split away from the seed region.
 
+[R5 (FAMILIES5-VLASOV). The open items: an independent reading of sections 3.3-3.4 is done (the verifier of round 4,
+seated above); Part II's (ii) at the axes is decided by (O1), (ii) for three or more families is replaced by (ii′),
+(iii) is settled by the torus polarisation; Vlasov limits are proved without uniformity in N (Theorem V); the
+algebraic split's hyperbolicity is decided on the whole slice (racglobal5 R1-R2), and replaced on its failing band by
+cone data.]
+
 ## 8. Proposed replacement text for the paper's section 9, "More families"
 
 > More families. In the class the null second fundamental form of each family is diag(θ_h, κ1, κ2), the torus terms
@@ -443,6 +520,12 @@ FAMILIES5-NONROUND.md as a dated bracketed amendment at the place it concerns. I
 > has momenta in the orbit space and, at an axis, is either zero or the two radial dusts. Approximating it by N
 > families costs a factor of order N² per stage, and the known constants grow faster with N, so non-round Vlasov limits
 > remain open.
+
+[R5 verifier of round 4 (MAJOR 2). Superseded by FAMILIES5-VLASOV.md section 9: this text overclaims ("stable around
+large solutions" for Cauchy stability on compact domains of the record's type; it drops no caustics, the adapted
+lateral boundaries with one family at each boundary–axis point and the support conditions; "the whole domain" for
+the adapted one; no status labels; localised slice data claimed beyond the seed region; "momenta in the orbit space"
+holds for limits only; the N² factor is a flat-orbit-space model).]
 
 ## Files
 
