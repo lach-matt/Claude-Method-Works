@@ -445,14 +445,13 @@ def r9(control=False):
 
 # ---------------------------------------------------------------- R10: Theorem A_P's classes
 def r10(control=False):
-    r, rp = sp.symbols("r rp", positive=True)
-    s = sp.Symbol("s")
+    r, rp, s = sp.symbols("r rp s", positive=True)
     Z = -r**sp.Rational(-3, 2)*sp.integrate(rp**sp.Rational(3, 2)*rp**sp.Rational(-7, 2)*s, (rp, r, sp.oo))
     solves = sp.simplify(sp.diff(Z, r) + sp.Rational(3, 2)/r*Z - r**sp.Rational(-7, 2)*s) == 0
     decays = sp.limit(r**sp.Rational(3, 2)*Z, r, sp.oo) == 0
     is_exact = sp.simplify(Z + r**sp.Rational(-5, 2)*s) == 0
-    E52 = sp.limit(r**sp.Rational(5, 2)*Z, r, sp.oo).is_finite
-    ellE72 = sp.limit(r**sp.Rational(7, 2)*sp.diff(Z, r), r, sp.oo).is_finite
+    E52 = sp.limit(r**sp.Rational(5, 2)*Z, r, sp.oo) == -s
+    ellE72 = sp.limit(r**sp.Rational(7, 2)*sp.diff(Z, r), r, sp.oo) == sp.Rational(5, 2)*s
     weight = sp.Rational(5, 2) if control else 3
     notE = sp.limit(sp.Abs(r**weight*Z/s), r, sp.oo) == sp.oo
     ok = solves and decays and is_exact and E52 and ellE72 and notE
