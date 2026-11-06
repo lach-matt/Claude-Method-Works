@@ -384,8 +384,8 @@ in each slot. ∎ The record's coarser round, ℰ_0 ∪̄ ℰ^C_I, cannot have a
 
 With G (computed H4-H5): Part VII's class has k(n) = k(n + ½) = 2n − 3; the half class has k(2 + j/2) = j + 1, that
 is **one more at each half-integer**, the same at every integer, and 0 or 1 more off ½ℤ (53 of 273 exponents below
-11/2); the largest log order at Re ≤ 5 is 7 for both; π_1 is the same. LOSS-D's one-off count is 1 + 2 + 4 = 7 (loss
-14) for Part VII's class and 1 + 2 + 5 = 8 (loss 16) for the half class, ℓ_I ∈ (3, 7/2); for ℓ_I ∈ (7/2, 4) it is 7
+11/2); the largest log order at Re ≤ 5 is 7 for both; π_1 is the same. LOSS-D's one-off count is 1 + 2 + 4 = 7
+(loss 14) for Part VII's class and 1 + 2 + 5 = 8 (loss 16) for the half class, ℓ_I ∈ (3, 7/2); for ℓ_I ∈ (7/2, 4) it is 7
 (loss 14) and 1 + 2 + 6 = 9 (loss 18) (H5c, round 3); the log-free control gives LOSS-D Q2's 3 (H5b). G is contained in
 the record's ℰ^(M) from M = 2 on, and not at M = 0, 1 (H8, round 3) (amended R3.0 (n3), (n4)).
 
@@ -888,8 +888,8 @@ The window widens round 2's: ℓ0 ∈ (3, 4) ∖ {7/2}, all of Part VII's range,
 
 **Theorem R3.7 (conditional; deduced).** Fix A, the C_c^∞ envelope of Theorem 1, the angular profile and the seed. Let
 ℓ0 ∈ (3, 4) ∖ {7/2}, ℓ_I ∈ (3, ℓ0) off row d2's exclusion sets, ε_m > 0, ε_t < ε_K; let ε, d_1 be III.K Theorem 4.3's in
-the half class, k_0 large enough for the H^(d_1) norm, a ∈ (max(ℓ0 − 1, 5/2), 3), a_0 ∈ (0, ½), M := M(8, k_0 + 1, k_0 +
-1) = 27 + 2k_0 (Proposition R3.1), and K > max(d_1 + 14, K*(a, 8, M, k_0), K*(a_0, 8, M, k_0)). Assume:
+the half class, k_0 large enough for the H^(d_1) norm, a ∈ (max(ℓ0 − 1, 5/2), 3), a_0 ∈ (0, ½), M := M(8, k_0 + 1,
+k_0 + 1) = 27 + 2k_0 (Proposition R3.1), and K > max(d_1 + 14, K*(a, 8, M, k_0), K*(a_0, 8, M, k_0)). Assume:
 [R5.0: K*(a_0, ...) is superfluous; the window is a ∈ (ℓ0 − 1, 3); the G-invariance Proposition 3.2 needs is R5.0
 (r3-m4). Theorem R5.1 restates this theorem.]
 
@@ -1343,8 +1343,8 @@ and the cap. So no smallness is needed above k1.
 **Step 8 (the limit T → -∞; computed B11-B12).** For T' < T ≤ T_1, δ := g_T' - g_T on W_T solves the linear
 system obtained by subtracting the two equations, written with g_T' as principal part: -(1/2) g_T'^(ab) ∂_a ∂_b δ =
 (1/2)(g_T'^(ab) - g_T^(ab)) ∂_a ∂_b g_T + (Q(g_T') - Q(g_T)), linear in (δ, d δ) with zero-order coefficient d d
-H_T and first-order coefficients d H_T, d H_T' (Step 5's kernels). δ = 0 on N cap W_T. On Σ̃_T, δ = h_R,T'
-- h_R,T(T): the second is the cap; the first is bounded by Step 5 run on W_T' cap {t̃ ≤ T}, whose data are tails:
+H_T and first-order coefficients d H_T, d H_T' (Step 5's kernels). δ = 0 on N cap W_T. On Σ̃_T, δ =
+h_R,T' - h_R,T(T): the second is the cap; the first is bounded by Step 5 run on W_T' cap {t̃ ≤ T}, whose data are tails:
 𝔈[h_R,T'](T) ≤ C(𝔈(T') + 𝔉_k1(T', T) + (∫_(-∞)^T ρ)^2) =: ϑ(T), with 𝔉(T', T) ≤ C |T|^(2a-7), the cap
 ≤ C |T|^(2a-6), ∫_(-∞)^T ρ ≤ C λ |T|^(a - 7/2) (B12a; control B12b: at a = 7/2 the residual tail is
 infinite). So E[δ] ≤ C ϑ(T) → 0 on W_T uniformly in T' < T: (g_T) is Cauchy in the weight-a energy on every
@@ -1625,8 +1625,8 @@ texts for N1STAR-PROOF.md's Lemma 11.0 and for the paper's section 9 are R5-D an
   harmless but unneeded. The 5/2 of R2.8's note marked where the subtraction must reach p = 4 (it must, for every
   a > 5/2, and it does).
   [R6 (m3, nit): G5 is [arithmetic]; it now carries Lemma R4.5's hypothesis, widened to (0, 7/2), Step 2's and R5.2's,
-  and the window is computed in r6sigma5 W. "a + 1 >= l0" is the inclusion's exact condition; the window is open, a + 1
-  > l0, as in Step 9.]
+  and the window is computed in r6sigma5 W. "a + 1 >= l0" is the inclusion's exact condition; the window is open, a +
+  1 > l0, as in Step 9.]
 
 **(b) The round-4 reader** (verdicts: R4.1-R4.3 hold, with lam_2 <= lam_F(k1 + 5) unstated; the F1 correction holds;
 R4.4 holds as deduced; R4.5 holds; R4.6 has a gap (M4); R4.7 holds only about the written chain; R4.8 has a gap (M3);
@@ -1663,8 +1663,8 @@ R4.9 holds given R4.6; R4.10 holds given its inputs, its label wrong (M1)).
 - **(r4-m4) Invariance.** As (r3-m4) above.
 - **(r4-m5) R^alpha.** Accepted, re-derived: for a solution, (Gamma + c_Gamma) P(H) = 0, so DP(H)[Gamma h_R] =
   -DP(H)[Gamma Sigma] - M_Gamma P(H), and for Sigma itself (Gamma + c_Gamma) P(Sigma) = DP(Sigma)[Gamma Sigma] +
-  M_Gamma P(Sigma); subtracting, the M_Gamma P(Sigma) terms cancel and DP(H)[Gamma h_R] = -(Gamma + c_Gamma) P(Sigma)
-  - (DP(H) - DP(Sigma))[Gamma Sigma] + M_Gamma(P(H) - P(Sigma)) at fixed arguments, the last two linear in h_R
+  M_Gamma P(Sigma); subtracting, the M_Gamma P(Sigma) terms cancel and DP(H)[Gamma h_R] = -(Gamma + c_Gamma)
+  P(Sigma) - (DP(H) - DP(Sigma))[Gamma Sigma] + M_Gamma(P(H) - P(Sigma)) at fixed arguments, the last two linear in h_R
   (rows (A) and (C)). So R^alpha = prod_i (Gamma_i + c_i) P(Sigma), with no M_i applied to P(Sigma): otherwise mu d_mu
   P(Sigma) = O(lam r^-6) (Sigma_4 cancels degree -6 only at mu = mu_end) would give the kernel 4 - a. The residual's
   kernel stays 9/2 - a.
@@ -2408,8 +2408,8 @@ O(lam r^(-13/2)) with Sigma_4, on the operator; and, by (r6-F4), neither is need
 operator, not typed: the cap's exponent measured at thirteen a in [1/2, 7/2] on the exact h_R of G1 is the affine law
 2a - 6 (fit residual below 2e-3), so the cap vanishes exactly for a < 3 (W1); the N-flux tail of h_R(v1, .) has exponent
 2a - 7 (exact, W2); the residual's kernel from the degree measured in S4 is integrable exactly for a < q_R - 3 = 7/2
-(W3; with q_R = 6, a < 3); S1's pointwise exponent a + 3/2 and its integral a + 1/2 give the h_R rows, integrable for a
-> 1/2 (W4; the coefficient rows of r5op5 O1 do not depend on a); r = 1/rho gives the class exponent a + 1 on S (W5);
+(W3; with q_R = 6, a < 3); S1's pointwise exponent a + 3/2 and its integral a + 1/2 give the h_R rows, integrable for
+a > 1/2 (W4; the coefficient rows of r5op5 O1 do not depend on a); r = 1/rho gives the class exponent a + 1 on S (W5);
 Step 2 needs a >= 3/2, Lemma R4.5 (0, 7/2), Proposition R5.2 a > 1/2 (W6-W8). Their intersection, as sympy intervals, is
 (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (W). Controls: p = 4 dropped from Sigma, with W1-W2 recomputed on that field
 (exponents 2a - 5 and 2a - 6), gives (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives
@@ -2989,8 +2989,8 @@ stays among the deduced conditions.
   (ii)'s Gronwall constants their uniform margin. R8-A; note inserted.
 - (4) Step 4's margin: Step 2 bounds |H| <= r^-2/2, but D4-D5 (B2d) assume |g^-1 - g_b0^-1|_op <= r^-2/2, and |H| <=
   r^-2/2 gives only 0.571 r^-2 (r7settle5 K6'). Step 2's bound is taken as |H| <= r^-2/4 (it holds for lam <= lam_2,
-  eps_B <= eps_2 small, as Step 2's other bounds do), which gives |g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2 (K6, at r
-  >= 8, m <= 1/16). R8-A; notes inserted at Step 2 and R7-A.
+  eps_B <= eps_2 small, as Step 2's other bounds do), which gives |g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2 (K6, at
+  r >= 8, m <= 1/16). R8-A; notes inserted at Step 2 and R7-A.
 - (5) "Sharp": 7/25 is sharp for the hypotheses |f'| <= 1/4, m >= 0, attained only as m -> 0 (the conormal's exact
   threshold is (3 + 4f' - 4f'^2)/(5 - 4f' + 4f'^2) at m = 0, least at f' = -1/4; 3/5 at f' = 0). Notes inserted;
   r7settle5's K1' and docstring say so.
@@ -3008,7 +3008,11 @@ stays among the deduced conditions.
   round-6 paragraphs, R7-A, a round-7 note), and two round-7 notes had been inserted inside their paragraphs (the
   inserting script took such a line for a list item). The notes are moved to their paragraphs' ends and the paragraphs
   rewrapped, binding "a - b" so that no line begins with "- "; the file's words are unchanged (their multiset compared
-  before and after).
+  before and after). A scan of the whole file for every line that would open a block inside a paragraph or a list item
+  (a line beginning, after its indent, with "- ", "+ ", "* ", ">" or "1)"/"N.") found seven more, from rounds 2 to 8:
+  "14) for" (round 2), "1) = 27 + 2k_0" (round 3, Theorem R3.7), "- h_R,T(T)" (round 4, Step 8), "- (DP(H)" (round 5,
+  (r4-m5)), "> l0" (a round-6 note in round 5), "> 1/2" (round 6, the window) and ">= 8" (round 8, nit (4)); at each the
+  break is moved by one or two words, the words unchanged, and the scan now finds only intended list items.
 - (9) Run times: the docstrings now say what was measured (r7settle5 5 to 30 seconds, r6edits5 5 to 35 seconds, r6sigma5
   3 to 29 minutes with the load); the run lines below give this round's.
 - (10) The program gaps the reader's surviving mutants showed, each closed: K2 now also takes delta along beta beta^T at
