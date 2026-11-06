@@ -849,8 +849,9 @@ def check_s4(gres):
 
 # ------------------------------------------------------------------------------------------------------------------
 # N1-N3, the controls, the chain
-RUNS = [(24, 12, 1.0), (32, 12, 1.0), (32, 12, 0.5), (40, 12, 1.0), (48, 12, 1.0), (32, 16, 1.0), (48, 16, 1.0)]
-FINE = [(40, 12, 1.0), (48, 12, 1.0), (48, 16, 1.0)]
+RUNS = [(24, 12, 1.0), (32, 12, 1.0), (40, 12, 1.0), (48, 12, 1.0), (32, 12, 0.5), (32, 16, 1.0), (48, 16, 1.0),
+        (32, 20, 1.0)]
+BEST = (48, 16, 1.0)
 K43, BFRO = 12.593309, 16.127552                  # (4/3) K and B^(1/2), certified lower ends (READ, R8.2, R7.0)
 LAM = {'operator norm': 0.0024433, 'Frobenius': 0.0019079, 'largest entry': 0.0012228}   # certified (READ)
 
@@ -924,26 +925,34 @@ def main():
               'at tau = %.2f, %.1e at tau* (%.0fs) %s' % (cfg + (q['steps'], q['M22'], grel(q['gauge'][0][1]),
                                                            grel(q['gauge'][1][1]), q['gauge'][1][0],
                                                            grel(q['gauge'][2][1]), q['secs'], el())))
-    vals = [runs[c]['M22'] for c in FINE]
-    best = runs[FINE[-1]]['M22']
-    spread = max(vals) - min(vals)
-    dt = abs(runs[(32, 12, 1.0)]['M22'] - runs[(32, 12, 0.5)]['M22'])
-    tol = max(10 * spread, 10 * dt, 1e-6)
+    M = {c: runs[c]['M22'] for c in RUNS}
+    best = M[BEST]
+    dr_ = [abs(M[(n2, 12, 1.0)] - M[(n1, 12, 1.0)]) for n1, n2 in ((24, 32), (32, 40), (40, 48))]
+    dx_ = [abs(M[(32, 16, 1.0)] - M[(32, 12, 1.0)]), abs(M[(32, 20, 1.0)] - M[(32, 16, 1.0)])]
+    dt = abs(M[(32, 12, 1.0)] - M[(32, 12, 0.5)])
+    err = dr_[-1] + dx_[-1] + dt
+    tol = max(10 * err, 1e-6)
     band = (best - tol, best + tol)
-    conv = all(np.isfinite(vals)) and spread < 1e-4 * abs(best) and dt < 1e-4 * abs(best)
+    conv = (all(np.isfinite(list(M.values()))) and dr_[0] > dr_[1] and dx_[0] > dx_[1] and err < 1e-5 * abs(best)
+            and abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])) < 1e-6)
     OK['N1'] = conv and band[0] > 0
-    print('  N1: M_22 = %.7f (Nr = 48, Nx = 16); spread over the three finest %.1e, time-step change (cfl 1 to 1/2) '
-          '%.1e; band M_22 in [%.6f, %.6f] (ten times the larger, floating point, not an enclosure); 0 outside it: %s '
-          '%s' % (best, spread, dt, band[0], band[1], OK['N1'], el()))
-    q = solve(funcs, gfun, env, fode, 32, 12, 1.0, vout=2.6)
-    OK['N2'] = abs(q['M22'] - runs[(32, 12, 1.0)]['M22']) < tol
-    print('  N2: outer boundary at v = 2.6 instead of 3 (X*\'s past lies in v <= 2): M_22 = %.9f against %.9f, in the '
-          'band\'s width: %s %s' % (q['M22'], runs[(32, 12, 1.0)]['M22'], OK['N2'], el()))
+    print('  N1: radial refinement (Nx = 12) changes M_22 by %.1e, %.1e, %.1e (Nr 24 to 32, 32 to 40, 40 to 48); '
+          'angular (Nr = 32) by %.1e, %.1e (Nx 12 to 16, 16 to 20), the same at Nr = 48 to %.0e; halving the step '
+          '(32 x 12) by %.1e. M_22 = %.8f (Nr = 48, Nx = 16), error estimate %.1e (the last radial, angular and time changes '
+          'summed); band [%.6f, %.6f] (ten times that; floating point, not an enclosure); 0 outside it: %s %s'
+          % (dr_[0], dr_[1], dr_[2], dx_[0], dx_[1],
+             abs(M[(48, 16, 1.0)] - M[(48, 12, 1.0)] - (M[(32, 16, 1.0)] - M[(32, 12, 1.0)])), dt, best, err,
+             band[0], band[1], OK['N1'], el()))
+    q = solve(funcs, gfun, env, fode, 40, 12, 1.0, vout=2.6)
+    OK['N2'] = abs(q['M22'] - M[(40, 12, 1.0)]) < tol
+    print('  N2: outer boundary at v = 2.6 instead of 3 (X*\'s past lies in v <= 2), Nr = 40, Nx = 12: M_22 = %.9f '
+          'against %.9f, within the band\'s half-width: %s %s' % (q['M22'], M[(40, 12, 1.0)], OK['N2'], el()))
+    FINE = [(48, 12, 1.0), (48, 16, 1.0), (32, 20, 1.0)]
     gz = [grel(g) for c in FINE for _, g in runs[c]['gauge']]
     OK['N3'] = max(gz) < 1e-5 and all(grel(runs[c]['gauge'][0][1]) < 1e-12 for c in FINE)
     print('  N3: the first harmonic of D^(1), zero on Sigma by (F1) to %.1e, stays below %.1e of its terms\' size at '
-          'mid-solve and at tau* on the three finest grids: %s' % (max(grel(runs[c]['gauge'][0][1]) for c in FINE),
-                                                                   max(gz), OK['N3']))
+          'mid-solve and at tau* on 48 x 12, 48 x 16 and 32 x 20: %s'
+          % (max(grel(runs[c]['gauge'][0][1]) for c in FINE), max(gz), OK['N3']))
     q1 = solve(funcs, gfun, env, fode, 32, 12, 1.0, src_sign=-1.0)
     OK['C1'] = not band[0] <= q1['M22'] <= band[1]
     print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band: %s %s' % (q1['M22'], OK['C1'], el()))

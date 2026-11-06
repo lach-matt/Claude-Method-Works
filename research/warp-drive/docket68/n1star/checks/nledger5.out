@@ -1,0 +1,20 @@
+L1 every N-family term evaluated with twoledger5's weights and rules, k = K = 6
+   N = 2: level 1 114 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 285 terms, 0 fail, types the same: True
+   N = 3: level 1 217 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 829 terms, 0 fail, types the same: True
+   N = 4: level 1 352 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 1942 terms, 0 fail, types the same: True
+   N = 5: level 1 519 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 3939 terms, 0 fail, types the same: True
+   N = 6: level 1 718 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 7207 terms, 0 fail, types the same: True
+   N = 7: level 1 949 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 12205 terms, 0 fail, types the same: True
+   N = 8: level 1 1212 terms, 0 fail, types = the two-family ledger's (45): True; level 2 (coefficient sources) 19464 terms, 0 fail, types the same: True
+   the N = 4 list (level 2, 1942 terms), every term on k = 6..12 x K = 6..10: True
+L1 PASS
+L2 term counts: level 1 = 16*N**2 + 23*N + 4 (degree 2, exact on N = 2..8: True); level 2 = 3*N**4 + 21*N**3/2 + 25*N**2 + 49*N/2 + 4 (degree 4, exact: True): PASS
+L3 the leading lam-power of d^m (product of 1, 2, 3 profiles)/(product), m = 0..4, non-resonant phases: [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4] (= m: kappa = 1 for every source; a resonant product costs less): PASS
+L4 the closing rows: twoledger5 T2's powers (non-linear 2K - 5 - (K + 1) = kappa >= 0: True), N-independent; Step 7 with M(N), lam0(N) for any positive C(N), C_D(N), C_R(N) closes (exact): PASS
+   control (a): exponent -1, order 6: rejected True
+   control (b): exponent -1, order 6: rejected True
+   control (c): exponent -1, order 8: rejected True
+   control (d): a factor of phase x/lam^2 has leading powers [0, 2, 4, 6, 8] (kappa = 2): rejected True
+L1-L4: PASS
+controls (a)-(d) rejected: PASS
+exit 0

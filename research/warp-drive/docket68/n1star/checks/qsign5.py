@@ -68,7 +68,8 @@ fixed gamma).
      4 nu E^2 -> 3 nu E^2 in Gamma, integrated as it stands, misses Q.
 
 Labels: computed (Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point; Q3's Gamma > 0 is certified by interval
-arithmetic in checks/intcert5.py C1). Run: python3 checks/qsign5.py   (about a quarter of an hour under load)
+arithmetic in checks/intcert5.py C1 for the computed background and in checks/truebg5.py T2 [R8] for the background
+itself). Run: python3 checks/qsign5.py   (about a quarter of an hour under load)
 """
 import importlib.util
 import math

@@ -43,7 +43,7 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
 
 Labels: certified (interval arithmetic). C1, C1d, C2, C2d concern the computed background; C3 concerns the background
 itself on R >= R_*. The background itself on R < R_* is certified by truebg5.py. Run: python3 checks/intcert5.py
-(about half an hour under load).
+(about ten minutes under load).
 """
 import bisect
 import importlib.util
