@@ -30,6 +30,8 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
   python3 checks/rcert5d.py --census [tau]          (D3 alone; writes its table to the checkpoint directory)
   python3 checks/rcert5d.py --worker w W [tau]     (chunk w of W of the box's 8 children; resumable checkpoints)
   python3 checks/rcert5d.py --collect W [tau]      (merge the W checkpoints, run D0-D2 and the controls, print)
+  python3 checks/rcert5d.py --repartition W W2 [tau]   (stopped workers only: merge W checkpoints and split the queue
+                                                    round-robin into W2; accepted boxes and counters go to chunk 0)
 Checkpoints go to $RCERT5D_DIR (default: the scratch directory named in the round-4 record).
 """
 import os, sys, time, pickle, hashlib, itertools
@@ -200,16 +202,18 @@ def collect(W, tau):
     ok0 = md5s == MD5
     print('D0 the pinned tensors %s: md5s %s the record\'s (rcert5c.out)' % (
         os.path.relpath(PIN, os.path.dirname(os.path.dirname(HERE))), 'equal' if ok0 else 'DIFFER from'))
-    acc, nb, npar, cpu, wall, depth = [], 0, 0, 0.0, 0.0, 0
+    acc, nb, npar, cpu, wall, depth, wall0 = [], 0, 0, 0.0, 0.0, 0, 0.0
     done = True
     for w in range(W):
         ck = os.path.join(SCR, 'ck_%d_of_%d_tau%.1e.pkl' % (w, W, tau))
         with open(ck, 'rb') as fh:
             st = pickle.load(fh)
-        acc += st['acc']; nb += st['nboxes']; npar += st['nparents']; cpu += st['cpu']; wall = max(wall, st['wall'])
+        acc += st['acc']; nb += st['nboxes']; npar += st['nparents']; cpu += st['cpu']
+        wall = max(wall, st['wall']); wall0 = max(wall0, st.get('wall0', 0.0))
         depth = max(depth, st['maxdepth']); done &= not st['queue']
         print('   checkpoint %d/%d: %d accepted, %d queued, cpu %.0f s, wall %.0f s' % (
             w, W, len(st['acc']), len(st['queue']), st['cpu'], st['wall']))
+    wall += wall0
     vol0 = 8 * BOX[1] * BOX[3] * BOX[5]
     vol = sum(8 * b[1] * b[3] * b[5] for b, _, _, _ in acc)
     tiles = abs(vol - vol0) < 1e-12 * vol0
@@ -311,6 +315,26 @@ def census(tau):
 if __name__ == '__main__':
     if sys.argv[1] == '--worker':
         worker(int(sys.argv[2]), int(sys.argv[3]), float(sys.argv[4]) if len(sys.argv) > 4 else 5.3e-4)
+    elif sys.argv[1] == '--repartition':
+        W, W2 = int(sys.argv[2]), int(sys.argv[3]); tau = float(sys.argv[4]) if len(sys.argv) > 4 else 5.3e-4
+        sts = []
+        for w in range(W):
+            with open(os.path.join(SCR, 'ck_%d_of_%d_tau%.1e.pkl' % (w, W, tau)), 'rb') as fh:
+                sts.append(pickle.load(fh))
+        queue = sorted(sum((st['queue'] for st in sts), []), key=lambda e: e[1])
+        for w2 in range(W2):
+            st = dict(queue=queue[w2::W2], acc=[], nparents=0, nboxes=0, cpu=0.0, wall=0.0, maxdepth=1, wall0=0.0)
+            if w2 == 0:
+                st['acc'] = sum((s_['acc'] for s_ in sts), [])
+                for k_ in ('nparents', 'nboxes', 'cpu'):
+                    st[k_] = sum(s_[k_] for s_ in sts)
+                st['wall0'] = max(s_['wall'] + s_.get('wall0', 0.0) for s_ in sts)
+                st['maxdepth'] = max(s_['maxdepth'] for s_ in sts)
+                st['history'] = [(W, s_['nboxes'], s_['cpu'], s_['wall']) for s_ in sts]
+            with open(os.path.join(SCR, 'ck_%d_of_%d_tau%.1e.pkl' % (w2, W2, tau)), 'wb') as fh:
+                pickle.dump(st, fh)
+        print('repartitioned %d checkpoints (%d queued, %d accepted) into %d' % (W, len(queue), sum(
+            len(s_['acc']) for s_ in sts), W2))
     elif sys.argv[1] == '--census':
         os.makedirs(SCR, exist_ok=True)
         census(float(sys.argv[2]) if len(sys.argv) > 2 else 5.3e-4)

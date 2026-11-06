@@ -21,6 +21,9 @@ omegab), and on S: div of a one-form component f is (Y sqrt gg)^-1 d_x(Y f), gra
      products and angular derivatives of products (printed).  The pair is an energy pair iff c = c' (then
      K c div(Om beta) + beta c' Om e1 K is axis5.py X3's exact derivative).  Control: with beta in place of beta^r
      (no renormalisation) the fit leaves a residual (alpha enters).
+  B3b (fit, then exact) the conjugate pair: Om e3 K + Om tr chib K = c div(Om betab^r) + (lower order) and
+     Om e4 betab^r + Om (tr chi - 2 omega) betab^r = c' Om e1 K + (lower order), the library mirrored
+     (chi <-> chib, eta <-> etab, omega <-> omegab, beta^r <-> betab^r, 3 <-> 4); an energy pair iff c = c'.
   B4 (deduced from B3 and axis5.py X3) Lemma 8.A6, the pair inequality on the whole section: on [u0, u] x [v0, v] x S,
         int_{H_u} beta^2 dmu dv + int_{Hb_v} K^2 dmu du <= (data) + int int (2 |beta| |F_beta| + 2 |K| |F_K|
             + |tr chib - 2 omegab ...| beta^2 + |tr chi ...| K^2) Om dmu du dv,
@@ -255,6 +258,62 @@ def main():
     print('B3 both fits exact at fresh jets: %s; the principal coefficients div(Om beta^r): %s, Om e1 K: %s: an energy '
           'pair (equal): %s -> %s' % (res13 < 1e-25 and res14 < 1e-25, c13, c14, c13 == c14, 'PASS' if b3 else 'FAIL'))
     ok &= b3
+    # B3b: the conjugate pair (K, betab^r)
+    libm, labm = [], []
+    def addm(e, l_):
+        libm.append(e); labm.append(l_)
+    for nm_, f in (('etab tr chi', etab * trchi), ('etab chih', etab * chih), ('eta tr chi', eta * trchi),
+                   ('eta chih', eta * chih), ('etab tr chib', etab * trchib), ('etab chibh', etab * chibh),
+                   ('Ric_41', R41), ('Ric_31', R31), ('eta tr chib', eta * trchib), ('eta chibh', eta * chibh)):
+        addm(div(Om * f), 'div(Om %s)' % nm_)
+    addm(div(Om * betabr), 'div(Om betab^r)')
+    for nm_, f in (('chibh', chibh), ('tr chib', trchib)):
+        for rn, r_ in (('Ric_34', R34), ('Ric_11', R11), ('Ric_22', R22), ('Ric_44', R44), ('Ric_33', R33)):
+            addm(Om * f * r_, 'Om %s %s' % (nm_, rn))
+    addm(Om * e3(R11 + R22), 'Om e3(Ric_11 + Ric_22)'); addm(Om * e3(R34), 'Om e3 Ric_34')
+    addm(Om * e4(R33), 'Om e4 Ric_33')
+    addm(Om * chih * (R11 - R22), 'Om chih (Ric_11 - Ric_22)'); addm(Om * chibh * (R11 - R22),
+                                                                     'Om chibh (Ric_11 - Ric_22)')
+    lhs13b = Om * e3(K) + Om * trchib * K
+    co13b, res13b = fit(lhs13b, libm, labm, seed=41)
+    drop13b = fit.dropped
+    lib2m, lab2m = [], []
+    def add2m(e, l_):
+        lib2m.append(e); lab2m.append(l_)
+    add2m(Om * e1(K), 'Om e1 K')
+    for cn, cv in (('beta^r', betar), ('betab^r', betabr)):
+        for rn, r_ in rc.items():
+            add2m(Om * r_ * cv, 'Om %s %s' % (rn, cn))
+    for rn in ('eta', 'etab'):
+        add2m(Om * rc[rn] * K, 'Om %s K' % rn)
+    add2m(Om * e1(chih * chibh), 'Om e1(chih chibh)'); add2m(Om * e1(trchi * trchib), 'Om e1(tr chi tr chib)')
+    for rn in ('eta', 'etab'):
+        add2m(Om * rc[rn] * chih * chibh, 'Om %s chih chibh' % rn); add2m(Om * rc[rn] * trchi * trchib,
+                                                                           'Om %s tr chi tr chib' % rn)
+    add2m(Om * e1(R11 + R22), 'Om e1(Ric_11 + Ric_22)'); add2m(Om * e1(R11), 'Om e1 Ric_11')
+    add2m(Om * k_ * (R11 - R22), 'Om k (Ric_11 - Ric_22)'); add2m(Om * e1(R34), 'Om e1 Ric_34')
+    for rn in ('tr chib', 'chibh', 'tr chi', 'chih'):
+        add2m(Om * rc[rn] * R41, 'Om %s Ric_41' % rn); add2m(Om * rc[rn] * R31, 'Om %s Ric_31' % rn)
+    for rn in ('eta', 'etab'):
+        for qn, q_ in (('Ric_34', R34), ('Ric_11', R11), ('Ric_22', R22), ('Ric_33', R33), ('Ric_44', R44)):
+            add2m(Om * rc[rn] * q_, 'Om %s %s' % (rn, qn))
+    add2m(Om * e4(R31), 'Om e4 Ric_31'); add2m(Om * e3(R41), 'Om e3 Ric_41')
+    lhs14b = Om * e4(betabr) + Om * (trchi - 2 * om) * betabr
+    co14b, res14b = fit(lhs14b, lib2m, lab2m, seed=51)
+    print('B3b Om e3 K + Om tr chib K = %s; residual %s; dropped %s' % (
+        ' + '.join('(%s) %s' % (c, l_) for l_, c in co13b.items()), mp.nstr(res13b, 3), drop13b or 'none'))
+    print('B3b Om e4 betab^r + Om (tr chi - 2 omega) betab^r = %s; residual %s; dropped %s (%.0f s)' % (
+        ' + '.join('(%s) %s' % (c, l_) for l_, c in co14b.items()), mp.nstr(res14b, 3), fit.dropped or 'none',
+        time.time() - t0), flush=True)
+    c13b = co13b.get('div(Om betab^r)', 0); c14b = co14b.get('Om e1 K', 0)
+    b3b = res13b < 1e-25 and res14b < 1e-25 and c13b != 0 and c13b == c14b
+    print('B3b both exact: %s; principal coefficients div(Om betab^r): %s, Om e1 K: %s: an energy pair (equal): '
+          '%s -> %s' % (res13b < 1e-25 and res14b < 1e-25, c13b, c14b, c13b == c14b, 'PASS' if b3b else 'FAIL'))
+    ok &= b3b
+    print('B4 (deduced) Lemma 8.A6: d_v int K^2 dmu = int (2 K F_K - 2 K div(Om beta^r) - Om tr chi K^2) dmu and '
+          'd_u int (beta^r)^2 dmu = int (2 beta^r F_beta - 2 beta^r Om e1 K - Om (tr chib - 4 omegab) (beta^r)^2) dmu '
+          '(axis5.py X3\'s measure identities), the principal terms summing to -2 (Y sqrt gg)^-1 d_x(Y Om K beta^r), '
+          'no boundary term at the axis; likewise for (K, betab^r) with Om tr chib K^2 and Om (tr chi - 4 omega).')
     # control: beta for beta^r in (2.14)
     lhs_c = Om * e3(beta) + Om * (trchib - 2 * omb) * beta
     lib_c = [q.subs({}) for q in lib2]

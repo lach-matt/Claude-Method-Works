@@ -1,0 +1,17 @@
+B1 W(e1, e2, e3, e4), W(e1, e2, e1, e4), W(e1, e2, e1, e3) at a random jet: 0.0, 0.0, 0.0 (zero); R(e1, e4, e3, e4) =
+    -1.2272 (not zero, the check is live) -> PASS (5 s)
+B2 Gauss: K = (-1) rho + (1/3) R + (1/2) Ric_34 + (1) chih chibh + (-1/4) tr chi tr chib; residual at fresh jets 4.07e-42
+    -> PASS (10 s)
+B3 (2.13) Om e4 K + Om tr chi K = (-1/2) div(Om etab tr chi) + (1) div(Om etab chih) + (-1) div(Om beta^r); residual
+    3.34e-44; dependent members dropped: ['Om chih (Ric_11 - Ric_22)'] (76 s)
+B3 (2.14) Om e3 beta^r + Om (tr chib - 2 omegab) beta^r = (-1) Om e1 K + (2) Om chih betab^r + (-3) Om eta K + (1) Om
+    e1(chih chibh) + (-1/4) Om e1(tr chi tr chib) + (3) Om eta chih chibh + (-3/4) Om eta tr chi tr chib + (1) Om
+    e1(Ric_11 + Ric_22) + (-1) Om e1 Ric_11 + (-1) Om k (Ric_11 - Ric_22) + (1/2) Om tr chi Ric_31 + (-1) Om chih Ric_31
+    + (1) Om eta Ric_22; residual 6.45e-42; dependent members dropped: none (232 s)
+B3 both fits exact at fresh jets: True; the principal coefficients div(Om beta^r): -1, Om e1 K: -1: an energy pair
+    (equal): True -> PASS
+   control (beta for beta^r, the Ricci terms withheld): residual 3.82 -> fails (good)
+axisbianchi5 (236 s): all checks pass
+py", line 341, in householder
+    raise ValueError('matrix is numerically singular')
+ValueError: matrix is numerically singular
