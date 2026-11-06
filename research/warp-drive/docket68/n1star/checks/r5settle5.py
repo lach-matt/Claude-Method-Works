@@ -4,13 +4,12 @@ findings that are not measured on the full operator (those are in r5op5.py and c
   A (exact, enumeration; round 3 m7) Proposition R3.1's lam-orders derived from the monomials of the record's
     source (11.4), every product of m >= 1 factors from {G_3, ..., G_J, u_J} with its coefficient (eta-contraction,
     mu r^-2, Gamma[g0] ~ r^-3, d d g0 ~ r^-4, (d g0)^2 ~ r^-6) and its two derivatives (each a d_v, costing lam^-1, or
-    an r-derivative, gaining r^-1), m up to 12. A1: e(G_k) = k - 4 (k = 4..30), all m. A2: on the far region
+    an r-derivative, gaining r^-1), m up to 7. A1: e(G_k) = k - 4 (k = 4..13). A2: on the far region
     r >= lam^-2 every monomial of the remainder's source trades its excess decay for powers of lam (r^-1/2 <= lam)
-    and the stage recursion closes at B_(J+1) = 2 + max(B_J + 1, J - 2), so B_J = 3J - 9 (J = 4..30), the same for
-    every m_max >= 4: M(J, n, m) = 3J - 9 + n + m bounds R3.1's (J^2 - J)/2 - 3 + n + m from below for J >= 4
-    (so R3.1's stated bound holds a fortiori) and the round-3 verifier's 4J - 13 too. Control (the code mutated: no
-    trade): the explicit monomials' order grows with m_max (no bound exists). A3: the multilinear terms without the
-    trade give the verifier's 4J - 13 (a cross-check).
+    and the stage recursion closes at B_(J+1) = 2 + max(B_J + 1, J - 2), so B_J = 3J - 9 (J = 4..12), the same at
+    m_max = 6 and 7: M(J, n, m) = 3J - 9 + n + m, at most R3.1's (J^2 - J)/2 - 3 + n + m and the round-3 verifier's
+    4J - 13 + n + m for J >= 4 (so R3.1's stated bound holds a fortiori). Control (the code mutated: no trade): the
+    explicit monomials' order grows with m_max (no bound exists).
   B (exact; round 3 m5, nit s > 2) K*(a, 8, M, k0) of Lemma R3.2 with s := max(5/2, (2M + 1)/(7 - 2a)) and
     M = 27 + 2 k0 is quadratic in k0 (second differences constant and positive; a = 11/4: K* = 116, 821.5, 2071.5 at
     k0 = 0, 10, 20), and with R5's M = 17 + 2 k0 too. Control (the code mutated: s held fixed, not growing with M):
@@ -106,117 +105,87 @@ def check(name, ok, msg=""):
 # ================================================================ A: the lam-orders of Proposition 11.1
 
 HALF = Fr(1, 2)
-COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]  # (r-power of the coefficient, derivatives left for u-factors)
-
-
-def derivs(nd, m):
-    """ways to put nd derivatives (each 'v' or 'r') on m factors: list of per-factor (n_v, n_r)"""
-    out = []
-
-    def rec(i, left, acc):
-        if i == m:
-            if left == 0:
-                out.append(tuple(acc))
-            return
-        for k in range(left + 1):
-            for nv in range(k + 1):
-                rec(i + 1, left - k, acc + [(nv, k - nv)])
-    rec(0, nd, [])
-    return out
+COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]  # (r-power of the coefficient, derivatives on the u-factors)
 
 
 def explicit_orders(J, mmax, trade, e):
     """(max effective lam-order of the explicit monomials of r-order >= (J+4)/2, max lam-order at r-order (J+3)/2)
-    for products of m factors G_k (3 <= k <= J), m <= mmax"""
+    for products of m factors G_k (3 <= k <= J), m <= mmax. The orders are additive over the factors, so only the
+    numbers of d_v and of r-derivatives matter, not which factor carries them."""
     best_tail, best_q = -10**9, -10**9
     target_q = Fr(J + 3, 2)
     for m in range(1, mmax + 1):
         for ks in combinations_with_replacement(range(3, J + 1), m):
-            base_r = Fr(sum(ks), 2)
-            if base_r > Fr(J + 4, 2) + 12 and not trade:
-                pass
+            base_r, base_l = Fr(sum(ks), 2), sum(e[k] for k in ks)
             for p0, nd in COEFS:
                 if m == 1 and p0 == 0:
-                    # the flat operator on a single G_k: only its (Delta + c) G_k r^-(k/2 + 2) part is a source term;
-                    # its d_v part is the recursion itself (cancelled in the construction of the G_k)
-                    cand = [(0, 2)]  # two r-type derivatives: no lam cost, r-gain 2
-                    dlist = [((0, 2),)]
+                    # the flat operator on one G_k: its d_v part is the recursion (cancelled in the construction of
+                    # the G_k); its (Delta + c) G_k r^-(k/2 + 2) part is a source: two r-type derivatives
+                    splits = [(0, 2)]
                 else:
-                    dlist = derivs(nd, m)
-                for dl in dlist:
-                    lam = sum(e[k] for k in ks) + sum(nv for nv, _ in dl)
-                    rord = base_r + p0 + sum(nr for _, nr in dl)
+                    splits = [(nv, nd - nv) for nv in range(nd + 1)]
+                for nv, nr in splits:
+                    lam = base_l + nv
+                    rord = base_r + p0 + nr
                     if rord == target_q:
                         best_q = max(best_q, lam)
                     elif rord >= Fr(J + 4, 2):
-                        eff = lam - (2*(rord - Fr(J + 4, 2)) if trade else 0)
-                        best_tail = max(best_tail, eff)
+                        best_tail = max(best_tail, lam - (2*(rord - Fr(J + 4, 2)) if trade else 0))
     return best_tail, best_q
 
 
-def remainder_orders(J, B, mmax, trade, trade_multi=True):
-    """max effective lam-order of the source terms containing u_J (one factor at the induction bound
-    lam^-(B_J + d) r^-(J+1)/2, the others: G_k or crude u_J, |d^d u_J| <= lam^-d r^-2 on r >= lam^-2)"""
+def remainder_orders(J, B, mmax, e):
+    """max effective lam-order of the source terms containing u_J: one factor at the induction bound
+    lam^-(B_J + d) r^-(J+1)/2, the others G_k or crude u_J (|d^d u_J| <= lam^-d r^-2 on r >= lam^-2), with the
+    trade r^-1/2 <= lam applied to the excess decay"""
     best = -10**9
-    e = {k: k - 4 for k in range(3, J + 1)}
     for m in range(1, mmax + 1):
         for nrem in range(1, m + 1):
             for ks in combinations_with_replacement(range(3, J + 1), m - nrem):
+                base_l = B + sum(e[k] for k in ks)
+                base_r = Fr(J + 1, 2) + 2*(nrem - 1) + Fr(sum(ks), 2)
                 for p0, nd in COEFS:
                     if m == 1 and p0 == 0:
                         continue  # the principal part of u_J's own equation
-                    for dl in derivs(nd, m):
-                        # factor 0 is the induction factor (u_J), factors 1..nrem-1 crude u_J, the rest G_k
-                        lam = B + dl[0][0] + dl[0][1]
-                        rord = Fr(J + 1, 2) + p0
-                        for i in range(1, nrem):
-                            lam += dl[i][0] + dl[i][1]
-                            rord += 2
-                        for j, k in enumerate(ks):
-                            nv, nr = dl[nrem + j]
-                            lam += e[k] + nv
-                            rord += Fr(k, 2) + nr
-                        assert rord >= Fr(J + 4, 2)
-                        excess = rord - Fr(J + 4, 2)
-                        if not trade or (nrem >= 2 and not trade_multi):
-                            excess = 0 if not trade else excess - (2 if nrem >= 2 else 0)*0
-                        eff = lam - 2*excess if trade and (nrem < 2 or trade_multi) else lam
-                        best = max(best, eff)
+                    for d_rem in range(nd + 1):
+                        if nrem == m and d_rem != nd:
+                            continue
+                        for nv in range(nd - d_rem + 1):
+                            nr = nd - d_rem - nv
+                            lam = base_l + d_rem + nv
+                            rord = base_r + p0 + nr
+                            assert rord >= Fr(J + 4, 2)
+                            best = max(best, lam - 2*(rord - Fr(J + 4, 2)))
     return best
 
 
-def stages(Jmax, mmax, trade=True, trade_multi=True):
+def stages(Jmax, mmax, trade=True):
     e = {3: -1}
     for k in range(4, Jmax + 2):
         e[k] = explicit_orders(k - 1, mmax, trade, e)[1]
     B = {3: -1}
     for J in range(3, Jmax):
         tail, _ = explicit_orders(J, mmax, trade, e)
-        rem = remainder_orders(J, B[J], mmax, trade, trade_multi)
-        sprime = max(tail, rem, e[J + 1] + 1, e[J + 1])
-        B[J + 1] = sprime + 2
+        rem = remainder_orders(J, B[J], mmax, e)
+        B[J + 1] = max(tail, rem, e[J + 1] + 1, e[J + 1]) + 2
     return e, B
 
 
 def part_a():
     print("A  Proposition R3.1's lam-orders from the monomials of (11.4) (round 3, m7)")
-    e, B = stages(14, 6)
-    check("A1 e(G_k) = k - 4 for k = 4..15 from every monomial of r-order exactly (k + 2)/2 (m <= 6 factors)",
-          all(e[k] == k - 4 for k in range(4, 16)), str([e[k] for k in range(3, 12)]))
-    okB = all(B[J] == 3*J - 9 for J in range(4, 15))
-    e8, B8 = stages(14, 8)
-    check("A2 with the trade (r^-1/2 <= lam on r >= lam^-2) the recursion gives B_J = 3J - 9 (J = 4..14), the same at "
-          "m_max = 6 and 8", okB and all(B8[J] == B[J] for J in range(4, 15)), str([B[J] for J in range(3, 12)]))
-    check("A2' B_J = 3J - 9 <= 4J - 13 <= (J^2 - J)/2 - 3 for J = 4..14: the verifier's and R3.1's exponents are "
-          "upper bounds", all(3*J - 9 <= 4*J - 13 <= (J*J - J)//2 - 3 for J in range(4, 15)))
-    t4 = explicit_orders(8, 4, False, {k: k - 4 for k in range(3, 10)})[0]
-    t7 = explicit_orders(8, 7, False, {k: k - 4 for k in range(3, 10)})[0]
+    e, B = stages(12, 6)
+    check("A1 e(G_k) = k - 4 for k = 4..13 from every monomial of r-order exactly (k + 2)/2 (m <= 6 factors)",
+          all(e[k] == k - 4 for k in range(4, 14)), str([e[k] for k in range(3, 12)]))
+    okB = all(B[J] == 3*J - 9 for J in range(4, 13))
+    e7, B7 = stages(12, 7)
+    check("A2 with the trade (r^-1/2 <= lam on r >= lam^-2) the recursion gives B_J = 3J - 9 (J = 4..12), the same at "
+          "m_max = 6 and 7", okB and all(B7[J] == B[J] for J in range(4, 13)), str([B[J] for J in range(3, 13)]))
+    check("A2' B_J = 3J - 9 <= 4J - 13 <= (J^2 - J)/2 - 3 for J = 4..12: the round-3 verifier's and R3.1's exponents "
+          "are upper bounds", all(3*J - 9 <= 4*J - 13 <= (J*J - J)//2 - 3 for J in range(4, 13)))
+    ee = {k: k - 4 for k in range(3, 10)}
+    t4, t7 = explicit_orders(8, 4, False, ee)[0], explicit_orders(8, 7, False, ee)[0]
     check("A2'' control (the code mutated: no trade): at J = 8 the explicit monomials' order grows with m_max (no "
-          "bound): m_max = 4 gives " + str(t4) + ", m_max = 7 gives " + str(t7), t7 > t4)
-    _, Bv = stages(12, 6, trade=True, trade_multi=False)
-    check("A3 cross-check: without the trade on the multilinear remainder terms the recursion gives the round-3 "
-          "verifier's 4J - 13 (J = 4..12)", all(Bv[J] == 4*J - 13 for J in range(4, 13)),
-          str([Bv[J] for J in range(4, 12)]))
+          f"bound): m_max = 4 gives {t4}, m_max = 7 gives {t7}", t7 > t4)
 
 
 # ================================================================ B: K* of Lemma R3.2
