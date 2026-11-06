@@ -228,6 +228,40 @@ def ray(nd, R1, keep=False):
     return Y, boxes
 
 
+# ---------------------------------------------------------------- worker processes (fork; intervals sent as raw tuples)
+NPROC = 3
+_W = {}
+
+
+def _pk(x):
+    if isinstance(x, (list, tuple)):
+        return [_pk(y) for y in x]
+    return ('iv', x._mpi_)
+
+
+def _uk(x):
+    if isinstance(x, tuple) and len(x) == 2 and x[0] == 'iv':
+        return iv.make_mpf(x[1])
+    if isinstance(x, list):
+        return [_uk(y) for y in x]
+    return x
+
+
+def _pmap(fn, items):
+    """map fn over items in NPROC forked workers (the globals in _W are inherited); results unpacked"""
+    import multiprocessing as mp
+    with mp.get_context('fork').Pool(NPROC) as pool:
+        out = pool.map(fn, items, chunksize=1)
+    return [_uk(o) for o in out]
+
+
+def _w_point(x):
+    """a point ray at vhat = x for the N' data _W['nd']: (R1, Y2)"""
+    R1 = r1_enclose(I(x))
+    Y2, _ = ray(_W['nd'], R1)
+    return _pk([R1, Y2])
+
+
 # ---------------------------------------------------------------- region I: R1(vhat) and its derivatives
 SQ = iv.sqrt(I(MU1))
 
@@ -411,20 +445,43 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     # point rays at the cell ends (clipped to the region): e^(k) := spline^(k) - psi_III^(k) enclosed there
     pts = [va] + [a for a, b in cells if va < a < vb] + [vb]
     pe = {}
-    for x in pts:
-        VH = I(x)
-        R1 = r1_enclose(VH)
-        Y2, _ = ray(nd, R1)
+    _W['nd'] = nd
+    for x, (R1, Y2) in zip(pts, _pmap(_w_point, pts)):
         tr = psi3(R1, Y2, nd.mu3)[:3]
-        sv = spline_enclose(sp160, VH)
+        sv = spline_enclose(sp160, I(x))
         pe[x] = [sv[k] - tr[k] for k in range(3)]
-    reg3, sup, cellw = True, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
+    # where region III ends on the slice: g(vhat) = R2(vhat) - (vhat - tau0) is decreasing (d R2/d vhat = J2 r1' < 1,
+    # checked on every cell), so it has one zero vhat_u2; it is bracketed by point rays with certified signs
+    slope_ok = all(float((r1_derivs(cache[c][0])[0] * cache[c][1][1]).b) < 1 for c in cells)
+
+    def gsign(x):
+        R1 = r1_enclose(I(x))
+        Y2, _ = ray(nd, R1)
+        g = Y2[0] - (I(x) - T0)
+        return 1 if g.a > 0 else (-1 if g.b < 0 else 0)
+    lo_, hi_ = va, vb
+    s_lo, s_hi = gsign(lo_), gsign(hi_)
+    if s_lo == 1 and s_hi == -1:
+        for _ in range(14):
+            mid = 0.5 * (lo_ + hi_)
+            sm = gsign(mid)
+            if sm == 1:
+                lo_ = mid
+            elif sm == -1:
+                hi_ = mid
+            else:
+                break
+    bracket = s_lo == 1 and s_hi == -1
+    ru2 = I(lo_, hi_) - T0
+    reg3, sup, cellw = slope_ok and bracket, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
     for a, b in cells:
         a_, b_ = max(a, va), min(b, vb)
         Rs = I(a_, b_) - T0
         R1, Y2 = cache[(a, b)]
         p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
-        reg3 &= bool(Y2[0].a >= Rs.b) and bool(f3.a > 0)
+        if b_ <= lo_:                                       # cells below the bracket lie in region III entirely
+            reg3 &= bool(Y2[0].a >= Rs.b)
+        reg3 &= bool(f3.a > 0)
         svc = spline_enclose(sp160, I(a_, b_))
         ec = [svc[k] - y for k, y in enumerate((p0, p1, p2))]       # e^(k) on the cell (cell variation included)
         h = float((I(b_) - I(a_)).b)
@@ -439,13 +496,16 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     perr = [max(mag(pe[x][k]) for x in pts) for k in range(3)]
     dmu_ = mag(nd.mu3 - I(bgs[160]['mu0']))
     inside = all(sup[k] <= d[k] for k in range(3)) and dmu_ <= dmu
-    print("   every cell in region III (R2 >= R on the slice, f3 > 0 at u2): %s (%d cells, %d point rays; %.0f s)"
-          % (reg3, len(cells), len(pts), time.time() - t))
+    print("   region III on the slice ends at R_u2 in [%.6f, %.6f] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 on "
+          "every cell %s, signs certified at the bracket %s), below the computed background's 1.861; every cell below "
+          "it lies in region III and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
+          % (float(ru2.a), float(ru2.b), slope_ok, bracket, reg3, len(cells), len(pts), time.time() - t))
     print("   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= %.1e, %.1e, %.1e "
           "(k = 0, 1, 2) at the %d cell ends; on the whole region sup |e^(k)| <= %.1e, %.1e, %.1e (centred forms for "
           "k = 0, 1, the cell enclosure for k = 2); |mu3 - mu0| <= %.1e" % (*perr, len(pts), *sup, dmu_))
-    print("   within intcert5 C1d's tube d = %s, |d mu| <= %.0e, on which C1d certifies Gamma > 0: %s -- so Gamma > 0 "
-          "on the seed region for the background itself" % (d, dmu, inside))
+    print("   within intcert5 C1d's tube d = %s, |d mu| <= %.0e, on which C1d certifies Gamma > 0 for R in [0.70, "
+          "1.861]: %s -- so Gamma > 0 on the seed region, R in [0.70, R_u2], for the background itself" %
+          (d, dmu, inside))
     t0, Rs_ = bgs[160]['tau0'], np.linspace(lo, hi, 2001)
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']
     d8 = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs_) - s160.derivative(k)(t0 + Rs_)))) if k else
@@ -455,38 +515,32 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     # control: B's amplitude shifted by 0.1 %: the spline is farther from that psi_III than the agreement above
     nd2 = NData(bamp=1.7 * 1.001)
     cerr = 0.0
-    for x in pts[::10]:
-        VH = I(x)
-        R1 = r1_enclose(VH)
-        Y2, _ = ray(nd2, R1)
-        dd = spline_enclose(sp160, VH)[0] - psi3(R1, Y2, nd2.mu3)[0]
+    _W['nd'] = nd2
+    cp = pts[::10]
+    for x, (R1, Y2) in zip(cp, _pmap(_w_point, cp)):
+        dd = spline_enclose(sp160, I(x))[0] - psi3(R1, Y2, nd2.mu3)[0]
         cerr = max(cerr, 0.0 if dd.a <= 0 <= dd.b else min(abs(float(dd.a)), abs(float(dd.b))))
+    _W['nd'] = nd
     print("   control: with B's amplitude x 1.001 in the reduction the spline is at least %.1e from it at the points, "
           "more than the agreement %.1e above (rejected): %s" % (cerr, perr[0], cerr > perr[0]))
     return reg3 and inside and cerr > perr[0]
 
 
 # ---------------------------------------------------------------- T3
-def t3(nd, rstar, cache):
-    print("T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)")
-    rs = load('racslice5')
-    kap, Kll = rs.slice_formulas()
-    fk = sp.lambdify(rs.SYMS, kap, modules=MODS)
-    fK = sp.lambdify(rs.SYMS, Kll, modules=MODS)
-    va, vb = 0.0, float((I(rstar.b) + T0).b)
-    ncell = int(math.ceil((vb - va) / 0.01))
-    e = np.linspace(va, vb, ncell + 1)
-    worst, failed, nev, nray = None, 0, 0, 0
-    counts = {'I': 0, 'packet': 0, 'III': 0}
-    ctl_fail = 0
-    t = time.time()
+def _t3_test(ins, R):
+    k_ = _W['fk'](*ins, I(1.0), I(0.0), R)
+    K_ = _W['fK'](*ins, I(1.0), I(0.0), R)
+    return float(k_.a) > 0 and float(K_.b) < 0, float((k_ * K_).b)
 
-    def test(ins, R):
-        k_ = fk(*ins, I(1.0), I(0.0), R)
-        K_ = fK(*ins, I(1.0), I(0.0), R)
-        return float(k_.a) > 0 and float(K_.b) < 0, float((k_ * K_).b)
 
-    stack = [(a, b, 0) for a, b in zip(e[:-1], e[1:])]
+def _w_t3(cell):
+    """one T3 cell, bisected (depth <= 3) where needed: (key, R1, Y2, rays, worst, failed, counts, ctl_fail)"""
+    nd = _W['nd']
+    a0, b0 = cell
+    stack = [(a0, b0, 0)]
+    worst, failed, nray, ctl_fail = None, 0, 0, 0
+    counts = [0, 0, 0]
+    keep = None
     while stack:
         a, b, d = stack.pop()
         VH = I(a, b)
@@ -495,56 +549,77 @@ def t3(nd, rstar, cache):
         a1, a2, _ = r1_derivs(R1)
         Y2, boxes = ray(nd, R1, keep=True)
         if d == 0:
-            cache[(a, b)] = (R1, Y2)
+            keep = (R1, Y2)
         nray += 1
-        good, cell_worst = True, None
-        # region I part: slice points with u <= u1 (R on the slice >= R1)
-        if Rs.b >= R1.a:
+        good, cw = True, None
+        if Rs.b >= R1.a:                                        # region I part: slice points with u <= u1
             R = sub(Rs, iv.mpf([R1.a, Rs.b]))
             ins = [I(1.0), I(1.0) - I(MU1) / (R * R), I(0.0), I(0.0), I(2.0) * I(MU1) / R**3, I(0.0)]
-            g, w = test(ins, R)
+            g, w = _t3_test(ins, R)
             good &= g
-            cell_worst = w
-            counts['I'] += 1
-        # packet: every step whose box meets the slice's R
-        for k, box in enumerate(boxes):
+            cw = w
+            counts[0] += 1
+        for k, box in enumerate(boxes):                         # packet: every step box meeting the slice's R
             R = sub(box[0], Rs)
             if R is None:
                 continue
             ins, f = packet_inputs(R, box[1], box[2], nd.cb[k], nd.Bb[k], a1, a2)
-            g, w = test(ins, R)
+            g, w = _t3_test(ins, R)
             if not (f.a > 0):
                 g = False
             good &= g
-            cell_worst = w if cell_worst is None else max(cell_worst, w)
-            counts['packet'] += 1
-            if not test([widen(x, 0.5 * mag(x)) for x in ins], R)[0]:     # control: inputs widened by half
+            cw = w if cw is None else max(cw, w)
+            counts[1] += 1
+            if not _t3_test([widen(x, 0.5 * mag(x)) for x in ins], R)[0]:     # control: inputs widened by half
                 ctl_fail += 1
-        # region III: slice points with u >= u2 (R2 >= R on the slice)
-        if Y2[0].b >= Rs.a:
+        if Y2[0].b >= Rs.a:                                     # region III: slice points with u >= u2
             R = sub(Rs, iv.mpf([Rs.a, Y2[0].b]))
             p0, p1, _, _ = psi3(R1, Y2, nd.mu3)
             ins = [iv.exp(p0), I(1.0) - nd.mu3 / (R * R), I(0.0), p1, I(2.0) * nd.mu3 / R**3, I(0.0)]
-            g, w = test(ins, R)
+            g, w = _t3_test(ins, R)
             good &= g
-            cell_worst = w if cell_worst is None else max(cell_worst, w)
-            counts['III'] += 1
-        nev += 1
+            cw = w if cw is None else max(cw, w)
+            counts[2] += 1
         if good:
-            worst = cell_worst if worst is None else max(worst, cell_worst)
+            worst = cw if worst is None else max(worst, cw)
             continue
         if d >= 3:
             failed += 1
-            worst = cell_worst if worst is None else max(worst, cell_worst)
+            worst = cw if worst is None else max(worst, cw)
             continue
         m = 0.5 * (a + b)
         stack += [(a, m, d + 1), (m, b, d + 1)]
+    return [cell, _pk(list(keep)), nray, worst, failed, counts, ctl_fail]
+
+
+def t3(nd, rstar, cache):
+    print("T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)")
+    rs = load('racslice5')
+    kap, Kll = rs.slice_formulas()
+    _W['fk'] = sp.lambdify(rs.SYMS, kap, modules=MODS)
+    _W['fK'] = sp.lambdify(rs.SYMS, Kll, modules=MODS)
+    _W['nd'] = nd
+    va, vb = 0.0, float((I(rstar.b) + T0).b)
+    ncell = int(math.ceil((vb - va) / 0.01))
+    e = np.linspace(va, vb, ncell + 1)
+    t = time.time()
+    cells = [(float(a), float(b)) for a, b in zip(e[:-1], e[1:])]
+    res = _pmap(_w_t3, cells)
+    worst, failed, nray, ctl_fail = None, 0, 0, 0
+    counts = [0, 0, 0]
+    for cell, keep, nr, w, fl, cn, cf in res:
+        cache[tuple(cell)] = tuple(keep)
+        nray += nr
+        failed += fl
+        ctl_fail += cf
+        counts = [x + y for x, y in zip(counts, cn)]
+        worst = w if worst is None else max(worst, w)
     print("   certified on every cell: %s (%d rays; slice pieces tested: region I %d, packet %d step boxes, region III "
           "%d; largest upper bound of kappa K^l_l = %.4e; %.0f s)" %
-          (failed == 0, nray, counts['I'], counts['packet'], counts['III'], worst, time.time() - t))
+          (failed == 0, nray, counts[0], counts[1], counts[2], worst, time.time() - t))
     print("   control: every packet input widened by half its size, %d of %d step boxes not certified (rejected): %s"
-          % (ctl_fail, counts['packet'], ctl_fail > 0))
-    return failed == 0 and ctl_fail > 0 and counts['packet'] > 0 and counts['III'] > 0
+          % (ctl_fail, counts[1], ctl_fail > 0))
+    return failed == 0 and ctl_fail > 0 and counts[1] > 0 and counts[2] > 0
 
 
 # ---------------------------------------------------------------- T4

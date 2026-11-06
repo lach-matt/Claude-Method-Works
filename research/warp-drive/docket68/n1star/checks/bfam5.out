@@ -1,0 +1,15 @@
+  B1 H2 = c_(2,0) E: family 1 vanishes, T(H2) + R_X(H1) = 0 (8), i Pol(H2) + D_X(H1) = 0 (3), H2 in S: True
+  B2 H3 with the r0-motion: c_(3,1) = i c_(2,0), both equations in families 0 and 1 (all components), and c_(3,0),vv(r =
+      1) = A d K(r0), K = -(2 r0^3 - 3 r0^2 - 2)^2/(36 r0^6): True
+  B3 H4: c_(4,2) = -c_(2,0), c_(4,1) = 2i c_(3,0), both equations in families 0 and 1: True
+  B4 H5's family 1: c_(5,1)'s vv, vr, rr and both equations there (vv, vr, rr; D_r): True
+  B5 at the horizon, for every angular profile: c_(3,0),vv/A = K d; c_(4,0),vv/A = alpha4 d + beta4 Lap d with alpha4 =
+      -I*(6376*r0**9 - 26460*r0**8 + 58590*r0**7 - 74865*r0**6 + 132300*r0**5 - 122661*r0**4 + 8400*r0**3 + 4320*r0**2 +
+      25340)/(90720*r0**9), beta4 = I*(r0 - 1)*(2*r0**3 - 3*r0**2 - 2)**2/(72*r0**7) = -i (r0 - 1) K/(2 r0);
+      c_(5,1),vv/(i A) = 3 alpha4 d + 3 beta4 Lap d, so b5 = 3 b4 (the fits' remainders zero).  At rho* = 1.80644393236
+      (K's double root) beta4 = 0 exactly, so b4(rho*, th) = alpha4(rho*) = i (61*rho***2/70 - 51*rho*/140 - 467/210) =
+      -0.03819094879585768 i for every th and every wave with d != 0 (-i b4 a root of 9261000*x**3 + 48686400*x**2 +
+      66864105*x + 2483108), and b5 = 3 b4 = -0.114572846387573 i; for the paper's wave b4 avoids [0, oo) on all of th in
+      [0, pi/2] (interval arithmetic in zeta = cos 2th): True
+B1-B5 PASS
+  control (i) the vv transport with its mass coupling halved: B2's K holds: False, the vv equation holds: False
