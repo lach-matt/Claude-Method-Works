@@ -448,6 +448,8 @@ def one_offs(w, cab, cbe, x7_term=True, fwd=None, nb=2, ch=None, meta=None, aK2=
     Ma = 3 * r3max + 3 * n['P_W'] + 11 + 3 * n['P_iota'] + 47 + 15 * n['W'] + (x7top if x7_term else 0) + cab
     Mb = 3 * r2max + 15 * n['W'] + 58 + cbe
     zf = 3 * n['P_iota'] + 47 + x7top + 5
+    if ch is None:
+        ch, meta = charges(w)
     bt = base_total(w, ch, meta, Mb, n['W'], nb=nb, aK2=aK2, windows=windows)
     B = (fwd if fwd is not None else 0) + bt['total'] + Ma + 3 * zf
     return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, zf=zf, B=B, levels=c, n=n, base=bt)
@@ -637,7 +639,7 @@ def base_total(w, ch, meta, Mb, W, nb=2, aK2=None, windows=True):
 
 
 KINDS = ('round', 'start', 'steps23', 'zero', 'iter')
-NB_ROWS, BASE_PIN = 88, (53191488, 26069149, 26595745)                     # Round 10: rows, (R, R_w, n_51)
+NB_ROWS, BASE_PIN = 89, (53191488, 26069149, 26595745)                     # Round 10: rows, (R, R_w, n_51)
 B_PIN, DTOT_PIN = 574994137715471, 46236449175331158                       # Round 10 (Round 9: 3943746411, ...)
 
 

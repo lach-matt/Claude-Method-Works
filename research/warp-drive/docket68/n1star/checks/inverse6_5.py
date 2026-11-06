@@ -28,7 +28,8 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
      <,>_0-orthonormal monomial basis A never raises III.F's grading W (exact); (c) p_1^Gamma(eta) := -(1/2)(A~ + A~^T),
      A~_ij = A_ij eta^(W_j - W_i) (the inner product sum_P eta^(-2W(P)) <,>_0): certified brackets of lam_max at
      gamma_C = 10^6, 10^7, 10^8 and eta = 10^-1, ..., 10^-4 (interval LDL of t I - p_1 for the upper end, a Rayleigh
-     quotient for the lower), the law lam_max ~ K gamma_C eta^2, and certified eta at which (Gamma.4) holds
+     quotient for the lower), the law lam_max ~ K gamma_C eta^2 and (d) its exact leading order eta^2 (gamma_C -
+     80 2^(1/2))^2/(192 gamma_C) (second-order perturbation, gamma_C symbolic), and certified eta at which (Gamma.4) holds
      (lam_max < nu/2) and delta_Gamma(0) <= 1/2 (lam_max <= nu/4), with h_Gamma's condition number eta^-16.
   K4 (exact) the horizon thresholds at b0 (I.A (1.5); III.D Lemma 5.1; III.F'' Lemma 1.1): beta_0 = f'(r_h) = 2 mu^-1/2;
      box: 0; box^Ups: 1 (s > 3/2); 2 L_b0: with (10.49)'s inner piece in the ingoing chart, (2 r_0)^-1 (dv - (3/4) dr),
@@ -310,7 +311,27 @@ def k3(verbose=True):
             out.append((name, e_lo, e_hi, below and above))
         adm.append((gC, out))
     res['adm'] = adm
-    ok = res['a'] and res['b'] and res['D0'] and all(lo <= hi and lo > 0 for _, _, lo, hi in rows) and \
+    # (d) the leading order, exact: p_1(eta) = M0 + eta M1 + eta^2 M2 + ...; M1 vanishes on ker M0, so lam_max =
+    # eta^2 lam_top(Z^T (M2 - M1 M0^+ M1) Z) + O(eta^3), Z an orthonormal basis of ker M0 (gamma_C symbolic)
+    gs, et = sp.symbols('gamma_C eta', positive=True)
+    As = A.subs({gam: 2 * gs, eC: sp.Rational(1, 102400), s2: sp.sqrt(2)})
+    nr = [1 if a == b else sp.sqrt(2) for a, b in pairs]
+    Ae = sp.Matrix(15, 15, lambda i, j: nr[i] * As[i, j] / nr[j] * et**(W[j] - W[i]))
+    pe = -(Ae + Ae.T) / 2
+    M0 = pe.subs(et, 0)
+    M1 = sp.diff(pe, et).subs(et, 0)
+    M2 = (sp.diff(pe, et, 2) / 2).subs(et, 0)
+    Zb = sp.Matrix.hstack(*sp.GramSchmidt(M0.nullspace(), True))
+    first = sp.simplify(Zb.T * M1 * Zb)
+    Eff = sp.simplify(Zb.T * (M2 - M1 * M0.pinv() * M1) * Zb)
+    lead = (gs - 80 * sp.sqrt(2))**2 / (192 * gs)
+    is_ev = sp.simplify((Eff - lead * sp.eye(Eff.shape[0])).det()) == 0
+    tops = []
+    for gC in (10**6, 10**7, 10**8):
+        evs = np.linalg.eigvalsh(np.array(Eff.subs(gs, gC).evalf(30).tolist(), dtype=float))
+        tops.append(abs(evs[-1] - float(lead.subs(gs, gC))) <= 1e-9 * float(lead.subs(gs, gC)))
+    res['d'] = first == sp.zeros(*first.shape) and is_ev and all(tops)
+    ok = res['a'] and res['b'] and res['D0'] and res['d'] and all(lo <= hi and lo > 0 for _, _, lo, hi in rows) and \
         all(x[3] for _, o in adm for x in o)
     return ok, res, (A, pairs, s2, W)
 
@@ -459,8 +480,12 @@ def main():
         print('  K3 (c) gamma_C = 10^%d, eta = %s: lam_max(p_1^Gamma) in [%s, %s] (certified)'
               % (round(math.log10(gC)), eta, dec(ivq(lo).a, 6, False), dec(ivq(hi).b, 6, True)))
     for gC, klo, khi in res['K']:
-        print('  K3 the law at eta = 10^-4: lam_max/(gamma_C eta^2) in [%.6f, %.6f] at gamma_C = 10^%d'
-              % (klo, khi, round(math.log10(gC))))
+        print('  K3 the law at eta = 10^-4: lam_max/(gamma_C eta^2) in [%.6f, %.6f] at gamma_C = 10^%d; the exact leading '
+              'order (gamma_C - 80 2^(1/2))^2/(192 gamma_C^2) = %.7f' % (klo, khi, round(math.log10(gC)),
+                                                                       (gC - 80 * 2 ** 0.5) ** 2 / (192 * gC ** 2)))
+    print('  K3 (d) (exact, gamma_C symbolic): the eta^1 term vanishes on ker M0, and the second-order matrix Z^T (M2 - M1 '
+          'M0^+ M1) Z has the eigenvalue (gamma_C - 80 2^(1/2))^2/(192 gamma_C), its largest at gamma_C = 10^6, 10^7, '
+          '10^8: lam_max(p_1^Gamma(eta)) = eta^2 (gamma_C - 80 2^(1/2))^2/(192 gamma_C) + O(eta^3): %s' % res['d'])
     for gC, out in res['adm']:
         for name, e_lo, e_hi, good in out:
             print('  K3 (Gamma.4) at gamma_C = 10^%d: lam_max < %s certified at eta = %s, > %s certified at eta = '
