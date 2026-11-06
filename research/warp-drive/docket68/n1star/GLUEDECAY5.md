@@ -575,23 +575,22 @@ perturbation conormal of an order a > ℓ0, with |∂^k h| ≤ ε r^(−a−k) i
 fundamental form. Such a perturbation has no terms of orders r^(−2) and r^(−3), and its norm is at most C ε (1 + (a −
 ℓ0)^(−1/2)). Since Theorem 4 holds for every ℓ0 ∈ (3, 4), taking ℓ0 ∈ (3, a) covers every such perturbation with a > 3
 (proved: supplement `docket68/n1star/GLUEDECAY5.md` Proposition 1 and Corollary 1.1). For 3/2 < a ≤ ℓ0 the decay rate
-does not decide, and gluing does not help. A perturbation agrees on every ball r < R with data to which Theorem 4 (ii)
-applies, uniformly in R in every norm of the class, if and only if Theorem 4 (ii) applies to the perturbation itself.
-The least norm of data in the class that agree with it on r < R increases with R, to its own norm if it lies in the
-class, and without bound if it does not lie in the class at the norm's regularity (proved: GLUEDECAY5.md Proposition 2
-and Corollary 2.1). At every such a there are vacuum perturbations of size
-ε outside the class: the data pulled back by the radial diffeomorphism x ↦ (1 + ε r^(−a) cos log r) x far out, pure
-gauge and G-invariant. For these, every data set in the class that agrees with them on r < R has norm at least
-c ε R^(ℓ0−a), and at least c ε (log R)^(1/2) at a = ℓ0 (proved: GLUEDECAY5.md Proposition 3). [CD03]'s gluing on the
-annulus R < r < 4R attains this order, with no parity condition in five dimensions at these rates (section 8.6;
-supplement sections 10.63 and 10.66). The target is the translated, rotated and boosted Myers–Perry data on Hintz's
-surface itself (the data on the Kerr–Schild slices of supplement `docket68/n1star/proof5/PART-V-GLUING.md` differ from
-them by a fixed term of order r^(−3) in the second fundamental form). Its glued data then have norm at most C ε R^(ℓ0−a)
-(proved: GLUEDECAY5.md Proposition 4 and
+does not decide, and gluing does not enlarge the class. A perturbation agrees on every ball r < R with data to which
+Theorem 4 (ii) applies, uniformly in R in every norm of the class, if and only if Theorem 4 (ii) applies to the
+perturbation itself: the least norm of data in the class that agree with it on r < R increases with R, to its own norm
+if it lies in the class, and without bound if it does not lie in the class at the norm's regularity (proved:
+GLUEDECAY5.md Proposition 2 and Corollary 2.1). At every such a there are vacuum perturbations of size ε outside the
+class, the data pulled back by the radial diffeomorphism x ↦ (1 + ε r^(−a) cos log r) x far out, which are pure gauge
+and G-invariant. For these, every data set in the class that agrees with them on r < R has norm at least c ε R^(ℓ0−a),
+with c > 0, and at least c ε (log R)^(1/2) at a = ℓ0 (proved: GLUEDECAY5.md Proposition 3). [CD03]'s gluing on the
+annulus R < r < 4R, which in five dimensions needs no parity condition at these rates (section 8.6; supplement sections
+10.63 and 10.66), attains this order when its target is the family of translated, rotated and boosted Myers–Perry data
+on Hintz's surface itself: the glued data then have norm at most C ε R^(ℓ0−a) (proved: GLUEDECAY5.md Proposition 4 and
 Corollary 4.3, with the gluing's estimates as supplement `docket68/n1star/proof5/PART-V-GLUING.md` and
-`PART-VII-ASSEMBLY.md` Proposition 2.2 state them). So for fixed ε the glued data are small enough for Theorem 4 (ii)
-only for R up to a multiple of (δ/ε)^(1/(ℓ0−a)), and this is sharp. Their development is not the perturbation's: the
-solution near the hole at late times depends on the data near infinity. The class in which Theorem 4 (ii)'s conclusion
-is reached, directly or through gluing, is exactly Hintz's class (computed: every integral, exponent and constant,
-`docket68/n1star/checks/gluedecay5.py` E1–E6).
+`PART-VII-ASSEMBLY.md` Proposition 2.2 state them; the data on PART-V-GLUING.md's Kerr–Schild slices differ from that
+family by a fixed term of order r^(−3) in the second fundamental form). So for fixed ε the glued data are small enough
+for Theorem 4 (ii) only for R up to a multiple of (δ/ε)^(1/(ℓ0−a)), and this is sharp. Their development is not the
+perturbation's: the solution near the hole at late times depends on the data near infinity. The class in which Theorem 4
+(ii)'s conclusion is reached, directly or through gluing, is exactly Hintz's class (computed: every integral, exponent
+and constant, `docket68/n1star/checks/gluedecay5.py` E1–E6).
 ```

@@ -304,7 +304,7 @@ def q3(Gt, bgs):
     for (n, mn, rmin, rmax, rh, po, npo) in rows:
         print("   n = %d: R in [0.70, 1.85] (horizon at %.4f): min Gamma/E^2 = %.4f > 0; Gamma over its psi_P = 0 value "
               "in [%.4f, %.4f]; |psi_P| <= %.1e on %d slice points with u <= u1 - 0.1" %
-              (n, mn, rmin, rmax, rh, po, npo))
+              (n, rh, mn, rmin, rmax, po, npo))
     conv = abs(rows[0][1] - rows[1][1]) < 1e-2 * abs(rows[1][1])
     small = rows[-1][5] < 1e-3 and rows[-1][5] < rows[0][5]
     print("   converged (min Gamma/E^2 to 1%%): %s; psi_P = 0 outside the packet to discretisation (falling with n; "
@@ -380,16 +380,17 @@ def q4(Gt, bg):
             allrows.append(('s1*', band, m_, math.pi / 2) + seed_Q(F, Rs, Th, core, s1_star=True, gam=gam))
             allrows.append(('s1+', band, m_, 1.2) + seed_Q(F, Rs, Th, core, s1=-s1, gam=gam))
     rel = max(abs(r[4] - r[5]) / abs(r[4]) for r in allrows)
+    relg = max(abs(r[4] - r[5]) / abs(r[6]) for r in allrows if r[0] != 's1 only')
     neg = all(r[4] < 0 for r in allrows)
     bound = all(r[4] <= r[6] + 3e-3 * abs(r[4]) for r in allrows if r[0] != 's1 only')
     worst = max(allrows, key=lambda r: r[4] / abs(r[6]) if r[6] != 0 else -1e9)
     nstream = sum(1 for r in allrows if r[0] == 'stream')
     print("   %d seeds (%d stream seeds as racglobal5 R4, %d with ds1, three bands, one inside the horizon): Q < 0 for "
-          "every one: %s; |Q - int decomposition|/|Q| <= %.1e; Q <= -int Gamma psi^2/sin 2th for every seed with "
-          "psi != 0: %s (closest: Q/|bound| = %.3f, %s seed, band %s, m = %d)" %
-          (len(allrows), nstream, len(allrows) - nstream, neg, rel, bound, worst[4] / abs(worst[6]), worst[0],
+          "every one: %s; |Q - int decomposition| <= %.1e |Q| and <= %.1e |int Gamma psi^2/sin 2th|; Q <= -int Gamma "
+          "psi^2/sin 2th for every seed with psi != 0: %s (closest: Q/|bound| = %.3f, %s seed, band %s, m = %d)" %
+          (len(allrows), nstream, len(allrows) - nstream, neg, rel, relg, bound, worst[4] / abs(worst[6]), worst[0],
            worst[1], worst[2]))
-    ok = neg and rel < 2e-3 and bound
+    ok = neg and rel < 2e-3 and relg < 0.05 and bound
     # control: the decomposition without its Gamma term does not reproduce Q
     Rs = np.linspace(0.75, 1.75, 1201)
     F = region3_funcs(bg, Rs)
@@ -397,10 +398,10 @@ def q4(Gt, bg):
     Th = np.linspace(math.pi / 8, 3 * math.pi / 8, 241)
     RR, TT = np.meshgrid(Rs, Th, indexing='ij')
     core = bump(RR, 0.75, 1.75) * bump(TT, math.pi / 8, 3 * math.pi / 8) * np.sin(2 * (RR - 1.25))
-    qd, dd, _ = seed_Q(F, Rs, Th, core, drop_gamma=True, gam=gam)
-    ctl = abs(qd - dd) / abs(qd) > 1e-2
-    print("   control: the decomposition without -Gamma psi^2/sin 2th misses Q by %.1f %% (rejected): %s" %
-          (100 * abs(qd - dd) / abs(qd), ctl))
+    qd, dd, bb = seed_Q(F, Rs, Th, core, drop_gamma=True, gam=gam)
+    ctl = abs(qd - dd) / abs(bb) > 0.5
+    print("   control: the decomposition without -Gamma psi^2/sin 2th misses Q by %.3f of that term (rejected): %s" %
+          (abs(qd - dd) / abs(bb), ctl))
     return ok and ctl
 
 
