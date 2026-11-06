@@ -9,6 +9,10 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
       [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]: largest residual 7.3e-158 at 50 digits (three test A, three H, four r,
       three angles: 108 points; Round 8, one r and one H before): True; with the eigen-equation (lap + l (l + 2) - 2) T =
       0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in T3)
+  T3c (exact; Round 9): the same identity symbolically, A arbitrary (its jets independent), B from div T = 0, every
+      component of D Ric(r^2 H T) - (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)] reduces to 0 modulo sin^2 +
+      cos^2 = 1: True; so with (lap + l (l + 2) - 2) T = 0 the t_l block is (1/2) r^2 A_l at every even l (deduced from
+      an exact identity)
   T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: 12, at l = 4: 28 (l (l + 2) + 4 = 12, 28; the so(4) Casimir 2 [j1
       (j1 + 1) + j2 (j2 + 1)] at (j1, j2) = (l/2 + 1, l/2 - 1): ['12', '28']); for the scalar harmonic x1^2 - 1/4 at l =
       2: 8 (l (l + 2) = 8): True
@@ -20,16 +24,19 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
       True
   C1 (control): the trace part (s-type): tr h = 3*H(r) != 0 and D Ric(h) != (1/2) r^2 (A_2 H) h: True
   C4 (control): T3b with -lap T + T in place of -lap T + 2 T: residual 3.535e+00: fails: True
+  C5 (control; Round 9): T3c with -lap T + T: the residuals do not reduce to 0: True
   C2 (control): the scalar weight claimed on T at l = 2 (8): refuted by T4's 12: True
   C3 (control): T5 with the scalar weight L: C^2 = 3.190025, outside the pinned interval: True
 T1 PASS
 T2 PASS
 T3 PASS
 T3b PASS
+T3c PASS
 T4 PASS
 T5 PASS
 T6 PASS
 C1 PASS
 C4 PASS
+C5 PASS
 C2 PASS
 C3 PASS

@@ -639,6 +639,8 @@ proved to exist, not computed.]
 
 [R4.0: section 8.4 is now the current proposal; section 8.3, round 3's, is kept as written and is superseded.]
 
+[R5.0: section 8.5 is now the current proposal; section 8.4, round 4's, is kept as written and is superseded.]
+
 ### 8.1 Round 1 (superseded)
 
 `paper/RESPONSE-HL-5D.md`, section 8.7, lines 1141-1149, from "a translation, and the structural step" to the end of the
@@ -1026,7 +1028,7 @@ false in the 'only when' direction; E1 computes the integral of the bound. Its E
 'supplement' and named κ, which section 8.7 does not define. Its size letter ϰ is a glyph variant of κ, the paper's
 second fundamental form at :605-606. Section 8.4 repairs these.]
 
-### 8.4 Round 4 (current)
+### 8.4 Round 4 (superseded by 8.5)
 
 Eight blocks of `paper/RESPONSE-HL-5D.md`, to be applied together, as in section 8.3 but for round 4's repairs: (b)
 labels the glued-norm bound (proved) and M3 (computed) where each stands, (d)'s entry for E1 states the bound's
@@ -1041,6 +1043,264 @@ now names the seated state, so the .out changes. Then run `cd ../../paper && pyt
 rewrites the md5 column. That fills (h)'s zero row for GLUEDECAY5.md, refreshes gluedecay5.out's row, and refreshes the
 18 rows the round-3 reader found stale from other workstreams. R9 then passes. In (h), the md5 of gluedecay5.py,
 gluedecay5.out and PART-V-GLUING.md are those of this round's files before seating.
+
+(a) section 8.7, lines 1138-1140.
+
+Old (round 4, a):
+
+```text
+theorem applies directly to perturbations of these data in his data class, which contains the data of every nearby
+translated, rotated and boosted Myers–Perry metric (computed: their Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the
+radial compactification, `docket68/n1star/checks/mpdata5.py`, exact series at three points of S³ with spins, a boost and
+```
+
+New (round 4, a):
+
+```text
+theorem applies directly to perturbations of these data in his data class, which contains the data that every nearby
+translated, rotated and boosted Myers–Perry metric induces on Hintz's surface (computed: on Kerr–Schild slices their
+Cartesian components lie in ρ²C^∞ and ρ³C^∞ of the radial compactification, `docket68/n1star/checks/mpdata5.py`, exact
+series at three points of S³ with spins, a boost and a translation, and the structural step that a Cartesian derivative
+```
+
+(b) section 8.7, lines 1141-1149, to the end of the paragraph.
+
+Old (round 4, b):
+
+```text
+a translation, and the structural step that a Cartesian derivative gains a power of ρ). A perturbation that only decays,
+faster than r^(−3/2), can be glued far out to such a metric by [CD03]'s gluing, which in five dimensions needs no parity
+condition at that rate (section 8.6; supplement sections 10.63 and 10.66). But the glued data's development is not the
+perturbation's: the solution near the hole at late times depends on the data near infinity. So the gluing would at most
+show that such a perturbation agrees on a large ball with one to which Theorem 4 (ii) applies, and that is not proved
+here: the glued data's smallness in Hintz's weighted norm depends on the gluing radius, a bump of relative size R^(−1) at
+radius R costing about R^(ℓ0−3) there (deduced in supplement `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` section 5;
+computed for a bump of amplitude R^(−3), R^(−1) of the black hole's own deviation from flat space at R, in the norm's
+b-density, `docket68/n1star/checks/support8b.py` M3).
+```
+
+New (round 4, b):
+
+```text
+gains a power of ρ; on Hintz's surface the same holds by the graph map, proved in supplement
+`docket68/n1star/GLUEDECAY5.md` Lemma 4.1 (a)). The class also contains every perturbation conormal of an order a > ℓ0,
+with |∂^k h| ≤ Ξ r^(−a−k) in the metric and Ξ r^(−a−1−k) in the second fundamental form. Such a perturbation has no
+terms of orders r^(−2) and r^(−3) in the metric, nor of orders r^(−3) and r^(−4) in the second fundamental form, and its
+norm is at most C Ξ (1 + (a − ℓ0)^(−1/2)). Theorem 4 holds for every ℓ0 ∈ (3, 4), with the data of (i), λ1 and δ taken
+for that ℓ0. So with ℓ0 ∈ (3, min(a, 4)) its (ii) covers every such perturbation with a > 3 and Ξ below δ/(C (1 + (a −
+ℓ0)^(−1/2))), at the rate of Theorem 4, its ε_K then below ℓ0 − 3 (proved: GLUEDECAY5.md Proposition 1 and Corollary
+1.1). For 3/2 < a ≤ ℓ0 the decay rate does not decide, and gluing does not enlarge the class. A perturbation agrees on
+every ball r < R with data to which Theorem 4 (ii) applies, uniformly in R in every norm of the class, if and only if
+Theorem 4 (ii) applies to the perturbation itself. Indeed the infimum of the norms of data in the class that agree with
+it on r < R is nondecreasing in R, and tends to its own norm if it lies in the class and to infinity if it does not lie
+in the class at the norm's regularity (proved: GLUEDECAY5.md Proposition 2 and Corollary 2.1). At every such a and every
+Ξ ≤ Ξ1 there are vacuum perturbations of size C_P Ξ outside the class: the data of (i) pulled back by the radial
+diffeomorphism x ↦ (1 + Ξ r^(−a) cos log r) x far out, which are pure gauge and G-invariant. For R ≥ R_P, every data set
+in the class that agrees with one of them on r < R has norm at least c Ξ R^(ℓ0−a), with c > 0, and at least c Ξ
+(log2(R/R_P))^(1/2) at a = ℓ0 (proved: GLUEDECAY5.md Proposition 3). [CD03]'s gluing on the annulus R < r < 4R, which in
+five dimensions needs no parity condition at these rates (section 8.6; supplement sections 10.63 and 10.66), does no
+worse when its target is the family of translated, rotated and boosted Myers–Perry data on Hintz's surface: for every
+such perturbation, with Ξ ≤ Ξ0 and R ≥ R_G, the glued data have norm at most C Ξ (1 + R^(ℓ0−a)), and C Ξ (1 + log
+R)^(1/2) at a = ℓ0 (proved: GLUEDECAY5.md Proposition 4 and Corollary 4.3, with the gluing's estimates as supplement
+`docket68/n1star/proof5/PART-V-GLUING.md` and `PART-VII-ASSEMBLY.md` Proposition 2.2 state them; the Myers–Perry data on
+PART-V-GLUING.md's Kerr–Schild slices differ from that family by a fixed term of order r^(−3) in the second fundamental
+form). At a = 3 the term from the annulus is the cost R^(ℓ0−3) of a bump of amplitude R^(−3) at radius R (computed:
+`docket68/n1star/checks/support8b.py` M3). So for a < ℓ0 the glued data are guaranteed small enough for Theorem 4 (ii)
+for R from R_G up to a multiple of (δ/Ξ)^(1/(ℓ0−a)), a range that is nonempty for Ξ small, and for the pulled-back
+examples no data in the class that agree with them on r < R do better. The development of the glued data is not the
+perturbation's: the solution near the hole at late times depends on the data near infinity. The perturbations to which
+Theorem 4 (ii) applies, directly or through gluing uniformly in R, are exactly those small in Hintz's class; the
+pulled-back examples lie outside it, and their developments are isometric to that of the data of (i) (computed: the
+integrals, the exponents, the fluxes and the distance behind c, `docket68/n1star/checks/gluedecay5.py` E1–E6; the
+constants C, C_P, R_P, R_G, Ξ0 and Ξ1 are proved to exist, not computed).
+```
+
+(c) section 9, the computational-support item, lines 1552-1564.
+
+Old (round 4, c):
+
+```text
+  `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/kirecon5.py`,
+  `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`, `checks/vii5read.py` and
+  `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`, `checks/eqlayer5.py`,
+  `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`,
+  `checks/twodomain5.py`, `checks/r0census5.py` and `checks/excise5.py`. A census of the deduced claims in sections 1–9
+  (103 claims, of which 27 named no program for the step) left none without one but the analytic estimates named below,
+  the settling write-out and one step resting on a reading at source; where a check stops short of the step (an order λ¹
+  structure computed to order λ² in place of every order, a scan to a finite l) its entry in Appendix A says so.
+  The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the mollifier's Bernstein- and
+  Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the supplement and read by
+  independent verifiers, not computed (deduced). The two-dust background's convergence on a rectangle reaching Σ_τ0 is
+  computed for one choice of the outgoing family's characteristic data, those data themselves being among the items left
+  open above.
+```
+
+New (round 4, c):
+
+```text
+  `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/gluedecay5.py`,
+  `checks/kirecon5.py`, `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`,
+  `checks/vii5read.py` and `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`,
+  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`,
+  `checks/lambdacount5.py`, `checks/twodomain5.py`, `checks/r0census5.py` and `checks/excise5.py`. A census of the
+  deduced claims in sections 1–9 (103 claims, of which 27 named no program for the step) left none without one but the
+  analytic estimates named below, the settling write-out and one step resting on a reading at source; where a check
+  stops short of the step (an order λ¹ structure computed to order λ² in place of every order, a scan to a finite l) its
+  entry in Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
+  mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
+  supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
+  rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data, those data themselves
+  being among the items left open above.
+```
+
+(d) Appendix A, the entries of mpdata5.py and flux5.py, lines 2180-2190, and a new entry.
+
+Old (round 4, d):
+
+```text
+- `checks/mpdata5.py` B1–B4: the data of translated, rotated and boosted Myers–Perry metrics lie in the class of
+  supplement Part VII Lemma 0.1, ρ²C^∞ and ρ³C^∞ of the radial compactification. Controls: a mass term falling as ρ (B1,
+  B4); a split-signature form, which vanishes on the sphere (B2); the projection term dropped (B3). Exact series; about
+  four minutes.
+- `checks/flux5.py` F1–F4: the flux 6π²m of the Kerr–Schild slice (F1–F2), the glued mass bound's ingredients (F3: R⁶
+  q_2 = −10294529/36000, the annulus volume 255π²R⁴/2, |δm| ≤ C η (R² + 1)/(6π²R² − C) for C < 6π²R²) and step (6)'s
+  bilinear difference bound (F4: for generic data of size B and a deviation of size ε, both at the annulus scaling, the
+  remainder's difference has no term linear in the data, its quadratic part is R⁻⁶ times ε B and ε² and its cubic part
+  R⁻⁸ times ε B², ε² B and ε³, so it is at most C ε (|B| + ε) R⁻⁶ + C ε R⁻⁸) (supplement Part VII Lemma 2.1 (c),
+  Proposition 2.2 step (6)). Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms
+  (F3); the remainder without its linear part (F4). Exact; about twenty minutes.
+```
+
+New (round 4, d):
+
+```text
+- `checks/mpdata5.py` B1–B4: the data of translated, rotated and boosted Myers–Perry metrics on Kerr–Schild slices lie
+  in the class of supplement Part VII Lemma 0.1, ρ²C^∞ and ρ³C^∞ of the radial compactification; on Hintz's surface the
+  same holds by the graph map (supplement GLUEDECAY5.md Lemma 4.1 (a)). Controls: a mass term falling as ρ (B1, B4); a
+  split-signature form, which vanishes on the sphere (B2); the projection term dropped (B3). Exact series; about four
+  minutes.
+- `checks/flux5.py` F1–F4: the flux 6π²m of the Kerr–Schild slice (F1–F2), the glued mass bound's ingredients (F3: R⁶
+  q_2 = −10294529/36000, the annulus volume 255π²R⁴/2, |δm| ≤ C η (R² + 1)/(6π²R² − C) for C < 6π²R²) and step (6)'s
+  bilinear difference bound (F4: for generic data of size B and a deviation of size ε, both at the annulus scaling, the
+  remainder's difference has no term linear in the data, its quadratic part is R⁻⁶ times ε B and ε² and its cubic part
+  R⁻⁸ times ε B², ε² B and ε³, so it is at most C ε (|B| + ε) R⁻⁶ + C ε R⁻⁸) (supplement Part VII Lemma 2.1 (c),
+  Proposition 2.2 step (6)). Controls: the flux with the trace term's sign reversed; the curvature without its Γ·Γ terms
+  (F3); the remainder without its linear part (F4). Exact; about twenty minutes.
+- `checks/gluedecay5.py` E1–E6: section 8.7's reach of Theorem 4 (ii), directly or through gluing (supplement
+  GLUEDECAY5.md). E1, the weighted integrals: the bound of a conormal perturbation of order a lies in r^(−ℓ0) H_b
+  exactly when a > ℓ0, its integral diverging logarithmically at a = ℓ0. E2, the distance κ(a, ℓ0) > 0 behind the lower
+  bound, from the Gram matrix in closed form, certified by interval arithmetic on a grid of a and ℓ0; κ(5/2, 7/2) =
+  7.6546 × 10⁻⁴ against a direct quadrature. E3, the pulled-back examples: the pull-back of a radial tensor, the exact
+  trace, the Tangherlini term, and an instance of the lower bound c Ξ R^(ℓ0−a) by quadrature. E4, the exact fluxes 6π²,
+  3π², 3π²/2, (3/2)(a + 1)π² and 2π² of order-a profiles, and the exponents of the gluing's error terms and of the glued
+  norm. E5, the spin and a translation entering the metric at r^(−3), the Hessian of Hintz's height function carrying no
+  momentum or angular momentum, and its trace 2μ r^(−3). E6, these replacements: before seating it applies them to a
+  copy of the paper and checks that copy, after seating it checks them in place, and it names the state it found.
+  Controls: twenty-one mutants of the program, among them the Lebesgue density, the class profile without its
+  oscillation, the three-dimensional coefficient 3 − a, mass and boost not decoupled, and a mass change in place of the
+  spins. Exact, with κ certified and the instance by quadrature; about seventy seconds.
+```
+
+(e) Appendix C (the source map), line 2604.
+
+Old (round 4, e):
+
+```text
+| section 8.7: Myers–Perry data in the class | `docket68/n1star/checks/mpdata5.py` B1–B4 |
+```
+
+New (round 4, e):
+
+```text
+| section 8.7: Myers–Perry data in the class, on Kerr–Schild slices | `docket68/n1star/checks/mpdata5.py` B1–B4 |
+| section 8.7: Myers–Perry data on Hintz's surface; the class above ℓ0 | `docket68/n1star/GLUEDECAY5.md` sections 2, 5 |
+| section 8.7: uniform gluing is membership; examples; the glued norm | `docket68/n1star/GLUEDECAY5.md` sections 3–5 |
+| section 8.7: the integrals, exponents, fluxes, the distance behind c | `docket68/n1star/checks/gluedecay5.py` E1–E6 |
+```
+
+(f) Appendix D, the run list, line 2732.
+
+Old (round 4, f):
+
+```text
+    python3 checks/flux5.py                              # about twenty minutes
+```
+
+New (round 4, f):
+
+```text
+    python3 checks/flux5.py                              # about twenty minutes
+    python3 checks/gluedecay5.py                         # about seventy seconds
+```
+
+(g) Appendix D, the import paragraph, lines 2653-2661.
+
+Old (round 4, g):
+
+```text
+`lead5.py`, `past5.py` and `mass5.py`, `checks/support8b.py` imports `checks/mpdata5.py`, `checks/ledger5.py` imports
+`checks/support5.py`, `checks/support5c.py` imports `horizon5.py` and `lead5.py`, `checks/lambdacount5.py` imports
+`checks/level2loop5.py`, `checks/support8c.py` imports `damping5.py`, `hthresh5.py`, `iplus5.py`, `lhor5.py`, `sbar5.py`
+and `scri5.py`, `checks/gauge5.py` imports `data5.py`, `lead5.py` and `paper/response5.py`, `checks/excise5.py` imports
+`growth5.py`, `checks/stage5.py` imports `lead5.py`, `checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`,
+`secondzero5.py` and `resid5.py` import `bondisph5.py`, which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import
+`dnsolve5.py`, `checks/support9.py` imports `lead5.py`, `checks/charge5.py` imports `checks/prop31loss5.py` and
+`checks/dg5.py`, `checks/twodomainx5.py` imports `checks/twodomain5.py`, `checks/vii5read.py` imports
+`checks/vii5census.py`; the others import nothing from the research tree:
+```
+
+New (round 4, g):
+
+```text
+`lead5.py`, `past5.py` and `mass5.py`, `checks/support8b.py` and `checks/gluedecay5.py` import `checks/mpdata5.py`,
+`checks/ledger5.py` imports `checks/support5.py`, `checks/support5c.py` imports `horizon5.py` and `lead5.py`,
+`checks/lambdacount5.py` imports `checks/level2loop5.py`, `checks/support8c.py` imports `damping5.py`, `hthresh5.py`,
+`iplus5.py`, `lhor5.py`, `sbar5.py` and `scri5.py`, `checks/gauge5.py` imports `data5.py`, `lead5.py` and
+`paper/response5.py`, `checks/excise5.py` imports `growth5.py`, `checks/stage5.py` imports `lead5.py`,
+`checks/stage5b.py` imports `lead5.py` and `checks/stage5.py`, `secondzero5.py` and `resid5.py` import `bondisph5.py`,
+which imports `sectexp5.py`, `resid5.py` and `szrun5.py` import `dnsolve5.py`, `checks/support9.py` imports `lead5.py`,
+`checks/charge5.py` imports `checks/prop31loss5.py` and `checks/dg5.py`, `checks/twodomainx5.py` imports
+`checks/twodomain5.py`, `checks/vii5read.py` imports `checks/vii5census.py`; the others import nothing from the research
+tree:
+```
+
+(h) Appendix D, the md5 table, line 2913.
+
+Old (round 4, h):
+
+```text
+| `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
+```
+
+New (round 4, h):
+
+```text
+| `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
+| `docket68/n1star/checks/gluedecay5.py` | `94a241bad02fb734d68615e85ac06544` |
+| `docket68/n1star/checks/gluedecay5.out` | `59b4aa002c4c196b846474f34a51e3c2` |
+| `docket68/n1star/GLUEDECAY5.md` | `00000000000000000000000000000000` |
+| `docket68/n1star/proof5/PART-V-GLUING.md` | `df25f8231e6af8cc1cfd08069d2700aa` |
+```
+
+[R5.0: superseded. Run against a seated copy of the paper, its E6 passed but four of its mutants survived, since they
+acted only on the text before seating, so the program exited 1 there. Its (d) and (f) gave a run time different from
+section 7's and the program's. Section 8.5 repairs both; its blocks are these but for (d)'s entry for E6 and the run
+time in (d) and (f).]
+
+### 8.5 Round 5 (current)
+
+Eight blocks of `paper/RESPONSE-HL-5D.md`, to be applied together. They are section 8.4's but for (d)'s entry for E6,
+which now describes the check in both states, and the run time in (d) and (f), now one figure with section 7 and the
+program. Each old block occurs exactly once, the blocks are disjoint, (a) is immediately followed by (b), and with all
+eight applied every place carries the change (computed, E6).
+
+*Seating, and the re-pin.* E6 checks both states of the paper in every run. It rebuilds the state the paper is not in
+from the one it finds, and it names the state it found. The whole program exits 0 on the paper before seating and on a
+seated copy: `python3 checks/gluedecay5.py --paper PATH`. After the blocks are seated, run from `docket68/n1star/`:
+`python3 checks/gluedecay5.py > checks/gluedecay5.out`. Its E6 line then names the seated state, so the .out changes.
+Then run `cd ../../paper && python3 response5.py --update-md5`. That fills (h)'s zero row for GLUEDECAY5.md, refreshes
+gluedecay5.out's row, and refreshes the 18 rows stale from other workstreams; R9 then passes. In (h), the md5 of
+gluedecay5.py, gluedecay5.out and PART-V-GLUING.md are those of this round's files before seating.
 
 (a) section 8.7, lines 1138-1140.
 
@@ -1192,11 +1452,11 @@ New (d):
   trace, the Tangherlini term, and an instance of the lower bound c Ξ R^(ℓ0−a) by quadrature. E4, the exact fluxes 6π²,
   3π², 3π²/2, (3/2)(a + 1)π² and 2π² of order-a profiles, and the exponents of the gluing's error terms and of the glued
   norm. E5, the spin and a translation entering the metric at r^(−3), the Hessian of Hintz's height function carrying no
-  momentum or angular momentum, and its trace 2μ r^(−3). E6, these replacements: before seating it applies them to a
-  copy of the paper and checks that copy, after seating it checks them in place, and it names the state it found.
-  Controls: twenty-one mutants of the program, among them the Lebesgue density, the class profile without its
-  oscillation, the three-dimensional coefficient 3 − a, mass and boost not decoupled, and a mass change in place of the
-  spins. Exact, with κ certified and the instance by quadrature; about seventy seconds.
+  momentum or angular momentum, and its trace 2μ r^(−3). E6, these replacements, checked in both states of the paper,
+  before seating and seated, the state it is not in rebuilt from the one it finds, which it names (`--paper PATH` checks
+  another copy). Controls: twenty-one mutants of the program, among them the Lebesgue density, the class profile without
+  its oscillation, the three-dimensional coefficient 3 − a, mass and boost not decoupled, and a mass change in place of
+  the spins. Exact, with κ certified and the instance by quadrature; about ninety seconds.
 ```
 
 (e) Appendix C (the source map), line 2604.
@@ -1228,7 +1488,7 @@ New (f):
 
 ```text
     python3 checks/flux5.py                              # about twenty minutes
-    python3 checks/gluedecay5.py                         # about seventy seconds
+    python3 checks/gluedecay5.py                         # about ninety seconds
 ```
 
 (g) Appendix D, the import paragraph, lines 2653-2661.
@@ -1274,10 +1534,10 @@ New (h):
 
 ```text
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
-| `docket68/n1star/checks/gluedecay5.py` | `94a241bad02fb734d68615e85ac06544` |
-| `docket68/n1star/checks/gluedecay5.out` | `59b4aa002c4c196b846474f34a51e3c2` |
+| `docket68/n1star/checks/gluedecay5.py` | `00000000000000000000000000000000` |
+| `docket68/n1star/checks/gluedecay5.out` | `00000000000000000000000000000000` |
 | `docket68/n1star/GLUEDECAY5.md` | `00000000000000000000000000000000` |
-| `docket68/n1star/proof5/PART-V-GLUING.md` | `df25f8231e6af8cc1cfd08069d2700aa` |
+| `docket68/n1star/proof5/PART-V-GLUING.md` | `00000000000000000000000000000000` |
 ```
 
 ## R2.0 Round 2 (2026-11-06): the verifier's reading, re-derived and seated
