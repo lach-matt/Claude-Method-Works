@@ -64,17 +64,27 @@ def load(name):
 TL = load('twoledger5')
 
 
-def rows_N(K, N, sources=False):
+def eligible(lab, ka, wfac):
+    """a coefficient built from the approximant: every kappa = 1 term but the w terms and those whose coefficient
+    belongs to one family by definition (G2^A, the coupling's c_A)"""
+    return ka == 1 and not wfac and not re.search(r'w part|G2|c_\d+ Psi', lab)
+
+
+def sources_of(N, smax):
+    """coefficient sources: the background and every set of at most smax families"""
+    fam = list(range(1, N + 1))
+    return ['bg'] + ['-'.join(map(str, cs)) for j in range(1, smax + 1) for cs in itertools.combinations(fam, j)]
+
+
+def rows_N(K, N, sources=False, smax=2):
     """the N-family term list; rows as twoledger5's (step, label, U, p, kappa, m, ops, extra, wfac)"""
     Km3 = K - 3
     fam = list(range(1, N + 1))
-    srcs = ['bg'] + ['%d' % c for c in fam] + ['%d%d' % cd for cd in itertools.combinations(fam, 2)]
+    srcs = sources_of(N, smax)
     t = []
 
     def add(step, lab, U, p, ka, m, ops, extra, wfac):
-        # coefficients built from the approximant: every kappa = 1 term but the w terms and those whose coefficient
-        # belongs to one family by definition (G2^A, the coupling's c_A)
-        if sources and ka == 1 and not wfac and not re.search(r'w part|G2|c_\d+ Psi', lab):
+        if sources and eligible(lab, ka, wfac):
             for s_ in srcs:                                        # a coefficient built from the approximant
                 t.append((step, lab + ' [c from %s]' % s_, U, p, ka, m, list(ops), extra, wfac))
         else:
@@ -209,18 +219,33 @@ def main():
     print("   the N = 4 list (level 2, %d terms), every term on k = 6..12 x K = 6..10: %s" % (len(rows4), grid))
     ok &= grid
     print("L1", "PASS" if ok else "FAIL", flush=True)
-    # L2: degrees by finite differences
+    print("   the term types are the same for every N, not only N = 2..8: the generator never reads a family label "
+          "into a row's numbers (U, p, kappa, m, operations, extra, w), so a row's type depends on its template alone")
+    # L2: the counts, exactly, for sources of at most smax families (stage m of the approximant has mixed harmonics
+    # with up to m + 2 families, FAMILIES5-R6.md section 4.1 (d): smax = M + 2 for stages 0..M)
     n = sp.Symbol('N')
-    deg = {}
-    for lev, cnt in ((1, counts1), (2, counts2)):
+    xs = sorted(counts1)
+    p1 = sp.interpolate([(x, counts1[x]) for x in xs[:4]], n)
+    l2 = sp.degree(p1, n) == 2 and all(p1.subs(n, x) == counts1[x] for x in xs)
+    print("L2 term counts: family level %s (degree %d, exact on N = 2..8: %s)" % (sp.expand(p1), sp.degree(p1, n), l2))
+    for smax in (2, 3, 4):
+        cnt = {}
+        for N in range(2, smax + 8):
+            base = rows_N(6, N)
+            ns = len(sources_of(N, smax))
+            cnt[N] = sum(ns if eligible(r[1], r[4], r[8]) else 1 for r in base)
+        if smax == 2:
+            l2 &= all(cnt[N] == counts2[N] for N in counts2)              # the same as the listed rows
         xs = sorted(cnt)
-        poly = sp.interpolate([(x, cnt[x]) for x in xs[:5]], n)
-        exact = all(poly.subs(n, x) == cnt[x] for x in xs)
-        deg[lev] = (sp.degree(poly, n), sp.factor(poly), exact)
-    l2 = deg[1][0] == 2 and deg[2][0] == 4 and deg[1][2] and deg[2][2]
-    print("L2 term counts: level 1 = %s (degree %d, exact on N = 2..8: %s); level 2 = %s (degree %d, exact: %s): %s"
-          % (sp.expand(deg[1][1]), deg[1][0], deg[1][2], sp.expand(deg[2][1]), deg[2][0], deg[2][2],
-             "PASS" if l2 else "FAIL"))
+        d = smax + 2
+        poly = sp.interpolate([(x, cnt[x]) for x in xs[:d + 1]], n)
+        ex = all(poly.subs(n, x) == cnt[x] for x in xs)
+        l2 &= ex and sp.degree(poly, n) == d
+        print("   with sources of at most %d families (stages 0..%d): %s, degree %d (exact on N = 2..%d: %s)" %
+              (smax, smax - 2, sp.expand(poly), sp.degree(poly, n), xs[-1], ex))
+    print("   so with stages 0..M the count is a polynomial of degree M + 4 in N: each term carries its target, its "
+          "unknown and one source set of at most M + 2 families; the count enters only the constants:",
+          "PASS" if l2 else "FAIL")
     ok &= l2
     pw, pwc = l3()
     l3ok = all(pw[k_] == list(range(5)) for k_ in (1, 2, 3))
@@ -230,8 +255,9 @@ def main():
     ok &= l3ok
     l4ok = l4()
     nl = TL.t2()
-    print("L4 the closing rows: twoledger5 T2's powers (non-linear 2K - 5 - (K + 1) = %s >= 0: %s), N-independent; "
-          "Step 7 with M(N), lam0(N) for any positive C(N), C_D(N), C_R(N) closes (exact): %s" %
+    print("L4 (a definition check; it holds by lam0's definition, so no control can fail) the closing rows: "
+          "twoledger5 T2's powers (non-linear 2K - 5 - (K + 1) = %s >= 0: %s), N-independent; Step 7 with M(N), "
+          "lam0(N) := 1/(C3 C(N) M(N)^2) for any positive C(N), C_D(N), C_R(N) closes (exact): %s" %
           (nl[3], nl[0], "PASS" if l4ok and nl[0] and nl[1] else "FAIL"))
     ok &= l4ok and nl[0] and nl[1]
     # controls

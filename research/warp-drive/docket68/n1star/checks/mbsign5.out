@@ -11,3 +11,4 @@ E1 PASS  (6 s)
 E2 (exact; the slice symbolic in w(R) and mu, the identity at three rational slice points; on every class slice in mbslice5 S1) the tensor sector: E = 2 |T|^2 int T_m(xi, n)
    the slice: n unit, future, normal; xi = N_s n + Y_s; N_s sqrt(gamma_RR) = 1; N_s^2 - gamma_RR (Y_s^R)^2 = f; K_RR closed form: {'unit': True, 'future': True, 'normal': True, 'decomposition': True, 'NsqrtG': True, 'lapse_shift': True, 'KRR': True, 'n^R': True}
    linearised constraints of the tensor data vanish identically (TA generic): True
+   l = 2 (|T|^2 = 3/2, k_T^2 = 6): Euler operator of Q-density + 2 |T|^2 T_m(xi, n) sqrt(gamma_RR) zero in H and P at the three slice points: True; control |T|^2 -> |T|^2/2 (rejected): True
