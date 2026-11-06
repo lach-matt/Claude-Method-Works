@@ -10,3 +10,7 @@ N5 PASS
 N1 (exact, multi-phase jets) N = 3 overlapping torus waves with lam^2 mixed harmonics: no lam^-1 coefficient
    seed 31: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: [True, True, True] (rho's lam^0 part has 13 harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): True; mixed harmonics at order lam leave one (rejected): True
    seed 32: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: [True, True, True] (rho's lam^0 part has 13 harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): True; mixed harmonics at order lam leave one (rejected): True
+   seed 33: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: [True, True, True] (rho's lam^0 part has 13 harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): True; mixed harmonics at order lam leave one (rejected): True
+N1 PASS
+N2 (exact) the lam^0 coefficient of d_R a in rho (theta^3 H) does not oscillate; nor do gamma-only ones
+   seed 31: alpha at lam^0 = -880/13689, oscillating part empty: True; control: a wave with a trace on the leaves makes it oscillate (3 harmonics, rejected): True

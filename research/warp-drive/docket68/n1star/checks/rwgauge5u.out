@@ -12,3 +12,5 @@ U2 PASS
       scalar potential at l = 2, 4, 6, 8: True
   U3 (b) l = 2: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
       eliminated): True
+  U3 (b) l = 4: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True

@@ -49,7 +49,7 @@ def main():
     # coframe: theta^4, theta^3, theta^x with theta^a(e_b) = delta
     Fm = sp.Matrix.hstack(E3, E4, EX)                       # columns: e3, e4, ex
     Cof = Fm.inv()                                          # rows: theta^3, theta^4, theta^x
-    q = sp.Function('q')(u, v, x)
+    q = N3.f                                                 # null3.py's generic function
 
     def tensor_from_frame(comp, qq):
         """covariant 2-tensor with frame components comp[(i, j)] (i, j in '34x'), symmetric"""

@@ -1186,8 +1186,8 @@ E6 applies all eight to a copy of the paper and checks each place.
 - (9) *Part V's amendment.* $f$ is the height function of the graph $\Sigma_{\mathrm{IVP}} = \{t_{\mathrm{KS}} = f\}$
   far out; the time function is III.B's $t$. Corrected in place in PART-V-GLUING.md's bracketed note, marked as
   corrected.
-- (10) *The run time.* About ninety seconds, measured: 88 s here with this round's nineteen mutants (the reader
-  measured 68.5 s for round 2's thirteen). The docstring, section 7 and section 8.3's (d) and (f) now agree.
+- (10) *The run time.* About ninety seconds, measured: 88 s here with this round's nineteen mutants (the reader measured
+  68.5 s for round 2's thirteen). The docstring, section 7 and section 8.3's (d) and (f) now agree.
 
 *The program.* E4 and E6 are changed as above. The reader's four surviving mutations are now mutation controls, and all
 four fail:

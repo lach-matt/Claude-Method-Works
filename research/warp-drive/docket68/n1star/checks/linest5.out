@@ -20,6 +20,9 @@ E2 the linearised rows (17), the unknowns on each right side:
    P4_2    (pair, bounds dd2): dchi dchib detab dom dk dw da2 dc2 dd2
    no derivative of an unknown on any right side: True; background enters through its state and first x-derivatives only:
        True -> PASS
+E9 (exact) the rows against the geometry: (a) e_X Y = G_y on the general (2+1)-metric: chi True, eta True, omb True, chib
+    True, etab True, om True; (b) the metric rows from N0: k True, w True, b True; (c) every row's frame-change part from
+    the perturbed frame operators: all hold -> PASS
 E3 control: chib by null3.py N7's e4 equation: derivatives of unknowns on the right side: ['dx_detab'] -> fails (good)
 E7 a = 1.0, T = 2.0: extremal f(T, T) = 617.1, bound e^{4aT} = 2981, below everywhere: True; exceeds e^{a(u+v)} (control,
     must): True; growth rate log f/(2T) = 1.606 a
@@ -32,7 +35,7 @@ E8 G_low = 382 read in 2(d)'s model: G = G_low K/(2F(F - 1)) = 0.566 (K = 0.2215
     d2R/ddelta2 = 382.0 (PASS); demand 1/(4GTF^2) = 0.000526; the residual 2.42e-3 is 4.60 times it, and at G = 10, 81.2
     times
    control (the factor 2 dropped): the model gives 764.0, not 382 -> fails (good)
-   (40 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
+   (19 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
 E4 the coefficient sums kappa_Z on the box (sup over the cells kept), by angular band |x| <= X:
    X            dchi      deta      domb     dchib     detab       dom        dk        dw        db       da1       dc1
        dd1       da2       dc2       dd2
@@ -80,4 +83,4 @@ E6 the closing condition delta + int eps < 1/(4 G T F^2), T = Du + Dv = 3.95, at
    X = 0.9500, G = 382: demand 10^-6555.9
    X = 0.9988, G = 10: demand 10^-624564.7
    X = 0.9988, G = 382: demand 10^-624566.3
-linest5 (50 s): all checks pass
+linest5 (24 s): all checks pass
