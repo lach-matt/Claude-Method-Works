@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """gluedecay5.py -- the norms, exponents and the distance kappa of GLUEDECAY5.md (which decaying perturbations
-Theorem 4 (ii) reaches, directly or through gluing). Rounds 2-3 (R2.0, R3.0): every check runs against named mutants
+Theorem 4 (ii) reaches, directly or through gluing). Rounds 2-4 (R2.0-R4.0): every check runs against named mutants
 of the code under test, each of which must fail.
 
 The paper's section 8.7 (paper/RESPONSE-HL-5D.md) left open whether a perturbation decaying like r^(-a), 3/2 < a,
@@ -35,18 +35,20 @@ rho^2, rho^3 in H^d(S^3) plus the remainder in rho^(l0) H_b^d with the b-density
      'coef3' (the three-dimensional coefficient 3 - a), 'second_r3' (the second-order expression times r^3), 'mu0'
      (mu = 0 in the pointwise and quadrature checks).
   E4 (exact) Proposition 4 and Corollary 4.3. (i) The fluxes: for explicit profiles of order a (energy: h = x x
-     r^(-a-2); momentum: K = x1 delta r^(-a-2); centre of mass, N = x1: h = x1 x x r^(-a-3); angular momentum,
-     Y = W_12 x: K = (x (W x) + (W x) x) r^(-a-3)) the flux over S_rho is computed exactly (sympy, exact moments of
+     r^(-a-2); momentum: K = x1 delta r^(-a-2); centre of mass, N = x1: h = x1 x x r^(-a-3), and h = x1 delta r^(-a-1),
+     whose terms in the gradient of N do not vanish; angular momentum, Y = W_12 x: K = (x (W x) + (W x) x) r^(-a-3))
+     the flux over S_rho is computed exactly (sympy, exact moments of
      S^3) as c_d(a) rho^(2+d-a), c_d(a) != 0; so it tends to 0 iff a > 2 + d. (ii) The exponents, piecewise linear in
      (a, l0) on 3/2 <= a <= l0, 3 <= l0 <= 4, cut at a = 2, 3, checked at every vertex of each piece: the gluing
      terms' exponents below the box exponent min(0, 2 + d - a); the box radius not decaying where a charge of the
      perturbation need not vanish (a <= 2 + d); theta = O(eps R^(-a)); every piece of the glued norm O(eps
      R^(l0-a)); and the exponents of (5.2) derived from the box radii, p2exp = box(d = 0) and p3exp = max_d box(d),
-     at every vertex. The fluxes' constants are asserted: c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, 2 pi^2. Mutants:
+     at every vertex. The fluxes' constants are asserted: c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, (3/2) (a + 1) pi^2,
+     2 pi^2. Mutants:
      'no_decouple' (mass and boost bounded only as the degree-1 charges), 'box_strong' (box exponent min(0, 1 + d - a):
      true as an inequality on T, but it decays where the charges need not vanish), 'energy_trsign' and 'mom_drop_x'
      (a sign and an index of the flux integrands), 'p3_strong' (p3exp = min(0, 2 - a)), 'box_weak' (box exponent
-     min(0, 3 + d - a)).
+     min(0, 3 + d - a)), 'drop_lapse' (the terms in the gradient of N dropped).
   E5 (exact, sympy series) Lemma 4.1's inputs. (a) The spin enters the Kerr-Schild metric at rho^3: every component of
      h k k at spins (1/3, 1/5) minus that at zero spin starts at rho^3 or later, some at rho^3 (checks/mpdata5.py's
      mp_ingredients, one rational point of S^3). (b) A translation enters at rho^3. (c) A radial Hessian carries no
@@ -54,13 +56,16 @@ rho^2, rho^3 in H^d(S^3) plus the remainder in rho^(l0) H_b^d with the b-density
      (d) Hintz's surface is not a Kerr-Schild slice: f' = 2 mu/(r^2 - mu) (III.B (3.3)) gives tr Hess f = 2 mu r^-3
      + O(r^-5). Mutants: 'mass' (a different mass in place of the spins: the difference starts at rho^2; a failed
      series raises instead of counting as a failure), 'dim3' (the three-dimensional Laplacian in (d): 0 at rho^3).
-  E6 (text) GLUEDECAY5.md: every line at most 121 characters; section 8.3's blocks (a)-(h): each old block occurs
-     exactly once in paper/RESPONSE-HL-5D.md, the blocks are disjoint, (a) is immediately followed by (b), and the new
-     blocks' lines are at most 121 characters. With all blocks applied to a copy of the paper: section 8.7 still cites
-     support8b.py M3 and cites GLUEDECAY5.md; section 9's computational-support list, Appendix A, Appendix C (the
-     source map) and Appendix D (the run list, the imports, the md5 table) carry gluedecay5.py and the note; no line
-     exceeds 121 characters. Mutants: 'char_a', 'char_b' (one character of an old block changed), 'drop_c' (block (c)
-     not applied), 'drop_m3' (block (b) without its citation of support8b.py M3).
+  E6 (text) GLUEDECAY5.md: every line at most 121 characters, and so every new block's line; section 8.4's blocks
+     (a)-(h), against paper/RESPONSE-HL-5D.md in either state, named in the output (md5 digits blanked, so a refreshed
+     md5 column still matches). Before seating: each old block exactly once and no new block; the old blocks disjoint,
+     (a) immediately followed by (b); with all blocks applied to a copy, section 8.7 still cites support8b.py M3 and
+     cites GLUEDECAY5.md, and section 9's computational-support list, Appendix A, Appendix C (the source map) and
+     Appendix D (the run list, the imports, the md5 table) carry gluedecay5.py and the note, no line over 121; and that
+     copy, its zero md5 replaced, passes the seated-state check. Seated: each new block exactly once, disjoint, (a)
+     immediately followed by (b), the old texts of (a)-(e), (g) gone, and the same places checked in the paper itself.
+     Mutants: 'char_a', 'char_b' (one character of an old block changed), 'drop_c' (block (c) not applied), 'drop_m3'
+     (block (b) without its citation of support8b.py M3), 'seated_keep_old_a' (the seated copy still holding old (a)).
 
 Labels: computed (exact, sympy; E2's positivity certified by interval arithmetic; E3's instances by mpmath at 30
 digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; E4 checks the exponents and the
