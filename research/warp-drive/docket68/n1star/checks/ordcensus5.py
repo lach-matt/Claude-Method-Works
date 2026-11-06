@@ -25,7 +25,8 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
        [inf s - sup s - N + 1/2, sup s] = [-30.5, 10], its inputs r' - m;
      - the same scheme with B_0^(j) (order s_j + delta) in place of L (Lemma 4.2's parametrix, II.A2:529-533) and with
        E in place of L (Lemma 4.1 Step 2 (b), II.A2:495): v = s_j or s' in [-31, 10];
-     - II.D sections 2-4, II.D', II.E, II.F': the chain's orders with tau <= 2 (II.D:287, 691): v in [-12, 11].
+     - II.D sections 2-4, II.D', II.E, II.F': the chain's orders s, s_0 = s - 2 and s + 1, tau <= 2 (II.D:287,
+       691): v in [-10, 10]; II.D's regulariser exponent kappa := 2 (II.D:221-223, 688) where it enters.
   O3 (computed) every site's orders over its range: the Sobolev orders, the symbol orders and the factor orders of
      Proposition 2.4 (f), against round 8's box ([-16, 11] x [-22, 22], factors [-10.49, 9.51]).
   O4 (READ) K' (II.A2:439) is a regularity assumption only: every K' of the chain is the membership w in H^(K') or
@@ -79,7 +80,8 @@ FAM = [('A85', r"II\.A Lemmas? 8\.[56](?:-8\.6)?(?: \([ab]\))?"),
 
 # the chain's parameters (READ: d0count5 Q4/Q4b, II.D:1035, II.D:287, 691)
 S_LO, S_HI, OSC, NERR, M_OP = Fr(-10), Fr(10), Fr(17), Fr(14), Fr(2)
-DELTA_MAX, KAPPA_MAX = Fr(1, 100), Fr(1, 4)          # delta as d0count5's DELTA; kappa <= 1/4
+DELTA_MAX, KAPPA_MAX = Fr(1, 100), Fr(1, 4)          # delta as d0count5's DELTA; kappa <= 1/4 (Lemma 4.1 (i))
+KAPPA_D = Fr(2)                                      # II.D's regulariser exponent, kappa := 2 (II.D:221-223, 688)
 
 
 def domains(N=NERR, tau_full=True):
@@ -90,7 +92,7 @@ def domains(N=NERR, tau_full=True):
             'L42P': (low, S_HI),                     # Lemma 4.2's parametrix with B_0^(j) (order s_j + delta)
             'T31E': (low, S_HI),                     # Lemma 4.1 Step 2 (b): Theorem 3.1's scheme with E for L
             'T54': (S_LO, S_HI),                     # Theorem 5.4 at the chain's order
-            'D': (S_LO - 2, S_HI + 1),               # II.D sections 2-4, II.D', II.E, II.F' (tau <= 2)
+            'D': (S_LO, S_HI),                       # II.D sections 2-4, II.D', II.E, II.F' (s and s_0 = s - 2)
             'C0': (Fr(0), Fr(0))}                    # constant orders
 
 
@@ -150,7 +152,7 @@ TABLE = {
     # II.D: section 1, Lemmas 2.1-2.5, sections 3-4, the global estimate
     ('D', 105, 'A2P'): ('site', 'D', [E(1, -1, 0)], [E(0, -1, 0)], []),
     ('D', 158, 'STM'): S, ('D', 165, 'STM'): S, ('D', 167, 'STM'): CALL,
-    ('D', 170, 'A2P'): ('site', 'D', [E(-1, 2, 2 + KAPPA_MAX)], [E(2, -2 - 2 * KAPPA_MAX, -2)], []),
+    ('D', 170, 'A2P'): ('site', 'D', [E(-1, 2, 2 + KAPPA_D), E(1, -KAPPA_D, 0)], [E(2, -2 - 2 * KAPPA_D, -2)], []),
     ('D', 171, 'BP'): ('site', 'D', [E(1, -1), NN], [E(2, -2), E(0, 0)], []),
     ('D', 179, 'STM'): CALL,
     ('D', 194, 'A2P'): ('site', 'D', [E(1, -k_)], [E(2, -1, 0)], []),
@@ -194,9 +196,9 @@ for i in (592, 647, 810, 846, 863, 997, 1245, 1313):
 KPRIME = [('A2', 420, "for $w\\in H^{K'}_{e3b}$"), ('A2', 439, "where $K'\\ge\\sup|\\mathsf s|+m+2$ is a fixed integer"),
           ('A2', 466, "\\subset H^{K'}$ for $t>0$"), ('A2', 695, "for $w\\in H^{K'}$"),
           ('D', 160, "for every $w\\in H^{K'}_{e3b}$"), ('D', 230, "for $w\\in H^{K'}_{e3b}$")]
-READS = [('A2', 726, "Take $\\tau\\ge\\sup\\mathsf s+N$"), ('A2', 400, "once $J'/2\\ge\\sup\\mathsf s+N$"),
+READS = [('A2', 727, "Take $\\tau\\ge\\sup\\mathsf s+N$"), ('A2', 403, "once $J'/2\\ge\\sup\\mathsf s+N$"),
          ('A2', 394, "Finally $\\|\\chi Lu\\|_{-N-m}\\le C\\|\\chi u\\|_{-N}$"),
-         ('A2', 520, "and $\\mathsf s_j := \\mathsf"), ('D', 1035, "\\|_{-N}\\le\\|u\\|_{\\mathsf s_0}$"),
+         ('A2', 522, "and $\\mathsf s_j := \\mathsf"), ('D', 1035, "\\|_{-N}\\le\\|u\\|_{\\mathsf s_0}$"),
          ('D', 287, "$\\tau := s-s_0$"), ('D', 691, "for $\\tau = 1$")]
 
 
@@ -293,16 +295,16 @@ def main():
     for u in uncl:
         print('      unclassified %s' % (u,))
     dom = domains()
-    OK['O2'] = dom['L41'] == (Fr(-31), Fr(10)) and dom['T31'] == (Fr(-61, 2), Fr(10)) and dom['D'] == (Fr(-12),
-                                                                                                      Fr(11))
+    OK['O2'] = dom['L41'] == (Fr(-31), Fr(10)) and dom['T31'] == (Fr(-61, 2), Fr(10)) and dom['D'] == (Fr(-10),
+                                                                                                      Fr(10))
     print('  O2 (deduced): the order ranges, from the callers: Lemma 4.1 / Proposition 5.3 / the parametrix at s\' in '
           '[%s, %s] (tau >= sup s + N); Theorem 3.1\'s r\' in [%s, %s] (J\'/2 >= sup s + N); II.D-II.F\' sites in '
-          '[%s, %s] (tau <= 2): %s' % (dom['L41'][0], dom['L41'][1], dom['T31'][0], dom['T31'][1], dom['D'][0],
+          '[%s, %s] (s, s_0, s + 1): %s' % (dom['L41'][0], dom['L41'][1], dom['T31'][0], dom['T31'][1], dom['D'][0],
                                        dom['D'][1], OK['O2']))
     r = evaluate(rows)
     old = dict(sob=(Fr(-16), Fr(11)), sym=(Fr(-22), Fr(22)), fac=(Fr(-1049, 100), Fr(951, 100)))
     inside = {nm: old[nm][0] <= r[nm][0] and r[nm][1] <= old[nm][1] for nm in ('sob', 'sym', 'fac')}
-    OK['O3'] = r['sob'] == (Fr(-65, 2), Fr(11)) and r['sym'] == (Fr(-63), Fr(31)) and r['fac'] == (Fr(-63, 2),
+    OK['O3'] = r['sob'] == (Fr(-65, 2), Fr(14)) and r['sym'] == (Fr(-63), Fr(31)) and r['fac'] == (Fr(-63, 2),
                                                                                                   Fr(951, 100))
     wl = r['where'][('sob', r['sob'][0])]
     ws = r['where'][('sym', r['sym'][0])]

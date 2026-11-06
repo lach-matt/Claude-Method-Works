@@ -43,6 +43,7 @@ Labels: certified (interval arithmetic). C1, C1d, C2, C2d concern the computed b
 converged between n = 80 and 160, not certified, and C1d, C2d bound how large it may be); C3 concerns the background
 itself. Run: python3 checks/intcert5.py   (about a quarter of an hour under load)
 """
+import bisect
 import importlib.util
 import math
 import os
@@ -71,8 +72,7 @@ def I(a, b=None):
 
 
 def hull(*xs):
-    return iv.mpf([min(float(x.a) for x in xs), max(float(x.b) for x in xs)]) if False else \
-        iv.mpf([min(x.a for x in xs), max(x.b for x in xs)])
+    return iv.mpf([min(x.a for x in xs), max(x.b for x in xs)])
 
 
 def widen(x, d):
@@ -82,7 +82,7 @@ def widen(x, d):
 # ---------------------------------------------------------------- the C-infinity bump in interval arithmetic
 def bump_parts(X, a, b):
     """(b, b') of the bump exp(1 - 1/(1 - y^2)), y = (2 X - a - b)/(b - a), enclosed on the interval X"""
-    c, h = I(a + b) / 2, I(b - a) / 2
+    c, h = (I(a) + I(b)) / 2, (I(b) - I(a)) / 2
     Y = (X - c) / h
     lo, hi = Y.a, Y.b
     if hi <= -1 or lo >= 1:
@@ -108,36 +108,34 @@ def bump_parts(X, a, b):
 
 # ---------------------------------------------------------------- the bend phi, enclosed
 class Bend:
+    """phi'' = A (b_P - l1 b_L - l2 b_R) and its two integrals phi', phi from the left end of the support.
+
+    The three lobes are translates and dilates of one even bump, so int b_X = h_X K and int x b_X = c_X h_X K (h_X the
+    half-width, c_X the centre, K the bump's integral over (-1, 1)); the two moment conditions int phi'' = int x phi''
+    = 0 are l1 h_L + l2 h_R = h_P and l1 c_L h_L + l2 c_R h_R = c_P h_P, with K cancelled. l1, l2 are their solution
+    in interval arithmetic, exact up to outward rounding (racslice5 solves the same system by trapezoid quadrature)."""
+
     def __init__(self, rs, A, ncell=22500):
         self.A = A
         self.P, self.L, self.Rv = rs.P_IV, rs.L_IV, rs.R_IV
-        mpmath.mp.dps = 40
-        bf = lambda x, a, b: (mpmath.e * mpmath.exp(-1 / (1 - ((2 * x - a - b) / (b - a))**2))   # noqa: E731
-                              if abs((2 * x - a - b) / (b - a)) < 1 else mpmath.mpf(0))
-        mom = {}
+        hc = {}
         for nm, (a, b) in (('P', self.P), ('L', self.L), ('R', self.Rv)):
-            m0, e0 = mpmath.quad(lambda x: bf(x, a, b), [a, (a + b) / 2, b], error=True)
-            m1, e1 = mpmath.quad(lambda x: x * bf(x, a, b), [a, (a + b) / 2, b], error=True)
-            mom[nm] = (m0, m1, e0 + e1)
-        M = mpmath.matrix([[mom['L'][0], mom['R'][0]], [mom['L'][1], mom['R'][1]]])
-        l = mpmath.lu_solve(M, mpmath.matrix([mom['P'][0], mom['P'][1]]))
-        mpmath.mp.dps = 15
-        tol = max(1e-20, float(1e8 * max(m[2] for m in mom.values())))
-        self.l1 = widen(I(float(l[0])), tol + 1e-15 * abs(float(l[0])))
-        self.l2 = widen(I(float(l[1])), tol + 1e-15 * abs(float(l[1])))
-        self.lfloat = (float(l[0]), float(l[1]))
-        # interval Riemann sums for phi' and phi on [3.5, 5.75]
+            hc[nm] = ((I(b) - I(a)) / 2, (I(a) + I(b)) / 2)
+        (hP, cP), (hL, cL), (hR, cR) = hc['P'], hc['L'], hc['R']
+        self.l1 = hP / hL * (cR - cP) / (cR - cL)
+        self.l2 = hP / hR * (cP - cL) / (cR - cL)
+        # interval Taylor sums for phi' and phi over float cell edges r_k, widths w_k = r_(k+1) - r_k in iv
         self.x0, self.x1 = self.L[0], self.Rv[1]
         self.n = ncell
-        self.h = (self.x1 - self.x0) / ncell
+        self.r = [self.x0 + k * (self.x1 - self.x0) / ncell for k in range(ncell)] + [self.x1]
         p1 = [I(0.0)]
         p0 = [I(0.0)]
         for k in range(ncell):
-            X = I(self.x0 + k * self.h, self.x0 + (k + 1) * self.h)
+            X = I(self.r[k], self.r[k + 1])
+            w = I(self.r[k + 1]) - I(self.r[k])
             pp = self.phi2(X)
-            p1.append(p1[-1] + I(self.h) * pp)
-            # phi over the cell: phi(r_k) + [0, h] (phi'(r_k) + [0, h] phi'')
-            p0.append(p0[-1] + I(self.h) * (p1[-2] + I(0.0, self.h) * pp))
+            p1.append(p1[-1] + w * pp)                           # phi'(r_(k+1)) = phi'(r_k) + w phi''(xi)
+            p0.append(p0[-1] + w * p1[-2] + w * w / 2 * pp)      # phi(r_(k+1)) = phi(r_k) + w phi'(r_k) + w^2/2 phi''(xi)
         self.p1, self.p0 = p1, p0
         self.end1, self.end0 = p1[-1], p0[-1]
 
@@ -151,16 +149,17 @@ class Bend:
         """enclosures of (phi, phi', phi'') on the interval X"""
         if X.b <= self.x0 or X.a >= self.x1:
             return I(0.0), I(0.0), I(0.0)
-        a = max(float(X.a), self.x0)
-        k = min(int((a - self.x0) / self.h), self.n - 1)
-        rk = self.x0 + k * self.h
+        k = max(0, min(bisect.bisect_right(self.r, max(float(X.a), self.x0)) - 1, self.n - 1))
+        while self.r[k] > X.a and k > 0:                       # r_k <= X.a (or r_0 = x0), exactly
+            k -= 1
+        rk = self.r[k]
         Xc = iv.mpf([min(X.a, rk), X.b])
         pp = self.phi2(Xc)
-        d = I(0.0, float(X.b) - rk)
+        d = iv.mpf([0, (iv.mpf(X.b) - I(rk)).b])
         p1 = self.p1[k] + d * pp
-        p0 = self.p0[k] + d * (self.p1[k] + d * pp)
-        if X.a < self.x0 or X.b > self.x1:                     # straddles the support's end: phi, phi' also 0 there
-            p1, p0 = hull(p1, I(0.0), self.end1), hull(p0, I(0.0), self.end0)
+        p0 = self.p0[k] + d * self.p1[k] + d * d / 2 * pp
+        if X.a < self.x0:                                       # phi = phi' = 0 left of the support
+            p1, p0 = hull(p1, I(0.0)), hull(p0, I(0.0))
         return p0, p1, pp
 
 
