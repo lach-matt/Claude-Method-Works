@@ -251,24 +251,28 @@ to Σ_τ0, where they are supported in the band widened by the angular light-con
 ## 4. (b) Exact compact support (READ; computed: racglobal5 R3, R4)
 
 **Proposition L′ (deduced from [CS06] Theorem 2 and [CD03] Theorem 5.6, READ, with R3).** Let U be an invariant band
-compactly contained in a vacuum region of Part I's Σ_τ0 (seed, gap, outside the shell) and (δγ, δK) a small invariant
-seed supported in U. There is an invariant correction supported in U such that the corrected data equal Part I's
-outside U and satisfy the vacuum constraints iff one number vanishes: the projection on the static KID. *Proof.* [CD03]
-solves up to the projection on ker P* ("whatever the space-dimension n", p. 4). Equivariance: the variational
-solution is unique and the problem invariant under the isometries T² × Z2 × Z2 of the background data, so the solution is
+compactly contained in a vacuum region of Part I's Σ_τ0 (seed, gap, outside the shell) and εδ a small invariant seed
+supported in U. There is an invariant correction c = O(ε²), supported in U, such that background + εδ + c satisfies
+the vacuum constraints up to a multiple m(ε) of the (weighted) static KID; m(ε) = ε² Q(δ) + O(ε³). *Proof.* [CD03]
+solves up to the projection on ker P* ("whatever the space-dimension n", p. 4). Equivariance: the variational solution
+is unique and the problem invariant under the isometries T² × Z2 × Z2 of the background data, so the solution is
 invariant and only invariant KIDs project. In a vacuum region KIDs are Killing fields ([CD03] p. 33); the invariant
 Killing fields of Tangherlini are the multiples of ∂_t (R3, exact: X^R = X^θ = 0 from the torus components, then X^t
-constant; ∂_φi are odd under the reflections), with lapse N_s = e^(−ψ)/√(2e^(−ψ) − f) > 0 on Part I's slice (R3). ∎
+constant; ∂_φi are odd under the reflections), with lapse N_s = e^(−ψ)/√(2e^(−ψ) − f) > 0 on Part I's slice (R3). For
+any compactly supported perturbation, ⟨(N_s, Y_s), DΦ(·)⟩ = ⟨P*(N_s, Y_s), ·⟩ = 0, so the projection of Φ(background +
+εδ + c) − Φ(background) is ½ ε² ⟨(N_s, Y_s), D²Φ[δ, δ]⟩ + O(ε³) = ε² Q(δ) + O(ε³). ∎ The same computation shows: **if
+Q(δ) ≠ 0, no data of the form background + εδ + O(ε²), supported in U, satisfy the vacuum constraints for ε small**;
+if Q changes sign on a one-parameter family of seeds, exactly localised data exist (intermediate values, the solution
+depending continuously on the seed, [CS06] Theorem 2).
 
 **The charge (computed, R4).** For bandconst5 B4's compactly supported linear data (δγ = 0, a stream function), the
-seed solves the linearised constraints and the momentum constraint is linear in K at fixed γ, so the projection is
-ε² Q + O(ε³), Q = ∫_U N_s((tr δK)² − |δK|²) dvol. Pointwise on Tangherlini (exact) (tr δK)² − |δK|² = (2/(3(2 − f)))
-δKt² − 2δp² − 2δs2², and the momentum constraint's δs2 makes Q negative: Q < 0 for all 45 seeds (three bands, one
-inside the horizon; frequencies 2, 6, 24; five directions); without the −2δs2² term a θ-seed gives Q > 0 (control). So
-no small stream-function seed completes to exactly localised vacuum data, and adding dust in U does not help: the
-projection becomes ε²Q − 2∫N_s δe with δe ≥ 0. Exact compact support is therefore not obtained here; band localisation
-(Proposition L) and exact localisation on cones (B6) are what this note proves. (The sign is what the positive energy
-of a localised perturbation would give; that interpretation is not used.)
+momentum constraint is linear in K at fixed γ and contributes nothing, so Q = ∫_U N_s((tr δK)² − |δK|²) dvol. Pointwise
+on Tangherlini (exact) (tr δK)² − |δK|² = (2/(3(2 − f))) δKt² − 2δp² − 2δs2², and the momentum constraint's δs2 makes Q
+negative: Q < 0 for all 45 seeds (three bands, one inside the horizon; frequencies 2, 6, 24; five directions); without
+the −2δs2² term a θ-seed gives Q > 0 (control). So none of these seeds completes to exactly localised vacuum data, and
+adding dust in U does not help: the condition becomes ε²Q = 2∫N_s δe with δe ≥ 0. Exact compact support is therefore
+not obtained here; band localisation (Proposition L) and exact localisation on cones (B6) are what this note proves.
+(The sign is what positive energy of a localised perturbation would give; that interpretation is not used.)
 
 ## 5. (c) Part II's (ii) and (iii)
 

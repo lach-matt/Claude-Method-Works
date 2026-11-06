@@ -385,6 +385,12 @@ polarisation; the other is not examined): then sections 4-6 extend with one tran
 mixed symbols bounded below by c on all harmonics with n_A n_B ≠ 0, and the extended system (h, φ_1, …, φ_N) with N
 bounded cross couplings. Without (i) nothing is proved.
 
+[R5 (FAMILIES5-VLASOV.md sections 2 and 5). For three or more families present at a point (ii) is not sufficient: at
+stage 1 combinations of three phases occur, and an antipodal pair with any third phase is exactly resonant (vlasovhf5
+H4). The condition is (ii′): pairwise separation and frequencies 1, Λ, …, Λ^(N−1) (Lemma C there). (iii) is settled by
+the torus polarisation (Lemma P there), and the record's (F6) holds for non-radial families by the orbit space's absence
+of shear (Lemma Ψ there).]
+
 ---
 
 # Part III. Vlasov matter

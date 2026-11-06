@@ -37,3 +37,6 @@ E9 PASS
       log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in ['0.01', '0.0032', '0.001', '0.00032']; sup
       |kappa_k'|/kappa_k^(3/2) = 2.75: True
 E10 PASS
+  E11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
+      env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200  [179
+      s]
