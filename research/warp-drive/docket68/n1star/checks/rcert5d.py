@@ -40,10 +40,12 @@ box_coeffs or inputs(..., box=True); a mutant passing vp twice at kids' call sit
 every check of --collect, and one dropping abs in bound passed C1.  C1 now also runs END TO END through Engine.kids
 (kids_control): an Engine on test fields t^4 and x^4 (exact sups known; for them the sound bound exceeds the true sup
 by only 3 h^4) and eight signed combinations, negative centre values included, at half-widths 0.005-0.25.  The
-verifier's mutants mA1-mA4 and mA6, rebuilt on this file, fail it; mA5 (box_coeffs at half the half-width) is sound
-for every function -- the enclosure's overcount factors of the order-4 and order-5 terms, 4 and 10, become 2 and 2.5,
-still >= 1 -- so no test can fail it.  D2 now uses certified LOWER ends (D4's centre points), and D4's independence is
-stated exactly: it does not use the Taylor models, but shares point_coeffs and the generated frame code.]
+verifier's mutants mA1-mA4 and mA6, rebuilt on this file, fail it.  mA5 (box_coeffs at half the half-width) passes
+it: the enclosure's overcount factors of the order-4 and order-5 terms, 4 and 10, become 2 and 2.5, still >= 1, so
+for a single field its bound still dominates the Taylor-Lagrange bound term by term and no test on one field can fail
+it (for products in the frame it dominates to fourth order in h).  D2 now uses certified LOWER ends (D4's centre
+points), and D4's independence is stated exactly: it does not use the Taylor models, but shares point_coeffs and the
+generated frame code.  This note was corrected after the runs of round 6; the code they ran is unchanged.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
 engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
 engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a
