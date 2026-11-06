@@ -252,11 +252,12 @@ frequencies 1, Λ, …, Λ^(N−1), torus polarisation.
   K(n̂, n̂) < 0 and K′^l_l = tr K − κ′ = sin²β κ + (3 − sin²β) K^l_l/3 < 0, so κ′K′^l_l > 0: [Rac16] Lemma 4.1 fails
   for every foliation. Control: a K of mixed sign has a hyperbolic tilt.
 
-**Proposition L (amended [R5]).** As FAMILIES5-AXIS Proposition L, for a perturbation supported in {R1 < R < R2, θ1 <
+**Proposition L (amended [R5]).** [R7 (the round-6 verifier's m6): superseded by FAMILIES5-R6 Theorem L″, which has
+no radial restriction.] As FAMILIES5-AXIS Proposition L, for a perturbation supported in {R1 < R < R2, θ1 <
 θ < π/2 − θ1} with [R1, R2] disjoint from the band B = [4.29, 4.53]: solved inward from R2 to a when R2 < 4.29, outward
 from R1 to b(τ0) when R1 > 4.53 (the split is hyperbolic on those intervals, R1). Existence on the whole interval:
-Theorem K's Cauchy stability around the background, which solves the system there ([Rac16] Theorem 4.3 is local in
-existence only); the constraints hold identically ([Rac16] p. 12: the system and (4.17) are the constraints); the
+Theorem K's Cauchy stability [R7: Theorem K′, FAMILIES5-R6 section 5] around the background, which solves the
+system there ([Rac16] Theorem 4.3 is local in existence only); the constraints hold identically ([Rac16] p. 12: the system and (4.17) are the constraints); the
 support widens by Δ(R) = ∫c dR + O(ε) (finite speed). **Perturbations meeting B** are posed on the outgoing cone N
 (B6: exact localisation, any amplitude) [R6: the localisation holds for any amplitude; carrying the
 cone data to Σ_τ0 is Cauchy stability and needs small data], evolved by the characteristic problem ([Wu26] Theorem
@@ -285,7 +286,9 @@ momentum constraint is linear in K at fixed γ and contributes nothing, so Q = �
 on Tangherlini (exact) (tr δK)² − |δK|² = (2/(3(2 − f))) δKt² − 2δp² − 2δs2², and the momentum constraint's δs2 makes Q
 negative: Q < 0 for all 45 seeds (three bands, one inside the horizon; frequencies 2, 6, 24; five directions); without
 the −2δs2² term a θ-seed gives Q > 0 (control). So none of these seeds completes to exactly localised vacuum data, and
-adding dust in U does not help: the condition becomes ε²Q = 2∫N_s δe with δe ≥ 0. Exact compact support is therefore
+adding dust in U does not help: the condition becomes ε²Q = 2∫N_s δe with δe ≥ 0. [R6: withdrawn inside the
+horizon; Theorem Q′ (FAMILIES5-R6 section 1.4): the pairing is ∫T(ξ, n), which outgoing null dust makes negative
+inside the horizon; marker added in round 7, the round-6 verifier's m5.] Exact compact support is therefore
 not obtained here; band localisation (Proposition L) and exact localisation on cones (B6) are what this note proves.
 (The sign is what positive energy of a localised perturbation would give; that interpretation is not used.)
 

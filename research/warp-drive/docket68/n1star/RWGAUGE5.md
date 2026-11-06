@@ -254,8 +254,8 @@ R_1^(1/2) sup r^(-1/2) |w| + (int s^p w'^2)^(1/2) (R_1^(1-p)/(p - 1))^(1/2). The
 for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi] [R3.0 m3: with (127) as READ, E^p = int r^p f^(-k_H)
 (d_r T^a P)^2 dr on the cone, so int s^p w'^2 <= E^p[T^a Psi], constant 1] [R2.0 m9: k here is [HKW18]'s
 exponent in (127), written k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder
-with s^p = s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I
-by [HKW18] Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
+with s^p = s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0)
+<= C E^N(0) <= C I by [HKW18] Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
 for tau in [tau~_k, tau~_(k+1)], (128) at p = 1 from tau~_k and (R6)'s bound at tau~_k give E^1(tau) <= C (tau_k^-1 +
 tau~_k^-2) D, and tau <= tau_(k+1) = 2 tau_k. So the second term is <= C delta^(-1/2) D^(1/2) tau^(-(2-p)/2) = C
 delta^(-1/2) D^(1/2) tau^(-1/2 + delta) (computed: U7 (iv)). []
@@ -293,6 +293,7 @@ sup_r of a sum at most the sum of the sups, so (a)-(c) for the modes add up to (
 
 The old text occurs exactly once in the paper and the new text not at all (computed: U8). [R2.0: the block below is
 the round-2 text, for M1, M2 and the wording of the verifier's minor 3; the round-1 block is kept in R2.0.4.]
+[R3.0: the block below is now the round-3 text (R3.0.2, R3.0.4); the round-2 block is kept in R3.0.5.]
 
 ```old
 So in
@@ -306,18 +307,20 @@ So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
 in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
 as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
-(supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the frame of the static observers, on the outgoing
-part of [HKW18]'s leaves (r ≥ R_1, their radius), the orbit-space components of the scalar type can grow as, and no
-faster than, r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data of
-every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant,
-f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed exactly). With that weight they settle,
-and the angular components and the tensor type settle without it, pointwise and uniformly in r ≥ R_1 and in l:
-r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay at least as τ^(δ−1/2) for every δ ∈ (0, 1/2], and
-r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| at least as τ^(−1), for data with [HKW18]'s I_{XΨ}(Σ_0) finite for X = T^a Ω^b,
-a ≤ 2, b ≤ 4, Ω the rotations; and, for b ≤ 2, the integral of r^(−3)|h(e_a, e_b)|² + r^(−1)|h(e_i, e_j)|² over
-r ≥ R_1 and the unit sphere, against dr dσ, decays at least as τ^(−2), [HKW18]'s rate (Theorems 2 and 2′, proved from
-[HKW18]'s Theorems 2, 16 and 18 as READ and a Sobolev inequality on S³; every coefficient and exponent computed). The
-powers r^(±1/2) are attained, so the weights cannot be improved.
+in r (supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the orthonormal frame of the static observers,
+e_0 = f^(−1/2) ∂_t and e_1 = f^(1/2) ∂_r on the orbit space and e_i the unit frame of the sphere, f = 1 − μ/r², on the
+outgoing part of [HKW18]'s leaves (r ≥ R_1, their radius) the orbit-space components of the scalar type can grow as,
+and no faster than, r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data
+of every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant
+and S its harmonic (RWGAUGE5 Theorem 1, proved; the components computed exactly). With that weight they settle, and
+the angular components and the tensor type settle without it, pointwise and uniformly in r ≥ R_1 and in l: with cK
+the change of mass, r^(−1/2)|(h − cK)(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay at least as τ^(δ−1/2) for every
+δ ∈ (0, 1/2], and r^(−1)|(h − cK)(e_a, e_b)| and |h(e_i, e_j)| at least as τ^(−1), for data with [HKW18]'s
+I_{XΨ}(Σ_0) finite for X = T^a Ω^b, a ≤ 2, b ≤ 4, Ω the rotations; and, for b ≤ 2, the integral of
+r^(−3)|(h − cK)(e_a, e_b)|² + r^(−1)|h(e_i, e_j)|² over r ≥ R_1 and the unit sphere, against dr dσ, decays at least
+as τ^(−2), [HKW18]'s rate (RWGAUGE5 Theorems 2 and 2′, proved from [HKW18]'s Theorems 2, 16 and 18 and Lemma 11 as
+READ and a Sobolev inequality on S³; every coefficient and exponent computed). The powers r^(±1/2) are attained, so
+the weights cannot be improved.
 ```
 
 ## 7. Files

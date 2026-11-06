@@ -5052,12 +5052,14 @@ coordinator's promotion. No new mathematics is required.
 ### R9.f Runs and mutations
 
 *Runs* (under load; the machine shared, `nice -n 10`).
-- `python3 checks/gdlge2_5.py`: EXIT 0; L1-L10 PASS, ten controls failing; stdout byte-identical with a random hash seed and `PYTHONHASHSEED=7` (md5
-  `d3486241de779f4c9948c31f5f86cf23`); fourteen minutes under a load average of 23.
-- `python3 checks/gdtail5.py`, under `PYTHONHASHSEED=0` and `=3`: EXIT 0; T1-T12 PASS, twelve controls failing; the two stdouts byte-identical (md5
-  `c657813f892e7ef02cfa201cbd854c37`); fifteen minutes under that load.
-- `python3 checks/gdr9_5.py`: EXIT 0; N1-N8 PASS, eight controls failing; stdout byte-identical with a random hash seed and `PYTHONHASHSEED=5`
-  (md5 `b4a3f8c7c751265974a169ffc6203b46`); six minutes under that load; `python3 checks/gdr9_5.py --selftest`: PASS.
+- `python3 checks/gdlge2_5.py`: EXIT 0; L1-L10 PASS, ten controls failing. Its stdout is byte-identical with a random
+  hash seed and with `PYTHONHASHSEED=7` (md5 `d3486241de779f4c9948c31f5f86cf23`); fourteen minutes under a load
+  average of 23.
+- `python3 checks/gdtail5.py`, under `PYTHONHASHSEED=0` and `=3`: EXIT 0; T1-T12 PASS, twelve controls failing. The two
+  stdouts are byte-identical (md5 `c657813f892e7ef02cfa201cbd854c37`); fifteen minutes under that load.
+- `python3 checks/gdr9_5.py`: EXIT 0; N1-N8 PASS, eight controls failing. Its stdout is byte-identical with a random
+  hash seed and with `PYTHONHASHSEED=5` (md5 `b4a3f8c7c751265974a169ffc6203b46`); six minutes under that load.
+  `python3 checks/gdr9_5.py --selftest`: PASS.
 Each `.out` is the run's stdout.
 
 *Mutations.* Each mutant is the file with one string replaced, run on the checks it touches; "killed" means exit 1.

@@ -54,7 +54,7 @@ Labels: **computed** (a check of `checks/mbsign5.py`, exact unless stated, each 
 
 - *Vacuum regions.* Every vacuum region of Part I's spacetime is Tangherlini, g = −f dv² + 2 dv dR + R² dΩ₃², f = 1 −
   μ/R², v = ∫e^(ψ_P) dv̂ (Part I's chart, ψ_P = ψ_P(v̂), qsign5 Q2), and Part I's slice is there the round slice v =
-  V(R), w := V′ = e^(ψ_P(τ0 + R)), spacelike: 0 < f w < 2. ξ = ∂_v. Inside the horizon (the seed region R < R_h =
+  V(R), w := V′ = e^(ψ_P(τ0 + R)) > 0, spacelike: γ_RR = w(2 − f w) > 0. ξ = ∂_v. Inside the horizon (the seed region R < R_h =
   0.9067, μ0 = 0.8221; the slice's inner edge 0.683; qsign5 Q3) ξ is spacelike.
 - *The class* (FAMILIES5-R6 section 1.1): T² × Z2 × Z2-invariant data on a band U = {R1 < R < R2} of a vacuum region,
   compactly supported in U.
@@ -86,8 +86,8 @@ span ((l + 2)/2, (l − 2)/2) ⊕ its conjugate), or directly by integration by 
 
 ## 2. The tensor sector on every slice (Theorem T; computed E2)
 
-**Theorem T.** On every class slice v = V(R) of Tangherlini (any w = V′ with 0 < fw < 2; Part I's vacuum slices are
-these), let δγ = 2R²H(R) T, δK = (R² P(R) + 2R n^R H) T, T a class TT harmonic of level l. Then:
+**Theorem T.** On every class slice v = V(R) of Tangherlini (any w = V′ > 0 with fw < 2, inside the horizon as well
+as outside; Part I's vacuum slices are these), let δγ = 2R²H(R) T, δK = (R² P(R) + 2R n^R H) T, T a class TT harmonic of level l. Then:
 (i) the linearised constraints vanish identically;
 (ii) N_s √γ_RR = 1 and N_s² − γ_RR (Y_s^R)² = f;
 (iii) Q(δ) = −2|T|² ∫ T_m(ξ, n) √γ_RR dR, with
@@ -100,11 +100,11 @@ the flux through the slice of the current T_ab ξ^b of the tensor master field, 
 (iv) the quadratic form of T_m in (P, H_R) is R³ [[N/2, Y/2], [Y/2, N/(2γ_RR)]] with determinant R⁶ f/(4γ_RR):
 positive definite exactly where f > 0.
 
-*Proof.* Computed E2, exact and symbolic in w(R) and μ (the square root √(w(2 − fw)) carried as a function whose
-derivatives are eliminated, the identity tested in Q(R, μ, w-jets)[√] by reduction modulo its square): (i) for a
-generic class A (B, C from Lemma H); (iii) the Euler operator of (θ-integrated Q-density) + 2|T|²T_m√γ_RR vanishes in
-H and in P, for l = 2 and l = 4; the angular integrals exact. Control: |T|² replaced by |T|²/2 (rejected). (ii), (iv)
-exact. That the tensor field h = 2R²H T is a linearised vacuum solution iff H solves the tensor equation is the
+*Proof.* Computed E2: the slice quantities symbolic in w(R) and μ; (i) for a generic class A (B, C from Lemma H),
+identically; (iii) the Euler operator of (θ-integrated Q-density) + 2|T|²T_m√γ_RR vanishes in H and in P, for l = 2
+and l = 4, the angular integrals exact, the Euler coefficients exact at three rational slice points (two outside the
+horizon, one inside) with every jet of w free and √(w(2 − fw)) rational there (w = 2/(f + q²)); Control: |T|² replaced by |T|²/2 (rejected). (ii), (iv)
+exact, symbolic; and the current's divergence is ξ(H) times the tensor equation (exact). That the tensor field h = 2R²H T is a linearised vacuum solution iff H solves the tensor equation is the
 record's static5 S1 and gmodes5 G1 (computed there). ∎
 
 So in the tensor sector E = 2|T|² ∫T_m(ξ, n): positive on every nonzero tensor seed supported where f > 0, and
@@ -116,8 +116,8 @@ indefinite where f < 0, on Part I's slice itself (no transfer to another slice i
 
     Q = −|T|² ∫ (R³ f H_R² + (k_T² + 2) R H²) dR                                                               (X1)
 
-(independent of w), and those with H = 0 have Q = −|T|² ∫ R³ P² dR < 0. *Computed:* both from Theorem T by the Euler
-test (E3 (a)). On [R1, R2] = [0.72, 0.89], with H = (R − R1)²(R2 − R)² and l = 2 (|T|² = 3/2, k_T² = 6), Q is
+(independent of w), and those with H = 0 have Q = −|T|² ∫ R³ P² dR < 0 (the θ-integrated density is −|T|²R³P²
+pointwise). *Computed:* both from Theorem T (E3 (a)). On [R1, R2] = [0.72, 0.89], with H = (R − R1)²(R2 − R)² and l = 2 (|T|² = 3/2, k_T² = 6), Q is
 affine in μ and Q = 1.1843 × 10⁻⁸ at μ = 0.80 and 1.5618 × 10⁻⁸ at μ = 0.84 (exact rationals printed): Q > 0 for
 every μ in [0.80, 0.84], an interval containing Part I's μ0 = 0.8221; R2² = 0.7921 < 0.80, so the band is inside the
 horizon for every such μ, and 0.72 > 0.683 puts it inside Part I's seed region. Control: the same construction on
