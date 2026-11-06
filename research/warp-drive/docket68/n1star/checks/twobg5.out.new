@@ -47,3 +47,14 @@
   G5: min over v <= 5 of R(u2, v) - sqrt(mu_III(v)) (the packet's inner edge against its columns'
       background horizon), at n = 40, 80, 160: 0.6127 0.6127 0.6127 (attained at v = 0.00 0.00 0.00);
       the inner edge untrapped (R_v > 0) at every v: True; positive and converged: True
+  control (B -> -B): min(mu - mu0) = -0.6479 (n = 40), -0.6480 (n = 80): the bound fails, not a discretisation
+      effect: True
+  G5 control (a heavier shell, amplitude 16 for 3.6): the gap is -0.6173 -0.6169 at n = 40, 80: the packet is trapped by
+      the shell and crosses its columns' horizon band, so G5 fails for it: True
+G1 PASS
+G2 PASS
+G3 PASS
+G4 PASS
+G5 PASS
+control PASS
+G5 control PASS
