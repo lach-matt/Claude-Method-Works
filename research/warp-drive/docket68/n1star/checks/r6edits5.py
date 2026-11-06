@@ -209,7 +209,7 @@ def family_indices(L):
     return [x.group(1) if x else None for x in (st, fam, fs)] + ([e2["sum1"], e2["sum2"]] if e2 else [None, None])
 
 
-def bounds_ok(L, pre):
+def bounds_ok(L, pre, edit2=True):
     rb, rc, cf, bf, ker, fk, fac = read_bounds(L)
     if not all((rb, rc, cf, bf, ker, fk, fac)):
         return {"E2b": (False, "a bound could not be read"), "E2c": (False, ""), "E2d": (False, "")}
@@ -240,12 +240,12 @@ def bounds_ok(L, pre):
     except Exception:  # noqa: BLE001
         fx = sp.nan
     okd = sp.simplify(fx - I) == 0 and sp.limit(I, LAM, 0, "+").is_finite
-    e2 = read_edit2(L)                    # [R8] Edit 2 states the factor again: it must be the same, computed one
+    e2 = read_edit2(L) if edit2 else None     # [R8] R6-D's Edit 2 states the factor again: the same, computed one
     try:
         fx2 = parse_expr(e2["exp"].replace("lam", "LAM"), {"C": C, "LAM": LAM}, transformations=tr) if e2 else sp.nan
     except Exception:  # noqa: BLE001
         fx2 = sp.nan
-    okd = okd and sp.simplify(fx2 - I) == 0
+    okd = okd and (sp.simplify(fx2 - I) == 0 if edit2 else True)    # R5-D's Edit 2 (r5edits5 E1f) states none
     return {"E2b": (okb, r_b), "E2c": (okc, f"kernel C(1 + lam^{k_lam}) t^({k_t}); f's C(1 + lam^{f_lam}) t^({f_t})"),
             "E2d": (okd, f"read e^({fac.group(1)}), Edit 2 e^({e2['exp'] if e2 else None}); computed "
                          f"exp({sp.simplify(I)})")}
@@ -344,7 +344,7 @@ def rotation_case():
 def math_checks(L, pre, r6=True):
     """the mathematics of an edited Lemma 11.0 (whitespace-normalised) with the text before it (for W_TT's class)"""
     res = {"E2a": leibniz_ok(read_sums(L), read_binomial(L))}
-    res.update(bounds_ok(L, pre))
+    res.update(bounds_ok(L, pre, edit2=r6))
     if r6:
         res.update(r6_only_ok(L))
     return res

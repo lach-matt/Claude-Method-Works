@@ -2,3 +2,5 @@ C3 (interval arithmetic, the background itself) R >= R_*: hyperbolicity of Sigma
    R_* in [3.437180, 3.437180] (tau along the ray brackets tau0: True; the crossing has vhat < vhat(v = 3) = 3.14533: True)
    N's data on the shell, v in [3, 4.5]: 1500 validated steps, widest node enclosure 5.3e-07; vhat(4.5) in [4.692460, 4.692460]; mu_end in [3.605773, 3.605834]
    control: DOP853 inside the enclosures: True; with Q(3) shifted by 1e-6 it leaves them (rejected): True
+   Sigma' (R >= R_*) in {u <= u1}: R_*^2 > mu_end: True; phi < tau_ray(3.50) - tau0 = 0.0807 on the support (phi <= 2.7e-06): True; the ray reaches R = 3.50 before the shell: True; the shell ends on Sigma_tau0 at R < 5.3725 < 5.75: True
+   Sigma' (A = 0.01) on R in [R_*, 5.75]: kappa' > 0 and K'^l_l < 0 certified on every cell: True (2300 interval evaluations; largest upper bound of kappa' K'^l_l = -2.9597e-04); beyond 5.75, Sigma' = Sigma_tau0 in Tangherlini of mass mu_end, Nk = (mu/R^3)(f - 3) < 0 exactly

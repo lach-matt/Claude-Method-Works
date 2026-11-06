@@ -22,10 +22,10 @@ Nothing in the paper or in N1STAR-PROOF.md is edited.
    reduction's limits checked). Validated integration of these encloses every input of the margins.
    - Theorem L″'s hyperbolicity holds on the whole of Σ′ in the development of the data: intcert5 C3 on R ≥ R_*
      (upper bound −2.96 × 10⁻⁴) and truebg5 T3 on R < R_* (XX).
-   - Corollary Q's Γ > 0 holds on the whole seed region (truebg5 T2, least lower bound XX).
+   - Corollary Q's Γ > 0 holds on the whole seed region (truebg5 T2: the background lies in intcert5 C1d's tube).
    - Rácz's band on Σ_τ0 is one interval, R ∈ [4.2955, 4.5258] certified, with edge zones of width ≤ 0.0073.
-   - A posteriori, the computed background is within XX of the true one in C² on the seed region; this gives the
-     validated error bound the reader asked for.
+   - A posteriori, the computed ψ_III is within XXSUP of the true one in C² on the seed region (and its packet
+     inputs within T4's bounds): this is the validated error bound the reader asked for.
 3. **Theorem L″'s lobe is moved** (R8.3) to b(R; 3.5, 4.05), so that the bend lies in {u ≤ u1}. Σ′ = Σ_τ0 outside
    [3.5, 5.75]; it is bent by at most 0.00116, and the angular widening is at most 0.00033 rad.
 4. **The N-family ledger is computed** (R8.4, nledger5). Every term of the N-family linearisation is written out for
@@ -107,17 +107,19 @@ become interval quotients.
     in iv. On a cell of R the same Taylor form from the nearest node below encloses (φ, φ′, φ″).
 - **Results (intcert5.out).**
   - C1: certified at n = 80 and 160 (least lower bound of Γ/E² 0.4475).
-  - C1d: with ψ_P, ψ_P′, ψ_P″ each widened by d = (10⁻³, 10⁻³, 10⁻²) it still certifies (least lower bound 0.3735).
-    The n = 80 and 160 splines differ by 1.1 × 10⁻⁵, 9.4 × 10⁻⁶ and 6.0 × 10⁻⁶ (sampled).
+  - C1d: with ψ_P, ψ_P′, ψ_P″ each widened by d = (10⁻³, 10⁻³, 3 × 10⁻²) and μ0 by 10⁻⁴ it still certifies (least
+    lower bound XXC1D). This is the tube T2 uses (R8.2); d″ = 5 × 10⁻² is not certified. The n = 80 and 160 splines
+    differ by 1.1 × 10⁻⁵, 9.4 × 10⁻⁶ and 6.0 × 10⁻⁶ (sampled).
   - C2: certified at n = 80 and 160 (largest upper bounds −3.01 × 10⁻⁴ and −3.06 × 10⁻⁴).
   - C2d: on R < R_*, with every input widened by 10⁻³ of its size plus 10⁻⁶, it still certifies (upper bound
     −6.46 × 10⁻³ at n = 160). The margin below R_* is twenty times C2's, which is set in the bend.
   - Controls, which fail as they must: Γ's sign flipped; Γ without 4νE²; d = (0.5, 0.5, 5); A = 0.001 (220
     sub-cells fail, upper bound +4.9 × 10⁻⁵); A = 0 (314 fail); a widening of 0.5 (3,386 fail).
 
-C1d and C2d concern the computed background's neighbourhood. The direct certificates of R8.2 make them unnecessary
-for the theorems, and R8.2's T4 shows why C2d alone would not have sufficed: the computed packet inputs differ from
-the true ones by more than its 10⁻³.
+C1d and C2d concern the computed background's neighbourhood. C1d is what carries Γ > 0 to the background itself:
+truebg5 T2 certifies that the background itself lies in C1d's tube (R8.2). C2d is not needed, since T3 certifies the
+hyperbolicity below R_* directly. R8.2's T4 shows why C2d alone would not have sufficed: the computed packet inputs
+differ from the true ones by more than its 10⁻³.
 
 ## R8.2 The background itself (intcert5 C3; checks/truebg5.py T1-T4)
 
@@ -178,14 +180,19 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
   with B's amplitude 1.7 → 1.7017 it leaves them.
 - **T3** (Theorem L″'s margin below R_*). κK^l_l < 0 is certified on Σ_τ0 for R ∈ [0.683, R_*], that is
   v̂ ∈ [0, τ0 + R_*], the part of Σ′ in the development of the data below R_*. On every cell it is checked with the
-  region I, packet and region III formulas, according to where the slice point can lie: XX. Control: ψ_v̂'s sign
-  flipped in the packet fails on XX step boxes.
-- **T2** (Corollary Q's margin). Every cell of the seed region R ∈ [0.70, 1.861] lies in region III (R2 ≥ R on the
-  slice). Γ/E² > 0 is certified with least lower bound XX. Control: the sign flipped fails.
-  - A posteriori, the computed spline (n = 160) differs from ψ_III by at most XX (k = 0, 1, 2) at the cell ends,
-    certified, and by XX on the cells, where the bounds include the cells' variation.
-  - Control: with B's amplitude × 1.001 in the reduction, the spline is at least XX from it, more than that
-    agreement.
+  region I, packet and region III formulas, according to where the slice point can lie: XXT3. Control: with every
+  packet input widened by half its size, XXT3C step boxes are not certified.
+- **T2** (Corollary Q's margin, through C1d). Every cell of the seed region R ∈ [0.70, 1.861] lies in region III
+  (R2 ≥ R on the slice, f3 > 0 at u2).
+  - The a posteriori bound for the computed background: the n = 160 spline differs from the true ψ_III by at most
+    XXPE (k = 0, 1, 2) at the XXNP cell ends. On the whole seed region the bound is XXSUP, from centred forms with
+    the cells' enclosures for k = 0, 1 and the cells' enclosures for k = 2. |μ3 − μ0| ≤ XXDMU.
+  - These lie inside C1d's tube, d = (10⁻³, 10⁻³, 3 × 10⁻²) and |Δμ| ≤ 10⁻⁴, on which C1d certifies Γ > 0. So
+    Γ > 0 on the seed region for the background itself.
+  - The discretisation error is a few times larger than the n = 80 / 160 difference (1.1 × 10⁻⁵ in ψ): convergence
+    in n did not measure it, and the a posteriori bound does.
+  - Control: with B's amplitude × 1.001 in the reduction, the spline is at least XXCE from that ψ_III, more than the
+    agreement above.
 - **T4** (a posteriori in the packet). At XX of twobg5's n = 160 crossings in the packet, the computed inputs differ
   from the true ones by at most XX. This is informational, since T3 does not use the computed background.
 - **C3** (intcert5, R ≥ R_*). κ′ > 0 and K′^l_l < 0 are certified on Σ′ from R_* to 5.75, with largest upper bound
@@ -196,11 +203,12 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
 
 **What is certified, exactly.** For the background defined by the stated characteristic data:
 - Rácz's split is hyperbolic on all of Σ′ ∩ {v̂ ≥ 0}, that is R ≥ 0.683 (T3 and C3; beyond 5.75 exact).
-- Γ > 0 on the seed region (T2).
+- Γ > 0 on the seed region (T2 with C1d).
 - Σ_τ0's band is the single interval of C3, up to its edge zones.
 
 The reduction is deduced from G1's identities, which twobg5 computes, and from the mass function's definition. The
-certificates are interval arithmetic over the reduction's ODEs. Nothing in them uses the 2D double-null grid.
+certificates are interval arithmetic over the reduction's ODEs. The 2D double-null grid enters only as T2's
+reference: the computed spline is the centre of C1d's tube.
 
 ## R8.3 Theorem L″ with the moved lobe
 
