@@ -2003,8 +2003,8 @@ Its findings, each re-derived before it is seated:
 - **A (accepted; computed, `d0count5.py`).** Proposition A.7's left remainder Op(r_J1) acts on u through the lower
   part of the norm, ||u||_{H^t0}, t0 = floor(inf t) - 1 (or through Lambda'_t, of order -t, up to -inf t), so its
   weight is 2 M2 >= -t0, not sup t: d0count5.py:131 had M2 = ceil(max(0, sup t)/2). Re-derived: with M2 = ceil(-t0/2)
-  the program reproduces the verifier's table exactly (Q4's range: 185 with -inf t, 193 with -t0; with T_LO = -16, the
-  record's own input order -N - m of II.A2:389-391, 195 and 203). Both figures are below what the chain needs once
+  the program reproduces the verifier's table (M_2.4 + 6 on Q4's range: 185 with -inf t, 193 with -t0; with T_LO =
+  -16, the record's own input order -N - m of II.A2:389-391, 195 and 203). Both figures are below what the chain needs once
   A2 and the operator orders are counted (R8.1): D_0 <= 399, FWD <= 474, c' = 632. Pinned now: D_a = 53, D_b = 64,
   M_a = 81, M_2.4 = 197, M_f = 224, D_0 = 230 on round 7's operator orders, and M_a = 138, M_2.4 = 374, M_f = 393,
   D_0 = 399, FWD = 474 on the box. `OK['D0'] = D0 > 0` is replaced by the pins; the four mutations the verifier found
@@ -2031,8 +2031,8 @@ Its findings, each re-derived before it is seated:
   class, breaks K1 (C1); an off-class M_23 breaks K2 (C2).
 - **(2) MAJOR 3 (accepted; `x7indep5.py`).** I3 is independent in the summation only (the chains, excesses, n_a and A
   are dnumber5's). I2's generator reached the levels counting every point in 1 instance of 600 (re-derived: kb =
-  ceil((Tb - alpha1)/s) exceeds K - 1 whenever s < 2/K); every second instance is now drawn with s, K and d1 large
-  enough, 299 of 600 reach those levels, and I2 requires at least 100.
+  ceil((Tb - alpha1)/s), Tb - alpha1 about 2, exceeds K - 1 unless s > 2/K); every second instance is now drawn with
+  s, K and d1 large enough, 299 of 600 reach those levels, and I2 requires at least 100.
 - **(3) r6fixes5.out (accepted).** It printed "<= 3.5237e+17 ... True", below the certified 3.52422e17: its inputs were
   the round-6 roundings. They are now rounded outward (q_lo >= 0.1966827, e^(kappa Dtau/2) <= 1.1051725e17) and it
   prints 3.5242e17.
