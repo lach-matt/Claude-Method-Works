@@ -1,0 +1,59 @@
+# bondi5.py run in full, D618 (2026-11-06); bondi5.py md5 7c5c537b56483b7ebbcccbade3534197; sympy 1.14.0; under a load average near 20 (B2 339 s unloaded)
+$ python3 bondi5.py --selftest --verbose
+   low orders 60s
+      [ok] below the waves' order: R_ss at s^-1, s^0 read -12 b1, -24 b2
+      [ok] below the waves' order: R_sth at s^-2, s^-1 read -(7/4) u1, 3 b1 u1 - 3 u2
+   Gamma 82s
+   Ricci 97s
+      [ok] g g^-1 = 1 to s^8
+      [ok] b3 = b4 = b5 = 0
+      [ok] b6 = -(1/4)(p^2 + pq + q^2)
+      [ok] u3 = u4 = 0
+      [ok] u5 formula
+      [ok] u6 formula (in the s^4 coefficients)
+      [ok] w1 = w2 = 0
+      [ok] w3 = -(2/3) div u5
+      [ok] angular equations at s^2 are linear homogeneous in (d_v p4, d_v q4) of rank 2
+      angular s^2: [-p4v - q4v, p4v*cos(theta)**2, q4v*sin(theta)**2]
+      [ok] R_vv at s^5 is an identity
+      [ok] R_vv at s^6 involves only p3, q3, p4, q4, w4 (found ['p3', 'p4', 'q3', 'q4', 'w4'])
+      [ok] R_vv at s^6 is linear in d_v w4
+      [ok] d_v M = (4/3)(p_v^2 + p_v q_v + q_v^2) + (2/3) div d_v u6
+      d_v M - (4/3)(...) = 8*(6*sin(2*theta)*Derivative(p4(v, theta), v) + 6*sin(2*theta)*Derivative(q4(v, theta), v) - sin(2*theta)*Derivative(p4(v, theta), (theta, 2), v) - sin(2*theta)*Derivative(q4(v, theta), (theta, 2), v) - 5*cos(2*theta)*Derivative(p4(v, theta), theta, v) - 5*cos(2*theta)*Derivative(q4(v, theta), theta, v) + Derivative(p4(v, theta), theta, v) - Derivative(q4(v, theta), theta, v))/(9*(cos(2*theta) + 1)*tan(theta)) 179s
+B1 the hierarchy in the class: b, U, W from R_rr, R_rth, R_vr; d_v a = 0; the mass law from R_vv at s^6        PASS  (215s)
+      [ok] g g^-1 = 1 to s^7
+      [ok] ů_2 = -C4/2, ů_3 = -C5/3
+      [ok] ů_4 = -C6/4 + C4 C4_v/8
+      [ok] g^-1(dv_B, dv_B) = 0 to s^6
+      [ok] ϑ_4 = -E4/2 - d_th C4/4
+      [ok] g^-1(dv_B, dth_B) = 0 to s^8
+      [ok] areal equation at s^0 holds identically
+      [ok] areal equation at s^1 holds identically
+      [ok] areal equation at s^2 holds identically
+      [ok] areal equation at s^3 holds identically
+      [ok] rho_4 = (F4 + G4 + H4)/6 - (1/3) div ϑ_4
+      rho_4 = -E4(v, theta)*tan(theta)/3 + E4(v, theta)/(3*sin(2*theta)) + F4(v, theta)/6 + G4(v, theta)/6 + H4(v, theta)/6 - tan(theta)*Derivative(C4(v, theta), theta)/6 + Derivative(C4(v, theta), (theta, 2))/12 + Derivative(E4(v, theta), theta)/6 + Derivative(C4(v, theta), theta)/(6*sin(2*theta))
+      [ok] e^{2 P1_B} = 1 + O(s^3)
+      [ok] the s^3 coefficient of e^{2 P1_B} is 2 p1
+      [ok] e^{2 P2_B} = 1 + O(s^3)
+      [ok] the s^3 coefficient of e^{2 P2_B} is 2 p2
+      [ok] e^{-2 b_B} -> 1
+      [ok] e^{-2 b_B} = 1 - (C4_v/2) s^2 - (C5_v/3) s^3 + O(s^4): no s^1 term, and these coefficients
+      e^{-2 b_B}: {1: 0, 2: -Derivative(C4(v, theta), v)/2, 3: -Derivative(C5(v, theta), v)/3, 4: -B4(v, theta) + C4(v, theta)*Derivative(C4(v, theta), (v, 2))/8 - C4(v, theta)/2 + E4(v, theta)*tan(theta)/3 - E4(v, theta)/(3*sin(2*theta)) - F4(v, theta)/6 - G4(v, theta)/6 - H4(v, theta)/6 + tan(theta)*Derivative(C4(v, theta), theta)/6 - Derivative(C4(v, theta), (theta, 2))/12 + Derivative(C4(v, theta), v)**2/8 - Derivative(C6(v, theta), v)/4 - Derivative(E4(v, theta), theta)/6 - Derivative(C4(v, theta), theta)/(6*sin(2*theta))}
+B2 the chart: eikonal, angular and areal corrections order by order; the Bondi form; p_B = p, e^{-2b_B}        PASS  (2043s)
+B3 the Hawking mass of the Bondi spheres tends to the mean of the mass aspect                                  PASS  (8s)
+B4 the numerics' mean-mass offset is (2/9) lam^2 int env'^2 = 5 pi^2/108 lam^2 to 0.5 %                        PASS  (0s)
+bondi5.py: 4/4
+exit 0
+
+$ python3 bondi5.py --mutants
+mutant 1 of B1: caught
+mutant 2 of B1: caught
+mutant 1 of B2: caught
+mutant 2 of B2: caught
+mutant 3 of B2: caught
+mutant 1 of B3: caught
+mutant 1 of B4: caught
+bondi5.py mutants: 7/7
+exit 0
+[4340 s]

@@ -611,63 +611,74 @@ def ratio_fns(nm, N):
 CACHE12 = {}
 
 
+def crossover12(nm, E):
+    """min over the crossover of |sigma_main| over round 6's and round 5's error bounds, and the phase change"""
+    N, r0, mu0, nu, Gam = 12, mp.mpf(3), mp.mpf(1), -mp.mpf(1)/9, mp.mpf(1)
+    cN = N*mu0/(r0**2 + mu0)
+    if nm not in CACHE12:
+        CACHE12[nm] = ratio_fns(nm, N)
+    f = CACHE12[nm]
+    lam = mp.mpf(10)**-E
+
+    def parts(x):
+        kap, kN1, R = f(x)
+        T0, T = lam*kap, lam*kN1
+        Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
+        Lam = lam**(N - 2)*R
+        return kap, kN1, T0, Xi, Lam, nu*(1 + 2j*T0) - Gam*Xi*Lam                  # i^N = 1
+
+    def rho(x):
+        p = parts(x)
+        return Gam*abs(p[3])*p[4]/(abs(nu)*abs(1 + 2j*p[2]))
+
+    def bis(fun, lo, hi):                               # fun(lo) > 0 > fun(hi), on a log scale
+        for _ in range(120):
+            mid = mp.sqrt(lo*hi)
+            if fun(mid) > 0:
+                lo = mid
+            else:
+                hi = mid
+        return hi
+    x0 = (lam**(N - 2)*Gam*cN/abs(nu))**(mp.mpf(1)/(2*N - 2))
+    xc = bis(lambda x: parts(x)[5].real, x0/100, x0*100)
+    xl = bis(lambda x: rho(x) - 4, x0/100, x0*100)
+    xh = bis(lambda x: rho(x) - mp.mpf(1)/4, x0/100, x0*100)
+    r1 = r2 = mp.inf
+    phase = mp.mpf(0)
+    for k in range(301):
+        x = xl*(xh/xl)**(mp.mpf(k)/300)
+        kap, kN1, T0, Xi, Lam, sm = parts(x)
+        SU = Gam*abs(Xi)*Lam
+        b2 = (T0**2 + lam*abs(kN1 - kap) + 1/kap + lam)*(abs(nu) + SU)
+        b1 = (T0 + 1/kap + lam)*SU + (T0**2 + lam)*abs(nu)
+        r2, r1 = min(r2, abs(sm)/b2), min(r1, abs(sm)/b1)
+        phase = max(phase, abs(mp.arg(parts(x + 4*mp.pi*lam)[5]/sm)))
+    return xc, parts(xc)[2], r1, r2, phase
+
+
+CACHE12R = {}
+
+
 def e12(control=False):
     """Case 3 at a real cancellation (N = 12): |sigma_main| against round 6's error bound (L.21 (iv') and H_Sigma's exact
     form: T0^2 + lam |kappa_(N-1) - kappa| + 1/kappa + lam, relative) and round 5's (eps = lam kappa)"""
     mp.mp.dps = 60
-    N, r0, mu0, nu, Gam = 12, mp.mpf(3), mp.mpf(1), -mp.mpf(1)/9, mp.mpf(1)
-    cN = N*mu0/(r0**2 + mu0)
     rows, ok = [], True
     for nm in ("exp(-1/x)", "record C_c^inf"):
-        if nm not in CACHE12:
-            CACHE12[nm] = ratio_fns(nm, N)
-        f = CACHE12[nm]
-        prev, last = None, None
+        prev = None
         for E in (10, 20, 40, 80):
-            lam = mp.mpf(10)**-E
-
-            def parts(x):
-                kap, kN1, R = f(x)
-                T0, T = lam*kap, lam*kN1
-                Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
-                Lam = lam**(N - 2)*R
-                return kap, kN1, T0, Xi, Lam, nu*(1 + 2j*T0) - Gam*Xi*Lam          # i^N = 1
-
-            def bis(fun, lo, hi):                       # fun(lo) > 0 > fun(hi), on a log scale
-                for _ in range(400):
-                    mid = mp.sqrt(lo*hi)
-                    if fun(mid) > 0:
-                        lo = mid
-                    else:
-                        hi = mid
-                return hi
-            x0 = (lam**(N - 2)*Gam*cN/abs(nu))**(mp.mpf(1)/(2*N - 2))
-            xc = bis(lambda x: parts(x)[5].real, x0/100, x0*100)
-            rho = lambda x: Gam*abs(parts(x)[3])*parts(x)[4]/(abs(nu)*abs(1 + 2j*parts(x)[2]))     # noqa: E731
-            xl = bis(lambda x: rho(x) - 4, x0/100, x0*100)
-            xh = bis(lambda x: rho(x) - mp.mpf(1)/4, x0/100, x0*100)
-            r1 = r2 = mp.inf
-            phase = mp.mpf(0)
-            for k in range(301):
-                x = xl*(xh/xl)**(mp.mpf(k)/300)
-                kap, kN1, T0, Xi, Lam, sm = parts(x)
-                SU = Gam*abs(Xi)*Lam
-                b2 = (T0**2 + lam*abs(kN1 - kap) + 1/kap + lam)*(abs(nu) + SU)
-                b1 = (T0 + 1/kap + lam)*SU + (T0**2 + lam)*abs(nu)
-                r2, r1 = min(r2, abs(sm)/b2), min(r1, abs(sm)/b1)
-                sm2 = parts(x + 4*mp.pi*lam)[5]
-                phase = max(phase, abs(mp.arg(sm2/sm)))
-            r = r1 if control else r2
+            if (nm, E) not in CACHE12R:
+                CACHE12R[(nm, E)] = crossover12(nm, E)
+            xc, T0c, r1, r2, phase = CACHE12R[(nm, E)]
+            r = r1 if control else r2                   # the control: round 5's bound in place of round 6's
             if prev is not None:
                 ok &= r > 2*prev
             prev = r
             ok &= phase <= mp.pi/6
-            last = r
-            rows.append("%s, lam = 1e-%d: x_c = %s, lam kappa = %s; min over the crossover |sigma_main|/(round 6's"
-                        " bound) = %s, /(round 5's) = %s; phase change over 4 pi lam <= %s"
-                        % (nm, E, mp.nstr(xc, 4), mp.nstr(parts(xc)[2], 3), mp.nstr(r2, 4), mp.nstr(r1, 4),
-                           mp.nstr(phase, 3)))
-        ok &= last > 100
+            rows.append("%s, lam = 1e-%d: x_c = %s, lam kappa = %s; min |sigma_main|/(round 6's bound) = %s,"
+                        " /(round 5's) = %s; phase change over 4 pi lam <= %s"
+                        % (nm, E, mp.nstr(xc, 4), mp.nstr(T0c, 3), mp.nstr(r2, 4), mp.nstr(r1, 4), mp.nstr(phase, 3)))
+        ok &= prev > 100
     if control:
         return ok
     out("  X12 Case 3 of Theorem L_1E at a real cancellation, N = 12 (nu < 0, Gamma > 0, i^N = 1), r0 = 3, unit"
