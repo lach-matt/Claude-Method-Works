@@ -11,6 +11,9 @@ round 8: R9.0); round 9 is not yet read. The results are deduced; R9.d lists wha
 [R11: report-vA10, the confirming read of round 10, found no Major; its findings are seated in R11.0, and round 11 is
 not yet read. The inputs of the promoted results are promoted with them, each on the independent read that covered it
 (R11.p); only results that nothing cited rests on keep their earlier labels.]
+[R12: report-vA11, the confirming read of round 11, found no Major; its findings are seated in R12.0, and round 12 is
+not yet read. Lemma R4.1 (a), Proposition R2.13 (c) with Lemma R2.9, and the two steps of Theorem R2.12's proof that
+Theorem R3.4's proof uses are promoted, each on the read that covered it (R12.p).]
 
 *The item.* Part VIII (`proof5/PART-VIII-LINEAR.md`, Theorem 2.2, Corollary 2.3) proves that in the class every
 linearised data set has a development $\dot g$ in the gauge of the nonlinear problem which settles to a change of mass,
@@ -27,6 +30,8 @@ two gauges of the paper's section 8.2.
   horizon included), with a loss of two derivatives, uniformly in $l$ with no mode sum (Theorem 1.5). $X$ itself decays
   one power slower in its $l = 0$ time component and at the full rate otherwise. Proved from Part VIII (proved) and
   the lemmas here; the uniqueness of the gauge representative also uses Part IX (verified).
+  [R12 (A129): "one power slower in its $l = 0$ time component" holds for the vector field $Y[h_0]$; as a 1-form,
+  $X_{\mathrm{RW},0}$'s $l = 0$ $dr$ component is one power slower as well ((A112)).]
 - **Harmonic gauge: not closed; what is proved is the obstruction and its exact form.** The harmonic-gauge solutions
   are $\dot g_{RW}+\dot\mu\,\mathcal L_{W^{**}_H}g+\mathcal L_{Z'}g$ with $\Box Z' = J$, $J$ supported in $l\ge2$ and
   decaying, and the $l = 0$ part of $Z'$ free ($\Box Z'_0 = 0$) (Proposition 2.1). A conserved horizon charge
@@ -675,7 +680,8 @@ of Theorem R2.7, and $(4\pi^2)^{-1}\int\ell([\Box,\chi]Y) = (4\pi^2)^{-1}Q[\chi 
 
 By Lemma R2.0 the compact support, or some decay of the data, cannot be dropped.
 
-**Lemma R2.9 ($l = 0$; computed B5).** For $Y = a\,dv+b\,dr$ ($a,b$ functions of $v,r$) put $\phi := \delta Y$ and $q :=
+**Lemma R2.9 ($l = 0$; computed B5; proved [R12], as Proposition R2.13 (c)'s input).** For $Y = a\,dv+b\,dr$
+($a,b$ functions of $v,r$) put $\phi := \delta Y$ and $q :=
 r^3(dY)_{vr}$. Then
 $$(\Box Y)_v = \partial_v\phi+r^{-3}(\partial_vq+f\partial_rq),\qquad(\Box Y)_r = \partial_r\phi-r^{-3}\partial_rq.$$
 So $\Box Y = 0$ iff $\partial_rq = r^3\partial_r\phi$ and $\partial_vq = -r^3(\partial_v\phi+f\partial_r\phi)$; their
@@ -844,8 +850,8 @@ has a double pole at $r_h$ (V5). So the two gauges coincide for $l\ge2$; at $l =
 the horizon. Theorem 1.5's "with $l = 0$ part exactly $\dot\mu K$" refers to (0.1)'s $K$.
 
 **Proposition R2.13 (the spherically symmetric sector in harmonic gauge; deduced; computed H4, B5,
-V1-V2; (b) proved [R10], read with (A10) and (A23); (a) proved [R11], as (b)'s input).** Let $\dot
-g_H$ be a harmonic-gauge solution of Proposition 2.1 (a), with gauge vector $Z'$.
+V1-V2; (b) proved [R10], read with (A10) and (A23); (a) proved [R11], as (b)'s input; (c) proved [R12]).**
+Let $\dot g_H$ be a harmonic-gauge solution of Proposition 2.1 (a), with gauge vector $Z'$.
 
 (a) *Exact form.* $(\dot g_H)_0 = \dot\mu K^*+\mathcal L_{Z'_0}g$, where $Z'_0$ is the $l = 0$ part of $Z'$, $\Box Z'_0 =
 0$, and $K^* := K+\mathcal L_{W^{**}_H}g$, which equals $r^{-2}dv^2+\mathcal L_{W^{**}}g$ (by (0.1)), with
@@ -1269,6 +1275,18 @@ so $\ell$ of the source is $\ell(J_h) = -\ell(\Theta(h)) = O(v^{-w+\epsilon'})$ 
 at the rate $t_*^{-(w-1)+\epsilon'}$. On compact $r$-sets at late times $Y = \chi'Y$ and $\dot g_H-\dot\mu K^* =
 h+\mathcal L_Yg$; conclude as in R2.12 (iii). (iv) $Y_h$ has compactly supported data on every later slice (finite
 speed of propagation), so Corollary R2.8 applies; $\mathcal L_{Y_h}g$ is linear in $Y_h$. $\square$
+[R12 (A119): the two steps taken from Theorem R2.12's proof, written out. Neither uses (S$_K$), which R2.12 assumes
+only to place its $Y$ in Theorem R2.5's class; here Proposition R3.2 and Lemma R2.11 do that. *$G$-invariance, for
+(i).* $\dot g$, $\chi_K$, $\chi(t^\flat_*)$, $W^{**}_H$ and so $F_Y$ are $G$-invariant, and $\Box$ commutes with
+every $T_g$; so $T_gY$ is again a forward solution of $\Box Y = \chi(t^\flat_*)F_Y$, and by uniqueness $T_gY = Y$.
+Hence $Z$ and $\dot g_H$ are $G$-invariant. *The conclusion of (iii).* On compact $r$-sets at late times, with $c =
+c(t_*)$ of Theorem R2.7 and $\mathcal L_{cW^*}g = c\,\mathcal L_{W^*}g+2\,dc\otimes_sW^*$,
+$$\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g = h+\mathcal L_{Y-cW^*}g+(c-c_\infty)\mathcal L_{W^*}g+2\,dc
+\otimes_sW^*.$$
+The first term is $O(t_*^{-w+\epsilon'})$ ((0.2)), the second $O(t_*^{-1/2})$ (Theorem R2.7, with one more derivative),
+and the last two $O(t_*^{-(w-1)+\epsilon'})$: $c-c_\infty$ as above, and $dc$ is $\ell$ of the source times
+$dv_h/dt_*$, $O(t_*^{-w+\epsilon'})$. As $w-1>1$, the sum is $O(t_*^{-1/2})$ with the derivatives of (R2.2). These are
+R2.12's steps as the round-2 verifier read them (R4.c), with $\chi'$ of (A8).]
 
 So the harmonic gauge holds on everything but a transition region bounded in $t^\flat_*$, where the solution is Part
 VIII's own, in its generalised harmonic gauge $\dot\Upsilon^\natural = 0$.
@@ -1428,7 +1446,8 @@ $-\mathrm{tr}\nabla^2$ of IV:122, and
 $$L_\Box := \rho_I\rho^{-7/2}\,\Box\,\rho^{3/2}\quad\text{on Cartesian components,}\tag{R4.1}$$
 IV (2.1)'s conjugation applied componentwise; $L$ is IV (2.1)'s scalar operator.
 
-**Lemma R4.1 (the operator and its indicial data; computed E1-E5, deduced; (b), (d), (e) proved [R11]).**
+**Lemma R4.1 (the operator and its indicial data; computed E1-E5, deduced; (b), (d), (e) proved [R11]; (a) proved
+[R12], as (b)'s input).**
 (a) For every 1-form $Z$, $(\Box Z)_c = \Box_0Z_c+C_c^{\nu b}\partial_bZ_\nu+D_c^\nu Z_\nu$, with $C$, $D$ stationary,
 $C = \sum_{k\ge1}\mu_0^kC_k$ and $D = \sum_{k\ge1}\mu_0^kD_k$, $C_k$ and $D_k$ homogeneous in $x$ of degrees $-1-2k$ and
 $-2-2k$ (so $O(|x|^{-3})$ and $O(|x|^{-4})$ with every derivative; at E1's points only $k = 1$ occurs), and
@@ -2116,6 +2135,8 @@ $$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le C_\kappa\,t_*^{-1/
 for $\dot g_H$ of Corollary R4.4 (all of $N^+$), of Theorem R3.4 (iii) (the late region) and of Theorem R2.12 (iii) (the
 cone, Corollary R3.3), each with its $c_\infty$. The clauses adding $\mathcal L_{Y_h}g$ (R4.4's last, R3.4 (iv), R2.12
 (iv)) hold at the same rate with $c_\infty+Q[Y_h]/4\pi^2$ (Corollary R5.4).
+[R12 (A125): the label's "proved [R11]" excepts these $\mathcal L_{Y_h}g$-clauses, which rest on Corollary R5.4. R5.4
+keeps its label; it is superseded by Corollaries R6.6 and R7.4, which are proved.]
 
 *Proof.* Fix $\kappa$ and put
 $$\beta := \tfrac12(\kappa+\delta_\sharp),\quad\eta := \tfrac12(\delta_\sharp-\beta),\quad b_+ := \tfrac12+\beta,\quad
@@ -6033,6 +6054,8 @@ stands. Labels as in round 10.
   is proved. Theorem 1.5 (a) and (c) and Lemma 2.2, promoted in round 10 as inputs, are confirmed on that read.
   Proposition R4.2's transposition of Part IV is re-derived and holds, with Lemma R4.1 (b), (d) and (e), so R10.e's
   caveat closes. All ten R10.h texts occur exactly once and seat in either order.
+  [R12 (A121): "every GAUGEDECAY5 result that the paper and the supplement cite is proved" had one exception,
+  Proposition R2.13 (c), which the supplement cites; it is promoted in R12.p.]
 - **Seated here** ((A111)-(A116)): one minor and five nits.
   - The inputs of the promoted results are promoted, each on the read that covered it.
   - Theorem 1.5 (c)'s full rate holds for $Y[h_0]$'s components, not for the 1-form $X_{\mathrm{RW},0}$; every use
@@ -6050,6 +6073,7 @@ stands. Labels as in round 10.
 - report-vA9's findings are seated correctly in round 10, and there is no Major.
 - Every GAUGEDECAY5 result that the paper and the supplement cite is proved. Theorem 1.5 (a) and (c) and Lemma 2.2 are
   promoted on that read.
+  [R12 (A121): with one exception, Proposition R2.13 (c), promoted in R12.p.]
 - Proposition R4.2's transposition of Part IV is re-derived and holds, with Lemma R4.1 (b), (d) and (e).
 - All ten R10.h texts occur exactly once in the files as they stood, and seat in either order.
 - One minor (labelling) and five nits, seated below.
@@ -6085,6 +6109,9 @@ $rH_0$ and every derivative of $\zeta$ and $rH_0$ have order $w$; $X_{\mathrm{RW
 component, and the $r$-derivative of its $dv$ component, have order exactly $w-1$, with leading coefficients $-c_0$ and
 $f'c_0$. The 1-form reading at order $w$ is false on the model. Its control runs the same path with $c_0 = 0$: the order
 is then $w$, and "exactly $w-1$" fails.
+[R12 (A127): in round 11 T13 read first derivatives only; from round 12 it reads first and second. On the model every
+higher derivative has order at least $w$ too: each $\partial_v$ adds a factor $T^{-1}$, and a $\partial_r$ removes the
+$c_0$ term and falls on $b$ or $e$ (deduced).]
 
 (A113) *Nit 1, T9's targets were typed* (gdtail5.py, `t9`'s certificate calls). Re-derived. The certificate was
 searched for the typed targets $p-\alpha_K$ and $\frac32-\alpha_K$. With the first typed as $p-\alpha_K+1$, T9 still
@@ -6141,10 +6168,15 @@ route, is not an input. A part of a result is promoted where only that part is u
 section named; the amendments it caused are seated there.
 - *Round 1* (read by the round-1 verifier, R2.V; the domain amended by (A3), (A4) and (A9), read with rounds 3-4):
   Proposition 2.1 (a)-(e), with its computations H3-H4.
+  [R12 (A124): R2.V's verdict sentence does not list Proposition 2.1. The round-1 verifier read it, with findings (m1),
+  its Part IX dependence, and (M), the supplement's $K^*$, which V1 compares with (d)'s horizon-regular $K^*$; the
+  round-2 verifier's M1, its domain, is seated as (A3), (A4) and (A9) (R4.c).]
 - *Round 2* (read by the round-2 verifier, R4.c: "R2.0-R2.4 and R2.V sound", R2.13's computations re-derived; its
   amendments read with round 4): Lemma R2.2, Proposition R2.3, Theorems R2.4-R2.5, Lemma R2.6, Theorem R2.7, Lemmas
   R2.10-R2.11, and Proposition R2.13 (a) as (b)'s input. Theorem R2.5's hypotheses (Dyn) and (H$'$7) are met at $b_0$
   (section R4's *Hypotheses*: Part VI.A Theorem 6.1; III.I Lemma 5.1's proof, (A16)).
+  [R12 (A123): "R2.0-R2.4" there names sections: section R2.0 and, by (A19), sections R2.a-R2.d, which hold Lemma R2.0
+  to Theorem R2.12; Proposition R2.13 is in section R2.V.]
 - *Round 3* (read by the round-3 verifier, R4.c, with (A23)-(A31) seated): Lemma R3.1, Proposition R3.2, Theorem
   R3.4, Lemma R3.5 and Proposition R3.6. Theorem R3.4 (iv) holds by Corollary R4.6 in place of its proof's last
   sentence ((A23)).
@@ -6165,6 +6197,10 @@ Lemma R8.2 to Corollary R8.12. With the inputs above, every result of this note 
 
 *Keeping their earlier labels.* Nothing cited rests on any of these. No promoted result uses them, and no text in
 R11.h cites one of them.
+[R12 (A118), (A119), (A121): not literally, as report-vA11 found. Lemma R4.1 (a) is an input of R4.1 (b); Theorem
+R3.4's proof uses two steps of Theorem R2.12's proof; and Proposition R2.13 (c), with Lemma R2.9 as its input, is cited
+by the supplement and stated in text (3). The sentence before this list is likewise not literal for the first two. All
+are promoted in R12.p; the list as it now stands is R12.p's.]
 - Definitions 1.1, R2.1 and R8.1, which are definitions.
 - Remark 2.4, Proposition 2.5, and Corollary 2.6 (withdrawn). (M)'s mention of Proposition 2.5 (iv), the projections'
   boundedness, is supplied by Lemma R8.2 with (F1) and (A102).
@@ -6172,6 +6208,9 @@ R11.h cites one of them.
 - Corollary R2.8 as stated (it is read as Corollary R4.6), Lemma R2.9, Theorem R2.12 and Corollary R3.3 (the cone
   versions), and Proposition R2.13 (c) (non-decaying data).
 - Lemma R4.1 (a) and (c), and Proposition R4.5.
+  [R12: Lemma R2.9, Proposition R2.13 (c) and Lemma R4.1 (a) are promoted (R12.p). Theorem R2.12 keeps its label; the
+  two steps of its proof that Theorem R3.4 uses are written into R3.4's proof ((A119)). Remark R7.1$'$ (deduced, used
+  by no proof) keeps its label too, and was missing here ((A122)).]
 - Corollary R5.3 for the cone representatives, and Corollary R5.4 (superseded by Corollaries R6.6 and R7.4).
 - Proposition R6.7 ((b)-(c) formal; (d) deduced after Corollary R7.4 for Corollary R6.6's $Y$, as a consequence),
   Proposition R6.9, and Lemma R6.10 to Corollary R6.13 (read as holding by the round-6 verifier, R7.0, and used by no
@@ -6228,6 +6267,7 @@ Every mutant dies; none is equivalent.
   asserted.
 - (GD52) Every result of this note that a promoted result's proof uses is proved (R10.p, R11.p). What keeps an earlier
   label is listed in R11.p; nothing cited rests on it.
+  [R12: with the exceptions (A118), (A119) and (A121), seated in R12.p ((GD54)).]
 
 *Labels.* As in round 10, with *proved* (R10.p, R11.p). Computed: `checks/gdtail5.py` T1-T13 and `checks/gdr9_5.py`
 N1-N8, as repaired; `checks/gdlge2_5.py` L1-L10, unchanged. Deduced: (A112)'s reading.
@@ -6254,6 +6294,7 @@ seat in either order with each new text then occurring once, and that every seat
 Their md5s: `N1STAR-PROOF.md` `87501cfb81d0e9632721e1e7944b9c38`; the paper `5930486d79b2001589adb7eceb8b35be`.
 Statuses are stated as the corpus has them: Part VIII and Part IX proved; the GAUGEDECAY5 results cited, and their
 inputs, proved (R10.p, R11.p).
+[R12: superseded by R12.h.]
 
 (1) *`N1STAR-PROOF.md`, 10.2 (iv)*, from "When" (at the end of a line) to "as in four dimensions.". Old:
 

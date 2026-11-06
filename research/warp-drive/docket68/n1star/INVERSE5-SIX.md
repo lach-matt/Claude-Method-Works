@@ -8,6 +8,8 @@ is INVERSE5-SCALAR.md's and is not touched here). For each it states the bound a
 its proof's constant is made of, what is proved, computed or deduced here, and the explicit constant or the exactly
 stated input at which it stops. CONSTANTS5.md, N1STAR-PROOF.md and the paper are not edited; section 7 proposes old/new
 text for CONSTANTS5.md R9.7 block 2 and R9.5.
+[R4: read since by two verifiers (report-vINV.md, report-vINV2.md, no Major); rounds 3-4 seat their findings on this
+file; section 7 and R2.2 are superseded (R2.2 by CONSTANTS5.md R12.7).]
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/inverse6_5.py` (the microlocal constants at L_b0 and the replacements' arithmetic; 17/17: K1-K8, controls
@@ -33,12 +35,17 @@ rest is homothety invariant.
   constant of Prop. 6.7 (a).
   [R3: "no non-constructive step of its own" holds at b0, for one operator; the constants uniform over b in B_*-bar
   come by compactness and contradiction (I.B section 9), R3.2. With R3 (a)'s notation the constant is 8 F C_a, R3.3.]
+  [R4: the absorption threshold is h_0 = min(h_ch', (2 C_a)^(-1/N)), h_ch' the threshold of Prop. 6.7 (a)'s own chain,
+  which contains (6.6)'s h_0 (R4.1).]
 - **B3, I.B:1978** (Thm 1.3 (3), high-energy invertibility). No non-constructive step of its own. Here: the inverse
   bound is 2 C_8.1 |sigma|^(-1+delta) with C_0 explicit in C_8.1; every threshold the chain reads, computed. Stops at:
   C_8.1, the chain constant of Prop. 8.1.
   [R3: the bound carries the factor (1 - nu'^2)^(-(1-delta)/2) when h = |Re sigma|^-1 and holds in the h-dependent
   semiclassical norms, not uniformly in X_sigma's (R3.1); "no non-constructive step" holds at b0 only, and even there
   Prop. 8.1's finite cover and nu_1 are compactness choices (R3.2).]
+  [R4: C_0 is not explicit in C_8.1 alone: C_0 = min(h_ch, (4 C)^(-1/N), (4 C C_K)^-1)^-1 (1 - nu'^2)^(-1/2), h_ch the
+  threshold of Prop. 8.1's own chain, which contains B1's h_0; "2 C_8.1" here is twice the constant before absorption
+  (R4.1, R4.2).]
 - **B4, III.F'':223** (Prop. 3.1, L_b0 at sigma != 0). Non-constructive: Fredholm index 0 and injectivity. Here:
   certified cut-off bounds for every Kodama-Ishibashi master operator at every l and every real sigma != 0; the exact
   transfer to the tensor-type blocks; a gluing lemma. Stops at: the gauge reconstruction of the vector and scalar types,
@@ -53,6 +60,8 @@ No lower bound for lambda1 or delta follows yet; the upper bounds stand (log10 d
 What changed: one of the six (B6) needs no inverse bound, two (B2, B3) have no non-constructive step of their own and
 reduce to the trapping estimate's constant and the calculus constants, the trapping estimate's symbol data are now
 numbers, and the two mode-stability bounds (B4, B5) have their spectral input certified harmonic by harmonic.
+[R4: "no non-constructive step of their own" holds at b0, for one operator, Prop. 8.1's cover and nu_1 aside; the
+uniformity over b is by compactness and contradiction (R3.2); and their thresholds contain the chains' own (R4.1).]
 
 ## 1. The six, read
 
@@ -77,6 +86,9 @@ numbers, and the two mode-stability bounds (B4, B5) have their spectral input ce
   for box^Ups), by mode stability.
   [R3: read "<= 2 C_8.1 (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) in the semiclassical norms at h = h(sigma)",
   R3.1.]
+  [R4: here C_8.1 is the record's constant of (8.1), after absorption, twice R3 (b)'s C; the bracket's "2 C_8.1" is
+  read "C_8.1" in that sense (R4.2), and C_0 also comes from Prop. 8.1 (a)'s own h_0 (I.B:1881), not from the
+  absorption alone (R4.1).]
 - **B4, III.F'':223** (PART-III-F3-MODES.md:219-245, Proposition 3.1). For sigma != 0, Im sigma >= 0,
   L-hat_b0(sigma) : X_sigma -> Y_sigma is invertible; "Fredholm of index 0, so injectivity suffices" (line 223), and
   injectivity is shown type by type: box^C's mode stability, the Kodama-Ishibashi master equations (Theorem 2.2),
@@ -119,6 +131,9 @@ for h <= h_0 := min((4C)^(-1/N), (4 C C_K)^-1); Theorem 1.3 (3) then holds with 
 to the left (each is at most half the left side). []
 [R3, the verifier's minor 3: the last bound omits (1 - nu'^2)^(-(1-delta)/2) in the case h = |Re sigma|^-1 and holds in
 the h-dependent semiclassical norms ||.||_o, ||.||_o', not uniformly in X_sigma's; corrected in R3.1.]
+[R4, the reader's minor 1: (a)'s hypothesis holds only for h below Prop. 6.7 (a)'s own threshold h_ch', and (b)'s only
+below Prop. 8.1's h_ch (I.B:1881, :1704 and (6.6)'s h_0 within it); so (a) holds for h <= min(h_ch', (2 C_a)^(-1/N)) and
+(b) for h <= min(h_ch, (4C)^(-1/N), (4 C C_K)^-1), with C_0 that minimum's inverse times (1 - nu'^2)^(-1/2) (R4.1).]
 
 **Lemma R4 (the interpolation constant of Proposition 6.7).** Let C_a be (a)'s constant on Im sigma in [beta, beta']
 (and C_a |sigma|^-1 on Im sigma = beta'), kappa := beta' - beta, and F := sup over sigma_0 >= h_0^-1 of
@@ -328,6 +343,7 @@ Gamma(3 delta_0/4)), Corollary 4.6 (propagation into the absorbing region, along
 explicit time at b0, phi_u, phi_s being explicit) and (6.6) [B1's input].
 [R3: at b0 only; the uniform constants over b (I.B section 9: compactness of B and the absorption of Prop. 6.7 (a) run
 by contradiction with sequences b_j) are a further input, R3.2; in R3 (a)'s notation the constant is 8 F C_a, R3.3.]
+[R4: h_0 = min(h_ch', (2 C_a)^(-1/N)), h_ch' Prop. 6.7 (a)'s chain threshold (R4.1).]
 
 **B3. I.B:1978, high-energy invertibility.** *Proved:* "Fredholm, so invertible" loses nothing: ||P-hat(sigma)^-1|| <=
 2 C_8.1 |sigma|^(-1+delta) for |sigma| >= C_0 = h_0^-1 (1 - nu'^2)^(-1/2), h_0 = min((4 C_8.1)^(-1/N), (4 C_8.1
@@ -340,6 +356,8 @@ constant (CONSTANTS5.md R7.A made the orders explicit, not these constants). The
 and B5's.
 [R3: the bound is 2 C_8.1 (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) in the semiclassical norms (R3.1); Prop.
 8.1's finite cover and nu_1 are compactness choices, and uniformity over b is by compactness and contradiction (R3.2).]
+[R4: C_0 = min(h_ch, (4 C_8.1)^(-1/N), (4 C_8.1 C_K)^-1)^-1 (1 - nu'^2)^(-1/2), h_ch Prop. 8.1's chain threshold
+(R4.1); here C_8.1 is the constant before absorption, the record's (8.1) constant being twice it (R4.2).]
 
 **B4. III.F'':223, L_b0 at sigma != 0.** *Proved/computed:* by Lemmas R5 and R6, ||L-hat_b0(sigma)^-1||_(Y_sigma ->
 X_sigma) <= C_ext + C_ext^2 e_X e_Y ||W|| (1 + ||W|| C_D(sigma)) with C_D = sup over types and l of the cut-off bounds.
@@ -486,6 +504,7 @@ of the theorem: each threshold exists, by the cited statements.
    L_b0 as wholes: their blocks' imaginary parts are not sign-definite (the gauge terms are not symmetric), so the flux
    argument does not apply, and no other argument is given; *not computed*: C_ext's value in the write-out's norms
    (the norms are not fixed, R2.0).
+   [R4, the reader's nit 3: Lemma R9 holds for radial q >= 0 (R3.3 n4), which is what R6 needs.]
 3. **(C, h_0) in (6.6): not computed.** The record's proof is a defect-measure contradiction; a constructive
    replacement needs explicit semiclassical calculus constants for operators B, E, G that Proposition 6.4 chooses
    without formulas, in a fibre metric whose condition number is eta^-16, about (gamma_C/271.5)^8 at the threshold
@@ -519,6 +538,9 @@ of the theorem: each threshold exists, by the cited statements.
    C_R not computed; the G-sup equivalence constants explicit in principle; eps_m, eps_t, eps_K chosen. The seven
    inverse bounds enter the C_k, C1, C2, A_2d and delta_K through III.J's inverses and the linear theory; they are not
    the only inputs missing.
+   [R4, the reader's nit 5: d moved: CONSTANTS5.md R12.2 has d <= 46,236,517,538,883,361 (R10.1's is withdrawn by
+   R12.5), and there log10 delta = -4.4539452 x 10^17 at the floors (inverse6_5a A2, rerun); the formula's monotonicity
+   is proved by inspection (R3.3 n6); the inventory A3 is updated (R4.3).]
 7. **The stated limit.** lambda1, delta > 0 exist (proved). Explicit lower bounds follow from item 6's formula once its
    inputs are bounded; the inputs certified or explicit are listed above and in round 1; the first input not computed is
    the numerical specification of the operators and spaces (R2.0), after which come (C, h_0), the gauge
@@ -539,6 +561,8 @@ Phi = 0 follows as in III.D Proposition 6.2 (d) (the system (r - r_h) Y' = M Y a
 [R3, the verifier's n4: the harmonic-by-harmonic proof presumes q radial, q = q(r); the statement is restricted to radial
 q. A non-radial q would need the global flux identity on the slice and unique continuation from the support of q; not
 done. R6 needs only some Q = chi W chi with W >= 0, which can be taken radial, so the restriction costs nothing.]
+[R4, the reader's nit 3: read "q >= 0 radial": R9's operator is P-hat - i sgn(sigma) Q, so in R6's notation W =
+sgn(sigma) q, and R6 needs no sign of W.]
 
 ### R2.2 Proposed texts (final; checked against the files as they stand)
 [R3: superseded by CONSTANTS5.md R12.7, which folds in pair 1 with the verifier's wording fixes (its minors 1-2: "the
@@ -641,6 +665,9 @@ each fixed h it is equivalent to X_sigma's norm (I.B 8.4, "up to an equivalent n
 So the bound is uniform in sigma in the semiclassical norms, not in X_sigma's; a bound in X_sigma's norms needs those
 equivalence constants as functions of h, which are calculus constants and are not computed. B3's statement in round 1,
 "||P-hat(sigma)^-1||_(Y_sigma -> X_sigma) <= C_8.1 |sigma|^(-1+delta)", is read the same way (bracketed there).
+[R4: C_0 := min(h_ch, (4C)^(-1/N), (4 C C_K)^-1)^-1 (1 - nu'^2)^(-1/2), h_ch the chain's own threshold (R4.1); C is
+the larger of Prop. 8.1 (a)'s and (b)-(c)'s constants before absorption (R4.2); and the first display covers the second
+case too, as C_0 >= 1 (R4.2).]
 
 ### R3.2 Minor 4: uniformity in b
 
@@ -663,6 +690,7 @@ section 3.1).
 - *n4 (Lemma R9).* Restricted to radial q (bracketed at R9): the harmonic-by-harmonic proof presumes q = q(r). A
   non-radial q would need the global flux identity on the slice and unique continuation from the support of q, not done
   here. R6 needs only some Q = chi W chi with W >= 0, which can be taken radial.
+  [R4: read "q >= 0 radial"; in R6's notation W = sgn(sigma) q, and R6 needs no sign.]
 - *n5 (inverse6_5m M7).* The tensor row is now written in gmodes5 G1's variables: h = 2 r^2 H T, F := L h = D Ric(h) =
   -r^2 B[H] T with B[H] = box2 H + 3 f H_r/r - (k_T^2 + 2) H/r^2, and the master source G = -f r^(3/2) B, since
   f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi (checked here exactly, independently of gmodes5's code).
@@ -689,6 +717,8 @@ of the operators and spaces; at b0, (C, h_0) in (6.6), the compactness choices o
 reconstruction, C_ext, the parametrix norms and the scalar-type blocks' sigma_min; uniformity in b; and the chain's
 other inputs. lambda1, delta > 0 exist (proved); their explicit lower bounds are not computed. This is a limit of the
 explicit computation, not a gap in Theorem 4.
+[R4, the reader's nit 4: two additions, not one: Proposition 8.1's compactness choices at b0, and the uniformity in
+b.]
 
 ### R3.5 Programs and sources (round 3)
 

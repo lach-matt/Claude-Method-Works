@@ -13,9 +13,10 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
      spline psi_III(tau0 + R) in its piecewise-polynomial form; cells cut at the knots in vhat; the polynomial and two
      derivatives enclosed with interval coefficients. Certified at n = 80 and 160. Controls (must fail): Gamma's sign
      flipped; Gamma without its 4 nu E^2 term.
-  C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 1e-2): Gamma > 0 for every
-     background whose psi_III is within d of the computed spline in C^2 (the n = 80 and n = 160 splines differ by far
-     less, printed). Control: d = (0.5, 0.5, 5) is not certified.
+  C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 5e-2) and mu0 by 1e-4 [R8:
+     d'' was 1e-2, mu0 not widened]: Gamma > 0 for every background whose psi_III is within d of the computed spline
+     in C^2 and whose mass is within 1e-4 of mu0. truebg5 T2 certifies that the background itself is such a one.
+     Control: d = (0.5, 0.5, 5) is not certified.
   C2 (the computed background) kappa' K'^l_l < 0 on the whole bent slice Sigma' (racslice5, A = 0.01), between its
      grid crossings, the inputs (E, f, psi_R, psi_vhat, f_R, f_vhat) linear between crossings (the stated
      interpolant), V'' and V' = 1 + phi' enclosed from phi''. Certified at n = 80 and 160. Controls (must fail):
@@ -60,6 +61,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 iv.prec = 80
 MODS = [{'exp': iv.exp, 'sqrt': iv.sqrt, 'log': iv.log, 'mpf': iv.mpf}, 'mpmath']
+D_C1D, DMU_C1D = (1e-3, 1e-3, 5e-2), 1e-4        # C1d's tube: (psi_P, psi_P', psi_P'') and mu0 widened by these
 
 
 def load(name):
@@ -181,7 +183,7 @@ def ppoly_enclose(pp, i, VH):
     return vals
 
 
-def c1_run(bg, fGt, dlt=(0.0, 0.0, 0.0), depth=14, ncell=600, lo=0.70, hi=1.861):
+def c1_run(bg, fGt, dlt=(0.0, 0.0, 0.0), depth=14, ncell=600, lo=0.70, hi=1.861, dmu=0.0):
     from scipy.interpolate import PPoly
     tau0, mu0 = bg['tau0'], bg['mu0']
     pp = PPoly.from_spline(bg['sp_psi']._eval_args)
@@ -205,7 +207,7 @@ def c1_run(bg, fGt, dlt=(0.0, 0.0, 0.0), depth=14, ncell=600, lo=0.70, hi=1.861)
         p0, p1, p2 = ppoly_enclose(pp, i, VH)
         p0, p1, p2 = widen(p0, dlt[0]), widen(p1, dlt[1]), widen(p2, dlt[2])
         Rr = VH - T0
-        val = fGt(Rr, I(mu0), p0, p1, p2)
+        val = fGt(Rr, widen(I(mu0), dmu), p0, p1, p2)
         nev += 1
         lb = float(val.a)
         if lb > 0:
@@ -235,11 +237,11 @@ def c1(bgs):
         print("   C1, n = %d: certified on every cell: %s (%d interval evaluations; least lower bound of Gamma/E^2 = "
               "%.4f on R in [%.5f, %.5f])" % (n, good, nev, least or float('nan'), *(cell or (0, 0))))
         ok &= good
-    dl = (1e-3, 1e-3, 1e-2)
+    dl = D_C1D
     for n, bg in bgs.items():
-        good, least, cell, failed, nev = c1_run(bg, f, dlt=dl)
-        print("   C1d, n = %d, d = %s: certified on every cell: %s (least lower bound %.4f)" % (n, dl, good,
-                                                                                               least or float('nan')))
+        good, least, cell, failed, nev = c1_run(bg, f, dlt=dl, dmu=DMU_C1D)
+        print("   C1d, n = %d, d = %s, mu0 widened by %.0e: certified on every cell: %s (least lower bound %.4f)" %
+              (n, dl, DMU_C1D, good, least or float('nan')))
         ok &= good
     # the scale of the computed background's error: the n = 80 and n = 160 splines and derivatives, sampled
     Rs = np.linspace(0.70, 1.861, 2001)
@@ -248,7 +250,7 @@ def c1(bgs):
     diffs = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs) - s160.derivative(k)(t0 + Rs)) if k else
                          np.abs(s80(t0 + Rs) - s160(t0 + Rs)))) for k in range(3)]
     print("   the n = 80 and n = 160 splines differ by at most %.1e, %.1e, %.1e (psi_P, psi_P', psi_P'', sampled): far "
-          "inside d" % tuple(diffs))
+          "inside d (truebg5 T2 certifies the n = 160 spline's distance to the background itself)" % tuple(diffs))
     bg = bgs[160]
     g1, _, _, f1, _ = c1_run(bg, fneg, depth=0)
     g2, _, _, f2, _ = c1_run(bg, fdrop, depth=0)

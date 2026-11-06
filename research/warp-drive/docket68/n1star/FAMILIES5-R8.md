@@ -4,10 +4,12 @@ This note seats the round-7 reader's findings (one minor, six nits; R8.0) and cl
 remaining. Every step of the certificates is now in interval arithmetic (R8.1). The two margins are certified for the
 background defined by the stated characteristic data, not only for its computed approximation (R8.2). Theorem L″ is
 restated for its moved lobe (R8.3). The N-family power counting is computed term by term (R8.4). Lemma O′ is refined
-(R8.5), the axis computation repaired (R8.6), the Hollands–Wald identification is set aside once (R8.7), and a final
-section 9 block is given against the paper as it stands, in versions conditional on the M_b verdict (R8.8). Earlier
-notes keep their text; bracketed [R8 …] notes mark each affected line in FAMILIES5-R7.md, FAMILIES5-R6.md and
-FAMILIES5-VLASOV.md. Nothing in the paper, in N1STAR-PROOF.md or in FAMILIES5-MB.md is edited.
+(R8.5), the axis computation repaired (R8.6), and the Hollands–Wald identification set aside once (R8.7). M_b's
+independent review is seated (R8.9), and a final section 9 block is given against the paper as it stands (R8.8).
+
+Earlier notes keep their text. Bracketed [R8 …] notes mark each affected line in FAMILIES5-R7.md, FAMILIES5-R6.md and
+FAMILIES5-VLASOV.md, and, for the M_b review on the coordinator's instruction, in FAMILIES5-MB.md (old text kept).
+Nothing in the paper or in N1STAR-PROOF.md is edited.
 
 **Verdict.**
 
@@ -38,8 +40,10 @@ FAMILIES5-VLASOV.md. Nothing in the paper, in N1STAR-PROOF.md or in FAMILIES5-MB
    - The axis bound holds on the whole band.
 7. **The Hollands–Wald identification is not used**, and it is left out of everything the block calls open (R8.7).
    E is defined by Q =: −E, and M_b is stated for this E.
-8. **The final block** (R8.8) is written against `paper/RESPONSE-HL-5D.md` as it stands. Its M_b sentence comes in
-   versions conditional on the verdict on FAMILIES5-MB.md.
+8. **M_b is settled both ways**, as the independent verifier confirmed. Its findings, one major (editorial) and
+   eight minor, are seated in FAMILIES5-MB.md and `checks/mbsign5.py`, and both runs were redone (R8.9).
+9. **The final block** (R8.8) is written against `paper/RESPONSE-HL-5D.md` as it stands. Its last four sentences are
+   the single M_b paper text, rebased onto R7.6 with its qualifiers.
 
 Labels as in the record: **computed**, **deduced**, **READ**; **certified** means interval arithmetic with a control
 that fails. It is said each time whether a certificate is for the computed background in a stated interpolant or for
@@ -47,7 +51,8 @@ the background itself. New programs, with their `.out`, PASS: `checks/truebg5.py
 (L1-L4). Changed and rerun in full, `.out` regenerated, PASS:
 - `checks/intcert5.py`: r7-m1; C1d, C2d and C3 new;
 - `checks/qsign5.py`: Q7's three nits;
-- `checks/racslice5.py`: the lobe moved (R8.3).
+- `checks/racslice5.py`: the lobe moved (R8.3);
+- `checks/mbsign5.py`: the M_b review (R8.9), default and `--full`.
 
 ---
 
@@ -308,51 +313,99 @@ The setting is Tangherlini's slice in Part I's chart (ψ_P = 0, μ = 0.82), with
 
 ## R8.7 E, the Hollands–Wald identification, and M_b
 
-E is defined by Q(δ) = 2∫_U G^(2)[δ](ξ, n) dvol =: −E(δ) (R7.2), and M_b is the statement "E(δ) > 0 for every
-non-gauge, compactly supported, invariant linearised vacuum solution δ supported in U". That this E is Hollands and
-Wald's canonical energy relative to ξ is standard. It is not READ here, nothing here uses it, and it is not among the
-things the paper is asked to call open. The block of R8.8 does not mention it.
+E is defined by Q(δ) = 2∫_U G^(2)[δ](ξ, n) dvol =: −E(δ) (R7.2). M_b is the statement "E(δ) > 0 for every non-gauge,
+compactly supported, invariant linearised vacuum solution δ supported in U". That this E is Hollands and Wald's
+canonical energy relative to ξ is standard, but it is not READ here and nothing here uses it. It is not among the
+things the paper is asked to call open, and the block of R8.8 does not mention it.
 
-M_b is the attempt of FAMILIES5-MB.md, by another agent, which is not edited here. Its verdict is pending. R8.8 gives
-the block's last sentence in three versions:
-- **A**: M_b's two halves are both confirmed (inside the horizon E takes both signs; outside it E > 0 on non-gauge
-  perturbations).
-- **B**: only the inside half is confirmed.
-- **C**: neither is.
+**M_b is settled both ways** (FAMILIES5-MB.md, `checks/mbsign5.py`). The independent verifier found no mathematical
+error in Theorem X or Theorem P and re-derived every identity symbolically (R8.9).
+- Inside the horizon E takes both signs on tensor-type perturbations. So exactly localised vacuum data with a
+  non-gauge first-order part exist near Part I's data, for small amplitude, on every vacuum band meeting {f < 0}.
+- Outside the horizon E > 0 on every non-gauge perturbation. So no such data exist there at second order.
+
+The block's last sentences carry this, rebased onto R7.6's last sentence with its qualifiers (R8.8).
 
 ## R8.8 Proposed replacement for the paper's section 9 bullet "More families"
 
-The old text is the paper's current bullet, located by content: it begins "- **More families.** Angular separation and
+The old text is the paper's current bullet, located by content. It begins "- **More families.** Angular separation and
 the passage to Vlasov matter are not attempted." and ends "No statement about several families is proved." It occurs
 exactly once in `paper/RESPONSE-HL-5D.md` (section 9, "What is not proved"; at present the bullet starting at line
-1528). This block supersedes R7.6's and every earlier proposal. The old text is quoted verbatim in R7.6 and is
-unchanged in the paper.
+1528). It is quoted verbatim in R7.6 and is unchanged in the paper. This block supersedes R7.6's, FAMILIES5-MB.md
+section 7's and every earlier proposal; its last four sentences, from "For first-order parts that perturb the metric",
+are the single M_b paper text.
 
-New (version A; the last two sentences change in versions B and C, below):
+New:
 
 ```
 XXBLOCK
 ```
 
-Version B: replace the block's last two sentences (from "For first-order parts that perturb the metric") with:
+What changed from R7.6's block:
+- the N-family estimate's power counting is computed (nledger5);
+- the hypotheses' openness carries the radial dusts' adapted boundaries (Lemma O″);
+- the band's extent is certified for the background itself;
+- the bend is at most 0.0012, and its hyperbolicity is certified for the background itself and for the computed
+  approximation in a stated interpolant (nit 5);
+- Γ's sign is certified the same way;
+- R8.4 and R8 replace R7 among the supplements;
+- the M_b sentence is replaced by the settled text, rebased with R7.6's qualifiers ("near Part I's data", "for small
+  amplitude", families background + εδ + O(ε²), second order), the potentials' positivity now computed for every
+  l ≥ 2, and the Hollands–Wald identification left out.
 
-```
-XXB
-```
+## R8.9 The M_b review, seated (FAMILIES5-MB.md, checks/mbsign5.py)
 
-Version C: replace them with:
+An independent verifier read FAMILIES5-MB.md and checks/mbsign5.py in round 8. Its verdict: M_b settled both ways;
+no mathematical error in Theorem X or Theorem P; every identity re-derived symbolically, including Theorem T (iii) and
+Lemma X1 on every class slice (w = 2/(f + q²), √Δ = 2q/(f + q²), q free). The findings are seated as bracketed [R8]
+notes in FAMILIES5-MB.md, the old text kept, and in the program. Both runs were redone, and all checks pass with every
+control rejected: `checks/mbsign5.out` (the default run, 292 s) and `checks/mbsign5_full.out` (E4-E9, 235 s).
 
-```
-XXC
-```
+- **Major 1** (section 7 targeted R6's superseded block and dropped R7.6's qualifiers). *Repaired.* The single M_b
+  paper text is R8.8's, rebased onto R7.6's last sentence with its qualifiers. MB section 7 carries a note.
+- **Minor 1** (E2/E3 are spot checks at three slice points). XXM1
+- **Minor 2** (`--full` relied on a homothety that holds only for weight-homogeneous identities). *Repaired.* `--full`
+  is now symbolic in R, μ and k² through μ = xR², with x a free symbol. This is a change of variables, so no
+  homogeneity is assumed. Every E4-E9 identity passes (235 s), and a non-homogeneous mutation can no longer pass.
+- **Minor 3** (E9 did not enforce the sign). *Repaired.* The + sign is required, and its opposite is a control
+  (rejected).
+- **Minor 4** (E4, E8 and E9 had no controls; the l = 0 kinetic part). *Repaired.*
+  - Controls: E4, the lapse direction without −ψ Ric, does not solve M; E8, X = F∂_R in place of RF∂_R, does not
+    solve the l = 0 constraint; E9, the opposite sign. All are rejected.
+  - E8 now computes that the l = 0 k is k_ψ with ψ = N(c + ∫Rw/(fN)). That is a constant times N on the inner side:
+    gauge in R6's extended sense, not compactly supported.
+- **Minor 5** (Lemma TR's wording). *Repaired* in a note:
+  - Σ is extended to a Cauchy surface of the maximal extension;
+  - R1 and R2 are supp δ's radial extent;
+  - R_a ∈ (R_h, R1).
+- **Minor 6** ("no third-order question"). *Corrected* in a note. Inside the horizon Q vanishes on a cone. For δ0 on it
+  with B(δ0, ·) ≢ 0, Proposition L′ on δ0 + sη with s(ε) = O(ε) gives the data. δ0 in Q's radical is left to third
+  order and not claimed.
+- **Minor 7** (the docstring identified E with the canonical energy). *Removed.*
+- **Minor 8** (Theorem T for every l). *Written* in a note: the θ-integrated density is |T|² times a quantity affine
+  in k_T², so the identity at l = 2 and 4 gives every l.
+- **Section 5's gap** (re-slicing generators). *Stated.* "To every order" is claimed only where each order's generator
+  can be chosen with the allowed support, and is otherwise excluded.
+- **Nits.**
+  - The 0.683 inner edge is VLASOV section 3's (racglobal5).
+  - "its full run" becomes "its default run".
+  - The runtimes are as printed in the .out files.
+  - E7 is "computed exactly", not "certified".
+  - The KID coefficient ε²Q and R7.2's matter balance ε²Q/2 = ∫T(ξ, n) agree, the factor 2 being the pairing's.
+- **Beyond the findings.** E7 now proves Qp > 0 on the exterior for every l ≥ 2 (m = l(l + 2) − 3: m = 5 as before,
+  and m = 12 + t with every coefficient ≥ 0). So the potentials are positive for the whole spectrum of S³. This is
+  what lets the paper text say "for every l ≥ 2", as the verifier asked.
 
 ## Files
 
-`FAMILIES5-R8.md` (this note). New, with their `.out`, PASS: `checks/truebg5.py` (T1-T4, certified, with controls;
-about XX under load) and `checks/nledger5.py` (L1-L4, computed, with controls; seconds). Changed and rerun in full,
-`.out` regenerated, PASS:
-- `checks/intcert5.py`: C1-C3 (r7-m1; C1d, C2d, C3 new), about ten minutes under load;
-- `checks/qsign5.py`: Q1-Q7 (Q7's nits), about a quarter of an hour under load;
-- `checks/racslice5.py`: S1-S3, the lobe moved.
+`FAMILIES5-R8.md` (this note). New, with their `.out`, PASS:
+- `checks/truebg5.py` (T1-T4, certified, with controls; XX under load);
+- `checks/nledger5.py` (L1-L4, computed, with controls; seconds).
 
-Bracketed [R8] notes are in FAMILIES5-R7.md, FAMILIES5-R6.md and FAMILIES5-VLASOV.md.
+Changed and rerun in full, `.out` regenerated, PASS:
+- `checks/intcert5.py`: C1-C3 (r7-m1; C1d's tube, C2d and C3 new), about ten minutes under load;
+- `checks/qsign5.py`: Q1-Q7 (Q7's nits), about a quarter of an hour under load;
+- `checks/racslice5.py`: S1-S3, the lobe moved;
+- `checks/mbsign5.py`: E1-E9 (R8.9), default and `--full`, about five and four minutes.
+
+Bracketed [R8] notes are in FAMILIES5-R7.md, FAMILIES5-R6.md, FAMILIES5-VLASOV.md and FAMILIES5-MB.md.

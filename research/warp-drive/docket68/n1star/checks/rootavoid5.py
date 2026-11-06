@@ -60,6 +60,9 @@ above 3): all rational (dweights5.weights and counts, imported).
      = lambda_sharp + N_0 d1 (R9.1's reading); the range alpha in (2, min(a_K, 3)) (a_K at the base from R10.1),
      Lemma 3.1's alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2), and Lemma 3.2 Step 3's Proposition 5.1 at each level
      (I9:276-279: w = alpha - eps' - 2 + eps, 2 - alpha_P = eps).
+  R12 (computed, exact, symbolic) what of Lemma B.1 holds at every admissible parameter point (the round-2 confirming
+     reader's minor 2): the box^Ups divisor identity in z = p/q; box^C's rational roots in (1/102400) Z for every
+     integer gam_C = N and every l (kappa, N symbols; e_C, v_C fixed by row c1).
   R11 (computed, exact) (4.2) of III.G'''' Proposition 4.4 at the second Taylor level, every level in (3, 4 + eps_K]:
      g_2's tf-exponents are lambda - 1, lambda in Lambda cap [2 + eta_1, 3 + eta_2) (READ: I12's dictionary and I11
      Lemma 1.2 (c)); the root clause beta - eps != lambda + (-mu) by field tests over Q(d1) and exact candidates.
@@ -68,7 +71,8 @@ above 3): all rational (dweights5.weights and counts, imported).
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
   sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
   2 - alpha (R7 finds the hit); C7 R9's field test on 2 d1 + 1/3 (it reports it); C8 a level below 3 planted at
-  lambda_sharp + 1 (R10 finds it); C9 a level planted at beta - eps = lambda_sharp + 2 (R11 finds it).
+  lambda_sharp + 1 (R10 finds it); C9 a level planted at beta - eps = lambda_sharp + 2 (R11 finds it); C10 R12 at
+  e_C = 1/102401 (the integrality fails); C11 z = 25/64, where the s0 class root is rational (R12's test reports it).
 
     python3 checks/rootavoid5.py [--selftest]      (some minutes; --selftest skips the R6 and R10 margin enumerations)
 """
@@ -707,6 +711,44 @@ def r11(C, plant=None):
                 bad=bad, ntests=2 * len(offs), dmin=dmin, ineq=ineq)
 
 
+def r12(polys, eC_val=Fr(1, 102400), z_samples=(Fr(4, 10 ** 6), Fr(1, 2), Fr(1, 1000), Fr(25, 64))):
+    """the round-2 confirming reader's minor 2: what of Lemma B.1 holds at every admissible parameter point,
+    symbolically. (a) box^Ups, z = p/q symbolic: (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2 q (l + 1))^2 = p^2 +
+    4 p q (an identity in p, q, l, m), so for every rational z only the finitely many l from the divisor pairs of
+    p (p + 4 q) can carry a rational Q_l root; the s0 class root is rational iff 9 + 4z is a rational square (a
+    countable set of z, met in (0, 1/2], e.g. z = 25/64). (b) box^C with gam_C = N symbolic and kappa symbolic (e_C =
+    1/102400, v_C = 1/2, row c1): N^3 times the scalar sextic is -lam^6 + sum c_i lam^i with c_i in (1/102400) Z[N,
+    kappa]; so for every integer N and every l a rational root lies in (1/102400) Z (substitute lam = y/102400: monic
+    integer); the s0 quartic (times N^2) likewise; the vector quadratic (times N) is monic integer, its rational roots
+    integers."""
+    p, q, l, m = sp.symbols('p q l m', integer=True)
+    lhs = sp.expand(((p + 2 * q) ** 2 + 4 * q ** 2 * l * (l + 2)) - m ** 2)
+    rhs = sp.expand(-(m ** 2 - (2 * q * (l + 1)) ** 2 - (p ** 2 + 4 * p * q)))
+    ident = sp.expand(lhs - rhs) == 0
+    samples = []
+    for z in z_samples:
+        samples.append((z, is_rat_square(9 + 4 * z), ups_rational_l(z)[:6]))
+    pk, p0, pv = polys
+    N = sp.Symbol('N', positive=True)
+    lam, K = DP.lam, DP.K
+    pt = {DP.h: 1 / N, DP.e: sp.Rational(eC_val.numerator, eC_val.denominator), DP.v: sp.Rational(1, 2)}
+    out = {}
+    for nm, P, pw in (('sextic', pk, 3), ('quartic', p0, 2), ('vector', pv, 1)):
+        Pl = sp.Poly(sp.expand(P.subs(pt) * N ** pw), lam)
+        cs = Pl.all_coeffs()
+        lead = sp.simplify(cs[0])
+        integral = True
+        for c_ in cs:
+            cc = sp.Poly(sp.expand(c_ * 102400), N, K)
+            integral = integral and all(sp.Rational(x).q == 1 for x in cc.coeffs())
+        out[nm] = (lead in (1, -1), integral)
+    vint = all(sp.Rational(x).q == 1 for c_ in sp.Poly(sp.expand(pv.subs(pt) * N), lam).all_coeffs()
+               for x in sp.Poly(sp.expand(c_), N, K).coeffs())
+    out['vector integer'] = (True, vint)
+    ok = ident and all(a and b for a, b in out.values())
+    return dict(ok=ok, ident=ident, samples=samples, polys=out)
+
+
 # ------------------------------------------------------------------------------------------------ main
 def main(selftest=False):
     t0 = time.time()
@@ -846,6 +888,18 @@ def main(selftest=False):
           '(x among the %d rational points of Lambda in the window, m = 0, 1, 2) meet no level (hits %s; least '
           'distance %.4e, exact): %s' % (R11['ineq'], R11['ntests'], R11['bad'] or 'none', R11['cands'], R11['Rw'],
                                           R11['hits'] or 'none', float(R11['dmin']), OK['R11']))
+    R12 = r12(polys)
+    OK['R12'] = R12['ok'] and R12['samples'][0][1] is False and R12['samples'][0][2] == [0]
+    print('  R12 (exact, symbolic in the parameters; the round-2 confirming reader\'s minor 2): what of Lemma B.1 holds '
+          'at every admissible point. box^Ups, z = p/q: (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2 q (l + 1))^2 = '
+          'p^2 + 4 p q, an identity in p, q, l, m: %s; so at every rational z only finitely many l (from the divisor '
+          'pairs of p (p + 4q)) can carry a rational class root, and the s0 class root is rational exactly when 9 + 4z '
+          'is a rational square (z, 9 + 4z square?, the exceptional l): %s. box^C with gam_C = N and kappa symbols '
+          '(e_C = 1/102400, v_C = 1/2 fixed by row c1): N^3 x sextic, N^2 x quartic, N x quadratic are, in lam, '
+          '-1 or 1 times lam^deg plus coefficients in (1/102400) Z[N, kappa] (monic-up-to-sign, integral after '
+          'x 102400): %s; so for every integer gam_C and every l a rational box^C root lies in (1/102400) Z (lam = '
+          'y/102400 makes the polynomial monic with integer coefficients), the vector type\'s in Z: %s' % (
+              R12['ident'], [(str(z), b, ls) for z, b, ls in R12['samples']], R12['polys'], OK['R12']))
     # controls
     OK['C1'] = r6_exact(C, plant_level=DW.LSHARP + 2)[1]
     print('  C1 (control): a level planted at lambda_sharp + 2 = 3.5099: R6 finds it: %s' % OK['C1'])
@@ -878,6 +932,12 @@ def main(selftest=False):
     OK['C9'] = bool(r11(C, plant=DW.LSHARP + 2)['hits'])
     print('  C9 (control): a level planted at lambda_sharp + 1 + 1 + eps (beta - eps = (lambda_sharp + 1) + 1): R11 '
           'finds it: %s' % OK['C9'])
+    c10 = r12(polys, eC_val=Fr(1, 102401))
+    OK['C10'] = not all(a and b for a, b in c10['polys'].values())
+    print('  C10 (control): R12 with e_C = 1/102401: the coefficients leave (1/102400) Z[N, kappa]: %s' % OK['C10'])
+    OK['C11'] = is_rat_square(9 + 4 * Fr(25, 64))
+    print('  C11 (control): z = 25/64, admissible (in (0, 1/2]): 9 + 4z = (13/4)^2, the s0 class root lam = 17/8 is '
+          'rational, and R12\'s test reports it: %s' % OK['C11'])
     lam12 = algebraic_numbers()[0]
     try:
         sp.polys.numberfields.subfield.to_number_field(2 * (lam12 - 2) + sp.Rational(1, 3), lam12)

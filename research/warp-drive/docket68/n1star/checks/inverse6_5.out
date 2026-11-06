@@ -61,7 +61,7 @@
       True; C8 (control) without the R' term it fails on the kernel: True
   K8 (exact, Q(i)): Lemma R6's identity P^-1 = P1^-1 - i P1^-1 Q P1^-1 - P1^-1 (Q P^-1 Q) P1^-1 on random rational
       matrices, and its bound: True; C9 (control) without the last term the identity fails: True
-  (56 s)
+  (171 s)
 K1 PASS
 C1 PASS
 K2 PASS

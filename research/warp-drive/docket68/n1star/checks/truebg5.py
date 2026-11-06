@@ -37,11 +37,12 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
   T1  the N' data on [u1, u2] enclosed; lambda > 0; mu3; checked against a float integration (scipy DOP853), which a
       shifted B amplitude (1.7 -> 1.7017) leaves (control, must fail).
   T2  Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (Theorem Q's margin), on T3's cells
-      clipped to the region: every cell lies in region III (R2 >= R on the slice, f3 > 0 at u2) and Gamma/E^2
-      (qsign5's closed form) has a positive lower bound. Control: the sign flipped is not certified. A posteriori,
-      the computed spline (qsign5, n = 160) against the true psi_III: certified bounds on |psi_spline^(k) -
-      psi_III^(k)|, k = 0, 1, 2, at the cell ends and on the cells; control: with B's amplitude x 1.001 in the
-      reduction, the spline is farther from it than that agreement.
+      clipped to the region: every cell lies in region III (R2 >= R on the slice, f3 > 0 at u2), and a posteriori the
+      computed spline (qsign5, n = 160) is within intcert5 C1d's tube of the true psi_III: certified bounds on
+      sup |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2 (point rays at the cell ends, centred forms with the cells'
+      enclosures for k = 0, 1, the cells' enclosures for k = 2) and on |mu3 - mu0|, all within C1d's d and d mu. C1d
+      certifies Gamma > 0 for every background in the tube, so for this one. Control: with B's amplitude x 1.001 in
+      the reduction, the spline is farther from it than that agreement.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
@@ -399,81 +400,70 @@ def spline_enclose(bg, VH):
 
 
 def t2(nd, bgs, cache, lo=0.70, hi=1.861):
-    print("T2 Gamma > 0 on the seed region R in [%.2f, %.3f] for the background itself (T3's cells, clipped)" % (lo, hi))
-    q = load('qsign5')
-    _, Gt, _ = q.gamma_formula()
-    args = [q.R, q.MU] + list(q.PP)
-    fG = sp.lambdify(args, Gt, modules=MODS)
+    print("T2 Gamma > 0 on the seed region R in [%.2f, %.3f] for the background itself: the computed spline is within "
+          "intcert5 C1d's tube of psi_III (certified a posteriori), and C1d certifies Gamma > 0 on the tube" % (lo, hi))
+    d, dmu = ic.D_C1D, ic.DMU_C1D
     va, vb = float((I(lo) + T0).a), float((I(hi) + T0).b)
     cells = sorted(k for k in cache if k[1] > va and k[0] < vb)
     assert cells[0][0] <= va and cells[-1][1] >= vb and all(x[1] == y[0] for x, y in zip(cells[:-1], cells[1:]))
-    least, failed, reg3, nev = None, 0, True, 0
-    stack = [(a, b, 0) for a, b in cells]
     t = time.time()
-    errs = [0.0, 0.0, 0.0]                                       # on the cells: |spline^(k) - psi_III^(k)|
-    flipped_fail = None
-    while stack:
-        a, b, d = stack.pop()
-        VH = I(a, b)
-        Rs = I(max(a, va), min(b, vb)) - T0
-        if (a, b) in cache:
-            R1, Y2 = cache[(a, b)]
-        else:
-            R1 = r1_enclose(VH)
-            Y2, _ = ray(nd, R1)
-        reg3 &= bool(Y2[0].a >= Rs.b)
-        p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
-        reg3 &= bool(f3.a > 0)
-        val = fG(Rs, nd.mu3, p0, p1, p2)
-        nev += 1
-        if flipped_fail is None:
-            flipped_fail = not (float((-val).a) > 0)              # the sign-flipped Gamma on the first cell
-        if float(val.a) > 0:
-            least = float(val.a) if least is None else min(least, float(val.a))
-            sv = spline_enclose(bgs[160], VH)
-            for k, (x, y) in enumerate(zip(sv, (p0, p1, p2))):
-                errs[k] = max(errs[k], mag(x - y))
-            continue
-        if d >= 3:
-            failed += 1
-            continue
-        m = 0.5 * (a + b)
-        stack += [(a, m, d + 1), (m, b, d + 1)]
-    print("   every cell in region III (R2 >= R on the slice): %s; Gamma/E^2 > 0 certified on every cell: %s (%d rays; "
-          "least lower bound %.4f; %.0f s)" % (reg3, failed == 0, nev, least or float('nan'), time.time() - t))
-    # a posteriori: the computed spline against psi_III at the cell ends (point rays)
+    sp160 = bgs[160]
+    # point rays at the cell ends (clipped to the region): e^(k) := spline^(k) - psi_III^(k) enclosed there
     pts = [va] + [a for a, b in cells if va < a < vb] + [vb]
-    perr = [0.0, 0.0, 0.0]
+    pe = {}
     for x in pts:
         VH = I(x)
         R1 = r1_enclose(VH)
         Y2, _ = ray(nd, R1)
         tr = psi3(R1, Y2, nd.mu3)[:3]
-        sv = spline_enclose(bgs[160], VH)
+        sv = spline_enclose(sp160, VH)
+        pe[x] = [sv[k] - tr[k] for k in range(3)]
+    reg3, sup, cellw = True, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]
+    for a, b in cells:
+        a_, b_ = max(a, va), min(b, vb)
+        Rs = I(a_, b_) - T0
+        R1, Y2 = cache[(a, b)]
+        p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
+        reg3 &= bool(Y2[0].a >= Rs.b) and bool(f3.a > 0)
+        svc = spline_enclose(sp160, I(a_, b_))
+        ec = [svc[k] - y for k, y in enumerate((p0, p1, p2))]       # e^(k) on the cell (cell variation included)
+        h = float((I(b_) - I(a_)).b)
+        # centred forms from both ends: |e(x)| <= |e(end)| + h sup|e'|, |e'(x)| <= |e'(end)| + h sup|e''|
+        b0 = min(mag(pe[a_][0]), mag(pe[b_][0])) + h * mag(ec[1])
+        b1 = min(mag(pe[a_][1]), mag(pe[b_][1])) + h * mag(ec[2])
+        b2 = mag(ec[2])
+        for k, v in enumerate((b0, b1, b2)):
+            sup[k] = max(sup[k], v)
         for k in range(3):
-            perr[k] = max(perr[k], mag(sv[k] - tr[k]))
+            cellw[k] = max(cellw[k], mag(ec[k]))
+    perr = [max(mag(pe[x][k]) for x in pts) for k in range(3)]
+    dmu_ = mag(nd.mu3 - I(bgs[160]['mu0']))
+    inside = all(sup[k] <= d[k] for k in range(3)) and dmu_ <= dmu
+    print("   every cell in region III (R2 >= R on the slice, f3 > 0 at u2): %s (%d cells, %d point rays; %.0f s)"
+          % (reg3, len(cells), len(pts), time.time() - t))
+    print("   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= %.1e, %.1e, %.1e "
+          "(k = 0, 1, 2) at the %d cell ends; on the whole region sup |e^(k)| <= %.1e, %.1e, %.1e (centred forms for "
+          "k = 0, 1, the cell enclosure for k = 2); |mu3 - mu0| <= %.1e" % (*perr, len(pts), *sup, dmu_))
+    print("   within intcert5 C1d's tube d = %s, |d mu| <= %.0e, on which C1d certifies Gamma > 0: %s -- so Gamma > 0 "
+          "on the seed region for the background itself" % (d, dmu, inside))
     t0, Rs_ = bgs[160]['tau0'], np.linspace(lo, hi, 2001)
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']
     d8 = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs_) - s160.derivative(k)(t0 + Rs_)))) if k else
           float(np.max(np.abs(s80(t0 + Rs_) - s160(t0 + Rs_)))) for k in range(3)]
-    print("   a posteriori, the computed spline (n = 160) against psi_III: certified |difference| <= %.1e, %.1e, %.1e "
-          "(k = 0, 1, 2) at the %d cell ends, <= %.1e, %.1e, %.1e on the cells (cell variation included); the n = 80 "
-          "and 160 splines differ by %.1e, %.1e, %.1e (sampled)" % (*perr, len(pts), *errs, *d8))
-    # control: B's amplitude shifted by 0.1 %: the true psi_III moves by more than the n = 80 / 160 difference
+    print("   (the n = 80 and 160 splines differ by %.1e, %.1e, %.1e, sampled: the discretisation error is larger than "
+          "the n-convergence suggested, and inside the tube)" % tuple(d8))
+    # control: B's amplitude shifted by 0.1 %: the spline is farther from that psi_III than the agreement above
     nd2 = NData(bamp=1.7 * 1.001)
     cerr = 0.0
     for x in pts[::10]:
         VH = I(x)
         R1 = r1_enclose(VH)
         Y2, _ = ray(nd2, R1)
-        dd = spline_enclose(bgs[160], VH)[0] - psi3(R1, Y2, nd2.mu3)[0]
+        dd = spline_enclose(sp160, VH)[0] - psi3(R1, Y2, nd2.mu3)[0]
         cerr = max(cerr, 0.0 if dd.a <= 0 <= dd.b else min(abs(float(dd.a)), abs(float(dd.b))))
-    print("   controls: Gamma's sign flipped not certified on the first cell (rejected): %s; with B's amplitude x 1.001 "
-          "in the reduction the spline is at least %.1e from it at the points, more than the agreement %.1e above "
-          "(rejected): %s" % (flipped_fail, cerr, perr[0], cerr > perr[0]))
-    mu0 = bgs[160]['mu0']
-    print("   mu3 against the computed background's mu0 = %.8f: |difference| <= %.1e" % (mu0, mag(nd.mu3 - I(mu0))))
-    return reg3 and failed == 0 and flipped_fail and cerr > perr[0]
+    print("   control: with B's amplitude x 1.001 in the reduction the spline is at least %.1e from it at the points, "
+          "more than the agreement %.1e above (rejected): %s" % (cerr, perr[0], cerr > perr[0]))
+    return reg3 and inside and cerr > perr[0]
 
 
 # ---------------------------------------------------------------- T3

@@ -41,7 +41,10 @@ of the record.
   literally stated (every j, every root). All on R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1).
   I11:156-160's *appended* set is decided too, (4.2) of III.G'''' Proposition 4.4 at the second Taylor level included,
   whose tf-exponents are derived from the write-out's own dictionary and I11 Lemma 1.2 (c) (Theorem B.5); B.7c lists
-  every condition with its range.
+  every condition with its range. [vINV2 minor 2: all of part B's arithmetic is at the record's computational point
+  (A.1: z = 4 e_U gam_U^2 = 1/250000, gam_C = 10^6, W1's weights chosen on delta_50 there), outside the proved set; it
+  is settled at that point, at which d's reading is computed; B.9 states what holds at every admissible point, proved
+  symbolically (R12), and what would have to be redone.]
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
@@ -66,18 +69,20 @@ the ingoing Kerr-Schild time of N1STAR-PROOF.md Proposition 10.11,
 
     g = -f dt^2 + 2 (1 - f) dt dr + (2 - f) dr^2 + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th dphi2^2),   f = 1 - 1/r^2,
 
-regular across the horizon, on [r_h/2, oo) (I.A's extended slice; nothing is imposed at r = 1/2), on stationary
-fields (zero energy). E^Ups = E^Ups_oo + E^Ups_H, E^Ups_oo k = -gam_U (2 iota_{c_U#} k - (2/3)(1 - e_U) c_U tr k),
-E^Ups_H k = gam_H (2 iota_{c_H#} k - (2/3) c_H tr k), E^C w = gam_C (2 c_C (x)_s w - (2/3)(1 - e_C) g <c_C, w>). The
-record fixes: c_C, explicitly (10.49): (2 r_0)^-1 (dt + (v/2) dr) for r <= 50, (1/2) r_0^-2 (r_0 dt - v (r - r_0) dr) on
-[50, 200], r^-1 (dt - v dr) beyond, r_0 = 100, v = 1/2, smoothed near 50 and 200 (IV'''' section 0); the parameters
-(gam_U, e_U, gam_C, e_C) = (1/100, 1/100, 10^6, 1/102400) (lin5.POINT; IV'''' (0.1) asks gam_C = 1/h with h below
-10^-6). It leaves free: c_U = zeta(r) r^-1 dt with zeta = 1 for large r (III.D''' section 1); c_H = -(1/2) chi(r) dr with
-chi in C_c^oo, chi = 1 near r_h, and gam_H in (0, eps_0] for an eps_0 the record does not compute (III.D' Proposition
-4.1, III.D''' section 1). So the scalar-type block is a family of operators: the tensor blocks are not (their gauge
-terms vanish, R7.4, for every such choice), the scalar-type blocks are. Every statement of part A is made for all
-admissible choices at once (S1-S5, S6: the block with general c_C, c_U, c_H) or at the record's fixed pieces only
-(S5b, S8: the inner piece of (10.49) and c_H = -(1/2) dr, with c_U = 0 or r^-1 dt near the horizon).
+regular across the horizon, on [r_h/2, oo) (I.A's extended slice; nothing is imposed at r = 1/2), on stationary fields
+(zero energy). E^Ups = E^Ups_oo + E^Ups_H, E^Ups_oo k = -gam_U (2 iota_{c_U#} k - (2/3)(1 - e_U) c_U tr k), E^Ups_H k =
+gam_H (2 iota_{c_H#} k - (2/3) c_H tr k), E^C w = gam_C (2 c_C (x)_s w - (2/3)(1 - e_C) g <c_C, w>). The record fixes:
+c_C, explicitly (10.49): (2 r_0)^-1 (dt + (v/2) dr) for r <= 50, (1/2) r_0^-2 (r_0 dt - v (r - r_0) dr) on [50, 200],
+r^-1 (dt - v dr) beyond, r_0 = 100, v = 1/2, smoothed near 50 and 200 (IV'''' section 0); the parameters (gam_U, e_U,
+gam_C, e_C) = (1/100, 1/100, 10^6, 1/102400) (lin5.POINT; IV'''' (0.1) asks gam_C = 1/h with h below 10^-6). [vINV2 nit
+7: read "the record computes at (gam_U, e_U, gam_C, e_C) = ..."; of these only e_C is fixed (with v_C = 1/2 and C_0 =
+100), by PART-VI4-PARAMS.md row c1; the paragraph after this one says why the others are not.] It leaves free: c_U =
+zeta(r) r^-1 dt with zeta = 1 for large r (III.D''' section 1); c_H = -(1/2) chi(r) dr with chi in C_c^oo, chi = 1 near
+r_h, and gam_H in (0, eps_0] for an eps_0 the record does not compute (III.D' Proposition 4.1, III.D''' section 1). So
+the scalar-type block is a family of operators: the tensor blocks are not (their gauge terms vanish, R7.4, for every
+such choice), the scalar-type blocks are. Every statement of part A is made for all admissible choices at once (S1-S5,
+S6: the block with general c_C, c_U, c_H) or at the record's fixed pieces only (S5b, S8: the inner piece of (10.49) and
+c_H = -(1/2) dr, with c_U = 0 or r^-1 dt near the horizon).
 
 **That point is not in the proved set** (the verifier of this file, its Minor 5; INVERSE5-SIX R2.0). III.E Theorem 1.1
 and IV'''' (0.1) take gam_C = 1/h with h < h_* = min(10^-6, h_0, h_tf) off a countable set, h_0 and h_tf proved to exist
@@ -149,8 +154,11 @@ horizon matrix K at y = 0, an independent check of the block and of `lhor5.py`. 
 
 x = 5000. With c_U = r^-1 dt up to the horizon instead the exponents move by multiples of gam_U ((X + 1)(X + 5000)(X +
 9999)(X + 151/50)(X + 201/100)(X + 2560487/512)(X + 10099/10000) at the point). Large l does not move the horizon part
-of the problem: whatever makes the scalar-type blocks invertible near and inside the horizon is the same at every l,
-and it carries exponents of size gam_C a_v r_h.
+of the problem: whatever makes the scalar-type blocks invertible near and inside the horizon is the same at every l, and
+it carries exponents of size gam_C a_v r_h. [vINV2 nit 6: overreach. A1(1) is kappa-free but A0(1) carries kappa
+(re-derived from the block file, inner c_C, c_U = 0, c_H = -(1/2) dr: entries (0,0), (0,3), (1,1), (1,3), (1,4), (2,2),
+(2,3), (2,4), (3,3), (3,6), (4,4), (4,6), (5,3), (5,4), (5,5), (6,6)). Read: the horizon exponents (indeed A1) do not
+depend on l.]
 
 ### A.6 The weight: an upper bound for sigma_min, a lower bound for the constant (proved; certified, S6-S7)
 
@@ -250,16 +258,20 @@ need at least 9,996 individual certifications of stiff problems; this is why no 
       ||L_l H||_{Y_l} >= sigma_* ||H||_{X_l}   for every even l >= 0 and every H in X_l (at l = 0, H orthogonal in X_0 to
                                                 the zero-energy state),
 
-  L_l the operator of `checks/scalarblock5_block.txt` at the write-out's gauge data and X_l, Y_l the norms of A.6 at a
-  chosen (s, alpha). With it, ||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha).
+L_l the operator of `checks/scalarblock5_block.txt` at the write-out's gauge data and X_l, Y_l the norms of A.6 at a
+chosen (s, alpha). With it, ||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha). [vINV2 nit
+8: at (s, alpha) = (1, -1) only, where 3.939 was computed; at the recommended mid-gap weight the tensor blocks' 3.939
+(and the scalar model's 2.8002) must first be recomputed (A.6).]
 - **The stated limit** (as INVERSE5-SIX R2.0 has it for the other six): sigma_* is a constant of an operator the
   write-out does not fix numerically. Its gauge and damping parameters are chosen below thresholds proved to exist
   without a value (A.1), and zeta, chi and the smoothing of c_C are free; so before sigma_* can be certified the
   operator must be fixed: explicit admissibility thresholds for gam_C, gam_U, e_U, gam_H, and explicit zeta, chi and
-  smoothing. At the record's computational point, outside the proved set, sigma_* <= 2.6180 x 10^-7 at (1, -1) (A.6).
-  This is a limit of the explicit computation, not of Theorem 4: each threshold exists by the cited statements. Route
-  (c) (A.3's factorisation through box^C(0), box^Ups(0) and the static master operator) replaces sigma_* by three
-  bounds of the same kind, each uniform in l and each with the same first input; none is certified here.
+  smoothing. [vINV2 nit 8: and certifying gam_C = 1/h with h off the countable set Z (PART-VI4-PARAMS.md row c2) and
+  z_Ups = 4 e_U gam_U^2 off Z_exc (row u5).] At the record's computational point, outside the proved set, sigma_* <=
+  2.6180 x 10^-7 at (1, -1) (A.6). This is a limit of the explicit computation, not of Theorem 4: each threshold exists
+  by the cited statements. Route (c) (A.3's factorisation through box^C(0), box^Ups(0) and the static master operator)
+  replaces sigma_* by three bounds of the same kind, each uniform in l and each with the same first input; none is
+  certified here.
 
 ## B. The two avoidances of finite sets of roots (proved; `rootavoid5.py`)
 
@@ -287,8 +299,10 @@ box^Ups plus 1, of box^C minus 1, at every type and degree). Files md5-pinned in
 dweights5 W1: eps_ind = 19/10^9, eps_+ = 189/10^10, eps_K = 188/10^10, eps = eps' = 10^-12, eta_2 = eps_+ - 3 eps;
 beta_k = alpha_1 + k s, alpha_1 = 2 + eps_K/2, s = 0.999 eps_K, k < K = 106,489,469, and the top alpha = 4 + eps_K;
 rounds tau_i = tau_0 + i (eps_ind - eps), tau_0 = 2 + eps_ind - 2 eps (levels below 3), tau_i = tau_3 + i (eps_ind -
-eps), tau_3 = 1 + eta_2 - 2 eps (levels above 3). All rational, with common denominator D = 5 x 10^12: 53,244,734
-levels below 3, 53,244,734 in (3, 4), two above 4 (beta_{K-1} and alpha).
+eps), tau_3 = 1 + eta_2 - 2 eps (levels above 3). All rational, with common denominator D = 5 x 10^12: 53,244,734 levels
+below 3, 53,244,734 in (3, 4), two above 4 (beta_{K-1} and alpha). [vINV2 minor 2: these are W1's weights, chosen on
+delta_50 at the record's computational point (CONSTANTS5.md:153), which lies outside the proved set (A.1); at an
+admissible point they are chosen again (B.9).]
 
 ### B.3 Which roots can be met (proved; computed, R2, R3, R7)
 
@@ -298,17 +312,19 @@ matter, B.6; by N1STAR-PROOF.md Proposition 10.44 (ii), READ, its real part is >
 the Coulomb root 2).
 
 *Proof (computed, exact).* (i) box^Ups, s0: lam(lam - 3)(lam^2 - lam - 2 - z), z = 4 e_U gam_U^2 = 1/250000; 9 + 4z =
-562501/62500 is not a rational square (562501 = 750^2 + 1), so lam_s0,2 is irrational. (ii) box^Ups, sl, l >= 1: (l + 3 -
-lam)(l + lam - 1) Q_l(lam (lam - 1)); a rational lam makes s = lam (lam - 1) a rational root of Q_l, so (z + 2)^2 + 4
-kappa is a rational square: with z = 1/250000, m^2 - (500000 (l + 1))^2 = 1000001 = 101 x 9901 for an integer m, and
-the two divisor pairs give l = 0 only. vl: integers. (iii) box^C: the s0 quartic is (lam - 2) times a cubic with no
-rational root, the s1 sextic has the rational root 2 only (exact factorisations); the vector quadratic -h lam^2 + (2h -
-2v) lam + h kappa + 6v has a rational root exactly when (l + 1)^2 + 250002000000 is a square (504 values of l, from
-the divisor pairs), and then lam = 1 - v/h +- m is an integer; the scalar sextic, scaled to integer coefficients, is
--64 lam^6 - 255998991 lam^5 + ... with the lam^5 coefficient odd and free of kappa, so by the rational root theorem a
-rational root has denominator 2^a, a <= 6; for 1 <= a <= 5 the lam^5 term alone has the least 2-adic valuation, so
-there is no such root; for a = 6 the numerator is = -255998991 = 49 (mod 64). (Exact factorisation also finds no
-rational root at 2 <= l <= 120.) (iv) -l, l + 2: integers. []
+562501/62500 is not a rational square (562501 = 750^2 + 1), so lam_s0,2 is irrational. (ii) box^Ups, sl, l >= 1: (l + 3
+- lam)(l + lam - 1) Q_l(lam (lam - 1)); a rational lam makes s = lam (lam - 1) a rational root of Q_l, so (z + 2)^2 + 4
+kappa is a rational square: with z = 1/250000, m^2 - (500000 (l + 1))^2 = 1000001 = 101 x 9901 for an integer m, and the
+two divisor pairs give l = 0 only. vl: integers. (iii) box^C: the s0 quartic is (lam - 2) times a cubic with no rational
+root, the s1 sextic has the rational root 2 only (exact factorisations); the vector quadratic -h lam^2 + (2h - 2v) lam +
+h kappa + 6v has a rational root exactly when (l + 1)^2 + 250002000000 is a square (504 values of l, from the divisor
+pairs), and then lam = 1 - v/h +- m is an integer; the scalar sextic, scaled to integer coefficients, is -64 lam^6 -
+255998991 lam^5 + ... with the lam^5 coefficient odd and free of kappa, so by the rational root theorem a rational root
+has denominator 2^a, a <= 6; for 1 <= a <= 5 the lam^5 term alone has the least 2-adic valuation, so there is no such
+root; for a = 6 the numerator is = -255998991 = 49 (mod 64). (Exact factorisation also finds no rational root at 2 <= l
+<= 120.) (iv) -l, l + 2: integers. [] [vINV2 minor 2: Lemma B.1 is at the record's computational point, z = 1/250000 in
+(i)-(ii) and gam_C = 10^6 in (iii) (and B.6); what of it holds at every rational admissible point is proved symbolically
+in R12, B.9.]
 
 The roots with -mu in (-1, 4) (R3, certified enclosures): the integers 0, 1, 2, 3; d1 = 3.33333046 x 10^-7 (s1), d0 =
 1.33333274 x 10^-6 (s0), 1 + delta'_1, 1 + delta_2, 2 + delta'_2, 2 + delta_3, 3 + delta'_3, 3 + delta_4 (the sl class
@@ -483,10 +499,12 @@ verifier finds that they add no fixed-weight condition, their exclusions being f
 is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda, at every level, the
 53,244,734 below 3 through I9:55-58 (B.5b) and the 53,244,736 above 3 through I14 Definition 1.1 (B.5, B.7b); I11:160's
 appended set, a further condition of the same kind, is decided as well, (4.2) at the second Taylor level included
-(Theorem B.5). Nothing of (B) is left open at these weights on that reading. d's integer (round 10: d <=
-46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading loses the clause "two of
-the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices (a_K - 2, s_0,
-tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
+(Theorem B.5). Nothing of (B) is left open at these weights on that reading. [vINV2 minor 2: settled at the record's
+computational point (A.1), at which d's reading is computed; B.9 says what holds elsewhere. nit 5: part B does not move
+d, which is now CONSTANTS5.md R12.2's d <= 46,236,517,538,883,361; the round-10 value above is superseded.] d's integer
+(round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading loses the
+clause "two of the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level choices
+(a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
 
 ## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied) -- superseded
 

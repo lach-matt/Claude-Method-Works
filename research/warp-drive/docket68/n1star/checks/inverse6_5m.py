@@ -509,8 +509,8 @@ def main():
     print('  (%.0f s)' % (time.time() - T0))
     for k_, v_ in OK.items():
         builtins.print(k_, 'PASS' if v_ else 'FAIL')
-    if '--selftest' in sys.argv:
-        sys.exit(0 if all(OK.values()) else 1)
+    # Round 4 (the reader's optional nit): the exit code reflects the checks in every mode, --selftest included
+    sys.exit(0 if all(OK.values()) else 1)
 
 
 if __name__ == '__main__':

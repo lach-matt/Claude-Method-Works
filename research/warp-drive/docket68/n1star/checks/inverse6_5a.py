@@ -16,7 +16,8 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
   A0 (READ) the quotes: EFFECTIVE-CONSTANTS.md's theta0, eps, delta and lambda1 lines and its list "What is not
      explicit"; PART-VI4-PARAMS.md's h_* = min(10^-6, h_0, h_tf), gamma_Ups,H in (0, eps_0], and "outside the proved
      set" for the record's computational point gamma_C = 10^6; PART-III-D2-ZEROENERGY.md Proposition 4.1's "There is
-     eps_0 > 0"; CONSTANTS5.md R10.1's d <= 46,236,449,175,331,158. Each file's md5 is printed.
+     eps_0 > 0"; CONSTANTS5.md R12.2's d <= 46,236,517,538,883,361 (Round 4: R10.1's 46,236,449,175,331,158 before,
+     withdrawn by R12.5). Each file's md5 is printed.
   A1 (proved by inspection; checked at 60 digits) the formula is monotone: with K1 <= 2 C_d every K_i is
      nondecreasing in the constants, theta0 is a max of nondecreasing functions of the constants and of eta_G^-2 and
      (4 K3/delta_G)^(1/(6d+2)), eps_NM = theta0^-alpha, and delta, lambda1 are mins of nonincreasing functions of the
@@ -24,7 +25,7 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
      Checked on 3000 random input points and at engineered points where each branch binds: raising any upper-bound
      constant never raises delta or lambda1, raising any threshold never lowers them. So certified one-sided bounds of
      the inputs give certified lower bounds of delta and lambda1 (deduced).
-  A2 (computed) at d = d_bar = 46,236,449,175,331,158 (R10.1, deduced on its reading; a larger loss is admissible) and
+  A2 (computed) at d = d_bar = 46,236,517,538,883,361 (R12.2, deduced on its reading; a larger loss is admissible) and
      every other input at its floor (constants 1, thresholds 1, eta_G = 1): theta0 = 16 exactly and log10 delta =
      -(8 d_bar + 2) log10 16 - log10 2, pinned; and the general lower bound
      log10 delta >= -(8 d_bar + 2) log10 theta0_bar - log10 (2 A_bar) when eps_NM/A_2d is the least term (deduced
@@ -37,6 +38,9 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
      at the future horizon): so 0 = -sigma (|c_+|^2 + |c_-|^2) - s int q |Phi|^2, both terms of the sign of -sigma, and
      c_+ = 0 forces Phi = 0 (the outgoing Jost solution); with Fredholm index 0 (a compactly supported multiplication is
      compact X_sigma -> Y_sigma) the absorbed problem is invertible at every real sigma != 0 (deduced).
+  A5 (computed; Round 4, the reader's minor 1 and nits 1-2) INVERSE5-SIX R3.1's bound covers both cases of I.B 8.4's
+     h for |sigma| >= C_0 >= 1, with h <= h_0, on 2 x 10^5 random (sigma, nu', h_0, delta); control C5: the exponent
+     -(1-delta)/4 in place of -(1-delta)/2 is violated.
   Controls (each must fail): C1 lambda1 with eta_gl C_R in place of eta_gl/C_R: A1's monotonicity test fails; C2 alpha
   = 8d: A2's exact value check fails; C3 the absorption with the wrong sign (s = -sgn sigma): the two terms can cancel
   (an
@@ -47,6 +51,7 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
 """
 import builtins
 import hashlib
+import math
 import os
 import random
 import re
@@ -60,7 +65,7 @@ mp.dps = 60
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOP = os.path.dirname(HERE)
 OK = {}
-D_BAR = 46236449175331158
+D_BAR = 46236517538883361                # CONSTANTS5 R12.2 (Round 4; R10.1's 46236449175331158 before)
 A2_PIN = ('-4.4540', '-4.4539')          # log10 delta at d_bar, every other input at its floor, in units of 1e17
 
 
@@ -80,7 +85,7 @@ QUOTES = [
     ('proof5/PART-VI4-PARAMS.md', r'$\gamma_{\Upsilon,H}\in(0,\epsilon_0]$'),
     ('proof5/PART-VI4-PARAMS.md', r'$\gamma_C = 10^6$, outside the proved set'),
     ('proof5/PART-III-D2-ZEROENERGY.md', r'There is $\epsilon_0>0$ such that'),
-    ('CONSTANTS5.md', 'd <= 46,236,449,175,331,158'),
+    ('CONSTANTS5.md', 'd <= 46,236,517,538,883,361'),
 ]
 
 
@@ -164,8 +169,9 @@ def a2(alpha_shift=0):
 
 
 INVENTORY = [
-    ('d (the loss), N = 21 d + 6', 'explicit on a reading', 'd <= 46,236,449,175,331,158 (CONSTANTS5 R10.1; deduced on '
-     'its reading, two avoidance conditions undecided)', '-'),
+    ('d (the loss), N = 21 d + 6', 'explicit on a reading', 'd <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on '
+     'its reading, Lambda on (1, 3 + eps_K] as R9.1 takes it; the avoidance conditions decided, rootavoid5 23/23)',
+     '-'),
     ('C_k (k <= N), C_(s,t), C1, C2', 'not computed', 'III.K map and right inverses; smoothing constants explicit in '
      'principle (EFFECTIVE-CONSTANTS section 2)', 'B1-B6 and I.C:497 through III.J\'s inverses and the linear theory'),
     ('A_2d', 'not computed', 'III.K Lemma 2.2 (d)', 'the same'),
@@ -177,7 +183,12 @@ INVENTORY = [
     ('gauge and damping parameters', 'not explicit in the record', 'gamma_Ups,H <= eps_0, e_Ups < eps_1, eps_L, '
      'gamma_Ups < gamma_1, gamma_C = 1/h, h < min(1e-6, h_0, h_tf), off countable sets (VI.C rows u2-u5, c2)',
      'every operator of B1-B6 is fixed only once these are'),
-    ('I.C:497, scalar-type blocks', 'not computed (in progress, scalarblock5.py)', 'sigma_min uniform in l', '-'),
+    ('I.C:497, scalar-type blocks', 'sigma_* not computed; computed: sigma_min(L_2) <= 2.6180e-7 at (s, alpha) = (1, '
+     '-1), so the inverse constant >= 3.81e6, at the record\'s computational point (INVERSE5-SCALAR.md A.6)',
+     'sigma_* > 0, a lower bound uniform in l (INVERSE5-SCALAR.md A.8)', '-'),
+    ('constants uniform over b in B_*-bar', 'not computed', 'I.B section 9: compactness of the parameter set and the '
+     'arguments by contradiction (Proposition 6.4, the absorption of Proposition 6.7 (a)) run with sequences b_j; '
+     'III.F\'\' Proposition 4.1, III.D Proposition 6.3', 'every bound of B1-B6 near b0 (INVERSE5-SIX.md R3.2)'),
     ('B1 (C, h_0) in I.B (6.6)', 'not computed', 'symbol data at b0 certified/exact (inverse6_5 K1-K3)', '-'),
     ('B2 C_a, B3 C_8.1', 'not computed', 'absorption and interpolation explicit (R3, R4; F <= 1.002659)', 'B1'),
     ('B4, B5 cut-off parts C_D', 'certified on the master operators and the tensor-, vector-type blocks; not computed '
@@ -207,6 +218,32 @@ def a4():
     return ident and ok_ends
 
 
+def a5(expo=None, n=200000, seed=3):
+    """Round 4 (the reader's minor 1, nits 1-2): R3.1's bound covers both cases of I.B 8.4's h. For |sigma| >= C_0 :=
+    h_0^-1 (1 - nu'^2)^(-1/2) >= 1: case 1 (Im sigma < nu' |sigma|) h = |Re sigma|^-1 with loss delta; case 2 h =
+    |sigma|^-1 with delta = 0; in both 2 C h^(1 - delta_case) <= 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta),
+    and h <= h_0. Floats with a relative margin 1e-12; expo mutates the factor's exponent (control C5)."""
+    rnd = random.Random(seed)
+    bad = 0
+    for _ in range(n):
+        nu = rnd.uniform(0.01, 0.99)
+        h0 = rnd.uniform(1e-3, 1.0)
+        C0 = (1 / h0) * (1 - nu * nu) ** -0.5
+        mod = C0 * (1 + 10 ** rnd.uniform(0, 3))
+        th = rnd.uniform(0, math.pi / 2)
+        re_, im_ = mod * math.cos(th), mod * math.sin(th)
+        delta = rnd.uniform(0, 1)
+        e = -(1 - delta) / 2 if expo is None else expo(delta)
+        rhs = (1 - nu * nu) ** e * mod ** (-1 + delta)
+        if im_ < nu * mod:
+            h, dl = 1 / re_, delta
+        else:
+            h, dl = 1 / mod, 0.0
+        lhs = h ** (1 - dl)
+        bad += (lhs > rhs * (1 + 1e-12)) or (h > h0 * (1 + 1e-12)) or C0 < 1
+    return bad
+
+
 def c3():
     """with s = -sgn sigma the balance -sigma (|c+|^2 + |c-|^2) - s int q |Phi|^2 = 0 admits c+ != 0 (an exact
     instance)"""
@@ -231,7 +268,7 @@ def main():
     for th_bar, A_bar, v in samples:
         print('  A2 the lower bound when eps_NM/A_2d binds: theta0_bar = 10^%d, A_bar = 10^%d: log10 delta >= %s x 10^17'
               % (int(log10(th_bar)), int(log10(A_bar)), mp.nstr(v, 6)))
-    OK['A3'] = len(INVENTORY) == 14
+    OK['A3'] = len(INVENTORY) == 15
     print('  A3 (READ; deduced) the inventory (input | status | what it is | fed by):')
     for row in INVENTORY:
         print('      %s | %s | %s | %s' % row)
@@ -240,6 +277,11 @@ def main():
           'as an exact derivative, and the end values sigma |c_+|^2 (outgoing), -sigma |c_-|^2 (horizon): %s; so with '
           's = sgn sigma, q >= 0 the absorbed problem has trivial kernel on every mode, and is invertible (deduced)'
           % OK['A4'])
+    bad5 = a5()
+    OK['A5'] = bad5 == 0
+    print('  A5 (computed; Round 4): R3.1\'s bound 2 C (1 - nu\'^2)^(-(1-delta)/2) |sigma|^(-1+delta) covers both cases '
+          'of I.B 8.4\'s h (h = |Re sigma|^-1 with loss delta, h = |sigma|^-1 with delta = 0) for |sigma| >= C_0 >= 1, '
+          'with h <= h_0: violations in 2 x 10^5 random (sigma, nu\', h_0, delta): %d' % bad5)
     OK['C1'] = not a1(mutant=True, n=600)
     print('  C1 (control): lambda1 with eta_gl C_R: monotonicity fails: %s' % OK['C1'])
     g2m, valm, _ = a2(alpha_shift=1)
@@ -249,13 +291,16 @@ def main():
     OK['C3'] = c3()
     print('  C3 (control): absorption sign -sgn sigma: -sigma (1/3 + 2/3) + 1 = 0 with |c_+|^2 = 1/3: the balance no '
           'longer forces c_+ = 0: %s' % OK['C3'])
+    bm = a5(expo=lambda dl: -(1 - dl) / 4)
+    OK['C5'] = bm > 0
+    print('  C5 (control; Round 4): the factor with exponent -(1-delta)/4: %d violations: %s' % (bm, OK['C5']))
     bad = QUOTES[:7] + [('proof5/PART-VI4-PARAMS.md', r'$\gamma_C = 10^6$, inside the proved set')]
     OK['C4'] = not a0(bad)[0]
     print('  C4 (control): the quote mutated to "inside the proved set": not found: %s' % OK['C4'])
     for k_, v_ in OK.items():
         builtins.print(k_, 'PASS' if v_ else 'FAIL')
-    if '--selftest' in sys.argv:
-        sys.exit(0 if all(OK.values()) else 1)
+    # Round 4 (the reader's optional nit): the exit code reflects the checks in every mode, --selftest included
+    sys.exit(0 if all(OK.values()) else 1)
 
 
 if __name__ == '__main__':
