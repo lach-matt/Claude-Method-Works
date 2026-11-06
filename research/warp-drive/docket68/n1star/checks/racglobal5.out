@@ -7,3 +7,12 @@ R1 (computed) Nk on the whole of Part I's Sigma_tau0 (twobg5's background)
    so the split is hyperbolic on Sigma_tau0 except on the band, which the example's shell creates
 R1 PASS
 R2 (exact) the region-I criterion; where Nk > 0 no foliation is hyperbolic
+   region I: Nk = (mu/R^3)(f - 3) + mu'/(2 R^2): True; hyperbolic iff mu' < 2 mu (2 + mu/R^2)/R: True
+   K negative definite: K'^l_l = sin^2 b k0 + (3 - sin^2 b) k (exact): True; kappa' K'^l_l > 0 for every tilt (400 draws): True; control (mixed signs) has a hyperbolic tilt: True
+R2 PASS
+R3 (exact) the invariant Killing fields of Tangherlini; the static KID's lapse on Part I's slice
+   L_X g = 0 for invariant X forces X^R = X^th = 0: True, then X^t constant: True; control: d_phi1, d_phi2 Killing (excluded by the reflections): True
+   N_s = -g(e^-psi d_vhat, n) = e^-psi/sqrt(2 e^-psi - f) (> 0 since e^psi f < 2): True
+R3 PASS
+R4 (computed) the charge of B4's linear data on Part I's seed slice has one sign
+   pointwise, Tangherlini: (tr dK)^2 - |dK|^2 = -2/(3*f - 6) dKt^2 - 2 dp^2 - 2 ds2^2 (= 2/(3 (2 - f)) dKt^2 ...): True

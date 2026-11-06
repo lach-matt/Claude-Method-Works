@@ -21,7 +21,7 @@ of the expansion theta_du of the spheres {u, v = const} has no harmonic dependin
       s2-dependent remainder.
 Hence theta_du's lam^1 term has no s2-dependent harmonic for every function, not only at sample points: item 6's
 decisive cancellation is deduced, with the identities computed. Labels: computed (exact, sympy).
-Run: python3 checks/h3proof5.py   (about six minutes)
+Run: python3 checks/h3proof5.py   (about a minute)
 """
 import sys
 import time

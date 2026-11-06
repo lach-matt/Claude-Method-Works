@@ -809,4 +809,4 @@ structural proof of H3's cancellation (section 9).
 about twenty minutes); `checks/nonres5.py`, `checks/twotransport5.py`, `checks/axisphase5.py`, `checks/torusstress5.py`
 (+ `.out` each, seconds); round 2: `checks/twodecomp5.py` (+ `.out`, about three minutes), `checks/twoledger5.py`
 (+ `.out`, seconds), `checks/twohorizon5.py` (+ `.out`, about half an hour), `checks/twoparity5.py` (+ `.out`, about
-ten minutes); round 5: `checks/h3proof5.py` (+ `.out`, about six minutes) [R5].
+ten minutes); round 5: `checks/h3proof5.py` (+ `.out`, about a minute) [R5].

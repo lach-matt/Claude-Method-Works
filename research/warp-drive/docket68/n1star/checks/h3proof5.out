@@ -1,22 +1,11 @@
 (T) non-frozen: lam^1 of theta_du = g0^uv F1 a2 + (s2-independent)
-  theta_du expanded  [2 s]
-  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: True  [2 s]
+  theta_du expanded  [4 s]
+  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: True  [5 s]
   the remainder (s1-only, slow-derivative terms): -3*z1**2*ci(u, v, theta)*Derivative(R(u, v), u)/(E(u, v)**2*R(u, v))
-   H3-slow: PASS [2 s]
-  theta_du expanded  [0 s]
-  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: False  [0 s]
+   H3-slow: PASS [5 s]
+  theta_du expanded  [1 s]
+  lam^1 of theta_du minus g0^uv F1 a2 is independent of s2: False  [1 s]
   the remainder (s1-only, slow-derivative terms): z1*(-6*z1*ci(u, v, theta)*Derivative(R(u, v), u) + (-2*z1*a1(u, v, theta)**2 - 2*z1*a1(u, v, theta)*a2(u, v, theta) - 2*z1*a2(u, v, theta)**2 - 2*z2*a1(u, v, theta)*b1(u, v, theta) - z2*a1(u, v, theta)*b2(u, v, theta) - z2*a2(u, v, theta)*b1(u, v, theta) - 2*z2*a2(u, v, theta)*b2(u, v, theta))*E(u, v)*R(u, v))/(2*E(u, v)**2*R(u, v))
-   H3-slow (mutated): FAIL [0 s]
+   H3-slow (mutated): FAIL [1 s]
    control rejected: True
 (S) frozen coefficients: (S1)-(S3) and the control
-  R^(-1) = 0 in every component: True  [14 s]
-  D^(0) (lam^0 of the gauge vector) = 0: True
-  symbol of lam^2 Q z1 z2^-1 at lam^0, per component: {-1/E}
-  (S1) gamma0^AB R^(0)_AB |mixed = -2 g0^uv F1 F2 (a2) |mixed with Q = 0: True; mixed harmonics present: [(-1, -1), (-1, 1), (1, -1), (1, 1)]
-  (S2) with Q from the division, R^(0) has no mixed harmonic in any component: True  [50 s]
-  (S2) a2 = (1/2) tr Q - (1/4)|W|^2: mixed part {} (must be empty)
-  (S3) theta_du: lam^-1 0, lam^0 0; lam^1 = g0^uv F1 a2 exactly: True; lam^1 harmonics depending on s2: {}
-  control (Q = 0): theta_du lam^1 mixed harmonics present: True (4 harmonics)
-   H3-structural: PASS [64 s]
-PASS [66 s]
-exit 0

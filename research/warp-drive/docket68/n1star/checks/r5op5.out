@@ -1,1 +1,6 @@
 O3  G-naturality of the gauge-fixed operator relative to g_b0
+  O3 P(sigma^* h) = Lambda^T P(h)(Lambda .) Lambda for the reflection x2 -> -x2 and the rotation (3/5, 4/5) (two points,
+        all components): pass {'reflection': ('1.43e-42', '0.107'), 'rotation': ('8.21e-42', '0.105'), 'shear (control)':
+        ('0.0133', '0.0723')}
+  O3' control (the shear x1 -> x1 + x2/2): the identity fails: pass
+O2  the degrees of P(g_b0 + Sigma_p) on the operator
