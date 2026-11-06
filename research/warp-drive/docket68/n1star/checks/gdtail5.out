@@ -6,3 +6,5 @@ T1 PASS
       sigma coefficient (-I*beta_0*ell_f/(4*pi**2)) d psi; FT[t^-2 H(t-1)] = E_2(z), z = -i sigma, has z log z with
       coefficient 1; t^-2 tail from the resolvent (formal) (c_inf/2) d psi, from the time-domain model (c_inf/2) d psi:
       equal True
+  T2 control (W* with its dr component dropped): P-hat(0) u_0 = 0: False
+T2 PASS
