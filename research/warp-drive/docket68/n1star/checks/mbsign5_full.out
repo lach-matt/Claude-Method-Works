@@ -1,2 +1,4 @@
 mbsign5: the sign of Q = 2 int G^(2)[delta](xi, n) dvol =: -E on the band (FAMILIES5-MB.md)
 E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance
+   (a) Regge-Wheeler-type gauge: C ~ S, M_R ~ S, M_th ~ S', M_phi = 0, E_V and E_K ~ S^2, S'^2, every coefficient free of th (equal at three rational angles): True, True
+   (b) L_X gamma, X = alpha S d_R + beta S' d_th, shifts (a, b, c, e) by ((1/f)' alpha + 2 alpha'/f, alpha/(R f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): True; the lapse direction k_psi has trace-free angular part psi (S_hat)^TF (z-shift psi/R^2): True; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f b + k^2 e/6 + f R e'/2 are invariant: True

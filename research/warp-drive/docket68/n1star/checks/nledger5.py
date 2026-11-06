@@ -15,23 +15,27 @@ is taken from the two-family list by analogy. The N-family terms (FAMILIES5-R6.m
      term; what is left is c1 . dh, c0 h, the lam d^2 phi and N_phi terms of family A, and for every B != A the cross
      terms c2 . d phi_B, c3 phi_B, the coupling -q c_A Psi_B, q lam^-1 ((1 - P) s_B) G2^B(ell_A, ell_A) and
      2 q N_phi^B(ell_A, ell_A); the P box s_A rewriting with (M5) both forms; -(1/2) M_A(P s_A), -N_A phi_A, a_A Psi_A.
-  Coefficient sources: every coefficient c above is built from g = g_app + w, and g_app's stage-1 part holds single
-     profiles and products of two (the quadratic stage terms). So each coefficient-bearing term is enumerated over its
-     source: the background, one family C, or a pair {C, D}. A cross term of Step 6 (target A, unknown B) with a pair
-     source {C, D} carries four family labels, so the full list grows like N^4, not N^3 as FAMILIES5-R6.md section 4
-     (vi) said (L2; R8 corrects the count, which only enters the constants).
+  Coefficient sources: every coefficient c above is built from g = g_app + w. In L1 each coefficient-bearing term is
+     enumerated over the background, one family or a pair (stage 1's quadratic terms). [R9] But stage m of the
+     approximant has mixed harmonics with up to m + 2 families (FAMILIES5-R6.md section 4.1 (d)), so with stages 0..M a
+     source is any set of at most M + 2 families; L2 counts that list for M = 0, 1, 2. A Step 6 cross term carries its
+     target, its unknown and one source set, so the count has degree M + 4 in N -- not N^3 as R6 section 4 (vi) said,
+     nor N^4 as R8 said (that was M = 0). The count enters only the constants.
 
-  L1 every N-family term (level 1: family structure; level 2: with coefficient sources) passes at k = K = 6, for
-     N = 2..8, evaluated one by one; and the set of term types (U, p, kappa, m, ops, extra, wfac) the N-family list
-     uses is exactly the two-family ledger's, for every N (so twoledger5's grid k = 6..12, K = 6..10 applies; it is
-     rerun here on the N = 4 list, every term).
-  L2 the term counts are polynomials in N of degree 2 (level 1) and 4 (level 2), found by exact interpolation on
-     N = 2..6 and checked on N = 7, 8.
+  L1 every N-family term (level 1: family structure; level 2: with coefficient sources of at most two families)
+     passes at k = K = 6, for N = 2..8, evaluated one by one; and the set of term types (U, p, kappa, m, ops, extra,
+     wfac) the N-family list uses is exactly the two-family ledger's for N = 2..8 (computed), and for every N because
+     the generator never reads a family label into a row's numbers (so twoledger5's grid k = 6..12, K = 6..10 applies;
+     it is rerun here on the N = 4 list, every term).
+  L2 the term counts, exactly: 16 N^2 + 23 N + 4 at the family level; with sources of at most s families (s = 2, 3,
+     4), a polynomial of degree s + 2, found by exact interpolation and checked on further N. A source label changes
+     no row's numbers, so every counted row has a type L1 evaluated.
   L3 the coefficient rule for products (computed, sympy): a product of two or three oscillating profiles
      a_C(x) exp(i omega_C . x/lam), distinct phases, has m-th derivatives of size lam^-m exactly (the leading power,
      m = 0..4), as a single profile has: kappa = 1 for every source.
-  L4 the closing rows are N-independent in their powers (twoledger5 T2) with N-dependent constants: Step 7's
-     M(N) := C3 (C_D(N) + 1 + C_R(N)) + 1, lam0(N) := 1/(C3 C(N) M(N)^2) close for any positive C(N) (exact, symbolic).
+  L4 (a definition check: it holds by lam0's definition, so it has no control) the closing rows are N-independent in
+     their powers (twoledger5 T2) with N-dependent constants: Step 7's M(N) := C3 (C_D(N) + 1 + C_R(N)) + 1,
+     lam0(N) := 1/(C3 C(N) M(N)^2) close for any positive C(N) (exact, symbolic).
   Controls (each must fail): (a) Lemma 3.3_N without the contraction: family A's own lam^-1 term (1/2) lam^-1 P s_A
      G2^A(ell_A, ell_A) left in Step 6 (exponent -1); (b) a cross term q lam^-1 ((1 - P) s_B) G2^B(ell_A, ell_A) without
      its (1 - P) gain, as if s_B entered unmollified (exponent -1); (c) the coupling -q c_A Psi_B for a pair (A, B)
