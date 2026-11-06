@@ -62,6 +62,14 @@ from rwgauge5 import Geo, N, X, r, s, v, zero
 
 HALF = sp.Rational(1, 2)
 mu = s**2
+_print = print
+
+
+def print(*args, **kw):                                         # report lines wrapped at 121 characters
+    import textwrap
+    text = ' '.join(str(a_) for a_ in args)
+    _print('\n'.join(textwrap.fill(ln, 121, subsequent_indent='      ', break_on_hyphens=False) if ln else ln
+                     for ln in text.split('\n')), **kw)
 
 
 class GeoOut(Geo):
