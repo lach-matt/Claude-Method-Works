@@ -54,7 +54,7 @@ in its source class, III.I' at Box (the expansion at null infinity), and the cor
      rho_I^2, and L_0 (rho_I^z u) = rho_I^z (z - 3/2)(X_+ - z) u.  Control: n = 3 gives the root 1.
 
 Labels: computed (exact, sympy; D5-D6 compute a formal expansion; D8 and D2 on the whole parameter box, D12 at exact
-rational samples).  Run: python3 checks/gdrad5.py   (about ten minutes)
+rational samples).  Run: python3 checks/gdrad5.py   (about a minute)
 """
 import itertools
 import sys

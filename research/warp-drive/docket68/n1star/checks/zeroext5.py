@@ -41,9 +41,12 @@ alpha + 2 = 1 lies in the indicial gap (0, 2) of the model at infinity (its root
      [r_h/2, oo) x S^3, every u smooth up to r_in and decaying at oo.
   Z5 (floating point) test functions u (sums of Gaussian bumps, also across r = 1 and at r_in, and a tail r^-2): the
      ratio N/F over 300 of them at l in {0, 2, 4, 6} stays below C; its largest value is printed.
+  Z5b (exact) the near-extremal family u = r^(-1-delta) on [1/2, oo) (smooth there): A_l u = c1 r^(-3-delta) + c2
+     r^(-5-delta), c1 = (l + 1)^2 - delta^2, c2 = (1 + delta)^2 (mu = 1), N^2 and F^2 integrated exactly; N/F -> 2^(1/2)
+     at l = 0 as delta -> 0 (exterior Hardy sharpness), below C: the constant C is within a factor 2 of the best.
   Controls (each mutates the computed path; each must fail): C1 Z2 with w = 1: P' w - P w' = 3 r^2 - 1 < 0 at
   r = 1/2, the positivity test fails; C2 Z1 with the boundary term's L r w |u|^2 sign flipped: the identity fails;
-  C3 Z5's test against the claim C/4: refuted by a test function.
+  C3 Z5b's test against the claim C/4: refuted by u = r^(-1-1/100).
 
     python3 checks/zeroext5.py       (a minute)
 """
@@ -210,9 +213,28 @@ def main():
         pos1, pos1.subs(r, sp.Rational(1, 2)), OK['C1']))
     OK['C2'] = not identity(sign_flip=True)
     print('  C2 (control): Z1 with the sign of the boundary term L r w |u|^2 flipped: the identity fails: %s' % OK['C2'])
-    OK['C3'] = worst > 2.802 / 4
-    print('  C3 (control): the claim N(u) <= (2.802/4) F: refuted by Z5\'s worst test function (ratio %.4f): %s' % (
-        worst, OK['C3']))
+    # Z5b exact power laws
+    dlt = sp.Symbol('delta', positive=True)
+    ex = {}
+    for dv in (sp.Rational(1, 100), sp.Rational(1, 10), sp.Rational(1, 2)):
+        for l in (0, 2):
+            L = l * (l + 2)
+            u = r ** (-1 - dv)
+            Au = sp.simplify(-r ** -3 * sp.diff((r ** 3 - r) * sp.diff(u, r), r) + L * r ** -2 * u)
+            form = ((l + 1) ** 2 - dv ** 2) * r ** (-3 - dv) + (1 + dv) ** 2 * r ** (-5 - dv)
+            assert sp.simplify(Au - form) == 0
+            N2 = sp.integrate(sp.expand(r * u ** 2 + r ** 3 * sp.diff(u, r) ** 2 + L * r * u ** 2),
+                              (r, sp.Rational(1, 2), sp.oo))
+            F2 = sp.integrate(sp.expand(r ** 5 * form ** 2), (r, sp.Rational(1, 2), sp.oo))
+            ex[(str(dv), l)] = float(sp.sqrt(N2 / F2))
+    lim0 = sp.limit((1 + (1 + dlt) ** 2) / (1 - dlt ** 2) ** 2, dlt, 0)
+    OK['Z5b'] = max(ex.values()) <= 2.802 and lim0 == 2
+    print('  Z5b (exact): N/F for u = r^(-1-delta): %s; at l = 0 the leading-order ratio^2 (1 + (1 + delta)^2)/(1 - '
+          'delta^2)^2 -> %s: %s' % ({k_: round(v_, 4) for k_, v_ in ex.items()}, lim0, OK['Z5b']))
+    best = ex[('1/100', 0)]
+    OK['C3'] = best > 2.802 / 4
+    print('  C3 (control): the claim N(u) <= (2.802/4) F: refuted by u = r^(-1.01) at l = 0 (ratio %.4f): %s' % (
+        best, OK['C3']))
     for k_, v in OK.items():
         builtins.print(k_, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1

@@ -10,7 +10,10 @@ zeroext5: the scalar zero-energy bound in the norm of I.C (3.2), s = 1, alpha = 
   Z5 (floating point): 300 test functions x l in {0, 2, 4, 6}: largest N(u)/F = 0.6542 <= 2.802: True
   C1 (control): w = 1: P'w - P w' = 3*r**2 - 1, at r = 1/2 it is -1/4 < 0: Z2's positivity fails: True
   C2 (control): Z1 with the sign of the boundary term L r w |u|^2 flipped: the identity fails: True
-  C3 (control): the claim N(u) <= (2.802/4) F: refuted by Z5's worst test function (ratio 0.6542): False
+  Z5b (exact): N/F for u = r^(-1-delta): {('1/100', 0): 1.3177, ('1/100', 2): 0.35, ('1/10', 0): 0.8631, ('1/10', 2):
+      0.3371, ('1/2', 0): 0.391, ('1/2', 2): 0.2783}; at l = 0 the leading-order ratio^2 (1 + (1 + delta)^2)/(1 -
+      delta^2)^2 -> 2: True
+  C3 (control): the claim N(u) <= (2.802/4) F: refuted by u = r^(-1.01) at l = 0 (ratio 1.3177): True
 Z0 PASS
 Z1 PASS
 Z2 PASS
@@ -18,4 +21,6 @@ Z4 PASS
 Z5 PASS
 C1 PASS
 C2 PASS
-C3 FAIL
+Z5b PASS
+C3 PASS
+rc=0

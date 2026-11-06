@@ -121,13 +121,16 @@ def main():
     proof = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'N1STAR-PROOF.md')
     with open(proof) as fh:
         lines = fh.read().split('\n')
-    read = ('The eleven tensors g-dot^Ups(mu-dot), g-dot^Ups(0, A)' in lines[4982] and 'h_s1(S)' in lines[4983])
+    # Round 6: N1STAR-PROOF.md has moved since round 5 (the sentence was at :4983, now :4986): found by search
+    at = [i for i, ln in enumerate(lines) if 'The eleven tensors g-dot^Ups(mu-dot), g-dot^Ups(0, A)' in ln]
+    read = len(at) == 1 and 'h_s1(S)' in lines[at[0] + 1]
     n4 = 4
     dims = {'s0': 1, 'v1 (so(4))': n4 * (n4 - 1) // 2, 's1 (l = 1 harmonics on S^3)': (1 + 1) ** 2}
     in_class = {k_: v_ for k_, v_ in dims.items() if k_ == 's0'}       # even scalar l only, no vector type
     OK['H5'] = read and sum(dims.values()) == 11 and sum(in_class.values()) == 1
-    print('  H5 (READ N1STAR-PROOF.md:4983-4984: %s; deduced): %s, sum %d; in the class (even scalar l, no vector '
-          'type) %s: one direction' % (read, dims, sum(dims.values()), in_class))
+    print('  H5 (READ N1STAR-PROOF.md, the eleven states, found at :%d: %s; deduced): %s, sum %d; in the class (even '
+          'scalar l, no vector '
+          'type) %s: one direction' % (at[0] + 1 if at else -1, read, dims, sum(dims.values()), in_class))
     c1 = supersol(r ** -2)
     far = sp.simplify(c1.subs(r, 2 * rh))
     OK['C1'] = c1 != 0 and far < 0
