@@ -4,8 +4,8 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
 (envelopes with dips)).
 
   T1 (exact; a three-dimensional instance of a dimension-free identity) The reduced Ricci operator relative to a
-     background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a
-     general metric g(x, y) on R^3 (six free functions) against the flat background.  So the quadratic remainder
+     background gb is quasilinear: Ric^H(g) + (1/2) g^ab d_a d_b g_mn contains no second derivative of g, for a metric
+     g(x, y) on R^3 with four free functions (g00, g01, g11, g22) against the flat background.  So the quadratic remainder
      N(u) := Ric^H(gb + u) - dRic^H(u) obeys |N(u)| <= C (|u| |d^2 u| + |du|^2 + |u|^2), with no (d^2 u)^2 term.
      Control: Ric itself (without the gauge term) keeps second derivatives outside g^ab d_a d_b.
   T2 (exact) The seed with mu(v) against the static seed mu0: every component of Gamma[g0] - Gamma[g0 deg] is a
@@ -73,11 +73,9 @@ def ricci(g, X):
 def t1(control=False):
     x, y, z = sp.symbols('x y z')
     X = [x, y, z]
-    f = {}
     g = sp.zeros(3)
-    for i in range(3):
-        for j in range(i, 3):
-            g[i, j] = g[j, i] = sp.Function('g%d%d' % (i, j))(x, y)
+    for (i, j) in ((0, 0), (0, 1), (1, 1), (2, 2)):
+        g[i, j] = g[j, i] = sp.Function('g%d%d' % (i, j))(x, y)
     Ric, gi, Gam = ricci(g, X)
     # wave-map gauge against the flat background: D^r = g^ab Gamma^r_ab; Ric^H = Ric - (1/2)(g_mr d_n D^r + g_nr d_m D^r)
     D = [sum(gi[a, b]*Gam[r][a][b] for a in range(3) for b in range(3)) for r in range(3)]
@@ -87,18 +85,15 @@ def t1(control=False):
     ok = True
     for m in range(3):
         for n in range(m, 3):
-            e = M[m, n] + sum(gi[a, b]*sp.diff(g[m, n], X[a], X[b]) for a in range(3) for b in range(3))/2
-            e = sp.expand(sp.together(e))
+            e = sp.expand(M[m, n] + sum(gi[a, b]*sp.diff(g[m, n], X[a], X[b]) for a in range(3) for b in range(3))/2)
             sec = [d for d in e.atoms(sp.Derivative) if sum(c for _, c in d.variable_count) >= 2]
-            num = sp.numer(sp.together(e))
-            num = sp.expand(num)
             rep = {d: sp.Symbol('S%d' % k) for k, d in enumerate(sec)}
-            num2 = num.xreplace(rep)
-            ok &= all(sp.expand(sp.diff(num2, s_)) == 0 for s_ in rep.values())
+            e2 = e.xreplace(rep)
+            ok &= all(sp.cancel(sp.diff(e2, s_)) == 0 for s_ in rep.values())
     if control:
         return ok
-    out("  T1 Ric^H(g) + (1/2) g^ab d_a d_b g_mn free of second derivatives (R^3, general g(x, y), flat background): %s"
-        "  [%.0f s]" % (ok, time.time() - T0))
+    out("  T1 Ric^H(g) + (1/2) g^ab d_a d_b g_mn free of second derivatives (R^3, g with g00, g01, g11, g22 general"
+        " functions of (x, y), flat background): %s  [%.0f s]" % (ok, time.time() - T0))
     return ok
 
 

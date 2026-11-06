@@ -8,7 +8,8 @@ outgoing chart (u, r): g = -f du^2 - 2 du dr + r^2 gamma, T = d_t = d_u there.  
 = P_j(cos 2 th), k^2 = l (l + 2), l = 2j, m = k^2 - 3, x = mu/r^2, H = m + 6x; master field P(u, r) (the Phi of [KI03],
 whose pointwise norm the r^p energies of [HKW18] (124), (127) carry); Phi~ = r^(3/2) H P; the components in the gauge
 f_a = 0 = H_T are h = F_ab S dy^a dy^b + 2 r^2 F S gamma with (10.1) of the supplement (Proposition 10.1 (iii)):
-    r F = (1/(12 r^2 H)) [ (2H - 3 r f') Phi~ + 6 r Dr . DPhi~ ],   r F_ab + r F g_ab = (1/H)(D_a D_b Phi~ - (1/2) box Phi~ g_ab).
+    r F = (1/(12 r^2 H)) [ (2H - 3 r f') Phi~ + 6 r Dr . DPhi~ ],
+    r F_ab + r F g_ab = (1/H)(D_a D_b Phi~ - (1/2) box Phi~ g_ab).
 Static orthonormal frame on r > r_h: e0 = f^(-1/2) d_t = f^(-1/2) d_u, e1 = f^(1/2) d_r|_t = f^(1/2) d_r - f^(-1/2) d_u,
 and the unit frame of the sphere of radius r, in which h(e_i, e_j) = 2 F S delta_ij.  Jets: P, P_u = T P, P_uu = T^2 P,
 P_r, P_ur = d_r T P, P_rr (Bondi chart).
@@ -50,7 +51,11 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      k^2 on r >= r_h; (iv) the exponents: s^p = s^(2 - p) (s^2)^(p - 1) (Hoelder), E^p <~ tau^-(2-p), and the rates
      tau^-2, tau^-1, tau^-(1/2) + delta at p = 1 + 2 delta.  Control: (i) without its second term fails for w = 1.
 
-Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U7]   (U3 (b) takes the longest)
+  U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
+     text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
+     "r <= R" for "r ≤ R" (a transcription slip) is not found.
+
+Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U8]   (U3 (b) takes the longest)
 """
 import os
 import sys
@@ -524,7 +529,29 @@ def u7(control=False):
     return ok
 
 
-CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7)]
+# --------------------------------------------------------------------------------------------------------------- U8
+def u8(control=False):
+    """the replacement of RWGAUGE5.md section 6: its old text occurs exactly once in the paper; every line of the note
+    and of this program is at most 121 characters"""
+    root = os.path.dirname(HERE)
+    note = open(os.path.join(root, "RWGAUGE5.md"), encoding="utf-8").read()
+    paper = open(os.path.join(root, "..", "..", "paper", "RESPONSE-HL-5D.md"), encoding="utf-8").read()
+    old = note.split("```old\n", 1)[1].split("\n```", 1)[0]
+    new = note.split("```new\n", 1)[1].split("\n```", 1)[0]
+    if control:
+        old = old.replace("r ≤ R", "r <= R")                       # a transcription slip must not be found
+    n_old = paper.count(old)
+    n_new = paper.count(new)
+    width = max(len(ln) for ln in note.splitlines() + open(os.path.abspath(__file__), encoding="utf-8")
+                .read().splitlines())
+    ok = n_old == 1 and n_new == 0 and new.startswith(old.split(" (uniformly")[0]) and width <= 121
+    print("  U8%s: the old text occurs %d time(s) in the paper, the new text %d; new keeps the old opening: %s;"
+          " widest line %d: %s" % (" control (r <= R)" if control else "", n_old, n_new,
+                                   new.startswith(old.split(" (uniformly")[0]), width, ok), flush=True)
+    return ok
+
+
+CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7), ("U8", u8)]
 
 
 def main():

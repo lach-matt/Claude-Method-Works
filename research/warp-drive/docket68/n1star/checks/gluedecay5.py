@@ -362,7 +362,7 @@ def e5(control=False):
     for i in range(4):
         for j in range(i, 4):
             ok_, lo = md.powers(mu * xc[i] * xc[j] / n2c**2 - mu * x[i] * x[j] / n2**2, rho, 5)
-            tl.append(lo if ok_ else -1)
+            tl.append((99 if lo is None else lo) if ok_ else -1)
     trans = min(tl) == 3
     X = sp.symbols("x1:5", real=True)
     rr = sp.sqrt(sum(e_**2 for e_ in X))
