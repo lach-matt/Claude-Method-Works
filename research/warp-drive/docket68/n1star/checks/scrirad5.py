@@ -144,8 +144,11 @@ def encoding_guard(n=200):
         al = [A, l * rho * x + 1 / r, Fr(0)]                       # alpha = dt^flat_* + r^-1 dr
         mat = sum(al[a] * G[a][b] * al[b] for a in range(3) for b in range(3)) * r
         u = 1 / t
-        beta = l * x + u
-        enc = (-2 * A * beta + rho * beta * beta + c[0] * A * A + 2 * c[1] * A * beta + c[3] * beta * beta) / u
+        # the encoded form itself, evaluated exactly (c_2 doubled: (x)_s as above)
+        val = {"rho": rho, "x": x, "u": u, "l": l, "c1": c[0], "c2": 2 * c[1], "c4": c[3]}
+        v = variables()
+        e = z3.simplify(z3.substitute(form(v), *[(v[k], z3.RealVal(str(w))) for k, w in val.items()]))
+        enc = Fr(e.numerator_as_long(), e.denominator_as_long()) / u
         if mat != enc:
             return False
     return True

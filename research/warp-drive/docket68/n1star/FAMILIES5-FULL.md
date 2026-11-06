@@ -160,9 +160,10 @@ independently; round 2 printed 1.01, its RK4 sampling τ at its steps] [R6 (the 
 0.9951, attained at τ0, which the round-5 minimum left out; twobg5.py repaired] on all of [τ0, τ_end] (along it R
 and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d),
 (e) as FAMILIES5.md 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c) above;
-(f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3) e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which
-gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside Ω₂ (record's (d)-(e)), so both
-generators reach Σ_τ0 transversally (they are null, dτ timelike). Compactness is (d).
+(f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3)
+e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0
+inside Ω₂ (record's (d)-(e)), so both generators reach Σ_τ0 transversally (they are null, dτ timelike). Compactness
+is (d).
 
 (f) *The computed example (twobg5 G2, floating point).* Corner mass 1.5 at R = 5; packet ℬ = 1.7 b(u; 5.7, 7.2) on N′;
 shell 𝒜 = 3.6 b(v; 3, 4.5) on N (b a C^∞ bump); seed μ0 = 0.82211; outer mass after the shell 3.6058. At n = 40, 80,
