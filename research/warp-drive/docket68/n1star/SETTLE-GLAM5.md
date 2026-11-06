@@ -3481,7 +3481,7 @@ file, word by word (`r9text5.py`).
 
 *The text for the paper* (RESPONSE-HL-5D.md, not edited here; final, superseding R5-E's to R8-E's blocks). The three old
 texts are the same in both outcomes; each is located by content and occurs exactly once in the current file (md5
-@@PAPERMD5@@ at the final run), every line of the edited file is within 121 characters in either outcome, and the new
+b21cd7ca at the final run), every line of the edited file is within 121 characters in either outcome, and the new
 texts state what the round-5 to round-8 readers asked, status words included (r6edits5 E4). Outcome A is for round 9 not
 yet read by an independent reader; outcome B for round 9 read and confirmed.
 
@@ -3644,14 +3644,14 @@ replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, w
 half-integer orders, is proved in section 9 (Beyond the boundary), conditional on the supplement's section 11.1, proved.
 ```
 
-Ledger (round 9). New: `r9beyond5.py` (@@N_B@@ checks) and `r9text5.py` (@@N_T@@). Changed and rerun: `r7settle5.py`
-(@@N_K@@ checks), `r6edits5.py` (@@N_E@@). Every new or changed `.out` is from a full run and byte-identical on a second
-run; the other programs are unchanged and their `.out` files stand (@@OTHERS@@); r5edits5, which reads R5-D and imports
+Ledger (round 9). New: `r9beyond5.py` (17 checks) and `r9text5.py` (5 checks). Changed and rerun: `r7settle5.py`
+(13 checks), `r6edits5.py` (29). Every new or changed `.out` is from a full run and byte-identical on a second
+run; the other programs are unchanged and their `.out` files stand (r6sigma5 21, r6settle5 21, r5settle5 45, r5edits5 11, zinv5 3, r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks); r5edits5, which reads R5-D and imports
 r6edits5, was rerun after this round's last edit of the file: its `.out` unchanged. Deduced: Lemma R9.1. READ:
 PART-VII-ASSEMBLY.md 123-129, 150-159, 162-163, 177 (Lemma 1.2's proof, the radiation field after the shell, Sigma_IVP's
-form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1 (c), Theorem P (P-i)-(P-v), at md5 @@PROOFMD5@@ (5043cedf at D632;
+form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1 (c), Theorem P (P-i)-(P-v), at md5 5c1a186a (5043cedf at D632;
 D633's edits since are to status lines); N1STAR-LOG.md D632; BEYOND5.md 177-212 (md5 b67a56b2, not edited);
-RESPONSE-HL-5D.md (md5 @@PAPERMD5@@); git 54c8634's SETTLE-GLAM5.md. None from outside sources.
+RESPONSE-HL-5D.md (md5 b21cd7ca); git 54c8634's SETTLE-GLAM5.md. None from outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 

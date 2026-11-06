@@ -1,76 +1,110 @@
-m22evol5: the stage-1 evolution on X*'s past and M_22 (LAMBDA0-DATA5.md section 12)
+m22evol5: the stage-1 evolution on X*'s past and M_22 (LAMBDA0-DATA5.md sections 12-13)
   S1: the six non-class components vanish to order 1: True; order lam^-1 vanishes: True; the order-0 part of degree 1
       vanishes on e_1 = 0 in every component and harmonic: True (8 live m_rr coefficients before e_1 is used); its
       degree-0 part vanishes except in vv at harmonic 0: True, which is nonzero for a general mu' and zero under the
-      energy condition: (False, True): True [64s]
+      energy condition: (False, True): True [41s]
   S2: each mean equation's principal part is -(1/2) g0^ab d_a d_b on its own component (-d_v d_r - (f/2) d_r^2 - (1/2r^2)
       d_th^2, no second derivative of another): True; each oscillating equation at harmonic n = 1, 2, 3 carries -i n d_r
       of its own component and no derivative of another: True; the mean's source is S = -(4/9) A^2 E^2 H^2 sin 2th r^-3
-      in v th alone: True; linear in the unknowns: True: True [85s]
+      in v th alone: True; linear in the unknowns: True: True [55s]
   S3: the mean equations see gh_2 only through its first harmonic in (r th, th th, phi1 phi1, phi2 phi2) and its second
       in r r: True; every r r equation (n = 1, 2, 3) is a homogeneous transport of gh_2(r r) at its own harmonic, so
       gh_2(r r) = 0: True; the first-harmonic equations of the four see no other gh_2 component but r r: True; so (m_1,
-      phi_1, those four) is closed: True [85s]
+      phi_1, those four) is closed: True [55s]
   S4: the first harmonic of D^(1) (lowered) is algebraic in gh_2's first harmonic, m_1 and d_th phi_1: True; its r
       component is gh_2(r r) alone (zero by S3): True; its th component carries the known source and gh_2(r th): True:
-      True [86s]
-  system and data ready [218s]
-    Nr = 24, Nx = 12, cfl = 1.0: 1119 steps, M_22 = 2.208069251; gauge diagnostic (relative) 1.2e-16 at tau0, 1.9e-04 at
-      tau = 0.54, 3.5e-05 at tau* (124s) [342s]
-    Nr = 32, Nx = 12, cfl = 1.0: 1990 steps, M_22 = 2.207746494; gauge diagnostic (relative) 1.7e-16 at tau0, 3.1e-06 at
-      tau = 0.54, 2.3e-07 at tau* (190s) [532s]
-    Nr = 40, Nx = 12, cfl = 1.0: 3110 steps, M_22 = 2.207743389; gauge diagnostic (relative) 2.2e-16 at tau0, 3.2e-09 at
-      tau = 0.54, 5.6e-10 at tau* (416s) [948s]
-    Nr = 48, Nx = 12, cfl = 1.0: 4479 steps, M_22 = 2.207743412; gauge diagnostic (relative) 1.8e-16 at tau0, 1.1e-09 at
-      tau = 0.54, 7.7e-11 at tau* (598s) [1546s]
-    Nr = 32, Nx = 12, cfl = 0.5: 3981 steps, M_22 = 2.207746494; gauge diagnostic (relative) 1.7e-16 at tau0, 3.1e-06 at
-      tau = 0.54, 2.3e-07 at tau* (365s) [1911s]
-    Nr = 32, Nx = 16, cfl = 1.0: 1990 steps, M_22 = 2.207741160; gauge diagnostic (relative) 1.3e-16 at tau0, 3.1e-06 at
-      tau = 0.54, 2.3e-07 at tau* (169s) [2080s]
-    Nr = 48, Nx = 16, cfl = 1.0: 4479 steps, M_22 = 2.207738078; gauge diagnostic (relative) 2.2e-16 at tau0, 1.1e-09 at
-      tau = 0.54, 7.7e-11 at tau* (447s) [2527s]
-    Nr = 32, Nx = 20, cfl = 1.0: 1990 steps, M_22 = 2.207741048; gauge diagnostic (relative) 2.2e-16 at tau0, 3.1e-06 at
-      tau = 0.54, 2.3e-07 at tau* (144s) [2671s]
+      True [56s]
+  S4b: the harmonic-0 part of D^(1) (lowered) is linear in m_1 and its first derivatives alone (no phi_1, no gh_2): True,
+      with no known source: True; its v, r and th components are live and the phi components vanish: True: True [56s]
+  system and data ready [129s]
+    Nr = 24, Nx = 12, cfl = 1.0: 1119 steps, M_22 = 2.208069251; first-harmonic gauge (N3) 1.2e-16, 1.9e-04, 3.5e-05 and
+      mean gauge (N3b) 1.3e-08, 3.8e-04, 1.3e-06 at tau0, tau = 0.54, tau* (relative) (60s) [190s]
+    Nr = 32, Nx = 12, cfl = 1.0: 1990 steps, M_22 = 2.207746494; first-harmonic gauge (N3) 1.7e-16, 3.1e-06, 2.3e-07 and
+      mean gauge (N3b) 1.2e-08, 1.6e-05, 1.0e-07 at tau0, tau = 0.54, tau* (relative) (108s) [298s]
+    Nr = 40, Nx = 12, cfl = 1.0: 3110 steps, M_22 = 2.207743389; first-harmonic gauge (N3) 2.2e-16, 3.2e-09, 5.6e-10 and
+      mean gauge (N3b) 1.3e-08, 5.9e-06, 1.1e-07 at tau0, tau = 0.54, tau* (relative) (190s) [487s]
+    Nr = 48, Nx = 12, cfl = 1.0: 4479 steps, M_22 = 2.207743412; first-harmonic gauge (N3) 1.8e-16, 1.1e-09, 7.7e-11 and
+      mean gauge (N3b) 1.3e-08, 5.9e-06, 1.1e-07 at tau0, tau = 0.54, tau* (relative) (369s) [857s]
+    Nr = 32, Nx = 12, cfl = 0.5: 3981 steps, M_22 = 2.207746494; first-harmonic gauge (N3) 1.7e-16, 3.1e-06, 2.3e-07 and
+      mean gauge (N3b) 1.2e-08, 1.7e-05, 1.0e-07 at tau0, tau = 0.54, tau* (relative) (241s) [1098s]
+    Nr = 32, Nx = 16, cfl = 1.0: 1990 steps, M_22 = 2.207741160; first-harmonic gauge (N3) 1.3e-16, 3.1e-06, 2.3e-07 and
+      mean gauge (N3b) 1.6e-16, 1.3e-05, 5.7e-08 at tau0, tau = 0.54, tau* (relative) (133s) [1230s]
+    Nr = 48, Nx = 16, cfl = 1.0: 4479 steps, M_22 = 2.207738078; first-harmonic gauge (N3) 2.2e-16, 1.1e-09, 7.7e-11 and
+      mean gauge (N3b) 1.4e-16, 1.5e-07, 2.7e-09 at tau0, tau = 0.54, tau* (relative) (288s) [1519s]
+    Nr = 32, Nx = 20, cfl = 1.0: 1990 steps, M_22 = 2.207741048; first-harmonic gauge (N3) 2.2e-16, 3.1e-06, 2.3e-07 and
+      mean gauge (N3b) 1.6e-16, 1.1e-05, 5.6e-08 at tau0, tau = 0.54, tau* (relative) (111s) [1630s]
   N1: radial refinement (Nx = 12) changes M_22 by 3.2e-04, 3.1e-06, 2.3e-08 (Nr 24 to 32, 32 to 40, 40 to 48); angular
       (Nr = 32) by 5.3e-06, 1.1e-07 (Nx 12 to 16, 16 to 20), the same at Nr = 48 to 2e-11; halving the step (32 x 12) by
       7.3e-11. M_22 = 2.20773808 (Nr = 48, Nx = 16), error estimate 1.4e-07 (the last radial, angular and time changes
-      summed); band [2.207737, 2.207739] (ten times that; floating point, not an enclosure); 0 outside it: True [2671s]
+      summed); band [2.2077367, 2.2077395] (ten times that, rounded outward; floating point, not an enclosure); 0 outside
+      it: True [1630s]
   N2: outer boundary at v = 2.6 instead of 3 (X*'s past lies in v <= 2), Nr = 40, Nx = 12: M_22 = 2.207743412 against
-      2.207743389, within the band's half-width: True [2922s]
+      2.207743389, within the band's half-width: True; the change is Nr = 40's radial truncation (the narrower domain is
+      resolved better): it is 3e-11 from 48 x 12 at v = 3 [1773s]
   N3: the first harmonic of D^(1), zero on Sigma by (F1) to 2.2e-16, stays below 3.1e-06 of its terms' size at mid-solve
-      and at tau* on 48 x 12, 48 x 16 and 32 x 20: True
-  C1 (control): S with its sign flipped: M_22 = -4.289491, outside the band: True [3015s]
-  C2 (control): gh_2's coupling into the mean dropped: M_22 = 3.248207, outside the band: True [3114s]
+      and at tau* on 48 x 12, 48 x 16 and 32 x 20: True. Its scope: it sees the four gh_2 transports, m_1 (r th) and d_th
+      phi_1, not the mean equations (unchanged under C1 below)
+  N3b: the harmonic-0 part of D^(1) (S4b), zero on Sigma by step (ii) to 1.3e-08 (the floating data's floor), is 3.8e-04,
+      1.6e-05, 5.9e-06, 5.9e-06 at mid-solve for Nr = 24, 32, 40, 48 (Nx = 12), falling with Nr, and below 1.1e-05 at
+      mid-solve and tau* on 48 x 12, 48 x 16 and 32 x 20: it sees the mean equations, their source and their coupling to
+      gh_2: True
+    Nr = 40, Nx = 16, cfl = 0.5, nodes = leg: 6220 steps, M_22 = 2.207737926; first-harmonic gauge (N3) 1.4e-16, 3.9e-09,
+      7.0e-10 and mean gauge (N3b) 2.3e-16, 7.6e-07, 1.4e-09 at tau0, tau = 0.54, tau* (relative) (292s) [2065s]
+  N4 (the pin): a second discretisation, Legendre-Gauss-Lobatto in r and Legendre-Gauss in x (40 x 16, cfl 1/2), gives
+      M_22 = 2.207737926, 1.5e-07 from the Chebyshev value, inside the band's half-width 1.4e-06; and M_22 read from the
+      coordinate component h_p1/(r C)^2 at the axis agrees with the readout (T - B)/a^2 to 2e-14 on every grid: True
+      [2065s]
+  C1 (control): S with its sign flipped: M_22 = -4.289491, outside the band, and the mean gauge (N3b) at mid-solve is
+      0.40, so N3b fails; N3 is 3.1e-06, 2.2e-07 at mid-solve and tau*, unchanged: True [2143s]
+  C2 (control): gh_2's coupling into the mean dropped: M_22 = 3.248207, outside the band, and N3b at mid-solve is 0.46:
+      True [2202s]
   C3 (control): gh_2's first harmonic set to zero on Sigma, violating (F1): the gauge diagnostic at tau0 is 1.00 of its
       terms' size; N3's test fails: True
-  C4 (control): the axis division done after removing the numerator's interpolated axis value (a rank-one change at the
-      inner boundary): at Nr = 48, Nx = 12, M_22 = 98376, outside the band: True [3326s]
-  The chain at the floating value (computed, floating point; NOT certified, so no bound is lowered): with C_app >=
-      12.593309 + |M_22| (operator norm; the largest entry uses the same C_app) and C_app >= (16.127552^2 + M_22^2)^(1/2)
-      (Frobenius), M_22 = 2.207738 would give
-    lambda0 < 0.0020789 (operator norm), against the certified 0.0024433
-    lambda0 < 0.0018903 (Frobenius), against the certified 0.0019079
-    lambda0 < 0.0010404 (largest entry), against the certified 0.0012228
+  C4 (control): the axis division done after removing the numerator's interpolated axis value (a rank-one change): at Nr
+      = 48, Nx = 12 the solve runs away, |M_22| ~ 7e+04, outside the band: True [2330s]
+  C6 (control): the readout with T + B for T - B: 2.902410 against the coordinate component's 2.207738; N4's readout test
+      fails: True
+  The chain at the floating value (computed, floating point; NOT certified, so no bound is lowered): with eps1 < s0 <=
+      0.030768560 (operator norm, Frobenius) or < 0.0153989 (largest entry), C_app >= 12.593309 + |M_22| (operator norm,
+      largest entry) and C_app >= (16.127552^2 + M_22^2)^(1/2) (Frobenius), each rounded up; at M_22 = 0 these give the
+      certified 0.0024433, 0.0019079, 0.0012228: True; at the band's lower end 2.2077367 they would give
+    lambda0 < 0.0020789 (operator norm), against the certified 0.0024433 (the band's upper end gives 0.0020789)
+    lambda0 < 0.0018902 (Frobenius), against the certified 0.0019079 (the band's upper end gives 0.0018902)
+    lambda0 < 0.0010404 (largest entry), against the certified 0.0012228 (the band's upper end gives 0.0010404)
+    and a certified m_lo <= |M_22| would give 0.0022636, 0.0019042, 0.0011329 at m_lo = 1, 0.0023500, 0.0019070,
+      0.0011761 at m_lo = 1/2
   CH: at X* with m_1(X*) = M_22 e_phi1 e_phi1 (the class, READ classm5 K1-K2) and stage 0's W, chi D there (stage0bd5's
       forms, floating point over 20001 phases): (4/3) K = 12.5936177 (in the image of c's certified interval, whose lower
       end gives 12.5934637: True); sup_s |g_1|_op - (4/3) K = 2.207738078 = |M_22| (the operator-norm and largest-entry
       step); sup_s |g_1|_F^2 - (B + M_22^2) = 72.4079 >= 0 (the Frobenius step): True
   C5 (control): the same number placed off the class, in e_phi1 e_th + e_th e_phi1: the excess is 0.254589, not |M_22|;
       CH's operator step fails: True
-  Not decided here (LAMBDA0-DATA5.md section 12): a certified enclosure of M_22; the a posteriori closure needs the
-      residual of a space-time interpolant of the solve below the tolerance of section 12.5 in interval arithmetic, which
-      this machine cannot reach.
+  R1 (measured, floating point; the coefficients' sizes, not a rate in Lemma 9.1's energy): at th = pi/4 over X*'s past
+      the mean equations' first-order coefficients (row sums, normalised by the d_tau^2 coefficient) run from 7.8 at tau0
+      to 31.9 at tau*, the zero-order ones from 15.4 to 3.6e+04, the couplings to gh_2 from 0.10 to 40.4; int of the
+      first-order size over [tau0, tau*] = 34.1, e^(int/2) = 2.53e+07; the tolerance |M_22|/(1391.72 x 2^(1/2) x 37.8) =
+      2.97e-05 would fall to 1.17e-12 with that factor alone
+  R2 (measured, this machine): every coefficient function of the closed system (202 expressions) on one space-time box in
+      Arb balls takes 2.64e-04 s, so over the 3439872 cells of 48 x 16 about 910 s: the interval evaluation is not the
+      obstacle
+  Not decided here (LAMBDA0-DATA5.md sections 12.5, 13): a certified enclosure of M_22, or a certified m_lo > 0: every
+      route needs a certified rate for the lower-order terms, which no estimate here or in the record bounds, and the
+      constants of the point evaluation.
 S1 PASS
 S2 PASS
 S3 PASS
 S4 PASS
+S4b PASS
 N1 PASS
 N2 PASS
 N3 PASS
+N3b PASS
+N4 PASS
 C1 PASS
 C2 PASS
 C3 PASS
 C4 PASS
+C6 PASS
 CH PASS
 C5 PASS
-m22evol5: 13/13 [3327s]
+m22evol5: 17/17 [2331s]
