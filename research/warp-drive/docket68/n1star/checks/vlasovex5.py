@@ -7,7 +7,7 @@ tau0 = 0, tau_end = 3, a = 0.8 < sqrt(mu), V = 5: Omega = {0 <= tau <= 3, r >= a
 (tau_end - tau)}. A restricted field is a family of dusts labelled by w; label w's eikonal has, on Sigma_0, the data
 u_w = cos w rho(r) + sin w r_c th, rho' = sqrt(1 + mu/r^2) (so its gradient's angle in the orthonormal frame is
 beta0 = atan2(r_c sin w/r, cos w)), and its density is supported on the ball B = {|r - r_c| <= 0.3, |th - pi/4| <=
-0.15}, r_c = 3, for w in two label intervals I1 = [-0.5, 0.5] and I2 = [pi - 0.5, pi + 0.5] (the density a smooth
+0.15}, r_c = 3, for w in two label intervals I1 = [-0.5, 0.5] and I2 = [pi - 0.15, pi + 0.15] (the density a smooth
 bump in w vanishing outside them, so it is smooth and periodic on S^1).
 
   X1 (exact, sympy) the record's open conditions for g0 on this Omega (N1STAR-PROOF.md Lemma 1.1 (a)-(c), (f)):
@@ -24,8 +24,10 @@ bump in w vanishing outside them, so it is smooth and periodic on S^1).
      (ii)  direction-labelled: d beta0/d w = (r_c/r)/(cos^2 w + (r_c/r)^2 sin^2 w) >= b > 0 on B (exact formula,
            its least value printed);
      (iii) off the axes: every tube stays at angular distance >= 2 delta from th = 0 and th = pi/2 (delta printed);
-     (iv)  the rays of I1 are outgoing and leave through the outer boundary, those of I2 ingoing, crossing the horizon
-           r = 1 and leaving through r = a (printed).
+     (iv)  the rays of I1 are outgoing and leave through the outer boundary, those of I2 ingoing, every one inside
+           the horizon r = 1 when it leaves Omega (through r = a, or at tau_end) (printed). (A wider ingoing interval,
+           [pi - 0.5, pi + 0.5], reaches an axis inside the horizon -- the focusing of Proposition Ax -- and is not
+           admissible: the off-axis condition is a real restriction.)
      Control (must fail): a focusing family (data u = -|x - x_f| in the slice's (rho, r_c th) chart, focus at
      distance 1 ahead of B) has a Jacobian that changes sign on Omega: the caustic check rejects it.
   X3 (computed) the conditions are open, illustrated: with mu = 1.05 and the initial directions tilted by 0.05
@@ -167,7 +169,7 @@ def b_label(ws):
 def x2():
     print("X2 (computed) the explicit family: caustic-free, direction-labelled, off the axes, on Omega")
     I1 = np.linspace(-0.5, 0.5, 81)
-    I2 = np.linspace(math.pi - 0.5, math.pi + 0.5, 81)
+    I2 = np.linspace(math.pi - 0.15, math.pi + 0.15, 81)
     res = {}
     for nm, I in (('I1', I1), ('I2', I2)):
         Jmin, Jneg, axis, rexit = family_margins(I, MU)
@@ -177,21 +179,22 @@ def x2():
               (nm, Jmin, not Jneg, axis, axis / 2, res[nm][3], res[nm][4], res[nm][5]))
     out_nm = 'I1' if res['I1'][3] > RC else 'I2'
     in_nm = 'I2' if out_nm == 'I1' else 'I1'
-    dirs = res[out_nm][3] > RC and res[in_nm][4] < A_IN + 0.05             # out through r = b, in through r = a
+    dirs = res[out_nm][3] > RC and res[in_nm][4] < 1.0                     # out through r = b, in inside r = 1
     ok = all(res[k][0] > 0 and not res[k][1] and res[k][2] > 0 and res[k][5] > 0 for k in res) and dirs
     # control: a focusing family, its focus at distance 1 ahead in the direction the outgoing rays move
     sgn = 1.0 if out_nm == 'I1' else -1.0
     Jf, Jfneg, _, _ = family_margins(np.array([0.0]), MU, focus=(RC + sgn * (DR + 1.0), TH_C))
     ctl = Jfneg
-    print("   %s outgoing (leaves through r = b), %s ingoing (through r = a): %s; control: a family focused at "
-          "distance 1 ahead has a Jacobian changing sign (least %.4f; rejected): %s" % (out_nm, in_nm, dirs, Jf, ctl))
+    print("   %s outgoing (leaves through r = b), %s ingoing (inside the horizon when it leaves): %s; control: a "
+          "family focused at distance 1 ahead has a Jacobian changing sign (least %.4f; rejected): %s" %
+          (out_nm, in_nm, dirs, Jf, ctl))
     return ok and ctl, res
 
 
 def x3(res0):
     print("X3 (computed) openness, illustrated: a nearby metric (mu = 1.05) and tilted directions")
     ok = True
-    for nm, I in (('I1', np.linspace(-0.5, 0.5, 41)), ('I2', np.linspace(math.pi - 0.5, math.pi + 0.5, 41))):
+    for nm, I in (('I1', np.linspace(-0.5, 0.5, 41)), ('I2', np.linspace(math.pi - 0.15, math.pi + 0.15, 41))):
         Jmin, Jneg, axis, rexit = family_margins(I, 1.05, tilt=0.05)
         bl = b_label(I)
         J0, _, ax0, _, _, b0 = res0[nm]

@@ -713,22 +713,37 @@ in r for which M_s below is finite
     A0 d_r (w, q) + A^B d_B (w, q) + c' (w, q) + f d_r a + f' . d_S a + c'' a = F_J,                         (6.4)
 
 Delta_alpha a second-order angular operator elliptic on each sphere with ellipticity constant >= delta0 > 0, alpha >=
-alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a. For s >=
-0 there is a unique solution, and
+alpha0 > 0, and an invertible symmetrizer S with S A0 >= A00 > 0 and S A^B symmetric, with zero data at r = a. For s >
+3/2 + 2 there is a unique solution, and [corrected D619 (n6): the range was printed twice, "For s >= 0" here and "for
+s > 3/2 + 2" after the bound; it is s > 3/2 + 2 throughout]
 
     sup_r (||a||_{H^(s+1)} + ||(w, q)||_{H^s}) + ||a||_{L^2 H^(s+2)} <= C (||F_rho||_{L^2 H^s} + ||F_J||_{L^2 H^s}),
 
-norms on the spheres S^3, for s > 3/2 + 2, with C depending only on s, R - a, alpha0, delta0, A00 and an upper
+norms on the spheres S^3, with C depending only on s, R - a, alpha0, delta0, A00 and an upper
 bound for M_s := sup_r ||(alpha, Delta_alpha, S, S A0, S A^B)||_{H^(s+1)(S^3)} + sup_r ||(b, c, e, c', f, f',
 c'')||_{H^s(S^3)} + int_a^R ||d_r (S A0)||_{L^inf} dr, and increasing in M_s; no other r-derivative of a
 coefficient enters. The bound is tame: at an index s'' > s, with ||U||_(s''; [a, r]) the left side at index s''
 on [a, r] and m_(s'')(r) the norms at index s'' of the coefficients at r (those of M_(s''), without the
-supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a, r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr'), with C
-depending only on s'', M_s and the bounds above, and omega_s square-integrable on (a, R), its L^2 norm bounded by
-the solution's X_s norm. The inequality the proof gives, for the squared energy Z at index s'' (Moser and
-Kato-Ponce), is d_r Z + c0 ||a||^2_(H^(s''+2)) <= omega_0 Z + C ||F||^2_(H^(s'')) + C m_(s'') omega_s Z^(1/2);
+supremum), ||U||_(s''; [a, r]) <= C (||F||_{L^2((a, r); H^(s''))} + int_a^r m_(s'')(r') omega_s(r') dr' + ||m_(s'')
+omega_inf||_{L^2(a, r)}), with C depending only on s'', M_s and the bounds above, omega_s square-integrable on (a, R),
+its L^2 norm bounded by the solution's X_s norm and ||F||_{L^2 H^(s-1)} (||d_r (w, q)||_{L^inf}, a part of omega_s,
+contains F_J; D619, n2), and omega_inf := ||a||_{W^(1,inf)} + ||(w, q)||_{L^inf}, bounded by C times the X_s norm. The
+inequality the proof gives, for the squared energy Z at index s'' (Moser and Kato-Ponce), is d_r Z + c0
+||a||^2_(H^(s''+2)) <= omega_0 Z + C ||F||^2_(H^(s'')) + C m_(s'') omega_s Z^(1/2) + C m_(s'')^2 omega_inf^2;
 integrating, taking the supremum over [a, r], and Young's and Gronwall's lemmas give the bound (D26, the eighth
-verifier's m2).
+verifier's m2). [corrected D619 (m1): D26 printed the inequality without its last term and the bound without
+||m_(s'') omega_inf||_{L^2(a, r)}. That inequality is false. b, c and e lie in H^(s'') only, so pairing the first
+equation at index s'' + 1 must move one derivative onto a: |<a, c a>_(H^(s''+1))| <= ||a||_(H^(s''+2)) ||c
+a||_(H^(s'')), with ||c a||_(H^(s'')) <= C (||c||_(H^(s'')) ||a||_(L^inf) + ||c||_(L^inf) ||a||_(H^(s''))), and
+Young's inequality against the gain c0 ||a||^2_(H^(s''+2)) leaves C m_(s'')^2 ||a||^2_(L^inf); likewise b . d_S a,
+with ||a||_(W^(1,inf)), and e . (w, q), with ||(w, q)||_(L^inf), which must be paired so in any case, (w, q) lying in
+H^(s'') only. In a scalar model of the first equation on S^1 (alpha = 1, Delta_alpha = d_th^2, s = 4, s'' = 8), with
+||c||_(H^s) and the low norms of a bounded, the left side exceeds (c0 k/16) (Z + m_(s'') omega Z^(1/2)), omega :=
+sum_n |a_n| >= ||a||_(L^inf), at the frequencies k = 4, ..., 2^17, for c0 = 1 and 1/100 and for the coupling e . w
+as well, so no omega_0 and C depending on the low norms alone serve, while its ratio to m_(s'')^2 omega^2 stays of
+order c0; the corrected inequality holds there with the proof's explicit constants (`checks/tame5.py` T1, T2,
+exact). The hyperbolic part needs no such term: it is paired at index s'', where C m_(s'') omega_s Z^(1/2)
+suffices.]
 
 *Proof.* Commute s angular derivatives (by the Killing fields of the round S^3) through (6.4); the
 commutators are estimated in terms of M_s by the Moser and commutator (Kato-Ponce) inequalities on S^3
@@ -754,8 +769,13 @@ energy identities are those above, with one addition: the commutator [X^I, S A0]
 (w, q)_L||_{H^(s-1)}, which testing the projected second equation with X^{J*} X^J d_r (w, q)_L, |J| = 0,
 ..., s - 1 in turn, bounds by C (||(w, q)_L||_{H^s} + ||d_r a_L||_{H^(s-1)} + ||F_J||_{H^(s-1)}) (S A0 > 0;
 the commutators are of lower order in J). So the bound holds for (a_L, (w, q)_L) uniformly in L; a weak-*
-limit L -> infinity solves (6.4) and obeys it, and uniqueness follows from the bound. (Earlier forms of this
-step regularised by epsilon Delta_S and cited a linear parabolic theory, [Hua15] and [MM10]; neither is
+limit L -> infinity solves (6.4) and obeys it, and uniqueness follows from the bound [D619, n13: from the bound at
+index 0, applied to the difference of two solutions whose left side is finite. For such a difference a lies in L^2
+H^(s+2) with d_r a in L^2 H^s, and (w, q) in L^inf H^s with d_r (w, q) in L^2 H^(s-1), by the equations; so at
+index 0 every pairing of the two energy identities is defined and absolutely continuous in r, which at index s it
+need not be. The index-0 estimate commutes no derivative and needs only the L^inf and W^(1,inf) norms of the
+coefficients and int ||d_r (S A0)||_{L^inf} dr, all bounded by M_s; with zero sources and data it gives zero]. (Earlier
+forms of this step regularised by epsilon Delta_S and cited a linear parabolic theory, [Hua15] and [MM10]; neither is
 needed, and [MM10] concerns a scalar equation, N1STAR-LOG.md D18.) []
 
 **Proposition 6.5 (the exact correction; deduced).** Let the stage data be those of Lemma 6.2 with N >= K + 3 and

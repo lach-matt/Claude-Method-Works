@@ -1,19 +1,1 @@
 Q1 (exact) the momentum-seed charge is minus a sum of squares minus Gamma psi^2/sin 2th, up to a divergence
-   the seed (psi, s1) solves the linearised H, M_R, M_th (every jet coefficient zero at three points): True
-   Euler operator of (Q-density - decomposition) in psi and s1 vanishes at three points: True
-   control: with 4 nu E^2 -> 3 nu E^2 the Euler operator in psi is nonzero (rejected): True
-Q1 PASS
-Q2 (exact) Part I's vacuum regions: nu = R^3, and Gamma = 4 mu/R where psi_P = 0
-   N_s sqrt(G) = 1 on every vacuum region (nu = R^3): True; at psi_P = 0, E = sqrt(G)/R: True, Gamma = 4 mu/R: True
-   control: with P's coefficient 8 -> 6, Gamma at psi_P = 0 is not 4 mu/R (rejected): True
-Q2 PASS
-Q3 (computed) Gamma > 0 on Part I's seed region; psi_P = 0 on the gap and outside the shell
-   n = 80: R in [0.70, 1.85] (horizon at 0.6247): min Gamma/E^2 = 0.7154 > 0; Gamma over its psi_P = 0 value in [2.0935, 0.9067]; |psi_P| <= 3.0e-06 on 196 slice points with u <= u1 - 0.1
-   n = 160: R in [0.70, 1.85] (horizon at 0.6247): min Gamma/E^2 = 0.7154 > 0; Gamma over its psi_P = 0 value in [2.0936, 0.9067]; |psi_P| <= 7.6e-07 on 391 slice points with u <= u1 - 0.1
-   converged (min Gamma/E^2 to 1%): True; psi_P = 0 outside the packet to discretisation (falling with n; exact by twobg5 G1 (b)): True
-Q3 PASS
-Q4 (computed) the bound on explicit seeds, with and without ds1
-   99 seeds (45 stream seeds as racglobal5 R4, 54 with ds1, three bands, one inside the horizon): Q < 0 for every one: True; |Q - int decomposition|/|Q| <= 1.2e-06; Q <= -int Gamma psi^2/sin 2th for every seed with psi != 0: True (closest: Q/|bound| = -2795.727, stream seed, band (0.75, 1.75), m = 6)
-   control: the decomposition without -Gamma psi^2/sin 2th misses Q by 0.0 % (rejected): False
-Q4 FAIL
-Q5 (exact) the KID (N_s, 2 Y_s), its pairing with Vaidya's constraint map, and the dust's sign
