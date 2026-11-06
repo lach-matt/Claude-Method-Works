@@ -19,7 +19,8 @@ c = M k^-(s'') cos(k th); then ||c||_(H^s), L, ||a||_(H^(s+1)) and omega stay bo
   T1 (exact) D26's inequality fails on the family for every pair of constants: LHS > (c0 k/16) (Z + m omega Z^(1/2))
      at every k = 2^2, ..., 2^17, for c0 = 1 and c0 = 1/100, both rows, while the low norms stay below fixed bounds; so
      no omega_0, C depending only on the low norms give LHS <= omega_0 Z + C m omega Z^(1/2).  LHS/(m^2 omega^2) stays
-     near c0: the scale of the missing term.  Control: the same family with the lower-order term removed (c = 0 in the
+     of order c0: the scale of the missing term.  (The family's k-mode is stationary, -k^2 a_k = (c a)_k, so d_r Z is
+     tiny and LHS is essentially the gain c0 ||a||^2_(s''+2): it is the gain D26's right side cannot pay for.)  Control: the same family with the lower-order term removed (c = 0 in the
      equation) does not grow (LHS <= 2 Z).
   T2 (exact) The corrected inequality holds, with the explicit constants of its proof (c0 = 1, sig := s''):
          LHS <= (2 + 2 * 4^(sig-1) L^2) Z + 2 * 4^(sig-1) m^2 omega^2,
@@ -29,7 +30,8 @@ c = M k^-(s'') cos(k th); then ||c||_(H^s), L, ||a||_(H^(s+1)) and omega stay bo
      48 with a high-frequency spike in c, random rational coefficients), and each of the proof's two steps separately
      at every state ((i) LHS <= 2 Z + ||c a||^2_sig, (ii) the product bound, squared).  T1 also computes d_r Z by a
      second route, Z along a + h d_r a (a quadratic in h, so the central difference is exact), and requires the two to
-     agree.  Control: the test with the term 2 * 4^(sig-1) m^2 omega^2 replaced by D26's 2 * 4^(sig-1) m omega Z^(1/2)
+     agree (on the family the k-mode is stationary, so the agreement is tested at the random states too).  Control:
+     the test with the term 2 * 4^(sig-1) m^2 omega^2 replaced by D26's 2 * 4^(sig-1) m omega Z^(1/2)
      fails on the family.
   T3 (computed, floating point) Proposition 6.5's induction: the extremal recursion E_(i+1)(r) = A + W (int_a^r
      E_i^2)^(1/2), E_0 = 0, A = 1, W = 3 on [0, 2] (4000 trapezoid steps, 60 iterates) stays below A sum_k W^k
@@ -206,7 +208,7 @@ def t2(control=False):
     if control:
         return fam_ok
     rng = random.Random(619)
-    rnd_ok, step_ok, n_rnd = True, True, 0
+    rnd_ok, step_ok, route_ok, n_rnd = True, True, True, 0
     for k in KS:
         for row in ('c', 'e'):
             step_ok &= all(steps(row, *family_state(k, row)))
@@ -218,11 +220,13 @@ def t2(control=False):
         w = rand_poly(rng, 48) if row == 'e' else None
         rnd_ok &= corrected(*state(row, a, coef, w))
         step_ok &= all(steps(row, a, coef, w))
+        route_ok &= state(row, a, coef, w)[0](Fr(0)) == dZ_independent(row, a, coef, w)
         n_rnd += 1
     out("  T2 corrected inequality LHS <= (2 + 2 4^7 L^2) Z + 2 4^7 m^2 omega^2 (c0 = 1): family (%d states, rows c and"
         " e) %s; random trigonometric polynomials (%d states) %s; the proof's two steps, (i) LHS <= 2 Z + ||c a||^2_8"
-        " and (ii) the product bound, at every state: %s" % (n_fam, fam_ok, n_rnd, rnd_ok, step_ok))
-    return fam_ok and rnd_ok and step_ok
+        " and (ii) the product bound, at every state: %s; d_r Z equal to the second route's at the random states: %s"
+        % (n_fam, fam_ok, n_rnd, rnd_ok, step_ok, route_ok))
+    return fam_ok and rnd_ok and step_ok and route_ok
 
 
 def t3(control=False):
@@ -233,9 +237,12 @@ def t3(control=False):
     for it in range(60):
         Wi = W + it if control else W
         acc, new = 0.0, [A]
-        for i in range(1, n + 1):
-            acc += h * (E[i - 1] ** 2 + E[i] ** 2) / 2
-            new.append(A + Wi * math.sqrt(acc))
+        try:
+            for i in range(1, n + 1):
+                acc += h * (E[i - 1] ** 2 + E[i] ** 2) / 2
+                new.append(A + Wi * math.sqrt(acc))
+        except OverflowError:
+            return control
         E = new
         worst = max(worst, max(e / b for e, b in zip(E, bound)))
     if control:

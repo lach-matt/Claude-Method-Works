@@ -1,0 +1,42 @@
+# past5.py run in full, D618 (2026-11-06); past5.py md5 5a6c771568755ccbd3bd58d2845d83fe; sympy 1.14.0, mpmath 1.3.0
+$ python3 past5.py --selftest
+P1 the outer boundary of the past domain is spacelike, margin (kappa/2) t^(-5/4)                     PASS
+P2 box~ (r^-p M(v) Y): no r^(-5/2) term at p = 3/2; g0^-1 in (v, r)                                  PASS
+P3 the Cartesian components of W_TT are r^(-3/2) F(v, s, xhat)                                       PASS
+P4 the transport from past null infinity: r^-p source, p > 5/2, gives r^(1-p); a log at 5/2          PASS
+P5 the stage-0 vv second harmonic is r^-3 times a function of (v, th): chi in E_2                    PASS
+P6 the rotations annihilate v and r and commute with L0 and box~                                     PASS
+      P7: <H^2 c^4>, <H^2 s^4>, <H^2 c^2 s^2> = 1/2, 1/2, -1/2 + pi/4 (term by term, partial fractions in z)
+      P7: the oscillating coefficient 1 - 2 <H^2 c^2 s^2> = 1 - pi/2 = -0.5707963268; quadrature on S^3 at three points:
+      max deviation 0.0 at 30 digits (tolerance 1e-20)
+      P7: at (lam, A, E, E', v) = (0.1, 1.3, 0.7, 0.4, 1.1): quadrature 0.19016176714, (9.10) 0.19016176714, the first (9.10) 0.174919726964
+      P7: checks a moments True, b form True, c mean = (9.10) True, c mean = moments True, d quadrature True, e integral True, e lam^3 True, f pointwise True
+      P7 control 1: failing checks ['b form', 'c mean = (9.10)', 'c mean = moments', 'd quadrature', 'e integral', 'f pointwise']
+      P7 control 2: failing checks ['c mean = (9.10)', 'd quadrature', 'e integral']
+      P7 control 3: failing checks ['c mean = (9.10)', 'c mean = moments', 'd quadrature', 'e integral']
+      P7 control 4: failing checks ['d quadrature']
+P7 the sphere-mean flux of the record's radiation field (term by term; quadrature), its v-integral   PASS
+P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors                       PASS
+past5.py: 8/8
+exit 0
+
+$ python3 past5.py --mutants
+mutant 1 of P1: caught
+mutant 1 of P2: caught
+mutant 1 of P3: caught
+mutant 1 of P4: caught
+mutant 1 of P5: caught
+mutant 1 of P6: caught
+      P7 control 1: failing checks ['b form', 'c mean = (9.10)', 'c mean = moments', 'd quadrature', 'e integral', 'f pointwise']
+mutant 1 of P7: caught
+      P7 control 2: failing checks ['c mean = (9.10)', 'd quadrature', 'e integral']
+mutant 2 of P7: caught
+      P7 control 3: failing checks ['c mean = (9.10)', 'c mean = moments', 'd quadrature', 'e integral']
+mutant 3 of P7: caught
+      P7 control 4: failing checks ['d quadrature']
+mutant 4 of P7: caught
+mutant 1 of P8: caught
+mutant 2 of P8: caught
+past5.py mutants: 12/12
+exit 0
+[394 s]

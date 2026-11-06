@@ -1,2 +1,9 @@
 Q1 (exact) the momentum-seed charge is minus a sum of squares minus Gamma psi^2/sin 2th, up to a divergence
    the seed (psi, s1) solves the linearised H, M_R, M_th (every jet coefficient zero at three points): True
+   Euler operator of (Q-density - decomposition) in psi and s1 vanishes at three points: True
+   control: with 4 nu E^2 -> 3 nu E^2 the Euler operator in psi is nonzero (rejected): True
+Q1 PASS
+Q2 (exact) Part I's vacuum regions: nu = R^3, and Gamma = 4 mu/R where psi_P = 0
+   N_s sqrt(G) = 1 on every vacuum region (nu = R^3): True; at psi_P = 0, E = sqrt(G)/R: True, Gamma = 4 mu/R: True
+   control: with P's coefficient 8 -> 6, Gamma at psi_P = 0 is not 4 mu/R (rejected): True
+Q2 PASS
