@@ -9,3 +9,27 @@ scalarblock5: the scalar-type blocks of L-hat_b0(0) on 5D Tangherlini, every har
       gauge datum (R8.3 (c)'s factorisation of the block): True (308 s)
   S4 (exact): h_mu = r^-2 (dt + dr)^2 = d/dmu of (10.48): D Ric(h_mu) = 0: True
       (the record's box^C polynomials, damping5.polys, about half a minute)
+  S5 (exact): l = 0: det N_l(lam) / [(lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam)] = 62500000000, a
+      constant: True; the least decaying root (real part > 1): 1.00007474382036
+  S5 (exact): l = 2: det N_l(lam) / [(lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam)] = -7812500000000000, a
+      constant: True; the least decaying root (real part > 1): 1.00000293235045
+  S5 (exact): l = 4: det N_l(lam) / [(lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam)] = -7812500000000000, a
+      constant: True; the least decaying root (real part > 1): 1.00001692237216
+  S5b (exact): r = 1 is a regular singular point of the block; with c_C = (10.49)'s inner piece and c_H = -(1/2) dr the
+      exponents are 0 (seven) and 1 + eig A1(1); A1(1)'s characteristic polynomial, with kappa, gam_C, e_C, gam_U, e_U,
+      gam_H symbols, does not contain kappa, with c_U = 0 near the horizon (as III.F'' Lemma 1.1 takes it) and with c_U =
+      r^-1 dt: True; with c_U = 0 its roots are, symbolically, those of 0, 0, -1, -2, 1 - x, 2 - 2x, -(1 - e_C) x minus
+      1, x = gam_C a_v r_h = gam_C/200: the scalar part of Lemma 1.1's horizon matrix K (y = 0): True; at the record's
+      point it is (x + 1)**2*(x + 2)*(x + 3)*(x + 5000)*(x + 9999)*(512*x + 2560487)/512; with c_U = r^-1 dt there they
+      move by multiples of gam_U: (x + 1)*(x + 5000)*(x + 9999)*(50*x + 151)*(100*x + 201)*(512*x + 2560487)*(10000*x +
+      10099)/25600000000
+  S6 (certified; the quasi-mode lemma deduced): sigma_min(L_l) on Hbar^(1,-1)_b -> Hbar^(0,1)_b is at most 3.1412e-06 at
+      l = 0 (root 1.000074744); 2.6180e-07 at l = 2 (root 1.000002932); 1.4955e-06 at l = 4 (root 1.000016922); so the
+      scalar blocks' inverse constant at alpha = -1 is at least 3.8197e+06 (from l = 2); at alpha + 2 = 1/2 the same
+      bounds are 0.020, 0.015, 0.012 (about 10^-2: no root near that line): True
+  S8 (exact; deduced): route (a). In orthonormal components the (3, 3) first-order entry of R_l = L_l - (1/2) A_l I_7 at
+      the record's inner gauge data is M33(r) = -(5000*r - 1)/r**3, free of kappa: True; so ||R_l||_{X->Y} >= (1/2)
+      |M33(1/2)| = 9996 = 9996 at gam_H = 0 for every l (high radial frequencies at r = 1/2); r |M33(r)| on [1/2, 50]
+      reaches 9996. The scalar model's own quasi-mode gives sigma_min((1/2) A_l) <= (kappa + 1)/(2 (kappa + 2)^(1/2)),
+      below that for every even l <= 19990: there route (a) yields nothing, so any threshold l_0 of route (a) exceeds
+      19990: True

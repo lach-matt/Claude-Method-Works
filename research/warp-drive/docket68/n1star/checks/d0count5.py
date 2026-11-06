@@ -61,6 +61,14 @@ C_delta <zeta>^(delta j)):
   theta_in = 0, needs only s_in > 11/2 and does not bind. Controls C10 (round 8's factor order) and C11 (depth 1).]
   [Round 10 (the round-9 verifier's nit; CONSTANTS5.md R10.0). Q4b takes s_out's branch at theta_out = -2 eps, its
   least (II.C:767-768), with eps = 1/4: the margin 1/4 at beta_+ -> 3/2 covers every eps <= 1/4.]
+  [Round 12 (the round-11 verifier; CONSTANTS5.md R12.2). The orders at which the forward-solution chain invokes the
+  calculus are read site by site (checks/ordcensus5.py: 153 citations, none unclassified). II.A' Proposition 5.3 takes
+  tau >= sup s + N and Theorem 3.1 iterates until J'/2 >= sup s + N, so the calculus runs at Sobolev orders down to
+  -65/2 and symbol orders in [-63, 31], outside round 8's box. Q7 counts there, (b)-(e)'s factors anywhere in the
+  symbol box: D_0 <= 766, D_1 <= 88, FWD <= 877 (round 9: 435, 52, 510). Q3b's box stays, pinned, as history. C5-C11
+  run on the census's orders; new controls C12 (round 8-9's orders) and C13 ((f) at depth q: on round 9's factors
+  depths q and q + 1 both gave 2L' = 20, so that pin could not tell them apart, the verifier's nit; on the census's
+  factors they give 40 and 42).]
 
     python3 checks/d0count5.py       (seconds)
 """
@@ -401,9 +409,9 @@ def main():
               ma['M2'], ma['M'], ma['P'], ma['J1'], ma['J2'], ma['J3'], m24['M'], m24['C_ch'], mf['M'], r7['D0'],
               m24['M'] + 6, r7['conv'], OK['Q3']))
     OK['Q3b'] = bx['conv'] and (bx['ma']['M'], bx['m24']['M'], bx['mf']['M'], bx['D0'], bx['FWD']) == (
-        PINS['box']['M_a'], PINS['box']['M24'], PINS['box']['M_f'], PINS['box']['D0'], PINS['box']['FWD'])
-    print('  Q3b (the box [%d, %d], every order variable within it; Round 9: the factors\' Peetre exponents over their '
-          'orders, 2L\' = %d for (b)-(e) at depth 1 and %d for (f) at depth q + 1 = 4): M_a = %d (J1 = %d), M_2.4 = %d '
+        PINS['box9']['M_a'], PINS['box9']['M24'], PINS['box9']['M_f'], PINS['box9']['D0'], PINS['box9']['FWD'])
+    print('  Q3b (round 8-9\'s box, superseded by Q7 in Round 12: the box [%d, %d], every order variable within it; '
+          'Round 9: the factors\' Peetre exponents over their orders, 2L\' = %d for (b)-(e) at depth 1 and %d for (f) at depth q + 1 = 4): M_a = %d (J1 = %d), M_2.4 = %d '
           '(C_ch = %d), M_f = %d; D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = %d; FWD <= %d; '
           'pinned: %s' % (BOX[0], BOX[1], bx['m24']['twoLmax'], bx['mf']['twoLp'], bx['ma']['M'], bx['ma']['J1'],
                           bx['m24']['M'], bx['m24']['C_ch'], bx['mf']['M'], bx['D0'], bx['FWD'], OK['Q3b']))
@@ -427,7 +435,25 @@ def main():
           'D_1 <= %d. FWD = D_0 + D_1 + d\' + d\'\' + 6 <= %d on round 7\'s operator orders and <= %d on the box; '
           'c\' = FWD + BG + the fixed MODs (checks/modcount5.py): %s' % (
               dp, dpp, d1, dt, T_LO, T_HI, r7['D1'], r7['FWD'], bx['FWD'], OK['Q6']))
-    OK['D0'] = bx['D0'] == PINS['box']['D0'] and r7['D0'] == PINS['q4']['D0']
+    # Q7 (Round 12): the census's orders (checks/ordcensus5.py), and D_0, D_1, FWD there
+    sys.path.insert(0, HERE)
+    import ordcensus5 as OC          # noqa: E402
+    oc = OC.box()
+    bc = census_counts()
+    oc_ok = oc == ((Q4C[0], Fr(Q4C[1])), (Fr(BOXC[0]), Fr(BOXC[1])), FAC_F) and OC.NERR == Q4C[2] and OC.md5_ok()
+    pin = (bc['ma']['M'], bc['m24']['M'], bc['mf']['M'], bc['D0'], bc['D1'], bc['FWD'])
+    OK['Q7'] = (oc_ok and bc['conv'] and pin == tuple(PINS['box'][k] for k in ('M_a', 'M24', 'M_f', 'D0', 'D1', 'FWD'))
+                and bc['FWD'] == bc['D0'] + bc['D1'] + dp + dpp + 6)
+    print('  Q7 (Round 12; READ from checks/ordcensus5.py O3; computed): the chain invokes the calculus at Sobolev '
+          'orders [%s, %s] with N = %d, symbol orders [%s, %s], (f)\'s factors in [%s, %s]; the census agrees with '
+          'Q4C, BOXC, FAC_F: %s. (b)-(e)\'s factors taken anywhere in [%s, %s] (2L\' = %d at depth 1); (f) at depth '
+          'q + 1 = 4 (2L\' = %d): M_a = %d (J1 = %d), M_2.4 = %d (C_ch = %d), M_f = %d; D_0 <= %d (= M_f + 6); D_1 <= '
+          '%d (d-tilde + 3 at the Sobolev orders, d-tilde = %s + 2 (%s) + 6); FWD = D_0 + D_1 + d\' + d\'\' + 6 <= %d '
+          '(round 9: 510); every remainder condition holds: %s; pinned: %s' % (
+              oc[0][0], oc[0][1], OC.NERR, oc[1][0], oc[1][1], oc[2][0], oc[2][1], oc_ok, FAC_BE[0], FAC_BE[1],
+              bc['m24']['twoLmax'], bc['mf']['twoLp'], bc['ma']['M'], bc['ma']['J1'], bc['m24']['M'],
+              bc['m24']['C_ch'], bc['mf']['M'], bc['D0'], bc['D1'], Q4C[1], -Q4C[0], bc['FWD'], bc['conv'], OK['Q7']))
+    OK['D0'] = (bx['D0'] == PINS['box9']['D0'] and r7['D0'] == PINS['q4']['D0'] and bc['D0'] == PINS['box']['D0'])
     # controls
     dm = D_a(T_LO, T_HI, drop=True)
     OK['C1'] = not dm['conv']
@@ -443,32 +469,45 @@ def main():
     OK['C4'] = not mc['conv']
     print('  C4 (control): Proposition A.7 with the right expansion\'s 2L dropped: conditions hold: %s: %s' % (
         mc['conv'], OK['C4']))
-    c5 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, m2mode='sup')['D0']
+    # Round 12: controls C5-C11 on the census's orders (Q7), against its D_0
+    c5 = census_counts(m2mode='sup')['D0']
     OK['C5'] = c5 != PINS['box']['D0']
     print('  C5 (control, the verifier\'s A): round 7\'s weight ceil(sup t/2): D_0 = %d, not %d: %s' % (
         c5, PINS['box']['D0'], OK['C5']))
-    c6 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, twoK=2)
+    c6 = census_counts(twoK=2)
     OK['C6'] = not c6['conv']
     print('  C6 (control): Schur decay 2K = 2 (2K > n violated): the conditions hold: %s: %s' % (c6['conv'], OK['C6']))
-    c7 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, Cch_on=False)['D0']
+    c7 = census_counts(Cch_on=False)['D0']
     OK['C7'] = c7 != PINS['box']['D0']
     print('  C7 (control): the change of chart dropped (C_ch = 0): D_0 = %d, not %d: %s' % (c7, PINS['box']['D0'],
                                                                                            OK['C7']))
-    c8 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, delta=Fr(1, 20))['D0']
+    c8 = census_counts(delta=Fr(1, 20))['D0']
     OK['C8'] = c8 != PINS['box']['D0']
     print('  C8 (control): delta = 1/20: D_0 = %d, not %d: %s' % (c8, PINS['box']['D0'], OK['C8']))
-    c9 = counts(-14, T_HI, NMAX, MU_BOX=BOX)['D0']
+    c9 = census_counts(T=(-14, Q4C[1], Q4C[2]))['D0']
     OK['C9'] = c9 != PINS['box']['D0']
-    print('  C9 (control): round 7\'s Sobolev range [-14, 11]: D_0 = %d, not %d: %s' % (c9, PINS['box']['D0'],
-                                                                                        OK['C9']))
-    c10 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, fac_f=(2, 2))['D0']
+    print('  C9 (control): round 7\'s lower Sobolev order -14: D_0 = %d, not %d: %s' % (c9, PINS['box']['D0'],
+                                                                                       OK['C9']))
+    c10 = census_counts(fac_f=(2, 2))['D0']
     OK['C10'] = c10 != PINS['box']['D0']
     print('  C10 (control, the round-8 verifier\'s MAJOR 1): (f) counted with factor order 2, as round 8 did: D_0 = %d, '
           'not %d: %s' % (c10, PINS['box']['D0'], OK['C10']))
-    c11 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, depth_f=1)['D0']
+    c11 = census_counts(depth_f=1)['D0']
     OK['C11'] = c11 != PINS['box']['D0']
     print('  C11 (control): (f)\'s Peetre exponent at depth 1 in place of q + 1: D_0 = %d, not %d: %s' % (
         c11, PINS['box']['D0'], OK['C11']))
+    c12 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX)['D0']
+    OK['C12'] = c12 != PINS['box']['D0']
+    print('  C12 (control, Round 12): round 8-9\'s orders (Sobolev [-16, 11], box [-22, 22], factors [-10.49, 9.51]) '
+          'in place of the census\'s: D_0 = %d, not %d: %s' % (c12, PINS['box']['D0'], OK['C12']))
+    c13 = census_counts(depth_f=3)['D0']
+    lp = [peetre(FAC_F, k) for k in (3, 4, 5)]
+    OK['C13'] = c13 != PINS['box']['D0']
+    print('  C13 (control, Round 12; the round-11 verifier\'s nit): (f) at depth q = 3 in place of q + 1: 2L\' = %d '
+          'against %d, D_0 = %d, not %d: %s. On round 9\'s factors depths 3 and 4 both gave 2L\' = 20, so its pin '
+          'could not tell q from q + 1; on the census\'s they differ. (Depth q + 2 gives 2L\' = %d, as q + 1 does: '
+          'the pin does not tell q + 1 from q + 2, an over-count.)' % (lp[0], lp[1], c13, PINS['box']['D0'],
+                                                                       OK['C13'], lp[2]))
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1

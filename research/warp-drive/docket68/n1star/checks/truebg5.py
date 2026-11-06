@@ -142,10 +142,7 @@ def nprime_data(bamp=1.7):
         T = I(UE[k], UE[k + 1])
         H = I(UE[k + 1]) - I(UE[k])
         Bn, _ = amp(I(UE[k]), bamp)
-        BT = amp(T, bamp)
-        F = lambda Y_, c: Fn(Y_, c)                                             # noqa: E731
-        box, Y = vstep(F, lambda Y_, c: DFn(Y_, c), Y, H, Bn, BT[0]) if False else \
-            vstep_n(Y, H, Bn, BT)
+        box, Y = vstep_n(Y, H, Bn, amp(T, bamp))
         nodes.append(Y)
         boxes.append(box)
     return nodes, boxes
@@ -238,27 +235,46 @@ CF = Ff(RP)                                                     # F(R_N'(u1))
 
 
 def r1_enclose(VH):
-    """R1 for vhat in VH: F(R1) = vhat + F(R_N'(u1)), F increasing"""
+    """R1 for vhat in VH: F(R1) = vhat + F(R_N'(u1)), F increasing on R > sqrt(1.5)"""
     tg = VH + CF
 
-    def bracket(y, side):
+    def solve(y):                                                # float bisection for F(r) = y
         lo, hi = 1.3, 10.0
         for _ in range(200):
             m = 0.5 * (lo + hi)
-            fm = Ff(I(m))
-            if (fm.b < y) if side < 0 else (fm.b < y):
+            if float(Ff(I(m)).mid) < y:
                 lo = m
             else:
                 hi = m
-            if hi - lo < 1e-15 * hi:
+            if hi - lo <= 4e-16 * hi:
                 break
-        return lo, hi
-    lo, _ = bracket(tg.a, -1)                                    # F(lo) < tg.a: R1 > lo for every vhat in VH
-    while not (Ff(I(lo)).b < tg.a):
-        lo = lo - 1e-14
-    _, hi = bracket(tg.b, 1)
-    while not (Ff(I(hi)).a > tg.b):
-        hi = hi + 1e-14
+        return 0.5 * (lo + hi)
+    lo = solve(float(tg.a))
+    step = 1e-15
+    while not (Ff(I(lo)).b < tg.a):                              # F(lo) < every target: R1 > lo
+        lo -= step
+        step *= 2
+    hi = solve(float(tg.b))
+    step = 1e-15
+    while not (Ff(I(hi)).a > tg.b):                              # F(hi) > every target: R1 < hi
+        hi += step
+        step *= 2
+    return I(lo, hi)
+
+
+def rstar_enclose():
+    """R_*: the crossing of the ray u = u1 with Sigma_tau0 (as in intcert5 C3)"""
+    lo, hi = 3.0, 4.0
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        t = ic.ray_tau(I(mid))
+        if t.b < TAU0:
+            lo = mid
+        elif t.a > TAU0:
+            hi = mid
+        else:
+            break
+    assert ic.ray_tau(I(lo)).b < TAU0 and ic.ray_tau(I(hi)).a > TAU0
     return I(lo, hi)
 
 
@@ -377,7 +393,7 @@ def spline_enclose(bg, VH):
     return [hull(*[o[k] for o in outs]) for k in range(3)]
 
 
-def t2(nd, bgs, cache):
+def t2(nd, bgs):
     print("T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (cells of 0.01 in vhat)")
     q = load('qsign5')
     _, Gt, _ = q.gamma_formula()
@@ -397,9 +413,9 @@ def t2(nd, bgs, cache):
         Rs = VH - T0
         R1 = r1_enclose(VH)
         Y2, _ = ray(nd, R1)
-        cache[(a, b)] = (R1, Y2)
         reg3 &= bool(Y2[0].a >= Rs.b)
-        p0, p1, p2, _ = psi3(R1, Y2, nd.mu3)
+        p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
+        reg3 &= bool(f3.a > 0)
         val = fG(Rs, nd.mu3, p0, p1, p2)
         nev += 1
         if flipped_fail is None:
@@ -442,15 +458,14 @@ def t2(nd, bgs, cache):
         VH = I(x)
         R1 = r1_enclose(VH)
         Y2, _ = ray(nd2, R1)
-        tr = psi3(R1, Y2, nd2.mu3)[0]
-        sv = spline_enclose(bgs[160], VH)[0]
-        cerr = max(cerr, float((iv.mpf(abs(float((sv - tr).mid))) - I(float((sv - tr).delta))).a))
+        dd = spline_enclose(bgs[160], VH)[0] - psi3(R1, Y2, nd2.mu3)[0]
+        cerr = max(cerr, 0.0 if dd.a <= 0 <= dd.b else min(abs(float(dd.a)), abs(float(dd.b))))
     print("   controls: Gamma's sign flipped not certified on the first cell (rejected): %s; with B's amplitude x 1.001 "
-          "the spline is at least %.1e from psi_III, more than the n = 80 / 160 difference %.1e (rejected): %s" %
-          (flipped_fail, cerr, d8[0], cerr > d8[0]))
+          "in the reduction the spline is at least %.1e from it at the points, more than the agreement %.1e above "
+          "(rejected): %s" % (flipped_fail, cerr, perr[0], cerr > perr[0]))
     mu0 = bgs[160]['mu0']
     print("   mu3 against the computed background's mu0 = %.8f: |difference| <= %.1e" % (mu0, mag(nd.mu3 - I(mu0))))
-    return reg3 and failed == 0 and flipped_fail and cerr > d8[0]
+    return reg3 and failed == 0 and flipped_fail and cerr > perr[0]
 
 
 # ---------------------------------------------------------------- T3
@@ -483,9 +498,9 @@ def t3(nd, rstar):
         Y2, boxes = ray(nd, R1, keep=True)
         nray += 1
         good, cell_worst = True, None
-        # region I part: slice points with u <= u1 (R1 >= R on the slice)
-        if R1.b >= Rs.a:
-            R = sub(Rs, iv.mpf([Rs.a, R1.b]))
+        # region I part: slice points with u <= u1 (R on the slice >= R1)
+        if Rs.b >= R1.a:
+            R = sub(Rs, iv.mpf([R1.a, Rs.b]))
             ins = [I(1.0), I(1.0) - I(MU1) / (R * R), I(0.0), I(0.0), I(2.0) * I(MU1) / R**3, I(0.0)]
             g, w = test(ins, R)
             good &= g
@@ -538,10 +553,10 @@ def main():
     res = {}
     res['T1'], nd = t1()
     print('T1', 'PASS' if res['T1'] else 'FAIL', flush=True)
-    rstar = ic.c3_rstar()
+    rstar = rstar_enclose()
+    print("   R_* in [%.9f, %.9f] (intcert5 C3's bisection)" % (float(rstar.a), float(rstar.b)))
     bgs = {80: q.background(80), 160: q.background(160)}
-    cache = {}
-    res['T2'] = t2(nd, bgs, cache)
+    res['T2'] = t2(nd, bgs)
     print('T2', 'PASS' if res['T2'] else 'FAIL', flush=True)
     res['T3'] = t3(nd, rstar)
     print('T3', 'PASS' if res['T3'] else 'FAIL', flush=True)
