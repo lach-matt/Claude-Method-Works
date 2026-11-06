@@ -28,8 +28,9 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      checks/scalarblock5_block.txt (general gauge data; srepr-free plain sympy strings).
   S2 (exact) the gauge identity: D Ric(delta* w) = 0 for every scalar-type 1-form w = W0 S dt + W1 S dr + W2 dS, and
      L(delta* w) = delta*_{E^C} ((1/2) box^Ups w), l symbolic.
-  S3 (exact) the Bianchi identity on the block: 2 delta G (L h) = box^C (Upsilon(h)), Upsilon(h) = delta_{E^Ups} G h,
-     box^C = 2 delta G delta*_{E^C}, every gauge datum general, l symbolic (R8.3 (c)'s factorisation, now computed).
+  S3 (exact) the linearised Bianchi identity on the block, delta G (D Ric h) = 0, l symbolic; hence 2 delta G (L h) =
+     box^C (Upsilon(h)), Upsilon(h) = delta_{E^Ups} G h, box^C = 2 delta G delta*_{E^C}, for every gauge datum (R8.3
+     (c)'s factorisation, now computed on the block).
   S4 (exact) the mass state: h_mu = r^-2 (dt + dr)^2 = d/dmu g has D Ric(h_mu) = 0 (s0).
   S5 (exact) the indicial family at infinity, from the block (outer c_C, c_U = r^-1 dt, c_H = 0): det N_l(lam) equals,
      up to a constant, (lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam) at l = 0, 2, 4, with P_Ups from
@@ -46,8 +47,8 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      1/2, mid-gap, is printed for comparison (it is of order one).
   S7 (floating point; a measurement) the lemma's quasi-mode on the actual block at l = 2, x0 = log 400, finite widths:
      ||L h||_Y / ||h||_X approaches S6's bound.
-  Negative controls (each must fail): C1 D Ric without its -nabla nabla tr h term: S2's identity fails; C2 box^C with
-  the trace weight 1 in place of 2/3: S3's identity fails; C3 the background with f = 1 - 1/r^3: not Ricci-flat (S0
+  Negative controls (each must fail): C1 D Ric without its -nabla nabla tr h term: S2's identity fails; C2 S3 with
+  delta in place of delta G: the identity fails; C3 the background with f = 1 - 1/r^3: not Ricci-flat (S0
   fails); C4 the record's box^C polynomial at e_C = 1/10240: S5's proportionality fails; C5 the claim sigma_min(L_2)
   >= 10^-4 at alpha = -1: refuted by S6.
 
@@ -412,13 +413,15 @@ def s2(drop_trace=False):
     return ok1, ok2
 
 
-def s3(B, m=sp.Rational(2, 3)):
-    G, P, M, Hs = B['G'], B['P'], B['M'], B['Hs']
+def s3(B, use_G=True):
+    """the linearised Bianchi identity on the block: delta G (D Ric h) = 0 for every scalar-type h (l symbolic). As
+    L h = D Ric h + delta*_{E^C} Upsilon(h) and box^C = 2 delta G delta*_{E^C}, it is 2 delta G (L h) = box^C
+    Upsilon(h) for every gauge datum (the same operators, by linearity)"""
+    G, Hs = B['G'], B['Hs']
     h = G.scalar_h([x[0] for x in Hs])
-    lhs = [2 * x for x in G.delta(G.Gop(M))]
-    U = G.upsilon(h, P)
-    rhs = G.boxC(U, P, m=m)
-    return all(reduce_cs(lhs[a] - rhs[a]) == 0 for a in range(5))
+    R = G.dric(h)
+    lhs = G.delta(G.Gop(R) if use_G else R)
+    return all(reduce_cs(lhs[a]) == 0 for a in range(5))
 
 
 def s4():
@@ -605,8 +608,9 @@ def main(selftest=False):
     print('  S2 (exact): D Ric(delta* w) = 0 for every scalar-type w (l symbolic): %s; Upsilon(delta* w) = (1/2) '
           'box^Ups w, so L delta* w = delta*_{E^C} (1/2) box^Ups w: %s: %s' % (ok1, ok2, OK['S2']))
     OK['S3'] = s3(B)
-    print('  S3 (exact): 2 delta G (L h) = box^C Upsilon(h) on the block, every gauge datum general, l symbolic: %s '
-          '(%.0f s)' % (OK['S3'], time.time() - t0))
+    print('  S3 (exact): delta G (D Ric h) = 0 for every scalar-type h, l symbolic; so 2 delta G (L h) = box^C '
+          'Upsilon(h) for every gauge datum (R8.3 (c)\'s factorisation of the block): %s (%.0f s)' % (
+              OK['S3'], time.time() - t0))
     OK['S4'] = s4()
     print('  S4 (exact): h_mu = r^-2 (dt + dr)^2 = d/dmu of (10.48): D Ric(h_mu) = 0: %s' % OK['S4'])
     print('      (the record\'s box^C polynomials, damping5.polys, about half a minute)')
@@ -649,8 +653,8 @@ def main(selftest=False):
     # controls
     OK['C1'] = not s2(drop_trace=True)[0]
     print('  C1 (control): D Ric without -nabla nabla tr h: the gauge identity fails: %s' % OK['C1'])
-    OK['C2'] = not s3(B, m=sp.Integer(1))
-    print('  C2 (control): box^C with the trace weight 1: the Bianchi identity fails: %s' % OK['C2'])
+    OK['C2'] = not s3(B, use_G=False)
+    print('  C2 (control): delta (D Ric h) without G: the identity fails: %s' % OK['C2'])
     OK['C3'] = not s0(fexp=1 - 1 / r ** 3)
     print('  C3 (control): f = 1 - 1/r^3: not Ricci-flat: %s' % OK['C3'])
     S5c = s5(B['mats'], polys, eC_val=sp.Rational(1, 10240), levels=(2,))

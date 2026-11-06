@@ -2526,9 +2526,9 @@ and 6; (d). Not evaluated: lam_2, eps, delta, lam_1 (another workstream), in eit
 every statement outside this file that R4-D, R5-B, R5-C, R6-A and R6-B cite; nothing else is open in the theorem.
 
 *Computational support, stated as what was computed.* The operator identities ((5.1), (R3a), (R3c) in Cartesian form and
-in invariant form (zinv5, finished), (R4c), the contracted Bianchi identity, the localised and the exterior energy
-identities) are computed, on the full operator where the operator enters; the coefficients of DP(H), the degrees of
-P(g_b0 + Sigma_p) and the degree after Sigma_4 are measured on the full operator (O1-O2, S4), and Q_6, which F_4
+in invariant form (zinv5, finished), (R4c), the contracted Bianchi identity) are computed on the full operator, and the
+localised and the exterior energy identities on the flat radial model (F2, X1); the coefficients of DP(H), the degrees
+of P(g_b0 + Sigma_p) and the degree after Sigma_4 are measured on the full operator (O1-O2, S4), and Q_6, which F_4
 cancels, is computed exactly (S3); the class of c and the lam-order of b on it (C1-C3); h_R's decay, the caps, the
 null-hypersurface tails and the class on S on explicit fields (G1-G4, G6, W1-W2); the weight window from those measured
 exponents (W); the lam-orders of the expansion from every monomial, with the coefficient list computed from g_b0 and

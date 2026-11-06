@@ -29,3 +29,9 @@ D  the causal structure on W: v is not a time function; v + eps t and Phi_W are 
   D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal cone is 0
         (T1a's sampled 5.7e-2 is an artefact): pass
   D3 g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu r^-2): margin 2 eps, uniform in r: pass
+  D4 Phi_W := v + 1/r: g_b0^-1(dPhi, dPhi) = -2 r^-2 + r^-4 (1 - mu r^-2), |dPhi|_E^2 = 1 + (1 - r^-2)^2, and -grad Phi_W
+        has positive t-component (future directed) (exact): pass
+  D5 (g_b0^-1 + delta)(dPhi, dPhi) < 0 for |delta|_op <= r^-2/2 (2000 points, r in [4, 400]; bound -r^-2 + r^-4 deduced
+        in D4): pass max r^2 g^-1(dPhi, dPhi) = -1.084
+  D5' control: |delta|_op = 2 r^-2 makes dPhi_W spacelike somewhere: pass max 1.663
+E  the weight on W: u* := sup f + 1 (round 4, m3)
