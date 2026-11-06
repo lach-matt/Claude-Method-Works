@@ -59,7 +59,7 @@ that now mutate the computed path: C3 (T4's parity test on a doubled phase), C4 
 Round 7: T0 re-pinned to D616 (lines 1-817, the whole file of 10858 lines); the six trace rows above D614's line 637
 moved by +5 (Lemma 6.3 (c) 704, Proposition 6.5 780, 781, 783, 784, N := K + 3 at 807), each fragment found on its line.
 D623 (the section 0-4 reader's findings seated in sections 0-4, which gain 36 lines): T7 now also asks e_lo <= e_hi and a
-width below 10^-9 (the reader's Minor 3: with the lower end taken from the large eigenvalue, about 32.5, T7 passed); the
+width below 10^-12 (the reader's Minor 3: with the lower end taken from the large eigenvalue, about 32.5, T7 passed); the
 rows in sections 0-4 re-pinned by content (each fragment located in the D623 file), every row below D616's line 457
 moved by +36, and D614's row (:91) replaced by three rows on 0.3's D623 text (Lemma 1.1 (e)'s general condition, s0,
 and eps1 fixed below both); LAST, the end of sections 0-6, located by content (the line '## 7. What is left'). The md5
@@ -471,15 +471,15 @@ def main():
 
     # T7 Lemma 2.3's requirement on eps1 (certified)
     width = e_hi - e_lo
-    ok['T7'] = (closed and decr and corner and e_lo <= e_hi and width < Fr(1, 10 ** 9)          # D623: two-sided
+    ok['T7'] = (closed and decr and corner and e_lo <= e_hi and width < Fr(1, 10 ** 12)         # D623: two-sided
                 and Fr(307685, 10 ** 7) < e_lo and e_hi < Fr(307687, 10 ** 7))
     say('  T7 (Round 4, MAJOR A): g0 = eta + m U U^T has the eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): %s; the '
         'least absolute one, (m^2 + 1)^(1/2) - m, decreases in m: %s; on Omega m = mu/r^2 <= mu_end/a^2 = m* in [%s, '
         '%s], attained at the corner (tau_end, r = a), which lies in Omega with v > v_end: %s. So inf over Omega of '
-        'g0\'s least absolute eigenvalue is in [%s, %s] (certified; lo <= hi: %s, width %.1e < 1e-9: %s); Lemma 2.3 '
+        'g0\'s least absolute eigenvalue is in [%s, %s] (certified; lo <= hi: %s, width %.1e < 1e-12: %s); Lemma 2.3 '
         '(N1STAR-PROOF.md:244, :96-100) needs eps1 below it' % (closed, decr, down(m_lo, 6), up(m_hi, 6), corner,
                                                                  down(e_lo, 9), up(e_hi, 9), e_lo <= e_hi,
-                                                                 float(width), width < Fr(1, 10 ** 9)))
+                                                                 float(width), width < Fr(1, 10 ** 12)))
 
     # controls
     bad1 = trace_check(all_lines, shift=1)
