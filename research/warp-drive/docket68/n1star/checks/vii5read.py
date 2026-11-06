@@ -109,8 +109,10 @@ def q1(rows, es, show=True):
             bad.append("%s:%d %s without a note" % (k[0], k[1], r["verdict"]))
         if k[0] not in text:
             text[k[0]] = open(os.path.join(V.P5, k[0]), encoding="utf-8").read().split("\n")
-        line = text[k[0]][k[1] - 1] if k[1] <= len(text[k[0]]) else ""
-        if not all(s in line for s in syms):
+        line = text[k[0]][k[1] - 1].strip() if k[1] <= len(text[k[0]]) else ""
+        nxt = text[k[0]][k[1]].strip() if k[1] < len(text[k[0]]) else ""
+        window = line + " " + nxt                   # a symbol may run on across the line break (D626)
+        if not all(0 <= window.find(s) < len(line) for s in syms):
             bad.append("%s:%d no longer prints %s" % (k[0], k[1], sorted(syms)))
     missing = sorted(set(want) - set(seen))
     extra = sorted(set(seen) - set(want))

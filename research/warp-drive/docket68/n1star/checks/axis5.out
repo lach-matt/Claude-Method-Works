@@ -3,7 +3,7 @@ X1 (exact) Ric(ghat) - (3/2) dA dA = Ric5|_4 + (1/2) e^{-2A} Ric5_11 g4 on the e
    at x = 1 in the record's variables: Omh^2 -> R*exp(P + 2*W); Y/s -> exp(P + 2*Q) (= e^{P+2Q}: True); P + 2Q at x = 1
        with the record's P, Q of m, n: 0; control (P + 2Q -> c): Y/s -> e^c, = 1 only if c = 0: fails (good)
 X1 PASS
-   (15 s)
+   (9 s)
 X2 (exact) every Christoffel symbol with an odd number of phi indices vanishes: True
    chi_12 = chib_12 = eta_2 = etab_2 = zeta_2 = 0: holds
    chi_11 = e4 log sqrt(gh): holds
@@ -17,7 +17,7 @@ X2 (exact) every Christoffel symbol with an odd number of phi indices vanishes: 
    etab = -zeta + e1 log Omh: holds
    K = -Y^-1 e1 e1 Y for the section metric: True; control (chi_22 = e4 log sqrt(gh)): fails (good)
 X2 PASS
-   (16 s)
+   (9 s)
 X3 (exact) d_v log(Y sqrt(gh)) = Omh tr chi: True; d_u(Y sqrt gh) + d_x(b Y sqrt gh) = Omh tr chib Y sqrt gh: True; K
     div(Omh beta) + Omh beta e1 K = (Y sqrt gh)^-1 d_x(Y Omh K beta): True; control (measure sqrt(gh) dx): the remainder
     is exactly (e1 log Y) Omh K beta, not zero: True
@@ -50,4 +50,4 @@ X5 (computed) the axis charts on the record's run (rcert5's box), frame quantiti
    against Theorem 7.L's coefficient sums in the three-dimensional frame: 122 on |x| <= 1/2, 1.8e5 at the outermost node
        (linest5.out E4)
 X5 PASS (bounded up to the axis; the regular rates hold)
-axis5 (35 s): all checks pass
+axis5 (20 s): all checks pass

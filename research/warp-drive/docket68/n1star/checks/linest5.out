@@ -35,7 +35,7 @@ E8 G_low = 382 read in 2(d)'s model: G = G_low K/(2F(F - 1)) = 0.566 (K = 0.2215
     d2R/ddelta2 = 382.0 (PASS); demand 1/(4GTF^2) = 0.000526; the residual 2.42e-3 is 4.60 times it, and at G = 10, 81.2
     times
    control (the factor 2 dropped): the model gives 764.0, not 382 -> fails (good)
-   (19 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
+   (13 s) background on rcert5's box: 120 x 47 x 32 nodes (every second row and column)
 E4 the coefficient sums kappa_Z on the box (sup over the cells kept), by angular band |x| <= X:
    X            dchi      deta      domb     dchib     detab       dom        dk        dw        db       da1       dc1
        dd1       da2       dc2       dd2
@@ -83,4 +83,4 @@ E6 the closing condition delta + int eps < 1/(4 G T F^2), T = Du + Dv = 3.95, at
    X = 0.9500, G = 382: demand 10^-6555.9
    X = 0.9988, G = 10: demand 10^-624564.7
    X = 0.9988, G = 382: demand 10^-624566.3
-linest5 (24 s): all checks pass
+linest5 (17 s): all checks pass

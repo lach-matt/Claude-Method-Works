@@ -5,7 +5,7 @@ W1 model (Y_v = 9 Z, Z_u = Y on [0, 1]^2, data 1): f(1, 1) = 1.343e+04; the weig
    lam_Y/lam_Z = 2.72, theta = 1.65, 0.607: bound 3.682e+27 (holds)
    mutation (the partner's share lam_Y theta/lam_Z), theta = e^-12: bound 2 -> below f: caught (good)
 W1 PASS
-   (11 s) background and 112 off-diagonal terms over 11 row groups
+   (10 s) background and 112 off-diagonal terms over 11 row groups
 W2 lam = theta = 1 on |x| <= 1/2: int a_o du = 67.9, int a_i dv = 91.0, F^2 = 10^138.0 against linest5.py E4b's 10^138.0
     -> PASS
 W3 |x| <= 0.5: optimal weights (log lam, relative to the smallest): dchi 4.30, deta 3.93, domb 2.89, dchib 0.00, detab
@@ -34,4 +34,4 @@ W5 frozen-angle transport: the nine transported rows alone (pairs and the e3 row
    x = -0.428: f/D <= 2.05e+06 (computed, largest singular value squared); Gronwall 10^97.0
    largest: 2.05e+06 at x = -0.428.  This is the growth the signed coefficients produce in this subsystem; it is not a
        bound on the full operator (the pairs and the angular motion are dropped)
-wgron5 (550 s): all checks pass
+wgron5 (539 s): all checks pass
