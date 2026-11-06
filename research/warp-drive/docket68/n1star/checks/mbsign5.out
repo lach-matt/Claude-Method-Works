@@ -17,3 +17,9 @@ E2 (exact; w(R), mu symbolic) the tensor sector on every class slice v = V(R): E
    the tensor master current J^a = T^a_b xi^b obeys d_a J^a = xi(H) (D_a(R^3 D^a H) - (k_T^2 + 2) R H), the tensor equation of static5 S1 / gmodes5 G1: True
 E2 PASS  (105 s)
 E3 (exact) M_b fails inside the horizon: tensor seeds with E < 0 on Part I's slice
+   with P = -(Y_s^R/N_s) H_R: Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR on every class slice: True; with H = 0 the theta-integrated Q-density is -|T|^2 R^3 P^2 pointwise: True
+   H = (R - R1)^2 (R2 - R)^2 on [R1, R2] = [0.72, 0.89] (R2^2 < 0.80: inside the horizon for every mu in [0.80, 0.84]; Part I's seed region: inner edge 0.683, horizon 0.9067, mu0 = 0.8221, qsign5 Q3): Q is affine in mu True, Q(0.80) = 71057116987391/6000000000000000000000 = 1.184285e-08, Q(0.84) = 93707811736991/6000000000000000000000 = 1.561797e-08, both > 0: E < 0 for every mu there: True
+   the momentum-only seed P = (R - R1)^2 (R2 - R)^2, H = 0, on the same band: Q = -1.477397e-10 < 0 (any mu): True; so Q changes sign along s -> (s H, -s (Y/N) H_R + (1 - s) P), every member non-gauge (nonzero TT part)
+   control: the band moved to [0.92, 1.09] (0.92^2 > 0.84: outside the horizon): Q(0.80) = -2.786777e-08, Q(0.84) = -2.315474e-08, both < 0, no E < 0 seed (rejected): True
+E3 PASS  (149 s)
+E4 (exact) scalar modes on the static slice: structure, gauge maps, gauge invariance

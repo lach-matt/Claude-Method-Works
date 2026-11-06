@@ -409,9 +409,10 @@ def main():
     e5, info5 = r5()
     ok["R5"] = e5
     say("  R5 (III.K Lemma 6.2, the future-curve case, on g_b0 in Kerr-Schild form): form and inverse against the "
-        "matrices %s; future radial null slopes at (mu, r) = (1, 4/5) and (3/2, 1): %s; z3 (negations), m > 1: future "
-        "causal V^r < 0 %s, past causal V^r > 0 %s; m >= 0: |V^r| <= V^t %s; dt + a dr past timelike, a in [0, 1/32], "
-        "%s, and positive on future causal V %s; vacuity guard (sat): %s"
+        "matrices %s; future radial null slopes at (mu, r) = (1, 4/5) and (3/2, 1): %s; z3, the negation of each claim: "
+        "m > 1, future causal V has V^r < 0: %s; past causal V has V^r > 0: %s; m >= 0, future causal V has |V^r| <= "
+        "V^t: %s; dt + a dr, a in [0, 1/32], past timelike: %s, and positive on future causal V: %s; vacuity guard "
+        "(sat): %s"
         % (info5[0], ", ".join("(%s, %s)" % sl for sl in info5[1]), info5[2]["future"], info5[2]["past"],
            info5[2]["speed"], info5[2]["inflow"], info5[2]["inflow_v"], info5[3]))
     ctl["N7 r kept along future curves inside the horizon"] = r5_future_keeps_r() == z3.sat

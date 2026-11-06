@@ -506,19 +506,22 @@ of the theorem: each threshold exists, by the cited statements.
    reconstruction, C_ext, the parametrix norms, the scalar-type blocks' sigma_min (scalarblock5.py, in progress) and the
    chain's other inputs.
 
-**Lemma R9 (the absorbed scalar problem is invertible).** At b0 let q >= 0 be smooth with compact support in
-{r_h < r}, Q the multiplication by q, s = sgn sigma, sigma real and nonzero. Then box-hat(sigma) - i s Q : X_sigma ->
-Y_sigma is invertible. *Proof.* It is a compact perturbation of box-hat(sigma) (a compactly supported multiplication
-gains one derivative and is compact X_sigma -> Y_sigma, Rellich), which is Fredholm of index 0 (I.A Theorem 7.2 (3),
-I.B Theorem 1.3 (3)); so it suffices that its kernel is trivial. On each harmonic the kernel solves -Phi'' + (V_l -
-sigma^2 - i s f q) Phi = 0 in the class (regular across the future horizon, outgoing). The exact identity Im((equation)
-conj Phi) = -(Im Phi' conj Phi)' - s f q |Phi|^2 (inverse6_5a A4) integrates, with the end values sigma |c_+|^2 and
--sigma |c_-|^2 (A4), to 0 = -sigma (|c_+|^2 + |c_-|^2) - s int f q |Phi|^2; both terms have the sign of -sigma, so
-c_+ = 0 and Phi is a multiple of the outgoing Jost solution with coefficient 0: Phi = 0. Inside the horizon, Phi = 0
-follows as in III.D Proposition 6.2 (d) (the system (r - r_h) Y' = M Y and Gronwall). [] With the wrong sign (s =
+**Lemma R9 (the absorbed scalar problem is invertible).** At b0 let q >= 0 be smooth with compact support in {r_h < r}, Q
+the multiplication by q, s = sgn sigma, sigma real and nonzero. Then box-hat(sigma) - i s Q : X_sigma -> Y_sigma is
+invertible. *Proof.* It is a compact perturbation of box-hat(sigma) (Q maps X_sigma into H^s functions supported in a
+fixed compact set, which embed compactly into Y_sigma's H^(s-1) there, Rellich), which is Fredholm of index 0 (I.A
+Theorem 7.2 (3), I.B Theorem 1.3 (3)); so it suffices that its kernel is trivial. On each harmonic the kernel solves
+-Phi'' + (V_l - sigma^2 - i s f q) Phi = 0 in the class (regular across the future horizon, outgoing). The exact identity
+Im((equation) conj Phi) = -(Im Phi' conj Phi)' - s f q |Phi|^2 (inverse6_5a A4) integrates, with the end values sigma
+|c_+|^2 and -sigma |c_-|^2 (A4), to 0 = -sigma (|c_+|^2 + |c_-|^2) - s int f q |Phi|^2; both terms have the sign of
+-sigma, so c_+ = 0 and Phi is a multiple of the outgoing Jost solution with coefficient 0: Phi = 0. Inside the horizon,
+Phi = 0 follows as in III.D Proposition 6.2 (d) (the system (r - r_h) Y' = M Y and Gronwall). [] With the wrong sign (s =
 -sgn sigma) the two terms can cancel (control C3).
 
 ### R2.2 Proposed texts (final; checked against the files as they stand)
+
+These supersede section 7's two pairs: section 7's first old text now occurs twice in CONSTANTS5.md (R9.7 and R10.7
+carry the same block 2), and its second (R9.5's clause) is superseded by R10.5's, targeted below.
 
 1. The paper, section 9, "Settling", the bullet's last sentence (occurs exactly once in paper/RESPONSE-HL-5D.md,
    md5 7193c56e... when checked; this pair supersedes CONSTANTS5.md R10.7 block 2, which targets the same sentence):
