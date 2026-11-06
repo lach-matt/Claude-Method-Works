@@ -949,8 +949,8 @@ CACHE15 = {}
 
 
 def x15_adversary(nm, lam, N, rs):
-    """for i^N = -1: the x where Lambda c_N (kappa - kappa_(N-1)) = |nu'| with b4 > 0 real making sigma(x) = 0, so that
-    sigma' ~ nu' + |B| (kappa - kappa_(N-1)) cancels there"""
+    """for i^N = -1: the x* where Lambda c_N (kappa - kappa_(N-1)) = |nu'|, and b4 (|b4| < 1, Re b4 > 0) with sigma(x*)
+    = 0; then sigma' ~ nu' + |B| (kappa - kappa_(N-1)) cancels at x* to leading order"""
     f, _ = yfun(nm, N + 1)
 
     def parts(x):
@@ -968,15 +968,15 @@ def x15_adversary(nm, lam, N, rs):
             lo = mid
         else:
             hi = mid
-    g0, Bm, nu = parts(hi)
-    return (Bm - nu)/lam                                   # nu + lam b4 = |B|: sigma ~ 0 there
+    sig0, _ = sigma_model(nm, lam, N, rs, 'K', 0)
+    return -sig0(hi)[0]/lam                                # complex b4 with sigma(x*) = 0 exactly
 
 
 def e15(control=False):
     """Case 3' at rho0 = rho* (nu = K(r0)) with (H_rho*)'s first half only (kappa x^2 bounded below) and an unknown
     structured stage lambda-family lam b4, |b4| = 1, b4 in {1, i, -1, -i}: N = 12 (i^N = 1) and N = 10 (i^N = -1).
-    Control: exp(-1/x^(1/2)) (kappa x^2 -> 0: the first half fails), N = 10, b4 > 0 real chosen so that the two
-    transversal terms of sigma' cancel where sigma is small: a window is left undecided"""
+    Control: exp(-1/x^(1/2)) (kappa x^2 -> 0: the first half fails), N = 10, b4 (|b4| < 1) chosen so that sigma
+    vanishes where the two transversal terms of sigma' cancel: a window is left undecided"""
     mp.mp.dps = 60
     rs = mp.findroot(lambda q: 2*q**3 - 3*q**2 - 2, mp.mpf('1.8'))
     rows, ok = [], True
