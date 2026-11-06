@@ -1479,6 +1479,7 @@ Open: nothing. The md5 row of GLUEDECAY5.md in section 8.3 (h) is filled on seat
 
 [R4.0, Minor 2: the seating step was incomplete: after seating, round 3's E6 failed and the .out could not be
 reproduced. Section 8.4 names the step, and E6 now accepts the seated state.]
+
 ## R4.0 Round 4 (2026-11-06): the third reading, re-derived and seated
 
 *The reading.* The third reader re-checked the note in full: the lemmas, propositions, corollaries and theorem, with
@@ -1515,27 +1516,32 @@ blocks applied and the md5 column refreshed, E6 names the state 'seated' and pas
 
 - (1) *Block (b)'s labels.* "(proved: GLUEDECAY5.md Proposition 4 and Corollary 4.3, ...)" now follows the glued-norm
   bound it labels, and the M3 sentence carries "(computed: `docket68/n1star/checks/support8b.py` M3)".
-- (2) *GD2's R3.0 note and R3.0 (A).* - For the two-sided bound on the examples, Proposition 4 must apply to them, which
-  needs $C_P\epsilon\le\epsilon_0$ as well as $\epsilon\le\epsilon_1$. - "The least norm" is the infimum $N_R$. - R3.0
-  (A)'s interval is $(\frac32,\ell_0)$, open at $\ell_0$, where the bound is $\epsilon(\log R)^{1/2}$. - Noted where
-  they stand.
+- (2) *GD2's R3.0 note and R3.0 (A).*
+  - For the two-sided bound on the examples, Proposition 4 must apply to them, which needs $C_P\epsilon\le\epsilon_0$ as
+    well as $\epsilon\le\epsilon_1$.
+  - "The least norm" is the infimum $N_R$.
+  - R3.0 (A)'s interval is $(\frac32,\ell_0)$, open at $\ell_0$, where the bound is $\epsilon(\log R)^{1/2}$.
+  - Noted where they stand.
 - (3) *Block (e).* Appendix C cites notes by path (for example `docket68/n1star/LOSS-D.md`), and "supplement" means
   N1STAR-PROOF.md there. The rows now cite `docket68/n1star/GLUEDECAY5.md`, and the program's row says "the distance
   behind c", as section 8.7 does, in place of κ.
 - (4) *The letter.* ϰ (U+03F0) is a glyph variant of κ, which the paper uses for the second fundamental form (:605-606).
-  Counted in the paper: - lowercase Greek letters at zero occurrences: only ι and υ, which read as i and the paper's v;
-  - capitals: Δ, Λ and Ξ, whose lowercase forms are in use; - ξ: only in two quotations, as a frequency (:538, :582).
+  Counted in the paper:
+  - lowercase Greek letters at zero occurrences: only ι and υ, which read as i and the paper's v;
+  - capitals: Δ, Λ and Ξ, whose lowercase forms are in use;
+  - ξ: only in two quotations, as a frequency (:538, :582).
 
-The size is now Ξ, with Ξ0 and Ξ1.
+  The size is now Ξ, with Ξ0 and Ξ1.
 - (5) *E4's centre of mass.* For $h = x_1\,x\otimes x\,r^{-a-3}$, the terms of $\mathfrak b_{e'_1}$ with the gradient of
   $N = x_1$ cancel: $h_{i1}x_i = x_1^2r^{-a-1} = x_1\,\mathrm{tr}\,h$. So dropping them could not be caught. E4 adds $h
-  = x_1\delta\,r^{-a-1}$, of order $a$. By hand: - $\partial_jh_{ij}-\partial_i\mathrm{tr}\,h =
-  -3\delta_{i1}r^{-a-1}+3(a+1)x_1x_ir^{-a-3}$, so the $N$ part is $3a\,x_1^2r^{-a-2}$; - the gradient part is
-  $-(h_{i1}-\delta_{i1}\mathrm{tr}\,h)\hat x_i = 3x_1^2r^{-a-2}$; - the flux is therefore $\frac32(a+1)\pi^2\rho^{3-a}$,
-  against $\frac32a\pi^2\rho^{3-a}$ without the gradient terms.
+  = x_1\delta\,r^{-a-1}$, of order $a$. By hand:
+  - $\partial_jh_{ij}-\partial_i\mathrm{tr}\,h = -3\delta_{i1}r^{-a-1}+3(a+1)x_1x_ir^{-a-3}$, so the $N$ part is
+    $3a\,x_1^2r^{-a-2}$;
+  - the gradient part is $-(h_{i1}-\delta_{i1}\mathrm{tr}\,h)\hat x_i = 3x_1^2r^{-a-2}$;
+  - the flux is therefore $\frac32(a+1)\pi^2\rho^{3-a}$, against $\frac32a\pi^2\rho^{3-a}$ without the gradient terms.
 
-E4 asserts $\frac32(a+1)\pi^2$, nonzero at the three sample orders it checks ($a = \frac74,\frac52,\frac72$). The
-reader's control (iv) is the mutant 'drop_lapse', and it fails.
+  E4 asserts $\frac32(a+1)\pi^2$, nonzero at the three sample orders it checks ($a = \frac74,\frac52,\frac72$). The
+  reader's control (iv) is the mutant 'drop_lapse', and it fails.
 - (6) *The header.* Line 3's "not yet read by a second reader" and the R2.0 note's "section 8.2 is the current proposal"
   are now noted as stale.
 
