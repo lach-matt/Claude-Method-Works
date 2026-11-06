@@ -6,9 +6,10 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      N1STAR-PROOF.md (the file is not edited): each old block occurs exactly once, every line of the edited file is
      within 121 characters, nothing outside Lemma 11.0 changes, and the edited Lemma 11.0 satisfies r5edits5's
      predicates (a)-(f) ((a) and (b) read for R6-D's wording: R_gamma^n defined in the sentence that uses it, the
-     sums read structurally) and four more: (g) "gamma' <= gamma" at both Leibniz sums; (h) the family is indexed by delta
-     (gamma' is not reused); (i) f_gamma^n, b^n, c^n and R_gamma^n are defined; (j) ||R_gamma^n|| <= C(lam, j) t^(-3/2)
-     uniformly in n is stated, with its reason. Control: on the live, unedited Lemma 11.0 every predicate fails.
+     sums read structurally) and four more: (g) "gamma' <= gamma" at both Leibniz sums; (h) the family is indexed by
+     delta (gamma' is not reused); (i) f_gamma^n, b^n, c^n and R_gamma^n are defined; (j) ||R_gamma^n|| <= C(lam, j)
+     t^(-3/2) uniformly in n is stated, with its reason. Control: on the live, unedited Lemma 11.0 every predicate
+     fails.
   E2 (exact, sympy) what the edited text states, every quantity read from the text by a pattern:
      E2a Leibniz's rule with the sign, the coefficient and the binomial factor read from both sums: for generic g, u of
          (x, y) and every gamma of order 1..3, -(1/2) g d_x^2 d^gamma u = d^gamma(-(1/2) g d_x^2 u) + s c sum_{0 <

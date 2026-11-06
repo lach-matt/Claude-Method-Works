@@ -1,0 +1,10 @@
+E1  R6-D's replacement text for Lemma 11.0, applied to a copy of the live N1STAR-PROOF.md
+  E1a each old block occurs exactly once in the live file: pass 1, 1
+  E1b the edited file keeps every line within 121 characters: pass []
+  E1c the edit changes nothing outside Lemma 11.0: pass 31 lines added
+  E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the family index
+        delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its reason: pass {'a':
+        True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True, 'g': True, 'h': True, 'i': True, 'j': True}
+  E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False, 'c':
+        False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False}
+E2  the mathematics the edited Lemma 11.0 states, read from its text

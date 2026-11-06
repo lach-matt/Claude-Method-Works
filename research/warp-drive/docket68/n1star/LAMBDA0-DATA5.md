@@ -301,8 +301,8 @@ smaller by 3.67 x 10^7. C6 (control): slopes 1.25 times steeper than the outgoin
 
 So the record's only stability constant, read on X*'s past instead of the whole slab, is about 1.4 x 10^3 for the
 principal part. The whole system's constant needs the lower-order coefficients' rates (B-bar, C-bar, the couplings to
-phi_1, Psi_1 and Z), which the record does not compute; Lemma 9.1 applies to them unchanged (the transports along ell
-cross r = rho~ outward too, since ell's radial speed is -1), so their rates add to kappa~ on the same region.
+phi_1, Psi_1 and Z), which the record does not compute; Lemma 9.1 applies to them unchanged (the transports, along
+L0 = -ell, radial speed -1, leave the region through r = rho~ as well), so their rates add to kappa~ on the same region.
 
 ## 10. Step 4, and the replacement text
 
@@ -351,13 +351,13 @@ solved data (floating point), Sections 3 and 5.
 
 ## 11. Programs, pass counts, what remains
 
-`checks/lam0data5.py --selftest` (output `checks/lam0data5.out`, **18/18**; about 11 minutes on the loaded machine): D1-D8
-(Sections 2-6), E1 (Section 7), G1-G3 (Section 9), and controls C1-C6, each mutating the computed path: C1 S_1's sign
-(D6 fails), C2 the phase dropped from the data (D6 fails), C3 B_1 dropped from the prediction (D6 fails), C4 the
-numerics' sin^4 (E1's smoothness fails), C5 X* moved to r = a + 1/100 (the chain's base fails), C6 slopes 1.25 times
-too steep (G1's future-boundary check fails). Imported, not copied: data5.py (lin_0), stage1rate5.py (the energy
-forms, the domain constants). READ: envelope5.out E1 (c's interval), lzerotrace5.out T3 (12.593309), classm5.out K5
-(5.103e10), stage0bd5.py (chi's closed form), stage5.out S2 (stage 1's mean source).
+`checks/lam0data5.py --selftest` (output `checks/lam0data5.out`, **18/18**; about 11 minutes on the loaded machine):
+D1-D8 (Sections 2-6), E1 (Section 7), G1-G3 (Section 9), and controls C1-C6, each mutating the computed path: C1 S_1's
+sign (D6 fails), C2 the phase dropped from the data (D6 fails), C3 B_1 dropped from the prediction (D6 fails), C4 the
+numerics' sin^4 (E1's smoothness fails), C5 X* moved to r = a + 1/100 (the chain's base fails), C6 slopes 1.25 times too
+steep (G1's future-boundary check fails). Imported, not copied: data5.py (lin_0), stage1rate5.py (the energy forms, the
+domain constants). READ: envelope5.out E1 (c's interval), lzerotrace5.out T3 (12.593309), classm5.out K5 (5.103e10),
+stage0bd5.py (chi's closed form), stage5.out S2 (stage 1's mean source).
 
 *Labels.* Proved: Lemma 7.1. Computed, exact: Proposition 2.1, Theorem 3.1, Proposition 5.1's reduction and sigma_k,
 M1, step (ii). Computed, floating point: D6 (the check), D7 (the data), D8 (the drop). Certified: G1-G3, the chain's

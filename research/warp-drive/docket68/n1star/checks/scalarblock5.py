@@ -402,13 +402,12 @@ def s4():
     G = Geo(lv=0)
     h = sp.zeros(5)
     h[0, 0] = h[0, 1] = h[1, 0] = h[1, 1] = 1 / r ** 2
-    dg = sp.zeros(5)
     mu = sp.Symbol('mu')
     f = 1 - mu / r ** 2
     gm = [[-f, 1 - f], [1 - f, 2 - f]]
     same = all(sp.simplify(sp.diff(gm[a][b], mu) - h[a, b]) == 0 for a in range(2) for b in range(2))
     R = G.dric(h, w=0)
-    return same and all(reduce_cs(R[a, b]) == 0 for a in range(5) for b in range(5)), dg
+    return same and all(reduce_cs(R[a, b]) == 0 for a in range(5) for b in range(5))
 
 
 # ------------------------------------------------------------------------------------------------ S5 indicial
@@ -486,38 +485,44 @@ def normalized(N, kv, comps):
 
 
 def s6(N, kv, comps, beta_line):
-    """certified upper bound for |N_n(beta) v| / (sqrt(2 + kappa) |v|), v the null vector of N_n at the root nearest
-    beta (computed in floating point; the bound itself is certified by interval arithmetic for that v)"""
+    """certified upper bound for |N_n(beta) v| / (sqrt(1 + beta^2 + kappa) |v|) at one vector v (the smallest right
+    singular vector of N_n(beta), found in floating point; any v gives a valid bound, certified by intervals)"""
     Nn = normalized(N, kv, comps)
-    mpm.mp.dps = 50
+    n = len(comps)
     Mb = sp.Matrix(Nn.subs(lam, beta_line))
-    A = mpm.matrix([[mpm.mpf(sp.N(Mb[i, j], 60)) for j in range(len(comps))] for i in range(len(comps))])
-    U, S, V = mpm.svd_r(A)
-    v = [V[len(comps) - 1, j] for j in range(len(comps))]           # the smallest right singular vector
-    vi = [iv.mpf(mpm.nstr(x, 45)) for x in v]
-    Ai = [[iv.mpf([sp.N(Mb[i, j], 70) - sp.Float('1e-60'), sp.N(Mb[i, j], 70) + sp.Float('1e-60')])
-           if Mb[i, j] != 0 else iv.mpf(0) for j in range(len(comps))] for i in range(len(comps))]
-    Av = [sum((Ai[i][j] * vi[j] for j in range(len(comps))), iv.mpf(0)) for i in range(len(comps))]
+    mpm.mp.dps = 50
+    A = mpm.matrix([[mpm.mpf(str(sp.N(Mb[i, j], 60))) for j in range(n)] for i in range(n)])
+    _U, S, V = mpm.svd_r(A)
+    k = min(range(n), key=lambda q: S[q])
+    vi = [iv.mpf(mpm.nstr(V[k, j], 40)) for j in range(n)]
+    eps = iv.mpf('1e-65')
+
+    def ent(x):
+        if x == 0:
+            return iv.mpf(0)
+        m = iv.mpf(str(sp.N(x, 80)))
+        return iv.mpf([m.a - eps.b, m.b + eps.b])
+    Ai = [[ent(Mb[i, j]) for j in range(n)] for i in range(n)]
+    Av = [sum((Ai[i][j] * vi[j] for j in range(n)), iv.mpf(0)) for i in range(n)]
     num = iv.sqrt(sum((x * x for x in Av), iv.mpf(0)))
-    den = iv.sqrt(sum((x * x for x in vi), iv.mpf(0))) * iv.sqrt(iv.mpf(2 + kv) if beta_line == 1 else
-                                                                 iv.mpf(1 + beta_line ** 2 + kv))
+    bl = iv.mpf(sp.Rational(beta_line).p) / sp.Rational(beta_line).q
+    den = iv.sqrt(sum((x * x for x in vi), iv.mpf(0))) * iv.sqrt(1 + bl * bl + kv)
     q = num / den
-    return q.b, min(S)
+    return q.b, S[k], [V[k, j] for j in range(n)]
 
 
 # ------------------------------------------------------------------------------------------------ S7 the quasi-mode
-def s7(mats, kv, v, W, x0=mpm.log(400)):
+def s7(mats, kv, v, W, x0=None):
     """floating point: ||L h||_Y / ||h||_X for h = r^-1 psi(log r) v (normalized components), psi = sin^2 on
     [x0, x0 + W], with the full Tangherlini block and the outer gauge data"""
+    x0 = mpm.log(400) if x0 is None else x0
     sub = outer_subs()
     comps = list(range(7))
-    n = [sp.N(q) for q in nu(kv, comps)]
+    n = [sp.sqrt(2 * kv) if j in (3, 4) else q for j, q in enumerate(nu(kv, comps))]
     x = sp.Symbol('x')
-    psi = sp.sin(sp.pi * (x - x0) / W) ** 2
-    Hexpr = []
-    for j in comps:
-        # u_j = nu_j H_j r^-SH_j = r^-1 psi v_j  ->  H_j = r^(SH_j - 1) psi v_j / nu_j
-        Hexpr.append((r ** (SH[j] - 1) * psi.subs(x, sp.log(r)) * v[j] / n[j]))
+    psi = sp.sin(sp.pi * (x - sp.Float(str(x0), 30)) / W) ** 2
+    U = [r ** -1 * psi.subs(x, sp.log(r)) * sp.Float(mpm.nstr(v[j], 25), 30) for j in comps]
+    H = [U[j] * r ** SH[j] / n[j] for j in comps]                 # u_j = nu_j H_j r^-SH_j
     Fs = []
     for i in comps:
         e = 0
@@ -525,16 +530,15 @@ def s7(mats, kv, v, W, x0=mpm.log(400)):
             for k in range(3):
                 cf = mats[k][i][j].subs(sub).subs(kap, kv)
                 if cf != 0:
-                    e += cf * sp.diff(Hexpr[j], r, k)
+                    e += cf * sp.diff(H[j], r, k)
         Fs.append(e * n[i] * r ** (-SH[i]))
     fF = [sp.lambdify(r, F, 'mpmath') for F in Fs]
-    fU = [sp.lambdify(r, (r ** (SH[j]) * n[j] * Hexpr[j] * r ** (-SH[j])) if False else
-                      Hexpr[j] * n[j] * r ** (-SH[j]), 'mpmath') for j in comps]
-    fUd = [sp.lambdify(r, sp.diff(Hexpr[j] * n[j] * r ** (-SH[j]), r), 'mpmath') for j in comps]
+    fU = [sp.lambdify(r, u, 'mpmath') for u in U]
+    fUd = [sp.lambdify(r, sp.diff(u, r), 'mpmath') for u in U]
     mpm.mp.dps = 30
 
     def integ(fn):
-        return mpm.quad(lambda t: fn(mpm.e ** t) * mpm.e ** t, mpm.linspace(x0, x0 + W, 41))
+        return mpm.quad(lambda t: fn(mpm.e ** t) * mpm.e ** t, mpm.linspace(x0, x0 + W, 81))
     Y2 = integ(lambda rr: rr ** 5 * sum(abs(f(rr)) ** 2 for f in fF))
     X2 = integ(lambda rr: sum(rr * abs(u(rr)) ** 2 + rr ** 3 * abs(ud(rr)) ** 2 + kv * rr * abs(u(rr)) ** 2
                               for u, ud in zip(fU, fUd)))
@@ -561,7 +565,7 @@ def main(selftest=False):
     OK['S3'] = s3(B)
     print('  S3 (exact): 2 delta G (L h) = box^C Upsilon(h) on the block, every gauge datum general, l symbolic: %s '
           '(%.0f s)' % (OK['S3'], time.time() - t0))
-    OK['S4'] = s4()[0]
+    OK['S4'] = s4()
     print('  S4 (exact): h_mu = r^-2 (dt + dr)^2 = d/dmu of (10.48): D Ric(h_mu) = 0: %s' % OK['S4'])
     print('      (the record\'s box^C polynomials, damping5.polys, about half a minute)')
     polys = DP.polys(4, sp.Rational(2, 3))
@@ -573,23 +577,19 @@ def main(selftest=False):
     rows = []
     for lv, _ok, _r, up, N in S5:
         comps = [0, 1, 2, 5] if lv == 0 else list(range(7))
-        b1, smin1 = s6(N, lv * (lv + 2), comps, 1)
-        bh, smin_h = s6(N, lv * (lv + 2), comps, sp.Rational(1, 2))
-        rows.append((lv, b1, bh, up))
-    b2 = [b for lv, b, _bh, _u in rows if lv == 2][0]
-    OK['S6'] = b2 < 1e-5 and all(bh > 1e-2 for _l, _b, bh, _u in rows)
+        b1, _s1, v1 = s6(N, lv * (lv + 2), comps, 1)
+        bh, _sh, _vh = s6(N, lv * (lv + 2), comps, sp.Rational(1, 2))
+        rows.append((lv, b1, bh, up, v1))
+    b2 = [b for lv, b, _bh, _u, _v in rows if lv == 2][0]
+    v2 = [v for lv, _b, _bh, _u, v in rows if lv == 2][0]
+    OK['S6'] = all(b < bh / 100 for _l, b, bh, _u, _v in rows)
     print('  S6 (certified; the quasi-mode lemma deduced): sigma_min(L_l) on Hbar^(1,-1)_b -> Hbar^(0,1)_b is at most '
           '%s; so the scalar blocks\' inverse constant at alpha = -1 is at least %.4e (from l = 2); at alpha + 2 = 1/2 '
           'the same bounds are %s (order one): %s' % (
-              '; '.join('%.4e at l = %d (root %s)' % (float(b), lv, mpm.nstr(u, 10)) for lv, b, _bh, u in rows),
-              1 / float(b2), ', '.join('%.3f' % float(bh) for _l, _b, bh, _u in rows), OK['S6']))
+              '; '.join('%.4e at l = %d (root %s)' % (float(b), lv, mpm.nstr(u, 10)) for lv, b, _bh, u, _v in rows),
+              1 / float(b2), ', '.join('%.3f' % float(bh) for _l, _b, bh, _u, _v in rows), OK['S6']))
     if not selftest:
-        N2 = [N for lv, _o, _r, _u, N in S5 if lv == 2][0]
-        Nn = normalized(N2, 8, list(range(7))).subs(lam, 1)
-        A = mpm.matrix([[mpm.mpf(sp.N(Nn[i, j], 40)) for j in range(7)] for i in range(7)])
-        _U, _S, V = mpm.svd_r(A)
-        v = [V[6, j] for j in range(7)]
-        vals = [(W, s7(B['mats'], 8, v, W)) for W in (200, 2000, 20000)]
+        vals = [(W, s7(B['mats'], 8, v2, W)) for W in (200, 2000, 20000)]
         OK['S7'] = vals[-1][1] < 2 * float(b2) + 1e-4 and vals[-1][1] < vals[0][1]
         print('  S7 (floating point): the quasi-mode on the full block at l = 2, x0 = log 400: ||L h||_Y/||h||_X = %s '
               '(widths W), tending to S6\'s %.4e: %s' % (
