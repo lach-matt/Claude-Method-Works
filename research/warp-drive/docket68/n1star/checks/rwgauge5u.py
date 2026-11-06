@@ -429,10 +429,16 @@ def u5(control=False):
             k5 &= sp.simplify(sp.diff(G, uu, vv) - (-(Uu*Vv/rh**2)*sp.diff(g_, Uu, Vv)).subs({Uu: Uof, Vv: Vof})) == 0
             k6 &= sp.simplify(sp.diff(G, uu, 2) - ((Uu**2*sp.diff(g_, Uu, 2) + Uu*sp.diff(g_, Uu))/rh**2)
                               .subs({Uu: Uof, Vv: Vof})) == 0
+        tt, rs_ = sp.symbols("tt rs")
+        k7 = True
+        for g_ in (sp.exp(uu)*sp.sin(vv) + uu**3*vv**2, sp.cos(uu*vv)):              # d_t^2 - d_r*^2 = 4 d_u d_v
+            G = g_.subs({uu: tt - rs_, vv: tt + rs_})
+            k7 &= sp.simplify(sp.diff(G, tt, 2) - sp.diff(G, rs_, 2) - (4*sp.diff(g_, uu, vv)).subs(
+                {uu: tt - rs_, vv: tt + rs_})) == 0
         print("  U5: dr*/dr = 1/f %s; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) %s; d(-UV)/dr = e^2/(2 r_h) at r_h %s;"
               " f/(-UV) = (r + r_h)^2 e^(-2r/r_h)/r^2 %s; d_u d_v = -(UV/r_h^2) d_U d_V %s; d_u^2 = (U^2 d_U^2 + U d_U)"
-              "/r_h^2 %s" % (k1, k2, k3, k4, k5, k6), flush=True)
-        ok &= k1 and k2 and k3 and k4 and k5 and k6
+              "/r_h^2 %s; d_t^2 - d_r*^2 = 4 d_u d_v %s" % (k1, k2, k3, k4, k5, k6, k7), flush=True)
+        ok &= k1 and k2 and k3 and k4 and k5 and k6 and k7
     Vl = potential(2).subs(mu, 1)
     integrand = sp.simplify(Vl/(1 - 1/r**2)) + (1/r if control else 0)
     I = sp.integrate(integrand, (r, 1, sp.oo))

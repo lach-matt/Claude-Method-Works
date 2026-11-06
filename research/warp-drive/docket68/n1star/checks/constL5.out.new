@@ -1,3 +1,24 @@
   K1 the DAG of C_L11 and C_L4 (83 named constants): its leaves ['A', 'C0', 'C2', 'C64', 'C_S', 'C_S3', 'K_s', 'M', 'P6',
       'T', 'a', 'b', 'lambda0', 'mu0']; outside lambda0's leaves, the certified numbers and the seed's constants: none
 K1 PASS
+Traceback (most recent call last):
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/constL5.py", line 195, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/constL5.py", line 186, in main
+    good = f()
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/constL5.py", line 157, in k2
+    v1, v2 = d.value(pt), d.value(pt2)
+             ~~~~~~~^^^^
+  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/constL5.py", line 74, in value
+    vals[s_] = sp.Float(sp.N(e.subs(vals), 40), 40)
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/sympy/core/numbers.py", line 918, in __new__
+    _mpf_ = mpmath.mpf(num, prec=precision)._mpf_
+            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/ctx_mp_python.py", line 79, in __new__
+    v._mpf_ = mpf_pos(cls.mpf_convert_arg(val, prec, rounding), prec, rounding)
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/mpmath/ctx_mp_python.py", line 98, in mpf_convert_arg
+    raise TypeError("cannot create mpf from " + repr(x))
+TypeError: cannot create mpf from 1.49 + 1.8142115964370083084864516749188718561*I

@@ -635,7 +635,11 @@ def part_g():
         dl_ = (f_inf - v1s)*rho + f2*rho**3
         ser = 0
         for m in range(0, 4):
-            dm = mp.rf(a1, m)*mp.rf(b1, m)/(mp.rf(c1, m)*2**m)*mp.hyp2f1(a1 + m, b1 + m, c1 + m, mp.mpf(1)/2)
+            A_, B_, C_ = [mp.mpf(x.p)/x.q for x in (a1, b1, c1)]
+            # the 2F1 at z = 1/2 by its series (geometric convergence; exact for the terminating cases)
+            f21 = mp.nsum(lambda n: mp.rf(A_ + m, n)*mp.rf(B_ + m, n)/(mp.rf(C_ + m, n)*mp.factorial(n))/2**n,
+                          [0, 400], method="direct")
+            dm = mp.rf(A_, m)*mp.rf(B_, m)/(mp.rf(C_, m)*2**m)*f21
             ser += sp.Float(str(dm), 25)*dl_**m/sp.factorial(m)
         poly = sp.Poly(sp.expand(ser), rho)
         for (deg,), cf in zip(poly.monoms(), poly.coeffs()):

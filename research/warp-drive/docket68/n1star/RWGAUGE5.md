@@ -21,8 +21,8 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   weight r^(-1/2), which is the exact growth: r^(-1/2)|h(e_a, e_b)| + r^(1/2)|h(e_i, e_j)| <= C delta^(-1/2) D^(1/2)
   tau^(-1/2 + delta) on every leaf, uniformly in r >= R_1 and in l; with one more power, r^-1 |h(e_a, e_b)| + |h(e_i,
   e_j)| <= C D^(1/2) tau^-1; and the L^2 norm along the leaf of r^(-3/2) h(e_a, e_b) and r^(-1/2) h(e_i, e_j) decays
-  at [HKW18]'s rate tau^-2 (Theorem 2: proved, given [HKW18]'s Theorems 2, 16 and 18 READ; every coefficient and
-  exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T and the rotations.
+  at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated; every
+  coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T and the rotations.
   The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
 
 The rest of this note is: 1. what is READ; 2. the components on the outgoing chart (Lemma 1); 3. Theorem 1; 4.
@@ -112,7 +112,7 @@ scalar mode l in the gauge f_a = 0 = H_T (no l = 0 part, no tensor part), such t
 
     h(e_i, e_j) = -A r^(-1/2) S delta_ij,    h(e0, e0) = r^(1/2) f^-1 P_uu(r) S + c_A(r) A S,
 
-c_A the exact coefficient printed by U5, and for A = 0:
+c_A = -(2 m r^4 - 3 m mu r^2 - 6 mu^2)/(r^(1/2) (r^2 - mu)(m r^2 + 6 mu)) = O(r^(-1/2)) (computed: U5), and for A = 0:
 
     h(e0, e0) = B r^(1/2) f^-1 S,   h(e0, e1) = -B r^(1/2) f^-1 S,   h(e1, e1) = B r^(1/2) f^-1 S,   h(e_i, e_j) = 0.
 
@@ -145,8 +145,9 @@ Step 3 (the jets on C_tau1). On U = U_1, P = 0, so d_W^k P = 0, and d_W d_U P = 
 d_W d_U^2 P = d_U(c P) = c alpha. In the outgoing chart (d_u = -(U/r_h) d_U, d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2,
 computed: U5) this is: P = d_r P = d_r^2 P = 0 and TP = A := -U_1 alpha/r_h along C_tau1, d_r TP = 0 by (2.1), and
 d_r T^2 P = -A V/(2f) (the u-derivative of (2.1)), so T^2 P = B + (A/2) int_r^oo (V/f) dr', the integral finite
-(computed: U5, exactly at l = 2), B its limit at null infinity, an affine function of beta; every (A, B) is reached by
-choosing alpha and beta (computed: U5).
+(computed: U5; at l = 2 it is int_{r_h}^oo (V/f) dr = 11/(2 r_h) exactly), B its limit at null infinity. A = -U_1
+alpha/r_h, and B = (U_1^2 (beta + alpha int_0^oo c(U_1, W) dW) + U_1 alpha)/r_h^2 is affine in beta with slope U_1^2/
+r_h^2 != 0, so every (A, B) is reached by choosing alpha and then beta.
 
 Step 4 (the metric). With S = P_(l/2)(cos 2 theta), the supplement's (10.1) applied to P S gives h in the gauge f_a = 0
 = H_T; it is a linearised vacuum solution (Proposition 10.1 (iii), [KI03] (3.13)-(3.14) READ there; at l = 2 computed
@@ -164,7 +165,11 @@ u_0, d_v T^a P(u_0, v) = d_v T^a P(u_tau1, v) + (1/4) int_{u_0}^{u_tau1} V T^a P
 d_r T^a P on C_tau1, O(r^-2) for a <= 4 (computed: U6, from the expansion at null infinity), and the second is O(r^-2)
 because V = O(r^-2) uniformly for u in a compact interval at fixed v. So d_r T^a P = O(r^-2) and T^a P = O(1) on C_0,
 and every energy in I_{X Psi}(Sigma_0) -- int r^p (d_r T^a P)^2 dr with p <= 2 and int ((d_r T^a P)^2 + k^2 (T^a P)^2
-/r^2) dr, U7 (ii) -- is finite. For tau_1 = 0 the strip is empty and U6 alone suffices. []
+/r^2) dr, U7 (ii) -- is finite. For tau_1 = 0 the strip is empty and U6 alone suffices. Every order a: along C_tau1 the
+T^a P are determined by P = 0 and T P = A through the u-derivatives of (2.1), d_r P_j = (1/2) d_r(f d_r P_(j-1)) -
+(1/2) r^-2 q P_(j-1), q = r^2 V/f analytic in 1/r at null infinity; if P_(j-1) = c + O(1/r) and d_r P_(j-1) = O(r^-2)
+as power series in 1/r, then d_r P_j = O(r^-2) and P_j = c_j + O(1/r), so the induction runs through every a (U6
+computes a <= 4, which is what X in {1, T, T^2, Omega, T Omega, Omega^2} with [HKW18]'s L_K^2 asks of Theorem 2). []
 
 *What it shows.* The obstruction is not a defect of the estimates: on [HKW18]'s leaves, which run out to null infinity,
 the gauge f_a = 0 = H_T puts the radiation of the master field into the orbit-space components with the weight
@@ -181,12 +186,12 @@ let Psi_l be the master quantities of its modes (scalar and tensor). Write h_(ab
 
 (Omega standing for the six rotations, summed), [HKW18]'s data norm (R6) with at most two more commutations.
 
-**Theorem 2 (proved, given (R1)-(R7); the coefficients and exponents computed: U4, U7).** With C depending on mu
+**Theorem 2 (proved from (R1)-(R7) READ, applied as stated; the coefficients and exponents computed: U4, U7).** With C depending on mu
 and R_1 only, for tau >= 1 and every 0 < delta <= 1/2:
 
     (a)  int_{R_1}^oo ( r^-3 ||h_(ab)||^2 + r^-1 ||h_(ij)||^2 )(tau, r) dr  <=  C D tau^-2,
     (b)  sup_{r >= R_1} ( r^-1 ||h_(ab)|| + ||h_(ij)|| )(tau, r)  <=  C D^(1/2) tau^-1,
-    (c)  sup_{r >= R_1} ( r^(-1/2) ||h_(ab)|| + r^(1/2) ||h_(ij)|| )(tau, r)  <=  C delta^(-1/2) D^(1/2) tau^(-1/2 + delta),
+    (c)  sup_{r >= R_1} ( r^(-1/2) ||h_(ab)|| + r^(1/2) ||h_(ij)|| )(tau, r)  <=  C delta^(-1/2) D^(1/2) tau^(delta-1/2),
 
 the arguments meaning the point of Sigma_tau at radius r (on C_tau). The weights in (c) are the exact growth and
 decay of Theorem 1 and cannot be raised; in (a), r^-3 cannot be replaced by r^-2 (Theorem 1).
@@ -212,10 +217,13 @@ Step 3 (b). Lemma S (proved; U7 (i)): if int_R^oo (w^2/s^2 + w'^2) ds < oo then
     sup_{r >= R} w(r)^2/r  <=  2 (int_R^oo w^2/s^2)^(1/2) (int_R^oo w'^2)^(1/2) + int_R^oo w^2/s^2,
 
 since d_s(w^2/s) = 2 w w'/s - w^2/s^2 and liminf w^2/s = 0 (else w^2/s^2 >= c/s is not integrable); and sup w^2 <= 2
-(int w^2)^(1/2) (int w'^2)^(1/2) when int w^2 < oo. Applied with Step 1: sup r^(-1/2) k^j |T^a P| <= C D^(1/2) tau^-1
-(a <= 2, j <= 2 - a... the commutations of D), and sup |d_r T^a P| <= C D^(1/2) tau^-1 for a <= 1, with d_r^2 T^a P
-from (2.1) for T^a P: 2 d_r T^(a+1) P/f - (f'/f) d_r T^a P + V T^a P/f^2. Lemma 1 (iii) with the weight r^-1 on the
-orbit block and r^0 on the angular block puts every term under one of these sups (computed: U4, the weights of (b)).
+(int w^2)^(1/2) (int w'^2)^(1/2) when int w^2 < oo (then liminf |w| = 0). Applied with Step 1, each for every mode:
+w = T^a P (a <= 2) gives sup r^(-1/2) |T^a P| <= C (Ě^N[T^a Psi])^(1/2); w = k^2 P gives sup r^(-1/2) k^2 |P| <= C
+(Ě^N[Omega Psi] + Ě^N[Omega^2 Psi])^(1/2); w = d_r T^a P (a <= 1), with w' = d_r^2 T^a P = 2 d_r T^(a+1) P/f - (f'/f)
+d_r T^a P + V T^a P/f^2 from (2.1) and |V| <= C k^2 r^-2, gives sup |d_r T^a P| <= C (Ě^N[T^a Psi] + Ě^N[T^(a+1)
+Psi] + Ě^N[T^a Omega Psi])^(1/2). Each is <= C D^(1/2) tau^-1 by (R6). Lemma 1 (iii), with the weight r^-1 on the
+orbit block and r^0 on the angular block, puts every term under one of these sups with a bounded coefficient
+(computed: U4, the weights of (b)).
 
 Step 4 (c). The new input is sup |T^2 P| and sup |TP| (the terms of weight r^0 in Lemma 1 (iii); the others are
 handled by Step 3). For w = T^a P (a = 1, 2) on C_tau and p = 1 + 2 delta: |w(r)| <= |w(R_1)| + int_{R_1}^oo |w'| <=
@@ -255,7 +263,7 @@ mass to which h settles.
 
 ## 6. Proposed replacement for the paper (RESPONSE-HL-5D.md, section 8.2, lines 793-796)
 
-The old text occurs exactly once in the paper (checked by U7's companion check in `checks/rwgauge5u.py`, R0).
+The old text occurs exactly once in the paper and the new text not at all (computed: U8).
 
 ```old
 So in
@@ -276,13 +284,13 @@ B r^(1/2) f^(−1) S there, f = 1 − μ/r² and S its harmonic (Theorem 1, prov
 that weight they settle too, and the angular components and the tensor type settle without it: r^(−1/2)|h(e_a, e_b)|
 and r^(1/2)|h(e_i, e_j)| decay as τ^(−1/2+δ), r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), uniformly in r and l,
 and the norms along the leaf of r^(−3/2) h(e_a, e_b) and r^(−1/2) h(e_i, e_j) at [HKW18]'s rate, for data with two
-more commutations with T and the rotations (Theorem 2, deduced from [HKW18]'s Theorems 2, 16 and 18 as stated; every
+more commutations with T and the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every
 exponent and coefficient computed). The exponents 1/2 of the weights are attained, so they cannot be improved.
 ```
 
 ## 7. Files
 
 - `RWGAUGE5.md` (this note).
-- `checks/rwgauge5u.py` with `checks/rwgauge5u.out`: U1-U7 (and R0, the replacement's uniqueness), exact, each with
-  a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3), `checks/rwgauge5.py`'s
+- `checks/rwgauge5u.py` with `checks/rwgauge5u.out`: U1-U8 (U8 the replacement's uniqueness and the line widths),
+  exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3), `checks/rwgauge5.py`'s
   tensor calculus (U3 (b)) and `settle5.py`'s potentials (U3, U5); writes nothing.
