@@ -386,8 +386,8 @@ C lam^(-3-i) N for i <= 4, and |d w|_k <= lam^-1 |w|_{k+1} <= C lam^-1 N.
 
 **Step 2 (data; deduced).** phi = 0 on Sigma_tau0, so h = w there; the derivatives of h, phi, Psi on Sigma_tau0 of
 order up to k + 1 in tau are fixed by (3.4), (3.5) and the equation for w, whose coefficients obey the scaled bounds
-of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + C_R lam^K) <= C (C_D + C_R) lam^K [amended
-D623: was "C (Data(w) + lam^K)"]. (d_tau phi =
+of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + C_R lam^K) <= C (C_D + C_R) lam^K
+[amended D623: was "C (Data(w) + lam^K)"]. (d_tau phi =
 -(1/2) P s on Sigma_tau0, and d_x P s = P d_x s + O(lam) P d_x s by (M4): no 1/lam enters.)
 
 **Step 3 (the bootstrap).** Suppose N <= 2 M lam^K on [tau0, tau*] with M to be fixed. Then (Step 1) |w| <=

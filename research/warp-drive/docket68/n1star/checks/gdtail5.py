@@ -99,8 +99,16 @@ def switched_on(n):
     t, tau = sp.symbols('t tau', positive=True)
     cn = 1/(2*sp.pi**sp.Rational(n - 1, 2)*sp.gamma(sp.Rational(3 - n, 2)))        # 0 for odd n (Gamma's pole)
     Qn = (n - 2)*2*sp.pi**sp.Rational(n, 2)/sp.gamma(sp.Rational(n, 2))
-    Eint = lambda T_: cn*(T_**2 - r**2)**sp.Rational(1 - n, 2)
-    tail = sp.integrate(Eint(tau), (tau, t, sp.oo), conds='none') if cn != 0 else sp.Integer(0)
+    pw = sp.Rational(1 - n, 2)
+    Eint = lambda T_: cn*(T_**2 - r**2)**pw
+    if cn != 0:
+        # tau = r (1 + Y): int_t^oo (tau^2 - r^2)^pw d tau = r^(2 pw + 1) [G(oo) - G(t/r - 1)], G' = (Y (Y + 2))^pw
+        Y = sp.Symbol('Y', positive=True)
+        G = sp.integrate((Y*(Y + 2))**pw, Y)
+        assert sp.simplify(sp.diff(G, Y) - (Y*(Y + 2))**pw) == 0
+        tail = cn*r**(2*pw + 1)*(sp.limit(G, Y, sp.oo) - G.subs(Y, t/r - 1))
+    else:
+        tail = sp.Integer(0)
     a = sp.simplify(r**(2 - n) - Qn*tail)
     return a, t, Eint, Qn
 
@@ -119,7 +127,7 @@ def t1(control=False):
     tag = "  T1 control (the same path in 3+1)" if control else "  T1"
     print("%s: n = %d, Riesz interior coefficient %s, Q_n = %s; a solves the radial equation: %s; d_t a = Q_n E_int: "
           "%s; a -> %s; a - r^(2-n) = %s; = t/(r^2 sqrt(t^2 - r^2)): %s; t^-2 coefficient %s, = 1/2: %s"
-          % (tag, n, sp.simplify(Eint(t).subs({t: 2, r: 1})) if n == 4 else 0, Qn, eq == 0, dta == 0, stat,
+          % (tag, n, sp.simplify(Eint(t)*(t**2 - r**2)**sp.Rational(n - 1, 2)), Qn, eq == 0, dta == 0, stat,
              sp.collect(ser.subs(x, 1/t), t), closed, coef, coef == HALF), flush=True)
     return ok
 

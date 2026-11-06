@@ -165,20 +165,25 @@ def q2(rows, show=True, texts=None):
     return not unres and not bad
 
 
-def q3(mode=None):
-    """mode None: rotation and reflection; 'extra': a non-natural operator; 'shear': a non-isometry"""
+def q3(mode=None, show=True):
+    """mode None: the computation; 'extra': delta* plus a non-natural term; 'shear': a non-isometry; 'nochr': delta*
+    without its Christoffel term; 'flip': with the Christoffel term's sign flipped. Returns {part: bool}."""
     import random
     import sympy as sp
     T, X = sp.Symbol("t"), sp.symbols("x1:5")
     C = (T,) + X
     r = sp.sqrt(sum(x**2 for x in X))
+    mu = sp.Rational(3, 2)
     ell = [sp.Integer(1)] + [x/r for x in X]
     eta = sp.diag(-1, 1, 1, 1, 1)
-    g = sp.Matrix(5, 5, lambda a, b: eta[a, b] + sp.Rational(3, 2)/r**2*ell[a]*ell[b])
+    g = sp.Matrix(5, 5, lambda a, b: eta[a, b] + mu/r**2*ell[a]*ell[b])
+    lsh = [-ell[0]] + ell[1:]                                       # eta^-1 l; l is null for eta
+    ginv = sp.Matrix(5, 5, lambda a, b: eta[a, b] - mu/r**2*lsh[a]*lsh[b])   # Kerr-Schild inverse, checked below
     dg = [[[sp.diff(g[a, b], C[c]) for c in range(5)] for b in range(5)] for a in range(5)]
+    chr_sign = {"nochr": 0, "flip": -1}.get(mode, 1)
 
     def at(e, p):
-        return sp.simplify(e.subs({T: sp.Rational(1, 3), **{X[i]: p[i] for i in range(4)}}))
+        return sp.simplify(sp.sympify(e).subs({T: sp.Rational(1, 3), **{X[i]: p[i] for i in range(4)}}))
 
     def dstar_at(w, p, extra):
         G = sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))
@@ -188,10 +193,20 @@ def q3(mode=None):
                 for a in range(5)] for c in range(5)]
         dw = [[at(sp.diff(w[b], C[a]), p) for b in range(5)] for a in range(5)]
         wp = [at(wi, p) for wi in w]
-        M = sp.Matrix(5, 5, lambda a, b: (dw[a][b] + dw[b][a])/2 - sum(Gam[c][a][b]*wp[c] for c in range(5)))
+        M = sp.Matrix(5, 5, lambda a, b: (dw[a][b] + dw[b][a])/2 - chr_sign*sum(Gam[c][a][b]*wp[c] for c in range(5)))
         if extra:
             M += sp.Matrix(5, 5, lambda a, b: (wp[a]*int(b == 1) + wp[b]*int(a == 1))/2)
         return M
+
+    def lie_half_at(w, p):
+        """(1/2) L_X g, X = g^-1 w: X^c d_c g_ab + g_cb d_a X^c + g_ac d_b X^c, no Christoffel symbol"""
+        Xv = [sum(ginv[c, d]*w[d] for d in range(5)) for c in range(5)]
+        dX = [[at(sp.diff(Xv[c], C[a]), p) for a in range(5)] for c in range(5)]
+        Xp = [at(xc, p) for xc in Xv]
+        G = sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))
+        D = [[[at(dg[a][b][c], p) for c in range(5)] for b in range(5)] for a in range(5)]
+        return sp.Matrix(5, 5, lambda a, b: (sum(Xp[c]*D[a][b][c] for c in range(5)) + sum(G[c, b]*dX[c][a] for c in
+                                             range(5)) + sum(G[a, c]*dX[c][b] for c in range(5)))/2)
 
     rnd = random.Random(7)
 
@@ -208,22 +223,86 @@ def q3(mode=None):
     maps = [R, R*sp.diag(1, -1, 1, 1)]
     if mode == "shear":
         maps = [sp.Matrix([[1, sp.Rational(1, 2), 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])]
-    ok = True
+    pts = [(1, 2, 2, 4), (2, 3, 6, 0), (4, 4, 7, 0)]
+    nat = True
     for S in maps:
         Jm = sp.diag(1, S)
         sub = {X[i]: sum(S[i, j]*X[j] for j in range(4)) for i in range(4)}
         ws = [wi.subs(sub, simultaneous=True) for wi in om]
         pull = [sum(ws[b]*Jm[b, a] for b in range(5)) for a in range(5)]
-        for p in [(1, 2, 2, 4), (2, 3, 6, 0), (4, 4, 7, 0)]:
+        for p in pts:
             sp_ = tuple(sum(S[i, j]*p[j] for j in range(4)) for i in range(4))
-            nat = (Jm.T*dstar_at(om, sp_, mode == "extra")*Jm - dstar_at(pull, p, mode == "extra")).is_zero_matrix
+            n_ = (Jm.T*dstar_at(om, sp_, mode == "extra")*Jm - dstar_at(pull, p, mode == "extra")).is_zero_matrix
             iso = (Jm.T*sp.Matrix(5, 5, lambda a, b: at(g[a, b], sp_))*Jm
                    - sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))).is_zero_matrix
-            ok = ok and bool(nat) and bool(iso)
-    if mode is None:
-        say("  Q3: sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at "
-            "three rational points, exactly: %s" % ok)
+            nat = nat and bool(n_) and bool(iso)
+    out = {"nat": nat}
+    if mode in (None, "nochr", "flip"):
+        inv_ok = all((sp.Matrix(5, 5, lambda a, b: at(g[a, b], p))*sp.Matrix(5, 5, lambda a, b: at(ginv[a, b], p))
+                      - sp.eye(5)).is_zero_matrix for p in pts + [(1, 2, 2, 0)])
+        lie = inv_ok and all((dstar_at(om, p, False) - lie_half_at(om, p)).is_zero_matrix for p in pts)
+        dt = [sp.Integer(1), 0, 0, 0, 0]
+        hand_val = dstar_at(dt, (1, 2, 2, 0), False)[0, 0]
+        hand = hand_val == -mu**2/3**5                              # (delta* dt)_00 = -mu^2/r^5 at r = 3: -1/108
+        rot = [0, -X[1], X[0], 0, 0]                                # x1 d_2 - x2 d_1 (components)
+        kill = all(dstar_at([sum(g[a, b]*v[b] for b in range(5)) for a in range(5)], p, False).is_zero_matrix
+                   for v in ([1, 0, 0, 0, 0], rot) for p in pts)
+        out.update({"lie": lie, "hand": hand, "kill": kill, "hand_val": hand_val})
+    if show and mode is None:
+        say("  Q3: (a) sigma^*(delta* w) = delta*(sigma^* w) and sigma^* g_b0 = g_b0 for a rotation and a reflection at "
+            "three rational points, exactly: %s; (b) delta* w = (1/2) L_(w^#) g_b0, the Christoffel-free formula "
+            "(Kerr-Schild inverse checked), at the same points: %s; (c) the hand value (delta* dt)_00 = -mu^2/r^5 = "
+            "-1/108 at x = (1, 2, 2, 0): %s (computed %s); (d) delta* of the Killing 1-forms g(d_t, .) and "
+            "g(x^1 d_2 - x^2 d_1, .) vanishes there: %s" % (out["nat"], out["lie"], out["hand"], out["hand_val"],
+                                                             out["kill"]))
+    return out
+
+
+Q4_C3 = ["of every type $\\tau\\in\\mathcal T$", "are taken as $\\delta^*_{g_{b_0}}$ of the averaged 1-forms",
+         "as a map of all of $\\mathcal V_1$"]
+WORDS = {"none": 0, "one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+         "nine": 9, "ten": 10}
+COUNTS = re.compile(r"(\d+) use only the site's conditions, (\d+) only name the object, (\d+) name another object spelt "
+                    r"the same, (none|\d+) uses? more")
+
+
+def q4(rows, text=None, show=True):
+    """Part VII as printed: (C3) carries the amendment; the counts Lemma 3.1 and (VII5) print are the table's"""
+    t = text if text is not None else open(os.path.join(V.P5, "PART-VII-ASSEMBLY.md"), encoding="utf-8").read()
+    c3 = paragraph("PART-VII-ASSEMBLY.md", "C3", t)
+    have = [" ".join(ph.split()) in c3 for ph in Q4_C3]
+    pars = [" ".join(p.split()) for p in re.split(r"\n\s*\n", t)]
+    lem = [p for p in pars if "a literal census finds" in p]
+    vii5 = [p for p in pars if p.startswith("(VII5)")]
+    n_lem = [int(x) for x in re.findall(r"(\d+) lines", lem[0])] if len(lem) == 1 else []
+    n_v5 = [int(x) for x in re.findall(r"(\d+) lines", vii5[0])] if len(vii5) == 1 else []
+    cnt = COUNTS.findall(vii5[0]) if len(vii5) == 1 else []
+    und = re.findall(r"([A-Za-z]+|\d+) were undecided", vii5[0]) if len(vii5) == 1 else []
+    count = {v: sum(r["verdict"] == v for r in rows) for v in VERDICTS}
+    want = (len(rows), count["SITE-ONLY"], count["NAMING"], count["HOMONYM"], count["MORE"], count["UNDECIDED"])
+    got = None
+    if n_lem and n_v5 and cnt and und:
+        s_, n_, h_, m_ = cnt[-1]
+        u_ = und[-1].lower()
+        got = (n_v5[-1], int(s_), int(n_), int(h_), WORDS.get(m_, None) if not m_.isdigit() else int(m_),
+               WORDS.get(u_) if not u_.isdigit() else int(u_))
+    ok = all(have) and got == want and bool(n_lem) and n_lem[-1] == len(rows)
+    if show:
+        say("  Q4: Part VII's (C3) prints the amendment's phrases %s: %s; Lemma 3.1 states %s lines and (VII5) %s "
+            "(lines, site-only, naming, homonym, more, undecided), the table %s: %s"
+            % ([ph[:24] + "..." for ph in Q4_C3], have, n_lem[-1] if n_lem else None, got, want,
+               "agree" if ok else "DISAGREE"))
     return ok
+
+
+def reverted_vii():
+    """Part VII with Lemma 3.1's (C3) reverted to a stub (the amendment deleted), for the controls"""
+    t = open(os.path.join(V.P5, "PART-VII-ASSEMBLY.md"), encoding="utf-8").read()
+    pars = re.split(r"(\n\s*\n)", t)
+    i = [k for k, par in enumerate(pars) if par.lstrip().startswith("(C3)")]
+    assert len(i) == 1
+    pars[i[0]] = "(C3) *Linear maps given by existence statements:* the solution operators (reverted)."
+    return "".join(pars)
 
 
 def control(rows):
@@ -238,10 +317,24 @@ def control(rows):
         unresolved[tgt[0]]["resolution"] = ""
     else:                                   # no MORE/UNDECIDED row: plant one without a resolution
         unresolved[0]["verdict"], unresolved[0]["note"], unresolved[0]["resolution"] = "MORE", "planted", ""
+    emptied = [dict(r) for r in rows]       # every resolution replaced by "x" (an independent reader's mutation)
+    for r in emptied:
+        if r["verdict"] in NEED_RES:
+            r["resolution"] = "x"
+    flipped = [dict(r) for r in rows]       # an UNDECIDED row turned MORE, its resolution kept
+    for r in flipped:
+        if r["verdict"] == "UNDECIDED":
+            r["verdict"] = "MORE"
+            break
+    rev = {"PART-VII-ASSEMBLY.md": reverted_vii()}
     fails = [not q1(dropped, es, False), not q1(doubled, es, False), not q1(misspelt, es, False),
-             not q2(unresolved, False), not q1(rows, entries(widen=True), False)]
+             not q2(unresolved, False), not q1(rows, entries(widen=True), False), not q2(emptied, False),
+             not q2(rows, False, rev), not q4(rows, rev["PART-VII-ASSEMBLY.md"], False), not q4(flipped, None, False),
+             not q4(dropped, None, False)]
     say("  control: dropped row fails %s; doubled row fails %s; misspelt verdict fails %s; resolution removed fails %s;"
-        " census widened by chi_9 fails %s" % tuple(fails))
+        " census widened by chi_9 fails %s; resolutions replaced by 'x' fail Q2 %s; Part VII's (C3) reverted fails Q2"
+        " %s and Q4 %s; an UNDECIDED row turned MORE (resolution kept) fails Q4 %s; a dropped row fails Q4 %s"
+        % tuple(fails))
     return all(fails)
 
 
@@ -249,14 +342,21 @@ def main():
     rows = load()
     a = q1(rows, entries())
     b = q2(rows)
+    f = q4(rows)
     c = control(rows)
-    d = q3()
-    ce, cs = not q3("extra"), not q3("shear")
-    e = ce and cs
-    say("  Q3 control: delta* plus w (x)_s dx^1 fails %s; a shear fails %s" % (ce, cs))
-    print("Q1 %s; Q2 %s; Q3 %s; control %s" % ("PASS" if a else "FAIL", "PASS" if b else "FAIL", "PASS" if d else "FAIL",
-                                              "behaves" if c and e else "MISBEHAVES"), flush=True)
-    return 0 if a and b and c and d and e else 1
+    q = q3()
+    d = q["nat"] and q["lie"] and q["hand"] and q["kill"]
+    ce, cs = not q3("extra", False)["nat"], not q3("shear", False)["nat"]
+    qn, qf = q3("nochr", False), q3("flip", False)
+    cn = not qn["lie"] and not qn["hand"]
+    cf = not qf["lie"] and not qf["hand"]
+    e = ce and cs and cn and cf
+    say("  Q3 control: delta* plus w (x)_s dx^1 fails (a) %s; a shear fails (a) %s; delta* without its Christoffel "
+        "term fails (b) and (c) %s (hand value then %s); with the Christoffel sign flipped fails (b) and (c) %s (%s)"
+        % (ce, cs, cn, qn["hand_val"], cf, qf["hand_val"]))
+    print("Q1 %s; Q2 %s; Q3 %s; Q4 %s; control %s" % tuple(["PASS" if x else "FAIL" for x in (a, b, d, f)] +
+                                                         ["behaves" if c and e else "MISBEHAVES"]), flush=True)
+    return 0 if a and b and c and d and e and f else 1
 
 
 if __name__ == "__main__":
