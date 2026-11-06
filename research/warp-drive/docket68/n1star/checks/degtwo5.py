@@ -20,9 +20,10 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
   T4 (computed, mpmath; unit constants, lam = 1e-6, N = 9, c = 30, C = 10^3) The descent of Lemma L.18: y_(k+1) defined
      by 1/kappa(v_s + y_(k+1)) = 6 delta_(k+1), delta_(k+1) := C kappa(v_s + 4 y_k)^c env(v_s + 4 y_k), from y_0 =
      10^-4 (x_D depends on the cost c: at y = 10^-2 the model's delta exceeds 1); for exp(-1/x) and the record's
-     C_c^inf envelope, three steps, each y_(k+1) < y_k/2 (in fact log y_(k+1) of the order of -1/y_k: faster than any
-     geometric sequence); hypothesis (H_D) sampled: kappa(v_s + y/2) kappa(v_s + 4y)^c env(v_s + 4y) below 1 and
-     decreasing at y = 10^-4, 3 10^-5, 10^-5.
+     C_c^inf envelope, two steps, each y_(k+1) < y_k/2 (in fact log y_(k+1) of the order of -1/y_k: faster than any
+     geometric sequence; the second step in logarithmic form, kappa ~ c_e/x^2 at the edge, checked at the first);
+     hypothesis (H_D) sampled: kappa(v_s + y/2) kappa(v_s + 4y)^c env(v_s + 4y) below 1 and decreasing at y = 10^-4,
+     3 10^-5, 10^-5.
      Control: env = x^40 (smooth, not flat at that order) stalls at once.
   T5 (computed; unit constants) The transition (Theorem L.24): with m0 = sqrt(mu/mu0) - 1 + 2 r_q', mu = 1 + (2/9) int
      env^2, A = mu0 = 1, the record's envelope and exp(-1/x): m0'/m0 >= 1.9 kappa where R in [0.9, 1.1], so m0' -
@@ -175,36 +176,39 @@ def rec_kap(x):
 def t4(control=False):
     mp.mp.dps = 40
     C, c = mp.mpf(10)**3, 30
-    edges = [("exp(-1/x)", lambda x: -1/x, lambda x: 1/x**2), ("record C_c^inf", rec_ell, rec_kap)]
+    # (name, log env, kappa, the constant c_e of kappa ~ c_e/x^2 as x -> 0 (None: not of that form))
+    edges = [("exp(-1/x)", lambda x: -1/x, lambda x: 1/x**2, mp.mpf(1)),
+             ("record C_c^inf", rec_ell, rec_kap, mp.mpf(3)/4)]
     if control:
-        edges = [("x^40", lambda x: 40*mp.log(x), lambda x: 40/x)]
+        edges = [("x^40", lambda x: 40*mp.log(x), lambda x: 40/x, None)]
     rows, ok = [], True
-    for nm, ell, kap in edges:
-        y = mp.mpf('1e-4')
-        ys = [y]
+    for nm, ell, kap, ce in edges:
+        z = -mp.log(mp.mpf('1e-4'))                     # y = e^-z, kept in logarithmic form
+        zs = [z]
         good = True
-        for k in range(3):
-            ldel = mp.log(C) + c*mp.log(kap(4*y)) + ell(4*y)                     # log delta_(k+1)
-            target = -mp.log(6) - ldel                                            # need log kappa(y') <= target
-            if mp.log(kap(y)) > target:                                           # even y itself is not local
+        for k in range(2):
+            y4 = 4*mp.exp(-z)
+            ldel = mp.log(C) + c*mp.log(kap(y4)) + ell(y4)                         # log delta_(k+1)
+            target = -mp.log(6) - ldel                                              # need log kappa(y') <= target
+            if mp.log(kap(mp.exp(-z))) > target:                                    # even y itself is not local
                 good = False
                 break
-            lo, hi = -mp.log(y), -mp.log(y) + abs(target) + 10                    # z = -log y'
-            for _ in range(300):
-                mid = (lo + hi)/2
-                if mp.log(kap(mp.exp(-mid))) > target:
-                    hi = mid
-                else:
-                    lo = mid
-            yn = mp.exp(-lo)
-            good &= yn < y/2
-            y = yn
-            ys.append(y)
+            if ce is None:
+                good = False
+                break
+            # for the deep steps log kappa(e^-z') = log c_e + 2 z' + O(e^-z') (checked at the first step below)
+            zn = (target - mp.log(ce))/2
+            if k == 0:
+                yn = mp.exp(-zn)
+                good &= abs(mp.log(kap(yn)) - target) < mp.mpf('1e-6')*abs(target)
+            good &= zn > z + mp.log(2)
+            z = zn
+            zs.append(z)
         hd = [kap(t/2)*kap(4*t)**c*mp.exp(ell(4*t)) for t in (mp.mpf('1e-4'), mp.mpf('3e-5'), mp.mpf('1e-5'))]
         dec = hd[0] > hd[1] > hd[2] and hd[0] < 1
         ok &= good and dec
         rows.append("%s: log10 y_k = %s; y_(k+1) < y_k/2: %s; (H_D) quantity at 1e-4, 3e-5, 1e-5: %s" % (
-            nm, [mp.nstr(mp.log10(t), 4) for t in ys], good, [mp.nstr(h, 3) for h in hd]))
+            nm, [mp.nstr(-t/mp.log(10), 4) for t in zs], good, [mp.nstr(h, 3) for h in hd]))
     if control:
         return ok
     out("  T4 descent (unit constants C = 10^3, c = 30, from y_0 = 10^-4): " + "; ".join(rows))
