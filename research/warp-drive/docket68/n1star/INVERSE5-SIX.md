@@ -17,6 +17,8 @@ C1-C9; about a minute) and `checks/inverse6_5m.py` (certified spectral bounds fo
 12/12: M0-M7, controls C1-C4; about two minutes). Imported, not copied: `strap5.py` (III.F (4.2)'s matrix A),
 `e2certify5.py` (r_*(t), decimal rounding), `modes5.py` M2-M3 and `gmodes5.py` G1 (the master relations, rerun inside
 M7).
+[R4: now 17/17, 13/13 (control C5 added in round 3) and, for the companion `checks/inverse6_5a.py` of round 2, 11/11;
+each exits 1 on a failed check in either mode; about three and five minutes under load (R4.5).]
 
 *Labels.* Proved (a lemma with its proof here); computed (exact, sympy or exact rationals); certified (interval
 arithmetic, mpmath.iv at 30-40 digits, printed decimals rounded outward; given mpmath.iv's correctness, as in
@@ -515,6 +517,8 @@ of the theorem: each threshold exists, by the cited statements.
 4. **C_a and C_8.1: explicit in form, not computed in value.** Lemmas R3-R4 give them as functions of (C, h_0) and the
    other estimates' constants (the absorption thresholds, the interpolation factor F <= 1.002659, certified); with (3)
    not computed, neither is evaluated.
+   [R4: and of the chains' own thresholds h_ch' (Prop. 6.7 (a)) and h_ch (Prop. 8.1), not computed either; so are
+   B2's h_0 and B3's C_0 (R4.1).]
 5. **B6: not computed.** The parametrix of [0C] Theorem 3.4 is not quantified (the 0-calculus construction gives no
    norms), and N^0(sigma)'s quantitative injectivity, per harmonic an explicit ODE at b0, is not computed.
 6. **The chain to lambda1 and delta: assembled** (inverse6_5a A1-A3; EFFECTIVE-CONSTANTS.md Propositions 2.1-2.2, READ
