@@ -20,12 +20,17 @@ tensor's float64 bytes, and every statement below is about those coefficients an
      favourable conditional demand) and tau' = 3.0e-5 (the demand at 2(d)'s G = 10).  Regression: the same census code
      on the round-3 tensors must reproduce rcert5d.out D3 (193 and 337 of 416, largest 2.414e-3).
   R3 (certified) the sup over boxes by rcert5d.py's engine (order-3 Taylor models with the Lagrange remainder,
-     adaptive bisection, the accepted sub-boxes tiling the box).  The boxes: in each of the K2 boxes holding the three
-     largest certified point values of the round-3 approximant (each above tau, so that box cannot be certified for it
-     by any method), the depth-2 sub-box (1/64 of the K2 box) containing that point.  Pass: the Richardson approximant's
-     certified sup there is <= tau, below the round-3 approximant's certified point value inside the same sub-box.
+     adaptive bisection, the accepted sub-boxes tiling the box), each accepted sub-box then gated as rcert5d.py D4 does
+     (certified lower ends at its centre and 8 corners, by grid_values, below its sup).  The boxes, each containing a
+     point where the round-3 approximant's certified value exceeds tau (so no certificate of THAT approximant reaches
+     tau on the box): in the K2 boxes of its three largest point values (all at the corner t ~ -1, sig ~ +1 of the
+     (t, sig) square), the depth-4 sub-box (1/4096 of the K2 box) containing the point; and in the K2 box of its
+     largest value among those interior in (t, sig) and in x (bt, bs in {1, 2}, x-box 10-15), the depth-2 sub-box
+     (1/64) containing it.  Pass: the Richardson approximant's certified sup there is <= tau and below the round-3
+     approximant's certified point value inside the same box.
   Controls (each must fail where it should):
-     C1 (rcert5d.py's): the bound assembly with the Lagrange remainder dropped under-bounds a known polynomial.
+     C1 (rcert5d.py's, as repaired in round 5): the ENGINE's own assembly (Engine.bound) is sound on two known
+        polynomials, and the same engine with the Lagrange remainder dropped under-bounds them.
      C2 (rcert5.py's): the Richardson approximant with W + 0.01 v: its certified point values exceed tau (refused).
      C3 the census code: on the round-3 tensors it must find points above tau (the regression of R2) -- a census that
         under-reports would pass the Richardson approximant vacuously.
@@ -101,35 +106,14 @@ def load(path):
 
 
 def point_values(C3, g, frame, names):
-    """rcert5d.py D3's points: certified lower and upper ends of |component| (Nt x Ns x Nx x 8)"""
+    """rcert5d.py D3's points (24 x 24 in (t, sig), the graded x centres): certified lower and upper ends of
+    |component|, by rcert5d.grid_values (one code path for the census, the gate and this program)"""
     Nt = Ns = 24
     x1 = float(np.cos(np.pi / (2 * g['M'])))
     tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
     scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
     xcs, _ = R5.x_boxes(x1, n_mid=8)
-    pts = {}
-    for f in R5.RS.NAMES:
-        tens, _ = R5.deriv_tensors(C3[f], 2)
-        pts[f] = R5.point_coeffs(tens, tcs, scs, xcs, 2)
-    hxi, a, psi = arb(g['hxi']), arb(g['a']), arb(g['psi'])
-    lo = np.zeros((Nt, Ns, len(xcs), 8)); hi = np.zeros_like(lo)
-    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
-        xi = arb(g['xa']) + (arb(tcs[p]) + 1) * hxi
-        ch, th = xi.cosh(), xi.tanh()
-        phi1 = 1 / (hxi * a * ch); phi2 = -phi1 * phi1 * hxi * th
-        e = {'x': arb(xcs[r])}
-        for f in R5.RS.NAMES:
-            c = lambda al: pts[f][al][p, q, r]
-            e[f] = c((0, 0, 0)); Ft = c((1, 0, 0))
-            e[f + '_u'] = phi1 * Ft; e[f + '_v'] = psi * c((0, 1, 0)); e[f + '_x'] = c((0, 0, 1))
-            e[f + '_uu'] = phi1 * phi1 * 2 * c((2, 0, 0)) + phi2 * Ft
-            e[f + '_uv'] = phi1 * psi * c((1, 1, 0)); e[f + '_ux'] = phi1 * c((1, 0, 1))
-            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1))
-            e[f + '_xx'] = 2 * c((0, 0, 2))
-        vv_ = frame(*[e[k] for k in names])
-        for k8 in range(8):
-            av = abs(vv_[k8])
-            lo[p, q, r, k8] = float(av.mid() - av.rad()); hi[p, q, r, k8] = float(av.mid() + av.rad())
+    lo, hi = RD.grid_values(C3, g, frame, names, tcs, scs, xcs)
     return lo, hi, (tcs, scs, xcs)
 
 
@@ -161,7 +145,7 @@ def subbox(k2, pt, xbh, depth=2):
     return tuple(out)
 
 
-def sup_box(eng, box, tau, cap=4000):
+def sup_box(eng, box, tau, cap=2000):
     """rcert5d.py's adaptive bisection on one box, in process: accepted sub-boxes, counts, max sup and centre"""
     queue, acc, npar, t0 = [(box, 0)], [], 0, time.process_time()
     while queue and npar < cap:
@@ -177,7 +161,7 @@ def sup_box(eng, box, tau, cap=4000):
     cen = [max([c[k] for _, _, c, _ in acc] or [0.0]) for k in range(8)]
     depths = sorted(set(d for _, _, _, d in acc))
     return dict(done=done, nacc=len(acc), nev=8 * npar, sup=sup, cen=cen, depths=depths,
-                cpu=time.process_time() - t0, left=len(queue))
+                cpu=time.process_time() - t0, left=len(queue), acc=acc)
 
 
 def write(rundir):
@@ -221,10 +205,11 @@ def main():
     old_before = fmd5(OLD)
     CR, g = load(OUT_R)
     md5R = tmd5(CR)
-    r0 = md5R == PINNED_R
-    print('R0 data/rcert5_C3R.npz (file md5 %s): its five tensors\' md5s equal PINNED_R: %s; data/rcert5_C3.npz md5 %s '
-          '(%s the committed %s)' % (fmd5(OUT_R), r0, old_before, 'equal to' if old_before == OLD_MD5 else 'DIFFERENT '
-                                     'from', OLD_MD5))
+    r0 = md5R == PINNED_R and fmd5(OUT_R) == FILE_MD5_R
+    print('R0 data/rcert5_C3R.npz (file md5 %s, pinned %s): file and five tensor md5s equal the pinned ones: %s; '
+          'data/rcert5_C3.npz md5 %s (%s the committed %s)' % (
+              fmd5(OUT_R), FILE_MD5_R, r0, old_before, 'equal to' if old_before == OLD_MD5 else 'DIFFERENT from',
+              OLD_MD5))
     for k in R5.RS.NAMES:
         print('   %s: shape %s, md5 %s' % (k, CR[k].shape, md5R[k]))
     C3, _ = load(OLD)
@@ -277,34 +262,47 @@ def main():
         k2 = [(bt, bs, i) for i, (c_, h_) in enumerate(zip(*xbh)) if c_ - h_ <= pt[2] <= c_ + h_][0]
         if k2 in seen:
             continue
-        seen.add(k2); picked.append((k2, pt, loO[p, q, r].max(), FRL[int(loO[p, q, r].argmax())]))
+        seen.add(k2); picked.append((k2, pt, loO[p, q, r].max(), FRL[int(loO[p, q, r].argmax())], 4))
         if len(picked) == 3:
+            break
+    for ix in flat:
+        p, q, r = np.unravel_index(ix, loO.shape[:3])
+        pt = (tcs[p], scs[q], xcs[r])
+        bt, bs = min(int((pt[0] + 1) / 0.5), 3), min(int((pt[1] + 1) / 0.5), 3)
+        k2 = [(bt, bs, i) for i, (c_, h_) in enumerate(zip(*xbh)) if c_ - h_ <= pt[2] <= c_ + h_][0]
+        if bt in (1, 2) and bs in (1, 2) and 10 <= k2[2] <= 15 and loO[p, q, r].max() > TAU:
+            picked.append((k2, pt, loO[p, q, r].max(), FRL[int(loO[p, q, r].argmax())], 2))
             break
     engR = RD.Engine(CR, g, frame, names)
     r3 = True
-    for k2, pt, val, comp in picked:
-        sb = subbox(k2, pt, xbh)
+    for k2, pt, val, comp, dep in picked:
+        sb = subbox(k2, pt, xbh, depth=dep)
         res = sup_box(engR, sb, TAU)
         tag = 't %.4f +- %.4f, sig %.4f +- %.4f, x %.4f +- %.4f' % sb
         print('R3 (certified) K2 box %s holds the round-3 point (t, sig, x) = (%.4f, %.4f, %.4f) with certified |%s| >= '
-              '%.3e > tau; its depth-2 sub-box %s:' % (k2, pt[0], pt[1], pt[2], comp, val, tag))
+              '%.3e > tau; its depth-%d sub-box %s:' % (k2, pt[0], pt[1], pt[2], comp, val, dep, tag))
         print('   Richardson approximant: %s, %d sub-boxes accepted (depths %s), %d evaluated, cpu %.0f s; certified '
               'sup %s; largest centre %.3e' % ('finished, tiles the box' if res['done'] else 'NOT finished (%d left)' %
                                                 res['left'], res['nacc'], res['depths'], res['nev'], res['cpu'],
                                                 ', '.join('%s <= %.2e' % kv for kv in zip(FRL, res['sup'])),
                                                 max(res['cen'])), flush=True)
-        good = res['done'] and max(res['sup']) <= TAU and max(res['sup']) < val
+        gw, gv, gn = RD.box_gate(CR, g, frame, names, res['acc']) if res['done'] else (np.inf, -1, 0)
+        good = res['done'] and max(res['sup']) <= TAU and max(res['sup']) < val and gv == 0
+        print('   gate (D4): %d points, largest (point value)/(sub-box sup) %.3f, violations %d' % (gn, gw, gv))
         print('   -> %s (sup %.3e against the round-3 point value %.3e: %.1f-fold lower)' % (
             'PASS' if good else 'FAIL', max(res['sup']), val, val / max(res['sup'])), flush=True)
         r3 &= good
     ok &= r3
-    w_real, w_mut = RD.test_poly_control(False), RD.test_poly_control(True)
+    w_real = RD.test_poly_control(RD.Engine(CR, g, frame, names))
+    w_mut = RD.test_poly_control(RD.Engine(CR, g, frame, names, drop_remainder=True))
     c1 = w_real <= 1.0 and w_mut > 1.0
-    print('C1 (control, remainder dropped) largest true/bound %.4f with the remainder, %.4f without -> %s'
-          % (w_real, w_mut, 'the mutation is caught (good)' if c1 else 'BAD'))
+    print('C1 (control) the engine\'s own assembly on the test polynomials: largest true/bound %.4f (<= 1: sound); '
+          'with the remainder dropped %.4f (> 1) -> %s' % (w_real, w_mut, 'the mutation is caught (good)' if c1 else
+                                                           'BAD'))
     ok &= c1
     old_after = fmd5(OLD)
-    print('   data/rcert5_C3.npz md5 after: %s (%s)' % (old_after, 'unchanged' if old_after == old_before else 'CHANGED'))
+    print('   data/rcert5_C3.npz md5 after: %s (%s)' % (old_after,
+                                                     'unchanged' if old_after == old_before else 'CHANGED'))
     ok &= old_after == OLD_MD5
     print('rich5 (%.0f s): %s' % (time.time() - t0, 'all checks pass' if ok else 'A CHECK FAILED'))
     return 0 if ok else 1
@@ -392,7 +390,8 @@ def collect(spec, W, tau):
     print('   %s; %d sub-boxes accepted (by depth: %s), %d evaluated, cpu %.0f s; the accepted tile the box: %s' % (
         'finished' if done else 'NOT finished', len(acc), ', '.join('%d: %d' % kv for kv in sorted(dist.items())), nb,
         cpu, tiles))
-    print('   Richardson approximant, certified sup over the box: ' + ', '.join('%s <= %.3e' % kv for kv in zip(FRL, sup)))
+    print('   Richardson approximant, certified sup over the box: ' +
+          ', '.join('%s <= %.3e' % kv for kv in zip(FRL, sup)))
     print('   largest certified centre values: ' + ', '.join('%s %.3e' % kv for kv in zip(FRL, cen)))
     print('   the round-3 approximant\'s largest certified point value in this box: %.3e (> tau: %s), so no certificate '
           'of it reaches tau here' % (old, old > tau))

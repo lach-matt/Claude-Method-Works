@@ -34,8 +34,17 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
   python3 checks/rcert5d.py --repartition W W2 [tau]   (stopped workers only: merge W checkpoints and split the queue
                                                     round-robin into W2; accepted boxes and counters go to chunk 0)
 Checkpoints go to $RCERT5D_DIR (default: <tmp>/rcert5d; round 4 used the session's scratch directory).
+
+[Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
+engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
+engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a
+mutation of the engine's assembly or of its flag makes C1 fail); every float upper end is rounded upward
+(up_float; the round-4 checkpoints' sups, rounded to nearest, are raised by one ulp in --collect); and --collect has a
+gate on a code path independent of the engine (D4): the certified LOWER end of every component at the centre and the
+eight corners of EVERY accepted sub-box, by the census's point evaluation (grid_values), must not exceed that box's
+certified sup.]
 """
-import os, sys, time, pickle, hashlib, itertools
+import os, sys, time, pickle, hashlib, itertools, math
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -64,6 +73,17 @@ def load_pinned():
     return C3, g, md5s
 
 
+def up_float(b):
+    """a float >= the upper end of the arb b (inf if b is not finite)"""
+    u = b.upper() if hasattr(b, 'upper') else arb(b)
+    if not u.is_finite():
+        return float('inf')
+    f = float(u)
+    while arb(f) < u:
+        f = math.nextafter(f, float('inf'))
+    return f
+
+
 def children(b):
     tc, ht, sc, hs, xc, hx = b
     return [(tc + i * ht / 2, ht / 2, sc + j * hs / 2, hs / 2, xc + k * hx / 2, hx / 2)
@@ -78,6 +98,16 @@ class Engine:
         self.cache = {f: R5.deriv_tensors(C3[f], R5.Q + 4) for f in R5.RS.NAMES}
         self.hp = {}
         self.drop = drop_remainder
+
+    def bound(self, vp, vb, hpow):
+        """THE Taylor-model bound, used by kids() and by control C1 alike: sum_{|alpha| < Q} |f_alpha(c)| h^alpha +
+        sum_{|alpha| = Q} sup_B |f_alpha| h^alpha (the Lagrange remainder), as a float rounded upward; with
+        self.drop (the mutant) the point coefficients are used at order Q too"""
+        bnd = arb(0)
+        for i, m in enumerate(R5.MONO):
+            cc = vp.c[i] if (sum(m) < R5.Q or self.drop) else vb.c[i]
+            bnd = bnd + abs(cc) * hpow[m]
+        return up_float(bnd)
 
     def kids(self, b):
         """bounds (sup per component) and centre values for the 8 children of box b"""
@@ -105,14 +135,8 @@ class Engine:
             vp = self.frame(*[ip[k] for k in self.names])
             sup, cen = [], []
             for k8 in range(8):
-                bnd = arb(0)
-                for i, m in enumerate(R5.MONO):
-                    cc = vp[k8].c[i] if (sum(m) < Q or self.drop) else vb[k8].c[i]
-                    bnd = bnd + abs(cc) * hpow[m]
-                up = bnd.mid() + bnd.rad()
-                sup.append(float(up) if arb(up).is_finite() else float('inf'))
-                cv = abs(vp[k8].c[0])
-                cen.append(float(cv.mid() + cv.rad()))
+                sup.append(self.bound(vp[k8], vb[k8], hpow))
+                cen.append(up_float(abs(vp[k8].c[0])))
             out.append(((tcs[p], ht, scs[q], hs, xcs[r], hx), sup, cen))
         return out
 
@@ -135,7 +159,7 @@ def worker(w, W, tau):
             st = pickle.load(fh)
     else:
         st = dict(queue=[(c, 1) for i, c in enumerate(children(BOX)) if i % W == w], acc=[], nparents=0,
-                  nboxes=0, cpu=0.0, wall=0.0, maxdepth=1)
+                  nboxes=0, cpu=0.0, wall=0.0, maxdepth=1, rounded_up=True)
         # the 8 children of BOX are evaluated by their parent, BOX, inside the loop below
         st['queue'] = [(BOX, 0)] if w == 0 and W == 1 else st['queue']
     print('worker %d/%d: %d queued, %d accepted, setup %.0f s' % (w, W, len(st['queue']), len(st['acc']),
@@ -166,8 +190,9 @@ def worker(w, W, tau):
     print('worker %d/%d done' % (w, W), flush=True)
 
 
-def test_poly_control(drop):
-    """the bound assembly on two known functions: f1 = T_3(t) T_3(sig) T_3(x) on 27 boxes of half-width 0.3, and
+def test_poly_control(eng):
+    """the engine's own bound assembly (eng.bound) on two known functions: f1 = T_3(t) T_3(sig) T_3(x) on 27 boxes
+    of half-width 0.3, and
     f2 = t^4 + sig^4 + x^4 on the box of half-width 1/2 about the origin, whose Taylor coefficients of order <= 3 vanish
     there (so the point Taylor polynomial bounds it by 0, while its sup is 3/16).  Returns the largest (grid lower
     bound of the true sup)/(bound): <= 1 for a sound assembly"""
@@ -186,11 +211,7 @@ def test_poly_control(drop):
             Fn = lambda t, s_, x: t ** 4 + s_ ** 4 + x ** 4
         vb = F(lin(c[0], 0, True), lin(c[1], 1, True), lin(c[2], 2, True))
         vp = F(lin(c[0], 0, False), lin(c[1], 1, False), lin(c[2], 2, False))
-        bnd = arb(0)
-        for i, m in enumerate(MONO):
-            cc = vp.c[i] if (sum(m) < Q or drop) else vb.c[i]
-            bnd = bnd + abs(cc) * arb(h) ** sum(m)
-        up = float(bnd.mid() + bnd.rad())
+        up = eng.bound(vp, vb, {m: arb(h) ** sum(m) for m in MONO})
         g = np.linspace(-h, h, 61)
         tt, ss, xx = np.meshgrid(c[0] + g, c[1] + g, c[2] + g, indexing='ij')
         true = float(np.abs(Fn(tt, ss, xx)).max())
@@ -218,6 +239,8 @@ def collect(W, tau):
     vol0 = 8 * BOX[1] * BOX[3] * BOX[5]
     vol = sum(8 * b[1] * b[3] * b[5] for b, _, _, _ in acc)
     tiles = abs(vol - vol0) < 1e-12 * vol0
+    if not st.get('rounded_up'):     # round-4 checkpoints: sups rounded to nearest, so one ulp up bounds them
+        acc = [(b, [math.nextafter(x_, float('inf')) for x_ in s_], c_, d) for b, s_, c_, d in acc]
     sup = [max(s[k] for _, s, _, _ in acc) for k in range(8)]
     cen = [max(c[k] for _, _, c, _ in acc) for k in range(8)]
     l2 = sum(8 * b[1] * b[3] * b[5] * max(s) ** 2 for b, s, _, _ in acc)
@@ -238,11 +261,19 @@ def collect(W, tau):
     over = [k for k, c_ in zip(FRL, cen) if c_ > TAU_G10]
     print('D2 (certified) components whose certified centre value exceeds tau\' = %.1e somewhere in the box: %s; so no '
           'bound of any method meets tau\' there' % (TAU_G10, ', '.join(over) or 'none'))
-    w_real, w_mut = test_poly_control(False), test_poly_control(True)
-    c1 = w_real <= 1.0 and w_mut > 1.0
-    print('C1 (control, remainder dropped) test polynomial: largest true/bound %.4f with the remainder (must be <= 1), '
-          '%.4f without (must exceed 1) -> %s' % (w_real, w_mut, 'the mutation is caught (good)' if c1 else 'BAD'))
     frame, names = frame_cached()
+    w_real = test_poly_control(Engine(C3, g, frame, names))
+    w_mut = test_poly_control(Engine(C3, g, frame, names, drop_remainder=True))
+    c1 = w_real <= 1.0 and w_mut > 1.0
+    print('C1 (control) the ENGINE\'s own assembly (Engine.bound) on the test polynomials: largest true/bound %.4f '
+          '(must be <= 1); the same engine with the remainder dropped: %.4f (must exceed 1) -> %s' % (
+              w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else 'BAD'))
+    t4 = time.time()
+    worst, viol, npts = box_gate(C3, g, frame, names, acc)
+    d4 = viol == 0
+    print('D4 (certified, independent of the engine) certified lower ends at the centre and 8 corners of every one of '
+          'the %d accepted sub-boxes (%d points, grid_values): largest (point value)/(box sup) %.3f, violations %d -> '
+          '%s (%.0f s)' % (len(acc), npts, worst, viol, 'PASS' if d4 else 'FAIL', time.time() - t4))
     Cs = R5.shifted(C3, g, 0.01)
     eng = Engine(Cs, g, frame, names)
     kids = eng.kids(children(BOX)[0])
@@ -250,30 +281,21 @@ def collect(W, tau):
     c2 = cmax > tau
     print('C2 (control, W + 0.01 v) certified centre values up to %.3e on the first child\'s children against tau -> %s'
           % (cmax, 'refused (good)' if c2 else 'accepted (bad)'))
-    ok = ok0 and ok1 and c1 and c2
+    ok = ok0 and ok1 and c1 and c2 and d4
     print('rcert5d --collect (%.0f s): %s' % (time.time() - t0, 'all checks pass' if ok else 'FAILURES'))
     return 0 if ok else 1
 
 
-def census(tau):
-    """D3: certified values at K1's points, every one kept, mapped to K2's boxes"""
-    t0 = time.time()
-    C3, g, md5s = load_pinned()
-    assert md5s == MD5
-    frame, names = frame_cached()
-    Nt = Ns = 24
-    M = g['M']
-    x1 = float(np.cos(np.pi / (2 * M)))
-    tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
-    scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
-    xcs, _ = R5.x_boxes(x1, n_mid=8)
+def grid_values(C3, g, frame, names, tcs, scs, xcs):
+    """certified LOWER and UPPER ends of |component| on the tensor grid tcs x scs x xcs, by point coefficients of
+    order 2 (rcert5.py's K1 path: no Taylor model, no box assembly; independent of Engine)"""
     pts = {}
     for f in R5.RS.NAMES:
         tens, _ = R5.deriv_tensors(C3[f], 2)
         pts[f] = R5.point_coeffs(tens, tcs, scs, xcs, 2)
     hxi, a, psi = arb(g['hxi']), arb(g['a']), arb(g['psi'])
-    vals = np.zeros((Nt, Ns, len(xcs), 8))
-    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+    lo = np.zeros((len(tcs), len(scs), len(xcs), 8)); hi = np.zeros_like(lo)
+    for p, q, r in itertools.product(range(len(tcs)), range(len(scs)), range(len(xcs))):
         xi = arb(g['xa']) + (arb(tcs[p]) + 1) * hxi
         ch, th = xi.cosh(), xi.tanh()
         phi1 = 1 / (hxi * a * ch); phi2 = -phi1 * phi1 * hxi * th
@@ -289,8 +311,51 @@ def census(tau):
         vv_ = frame(*[e[k] for k in names])
         for k8 in range(8):
             av = abs(vv_[k8])
-            lo = av.mid() - av.rad()                       # a certified LOWER bound for |value|
-            vals[p, q, r, k8] = float(lo)
+            lo[p, q, r, k8] = float(av.mid() - av.rad())           # a certified LOWER bound for |value|
+            hi[p, q, r, k8] = up_float(av)
+    return lo, hi
+
+
+def box_gate(C3, g, frame, names, acc):
+    """D4: for every accepted box, the certified lower ends at its centre and its 8 corners (grid_values on the lattice
+    of the box's size) against the box's certified sup; returns (largest ratio, violations, points evaluated)"""
+    worst, viol, npts = 0.0, 0, 0
+    bysize = {}
+    for b, sup, cen, d in acc:
+        bysize.setdefault((b[1], b[3], b[5]), []).append((b, sup))
+    key = lambda v: round(v, 13)
+    for (ht, hs, hx), boxes in bysize.items():
+        for offs in ((0.0,), (-1.0, 1.0)):
+            T = sorted({key(b[0] + o * ht) for b, _ in boxes for o in offs})
+            S = sorted({key(b[2] + o * hs) for b, _ in boxes for o in offs})
+            X = sorted({key(b[4] + o * hx) for b, _ in boxes for o in offs})
+            lo, _ = grid_values(C3, g, frame, names, T, S, X)
+            npts += lo[..., 0].size
+            it = {v: i for i, v in enumerate(T)}; is_ = {v: i for i, v in enumerate(S)}
+            ix = {v: i for i, v in enumerate(X)}
+            for b, sup in boxes:
+                for ot, os_, ox in itertools.product(offs, offs, offs):
+                    vals = lo[it[key(b[0] + ot * ht)], is_[key(b[2] + os_ * hs)], ix[key(b[4] + ox * hx)]]
+                    for k8 in range(8):
+                        r_ = vals[k8] / sup[k8] if sup[k8] > 0 else (np.inf if vals[k8] > 0 else 0.0)
+                        worst = max(worst, r_)
+                        viol += int(r_ > 1)
+    return worst, viol, npts
+
+
+def census(tau):
+    """D3: certified values at K1's points, every one kept, mapped to K2's boxes"""
+    t0 = time.time()
+    C3, g, md5s = load_pinned()
+    assert md5s == MD5
+    frame, names = frame_cached()
+    Nt = Ns = 24
+    M = g['M']
+    x1 = float(np.cos(np.pi / (2 * M)))
+    tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
+    scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
+    xcs, _ = R5.x_boxes(x1, n_mid=8)
+    vals, _ = grid_values(C3, g, frame, names, tcs, scs, xcs)
     xb, hb = R5.x_boxes(x1, n_mid=6)
     boxes = {}
     for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):

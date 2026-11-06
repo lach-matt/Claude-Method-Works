@@ -58,6 +58,9 @@ e4 d - ex c), each equal to an explicit bilinear form G_P in (psi; a, c, d) when
          rows (as E2 states).
      Mutation tests (run by hand, round 4): dropping -e^{-w} db d_x Y from the e3 rows fails (c); 1/4 -> 1/2 in the
      omegab transport fails (a).
+     [Round 5, the verifier of round 4, m1: (c) skipped the d_v rows, so dropping dk from their linearisation
+     survived.  (c) now also checks them, against d/deps of GM with the state, e^w and e^k perturbed, computed
+     independently of rows(); the verifier's mutant (scratchpad/vF4/work/mut/ls9_dk.py) is rerun against it.]
 
   python3 checks/linest5.py RUN.npz        (RUN: the record's l1_rc0.9_M32.npz)
 """
@@ -233,6 +236,12 @@ def e9(R):
     res_c = {}
     for name, (opn, bnd, rhs, fac) in R.items():
         if opn == 'dv':
+            # [round 5, the verifier of round 4, m1] the metric rows' linearisation, independently: d/deps at 0 of
+            # GM with the state perturbed and Ew -> Ew e^{eps dw}, Ek -> Ek e^{eps dk} (d_v carries no frame factor)
+            pert = {s_: s_ + eps * U[SMAP[s_]] for s_ in STATE if s_ in SMAP}
+            pert.update({Ew: Ew * sp.exp(eps * U['dw']), Ek: Ek * sp.exp(eps * U['dk'])})
+            dv_lin = sp.expand(sp.diff(GM[name].xreplace(pert), eps).subs(eps, 0))
+            res_c[name] = sp.expand(rhs - dv_lin) == 0
             continue
         if opn in ('e4', 'e3'):
             Ys = SMAP_INV[bnd]
