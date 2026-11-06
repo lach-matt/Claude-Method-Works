@@ -25,6 +25,10 @@ of (v, r, th). x = r (cos th cos phi1, cos th sin phi1, sin th cos phi2, sin th 
   K4 (certified; deduced) What an enclosure would give. With (4/3) K >= 12.593464 at X* (r7fixes5 R1's ball, READ) and
      the operator-norm reading lambda0 < eps1/C_app, an enclosure M_22 in [lo, hi], 0 not in it, gives C_app >= (4/3) K
      + min(|lo|, |hi|), so lambda0's operator-norm bound is multiplied by 12.593309/(12.593309 + min(|lo|, |hi|)).
+  K5 (certified; READ stage1rate5.out K3) The a posteriori route's amplification on X*'s past. Lemma 2.3's rate for
+     stage 1's principal part is kappa <= 13.2197 on Omega (stage1rate5 K3, READ), and X* lies at tau* = 2 - a, so
+     Dtau* = tau* - tau0 = 4 - a and e^(kappa Dtau*/2) bounds the energy's growth from Sigma to X* (principal part only;
+     the lower-order coefficients' sup norms, which the record does not compute, add to kappa).
   Controls (each mutates the computed path and must fail): C1 K1 with a v phi1 component added (outside the class):
      the x2 column acquires a tau entry; C2 K2 with an off-class entry M_23 = w: e2 is not an eigenvector; C3 K3's
      angular claim H^2 (4 C^4 + S^4) <= 2: refuted at q = 1; C4 K3 on the slice tau = -1 in place of tau0: the bound
@@ -149,6 +153,15 @@ def main():
               '(< %.7f)' % (mlo, float(fac), float(Fr(24433, 10 ** 7) * fac)))
     OK['K4'] = KBALL_LO > flint.arb(CAPP.numerator) / CAPP.denominator
     print('  K4: (4/3) K at X* >= %s > 12.593309: %s' % (KBALL_LO.str(9), OK['K4']))
+    a = SC.a_ball()
+    kap = flint.arb('13.2197')                                  # READ stage1rate5.out K3 (upper bound)
+    dts = 4 - a
+    amp = (kap * dts / 2).exp()
+    OK['K5'] = flint.arb('5.0e10') < amp < flint.arb('5.3e10')
+    print('  K5: Dtau* = 4 - a = %s; e^(kappa Dtau*/2) <= %s (kappa <= 13.2197, READ stage1rate5.out K3): an '
+          'enclosure of M_22 through Lemma 2.3 needs the residual of an approximate stage-1 solution below |M_22| '
+          'times about 2e-11 in the energy norm, before the lower-order coefficients and the Sobolev constant of the '
+          'evaluation at X*: %s' % (dts.str(8), amp.str(4), OK['K5']))
     ok_c1, col1 = k1(extra_vphi1=True)
     OK['C1'] = not ok_c1
     print('  C1 (control): a v phi1 component added: the x2 column is %s: K1 fails: %s' % ([str(c) for c in col1],

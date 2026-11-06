@@ -69,7 +69,7 @@ kappa = l(l + 2); vector harmonics Y (co-closed 1-forms on S^3) with delta d Y =
      compact support at t^(-3/2-kappa), kappa < delta_#.  Control: with R5.3's l >= 2 exponent the paper's t^(-1+eps)
      fails.
 
-Labels: computed (exact, sympy; no floating point except L4's 40-digit check of a closed form's leading coefficient).
+Labels: computed (exact, sympy; no floating point).
 Run: python3 checks/gdlge2_5.py   (several minutes under load)
 """
 import sys

@@ -416,9 +416,10 @@ def r9(control=False):
     t, T, beta = sp.symbols("t T beta", positive=True)
     tp = sp.Symbol("tp", positive=True)
     h = sp.Rational(1, 2)
-    Hq, Dd = -h, h                                                    # H, Q' ~ t^(-1/2), D0-D2 ~ t^(1/2) (times B (T/t)^beta)
+    Hq, Dd = -h, h                                         # H, Q' ~ t^(-1/2), D0-D2 ~ t^(1/2), times B (T/t)^beta
     # (line, term, the power of t' in the integrand without (T/t')^beta, the power of t in the line's target)
-    terms = [("H", "t^-3/2 (H + Q')", -3*h + Hq, Hq), ("H", "t^-5/2 D1", -5*h + Dd, Hq), ("H", "t^-3 (D0 + D2)", -3 + Dd, Hq),
+    terms = [("H", "t^-3/2 (H + Q')", -3*h + Hq, Hq), ("H", "t^-5/2 D1", -5*h + Dd, Hq),
+             ("H", "t^-3 (D0 + D2)", -3 + Dd, Hq),
              ("D0/D1", "t^-1/2 H", -h + Hq, 0), ("D2", "t^1/2 H", h + Hq, 1),
              ("Q'", "t^1/2 t^-1 H", h - 1 + Hq, 0), ("Q'", "t^1/2 t^-2 D1", h - 2 + Dd, 0),
              ("Q'", "t^1/2 t^-3/2 (H + Q')", h - 3*h + Hq, 0), ("Q'", "t^1/2 t^-3 (D0 + D2)", h - 3 + Dd, 0)]
@@ -541,12 +542,14 @@ def r14(control=False):
 
 
 # ---------------------------------------------------------------- R13: the paper's blocks and the seated text
-OLD82 = """So in
+OLD82 = """\
+So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
 in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
 as a power of R (uniformly in r it is not shown), with the loss of two derivatives so counted."""
 
-NEW82 = """So in
+NEW82 = """\
+So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change K = r^(−2) dv², v the ingoing time (the
 static chart's mass change is singular at the horizon), every metric component of a perturbation in the class settles
 to a change of mass on each region r ≤ R, the horizon included, uniformly in l, with the loss of two derivatives so
@@ -574,53 +577,67 @@ e_j)‖²) dr over the outgoing part at least as τ^(−2), [HKW18]'s rate, for 
 the rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent
 computed). The powers r^(±1/2) are attained, so the weights cannot be improved."""
 
-OLDT7 = """7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before and
+OLDT7 = """\
+7. **Mean mass.** For every sphere S_(v,r) of the domain, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ² before and
    after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it (Proposition 3.4)."""
 
-NEWT7 = """7. **Mean mass.** For every sphere S_(v,r) in D_T ∩ {τ ≥ τ0}, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ²
+NEWT7 = """\
+7. **Mean mass.** For every sphere S_(v,r) in D_T ∩ {τ ≥ τ0}, its Hawking mass satisfies |M[S](g_λ) − μ(v)| ≤ C λ²
    before and after the shell (v ≤ v_start or v ≥ v_end), and ≤ C λ within it (Proposition 3.4)."""
 
-OLD33 = """H1–H3; supplement Proposition 8.1).** Let μ0 > √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
+OLD33 = """\
+H1–H3; supplement Proposition 8.1).** Let μ0 > √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
 g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω. There are λ_H ∈ (0, λ0] and C, δ1 > 0 such
 that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero, positive
 above it and negative below; on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one, R_λ(v, ω), with |R_λ − √μ(v)| ≤
 C λ; and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ untrapped."""
 
-NEW33 = """H1–H3; supplement Proposition 8.1).** Let μ0 ≥ √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
+NEW33 = """\
+H1–H3; supplement Proposition 8.1).** Let μ0 ≥ √72 l5², K ≥ 6, and let θ⁺_λ(v, r, ω) be the outgoing null expansion, for
 g_λ, of the sphere S_(v,r) := {τ = v − r, |x| = r} at its point of angle ω. There are λ_H ∈ (0, λ0] and C, δ1, δ2 > 0
 such that for λ ≤ λ_H: on every column (v and ω fixed, r varying, within D_T ∩ {τ ≥ τ0}) θ⁺_λ has at most one zero,
 positive above it and negative below; if μ0 > √72 l5², on the columns with √μ(v) ≤ v − τ0 − δ1 it has exactly one,
 R_λ(v, ω), with |R_λ − √μ(v)| ≤ C λ, and the spheres with r ≤ √μ(v) − C λ are trapped, those with r ≥ √μ(v) + C λ
 untrapped (C twice the constant that places the zero, so that the spheres at distance C λ are strictly trapped)."""
 
-OLD33b = """monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
+OLD33b = """\
+monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
 on the columns with μ(v) ≥ μ0 + δ1. ∎"""
 
-NEW33b = """monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
+NEW33b = """\
+monotonicity give the zero and its uniqueness. If μ0 = √72 l5², the first statement holds on every column, and the others
 on the columns with μ(v) ≥ μ0 + δ2 that satisfy √μ(v) ≤ v − τ0 − δ1. ∎"""
 
-OLD82o = """and in it the metric components are [KI03]'s (3.14), the master field normalised as r^(3/2) Φ and its derivatives to"""
+OLD82o = """\
+and in it the metric components are [KI03]'s (3.14), the master field normalised as r^(3/2) Φ and its derivatives to"""
 
-NEW82o = """and in it the metric components, in an ingoing chart and the spheres' orthonormal frame, are [KI03]'s (3.14), the
+NEW82o = """\
+and in it the metric components, in an ingoing chart and the spheres' orthonormal frame, are [KI03]'s (3.14), the
 master field normalised as r^(3/2) Φ and its derivatives to"""
 
-OLDT2 = """   derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices"""
+OLDT2 = """\
+   derivatives, at most ε_P t^(−3/2) for a small ε_P > 0 (supplement Lemma 9.1 (f)), and whose energy on the slices"""
 
-NEWT2 = """   derivatives, at most ε_U t^(−3/2) for a small ε_U > 0 (within the margin of supplement Lemma 9.1 (f)), and whose
+NEWT2 = """\
+   derivatives, at most ε_U t^(−3/2) for a small ε_U > 0 (within the margin of supplement Lemma 9.1 (f)), and whose
    energy on the slices"""
 
-OLDR1 = """  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
+OLDR1 = """\
+  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
 - [Hin21]"""
 
-NEWR1 = """  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
+NEWR1 = """\
+  4.21–4.22 and (5.18)–(5.22); (4.64), (4.67), (4.71) and Corollary 4.18, pp. 38–39 and 43.
 - [DR08] M. Dafermos, I. Rodnianski, *Lectures on black holes and linear waves*, arXiv:0811.0354v1. READ 2026-11-06:
   p. 40, Proposition 3.3.2 (the commutation with Ŷ and the sign of its first term); p. 41; p. 87, Theorem 7.2 and its
   proof (the commutation with the red-shift field Y, with κ_k > 0 on the horizon).
 - [Hin21]"""
 
-OLDR2 = """  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67)."""
+OLDR2 = """\
+  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67)."""
 
-NEWR2 = """  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67). READ 2026-11-06:
+NEWR2 = """\
+  (Theorem 22). READ 2026-10-21: section 7 (pp. 28–48), 9.3.2 (pp. 54–57), 10.4.2–10.5 (pp. 66–67). READ 2026-11-06:
   p. 6, (16) and (20); pp. 8–9, (36) and (42); p. 12, (51); p. 49, (134)–(135); pp. 60–61, (170)–(174)."""
 
 BLOCKS = [("8.2", OLD82, NEW82), ("Theorem 1 item 7", OLDT7, NEWT7), ("Proposition 3.3", OLD33, NEW33),

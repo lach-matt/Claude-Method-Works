@@ -58,7 +58,7 @@ verifier asks ((A84)): every control runs the computed path with a mutated input
      0, oo, every term has iota+-order p_m + d_m = 6, I+-order p_m + d_m + a_m >= 9/2 at iota+ cap I+ and K+-order
      -b_m >= 3 at iota+ cap K+.  Control: the degree -2 kernel K + 1/(r u) fails at K+.
 Labels: computed (exact, sympy; T2's resolvent side recomputes round 6's formal D5-D6 chain; T7, T9, T10, T11 on the
-whole parameter box).  Run: python3 checks/gdtail5.py   (a few minutes)
+whole parameter box).  Run: python3 checks/gdtail5.py   (about five minutes)
 """
 import sys
 

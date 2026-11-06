@@ -581,8 +581,8 @@ def u6(control=False, order=8):
             E = (2*f*sp.diff(Pr_, r) - f*sp.diff(f*sp.diff(Pm, r), r) + Vr*Pm).subs(r, 1/rho)
             E = sp.expand(sp.series(sp.together(E), rho, 0, order).removeO())
             ok &= d1 == 0 and all(E.coeff(rho, k) == 0 for k in range(order))
-    say("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s (= -(m + 15/4)/2 times A, B,"
-        " C3; the recursion re-checked by r-differentiation); r^p energies (p <= 2) finite: %s"
+    say("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s (= -(m + 15/4)/2 times"
+        " A, B, C3; the recursion re-checked by r-differentiation); r^p energies (p <= 2) finite: %s"
         % (" control (V/f + 1/r)" if control else "", pw, lead_coef, ok))
     return ok
 
@@ -695,7 +695,91 @@ def u8(control=False):
     return ok
 
 
-CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7), ("U8", u8)]
+# --------------------------------------------------------------------------------------------------------------- U9
+def u9(control=False):
+    """the angular Sobolev inequality of Theorem 2' on S^3: sup|w|^2 <= (1/12) ||(1 - Lap) w||^2, its constants, the
+    Casimir of the six rotations, and the ingredients of the tensor version"""
+    import rwgauge5 as RW
+    th, p1, p2 = RW.th, RW.p1, RW.p2
+    x1, x2, x3, x4 = sp.symbols("x1:5", real=True)
+    xs = [x1, x2, x3, x4]
+    hopf = {x1: sp.cos(th)*sp.cos(p1), x2: sp.cos(th)*sp.sin(p1), x3: sp.sin(th)*sp.cos(p2), x4: sp.sin(th)*sp.sin(p2)}
+    sq = sp.sin(th)*sp.cos(th)
+
+    def lap(w):                                                    # Lap on S^3 in Hopf coordinates
+        return (sp.diff(sq*sp.diff(w, th), th)/sq + sp.diff(w, p1, 2)/sp.cos(th)**2 + sp.diff(w, p2, 2)/sp.sin(th)**2)
+
+    pairs = [(a, b) for a in range(4) for b in range(4) if a < b] if not control else \
+        [(a, b) for a in range(4) for b in range(4) if a != b]       # control: every ordered pair (twice the sum)
+
+    def Om(a, b, g):
+        return xs[a]*sp.diff(g, xs[b]) - xs[b]*sp.diff(g, xs[a])
+    tests = [sp.legendre(j, x1**2 + x2**2 - x3**2 - x4**2) for j in (1, 2, 3)] + [x1*x3 + x2**2*x4 + x1]
+    cas = True
+    for g in tests:
+        lhs = sum(Om(a, b, Om(a, b, g)) for a, b in pairs).subs(hopf)
+        cas &= sp.simplify(sp.expand_trig(lhs - lap(g.subs(hopf)))) == 0
+    if control:
+        Lc = sp.Symbol("L", integer=True, nonnegative=True)
+        series = sp.summation((Lc + 1)**2/(Lc + 1)**3, (Lc, 0, sp.oo))   # (1 - Lap)^(3/4) in place of (1 - Lap)
+        say("  U9 control (the Casimir over ordered pairs; the series with (1 - Lap)^(3/4)): %s, finite %s"
+            % (cas, series.is_finite))
+        return cas or bool(series.is_finite)
+    L = sp.Symbol("L", integer=True, nonnegative=True)
+    dims = all(sp.binomial(ll + 3, 3) - sp.binomial(ll + 1, 3) == (ll + 1)**2 for ll in range(0, 21))
+    vol = sp.integrate(sq, (th, 0, sp.pi/2))*(2*sp.pi)**2
+    cas1 = all(sp.expand(1 + ll*(ll + 2) - (ll + 1)**2) == 0 for ll in range(0, 21))
+    zeta2 = sp.summation(1/(L + 1)**2, (L, 0, sp.oo))
+    const = sp.simplify(zeta2/vol)
+    # the reproducing kernel of degree l at a point: K = ((l + 1)/(2 pi^2)) U_l(cos psi), |K|^2 = K(0) = (l + 1)^2/vol
+    psi = sp.Symbol("psi", positive=True)
+    ker = True
+    for ll in range(0, 7):
+        K = (ll + 1)/(2*sp.pi**2)*sp.chebyshevu(ll, sp.cos(psi))
+        nK = sp.integrate(sp.expand(K**2*4*sp.pi*sp.sin(psi)**2), (psi, 0, sp.pi))
+        lapK = sp.diff(sp.sin(psi)**2*sp.diff(K, psi), psi)/sp.sin(psi)**2
+        ker &= (sp.simplify(nK - K.subs(psi, 0)) == 0 and sp.simplify(K.subs(psi, 0) - (ll + 1)**2/vol) == 0
+                and sp.simplify(lapK + ll*(ll + 2)*K) == 0)
+    # ||Lap w||^2 = sum_{ij} ||Om_i Om_j w||^2 on a test function (exact integration over S^3)
+    w = x1*x3 + x2**2*x4 + x1
+
+    def integ(e):
+        e = sp.expand(sp.expand_trig(e*sq))
+        return sp.integrate(sp.integrate(sp.integrate(e, (p1, 0, 2*sp.pi)), (p2, 0, 2*sp.pi)), (th, 0, sp.pi/2))
+    nl = integ(lap(w.subs(hopf))**2)
+    no = sum(integ(Om(a, b, Om(c, d, w)).subs(hopf)**2) for a, b in pairs for c, d in pairs)
+    lapnorm = sp.simplify(nl - no) == 0
+    # the tensor version: the rotation generators have operator norm 1, and L_Om P = 0 for P = 1 - x x^T/|x|^2
+    opn = True
+    proj = True
+    X4 = sp.Matrix(xs)
+    Pm = sp.eye(4) - X4*X4.T/(X4.T*X4)[0]
+    for a, b in pairs:
+        om = sp.zeros(4)
+        om[a, b], om[b, a] = 1, -1
+        opn &= max(abs(e) for e in (om.T*om).eigenvals()) == 1
+        Omv = om*X4                                                # the vector field Om^C = om_CD x_D
+        LP = sp.Matrix(4, 4, lambda A_, B_: sum(Omv[C]*sp.diff(Pm[A_, B_], xs[C]) for C in range(4))
+                       + sum(Pm[C, B_]*om[C, A_] + Pm[A_, C]*om[C, B_] for C in range(4)))
+        proj &= all(sp.simplify(e) == 0 for e in LP)
+    cA_, cB_, cC_, cD_ = sp.symbols("a b c d", nonnegative=True)
+    cs4 = sp.expand(4*(cA_**2 + cB_**2 + cC_**2 + cD_**2) - (cA_ + cB_ + cC_ + cD_)**2)  # = sum of squares of diffs
+    cs4_ok = sp.expand(cs4 - sum((s1 - s2)**2 for i_, s1 in enumerate((cA_, cB_, cC_, cD_))
+                                 for s2 in (cA_, cB_, cC_, cD_)[i_ + 1:])) == 0
+    consts = (4*1, 4*4*6 + 4*4*6, 4*16*36) == (4, 192, 2304)
+    ok = dims and vol == 2*sp.pi**2 and cas1 and zeta2 == sp.pi**2/6 and const == sp.Rational(1, 12) and ker and \
+        cas and lapnorm and opn and proj and cs4_ok and consts
+    say("  U9: dim of degree-l harmonics on S^3 = (l + 1)^2 (l <= 20) %s; vol = %s; 1 + l(l + 2) = (l + 1)^2 %s;"
+        " sum (l + 1)^-2 = %s, so sup|w|^2 <= %s ||(1 - Lap) w||^2; the kernel ((l + 1)/(2 pi^2)) U_l: norm^2 = value"
+        " = (l + 1)^2/vol, eigenvalue -l(l + 2), l <= 6: %s; sum over the six rotations of Om^2 = Lap on four test"
+        " functions: %s; ||Lap w||^2 = sum ||Om_i Om_j w||^2 (test function): %s; rotation generators of norm 1: %s;"
+        " L_Om P = 0: %s; (a + b + c + d)^2 <= 4 (a^2 + ... + d^2): %s; the constants 4, 192, 2304: %s"
+        % (dims, vol, cas1, zeta2, const, ker, cas, lapnorm, opn, proj, cs4_ok, consts))
+    return ok
+
+
+CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7), ("U8", u8),
+          ("U9", u9)]
 
 
 def main():

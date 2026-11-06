@@ -26,8 +26,9 @@ are instantiated in Part VI by radii built from the inner radius.
     with r_h = R_1.
   - *The mismatch.* Part II, and III.D-III.J‴ after it, put the artificial boundary of every space at Part I's r_0^A
     (II.A:38-39; III.H:29, III.H2:30, III.I3:24; verifier 170). III.K and Part VII take III.B's ½R_1 as the inner
-    boundary (III.K:43, 84, 103; VII:40). III.K:157 and 183 cite II.C Lemma 3.2 (1), which covers {r ≥ r_0^A} only.
-    So, as the record stood, its development was controlled on {r ≥ ⅝R_1}, not on all of III.B's M.
+    boundary (III.K:43, 84, 103; VII:40). III.K:157 and 183 [re-pinned D621: 159-160 and 184, since D611] cite II.C Lemma
+    3.2 (1), which covers {r ≥ r_0^A} only. So, as the record stood, its development was controlled on {r ≥ ⅝R_1}, not on
+    all of III.B's M.
   - *The repair,* made here at r_♭ and so also at the record's ½R_1. Part I's artificial boundary is put at III.B's
     radius, r_0^A := r_♭, with the collar δ_0 := min(R_1/16, r_♭/4) inward. Then X̃° = {r > r_♭ − 2δ_0} ⊂ {r > ½r_♭},
     inside F1's domain. r_2 := 7R_1/8 and r_e := 17R_1/16 keep the record's values.
@@ -443,14 +444,17 @@ Part VIII linearises III.K at b_0 (U = 0); its M, N = {t_IVP ≥ −ν(|x|)}, Ω
 
 - At r_♭ these are section 5's sets. The inputs are Part IV″ Theorem 2.4, IV‴ Theorem 2.1 and III.C′ Theorem 3.1's
   proof at h = 0, which are exterior (section 6, and III.C′ in section 4), and III.K Lemma 2.3 at U = 0 (section 5).
-- Step 4 (:280-286) runs II.F Lemma 1.3 on Ω_*° with τ := t^♭_*. Its compactness hypothesis needs dt^♭_* past
-  timelike, which II.C Lemma 3.2 (2) gives at h = 0 at the repaired radii (section 2). Near {r = r_♭} it also needs
-  past causal curves to stay in {r ≥ min(r(p), r^♮)}: that is II.C Lemma 3.2 (1) at h = 0, as in II.F Lemma 1.4 (a),
-  and at b_0 also F2. The record named only the first input, and cited II.F section 7.4, the ι⁺ model, which does not
-  meet the inner boundary. Part VIII and III.K Proposition 4.2 (III.K:459-463) now name the second (D378, verifier
-  173's m1).
+- Step 4 (:280-286; :280-293 since D621) runs II.F Lemma 1.3 on Ω_*° with τ := t^♭_*. Its compactness hypothesis needs
+  dt^♭_* past timelike, which II.C Lemma 3.2 (2) gives at h = 0 at the repaired radii (section 2). Near {r = r_♭} it also
+  needs past causal curves to stay in {r ≥ min(r(p), r^♮)}: that is II.C Lemma 3.2 (1) at h = 0, as in II.F Lemma 1.4
+  (a), and at b_0 also F2. The record named only the first input, and cited II.F section 7.4, the ι⁺ model, which does
+  not meet the inner boundary. Part VIII and III.K Proposition 4.2 (III.K:459-463; the paragraph is :457-466 since D611
+  and D621) now name the second (D378, verifier 173's m1). [D621: section 7.4 gives no compact sets near I⁺ either; Part
+  VIII now takes them from II.F Lemma 1.4 (a) at θ = 0, and III.K from its Lemma 6.1, proved for every metric of the
+  class (`checks/scrirad5.py`).]
 - (2.3) holds on {r_♭ ≤ r ≤ R′}, as Part VII's (0.2) does.
-- Corollary 2.3's G-equivariance (VIII:314-337): G fixes t, t_*, t_IVP, t^♭_* and |x| at every radius.
+- Corollary 2.3's G-equivariance (VIII:314-337; :321-344 since D621): G fixes t, t_*, t_IVP, t^♭_* and |x| at every
+  radius.
 
 *Status:* Part VIII re-proved at r_♭.
 

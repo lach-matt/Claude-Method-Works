@@ -1,0 +1,13 @@
+  R1: (134) via (51), (42) with r^(1/2) Phi gives box~ Phi = W_T Phi exactly: True; W_T = [KI03] (5.6)/f = settle5's tensor/f, and (171)-(172) = settle5's scalar/f at l = 2, 4, 6: True; on a scalar-derived harmonic the first-order terms of (51) cancel at k = 1/2: True
+  R1 control (no first-order term): (134) via (51), (42) with r^(1/2) Phi gives box~ Phi = W_T Phi exactly: False; W_T = [KI03] (5.6)/f = settle5's tensor/f, and (171)-(172) = settle5's scalar/f at l = 2, 4, 6: True; on a scalar-derived harmonic the first-order terms of (51) cancel at k = 1/2: False
+R1 PASS
+  R2: kappa = f'(r_h)/2 = 1/sqrt(mu); [HKW18] (20) at n = 3: 1/sqrt(mu); [Sch13] (3.11) at n = 4: True; f' = 2 mu/r^3 > 0: True
+  R2 control (degenerate lapse): kappa = f'(r_h)/2 = 0; [HKW18] (20) at n = 3: 1/sqrt(mu); [Sch13] (3.11) at n = 4: True; f' = 2 mu/r^3 > 0: False
+R2 PASS
+  R3: box~ from g_2's inverse = 2 d_v d_r + d_r (f d_r): True; box~ = 2 L d_r + f' d_r: True; F_j free of d_v and of u_(j+1) (j, v-free, top r-order): [(0, True, 0), (1, True, 1), (2, True, 2), (3, True, 3), (4, True, 4)]; F_1 = (W' u_0 + (W - f'') u_1)/2: True; d_r^j (W Phi) never reaches u_(j+1): True; box~(Y Phi) - Y(box~ Phi) has Y^2 Phi coefficient f' (= 2 kappa at r_h): True
+  R3 control (first-order part dropped): box~ from g_2's inverse = 2 d_v d_r + d_r (f d_r): False; box~ = 2 L d_r + f' d_r: False; F_j free of d_v and of u_(j+1) (j, v-free, top r-order): [(0, True, 1), (1, True, 2), (2, True, 3), (3, True, 4), (4, True, 5)]; F_1 = (W' u_0 + (W - f'') u_1)/2: False; d_r^j (W Phi) never reaches u_(j+1): True; box~(Y Phi) - Y(box~ Phi) has Y^2 Phi coefficient f' (= 2 kappa at r_h): True
+R3 PASS
+  R4: d_v(u^2) + d_r((f/2)u^2) + (2a - f'/2)u^2 - 2uF = 0; bulk (2j + 1) f'/2: True; leaf densities and g^-1(dw, dw): {"t = const (s' = 1/f)": ('1/2', 'rr**2/(mu - rr**2)'), "t_* = const (s' = 1)": ('(mu + rr**2)/(2*rr**2)', '-(mu + rr**2)/rr**2'), "u = const (s' = 2/f)": ('0', '0')}; spacelike t, t_* leaves: True; null leaf density 0: True; outgoing ray flux 0: True
+  R4 control (orientation reversed): d_v(u^2) + d_r((f/2)u^2) + (2a - f'/2)u^2 - 2uF = 0; bulk (2j + 1) f'/2: True; leaf densities and g^-1(dw, dw): {"t = const (s' = 1/f)": ('3/2', 'rr**2/(mu - rr**2)'), "t_* = const (s' = 1)": ('-mu/(2*rr**2) + 3/2', '-(mu + rr**2)/rr**2'), "u = const (s' = 2/f)": ('2', '0')}; spacelike t, t_* leaves: True; null leaf density 0: False; outgoing ray flux 0: True
+R4 PASS
+  R5: Q(1) - Q(0) + outflow - horizon + bulk - int int 2uF = -9.8608e-32 (horizon flux 0.0)
