@@ -1259,6 +1259,8 @@ So under (BA), with ε ≤ ε_2 and λ ≤ λ_2: |H| ≤ C λ r^-2 + C_S ε r^(-
 r^-2/2) on W (a > 3/2), and Step 1 applies.
 [R7 (nit): a >= 3/2 suffices (C_S eps r^(-1/2-a) <= r^-2/4 for eps small; r6sigma5 W6); the window is open and lies
 above 2, so nothing changes.]
+[R8 (nit 4): take |H| <= r^-2/4 in place of r^-2/2 here (it holds for lam <= lam_2, eps_B <= eps_2, a >= 3/2), so that
+|g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2, the margin D4-D5 (B2d) assume (r7settle5 K6; R8-A).]
 
 **Step 3 (the commuted equations; computed B5, scale5 Z1-Z2).** With c_Γ := 2 and M_Γ := -2 μ ∂_μ for Γ =
 Z, c_Γ := 0 and M_Γ := 0 otherwise, the identity (Γ + c_Γ) P(h) = DP(h)[Γ h] + M_Γ P(h) holds
@@ -2703,6 +2705,8 @@ pieces are positive definite at |delta|_op = 0.27 (K2: least eigenvalue 0.0355 o
 |delta|_op <= 0.0473 (K3), and the identity with the cone's flux is exact on the flat radial model (K4; control: an
 outer piece at speed 1/2 has an indefinite flux form). On [T, sigma*] Step 4's localisation by Phi_W stays as it was,
 the class giving its margin there.
+[R8 (nits 1, 5): 0.0473 reads <= 0.0474 (the bound 0.0473378 is attained, K3); 7/25 is sharp for the hypotheses |f'| <=
+1/4, m >= 0, attained only as m -> 0 (R8.0).]
 
 **(minor 2) The window was not "computed as a whole from measured exponents".** Accepted. Re-derived: of the window's
 conditions, the cap's exponent (W1) and the N-flux tail's (W2) are measured on explicit fields and the residual's degree
@@ -2714,6 +2718,8 @@ to a + 1/2 and moves the lower end to l0 - 1/2; W4-W8 are labelled [arithmetic],
 The statement, in R6-B, R6.0, R6-E and the paper's Block 2 (notes inserted; R7-E): the cap and tail exponents and the
 residual's degree are measured; the window is computed from them and from the class's, Step 2's and the rows' exponents,
 counted by hand.
+[R8 (nit 6): the hand-counted exponents include Lemma R4.5's and Proposition R5.2's thresholds, which do not bind
+(R8-E's Block 2).]
 
 **(minor 3) r6edits5 E2 checks R6-D's exponents and Gronwall factor, not the induction's structure.** Accepted. The
 structure (b . d U unknown and of the step's order; R_gamma of order <= j + 1 only, so the induction is not circular;
@@ -2732,6 +2738,8 @@ Part VII Lemma 0.1 and Theorem 0.2 (D324), used in Theorem R2.4. BEYOND5 Lemma 6
 (deduced at D400, read by verifier 180 at D405), and the paper's Block 2 names it. Section 11.1's clause is updated:
 D618's amendment of Lemma 11.2 is already in the file, R6-D is seated as D630, and sections 9.5 and 11 await a
 confirming read that starts after D630.
+[R8 (m1, nit 7): "used in Lemma R2.1, Proposition R2.2 and Theorem R2.4" is made exact in R8.0 (nit 7) and R8-E (a);
+BEYOND5 Lemma 6.4 (iv) is also in Block 1 and in what must be read for "proved" (R8.0 (m1)).]
 
 **Nits.**
 - "Rounds 5 and 6 not yet read": round 5 was read (vB5), round 6 is read (vB6); round 7 is not. Note inserted; R7-E.
@@ -2776,6 +2784,9 @@ control K2': at 0.30 beta can be spacelike, and 7/25 is sharp, K1'). R6-A (ii)-(
 V_*) in place of X_(rho, V_*) (the exhaustion V_* -> oo is the same, by monotone convergence), on every interval [T,
 sigma'] with sigma' < sigma_1 on which |g^-1 - g_b0^-1|_op < 7/25 on W_T cap {t~ <= sigma'}: 𝔈_k is finite and
 continuous there, whether or not (BA) holds. (The flat radial model of the identity with the cone's flux, exact: K4.)
+[R8 (nits 3, 5): the claim holds under "sup |g^-1 - g_b0^-1|_op <= c < 7/25", with d_t future timelike and the slices
+spacelike exactly (|g - g_b0|_op <= 0.4520, g(d_t, d_t) < -0.485, g^-1(dt~, dt~) <= -0.64; r7settle5 K5), the margins
+uniform in c; "sharp" as in the note above (R8-A).]
 
 *Openness at sigma*.* Let (BA) hold on [T, sigma*], sigma* < sigma_1. Step 2 gives |H| <= 1/50 on W_T cap {t~ <=
 sigma*}, hence |g^-1 - g_b0^-1|_op <= s^2 |H|/(1 - s |H|) <= 0.0232 there, s := |g_b0^-1|_op <= 1/16 + (1 + 1/256)^(1/2)
@@ -2786,6 +2797,9 @@ sigma* + delta'], delta' > 0 small, uniformly in x; there |g^-1 - g_b0^-1|_op <=
 𝔈_k1(sigma*) <= eps^2 < 4 eps^2 extends (BA) to [T, sigma* + delta''] for some delta'' > 0: the set where (BA) holds is
 open in [T, sigma_1), as well as closed, and Step 6 closes as stated. On [T, sigma*] Step 4's energy identity on
 D_*(sigma) keeps its cut {Phi_W <= V_*}, the class giving the margin r^-2/2 there (Step 2).
+[R8 (nits 1, 2, 4): 0.0473 reads <= 0.0474; the segments from sigma* are taken only on the exterior regions, where they
+stay in W_T and where alone R6-A (ii)-(iv) need the margin, the compact part needing none; and Step 2's bound is |H| <=
+r^-2/4, which gives the margin r^-2/2 of D4-D5 for Step 4's cut (r7settle5 K6). R8-A.]
 
 ### R7-E Theorem R5.1's status (final), and the paper's text (final)
 
@@ -2820,6 +2834,8 @@ read of sections 9.5 and 11); round 7 of this file; the programs. Not evaluated:
 workstream), in either class. The list was made by reading every statement outside this file that rounds 2-7 cite on the
 theorem's chain (R2.1-R2.4, R3-A, R4-D, R4-F, R5-B, R5-C, R6-A, R6-B, R7-A) and the reader's list (minor 4); nothing
 else is open in the theorem.
+[R8 (m1, nit 7): BEYOND5 Lemma 6.4 (iv) is added to what must be read for "proved", with the reason; (a)'s "in Lemma
+R2.1, Proposition R2.2 and Theorem R2.4" is made exact (R8-E).]
 
 *Computational support, stated as what was computed.* The operator identities ((5.1), (R3a), (R3c) in Cartesian form and
 in invariant form (zinv5), (R4c), the contracted Bianchi identity) are computed on the full operator; the localised and
@@ -2840,6 +2856,7 @@ the deformation, the uniqueness kernels and the D-system's) are counted by hand,
 text is located by content and occurs exactly once in the current file (md5 5930486d at the final run), every line of
 the edited file is within 121 characters, and the new texts state what the round-5 and round-6 readers asked (r6edits5
 E4).
+[R8 (m1, nit 6): superseded by R8-E's blocks.]
 
 Block 1, in "Settling", old:
 
@@ -2934,3 +2951,241 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r6edits5.py    (8 to 35 seconds)
 
 The times are wall-clock on this machine under the load of the other workstreams (about 25 on four cores).
+
+## Round 8 (2026-11-06)
+
+Status: written; not yet read by a verifier. The round-7 reader (vB7) confirmed round 7 with no major finding: R7-A
+re-derived by hand, sound and not circular; R6-D's induction read line by line and correct, its "read proof" label
+justified; the four programs byte-identical. It found one minor and ten nits; each is re-derived and seated here (R8.0),
+with "[R8 (...)]" notes at the lines they correct, the old text kept. The only edits to earlier rounds' lines are of
+form, recorded in R8.0 (nit 8): two round-7 notes that had been inserted inside their paragraphs are moved to the
+paragraphs' ends, and five paragraphs are rewrapped so that no line begins with "- " (the words of the file are
+unchanged, checked). Changed and rerun: `r7settle5.py` (K2's worst directions, K3's extremal H, K4's flux form derived,
+K5 and K6 new), `r6edits5.py` (E2a with the text's own C(gamma, gamma'), E2g reading the slice's volume, predicates
+(p)-(q), E4 on R8-E's blocks with the status words), and `r6sigma5.py` (its stated run time only). Each `.out` is from a
+full run and byte-identical on a second run. Sections R8.0, R8-A, R8-E.
+
+### R8.0 The round-7 reader's findings, and their dispositions
+
+**(m1) BEYOND5 Lemma 6.4 (iv) was handled inconsistently.** Accepted. R7-E's list (b) and the paper's Block 2 named it
+as a deduced condition; Block 1 did not, and R7-E's list of what must be read for "proved" omitted it. Block 1 of R8-E
+now reads "on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier," (E4c checks it). R8-E's list of what must be read
+now includes it, and says why it is there: BEYOND5.md labels the lemma "deduced, D400"; verifier 180 read the entries
+containing it (D405), and its one serious finding concerned the loss's gap condition, not Lemma 6.4; whether that read
+promotes the lemma to "proved" is the record's own decision, recorded in BEYOND5.md, and until it is made the lemma
+stays among the deduced conditions.
+
+**Nits.**
+- (1) The bound of K3 at |H| = 1/25 is 0.0473378, attained (H along g_b0's eigenvector of least |eigenvalue|, K3 now
+  checks it), so "0.0473" reads "<= 0.0474" at R7.0 (minor 1), R7-A and r7settle5's docstring and K3 (the check itself
+  tested < 0.0474). Notes inserted.
+- (2) The openness step at sigma* took the time segment from (sigma*, x) for every point of W_T with t~ in (sigma*,
+  sigma* + delta']; near N such a segment can leave W_T. Re-derived in R8-A: the margin is needed only on the exterior
+  regions X'_(rho, V_*), rho >= rho_0, which is all R6-A (ii)-(iv) use (the part r <= rho of a slice needs only the
+  smoothness of g_T), and there the segment stays in W_T. Note inserted.
+- (3) R7-A's general claim used facts only sampled (d_t future timelike, the slices spacelike). Now exact (r7settle5
+  K5): for sup |g^-1 - g_b0^-1|_op <= c < 7/25, |g - g_b0|_op <= s^2 c/(1 - s c) <= 0.4520, so g(d_t, d_t) <=
+  -1 + 1/16 + 0.4520 < -0.485, and g^-1(dt~, dt~) <= -15/16 + c (17/16) <= -0.64; the "sup ... <= c < 7/25" gives R6-A
+  (ii)'s Gronwall constants their uniform margin. R8-A; note inserted.
+- (4) Step 4's margin: Step 2 bounds |H| <= r^-2/2, but D4-D5 (B2d) assume |g^-1 - g_b0^-1|_op <= r^-2/2, and |H| <=
+  r^-2/2 gives only 0.571 r^-2 (r7settle5 K6'). Step 2's bound is taken as |H| <= r^-2/4 (it holds for lam <= lam_2,
+  eps_B <= eps_2 small, as Step 2's other bounds do), which gives |g^-1 - g_b0^-1|_op <= 0.2845 r^-2 < r^-2/2 (K6, at r
+  >= 8, m <= 1/16). R8-A; notes inserted at Step 2 and R7-A.
+- (5) "Sharp": 7/25 is sharp for the hypotheses |f'| <= 1/4, m >= 0, attained only as m -> 0 (the conormal's exact
+  threshold is (3 + 4f' - 4f'^2)/(5 - 4f' + 4f'^2) at m = 0, least at f' = -1/4; 3/5 at f' = 0). Notes inserted;
+  r7settle5's K1' and docstring say so.
+- (6) The window's hand-counted exponents include Lemma R4.5's and Proposition R5.2's thresholds (neither binds). R8-E's
+  Block 2: "from exponents counted by hand (those of the data class, of the pointwise bound, and of two further
+  thresholds, which do not bind)". Note inserted.
+- (7) "Used in Lemma R2.1, Proposition R2.2 and Theorem R2.4" was imprecise. Exactly: Lemma R2.1 cites none of them;
+  III.C Definition 3.1 and Lemma 3.2 (a), and III.A Lemma 3.2 (the extended union), are cited in Proposition R2.2 (its
+  READ of III.C' Step 2 and its M = 0 proof); III.A Lemmas 1.2 and 3.2 and III.C Definition 3.1 in Lemma R2.3 (iii),
+  which is not on the theorem's chain (they stay in the list, conservatively); III.A Lemma 1.3 through LOSS-D's READ in
+  R2.4's count of what the half class changes, (b), and in the route of round 2's section R2.3; Part VII Lemma 0.1 in
+  that count, (a), and Theorem 0.2 in Theorem R2.4; Part VIII Lemma 1.1 in R2.4's amended list of statements generic in
+  E_0. R8-E (a); notes inserted.
+- (8) Markdown: lines that began with "- " inside paragraphs rendered as list items (round 6's opening paragraph, two
+  round-6 paragraphs, R7-A, a round-7 note), and two round-7 notes had been inserted inside their paragraphs (the
+  inserting script took such a line for a list item). The notes are moved to their paragraphs' ends and the paragraphs
+  rewrapped, binding "a - b" so that no line begins with "- "; the file's words are unchanged (their multiset compared
+  before and after).
+- (9) Run times: the docstrings now say what was measured (r7settle5 5 to 30 seconds, r6edits5 5 to 35 seconds, r6sigma5
+  3 to 29 minutes with the load); the run lines below give this round's.
+- (10) The program gaps the reader's surviving mutants showed, each closed: K2 now also takes delta along beta beta^T at
+  f' = -1/4 and along alpha alpha^T at f' = 1/4, m = 0, at the size actually drawn, where the conormals' thresholds
+  attain 7/25 (kills M5: at 0.29 beta is spacelike there); K3 takes the extremal H, which attains the bound (kills M12:
+  one factor s dropped gives 0.0445 < 0.0473); K4 derives the outer flux form from the identity's boundary term,
+  -rout'(t) e - phi_t phi_r, and checks the typed form against it (kills M17); E2a evaluates the text's own definition
+  of C(gamma, gamma') (kills "gamma!/gamma'!"); E2g reads "whose volume is at most C t^3" and compares it with the
+  computed power (kills "t^4"); E1d's predicates (p) "and c U is one order lower." and (q) "(Lemma 11.1 applies to u_1^n
+  verbatim" (kill "c U of the top order" and "Lemma 11.2 applies"); E4c checks the status words on all three blocks:
+  "conditional on", "It is deduced", "on Theorem P, proved", Block 3's "is deduced, conditionally", and no "independent
+  of", "unconditionally", "It is proved" or "is proved in section 9" (kills the four status mutants).
+
+**The reader's mutants, rerun** (its scripts on scratch copies; the paper-block mutants applied to R8-E's blocks, which
+E4 now reads; outputs in this round's scratch, mutout8/): @@MUT8@@
+
+### R8-A The openness step, exactly (R7-A amended)
+
+*The general claim.* Let c < 7/25 and let g be a metric on a region of W with sup |g^-1 - g_b0^-1|_op <= c there (m <=
+1/16, |f'| <= 1/4). Then (r7settle5 K1, K5, exact): both conormals alpha and beta are timelike for g, with g^-1(beta,
+beta), g^-1(alpha, alpha) <= -7/4 + (25/4) c < 0; |g - g_b0|_op <= s^2 c/(1 - s c) <= 0.4520 (g - g_b0 = g
+(g_b0^-1 - g^-1) g_b0, |g_b0|_op = s = m + (1 + m^2)^(1/2)), so g(d_t, d_t) <= -1 + 1/16 + 0.4520 < -0.485; and
+g^-1(dt~, dt~) <= -15/16 + (17/16) c <= -0.64, so the slices Sigma~ are spacelike. All these margins depend on c only,
+so R6-A (ii)'s Gronwall constants are uniform on such a region. This is the hypothesis under which R7-A's first
+paragraph holds; its "|g^-1 - g_b0^-1|_op < 7/25" reads "sup ... <= c < 7/25".
+
+*The openness step, restricted to the exterior regions.* R6-A (ii)-(iv) use the margin only on the exterior regions
+X'_(rho, V_*) with rho >= rho_0 (on the part r <= rho of a slice the energy is the integral of a smooth function over a
+compact set, continuous with no margin). For (t~, x) in X'_(rho, V_*) with t~ in [sigma*, sigma* + delta'], the time
+segment from (sigma*, x) to (t~, x) lies in W_T: r >= rho >= rho_0 >= 4R, and v(sigma*, x) >= v(T, x) > v1 by the choice
+of rho_0 ({t~ = T, r >= rho_0} lies in {v > v1}), v increasing with t~ at fixed x. So |H(t~, x)| <= |H(sigma*,
+x)| + (t~ - sigma*) sup |d_t H| <= 1/25 there for delta' small (Step 2 at sigma*, the bound on d_t H on the interval of
+existence), hence sup |g^-1 - g_b0^-1|_op <= 0.0474 =: c < 7/25 on the exterior regions over [T, sigma* + delta'], and
+the general claim applies. The points of W_T near N, where a segment from sigma* could leave W_T, lie in the compact
+part and need no margin. The rest of R7-A's openness step stands.
+
+*Step 4's margin.* Step 2's bound is taken as |H| <= min(1/50, mu/(2 r^2), r^-2/4) (it holds for lam <= lam_2 and eps_B
+<= eps_2 as before: C lam r^-2 + C_S eps_B r^(-1/2-a) <= r^-2/4 for a >= 3/2), so that |g^-1 - g_b0^-1|_op <= 0.2845
+r^-2 < r^-2/2 on r >= 8 (r7settle5 K6; with r^-2/2 it would be 0.571 r^-2, K6'), the margin under which D4-D5 make
+{Phi_W = V_*} a future boundary for Step 4's identity on D_*(sigma), sigma <= sigma*.
+
+### R8-E Theorem R5.1's status (final), and the paper's text (final)
+
+Theorem R5.1 stands as stated in R5-E, with Proposition R5.2's proof as in R6-A, Lemma R4.5 as widened in R6-B, Step 6's
+openness as in R7-A with R8-A, and R5-C (v) not among its conditions ((r6-F4)).
+
+*Status (replacing R7-E's).* **Deduced**, in this file (rounds 1-8; rounds 1-7 read by verifiers, round 7 by vB7, every
+finding seated in R5.0-R8.0; round 8 not yet read), and **conditional on**:
+
+- (a) statements the record lists as proved (proof5/README.md): Part IV's seven outputs (R3-A); III.C Definition 3.1 and
+  Lemma 3.2 (a) (D245) and III.A Lemma 3.2 (D231), in Proposition R2.2; III.A Lemma 1.3 (D231), through LOSS-D's READ,
+  in R2.4's count of what the half class changes; III.A Lemma 1.2 (D231), only in Lemma R2.3, which is not on the
+  theorem's chain (listed conservatively); III.C' Theorem 3.1 under row d1, III.C'' Theorem 3.1 (2) and Proposition 4.1,
+  in Theorem R2.4, Proposition 4.1 also rebuilding III.K's gauge data from (gamma, k) (R4-F); III.K Theorem 4.3; Part
+  VII Lemma 0.1 (in R2.4's count), Lemmas 1.1, 1.2 (R4-D's setting: R is free) and 2.1 (Step 9's computation of (gamma,
+  k)), Theorem 0.2 (in Theorem R2.4) and Proposition 3.2 (D324); Part VIII Lemma 1.1 (D336), in Theorem R2.4's list of
+  statements generic in E_0; N1STAR-PROOF.md's Theorem E (sections 1-4), whose Step 8 local theory R4-D Step 6, R5-B,
+  R6-A, R7-A and R8-A use; and Theorem P (D35), used at every order through Corollary R4.3, its uses of Lemma 1.1 (e)
+  and Lemma 2.3 standing after D623 (R6.0 (m5) (c));
+- (b) statements outside this file that the record lists as deduced: N1STAR-PROOF.md section 11.1 (Lemmas 11.0, 11.1,
+  11.2 and Proposition 11.1), its D44 repair read by D45 and D47, Lemma 11.0's top-order repair (R6-D) read by the
+  round-6 and round-7 readers and seated as D630, D618's amendment of Lemma 11.2 already in the file, and D618's edits
+  to sections 9.5 and 11 awaiting a confirming read that starts after D630 (section 11.1 is used by Proposition R5.4,
+  Lemma R3.2, Lemma R4.4, Lemma R4.5 (i) and Step 9); and BEYOND5 Lemma 6.4 (iv) (W, N and their placement in Omega' cup
+  P'), labelled deduced at D400 and read by verifier 180 at D405;
+- (c) this file's statements: Lemma R2.1, Proposition R2.2 (computed for every round count III.C' uses, M <= 12, exactly
+  below 11/2), Theorem R2.4, Lemmas R3.2-R3.3 (as amended), Propositions R4.1-R4.2, Corollary R4.3, Lemma R4.4, Lemma
+  R4.5 (as widened, R6-B), R4-D with R5-B, R6-A, R7-A and R8-A (Theorem R5.1′), Propositions R4.9, R5.4 and R5.2 (its
+  proof as in R6-A), and Theorem R5.1; rounds 1-7 read, round 8 not yet;
+- (d) the programs they cite.
+
+It rests on no statement of Part IX. What has to be read for the label "proved": section 11.1 after D630 (the confirming
+read of sections 9.5 and 11); BEYOND5 Lemma 6.4 (iv): its label is "deduced" (D400), verifier 180 read the entries
+containing it (D405) and its one serious finding concerned the loss's gap condition, so the lemma is promoted to
+"proved" only by the record's own decision on that read, recorded in BEYOND5.md, or by a further read; round 8 of this
+file; the programs. Not evaluated: lam_2, eps, delta, lam_1 (another workstream), in either class. The list was made by
+reading every statement outside this file that rounds 2-8 cite on the theorem's chain and the round-6 and round-7
+readers' lists; nothing else is open in the theorem.
+
+*Computational support, stated as what was computed.* As R7-E's, with: the general claim of R7-A exact (K5) and Step 4's
+margin (K6); the window computed from the measured cap and tail exponents and residual degree and from exponents counted
+by hand, those of the rows, of the data class, of Step 2's pointwise bound and of Lemma R4.5's and Proposition R5.2's
+thresholds ([arithmetic], W4-W8).
+
+*The text for the paper* (RESPONSE-HL-5D.md, not edited here; final, superseding R5-E's, R6-E's and R7-E's blocks). Each
+old text is located by content and occurs exactly once in the current file (md5 @@PAPERMD5@@ at the final run), every
+line of the edited file is within 121 characters, and the new texts state what the round-5 to round-7 readers asked,
+status words included (r6edits5 E4).
+
+Block 1, in "Settling", old:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball; settling of g_λ's own continuation
+  is not shown. Evaluating λ1 and δ would need every constant of the write-out made explicit, and several come from
+```
+
+Block 1, new:
+
+```text
+  not evaluated. Theorem 4 (i) concerns glued data that agree with g_λ's on a ball. That the development of g_λ's own
+  data settles, with no gluing, is deduced in a data class wider than (ii)'s by half-integer orders, conditional on
+  supplement section 11.1, deduced, whose Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11,
+  awaits a confirming read, on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier, and on the last round of that
+  deduction, not yet read by a verifier (Beyond the boundary, below). Evaluating λ1 and δ would need every constant of
+  the write-out made explicit, and several come from
+```
+
+Block 2, in "Beyond the boundary", old:
+
+```text
+  6.3, deduced). It is not shown that Theorem 4 applies to g_λ's own data: g_λ is given on Ω, which does not contain the
+  whole initial slice, and continuing it to spatial infinity asks for a scattering problem from past null infinity and an
+  expansion of its solution at spatial infinity. Parts of that are done (deduced, with exact computations, all under
+  `docket68/n1star/`): the leading Coulomb part carried to spatial infinity with no logarithm (`checks/coulomb5.py`, and
+  under the full operator `checks/coulombL5.py`), the map from data on the initial null hypersurface to the leading
+  coefficient at spatial infinity, under the write-out's full operator on Minkowski space, bounded uniformly in the
+  harmonic (reduced for every harmonic, `checks/harmonics5.py`; bounded, `checks/uniform5.py`), the remainder's sources,
+  supported where v is bounded along the initial null hypersurface, entering one order later at every harmonic computed
+  (l ≤ 12) (`checks/sources5.py`, `checks/stripfull5.py`), and the approximant's stage profiles expanded in powers of
+  r^(−1/2) at past null infinity, with the closure properties of that expansion shown (deduced, with an exact check,
+  `checks/closure5.py`). The scattering estimate itself is not done. Below the inner boundary the theorems are not
+```
+
+Block 2, new:
+
+```text
+  6.3, deduced). It is deduced, with no gluing, that Theorem 4 applies to g_λ's own data in a data class wider than
+  (ii)'s by half-integer orders (supplement `docket68/n1star/SETTLE-GLAM5.md`, rounds 1–8, Theorem R5.1), conditional
+  on the write-out's Parts III, IV, VII and VIII, proved; on Theorem P, proved; on supplement section 11.1, deduced,
+  whose Lemma 11.0 repair (SETTLE-GLAM5.md R6-D) is seated and, with D618's edits to sections 9.5 and 11, awaits a
+  confirming read; on BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier; and on round 8 of SETTLE-GLAM5.md, not
+  yet read by a verifier. After the shell g_λ − g_b0 has at past null infinity an r^(−5/2) coefficient, O(λ^∞), which
+  for a C_c^∞ envelope and every amplitude but at most one is nonzero off a discrete set of λ (deduced, SETTLE-GLAM5.md
+  Proposition 3.1; computed for a bump envelope, `docket68/n1star/checks/tail5.py`); it puts an r^(−5/2) term into
+  g_λ's data at spatial infinity, outside the integer orders of (ii)'s class. With the orders r^(−2), r^(−5/2),
+  r^(−3), … below r^(−ℓ0) admitted in the metric (ℓ0 ∈ (3, 4), ℓ0 ≠ 7/2, and one order more in the second fundamental
+  form), Hintz's construction runs with the same index sets for its iterates and finitely many more derivatives lost;
+  its threshold ε, and with it λ1 and δ, change and are not evaluated, in either class. g_λ continues to the past
+  domain of dependence of the far part of Hintz's initial surface as a vacuum metric in the record's wave-map gauge, by
+  one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, after its
+  self-similar terms through r^(−4) are subtracted; it is the only continuation in that gauge near Tangherlini whose
+  commuted energies of weight a0 ∈ (0, ½) stay bounded, its energy vanishing toward past null infinity, and its data
+  lie in the widened class with small norm. So for every 0 < λ ≤ λ2, λ2 not evaluated, with no exceptional set, the
+  maximal vacuum development of g_λ's own data on Hintz's initial surface settles to five-dimensional Tangherlini of a
+  mass m′ with |m′ − μ_end| < ε_m at Theorem 4's rate (deduced, with the conditions above). Computed, all under
+  `docket68/n1star/checks/`: the operator identities, on the write-out's full operator; the coefficient decays and the
+  residuals' degrees, measured on that operator (`r5op5.py`, and `r6sigma5.py`, which also builds the r^(−4) term
+  there for one example, the general case being deduced); the caps and the null-hypersurface tails, measured on
+  explicit fields; the weight window, computed from those measured exponents and from exponents counted by hand
+  (those of the data class, of the pointwise bound, and of two further thresholds, which do not bind); the remaining
+  kernel exponents, counted by hand with their integrability checked. Below the inner boundary the theorems are not
+```
+
+Block 3 (section 8.1, for consistency with blocks 1-2), old:
+
+```text
+replaced by a gluing (section 8.7), and Theorem 4 is not shown to apply to g_λ's own data.
+```
+
+Block 3, new:
+
+```text
+replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, with no gluing, in a class wider by
+half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundary).
+```
+
+Ledger (round 8). Changed and rerun: `r7settle5.py` (@@N_R7S@@ checks), `r6edits5.py` (@@N_R6E@@), `r6sigma5.py`
+(@@N_R6G@@; only its stated run time changed). Every changed `.out` is from a full run and byte-identical on a second
+run; the other programs are unchanged and their `.out` files stand (r6settle5 21, r5settle5 45, r5edits5 11, zinv5 3,
+r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks).
+Deduced: R8-A. READ: BEYOND5.md Lemma 6.4's label; N1STAR-LOG.md D400, D405; SETTLE-GLAM5.md round 2 (R2.1-R2.4) for the
+citations of nit 7; RESPONSE-HL-5D.md (md5 @@PAPERMD5@@). None from outside sources.
+
+Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
+
+    python3 checks/r7settle5.py   (@@T_R7S@@)
+    python3 checks/r6edits5.py    (@@T_R6E@@)
+    python3 checks/r6sigma5.py    (@@T_R6G@@)
+
+The times are wall-clock on this machine under the load of the other workstreams.

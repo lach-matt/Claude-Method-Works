@@ -151,6 +151,7 @@ g_ext, that is a concrete extension of the profiles.
 ### 2.1 Numbers for the weights (computed, `dweights5.py` W1)
 
 At the record's point (gamma_Ups = e_Ups = 1/100, z = 4 e gamma^2 = 4e-6):
+[R13: that point lies outside the proved set (PART-VI4-PARAMS.md:145-148); d's integer is a statement at it (R13.2).]
 
 | weight | value | where constrained |
 |---|---|---|
@@ -2499,6 +2500,7 @@ Its findings, each re-derived before it is seated:
   [R12: the log orders of E^flat are proved (Lemma R12.1), the order box is replaced by the census's orders (R12.2),
   and the two avoidance conditions are decided (rootavoid5 23/23). What remains a reading is Lambda as listed here,
   E^iota_ind's unlisted increments taken to add nothing (R12.5).]
+  [R13: derived, E^iota_ind computed (R13.1); what is not the write-out's statement is the parameter point (R13.2).]
 
 ### R9.5 Proved, computed, open
 
@@ -3074,6 +3076,8 @@ support. Its findings, each re-derived before it is seated:
   qualifier is widened as the verifier asks: B.5 and B.7b use R9.1's reading of Lambda on (1, 3 + eps_K], with
   E^iota_ind's increments taken empty, not only "that index set below 2"; R12.7 pair 1 states it as the one input of d's
   reading that is not the write-out's statement. C.3's statuses are R12.7's.
+  [R13: E^iota_ind is computed and adds nothing (R13.1); the input outside the write-out is the parameter point
+  (R13.2).]
 - **Coordination (LAMBDA0-DATA5.md section 10).** R11.7's lambda0 text still said "whose data on the initial slice are
   not computed", false since LAMBDA0-DATA5.md (the stage-1 Cauchy data on the initial slice computed; the principal-part
   factor over X*'s past certified <= 1391.72, against 5.103 x 10^10). R12.7 pair 3 carries that file's correction of
@@ -3104,6 +3108,8 @@ of III.D'' Proposition 3.1 and III.F''' Proposition 2.2, I5:190 and I8:35, built
     excess 47);
 (c) the level-2 sources of I12 Step 3 have log order at most 2 + e_c at every point of a d1-chain c of Lambda cap
     (2, 3), e_c the excess over 2 at the chain's first point (dnumber5 K3).
+[R13: the qualifier "E^iota_ind's unlisted increments taken empty" is dropped: E^iota_ind is computed (R13.1), and S1's
+offsets are the same on every reading of it (iotaind5 I4).]
 
 *Proof* (induction over the steps, in the order the construction takes them; READ: I11:352-387, G3 (4.5) at G3:375, I2
 (3.2) at I2:173-177, I5:190, I8:35, G5 (4.3) at G5:456, I12:278-281).
@@ -3145,6 +3151,7 @@ of III.D'' Proposition 3.1 and III.F''' Proposition 2.2, I5:190 and I8:35, built
   does not move; and the log orders leave d's reading: they are now a proved statement about the write-out's
   construction (the sharpened I11 Proposition 3.1 (c) that round 6's M2 asked for), not a reading of it. The lemma takes
   S1's offsets on R9.1's reading of Lambda, as every count of d does (R12.5).
+  [R13: that reading is derived (R13.1).]
 
 ### R12.2 (i) d: the orders at which the calculus count runs, read site by site (`ordcensus5.py`), and what they move
 
@@ -3214,6 +3221,8 @@ of III.D'' Proposition 3.1 and III.F''' Proposition 2.2, I5:190 and I8:35, built
   E^iota_ind's increments in that range as numbers; III.G'' (4.4) defines its E_ind through the states' index sets of
   III.D'', III.D''' and III.F'''' (G3:338-340), and the record lists no values for the increments the reading takes
   empty.
+  [R13: computed: E^iota_ind adds nothing (R13.1). d's reading had a second part outside the write-out, the
+  parameter point (report-vINV2.md minor 2 (a)): R13.2, R13.5.]
 - *Open, each with its single missing input*: lambda0 (a validated solve of the stage-1 evolution on X*'s past for
   envelope5's envelope, LAMBDA0-DATA5.md section 11); the scalar-type blocks' sigma_* (a lower bound uniform in l,
   INVERSE5-SCALAR.md A.8); the six inverse bounds as INVERSE5-SIX.md rounds 2-3 state them; upstream of the last two, a
@@ -3232,6 +3241,7 @@ logind5 4e24be58, affdb2c9; ordcensus5 275c5349, 58f9b797; d0count5 20aad82e, b1
 l2par5 70ccc87f, 59397764; dnumber5.out 3db10f0e (unchanged); rootavoid5.out 58011dc9 (read, not pinned).
 
 ### R12.7 Final replacement text for the paper (supersedes R11.7, INVERSE5-SIX.md R2.2 and INVERSE5-SCALAR.md section C)
+[R13: superseded by R13.7.]
 
 Four old/new pairs for paper/RESPONSE-HL-5D.md, the single final set for every constants sentence of the paper: pair 1
 the loss d (section 9, "Settling", the last sentence of the d passage), pair 2 lambda1 and delta with the six inverse
@@ -3280,6 +3290,9 @@ That bookkeeping has since been
   does not list, taken to add nothing. So the integer bounds the loss that this proof's bookkeeping produces on that
   reading, not the optimal one.
 ```
+[R13: "the weights are taken at a point where every admissibility condition holds" names no point: the point is the
+record's computational point, outside the proved set (R13.2); and the Lambda sentence is replaced, E^iota_ind being
+computed (R13.1). R13.7 pair 1.]
 
 ```old
 The passage to the write-out's own function spaces and the
@@ -3320,6 +3333,7 @@ The passage to the write-out's own function spaces and the
   of its function spaces only up to admissibility, so explicit constants first need those choices made numerically. This
   is a limit of the explicit computation, not a gap in Theorem 4.
 ```
+[R13: "d <= 4.624 x 10^16 on its reading" becomes "at the record's computational point" (R13.7 pair 2).]
 
 ```old
 λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the

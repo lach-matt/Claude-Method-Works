@@ -53,7 +53,7 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      and round-6 readers asked (section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII,
      BEYOND5 Lemma 6.4 (iv) as deduced, eps named, Proposition 3.1 deduced, the r^(-4) term built for one example,
      the window computed from measured and hand-counted exponents, R6-D seated). Control (round 8): R7-E's blocks
-     fail at least four of the sixteen predicates.
+     fail exactly the three predicates round 8 adds on BEYOND5 in block 1, the rounds and the window's list.
   D630: R6-D is seated in N1STAR-PROOF.md (each new block occurs there once, no old block); the program then undoes it
      in memory, with its two "[amended D630: WS-B round 6, R6-D ...]" marks, and runs E1-E3 on that copy, and E1s
      checks that re-applying the blocks gives the live file but for the two marks.
@@ -506,8 +506,11 @@ def e4(S):
     b7 = S.index("Ledger (round 7).", a7)
     bl7 = re.findall(r"```text\n(.*?)\n```", S[a7:b7], flags=re.S)
     pr7 = paper_predicates8(bl7[1], bl7[3], bl7[5])
-    check("E4c' control (R7-E's blocks, the round-7 reader's m1 and nit 6): they fail at least four of the sixteen",
-          sum(not v for v in pr7.values()) >= 4, str(sum(not v for v in pr7.values())))
+    check("E4c' control (R7-E's blocks, the round-7 reader's m1 and nit 6): they fail the three predicates on BEYOND5 "
+          "in block 1, the rounds, and the window's hand-counted list",
+          {k for k, v in pr7.items() if not v} == {"b1: BEYOND5 Lemma 6.4 (iv)", "b2: rounds 1-8, round 8 unread",
+                                                   "b2: the window from measured and hand-counted exponents"},
+          str(sorted(k for k, v in pr7.items() if not v)))
 
 
 def main():

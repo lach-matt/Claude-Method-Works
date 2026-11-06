@@ -6,14 +6,15 @@ computed (exact exponent arithmetic: an exponent is q + sum c_i theta_i, q ratio
 d0, d1, delta_l, delta'_l of dceiling5's certified census, imported through eflat5).
 
 What the write-out says (READ). I11:38 takes E^iota_ind to be "the index set of III.G'' (4.4)"; I11:30 keeps b = b0.
-(4.4) asserts "an index set E_ind with min Re E_ind > 0" and its proof (G3:337-342) obtains it by "collecting the states'
+(4.4) asserts "an index set E_ind with min Re E_ind > 0" and its proof (G3:336-342) obtains it by "collecting the states'
 index sets of III.D'', III.D''', III.F'''', 2 + N_0, and (2,1) when lambda = 1". The states are those of Table 1.1, as
 towers with h-breve^i_b in A^((mu-i,0) u (mu-i+E_ind)) (G3:131-132), and the record lists no value for any of these
-E_ind ("an index set ... changing from line to line", D4:58-60). So E^iota_ind is existential; it is fixed by the
+E_ind ("an index set ... changing from line to line", D4:57-58). So E^iota_ind is existential; it is fixed by the
 constructions, which this program follows at b0:
 
   - the operator's deviation from its dilation-invariant model is two orders down: A_0 - A-bar_0 in rho^4 Diff^2_b,
-    A_1 - A-bar_1 in rho^3 Diff^1_b, A_2 in rho^2 C^oo (D4 (1.1)), L-hat_b(0) - L-hat-bar(0) in rho^4 Diff^2_b (F5:271);
+    A_1 - A-bar_1 in rho^3 Diff^1_b, A_2 in rho^2 C^oo (D4 (1.1)), L-hat_b(0) - L-hat-bar(0) in rho^4 Diff^2_b
+    (F5:272-273);
   - D4 Lemma 2.1 (every III.D''' step): u_0 at m, u_1 the formal solution from the source's exponents (+ N_0, logs
     where they meet a root), u_2 = P_b^-1 f_2 with exponents >= lambda_s1,2 = 2 + d1 (absolute; Lemma 1.4 with alpha
     just below lambda_s1,2, D4:95), and, at b = (mu, 0), every construction stays in its type (D4:174-176);

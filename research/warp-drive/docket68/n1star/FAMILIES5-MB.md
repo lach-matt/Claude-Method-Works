@@ -1,10 +1,11 @@
 # FAMILIES5-MB -- the sign of the charge on seeds that perturb the metric: M_b decided
 
 Status (2026-11-06, workstream C, the missing input M_b of FAMILIES5-R6.md section 1.5). This note settles M_b, both
-ways: it fails on every vacuum band that meets the black-hole region and holds on every vacuum band outside the
-horizon. It does not edit the paper, N1STAR-PROOF.md, FAMILIES5-R6.md or any proof5 Part; its proposed text for the
-paper is in section 7. Program: `checks/mbsign5.py` (E1-E9, seven controls), its full run in `checks/mbsign5.out` (all
-PASS). [R8: "its default run"; this note's round-8 review by an independent verifier is seated in bracketed [R8] notes (FAMILIES5-R8.md R8.9), the old text kept.]
+ways: it fails on every vacuum band that meets the black-hole region and holds on every vacuum band outside the horizon.
+It does not edit the paper, N1STAR-PROOF.md, FAMILIES5-R6.md or any proof5 Part; its proposed text for the paper is in
+section 7. Program: `checks/mbsign5.py` (E1-E9, seven controls), its full run in `checks/mbsign5.out` (all PASS). [R8:
+"its default run"; this note's round-8 review by an independent verifier is seated in bracketed [R8] notes
+(FAMILIES5-R8.md R8.9), the old text kept.]
 
 **The quantity whose sign is decided.** With the record's constraint map (H = R + (tr K)² − |K|², M_i = D_jK^j_i −
 D_i tr K, K = ½ L_n γ, n the future unit normal; bandconst5) and its KID (N_s, 2Y_s), ξ = N_s n + Y_s the static
@@ -15,50 +16,57 @@ linearised vacuum seed δ in a vacuum band U,
 
 G^(2)[δ] the ε² coefficient of the Einstein tensor of g + εh, h a linearised vacuum solution with data δ (the second
 equality is Lemma TR (1)). Q is Proposition L′'s coefficient (FAMILIES5-VLASOV section 4: the KID's coefficient is
-ε²Q(δ) + O(ε³) [R8 (nit): with this Q the matter balance of FAMILIES5-R7 R7.2 reads ε²Q/2 + O(ε³) = ∫T(ξ, n), the factor 2 being the pairing's 2G(ξ, n); the two normalisations agree]), the quantity Theorem Q's dichotomy needs; M_b reads Q(δ) < 0 (E(δ) > 0) for every non-gauge δ. This
-note decides the sign of Q; E is only −Q. **No identification of E with the Hollands–Wald canonical energy is used or
-claimed** (it is standard, not READ here). What is computed instead is the identification the proof needs: in the
-tensor sector, on every slice, E is 2|T|² times the flux of the conserved current of the tensor master field (E2); in
-the scalar sector, on a static slice, E is Kodama and Ishibashi's master energy (E6, E9). [This is the definition the
-verifier of FAMILIES5-R6 proposed (finding m2): R6 section 1.5's parenthetical "the second-order quantity ∫G^(2)(ξ,
-n)", read literally, gives Q = +2E.]
+ε²Q(δ) + O(ε³) [R8 (nit): with this Q the matter balance of FAMILIES5-R7 R7.2 reads ε²Q/2 + O(ε³) = ∫T(ξ, n), the factor
+2 being the pairing's 2G(ξ, n); the two normalisations agree]), the quantity Theorem Q's dichotomy needs; M_b reads Q(δ)
+< 0 (E(δ) > 0) for every non-gauge δ. This note decides the sign of Q; E is only −Q. **No identification of E with the
+Hollands–Wald canonical energy is used or claimed** (it is standard, not READ here). What is computed instead is the
+identification the proof needs: in the tensor sector, on every slice, E is 2|T|² times the flux of the conserved current
+of the tensor master field (E2); in the scalar sector, on a static slice, E is Kodama and Ishibashi's master energy (E6,
+E9). [This is the definition the verifier of FAMILIES5-R6 proposed (finding m2): R6 section 1.5's parenthetical "the
+second-order quantity ∫G^(2)(ξ, n)", read literally, gives Q = +2E.]
 
 **Verdict.**
 
 1. **M_b fails on every vacuum band that meets the black-hole region (Theorem X).** Inside the horizon ξ is spacelike
    and Q takes both signs on seeds of tensor type. On every class slice the tensor sector's charge is Q = −2|T|² ∫
-   T_m(ξ, n) dℓ, T_m the flux of the tensor master field's conserved current (computed, E2); with the normal
+   T_m(ξ, n) dℓ, T_m the flux of the tensor master field's conserved current (computed, E2 [R8 (minor 1): at three slice
+   points; on every slice corroborated by the round-8 verifier's symbolic check, section 2's note]); with the normal
    derivative P = −(Y_s^R/N_s) ∂_R H it is Q = −|T|² ∫ (R³ f H′² + (k_T² + 2) R H²) dR on every slice, positive for
    radially oscillating H where f < 0 (computed exactly on Part I's seed region, E3). **Exactly localised vacuum data
    with a non-gauge first-order part therefore exist on every vacuum band of Part I's slice that meets {f < 0}**
-   (deduced: Proposition L′'s intermediate-value clause on a family of tensor seeds on which Q changes sign).
+   (deduced: Proposition L′'s intermediate-value clause on a family of tensor seeds on which Q changes sign). [R8 (Major
+   1): as Theorem X (b) states, these are data near Part I's, background + εδ + O(ε²), for small amplitude ε; item 2's
+   non-existence is likewise a statement at second order, for small amplitude, about such families.]
 2. **M_b holds on every vacuum band outside the horizon (Theorem P).** For every compactly supported invariant
    linearised vacuum seed δ supported in {f > 0}, Q(δ) ≤ 0, with equality only for gauge seeds. In the class, E is the
    sum, over the class's harmonics (scalar l = 2, 4, …; tensor l = 2, 4, …; l = 0 contributes nothing), of master
    energies with positive potentials: the scalar ones Kodama–Ishibashi's, potential V_S = f Qp/(16R²H_KI²) with Qp > 0
-   on the whole exterior for every class mode (the reduction computed, E4-E6, E9; the positivity certified, E7 [R8 (nit): computed exactly, not certified -- E7 is exact algebra; it now also covers every l ≥ 2]), the
-   tensor ones manifestly positive (E2). The passage from Part I's slice to a static slice is deduced (Lemma TR).
-   **So on exterior bands no exactly localised vacuum data background + εδ + O(ε²) with δ non-gauge exist**, and a
-   smooth family of exactly localised data there agrees to every order in ε with a re-slicing of the background
-   (deduced, section 5).
+   on the whole exterior for every class mode (the reduction computed, E4-E6, E9; the positivity certified, E7 [R8
+   (nit): computed exactly, not certified -- E7 is exact algebra; it now also covers every l ≥ 2]), the tensor ones
+   manifestly positive (E2). The passage from Part I's slice to a static slice is deduced (Lemma TR). **So on exterior
+   bands no exactly localised vacuum data background + εδ + O(ε²) with δ non-gauge exist**, and a smooth family of
+   exactly localised data there agrees to every order in ε with a re-slicing of the background (deduced, section 5).
 3. **No third-order question arises.** Q = 0 on a non-gauge seed occurs only inside the horizon (the zero of the family
    in item 1), where existence is already decided by the sign change; outside, Q = 0 only on gauge seeds.
 4. **For the paper's "More families" bullet:** exact compact support of vacuum data — **yes** on bands meeting the
    black-hole region (Theorem X), **no** at second order on bands outside the horizon (Theorem P with Proposition L′).
-   The replacement sentence is in section 7. [R8 (Major 1): superseded; the single M_b paper text, rebased onto FAMILIES5-R7 R7.6 with its qualifiers, is in FAMILIES5-R8.md R8.8.]
+   The replacement sentence is in section 7. [R8 (Major 1): superseded; the single M_b paper text, rebased onto
+   FAMILIES5-R7 R7.6 with its qualifiers, is in FAMILIES5-R8.md R8.8.]
 
-Labels: **computed** (a check of `checks/mbsign5.py`, exact, each with a control it must reject [R8 (minor 4): true since R8 -- E4, E8 and E9 had none and now have one each]), **deduced** (argued
-here; the standard facts used are named), **READ** (as quoted in the record). Nothing here is reduced to an unproved
-input; what is not claimed is listed in section 5.
+Labels: **computed** (a check of `checks/mbsign5.py`, exact, each with a control it must reject [R8 (minor 4): true
+since R8 -- E4, E8 and E9 had none and now have one each]), **deduced** (argued here; the standard facts used are
+named), **READ** (as quoted in the record). Nothing here is reduced to an unproved input; what is not claimed is listed
+in section 5.
 
 ---
 
 ## 0. The setting
 
 - *Vacuum regions.* Every vacuum region of Part I's spacetime is Tangherlini, g = −f dv² + 2 dv dR + R² dΩ₃², f = 1 −
-  μ/R², with v = ∫e^(ψ_P) dv̂ (Part I's chart, ψ_P = ψ_P(v̂); qsign5 Q2), and Part I's slice is there the round slice
-  v = V(R), w := V′ = e^(ψ_P(τ0 + R)) > 0, γ_RR = w(2 − f w) > 0. ξ = ∂_v. Inside the horizon (the seed region R <
-  R_h = 0.9067, μ0 = 0.8221; the slice's inner edge 0.683; qsign5 Q3 [R8 (nit): the inner edge 0.683 is FAMILIES5-VLASOV section 3's (racglobal5); the horizon and μ0 are qsign5 Q3's]) ξ is spacelike.
+  μ/R², with v = ∫e^(ψ_P) dv̂ (Part I's chart, ψ_P = ψ_P(v̂); qsign5 Q2), and Part I's slice is there the round slice v
+  = V(R), w := V′ = e^(ψ_P(τ0 + R)) > 0, γ_RR = w(2 − f w) > 0. ξ = ∂_v. Inside the horizon (the seed region R < R_h =
+  0.9067, μ0 = 0.8221; the slice's inner edge 0.683; qsign5 Q3 [R8 (nit): the inner edge 0.683 is FAMILIES5-VLASOV
+  section 3's (racglobal5); the horizon and μ0 are qsign5 Q3's]) ξ is spacelike.
 - *The class* (FAMILIES5-R6 section 1.1): T² × Z2 × Z2-invariant data on a band U = {R1 < R < R2} of a vacuum region,
   compactly supported in U.
 - *Gauge seeds* (R6 section 1.5): the data of L_Z g with Z compactly supported near the band (or equal on the inner
@@ -111,11 +119,22 @@ exactly where f > 0.
 
 *Proof.* Computed E2. The slice quantities (n, K0, N_s, Y_s) are derived from the embedding, symbolic in w(R) and μ,
 with the unit, future, normal and decomposition checks; (i) holds identically for a generic class A; (iii): the
-θ-integrated Q-density from the record's constraint map plus 2|T|²T_m√γ_RR has zero Euler operator in H and in P, for
-l = 2 and l = 4 (angular integrals exact; the Euler coefficients exact at three rational slice points, two outside the
+θ-integrated Q-density from the record's constraint map plus 2|T|²T_m√γ_RR has zero Euler operator in H and in P, for l
+= 2 and l = 4 (angular integrals exact; the Euler coefficients exact at three rational slice points, two outside the
 horizon and one inside, every jet of w free and √(w(2 − fw)) rational there, w = 2/(f + q²)); the current's divergence
-identity exact and symbolic; (ii), (iv) exact and symbolic. Control: |T|² replaced by |T|²/2 (rejected, l = 2 and
-4). ∎ XXMINOR1 [R8 (minor 8): *every l (deduced).* The Q-density of the tensor data is quadratic in T, at most linear in second angular derivatives of δγ (the scalar curvature is linear in second derivatives) and first order in those of δK. Integrated over S³ with T trace-free, divergence-free and Δ̂T = −k_T²T, every term reduces, by integration by parts, to a radial coefficient times ∫T·T = |T|² or ∫D̂T·D̂T = k_T²|T|² (the curvature terms of the round S³ give multiples of |T|²). So the θ-integrated density is |T|² times a quantity affine in k_T², and so is 2|T|²T_m√γ_RR. Their difference is affine in k_T² for fixed (H, P) and has zero Euler operator at k_T² = 6 and 22 (l = 2, 4; E2), hence for every k_T², every l.]
+identity exact and symbolic; (ii), (iv) exact and symbolic. Control: |T|² replaced by |T|²/2 (rejected, l = 2 and 4). ∎
+[R8 (minor 1): relabelled. What E2 and E3 (a)-(b) compute is exact at three rational slice points -- R, μ, w and every
+jet of w fixed there, the H and P jets free -- a spot check in the slice, not an identity symbolic in w; the phrase
+"every jet of w free" above is wrong. That (iii) and Lemma X1 hold on every class slice was checked symbolically by the
+round-8 independent verifier (w = 2/(f + q²), √Δ = 2q/(f + q²), q(R) a free function, μ symbolic; its control |T|² →
+|T|²/2 rejected), outside this record's programs (FAMILIES5-R8.md R8.9). So Theorem T (iii) and Lemma X1 are: computed
+at three slice points; on every slice, corroborated by that check.] [R8 (minor 8): *every l (deduced).* The Q-density of
+the tensor data is quadratic in T, at most linear in second angular derivatives of δγ (the scalar curvature is linear in
+second derivatives) and first order in those of δK. Integrated over S³ with T trace-free, divergence-free and Δ̂T =
+−k_T²T, every term reduces, by integration by parts, to a radial coefficient times ∫T·T = |T|² or ∫D̂T·D̂T = k_T²|T|²
+(the curvature terms of the round S³ give multiples of |T|²). So the θ-integrated density is |T|² times a quantity
+affine in k_T², and so is 2|T|²T_m√γ_RR. Their difference is affine in k_T² for fixed (H, P) and has zero Euler operator
+at k_T² = 6 and 22 (l = 2, 4; E2), hence for every k_T², every l.]
 
 So in the tensor sector E = 2|T|² ∫T_m(ξ, n), on Part I's slice itself: positive on every nonzero tensor seed
 supported where f > 0, indefinite where f < 0.
@@ -148,11 +167,13 @@ form background + εδ_(s(ε)) + c(ε), c = O(ε²), with δ_(s(ε)) a non-gauge
 built from scalars (2fK0 ∝ γ̂; L_Xγ and L_XK0 from X^R and the exact X^θ; D²f and the curvature terms from scalars and
 γ̂), so its TT projection vanishes (Lemma H (d)). (b) Let δ_s = (sH, −s(Y_s^R/N_s)H_R + (1 − s)P0), s ∈ [0, 1], with H
 of Lemma X1 (smoothed) and P0 a bump: every δ_s is a nonzero tensor seed, hence not gauge, and Q(δ_s) is a quadratic
-polynomial in s with Q(δ_0) < 0 < Q(δ_1). Proposition L′ (FAMILIES5-VLASOV section 4, from [CS06] Theorem 2 and
-[CD03] Theorem 5.6, READ in the record) gives c(ε, s) supported in U with KID coefficient m(ε, s) = ε²Q(δ_s) + O(ε³)
-uniformly in s and continuous in s; m(ε, 0) < 0 < m(ε, 1) for ε small, so m(ε, s(ε)) = 0 for some s(ε). ∎ This is R6
-section 1.5 (i) with the configuration seed and the momentum seed both taken of tensor type, so non-gauge-ness needs
-no band-by-band argument. [R8 (the verifier's reading): Q(δ_s) is a quadratic in s with Q(δ_0) < 0 < Q(δ_1), so it has exactly one root s* in (0, 1), a simple one; hence s(ε) = s* + O(ε) and the data are background + εδ_(s*) + O(ε²), with first-order part the nonzero tensor seed δ_(s*).]
+polynomial in s with Q(δ_0) < 0 < Q(δ_1). Proposition L′ (FAMILIES5-VLASOV section 4, from [CS06] Theorem 2 and [CD03]
+Theorem 5.6, READ in the record) gives c(ε, s) supported in U with KID coefficient m(ε, s) = ε²Q(δ_s) + O(ε³) uniformly
+in s and continuous in s; m(ε, 0) < 0 < m(ε, 1) for ε small, so m(ε, s(ε)) = 0 for some s(ε). ∎ This is R6 section 1.5
+(i) with the configuration seed and the momentum seed both taken of tensor type, so non-gauge-ness needs no band-by-band
+argument. [R8 (the verifier's reading): Q(δ_s) is a quadratic in s with Q(δ_0) < 0 < Q(δ_1), so it has exactly one root
+s* in (0, 1), a simple one; hence s(ε) = s* + O(ε) and the data are background + εδ_(s*) + O(ε²), with first-order part
+the nonzero tensor seed δ_(s*).]
 
 Inside the horizon Q is a momentum, and an outgoing tensor packet carries it with the sign opposite to the momentum
 seeds' — as R6 section 1.5 anticipated and as Theorem Q′ (ii) found for outgoing null dust. Seeds localised in angle as
@@ -173,23 +194,26 @@ Q_static(h|_{t=t1}); δ is gauge iff h|_{t=t1} is.
 n_ε + Y_ε, so N_sH + 2Y_s·M = 2G_ε(ξ, n_ε) + (N_s − N_ε)H + 2(Y_s − Y_ε)·M; the last two terms are O(ε³) since G_ε =
 O(ε²) (G = 0, G^(1)[h] = 0). The ε² coefficient of Φ(γ_ε, K_ε) is ½D²Φ[δ, δ] + DΦ(0, K2), K2 the second-order part of
 K_ε (compactly supported), which pairs to 0 with the KID. So Q(δ) = 2∫_Σ G^(2)[h](ξ, n). (2) *Conservation.* Expanding
-∇^(ε)_a G_ε^ab = 0 at second order with G^(1)[h] = 0 gives ∇_a G^(2)ab = 0, so J^a := G^(2)ab ξ_b has ∇_a J^a =
-G^(2)ab ∇_(a ξ_b) = 0. (3) *The slice.* In Kruskal coordinates (U, V) of region I (both future-increasing) the slice
-is a curve along which U decreases and V increases with R; K lies in U ∈ [U(R2), U(R1)], V ∈ [V(R1), V(R2)];
-J⁺(K) ⊂ {U ≥ U(R2), V ≥ V(R1)} and J⁻(K) ⊂ {U ≤ U(R1), V ≤ V(R2)} (causal curves project to causal curves of the
-orbit space). The rectangles S_in = {U(R1) < U < 0, 0 < V < V(R1)} and S_out = {U < U(R2), V > V(R2)} meet neither.
-A static slice is a ray V = c|U|. Take R_a < R1 on the slice and c ∈ (V(R_a)/|U(R1)|, V(R1)/|U(R1)|): the ray then
-meets S_in at a point U_s slightly above U(R1) with c|U_s| ∈ (V(R_a), V(R1)), and S_out at every U_s′ with |U_s′| >
-max(|U(R2)|, V(R2)/c); take R_b on the slice with |U(R_b)| > |U_s′|, V(R_b) > c|U_s′|. Let Σ′ be the slice up to R_a,
-the segment to (U_s, c|U_s|) (in S_in, ΔU < 0 < ΔV: spacelike), the ray to U_s′, the segment to the slice at R_b (in
-S_out, spacelike), and the slice beyond. Σ′ is a spacelike curve equal to the slice outside a compact set, so by (2)
-and Stokes its J-flux is Q(δ); h vanishes on the two segments, and J(K) meets the ray only in |U| ∈ [min(|U(R1)|,
-V(R1)/c), max(|U(R2)|, V(R2)/c)], inside the ray's segment; near the bifurcation sphere (U, V → 0) and in region III
-the static slice is outside J(K). So the flux is that through the whole static slice, which is Q_static of h's data
-there by (1). Uniqueness up to gauge gives the last clause. ∎ [R8 (minor 5): two points of wording. Σ is extended to a Cauchy surface of the maximally extended M_μ, so that h exists on D(Σ), which contains the static slice. And R1, R2 in (3) are the radial extent of supp δ, not U's edges, and R_a is taken in (R_h, R1) on the slice: if U's inner edge were R_h itself, "R_a < R1" with R1 = R_h would put R_a outside S_in.] *Standard facts used:* existence, uniqueness up to gauge
-and finite propagation for the linearised vacuum equations in harmonic gauge; Stokes' theorem. *Computational
-support:* in the tensor sector Theorem T gives Q as the flux of a conserved current on every slice of the family
-directly; in the scalar sector E9 identifies Q on static slices with the conserved master energy.
+∇^(ε)_a G_ε^ab = 0 at second order with G^(1)[h] = 0 gives ∇_a G^(2)ab = 0, so J^a := G^(2)ab ξ_b has ∇_a J^a = G^(2)ab
+∇_(a ξ_b) = 0. (3) *The slice.* In Kruskal coordinates (U, V) of region I (both future-increasing) the slice is a curve
+along which U decreases and V increases with R; K lies in U ∈ [U(R2), U(R1)], V ∈ [V(R1), V(R2)]; J⁺(K) ⊂ {U ≥ U(R2), V
+≥ V(R1)} and J⁻(K) ⊂ {U ≤ U(R1), V ≤ V(R2)} (causal curves project to causal curves of the orbit space). The rectangles
+S_in = {U(R1) < U < 0, 0 < V < V(R1)} and S_out = {U < U(R2), V > V(R2)} meet neither. A static slice is a ray V = c|U|.
+Take R_a < R1 on the slice and c ∈ (V(R_a)/|U(R1)|, V(R1)/|U(R1)|): the ray then meets S_in at a point U_s slightly
+above U(R1) with c|U_s| ∈ (V(R_a), V(R1)), and S_out at every U_s′ with |U_s′| > max(|U(R2)|, V(R2)/c); take R_b on the
+slice with |U(R_b)| > |U_s′|, V(R_b) > c|U_s′|. Let Σ′ be the slice up to R_a, the segment to (U_s, c|U_s|) (in S_in, ΔU
+< 0 < ΔV: spacelike), the ray to U_s′, the segment to the slice at R_b (in S_out, spacelike), and the slice beyond. Σ′
+is a spacelike curve equal to the slice outside a compact set, so by (2) and Stokes its J-flux is Q(δ); h vanishes on
+the two segments, and J(K) meets the ray only in |U| ∈ [min(|U(R1)|, V(R1)/c), max(|U(R2)|, V(R2)/c)], inside the ray's
+segment; near the bifurcation sphere (U, V → 0) and in region III the static slice is outside J(K). So the flux is that
+through the whole static slice, which is Q_static of h's data there by (1). Uniqueness up to gauge gives the last
+clause. ∎ [R8 (minor 5): two points of wording. Σ is extended to a Cauchy surface of the maximally extended M_μ, so that
+h exists on D(Σ), which contains the static slice. And R1, R2 in (3) are the radial extent of supp δ, not U's edges, and
+R_a is taken in (R_h, R1) on the slice: if U's inner edge were R_h itself, "R_a < R1" with R1 = R_h would put R_a
+outside S_in.] *Standard facts used:* existence, uniqueness up to gauge and finite propagation for the linearised vacuum
+equations in harmonic gauge; Stokes' theorem. *Computational support:* in the tensor sector Theorem T gives Q as the
+flux of a conserved current on every slice of the family directly; in the scalar sector E9 identifies Q on static slices
+with the conserved master energy.
 
 ### 4.2 The static slice
 
@@ -257,17 +281,19 @@ Moncrief's K + (f/Λ)(H2 − rK′). Controls: ℓ without its F-term fails (ii)
 R^(3/2) fails (iii) (rejected).
 
 ### 4.6 Positivity (computed E7, E8, E2)
-
 Class modes have l = 2j, so m = 4j(j + 1) − 3 ∈ {5, 21, 45, …}. **Qp > 0 for x ∈ [0, 1]:** at m = 5, Qp = 1296x³ +
-2976x² − 1260x + 3500, the quadratic's discriminant is −40076400 < 0, and Qp has no root in [0, 1]; for m = 21 + t, t
-≥ 0, every coefficient of Qp in (x, t) is ≥ 0 and Qp(0, 0) > 0. H_KI > 0, f > 0 on R > √μ, 27m/(2k²) > 0,
-6k²m/(R³H_KI²) > 0. So E_V,l ≥ 0 with equality iff Φ = 0 iff ℓ = 0 iff (A, F) = 0 (by (ii)), and E_K,l ≥ 0 with
-equality iff Z = 0 iff (p, q, w) = 0 (Lemma K, f > 0). Control (the wrong sign): the potential of the ℓ-form before
-the S-deformation is negative near the horizon at m = 5 (sign −1 at R = 1.01, +1 at R = 3, μ = 1): positivity is not
-automatic (rejected). l = 0 (E8): on the constraint E_V and E_K are d/dR's; a compactly supported l = 0 h is
-L_(RF∂_R)γ, the other solution of the l = 0 constraint being the mass change A = μ/(R²f²), nowhere zero; the l = 0 k
-is p = (Rw′ + w)/f [R8 (minor 4): this k is the lapse direction k_ψ = D²ψ − ψ Ric with ψ = N(c + ∫Rw/(fN) dR): w_ψ = (fN/R)(ψ/N)′ and p_ψ = (Rw_ψ′ + w_ψ)/f (E8, computed). For compactly supported w, ψ vanishes on the outer side and equals a constant times N on the inner side, so the l = 0 kinetic part is gauge in R6's extended sense, not compactly supported. Control: X = F∂_R in place of RF∂_R does not solve the l = 0 constraint]. Tensor modes: Theorem T at w = 1/f (the static slice), E_T = |T|² ∫(R³P² + R³fH′² + (k_T² +
-2)RH²) dR > 0.
+2976x² − 1260x + 3500, the quadratic's discriminant is −40076400 < 0, and Qp has no root in [0, 1]; for m = 21 + t, t ≥
+0, every coefficient of Qp in (x, t) is ≥ 0 and Qp(0, 0) > 0. H_KI > 0, f > 0 on R > √μ, 27m/(2k²) > 0,
+6k²m/(R³H_KI²) > 0. So E_V,l ≥ 0 with equality iff Φ = 0 iff ℓ = 0 iff (A, F) = 0 (by (ii)), and E_K,l ≥ 0 with equality
+iff Z = 0 iff (p, q, w) = 0 (Lemma K, f > 0). Control (the wrong sign): the potential of the ℓ-form before the
+S-deformation is negative near the horizon at m = 5 (sign −1 at R = 1.01, +1 at R = 3, μ = 1): positivity is not
+automatic (rejected). l = 0 (E8): on the constraint E_V and E_K are d/dR's; a compactly supported l = 0 h is L_(RF∂_R)γ,
+the other solution of the l = 0 constraint being the mass change A = μ/(R²f²), nowhere zero; the l = 0 k is p = (Rw′ +
+w)/f [R8 (minor 4): this k is the lapse direction k_ψ = D²ψ − ψ Ric with ψ = N(c + ∫Rw/(fN) dR): w_ψ = (fN/R)(ψ/N)′ and
+p_ψ = (Rw_ψ′ + w_ψ)/f (E8, computed). For compactly supported w, ψ vanishes on the outer side and equals a constant
+times N on the inner side, so the l = 0 kinetic part is gauge in R6's extended sense, not compactly supported. Control:
+X = F∂_R in place of RF∂_R does not solve the l = 0 constraint]. Tensor modes: Theorem T at w = 1/f (the static slice),
+E_T = |T|² ∫(R³P² + R³fH′² + (k_T² + 2)RH²) dR > 0.
 
 **The master energy (E9, computed).** On the momentum constraint the configuration map applied to h = 2Nk gives
 Φ[2Nk] = +(2k²/3)√f Z/(R^(3/2)H_KI); since ∂_t h = 2Nk + L_βγ on a static slice, this is Φ_t, and E_K = (27m/(2k²))
@@ -276,8 +302,13 @@ Kodama–Ishibashi master equation, which that equation conserves.
 
 The radial identities of E5, E6, E8, E9 are exact, symbolic in k² and the jets, at four rational points (R, μ) with R
 and f rational squares (the default run, `checks/mbsign5.out`), and symbolic in R and k² at μ = 1 (the `--full` run,
-`checks/mbsign5_full.out`, E4-E9 PASS; μ = 1 is general by the homothety (t, R) → (λt, λR), which carries μ to λ²μ);
-E4 (a) keeps μ symbolic. In development E5 was also run symbolic in R, μ and k² (PASS). [R8 (minor 2): the homothety argument holds only for weight-homogeneous identities, which the program did not check (a non-homogeneous mutation passed --full). --full is now fully symbolic in (R, μ, k²): μ = xR² with x a free symbol, a change of variables, so no homogeneity is assumed; `checks/mbsign5_full.out`, E5-E9 PASS. E9 now enforces the + sign, its opposite sign a control; E7 also proves Qp > 0 on x ∈ [0, 1] for every l ≥ 2 (m = 12 + t: every coefficient ≥ 0), so the potentials are positive for the whole spectrum of S³, not only the class's.]
+`checks/mbsign5_full.out`, E4-E9 PASS; μ = 1 is general by the homothety (t, R) → (λt, λR), which carries μ to λ²μ); E4
+(a) keeps μ symbolic. In development E5 was also run symbolic in R, μ and k² (PASS). [R8 (minor 2): the homothety
+argument holds only for weight-homogeneous identities, which the program did not check (a non-homogeneous mutation
+passed --full). --full is now fully symbolic in (R, μ, k²): μ = xR² with x a free symbol, a change of variables, so no
+homogeneity is assumed; `checks/mbsign5_full.out`, E5-E9 PASS. E9 now enforces the + sign, its opposite sign a control;
+E7 also proves Qp > 0 on x ∈ [0, 1] for every l ≥ 2 (m = 12 + t: every coefficient ≥ 0), so the potentials are positive
+for the whole spectrum of S³, not only the class's.]
 
 ### 4.7 Theorem P
 
@@ -297,18 +328,27 @@ data.
   invariant vacuum data equal to Part I's outside the band, with a non-gauge (tensor-type) first-order part. With the
   outgoing null dust of R6 Theorem Q′ (ii), bands inside the horizon admit exact localisation in vacuum and with matter.
 - **Outside the horizon (Theorem P with Proposition L′): no, at second order.** No data background + εδ + O(ε²) with δ
-  non-gauge satisfy the vacuum constraints and equal the background outside U, for ε small. *To every order
-  (deduced):* if D_ε is a family of such data smooth in ε with D_0 the background, its first nonzero order after
-  removing a re-slicing is a linearised seed δ_j with Q(δ_j) = 0 (the KID coefficient at order ε^(2j)), hence gauge by
-  Theorem P; re-slicing the development by its generator and repeating, D_ε agrees with a re-slicing of the background
-  to every order in ε. [R8 (the verifier's section 5 gap): it is not shown that the re-slicing generators keep the allowed support -- compactly supported near U, or equal to a constant multiple of ξ on the inner side. The statement "to every order" is therefore claimed only for families whose re-slicing generator at each order can be so chosen, and is otherwise excluded.]
+  non-gauge satisfy the vacuum constraints and equal the background outside U, for ε small. *To every order (deduced):*
+  if D_ε is a family of such data smooth in ε with D_0 the background, its first nonzero order after removing a
+  re-slicing is a linearised seed δ_j with Q(δ_j) = 0 (the KID coefficient at order ε^(2j)), hence gauge by Theorem P;
+  re-slicing the development by its generator and repeating, D_ε agrees with a re-slicing of the background to every
+  order in ε. [R8 (the verifier's section 5 gap): it is not shown that the re-slicing generators keep the allowed
+  support -- compactly supported near U, or equal to a constant multiple of ξ on the inner side. The statement "to every
+  order" is therefore claimed only for families whose re-slicing generator at each order can be so chosen, and is
+  otherwise excluded.]
 - **Not claimed.** That such an exterior family, flat at ε = 0 relative to re-slicings, is a re-slicing (no
   analyticity is used); that the interior data of Theorem X are not re-slicings at the nonlinear level beyond their
   first-order part being non-gauge; the scalar-mode formula for E in terms of Part I's own slice data (the sign is
   obtained on a static slice, to which Lemma TR transfers it exactly); any identification with the Hollands–Wald
   canonical energy.
 - **The third order.** Q = 0 on a non-gauge seed happens only inside the horizon (δ_(s*) of Theorem X), where the sign
-  change gives existence already; outside it happens only on gauge seeds. No question moves to third order. [R8 (minor 6): corrected. Inside the horizon Q, an indefinite quadratic form, vanishes on a whole cone of non-gauge seeds, not only at δ_(s*). For such a δ0 whose bilinear form B(δ0, ·) is not identically zero, take η with B(δ0, η) ≠ 0: Q(δ0 + sη) = 2sB(δ0, η) + s²Q(η), and Proposition L′ on the family δ0 + sη gives m(ε, s) = ε²Q(δ0 + sη) + O(ε³) uniformly; at s = ±Kε, K > C/|B(δ0, η)|, m has opposite signs, so m(ε, s(ε)) = 0 with s(ε) = O(ε), and the data are background + εδ0 + O(ε²). Only δ0 in the radical of Q (B(δ0, ·) ≡ 0) is left to third order, and is not claimed. Outside the horizon Q = 0 only on gauge seeds, as stated.]
+  change gives existence already; outside it happens only on gauge seeds. No question moves to third order. [R8 (minor
+  6): corrected. Inside the horizon Q, an indefinite quadratic form, vanishes on a whole cone of non-gauge seeds, not
+  only at δ_(s*). For such a δ0 whose bilinear form B(δ0, ·) is not identically zero, take η with B(δ0, η) ≠ 0: Q(δ0 +
+  sη) = 2sB(δ0, η) + s²Q(η), and Proposition L′ on the family δ0 + sη gives m(ε, s) = ε²Q(δ0 + sη) + O(ε³) uniformly; at
+  s = ±Kε, K > C/|B(δ0, η)|, m has opposite signs, so m(ε, s(ε)) = 0 with s(ε) = O(ε), and the data are background + εδ0
+  + O(ε²). Only δ0 in the radical of Q (B(δ0, ·) ≡ 0) is left to third order, and is not claimed. Outside the horizon Q
+  = 0 only on gauge seeds, as stated.]
 
 ## 6. Status
 
@@ -328,11 +368,17 @@ data.
 | Theorem P (M_b outside the horizon) | deduced, every identity computed | E2, E4-E9 |
 | Hollands–Wald identification | not used, not claimed | -- |
 
-Not independently read: this note. [R8: read by an independent verifier in round 8 -- M_b settled both ways, no mathematical error in Theorem X or Theorem P, every identity re-derived symbolically; its findings are seated here as [R8] notes.]
+Not independently read: this note. [R8: read by an independent verifier in round 8 -- M_b settled both ways, no
+mathematical error in Theorem X or Theorem P, every identity re-derived symbolically; its findings are seated here as
+[R8] notes.]
 
 ## 7. Proposed replacement for the M_b sentence of FAMILIES5-R6 section 8's proposed paper block
 
-[R8 (Major 1): this section targets FAMILIES5-R6 section 8's block, which FAMILIES5-R7 superseded by R7.6, and its "New" text drops R7.6's qualifiers ("near Part I's data", "for small amplitude", the second-order statement about families background + εδ + O(ε²)); spliced into R6's block it would also bring back the overclaims R7.6 repaired. It is superseded by the single M_b paper text, rebased onto R7.6's last sentence with those qualifiers and with the potentials' positivity computed for every l ≥ 2, in FAMILIES5-R8.md R8.8. The text below is kept as it was.]
+[R8 (Major 1): this section targets FAMILIES5-R6 section 8's block, which FAMILIES5-R7 superseded by R7.6, and its "New"
+text drops R7.6's qualifiers ("near Part I's data", "for small amplitude", the second-order statement about families
+background + εδ + O(ε²)); spliced into R6's block it would also bring back the overclaims R7.6 repaired. It is
+superseded by the single M_b paper text, rebased onto R7.6's last sentence with those qualifiers and with the
+potentials' positivity computed for every l ≥ 2, in FAMILIES5-R8.md R8.8. The text below is kept as it was.]
 
 The last sentence of the bullet proposed in FAMILIES5-R6.md section 8 ("New:"); FAMILIES5-R6.md itself is not edited.
 The old text is quoted with its two preceding half-lines, which stay.
@@ -363,6 +409,7 @@ New:
 ## Files
 
 `FAMILIES5-MB.md` (this note); `checks/mbsign5.py` (E1-E9; controls in E1, E2, E3, E5, E6 (two), E7);
-`checks/mbsign5.out`, its full run [R8 (nits): "its default run"; both runs were redone in round 8 with every change, runtimes as printed in the .out files] (`python3 checks/mbsign5.py --selftest`: E1-E9 PASS, seven controls rejected, about
-6 minutes under load); `checks/mbsign5_full.out` (`--selftest --full --only=E5,E6,E7,E8,E9`: E4-E9 PASS with the
+`checks/mbsign5.out`, its full run [R8 (nits): "its default run"; both runs were redone in round 8 with every change,
+runtimes as printed in the .out files] (`python3 checks/mbsign5.py --selftest`: E1-E9 PASS, seven controls rejected,
+about 6 minutes under load); `checks/mbsign5_full.out` (`--selftest --full --only=E5,E6,E7,E8,E9`: E4-E9 PASS with the
 radial identities symbolic in R and k², about 6 minutes).

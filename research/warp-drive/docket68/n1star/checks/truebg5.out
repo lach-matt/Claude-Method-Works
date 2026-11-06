@@ -1,24 +1,7 @@
 T1 the data on N' over the packet, u in [5.7, 7.2], enclosed (validated, 1500 steps of 0.001)
-   widest node enclosure 4.2e-06; lambda = 2 R_v >= 0.5291 > 0 on every step: True; mu3 = mu(u2) in [0.82209978, 0.82212534]; R_N'(u2) in [1.519357, 1.519359] > sqrt(mu3): True (5 s)
+   widest node enclosure 4.2e-06; lambda = 2 R_v >= 0.5291 > 0 on every step: True; mu3 = mu(u2) in [0.82209978, 0.82212534]; R_N'(u2) in [1.519357, 1.519359] > sqrt(mu3): True (17 s)
    control: DOP853 inside the enclosures: True; with B's amplitude 1.7 -> 1.7017 it leaves them (rejected): True
    the reduction's region I limit (exact): e^psi = 1 and psi_vhat = 0: True; the inverse-function derivatives r1', r1'', r1''' against a 30-digit differentiation of the inverse: True
 T1 PASS
    R_* in [3.437180067, 3.437180067] (intcert5 C3's bisection)
 T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)
-   certified on every cell: True (276 rays; slice pieces tested: region I 1, packet 8834 step boxes, region III 119; largest upper bound of kappa K^l_l = -4.7634e-03; 1288 s)
-   control: psi_vhat's sign flipped in the packet formula, 0 of 8834 step boxes not certified (rejected): False
-T3 FAIL
-T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (T3's cells, clipped)
-   every cell in region III (R2 >= R on the slice): True; Gamma/E^2 > 0 certified on every cell: True (0 rays; least lower bound nan; 0 s)
-Traceback (most recent call last):
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/truebg5.py", line 601, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/truebg5.py", line 593, in main
-    res['T2'] = t2(nd, bgs, cache)
-                ~~^^^^^^^^^^^^^^^^
-  File "/home/user/Claude-Method-Works/research/warp-drive/docket68/n1star/checks/truebg5.py", line 427, in t2
-    pts = np.linspace(va, vb, ncell + 1)
-                              ^^^^^
-NameError: name 'ncell' is not defined. Did you mean: 'cells'?
-exit 1

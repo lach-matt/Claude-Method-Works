@@ -263,9 +263,9 @@ def part_k5():
     tt = -1 + Q(1, 16) + g_at
     fq = sp.Symbol("f", real=True)
     gtt = -1 + fq**2 - m*(1 + fq)**2                     # g_b0^-1(dt~, dt~), dt~ = dt - f' dr, l = (-1, xhat)
-    I = sp.Interval(-Q(1, 4), Q(1, 4))
-    mx = maximum(gtt.subs(m, 0), fq, I)
-    nrm = maximum(1 + fq**2, fq, I)
+    If = sp.Interval(-Q(1, 4), Q(1, 4))
+    mx = maximum(gtt.subs(m, 0), fq, If)
+    nrm = maximum(1 + fq**2, fq, If)
     dec = sp.simplify(sp.diff(gtt, m) + (1 + fq)**2) == 0
     tslice = mx + Q(7, 25)*nrm
     g_ctl = sp.N(gbound.subs({m: Q(1, 16), d: Q(9, 10)}), 8) if (1 - (Q(1, 16) + sp.sqrt(1 + Q(1, 256)))*Q(9, 10)) > 0 \

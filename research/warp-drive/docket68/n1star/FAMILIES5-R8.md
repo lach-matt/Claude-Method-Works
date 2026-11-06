@@ -338,7 +338,51 @@ are the single M_b paper text.
 New:
 
 ```
-XXBLOCK
+- **More families.** Two crossing radial null dusts, one ingoing and one outgoing, are carried through the record's
+  argument: the two-dust background on the whole domain, the approximant to every order, the uniform estimate and the
+  data (deduced, the identities computed; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I). In the T² class each
+  family's null second fundamental form is diag(θ_h, κ1, κ2), the torus terms first order, and at an axis the planar
+  shear is recovered elliptically from the expansion, so the class Einstein–null-dust system is Cauchy-stable on compact
+  domains of the record's type, without smallness, for caustic-free dusts whose lateral boundaries are adapted (one
+  family) where they meet an axis (deduced; `docket68/n1star/FAMILIES5-AXIS.md`). A massless Vlasov limit in the class
+  is restricted (computed); a smooth restricted field never reaches an axis off the axial directions, its density
+  growing like 1/ρ2 there (computed, `docket68/n1star/checks/vlasovhf5.py` H7), and at an axis point at most one ingoing
+  and one outgoing family are separated (computed, `docket68/n1star/checks/axisphase5.py`). Every smooth class
+  Einstein–restricted massless Vlasov solution whose field is a family of dusts labelled by initial direction,
+  caustic-free, off the axes and at an angle from the radial dusts where it meets them, the radial dusts having adapted
+  lateral boundaries at the axes, on a domain of the record's type whose initial spheres have positive mean curvature
+  and a hyperbolic momentum system, is a weak limit of class vacuum metrics along odd N (deduced: N-dust approximants
+  uniform in N; torus-polarised waves at frequencies 1, Λ, …, Λ^(N−1), which leave no combination of phases resonant up
+  to the order the scheme uses; data with overlapping families, whose only divisors are spacetime symbols; the N-family
+  energy estimate, its power counting computed term by term (`docket68/n1star/checks/nledger5.py`); a diagonal choice of
+  λ_N, as Huneau and Luk do; `docket68/n1star/FAMILIES5-VLASOV.md`, `docket68/n1star/FAMILIES5-R6.md`,
+  `docket68/n1star/FAMILIES5-R8.md`, the identities, divisors and data step computed). These hypotheses are open for
+  perturbations whose supports stay in a fixed compact set and whose radial dusts keep adapted boundaries (deduced), and
+  an explicit test family on Tangherlini meets them (computed, `docket68/n1star/checks/vlasovex5.py`). Data localised in
+  an angle exist on cones exactly (computed) and, near Part I's data, on all of Part I's slice in a band widened by a
+  computed amount (deduced): Rácz's split is hyperbolic on the slice except one band inside the shell, R between 4.29
+  and 4.53 (computed, `docket68/n1star/checks/racglobal5.py`; its extent certified by interval arithmetic for the
+  background with the record's characteristic data, whose reduction to ordinary differential equations is deduced, each
+  edge enclosed to within 0.008, `docket68/n1star/checks/intcert5.py`), where no foliation of that slice is hyperbolic
+  (deduced from Rácz's characteristic equation), and a slice bent by at most 0.0012 is hyperbolic everywhere (certified
+  for that background and for its computed approximation in a stated interpolant; `docket68/n1star/checks/racslice5.py`,
+  `docket68/n1star/checks/intcert5.py`, `docket68/n1star/checks/truebg5.py`). Near Part I's data, exactly localised
+  vacuum data whose first-order part perturbs the extrinsic curvature alone do not exist for small amplitude: their
+  charge is minus a sum of squares minus a term carrying the mass, at the axes too (deduced; the identity computed,
+  `docket68/n1star/checks/qsign5.py`, and the last term's sign certified for that background and for its computed
+  approximation in a stated interpolant, `docket68/n1star/checks/truebg5.py`, `docket68/n1star/checks/intcert5.py`);
+  with matter obeying the dominant energy condition such data do not exist outside the horizon, and inside it they exist
+  with outgoing null dust (deduced; the sign computed). For first-order parts that perturb the metric the charge is Q =
+  2∫_U G^(2)(ξ, n) =: −E, and its sign is decided (`docket68/n1star/FAMILIES5-MB.md`,
+  `docket68/n1star/checks/mbsign5.py`). Inside the horizon E takes both signs on perturbations of tensor type, so near
+  Part I's data exactly localised vacuum data background + εδ + O(ε²), δ a perturbation of the metric that is not a
+  gauge one, exist for small amplitude on every vacuum band of the slice that meets the black-hole region (deduced, by
+  intermediate values; the tensor sector's charge computed). Outside the horizon E is positive on every perturbation
+  that is not a gauge one: in the class it is the sum, over the even harmonics, of the energies of Kodama and
+  Ishibashi's master equations, whose potentials are positive in five dimensions for every l ≥ 2 (the reduction and the
+  positivity computed exactly, the passage to a static slice deduced). So on bands outside the horizon, near Part I's
+  data, no exactly localised vacuum data background + εδ + O(ε²) with δ not a gauge perturbation exist for small
+  amplitude: exact vacuum localisation fails there at second order.
 ```
 
 What changed from R7.6's block:
@@ -363,7 +407,11 @@ control rejected: `checks/mbsign5.out` (the default run, 292 s) and `checks/mbsi
 
 - **Major 1** (section 7 targeted R6's superseded block and dropped R7.6's qualifiers). *Repaired.* The single M_b
   paper text is R8.8's, rebased onto R7.6's last sentence with its qualifiers. MB section 7 carries a note.
-- **Minor 1** (E2/E3 are spot checks at three slice points). XXM1
+- **Minor 1** (E2/E3 are spot checks at three slice points). *Relabelled* (MB section 2 note; mbsign5 docstring). E2
+  (iii) and E3 (a)-(b) are exact at three rational slice points, a spot check in the slice. On every class slice they
+  rest on the verifier's own symbolic check (w = 2/(f + q²), q free), which corroborates them; a symbolic run inside the
+  record was tried in round 8 and did not finish in the time available. The final block accordingly says "computed" for
+  the tensor charge, without "on every slice".
 - **Minor 2** (`--full` relied on a homothety that holds only for weight-homogeneous identities). *Repaired.* `--full`
   is now symbolic in R, μ and k² through μ = xR², with x a free symbol. This is a change of variables, so no
   homogeneity is assumed. Every E4-E9 identity passes (235 s), and a non-homogeneous mutation can no longer pass.
