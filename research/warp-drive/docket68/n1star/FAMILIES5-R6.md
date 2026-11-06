@@ -321,9 +321,10 @@ solutions.** ∎
   equation; (b) N phase transports, each along its own generator; (c) each family's pure harmonics transported along
   its own generator; (d) every mixed harmonic e^(i n·s), two or more n_A ≠ 0, |n|₁ ≤ m + 2 at stage m, divided by Q_n
   = g⁻¹(K_n, K_n). On the overlaps |Q_n| ≥ 2 a_T a_S (c − mM²/Λ − m²M²/(2Λ)) with c = min(c0/N², c(η)) (Lemma C,
-  sharpened; Lemma S for labels, (V2′) for label–radial pairs; computed H4 with the resonant configuration, nfamily5 N3-N4).
-  The phase corrections and the mean change Q_n by O(λ), moved to the next order as in FULL's N2 argument since |n|₁ is
-  bounded at each stage; each division costs one derivative, finitely many stages. Every generator reaches Σ_τ0 inside
+  sharpened; Lemma S for labels, (V2′) for label–radial pairs; computed H4 with the resonant configuration,
+  nfamily5 N3-N4). The phase corrections and the mean change Q_n by O(λ), moved to the next order as in FULL's N2
+  argument since |n|₁ is bounded at each stage; each division costs one derivative, finitely many stages. Every
+  generator reaches Σ_τ0 inside
   Ω ((Ω), (V1), (V2)), so the record's Picard argument closes the stage system.
 - **E₂_N (the uniform estimate).** The record's Theorem E with w = h + Σ_A φ_A Y_A and N₂ summed over the N families:
   (i) the decomposition is N transports ℓ_A·dφ_A = ½ 𝒫 s_A(h), φ_A = 0 on Σ_τ0, coupled through the bounded maps φ ↦

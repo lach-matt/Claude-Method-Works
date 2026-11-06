@@ -24,6 +24,9 @@ are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANT
   D623 (the section 0-4 reader's findings seated, sections 0-4 36 lines longer): the rows in sections 0-4 re-keyed by
   content, the rows below D616's line 457 moved by +36, the new hits of the D623 text classified (none of kind N), and
   LAST, the end of sections 0-6, located by content (the line '## 7. What is left'); the md5 pins are not re-pinned here.
+  D619 (the section 6 reader's findings seated, section 6 66 lines longer): the rows in section 6 re-keyed by content
+  in D616's numbering (so D623's shift carries them), the three new hits of the D619 text classified (X, none of kind
+  N), and C3's row followed to its D619 line; the md5 pins are not re-pinned here either.
 
     python3 checks/lzeroaudit5.py
 """
@@ -239,11 +242,11 @@ def main():
     ok['C2'] = 'subsequen' in kws and 'contradict' in kws
     say('  C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds %s' % kws)
     t2 = dict(TABLE)
-    del t2[(757 + 36, 'limit')]                        # D623: +36
+    del t2[(D619[757] + 36, 'limit')]                  # D623: +36; D619: 757 -> 801
     _, u3 = census(lines, t2)
     ok['C3'] = len(u3) == 1 and not uncl
-    say('  C3 (control): with the row (793, limit) removed (757 at D616, 752 at D614, 745 before D612/D614), %d hit '
-        'unclassified' % len(u3))
+    say('  C3 (control): with the row (%d, limit) removed (793 at D623, 757 at D616, 752 at D614, 745 before D612/D614),'
+        ' %d hit unclassified' % (D619[757] + 36, len(u3)))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

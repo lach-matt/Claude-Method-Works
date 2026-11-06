@@ -291,7 +291,7 @@ def m3():
     by_k = lambda rows, k: max(r[1] for r in rows if r[0] == k)                     # noqa: E731
     good_ok = gmax < 2 * min(r[1] for r in rg if r[0] == 2) + 1.0
     ctl = by_k(rb, 64) > 5 * by_k(rb, 2)
-    print("   coefficients A(U): ratio |dw|_L2/|dU|_L2 by frequency 2, 8, 32, 64: %s (bounded: %s)" %
+    print("   coefficients A(U): ratio |dw'|_L2/|dU|_L2 by frequency 2, 8, 32, 64: %s (bounded: %s)" %
           (", ".join("%.4f" % by_k(rg, k) for k in (2, 8, 32, 64)), good_ok))
     print("   control (A(U'), U' not a component): %s (grows with the frequency; rejected): %s" %
           (", ".join("%.4f" % by_k(rb, k) for k in (2, 8, 32, 64)), ctl))
