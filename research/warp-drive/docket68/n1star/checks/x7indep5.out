@@ -1,6 +1,7 @@
 x7indep5: SUM X_7, d and N by an independent route; dnumber5's production path under test
   I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: True
-  I2: dnumber5.chain_level_sum equals brute-force enumeration on 600 random small instances: True
+  I2: dnumber5.chain_level_sum equals brute-force enumeration on 600 random small instances: True; 299 of them reach a
+      level that counts every point (Round 8: 1 of 600 before; required >= 100)
   I3 R0/shifted: SUM X_7 = 6553653743474486 (swapped order), pinned in dnumber5: 6553653743474486
   I3 R0/wide: SUM X_7 = 7512059369168913 (swapped order), pinned in dnumber5: 7512059369168913
   I3 R1/shifted: SUM X_7 = 6783838625545958 (swapped order), pinned in dnumber5: 6783838625545958

@@ -255,7 +255,9 @@ def r4(control=False):
     ts_ok = sp.simplify(vals["t_* = const (s' = 1)"][0] - (1 - fx/2)) == 0
     null_ok = sp.simplify(vals["u = const (s' = 2/f)"][0]) == 0 and sp.simplify(vals["u = const (s' = 2/f)"][1]) == 0
     spacelike = all(sp.simplify(vals[k_][1]).subs({rr: 3, mu: 1}) < 0 for k_ in list(leaves)[:2])
-    ray = sp.simplify(f/2*u**2 - (f/2)*u**2) == 0                      # J^r - rho' J^v with rho' = f/2
+    rp_ = sp.Symbol("rho_p")
+    rho_p = sp.solve(sp.Eq(-f + 2*rp_, 0), rp_)[0]                     # g_2((1, rho'), (1, rho')) = 0: outgoing
+    ray = sp.simplify(f/2*u**2 - rho_p*u**2) == 0                      # J^r - rho' J^v on r = rho(v)
     ok = ident == 0 and bulk and t_ok and ts_ok and null_ok and spacelike and ray
     say("  R4%s: d_v(u^2) + d_r((f/2)u^2) + (2a - f'/2)u^2 - 2uF = %s; bulk (2j + 1) f'/2: %s; leaf densities and "
         "g^-1(dw, dw): %s; spacelike t, t_* leaves: %s; null leaf density 0: %s; outgoing ray flux 0: %s"
@@ -582,8 +584,11 @@ def r13(control=False):
     self_width = max(len(ln) for ln in open(os.path.abspath(__file__), encoding="utf-8").read().splitlines())
     proof = open(PROOF, encoding="utf-8").read()
     nth = [i for i in range(len(proof)) if proof.startswith("N-th order", i)]
-    nth_ok = all(proof.rfind("[amended D622", 0, i) > proof.rfind("]", 0, i) or
-                 proof.rfind("[amended D622", 0, i) > proof.rfind("\n\n", 0, i) for i in nth)
+    nth_ok = True
+    for i in nth:                                                     # inside a quotation of an [amended D622 note
+        start = proof.rfind("[amended D622", 0, i)
+        para = proof.rfind("\n\n", 0, i)
+        nth_ok &= start > para and proof.count('"', start, i) % 2 == 1
     seated = all(s_ in proof for s_ in ("**Lemma 10.1a (the red-shift commutation", "**Lemma 10.1b (the red-shift datum",
                                         "(iv-a) *Part VIII's data class", "(iv-b) *[HKW18]'s data class"))
     ok &= self_width <= 121 and nth_ok and seated

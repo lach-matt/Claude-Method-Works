@@ -1,2 +1,0 @@
-x7indep5: SUM X_7, d and N by an independent route; dnumber5's production path under test
-  I1: the independent floor sum agrees with brute force and dweights5.floor_sum on 3000 random cases: True

@@ -96,12 +96,15 @@ def main():
     c2 = f2_coeff(2)
     cY = sp.Symbol('c_Y', positive=True)
     OK['F2'] = sp.simplify(c2 - cY) == 0
-    qlo, cY2, fac = Fr(196683, 10 ** 6), 2, Fr(1105, 10 ** 3) * 10 ** 17
+    # Round 8 (the round-7 verifier): the inputs rounded outward, q_lo down to 0.1966827 and e^(kappa Dtau/2) up to
+    # 1.1051725e17 (r7fixes5 R5); before, 0.196683 and 1.105e17 printed 3.5237e17, below the certified 3.52422e17
+    qlo, cY2, fac = Fr(1966827, 10 ** 7), 2, Fr(11051725, 10 ** 7) * 10 ** 17
     import math
     coeff = math.sqrt(cY2) / math.sqrt(float(qlo)) * float(fac)
     OK['F2'] = OK['F2'] and coeff < 3.525e17 and abs(2 * coeff - 7.048e17) / 7.048e17 < 1e-3
     print('  F2: the coefficient of int ||f|| in y is %s (exact); c_Y q_lo^(-1/2) e^(kappa Dtau/2) <= %.4e (floating '
-          'point on READ enclosures, rounded up at 4 digits there), half of stage1rate5\'s 7.048e17: %s' % (
+          'point on READ enclosures rounded outward, r7fixes5 R5; Arb there: < 3.52422e17), half of stage1rate5\'s '
+          '7.048e17: %s' % (
               c2, coeff, OK['F2']))
     c2b = f2_coeff(1)
     OK['C2'] = not (sp.simplify(c2b - cY) == 0)

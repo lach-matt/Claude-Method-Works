@@ -1,7 +1,7 @@
 # Part VIII: linear stability of the Schwarzschild-Tangherlini metric, n = 4 (III.K linearised at Tangherlini)
 
 *Status.* Written (D334); verified (D335: verifier 153 found no major gap; its minor finding m1 and six nits seated);
-proved (D336: verifier 154 read the repairs, correct; its three nits seated).
+proved (D336: verifier 154 read the repairs, correct; its three nits seated). Amended D378, D621: record at the end.
 
 This part proves the linear stability of five-dimensional Schwarzschild-Tangherlini $g_{b_0}$, $b_0 = (\mu_0,0)$, in
 the gauge of the nonlinear problem. Every solution $(\dot\gamma,\dot k)$ of the linearised constraint equations in
@@ -280,10 +280,17 @@ The first term vanishes by Proposition 1.2 (1). The second is $\frac{d}{ds}\Upsi
 *Step 4 (propagation).* By (2.4) and the linearised Bianchi identity (Proposition 1.2's proof),
 $\delta_gG_g\delta^*_{g,E_C}\dot\eta = 0$ on $\Omega_*$. $\dot\eta$ vanishes on $\Omega_*\cap\{t^\flat_*<\hat
 T+\frac74\}$, which contains $\Omega_*\cap\{t^\flat_*\le2\}$ ($\hat T\ge2$). II.F Lemma 1.3 on $\Omega^\circ_*$ with
-$\tau := t^\flat_*$ and $c := \frac32$, as in III.K Proposition 4.2, gives $\dot\eta = 0$. Its compactness hypothesis
-is checked in II.F section 7.4 for metrics with $dt^\flat_*$ past timelike, and $g$ is one (II.C Lemma 3.2 (2) at $h =
-0$); near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$ by II.C Lemma 3.2 (1) at $h =
-0$, as in II.F Lemma 1.4 (a) (D378). So $D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
+$\tau := t^\flat_*$ and $c := \frac32$, as in III.K Proposition 4.2, gives $\dot\eta = 0$. Its compactness hypothesis is
+checked in II.F section 7.4 for metrics with $dt^\flat_*$ past timelike, and $g$ is one (II.C Lemma 3.2 (2) at $h = 0$);
+near the inner boundary, past causal curves stay in $\{r\ge\min(r(p),r^\natural)\}$ by II.C Lemma 3.2 (1) at $h = 0$, as
+in II.F Lemma 1.4 (a) (D378). [amended D621: section 7.4 is the $\iota^+$ model and does not give these sets. They are
+those of II.F Lemma 1.4 (a) at $\theta = 0$, which applies to $g = g_{b_0}$: along its future causal curves $t_*$ is
+non-decreasing and $B := t_*+\tilde R(r)$ is a time function. So for $p\in\Omega^\circ_*$ with $t^\flat_*(p)>c$,
+$J^-(p)\cap\{t^\flat_*\ge c\}$ lies in $L_p := \{c\le t^\flat_*\le t^\flat_*(p),\ B\le B(p),\
+r\ge\min(r(p),r^\natural)\}$, $t^\flat_*$ being a time function. $L_p$ is compact, as $B$ bounds $r$ there ($c\le t_*\le
+t^\flat_*(p)/C_\flat$, $\tilde R(r)\le B(p)-c$, and $\tilde R(r) = r$ for $r\ge r'_0+1$), and lies in $\Omega^\circ_*$
+($t^\flat_*\ge c>1$), as at PART-II-F-IOTA.md:1931-1933. III.K Lemma 6.1 (c) at $h = 0$ gives such sets as well.] So
+$D\mathrm{Ric}(\dot g) = 0$ on $\Omega_*$ by (2.4).
 
 *Step 5 (the initial region).* On $\mathcal D'$ put $\dot g := \dot h+\dot g_{S'}$. $D\mathrm{Ric}(\dot h) = 0$
 (Proposition 1.2 (1)) and $D\mathrm{Ric}(\dot g_{S'}) = 0$ (section 0). The gauge 1-form of (5) on $\mathcal D'$ is
@@ -391,3 +398,9 @@ and 2.3; PART-III-I15-AUGMENT5.md Definition 1.2 and Lemma 2.2; III.J Definition
 Lemmas 2.2-2.3, 4.1, Proposition 4.2 and Theorem 4.3; Part IV$''$ Lemma 2.2, Theorem 2.4, Corollary 4.1; Part IV$'''$
 Theorem 2.1, Corollary 2.3; VI.C Theorem 2.1; Part VII section 0, Lemma 3.1, Proposition 3.2, Theorem 0.2 and
 section 4.
+
+*Amendment record (D621).* Amended D378 (Step 4: the input of II.C Lemma 3.2 (1), that past causal curves stay in
+$\{r\ge\min(r(p),r^\natural)\}$), read by an independent reader (D621): correct. The same reader found Step 4's other
+input mis-cited (m6): II.F section 7.4 is the $\iota^+$ model and gives no compact sets here; they are II.F Lemma 1.4
+(a) at $\theta = 0$, written out in Step 4 (D621). For the perturbed metrics of III.K the same sets come from III.K
+Lemma 6.1, proved there (D621; `checks/scrirad5.py`).

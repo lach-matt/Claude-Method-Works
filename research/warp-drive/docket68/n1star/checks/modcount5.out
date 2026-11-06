@@ -7,7 +7,7 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       A26_iii    above       4  Step 5 (iii): (2.26a) at the last level's pieces
       A422_col   above       5  Lemma 2.4 at j = 3: III.A Proposition 4.2 (2), n_iota = n_K = 0, l_F 3 + 2
       BG_L32     above       2  BG: (L - L_b0) u (I12:414, I14:165)
-      FWD_above  above     248  FWD: D_0 + D_1 + d' + d'' + 6 = 177 + 48 + 8 + 9 + 6
+      FWD_above  above     474  FWD: D_0 + D_1 + d' + d'' + 6 = 399 + 52 + 8 + 9 + 6
       L41_above  above      18  III.I'' Lemma 4.1 (Cor 4.5 11 = 2 l_3 + l_4 + l_5 + 1, l_3 3, l_4 4, l_5 0; (2.25a) 1,
       (2.25b) 0, Cor 4.2 (2) 2, Prop 3.5 (1) 2, (2) 2)
       L42_L3     above       2  level 3: III.I'' Lemma 4.2, (2.4)
@@ -27,7 +27,7 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       A26_4      below       2  Step 4: (2.26a), b_K = alpha_K - 1
       A26_5      below       2  Step 5: (2.26a) on d_t u_sing
       BG_L32b    below       2  BG: (L - L_b) u (I9:251)
-      FWD_below  below     248  FWD (u^flat)
+      FWD_below  below     474  FWD (u^flat)
       L41_below  below      20  III.I'' Lemma 4.1 (Cor 4.5 12, l_5 1; the rest as above)
       L42_34     below       2  Step 3.4': III.I'' Lemma 4.2, (2.4)
       LH_31      below       2  Step 3.1: L-hat(sigma) in f_2
@@ -37,23 +37,23 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       ZE_31      below       1  Step 3.1: III.H Proposition 3.2
       ZE_33      below       1  Step 3.3: III.H Proposition 3.2
       BG_I15     both        2  BG: R_q u, Delta_q(p') (I15:327-332)
-  M3: c'_above = 406 (FWD 248 + 158), c'_below = 300 (FWD + 52): c' = 406; d <= A' + 106489470 c' = 45661383902649727 +
-      43234724820 = 45661427137374547 (4.566143e+16); N = 21 d + 6 <= 958889969884865493 (9.588900e+17); pinned: True
-      against round 7's c' in [62, 250 + MODs]: the MODs are 158 above 3 and 52 below; c' moves d by 9.47e-07 of itself;
+  M3: c'_above = 632 (FWD 474 + 158), c'_below = 526 (FWD + 52): c' = 632; d <= A' + 106489470 c' = 45661383902649727 +
+      67301345040 = 45661451203994767 (4.566145e+16); N = 21 d + 6 <= 958890475283890113 (9.588905e+17); pinned: True
+      against round 7's c' in [62, 250 + MODs]: the MODs are 158 above 3 and 52 below; c' moves d by 1.47e-06 of itself;
       the floor 8,407,505,890,317,054 is 0.1841 of the bound
   M4 (deduced, coarse; computed): the steps outside the levels (I15 Steps 0, 1, 3, 4', 4; III.I'''''''''''' Theorem 3.1
       at the top): one level's largest total with its loops, above 3 M_a = 3 x 52634350 (level-3 rounds) + 3 P_W + 11 + 3
-      P_iota + 47 + 15 W + X_7(alpha) 352162875 + c'_above = 1042275620, below 3 M_b = 3 x 52634349 (tf rounds) + 15 W +
-      58 + c'_below = 179957935 (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: True); B_once := 2 (M_a + 4
-      M_b) + 1000 = 3524215720
-      d <= A' + (K + 1) c' + B_once = 45661430661590267 (4.5661430662e+16); N = 21 d + 6 <= 958890043893395613; B_once is
+      P_iota + 47 + 15 W + X_7(alpha) 352162875 + c'_above = 1042275846, below 3 M_b = 3 x 52634349 (tf rounds) + 15 W +
+      58 + c'_below = 179958161 (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: True); B_once := 2 (M_a + 4
+      M_b) + 1000 = 3524217980
+      d <= A' + (K + 1) c' + B_once = 45661454728212747 (4.5661454728e+16); N = 21 d + 6 <= 958890549292467693; B_once is
       7.72e-08 of d: pinned: True
   C1 (control): the row I12:247 (III.I'' Lemma 4.1) dropped: 1 unclassified: True
   C2 (control): the L-hat pattern dropped: 186 hits (not 212), charge ids lost ['FWD_below', 'LH_3', 'LH_31', 'LH_33']:
       True
-  C3 (control): Corollary 4.5 charged l, not l + 1: c' = 405, not 406: True
-  C4 (control): level 1 per exponent: c' = 376, not 406: True
-  C5 (control): the one-off application on R0 (12): c' = 370, not 406: True
+  C3 (control): Corollary 4.5 charged l, not l + 1: c' = 631, not 632: True
+  C4 (control): level 1 per exponent: c' = 602, not 632: True
+  C5 (control): the one-off application on R0 (12): c' = 596, not 632: True
   C7 (control): M_a without X_7(alpha): B_once leaves its pin: True
   C6 (control): every range's opening line searched one line off: the anchors fail: True
 M0 PASS
