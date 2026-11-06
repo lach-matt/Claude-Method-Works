@@ -603,56 +603,108 @@ def q7():
     nu = R**3
     c2 = sp.cos(2 * th)
     sc = sp.sin(th) * sp.cos(th)
+    cs = sp.Symbol('c')
     rng = np.random.default_rng(11)
-    out = []
+    out, trunc, axis = [], [], []
+    T0S = (0.02, 0.05, 0.1, 0.2)
+    xr, wr = np.polynomial.legendre.leggauss(60)
     for band in ((sp.Rational(1), sp.Rational(7, 4)), (sp.Rational(18, 25), sp.Rational(9, 10))):
         R1, R2 = band
         env = (R - R1)**4 * (R2 - R)**4 / ((R2 - R1) / 2)**8
+        Rn = float(R1) + (float(R2) - float(R1)) * (xr + 1) / 2
+        WR = wr * (float(R2) - float(R1)) / 2
         for trial in range(3):
             a = [sp.Rational(int(x), 7) for x in rng.integers(-9, 10, 3)]
             b = [sp.Rational(int(x), 5) for x in rng.integers(-9, 10, 3)]
             for kind in ('regular', 'irregular'):
                 if kind == 'regular':
-                    psi = sc**2 * env * (a[0] + 2 + a[1] * c2 + a[2] * c2**2 + (R - R1))
+                    Fp = env * (a[0] + 2 + a[1] * cs + a[2] * cs**2 + (R - R1))
+                    psi = sc**2 * Fp.subs(cs, c2)
                 else:                                                     # psi = O(sc): Kt ~ 1/sc at the axes
                     psi = sc * env * (a[0] + 2 + a[1] * c2)
                 s1 = env * (b[0] + b[1] * c2 + b[2] * c2**2)
-                _, _, _, E, Kt, ph, s2 = seed_fields(G, k0, Y0, sp.log(Ew), psi, s1)
-                cc = -(k0 + 2 * Y0) / (3 * Y0)
+                _, cc, beta, E, Kt, ph, s2 = seed_fields(G, k0, Y0, sp.log(Ew), psi, s1)
                 q = nu * sc * (2 * cc * Kt**2 + sp.Rational(2, 3) * Kt**2 - 2 * ph**2 - s1**2 - s2**2 - (s1 + s2)**2)
                 dec, Gam = decomposition(nu, G, E, psi, s1, s2)
                 gterm = -Gam * psi**2 / sp.sin(2 * th)
-                fq, fd, fg = [sp.lambdify([R, th], e, 'numpy') for e in (q, dec, gterm)]
-                xr, wr = np.polynomial.legendre.leggauss(60)
-                xt, wt = np.polynomial.legendre.leggauss(60 if kind == 'regular' else 400)
-                Rn = float(R1) + (float(R2) - float(R1)) * (xr + 1) / 2
+                # the theta flux of R7.1 [R8]: 2 nu beta E^2 psi psi_th/sc - 2 nu E psi s1 - nu E^2 (cos 2th/sc^2) psi^2
+                Bk = [nu * beta * E**2 * psi * sp.diff(psi, th) / sc, nu * E * psi * s1, nu * E**2 * c2 * psi**2 / sc**2]
+                fD = sp.lambdify([R, th], q - dec, 'numpy')
+                fB = [sp.lambdify([R, th], e, 'numpy') for e in Bk]
+                for t0 in T0S:
+                    xt, wt = np.polynomial.legendre.leggauss(120)
+                    Tn = t0 + (np.pi / 2 - 2 * t0) * (xt + 1) / 2
+                    WT = wt * (np.pi / 2 - 2 * t0) / 2
+                    RR, TT = np.meshgrid(Rn, Tn, indexing='ij')
+                    Dl = float(np.sum(np.outer(WR, WT) * fD(RR, TT)))
+                    bk = [float(np.sum(WR * (B(Rn, np.pi / 2 - t0) - B(Rn, t0)))) for B in fB]
+                    trunc.append((band, trial, kind, t0, Dl, bk))
+                if kind != 'regular':
+                    continue
+                # the whole of [0, pi/2] (regular seeds: every integrand bounded), and the decomposition with
+                # 4 nu E^2 -> 3 nu E^2 in Gamma, integrated as it stands (the independent control)
+                decm, _ = decomposition(nu, G, E, psi, s1, s2, m_gam=sp.Rational(3, 4))
+                fq, fd, fg, fm = [sp.lambdify([R, th], e, 'numpy') for e in (q, dec, gterm, decm)]
+                xt, wt = np.polynomial.legendre.leggauss(60)
                 Tn = (math.pi / 2) * (xt + 1) / 2
-                W = np.outer(wr * (float(R2) - float(R1)) / 2, wt * (math.pi / 4))
+                W = np.outer(WR, wt * (math.pi / 4))
                 RR, TT = np.meshgrid(Rn, Tn, indexing='ij')
-                Iq, Id, Ig = [float(np.sum(W * fn(RR, TT))) for fn in (fq, fd, fg)]
-                Kax = float(sp.limit((Kt / Ew).subs(R, (R1 + R2) / 2), th, 0))
-                out.append((band, trial, kind, Iq, Id, Ig, Kax))
-    reg = [o for o in out if o[2] == 'regular']
-    irr = [o for o in out if o[2] == 'irregular']
-    rel = max(abs(o[3] - o[4]) / abs(o[3]) for o in reg)
-    relg = max(abs(o[3] - o[4]) / abs(o[5]) for o in reg)
-    neg = all(o[3] < 0 and o[3] <= o[5] + 1e-9 * abs(o[3]) for o in reg)
-    kax = min(abs(o[6]) for o in reg)
-    # control 1: the decomposition with Gamma -> (3/4) Gamma misses Q by a quarter of the Gamma term
-    o = reg[0]
-    mism = abs((o[3] - (o[4] - 0.25 * o[5])) / o[5])
-    ctl1 = abs(mism - 0.25) < 0.01
-    # control 2: psi = O(sc) (not axis-regular): the identity fails (boundary terms at the axes)
-    rel_irr = min(abs(o[3] - o[4]) / abs(o[5]) for o in irr)
-    ctl2 = rel_irr > 1e-3
-    print("   six regular seeds (two bands, one inside the horizon; Kt/E on the axis ranges down to %.3f, so they "
-          "reach it): Q equals the decomposition over the whole of [0, pi/2] to %.1e of Q and %.1e of its Gamma term, "
-          "Q < 0 and Q <= -int Gamma psi^2/sin 2th: %s" % (kax, rel, relg, neg))
-    print("   controls: Gamma -> (3/4) Gamma misses Q by %.4f of the Gamma term (a quarter; rejected): %s; seeds with "
-          "psi = O(sin th cos th), not axis-regular, miss it by at least %.1e of the Gamma term (axis boundary terms; "
-          "rejected): %s" %
-          (mism, ctl1, rel_irr, ctl2))
-    return rel < 1e-8 and relg < 1e-4 and neg and kax > 0 and ctl1 and ctl2
+                Iq, Id, Ig, Im = [float(np.sum(W * fn(RR, TT))) for fn in (fq, fd, fg, fm)]
+                out.append((band, trial, Iq, Id, Ig, Im))
+                # Kt/E on the axes, exactly: Kt/E = psi_th/sc = 2 cos 2th F - 4 sc^2 F_c, so 2 F(R, 1) at th = 0
+                # and -2 F(R, -1) at th = pi/2; F(R, +-1) = env L+-(R), L+- linear in R with slope 1
+                for side, cval in ((0, 1), (1, -1)):
+                    L = sp.expand(sp.cancel(Fp.subs(cs, cval) / env))
+                    roots = [r for r in sp.solve(L, R) if R1 < r < R2]
+                    mn = min(abs(L.subs(R, R1)), abs(L.subs(R, R2))) if not roots else 0
+                    th_ = 1e-7 if side == 0 else math.pi / 2 - 1e-7
+                    num = float((sp.diff(psi, th) / sc).subs({R: (R1 + R2) / 2, th: th_}).evalf(30))
+                    exact = float(((2 if side == 0 else -2) * Fp.subs(cs, cval)).subs(R, (R1 + R2) / 2))
+                    axis.append((band, trial, side, sp.degree(L, R), len(roots), float(mn), abs(num - exact)))
+    rel = max(abs(o[2] - o[3]) / abs(o[2]) for o in out)
+    relg = max(abs(o[2] - o[3]) / abs(o[4]) for o in out)
+    neg = all(o[2] < 0 and o[2] <= o[4] + 1e-9 * abs(o[2]) for o in out)
+    # the truncated identity: int over [t0, pi/2 - t0] of (q - dec) = the flux, top minus bottom, signs (+2, -2, -1)
+    sg = (2, -2, -1)
+    terr = max(abs(t[4] - sum(s_ * b_ for s_, b_ in zip(sg, t[5]))) / max(abs(t[4]), max(abs(x) for x in t[5]))
+               for t in trunc)
+    reg_t = {(t[0], t[1], t[3]): t[4] for t in trunc if t[2] == 'regular'}
+    irr_t = {(t[0], t[1], t[3]): t[4] for t in trunc if t[2] == 'irregular'}
+    keys = sorted({(k[0], k[1]) for k in reg_t})
+    reg_decay = max(abs(reg_t[k + (0.02,)] / reg_t[k + (0.05,)]) for k in keys)        # ~ (2/5)^2 = 0.16
+    irr_lim = min(abs(irr_t[k + (0.02,)] / irr_t[k + (0.05,)]) for k in keys)           # ~ 1: a nonzero limit
+    irr_size = min(abs(irr_t[k + (0.02,)]) for k in keys)
+    # controls: each of the three flux terms with its sign flipped misses the truncated identity somewhere
+    flips = []
+    for j in range(3):
+        sgf = list(sg)
+        sgf[j] = -sgf[j]
+        flips.append(max(abs(t[4] - sum(s_ * b_ for s_, b_ in zip(sgf, t[5]))) / abs(t[4]) for t in trunc
+                         if abs(t[4]) > 1e-6))
+    mism = min(abs(o[2] - o[5]) / abs(o[4]) for o in out)
+    deg_ok = all(x[3] == 1 for x in axis) and max(x[6] for x in axis) < 1e-5
+    nroot = sum(x[4] for x in axis)
+    mn_axis = min(x[5] for x in axis if x[4] == 0)
+    print("   six regular seeds (two bands, one inside the horizon): Q equals the decomposition over the whole of "
+          "[0, pi/2] to %.1e of Q and %.1e of its Gamma term, Q < 0 and Q <= -int Gamma psi^2/sin 2th: %s" %
+          (rel, relg, neg))
+    print("   they reach the axes [R8]: Kt/E on the axes is exactly 2 env(R) L+(R) at th = 0 and -2 env(R) L-(R) at "
+          "th = pi/2, L+- linear in R with slope 1 (checked against psi_th/sc at 1e-7 from the axis: %s), so it "
+          "vanishes at most at one point of the open band; %d of the 12 (seed, axis) pairs have that zero, and the "
+          "rest have |L+-| >= %.3f on the whole band, so |Kt/E| >= %.3f env(R) there" % (deg_ok, nroot, mn_axis,
+                                                                                         2 * mn_axis))
+    print("   truncated to [t0, pi/2 - t0], t0 in %s, regular and axis-irregular seeds alike [R8]: int (q - dec) equals "
+          "the theta flux 2 nu beta E^2 psi psi_th/sc - 2 nu E psi s1 - nu E^2 (cos 2th/sc^2) psi^2, top minus "
+          "bottom, to %.1e; regular seeds: it vanishes as t0 -> 0 (ratio t0 = 0.02 to 0.05 at most %.3f, t0^2: "
+          "0.16); psi = O(sc) seeds: it tends to a nonzero limit (ratio at least %.3f, size at least %.3f), so for "
+          "them the identity on [0, pi/2] fails by the axis boundary terms" % (T0S, terr, reg_decay, irr_lim,
+                                                                                irr_size))
+    print("   controls: each flux term with its sign flipped misses the truncated identity, by up to %s of it "
+          "(rejected): %s; the decomposition with 4 nu E^2 -> 3 nu E^2 in Gamma, integrated as it stands, misses Q "
+          "by at least %.3f of the Gamma term (rejected): %s" %
+          (", ".join("%.2f" % x for x in flips), all(x > 1e-3 for x in flips), mism, mism > 1e-3))
+    return (rel < 1e-8 and relg < 1e-4 and neg and deg_ok and terr < 1e-8 and reg_decay < 0.3 and irr_lim > 0.5
+            and irr_size > 1e-3 and all(x > 1e-3 for x in flips) and mism > 1e-3)
 
 
 def main():
