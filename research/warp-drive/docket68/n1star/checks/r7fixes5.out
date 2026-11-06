@@ -1,0 +1,7 @@
+r7fixes5: the round-6 verifier's findings on lambda0 and the towers, re-derived; the stage-1 criterion
+  R1: at X* the W_TT eigenvalues (e_phi1, e_theta, e_phi2) are [4*K*cos(s)/3, -2*K*cos(s)/3, -2*K*cos(s)/3] (exact); e2^T
+      g e2 = M_22 + (4/3) K cos s for every symmetric M: True; with M = 0 the spectrum is {(4/3) K cos s, -(2/3) K cos s
+      (x2), 2 chi, 0}: True; W U = 0: True; with M = w (e2 e3^T + e3 e2^T) the top eigenvalue at s = 0 is K/3 + (K^2 +
+      w^2)^(1/2): True. (4/3) K >= [12.593464 +/- 2.75e-7] (certified, c >= 1.32407110621, envelope5 E1). So sup_s |m_1 +
+      W_TT + chi D|_op >= 12.5933 + |m_1(X*)_22|, and m_1(X*) e2 != 0 raises the bound; with m_1 = 0 it is max(|W_TT|, 2
+      |chi|) pointwise: True

@@ -179,18 +179,23 @@ def r2_search(B, syms):
 
 
 def arb_eval_B(B, syms, thq, vq, sq, a, c):
-    s, th, r, v, E = syms
-    import math
+    """B at a rational point, in Arb throughout (no floating constants): the closed forms of wf_parts written out"""
     y = (2 * vq - 4) / 3
     yb = fa(y)
     shape = (flint.arb.pi() * yb / 2).cos() ** 12 * (-(yb * yb) / (1 - yb * yb)).exp()
-    Eb = c * shape
-    # evaluate B with arb by substituting cos/sin of the rational angles as arb balls
-    thb, sb, vb = fa(thq), fa(sq), fa(vq)
-    expr = sp.expand_trig(B)
-    f = sp.lambdify((s, th, r, v, E), expr, modules=[{'cos': lambda x: x.cos(), 'sin': lambda x: x.sin(),
-                                                      'sqrt': lambda x: x.sqrt()}])
-    return f(sb, thb, a, vb, Eb)
+    E = c * shape
+    th, sv, v = fa(thq), fa(sq), fa(vq)
+    C, S = th.cos(), th.sin()
+    H2 = 2 / (1 + (2 * th).cos() ** 2)
+    K = E * H2.sqrt() * a ** flint.arb(-1.5)
+
+    def wf2(x):
+        a1 = K * (2 * C ** 2 * x.cos() - S ** 2 * x.sin()) / 3
+        a2 = K * (2 * S ** 2 * x.sin() - C ** 2 * x.cos()) / 3
+        return 4 * (a1 + a2) ** 2 + 4 * a1 ** 2 + 4 * a2 ** 2
+    rad = a ** -2 - (v + 2) ** flint.arb(-0.5) * a ** flint.arb(-1.5)
+    chi = -E ** 2 * H2 * (4 * (2 * th).cos() * (2 * sv).sin() + (2 * th).sin() ** 2 * (2 * sv).cos()) * rad / 12
+    return (wf2(sv) + wf2(sv + flint.arb.pi() / 2)) / 2 + 4 * chi ** 2
 
 
 # ---------------------------------------------------------------------------------------------- R3
@@ -277,7 +282,7 @@ def main():
     Bb = arb_eval_B(B, syms, thq, vq, sq, a, C_LO)
     g = LZ.geometry()
     alo, ahi = g['a']
-    inside = LT.in_omega(vq - ahi, ahi, vq, g) and LT.in_omega(vq - alo, alo, vq, g)
+    inside = LT.in_omega(vq - ahi, ahi, vq, g)          # as lzerotrace5 T3: r = a is Omega's inner boundary
     capF = Bb.sqrt()
     lamF = EPS1_HI / capF
     s, th, r, v, E = syms

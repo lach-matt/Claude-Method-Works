@@ -248,7 +248,8 @@ def part_c():
             bm = max(grid + [bstar], key=lambda b: interp_exp(K, M, Jp, k, b, rem=Jp - 4))
             ctl1 = ctl1 or interp_exp(K, M, Jp, k, bm, rem=Jp - 4) != (K - 3)*(1 - th) - M*th
             ctl2 = ctl2 and interp_exp(K, M, Jp, k, Fr(0)) == -M < 0
-    check("C1 the optimum over sigma = lam^beta is (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3) (12 random "
+    check("C1 the optimum over sigma = lam^beta is (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3) (12 "
+          "random "
           "K, M; k = 5, 6, 7)", ok_formula)
     check("C2 beta* > 1 (sigma inside the far region r >= lam^-2) exactly when K - 3 + M > J' - 3", ok_far)
     check("C3 control (the remainder exponent mutated to J' - 4): the formula fails", ctl1)
@@ -281,7 +282,8 @@ def part_d():
                       sp.simplify(val.subs(ep, 0)) == 0))
     check("D1 (g_b0 + eps h)^-1(dv, dv) vanishes at eps = 0, has first variation -h(ell, ell) (exact) and takes both "
           "signs (h = +-dx1^2, eps = 1/100): v is not a time function for the perturbed metrics",
-          all(s_[1] and s_[2] for s_ in signs) and {signs[0][0], signs[1][0]} == {1, -1}, str([str(s_[0]) for s_ in signs]))
+          all(s_[1] and s_[2] for s_ in signs) and {signs[0][0], signs[1][0]} == {1, -1},
+          str([str(s_[0]) for s_ in signs]))
     gv = sp.simplify(GB0I*dv)
     Y = -gv
     check("D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal "
@@ -316,7 +318,8 @@ def part_d():
         dP = np.concatenate(([1.0], (1 - 1/r_**2)*xh))
         worst = max(worst, (dP@(g0i + 0.5/r_**2*D)@dP)*r_**2)
         ctl = max(ctl, (dP@(g0i + 2.0/r_**2*D)@dP)*r_**2)
-    check("D5 (g_b0^-1 + delta)(dPhi, dPhi) < 0 for |delta|_op <= r^-2/2 (2000 points, r in [4, 400]; bound -r^-2 + r^-4 "
+    check("D5 (g_b0^-1 + delta)(dPhi, dPhi) < 0 for |delta|_op <= r^-2/2 (2000 points, r in [4, 400]; bound "
+          "-r^-2 + r^-4 "
           "deduced in D4)", worst < 0, f"max r^2 g^-1(dPhi, dPhi) = {worst:.3f}")
     check("D5' control: |delta|_op = 2 r^-2 makes dPhi_W spacelike somewhere", ctl > 0, f"max {ctl:.3f}")
 
@@ -382,7 +385,8 @@ def part_f():
             worst = min(worst, T(X, n))
             nv = -gi@dv
             ctl = min(ctl, T(X, nv)/(abs(p@p)))
-    check("F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0 (g = g_b0 + H, |H|_op <= r^-2/2, 6000 samples): "
+    check("F1 the flux T(d_t, -grad Phi_W) through {Phi_W = V_*} is >= 0 (g = g_b0 + H, |H|_op <= r^-2/2, 6000 "
+          "samples): "
           "that boundary is spacelike and its flux can be dropped", worst >= -1e-12, f"min {worst:.3e}")
     check("F1' control (-grad v in place of -grad Phi_W; dv is spacelike for some of these g): negative somewhere",
           ctl < 0, f"min {ctl:.3e}")
@@ -415,7 +419,8 @@ def part_f():
                                                    + 2*rr_**(2*a + 3)*Ff(rr_)*sp.diff(Ff(rr_), rr_))
     hd = sp.diff(rr_**(2*a + 2)*Ff(rr_)**2/(2*a + 2), rr_) - (rr_**(2*a + 1)*Ff(rr_)**2
                                                            + rr_**(2*a + 2)*Ff(rr_)*sp.diff(Ff(rr_), rr_)/(a + 1))
-    check("F3 the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = (2a+3) r^(2a+2) F^2 + 2 r^(2a+3) F F' and "
+    check("F3 the identities behind S1 and Hardy on [R, R']: d(r^(2a+3) F^2) = (2a+3) r^(2a+2) F^2 + "
+          "2 r^(2a+3) F F' and "
           "d(r^(2a+2) F^2/(2a+2)) = r^(2a+1) F^2 + r^(2a+2) F F'/(a+1) (exact), with the boundary terms at R' kept",
           sp.simplify(s1) == 0 and sp.simplify(hd) == 0)
     Fg = rr_**(-a - 2 - eta)
