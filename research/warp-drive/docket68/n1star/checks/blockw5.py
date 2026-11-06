@@ -25,9 +25,26 @@ import os, re, sys, math
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def down(txt):
-    """a printed number rounded down by half a unit of its last digit"""
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
+
+def down(txt, sig=None):
+    """a printed number rounded down by half a unit of its last digit: of its last decimal (sig None, '%.2f'), or of
+    its sig-th significant digit ('%.3g', whose trailing zeros are not printed)"""
     v = float(txt)
+    if sig is not None:
+        return v - 0.5 * 10 ** (math.floor(math.log10(abs(v))) - sig + 1)
     mant = txt.lower().split('e')[0]
     dec = len(mant.split('.')[1]) if '.' in mant else 0
     exp = int(txt.lower().split('e')[1]) if 'e' in txt.lower() else 0
@@ -39,7 +56,8 @@ def parse_blocks(path):
     band = txt[txt.index('H2 (computed) on |x| <= 0.5'):]
     flat = re.sub(r'\n\s+', ' ', band)
     pairs = []
-    for m_ in re.finditer(r'(\S+) row \(bounds (\S+)\) <- (\S+) \[(\w+)\]: .*?space-time coupling >= ([0-9.e+-]+);', flat):
+    pat = r'(\S+) row \(bounds (\S+)\) <- (\S+) \[(\w+)\]: .*?space-time coupling >= ([0-9.e+-]+);'
+    for m_ in re.finditer(pat, flat):
         pairs.append(dict(row=m_.group(1), bnd=m_.group(2), unk=m_.group(3), typ=m_.group(4), c=m_.group(5)))
     top = re.search(r'largest space-time coupling \((\S+) row <- (\S+)\): >= ([0-9.e+-]+) for every N >= \d+ '
                     r'\(N-independent, H1\), and for N = 0\.\.\d+ at least ([0-9.e+-]+)', flat)
@@ -59,38 +77,36 @@ def group(n):
 
 
 def weighted(pairs, top, w, use_weights=True, pick=max):
+    """c^2 lam_Y/lam_Z per pair (N >= 31), the picked pair, and the all-N figure of blocks5's top pair"""
     out = []
     for p in pairs:
         gy, gz = group(p['bnd']), group(p['unk'])
         dt = (down(w[gy]) - (float(w[gz]) + 0.005)) if use_weights else 0.0      # rounded against the claim
-        prod = down(p['c']) ** 2 * math.exp(dt)
+        prod = down(p['c'], 3) ** 2 * math.exp(dt)
         out.append((prod, p, gy, gz, dt))
     best = pick(out, key=lambda e: e[0])
-    allN = None
-    if (best[1]['row'], best[1]['unk']) == (top[0], top[1]):
-        allN = min(down(top[2]), down(top[3])) ** 2 * math.exp(best[4])
-    return out, best, allN
+    tp = [e for e in out if (e[1]['row'], e[1]['unk']) == (top[0], top[1])][0]
+    allN = min(down(top[2], 3), down(top[3], 3)) ** 2 * math.exp(tp[4])
+    return out, best, (allN, tp)
 
 
 def main():
     pairs, top = parse_blocks(os.path.join(HERE, 'blocks5.out'))
     w = parse_weights(os.path.join(HERE, 'wgron5.out'))
     ok = len(pairs) == 6
-    out, best, allN = weighted(pairs, top, w)
+    out, best, (allN, tp) = weighted(pairs, top, w)
     print('B1 (computed) the six largest band pairs of blocks5.out at W3\'s weights (wgron5.out, |x| <= 0.5):')
     for prod, p, gy, gz, dt in out:
         print('   %s row (bounds %s, group %s) <- %s (group %s): c >= %s, log(lam_Y/lam_Z) >= %.2f, c^2 lam_Y/lam_Z >= '
               '%.3g' % (p['row'], p['bnd'], gy, p['unk'], gz, p['c'], dt, prod))
-    lb = allN if allN is not None else best[0]
-    print('B2 the largest: %s row <- %s, >= %.3g for N >= 31%s -> the block condition %s at W3\'s weights' % (
-        best[1]['row'], best[1]['unk'], best[0],
-        (' and >= %.3g for every N (blocks5\'s all-N minimum %s, weighted)' % (allN, top[3])) if allN is not None
-        else ' (the all-N minimum was printed for another pair)', 'FAILS' if lb > 1 else 'is not excluded'))
-    ok &= lb > 1
-    _, b0, a0 = weighted(pairs, top, w, use_weights=False)
-    k1 = abs((a0 if a0 is not None else b0[0]) - 484.0) / 484.0 < 0.01
-    print('   control (k1) equal weights: %.4g (blocks5: 484) -> %s' % (a0 if a0 is not None else b0[0],
-                                                                       'reproduced' if k1 else 'NOT reproduced'))
+    print('B2 the largest at N >= 31: %s row <- %s, >= %.3g; blocks5\'s top pair (%s row <- %s), whose minimum over '
+          'N = 0..30 it printed (%s), weighted: >= %.3g for EVERY N -> the block condition %s at W3\'s weights' % (
+              best[1]['row'], best[1]['unk'], best[0], top[0], top[1], top[3], allN,
+              'FAILS' if allN > 1 else 'is not excluded'))
+    ok &= allN > 1 and best[0] > 1
+    _, _, (a0, _) = weighted(pairs, top, w, use_weights=False)
+    k1 = abs(a0 - 484.0) / 484.0 < 0.01
+    print('   control (k1) equal weights: %.4g (blocks5: 484) -> %s' % (a0, 'reproduced' if k1 else 'NOT reproduced'))
     _, bmin, _ = weighted(pairs, top, w, pick=min)
     k2 = bmin[0] < 1
     print('   control (k2) the smallest pair in place of the largest: %s row <- %s, %.3g -> %s' % (
