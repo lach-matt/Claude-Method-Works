@@ -38,6 +38,14 @@ unresolved in angle.  Two candidates were named: cpsolve5 P3's axis defect and s
                                                                                     'reg' is given)
   python3 checks/cpaxis5.py --compare M32.npz M40.npz M32reg.npz M40reg.npz      (A4)
   python3 checks/cpaxis5.py --nullstep M32reg400.npz M32reg800.npz M40reg800.npz  (A5)
+  python3 checks/cpaxis5.py --kretschmann M32reg400.npz M32reg800.npz M40reg800.npz  (A6)
+
+  A6 (computed) the invariant: the Kretschmann scalar K (dnsolve5.kretschmann, exact Christoffels) of the regularised
+     runs on 24 u-rows of the 400-row grid crossing kept cells with areal radius in [0.95, 1.5] and v in [1.5, 2.25]
+     (rows 2i of the 800-row grid), at x = 0.97, 0.5, 0, -0.5, -0.97 by the Chebyshev interpolant, per v-band over the
+     cells kept by all three runs with areal radius in [1.0, 1.4]: dev = max |K/K_0 - 1| (800 rows, M = 32; K_0 =
+     72/R^8), the angular difference max |K_32 - K_40|/K_0 at 800 rows, and the null-step difference
+     max |K_400 - K_800|/K_0 at M = 32.  Where both differences are small against dev, the invariant is resolved.
 
   A5 (computed) the regularised scheme on two null grids: per band at areal radius 0.9-1.0, 1.0-1.2 and >= 1.2, the
      interior monitor at 400 and 800 rows (the ratio; about 4 at second order), its M-dependence at 800 rows (M = 32
@@ -211,6 +219,53 @@ def main():
         np.savez_compressed(out, mask=mask, u=G.u, v=G.v, x=G.x, lam=lam, rcut=rcut, reg=reg,
                             **{f: A[f] for f in CP.ALL})
         print('written', out, 'reg' if reg else 'orig', '%.0f s' % (time.time() - t0), flush=True)
+        return 0
+    if a and a[0] == '--kretschmann':
+        paths = a[1:4]
+        Z4 = np.load(paths[0])
+        R4, mask4, v4 = Z4['R'], Z4['mask'], Z4['v']
+        Rm = np.nanmean(R4, axis=2)
+        vin = (v4 >= 1.5) & (v4 <= 2.25)
+        ok_rows = [i for i in range(1, R4.shape[0] - 1) if np.any(~mask4[i] & vin & (Rm[i] >= 0.95) & (Rm[i] <= 1.5))]
+        rows4 = [ok_rows[k] for k in np.linspace(0, len(ok_rows) - 1, 24).round().astype(int)] \
+            if len(ok_rows) > 24 else ok_rows
+        Ks = []
+        for path in paths:
+            with np.load(path) as F:
+                Nu = F['u'].shape[0]
+                fac = (Nu - 1) // (R4.shape[0] - 1)
+                rows = [fac * r for r in rows4]
+                idx = np.array([r + d for r in rows for d in (-1, 0, 1)])
+                Zr = {k: (F[k][idx] if (F[k].ndim >= 1 and F[k].shape[0] == Nu) else F[k]) for k in F.files}
+            sub = [3 * k + 1 for k in range(len(rows))]
+            K = d5.kretschmann(Zr, rows=sub)[sub]
+            Ks.append((K[:, ::fac, :], Zr['R'][sub][:, ::fac, :], Zr['mask'][sub][:, ::fac], Zr['x']))
+        bands = ((1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
+        xs = (0.97, 0.5, 0.0, -0.5, -0.97)
+        def cheb_x(Kc, xn, xe):
+            M_ = len(xn); j = np.arange(M_)
+            t = (-1.0) ** j * np.sin((2 * j + 1) * np.pi / (2 * M_)) / (xe - xn)
+            return Kc @ (t / t.sum())
+        print('A6 the Kretschmann scalar of the regularised scheme on %d u-rows: dev = max |K/K_0 - 1| (800 rows, '
+              'M = 32), and the differences in M (32 against 40, 800 rows) and in the null step (400 against 800 '
+              'rows, M = 32), over K_0, at areal radius 1.0-1.4:' % len(rows4))
+        for xe in xs:
+            print('  x = %+.2f:' % xe)
+            for vb in bands:
+                jv = (v4 >= vb[0]) & (v4 < vb[1])
+                (K4, R4r, m4, xa), (K8, R8r, m8, xb), (K8b, R8b, m8b, xc) = Ks
+                k4, k8, k8b = cheb_x(K4, xa, xe), cheb_x(K8, xb, xe), cheb_x(K8b, xc, xe)
+                Rr = np.nanmean(R8r, axis=2)
+                K0 = 72.0 / Rr ** 8
+                sel = (~m4) & (~m8) & (~m8b) & jv[None, :] & (Rr >= 1.0) & (Rr <= 1.4)
+                if not sel.any():
+                    print('   v in [%.2f, %.2f): no cells' % vb); continue
+                dev = float(np.nanmax(np.abs(k8 / K0 - 1)[sel]))
+                dM = float(np.nanmax(np.abs(k8 - k8b)[sel] / K0[sel]))
+                dN = float(np.nanmax(np.abs(k4 - k8)[sel] / K0[sel]))
+                verdict = 'resolved' if max(dM, dN) < 0.05 * max(dev, 1e-3) else 'not resolved'
+                print('   v in [%.2f, %.2f): dev %.3g, |dK| in M %.2e, in the null step %.2e -> %s' % (
+                    vb[0], vb[1], dev, dM, dN, verdict))
         return 0
     if a and a[0] == '--nullstep':
         Za, Zb, Zc = (np.load(p_) for p_ in a[1:4])

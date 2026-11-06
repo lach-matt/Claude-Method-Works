@@ -30,7 +30,7 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      L.3 (a)-(e), D3, Corollary L.11, Lemma L.4).  Controls: Cd's power N + 1 mutated to N + 5, and a term of Ca
      dropped, are each detected.
 
-Labels: the formulas deduced (each from the proof step named beside it); K1-K3 computed.  Run: python3 checks/constL5.py
+Labels: the formulas deduced (each from the proof step named beside it); K1-K4 computed.  Run: python3 checks/constL5.py
 """
 import random
 import sys
