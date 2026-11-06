@@ -1473,16 +1473,33 @@ g_lam: N1* with the record's data at past null infinity. []
 
 By (P-ii) the radiation field of g_lam at past null infinity is lam [W_TT] exactly, at every lam: its two polarizations
 are the record's free data F, G, with no correction at any order. What that field carries is computed in P7. The flux
-density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2), the quadratic form whose phase mean is mu' (paper, Proposition 2.3), has
-sphere mean exactly
+density (4/3)(P1_v^2 + P1_v P2_v + P2_v^2), the quadratic form whose phase mean is mu' (paper, Proposition 2.3), is
+(4/9) A^2 H^2 (cos^4 th D_c^2 + sin^4 th D_s^2 - cos^2 th sin^2 th D_c D_s), with D_c and D_s the v-derivatives of lam
+env cos(v/lam) and lam env sin(v/lam), so that D_c^2 + D_s^2 = env^2 + lam^2 env'^2 and D_c D_s = -(1/2)(env^2 - lam^2
+env'^2) sin(2v/lam) + lam env env' cos(2v/lam). Its angular moments on S^3 are <H^2 cos^4 th> = <H^2 sin^4 th> = 1/2 and
+<H^2 cos^2 th sin^2 th> = pi/4 - 1/2 (the mean is (1/2) int_{-1}^{1} dz in z = cos 2th, where H^2 = 2/(1 + z^2), H^2
+(cos^4 th + sin^4 th) being 1), so its sphere mean is exactly
 
-    (2/9) A^2 [ env^2 + lam^2 env'^2 - (1/2)(env^2 - lam^2 env'^2) sin(2v/lam) + lam env env' cos(2v/lam) ],     (9.10)
+    (2/9) A^2 [ env^2 + lam^2 env'^2 + (1 - pi/2) ( -(1/2)(env^2 - lam^2 env'^2) sin(2v/lam)
+                                                    + lam env env' cos(2v/lam) ) ],                            (9.10)
 
-and its integral in v from -oo is mu(v) - mu0 + (2/9) lam^2 A^2 int_{-oo}^{v} env'^2 + (2/9) A^2 ((lam/4) env^2
-cos(2v/lam) + (lam^2/4) env env' sin(2v/lam)) + O(lam^3) (computed, P7; the last term is the integral of (2/9) A^2
-(lam^2/4) (env'^2 - env env'') sin(2v/lam), O(lam^3) by one more integration by parts). So while the shell passes, the
-integrated flux oscillates about mu(v) - mu0 with amplitude (lam/18) A^2 env^2, at twice the wave frequency; after it
-(env = env' = 0) it exceeds mu(v_end) - mu0 by exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3).
+and its integral in v from -oo is mu(v) - mu0 + (2/9) lam^2 A^2 int_{-oo}^{v} env'^2 + (1 - pi/2) (2/9) A^2 ((lam/4)
+env^2 cos(2v/lam) + (lam^2/4) env env' sin(2v/lam)) + O(lam^3) (computed, P7, which integrates the moments term by term
+over their partial fractions in z, checks the mean against mpmath quadrature on S^3, and checks this decomposition; the
+last term is (1 - pi/2) times the integral of (2/9) A^2 (lam^2/4) (env'^2 - env env'') sin(2v/lam), O(lam^3) by one more
+integration by parts, P7). Both boundary terms carry the factor: the integrated flux is linear in the oscillating
+coefficient. So while the shell passes, the integrated flux oscillates about mu(v) - mu0 with amplitude
+(pi/2 - 1)(lam/18) A^2 env^2, about 0.571 (lam/18) A^2 env^2, at twice the wave frequency and, 1 - pi/2 being negative,
+in antiphase to the oscillation the first (9.10) gave (below); after it (env = env' = 0) it exceeds mu(v_end) - mu0 by
+exactly (2/9) lam^2 A^2 int env'^2 + O(lam^3), which comes from the non-oscillating part and is untouched by the
+correction. [corrected D618: (9.10) read (2/9) A^2 [ env^2 + lam^2 env'^2 - (1/2)(env^2 - lam^2 env'^2) sin(2v/lam) +
+lam env env' cos(2v/lam) ], with coefficient 1 where 1 - pi/2 = 1 - 2 <H^2 cos^2 th sin^2 th> now stands, its integral's
+two boundary terms and O(lam^3) integral without the factor, and the amplitude (lam/18) A^2 env^2. P7 passed it because
+it integrated the expanded density over z at once, and sympy 1.14.0 then drops the pi term of <H^2 cos^2 th sin^2 th> =
+(1/4) int_{-1}^{1} (1 - z^2)/(1 + z^2) dz = pi/4 - 1/2, returning -1/2. Found by the reader of section 11 and confirmed
+by the reader of sections 8-9: at (lam, A, env, env', v) = (0.1, 1.3, 0.7, 0.4, 1.1) the sphere mean is 0.190161767 by
+quadrature and by (9.10), and the first (9.10) gives 0.174919727 (P7 prints the three). P7 now integrates term by term,
+through the three moments and against quadrature, and keeps the whole-sum route as a control, which fails.]
 
 *What this does not prove.* The record's "mean mass" is the angular mean of the mass aspect at past null infinity. If
 that mass changes at the rate of this flux, as a mass law at null infinity asserts, its angular mean is mu(v) + O(lam)
@@ -10532,12 +10549,13 @@ areal radius of the spheres {v_B, r_B = const}, and
 
     f = sum_{k=1}^{6} s^k f_k(v_B, th_B) + o(s^6),
 
-whose coefficients are smooth, bounded with all derivatives, T^2 x Z2 x Z2 invariant and zero for v_B <= v_start, and
-whose remainders have every (v_B, th_B)-derivative o(s^6) and gain an order -- one power of r_B, two of s -- under each
-r_B-derivative.
-(b) P_i = s^3 p_i + s^5 (...) + ...: the s^3 coefficients are the record's free data at phase v_B/lam,
-p_1 = (2 c^2 G - s^2 F)/3, p_2 = (2 s^2 F - c^2 G)/3, F = lam A env(v_B) h sin(v_B/lam), G = lam A env(v_B) h
-cos(v_B/lam) (c = cos th_B, s = sin th_B; the radiation field of (P-ii)), and the s^4 coefficients vanish.
+whose coefficients are smooth, bounded with all derivatives, T^2 x Z2 x Z2 invariant and g0's for v_B <= v_start (zero
+there, but for W - 1 = -mu0 s^4), and whose remainders have every (v_B, th_B)-derivative o(s^6) and gain an order -- one
+power of r_B, two of s -- under each r_B-derivative.
+(b) P_i = s^3 p_i + s^5 (...) + ...: the s^3 coefficients are the record's free data at phase v_B/lam, p_1 = (2
+cos^2 th_B G - sin^2 th_B F)/3, p_2 = (2 sin^2 th_B F - cos^2 th_B G)/3, F = lam A env(v_B) h sin(v_B/lam), G = lam A
+env(v_B) h cos(v_B/lam) (the radiation field of (P-ii); sin th_B is written out, s being r_B^(-1/2) here), and the s^4
+coefficients vanish.
 (c) W = 1 + s^3 V1 - s^4 M + ..., V1 a divergence on S^3, and the mass aspect M(v_B, th_B) satisfies, pointwise,
 
     d_v M = (4/3) (p1_v^2 + p1_v p2_v + p2_v^2),                                                             (11.2)
@@ -10545,10 +10563,12 @@ cos(v_B/lam) (c = cos th_B, s = sin th_B; the radiation field of (P-ii)), and th
 with M = mu0 for v_B <= v_start; so the Bondi mass mu_B(v) := <M(v, .)> (the mean over S^3) obeys mu_B' = (9.10)
 exactly:
 
-    mu_B(v) = mu(v) + (2/9) lam^2 A^2 int_{-oo}^{v} env'^2 + (2/9) A^2 ((lam/4) env^2 cos(2v/lam)
-              + (lam^2/4) env env' sin(2v/lam)) + O(lam^3),                                                  (11.3)
+    mu_B(v) = mu(v) + (2/9) lam^2 A^2 int_{-oo}^{v} env'^2
+              + (1 - pi/2) (2/9) A^2 ((lam/4) env^2 cos(2v/lam) + (lam^2/4) env env' sin(2v/lam)) + O(lam^3),  (11.3)
 
-and after the shell mu_B = mu(v_end) + (2/9) lam^2 A^2 int env'^2 + O(lam^3) (P7).
+and after the shell mu_B = mu(v_end) + (2/9) lam^2 A^2 int env'^2 + O(lam^3) (P7). [corrected D618: the oscillating
+terms of (11.3) carried no factor 1 - pi/2, from the first (9.10) (section 9.5's note); the statement after the shell,
+and "mu(v) + O(lam) while the shell passes" below, are unchanged.]
 (d) The Hawking mass M[S] of section 8 of the Bondi spheres S = {v_B, r_B = const} tends to mu_B(v_B) as r_B -> oo
 (B3).
 
@@ -10648,10 +10668,20 @@ one, dv/dsigma = 2 and dr/dsigma = 1 - mu/r^2 in (0, 1], so from a point (v, r) 
 where psi = 0, after a parameter length (v - v_start)/2 <= d1/2 (Lemma 9.1(d)), at a radius r' in [r - d1/2, r];
 integrating (n + 3/r) psi = f along it, |psi(v, r)| <= e^(3 d1/(2 r')) (d1/2) sup |f| <= C r^(-q-1/2), the supremum
 over the segment, which lies in the far region once r is large. Derivatives commute through (11.6) up to terms of the
-same kind, so ell u~~ is in E_(q+1/2) with all derivatives: the case m = 1, which needs nothing of (H_m) since f
-contains no ell-derivative of S' or of g_lam. For m >= 2, under (H_m), the equation of ell^m u~~ is (11.6) commuted
-m - 1 times with ell; its forcing is ell^(m-1) f plus the commutators [ell, n] = (2 mu/r^3) ell, [ell, 3/r] = 3/r^2 and
-[ell, (g_lam^{ab} - g0^{ab}) d_a d_b] = (ell (g_lam - g0)^{ab}) d_a d_b applied to the lower ell^j u~~. Each term of
+same kind. Omega commutes with n and with 3/r (it annihilates v, r and mu(v)), so Omega^b psi solves (11.6) with the
+forcing Omega^b f. d_v commutes up to [d_v, n] = -(mu'/r^2) ell, and ell psi is read off (11.6) itself, (1 - mu/r^2) ell
+psi = f - 2 d_v psi - (3/r) psi; so d_v^a Omega^b psi solves (11.6) with a zeroth-order term, O(r^-2) times d_v^a
+Omega^b psi, moved to the left (over a parameter length at most d1/2 it changes the integrating factor by a bounded
+factor) and a forcing in E_(q+1/2) by the lower a. The ell-components of the derivatives of psi are then read off (11.6)
+in the same way: ell^c d_v^a Omega^b psi is in E_(q+1/2) by induction on c, and every Cartesian derivative is a
+combination of ell, d_v and r^-1 Omega with coefficients bounded with all their derivatives. So ell u~~ is in E_(q+1/2)
+with all derivatives: the case m = 1, which needs nothing of (H_m) since f contains no ell-derivative of S' or of g_lam.
+For m >= 2, under (H_m), the equation of ell^m u~~ = ell^(m-1) psi is (11.6) commuted m - 1 times with ell; its forcing
+is ell^(m-1) f plus the commutators [ell, n] = (2 mu/r^3) ell, [ell, 3/r] = -3/r^2 and [ell, (g_lam^{ab} - g0^{ab})
+d_a d_b] = (ell (g_lam - g0)^{ab}) d_a d_b applied to the lower ell^j u~~, with one exception: [ell^(m-1), n] psi =
+2 (m - 1)(mu/r^3) ell^m u~~ plus terms in ell^j u~~ with j < m contains the unknown itself, not a lower term, and is
+moved to the left, the transport becoming (n + 3/r + 2 (m - 1) mu/r^3) ell^(m-1) psi = (the rest), whose O(r^-3)
+coefficient changes the integrating factor by a bounded factor. Each term of
 ell^(m-1) f is in E_(q+1/2+m-1): ell^j S' by (H_m) (S' is S~ plus (g_lam^-1 - g0^-1) d^2 (r^(1-q) F) and box~ (r^(1-q)
 F) - r^-q S_q, whose ell-derivatives gain by (H_m) and explicitly), ell^j of (3/r) d_v u~~ and r^-2 Deltaring u~~ by
 the gains already established for j < m, and (ell^j (g_lam - g0)^{ab}) d^2 ell^(m-1-j) u~~ by (H_m) with those gains:
@@ -10702,7 +10732,8 @@ Write the coordinate components of the G_k in the (v, r, th) basis: u_rr = sum_k
 sum s^k A_k, u_(r th) = r sum s^k E_k, u_(v th) = r sum s^k D_k, u_(th th) = r^2 sum s^k F_k, u_11 = r^2 cos^2 th sum
 s^k G_k, u_22 = r^2 sin^2 th sum s^k H_k (one power of r per angular index, the classes being of orthonormal
 components), with s = r^(-1/2); by Lemma 11.3, A_3 = B_3 = C_3 = D_3 = E_3 = 0 and F_3 + G_3 + H_3 = 0, with F_3 = -2
-(p1 + p2), G_3 = 2 p1, H_3 = 2 p2 (A3).
+(p1 + p2), G_3 = 2 p1, H_3 = 2 p2 (A3). These A_k, ..., H_k are scalar coefficients, the subscript the power of s: not
+the classes E_p, the tensors G_k of (11.7) or the free data F, G.
 
 **Proposition 11.2 (the Bondi chart; computed B2 to the orders stated, deduced).** There is T_M(lam) such that on the
 far region P cap {t >= T_M} the functions
@@ -10724,9 +10755,10 @@ remainders gain an order under ell. In the chart (v_B, r_B, th_B, phi1, phi2) th
 functions given by the inverse components g^{v_B r_B} = e^{-2 b}, g^{r_B r_B} = e^{-2 b} W, g^{r_B th_B} = e^{-2 b} U,
 g^{th_B th_B} = 1/(r_B^2 S), S := e^{-2(P1 + P2)}, g^{phi_i phi_i} = 1/(r_B^2 cos^2 th_B e^{2 P1}), 1/(r_B^2 sin^2 th_B
 e^{2 P2}) (B1 checks these against (11.1)), and they have expansions in s_B := r_B^(-1/2) with coefficients smooth in
-(v_B, th_B), vanishing for v_B <= v_start, to order s_B^(J-2) with remainders o(s_B^(J-2)) whose r_B-derivatives gain
-an order each. Their first coefficients are e^{2 P1} = 1 + 2 p1 s_B^3 + O(s_B^4), likewise P2, and e^{-2 b} = 1 -
-(d_v C_4/2) s_B^2 - (d_v C_5/3) s_B^3 + O(s_B^4) (B2).
+(v_B, th_B), g0's for v_B <= v_start (zero there, but for W - 1 = -mu0 s_B^4), to order s_B^(J-2) with remainders
+o(s_B^(J-2)) whose r_B-derivatives gain an order each. Their first coefficients are e^{2 P1} = 1 + 2 p1 s_B^3 +
+O(s_B^4), e^{2 P2} = 1 + 2 p2 s_B^3 + O(s_B^4), and e^{-2 b} = 1 - (d_v C_4/2) s_B^2 - (d_v C_5/3) s_B^3 + O(s_B^4) (B2,
+which asserts each of these coefficients).
 
 *Proof.* (i) Write the eikonal equation for ů with L := g_lam^-1 dv = ell + eps, eps := (g_lam^-1 - g0^-1)(dv, .) in
 E_2 (Lemma 11.3):
@@ -10752,7 +10784,15 @@ terms quadratic in eta, Gamma[g0]^v_{th th} = -r the largest coefficient, are O(
 Gamma^r_{bc} gamma'^b gamma'^c is in E_2 and multiplies eta. So for r >= T_M the Picard iteration converges in the
 weighted sup norms r^2 |zeta'| + r |zeta| + r^3 |xi'| + r^2 |xi| (ODE contraction: no derivative is lost), the solution
 depends smoothly on (v0, xhat0) with derivatives of the same decay (variational equations with the same structure), is
-invariant, and is gamma0 for v0 <= v_start (there g_lam = g0 along the whole generator). The map Phi: (v0, r, xhat0) ->
+invariant, and is gamma0 for v0 <= v_start (there g_lam = g0 along the whole generator). Each generator stays in P
+outward, so the system is posed where g_lam is defined: along gamma, d/dr (v + h(tau)) = zeta' (1 + h') - h'
+(tau = v - r, so d tau/dr = zeta' - 1), with h' = dh/dtau = h/(4t), a positive multiple of t^(-5/4) (P1), and |zeta'| <=
+C r^-2 < h'/2 with h' < 1 once T_M is large, t and r being comparable on P+ (Lemma 9.1(d)); so v + h decreases outward
+along each generator, while t increases, and the ray of a generator from a point of P cap {t >= T_M} out to past null
+infinity lies in P cap {t >= T_M}, never meeting the outer boundary B = {v + h = V_P} (Lemma 9.1(b)). (To solve for
+every (v0, xhat0) at once, continue g_lam - g0 across B by a Seeley extension in v + h(tau), which keeps every class
+E_p; by this monotonicity neither the generator through a point of P cap {t >= T_M} nor Phi^-1 there depends on the
+continuation, so Phi^-1, below, is defined on all of P cap {t >= T_M}.) The map Phi: (v0, r, xhat0) ->
 gamma(r) is then a C^1-small perturbation of the identity for r >= T_M, a diffeomorphism onto a neighbourhood of past
 null infinity, and N_{v0} := Phi({v0} x [T_M, oo) x S^3) is a null hypersurface: along each gamma, d/dr g_lam(gamma',
 gamma') = 2 kappa g_lam(gamma', gamma'), so g_lam(gamma', gamma') e^{-2 int kappa} is constant and equal to its limit
@@ -10782,8 +10822,13 @@ with e^{-2 b} = g^{v_B r_B}; the inverse determinant transforms with (det J0)^2.
     r_B^6 cos^2 th_B sin^2 th_B det(g_lam^-1) (det J0)^2 + (g^{v_B r_B})^2 = 0,                             (11.10)
 
 whose s^k coefficient is 6 rho_k plus known terms: the factor d_r r_B = 1 + rho + r d_r rho of (det J0)^2 cancels
-against the same factor of (g^{v_B r_B})^2 = (g_lam^-1(dv_B, dr_B))^2 at this order, and r_B^6 contributes 6 rho_k (the
-leading determinant is 1), so the condition is algebraic in rho and solvable for every k >= 1; the coefficients with k
+against the same factor of (g^{v_B r_B})^2 = (g_lam^-1(dv_B, dr_B))^2, and exactly, not only at this order: with
+g^{v_B v_B} = g^{v_B th_B} = 0 the inverse determinant in the chart is -(g^{v_B r_B})^2/det q, q the metric induced on
+{v_B, r_B = const} in (th_B, phi1, phi2), so (11.10) is (g^{v_B r_B})^2 (1 - r_B^6 cos^2 th_B sin^2 th_B/det q) = 0; and
+q, induced on a cross-section of the null hypersurface {v_B = const} in coordinates constant along its generators, has
+no component along them, so it depends on the cross-section's points and not on its tilt: no derivative of rho enters,
+and r_B^6 contributes 6 rho_k (the leading determinant is 1), so the condition is algebraic in rho and solvable for
+every k >= 1; the coefficients with k
 <= 3 vanish identically (B2: tr_S u is in E_2, and the shifts enter at s^4), so rho starts at s^4 with rho_4 as stated,
 the trace of G_4 on the sphere plus the Jacobian of the angular shift. The remainder is algebraic in those of (i)-(ii)
 and of u. (iv) and the Bondi functions: the formulae are the inverse of (11.1)'s (v, r, th) block. Re-expression in
@@ -10794,7 +10839,9 @@ s_B^(J-2) with remainders o(s_B^(J-2)) follows, and the remainders' r_B-gains fr
 g^{11}) with g^{11} = g_lam^{11} unchanged (phi1 is), r_B/r = 1 + O(s^4), th_B - th = O(s^4), and g_lam^{11} = r^-2
 cos^-2 th (1 - 2 p1 s^3 + O(s^4)): so e^{2 P1} = 1 + 2 p1 s_B^3 + O(s_B^4) (B2); e^{-2 b} = g^{v_B r_B} = g_lam^-1(dv +
 dů, dr_B) = 1 + d_v ů + O(s^4) at the orders shown, since g_lam^{vr} = 1 + E_2, g_lam^-1(dů, dr) = d_v ů + ell ů with
-ell ů = O(s^4), and dr_B = dr + O(s^2)... (B2 computes it: -(d_v C_4/2) s^2 - (d_v C_5/3) s^3 + O(s^4)). []
+ell ů = O(s^4), and dr_B = (1 + O(s^4)) dr + O(s^2) dv + O(s^2) dth, whose dv- and dth-parts enter only at s^6 (they
+meet g_lam^{vv} in E_2, g_lam^{v th} = O(r^-3), ell ů and r^-2 d_th ů); so, with (11.8), e^{-2 b} = 1 - (d_v C_4/2)
+s^2 - (d_v C_5/3) s^3 + O(s^4) (B2 asserts both coefficients). []
 
 Taking J = 8 in Proposition 11.1 gives the Bondi functions to order s_B^6 with o(s_B^6) remainders: this is what 11.3
 uses. (The hierarchy below, run from s^1 (B1's first step), gives b_1 = b_2 = b_3 = 0 for a vacuum metric, so d_v C_4
@@ -10834,7 +10881,8 @@ Then, in order: (0) from R_rr at s^5, s^6 (R_ss = 4 s^-6 R_rr at s^-1, s^0: -12 
 (R_(s th) = -2 s^-3 R_(r th) at s^-2, s^-1: -(7/4) u_1, 3 b_1 u_1 - 3 u_2): b_1 = b_2 = 0 and u_1 = u_2 = 0; (i) from
 R_rr at s^7, ..., s^10 (R_ss at s^1, ..., s^4): b_3 = b_4 = b_5 = 0 and b_6 = -(1/4)(p^2 + p q + q^2) ([TTS09] (21) with
 C = 2P, B = 2b); (ii) from R_(r th) at s^3, ..., s^6: u_3 = u_4 = 0, u_5 = (12/5)(p + q) tan th - (8 p + 16 q)/(5 sin
-2th) - (4/5) d_th (p + q), and u_6 the same expression in (a1, a2) with 4/3 for 4/5 and 8/3, 16/3 for 8/5, 16/5; (iii)
+2th) - (4/5) d_th (p + q), and u_6 the same expression in (a1, a2) with 4, 8/3, 16/3 and 4/3 for 12/5, 8/5, 16/5 and
+4/5; (iii)
 from R_vr at s^5, ..., s^7: w_1 = w_2 = 0 and w_3 = -(2/3) div(u_5) ([TTS09] (27)): <w_3> = 0; (iv) from the traceless
 part of R_AB at s^2: d_v a1 = d_v a2 = 0 (the three angular components give -(d_v a1 + d_v a2), cos^2 th d_v a1, sin^2
 th d_v a2; [TTS09] (35)); (v) R_vv at s^5 is then an identity (the rate of (iii)), and at s^6 it is linear in d_v w_4
@@ -10853,8 +10901,11 @@ free, fail.
 chart change preserves it). a_i: by Proposition 11.3(iv) d_v a_i = 0, and a_i = 0 for v_B <= v_start where the metric
 is g0 (Proposition 11.2(iv)); so a_i = 0 -- [TTS09]'s argument from spatial infinity, with the seed in its place. (c):
 Proposition 11.3(v) with a_i = 0 is (11.2); M = mu0 for v_B <= v_start since g_lam = g0 there, Vaidya with mu = mu0,
-whose W = 1 - mu0 s^4; the sphere mean of (11.2) is the mean of (4/3)(p1_v^2 + p1_v p2_v + p2_v^2), which P7 computes
-as (9.10); integrating from v_start gives (11.3) and the statement after the shell. (d) is B3: in (11.1), with n- =
+whose W = 1 - mu0 s^4; the sphere mean of (11.2) is the mean of (4/3)(p1_v^2 + p1_v p2_v + p2_v^2), which P7 computes as
+(9.10) (the moments <H^2 cos^4 th> = <H^2 sin^4 th> = 1/2 and <H^2 cos^2 th sin^2 th> = pi/4 - 1/2 integrated term by
+term, the mean checked against quadrature on S^3; corrected D618, section 9.5's note); integrating from v_start gives
+(11.3), its oscillating terms with the factor 1 - pi/2, and the statement after the shell, where the boundary terms
+vanish with env and env' and the rest is O(lam^3). (d) is B3: in (11.1), with n- =
 -d_r (theta- = -3/r exactly, the area form being r^3 cos th sin th) and n+ = d_v + (W/2) d_r + U d_th (null; theta+ = 3
 W/(2 r) + div U), g(n+, n-) = -e^{2b}, so M[S] = r^2 (1 - <e^{-2b} (W + (2r/3) div U)>) = -s^-1 <w_3 + (2/3) div u_5> -
 <w_4 + (2/3) div u_6> + O(s), and the divergences have zero mean: M[S] -> <-w_4> = mu_B. []
@@ -10862,9 +10913,14 @@ W/(2 r) + div U), g(n+, n-) = -e^{2b}, so M[S] = r^2 (1 - <e^{-2b} (W + (2r/3) d
 ### 11.4 The numerics, and what this closes
 
 The numerical solver (hf_mirror5.py, hf_core5.py) evolves the metric in the form (11.1) from the record's free data at
-y = 0 (past null infinity), and the rate of its mass aspect M = -w_y|_{y=0} is fixed by E_vv = 0, the s^6 equation
-above (aspect_rates: "By Bondi's lemma these are the conservation laws at past null infinity"). So its mean mass M_mean
-is mu_B as integrated by the solver, and its offset from mu(v) after the shell should be (2/9) lam^2 A^2 int env'^2 +
+y = 0 (past null infinity), and the rate of its mass aspect M = -w_y|_{y=0} is fixed by E_vv = 0, the s^6 equation above
+(aspect_rates: "By Bondi's lemma these are the conservation laws at past null infinity"). Its mean mass M_mean is the
+arithmetic mean of that aspect over the solver's Chebyshev-Lobatto nodes in x = cos 2th (hf_mirror5.py, diag: M_mean =
+Mas.mean()), not the mean over S^3; while the shell passes the aspect depends on th at O(lam), and the two means of it
+need not agree. After the shell the aspect is th-independent to O(lam^3): the th-dependent part of the flux density
+(11.2) consists of v-derivatives of terms that vanish with env and env' and of lam^2 integrands of O(lam^3) integral,
+H^2 (cos^4 th + sin^4 th) = 1 making the rest th-independent (P7 (f)). So after the shell M_mean is mu_B as integrated
+by the solver, to O(lam^3), and its offset from mu(v) there should be (2/9) lam^2 A^2 int env'^2 +
 O(lam^3) = (5 pi^2/108) lam^2 for the solver's envelope sin^4(pi (v - 1/2)/3) on [1/2, 7/2] (int env'^2 = 5 pi^2/24, A =
 1; response5.py R8): 0.45693 lam^2. The runs give offset/lam^2 = 0.4589, 0.4577, 0.4568 at lam = 0.05, 0.025, 0.0125
 (mu0 = 100 l5^2) and 0.4578, 0.4569 at lam = 0.025, 0.0125 (1000 l5^2), converging to 0.4569 as O(lam) (B4; the run at
