@@ -17,6 +17,9 @@ f = 1 - mu/r^2, mu = 1 (zeroext5 Z0: the bound is scale invariant). L_b = D Ric 
   T3 (exact) D Ric(h) = d/deps Ric(g + eps h) at eps = 0 (every component, H symbolic) equals (1/2) r^2 (A_l H) T, with
      A_l H = -r^-3 (P H')' + l (l + 2) r^-2 H, P = r^3 - mu r: the scalar model of zeroext5.py at the same l, exactly,
      and every component outside the angular block vanishes. (The tensor mode obeys the massless scalar equation.)
+  T3b (computed, 50-digit evaluation) the same as an operator identity for every traceless class tensor with div T = 0:
+     D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]; with the eigen-equation of the TT harmonics
+     (lap + l (l + 2) - 2) T = 0 it is T3's identity at every even l (deduced), which T3 checks exactly at l = 2, 4.
   T4 (exact) the norm's angular weight on the block: with the six rotation fields K_ij = x_i d_j - x_j d_i of R^4
      restricted to S^3, sum_ij ||L_{K_ij} T||^2 = (l (l + 2) + 4) ||T||^2 (L^2(S^3), round metric), at l = 2 and 4;
      for the scalar harmonics the same sum is l (l + 2) (zeroext5's L).
@@ -33,7 +36,7 @@ f = 1 - mu/r^2, mu = 1 (zeroext5 Z0: the bound is scale invariant). L_b = D Ric 
   Controls (each mutates the computed path; each must fail): C1 T2-T3 on the trace part h = r^2 H (dth^2 + cos^2 th
   dphi1^2 + sin^2 th dphi2^2) (an s-type tensor): tr h != 0 and D Ric(h) is not (1/2) r^2 (A_l H) h; C2 T4 with the
   claim sum ||L_K T||^2 = l (l + 2) ||T||^2 (the scalar weight): refuted at l = 2; C3 T5 with the scalar weight L in
-  place of L + 4: the constant moves outside T5's pinned interval.
+  place of L + 4: the constant moves outside T5's pinned interval; C4 T3b with -lap T + T: the residual is not 0.
 
     python3 checks/tensorzero5.py       (a few minutes)
 """
@@ -178,6 +181,34 @@ def gauge_and_dric(Tang):
     return trh, div, iota, dR, h
 
 
+def general_identity(shift=2):
+    """T3b: D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + shift T)] for every traceless T = diag(A,
+    B cos^2, -(A + B) sin^2) of the class with div T = 0 (B solved from it): evaluated at 50 digits for three test
+    functions A and three points (the symbolic normal form is not reached by simplify); returns the largest |residual|"""
+    A = sp.Function('A')(th)
+    B = sp.Function('B')(th)
+    Tang = [A, B * sp.cos(th) ** 2, -(A + B) * sp.sin(th) ** 2]
+    trh, div, iota, dR, h = gauge_and_dric(Tang)
+    O = CL._ode()
+    lapT = [O['lap'][i].subs({CL.th: th}) for i in range(3)]
+    P = r ** 3 - r
+    AH0 = -r ** -3 * sp.diff(P * sp.diff(Hf, r), r)
+    Bsol = -(sp.sin(2 * th) * sp.diff(A, th) + 3 * A * sp.cos(2 * th) + A) / 2
+    divres = sp.simplify(div[2].subs(B, Bsol).doit())
+    worst = 0
+    tests = [sp.cos(th) ** 4 + sp.Rational(3, 10) * sp.cos(th) ** 2 + sp.Rational(1, 7),
+             sp.cos(th) ** 6 - sp.Rational(2, 3) * sp.cos(th) ** 2, sp.Rational(1, 3) + sp.cos(th) ** 8]
+    for i in range(3):
+        tgt = sp.Rational(1, 2) * r ** 2 * (AH0 * Tang[i] + r ** -2 * Hf * (-lapT[i] + shift * Tang[i]))
+        d = (dR[i + 2, i + 2] - tgt).subs(B, Bsol)
+        for At in tests:
+            dd = d.subs(A, At).subs(Hf, r ** sp.Rational(-5, 2)).doit()
+            for k in (1, 2, 3):
+                val = abs(sp.N(dd.subs({th: sp.Rational(k, 7), r: sp.Rational(5, 3)}), 50))
+                worst = max(worst, val)
+    return divres == 0, worst
+
+
 def casimir(Tang, scalar=None):
     """sum over the six rotation fields of ||L_K T||^2 / ||T||^2 on the round S^3 (Hopf coordinates)"""
     Y = (th, p1, p2)
@@ -258,6 +289,12 @@ def main():
                   l, trh, all(sp.simplify(x) == 0 for x in div), all(x == 0 for x in iota), diag_ok, off_ok))
     OK['T2'] = ok2
     OK['T3'] = ok3
+    dz, worst = general_identity()
+    OK['T3b'] = dz and worst < sp.Float('1e-40')
+    print('  T3b: for every traceless class tensor T with div T = 0 (A arbitrary, B from div T = 0), D Ric(r^2 H T) = '
+          '(1/2) r^2 [(-r^-3 (P H\')\') T + r^-2 H (-lap T + 2 T)]: largest residual %.1e at 50 digits (three test A, '
+          'three points): %s; with the eigen-equation (lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every '
+          'l (deduced)' % (float(worst), OK['T3b']))
     cas = {l: casimir(angular_tensor(harm[l])) for l in (2,)}
     xs = sp.cos(th) * sp.cos(p1)
     sc = casimir(None, scalar=xs ** 2 - sp.Rational(1, 4))          # a scalar harmonic at l = 2 (degree 2, traceless)
@@ -271,9 +308,9 @@ def main():
     CT = math.sqrt(float(CT2))
     OK['T5'] = sup_l == 2 and mono and CT_PIN[0] < CT2 < CT_PIN[1]
     print('  T5 (deduced; exact rationals): C_T,l^2 = (2 + 5/L)(1 + kappa q) + q + 4 q^2 + q/f(b1), kappa = 5/2, '
-          '1/f(b1) = 36/11: C_T,2^2 = %s = %.6f, decreasing in l (checked to l = 200; every term decreasing), tending to 2; '
-          'C_T = %.4f, so ||h||_(1,-1) <= %.4f ||L-hat_b0(0) h||_(0,1) = %.4f ||2 L-hat_b0(0) h||_(0,1) on the t_l blocks '
-          '(T3\'s factor 1/2): %s' % (CT2, float(CT2), CT, 2 * CT, CT, OK['T5']))
+          '1/f(b1) = 36/11: C_T,2^2 = %s = %.6f, decreasing in l (checked to l = 200; every term decreasing), '
+          'tending to 2; C_T = %.4f, so ||h||_(1,-1) <= %.4f ||L-hat_b0(0) h||_(0,1) = %.4f ||2 L-hat_b0(0) h||_(0,1) '
+          'on the t_l blocks (T3\'s factor 1/2): %s' % (CT2, float(CT2), CT, 2 * CT, CT, OK['T5']))
     rs, fns = ZE.test_functions()
     worst = 0.0
     for l in (2, 4, 6):
@@ -299,6 +336,10 @@ def main():
     OK['C1'] = trh != 0 and not all(sp.simplify(dR[i, i] - tgt[i]) == 0 for i in range(5))
     print('  C1 (control): the trace part (s-type): tr h = %s != 0 and D Ric(h) != (1/2) r^2 (A_2 H) h: %s' % (
         trh, OK['C1']))
+    dz4, worst4 = general_identity(shift=1)
+    OK['C4'] = not (worst4 < sp.Float('1e-40'))
+    print('  C4 (control): T3b with -lap T + T in place of -lap T + 2 T: residual %.3e: fails: %s' % (
+        float(worst4), OK['C4']))
     OK['C2'] = cas[2] != 2 * 4
     print('  C2 (control): the scalar weight claimed on T at l = 2 (8): refuted by T4\'s %s: %s' % (cas[2], OK['C2']))
     CS2 = max(tensor_constant(l, weight_shift=0) for l in range(2, 201, 2))

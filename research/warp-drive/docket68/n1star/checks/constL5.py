@@ -160,7 +160,8 @@ def k2(control=False):
         v1, v2 = d.value(pt), d.value(pt2)
         fd_ok &= all(v2[c] - v1[c] >= 0 for c in (C11, C4))
     out("  K2 with the certified numbers inserted, C_L11 and C_L4 increasing in every remaining leaf: every node of the"
-        " DAG a positive expression of its inputs %s, by finite differences at 40 random points %s" % (structural, fd_ok))
+        " DAG a positive expression of its inputs %s, by finite differences at 40 random points %s"
+        % (structural, fd_ok))
     return structural and fd_ok
 
 
