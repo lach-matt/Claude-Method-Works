@@ -6,7 +6,7 @@ II.C's class G~^{0,(2l,0,0)}_e3b. Lemma 1.3 needs, for each p, a compact set con
 the level sets of t^flat_* reach r = oo, so a bound on r along past causal curves is needed. II.F Lemma 1.4 (a) gives
 one (B := t_* + R~(r) is a time function) only for the convex combinations G_theta of g_0 and Minkowski; for g it can
 fail. III.K Lemma 6.1 proves the bound for every g of the class: alpha := dt^flat_* + r^-1 dr is past timelike near
-I+ on {1/2 <= t_* < T_1}, so F := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p))
+I+ on {1/2 <= t_* < T_1}, so Xi := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p))
 e^(t^flat_*(p) - c).
 
 The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+, rho := rho_I = t_*/r, x := rho^l,
@@ -32,18 +32,26 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      dt = dB (r >= r'_0 + 1) is spacelike, so B is not a time function of g, for every eps > 0. At the same point
      dt^flat_* and alpha are past timelike. So II.F Lemma 1.4 (a) (and II.F section 7.4, the iota+ model) does not give
      the compact sets for g, and Lemma 6.1 does.
-  R3 (numerical, floats) On that metric (eps = 1/10, g_0 = Minkowski), the past directed null curve of largest outward
-     drift, dr/d(-t_*) = (1 + eps (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^5) down to t_* = 1: B = t_* + r increases
-     towards the past (B is not monotone), F = t^flat_* + log r decreases, and r stays below the bound of Lemma 6.1 (b).
+     Since D626 (an independent verifier's nit) also on g_b0 itself: Kerr-Schild g_b0 = eta + (mu/r^2) l l has
+     g_b0^-1(dt, dt) = -1 - mu/r^2 (the inverse checked exactly), dt(d_r) = psi' = 1 - 8 mu/r^2 at fixed t_*, so the
+     witness gives g^-1(dt, dt) >= 1 - 33 mu/r^2 = 1 - (33/64) mu eps^4 > 0 at r = 8/eps^2 (t_* = 2), eps in (0, 1].
+  R3 (numerical, floats; a demonstration on one metric) On that metric (eps = 1/10, g_0 = Minkowski, t^flat_* = t_*
+     F_1 >= t_*/2, so C' = 1/2), the past directed null curve of largest outward drift, dr/d(-t_*) = (1 + eps
+     (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^5) down to t_* = 1.01 (where t^flat_* > c = 1): B = t_* + r increases
+     towards the past (B is not monotone), Xi = t^flat_* + log r decreases, and r stays below Lemma 6.1 (b)'s bound.
+  R4 (exact, D626) III.K Lemma 6.2's two inequalities: if the Cartesian components of g - eta are at most eps = 1/20,
+     a g-causal V has |V^x|^2 <= (5/3)|V^t|^2 (z3: w^2 - u^2 <= 5 eps (u^2 + w^2) forces it), and the Neumann bound
+     5 eps/(1 - 5 eps) = 1/3 gives g^-1(dt, dt) <= -2/3; 300 exact random perturbations agree. Control N6: at eps = 1/4
+     the cone bound fails (z3 sat).
   Controls (each a mutation of the claim; each must make z3 find a counterexample, sat, not merely fail to prove):
      N1 kappa = 0 (alpha = dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (37 C x <= 1); N4 the class's
      decay removed (the coefficients in [-C, C], no factor x = rho^l); N5 gbar^-1(dt_*, dr) = +1.
 
 Labels: R1 computed (exact, z3 over the reals); R2 computed (exact, sympy); R3 computed (floats; a demonstration on
-one metric, not used by the proof). The constants C_1, rho_-, R_2, r'_0 of II.C are not computed; the lemma needs only
-that they exist.
+one metric, not used by the proof); R4 computed (exact, z3 and rational arithmetic). The constants C_1, rho_-, R_2,
+r'_0 of II.C are not computed; the lemma needs only that they exist.
 
-Run: python3 checks/scrirad5.py   (a few seconds; the saved .out is this run)
+Run: python3 checks/scrirad5.py   (seconds; the saved .out is this run)
 """
 import math
 import random
@@ -286,11 +294,14 @@ def main():
     ok["R2"] = a
     say("  R2: witness g^-1 = gbar^-1 + eps x rho^-1 d_r^2: Lorentzian %s; h's coefficient in II.C's basis %s; at "
         "rho = eps^2/4, g^-1(dt, dt) = %s, so B is not a time function, for every eps > 0; dt^flat_* and alpha past "
-        "timelike there (eps = 1/10, 1/1000): %s" % info)
+        "timelike there (eps = 1/10, 1/1000): %s; on g_b0 (Kerr-Schild, mu = 3/2, its inverse checked) the same "
+        "witness keeps g^-1(dt, dt) >= %s > 0 for eps in (0, 1]: %s" % (info[0], info[1], info[2], info[3], info[5],
+                                                                        info[4]))
     b, info = r3()
     ok["R3"] = b
-    say("  R3: extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1 (eps = 1/10): B %.6g -> %.6g (increases "
-        "towards the past), F %.6g -> %.6g (decreases), max r %.6g <= R_p = %.6g" % info)
+    say("  R3 (a demonstration): extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1.01, where t^flat_* > c = "
+        "1 (eps = 1/10, C' = 1/2): B %.6g -> %.6g (increases towards the past), Xi = t^flat_* + log r %.6g -> %.6g "
+        "(decreases), max r %.6g <= R_p = %.6g" % info)
     ctl = {}
     ctl["N1 kappa = 0"] = refuted(kappa=0)
     ctl["N2 kappa = -1"] = refuted(kappa=-1)
@@ -305,8 +316,10 @@ def main():
     ctl["N6 Lemma 6.2's cone at eps = 1/4"] = r4(sp.Rational(1, 4))[1][0] == z3.sat
     say("  controls (each must make z3 find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()))
     good = all(ok.values())
-    print("R1 %s; R2 %s; R3 %s; R4 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in ("R1", "R2", "R3", "R4")] +
-                                                     ["behave" if all(ctl.values()) else "MISBEHAVE"]), flush=True)
+    print("R1 %s; R2 %s; R3 %s; R4 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in
+                                                             ("R1", "R2", "R3", "R4")] +
+                                                            ["behave" if all(ctl.values()) else "MISBEHAVE"]),
+          flush=True)
     return 0 if good and all(ctl.values()) else 1
 
 

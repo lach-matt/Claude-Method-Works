@@ -30,7 +30,7 @@ dt_*, dx^1, ..., dx^4, in which a scalar-type form has the Cartesian size max(|a
      kappa = 4 nu (nu + 1), nu = l/2, so the solutions regular at the horizon are 2F1's; their jets (a'(r_h), b(r_h),
      c(r_h)) have determinant -kappa^2; at the horizon the order-k recursion matrix is -2 s^2 k diag(k - 1, s (k + 1),
      k) with k symbolic and order 0 forces a(r_h) = 0, so the smooth solutions form a 3-space and u_1, u_2, u_3 span
-     it.  At infinity (DLMF 15.8.2, 15.8.8: the leading coefficient Gamma(c) Gamma(b - a)/(Gamma(b) Gamma(c - a)) of
+     it.  At infinity (DLMF section 15.8: the leading coefficient Gamma(c) Gamma(b - a)/(Gamma(b) Gamma(c - a)) of
      (-z)^-a; checked with mpmath at nu = 1/2, ..., 9/2) u_1, u_3, u_2 have Cartesian growth exactly r^(l - 1), r^l,
      r^(l + 1), with nonzero leading coefficients for every nu > 0: no nonzero combination grows more slowly than
      r^(l - 1), which is r^1 or faster for every l >= 2, odd l included.  Control: the same path at l = 1 (nu = 1/2)
@@ -44,7 +44,7 @@ dt_*, dx^1, ..., dx^4, in which a scalar-type form has the Cartesian size max(|a
      integers {-1, 0, 0, 0, 0, 1} (the determinant of N2's recursion matrix, -8 k^4 s^7 (k - 1)(k + 1)), those of the
      vector equation {0, 0}; a solution smooth across r_h that vanishes on r > r_h has zero Taylor series there, and
      a nonzero Frobenius combination of integer exponents is not flat, so it vanishes on (r_0, r_h) (the system is
-     regular there).  Control: the exponent equation of r (r - s)^k-type with a non-integer shift is not integral.
+     regular there).  Control: the same computation with the exponent k shifted by 1/3 gives non-integral roots.
   N5 (exact) The kernel at b-weights in (-1, 0) and (0, 2) on the full bundle.  l = 0 (c absent): the four
      solutions W*, (d_v)^flat, (0, (r^2 + mu)/r) and (0, 1/(r (r^2 - mu))) of the 2 x 2 system are independent; the
      first three are smooth at r_h and the fourth is not; their growths r^-2, r^0, r^1: the l = 0 kernel is span{W*,
@@ -362,7 +362,7 @@ def hyp_identify(ode_r, F, a, b, c, pref, lam_sub):
 
 
 def lead_coeff(a, b, c):
-    """DLMF 15.8.2 (15.8.8 when b - a is a positive integer): 2F1(a, b; c; z) ~ Gamma(c) Gamma(b - a)/(Gamma(b)
+    """DLMF section 15.8 (b - a a positive integer included): 2F1(a, b; c; z) ~ Gamma(c) Gamma(b - a)/(Gamma(b)
     Gamma(c - a)) (-z)^-a as z -> -oo, for b - a > 0"""
     return sp.gamma(c)*sp.gamma(b - a)/(sp.gamma(b)*sp.gamma(c - a))
 

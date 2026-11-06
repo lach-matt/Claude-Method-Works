@@ -3,9 +3,13 @@
       points, exactly): True
   R2: witness g^-1 = gbar^-1 + eps x rho^-1 d_r^2: Lorentzian True; h's coefficient in II.C's basis -epsilon; at rho =
       eps^2/4, g^-1(dt, dt) = 1, so B is not a time function, for every eps > 0; dt^flat_* and alpha past timelike
-      there (eps = 1/10, 1/1000): True
-  R3: extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1 (eps = 1/10): B 100003 -> 100025 (increases towards
-      the past), F 14.4965 -> 12.51 (decreases), max r 100024 <= R_p = 726863
+      there (eps = 1/10, 1/1000): True; on g_b0 (Kerr-Schild, mu = 3/2, its inverse checked) the same witness keeps
+      g^-1(dt, dt) >= 1 - 99*epsilon**4/128 > 0 for eps in (0, 1]: True
+  R3 (a demonstration): extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1.01, where t^flat_* > c = 1 (eps =
+      1/10, C' = 1/2): B 100003 -> 100025 (increases towards the past), Xi = t^flat_* + log r 14.4965 -> 12.52
+      (decreases), max r 100024 <= R_p = 3.41311e+06
+  R4 (III.K Lemma 6.2): components of g - eta at most 1/20: the causal cone |V^x|^2 <= (5/3)|V^t|^2 (z3, the negation
+      unsat); the Neumann bound 1/3 < 1/2; 300 exact random perturbations, (eta + delta)^-1_00 <= -2/3: True
   controls (each must make z3 find a counterexample): N1 kappa = 0 True; N2 kappa = -1 True; N3 threshold without T_1
-      True; N4 decay removed True; N5 gbar^-1(dt_*, dr) = +1 True
-R1 PASS; R2 PASS; R3 PASS; controls behave
+      True; N4 decay removed True; N5 gbar^-1(dt_*, dr) = +1 True; N6 Lemma 6.2's cone at eps = 1/4 True
+R1 PASS; R2 PASS; R3 PASS; R4 PASS; controls behave

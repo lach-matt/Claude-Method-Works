@@ -103,7 +103,7 @@ def part_s1():
             rhs_m = RR**-6*h/RR**l*L_op(Ft, s, l, c72=Q(3)).subs(s, S)
             for pt in pts:
                 ok = ok and abs(sp.N((lhs - rhs).subs(pt), 40)) < 1e-30
-                ctl = ctl and abs(sp.N((lhs - rhs_m).subs(pt), 40)) > 1e-6
+                ctl = ctl and abs(sp.N((lhs - rhs_m).subs(pt), 40)) > 1e-20  # the identity holds to 1e-30
     check("S1 -(1/2) box_eta (r^-4 F(s) h_l r^-l) = r^-6 h_l r^-l L_l[F] (l = 0..4, two test F, two points, 40 digits)",
           ok)
     check("S1' control (the code mutated: 7/2 -> 3 in L_l): the identity fails at every case", ctl)
