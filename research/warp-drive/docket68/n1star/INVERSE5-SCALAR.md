@@ -1,13 +1,13 @@
 # INVERSE5-SCALAR -- I.C:497's scalar-type blocks, and the two root avoidances of d's reading
 
-*Status.* Written 2026-11-06 for workstream D of `paper/RESPONSE-HL-5D.md` (CONSTANTS5.md rounds 7-10: R7.4, R8.3,
-R9.0 MAJOR 2 (c), R9.5, R10.5); not yet read by a verifier. It takes the two items CONSTANTS5.md R9.5 and R10.5 leave
-with a single missing input: **(A)** I.C:497's scalar-type blocks (a lower bound, uniform in l, for their least singular value
+*Status.* Written 2026-11-06 for workstream D of `paper/RESPONSE-HL-5D.md` (CONSTANTS5.md rounds 7-10: R7.4, R8.3, R9.0
+MAJOR 2 (c), R9.5, R10.5); not yet read by a verifier. It takes the two items CONSTANTS5.md R9.5 and R10.5 leave with a
+single missing input: **(A)** I.C:497's scalar-type blocks (a lower bound, uniform in l, for their least singular value
 in (3.2)'s norm), and **(B)** the two avoidances of finite sets of roots that are part of d's reading (the levels off
-I11:156-160's exclusion values; eps, eps' off I9:290-291's and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the
-paper and INVERSE5-SIX.md (the other six inverse bounds, a parallel workstream) are not edited; section C proposes
-old/new text for CONSTANTS5.md R10.7 blocks 1 and 2 (R10.7 replaced R9.7 while this file was written; the sentences
-concerned are R9.7's, unchanged).
+I11:156-160's exclusion values; eps, eps' off I9:290-291's and I14:124-126's). CONSTANTS5.md, N1STAR-PROOF.md, the paper
+and INVERSE5-SIX.md (the other six inverse bounds, a parallel workstream) are not edited; section C proposes old/new
+text for CONSTANTS5.md R10.7 blocks 1 and 2 (R10.7 replaced R9.7 while this file was written; the sentences concerned
+are R9.7's, unchanged).
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/scalarblock5.py` (part A; S0-S8, controls C1-C5; its data file `checks/scalarblock5_block.txt`, the block's
@@ -38,15 +38,15 @@ of the record.
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
-  Tangherlini block, S5), and their horizon exponents do not depend on l (S5b). Two findings bound what can be had:
-  (i) **in (3.2)'s norm at (s, alpha) = (1, -1) the weight line alpha + 2 = 1 lies 2.93 x 10^-6 from the decaying
-  indicial root 1 + 2.93 x 10^-6 of the degree-2 block**, so sigma_min of that block is at most 2.6180 x 10^-7 (certified,
-  Lemma A.6, proved), and the scalar-type inverse constant in the class is at least 3.81 x 10^6, not of the tensor blocks'
-  order 3.939; at alpha + 2 = 1/2, mid-gap, the same obstruction is of order one (0.020, 0.015 and 0.012 at l = 0, 2, 4); (ii) **route (a) of R8.3,
-  a perturbation from the diagonal model, gives nothing at any even l <= 19,990** (the gauge-damping part of the block has
-  an l-free first-order entry of size 9996 in that norm, S8), so the large-l threshold R8.3 asked for, if a
-  perturbative regime exists at all, lies above 19,990. The single missing input stays the one R9.5 names, now an exactly
-  stated ODE inequality for the operator of `checks/scalarblock5_block.txt` (A.8).
+  Tangherlini block, S5), and their horizon exponents do not depend on l (S5b). Two findings bound what can be had: (i)
+  **in (3.2)'s norm at (s, alpha) = (1, -1) the weight line alpha + 2 = 1 lies 2.93 x 10^-6 from the decaying indicial
+  root 1 + 2.93 x 10^-6 of the degree-2 block**, so sigma_min of that block is at most 2.6180 x 10^-7 (certified, Lemma
+  A.6, proved), and the scalar-type inverse constant in the class is at least 3.81 x 10^6, not of the tensor blocks'
+  order 3.939; at alpha + 2 = 1/2, mid-gap, the same bound is about 10^-2 (0.020, 0.015 and 0.012 at l = 0, 2, 4); (ii)
+  **route (a) of R8.3, a perturbation from the diagonal model, gives nothing at any even l <= 19,990** (the
+  gauge-damping part of the block has an l-free first-order entry of size 9996 in that norm, S8), so the large-l
+  threshold R8.3 asked for, if a perturbative regime exists at all, lies above 19,990. The single missing input stays
+  the one R9.5 names, now an exactly stated ODE inequality for the operator of `checks/scalarblock5_block.txt` (A.8).
 
 ## A. The scalar-type blocks of L-hat_b0(0) (I.C:497)
 
@@ -82,9 +82,9 @@ cos^l th e^(i l phi1), l a symbol (every field stripped of S, d log S = (0, 0, -
 gauge data c_C = a(r) dt + b(r) dr, c_U = p(r) dt + q(r) dr, c_H = k(r) dr:
 
 - S0: the Kerr-Schild metric is Ricci-flat (exact).
-- S1: every one of the fifteen components of L h equals the reconstruction from seven radial coefficients F0, ..., F6
-  in the same form (fifteen residuals, all 0, l symbolic); the F_i are real, depend on l only through kappa, and
-  F_i = sum_j (A2_ij H_j'' + A1_ij H_j' + A0_ij H_j) with **A2 = -(f/2) I_7**: the block is (1/2) A_l I_7 plus first-order
+- S1: every one of the fifteen components of L h equals the reconstruction from seven radial coefficients F0, ..., F6 in
+  the same form (fifteen residuals, all 0, l symbolic); the F_i are real, depend on l only through kappa, and F_i =
+  sum_j (A2_ij H_j'' + A1_ij H_j' + A0_ij H_j) with **A2 = -(f/2) I_7**: the block is (1/2) A_l I_7 plus first-order
   terms, A_l = -r^-3 (P d_r)' d_r + kappa r^-2, P = r^3 f, the scalar model of zeroext5. The 7 x 7 x 3 coefficients
   (rational in r and kappa, polynomial in the gauge data) are written to `checks/scalarblock5_block.txt` and read back
   identically. The gauge-damping terms enter through Upsilon(h) = delta_{E^Ups} G h (first order in h) in E^C Upsilon,
@@ -111,10 +111,11 @@ r^(-lam + s_j), s = (0, 0, 0, 1, 1, 0, 0)) has
 
     det N_l(lam) = const x (lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D_l(lam),     l = 0, 2, 4,
 
-with P_Ups gaugepot5 G1's box^Ups polynomials, P_C damping5's box^C polynomials at the record's point and D_0 =
-(lam - 1)^2, D_l = 1: lin5 E2's factorisation, computed there on 4+1 Minkowski in Cartesian coordinates, reproduced here
-from the Tangherlini block in Kerr-Schild coordinates, an independent route. Control C4: the record's box^C polynomial
-at e_C = 1/10240 is not proportional. The decaying roots (real part > 1) nearest the weight line 1: 1.0000747438 (l = 0), 1.0000029324 (l = 2), 1.0000169224 (l = 4), each box^C's lowest upper root minus 1.
+with P_Ups gaugepot5 G1's box^Ups polynomials, P_C damping5's box^C polynomials at the record's point and D_0 = (lam -
+1)^2, D_l = 1: lin5 E2's factorisation, computed there on 4+1 Minkowski in Cartesian coordinates, reproduced here from
+the Tangherlini block in Kerr-Schild coordinates, an independent route. Control C4: the record's box^C polynomial at e_C
+= 1/10240 is not proportional. The decaying roots (real part > 1) nearest the weight line 1: 1.0000747438 (l = 0),
+1.0000029324 (l = 2), 1.0000169224 (l = 4), each box^C's lowest upper root minus 1.
 
 ### A.5 The horizon exponents do not depend on l (computed, exact; S5b)
 
@@ -180,15 +181,15 @@ weighted space is at least that of the indicial family on the weight line.) []
     2   1.0000029324               2.6180 x 10^-7                             0.015
     4   1.0000169224               1.4955 x 10^-6                             0.012
 
-So sigma_min of the degree-2 scalar-type block is at most 2.6180 x 10^-7, and **the scalar-type inverse constant of I.C:497 at
-(s, alpha) = (1, -1) is at least 3.81 x 10^6** (so the full inverse bound in the class is at least that, against the
-tensor blocks' 3.939). The cause is the weight: the decaying root 1 + 2.93 x 10^-6 of the degree-2 block (box^C's lowest
-upper root at l = 2, minus 1; III.F' Proposition 2.3 notes epsilon_ind < 3 x 10^-6 because of it) lies that close to
-the line alpha + 2 = 1. At alpha + 2 = 1/2 the same bounds are 0.020, 0.015 and 0.012 at l = 0, 2, 4: of order one, as nothing lies near that line.
-III.H (1.1) itself asks alpha + 2 in (0, 1), open, so alpha = -1 sits at the end of the range the record uses later;
-**a choice of alpha in the middle of the gap is recommended for any explicit constant** (the tensor blocks' 3.939 and
-the scalar model's 2.8002 were computed at alpha = -1 and would have to be recomputed there; their gaps (-l, l + 2) and
-(0, 2) contain 1/2, so nothing obstructs that).
+So sigma_min of the degree-2 scalar-type block is at most 2.6180 x 10^-7, and **the scalar-type inverse constant of
+I.C:497 at (s, alpha) = (1, -1) is at least 3.81 x 10^6** (so the full inverse bound in the class is at least that,
+against the tensor blocks' 3.939). The cause is the weight: the decaying root 1 + 2.93 x 10^-6 of the degree-2 block
+(box^C's lowest upper root at l = 2, minus 1; III.F' Proposition 2.3 notes epsilon_ind < 3 x 10^-6 because of it) lies
+that close to the line alpha + 2 = 1. At alpha + 2 = 1/2 the same bounds are 0.020, 0.015 and 0.012 at l = 0, 2, 4,
+about 10^5 times weaker, as no root lies near that line. III.H (1.1) itself asks alpha + 2 in (0, 1), open, so alpha =
+-1 sits at the end of the range the record uses later; **a choice of alpha in the middle of the gap is recommended for
+any explicit constant** (the tensor blocks' 3.939 and the scalar model's 2.8002 were computed at alpha = -1 and would
+have to be recomputed there; their gaps (-l, l + 2) and (0, 2) contain 1/2, so nothing obstructs that).
 
 S7 (floating point) evaluates Lemma A.6's quasi-mode on the full block at l = 2, x0 = log 400: {S7VALS}, approaching
 S6's bound as W grows. Control C5: the claim sigma_min(L_2) >= 10^-4 at alpha = -1 is refuted by S6.
@@ -199,8 +200,8 @@ R8.3's route (a) bounds sigma_min(L_l) >= sigma_min((1/2) A_l I_7) - ||R_l||_{X 
 needed an l beyond which this is positive. The block decides where it cannot be:
 
 - (computed, exact) In orthonormal components R_l is first order. Its (3, 3) first-order entry at the record's inner
-  gauge data is M33(r) = -(5000 r - 1)/r^3, free of kappa (S8); the gam_C part is -gam_C a r^-2 from E^C (delta G h)'s dt (x) dS
-  component, a = 1/200.
+  gauge data is M33(r) = -(5000 r - 1)/r^3, free of kappa (S8); the gam_C part is -gam_C a r^-2 from E^C (delta G h)'s
+  dt (x) dS component, a = 1/200.
 - (deduced) Test functions of high radial frequency in u3 near r = 1/2 give ||R_l||_{X -> Y} >= (1/2) |M33(1/2)| =
   9996 for every l (the quotient tends to r |M33(r)|; it reaches 9996 (at r = 1/2) on [1/2, 50]).
 - (proved, Lemma A.6 for the scalar model, whose indicial family at 1 is kappa + 1) sigma_min((1/2) A_l) <= (kappa + 1)
@@ -215,7 +216,8 @@ is why no large-l theorem is stated here.
 ### A.8 Status, and the single missing input
 
 - *Computed, exact*: the block for every l (S1), with S0, S2-S5, S5b; *proved* (with certified numbers): Lemma A.6 and
-  its corollary, sigma_min(L_2) <= 2.6180 x 10^-7 at alpha = -1; *computed/deduced*: route (a)'s failure up to l = 19,990 (S8).
+  its corollary, sigma_min(L_2) <= 2.6180 x 10^-7 at alpha = -1; *computed/deduced*: route (a)'s failure up to l =
+  19,990 (S8).
 - *Not obtained*: a lower bound for sigma_min of the scalar-type blocks, uniform in l, hence I.C:497 in the class and
   the full inverse bound there; nothing here is a lower bound.
 - **The single missing input** (unchanged in substance from R9.5, now exactly stated): a number sigma_* > 0 with
@@ -223,11 +225,11 @@ is why no large-l theorem is stated here.
       ||L_l H||_{Y_l} >= sigma_* ||H||_{X_l}   for every even l >= 0 and every H in X_l (at l = 0, H orthogonal in X_0 to
                                                 the zero-energy state),
 
-  L_l the operator of `checks/scalarblock5_block.txt` at the record's gauge data with fixed zeta, chi, gam_H (A.1) and
-  X_l, Y_l the norms of A.6 at a chosen (s, alpha); at (1, -1) necessarily sigma_* <= 2.6180 x 10^-7. With it, ||L-hat_b0(0)^-1||
-  in the class is max(3.939, 1/sigma_*) at the same (s, alpha). Route (c) (A.3's factorisation through box^C(0),
-  box^Ups(0) and the static master operator) replaces it by three bounds of the same kind, each uniform in l; none is
-  certified here.
+L_l the operator of `checks/scalarblock5_block.txt` at the record's gauge data with fixed zeta, chi, gam_H (A.1) and
+X_l, Y_l the norms of A.6 at a chosen (s, alpha); at (1, -1) necessarily sigma_* <= 2.6180 x 10^-7. With it,
+||L-hat_b0(0)^-1|| in the class is max(3.939, 1/sigma_*) at the same (s, alpha). Route (c) (A.3's factorisation through
+box^C(0), box^Ups(0) and the static master operator) replaces it by three bounds of the same kind, each uniform in l;
+none is certified here.
 
 ## B. The two avoidances of finite sets of roots (proved; `rootavoid5.py`)
 

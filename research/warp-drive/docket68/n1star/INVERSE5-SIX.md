@@ -531,26 +531,26 @@ The passage to the write-out's own function spaces and the
 ```new
 λ1 and δ are positive, as the proof gives them; their values are not
   computed, and the supplement states where the computation of explicit constants stops (supplement
-  `docket68/n1star/INVERSE5-SIX.md`, round 2). What the proof's own formulas deliver is bounded above, log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ
-  (computed, `docket68/n1star/checks/deltacap5.py`), and with the loss taken at the integer above the formula gives at
-  most log₁₀ δ = −4.45 × 10¹⁷ even with every other input at its least value (computed, `checks/inverse6_5a.py`); a lower
-  bound is that formula, monotone in each input (computed), evaluated at certified bounds of its inputs. In hand: the
-  zero-energy inverse bound for the scalar model (constant 2.81) and for the tensor-type blocks of the linearised
-  operator (3.94), every harmonic, through the horizon (deduced from exact identities, with certified arithmetic,
-  `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the final black hole (exact), with the fibre
-  metric the trapping estimate needs, of condition number about (γ_C/271.5)⁸ (certified, `checks/inverse6_5.py`); the
-  absorption and interpolation steps of the high-energy inverses (explicit; the interpolation factor at most 1.00266,
-  certified); the removal of one of the seven inverse bounds, which a parametrix replaces; and the resolvent of every
-  master operator behind the two mode-stability bounds, every harmonic and every real frequency, in a cut-off norm,
-  carried exactly to the tensor-type blocks of the linearised operator and the vector-type blocks of the 1-form wave
-  operator (certified, `checks/inverse6_5m.py`). Not computed: the constant of the trapping estimate, which the
-  write-out obtains by a defect-measure contradiction, and the a priori constants built on it; the gauge reconstruction
-  and the absorbed problem's inverse in the write-out's norms (the latter proved invertible for the scalar wave); the
-  parametrix norms at future timelike infinity; the least singular value of the scalar-type zero-energy blocks; and
-  the chain's other inputs (the tame constants to order N, the Nash–Moser thresholds of the exterior and slab problems,
-  the gluing's constants). The first of these is upstream of the rest: the write-out fixes its gauge and damping
-  parameters only below thresholds it proves to exist, and the cut-offs and orders of its function spaces only up to
-  admissibility, so explicit constants first need those choices made numerically. This is a limit of the explicit
+  `docket68/n1star/INVERSE5-SIX.md`, round 2). What the proof's own formulas deliver is bounded above, log₁₀ δ < −7.66 ×
+  10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`), and with the loss taken at the integer above the
+  formula gives at most log₁₀ δ = −4.45 × 10¹⁷ even with every other input at its least value (computed,
+  `checks/inverse6_5a.py`); a lower bound is that formula, monotone in each input (computed), evaluated at certified
+  bounds of its inputs. In hand: the zero-energy inverse bound for the scalar model (constant 2.81) and for the
+  tensor-type blocks of the linearised operator (3.94), every harmonic, through the horizon (deduced from exact
+  identities, with certified arithmetic, `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the
+  final black hole (exact), with the fibre metric the trapping estimate needs, of condition number about (γ_C/271.5)⁸
+  (certified, `checks/inverse6_5.py`); the absorption and interpolation steps of the high-energy inverses (explicit; the
+  interpolation factor at most 1.00266, certified); the removal of one of the seven inverse bounds, which a parametrix
+  replaces; and the resolvent of every master operator behind the two mode-stability bounds, every harmonic and every
+  real frequency, in a cut-off norm, carried exactly to the tensor-type blocks of the linearised operator and the
+  vector-type blocks of the 1-form wave operator (certified, `checks/inverse6_5m.py`). Not computed: the constant of the
+  trapping estimate, which the write-out obtains by a defect-measure contradiction, and the a priori constants built on
+  it; the gauge reconstruction and the absorbed problem's inverse in the write-out's norms (the latter proved invertible
+  for the scalar wave); the parametrix norms at future timelike infinity; the least singular value of the scalar-type
+  zero-energy blocks; and the chain's other inputs (the tame constants to order N, the Nash–Moser thresholds of the
+  exterior and slab problems, the gluing's constants). Upstream of all of these: the write-out fixes its gauge and
+  damping parameters only below thresholds it proves to exist, and the cut-offs and orders of its function spaces only up
+  to admissibility, so explicit constants first need those choices made numerically. This is a limit of the explicit
   computation, not a gap in Theorem 4.
 ```
 

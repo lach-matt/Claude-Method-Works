@@ -513,14 +513,14 @@ $\omega^{\le k}_\tau$, $\omega^{\le4}$, $\omega^{\le1}_\natural$, $\omega^{(0)}_
 $\omega^{(-1)}_{b_0,\mathrm v1}$ and $\omega^{(0)}_{b_0,\mathrm s1}$ (an independent reader's m2). Widened, it finds 632
 lines, the 55 new ones read at D621: 343 use only the site's conditions, 205 only name the object, 79 name another object
 spelt the same, none uses more.] [amended D626: that widening added seven spellings of the towers, not all of them (a
-second reader's N2). Widened again, to every spelling of the 1-form towers at $b_0$ and in $b$ (twenty-four symbols;
-`checks/vii5census.py` V2 checks that every other spelling of $\omega$ in Parts III-IV is excluded with a reason) and to
-symbols printed across a line break, it finds 713 lines, the 81 new ones read at D626: 375 use only the site's
-conditions, 246 only name the object, 87 name another object spelt the same, none uses more.] Five were undecided, and
-all three readers found the reason: the proofs use the 1-form towers $\breve\omega^i_\tau$ of every type themselves (in
-$m_\nu$), and (C3) named 1-forms only for s1. (C3) now names them, with Table 1.1's towers taken as $\delta^*_{g_{b_0}}$
-of the averaged 1-forms. Every other ingredient is natural or the unique solution of a natural problem. III.C$''$
-Proposition 4.1's data and the boosts $\phi_S$ are among the natural ones.
+second reader's N2). Widened again, to every spelling of the 1-form towers at $b_0$ and in $b$ (twenty-four [amended
+D628: further] symbols; `checks/vii5census.py` V2 checks that every other spelling of $\omega$ in Parts III-IV is
+excluded with a reason) and to symbols printed across a line break, it finds 713 lines, the 81 new ones read at D626: 375
+use only the site's conditions, 246 only name the object, 87 name another object spelt the same, none uses more.] Five
+were undecided, and all three readers found the reason: the proofs use the 1-form towers $\breve\omega^i_\tau$ of every
+type themselves (in $m_\nu$), and (C3) named 1-forms only for s1. (C3) now names them, with Table 1.1's towers taken as
+$\delta^*_{g_{b_0}}$ of the averaged 1-forms. Every other ingredient is natural or the unique solution of a natural
+problem. III.C$''$ Proposition 4.1's data and the boosts $\phi_S$ are among the natural ones.
 
 (VII6) *Part V in the class.* Proposition 2.2 adds to Part V's proof the equivariance of its Step 1, a one-dimensional
 obstruction, and an a priori bound $|m-\bar\mu|\le C\eta$ from the flux identity. The bound makes the glued data
