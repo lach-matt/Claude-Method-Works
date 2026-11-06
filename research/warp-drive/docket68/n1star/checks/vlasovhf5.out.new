@@ -32,3 +32,9 @@ H6 (mpmath; numpy) the label quadrature, and an N-uniform mean-field model
    model: N = 4: |w_N - w_ref| = 9.34e-02, quadrature residual 5.53e+00, ratio 0.017; N = 8: |w_N - w_ref| = 3.24e-03, quadrature residual 1.28e+00, ratio 0.003; N = 16: |w_N - w_ref| = 2.28e-04, quadrature residual 4.83e-02, ratio 0.005
    errors fall at least like N^-2 at each doubling: True; ratio to the residual bounded independently of N (within a factor 10, and below 10): True
    control (weights 2 pi/(N + 1)): errors 5.28e-01, 3.07e-01, 1.63e-01, rejected: True
+   [R6] stability constant sup|w_N(q0 + d q1) - w_N(q0)|/d at N = 4, 8, 16: 0.6031, 0.6670, 0.6673 (within a factor 2: True); control (coupling growing with N): 0.6031, 0.8725, 1.6541 (rejected): True
+H6 PASS
+H7 (exact) restricted particles focus at an axis
+   (a) sqrt|g5| = sqrt|h| e^(psi1 + psi2): True; the 5D divergence of a restricted current is e^-(psi1 + psi2) times the orbit divergence of e^(psi1 + psi2) J: True
+   (b) inward restricted flow solves the planar continuity equation: True; r n(r, t) -> v t n0(v t) as r -> 0 (so T5 ~ n v^2 is unbounded once the beam reaches the axis): True; control (axial momenta) bounded: True
+H7 PASS
