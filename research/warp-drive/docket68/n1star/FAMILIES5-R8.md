@@ -108,7 +108,7 @@ become interval quotients.
 - **Results (intcert5.out).**
   - C1: certified at n = 80 and 160 (least lower bound of Γ/E² 0.4475).
   - C1d: with ψ_P, ψ_P′, ψ_P″ each widened by d = (10⁻³, 10⁻³, 3 × 10⁻²) and μ0 by 10⁻⁴ it still certifies (least
-    lower bound XXC1D). This is the tube T2 uses (R8.2); d″ = 5 × 10⁻² is not certified. The n = 80 and 160 splines
+    lower bound 0.048). This is the tube T2 uses (R8.2); d″ = 5 × 10⁻² is not certified. The n = 80 and 160 splines
     differ by 1.1 × 10⁻⁵, 9.4 × 10⁻⁶ and 6.0 × 10⁻⁶ (sampled).
   - C2: certified at n = 80 and 160 (largest upper bounds −3.01 × 10⁻⁴ and −3.06 × 10⁻⁴).
   - C2d: on R < R_*, with every input widened by 10⁻³ of its size plus 10⁻⁶, it still certifies (upper bound
@@ -401,7 +401,7 @@ What changed from R7.6's block:
 - the bend is at most 0.0012, and its hyperbolicity is certified for the background itself and for the computed
   approximation in a stated interpolant (nit 5);
 - Γ's sign is certified the same way;
-- R8.4 and R8 replace R7 among the supplements;
+- `FAMILIES5-R8.md` replaces `FAMILIES5-R7.md` among the supplements cited;
 - the M_b sentence is replaced by the settled text, rebased with R7.6's qualifiers ("near Part I's data", "for small
   amplitude", families background + εδ + O(ε²), second order), the potentials' positivity now computed for every
   l ≥ 2, and the Hollands–Wald identification left out.
