@@ -35,3 +35,22 @@ T6 PASS
       3 eps (the choice of eps)': True}
   T7 control: {'column at beta_tf + 2 (charge != 0)': False}
 T7 PASS
+  T8: W**_H on {t = C''} has the r^-1 tail (-1 dt + 1/4 dr)/r; r^2 d_t W**_H -> [1/2, 0] (= W*/2: order 2); K's normal
+      components [r**(-2), -1/r**2] (order 2): the data of Z^(K) have order exactly 1
+  T8 control (W*): r^-1 coefficients on {t = C''} [0, 0]; a nonzero r^-1 tail: False
+T8 PASS
+  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: True; in the class p_0 > 1/2 + 2 gam > 1/2
+      + delta_#: {'1 - (1/2 + delta_#)': True, '(q - 1) - (1/2 + 2 gam)': True, '2 gam - delta_#': True}
+  T9 control (p = 1/2): conditions failing ['a_0 < p - 3/2', 'alpha_I < a_0', 'p_slab > 1/2 + beta', 'beta > 0', 'b_I >
+      b_+', 'p_slab > b_I', 'gamma_+ < b_+', 'alpha_K < gamma_+', 'alpha_K >= 1/2']
+T9 PASS
+  T10: each required slab order below Theorem R4.3's min(3/2, q - 1): {'R4.4 / R3.6: p > 1/2 + beta': True, 'R5.3 at
+      kappa: p > 1/2 + beta, beta > kappa': True, 'l >= 2 under (M): p > 1/2 + beta': True}; kappa < beta < delta_#: True
+  T10 control: each required slab order below Theorem R4.3's min(3/2, q - 1): {'an expansion of Z_1 to order 2 at I+ on
+      the slab': False}; kappa < beta < delta_#: True
+T10 PASS
+  T11: 12 conditions with w_I = max(5/2, gamma_+ + 1 + eps_1), all hold on the box: True
+  T11 control (Prop 3.3's eps not reduced to min(eps, eps_1)): 12 conditions with w_I = max(5/2, gamma_+ + 1 + eps_1),
+      all hold on the box: False; failing ['Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP']
+T11 PASS
+EXIT 0

@@ -623,21 +623,27 @@ def part_g():
     check("G5'' S1's left side R^(2a+3) F(R)^2 is scale-invariant exactly at F ~ R^(-a-3/2): |d h_R| <= eps r^(-3/2-a), "
           "so the first-order h_R row has q = 3/2 + a and, with Hardy (one power of r), the zero-order row a + 1/2",
           crit == [a_ + sp.Rational(3, 2)], str(crit))
-    # G6: Sigma|_S
+    # G6: Sigma|_S, by the explicit Taylor composition F_p(1 + d(rho)) = sum_m F_p^(m)(1) d(rho)^m/m!, d(rho) :=
+    # (f_oo - v1) rho + f_2 rho^3, F_p^(m)(s) = (a)_m (b)_m/((c)_m 2^m) 2F1(a + m, b + m; c + m; s/2) (mpmath)
     f_inf, f2 = sp.Rational(-3, 4), sp.Rational(5, 2)
     v1s = sp.Rational(7, 10)
     exps = set()
+    mp.mp.dps = 30
     for p in Pi + [sp.Rational(9, 4)]:
         a1, b1, c1 = p + L_HARM, p - L_HARM - 2, p - sp.Rational(1, 2)
-        s_of = 1 + (f_inf - v1s)*rho + f2*rho**3
-        Fs = sp.hyper([a1, b1], [c1], s_of/2)
-        ser = sp.expand(sp.series(rho**p*Fs, rho, 0, p + 4).removeO())
-        for term in sp.Add.make_args(ser):
-            exps.add((p, term.as_coeff_exponent(rho)[1]))
+        dl_ = (f_inf - v1s)*rho + f2*rho**3
+        ser = 0
+        for m in range(0, 4):
+            dm = mp.rf(a1, m)*mp.rf(b1, m)/(mp.rf(c1, m)*2**m)*mp.hyp2f1(a1 + m, b1 + m, c1 + m, mp.mpf(1)/2)
+            ser += sp.Float(str(dm), 25)*dl_**m/sp.factorial(m)
+        poly = sp.Poly(sp.expand(ser), rho)
+        for (deg,), cf in zip(poly.monoms(), poly.coeffs()):
+            if deg <= 3 and abs(cf) > 1e-20:
+                exps.add((p, p + deg))
     ok6 = all(((2*e_).is_integer and e_ >= 2) for p, e_ in exps if p != sp.Rational(9, 4))
     ctl6 = any(not (2*e_).is_integer for p, e_ in exps if p == sp.Rational(9, 4))
-    check("G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (series to "
-          "rho^(p+3))", ok6, str(sorted({str(e_) for p, e_ in exps if p != sp.Rational(9, 4)})[:10]))
+    check("G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (Taylor "
+          "composition to rho^(p+3), coefficients by mpmath)", ok6, str(sorted({str(e_) for p, e_ in exps if p != sp.Rational(9, 4)})[:10]))
     check("G6' control (a p = 9/4 term): exponents outside E_0^(1/2)", ctl6)
 
 
