@@ -13,3 +13,6 @@ C1, C1d (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.8
    C1d, n = 80, d = (0.001, 0.001, 0.03), mu0 widened by 1e-04: certified on every cell: True (least lower bound 0.0483)
    C1d, n = 160, d = (0.001, 0.001, 0.03), mu0 widened by 1e-04: certified on every cell: True (least lower bound 0.0484)
    the n = 80 and n = 160 splines differ by at most 1.1e-05, 9.4e-06, 6.0e-06 (psi_P, psi_P', psi_P'', sampled): far inside d (truebg5 T2 certifies the n = 160 spline's distance to the background itself)
+   controls: Gamma with its sign flipped not certified (600 cells fail; rejected): True; without its 4 nu E^2 term not certified (600 fail; rejected): True; d = (0.5, 0.5, 5) not certified (600 fail; rejected): True
+C1 PASS
+C2, C2d (interval arithmetic) kappa' K'^l_l < 0 on the bent slice between its samples: the computed background, and every background within a widening of it on R < R_*
