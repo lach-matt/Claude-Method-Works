@@ -49,17 +49,29 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
   X9 (computed, sampled) Lemma W (two signs on a window of length 4 pi lam) on 4000 random amplitudes, in both cases
      (|S| large with slowly varying phase; |S'| large with a zero inside the window).  Control: |S'| below the bound
      with an adversarial epsilon gives a window with one sign.
-  X10 (computed, mpmath, sampled) The hypothesis (H_N) of Theorem L_1E for exp(-1/x) and the record's C_c^inf
-     envelope: env^(k), k <= 12, positive and log-concave on x = v - v_s <= 10^-2 with kappa_k/kappa in (1/2, 2) and
-     |kappa_k'| <= c kappa_k^(3/2) (at x = 10^-1.5 it fails for k >= 7, resp. 10: x0' depends on N).  Control: sin^4
-     (the solver's envelope, not flat) violates it.
+  X10 (computed, mpmath, sampled densely; round 6, the verifier of round 5's m2) The hypotheses (H_N) and (H_N') of
+     Theorem L_1E and L.16 (c)'s bounds for exp(-1/x) and the record's C_c^inf envelope, at 401 points of [10^-3.5,
+     10^-2] with exact derivatives (Bell polynomials in the derivatives of log env): env^(k), k <= 12, positive and
+     log-concave with kappa_k/kappa in (1/2, 2); sup |kappa_k'|/kappa_k^(3/2) <= c_R = 3 (alpha = 1/2); sup
+     |env^(j)|/(kappa^j env), j <= 13, printed (L.16 (c)'s c_j); and C_- k kappa^(1/2) <= |kappa_k - kappa| <= C_+ k
+     kappa^(1/2) with C_- > 0 for 8 <= k <= 12.  Control: the mutant log env = -1/x + 10 sin^16(4 pi log10 x)/x, flat at
+     the four points round 5 sampled, fails at the dense ones.
   X11 (computed, mpmath; a model with unit constants) The two-term formula with exp(-1/x), lam = 1e-6, mu0 = A = 1,
      nu = -1/9, Gamma = 1, r0 = 3: S(v) = nu env (1 + 2 i lam kappa) - i^N Xi lam^(N-2) env^(N-1) (exact derivatives,
      exact Xi) for N = 9 (quadrature) and N = 12 (the real parts cancel at the crossover), over 2400 windows from
-     env = lam^4 to x = 0.2 lam^(1/2): every window has both signs of -Re[S e^(i v/lam)] - m0 +- D2.  Control: D2
-     multiplied by lam^-8 leaves windows with one sign.
+     env = lam^4 to x = 0.2 lam^(1/2), with L.22's cutoff of the stage term at lam kappa > 1 (round 6, the verifier of
+     round 5's m1): every window has both signs of -Re[S e^(i v/lam)] - m0 +- D2.  Control: S_U removed leaves windows
+     with one sign (the U^(1) term is what decides the very edge).
 
-Labels: X1-X8 computed (exact, sympy); X9, X10 computed, sampled; X11 computed (mpmath), a model with unit constants.
+  X12 (computed, mpmath; a model with unit constants; round 6, the verifier of round 5's MAJOR 1 (a)) The crossover
+     for N = 12, where the two real parts cancel, decided by Lemma W (B) applied to sigma := S/(lam^3 A d env) with
+     env factored out: with an adversarial O(T) relative error that cancels the quadrature part at the cancellation
+     and a non-explicit error of size (lam + 1/kappa)|nu|, every window of the 81 around it has |sigma'| >= |nu|
+     kappa^(1/2), |sigma''| <= |sigma'|/(80 pi lam) and the non-harmonic error below pi lam |sigma'|/5, and has both
+     signs.  Control: Lambda frozen at its crossover value (no transversality) violates (B)'s first condition.
+
+Labels: X1-X8 computed (exact, sympy); X9, X10 computed, sampled; X11, X12 computed (mpmath), models with unit
+constants.
 Inputs READ: layerlin5 N3, N4 (H_2, D_X H_2), L.13 (b) (round 3).  Run: python3 checks/edge1_5.py  (about 15 minutes)
 """
 import os
@@ -472,31 +484,60 @@ def env_derivs(ell, x, kmax):
     return [co[k]*mp.factorial(k) for k in range(kmax + 2)]
 
 
+def bell_ratios(kmax):
+    """Y_k = env^(k)/env as polynomials in L_j = (log env)^(j): Y_(k+1) = Y_k' + L_1 Y_k (complete Bell polynomials)"""
+    Ls = sp.symbols('L1:%d' % (kmax + 3))
+    Y = [sp.Integer(1)]
+    for _ in range(kmax + 1):
+        y = Y[-1]
+        dy = sum(sp.diff(y, Ls[j])*Ls[j + 1] for j in range(kmax + 1))
+        Y.append(sp.expand(dy + Ls[0]*y))
+    return Ls, Y
+
+
+XS = sp.Symbol('x', positive=True)
+ELLS = {"exp(-1/x)": -1/XS,
+        "record C_c^inf": 12*sp.log(sp.sin(sp.pi*(2*XS/3)/2)) + 1 - 1/((2*XS/3)*(2 - 2*XS/3)),
+        "sin^16 mutant": -1/XS + 10*sp.sin(4*sp.pi*sp.log(XS)/sp.log(10))**16/XS}
+C_R_STATED = 3                      # |kappa_k'| <= c_R kappa_k^(3/2), alpha = 1/2
+
+
 def e10(control=False):
-    mp.mp.dps = 60
-    xs = [mp.mpf(10)**-k for k in (2, 2.5, 3, 3.5)]
-    edges = [("exp(-1/x)", lambda x: -1/x, xs), ("record C_c^inf", rec_ell, xs)]
-    if control:
-        edges = [("sin^4 (not flat)", lambda x: 4*mp.log(mp.sin(mp.pi*x/3)), [mp.mpf(10)**-k for k in (1, 1.5, 2)])]
-    ok = True
-    rows = []
-    for nm, ell, xs in edges:
-        worst = mp.mpf(0)
+    mp.mp.dps = 50
+    kmax = 12
+    Ls, Y = bell_ratios(kmax + 2)
+    Yf = [sp.lambdify(Ls, y, 'mpmath') for y in Y]
+    names = ["sin^16 mutant"] if control else ["exp(-1/x)", "record C_c^inf"]
+    xs = [mp.mpf(10)**(-2 - mp.mpf(3)*k/800) for k in range(401)]        # 401 points on [10^-3.5, 10^-2]
+    rows, ok = [], True
+    for nm in names:
+        dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, kmax + 4)]
+        good, cR, cj, Cup, cdown = True, mp.mpf(0), mp.mpf(0), mp.mpf(0), mp.inf
         for x in xs:
-            D = env_derivs(ell, x, 13)
-            kap = D[1]
-            for k in range(0, 13):
-                kk = D[k + 1]/D[k]                       # kappa_k = (env^(k))'/env^(k)
-                # log-concavity of env^(k): (log env^(k))'' = env^(k+2)/env^(k) - kappa_k^2 < 0
-                lc = D[k + 2]/D[k] - kk**2
-                ok &= D[k] > 0 and lc < 0 and kk/kap > mp.mpf(1)/2 and kk/kap < 2
-                if not control:
-                    worst = max(worst, abs(lc)/kk**mp.mpf(1.5))
-        rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in %s; sup |kappa_k'|/"
-                    "kappa_k^(3/2) = %s" % (nm, [mp.nstr(x, 2) for x in xs], mp.nstr(worst, 3)))
+            Lv = [f(x) for f in dl]
+            Yv = [f(*Lv) for f in Yf]
+            kap = Yv[1]
+            for k in range(kmax + 1):
+                kk = Yv[k + 1]/Yv[k]
+                lc = Yv[k + 2]/Yv[k] - kk**2                     # (log env^(k))'' = kappa_k'
+                good &= Yv[k] > 0 and lc < 0 and mp.mpf(1)/2 < kk/kap < 2
+                if Yv[k] > 0 and kk > 0:
+                    cR = max(cR, abs(lc)/kk**mp.mpf(1.5))
+                if k >= 1:
+                    Cup = max(Cup, abs(kk - kap)/(k*mp.sqrt(kap)))
+                if 8 <= k <= 12:
+                    cdown = min(cdown, abs(kk - kap)/(k*mp.sqrt(kap)))
+            cj = max(cj, max(abs(Yv[j])/kap**j for j in range(kmax + 2)))
+        good &= cR <= C_R_STATED and cdown > 0
+        ok &= good
+        rows.append("%s: env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2), k <= 12, at all 401 points: %s; sup"
+                    " |kappa_k'|/kappa_k^(3/2) = %s <= c_R = %d; L.16 (c): max_j<=13 sup |env^(j)|/(kappa^j env) = %s;"
+                    " (H_N'): |kappa_k - kappa| <= %s k kappa^(1/2) (k <= 12) and >= %s k kappa^(1/2) (8 <= k <= 12)"
+                    % (nm, good, mp.nstr(cR, 4), C_R_STATED, mp.nstr(cj, 4), mp.nstr(Cup, 4), mp.nstr(cdown, 4)))
     if control:
         return ok
-    out("  X10 hypothesis (H_N) sampled: " + "; ".join(rows) + ": %s" % ok)
+    out("  X10 hypotheses (H_N), (H_N') and L.16 (c) on x in [10^-3.5, 10^-2], 401 points, exact derivatives (Bell"
+        " polynomials in the derivatives of log env): " + "; ".join(rows) + "  [%.0f s]" % (time.time() - T0))
     return ok
 
 
@@ -532,9 +573,10 @@ def e11(control=False):
                 T = lam*kN
                 Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
                 Lam = lam**(N - 2)*envk[N - 1]
-                S = nu*(1 + 2j*lam*kap) - (1j)**N*Xi*Lam
+                Sst = nu*(1 + 2j*lam*kap) if lam*kap <= 1 else 0          # L.22: the stage term cut off at lam kappa > 1
+                S = Sst - (0 if control else 1)*(1j)**N*Xi*Lam
                 m0 = env/9
-                D2 = 10*(1 + lam*kap)**2*env*(lam**-8 if control else 1)
+                D2 = 10*(1 + lam*kap)**2*env
                 val = -lam**3*(S*mp.exp(1j*xx/lam)).real
                 for sg in (1, -1):
                     w = val - m0 + sg*D2
@@ -551,10 +593,74 @@ def e11(control=False):
     return ok
 
 
+# ------------------------------------------------------------------------------------------------------------ X12
+def e12(control=False):
+    mp.mp.dps = 50
+    lam = mp.mpf(10)**-6
+    N, r0, mu0, nu, Gam = 12, mp.mpf(3), mp.mpf(1), -mp.mpf(1)/9, mp.mpf(1)
+    cN = N*mu0/(r0**2 + mu0)
+    u = sp.Symbol('u')
+    Ps = [sp.Integer(1)]
+    for _ in range(N + 2):
+        Ps.append(sp.expand(u**2*(Ps[-1] - sp.diff(Ps[-1], u))))
+    Pf = [sp.lambdify(u, pp, 'mpmath') for pp in Ps]
+
+    def parts(x):
+        envk = [Pf[i](1/x) for i in range(N + 1)]
+        T = lam*envk[N]/envk[N - 1]
+        Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
+        return envk[1], lam**(N - 2)*envk[N - 1], Xi
+
+    lo, hi = mp.mpf('1e-4'), mp.mpf('2e-2')                  # Re sigma_main = 0: nu + Gam Re(-Xi) Lam = 0
+    for _ in range(200):
+        mid = mp.sqrt(lo*hi)
+        kap, Lam, Xi = parts(mid)
+        if (nu*(1 + 2j*lam*kap) - Gam*Xi*Lam).real > 0:
+            lo = mid
+        else:
+            hi = mid
+    xc = hi
+    kc, Lc, Xc = parts(xc)
+
+    def sigma(x):
+        kap, Lam, Xi = parts(x)
+        if control:
+            Lam = Lc                                          # a mutation: Lambda frozen (no transversality)
+        sm = nu*(1 + 2j*lam*kap) - Gam*Xi*Lam                 # i^12 = 1
+        qc = (nu*(1 + 2j*lam*kc) - Gam*Xc*Lc).imag            # the quadrature part at the cancellation
+        theta = -1j*qc*(Lam/Lc)*(lam*kap/(lam*kc))            # an O(T) relative error that cancels it there
+        ene = (lam + 1/kap)*abs(nu)*mp.cos(kc*x)              # a non-explicit error, size (lam + 1/kappa)|nu|
+        return sm + theta + ene
+
+    per = 4*mp.pi*lam
+    worst_L0, worst_cond, bad_sign = mp.inf, True, 0
+    for k in range(-40, 41):
+        x0 = xc + k*per/2
+        ts = [x0 + per*j/96 for j in range(97)]
+        d1 = [mp.diff(sigma, t) for t in ts[::8]]
+        d2 = [mp.diff(sigma, t, 2) for t in ts[::8]]
+        L0 = min(abs(d) for d in d1)
+        eps = max(10*(1 + lam*kc)**2*mp.exp(-1/t)/lam**3 for t in ts)     # non-harmonic, per lam^3 A |d| env
+        cond = L0 >= abs(nu)*mp.sqrt(kc) and max(abs(d) for d in d2) <= L0/(80*mp.pi*lam) and eps <= mp.pi*lam*L0/5
+        worst_L0 = min(worst_L0, L0/(abs(nu)*mp.sqrt(kc)))
+        worst_cond &= cond
+        vals = [(sigma(t)*mp.exp(1j*t/lam)).real for t in ts]
+        if not (any(vv_ > eps for vv_ in vals) and any(vv_ < -eps for vv_ in vals)):
+            bad_sign += 1
+    if control:
+        return worst_cond
+    out("  X12 the crossover by Lemma W (B), N = 12 (the real parts cancel: nu < 0, Gamma > 0, i^N = 1), exp(-1/x), lam ="
+        " 1e-6, r0 = 3: Re sigma_main = 0 at x_c = %s (lam kappa = %s); with an O(T) relative error that cancels the"
+        " quadrature part at x_c and a non-explicit error of size (lam + 1/kappa)|nu|, on the 81 windows around x_c:"
+        " min |sigma'|/(|nu| kappa^(1/2)) = %s, Lemma W (B)'s conditions hold on every one: %s, windows without both"
+        " signs: %d" % (mp.nstr(xc, 6), mp.nstr(lam*kc, 4), mp.nstr(worst_L0, 4), worst_cond, bad_sign))
+    return worst_cond and bad_sign == 0
+
+
 def main():
     ok = True
     for name, f in (("X1", e1), ("X2", e2), ("X3", e3), ("X4", e4), ("X5", e5), ("X6", e6), ("X7", e7), ("X8", e8),
-                    ("X9", e9), ("X10", e10), ("X11", e11)):
+                    ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))
