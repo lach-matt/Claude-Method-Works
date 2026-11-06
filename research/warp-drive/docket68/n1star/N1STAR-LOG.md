@@ -8367,3 +8367,45 @@ use line K:733 is now K:735); r0census5 --selftest ok (323 lines) and vii5read u
   (R1-R16), stagen5, r5edits5, r6edits5, census9, stagefree5, support8b and zerohardy5 all pass.
   `response5.py --update-md5` refreshed two rows (the proof, census9.out), and its selftest passes, R1-R14. The paper's
   R12.h old texts (3)-(8) each still occur once there.
+
+**D632 (2026-11-06): the confirming read of sections 9.5, 9.10 and 11, seated.** An independent reader confirmed:
+- section 9.5 with its D618 edits, with one minor finding;
+- Proposition 9.10 as amended at D622 and D625;
+- section 11 with D618 and D630, where R6-D is seated byte-exact and its induction holds line by line;
+- the D630 notes in 10.3.
+
+It found one minor finding and eight nits; all are seated, each with an [amended D632] note.
+- m1: D618's note in 9.5 stated "1 - pi/2 = 1 - 2 <H^2 cos^2 th sin^2 th>", which is false (1 - 2 (pi/4 - 1/2) =
+  2 - pi/2). The coefficient is -2 <H^2 cos^2 th sin^2 th>, and the first coefficient 1 was -2 times sympy's -1/2.
+  - In `past5.py` P7 now computes the coefficient, kap = -2 mom[2], where it had hard-coded float(1 - pi/2). Its comment
+    and printed message state the true identity.
+  - The reader's mutant, P7 with the false identity, now fails P7: c, d (deviation 3.65) and e.
+- The reader's gap, that no program read the printed formulas, is closed by a new `past5.py` P9. It reads (9.10) and
+  (11.3) from N1STAR-PROOF.md, parses them, and compares them with the computed sphere mean and its v-integral's
+  coefficients. Two controls fail as they must: the displays with (1 - pi/2) read as 1, and the coefficient by the
+  false identity. On scratch copies, (11.3) alone without its factor and (9.10) alone with coefficient 1 each fail P9.
+- n1: Lemma 11.0's bookkeeping: "(9.8) with Lemma 9.3, for u_1^n, at the lowest orders".
+- n2: Lemma 11.2's energy step: a known E_(q+1/2) source by the hypothesis on u~~.
+- n3: the rotation case of R6-D's bookkeeping. For pure rotations the |gamma'| = |gamma| term has the L^2 factor
+  ||Omega^gamma u_1^n|| <= C t^(1/2), so ||R_gamma|| <= C t^(-3/2) still holds (or the term goes through Lemma 9.3(b));
+  the aside on c U as a source is for Cartesian gamma.
+- n4: Theorem M (b)'s h is 9.5's H.
+- n5: 9.5's "phase mean is mu' at leading order".
+- n6: 11.1's "with the Cartesian derivatives Theorem P controls".
+- n7: 11.4's "converging to 0.4569", without "as O(lam)".
+- n8: Proposition 9.10's "to order k + 1".
+- The status lines in the header, section 9 and section 11 now record the confirming read and D632. Section 11's
+  "Proved means proved [... pending the section 9.5/11 confirming read]" now reads "read by an independent confirming
+  reader of sections 9.5, 9.10 and 11, its findings seated at D632".
+- None of R6-D's text is touched. Its precondition holds (each new block once, each old block absent), and its two
+  D630 marks are unchanged. The reader's r6edits5 test gaps on Edit 2 are workstream B's.
+- The header grows by two lines, so lzerotrace5's and lzeroaudit5's rows below line 59 move by +2. PIN (lines 1-962)
+  and FILE_PIN are re-pinned.
+- Runs, every .out saved: past5 (`--selftest` P1-P9 9/9, `--mutants` 14/14, past5.out regenerated, 485 s), lzerotrace5
+  (T0-T7, C1-C6), lzeroaudit5 (A0-A3, C1-C3; 95 hits in lines 1-962, 0 unclassified), redshift5 (R1-R16), stagen5,
+  r5edits5, r6edits5, census9, stagefree5, support8b and zerohardy5 all pass. bondi5 is not run: it reads only its
+  RUNS json, not N1STAR-PROOF.md. `response5.py --update-md5` refreshed three rows (the proof, past5.py, census9.out),
+  and its selftest passes, R1-R14.
+- A first r5edits5 run during D632 failed E1f. It ran against workstream B's working copy of r6edits5.py, whose
+  bounds_ok then read Edit 2's factor, which R5-D's text lacks. With r6edits5.py as committed at 480bc8b, r5edits5
+  passes on the D632 file and its output is unchanged.

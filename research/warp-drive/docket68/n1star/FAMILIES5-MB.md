@@ -17,9 +17,9 @@ linearised vacuum seed δ in a vacuum band U,
 G^(2)[δ] the ε² coefficient of the Einstein tensor of g + εh, h a linearised vacuum solution with data δ (the second
 equality is Lemma TR (1)). Q is Proposition L′'s coefficient (FAMILIES5-VLASOV section 4: the KID's coefficient is
 ε²Q(δ) + O(ε³) [R8 (nit): with this Q the matter balance of FAMILIES5-R7 R7.2 reads ε²Q/2 + O(ε³) = ∫T(ξ, n), the factor
-2 being the pairing's 2G(ξ, n); the two normalisations agree]), the quantity Theorem Q's dichotomy needs; M_b reads Q(δ)
-< 0 (E(δ) > 0) for every non-gauge δ. This note decides the sign of Q; E is only −Q. **No identification of E with the
-Hollands–Wald canonical energy is used or claimed** (it is standard, not READ here). What is computed instead is the
+2 being the pairing's 2G(ξ, n); the two normalisations agree]), the quantity Theorem Q's dichotomy needs; M_b reads
+Q(δ) < 0 (E(δ) > 0) for every non-gauge δ. This note decides the sign of Q; E is only −Q. **No identification of E with
+the Hollands–Wald canonical energy is used or claimed** (it is standard, not READ here). What is computed instead is the
 identification the proof needs: in the tensor sector, on every slice, E is 2|T|² times the flux of the conserved current
 of the tensor master field (E2); in the scalar sector, on a static slice, E is Kodama and Ishibashi's master energy (E6,
 E9). [This is the definition the verifier of FAMILIES5-R6 proposed (finding m2): R6 section 1.5's parenthetical "the
@@ -124,17 +124,17 @@ with the unit, future, normal and decomposition checks; (i) holds identically fo
 horizon and one inside, every jet of w free and √(w(2 − fw)) rational there, w = 2/(f + q²)); the current's divergence
 identity exact and symbolic; (ii), (iv) exact and symbolic. Control: |T|² replaced by |T|²/2 (rejected, l = 2 and 4). ∎
 [R8 (minor 1): relabelled. What E2 and E3 (a)-(b) compute is exact at three rational slice points -- R, μ, w and every
-jet of w fixed there, the H and P jets free -- a spot check in the slice, not an identity symbolic in w; the phrase
-"every jet of w free" above is wrong. That (iii) and Lemma X1 hold on every class slice was checked symbolically by the
-round-8 independent verifier (w = 2/(f + q²), √Δ = 2q/(f + q²), q(R) a free function, μ symbolic; its control |T|² →
-|T|²/2 rejected), outside this record's programs (FAMILIES5-R8.md R8.9). So Theorem T (iii) and Lemma X1 are: computed
-at three slice points; on every slice, corroborated by that check.] [R8 (minor 8): *every l (deduced).* The Q-density of
-the tensor data is quadratic in T, at most linear in second angular derivatives of δγ (the scalar curvature is linear in
-second derivatives) and first order in those of δK. Integrated over S³ with T trace-free, divergence-free and Δ̂T =
-−k_T²T, every term reduces, by integration by parts, to a radial coefficient times ∫T·T = |T|² or ∫D̂T·D̂T = k_T²|T|²
-(the curvature terms of the round S³ give multiples of |T|²). So the θ-integrated density is |T|² times a quantity
-affine in k_T², and so is 2|T|²T_m√γ_RR. Their difference is affine in k_T² for fixed (H, P) and has zero Euler operator
-at k_T² = 6 and 22 (l = 2, 4; E2), hence for every k_T², every l.]
+jet of w fixed there, the H and P jets free -- a spot check in the slice, not an identity symbolic in w; "every jet of w
+free" above means chosen arbitrarily (as rationals) at each point, not kept symbolic. That (iii) and Lemma X1 hold on
+every class slice was checked symbolically by the round-8 independent verifier (w = 2/(f + q²), √Δ = 2q/(f + q²), q(R) a
+free function, μ symbolic; its control |T|² → |T|²/2 rejected), outside this record's programs (FAMILIES5-R8.md R8.9).
+So Theorem T (iii) and Lemma X1 are: computed at three slice points; on every slice, corroborated by that check.] [R8
+(minor 8): *every l (deduced).* The Q-density of the tensor data is quadratic in T, at most linear in second angular
+derivatives of δγ (the scalar curvature is linear in second derivatives) and first order in those of δK. Integrated over
+S³ with T trace-free, divergence-free and Δ̂T = −k_T²T, every term reduces, by integration by parts, to a radial
+coefficient times ∫T·T = |T|² or ∫D̂T·D̂T = k_T²|T|² (the curvature terms of the round S³ give multiples of |T|²). So
+the θ-integrated density is |T|² times a quantity affine in k_T², and so is 2|T|²T_m√γ_RR. Their difference is affine in
+k_T² for fixed (H, P) and has zero Euler operator at k_T² = 6 and 22 (l = 2, 4; E2), hence for every k_T², every l.]
 
 So in the tensor sector E = 2|T|² ∫T_m(ξ, n), on Part I's slice itself: positive on every nonzero tensor seed
 supported where f > 0, indefinite where f < 0.
@@ -201,9 +201,9 @@ along which U decreases and V increases with R; K lies in U ∈ [U(R2), U(R1)], 
 S_in = {U(R1) < U < 0, 0 < V < V(R1)} and S_out = {U < U(R2), V > V(R2)} meet neither. A static slice is a ray V = c|U|.
 Take R_a < R1 on the slice and c ∈ (V(R_a)/|U(R1)|, V(R1)/|U(R1)|): the ray then meets S_in at a point U_s slightly
 above U(R1) with c|U_s| ∈ (V(R_a), V(R1)), and S_out at every U_s′ with |U_s′| > max(|U(R2)|, V(R2)/c); take R_b on the
-slice with |U(R_b)| > |U_s′|, V(R_b) > c|U_s′|. Let Σ′ be the slice up to R_a, the segment to (U_s, c|U_s|) (in S_in, ΔU
-< 0 < ΔV: spacelike), the ray to U_s′, the segment to the slice at R_b (in S_out, spacelike), and the slice beyond. Σ′
-is a spacelike curve equal to the slice outside a compact set, so by (2) and Stokes its J-flux is Q(δ); h vanishes on
+slice with |U(R_b)| > |U_s′|, V(R_b) > c|U_s′|. Let Σ′ be the slice up to R_a, the segment to (U_s, c|U_s|) (in S_in,
+ΔU < 0 < ΔV: spacelike), the ray to U_s′, the segment to the slice at R_b (in S_out, spacelike), and the slice beyond.
+Σ′ is a spacelike curve equal to the slice outside a compact set, so by (2) and Stokes its J-flux is Q(δ); h vanishes on
 the two segments, and J(K) meets the ray only in |U| ∈ [min(|U(R1)|, V(R1)/c), max(|U(R2)|, V(R2)/c)], inside the ray's
 segment; near the bifurcation sphere (U, V → 0) and in region III the static slice is outside J(K). So the flux is that
 through the whole static slice, which is Q_static of h's data there by (1). Uniqueness up to gauge gives the last
