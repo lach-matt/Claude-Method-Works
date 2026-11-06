@@ -17,3 +17,6 @@ X4 PASS
       9*Q; N = 12: -12*I*Q; N = 40: -40*I*Q); top family i^N A tau r^(-3/2) dth (from H_2, rth = i A E tau r^(-3/2):
       layerlin5 N3, READ)
 X5 PASS
+  X6 scalar constraint at the Kerr-Schild data, direction a dr dr: d_r^2 a coefficient 0, d_r a coefficient 3*r**3/(mu +
+      r**2)**2 (= 3 r^3/(r^2 + mu)^2: True)  [184 s]
+X6 PASS
