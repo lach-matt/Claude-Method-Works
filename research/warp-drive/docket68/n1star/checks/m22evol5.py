@@ -36,8 +36,9 @@ m_1(ell, ell) = 0 (Lemma 5.3 (b), ell = d_r).
      its terms along the solve. Its scope is the gh_2 transports, m_1 (r th) and d_th phi_1: it does not see the mean
      equations (it is unchanged under C1).
   N3b (computed, floating point) The harmonic-0 part of D^(1), zero on Sigma by step (ii), falls with Nr along the
-     solve: a check of the mean equations, their source and their coupling to gh_2 (the contracted Bianchi identity,
-     not built into the equations).
+     solve and is below 1e-6 at tau* on the fine grids: a check of the mean equations, their source, their coupling to
+     gh_2 and their phi_1 couplings (C7, C8) at tau* (at mid-solve it is blind to the latter; the contracted Bianchi
+     identity, not built into the equations).
   N4 (computed, floating point) The pin: a second discretisation (Legendre-Gauss-Lobatto in r, Legendre-Gauss in x)
      gives M_22 inside the band, and M_22 read from the coordinate component h_p1 agrees with the readout.
   CH (computed, floating point) The chain at X*: with m_1(X*) = M_22 e_phi1 e_phi1, sup over the phase of |g_1|_op
@@ -49,7 +50,8 @@ m_1(ell, ell) = 0 (Lemma 5.3 (b), ell = d_r).
   band and N3b fails; C2 gh_2's coupling into the mean dropped: the same; C3 gh_2's first-harmonic data on Sigma set to
   zero (violating (F1)): N3 fails at tau0; C4 the axis division after removing the numerator's interpolated axis
   value: at Nr = 48 the solve leaves the band; C5 M_22 placed off the class: CH's step fails; C6 the readout with
-  T + B for T - B: N4's readout test fails.
+  T + B for T - B: N4's readout test fails; C7, C8 the vt equation's d_th phi_1 and the p1 equation's d_r phi_1
+  coefficients multiplied by 1.2: M_22 leaves the band and N3b's test at tau* fails.
 
     python3 checks/m22evol5.py [--selftest]       (every check; about an hour on this machine)
 """
@@ -936,6 +938,19 @@ K43, BFRO = 12.593309, 16.127552                  # (4/3) K and B^(1/2), certifi
 LAM = {'operator norm': 0.0024433, 'Frobenius': 0.0019079, 'largest entry': 0.0012228}   # certified (READ)
 S0_HI, EPS_ENT = 0.030768560, 0.0153989          # eps1 < s0 <= S0_HI (lzerotrace5 T7); largest entry (r6fixes5 F1)
 NODES2 = (40, 16, 0.5)                              # the second discretisation (Legendre nodes), for the pin N4
+N3B_TOL = 1e-6                                      # N3b's test at tau* (the fine grids' values are at most 1.1e-7)
+
+
+def mutate(funcs, key, jet, fac):
+    """the system with one coefficient of one equation multiplied by fac (the controls C7, C8)"""
+    ks, f = funcs[key]
+    i = ks.index(jet)
+
+    def g(*a):
+        vals = list(f(*a))
+        vals[i] = vals[i] * fac
+        return vals
+    return dict(funcs, **{key: (ks, g)})
 
 
 def solve(funcs, gfun, mfun, env, fode, Nr, Nx, cfl, g_data=True, **kw):
@@ -1109,13 +1124,15 @@ def main():
           'm_1 (r th) and d_th phi_1, not the mean equations (unchanged under C1 below)'
           % (max(grel(runs[c]['gauge'][0][1]) for c in FINE), max(gz), OK['N3']))
     mid = [runs[(n, 12, 1.0)]['mg'][1] for n in (24, 32, 40, 48)]
-    mgf = max(x for c in FINE for x in runs[c]['mg'][1:])
-    mg0 = max(runs[c]['mg'][0] for c in RUNS)
-    OK['N3b'] = mid[0] > mid[1] > mid[2] and mgf < 1e-4 and mg0 < 1e-6
-    print('  N3b: the harmonic-0 part of D^(1) (S4b), zero on Sigma by step (ii) to %.1e (the floating data\'s floor), '
-          'is %.1e, %.1e, %.1e, %.1e at mid-solve for Nr = 24, 32, 40, 48 (Nx = 12), falling with Nr, and below %.1e at '
-          'mid-solve and tau* on 48 x 12, 48 x 16 and 32 x 20: it sees the mean equations, their source and their '
-          'coupling to gh_2: %s' % (mg0, mid[0], mid[1], mid[2], mid[3], mgf, OK['N3b']))
+    mgs = max(runs[c]['mg'][2] for c in FINE)
+    mg12 = max(runs[c]['mg'][0] for c in RUNS if c[1] == 12)
+    mg16 = max(runs[c]['mg'][0] for c in RUNS if c[1] >= 16)
+    OK['N3b'] = mid[0] > mid[1] > mid[2] and mgs < N3B_TOL and mg12 < 1e-6 and mg16 < 1e-12
+    print('  N3b: the harmonic-0 part of D^(1) (S4b), zero on Sigma by step (ii) to %.1e at Nx >= 16 and to %.1e at Nx '
+          '= 12 (where the data\'s Legendre modes P_k(cos 2th), k up to 13, are not resolved), is %.1e, %.1e, %.1e, '
+          '%.1e at mid-solve for Nr = 24, 32, 40, 48 (Nx = 12), falling with Nr until Nx = 12\'s truncation is reached, '
+          'and at tau* at most %.1e on 48 x 12, 48 x 16 and 32 x 20, below the test\'s %.0e: %s'
+          % (mg16, mg12, mid[0], mid[1], mid[2], mid[3], mgs, N3B_TOL, OK['N3b']))
     q5 = run(*NODES2, nodes='leg')
     rd = max(abs(runs[c]['M22c'] - runs[c]['M22']) for c in RUNS)
     OK['N4'] = abs(q5['M22'] - best) < tol and rd < 1e-8 and q5['mg'][1] < 1e-4 and grel(q5['gauge'][1][1]) < 1e-5
@@ -1124,15 +1141,25 @@ def main():
           'from '
           'the coordinate component h_p1/(r C)^2 at the axis agrees with the readout (T - B)/a^2 to %.0e on every '
           'grid: %s %s' % (q5['M22'], abs(q5['M22'] - best), tol, rd, OK['N4'], el()))
+    base32 = runs[(32, 12, 1.0)]['mg'][2]
     q1 = solve(funcs, gfun, mfun, env, fode, 32, 12, 1.0, src_sign=-1.0)
-    OK['C1'] = not band[0] <= q1['M22'] <= band[1] and not q1['mg'][1] < 1e-4
-    print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band, and the mean gauge (N3b) at '
-          'mid-solve is %.2f, so N3b fails; N3 is %.1e, %.1e at mid-solve and tau*, unchanged: %s %s'
-          % (q1['M22'], q1['mg'][1], grel(q1['gauge'][1][1]), grel(q1['gauge'][2][1]), OK['C1'], el()))
+    OK['C1'] = not band[0] <= q1['M22'] <= band[1] and not q1['mg'][2] < N3B_TOL
+    print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band, and the mean gauge (N3b) is %.2f at '
+          'mid-solve and %.1e at tau* (%.1e unmutated at 32 x 12), so N3b fails; N3 is %.1e, %.1e at mid-solve and '
+          'tau*, unchanged: %s %s' % (q1['M22'], q1['mg'][1], q1['mg'][2], base32, grel(q1['gauge'][1][1]),
+                                       grel(q1['gauge'][2][1]), OK['C1'], el()))
     q2 = solve(funcs, gfun, mfun, env, fode, 32, 12, 1.0, gcouple=0.0)
-    OK['C2'] = not band[0] <= q2['M22'] <= band[1] and not q2['mg'][1] < 1e-4
-    print('  C2 (control): gh_2\'s coupling into the mean dropped: M_22 = %.6f, outside the band, and N3b at mid-solve '
-          'is %.2f: %s %s' % (q2['M22'], q2['mg'][1], OK['C2'], el()))
+    OK['C2'] = not band[0] <= q2['M22'] <= band[1] and not q2['mg'][2] < N3B_TOL
+    print('  C2 (control): gh_2\'s coupling into the mean dropped: M_22 = %.6f, outside the band, and N3b is %.2f at '
+          'mid-solve and %.1e at tau*: %s %s' % (q2['M22'], q2['mg'][1], q2['mg'][2], OK['C2'], el()))
+    for lab, key, jet in (('C7', ('m', 'vt'), ('phi', (0, 0, 1))), ('C8', ('m', 'p1'), ('phi', (0, 1, 0)))):
+        qm = solve(mutate(funcs, key, jet, 1.2), gfun, mfun, env, fode, 32, 12, 1.0)
+        OK[lab] = not band[0] <= qm['M22'] <= band[1] and not qm['mg'][2] < N3B_TOL
+        print('  %s (control): the %s equation\'s coefficient of %s multiplied by 1.2: M_22 = %.6f, outside the band; '
+              'N3b is %.1e at mid-solve (blind there: %.1e unmutated) and %.1e at tau* (%.1e unmutated), so N3b\'s test '
+              'at tau* fails: %s %s' % (lab, key[1], 'd_th phi_1' if jet[1] == (0, 0, 1) else 'd_r phi_1', qm['M22'],
+                                        qm['mg'][1], runs[(32, 12, 1.0)]['mg'][1], qm['mg'][2], base32, OK[lab],
+                                        el()))
     Sv = Solver(32, 12, funcs, env)
     g0 = grel(gauge_residual(Sv, gfun, cauchy_data(Sv, fode, g_data=False), TAU0))
     OK['C3'] = not g0 < 1e-12

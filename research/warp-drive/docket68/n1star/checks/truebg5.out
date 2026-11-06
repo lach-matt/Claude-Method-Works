@@ -5,3 +5,19 @@ T1 the data on N' over the packet, u in [5.7, 7.2], enclosed (validated, 1500 st
 T1 PASS
    R_* in [3.437180067, 3.437180067] (intcert5 C3's bisection)
 T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)
+   certified on every cell: True (276 rays; slice pieces tested: region I 1, packet 8834 step boxes, region III 119; largest upper bound of kappa K^l_l = -4.7634e-03; 659 s)
+   control: every packet input widened by half its size, 8834 of 8834 step boxes not certified (rejected): True
+T3 PASS
+T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself: the computed spline is within intcert5 C1d's tube of psi_III (certified a posteriori), and C1d certifies Gamma > 0 on the tube
+   region III on the slice ends at R_u2 in [1.861394, 1.861466] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 on every cell True, signs certified at the bracket True): the seed region, up to 1.861, lies in region III and f3 > 0 at u2 on every cell: True (117 cells, 118 point rays; 284 s)
+   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= 5.1e-05, 2.6e-04, 8.7e-04 (k = 0, 1, 2) at the 118 cell ends; on the whole region sup |e^(k)| <= 1.3e-04, 3.9e-04, 1.4e-02 (centred forms for k = 0, 1, the cell enclosure for k = 2; every bound the upper end of an interval); |mu3 - mu0| <= 1.4e-05
+   within intcert5 C1d's tube d = (0.001, 0.001, 0.03), |d mu| <= 1e-04, on which C1d certifies Gamma > 0 for R in [0.70, 1.861]: True -- so Gamma > 0 on the seed region for the background itself
+   at vhat = 0.5: psi_III in [-0.20610997, -0.20607584], the n = 160 spline -0.20610803, the n = 80 spline -0.20611300; mu3 in [0.82209978, 0.82212534], the computed mu0 (n = 160) 0.82211118
+   (the n = 80 and 160 splines differ by 1.1e-05, 9.4e-06, 6.0e-06, sampled; the bounds above are certified upper bounds, not measured errors, and the certificate uses only them)
+   controls: with B's amplitude x 1.001 in the reduction the spline is at least 2.3e-04 from it at the points, more than the agreement 5.1e-05 above (rejected): True; [R10] the tube shrunk to d/10 and d mu/10 does not contain the background (rejected): True
+T2 PASS
+T4 a posteriori in the packet: the computed background's slice inputs (twobg5 n = 160, racslice5's crossing data, A = 0) against the background itself
+   40 crossings in the packet: max |computed - true| (certified upper bound) / max |true|: E 2.0e-03/1.00, f 1.1e-03/0.87, psi_R 2.7e-03/0.20, psi_vhat 2.0e-03/0.06, f_R 2.8e-03/0.25, f_vhat 7.7e-04/0.07
+   (the computed inputs are linear interpolants of grid differences; their error is what C2's robustness widening would have to cover, and T3 does not need it)
+T4 PASS
+exit 0

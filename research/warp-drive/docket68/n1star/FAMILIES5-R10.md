@@ -76,7 +76,7 @@ FAMILIES5-R6.md. Nothing in the paper or in N1STAR-PROOF.md is edited.
 
 | Program | Checks | Change | Runtime |
 |---|---|---|---|
-| `checks/mbslice5.py` | S1-S5 | S4 and S5 new; S1 and S2 at l ≤ 8 | about two minutes |
+| `checks/mbslice5.py` | S1-S5 | S4 and S5 new; S1 and S2 at l ≤ 8 | 303 s |
 | `checks/nledger5.py` | L1-L4 | L2 recount; L4 relabelled | about a minute |
 | `checks/truebg5.py` | T1-T4 | T2's interval bounds, d/10 control, v̂ = 0.5 print | about half an hour |
 | `checks/intcert5.py` | C1-C3 | C1's input-mutation control | about a quarter of an hour |
