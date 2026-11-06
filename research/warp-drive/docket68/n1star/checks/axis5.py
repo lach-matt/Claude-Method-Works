@@ -60,6 +60,17 @@ The chart at x = -1 is the same with (A, phi1) and (B, phi2) exchanged.
      the angular derivatives of the metric differences must be carried as tensors (Codazzi, H2), i.e. at the curvature
      level: nothing weaker than [Wu26]'s level suffices at the axis.
 
+  X7 (exact; computed constant) the glue.  For a cut-off psi(x) (psi = 1 near the axis, 0 away from it):
+        psi [K div(Omh beta) + Omh beta e1 K] = (Y sqrt gh)^-1 d_x(psi Y Omh K beta) - (e1 psi) Omh K beta,
+        d_u(psi f Y sqrt gh) + d_x(b psi f Y sqrt gh) = psi [d_u(f Y sqrt gh) + d_x(b f Y sqrt gh)] + b (d_x psi) f Y sqrt gh,
+     so the cut-off energy obeys the axis chart's identity with two added bulk terms, (e1 psi) Omh K beta and
+     b (d_x psi) f, supported where psi is not constant: Gronwall coefficients a_glue = sup Omh |e1 psi| (the angular
+     term, split as |K beta| <= (K^2 + beta^2)/2, so 1/2 to each) and sup |b d_x psi| (the shift).  Computed on the
+     record's solution for psi linear in x from 0 at x = 1/4 to 1 at x = 3/4 (chart +), and the mirror (chart -).
+     The bulk terms are curvature-level (K, beta): an energy that does not control them on the strip (Theorem 7.L,
+     level 0) cannot absorb them, which is why the glue to the interior needs the interior at level 1 (lev1_5.py).
+     Control: the identity without the (e1 psi) term fails.
+
   python3 checks/axis5.py RUN.npz        (RUN: the record's l1_rc0.9_M32.npz; without it X5 is skipped)
 """
 import os, sys, time, importlib.util
@@ -234,6 +245,44 @@ def x3():
     return m1, m2, p_ok, rem_is
 
 
+def x7():
+    Om, gg, b, Y, K, be, f, psi = [sp.Function(n)(u, v, x) for n in ('Om', 'gg', 'b', 'Y', 'K', 'be', 'f', 'psi')]
+    psi = sp.Function('psi')(x)
+    sq = Y * sp.sqrt(gg)
+    e1 = lambda F_: sp.diff(F_, x) / sp.sqrt(gg)
+    div = lambda F_: sp.diff(Y * F_, x) / sq
+    i1 = zero(psi * (K * div(Om * be) + Om * be * e1(K)) - (sp.diff(psi * Y * Om * K * be, x) / sq
+                                                           - e1(psi) * Om * K * be))
+    i2 = zero(sp.diff(psi * f * sq, u) + sp.diff(b * psi * f * sq, x)
+              - (psi * (sp.diff(f * sq, u) + sp.diff(b * f * sq, x)) + b * sp.diff(psi, x) * f * sq))
+    ctl = zero(psi * (K * div(Om * be) + Om * be * e1(K)) - sp.diff(psi * Y * Om * K * be, x) / sq)
+    return i1, i2, ctl
+
+
+def x7_const(path):
+    Z = np.load(path)
+    uu, vv, xx, mask = Z['u'], Z['v'], Z['x'], Z['mask']
+    box = (-4.0, -1.1, 0.55, 1.6)
+    su = (uu >= box[0]) & (uu <= box[1]); sv = (vv >= box[2]) & (vv <= box[3])
+    F = {k_: Z[k_][np.ix_(su, sv)] for k_ in ('R', 'm', 'n', 'W', 's')}
+    keep = ~mask[np.ix_(su, sv)]
+    X = xx[None, None, :]
+    P = (2 * (1 + X) * F['m'] - (1 - X) * F['n']) / 3
+    Q = (2 * (1 - X) * F['n'] - (1 + X) * F['m']) / 3
+    lR = np.log(F['R'])
+    lGx = 2 * lR - 2 * (P + Q) - np.log(4.0) - np.log(1 - X ** 2)
+    b = (1 - X ** 2) * F['s']
+    out = {}
+    for chart, A_ in (('+', lR + P + 0.5 * np.log((1 + X) / 2)), ('-', lR + Q + 0.5 * np.log((1 - X) / 2))):
+        lOm = 0.5 * A_ + F['W']; lgh = A_ + lGx
+        dpsi = np.where((np.abs(X) >= 0.25) & (np.abs(X) <= 0.75) & ((X > 0) if chart == '+' else (X < 0)), 2.0, 0.0)
+        ang = np.exp(lOm - 0.5 * lgh) * dpsi
+        sh = np.abs(b) * dpsi
+        sel = keep[:, :, None] & np.ones_like(X, bool)
+        out[chart] = (float(np.max(np.where(sel, ang, 0))), float(np.max(np.where(sel, sh, 0))))
+    return out
+
+
 def x4():
     """Hardy checks on [0, 1] with Y = s y(s), y = 1 + s^2/2 (so y_min = 1, y_max = 1.5, q = s y'/y <= 2/3)"""
     out = []
@@ -370,7 +419,16 @@ def main():
     print('X6 (exact) under gh -> (1 + eps) gh, Y -> (1 + eps)^(1/2) Y: dk = -(eps/2) k to first order: %s; with k ~ 1/s, '
           'Y ~ s: int_a^1 k^2 Y ds = %s -> %s as a -> 0 ->' % (zk, Ilog, div), 'PASS' if good else 'FAIL')
     ok &= good
+    i1, i2, ctl = x7()
+    good = i1 and i2 and not ctl
+    print('X7 (exact) the cut-off identities: angular %s, shift %s; control (without the (e1 psi) term): %s ->' % (
+        i1, i2, 'fails (good)' if not ctl else 'holds (bad)'), 'PASS' if good else 'FAIL')
+    ok &= good
     if len(sys.argv) > 1:
+        gc = x7_const(sys.argv[1])
+        print('X7 (computed) the glue\'s added coefficients for psi linear on 1/4 <= |x| <= 3/4: chart +: sup Omh |e1 '
+              'psi| = %.3g, sup |b d_x psi| = %.3g; chart -: %.3g, %.3g' % (gc['+'][0], gc['+'][1], gc['-'][0],
+                                                                            gc['-'][1]))
         res = x5(sys.argv[1])
         print('X5 (computed) the axis charts on the record\'s run (rcert5\'s box), frame quantities times Omh (as '
               'linest5.py E4 states them), sup over the chart\'s half 0 < +-x < 1 including the outermost node:')

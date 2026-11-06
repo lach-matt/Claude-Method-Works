@@ -5,3 +5,7 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
       True, every other component 0: True
   T2/T3: l = 4: tr h = 0, div h = 0: True, iota_{dt#} h = 0: True; D Ric(h) = (1/2) r^2 (A_l H) T in the angular block:
       True, every other component 0: True
+  T3b: for every traceless class tensor T with div T = 0 (A arbitrary, B from div T = 0), D Ric(r^2 H T) = (1/2) r^2
+      [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]: largest residual 7.3e-158 at 50 digits (three test A, three H, four r,
+      three angles: 108 points; Round 8, one r and one H before): True; with the eigen-equation (lap + l (l + 2) - 2) T =
+      0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in T3)

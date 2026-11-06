@@ -18,3 +18,22 @@ T2 PASS
       = 1: I+-orders [9/2, 9/2], iota+-orders [6, 6]
   T3 control (no flat reduction): E at mu = 0 vanishes: False
 T3 PASS
+  T4: Box(phi d psi) = (Box_0 phi) d psi - 2 nabla_grad phi d psi for phi(v, r): True; phi + const gives the same (every
+      term differentiates phi): True; with A = K(T, r), T = v - 2 r: T^2 A -> 1/2 (= 1/2: True), T^3 (A - T^-2/2) -> -r;
+      T^3 x source -> [s**2*(r**2 + r*s - 2*s**2)/(r**4*(r + s)), s**2*(r**3 + 2*r**2*s + 6*r*s**2 + 3*s**3)/(r**4*(r**2
+      + 2*r*s + s**2))] (finite: True)
+  T4 control (dv - dr in place of d psi): every term carries a derivative of phi: False
+T4 PASS
+  T5: Q[phi d psi] = -4*pi**2*s**3*Derivative(phi(v, s), s) (= -4 pi^2 r_h^3 d_r phi at r_h: True); Q[W*] = 4*pi**2
+  T5 control (phi W*): Q = 4*pi**2*(-s*Derivative(phi(v, s), s) + phi(v, s)); a pure derivative of phi: False
+T5 PASS
+  T6: K from T1's field = the kernel of Lemma R7.2: True; homogeneous of degree -2: True; K = 15*r**2/(8*w**4) - r/w**3 +
+      1/(2*w**2) + O(w^-4); d_r K = -1/w**3 + O(w^-4); r^(3/2) K -> sqrt(2)/(2*sqrt(w)); K + r^-2 solves the flat
+      equation in (u, r): True
+  T6 control (the same path in 3+1): K from T1's field = the kernel of Lemma R7.2: False; homogeneous of degree -2: True;
+      K = 0 + O(w^-4); d_r K = 0 + O(w^-4); r^(3/2) K -> 0; K + r^-2 solves the flat equation in (u, r): True
+T6 PASS
+  T7: 22 conditions on Theorem R7.1's box (eps_1 < 3 - gamma_+, eps <= eps_1/3), all positive sums: True
+  T7 control (the same conditions with a nonzero charge): 23 conditions on Theorem R7.1's box (eps_1 < 3 - gamma_+, eps
+      <= eps_1/3), all positive sums: False; failing ['column in Y_0 at beta_tf + 2 (charge != 0)']
+T7 PASS
