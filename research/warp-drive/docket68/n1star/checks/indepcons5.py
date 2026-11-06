@@ -147,8 +147,8 @@ def p2(control=False):
     ok = second_a and sym and pos and form
     if not control:
         out("  P2 A0 = %s; A^th = %s; A^p1 = %s; S A0 = %s.  J_r = 6 d_r w - 2 Pi^(AB) d_A q_B, J_A = -2 gamma^rr"
-            " d_r q_A + 4 d_A w: %s; no second derivative of a in J: %s; S A^B symmetric for B = th, p1, p2: %s; S A0 diagonal"
-            " positive at r^2 < mu and r^2 > mu: %s" % (
+            " d_r q_A + 4 d_A w: %s; no second derivative of a in J: %s; S A^B symmetric for B = th, p1, p2: %s;"
+            " S A0 diagonal positive at r^2 < mu and r^2 > mu: %s" % (
                 sp.simplify(A0).tolist(), sp.simplify(AB[0]).tolist(), sp.simplify(AB[1]).tolist(),
                 [sp.factor(SA0[i, i]) for i in range(4)], form, second_a, sym, pos))
     return ok
