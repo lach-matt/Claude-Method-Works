@@ -58,8 +58,8 @@ against g0^-1; m_2 and d_tau phi_2 stay at order 2.
 and 2) the gh_2-part of D^(1), lowered by g0, is Pol(d_s gh_2), Pol(Y) = Y(ell, .) - (1/2) dv tr_g0 Y; (c) the first
 harmonic of D^(1) at gh_2 = 0 has only a th component and does not depend on h_1: Lambda_1(h_1) = 0 in the class;
 (d) Pol^+ = Pol^T (Pol Pol^T)^-1 (Euclidean in the Cartesian (tau, x), the record's choice) maps the class covector
-(0, 0, c) to (c/2)(dr dth + dth dr - dtau dth - dth dtau)/2 ... precisely: G_(tau th) = -c/2, G_(r th) = c/2, every
-other component 0. Hence gh_2 on Sigma is
+(0, 0, c) (components tau, r, th) to the class tensor whose (tau th) component is -c/2 and (r th) component c/2, every
+other component 0. Hence, solving Pol(d_s gh_2) = -(the rest of D^(1)'s oscillating part), gh_2 on Sigma is
 
     first harmonic:   gh_2(tau th) = -gh_2(r th) = (A E/(6 r^(3/2))) [ (5 H sin 2th + 2 S^2 H') cos s
                                                                        + (5 H sin 2th - 2 C^2 H') sin s ],   (2.1)
@@ -154,7 +154,7 @@ B_1 a = S_1 is, mode by mode (e := A^2 E^2 = (9/2) mu'),
                           + e sigma_k/(3 r^2 Lambda^(1/2)) = 0,
 
 mu = mu(tau0 + r), E = E(tau0 + r), from zero data at r = a; a_0 = w_0 = 0. Lemma 6.4's system is therefore a sequence
-of linear 3 x 3 ODE systems in r: the parabolic part is a_k' = -(4k(k+1)(Lambda/(3 r^3)) a_k + ..., the hyperbolic
+of linear 3 x 3 ODE systems in r: the parabolic part is a_k' = -4k(k+1) (Lambda/(3 r^3)) a_k + ..., the hyperbolic
 pair (w_k, q_k) has speeds of order k (Lemma 6.3's c^2 = 2 Lambda/(3 r^4)). Each has a unique smooth solution on [a, R]
 (linear, smooth coefficients); the sum converges with the sigma_k and by Lemma 6.4's uniqueness is its solution
 (deduced).
@@ -297,8 +297,9 @@ are statements about round 2's envelope, which is the envelope of Section 7).
 
 *The replacement text.* The commission asks for an old/new pair for R8.7's "Physical wavelengths (lambda0)" new block
 if lambda0 is reached. It is not; but that block's last clause, "whose data on the initial slice are not computed", is
-now false, in R8.7 and in R9.7, which replaces R8.7 and carries the same clause. The pair below corrects R9.7's block 3
-(its new text, as it stands at R9.7, is the old text here) and claims only what this file proves or computes:
+now false, in R8.7 and in R9.7, which replaces R8.7 and carries the same clause. Two pairs follow, one for each; each
+old text occurs exactly once in CONSTANTS5.md as it stands (checked by content), and each new text claims only what
+this file proves or computes. R9.7's (the current proposal):
 
 ```old
 needs a validated solve of the first stage for that envelope, whose data on the initial slice are not computed. And
@@ -314,9 +315,24 @@ needs a validated solve of the first stage for that envelope. Its data on the in
   a high-frequency theorem, whose expansion parameter is λ over the
 ```
 
-(In R8.7's block 3 the same clause reads "needs a validated solve of the first stage for a fixed smooth envelope,
-whose data on the initial slice are not computed. And"; the same new text applies with "that envelope" in place of
-"a fixed smooth envelope" if R8.7 rather than R9.7 is used.)
+R8.7's (if R8.7 rather than R9.7 is used):
+
+```old
+fixed smooth envelope, whose data on the initial slice are not computed. And a high-frequency theorem, whose
+  expansion parameter is λ over the
+```
+
+```new
+fixed smooth envelope, that of supplement `checks/envelope5.py`. Its data on the initial slice are now computed:
+  the second-order constraint expansion in closed form, solved harmonic by harmonic (supplement
+  `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`), and too small to move the bound by themselves; over that
+  point's past the energy estimate's growth is at most 1.4 × 10³ by domain of dependence (certified), against 5.1 ×
+  10¹⁰ over the whole slab, before the lower-order terms. The solve itself is not done. And a high-frequency theorem,
+  whose expansion parameter is λ over the
+```
+
+"Certified" in the new texts refers to the principal-part factor (G3); "computed" to the closed forms (exact) and the
+solved data (floating point), Sections 3 and 5.
 
 ## 11. Programs, pass counts, what remains
 

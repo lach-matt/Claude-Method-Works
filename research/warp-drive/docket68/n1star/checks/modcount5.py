@@ -609,19 +609,19 @@ def base_counts(w, aK2=None, theta=Fr(1, 10 ** 9), eta=Fr(1, 10 ** 6)):
     alpha_1 (III.I'''''''' Proposition 4.1 with N = 0: alpha_1 < a_K as a_K - 2 > eps_K / 2); the Start at s_0 := 1 +
     d - eta d < a_K - 1; the target tau := alpha_1 - d + eta d > alpha_0 + 2 - a_K; III.I''''' Proposition 2.1's rounds
     s_i = min(s_0 + i d, tau) up to tau (I6:223), those with s_i >= lambda_sharp running Step 2's windows (I6:110);
-    III.I'' Proposition 5.1 at the target t := 1 - eta d / 2 in [s_0 - d, 1) (I4:132), from 1/2 (I3:337) in steps
+    III.I'' Proposition 5.1 at the target t := s_0 - d in [1/2, 1) (I4:132), from 1/2 (I3:337) in steps
     min(d, t - alpha'_K) (I3:423). aK2 (a control) replaces a_K - 2."""
     d = aK2 if aK2 is not None else (1 - theta) * w['eps_K']
     a1, ls = w['alpha1'], DW.LSHARP
     s0 = min(1 + d, Fr(3, 2)) - eta * d
     tau = max(a1 - d, Fr(1)) + eta * d
-    t = max(min(Fr(1) - eta * d / 2, s0 - d + eta * d / 2), Fr(1, 2))
+    t = max(s0 - d, Fr(1, 2))
     R = max(0, ceil((tau - s0) / d))
     i0 = max(1, ceil((ls - s0) / d))
     Rw = R - i0 + 1 if i0 <= R else 0
     n51 = max(0, ceil((t - Fr(1, 2)) / d))
     req = (0 < d < w['alpha'] - 4 and a1 < 2 + d and 1 < s0 < min(1 + d, Fr(3, 2), tau) and a1 - d < tau < 2
-           and s0 - d <= t < 1 and s0 + (R - 1) * d < tau <= s0 + R * d and s0 + (i0 - 1) * d < ls <= s0 + i0 * d)
+           and Fr(1, 2) <= t < 1 and s0 - d <= t and s0 + (R - 1) * d < tau <= s0 + R * d and s0 + (i0 - 1) * d < ls <= s0 + i0 * d)
     return dict(d=d, s0=s0, tau=tau, t=t, R=R, Rw=Rw, i0=i0, n51=n51, req=req)
 
 
