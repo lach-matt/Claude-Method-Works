@@ -25,6 +25,10 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      and the profile bounds all equal to one (an illustration, not a bound), log10 C_L11 and log10 C_L4 are printed.
      Control: C_S (Lemma 2.1) replaced by 0 makes C_L4 vanish (the formula is proportional to it), so the check
      C_L4 > 1 fails.
+  K4 (computed; round 6, the verifier of round 5's m11) the DAG agrees, at 20 random points, with an independent
+     step-by-step transcription of R5.5's display, each line cited to the proof step it records (L.9 (b), L.10, L.8,
+     L.3 (a)-(e), D3, Corollary L.11, Lemma L.4).  Controls: Cd's power N + 1 mutated to N + 5, and a term of Ca
+     dropped, are each detected.
 
 Labels: the formulas deduced (each from the proof step named beside it); K1-K3 computed.  Run: python3 checks/constL5.py
 """
@@ -95,12 +99,14 @@ def build(N=9, mutate=None):
         sb = d("sb%d" % m, sum(Cb[l] for l in range(1, m))) if m > 1 else sp.Integer(0)
         F2 = d("F2_%d" % m, K*(sa**2 + sb))                 # (F2): two oscillating factors, or an earlier mean
         Ce[m] = d("Ce%d" % m, C64*F2)                       # (e): Lemma 6.4 on [a, r]
-        Ca[m + 1] = d("Ca%d" % (m + 1), C_tr*(KP*(top*Ce[m] + K*sa) + (b - a)*K*sa*(1 + sb)))       # (a)
+        Ca[m + 1] = d("Ca%d" % (m + 1), C_tr*(KP*(top*Ce[m] + K*sa)
+                                              + (0 if mutate == "Ca_drop" else 1)*(b - a)*K*sa*(1 + sb)))     # (a)
         Cb[m] = d("Cb%d" % m, C_N*C_E*sp.exp(C_E*T)*(Ce[m] + T*F2 + T*K*Ca[m + 1]*(1 + sa)))      # (b)
         Cc[m + 1] = d("Cc%d" % (m + 1), C_tr*(K*(Cc[m] + Cb[m] + sa*Ca[m]) + KP*Ce[m]))            # (c)
     sa = d("sa", sum(Ca.values()))
     sb = d("sb", sum(Cb.values()))
-    Cd = d("Cd", K**(N + 1)*(1 + sa + sb)**(N + 1)/sp.factorial(N - 2))                       # (d)
+    pw = N + 5 if mutate == "Cd5" else N + 1
+    Cd = d("Cd", K**pw*(1 + sa + sb)**(N + 1)/sp.factorial(N - 2))                            # (d)
     CU = d("CU", 2*C0*K*(sa + sb))                                                          # (e) for U
     C_D3 = d("C_D3", sp.Rational(2, 9)*A**2/(4*sp.sqrt(mu0)))                               # D3
     C_beta = d("C_beta", sp.Rational(2, 9)*A**2*(1/(2*mu0) + 1/(4*mu0)))                    # D3: |beta0|
@@ -186,9 +192,64 @@ def k3(control=False):
     return l11 > 0 and l4 > 0
 
 
+def table(leaf, N=9):
+    """an independent transcription of R5.5's display, step by step (each line its proof step), as numbers"""
+    import mpmath as mp
+    mp.mp.dps = 40
+    g = lambda nm: mp.mpf(sp.N(leaf[nm], 40))                                         # noqa: E731
+    Ks_, P6_, C64_, C0_, M_, C2_, l0, a_, b_, T_, CS, CS3, A_, mu_ = [g(x) for x in (
+        Ks, P[6], C64, C0, M, C2, lam0, a, b, T, C_S, C_S3, A, mu0)]
+    K = Ks_ + P6_                                           # the factors' bound, (F1), (F2)
+    C_tr = mp.exp(2*mp.pi*K*(b_ - a_))                      # L.9 (b): Gronwall along ell, ||d_th^-1|| <= pi, ||Pi|| <= 2
+    C_N = CS3*(1 + mp.sqrt(2)*mp.sqrt(b_ - a_)*a_**mp.mpf(-1.5))    # L.10
+    C_E = C2_                                               # L.8 = Lemma 2.3
+    Ca, Cb, Cc, Ce = {1: A_*Ks_}, {}, {1: C_tr*K*(A_*Ks_)**2}, {}
+    for m in range(1, N + 1):
+        sa = sum(Ca[l] for l in range(1, m + 1))
+        sb = sum(Cb[l] for l in range(1, m))
+        Ce[m] = C64_*K*(sa**2 + sb)                                                # L.3 (e)
+        Ca[m + 1] = C_tr*(Ks_*(P6_*Ce[m] + K*sa) + (b_ - a_)*K*sa*(1 + sb))       # L.3 (a)
+        Cb[m] = C_N*C_E*mp.exp(C_E*T_)*(Ce[m] + T_*K*(sa**2 + sb) + T_*K*Ca[m + 1]*(1 + sa))     # L.3 (b)
+        Cc[m + 1] = C_tr*(K*(Cc[m] + Cb[m] + sa*Ca[m]) + Ks_*Ce[m])                 # L.3 (c)
+    sa, sb = sum(Ca.values()), sum(Cb.values())
+    Cd = K**(N + 1)*(1 + sa + sb)**(N + 1)/mp.factorial(N - 2)                    # L.3 (d)
+    CU = 2*C0_*K*(sa + sb)                                                         # L.3 (e), U
+    C_D3, C_b = mp.mpf(2)/9*A_**2/(4*mp.sqrt(mu_)), mp.mpf(2)/9*A_**2*(mp.mpf(3)/(4*mu_))   # D3
+    C11 = max(sum(l0**(j - 4)*Ca[j] for j in range(4, N + 2)),
+              sum(l0**(j - 1)*Cc[j] for j in range(1, N + 2)) + l0**2*Ca[3]*C_D3
+              + 3*C_b*sum(l0**(j - 1)*Ca[j] for j in range(1, N + 2)), (1 + C_b)**2)   # Corollary L.11
+    C4 = CS*mp.exp(C2_*(1 + M_ + K)*T_)*(CU*(1 + Ks_) + T_*Cd)                     # L.4 steps 3-7
+    return C11, C4
+
+
+def k4(control=False):
+    import mpmath as mp
+    rng = random.Random(4)
+    worst = mp.mpf(0)
+    for mut in (("Cd5", "Ca_drop") if control else (None,)):
+        d, C11, C4 = build(mutate=mut)
+        ok = True
+        for _ in range(20):
+            leaf = dict(CERT)
+            leaf.update({s_: sp.Rational(rng.randint(5, 150), 100) for s_ in d.leaves() - set(CERT)})
+            v = d.value(leaf)
+            t11, t4 = table(leaf)
+            for x, y in ((v[C11], t11), (v[C4], t4)):
+                rel = abs(mp.mpf(sp.N(x, 40)) - y)/abs(y)
+                worst = max(worst, rel)
+                ok &= rel < mp.mpf('1e-25')
+        if control and ok:
+            return True
+    if control:
+        return False
+    out("  K4 the DAG against an independent step-by-step transcription of R5.5's display (each line cited to its"
+        " proof step), at 20 random points: largest relative difference %s: %s" % (mp.nstr(worst, 3), ok))
+    return ok
+
+
 def main():
     ok = True
-    for name, f in (("K1", k1), ("K2", k2), ("K3", k3)):
+    for name, f in (("K1", k1), ("K2", k2), ("K3", k3), ("K4", k4)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))

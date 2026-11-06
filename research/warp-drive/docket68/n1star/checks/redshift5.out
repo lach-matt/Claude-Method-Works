@@ -41,4 +41,3 @@ R14 PASS
   R13 control (old text mutated): (block, old count, new count, widest line): [('8.2', 0, 0, 119), ('Theorem 1 item 7', 0, 0, 121), ('Proposition 3.3', 0, 0, 120), ('Proposition 3.3 proof', 0, 0, 121), ('8.2 orthonormal', 0, 0, 116), ('Theorem 2 item 5', 0, 0, 115), ('references [DR08]', 0, 0, 117), ('references [HKW18]', 0, 0, 116)]; this file's widest line 121; 'N-th order' in N1STAR-PROOF.md 2 time(s), each inside an [amended D622 note: True; Lemmas 10.1a-10.1b and (iv-a), (iv-b) seated: True
 R13 PASS
 EXIT 0
-EXITCODE 0

@@ -45,6 +45,20 @@ e4 d - ex c), each equal to an explicit bilinear form G_P in (psi; a, c, d) when
      2 G F (F - 1)/K with K = ln F/T, so G = G_low K/(2 F (F - 1)); the demand 1/(4 G T F^2) at that G; the model's
      second derivative checked by integrating it (control: the formula without its factor 2 must fail the check).
 
+  E9 (round 4; exact; the verifier of round 3 found that E2 cannot catch a wrong linearisation, the rows being typed by
+     hand) the rows checked against the geometry, three ways:
+     (a) every nonlinear transport right side G_y, with its scalar sums replaced by the Ricci components they stand for
+         (sum a^2 -> Ric_44, sum c a -> Ric_x4, sum a d -> Ric_34, sum c^2 -> Ric_xx, ...), satisfies
+         e_X(Y) = G_y exactly on the general (2+1)-metric of null3.py (its N1-N3 forms, recomputed here);
+     (b) the metric rows d_v k = e^w chi, d_v w = -2 e^w omega, d_v b = -2 e^{2w-k}(eta - etab) follow from null3.py
+         N0's formulas;
+     (c) every row's frame-change part (rhs - sum dG/ds ds) equals -d/deps of the perturbed frame operator applied to the
+         background, computed by sympy from e4 = e^-w d_v, e3 = e^-w (d_u + b d_x), ex = e^-k d_x with
+         (w, b, k) -> (w + eps dw, b + eps db, k + eps dk), the background's own derivatives along X then replaced by its
+         rows (as E2 states).
+     Mutation tests (run by hand, round 4): dropping -e^{-w} db d_x Y from the e3 rows fails (c); 1/4 -> 1/2 in the
+     omegab transport fails (a).
+
   python3 checks/linest5.py RUN.npz        (RUN: the record's l1_rc0.9_M32.npz)
 """
 import os, sys, time, importlib.util
@@ -167,6 +181,93 @@ def e1():
     res = {k_: N3.zero(lhs[k_] - gp[k_] - boxc[k_] * box) for k_ in lhs}
     ctl = N3.zero(lhs['P4'] - (gp['P4'] - 2 * fm['om'] * d) + box)        # P4 without its 2 omega d term
     return res, ctl
+
+
+def e9(R):
+    """the rows against the geometry (see E9 in the docstring)"""
+    w, c, b = N3.w, N3.c, N3.b
+    u, v, x = N3.u, N3.v, N3.x
+    g = N3.metric(); Gm = N3.christoffel(g); Ric = N3.ricci(g, Gm)
+    E4 = sp.Matrix([0, sp.exp(-w), 0]); E3 = sp.Matrix([sp.exp(-w), 0, sp.exp(-w) * b]); EXv = sp.Matrix([0, 0, sp.exp(-c)])
+    fr = {'4': E4, '3': E3, 'x': EXv}
+    Rf = {i + j: (fr[i].T * Ric * fr[j])[0] for i in '34x' for j in '34x'}
+    vec = lambda X, F_: sum(X[n] * sp.diff(F_, (u, v, x)[n]) for n in range(3))
+    e4, e3 = (lambda F_: vec(E4, F_)), (lambda F_: vec(E3, F_))
+    form = {chi: sp.exp(-w) * sp.diff(c, v), chib: sp.exp(-w) * (sp.diff(c, u) + b * sp.diff(c, x) + sp.diff(b, x)),
+            om: -sp.exp(-w) * sp.diff(w, v) / 2, omb: -sp.exp(-w) * (sp.diff(w, u) + b * sp.diff(w, x)) / 2,
+            eta: -sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x),
+            etab: sp.exp(c - 2 * w) * sp.diff(b, v) / 4 + sp.exp(-c) * sp.diff(w, x)}
+    A_, C_, D_ = sp.symbols('A_ C_ D_')
+    one = {a1: A_, c1: C_, d1: D_, a2: 0, c2: 0, d2: 0}
+    ricmap = {A_ ** 2: Rf['44'], A_ * C_: Rf['x4'], A_ * D_: Rf['34'], C_ ** 2: Rf['xx'], C_ * D_: Rf['x3'],
+              D_ ** 2: Rf['33']}
+    res_a = {}
+    for y, Ys in (('chi', chi), ('eta', eta), ('omb', omb), ('chib', chib), ('etab', etab), ('om', om)):
+        Gy = sp.expand(G[y].xreplace(one))
+        poly = sp.Poly(Gy, A_, C_, D_)
+        rest = Gy
+        repl = 0
+        for mon, co in zip(poly.monoms(), poly.coeffs()):
+            if sum(mon) == 0:
+                continue
+            m_ = A_ ** mon[0] * C_ ** mon[1] * D_ ** mon[2]
+            rest = sp.expand(rest - co * m_)
+            repl += co * ricmap[m_]
+        geo = rest.xreplace(form) + repl.xreplace(form) if repl != 0 else rest.xreplace(form)
+        lhs = (e4 if DIR[y] == 'e4' else e3)(form[Ys])
+        res_a[y] = N3.zero(lhs - geo)
+    # (b) the metric rows from N0
+    Ewv, Ekv = sp.exp(w), sp.exp(c)
+    sub_b = {chi: form[chi], om: form[om], eta: form[eta], etab: form[etab], Ew: Ewv, Ek: Ekv}
+    res_b = {'k': N3.zero(sp.diff(c, v) - GM['k'].xreplace(sub_b)),
+             'w': N3.zero(sp.diff(w, v) - GM['w'].xreplace(sub_b)),
+             'b': N3.zero(sp.diff(b, v) - GM['b'].xreplace(sub_b))}
+    # (c) the frame-change parts
+    eps = sp.Symbol('eps'); dws, dbs, dks = sp.symbols('dws dbs dks')
+    Fu, Fv, Fx, W0, B0, K0 = sp.symbols('Fu Fv Fx W0 B0 K0')
+    op = {'e4': lambda ww, bb, kk: sp.exp(-ww) * Fv, 'e3': lambda ww, bb, kk: sp.exp(-ww) * (Fu + bb * Fx),
+          'ex': lambda ww, bb, kk: sp.exp(-kk) * Fx}
+    dop = {k_: sp.expand(-sp.diff(f_(W0 + eps * dws, B0 + eps * dbs, K0 + eps * dks), eps).subs(eps, 0))
+           for k_, f_ in op.items()}
+    res_c = {}
+    for name, (opn, bnd, rhs, fac) in R.items():
+        if opn == 'dv':
+            continue
+        if opn in ('e4', 'e3'):
+            Ys = SMAP_INV[bnd]
+            Xb = G[name]                                       # the background's e_X Y by its own row
+            fc = dop[opn].xreplace({sp.exp(-W0) * Fv: Xb}) if opn == 'e4' else None
+            if opn == 'e3':
+                # -d(e3) Y = dw e^-w (Fu + b Fx) - e^-w db Fx ; e^-w (Fu + b Fx) -> G_y ; Fx -> X_Y ; e^-w -> 1/Ew
+                fc = sp.expand(dop['e3']).subs(Fu, (Xb * sp.exp(W0) - B0 * Fx)).subs(Fx, DX[Ys])
+            else:
+                fc = sp.expand(dop['e4']).subs(Fv, Xb * sp.exp(W0))
+            fc = sp.expand(fc).subs(sp.exp(-W0), 1 / Ew).subs(sp.exp(W0), Ew)
+            fc = sp.expand(fc.xreplace({dws: U['dw'], dbs: U['db'], dks: U['dk']}))
+        else:
+            i = name[-1]
+            a_, c_, d_ = SC[int(i) - 1]
+            gp = GP(a_, c_, d_)
+            P = name.split('_')[0]
+            # P1 = e3 a - ex c, P2 = e4 c - ex a, P3 = e3 c - ex d, P4 = e4 d - ex c
+            first, second = {'P1': ('e3', a_, c_), 'P2': ('e4', c_, a_), 'P3': ('e3', c_, d_), 'P4': ('e4', d_, c_)}[P][0], \
+                {'P1': (a_, c_), 'P2': (c_, a_), 'P3': (c_, d_), 'P4': (d_, c_)}[P]
+            f1, f2 = second
+            # background: X f1 = ex f2 + G_P (the pair itself), ex f2 = DX[f2]/Ek
+            Xf1 = DX[f2] / Ek + gp[P]
+            if first == 'e3':
+                t1 = sp.expand(dop['e3']).subs(Fu, (Xf1 * sp.exp(W0) - B0 * Fx)).subs(Fx, DX[f1])
+            else:
+                t1 = sp.expand(dop['e4']).subs(Fv, Xf1 * sp.exp(W0))
+            t2 = -sp.expand(dop['ex']).subs(Fx, DX[f2])          # minus: the pair is X f1 - ex f2
+            fc = sp.expand((t1 + t2).subs(sp.exp(-W0), 1 / Ew).subs(sp.exp(W0), Ew).subs(sp.exp(-K0), 1 / Ek))
+            fc = sp.expand(fc.xreplace({dws: U['dw'], dbs: U['db'], dks: U['dk']}))
+        G_lin = lin(G[name]) if opn in ('e4', 'e3') else lin(GP(*SC[int(name[-1]) - 1])[name.split('_')[0]])
+        res_c[name] = sp.expand(rhs - G_lin - fc) == 0
+    return res_a, res_b, res_c
+
+
+SMAP_INV = {'dchi': chi, 'deta': eta, 'domb': omb, 'dchib': chib, 'detab': etab, 'dom': om}
 
 
 def table(R):
@@ -318,6 +419,14 @@ def main():
     good = not bad and all(s_.startswith('X_') or s_ in {str(q) for q in STATE} | {'Ew', 'Ek'} for s_ in bgsyms)
     print('   no derivative of an unknown on any right side: %s; background enters through its state and first '
           'x-derivatives only: %s ->' % (not bad, good), 'PASS' if good else 'FAIL')
+    ok &= good
+    ra, rb, rc = e9(R)
+    good = all(ra.values()) and all(rb.values()) and all(rc.values())
+    print('E9 (exact) the rows against the geometry: (a) e_X Y = G_y on the general (2+1)-metric: %s; (b) the metric rows '
+          'from N0: %s; (c) every row\'s frame-change part from the perturbed frame operators: %s ->' % (
+              ', '.join('%s %s' % kv for kv in ra.items()), ', '.join('%s %s' % kv for kv in rb.items()),
+              'all hold' if all(rc.values()) else {k_: v_ for k_, v_ in rc.items() if not v_}),
+          'PASS' if good else 'FAIL')
     ok &= good
     # E3 control: chib from null3.py N7's e4 equation, which carries 2 ex(etab): its linearisation has ex(d etab)
     ctl_rhs = sp.expand(lin(-chi * chib) + 2 * sp.Symbol('dx_detab') / Ek)

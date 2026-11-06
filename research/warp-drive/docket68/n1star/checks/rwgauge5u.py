@@ -23,7 +23,7 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
   U3 (exact) The master equation and the vacuum certificate.  (a) box_2 of the orbit metric in the outgoing chart is
      -2 d_u d_r + d_r (f d_r), so (d_t^2 - d_r*^2 + V) P = 0 is 2 f P_ur = f d_r(f P_r) - V P; in the ingoing chart
      box_2 = 2 d_v d_r + d_r (f d_r).  (b) With V the scalar potential of [CLY03b] (settle5.py T2), h built from (10.1)
-     at l = 2 and l = 4 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution
+     at l = 2, 4 and 6 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution
      of the master equation gives a linearised vacuum solution of the class in the gauge f_a = 0 = H_T.  Control: the
      tensor potential in place of the scalar one leaves DRic(h) != 0.
   U4 (exact) The weights, uniformly in r >= R_1 and in l.  With P_rr eliminated by U3 (a), r^(-1/2) h(e_a, e_b) and
@@ -56,7 +56,16 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
      "r <= R" for "r ≤ R" (a transcription slip) is not found.
 
-Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U8]   (U3 (b) takes the longest)
+  U9 (exact) The angular Sobolev inequality of RWGAUGE5.md R2.0.1 (Lemma A): the dimensions (l + 1)^2 of the degree-l
+     harmonics on S^3, vol = 2 pi^2, 1 + l(l + 2) = (l + 1)^2, sum (l + 1)^-2 = pi^2/6 and the constant 1/12; the
+     reproducing kernel ((l + 1)/(2 pi^2)) U_l(cos psi); sum of the six rotations squared = Lap; ||Lap w||^2 = sum
+     ||Om_i Om_j w||^2; generators of operator norm 1, L_Om P = 0, and the constants of the tensor version.  Controls:
+     the Casimir over ordered pairs fails; the series with (1 - Lap)^(3/4) diverges.
+  U10 (exact) R2.0.5: [HKW18] (163), (168), (169) applied to the perturbation (10.1) builds from P give Phi = P exactly,
+     at general l (every other jet cancels after the master equation).  Control: V times 1 + mu/r^2 leaves a
+     non-constant coefficient.
+
+Labels: computed (exact, sympy).  Run: python3 checks/rwgauge5u.py [U1 ... U10]   (U3 (b) takes the longest)
 """
 import os
 import sys
@@ -778,8 +787,94 @@ def u9(control=False):
     return ok
 
 
+# -------------------------------------------------------------------------------------------------------------- U10
+def u10(control=False):
+    """[HKW18] (163), (168), (169) applied to the perturbation that (10.1) builds from P (static chart, mixed indices
+    in (163), Hcheck = r F, hcheck_AB = r F_AB by (159)-(162) in the gauge): Phi = P exactly, every other jet cancelling
+    once the master equation removes d_t^2 P; the control multiplies V by 1 + mu/r^2"""
+    n = 3
+    x = mu/r**2
+    H = m + 6*x
+    V, _ = potential_general()
+    if control:
+        V = V*(1 + x)
+
+    def add(A_, B_, c=1):
+        out = dict(A_)
+        for k, val in B_.items():
+            out[k] = out.get(k, 0) + c*val
+        return out
+
+    def scal(A_, c):
+        return {k: c*val for k, val in A_.items()}
+    base = {(0, 0): -V, (0, 1): f*sp.diff(f, r), (0, 2): f**2}       # P_tt = f (f P_r)_r - V P
+    memo = {}
+
+    def njet(a, b):
+        if a < 2:
+            return {(a, b): sp.Integer(1)}
+        if (a, b) not in memo:
+            Xm = base
+            for _ in range(b):
+                Xm = Dr(Xm)
+            for _ in range(a - 2):
+                Xm = Dt(Xm)
+            memo[(a, b)] = Xm
+        return memo[(a, b)]
+
+    def norm(A_):
+        out = {}
+        for (a, b), c in A_.items():
+            if c == 0:
+                continue
+            for k, val in (njet(a, b).items() if a >= 2 else [((a, b), sp.Integer(1))]):
+                out[k] = out.get(k, 0) + c*val
+        return out
+
+    def Dr(A_):
+        out = {}
+        for (a, b), c in A_.items():
+            out[(a, b)] = out.get((a, b), 0) + sp.diff(c, r)
+            out[(a, b + 1)] = out.get((a, b + 1), 0) + c
+        return norm(out)
+
+    def Dt(A_):
+        return norm({(a + 1, b): c for (a, b), c in A_.items()})
+    fp = sp.diff(f, r)
+    gam_ = {("t", "t", "r"): fp/(2*f), ("r", "t", "t"): f*fp/2, ("r", "r", "r"): -fp/(2*f)}  # -f dt^2 + dr^2/f
+    idx = ("t", "r")
+    gl = {("t", "t"): -f, ("r", "r"): 1/f, ("t", "r"): 0, ("r", "t"): 0}
+    gu = {("t", "t"): -1/f, ("r", "r"): f}
+    Pt0 = {(0, 0): r**sp.Rational(3, 2)*H}                         # Phi~ = r^(3/2) H P
+    d1 = {"t": Dt(Pt0), "r": Dr(Pt0)}
+    DD = {}
+    for a in idx:
+        for b in idx:
+            e = Dt(d1[b]) if a == "t" else Dr(d1[b])
+            for c in idx:
+                gc = gam_.get((c, a, b), gam_.get((c, b, a), 0))
+                if gc != 0:
+                    e = add(e, d1[c], -gc)
+            DD[(a, b)] = e
+    box = add(scal(DD[("t", "t")], gu[("t", "t")]), scal(DD[("r", "r")], gu[("r", "r")]))
+    rF = add(scal(Pt0, (2*H - 3*r*fp)/(12*r**2*H)), scal(d1["r"], 6*r*gu[("r", "r")]/(12*r**2*H)))
+    rFab = {ab: add(add(scal(DD[ab], 1/H), scal(box, -gl[ab]/(2*H))), scal(rF, -gl[ab])) for ab in DD}
+    Xh = add(scal(rFab[("t", "t")], gu[("t", "t")]), scal(rF, -2))     # hcheck^t_t - 2 Hcheck
+    Yh = add(scal(rFab[("r", "r")], gu[("r", "r")]), scal(rF, -2))     # hcheck^r_r - 2 Hcheck
+    Zt = add(add(scal(add(Dr(Xh), Dr(Yh)), f), scal(Xh, -((n - 2)*f/r + fp/2))), scal(Yh, 2*f/r - fp/2))
+    Zt = scal(Zt, 1/((m + 3)/r**2 - sp.diff(f, r, 2) - n*fp/r))        # (168)
+    Phi = scal(add(scal(Zt, n), scal(add(Xh, Yh), -r)), 1/(r**sp.Rational(1, 2)*(m + 3 - n + 6*x)))   # (169)
+    res = {k: rat(val) for k, val in Phi.items()}
+    res = {k: val for k, val in res.items() if val != 0}
+    ok = list(res) == [(0, 0)] and res[(0, 0)] == 1
+    say("  U10%s: [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at general l: jets %s,"
+        " coefficient of P %s: Phi = P exactly: %s" % (" control (V (1 + mu/r^2))" if control else "", sorted(res),
+                                                      back(res.get((0, 0), 0)) if not control else "not 1", ok))
+    return ok
+
+
 CHECKS = [("U1", u1), ("U2", u2), ("U3", u3), ("U4", u4), ("U5", u5), ("U6", u6), ("U7", u7), ("U8", u8),
-          ("U9", u9)]
+          ("U9", u9), ("U10", u10)]
 
 
 def main():
