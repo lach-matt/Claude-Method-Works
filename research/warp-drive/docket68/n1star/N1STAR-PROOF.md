@@ -41,7 +41,8 @@ that seating found one minor gap, that Lemma 10.1b's case of smooth h assumed sm
 regularisation does not give, repaired by averaging over the flow of T (D627) [amended D627: this clause added]. Section
 8, sections 9.1-9.4 and Propositions 9.9-9.10 are proved, and so are Proposition 10.1 (i)-(iii) and (iv-b) with Lemmas
 10.1a-10.1b, the proof of Lemma 10.1b (b) repaired at D625 by the confirming reader's argument and its smooth case at
-D627; (iv-a) is deduced from GAUGEDECAY5 Theorem 1.5, which is verified and not yet proved. Section 9.5's (9.10) was
+D627; (iv-a) is deduced from GAUGEDECAY5 Theorem 1.5, which is proved
+(GAUGEDECAY5 R10.p, R11.p, R12.p). [amended D631: WS-A R12.h text (11)] Section 9.5's (9.10) was
 corrected at D618 (below).
 
 **Theorem M (2026-10-20, D37)** gives the solution's Bondi mass at past null infinity: g_lam has Bondi coordinates there
@@ -51,10 +52,11 @@ O(lam) while the shell passes and mu + (2/9) lam^2 A^2 int env'^2 + O(lam^3) aft
 repaired (D40), and a thirteenth found one major gap in a repair, Lemma 11.0's energy region, repaired by running the
 identity on the approximating solutions of Theorem P's construction (D44); those repairs were read by the fourteenth and
 fifteenth verifiers (D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's
-Major 1), that Lemma 11.0's induction counts the top-order term b.dU as known, whose replacement (workstream B, R5-D) is
-pending; and that reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3),
-corrected at D618 with `past5.py` P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections
-9.5 and 11 await one confirming read.
+Major 1), that Lemma 11.0's induction counts the top-order term b.dU as known, answered by workstream B's R6-D, read by
+its round-6 verifier, seated in Lemma 11.0 (D630) and re-read line by line and found correct by its round-7 reader
+[amended D631: was "whose replacement (workstream B, R5-D) is pending"]; and that reader's Major 2, the factor 1 - pi/2
+missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with `past5.py` P7, with that reader's
+minors m1, m2, m4-m6 and nits n1-n5. D618's edits to sections 9.5 and 11 await one confirming read.
 
 The proof differs from Touati's [Tou23a] in one decision: the approximant is carried to high order K, so that the
 remainder is O(lam^K) and every nonlinear term is beaten by a power of lam rather than by the size eps of the data.
@@ -1900,7 +1902,8 @@ arXiv:hep-th/0305147v3, READ 2026-10-20), and the following is what they give. T
 T5 and T6.
 
 **Proposition 10.1 (deduced, from READ and, for (iv), Lemmas 10.1a-10.1b and GAUGEDECAY5 Theorem 1.5; (i)-(iii) and
-(iv-b) proved, D625; (iv-a) deduced from Theorem 1.5, which is verified and not yet proved) [amended D625: was "(deduced
+(iv-b) proved, D625; (iv-a) deduced from Theorem 1.5, which is proved,
+GAUGEDECAY5 R10.p, R11.p, R12.p) [amended D631: WS-A R12.h text (12)] [amended D625: was "(deduced
 from READ)"].** Let h be a smooth solution of the linearised vacuum equations about Tangherlini of mass mu_f on the
 domain of outer communication, T^2-invariant and even under both reflections, with the data [HKW18] Theorem 2 requires
 on a slice Sigma_0 of their decay foliation. Then:
@@ -1945,8 +1948,10 @@ zeta' = (r^2 f^2)^-1, singular at r_h; the gauge h_0 = c K is reached by the gau
 1.4 (b), smooth wherever h_0 is), h settles to c K on each region {r <= R}, the horizon included, uniformly in l, in two
 data classes.
 
-(iv-a) *Part VIII's data class (GAUGEDECAY5 Theorem 1.5).* Let h be a solution on Part VIII's N^+ down to r_0, Theorem
-1.5's N_(r_0) = N cap {r > r_0} (GAUGEDECAY5 (A2), (A11)), which reaches inside the horizon (r_0 < r_h), and not only on
+(iv-a) *Part VIII's data class (GAUGEDECAY5 Theorem 1.5).* Let h be a solution on N^+ := M^o cap {t_IVP >= 0} (Part
+IX's; GAUGEDECAY5 (A2): Theorem 1.5 (a)-(c) are read on N^+, which lies in Theorem 1.5's N_(r_0) = N cap {r > r_0},
+(A11), with equality where nu = 0), [amended D631: WS-A R12.h text (9)]
+which reaches inside the horizon (r_0 < r_h), and not only on
 the domain of outer communication. If the data h induces on Part VIII's initial surface Sigma_IVP are, up to those of a
 linearised diffeomorphism, data (gamma-dot, k-dot) of Part VIII's class (its Theorem 2.2: gamma-dot in H_b^(oo,(E_0,
 l_0)), k-dot in H_b^(oo,(E_0 + 1, l_0 + 1)), solving the linearised constraints, T^2 x Z2 x Z2-invariant), then h + c
@@ -2018,8 +2023,10 @@ gauge-invariant by itself". (iii) is [KI03] (3.13)-(3.14) at n = 3 with F~ = r F
 Phi = r^(3/2) H_T. The bounds: H = m + 6x with 0 < x <= 1 on r >= r_h, so 5 <= m <= H <= m + 6 and 1/H <= 1/5; 3 r f' =
 6x <= 6; r^2 >= mu_f. (iv): (iv-a) is GAUGEDECAY5 Theorem 1.5 (b), with (d), applied to h + c L_V g [amended D625, noted
 D627: was "with (d) for the identification"], for the identification: a proof from Part VIII (proved, D336) and Part IX
-(proved, D617), read by an independent verifier who confirmed it (GAUGEDECAY5 R2.V), its domain amended since on later
-verifiers' findings ((A2), (A11)): verified, not yet promoted to proved. It uses neither (10.1) nor [HKW18]. (iv-b):
+(proved, D617), read by independent verifiers who confirmed it (GAUGEDECAY5 R2.V; its domain amended since on later
+verifiers' findings, (A2), (A11); (b) and (d), with (a), read line by line by the round-9 verifier, R10.0; (a)-(d)
+confirmed by the round-10 verifier, R11.0, and (c)'s reading (A112) by the round-11 verifier, R12.0): proved
+(GAUGEDECAY5 R10.p, R11.p, R12.p). [amended D631: WS-A R12.h text (10)] It uses neither (10.1) nor [HKW18]. (iv-b):
 [HKW18]'s master quantities are, mode by mode, Psi = r^(1/2) Phi Y with Phi solving box~ Phi = W Phi, W = V/f smooth on
 r >= r_h ((169)-(174) for the scalar type, (134) with (51) and (42) for the tensor type; `checks/redshift5.py` R1), and
 every r-derivative of W is O(1 + k^2) uniformly in l (R7). [HKW18] Theorem 2 ((116), (130), with E^N ~ E~^N, Lemma 11,
@@ -2207,9 +2214,27 @@ W* + U, U stationary and smooth at r_h: the horizon functional annihilates box U
 representative W** = t W* + A_st dt + B_st dr with the coefficient 1 of the static time, which this item stated before
 D610, gives a K* singular at r_h (at mu = 1, (r - r_h) K*_vr -> -3/8 and (r - r_h)^2 K*_rr -> 3/8; V1). In harmonic
 gauge the l = 0 part of a perturbation in the class is mu-dot K* + pi_Z with box Z = 0, mu-dot the change of mass. When
-Z has compactly supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the
-conserved horizon charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), with (Dyn), which Part
-VI.A Theorem 6.1 proves at b_0; `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions.
+Z has data compactly supported on the initial surface Sigma it settles to mu-dot K* + c pi_{W*} on each {r <= R}, c
+the conserved horizon charge of Z divided by that of W*, with an exact leading term: Z - c W* = (c/2) t_*^-2 varpi_K
++ O(t_*^(-3+eps)) for every eps > 0, varpi_K := mu W* - (d_v)^flat, so that pi_Z - c pi_{W*} = (mu c/2) t_*^-2
+pi_{W*} + O(t_*^(-3+eps)) (proved, GAUGEDECAY5 Proposition R2.13 (b) with Corollaries R6.6 and R7.4;
+`checks/admbox5.py` B1-B8, `checks/gdrad5.py` D1-D13, `checks/gdtail5.py` T1-T12); the mass change grows linearly in
+v, as in four dimensions. If instead Z's data are of order p > 1/2 at spatial infinity up to a Killing part
+c' (d_t)^flat, then Z minus c' (d_t)^flat and c W* is O(t_*^(-min(p,3/2)+eps)), and so is pi_Z - c pi_{W*}, now with
+c = (Q[Z] - c' Q[(d_t)^flat]) / Q[W*], Q[(d_t)^flat] = 4 pi^2 mu (proved, GAUGEDECAY5 Corollary R7.6 with
+(A72)-(A73); `checks/gdtail5.py` T9). For the harmonic-gauge representative of GAUGEDECAY5 Corollary R4.4, Z is the
+homogeneous 1-form whose data are those of the l = 0 gauge vector of the initial data less mu-dot W**: of order
+p > 1/2 + 2 gamma_Ups, and p = 1 for data that are a change of mass beyond a ball (proved, GAUGEDECAY5 Proposition
+R7.5 and Corollary R7.7; `checks/gdtail5.py` T8-T9). Its part with l >= 2 settles at t_*^(-3/2-kappa) for every
+kappa < delta_# = (1 - e_Ups) gamma_Ups: on the 1-forms with no l <= 1 part the zero-energy operator of box has no
+kernel and no cokernel at the weights used, and Part I.C's low-energy hypotheses hold there (proved, GAUGEDECAY5
+Corollaries R8.9 and R8.11; `checks/gdlge2_5.py` L1-L10, `checks/gdr9_5.py` N1-N8). So the representative settles to
+mu-dot K* + c pi_{W*} at t_*^(-min(p,3/2)+eps), at t_*^(-1+eps) for a change of mass beyond a ball, and for data with
+compact support mu-dot = 0 and it is c pi_{W*} + O(t_*^(-3/2-kappa)) (proved, GAUGEDECAY5 Corollary R8.12;
+`checks/gdlge2_5.py` L10). All of this is proved from Part VIII and the write-out's proved parts, Part IX among them:
+every round of GAUGEDECAY5 to its round 11 has been read by independent verifiers and their findings are seated, the last
+in its round 12; the results cited here and their inputs are promoted (GAUGEDECAY5 R10.p, R11.p, R12.p).
+[amended D631: WS-A R12.h text (1)]
 Without decay of Z's data at infinity the growth can be exchanged for a stationary term that does not decay at infinity
 (R2.13 (c)).
 
@@ -3351,9 +3376,16 @@ being below 1. Since mu (W0 + P/2 - (sqrt mu/4) S_W) is constant along H^+ (10.2
 c_1(tau) - c_1(oo) = -mu (P/2 - (sqrt mu/4) S_W + W-bar_0)(tau, r_h), whose square the energy bounds, so it tends to
 zero at the square root of that rate; W-hat - W-bar is (c_1(tau) - c_1(oo)) times W*'s components, its energy at the
 rate itself, and (iii) follows as his Theorem 8.1's last step does. With c K* (Proposition 10.2 (iv), the
-horizon-regular K*), h_0 settles to c K* + c_1(oo) pi_{W*}, c_1(oo) = Q[W']/Q[W*]. For W' with compactly supported data
-GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R} (deduced, with (Dyn), which Part VI.A Theorem
-6.1 proves at b_0); without decay of W''s data at infinity the final state need not be c K* + c_1 pi_{W*} (R2.13 (c)).
+horizon-regular K*), h_0 settles to c K* + c_1(oo) pi_{W*}, c_1(oo) = Q[W']/Q[W*]. For W' with data compactly supported
+on the initial surface Sigma, GAUGEDECAY5 Proposition R2.13 (b) with Corollaries R6.6 and R7.4 gives W' - c_1(oo) W*
+= (c_1(oo)/2) t_*^-2 varpi_K + O(t_*^(-3+eps)) on each {r <= R}, every eps > 0, varpi_K := mu W* - (d_v)^flat, so
+h_0 - c K* - c_1(oo) pi_{W*} = (mu c_1(oo)/2) t_*^-2 pi_{W*} + O(t_*^(-3+eps)); for data of order p > 1/2 at spatial
+infinity up to a Killing part c' (d_t)^flat, GAUGEDECAY5 Corollary R7.6 gives the rate t_*^(-min(p,3/2)+eps), with
+c_1(oo) replaced by (Q[W'] - c' Q[(d_t)^flat])/Q[W*] (proved, from Part VIII and the write-out's proved parts, Part IX
+among them; every round of GAUGEDECAY5 to its round 11 read by independent verifiers and their findings seated, the last
+in its round 12; these results and their inputs promoted, GAUGEDECAY5 R10.p, R11.p, R12.p; `checks/gdrad5.py`,
+`checks/gdtail5.py`); [amended D631: WS-A R12.h text (2)]
+without decay of W''s data at infinity the final state need not be c K* + c_1 pi_{W*} (R2.13 (c)).
 []
 
 *What this gives.* Proposition 10.2(iv)'s conditional is discharged, and 10.8's at the weaker rate: at l = 0 the

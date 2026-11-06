@@ -255,8 +255,8 @@ def part_k4():
 def part_k5():
     print("K5  the general claim of R7-A, exact: d_t timelike and the slices spacelike for |delta|_op < 7/25")
     m, d, fp = sp.symbols("m delta fp", nonnegative=True)
-    s_of = m + sp.sqrt(1 + m**2)
-    gbound = s_of**2*d/(1 - s_of*d)
+    sx = m + sp.sqrt(1 + m**2)
+    gbound = sx**2*d/(1 - sx*d)
     g_at = sp.N(gbound.subs({m: Q(1, 16), d: Q(7, 25)}), 12)
     mono = (sp.diff(gbound, d).subs({m: Q(1, 16), d: Q(1, 10)}) > 0
             and sp.diff(gbound, m).subs({m: Q(1, 32), d: Q(1, 10)}) > 0)
@@ -282,8 +282,8 @@ def part_k5():
 def part_k6():
     print("K6  Step 4's margin: |H| <= r^-2/4 keeps |g^-1 - g_b0^-1| below r^-2/2")
     m, x = sp.symbols("m x", nonnegative=True)             # x := r^-2 <= 1/64
-    s_of = m + sp.sqrt(1 + m**2)
-    ratio = lambda c: sp.N((s_of**2*(c*x)/(1 - s_of*c*x)/x).subs({m: Q(1, 16), x: Q(1, 64)}), 10)
+    sx = m + sp.sqrt(1 + m**2)
+    ratio = lambda c: sp.N((sx**2*(c*x)/(1 - sx*c*x)/x).subs({m: Q(1, 16), x: Q(1, 64)}), 10)
     r4, r2 = ratio(Q(1, 4)), ratio(Q(1, 2))
     check("K6 |H|_op <= r^-2/4 (r >= 8, m <= 1/16) gives |g^-1 - g_b0^-1|_op <= 0.2847 r^-2 < r^-2/2, the margin "
           "of D4-D5 "

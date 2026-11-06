@@ -94,7 +94,8 @@ scanned here.
   (round 9: 510). So c'_above = 1035, c'_below = 929, c' = 1035; per round c_r = c_S = 971, z = 889, c_51 = 967;
   B_once = 575,023,419,632,184 and d <= 46,236,517,538,883,361 (pins C_PIN, D_PIN, B_PIN, DTOT_PIN). The loop counts
   (BASE_PIN) do not move. M5 reads checks/rootavoid5.out (23 checks, all PASS): the finite avoidances are decided.]
-  [Round 13: M5 asks at least 23 checks, all PASS, as rootavoid5's author may add checks.]
+  [Round 13: M5 asks at least 23 checks, all PASS, as rootavoid5's author may add checks. M3's partial sum A' + (K +
+  1) c' is labelled as such (the round-12 reader's nit 7): d adds B_once (M4).]
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -707,8 +708,9 @@ def main():
     d = A1 + DN.KPLUS1 * cp
     N = 21 * d + 6
     OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 877 and meta['k12'] == 10 and meta['oneoff'][7] == 48
-    print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; d <= A\' + %d c\' = %d + %d = %d '
-          '(%.6e); N = 21 d + 6 <= %d (%.6e); pinned: %s' % (
+    print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; the levels\' part of d (Round 13: a '
+          'partial sum, not a bound on d, which adds B_once, M4): A\' + %d c\' = %d + %d = %d (%.6e), and 21 times it + 6 '
+          '= %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,
               OK['M3']))
     print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
