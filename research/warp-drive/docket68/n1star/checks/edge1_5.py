@@ -595,75 +595,137 @@ def e11(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ X12
+def ratio_fns(nm, N):
+    """x -> (kappa, kappa_(N-1), env^(N-1)/env) for an envelope of ELLS, exact derivatives (Bell polynomials)"""
+    Ls, Y = bell_ratios(N - 1)
+    Yf = [sp.lambdify(Ls, y, 'mpmath') for y in Y[:N + 1]]
+    dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, len(Ls) + 1)]
+
+    def f(x):
+        Lv = [g(x) for g in dl]
+        Yv = [g(*Lv) for g in Yf]
+        return Yv[1], Yv[N]/Yv[N - 1], Yv[N - 1]
+    return f
+
+
+CACHE12 = {}
+
+
 def e12(control=False):
-    mp.mp.dps = 50
-    lam = mp.mpf(10)**-10
+    """Case 3 at a real cancellation (N = 12): |sigma_main| against round 6's error bound (L.21 (iv') and H_Sigma's exact
+    form: T0^2 + lam |kappa_(N-1) - kappa| + 1/kappa + lam, relative) and round 5's (eps = lam kappa)"""
+    mp.mp.dps = 60
     N, r0, mu0, nu, Gam = 12, mp.mpf(3), mp.mpf(1), -mp.mpf(1)/9, mp.mpf(1)
     cN = N*mu0/(r0**2 + mu0)
+    rows, ok = [], True
+    for nm in ("exp(-1/x)", "record C_c^inf"):
+        if nm not in CACHE12:
+            CACHE12[nm] = ratio_fns(nm, N)
+        f = CACHE12[nm]
+        prev, last = None, None
+        for E in (10, 20, 40, 80):
+            lam = mp.mpf(10)**-E
+
+            def parts(x):
+                kap, kN1, R = f(x)
+                T0, T = lam*kap, lam*kN1
+                Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
+                Lam = lam**(N - 2)*R
+                return kap, kN1, T0, Xi, Lam, nu*(1 + 2j*T0) - Gam*Xi*Lam          # i^N = 1
+
+            def bis(fun, lo, hi):                       # fun(lo) > 0 > fun(hi), on a log scale
+                for _ in range(400):
+                    mid = mp.sqrt(lo*hi)
+                    if fun(mid) > 0:
+                        lo = mid
+                    else:
+                        hi = mid
+                return hi
+            x0 = (lam**(N - 2)*Gam*cN/abs(nu))**(mp.mpf(1)/(2*N - 2))
+            xc = bis(lambda x: parts(x)[5].real, x0/100, x0*100)
+            rho = lambda x: Gam*abs(parts(x)[3])*parts(x)[4]/(abs(nu)*abs(1 + 2j*parts(x)[2]))     # noqa: E731
+            xl = bis(lambda x: rho(x) - 4, x0/100, x0*100)
+            xh = bis(lambda x: rho(x) - mp.mpf(1)/4, x0/100, x0*100)
+            r1 = r2 = mp.inf
+            phase = mp.mpf(0)
+            for k in range(301):
+                x = xl*(xh/xl)**(mp.mpf(k)/300)
+                kap, kN1, T0, Xi, Lam, sm = parts(x)
+                SU = Gam*abs(Xi)*Lam
+                b2 = (T0**2 + lam*abs(kN1 - kap) + 1/kap + lam)*(abs(nu) + SU)
+                b1 = (T0 + 1/kap + lam)*SU + (T0**2 + lam)*abs(nu)
+                r2, r1 = min(r2, abs(sm)/b2), min(r1, abs(sm)/b1)
+                sm2 = parts(x + 4*mp.pi*lam)[5]
+                phase = max(phase, abs(mp.arg(sm2/sm)))
+            r = r1 if control else r2
+            if prev is not None:
+                ok &= r > 2*prev
+            prev = r
+            ok &= phase <= mp.pi/6
+            last = r
+            rows.append("%s, lam = 1e-%d: x_c = %s, lam kappa = %s; min over the crossover |sigma_main|/(round 6's"
+                        " bound) = %s, /(round 5's) = %s; phase change over 4 pi lam <= %s"
+                        % (nm, E, mp.nstr(xc, 4), mp.nstr(parts(xc)[2], 3), mp.nstr(r2, 4), mp.nstr(r1, 4),
+                           mp.nstr(phase, 3)))
+        ok &= last > 100
+    if control:
+        return ok
+    out("  X12 Case 3 of Theorem L_1E at a real cancellation, N = 12 (nu < 0, Gamma > 0, i^N = 1), r0 = 3, unit"
+        " constants, on the whole crossover |S_U|/|S_st| in [1/4, 4] (301 points): " + "; ".join(rows) + "; the ratio"
+        " to round 6's bound more than doubles at each step and exceeds 100 at lam = 1e-80, the phase moving by at"
+        " most pi/6: %s  [%.0f s]" % (ok, time.time() - T0))
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------------------ X13
+CACHE13 = {}
+
+
+def e13(control=False):
+    """s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2 kappa^(1+alpha))) for g = env^(N-1), exp(-1/x), N = 12,
+    lam kappa <= 1/5: s^(-1) g computed by quadrature"""
+    mp.mp.dps = 30
+    N = 12
     u = sp.Symbol('u')
     Ps = [sp.Integer(1)]
-    for _ in range(N + 2):
+    for _ in range(N + 1):
         Ps.append(sp.expand(u**2*(Ps[-1] - sp.diff(Ps[-1], u))))
     Pf = [sp.lambdify(u, pp, 'mpmath') for pp in Ps]
-
-    def parts(x):
-        envk = [Pf[i](1/x) for i in range(N + 1)]
-        T = lam*envk[N]/envk[N - 1]
-        Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
-        return envk[1], lam**(N - 2)*envk[N - 1], Xi
-
-    lo, hi = mp.mpf('1e-7'), mp.mpf('2e-2')                  # Re sigma_main = 0: nu + Gam Re(-Xi) Lam = 0
-    for _ in range(200):
-        mid = mp.sqrt(lo*hi)
-        kap, Lam, Xi = parts(mid)
-        if (nu*(1 + 2j*lam*kap) - Gam*Xi*Lam).real > 0:
-            lo = mid
-        else:
-            hi = mid
-    xc = hi
-    kc, Lc, Xc = parts(xc)
-
-    def sigma(x):
-        kap, Lam, Xi = parts(x)
-        if control:
-            Lam = Lc                                          # a mutation: Lambda frozen (no transversality)
-        sm = nu*(1 + 2j*lam*kap) - Gam*Xi*Lam                 # i^12 = 1
-        qc = (nu*(1 + 2j*lam*kc) - Gam*Xc*Lc).imag            # the quadrature part at the cancellation
-        theta = -1j*qc*(Lam/Lc)*(lam*kap/(lam*kc))            # an O(T) relative error that cancels it there
-        ene = (lam + 1/kap)*abs(nu)*mp.cos(kc*x)              # a non-explicit error, size (lam + 1/kappa)|nu|
-        return sm + theta + ene
-
-    per = 4*mp.pi*lam
-    worst_L0, worst_cond, bad_sign = mp.inf, True, 0
-    for k in range(-40, 41):
-        x0 = xc + k*per/2
-        ts = [x0 + per*j/96 for j in range(97)]
-        d1 = [mp.diff(sigma, t) for t in ts[::8]]
-        d2 = [mp.diff(sigma, t, 2) for t in ts[::8]]
-        L0 = min(abs(d) for d in d1)
-        eps = max(10*(1 + lam*kc)**2*mp.exp(-1/t)/lam**3 for t in ts)     # non-harmonic, per lam^3 A |d| env
-        cond = L0 >= abs(nu)*mp.sqrt(kc) and max(abs(d) for d in d2) <= L0/(80*mp.pi*lam) and eps <= mp.pi*lam*L0/5
-        worst_L0 = min(worst_L0, L0/(abs(nu)*mp.sqrt(kc)))
-        worst_cond &= cond
-        vals = [(sigma(t)*mp.exp(1j*t/lam)).real for t in ts]
-        if not (any(vv_ > eps for vv_ in vals) and any(vv_ < -eps for vv_ in vals)):
-            bad_sign += 1
+    g = lambda t: Pf[N - 1](1/t)*mp.exp(-1/t)                                       # noqa: E731
+    rows, ok, worst, tail = [], True, mp.mpf(0), mp.mpf(0)
+    rat = {}
+    for lam in (mp.mpf(10)**-4, mp.mpf(10)**-5):
+        for T0 in (mp.mpf('0.2'), mp.mpf('0.1'), mp.mpf('0.05'), mp.mpf('0.025')):
+            x = mp.sqrt(lam/T0)                                 # kappa = 1/x^2
+            key = (float(lam), float(T0))
+            if key not in CACHE13:
+                a0 = x/8
+                n = int(mp.ceil((x - a0)/(mp.pi*lam)))
+                pts = [a0 + (x - a0)*i/n for i in range(n + 1)]
+                I = mp.quad(lambda t: mp.exp(1j*t/lam)*g(t), pts)
+                CACHE13[key] = (mp.exp(-1j*x/lam)*I, x/8*abs(g(a0)))       # g increases on (0, x/8]
+            sinv, om = CACHE13[key]
+            gx = g(x)
+            kg = Pf[N](1/x)/Pf[N - 1](1/x)
+            approx = -1j*lam*gx if control else gx/(kg + 1j/lam)
+            r = abs(sinv - approx)/(lam*abs(gx)*T0**2)
+            rat[key] = r
+            worst = max(worst, r)
+            tail = max(tail, om/(lam*abs(gx)*T0**2))
+            rows.append("lam = %s, lam kappa = %s: %s" % (mp.nstr(lam, 2), mp.nstr(T0, 3), mp.nstr(r, 4)))
+    ok = worst <= 1 and tail < mp.mpf(10)**-6
     if control:
-        return worst_cond
-    out("  X12 the crossover by Lemma W (B), N = 12 (the real parts cancel: nu < 0, Gamma > 0, i^N = 1), exp(-1/x),"
-        " lam = 1e-10, r0 = 3: Re sigma_main = 0 at x_c = %s (lam kappa = %s); with an O(T) relative error that cancels"
-        " the quadrature part at x_c and a non-explicit error of size (lam + 1/kappa)|nu|, on the 81 windows around x_c:"
-        " min |sigma'|/(|nu| kappa^(1/2)) = %s, Lemma W (B)'s conditions hold on every one: %s, windows without both"
-        " signs: %d (at lam = 1e-6 the margin lam (kappa_(N-1) - kappa) < 1/(80 pi) of (B)'s second condition is not"
-        " yet met; it tends to 0 like lam^(1 - (N-2)/(2(N-1))))"
-        % (mp.nstr(xc, 6), mp.nstr(lam*kc, 4), mp.nstr(worst_L0, 4), worst_cond, bad_sign))
-    return worst_cond and bad_sign == 0
+        return ok
+    out("  X13 L.21 (iv'): for g = env^(N-1), exp(-1/x), N = 12, s^(-1) g (by quadrature from x/8; the part below x/8 is"
+        " at most %s of lam |g| (lam kappa)^2) against g/(kappa_(N-1) + i/lam), |difference|/(lam |g| (lam kappa)^2): "
+        % mp.nstr(tail, 3) + "; ".join(rows) + "; at most 1: %s  [%.0f s]" % (worst <= 1, time.time() - T0))
+    return ok
 
 
 def main():
     ok = True
     for name, f in (("X1", e1), ("X2", e2), ("X3", e3), ("X4", e4), ("X5", e5), ("X6", e6), ("X7", e7), ("X8", e8),
-                    ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12)):
+                    ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12), ("X13", e13)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))
