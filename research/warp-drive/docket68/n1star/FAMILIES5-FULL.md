@@ -9,6 +9,9 @@ at the axes for any two families of the same orientation is **computed**; the ba
 non-round) families is **open**, with the obstruction stated. Part III: the literature is **READ** at source; the 5D
 T²-class reduction of the Vlasov passage to Part I is **deduced** with its identities computed; the non-round case is
 **open** and stops at Part II's obstruction. Nothing in FAMILIES5.md, the paper or the log is changed.
+[R6 pointer (the round-5 verifier's minor 9): this status is round 1's. The non-round background is supplied by
+FAMILIES5-NONROUND Theorem N and FAMILIES5-AXIS Theorem N′ (deduced); restricted Vlasov limits are FAMILIES5-VLASOV
+Theorem V, with its hypotheses, its N-family data step and its status in FAMILIES5-R6.md sections 3-4.]
 
 Round 2 (2026-11-02, Part V). An independent verifier read this note at commit 169c9b5 and found no major gap; its
 seven findings are seated (section 11, each with its disposition, the text corrected in place where it stood). Theorem
@@ -153,8 +156,9 @@ condition costs nothing: u ≤ u1 is explicit ingoing Vaidya with the data's mas
 without changing the background elsewhere (uniqueness on the smaller rectangle). Computed (twobg5 G3, the example, T =
 1, δ0 = 0.05): the example's own N (R = 5 at v = 0) meets Σ_τ0 at R − b = −4.09, inside the domain, which is the
 verifier's case; the outgoing ray of region I from R = 7.505 at v = 0 keeps R − b ≥ 0.9958 [R5: re-integrated
-independently; round 2 printed 1.01, its RK4 sampling τ at its steps] on all of [τ0, τ_end] (along it R and τ increase
-while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d), (e) as FAMILIES5.md
+independently; round 2 printed 1.01, its RK4 sampling τ at its steps] [R6 (the round-5 verifier's minor 3):
+0.9951, attained at τ0, which the round-5 minimum left out; twobg5.py repaired] on all of [τ0, τ_end] (along it R
+and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d), (e) as FAMILIES5.md
 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c) above; (f) with r_q^♭ := r_q(μ) ≥
 r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3) e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which
 gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside Ω₂ (record's (d)-(e)), so both
@@ -489,6 +493,11 @@ constants C(N) = c^N N^N, p. 5, READ: "Going through the proof gives that C(N) =
 exponents restored from the extraction)
 nor [Tou24] (p. 4) provides beyond small data.
 
+[R6 pointer (the round-5 verifier's minor 9). Superseded: the non-round background is FAMILIES5-NONROUND Theorem N and
+FAMILIES5-AXIS Theorem N′; the passage to restricted Vlasov limits is FAMILIES5-VLASOV Theorem V, along a diagonal,
+the high-frequency step not uniform in N (only the background is, Proposition U); its hypotheses, open and met by an
+explicit family, and its N-family data step are in FAMILIES5-R6.md sections 3-4.]
+
 ---
 
 # Part V. Round 2 (2026-11-02)
@@ -788,7 +797,8 @@ programs rerun to their `.out` files.
    re-integrated independently (scipy DOP853) and R − b checked on [τ0, τ_end]. The margin is 0.9958, not the 1.010
    the bisection's RK4 printed (it samples τ at its steps), and positive: the condition N ∩ {τ ≥ τ0} ⊂ {R > b(τ)}
    holds; control: the same check on the example's own cone (R0 = 5) gives R − b < 0 at τ0, agreeing with the RK4
-   value (`.out` regenerated). Section 2 (e) now quotes the margin 0.9958.
+   value (`.out` regenerated). Section 2 (e) now quotes the margin 0.9958. [R6: 0.9951, at τ0 (the round-5
+   verifier's minor 3; g3_indep now includes the endpoint).]
 6. (Minor 5) Section 2 (d): **repaired** in place ("G closed in Q"; u-boundedness of {R ≥ a′} stated before step (1)).
 7. (Note) J1-J7 exercise the principal part of Ric^H only (dropping ΓΓ, or breaking the waves' tracelessness, leaves
    them true), consistent with (F1)-(F3); J0 holds for any operator commuting with translations in s. **Reworded** in

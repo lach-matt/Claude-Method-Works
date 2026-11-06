@@ -44,6 +44,10 @@ there with density ~ 1/ρ2 (FAMILIES5-VLASOV Proposition Ax, vlasovhf5 H7; the v
 the obstruction: Vlasov limits in the class are proved along a diagonal (FAMILIES5-VLASOV Theorem V), the background
 step uniform in N, the high-frequency step made coherent by hierarchical frequencies, as in [HL25]. Item 2's band data
 hold on the whole slice except a band inside the shell, where no foliation is hyperbolic (racglobal5 R1-R2).]
+[R6 (FAMILIES5-R6.md, the round-5 verifier). "N-dependence is not the obstruction" stands for the high-frequency step
+only; [HL25] need N-uniform background estimates, which Proposition U supplies (R6.0 Minor 1). Theorem V now carries
+(V2′) and stated hypotheses (R6 section 3) and its N-family data step (R6 section 4). The band is [4.29, 4.53], "no
+foliation" holds for foliations of Σ_τ0 only, and a deformed slice carries band data across it (R6 Theorem L″).]
 
 Labels as in the record: **computed** (a program `checks/<name>5.py` with a `.out` and a negative control that it must
 reject), **deduced** (argued here), **READ** (verbatim, identifier and page, read at source through alphaXiv,
@@ -152,6 +156,9 @@ solution of the system (READ p. 12). Existence on all of [a, R2] near the backgr
 Cauchy stability (proved there), the background solving the system on the interval. B1's real speeds are the θ-only
 symbol's; the full S³ system needs κ K^l_l < 0; B2's equivalence needs E f < 1, which Part I satisfies (bandconst5
 docstring corrected).]
+[R6 (the round-5 verifier's Major 3). Theorem K gave local existence and continuation only; the Cauchy stability used
+here is Theorem K′ (FAMILIES5-R6 section 5: a tame source bound and, on a domain, locality), which [Rac16]'s system
+satisfies.]
 
 In the example, R2 = a + 0.2 gives Δ ≤ 0.213: a band θ ∈ [π/8, 3π/8] widens to [0.18, 1.39], away from both axes. A
 radially long perturbation spreads more: 0.752 rad across the seed region.
@@ -180,6 +187,10 @@ invariant KIDs; in Part I's vacuum regions the only one is the static Killing fi
 one number. On the stream-function seeds it is negative (R4: 45 seeds), so these seeds do not complete to exactly
 localised vacuum data, with or without dust added in the band. Exact compact support is not obtained; band
 localisation (Proposition L) and exact localisation on cones (B6) are what is proved.]
+[R6 (FAMILIES5-R6 section 1). Every momentum seed has Q < 0 (Theorem Q); "with or without dust" holds outside the
+horizon only: inside it outgoing null dust has T(ξ, n) < 0 and exactly localised Einstein–null-dust data exist
+(Theorem Q′; the round-5 verifier's Major 4). For seeds that perturb the metric the sign is the canonical energy's,
+the one missing input (R6 section 1.5).]
 
 ### 2.4 What this does to Corollary N2
 
@@ -418,6 +429,7 @@ restricted system is well posed around large solutions whose non-axial support s
 every smooth solution, FAMILIES5-VLASOV Proposition Ax). The last paragraph is superseded: uniformity in N is not
 needed (FAMILIES5-VLASOV Theorem V, the diagonal of [HL25] p. 19, READ), and the obstruction to the every-order scheme
 is resonance among three or more phases, removed by hierarchical frequencies (Lemma C).]
+[R6: "uniformity in N is not needed" reads "the high-frequency step need not be uniform in N" (FAMILIES5-R6 R6.0).]
 
 ## 5. Literature (READ, alphaXiv, 2026-11-02)
 
