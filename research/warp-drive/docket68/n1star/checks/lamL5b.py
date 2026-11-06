@@ -8,8 +8,9 @@ mu in [1, 227/192]; Theorem L's p = 14, N = 9, M* = 26, m = 56 M* = 1456; M_m^(1
 L2, recomputed here).
 
   M1 (READ, located by content; md5 printed) CONSTANTS5.md Round 4: lambda0 < 0.0024433 (operator norm), g0's least
-     absolute eigenvalue on Omega in [0.030768559, 0.030768560].  Control: the pin with its last digit mutated
-     (0.0024432) is found nowhere.
+     absolute eigenvalue on Omega in [0.030768559, 0.030768560]; and N1STAR-PROOF.md's shift convention "Z := d_tau -
+     beta_ext" (round 7: both are live files, so the md5s and lines are those of the run).  Control: the pin with its
+     last digit mutated (0.0024432) is found nowhere.
   M2 (certified, interval arithmetic) B := 1 + sup |r_q'| <= 1 + c^2/18 (r_q' = mu0^(1/4) mu^(-3/4) mu'/4, mu' =
      (2/9) env^2, mu >= mu0 = 1), and C_Phi = C1 max_(|beta| <= B) ((1 - beta)^2 + beta^2) = C1 ((1 + B)^2 + B^2): the
      constant of EQUALITY5 section 0 for the covectors dr - beta dv, |dr - beta dv|_e^2 = (1 - beta)^2 + beta^2 in the
@@ -46,6 +47,7 @@ Theorem L holds (CONSTANTS5 V-M2).  Run: python3 checks/lamL5b.py   (about two m
 import hashlib
 import math
 import os
+import re
 import sys
 import textwrap
 import time
@@ -80,9 +82,20 @@ def m1(control=False):
         return any('lambda0 < 0.0024432' in ln for ln in lines[r4:])          # a mutated pin: must not be found
     hits = [i + 1 for i, ln in enumerate(lines) if i >= r4 and 'lambda0 < 0.0024433' in ln]
     eig = [i + 1 for i, ln in enumerate(lines) if i >= r4 and '[0.030768559, 0.030768560]' in ln]
-    out("  M1 CONSTANTS5.md md5 %s: Round 4 at line %d; 'lambda0 < 0.0024433' at lines %s; the eigenvalue interval at"
-        " %s" % (hashlib.md5(raw).hexdigest(), r4 + 1, hits, eig))
-    return bool(hits) and bool(eig)
+    # round 7 (the verifier of round 6's nit 7): the supplement's shift convention, located by content
+    rawp = open(os.path.join(HERE, '..', 'N1STAR-PROOF.md'), 'rb').read()
+    lp = rawp.decode('utf-8').split('\n')
+    joined = ' '.join(ln.rstrip() for ln in lp)      # a phrase may span two lines
+    starts, acc = [], 0
+    for ln in lp:
+        starts.append(acc)
+        acc += len(ln.rstrip()) + 1
+    zl = [max(i for i, st in enumerate(starts) if st <= m.start()) + 1
+          for m in re.finditer(re.escape('Z := d_tau - beta_ext'), joined)]
+    out("  M1 CONSTANTS5.md md5 %s: Round 4 at line %d; 'lambda0 < 0.0024433' at lines %s; the eigenvalue interval"
+        " at %s; N1STAR-PROOF.md md5 %s: 'Z := d_tau - beta_ext' from line %s"
+        % (hashlib.md5(raw).hexdigest(), r4 + 1, hits, eig, hashlib.md5(rawp).hexdigest(), zl))
+    return bool(hits) and bool(eig) and bool(zl)
 
 
 # ------------------------------------------------------------------------------------------------------------ M2

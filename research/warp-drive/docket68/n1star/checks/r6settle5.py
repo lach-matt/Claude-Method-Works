@@ -256,8 +256,11 @@ def part_y():
           f"max boundary/tail {worst_b:.4f}, max Hardy lhs/rhs {worst_h:.4f}")
     a, rr, c0 = sp.symbols("a r c0", positive=True)
     phic = c0 + rr**(-a - 2)
-    I_lhs = sp.integrate((rr**(2*a + 1)*phic**2).subs({a: Q(11, 4), c0: Q(1, 60)}), (rr, 1, sp.oo))
-    I_rhs = sp.integrate((rr**(2*a + 3)*sp.diff(phic, rr)**2).subs({a: Q(11, 4), c0: Q(1, 60)}), (rr, 1, sp.oo))
+    Rv = sp.Symbol("Rv", positive=True)   # the integrals up to Rv, then Rv -> oo (sympy's improper form is slow here)
+    I_lhs = sp.limit(sp.integrate(sp.expand((rr**(2*a + 1)*phic**2).subs({a: Q(11, 4), c0: Q(1, 60)})), (rr, 1, Rv)),
+                     Rv, sp.oo)
+    I_rhs = sp.limit(sp.integrate(sp.expand((rr**(2*a + 3)*sp.diff(phic, rr)**2).subs({a: Q(11, 4), c0: Q(1, 60)})),
+                                  (rr, 1, Rv)), Rv, sp.oo)
     bt_c = sp.limit((rr**(2*a + 2)*phic**2).subs({a: Q(11, 4), c0: Q(1, 60)}), rr, sp.oo)
     check("Y2' control (phi = c + r^-(a+2), c = 1/60: finite derivative energy, limit c): int r^(2a+1) phi^2 = oo, the "
           "boundary term -> oo: Hardy fails without the decay", I_lhs == sp.oo and I_rhs.is_finite and bt_c == sp.oo)

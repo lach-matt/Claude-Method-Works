@@ -2864,7 +2864,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
 | `docket68/n1star/proof5/README.md` | `59e16d18194e76e99d6bdf8724cc258d` |
-| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `81a9effd4cb417f5f3652356dcfdf101` |
+| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `500c085baa7a0634c44b84471c6c3050` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
 | `docket68/n1star/proof5/checks/gammac5.tsv` | `0801ba6869e3884ed3ef309acf872ad1` |
@@ -2879,7 +2879,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
 | `docket68/n1star/LOSS-D.md` | `ffe78eb45b6a60777f5887b4a8638357` |
-| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `905a2c528397ea4f5229315f0169aea3` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `f29e2aa8582d09344398dffacdd8f23c` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
 | `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
 | `docket68/n1star/BEYOND5.md` | `b67a56b202fcdeba51e8118e71243c33` |
@@ -2925,8 +2925,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/mpdata5.out` | `2095b2cfc3584b322e8603301cbb815f` |
 | `docket68/n1star/checks/flux5.py` | `9ab6b48f425633ab7806c3bab1576238` |
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
-| `docket68/n1star/checks/vii5census.py` | `e8e7aceda659fea0dc2d5c1ea075e0f2` |
-| `docket68/n1star/checks/vii5census.out` | `1198bc26cbb017e4c95d79a31c9d8935` |
+| `docket68/n1star/checks/vii5census.py` | `8c995b629bb548209b89c122223fa577` |
+| `docket68/n1star/checks/vii5census.out` | `396769e7c5ee4bcd1748e479dfbc4694` |
 | `docket68/n1star/checks/vii5read.py` | `f9bfa4b1478345122d53d2eac92a5698` |
 | `docket68/n1star/checks/vii5read.out` | `a85aa1ef7a5f4f086c88f0830a199b71` |
 | `docket68/n1star/checks/VII5-READING.tsv` | `d9bf818233f732c867a503355c610c18` |

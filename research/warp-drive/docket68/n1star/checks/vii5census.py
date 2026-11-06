@@ -47,7 +47,8 @@ section only, the sentence there that fixes it) from the places it is used.
      dual states (III.E, III.E2), III.H:267 (a line V1 lists), and generic 1-forms of uniqueness and estimate arguments
      (III.D2, III.F2, III.F4, IV5-IV7). The run: 150 spellings, 83 covered, 67 excluded, 0 neither (137 = 80 + 57 + 0
      before D628). Controls: a planted spelling must be reported as neither; so must a planted primed spelling inside
-     a location rule's range, and omega'_b planted outside its rules' ranges.
+     a location rule's range, omega'_b planted outside its rules' ranges, and a primed spelling planted as text (the
+     confirming reader's C1, which passed V2 before D628).
   Control (per symbol): every symbol must have at least one hit inside its own site ranges, else the run FAILs (a
      misspelt symbol or a wrong site is caught, not silently listed as absent). Negative controls: a planted symbol,
      and chi_9 with its site moved to PART-III-B-FAMILY.md:345-349, must each be reported as missing its site.
@@ -173,12 +174,16 @@ def wrap(text):
           flush=True)
 
 
-def omega_spellings(fs, where=None):
+def omega_spellings(fs, where=None, append=None):
     """{spelling: number of occurrences} over the joined text of fs: omega with its prefix accent, its primes (D628) and
-    every sub- and superscript that follows; where, if a dict, gets {spelling: [(file, line), ...]}"""
+    every sub- and superscript that follows; where, if a dict, gets {spelling: [(file, line), ...]}; append, if a dict
+    {file: text}, plants text as a last line of that file (a control: it passes through the tokenizer)"""
     out = {}
     for path in fs:
         txt, starts = joined(path)
+        if append and os.path.basename(path) in append:
+            starts.append(len(txt))
+            txt += append[os.path.basename(path)] + " "
         for m in OMEGA_TOKEN.finditer(txt):
             j, tok = m.end(), m.group(0)
             while j < len(txt) and txt[j] in "^_'":
@@ -218,12 +223,13 @@ def excluded_at(t, locs):
     return out or None
 
 
-def v2(extra=(), show=True):
-    """extra: planted spellings, each a string (no location) or (spelling, file, line)"""
+def v2(extra=(), show=True, append=None):
+    """extra: planted spellings, each a string (no location) or (spelling, file, line); append: planted text, as in
+    omega_spellings"""
     fs = [f for f in files() if not f.endswith(IIC)]
     syms = [sym for name, es in GROUPS if name.startswith(("C3", "C4")) for sym, _ in es]
     where = {}
-    sp = omega_spellings(fs, where)
+    sp = omega_spellings(fs, where, append)
     for e in extra:
         t = e if isinstance(e, str) else e[0]
         sp[t] = sp.get(t, 0) + 1
@@ -345,11 +351,13 @@ def main():
     planted2 = not v2(extra=("\\omega^{(7)}_{b,\\mathrm s9}",), show=False)
     primed2 = not v2(extra=(("\\omega'^{(7)}_{b,\\mathrm s9}", D3, 200),), show=False)
     moved2 = not v2(extra=(("\\omega'_b", K, 300),), show=False)
+    text2 = not v2(append={I16: "X $\\omega'^{(7)}_{b,\\mathrm s9}(S)$ Y"}, show=False)
     wrap("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s; since D628, a planted primed "
          "omega'^{(7)}_{b,s9} at %s:200 (inside a location rule's range): %s; omega'_b planted at %s:300 (outside its "
-         "rules' ranges): %s" % (planted2, D3, primed2, K, moved2))
-    ctl = control() and planted2 and primed2 and moved2
-    print("V1 %s; V2 %s; control (a planted and a moved site, and three planted spellings, reported): %s"
+         "rules' ranges): %s; the text $omega'^{(7)}_{b,s9}(S)$ planted as a last line of %s (through the tokenizer): %s"
+         % (planted2, D3, primed2, K, moved2, I16, text2))
+    ctl = control() and planted2 and primed2 and moved2 and text2
+    print("V1 %s; V2 %s; control (a planted and a moved site, and four planted spellings, reported): %s"
           % ("PASS" if good1 else "FAIL", "PASS" if good2 else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
     return 0 if good1 and good2 and ctl else 1
 

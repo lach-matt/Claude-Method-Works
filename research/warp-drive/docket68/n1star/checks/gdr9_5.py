@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""gdr9_5.py -- GAUGEDECAY5.md Round 9: computational support for the round-8 claims that no check exercised (the
+"""gdr9_5.py -- GAUGEDECAY5.md Rounds 9-10: computational support for the round-8 claims that no check exercised (the
 round-8 verifier's list), each with a control that runs the computed path with a mutated input and must fail.
 
 Background as in gdlge2_5.py: the ingoing chart, g = -f dv^2 + 2 dv dr + r^2 gamma, f = 1 - mu/r^2, mu = s^2 = r_h^2;
@@ -40,23 +40,29 @@ dt_*, dx^1, ..., dx^4, in which a scalar-type form has the Cartesian size max(|a
      coefficient Gamma(l + 1)/(Gamma((l + 1)/2) Gamma((l + 3)/2)) != 0, Cartesian size r^l, excluded by o(r) for
      l >= 1 (L4's closed forms at l = 1, 3, 5, 7 extended to every l).  Control: the same path with lambda = l^2 in
      place of (l + 1)^2 fails the hypergeometric identification.
-  N4 (exact) Lemma R8.4 (d), inside the horizon: the Frobenius exponents of the scalar system at r = r_h are the
-     integers {-1, 0, 0, 0, 0, 1} (the determinant of N2's recursion matrix, -8 k^4 s^7 (k - 1)(k + 1)), those of the
-     vector equation {0, 0}; a solution smooth across r_h that vanishes on r > r_h has zero Taylor series there, and
-     a nonzero Frobenius combination of integer exponents is not flat, so it vanishes on (r_0, r_h) (the system is
-     regular there).  Control: the same computation with the exponent k shifted by 1/3 gives non-integral roots.
-  N5 (exact) The kernel at b-weights in (-1, 0) and (0, 2) on the full bundle.  l = 0 (c absent): the four
-     solutions W*, (d_v)^flat, (0, (r^2 + mu)/r) and (0, 1/(r (r^2 - mu))) of the 2 x 2 system are independent; the
-     first three are smooth at r_h and the fourth is not; their growths r^-2, r^0, r^1: the l = 0 kernel is span{W*,
-     (d_v)^flat} at weights in (-1, 0) and span{W*} in (0, 2).  Scalar l = 1: span{u_1} per S (N2 at nu = 1/2),
-     vector l = 1 and every l >= 2: none (N2, N3).  So the kernel is 2-dimensional in the class and 6-dimensional on
-     all 1-forms at weights in (-1, 0).  Control: at weights in (0, 2) the same count gives 1, not 2.
-  N6 (exact) The index counts of (A71).  The indicial root 0 is simple, with a one-dimensional null space, in the
-     l = 0 block and in the scalar l = 1 block, and is not a root of the vector l = 1 block or of any block l >= 2;
-     with the representation dimensions 1 and 4 (N1) the index jumps by 1 in the class and by 5 on all 1-forms from
-     the weights (0, 2) (kernel span{W*}, cokernel span{ell}, index 0) to (-1, 0); so with N5's kernels the cokernel
-     is 2 - 1 = 1 and 6 - 5 = 1, as (A71) deduces.  Control: the jump with the l = 1 root counted once (its
-     representation dimension dropped) gives cokernel 4, contradicting the deduced 1.
+  N4 (exact) Lemma R8.4 (d), inside the horizon: the Frobenius exponents of the scalar system at r = r_h are
+     {-1, 0, 0, 0, 0, 1} (the determinant of N2's recursion matrix, -8 k^4 s^7 (k - 1)(k + 1)), those of the vector
+     equation {0, 0}, both asserted as values (round 10); integers, so a solution smooth across r_h that vanishes on
+     r > r_h has zero Taylor series there, and a nonzero Frobenius combination of integer exponents is not flat, so it
+     vanishes on (r_0, r_h) (the system is regular there).  Control: the same computation with the exponent k shifted
+     by 1/3 gives non-integral roots.
+  N5 (exact) The kernel at b-weights in (-1, 0) and (0, 2) on the full bundle, every input computed (round 10).
+     l = 0 (c absent): the four solutions W*, (d_v)^flat, (0, (r^2 + mu)/r) and (0, 1/(r (r^2 - mu))) of the 2 x 2
+     system are independent; the first three are smooth at r_h and the fourth is not; their growths r^-2, r^0, r^1,
+     against the threshold r^1 read from L2's computed gap: the l = 0 kernel is span{W*, (d_v)^flat} at weights in
+     (-1, 0) and span{W*} in (0, 2).  Scalar l = 1: one per harmonic, counted from N2's growth exponents at nu = 1/2
+     (0, 2, 1); vector l = 1: none (N3's exponent at l = 1); l >= 2: none (N2, N3).  With the dimensions of the
+     degree-0 and degree-1 harmonics and their G-fixed parts from N1's model, the kernel is 2-dimensional in the
+     class and 6-dimensional on all 1-forms at weights in (-1, 0).  Control: at weights in (0, 2) the same count
+     gives 1, not 2.
+  N6 (exact inputs; the arithmetic deduced) The index counts of (A71).  Computed: the indicial root 0 is simple, with
+     a one-dimensional null space, in the l = 0 block and in the scalar l = 1 block, and is not a root of the vector
+     l = 1 block (its determinant from gdlge2_5.py's L2 code) nor of any block l >= 2 (L2); the representation
+     dimensions 1 and 4 and the G-fixed dimensions 1 and 0 (N1's model); the kernels (N5).  READ: the cokernel at
+     the weights (0, 2) is span{ell} (III.D' Lemma 2.1 (3)).  Deduced (standard: the relative index theorem): the
+     index jumps by 1 in the class and by 5 on all 1-forms from (0, 2) to (-1, 0), so the cokernels are 2 - 1 = 1 and
+     6 - 5 = 1, as (A71) deduces.  Control: the jump with the l = 1 root counted once (its representation dimension
+     dropped) gives cokernel 4, contradicting the deduced 1.
   N7 (exact) Corollary R8.11's decomposition.  For class 1-forms Z = a S dv + b S dr + c dS (S = P_j(cos 2 th),
      l = 2j = 2, 4; a, b, c arbitrary functions of (v, r)), L_Z g has no l = 0 part (the means of its orbit components
      and of H = gamma^ij h_ij/(6 r^2) vanish), and for Z_0 = a_0 dv + b_0 dr, L_{Z_0} g is spherically symmetric: so
@@ -69,7 +75,8 @@ dt_*, dx^1, ..., dx^4, in which a scalar-type form has the Cartesian size max(|a
      e^(-2 i r) g_2 is admitted (the full-bundle failure).  Control: at R_in's order replaced by R_out's the
      membership fails.
 
-Labels: computed (exact, sympy, except N2, N3 and N8's numerical cross-checks of standard asymptotics, mpmath).
+Labels: computed (exact, sympy, except N2, N3 and N8's numerical cross-checks of standard asymptotics, mpmath); N6's
+index arithmetic deduced from computed inputs (the relative index theorem, standard).
 Run: python3 checks/gdr9_5.py [N1 ... N8]   (a few minutes)      Self-test of the harness: python3 checks/gdr9_5.py
 --selftest (each control mechanism fed a known-true and a known-false statement).
 """

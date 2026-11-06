@@ -27,8 +27,9 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      C_L4 > 1 fails.
   K4 (computed; round 6, the verifier of round 5's m11) the DAG agrees, at 20 random points, with an independent
      step-by-step transcription of R5.5's display, each line cited to the proof step it records (L.9 (b), L.10, L.8,
-     L.3 (a)-(e), D3, Corollary L.11, Lemma L.4).  Controls: Cd's power N + 1 mutated to N + 5, and a term of Ca
-     dropped, are each detected.
+     L.3 (a)-(e), D3, Corollary L.11, Lemma L.4); the random leaves are drawn in sorted order, so the output does not
+     depend on PYTHONHASHSEED (round 7, the verifier of round 6's nit 6).  Controls: Cd's power N + 1 mutated to N + 5,
+     and a term of Ca dropped, are each detected.
 
 Labels: the formulas deduced (each from the proof step named beside it); K1-K4 computed.  Run: python3 checks/constL5.py
 """
@@ -231,7 +232,8 @@ def k4(control=False):
         ok = True
         for _ in range(20):
             leaf = dict(CERT)
-            leaf.update({s_: sp.Rational(rng.randint(5, 150), 100) for s_ in d.leaves() - set(CERT)})
+            leaf.update({s_: sp.Rational(rng.randint(5, 150), 100)
+                         for s_ in sorted(d.leaves() - set(CERT), key=str)})      # round 7: independent of the hash seed
             v = d.value(leaf)
             t11, t4 = table(leaf)
             for x, y in ((v[C11], t11), (v[C4], t4)):

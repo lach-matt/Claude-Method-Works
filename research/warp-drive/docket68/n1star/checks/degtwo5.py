@@ -370,20 +370,19 @@ def t6(control=False):
         yh = (2*mp.sqrt(3 + delta) + mp.sqrt(4*(3 + delta) + mp.mpf('1.6')))/mp.mpf('0.8')
         lamh[delta] = -yh**2/mp.log(10)                    # log10 lam_h(delta)
         res = t6_ratios(delta, "lam4" if control else "least")
-        prev, hyp_from, good = None, None, True
-        for d in res:
-            worst = max(d['lw1'], d['lw2'], d['lme'])
+        hyp_from, good = None, True
+        worsts = [max(d['lw1'], d['lw2'], d['lme']) for d in res]
+        for i, d in enumerate(res):
             good &= d['tails'] and (d['window'] or control)
-            if prev is not None:
-                good &= worst < prev
-            prev = worst
-            if d['h1'] and d['h2'] and worst < 0 and hyp_from is None:
+            tail_ok = all(res[j]['h1'] and res[j]['h2'] and worsts[j] < 0 for j in range(i, len(res)))
+            tail_ok &= all(worsts[j + 1] < worsts[j] for j in range(i, len(res) - 1))
+            if tail_ok and hyp_from is None:
                 hyp_from = d['E']
             rows.append("delta = %s, lam = 10^-%d: n = %d, log10 of w/m0 (Theorem 1) %s, (Theorem 2) %s, max_j"
                         " lam^j eps_(2j)^2/m0 %s; eps_4 <= lam: %s, eps_(M_P) <= lam^3: %s"
                         % (mp.nstr(delta, 2), d['E'], d['n'], mp.nstr(d['lw1'], 6), mp.nstr(d['lw2'], 6),
                            mp.nstr(d['lme'], 6), d['h1'], d['h2']))
-        good &= prev < -1000 and hyp_from is not None
+        good &= worsts[-1] < -1000 and hyp_from is not None
         ok &= good
     # the local first-degree profiles on J_n: env and every derivative vanish there when the bumps are disjoint.
     L10 = mp.mpf(100)
@@ -408,8 +407,8 @@ def t6(control=False):
         " (delta = 1/10), 10^%s (delta = 1/2); the means (L.3 (b), j-resolved) and the remainder w (L.4', L.4_P)"
         " against m0's lower bound, in log10, unit constants: " % (zero_on_J, mp.nstr(lamh[mp.mpf(1)/10], 4),
                                                                     mp.nstr(lamh[mp.mpf(1)/2], 4))
-        + "; ".join(rows) + "; for each delta strictly decreasing, below -1000 at the last, and below 0 with both"
-        " hypotheses from some lam of the grid on: %s" % ok)
+        + "; ".join(rows) + "; for each delta, from some lam of the grid on, every ratio below 0 with both"
+        " hypotheses and decreasing, and below -1000 at the last: %s" % ok)
     return ok
 
 

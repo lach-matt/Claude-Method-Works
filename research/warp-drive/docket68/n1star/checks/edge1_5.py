@@ -839,7 +839,7 @@ def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
     return sig, ell
 
 
-def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, freeze_at_min=False, nwin=60, ngrid=201):
+def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201):
     """Lemma W (A) or (B) on every window: a log grid over the crossover and every window around min |sigma|.
     Unstructured errors (sigma units): |e| <= (1/kappa + lam)(|nu| + |B|), |e'| <= 2 kappa |e|, |e''| <= 4 kappa^2 |e|"""
     sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4)
@@ -872,8 +872,6 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, freeze_at_min=False, nwin=60, ngr
         else:
             a_ = c1
     xm = (a_ + b_)/2
-    if freeze_at_min:
-        sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4, freeze=lamb(xm))
     smin = abs(sig(xm)[0])
     per = 4*mp.pi*lam
     okA = okB = True
@@ -881,7 +879,8 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, freeze_at_min=False, nwin=60, ngr
 
     def err(x):
         s_, kap, kN1, T0, nu = sig(x)
-        return (1/kap + lam)*(abs(nu) + abs(s_ - nu)), kap
+        rel = 1/kap + lam + (T0 if errmode == "r5" else 0)     # "r5": round 5's eps = lam kappa, crude derivative
+        return rel*(abs(nu) + abs(s_ - nu)), kap
 
     def window(x1):
         nonlocal nA, nB
@@ -919,7 +918,8 @@ CACHE14 = {}
 
 def e14(control=False):
     """Case 3' (R7.2) at c_N(rho0) = 1/2, N = 12: every window of the crossover is decided by Lemma W (A) or (B);
-    and the T0^2 route fails there (min |sigma| << |nu| T0^2, the leading model vanishing to all orders)"""
+    and the T0^2 route fails there (min |sigma| << |nu| T0^2, the leading model vanishing to all orders).  Control:
+    round 5's error class (eps = lam kappa, with L.22's crude derivative bound) in place of round 7's"""
     mp.mp.dps = 60
     N, rho0 = 12, mp.sqrt(23)
     rows, ok = [], True
@@ -928,7 +928,7 @@ def e14(control=False):
             lam = mp.mpf(10)**-E
             key = (nm, E, control)
             if key not in CACHE14:
-                CACHE14[key] = dichotomy(nm, lam, N, rho0, 'fixed', freeze_at_min=control)
+                CACHE14[key] = dichotomy(nm, lam, N, rho0, 'fixed', errmode="r5" if control else "r7")
             d = CACHE14[key]
             ok &= d['ok']
             t02 = d['smin']/(d['nuabs']*d['T0']**2)

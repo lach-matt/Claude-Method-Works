@@ -1602,6 +1602,7 @@
         (PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof)
   V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: True; since D628, a planted primed
         omega'^{(7)}_{b,s9} at PART-III-D3-SYMSTATES.md:200 (inside a location rule's range): True; omega'_b planted at
-        PART-III-K-NONLINEAR.md:300 (outside its rules' ranges): True
+        PART-III-K-NONLINEAR.md:300 (outside its rules' ranges): True; the text $omega'^{(7)}_{b,s9}(S)$ planted as a
+        last line of PART-III-I16-BASEPOINTS.md (through the tokenizer): True
   control: planted symbol reported missing its site: True; chi_9 with its site moved to PART-III-B-FAMILY.md:345-349 reported missing: True; moved within its own file (PART-III-K-NONLINEAR.md:1-10): True
-V1 PASS; V2 PASS; control (a planted and a moved site, and three planted spellings, reported): behaves
+V1 PASS; V2 PASS; control (a planted and a moved site, and four planted spellings, reported): behaves

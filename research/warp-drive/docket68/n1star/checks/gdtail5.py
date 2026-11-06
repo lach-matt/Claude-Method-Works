@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""gdtail5.py -- GAUGEDECAY5.md Rounds 7-9: the t^-2 term of a gauge vector with compactly supported data, proved by
+"""gdtail5.py -- GAUGEDECAY5.md Rounds 7-10: the t^-2 term of a gauge vector with compactly supported data, proved by
 an explicit model and Theorem R6.4 carried past the window for sources of zero total charge; the spherically symmetric
 part of the harmonic-gauge representative; and the bookkeeping of the slab order.  Repaired in round 8 as round 7's
-verifier asks ((A84)), and in round 9 as round 8's asks (T3, T9; GAUGEDECAY5 section R9.0): every control runs the
-computed path with a mutated input and must fail.
+verifier asks ((A84)), in round 9 as round 8's asks (T3, T9; GAUGEDECAY5 section R9.0), and in round 10 as round 9's
+asks (T9; section R10.0): every control runs the computed path with a mutated input and must fail.
 
   T1 (exact) The time-domain model in flat n+1, n = 4.  The switched-on field of the charge Q_n delta_0, a = r^(2-n) -
      Q_n int_t^oo E_int d tau with E_int = (t^2 - r^2)^((1-n)/2)/(2 pi^((n-1)/2) Gamma((3-n)/2)) (Riesz's interior
@@ -46,10 +46,11 @@ computed path with a mutated input and must fail.
      2: the data of Z^(K) are of order exactly 1 at spatial infinity.  Control: W* in place of W**_H has no r^-1 term.
   T9 (exact, whole box) Corollary R7.6's chain for homogeneous solutions with data of order p in (1/2, 3/2) at spatial
      infinity (a_0 < p - 3/2, alpha_I < a_0, p_slab = alpha_I + 3/2, 1/2 + beta < b_I < p_slab, gamma_+ < b_+ =
-     1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2), and none beyond (round 9: p - alpha_K and
-     3/2 - alpha_K are sums of the chain's gaps); in the class p_0 >= min(1, q - 1) > 1/2 + 2 gam > 1/2 + delta_#.
-     The chain is transcribed from Corollary R7.6's proof (a reading); T9 checks its arithmetic.  Control: p = 1/2
-     leaves the chain empty.
+     1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2), and none beyond (round 10: a certificate
+     searched over T9's own condition list, a sub-family summing identically to p - alpha_K, resp. 3/2 - alpha_K; it
+     fails if a condition the cap needs is dropped or changed); in the class p_0 >= min(1, q - 1) > 1/2 + 2 gam >
+     1/2 + delta_#.  The chain is transcribed from Corollary R7.6's proof (a reading); T9 checks its arithmetic.
+     Control: p = 1/2 leaves the chain empty.
   T10 (exact, whole box) The slab order: every use of Z_1 at null infinity on the initial slab in the paper's
      statements (R4.4 / R3.6, R5.3 at kappa, and Corollary R8.11's l >= 2 part) asks p > 1/2 + beta, each beta computed
      from its statement's parameters, below Theorem R4.3's min(3/2, q - 1).  Control: with the source's margin delta_#
@@ -64,6 +65,7 @@ computed path with a mutated input and must fail.
 Labels: computed (exact, sympy; T2's resolvent side recomputes round 6's formal D5-D6 chain; T7, T9, T10, T11 on the
 whole parameter box).  Run: python3 checks/gdtail5.py   (about five minutes)
 """
+import itertools
 import sys
 
 import sympy as sp
@@ -501,34 +503,53 @@ def t8(control=False):
 
 
 # --------------------------------------------------------------------------------------------------------------- T9
-def t9(control=False):
-    (x1, x2, x3, x4, x5, x6, x7), (y1, y2, y3, y4, y5, y6, y7) = pbox('x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7')
-    pos = [x1, x2, x3, x4, x5, x6, x7]
-    p = HALF if control else HALF + y1                         # data order p in (1/2, 3/2)
-    target = sp.Min(p, sp.Rational(3, 2))
-    aK = HALF + y7*(p - HALF)                                   # the rate exponent reached: any alpha_K in (1/2, p)
-    # chain from the top: gamma_+ in (alpha_K, b_+), b_+ = 1/2 + beta < b_I < p_slab < p, a_0 in (alpha_I, p - 3/2)
-    gp = aK + y2*(p - aK)/4
-    bp = gp + y3*(p - gp)/4
+def t9_conditions(p, a0, aI, bI, bp, gp, aK):
+    """Corollary R7.6's chain (transcribed from its proof, a reading), as linear forms that must be positive, with the
+    proof's definitional links beta := b_+ - 1/2 and p_slab := alpha_I + 3/2"""
     beta = bp - HALF
-    bI = bp + y4*(p - bp)/4
-    pslab = bI + y5*(p - bI)/4
-    aI = pslab - sp.Rational(3, 2)
-    a0 = aI + y6*(p - sp.Rational(3, 2) - aI)
-    cond = {"a_0 < p - 3/2": p - sp.Rational(3, 2) - a0, "alpha_I < a_0": a0 - aI, "alpha_I < 0": -aI,
+    pslab = aI + sp.Rational(3, 2)
+    return {"a_0 < p - 3/2": p - sp.Rational(3, 2) - a0, "alpha_I < a_0": a0 - aI, "alpha_I < 0": -aI,
             "p_slab > 1/2 + beta": pslab - HALF - beta, "beta > 0": beta, "b_I > b_+": bI - bp,
             "p_slab > b_I": pslab - bI, "b_I < 3/2": sp.Rational(3, 2) - bI, "gamma_+ < b_+": bp - gp,
             "alpha_K < gamma_+": gp - aK, "alpha_K >= 1/2": aK - HALF,
             "gamma_+ < 2 (R6.4) / 3/2 (R5.1)": sp.Rational(3, 2) - gp}
+
+
+def t9(control=False):
+    (x1, x2, x3, x4, x5, x6, x7), (y1, y2, y3, y4, y5, y6, y7) = pbox('x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7')
+    pos = [x1, x2, x3, x4, x5, x6, x7]
+    p = HALF if control else HALF + y1                         # data order p in (1/2, 3/2)
+    aK = HALF + y7*(p - HALF)                                   # the rate exponent reached: any alpha_K in (1/2, p)
+    # chain from the top: gamma_+ in (alpha_K, b_+), b_+ = 1/2 + beta < b_I < p_slab < p, a_0 in (alpha_I, p - 3/2)
+    gp = aK + y2*(p - aK)/4
+    bp = gp + y3*(p - gp)/4
+    bI = bp + y4*(p - bp)/4
+    pslab = bI + y5*(p - bI)/4
+    aI = pslab - sp.Rational(3, 2)
+    a0 = aI + y6*(p - sp.Rational(3, 2) - aI)
+    cond = t9_conditions(p, a0, aI, bI, bp, gp, aK)
     res = {k: positive_sum(e, pos) for k, e in cond.items()}
-    # round 9 (report-vA7's remark: T9 checks arithmetic on a chain it builds): the chain is read from Corollary R7.6's
-    # proof (a reading, deduced), and it reaches no alpha_K >= min(p, 3/2): with free symbols for every link and
-    # p_slab := alpha_I + 3/2, p - alpha_K and 3/2 - alpha_K are sums of the chain's gaps, each positive by a condition
+    # round 10 (the round-9 verifier's nit 1): round 9's identity p - alpha_K = (sum of gaps) could not fail.  In its
+    # place, a certificate searched over T9's own condition list, with free symbols: a sub-family of the listed
+    # conditions whose sum is identically p - alpha_K (resp. 3/2 - alpha_K).  Each listed condition is positive on the
+    # chain, so then alpha_K < min(p, 3/2) on every point of the chain: the chain reaches nothing beyond.  The search
+    # fails if a condition the cap needs is dropped from the list or changed.
     Pp, A0, AI, BI, BP, GP, AK = sp.symbols('p a_0 alpha_I b_I b_+ gamma_+ alpha_K')
-    PS = AI + sp.Rational(3, 2)
-    gaps = [Pp - sp.Rational(3, 2) - A0, A0 - AI, PS - BI, BI - BP, BP - GP, GP - AK]
-    cap_p = sp.expand(Pp - AK - sum(gaps)) == 0
-    cap_32 = sp.expand(sp.Rational(3, 2) - AK - (-AI + sum(gaps[2:]))) == 0
+    free = t9_conditions(Pp, A0, AI, BI, BP, GP, AK)
+    syms = [Pp, A0, AI, BI, BP, GP, AK]
+    vec = lambda e: tuple(sp.Poly(sp.expand(e), *syms).coeff_monomial(m_) for m_ in syms) + \
+        (sp.Poly(sp.expand(e), *syms).coeff_monomial(1),)
+    names = list(free)
+    vs = [vec(free[n_]) for n_ in names]
+
+    def certificate(target):
+        tv = vec(target)
+        for k_ in range(1, len(names) + 1):
+            for sub_ in itertools.combinations(range(len(names)), k_):
+                if all(sum(vs[i_][c_] for i_ in sub_) == tv[c_] for c_ in range(len(tv))):
+                    return [names[i_] for i_ in sub_]
+        return None
+    cert_p, cert_32 = certificate(Pp - AK), certificate(sp.Rational(3, 2) - AK)
     if control:
         bad = [k for k, val in res.items() if not val]
         print("  T9 control (p = 1/2): conditions failing %s" % bad, flush=True)
@@ -542,10 +563,10 @@ def t9(control=False):
     cls = {"1 - (1/2 + delta_#)": 1 - HALF - dsh, "(q - 1) - (1/2 + 2 gam)": q - 1 - HALF - 2*gam,
            "2 gam - delta_#": 2*gam - dsh}
     cres = {k: positive_sum(e, [a1, a2, a3]) for k, e in cls.items()}
-    ok = all(res.values()) and all(cres.values()) and cap_p and cap_32
-    print("  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: %s; and none beyond (p - "
-          "alpha_K and 3/2 - alpha_K are sums of the chain's positive gaps: %s, %s); in the class p_0 > 1/2 + 2 gam > "
-          "1/2 + delta_#: %s" % (all(res.values()), cap_p, cap_32, cres), flush=True)
+    ok = all(res.values()) and all(cres.values()) and cert_p is not None and cert_32 is not None
+    print("  T9: Corollary R7.6's chain on the box, every alpha_K < min(p, 3/2) reached: %s; and none beyond: p - "
+          "alpha_K is the sum of the listed conditions %s, 3/2 - alpha_K of %s; in the class p_0 > 1/2 + 2 gam > "
+          "1/2 + delta_#: %s" % (all(res.values()), cert_p, cert_32, cres), flush=True)
     return ok
 
 
