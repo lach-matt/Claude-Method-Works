@@ -266,11 +266,11 @@ def l2(control=False):
     n = sp.Symbol('n', nonnegative=True)
     neg = [-l_ - 1, -l_, 1 - l_]
     pos = [l_ + 1, l_ + 2, l_ + 3]
-    gap_s = all(sp.Poly(sp.expand(-(x + 1)).subs(l_, 2 + n), n).coeffs() and
-                all(cf >= 0 for cf in sp.Poly(sp.expand(-(x + 1)).subs(l_, 2 + n), n).coeffs()) for x in neg)
-    gap_s &= all(all(cf >= 0 for cf in sp.Poly(sp.expand(x - 3).subs(l_, 2 + n), n).coeffs()) for x in pos)
-    gap_v = all(cf >= 0 for cf in sp.Poly(sp.expand(-(-l_ + 2)).subs(l_, 2 + n), n).coeffs())
-    gap_v &= all(cf >= 0 for cf in sp.Poly(sp.expand(l_ + 2 - 4).subs(l_, 2 + n), n).coeffs())
+    def nonneg(e_):                                          # a polynomial in n >= 0 with coefficients >= 0
+        P_ = sp.Poly(sp.expand(e_), n)
+        return all(cf >= 0 for cf in P_.coeffs())
+    gap_s = all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg) and all(nonneg((x_ - 3).subs(l_, 2 + n)) for x_ in pos)
+    gap_v = nonneg((l_ - 2).subs(l_, 2 + n)) and nonneg((l_ + 2 - 4).subs(l_, 2 + n))
     # the full bundle: l = 0 (2 x 2 system, c absent) and l = 1 scalar
     M0, lam0 = indicial_scalar(0, with_c=False)
     r0 = sorted(sp.roots(sp.Poly(sp.factor(M0.det()), lam0)).keys())
@@ -355,10 +355,6 @@ def l4(control=False):
     RW = sp.diff(F_*sp.diff(W, r)/r, r) - kap*W/r**3
     # if f (r^3 a')' = kappa r a and W = r^3 a', then a = f W'/(kappa r) and a' = W/r^3: R[W] = 0
     aW = F_*sp.diff(W, r)/(kap*r)
-    ok_R = zero(sp.diff(aW, r) - W/r**3 - RW*F_/kap*0 - (sp.diff(aW, r) - W/r**3)) and \
-        zero(sp.simplify(sp.diff(aW, r)*r**3 - W - r**3*F_/kap*RW*(-1)*0 - (sp.diff(aW, r)*r**3 - W)))
-    ok_R = zero(sp.simplify(sp.diff(aW, r) - W/r**3 - (F_*sp.diff(W, r)/(kap*r)).diff(r) + W/r**3))
-    # the relation: kappa r^-3 (r^3 aW')' ... check directly that R[W] = 0 <=> a' = W/r^3 for a = aW
     ok_R = zero(sp.simplify(kap*(sp.diff(aW, r) - W/r**3) - RW))
     Phi = sp.Function("Phi")(r)
     V2 = F_/r**2*(kap + sp.Rational(3, 4) - (sp.Rational(5, 4) if control else sp.Rational(7, 4))*mu/r**2)
@@ -426,19 +422,16 @@ def l4(control=False):
 
 # ------------------------------------------------------------------------------------------------------------- L5
 def l5(control=False):
-    # phi_l = O(r^(1 - beta)); the growing branch r^l is excluded iff l > 1 - beta.  beta = -1 + B, B in (0, 1].
+    # phi_l = O(r^(1 - beta)); the growing branch r^l is excluded iff l + beta - 1 > 0.  beta = -1 + B, B in (0, 1],
+    # l = l_min + n, n >= 0: l + beta - 1 = l_min - 2 + n + B
     Bs, n = sp.symbols('B n', positive=True)
-    lval = 1 if control else 2
-    # l + beta - 1 > 0 with l = lval + n (n >= 0), beta = -1 + B:
-    expr = (lval + n) + (-1 + Bs) - 1
-    ok = positive_sum(expr.subs(n, 0), [Bs]) if lval == 2 else False
-    ok_n = positive_sum(sp.expand(expr), [Bs, n]) if lval == 2 else positive_sum(sp.expand(expr), [Bs, n])
-    # at l = 1 and B in (0, 1]: l + beta - 1 = B - 1 <= 0 (B = 1/2 gives -1/2)
-    val = expr.subs({n: 0, Bs: HALF})
+    lmin = 1 if control else 2
+    expr = sp.expand(lmin - 2 + n + Bs)
+    ok = positive_sum(expr, [Bs, n]) and positive_sum(expr.subs(n, 0), [Bs])
     tag = "  L5 control (l = 1)" if control else "  L5"
-    print("%s: l + beta - 1 > 0 on beta in (-1, 0], l = %d + n: %s (at beta = -1/2, n = 0: %s)"
-          % (tag, lval, ok and ok_n, val), flush=True)
-    return ok and ok_n
+    print("%s: l + beta - 1 = %s > 0 for every l >= %d and beta in (-1, 0]: %s (at beta = -1/2, l = %d: %s)"
+          % (tag, expr, lmin, ok, lmin, expr.subs({n: 0, Bs: HALF})), flush=True)
+    return ok
 
 
 # ------------------------------------------------------------------------------------------------------------- L6
@@ -585,10 +578,10 @@ def l8(control=False):
     # Bessel: u = rh^-1 Z(sg rh) turns -u'' - 3u'/rh + l(l+2)u/rh^2 - sg^2 u = 0 into Bessel of order l + 1
     Z = sp.Function('Z')
     zz = sp.Symbol('z', positive=True)
-    ue = Z(sg*rh)/rh
-    eq = (-sp.diff(ue, rh, 2) - 3/rh*sp.diff(ue, rh) + L*(L + 2)/rh**2*ue - sg**2*ue)
-    bes = -(rh**-3)*(zz**2*sp.diff(Z(zz), zz, 2) + zz*sp.diff(Z(zz), zz) + (zz**2 - (L + 1)**2)*Z(zz))
-    ok_bes = zero(sp.simplify(eq.subs(rh, zz/sg).doit() - bes.subs(rh, zz/sg)))
+    Zz = Z(zz)/zz                                            # u(rh) = sg Z(z)/z, z = sg rh, d/drh = sg d/dz
+    eq = sg**3*(-sp.diff(Zz, zz, 2) - 3/zz*sp.diff(Zz, zz) + L*(L + 2)/zz**2*Zz - Zz)
+    bes = -sg**3/zz**3*(zz**2*sp.diff(Z(zz), zz, 2) + zz*sp.diff(Z(zz), zz) + (zz**2 - (L + 1)**2)*Z(zz))
+    ok_bes = zero(sp.simplify(eq - bes))
     # exponents at ztf: rh^nu, -nu(nu-1) - 3 nu + l(l+2) = 0
     nu = sp.Symbol('nu')
     ind = sp.factor(sp.expand(-nu*(nu - 1) - 3*nu + L*(L + 2)))
@@ -630,8 +623,6 @@ def l9(control=False):
     allok = True
     rep = {}
     for name, (aK, gp) in cases.items():
-        if control:
-            gp = aK + (1 - aK)*u_ if False else gp
         bet = (gp - HALF) + (dsh - (gp - HALF))*w_                    # Theorem R4.3 at beta in (gamma_+ - 1/2, d#)
         eta = (HALF + dsh - gp)*z_
         cond = {
