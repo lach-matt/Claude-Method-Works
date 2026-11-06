@@ -15,24 +15,39 @@ A MORE or UNDECIDED row must carry a resolution: where it is answered, or why th
   Q1 (computed, a census) The table's lines are exactly the census's use lines for C3, C3', the object built from C3'
      and C4 -- none missing, none extra, none twice -- each with the census's symbols, a verdict from the list above,
      a note where one is required, and the symbol still printed on that line of the file (a stale line number fails).
-  Q2 (computed) Every MORE and UNDECIDED row carries a resolution. The counts per verdict are printed.
+  Q2 (computed) Every MORE and UNDECIDED row carries a resolution, and (D621, an independent reader's m3) the
+     resolution's content is checked: it must cite a paragraph and quote it, {FILE (LABEL): "phrase" ...}, and each
+     phrase must be printed in that paragraph of that file (whitespace aside). The counts per verdict are printed.
   Q3 (computed, exact) The amended (C3) takes Table 1.1's towers at b0 as delta*_(g_b0) of the averaged 1-forms; that
      is the average of the unaveraged towers because delta* commutes with O(4): on the Kerr-Schild Tangherlini metric
      g_b0 = eta + (mu/r^2) l l (mu = 3/2), for a generic stationary 1-form (quadratic polynomials plus a 1/r term, random
-     rationals) and a rational rotation (Cayley transform) and a reflection, sigma^*(delta* w) = delta*(sigma^* w) and
-     sigma^* g = g, at three rational points with |x| rational, exactly. Controls: delta* plus w (x)_s dx^1 (not
-     natural) must fail; a shear (not an isometry) must fail.
-  Controls (Q1-Q2): the table with one row dropped, with one row doubled, with a verdict misspelt, with a resolution
-     removed, and the census widened by one radial cut-off (chi_9, treated as if averaged) must each fail.
+     rationals) and a rational rotation (Cayley transform) and a reflection, (a) sigma^*(delta* w) = delta*(sigma^* w)
+     and sigma^* g = g, at three rational points with |x| rational, exactly. Since D621 (m3: (a) alone passes with the
+     Christoffel term dropped or its sign flipped) delta* itself is checked pointwise: (b) delta* w = (1/2) L_(w^#) g,
+     the Lie derivative written without Christoffel symbols, X^c d_c g_ab + g_cb d_a X^c + g_ac d_b X^c with X = g^-1 w
+     (the Kerr-Schild inverse eta^-1 - (mu/r^2) l^# l^#, checked against g), at the three points; (c) a hand value,
+     (delta* dt)_00 = -Gamma^0_00 = (1/2) g^0i d_i g_00 = -mu^2/r^5 = -1/108 at x = (1, 2, 2, 0), worked by hand from
+     g^0i = (mu/r^2) x^i/r and d_i g_00 = -2 mu x^i/r^4; (d) delta* of the Killing 1-forms g(d_t, .) and
+     g(x^1 d_2 - x^2 d_1, .) vanishes. Controls: delta* plus w (x)_s dx^1 (not natural) and a shear (not an isometry)
+     must fail (a); delta* without its Christoffel term, and with its sign flipped, must fail (b) and (c).
+  Q4 (computed, D621) Part VII as printed: Lemma 3.1's (C3) paragraph carries the amendment's phrases (of every type,
+     the towers as delta* of the averaged 1-forms, and the v1 tower as a map of all of V_1), and the counts Lemma 3.1
+     and (VII5) print (the last stated: lines, site-only, naming, homonym, more, undecided) are the table's.
+  Controls (Q1-Q2, Q4): the table with one row dropped, with one row doubled, with a verdict misspelt, with a resolution
+     removed, and the census widened by one radial cut-off (chi_9, treated as if averaged) must each fail; since D621
+     also every resolution replaced by "x" (Q2), Part VII's (C3) reverted to a stub (Q2 and Q4), an UNDECIDED row turned
+     MORE with its resolution kept (Q4), and a dropped row (Q4).
 
 Lemma 3.1's (C3) names since D608 the 1-form towers of every type, with their site PART-III-I10-CORR4.md:127-147; the
-census keeps those lines as uses, and they were read as such (each NAMING, a definition).
+census keeps those lines as uses, and they were read as such (each NAMING, a definition). Since D621 the census also
+lists the towers' other spellings (vii5census.py's docstring), and the 55 lines it then adds were read at D621 (the
+reader column "D621").
 
-Labels: computed (that the reading covers every listed use and is complete in form; Q3, exact); the verdicts are READ
+Labels: computed (that the reading covers every listed use and is complete in form; Q3, exact; Q4); the verdicts are READ
 (each reader's reading of the proof at that line), not computed. Reach: vii5census.py's -- a literal census of printed
 symbols.
 
-Run: python3 checks/vii5read.py   (about fifteen seconds)
+Run: python3 checks/vii5read.py   (about a minute on a loaded machine)
 """
 import csv
 import os

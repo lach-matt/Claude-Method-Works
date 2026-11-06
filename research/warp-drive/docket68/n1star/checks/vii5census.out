@@ -12,7 +12,7 @@
       \chi_9                       site lines   1; used on   3 lines in  1 files
       \Theta                       site lines   2; used on  45 lines in  8 files
       m_\kappa                     site lines   2; used on   2 lines in  1 files
-      \tilde R(r)                  site lines   2; used on   0 lines in  0 files
+      \tilde R(r)                  site lines   2; used on   1 lines in  1 files
       \tilde R'                    site lines   2; used on   0 lines in  0 files
       site    PART-II-C-OPERATORS.md:433  m_\kappa
       site    PART-II-C-OPERATORS.md:434  m_\kappa
@@ -560,7 +560,8 @@
       used at PART-III-K-NONLINEAR.md:303  \chi_K
       used at PART-III-K-NONLINEAR.md:317  \chi_\iota
       used at PART-III-K-NONLINEAR.md:318  \chi_- \chi_K
-      used at PART-III-K-NONLINEAR.md:324  \chi_K \chi_\iota
+      used at PART-III-K-NONLINEAR.md:323  \chi_K
+      used at PART-III-K-NONLINEAR.md:324  \chi_\iota
       site    PART-III-K-NONLINEAR.md:338  \chi_9
       used at PART-III-K-NONLINEAR.md:400  \chi_K
       used at PART-III-K-NONLINEAR.md:405  \chi_9
@@ -570,12 +571,13 @@
       used at PART-III-K-NONLINEAR.md:447  \chi_K
       used at PART-III-K-NONLINEAR.md:449  \chi_-
       used at PART-III-K-NONLINEAR.md:454  \chi_-
-      used at PART-III-K-NONLINEAR.md:490  \chi_K
-      used at PART-III-K-NONLINEAR.md:496  \chi_-
-      used at PART-III-K-NONLINEAR.md:543  \chi_\iota
-      used at PART-III-K-NONLINEAR.md:545  \chi_\iota
-      used at PART-III-K-NONLINEAR.md:546  \chi_K
-      used at PART-III-K-NONLINEAR.md:554  \chi_-
+      used at PART-III-K-NONLINEAR.md:491  \chi_K
+      used at PART-III-K-NONLINEAR.md:497  \chi_-
+      used at PART-III-K-NONLINEAR.md:544  \chi_\iota
+      used at PART-III-K-NONLINEAR.md:546  \chi_\iota
+      used at PART-III-K-NONLINEAR.md:547  \chi_K
+      used at PART-III-K-NONLINEAR.md:556  \chi_-
+      used at PART-III-K-NONLINEAR.md:592  \tilde R(r)
       used at PART-IV4-SLAB.md:43  \chi_K \chi_{\mathrm{IVP}}
       used at PART-IV4-SLAB.md:44  \chi_K
       used at PART-IV4-SLAB.md:45  \chi^\sharp_K
@@ -711,7 +713,7 @@
       used at PART-IV6-SOLV.md:31  c_C
       used at PART-IV6-SOLV.md:816  c_C
       used at PART-IV7-TFACE.md:74  c_C
-    C3 linear maps (averaged): site found for 11 of 11 symbols
+    C3 linear maps (averaged): site found for 18 of 18 symbols
       \omega_{\mathrm s1}          site lines   2; used on  48 lines in  8 files
       \breve\omega                 site lines   2; used on 108 lines in  9 files
       \mathcal Y_\tau              site lines   2; used on  10 lines in  2 files
@@ -723,7 +725,21 @@
       h^{\le k}_{b,\mathrm s1}     site lines   2; used on   4 lines in  1 files
       h^{\le k}_{b,\mathrm v1}     site lines   2; used on   3 lines in  2 files
       \mathcal S_{\lambda_0}       site lines   2; used on   7 lines in  2 files
+      \omega^{(0)}_{b_0,\mathrm s1} site lines   1; used on  11 lines in  2 files
+      \omega^{(-1)}_{b_0,\mathrm v1} site lines   1; used on   2 lines in  1 files
+      \omega^{(0)}_{b_0,\mathrm s0} site lines   1; used on   5 lines in  2 files
+      \omega^{\le k}_\tau          site lines   1; used on   1 lines in  1 files
+      \omega_\nu                   site lines   3; used on  20 lines in  7 files
+      \omega^{\le4}                site lines   1; used on   8 lines in  1 files
+      \omega^{\le1}_\natural       site lines   2; used on  11 lines in  1 files
+      used at PART-II-C-OPERATORS.md:123  \omega_\nu
+      used at PART-II-C-OPERATORS.md:124  \omega_\nu
+      used at PART-III-A2-HARMONICS.md:468  \omega_\nu
+      used at PART-III-A2-HARMONICS.md:469  \omega_\nu
+      used at PART-III-D-GAUGEPOT.md:40  \omega_\nu
+      used at PART-III-D-GAUGEPOT.md:41  \omega_\nu
       used at PART-III-D3-SYMSTATES.md:58  \omega_{\mathrm s1}
+      used at PART-III-D3-SYMSTATES.md:95  \omega_\nu
       used at PART-III-D3-SYMSTATES.md:139  \breve\omega
       used at PART-III-D3-SYMSTATES.md:146  \breve\omega
       used at PART-III-D3-SYMSTATES.md:153  \breve\omega
@@ -834,6 +850,15 @@
       used at PART-III-E-CONSTRAINT.md:168  \omega_{\mathrm s1}
       used at PART-III-E-CONSTRAINT.md:172  \omega_{\mathrm s1}
       used at PART-III-F4-ZERO.md:300  h_{b,\mathrm s1}
+      used at PART-III-F4-ZERO.md:374  \omega^{(0)}_{b_0,\mathrm s0}
+      used at PART-III-F4-ZERO.md:375  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:378  \omega^{(0)}_{b_0,\mathrm s0}
+      used at PART-III-F4-ZERO.md:379  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:392  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:393  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:394  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:398  \omega^{(0)}_{b_0,\mathrm s1}
+      used at PART-III-F4-ZERO.md:399  \omega^{(0)}_{b_0,\mathrm s1}
       used at PART-III-F5-PAIRINGS.md:30  \omega_{\mathrm s1}
       used at PART-III-F5-PAIRINGS.md:36  h_{b,\mathrm s1}
       used at PART-III-F5-PAIRINGS.md:37  \breve h
@@ -1030,27 +1055,51 @@
       used at PART-III-H-AUGMENT.md:569  h_{b,\mathrm s1}
       used at PART-III-H2-ADMISS.md:317  \breve h
       used at PART-III-H2-ADMISS.md:318  \breve h
+      used at PART-III-I10-CORR4.md:93  \omega^{(-1)}_{b_0,\mathrm v1}
       used at PART-III-I10-CORR4.md:128  \breve\omega
+      site    PART-III-I10-CORR4.md:132  \omega^{(0)}_{b_0,\mathrm s1}
       used at PART-III-I10-CORR4.md:132  \breve\omega
       used at PART-III-I10-CORR4.md:133  \breve\omega
       used at PART-III-I10-CORR4.md:134  \breve\omega
+      site    PART-III-I10-CORR4.md:136  \omega^{(-1)}_{b_0,\mathrm v1}
       used at PART-III-I10-CORR4.md:136  \breve\omega
       used at PART-III-I10-CORR4.md:137  \breve\omega
+      site    PART-III-I10-CORR4.md:139  \omega^{(0)}_{b_0,\mathrm s0}
       used at PART-III-I10-CORR4.md:139  \breve\omega
       used at PART-III-I10-CORR4.md:142  \breve\omega
+      site    PART-III-I10-CORR4.md:148  \omega^{\le k}_\tau
       used at PART-III-I10-CORR4.md:149  \breve\omega
       used at PART-III-I10-CORR4.md:152  \breve\omega
+      used at PART-III-I10-CORR4.md:156  \omega^{(-1)}_{b_0,\mathrm v1}
+      used at PART-III-I10-CORR4.md:157  \omega^{(0)}_{b_0,\mathrm s0}
       used at PART-III-I10-CORR4.md:159  \breve\omega
       used at PART-III-I10-CORR4.md:161  \breve\omega
+      used at PART-III-I10-CORR4.md:164  \omega^{(0)}_{b_0,\mathrm s0}
+      used at PART-III-I10-CORR4.md:165  \omega^{(0)}_{b_0,\mathrm s0}
+      site    PART-III-I10-CORR4.md:174  \omega_\nu
       used at PART-III-I10-CORR4.md:174  \breve\omega
+      site    PART-III-I10-CORR4.md:175  \omega_\nu
+      site    PART-III-I10-CORR4.md:176  \omega_\nu
       used at PART-III-I10-CORR4.md:184  \breve\omega
+      used at PART-III-I10-CORR4.md:192  \omega_\nu
       used at PART-III-I10-CORR4.md:193  \breve\omega
+      used at PART-III-I10-CORR4.md:195  \omega_\nu
+      used at PART-III-I10-CORR4.md:202  \omega_\nu
+      used at PART-III-I10-CORR4.md:216  \omega_\nu
       used at PART-III-I10-CORR4.md:217  \breve\omega
+      used at PART-III-I10-CORR4.md:218  \omega^{\le k}_\tau
       used at PART-III-I10-CORR4.md:221  \breve\omega
+      used at PART-III-I10-CORR4.md:225  \omega_\nu
+      used at PART-III-I10-CORR4.md:234  \omega_\nu
+      used at PART-III-I10-CORR4.md:235  \omega_\nu
+      used at PART-III-I10-CORR4.md:242  \omega_\nu
       used at PART-III-I10-CORR4.md:243  \breve\omega
       used at PART-III-I10-CORR4.md:244  \breve\omega
       used at PART-III-I10-CORR4.md:245  \breve\omega
       used at PART-III-I10-CORR4.md:246  \breve\omega
+      used at PART-III-I10-CORR4.md:275  \omega_\nu
+      used at PART-III-I10-CORR4.md:276  \omega_\nu
+      used at PART-III-I10-CORR4.md:313  \omega_\nu
       used at PART-III-I10-CORR4.md:420  \breve\omega
       used at PART-III-I11-SPACETIME.md:35  \breve\omega
       used at PART-III-I11-SPACETIME.md:169  \breve h
@@ -1125,6 +1174,7 @@
       used at PART-III-I13-EXPANSION.md:268  \breve h h^{(\mu)
       used at PART-III-I13-EXPANSION.md:357  \breve h
       used at PART-III-I13-EXPANSION.md:362  \breve h
+      used at PART-III-I15-AUGMENT5.md:87  \omega_\nu
       used at PART-III-I15-AUGMENT5.md:119  \breve h h^{(\mu)
       used at PART-III-I15-AUGMENT5.md:121  \breve h h^{(\mu)
       used at PART-III-I15-AUGMENT5.md:158  \breve h
@@ -1134,6 +1184,7 @@
       used at PART-III-I15-AUGMENT5.md:416  \breve h
       used at PART-III-I15-AUGMENT5.md:417  \breve h
       used at PART-III-I16-BASEPOINTS.md:102  \omega_{\mathrm s1}
+      used at PART-III-I16-BASEPOINTS.md:118  \omega_\nu
       used at PART-III-I16-BASEPOINTS.md:231  \breve h
       used at PART-III-I16-BASEPOINTS.md:458  \breve h
       used at PART-III-I16-BASEPOINTS.md:461  h_{b,\mathrm s1}
@@ -1162,11 +1213,23 @@
       used at PART-III-I5-UNBOOST.md:69  \omega_{\mathrm s1}
       used at PART-III-I5-UNBOOST.md:70  \breve h
       used at PART-III-I5-UNBOOST.md:71  \breve h \breve\omega
+      site    PART-III-I5-UNBOOST.md:77  \omega^{\le1}_\natural
       used at PART-III-I5-UNBOOST.md:77  \breve\omega \omega_{\mathrm s1}
+      site    PART-III-I5-UNBOOST.md:78  \omega^{\le1}_\natural
       used at PART-III-I5-UNBOOST.md:80  \omega_{\mathrm s1}
-      used at PART-III-I5-UNBOOST.md:128  \omega_{\mathrm s1}
+      used at PART-III-I5-UNBOOST.md:107  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:108  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:126  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:128  \omega^{\le1}_\natural \omega_{\mathrm s1}
       used at PART-III-I5-UNBOOST.md:129  \breve\omega \omega_{\mathrm s1}
+      used at PART-III-I5-UNBOOST.md:134  \omega^{\le1}_\natural
       used at PART-III-I5-UNBOOST.md:139  \breve h
+      used at PART-III-I5-UNBOOST.md:160  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:170  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:171  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:178  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:180  \omega^{\le1}_\natural
+      used at PART-III-I5-UNBOOST.md:182  \omega^{\le1}_\natural
       used at PART-III-I5-UNBOOST.md:414  \omega_{\mathrm s1}
       used at PART-III-I7-PARAMS.md:33  \breve h
       used at PART-III-I7-PARAMS.md:35  \breve h
@@ -1174,34 +1237,45 @@
       used at PART-III-I7-PARAMS.md:130  \breve h
       used at PART-III-I7-PARAMS.md:133  \breve h
       used at PART-III-I7-PARAMS.md:134  \breve h
+      used at PART-III-I8-UNPARAM.md:16  \omega^{(0)}_{b_0,\mathrm s1}
       used at PART-III-I8-UNPARAM.md:19  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:28  \omega_{\mathrm s1}
-      used at PART-III-I8-UNPARAM.md:29  \omega_{\mathrm s1}
+      used at PART-III-I8-UNPARAM.md:29  \omega^{(0)}_{b_0,\mathrm s1} \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:39  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:41  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:55  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:142  \omega_{\mathrm s1}
+      used at PART-III-I8-UNPARAM.md:149  \omega^{(0)}_{b_0,\mathrm s1}
       used at PART-III-I8-UNPARAM.md:164  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:169  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:170  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:171  \omega_{\mathrm s1}
       used at PART-III-I8-UNPARAM.md:223  \omega_{\mathrm s1}
+      used at PART-III-I8-UNPARAM.md:461  \omega^{(0)}_{b_0,\mathrm s1}
       used at PART-III-I8-UNPARAM.md:466  \omega_{\mathrm s1}
       used at PART-III-I9-COMMOTION.md:33  \breve\omega
       used at PART-III-I9-COMMOTION.md:71  \breve\omega
       used at PART-III-I9-COMMOTION.md:72  \breve\omega \omega_{\mathrm s1}
       used at PART-III-I9-COMMOTION.md:73  \breve\omega
       used at PART-III-I9-COMMOTION.md:74  \breve\omega
+      site    PART-III-I9-COMMOTION.md:76  \omega^{\le4}
       used at PART-III-I9-COMMOTION.md:76  \breve\omega
+      used at PART-III-I9-COMMOTION.md:81  \omega^{\le4}
+      used at PART-III-I9-COMMOTION.md:82  \omega^{\le4}
+      used at PART-III-I9-COMMOTION.md:91  \omega^{\le4}
       used at PART-III-I9-COMMOTION.md:92  \breve\omega
-      used at PART-III-I9-COMMOTION.md:107  \breve\omega
+      used at PART-III-I9-COMMOTION.md:93  \omega^{\le4}
+      used at PART-III-I9-COMMOTION.md:107  \breve\omega \omega^{\le4}
       used at PART-III-I9-COMMOTION.md:109  \breve\omega
       used at PART-III-I9-COMMOTION.md:110  \breve\omega
       used at PART-III-I9-COMMOTION.md:111  \omega_{\mathrm s1}
       used at PART-III-I9-COMMOTION.md:112  \breve\omega \omega_{\mathrm s1}
+      used at PART-III-I9-COMMOTION.md:114  \omega^{\le4}
+      used at PART-III-I9-COMMOTION.md:118  \omega^{\le4}
       used at PART-III-I9-COMMOTION.md:120  \breve\omega
       used at PART-III-I9-COMMOTION.md:121  \breve\omega
       used at PART-III-I9-COMMOTION.md:122  \breve\omega
+      used at PART-III-I9-COMMOTION.md:144  \omega^{\le4}
       used at PART-III-J-PARAM.md:193  \breve h \breve\omega
       used at PART-III-J-PARAM.md:195  \breve h
       used at PART-III-J-PARAM.md:212  \breve h
