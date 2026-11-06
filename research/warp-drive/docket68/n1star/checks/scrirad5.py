@@ -177,13 +177,34 @@ def r2():
     ok_b = sp.simplify(gdt - 1) == 0
     small = [sp.Rational(1, 10), sp.Rational(1, 1000)]
     ok_f = all(bool(gtf.subs(eps, e0) < 0) and bool(gal.subs(eps, e0) < 0) for e0 in small)
-    return lorentz and coeff == -eps and ok_b and ok_f, (lorentz, coeff, gdt, ok_f)
+    # D626: on g_b0, not only Minkowski. Kerr-Schild g_b0 = eta + (mu/r^2) l l, l = dt - d|x| (III.C Lemma 3.5 (1)'s
+    # proof): its inverse is eta^-1 - (mu/r^2) l# l#, so g_b0^-1(dt, dt) = -1 - mu/r^2; and d_r at fixed t_* has
+    # dt(d_r) = psi'(r) = 1 - 8 mu/r^2 (III.C Lemma 1.3's proof). The witness's added term eps x rho^-1 d_r^2 then gives
+    # g^-1(dt, dt) = -1 - mu/r^2 + 2 psi'^2 at rho = eps^2/4, which is >= 1 - 33 mu/r^2, with r = t_*/rho = 8/eps^2 at
+    # t_* = 2: positive for every eps in (0, 1], mu = 3/2.
+    mu, R_ = sp.Rational(3, 2), sp.Symbol("r", positive=True)
+    X4 = sp.symbols("y1:5")
+    rr = sp.sqrt(sum(y**2 for y in X4))
+    ell = [sp.Integer(1)] + [-y/rr for y in X4]
+    etam = sp.diag(-1, 1, 1, 1, 1)
+    gks = sp.Matrix(5, 5, lambda a, b: etam[a, b] + mu/rr**2*ell[a]*ell[b])
+    lsh = [-ell[0]] + ell[1:]
+    gks_inv = sp.Matrix(5, 5, lambda a, b: etam[a, b] - mu/rr**2*lsh[a]*lsh[b])
+    pt = {X4[0]: 1, X4[1]: 2, X4[2]: 2, X4[3]: 4}                  # |x| = 5
+    ks_ok = (gks.subs(pt)*gks_inv.subs(pt) - sp.eye(5)).is_zero_matrix and gks_inv.subs(pt)[0, 0] == -1 - mu/25
+    psi_p = 1 - 8*mu/R_**2
+    val = -1 - mu/R_**2 + 2*psi_p**2
+    lb = sp.expand(val - (1 - 33*mu/R_**2))                         # = 128 mu^2 / r^4 >= 0
+    at = sp.expand((1 - 33*mu/R_**2).subs(R_, 8/eps**2))            # 1 - (33/64) mu eps^4
+    on_b0 = ks_ok and sp.simplify(lb - 128*mu**2/R_**4) == 0 and bool(at.subs(eps, 1) > 0) and \
+        sp.diff(at, eps).subs(eps, sp.Rational(1, 2)) < 0
+    return lorentz and coeff == -eps and ok_b and ok_f and on_b0, (lorentz, coeff, gdt, ok_f, on_b0, at)
 
 
 def r3():
     eps, l, c, T = 0.1, 0.5, 1.0, 3.0
     C = 1.0                                                         # |c_4| = eps x <= C x
-    T1 = T / 1.0 + 1.0                                              # g_0 = Minkowski: t^flat_* = t_* F_1, C' := 1 here
+    T1 = T / 0.5 + 1.0                  # g_0 = Minkowski, t^flat_* = t_* F_1 >= t_*/2: C' := 1/2 (D626; it was 1)
     rhoT = (37 * C * T1) ** (-1 / l)
     RT = T1 / rhoT
     tf = lambda t, r: t * (1 - (t / r) ** l)                       # noqa: E731
@@ -192,8 +213,8 @@ def r3():
     Rp = max(RT, p_r) * math.exp(p_tf - c)
     B0, F0 = t + r, tf(t, r) + math.log(r)
     n = 20000
-    dt_ = (t - 1.0) / n
-    Bmono, Fmono, rmax = True, True, r
+    dt_ = (t - 1.01) / n                                            # ends at t_* = 1.01, t^flat_* > c = 1 (D626)
+    Bmono, Fmono, rmax, above = True, True, r, True
     Bprev, Fprev = B0, F0
 
     def f(t, r):
@@ -209,7 +230,42 @@ def r3():
         Bmono = Bmono and B <= Bprev + 1e-9
         Fmono = Fmono and F <= Fprev + 1e-9
         Bprev, Fprev, rmax = B, F, max(rmax, r)
-    return (not Bmono) and Fmono and rmax <= Rp, (B0, Bprev, F0, Fprev, rmax, Rp)
+        above = above and tf(t, r) >= c
+    return (not Bmono) and Fmono and rmax <= Rp and above, (B0, Bprev, F0, Fprev, rmax, Rp)
+
+
+def r4(eps=sp.Rational(1, 20)):
+    """III.K Lemma 6.2 (D626): Cartesian components of g - eta at most eps = 1/20 give |V^x| <= 2|V^t| for g-causal V,
+    and g^-1(dt, dt) <= -1/2. (i) z3: w^2 - u^2 <= 5 eps (u^2 + w^2), u, w >= 0, implies w^2 <= (5/3) u^2 (<= 4 u^2);
+    (ii) the Neumann bound 5 eps/(1 - 5 eps) = 1/3 < 1/2, exact; (iii) 300 random exact symmetric delta with entries in
+    [-eps, eps]: (eta + delta)^-1_00 <= -2/3."""
+    u, w = z3.Reals("u w")
+    e = z3.RealVal(str(eps))
+    s = z3.Solver()
+    s.add(u >= 0, w >= 0, w * w - u * u <= 5 * e * (u * u + w * w), 3 * w * w > 5 * u * u)
+    cone = s.check()
+    neu = 5 * eps / (1 - 5 * eps) if 5 * eps < 1 else None
+    rnd = random.Random(626)
+    samp = True
+    for _ in range(300):
+        M = [[Fr(0)] * 5 for _ in range(5)]
+        for a in range(5):
+            for b in range(a, 5):
+                M[a][b] = M[b][a] = Fr(rnd.randint(-20, 20), 400)      # |delta_ab| <= 1/20
+        for a in range(5):
+            M[a][a] += -1 if a == 0 else 1
+        A = [row[:] + [Fr(int(i == j)) for j in range(5)] for i, row in enumerate(M)]
+        for col in range(5):                                         # Gauss-Jordan, exact
+            piv = max(range(col, 5), key=lambda i: abs(A[i][col]))
+            A[col], A[piv] = A[piv], A[col]
+            pv = A[col][col]
+            A[col] = [x / pv for x in A[col]]
+            for i in range(5):
+                if i != col and A[i][col] != 0:
+                    f = A[i][col]
+                    A[i] = [x - f * y for x, y in zip(A[i], A[col])]
+        samp = samp and A[0][5] <= Fr(-2, 3)
+    return cone == z3.unsat and neu is not None and neu == sp.Rational(1, 3) and samp, (cone, neu, samp)
 
 
 def say(s, indent="      "):
@@ -241,9 +297,15 @@ def main():
     ctl["N3 threshold without T_1"] = refuted(t1=False)
     ctl["N4 decay removed"] = refuted(decay=False)
     ctl["N5 gbar^-1(dt_*, dr) = +1"] = refuted(sign_tr=1)
+    d, info4 = r4()
+    ok["R4"] = d
+    say("  R4 (III.K Lemma 6.2): components of g - eta at most 1/20: the causal cone |V^x|^2 <= (5/3)|V^t|^2 (z3, the "
+        "negation %s); the Neumann bound %s < 1/2; 300 exact random perturbations, (eta + delta)^-1_00 <= -2/3: %s"
+        % info4)
+    ctl["N6 Lemma 6.2's cone at eps = 1/4"] = r4(sp.Rational(1, 4))[1][0] == z3.sat
     say("  controls (each must make z3 find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()))
     good = all(ok.values())
-    print("R1 %s; R2 %s; R3 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in ("R1", "R2", "R3")] +
+    print("R1 %s; R2 %s; R3 %s; R4 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in ("R1", "R2", "R3", "R4")] +
                                                      ["behave" if all(ctl.values()) else "MISBEHAVE"]), flush=True)
     return 0 if good and all(ctl.values()) else 1
 
