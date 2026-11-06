@@ -20,7 +20,8 @@ F non-local, bounded H^s -> H^(s+2) and L^2-Lipschitz on H^1 balls (|F(u) - F(v)
      2e-3, 1e-3, the solution exists on all of [0, T_b] and sup_t |u_d - ubar|_(H^2)/d is the same to 5 % for the
      three d (Lipschitz dependence over the background's whole interval, not only for short times). Control (must
      fail): the same on [0, 3.0], past the background's gradient blow-up (the shock), where the background is not a
-     solution: the H^2 norm of ubar grows by more than a factor 20 and the ratio test fails.
+     smooth solution: the H^2 norm of ubar grows by more than a factor 20 (it leaves every H^s ball the clause
+     needs), so the check rejects it, and the Lipschitz constant is 4e4 instead of 12.
 Labels: computed (numpy, a model). Run: python3 checks/katonl5.py   (about a minute)
 """
 import sys
@@ -123,8 +124,8 @@ def k2():
     rc, growc = ratios(3.0, 2400)
     ctl = not (max(rc) < 1.05 * min(rc) and growc < 20)
     print("   tame bound |F(u)|_H2 / (|u|_inf |u|_H2) <= %.4f <= 1 on 20 random u: %s" % (max(tame), tame_ok))
-    print("   T_b = 1.0: sup_t |u_d - ubar|_H2 / d = %s for d = 4e-3, 2e-3, 1e-3 (equal to 5 %%: %s); |ubar|_H2 grows by "
-          "%.2f" % (", ".join("%.4f" % v for v in r), max(r) < 1.05 * min(r), grow))
+    print("   T_b = 1.0: sup_t |u_d - ubar|_H2 / d = %s for d = 4e-3, 2e-3, 1e-3 (equal to 5 %%: %s); |ubar|_H2 "
+          "grows by %.2f" % (", ".join("%.4f" % v for v in r), max(r) < 1.05 * min(r), grow))
     print("   control (T = 3.0, past the shock): ratios %s, |ubar|_H2 grows by %.3g (rejected): %s" %
           (", ".join("%.4g" % v for v in rc), growc, ctl))
     return tame_ok and lip and ctl

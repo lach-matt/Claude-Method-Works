@@ -1,5 +1,11 @@
+K2 (numpy) Cauchy stability over the background's whole interval, with the tame source
+   tame bound |F(u)|_H2 / (|u|_inf |u|_H2) <= 0.2629 <= 1 on 20 random u: True
+   T_b = 1.0: sup_t |u_d - ubar|_H2 / d = 12.4635, 12.4549, 12.4508 for d = 4e-3, 2e-3, 1e-3 (equal to 5 %: True); |ubar|_H2 grows by 2.20
+   control (T = 3.0, past the shock): ratios 4.696e+04, 4.612e+04, 4.566e+04, |ubar|_H2 grows by 420 (rejected): True
+K2 PASS
 K1 (numpy) Picard iteration with the non-local source -(1 - d_x^2)^-1 (u^2):
    sup_t |u^(n+1) - u^n|_L2: 4.07e-01, 4.49e-02, 4.36e-03, 3.97e-04, 3.14e-05, 2.19e-06, 1.31e-07, 6.99e-09; ratios 0.110, 0.097, 0.091, 0.079, 0.070, 0.060, 0.053 (< 0.5: True)
    sup_t |u^n|_H2: 2.2960, 2.3924, 2.4041, 2.4051, 2.4051, 2.4052, 2.4052, 2.4052 (bounded within 5 %: True); (K2) measured on 20 random pairs: True
    control (F = 0.5 u_xx, not L2-Lipschitz): sup_t |u^n|_H2 = 2.07, 2.07, 2.07, 2.49, 4.84, 230: grows without bound (rejected): True
+K1 PASS
 PASS
