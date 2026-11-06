@@ -42,10 +42,18 @@ every check of --collect, and one dropping abs in bound passed C1.  C1 now also 
 by only 3 h^4) and eight signed combinations, negative centre values included, at half-widths 0.005-0.25.  The
 verifier's mutants mA1-mA4 and mA6, rebuilt on this file, fail it.  mA5 (box_coeffs at half the half-width) passes
 it: the enclosure's overcount factors of the order-4 and order-5 terms, 4 and 10, become 2 and 2.5, still >= 1, so
-for a single field its bound still dominates the Taylor-Lagrange bound term by term and no test on one field can fail
-it (for products in the frame it dominates to fourth order in h).  D2 now uses certified LOWER ends (D4's centre
-points), and D4's independence is stated exactly: it does not use the Taylor models, but shares point_coeffs and the
-generated frame code.  This note was corrected after the runs of round 6; the code they ran is unchanged.]
+for a single field its bound still dominates the Taylor-Lagrange bound term by term; the verifier of round 6 found it
+sound on every test it ran, products included, and round 7's containment check C1(b) catches it.  D2 now uses
+certified LOWER ends (D4's centre points), and D4's independence is stated exactly: it does not use the Taylor models,
+but shares point_coeffs and the generated frame code.]
+[Round 7, the verifier of round 6, M6-A: round 6's kids test had a field tensor in t only (R = t^4; x^4 came from the
+coordinate input), so the sig- and x-direction terms of box_coeffs ran on zero coefficients, and three mutants --
+box_coeffs with the sig and x half-widths 0 (mB1), with sig's only (mB1s), and rcert5.py's linear enclosure term
+restricted to t (mB2) -- passed C1 and --collect while under-bounding sig^4 and field-x^4 fields (1.180, 1.067).  C1
+now also runs kids_fields2 (t^4, sig^4 and the field x^4) with products across directions (kids_frame2), and C1(b),
+contain_control, checks containment on the pinned tensors and the frame: every enclosure box_coeffs returns during
+kids must contain point_coeffs at its box's corners, and every Taylor coefficient of each child's box-path frame output
+must contain the point path's at the corners.  C1(b) catches mA5, mB1, mB1s and mB2.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
 engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
 engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a
