@@ -40,7 +40,7 @@ W := {v >= v1, t~ <= 0, r >= 4R}, N := {v = v1} cap W, Zb := {v <= v1, r >= 4R}.
      quote is not found.
 Labels: B1, B3, B4 (integrals) exact; B2 exact (z3) with samples; B3n, B4 (model), B5 numeric.
 
-    python3 checks/r9beyond5.py     (20 to 90 seconds)
+    python3 checks/r9beyond5.py     (1 to 3 minutes on this loaded machine)
 """
 import os
 import random
@@ -322,7 +322,7 @@ def null_slopes(g2):
 def generator(n, e0, tauS, v1, tau0, mu, steps=60000, dtau=0.05, factor=1.0):
     """the past g-null generator from dS = (tauS, r = v1 - tauS), ingoing branch, integrated to the past (RK2)"""
     tau, r = tauS, v1 - tauS
-    worst = 0.0
+    worst = -1e9
     for _ in range(steps):
         def slope(tau_, r_):
             return null_slopes(metric2(n, eps_profile(tau_, tau0, e0), mu/r_**2))[0]
@@ -350,8 +350,8 @@ def part_b4():
     dirs[2] = np.array([1.0, 1.0])/np.sqrt(2)               # n along dv: the extremal one
     w = [generator(n, 0.05, tauS_, v1_, tau0_, mu) for n in dirs]
     check("B4' the past g-null generator from dS, eight directions of g^-1 - g0^-1 = eps n n^T, eps = 0.05 min(1, "
-          "t^(-3/2)), down to tau_S - 3000: |v - v1| <= I(tau) throughout", max(w) <= 1e-9,
-          f"max(|v - v1| - I) over the eight: {max(w):.3e}")
+          "t^(-3/2)), down to tau_S - 3000: |v - v1| <= I(tau) throughout", max(w) < 0,
+          f"max(|v - v1| - I) over the eight: {max(w):.4f}")
     wc = generator(dirs[2], 0.05, tauS_, v1_, tau0_, mu, factor=0.25)
     check("B4'' control: along dv the generator leaves |v - v1| <= I(tau)/4", wc > 0, f"max excess {wc:.4f}")
 
