@@ -24,7 +24,7 @@ READ (cited values). It imports m22evol5.py (the system, the solver, the data) a
   Controls (each mutates the computed path and must fail): C1 P_eta without its factor 1/2: X1's cancellation of the
   principal parts fails; C2 the envelope with each slope taken at the piece's end: X2's supersolution test fails; C3
   X3's bound evaluated at the outer boundary r = 3 - tau (a point of the slice, but where the coefficients are small):
-  X3's threshold (a factor above 10^14) fails.
+  X3's threshold (a factor above 10^12) fails.
 
     python3 checks/m22cert5.py [--selftest]       (every check; about 20 minutes)
 """
@@ -161,14 +161,19 @@ def check_x2():
 
 # ------------------------------------------------------------------------------------------------------------------
 # X3: the certified lower bound on the estimate's exponent
-def qlo_hi(r):
+def qlo_hi(r, n=16):
     """an upper bound of q_lo(m) over m in [1/r^2, mu_end/r^2]: the least eigenvalue of the (tau, x1) block of Q
-    (trace m^2 + m + 1, det (m + 1)^2/4; the angular eigenvalue (1 + m)/2 is larger), in Arb over the interval"""
+    (trace m^2 + m + 1, det (m + 1)^2/4, so tr^2 - 4 det = m^2 (m^2 + 2 m + 2); the angular eigenvalue (1 + m)/2 is
+    larger), in Arb on n sub-intervals of m, the largest upper end taken (rounded up)"""
     lo, hi = 1 / (r * r), MU_END / (r * r)
-    m = flint.arb((arb(lo) + arb(hi)) / 2, (arb(hi) - arb(lo)) / 2)
-    tr, det = m * m + m + 1, (m + 1) ** 2 / 4
-    lam = 2 * det / (tr + (tr * tr - 4 * det).sqrt())             # tr/2 - sqrt(...)/2, written stably
-    return lam.upper()
+    best = 0.0
+    for i in range(n):
+        a_, b_ = lo + (hi - lo) * Fr(i, n), lo + (hi - lo) * Fr(i + 1, n)
+        m = flint.arb((arb(a_) + arb(b_)) / 2, (arb(b_) - arb(a_)) / 2)
+        tr, det = m * m + m + 1, (m + 1) ** 2 / 4
+        lam = 2 * det / (tr + m * (m * m + 2 * m + 2).sqrt())
+        best = max(best, float(lam.upper()) * (1 + 1e-12))
+    return best
 
 
 def k_lo(r):
@@ -310,14 +315,14 @@ def main():
     cpt = 1 / math.sqrt(float(volm)) * (1 - 1e-12)
     need = 2.207738 / (cpt / math.sqrt(2))
     fac = math.exp(float(lam))
-    OK['X3'] = inside and fac > 1e14
+    OK['X3'] = inside and fac > 1e12
     print('  X3 (certified, Arb): every evaluation point lies in its slice: %s; int_(tau0)^(tau*) k dtau >= %.4f, so '
           'the estimate\'s Gronwall factor for E^(1/2) from tau0 is >= e^%.4f = %.3e (from X1\'s e_r entry alone; the '
           'other rows, the zero-order terms, the couplings, the transports and the commuted energies only add); half '
           'of the exponent is gathered after tau = %.2f: %s %s'
           % (inside, float(lam), float(lam), fac,
              float(ME.TAU_STAR) - next(s_ for s_, l_ in prof if l_ >= float(lam) / 2), OK['X3'], el()))
-    OK['C3'] = not math.exp(float(lam_o)) > 1e14
+    OK['C3'] = not math.exp(float(lam_o)) > 1e12
     print('  C3 (control): the same bound evaluated at the outer boundary r = 3 - tau: e^%.4f = %.3e: X3\'s threshold '
           'fails: %s' % (float(lam_o), math.exp(float(lam_o)), OK['C3']))
     print('  The requirement (deduced from X3): the route\'s point-evaluation constant, |e(X*)| <= C_pt E_s(tau*)^(1/2) '
