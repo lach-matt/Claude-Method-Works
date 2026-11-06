@@ -321,6 +321,7 @@ powers r^(±1/2) are attained, so the weights cannot be improved.
 - `checks/rwgauge5u.py` with `checks/rwgauge5u.out`: U1-U8 (U8 the replacement's uniqueness and the line widths),
   exact, each with a control that mutates the code under test and fails. Imports `checks/kirecon5.py` (U1, U3),
   `checks/rwgauge5.py`'s tensor calculus (U3 (b), U7) and `settle5.py`'s potentials (U3, U5); writes nothing.
+  [R2.0: now U1-U10, U9 for Lemma A (R2.0.1) and U10 for R2.0.5; U3 (b) at l = 2, 4, 6; the .out is the round-2 run.]
 
 ## R2.0 Round 2: the verifier's findings, re-derived and seated
 

@@ -1126,3 +1126,78 @@ written.
 *Ledger.* `checks/gluedecay5.py` E1-E6: all PASS, and all 13 mutants fail as they must; output in
 `checks/gluedecay5.out`. The verifier's report and scripts stay in its scratch space, outside the repository. Open:
 nothing.
+
+## R3.0 Round 3 (2026-11-06): the confirming reading, re-derived and seated
+
+*The reading.* A confirming reader checked round 2's seating. It found every finding correctly seated and no new
+mathematical error, and it raised the items below, each re-derived here before it was seated. The text above is kept as
+written, with bracketed notes where it changes.
+
+(A) *GD2 and Theorem 5 (ii).* GD2's "$\asymp\epsilon R^{\ell_0-a}$" holds for every $a\in(\frac32,\ell_0]$ only as an
+upper bound, by Corollary 4.3. Two-sided, it holds for Proposition 3's examples, and at $a = \ell_0$ the order is
+$\epsilon(\log R)^{1/2}$, by (4.1) and (5.5): M1's error and Minor 1's overclaim in one more place. Theorem 5 (ii)'s
+"attains this order for every perturbation" likewise. Both are noted where they stand.
+
+(B) *The paper's apparatus.* Round 2's blocks, applied verbatim, would have removed section 8.7's only citation of
+`checks/support8b.py` M3 and of the bump. Appendix C's row "sections 8.1–8.8: … the bump's cost | support8b.py M1–M3"
+would then have mapped to nothing in section 8. They also cited GLUEDECAY5.md and `checks/gluedecay5.py`, which section
+9's computational-support list, Appendix A, the source map and Appendix D did not carry.
+
+Both were checked against the paper:
+- Section 8 cites M3 only at :1149.
+- Section 9's list (:1548-1564), Appendix A, Appendix C (:2489 on) and Appendix D (the run list at :2731-2732, the
+  import paragraph at :2653-2661, the md5 table) name neither file.
+- R9 checks every md5 row, and `response5.py --update-md5` rewrites the 32-hex column of every row matching `| \`file\`
+  | \`md5\` |` (response5.py:439-499), new rows included.
+
+Section 8.3 now gives eight blocks to be applied together:
+- (a) and (b): section 8.7, which keeps M3 as the annulus term at $a = 3$;
+- (c): section 9's list;
+- (d): Appendix A, with mpdata5.py's entry worded for the Kerr-Schild slices and Hintz's surface (nit 4), and an entry
+  for gluedecay5.py;
+- (e): three rows of the source map;
+- (f) and (g): Appendix D's run list and imports;
+- (h): four md5 rows.
+
+E6 applies all eight to a copy of the paper and checks each place.
+
+(Nits)
+
+- (1) *The letter.* η is the Minkowski metric at paper :180, :1063 and :2115 (checked), and :1133 uses ε for a
+  deviation. Section 8.3 writes the size as ϰ, which the paper does not use (counted: ϰ occurs 0 times; ς, ϱ, ϵ and ϕ
+  are also free). It also writes no ε for the rate ("its ε_K then below ℓ0 − 3"), so :1133's ε keeps its one meaning.
+- (2) *The join.* (a) and (b) are wrapped as one paragraph and split after four lines, so no short line is left
+  mid-paragraph.
+- (3) *The orders.* "No terms of orders r^(−2) and r^(−3)" holds for the metric. In the second fundamental form the
+  orders are r^(−3) and r^(−4) (Theorem 4 (ii), :1166-1167), and those vanish too, since Proposition 1 makes every
+  coefficient zero. Fixed in (b), and noted at section 0's (A).
+- (4) *mpdata5.py's entry.* Appendix A's wording is now that of section 8.3 (d).
+- (5) *The flux constants.* E4 asserts $c_d = 6\pi^2, 3\pi^2, \frac32\pi^2, 2\pi^2$, recomputed by hand in round 2's
+  review: energy $3r^{-a-1}$ times $2\pi^2$; momentum $6r^{-a-1}\omega_1\omega_l$, $\int\omega_1^2 = \frac{\pi^2}2$;
+  centre of mass $3x_1^2r^{-a-2}$; angular momentum $2(x_1^2+x_2^2)r^{-a-2}$.
+- (6) *The exponents of (5.2).* E4 derives them from the box radii at every vertex: $|\Delta p_2|$ from the five
+  degree-0 radii, so p2exp = box(d = 0); $|\Delta p|$ from all fifteen, so p3exp = max_d box(d). These are Proposition 4
+  (1)'s two Lipschitz steps.
+- (7) *The definitional check.* "box ≥ 0 where a ≤ 2+d" holds by the definition of the box, and is relabelled as such
+  ("def."). It stays because it pins the mutant box_strong; the reason it matters is nit 8.
+- (8) *The tighter argument.* Noted at R2.0. The pure-gauge translation $x\mapsto x+\chi_1c$ is a vacuum perturbation of
+  order 3 that moves the centre of mass by $-6\pi^2m_\lambda c$, a charge difference independent of $R$, which a
+  decaying box excludes.
+- (9) *Part V's amendment.* $f$ is the height function of the graph $\Sigma_{\mathrm{IVP}} = \{t_{\mathrm{KS}} = f\}$
+  far out; the time function is III.B's $t$. Corrected in place in PART-V-GLUING.md's bracketed note, marked as
+  corrected.
+- (10) *The run time.* About seventy seconds, measured: 68.5 s by the reader and 71 s here. The docstring and section 7
+  now agree.
+
+*The program.* E4 and E6 are changed as above. The reader's four surviving mutations are now mutation controls, and all
+four fail:
+- 'energy_trsign': the trace term's sign in the energy flux;
+- 'mom_drop_x': the trace subtracted on the wrong index;
+- 'p3_strong': p3exp = min(0, 2 − a);
+- 'box_weak': the box exponent min(0, 3 + d − a).
+
+E6 adds 'drop_c' (block (c) not applied) and 'drop_m3' (block (b) without M3). That makes nineteen mutants in all, each
+failing. The reader's expected survivor 'e6_adj_any' is a deliberate weakening and is not a control.
+
+*Ledger.* `checks/gluedecay5.py` E1-E6: all PASS, with nineteen mutants failing; output in `checks/gluedecay5.out`.
+Open: nothing. The md5 row of GLUEDECAY5.md in section 8.3 (h) is filled on seating by `--update-md5`.

@@ -229,9 +229,9 @@ def main():
         all(r3['reg'][k][2] / r3['reg'][k + 1][2] >= 3.5 for k in range(2)) and r3['reg'][2][2] <= r3['orig'][2][2]
     ctl = any(r3['ctl'][k][1] > r3['orig'][k][1] for k in range(3))
     print('A3 the regularisation removes the spurious m at least tenfold, its error of R converging at second order '
-          '(ratios %.2f, %.2f) and at 400 rows no larger than the original\'s: %s; control ' % (
-              r3['reg'][0][2] / r3['reg'][1][2], r3['reg'][1][2] / r3['reg'][2][2], good) + '
-          '(sign reversed) raises it: %s ->' % (good, ctl), 'PASS' if good and ctl else 'FAIL')
+          '(ratios %.2f, %.2f) and at 400 rows no larger than the original\'s: %s; control (sign reversed) raises '
+          'it: %s ->' % (r3['reg'][0][2] / r3['reg'][1][2], r3['reg'][1][2] / r3['reg'][2][2], good, ctl),
+          'PASS' if good and ctl else 'FAIL')
     ok &= good and ctl
     print('cpaxis5 (%.0f s):' % (time.time() - t0), 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1

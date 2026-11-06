@@ -523,6 +523,8 @@ def e10(control=False):
                 good &= Yv[k] > 0 and lc < 0 and mp.mpf(1)/2 < kk/kap < 2
                 if Yv[k] > 0 and kk > 0:
                     cR = max(cR, abs(lc)/kk**mp.mpf(1.5))
+                if kap <= 0:
+                    continue
                 if k >= 1:
                     Cup = max(Cup, abs(kk - kap)/(k*mp.sqrt(kap)))
                 if 8 <= k <= 12:
