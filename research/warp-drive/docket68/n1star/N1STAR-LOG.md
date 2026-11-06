@@ -8282,3 +8282,28 @@ seating, with one exception and eight notes. It also re-derived the tensor facto
   - `response5.py --update-md5` refreshed six rows of Appendix D. Its selftest passes but for R9, on
     PART-III-K-NONLINEAR.md and BEYOND5-R0.tsv, which another workstream was rewriting during the runs.
 - Not yet read: the D627 seating itself, and the D618 edits to sections 9.5 and 11.
+
+**D629 (2026-11-06): the confirming read of D626/D628; one paper-block finding and five nits seated.**
+- The reader confirmed the supplement side: III.K, Part VII and the checks hold, every finding is seated, and no major
+  or minor finding is open there.
+  - Minor (paper Block 1): its OLD ran through the caveat "The verdicts are readings, not computations, ..." and its NEW
+    dropped it. The caveat is restored with V2's reach ("V2 sorts the spellings of omega only"). Applied to a scratch
+    copy, the sentence occurs once before and once after, and no line exceeds 121.
+  - Nit 1, K's slab: "r >= R_nu - C|c|" holds for curves entering the slab from N cap {t_IVP < 0}, not for a point of
+    the slab over {r < R_nu}. The backward problem's domain is now named, X := (N cap {t_IVP < 0}) cup ({0 <= t_IVP <=
+    |c|} cap {r + 2C t_IVP >= R_nu}). Future causal curves do not leave X while t_IVP <= |c|, since d(r + 2C t_IVP) >= C
+    dt_IVP > 0 along them; so r >= R_nu - 2C|c| on X. Re-derived first.
+  - Nit 2, R5 (iv): it now covers m > 0 and -1 <= a < 1. The clause's a = nu' - beta, with beta from III.B Lemma 3.7's
+    proof; z3 proves beta > -5/7 from its formula, so a lies in [-1, 3/4). This is wider than the reader's [-1, 1/32],
+    as beta can be negative on [2R_1, 3R_1]. New controls N9 (m = 0 allowed) and N10 (beta > -2/3).
+  - Nit 3, V2: the narrow rules are pinned to the files their reasons name (the dual states, the gauge potential, the
+    source's state, omega^sharp, and the Cauchy data omega^(0), omega^(1)). The count stays 150 = 83 + 67 + 0. The
+    reader's W7 (omega^(0) in III.G3) and W8 (dot omega_b in III.K) now fail V2 and are controls.
+  - Nit 4: the D626/D628 entry's SETTLE-GLAM5 pins corrected to f29e2aa8 and 500c085b. D629 changes K again, so
+    SETTLE-GLAM5's K pin is stale once more; K's pinned lines are unchanged. VII is unchanged at D629.
+  - Nit 5, K:690: "stays in the past cone of eta" now reads "stays in the component that continues eta's past cone".
+  - A first wording of nit 1 named r_0 and so added a line to the r_0 census (SPC 122, selftest FAIL); it was reworded,
+    and the census is back at 323 lines, BEYOND5-R0.tsv unchanged.
+  - Mutants: R5 9 of 9 caught by text mutation, plus a deleted check that survives as it must; V2 6 of 6; the D628 sets
+    again 8/8 and 6/6; the reader's R5 M1-M5 and V2 W1-W8 all caught (W9, a bare omega in K, passes by design).
+  - Paper Blocks 1-5 prepared, not seated; Block 3 now names V2's pinned rules.
