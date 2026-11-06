@@ -488,8 +488,9 @@ def h4():
             r = abs(Q) / (a[T] * a[S])
             worst = r if worst is None or r < worst else worst
         ok &= c > 2 * m * M2 / Lam + m**2 * M2 / (2 * Lam)
-        print("   N = %d, m = %d: c = %s, M^2 = %s, Lam = %s; %d combinations, least |Q|/(a_T a_S) = %.4g >= "
-              "2(c - ...) = %.4g: %s" % (N, m, sp.nsimplify(c), M2, Lam, cnt, float(worst),
+        print("   %sN = %d, m = %d: c = %s, M^2 = %s, Lam = %s; %d combinations, least |Q|/(a_T a_S) = %.4g >= "
+              "2(c - ...) = %.4g: %s" % ('[R6] resonant (antipodal pair + third): ' if trial == 4 else '', N, m,
+                                         sp.nsimplify(c), M2, Lam, cnt, float(worst),
                                          float(2 * (c - 2 * m * M2 / Lam - m**2 * M2 / (2 * Lam))), ok))
     # control: no rescaling, an antipodal pair and a third direction
     ka, kb, kc = null2(sp.Rational(1, 3), 1), None, null2(sp.Rational(5, 2), 1)
@@ -641,10 +642,12 @@ def h6():
     def dx(f):
         return np.real(np.fft.ifft(kx * np.fft.fft(f, axis=-1), axis=-1))
 
-    def solve(N, weight=None):
+    def solve(N, weight=None, kick=0.0, grow=False):
         wa = 2 * np.pi * np.arange(N) / N
         wt = 2 * np.pi / N if weight is None else weight
         q0 = np.exp(-3 * (1 - np.cos(x)))[None, :] * (1 + 0.5 * np.cos(wa) + 0.3 * np.sin(2 * wa))[:, None]
+        q0 = q0 * (1 + kick * np.sin(x)[None, :] * np.cos(wa)[:, None])
+        cg = N / 4.0 if grow else 1.0
         state = [np.zeros(nx), np.zeros(nx), q0.copy()]
         dt = T / nt
         hist = []
@@ -652,7 +655,7 @@ def h6():
         def rhs(st):
             w, v, qq = st
             src = wt * qq.sum(axis=0)
-            c = np.tanh(2 * w[None, :] + np.cos(wa)[:, None])
+            c = np.tanh(2 * cg * w[None, :] + np.cos(wa)[:, None])
             wxx = np.real(np.fft.ifft(-(np.fft.fftfreq(nx, 1.0 / nx)**2) * np.fft.fft(w)))
             return [v, wxx + src - src.mean(), -dx(c * qq)]                      # the zero mode of the source removed
         for _ in range(nt):
@@ -683,7 +686,21 @@ def h6():
     errm = [float(np.max(np.abs(solve(N, weight=2 * np.pi / (N + 1))[0][0] - ref[0]))) for N in (4, 8, 16)]
     ctl = not (errm[1] < errm[0] / 4 and errm[2] < errm[1] / 4)
     print("   control (weights 2 pi/(N + 1)): errors %s, rejected: %s" % (", ".join("%.2e" % e for e in errm), ctl))
-    return sup and kink and fall and ratio and ctl
+    # [R6] the stability constant of the N-system itself, and a mutated system whose coupling grows with N
+    dk = 1e-3
+
+    def stab(N, grow=False):
+        a = solve(N, grow=grow)[0][0]
+        b = solve(N, kick=dk, grow=grow)[0][0]
+        return float(np.max(np.abs(b - a))) / dk
+    st = [stab(N) for N in (4, 8, 16)]
+    stg = [stab(N, grow=True) for N in (4, 8, 16)]
+    uni = max(st) < 2 * min(st)
+    ctl2 = max(stg) > 2 * min(stg)
+    print("   [R6] stability constant sup|w_N(q0 + d q1) - w_N(q0)|/d at N = 4, 8, 16: %s (within a factor 2: %s); "
+          "control (coupling growing with N): %s (rejected): %s" %
+          (", ".join("%.4f" % v for v in st), uni, ", ".join("%.4f" % v for v in stg), ctl2))
+    return sup and kink and fall and ratio and ctl and uni and ctl2
 
 
 # ---------------------------------------------------------------- H7
