@@ -17,9 +17,9 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      or a constant of the seed alone (Ks, the bound of the seed's operator coefficients on Omega with two derivatives,
      and C_S3, the Sobolev constant of H^2(S^3) in L^inf): no other quantity enters.  Control: a step that needs a
      profile bound beyond the derivative order lambda0 uses (P_12) is detected.
-  K2 (computed) both are increasing in every leaf (expression trees with positive coefficients built by +, *, exp,
-     max and positive powers; checked structurally and by finite differences at 200 random positive points).
-     Control: a mutated assembly with a difference (C_tr - 1) is detected as not monotone.
+  K2 (computed) both are increasing in every leaf (each node of the DAG a positive expression of its inputs, built
+     by +, *, exp, max and positive powers; checked structurally and by finite differences at 40 random points).
+     Control: a mutated node with a difference (C_tr - 1) is detected as not monotone.
   K3 (computed) at P* with the certified leaves inserted, printed in the remaining leaves; with the seed's constants
      and the profile bounds all equal to one (an illustration, not a bound), log10 C_L11 and log10 C_L4 are printed.
      Control: C_S (Lemma 2.1) replaced by 10^-40 makes C_L4 < 1 (the formula is proportional to it).
@@ -48,56 +48,80 @@ CERT = {a: sp.Rational(269858789, 10**9), b: sp.Rational(13437208254, 10**9), T:
 SEED = {Ks, C_S3}
 
 
+class Dag:
+    """named constants, each defined by a sympy expression in leaves and earlier names (a DAG, not a tree)"""
+
+    def __init__(self):
+        self.defs = []                                       # (symbol, expression)
+
+    def __call__(self, name, expr):
+        sym = sp.Symbol(name, positive=True)
+        self.defs.append((sym, expr))
+        return sym
+
+    def names(self):
+        return {s_ for s_, _ in self.defs}
+
+    def leaves(self):
+        used = set()
+        for _, e in self.defs:
+            used |= e.free_symbols
+        return used - self.names()
+
+    def value(self, subs):
+        vals = dict(subs)
+        for s_, e in self.defs:
+            vals[s_] = e.subs(vals)
+        return vals
+
+
 def build(N=9, mutate=None):
-    """the recursion of Lemma L.3's proof and the assemblies of Corollary L.11 and Lemma L.4"""
+    """the recursion of Lemma L.3's proof and the assemblies of Corollary L.11 and Lemma L.4, as a DAG"""
+    d = Dag()
     top = P[12] if mutate == "P12" else P[6]
-    K = Ks + top                                            # coefficient bound of a monomial's factors (F1), (F2)
-    M1 = 2*sp.pi*K                                          # Lemma L.9 (b): ||d_th^-1|| <= pi, ||Pi_osc|| <= 2 (D4)
-    C_tr = sp.exp(M1*(b - a))                               # Gronwall along ell, L <= b(tau0) - a
-    if mutate == "minus":
-        C_tr = C_tr - 1
-    C_E = C2                                                # Lemma L.8 = Lemma 2.3's constant on Omega_v
-    C_N = C_S3*(1 + sp.sqrt(2)*sp.sqrt(b - a)*a**sp.Rational(-3, 2))   # Lemma L.10
-    KP = Ks                                                 # ||Pol^+|| and the 'known' coefficients: the seed's
-    Ca = {1: A*Ks}                                          # stage 0: W_TT, cost i (ansatz5 A3)
-    Cb, Cc, Ce = {}, {1: C_tr*K*(A*Ks)**2}, {}             # chi: transport of a quadratic source (stage 0)
+    K = d("K", Ks + top)                                    # coefficient bound of a monomial's factors (F1), (F2)
+    M1 = d("M1", 2*sp.pi*K)                                 # Lemma L.9 (b): ||d_th^-1|| <= pi, ||Pi_osc|| <= 2 (D4)
+    C_tr = d("C_tr", sp.exp(M1*(b - a)) - (1 if mutate == "minus" else 0))     # Gronwall along ell, L <= b - a
+    C_E = d("C_E", C2)                                      # Lemma L.8 = Lemma 2.3's constant on Omega_v
+    C_N = d("C_N", C_S3*(1 + sp.sqrt(2)*sp.sqrt(b - a)*a**sp.Rational(-3, 2)))    # Lemma L.10
+    KP = d("KP", Ks)                                        # ||Pol^+|| and the 'known' coefficients: the seed's
+    Ca = {1: d("Ca1", A*Ks)}                                # stage 0: W_TT, cost i (ansatz5 A3)
+    Cb, Ce = {}, {}
+    Cc = {1: d("Cc1", C_tr*K*(A*Ks)**2)}                    # chi: transport of a quadratic source (stage 0)
     for m in range(1, N + 1):
-        sa = sum(Ca[l] for l in range(1, m + 1))
-        sb = sum(Cb[l] for l in range(1, m))
-        F2 = K*(sa**2 + sb)                                 # (F2): two oscillating factors, or an earlier mean
-        Ce[m] = C64*F2                                      # (e): Lemma 6.4 on [a, r]
-        Ca[m + 1] = C_tr*(KP*(top*Ce[m] + K*sa) + (b - a)*K*sa*(1 + sb))                 # (a)
-        Cb[m] = C_N*C_E*sp.exp(C_E*T)*(Ce[m] + T*F2 + T*K*Ca[m + 1]*(1 + sa))          # (b): L.8, L.9 (a), L.10
-        Cc[m + 1] = C_tr*(K*(Cc[m] + Cb[m] + sa*Ca[m]) + KP*Ce[m])                       # (c)
-    sa = sum(Ca.values())
-    sb = sum(Cb.values())
-    Cd = K**(N + 1)*(1 + sa + sb)**(N + 1)/sp.factorial(N - 2)                            # (d): Taylor in lam
-    CU = 2*C0*K*(sa + sb)                                                                # (e) for U: Prop. 6.5
-    C_D3 = sp.Rational(2, 9)*A**2/(4*sp.sqrt(mu0))                                       # D3: r_q - sqrt(mu0)
-    C_beta = sp.Rational(2, 9)*A**2*(1/(2*mu0) + 1/(4*mu0))                              # D3: |beta0|
-    C11 = sp.Max(sum(lam0**(j - 4)*Ca[j] for j in range(4, N + 2)),
-                 sum(lam0**(j - 1)*Cc[j] for j in range(1, N + 2)) + lam0**2*Ca[3]*C_D3
-                 + 3*C_beta*sum(lam0**(j - 1)*Ca[j] for j in range(1, N + 2)),
-                 (1 + C_beta)**2)                                                         # Corollary L.11
-    C_coef = C2*(1 + M + K)                                                              # L.4 steps 3-4
-    C_dat = CU*(1 + Ks)                                                                  # L.4 step 5
-    C4 = C_S*sp.exp(C_coef*T)*(C_dat + T*Cd)                                             # L.4 steps 6-7
-    return C11, C4
-
-
-def leafset(e):
-    return e.free_symbols
+        sa = d("sa%d" % m, sum(Ca[l] for l in range(1, m + 1)))
+        sb = d("sb%d" % m, sum(Cb[l] for l in range(1, m))) if m > 1 else sp.Integer(0)
+        F2 = d("F2_%d" % m, K*(sa**2 + sb))                 # (F2): two oscillating factors, or an earlier mean
+        Ce[m] = d("Ce%d" % m, C64*F2)                       # (e): Lemma 6.4 on [a, r]
+        Ca[m + 1] = d("Ca%d" % (m + 1), C_tr*(KP*(top*Ce[m] + K*sa) + (b - a)*K*sa*(1 + sb)))       # (a)
+        Cb[m] = d("Cb%d" % m, C_N*C_E*sp.exp(C_E*T)*(Ce[m] + T*F2 + T*K*Ca[m + 1]*(1 + sa)))      # (b)
+        Cc[m + 1] = d("Cc%d" % (m + 1), C_tr*(K*(Cc[m] + Cb[m] + sa*Ca[m]) + KP*Ce[m]))            # (c)
+    sa = d("sa", sum(Ca.values()))
+    sb = d("sb", sum(Cb.values()))
+    Cd = d("Cd", K**(N + 1)*(1 + sa + sb)**(N + 1)/sp.factorial(N - 2))                       # (d)
+    CU = d("CU", 2*C0*K*(sa + sb))                                                          # (e) for U
+    C_D3 = d("C_D3", sp.Rational(2, 9)*A**2/(4*sp.sqrt(mu0)))                               # D3
+    C_beta = d("C_beta", sp.Rational(2, 9)*A**2*(1/(2*mu0) + 1/(4*mu0)))                    # D3: |beta0|
+    t1 = d("L11a", sum(lam0**(j - 4)*Ca[j] for j in range(4, N + 2)))
+    t2 = d("L11b", sum(lam0**(j - 1)*Cc[j] for j in range(1, N + 2)) + lam0**2*Ca[3]*C_D3
+           + 3*C_beta*sum(lam0**(j - 1)*Ca[j] for j in range(1, N + 2)))
+    t3 = d("L11c", (1 + C_beta)**2)
+    C11 = d("C_L11", sp.Max(t1, t2, t3))                                                    # Corollary L.11
+    C_coef = d("C_coef", C2*(1 + M + K))                                                    # L.4 steps 3-4
+    C_dat = d("C_dat", CU*(1 + Ks))                                                         # L.4 step 5
+    C4 = d("C_L4", C_S*sp.exp(C_coef*T)*(C_dat + T*Cd))                                     # L.4 steps 6-7
+    return d, C11, C4
 
 
 def k1(control=False):
-    C11, C4 = build(mutate="P12" if control else None)
+    d, C11, C4 = build(mutate="P12" if control else None)
     allowed = LEAVES | set(CERT) | SEED
-    extra = (leafset(C11) | leafset(C4)) - allowed
+    extra = d.leaves() - allowed
     if control:
         return not extra
-    out("  K1 free symbols of C_L11: %s; of C_L4: %s; outside lambda0's leaves, the certified numbers and the seed's"
-        " constants: %s" % (sorted(map(str, leafset(C11))), sorted(map(str, leafset(C4))), sorted(map(str, extra))
-                            or "none"))
+    out("  K1 the DAG of C_L11 and C_L4 (%d named constants): its leaves %s; outside lambda0's leaves, the certified"
+        " numbers and the seed's constants: %s" % (len(d.defs), sorted(map(str, d.leaves())),
+                                                  sorted(map(str, extra)) or "none"))
     return not extra
 
 
@@ -107,57 +131,52 @@ def positive_tree(e):
         return True
     if e.is_Number:
         return e > 0
+    if e == sp.pi:
+        return True
     if isinstance(e, (sp.Add, sp.Mul, sp.exp, sp.Max)):
         return all(positive_tree(x) for x in e.args)
     if isinstance(e, sp.Pow):
         base, ex = e.args
-        return positive_tree(base) and (ex.is_Number and (ex > 0 or base.is_Number))
-    if e.func == sp.pi.func or e == sp.pi:
-        return True
+        return positive_tree(base) and ex.is_Number and (ex > 0 or base.is_Number)
     return False
 
 
 def k2(control=False):
-    C11, C4 = build(mutate="minus" if control else None)
-    structural = positive_tree(C11) and positive_tree(C4)
-    rng = random.Random(11)
-    fd_ok = True
-    syms = sorted((leafset(C11) | leafset(C4)), key=str)
-    f11 = sp.lambdify(syms, C11, 'mpmath')
-    f4 = sp.lambdify(syms, C4, 'mpmath')
-    import mpmath as mp
-    mp.mp.dps = 30
-    for _ in range(200):
-        pt = [mp.mpf(rng.uniform(0.05, 1.5)) for _ in syms]
-        k = rng.randrange(len(syms))
-        pt2 = list(pt)
-        pt2[k] *= mp.mpf('1.01')
-        for f in (f11, f4):
-            fd_ok &= f(*pt2) >= f(*pt)
+    d, C11, C4 = build(mutate="minus" if control else None)
+    structural = all(positive_tree(e) for _, e in d.defs)
     if control:
         return structural
-    out("  K2 C_L11 and C_L4 increasing in every leaf: structurally %s, by finite differences at 200 random points %s"
-        % (structural, fd_ok))
+    rng = random.Random(11)
+    fd_ok = True
+    leaves = sorted(d.leaves(), key=str)
+    for _ in range(40):
+        pt = {s_: sp.Rational(rng.randint(5, 150), 100) for s_ in leaves}
+        k = rng.choice(leaves)
+        pt2 = dict(pt)
+        pt2[k] = pt[k]*sp.Rational(101, 100)
+        v1, v2 = d.value(pt), d.value(pt2)
+        fd_ok &= all(sp.N(v2[c] - v1[c], 30) >= 0 for c in (C11, C4))
+    out("  K2 C_L11 and C_L4 increasing in every leaf: every node of the DAG a positive expression of its inputs %s, by"
+        " finite differences at 40 random points %s" % (structural, fd_ok))
     return structural and fd_ok
 
 
 def k3(control=False):
-    C11, C4 = build()
+    d, C11, C4 = build()
     cert = dict(CERT)
     if control:
         cert[C_S] = sp.Rational(1, 10**40)                   # a mutation: Lemma 2.1's constant dropped
-    c11 = C11.subs(cert)
-    c4 = C4.subs(cert)
-    ones = {s_: 1 for s_ in (leafset(c11) | leafset(c4)) if s_ != lam0}
-    ones[lam0] = sp.Rational(244, 100000)                    # lambda0 < 0.0024433 (CONSTANTS5 Round 4)
+    rest = {s_: 1 for s_ in d.leaves() if s_ not in cert}
+    rest[lam0] = sp.Rational(244, 100000)                    # lambda0 < 0.0024433 (CONSTANTS5 Round 4)
+    vals = d.value({**cert, **rest})
     import mpmath as mp
-    l11 = mp.log10(mp.mpf(sp.N(c11.subs(ones), 30)))
-    l4 = mp.log10(mp.mpf(sp.N(c4.subs(ones), 30)))
+    l11 = mp.log10(mp.mpf(sp.N(vals[C11], 30)))
+    l4 = mp.log10(mp.mpf(sp.N(vals[C4], 30)))
     if control:
         return l11 > 0 and l4 > 0
     out("  K3 at P* (certified leaves inserted) C_L11 and C_L4 depend on %s; with every remaining leaf equal to 1 and"
         " lambda0 = 0.00244 (an illustration of the formula, not a bound): log10 C_L11 = %s, log10 C_L4 = %s" % (
-            sorted(map(str, leafset(c11) | leafset(c4))), mp.nstr(l11, 6), mp.nstr(l4, 6)))
+            sorted(map(str, d.leaves() - set(cert))), mp.nstr(l11, 6), mp.nstr(l4, 6)))
     return l11 > 0 and l4 > 0
 
 

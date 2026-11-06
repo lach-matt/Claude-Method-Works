@@ -6,8 +6,8 @@ r6fixes5: the round-5 verifier's minor findings 2 and 3, re-derived
   F2: the coefficient of int ||f|| in y is c_Y (exact); c_Y q_lo^(-1/2) e^(kappa Dtau/2) <= 3.5237e+17 (floating point on
       READ enclosures, rounded up at 4 digits there), half of stage1rate5's 7.048e17: True
   C2 (control): box~ u = -f: coefficient c_Y/2, not c_Y: F2's identity fails: True
-  F3: at z = 4e-6, -1, -2, -3 are not s0 or s1 roots of box^Ups(0) and 0 is not a v1 root (exact): the towers at -k carry
-      log order 0 at offset 1: True
+  F3: at z = 4e-6, -1, -2, -3 are not s0 or s1 roots of box^Ups(0) and 0 is not a v1 root (exact), on the partial list of
+      round 6 (Round 7: the full list has three resonances, r7fixes5.py R3): True
   C3 (control): at z = 0, -1 is an s1 root and F3's test fails: True
 F1 PASS
 C1 PASS
