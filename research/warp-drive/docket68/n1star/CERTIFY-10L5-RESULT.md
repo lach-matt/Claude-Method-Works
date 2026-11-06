@@ -3012,3 +3012,436 @@ Statuses, as the new text gives them:
   characteristic Cauchy problem in higher dimensions*, arXiv:2305.07306v1. READ 2026-11-06: abstract; Theorem 1.1,
   pp. 2–3, and the remark after it on Sobolev spaces; p. 8 (estimates for genuine solutions, not an existence scheme).
 ```
+
+## 10. Round 6 (2026-11-06): the verifier of round 5 seated
+
+The verifier of round 5 read section 9 (lines 2249–3014, file md5 04df75f6…). It reran every program and found each
+output reproduced, timings aside. It read [CTG23] in full and found the quotes exact and the hypotheses fitting the
+class. It re-derived Lemmas 9.H and 9.B, found Lemma 9.C sound as a conditional and rich5's certificates sound, and
+confirmed M-B, M-C and M-D fixed. It did not confirm section 9 because of one Major, M5-A. It also found ten minor
+findings and eight nits. Each is seated below as a bracketed amendment to the section 9 text it names; section 9 is
+not edited. Every finding was re-derived first, and every repair that needs a program was run in full. Sections 0–9
+are byte-identical before and after this append.
+
+### 10.0 The verifier of round 5: its findings, seated as amendments to section 9
+
+**M5-A. C1 reached only `Engine.bound` and its flag, never the rest of the engine.**
+- [9.0, M-A, "One assembly: `Engine.bound` is used by `kids` and by C1 … The round-4 certificate stands, now with a
+  control that can fail on it"; the rcert5d.py docstring, "a mutation of the engine's assembly or of its flag makes C1
+  fail"; 9.9's block A, "its bounds checked by a control that fails when their assembly is mutated": verifier of round 5
+  (M5-A).]
+  - *Re-derived.* C1 built its own Taylor jets and called `bound` on them. It never ran `kids`, `point_coeffs`,
+    `box_coeffs` or `inputs(..., box=True)`. So a mutation at the call site (`self.bound(vp[k8], vp[k8], hpow)`, the
+    verifier's mA3) dropped the remainder where C1 could not see it. The verifier ran mA3 end to end: it accepted the
+    box at depth 1 after 8 evaluations, `--collect` printed "all checks pass", and D4 passed at ratio 0.991. A dropped
+    `abs` inside `bound` (mA4) passed C1, because C1's test polynomials have positive centre values.
+  - *Repaired (`checks/rcert5d.py`, `kids_control`).* C1 now also runs the engine end to end. An Engine is built in the
+    ordinary way (no flag) on test tensors R = t⁴ (Chebyshev coefficients 3/8, 1/2, 1/8, exact in binary; every other
+    field 0) and a test frame of eight signed combinations: R, −R, x⁴, −x⁴, R·x⁴, R − 0.3, −R·x⁴ − 0.05, R + x⁴.
+    - They are run through `kids` on the children of four parent boxes with half-widths 0.005 to 0.25, and compared
+      with the exact sups.
+    - For t⁴ and x⁴ the sound order-3 Lagrange bound is (|c| + h)⁴ + 3h⁴: it exceeds the true sup by only 3h⁴.
+    - So a loss of the remainder, of the box enclosure of a coefficient or of the coordinate x, or of `abs` where a
+      centre value is negative, gives a bound below the true sup.
+    - The round-5 polynomial test of `bound` alone is kept beside it.
+  - *Rerun on the round-4 checkpoints (`checks/rcert5d.out` regenerated).*
+    - C1 through `kids`: the largest true/bound is 0.9999999926 (sound), and 2.7527 with the remainder dropped.
+    - D1 and D3 are unchanged; D4 gives 68,705 points at ratio 0.809, no violation.
+    - Collect: "all checks pass".
+  - *The verifier's mutants, rebuilt on the repaired file and run through the whole `--collect`*
+    (`scratchpad/r6/mut/rcert5d_mA*.py`, outputs beside them).
+    - The collect reads the round-4 checkpoints, which the real engine computed. So D1, D3 and D4 are the same for
+      every mutant, and C1 is what must fail. Its largest true/bound through `kids` must be ≤ 1:
+      - mA1, the remainder flag forced on (`self.drop = True`): 2.7527, FAILURES, exit 1;
+      - mA2, the order-3 coefficients taken at the centre (`sum(m) <= Q`): 2.7527, and `bound` alone ∞; FAILURES;
+      - mA3, the verifier's (`kids` passes `vp` twice): 2.7527, FAILURES;
+      - mA4, `abs` dropped in `bound`: ∞ (a bound ≤ 0 under a positive sup), FAILURES;
+      - mA5, `box_coeffs` at half the half-widths: 0.9999999926, "all checks pass" (below);
+      - mA6, the box inputs' t and x taken at the centre (`arb(tcs[p])`, `arb(xcs[r])`): 1.0667, FAILURES.
+    - mA3 end to end, as the verifier ran it (`rcert5d_mA3_e2e_{worker,collect}.out`, checkpoints in `r6/mA3ck/`):
+      - its worker again accepts the box at depth 1 after 8 evaluations;
+      - D1 passes with ll ≤ 1.954 × 10⁻⁴, and D4 passes at 35 points and ratio 0.991, as the verifier found;
+      - C1 now gives 2.7527, so `--collect` prints FAILURES and exits 1.
+  - *mA5 is not killed, and no test on a single field can kill it (deduced).*
+    - mA5 calls `box_coeffs` at half the half-widths. That shrinks both terms of the coefficient enclosure: the linear
+      one by 2, and the quadratic one, built on the global l1 bounds, by 4.
+    - Summed into the order-3 bound, the real enclosure overcounts the field's own Taylor terms:
+      - at order 4, Σ_{|β|=3} Σ_d (β_d + 1)|f_{β+e_d}| h_d h^β = 4 Σ_{|γ|=4} |f_γ| h^γ;
+      - at order 5, ½|γ|(|γ| − 1) = 10 times Σ_{|γ|=5} l1_γ h^γ, the Lagrange remainder's own bound.
+    - mA5 makes these factors 2 and 2.5, both still ≥ 1.
+      - For a single field, its bound still dominates the Taylor–Lagrange bound term by term, so it stays sound.
+      - For products in the frame, it is shown to dominate only to fourth order in h.
+    - It is the one mutation tried that the control does not catch, for the reason above. The kids test agrees: mA5's
+      largest ratio is 0.9999999926, the real engine's.
+  - *D4's reach, stated exactly.* D4 catches an under-bound only where a sampled certified point value exceeds it. On
+    the mA1/mA3 under-bound it reached 0.991 and missed it by about 1 %. It is a second line beside C1, not a
+    substitute for it.
+  - *rich5.py* (9.2's R3) uses the same engine. Its C1 now runs `kids_control` too (`checks/rich5.out` regenerated).
+    - The rerun is read-only, and both npz md5s are unchanged before and after it. It reproduces round 5's R0, R2, R3,
+      C2 and C3 to every printed digit, timings aside. C1 gives 0.9999999926 through `kids` and 2.7527 with the
+      remainder dropped, and the run ends "all checks pass" (1,291 s).
+    - R3 calls rcert5d's `Engine`, so a mutant of rcert5d is a mutant of rich5's engine. rich5's C1 was run verbatim on
+      rich5's own tensors with rcert5d replaced by each mutant (`scratchpad/r6/rich5_c1_mut.py`, output
+      `rich5_c1_mut.out`).
+      - It fails on mA1–mA4 and mA6, at 2.7527, 2.7527, 2.7527, ∞ and 1.0667.
+      - It passes on mA5 at 0.9999999926, as rcert5d's C1 does, and on the real engine at the same figure.
+  - *Corrected text.*
+    - 9.0's M-A: "a control that can fail on it" reads "a control that, from round 6, runs the whole engine (10.0)".
+    - The rcert5d.py docstring is corrected in the file.
+    - Block A's description reads "both certificates' bounds are checked by a control that runs the whole bound
+      computation on test fields with exact suprema and catches each mutation of it tried that under-bounds them, and
+      by independent certified point values at the centre and corners of every accepted sub-box" (10.4).
+
+**Minor findings.**
+- **m5-1** [9.7, "(H1) is not established on any region that reaches the late region"]: it understates.
+  - (H1) holds on no region of Lemma 9.C's form beyond the seed. D includes the axes, and the axis estimate, the
+    level-1 L^∞ step and G are all missing. The truncated domains of Theorems 7.L, 8.L1 and 8.W over the box are empty
+    (7.4; 9.0, m9).
+  - It reads: "(H1) is established on no region of Lemma 9.C's form beyond the seed".
+- **m5-2** [9.9, block A, "a smooth T²-invariant vacuum development exists on any region of the gauge where such a
+  linear estimate holds"]: it goes beyond Lemma 9.C.
+  - The lemma treats D = [−10, u*] × [1/2, v*] × [−1, 1] × T², axes included, on both data hypersurfaces. "such"
+    pointed at the estimate on truncated domains.
+  - The sentence omitted "smooth" ([CTG23] is in the smooth category) and (H3)'s y(1/2) ≤ A.
+  - The new block A states the lemma's region and hypotheses exactly (10.4).
+- **m5-3** [9.1 item 4, "closed by proof"; 9.4; block A, where the failure of the block condition is listed under
+  "Deduced"]: the failure rests on floating-point couplings. It is the failure of the sufficient product-of-norms
+  condition, in Theorem 7.L's unweighted norms, while 8.W's 10^66.9 is in weighted norms.
+  - It reads "deduced from computed couplings: the block condition fails at every N in the unweighted norms and at W3's
+    weights". Block A lists it under "Computed".
+  - *Computed at W3's weights (`checks/blockw5.py`, new; `blockw5.out`).*
+    - Every printed figure of blocks5.out and wgron5.out is rounded down by half a unit of its last digit before use.
+    - In the weighted norms, the product of a pair's two couplings scales by λ_Y/λ_Z.
+    - Of blocks5's six largest band pairs, P4_1 ← δw gives c² λ_Y/λ_Z ≥ 57.8 (c ≥ 22, log(λ_Y/λ_Z) ≥ −2.12). It holds
+      for every N, since blocks5 printed this pair's minimum over N = 0..30 (22). So the block condition fails at W3's
+      weights too.
+    - Control k1, equal weights, gives 481.8 against blocks5's 484 (inside the rounding margin). Control k2, the
+      smallest pair in place of the largest, gives 0.0891 < 1, so the conclusion rests on taking the largest pair.
+- **m5-4** [9.0 m4, 9.1 item 6, 9.6 and 9.7: "d± falls at second order"]: it rests on one two-grid ratio. It reads "d±
+  falls 3.5–4.0-fold from 400 to 800 rows, consistent with second order".
+- **m5-5** [9.6, "below 10⁻³ at ≥ 1.2"]: false. A10 at 800 rows gives 1.2 × 10⁻³ on [1.8, 1.9) and 1.9 × 10⁻³ on
+  [1.9, 2.0). It reads "below 2 × 10⁻³ at ≥ 1.2 (below 10⁻³ to v = 1.8)".
+- **m5-6** [9.1, 9.2, 9.7, block A]: certified upper bounds were quoted rounded down. They read, rounded up: 3.7217 ×
+  10⁻⁵ as 3.73 × 10⁻⁵, 6.091 × 10⁻⁵ as 6.10 × 10⁻⁵, and 4.932 × 10⁻⁴ as 4.94 × 10⁻⁴. 4.966 × 10⁻⁴ (as 4.97),
+  1.747 × 10⁻⁴ (as 1.75) and 3.007 × 10⁻⁴ (as 3.01) were already rounded up.
+- **m5-7** [9.2, "on four of them it is certified as a sup"]: it reads "on a sub-box of each of four of them (1/4,096 or
+  1/64 of the box) it is certified as a sup".
+- **m5-8** [9.9, block A, "the free scheme's solution is consistent with second-order convergence to v ≈ 1.8 r_h as
+  well"]: late5b L5 covers only areal radius ≥ 1.0. It reads "… to v ≈ 1.8 r_h at areal radius ≥ r_h".
+- **m5-9** [9.9]: none of the files block A cites, beyond cdata5.py, had a row in the paper's Appendix D md5 table. 10.4
+  gives the rows.
+- **m5-10** [9.9, block A's span]: paper lines 1489–1490, just above it, still read "where a singularity, a steep smooth
+  feature and a defect at the axis are not yet told apart". That is phrased as open, and its list of readings differs
+  from block A's. The old block A now starts at "At the first seed the Kretschmann scalar …" (paper line 1488's last two
+  words). The first seed's sentence is dropped there, since block A's computed clause states the first seed's late
+  region exactly. The second seed's sentences are kept verbatim.
+
+**Nits.**
+- [9.4, Lemma 9.B, "a test function constant in (u, v) on a slab and equal to the top singular vector in x"]: the test
+  function is the top singular vector at each (u, v), so it varies with (u, v); blocks5.py does this.
+- [9.6, 9.7, "it does not converge" of a band where d± falls by 2.53]: it reads "not at second order".
+- [9.9, block A, "away from the axis caps |x| > cos(π/32)"]: it reads "(|x| ≤ cos(π/32))".
+- [block A, "in these norms"]: undefined there. It reads "in Theorem 7.L's unweighted norms and at Theorem 8.W's
+  weights".
+- [rcert5d D1–D2, "certified centre values (lower bounds)"]: they were upper ends of the centre balls. *Repaired:* D1
+  prints them as upper ends, and D2 now uses certified lower ends, from D4's centre points (ll 1.727 × 10⁻⁴ and lx
+  4.976 × 10⁻⁵, above τ′ = 3.0 × 10⁻⁵ as before). No conclusion changes.
+- [9.0, "a gate on a code path independent of the engine (D4)"]: D4 avoids the Taylor models only; it shares
+  `point_coeffs` and the generated frame code. Repaired in rcert5d.py's printout and docstring.
+- [9.2, 9.7, "of the order of 10⁷–10⁸ evaluations"]: low. The measured sub-boxes extrapolate to about 3 × 10⁵ to 2.4 ×
+  10⁶ evaluations per K2 box, so about 10⁸–10⁹ for all 416. It reads so.
+- [9.9, "md5 5930486d…"]: stale. The paper is now 4c1210818f03bcf7d4875a5b11d8b568; the three old blocks each still
+  occur once (10.4 re-keys them).
+
+### 10.1 The third null grid, at hand-back
+
+- The two runs of the regularised scheme at 1600 × 720 (PIDs 2418 and 2419, nice 5, started 12:11 UTC) are still
+  running and were not touched. Their state was read with py-spy only, at 16:10 UTC:
+  - M = 32 is at null diagonal 1,422 of 1,959, 78 % of the cells. At its rate since 15:57 it finishes at about
+    17:05 UTC.
+  - M = 40 is at diagonal 1,010, 52 % of the cells, and at its rate finishes at about 19:30 UTC.
+- So no order-of-convergence verdict is seated in this round. The analysis is ready and its control passes (9.6). The
+  commands are 9.6's: `cp3grid5.py --a7`, `--a8` and `--dpm` on the 400-, 800- and 1600-row runs at M = 32, with the
+  1600-row run at M = 40.
+- Until it runs, the two-grid statements of 9.6–9.7 stand, as amended by m5-4, m5-5 and m5-8.
+
+### 10.2 What holds at 10 l5 after round 6
+
+9.7's list stands, with these changes:
+- (H1)'s status reads as m5-1.
+- The Richardson approximant's bound at 16,128 points reads ≤ 3.73 × 10⁻⁵ (m5-6).
+- d± and the free scheme read as m5-4, m5-5 and m5-8.
+- The block condition's failure is computed (m5-3). It fails at W3's weights too: P4_1 ← δw ≥ 57.8 for every N.
+- Both certificates' bounds, rcert5d's D1 and rich5's R3, are checked by a control that runs the whole bound computation
+  end to end. It fails under mA1–mA4 and mA6. It passes mA5, which halves a margin and stays sound for a single field
+  (10.0).
+
+There is no new existence statement. Existence is proved where the solution is the seed and is not claimed beyond it.
+
+### 10.3 Files and outputs (round 6)
+
+| file | what | md5 (round 5 → round 6) |
+|---|---|---|
+| `checks/blockw5.py` (new) | m5-3: the block condition at W3's weights; controls k1, k2 | 6049a5dc… |
+| `checks/blockw5.out` (new) | its output; 1 s | f2ae0d7d… |
+| `checks/rcert5d.py` | M5-A: C1 through `Engine.kids`; D1, D2 and D4 nits | 46dd9068… → 7366918f… |
+| `checks/rcert5d.out` | collect and census, regenerated | ee48a0e4… → f2ce6061… |
+| `checks/rich5.py` | M5-A: its C1 runs `kids_control` | 29b3f959… → ce036a1e… |
+| `checks/rich5.out` | regenerated (read-only run) | d9a722e0… → eedb7b4c… |
+
+- `data/rcert5_C3.npz` (698569f6…) and `data/rcert5_C3R.npz` (88e16664…) are unchanged before and after every program
+  of this round.
+- The round-5 versions are in the scratchpad: `r5/wsf/rcert5d.r5.py` and `r6/rich5.r5.py`. Git holds them too.
+- rcert5d.py ran as 07835da0… (`r6/rcert5d.ran.py`). After the runs, its docstring's round-6 note was corrected to state
+  mA5 as 10.0 does. With docstrings removed, the two files' code is identical.
+
+Scratch (not committed; under the session's scratchpad):
+- `r6/mut/rcert5d_mA1.py` … `rcert5d_mA6.py` are the verifier's mutants, rebuilt on the repaired file. Their outputs
+  `rcert5d_mA*_collect.out` sit beside them, with mA3's end-to-end run in `rcert5d_mA3_e2e_{worker,collect}.out`. mA3's
+  own checkpoints are in `r6/mA3ck/`.
+- `r6/rcert5d_collect.out` and `r6/rcert5d_census.out` are the two halves of `checks/rcert5d.out`.
+
+### 10.4 The paper: blocks A–E, and Appendix D's rows
+
+These replace 9.9's proposal. They are proposed to the main session, which seats them; this note edits neither the paper
+nor N1STAR-PROOF.md.
+- *Keyed by text.* Each old block occurs exactly once in `RESPONSE-HL-5D.md` at md5 4c1210818f03bcf7d4875a5b11d8b568.
+  It also occurs once at b21cd7caaaa40291ec878ad7b626499a, the paper after 15:59 UTC, whose change is three md5 rows of
+  Appendix D, none of them in these blocks. 9.9's old A, B and C each still occur once in both.
+- *Longest new line:* 120 characters.
+
+**A. The section 9 text on existence at 10 l5.** It replaces 9.9's A.
+- *The old block* now starts at the last two words of paper line 1488 (m5-10). So the first seed's sentence, which still
+  said "not yet told apart", goes. Block A's computed clause states the first seed's late region exactly.
+- *Folded in:* M5-A (the control's description); m5-1, m5-2 (the region, "smooth", the data bound at v = r_h/2), m5-3
+  (the norms; the label is computed), m5-6, m5-7 and m5-8; the nits on "|x| ≤ cos(π/32)" and on "in these norms".
+
+**Old:**
+
+```
+At the
+  first seed the Kretschmann scalar is moderate and converged in angle up to the point where the runs stop converging,
+  and unresolved after it, where a singularity, a steep smooth feature and a defect at the axis are not yet told apart.
+  At the second seed, with the angular and null grids refined together, the two coarser angular resolutions agree up to
+  v ≈ 3.5 and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid, 2400 × 1080, the second
+  seed's M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸,
+  Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48 masks; M = 48 departs from v ≈
+  3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step condition M²/N ≤ c it had been
+  ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed, floating point:
+  `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement
+  `CERTIFY-10L5.md` section 6b). A first certified step is taken: for an explicit approximant of the characteristic
+  data on the data cone, the constraint along its outgoing generators holds to a certified bound at both seeds (at the
+  second, 2.3 × 10⁻⁵ against terms of size 5.3 × 10⁻⁴; certified, ball arithmetic, `docket68/n1star/checks/cdata5.py`).
+  The full Einstein residual of a smoothed three-dimensional approximant built from a run is computed only, 2.5 × 10⁻³
+  of the curvature scale and falling at second order with the grid (`checks/resid5.py`, floating point), and no linear
+  estimate with explicit constants is available for the characteristic problem in the class, so existence at 10 l5
+  remains open (supplement `CERTIFY-10L5-RESULT.md` section 2).
+```
+
+**New:**
+
+```
+At the
+  second seed, with the angular and null grids refined together, the two coarser angular resolutions agree up to v ≈ 3.5
+  and the finest departs from them from v ≈ 3.25, at every angle. On a finer null grid, 2400 × 1080, the second seed's
+  M = 32 and 40 angular resolutions agree to 0.09 K_0 up to v = 3.5 and to 0.53 K_0 up to v = 4.5 (K_0 = 72/R⁸,
+  Tangherlini's Kretschmann scalar at the same areal radius), away from the cells M = 48 masks; M = 48 departs from
+  v ≈ 3.25 exactly as at 1600 × 720, so the finer null grid does not move it, and the step condition M²/N ≤ c it had
+  been ascribed to is refuted (M²/N = 0.96). The late region stays unresolved (computed, floating point:
+  `docket68/n1star/checks/g1curv5.py --seed2-2400`, output `checks/g1curv5_seed2_2400.out`; supplement `CERTIFY-10L5.md`
+  section 6b). Existence at 10 l5 is proved where the solution is the seed (v ≤ r_h/2) and is not claimed beyond it.
+  Toward a computer-assisted proof the following hold, each with its status. Certified (ball arithmetic): on the data
+  cone the outgoing constraint of an explicit approximant holds to 5.0 × 10⁻⁵ and 2.3 × 10⁻⁵ at the two seeds, 4.1–4.3 %
+  of the terms that cancel in it (`docket68/n1star/checks/cdata5.py`); on u ∈ [−4, −1.1] r_h, v ∈ [0.55, 1.6] r_h,
+  |x| ≤ cos(π/32), the Einstein residual of an explicit three-dimensional approximant, Richardson-extrapolated from two
+  null grids, its coefficients pinned by md5 (`docket68/n1star/data/rcert5_C3R.npz`), is at most 3.73 × 10⁻⁵ of the
+  curvature scale at 16,128 points and at most 5.0 × 10⁻⁴ as a supremum over a sub-box of each of four of the 416 boxes
+  covering that region, on which the single-grid approximant (`data/rcert5_C3.npz`) has certified values of
+  1.1–2.4 × 10⁻³ (`checks/rich5.py`), and the single-grid approximant's supremum over one interior box of the 416 is
+  at most 3.01 × 10⁻⁴ (`checks/rcert5d.py`; both certificates' bounds are checked by a control that runs the whole bound
+  computation on test fields with exact suprema and catches each mutation of it tried that under-bounds them, and by
+  independent certified point values at the centre and corners of every accepted sub-box). Deduced: the class is
+  (2+1)-dimensional gravity coupled to a wave map into the flat plane (`checks/reduce5.py`); in the free metric
+  formulation, at frozen coefficients on spherical states, the shift's angular derivative is of principal size at high
+  angular frequency and drives δR at order k², so no estimate without loss of derivatives holds for the
+  frozen-coefficient problem (`checks/symbol5s.py`; for the constraint-preserving formulation a loss is indicated by a
+  model only); in double-null gauge the reduced transport equations carry no angular derivative of an unknown on their
+  right sides (`checks/null3.py`, `checks/linest5.py`), and a linear estimate with explicit constants holds on truncated
+  domains of dependence away from the axes, at level 0 and at level 1 in the cones' L² norms (supplement Theorems 7.L,
+  8.L1 and 8.W; `checks/lev1_5.py`, `checks/wgron5.py`); near each axis the class is four-dimensional axisymmetric
+  Einstein–scalar in a chart regular at the axis, where [Wu26]'s curvature pairs have energy identities on the whole
+  section, the angular recoveries hold with explicit Hardy constants, and [Wu26]'s transport equations, mass aspects and
+  the scalar's pairs hold in reduced form with every angular derivative on their right sides recovered from the
+  hierarchy's own unknowns (`checks/axis5.py`, `checks/axisbianchi5.py`, `checks/axhier5.py`; identities verified at
+  random jets); and, for smooth characteristic data that satisfy the constraints, a smooth T²-invariant vacuum
+  development exists on the region u ∈ [−10, u*] r_h, v ∈ [r_h/2, v*] of the gauge, the axes included, whenever on that
+  region the difference of a vacuum metric from the approximant obeys a linear estimate with constant F at every level,
+  the quadratic remainder has constant G, the approximant's residual r satisfies 4F²Gr < 1 and the difference at
+  v = r_h/2 is at most Fr, by continuity from the higher-dimensional neighbourhood theorem of [CTG23], the hierarchy
+  being applied only to genuine metrics, for which its compatibility with the metric holds by definition
+  (`checks/cont5.py`); these hypotheses are established on no such region beyond the seed. Computed (floating point): on
+  |x| ≤ 1/2 over the region above, where no truncated domain exists, the estimate's constant is F² = 10^138, and 10^66.9
+  with Theorem 8.W's weights, at which 4F²Gr < 1 asks r of order 10⁻⁶⁸/G; the couplings across an angular Galerkin cut,
+  N-independent by an identity (deduced), are of the coefficients' own size there, so the block (Schur) condition under
+  which an estimate on the high angular modes would lower the constant fails at every angular resolution, in Theorem
+  7.L's unweighted norms and at Theorem 8.W's weights (`checks/blocks5.py`, `checks/blockw5.py`); the first seed's
+  solution, in a constraint-preserving scheme whose singular coupling at the axes is regularised (`checks/cpaxis5.py`),
+  is consistent with second-order convergence on two null grids (ratios 3.8–4.0) and resolved in angle to v ≈ 1.8 r_h at
+  areal radius ≥ 0.9 r_h and to v ≈ 2.0 r_h at ≥ 1.2 r_h, an order of convergence not being established, and the free
+  scheme's solution is consistent with second-order convergence to v ≈ 1.8 r_h at areal radius ≥ r_h as well
+  (`checks/late5b.py`); beyond, a constraint violation persists under both refinements and the curvature invariant is
+  unresolved in angle (supplement `CERTIFY-10L5-RESULT.md` sections 2 and 6–10).
+```
+
+Statuses, as the new text gives them:
+- *certified:* the data cone; the Richardson approximant at 16,128 points and on a sub-box of each of four boxes; the
+  single-grid approximant's one box. Both certificates are checked by the end-to-end control and the D4 gate.
+- *deduced:* the reduction; the frozen-coefficient loss; the transport structure; Theorems 7.L, 8.L1 (in the cones' L²
+  norms) and 8.W; the axis chart's pairs, Hardy constants and reduced hierarchy (identities at random jets); Lemma 9.C,
+  conditional on hypotheses established on no region of its form beyond the seed; the N-independence of the cut
+  couplings (Lemma 9.H).
+- *computed:* the constants and the closing condition's demand; the block condition's failure, unweighted and at W3's
+  weights; the late region's convergence on two grids, and what persists beyond it.
+- *not claimed:* existence beyond the seed.
+
+**B. The untrapped-columns sentence.** As 9.9's B, unchanged; its old text occurs once at the current md5.
+
+**C. A reference for [CTG23].** As 9.9's C, unchanged; its old text occurs once at the current md5.
+
+**D. Appendix D: what the new programs need, what they import, and their md5 rows (m5-9).**
+
+D1, the packages. **Old:**
+
+```
+recorded here); z3-solver for `foliation5.py`; python-flint for `cdata5.py`; numpy for `bondi5.py` and `growth5.py`,
+```
+
+**New:**
+
+```
+recorded here); z3-solver for `foliation5.py` and `checks/cont5.py`; python-flint for `cdata5.py` and for
+`checks/rcert5.py` and every program that imports it; scipy for `checks/lev1_5.py` and `checks/wgron5.py`; numpy for
+`bondi5.py` and `growth5.py`,
+```
+
+D2, the imports. **Old:**
+
+```
+`checks/vii5census.py`; the others import nothing from the research tree:
+```
+
+**New:**
+
+```
+`checks/vii5census.py`, `checks/reduce5.py` imports `dnull5.py`, `checks/symbol5s.py` imports `checks/symbol5.py`, which
+imports `dnsolve5.py`, `checks/linest5.py` imports `checks/null3.py` and `dnsolve5.py`, `checks/lev1_5.py` imports
+`checks/linest5.py` and `checks/wgron5.py`, `checks/wgron5.py` and `checks/blocks5.py` import `checks/linest5.py`,
+`checks/axis5.py` imports `checks/linest5.py` and `dnull5.py`, `checks/axhier5.py` imports `checks/axisbianchi5.py`,
+`checks/cont5.py` imports `checks/null3.py`, `checks/cpsolve5.py` imports `dnsolve5.py`, `checks/cpaxis5.py` imports
+`checks/cpsolve5.py`, `checks/cp3grid5.py` imports `checks/cpsolve5.py` and `checks/cpaxis5.py`, `checks/rcert5.py`
+imports `checks/resid5.py` and `checks/bondisph5.py`, `checks/rcert5c.py` and `checks/rcert5d.py` import
+`checks/rcert5.py`, `checks/rich5.py` imports `checks/rcert5.py` and `checks/rcert5d.py`, and `checks/blockw5.py` reads
+`checks/blocks5.out` and `checks/wgron5.out`; the others import nothing from the research tree:
+```
+
+D3, the md5 rows, after cdata5.out's row. **Old:**
+
+```
+| `docket68/n1star/checks/cdata5.out` | `6536abcba46ec57a5dca8ced814b7788` |
+```
+
+**New:**
+
+```
+| `docket68/n1star/checks/cdata5.out` | `6536abcba46ec57a5dca8ced814b7788` |
+| `docket68/n1star/checks/reduce5.py` | `0458f70bc710ad3ce966f242bd76e5f0` |
+| `docket68/n1star/checks/reduce5.out` | `b0fb5b28fa8499d5fa70226a1b3ed1ee` |
+| `docket68/n1star/dnull5.py` | `2035d34bf399cd6ba5c5550d9718ceab` |
+| `docket68/n1star/checks/symbol5s.py` | `8441ecf58bab566dda5b5d50c8327f97` |
+| `docket68/n1star/checks/symbol5s.out` | `7d51dbf663724abf64087f39974f35c9` |
+| `docket68/n1star/checks/symbol5.py` | `14168943230c0c64d18a94fd7f55912e` |
+| `docket68/n1star/checks/null3.py` | `767dd3bd58f5c517c99165e1d44f1eb9` |
+| `docket68/n1star/checks/null3.out` | `0288d263c81bd929f3ce5647350d69ed` |
+| `docket68/n1star/checks/linest5.py` | `34dc9b3d6594771ace2a4257b3a15191` |
+| `docket68/n1star/checks/linest5.out` | `cdc11bfb156dbd6dfa2ec2f744d0e842` |
+| `docket68/n1star/checks/lev1_5.py` | `bbb29f53599e58d3702d8b7dc5c9aeab` |
+| `docket68/n1star/checks/lev1_5.out` | `b6be6a0bf20f95febfba64707fcf3bb8` |
+| `docket68/n1star/checks/wgron5.py` | `a764e73c0be0ec38467bc986f7d84bb2` |
+| `docket68/n1star/checks/wgron5.out` | `47170f09530b20e8d49f1a56660f55c1` |
+| `docket68/n1star/checks/axis5.py` | `ed855afc7cacbb6397659e4ab3549d60` |
+| `docket68/n1star/checks/axis5.out` | `5cae43e255046b6b4d24b594227c84b0` |
+| `docket68/n1star/checks/axisbianchi5.py` | `86d8af8e9024487ee7bd947bce954588` |
+| `docket68/n1star/checks/axisbianchi5.out` | `999b80bedb9aaccc627e17002746a912` |
+| `docket68/n1star/checks/axhier5.py` | `aa134baade41c3a0664844a4424a567a` |
+| `docket68/n1star/checks/axhier5.out` | `0b192015028c3ea2536964f28af58137` |
+| `docket68/n1star/checks/cont5.py` | `d5ada772efca2d1fd2b8fec5fc1832e9` |
+| `docket68/n1star/checks/cont5.out` | `d4fc239715575ac4757ce2831b259f58` |
+| `docket68/n1star/checks/blocks5.py` | `201c163bb0a554b4677c754a85ab4e83` |
+| `docket68/n1star/checks/blocks5.out` | `b0468571355f78d03975d63da638308a` |
+| `docket68/n1star/checks/blockw5.py` | `6049a5dcb3a362c99ccbe2fb7e950807` |
+| `docket68/n1star/checks/blockw5.out` | `f2ae0d7d80a3c238b83c9ec36a66c87c` |
+| `docket68/n1star/checks/cpsolve5.py` | `96768ccce2e58f7a4d2e38e0219778e0` |
+| `docket68/n1star/checks/cpaxis5.py` | `6fb010b7b948178c58bb7c65e06681d9` |
+| `docket68/n1star/checks/cpaxis5.out` | `e89a7902beebffb67a432baa133cb82f` |
+| `docket68/n1star/checks/cpaxis5_run1.out` | `7775c999a88c195d189c87d9294e9ce4` |
+| `docket68/n1star/checks/cpaxis5_a4.out` | `ae4511e1c474eff3f88bcfeb79aa26cd` |
+| `docket68/n1star/checks/cpaxis5_a5.out` | `6565c01c5191ceca28a03882f82f2d4e` |
+| `docket68/n1star/checks/cpaxis5_a6.out` | `cee235fc3c4833486f3d66a4e20f260c` |
+| `docket68/n1star/checks/cpaxis5_a6_400.out` | `94c9c5a53543c764f1e00d037a49ff33` |
+| `docket68/n1star/checks/cp3grid5.py` | `98f5f01dc14a1858ba3d11696a69276b` |
+| `docket68/n1star/checks/cp3grid5_control.out` | `1af3c04e9c7ec030e11798fb86454da7` |
+| `docket68/n1star/checks/cp3grid5_a8_2grid.out` | `dc3380ec644732a430bb02e7af310c9c` |
+| `docket68/n1star/checks/cp3grid5_a9_800.out` | `c7d7752b7f389ed261b4b1c6871354fb` |
+| `docket68/n1star/checks/cp3grid5_a10_2grid.out` | `7986c6b71f4dc8ec825ae8d28c9475c7` |
+| `docket68/n1star/checks/late5b.py` | `5225f2b4aa53dc1ab452e2355d499ef8` |
+| `docket68/n1star/checks/late5b.out` | `ece3e7f063a049a15a5b91ed56c2b555` |
+| `docket68/n1star/checks/late5b_small.out` | `be8da58288ee92cd765d25b48c167b41` |
+| `docket68/n1star/checks/rcert5.py` | `bf6d843d5963534eaab5ac4123479aa9` |
+| `docket68/n1star/checks/rcert5c.py` | `281cd2ea76acbe4fb6e04961bdd0521a` |
+| `docket68/n1star/checks/rcert5c.out` | `b4790b613b72f25a492b02ae51dd8503` |
+| `docket68/n1star/checks/rcert5d.py` | `7366918fca69b0a5eab5aca85071a1a0` |
+| `docket68/n1star/checks/rcert5d.out` | `f2ce606146502a3e177372fc531854e7` |
+| `docket68/n1star/checks/rich5.py` | `ce036a1eaa59a9ce103b6b91acfba078` |
+| `docket68/n1star/checks/rich5.out` | `eedb7b4c58e6af3d630247563be6f335` |
+| `docket68/n1star/checks/rich5_runs.out` | `64d3a967c368dcd036c758fe842b51f6` |
+| `docket68/n1star/data/rcert5_C3.npz` | `698569f6faaab4420fe2e67abc860561` |
+| `docket68/n1star/data/rcert5_C3R.npz` | `88e16664187868e47eaaaa18709cfc61` |
+| `docket68/n1star/CERTIFY-10L5-RESULT.md` | `04df75f606fa8c6a264972ee9174f737` |
+```
+
+- The md5s are the files' own at the time of this append, with one exception: `CERTIFY-10L5-RESULT.md` cannot print its
+  own md5. Its cell holds the file's md5 before this append (04df75f6…), in the form R9 parses. After seating,
+  `python3 response5.py --update-md5` rewrites it to the file's md5 at that commit, and R9 checks every row.
+- The rows cover every file block A cites, beyond those already in the table: `cdata5.py`, `g1curv5.py` and its seed-2
+  output, and `CERTIFY-10L5.md`. Their rows match the files at this append. Each cited program's output and each module
+  it imports is covered too.
+- The runs the programs read are not in the repository: `runs/l1_M16_{400,800}.npz` (rich5 `--runs`) and the record's
+  D432 runs (9.8). Their md5s are in 9.8 and in the programs' outputs.
+
+**E. Appendix C: the source map's section 9 row for the residual.**
+- Block A no longer cites `resid5.py`'s smoothed approximant. It cites the programs below instead.
+- `resid5.py` keeps its Appendix D row, because `rcert5.py` imports it.
+
+**Old:**
+
+```
+| section 9: residual of a smoothed 3D approximant | `docket68/n1star/checks/resid5.py` Q1–Q2 |
+```
+
+**New:**
+
+```
+| section 9: the residual of the Richardson approximant | `docket68/n1star/checks/rich5.py` R0–R3, C1–C3 |
+| section 9: the single-grid approximant's supremum over one box | `docket68/n1star/checks/rcert5d.py` D0–D4, C1–C2 |
+| section 9: the class; frozen-coefficient loss; transport structure | `docket68/n1star/checks/reduce5.py` R0–R4; |
+| | `docket68/n1star/checks/symbol5s.py` S1–S6; `checks/null3.py` N0–N10; `checks/linest5.py` E1–E9 |
+| section 9: the linear estimate at levels 0 and 1, and its constant | `docket68/n1star/checks/linest5.py` E1–E9; |
+| | `docket68/n1star/checks/lev1_5.py` L1–L5; `checks/wgron5.py` W1–W5 |
+| section 9: the axes: chart, pairs, Hardy constants, reduced hierarchy | `docket68/n1star/checks/axis5.py` X1–X7; |
+| | `docket68/n1star/checks/axisbianchi5.py` B1–B4; `checks/axhier5.py` A1–A7, M1–M4, S1–S3 |
+| section 9: existence by continuity from [CTG23], conditional | `docket68/n1star/checks/cont5.py` C1–C2 |
+| section 9: the block condition, unweighted and at the weights | `docket68/n1star/checks/blocks5.py` H1–H2; |
+| | `docket68/n1star/checks/blockw5.py` B1–B2 |
+| section 9: the late region | `docket68/n1star/checks/cpaxis5.py` A1–A6; `checks/cp3grid5.py` A8–A10; |
+| | `docket68/n1star/checks/late5b.py` L5–L7 |
+```

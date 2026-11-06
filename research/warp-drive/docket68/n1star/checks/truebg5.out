@@ -5,3 +5,7 @@ T1 the data on N' over the packet, u in [5.7, 7.2], enclosed (validated, 1500 st
 T1 PASS
    R_* in [3.437180067, 3.437180067] (intcert5 C3's bisection)
 T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)
+   certified on every cell: True (276 rays; slice pieces tested: region I 1, packet 8834 step boxes, region III 119; largest upper bound of kappa K^l_l = -4.7634e-03; 1607 s)
+   control: every packet input widened by half its size, 8834 of 8834 step boxes not certified (rejected): True
+T3 PASS
+T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself: the computed spline is within intcert5 C1d's tube of psi_III (certified a posteriori), and C1d certifies Gamma > 0 on the tube
