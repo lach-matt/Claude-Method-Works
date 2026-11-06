@@ -51,3 +51,12 @@ U4 PASS
   U5: dr*/dr = 1/f True; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) True; d(-UV)/dr = e^2/(2 r_h) at r_h True; f/(-UV) = (r +
       r_h)^2 e^(-2r/r_h)/r^2 True; d_u d_v = -(UV/r_h^2) d_U d_V True; d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2 True; d_t^2 -
       d_r*^2 = 4 d_u d_v True; d(-UV)/dr = 2 r^2 e^(2r/r_h)/(r_h (r + r_h)^2) > 0 on r > 0: True
+  U5: int_{r_h}^oo V/f dr at l = 2, r_h = 1: 11/2 = 5.50000000000, finite: True
+  U5 control (V/f + 1/r): int_{r_h}^oo V/f dr at l = 2, r_h = 1: oo = oo, finite: False
+U5 PASS
+  U6: d_r T^j P on C for j = 2, 3, 4 starts at rho^[2, 2, 2] (rho = 1/r), coefficients [-A*(4*m + 15)/8, -B*(4*m + 15)/8,
+      -C3*(4*m + 15)/8] (= -(m + 15/4)/2 times A, B, C3; the recursion re-checked by r-differentiation); r^p energies (p
+      <= 2) finite: True
+  U6 control (V/f + 1/r): d_r T^j P on C for j = 2, 3, 4 starts at rho^[1] (rho = 1/r), coefficients - (= -(m + 15/4)/2
+      times A, B, C3; the recursion re-checked by r-differentiation); r^p energies (p <= 2) finite: False
+U6 PASS
