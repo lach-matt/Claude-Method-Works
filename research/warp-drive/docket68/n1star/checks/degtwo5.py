@@ -8,31 +8,35 @@ R5.2 and R5.4: Lemmas L.15_P (b), L.17, L.18 written in full; Theorem L.24 (one 
      general metric g(x, y) on R^3 (six free functions) against the flat background.  So the quadratic remainder
      N(u) := Ric^H(gb + u) - dRic^H(u) obeys |N(u)| <= C (|u| |d^2 u| + |du|^2 + |u|^2), with no (d^2 u)^2 term.
      Control: Ric itself (without the gauge term) keeps second derivatives outside g^ab d_a d_b.
-  T2 (exact) The seed with mu(v) against the static seed mu0: every component of Gamma[g0] - Gamma[g0 deg] is
-     (mu - mu0) times a function of (r, th) plus mu' times one, and nothing else; so Ric^H relative to g0 and relative
-     to g0deg differ by A(g), linear in (mu - mu0, mu', mu''), local in v (the mu-terms of L.17).  Control: against a
+  T2 (exact) The seed with mu(v) against the static seed mu0: every component of Gamma[g0] - Gamma[g0 deg] is a
+     polynomial of degree <= 2 in (mu - mu0, mu') with coefficients functions of (r, th) and no constant term; so Ric^H
+     relative to g0 and relative to g0deg differ by A(g), bounded by C (|mu - mu0| + |mu'| + |mu''|) with its
+     derivatives, local in v (the mu-terms of L.17).  Control: against a
      wrong background (mu0 + 1 in place of mu0) the difference has a constant term.
   T3 (exact) The tilted face with any tilt: for alpha = dv + e psi' dtau, g0^-1(alpha, alpha) = -2 e psi' - e^2 psi'^2
      (1 + mu/r^2) and |alpha|_e^2 = (1 + e psi')^2 + 1; if |(g - g0)^-1(beta, beta)| <= D psi' |beta|_e^2 (the weight
      psi' = t^(-3/2) on P, 1 on Omega) and e >= 2 D, e psi' <= 1/2, then g^-1(alpha, alpha) < 0.  Control: e = D
      admits a positive value.
   T4 (computed, mpmath; unit constants, lam = 1e-6, N = 9, c = 30, C = 10^3) The descent of Lemma L.18: y_(k+1) defined
-     by 1/kappa(v_s + y_(k+1)) = 6 delta_(k+1), delta_(k+1) := C kappa(v_s + 3 y_k)^c env(v_s + 3 y_k), from y_0 =
-     10^-2; for exp(-1/x) and the record's C_c^inf envelope, y_(k+1) < y_k/2 for k < 8 and y_k -> 0 faster than any
-     geometric sequence; hypothesis (H_D) sampled: kappa(v_s + y/2) kappa(v_s + 3y)^c env(v_s + 3y) decreasing to 0.
-     Control: env = x^40 (smooth, not flat at that order) stalls (y_1 > y_0/2).
+     by 1/kappa(v_s + y_(k+1)) = 6 delta_(k+1), delta_(k+1) := C kappa(v_s + 4 y_k)^c env(v_s + 4 y_k), from y_0 =
+     10^-4 (x_D depends on the cost c: at y = 10^-2 the model's delta exceeds 1); for exp(-1/x) and the record's
+     C_c^inf envelope, three steps, each y_(k+1) < y_k/2 (in fact log y_(k+1) of the order of -1/y_k: faster than any
+     geometric sequence); hypothesis (H_D) sampled: kappa(v_s + y/2) kappa(v_s + 4y)^c env(v_s + 4y) below 1 and
+     decreasing at y = 10^-4, 3 10^-5, 10^-5.
+     Control: env = x^40 (smooth, not flat at that order) stalls at once.
   T5 (computed; unit constants) The transition (Theorem L.24): with m0 = sqrt(mu/mu0) - 1 + 2 r_q', mu = 1 + (2/9) int
      env^2, A = mu0 = 1, the record's envelope and exp(-1/x): m0'/m0 >= 1.9 kappa where R in [0.9, 1.1], so m0' -
      |S'| >= 0.85 kappa m0 for S = lam^3 nu env (|S'| = kappa |S|); and in a model g^-1 = -m0 - Re[S e^(i v/lam)] + rho,
      rho a slowly varying degree-two term of size lam^(1/10) m0 plus a structureless one of size lam^3 m0, the maxima
      over consecutive carrier periods decrease through the band and change sign once (lam = 1e-6, exp(-1/x)).  Control:
      rho structureless of size m0/3 gives more than one sign change.
-  T6 (computed, bounds) Dips (Proposition L.25): env := sum_n exp(-4^n) beta(2^(n+2) (x - 2^-n)) near v_s (beta the
-     standard bump on [-1, 1]; C_c^inf, zero on intervals J_n between the bumps); at lam = 1e-6 the bump with height
-     in [lam^3.5, lam^3.1] has n = 6; on J_6 the first-degree term is at most lam^5 sup|d_u^4 (u bump)| (four
-     integrations by parts of I_2) and the U1-memory at most lam^(N+1) lam^4 sup|bump^(N+4)| (Lemma 6.4's Green's
-     function is lam-independent), while m0 >= (1/9) int bump^2: the boundary is spacelike on every window of J_6 at
-     every angle.  Control: on the bump itself (env = h_6 at its top) the margin does not dominate (timelike points).
+  T6 (computed, bounds) Dips (Proposition L.25): env := sum_n exp(-n^2) beta(2^(n+2) (x - 2^-n)) near v_s (beta =
+     exp(-1/(1 - t^2)) on [-1, 1]; C_c^inf, flat at v_s since exp(-n^2) 2^(kn) -> 0 for every k, and zero on the
+     intervals J_n between the bumps); at lam = 1e-6 the bump with height in [lam^4, lam^3.1] has n = 7; on J_7 the
+     first-degree term is at most lam^9 int|d_u^8 (u bump)| (eight integrations by parts of I_2; sups of beta^(j) on a
+     grid of 799 points) and the U1-memory at most lam^(N+1) lam^8 sup|bump^(N+8)| times its width (Lemma 6.4's
+     solution operator is lam-independent), while m0 >= (2/27) int bump^2: the boundary is spacelike on every window of
+     J_7 at every angle.  Control: on the bump's top the first-degree term lam^3 env/9 exceeds the margin.
 
 Labels: T1-T3 computed (exact, sympy); T4, T6 computed (mpmath, bounds; T4 a model with unit constants); T5 computed
 (mpmath; m0's formula exact, S a model).  Run: python3 checks/degtwo5.py   (a few minutes)
@@ -125,11 +129,16 @@ def t2(control=False):
                 e = sp.simplify(G1[a][b][cc] - G0[a][b][cc])
                 e = e.subs(sp.Derivative(mu, v), mp1).subs(mu, mu0 + dm)
                 e = sp.expand(e)
-                ok &= sp.simplify(sp.diff(e, dm, 2)) == 0 and sp.simplify(sp.diff(e, mp1, 2)) == 0
-                ok &= sp.simplify(sp.diff(e, dm, mp1)) == 0 and sp.simplify(e.subs({dm: 0, mp1: 0})) == 0
+                ok &= sp.simplify(e.subs({dm: 0, mp1: 0})) == 0
+                try:
+                    pl = sp.Poly(e, dm, mp1)
+                    ok &= pl.total_degree() <= 2 and all(c_.free_symbols <= {r, th, mu0} for c_ in pl.coeffs())
+                except sp.PolynomialError:
+                    ok = False
     if control:
         return ok
-    out("  T2 Gamma[g0] - Gamma[g0deg] linear in (mu - mu0, mu') with no constant term, every component: %s" % ok)
+    out("  T2 Gamma[g0] - Gamma[g0deg] a polynomial of degree <= 2 in (mu - mu0, mu') with coefficients in (r, th, mu0)"
+        " and no constant term, every component: %s" % ok)
     return ok
 
 
@@ -158,46 +167,47 @@ def rec_ell(x):
     return 12*mp.log(mp.sin(mp.pi*t/2)) + 1 - 1/(t*(2 - t))
 
 
+def rec_kap(x):
+    t = 2*x/3
+    return mp.mpf(2)/3*(6*mp.pi*mp.cot(mp.pi*t/2) + 2*(1 - t)/(t**2*(2 - t)**2))
+
+
 def t4(control=False):
     mp.mp.dps = 40
     C, c = mp.mpf(10)**3, 30
-    edges = [("exp(-1/x)", lambda x: -1/x), ("record C_c^inf", rec_ell)]
+    edges = [("exp(-1/x)", lambda x: -1/x, lambda x: 1/x**2), ("record C_c^inf", rec_ell, rec_kap)]
     if control:
-        edges = [("x^40", lambda x: 40*mp.log(x))]
+        edges = [("x^40", lambda x: 40*mp.log(x), lambda x: 40/x)]
     rows, ok = [], True
-    for nm, ell in edges:
-        kap = lambda x: mp.diff(ell, x)                                            # noqa: E731
-        y = mp.mpf('0.01')
+    for nm, ell, kap in edges:
+        y = mp.mpf('1e-4')
         ys = [y]
         good = True
-        for k in range(8):
-            ldel = mp.log(C) + c*mp.log(kap(3*y)) + ell(3*y)                     # log delta_(k+1)
-            # y_(k+1): 1/kappa(y) = 6 delta, i.e. log kappa(y) = -log 6 - log delta; kappa decreasing in y
-            target = -mp.log(6) - ldel
-            lo, hi = mp.mpf('1e-300'), y
-            if mp.log(kap(hi)) >= target:
-                yn = hi
-            else:
-                for _ in range(400):
-                    mid = mp.sqrt(lo*hi) if lo > 0 else hi/2
-                    if mp.log(kap(mid)) > target:
-                        lo = mid
-                    else:
-                        hi = mid
-                yn = hi
+        for k in range(3):
+            ldel = mp.log(C) + c*mp.log(kap(4*y)) + ell(4*y)                     # log delta_(k+1)
+            target = -mp.log(6) - ldel                                            # need log kappa(y') <= target
+            if mp.log(kap(y)) > target:                                           # even y itself is not local
+                good = False
+                break
+            lo, hi = -mp.log(y), -mp.log(y) + abs(target) + 10                    # z = -log y'
+            for _ in range(300):
+                mid = (lo + hi)/2
+                if mp.log(kap(mp.exp(-mid))) > target:
+                    hi = mid
+                else:
+                    lo = mid
+            yn = mp.exp(-lo)
             good &= yn < y/2
             y = yn
             ys.append(y)
-            if y < mp.mpf('1e-250'):
-                break
-        hd = [kap(t/2)*kap(3*t)**c*mp.exp(ell(3*t)) for t in (mp.mpf('0.01'), mp.mpf('0.003'), mp.mpf('0.001'))]
-        dec = hd[0] > hd[1] > hd[2]
-        ok &= good and (dec or control)
-        rows.append("%s: y_k = %s; y_(k+1) < y_k/2 throughout: %s; (H_D) quantity at 0.01, 0.003, 0.001: %s" % (
-            nm, [mp.nstr(t, 3) for t in ys[:5]], good, [mp.nstr(h, 3) for h in hd]))
+        hd = [kap(t/2)*kap(4*t)**c*mp.exp(ell(4*t)) for t in (mp.mpf('1e-4'), mp.mpf('3e-5'), mp.mpf('1e-5'))]
+        dec = hd[0] > hd[1] > hd[2] and hd[0] < 1
+        ok &= good and dec
+        rows.append("%s: log10 y_k = %s; y_(k+1) < y_k/2: %s; (H_D) quantity at 1e-4, 3e-5, 1e-5: %s" % (
+            nm, [mp.nstr(mp.log10(t), 4) for t in ys], good, [mp.nstr(h, 3) for h in hd]))
     if control:
         return ok
-    out("  T4 descent (unit constants C = 10^3, c = 30): " + "; ".join(rows))
+    out("  T4 descent (unit constants C = 10^3, c = 30, from y_0 = 10^-4): " + "; ".join(rows))
     return ok
 
 
@@ -275,43 +285,43 @@ def t5(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ T6
-def bump(t):
-    return mp.exp(-1/(1 - t*t)) if abs(t) < 1 else mp.mpf(0)
-
-
 def t6(control=False):
     mp.mp.dps = 40
     lam = mp.mpf(10)**-6
-    N = 9
+    N, k = 9, 8
+    tt = sp.Symbol('t')
+    bsym = sp.exp(-1/(1 - tt**2))
+    ders = [bsym]
+    for _ in range(N + k + 1):
+        ders.append(sp.diff(ders[-1], tt))
+    fd = [sp.lambdify(tt, d_, 'mpmath') for d_ in ders]
+    grid = [mp.mpf(i)/400 - mp.mpf('0.9975') for i in range(799)]
+    supb = [max(abs(f(t)) for t in grid) for f in fd]
     n = None
-    for k in range(1, 12):
-        h = mp.exp(-mp.mpf(4)**k)*bump(0)
-        if lam**mp.mpf('3.5') <= h <= lam**mp.mpf('3.1'):
-            n = k
+    for nn in range(2, 15):
+        h = mp.exp(-nn**2 - 1)
+        if lam**4 <= h <= lam**mp.mpf('3.1'):
+            n = nn
             break
     if n is None:
         return False
-    hn = mp.exp(-mp.mpf(4)**n)
+    hn = mp.exp(-mp.mpf(n)**2)
     s = mp.mpf(2)**(n + 2)
-    # sup |d_u^4 (u b(s u))| on the bump's support (u <= 2^-n + 1/s): Leibniz, sup |b^(j)| sampled finely
-    supb = []
-    for j in range(N + 5):
-        supb.append(max(abs(mp.diff(bump, t, j)) for t in [mp.mpf(i)/200 - mp.mpf(0.995) for i in range(399)]))
-    umax = mp.mpf(2)**(1 - n)
-    d4 = hn*(umax*s**4*supb[4] + 4*s**3*supb[3])
-    first = lam*lam**4*d4/9                                    # lam |I_2| |nu_inf d| <= lam * lam^4 int|d^4(...)| / 9
-    umem = lam**(N + 1)*lam**4*hn*s**(N + 4)*supb[N + 4]*(2/s)
     width = 2/s
-    l2 = hn**2*mp.quad(lambda t: bump(t)**2, [-1, 1])/s
-    m0low = 2*l2/27                                            # m0 >= (mu - mu0)/(3 mu0) = (2/27) int env^2
+    umax = mp.mpf(2)**(1 - n)
+    dk = hn*(umax*s**k*supb[k] + k*s**(k - 1)*supb[k - 1])           # sup |d_u^k (u bump_n(v - u))|
+    first = lam*lam**k*dk*width/9                                     # lam |I_2| |nu_inf d|, k integrations by parts
+    umem = lam**(N + 1)*lam**k*hn*s**(N + k)*supb[N + k]*width          # U1's memory (Lemma 6.4's operator)
+    l2 = hn**2*mp.quad(lambda t: fd[0](t)**2, [-1, 0, 1])/s
+    m0low = 2*l2/27                                                   # m0 >= (mu - mu0)/(3 mu0) = (2/27) int env^2
     if control:
-        # on the bump's top: env = h_n, the first-degree term lam^3 env/9 against m0 <= (h_n^2 (1 + 2/s))/9
-        return lam**3*hn*bump(0)/9 < hn**2*(1 + width)/9
+        # on bump n's top, env = h_n e^-1: the first-degree term lam^3 env/9 against m0 <= h_n^2 (1 + width)/9
+        return lam**3*hn*mp.exp(-1)/9 < hn**2*(1 + width)/9
     ok = first + umem < m0low/2
-    out("  T6 the bump with height in [lam^3.5, lam^3.1] at lam = 1e-6: n = %d (h = %s = lam^%s); on J_n: first-degree"
-        " term <= %s, U1-memory <= %s, m0 >= %s: spacelike throughout: %s" % (
-            n, mp.nstr(hn*bump(0), 4), mp.nstr(mp.log(hn*bump(0))/mp.log(lam), 4), mp.nstr(first, 3),
-            mp.nstr(umem, 3), mp.nstr(m0low, 3), ok))
+    out("  T6 the bump with height in [lam^4, lam^3.1] at lam = 1e-6: n = %d (height lam^%s); on J_n, %d integrations"
+        " by parts: first-degree term <= %s, U1-memory <= %s, m0 >= %s: spacelike throughout: %s" % (
+            n, mp.nstr(mp.log(hn*mp.exp(-1))/mp.log(lam), 4), k, mp.nstr(first, 3), mp.nstr(umem, 3),
+            mp.nstr(m0low, 3), ok))
     return ok
 
 

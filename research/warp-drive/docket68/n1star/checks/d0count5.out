@@ -1,0 +1,37 @@
+d0count5: the closed-graph orders of Part II counted (Appendix R7.A), and D_0 at the record's orders
+  Q0 (READ): the closed-graph sites found by content: {'II.A Lemma 8.5': True, 'II.A2 Lemma 1.2': True, 'II.A2 Prop 2.4':
+      True}; every "closed graph" line of Part II lies in II.A or II.A2 (9 lines): True
+  Q1: Theorem A.1 with N = 11 pure derivatives each, delta = 1/100 < 2/(2 + 5n) = 2/27: adjacent-shell sums need N/2 > n:
+      True; distant-shell exponent -0.4325 < 0: True
+  Q4: s_in = 9 > 17/2, s_out = -8 < -15/2 (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): True; s
+      in [-8, 9], s0 = s - 2 in [-10, 7]; the chain's orders in [-14, 11], N <= 14
+  Q2: D_a = 49 (J = 33, M0 = 8, t0 = -15), D_b = 64 (Jb = 35, sigma = 11, M1 = 9), Lemma 8.6 d_0 = 60; the remainder
+      kernels converge: True
+  Q3: M_a = 73 (pieces P1..P5 = (71, 63, 73, 41, 42); J1 = 31, J2 = 31, J3 = 6); Proposition 2.4 (b)-(f) with chart
+      changes: M_2.4 = 171 (composition 170, C_ch = 90); every remainder condition holds: True
+  Q5: 89 d_0 lines classified, 0 unclassified; classes ['closed graph (Lemma A.5/A.6)', 'constant 0', 'constant 1',
+      'constant 2', 'constant 3', 'constant 5', 'increment 1', 'increment 2', 'increment 2 over d_1', 'increment 3',
+      'increment 4', 'statement or largest-of']; largest explicit increment d_0 - 4
+  D_0: (L3) d_0 <= 173, (L4) d_0 <= 175, II.D (symbols in C^(d_0 - 4)) <= 177; so D_0 <= 177 (an explicit integer upper
+      bound; deduced on Q4's order range and Q5's census)
+  Q6: d' = 8, d'' = 9; II.A Proposition 9.6 at s - 2 (Lemma 2.8, Corollary 9.7): d_1 = 20, d-tilde = 33; II.E Proposition
+      4.4 d = d-tilde + 3 >= 35; every tame order of D_1 has the form d-tilde + 3 with d-tilde = s-bar + 2 max(s-under,
+      s-under_0) + 6 at orders in Q4's range, so D_1 <= 48. FWD + BG = D_0 + D_1 + d' + d'' + 6 + 2 lies in [60, 250]; c'
+      = that + the fixed MODs of a level (not bounded here): True
+      at c' = 250 (MODs = 0): d <= 45661383902649727 + 106489470 x 250 = 45661410525017227
+  C1 (control): Lemma A.5 with J one less: the remainder kernel converges: False, so Q2 fails: True
+  C2 (control): Theorem A.1 at delta = 2/27: exponent 0.0, not negative: True
+  C3 (control): census with the row ('PART-II-A-SETUP.md', 825) removed: 1 unclassified: True
+  C4 (control): Proposition A.7 with the right expansion's 2L dropped: conditions hold: False: True
+Q0 PASS
+Q1 PASS
+Q4 PASS
+Q2 PASS
+Q3 PASS
+Q5 PASS
+Q6 PASS
+D0 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS

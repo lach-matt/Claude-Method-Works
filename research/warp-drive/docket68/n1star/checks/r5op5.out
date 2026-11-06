@@ -12,6 +12,5 @@ O1  the coefficients B(H), C(H) of DP(H) along a ray of W, and the kernels compo
   O1' the kernels composed from them are all > 1 (integrable in sigma): pass {'B(0) . d phi': 3, 'C(0) phi (Hardy)': 3,
         '(B(H) - B(0)) . d phi': 3, '(C(H) - C(0)) phi (Hardy)': 3, '(g^-1 - g_b0^-1) d d phi (Z4a)': 2}
   O1'' control (H mutated to r^-2 (1 + sin(v)/2) P): the H-coefficients decay like r^-2 and the zero-order kernel
-        exponent is 1, not integrable: FAIL B: 1.583, C: 2.136
-FAILED: ["O1'' control (H mutated to r^-2 (1 + sin(v)/2) P): the H-coefficients decay like r^-2 and the zero-order kernel
-        exponent is 1, not integrable"]
+        exponent is 1, not integrable: pass B: 1.985, C: 1.968
+FAILED: none

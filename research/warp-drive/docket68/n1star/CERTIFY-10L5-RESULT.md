@@ -918,7 +918,7 @@ first certified step is taken" to "remains open":
 its findings are seated in 7.10 as amendments to section 6, each re-derived or marked as not re-derived. Labels as in
 section 0. [Wu26] was re-read at source for this round (arXiv 2609.08421v1: Theorem 2.2 and its proof sketch
 pp. 6–8, the transport equations (2.2)–(2.6) pp. 4–5, the scalar identity (2.17) p. 6, the residual formulas p. 12;
-READ). Machine load was 9–36 on 4 cores throughout.
+READ). Machine load was 9–36 on 4 cores until the machine restarted on 2026-11-06, then 0.5–20.
 
 ### 7.0 Answers
 
@@ -981,9 +981,19 @@ READ). Machine load was 9–36 on 4 cores throughout.
        about 2–4 × 10⁴ sub-boxes for this one box of the 416, at 0.6 s each at this load.
      - So a usable certified sup over the box is a matter of machine time (extrapolated: of the order of 10⁷
        sub-boxes and 10⁷ s for all 416), not of method. It is useful only once F is computed rather than Grönwall's.
-3. **Task 3, the late region.** Not run. The one-minute load was above 12 at every check (9.4 at the start, then
-   20–36), and the instruction was to skip. v ≥ 1.9 at areal radius 1.0–1.2 and v ≥ 1.65 below 0.9 stay undecided,
-   as in 6.4.
+3. **Task 3, the late region.** Run after the machine restarted and the load fell (7.7).
+   - *Computed, below areal radius 0.9* (`checks/late5b_small.out`, M = 32, 800 against 1600 rows). The Raychaudhuri
+     residual converges at second order to v = 1.65 (1.4 × 10⁻³ of its terms). It falls 2.9-fold on [1.65, 1.8), to
+     1.3 %, and does not converge from v = 1.8 (ratio 1.36, 17 %). Decided to v ≈ 1.8; not beyond.
+   - *Computed, v ≥ 1.9 at areal radius 1.0–1.2* (`checks/cplate5c.out`, the constraint-preserving scheme on three
+     null grids, M = 32).
+     - The metric converges in the null step through v = 2.25 (800–1600 differences ≤ 1.0 × 10⁻³).
+     - The unimposed Ric_xx falls 14–22-fold per doubling to v = 1.9, then 2.7-fold on [1.9, 2.0) and not at all on
+       [2.0, 2.25). At areal radius 0.9–1.0 it grows there.
+     - So a vacuum limit is supported to v = 1.9 at areal radius ≥ 0.9 (computed), and not from v = 1.9 at M = 32.
+       There the null step is not the limiting error.
+     - M40_SUMMARY
+   - The Kretschmann scalar was not computed, so a singularity and a steep smooth feature are still not told apart.
 
 ### 7.1 The reduction (`checks/reduce5.py`; deduced, every identity exact)
 
@@ -1181,16 +1191,58 @@ So the estimate exists and its constants are explicit, but (i) they are of size 
       bound, or a reformulation in which the cancellation is algebraic (6.3), would cut that.
     - None of this closes anything at Theorem 7.L's F; at a computed F it is the step after a better approximant.
 
-### 7.7 Task 3: the late region (not run)
+### 7.7 Task 3: the late region (run after the load fell)
 
-`uptime` read 9.4 at the start of the round, then 20.2, 21.5, 27.9, 32.1, 36.3, 35.9, 31.8 and 24.6 at later checks. The
-instruction was to skip the third null grid above 12, so cpsolve5 at 1600 × 720 and `late5b.py --small` were not
-started. Nothing in 6.4's verdict changes:
-- v ≥ 1.9 at areal radius 1.0–1.2 is not decided;
-- v ≥ 1.65 below areal radius 0.9 is not decided.
+`uptime` read 9.4 at the start of the round, then 20.2, 21.5, 27.9, 32.1, 36.3, 35.9, 31.8 and 24.6 at later checks,
+so the runs were first skipped. After the machine restarted (2026-11-06) the load was 0.5, and they were made.
+- *The runs (computed).*
+  - `cpsolve5.py --run 1 0.9 32 1600 720 2.25 … ld 3`: 1,986 s.
+  - `szrun5.py 1 0.7 32 1600 720 1.85 … ld 3`: 2,008 s.
+  - To separate angle from the rest, `cpsolve5.py --run 1 0.9 40 1600 720 2.25 … ld 3`: M40_TIME.
+- *A repair.* `late5b.py --small` had never run: a local tuple in `main` shadowed the function `small`, which raised
+  on the call. The tuple is renamed (`sm_cls`); the program's other output is unchanged.
 
-7.4 adds one fact bearing on them (computed): signals cross the angular range about three times within rcert5's box
-alone, so the late region depends on data at the axes, and any estimate that decides it must hold there.
+**Below areal radius 0.9** (`checks/late5b_small.out`: L7's null step, M = 32, cut 0.7, 800 against 1600 rows).
+Figures are max |ρ| at 800 / 1600 rows (ratio), with ρ's share of the band's largest term at 1600 in brackets.
+
+| v-band | 0.6 ≤ r_A < 0.9 | 0.9 ≤ r_A < 1.0 |
+|---|---|---|
+| [1.0, 1.5) | 4.9e-3 / 1.2e-3 (4.01) [6.5e-4] | 3.1e-3 / 7.8e-4 (4.00) [9.7e-4] |
+| [1.5, 1.65) | 1.9e-2 / 4.6e-3 (4.04) [1.4e-3] | 8.4e-3 / 2.1e-3 (4.01) [1.4e-3] |
+| [1.65, 1.8) | 0.26 / 0.092 (2.87) [1.3e-2] | 7.2e-2 / 1.8e-2 (3.94) [4.5e-3] |
+| [1.8, 1.9) | 1.74 / 1.28 (1.36) [0.17] | 0.54 / 0.25 (2.18) [4.3e-2] |
+
+- *Decided (computed)* below areal radius 0.9 to v = 1.65: second order, 1.4 × 10⁻³ of the terms.
+- On [1.65, 1.8) the residual falls 2.9-fold per doubling, to 1.3 % of its terms: converging, below second order.
+- From v = 1.8 it does not converge (ratio 1.36, 17 % of the terms). That is not decided.
+- At 0.9–1.0 the residual converges to v = 1.8.
+- Round 1's "the size of its own terms from v ≈ 1.65" is, at M = 32 and below 0.9, a null-step error to v = 1.8.
+
+**v ≥ 1.9 at areal radius 1.0–1.2** (`checks/cplate5c.out`: the constraint-preserving scheme on three null grids,
+M = 32, compared on the 400-row nodes).
+
+| v-band (r_A 1.0–1.2) | P: 400–800 / 800–1600 | Ric_xx 400 → 800 → 1600 | P_cp − P_free at 1600 (free's own) |
+|---|---|---|---|
+| [1.65, 1.8) | 1.7e-3 / 9.9e-5 | 613 → 6.4 → 0.29 | 2.1e-5 (3.7e-5) |
+| [1.8, 1.9) | 4.9e-3 / 1.7e-4 | 4.7e3 → 45 → 3.2 | 5.6e-5 (9.7e-5) |
+| [1.9, 2.0) | 2.0e-2 / 5.5e-4 | 3.4e4 → 345 → 129 | 6.4e-4 (3.3e-4) |
+| [2.0, 2.25) | 0.19 / 1.0e-3 | 4.1e5 → 880 → 902 | 2.0e-3 (5.2e-4) |
+
+- *Below v = 1.9.* The metric converges in the null step, and the unimposed constraint falls 3.6–24-fold from 800 to
+  1600 rows (14–22-fold on [1.65, 1.9)). The two formulations agree within the free scheme's own null-step
+  difference. So a vacuum limit is supported (computed) to v = 1.9 at areal radius ≥ 0.9, now on three grids.
+  - The ratios of 17–37 in P say the 400-row run was outside the asymptotic range, as round 2 found. They are not an
+    order.
+- *From v = 1.9.* P still converges: 800–1600 differences of 5.5 × 10⁻⁴ and 1.0 × 10⁻³. But Ric_xx no longer falls:
+  2.7-fold on [1.9, 2.0), 0.98 on [2.0, 2.25), and it grows at 0.9–1.0 (0.72, 0.58).
+  - So the null step is no longer the limiting error there. At M = 32 the discrete solutions converge in (u, v) to a
+    metric that does not satisfy Ric_xx = 0.
+  - At areal radius ≥ 1.2 the monitor still falls on [2.0, 2.25) (46-fold).
+- *Angle (`checks/cplate5d.out`, M = 32 against 40 at 1600 × 720).* M40_RESULT
+- *Not done.* The Kretschmann scalar on these runs, and M = 40 on the coarser null grids.
+
+7.4 adds one fact bearing on all this (computed): signals cross the angular range about three times within rcert5's
+box alone. So the late region depends on data at the axes, and any estimate that decides it must hold there.
 
 ### 7.8 Files and outputs (round 3)
 
@@ -1202,10 +1254,16 @@ alone, so the late region depends on data at the axes, and any estimate that dec
 | `checks/rcert5b.py`, `.out` | B1–B2: one sub-box of rcert5's K2 refined, n = 1–8; control W + 0.01 v |
 | `checks/symbol5s.py`, `.out` | S1–S6: the symbol with s_vx kept (no Jordan block); the shift's Levi term |
 | `checks/cplate5c.py`, `.out` | C1–C3: the constraint-preserving scheme on a third null grid (task 3) |
+| `checks/cplate5d.py`, `.out` | D1–D2: the constraint-preserving scheme at 1600 × 720, M = 32 against 40 (task 3) |
+| `checks/late5b_small.out` | L7's null step below areal radius 0.9 (task 3; late5b.py's --small mode repaired) |
 | `checks/rcert5c.py`, `.out` | P1–P2: rcert5's approximant saved with md5s (`data/rcert5_C3.npz`); K1 from it |
 
-Runs read in place (scratch, not committed): D432's `l1_rc0.9_M32.npz` (linest5), resid5's `l1_M16_800.npz`
-(rcert5b).
+Runs (scratch, not committed).
+- Read in place: D432's `l1_rc0.9_M32.npz` (linest5), resid5's `l1_M16_800.npz` (rcert5b, rcert5c), and round 2's
+  constraint-preserving runs at 400 and 800 rows (cplate5c).
+- Made this round: `cpsolve5.py --run 1 0.9 32 1600 720 2.25 … ld 3` (1,986 s; md5 776da11e…), the same at M = 40
+  (M40_TIME), and `szrun5.py 1 0.7 32 1600 720 1.85 … ld 3` (2,008 s; md5 c326bd19…). The last was deleted after
+  late5b --small had read it, for disk space.
 
 ### 7.9 A proposed replacement for the paper's section 9 sentences on existence at 10 l5
 
