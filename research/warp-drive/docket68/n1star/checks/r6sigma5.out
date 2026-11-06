@@ -1,1 +1,18 @@
 S1  the degree -4 equation of R5-C (v), from the flat operator
+  S1 -(1/2) box_eta (r^-4 F(s) h_l r^-l) = r^-6 h_l r^-l L_l[F] (l = 0..4, two test F, two points, 40 digits): pass
+  S1' control (the code mutated: 7/2 -> 3 in L_l): the identity fails at every case: pass
+S2  Frobenius at s = 0, and the solutions for the constant source -1
+  S2a the indicial roots of L_l at s = 0 are 0 and -5/2 (difference not an integer): pass [-5/2, 0]
+  S2b (n + 1)(n + 7/2) f_(n+1) = S_n + (n(n - 1)/2 + 7n/2 + kappa_l) f_n: the leading factor never vanishes for n >= 0
+        (unique analytic solution given F(0)); f_(n+1)/f_n -> 1/2: radius 2, the other zero of s - s^2/2: pass ratio 1/2,
+        zeros [0, 2]
+  S2c the constant source -1: F = 2/(8 - l(l + 2)) for l = 0, 1, 3, 4 (exact); at l = 2 the recursion gives F = -(2/7) s
+        3F2(1, 1, 7; 2, 9/2; s/2) (exact to order 60) and L_2 F + 1 = 0 at s = 0.3, 0.9, 1.5 (40 digits): pass max
+        residual 2.3e-41
+  S2c' control: at l = 2 a constant is a homogeneous solution (L_2[c] = 0), so no constant answers the source: F_4
+        depends on s: pass
+S3  the degree -6 part of P(g_b0 + Sigma_2), exactly
+  S3a self-checks: the e and e^2 parts (Ric(g_b0) = 0) and the d part (box r^-2 = 0 in R^4) vanish on S^3: pass {(1, 0):
+        0, (2, 0): 0, (0, 1): 0}
+  S3b Q_6 := the (e d) + (d^2) part is not 0 and has the harmonics l = 0, 1, 2 only: pass [0, 1, 2]
+S4  Sigma_4 on the full operator: the decay of P along a ray of W (s = 1/2)

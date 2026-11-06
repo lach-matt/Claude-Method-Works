@@ -38,23 +38,25 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
   K5 (exact) the thresholds at infinity: spec S-bar of III.F (3.1) at (v_C, e_C) = (1/2, 1/102400), min 0, so S-bar = 0
      for box, box^Ups and 2 L_b0, and with theta_in = 0 the decay order must lie above -1/2 at R_in and below -1/2 at
      R_out (I.B section 1.4): no constant order is admissible at real sigma != 0; s_C = (1 - e_C)(1 - v_C) gamma_C > 100.
-  K6 (certified) Proposition 6.7 (c)'s interpolation constant (I.B Lemma 6.6): with kappa = beta' - beta = nu/8 (K2) the
-     factor exp(3 Lambda e^(-pi L/4)), L = 2 sigma_0/kappa, Lambda = log sigma_0, is at most F := exp(3 sup_(s >= 1)
-     log s e^(-pi s 2^(1/2) ... )) at mu = 1 (certified); with sigma_0^(-theta) <= 4 h^theta (h in [1/(4 sigma_0),
-     1/(2 sigma_0)]) this gives (6.11) as ||(P'_(h,z))^-1|| <= 4 F C_a h^(-1-(beta' - eta)/(beta' - beta)), C_a the
-     constant of Proposition 6.7 (a); and the elementary inequality of Lemma 6.6's last line, certified on a grid.
+  K6 (certified) Proposition 6.7 (c)'s interpolation constant (I.B Lemma 6.6): with kappa = beta' - beta = nu/8 (K2)
+     the factor exp(3 Lambda e^(-pi L/4)), L = 2 sigma_0/kappa, Lambda = log sigma_0, is at most
+     F := exp(3 sup_(s >= 1) log s e^(-pi 2^(1/2) s)) at mu = 1 (certified; pinned in [1, 1.003]); with
+     sigma_0^(-theta) <= 4 h^theta (h in [1/(4 sigma_0), 1/(2 sigma_0)]) this gives (6.11) as
+     ||(P'_(h,z))^-1|| <= 4 F C_a h^(-1-(beta' - eta)/(beta' - beta)), C_a the constant of Proposition 6.7 (a); and
+     the elementary inequality of Lemma 6.6's last line, certified on a grid.
   K7 (exact) II.F Lemma 5.2's replacement (INVERSE5-SIX.md Lemma R1): x = Q'T x + R'x gives ||x||_X <= ||Q'|| ||Tx||_Y
      + ||R'||_(Z->X) ||x||_Z with no Hahn-Banach functional and no open mapping constant; checked on an exact model with
-     a     kernel (the estimate holds on 400 rational vectors; without the R' term it fails on the kernel).
+     a kernel (the estimate holds on 400 rational vectors; without the R' term it fails on the kernel).
+  K8 (exact) Lemma R6's gluing identity P^-1 = P1^-1 - i P1^-1 Q P1^-1 - P1^-1 (Q P^-1 Q) P1^-1, P1 = P - i Q, exact
+     over Q(i) on random rational matrices, and its norm bound.
   Controls (each mutates the computed path and must fail): C1 K1 with nu_1's sign reversed (H phi_1 = +nu_1 phi_1);
   C2 K2's claim lam_max = 2 eps refuted at eps = 1/8; C3 K3 at eta = 1 (no grading): lam_max > nu/2, (Gamma.4) fails;
-  C4 K3 with c -> -c (future-pointing damping): lam_max >= 2 10^4 at every eta tested; C5 K3 with the trace weight 1
-  (m = 1): the last charpoly factor moves to lam + 3 (1 - e_C) gam c_2; C6 K4 with a_v < 0: vartheta_L = 2 - 2x > 0;
-  C7 K6 with kappa = nu/4 (the gap doubled): F moves outside the pinned interval; C8 K7 without the R' term;
-  C9 K8 without the last term of the identity.
-  K8 (exact) Lemma R6's gluing identity, exact over Q(i) on random rational matrices, and its norm bound.
+  C4 K3 with c -> -c (future-pointing damping): lam_max >= 2 10^4 (it is 4 10^4) at every eta tested; C5 K3 with the
+  trace weight 1 (m = 1): the last charpoly factor moves to lam + 3 (1 - e_C) gam c_2; C6 K4 with a_v < 0:
+  vartheta_L = 2 - 2x > 0; C7 K6 with kappa = nu/4 (the gap doubled): F moves outside the pinned interval; C8 K7
+  without the R' term; C9 K8 without the last term of the identity.
 
-    python3 checks/inverse6_5.py [--selftest]          (a few minutes)
+    python3 checks/inverse6_5.py [--selftest]          (seconds)
 """
 import builtins
 import contextlib

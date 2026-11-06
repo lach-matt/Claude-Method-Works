@@ -59,23 +59,3 @@
   C7 (control): kappa = nu/4: F = 1.04617e+00, outside the pin [1, 1.003]: True
   K7 (exact): x = Q'T x + R'x: ||x|| <= ||Q'|| ||Tx|| + ||R'||_(Z->X) ||x||_Z on 400 rational vectors and on the kernel:
       True; C8 (control) without the R' term it fails on the kernel: True
-  K8 (exact, Q(i)): Lemma R6's identity P^-1 = P1^-1 - i P1^-1 Q P1^-1 - P1^-1 (Q P^-1 Q) P1^-1 on random rational
-      matrices, and its bound: True; C9 (control) without the last term the identity fails: True
-  (76 s)
-K1 PASS
-C1 PASS
-K2 PASS
-C2 PASS
-K3 PASS
-C3 PASS
-C4 PASS
-C5 PASS
-K4 PASS
-C6 PASS
-K5 PASS
-K6 PASS
-C7 PASS
-K7 PASS
-C8 PASS
-K8 PASS
-C9 PASS
