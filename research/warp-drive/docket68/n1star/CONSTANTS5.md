@@ -4115,3 +4115,258 @@ files other workstreams are still editing, so the main session measures every ro
 | `docket68/n1star/checks/x7indep5.py` | `d7984b2efcb179e9a313f560039f48f3` |
 | `docket68/n1star/checks/zeroext5.out` | `4c9a5c5134c406ce1e905ce90cfa46b0` |
 | `docket68/n1star/checks/zeroext5.py` | `b59825dc09b57003926113e9a095b30b` |
+
+## Round 15 (2026-11-06)
+
+*Status.* Appended to rounds 1-14; not yet read by a verifier. Round 14 was read by an independent reader: confirmed, no
+Major; R14.7's five pairs seat on the paper (md5 b21cd7ca..., which differs from 4c121081... only in three Appendix D
+md5s); pair 5's imports match every program's own imports (46 programs); every row's md5 matched. Seated here: its minor
+and five nits. [R15] notes at R13.3 (kappa's line) and R14.0, R14.7. Changed and rerun: `checks/ordcensus5.py` (11/11,
+docstring and comment only; its `.out` identical); `checks/d0count5.py` rerun, its `.out` identical. d does not move.
+R15.7 supersedes R14.7. Not touched: the paper, N1STAR-PROOF.md and the INVERSE5 and LAMBDA0 files.
+
+### R15.0 (the round-14 reader's findings)
+
+- **Minor 1 (accepted).** R14.7 pair 2's "d <= 4.624 x 10^16 at the record's computational point" dropped the choices
+  pair 1 states: R15.7 pair 2 reads "at the record's computational point and the choices stated there".
+- **Nits (accepted).** (1) Pair 5's reads now include logind5 reading checks/dnumber5.out, rootavoid5 reading
+  checks/lambdagen5.out, and inverse6_5a reading EFFECTIVE-CONSTANTS.md and CONSTANTS5.md by content;
+  EFFECTIVE-CONSTANTS.md gets a row (CONSTANTS5.md's row is deferred, as before). (2) Pair 5 no longer restates the five
+  imports the paragraph already gives (class5, gmodes5, iota5, sbar5, strap5 of damping5, and iota5's lin5). (3) The
+  table had 65 rows, not 64; it now has 66 (EFFECTIVE-CONSTANTS.md added). (4) R14.0 Minor 3's repeated sentence ([R15]
+  note). (5) "kappa := 2 is assigned at II.D:686 (and :746)" reads "(applied at :746)" ([R15] notes; ordcensus5's
+  docstring and comment).
+
+### R15.7 Final replacement text for the paper (supersedes R14.7)
+
+Five old/new pairs for paper/RESPONSE-HL-5D.md, as R14.7 with pair 2's phrase and pair 5's reads and imports amended,
+pairs 1, 3 (LAMBDA0-DATA5.md's pair P, verbatim) and 4 unchanged. Checked by content against the paper as it stands (md5
+b21cd7caaaa40291ec878ad7b626499a when this round ended): each old text occurs exactly once; the five spans are disjoint;
+seating them in any of the 120 orders gives the same text, in which every line is at most 121 characters and no
+continuation line opens a list (scratchpad build15.py). The pairs are seated together, in any order: pair 2 cites pair
+1's bound, and pair 1 removes "so d is still not a number".
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer at the write-out's own parameter point, the record's computational point of the gauge and damping
+  parameters (γ_C = 10⁶, γ_Υ = e_Υ = 1/100), which lies outside the proved set: its h = 1/γ_C = 10⁻⁶ is not below the
+  threshold h_* ≤ 10⁻⁶ the write-out requires, and whether γ_Υ and e_Υ meet theirs, which the write-out proves to exist
+  without a value, is not decided (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–14). At that point, and at the
+  choices the write-out leaves free, taken where they cost least or as the supplement fixes them (the least index sets
+  E^C_I and E_+, the weights, the order of the calculus's error terms, the base level's starting values), every
+  admissibility condition holds, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
+  (`checks/dnumber5.py`, `checks/x7indep5.py`) and over the base level's 8.0 × 10⁷ rounds and steps (its background has
+  K⁺-order only (α − 2)−, so that a round raises the decay by less than α − 4), every fixed step of a level and every
+  step outside the levels is read at its source and charged an upper bound (`checks/modcount5.py`: 212 citations of the
+  families the write-out's tame calculus lists in the levels and 89 in the base level's loops, none left unclassified),
+  and the coefficient orders the write-out fixes by the closed graph theorem are replaced by explicit calculus estimates,
+  their derivative counts computed (`checks/d0count5.py`) at the orders at which the forward solution invokes that
+  calculus, read site by site at every citation of it in the forward-solution chain (`checks/ordcensus5.py`). There d ≤
+  46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ and N = 21d + 6 ≤ 9.710 × 10¹⁷ (deduced, the arithmetic exact; the base level's
+  loops are 5.75 × 10¹⁴ of d), against the floor 8.41 × 10¹⁵ at the same weights. The bound is the same whether the
+  second Taylor level is read one application per exponent or, as the write-out words it, one per exponent and log power:
+  the applications at one exponent act on separate terms of one source and none on another's output, so their losses do
+  not add, whatever the order of treatment (`checks/l2par5.py`). At that point too the logarithmic orders of one index
+  set, which the write-out bounds only coarsely, are proved by induction over the steps of its construction
+  (`checks/logind5.py`); the index set the write-out leaves unlisted at future timelike infinity is computed from the
+  constructions that define it and adds no exponent to those the count uses (`checks/iotaind5.py`); and the admissibility
+  conditions all hold, the avoidances of finite sets of roots among them, at every level and at both Taylor levels,
+  exactly and with certified margins: the levels and rounds are rational, every indicial root they can meet is an integer
+  or irrational, and the rational coincidences possible are not levels (supplement `docket68/n1star/INVERSE5-SCALAR.md`
+  part B, `checks/rootavoid5.py`). Besides the choices, the point is the one part of the bound that is not the
+  write-out's statement, and the counts depend on it: the 1,470,302 windows of one construction step become about a
+  hundred times as many at e_Υ = 1/10000 (computed, `checks/iotaind5.py`), so they give no bound uniform over the
+  admissible parameters. So the integer bounds the loss that this proof's bookkeeping produces at that point and those
+  choices, not the optimal one.
+```
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+λ1 and δ are positive, as the proof gives them; their values
+  are not computed, and the supplement states where the computation of explicit constants stops (supplement
+  `docket68/n1star/INVERSE5-SIX.md`, rounds 2–5). What the proof's own formulas deliver is bounded above, log₁₀ δ <
+  −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`); with the loss at the bound stated above, d ≤
+  4.624 × 10¹⁶ at the record's computational point and the choices stated there, the formula gives at most log₁₀ δ =
+  −4.45 × 10¹⁷, every other input taken at its least value with the constants taken to be at least 1 (computed,
+  `checks/inverse6_5a.py`); a lower bound is that formula, monotone in each input (proved by inspection), evaluated at
+  certified bounds of its inputs. In hand: the zero-energy inverse bound for the scalar model (constant 2.81) and for the
+  tensor-type blocks of the linearised operator (3.94), every harmonic, through the horizon (deduced from exact
+  identities, with certified arithmetic, `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the
+  final black hole (exact), and the record's fibre metric for the trapping estimate, within whose graded family the
+  estimate's condition needs the grading parameter η below about 16.48 γ_C^(−1/2) (the leading order, matched by
+  certified values, `checks/inverse6_5.py`); the absorption and interpolation steps of the high-energy inverses, in their
+  semiclassical norms (explicit; the interpolation factor at most 1.00266, certified); the removal of one of the seven
+  inverse bounds, which a parametrix replaces; the resolvent of every master operator behind the two mode-stability
+  bounds, every harmonic and every real frequency, in a cut-off norm, carried exactly to the tensor-type blocks of the
+  linearised operator and the vector-type blocks of the 1-form wave operator (certified, `checks/inverse6_5m.py`); and
+  the scalar-type zero-energy blocks of the linearised operator, written out exactly for every harmonic, with an
+  obstruction: in the norm of weight α = −1 the least singular value of the degree-2 block is at most 2.618 × 10⁻⁷,
+  because that weight lies 2.93 × 10⁻⁶ from one of its indicial roots, so the inverse bound there is at least 3.81 × 10⁶;
+  at a weight in the middle of the indicial gap the same upper bound is about 10⁻², and an explicit constant should use
+  such a weight (proved, with certified arithmetic, supplement `docket68/n1star/INVERSE5-SCALAR.md` part A,
+  `checks/scalarblock5.py`; at the record's computational point, γ_C = 10⁶ and γ_Υ = e_Υ = 1/100, which lies outside the
+  proved set). Not computed: the constant of the trapping estimate, which the write-out obtains by a defect-measure
+  contradiction, and the a priori constants built on it; the gauge reconstruction and the absorbed problem's inverse in
+  the write-out's norms (the latter proved invertible for the scalar wave); the parametrix norms at future timelike
+  infinity; a lower bound, uniform in the harmonic, for the least singular value of the scalar-type blocks; constants
+  uniform over the black holes near the final one, which the write-out obtains by compactness and by arguments by
+  contradiction; and the chain's other inputs (the tame constants to order N, the Nash–Moser thresholds of the exterior
+  and slab problems, the gluing's constants). Upstream of all of these: the write-out fixes its gauge and damping
+  parameters only below thresholds it proves to exist, and the cut-offs and orders of its function spaces only up to
+  admissibility, so explicit constants first need those choices made numerically. This is a limit of the explicit
+  computation, not a gap in Theorem 4.
+```
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+The threshold λ0 that the proof of Theorem 1 delivers is traced term by term (supplement
+  `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0024433 in the operator norm, 0.0019079 in the
+  Frobenius norm and 0.0012228 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times
+  beyond it. The approximant's first linear stage sharpens these through its mean correction at the point where the
+  first-order wave is largest, which the symmetry class reduces to one number (computed, `checks/classm5.py`). That
+  stage has been solved for this envelope on the point's past, from its data on the initial slice (the second-order
+  constraint expansion in closed form, solved harmonic by harmonic; supplement `docket68/n1star/LAMBDA0-DATA5.md`,
+  `checks/lam0data5.py`): the number is 2.207738, stable under refinement to 1.4 × 10⁻⁷ (computed, floating point,
+  `checks/m22evol5.py`), and with it the three bounds become 0.0020789, 0.0018903 and 0.0010404. That sharpening is
+  computed, not certified; the certified bounds are the ones stated. And a high-frequency theorem, whose expansion
+  parameter is λ over the
+```
+
+```old
+| section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
+| | `checks/prop31loss5.py`; R10 |
+```
+
+```new
+| section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
+| | `checks/prop31loss5.py`; R10 |
+| section 9, settling: d's integer | `docket68/n1star/CONSTANTS5.md` rounds 1–14; `checks/dnumber5.py`, |
+| | `checks/x7indep5.py`, `checks/modcount5.py`, `checks/d0count5.py`, `checks/ordcensus5.py`, `checks/l2par5.py`, |
+| | `checks/logind5.py`, `checks/iotaind5.py`; `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py` |
+| section 9, settling: λ1 and δ | `docket68/n1star/INVERSE5-SIX.md` rounds 2–5; `checks/deltacap5.py`, |
+| | `checks/inverse6_5a.py`, `checks/inverse6_5.py`, `checks/inverse6_5m.py`, `checks/zeroext5.py`, |
+| | `checks/tensorzero5.py`; `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py` |
+| section 9, physical wavelengths: λ0 | `docket68/n1star/CONSTANTS5.md`; `checks/envelope5.py`, |
+| | `checks/lzerotrace5.py`, `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`, |
+| | `checks/m22evol5.py` |
+```
+
+```old
+`checks/vii5read.py` imports
+`checks/vii5census.py`; the others import nothing from the research tree:
+```
+
+```new
+`checks/vii5read.py` imports
+`checks/vii5census.py`, `checks/classm5.py` imports `checks/stage1cap5.py`, `checks/d0count5.py` imports
+`checks/ordcensus5.py`, `checks/dceiling5.py` imports `checks/dweights5.py`, `checks/lambdagen5.py` and
+`checks/prop31loss5.py`, `checks/dnumber5.py` imports `checks/dceiling5.py`, `checks/dweights5.py`, `checks/eflat5.py`,
+`checks/lambdagen5.py` and `checks/prop31loss5.py`, `checks/dweights5.py` imports `checks/prop31loss5.py`,
+`checks/eflat5.py` imports `checks/dceiling5.py`, `checks/dweights5.py` and `checks/iotapoles5.py`,
+`checks/inverse6_5.py` imports `strap5.py`, `checks/inverse6_5m.py` imports `gmodes5.py`, `modes5.py` and
+`checks/e2certify5.py`, `checks/iotaind5.py` imports `checks/dceiling5.py` and `checks/eflat5.py`, `checks/iotapoles5.py`
+imports `damping5.py`, `iota5.py`, `lin5.py` and `checks/dceiling5.py`, `checks/lam0data5.py` imports `data5.py` and
+`checks/stage1rate5.py`, `checks/lambdagen5.py` imports `checks/dweights5.py` and `checks/prop31loss5.py`,
+`checks/logind5.py` imports `checks/dnumber5.py`, `checks/dweights5.py` and `checks/eflat5.py`, `checks/lzerotrace5.py`
+imports `checks/envelope5.py`, `checks/lzeroconst5.py` and `checks/stage0bd5.py`, `checks/m22evol5.py` imports
+`checks/lam0data5.py`, `checks/modcount5.py` imports `checks/d0count5.py`, `checks/dnumber5.py`, `checks/dweights5.py`
+and `checks/prop31loss5.py`, `checks/rootavoid5.py` imports `damping5.py`, `checks/dweights5.py`, `checks/lambdagen5.py`
+and `checks/prop31loss5.py`, `checks/scalarblock5.py` imports `damping5.py`, `checks/stage0bd5.py` imports `lead5.py`,
+`checks/envelope5.py` and `checks/lzeroconst5.py`, `checks/stage1cap5.py` imports `checks/lzeroconst5.py` and
+`checks/lzerotrace5.py`, `checks/tensorzero5.py` imports `class5.py` and `checks/zeroext5.py`, `checks/thetain5.py`
+imports `sbar5.py`, `checks/x7indep5.py` imports `checks/dnumber5.py` and `checks/dweights5.py` (and `checks/d0count5.py`
+reads `checks/thetain5.out`, `checks/inverse6_5a.py` reads `EFFECTIVE-CONSTANTS.md` and `CONSTANTS5.md`,
+`checks/l2par5.py` reads `checks/dnumber5.out`, `checks/logind5.py` reads `checks/dnumber5.out`, `checks/modcount5.py`
+reads `checks/dnumber5.out`, `checks/dweights5.out`, `checks/lambdagen5.out` and `checks/rootavoid5.out`,
+`checks/rootavoid5.py` reads `checks/lambdagen5.out`, `checks/scalarblock5.py` reads `checks/scalarblock5_block.txt`);
+the others import nothing from the research tree:
+```
+
+Statuses behind the new texts: as R14.7 states them. *Appendix D rows* (66, md5 measured when this round ended; the
+paper's `response5.py --update-md5` rewrites the column at seating, and CONSTANTS5.md's own row is given in the round's
+report):
+
+| file | md5 |
+| --- | --- |
+| `docket68/n1star/INVERSE5-SCALAR.md` | `98b359fed155dc38b5c44fd524deb58d` |
+| `docket68/n1star/INVERSE5-SIX.md` | `b404c9842a7a2536f2bceb42aa4a7284` |
+| `docket68/n1star/LAMBDA0-DATA5.md` | `9f9de55fdc8eba88e204141cef5f6b20` |
+| `docket68/n1star/EFFECTIVE-CONSTANTS.md` | `a45e90dc075f5a5281941eb6f71c35c1` |
+| `docket68/n1star/checks/classm5.out` | `0a0370a9d7e3521c8142a8dc1932beee` |
+| `docket68/n1star/checks/classm5.py` | `222a716395ddfdd8221d9892c59a28b7` |
+| `docket68/n1star/checks/d0count5.out` | `b13dbb23e553ed583d5779535a629dba` |
+| `docket68/n1star/checks/d0count5.py` | `20aad82eaffba056d198cb850b11520e` |
+| `docket68/n1star/checks/dceiling5.out` | `4d8100b99261b29a98ba6cfe7e0d4996` |
+| `docket68/n1star/checks/dceiling5.py` | `b8cee054ea0b812d99f10fc87c3305b6` |
+| `docket68/n1star/checks/deltacap5.out` | `11495690a3042f057da38d05232d0d7b` |
+| `docket68/n1star/checks/deltacap5.py` | `243aabe74869a9da1df80e5ce134c238` |
+| `docket68/n1star/checks/dnumber5.out` | `3db10f0e1cea470f903b38060a8b352c` |
+| `docket68/n1star/checks/dnumber5.py` | `98e7551b0eae62f7b8cda9a97a261e11` |
+| `docket68/n1star/checks/dweights5.out` | `db05eeb3a4b5afcc8c18abf8ac837730` |
+| `docket68/n1star/checks/dweights5.py` | `2646cf6bfc24c04b7303020f198e741a` |
+| `docket68/n1star/checks/e2certify5.py` | `3fbce26828fe9de082a9b6d1824502f1` |
+| `docket68/n1star/checks/eflat5.out` | `0528f3a5adef5091d93f9d3bd22c63d9` |
+| `docket68/n1star/checks/eflat5.py` | `cb1b3f1579c04abb4222294fd43880b5` |
+| `docket68/n1star/checks/envelope5.out` | `eca40ea1eb2c1f24b9501b3dbad1fe4c` |
+| `docket68/n1star/checks/envelope5.py` | `6e2c4f9ce24c72ea95038aeaa2692d9d` |
+| `docket68/n1star/checks/inverse6_5.out` | `595a36d55819bf8b11f1c05aaefe3b13` |
+| `docket68/n1star/checks/inverse6_5.py` | `efa230b1d58f4fee983418eac4291787` |
+| `docket68/n1star/checks/inverse6_5a.out` | `a70ec796e5ad40020e67c0208eec5392` |
+| `docket68/n1star/checks/inverse6_5a.py` | `550e88be96276166a5c2747d9fd13fd1` |
+| `docket68/n1star/checks/inverse6_5m.out` | `77de537c3a824f024c26859d8b1f1642` |
+| `docket68/n1star/checks/inverse6_5m.py` | `9f2eca9128efe679a49a3e460638dd9e` |
+| `docket68/n1star/checks/iotaind5.out` | `9935607312414876d1b6b968c0e0fa1a` |
+| `docket68/n1star/checks/iotaind5.py` | `3c6fadd4e92979ec12aaeedcfb85d13c` |
+| `docket68/n1star/checks/iotapoles5.out` | `a3542bbf34e60a534194d8c085eceade` |
+| `docket68/n1star/checks/iotapoles5.py` | `01621c7b53197dec46da29ceb78a9224` |
+| `docket68/n1star/checks/l2par5.out` | `59397764245359941f3b18fecfcaa95b` |
+| `docket68/n1star/checks/l2par5.py` | `70ccc87f14a0bd80c09c13c274425e1e` |
+| `docket68/n1star/checks/lam0data5.out` | `038021a1ad5ebc7df59a3720cc9da63b` |
+| `docket68/n1star/checks/lam0data5.py` | `533e3316db99c4a855dad5e48d72e7ba` |
+| `docket68/n1star/checks/lambdagen5.out` | `03645ae643b694197578381ea7614063` |
+| `docket68/n1star/checks/lambdagen5.py` | `f805185bf5062d05a62b310cb73132d4` |
+| `docket68/n1star/checks/logind5.out` | `affdb2c98d4ed30c001a3e5937df3ae6` |
+| `docket68/n1star/checks/logind5.py` | `172d59991cb1f2ebe41cc5448ef34efb` |
+| `docket68/n1star/checks/lzeroconst5.out` | `551623a4fde7820aa202b8922273e35f` |
+| `docket68/n1star/checks/lzeroconst5.py` | `bfd473e783850401aad2dfcab259a3f8` |
+| `docket68/n1star/checks/lzerotrace5.out` | `4538f6c148d8cc5fb9b167e4987f77a0` |
+| `docket68/n1star/checks/lzerotrace5.py` | `59afda57a4a3d233a459d6e222b71569` |
+| `docket68/n1star/checks/m22evol5.out` | `12beb54cff95722d1e7c433c47e2922b` |
+| `docket68/n1star/checks/m22evol5.py` | `abd935827c2a2fdc543d4e70eb6fe185` |
+| `docket68/n1star/checks/modcount5.out` | `98840e30905e78dda3b777caa603e2a6` |
+| `docket68/n1star/checks/modcount5.py` | `12d32a9c5402e01ba2b098c026e29aeb` |
+| `docket68/n1star/checks/ordcensus5.out` | `4e806b9b515e9c46fe12aa51fd0d53ec` |
+| `docket68/n1star/checks/ordcensus5.py` | `23a555360a299c16f0a42859d41b521f` |
+| `docket68/n1star/checks/rootavoid5.out` | `635e9884f85d7bbb952036e54a161662` |
+| `docket68/n1star/checks/rootavoid5.py` | `3159d7040d3d7338c91883a214ef55a7` |
+| `docket68/n1star/checks/scalarblock5.out` | `c370c91f778badb45626780e63c8c9c4` |
+| `docket68/n1star/checks/scalarblock5.py` | `ad723451f88154ae3ebebff6b76833a8` |
+| `docket68/n1star/checks/scalarblock5_block.txt` | `94a12b6c5772c895729c34cefc3cbb11` |
+| `docket68/n1star/checks/stage0bd5.out` | `788db14650fce0b2eefbc10ec4234025` |
+| `docket68/n1star/checks/stage0bd5.py` | `47de3fcd64dcd97c0da4c1d15f088016` |
+| `docket68/n1star/checks/stage1cap5.out` | `ede9f67abd8b2f4057a5cf4eed946690` |
+| `docket68/n1star/checks/stage1cap5.py` | `da199f2cf1f5136aff58532a4086304c` |
+| `docket68/n1star/checks/stage1rate5.out` | `69192419d78144d16f4a52f96d47402e` |
+| `docket68/n1star/checks/stage1rate5.py` | `c3a4a8480e908aa5aed08403fe114007` |
+| `docket68/n1star/checks/tensorzero5.out` | `b86a29938a3411267fe881ffe6e7bc1a` |
+| `docket68/n1star/checks/tensorzero5.py` | `3bb526cceb96a033043cf0de07cab6b6` |
+| `docket68/n1star/checks/x7indep5.out` | `593e9a01c88b9919672c7a93c44cbad0` |
+| `docket68/n1star/checks/x7indep5.py` | `d7984b2efcb179e9a313f560039f48f3` |
+| `docket68/n1star/checks/zeroext5.out` | `4c9a5c5134c406ce1e905ce90cfa46b0` |
+| `docket68/n1star/checks/zeroext5.py` | `b59825dc09b57003926113e9a095b30b` |
