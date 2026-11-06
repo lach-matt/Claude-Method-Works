@@ -6,7 +6,8 @@ II.C's class G~^{0,(2l,0,0)}_e3b. Lemma 1.3 needs, for each p, a compact set con
 the level sets of t^flat_* reach r = oo, so a bound on r along past causal curves is needed. II.F Lemma 1.4 (a) gives
 one (B := t_* + R~(r) is a time function) only for the convex combinations G_theta of g_0 and Minkowski; for g it can
 fail. III.K Lemma 6.1 proves the bound for every g of the class: alpha := dt^flat_* + r^-1 dr is past timelike near
-I+ on {1/2 <= t_* < T_1}, so F := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p)) e^(t^flat_*(p) - c).
+I+ on {1/2 <= t_* < T_1}, so F := t^flat_* + log r decreases towards the past, and r <= max(R_T, r(p))
+e^(t^flat_*(p) - c).
 
 The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+, rho := rho_I = t_*/r, x := rho^l,
   - in the basis rho d_t*^2, d_t* (x)_s d_r, x_I d_t* (x)_s r^-1 d_w, rho^-1 d_r^2, x_I^-1 d_r (x)_s r^-1 d_w,
@@ -23,7 +24,9 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      kappa > 0 (unsat negation), so alpha is past timelike. Vacuity guard: the hypotheses are satisfiable (sat), also
      with every coefficient at an end of its interval. Encoding guard: the encoded
      g^-1(alpha, alpha) equals the quadratic form of the matrix gbar^-1 + sum c_i e_i (all six basis elements, in the
-     coordinates (t_*, r, w)) at 200 random rational points, exactly (l = 1/2, rho a square).
+     coordinates (t_*, r, w)) at 200 random rational points, exactly (l = 1/2, rho a square). The form is encoded
+     without r: B' = rho beta, beta := l x + kappa u, u := 1/t_*, so r g^-1(alpha, alpha) = E/u with E polynomial,
+     and the claim is E <= -u/2; the encoding guard holds the matrix form against E/u.
   R2 (exact) The gap is real: the metric with g^-1 = gbar^-1 + eps x rho^-1 d_r^2 (l = 1/2; h_t*t* = -eps rho^(l-1),
      a coefficient -eps in II.C's basis, so ||h|| = eps) is Lorentzian, and at rho = eps^2/4 it has g^-1(dt, dt) = +1:
      dt = dB (r >= r'_0 + 1) is spacelike, so B is not a time function of g, for every eps > 0. At the same point
@@ -54,40 +57,37 @@ import z3
 HALF = z3.RealVal("1/2")
 
 
+def variables():
+    return {k: z3.Real(k) for k in ("rho", "x", "u", "T1", "C", "l", "c1", "c2", "c4")}
+
+
 def hyps(v, decay=True, t1=True):
-    rho, x, t, T1, C, l, c1, c2, c4 = (v[k] for k in ("rho", "x", "t", "T1", "C", "l", "c1", "c2", "c4"))
+    """u = 1/t_*: 1/2 <= t_* <= T_1 is 0 < u <= 2, u T_1 >= 1"""
+    rho, x, u, T1, C, l, c1, c2, c4 = (v[k] for k in ("rho", "x", "u", "T1", "C", "l", "c1", "c2", "c4"))
     cx = C * x if decay else C
-    h = [rho > 0, rho <= x, x <= 1, l > 0, l <= HALF, t >= HALF, t <= T1, C >= 1,
-         (37 * C * T1 * x <= 1) if t1 else (37 * C * x <= 1),
-         c1 >= -cx, c1 <= cx, c2 >= -2 * cx, c2 <= 2 * cx, c4 >= -cx, c4 <= cx]
-    return h
+    return [rho > 0, rho <= x, x <= 1, l > 0, l <= HALF, u > 0, u <= 2, u * T1 >= 1, C >= 1,
+            (37 * C * T1 * x <= 1) if t1 else (37 * C * x <= 1),
+            c1 >= -cx, c1 <= cx, c2 >= -2 * cx, c2 <= 2 * cx, c4 >= -cx, c4 <= cx]
 
 
 def form(v, kappa=1, sign_tr=-1):
-    """r g^-1(alpha, alpha), alpha = A dt_* + (B + kappa/r) dr; returns (expression, side conditions)"""
-    rho, x, t, l, c1, c2, c4, r, w, z = (v[k] for k in ("rho", "x", "t", "l", "c1", "c2", "c4", "r", "w", "z"))
+    """E with r g^-1(alpha, alpha) = E/u: B' = l rho x + kappa/r = rho beta, beta := l x + kappa u, so
+    g^-1(alpha, alpha) = 2 s A B' + B'^2 + c_1 rho A^2 + c_2 A B' + c_4 rho^-1 B'^2 = rho E, and r rho = t_* = 1/u"""
+    rho, x, u, l, c1, c2, c4 = (v[k] for k in ("rho", "x", "u", "l", "c1", "c2", "c4"))
     A = 1 - (1 + l) * x
-    B = l * rho * x
-    Bp = B + kappa * w                                              # w = 1/r
-    gbar = 2 * sign_tr * A * Bp + Bp * Bp                          # gbar^-1: (t*,t*) 0, (t*,r) sign_tr, (r,r) 1
-    pert = c1 * rho * A * A + c2 * A * Bp + c4 * z * Bp * Bp      # z = 1/rho
-    side = [r * rho == t, w * r == 1, z * rho == 1]
-    return r * (gbar + pert), side
-
-
-def variables():
-    return {k: z3.Real(k) for k in ("rho", "x", "t", "T1", "C", "l", "c1", "c2", "c4", "r", "w", "z")}
+    beta = l * x + kappa * u
+    gbar = 2 * sign_tr * A * beta + rho * beta * beta            # gbar^-1: (t*,t*) 0, (t*,r) sign_tr, (r,r) 1
+    pert = c1 * A * A + c2 * A * beta + c4 * beta * beta
+    return gbar + pert
 
 
 def prove(kappa=1, sign_tr=-1, decay=True, t1=True):
-    """True iff z3 proves r g^-1(alpha, alpha) <= -1/2 under the hypotheses (the negation is unsat)."""
+    """(True, unsat) iff z3 proves r g^-1(alpha, alpha) <= -1/2, i.e. E <= -u/2, on the hypotheses"""
     v = variables()
-    e, side = form(v, kappa, sign_tr)
     s = z3.Solver()
-    s.set("timeout", 600000)
+    s.set("timeout", 300000)
     s.add(*hyps(v, decay, t1))
-    s.add(*side)
-    s.add(e > -HALF)
+    s.add(form(v, kappa, sign_tr) > -HALF * v["u"])
     res = s.check()
     return res == z3.unsat, res
 
@@ -98,22 +98,18 @@ def refuted(**kw):
 
 
 def past_directed():
-    """alpha(V) > 0 for V = t d_t + r d_r = t_* d_t* + r d_r: A t_* + (B + 1/r) r > 0 (z3: the negation is unsat)"""
+    """alpha(V) > 0 for V = t d_t + r d_r = t_* d_t* + r d_r: A t_* + B' r = t_* (A + beta) > 0 (negation unsat)"""
     v = variables()
-    rho, x, t, l, r, w = (v[k] for k in ("rho", "x", "t", "l", "r", "w"))
     s = z3.Solver()
     s.add(*hyps(v))
-    s.add(r * rho == t, w * r == 1)
-    s.add((1 - (1 + l) * x) * t + (l * rho * x + w) * r <= 0)
+    s.add(1 - (1 + v["l"]) * v["x"] + v["l"] * v["x"] + v["u"] <= 0)
     return s.check() == z3.unsat
 
 
 def vacuity():
     v = variables()
-    e, side = form(v)
     s = z3.Solver()
     s.add(*hyps(v))
-    s.add(*side)
     a = s.check() == z3.sat
     s.add(v["c1"] == v["C"] * v["x"], v["c2"] == 2 * v["C"] * v["x"], v["c4"] == v["C"] * v["x"])
     b = s.check() == z3.sat
@@ -121,13 +117,13 @@ def vacuity():
 
 
 def encoding_guard(n=200):
-    """the encoded form against the matrix gbar^-1 + sum c_i e_i in (t_*, r, w), exactly, at l = 1/2"""
+    """r g^-1(alpha, alpha) from the matrix gbar^-1 + sum c_i e_i in (t_*, r, w) against E/u, exactly, at l = 1/2"""
     rnd = random.Random(621)
     for _ in range(n):
         q = Fr(rnd.randint(1, 40), rnd.randint(41, 400))
         rho = q * q                                                 # x = rho^(1/2) = q
         x, l = q, Fr(1, 2)
-        t = Fr(rnd.randint(10, 60), 10)
+        t = Fr(rnd.randint(5, 60), 10)
         r = t / rho
         xI = q                                                      # x_I = rho^(1/2)
         c = [Fr(rnd.randint(-50, 50), 50) * x for _ in range(6)]
@@ -145,11 +141,11 @@ def encoding_guard(n=200):
                 for b in range(3):
                     G[a][b] += c[i] * E[i][a][b]
         A = 1 - (1 + l) * x
-        Bp = l * rho * x + 1 / r
-        al = [A, Bp, Fr(0)]
+        al = [A, l * rho * x + 1 / r, Fr(0)]                       # alpha = dt^flat_* + r^-1 dr
         mat = sum(al[a] * G[a][b] * al[b] for a in range(3) for b in range(3)) * r
-        # the encoded form, with c_2 doubled for the (x)_s convention used here
-        enc = r * (-2 * A * Bp + Bp * Bp + c[0] * rho * A * A + 2 * c[1] * A * Bp + c[3] * Bp * Bp / rho)
+        u = 1 / t
+        beta = l * x + u
+        enc = (-2 * A * beta + rho * beta * beta + c[0] * A * A + 2 * c[1] * A * beta + c[3] * beta * beta) / u
         if mat != enc:
             return False
     return True

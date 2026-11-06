@@ -22,16 +22,28 @@ place for the verifier of its Part V (its section 12).
    conditions, is a weak limit of class vacuum metrics.** The axes are not an extra hypothesis: restricted particles
    that reach an axis off the axial directions focus there with density ~ 1/ρ2 (Proposition Ax, H7), so a smooth
    solution's field never does; at an axis at most one ingoing and one outgoing family are separated (O1).
+   [R6 (FAMILIES5-R6.md, the round-5 verifier). "Uniformity in N is not needed" reads: the high-frequency step need not
+   be uniform in N; what [HL25] need uniform, and which of it is needed here, is in R6.0 (Minor 1). "Data meeting the
+   record's open conditions" is replaced by stated hypotheses, with (V2′), an angle between the labels and any radial
+   dust, added (R6 section 3, Lemma O, Proposition NE); D₂ with overlapping families is proved and N is taken odd (R6
+   section 4); Theorem V is deduced with the N-family step as there.]
 2. **(a) Rácz's split on the whole slice (computed).** On Part I's Σ_τ0 the algebraic-hyperbolic split is hyperbolic
    everywhere except a band R ∈ [4.30, 4.53] inside the shell (R1; converged, max N_k = 1.79 × 10⁻³ at R = 4.40), where
    the shell's flux exceeds 2μ(2 + μ/R²)/R (R2, exact). There K is negative definite and **no foliation** makes the
    split hyperbolic (R2, exact). Replacement: Proposition L holds for every perturbation whose radial support avoids
    the band; data meeting the band are posed on the cone N, where localisation is exact (B6).
+   [R6. The band is [4.29, 4.53] (interpolated edges 4.2914, 4.5284 at n = 160; racglobal5 R1 repaired); "no
+   foliation" holds for foliations of Σ_τ0 and is now proved from [Rac16] (4.22) (R2 repaired); a slice bent by
+   0.00145 is hyperbolic everywhere and carries band-localised data across the band (R6 section 2, Theorem L″).]
 3. **(b) Exact compact support (READ, computed).** [CS06]/[CD03] give vacuum data equal to Part I's outside a band up
    to the invariant KIDs; in Part I's vacuum regions there is exactly one, the static one (R3), so one charge. On the
    stream-function seeds the charge is negative (R4, 45 seeds), so they do not complete to exactly localised vacuum
    data, nor with dust added in the band (dust energy is nonnegative and enters with the same sign). Not obtained;
    what replaces it is localisation in a band widened by Δ (Proposition L), and exact localisation on cones.
+   [R6. Decided: every momentum seed has Q < 0 (R6 Theorem Q, identity computed); with matter (Q′) the KID pairs with
+   ∫T(ξ, n), which the dominant energy condition makes nonnegative only outside the horizon: "nor with dust added" is
+   withdrawn for bands inside the horizon, where exactly localised Einstein–null-dust data exist (R6 Theorem Q′, the
+   round-5 verifier's Major 4). The dust energy term 2∫N_s δe dropped Y_s·J.]
 4. **(c) Part II.** (ii) at the axes is decided by (O1); for three or more families (ii) is replaced by (ii′),
    separation with hierarchical frequencies (Lemma C). (iii) is settled: non-radial families carry the torus
    polarisation, which is transported, cancels the constraints' λ⁻¹ term on every class slice, and realises every
@@ -136,7 +148,8 @@ continuum of labels, Theorem N′ for the radial pair; (V3) holds by openness.)
 
 Let g^(N) be the class Einstein–N-dust solution whose families are the labels ω_A = 2πA/N with weights 2π/N: data q_A =
 (2π/N) q(·, ω_A) and u_A = u_(ω_A) on Σ_τ0, the metric data corrected to satisfy the constraints with T^(N) := (2π/N) Σ_A
-q_A du_A ⊗ du_A (the record's solve under (V3); the correction is of the size of T^(N) − T_V on Σ_τ0). Then for N ≥ N0,
+q_A du_A ⊗ du_A [R6 nit: one weight only, T^(N) := Σ_A q_A du_A ⊗ du_A] (the record's solve under (V3); the
+correction is of the size of T^(N) − T_V on Σ_τ0). Then for N ≥ N0,
 g^(N) exists on Ω and ‖g^(N) − g‖_(H^(m+1)(Σ_τ)) + ((2π/N) Σ_A ‖(p_A, θ_A, q_A/(2π/N)) − (p, θ, q)(·, ω_A)‖²_(H^m))^(1/2)
 ≤ C_k N^(−k), C_k independent of N.
 
@@ -245,7 +258,9 @@ from R1 to b(τ0) when R1 > 4.53 (the split is hyperbolic on those intervals, R1
 Theorem K's Cauchy stability around the background, which solves the system there ([Rac16] Theorem 4.3 is local in
 existence only); the constraints hold identically ([Rac16] p. 12: the system and (4.17) are the constraints); the
 support widens by Δ(R) = ∫c dR + O(ε) (finite speed). **Perturbations meeting B** are posed on the outgoing cone N
-(B6: exact localisation, any amplitude), evolved by the characteristic problem ([Wu26] Theorem 2.1, READ in the record)
+(B6: exact localisation, any amplitude) [R6: the localisation holds for any amplitude; carrying the
+cone data to Σ_τ0 is Cauchy stability and needs small data], evolved by the characteristic problem ([Wu26] Theorem
+2.1, READ in the record)
 to Σ_τ0, where they are supported in the band widened by the angular light-cone spread, R|dΩ/dτ| ≤ 1 (augment5 S7).
 
 ## 4. (b) Exact compact support (READ; computed: racglobal5 R3, R4)
@@ -302,6 +317,9 @@ n. (Contraction) w := u^(n+1) − u^n solves the same linear problem with source
 energy estimate gives a contraction for T* small. (Limit) u^n → u in C([0, T*]; L²), hence in C H^(s′) for s′ < s
 by interpolation, u ∈ L^∞H^s by weak-* compactness, and the limit solves the equation, F(u^n) → F(u) in L² by (K2).
 Uniqueness is the same L² estimate; continuation because T* depends only on M. Locality of F is used nowhere. ∎
+[R6 (the round-5 verifier's Major 3): true on R^d; the domain version needs F on Σ_t ∩ Ω to depend on u there only,
+and the uses need Cauchy stability over the background's interval, which needs a tame bound: Theorem K′, FAMILIES5-R6
+section 5.]
 ([IT20] Theorem 1, READ in the record, is the case A^0 = I, F = 0.) Computed (a model, katonl5 K1): for u_t + (1 +
 u)u_x = −(1 − ∂_x²)⁻¹(u²) the iteration's differences fall by ratios ≤ 0.11 and the H² norms stay at 2.40 ± 5 %;
 control: the source 0.5 u_xx (not L²-Lipschitz) makes the H² norms grow from 2.07 to 230.
@@ -374,6 +392,8 @@ in FAMILIES5-AXIS.md as an [R5 verifier of round 4] amendment at the place it co
 
 ## 9. Proposed replacement for the paper's section 9 item "More families" (14 lines)
 
+[R6: superseded by FAMILIES5-R6.md section 8, which folds in the round-5 verifier's Minor 10.]
+
 > - **More families.** In the class each family's null second fundamental form is diag(θ_h, κ1, κ2), the torus terms
 >   first order, and at an axis the remaining planar shear is recovered elliptically from the expansion. So the
 >   Einstein–null-dust system in the class is Cauchy-stable on compact domains of the record's type, without
@@ -397,3 +417,9 @@ in FAMILIES5-AXIS.md as an [R5 verifier of round 4] amendment at the place it co
 `checks/bandconst5.py` (docstring), `checks/twotransport5.py` (T1 compared), `checks/torusstress5.py` (V3, V4),
 `checks/twobg5.py` (G3's independent check), `checks/twodecomp5.py` (wording). FAMILIES5-AXIS.md: [R5] amendments.
 FAMILIES5-FULL.md: repaired in place, its section 12.
+
+## 10. Round 6
+
+In `FAMILIES5-R6.md`: R6.0 (the round-5 verifier's findings, each re-derived and seated), the charge's sign (Theorem
+Q, Q′), the band crossed (Theorem L″), Theorem V's hypotheses (Lemma O, Proposition NE), the N-family step (D₂_N),
+Theorem K′, and the proposed section 9 text.
