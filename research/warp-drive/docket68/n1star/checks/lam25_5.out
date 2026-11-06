@@ -7,3 +7,4 @@ L1 PASS
   L2 R5.5's illustration, gamma_w = log10 C_L4 = 1.8*10^6, other gammas 0: delta = 1/10: E_25 = 3683621.0 (binding W1);
       delta = 1/2: E_25 = 19007279.0 (binding W1): with these inputs L.25'' (a) holds for lam <= min(lam_rec, 10^(-E_25))
 L2 PASS
+  L3 at E_25 (1 + i/50), i = 0..199, both deltas: every condition holds with the actual n and h_n: True
