@@ -362,8 +362,8 @@ def main():
     print('  M0 (exact): V_0, V_1, V_2, V_V = (k + 3/4) U + b Q with b = 9/4, 5/4, -7/4, -27/4: %s; V_S = a U - (39/4) Q'
           ' + U g_m and P_S\' = P\'_(a, -39/4) + E(y, 1/m), E = %s: %s; U\' vanishes on r > 1 only at r = 2^(1/2): %s'
           % (ok_ab, sp.factor(Esym), ok0, ok_U))
-    print('  M0 (exact) Lemma R7\'s elementary inequalities: |sigma\'| <= 1/4, max |sigma\'\'| = 1/(6 3^(1/2)) < 1/10: %s;'
-          ' (r + 1)^2 e^(-2r) r^-5 decreasing (its log-derivative 2/(r + 1) - 2 - 5/r < 0): %s; f = (r + 1)^2 '
+    print('  M0 (exact) Lemma R7\'s elementary inequalities: |sigma\'| <= 1/4, max |sigma\'\'| = 1/(6 3^(1/2)) < 1/10: '
+          '%s; (r + 1)^2 e^(-2r) r^-5 decreasing (its log-derivative 2/(r + 1) - 2 - 5/r < 0): %s; f = (r + 1)^2 '
           'e^(2 r_*) e^(-2r)/r^2: %s' % (ok_log, ok_dec, ok_f))
 
     fam = {}

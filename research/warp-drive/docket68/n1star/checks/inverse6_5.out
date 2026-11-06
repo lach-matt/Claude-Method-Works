@@ -59,19 +59,3 @@
   C7 (control): kappa = nu/4: F = 1.04617e+00, outside the pin [1, 1.003]: True
   K7 (exact): x = Q'T x + R'x: ||x|| <= ||Q'|| ||Tx|| + ||R'||_(Z->X) ||x||_Z on 400 rational vectors and on the kernel:
       True; C8 (control) without the R' term it fails on the kernel: True
-  (4 s)
-K1 PASS
-C1 PASS
-K2 PASS
-C2 PASS
-K3 PASS
-C3 PASS
-C4 PASS
-C5 PASS
-K4 PASS
-C6 PASS
-K5 PASS
-K6 PASS
-C7 PASS
-K7 PASS
-C8 PASS
