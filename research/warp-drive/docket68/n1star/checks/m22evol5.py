@@ -411,8 +411,9 @@ class Solver:
     """the closed stage-1 subsystem: m_1 (8, regular variables), pi = d_tau m_1, psi = d_r m_1, phi_1, and gh_2's
     first harmonic in (r th, th th, phi1 phi1, phi2 phi2), on r in [rho(tau), vout - tau]"""
 
-    def __init__(self, Nr, Nx, system, env, vout=3.0, src_sign=1.0, gcouple=1.0):
+    def __init__(self, Nr, Nx, system, env, vout=3.0, src_sign=1.0, gcouple=1.0, axis_fix=False):
         self.Nr, self.Nx, self.vout, self.src_sign, self.gcouple = Nr, Nx, vout, src_sign, gcouple
+        self.axis_fix = axis_fix
         self.xi, self.Dxi = cheb_lobatto(Nr)
         self.x, self.Dx, self.Dxx, self.ep, self.em = cheb_gauss(Nx)
         self.th = np.arccos(self.x) / 2
@@ -576,12 +577,15 @@ class Solver:
         return dm, dpi, dpsi, dphi, dG
 
     def div_axis(self, F, which):
-        """F/S^2 (which = +1) or F/C^2 (which = -1), after removing F's value at the axis"""
-        if which > 0:
-            F = F - np.outer(F @ self.ep, (1 + self.x) / 2)
-            return F / self.S2
-        F = F - np.outer(F @ self.em, (1 - self.x) / 2)
-        return F / self.C2
+        """F/S^2 (which = +1) or F/C^2 (which = -1), pointwise: the numerator is S^2 (C^2) times a regular
+        expression in the jets as an algebraic identity (the jets are exact products, factors()), so the quotient is
+        exact at the nodes up to rounding. Removing the numerator's interpolated axis value first (axis_fix) injects a
+        rank-one term ~ (1 - x)/(1 + x) and destabilises the semi-discrete operator at the inner boundary."""
+        if self.axis_fix:
+            if which > 0:
+                return (F - np.outer(F @ self.ep, (1 + self.x) / 2)) / self.S2
+            return (F - np.outer(F @ self.em, (1 - self.x) / 2)) / self.C2
+        return F / self.S2 if which > 0 else F / self.C2
 
     def regular(self, Xc):
         return [Xc['vv'], Xc['vr'], Xc['rr'], Xc['vt'] / self.s2, Xc['rt'] / self.s2, Xc['tt'],

@@ -644,8 +644,8 @@ def n5(control=False):
     print("  N5: l = 0 solutions %s; independent: %s; smooth at r_h %s; growth exponents %s; kernel at weights in "
           "(-1, 0) (growth below r^%s, from L2's gap): %s, in (0, 2): %s; scalar l = 1: %s per harmonic (N2's "
           "exponents at nu = 1/2: %s), vector l = 1: %s (N3 at l = 1), l >= 2: none (N2, N3); harmonics of degree "
-          "0, 1: %s, G-fixed among them %s (N1's model), vector l = 1 dimension %d (= 6, asserted): the kernel is %d-dimensional in "
-          "the class and %d-dimensional on all 1-forms: %s"
+          "0, 1: %s, G-fixed among them %s (N1's model), vector l = 1 dimension %d (= 6, asserted): the kernel is "
+          "%d-dimensional in the class and %d-dimensional on all 1-forms: %s"
           % (K['solve'], K['indep'], K['smooth'], K['grow'], K['p_claim'], K['ker'], K['ker02'], K['l1_scalar'],
              K['want_h'], K['l1_vector'], K['dimH'], K['fixG'], K['dim_vec1'], K['cls'], K['full'], ok), flush=True)
     return ok
