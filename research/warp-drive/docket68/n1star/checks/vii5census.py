@@ -39,9 +39,15 @@ section only, the sentence there that fixes it) from the places it is used.
      use line. The reader's task for (VII5) is the list printed under 'used at': at each such line, that only the
      condition stated at the site is used.
   V2 (computed, D626) Completeness of the 1-form spellings: every distinct printed spelling of omega in Parts III-IV
-     (with its accent and every sub- and superscript) either contains a C3/C3'/C4 symbol or is excluded by a rule with
-     its reason (OMEGA_EXCLUDE: Minkowski models, dual states, the zero-energy gauge potential, generic forms and
-     components). Control: a planted spelling must be reported as neither.
+     (with its accent, its primes since D628, and every sub- and superscript) either contains a C3/C3'/C4 symbol or is
+     excluded by a rule with its reason (OMEGA_EXCLUDE: Minkowski models, dual states, the zero-energy gauge potential,
+     generic forms and components). Since D628 (a confirming reader's nit: V2 dropped primes, so omega'_b was sorted
+     as omega) a primed spelling is excluded only by location (OMEGA_EXCLUDE_AT): every occurrence must lie in a range
+     of a rule it matches -- the correction terms inside the proofs that build C3' objects (III.D'', III.D''') or the
+     dual states (III.E, III.E2), III.H:267 (a line V1 lists), and generic 1-forms of uniqueness and estimate arguments
+     (III.D2, III.F2, III.F4, IV5-IV7). The run: 150 spellings, 83 covered, 67 excluded, 0 neither (137 = 80 + 57 + 0
+     before D628). Controls: a planted spelling must be reported as neither; so must a planted primed spelling inside
+     a location rule's range, and omega'_b planted outside its rules' ranges.
   Control (per symbol): every symbol must have at least one hit inside its own site ranges, else the run FAILs (a
      misspelt symbol or a wrong site is caught, not silently listed as absent). Negative controls: a planted symbol,
      and chi_9 with its site moved to PART-III-B-FAMILY.md:345-349, must each be reported as missing its site.
@@ -124,6 +130,29 @@ OMEGA_EXCLUDE = [
     (r"\\omega(?:_[0-2]|_[abcdirt]|_\{[a-z];[a-z]?\}|_\\mu|_\\lambda|_V|\^[iaT]|\^\\beta|\^\\gamma|\^\{\([01]\)\})$",
      "components of a generic 1-form or covector, a multi-index, or the Cauchy data of another equation (IV5, IV7)"),
 ]
+# D628 (a confirming reader's nit): primes are kept in the spelling, as a prime marks another object. The rules above
+# are for unprimed spellings; a primed one is covered (it contains a symbol) or excluded here, by its location: every
+# occurrence must lie in a range of a rule whose pattern it matches, else it fails V2.
+E_, E2_, D2_ = "PART-III-E-CONSTRAINT.md", "PART-III-E2-V1STATES.md", "PART-III-D2-ZEROENERGY.md"
+OMEGA_EXCLUDE_AT = [
+    (r"\\omega'(?:_b|_\{b_S\})?$", [(D3, 176, 280), (D4, 172, 252)],
+     "a correction term inside the proof that builds C3' objects at their sites, used only through them: III.D'' "
+     "Proposition 3.1's proof (omega'_b := -P_b^-1 f_b, unique; omega_{b,s1} := bar omega_s1 + omega'_b, "
+     "omega_{b,v1}(V) := V + omega'_b), III.D''' Proposition 3.1's proof (omega^{(mu)}_b := chi_d bar omega + omega')"),
+    (r"\\omega'_b$", [("PART-III-H-AUGMENT.md", 267, 267)],
+     "III.D''s omega'_b, its continuity in b, on a line V1 lists (with breve omega'_b, a use of breve omega) and "
+     "VII5-READING.tsv reads"),
+    (r"\\(?:dot\\)?omega(?:'_b|''|'|'_\{b\(\\tau\)\}|'\^\\sharp_1|'\^\\flat_1|'_2)$", [(E_, 153, 211), (E2_, 127, 216)],
+     "a correction term of a dual state omega^{*(.)}_b, inside the proofs that build the dual states (III.E "
+     "Proposition 3.1, III.E2 Proposition 3.1), used with them only (the rule for omega^* above)"),
+    (r"\\omega'(?:_\\pi)?$", [(D2_, 140, 157), ("PART-III-F2-INDICIAL.md", 477, 477), ("PART-III-F4-ZERO.md", 353, 362),
+                              ("PART-IV5-CDMODES.md", 165, 225), ("PART-IV6-SOLV.md", 240, 245),
+                              ("PART-IV6-SOLV.md", 690, 695), ("PART-IV6-SOLV.md", 760, 767),
+                              ("PART-IV7-TFACE.md", 365, 372)],
+     "a generic 1-form outside the construction: a kernel element of a zero-energy uniqueness argument (III.D2 (c), "
+     "omega' := omega - (q/2) W^*; III.F4 (ii), omega'_pi := omega_pi - dot omega_{b_0}(dot b_pi)), a point of S^3 "
+     "near omega (III.F2), or a solution or test form of an estimate (IV5 (1), IV6 (5.81), IV7 Theorem 2.1 (2))"),
+]
 OMEGA_TOKEN = re.compile(r"(\\(?:breve|bar|tilde|hat|dot|check)(?:\s*\{\\bar\\omega\}|\s*\\omega)|\\omega)(?![A-Za-z])")
 
 
@@ -144,15 +173,19 @@ def wrap(text):
           flush=True)
 
 
-def omega_spellings(fs):
-    """{spelling: number of occurrences} over the joined text of fs: omega with its prefix accent and every sub- and
-    superscript that follows"""
+def omega_spellings(fs, where=None):
+    """{spelling: number of occurrences} over the joined text of fs: omega with its prefix accent, its primes (D628) and
+    every sub- and superscript that follows; where, if a dict, gets {spelling: [(file, line), ...]}"""
     out = {}
     for path in fs:
-        txt, _ = joined(path)
+        txt, starts = joined(path)
         for m in OMEGA_TOKEN.finditer(txt):
             j, tok = m.end(), m.group(0)
-            while j < len(txt) and txt[j] in "^_":
+            while j < len(txt) and txt[j] in "^_'":
+                if txt[j] == "'":
+                    tok += "'"
+                    j += 1
+                    continue
                 k = j + 1
                 if k < len(txt) and txt[k] == " ":
                     k += 1
@@ -166,21 +199,44 @@ def omega_spellings(fs):
                 tok += txt[j:e]
                 j = e
             out[tok] = out.get(tok, 0) + 1
+            if where is not None:
+                where.setdefault(tok, []).append((os.path.basename(path), bisect.bisect_right(starts, m.start())))
     return out
 
 
+def excluded_at(t, locs):
+    """{reason: occurrences} if every occurrence of the primed spelling t lies in a range of a location rule whose
+    pattern t matches, else None (D628); a planted occurrence without a location (None) is never excluded"""
+    out = {}
+    for loc in locs:
+        r = None if loc is None else next((reason for pat, ranges, reason in OMEGA_EXCLUDE_AT if re.match(pat, t)
+                                           and any(loc[0] == rf and lo <= loc[1] <= hi for rf, lo, hi in ranges)),
+                                          None)
+        if r is None:
+            return None
+        out[r] = out.get(r, 0) + 1
+    return out or None
+
+
 def v2(extra=(), show=True):
+    """extra: planted spellings, each a string (no location) or (spelling, file, line)"""
     fs = [f for f in files() if not f.endswith(IIC)]
     syms = [sym for name, es in GROUPS if name.startswith(("C3", "C4")) for sym, _ in es]
-    sp = omega_spellings(fs)
-    for t in extra:
+    where = {}
+    sp = omega_spellings(fs, where)
+    for e in extra:
+        t = e if isinstance(e, str) else e[0]
         sp[t] = sp.get(t, 0) + 1
+        where.setdefault(t, []).append(None if isinstance(e, str) else tuple(e[1:]))
     covered = {t for t in sp if any(sym in t for sym in syms)}
     why = {}
     for t in sp:
         if t not in covered:
+            if "'" in t:
+                why[t] = excluded_at(t, where[t])
+                continue
             r = [reason for pat, reason in OMEGA_EXCLUDE if re.match(pat, t)]
-            why[t] = r[0] if r else None
+            why[t] = {r[0]: sp[t]} if r else None
     left = sorted(t for t, r in why.items() if r is None)
     if show:
         wrap("  V2: %d distinct spellings of omega in Parts III-IV (%d occurrences): %d contain a C3/C3'/C4 symbol, "
@@ -189,10 +245,10 @@ def v2(extra=(), show=True):
                                                                       (": " + " ".join(left)) if left else ""))
         by = {}
         for t, r in why.items():
-            if r:
-                by.setdefault(r, []).append(t)
-        for r, ts in sorted(by.items()):
-            wrap("      excluded (%d spellings, %d occurrences): %s" % (len(ts), sum(sp[t] for t in ts), r))
+            for reason, n in (r or {}).items():
+                by.setdefault(reason, []).append(n)
+        for r, ns in sorted(by.items()):
+            wrap("      excluded (%d spellings, %d occurrences): %s" % (len(ns), sum(ns), r))
     return not left
 
 
@@ -287,9 +343,13 @@ def main():
     good1 = v1(listing)
     good2 = v2()
     planted2 = not v2(extra=("\\omega^{(7)}_{b,\\mathrm s9}",), show=False)
-    wrap("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s" % planted2)
-    ctl = control() and planted2
-    print("V1 %s; V2 %s; control (a planted and a moved site, and a planted spelling, reported): %s"
+    primed2 = not v2(extra=(("\\omega'^{(7)}_{b,\\mathrm s9}", D3, 200),), show=False)
+    moved2 = not v2(extra=(("\\omega'_b", K, 300),), show=False)
+    wrap("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s; since D628, a planted primed "
+         "omega'^{(7)}_{b,s9} at %s:200 (inside a location rule's range): %s; omega'_b planted at %s:300 (outside its "
+         "rules' ranges): %s" % (planted2, D3, primed2, K, moved2))
+    ctl = control() and planted2 and primed2 and moved2
+    print("V1 %s; V2 %s; control (a planted and a moved site, and three planted spellings, reported): %s"
           % ("PASS" if good1 else "FAIL", "PASS" if good2 else "FAIL", "behaves" if ctl else "MISBEHAVES"), flush=True)
     return 0 if good1 and good2 and ctl else 1
 

@@ -526,7 +526,7 @@ def bell_ratios(kmax):
 
 
 XS = sp.Symbol('x', positive=True)
-ELLS = {"exp(-1/x)": -1/XS,
+ELLS = {"exp(-1/x)": -1/XS, "exp(-1/x^(1/2))": -1/sp.sqrt(XS),
         "record C_c^inf": 12*sp.log(sp.sin(sp.pi*(2*XS/3)/2)) + 1 - 1/((2*XS/3)*(2 - 2*XS/3)),
         "sin^16 mutant": -1/XS + 10*sp.sin(4*sp.pi*sp.log(XS)/sp.log(10))**16/XS}
 C_R_STATED = 3                      # |kappa_k'| <= c_R kappa_k^(3/2), alpha = 1/2
@@ -729,11 +729,22 @@ def e12(control=False):
 CACHE13 = {}
 
 
+def x13_sinv(g, kgx, x, lam, per_period):
+    """s^(-1) g at x by Gauss-Legendre, >= per_period panels per carrier period; returns (value, omitted tail bound)"""
+    umax = min(x/2, 110/kgx)
+    n = max(512, per_period*int(mp.ceil(umax/(2*mp.pi*lam))))
+    pts = [umax*i/n for i in range(n + 1)]
+    val = mp.quad(lambda uu: mp.exp(-1j*uu/lam)*g(x - uu), pts, method='gauss-legendre')
+    tail = (x/2)*g(x/2) if umax == x/2 else g(x)*mp.exp(-110)/kgx      # g log-concave: g(x - u) <= g(x) e^(-kg u)
+    return val, tail
+
+
 def e13(control=False):
-    """s^(-1) g = g/(kappa_g + i/lam) (1 + O((lam kappa)^2 + lam^2 kappa^(1+alpha))), g = env^(N-1), exp(-1/x), N = 12,
-    lam kappa <= 1/5, inside X10's range x <= 10^-2 (beyond it env^(11) changes sign and (H_N) fails): s^(-1) g by
-    quadrature"""
-    mp.mp.dps = 25
+    """L.21 (iv') in both regimes and (iv''), for g = env^(N-1) of exp(-1/x), N = 12 (inside X10's range x <= 10^-2):
+    (i) |rho_g| <= 3 eps', eps' := min{(lam kappa)^2 + lam kappa^(1/2), kappa^(-1/2)}, lam kappa from 1/50 to 10^4;
+    (ii) |rho_g + lam^2 kappa_g'| <= 5 (lam kappa)^3 kappa^(-1/2) for lam kappa <= 1/4 (the sharp form);
+    s^(-1) g by quadrature with 4 panels per carrier period, converged (8 panels agree)"""
+    mp.mp.dps = 30
     N = 12
     u = sp.Symbol('u')
     Ps = [sp.Integer(1)]
@@ -741,38 +752,271 @@ def e13(control=False):
         Ps.append(sp.expand(u**2*(Ps[-1] - sp.diff(Ps[-1], u))))
     Pf = [sp.lambdify(u, pp, 'mpmath') for pp in Ps]
     g = lambda t: Pf[N - 1](1/t)*mp.exp(-1/t)                                       # noqa: E731
-    rows, worst, tail = [], mp.mpf(0), mp.mpf(0)
-    for lam in (mp.mpf(10)**-6, mp.mpf(10)**-7):
-        for tk in (mp.mpf('0.2'), mp.mpf('0.1'), mp.mpf('0.05'), mp.mpf('0.025')):
+    kg = lambda t: Pf[N](1/t)/Pf[N - 1](1/t)                                        # noqa: E731
+    rows, w1, w2, tail = [], mp.mpf(0), mp.mpf(0), mp.mpf(0)
+    for lam in (mp.mpf(10)**-6, mp.mpf(10)**-9):
+        for tk in ('0.02', '0.05', '0.1', '0.25', '1', '10', '1e4'):
+            tk = mp.mpf(tk)
             x = mp.sqrt(lam/tk)                                 # kappa = 1/x^2, so lam kappa = tk
+            if x > mp.mpf('0.01'):
+                continue
             key = (float(lam), float(tk))
             if key not in CACHE13:
-                a0 = x/2
-                n = int(mp.ceil((x - a0)/(2*mp.pi*lam)))
-                pts = [a0 + (x - a0)*i/n for i in range(n + 1)]
-                I = mp.quad(lambda t: mp.exp(1j*t/lam)*g(t), pts, method='gauss-legendre')
-                CACHE13[key] = (mp.exp(-1j*x/lam)*I, a0*abs(g(a0)))       # g > 0 increases on (0, x/2]
-            sinv, om = CACHE13[key]
+                kgx = kg(x)
+                val, tl = x13_sinv(g, kgx, x, lam, 4)
+                CACHE13[key] = (val, tl, kgx, mp.diff(kg, x))
+            val, tl, kgx, kgp = CACHE13[key]
             gx = g(x)
-            kg = Pf[N](1/x)/Pf[N - 1](1/x)
-            approx = -1j*lam*gx if control else gx/(kg + 1j/lam)        # the control drops the first-order term
-            r = abs(sinv - approx)/(lam*abs(gx)*tk**2)
-            worst = max(worst, r)
-            tail = max(tail, om/(lam*abs(gx)*tk**2))
-            rows.append("lam = %s, lam kappa = %s: %s" % (mp.nstr(lam, 2), mp.nstr(tk, 3), mp.nstr(r, 4)))
-    ok = worst <= 1 and tail < mp.mpf(10)**-6
+            approx = -1j*lam*gx if control else gx/(kgx + 1j/lam)        # control: first-order term dropped
+            rho = val/approx - 1
+            epsp = min(tk**2 + lam/x, x)
+            r1 = abs(rho)/epsp
+            w1 = max(w1, r1)
+            tail = max(tail, tl/abs(approx)/epsp)
+            r2 = None
+            if tk <= mp.mpf(1)/4:
+                r2 = abs(rho + (0 if control else lam**2*kgp))/(tk**3*x)      # control: the correction dropped
+                w2 = max(w2, r2)
+            rows.append("lam = %s, lam kappa = %s: |rho|/eps' %s%s" % (mp.nstr(lam, 2), mp.nstr(tk, 3), mp.nstr(r1, 4),
+                        "" if r2 is None else ", |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) %s" % mp.nstr(r2, 4)))
+    if control:
+        return w1 <= 3 or w2 <= 5
+    # convergence: the smallest lam kappa at lam = 10^-9 with 8 panels per period
+    lam, tk = mp.mpf(10)**-9, mp.mpf('0.02')
+    x = mp.sqrt(lam/tk)
+    v8, _ = x13_sinv(g, kg(x), x, lam, 8)
+    conv = abs(v8/CACHE13[(float(lam), float(tk))][0] - 1)
+    ok = w1 <= 3 and w2 <= 5 and tail < mp.mpf(10)**-6 and conv < mp.mpf(10)**-8
+    out("  X13 L.21 (iv') and (iv''): g = env^(N-1), exp(-1/x), N = 12, s^(-1) g by quadrature (4 panels per carrier"
+        " period; 8 panels differ by %s; omitted tail below %s of the bound): " % (mp.nstr(conv, 2), mp.nstr(tail, 2))
+        + "; ".join(rows) + "; max |rho|/eps' = %s <= 3, max sharp ratio = %s <= 5: %s  [%.0f s]"
+        % (mp.nstr(w1, 4), mp.nstr(w2, 4), ok, time.time() - T0))
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------------------ X14
+YCACHE = {}
+
+
+def yfun(nm, kmax):
+    """x -> [env^(k)/env, k <= kmax] for an envelope of ELLS (exact derivatives, Bell polynomials)"""
+    if (nm, kmax) not in YCACHE:
+        Ls, Y = bell_ratios(kmax - 1)
+        Yf = [sp.lambdify(Ls, y, 'mpmath') for y in Y[:kmax + 1]]
+        dl = [sp.lambdify(XS, sp.diff(ELLS[nm], XS, j), 'mpmath') for j in range(1, len(Ls) + 1)]
+        ell = sp.lambdify(XS, ELLS[nm], 'mpmath')
+
+        def f(x):
+            Lv = [g_(x) for g_ in dl]
+            return [g_(*Lv) for g_ in Yf]
+        YCACHE[(nm, kmax)] = (f, ell)
+    return YCACHE[(nm, kmax)]
+
+
+def kvv(r0):
+    """nu = K(r0) of Theorem L (mu0 = 1)"""
+    return -(2*r0**3 - 3*r0**2 - 2)**2/(36*r0**6)
+
+
+def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
+    """sigma(x) = nu st(x) + lam b4 - Xi_ex Lambda (Gamma_R = 1, i^N = 1), Xi_ex with rho_g = -lam^2 kappa_g' (iv'');
+    returns x -> (sigma, kappa, kappa_(N-1), T0)"""
+    f, ell = yfun(nm, N + 1)
+
+    def sig(x):
+        Y = f(x)
+        kap, kN1 = Y[1], Y[N]/Y[N - 1]
+        kN1p = Y[N + 1]/Y[N - 1] - kN1**2                     # kappa_(N-1)'
+        T0, T = lam*kap, lam*kN1
+        r0 = rho0 + x
+        cN = N/(r0**2 + 1)
+        nu = kvv(r0) if nu_mode == 'K' else -mp.mpf(1)/9
+        rho_g = -lam**2*kN1p
+        Xi = (1 - cN) - 1j*(1 + rho_g)/(T + 1j)
+        Lam = lam**(N - 2)*Y[N - 1] if freeze is None else freeze
+        st = sum((k + 1)*(1j*lam)**k*Y[k] for k in range(N - 1))
+        return nu*st + lam*b4 - Xi*Lam, kap, kN1, T0, nu
+    return sig, ell
+
+
+def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, freeze_at_min=False, nwin=60, ngrid=201):
+    """Lemma W (A) or (B) on every window: a log grid over the crossover and every window around min |sigma|.
+    Unstructured errors (sigma units): |e| <= (1/kappa + lam)(|nu| + |B|), |e'| <= 2 kappa |e|, |e''| <= 4 kappa^2 |e|"""
+    sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4)
+    f, _ = yfun(nm, N + 1)
+
+    def lamb(x):
+        Y = f(x)
+        return lam**(N - 2)*Y[N - 1]
+    x0 = (lam**(N - 2)*9)**(mp.mpf(1)/(2*N - 2))
+
+    def bis(fun, lo, hi):
+        for _ in range(140):
+            mid = mp.sqrt(lo*hi)
+            if fun(mid) > 0:
+                lo = mid
+            else:
+                hi = mid
+        return hi
+    nuabs = lambda x: abs(sig(x)[4])                                               # noqa: E731
+    xl = bis(lambda x: lamb(x) - 4*nuabs(x), x0/10**6, x0*10**6)
+    xh = bis(lambda x: lamb(x) - nuabs(x)/4, x0/10**6, x0*10**6)
+    # min |sigma| on the crossover: coarse log grid, then golden section
+    best = min((abs(sig(xl*(xh/xl)**(mp.mpf(k)/2000))[0]), k) for k in range(2001))
+    a_, b_ = xl*(xh/xl)**(mp.mpf(max(best[1] - 1, 0))/2000), xl*(xh/xl)**(mp.mpf(min(best[1] + 1, 2000))/2000)
+    gr = (mp.sqrt(5) - 1)/2
+    for _ in range(200):
+        c1, c2 = b_ - gr*(b_ - a_), a_ + gr*(b_ - a_)
+        if abs(sig(c1)[0]) < abs(sig(c2)[0]):
+            b_ = c2
+        else:
+            a_ = c1
+    xm = (a_ + b_)/2
+    if freeze_at_min:
+        sig, ell = sigma_model(nm, lam, N, rho0, nu_mode, b4, freeze=lamb(xm))
+    smin = abs(sig(xm)[0])
+    per = 4*mp.pi*lam
+    okA = okB = True
+    nA = nB = 0
+
+    def err(x):
+        s_, kap, kN1, T0, nu = sig(x)
+        return (1/kap + lam)*(abs(nu) + abs(s_ - nu)), kap
+
+    def window(x1):
+        nonlocal nA, nB
+        ts = [x1 + per*j/8 for j in range(9)]
+        vals = [sig(t) for t in ts]
+        S = [v_[0]*mp.e**(ell(t) - ell(x1)) for v_, t in zip(vals, ts)]
+        es = [err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts]
+        thr = [(v_[1] - v_[2])/(8*v_[1])*abs(v_[4]) for v_ in vals]             # tau_A: c_t kappa^(alpha-1)|nu|/8
+        if all(abs(v_[0]) >= th for v_, th in zip(vals, thr)):
+            ph = max(abs(mp.arg(S[j]/S[0])) for j in range(9)) + max(2*mp.asin(min(1, e_/abs(s_)))
+                                                                    for e_, s_ in zip(es, S))
+            if all(abs(s_) >= 4*e_ for s_, e_ in zip(S, es)) and ph <= mp.pi/6:
+                nA += 1
+                return True
+        # Lemma W (B): |S'| >= L0, |S''| <= L0/(80 pi lam), the errors included
+        Sf = lambda t: sig(t)[0]*mp.e**(ell(t) - ell(x1))                          # noqa: E731
+        d1 = [abs(mp.diff(Sf, t)) - 2*err(t)[1]*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts]
+        L0 = min(d1)
+        d2 = max(abs(mp.diff(Sf, t, 2)) + 4*err(t)[1]**2*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts)
+        if L0 > 0 and d2 <= L0/(80*mp.pi*lam):
+            nB += 1
+            return True
+        return False
+    for k in range(ngrid):
+        okA &= window(xl*(xh/xl)**(mp.mpf(k)/(ngrid - 1)))
+    for k in range(-nwin, nwin + 1):
+        okB &= window(xm + k*per/4)
+    T0m = sig(xm)[3]
+    return dict(ok=okA and okB, xm=xm, T0=T0m, smin=smin, nuabs=abs(sig(xm)[4]), nA=nA, nB=nB,
+                kx2=sig(xm)[1]*xm**2)
+
+
+CACHE14 = {}
+
+
+def e14(control=False):
+    """Case 3' (R7.2) at c_N(rho0) = 1/2, N = 12: every window of the crossover is decided by Lemma W (A) or (B);
+    and the T0^2 route fails there (min |sigma| << |nu| T0^2, the leading model vanishing to all orders)"""
+    mp.mp.dps = 60
+    N, rho0 = 12, mp.sqrt(23)
+    rows, ok = [], True
+    for nm in ("exp(-1/x)", "record C_c^inf"):
+        for E in (40, 80, 160):
+            lam = mp.mpf(10)**-E
+            key = (nm, E, control)
+            if key not in CACHE14:
+                CACHE14[key] = dichotomy(nm, lam, N, rho0, 'fixed', freeze_at_min=control)
+            d = CACHE14[key]
+            ok &= d['ok']
+            t02 = d['smin']/(d['nuabs']*d['T0']**2)
+            if not control:
+                ok &= t02 < mp.mpf(10)**-3
+            rows.append("%s, lam = 1e-%d: lam kappa = %s, min |sigma|/(|nu| T0^2) = %s; windows by (A) %d, by (B) %d,"
+                        " all decided: %s" % (nm, E, mp.nstr(d['T0'], 3), mp.nstr(t02, 3), d['nA'], d['nB'], d['ok']))
     if control:
         return ok
-    out("  X13 L.21 (iv'): for g = env^(N-1), exp(-1/x), N = 12, s^(-1) g (by quadrature from x/2; the part below x/2 is"
-        " at most %s of lam |g| (lam kappa)^2) against g/(kappa_(N-1) + i/lam), |difference|/(lam |g| (lam kappa)^2): "
-        % mp.nstr(tail, 3) + "; ".join(rows) + "; at most 1: %s  [%.0f s]" % (worst <= 1, time.time() - T0))
+    out("  X14 Case 3' at a real cancellation with c_N(rho0) = 1/2 (rho0^2 = 23 = 2N - 1, N = 12; unit constants, nu ="
+        " -1/9, exact derivatives, rho_g by (iv'')): " + "; ".join(rows) + "; the T0^2 route fails (min |sigma| <"
+        " 10^-3 |nu| T0^2) and every window is decided: %s  [%.0f s]" % (ok, time.time() - T0))
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------------------ X15
+CACHE15 = {}
+
+
+def e15(control=False):
+    """Case 3' at rho0 = rho* (N = 12, nu = K(r0)) with (H_rho*)'s first half only (kappa x^2 bounded below) and an
+    unknown structured stage lambda-family lam b4, |b4| = 1, four phases; control: kappa x^2 -> 0 (exp(-1/x^(1/2))) with
+    b4 chosen real and positive so that the two transversal terms cancel at the crossover"""
+    mp.mp.dps = 60
+    N = 12
+    rs = mp.findroot(lambda q: 2*q**3 - 3*q**2 - 2, mp.mpf('1.8'))
+    rows, ok = [], True
+    if control:
+        lam = mp.mpf(10)**-40
+        nm = "exp(-1/x^(1/2))"
+        # b4 with sigma' ~ nu' + (nu + lam b4) kappa |delta_T| = 0 at the crossover point of b4 = 0
+        d0 = dichotomy(nm, lam, N, rs, 'K', b4=0, nwin=0, ngrid=2)
+        sig, _ = sigma_model(nm, lam, N, rs, 'K')
+        s_, kap, kN1, T0, nu = sig(d0['xm'])
+        nup = mp.diff(lambda t: kvv(rs + t), d0['xm'])
+        b4 = (-nup/(kap - kN1) - nu)/lam
+        d = dichotomy(nm, lam, N, rs, 'K', b4=b4)
+        return d['ok']
+    for nm in ("exp(-1/x)", "record C_c^inf"):
+        for E in (40, 80):
+            lam = mp.mpf(10)**-E
+            for b4 in (1, 1j, -1, -1j):
+                key = (nm, E, b4)
+                if key not in CACHE15:
+                    CACHE15[key] = dichotomy(nm, lam, N, rs, 'K', b4=b4, nwin=30, ngrid=101)
+                d = CACHE15[key]
+                ok &= d['ok']
+            rows.append("%s, lam = 1e-%d: kappa x^2 = %s, lam kappa = %s, decided for b4 = 1, i, -1, -i: %s"
+                        % (nm, E, mp.nstr(d['kx2'], 3), mp.nstr(d['T0'], 3),
+                           all(CACHE15[(nm, E, b)]['ok'] for b in (1, 1j, -1, -1j))))
+    out("  X15 Case 3' at rho0 = rho* = %s, N = 12, nu = K(r0), unit constants, with an unknown structured lambda-family"
+        " lam b4: " % mp.nstr(rs, 7) + "; ".join(rows) + "; all decided: %s  [%.0f s]" % (ok, time.time() - T0))
+    return ok
+
+
+# ------------------------------------------------------------------------------------------------------------ X16
+def e16(control=False):
+    """L.21 (iii)-(iv) at c_N = 1 (rho0^2 = N - 1): the lower families against the bracket -(i/lam) s^-1 env^(N-1),
+    relative O(lam + 1/kappa) for lam kappa from 10^-2 to 10^4 (exp(-1/x), N = 12, lam = 10^-9, unit coefficients);
+    control: a lower-family term with one s too many (lam^-1 env^(N-1))"""
+    mp.mp.dps = 40
+    N, lam = 12, mp.mpf(10)**-9
+    f, _ = yfun("exp(-1/x)", N + 1)
+    worst = mp.mpf(0)
+    for k in range(121):
+        tk = mp.mpf(10)**(-2 + mp.mpf(6)*k/120)
+        x = mp.sqrt(lam/tk)
+        Y = f(x)
+        kap, kN1, kN2 = Y[1], Y[N]/Y[N - 1], Y[N - 1]/Y[N - 2]
+        T = lam*kN1
+        top = abs(1/(T + 1j))                                   # |(i/lam) s^-1 env^(N-1)| / env^(N-1)
+        lower = abs(1/(kN1 + 1j/lam)) + abs(1/kN2)              # s^-1 env^(N-1) and env^(N-2), per env^(N-1)
+        if control:
+            lower += 1/(lam*abs(kN1 + 1j/lam))*0 + 1                # env^(N-1) itself, of the bracket's size
+        worst = max(worst, lower/top/(lam + 1/kap))
+    ok = worst <= 4
+    if control:
+        return ok
+    out("  X16 at c_N = 1 the lower families of L.21 (iii) are O(lam + 1/kappa) relative to the bracket, lam kappa in"
+        " [10^-2, 10^4]: max ratio/(lam + 1/kappa) = %s <= 4: %s" % (mp.nstr(worst, 4), ok))
     return ok
 
 
 def main():
     ok = True
     for name, f in (("X1", e1), ("X2", e2), ("X3", e3), ("X4", e4), ("X5", e5), ("X6", e6), ("X7", e7), ("X8", e8),
-                    ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12), ("X13", e13)):
+                    ("X9", e9), ("X10", e10), ("X11", e11), ("X12", e12), ("X13", e13),
+                    ("X14", e14), ("X15", e15), ("X16", e16)):
         good = f()
         ctl = f(control=True)
         out("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""))

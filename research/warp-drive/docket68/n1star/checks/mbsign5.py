@@ -67,7 +67,7 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
 Labels: computed, exact throughout. E4 (a) at three rational angles; E4 (c) at three rational points (R, th, mu) with
 every jet free; the radial identities of E5, E6, E8, E9 symbolic in k^2 and the jets, exact at four rational points
 (R, mu) (with R and f rational squares), or under --full symbolic in R and k^2 at mu = 1 (general by the homothety
-(t, R) -> (lam t, lam R), which carries mu to lam^2 mu), with mu = 9/10 and 7/5 as cross-checks (slower). Deduced in
+(t, R) -> (lam t, lam R), which carries mu to lam^2 mu; slower). Deduced in
 FAMILIES5-MB.md, not here: the passage from Part I's slice to a static slice (Stokes and the second-order Bianchi
 identity), the mode sum (orthogonality), the intermediate-value step (Proposition L').
 
@@ -173,9 +173,9 @@ class Jets:
 
     def is_zero(self, e):
         """exact zero test, symbolic in k^2 and the jets: at the rational points RADPTS in (R, mu) (default), or
-        symbolic in R and k^2 at mu = 1, 9/10, 7/5 (--full; the homothety (t, R) -> (lam t, lam R) carries mu to
-        lam^2 mu, so mu = 1 is general and the other two are cross-checks)"""
-        for pt in (RADPTS if not FULL else [{mu: mv} for mv in (1, sp.Rational(9, 10), sp.Rational(7, 5))]):
+        symbolic in R and k^2 at mu = 1 (--full; the homothety (t, R) -> (lam t, lam R) carries mu to lam^2 mu, so
+        mu = 1 is general)"""
+        for pt in (RADPTS if not FULL else [{mu: 1}]):
             ee = sp.together(e.xreplace(pt))
             num = sp.expand(sp.numer(ee))
             if num == 0:
@@ -846,7 +846,7 @@ def e7(c0):
     hk = all(cc > 0 for cc in sp.Poly(sp.expand(HKI.subs(x_, xx).subs(k2, 8 + tt)), xx, tt).coeffs())
     print("   class modes l = 2j: m = 4j(j+1) - 3 = 5, 21, 45, ...: %s; m = 5: Qp = 1296 x^3 + %s, discriminant %s < 0, "
           "no root in [0, 1]: %s; m = 21 + t (t >= 0): every coefficient of Qp in (x, t) >= 0, Qp(0, 0) > 0: %s; "
-          "H_KI = m + 6x > 0: %s" % (spec, quad, disc, m5, big, hk))
+          "H_KI = m + 6x > 0: %s" % (spec, str(quad).replace('xx', 'x'), disc, m5, big, hk))
     # control: the l-form potential at m = 5, mu = 1 is negative near the horizon
     c05 = sp.factor(c0.subs({k2: 8, mu: 1}))
     vals = [sp.sign(sp.nsimplify(c05.subs(r, rv))) for rv in (sp.Rational(101, 100), 3)]

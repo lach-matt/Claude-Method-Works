@@ -793,7 +793,21 @@ pp. 60–61), has pointwise norm r^(−3/2)|Φ|; in those fields the coefficient
 those powers attained (computed, kirecon5.py P2); the tensor type is its own master field; and l = 1 is absent. So in
 that Regge–Wheeler-type gauge, with the l = 0 gauge fixed to the mass change, every metric component of a perturbation
 in the class settles to a change of mass at [HKW18]'s rate on each region r ≤ R, uniformly in l with a constant growing
-as a power of R (uniformly in r it is not shown), with the loss of two derivatives so counted. That gauge is not the
+as a power of R, with the loss of two derivatives so counted. Uniformly in r it fails, and what holds instead is sharp
+in r (supplement RWGAUGE5, `docket68/n1star/checks/rwgauge5u.py`). In the orthonormal frame of the static observers,
+e_0 = f^(−1/2) ∂_t and e_1 = f^(1/2) ∂_r on the orbit space and e_i the unit frame of the sphere, f = 1 − μ/r², on the
+outgoing part of [HKW18]'s leaves (r ≥ R_1, their radius) the orbit-space components of the scalar type can grow as,
+and no faster than, r^(1/2): for every leaf there is a single-mode perturbation of the class, with finite [HKW18] data
+of every order, whose component h(e_0, e_0) is B r^(1/2) f^(−1) S on the outgoing part of that leaf, B ≠ 0 a constant
+and S its harmonic (RWGAUGE5 Theorem 1, proved; the components computed exactly). With that weight they settle, and
+the angular components and the tensor type settle without it, pointwise and uniformly in r ≥ R_1 and in l: with cK
+the change of mass, r^(−1/2)|(h − cK)(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay at least as τ^(δ−1/2) for every
+δ ∈ (0, 1/2], and r^(−1)|(h − cK)(e_a, e_b)| and |h(e_i, e_j)| at least as τ^(−1), for data with [HKW18]'s
+I_{XΨ}(Σ_0) finite for X = T^a Ω^b, a ≤ 2, b ≤ 4, Ω the rotations; and, for b ≤ 2, the integral of
+r^(−3)|(h − cK)(e_a, e_b)|² + r^(−1)|h(e_i, e_j)|² over r ≥ R_1 and the unit sphere, against dr dσ, decays at least
+as τ^(−2), [HKW18]'s rate (RWGAUGE5 Theorems 2 and 2′, proved from [HKW18]'s Theorems 2, 16 and 18 and Lemma 11 as
+READ and a Sobolev inequality on S³; every coefficient and exponent computed). The powers r^(±1/2) are attained, so
+the weights cannot be improved. That gauge is not the
 wave gauge of the nonlinear problem. The passage between the two was closed in four dimensions by Hung ([Hun19]: the
 Lichnerowicz equation under the gauge, a gauge vector solving a tensorial wave equation with the master quantity as
 source, the l = 0 sector's stationary one-form and linearly growing gauge-fixed mass change, decay for the rest), and
@@ -2772,7 +2786,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `709c63be1748117de9fadf6410eb53a2` |
+| `docket68/n1star/N1STAR-PROOF.md` | `7400212b8ab4ab746fefc00381d6aa4e` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2780,9 +2794,9 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/lead5.py` | `ba26d7df17f37eb6932d5b7133656d1a` |
 | `docket68/n1star/mass5.py` | `ebe2ee78219553f4b57a4200604752e5` |
 | `docket68/n1star/horizon5.py` | `962ca2fb9404bebbce8420075f080dbd` |
-| `docket68/n1star/past5.py` | `d6742977ac642377ecc3785759dd526c` |
+| `docket68/n1star/past5.py` | `a6b4bc26f681093ee75aadf2daffe146` |
 | `docket68/n1star/settle5.py` | `8f2c81317211e47666881113aa18e3a0` |
-| `docket68/n1star/bondi5.py` | `998cfceff0a2781cd161fe0640408e63` |
+| `docket68/n1star/bondi5.py` | `7c5c537b56483b7ebbcccbade3534197` |
 | `docket68/n1star/growth5.py` | `7493d63335c521c78d35653716881934` |
 | `docket68/n1star/wavegauge5.py` | `d2d8e22bf8d52fe42eea3f32ae49306f` |
 | `docket68/n1star/rungs5.py` | `2bc4e9021ae529e63eb548a99049cb08` |
@@ -2849,8 +2863,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/READINGS.tsv` | `edef9a4c3d82824574cc05c6ab5d3a08` |
 | `docket68/n1star/B-MAP.tsv` | `c8030f38e1160b539974f0feb9dc717a` |
 | `docket68/n1star/proof5/PART-II-F-IOTA.md` | `51c14571e7c29685fb8a757713dc2015` |
-| `docket68/n1star/proof5/README.md` | `4d91656137e3080eceb7937ec0e9d49b` |
-| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `ed98c26f5e7a4b3693f5c2d812768215` |
+| `docket68/n1star/proof5/README.md` | `59e16d18194e76e99d6bdf8724cc258d` |
+| `docket68/n1star/proof5/PART-VII-ASSEMBLY.md` | `81a9effd4cb417f5f3652356dcfdf101` |
 | `docket68/n1star/proof5/BASEPOINT-LEDGER.md` | `44c0036ebaa29156a161956911094f75` |
 | `docket68/n1star/proof5/checks/gammac5.py` | `19491acb21cdd07ea9f93a827d970737` |
 | `docket68/n1star/proof5/checks/gammac5.tsv` | `0801ba6869e3884ed3ef309acf872ad1` |
@@ -2858,18 +2872,18 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/proof5/checks/admiss5.tsv` | `133a673e184f911e6529c318eac95950` |
 | `docket68/n1star/proof5/checks/damping5.tsv` | `4e7c226efd96b04206eb1c8e207e6861` |
 | `docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md` | `d7532a0cb202e4fe77a109fa1f6dbf0f` |
-| `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e5ccb190d92288c1b8f489d3ed206495` |
-| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `5fcfded92005ed06251f1216515d082f` |
+| `docket68/n1star/proof5/PART-VI4-PARAMS.md` | `e7eebbb5382a2539f574b814e3c86659` |
+| `docket68/n1star/proof5/PART-VIII-LINEAR.md` | `df1d7ffee02e236076661b3ecea9bbf7` |
 | `docket68/n1star/proof5/PART-IX-GAUGE.md` | `134f0456cac9af73d12191ab93696ee2` |
 | `docket68/n1star/checks/ix5.py` | `6a3fb0bbf7858715eb8c6b96563b59c4` |
 | `docket68/n1star/EQUALITY5.md` | `9a36681c3862dd10f528ecc011cdcc73` |
 | `docket68/n1star/checks/eq5.py` | `fae5dce11668492f91fec0657408090b` |
-| `docket68/n1star/LOSS-D.md` | `363b7acd423b6201dbcc7faa8b42f8eb` |
-| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `e0906bcdf3ce1b3035a823b964279b18` |
+| `docket68/n1star/LOSS-D.md` | `ffe78eb45b6a60777f5887b4a8638357` |
+| `docket68/n1star/proof5/PART-III-K-NONLINEAR.md` | `905a2c528397ea4f5229315f0169aea3` |
 | `docket68/n1star/E2-PILOT.md` | `d156cd3b591817ccef7f7df714fd1239` |
 | `docket68/n1star/CERTIFY-10L5.md` | `7eb88136e65eca92b84f53549d957cc0` |
-| `docket68/n1star/BEYOND5.md` | `967dac4b469933f49f796bb57486bace` |
-| `docket68/n1star/BEYOND5-R0-PROOF.md` | `de3a24f4c0413712d3fd46e078343b99` |
+| `docket68/n1star/BEYOND5.md` | `b67a56b202fcdeba51e8118e71243c33` |
+| `docket68/n1star/BEYOND5-R0-PROOF.md` | `90e79255516511ce4e8cb82da61fea06` |
 | `docket68/n1star/FAMILIES5.md` | `34c0c29c24010c93ac191c3351b1c564` |
 | `docket68/n1star/checks/thetain5.py` | `70071c8799a311f8f572d4bd46737d15` |
 | `docket68/n1star/checks/thetain5.out` | `2e29df7215e015e4fb8c8e0c50ea4b56` |
@@ -2882,8 +2896,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/closure5.py` | `c65098b4a3c6f0a36b37a5de0ccf902b` |
 | `docket68/n1star/checks/closure5.out` | `8388cf3bd8a7eee36f599a210effd723` |
 | `docket68/n1star/checks/data5two.py` | `2bd3a44619ea4392c5754bf46506a876` |
-| `docket68/n1star/checks/support5.py` | `936c4d30255562e3e9ddc0339cbddd65` |
-| `docket68/n1star/checks/support5.out` | `893971e444efc2d1e8d610be42c9476b` |
+| `docket68/n1star/checks/support5.py` | `41ca613d676540c0bc7caae6c175ec8a` |
+| `docket68/n1star/checks/support5.out` | `5b63d57ff7241139f71e4dc53ada0647` |
 | `docket68/n1star/checks/g1curv5.py` | `d98ed86deaee1c04d6eb92653cf1cf2b` |
 | `docket68/n1star/dnsolve5.py` | `f5c59a474498f3e2a215acfbdf46dbbd` |
 | `docket68/n1star/checks/epsind5.py` | `8a255f7058dc653627001236cb7075ad` |
@@ -2911,11 +2925,11 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/mpdata5.out` | `2095b2cfc3584b322e8603301cbb815f` |
 | `docket68/n1star/checks/flux5.py` | `9ab6b48f425633ab7806c3bab1576238` |
 | `docket68/n1star/checks/flux5.out` | `75c4e28d932ef8895941c219012badf7` |
-| `docket68/n1star/checks/vii5census.py` | `72bd25c139eb7fd1d50047e54081300d` |
-| `docket68/n1star/checks/vii5census.out` | `0c0af2356bbe42ee7dc272dadc492969` |
-| `docket68/n1star/checks/vii5read.py` | `5fe023d9f991eb39404e709ae8811f86` |
-| `docket68/n1star/checks/vii5read.out` | `95b1d4ffe25e4cdf0ceeef7450281aa3` |
-| `docket68/n1star/checks/VII5-READING.tsv` | `592b0fc609b682fe2afb2d3d466e0eb4` |
+| `docket68/n1star/checks/vii5census.py` | `e8e7aceda659fea0dc2d5c1ea075e0f2` |
+| `docket68/n1star/checks/vii5census.out` | `1198bc26cbb017e4c95d79a31c9d8935` |
+| `docket68/n1star/checks/vii5read.py` | `f9bfa4b1478345122d53d2eac92a5698` |
+| `docket68/n1star/checks/vii5read.out` | `a85aa1ef7a5f4f086c88f0830a199b71` |
+| `docket68/n1star/checks/VII5-READING.tsv` | `d9bf818233f732c867a503355c610c18` |
 | `docket68/n1star/checks/hclass5.py` | `8ad8a55f77406eb4a4d0e481fb1fe85c` |
 | `docket68/n1star/checks/hclass5.out` | `761509082809bc9a23fb1b876f3b0b0f` |
 | `docket68/n1star/checks/support9.py` | `617014162b849cf055ed4ca7d196141a` |
@@ -2962,8 +2976,8 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/lambdacount5.out` | `8fe050e0aef4c0e3c23d9f83b23cc637` |
 | `docket68/n1star/checks/twodomain5.py` | `ae5a1243d42d239e268b5d7f199e8788` |
 | `docket68/n1star/checks/twodomain5.out` | `c0b6bf5ba5ce15583d0590d79398af0f` |
-| `docket68/n1star/checks/r0census5.py` | `929105da47fc44cd9c31a5d47a76866a` |
-| `docket68/n1star/BEYOND5-R0.tsv` | `11b1d5a98db3a2f9dab96eef6a813a21` |
+| `docket68/n1star/checks/r0census5.py` | `d32687363373887aa7ee12ad267540a8` |
+| `docket68/n1star/BEYOND5-R0.tsv` | `ba3f3c9517acb286d085388130cb09cd` |
 | `docket68/n1star/checks/census9.py` | `2df668cb63c0e15be15e346af3187d6d` |
 | `docket68/n1star/checks/census9.out` | `9ba93588dbc0dfa50fb6f3a0bf920a3f` |
 | `docket68/n1star/checks/support5c.py` | `494d4b4a969248f3d27ccadcda1df4c6` |

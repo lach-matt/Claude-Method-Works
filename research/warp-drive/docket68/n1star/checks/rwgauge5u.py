@@ -58,9 +58,9 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      (E^2)^(p-1) on three test functions at p = 6/5, 3/2, 9/5 (exact integrals compared at 40 digits), and -(2 -
      p)/2 = delta - 1/2 at p = 1 + 2 delta.
      Controls: (i) without its second term fails for w = 1; the interpolation without the E^2 factor fails.
-  U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
-     text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
-     "r <= R" for "r ≤ R" (a transcription slip) is not found.
+  U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper and its new
+     text not at all, or, once seated, the old text not at all and the new exactly once; no line of the note or of
+     this program exceeds 121 characters.  Control: both texts with "r <= R" for "r ≤ R" (a slip) are not found.
   U9 (exact) The angular Sobolev inequality of RWGAUGE5.md R2.0.1 (Lemma A): the dimensions (l + 1)^2 of the degree-l
      harmonics on S^3, vol = 2 pi^2, 1 + l(l + 2) = (l + 1)^2, sum (l + 1)^-2 = pi^2/6 and the constant 1/12; the
      reproducing kernel ((l + 1)/(2 pi^2)) U_l(cos psi); sum of the six rotations squared = Lap; ||Lap w||^2 = sum
@@ -703,11 +703,14 @@ def u8(control=False):
     new = note.split("```new\n", 1)[1].split("\n```", 1)[0]
     if control:
         old = old.replace("r ≤ R", "r <= R")                       # a transcription slip must not be found
+        new = new.replace("r ≤ R", "r <= R")
     n_old = paper.count(old)
     n_new = paper.count(new)
     width = max(len(ln) for ln in note.splitlines() + open(os.path.abspath(__file__), encoding="utf-8")
                 .read().splitlines())
-    ok = n_old == 1 and n_new == 0 and new.startswith(old.split(" (uniformly")[0]) and width <= 121
+    # before seating: old once, new absent; after seating (2026-11-06): old absent, new once
+    ok = (((n_old, n_new) in ((1, 0), (0, 1))) and new.startswith(old.split(" (uniformly")[0])
+          and width <= 121)
     say("  U8%s: the old text occurs %d time(s) in the paper, the new text %d; new keeps the old opening: %s;"
         " widest line %d (<= 121: %s); all: %s" % (" control (r <= R)" if control else "", n_old, n_new,
                                                     new.startswith(old.split(" (uniformly")[0]), width,

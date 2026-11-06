@@ -19,3 +19,6 @@ Y  the a priori decay behind Hardy; Proposition R5.2's uniformity in sigma (m2)
         psi with coefficients O(1/r): S1 for d h' uses first derivatives of Gamma h' only, no Hardy (c = t, x1, x3;
         generic psi): pass
   Y1' control (r^-1 d_c(Z psi) dropped): second derivatives of psi remain: pass
+  Y2 for phi -> 0 with finite derivative energy: R'^(2a+2) phi(R')^2 <= (2a+2)^-1 int_R'^oo s^(2a+3) phi'^2 (so the Hardy
+        boundary term vanishes at every R' -> oo) and Hardy on [R, oo) (24 random non-power-law fields): pass max
+        boundary/tail 0.9742, max Hardy lhs/rhs 0.9705

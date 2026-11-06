@@ -71,3 +71,25 @@ G  the fields after the shell: h_R, the caps, the N-flux tails, the window (roun
   G1 at fixed v the r^(-k/2) coefficients of truth - Sigma vanish for k = 4..8 and equal c_9 at k = 9 (exact, l = 2): h_R
         = O(r^(-9/2)): pass {4: '0', 5: '0', 6: '0', 7: '0', 8: '0', 9: '-3'}
   G1' control (p = 4 dropped from Sigma): the r^-4 coefficient survives: pass 4
+  G2 the cap energy of the truncation has fitted exponent 2a - 6 in |T| (a = 2.2, 2.75, 2.95; T = -1e5, -1e6): -> 0
+        exactly for a < 3: pass (a, cap, cap w/o p=4, tail, tail w/o p=4) [(2.2, -1.599, -0.599, -2.6, -1.6), (2.75,
+        -0.499, 0.501, -1.5, -0.5), (2.95, -0.099, 0.901, -1.1, -0.1)]
+  G2' control (p = 4 dropped): exponent 2a - 5 (-> 0 only for a < 5/2): pass
+  G3 the N-flux tail beyond |T| has fitted exponent 2a - 7 (finite flux and vanishing tail for a < 7/2): pass
+  G3' control (p = 4 dropped): 2a - 6: pass
+  G4 rho^(a + 1 + 1/1000) (the S-energy's class, scale5 Z8a) lies in rho^(l0) L^2_b exactly when a + 1 >= l0 (three
+        cases, one failing as it must): pass
+  G5 [arithmetic: the exponents typed; computed from the fields in r6sigma5 W] the admissible weights on the grid are (l0
+        - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (no lower bound 5/2), with Lemma R4.5 widened to (0, 7/2), Step 2 and
+        Proposition R5.2 in the list: pass {'31/10': ('211/100', '299/100'), '33/10': ('231/100', '299/100'), '18/5':
+        ('261/100', '299/100'), '39/10': ('291/100', '299/100')}
+  G5' controls: p = 4 dropped (cap 2a - 5), or the pointwise reading on S (a > l0 - 1/2): no weight for l0 >= 7/2: pass
+  G5c [R6 (m3)] control: with Lemma R4.5 as stated in round 4, a in (5/2, 7/2), the window is (max(l0 - 1, 5/2), 3),
+        smaller for l0 < 7/2: the widening of R6.0 (m3) is what gives (l0 - 1, 3): pass {'31/10': ('251/100', '299/100'),
+        '33/10': ('251/100', '299/100')}
+  G5'' S1's left side R^(2a+3) F(R)^2 is scale-invariant exactly at F ~ R^(-a-3/2): |d h_R| <= eps r^(-3/2-a), so the
+        first-order h_R row has q = 3/2 + a and, with Hardy (one power of r), the zero-order row a + 1/2: pass [a + 3/2]
+  G6 Sigma|_S: rho^p F_p(1 + (f_oo - v1) rho + f_2 rho^3) has exponents p + j, all in E_0^(1/2) (Taylor composition to
+        rho^(p+3), coefficients by mpmath): pass ['11/2', '13/2', '2', '4', '5/2', '6', '7/2', '9/2']
+  G6' control (a p = 9/4 term): exponents outside E_0^(1/2): pass
+FAILED: none
