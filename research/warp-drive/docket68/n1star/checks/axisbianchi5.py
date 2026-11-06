@@ -119,26 +119,41 @@ def jet_values(exprs, rnd):
 
 
 def fit(lhs, lib, labels, n_extra=6, seed=1):
-    """lhs = sum k_i lib_i at random jets: least squares in 40 digits, coefficients rationalised, then verified at
-    fresh jets; returns (dict label -> rational, max residual at the fresh jets)"""
+    """lhs = sum k_i lib_i at random jets: the library is first reduced to linearly independent members (Gram-Schmidt
+    at 40 digits, a member dropped when its remainder is below 1e-25 of its size: an identity among the members, such
+    as the contracted Bianchi identity); then least squares, coefficients rationalised, and verified at fresh jets;
+    returns (dict label -> rational, max residual at the fresh jets, the labels dropped as dependent)"""
     rnd = random.Random(seed)
     n = len(lib)
     rows, rhs = [], []
     for _ in range(n + n_extra):
         vals = jet_values([lhs] + lib, rnd)
         rhs.append(vals[0]); rows.append(vals[1:])
-    A = mp.matrix(rows); bvec = mp.matrix(rhs)
-    sv = mp.svd_r(A, compute_uv=False)
-    fit.cond = max(sv) / min(sv)
+    cols = [[rows[i][j] for i in range(len(rows))] for j in range(n)]
+    keep, basis = [], []
+    for j, c in enumerate(cols):
+        r_ = list(c)
+        for q in basis:
+            d = mp.fsum(a * b_ for a, b_ in zip(r_, q))
+            r_ = [a - d * b_ for a, b_ in zip(r_, q)]
+        nr = mp.sqrt(mp.fsum(a * a for a in r_)); nc = mp.sqrt(mp.fsum(a * a for a in c))
+        if nr > mp.mpf('1e-25') * nc:
+            keep.append(j); basis.append([a / nr for a in r_])
+    dropped = [labels[j] for j in range(n) if j not in keep]
+    A = mp.matrix([[rows[i][j] for j in keep] for i in range(len(rows))]); bvec = mp.matrix(rhs)
     sol, _ = mp.qr_solve(A, bvec)
-    coef = [sp.nsimplify(float(sol[i]), rational=True, tolerance=1e-12) for i in range(n)]
-    coef = [c if abs(float(c)) > 1e-10 else sp.Integer(0) for c in coef]
+    coef = [sp.Integer(0)] * n
+    for t, j in enumerate(keep):
+        c_ = sp.nsimplify(sp.Float(mp.nstr(sol[t], 35), 35), rational=True, tolerance=mp.mpf('1e-20'))
+        coef[j] = c_ if abs(float(c_)) > 1e-12 else sp.Integer(0)
     rnd2 = random.Random(seed + 1000)
     worst = 0
     for _ in range(4):
         vals = jet_values([lhs] + lib, rnd2)
-        res = vals[0] - sum(mp.mpf(sp.Rational(c).p) / mp.mpf(sp.Rational(c).q) * vv for c, vv in zip(coef, vals[1:]))
+        res = vals[0] - sum(mp.mpf(sp.Rational(c).p) / mp.mpf(sp.Rational(c).q) * vv
+                            for c, vv in zip(coef, vals[1:]))
         worst = max(worst, abs(res) / max(1, max(abs(q) for q in vals)))
+    fit.dropped = dropped
     return {l_: c for l_, c in zip(labels, coef) if c != 0}, worst
 
 
@@ -205,8 +220,9 @@ def main():
     add(Om * chibh * (R11 - R22), 'Om chibh (Ric_11 - Ric_22)'); add(Om * chih * (R11 - R22), 'Om chih (Ric_11 - Ric_22)')
     lhs13 = Om * e4(K) + Om * trchi * K
     co13, res13 = fit(lhs13, lib, lab, seed=11)
-    print('B3 (2.13) Om e4 K + Om tr chi K = %s; residual %s (%.0f s)' % (
-        ' + '.join('(%s) %s' % (c, l_) for l_, c in co13.items()), mp.nstr(res13, 3), time.time() - t0), flush=True)
+    print('B3 (2.13) Om e4 K + Om tr chi K = %s; residual %s; dependent members dropped: %s (%.0f s)' % (
+        ' + '.join('(%s) %s' % (c, l_) for l_, c in co13.items()), mp.nstr(res13, 3), fit.dropped or 'none',
+        time.time() - t0), flush=True)
     # (2.14): Om e3 beta^r + Om (tr chib - 2 omb) beta^r = c' Om e1 K + ...
     lib2, lab2 = [], []
     def add2(e, l_):
@@ -231,8 +247,9 @@ def main():
     add2(Om * e3(R41), 'Om e3 Ric_41'); add2(Om * e4(R31), 'Om e4 Ric_31')
     lhs14 = Om * e3(betar) + Om * (trchib - 2 * omb) * betar
     co14, res14 = fit(lhs14, lib2, lab2, seed=21)
-    print('B3 (2.14) Om e3 beta^r + Om (tr chib - 2 omegab) beta^r = %s; residual %s (%.0f s)' % (
-        ' + '.join('(%s) %s' % (c, l_) for l_, c in co14.items()), mp.nstr(res14, 3), time.time() - t0), flush=True)
+    print('B3 (2.14) Om e3 beta^r + Om (tr chib - 2 omegab) beta^r = %s; residual %s; dependent members dropped: %s '
+          '(%.0f s)' % (' + '.join('(%s) %s' % (c, l_) for l_, c in co14.items()), mp.nstr(res14, 3),
+                        fit.dropped or 'none', time.time() - t0), flush=True)
     c13 = co13.get('div(Om beta^r)', 0); c14 = co14.get('Om e1 K', 0)
     b3 = res13 < 1e-25 and res14 < 1e-25 and c13 != 0 and c13 == c14
     print('B3 both fits exact at fresh jets: %s; the principal coefficients div(Om beta^r): %s, Om e1 K: %s: an energy '
