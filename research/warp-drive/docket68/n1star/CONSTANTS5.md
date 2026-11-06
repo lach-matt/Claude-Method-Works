@@ -1248,6 +1248,8 @@ d_b, so stage 1 needs Lemma 2.3 at gt = g0 itself, which R5.5 writes out.
   (R6.1): d <= 45,661,383,902,649,727 + 106,489,470 c' (R1).]
   [R12, Lemma R12.1: proved, by induction over the construction's steps, as the sharpened I11 Proposition 3.1 (c)
   (`checks/logind5.py` 9/9); the table is no longer a ceiling resting on a reading.]
+  [R13: it rests on Lambda, as every count of d does: on R9.1's reading in round 12, derived in R13.1, and at the
+  record's computational point (R13.2; the round-12 reader's minor 2).]
 - *Controls* (each fails): C1 the windows' raises summed instead of maximised: log order 45,000,050 at 3; C2 the v1
   site's extended unions counted twice: log order 4 at offset 1; C3 every type's roots at k = 2: offsets below 1 {d0,
   d1}.
@@ -3028,6 +3030,7 @@ LAMBDA0-DATA5.md section 10's correction. New, each with its `.out`: `checks/log
 C5-C11 on the census's orders), `checks/modcount5.py` (18/18: FWD 877, re-pinned; M5 reads rootavoid5.out) and
 `checks/l2par5.py` (8/8: P1's label; `run()` refuses an increment of real part <= 0). Not touched: the paper,
 N1STAR-PROOF.md, LAMBDA0-DATA5.md, checks/lam0data5.py, INVERSE5-SIX.md, INVERSE5-SCALAR.md and their programs.
+[R13: the list of notes omits two this round added, at R8.0 and R8.5 (the round-12 reader's nit 6).]
 
 ### R12.0 (verifier of round 11, and coordination)
 
@@ -3044,6 +3047,9 @@ support. Its findings, each re-derived before it is seated:
   Proposition 5.3 takes tau >= sup s + N and Theorem 3.1 iterates until J'/2 >= sup s + N, so the calculus runs at
   Sobolev orders down to -65/2 and symbol orders in [-63, 31]. Counted there, D_0 <= 766 and FWD <= 877 (round 9: 435,
   510), and d rises by 68,363,552,203, to 46,236,517,538,883,361.
+  [R13: the census missed three citations (II.A2:465, 658, 769; the ranges do not move): 156 hits, 108 of them
+  citing the calculus. The box fails at both ends: the lower ends -65/2 and -63 rest on tau and J', the Sobolev top 14
+  and, at tau = 1, the symbol end -26 on II.D:170's kappa := 2 (ordcensus5 C2, C5; the round-12 reader's minors 1, 3).]
 - **Minor 1 (accepted).** R11.7's pair 1 contradicted itself ("the admissibility conditions hold ...; one condition of
   the same kind at the second Taylor level waits on exponents the write-out does not list"): Theorem B.5
   (INVERSE5-SCALAR.md, rootavoid5 R11) decides that condition. R12.7 pair 1 says all hold; the clause is withdrawn at
@@ -3177,6 +3183,11 @@ offsets are the same on every reading of it (iotaind5 I4).]
   serves, and -N, -N - m = -14, -16 lie in O3's range (O5). Controls: C1 one row dropped (one hit unclassified); C2 tau
   and J'/2 without N and the oscillation (the range shrinks inside round 8's, so the finding rests on them); C3
   II.A2:727 altered in a copy (its md5 and its read fail); C4 N = 10 (the range moves, [-57/2, 14] x [-55, 27]).
+  [R13: C2 is misdescribed above: it gives Sobolev [-16, 14] and symbol [-26, 1001/50], outside round 8's box too; the
+  top 14 and the end -26 come from II.D:170 (kappa := 2), not from tau and J'. ordcensus5 C2 now tests that the lower
+  ends rest on tau and J' and the top does not, and C5 that the top rests on kappa (13 at kappa = 1). With II.A2:465
+  (Lemma 2.3 (b), a smoothing into H^(K')), 658 (Lemma 2.5 (ii)) and 769 (II.A Lemma 8.6 (a)) classified, O1 has 156
+  hits; 48 are other parts' own Lemma 1.2 or Proposition 2.4 (minors 1, 3).]
 - *What it moves* (computed; `d0count5.py` 23/23, `modcount5.py` 18/18). d0count5's Q7 counts at the census's orders
   (Q4C, BOXC, FAC_F; ordcensus5's box imported and checked equal), (b)-(e)'s factors taken anywhere in the symbol box
   (an upper bound; with (f)'s factor range or round 9's in their place D_0 is the same, (f) setting it): M_a = 235 (J1 =
@@ -3187,6 +3198,9 @@ offsets are the same on every reading of it (iotaind5 I4).]
   877 + 52 = 929, c' = 1035; per round c_r = c_S = 971, z = 889, c_51 = 967; a level's M_a = 1,042,276,249 and M_b =
   179,958,564; the top's three III.A Proposition 4.2 (2) applications 607,240,279 each (unchanged); B_base =
   575,020,555,634,221, B_once = 575,023,419,632,184; the loop counts R, R_w, n_51 do not move.
+  [R13: D_1 <= 88 is an upper bound: d-tilde taken over the closed-graph sites' Sobolev range, not over the orders at
+  which the tame estimates are invoked; at D_1 = 52, FWD would be 841 and d 6.7 x 10^9 lower (the reader's nit 1). d
+  moves by 186,276,709 per unit of FWD (the levels' K + 1 = 106,489,470 and the base's 79,787,239 charges).]
 - **The integer** (deduced on the reading R12.5 states; computed exactly):
 
       d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 110,216,601,450 + 575,023,419,632,184
@@ -3196,11 +3210,14 @@ offsets are the same on every reading of it (iotaind5 I4).]
   precision. The floor at the same weights, 8,407,505,890,317,054, is 0.1818 of it. With the loss at this bound
   inverse6_5a's formula gives log10 delta = -(8 d + 2) log10 16 - log10 2 = -4.453945 x 10^17 (at round 10's d:
   -4.453939 x 10^17), -4.45 x 10^17 at the paper's precision (computed, exact arithmetic at 40 digits).
+  [R13: checks/inverse6_5a.py now pins this d (INVERSE5-SIX.md round 4): -4.45394517576 x 10^17 (the reader's nit 3).]
 
 ### R12.5 Proved, computed, open
 
 - *Proved* (Lemma R12.1; computational support `logind5.py` 9/9): the log orders of E^flat and of the level-2 sources,
   eflat5 F4's table and dnumber5 K3's carries.
+  [R13: on R9.1's reading of Lambda, now derived (R13.1), and at the record's computational point (R13.2; the
+  round-12 reader's minor 2).]
 - *Computed* (`ordcensus5.py` 10/10): the orders at which the forward-solution chain invokes the calculus, site by site:
   Sobolev [-65/2, 14], symbols [-63, 31], (f)'s factors [-63/2, 951/100], N = 14 (N >= 10 needed), K' a regularity
   assumption only.
@@ -3223,6 +3240,9 @@ offsets are the same on every reading of it (iotaind5 I4).]
   empty.
   [R13: computed: E^iota_ind adds nothing (R13.1). d's reading had a second part outside the write-out, the
   parameter point (report-vINV2.md minor 2 (a)): R13.2, R13.5.]
+  [R13: two items the list leaves out (the round-12 reader's nits 2, 8): N = 14 is a choice (N >= 10 is needed); at
+  N = 10 the census gives [-57/2, 14] x [-55, 27], FWD 790 and d = 46,236,501,332,809,678, the same at the paper's
+  precision. The least E_++ is the write-out's own choice, not a reading (I11:70, "E_++ is the least choice").]
 - *Open, each with its single missing input*: lambda0 (a validated solve of the stage-1 evolution on X*'s past for
   envelope5's envelope, LAMBDA0-DATA5.md section 11); the scalar-type blocks' sigma_* (a lower bound uniform in l,
   INVERSE5-SCALAR.md A.8); the six inverse bounds as INVERSE5-SIX.md rounds 2-3 state them; upstream of the last two, a
@@ -3384,3 +3404,375 @@ Lemma A.6's bound, certified (scalarblock5 15/15); the stated limit, read at sou
 N1STAR-PROOF.md 0.3 states); the reduction to one number, computed exactly (classm5 9/9); the stage-1 data and the
 factor over X*'s past (lam0data5 18/18: the closed forms exact, the data floating point, G1-G3 certified). Pair
 4: a table of where each claim is established; it adds no claim.
+[R13: the log orders and the avoidances are on R9.1's reading of Lambda, now derived (R13.1), and at the record's
+computational point (R13.2); the round-12 reader's minor 2. R13.7 restates them.]
+
+## Round 13 (2026-11-06)
+
+*Status.* Appended to rounds 1-12; not yet read by a verifier. Round 12 was read by an independent reader from a frozen
+copy (md5 e4728113...): confirmed, no Major, every integer re-derived (report-vD12.md); its three minors and eight nits
+are seated here (R13.3). Rounds 1-12 keep their text; bracketed `[R13, ...]` notes follow the lines this round corrects
+(section 2.1, R5.2, R9.1, R12 status, R12.0, R12.1, R12.2, R12.5, R12.7). Assigned besides: (i) the one reading R12.5
+left in d's count, Lambda on (1, 3 + eps_K] with E^iota_ind's increments taken empty: compute E^iota_ind from the
+constructions that define it; (ii) the coordinator's addendum (report-vINV2.md, minor 2 (a)): the parameter point at
+which d is computed. New, with its `.out`: `checks/iotaind5.py` (10/10: I0-I5, C1-C4). Changed and rerun in full, each
+with its `.out`: `checks/ordcensus5.py` (11/11: three citations added and classified, 156 hits; C2 tests what it claims;
+C5 new; the unused domain dropped), `checks/modcount5.py` (18/18: M5 asks at least 23 rootavoid5 checks, all PASS, as
+its author has added checks, 26 now; M3's partial sum labelled) and `checks/logind5.py` (9/9, a docstring note; its
+`.out` unchanged). Rerun unchanged: `checks/d0count5.py` (23/23, its `.out` identical). d's integer does not move. R13.7
+supersedes R12.7. Not touched: the paper, N1STAR-PROOF.md, LAMBDA0-DATA5.md, checks/lam0data5.py, INVERSE5-SIX.md,
+INVERSE5-SCALAR.md and their programs.
+
+### R13.0 (the assignment and the reader's finding)
+
+- **(i) E^iota_ind (computed; proved, R13.1).** The write-out does not list E^iota_ind: I11:38 takes it to be "the index
+  set of III.G'' (4.4)", which (4.4) asserts to exist and its proof obtains by "collecting the states' index sets of
+  III.D'', III.D''', III.F'''', 2 + N_0, and (2,1) when lambda = 1" (G3:336-342), each of those parts writing its E_ind
+  as "an index set ... changing from line to line" (D4:57-58). Followed through the constructions at b0, it adds no
+  point to Lambda in (1, 3 + eps_K]: outcome (a).
+- **(ii) The parameter point (accepted; READ, computed, R13.2).** R12.7 pair 1's "the weights are taken at a point where
+  every admissibility condition holds" names no point, and R12.5's "no part outside the write-out other than that one"
+  missed one: W1's weights (section 2.1, "At the record's point"), delta_50, d0, d1, lambda_sharp and the avoidances are
+  all computed at the record's computational point (gamma_C = 10^6, gamma_Ups = e_Ups = 1/100), which lies outside the
+  proved set (PART-VI4-PARAMS.md:145-148; INVERSE5-SIX.md R2.0; INVERSE5-SCALAR.md A.1). d's count depends on the point
+  (R13.2), so the point is named in R13.7 pair 1 and R13.5 as the one part of d's bound that is not the write-out's
+  statement.
+- **The reader's (b)** (d moved in R12.2 while INVERSE5-SIX.md R2.1 and checks/inverse6_5a.py keep round 10's d, and
+  INVERSE5-SCALAR.md B.8 calls round 10's integer unchanged) concerns those files, not this one. At R12.2's d the chain
+  gives log10 delta = -4.453945 x 10^17 (R12.2), -4.45 x 10^17 at the paper's precision, as the reader recomputed.
+
+### R13.1 (i) d: E^iota_ind computed (`iotaind5.py`)
+
+**Proposition R13.1.** At b0 every element of the least index set for which III.G'' (4.4)-(4.5) hold has real part >= 2;
+at b near b0 (types mixed, the companions S_1, V_1 present) the least set adds the single element 1. The set the proof's
+recipe collects, the states' index sets as III.D'' (3.4), III.D''' (3.1)-(3.3), (4)-(7) and III.F'''' (5.1) write them,
+each relative to the exponent it is written at, has in (0, 3 + eps_+ - lambda_sharp] exactly E_ind's elements there, d1,
+1, 1 + d1, 1 + delta'_1 and 1 + d0, with the same log orders (0, 2, 1, 0, 0). So on every one of these readings
+pi_1(E_ind u E^iota_ind) u {1} = pi_1 E_ind u {1} in that window, and Lambda on (1, 3 + eps_K] is round 9's list:
+E^iota_ind adds no point.
+
+*Proof* (deduced; READ at the lines cited, all found by content in `iotaind5.py` I0).
+
+- *The remainder's iota+-orders.* In (4.4)'s proof the remainder near iota+ is, by the tower identity (2.2), the
+  truncation terms a^(k+1)([L_b, t_*] h-breve^k + 1/2 [[L_b, t_*], t_*] h-breve^(k-1)) + 1/2 a^(k+2) [[L_b, t_*], t_*]
+  h-breve^k with a = t_*^(-lambda+mu): with [L_b, t_*] = -rho(rho d_rho - 3/2 - S-bar) - g^00_b d_t* + Q_b/2 and [[L_b,
+  t_*], t_*] in rho^2 C^oo ((2.3)), a term of h-breve^k at rho^(mu-k+w) gives the iota+-order lambda + 2 + w, w its
+  offset from the chain degree mu - k; Lemma 4.1's Taylor terms give lambda + 4 + N_0; the leading order lambda + 2 is
+  f_+ (G3:316-342). The s1 and v1 terms j = 0, 1 are of size t_*^(-lambda-2) at iota+ (G3:309-311), offset 2 plus their
+  own. So the least E^iota_ind is the set of offsets of the tower terms from their chain degrees, with 2 + N_0 and (2,
+  1).
+- *Each construction gives offsets >= 2 at b0.* The operator's deviation from its dilation-invariant model is two orders
+  down (A_0 - A-bar_0 in rho^4 Diff^2_b, A_1 - A-bar_1 = Q_b in rho^3 Diff^1_b, A_2 in rho^2 C^oo, D4 (1.1) at D4:27-29;
+  L-hat_b(0) - L-hat-bar(0) in rho^4 Diff^2_b, F5:272-273), and the model is dilation invariant near the boundary (III.G
+  (1.1), as G3's Lemma 1.2 uses it). III.D''' (every step, D4 Lemma 2.1): u_0 at m, u_1 the formal solution from the
+  source's exponents (which by induction over the tower sit >= 2 above their chain degree, the A-bar_1 part shifting a
+  whole term uniformly) and from (A - N(A)) u_0 two orders down, u_2 = P_b^-1 f_2 with exponents >= lambda_s1,2 = 2 + d1
+  (D4:95), while every chain degree of III.D''' is <= 0. III.D'' (F1) (D3:176-185) places the corrections of the
+  symmetry states at k = 1, 2 above homogeneous degrees -1, 0. III.F'''' Proposition 5.1: the formal solution from (0,
+  0), h_(0) in A^(0,k), u_b at a weight in (0, eps_ind) (F5:307), all >= 0 against the leading -2; the companions S_1,
+  V_1 (F5:294) solve equations whose data are the pairings of the physical state (l = 2) with the s1 dual states (l = 1)
+  and, through [A(b), A_V'], with the v1 ones; at b0 the operators commute with the rotations (D4:174-176) and A(b0) =
+  0, so those data vanish and S_1 = V_1 = 0. Near b0 the types mix (u_2 then takes every type's roots, still >= 2 + d1
+  absolute) and the companions add the offset 1 (G3's (-1, 0) terms).
+- *The recipe's set.* III.D'' (3.4) writes h_b,s1 at 3 and h-breve^1_b,s1 at 2 with E_ind from (F1) at k = 2 and k = 1
+  on the s1 block, h_b,v1 at 3 with the v1 block at k = 2, and III.D''' (3.1) writes 2 + E_ind with E_ind from the s0
+  block at k = 1: these are eflat5 F1's four sites, whose window offsets and log orders are E_ind's. The other states
+  are written at their chain degrees, with the offsets above (>= 2, or 1 near b0). The block reading at b0 is the
+  write-out's (D4:174-176); read with every type's roots it would add d0 (control C1). []
+- *Computational support* (computed, exact exponent arithmetic; `iotaind5.py` 10/10). I0 the six files at their pinned
+  md5 and fourteen lines found by content. I1 the least set: 20 states with their towers (the s1 boosts and translations
+  to K = 4, the v1 rotations to 3, the s0 time translation to 4, every class and integer root of III.D''' (4)-(7) with
+  its K, the three physical states), the least offset of each 2; no element below 2 at b0; near b0 the window is {1}. I2
+  the recipe's set in (0, 1.4901]: d1 (log 0), 1 (2), 1 + d1 (1), 1 + delta'_1 (0), 1 + d0 (0), equal to E_ind's. I3
+  Lambda's increments in the window unchanged on every reading. I4 Lemma R12.1's S1: below 2 - lambda_sharp the offsets
+  of E_ind u E^iota_ind are {d1}, log order 0. Controls (each fails): C1 the III.D'' sites with every type's roots (the
+  boundary spectrum read literally rather than at b0): d0 enters, I3 fails; C2 the 1-form statements' E_ind collected
+  too (III.D''' (4)-(7)'s omega_b - chi omega-bar in A^((mu+2,0) u (mu+2+E_ind)), relative to mu + 2): 1 + 2 d0 enters,
+  I3 fails; C3 Proposition 5.1's u_b with the roots above -2 admitted: 1 - delta_2 enters, I1 fails; C4 G3:339 altered
+  in a copy: I0 fails. External mutations (scratch copies): Ci1 u_2 taking the roots above 0 instead of above
+  lambda_s1,2: I1 fails; Ci2 the operator's deviation one order down instead of two: I1 fails.
+- *Consequences* (deduced). Lambda on (1, 3 + eps_K] is the write-out's, as round 9 lists it: its generators (E_++, G,
+  the least E^C_I, lambda_sharp, 3, 2 + E_col) and increments (E_ind's, 1) were derived in rounds 2-9, E_col taken wide
+  (every candidate base admitted, as the record does not decide their coefficients), which enlarges Lambda and so the
+  counts and the conditions the avoidances check: an over-count, not a reading. Lemma R12.1 holds without its qualifier
+  (I4); INVERSE5-SCALAR.md part B's theorems are on this Lambda, so its "E^iota_ind's increments taken empty" is now
+  derived (its author's file); d's integer does not move.
+
+### R13.2 (ii) d: the parameter point
+
+- *READ.* The write-out bounds the gauge and damping parameters from above only, by thresholds it proves to exist: e_Ups
+  in (0, min(eps_1, eps_L)), 0 < gamma_Ups < min(eps_1, eps_L, gamma_1, 3/8, s_C/2, 1/4), gamma_C = 1/h with h in (0,
+  h_*) minus a countable set, h_* = min(10^-6, h_0, h_tf) (PART-VI4-PARAMS.md rows u3, u4, c2); the record's point has h
+  = 10^-6, "not in H, since h_* <= 10^-6" (VI4:145-148), and gamma_Ups = e_Ups = 1/100 is not shown below eps_1
+  (INVERSE5-SCALAR.md A.1; INVERSE5-SIX.md R2.0).
+- *d is computed there.* Every count of d takes z = 4 e_Ups gamma_Ups^2 = 1/250000 and lambda_sharp = 3/2 + (1 - e_Ups)
+  gamma_Ups = 1.5099: d0, d1 and the sl offsets (dceiling5's census), delta_50 and W1's weights (section 2.1,
+  dweights5), the levels and rounds, P_W and W (dnumber5), and the avoidances (rootavoid5).
+- *It depends on the point* (computed, `iotaind5.py` I5). d1 = 3.333330 x 10^-7 at the record's point and 3.333333 x
+  10^-9 at e_Ups = 1/10000 (z = 1/25000000); d0 = (9/4 + z)^(1/2) - 3/2 = 1.333 x 10^-6 and 1.333 x 10^-8. The windows
+  of one construction step, W = ceil((2 - eps - lambda_sharp)/d1), are 1,470,302 and 147,000,302, 100.0 times as many; d
+  contains the base level's window term R_w 15 W (R10.1), which grows with W. As every threshold is an upper one, the
+  admissible set contains points with z as small as one likes, where d1 -> 0 and W -> oo: the bookkeeping gives no bound
+  uniform over the admissible parameters.
+- *Consequence.* d <= 46,236,517,538,883,361 and N <= 970,966,868,316,550,587 are the loss at the record's computational
+  point, which lies outside the proved set; that is the one part of the bound that is not the write-out's statement, and
+  R13.7 pair 1 names it. The same limit stands for lambda1 and delta (INVERSE5-SIX.md R2.0, R3.4): an explicit constant
+  needs the write-out's thresholds given as numbers and a point chosen below them. The programs take the point as data
+  (z and lambda_sharp through dceiling5's census and dweights5), so d at such a point is a rerun, not a new derivation.
+
+### R13.3 The round-12 reader's findings (report-vD12.md)
+
+- **Minor 1 (accepted; computed, `ordcensus5.py`).** The census missed II.A2:769 ("by II.A Lemma 8.4 (c) and Lemma 8.6
+  (a)", inside Theorem 5.4's proof: A85 needed the "II.A " prefix) and the bare "Lemma 2.3 (b)" (II.A2:465) and "Lemma
+  2.5 (ii)" (II.A2:658), carriers the docstring names but BT did not match. A85 now also matches "and Lemma 8.6", BT
+  "Lemma 2.3", "Lemma 2.5"; A2:769 is a site at s - 1 and -N (symbols 0, 2), A2:658 a site at symbol orders 0 and delta,
+  A2:465 a smoothing T_t into H^(K') (the K' premise of O4). 156 hits, none unclassified; the ranges do not move. 48
+  hits are other parts' own Lemma 1.2 or Proposition 2.4, so 108 cite the calculus: R13.7 pair 1 says "read site by site
+  at every citation of it in the forward-solution chain", without a count.
+- **Minor 2 (accepted; resolved by R13.1-R13.2).** Round 12 called the log orders "proved" and the admissibility
+  conditions "hold" without the qualifier they rest on, R9.1's reading of Lambda. Lambda is now derived (R13.1), so that
+  qualifier falls; what the claims rest on now is the parameter point, and R13.7 pair 1 opens with it: "At that point
+  ... At that point too the logarithmic orders ... are proved ..., and the admissibility conditions all hold". The
+  statuses, R12.5's Proved bullet and the R12 note at R5.2 carry [R13] notes.
+- **Minor 3 (accepted; computed, `ordcensus5.py` C2, C5).** C2 (tau and J' without N and the oscillation) gives Sobolev
+  [-16, 14] and symbol [-26, 1001/50], both outside round 8's box: the top 14 and the end -26 come from II.D:170, where
+  II.D's kappa := 2 (READ, II.D:221-223, 688) enters, independently of tau and J'. So round 8's box fails at both ends,
+  and FWD 877 rests on kappa = 2 there as well (at a Sobolev top of 11: D_0 754, D_1 85, FWD 862, the reader's figures,
+  reproduced here with d0count5's census_counts). C2 now asserts that the lower ends move and the top does not; C5 reads
+  kappa = 1 at II.D:170 and finds the top 13.
+- **Nits (accepted).** (1) D_1 <= 88 is an upper bound, d-tilde over the closed-graph sites' Sobolev range (said at
+  R12.2). (2) N = 14 is a choice: at N = 10 the census gives [-57/2, 14] x [-55, 27], D_0 687, D_1 80, FWD 790 (computed
+  here with d0count5's census_counts) and d = 46,236,501,332,809,678 (d moves by 186,276,709 per unit of FWD: the
+  levels' K + 1 and the base's R + n_51 + 6 charges; round 12's change, 367 x 186,276,709 = 68,363,552,203, checks it);
+  listed among the choices (R12.5 note). (3) checks/inverse6_5a.py now pins R12.2's d (INVERSE5-SIX.md round 4,
+  -4.45394517576 x 10^17), so pair 2's citation is exact. (4) ordcensus5's unused 'T31E' domain is dropped; the reuses
+  at II.A2:495 and 529-533 are calls, their sites Theorem 3.1's and Lemma 4.1's rows. (5) logind5's L2 and L4 check the
+  bookkeeping, not the premises: d1's irrationality and the chains' first-point property are cited (dnumber5's
+  construction, lambdagen5 L5), as its docstring now says. (6) The R12 status list omitted the notes at R8.0 and R8.5
+  ([R13] note there). (7) modcount5 M3's partial sum A' + (K + 1) c' is labelled as such; d adds B_once (M4). (8) The
+  least E_++ is the write-out's own choice (I11:70), not a reading (R12.5 note).
+- **The controls, rerun** (scratch copies; each must fail): the new programs' own (iotaind5 C1-C4; ordcensus5 C1-C5) and
+  Ci1 (iotaind5's u_2 taking the roots above 0): I1 FAIL; Ci2 (the operator's deviation one order down): I1 FAIL. Round
+  12's 44 mutations (R12.0) are not rerun: of their programs only ordcensus5 (its own controls above) and modcount5's M3
+  label and M5's threshold changed; Cz8 (rootavoid5.out's R11 row FAIL) still fails M5 under "at least 23, none FAIL".
+
+### R13.5 Proved, computed, open
+
+- *Proved* (Proposition R13.1, with `iotaind5.py` 10/10): E^iota_ind's elements below 2 are, at b0, none (least) or
+  E_ind's (the recipe's), with E_ind's log orders; Lambda on (1, 3 + eps_K] is derived from the write-out.
+- *Computed* (`iotaind5.py` I5): d's counts depend on the parameter point, without a uniform bound over the admissible
+  set.
+- *Deduced (counts computed), unchanged*: **d <= 46,236,517,538,883,361, N <= 970,966,868,316,550,587, at the record's
+  computational point (gamma_C = 10^6, gamma_Ups = e_Ups = 1/100)**, which lies outside the proved set.
+- *d's bound now.* Everything is the write-out's statement, derived or computed (R12.5's list, with Lambda derived),
+  except the point at which it is evaluated. E_col is taken wide, an over-count.
+- *Choices at the point* (not readings; each the write-out's freedom, taken at its economical end or as rounds 7-12
+  did): W1's weights; the base level's a_K - 2, s_0, tau, t and alpha_0 := alpha_1 (R10.1); N = 14 (N >= 10 needed; at N
+  = 10, d = 46,236,501,332,809,678, R13.3); E_col taken wide (an over-count); the window loop at its ceiling W.
+- *Withdrawn*: R12.5's "One input is a reading, not a statement of the write-out: Lambda ..." and "d's reading has no
+  part outside the write-out other than that one" (it had two; Lambda is now derived); R12.7 pair 1's "at a point where
+  every admissibility condition holds" without the point named, and its Lambda sentence; Lemma R12.1's qualifier.
+- *Open, each with its single missing input*: d at an admissible point (the write-out's thresholds eps_1, eps_L,
+  gamma_1, h_0, h_tf as numbers, then the counts rerun there); lambda0 (a validated solve of the stage-1 evolution on
+  X*'s past, LAMBDA0-DATA5.md section 11); the scalar-type blocks' sigma_* (INVERSE5-SCALAR.md A.8); the six inverse
+  bounds as INVERSE5-SIX.md rounds 2-3 state them, upstream of which the same thresholds. These are limits of the
+  explicit computation, not gaps in Theorems 1 and 4.
+
+### R13.6 Sources (round 13)
+
+The coordinator's round-13 assignment and addendum; report-vINV2.md (minor 2 (a), nit 5); proof5 read at
+PART-III-G3-GRAFT.md:20-60, 100-175, 290-345; PART-III-I11-SPACETIME.md:30-45, 60-80; PART-III-D3-SYMSTATES.md:28-50,
+174-260; PART-III-D4-GENSTATES.md:18-175; PART-III-F5-PAIRINGS.md:253-330; PART-VI4-PARAMS.md:18-40, 118-149 (md5s
+pinned in `iotaind5.py`); report-vD12.md (the round-12 reader); PART-II-A2-STANDARD.md:463-466, 656-659, 767-770;
+PART-II-D-REGULARITY.md:168-171. Programs (md5 of the .py, then the .out): iotaind5 64abb7c7, 11bdd5fe; ordcensus5
+8b2ad318, 4e806b9b; modcount5 875026b6, 060bae4e; logind5 172d5999, affdb2c9; d0count5 20aad82e, b13dbb23 (unchanged).
+
+### R13.7 Final replacement text for the paper (supersedes R12.7)
+
+Four old/new pairs for paper/RESPONSE-HL-5D.md, the single final set for every constants sentence of the paper. Against
+R12.7: pair 1 opens with the point ("carried to an integer at the write-out's own parameter point, the record's
+computational point ... (gamma_C = 10^6, gamma_Ups = e_Ups = 1/100), which lies outside the proved set"), states every
+claim at it ("At that point ...", "There d <= ...", "At that point too the logarithmic orders ... are proved ..."),
+replaces the Lambda sentence by E^iota_ind computed (`checks/iotaind5.py`), says the counts depend on the point, and
+drops the census count ("read site by site at every citation of it in the forward-solution chain"); pair 2's "d <= 4.624
+x 10^16 on its reading" becomes "at the record's computational point"; pair 3 is unchanged; pair 4 adds
+`checks/iotaind5.py` to the row of d's integer. Checked by content against the paper at md5 5930486d... and again at
+4c121081..., as it stood when this round ended: each old text occurs exactly once; the four spans are disjoint; seating
+them in any of the 24 orders gives the same text, in which every line is at most 121 characters and no continuation line
+opens a list (scratchpad build13.py). Pair 2 cites pair 1's bound ("the bound stated above"), and pair 1 removes "so d
+is still not a number": the pairs are seated together, in any order.
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer at the write-out's own parameter point, the record's computational point of the gauge and
+  damping parameters (γ_C = 10⁶, γ_Υ = e_Υ = 1/100), which lies outside the proved set: the write-out bounds those
+  parameters only by thresholds it proves to exist (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–13). At that
+  point the weights meet every admissibility condition, the loops are counted exactly over the write-out's 1.065 × 10⁸
+  levels (`checks/dnumber5.py`, `checks/x7indep5.py`) and over the base level's 8.0 × 10⁷ rounds and steps (its
+  background has K⁺-order only (α − 2)−, so that a round raises the decay by less than α − 4), every fixed step of a
+  level and every step outside the levels is read at its source and charged an upper bound (`checks/modcount5.py`: 212
+  citations of the families the write-out's tame calculus lists in the levels and 89 in the base level's loops, none
+  left unclassified), and the coefficient orders the write-out fixes by the closed graph theorem are replaced by
+  explicit calculus estimates, their derivative counts computed (`checks/d0count5.py`) at the orders at which the
+  forward solution invokes that calculus, read site by site at every citation of it in the forward-solution chain
+  (`checks/ordcensus5.py`). There d ≤ 46,236,517,538,883,361 ≈ 4.624 × 10¹⁶ and N = 21d + 6 ≤ 9.710 × 10¹⁷ (deduced, the
+  arithmetic exact; the base level's loops are 5.75 × 10¹⁴ of d), against the floor 8.41 × 10¹⁵ at the same weights. The
+  bound is the same whether the second Taylor level is read one application per exponent or, as the write-out words it,
+  one per exponent and log power: the applications at one exponent act on separate terms of one source and none on
+  another's output, so their losses do not add, whatever the order of treatment (`checks/l2par5.py`). At that point too
+  the logarithmic orders of one index set, which the write-out bounds only coarsely, are proved by induction over the
+  steps of its construction (`checks/logind5.py`); the index set the write-out leaves unlisted at future timelike
+  infinity is computed from the constructions that define it and adds no exponent to those the count uses
+  (`checks/iotaind5.py`); and the admissibility conditions all hold, the avoidances of finite sets of roots among them,
+  at every level and at both Taylor levels, exactly and with certified margins: the levels and rounds are rational,
+  every indicial root they can meet is an integer or irrational, and the rational coincidences possible are not levels
+  (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py`). The point is the one part of the
+  bound that is not the write-out's statement, and the counts depend on it: the 1,470,302 windows of one construction
+  step become about a hundred times as many at e_Υ = 1/10000 (computed, `checks/iotaind5.py`), so they give no bound
+  uniform over the admissible parameters. So the integer bounds the loss that this proof's bookkeeping produces at that
+  point, not the optimal one.
+```
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+λ1 and δ are positive, as the proof gives them; their values
+  are not computed, and the supplement states where the computation of explicit constants stops (supplement
+  `docket68/n1star/INVERSE5-SIX.md`, rounds 2–3). What the proof's own formulas deliver is bounded above, log₁₀ δ <
+  −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`); with the loss at the bound stated above, d ≤
+  4.624 × 10¹⁶ at the record's computational point, the formula gives at most log₁₀ δ = −4.45 × 10¹⁷, every other input
+  taken at its least value with the constants taken to be at least 1 (computed, `checks/inverse6_5a.py`); a lower bound
+  is that formula, monotone in each input (proved by inspection), evaluated at certified bounds of its inputs. In hand:
+  the zero-energy inverse bound for the scalar model (constant 2.81) and for the tensor-type blocks of the linearised
+  operator (3.94), every harmonic, through the horizon (deduced from exact identities, with certified arithmetic,
+  `checks/zeroext5.py`, `checks/tensorzero5.py`); the trapped set's data at the final black hole (exact), and the
+  record's fibre metric for the trapping estimate, within whose graded family the estimate's condition needs the grading
+  parameter η below about 16.48 γ_C^(−1/2) (the leading order, matched by certified values, `checks/inverse6_5.py`); the
+  absorption and interpolation steps of the high-energy inverses, in their semiclassical norms (explicit; the
+  interpolation factor at most 1.00266, certified); the removal of one of the seven inverse bounds, which a parametrix
+  replaces; the resolvent of every master operator behind the two mode-stability bounds, every harmonic and every real
+  frequency, in a cut-off norm, carried exactly to the tensor-type blocks of the linearised operator and the vector-type
+  blocks of the 1-form wave operator (certified, `checks/inverse6_5m.py`); and the scalar-type zero-energy blocks of the
+  linearised operator, written out exactly for every harmonic, with an obstruction: in the norm of weight α = −1 the
+  least singular value of the degree-2 block is at most 2.618 × 10⁻⁷, because that weight lies 2.93 × 10⁻⁶ from one of
+  its indicial roots, so the inverse bound there is at least 3.81 × 10⁶; at a weight in the middle of the indicial gap
+  the same upper bound is about 10⁻², and an explicit constant should use such a weight (proved, with certified
+  arithmetic, supplement `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py`; at the record's
+  computational point, γ_C = 10⁶ and γ_Υ = e_Υ = 1/100, which lies outside the proved set). Not computed: the constant of
+  the trapping estimate, which the write-out obtains by a defect-measure contradiction, and the a priori constants built
+  on it; the gauge reconstruction and the absorbed problem's inverse in the write-out's norms (the latter proved
+  invertible for the scalar wave); the parametrix norms at future timelike infinity; a lower bound, uniform in the
+  harmonic, for the least singular value of the scalar-type blocks; constants uniform over the black holes near the final
+  one, which the write-out obtains by compactness and by arguments by contradiction; and the chain's other inputs (the
+  tame constants to order N, the Nash–Moser thresholds of the exterior and slab problems, the gluing's constants).
+  Upstream of all of these: the write-out fixes its gauge and damping parameters only below thresholds it proves to
+  exist, and the cut-offs and orders of its function spaces only up to admissibility, so explicit constants first need
+  those choices made numerically. This is a limit of the explicit computation, not a gap in Theorem 4.
+```
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with the smooth envelope of supplement
+  `checks/envelope5.py`, which has the numerics' integral, it is below 0.0025 in the operator norm, 0.0020 in the
+  Frobenius norm and 0.00123 in the largest entry (certified), so the wavelength 10 l5 lies more than 400 times beyond
+  it. A value, or a lower certified bound, needs the approximant's linear stages solved. The first can lower the
+  operator-norm bound, for example through its mean correction at the point where the first-order wave is largest, which
+  the symmetry class reduces to one number (computed, `checks/classm5.py`); a certified value of that number needs a
+  validated solve of the first stage for that envelope. Its data on the initial slice are now computed: the second-order
+  constraint expansion in closed form (exact), solved harmonic by harmonic (floating point; supplement
+  `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py`), and too small to move the bound by themselves; over that
+  point's past the energy estimate's growth is at most 1.4 × 10³ by domain of dependence (certified), against 5.1 × 10¹⁰
+  over the whole slab, before the lower-order terms. The solve itself is not done. And a high-frequency theorem, whose
+  expansion parameter is λ over the
+```
+
+```old
+| section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
+| | `checks/prop31loss5.py`; R10 |
+```
+
+```new
+| section 9, settling: the loss d | `docket68/n1star/LOSS-D.md` LD3, LD10–LD16, section 2b; `checks/thetain5.py`; |
+| | `checks/prop31loss5.py`; R10 |
+| section 9, settling: d's integer | `docket68/n1star/CONSTANTS5.md` rounds 1–12; `checks/dnumber5.py`, |
+| | `checks/x7indep5.py`, `checks/modcount5.py`, `checks/d0count5.py`, `checks/ordcensus5.py`, `checks/l2par5.py`, |
+| | `checks/logind5.py`, `checks/iotaind5.py`; `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py` |
+| section 9, settling: λ1 and δ | `docket68/n1star/INVERSE5-SIX.md` rounds 2–3; `checks/deltacap5.py`, |
+| | `checks/inverse6_5a.py`, `checks/inverse6_5.py`, `checks/inverse6_5m.py`, `checks/zeroext5.py`, |
+| | `checks/tensorzero5.py`; `docket68/n1star/INVERSE5-SCALAR.md` part A, `checks/scalarblock5.py` |
+| section 9, physical wavelengths: λ0 | `docket68/n1star/CONSTANTS5.md`; `checks/envelope5.py`, |
+| | `checks/lzerotrace5.py`, `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`, `checks/lam0data5.py` |
+```
+
+Statuses behind the new texts. Pair 1: d's integer at the record's computational point, deduced, with exact arithmetic
+(modcount5 18/18, d0count5 23/23, dnumber5 10/10, x7indep5 9/9, l2par5 8/8, logind5 9/9, ordcensus5 11/11, iotaind5
+10/10); the floor, computed (dweights5 W3); the avoidances, proved with exact arithmetic and certified margins
+(rootavoid5, INVERSE5-SCALAR.md Theorems B.2-B.5); the point's role, computed (iotaind5 I5). Pairs 2-4 as R12.7 states
+them.
+
+*Appendix D rows.* The paper's Appendix D lists LOSS-D.md, checks/thetain5.py and checks/prop31loss5.py of the files the
+pairs cite; the rows below are for the others, each `.py` with its `.out` where it has one, md5 measured when this round
+ended. CONSTANTS5.md's row is this file after round 13 (measured after this section was written, given in the round's
+report); the INVERSE5, LAMBDA0-DATA5 and their programs' rows belong to files other workstreams are still editing, so
+the main session measures every row again when it seats the pairs.
+
+| file | md5 |
+| --- | --- |
+| `docket68/n1star/INVERSE5-SCALAR.md` | `d1f4587ed90df20a1411bbe6f698d1d8` |
+| `docket68/n1star/INVERSE5-SIX.md` | `82012f6a3558a576f3af1cfafe258ae5` |
+| `docket68/n1star/LAMBDA0-DATA5.md` | `f1a5ae554dadda7424ba5618334871b3` |
+| `docket68/n1star/checks/classm5.py` | `222a716395ddfdd8221d9892c59a28b7` |
+| `docket68/n1star/checks/classm5.out` | `0a0370a9d7e3521c8142a8dc1932beee` |
+| `docket68/n1star/checks/d0count5.py` | `20aad82eaffba056d198cb850b11520e` |
+| `docket68/n1star/checks/d0count5.out` | `b13dbb23e553ed583d5779535a629dba` |
+| `docket68/n1star/checks/deltacap5.py` | `243aabe74869a9da1df80e5ce134c238` |
+| `docket68/n1star/checks/deltacap5.out` | `11495690a3042f057da38d05232d0d7b` |
+| `docket68/n1star/checks/dnumber5.py` | `98e7551b0eae62f7b8cda9a97a261e11` |
+| `docket68/n1star/checks/dnumber5.out` | `3db10f0e1cea470f903b38060a8b352c` |
+| `docket68/n1star/checks/envelope5.py` | `6e2c4f9ce24c72ea95038aeaa2692d9d` |
+| `docket68/n1star/checks/envelope5.out` | `eca40ea1eb2c1f24b9501b3dbad1fe4c` |
+| `docket68/n1star/checks/inverse6_5.py` | `efa230b1d58f4fee983418eac4291787` |
+| `docket68/n1star/checks/inverse6_5.out` | `595a36d55819bf8b11f1c05aaefe3b13` |
+| `docket68/n1star/checks/inverse6_5a.py` | `132a57afa09f6bfce51a1604c1a62c63` |
+| `docket68/n1star/checks/inverse6_5a.out` | `9209e2192314b6e9c643567061cf1212` |
+| `docket68/n1star/checks/inverse6_5m.py` | `9f2eca9128efe679a49a3e460638dd9e` |
+| `docket68/n1star/checks/inverse6_5m.out` | `77de537c3a824f024c26859d8b1f1642` |
+| `docket68/n1star/checks/iotaind5.py` | `64abb7c7ef1ae92f1b69275a384cac60` |
+| `docket68/n1star/checks/iotaind5.out` | `11bdd5fe068995ac601d2b6a3bd93858` |
+| `docket68/n1star/checks/l2par5.py` | `70ccc87f14a0bd80c09c13c274425e1e` |
+| `docket68/n1star/checks/l2par5.out` | `59397764245359941f3b18fecfcaa95b` |
+| `docket68/n1star/checks/lam0data5.py` | `533e3316db99c4a855dad5e48d72e7ba` |
+| `docket68/n1star/checks/lam0data5.out` | `038021a1ad5ebc7df59a3720cc9da63b` |
+| `docket68/n1star/checks/logind5.py` | `172d59991cb1f2ebe41cc5448ef34efb` |
+| `docket68/n1star/checks/logind5.out` | `affdb2c98d4ed30c001a3e5937df3ae6` |
+| `docket68/n1star/checks/lzerotrace5.py` | `0f455ad3ca3036d1e3897e5865aaff5a` |
+| `docket68/n1star/checks/lzerotrace5.out` | `c391281c1ce241887a412e54ecd1de9e` |
+| `docket68/n1star/checks/modcount5.py` | `875026b64ddad64f8cec5e385835ef55` |
+| `docket68/n1star/checks/modcount5.out` | `060bae4e6412e8048990ffaf13ab0570` |
+| `docket68/n1star/checks/ordcensus5.py` | `8b2ad318b848bae9bf07fc166acaa6ec` |
+| `docket68/n1star/checks/ordcensus5.out` | `4e806b9b515e9c46fe12aa51fd0d53ec` |
+| `docket68/n1star/checks/rootavoid5.py` | `7b589b7c9040902692f282b23d6912cb` |
+| `docket68/n1star/checks/rootavoid5.out` | `d4b4e2a2d78bdfd6c17c2868e96fc9e8` |
+| `docket68/n1star/checks/scalarblock5.py` | `ad723451f88154ae3ebebff6b76833a8` |
+| `docket68/n1star/checks/scalarblock5.out` | `c370c91f778badb45626780e63c8c9c4` |
+| `docket68/n1star/checks/tensorzero5.py` | `3bb526cceb96a033043cf0de07cab6b6` |
+| `docket68/n1star/checks/tensorzero5.out` | `b86a29938a3411267fe881ffe6e7bc1a` |
+| `docket68/n1star/checks/x7indep5.py` | `d7984b2efcb179e9a313f560039f48f3` |
+| `docket68/n1star/checks/x7indep5.out` | `593e9a01c88b9919672c7a93c44cbad0` |
+| `docket68/n1star/checks/zeroext5.py` | `b59825dc09b57003926113e9a095b30b` |
+| `docket68/n1star/checks/zeroext5.out` | `4c9a5c5134c406ce1e905ce90cfa46b0` |

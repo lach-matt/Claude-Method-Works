@@ -9,7 +9,7 @@ zerohardy5: the scalar zero-energy bound at every l, sharp; across the horizon; 
       u||^2/||r^-1 u||^2 -> (l + 1)**4 as delta -> 0: the inverse bound 1/(l + 1)^2 is sharp
   H4b: r^3 f u'(r) = int_{r_h}^r s^3 (l (l + 2) s^-2 u - A_l u) ds for u = 1 + r + r^3 - 2 r^4 (exact, symbolic mu, l):
       True
-  H5 (READ N1STAR-PROOF.md, the eleven states, found at :5397: True; deduced): {'s0': 1, 'v1 (so(4))': 6, 's1 (l = 1
+  H5 (READ N1STAR-PROOF.md, the eleven states, found at :5429: True; deduced): {'s0': 1, 'v1 (so(4))': 6, 's1 (l = 1
       harmonics on S^3)': 4}, sum 11; in the class (even scalar l, no vector type) {'s0': 1}: one direction
   C1 (control): w = r^-2: residual (3*mu - r**2)/r**3, at r = 2 r_h -1/(8*sqrt(mu)) < 0: not a supersolution, H1's test
       fails: True

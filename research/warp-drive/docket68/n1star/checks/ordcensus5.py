@@ -24,7 +24,9 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
      - II.A' Theorem 3.1's iteration at the order s runs r' = s - j/2 until J'/2 >= sup s + N (II.A2:401-403): r' in
        [inf s - sup s - N + 1/2, sup s] = [-30.5, 10], its inputs r' - m;
      - the same scheme with B_0^(j) (order s_j + delta) in place of L (Lemma 4.2's parametrix, II.A2:529-533) and with
-       E in place of L (Lemma 4.1 Step 2 (b), II.A2:495): v = s_j or s' in [-31, 10];
+       E in place of L (Lemma 4.1 Step 2 (b), II.A2:495): v = s_j or s' in [-31, 10]; [Round 13: these reuses are
+       calls; their sites are Theorem 3.1's and Lemma 4.1's rows, at the ranges above; round 12's unused domain
+       'T31E' is dropped (the round-12 reader's nit 4).]
      - II.D sections 2-4, II.D', II.E, II.F': the chain's orders s, s_0 = s - 2 and s + 1, tau <= 2 (II.D:287,
        691): v in [-10, 10]; II.D's regulariser exponent kappa := 2 (II.D:221-223, 688) where it enters.
   O3 (computed) every site's orders over its range: the Sobolev orders, the symbol orders and the factor orders of
@@ -34,8 +36,14 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
   O5 (READ; deduced) N: the chain's a priori term is |chi u|_(-N) <= |u|_(s_0) (II.D:1035), s_0 >= -10, so N >= 10;
      N = 14 serves, and every site's -N, -N - m is in O3's range.
   Controls (each must fail): C1 one census row dropped: one hit unclassified; C2 Proposition 5.3's tau and Theorem
-  3.1's J' taken without N and the oscillation (tau = 1): the box shrinks inside round 8's, so O3's finding depends on
-  them; C3 II.A2:727 altered in a copy: its md5 and its read fail; C4 N = 10 in place of 14: the box moves.
+  3.1's J' taken without N and the oscillation (tau = 1): the lower ends rise to -16 and -26, so -65/2 and -63 rest
+  on tau and J', while the Sobolev top 14 stays (Round 13, the round-12 reader's minor 3: round 12 said the box then
+  shrinks inside round 8's, which it does not); C3 II.A2:727 altered in a copy: its md5 and its read fail; C4 N = 10
+  in place of 14: the box moves; C5 (Round 13) II.D:170's kappa := 2 read as 1: the Sobolev top falls from 14 to 13,
+  so the top, and with it FWD's 877, rests on kappa = 2 there (II.D's regulariser exponent, READ at II.D:221-223, 688).
+  [Round 13 (the round-12 reader's minor 1): A85 also matches "and Lemma 8.6 (a)" (II.A2:769), BT the bare "Lemma
+  2.3 (b)" (II.A2:465) and "Lemma 2.5 (ii)" (II.A2:658): 156 hits, of which 48 are other parts' own Lemma 1.2 or
+  Proposition 2.4, so 108 cite the calculus; the ranges do not move.]
 
     python3 checks/ordcensus5.py        (seconds)
 """
@@ -69,14 +77,17 @@ FILES = {'A2': ('PART-II-A2-STANDARD.md', '7464b99a67d997206371e4f9cf150b38'),
          'C': ('PART-II-C-OPERATORS.md', 'c9f01086b4499fa0c549fc9b157dcb8c'),
          'F': ('PART-II-F-IOTA.md', '51c14571e7c29685fb8a757713dc2015')}
 RANGES = {'A2': (358, 785)}
-FAM = [('A85', r"II\.A Lemmas? 8\.[56](?:-8\.6)?(?: \([ab]\))?"),
+# Round 13: A85 also matches 'and Lemma 8.6 (a)' (II.A2:769), BT the bare 'Lemma 2.3', 'Lemma 2.5' (II.A2:465, 658)
+FAM = [('A85', r"(?:II\.A |and )Lemmas? 8\.[56](?:-8\.6)?"
+               r"(?: \([ab]\))?"),
        ('A2P', r"II\.A\$'\$ Propositions? 2\.4(?: \([a-f]\)(?:, \([a-f]\))*)?"),
        ('A2L', r"II\.A\$'\$ Lemma 1\.2"),
        ('STM', r"II\.A\$'\$ (?:Theorems? (?:3\.1|5\.4)|Lemmas? (?:2\.[35]|4\.[12])(?:-4\.2)?|Proposition 5\.3)|"
                r"\(L[345]\)"),
        ('BP', r"(?<![$'] )(?<!II\.[A-F] )(?<!\]) ?\bPropositions? 2\.4(?: \([a-f]\)(?:, \([a-f]\))*)?"),
        ('BL', r"(?<![$'] )(?<!II\.[A-F] )(?<!\]) ?\bLemma 1\.2(?: \([a-z]+\))?"),
-       ('BT', r"(?<![$'] )(?<!II\.[A-F] )(?<!\]) ?\b(?:Theorem (?:3\.1|5\.4)|Lemma 4\.[12]|Proposition 5\.3)")]
+       ('BT', r"(?<![$'] )(?<!II\.[A-F] )(?<!\]) ?\b(?:Theorem (?:3\.1|5\.4)|Lemma (?:4\.[12]|2\.[35])|"
+              r"Proposition 5\.3)")]
 
 # the chain's parameters (READ: d0count5 Q4/Q4b, II.D:1035, II.D:287, 691)
 S_LO, S_HI, OSC, NERR, M_OP = Fr(-10), Fr(10), Fr(17), Fr(14), Fr(2)
@@ -90,7 +101,6 @@ def domains(N=NERR, tau_full=True):
     return {'T31': (low + Fr(1, 2), S_HI),          # Theorem 3.1's r' at the chain's variable orders
             'L41': (low, S_HI),                      # Lemma 4.1 / Proposition 5.3 at s' = s_j
             'L42P': (low, S_HI),                     # Lemma 4.2's parametrix with B_0^(j) (order s_j + delta)
-            'T31E': (low, S_HI),                     # Lemma 4.1 Step 2 (b): Theorem 3.1's scheme with E for L
             'T54': (S_LO, S_HI),                     # Theorem 5.4 at the chain's order
             'D': (S_LO, S_HI),                       # II.D sections 2-4, II.D', II.E, II.F' (s and s_0 = s - 2)
             'C0': (Fr(0), Fr(0))}                    # constant orders
@@ -102,6 +112,7 @@ def E(a, lo, hi=None):
 
 NN = 'N'      # placeholder for -N (and -N - m) in a site's Sobolev orders
 S, CALL, OTHER = 'stmt', 'call', 'other'
+REG = 'reg'      # Round 13: a smoothing used only to reach the K' membership (O4), no order of a site
 d, k_ = DELTA_MAX, Fr(1, 2)                          # (m - 1)/2 = 1/2 at m = 2
 # (file, line, tag): class, or ('site', context, Sobolev orders, symbol orders, factor orders of (f))
 TABLE = {
@@ -125,6 +136,12 @@ TABLE = {
     ('A2', 487, 'BP'): ('site', 'L41', [E(0, k_), E(1, -1, -1 + 2 * d)], [E(1, -Fr(3, 2), -Fr(3, 2) + 2 * d),
                                                                           E(0, -k_), E(1, 0, d)], []),
     ('A2', 489, 'BP'): ('site', 'L41', [E(0, k_), E(0, 0)], [E(0, -k_)], []),
+    # Round 13 (the round-12 reader's minor 1): the bare Lemma 2.3 (b), its T_t regularising into H^(K') (A2:465-466)
+    ('A2', 465, 'BT'): REG,
+    # Round 13: Lemma 2.5 (ii) at nu = 0, Q_eps^(-1/2), Q_eps^(1/2) in the symbol classes of orders 0 and delta
+    ('A2', 658, 'BT'): ('site', 'L41', [], [E(0, 0), E(0, 0, d)], []),
+    # Round 13: Theorem 5.4's proof, ||G_alpha L u|| <= C(||G L u|| + ||chi u||_(-N)) by II.A Lemma 8.4 (c), 8.6 (a)
+    ('A2', 769, 'A85'): ('site', 'T54', [E(1, -1), NN], [E(0, 0), E(0, 2)], []),
     ('A2', 493, 'BP'): ('site', 'L41', [E(1, 0)], [E(1, 0)], []),
     ('A2', 495, 'BT'): CALL,
     ('A2', 502, 'BP'): ('site', 'L41', [E(0, 0)], [E(1, 0, d)], []),
@@ -293,7 +310,7 @@ def main():
     for _, _, cls in rows:
         c = cls if isinstance(cls, str) else cls[0]
         by[c] = by.get(c, 0) + 1
-    OK['O1'] = not uncl and not stale and len(rows) == 153
+    OK['O1'] = not uncl and not stale and len(rows) == 156
     print('  O1 (census): %d hits, %d unclassified, %d stale rows; by class %s' % (len(rows), len(uncl), len(stale),
                                                                                   dict(sorted(by.items()))))
     for u in uncl:
@@ -338,9 +355,18 @@ def main():
     OK['C1'] = len(u1) == 1
     print('  C1 (control): the row II.A2:690 dropped: %d unclassified: %s' % (len(u1), OK['C1']))
     r2 = evaluate(rows, tau_full=False)
-    OK['C2'] = r2['sob'][0] >= -16 and r2['sym'][0] >= -26 and r2 != r
+    OK['C2'] = (r2['sob'][0] == -16 and r2['sym'][0] == -26 and r2['sob'][0] > r['sob'][0] and r2['sym'][0] > r['sym'][0]
+                and r2['sob'][1] == r['sob'][1])
     print('  C2 (control): tau and J\'/2 without N and the oscillation (tau = 1): Sobolev [%s, %s], symbol [%s, %s]: '
-          'the finding of O3 depends on them: %s' % (r2['sob'][0], r2['sob'][1], r2['sym'][0], r2['sym'][1], OK['C2']))
+          'the lower ends -65/2 and -63 rest on tau and J\', the Sobolev top %s does not: %s' % (
+              r2['sob'][0], r2['sob'][1], r2['sym'][0], r2['sym'][1], r['sob'][1], OK['C2']))
+    t5 = dict(TABLE)
+    t5[('D', 170, 'A2P')] = ('site', 'D', [E(-1, 2, 3), E(1, -1, 0)], [E(2, -4, -2)], [])
+    rows5, _, _ = census(table=t5)
+    r5 = evaluate(rows5)
+    OK['C5'] = r5['sob'][1] == 13 and r5['sob'][1] < r['sob'][1]
+    print('  C5 (control, Round 13): II.D:170 with kappa = 1 in place of 2: Sobolev top %s, not %s: the top rests on '
+          'II.D\'s kappa := 2: %s' % (r5['sob'][1], r['sob'][1], OK['C5']))
     tmp = tempfile.mkdtemp()
     try:
         for f, _ in FILES.values():

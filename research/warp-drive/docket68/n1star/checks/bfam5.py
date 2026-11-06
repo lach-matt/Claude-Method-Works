@@ -12,8 +12,8 @@ the lam^-1 and lam^0 parts of dRic^H and dD, each a list of (coefficient, compon
 vector with d_v as above.  The angle is t := tan(th/2) (th in (0, pi/2) <-> t in (0, 1); d_th = (1 + t^2)/2 d_t), so
 every coefficient is rational in t, and every profile is kept in a canonical form: a sum over (wave factor a^(k),
 b^(k); powers of r, log r, r0, log r0) of reduced rational functions of t.  A zero is then a zero (no trigonometric
-identity left to find).  The transports: (r^(3/2) H_rr)' = -i r^(3/2) R_rr, (r^(3/2) H_vr)' = r^(3/2) (-i R_vr - H_rr/r^3),
-(r^(3/2) H_vv)' = r^(3/2) (-i R_vv - 2 H_vr/r^3), (r^(1/2) H_rth)' = -i r^(1/2) R_rth, (r^(1/2) H_vth)' = r^(1/2) (-i
+identity left to find).  The transports: (r^(3/2) H_rr)' = -i r^(3/2) R_rr, (r^(3/2) H_vr)' = r^(3/2) (-i R_vr -
+H_rr/r^3), (r^(3/2) H_vv)' = r^(3/2) (-i R_vv - 2 H_vr/r^3), (r^(1/2) H_rth)' = -i r^(1/2) R_rth, (r^(1/2) H_vth)' = r^(1/2) (-i
 R_vth - H_rth/r^3), (r^(-1/2) H_kk)' = -i r^(-1/2) R_kk, integrated from r0 termwise (powers of r and log r).
 
   B1 (exact) H2 = c_(2,0) E: family 1 of R_X(H1), D_X(H1) vanishes; T(H2) + R_X(H1) = 0 (8 components) and i Pol(H2) +
@@ -308,3 +308,223 @@ def H1prof():
 def log(msg):
     sys.stderr.write("%s  [%.0f s]\n" % (msg, time.time() - T0))
     sys.stderr.flush()
+
+
+# ------------------------------------------------------------------------------------------------------------ analysis
+def lap(f):
+    """the Laplacian of S^3 on functions of th: (cos sin)^-1 d_th (cos sin d_th f)"""
+    return canon(dth(COS*SIN*dth(f))/(COS*SIN))
+
+
+def coeff_of(expr, atom):
+    res = 0
+    for term in sp.Add.make_args(sp.expand(expr)):
+        w, rp, lr, r0p, lr0, rest = split(term)
+        if w == atom:
+            res += rest*r**rp*LOGR**lr*r0**r0p*LOGR0**lr0
+    return res
+
+
+def fit(q, basis):
+    """q = sum_i c_i(r0) b_i exactly, b_i = (scalar, its highest derivative order of a); (None, the failed ratio) if
+    a coefficient depends on the angle"""
+    rem, cs = q, []
+    for bi, order in reversed(basis):
+        atom = sp.Derivative(at, (t, order)) if order else at
+        c = sp.cancel(sp.together(coeff_of(rem, atom)/coeff_of(bi, atom)))
+        if c.has(t):
+            return None, c
+        cs.append(c)
+        rem = canon(rem - c*bi)
+    return list(reversed(cs)), rem
+
+
+# ------------------------------------------------------------------------------------------------------------ certified
+import mpmath as mp                                                               # noqa: E402
+
+iv = mp.iv
+iv.dps = 50
+
+
+def ivq(x):
+    x = sp.Rational(x)
+    return iv.mpf(int(x.p))/iv.mpf(int(x.q))
+
+
+def ev(e, env):
+    """(re, im) interval enclosure of a sympy expression; env maps symbols to intervals"""
+    if e in env:
+        return env[e], iv.mpf(0)
+    if e is sp.I:
+        return iv.mpf(0), iv.mpf(1)
+    if e.is_Rational:
+        return ivq(e), iv.mpf(0)
+    if e is sp.pi:
+        return iv.pi, iv.mpf(0)
+    if e.is_Add:
+        re_, im_ = iv.mpf(0), iv.mpf(0)
+        for a_ in e.args:
+            x, y = ev(a_, env)
+            re_, im_ = re_ + x, im_ + y
+        return re_, im_
+    if e.is_Mul:
+        re_, im_ = iv.mpf(1), iv.mpf(0)
+        for a_ in e.args:
+            x, y = ev(a_, env)
+            re_, im_ = re_*x - im_*y, re_*y + im_*x
+        return re_, im_
+    if e.is_Pow:
+        base, ex = e.args
+        x, y = ev(base, env)
+        if ex.is_Integer:
+            n = int(ex)
+            if n < 0:
+                den = x*x + y*y
+                x, y, n = x/den, -y/den, -n
+            re_, im_ = iv.mpf(1), iv.mpf(0)
+            for _ in range(n):
+                re_, im_ = re_*x - im_*y, re_*y + im_*x
+            return re_, im_
+        assert ex.is_Rational and y == 0 and x.a > 0, e                       # a positive real base
+        return iv.exp(ivq(ex)*iv.log(x)), iv.mpf(0)
+    if isinstance(e, sp.log):
+        x, y = ev(e.args[0], env)
+        assert y == 0 and x.a > 0
+        return iv.log(x), iv.mpf(0)
+    raise ValueError(e)
+
+
+def rho_star():
+    """the real root of 2 rho^3 - 3 rho^2 - 2, enclosed by bisection (the polynomial increases on [1.8, 1.81])"""
+    lo, hi = mp.mpf('1.8'), mp.mpf('1.81')
+    f = lambda x: 2*x**3 - 3*x**2 - 2                                            # noqa: E731
+    with mp.workdps(60):
+        for _ in range(170):
+            mid = (lo + hi)/2
+            if f(iv.mpf(mid)).b < 0:
+                lo = mid
+            elif f(iv.mpf(mid)).a > 0:
+                hi = mid
+            else:
+                break
+    assert f(iv.mpf(lo)).b < 0 and f(iv.mpf(hi)).a > 0
+    return iv.mpf([lo, hi])
+
+
+Z = sp.Symbol('zeta', real=True)
+PZ = -2*Z**5 - sp.Rational(20, 3)*Z**3 - sp.Rational(20, 3)*Z**2 - sp.Rational(38, 3)*Z + sp.Rational(4, 3)
+
+
+def lapz(f):
+    return 4*(1 - Z**2)*sp.diff(f, Z, 2) - 8*Z*sp.diff(f, Z)
+
+
+def wave_polys():
+    """the paper's wave in zeta = cos 2th (N6): d^F = sqrt2 P(zeta) w^-5, d^G = sqrt2 P(-zeta) w^-5, w^2 = 1 + zeta^2;
+    Lap d^X = sqrt2 R_X w^-9 with R_X polynomials; returns (P_F, P_G, R_F, R_G)"""
+    w2 = 1 + Z**2
+    PF, PG = PZ, PZ.subs(Z, -Z)
+    RF, RG = [sp.expand(sp.simplify(lapz(PX*w2**sp.Rational(-5, 2))*w2**sp.Rational(9, 2))) for PX in (PF, PG)]
+    assert RF.is_polynomial(Z) and RG.is_polynomial(Z)
+    return PF, PG, RF, RG
+
+
+def decide(alpha, beta, depth=40):
+    """b = alpha + beta Lap d/d for the paper's wave, as N(zeta)/((1 + zeta^2)^2 |P|^2): N = U + i V with U = a_r M +
+    b_r X_r - b_i X_i, V = a_i M + b_r X_i + b_i X_r, M = (1 + zeta^2)^2 (P_G^2 + P_F^2) > 0, X = (R_G - i R_F)(P_G + i
+    P_F).  Certifies on [-1, 1] that at every zeta V != 0 or U < 0 (b is never a non-negative real), by bisection with
+    interval arithmetic; returns (ok, the zeta-intervals where V changes sign with U's enclosure there)"""
+    PF, PG, RF, RG = wave_polys()
+    M = sp.expand((1 + Z**2)**2*(PG**2 + PF**2))
+    Xr, Xi = sp.expand(RG*PG + RF*PF), sp.expand(RG*PF - RF*PG)
+    (ar, ai), (br, bi) = alpha, beta
+    polys = [[ivq(c) for c in sp.Poly(p_, Z).all_coeffs()] for p_ in (M, Xr, Xi)]
+
+    def hor(cs, x):
+        acc = iv.mpf(0)
+        for c in cs:
+            acc = acc*x + c
+        return acc
+
+    def UV(x):
+        m, xr, xi = (hor(cs, x) for cs in polys)
+        return ar*m + br*xr - bi*xi, ai*m + br*xi + bi*xr
+    stack, bad, signs = [(ivq(-1), ivq(1), 0)], [], []
+    while stack:
+        lo, hi, dep = stack.pop()
+        U, V = UV(iv.mpf([lo.a, hi.b]))
+        if V.a > 0 or V.b < 0 or U.b < 0:
+            continue
+        if dep >= depth:
+            bad.append((lo, hi, U, V))
+            break
+        mid = ivq(sp.Rational(1, 2))*(lo + hi)
+        mid = iv.mpf(mid.a)
+        stack += [(lo, mid, dep + 1), (mid, hi, dep + 1)]
+    # where V changes sign (b real): the sign of U there
+    n = 2000
+    prev = None
+    for k in range(n + 1):
+        x = ivq(sp.Rational(2*k - n, n))
+        U, V = UV(x)
+        sv = 1 if V.a > 0 else (-1 if V.b < 0 else 0)
+        if prev is not None and sv != prev[0] and sv != 0 and prev[0] != 0:
+            Ul, _ = UV(iv.mpf([prev[1].a, x.b]))
+            signs.append((prev[1], x, Ul))
+        prev = (sv, x)
+    return not bad, bad, signs
+
+
+# ------------------------------------------------------------------------------------------------------------ checks
+def sizes(prof):
+    return sum(len(sp.Add.make_args(e)) for e in prof.values())
+
+
+def horizon(prof):
+    return canon(prof.get((0, 0), 0).subs(r, 1))
+
+
+def at_rho(e, rs):
+    """(re, im) enclosure of a function of r0 at rho*"""
+    return ev(sp.expand(e), {r0: rs})
+
+
+def fmt(p):
+    with mp.workdps(50):
+        x, y = mp.mpf(p.a._mpi_[0] if hasattr(p.a, '_mpi_') else p.a), mp.mpf(p.b._mpi_[1] if hasattr(p.b, '_mpi_')
+                                                                              else p.b)
+        return mp.nstr((x + y)/2, 12)
+
+
+def chain(record):
+    """B1-B4: H2, H3, H4 and H5's family 1; record collects the printed rows and the pass flags"""
+    H1 = {0: H1prof()}
+    H2, R1, D1 = next_profile(H1, [0, 1])
+    b1 = all(e == 0 for e in H2[1].values()) and all(equations(H2, R1, D1, 0))
+    b1 &= all(H2[0].get(ij, 0) == 0 for ij in ((0, 0), (0, 1), (1, 1))) and canon(
+        H2[0][(2, 2)] + H2[0][(3, 3)]/COS**2 + H2[0][(4, 4)]/SIN**2) == 0
+    H2 = {0: H2[0]}
+    record['B1'] = b1
+    log("B1 %s" % b1)
+    H3, R2, D2 = next_profile(H2, [0, 1])
+    d = wave_d()
+    K = -(2*r0**3 - 3*r0**2 - 2)**2/(36*r0**6)
+    b2 = same(H3[1], H2[0], I) and all(equations(H3, R2, D2, 0)) and all(equations(H3, R2, D2, 1))
+    kok = canon(horizon(H3[0]) - A*d*K) == 0
+    record['B2'] = b2 and kok
+    record['K'] = kok
+    record['R2'] = (R2, D2)
+    log("B2 %s %s" % (b2, kok))
+    H4, R3, D3 = next_profile(H3, [0, 1, 2])
+    b3 = same(H4[2], H2[0], -1) and same(H4[1], H3[0], 2*I)
+    log("B3 top families %s" % b3)
+    b3 &= all(equations(H4, R3, D3, 0)) and all(equations(H4, R3, D3, 1))
+    record['B3'] = b3
+    log("B3 %s" % b3)
+    fam = {0: H4[0], 1: H4[1]}
+    cv = [(0, 0), (0, 1), (1, 1)]
+    H5, R4, D4 = next_profile(fam, [1], comps=cv)
+    b4 = all(equations(H5, R4, D4, 1, comps=cv))
+    record['B4'] = b4
+    log("B4 %s" % b4)
+    return H2, H3, H4, H5

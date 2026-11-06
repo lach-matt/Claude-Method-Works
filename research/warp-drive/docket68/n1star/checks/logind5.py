@@ -54,6 +54,12 @@ Proof (induction over the steps, in the order the construction takes them):
   fails; C2 pole order l_0 = 1 below 2 (S2): the hypothesis fails at the second window; C3 d1 with log order 1 at
   level 2 (S5): the chain carry exceeds 2 + e_c; C4 Step 1's extended unions raising at the completed points too (S4):
   L3 fails.
+  [Round 13 (the round-12 reader's nit 5). What L2 and L4 compute and what they cite: given l(d1) = 0, l_0 = 0 and the
+  sources' log orders (eflat5's census and F4 table, dnumber5's chains), both loops reduce to identities, so they check
+  the bookkeeping, not the premises. The premises are cited: d1's irrationality and the first-point property of the
+  chains (dnumber5's chain construction, lambdagen5 L5, certified), and the offsets below 2 - lambda_sharp with
+  E^iota_ind computed (checks/iotaind5.py I4). The lemma is proved at the record's computational point, where its
+  offsets are computed.]
 
     python3 checks/logind5.py        (seconds)
 """

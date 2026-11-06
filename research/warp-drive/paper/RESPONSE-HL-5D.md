@@ -2786,7 +2786,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | file | md5 |
 | --- | --- |
 | `paper/response5.py` | `e61b6d48c2a9159c7d2ef3cf6c7c3c1c` |
-| `docket68/n1star/N1STAR-PROOF.md` | `87501cfb81d0e9632721e1e7944b9c38` |
+| `docket68/n1star/N1STAR-PROOF.md` | `88179da4c73ade0b2ae6d3d8289d5e0c` |
 | `docket68/n1star/README.md` | `d18e78829222d34b1b3dba6e3089f129` |
 | `docket68/n1star/ks5.py` | `4fb7563006d79b3144b42b761300830a` |
 | `docket68/n1star/foliation5.py` | `dab023e393662863f1f608b5d087dc9c` |
@@ -2979,7 +2979,7 @@ The md5 of each file this paper rests on, at this commit (R9 checks every row; `
 | `docket68/n1star/checks/r0census5.py` | `d32687363373887aa7ee12ad267540a8` |
 | `docket68/n1star/BEYOND5-R0.tsv` | `ba3f3c9517acb286d085388130cb09cd` |
 | `docket68/n1star/checks/census9.py` | `2df668cb63c0e15be15e346af3187d6d` |
-| `docket68/n1star/checks/census9.out` | `9848ee542c8015e1596cae7bea8f0ab9` |
+| `docket68/n1star/checks/census9.out` | `ec95fb7d5cbd82eb914b79fecae238b9` |
 | `docket68/n1star/checks/support5c.py` | `494d4b4a969248f3d27ccadcda1df4c6` |
 | `docket68/n1star/checks/support5c.out` | `8c79ff003b7091b3d434def27a44aab9` |
 | `docket68/n1star/checks/ledger5.py` | `457f7834c9a7341f193b6ca05c676cbf` |

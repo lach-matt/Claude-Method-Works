@@ -8342,3 +8342,28 @@ use line K:733 is now K:735); r0census5 --selftest ok (323 lines) and vii5read u
 - Not yet read: D618's sections 9.5 and 11 (with R6-D now in place), and the D630 seating.
 - The header's Theorem M paragraph still says R5-D's replacement "is pending". It is left for the next pass of lines
   1-958 (WS-A's D631).
+
+**D631 (2026-11-06): WS-A's final texts for the supplement; the header on R6-D.**
+- WS-A's R12.h (GAUGEDECAY5.md, confirmed by an independent reader with no major or minor finding) has twelve
+  replacement texts. Texts (1), (2), (9), (10), (11) and (12) have their old text in N1STAR-PROOF.md, once each, and
+  not in the paper, so they are seated here exactly as printed. Texts (3)-(8) are the paper's and wait for the final
+  paper pass.
+  - (1), 10.2 (iv): the l = 0 settling in harmonic gauge, with its exact t_*^-2 leading term for compactly supported
+    data, the rate t_*^(-min(p,3/2)+eps) for data of order p, the representative of Corollary R4.4 and its l >= 2 part.
+  - (2), 10.8: the same for W'.
+  - (9), Proposition 10.1 (iv-a): its domain, N^+.
+  - (10): the proof's status of GAUGEDECAY5 Theorem 1.5, now proved (R10.p, R11.p, R12.p).
+  - (11), the header, and (12), Proposition 10.1's label: (iv-a) is deduced from Theorem 1.5, which is proved.
+  - Each new text is followed by "[amended D631: WS-A R12.h text (n)]", placed so that the text still occurs verbatim.
+    Where the line would pass 121 characters, the rest of the line moves to the next.
+- The header's Theorem M paragraph: F1 is "answered by workstream B's R6-D, read by its round-6 verifier, seated in
+  Lemma 11.0 (D630) and re-read line by line and found correct by its round-7 reader". Section 11's status keeps
+  "[pending the section 9.5/11 confirming read]", as that reader is still running.
+- The header grows by two lines, so lines 59-960 of sections 0-6 move by +2. lzerotrace5's and lzeroaudit5's rows are
+  re-keyed, and PIN (lines 1-960) and FILE_PIN are re-pinned.
+- Text (1) as printed has a line beginning "+ O(t_*^(-3+eps))", which a Markdown renderer reads as a list item. It is
+  seated exactly, and noted here.
+- Runs, every .out saved: lzerotrace5 (T0-T7, C1-C6), lzeroaudit5 (A0-A3, C1-C3; 95 hits, 0 unclassified), redshift5
+  (R1-R16), stagen5, r5edits5, r6edits5, census9, stagefree5, support8b and zerohardy5 all pass.
+  `response5.py --update-md5` refreshed two rows (the proof, census9.out), and its selftest passes, R1-R14. The paper's
+  R12.h old texts (3)-(8) each still occur once there.

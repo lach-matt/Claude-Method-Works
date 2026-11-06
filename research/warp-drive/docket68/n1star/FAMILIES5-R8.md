@@ -84,7 +84,8 @@ the background itself. New programs, with their `.out`, PASS: `checks/truebg5.py
 - **The remaining items the reader listed.**
   - The discretisation error: *closed* by certifying for the background itself (R8.2).
   - The N-family ledger: *computed* (R8.4).
-  - M_b: *prepared conditionally* (R8.8). FAMILIES5-MB.md is not edited.
+  - M_b: *settled both ways*, its review seated in FAMILIES5-MB.md and mbsign5 as bracketed notes (R8.9); the block's
+    M_b text is the single rebased one (R8.8).
   - Hollands–Wald: *stated once and set aside* (R8.7).
 
 ## R8.1 The certificates in interval arithmetic (checks/intcert5.py C1, C1d, C2, C2d)

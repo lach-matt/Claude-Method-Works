@@ -37,8 +37,9 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
       ZE_31      below       1  Step 3.1: III.H Proposition 3.2
       ZE_33      below       1  Step 3.3: III.H Proposition 3.2
       BG_I15     both        2  BG: R_q u, Delta_q(p') (I15:327-332)
-  M3: c'_above = 1035 (FWD 877 + 158), c'_below = 929 (FWD + 52): c' = 1035; d <= A' + 106489470 c' = 45661383902649727 +
-      110216601450 = 45661494119251177 (4.566149e+16); N = 21 d + 6 <= 958891376504274723 (9.588914e+17); pinned: True
+  M3: c'_above = 1035 (FWD 877 + 158), c'_below = 929 (FWD + 52): c' = 1035; the levels' part of d (Round 13: a partial
+      sum, not a bound on d, which adds B_once, M4): A' + 106489470 c' = 45661383902649727 + 110216601450 =
+      45661494119251177 (4.566149e+16), and 21 times it + 6 = 958891376504274723 (9.588914e+17); pinned: True
       against round 7's c' in [62, 250 + MODs]: the MODs are 158 above 3 and 52 below; c' moves d by 2.41e-06 of itself;
       the floor 8,407,505,890,317,054 is 0.1841 of the bound
   M4 (deduced on the reading; computed; Round 9: itemised; Round 10: the base counted, M6): the steps outside the levels,
@@ -53,8 +54,8 @@ modcount5: the fixed per-level steps of the beta-levels, read and counted; c' an
   M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = 1.884850e-08 < eta_2 = 1.889700e-08 <
       1.9839e-08, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5
       pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: True; the levels off I11:156-160's sets and eps,
-      eps' off I9:290-291's and I14:124-126's (Round 12): decided in checks/rootavoid5.py, its output read: 23 checks,
-      all PASS: True
+      eps' off I9:290-291's and I14:124-126's (Round 12): decided in checks/rootavoid5.py, its output read: at least 23
+      checks, all PASS: True
   M6 (READ; deduced on the reading; computed; Round 10, the round-9 verifier's MAJOR A): the base level. READ: the base
       runs on h + h_rem(q), of K+-order (alpha - 2)- (I15:305-308, Remark 3.2 (1) at I15:447), so a_K - 2 < alpha - 4 =
       eps_K; Lemma 3.1 needs alpha'_K > alpha_0 + 2 - a_K (I9:218); III.I''''' Proposition 2.1 starts below a_K - 1

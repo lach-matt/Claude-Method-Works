@@ -6632,6 +6632,7 @@ their `.out` files stand. Labels as in round 11.
   says, and the uses need only the slower rate. T9, T13 and N5 do what (A113)-(A114) say. The R11.h texts seat in either
   order and in twenty random orders, every seated line within 121 characters.
 - `gdtail5.py` and `gdr9_5.py` reproduce their `.out` files byte for byte, under the default seed and seeds 77 and 78.
+  [R13 (A132): `gdtail5.py` under seed 77 and `gdr9_5.py` under seed 78, each also under the default seed (R12.f).]
 - R11.f's mutants are reproduced, and all die. Of its own mutants, T9a and T9b survive (nit 6). T9e, T13b, T13d, T13e,
   N5c, N5e and N5f survive and are equivalent, or reproduce the round-10 survivor.
 - Three minors and eight nits, seated below. Every other input it traced in the promoted proofs is promoted.
@@ -6700,6 +6701,8 @@ test was exercised only jointly: comparing the cap's reached test with the compu
 making the $p$-target's vacuous (T9b), still left the other target's test to fail the control. Accepted. `t9_cap` takes
 separate shifts, and control (ii) runs twice, once for the $p$-target and once for the cap. Each run must fail: its
 certificate exists, and its target is not reached. T9a and T9b now die (R12.f).
+[R13 (A131): control (iii) still moved both targets together. From round 13 it too runs once per target; a control
+(iv) tests the certificates alone, and each control is judged on its own target's verdict.]
 
 (A127) *Nit 7, T13's derivative order* (gdtail5.py:757-761; (A112) at G:6084; the docstring; text (5)). Re-derived. T13
 read first derivatives only, against "every derivative". Accepted. T13 now reads the first and second derivatives of
@@ -6738,6 +6741,8 @@ confirms (A112)'s reading of (c). The supplement's three status sentences for it
 
 *Keeping their earlier labels.* For each of these, nothing cited rests on it. No promoted result's proof uses it.
 Neither the paper nor the supplement cites it, nor will once R12.h is seated, and no text in R12.h cites one of them.
+[R13 (A130): the definitions excepted. The supplement cites Definition 1.1 (and (0.1)); a definition carries no proof
+status, and nothing rests on it being proved.]
 - Definitions 1.1, R2.1 and R8.1, which are definitions.
 - Remark 2.4, Proposition 2.5, and Corollary 2.6 (withdrawn). (M)'s mention of Proposition 2.5 (iv), the projections'
   boundedness, is supplied by Lemma R8.2 with (F1) and (A102).
@@ -6759,6 +6764,8 @@ supplement cites:
 - Proposition R2.13 (b) and (c).
 The paper cites R2.13. After R12.h is seated, they also cite Corollaries R4.4 and R6.6, Theorem R7.1 to Corollary
 R7.7 with (A72)-(A73), and Lemma R8.2 to Corollary R8.12. All of these are proved.
+[R13 (A130): incomplete. The supplement also cites Lemma 1.3 (b) and Lemma 1.4 (b), which are proved (R10.p), and
+Definition 1.1 and (0.1), which are definitions; it also names the radius $R_1$. The list is completed in R13.0.]
 
 ### R12.e What is not proved
 
@@ -6841,6 +6848,7 @@ that every seated line is within 121 characters.
 Their md5s: `N1STAR-PROOF.md` `87501cfb81d0e9632721e1e7944b9c38`; the paper `5930486d79b2001589adb7eceb8b35be`.
 Statuses are stated as the corpus has them: Part VIII and Part IX proved; the GAUGEDECAY5 results cited, and their
 inputs, proved (R10.p, R11.p, R12.p); supplement Proposition 10.1 (iv-a) deduced from Theorem 1.5.
+[R13: text (8) is superseded by R13.h's; texts (1)-(7) and (9)-(12) stand.]
 
 (1) *`N1STAR-PROOF.md`, 10.2 (iv)*, from "When" (at the end of a line) to "as in four dimensions.". Old:
 
