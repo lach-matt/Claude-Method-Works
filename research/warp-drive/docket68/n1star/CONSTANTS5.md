@@ -1980,3 +1980,356 @@ of generators" (m7).]
   part of the linearised operator in the symmetry class (constant 3.94), in the supplement's norm, every harmonic,
   through the horizon; for its scalar-type part it is not done, and the others need constants of the write-out's
   microlocal estimates and certified spectral bounds in its norms.
+
+## Round 8 (2026-11-06)
+
+*Status.* Appended to rounds 1-7; not yet read by a verifier. R8.0 seats the round-7 verifier's report and the
+coordinator's two notes, each item re-derived first; bracketed `[Round 8, ...]` notes now follow the lines of round 7
+they correct (and R4.0 (i)), the old text kept. R8.1-R8.4 take the four items in the order asked; R8.7 is the proposed
+replacement for the paper's section 9 text. New programs, each with its `.out` and controls that mutate the computed
+path and must fail (they do): `checks/modcount5.py` (12/12), `checks/classm5.py` (9/9). Changed and rerun:
+`d0count5.py` (18/18; the verifier's A and A2, pins, five new controls), `dnumber5.py` (10/10; K6's text annotated,
+output otherwise identical), `x7indep5.py` (9/9; I2's generator widened), `r6fixes5.py` (6/6; F2's inputs rounded
+outward), `tensorzero5.py` (11/11; T3b at 108 points, T4 at l = 2 and 4), `gronwall5.py` (docstring re-pointed by
+content; output identical). Not rerun: `lzerotrace5.py`, `lzeroaudit5.py` (their whole-file pins fail at HEAD since
+D618-D623; the re-pin is the main session's). N1STAR-PROOF.md and the paper are not edited.
+
+### R8.0 (verifier of round 7; the coordinator's notes)
+
+The verifier reran the eleven round-7 programs (byte-identical outputs), recomputed the l = 2 tensor block with a
+full-matrix Ricci routine, the four-phase identity, C_T^2 = 55289/14256 and the excesses, and ran a mutation harness.
+Its findings, each re-derived before it is seated:
+
+- **A (accepted; computed, `d0count5.py`).** Proposition A.7's left remainder Op(r_J1) acts on u through the lower
+  part of the norm, ||u||_{H^t0}, t0 = floor(inf t) - 1 (or through Lambda'_t, of order -t, up to -inf t), so its
+  weight is 2 M2 >= -t0, not sup t: d0count5.py:131 had M2 = ceil(max(0, sup t)/2). Re-derived: with M2 = ceil(-t0/2)
+  the program reproduces the verifier's table exactly (Q4's range: 185 with -inf t, 193 with -t0; with T_LO = -16, the
+  record's own input order -N - m of II.A2:389-391, 195 and 203). Both figures are below what the chain needs once
+  A2 and the operator orders are counted (R8.1): D_0 <= 399, FWD <= 474, c' = 632. Pinned now: D_a = 53, D_b = 64,
+  M_a = 81, M_2.4 = 197, M_f = 224, D_0 = 230 on round 7's operator orders, and M_a = 138, M_2.4 = 374, M_f = 393,
+  D_0 = 399, FWD = 474 on the box. `OK['D0'] = D0 > 0` is replaced by the pins; the four mutations the verifier found
+  undetected (2K = 2, C_ch = 0, delta = 1/20, M2 corrected) are controls C5-C8, and C9 is round 7's range. The
+  statements at :1701, :1707, :1787-1788 and :1918-1919 carry bracketed notes.
+- **A2 (accepted; counted, R8.1 Lemma A.9).** Proposition 2.4 (f) is applied at II.A2:682-695 to [D_R, A-check],
+  [[D_a, Op(a-check)], Op(a-check)] and i[L_R, D_a-check A-check]: up to three order drops, each an exact cancellation
+  of main terms that needs one more term of every expansion. "(c) and (f) are the same count" (:1897) is withdrawn;
+  (f) is counted at those instances (M_f).
+- **B (accepted; R8.7).** R7.7 repeated the round-6 "only through" at :1911-1913 (R7.3's criterion is a sup over
+  Omega x S^1, X* sufficient): "for example through". The calculus bound is in CONSTANTS5.md, not the supplement, and
+  its figures fall with A. "In the supplement's norm" needs "for one choice of generators" (m7). R8.7 is written so.
+- **C (accepted).** r7fixes5 prints C_app (Frobenius) as the ball [16.127553 +/- 2.12e-8], whose lower end is
+  16.1275529788; the text's "C_app >= 16.127553" (:1615) rounded the ball's midpoint, the wrong way. Read >= 16.127552;
+  lambda0 < 0.0019079 stands (0.0019078257 at the ball's end).
+- **(1) MAJOR 1's excess (accepted, and resolved in the class; computed, `classm5.py` K1-K2).** r7fixes5:115-118
+  certifies the excess only for M = w (e2 e3^T + e3 e2^T); in general it needs a lower bound on u^T g u, so all of
+  m_1(X*). In the class the general case does not occur: the eight invariant components (vv, vr, rr, v th, r th, th th,
+  phi1 phi1, phi2 phi2; stage5.py's COMP) have no phi1-cross component, and at phi1 = 0, d_x2 = d_phi1/(r cos th) while
+  no other coordinate field has a d_phi1 part, so the x2 column of every class tensor there is (0, 0,
+  M_phi1phi1/(r cos th)^2, 0, 0) (K1, exact, every th; by continuity on the axis th = 0); at X* e2 is an eigenvector of
+  g(s) = M + W(s) + chi D for every s, with eigenvalue M_22 + (4/3) K cos s (K2, exact). So the excess is |M_22| and the
+  enclosure needed is of the one number M_22 = (m_1)_phi1phi1(X*)/a^2 (R8.2). Control: a v phi1 component, outside the
+  class, breaks K1 (C1); an off-class M_23 breaks K2 (C2).
+- **(2) MAJOR 3 (accepted; `x7indep5.py`).** I3 is independent in the summation only (the chains, excesses, n_a and A
+  are dnumber5's). I2's generator reached the levels counting every point in 1 instance of 600 (re-derived: kb =
+  ceil((Tb - alpha1)/s) exceeds K - 1 whenever s < 2/K); every second instance is now drawn with s, K and d1 large
+  enough, 299 of 600 reach those levels, and I2 requires at least 100.
+- **(3) r6fixes5.out (accepted).** It printed "<= 3.5237e+17 ... True", below the certified 3.52422e17: its inputs were
+  the round-6 roundings. They are now rounded outward (q_lo >= 0.1966827, e^(kappa Dtau/2) <= 1.1051725e17) and it
+  prints 3.5242e17.
+- **(4) R7.1 (accepted; reported).** 10857 lines, not 10858; lzerotrace5.py:12 says "lines 1-805". N1STAR-PROOF.md has
+  moved since (11025 lines, md5 9e5363f1..., section 7 at 919 when this round ended): T0, A0, A1 fail at HEAD; not
+  re-pinned here, as instructed.
+- **(5) The coordinator's note on D623 (accepted; checked).** N1STAR-PROOF.md 0.3 now fixes "one fixed number with 0 <
+  eps1 < min(s0, mu0/a^2 - 1)" and Lemma 2.3 carries "|gt^-1| <= (s0 - eps1)^-1". At the numerical point mu0/a^2 - 1 >
+  12 (R4: mu0/a^2 = 13.73), so the minimum is s0 in [0.030768559, 0.030768560] (lzerotrace5 T7); every lambda0 bound
+  here uses eps1 < s0 with C_app >= 12.593309 (operator), so lambda0 < 0.0024433 agrees with the new 0.3, and the
+  Frobenius and largest-entry figures are readings of the same eps1 in other norms (R5.1, R6.0). R4.0 (i)'s line
+  numbers (:89-92, :222) and gronwall5.py's (:230-235) are re-pointed by quoted content.
+- **(6) R7.3 (accepted).** "It cannot decide" (:1735) is too strong: implausible. The Sigma bound is now computed
+  (`classm5.py` K3): the angular maximum of |W_TT|_op/((4/3) E r^(-3/2)) is exactly 1 (H^2 (4 C^4 + S^4) = 5/2 + 3q/(1 +
+  q^2) <= 4, equality at q = 1; H^2 (C^4 + S^4) = 1), so sup_Sigma |W_TT|_op <= 0.22189 (certified; round 7's 0.64
+  carried a needless factor 2^(1/2)), and Sigma's data would need |a_1| > 12.37. "Stages 2-9 cannot change C_app's
+  forced lower bound" holds for the lam -> 0 limit only; at a finite lambda0 the forced bound is a sup over lam in (0,
+  lambda0], which g_2 and later stages can raise by O(lambda0): "final" is relative to this method.
+- **(7) R7.4 (accepted; `tensorzero5.py` rerun).** T3b evaluated the identity at one r with one H; it now evaluates it
+  at 108 points (three A, three H, four r with one inside the horizon, three angles; largest residual 7.3e-158 at 50
+  digits): still an evaluation, so "operator identity" (:1754) is read as one. T4 ran l = 2 only; it now runs l = 2, 4
+  (12, 28), beside the so(4) Casimir 2 [j1 (j1 + 1) + j2 (j2 + 1)], (j1, j2) = (l/2 + 1, l/2 - 1), which gives l (l + 2)
+  + 4 at every l (the verifier's argument, now printed).
+- **(8) R7.5's labels (accepted).** C_T is deduced with certified arithmetic, not certified; the tensor identities were
+  computed at l = 2, 4 and the Casimir at l = 2; x7indep5 is independent in the summation only. Noted at :1783.
+- **(9) Q4 (accepted; recorded).** Q4 reads only the first branch of s_in (II.C:767-768's alpha_K/theta^3b_in branch is
+  not read) and alpha_K = -2 behind "-6 - beta_+ - eps" is not sourced. Recorded, not re-derived: R8.1's order box
+  takes s in [-10, 10], and a second branch giving s_in > 9 would widen the box and raise D_0 with it.
+- **(10) Theorem A.1 (accepted).** Shells k and k + 2 touch (both meet |xi| = 2^(k+1)), so the near group of steps
+  (4)-(5) is |k - k'| <= 2 and |xi - xi'| >= 2^(k'-2) needs k' >= k + 3. Constants only; noted at :1838.
+- **(11) Lemmas A.5/A.6 (accepted; re-derived).** [SBG] (3.27), p. 44, localises the cut-off to cells of B, not of rho
+  B: in rescaled coordinates it is psi(rho (x - y)), and the support claim at :1860-1861 is not uniform. The kernel's
+  decay is obtained instead by integrating by parts in xi on the smooth factor D_xi^b lambda ((x - y)^gamma e^{i(x -
+  y)xi} = D_xi^gamma e^{i(x - y)xi}), which lowers its order by |gamma| = n + 1 and takes no derivative of l: Schur's
+  test then applies uniformly, and D_a, D_b keep their form (noted at :1861).
+- **(12) Minor counts (accepted).** "d = d-tilde + 3 >= 35" reads 36; c' >= 62 assumed D_0 >= 2 (Q5's d_0 >= 5);
+  II.D's C^(d_0 - 3)/C^(d_0 - 4) multiplications (D_b + 4 = 68) now enter D_0's maximum (no effect); A.7 (1)'s cut-off
+  and residual errors, if charged one change of chart, cost M_a + C_ch < M_2.4 (inside the maximum). dnumber5.out K6
+  said D_0 comes "from the closed graph theorem": annotated as superseded.
+- **(13) stage1cap5 S3 is print-only (accepted).** Its content is now computed in `classm5.py` K1-K2 (the criterion's
+  reduction to M_22 at X*) and r7fixes5 R1; S3 stays a printed statement, labelled deduced there.
+- **(14) "found independently here before the report arrived" (:1601) cannot be checked (accepted):** withdrawn.
+
+### R8.1 (i) d as an integer (`modcount5.py`; `d0count5.py` corrected)
+
+- *What a level does* (READ, I15:323-352; the ranges below are found by content and the files pinned by md5). III.I
+  with fourteen primes, Theorem 3.1's Step 2, at each beta-level forms G~ = F - Delta_q(p') - R_q u (BG) and G' (rows,
+  FIN) and applies to the same u III.I''''''''''''' Lemma 2.2 above 3 or III.I'''''''' Lemma 3.2 below 3. Lemma 2.2 is
+  III.I''''''''''' Lemma 3.2's proof (I12:414-428) with III.I'''''''''' Proposition 3.1 at beta (I11:349-403) and
+  III.I''''''''''''' Proposition 2.1 (I14:101-150 over I12:246-401, with I12's Lemmas 2.1-2.5, I12:110-236). Lemma 3.2
+  below 3 is I9:239-342 with Lemma 3.1's Steps 1-2 (I9:219-234) and III.I'''''' Proposition 2.1's Steps 3-3.3 and 4-6
+  (I7:190-333; its Steps 3.4-3.5 are replaced by I9's 3.4'-3.5').
+- *The census* (READ; computed, M1). Every invocation in those ranges of a family J3 Lemma 2.1 lists (FWD, BG, the
+  transforms and model inverses of (e)-(g)), of L-hat(sigma) or L_b applied, of the parts' own lemmas and of a routing
+  citation is matched (212 hits) and classified: charged here (35 hits, 31 charges), counted in dnumber5's constant A'
+  (10: the tf, level-2 and level-3 rounds, Step 0's III.A Proposition 4.2 (1), X_7, the windows and the iota+ loop,
+  below 3 the one-off application), a statement or a lemma's own text charged where it is applied (129), FIN or INT
+  of loss 0 (14), base level only (12), top level only (1), replaced at this use (2), routing to a scanned range (9).
+  0 unclassified, no stale row. Controls: a row dropped leaves one hit unclassified (C1); the L-hat pattern dropped
+  loses 26 hits and four charges (C2); a range anchor one line off fails (C6).
+- *The charges* (deduced from J3 Lemma 2.1 and LOSS-D 2b at each site; computed at dweights5 W1's weights, at the
+  worst level of each range; every charge an upper bound, branches of a sum summed rather than maximised). Above 3:
+  BG 2 + 2 (I15's R_q u and Delta_q; Lemma 3.2's (L - L_b0) u); III.I' Proposition 3.1 at I11's Step 1, the one-off
+  application to the general class E^C_I, 2 (1 + J + L) = 48 (prop31loss5's chain on R1 with seven rounds; 12 on R0,
+  30 with four, so the largest reading); III.I'' Lemma 4.1 (v_hi) 18 (II.G' Corollary 4.5 charged J3 (f)'s l + 1 = 11,
+  l = 2 l_3 + l_4 + l_5 = 2 x 3 + 4 + 0 at output weights (3/2 - eps, 21/10, 21/10), s <= 3, r_in - r_out <= 2, N = 1;
+  plus (2.25a) 1, (2.25b) 0, Corollary 4.2 (2)'s (2.3) 2, Proposition 3.5 (1) 2 and (2) 2); the zero-energy solves of
+  levels 0-3, each III.H Proposition 3.2 (1) with III.A Lemma 1.4, which J3 does not list, charged 2 per application
+  ((ceil(mu' - mu) + 1) applications): 7, 7, 5 and, at the levels above 4 only, 5; L-hat(sigma) in Lemma 2.2 at levels
+  0-2 and in g_J above 4: 2 each; III.G'''' Proposition 4.4 at level 1, at the exponent 2, per (alpha_0, k): 3 (k_1(2)
+  + 1) = 33 (dnumber5 K3's k_1(2) = 10; the constant reads level 2 per exponent, and level 1 is charged the larger);
+  III.I'' Lemma 4.2 at level 3: (2.4) = 2; II.G' (2.26a) at Step 5 (iii): 4; III.A Proposition 4.2 (2) for the last
+  level's column pieces (Lemma 2.4 at j = 3, plain weights, n_iota = n_K = 0): 3 + 2; III.I' Proposition 2.1 at Step
+  7: 2 x (5 + 1) = 12 (dweights5's count, one step allowed for its Step 1). Sum 158. Below 3: BG 2 + 2; III.I'' Lemma
+  4.1 (u_hi) 20 (l_5 = 1 there); (2.25a) 1; Steps 3.1 and 3.3: III.H Proposition 3.2 1 + L-hat 2, twice; Step 3.2's
+  single Proposition 5.1 application 3; Step 3.4''s Lemma 4.2 2 (its rounds' row data are FIN, I7 Lemma 1.3); (2.26a)
+  at Steps 4 and 5: 2 + 2; III.I' Proposition 2.1 at Step 8: 12. Sum 52.
+- *FWD* (deduced; computed, `d0count5.py`, the verifier's A and A2). Proposition 2.4's count must cover the symbol
+  orders at which the chain applies it, and round 7 took every operator order <= 2. The propagation estimates of II.A2
+  sections 4-5 use commutants a-check of order s - 1/2 + delta (II.A2:641-668: b_eps of order s + delta, z_eps of order
+  -(m - 1)/2, a-check = z b), s in [s_out - 2, s_in + 1] = [-10, 10], and their products and commutators with L
+  (order 2); every symbol and composite order of the chain therefore lies in [-22, 22], and the count is taken with
+  every order variable in that box. At the Sobolev orders [-16, 11] (Q4 with the record's input order -16):
+  D_a = 53, D_b = 64, d_0(8.6) = 60; on the box M_a = 138 (J1 = 80), M_2.4 = 374 (C_ch = 218), M_f = 393 (Lemma A.9),
+  D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = 399 and D_1 <= 52 (d-tilde + 3 over [-16, 11]), so
+  FWD = D_0 + D_1 + d' + d'' + 6 <= 474. On round 7's operator orders, corrected, D_0 <= 230 (203 without (f)); that
+  reading is not the chain's and is not used.
+- **Lemma A.9 (= II.A2 Proposition 2.4 (f) at its instances, explicit; deduced, counts computed).** Let T be a sum of
+  compositions of Op(a_i) and adjoints whose smooth-symbol order is the product's minus q (q exact cancellations of
+  main terms: adjoint defects and commutators), each factor passing through at most p binary operations. Then T has
+  the order (f) states for a_i in C^(M_f) with M_f := M_a(t, mu) + p (q + 1 + max(2L, 2L')) + C_ch + 1, mu the
+  composite order. *Proof.* Expand each operation to depth q + 1 by A.7 (2): the cancellations are identities among
+  the main terms, symbol by symbol, as for smooth symbols, so what remains is a finite sum of main terms of order mu,
+  bounded by Theorem A.1 after the conjugation by Lambda's (M_a), each having taken at most q more derivatives of a
+  factor per operation, and remainders, each bounded by A.7's master estimate (3) with q + 1 + max(2L, 2L') derivatives
+  of the factors it involves; one change of chart per factor (C_ch, A.8); the +1 is (d)'s Hamilton term. At
+  II.A2:682-695, q <= 3 ([[D_a, A-check], A-check] and i[L_R, D_a-check A-check] with D_R inside L_R) and p <= 3. []
+- *The steps outside the levels* (deduced on a coarse reading; computed, M4). III.I with fourteen primes, Theorem
+  3.1's Step 0 (FWD), Step 1 (the base level: III.I'''''''' Proposition 4.1 at alpha_1, Lemma 3.1 with III.I'''''
+  Proposition 2.1's rounds and at most one Lemma 3.2), Steps 3, 4' (FIN) and Step 4 (III.I'''''''''''' Theorem 3.1 at
+  the top, whose Step 0 runs one more level's maps and whose Steps 1-6 subtract towers and read coefficients) are not
+  in A' + (K + 1) c', a term round 7's chain omitted. Each is at most one level's composition with its loops, the base
+  at most four levels below 3: B_once := 2 (M_a + 4 M_b) + 1000 = 3,524,217,980, M_a = 1,042,275,846 and M_b =
+  179,958,161 the largest totals of one level (the per-level maxima of the rounds at W1's weights, P_W, P_iota, W, the
+  excess 47 and X_7(alpha) = 352,162,875, read from dnumber5.out, pinned). It is 7.7e-8 of d.
+- **The integer** (deduced on the reading; computed exactly). c'_above = 474 + 158 = 632, c'_below = 474 + 52 = 526,
+  c' = 632; with A' = 45,661,383,902,649,727 (dnumber5, R1, the wide E_col reading) and K + 1 = 106,489,470:
+
+      d <= A' + (K + 1) c' + B_once = 45,661,383,902,649,727 + 67,301,345,040 + 3,524,217,980
+        =  45,661,454,728,212,747   (4.5661455 x 10^16),      N = 21 d + 6 <= 958,890,549,292,467,693 (9.588905 x 10^17).
+
+  The floor at the same point is 8,407,505,890,317,054 (0.184 of the bound). The reading is: round 5-6's step-by-step
+  log orders of E^flat (a deduced ceiling: the write-out states only K(lambda), I11 Proposition 3.1 (c)), the
+  construction's E_ind, III.C' (3.1) as written (R1), one level-2 application per exponent, the wide E_col, the
+  weights of W1 (four admissibility conditions undecided, 2.1), the order box above and the charges as listed, every
+  one an upper bound. Each figure moves only by its own term: the MODs (158) and FWD (474) together move d by 1.5e-6 of
+  itself.
+- *What is not a number and why it does not matter here.* Nothing in d's chain is now symbolic. What separates the
+  integer from a theorem about the write-out is the reading, not a missing count: the log-order ceiling holds on the
+  step-by-step reading of I11:352-387 (round 6's M2: a sharpened I11 Proposition 3.1 (c) written into the write-out
+  would make it a statement of the write-out), and the order box and the coarse one-off reading are generous by
+  choice. None of these is an obstacle to the integer bound; they are the reading it is deduced on.
+
+### R8.2 (ii) lambda0, stage 1: the enclosure attempted (`classm5.py`)
+
+- *The input is one number* (computed, exact, K1-K2). In the class, m_1(X*) e_phi1 = M_22 e_phi1, M_22 :=
+  (m_1)_phi1phi1(X*)/a^2, and e2 is an eigenvector of g_1(X*, s) for every s; so sup_s |g_1(X*, s)|_op >= (4/3) K +
+  |M_22| (deduced), with (4/3) K >= [12.5934637 +/- 2.51e-8] (READ r7fixes5). A certified enclosure [lo, hi] of M_22,
+  0 not in it, would give C_app >= 12.593309 + min(|lo|, |hi|) and multiply the operator-norm bound 0.0024433 by
+  12.593309/(12.593309 + min(|lo|, |hi|)) (K4: 0.9921, 0.9264, 0.7158 at 1/10, 1, 5).
+- *The validated solve, step by step* (deduced; what each step needs, READ N1STAR-PROOF.md Lemmas 5.3, 6.2, 6.4, by
+  content; D623 did not change them). (S1) The data on Sigma: Lemma 6.2 (iii) at m = 1 is the linearised constraint
+  system P(h_1, Q_1) + B_1(h_1) = S_1, solved by Lemma 6.4 from zero data at r = a, with h_1 = a_1 dr dr, phi_1 = 0,
+  (m_1)_{tau .} = 0. S_1 and B_1 are the order-1 means of the constraint map at the approximant's slice data: a
+  second-order two-scale expansion of (J, rho), one order beyond data5.py. (S2) The evolution: Lemma 5.3 (a)-(c) at m
+  = 1 on the past of X* in Omega (tau from -2 to tau* = 2 - a; v <= 2, so only the shell's half [1/2, 2] is a source):
+  the mean's eight class components coupled by box~ (componentwise in Cartesian components) and by B-bar, C-bar, with
+  phi_1, Psi_1 = box~ phi_1 and Z = d_th gh_2 transported along ell, the source S_1 nonzero only in dv dth (stage5.py
+  S2). (S3) The error control: an approximate solution with residual rho is within C ||rho|| of m_1 in the energy norm,
+  C the stability constant of (S2), and M_22 is a point value, so a higher-order energy and a Sobolev embedding enter.
+- *Which step fails, and why* (computed, K5; deduced). (S1) fails first: neither the record nor this supplement has
+  S_1 or B_1 in closed form or in a program, and without them (S2) has no data. With them, (S3) fails on what the
+  record provides: its only stability constant for stage 1 is Lemma 2.3's energy estimate, whose rate for the principal
+  part is kappa <= 13.2197 (stage1rate5 K3), so over X*'s past (Dtau* = 4 - a = 3.7301412) the growth factor alone is
+  <= 5.103 x 10^10 (certified, K5): an a posteriori (Newton-Kantorovich) closure would need the residual of an
+  approximate solution of the coupled 2+1-dimensional system below about 2 x 10^-11 |M_22| in the energy norm, before
+  the lower-order coefficients' sup norms (not computed: round 6's minor 9) and the Sobolev constant of the point
+  evaluation (Lemma 6.4's at s > 7/2, which contain the Moser and Kato-Ponce constants on S^3, not numbered in the
+  record) are added. And m_1 depends on the envelope beyond its integral (its source is quadratic in the wave, whose
+  amplitude carries env), while the numerics' sin^4 envelope is C^3 and not admissible (1.1): a value of M_22 exists
+  only for a chosen smooth envelope, and the lowered bound would be a statement about that envelope, not about P* as
+  the certified leaves are. No ball or interval method was run: there is no system to enclose until (S1) exists.
+- *The single missing input* (deduced). A certified enclosure, excluding 0, of the one number M_22 = (m_1)_phi1phi1(X*)
+  /a^2 for a fixed smooth envelope with the numerics' integral. Nothing weaker suffices (R7.3 (a)-(d), sharpened by K2):
+  with M_22 free the operator-norm bound at X* is exactly sup |W_TT|_op; an upper bound on m_1 cannot raise a lower
+  bound; and the Sigma data alone would need |a_1| > 12.37 (K3). The Frobenius bound 0.0019079 already moves for every
+  m_1 (round 7); the largest-entry bound 0.0012228 needs the same M_22.
+
+### R8.3 (iii) the scalar-type blocks of L-hat_b0(0) (attempted; not obtained)
+
+- *What was tried, and where each route stops* (deduced; READ lin5.py's definitions, round 7's block structure). The
+  s0 block (four radial functions) on the complement of its state and the s_l blocks (seven) carry L_b's gauge terms
+  E^C w = gam_C (2 c (x)_s w - m (1 - e_C) g <c, w>), c = r^-1 (dt - v dr), gam_C = 10^6, applied to Ups(h) =
+  delta_{E^Ups} G h, which is first order in h and couples the components at one angular derivative, sqrt(l (l + 2)).
+  (a) A quadratic form with the multiplier of zeroext5 (w = r) and the Hardy bound, for large l: the gauge coupling is
+  not symmetric and its coefficient is gam_C = 10^6 against the angular term l (l + 2) r^-2, so such a form can only
+  start at an l that grows with gam_C; that threshold was not computed (the block operators at symbolic l were not
+  reached in this round's time: lin5.py's indicial computation at one numeric l did not finish in ten minutes), so no
+  large-l statement is made. (b) Interval Galerkin with a residual bound for each l below such a threshold: a certified
+  lower bound for the singular values of a non-self-adjoint 7 x 7 system on [r_h/2, oo) in (3.2)'s b-weighted norm,
+  per l. Not run. (c) The factorisation round 7 named: with Ups :=
+  delta_{E^Ups} G h, the linearised contracted Bianchi identity at the Ricci-flat b0 (delta G D Ric = 0; standard, not
+  computed here) gives 2 delta G L_b0 h = box^C Ups
+  (box^C := 2 delta G delta*_{E^C}, lin5.py's definition), so L_b0 h = f gives Ups = (box^C(0))^-1 2 delta G f, then
+  D Ric(h) = f - delta*_{E^C} Ups (the static scalar-type master equation of Kodama-Ishibashi type at zero frequency)
+  and h's gauge part from (1/2) box^Ups(0) omega = Ups - Ups(h_RW): three inverse bounds (box^C(0) and box^Ups(0) on
+  scalar-type 1-forms, the static master operator), each per harmonic, with the composition constants of delta G,
+  delta*_{E^C} and the reconstruction in the norms of (3.2). The gam_C-dependence then sits in box^C(0) alone. This is
+  a route, not a result: none of the three is certified here.
+- *The single missing input* (deduced). Unchanged from round 7: a lower bound, uniform in l, for sigma_min of the
+  scalar-type blocks of L-hat_b0(0) in (3.2)'s norm (s0 on the complement of its state, s_l at every even l >= 2).
+  Nothing weaker suffices (R7.4, Schur's lemma: L-hat_b0(0) commutes with SO(4), the norm is SO(4)-invariant, so the
+  inverse's norm is the largest block's). Route (c) is a sufficient decomposition, not a weaker input: it replaces the
+  one bound by three, each again uniform in l. With the tensor blocks' 3.939 (round 7) it would give
+  ||L-hat_b0(0)^-1|| in the class.
+
+### R8.4 (iv) the next inverse bound: which, and why it is not done
+
+Of the six (I.B:1513, :1685, :1978; III.F'':223; III.D:365; II.F:1393), the closest to done is I.B:1978, the
+middle-range resolvent ||P-hat(sigma)^-1||: E2-PILOT certifies ||chi_I R_l(sigma) chi_I|| <= 11.477 for the scalar wave
+on 3 <= sigma <= 384 with H^1 bounds for every harmonic (round 3, R3.4), so of its three pieces (the trapping
+neighbourhood, the horizon, infinity) one is certified for the scalar model. What stands between that and I.B:1978's
+constant is the same as for the others, R7.4: the radial-point and propagation estimates' constants at L_b0 near the
+horizon and infinity, in the write-out's variable-order norms, and the passage from the scalar wave to the full
+linearised operator. Not attempted this round: items (i)-(iii) and the verifier's report took the round.
+
+### R8.5 Proved, computed, open
+
+- *Computed, exact*: the class reduction m_1(X*) e_phi1 = M_22 e_phi1 and the eigenvector at X* (classm5 K1-K2); the
+  angular maximum of W_TT (K3); the census of 212 per-level citations (modcount5 M1); the four counts of d0count5 at
+  each order range, with pins.
+- *Certified*: sup_Sigma |W_TT|_op <= 0.22189; the amplification 5.103e10 over X*'s past (from stage1rate5's kappa);
+  r6fixes5's coefficient now printed outward-rounded, < 3.5243e17.
+- *Deduced (counts computed)*: Lemma A.9; D_0 <= 399, D_1 <= 52, FWD <= 474 on the order box; the 31 charges of a level
+  (158 above 3, 52 below), c' = 632, B_once = 3,524,217,980; **d <= 45,661,454,728,212,747 and N <= 958,890,549,
+  292,467,693, deduced on the reading R8.1 states.**
+- *Withdrawn*: D_0 <= 177, FWD + BG <= 250, c' in [62, 250 + MODs], "C_app >= 16.127553" (read 16.127552), the stage-1
+  excess for general M (not needed in the class), "it cannot decide", "final beyond stage 1" (method-relative), "found
+  independently".
+- *Open, each with its single missing input*: lambda0's value or a lower certified bound from stage 1 (a certified
+  enclosure of M_22, for a fixed smooth envelope); I.C:497 for L_b0 (the scalar-type blocks' sigma_min, uniform in l);
+  the other six inverse bounds (their microlocal constants at L_b0 and certified spectral bounds in the write-out's
+  norms). d is no longer open as a number; as a theorem about the write-out it rests on the reading above.
+
+### R8.6 Sources (round 8)
+
+The round-7 verifier's report and scratch (`report-vD7.md`, `vD7/`); the coordinator's notes on D623. N1STAR-PROOF.md
+read by content (0.3's eps1 sentences, Lemma 2.3, Lemma 2.4, Lemmas 5.3, 6.2, 6.4; md5 9e5363f1... at the end of this
+round, not pinned). proof5 (md5s pinned in modcount5.FILES and d0count5's sources): PART-III-I15-AUGMENT5.md:253-452;
+PART-III-I14-LEVELS.md:93-188; PART-III-I12-SPECTRAL.md:110-436; PART-III-I11-SPACETIME.md:260-403;
+PART-III-I13-EXPANSION.md:224-447; PART-III-I9-COMMOTION.md:195-345; PART-III-I7-PARAMS.md:143-333;
+PART-III-I6-ALMOSTBDD.md:85-227; PART-III-I3-ALMOST.md:216-300; PART-III-I2-SCRI.md:56-235; PART-III-J3-TAME.md:88-300;
+PART-II-G2-DECAY.md:422-540, 760-870; PART-III-A-PREREQ.md:160-200, 563-580; PART-II-A2-STANDARD.md:230-306, 640-700;
+LOSS-D.md sections 1-3 and LD16; stage5.py, lead5.py (READ, the class and W_TT); checks imported, not copied: dweights5,
+prop31loss5, d0count5, dnumber5, stage1cap5.
+
+### R8.7 Proposed replacement for the paper's section 9 constants text (replaces R7.7)
+
+Three old/new pairs. Each old text occurs exactly once in paper/RESPONSE-HL-5D.md as it stands (checked by content when
+this round ended); the new texts claim only what R8.1-R8.4 prove or compute, with their statements, and fold in the
+round-7 verifier's B (no "only through", no calculus bound "in the supplement", "for one choice of generators" kept).
+
+1. Section 9, "Settling", the loss d (old: the last sentence of the d passage).
+
+```old
+Still open: numbers for the
+  weights the write-out chooses under its inequalities (ℓ_I among them), the logarithmic terms of one index set, the
+  count of one regularity step beyond its floor, the loop counts themselves, and the evaluation of the recursion that
+  composes them (`LOSS-D.md` section 4; the logarithmic terms and the regularity step, its finding LD16); so d is still
+  not a number.
+```
+
+```new
+That bookkeeping has since been
+  carried to an integer (supplement `docket68/n1star/CONSTANTS5.md`, rounds 1–8): the weights are taken at a point
+  meeting every condition decidable there, the loops are counted exactly over the write-out's 1.065 × 10⁸ levels
+  (`checks/dnumber5.py`, `checks/x7indep5.py`), every fixed step of a level is read at its source and charged an upper
+  bound (`checks/modcount5.py`: 212 citations classified, none left), and the coefficient orders the write-out fixes by
+  the closed graph theorem are replaced by explicit calculus estimates whose derivative counts are computed over a box
+  containing every symbol order of the chain (`checks/d0count5.py`). On that reading d ≤ 45,661,454,728,212,747 ≈ 4.566 ×
+  10¹⁶ and N = 21d + 6 ≤ 9.589 × 10¹⁷ (deduced on the reading, the arithmetic exact), 5.4 times the floor at the same
+  point. One step of the reading is the supplement's, not the write-out's: the logarithmic orders of one index set are a
+  ceiling deduced step by step from the proof of the write-out's coarser bound. So the integer bounds the loss this
+  proof's bookkeeping produces on that reading,
+  not the optimal loss.
+```
+
+2. Section 9, "Settling", lambda1 and delta (old: the bullet's last sentence).
+
+```old
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are still not evaluated.
+```
+
+```new
+The passage to the write-out's own function spaces and the
+  other constants are not done, so λ1 and δ are not evaluated: what the proof's own formulas deliver is bounded above,
+  log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`), and no lower bound follows. Of
+  the seven inverse bounds a lower bound needs, the zero-energy one is proved for the scalar model (constant 2.81) and
+  for the tensor-type blocks of the linearised operator in the symmetry class (constant 3.94), every harmonic, through
+  the horizon, in the supplement's norm for one choice of generators (deduced, with certified arithmetic,
+  `checks/zeroext5.py`, `checks/tensorzero5.py`). For its scalar-type blocks, whose gauge-damping terms neither vanish
+  nor are symmetric, the one input missing is a lower bound for their least singular value, uniform in the harmonic;
+  the other six need the constants of the write-out's microlocal estimates at the final black hole and certified
+  spectral bounds in its norms (supplement `CONSTANTS5.md` R8.3-R8.4).
+```
+
+3. Section 9, "Physical wavelengths", lambda0 (old: the bullet's opening words, to the line's end).
+
+```old
+λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
+```
+
+```new
+λ0 is not evaluated. The threshold the proof of Theorem 1 delivers is traced term by term
+  (supplement `docket68/n1star/CONSTANTS5.md`): at the numerical point, with a smooth envelope of the numerics'
+  integral, it is below 0.0025 in the operator norm, 0.0020 in the Frobenius norm and 0.00123 in the largest entry
+  (certified), so the wavelength 10 l5 lies more than 400 times beyond it. A value, or a lower certified bound, needs
+  the approximant's linear stages solved. The first can lower the operator-norm bound, for example through its mean
+  correction at the point where the first-order wave is largest, which the symmetry class reduces to one number
+  (computed, `checks/classm5.py`); a certified value of that number needs a validated solve of the first stage for a
+  fixed smooth envelope, whose data on the initial slice are not computed. And a high-frequency theorem, whose
+  expansion parameter is λ over the
+```
+
+Statuses behind the new texts: d's integer, deduced on R8.1's reading with exact arithmetic (modcount5 12/12,
+d0count5 18/18, dnumber5 10/10, x7indep5 9/9); the floor, computed (dweights5 W3); delta and lambda1's upper bounds,
+computed (deltacap5); the zero-energy constants, deduced with certified arithmetic (zeroext5 10/10, tensorzero5
+11/11); lambda0's three bounds, certified (lzerotrace5 T7, r7fixes5 R2, r6fixes5 F1; eps1 < s0 as N1STAR-PROOF.md
+0.3 now states); the reduction to one number, computed exactly (classm5 9/9).

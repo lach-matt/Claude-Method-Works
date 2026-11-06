@@ -138,7 +138,8 @@ def band_slacks(K, delta, P=50, w="L4p", mixed=False):
     return sl
 
 
-DELTAS = (Fr(1, 1000), Fr(1, 100), Fr(1, 20), Fr(1, 10), Fr(1, 5), Fr(1, 4), Fr(3, 10), Fr(2, 5), Fr(49, 100))
+DELTAS = (Fr(1, 1000), Fr(1, 100), Fr(1, 20), Fr(1, 10), Fr(1, 5), Fr(1, 4), Fr(3, 10), Fr(2, 5), Fr(49, 100),
+          Fr(1, 2))
 
 
 def h2(control=False):
