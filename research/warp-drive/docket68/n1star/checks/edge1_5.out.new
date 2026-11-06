@@ -12,3 +12,8 @@ X3 PASS
       -I**N*A*N*mu0*(-2*tau(theta)*sin(2*theta)*tan(theta) + 2*tau(theta) + sin(2*theta)*Derivative(tau(theta),
       theta))/(r**(7/2)*(mu0 + r**2)*sin(2*theta)); equal to i^N A d r^(-7/2) [E1 - c_N s E0], c_N = N mu0/(r^2 + mu0):
       True
+X4 PASS
+  X5 scalar part of the next-to-top family of D_X H_(N+1) on Sigma = N i^(N-1) q(c_20)_sc for N = 2..40: True (N = 9:
+      9*Q; N = 12: -12*I*Q; N = 40: -40*I*Q); top family i^N A tau r^(-3/2) dth (from H_2, rth = i A E tau r^(-3/2):
+      layerlin5 N3, READ)
+X5 PASS
