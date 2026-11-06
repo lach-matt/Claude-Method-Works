@@ -496,9 +496,9 @@ def t2(nd, bgs, cache, lo=0.70, hi=1.861):
     perr = [max(mag(pe[x][k]) for x in pts) for k in range(3)]
     dmu_ = mag(nd.mu3 - I(bgs[160]['mu0']))
     inside = all(sup[k] <= d[k] for k in range(3)) and dmu_ <= dmu
-    print("   region III on the slice ends at R_u2 in [%.6f, %.6f] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 on "
-          "every cell %s, signs certified at the bracket %s), below the computed background's 1.861; every cell below "
-          "it lies in region III and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
+    print("   region III on the slice ends at R_u2 in [%.6f, %.6f] (R2(vhat) = vhat - tau0, one zero: d R2/d vhat < 1 "
+          "on every cell %s, signs certified at the bracket %s), below the computed background's 1.861; every cell "
+          "below it lies in region III and f3 > 0 at u2 on every cell: %s (%d cells, %d point rays; %.0f s)"
           % (float(ru2.a), float(ru2.b), slope_ok, bracket, reg3, len(cells), len(pts), time.time() - t))
     print("   a posteriori, the computed spline (n = 160) against psi_III, certified: |e^(k)| <= %.1e, %.1e, %.1e "
           "(k = 0, 1, 2) at the %d cell ends; on the whole region sup |e^(k)| <= %.1e, %.1e, %.1e (centred forms for "
@@ -623,6 +623,25 @@ def t3(nd, rstar, cache):
 
 
 # ---------------------------------------------------------------- T4
+def _w_t4(R):
+    """the true packet inputs at the slice point of radius R (None if it is not strictly inside the packet)"""
+    nd = _W['nd']
+    VH = I(R) + T0
+    R1 = r1_enclose(VH)
+    a1, a2, _ = r1_derivs(R1)
+    Y2, boxes = ray(nd, R1, keep=True)
+    if not (Y2[0].b < R < R1.a):
+        return None
+    enc = None
+    for k, box in enumerate(boxes):
+        Rx = sub(box[0], I(R))
+        if Rx is None:
+            continue
+        ins, _ = packet_inputs(Rx, box[1], box[2], nd.cb[k], nd.Bb[k], a1, a2)
+        enc = ins if enc is None else [hull(x, y) for x, y in zip(enc, ins)]
+    return _pk(enc)
+
+
 def t4(nd, rstar, n=160, every=6):
     print("T4 a posteriori in the packet: the computed background's slice inputs (twobg5 n = %d, racslice5's crossing "
           "data, A = 0) against the background itself" % n)
@@ -632,24 +651,12 @@ def t4(nd, rstar, n=160, every=6):
     names = ('E', 'f', 'psi_R', 'psi_vhat', 'f_R', 'f_vhat')
     dev = [0.0] * 6
     scale = [0.0] * 6
+    rows = [row for row in o[::every] if 1.0 < float(row[0]) < float(rstar.a)]
+    _W['nd'] = nd
     npt = 0
-    for row in o[::every]:
-        R = float(row[0])
-        if not (1.0 < R < float(rstar.a)):
+    for row, enc in zip(rows, _pmap(_w_t4, [float(row[0]) for row in rows])):
+        if enc is None:
             continue
-        VH = I(R) + T0
-        R1 = r1_enclose(VH)
-        a1, a2, _ = r1_derivs(R1)
-        Y2, boxes = ray(nd, R1, keep=True)
-        if not (Y2[0].b < R < R1.a):                             # strictly inside the packet
-            continue
-        enc = None
-        for k, box in enumerate(boxes):
-            Rx = sub(box[0], I(R))
-            if Rx is None:
-                continue
-            ins, _ = packet_inputs(Rx, box[1], box[2], nd.cb[k], nd.Bb[k], a1, a2)
-            enc = ins if enc is None else [hull(x, y) for x, y in zip(enc, ins)]
         npt += 1
         for j in range(6):
             dev[j] = max(dev[j], mag(enc[j] - I(float(row[1 + j]))))
