@@ -214,7 +214,7 @@ def r3():
 
 # ---------------------------------------------------------------- R4
 def r4():
-    print("R4 (computed) the charge of B4's linear data on Part I's seed slice is indefinite")
+    print("R4 (computed) the charge of B4's linear data on Part I's seed slice has one sign")
     bc = load('bandconst5')
     tb = load('twobg5')
     R, th = bc.R, bc.th
