@@ -40,7 +40,7 @@ sum_A (u_A)_i d/ds_A):
      dr(l) <= (a^2 - mu)/(a^2 + mu) < 0: both boundary terms have the record's sign for every family, whatever its
      direction. Control (must fail): at an untrapped r = a (a > sqrt(mu)) an outgoing direction has dr(l) > 0.
 
-Labels: computed (N1-N5 exact). Run: python3 checks/nfamily5.py   (a few minutes)
+Labels: computed (N1-N5 exact). Run: python3 checks/nfamily5.py   (about an hour under load; N1-N2 dominate)
 """
 from fractions import Fraction
 import itertools

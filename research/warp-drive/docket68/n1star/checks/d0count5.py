@@ -41,6 +41,17 @@ C_delta <zeta>^(delta j)):
   less): the remainder's integrability check fails; C2 Q1 at delta = 2/27: the distant-shell exponent is >= 0; C3 Q5
   with one table row removed: a line is unclassified; C4 Q3 with the right expansion's 2L dropped: the y-integrability
   check (2L > n) fails.
+  [Round 8 (the round-7 verifier, findings A and A2; CONSTANTS5.md R8.0). (1) Q3's left remainder used the weight
+  ceil(sup t/2); the remainder acts on u through H^(t0), t0 = floor(inf t) - 1: M2 := ceil(-t0/2) (M_a's m2mode,
+  default 't0'). (2) Q4's Sobolev range now reaches the record's input order -N - m = -16 (II.A2:389-391): Q4R. (3)
+  Proposition 2.4 (f) is counted at its instances (II.A2:682-695: [D_a, Op(a-check)], [[D_a, .], .], i[L_R, D A]; q
+  <= 3 drops, at most three operations per factor): M_f. (4) Round 7 took every operator order <= 2; the commutants
+  of II.A2 sections 4-5 have order s - 1/2 + delta with |s| <= 10, and their products and commutators orders within
+  [-22, 22]: Q3b counts every order variable in that box, and its D_0 (399) and FWD (474) are the figures carried to
+  c' (checks/modcount5.py). D_a, D_b, M_a, M_2.4, M_f, D_0 and FWD are pinned (PINS). (5) The Schur condition 2K > n is
+  checked in M_a. New controls: C5 round 7's weight ceil(sup t/2); C6 2K = 2; C7 C_ch = 0; C8 delta = 1/20; C9 round
+  7's Sobolev range: each moves a pin or fails a condition. The verifier's mutations of these four were undetected
+  before.]
 
     python3 checks/d0count5.py       (seconds)
 """
@@ -218,8 +229,9 @@ def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True,
 
 
 Q4R = (-16, 11, 14)                     # Round 8: T_LO = -N - m = -16, the record's own input order (II.A2:389-391)
-BOX = (-19, 19)                         # Round 8: the operator-order box (II.A2 sections 4-5: k = s - 1/2, |s| <= 9)
-PINS = dict(q4=dict(da=53, db=64, M_a=81, M24=200, D0=206), box=dict(M_a=0, M24=0, D0=0, FWD=0))
+BOX = (-22, 22)                         # Round 8: the operator-order box (II.A2 sections 4-5: k = s - 1/2, |s| <= 10)
+PINS = dict(q4=dict(da=53, db=64, M_a=81, M24=197, M_f=224, D0=230),
+            box=dict(M_a=138, M24=374, M_f=393, D0=399, FWD=474))
 
 
 # ------------------------------------------------------------------------------------------------- Q5 census
@@ -290,25 +302,38 @@ def main():
     bound_out = -6 - beta_hi                                      # s_out < -6 - beta_+ - eps for every beta_+ < 3/2
     bound_in = Fr(1, 2) + 2 + 5 + 1                               # s_in > 1/2 + theta_H + eta + 1 with theta_H <= 2
     OK['Q4'] = s_out < bound_out and s_in > bound_in and s_in >= 4
-    T_LO, T_HI, NMAX = -14, 11, 14
+    T_LO, T_HI, NMAX = Q4R
     print('  Q4: s_in = %d > %s, s_out = %d < %s (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): '
-          '%s; s in [%d, %d], s0 = s - 2 in [%d, %d]; the chain\'s orders in [%d, %d], N <= %d' % (
-              s_in, bound_in, s_out, bound_out, OK['Q4'], s_out, s_in, s_out - 2, s_in - 2, T_LO, T_HI, NMAX))
-    # Q2
-    da = D_a(T_LO, T_HI)
-    db = D_b(T_HI, -NMAX - 2)
-    d86, _, _ = d0_86(T_LO + 2, T_HI, 2, NMAX)
-    OK['Q2'] = da['conv'] and db['conv']
+          '%s; s in [%d, %d], s0 = s - 2 in [%d, %d]; the Sobolev orders in [%d, %d] (Round 8: down to the record\'s '
+          'input order -N - m = -%d, II.A2:389-391; round 7 stopped at -14), N <= %d; operator orders: round 7 took '
+          'them <= 2; the commutants of II.A2 sections 4-5 have order k = s - 1/2 + delta, |s| <= 10, so every '
+          'symbol and composite order of the chain lies in the box %s (Round 8)' % (
+              s_in, bound_in, s_out, bound_out, OK['Q4'], s_out, s_in, s_out - 2, s_in - 2, T_LO, T_HI, NMAX + 2,
+              NMAX, BOX))
+    # Q2, Q3, D_0: round 7's operator orders (corrected) and the box
+    r7 = counts(T_LO, T_HI, NMAX)
+    bx = counts(T_LO, T_HI, NMAX, MU_BOX=BOX)
+    da, db, d86 = r7['da'], r7['db'], r7['d86']
+    OK['Q2'] = da['conv'] and db['conv'] and (da['D'], db['D']) == (PINS['q4']['da'], PINS['q4']['db'])
     print('  Q2: D_a = %d (J = %d, M0 = %d, t0 = %d), D_b = %d (Jb = %d, sigma = %d, M1 = %d), Lemma 8.6 d_0 = %d; the '
-          'remainder kernels converge: %s' % (da['D'], da['J'], da['M0'], da['t0'], db['D'], db['Jb'], db['sigma'],
-                                              db['M1'], d86, OK['Q2']))
-    # Q3
-    ma = M_a(T_LO, T_HI, 0, 2)
-    m24 = M_24(T_LO, T_HI, 2, 2)
-    OK['Q3'] = ma['conv'] and m24['base']['conv']
-    print('  Q3: M_a = %d (pieces P1..P5 = %s; J1 = %d, J2 = %d, J3 = %d); Proposition 2.4 (b)-(f) with chart changes: '
-          'M_2.4 = %d (composition %d, C_ch = %d); every remainder condition holds: %s' % (
-              ma['M'], ma['P'], ma['J1'], ma['J2'], ma['J3'], m24['M'], m24['Mb'], m24['C_ch'], OK['Q3']))
+          'remainder kernels converge: %s; pinned: %s' % (da['D'], da['J'], da['M0'], da['t0'], db['D'], db['Jb'],
+                                                         db['sigma'], db['M1'], d86, da['conv'] and db['conv'],
+                                                         OK['Q2']))
+    ma, m24, mf = r7['ma'], r7['m24'], r7['mf']
+    OK['Q3'] = r7['conv'] and (ma['M'], m24['M'], mf['M'], r7['D0']) == (PINS['q4']['M_a'], PINS['q4']['M24'],
+                                                                          PINS['q4']['M_f'], PINS['q4']['D0'])
+    print('  Q3 (round 7\'s operator orders, constant, <= 2; corrected weight M2 = ceil(-t0/2) = %d): M_a = %d (P1..P5 '
+          '= %s; J1 = %d, J2 = %d, J3 = %d); Proposition 2.4 (b)-(e): M_2.4 = %d (C_ch = %d); (f) at its instances '
+          '(q <= 3, three operations, composite order 3): M_f = %d; D_0 <= %d (%d without (f)); every remainder '
+          'condition, 2K > n included, holds: %s; pinned: %s' % (
+              ma['M2'], ma['M'], ma['P'], ma['J1'], ma['J2'], ma['J3'], m24['M'], m24['C_ch'], mf['M'], r7['D0'],
+              m24['M'] + 6, r7['conv'], OK['Q3']))
+    OK['Q3b'] = bx['conv'] and (bx['ma']['M'], bx['m24']['M'], bx['mf']['M'], bx['D0'], bx['FWD']) == (
+        PINS['box']['M_a'], PINS['box']['M24'], PINS['box']['M_f'], PINS['box']['D0'], PINS['box']['FWD'])
+    print('  Q3b (the box %s, every order variable within it): M_a = %d (J1 = %d), M_2.4 = %d (C_ch = %d), M_f = %d; '
+          'D_0 <= max(M_2.4 + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = %d; pinned: %s' % (
+              BOX, bx['ma']['M'], bx['ma']['J1'], bx['m24']['M'], bx['m24']['C_ch'], bx['mf']['M'], bx['D0'],
+              OK['Q3b']))
     # Q5 census
     rows, uncl = census()
     incs = [int(c.split()[1]) for _, c in rows if c.startswith('increment') and c.split()[1].isdigit()]
@@ -317,29 +342,19 @@ def main():
         len(rows), len(uncl), sorted({c for _, c in rows}), max(incs)))
     for k in uncl:
         print('      unclassified %s' % (k,))
-    L3 = max(m24['M'] + 2, da['D'], d86)
-    L4 = max(m24['M'] + 4, L3, d86, 2)
-    D0 = max(m24['M'] + 6, d86 + 2, da['D'] + 2, L4)
-    print('  D_0: (L3) d_0 <= %d, (L4) d_0 <= %d, II.D (symbols in C^(d_0 - 4)) <= %d; so D_0 <= %d (an explicit '
-          'integer '
-          'upper bound; deduced on Q4\'s order range and Q5\'s census)' % (L3, L4, m24['M'] + 6, D0))
     # Q6
     dp, dpp = max(0, ceil(-s_out)), s_in
     sb, su = max(0, ceil(s_in - 2)), max(0, ceil(-(s_out - 2)))
     d1 = sb + su + 3
     dt = d1 + su + 3
-    dt_max = max(0, T_HI) + 2 * max(0, -T_LO) + 6                 # Proposition 9.6's d-tilde on Q4's whole range
-    D1_hi = dt_max + 3
-    OK['Q6'] = (dp, dpp, d1, dt) == (8, 9, 20, 33) and D1_hi == 48
+    OK['Q6'] = (dp, dpp, d1, dt) == (8, 9, 20, 33) and r7['D1'] == 52 and bx['FWD'] == bx['D0'] + 52 + 23
     print('  Q6: d\' = %d, d\'\' = %d; II.A Proposition 9.6 at s - 2 (Lemma 2.8, Corollary 9.7): d_1 = %d, '
-          'd-tilde = %d; '
-          'II.E Proposition 4.4 d = d-tilde + 3 >= 35; every tame order of D_1 has the form d-tilde + 3 with '
-          'd-tilde = s-bar + 2 max(s-under, s-under_0) + 6 at orders in Q4\'s range, so D_1 <= %d. FWD + BG = D_0 + D_1 '
-          '+ d\' + d\'\' + 6 + 2 lies in [%d, %d]; c\' = that + the fixed MODs of a level (not bounded here): %s' % (
-              dp, dpp, d1, dt, D1_hi, 35 + 8 + 9 + 8, D0 + D1_hi + 8 + 9 + 8, OK['Q6']))
-    print('      at c\' = %d (MODs = 0): d <= 45661383902649727 + 106489470 x %d = %d' % (
-        D0 + D1_hi + 25, D0 + D1_hi + 25, 45661383902649727 + 106489470 * (D0 + D1_hi + 25)))
-    OK['D0'] = D0 > 0
+          'd-tilde = %d; II.E Proposition 4.4 d = d-tilde + 3 = 36 (round 7 wrote ">= 35"); every tame order of D_1 has '
+          'the form d-tilde + 3 with d-tilde = s-bar + 2 max(s-under, s-under_0) + 6 at Sobolev orders in [%d, %d], so '
+          'D_1 <= %d. FWD = D_0 + D_1 + d\' + d\'\' + 6 <= %d on round 7\'s operator orders and <= %d on the box; '
+          'c\' = FWD + BG + the fixed MODs (checks/modcount5.py): %s' % (
+              dp, dpp, d1, dt, T_LO, T_HI, r7['D1'], r7['FWD'], bx['FWD'], OK['Q6']))
+    OK['D0'] = bx['D0'] == PINS['box']['D0'] and r7['D0'] == PINS['q4']['D0']
     # controls
     dm = D_a(T_LO, T_HI, drop=True)
     OK['C1'] = not dm['conv']
@@ -355,6 +370,24 @@ def main():
     OK['C4'] = not mc['conv']
     print('  C4 (control): Proposition A.7 with the right expansion\'s 2L dropped: conditions hold: %s: %s' % (
         mc['conv'], OK['C4']))
+    c5 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, m2mode='sup')['D0']
+    OK['C5'] = c5 != PINS['box']['D0']
+    print('  C5 (control, the verifier\'s A): round 7\'s weight ceil(sup t/2): D_0 = %d, not %d: %s' % (
+        c5, PINS['box']['D0'], OK['C5']))
+    c6 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, twoK=2)
+    OK['C6'] = not c6['conv']
+    print('  C6 (control): Schur decay 2K = 2 (2K > n violated): the conditions hold: %s: %s' % (c6['conv'], OK['C6']))
+    c7 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, Cch_on=False)['D0']
+    OK['C7'] = c7 != PINS['box']['D0']
+    print('  C7 (control): the change of chart dropped (C_ch = 0): D_0 = %d, not %d: %s' % (c7, PINS['box']['D0'],
+                                                                                           OK['C7']))
+    c8 = counts(T_LO, T_HI, NMAX, MU_BOX=BOX, delta=Fr(1, 20))['D0']
+    OK['C8'] = c8 != PINS['box']['D0']
+    print('  C8 (control): delta = 1/20: D_0 = %d, not %d: %s' % (c8, PINS['box']['D0'], OK['C8']))
+    c9 = counts(-14, T_HI, NMAX, MU_BOX=BOX)['D0']
+    OK['C9'] = c9 != PINS['box']['D0']
+    print('  C9 (control): round 7\'s Sobolev range [-14, 11]: D_0 = %d, not %d: %s' % (c9, PINS['box']['D0'],
+                                                                                        OK['C9']))
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1

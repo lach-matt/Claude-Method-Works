@@ -512,7 +512,7 @@ New:
 
 `FAMILIES5-R6.md` (this note). New, each with its `.out`, all PASS: `checks/qsign5.py` (Q1-Q6, several minutes),
 `checks/racslice5.py` (S1-S3, a few minutes), `checks/vlasovex5.py` (X1-X3, a few minutes), `checks/nfamily5.py`
-(N1-N5, about half an hour under load), `checks/r5models5.py` (M1-M3, a few minutes). Repaired, `.out` regenerated,
+(N1-N5, about an hour under load), `checks/r5models5.py` (M1-M3, a few minutes). Repaired, `.out` regenerated,
 PASS: `checks/racglobal5.py` (R1 interpolated edges and margins, R2 the discriminant of [Rac16] (4.22), R4 a note),
 `checks/vlasovhf5.py` (H4's resonant configuration and the mutation flag H4_NOHIER, H6 (b)'s stability constant),
 `checks/katonl5.py` (K2, the control's label), `checks/twobg5.py` (G3's τ0 endpoint and its print). Bracketed [R6]
