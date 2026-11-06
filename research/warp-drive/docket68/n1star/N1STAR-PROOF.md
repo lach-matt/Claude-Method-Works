@@ -667,7 +667,8 @@ At order m the oscillating part of (6.1) is the transport (ell . d_X + (1/2) box
 in <D^(m)>) for Z := d_th D^(m+1), and its mean is the linear wave equation (1/2) box_g0 <D^(m)> + (first order)
 <D^(m)> + <M Z> = 0 [corrected D619 (n9): printed (ell . d_X + (1/2) box_g0 v + M) Z and box_gbar; Pi_osc is the
 projection onto zero th-mean (M depends on th, so M Z has a mean part, which the wave equation carries), and the
-order-m equation does not depend on lam, so its wave operator is g0's, gbar = g0 + O(lam)]; every other term vanishes by the hypothesis or because it contains R^(i), i <= m + 1 <= N - 1. The data are zero:
+order-m equation does not depend on lam, so its wave operator is g0's, gbar = g0 + O(lam)]; every other term
+vanishes by the hypothesis or because it contains R^(i), i <= m + 1 <= N - 1. The data are zero:
 <D^(m)> by (F1), d_tau <D^(m)> by (F2), Z by (F1) at order m + 1. This linear system for (<D^(m)>, Z) closes without
 loss exactly as in Lemma 5.3 (the mean in H^(s+1), Z in H^s; Lemmas 2.3, 2.4; the transport curves reach Sigma inside
 Omega by Lemma 1.1(d)), so <D^(m)> = 0 and Z = 0: the hypothesis at m + 1. Then D(g_app) = lam^(N-1) [D^(N-1)] +
@@ -908,10 +909,10 @@ and shift fixed by D(g) = 0 (as in 6.1, "What Theorem D asks") [corrected D619 (
 which is made in 6.1; (6.2) is where d_tau D = 0 comes from]. Then the constraints hold exactly (Proposition 6.5), D
 = 0 and, by (6.2), d_tau D = 0 on Sigma for the solution of Ric^H = 0 with these data. For w := g - g_app on Sigma
 [D619, n10: g_app is here (5.1)'s G(X, u/lam), while (E4) is stated for its (0.4) form; the two differ by
-O(lam^(N+1)) in scaled norms (5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and its tangential derivative
-combinations, and d_tau w_{tau .} solves the linear relation D(g) - D(g_app) = -D(g_app) = O(lam^(N-1)) with invertible
-coefficient. So, each derivative costing at most lam^-1, Data(w) <= C lam^-1 lam^(N-2) = C lam^K: (E4). The data are
-smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction commutes with the symmetries, by uniqueness in
+O(lam^(N+1)) in scaled norms (5.4), within C lam^K since N + 1 > K]: the spatial part and d_tau of it are U and
+its tangential derivative combinations, and d_tau w_{tau .} solves the linear relation D(g) - D(g_app) = -D(g_app)
+= O(lam^(N-1)) with invertible coefficient. So, each derivative costing at most lam^-1, Data(w) <= C lam^-1
+lam^(N-2) = C lam^K: (E4). The data are smooth (Proposition 6.5), T^2 x Z2 x Z2-invariant (the construction commutes with the symmetries, by uniqueness in
 Lemma 6.4, Proposition 6.5 and Lemma 5.3, Pol^+ being equivariant), and equal to the seed's data on Sigma cap {r <
 v_start - tau0}. []
 
