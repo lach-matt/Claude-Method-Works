@@ -17,15 +17,15 @@ in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice t
      (A = B at th = 0, A = C at th = pi/2) and (Delta + k_T^2) T = 0 with k_T^2 = l(l + 2) - 2, l = 2n + 2; checked for
      n = 0..3, and the divergence condition fixes B from A (so the class TT tensors are these, one per even l >= 2).
      Control (must fail): B with the derivative term's sign reversed is not divergence-free.
-  E2 (exact; the slice symbolic in w(R) and mu, the final identity exact at three rational slice points with every
-     jet of w free there -- a spot check in (R, mu, w), [R8] the round-8 reader's minor 1) The tensor sector on
-     every class slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's vacuum slices are these):
-     N_s sqrt(gamma_RR) = 1, N_s^2 - |Y_s|^2 = f; for delta gamma = 2 R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal derivative), the linearised constraints vanish
-     identically, and the theta-integrated Q-density equals -2 |T|^2 T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where
-     T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n) |dH|^2) - (1/2) g(xi, n) (k_T^2 + 2) R H^2 is the flux of the conserved
-     2D master current of the tensor equation (Euler operator in H and P zero; l = 2 and l = 4). So E = 2 |T|^2 int
-     T_m(xi, n): positive definite in (H, P) where f > 0, indefinite where f < 0 (the (P, H_R) block has determinant
-     R^6 f/(4 gamma_RR)). Control (must fail): the identity with |T|^2 halved.
+  E2 (exact; the slice symbolic in w(R) and mu, the final identity exact at three rational slice points with every jet
+     of w free there -- a spot check in (R, mu, w), [R8] the round-8 reader's minor 1) The tensor sector on every class
+     slice v = V(R) of Tangherlini (any w > 0 with f w < 2; Part I's vacuum slices are these): N_s sqrt(gamma_RR) = 1,
+     N_s^2 - |Y_s|^2 = f; for delta gamma = 2 R^2 H T, delta K = (R^2 P + 2 R n^R H) T (P = n(H), the normal
+     derivative), the linearised constraints vanish identically, and the theta-integrated Q-density equals -2 |T|^2
+     T_m(xi, n) sqrt(gamma_RR) up to a d/dR, where T_m(xi, n) = R^3 (xi(H) P - (1/2) g(xi, n) |dH|^2) - (1/2) g(xi, n)
+     (k_T^2 + 2) R H^2 is the flux of the conserved 2D master current of the tensor equation (Euler operator in H and P
+     zero; l = 2 and l = 4). So E = 2 |T|^2 int T_m(xi, n): positive definite in (H, P) where f > 0, indefinite where f
+     < 0 (the (P, H_R) block has determinant R^6 f/(4 gamma_RR)). Control (must fail): the identity with |T|^2 halved.
   E3 (exact, rational arithmetic; (a)-(b) at E2's three slice points) M_b fails inside the horizon. With P =
      -(Y_s^R/N_s) H_R (E2):
      Q = -|T|^2 int (R^3 f H_R^2 + (k_T^2 + 2) R H^2) dR, the same on every slice; with H = (R - R1)^2 (R2 - R)^2 on
