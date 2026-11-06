@@ -3,8 +3,8 @@
 an explicit model and Theorem R6.4 carried past the window for sources of zero total charge; the spherically symmetric
 part of the harmonic-gauge representative; and the bookkeeping of the slab order.  Repaired in round 8 as round 7's
 verifier asks ((A84)), in round 9 as round 8's asks (T3, T9; GAUGEDECAY5 section R9.0), and in rounds 10-11 as the
-round-9 and round-10 verifiers ask (T9; sections R10.0, R11.0): every control runs the computed path with a mutated
-input and must fail.
+round-9 and round-10 verifiers ask (T9, T13; sections R10.0, R11.0): every control runs the computed path with a
+mutated input and must fail.
 
   T1 (exact) The time-domain model in flat n+1, n = 4.  The switched-on field of the charge Q_n delta_0, a = r^(2-n) -
      Q_n int_t^oo E_int d tau with E_int = (t^2 - r^2)^((1-n)/2)/(2 pi^((n-1)/2) Gamma((3-n)/2)) (Riesz's interior
@@ -48,8 +48,8 @@ input and must fail.
   T9 (exact, whole box) Corollary R7.6's chain for homogeneous solutions with data of order p in (1/2, 3/2) at spatial
      infinity (a_0 < p - 3/2, alpha_I < a_0, p_slab = alpha_I + 3/2, 1/2 + beta < b_I < p_slab, gamma_+ < b_+ =
      1/2 + beta, alpha_K < gamma_+) reaches every alpha_K < min(p, 3/2), and none beyond (round 10: a certificate
-     searched over T9's own condition list, a sub-family summing identically to target - alpha_K; round 11: the
-     targets are the box's suprema of alpha_K, computed as limits, p and 3/2, and each is checked reached); in the
+     searched over T9's own condition list, a sub-family summing identically to target - alpha_K, the sum printed;
+     round 11: the targets are the box's suprema of alpha_K, computed as limits, p and 3/2, each checked reached); in the
      class p_0 >= min(1, q - 1) > 1/2 + 2 gam > 1/2 + delta_#.  The chain is transcribed from Corollary R7.6's proof
      (a reading); T9 checks its arithmetic.  Control: p = 1/2 leaves the chain empty; the targets moved up by 1 are
      certified but not reached, and moved down by 1/2 are not certified.
@@ -64,8 +64,13 @@ input and must fail.
      d_r, d_r^2}, c_m ~ r^-p_m; D_m K(lam r, r) = r^-d_m k_m(lam) exactly; with a_m, b_m the exponents of k_m at lam ->
      0, oo, every term has iota+-order p_m + d_m = 6, I+-order p_m + d_m + a_m >= 9/2 at iota+ cap I+ and K+-order
      -b_m >= 3 at iota+ cap K+.  Control: the degree -2 kernel K + 1/(r u) fails at K+.
+  T13 (exact) Theorem 1.5 (c) as (A112) reads it: X_RW,0 = -Y[h_0]^flat = (f zeta - r H_0) dv - zeta dr; on a model
+     meeting (c)'s hypotheses the radial component r H_0 and every derivative of zeta, r H_0 have order w, and X_RW,0
+     order w - 1 (all its uses take), its dr component and the f' zeta in d_r of its dv component exactly.
+     Control: zeta without its slow constant, where the order is w and "exactly w - 1" fails.
 Labels: computed (exact, sympy; T2's resolvent side recomputes round 6's formal D5-D6 chain; T7, T9, T10, T11 on the
-whole parameter box).  Run: python3 checks/gdtail5.py   (about five minutes)
+whole parameter box).  Run: python3 checks/gdtail5.py [T1 ... T13]   (about ten minutes; up to twenty under heavy
+load)
 """
 import itertools
 import sys
@@ -561,11 +566,14 @@ def t9_cap(shift=0):
                     return [names[i_] for i_ in sub_]
         return None
     certs = {k_: certificate(v_ - AK) for k_, v_ in targets.items()}
+    # the certified sums, printed and compared with target - alpha_K
+    sums = {k_: (sp.expand(sum(free[n_] for n_ in c_)) if c_ else None) for k_, c_ in certs.items()}
+    summed = all(sums[k_] is not None and sp.expand(sums[k_] - (targets[k_] - AK)) == 0 for k_ in targets)
     # tight, computed afresh from the box (not from sup_p): alpha_K - target -> 0 along the box, so the box reaches it
     tight = {"p-target": sp.simplify(sp.limit(B['aK'] - targets["p-target"].subs(Pp, B['p']), x7, sp.oo)) == 0,
              "cap": sp.simplify(sp.limit(sp.limit(B['aK'], x7, sp.oo) - targets["cap"], x1, sp.oo)) == 0}
-    ok = all(c_ is not None for c_ in certs.values()) and all(tight.values())
-    return ok, targets, certs, tight
+    ok = all(c_ is not None for c_ in certs.values()) and summed and all(tight.values())
+    return ok, targets, certs, tight, sums
 
 
 def t9(control=False):
@@ -576,12 +584,12 @@ def t9(control=False):
         # (i) p = 1/2 leaves the chain empty; (ii)-(iii) round 11: the cap's targets moved up by 1 (certified but not
         # reached) and down by 1/2 (not certified): each must fail
         bad = [k for k, val in res.items() if not val]
-        up, tu, cu, gu = t9_cap(1)
-        down, td, cd, gd = t9_cap(-HALF)
+        up, tu, cu, gu, _ = t9_cap(1)
+        down, td, cd, gd, _ = t9_cap(-HALF)
         print("  T9 control ((i) p = 1/2: conditions failing %s; (ii) targets + 1 %s: certificates %s, reached %s; "
               "(iii) targets - 1/2 %s: certificates %s, reached %s)" % (bad, tu, cu, gu, td, cd, gd), flush=True)
         return all(res.values()) or up or down
-    cap_ok, targets, certs, tight = t9_cap(0)
+    cap_ok, targets, certs, tight, sums = t9_cap(0)
     # in the class: p_0 >= min(1, q - 1), q > 3/2 + 2 gam, gam in (0, 1/4), delta_# = (1 - e) gam, e in (0, 1)
     (a1, a2, a3), (b1, b2, b3) = pbox('a1', 'a2', 'a3')
     gam = b1/4
@@ -593,9 +601,9 @@ def t9(control=False):
     cres = {k: positive_sum(e, [a1, a2, a3]) for k, e in cls.items()}
     ok = all(res.values()) and all(cres.values()) and cap_ok
     print("  T9: Corollary R7.6's chain on the box, every alpha_K below the box's supremum reached: %s; the suprema "
-          "(computed) %s; none beyond, certified by the sums of the listed conditions %s, each supremum reached: %s; "
-          "in the class p_0 > 1/2 + 2 gam > 1/2 + delta_#: %s"
-          % (all(res.values()), targets, certs, tight, cres), flush=True)
+          "(computed) %s; none beyond, certified by the listed conditions %s, whose sums are identically %s; each "
+          "supremum reached: %s; in the class p_0 > 1/2 + 2 gam > 1/2 + delta_#: %s"
+          % (all(res.values()), targets, certs, sums, tight, cres), flush=True)
     return ok
 
 
@@ -715,8 +723,59 @@ def t12(control=False):
     return ok
 
 
+# -------------------------------------------------------------------------------------------------------------- T13
+def t13(control=False):
+    """Theorem 1.5 (c) as (A112) reads it.  Y[h_0] = zeta d_v + r H_0 d_r, with d zeta and r H_0 O(t^-w) with every
+    derivative and zeta -> 0, so zeta = O(t^-(w-1)) and no better in general.  Lowered with the ingoing Tangherlini
+    metric (rwgauge5's Geo), X_RW,0 = -Y[h_0]^flat = (f zeta - r H_0) dv - zeta dr.  On the model zeta = c_0 T^(1-w) +
+    T^-w b(r), r H_0 = T^-w e(r), T = 1 + v, which meets those hypotheses: the vector field's radial component and every
+    derivative of its components have order w; X_RW,0 has order w - 1, which is all its uses take; its dr component,
+    and the f' zeta in the r-derivative of its dv component, have order exactly w - 1, so the 1-form reading of (c)'s
+    second sentence fails.  Control: the same path with c_0 = 0, where the dr
+    component has order w and the claim of order exactly w - 1 fails."""
+    w = 1 + sp.Symbol('q', positive=True)                        # w > 1: zeta -> 0 is the normalisation (a)
+    c0 = sp.Integer(0) if control else sp.Symbol('c_0', positive=True)
+    b, e = sp.Function('b')(r), sp.Function('e')(r)
+    zf, Hf = sp.Function('zeta')(v, r), sp.Function('rH0')(v, r)
+    f = 1 - mu/r**2
+    G = Geo(f)
+    Yup = [zf, Hf, 0, 0, 0]
+    low = [sp.expand(-sum(G.g[a_, b_]*Yup[b_] for b_ in range(N))) for a_ in range(N)]
+    form_ok = (sp.simplify(low[0] - (f*zf - Hf)) == 0 and sp.simplify(low[1] + zf) == 0
+               and all(c == 0 for c in low[2:]))
+    T = 1 + v
+    model = {zf: c0*T**(1 - w) + T**(-w)*b, Hf: T**(-w)*e}
+
+    def lim(expr, k):                                            # lim_{v -> oo} T^k expr
+        x = sp.Symbol('x', positive=True)
+        y = sp.powsimp(sp.expand((T**k*expr).subs(v, x - 1)), force=True)
+        return sp.limit(y, x, sp.oo)
+
+    def fin(h_):                                                 # a finite limit (b, e are arbitrary functions of r)
+        return not h_.has(sp.oo, -sp.oo, sp.zoo, sp.nan, sp.Limit)
+    zeta, rH = model[zf], model[Hf]
+    hyp = [lim(sp.diff(zeta, v), w), lim(sp.diff(zeta, r), w), lim(rH, w), lim(sp.diff(rH, v), w),
+           lim(sp.diff(rH, r), w), lim(zeta, 0)]
+    hyp_ok = all(fin(h_) for h_ in hyp[:5]) and hyp[5] == 0
+    Xv, Xr = [c.subs(model).doit() for c in low[:2]]
+    full = [lim(rH, w)] + [lim(sp.diff(c, x_), w) for c in (zeta, rH) for x_ in (v, r)]
+    lead = {"dr": lim(Xr, w - 1), "d_r of dv": lim(sp.diff(Xv, r), w - 1), "dv": lim(Xv, w - 1)}
+    slow = sp.simplify(lead["d_r of dv"] - sp.diff(f, r)*c0) == 0
+    exact = lead["dr"] != 0 and lead["d_r of dv"] != 0
+    old = all(fin(lim(c, w)) for c in (Xr, sp.diff(Xv, r)))
+    ok = (form_ok and hyp_ok and all(fin(h_) for h_ in full) and all(fin(c) for c in lead.values())
+          and slow and exact and not old)
+    tag = "  T13 control (c_0 = 0)" if control else "  T13"
+    print("%s: -Y[h_0]^flat = (f zeta - r H_0) dv - zeta dr: %s; the model meets (c)'s hypotheses: %s; the radial "
+          "component r H_0 and every derivative of zeta, r H_0 of order w: %s; T^(w-1) times the dr component, d_r of "
+          "the dv component, the dv component -> %s, %s, %s (f' zeta: %s); order exactly w - 1: %s; the 1-form "
+          "reading at order w: %s" % (tag, form_ok, hyp_ok, all(fin(h_) for h_ in full), lead["dr"],
+                                      lead["d_r of dv"], lead["dv"], slow, exact, old), flush=True)
+    return ok
+
+
 CHECKS = [("T1", t1), ("T2", t2), ("T3", t3), ("T4", t4), ("T5", t5), ("T6", t6), ("T7", t7), ("T8", t8),
-          ("T9", t9), ("T10", t10), ("T11", t11), ("T12", t12)]
+          ("T9", t9), ("T10", t10), ("T11", t11), ("T12", t12), ("T13", t13)]
 
 
 def main():

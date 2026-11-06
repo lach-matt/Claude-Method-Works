@@ -44,9 +44,10 @@ The chart at x = -1 is the same with (A, phi1) and (B, phi2) exchanged.
        (H2) chih := Y^-2 int_0^s Y^2 g (the solution of (e1 + 2 e1 log Y) chih = g, Codazzi's operator) has
             ||(e1 log Y) chih|| <= C2 ||g||,  C2 = (1 + q) (y_max/y_min)^(5/2)/2,
      both in L^2(Y ds) (proof: |e1 log Y| <= (1 + q)/s, and the weighted Hardy inequality int_0^inf s^-r G^2 ds <=
-     (2/(r - 1))^2 int_0^inf s^(2 - r) G'^2 ds for r = 3 and 5).  Checked on test functions; control: the solution
-     integrated from s = S instead of the axis (not regular there) makes the ratio grow without bound as the grid is
-     refined.
+     (2/(r - 1))^2 int_0^inf s^(2 - r) G'^2 ds for r = 3 and 5).  [Round 5, the verifier of round 4, m10: the same
+     proof gives the sharper C1 = (1 + q) (y_max/y_min)^(1/2) and C2 = (1 + q) (y_max/y_min)^(3/2)/2; both are
+     checked.]  Checked on test functions; control: the solution integrated from s = S instead of the axis (not
+     regular there) makes the ratio grow without bound as the grid is refined.
   X5 (computed) on the record's solution (D432's run, rcert5's box): in the chart at x = +1 the frame quantities
      (Omh times tr chi, chih, tr chib, chibh, omega, omegab, eta, etab, zeta, and the scalar's e4, e3, e1 derivatives;
      the hierarchy's coefficients are polynomials in these) are bounded on 0 <= x < 1 up to the outermost node, and
@@ -293,17 +294,20 @@ def x4():
         kY = (y + s * yp) / (s * y)                     # e1 log Y with e1 = d_s
         q = np.max(np.abs(s * yp / y)); ymin, ymax = y.min(), y.max()
         C1 = (1 + q) * (ymax / ymin) ** 1.5; C2 = (1 + q) * (ymax / ymin) ** 2.5 / 2
+        C1s = (1 + q) * (ymax / ymin) ** 0.5; C2s = (1 + q) * (ymax / ymin) ** 1.5 / 2      # round 5, m10
         nrm = lambda f: np.sqrt(np.sum(f ** 2 * Y) * ds)
         worst1 = worst2 = wbad = 0.0
+        ws1 = ws2 = 0.0
         for g in (np.ones(n), np.cos(7 * s), s ** -0.4, np.sign(np.sin(30 * s)), np.exp(-50 * (s - 0.3) ** 2)):
             I1 = np.cumsum(Y * g) * ds - 0.5 * Y * g * ds; eta = I1 / Y
             I2 = np.cumsum(Y ** 2 * g) * ds - 0.5 * Y ** 2 * g * ds; chh = I2 / Y ** 2
             worst1 = max(worst1, nrm(kY * eta) / nrm(g) / C1)
             worst2 = max(worst2, nrm(kY * chh) / nrm(g) / C2)
+            ws1 = max(ws1, nrm(kY * eta) / nrm(g) / C1s); ws2 = max(ws2, nrm(kY * chh) / nrm(g) / C2s)
             # control: integrated from s = 1 (not regular at the axis)
             Ib = -(np.cumsum((Y * g)[::-1])[::-1] * ds - 0.5 * Y * g * ds); etab = Ib / Y
             wbad = max(wbad, nrm(kY * etab) / nrm(g) / C1)
-        out.append((n, C1, C2, worst1, worst2, wbad))
+        out.append((n, C1, C2, worst1, worst2, wbad, C1s, C2s, ws1, ws2))
     return out
 
 
@@ -399,11 +403,14 @@ def main():
           'the remainder is exactly (e1 log Y) Omh K beta, not zero: %s' % (m1, m2, p_ok, rem_is))
     print('X3', 'PASS' if good else 'FAIL'); ok &= good
     hx = x4()
-    good = all(r_[3] <= 1 and r_[4] <= 1 for r_ in hx) and hx[-1][5] > 1.5 * hx[0][5] and hx[-1][5] > 1
+    good = all(r_[3] <= 1 and r_[4] <= 1 and r_[8] <= 1 and r_[9] <= 1 for r_ in hx) and \
+        hx[-1][5] > 1.5 * hx[0][5] and hx[-1][5] > 1
     print('X4 (deduced; computed check) Hardy at the axis, Y = s (1 + s^2/2) on [0, 1]:')
-    for n, C1, C2, w1, w2, wb in hx:
+    for n, C1, C2, w1, w2, wb, C1s, C2s, s1, s2 in hx:
         print('   n = %6d: C1 = %.3f, C2 = %.3f; worst ||k eta||/(C1 ||g||) = %.3f, ||k chih||/(C2 ||g||) = %.3f (<= 1 '
               'required); control, integrated from s = 1: %.3f' % (n, C1, C2, w1, w2, wb))
+        print('      the sharper constants (round 5, m10) C1 = %.3f, C2 = %.3f: ratios %.3f, %.3f (<= 1 required)' % (
+            C1s, C2s, s1, s2))
     print('X4', 'PASS (the bounds hold; the control grows with the grid, unbounded)' if good else 'FAIL')
     ok &= good
     # X6 the counterexample: dk = -(eps/2) k exactly, and int k^2 Y ds diverges

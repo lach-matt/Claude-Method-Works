@@ -35,6 +35,7 @@ are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANT
   D627 (the reader of the D625 seating: one minor, eight notes, seated): A0 re-pinned to the D627 file (lines 1-958 and
   the whole file of 11310 lines); every row re-keyed by content (the D627 map), two rows of 0.3 now on one line; C3
   follows its row.
+  D630 (R6-D seated in Lemma 11.0, beyond line 958): A0's FILE_PIN re-pinned (11350 lines); PIN and every row unchanged.
 
     python3 checks/lzeroaudit5.py
 """
@@ -120,7 +121,7 @@ TERMS = {'statement of lam0 (Theorem E)': None, 'lam1 = min(1, delta0)/10': 'lam
 FORMULA = {'lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d'}   # D-d added in round 2 (V-m4): the
 # ball invariance of Proposition 6.5 (N1STAR-PROOF.md:771-772)
 PIN = 'f32ebb1a717b08362c04569fb82973de'        # md5 of lines 1-958 at D627 (D625: 0c9fa8c2... of lines 1-948)
-FILE_PIN = '223e17497eb670ae45f5d4ad28e0d9f5'   # the whole file at D627 (11310 lines; D625: 7400212b..., 11287)
+FILE_PIN = '87501cfb81d0e9632721e1e7944b9c38'   # the whole file at D630 (11350 lines; D627: 223e1749..., 11310)
 TABLE = {((ln + 7 if ln > 86 else ln), kw): val for (ln, kw), val in TABLE.items()}   # D612 + D614: +7 above 86
 TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) at 3/5 (lzerotrace5 T6)'),
               (90, 'eps1'): (E, 'eps1: Lemma 2.3 below g0\'s least absolute eigenvalue (D614; lzerotrace5 T7)')})

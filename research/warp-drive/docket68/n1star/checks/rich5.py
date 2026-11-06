@@ -36,7 +36,8 @@ tensor's float64 bytes, and every statement below is about those coefficients an
         under-reports would pass the Richardson approximant vacuously.
 
   python3 checks/rich5.py                  (read only: R0, R2, R3 and the controls)
-  python3 checks/rich5.py --runs RUNDIR    (R1, computed: the floating-point residual at the 400-row cell midpoints,
+  python3 checks/rich5.py --runs RUNDIR    (R1, computed: the floating-point residual at the cell midpoints of the
+                                           fit's nodes (400-row; for F_800 its own 800-row ones, as in resid5.py),
                                            refitting from RUNDIR's l1_M16_400.npz and l1_M16_800.npz (md5s checked):
                                            the 400 and 800 fits, F_R, and the control F_2 = 2 F_800 - F_400 (a first-
                                            order combination, which must NOT improve on F_800), and F_R at degrees
@@ -188,8 +189,9 @@ def runs(rundir):
         args = R5.ARGS[:4] + (list(deg) if deg else R5.ARGS[4:])
         res, err = R5.RS.residual(Z, args, ricf, names)
         out[lab] = max(v_[1] for v_ in res.values())
-        print('R1 (computed) %s: fit error <= %.1e; worst residual/sqrt(K_0) at the 400-row cell midpoints %.3e (%s); '
-              '%s (%.0f s)' % (lab, max(err.values()), out[lab], max(res, key=lambda k: res[k][1]),
+        print('R1 (computed) %s: fit error <= %.1e; worst residual/sqrt(K_0) at the %s-row cell midpoints %.3e (%s); '
+              '%s (%.0f s)' % (lab, max(err.values()), '800' if lab == 'F_800' else '400', out[lab],
+                               max(res, key=lambda k: res[k][1]),
                                ', '.join('%s %.2e' % (k, v_[1]) for k, v_ in res.items()), time.time() - t0),
               flush=True)
     imp = out['F_800'] / out['F_R']

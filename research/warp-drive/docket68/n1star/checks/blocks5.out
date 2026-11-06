@@ -1,0 +1,51 @@
+H1 (exact) random rational m of degree 6: the coupling blocks at N = 6, 9, 17 coincide after the shift: True; the T_{N+1}
+    column is (m_6, ..., m_1)/2: True; nothing outside the 6 x 6 block: True -> PASS
+   so sigma(m) = ||P_N m P_inf|| is the same for every N >= deg m, and >= ||(m_1..m_d)||/2
+   control (k1) product rule T_j T_k = T_{j+k}: the column identity fails (good)
+H2 (computed) on the full angular range (the record's degree-31 interpolant in x): the six largest off-diagonal
+    coefficient fields of the linearised table on rcert5's box (710 s):
+   P3_1 row (bounds dc1) <- db [in]: sup|m| 7.43e+04; sigma at N >= d = 31 up to 2.18e+04 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 1.2e+04; for N = 8, 16, 24 at that point 2.8e+04, 2.24e+04, 2.18e+04; space-time
+       coupling >= 1.86e+04; control k2 (x-mean) 0.0e+00
+   etab row (bounds detab) <- db [in]: sup|m| 6.07e+04; sigma at N >= d = 31 up to 1.78e+04 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 9.77e+03; for N = 8, 16, 24 at that point 2.29e+04, 1.83e+04, 1.78e+04; space-time
+       coupling >= 1.52e+04; control k2 (x-mean) 0.0e+00
+   P3_2 row (bounds dc2) <- db [in]: sup|m| 4.34e+04; sigma at N >= d = 31 up to 1.38e+04 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 7.37e+03; for N = 8, 16, 24 at that point 1.75e+04, 1.41e+04, 1.38e+04; space-time
+       coupling >= 1.17e+04; control k2 (x-mean) 0.0e+00
+   chib row (bounds dchib) <- db [in]: sup|m| 1.92e+04; sigma at N >= d = 31 up to 6.08e+03 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 3.09e+03; for N = 8, 16, 24 at that point 7.91e+03, 6.39e+03, 6.09e+03; space-time
+       coupling >= 5.84e+03; control k2 (x-mean) 0.0e+00
+   P4_1 row (bounds dd1) <- dw [in]: sup|m| 1.38e+04; sigma at N >= d = 31 up to 4.31e+03 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 1.97e+03; for N = 8, 16, 24 at that point 5.76e+03, 4.9e+03, 4.34e+03; space-time
+       coupling >= 4.06e+03; control k2 (x-mean) 0.0e+00
+   P1_1 row (bounds da1) <- dw [in]: sup|m| 1.38e+04; sigma at N >= d = 31 up to 4.3e+03 (u -1.10, v 0.55), its lower
+       bound ||m_{1..d}||/2 there 1.97e+03; for N = 8, 16, 24 at that point 5.74e+03, 4.89e+03, 4.33e+03; space-time
+       coupling >= 4.05e+03; control k2 (x-mean) 0.0e+00
+H2 the largest space-time coupling (P3_1 row <- db): >= 1.86e+04 for every N >= 31 (N-independent, H1), and for N = 0..30
+    at least 1.44e+04 (N = 0 smallest); the transpose block has the same norms.  With ||A_N||, F_inf >= 1 (deduced) the
+    block product is >= 2.08e+08 for EVERY N -> the block condition FAILS for every N
+H2 (computed) on |x| <= 0.5 (the record's interpolant restricted, in the band's own Chebyshev basis): the six largest
+    off-diagonal coefficient fields of the linearised table on rcert5's box (1464 s):
+   chib row (bounds dchib) <- dw [in]: sup|m| 56.9; sigma at N >= d = 31 up to 4.21 (u -1.10, v 1.60), its lower bound
+       ||m_{1..d}||/2 there 3.71; for N = 8, 16, 24 at that point 4.19, 4.2, 4.21; space-time coupling >= 2.3; control k2
+       (x-mean) 0.0e+00
+   P4_1 row (bounds dd1) <- dw [in]: sup|m| 46.9; sigma at N >= d = 31 up to 23.7 (u -1.10, v 0.55), its lower bound
+       ||m_{1..d}||/2 there 20.7; for N = 8, 16, 24 at that point 29.1, 23.7, 23.7; space-time coupling >= 22; control k2
+       (x-mean) 0.0e+00
+   P1_1 row (bounds da1) <- dk [in]: sup|m| 46.8; sigma at N >= d = 31 up to 22.1 (u -1.10, v 0.55), its lower bound
+       ||m_{1..d}||/2 there 19.4; for N = 8, 16, 24 at that point 27.7, 22.2, 22.1; space-time coupling >= 20.5; control
+       k2 (x-mean) 0.0e+00
+   P4_1 row (bounds dd1) <- dk [in]: sup|m| 46.8; sigma at N >= d = 31 up to 22.1 (u -1.10, v 0.55), its lower bound
+       ||m_{1..d}||/2 there 19.4; for N = 8, 16, 24 at that point 27.7, 22.2, 22.1; space-time coupling >= 20.5; control
+       k2 (x-mean) 0.0e+00
+   P1_1 row (bounds da1) <- dw [in]: sup|m| 44.5; sigma at N >= d = 31 up to 23.6 (u -1.10, v 0.55), its lower bound
+       ||m_{1..d}||/2 there 20.7; for N = 8, 16, 24 at that point 29, 23.7, 23.6; space-time coupling >= 21.9; control k2
+       (x-mean) 0.0e+00
+   P3_1 row (bounds dc1) <- dw [in]: sup|m| 17.6; sigma at N >= d = 31 up to 6.93 (u -1.10, v 1.10), its lower bound
+       ||m_{1..d}||/2 there 5.75; for N = 8, 16, 24 at that point 7.39, 7.09, 6.93; space-time coupling >= 7; control k2
+       (x-mean) 0.0e+00
+H2 the largest space-time coupling (P4_1 row <- dw): >= 22 for every N >= 31 (N-independent, H1), and for N = 0..30 at
+    least 22 (N = 18 smallest); the transpose block has the same norms.  With ||A_N||, F_inf >= 1 (deduced) the block
+    product is >= 484 for EVERY N -> the block condition FAILS for every N
+blocks5 (1464 s): all checks pass

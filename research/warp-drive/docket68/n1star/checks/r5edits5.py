@@ -23,6 +23,8 @@ new sentences state (the round-4 reader's m1-m2 and the section-11 reader's note
      u_1-free source F_1(X, 0, 0) = -Ric^H(g0 + U3; g0), U3 := lam r^(-3/2) (2 + sin v) sin(v/lam) P, along a ray at
      fixed v (r = 16, 64, 256, 1024; lam = 1e-2): fitted decay exponent 3 (to 0.1): E_3. Control (the amplitude mutated
      to r^-1, not a radiation field): decay 2.
+  D630: R6-D, which supersedes R5-D, is seated in N1STAR-PROOF.md; E1 then undoes R6-D in memory (its blocks, read from
+     SETTLE-GLAM5.md, each occurring once in the live file) and applies R5-D to that copy, as before.
 Labels: E1 text checks; E2 exact; E3 computed (mpmath).
 
     python3 checks/r5edits5.py
@@ -88,6 +90,14 @@ def e1():
     print("E1  R5-D's replacement text for Lemma 11.0, applied to a copy of N1STAR-PROOF.md")
     o1, n1, o2, n2 = r5d_blocks()
     P = open(os.path.join(ROOT, "N1STAR-PROOF.md")).read()
+    if P.count(o1) == 0 and P.count(o2) == 0:   # D630: R6-D, which supersedes R5-D, is seated; undo it in memory
+        import r6edits5 as R6E
+        S6 = open(os.path.join(ROOT, "SETTLE-GLAM5.md")).read()
+        p1, q1, p2, q2 = R6E.section_blocks(S6, "### R6-D ", "### R6-E ")
+        if P.count(q1) == 1 and P.count(q2) == 1:
+            print("  E1 is run on the live file with R6-D (seated at D630, superseding R5-D) and its marks undone in "
+                  "memory")
+            P = R6E.unseat(P, (p1, q1, p2, q2))
     once = P.count(o1) == 1 and P.count(o2) == 1
     check("E1a each old block occurs exactly once in the current file", once, f"{P.count(o1)}, {P.count(o2)}")
     if not once:

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """axhier5.py -- CERTIFY-10L5-RESULT.md round 5, item 1: [Wu26]'s null structure equations in the axis chart,
-reduced, off shell, the transport rows of the linearised axis hierarchy and its constraints.  Labels: deduced (each
-equation found by a linear fit at random rational jets of the general chart metric, at 45 digits, the coefficients
-rationalised, then checked at fresh jets; the library is reduced to independent members first, as in
-axisbianchi5.py).
+reduced, off shell, the transport rows of the linearised axis hierarchy and its constraints.  Labels: deduced, verified
+at random jets (each equation found by a linear fit at random rational jets of the general chart metric, at 45
+digits, the coefficients rationalised, then checked at fresh jets; the library is reduced to independent members
+first, as in axisbianchi5.py; the renormalised rows M1-M3 hand-derived and checked as identities at random jets).
+These are probabilistic identity tests with fixed seeds, not symbolic proofs (the verifier of round 4, m11).
 
 The metric is axis5.py's chart, general: ghat = -2 Om^2 (du dv + dv du) + gg (dx - b du)^2 + Y^2 dphi^2, with Om, gg,
 b, Y arbitrary functions of (u, v, x); its own Ricci tensor is the source (no field equation is imposed).  Frame and
@@ -183,14 +184,15 @@ def main():
     rhsM3b = (e1(e4omb_K) + e1(G_) / 2 - c11 * e1(omb) + l1O * (e4omb_K + (-K + G_) / 2) + e4bbr_K / 2)
     rnd = AB.random.Random(171)
 
-    def ident(tag, lhs, rhs, n=3):
+    def ident(tag, lhs, rhs, n=3, control=False):
         worst = 0
         for _ in range(n):
             d_, l_ = AB.jet_values([lhs - rhs, lhs], rnd)
             worst = max(worst, abs(d_) / max(1, abs(l_)))
         good = worst < 1e-30
+        verdict = ('holds (bad)' if good else 'fails (good)') if control else ('PASS' if good else 'FAIL')
         print('%s: identity at %d random jets, relative residual %s -> %s (%.0f s)' % (
-            tag, n, mp.nstr(worst, 3), 'PASS' if good else 'FAIL', time.time() - t0), flush=True)
+            tag, n, mp.nstr(worst, 3), verdict, time.time() - t0), flush=True)
         return good, worst
     gm = [ident('M1 e4 mu = R_M1, mu = div eta - K (div beta^r cancels; no e1 K, no e1 beta)', e4(mu), rhsM1)[0],
           ident('M1 e3 mub = R_M1b, mub = div etab - K (the mirror)', e3(mub), rhsM1b)[0],
@@ -201,13 +203,12 @@ def main():
                 e3(kap), rhsM3)[0],
           ident('M3 e4 kappab = R_M3b, kappab = e1 omegab + betab^r/2 (the mirror)', e4(kapb), rhsM3b)[0]]
     ok &= all(gm)
-    _, wc4 = ident('control (c4) kappa with +beta^r/2 against the same right side', e3(e1(om) + betar / 2), rhsM3, 2)
-    c4 = wc4 > 1e-10
-    print('   control (c4): %s' % ('fails (good)' if c4 else 'holds (bad)'))
-    ok &= c4
+    _, wc4 = ident('control (c4) kappa with +beta^r/2 against the same right side', e3(e1(om) + betar / 2), rhsM3, 2,
+                   control=True)
+    ok &= wc4 > 1e-10
     print('M4 (deduced) the right sides R_M1..R_M3b contain, besides the unknowns: e1 eta, e1 etab, e1 chih, e1 chibh, '
-          'e1 tr chi, e1 tr chib, e1 omega, e1 omegab and first angular derivatives of Ric; no e1 K and no derivative of '
-          'beta^r or betab^r (by construction of the right sides above, which are checked identities).')
+          'e1 tr chi, e1 tr chib, e1 omega, e1 omegab and first angular derivatives of Ric; no e1 K and no derivative '
+          'of beta^r or betab^r (by construction of the right sides above, which are checked identities).')
     # S: the scalar's two pairs in the chart (N9's analogue in four dimensions, measure 2 Om^2 sqrt(gg) Y)
     f = sp.Function('f')(u, v, x)
     a_, c_, d_ = e4(f), e1(f), e3(f)

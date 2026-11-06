@@ -17,8 +17,9 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
        decreases along future causal curves and the region lies to the past of that boundary. Sampled at 2000 points
        (r in [8, 800], random delta and f'). Control: with |f'| = 1 allowed the bound fails (alpha null at f' = 1/2,
        spacelike beyond).
-    X3 (exact) V_* -> oo: for an explicit field with finite exterior energy the energy of the slice cut at
-       {Phi <= V_*} increases with V_* to the full value (sympy limit), the monotone convergence of R5-B.
+    X3 (exact; [arithmetic], round 7) V_* -> oo: for an explicit field with finite exterior energy the energy of the
+       slice cut at {Phi <= V_*} increases with V_* to the full value (sympy limit), the monotone convergence of
+       R5-B.
     X4 (exact) the uniform dyadic tail: with the exterior bound E(r >= rho) <= C lam^2 rho^-q at every sigma of
        [T, sigma_1] (q = 9 from the source degree 13/2: 2(13/2) - 4), the weighted tail is at most
        sum_j (2^(j+1) rho)^(2a) C lam^2 (2^(j-1) rho)^-q = C lam^2 2^(2a+q) rho^(2a-q) / (1 - 2^(2a-q)) (exact sum),
@@ -43,9 +44,9 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
        Controls: h' + c0 (c0 = 1/60: derivatives unchanged, |h'| <= 1/50 kept) violates h'|_N -> 0 and has c = c0 !=
        0; h' + c0 t/(1 + t^2) has a sigma-dependent limit, and its |d_t h'| does not decay in r (the uniform bound
        fails).
-  M (m3, exact) Lemma R4.5 at every a in (0, 7/2): w_a = (u* - u)^(2a) <= w_a' for a <= a' since u* - u >= 1
-     (r5settle5 E1), so its fluxes are monotone in a; and its proof's three inputs hold on (0, 7/2) (r6sigma5 W2, W7).
-     Control: with u* - u allowed below 1 the monotonicity fails.
+  M (m3, exact; [arithmetic], round 7) Lemma R4.5 at every a in (0, 7/2): w_a = (u* - u)^(2a) <= w_a' for a <= a'
+     since u* - u >= 1 (r5settle5 E1), so its fluxes are monotone in a; and its proof's three inputs hold on (0, 7/2)
+     (r6sigma5 W2, W7). Control: with u* - u allowed below 1 the monotonicity fails.
   L ("+2 for Lemma 9.3", exact) Lemma 9.3(a) bounds sup |f| by sum_(i <= 3) ||d_r^i f||; on an oscillating field
      f = A(r) sin(v/lam) the ratio ||d_r^3 f||^2/||d_r f||^2 -> lam^-4 (the limit of lam^4 times it is 1): the sup
      bound costs lam^-2 beyond the energy level ||d f||, which is Proposition R5.4's "+2"; with it the stage recursion
@@ -54,14 +55,14 @@ r6edits5.py, the flux sign in r5settle5.py F1-F1x).
      d g_b0, Gamma[g_b0], d d g_b0, d Gamma[g_b0] and Gamma Gamma along a ray are 2, 3, 3, 4, 4, 6, which with (0.2)'s
      derivative counts (two on u through g^ab, one through Gamma[g0], none through d d g0 and (d g0)^2) is
      r5settle5.COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]. Control: the flat metric gives no coefficients.
-  T (m5, exact and sampled) Theorem P's use of Lemmas 1.1(e) and 2.3 after D623 (N1STAR-PROOF.md 0.3: eps1 <
-     min(s0, mu0/a^2 - 1)): on P the margin of Lemma 9.1(f) is |g^-1 - g0^-1| <= eps_P t^(-5/4), a bound on the
-     inverse. g0^-1(dtau, dtau) = -1 - m (m := mu/r^2), so (g0^-1 + delta)(dtau, dtau) <= -1 + eps_P; the least
-     absolute eigenvalue of g0^-1 is sqrt(1 + m^2) - m =: s(m) (exact), so for eps_P < s(m*) every such g^-1 is
-     invertible with |g| <= (s(m*) - eps_P)^-1 (Weyl); and {r = a} stays spacelike for eps_P < mu0/a^2 - 1. Lemma 9.5's
-     constants therefore come from the inverse margin with eps_P below those two numbers, which "there is eps_P > 0"
-     allows; D623's s0 is the same mechanism on Omega. Sampled (2000 points, |delta|_op = 0.99 of the threshold).
-     Control: |delta|_op = s(m) makes g^-1 singular (exact).
+  T (m5, exact and sampled; [arithmetic], round 7) Theorem P's use of Lemmas 1.1(e) and 2.3 after D623
+     (N1STAR-PROOF.md 0.3: eps1 < min(s0, mu0/a^2 - 1)): on P the margin of Lemma 9.1(f) is |g^-1 - g0^-1| <= eps_P
+     t^(-5/4), a bound on the inverse. g0^-1(dtau, dtau) = -1 - m (m := mu/r^2), so (g0^-1 + delta)(dtau, dtau) <= -1
+     + eps_P; the least absolute eigenvalue of g0^-1 is sqrt(1 + m^2) - m =: s(m) (exact), so for eps_P < s(m*) every
+     such g^-1 is invertible with |g| <= (s(m*) - eps_P)^-1 (Weyl); and {r = a} stays spacelike for eps_P < mu0/a^2 -
+     1. Lemma 9.5's constants therefore come from the inverse margin with eps_P below those two numbers, which "there
+     is eps_P > 0" allows; D623's s0 is the same mechanism on Omega. Sampled (2000 points, |delta|_op = 0.99 of the
+     threshold). Control: |delta|_op = s(m) makes g^-1 singular (exact).
 Labels: computed (exact sympy; X2, Y2, T sampled in floating point or mpmath).
 
     python3 checks/r6settle5.py     (4 minutes alone, 27 beside five other programs, on this loaded machine)
@@ -179,7 +180,8 @@ def part_x():
     dens = (2*r)**(2*Q(11, 4))*sp.diff(phi_r, r)**2*r**3
     Ecut = sp.integrate(dens, (r, 10, Vs))
     full = sp.integrate(dens, (r, 10, sp.oo))
-    check("X3 the energy cut at Phi <= V_* increases with V_* (positive integrand) to the full slice energy as "
+    check("X3 [arithmetic: one explicit power law] the energy cut at Phi <= V_* increases with V_* (positive "
+          "integrand) to the full slice energy as "
           "V_* -> oo (exact, a = 11/4)", sp.limit(Ecut, Vs, sp.oo) == full and full.is_finite
           and sp.diff(Ecut, Vs).subs(Vs, 20) > 0, str(full))
     # X4
@@ -311,7 +313,8 @@ def part_m():
     ok = sp.simplify(sp.log(ratio).expand(force=True)) == -2*ap*sp.log(1 + d) and all(
         ratio.subs({a: Q(1, 2), ap: Q(9, 4), d: dv}) <= 1 for dv in (0, Q(1, 10), 5, 1000))
     ctl = (u**(2*a)/u**(2*(a + ap))).subs({a: Q(1, 2), ap: Q(9, 4), d: -Q(1, 2)}) > 1
-    check("M1 w_a/w_(a') = (u* - u)^(-2(a' - a)) <= 1 for a <= a' since u* - u >= 1: R4.5's fluxes are monotone in a",
+    check("M1 [arithmetic] w_a/w_(a') = (u* - u)^(-2(a' - a)) <= 1 for a <= a' since u* - u >= 1: R4.5's fluxes are "
+          "monotone in a",
           ok)
     check("M1' control (u* - u = 1/2 allowed): the ratio exceeds 1", ctl)
 
@@ -415,7 +418,8 @@ def part_t():
         g0i_a = np.diag([-1.0, 1, 1, 1, 1]) - mu0a2*np.outer(L0, L0)   # at r = a with mu = mu0
         worst_ra = max(worst_ra, dr@(g0i_a + D)@dr)
         n += 1
-    check("T g0^-1(dtau, dtau) = -1 - m and the least |eigenvalue| of g0^-1 is sqrt(1 + m^2) - m (exact); for "
+    check("T [arithmetic: the inverse margin's consequences, entered] g0^-1(dtau, dtau) = -1 - m and the least "
+          "|eigenvalue| of g0^-1 is sqrt(1 + m^2) - m (exact); for "
           "|delta|_op <= eps_P < min(s(m), mu0/a^2 - 1): (g0^-1 + delta)(dtau, dtau) <= -1 + eps_P, "
           "|g| <= (s - eps_P)^-1 (Weyl) and {r = a} spacelike (2000 samples at 0.99 of the threshold)",
           ok_ev and ok_tt and worst_tt <= 1e-12 and worst_inv <= 1 + 1e-9 and worst_ra < 0,

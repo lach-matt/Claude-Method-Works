@@ -1,11 +1,15 @@
-W1 model (Y_v = 9 Z, Z_u = Y on [0, 1]^2, data 1): f(1, 1) = 1.343e+04; the weighted bound from Bound itself:
-   lam_Y/lam_Z = 1, theta = 1, 1: bound 4.708e+17 (holds)
-   lam_Y/lam_Z = 0.111, theta = 0.333, 3: bound 4.768e+11 (holds)
-   lam_Y/lam_Z = 0.111, theta = 1, 1: bound 4.237e+18 (holds)
-   lam_Y/lam_Z = 2.72, theta = 1.65, 0.607: bound 3.682e+27 (holds)
-   mutation (the partner's share lam_Y theta/lam_Z), theta = e^-12: bound 2 -> below f: caught (good)
+W1 model (Y_v = 9 Z, Z_u = m2 Y on [0, 1]^2, data 1): f(1, 1) = 1.343e+04 at m2 = 1 and 106.2 at m2 = 0.01; the bound e^J
+    D from Bound.J_exact itself:
+   m2 = 1, lam_Y/lam_Z = 1, theta = 1, 1: bound 4.708e+17 against f 1.343e+04 (holds)
+   m2 = 1, lam_Y/lam_Z = 0.111, theta = 0.333, 3: bound 4.768e+11 against f 1.343e+04 (holds)
+   m2 = 1, lam_Y/lam_Z = 0.111, theta = 1, 1: bound 4.237e+18 against f 1.343e+04 (holds)
+   m2 = 1, lam_Y/lam_Z = 2.72, theta = 1.65, 0.607: bound 3.682e+27 against f 1.343e+04 (holds)
+   m2 = 0.01, lam_Y/lam_Z = 0.00674, theta = 0.0821, 12.2: bound 9279 against f 106.2 (holds)
+   mutation (the partner's share lam_Y theta/lam_Z), m2 = 1, theta = e^-12: bound 2 -> below f: caught (good)
+   mutation (the factor max lam/min lam dropped from J), m2 = 0.01 at the weights above: bound 62.52 -> below f: caught
+       (good)
 W1 PASS
-   (10 s) background and 112 off-diagonal terms over 11 row groups
+   (8 s) background and 112 off-diagonal terms over 11 row groups
 W2 lam = theta = 1 on |x| <= 1/2: int a_o du = 67.9, int a_i dv = 91.0, F^2 = 10^138.0 against linest5.py E4b's 10^138.0
     -> PASS
 W3 |x| <= 0.5: optimal weights (log lam, relative to the smallest): dchi 4.30, deta 3.93, domb 2.89, dchib 0.00, detab
@@ -34,4 +38,4 @@ W5 frozen-angle transport: the nine transported rows alone (pairs and the e3 row
    x = -0.428: f/D <= 2.05e+06 (computed, largest singular value squared); Gronwall 10^97.0
    largest: 2.05e+06 at x = -0.428.  This is the growth the signed coefficients produce in this subsystem; it is not a
        bound on the full operator (the pairs and the angular motion are dropped)
-wgron5 (539 s): all checks pass
+wgron5 (439 s): all checks pass

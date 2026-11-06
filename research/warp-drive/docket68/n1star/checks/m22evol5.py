@@ -11,34 +11,36 @@ harmonics +-1, +-2, +-3), cut at lam^1 and at d = 1. The stage-1 system is: the 
 vanishes at every harmonic (its d = 2 part is the e_2 term the lemma leaves to stage 2), with e_1 = 2 ell.d phi_1 -
 m_1(ell, ell) = 0 (Lemma 5.3 (b), ell = d_r).
 
-  S1 (exact) The expansion: the six non-class components vanish to order 1; the order-0 coefficient's degree-1 part
-     is proportional to e_1 = -m_rr + 2 d_r phi_1 in every component (it vanishes by (b)); its degree-0 part is
-     proportional to mu' - (2/9) A^2 E^2 H^2 (C^4 + S^4) (the energy condition) in vv and zero elsewhere, harmonics
-     included: stage 0, with chi's closed form, is verified.
+  S1 (exact) The expansion: the six non-class components vanish to order 1, and so does order lam^-1; the order-0
+     coefficient's degree-1 part vanishes once e_1 = -m_rr + 2 d_r phi_1 = 0 (Lemma 5.3 (b)) in every component and
+     harmonic; its degree-0 part vanishes except in vv at harmonic 0, where it is nonzero for a general mu' and zero
+     under the energy condition mu' = (2/9) A^2 E^2 H^2 (C^4 + S^4): stage 0, with chi's closed form, is verified.
   S2 (exact) The structure: the mean equations' principal part is -(1/2) g0^ab d_a d_b on each component (no second
      derivative of another); each oscillating equation for the harmonic n carries the transport -i n d_r of its own
      component; the mean's known source is S = -(4/9) A^2 E^2 H^2 sin 2th r^-3 in v th alone (stage5.out S2, READ).
-  S3 (exact; deduced) The closed subsystem: the mean equations involve gh_2 only through its first harmonic in (r th,
-     th th, phi1 phi1, phi2 phi2) and through gh_2(r r); every r r equation is a homogeneous transport of gh_2(r r) at
-     its own harmonic, so gh_2(r r) = 0 (zero data on Sigma); and the first-harmonic equations of (r th, th th, phi1 phi1,
-     phi2 phi2) involve no other gh_2 component. So (m_1, phi_1, gh_2's first harmonic in those four) is closed, and the
-     rest of gh_2 is slaved to it.
-  S4 (exact) The first harmonic of D^(1) (the gauge vector's, lowered) in terms of the same unknowns, for the
-     diagnostic N3.
-  N1 (computed, floating point) The solve on X*'s past: tau from tau0 = -2 to tau* = 2 - a in Kerr-Schild time, the
-     radial domain between the outgoing null ray through X* (backwards, DOP853) and the null surface v = 3, both
-     boundaries characteristic or outflow (no boundary condition); Chebyshev-Lobatto in r (first-order form, psi =
-     d_r m_1), Chebyshev-Gauss in x = cos 2th with the axis-regular variables (h_vth/sin 2th, h_th th, (h_th th - h_p2/
-     S^2)/S^2, (h_th th - h_p1/C^2)/C^2) and product-rule jets, RK4 with step cfl L(tau)/Nr^2. Data: lam0data5's
-     (D2, D4, D5, D7; Section 6 of LAMBDA0-DATA5.md), envelope5's envelope. M_22 at several resolutions.
-  N2 (computed, floating point) Domain of dependence: the outer boundary moved to v = 2.6 leaves M_22 unchanged.
+  S3 (exact; deduced) The closed subsystem: the mean equations see gh_2 only through its first harmonic in (r th, th
+     th, phi1 phi1, phi2 phi2) and its second in r r; every r r equation is a homogeneous transport of gh_2(r r) at
+     its own harmonic, so gh_2(r r) = 0 (zero data on Sigma); the first-harmonic equations of the four see no other
+     gh_2 component but r r. So (m_1, phi_1, those four) is closed, and the rest of gh_2 is slaved to it.
+  S4 (exact) The first harmonic of D^(1) (the gauge vector's, lowered) in terms of the same unknowns, for N3.
+  N1 (computed, floating point) The solve on X*'s past: tau from tau0 = -2 to tau* = 2 - a in Kerr-Schild time
+     (v = tau + r), the radial domain between the outgoing null ray through X* (backwards, DOP853) and the null
+     surface v = 3, both boundaries characteristic or outflow for the null modes (no boundary condition);
+     Chebyshev-Lobatto in r (first-order form, psi = d_r m_1), Chebyshev-Gauss in x = cos 2th with the axis-regular
+     variables (h_vth/sin 2th, h_rth/sin 2th, h_thth, (h_thth - h_p2/S^2)/S^2, (h_thth - h_p1/C^2)/C^2), jets by the
+     product rule, the axis divisions pointwise; RK4 with step cfl L(tau)/Nr^2. Data: lam0data5's (D2, D4, D5, D7;
+     LAMBDA0-DATA5.md section 6), envelope5's envelope. M_22 at seven resolutions; a band ten times the spread.
+  N2 (computed, floating point) Domain of dependence: the outer boundary moved to v = 2.6 leaves M_22 in the band.
   N3 (computed, floating point) The gauge diagnostic: the first harmonic of D^(1), zero on Sigma by (F1), stays small
      against the size of its terms along the solve (the contracted Bianchi identity, not built into the equations).
+  CH (computed, floating point) The chain at X*: with m_1(X*) = M_22 e_phi1 e_phi1, sup over the phase of |g_1|_op
+     exceeds (4/3) K by |M_22|, and of |g_1|_F^2 by at least B + M_22^2 (classm5 K1-K2, r7fixes5 R1-R2, READ).
   Controls (each mutates the computed path and must fail): C1 the mean source S with its sign flipped: M_22 leaves the
-  band of N1; C2 gh_2's coupling into the mean dropped: M_22 leaves the band; C3 gh_2's first-harmonic data on Sigma
-  set to zero (violating (F1)): the gauge diagnostic N3 fails at tau0.
+  band; C2 gh_2's coupling into the mean dropped: M_22 leaves the band; C3 gh_2's first-harmonic data on Sigma set to
+  zero (violating (F1)): the gauge diagnostic fails at tau0; C4 the axis division after removing the numerator's
+  interpolated axis value: at Nr = 48 the solve leaves the band; C5 M_22 placed off the class: CH's step fails.
 
-    python3 checks/m22evol5.py [--selftest]       (every check; about two hours on a loaded machine)
+    python3 checks/m22evol5.py [--selftest]       (every check; about 1.5 hours on a loaded machine)
 """
 import builtins
 import contextlib
@@ -730,3 +732,263 @@ def gauge_residual(Sv, gfun, state, tau):
             tot, scale = tot + term, scale + np.abs(term)
         out[b] = (float(np.max(np.abs(tot))), float(np.max(scale)))
     return out
+
+
+def load_gauge(gres):
+    gfun = {}
+    for b, d in gres.items():
+        ks = list(d['coef'].keys())
+        exprs = [d['coef'][k].subs(A, 1) for k in ks] + [d['src'].subs(A, 1)]
+        gfun[b] = (ks, sp.lambdify(SYMS, exprs, modules='numpy', cse=True))
+    return gfun
+
+
+def gauge_system(low, unk):
+    m1, G, phi = unk
+    names = set(f.func.__name__ for f in list(m1.values()) + list(G.values()) + [phi])
+    gres = {}
+    for b in range(3):
+        coef, rest = linear_coeffs(low[b].get((1, 1, 1), 0), names)
+        gres[b] = dict(coef=coef, src=plainify(sp.expand(low[b].get((1, 1, 0), 0))), rest=rest)
+    return gres
+
+
+# ------------------------------------------------------------------------------------------------------------------
+# S1-S4 (exact)
+def zero(e):
+    return sp.simplify(e) == 0
+
+
+def check_s1(out, unk):
+    m1, G, phi = unk
+    names = set(f.func.__name__ for f in list(m1.values()) + list(G.values()) + [phi])
+    nonclass = all(not out[k] for k in out if k.startswith('x'))
+    neg = [(nm, k) for nm in NM for k, c in out[nm].items() if k[0] < 0 and not zero(plainify(c))]
+    e1, live = [], 0
+    for nm in NM:
+        for k, c in out[nm].items():
+            if k[0] == 0 and k[2] == 1:
+                coef0, _ = linear_coeffs(c, names)
+                live += sum(1 for j, q in coef0.items() if j[0] == 'm_rr' and not zero(q))
+                coef, rest = linear_coeffs(c.subs(sp.Derivative(phi, r), m1['rr'] / 2), names)
+                if rest != 0 or any(not zero(q) for q in coef.values()):
+                    e1.append((nm, k))
+    d0, ecv = [], None
+    ec = {M1_: sp.Rational(2, 9) * A ** 2 * E0 ** 2 * H0 ** 2 * (C ** 4 + S ** 4)}
+    for nm in NM:
+        for k, c in out[nm].items():
+            if k[0] == 0 and k[2] == 0:
+                e = plainify(c)
+                if nm == 'vv' and k[1] == 0:
+                    ecv = (zero(e), zero(e.subs(ec)))
+                elif not zero(e):
+                    d0.append((nm, k))
+    OK['S1'] = nonclass and not neg and not e1 and live > 0 and not d0 and ecv == (False, True)
+    print('  S1: the six non-class components vanish to order 1: %s; order lam^-1 vanishes: %s; the order-0 part of '
+          'degree 1 vanishes on e_1 = 0 in every component and harmonic: %s (%d live m_rr coefficients before e_1 is '
+          'used); its degree-0 part vanishes except in vv at harmonic 0: %s, which is nonzero for a general mu\' and '
+          'zero under the energy condition: %s: %s %s' % (nonclass, not neg, not e1, live, not d0, ecv, OK['S1'],
+                                                           el()))
+
+
+def check_s2(res):
+    f = 1 - M0 / r ** 2
+    pp = {(1, 1, 0): -1, (0, 2, 0): -f / 2, (0, 0, 2): -1 / (2 * r ** 2)}
+    bad = []
+    for nm in NM:
+        co = res[(nm, 0)]['coef']
+        bad += [(nm, j) for j, want in pp.items() if not zero(co.get(('m_' + nm, j), 0) - want)]
+        bad += [(nm, fn, j) for (fn, j) in co if fn.startswith('m_') and sum(j) >= 2 and (fn != 'm_' + nm
+                                                                                          or j == (2, 0, 0))]
+    tr = []
+    for nm in NM:
+        for n in (1, 2, 3):
+            co = res[(nm, n)]['coef']
+            own = 'Gp%d_%s' % (n, nm)
+            if not zero(co.get((own, (0, 1, 0)), 0) + I * n):
+                tr.append((nm, n))
+            tr += [(nm, n, fn, j) for (fn, j) in co if fn[0] == 'G' and fn != own and j != (0, 0, 0)]
+    Sx = -sp.Rational(4, 9) * A ** 2 * E0 ** 2 * H0 ** 2 * sp.sin(2 * th) / r ** 3
+    srcok = zero(res[('vt', 0)]['src'] - Sx) and all(res[(nm, 0)]['src'] == 0 for nm in NM if nm != 'vt')
+    rest = all(d['rest'] == 0 for d in res.values())
+    OK['S2'] = not bad and not tr and srcok and rest
+    print('  S2: each mean equation\'s principal part is -(1/2) g0^ab d_a d_b on its own component (-d_v d_r - (f/2) '
+          'd_r^2 - (1/2r^2) d_th^2, no second derivative of another): %s; each oscillating equation at harmonic n = 1, '
+          '2, 3 carries -i n d_r of its own component and no derivative of another: %s; the mean\'s source is S = '
+          '-(4/9) A^2 E^2 H^2 sin 2th r^-3 in v th alone: %s; linear in the unknowns: %s: %s %s'
+          % (not bad, not tr, srcok, rest, OK['S2'], el()))
+
+
+def check_s3(res):
+    allowed = {('G%s1_%s' % (s_, x), (0, 0, 0)) for s_ in 'pm' for x in GC} | {('G%s2_rr' % s_, (0, 0, 0))
+                                                                               for s_ in 'pm'}
+    gm = {k for nm in NM for k in res[(nm, 0)]['coef'] if k[0][0] == 'G'}
+    c1 = gm <= allowed and {k[0][4:] for k in gm} >= set(GC)
+    c2 = all({k[0] for k in res[('rr', n)]['coef']} <= {'Gp%d_rr' % n} and res[('rr', n)]['src'] == 0
+             for n in (1, 2, 3))
+    c3 = all({k[0] for k in res[(nm, 1)]['coef'] if k[0][0] == 'G'} <= {'Gp1_' + nm, 'Gp1_rr', 'Gp2_rr'}
+             for nm in GC)
+    OK['S3'] = c1 and c2 and c3
+    print('  S3: the mean equations see gh_2 only through its first harmonic in (r th, th th, phi1 phi1, phi2 phi2) '
+          'and its second in r r: %s; every r r equation (n = 1, 2, 3) is a homogeneous transport of gh_2(r r) at its '
+          'own harmonic, so gh_2(r r) = 0: %s; the first-harmonic equations of the four see no other gh_2 component '
+          'but r r: %s; so (m_1, phi_1, those four) is closed: %s %s' % (c1, c2, c3, OK['S3'], el()))
+
+
+def check_s4(gres):
+    ok_keys = all(fn.startswith('Gp1_') and j == (0, 0, 0) or fn.startswith('m_') and j == (0, 0, 0)
+                  or (fn, j) == ('phi', (0, 0, 1)) for d in gres.values() for (fn, j) in d['coef'])
+    b1 = set(gres[1]['coef']) == {('Gp1_rr', (0, 0, 0))} and gres[1]['src'] == 0
+    b2 = gres[2]['src'] != 0 and ('Gp1_rt', (0, 0, 0)) in gres[2]['coef']
+    rest = all(d['rest'] == 0 for d in gres.values())
+    OK['S4'] = ok_keys and b1 and b2 and rest
+    print('  S4: the first harmonic of D^(1) (lowered) is algebraic in gh_2\'s first harmonic, m_1 and d_th phi_1: '
+          '%s; its r component is gh_2(r r) alone (zero by S3): %s; its th component carries the known source and '
+          'gh_2(r th): %s: %s %s' % (ok_keys, b1, b2, OK['S4'], el()))
+
+
+# ------------------------------------------------------------------------------------------------------------------
+# N1-N3, the controls, the chain
+RUNS = [(24, 12, 1.0), (32, 12, 1.0), (32, 12, 0.5), (40, 12, 1.0), (48, 12, 1.0), (32, 16, 1.0), (48, 16, 1.0)]
+FINE = [(40, 12, 1.0), (48, 12, 1.0), (48, 16, 1.0)]
+K43, BFRO = 12.593309, 16.127552                  # (4/3) K and B^(1/2), certified lower ends (READ, R8.2, R7.0)
+LAM = {'operator norm': 0.0024433, 'Frobenius': 0.0019079, 'largest entry': 0.0012228}   # certified (READ)
+
+
+def solve(funcs, gfun, env, fode, Nr, Nx, cfl, g_data=True, **kw):
+    t1 = time.time()
+    Sv = Solver(Nr, Nx, funcs, env, **kw)
+    st = cauchy_data(Sv, fode, g_data=g_data)
+    gz = [(TAU0, gauge_residual(Sv, gfun, st, TAU0))]
+    with np.errstate(all='ignore'):
+        st, tau, n = rk4(Sv, st, cfl, hook=lambda t, s: gz.append((t, gauge_residual(Sv, gfun, s, t))))
+        gz.append((tau, gauge_residual(Sv, gfun, st, tau)))
+        val = m22(Sv, st)
+    return dict(M22=val, steps=n, gauge=gz, secs=time.time() - t1)
+
+
+def grel(g):
+    """the gauge diagnostic's relative size: max over the v and th components of max|Z| / max(sum of |terms|)"""
+    return max(z / s_ if s_ > 0 else 0.0 for z, s_ in g.values())
+
+
+def chain_at_xstar(M, c, off=False):
+    """sup over the phase of |g_1(X*, s)| with m_1(X*) = M e_phi1 e_phi1 (or off the class), W and chi D at X*"""
+    a = A_PT
+    K = c * a ** -1.5                                           # E H r^(-3/2) at th = 0, v = 2 (env(2) = c, H = 1)
+    sv = np.linspace(0, 2 * np.pi, 20001)
+    chi = -c ** 2 / 12 * 4 * np.sin(2 * sv) * (a ** -2 - 0.5 * a ** -1.5)
+    U = np.array([1.0, 1.0, 0, 0, 0])
+    D = np.outer(U, U)
+    Mm = np.zeros((5, 5))
+    if off:
+        Mm[2, 3] = Mm[3, 2] = M
+    else:
+        Mm[2, 2] = M
+    ops, fro, Bs = [], [], []
+    for s_, ch in zip(sv, chi):
+        W = np.diag([0, 0, 4 / 3 * K * np.cos(s_), -2 / 3 * K * np.cos(s_), -2 / 3 * K * np.cos(s_)])
+        Wq = np.diag([0, 0, -4 / 3 * K * np.sin(s_), 2 / 3 * K * np.sin(s_), 2 / 3 * K * np.sin(s_)])
+        g = Mm + W + ch * D
+        ops.append(np.max(np.abs(np.linalg.eigvalsh(g))))
+        fro.append(np.sum(g ** 2))
+        Bs.append((np.sum(W ** 2) + np.sum(Wq ** 2)) / 2 + 4 * ch ** 2)
+    return max(ops) - 4 / 3 * K, max(fro) - (max(Bs) + M ** 2), 4 / 3 * K
+
+
+def lam_of(M):
+    op = LAM['operator norm'] * K43 / (K43 + abs(M))
+    fro = LAM['Frobenius'] * BFRO / math.sqrt(BFRO ** 2 + M ** 2)
+    ent = LAM['largest entry'] * K43 / (K43 + abs(M))
+    return op, fro, ent
+
+
+def main():
+    print('m22evol5: the stage-1 evolution on X*\'s past and M_22 (LAMBDA0-DATA5.md section 12)')
+    out, unk = ric_h()
+    check_s1(out, unk)
+    res = extract(out, unk)
+    check_s2(res)
+    check_s3(res)
+    low, gunk = gauge_first()
+    gres = gauge_system(low, gunk)
+    check_s4(gres)
+    funcs, gfun, env = load_system(res), load_gauge(gres), envelope()
+    fode = mode_setup()
+    print('  system and data ready %s' % el())
+    runs = {}
+    for cfg in RUNS:
+        runs[cfg] = solve(funcs, gfun, env, fode, *cfg)
+        q = runs[cfg]
+        print('    Nr = %d, Nx = %d, cfl = %.1f: %d steps, M_22 = %.9f; gauge diagnostic (relative) %.1e at tau0, %.1e '
+              'at tau = %.2f, %.1e at tau* (%.0fs) %s' % (cfg + (q['steps'], q['M22'], grel(q['gauge'][0][1]),
+                                                           grel(q['gauge'][1][1]), q['gauge'][1][0],
+                                                           grel(q['gauge'][2][1]), q['secs'], el())))
+    vals = [runs[c]['M22'] for c in FINE]
+    best = runs[FINE[-1]]['M22']
+    spread = max(vals) - min(vals)
+    dt = abs(runs[(32, 12, 1.0)]['M22'] - runs[(32, 12, 0.5)]['M22'])
+    tol = max(10 * spread, 10 * dt, 1e-6)
+    band = (best - tol, best + tol)
+    conv = all(np.isfinite(vals)) and spread < 1e-4 * abs(best) and dt < 1e-4 * abs(best)
+    OK['N1'] = conv and band[0] > 0
+    print('  N1: M_22 = %.7f (Nr = 48, Nx = 16); spread over the three finest %.1e, time-step change (cfl 1 to 1/2) '
+          '%.1e; band M_22 in [%.6f, %.6f] (ten times the larger, floating point, not an enclosure); 0 outside it: %s '
+          '%s' % (best, spread, dt, band[0], band[1], OK['N1'], el()))
+    q = solve(funcs, gfun, env, fode, 32, 12, 1.0, vout=2.6)
+    OK['N2'] = abs(q['M22'] - runs[(32, 12, 1.0)]['M22']) < tol
+    print('  N2: outer boundary at v = 2.6 instead of 3 (X*\'s past lies in v <= 2): M_22 = %.9f against %.9f, in the '
+          'band\'s width: %s %s' % (q['M22'], runs[(32, 12, 1.0)]['M22'], OK['N2'], el()))
+    gz = [grel(g) for c in FINE for _, g in runs[c]['gauge']]
+    OK['N3'] = max(gz) < 1e-5 and all(grel(runs[c]['gauge'][0][1]) < 1e-12 for c in FINE)
+    print('  N3: the first harmonic of D^(1), zero on Sigma by (F1) to %.1e, stays below %.1e of its terms\' size at '
+          'mid-solve and at tau* on the three finest grids: %s' % (max(grel(runs[c]['gauge'][0][1]) for c in FINE),
+                                                                   max(gz), OK['N3']))
+    q1 = solve(funcs, gfun, env, fode, 32, 12, 1.0, src_sign=-1.0)
+    OK['C1'] = not band[0] <= q1['M22'] <= band[1]
+    print('  C1 (control): S with its sign flipped: M_22 = %.6f, outside the band: %s %s' % (q1['M22'], OK['C1'], el()))
+    q2 = solve(funcs, gfun, env, fode, 32, 12, 1.0, gcouple=0.0)
+    OK['C2'] = not band[0] <= q2['M22'] <= band[1]
+    print('  C2 (control): gh_2\'s coupling into the mean dropped: M_22 = %.6f, outside the band: %s %s'
+          % (q2['M22'], OK['C2'], el()))
+    Sv = Solver(32, 12, funcs, env)
+    g0 = grel(gauge_residual(Sv, gfun, cauchy_data(Sv, fode, g_data=False), TAU0))
+    OK['C3'] = not g0 < 1e-12
+    print('  C3 (control): gh_2\'s first harmonic set to zero on Sigma, violating (F1): the gauge diagnostic at tau0 is '
+          '%.2f of its terms\' size; N3\'s test fails: %s' % (g0, OK['C3']))
+    q4 = solve(funcs, gfun, env, fode, 48, 12, 1.0, axis_fix=True)
+    OK['C4'] = not (np.isfinite(q4['M22']) and band[0] <= q4['M22'] <= band[1])
+    print('  C4 (control): the axis division done after removing the numerator\'s interpolated axis value (a rank-one '
+          'change at the inner boundary): at Nr = 48, Nx = 12, M_22 = %.6g, outside the band: %s %s'
+          % (q4['M22'], OK['C4'], el()))
+    print('  The chain at the floating value (computed, floating point; NOT certified, so no bound is lowered): with '
+          'C_app >= %.6f + |M_22| (operator norm; the largest entry uses the same C_app) and C_app >= (%.6f^2 + '
+          'M_22^2)^(1/2) (Frobenius), M_22 = %.6f would give' % (K43, BFRO, best))
+    for (nm, l0), lo, hi in zip(LAM.items(), lam_of(band[0]), lam_of(band[1])):
+        print('    lambda0 < %.7f (%s), against the certified %.7f' % (max(lo, hi), nm, l0))
+    exc, gap, kk = chain_at_xstar(best, env[2])
+    kin = 12.5934637 - 1e-7 <= kk <= 12.5934637 * 1.3241034918 / 1.32407110621    # c's interval (READ envelope5 E1)
+    OK['CH'] = abs(exc - abs(best)) < 1e-6 and gap > -1e-6 and kin
+    print('  CH: at X* with m_1(X*) = M_22 e_phi1 e_phi1 (the class, READ classm5 K1-K2) and stage 0\'s W, chi D there '
+          '(stage0bd5\'s forms, floating point over 20001 phases): (4/3) K = %.7f (in the image of c\'s certified '
+          'interval, whose lower end gives 12.5934637: %s); sup_s |g_1|_op - (4/3) K = %.9f = '
+          '|M_22| (the operator-norm and largest-entry step); sup_s |g_1|_F^2 - (B + M_22^2) = %.4f >= 0 (the Frobenius '
+          'step): %s' % (kk, kin, exc, gap, OK['CH']))
+    exc5, _, _ = chain_at_xstar(best, env[2], off=True)
+    OK['C5'] = not abs(exc5 - abs(best)) < 1e-6
+    print('  C5 (control): the same number placed off the class, in e_phi1 e_th + e_th e_phi1: the excess is %.6f, not '
+          '|M_22|; CH\'s operator step fails: %s' % (exc5, OK['C5']))
+    print('  Not decided here (LAMBDA0-DATA5.md section 12): a certified enclosure of M_22; the a posteriori closure '
+          'needs the residual of a space-time interpolant of the solve below the tolerance of section 12.5 in interval '
+          'arithmetic, which this machine cannot reach.')
+    for k, val in OK.items():
+        builtins.print(k, 'PASS' if val else 'FAIL')
+    builtins.print('m22evol5: %d/%d %s' % (sum(OK.values()), len(OK), el()))
+    return 0 if all(OK.values()) else 1
+
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] not in ('--selftest',):
+        builtins.print('usage: python3 checks/m22evol5.py [--selftest]   (both run every check)')
+        sys.exit(2)
+    sys.exit(main())

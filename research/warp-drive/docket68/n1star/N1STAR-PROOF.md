@@ -1977,10 +1977,11 @@ domega the unit sphere's measure, the components c taken in the chart (v, r) and
 depending on mu_f and Sigma_0 only, uniformly in l: the squared L^2 norm of the components, which are second derivatives
 of the master fields, decays at [HKW18]'s energy rate for data with two more commutations. The scalar-type part of Q_0
 cannot be dropped: with D it is bounded by the left side at any one time, and it is not bounded by any sum of I_(X
-Psi)(Sigma_0) over products X of the Killing fields, for smooth h either (Lemma 10.1b: its solutions, averaged over the
-flow of T, give smooth h with every such sum bounded and Q_0 -> oo) [amended D627: "for smooth h either" and its reason
-added]; the tensor-type part can, the tensor type's components, 2 r^(-3/2) Phi, carrying no derivative of Phi [amended
-D625: was "Q_0 cannot be dropped", for both types].
+Psi)(Sigma_0) over products X of the Killing fields, for smooth h either (Lemma 10.1b: smooth approximants of its
+solutions, averaged over the flow of T, give smooth h with every such sum bounded and Q_0 -> oo) [amended D627: "for
+smooth h either" and its reason added; amended D630: "smooth approximants of" added]; the tensor-type part can, the
+tensor type's components, 2 r^(-3/2) Phi, carrying no derivative of Phi [amended D625: was "Q_0 cannot be dropped", for
+both types].
 
 So in the Regge-Wheeler-type gauge of (ii) for l >= 2, with h_0 = c K, every metric component of h settles to the change
 of mass c K on each region {r <= R}, the horizon included: pointwise with all derivatives at Part VIII's rate for Part
@@ -2090,27 +2091,29 @@ RWGAUGE5 R2.0.5), gives the rest [amended D625, noted D627: was "summing the mod
 Q_l(0) <= Q_0, gives the rest"]. []
 
 **Lemma 10.1b (the red-shift datum cannot be dropped; deduced, D622; proved, D625, the proof of (b) repaired at D625 by
-the confirming reader's argument, and its case of smooth h at D627 by the next reader's; computed, `checks/redshift5.py`
-R4, R8) [amended D625: was "proved, D622", the label of its seating].** (a) For every tau >= 0 there is C(tau) with Q(0)
-<= C(tau) (Q(tau) + (D_l + I_(T Psi)(Sigma_0) + sum_i I_(Omega_i Psi)(Sigma_0))/||Y||^2), ||Y|| as in Lemma 10.1a: for
-the scalar type the conclusion of (iv-b) at any one time bounds the red-shift datum (in r F_rr the coefficient of d_r^2
-psi is 1, kirecon5.py P1); the tensor type's components, 2 r^(-3/2) Phi, carry no derivative of Phi. (b) For each mode
-of either type and each sigma with 1/2 < sigma/kappa <= 3/2, sigma/kappa != 1, there are solutions of box~ Phi = W Phi,
-smooth on {r > r_h}, with every I_(X Psi)(Sigma_0) finite, X any product of T and the rotations, and Q(0) = oo; for them
-Q(tau) = oo for every tau. So, for the scalar type, no bound of the left side of (iv-b) by [HKW18]'s data, commuted with
-the Killing fields any number of times, holds up to the horizon, for smooth h too (if V_n are smooth data converging to
-such a solution's in I_Psi(Sigma_0), and rho >= 0 is smooth with support in (0, t_0), 0 < t_0 < s(rho_0) - s(r_h), the
-averages int rho(t) Phi_n(phi_t(.)) dt over the flow phi_t of T are smooth solutions and converge in every I_(X
-Psi)(Sigma_0) (T^a falls on rho, and the evolution is bounded on [0, t_0]) to the same average of the solution, which
-near the horizon on Sigma_0 is (int rho(t) e^(-sigma t) dt) e^(-sigma v) R, again one of these solutions; their Q(0) ->
-oo, Q(0) being lower semicontinuous, while such a bound would bound Q(0) by (a); computed in a model,
-`checks/redshift5.py` R16) [amended D627: the parenthesis read "(smooth data converging to these in every I_(X
+the confirming reader's argument, and its case of smooth h at D627 by the next reader's; computed,
+`checks/redshift5.py` R4, R8, R16 [amended D630: R16 added]) [amended D625: was "proved, D622", the label of its
+seating].** (a) For every tau >= 0 there is C(tau) with Q(0) <= C(tau) (Q(tau) + (D_l + I_(T Psi)(Sigma_0) + sum_i
+I_(Omega_i Psi)(Sigma_0))/||Y||^2), ||Y|| as in Lemma 10.1a: for the scalar type the conclusion of (iv-b) at any one
+time bounds the red-shift datum (in r F_rr the coefficient of d_r^2 psi is 1, kirecon5.py P1); the tensor type's
+components, 2 r^(-3/2) Phi, carry no derivative of Phi. (b) For each mode of either type and each sigma with 1/2 <
+sigma/kappa <= 3/2, sigma/kappa != 1, there are solutions of box~ Phi = W Phi, smooth on {r > r_h}, with every I_(X
+Psi)(Sigma_0) finite, X any product of T and the rotations, and Q(0) = oo; for them Q(tau) = oo for every tau. So, for
+the scalar type, no bound of the left side of (iv-b) by [HKW18]'s data, commuted with the Killing fields any number of
+times, holds up to the horizon, for smooth h too (if V_n are smooth data of that mode converging to such a solution's
+in I_Psi(Sigma_0), Phi_n their solutions, and rho >= 0 is smooth, not identically 0, with support in (0, t_0), 0 < t_0
+< s(rho_0) - s(r_h), the averages int rho(t) Phi_n(phi_t(.)) dt over the flow phi_t of T are smooth solutions and
+converge in every I_(X Psi)(Sigma_0) (T^a falls on rho, and the evolution is bounded on [0, t_0]) to the same average
+of the solution, which near the horizon on Sigma_0 is (int rho(t) e^(-sigma t) dt) e^(-sigma v) R, again one of these
+solutions; their Q(0) -> oo, Q(0) being lower semicontinuous, while such a bound would bound Q(0) by (a); computed in a
+model, `checks/redshift5.py` R16) [amended D627: the parenthesis read "(smooth data converging to these in every I_(X
 Psi)(Sigma_0) have Q(0) -> oo, Q(0) being lower semicontinuous, while such a bound would bound Q(0) by (a))", which
-assumed such data; the natural R(r + eps) does not converge in I_(T^2 Psi) (R16's control)]: the scalar-type part of Q_0
-is the one input their class lacks, and nothing weaker than it suffices [amended D625: the scalar type named and smooth
-h added; (a) read "Q(0) <= C(tau) (Q(tau) + D_l + I_(T Psi)(Sigma_0) + sum_i I_(Omega_i Psi)(Sigma_0)): the conclusion
-of (iv-b) at any one time bounds the red-shift datum", and the last sentence "So no bound ... holds up to the horizon:
-Q_0 is the one input their class lacks, and nothing weaker than it suffices"].
+assumed such data; the natural R(r + eps) does not converge in I_(T^2 Psi) (R16's control); amended D630: "of that
+mode", "Phi_n their solutions" and "not identically 0" added]: the scalar-type part of Q_0 is the one input their class
+lacks, and nothing weaker than it suffices [amended D625: the scalar type named and smooth h added; (a) read "Q(0) <=
+C(tau) (Q(tau) + D_l + I_(T Psi)(Sigma_0) + sum_i I_(Omega_i Psi)(Sigma_0)): the conclusion of (iv-b) at any one time
+bounds the red-shift datum", and the last sentence "So no bound ... holds up to the horizon: Q_0 is the one input their
+class lacks, and nothing weaker than it suffices"].
 
 *Proof.* (a) An outgoing null ray r = rho(v), rho' = f/2, carries no flux of (10.1b) (R4), so the identity on the region
 between Sigma_0, Sigma_tau, the horizon and the ray from (Sigma_0, rho_1), rho_1 close enough to r_h that the ray stays
@@ -2121,14 +2124,14 @@ Gronwall backward gives q(0) <= e^(C tau) (q(tau) + C int_0^tau G); on [rho_1, R
 e^(-sigma v) R(r): the equation is f R'' + (f' - 2 sigma) R' - W R = 0, whose indicial roots at r_h are 0 and
 sigma/kappa (R8, for W_S and W_T); take R = (r - r_h)^(sigma/kappa) (1 + O(r - r_h)), the convergent Frobenius series of
 the larger root (its recursion's denominators 2 kappa n (n + sigma/kappa) do not vanish, R8), and cut its data on
-Sigma_0 off outside a neighbourhood {r < rho_0} of the horizon [amended D625, noted D627: {r < rho_0} named, "a
-neighbourhood of the horizon"]. On Sigma_0 near the horizon the solution is e^(-sigma v) R, with T^a Phi = (-sigma)^a
-Phi, and R and R' ~ (r - r_h)^(sigma/kappa - 1) are square integrable (sigma/kappa > 1/2), so every I_(X Psi)(Sigma_0)
-is finite, while R'' ~ (sigma/kappa)(sigma/kappa - 1) (r - r_h)^(sigma/kappa - 2), its coefficient not 0 as sigma/kappa
-!= 1 (R8), is not (sigma/kappa <= 3/2): Q(0) = oo. The solution is smooth on {r > r_h}, since the past of each of its
-points meets Sigma_0 there. For tau > 0 run (a)'s argument between the outgoing rays from (Sigma_0, r_h + eps) and from
-(Sigma_0, rho_1), both of which carry no flux and stay in {r_h < r < R_1} until Sigma_tau: it gives q_eps(0) <= e^(C
-tau) (q_eps(tau) + C int_0^tau G), q_eps the integral of (1 - s' f/2) u_2^2 between the two rays and G bounded by the
+Sigma_0 off outside a neighbourhood {r < rho_0} of the horizon [amended D625, noted D627 and D630: was "a neighbourhood
+of the horizon"]. On Sigma_0 near the horizon the solution is e^(-sigma v) R, with T^a Phi = (-sigma)^a Phi, and R and
+R' ~ (r - r_h)^(sigma/kappa - 1) are square integrable (sigma/kappa > 1/2), so every I_(X Psi)(Sigma_0) is finite,
+while R'' ~ (sigma/kappa)(sigma/kappa - 1) (r - r_h)^(sigma/kappa - 2), its coefficient not 0 as sigma/kappa != 1 (R8),
+is not (sigma/kappa <= 3/2): Q(0) = oo. The solution is smooth on {r > r_h}, since the past of each of its points meets
+Sigma_0 there. For tau > 0 run (a)'s argument between the outgoing rays from (Sigma_0, r_h + eps) and from (Sigma_0,
+rho_1), both of which carry no flux and stay in {r_h < r < R_1} until Sigma_tau: it gives q_eps(0) <= e^(C tau)
+(q_eps(tau) + C int_0^tau G), q_eps the integral of (1 - s' f/2) u_2^2 between the two rays and G bounded by the
 energies, which the finite I's bound; as eps -> 0, q_eps(0) -> oo, so q_eps(tau) -> oo, and q_eps(tau) <= Q(tau)
 [amended D625, by the confirming reader's argument: the proof read "In the domain of dependence of that neighbourhood,
 which every Sigma_tau meets at the horizon, the solution is e^(-sigma v) R" and closed "on Sigma_0 and on every
@@ -10895,17 +10898,18 @@ proof level ((F1)-(F8), (a)-(x)); READ (the pages named, as in 10.84); nothing p
 verifier (D40): no major finding; its five minor findings are repaired in place (Lemma 11.0; Lemma 11.2's hypothesis
 (H_m) and the induction in m at J = 3; Proposition 11.2(i) rebuilt by characteristics; B1's orders below s^3,
 Proposition 11.3(0); the coefficient of G_k) and its four notes seated (the J = 3 source, the areal coefficient 6 rho_k,
-the orders of R_rr, the wording on derivatives). Proved means proved [amended D627: pending the section 11 read, F1 on
-Lemma 11.0 being open]: the deduction rests on Theorem P and the computed B1-B3, and a thirteenth read the repairs
-(D44): Lemma 11.0's identity had been run on a region unbounded toward past
-null infinity, where the flux at the orders above Theorem P's is not known to vanish -- a major gap, repaired by running
-it on the approximating solutions g_n of Proposition 9.8 and passing to the limit -- with three minor findings in
-Proposition 11.2 and Theorem M(a), repaired; the repairs of D44 were read by the fourteenth and fifteenth verifiers
-(D45, D47) and hold. Two later findings: SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma
-11.0's induction counts the top-order term b.dU as known, whose replacement (workstream B, R5-D) is pending; and that
-reader's Major 2, the factor 1 - pi/2 missing from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with
-P7, with that reader's minors m1, m2, m4-m6 and nits n1-n5; D618's edits to sections 9.5 and 11 await one confirming
-read [amended D625: the status ended "the repairs of D44 have not themselves been read"].** It closes the first of
+the orders of R_rr, the wording on derivatives). Proved means proved [amended D627, D630: pending the section 9.5/11
+confirming read]: the deduction rests on Theorem P and the computed B1-B3, and a thirteenth read the repairs (D44):
+Lemma 11.0's identity had been run on a region unbounded toward past null infinity, where the flux at the orders above
+Theorem P's is not known to vanish -- a major gap, repaired by running it on the approximating solutions g_n of
+Proposition 9.8 and passing to the limit -- with three minor findings in Proposition 11.2 and Theorem M(a), repaired;
+the repairs of D44 were read by the fourteenth and fifteenth verifiers (D45, D47) and hold. Two later findings:
+SETTLE-GLAM5's F1 (rounds 3-4; the section 11 reader's Major 1), that Lemma 11.0's induction counts the top-order term
+b.dU as known, answered by workstream B's R6-D, read by its round-6 verifier and seated in Lemma 11.0 (D630) [amended
+D630: was "whose replacement (workstream B, R5-D) is pending"]; and that reader's Major 2, the factor 1 - pi/2 missing
+from (9.10)'s oscillating terms and so from (11.3), corrected at D618 with P7, with that reader's minors m1, m2, m4-m6
+and nits n1-n5; D618's edits to sections 9.5 and 11 await one confirming read [amended D625: the status ended "the
+repairs of D44 have not themselves been read"].** It closes the first of
 the three items section 10 and the paper's section 8 left open: a mass law at past null infinity in five dimensions, and
 its application to g_lam. The law itself is published (Tanabe, Tanahashi and Shiromizu, READ in 11.3) and is recomputed
 here in the class with every coefficient from s^1 general (B1); what is new is that g_lam has the asymptotic expansion
@@ -10967,15 +10971,42 @@ its construction give every order at fixed lam, uniformly, Lemma 11.0, which is 
 region, with constants depending on lam and the order.
 
 *Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves -(1/2) g_lam^{ab} d_a d_b u_1 = F_1 := S(u) - (1/2)
-(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3), and F_1 is in E_3 with all derivatives (S(u) by Lemma
-11.1; the second term is E_(3/2) E_2; the third is in E_(7/2) by Lemma 9.7(c) and P2), where "all derivatives" of a term
-containing u_1 means the orders already controlled. Induction on the order: for |gamma| = j + 1, U := d^gamma u_1 solves
--(1/2) g_lam^{ab} d_a d_b U = d^gamma F_1 + sum_{0 < gamma' <= gamma} (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b
-u_1. The terms with |gamma'| = 1 are (d g_lam) d U with d g_lam in E_(3/2), of the kind Lemma 9.5's kernel k absorbs; a
-term with |gamma'| >= 2 is a product of a derivative of g_lam of order <= j + 1 with one of u_1 of order <= j + 1, and is
-estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C t^(-1/2))
-and the other in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by Theorem P
-for the lowest), so the source is at most C(lam, j) t^(-3/2) in L^2. The identity is not run on the region between {v =
+(g_lam^{ab} - g0^{ab}) d_a d_b u_1 + (1/2) box~ (r^(-3/2) G_3). By (0.2), F_1 = -Ric^H(g_lam) - (1/2) g_lam^{ab} d_a
+d_b u_1 with g_lam = g0 + r^(-3/2) G_3 + u_1, so F_1 contains no second derivative of u_1 (`checks/f1lemma5.py` F1a):
+it is a smooth function F_1(X, u_1, d u_1), and F_1(X, 0, 0) is in E_3 with all derivatives (the terms of Lemma 11.1
+in G_3 and g0, and the third term, in E_(7/2) by Lemma 9.7(c) and P2; `checks/r5edits5.py` E3). Along g_lam its partial
+derivatives are b := dF_1/d(d u_1), in E_(3/2) and of lam-order 0 (the derivative of the Q-difference, linear in d g0 +
+d u; d u is of lam-order 0: dv [d_th W_TT], plus dv [d_th chi] dv dv in E_2 and the phase shift's term in E_(5/2), plus
+O(lam); `checks/cclass5.py` C3, r5edits5.py E2), and c := dF_1/d u_1 = -(1/2) lam^-1 (.)(ell_lam, ell_lam) [d_th^2
+W_TT] + E_(3/2), ell_lam := g_lam^-1 dv (the first term from -(1/2)(g_lam^-1 u_1 g_lam^-1)^{ab} d_a d_b (lam [W_TT]), as
+in (3.2); the E_(3/2) part contains -(.)(ell_lam, ell_lam) [d_v d_th W_TT], from the envelope's dependence on v; F1b,
+cclass5.py C1-C2). Induction on the order: for |gamma| = j + 1, by Leibniz's rule U := d^gamma u_1 solves
+
+    -(1/2) g_lam^{ab} d_a d_b U = f_gamma := b . d U + c U + R_gamma
+        + (1/2) sum_{gamma' <= gamma, |gamma'| = 1} C(gamma, gamma') (d^{gamma'} g_lam^{ab})
+              d^{gamma - gamma'} d_a d_b u_1,
+
+C(gamma, gamma') := gamma!/(gamma'! (gamma - gamma')!), where R_gamma := d^gamma F_1 - b . d U - c U + (1/2)
+sum_{gamma' <= gamma, |gamma'| >= 2} C(gamma, gamma') (d^{gamma'} g_lam^{ab}) d^{gamma - gamma'} d_a d_b u_1 contains
+derivatives of u_1 of order <= j + 1 only (the chain rule, F1d). In f_gamma, b . d U is of the order this step
+estimates and is not known; the terms with |gamma'| = 1 are (d g_lam) d U' with d g_lam in E_(3/2) and U' in the same
+family {d^delta u_1 : |delta| = j + 1}; and c U is one order lower. They enter through f_gamma in Lemma 9.5's energy
+inequality (9.3), before Gronwall's lemma, not through its kernel k: ||b . d U|| <= C t^(-3/2) ||d U||, ||c U|| <= C
+lam^-1 t^(-3/2) ||U|| <= C lam^-1 t^(-3/2) ||d U|| by Lemma 9.3(b) (U vanishes on {v = v_start}), so ||f_gamma|| <=
+C(1 + lam^-1) t^(-3/2) sum_{|delta| = j + 1} ||d d^delta u_1|| + ||R_gamma||; summed over the family, Gronwall's lemma
+then costs the factor exp(int C(1 + lam^-1) t^(-3/2)), at most e^(2C(1 + lam)) over the far region t >= lam^-2, a
+lam-free factor. (With c U taken as a source, through the energies of the lower steps, the step also closes at fixed
+lam, at one lam^-1 per order.) R_gamma is the sum of d_X^gamma F_1(X, 0, 0), the u_1-free source, in E_3, and of
+products of a derivative of g_lam or of F_1's coefficients of order <= j + 1 with derivatives of u_1 of order <= j + 1,
+each estimated in L^2(Sigma_tau) with the factor of higher order in L^2 (the energies of the lower steps, at most C
+t^(-1/2)) and the others in sup norm (E_2 by the induction hypothesis, through Lemma 9.3 for the orders it costs, and by
+(9.8) for u_1^n at the lowest): d_X^gamma F_1(X, 0, 0), in E_3, has L^2 norm at most C t^(-3/2) on Sigma_tau, whose
+volume is at most C t^3, and each product at most C t^(-2) (a coefficient in E_(3/2), or a second factor of u_1 in
+E_2, times the L^2 factor), so
+||R_gamma|| <= C(lam, j) t^(-3/2). [amended D630: WS-B round 6, R6-D (SETTLE-GLAM5.md, superseding R5-D; read by WS-B's
+round-6 verifier): from "*Proof.*" to here replaces the proof's opening and its induction step, which counted the
+top-order term b . d U as known (F1, the section 11 reader's Major 1); the old text is R6-D's "Edit 1, old" there]
+The identity is not run on the region between {v =
 v_start} and Sigma_tau: that region is unbounded toward past null infinity (Lemma 9.1(e)), and the flux of d^gamma u_1
 through infinity there is known to vanish only at the orders Theorem P controls (a thirteenth verifier's finding, D44).
 It is run for each approximating solution g_n of Proposition 9.8 -- which equals g0 on {v <= v_start} and solves the same
@@ -10984,8 +11015,17 @@ equations, so that u_1^n := g_n - g0 - r^(-3/2) G_3 has the structure above, Lem
 the region of (9.8)'s own identity. On Sigma_tau_n the data of U_n := d^gamma u_1^n are explicit: w_n = g_n - g_app
 vanishes there with its first derivatives and its higher derivatives are those of the approximant's residual Ric^H(g_app)
 through the equation, and g_app - g0 - r^(-3/2) G_3 is explicit with all derivatives (Lemma 9.7(c), P2), so ||d
-U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d U_n(tau_n)|| +
-C int_{tau_n}^tau t'^(-3/2) dtau' <= C(lam, j) t^(-1/2) at every order, uniformly in n. The bookkeeping of sup against
+U_n(tau_n)|| <= C(lam, j) t_n^(-1/2) with t_n >= t. Lemma 9.5's energy inequality (9.3) for U_n
+with f = f_gamma^n, and Gronwall's lemma, give sum_{|gamma| = j + 1} ||d U_n(tau)|| <= C e^(2C(1 + lam)) sum_{|gamma|
+= j + 1} (||d U_n(tau_n)|| + int_{tau_n}^tau ||R_gamma^n|| dtau'), where f_gamma^n, b^n, c^n and R_gamma^n are
+f_gamma, b, c and R_gamma with g_n and u_1^n in place of g_lam and u_1 (Lemma 11.1 applies to u_1^n verbatim, so b^n
+and c^n obey the bounds on b and c above with the same constants), and ||R_gamma^n|| <= C(lam, j) t^(-3/2) uniformly in
+n: d_X^gamma F_1(X, 0, 0) does not depend on n, and every other factor of R_gamma^n is bounded by the induction
+hypothesis for u_1^n, which is uniform in n, with (9.8) at the lowest orders. Since ||d U_n(tau_n)|| <= C(lam, j)
+t_n^(-1/2) <= C(lam, j) t^(-1/2) and int_{tau_n}^tau t'^(-3/2) dtau' <= 2 t^(-1/2), ||d U_n(tau)|| <= C(lam, j)
+t^(-1/2) at every order, uniformly in n. [amended D630: WS-B round 6, R6-D: from "Lemma 9.5's energy inequality (9.3)"
+to here replaces the one-sentence step "Lemma 9.5's identity then gives ... uniformly in n", R6-D's "Edit 2, old"]
+The bookkeeping of sup against
 L^2 closes at every order N := |gamma|: the factor taken in sup norm has order at most floor((N + 2)/2), E_2 is in hand
 pointwise to order max(4, N - 3) (Theorem P for the lowest orders, Lemma 9.3 on the energies of the lower steps for the
 rest, at the cost of three), and floor((N + 2)/2) <= max(4, N - 3) for every N >= 1. Lemma 9.3 turns the energies of the

@@ -1,0 +1,33 @@
+logind5: Lemma R12.1, E^flat's and the level-2 sources' log orders by induction over the construction
+  L0 (READ): 7 files at their pinned md5: True; 11 lines found by content: True (I11:368-369 the windows in increasing
+      order; I11:373 l_0 = 0; I11:383 the windows' III.I' exponents; I11:385 the exponents below 2; G3 (4.5); I2 (3.2);
+      I5:190, I8:35 E_ind fixed; G5 (4.3); I12:278 Step 3)
+  L1 (computed; eflat5 F1-F2): offsets of E_ind u E^iota_ind below 2 - lambda_sharp = 0.4901: [(3.3333304629648506e-07,
+      0)] (d1 = 3.3333304630e-07 in its certified interval: True)
+  L2 (computed): the windows below 2, each in turn: 1470302 (W of dnumber5.out: 1470302); the hypothesis "log order 0"
+      holds at every one: True; the largest log order of an output above 2: 2
+  L3 (computed): the table from the induction (Step 1's rounds of (3.2) with the completion, the windows' outputs
+      maximised, the windows' (3.2) raise at Re >= 5/2): off pi_1 E^C_I at most 2; at its 26 points in [2, 3 + eps_+]
+      largest 5, excess 23 (R0), largest 14, excess 47 (R1); equal at every point to eflat5 F4's: True
+  L4 (computed): l(d1) = 0 at level 2; the chain recurrence reaches its fixed point 2 + e_c at once on all 148 chains
+      (R0/R1 x wide/shifted E_col): True; the excess points are their chains' first points (the rational starts
+      (rational: True) by d1's irrationality; the E_col bases by lambdagen5 L5); chains with an excess: [('(l-1) +
+      delta_2', 2), ('(l-1) + delta_3', 1), ('1 + d0', 1), ('1 + d0', 3), ('2.0', 4), ('2.0', 8), ('2.5', 2), ('2.5', 5),
+      ('2.5099', 2), ('2.5099', 5), ('2.51', 2), ('2.51', 5), ('2.5198', 1), ('2.5199', 1), ('2.52', 2), ('2.52', 5),
+      ('2.5297', 1), ('2.5298', 1), ('2.5299', 1), ('2.53', 1), ('2.5398', 1), ('2.5399', 1), ('2.54', 1), ('2.5499', 1),
+      ('2.55', 1), ('2.56', 1), ("l + delta'_1", 2), ("l + delta'_2", 1)]
+  C1 (control): the windows' raises summed over N_* windows: largest 165000165 > 14: L3 fails: True
+  C2 (control): pole order l_0 = 1 below 2: the hypothesis fails (log order 1 at the second window): True
+  C3 (control): d1 with log order 1 at level 2: no fixed point, the carry reaches 10003 > 2 + e_c = 3 within 10^4 points:
+      True
+  C4 (control): Step 1's extended unions raising at the completed points too: the table differs from F4's (largest 19):
+      True
+L0 PASS
+L1 PASS
+L2 PASS
+L3 PASS
+L4 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS

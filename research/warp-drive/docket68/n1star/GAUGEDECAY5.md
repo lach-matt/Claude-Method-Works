@@ -8,6 +8,9 @@ here), *READ* (verbatim, with identifier and page, read at source), *proved* (a 
 [R9 (A101): "Not verified by a second reader" is stale. Every round has since been read by an independent verifier, its
 findings seated in the next round (round 1: R2.V; rounds 2-3: R4.c; rounds 4-5: R6.g; round 6: R7.0; round 7: R8.0;
 round 8: R9.0); round 9 is not yet read. The results are deduced; R9.d lists what each needs to be labelled proved.]
+[R11: report-vA10, the confirming read of round 10, found no Major; its findings are seated in R11.0, and round 11 is
+not yet read. The inputs of the promoted results are promoted with them, each on the independent read that covered it
+(R11.p); only results that nothing cited rests on keep their earlier labels.]
 
 *The item.* Part VIII (`proof5/PART-VIII-LINEAR.md`, Theorem 2.2, Corollary 2.3) proves that in the class every
 linearised data set has a development $\dot g$ in the gauge of the nonlinear problem which settles to a change of mass,
@@ -175,6 +178,12 @@ $O(t_*^{-w+\epsilon'})$. $X_{\mathrm{RW}}$ is unique up to $c'\partial_t^\flat$,
 [R10 (A109): the clause "unique up to $c'\partial_t^\flat$" is proved by (d)'s argument. For two such vectors, $Z :=
 X'-X_{\mathrm{RW}}$ has $\mathcal L_Zg$ in the RW-type gauge with $l = 0$ part 0, so $\mathcal L_Zg = 0$ as in (d)'s
 proof, and $Z$ is a $G$-invariant Killing field, $c'\partial_v^\flat$ by the proof's last lines.]
+[R11 (A112): read the second sentence as: $\xi[h]$, the radial component $rH_0$ of $Y[h_0] = \zeta\partial_v+
+rH_0\partial_r$, and every derivative of $\xi[h]$ and of $Y[h_0]$'s components $\zeta$, $rH_0$ are
+$O(t_*^{-w+\epsilon'})$. As written it fails for the 1-form $X_{\mathrm{RW},0} = -Y[h_0]^\flat = (f\zeta-rH_0)\,dv-
+\zeta\,dr$: its $dr$ component $-\zeta$, and the term $f'\zeta$ in the $r$-derivative of its $dv$ component, are only
+$O(t_*^{-(w-1)+\epsilon'})$. Every use, (A59), the paragraph after Proposition R7.5's proof and Theorem 2.3, needs
+only $X_{\mathrm{RW},0} = O(t_*^{-(w-1)+\epsilon'})$, or less (R11.0; the orders computed in T13).]
 (d) *Uniqueness of the representative* (uses Part IX, labelled verified). If $U\subset N^\circ$ is open and
 $SO(4)$-invariant, $\Omega' := D_U(\Sigma_U)$, and $\dot g'$ is a $G$-invariant linearised vacuum solution on $\Omega'$
 in the RW-type gauge inducing $(\dot\gamma,\dot k)$ plus the data of some $\mathcal L_Zg$, then $\dot g' =
@@ -231,7 +240,8 @@ $$A = \frac{s^2+2r^2\log\frac{r+s}r}{4sr^2},\qquad B = \frac{r^2s-3rs^2+2s^3+2r^
 s}{4rs(r^2-s^2)},\qquad s := r_h,$$
 ($W^*$ is III.D$'$ (2.1), supplement (10.2)), and $W^{**}_H := W^{**}-V^\flat$ with $V$ of (0.1).
 
-**Proposition 2.1 (the harmonic-gauge solutions; deduced, (b) from Part IX).** (a) For every smooth 1-form $Z'$ on
+**Proposition 2.1 (the harmonic-gauge solutions; deduced, (b) from Part IX; proved [R11]).**
+(a) For every smooth 1-form $Z'$ on
 $N^{\mathcal D}$ with $\Box Z' = -\Theta(e)$,
 $$\dot g_H := \dot g_{\mathrm{RW}}+\dot\mu\,\mathcal L_{W^{**}_H}g+\mathcal L_{Z'}g$$
 is a linearised vacuum solution in harmonic gauge inducing $(\dot\gamma,\dot k)$ up to the data of a linearised
@@ -391,6 +401,9 @@ $\mathcal L_{W^*}g$ (Proposition 2.1 (e), Proposition 2.5 (ii)).
   For data in Part VIII's class, Proposition 10.1 (iv)'s deduction from [HKW18] is replaced by a proof from Part VIII.
 - (GD2) The RW-type gauge vector decays: $O(t_*^{-(w-1)+\epsilon'})$ after removing $c'\partial_t$, the full rate in
   every component but the $l = 0$ time component and in every derivative (Theorem 1.5 (c)).
+  [R11 (A112): the full rate holds for $\xi[h]$, for $rH_0$ and for every derivative of $Y[h_0]$'s components. As a
+  1-form, $X_{\mathrm{RW},0}$'s $dr$ component $-\zeta$, and the $f'\zeta$ in the $r$-derivative of its $dv$
+  component, are $O(t_*^{-(w-1)+\epsilon'})$.]
 - (GD3) A conserved horizon charge for the 1-form wave equation, $\frac d{dv}Q[X] = \ell(\Box X)$ (Lemma 2.2), the
   time-domain form of III.D$'$ Lemma 2.1. With $\ell(\Theta(K)) = -2\pi^2$ and $Q[W^*] = 4\pi^2$ it forces the linear
   growth $\frac{\dot\mu}2v\,\mathcal L_{W^*}g$ in the harmonic gauge (Theorem 2.3); the horizon-regular gauge-fixed mass
@@ -507,7 +520,8 @@ $X$, in $\mathcal A^2$ (weight 2, as $\dot g(1,0)$ in III.H), $\Box W^* = 0$.
 $\hat g_*(\sigma) := i\sigma^{-1}\Psi(\sigma,\cdot)W^*$ with $\Psi$ of III.H Lemma 2.5, and
 $$\tilde P(\sigma)(u,c) := \big(\hat P(\sigma)u+c\hat f_*(\sigma),\ \langle u,\varphi\rangle_h\big).$$
 
-**Lemma R2.2 (III.H Lemmas 2.2-2.5 at $\Box$; computed B1-B2, deduced).** (a) $f_*$ is supported as in III.H Lemma 2.2
+**Lemma R2.2 (III.H Lemmas 2.2-2.5 at $\Box$; computed B1-B2, deduced; proved [R11]).**
+(a) $f_*$ is supported as in III.H Lemma 2.2
 (a), and its part at $r\ge1$ obeys III.H (2.1): $|(t_*\partial_{t_*})^j(r\partial_r)^a\partial^\beta_\omega f_\infty|\le
 Cr^{-4}$. (b) $\hat f_*(0) = L_1W^*+L_0w$, $w := -\kappa(r)W^*$ with $\kappa$ of III.H Lemma 2.3, so $w\in\mathcal A^1$
 and $\hat f_*(0)\in\mathcal A^3$. (c) III.H Lemma 2.4 (a)-(d) hold for $\hat f_*$. (d) For $\sigma\ne0$,
@@ -522,7 +536,8 @@ control: in III.B's time $t$, $L_2W^*$ is only $O(r^{-2})$). On the cone $t_* = 
 $r^4[\Box,\chi]W^*$ has a finite limit and $r^3[\Box,\chi]W^*\to0$ for $\chi = (r/t_*)^2$ and $e^{r/t_*}$ (B2; control:
 for the Killing form $(\partial_{t_*})^\flat$, weight 0, it is not $O(r^{-3})$). $\square$
 
-**Proposition R2.3 (III.H Proposition 3.2 at $\Box$; computed B3, deduced).** $\tilde P(0):\mathcal X_0\oplus\mathbb
+**Proposition R2.3 (III.H Proposition 3.2 at $\Box$; computed B3, deduced; proved [R11]).**
+$\tilde P(0):\mathcal X_0\oplus\mathbb
 C\to\mathcal Y_0\oplus\mathbb C$, the spaces of III.H Proposition 3.2 at the weight $\alpha$, is invertible.
 
 *Proof.* *Index 0.* $\tilde P(0)$ is a finite-rank perturbation of $\hat P(0)\oplus0$, and $\hat P(0):\mathcal
@@ -540,7 +555,8 @@ III.H's block-triangular $11\times11$ matrix is here the $1\times1$ matrix $(4\p
 it nonzero: a stationary column $\hat P(0)(\kappa W^*)$ is annihilated by $\ell$ (B3 control), and an augmentation by
 it is not injective at zero energy.
 
-**Theorem R2.4 (III.H Theorem 4.1 and Corollaries 4.2-4.3 at $\Box$; deduced).** There are $c_k>0$ and $C_k$ such that
+**Theorem R2.4 (III.H Theorem 4.1 and Corollaries 4.2-4.3 at $\Box$; deduced; proved [R11]).**
+There are $c_k>0$ and $C_k$ such that
 for $\sigma\in\Sigma_0$, $|\sigma|\le c_k$: $\tilde P(\sigma):\mathcal X_\sigma\oplus\mathbb C\to\mathcal
 Y_\sigma\oplus\mathbb C$ is invertible with the estimate III.H (4.5); III.H Theorem 4.1 (3) holds for $\tilde P$ on
 $\Sigma_0\cap\mathbb R$; and, with $(u,c) := \tilde P(\sigma)^{-1}(f,0)$ for $0<|\sigma|\le c_0$,
@@ -557,7 +573,8 @@ needed, and (R2.1) follows from Lemma R2.2 (d) as III.H (4.6) does. $\square$
 
 $\mathcal O_c(\Box)$ is III.H$'$ Definition 1.1 with $P_0 = \Box$ and the $K^+$-weight $-1$ in place of $-2$.
 
-**Theorem R2.5 (III.H$'$ Theorem 1.3 at $\Box$; deduced).** Let $\alpha_{\mathrm{sf}}+2\in(0,1)$, $k\in\mathbb N_0$,
+**Theorem R2.5 (III.H$'$ Theorem 1.3 at $\Box$; deduced; proved [R11]).**
+Let $\alpha_{\mathrm{sf}}+2\in(0,1)$, $k\in\mathbb N_0$,
 $\mathsf s\in\mathcal O_c(\Box)$ and $f\in H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(\Omega)^{\bullet,-}$. The
 forward solution $u$ of $\Box u = f$ satisfies, with $C$ independent of $f$ and $\|f\|$ that norm:
 
@@ -607,11 +624,13 @@ inherits III.H$'$'s obligation (H$'$7), orders in $\mathcal O_c$.
 
 ### R2.3 Decay modulo $W^*$: the coefficient is the horizon charge
 
-**Lemma R2.6 (standard: Sobolev embedding on an interval, rescaled).** If $w,t\partial_tw\in L^2([\frac T2,4T];H)$ for
+**Lemma R2.6 (standard: Sobolev embedding on an interval, rescaled; proved [R11]).**
+If $w,t\partial_tw\in L^2([\frac T2,4T];H)$ for
 a Hilbert space $H$, then $\sup_{[T,2T]}\|w(t)\|_H^2\le C\,T^{-1}\int_{T/2}^{4T}(\|w\|_H^2+\|t\partial_tw\|_H^2)\,dt$,
 $C$ absolute.
 
-**Theorem R2.7 (deduced from Theorem R2.5, Lemma 2.2 and B4).** Let $k\ge1$, $j\ge0$, $R'>r_0$, and $\mathsf
+**Theorem R2.7 (deduced from Theorem R2.5, Lemma 2.2 and B4; proved [R11]).**
+Let $k\ge1$, $j\ge0$, $R'>r_0$, and $\mathsf
 s\in\mathcal O_c(\Box)$ with $\mathsf s\ge j+3$ over $\{r\le R'+1\}$ (such orders exist: II.C Definition 2.4 bounds
 $\mathsf s$ above only near the outgoing radial set, which lies over sf, and the monotonicity runs toward it). Let $f\in
 H^{(\mathsf s;k),(\alpha_{\mathrm{sf}}+2,0)}_{3b;b}(\Omega)^{\bullet,-}$, $u$ the forward solution of $\Box u = f$, and
@@ -674,7 +693,8 @@ would: $\phi\to0$, $q\to Q[Y]/2\pi^2$, $Y\to(Q[Y]/4\pi^2)W^*$.
 
 ### R2.4 The source: obstruction (b), reduced
 
-**Lemma R2.10 (the gauge identity; computed B8, READ III.B (6.3)).** III.B Definition 6.1 (`PART-III-B-FAMILY.md`:
+**Lemma R2.10 (the gauge identity; computed B8, READ III.B (6.3); proved [R11]).**
+III.B Definition 6.1 (`PART-III-B-FAMILY.md`:
 430-445) reads "$\Upsilon^0(g,g_0)_\mu := g_{\mu\nu}g^{\kappa\lambda}\big(\Gamma(g)^\nu_{\kappa\lambda}-\Gamma(g_0)^\nu_{
 \kappa\lambda}\big)$, $\Upsilon^{E_\Upsilon}(g,g_0) := \Upsilon^0(g,g_0)-E^\Upsilon_{g_0}G_{g_0}(g-g_0)$" (6.3), with
 "$c_\Upsilon = |x|^{-1}dt$ for large $|x|$" and "$E^\Upsilon_{g_0,\infty}h := -\gamma_\Upsilon\big(2\iota_{g_0^{-1}
@@ -690,7 +710,8 @@ $$J_h := -\Theta(h) = E^\Upsilon_gG_gh+D\vartheta_{\mathrm{tot}}(\vec p\,')\quad
 \dot g-\dot\mu K.\tag{R2.3}$$
 No derivative of $h$ enters, and $E^\Upsilon_{g,\infty}$ carries the factor $|x|^{-1}$.
 
-**Lemma R2.11 (cone sources; computed B7, deduced).** Let $F$ be supported in $\{t_*\ge2,\ r\le t_*/4\}$, smooth, with
+**Lemma R2.11 (cone sources; computed B7, deduced; proved [R11]).**
+Let $F$ be supported in $\{t_*\ge2,\ r\le t_*/4\}$, smooth, with
 $|(t_*\partial_{t_*})^i(r\partial_r)^a\partial^\beta_\omega F|\le C\,r^{-a_\iota}(r/t_*)^{b_K}$ on $r\ge1$ and $\le
 Ct_*^{-b_K}$ on $r\le1$. If $b_K>\frac12$ and $a_\iota>\beta+\frac52$, then $F\in H^{(\mathsf s;k),(\beta,0)}_{3b;b}
 (\Omega)^{\bullet,-}$ for every $\mathsf s$ and $k$.
@@ -823,7 +844,7 @@ has a double pole at $r_h$ (V5). So the two gauges coincide for $l\ge2$; at $l =
 the horizon. Theorem 1.5's "with $l = 0$ part exactly $\dot\mu K$" refers to (0.1)'s $K$.
 
 **Proposition R2.13 (the spherically symmetric sector in harmonic gauge; deduced; computed H4, B5,
-V1-V2; (b) proved [R10], read with (A10) and (A23)).** Let $\dot
+V1-V2; (b) proved [R10], read with (A10) and (A23); (a) proved [R11], as (b)'s input).** Let $\dot
 g_H$ be a harmonic-gauge solution of Proposition 2.1 (a), with gauge vector $Z'$.
 
 (a) *Exact form.* $(\dot g_H)_0 = \dot\mu K^*+\mathcal L_{Z'_0}g$, where $Z'_0$ is the $l = 0$ part of $Z'$, $\Box Z'_0 =
@@ -1046,7 +1067,8 @@ up to $\Sigma_U$. In the proof, $e$ is known on $N^+$ only (A2): extend $-\Theta
 $\Omega^\sharp$ as IX Theorem 2.2's Step 1 does (IX:231-234), solve $\Box\tilde Z = F$ on $\Omega^\sharp$ with the data
 (IX Lemma 1.1 with $P = \pm\Box$, IX Lemma 2.1 (a)), and restrict to $N^+$.
 
-**Lemma R3.1 (the extension does not reach $N^+$; deduced, computed P1).** Let $F_1,F_2$ be smooth on $\Omega^\sharp$
+**Lemma R3.1 (the extension does not reach $N^+$; deduced, computed P1; proved [R11]).**
+Let $F_1,F_2$ be smooth on $\Omega^\sharp$
 and equal on $N^+$, and let $\tilde Z_i$ solve $\Box\tilde Z_i = F_i$ with the same Cauchy data on $\Sigma^\circ$. Then
 $\tilde Z_1 = \tilde Z_2$ on $N^+$.
 
@@ -1130,7 +1152,8 @@ orders (control: with $c_\Upsilon = dt$, $A_1$ gains none). K2: with these, ever
 rotation) has joint orders $(\lambda+1,\kappa_\nu)$ at the corner, Lemma 2.2's values (control: $A_1$ without its gain
 gives $\iota^+$-order $\lambda$, contradicting Lemma 2.2 (b)).
 
-**Proposition R3.2 ((S$_K$) holds; deduced from the readings and K1-K4).** Let $\delta_\sharp := (1-e_\Upsilon)
+**Proposition R3.2 ((S$_K$) holds; deduced from the readings and K1-K4; proved [R11]).**
+Let $\delta_\sharp := (1-e_\Upsilon)
 \gamma_\Upsilon = \lambda_\sharp-\frac32>0$ (I10:45-46). For every $\beta\in(0,\delta_\sharp)$ and $\eta\in(0,
 \delta_\sharp-\beta)$, on $\{\chi_K = 1,\ t_*\ge T_0\}$: $h = h_{b_0,\mathrm{rem}}(q')+h'$ is conormal with
 $\iota^+$-order $\lambda_\sharp-\eta>\frac32+\beta$ and $K^+$-order $\alpha-2-\eta>\frac12$;
@@ -1172,7 +1195,8 @@ So $F_Y = J_h$ on $\{\chi_K = 1\}$ (R2.3); $F_Y = E^\Upsilon G\dot g$ on $\{\chi
 $\mathscr I^+$ ($\mathrm{supp}\,\chi_K\subset\{|x|<t/2\}$, B:347-348); the commutator terms live on $\mathcal C =
 \mathrm{supp}\,d\chi_K$, whose closure meets $\partial M$ only in a compact subset of $(\iota^+)^\circ$ (I15:207-208).
 
-**Lemma R3.5 (the source in II.F$'$'s class; deduced, computed S1-S4, S6, S8).** Let $\beta\in(0,\delta_\sharp)$,
+**Lemma R3.5 (the source in II.F$'$'s class; deduced, computed S1-S4, S6, S8; proved [R11]).**
+Let $\beta\in(0,\delta_\sharp)$,
 $b_+ := \beta+\frac12$, $b_I\in(b_+,\frac32)$, $\alpha_+ := \beta-2$, $\alpha_I := b_I-2$, and $\chi\in C^\infty(\mathbb
 R)$ equal to 0 on $(-\infty,2]$ and 1 on $[3,\infty)$. Then (1.3) of II.F$'$ holds for $P_0 = \Box$, and
 $\chi(t^\flat_*)F_Y$ lies in (1.4).
@@ -1207,7 +1231,8 @@ Without the term $\dot\mu\Box(\chi_KW^{**}_H)$ the source near $K^+$ is $J_h-\do
 order, of $K^+$-order 0, and not in (1.4) (S4's control). That is why the mass change is carried explicitly.
 
 **Theorem R3.4 (the harmonic gauge on the late region; deduced from Lemma R3.5, II.F$'$ Theorem 1.1 at $P = P_0 =
-\Box$, Theorems R2.5 and R2.7; assuming (Dyn) and (H$'$7)).** $\Box$ is 1-admissible with sf-weight $\alpha_+ =
+\Box$, Theorems R2.5 and R2.7; assuming (Dyn) and (H$'$7); proved [R11]).**
+$\Box$ is 1-admissible with sf-weight $\alpha_+ =
 \alpha_{\mathrm{sf}}$ and sf-loss 0 (Theorem R2.5 (iii), in the relaxed form II.F$'$ allows, F2:717). Let $Y$ be the
 forward solution on $\Omega_*$ of $\Box Y = \chi(t^\flat_*)F_Y$ (II.F$'$ Theorem 1.1, F2:65-80), extended by 0 to $N^+$,
 $$Z := \dot\mu\chi_KW^{**}_H+Y,\qquad\dot g_H := \dot g+\mathcal L_Zg\quad\text{on }N^+.$$
@@ -1255,7 +1280,7 @@ on $\Omega^\sharp$, with $F_Y|_{N^+}$ extended across $\Sigma^\circ$; unique on 
 $\beta\in(0,\delta_\sharp)$ and $p>\frac12+\beta$ such that $Z_1$ and its b-derivatives are $O(\rho_I^p)$ near
 $\mathscr I^+$ on $N^+\cap\{2\le t^\flat_*\le3\}$.
 
-**Proposition R3.6 (conditional on (Ext$\Box$); deduced, computed S5, S7).** Under (Ext$\Box$), with $Z :=
+**Proposition R3.6 (conditional on (Ext$\Box$); deduced, computed S5, S7; proved [R11]).** Under (Ext$\Box$), with $Z :=
 \dot\mu\chi_KW^{**}_H+Z_1$, $\dot g_H := \dot g+\mathcal L_Zg$ is in harmonic gauge on all of $N^+$, induces
 $(\dot\gamma,\dot k)$ exactly, and satisfies Theorem R3.4 (iii)-(iv).
 
@@ -1403,7 +1428,7 @@ $-\mathrm{tr}\nabla^2$ of IV:122, and
 $$L_\Box := \rho_I\rho^{-7/2}\,\Box\,\rho^{3/2}\quad\text{on Cartesian components,}\tag{R4.1}$$
 IV (2.1)'s conjugation applied componentwise; $L$ is IV (2.1)'s scalar operator.
 
-**Lemma R4.1 (the operator and its indicial data; computed E1-E5, deduced).**
+**Lemma R4.1 (the operator and its indicial data; computed E1-E5, deduced; (b), (d), (e) proved [R11]).**
 (a) For every 1-form $Z$, $(\Box Z)_c = \Box_0Z_c+C_c^{\nu b}\partial_bZ_\nu+D_c^\nu Z_\nu$, with $C$, $D$ stationary,
 $C = \sum_{k\ge1}\mu_0^kC_k$ and $D = \sum_{k\ge1}\mu_0^kD_k$, $C_k$ and $D_k$ homogeneous in $x$ of degrees $-1-2k$ and
 $-2-2k$ (so $O(|x|^{-3})$ and $O(|x|^{-4})$ with every derivative; at E1's points only $k = 1$ occurs), and
@@ -1448,7 +1473,8 @@ in zeroth order. E1 does not use this formula: it applies $d\delta+\delta d$ to 
 of degree $-1$; E2 computes each product. (c)-(e) as stated. $\square$
 
 **Proposition R4.2 (the exterior estimate for $\Box$; IV Propositions 3.1 and 4.1, IV' Proposition 2.2, IV'' Lemmas
-2.2-2.3 and IV''' Theorem 2.1 (i)-(iii) at $\Box$; deduced).** Let $\mathcal D$, $\Omega_{\mathrm{ext},r_1}$, $\mathcal
+2.2-2.3 and IV''' Theorem 2.1 (i)-(iii) at $\Box$; deduced; proved [R11]).**
+Let $\mathcal D$, $\Omega_{\mathrm{ext},r_1}$, $\mathcal
 K$, $\mathcal S$, $\Omega^\natural = \Omega_{\mathrm{ext},r_1}\cup\mathcal S$, $\rho'_0$, $\rho'_I$ and $c_1$ be those of
 III.K section 0 and Proposition 1.2's proof and of IV''' sections 0-2, at $S = 0$; $\mathcal D^+ := \mathcal D\cap\{
 t_{\mathrm{IVP}}\ge0\}$, $\tau' := t_{\mathrm{IVP}}/|x|$, $\Omega^\natural_{c_1} := \Omega^\natural\cap\{\rho'_I<c_1\}$.
@@ -1501,7 +1527,8 @@ $$\|u\|_{H^{m+1,a_0}_{\mathrm b}(\Omega^\natural\cap\{\rho'_I>c_1/2\})}+\|u\|_{H
    integrated as slot 6 is, and Lemma 1.2 (c) there needs $a_0>\gamma$. Theorem R4.3 needs only the estimate (R4.2).
 $\square$
 
-**Theorem R4.3 ((Ext$\Box$) holds; deduced from Proposition R4.2 and the readings below; computed E6).** Let $q_{\dot
+**Theorem R4.3 ((Ext$\Box$) holds; deduced from Proposition R4.2 and the readings below; computed E6; proved [R11]).**
+Let $q_{\dot
 h} := \min(\min\mathrm{Re}\,\mathcal E_0,\ell_0)$, so that $q_{\dot h}>\frac32+2\gamma_\Upsilon$ ($\min\mathrm{Re}\,
 \mathcal E_0>\frac32+2\gamma_\Upsilon$ and $\ell_0>3$, K:54-57). For every $\beta\in(0,\delta_\sharp)$ and every $p$ with
 $$\tfrac12+\beta<p<\min\big(\tfrac32,\ q_{\dot h}-1\big),$$
@@ -1565,7 +1592,8 @@ by (A25) (T1) and the uniqueness sentence of (A29); the last clause (Theorem R3.
 round 3's argument ((A23)). $G$-invariance of $Z_1$: Lemma R3.1's consequences. $\square$
 
 **Corollary R4.6 (Corollary R2.8 repaired: homogeneous solutions with data compactly supported on $\Sigma^\circ$;
-deduced).** Let $Y$ be a smooth 1-form on $N^+$ with $\Box Y = 0$ whose Cauchy data on $\Sigma^\circ$ have compact
+deduced; proved [R11]).**
+Let $Y$ be a smooth 1-form on $N^+$ with $\Box Y = 0$ whose Cauchy data on $\Sigma^\circ$ have compact
 support. Then $Q[Y]$ is constant at late times, and on each $\{r_0<r\le R',\ t_*\ge T'\}$, $|Y-(Q[Y]/4\pi^2)W^*|\le
 Ct_*^{-1/2}$ with the derivatives of (R2.2) as amended by (A12). Near $\mathscr I^+$ on $N^+\cap\{t^\flat_*\le\hat T+3\}$
 the Cartesian components of $Y$ and all their b-derivatives are $O(\rho_I^p)$ for every $p<\frac32$.
@@ -1960,7 +1988,8 @@ $\Box$ is $\alpha+2\in(0,1)$, inside the gap. At $\mathscr I^+$ the outgoing roo
 root 1.
 
 **Theorem R5.1 (Theorem R2.5 at positive $K^+$-weight: III.I$''$ Proposition 5.1 at $\Box$, at $b_0$; deduced, computed
-Q1-Q5).** Let $\alpha_K\in[\frac12,1)$, $\gamma_+\in(\alpha_K,\frac32)$, $w_I\ge\max(\frac52,\gamma_++2-\alpha_K)$ and
+Q1-Q5; proved [R11]).**
+Let $\alpha_K\in[\frac12,1)$, $\gamma_+\in(\alpha_K,\frac32)$, $w_I\ge\max(\frac52,\gamma_++2-\alpha_K)$ and
 $$f\in H^{\infty,(w_I,\gamma_++2,\alpha_K)}_{\mathrm b}(\Omega_*;T^*)^{\bullet,-},\tag{R5.1}$$
 and let $u$ be the forward solution of $\Box u = f$ (II.F$'$ Theorem 1.1 at $P = P_0 = \Box$). Then $\gamma_+-\alpha_K\in
 (0,1)$, and for every $\epsilon\in(0,\frac15(\frac32-\gamma_+)]$:
@@ -2059,7 +2088,8 @@ Theorem R2.4 and $W^*\in\mathcal A^2$. The zero-energy structure enters only thr
 (0,1)$ and through the absence of a zf Taylor term ($\alpha_K<1$); round 4's $\sigma^2\log\sigma$ (G1-G3) lies above
 both.
 
-**Theorem R5.2 (Theorem R2.7 at $K^+$-weight $\alpha_K$; deduced from Theorem R5.1, Lemma 2.2 and B4).** Let $f$, $u$
+**Theorem R5.2 (Theorem R2.7 at $K^+$-weight $\alpha_K$; deduced from Theorem R5.1, Lemma 2.2 and B4; proved [R11]).**
+Let $f$, $u$
 be as in Theorem R5.1 and $R'>r_0$. On $\{r_0<r\le R',\ t_*\ge8\max(R',1)\}$, with every number of derivatives in $x$
 and $t_*$ (the constant depending on the number),
 $$\big|u-c_f(t_*)W^*\big|\le C\,t_*^{-\alpha_K}\|f\|,\tag{R5.2}$$
@@ -2078,7 +2108,8 @@ b-derivatives $t_*\partial_{t_*}$ and $\partial_x$; $\partial_{t_*}\beta = \part
 
 ### R5.b The rate
 
-**Corollary R5.3 (the harmonic gauge at $t_*^{-1/2-\kappa}$; deduced, computed Q6).** Let $\delta_\sharp =
+**Corollary R5.3 (the harmonic gauge at $t_*^{-1/2-\kappa}$; deduced, computed
+Q6; proved [R11] for Corollary R4.4's and Theorem R3.4 (iii)'s representatives).** Let $\delta_\sharp =
 (1-e_\Upsilon)\gamma_\Upsilon\in(0,\frac14)$ (I10:44-46). For every $\kappa\in(0,\delta_\sharp)$ there is $C_\kappa$,
 bounded by finitely many data norms, such that on each $\{r_0<r\le R',\ t_*\ge T'\}$, with every number of derivatives,
 $$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le C_\kappa\,t_*^{-1/2-\kappa},\tag{R5.3}$$
@@ -2346,12 +2377,14 @@ cut-off; $c\le\frac1{8\sqrt5}$ and below the $k$-independent bound that makes $\
 $\mathrm{supp}\,\varphi$ ($\varphi$ of R2.1). $L_b = \Box$ at $b_0$, $\hat P(\sigma)$ its spectral family, $\tilde
 P(\sigma)$ Definition R2.1's augmentation, with one column $\hat f_*$ and no $\mathcal S_1$-column.
 
-**Lemma R6.1 (III.I$'''$ Lemma 1.1 at $\Box$; deduced, computed D1).** I4:35-58 verbatim: no operator enters, only
+**Lemma R6.1 (III.I$'''$ Lemma 1.1 at $\Box$; deduced, computed D1; proved [R11]).**
+I4:35-58 verbatim: no operator enters, only
 $P\in\rho^p\mathrm{Diff}^m_{\mathrm b}(\bar X)$ with smooth coefficients. The Fubini count of (a) is D1 (b): the weight
 it produces is $\rho^{-2(\gamma_{\mathrm{tf}}-j)}$ exactly, and the inner integral converges iff
 $\gamma_{\mathrm{zf}}<j$ (control in D1: the weights of the column at $q = 1$).
 
-**Lemma R6.2 (III.I$'''$ Lemma 1.2 at $\Box$; deduced, computed D1, D5).** For $u_0\in H^{\infty,a}_{\mathrm b}(X)$ and
+**Lemma R6.2 (III.I$'''$ Lemma 1.2 at $\Box$; deduced, computed D1, D5; proved [R11]).**
+For $u_0\in H^{\infty,a}_{\mathrm b}(X)$ and
 $|\sigma|\le c$: (a) $(\hat P(\sigma)-\hat P(0))(\chi_{\mathrm{zf}}u_0)\in H^{\infty,(\infty,a+2,\gamma_{\mathrm{zf}})}
 _{\mathrm b}$ for every $\gamma_{\mathrm{zf}}<1$; (b) $\hat f_*(\sigma)-\chi_{\mathrm{zf}}\hat f_*(0)\in H^{\infty,(N,
 3-\epsilon,1-\epsilon)}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$ for every $N$ and $\epsilon>0$, and $\hat
@@ -2368,7 +2401,8 @@ gives the $O(r^{-4})$ bound with the mass. Then I4:84-96 verbatim; the Fubini co
 $\gamma_{\mathrm{zf}}<1$ and $\gamma_{\mathrm{tf}}<3$ (control: $q = 1$ gives $\gamma_{\mathrm{tf}}<1$). $\hat
 f_*(0)\in\mathcal A^3$ is Lemma R2.2 (b). $\square$
 
-**Lemma R6.3 (III.I$'''$ Lemma 1.3 at $\Box$; deduced, computed D1).** With $G_1(\sigma)b := \Psi(\sigma,\cdot)bW^*$
+**Lemma R6.3 (III.I$'''$ Lemma 1.3 at $\Box$; deduced, computed D1; proved [R11]).**
+With $G_1(\sigma)b := \Psi(\sigma,\cdot)bW^*$
 (R5.1 step 3) and $b_0\in\mathbb C$, $\chi(|\sigma|)G_1(\sigma)(b_0)-\chi_{\mathrm{zf}}b_0W^*\in H^{\infty,(N,2-\epsilon,
 1-\epsilon)}_{\mathrm b}$ for every $N$, $\epsilon>0$, and $W^*\in H^{\infty,2-\epsilon}_{\mathrm b}(X)$.
 
@@ -2380,7 +2414,8 @@ II.G$'$ Lemma 4.6's proof, not by assignment: $\|W_\beta^{-1}\Phi(\sigma r)r^{-2
 
 ### R6.b III.I$'''$ Proposition 2.1 at $\Box$, and the rate
 
-**Theorem R6.4 (III.I$'''$ Proposition 2.1 at $\Box$, at $b_0$; deduced, computed D1-D3).** Let $\alpha_K\in(1,2)$,
+**Theorem R6.4 (III.I$'''$ Proposition 2.1 at $\Box$, at $b_0$; deduced, computed D1-D3; proved [R11]).**
+Let $\alpha_K\in(1,2)$,
 $\gamma_+\in(\alpha_K,2)$, $\epsilon_1\in(0,\frac12)$, $w_I\ge\max(\frac52,\gamma_++1+\epsilon_1)$ and
 $$f\in H^{\infty,(w_I,\gamma_++2,\alpha_K)}_{\mathrm b}(\Omega_*;T^*)^{\bullet,-}\quad\text{(plain weights, no
 expansion at }\mathscr I^+),\tag{R6.1}$$
@@ -2482,7 +2517,8 @@ below $\beta_{\mathrm{zf}} = \alpha_K-1$, which was round 5's stop at $\alpha_K 
 Propositions 2.8, 3.3 and 3.5 exclude the integer, and the Taylor term of order 1 enters with $\sigma\log\sigma$ (D3's
 control, Proposition R6.7). This is a stop of the method as carried; Proposition R6.7 says what lies beyond it.
 
-**Theorem R6.5 (the rate at $K^+$-weight $\alpha_K\in(1,2)$; deduced from Theorem R6.4, Lemma 2.2 and B4).** Let $f$,
+**Theorem R6.5 (the rate at $K^+$-weight $\alpha_K\in(1,2)$; deduced from Theorem R6.4, Lemma 2.2 and
+B4; proved [R11]).** Let $f$,
 $u$ be as in Theorem R6.4 and $R'>r_0$. On $\{r_0<r\le R',\ t_*\ge8\max(R',1)\}$, with every number of derivatives in
 $x$ and $t_*$ (the constant depending on the number),
 $$\big|u-c_f(t_*)W^*\big|\le C\,t_*^{-\alpha_K}\|f\|,\tag{R6.2}$$
@@ -2577,7 +2613,7 @@ $t_*^{-2+\epsilon}$. (A38) records the readings.
 ### R6.e The harmonic-gauge exponent: sharp in its source class
 
 **Lemma R6.8 (the spherically symmetric part of the gauge source; deduced from Theorem 1.5 (a), Proposition 2.1 (d),
-H1).** On $N^+$ the $l = 0$ part of $F_Y$ of (R3.2) is
+H1; proved [R11]).** On $N^+$ the $l = 0$ part of $F_Y$ of (R3.2) is
 $$F_{Y,0} = \Box\big(X_{\mathrm{RW},0}+\dot\mu(1-\chi_K)W^{**}_H\big),\qquad\text{so}\quad J_{h,0} =
 \Box X_{\mathrm{RW},0}\ \text{on }\{\chi_K = 1\},\tag{R6.4}$$
 $X_{\mathrm{RW},0}$ the $l = 0$ part of the Regge-Wheeler-type gauge vector of Theorem 1.5.
@@ -5609,6 +5645,7 @@ Each result below now carries "proved [R10]" in its label, the old label kept.
 - Proposition R6.7 (formal), Proposition R7.8 and Remark R8.13;
 - the deductions inside R9.c and the index arithmetic of N6.
 No text in R10.h cites one of them as proved.
+[R11 (A111): this list contained inputs of promoted results. They are promoted in R11.p, which lists what remains.]
 
 *Supplement Proposition 10.1 (iv-a).* It rests on Theorem 1.5 (b) and (d), which are proved. R10.h's text (10)
 replaces its "verified, not yet promoted to proved".
@@ -5619,6 +5656,7 @@ replaces its "verified, not yet promoted to proved".
    and T9, and the texts.
 2. *Proposition R4.2's transposition* of Part IV, behind Corollary R4.4: promoted on the round-4 verifier's read, not
    re-derived since. This is report-vA9's own caveat.
+   [R11 (A117): closed. report-vA10 re-derived Proposition R4.2, with Lemma R4.1 (b), (d) and (e).]
 3. As R9.e: R6.7 (b)-(c) are formal, and nothing rests on them. Sharpness is not computed and claimed nowhere.
 
 ### R10.f Runs and mutations
@@ -5680,6 +5718,7 @@ supersede R9.h's, whose old texts (R8.h's) none has been seated; their status wo
 this round edits neither file, and another pass (D627) is editing `N1STAR-PROOF.md` now, so each old text is to be
 found by its text. Statuses are stated as the corpus has them: Part VIII and Part IX proved; the GAUGEDECAY5 results
 cited proved (R10.p).
+[R11: superseded by R11.h.]
 
 (1) *`N1STAR-PROOF.md`, 10.2 (iv)*, from "When" (at the end of a line) to "as in four dimensions.". Old:
 

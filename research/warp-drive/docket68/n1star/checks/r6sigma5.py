@@ -27,27 +27,25 @@ P(h) := Ric^H(g_b0 + h; g_b0), g_b0 := eta + mu r^-2 k k, mu = 4/5, Cartesian; f
      Sigma_2 + Sigma_(5/2) + Sigma_4 (the mu Sigma_(5/2) and Sigma_2 Sigma_(5/2) terms). Controls (the code
      mutated): the l = 2 piece with a constant F (static, but not a solution of L_2 F = -1), and -Sigma_4: decay 6
      each; Sigma_2 + Sigma_(5/2) without Sigma_4: decay 6.
-  W (computed) the window as a whole. Each condition of the bootstrap is an exponent computed here, not typed:
-     W1 the cap: the energy of the truncation's data on the band at t = T (the exact h_R of r5settle5 G1, its
+  W the window. Its a-dependent conditions, each an exponent: W1 the cap's, measured (below); W2 the N-flux tail's,
+     exact on the field; W3 the residual's kernel from the degree measured in S4; and, counted by hand from typed
+     scaling rules ([arithmetic]), W4 the h_R rows (S1's scale-invariant F of R^(2a+3) F^2 gives a + 3/2, its integral
+     from infinity a + 1/2; the coefficient rows of r5op5 O1 do not depend on a), W5 the class on S (r = 1/rho turns
+     int r^(2a+1) phi^2 dr into int (rho^-(a+1) phi)^2 drho/rho: exponent a + 1, inside rho^(l0) L^2_b for
+     a + 1 > l0), W6 Step 2 (a + 1/2 >= 2), W7 Lemma R4.5 (widened: the flux and int r^(2a-8) dr finite exactly for
+     a < 7/2, Lemma R3.2 on (0, 7/2)), W8 Proposition R5.2 (min(3, a + 1/2) > 1).
+     W1 in detail: the energy of the truncation's data on the band at t = T (the exact h_R of r5settle5 G1, its
         expansion at fixed v through r^-5, smoothstep cut-off, weight (2r)^(2a), l = 2) measured at |T| = 1e5, 1e6,
         1e7 for 13 values of a in [1/2, 7/2]: the measured exponents are the affine law 2a - 6 (least squares, its
-        coefficients identified as rationals, residual below 2e-3), so the cap -> 0 exactly for a < 3;
-     W2 the N-flux tail of h_R(v1, .) (exact, sympy): exponent 2a - 7: finite and vanishing exactly for a < 7/2;
-     W3 the residual's kernel from the degree q_R measured in S4: ||(2r)^a r^-q_R||_(L^2(r >= rho)) computed with
-        symbolic a, integrable in sigma exactly for a < q_R - 3 (7/2 at q_R = 13/2; 3 at q_R = 6);
-     W4 the h_R rows: S1's pointwise exponent (the scale-invariant F of R^(2a+3) F^2), a + 3/2, and the zero-order
-        one obtained by integrating it from infinity, a + 1/2 (sympy), give the rows 3/2 + a and a + 1/2, > 1 for
-        a > 1/2; the coefficient rows (r5op5 O1: 3, 3, 3, 3, 2) do not depend on a;
-     W5 the class on S: r = 1/rho turns int r^(2a+1) phi^2 dr into int (rho^-(a+1) phi)^2 drho/rho (sympy): class
-        exponent a + 1, inside rho^(l0) L^2_b for a + 1 > l0 (equality would also do; the window is open);
-     W6 Step 2: the pointwise exponent a + 1/2 >= 2 (|H| <= r^-2/2); W7 Lemma R4.5 (widened, R6.0 (m3)): the flux
-        finite (W2) and the |H| |d phi|^2 term int r^(2a-8) dr finite exactly for a < 7/2 (sympy), Lemma R3.2 on
-        (0, (J' - 1)/2) = (0, 7/2); W8 Proposition R5.2: min(3, a + 1/2) > 1.
-     The intersection, as sympy intervals, is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9. Controls (the field or a
-     condition mutated): p = 4 dropped from Sigma (W1-W2 recomputed on that field: 2a - 5, 2a - 6) gives
-     (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives (max(l0 - 1, 5/2), 3); and q_R = 6
-     (F_4 with no source, Sigma_2 + Sigma_(5/2) of S4) leaves the window unchanged (R6.0 (r6-F4)).
-Labels: computed (S1-S3 exact; S4 mpmath at 40 digits; W1 mpmath quadrature at 30 digits, W2-W8 exact sympy).
+        coefficients identified as rationals, residual below 2e-3), so the cap -> 0 exactly for a < 3.
+     W: the intersection, as sympy intervals, is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9; its upper end comes from
+     the measured cap exponent and its lower end from W5's exponent (round 7: round 6 typed the lower end l0 - 1 in
+     the window, and W5's result was not used). Controls (the field or a condition mutated): p = 4 dropped from
+     Sigma (W1-W2 recomputed on that field: 2a - 5, 2a - 6) gives (l0 - 1, 5/2) and nothing for l0 >= 7/2; Lemma
+     R4.5 on (5/2, 7/2) gives (max(l0 - 1, 5/2), 3); q_R = 6 (F_4 with no source) leaves the window unchanged; and
+     W5's exponent mutated to a + 1/2 moves the lower end to l0 - 1/2 (W''', round 7).
+Labels: computed (S1-S3 exact; S4 mpmath at 40 digits; W1 mpmath quadrature at 30 digits, W2-W3 exact sympy);
+W4-W8 [arithmetic] (exponents of typed scaling rules, solved exactly).
 
     python3 checks/r6sigma5.py     (18 to 29 minutes on this loaded machine, beside the others; S4 most of it)
 """
@@ -405,7 +403,8 @@ def part_s4(Q6):
 # ================================================================ W: the window, computed
 
 def part_w(qR, qR_flat):
-    print("W  the weight window, every condition an exponent computed here")
+    print("W  the weight window: the cap's and the tail's exponents measured (W1-W2), the residual's degree measured "
+          "(S4); the rows', the class's and Step 2's exponents counted by hand ([arithmetic], W4-W8)")
     import r5settle5 as R5
     a = sp.Symbol("a", positive=True)
     rnd = random.Random(41)
@@ -506,14 +505,16 @@ def part_w(qR, qR_flat):
     beta0 = -power(sp.integrate(r_**(-beta1), (r_, rho, sp.oo), conds="none"))
     rows = {"B(H) . d phi, deformation": beta1, "C(H) phi through Hardy, (B)": beta1 - 1}
     rows_set = sp.Intersection(*[sp.solve_univariate_inequality(q > 1, a, relational=False) for q in rows.values()])
-    check("W4 S1's pointwise exponent is a + 3/2 and its integral from infinity a + 1/2 (sympy); the h_R rows 3/2 + a "
+    check("W4 [arithmetic: the scaling rules entered] S1's pointwise exponent is a + 3/2 and its integral from "
+          "infinity a + 1/2 (sympy); the h_R rows 3/2 + a "
           "and a + 1/2 are > 1 exactly for a > 1/2; the coefficient rows (r5op5 O1) do not depend on a",
           beta1 == a + Q(3, 2) and beta0 == a + Q(1, 2) and rows_set == sp.Interval.open(Q(1, 2), sp.oo),
           f"beta1 = {beta1}, beta0 = {beta0}, rows > 1 on {rows_set}")
     rr = sp.Symbol("rr", positive=True)
     per = (rr**(2*a + 1)).subs(rr, 1/rho)*sp.diff(1/rho, rho)*(-1)*rho   # r^(2a+1) dr per drho/rho
     cls_exp = sp.simplify(-power(per)/2)
-    check("W5 r = 1/rho: r^(2a+1) dr = rho^(-2(a+1)) drho/rho, the class exponent a + 1 (sympy); inside rho^(l0) L^2_b "
+    check("W5 [arithmetic: the weight entered] r = 1/rho: r^(2a+1) dr = rho^(-2(a+1)) drho/rho, the class exponent "
+          "a + 1 (sympy); inside rho^(l0) L^2_b "
           "for a + 1 > l0", cls_exp == a + 1, str(cls_exp))
     x_cap_r, x_fl_r, x_cap7_r, x_fl7_r = x_cap, x_fl, x_cap7, x_fl7
     step2 = sp.solve_univariate_inequality(beta0 >= 2, a, relational=False)
@@ -521,17 +522,20 @@ def part_w(qR, qR_flat):
     cond45 = sp.solve_univariate_inequality(hd.args[0].cond, a, relational=False)   # sympy's convergence condition
     lem45 = sp.Interval.open(0, x_fl_r) & cond45 & sp.Interval.open(0, Q(8 - 1, 2))
     r52 = sp.solve_univariate_inequality(sp.Min(3, a + Q(1, 2)) > 1, a, relational=False)
-    check("W6-W8 Step 2: a + 1/2 >= 2 on [3/2, oo); Lemma R4.5 widened: the flux (W2) and int r^(2a-8) dr (sympy's "
+    check("W6-W8 [arithmetic: the thresholds entered] Step 2: a + 1/2 >= 2 on [3/2, oo); Lemma R4.5 widened: the "
+          "flux (W2) and int r^(2a-8) dr (sympy's "
           "own convergence condition) finite on (0, 7/2), Lemma R3.2 on (0, (J' - 1)/2) = (0, 7/2); Proposition "
           "R5.2: min(3, a + 1/2) > 1 on (1/2, oo)",
           step2 == sp.Interval(Q(3, 2), sp.oo) and lem45 == sp.Interval.open(0, Q(7, 2))
           and r52 == sp.Interval.open(Q(1, 2), sp.oo), f"{step2}, {lem45}, {r52}")
 
-    def window(l0v, capx, flx, lemma45, rs):
+    def window(l0v, capx, flx, lemma45, rs, cls=cls_exp):
+        # [R7 (minor 2)] the class's lower end is W5's computed exponent, not typed: a with cls(a) > l0
+        cls_set = sp.solve_univariate_inequality(cls > l0v, a, relational=False)
         sets = [sp.Interval.open(0, capx), sp.Interval.open(0, flx), rs, rows_set,
-                sp.Interval.open(l0v - 1, sp.oo), step2, lemma45, r52]
+                cls_set, step2, lemma45, r52]
         return sp.Intersection(*sets)
-    ok, ctl_a, ctl_b, ctl_c, info = True, True, True, True, {}
+    ok, ctl_a, ctl_b, ctl_c, ctl_d, info = True, True, True, True, True, {}
     for l0v in (Q(31, 10), Q(33, 10), Q(36, 10), Q(39, 10)):
         w = window(l0v, x_cap_r, x_fl_r, lem45, res_set)
         info[str(l0v)] = str(w)
@@ -542,11 +546,16 @@ def part_w(qR, qR_flat):
         ctl_b = ctl_b and wb == sp.Interval.open(sp.Max(l0v - 1, Q(5, 2)), 3)
         wc = window(l0v, x_cap_r, x_fl_r, lem45, res_set_flat)
         ctl_c = ctl_c and wc == w
-    check("W the intersection of the computed conditions is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9", ok, str(info))
+        wd = window(l0v, x_cap_r, x_fl_r, lem45, res_set, cls=cls_exp - Q(1, 2))
+        ctl_d = ctl_d and wd == (sp.Interval.open(l0v - Q(1, 2), 3) if l0v < Q(7, 2) else sp.EmptySet)
+    check("W the intersection of the conditions is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9 (its upper end from the "
+          "measured cap exponent, its lower end from W5's class exponent)", ok, str(info))
     check("W' controls: p = 4 dropped from Sigma (W1-W2 recomputed: crossings 5/2 and 3) gives (l0 - 1, 5/2), empty "
           "for l0 >= 7/2; Lemma R4.5 on (5/2, 7/2) gives (max(l0 - 1, 5/2), 3)", ctl_a and ctl_b)
     check("W'' with q_R = 6 (F_4 without its source: P(Sigma) = O(lam r^-6), measured in S4) the window is unchanged: "
           "the cap's a < 3 binds first (R6.0 (r6-F4))", ctl_c)
+    check("W''' [R7] control (W5's class exponent mutated to a + 1/2): the window's lower end moves to l0 - 1/2, so W "
+          "uses W5's result", ctl_d)
 
 
 def main():

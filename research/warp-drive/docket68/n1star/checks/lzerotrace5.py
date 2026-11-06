@@ -72,6 +72,8 @@ at the numerical point, not in general). Later edits to N1STAR-PROOF.md (the con
 D627 (the reader of the D625 seating: one minor, eight notes, seated): T0 re-pinned to the D627 file (lines 1-958 and
 the whole file of 11310 lines) and every row outside section 6 re-keyed by content (the D627 map below); the
 seating's wraps keep every fragment on one line. The same later edits will stale FILE_PIN again.
+D630 (WS-B's R6-D seated in Lemma 11.0, section 11's status, four notes in section 10.3): lines 1-958 unchanged (PIN
+and every row unchanged); FILE_PIN re-pinned to the D630 file (11350 lines).
 """
 import hashlib
 import os
@@ -93,7 +95,7 @@ LEAD = os.path.join(HERE, '..', 'lead5.py')
 PIN = 'f32ebb1a717b08362c04569fb82973de'          # md5 of lines 1-958 (sections 0-6, to '## 7.') joined by newlines
 LAST = 958                                         # D627; 948 at D625 (0c9fa8c2...), 817 at D616 (39acbcf0...)
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '223e17497eb670ae45f5d4ad28e0d9f5'     # the whole file at D627 (11310 lines); D625: 7400212b... (11287)
+FILE_PIN = '87501cfb81d0e9632721e1e7944b9c38'     # the whole file at D630 (11350 lines); D627: 223e1749... (11310)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 

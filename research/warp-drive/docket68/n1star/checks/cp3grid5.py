@@ -16,16 +16,27 @@ vsave 1.4); every comparison here is on the 400-row nodes, the finer grids sampl
      Verdict per band: 'second order' if both monitor ratios and the P ratio lie in [3, 5.5] and the M ratio in
      [1/1.5, 1.5]; 'converging' if the last monitor ratio and the P ratio are >= 2; 'not converging' if the last
      monitor ratio is below 1.5; otherwise 'undecided'.
-  A8 the Kretschmann scalar (dnsolve5.kretschmann, as cpaxis5.py A6) on the same 24 u-rows, at x = 0.97, 0.5, 0,
-     -0.5, -0.97, per band of v in [1.5, 2.25] at areal radius 1.0-1.4: dev = max |K/K_0 - 1| at 1600 rows M = 32,
-     the null-step differences |K_400 - K_800| and |K_800 - K_1600| over K_0 with their ratio, and the angular
-     difference |K_32 - K_40| at 1600 rows.  'resolved' where the finest null-step and angular differences are below
-     5 % of dev and the null-step ratio is >= 2.
+  A8 the Kretschmann scalar (dnsolve5.kretschmann, as cpaxis5.py A6) on 32 u-rows of the 400-row grid crossing kept
+     cells with areal radius in [0.85, 1.5], at x = 0.97, 0.5, 0, -0.5, -0.97, per band of v in [1.5, 2.25] and per
+     areal-radius class 0.9-1.0, 1.0-1.2, 1.2-1.4 (the verifier of round 4, m3: A6 merged 1.0-1.4): dev = max
+     |K/K_0 - 1| at the finest null grid (M = 32), the successive null-step differences over K_0 (with their ratio
+     when three grids are given), and the angular difference M = 32-40 at the finest grid.  'resolved' where the
+     finest null-step and angular differences are below 5 % of dev (and, with three grids, the ratio is >= 2).  It
+     takes the M = 32 null grids coarse to fine, then the M = 40 run: two grids (round 4's 400, 800 and 800 at M = 40)
+     or three.
+  A9 |P_32 - P_40| per areal-radius class and v-band at one null grid, M = 40 interpolated to M = 32's nodes by its
+     Chebyshev series (the verifier of round 4's pm_class.py, re-derived).
+  A10 (the verifier of round 4, m4) the regularisation's correction d_-, d_+ (cpaxis5.py solve_reg), replayed at every
+     cell from the stored solution by the same formula on the same corner values: max |d+-| per band and areal-radius
+     class, with max |d+-|/max |R_uv|, at each grid given, and the ratios between successive grids (4 if it is
+     O(the truncation error) at second order; near 1 if it persists).
   Control: A7 run with the 800-row file given twice in place of 800 and 1600 must report a ratio of exactly 1 and
      'not converging' on every band (the verdict code cannot pass a persistent violation).
 
   python3 checks/cp3grid5.py --a7 M32_400.npz M32_800.npz M32_1600.npz M40_1600.npz
-  python3 checks/cp3grid5.py --a8 M32_400.npz M32_800.npz M32_1600.npz M40_1600.npz
+  python3 checks/cp3grid5.py --a8 M32_400.npz M32_800.npz [M32_1600.npz] M40_finest.npz
+  python3 checks/cp3grid5.py --pclass M32.npz M40.npz                  (A9)
+  python3 checks/cp3grid5.py --dpm M32_400.npz M32_800.npz [M32_1600.npz]   (A10)
   python3 checks/cp3grid5.py --control M32_400.npz M32_800.npz M40_800.npz
 """
 import os, sys, time, importlib.util

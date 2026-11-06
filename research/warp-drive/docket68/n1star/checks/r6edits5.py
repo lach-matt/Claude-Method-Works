@@ -8,8 +8,13 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      predicates (a)-(f) ((a) and (b) read for R6-D's wording: R_gamma^n defined in the sentence that uses it, the
      sums read structurally) and four more: (g) "gamma' <= gamma" at both Leibniz sums; (h) the family is indexed by
      delta (gamma' is not reused); (i) f_gamma^n, b^n, c^n and R_gamma^n are defined; (j) ||R_gamma^n|| <= C(lam, j)
-     t^(-3/2) uniformly in n is stated, with its reason. Control: on the live, unedited Lemma 11.0 every predicate
-     fails.
+     t^(-3/2) uniformly in n is stated, with its reason. Round 7 (the round-6 reader's minor 3): the induction's
+     structure (which terms are unknown, of which order R_gamma is, that Gronwall's lemma acts on the family, that
+     Lemma 9.3(b)'s hypothesis holds, that b^n and c^n have b's and c's constants) is a read proof, not computed;
+     five more predicates check that the text states each step: (k) "contains derivatives of u_1 of order <= j + 1
+     only", (l) "by Lemma 9.3(b) (U vanishes on {v = v_start})", (m) "summed over the family, Gronwall's lemma then
+     costs", (n) "b . d U is of the order this step estimates and is not known", (o) "obey the bounds on b and c
+     above with the same constants". Control: on the live, unedited Lemma 11.0 every predicate fails.
   E2 (exact, sympy) what the edited text states, every quantity read from the text by a pattern:
      E2a Leibniz's rule with the sign, the coefficient and the binomial factor read from both sums: for generic g, u of
          (x, y) and every gamma of order 1..3, -(1/2) g d_x^2 d^gamma u = d^gamma(-(1/2) g d_x^2 u) + s c sum_{0 <
@@ -30,16 +35,22 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      E2g the L^2 norms on Sigma_tau cap P+ = {t + a1 <= r <= t + a2} x S^3 (measure r^3 dr domega): a field in E_q has
          norm ~ t^(3/2 - q) (exact leading power): E_3 gives the t^(-3/2) read for R_gamma's source, a derivative in
          E_2 the t^(-1/2) read for the lower steps' energies, and a product (E_(3/2) or E_2) x t^(-1/2) at most
-         t^(-2) <= t^(-3/2): the bound read for ||R_gamma|| is the largest of them.
+         t^(-2), which must equal the text's own "each product at most C t^(-2)" (read, round 7): the bound read for
+         ||R_gamma|| is the largest of them.
      E2h the bookkeeping inequality read ("floor((N + 2)/2) <= max(4, N - 3)") holds for N = 1..2000.
   E3 controls: the text under test mutated in memory, each mutation must make E1 or E2 fail: c U's bound lam^-1 ->
      lam^-3 (the reader's E-m5), the factor -> e^(2C/lam) (E-m6), the coefficient 1/2 of the |gamma'| = 1 sum dropped,
      C(gamma, gamma') dropped at the |gamma'| >= 2 sum, R_gamma's source E_3 -> E_(5/2), and max(4, N - 3) ->
      max(4, N - 4).
-  E4 (text) R6-E's three paper blocks against RESPONSE-HL-5D.md (not edited): each old text once, every line within
-     121 characters after the edit, and the new texts state what the round-5 reader's m6 asked (condition (b), R6-D
-     written and not applied, "supplement section 11.1", eps named, Proposition 3.1 deduced, the window computed from
-     measured exponents). Control: R5-E's blocks fail at least six of the eight.
+  E4 (text) the final paper blocks, R7-E since round 7 (R6-E's in round 6), against RESPONSE-HL-5D.md (not edited):
+     each old text once, every line within 121 characters after the edit, and the new texts state what the round-5
+     and round-6 readers asked (section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII,
+     BEYOND5 Lemma 6.4 (iv) as deduced, eps named, Proposition 3.1 deduced, the r^(-4) term built for one example,
+     the window computed from measured and hand-counted exponents). Control: R6-E's blocks fail at least six of the
+     ten.
+  D630: R6-D is seated in N1STAR-PROOF.md (each new block occurs there once, no old block); the program then undoes it
+     in memory, with its two "[amended D630: WS-B round 6, R6-D ...]" marks, and runs E1-E3 on that copy, and E1s
+     checks that re-applying the blocks gives the live file but for the two marks.
 Labels: E1 and E4 text checks; E2 exact (sympy), E2e partly sampled.
 
     python3 checks/r6edits5.py     (one to two minutes on this loaded machine)
@@ -189,9 +200,10 @@ def r6_only_ok(L):
     else:
         out["E2f"] = (False, "not read")
     src = re.search(r"F_1\(X, 0, 0\), in E_(\d+|\(\d+/\d+\)), has L\^2 norm at most C t\^\(([-\d/]+)\)", L)
+    prd = re.search(r"each product at most C t\^\(([-\d/]+)\)", L)      # [R7] the text's own product bound
     eng = re.search(r"the energies of the lower steps, at most C t\^\(([-\d/]+)\)", L)
     rg = re.search(r"\|\|R_gamma\|\| <= C\(lam, j\) t\^\(([-\d/]+)\)\.", L)
-    if src and eng and rg:
+    if src and eng and rg and prd:
         r, a1, a2 = sp.symbols("r a1 a2", positive=True)
 
         def l2pow(q):
@@ -201,10 +213,10 @@ def r6_only_ok(L):
         qs = frac(src.group(1).strip("()"))
         p_src, p_eng = l2pow(qs), l2pow(sp.Integer(2))
         p_prod = max(-sp.Rational(3, 2), -2) + p_eng  # a coefficient in E_(3/2) or a factor in E_2, times the L^2 factor
-        ok = (p_src == frac(src.group(2)) and p_eng == frac(eng.group(1)) and p_prod <= -2
+        ok = (p_src == frac(src.group(2)) and p_eng == frac(eng.group(1)) and frac(prd.group(1)) == p_prod
               and frac(rg.group(1)) == max(p_src, p_prod))
-        out["E2g"] = (ok, f"E_{qs} -> t^({p_src}), E_2 -> t^({p_eng}), products <= t^({p_prod}); read ||R_gamma|| "
-                          f"t^({rg.group(1)})")
+        out["E2g"] = (ok, f"E_{qs} -> t^({p_src}), E_2 -> t^({p_eng}), products <= t^({p_prod}) (read: "
+                          f"t^({prd.group(1)})); read ||R_gamma|| t^({rg.group(1)})")
     else:
         out["E2g"] = (False, "not read")
     bk = re.search(r"floor\(\(N \+ (\d+)\)/(\d+)\) <= max\((\d+), N - (\d+)\) for every N >= 1", L)
@@ -274,7 +286,23 @@ def predicates6(L):
     p["i"] = "where f_gamma^n, b^n, c^n and R_gamma^n are f_gamma, b, c and R_gamma with g_n and u_1^n" in Ln
     p["j"] = ("||R_gamma^n|| <= C(lam, j) t^(-3/2) uniformly in n: d_X^gamma F_1(X, 0, 0) does not depend on n" in Ln
               and "induction hypothesis for u_1^n, which is uniform in n" in Ln)
+    # [R7 (minor 3)] the induction's structure is a read proof; these predicates check that the text states its steps
+    p["k"] = "contains derivatives of u_1 of order <= j + 1 only" in Ln          # R_gamma is of lower order
+    p["l"] = "by Lemma 9.3(b) (U vanishes on {v = v_start})" in Ln               # Lemma 9.3(b)'s hypothesis
+    p["m"] = "summed over the family, Gronwall's lemma then costs" in Ln         # Gronwall on the family
+    p["n"] = "b . d U is of the order this step estimates and is not known" in Ln
+    p["o"] = "obey the bounds on b and c above with the same constants" in Ln   # b^n, c^n uniform in n
     return p
+
+
+D630_MARK = re.compile(r" \[amended D630: WS-B round 6, R6-D[^\]]*\]\n")
+
+
+def unseat(P, blocks):
+    """D630: the live file with R6-D undone and its two [amended D630: WS-B round 6, R6-D ...] marks removed (each mark
+    closes a block's last line, the rest of which follows on the next line), which is the file R6-D was written for"""
+    o1, n1, o2, n2 = blocks
+    return D630_MARK.sub(" ", P.replace(n1, o1, 1).replace(n2, o2, 1))
 
 
 def apply(P, blocks):
@@ -299,7 +327,9 @@ def e1(blocks, P):
     new_p, old_p = predicates6(lemma_and_pre(Q)[0]), predicates6(lemma_and_pre(P)[0])
     check("E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the "
           "family index delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its "
-          "reason", all(new_p.values()), str(new_p))
+          "reason, and [R7] (k) R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed "
+          "over the family, (n) b . d U not known, (o) b^n, c^n with the same constants (text: the induction's "
+          "structure is a read proof)", all(new_p.values()), str(new_p))
     check("E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails",
           not any(old_p.values()), str(old_p))
     return Q
@@ -380,10 +410,33 @@ def paper_predicates(b1, b2):
             and "weight window measured" not in b2n and "and weight window on explicit fields" not in b2n}
 
 
+def paper_predicates7(b1, b2):
+    """[R7] what the final blocks must state (the round-6 reader's minors 2 and 4 and its nits)"""
+    b1n, b2n = norm(b1), norm(b2)
+    return {"b1: section 11.1's Lemma 11.0 repair seated, awaiting a confirming read":
+                "Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11, awaits a confirming "
+                "read" in b1n,
+            "b1: the last round not yet read": "the last round of that deduction, not yet read by a verifier" in b1n,
+            "b1, b2: 'supplement section 11.1'": "supplement section 11.1" in b1n and "supplement section 11.1" in b2n,
+            "b2: rounds 1-7, round 7 unread": "rounds 1–7, Theorem R5.1" in b2n
+            and "round 7 of SETTLE-GLAM5.md, not yet read by a verifier" in b2n,
+            "b2: Parts III, IV, VII and VIII": "the write-out's Parts III, IV, VII and VIII, proved" in b2n,
+            "b2: BEYOND5 Lemma 6.4 (iv) deduced": "BEYOND5 Lemma 6.4 (iv), deduced and read by a verifier" in b2n,
+            "b2: R6-D seated, awaiting a confirming read": "(SETTLE-GLAM5.md R6-D) is seated and, with D618's edits to "
+            "sections 9.5 and 11, awaits a confirming read" in b2n,
+            "b2: eps named": "its threshold ε, and with it λ1 and δ" in b2n,
+            "b2: Proposition 3.1 deduced":
+                "(deduced, SETTLE-GLAM5.md Proposition 3.1; computed for a bump envelope" in b2n,
+            "b2: the r^(-4) term for one example": "for one example, the general case being deduced" in b2n,
+            "b2: the window from measured and hand-counted exponents":
+                "the weight window, computed from those measured exponents and from the exponents of the data class "
+                "and of the pointwise bound, which are counted by hand" in b2n}
+
+
 def e4(S):
-    print("E4  R6-E's paper blocks against RESPONSE-HL-5D.md (not edited)")
-    a = S.index("### R6-E ")
-    b = S.index("Ledger. Computed (new)", a)
+    print("E4  R7-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)")
+    a = S.index("### R7-E ")
+    b = S.index("Ledger (round 7).", a)
     bl = re.findall(r"```text\n(.*?)\n```", S[a:b], flags=re.S)
     if len(bl) != 6:
         check("E4a six blocks read", False, str(len(bl)))
@@ -396,24 +449,35 @@ def e4(S):
         Q = Q.replace(bl[i], bl[i + 1], 1)
     long_ = [(k + 1, len(l)) for k, l in enumerate(Q.split("\n")) if len(l) > 121]
     check("E4b the edited paper keeps every line within 121 characters", not long_, str(long_[:5]))
-    pr = paper_predicates(bl[1], bl[3])
-    check("E4c the new blocks state condition (b), R6-D's status, 'supplement section 11.1', eps, Proposition 3.1 "
-          "as deduced, and the window as computed from measured exponents", all(pr.values()),
+    pr = paper_predicates7(bl[1], bl[3])
+    check("E4c the new blocks state section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII, "
+          "BEYOND5 Lemma 6.4 (iv) deduced, eps, Proposition 3.1 as deduced, the r^(-4) term for one example, and the "
+          "window as computed from measured and hand-counted exponents", all(pr.values()),
           str([k for k, v in pr.items() if not v]))
-    a5 = S.index("### R5-E ")
-    b5 = S.index("Ledger. Computed: `r5settle5.py`", a5)
-    bl5 = re.findall(r"```text\n(.*?)\n```", S[a5:b5], flags=re.S)
-    pr5 = paper_predicates(bl5[1], bl5[3])
-    check("E4c' control (R5-E's blocks, the round-5 reader's m6): they fail at least six of the eight",
-          sum(not v for v in pr5.values()) >= 6, str(sum(not v for v in pr5.values())))
+    a6 = S.index("### R6-E ")
+    b6 = S.index("Ledger. Computed (new)", a6)
+    bl6 = re.findall(r"```text\n(.*?)\n```", S[a6:b6], flags=re.S)
+    pr6 = paper_predicates7(bl6[1], bl6[3])
+    check("E4c' control (R6-E's blocks, the round-6 reader's minors 2 and 4): they fail at least six of the eleven",
+          sum(not v for v in pr6.values()) >= 6, str(sum(not v for v in pr6.values())))
 
 
 def main():
     S = open(os.path.join(ROOT, "SETTLE-GLAM5.md")).read()
     blocks = section_blocks(S, "### R6-D ", "### R6-E ")
     P = open(os.path.join(ROOT, "N1STAR-PROOF.md")).read()
+    o1, n1, o2, n2 = blocks
+    live = P
+    seated = P.count(o1) == 0 and P.count(o2) == 0 and P.count(n1) == 1 and P.count(n2) == 1
+    if seated:      # D630: R6-D is seated in the live file; it is undone in memory and every check runs as before
+        print("E1s R6-D is seated (D630): each new block occurs once in the live file and no old block; R6-D is undone "
+              "in memory with its two marks, and E1-E3 run on that copy")
+        P = unseat(P, blocks)
     Q = e1(blocks, P)
     if Q is not None:
+        if seated:
+            check("E1s re-applying R6-D to the undone copy gives the live file but for its two D630 marks (2 found)",
+                  Q == D630_MARK.sub(" ", live) and len(D630_MARK.findall(live)) == 2)
         e2(Q)
         e3(blocks, P)
     e4(S)

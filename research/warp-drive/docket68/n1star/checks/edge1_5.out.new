@@ -48,3 +48,34 @@ X10 PASS
   X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
       env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200  [266
       s]
+X11 PASS
+  X12 Case 3 of Theorem L_1E at a real cancellation, N = 12 (nu < 0, Gamma > 0, i^N = 1), r0 = 3, unit constants, on the
+      whole crossover |S_U|/|S_st| in [1/4, 4] (301 points): exp(-1/x), lam = 1e-10: x_c = 3.172e-5, lam kappa = 0.0994;
+      min |sigma_main|/(round 6's bound) = 11.67, /(round 5's) = 1.042; phase change over 4 pi lam <= 0.00762; exp(-1/x),
+      lam = 1e-20: x_c = 9.038e-10, lam kappa = 0.0122; min |sigma_main|/(round 6's bound) = 95.29, /(round 5's) = 1.152;
+      phase change over 4 pi lam <= 2.14e-7; exp(-1/x), lam = 1e-40: x_c = 7.331e-19, lam kappa = 0.000186; min
+      |sigma_main|/(round 6's bound) = 6270.0, /(round 5's) = 1.166; phase change over 4 pi lam <= 1.74e-16; exp(-1/x),
+      lam = 1e-80: x_c = 4.823e-37, lam kappa = 4.3e-8; min |sigma_main|/(round 6's bound) = 2.714e+7, /(round 5's) =
+      1.167; phase change over 4 pi lam <= 1.14e-34; record C_c^inf, lam = 1e-10: x_c = 2.747e-5, lam kappa = 0.0994; min
+      |sigma_main|/(round 6's bound) = 11.67, /(round 5's) = 1.042; phase change over 4 pi lam <= 0.0088; record C_c^inf,
+      lam = 1e-20: x_c = 7.827e-10, lam kappa = 0.0122; min |sigma_main|/(round 6's bound) = 95.29, /(round 5's) = 1.152;
+      phase change over 4 pi lam <= 2.47e-7; record C_c^inf, lam = 1e-40: x_c = 6.349e-19, lam kappa = 0.000186; min
+      |sigma_main|/(round 6's bound) = 6270.0, /(round 5's) = 1.166; phase change over 4 pi lam <= 2.01e-16; record
+      C_c^inf, lam = 1e-80: x_c = 4.177e-37, lam kappa = 4.3e-8; min |sigma_main|/(round 6's bound) = 2.714e+7, /(round
+      5's) = 1.167; phase change over 4 pi lam <= 1.32e-34; the ratio to round 6's bound more than doubles at each step
+      and exceeds 100 at lam = 1e-80, the phase moving by at most pi/6: True  [500 s]
+X12 PASS
+  X13 L.21 (iv') and (iv''): g = env^(N-1), exp(-1/x), N = 12, s^(-1) g by quadrature (4 panels per carrier period; 8
+      panels differ by 4.7e-14; omitted tail below 5.3e-42 of the bound): lam = 1.0e-6, lam kappa = 0.02: |rho|/eps'
+      0.009639, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.052; lam = 1.0e-6, lam kappa = 0.05: |rho|/eps'
+      0.007792, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.389; lam = 1.0e-6, lam kappa = 0.1: |rho|/eps'
+      0.01914, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.544; lam = 1.0e-6, lam kappa = 0.25: |rho|/eps'
+      0.1158, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.554; lam = 1.0e-6, lam kappa = 1.0: |rho|/eps' 1.013;
+      lam = 1.0e-6, lam kappa = 10.0: |rho|/eps' 1.999; lam = 1.0e-6, lam kappa = 1.0e+4: |rho|/eps' 2.001; lam = 1.0e-9,
+      lam kappa = 0.02: |rho|/eps' 0.0007977, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.968; lam = 1.0e-9,
+      lam kappa = 0.05: |rho|/eps' 0.00498, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.972; lam = 1.0e-9, lam
+      kappa = 0.1: |rho|/eps' 0.01978, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.952; lam = 1.0e-9, lam kappa
+      = 0.25: |rho|/eps' 0.1176, |rho + lam^2 kappa_g'|/((lam kappa)^3 kappa^(-1/2)) 3.786; lam = 1.0e-9, lam kappa =
+      1.0: |rho|/eps' 1.0; lam = 1.0e-9, lam kappa = 10.0: |rho|/eps' 1.981; lam = 1.0e-9, lam kappa = 1.0e+4: |rho|/eps'
+      2.0; max |rho|/eps' = 2.001 <= 3, max sharp ratio = 3.972 <= 5: True  [554 s]
+X13 PASS

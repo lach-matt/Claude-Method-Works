@@ -17,14 +17,17 @@ equal to Sigma_tau0 outside a compact radial interval, is hyperbolic everywhere.
      Sigma' lies to the past of Sigma_tau0 where they differ]. Control (must fail): the
      same formula with the Christoffel term dropped does not reduce to B2.
   S2 (computed, floating point; twobg5's background at n = 80 and 160) the slice Sigma' = {vhat - R - phi(R) = tau0},
-     phi'' = A (b(R; 4.1, 4.7) - l1 b(R; 3.0, 4.0) - l2 b(R; 4.85, 5.75)) (b the C-infinity bump, A = 0.01, l1, l2 fixed
-     by the zeroth and first moments so that phi and phi' vanish outside [3.0, 5.75]): Sigma' equals Sigma_tau0 outside
-     R in [3.0, 5.75], is spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and kappa' K'^l_l
-     < 0 at every slice point of Sigma' in Omega_2 (R from a to the grid's edge): Racz's split is hyperbolic on the
-     whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). [R7: sampled at the grid crossings;
-     certified between them, for the linear interpolant of the crossing data, in intcert5 C2.] Controls (must fail):
-     A = 0 (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other way) widens it.
-  S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.0, 5.75]} with time thickness max |phi| in tau,
+     phi'' = A (b(R; 4.1, 4.7) - l1 b(R; 3.5, 4.05) - l2 b(R; 4.85, 5.75)) (b the C-infinity bump, A = 0.01, l1, l2
+     fixed by the zeroth and first moments so that phi and phi' vanish outside [3.5, 5.75]) [R8: the left lobe moved
+     from (3.0, 4.0) to (3.5, 4.05), so that the bend lies where the background is ingoing Vaidya (R >= R_* = 3.437,
+     outside the outgoing packet), where intcert5 C3 certifies it for the background itself]: Sigma' equals Sigma_tau0
+     outside R in [3.5, 5.75], is spacelike (0 < V' and E V' f < 2 at every slice point, the margins printed), and
+     kappa' K'^l_l < 0 at every slice point of Sigma' in Omega_2 (R from a to the grid's edge): Racz's split is
+     hyperbolic on the whole of Sigma'. Converged (max kappa' K'^l_l to 5 % between n = 80 and 160). [R7: sampled at the
+     grid crossings; certified between them, for the linear interpolant of the crossing data, in intcert5 C2.] Controls
+     (must fail): A = 0 (Sigma_tau0 itself) has kappa' K'^l_l > 0 on the band (racglobal5 R1); A -> -A (bent the other
+     way) widens it.
+  S3 (computed) the lens between Sigma' and Sigma_tau0 lies in {R in [3.5, 5.75]} with time thickness max |phi| in tau,
      so the domain of influence of a perturbation's support, carried from Sigma' to Sigma_tau0, widens its angular
      support by at most max |phi|/R_min (R |dOmega/dtau| <= 1, augment5 S7): printed. The lens is inside the computed
      domain (every slice point of Sigma' is a grid crossing).
@@ -42,7 +45,7 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 A_DEF = 0.01
-P_IV, L_IV, R_IV = (4.1, 4.7), (3.0, 4.0), (4.85, 5.75)
+P_IV, L_IV, R_IV = (4.1, 4.7), (3.5, 4.05), (4.85, 5.75)
 
 
 def load(name):
