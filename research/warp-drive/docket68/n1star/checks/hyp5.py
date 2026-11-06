@@ -44,16 +44,17 @@ analytic on [0, x0]:
      analytic at 0, for every K there is x0(K) > 0 on which (H_N+2), (H_t), L.16 (c) and (H_rho*)'s first half hold, for
      both envelopes.  Control: the sin^4 edge, A_1(0) = 0: Q_k(0) = 0, nothing strict.
   H4 (exact limits) (H_D): kappa(y/2) kappa(4y)^c env(4y) -> 0 as y -> 0 for every c > 0: exp(-1/x) exactly, (4/y^2)(16
-     y^2)^(-c) e^(-1/(4y)); the record's envelope through the bound M (4/y^2)(M/(16 y^2))^c e^(1 - 3/(16y)) (y <= x0/4,
-     log env <= log c + 1 - (3/4)/x, c <= 1, M := max A_1 on [0, x0] from H2's intervals); sympy's limit with c a
-     positive symbol, and at c = 30.  Control: the sin^4 edge, exactly, at c = 30: the limit is oo.
+     y^2)^(-c) e^(-1/(4y)); the record's envelope through the bound 1.33 M (4/y^2)(M/(16 y^2))^c e^(1 - 3/(16y)) (y <=
+     x0/4; env <= c_env e^(1 - 3/(4x)), its peak c_env <= 1.3241035 (CONSTANTS5.md); M := max A_1 on [0, x0] from H2's
+     intervals); sympy's limit with c a positive symbol, and at c = 30.  Control: the sin^4 edge, exactly, at c = 30:
+     the limit is oo.
   H5 (exact) the solver's sin^4 envelope (the paper's section 6 numerics) is outside the hypotheses and outside Theorem
      1's class: env^(4) jumps at v_s (env^(4)(v_s+) = 8 pi^4/27, env = 0 below), kappa_3/kappa -> 1/4 < 1/2 and env^(5)
      < 0 just above v_s (env^(5)/x -> -160 pi^6/243): (H_N) fails for every N >= 3, and (H_D) fails (H4's control).
      Control: exp(-1/x) through the same test (kappa_3/kappa -> 1): not flagged.
 
 Labels: H0, H3, H4, H5 exact (sympy); H1, H2 certified (interval arithmetic).
-Run: python3 checks/hyp5.py   (a few minutes)
+Run: python3 checks/hyp5.py   (about eight minutes)
 """
 import sys
 import textwrap
@@ -289,7 +290,7 @@ def h4(control=False):
         return sp.limit(q, y, 0, '+') == 0
     M = sp.Rational(up(RES['rec']['M']))
     q_exp = (4/y**2)*(1/(16*y**2))**c*sp.exp(-1/(4*y))
-    q_rc = M*(4/y**2)*(M/(16*y**2))**c*sp.exp(1 - sp.Rational(3, 16)/y)
+    q_rc = sp.Rational(133, 100)*M*(4/y**2)*(M/(16*y**2))**c*sp.exp(1 - sp.Rational(3, 16)/y)
     rows = []
     ok = True
     for nm, q in (("exp(-1/x)", q_exp), ("the record's envelope (bound, M = %s)" % M, q_rc)):
