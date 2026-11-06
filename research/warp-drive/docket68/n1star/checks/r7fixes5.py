@@ -142,8 +142,8 @@ def wf_parts():
     a1 = K * (2 * c ** 2 * sp.cos(s) - sn ** 2 * sp.sin(s)) / 3
     a2 = K * (2 * sn ** 2 * sp.sin(s) - c ** 2 * sp.cos(s)) / 3
     WF2 = 4 * (a1 + a2) ** 2 + 4 * a1 ** 2 + 4 * a2 ** 2
-    chi = -sp.Rational(1, 12) * E ** 2 * H2 * (4 * sp.cos(2 * th) * sp.sin(2 * s) + sp.sin(2 * th) ** 2 * sp.cos(2 * s)) \
-        * (r ** -2 - (v - TAU0) ** sp.Rational(-1, 2) * r ** sp.Rational(-3, 2))
+    ang = 4 * sp.cos(2 * th) * sp.sin(2 * s) + sp.sin(2 * th) ** 2 * sp.cos(2 * s)
+    chi = -sp.Rational(1, 12) * E ** 2 * H2 * ang * (r ** -2 - (v - TAU0) ** sp.Rational(-1, 2) * r ** sp.Rational(-3, 2))
     B = (WF2 + WF2.subs(s, s + sp.pi / 2)) / 2 + 4 * chi ** 2
     full = WF2 + 4 * chi ** 2
     return B, full, (s, th, r, v, E)
@@ -292,8 +292,8 @@ def main():
     m0 = max(ffull(math.pi * k / 2000, float(thq), float(a.mid()), float(vq), Ev) for k in range(2000)) ** 0.5
     OK['R2'] = ident and inside and capF.lower() > flint.arb('16.1') and lamF.upper() < flint.arb('0.00191')
     print('  R2: the four-phase identity (exact): %s; B maximised on a grid at (theta, v, s) = (%s, %s, %s) (floating '
-          'point %.5f), certified there: B >= %s, so C_app (Frobenius) >= %s for every m_1; the point (tau, r, v) = (v - a, '
-          'a, v) lies in Omega: %s; with eps1 <= 0.030768560: lambda0 (Frobenius) < %s (certified; round 4-5: '
+          'point %.5f), certified there: B >= %s, so C_app (Frobenius) >= %s for every m_1; the point (tau, r, v) = '
+          '(v - a, a, v) lies in Omega: %s; with eps1 <= 0.030768560: lambda0 (Frobenius) < %s (certified; round 4-5: '
           '0.0019950). If m_1 were 0: sup_s |W + chi D|_F there = %.4f (floating point): %s' % (
               ident, float(thq), float(vq), float(sq), best, flint.arb(Bb.lower()).str(8),
               flint.arb(capF.lower()).str(8), inside, flint.arb(lamF.upper()).str(6), m0, OK['R2']))
