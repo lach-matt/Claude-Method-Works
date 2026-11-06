@@ -786,7 +786,8 @@ def u9(control=False):
     cs4 = sp.expand(4*(cA_**2 + cB_**2 + cC_**2 + cD_**2) - (cA_ + cB_ + cC_ + cD_)**2)  # = sum of squares of diffs
     cs4_ok = sp.expand(cs4 - sum((s1 - s2)**2 for i_, s1 in enumerate((cA_, cB_, cC_, cD_))
                                  for s2 in (cA_, cB_, cC_, cD_)[i_ + 1:])) == 0
-    # the constants of Lemma A from the derivation: c_s = zeta(2)/vol; |Om(T)| <= |L T| + c1 |T| with c1 = 2 |om|_op;
+    # the constants of Lemma A from the derivation: c_s = zeta(2)/vol; |Om(T)| <= |L T| + c1 |T| with c1 = 2 |om|_op^2
+    # (computed below as 2 lambda_max(om^T om); equal to 2 |om|_op here, since |om|_op = 1, which opn checks);
     # |Om_i Om_j T| <= |L_i L_j T| + c1 |L_j T| + c1 |L_i T| + c1^2 |T|, four terms (Cauchy-Schwarz factor 4), six
     # rotations; sup|T|^2 <= c_s (2 ||T||^2 + 2 sum_AB ||Lap T_AB||^2)
     import re
@@ -947,8 +948,12 @@ def u11(control=False):
     K = [sp.simplify(sp.diff(e, mu)) for e in gd]                  # the mass derivative, diagonal
     M2 = mu                                                         # 2M = mu at n = 3
     hkw77 = sp.simplify(K[0] - 1/r**2) == 0 and sp.simplify(K[1] - r**2/(r**2 - M2)**2) == 0 and K[2:] == [0, 0, 0]
-    fr_ = [K[0]/fm, 0, K[1]*fm]                                     # K(e0, e0), K(e0, e1), K(e1, e1), e0 = f^-1/2 d_t
-    frame_ok = (sp.simplify(fr_[0] - 1/(r**2 - mu)) == 0 and sp.simplify(fr_[2] - 1/(r**2 - mu)) == 0
+    KM = sp.diag(*gd).diff(mu)                                      # K = d g/d mu as a full matrix [proved note]
+    Ef = sp.diag(1/sp.sqrt(fm), sp.sqrt(fm), 1/r, 1/(r*sp.cos(th)), 1/(r*sp.sin(th)))  # e0 = f^-1/2 d_t, e1, e_i
+    Kf = (Ef*KM*Ef).applyfunc(sp.simplify)                          # every frame component computed
+    frame_ok = (sp.simplify(Kf[0, 0] - 1/(r**2 - mu)) == 0 and sp.simplify(Kf[1, 1] - 1/(r**2 - mu)) == 0
+                and Kf[0, 1] == 0 and Kf[1, 0] == 0 and all(Kf[a, b] == 0 for a in range(5) for b in range(5)
+                                                             if a >= 2 or b >= 2)
                 and all(sp.diff(e, t_) == 0 for e in K))
     orth = all(sp.integrate(sp.expand(sp.legendre(j, sp.cos(2*th))*sq), (th, 0, sp.pi/2)) == 0 for j in range(1, 5))
     vol = sp.integrate(sq, (th, 0, sp.pi/2))*(2*sp.pi)**2

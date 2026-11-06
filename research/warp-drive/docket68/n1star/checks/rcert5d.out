@@ -1,0 +1,21 @@
+# RCERT5D_DIR=<scratch>/r4/rcert5d python3 checks/rcert5d.py --collect 4 5.3e-4   (after --worker w 2, w = 0, 1, then
+#   --repartition 2 4 and --worker w 4, w = 0..3; and --census 5.3e-4, whose output follows the collect)
+D0 the pinned tensors n1star/data/rcert5_C3.npz: md5s equal the record's (rcert5c.out)
+   checkpoint 0/4: 13952 accepted, 0 queued, cpu 1733 s, wall 6430 s
+   checkpoint 1/4: 6272 accepted, 0 queued, cpu 588 s, wall 6425 s
+   checkpoint 2/4: 6272 accepted, 0 queued, cpu 588 s, wall 6424 s
+   checkpoint 3/4: 6272 accepted, 0 queued, cpu 590 s, wall 6433 s
+D1 (certified) the box t in [-1/2, 0], sig in [-1/2, 0], x in [0, 1/4], target tau = 5.30e-04:
+   finished; 32768 sub-boxes accepted (by depth: 5: 32768), 37440 evaluated (4680 parents), the accepted tile the box:
+       True
+   certified sup over the box: ll <= 3.007e-04, ln <= 7.030e-05, nn <= 2.441e-04, lx <= 9.749e-05, nx <= 5.585e-05, xx <=
+       7.270e-05, 11 <= 5.350e-05, 22 <= 6.216e-05
+   largest certified centre values (lower bounds for the sup): ll 1.727e-04, ln 1.294e-05, nn 2.496e-05, lx 4.976e-05, nx
+       9.871e-06, xx 1.226e-05, 11 2.286e-05, 22 2.250e-05
+   sum vol * max_k sup_k^2 = 1.7203e-09 over vol 6.2500e-02 (rms bound 1.659e-04); cpu 3500 s, wall 10365 s (0.09 s per
+       box)
+D1 PASS (every component certified <= tau on the whole box)
+D2 (certified) components whose certified centre value exceeds tau' = 3.0e-05 somewhere in the box: ll, lx; so no bound
+    of any method meets tau' there
+C1 (control, remainder dropped) test polynomial: largest true/bound 0.2500 with the remainder (must be <= 1), inf without
+    (must exceed 1) -> the mutation is caught (good)

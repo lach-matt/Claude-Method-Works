@@ -7,6 +7,13 @@ round 2 (R2.0) and a confirming round 3 (R3.0); their findings are seated there.
 (verbatim, with identifier and page, read at source on 2026-11-06 through the alphaXiv reader). The program is not
 `checks/rwgauge5.py`: that name belongs to GAUGEDECAY5.md section 1's program, which this note does not touch.
 
+[Proved (2026-11-06): the round-3 confirming reader found every round-2 finding seated and no major or minor finding;
+`checks/rwgauge5u.py` gives U1-U11 PASS with every control failing, byte-identical to its .out, and catches all 12 of
+that reader's further mutants (U8-U11). Its three optional nits are seated with this note: U9's comment now says that
+c1 is computed as 2 |om|_op^2, equal to 2 |om|_op since |om|_op = 1; U11 now computes every frame component of K
+(K(e0, e1) and K(e_i, e_j) included) from the full matrix d g/d mu; and step 4's "constant 1" (line 254) is up to
+the ||Y_l||^2 normalisation step 1 writes out, ||Y_l||^2 >= (80/3)||S||^2, which changes nothing downstream.]
+
 *The item.* The paper (RESPONSE-HL-5D.md section 8.2) and the supplement (Proposition 10.1 (iv)) state that in the
 gauge f_a = 0 = H_T of [KI03], with the l = 0 gauge fixed to the mass change, every metric component settles to a
 change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a constant growing as a power of R, and

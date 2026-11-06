@@ -36,6 +36,9 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      up to a constant, (lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam) at l = 0, 2, 4, with P_Ups from
      gaugepot5 G1's formulas and P_C from damping5.polys: lin5 E2's factorisation reproduced from the Tangherlini
      block in Kerr-Schild coordinates (an independent route), with its roots, the decaying one nearest 1 printed.
+  S5b (exact) the horizon r = 1 is a regular singular point of the block (A2 = -(f/2) I, f ~ 2 (r - 1)): exponents 0
+     and 1 + eig A1(1); A1(1)'s characteristic polynomial does not depend on l (kappa = 8, 24), its roots carry
+     x = gam_C a_v r_h = 5000 (III.F'' Lemma 1.1): large l does not move the horizon part of the problem.
   S6 (certified; deduced) the weight. (3.2) at (s, alpha) = (1, -1) is Hbar^(1,-1)_b -> Hbar^(0,1)_b; in the
      orthonormal components u_j (|h|^2 = sum |u_j|^2 on L^2(S^3)) the norm is sum_j int (r|u_j|^2 + r^3|u_j'|^2 + kappa
      r|u_j|^2) dr (the b-fields r d_r and the Lie derivatives of the six Killing fields, whose squares sum to kappa
