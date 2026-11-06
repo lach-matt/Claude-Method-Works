@@ -1,3 +1,8 @@
   K1 (exact, mu symbolic): on Sigma^s, H phi_1 = -nu_1 phi_1 and H phi_2 = nu_2 phi_2 with VI.A (3.2)'s nu_1,2; on Gamma
       nu = 2*sqrt(2)/sqrt(mu), {phi_1, phi_2} = sqrt(2)/sqrt(mu), q^Gamma = 4, beta_0^Gamma = 2, nu/q^Gamma = (2
       mu)^(-1/2): True
+  C1 (control): K1 with H phi_1 = +nu_1 phi_1 claimed: fails: True
+  K2 (exact): 1-form p_1^Gamma in h_Gamma(eps): charpoly -lam**3*(2*epsilon - lam**2), lam_max = (2 eps)^(1/2); gamma_+ -
+      gamma_- = nu/8, delta_Gamma(0) = 2 lam_max/nu = (eps mu)^(1/2), (Gamma.4) iff eps < 1/mu; the frame at Gamma
+      orthonormal for the static coframe (cond(h_Gamma) = eps^-2): True
+  C2 (control): the claim lam_max = 2 eps at eps = 1/8 (1/4) against (2 eps)^(1/2) = 1/2: refuted: True
