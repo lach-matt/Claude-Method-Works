@@ -169,9 +169,9 @@ def corrected(LHS, Z, m2, L, om, d26=False):
 
 def steps(row, a, coef, w=None):
     """the proof's two steps, each exact: (i) LHS(1) <= 2 Z + ||low||^2_sig (Cauchy-Schwarz and Young against the
-    gain); (ii) ||low||^2_sig <= 4^(sig-1) (m ||f||_l1 + L ||f||_sig)^2, f = a (row c) or w (row e), as
-    ||low||_sig <= 2^(sig-1) (m ||f||_l1 + L ||f||_sig); (ii) is tested squared, without square roots, through
-    (x + y)^2 <= 2 x^2 + 2 y^2 only where the exact square root is not rational (it is used as an upper bound)"""
+    gain); (ii) the product bound ||low||_sig <= 2^(sig-1) (m ||f||_l1 + L ||f||_sig), f = a (row c) or w (row e),
+    tested in the squared form the corrected inequality uses, ||low||^2_sig <= 2 * 4^(sig-1) (m^2 ||f||_l1^2 +
+    L^2 ||f||^2_sig) (it follows from the product bound by (x + y)^2 <= 2 x^2 + 2 y^2; exact, no square roots)"""
     LHS, Z, m2, L, om = state(row, a, coef, w)
     _, low = rhs(row, a, coef, w)
     f = a if row == 'c' else w

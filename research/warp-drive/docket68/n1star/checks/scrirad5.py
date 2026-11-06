@@ -29,7 +29,7 @@ The inputs are II.C Lemma 3.2's proof (PART-II-C-OPERATORS.md:392-421): near I+,
      dt^flat_* and alpha are past timelike. So II.F Lemma 1.4 (a) (and II.F section 7.4, the iota+ model) does not give
      the compact sets for g, and Lemma 6.1 does.
   R3 (numerical, floats) On that metric (eps = 1/10, g_0 = Minkowski), the past directed null curve of largest outward
-     drift, dr/d(-t_*) = (1 + eps (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^4) down to t_* = 1: B = t_* + r increases
+     drift, dr/d(-t_*) = (1 + eps (r/t_*)^(1-l))/2, from p = (t_*, r) = (3, 10^5) down to t_* = 1: B = t_* + r increases
      towards the past (B is not monotone), F = t^flat_* + log r decreases, and r stays below the bound of Lemma 6.1 (b).
   Controls (each a mutation of the claim; each must make z3 find a counterexample, and does): N1 kappa = 0 (alpha =
      dt^flat_* alone); N2 kappa = -1; N3 the threshold without T_1 (26 C x <= 1); N4 the class's decay removed (the
@@ -110,8 +110,7 @@ def encoding_guard(n=200):
         x, l = q, Fr(1, 2)
         t = Fr(rnd.randint(10, 60), 10)
         r = t / rho
-        xI = q ** Fr(1, 1) ** 1 if False else None                  # x_I = rho^(1/2) = q
-        xI = q
+        xI = q                                                      # x_I = rho^(1/2)
         c = [Fr(rnd.randint(-50, 50), 50) * x for _ in range(6)]
         # basis elements as symmetric matrices on (dt_*, dr, dw); (x)_s as a (x) b + b (x) a
         E = [[[Fr(0)] * 3 for _ in range(3)] for _ in range(6)]
@@ -170,7 +169,7 @@ def r3():
     rhoT = (26 * C * T1) ** (-1 / l)
     RT = T1 / rhoT
     tf = lambda t, r: t * (1 - (t / r) ** l)                       # noqa: E731
-    t, r = 3.0, 1.0e4
+    t, r = 3.0, 1.0e5
     p_tf, p_r = tf(t, r), r
     Rp = max(RT, p_r) * __import__("math").exp(p_tf - c)
     B0, F0 = t + r, tf(t, r) + __import__("math").log(r)
@@ -211,7 +210,7 @@ def main():
           "timelike there (eps = 1/10, 1/1000): %s" % info, flush=True)
     b, info = r3()
     ok["R3"] = b
-    print("  R3: extreme past null curve from (t_*, r) = (3, 1e4) to t_* = 1 (eps = 1/10): B %.6g -> %.6g (increases "
+    print("  R3: extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1 (eps = 1/10): B %.6g -> %.6g (increases "
           "towards the past), F %.6g -> %.6g\n      (decreases), max r %.6g <= R_p = %.6g" % info, flush=True)
     ctl = {}
     ctl["N1 kappa = 0"] = not prove(kappa=0)[0]
