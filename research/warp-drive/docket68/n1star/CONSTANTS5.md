@@ -3554,6 +3554,7 @@ E^iota_ind adds no point.
   [R14: kappa := 2 is assigned at II.D:686 (and :746), not 221-223, 688. At II.D:170 Lemma 2.1 may be read with II.A'
   Lemma 4.1 (i)-(ii)'s kappa <= 1/4, which would give a Sobolev top of 12.25; the census takes kappa = 2, the upper
   reading, so FWD 877 is an upper bound on either reading (the round-13 reader's nit 7).]
+  [R15: "assigned at II.D:686 (and :746)" reads "assigned at II.D:686 (applied at :746)".]
 - **Nits (accepted).** (1) D_1 <= 88 is an upper bound, d-tilde over the closed-graph sites' Sobolev range (said at
   R12.2). (2) N = 14 is a choice: at N = 10 the census gives [-57/2, 14] x [-55, 27], D_0 687, D_1 80, FWD 790 (computed
   here with d0count5's census_counts) and d = 46,236,501,332,809,678 (d moves by 186,276,709 per unit of FWD: the
@@ -3831,6 +3832,8 @@ INVERSE5-SCALAR.md and their programs.
   I9:55-58 at the levels below 3, R11 Theorem B.5), with none FAIL and at least 23 rows. The reader's mutant Mm1
   (rootavoid5.out with its R11 row deleted, a scratch copy): Mm1 (rootavoid5.out 635e9884... with its R11 row deleted, a
   scratch copy): M5 FAIL, exit 1; round 12's Cz8 (R11 FAIL) still fails M5.
+  [R15: the mutant's description is repeated; read: "The reader's mutant Mm1 (rootavoid5.out 635e9884... with its R11
+  row deleted, a scratch copy): M5 FAIL, exit 1".]
 - **Nits (accepted).** (1) Pair 4's row: "CONSTANTS5.md rounds 1-14" (it said 1-12). (2) INVERSE5-SIX.md is cited as
   "rounds 2-5" in pairs 2 and 4 (its round 4 pins inverse6_5a at R12.2's d, round 5 makes it 12/12); the statuses say
   12/12. (3) R13.5's "below 2" is the window (0, 1.4901] (note there). (4) iotaind5 I1's run near b0 now mixes the types
@@ -3843,6 +3846,7 @@ INVERSE5-SCALAR.md and their programs.
   undecided, not refuted: pair 1 now says so. (9) II.F:2334 and :2416 cite II.A' by part only, at the chain's orders:
   ordcensus5's docstring says why the census lists neither. (10) modcount5 M3's second line gives (K + 1) c' and the
   floor as fractions of d itself.
+  [R15: in (7), "at II.D:686 (and :746)" reads "at II.D:686 (applied at :746)".]
 - **lambda0 (LAMBDA0-DATA5.md section 12.6).** Its pair P, the paper's lambda0 text with the stage-1 solve (2.207738,
   computed in floating point, `checks/m22evol5.py` 13/13) and the sharpened bounds computed but not certified, the
   certified 0.0024433, 0.0019079 and 0.0012228 unchanged, is R14.7's pair 3, verbatim. Its C1-C4 were written for R13.7;
@@ -3861,6 +3865,7 @@ INVERSE5-SCALAR.md and their programs.
   (R13.5's list). The rest of R13.5 stands.
 
 ### R14.7 Final replacement text for the paper (supersedes R13.7)
+[R15: superseded by R15.7.]
 
 Five old/new pairs for paper/RESPONSE-HL-5D.md, the single final set for every constants sentence of the paper and the
 rows and imports its Appendix D needs for them: pair 1 the loss d, pair 2 lambda1 and delta (with the six inverse bounds
@@ -3952,6 +3957,8 @@ The passage to the write-out's own function spaces and the
   exist, and the cut-offs and orders of its function spaces only up to admissibility, so explicit constants first need
   those choices made numerically. This is a limit of the explicit computation, not a gap in Theorem 4.
 ```
+[R15: "d ≤ 4.624 × 10¹⁶ at the record's computational point" drops the choices; R15.7 pair 2 reads "at the
+record's computational point and the choices stated there" (the round-14 reader's minor 1).]
 
 ```old
 λ0 is not evaluated, and a high-frequency theorem, whose expansion parameter is λ over the
