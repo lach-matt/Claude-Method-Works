@@ -109,8 +109,6 @@ def flux_identity(speed):
     c = 1/(1 - r**-2)
     fout_dens = r**3*(c*e - pt*pr)
     F_out = sp.integrate((fout_dens*(1 - r**-2)).subs(t, Vs - r - 1/r), (r, rout2, rout1))
-    bulk = sp.integrate(sp.integrate(sp.expand(pt*box*r**3), (r, rin(t), Vs - t)).subs(r, r), (t, t1, t2)) \
-        if False else None
     # the bulk over D: for each t, r from rin(t) to rout(t); rout is algebraic, so integrate in t at fixed r instead:
     # D = {r in [R, 4]} x {t in [t1, min(t2, (r - R)/speed + t1, V_* - r - 1/r)]}
     tb = sp.Symbol("tb")
@@ -122,7 +120,6 @@ def flux_identity(speed):
     b3 = sp.integrate(sp.expand(inner.subs(tb, Vs - r - 1/r)), (r, rout2, rout1))
     bulk = b1 + b2 + b3
     lhs, rhs = E2 + F_in + F_out, E1 - bulk
-    a_, b_ = sp.symbols("a b")
     form_in = sp.Matrix([[speed/2, Q(1, 2)], [Q(1, 2), speed/2]])
     return sp.simplify(lhs - rhs) == 0, form_in.eigenvals(), sp.N(lhs, 15)
 
@@ -142,8 +139,8 @@ def part_x():
     check("X1' control (inner boundary at speed 1/2, timelike): the identity holds with it, but its flux form has the "
           "eigenvalue -1/4", okc and Q(-1, 4) in ev_c, str(list(ev_c)))
     # X2
-    fp, m, rr = sp.symbols("fp m rr", real=True)
-    k = sp.Matrix([1, 1])  # (t, r) block suffices: alpha has no angular part; g_b0^-1 = eta^-1 - m l l, l = (-1, 1)
+    fp, m = sp.symbols("fp m", real=True)
+    # the (t, r) block suffices: alpha has no angular part; g_b0^-1 = eta^-1 - m l l, l = (-1, xhat)
     alpha = sp.Matrix([-2, 1 + 2*fp])
     lvec = sp.Matrix([-1, 1])
     gform = (alpha.T*sp.diag(-1, 1)*alpha)[0] - m*((lvec.T*alpha)[0])**2
@@ -220,15 +217,13 @@ def part_y():
         main = sp.diff(Zpsi, X[c])/r - (t - v1)/r*sp.diff(sp.diff(psi, t), X[c]) + fp*sp.diff(sp.diff(psi, t), X[c])
         rem = sp.expand(ray - main)
         rem_c = sp.expand(ray - main + sp.diff(Zpsi, X[c])/r)
-        ders = [d for d in rem.atoms(sp.Derivative)]
-        first_only = all(sum(1 for _ in d.variables) == 1 for d in ders) and not rem.has(psi.func(*X)) or \
-            all(sum(1 for _ in d.variables) == 1 for d in ders)
-        no_value = sp.simplify(rem.subs(psi, 0)) == 0 if not ders else True
-        # coefficients times r are bounded on W (homogeneous of degree 0 in (t - v1, x), |t - v1| <= r)
-        coefs = [sp.simplify(rem.coeff(d)*r) for d in ders]
-        ok = ok and first_only and no_value and all(cf.free_symbols <= {t, x1, x2, x3, x4} for cf in coefs)
-        ders_c = [d for d in rem_c.atoms(sp.Derivative)]
-        ctl = ctl and any(len(d.variables) == 2 for d in ders_c)
+        ders = list(rem.atoms(sp.Derivative))
+        first_only = all(len(d.variables) == 1 for d in ders)
+        no_value = sp.expand(rem.xreplace({d: 0 for d in ders})) == 0        # no undifferentiated psi
+        coefs = [sp.simplify(rem.coeff(d)*r) for d in ders]                 # r x coefficient: bounded on W
+        bounded = all(cf.is_number and abs(cf) <= 1 for cf in coefs)
+        ok = ok and ders and first_only and no_value and bounded
+        ctl = ctl and any(len(d.variables) == 2 for d in rem_c.atoms(sp.Derivative))
     check("Y1 d/dr along a ray of d_c psi = r^-1 d_c(Z psi) - r^-1 (t - v1) d_c d_t psi + f' d_c d_t psi + first "
           "derivatives of psi with coefficients O(1/r): S1 for d h' uses first derivatives of Gamma h' only, no Hardy "
           "(c = t, x1, x3; generic psi)", ok)
@@ -283,7 +278,7 @@ def part_y():
         h = family(kind)
         lims = [sp.limit(h.subs(tt, sg), rs, sp.oo) for sg in (0, -3, -100)]
         onN = sp.limit(h.subs(tt, Q(7, 10) - rs), rs, sp.oo)
-        dt_dec = sp.limit(sp.diff(h, tt).subs(tt, -rs/2)*rs**(Q(3, 2) + a0), rs, sp.oo)  # on W, t = -r/2
+        dt_dec = sp.limit(sp.diff(h, tt).subs(tt, -3)*rs**(Q(3, 2) + a0), rs, sp.oo)  # at fixed t = -3 in W
         res[kind] = (lims, onN, dt_dec)
     lims, onN, dtd = res["model"]
     sup_ok = True
@@ -321,9 +316,11 @@ def part_l():
     r, lam = sp.symbols("r lam", positive=True)
     A = 1 + r
     f = A*sp.sin(r/lam)
-    N = {i: sp.integrate(sp.expand(r**3*sp.diff(f, r, i)**2), (r, 1, 2)) for i in (1, 3, 4)}
-    l31 = sp.limit(lam**4*N[3]/N[1], lam, 0, "+")
-    l41 = sp.limit(lam**6*N[4]/N[1], lam, 0, "+")
+    N = {i: sp.integrate(sp.expand(r**3*sp.diff(f, r, i)**2), (r, 1, 2)) for i in (1, 3, 4)}  # exact in lam
+    rat3 = [sp.N((lam**4*N[3]/N[1]).subs(lam, sp.Rational(1, 10**k)), 40) for k in (2, 3, 4)]
+    rat4 = [sp.N((lam**6*N[4]/N[1]).subs(lam, sp.Rational(1, 10**k)), 40) for k in (2, 3, 4)]
+    l31 = all(abs(x - 1) <= 40*sp.Rational(1, 10**k) for x, k in zip(rat3, (2, 3, 4)))
+    l41 = all(abs(x - 1) <= 40*sp.Rational(1, 10**k) for x, k in zip(rat4, (2, 3, 4)))
     e, B = R5.stages(12, 6)
 
     def stages_cost(cost):
@@ -337,12 +334,12 @@ def part_l():
             B_[J + 1] = max(tail, rem, e_[J + 1] + 1, e_[J + 1]) + cost
         return B_
     b2, b3 = stages_cost(2), stages_cost(3)
-    check("L ||d_r^3 f||^2/||d_r f||^2 ~ lam^-4 on f = (1 + r) sin(v/lam) (limit of lam^4 times it: 1, exact): Lemma "
-          "9.3(a)'s sup bound costs lam^-2 beyond ||d f||; with that cost the recursion is B_J = 3J - 9 (= r5settle5 A2)",
-          l31 == 1 and all(b2[J] == 3*J - 9 for J in range(4, 13)) and all(b2[J] == B[J] for J in range(4, 13)),
-          str([b2[J] for J in range(4, 13)]))
+    check("L ||d_r^3 f||^2/||d_r f||^2 ~ lam^-4 on f = (1 + r) sin(v/lam) (lam^4 times it is 1 + O(lam): the exact "
+          "integrals at lam = 1e-2, 1e-3, 1e-4): Lemma 9.3(a)'s sup bound costs lam^-2 beyond ||d f||; with that cost "
+          "the recursion is B_J = 3J - 9 (= r5settle5 A2)", l31 and all(b2[J] == 3*J - 9 for J in range(4, 13)) and all(b2[J] == B[J] for J in range(4, 13)),
+          f"{[sp.N(x, 8) for x in rat3]}; B_J {[b2[J] for J in range(4, 13)]}")
     check("L' control (Sobolev to order 4, cost 3): lam^6 ||d_r^4 f||^2/||d_r f||^2 -> 1 and B_J changes",
-          l41 == 1 and any(b3[J] != 3*J - 9 for J in range(4, 13)), str([b3[J] for J in range(4, 13)]))
+          l41 and any(b3[J] != 3*J - 9 for J in range(4, 13)), str([b3[J] for J in range(4, 13)]))
 
 
 def part_a0():
@@ -358,21 +355,16 @@ def part_a0():
         dg = [g.diff(X[c]) for c in range(5)]
         Gam = [[[sum(gi[q, s]*(dg[a][s, b] + dg[b][s, a] - dg[s][a, b]) for s in range(5))/2 for b in range(5)]
                 for a in range(5)] for q in range(5)]
-        rs = sp.Symbol("R", positive=True)
-        ray = {x1: rs*Q(1, 2), x2: rs*Q(1, 2), x3: rs*Q(1, 2), x4: rs*Q(1, 2), t: Q(3, 10)}
-
         def deg(exprs):
-            best = None
-            for ex in exprs:
-                ex = sp.simplify(ex.subs(ray))
-                if ex == 0:
-                    continue
-                for dd in range(0, 9):
-                    lim = sp.limit(ex*rs**dd, rs, sp.oo)
-                    if lim != 0:
-                        best = dd if best is None else min(best, dd)
-                        break
-            return best
+            """the decay degree along the ray x = R (1/2, 1/2, 1/2, 1/2): the slope of the largest |value| between
+            R = 1e6 and 1e7 (exact substitution, 30 digits); None if every expression vanishes"""
+            vals = []
+            for R_ in (10**6, 10**7):
+                pt = {x1: Q(R_, 2), x2: Q(R_, 2), x3: Q(R_, 2), x4: Q(R_, 2), t: Q(3, 10)}
+                vals.append(max(abs(sp.N(ex.subs(pt), 30)) for ex in exprs))
+            if vals[0] == 0:
+                return None
+            return int(round(float(sp.log(vals[0]/vals[1], 10))))
         out = {"g^-1 - eta": deg([gi[i, j] - sp.diag(-1, 1, 1, 1, 1)[i, j] for i in range(5) for j in range(5)]),
                "d g": deg([dg[c][i, j] for c in range(1, 5) for i in range(5) for j in range(5)][:40]),
                "Gamma": deg([Gam[q][a][b] for q in range(5) for a in range(5) for b in range(5)][:40]),

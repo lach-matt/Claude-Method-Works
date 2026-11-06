@@ -293,7 +293,7 @@ def q3(Gt, bgs):
     lam = sp.lambdify([R, MU] + list(PP), Gt, 'numpy')
     ok, rows = True, []
     for n, bg in bgs.items():
-        Rs = np.linspace(0.70, 1.85, 2301)
+        Rs = np.linspace(0.70, 1.861, 2323)                                # [R7] region III on the slice: [a, r1]
         F = region3_funcs(bg, Rs)
         g_over_E2 = lam(Rs, F['mu0'], F['P'], F['dP'], F['d2P'])
         Gam = g_over_E2 * np.exp(2 * F['Ia'])
@@ -303,7 +303,7 @@ def q3(Gt, bgs):
                      float(np.max(np.abs(bg['psi_out']))), len(bg['psi_out'])))
         ok &= np.min(g_over_E2) > 0
     for (n, mn, rmin, rmax, rh, po, npo) in rows:
-        print("   n = %d: R in [0.70, 1.85] (horizon at %.4f): min Gamma/E^2 = %.4f > 0; Gamma over its psi_P = 0 value "
+        print("   n = %d: R in [0.70, 1.861] (horizon at %.4f): min Gamma/E^2 = %.4f > 0; Gamma over its psi_P = 0 value "
               "in [%.4f, %.4f]; |psi_P| <= %.1e on %d slice points with u <= u1 - 0.1" %
               (n, rh, mn, rmin, rmax, po, npo))
     conv = abs(rows[0][1] - rows[1][1]) < 1e-2 * abs(rows[1][1])
@@ -471,7 +471,7 @@ def q5():
         return all(res)
     a_ok = kid_ok(2)
     a_ctl = not kid_ok(1)
-    print("   (a) Euler operator of sqrt(gamma)(N_s DH + 2 Y_s^R DM_R) vanishes in all nine fields (two points, one "
+    print("   (a) Euler operator of sqrt(gamma)(N_s DH + 2 Y_s^R DM_R) vanishes in all nine fields (three points, one "
           "inside the horizon): %s; control: with Y_s^R in place of 2 Y_s^R it does not (rejected): %s" % (a_ok, a_ctl))
     # (b) ingoing Vaidya, mu = mu(vhat) along the slice (vhat = tau0 + R): data, constraint map, Vaidya stress
     m = sp.Function('m')(Rb)
@@ -524,7 +524,20 @@ def q5():
         sp.simplify(T_in - 1 / sp.sqrt(2 - fs)) == 0
     print("   (c) l_out, l_in null: %s, future (l.n = %s, %s < 0); T(xi, n)/q = %s (outgoing), %s (ingoing): %s" %
           (all(nul), fut[0], fut[1], T_out, T_in, c_ok))
-    return a_ok and a_ctl and ein_ok and b_ok and c_ok
+    # [R7] (c') any psi_P (E = e^psi_P > 0, E f < 2): xi = e^-psi d_vhat, l_out = d_vhat + (E f/2) d_R
+    Es = sp.Symbol('E', positive=True)
+    gmE = sp.Matrix([[-Es**2 * fs, Es], [Es, 0]])
+    nE = -sp.Matrix([1, -1]) / sp.sqrt(2 / Es - fs)
+    xiE = sp.Matrix([1 / Es, 0])
+    loE = sp.Matrix([1, Es * fs / 2])
+    TE = sp.simplify((loE.T * gmE * xiE)[0] * (loE.T * nE)[0])
+    want = Es * fs * (2 - Es * fs) / (4 * sp.sqrt(2 / Es - fs))
+    nulE = sp.simplify((loE.T * gmE * loE)[0]) == 0
+    futE = sp.simplify((loE.T * nE)[0] + (2 - Es * fs) / (2 * sp.sqrt(2 / Es - fs))) == 0
+    cE_ok = nulE and futE and sp.simplify(TE - want) == 0 and sp.simplify(want.subs(Es, 1) - fs * sp.sqrt(2 - fs) / 4) == 0
+    print("   (c') any psi_P (E = e^psi_P): l_out null and future (l.n = -(2 - E f)/(2 sqrt(2/E - f)) < 0): %s; "
+          "T(xi, n)/q = E f (2 - E f)/(4 sqrt(2/E - f)), whose sign is f's: %s" % (nulE and futE, cE_ok))
+    return a_ok and a_ctl and ein_ok and b_ok and c_ok and cE_ok
 
 
 # ---------------------------------------------------------------- Q6

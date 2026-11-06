@@ -771,3 +771,275 @@ def solve_modes(fode, Efun, r0, r1, mu0, ks, rtol=1e-11, mu_in_state=True, mufun
             return [da, dw, dq, 2.0 / 9.0 * E ** 2]
         sols[k] = solve_ivp(F, (r0, r1), [0, 0, 0, mu0], method='Radau', rtol=rtol, atol=1e-15, dense_output=True)
     return sols
+
+
+# ------------------------------------------------------------------------------------------------------------------
+def check_d1_d2():
+    g0, gi0 = background5()
+    gen = {nm: TS({(2, n): sp.Symbol('P%d_%s' % (n + 2, nm)) for n in (1, -1, 2, -2)}) for nm in NM}
+    Fl, _, _ = gauge(g2=gen, chi=True)
+    low_zero = all(sp.simplify(sp.expand(c)) == 0 for b in range(5) for (k, n), c in Fl[b].items() if k <= 0)
+    ok_pol = True
+    for n in (1, -1, 2, -2):
+        Y = sp.zeros(5)
+        for (i, j), nm in zip(CL, NM):
+            Y[i, j] = Y[j, i] = sp.Symbol('P%d_%s' % (n + 2, nm)) * I * n
+        pv = pol(Y, g0, gi0)
+        syms = [sp.Symbol('P%d_%s' % (n + 2, nm)) for nm in NM]
+        for b in range(5):
+            c = sp.expand(Fl[b].get((1, n), 0))
+            ok_pol &= sp.simplify(sum(c.coeff(x) * x for x in syms) - pv[b]) == 0
+    OK['D1'] = low_zero and ok_pol
+    print('  D1 (exact): on Sigma D^(0) = 0 (every component, every harmonic): %s; with a generic gh_2 (eight class '
+          'components, harmonics 1, 2) the gh_2-part of D^(1) is Pol(d_s gh_2), lowered by g0: %s %s'
+          % (low_zero, ok_pol, el()))
+    F0, _, _ = gauge(g2=None)
+    first = {b: {n: sp.expand(F0[b].get((1, n), 0)) for n in (1, -1)} for b in range(5)}
+    only_th = all(first[b][n] == 0 for b in (0, 1, 3, 4) for n in (1, -1))
+    a_free = not any(first[2][n].has(af) for n in (1, -1))
+    pp = polplus([0, 0, sp.Symbol('c')], g0, gi0)
+    pp_ok = (sp.simplify(pp['tth'] + sp.Symbol('c') / 2) == 0 and sp.simplify(pp['rth'] - sp.Symbol('c') / 2) == 0
+             and all(pp[nm] == 0 for nm in NM if nm not in ('tth', 'rth')))
+    s = sp.Symbol('s', real=True)
+    G2 = sp.expand(sum(first[2][n] / (2 * I * n) * (sp.cos(s) + I * n * sp.sin(s)) for n in (1, -1)))
+    Hp = sp.Derivative(Hf, th)
+    claim = A * Ef / (6 * r ** sp.Rational(3, 2)) * ((5 * Hf * sp.sin(2 * th) + 2 * S ** 2 * Hp) * sp.cos(s)
+                                                      + (5 * Hf * sp.sin(2 * th) - 2 * C ** 2 * Hp) * sp.sin(s))
+    g2_ok = sp.simplify(sp.expand_trig(G2 - claim)) == 0
+    # second harmonic: chi's d_tau and the W^2 terms
+    Fc, _, _ = gauge(g2=None, chi=True)
+    sec = {}
+    for n in (2, -2):
+        cvec = [sp.expand(Fc[b].get((1, n), 0)) for b in range(3)]
+        sol = polplus([-x for x in cvec], g0, gi0)
+        sec[n] = {nm: sp.simplify(val / (I * n)) for nm, val in sol.items()}
+    sec_real = {}
+    for nm in NM:
+        e = sp.expand(sum(sec[n][nm] * (sp.cos(2 * s) + I * sp.sign(n) * sp.sin(2 * s)) for n in (2, -2)))
+        sec_real[nm] = sp.factor(sp.simplify(e)) if e != 0 else 0
+    # step (ii): the mean of D^(1) with d_tau m_1 (T on tau components, H on spatial ones)
+    nmd = {(0, 0): 'T_tt', (0, 1): 'T_tr', (0, 2): 'T_tth', (1, 1): 'H_rr', (1, 2): 'H_rth', (2, 2): 'H_thth',
+           (3, 3): 'H_p1', (4, 4): 'H_p2'}
+    md = sp.zeros(5)
+    for (i, j), nm in nmd.items():
+        md[i, j] = md[j, i] = sp.Function(nm)(r, th)
+    Dm = [sum(gi0[a_, b_] * gi0[rh, sg] * ((md[sg, b_] if a_ == 0 else 0) + (md[sg, a_] if b_ == 0 else 0)
+                                             - (md[a_, b_] if sg == 0 else 0)) / 2
+              for a_ in range(5) for b_ in range(5) for sg in range(5)) for rh in range(5)]
+    mean = [sp.simplify(sp.expand_trig(sum(g0[b, q_] * Dm[q_] for q_ in range(5)) + sp.expand(F0[b].get((1, 0), 0))))
+            for b in range(3)]
+    OK['D2'] = only_th and a_free and pp_ok and g2_ok
+    print('  D2 (exact): the first harmonic of D^(1) at gh_2 = 0 lies in the th component only: %s, independent of a '
+          '(Lambda_1 = 0 in the class): %s; Pol^+ of (0, 0, c) is c (dr dth - dtau dth)/2 symmetrised (tth -c/2, rth '
+          'c/2, others 0): %s; so gh_2 on Sigma, first harmonic: G2_(tau th) = -G2_(r th) = (A E/(6 r^(3/2))) [(5 H sin '
+          '2th + 2 S^2 H\') cos s + (5 H sin 2th - 2 C^2 H\') sin s]: %s %s' % (only_th, a_free, pp_ok, g2_ok, el()))
+    print('      gh_2 on Sigma, second harmonic (computed, exact; chi\'s d_tau READ from stage0bd5.py):')
+    for nm in NM:
+        if sec_real[nm] != 0:
+            print('        G2_(%s) = %s' % (nm, sec_real[nm]))
+    print('      step (ii), the mean of D^(1) on Sigma (= 0 fixes d_tau (m_1)_(tau .), the coefficient -(1 + mu/r^2) of '
+          'T_tr, T_tth being invertible):')
+    for b, e in zip(('tau', 'r', 'th'), mean):
+        print('        D^(1)_%s mean = %s' % (b, sp.collect(sp.expand(e), list(md.atoms(sp.Function)))))
+    return F0, first
+
+
+DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean: a coefficient of lam^2 or higher reaches
+  order 1 only through one fast derivative lam^-1 d_s (gamma's lam^2 terms in Gamma; K's lam^2 terms in div K and d
+  tr K), and is then multiplied by an order-0 factor; the order-0 parts of gamma^-1 are g0's (not oscillating), so
+  these terms are d_s of something times a non-oscillating factor, of mean zero. gamma^-1 is kept to lam^2 since it
+  meets the lam^-1 of d_s^2 (lam W). The order-1 oscillating parts are incomplete and are not used."""
+
+
+def check_d3_d4(F0):
+    g2 = harm_sub(F0)
+    out, Km1 = order1_mean(g2=g2)
+    low = all(sp.simplify(sp.expand(c)) == 0 for X in out.values() for (k, n), c in X.items() if k < 0)
+    en = sp.Rational(2, 9) * A ** 2 * Ef ** 2 * Hf ** 2 * (C ** 4 + S ** 4)
+    m0 = {}
+    for nm, X in out.items():
+        c0 = sp.expand(X.mean(0)).subs(sp.Derivative(mu, v), mp)
+        m0[nm] = sp.simplify(c0.subs(mp, en)) == 0 and (c0 == 0 or sp.simplify(sp.diff(c0, mp)) != 0)
+    OK['D3'] = low and all(m0.values())
+    print('  D3 (exact): no lam^-1 term in (J_r, J_th, rho): %s; the order-0 mean vanishes exactly at mu\' = (2/9) A^2 '
+          'E^2 H^2 (C^4 + S^4), stage 0\'s energy condition: %s %s' % (low, m0, el()))
+    print(DOC)
+    CO = {nm: {k: sp.factor(sp.simplify(c)) for k, c in coeffs(X.mean(1)).items()} for nm, X in out.items()}
+    # P against data5.py's lin_0
+    lin0, _ = D5.perturbed(False)
+    ok_p = True
+    for nm, X in zip(('Jr', 'Jt', 'rho'), lin0):
+        c5 = D5.coeff(X, 0).subs({D5.r: r, D5.th: th, D5.v: v}).subs({D5.af: af, D5.wf: wf, D5.qf: qf}).subs(D5.mu, mu)
+        c5 = coeffs(c5)
+        mine = {k: c.subs(A, 0) for k, c in CO[nm].items()}
+        ok_p &= all(numzero(c5.get(k, 0) - mine.get(k, 0)) for k in set(c5) | set(mine))
+    L_ = r ** 2 + mu
+    h4 = A ** 2 * Ef ** 2 * Hf ** 2 * (C ** 4 + S ** 4)
+    B = {'Jr': -h4 / (3 * L_ ** sp.Rational(3, 2)), 'Jt': 0, 'rho': sp.Rational(2, 3) * r * h4 / L_ ** 2}
+    Sv = {'Jr': 0, 'Jt': -A ** 2 * Ef ** 2 * Hf ** 2 * sp.sin(2 * th) / (3 * r ** 2 * sp.sqrt(L_)), 'rho': 0}
+    ok_b = all(numzero(CO[nm].get('a', 0) - CO[nm].get('a', 0).subs(A, 0) - B[nm]) for nm in CO)
+    ok_s = all(numzero(CO[nm].get('1', 0) + Sv[nm]) for nm in CO)
+    alg = all(numzero(CO[nm].get(k, 0) - CO[nm].get(k, 0).subs(A, 0)) for nm in CO for k in CO[nm] if k not in
+              ('a', '1'))
+    # what each piece contributes: the phase, gh_2 (with a generic second harmonic too), chi's d_tau
+    gen2 = {'rth': TS({(2, n): sp.Symbol('X%d_rth' % (n + 2)) for n in (2, -2)}),
+            'thth': TS({(2, n): sp.Symbol('X%d_thth' % (n + 2)) for n in (2, -2)}),
+            'tth': TS({(2, n): sp.Symbol('X%d_tth' % (n + 2)) for n in (2, -2)}),
+            'tr': TS({(2, n): sp.Symbol('X%d_tr' % (n + 2)) for n in (2, -2)})}
+    variants = {'no phase': dict(g2=g2, phase=False), 'no gh_2': dict(g2=None),
+                'gh_2 + generic second harmonic': dict(g2={k: g2.get(k, TS()) + gen2.get(k, TS()) for k in
+                                                           set(g2) | set(gen2)}),
+                'chi\'s d_tau on': dict(g2=g2, chidot=True)}
+    changes = {}
+    for lab, kw in variants.items():
+        o2, _ = order1_mean(**kw)
+        ch = {}
+        for nm, X in o2.items():
+            cf = coeffs(X.mean(1))
+            dk = {k: sp.factor(sp.simplify(cf.get(k, 0) - CO[nm].get(k, 0))) for k in set(cf) | set(CO[nm])
+                  if not numzero(cf.get(k, 0) - CO[nm].get(k, 0))}
+            if dk:
+                ch[nm] = dk
+        changes[lab] = ch
+        print('      %s: change of <Phi^(1)>: %s %s' % (lab, ch if ch else 'none', el()))
+    ph = changes['no phase']
+    ph_ok = (set(ph) == {'Jr', 'rho'} and numzero(ph['Jr'].get('a', 0) - h4 * sp.sqrt(L_) / (3 * r ** 4))
+             and numzero(ph['rho'].get('a', 0) + h4 / (3 * r ** 3)))
+    none_else = all(not changes[k] for k in variants if k != 'no phase')
+    OK['D4'] = ok_p and ok_b and ok_s and alg and ph_ok and none_else
+    print('  D4 (exact): <Phi^(1)> = P(h_1, Q_1) + B_1 a - S_1 with P = data5.py\'s lin_0 coefficient by coefficient '
+          '(40 digits, three points): %s; B_1 = H^2 (C^4 + S^4) A^2 E^2 a (-(1/3) Lambda^(-3/2), 0, (2/3) r '
+          'Lambda^-2): %s; S_1 = (0, -A^2 E^2 H^2 sin 2th/(3 r^2 Lambda^(1/2)), 0): %s; no other coefficient carries A '
+          '(B_1 algebraic in a): %s; the phase carries (-(1/3) r^-4 Lambda^(1/2), 0, (1/3) r^-3) A^2 E^2 H^2 (C^4 + '
+          'S^4) a of B_1: %s; gh_2 (both harmonics) and chi\'s d_tau change nothing: %s %s'
+          % (ok_p, ok_b, ok_s, alg, ph_ok, none_else, el()))
+    print('      the coefficients of <Phi^(1)> (key: the jet multiplied; \'1\' the term free of a, w, q; mp = mu\'):')
+    for nm in ('Jr', 'Jt', 'rho'):
+        for k, c in sorted(CO[nm].items()):
+            if not numzero(c):
+                print('        %s[%s] = %s' % (nm, k, c))
+    M1 = {}
+    for (i, j), nm in (((0, 0), 'rr'), ((0, 1), 'rth'), ((1, 1), 'thth'), ((2, 2), 'p1p1'), ((3, 3), 'p2p2')):
+        M1[nm] = sp.factor(sp.simplify(sp.expand(Km1[i][j].subs(dict(zip(
+            [sp.Symbol('dummy')], [0])))).subs(sp.Derivative(mu, v), mp)))
+    print('      K\'s order-1 mean from the metric with d_tau h_1 = 0 (so Q_1 = M1 + d_tau h_1/(2 N0), N0 = (1 + '
+          'mu/r^2)^(-1/2)); no W^2 term:')
+    for nm, e in M1.items():
+        print('        M1_%s = %s' % (nm, e))
+    return CO, M1, g2
+
+
+def check_d5(CO):
+    Hrec = (C ** 4 + S ** 4) ** sp.Rational(-1, 2)
+    hr = sp.simplify(sp.expand_trig(Hrec ** 2 - 2 / (1 + sp.cos(2 * th) ** 2))) == 0
+    Mc = {}
+    free = True
+    for nm in ('Jr', 'Jt', 'rho'):
+        for key, c in CO[nm].items():
+            e = sp.factor(sp.simplify(c.subs(Hf, Hrec).subs(mp, sp.Rational(2, 9) * A ** 2 * Ef ** 2)))
+            Mc[(nm, key)] = e
+            if (nm, key) not in (('rho', 'a_t'), ('Jr', 'q'), ('Jt', '1')):
+                free &= sp.simplify(sp.diff(e, th)) == 0
+    cot = sp.cos(2 * th) / sp.sin(2 * th)
+    lap = sp.simplify(Mc[('rho', 'a_t')] - 2 * cot * Mc[('rho', 'a_tt')]) == 0
+    div = sp.simplify(Mc[('Jr', 'q')] - 2 * cot * Mc[('Jr', 'q_t')]) == 0
+    eig = all(sp.simplify(sp.expand_trig(sp.diff(sp.legendre(k, sp.cos(2 * th)), th, 2) + 2 * cot * sp.diff(
+        sp.legendre(k, sp.cos(2 * th)), th) + 4 * k * (k + 1) * sp.legendre(k, sp.cos(2 * th)))) == 0
+        for k in range(1, 5))
+    src = sp.simplify(Mc[('Jt', '1')] * (C ** 4 + S ** 4) / sp.sin(2 * th))
+    src_ok = sp.simplify(sp.diff(src, th)) == 0
+    sig = {k: sigma_k(k) for k in range(1, 12)}
+    x = sp.Symbol('x')
+    part = sum(sig[k] * sp.legendre(k, x) for k in range(1, 12))
+    tail = max(abs(float(part.subs(x, xx)) + math.atan(xx)) for xx in np.linspace(-1, 1, 41))
+    even0 = all(sig[k] == 0 for k in range(2, 12, 2))
+    rhs, fode, cs = mode_odes(Mc)
+    OK['D5'] = hr and free and lap and div and eig and src_ok and even0 and tail < 1e-4
+    print('  D5 (exact): H_rec = (C^4 + S^4)^(-1/2): %s; with it every coefficient of P + B_1 is free of th except '
+          'the angular operators: %s; these are -(1/Lambda) Lap a (rho): %s and -(2/r^2) div (q dth) (J_r): %s; Lap '
+          'P_k(cos 2th) = -4 k (k + 1) P_k, k <= 4: %s; the source is (A^2 E^2/(3 r^2 Lambda^(1/2))) H^2 sin 2th, '
+          'H^2 sin 2th = sum sigma_k d_th P_k: %s; sigma_k = 0 for even k: %s; |sum_(k<=11) sigma_k P_k + atan| <= %.1e '
+          'on [-1, 1] %s' % (hr, free, lap, div, eig, src_ok, even0, tail, el()))
+    print('      sigma_k (exact): ' + '; '.join('%d: %s = %.6g' % (k, sig[k], float(sig[k])) for k in range(1, 12, 2)))
+    print('      the mode ODEs (E_, mu_ for E(v), mu(v) at v = tau0 + r; k the mode; sg_ = sigma_k):')
+    for nm, e in zip(('a_k\'', 'w_k\'', 'q_k\''), rhs):
+        print('        %s = %s' % (nm, e))
+    return fode, Mc
+
+
+def check_d6(CO, M1, F0):
+    M = Model(lambda x: 1 + x / 4)
+    aT = (sp.Rational(1, 7) + sp.cos(2 * TS_) / 5) * (1 + RS / 10)
+    wT = RS * sp.cos(2 * TS_) / 9 + sp.Rational(1, 11)
+    qT = sp.sin(2 * TS_) * RS / 13
+    rr, wq = gauss(3.5, 0.3)
+    G2c = harm_closed(F0)
+    M1c = m1_coeffs(M1)
+    ths = (0.35, 0.8, 1.2)
+    res = {}
+    for t_ in ths:
+        tt = np.full_like(rr, t_)
+        U = jets_of({'a': aT, 'w': wT, 'q': qT}, rr, tt)
+        jv = jet_values(U)
+        pr = {}
+        for nm in ('Jr', 'Jt', 'rho'):
+            cf = {k: sp.lambdify((RS, TS_), M.ex(c), 'numpy') for k, c in CO[nm].items()}
+            vals = {k: np.broadcast_to(np.asarray(f(rr, tt), dtype=float), rr.shape) for k, f in cf.items()}
+            pr[nm] = {k: float(np.sum(wq * vals[k] * jv[k])) for k in vals}
+        res[t_] = {'pred': pr}
+        for lam in (Fr(1, 32), Fr(1, 64)):
+            X = jets_of(explicit_parts(M, sp.Rational(lam.numerator, lam.denominator), G2c, M1c), rr, tt)
+            for lab, kw in (('data', {}), ('no phase', dict(phase=False))):
+                Jr_, Jt_, rho_ = constraint_map(slice_jets(X, lam, U['a'], U['w'], U['q'], **kw))
+                res[t_][(lab, lam)] = {nm: float(np.sum(wq * x_)) for nm, x_ in zip(('Jr', 'Jt', 'rho'),
+                                                                                      (Jr_, Jt_, rho_))}
+        print('      th = %.2f done %s' % (t_, el()))
+    return res
+
+
+def jet_values(U):
+    a, w, q = U['a'], U['w'], U['q']
+    one = np.ones_like(a.v)
+    jv = {'1': one}
+    for nm, X in (('a', a), ('w', w), ('q', q)):
+        jv[nm], jv[nm + '_r'], jv[nm + '_t'] = X.v, X.d[0], X.d[1]
+        jv[nm + '_rr'], jv[nm + '_rt'], jv[nm + '_tt'] = X.h[0][0], X.h[0][1], X.h[1][1]
+    return jv
+
+
+def harm_closed(F0):
+    s = sp.Symbol('s', real=True)
+    G2 = sp.expand(sum(sp.expand(F0[2].get((1, n), 0)) / (2 * I * n) * (sp.cos(s) + I * n * sp.sin(s))
+                       for n in (1, -1)))
+    return sp.collect(G2, [sp.cos(s), sp.sin(s)], evaluate=False)
+
+
+def m1_coeffs(M1):
+    aj = {nm: tojet(e.subs(mp, sp.Derivative(mu, v))) for nm, e in M1.items()}
+    sa, sar, sat = sp.Symbol('a'), sp.Symbol('a_r'), sp.Symbol('a_t')
+    out = {'rr_a': aj['rr'].coeff(sa), 'rr_ar': aj['rr'].coeff(sar), 'rth_at': aj['rth'].coeff(sat),
+           'thth_a': aj['thth'].coeff(sa), 'p1p1_a': aj['p1p1'].coeff(sa), 'p2p2_a': aj['p2p2'].coeff(sa)}
+    rest = sum(sp.expand(aj[nm]) for nm in aj) - sum(out[k] * (sar if k.endswith('ar') else (sat if k.endswith(
+        'at') else sa)) for k in out)
+    assert sp.simplify(sp.expand(rest)) == 0, 'M1 is not of the expected form'
+    return {k: c.subs(mp, sp.Derivative(mu, v)) for k, c in out.items()}
+
+
+def order_p(x1, x2):
+    return math.log(abs(x1) / abs(x2), 2) if x2 != 0 and x1 != 0 else float('inf')
+
+
+def assess_d6(res, flipS=False, dropB=False, lab='data'):
+    """the orders p of the remainders W(lam) - lam I1 between lam = 1/32 and 1/64"""
+    ps = {}
+    for t_, d in res.items():
+        for nm in ('Jr', 'Jt', 'rho'):
+            pr = dict(d['pred'][nm])
+            if flipS and '1' in pr:
+                pr['1'] = -pr['1']
+            if dropB and 'a' in pr:
+                pr['a'] = pr['a'] - d['pred_B'][nm]
+            I1 = sum(pr.values())
+            rem = [d[(lab, lam)][nm] - float(lam) * I1 for lam in (Fr(1, 32), Fr(1, 64))]
+            ps[(t_, nm)] = (order_p(*rem), rem)
+    return ps

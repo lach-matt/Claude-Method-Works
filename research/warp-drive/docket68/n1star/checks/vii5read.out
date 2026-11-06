@@ -48,3 +48,6 @@
       inverse checked), at the same points: True; (c) the hand value (delta* dt)_00 = -mu^2/r^5 = -1/108 at x = (1, 2,
       2, 0): True (computed -1/108); (d) delta* of the Killing 1-forms g(d_t, .) and g(x^1 d_2 - x^2 d_1, .) vanishes
       there: True
+  Q3 control: delta* plus w (x)_s dx^1 fails (a) True; a shear fails (a) True; delta* without its Christoffel term
+      fails (b) and (c) True (hand value then 0); with the Christoffel sign flipped fails (b) and (c) True (1/108)
+Q1 PASS; Q2 PASS; Q3 PASS; Q4 PASS; control behaves
