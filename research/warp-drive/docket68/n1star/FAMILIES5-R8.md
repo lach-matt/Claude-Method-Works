@@ -21,7 +21,7 @@ Nothing in the paper or in N1STAR-PROOF.md is edited.
    {u ≤ u1}, the background reduces exactly to ordinary differential equations along null rays (deduced, with the
    reduction's limits checked). Validated integration of these encloses every input of the margins.
    - Theorem L″'s hyperbolicity holds on the whole of Σ′ in the development of the data: intcert5 C3 on R ≥ R_*
-     (upper bound −2.96 × 10⁻⁴) and truebg5 T3 on R < R_* (XX).
+     (upper bound −2.96 × 10⁻⁴) and truebg5 T3 on R < R_* (upper bound −4.76 × 10⁻³).
    - Corollary Q's Γ > 0 holds on the whole seed region (truebg5 T2: the background lies in intcert5 C1d's tube).
    - Rácz's band on Σ_τ0 is one interval, R ∈ [4.2955, 4.5258] certified, with edge zones of width ≤ 0.0073.
    - A posteriori, the computed ψ_III is within XXSUP of the true one in C² on the seed region (and its packet
@@ -178,10 +178,11 @@ v̂, bisected where needed, and each cell's ray starts from the interval R1(cell
 
 - **T1.** The N′ data are enclosed and λ > 0. Control: a float DOP853 integration lies inside the enclosures, and
   with B's amplitude 1.7 → 1.7017 it leaves them.
-- **T3** (Theorem L″'s margin below R_*). κK^l_l < 0 is certified on Σ_τ0 for R ∈ [0.683, R_*], that is
-  v̂ ∈ [0, τ0 + R_*], the part of Σ′ in the development of the data below R_*. On every cell it is checked with the
-  region I, packet and region III formulas, according to where the slice point can lie: XXT3. Control: with every
-  packet input widened by half its size, XXT3C step boxes are not certified.
+- **T3** (Theorem L″'s margin below R_*). κK^l_l < 0 is certified on Σ_τ0 for R ∈ [0.683, R_*], that is v̂ ∈ [0, τ0 +
+  R_*], the part of Σ′ in the development of the data below R_*. On every cell it is checked with the region I, packet
+  and region III formulas, according to where the slice point can lie. It is certified on every cell: 276 rays, with 1
+  region I piece, 8,834 packet step boxes and 119 region III pieces tested, and largest upper bound −4.76 × 10⁻³.
+  Control: with every packet input widened by half its size, all 8,834 step boxes fail.
 - **T2** (Corollary Q's margin, through C1d). Every cell of the seed region R ∈ [0.70, 1.861] lies in region III
   (R2 ≥ R on the slice, f3 > 0 at u2).
   - The a posteriori bound for the computed background: the n = 160 spline differs from the true ψ_III by at most
