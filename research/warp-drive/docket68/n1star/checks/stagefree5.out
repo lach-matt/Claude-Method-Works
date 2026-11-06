@@ -5,3 +5,4 @@ G4 PASS
   G2 box f_M = -2 Psi_M Q b_M (M = 3): True; b_1 = -(3/8)(r^(-5/2) + mu0 r^(-9/2)): True; b_2 = -3*(-27*mu0**2 +
       10*mu0*r**2 + 5*r**4)/(128*r**(15/2)); Hessian vv = d_v^2 f - (F'/2) d_v f - (F F'/2) d_r f: True; at the horizon
       (grad grad f_M)_vv = mu0**(-3/4) psi'' + -7/(4*mu0**(5/4)) psi' + ...: True
+G2 PASS

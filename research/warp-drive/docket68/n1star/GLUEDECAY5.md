@@ -18,6 +18,8 @@ or not.
 needed. At and below $\ell_0$ it holds exactly for the perturbations that are in Hintz's class, and for those Theorem 4
 (ii) applies directly. So the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's, with or without gluing.
 
+[R2.0, Minor 3: "the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's" overclaims. The pure-gauge examples of (C) lie outside the class, yet their developments are isometric to that of (i) (Remark 3.2). Read: the perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$, are exactly those small in Hintz's class.]
+
 - **(A) Above the threshold** (proved, Proposition 1; computed, E1). If $a>\ell_0$, a conormal perturbation of order $a$
   lies in the class, its terms of orders $r^{-2}$, $r^{-3}$ being zero. Its norm is at most
   $C_1\epsilon(1+(a-\ell_0)^{-1/2})$, so Theorem 4 (ii) applies to it directly when this is below $\delta$. Theorem 4
@@ -43,11 +45,15 @@ needed. At and below $\ell_0$ it holds exactly for the perturbations that are in
   are small enough for (ii) only on balls of radius up to a multiple of $(\delta/\epsilon)^{1/(\ell_0-a)}$, and this is
   sharp by (C). The glued data's development is not the perturbation's.
 
+[R2.0. (A), Minor 2: the data of (i), $\lambda_1$ and $\delta$ are those of the theorem run with that $\ell_0$; $\epsilon$ is below $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$; and the rate is $t_*^{-2-\epsilon'}$ with $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary 1.1). (B), nit: $N_R$ is an infimum. (C), nits: the examples have size $C_P\epsilon$ and need $\epsilon\le\epsilon_1$, and the bounds hold for $R\ge R_P$. (D), Minor 1: "only ... and this is sharp" overclaims. Corollary 4.3 is a sufficient condition for every perturbation, sharpness is shown only for the examples of (C), and at $a = \ell_0$ the exponent $1/(\ell_0-a)$ is undefined. Read: for $a<\ell_0$ the glued data are guaranteed small enough for (ii) for $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, a range that is nonempty when $2C\epsilon R_G^{\ell_0-a}<\delta$; for the examples of (C), no data in the class agreeing with them on $\{r<R\}$ do better than (C)'s lower bound.]
+
 Two findings change what the gluing needs (section 7). (GD3): the Myers-Perry data on Part V's Kerr-Schild slices differ
 from Tangherlini's data on Hintz's surface by a fixed term of order $r^{-3}$ in the second fundamental form, of size
 $\mu_{\mathrm{end}}$. So the family must be taken on Hintz's surface, as Part VII Proposition 2.2 does in the class.
 (GD4): mass and boost are fixed by the energy and momentum alone (Lemma 4.1 (c)). Without this the upper bound would be
 $\epsilon R^{\ell_0-2}$ for $2<a\le3$.
+
+[R2.0, nit: precisely, $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} = -\nabla^2f+\rho^5C^\infty$ (Lemma 4.1 (d)). GD3 constrains this note's Proposition 4 only. It is no defect of Part V: its Theorem 3.1 is about abstract data, and Part VII uses its proof only in class form, with Tangherlini members on $\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2, findings (VII1), (VII3)). Part V's Remark 3.4, which said otherwise, is amended (R2.0).]
 
 ## 1. Setting
 
@@ -214,6 +220,8 @@ $a\in\{\frac85,2,\frac52,3,\frac{3+\ell_0}2,\ell_0\}$, the class exponents 2 and
 $\kappa(\frac52,\frac72) = 7.655\times10^{-4}$ and $\kappa(\frac72,\frac72) = 1.737\times10^{-3}$. The constant is small
 because the annulus $(\frac R2,R)$ is short; only its positivity is used.
 
+[R2.0, Minor 5: round 1's E2 checked four of the ten entries and asserted no value of $\kappa$. E2 now checks all ten against sympy's exact integrals and quadrature, and asserts $\kappa(\frac52,\frac72)$ against a direct quadrature of the Gram matrix in $s$ and against the verifier's $7.6546\times10^{-4}$.]
+
 **Proposition 3 (perturbations outside the class).** Let $\frac32<a\le\ell_0$. Put $r_2 := 2r_\chi$, and take a cut-off
 $\chi_1(r)$ equal to 0 for $r\le r_2$ and to 1 for $r\ge2r_2$. Let
 $$\phi_\epsilon(r) := r+\epsilon\chi_1(r)\,r^{1-a}\cos\log r,\qquad\Psi_\epsilon(x) := \phi_\epsilon(|x|)\frac x{|x|},
@@ -231,6 +239,8 @@ N^{(d)}_R(\gamma_\epsilon,k_\epsilon)\ge c_P\,\epsilon\,\big(\log_2(R/R_P)\big)^
 (c) Hence (S) fails for $(\gamma_\epsilon,k_\epsilon)$ at every $\epsilon\in(0,\epsilon_1]$. For $a<\ell_0$, once
 $R>\max(R_P,(\delta/(c_P\epsilon))^{1/(\ell_0-a)})$, no data in the class that agree with it on $\{r<R\}$ have
 $\|\cdot\|_{d_1}<\delta$; for $a = \ell_0$, once $R>R_P\,2^{(\delta/c_P\epsilon)^2}$.
+
+[R2.0, nit: $R_P\ge4r_2$ is taken, as the proof of (b) uses: its annuli lie in $\{\chi_1 = 1\}$.]
 
 *Proof.* (a) Put $v := r^{1-a}\cos\log r$. Then $|\partial_r^j(\chi_1v)|\le C_jr^{1-a-j}$, so $\phi_\epsilon'\ge\frac12$
 for $\epsilon\le\epsilon_1 := (2\sup|(\chi_1v)'|)^{-1}$. Also $\phi_\epsilon(r) = r$ for $r\le r_2$ and
@@ -280,6 +290,8 @@ apply the same to the disjoint annuli $\Gamma_j := \{2^{-j-1}R<r<2^{-j}R\}$ with
 common to all annuli, so the infimum over them is at least the sum of the separate infima, which gives $\|\tilde
 u\|^2\ge\sum_j(c_P\epsilon)^2$ over $\lfloor\log_2(R/R_P)\rfloor+1$ annuli. (c) follows from (4.1) at $d = d_1$.
 $\square$
+
+[R2.0, Minor 5: round 1's E3 test that $r^{2+2a}\partial^2_\epsilon e_{\alpha\beta}|_0$ is bounded was vacuous: it substituted $r = e^t$ before testing for $r$. E3 now checks the exact identity $r^{2+2a}\partial^2_\epsilon e_{\alpha\beta}|_0 = \mu(2w^2-8cw+6c^2)$, $w = (1-a)c-s$, $c = \cos\log r$, $s = \sin\log r$, which is bounded; and it checks the Tangherlini term of the instance pointwise, which round 1's quadrature did not test.]
 
 *Computed* (E3), an instance: $(a,\ell_0) = (\frac52,\frac72)$ and $(\frac72,\frac72)$, $\epsilon = 10^{-2}$, with the
 Tangherlini term $\alpha = r^{-2}$, at $R = 10^2,10^3,10^4$. By quadrature, $D_R/(\epsilon R^{\ell_0-a})$ is within a
@@ -461,6 +473,8 @@ So Theorem 4 (ii) applies to the glued data when $C\epsilon(1+R^{\ell_0-a})<\del
 $\epsilon<\delta/ (2C)$ for $R$ up to $(\delta/(2C\epsilon))^{1/(\ell_0-a)}$. By Proposition 3 (c) this window is sharp
 up to the constant, since no data in the class do better for the examples.
 
+[R2.0, nit and Minor 1: as $1+R^{\ell_0-a}\le2R^{\ell_0-a}$ for $R\ge1$ and Proposition 4 needs $R\ge R_G$, the window is $R_G\le R<(\delta/(2C\epsilon))^{1/(\ell_0-a)}$, nonempty when $2C\epsilon R_G^{\ell_0-a}<\delta$. At $a = \ell_0$ it is $R_G\le R$ with $\log R<(\delta/(C\epsilon))^2-1$. "Sharp" holds for the examples of Proposition 3, not for every perturbation.]
+
 *Proof.* Membership: the data are smooth, and for $r\ge4R$ the difference is $(\tilde g_{p_R}-\gamma^{m_\lambda},\tilde
 K_{p_R}-k^{m_\lambda})\in\rho^2C^\infty\times\rho^3C^\infty$, which lies in the class by Part VII Lemma 0.1. For the
 norm let $u := \hat\gamma_R-\gamma_\lambda$, and use $|Au|\le C\sum_{|\beta|\le d_1}r^{|\beta|}|\partial^\beta u|$ as in
@@ -507,6 +521,8 @@ conclusion is reached, directly or through gluing, is exactly Hintz's class. The
 perturbation's: on $\{r>R\}$ the data differ, and the late-time solution near the hole depends on them (Part VII finding
 (VII1)).
 
+[R2.0, Minor 3: read "the perturbations to which Theorem 4 (ii) applies, directly or through gluing uniformly in $R$, are exactly those small in Hintz's class". Settling itself is not confined to the class: the examples of Proposition 3 have developments isometric to that of (i) (Remark 3.2).]
+
 *Proof.* (i) is Proposition 1 with Corollary 1.1, and (ii) is Corollary 2.1 with Propositions 3 and 4 and Corollary 4.3.
 $\square$
 
@@ -516,11 +532,15 @@ $\square$
 on a large ball with one to which Theorem 4 (ii) applies" is, in its uniform form, equivalent to (ii) applied to the
 perturbation itself (Corollary 2.1). The perturbations so reached are exactly those in Hintz's class.
 
+[R2.0, Minor 3: "so reached" means reached by Theorem 4 (ii), directly or through gluing uniformly in $R$; see the note to section 0.]
+
 (GD2) *The threshold.* At fixed $\ell_0$ the decay rate decides only above $\ell_0$ (Proposition 1). At every
 $a\in(\frac32,\ell_0]$ there are $G$-invariant, pure-gauge vacuum perturbations outside the class (Proposition 3). Over
 Theorem 4's $\ell_0\in(3,4)$ every $a>3$ is covered, the five-dimensional counterpart of [Hin26]'s footnote 1 (READ).
 The glued norm is $\asymp\epsilon R^{\ell_0-a}$: the lower bound holds for every data set (Proposition 3) and the upper
 bound for the gluing (Corollary 4.3).
+
+[R2.0, Minor 2: for that $\ell_0$, with the data of (i), $\lambda_1$ and $\delta$ taken for it, $\epsilon$ below $\delta/(C_1(1+(a-\ell_0)^{-1/2}))$, and the rate $t_*^{-2-\epsilon'}$, $\epsilon'<\epsilon_K<\ell_0-3$ (Corollary 1.1).]
 
 (GD3) *The gluing family.* The Myers-Perry data on Part V's Kerr-Schild slices $\{y^0 = 0\}$ differ from Tangherlini's
 data on Hintz's surface by $\nabla^2f$ in the second fundamental form, of trace $2\mu_{\mathrm{end}}r^{-3}$ (Lemma 4.1
@@ -528,6 +548,8 @@ data on Hintz's surface by $\nabla^2f$ in the second fundamental form, of trace 
 glued data are not small in the class even at $\epsilon = 0$. The family must be taken on Hintz's surface (Lemma 4.1),
 as Part VII Proposition 2.2 does with Tangherlini in the class. The paper's "can be glued far out to such a metric" is
 true with this family, whose charge map Lemma 4.1 (c) shows to be a local diffeomorphism.
+
+[R2.0, nit: "differ by $\nabla^2f$" means $\tilde K_p-K_p = \nabla^2f+\rho^4C^\infty$ at the same $p$, and $K_{p_\lambda}-k^{m_\lambda} = -\nabla^2f+\rho^5C^\infty$. And GD3 is no defect of Part V (note to section 0; R2.0).]
 
 (GD4) *Decoupling.* The energy and momentum of the family depend on mass and boost alone (Lemma 4.1 (c)). Without this,
 mass and boost would be bounded only as the degree-1 charges are, by $\epsilon R^{\min(0,3-a)}$. The term $|\Delta
@@ -539,6 +561,8 @@ bound, which decides the item, is Proposition 3.
 *Labels.* Lemma 1.2, Propositions 1-4, Corollaries 1.1, 2.1, 4.3, Lemmas 3.1, 4.1, 4.2 and Theorem 5: proved, from the
 inputs below. Every integral, exponent, identity and constant they use is computed in `checks/gluedecay5.py` E1-E6.
 Brouwer's fixed point theorem and the inverse function theorem are cited, as in Part V.
+
+[R2.0, Minor 4: "every ... constant ... computed" overstates. Of the constants only $\kappa$ is computed (E2), and with it $c_P$. $C_1$, $C_1'$, $C_0$, $C_P$, $R_P$, $R_G$, $L$, $\epsilon_0$, $\epsilon_1$ and the $C$ of Corollary 4.3 are proved to exist, not computed.]
 
 *Sources.* READ: [Hin26] (arXiv:2606.28253v2) pp. 2 ((1.4)-(1.5), footnote 1), 47 (Definition 2.6 (2)), 48 (Definition
 2.8, (2.3)), 318 (Theorem 13.1, (13.1b), footnote 146), read 2026-11-06. Nothing new from [CD03]: its estimates enter as

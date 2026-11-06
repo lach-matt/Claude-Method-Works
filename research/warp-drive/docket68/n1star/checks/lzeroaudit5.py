@@ -21,6 +21,9 @@ are PART-VII-ASSEMBLY.md Lemma 1.1, so the audit also decides EFFECTIVE-CONSTANT
   Controls (must fail, and do): C1 a planted "by contradiction ... subsequence ... compactness" sentence is not
   classified; C2 the census finds the ledger's N1 site PART-I-C-LOWENERGY.md:495-498 (positive control); C3 a table row
   removed leaves a hit unclassified.
+  D623 (the section 0-4 reader's findings seated, sections 0-4 36 lines longer): the rows in sections 0-4 re-keyed by
+  content, the rows below D616's line 457 moved by +36, the new hits of the D623 text classified (none of kind N), and
+  LAST, the end of sections 0-6, located by content (the line '## 7. What is left'); the md5 pins are not re-pinned here.
 
     python3 checks/lzeroaudit5.py
 """
@@ -34,6 +37,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LOWE = os.path.join(HERE, '..', 'proof5', 'PART-I-C-LOWENERGY.md')
 LAST = 817                       # sections 0-6; 812 at D614, 805 before D612/D614 added 7 lines at 87-93
+SEC7 = '## 7. What is left'      # D623: LAST is the line of this heading, located by content
 
 NONCON = re.compile(r'contradict|compact|rellich|fredholm|subsequen|closed graph|baire|weak|open condition|'
                     r'finitely many|so small|small enough|sufficiently small|limit', re.I)
@@ -112,6 +116,37 @@ TABLE.update({(89, 'eps1'): (E, 'eps1: the pointwise norm (D612), Lemma 1.1 (e) 
 # D615 + D616 (Lemma 6.2: D614 line 632 -> 632-634, 634-637 -> 636-642): every D614 line above 637 moved by +5, text
 # unchanged (checked line by line against D614's file); no table row lies in 632-637
 TABLE = {((ln + 5 if ln > 637 else ln), kw): val for (ln, kw), val in TABLE.items()}
+# D623: sections 0-4 re-keyed by content (D616 line -> D623 line: the unchanged lines matched line by line against the
+# D616 file, the rows whose sentence D623 rewrote at the line that now carries the keyword); +36 below D616's line 457
+D623 = {20: 20, 41: 41, 89: 91, 90: 96, 113: 127, 114: 128, 124: 138, 131: 145, 140: 154, 147: 161, 167: 181, 177: 192,
+        184: 199, 189: 204, 190: 205, 222: 244, 233: 256, 235: 260, 242: 271, 326: 356, 363: 394, 406: 440, 407: 441,
+        408: 442, 409: 443, 425: 460, 427: 462, 429: 465, 432: 468, 434: 470, 438: 474, 447: 483, 448: 484, 451: 487,
+        453: 489}
+TABLE = {((D623[ln] if ln <= 457 else ln + 36), kw): val for (ln, kw), val in TABLE.items()}
+TABLE[(91, 'eps1')] = (E, 'eps1: Lemma 1.1 (e) for every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 (D623; eps1hyp5 H1-H4)')
+TABLE[(96, 'eps1')] = (E, "eps1: below s0, g0's least absolute eigenvalue (D614, D623; lzerotrace5 T7, eps1hyp5 H5)")
+QUOTED = (X, 'superseded text, quoted in an [amended D623] note')
+TABLE.update({
+    (93, 'eps1'): (E, 'eps1: Lemma 1.1 (e) at the numerical point, 3/5 and the sharp 0.6013096 (eps1hyp5 H3)'),
+    (95, 'eps1'): (E, 'eps1: Lemma 2.3 needs eps1 < s0 (D623)'),
+    (97, 'eps1'): (E, 'eps1: Weyl, |gt^-1| <= (s0 - eps1)^-1, explicit (eps1hyp5 H6)'),
+    (98, 'eps1'): (X, 'eps1 >= s0: a counterexample family (eps1hyp5 C7), no constant'),
+    (98, 'there are '): (X, 'eps1 >= s0: a counterexample family, no constant'),
+    (99, 'eps1'): (E, 'eps1: s0 < 2^(1/2) - 1 < 3/5, explicit'),
+    (100, 'eps1'): (E, 'eps1 fixed: 0 < eps1 < min(s0, mu0/a^2 - 1), explicit (D623)'),
+    (101, 'eps1'): (E, 'eps1 < 0.0308 at the numerical point (lzerotrace5 T7)'),
+    (102, 'eps1'): QUOTED, (103, 'eps1'): QUOTED, (105, 'eps1'): QUOTED,
+    (221, 'lam1'): (X, 'the Jacobian bound uses lam <= lam1: no new threshold (D623)'),
+    (223, 'uniformly'): (X, 'Jacobian bounds 3/10, 2/5, 1 + 2 lam1/a: explicit (D623; support5 C14)'),
+    (234, 'uniformly'): (X, 'Jacobian bounds: explicit (D623)'),
+    (245, 'eps1'): (E, 'eps1 of 0.3 and |gt^-1| <= (s0 - eps1)^-1 (D623)'),
+    (246, 'eps1'): QUOTED,
+    (256, 'eps1'): (E, 'flux constants through |gt^-1| <= (s0 - eps1)^-1, explicit (D623)'),
+    (258, 'eps1'): (E, 'C depending on s0 - eps1, explicit (D623)'),
+    (258, 'uniformly'): QUOTED,
+    (265, 'gronwall'): (X, 'the program gronwall5.py cited (D623)'),
+    (395, 'eps1'): (E, "Step 3: |g - g0| <= eps1, eps1 of 0.3 (D623)"),
+})
 CITES = {
     'BH17': ('Sobolev H^3 -> L^inf in 4D', 'enters (C_S)', 'effective: certified constant, lzeroconst5 Z3'),
     'DS23': ('local existence Thms 2.4, 2.6; Remark 2.3 commutators', 'Thm 2.4/2.6 no; Remark 2.3 via Lemma 6.4',
@@ -146,7 +181,9 @@ def census(lines, table, offset=0):
 
 
 def main():
+    global LAST
     ok = {}
+    LAST = [i + 1 for i, ln in enumerate(open(PROOF, encoding='utf-8').read().split('\n')) if ln == SEC7][0]   # D623
     lines = open(PROOF, encoding='utf-8').read().split('\n')[:LAST]
     md5 = hashlib.md5('\n'.join(lines).encode()).hexdigest()
     full = open(PROOF, encoding='utf-8').read().split('\n')
@@ -190,11 +227,11 @@ def main():
     ok['C2'] = 'subsequen' in kws and 'contradict' in kws
     say('  C2 (control): the census on PART-I-C-LOWENERGY.md:495-498 (EFFECTIVE-LEDGER N1 at 497) finds %s' % kws)
     t2 = dict(TABLE)
-    del t2[(757, 'limit')]
+    del t2[(757 + 36, 'limit')]                        # D623: +36
     _, u3 = census(lines, t2)
     ok['C3'] = len(u3) == 1 and not uncl
-    say('  C3 (control): with the row (757, limit) removed (752 at D614, 745 before D612/D614), %d hit unclassified'
-        % len(u3))
+    say('  C3 (control): with the row (793, limit) removed (757 at D616, 752 at D614, 745 before D612/D614), %d hit '
+        'unclassified' % len(u3))
     for k, v in ok.items():
         print(k, 'PASS' if v else 'FAIL')
     return 0 if all(ok.values()) else 1

@@ -391,6 +391,45 @@ def totals(ch):
 C_PIN, D_PIN = 406, 45661427137374547
 
 
+# ------------------------------------------------------------------------------------------------ M4: the one-off steps
+DN_OUT = os.path.join(HERE, 'dnumber5.out')
+DN_OUT_MD5 = 'ad77abe04556f0d06ce977fe545c375a'
+
+
+def dn_counts():
+    """P_W, P_iota, W, Sum X_7 (R1, wide) and the uniform bound's excess, read from dnumber5.out (pinned by md5)"""
+    txt = open(DN_OUT, encoding='utf-8').read()
+    flat = ' '.join(txt.split())
+    m1 = re.search(r'P_W = (\d+), P_iota = (\d+), W = (\d+)', flat)
+    m2 = re.search(r'K4 R1/wide: sum over the levels above 3 of X_7 = (\d+)', flat)
+    m3 = re.search(r'would give (\d+) more', flat)
+    ok = hashlib.md5(txt.encode('utf-8')).hexdigest() == DN_OUT_MD5 and m1 and m2 and m3
+    return ok, dict(P_W=int(m1.group(1)), P_iota=int(m1.group(2)), W=int(m1.group(3)), SX7=int(m2.group(1)),
+                    unif=int(m3.group(1)))
+
+
+def one_offs(w, cab, cbe, x7_term=True, factor=2):
+    """the steps of III.I'''''''''''''' Theorem 3.1 outside its levels (I15:296-452): Step 0 (FWD), Step 1 (the base
+    level, III.I'''''''' Proposition 4.1 at alpha_1: Lemma 3.1 with III.I''''' Proposition 2.1's rounds, and at most one
+    Lemma 3.2), Steps 3, 4' (FIN), Step 4 (III.I'''''''''''' Theorem 3.1 at the top, whose Step 0 runs one more level's
+    maps, Steps 1-6 subtractions and statements): bounded by 2 (M_above + 4 M_below) + 1000, M the largest total of one
+    level with its loops (deduced, a coarse reading: each one-off step is at most one level's composition)"""
+    ok, n = dn_counts()
+    c = DW.counts(w)
+    step = w['eps_ind'] - w['eps']
+    r3max = int((w['alpha'] - 2 - w['tau3']) // step) + 1
+    r2max = int((3 - w['epsp'] - w['tau0']) // step) + 1
+    x7top = (n['unif'] + n['SX7']) // c['levels_above3']
+    ok = ok and x7top * c['levels_above3'] == n['unif'] + n['SX7']
+    Ma = 3 * r3max + 3 * n['P_W'] + 11 + 3 * n['P_iota'] + 47 + 15 * n['W'] + (x7top if x7_term else 0) + cab
+    Mb = 3 * r2max + 15 * n['W'] + 58 + cbe
+    B = factor * (Ma + 4 * Mb) + 1000
+    return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, B=B, levels=c, n=n)
+
+
+B_PIN, DTOT_PIN = 0, 0
+
+
 def main():
     print('modcount5: the fixed per-level steps of the beta-levels, read and counted; c\' and d as integers')
     fo = file_ok()
@@ -428,6 +467,17 @@ def main():
     print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
           'of itself; the floor 8,407,505,890,317,054 is %.4f of the bound' % (
               ab - meta['fwd'], be - meta['fwd'], DN.KPLUS1 * cp / d, 8407505890317054 / d))
+    okb, ob = one_offs(w, ab, be)
+    dtot = d + ob['B']
+    OK['M4'] = okb and (ob['B'], dtot) == (B_PIN, DTOT_PIN)
+    print('  M4 (deduced, coarse; computed): the steps outside the levels (I15 Steps 0, 1, 3, 4\', 4; III.I\'\'\'\'\'\''
+          '\'\'\'\'\'\' Theorem 3.1 at the top): one level\'s largest total with its loops, above 3 M_a = 3 x %d '
+          '(level-3 rounds) + 3 P_W + 11 + 3 P_iota + 47 + 15 W + X_7(alpha) %d + c\'_above = %d, below 3 M_b = 3 x %d '
+          '(tf rounds) + 15 W + 58 + c\'_below = %d (P_W, P_iota, W, Sum X_7 read from dnumber5.out, md5 pinned: %s); '
+          'B_once := 2 (M_a + 4 M_b) + 1000 = %d' % (ob['r3max'], ob['x7top'], ob['Ma'], ob['r2max'], ob['Mb'], okb,
+                                                    ob['B']))
+    print('      d <= A\' + (K + 1) c\' + B_once = %d (%.10e); N = 21 d + 6 <= %d; B_once is %.2e of d: pinned: %s' % (
+        dtot, dtot, 21 * dtot + 6, ob['B'] / dtot, OK['M4']))
     # controls
     t1 = dict(TABLE)
     t1.pop(('I12', 247, 'I3'))
@@ -449,6 +499,8 @@ def main():
     c5 = totals(charges(w, oneoff_reading=1)[0])[2]
     OK['C5'] = c5 != C_PIN
     print('  C5 (control): the one-off application on R0 (12): c\' = %d, not %d: %s' % (c5, C_PIN, OK['C5']))
+    OK['C7'] = one_offs(w, ab, be, x7_term=False)[1]['B'] != B_PIN
+    print('  C7 (control): M_a without X_7(alpha): B_once leaves its pin: %s' % OK['C7'])
     OK['C6'] = not ranges_ok(shift=1)
     print('  C6 (control): every range\'s opening line searched one line off: the anchors fail: %s' % OK['C6'])
     for k, v in OK.items():
