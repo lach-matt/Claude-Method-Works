@@ -1,3 +1,20 @@
 A  Proposition R3.1's lam-orders from the monomials of (11.4) (round 3, m7)
   A1 e(G_k) = k - 4 for k = 4..13 from every monomial of r-order exactly (k + 2)/2 (m <= 6 factors): pass [-1, 0, 1, 2,
         3, 4, 5, 6, 7]
+  A2 with the trade (r^-1/2 <= lam on r >= lam^-2) the recursion gives B_J = 3J - 9 (J = 4..12), the same at m_max = 6
+        and 7: pass [-1, Fraction(3, 1), Fraction(6, 1), Fraction(9, 1), Fraction(12, 1), Fraction(15, 1), Fraction(18,
+        1), Fraction(21, 1), Fraction(24, 1), Fraction(27, 1)]
+  A2' B_J = 3J - 9 <= 4J - 13 <= (J^2 - J)/2 - 3 for J = 4..12: the round-3 verifier's and R3.1's exponents are upper
+        bounds: pass
+  A2'' control (the code mutated: no trade): at J = 8 the explicit monomials' order grows with m_max (no bound): m_max =
+        4 gives 18, m_max = 7 gives 30: pass
+B  K* of Lemma R3.2 as a function of k0 (round 3, m5)
+  B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and for k0 >= 400 the second differences (step
+        100) are constant, 2 (4/(7 - 2a)) 100^2 = 160000/3: K* is quadratic in k0, not linear: pass ['116', '1643/2',
+        '4143/2'], second differences ['160000/3', '160000/3']
+  B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too (the same second differences), and smaller: pass ['76', '1303/2',
+        '10609/6']
+  B3 the nit s > 2: s := max(5/2, ...) leaves K* unchanged wherever (2M + 1)/(7 - 2a) > 5/2 (here): pass
+  B4 control (the code mutated: s held fixed at 37): the second differences vanish (K* linear), so the quadratic term is
+        s's growth with M: pass ['0', '0']
+C  the interpolation optimum recomputed (round 3, P8c-P8d)
