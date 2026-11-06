@@ -8,3 +8,33 @@ E1  R6-D's replacement text for Lemma 11.0, applied to a copy of the live N1STAR
   E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False, 'c':
         False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False}
 E2  the mathematics the edited Lemma 11.0 states, read from its text
+  E2a Leibniz's rule with the sign, 1/2 and C(gamma, gamma') read from both sums (orders 1..3, exact): pass read [(1,
+        '1/2', "gamma' <= gamma, |gamma'| = 1", True), (1, '1/2', "gamma' <= gamma, |gamma'| >= 2", True)]
+  E2b the bounds read for b . d U and c U have the lam- and t-powers of b and c as the text defines them (c's on the
+        model, exact): pass b: lam^0 t^(-3/2) against E_(3/2), lam-order 0; c: lam^-1 t^(-3/2) against the model's lam^-1
+        r^(-3/2)
+  E2c the Gronwall kernel and ||f_gamma||'s bound read are the sum of the two bounds read: pass kernel C(1 + lam^-1)
+        t^(-3/2); f's C(1 + lam^-1) t^(-3/2)
+  E2d the factor read equals exp of the kernel's integral over t >= lam^-2 (computed), lam-free: pass read e^(2C(1 +
+        lam)); computed exp(2*C*(lam + 1))
+  E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 20 sampled
+        subsolutions stay below it: pass
+  E2f Edit 2's closing bound read: int t'^(-3/2) = 2(t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) (exact): pass int =
+        -2/sqrt(t_n) + 2/sqrt(t) (t_n >= t), read <= 2 t^(-1/2)
+  E2g the L^2 powers on Sigma_tau cap P+ computed from the classes read match the bounds read: pass E_3 -> t^(-3/2), E_2
+        -> t^(-1/2), products <= t^(-2); read ||R_gamma|| t^(-3/2)
+  E2h the bookkeeping inequality read holds for N = 1..2000: pass floor((N + 2)/2) <= max(4, N - 3) for every N >= 1
+E3  controls: the text under test mutated, each mutation must fail E1 or E2
+  E3 E-m5: c U's bound lam^-1 -> lam^-3: caught: pass failing: ['E2b', 'E2c']
+  E3 E-m6: the factor -> e^(2C/lam): caught: pass failing: ['E2d']
+  E3 the 1/2 of the |gamma'| = 1 sum dropped: caught: pass failing: ['E2a', 'b', 'g']
+  E3 C(gamma, gamma') dropped at the |gamma'| >= 2 sum: caught: pass failing: ['E2a', 'b']
+  E3 R_gamma's source E_3 -> E_(5/2): caught: pass failing: ['E2g']
+  E3 max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read): caught: pass failing: ['E2h']
+E4  R6-E's paper blocks against RESPONSE-HL-5D.md (not edited)
+  E4a each old text occurs exactly once in the paper: pass [1, 1, 1]
+  E4b the edited paper keeps every line within 121 characters: pass []
+  E4c the new blocks state condition (b), R6-D's status, 'supplement section 11.1', eps, Proposition 3.1 as deduced, and
+        the window as computed from measured exponents: pass []
+  E4c' control (R5-E's blocks, the round-5 reader's m6): they fail at least six of the eight: pass 8
+FAILED: none

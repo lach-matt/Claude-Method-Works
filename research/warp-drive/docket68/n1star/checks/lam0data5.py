@@ -57,8 +57,9 @@ multiplied by a non-oscillating factor, whose mean is zero; gh_2 at lam^2 is kep
      surface r = rho~(tau) is a future boundary (every future causal vector Y has Y^r <= ((1 - m)/(1 + m)) Y^tau).
   G2 (certified) The local energy rate of Lemma 2.3 at gt = g0 (stage1rate5's forms, imported): kappa(r) := (1/r)
      sup |lambda(r M, Q)| on 600 r-cells of [a, b(tau0)] (Arb); and its suffix maxima.
-  G3 (certified) LAMBDA0-DATA5.md Lemma 9.1: E_rho~(tau*) <= e^(int kappa(rho~(tau)) dtau) (E_rho~(tau0) + ...); the principal-part
-     factor e^((1/2) int kappa) over X*'s past, against the record's e^(kappa Dtau*/2) = 5.103e10 (classm5 K5).
+  G3 (certified) LAMBDA0-DATA5.md Lemma 9.1: E_rho~(tau*) <= e^(int kappa(rho~(tau)) dtau) (E_rho~(tau0) + ...);
+     the principal-part factor e^((1/2) int kappa) over X*'s past, against the record's e^(kappa Dtau*/2) = 5.103e10
+     (classm5 K5).
   Controls (each mutates the computed path and must fail): C1 S_1 with its sign flipped: D6's order test fails; C2 the
   phase d_tau phi_1 = -a/2 dropped from the data: D6 fails; C3 B_1 dropped from the prediction: D6 fails; C4 the
   numerics' envelope sin^4: E1's smoothness fails (its fourth derivative jumps at v = 1/2); C5 X* perturbed to r = a +

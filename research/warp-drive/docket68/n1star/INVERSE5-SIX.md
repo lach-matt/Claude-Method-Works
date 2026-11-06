@@ -10,8 +10,8 @@ stated input at which it stops. CONSTANTS5.md, N1STAR-PROOF.md and the paper are
 text for CONSTANTS5.md R9.7 block 2 and R9.5.
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
-`checks/inverse6_5.py` (the microlocal constants at L_b0 and the replacements' arithmetic; 15/15: K1-K7, controls
-C1-C8; seconds) and `checks/inverse6_5m.py` (certified spectral bounds for the mode-decomposed operators; 12/12: M0-M7,
+`checks/inverse6_5.py` (the microlocal constants at L_b0 and the replacements' arithmetic; 17/17: K1-K8, controls
+C1-C9; seconds) and `checks/inverse6_5m.py` (certified spectral bounds for the mode-decomposed operators; 12/12: M0-M7,
 controls C1-C4; about two minutes). Imported, not copied: `strap5.py` (III.F (4.2)'s matrix A), `e2certify5.py`
 (r_*(t), decimal rounding), `modes5.py` M2-M3 and `gmodes5.py` G1 (the master relations, rerun inside M7).
 
@@ -135,7 +135,7 @@ s > 1) and C_D as in R5,
 ||P-hat(sigma)^-1||_(Y_sigma -> X_sigma) <= C_ext + C_ext^2 e_X e_Y ||W|| (1 + ||W|| C_D).
 *Proof.* P-hat^-1 = P_1^-1 - i P_1^-1 Q P-hat^-1 and P-hat^-1 = P_1^-1 - i P-hat^-1 Q P_1^-1; inserting the second in
 the first, P-hat^-1 = P_1^-1 - i P_1^-1 Q P_1^-1 - P_1^-1 (Q P-hat^-1 Q) P_1^-1, and ||Q P-hat^-1 Q|| <= ||W||^2 C_D
-on L^2(I). []
+on L^2(I). [] (Checked exactly over Q(i) on random rational matrices, with its norm bound: inverse6_5 K8; control C9.)
 So once the cut-off bound C_D is certified, an inverse bound in the write-out's norms needs only C_ext(sigma), the
 inverse of the absorbed problem, whose proof needs no trapping estimate and no mode stability (the absorption covers
 the photon sphere r = 2^(1/2) in I): the radial-point estimates at the horizon and at infinity, real principal type
@@ -160,7 +160,7 @@ Then Lemma E2.8 (E2-PILOT.md 3e, READ) gives, for real sigma != 0 and f in L^2(I
 <= B(sigma) = ((2/m' + (M' + 2|sigma|)^2/w_I)/w_I)^(1/2), and Lemma E2.10 (3h) the same with 4|sigma| when
 Im sigma > 0 (V >= 0 and q = 0 for every potential here). *Proof.* (a) is E2-PILOT's Lemma E2.9 with the asymmetric g;
 (b) differentiates tanh g and bounds the logistic factors; (c) is e2certify5's tail argument with beta_L, beta_R as
-interval lower bounds of the potential's own P'. []
+interval lower bounds of the potential's own P'. [] (The elementary inequalities used, exact: inverse6_5m M0.)
 
 **Lemma R8 (the exact transfers).** On the blocks where the operator is its master operator the cut-off bound
 transfers with the factor max_I f = 15/16: for box on functions (u = r^(-3/2) Phi S, G = f r^(3/2) g; E2-PILOT (1.1)),

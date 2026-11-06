@@ -100,6 +100,7 @@ f_ = 1 - x_
 m_ = k2 - 3
 HKI = m_ + 6 * x_
 RESULTS = {}
+MU_TEST = [None] if '--full-mu' in sys.argv else [1, sp.Rational(9, 10), sp.Rational(7, 5)]
 
 
 def report(name, ok, controls=()):
@@ -153,14 +154,22 @@ class Jets:
         return e.subs(reps)
 
     def is_zero(self, e):
-        e = sp.together(sp.expand(e))
-        num = sp.expand(sp.numer(e))
-        if num == 0:
-            return True
-        syms = [s for nm in self.names for s in self.J[nm] if num.has(s)]
-        if not syms:
-            return sp.cancel(num) == 0
-        return all(sp.cancel(cf) == 0 for cf in sp.Poly(num, *syms).coeffs())
+        """exact zero test, symbolic in R, k^2 and the jets; mu symbolic (--full-mu) or at MU_TEST (the homothety
+        (t, R) -> (lam t, lam R) carries mu to lam^2 mu, so mu = 1 is general; 9/10 and 7/5 are cross-checks)"""
+        for mv in MU_TEST:
+            ee = e if mv is None else e.subs(mu, mv)
+            ee = sp.together(sp.expand(ee))
+            num = sp.expand(sp.numer(ee))
+            if num == 0:
+                continue
+            syms = [s for nm in self.names for s in self.J[nm] if num.has(s)]
+            if not syms:
+                if sp.cancel(num) != 0:
+                    return False
+                continue
+            if not all(sp.cancel(cf) == 0 for cf in sp.Poly(num, *syms).coeffs()):
+                return False
+        return True
 
 
 # ------------------------------------------------------------------ tensors in the class (coordinates X, diagonal g)
@@ -790,8 +799,9 @@ def e6(rad):
     print("   controls: l without its F-term fails the identity (rejected): %s; Phi with R^(1/2) fails (rejected): %s"
           % (ctl1, ctl2))
     # the l-form potential before the S-deformation (E7's control)
-    num = sp.expand(sp.numer(Ered))
-    den = sp.denom(Ered)
+    Ered1 = sp.together(Ered.subs({mu: 1, k2: 8}))                # the control needs m = 5, mu = 1 only
+    num = sp.expand(sp.numer(Ered1))
+    den = sp.denom(Ered1)
     P = sp.Poly(num, L[0], L[1], L[2])
     cf = {mm: sp.cancel(c / den) for mm, c in zip(P.monoms(), P.coeffs())}
     c20, c11, c101 = cf.get((2, 0, 0), 0), cf.get((1, 1, 0), 0), cf.get((1, 0, 1), 0)
