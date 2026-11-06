@@ -908,9 +908,10 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201,
                 return True
         # Lemma W (B): |S'| >= L0, |S''| <= L0/(80 pi lam), the errors included
         Sf = lambda t: sig(t)[0]*mp.e**(ell(t) - ell(x1))                          # noqa: E731
-        d1 = [abs(mp.diff(Sf, t)) - 2*err(t)[1]*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts]
+        hh = per/1000                                      # a step relative to the window (x may be below 10^-30)
+        d1 = [abs(mp.diff(Sf, t, h=hh)) - 2*err(t)[1]*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts]
         L0 = min(d1)
-        d2 = max(abs(mp.diff(Sf, t, 2)) + 4*err(t)[1]**2*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts)
+        d2 = max(abs(mp.diff(Sf, t, 2, h=hh)) + 4*err(t)[1]**2*err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts)
         if L0 > 0 and d2 <= L0/(80*mp.pi*lam):
             nB += 1
             return True
@@ -969,7 +970,7 @@ def x15_adversary(nm, lam, N, rs):
         kap, kN1 = Y[1], Y[N]/Y[N - 1]
         cN = N/((rs + x)**2 + 1)
         Lam = lam**(N - 2)*Y[N - 1]
-        nup = mp.diff(lambda t: kvv(rs + t), x)
+        nup = mp.diff(lambda t: kvv(rs + t), x, h=x*mp.mpf(10)**-12)
         return Lam*cN*(kap - kN1) + nup, Lam*cN, kvv(rs + x)
     x0 = (lam**(N - 2))**(mp.mpf(1)/(2*N))
     lo, hi = x0/10**8, x0*10**8
@@ -982,9 +983,9 @@ def x15_adversary(nm, lam, N, rs):
     sig0, _ = sigma_model(nm, lam, N, rs, 'K', 0)
     xs = hi
     s0 = sig0(xs)[0]
-    s0p = mp.diff(lambda t: sig0(t)[0], xs)
+    s0p = mp.diff(lambda t: sig0(t)[0], xs, h=xs*mp.mpf(10)**-12)
     f2 = lambda t: 1j*lam*sig0(t)[3]                      # noqa: E731  the coefficient of b5 in sigma: i lam T0
-    b5 = -s0p/mp.diff(f2, xs)                              # sigma'(x*) = 0
+    b5 = -s0p/mp.diff(f2, xs, h=xs*mp.mpf(10)**-12)        # sigma'(x*) = 0
     b4 = -(s0 + f2(xs)*b5)/lam                             # sigma(x*) = 0
     return b4, b5
 

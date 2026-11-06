@@ -89,3 +89,4 @@ X13 PASS
       decided: False; record C_c^inf, lam = 1e-160: lam kappa = 2.48e-15, min |sigma|/(|nu| T0^2) = 3.26e-18; windows by
       (A) 322, by (B) 0, all decided: True; the T0^2 route fails (min |sigma| < 10^-3 |nu| T0^2) and every window is
       decided: False  [2649 s]
+X14 FAIL
