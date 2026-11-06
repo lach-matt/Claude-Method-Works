@@ -2019,14 +2019,15 @@ replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, w
 half-integer orders, is deduced in section 9 (Beyond the boundary).
 ```
 
-Ledger. Computed: `r5settle5.py` A-H (43 checks), `r5op5.py` O1-O3 (7), `cclass5.py` C1-C3 (6), `r5edits5.py` E1-E3
-(10), `zinv5.py` ZI1-ZI2 (2), each with controls that mutate the code under test; rerun: `poly5.py`, `scale5.py`,
-`trunc5.py`, `scatter5.py`, `boot5.py`, `order5.py`, `f1lemma5.py`, `vac5.py`, all passing (28, 25, 23, 16, 48, 22, 12
-and 8 checks). Deduced: Propositions R5.2, R5.3, R5.4, Theorem R5.1′ (R4-D with R5-B), Theorem R5.1. READ:
-N1STAR-PROOF.md (709c63be) 24-27, 29-34, 412-456, 1172-1184 (Lemma 9.5), 1237-1239, 1266-1269, 1424-1425, 1428-1431,
-10550-10581; PART-VII-ASSEMBLY.md 31-38, 403-406; PART-III-K-NONLINEAR.md 470, 512-520. None from outside sources. The
-verifiers' scratch scripts relied on are in `checks/` as `zinv5.py` (copied with a driver); their other computations (K*,
-B_J, the class of c, B13's probe) are recomputed by this round's own programs (B, A, C2, H).
+Ledger. Computed: `r5settle5.py` A-H (43 checks), `r5op5.py` O1-O3 (7), `cclass5.py` C1-C3 (6), `r5edits5.py` E1-E3 (10),
+`zinv5.py` ZI1-ZI2 (2; still running when this was written, its `.out` written by the program on completion; (R3c) is
+computed independently in `scale5.py` Z1 and `boot5.py` B5), each with controls that mutate the code under test; rerun:
+`poly5.py`, `scale5.py`, `trunc5.py`, `scatter5.py`, `boot5.py`, `order5.py`, `f1lemma5.py`, `vac5.py`, all passing (28,
+25, 23, 16, 48, 22, 12 and 8 checks). Deduced: Propositions R5.2, R5.3, R5.4, Theorem R5.1′ (R4-D with R5-B), Theorem
+R5.1. READ: N1STAR-PROOF.md (709c63be) 24-27, 29-34, 412-456, 1172-1184 (Lemma 9.5), 1237-1239, 1266-1269, 1424-1425,
+1428-1431, 10550-10581; PART-VII-ASSEMBLY.md 31-38, 403-406; PART-III-K-NONLINEAR.md 470, 512-520. None from outside
+sources. The verifiers' scratch scripts relied on are in `checks/` as `zinv5.py` (copied with a driver); their other
+computations (K*, B_J, the class of c, B13's probe) are recomputed by this round's own programs (B, A, C2, H).
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
@@ -2034,4 +2035,4 @@ Open in the theorem: nothing beyond its status (the readings named above). Not e
     python3 checks/r5op5.py       (about seven minutes)
     python3 checks/cclass5.py     (about nine minutes)
     python3 checks/r5edits5.py    (about half a minute)
-    python3 checks/zinv5.py       (five processes in parallel; about RT_Z on a loaded machine)
+    python3 checks/zinv5.py       (five processes in parallel; over two hours on this loaded machine)

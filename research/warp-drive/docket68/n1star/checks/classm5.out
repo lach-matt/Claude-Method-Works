@@ -1,0 +1,12 @@
+classm5: the stage-1 mean at X* reduced to M_22 by the class; W_TT on Sigma_tau0
+  K1 (exact): at phi1 = 0 the x2 column of a class tensor is ['0', '0', 'm_p1p1/(r**2*cos(theta)**2)', '0', '0']: True
+  K2 (exact): at X*, g(s) e2 = (M_22 + (4/3) K cos s) e2 for every class M, every s, every chi: True; so sup_s |g(s)|_op
+      >= (4/3) K + |M_22| (deduced)
+  K3 (exact; certified): H^2 (4 C^4 + S^4) = 5/2 + 3 q/(1 + q^2): True, 4 - it = 3*(q - 1)**2/(2*(q**2 + 1)) >= 0, = 4 at
+      q = 1; H^2 (C^4 + S^4) is 4 - (3) <= 4; so sup_{th, s} |W_TT|_op = (4/3) E r^(-3/2); on Sigma_tau0, sup |W_TT|_op
+      <= [0.221882 +/- 3.34e-7] (certified; R7.3 printed < 0.64 with a factor 2^(1/2)); pinned in ['[0.220 +/- 1e-8]',
+      '[0.230 +/- 1e-8]']: True
+      K4: an enclosure with min |M_22| = 1/10 would multiply the operator-norm bound 0.0024433 by 0.992122 (< 0.0024241)
+      K4: an enclosure with min |M_22| = 1 would multiply the operator-norm bound 0.0024433 by 0.926434 (< 0.0022636)
+      K4: an enclosure with min |M_22| = 5 would multiply the operator-norm bound 0.0024433 by 0.715801 (< 0.0017489)
+  K4: (4/3) K at X* >= [12.5934637 +/- 2.51e-8] > 12.593309: True
