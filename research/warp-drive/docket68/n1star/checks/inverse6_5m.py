@@ -34,6 +34,11 @@ phi', M' = max_I phi', w_I = min_I w (and with 4|sigma| for Im sigma > 0, Lemma 
      s_R = 3/2, k_s = 1/2), V_S at l = 3 (phi_C).
   M6 (certified) the constants and the bounds: m', M', w_I for each certificate, B at sigma = 0+, 1, 3, 10, and the
      table of every master operator's bound for every l in its range; V_0 at l = 0 is E2-PILOT 3g's (cited).
+  M7 (deduced; exact identities) the transfer to the operators' own blocks: with the record's master relations rerun
+     (modes5.py M2, M3; gmodes5.py G1, imported) and the exact pointwise norm identities, ||chi_I u|| <= (max_I f) B
+     ||F|| with max_I f = 15/16, for box on functions, box on the vector-type 1-form blocks (V_1), and 2 L_b0 on the
+     tensor-type blocks (V_T; the gauge terms vanish on TT angular tensors): in L^2(I x S^3, r^3 dr dw), SO(4)-
+     invariant, so the bound over all such blocks is the sup over l (Schur).
   Controls (each mutates the computed path and must fail): C1 family C's multiplier with its centre moved to
   r_*(2^(1/2)) + 1/2: -phi U' < 0 at a point (certified), so the monotonicity in a fails; C2 V_V at l = 1 (the
   exceptional Killing sector, a = 15/4, b = -27/4) with phi_A: the bisection fails and a point value is certified < 0;
@@ -380,6 +385,38 @@ def main():
     print('  M6 every master operator of III.D (M2)-(M4) and of III.F\'\' Theorem 2.2, every l in its range (l = 0 of V_0'
           ' by E2-PILOT 3g): ||chi_I R(sigma) chi_I|| <= max(the rows) = %s at sigma = 0+, 1, 3, 10, and at every real'
           ' sigma != 0 by B(sigma), increasing in |sigma|' % ', '.join(dec(x, 4, True) for x in worst))
+
+    # M7: the exact transfers to the operators' own blocks (deduced from the record's identities, rerun here)
+    with contextlib.redirect_stdout(io.StringIO()):
+        import modes5 as MO                  # noqa: E402  (III.D (M2)-(M3), imported, not copied)
+        import gmodes5 as GM                 # noqa: E402  (III.F'' / [KI03] tensor type, imported, not copied)
+        rec_ok = MO.m2() and MO.m3() and GM.g1()
+    rr, Ph, gg, KK, FY = sp.symbols('r Phi g K F_Y', positive=True)
+    ff = 1 - 1 / rr**2
+    # pointwise, per unit dr_* (dr = f dr_*), harmonic norms factored out:
+    # scalar u = r^-3/2 Phi S, source g, G = f r^3/2 g;  vector A = r^-1/2 Phi Y, |A|^2 = r^-3 |Phi|^2, G = f r^1/2 F_Y,
+    # |F|^2 = r^-2 |F_Y|^2;  tensor h = 2 r^2 H T, H = r^-3/2 Phi, F = 2 r^2 K T, G = 2 f r^3/2 K
+    rows7 = {'scalar': ((rr**-3 * Ph**2) * rr**3 * ff, (ff * rr**sp.Rational(3, 2) * gg)**2, gg**2 * rr**3 * ff, 1),
+             'vector 1-form': ((rr**-3 * Ph**2) * rr**3 * ff, (ff * rr**sp.Rational(1, 2) * FY)**2,
+                               rr**-2 * FY**2 * rr**3 * ff, 1),
+             'tensor 2-tensor': (4 * rr**-3 * Ph**2 * rr**3 * ff, (2 * ff * rr**sp.Rational(3, 2) * KK)**2,
+                                 4 * KK**2 * rr**3 * ff, 4)}
+    ok7 = rec_ok
+    for name, (un, Gn, Fn, c) in rows7.items():
+        ok7 &= sp.simplify(un - c * ff * Ph**2) == 0 and sp.simplify(Gn / Fn * c - ff) == 0
+    fmax = (1 - sp.Rational(1, 16))
+    ok7 &= fmax == sp.Rational(15, 16) and sp.diff(ff, rr).subs(rr, sp.Rational(6, 5)) > 0
+    # ||u||_I^2 = c int f |Phi|^2, ||G||^2 <= max_I f ||F||_I^2 / c'...: ||u||_I <= (max_I f) B ||F||_I in every case
+    OK['M7'] = ok7
+    tf = lambda b: [dec((Q(Fr(15, 16)) * iv.mpf(x)).b, 4, True) for x in b]
+    print('  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: %s) on I x S^3 with r^3 dr dw and the static '
+          'frame\'s pointwise norm, ||u||_I = c^(1/2) (int_I f |Phi|^2 dr_*)^(1/2) and ||G||_I <= (max_I f)^(1/2) ||F||_I '
+          '/c^(1/2) (pointwise identities exact: %s), max_I f = 15/16; so, Phi being the outgoing solution (the class of '
+          'III.D Proposition 6.2 and III.F\'\' Proposition 3.1): ||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on '
+          'functions (E2-PILOT\'s B) and on the vector-type 1-form blocks (V_1: l = 1 %s, l >= 2 %s), and '
+          '||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 %s), at sigma = 0+, 1, '
+          '3, 10' % (rec_ok, ok7, ', '.join(tf(fam['A'][3])), ', '.join(tf(fam['B'][3])),
+                     ', '.join(tf(fam['B'][3]))))
 
     # controls
     Cs = Mult(Fr(49, 50), 2, 1, Fr(1, 2))

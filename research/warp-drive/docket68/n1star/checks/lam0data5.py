@@ -501,6 +501,14 @@ def numzero(e, tol=1e-25):
     return True
 
 
+MUP = sp.Symbol('mu', positive=True)
+
+
+def nice(e):
+    """for printing: mu(v) as a positive symbol, so that powers of r^2 + mu combine"""
+    return sp.factor(sp.simplify(sp.sympify(e).subs(mu, MUP)))
+
+
 def harm_sub(Fl):
     """gh_2's first harmonic from D2: G2_tth = F_th,n/(2 i n), G2_rth = -G2_tth"""
     return {'tth': TS({(2, n): Fl[2].get((1, n), 0) / (2 * I * n) for n in (1, -1)}),
@@ -838,8 +846,9 @@ def check_d1_d2():
     sec_ok = all(sp.simplify(sp.expand_trig(sec_real[nm] - want2.get(nm, 0))) == 0 for nm in NM)
     OK['D2'] = only_th and a_free and pp_ok and g2_ok and sec_ok
     print('  D2 (exact): the first harmonic of D^(1) at gh_2 = 0 lies in the th component only: %s, independent of a '
-          '(Lambda_1 = 0 in the class): %s; Pol^+ of (0, 0, c) is c (dr dth - dtau dth)/2 symmetrised (tth -c/2, rth '
-          'c/2, others 0): %s; so gh_2 on Sigma, first harmonic: G2_(tau th) = -G2_(r th) = (A E/(6 r^(3/2))) [(5 H sin '
+          '(Lambda_1 = 0 in the class): %s; Pol^+ maps (0, 0, c) to the class tensor with (tau th) component -c/2, (r '
+          'th) component c/2, every other 0: %s; so gh_2 on Sigma, first harmonic: G2_(tau th) = -G2_(r th) = (A E/(6 '
+          'r^(3/2))) [(5 H sin '
           '2th + 2 S^2 H\') cos s + (5 H sin 2th - 2 C^2 H\') sin s]: %s %s' % (only_th, a_free, pp_ok, g2_ok, el()))
     print('      gh_2 on Sigma, second harmonic (computed, exact; chi\'s d_tau READ from stage0bd5.py): (A^2 E^2 H^2/(6 '
           'r^3)) (cos 2th cos 2s - (1/4) sin^2 2th sin 2s) Pi, Pi = r^2 (dth^2 + C^2 dphi1^2 + S^2 dphi2^2), every '
@@ -901,10 +910,8 @@ def check_d3_d4(F0):
     alg = all(numzero(CO[nm].get(k, 0) - CO[nm].get(k, 0).subs(A, 0)) for nm in CO for k in CO[nm] if k not in
               ('a', '1'))
     # what each piece contributes: the phase, gh_2 (with a generic second harmonic too), chi's d_tau
-    gen2 = {'rth': TS({(2, n): sp.Symbol('X%d_rth' % (n + 2)) for n in (2, -2)}),
-            'thth': TS({(2, n): sp.Symbol('X%d_thth' % (n + 2)) for n in (2, -2)}),
-            'tth': TS({(2, n): sp.Symbol('X%d_tth' % (n + 2)) for n in (2, -2)}),
-            'tr': TS({(2, n): sp.Symbol('X%d_tr' % (n + 2)) for n in (2, -2)})}
+    gen2 = {nm: TS({(2, n): sp.Symbol('X%d_%s' % (n + 2, nm)) for n in (2, -2)})
+            for nm in ('rr', 'rth', 'thth', 'p1p1', 'p2p2', 'tr', 'tth')}
     variants = {'no phase': dict(g2=g2, phase=False), 'no gh_2': dict(g2=None),
                 'gh_2 + generic second harmonic': dict(g2={k: g2.get(k, TS()) + gen2.get(k, TS()) for k in
                                                            set(g2) | set(gen2)}),
@@ -915,7 +922,7 @@ def check_d3_d4(F0):
         ch = {}
         for nm, X in o2.items():
             cf = coeffs(X.mean(1))
-            dk = {k: sp.factor(sp.simplify(cf.get(k, 0) - CO[nm].get(k, 0))) for k in set(cf) | set(CO[nm])
+            dk = {k: nice(cf.get(k, 0) - CO[nm].get(k, 0)) for k in set(cf) | set(CO[nm])
                   if not numzero(cf.get(k, 0) - CO[nm].get(k, 0))}
             if dk:
                 ch[nm] = dk
@@ -936,14 +943,14 @@ def check_d3_d4(F0):
     for nm in ('Jr', 'Jt', 'rho'):
         for k, c in sorted(CO[nm].items()):
             if not numzero(c):
-                print('        %s[%s] = %s' % (nm, k, c))
+                print('        %s[%s] = %s' % (nm, k, nice(c)))
     M1 = {}
     for (i, j), nm in (((0, 0), 'rr'), ((0, 1), 'rth'), ((1, 1), 'thth'), ((2, 2), 'p1p1'), ((3, 3), 'p2p2')):
         M1[nm] = sp.factor(sp.simplify(sp.expand(Km1[i][j]).subs(sp.Derivative(mu, v), mp)))
     print('      K\'s order-1 mean from the metric with d_tau h_1 = 0 (so Q_1 = M1 + d_tau h_1/(2 N0), N0 = (1 + '
           'mu/r^2)^(-1/2)); no W^2 term:')
     for nm, e in M1.items():
-        print('        M1_%s = %s' % (nm, e))
+        print('        M1_%s = %s' % (nm, nice(e)))
     return CO, M1, g2
 
 
@@ -977,7 +984,7 @@ def check_d5(CO):
           'the angular operators: %s; these are -(1/Lambda) Lap a (rho): %s and -(2/r^2) div (q dth) (J_r): %s; Lap '
           'P_k(cos 2th) = -4 k (k + 1) P_k, k <= 4: %s; the source is (A^2 E^2/(3 r^2 Lambda^(1/2))) H^2 sin 2th, '
           'H^2 sin 2th = sum sigma_k d_th P_k: %s; sigma_k = 0 for even k: %s; |sum_(k<=11) sigma_k P_k + atan| <= %.1e '
-          'on [-1, 1] %s' % (hr, free, lap, div, eig, src_ok, even0, tail, el()))
+          'on a 41-point grid of [-1, 1] (floating point) %s' % (hr, free, lap, div, eig, src_ok, even0, tail, el()))
     print('      sigma_k (exact): ' + '; '.join('%d: %s = %.6g' % (k, sig[k], float(sig[k])) for k in range(1, 12, 2)))
     print('      the mode ODEs (E_, mu_ for E(v), mu(v) at v = tau0 + r; k the mode; sg_ = sigma_k):')
     for nm, e in zip(('a_k\'', 'w_k\'', 'q_k\''), rhs):
