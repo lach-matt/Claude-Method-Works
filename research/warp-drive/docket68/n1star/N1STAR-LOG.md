@@ -7995,3 +7995,31 @@ more than 37 times beyond it. The loss d has the floor 8.41e15 and, from the wri
 named at their sites (nkind5.py). The reader's findings on rounds 1-2 are seated (gronwall5.py rewritten; controls that
 could not fail now mutate the code they test). A reader of round 3 and a round 4 (the pole orders for d's ceiling,
 certified stage solves for lambda0's value, one inverse bound) are running.
+
+**D613 (2026-11-02): workstream A's round-2 reader seated at the supplement and the paper.** The change of mass mu-dot is
+defined where it is first used; (Dyn) is cited to Part VI.A Theorem 6.1, which proves it at b_0; the l = 0 statement is
+phrased with the gauge vector Z (GAUGEDECAY5 R2.13 (b)). The reader's other findings went to round 3.
+
+**D614 (2026-11-02): the norm on arrays stated.** N1STAR-PROOF.md now states after (0.3) that the pointwise norm of an
+array is the operator norm, the reading under which workstream D certified lambda0 <= 0.026986 (lzerotrace5.py T6); any
+other norm on arrays changes only constants. Every line of the supplement above line 86 moved by +7; lzerotrace5.py
+and lzeroaudit5.py re-pinned.
+
+**D615 (2026-11-02): Lemma 6.2's proof fixes stage N's data.** Workstream E (EQUALITY5-LAYER round 3, stagen5.py S1)
+and its round-3 reader (m1) found that Lemma 6.2's proof fixed the stage data for m = 1, ..., N - 1 only, leaving stage
+N's data free; Theorems A,
+D and E hold for every smooth choice (stagen5.py S2-S3), but round 4 computed that the choice decides the very edge of
+the layer for Theorem 1's g_lam (stagefree5.py G1-G3: adding the Cauchy data of +-2 A grad grad f to stage N's mean
+changes g_lam's A-linear part by exactly +-2 lam^N A grad grad f, which makes the boundary spacelike or timelike there).
+The proof now runs the same rule at m = N, with step (iii) inside Theorem A of order N (after stage N the order-N
+residual is -(1/2) e_{N+1} d_th^2 W with e_{N+1} independent of th, whose th-mean vanishes). A reader of round 4
+re-derived the amendment and found it correct. stagen5.py S1 and stagefree5.py G4 re-pinned to the amended text; each
+control now requires the old wording to be absent.
+
+**D616 (2026-11-06): which stage data Lemma 6.2 means.** The reader of round 4 noted that Lemma 6.2's statement was
+still existential, so modified stage-N data would still satisfy it. The statement now says the stage data constructed
+in the proof are fixed by the seed and N, and that "the stage data of Lemma 6.2" in Proposition 6.5 and section 6.4
+means these. stagen5.py and stagefree5.py rerun (all pass, every control fails). The reader's three major findings on
+round 4 (Theorem L_E rests on two sketches; Proposition L.12 (iii) is shown only for delta < (1 - gamma)/4; the paper
+text overstates what decides Theorem 1's very edge) and seven minor ones went to round 5. Workstream B round 4 and
+workstreams A and D round 6 reported; readers of each, and rounds A7 and D7, are running.

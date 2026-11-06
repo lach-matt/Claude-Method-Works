@@ -56,6 +56,8 @@ paragraph; T7 (certified) g0's least absolute Euclidean eigenvalue on Omega, whi
 with it: lambda0 < 0.0024433 (operator norm), lam1 no longer binding; outward rounding (up/down); T2's nullness tested
 through gp^-1; T3's c by interval square roots and its domain by in_omega; T6's signature exact at five m. Controls
 that now mutate the computed path: C3 (T4's parity test on a doubled phase), C4 (T3's domain test), C6 (T7 with mu0).
+Round 7: T0 re-pinned to D616 (lines 1-817, the whole file of 10858 lines); the six trace rows above D614's line 637
+moved by +5 (Lemma 6.3 (c) 704, Proposition 6.5 780, 781, 783, 784, N := K + 3 at 807), each fragment found on its line.
 """
 import hashlib
 import os
@@ -74,9 +76,11 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '6e8947ad2005ac587f9b632d0a1e8025'          # md5 of lines 1-812 (sections 0-6) joined by newlines (D614)
-LAST = 812                                         # was 805 (pin 57d896ae...) before D612/D614 added 7 lines at 87-93
-FILE_PIN = '02e7617602841a350a75349c44ab5fb6'     # the whole file at D614 (10853 lines), as the main session asked
+PIN = '39acbcf0640c253b3d40f1dc2bd929dd'          # md5 of lines 1-817 (sections 0-6) joined by newlines (D616)
+LAST = 817                                         # 812 at D614 (pin 6e8947ad...); 805 (57d896ae...) before D612/D614
+FILE_PIN = '709c63be1748117de9fadf6410eb53a2'     # the whole file at D616 (10858 lines), as the main session asked
+# D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
+# lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 
 # the trace table: (term, factor, line, fragment found verbatim on that line, status)
 CERT, OPEN = 'certified here', 'not evaluated'
@@ -130,6 +134,7 @@ TRACE += [                                         # Round 4 (verifier m2, MAJOR
 TRACE = [(t, f, ln + 7 if ln > 86 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D612 + D614: +7 above line 86
 TRACE += [('E-a', "eps1 below g0's least absolute eigenvalue on Omega (D614)", 91,
            "needs it below g0's least absolute eigenvalue on Omega", CERT)]
+TRACE = [(t, f, ln + 5 if ln > 637 else ln, fr, st) for t, f, ln, fr, st in TRACE]   # D615 + D616: +5 above 637
 TERMS = ['lam1', 'E-a', 'E-b', 'E-c', 'E-d', 'D-a', 'D-b', 'D-c', 'D-d']
 NEEDS = {
     'E-b': 'C_inf (Lemma 2.1 C_S, certified in round 1, times Step 1\'s constant), M, eps2 (g_ext): the profiles',
