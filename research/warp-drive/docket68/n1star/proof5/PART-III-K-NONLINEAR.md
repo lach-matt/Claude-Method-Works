@@ -606,8 +606,8 @@ $F$, against section 0's $F(r)$, and its coefficient $B$ is now marked apart fro
 *D628.* A confirming reader of D626 found Lemma 6.2's compact-set clause to claim more than it proves: for future curves
 $r$ is not bounded below by II.C Lemma 3.2 (1), which governs past curves only, and II.F Lemma 1.3's support hypothesis
 puts the level below $\Sigma_{\mathrm{IVP}}$, so the sets cross it. The near-infinity content holds. The clause and the
-proof's last sentence are amended in place (D628), the future-curve case computed (`checks/scrirad5.py` R5, with a
-control); the orientation of $dt$ on $\{r\ge R\}$ is now stated; and `checks/vii5census.py` V2 now keeps primes in the
+proof's last sentence are amended in place (D628), the future-curve case computed (`checks/scrirad5.py` R5, with two
+controls); the orientation of $dt$ on $\{r\ge R\}$ is now stated; and `checks/vii5census.py` V2 now keeps primes in the
 spellings of $\omega$ it sorts (D628).
 
 **Lemma 6.1 (the radius near $\mathscr I^+$ along past causal curves; D621).** Let $\ell$, $\epsilon_G$, $r'_0$,
@@ -755,3 +755,4 @@ Cartesian components are bounded (an independent verifier's item 0; D626).
 `checks/scrirad5.py` (R1-R3 and five controls; the run is `checks/scrirad5.out`). [amended D626: and for Lemma 6.2, III.B
 Lemma 3.7 (b); III.C Lemmas 1.3, 2.1, 3.5 (2), Definitions 3.1, 3.4; III.C$''$ Lemma 1.1, Theorem 3.1 (2); Part IV$'''$
 Lemma 0.1, Corollary 2.3; computed, `checks/scrirad5.py` R4 and its sixth control.]
+[amended D628: and R5, Lemma 6.2's future-curve case on $g_{b_0}$, with the seventh and eighth controls.]

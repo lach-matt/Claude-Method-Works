@@ -33,3 +33,4 @@ rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126, at dw
       Q(d1) -> False; delta'_2: not in Q(d1) -> False; delta_3: not in Q(d1) -> False; so the only rational candidate is
       beta = lambda_sharp + 2 = 35099/10000 (x = 2, n = 0), a level: False; the test recognises 3 d1 + 1/7 in Q(d1) with
       its coordinates: True: True
+exit 143

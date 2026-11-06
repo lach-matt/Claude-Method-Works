@@ -529,8 +529,8 @@ The passage to the write-out's own function spaces and the
 ```
 
 ```new
-λ1 and δ are positive, as the proof gives them; their values are not
-  computed, and the supplement states where the computation of explicit constants stops (supplement
+λ1 and δ are positive, as the proof gives them; their
+  values are not computed, and the supplement states where the computation of explicit constants stops (supplement
   `docket68/n1star/INVERSE5-SIX.md`, round 2). What the proof's own formulas deliver is bounded above,
   log₁₀ δ < −7.66 × 10¹⁶ and λ1 < δ (computed, `docket68/n1star/checks/deltacap5.py`), and with the loss taken at its
   bound d ≤ 4.624 × 10¹⁶ (supplement `CONSTANTS5.md` R10.1) the formula gives at most log₁₀ δ = −4.45 × 10¹⁷ even with

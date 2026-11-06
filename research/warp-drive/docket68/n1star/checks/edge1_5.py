@@ -923,8 +923,8 @@ def e14(control=False):
     mp.mp.dps = 60
     N, rho0 = 12, mp.sqrt(23)
     rows, ok = [], True
-    for nm in ("exp(-1/x)", "record C_c^inf"):
-        for E in (40, 80, 160):
+    for nm in (("exp(-1/x)",) if control else ("exp(-1/x)", "record C_c^inf")):
+        for E in ((40,) if control else (40, 80, 160)):
             lam = mp.mpf(10)**-E
             key = (nm, E, control)
             if key not in CACHE14:
