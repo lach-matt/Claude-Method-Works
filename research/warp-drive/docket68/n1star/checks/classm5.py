@@ -27,8 +27,8 @@ of (v, r, th). x = r (cos th cos phi1, cos th sin phi1, sin th cos phi2, sin th 
      + min(|lo|, |hi|), so lambda0's operator-norm bound is multiplied by 12.593309/(12.593309 + min(|lo|, |hi|)).
   Controls (each mutates the computed path and must fail): C1 K1 with a v phi1 component added (outside the class):
      the x2 column acquires a tau entry; C2 K2 with an off-class entry M_23 = w: e2 is not an eigenvector; C3 K3's
-     angular claim H^2 (4 C^4 + S^4) <= 2: refuted at q = 1; C4 K3 at r = 5/2 - 1 (outside Sigma's support): the bound
-     there exceeds the pinned interval.
+     angular claim H^2 (4 C^4 + S^4) <= 2: refuted at q = 1; C4 K3 on the slice tau = -1 in place of tau0: the bound
+     there leaves the pinned interval.
 
     python3 checks/classm5.py        (seconds)
 """
@@ -106,12 +106,14 @@ def k3_angular(claim=4):
     return form == 0, gap, expr.subs(q, 1), sp.simplify(sp.Rational(4, 1) - other)
 
 
-def k3_sigma(r_lo=Fr(5, 2), r_hi=Fr(11, 2), cells=3000):
-    """certified sup over r in [r_lo, r_hi] of (4/3) E(r - 2) r^(-3/2) (tau0 = -2), E^2 bounded by stage1cap5"""
+def k3_sigma(tau0=-2, cells=3000):
+    """certified sup over Sigma_tau0 of (4/3) E(v) r^(-3/2), v = tau0 + r, E^2 bounded by stage1cap5 (E = 0 off
+    [1/2, 7/2])"""
+    r_lo, r_hi = Fr(1, 2) - tau0, Fr(7, 2) - tau0
     best = flint.arb(0)
     for i in range(cells):
         a, b = r_lo + (r_hi - r_lo) * Fr(i, cells), r_lo + (r_hi - r_lo) * Fr(i + 1, cells)
-        va, vb = a - 2, b - 2
+        va, vb = a + tau0, b + tau0
         if vb <= Fr(1, 2) or va >= Fr(7, 2):
             continue
         E2 = SC.env_sq_hi(max(va, Fr(1, 2)), min(vb, Fr(7, 2)))
@@ -122,7 +124,7 @@ def k3_sigma(r_lo=Fr(5, 2), r_hi=Fr(11, 2), cells=3000):
     return best
 
 
-SIG_PIN = (Fr(22, 100), Fr(23, 100))
+SIG_PIN = (flint.arb('0.22'), flint.arb('0.23'))
 
 
 def main():
@@ -140,7 +142,7 @@ def main():
     print('  K3 (exact; certified): H^2 (4 C^4 + S^4) = 5/2 + 3 q/(1 + q^2): %s, 4 - it = %s >= 0, = 4 at q = 1; '
           'H^2 (C^4 + S^4) is 4 - (%s) <= 4; so sup_{th, s} |W_TT|_op = (4/3) E r^(-3/2); on Sigma_tau0, '
           'sup |W_TT|_op <= %s (certified; R7.3 printed < 0.64 with a factor 2^(1/2)); pinned in %s: %s' % (
-              form, gap, oth, sig.str(6), [float(x) for x in SIG_PIN], OK['K3']))
+              form, gap, oth, sig.str(6), [x.str(3) for x in SIG_PIN], OK['K3']))
     for mlo in (Fr(1, 10), Fr(1), Fr(5)):
         fac = CAPP / (CAPP + mlo)
         print('      K4: an enclosure with min |M_22| = %s would multiply the operator-norm bound 0.0024433 by %.6f '
@@ -157,9 +159,10 @@ def main():
     OK['C3'] = sp.simplify(gap2.subs(sp.Symbol('q', real=True), 1)) < 0
     print('  C3 (control): the angular claim <= 2: 2 - H^2 (4 C^4 + S^4) at q = 1 is %s < 0: %s' % (
         sp.simplify(gap2.subs(sp.Symbol('q', real=True), 1)), OK['C3']))
-    sig4 = k3_sigma(r_lo=Fr(3, 2), r_hi=Fr(11, 2))
+    sig4 = k3_sigma(tau0=-1)
     OK['C4'] = not (SIG_PIN[0] < sig4 < SIG_PIN[1])
-    print('  C4 (control): K3 run from r = 3/2 (v from -1/2): bound %s, outside the pin: %s' % (sig4.str(6), OK['C4']))
+    print('  C4 (control): K3 on the slice tau = -1 instead of tau0 = -2: bound %s, outside the pin: %s' % (
+        sig4.str(6), OK['C4']))
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1
