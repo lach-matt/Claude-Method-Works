@@ -27,8 +27,8 @@ scanned here.
      range scanned in its own right. 0 unclassified; every TABLE row is hit (no stale row).
   M2 (deduced; computed) the charges, at the record's weights (dweights5 W1, imported) and, where a loss depends on
      the level, at the worst level of its range:
-     - FWD: III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, recomputed from d0count5's functions (D_0 <= 177,
-       D_1 <= 48 on Q4's order range): 248 (Round 7);
+     - FWD: III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, from d0count5 as corrected in Round 8 (the round-7
+       verifier's A and A2: D_0 <= 399 and D_1 <= 52 on the order box, Q3b): 474 (round 7's 248 withdrawn);
      - BG: 2 per order-2 application (J3 (b)): I15's R_q u, Delta_q and Lemma 3.2's (L - L_b0) u;
      - III.I' Proposition 3.1 at I11's Step 1, the one-off application to the general class E^C_I: 2 (1 + J + L) by
        prop31loss5's chain on dweights5's data_ECI, 12 (R0), 30 (R1, 4 rounds), 48 (R1, 7 rounds): charged 48;
@@ -291,15 +291,10 @@ def the_weights():
 
 
 def fwd_loss():
-    T_LO, T_HI, NMAX = -14, 11, 14                                          # d0count5 Q4
-    da = DC.D_a(T_LO, T_HI)
-    d86, _, _ = DC.d0_86(T_LO + 2, T_HI, 2, NMAX)
-    m24 = DC.M_24(T_LO, T_HI, 2, 2)
-    L4 = max(m24['M'] + 4, m24['M'] + 2, da['D'], d86, 2)
-    D0 = max(m24['M'] + 6, d86 + 2, da['D'] + 2, L4)
-    D1 = max(0, T_HI) + 2 * max(0, -T_LO) + 6 + 3                          # d0count5 Q6
-    dp, dpp = 8, 9                                                          # d0count5 Q6: d' = ceil(-s_out), d'' = s_in
-    return D0 + D1 + dp + dpp + 6, D0, D1
+    """III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, from d0count5 as corrected in Round 8 (the verifier's A, A2):
+    Sobolev orders Q4R, every operator order in the box BOX (Q3b)"""
+    c = DC.counts(*DC.Q4R, MU_BOX=DC.BOX)
+    return c['FWD'], c['D0'], c['D1']
 
 
 def lF(b_scf, b_iota, b_K, eps):
@@ -469,7 +464,7 @@ def main():
     A1 = DN.D_PIN['R1']
     d = A1 + DN.KPLUS1 * cp
     N = 21 * d + 6
-    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 248 and meta['k12'] == 10 and meta['oneoff'][7] == 48
+    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 474 and meta['k12'] == 10 and meta['oneoff'][7] == 48
     print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; d <= A\' + %d c\' = %d + %d = %d '
           '(%.6e); N = 21 d + 6 <= %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,

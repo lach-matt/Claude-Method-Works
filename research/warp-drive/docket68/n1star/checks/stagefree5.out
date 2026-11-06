@@ -10,3 +10,4 @@ G2 PASS
       0.00031021), free term at the window below a tenth of lam^3 env: True; lam = 1e-1000: dominated on [3 lam, x_1]
       with x_1 = 2.326e-5 (env(x_1) = lam^18.671; x_b = 1.0e-500, window x_w = 3.1021e-5), free term at the window below
       a tenth of lam^3 env: True
+G3 PASS
