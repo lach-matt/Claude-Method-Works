@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""mbsign5: the sign of the canonical energy on the band -- the missing input M_b of FAMILIES5-R6.md section 1.5,
-decided (FAMILIES5-MB.md).
+"""mbsign5: the sign of the charge Q =: -E of seeds that perturb the metric on the band -- the missing input M_b of
+FAMILIES5-R6.md section 1.5, decided (FAMILIES5-MB.md).
 
 Setting. On a vacuum band U of Part I's slice the data background + eps delta + c, c = O(eps^2) supported in U,
 satisfy the vacuum constraints up to eps^2 Q(delta) + O(eps^3) times the static KID (FAMILIES5-VLASOV Proposition
 L'), Q(delta) = (1/2) int (N_s D^2 H + 2 Y_s . D^2 M)[delta, delta] dvol with the record's map (H = R + (tr K)^2 -
 |K|^2, M_i = D_j K^j_i - D_i tr K, K = (1/2) L_n gamma, n future) and its KID (N_s, 2 Y_s), xi = N_s n + Y_s the
-static Killing field; E := -Q is the canonical energy. Every vacuum region of Part I is Tangherlini, f = 1 - mu/R^2,
+static Killing field; E := -Q (no identification with the Hollands-Wald canonical energy is used or claimed; R8:
+the round-8 reader's minor 7). Every vacuum region of Part I is Tangherlini, f = 1 - mu/R^2,
 in ingoing coordinates (v, R) with v = int e^(psi_P) dvhat, and Part I's slice there is v = V(R), w := V' = e^(psi_P)
 (qsign5 Q2). The class: T^2 x Z2 x Z2-invariant tensors on S^3, dOmega^2 = dth^2 + sin^2 th dphi1^2 + cos^2 th dphi2^2.
 
@@ -105,6 +106,7 @@ m_ = k2 - 3
 HKI = m_ + 6 * x_
 RESULTS = {}
 FULL = '--full' in sys.argv
+XS = sp.Symbol('xs', positive=True)            # --full: mu = xs R^2, a change of variables (all mu)
 
 
 def _radpts():
@@ -173,9 +175,9 @@ class Jets:
 
     def is_zero(self, e):
         """exact zero test, symbolic in k^2 and the jets: at the rational points RADPTS in (R, mu) (default), or
-        symbolic in R and k^2 at mu = 1 (--full; the homothety (t, R) -> (lam t, lam R) carries mu to lam^2 mu, so
-        mu = 1 is general)"""
-        for pt in (RADPTS if not FULL else [{mu: 1}]):
+        symbolic in R, mu and k^2 (--full: mu = xs R^2 with xs a free symbol, a change of variables; [R8] the round-8
+        reader's minor 2 -- no homothety or weight-homogeneity is assumed)"""
+        for pt in (RADPTS if not FULL else [{mu: XS * r**2}]):
             ee = sp.together(e.xreplace(pt))
             num = sp.expand(sp.numer(ee))
             if num == 0:
@@ -649,8 +651,9 @@ def e4():
           "f) + R beta', 2 alpha/R - (2 k^2/3) beta, 2 beta): %s; the lapse direction k_psi has trace-free angular "
           "part psi (S_hat)^TF (z-shift psi/R^2): %s; A = a + (1/f)' al + 2 al'/f (al = -R f (b - R e'/2)), F = c/2 - f "
           "b + k^2 e/6 + f R e'/2 are invariant: %s" % (gok, zok, invok))
-    okc = mode_free(gi, Gm, Ric)
-    report('E4', shape and ok1 and ok2 and ok3 and ok4 and ok5 and gok and zok and invok and okc)
+    okc, ctl4 = mode_free(gi, Gm, Ric)
+    report('E4', shape and ok1 and ok2 and ok3 and ok4 and ok5 and gok and zok and invok and okc,
+           [('D^2 psi without Ric', ctl4)])
     return rad
 
 
@@ -734,7 +737,10 @@ def mode_free(gi, Gm, Ric):
     print("   (c) mode-free, class fields of (R, th): D R[L_X gamma] = 0: %s; (D R)^* N = 0 (Euler operator of N D R[h] "
           "sqrt(gamma) zero in all five components): %s; M[k_psi] = 0: %s; Euler_psi of N(<k, k_psi> - tr k tr k_psi) "
           "sqrt(gamma) = sqrt(gamma)(2 dN.M[k] + N div M[k]): %s" % (i_ok, ii_ok, iii_ok, iv_ok), flush=True)
-    return i_ok and ii_ok and iii_ok and iv_ok
+    # [R8] control: the lapse direction without its curvature term, D^2 psi alone, does not solve M (rejected)
+    ctl = not all(jet_points(m, [ps], PTS2) for m in Mom(hess(ps, X4, Gm)))
+    print("   control: k = D^2 psi without - psi Ric does not solve the momentum constraint (rejected): %s" % ctl)
+    return i_ok and ii_ok and iii_ok and iv_ok, ctl
 
 
 def subs_jets(e, table):
@@ -844,9 +850,17 @@ def e7(c0):
     Qt = sp.Poly(sp.expand(QP.subs(x_, xx).subs(k2, 24 + tt)), xx, tt)
     big = all(cc >= 0 for cc in Qt.coeffs()) and Qt.as_expr().subs({xx: 0, tt: 0}) > 0
     hk = all(cc > 0 for cc in sp.Poly(sp.expand(HKI.subs(x_, xx).subs(k2, 8 + tt)), xx, tt).coeffs())
+    # [R8] every l >= 2, not only the class's even l: m = l(l + 2) - 3 = 5, 12, 21, ...; m = 5 as above, and for
+    # m = 12 + t (t >= 0) every coefficient of Qp in (x, t) is >= 0 with Qp(0, 0) > 0
+    Q12 = sp.Poly(sp.expand(QP.subs(x_, xx).subs(k2, 15 + tt)), xx, tt)
+    alll = (all(cc >= 0 for cc in Q12.coeffs()) and Q12.as_expr().subs({xx: 0, tt: 0}) > 0
+            and [i * (i + 2) - 3 for i in (2, 3, 4)] == [5, 12, 21])
     print("   class modes l = 2j: m = 4j(j+1) - 3 = 5, 21, 45, ...: %s; m = 5: Qp = 1296 x^3 + %s, discriminant %s < 0, "
           "no root in [0, 1]: %s; m = 21 + t (t >= 0): every coefficient of Qp in (x, t) >= 0, Qp(0, 0) > 0: %s; "
           "H_KI = m + 6x > 0: %s" % (spec, str(quad).replace('xx', 'x'), disc, m5, big, hk))
+    print("   [R8] every l >= 2 (the whole spectrum of S^3): m = l(l + 2) - 3 = 5, 12, 21, ...; m = 5 as above; "
+          "m = 12 + t (t >= 0): every coefficient of Qp in (x, t) >= 0, Qp(0, 0) > 0: %s -- so the scalar potential "
+          "is positive on the exterior for every l >= 2" % alll)
     # control: the l-form potential at m = 5, mu = 1 is negative near the horizon
     c05 = sp.factor(c0.subs({k2: 8, mu: 1}))
     vals = [sp.sign(sp.nsimplify(c05.subs(r, rv))) for rv in (sp.Rational(101, 100), 3)]
@@ -854,7 +868,7 @@ def e7(c0):
     print("   control (wrong sign): the potential c0 of the l-form at m = 5, mu = 1 changes sign on r > 1 (sign %s "
           "at r = 1.01, %s at r = 3): positivity is not automatic, the S-deformation is needed (rejected): %s"
           % (vals[0], vals[1], ctl))
-    report('E7', spec and m5 and big and hk, [('c0 sign', ctl)])
+    report('E7', spec and m5 and big and hk and alll, [('c0 sign', ctl)])
 
 
 # ------------------------------------------------------------------ E8
@@ -877,7 +891,26 @@ def e8(rad):
     print("   C_0(L_(R F d_R) gamma) = 0: %s, and E_V on it has zero Euler operator in F: %s; the other solution A = "
           "mu/(R^2 f^2) (the mass change, nowhere zero): %s; kinetic: p = (R w' + w)/f solves M_R, E_K a d/dR: %s"
           % (c_ok, v_ok, h_ok, k_ok))
-    report('E8', c_ok and v_ok and h_ok and k_ok)
+    # [R8] the l = 0 kinetic part is a lapse gauge: k_psi = D^2 psi - psi Ric for psi = psi(R) has angular part
+    # w_psi = (f N/R)(psi/N)' and RR part p_psi = (R w_psi' + w_psi)/f, so a compactly supported w is k_psi with
+    # psi = N (c + int R w/(f N) dR), equal to a constant times N on the inner side (R6's extended sense of gauge)
+    ps0 = sp.Function('ps0')(r)
+    gi, Gm = christoffel(G0, X4)
+    Ric = ricci(X4, Gm)
+    kp = hess(ps0, X4, Gm) - ps0 * Ric
+    N = sp.sqrt(f_)
+    wps = sp.simplify(kp[1, 1] / r**2)
+    gen1 = sp.simplify(wps - f_ * N / r * sp.diff(ps0 / N, r)) == 0
+    gen2 = sp.simplify(kp[0, 0] - (r * sp.diff(wps, r) + wps) / f_) == 0
+    gen3 = sp.simplify(kp[2, 2] / (r**2 * s_**2) - wps) == 0 and sp.simplify(kp[3, 3] / (r**2 * c_**2) - wps) == 0
+    print("   [R8] l = 0 kinetic part: k_psi (psi = psi(R)) has w_psi = (f N/R)(psi/N)': %s, p_psi = (R w_psi' + "
+          "w_psi)/f: %s, isotropic angular part: %s -- so p = (R w' + w)/f is k_psi with psi = N (c + int R w/(f N)), "
+          "a constant times N on the inner side" % (gen1, gen2, gen3))
+    # [R8] control: X = F d_R in place of R F d_R is not an l = 0 gauge pair (rejected)
+    AXb = sp.diff(1 / f_, r) * F[0] + 2 * JR.D(F[0]) / f_
+    ctl = not JR.is_zero(subs_jets(C0, {'A': AXb}))
+    print("   control: X = F d_R in place of R F d_R does not solve C_0 (rejected): %s" % ctl)
+    report('E8', c_ok and v_ok and h_ok and k_ok and gen1 and gen2 and gen3, [('X = F d_R', ctl)])
 
 
 # ------------------------------------------------------------------ E9
@@ -899,7 +932,7 @@ def e9(ktab):
     print("   Phi[2 N k] = +(2 k^2/3) sqrt(f) Z/(R^(3/2) H_KI): %s (with the opposite sign: %s); hence E_K = (27 m/(2 "
           "k^2)) int Phi_t^2/f dR, and the static-slice E = (27 m/(2 k^2)) |S|^2 int (Phi_t^2 + (d_r* Phi)^2 + V_S "
           "Phi^2) dr*, V_S = f Qp/(16 R^2 H_KI^2)" % (plus, minus))
-    report('E9', plus or minus)
+    report('E9', plus, [('opposite sign', not minus)])
 
 
 def main():

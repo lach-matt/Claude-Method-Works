@@ -45,7 +45,7 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
-      Control: with psi_vhat's sign flipped in the packet formula the step boxes fail.
+      Control: with every packet input widened by half its size the step boxes are not all certified.
   T4  a posteriori in the packet: the computed background's slice inputs (twobg5 n = 160, racslice5's crossing
       data) against the true ones, certified upper bounds on the deviation; informational (sanity bound 0.2 of the
       input's size), since T3 does not use the computed background.
@@ -309,7 +309,7 @@ def psi3(R1, Y2, mu3):
     return p0, p1, p2, f3
 
 
-def packet_inputs(R, J, K, c, B, a1, a2, flip=1):
+def packet_inputs(R, J, K, c, B, a1, a2):
     mu, lam, mup, _ = c
     f = I(1.0) - mu / (R * R)
     G = -f / (I(2.0) * lam)
@@ -318,7 +318,7 @@ def packet_inputs(R, J, K, c, B, a1, a2, flip=1):
     fv = mup * J * a1 / (R * R * G)
     pR = B / (I(3.0) * R * R * G * G)
     pv = K * a1 / J + a2 / a1 - I(2.0) * mu * J * a1 / (R**3 * f) - (J * a1 / G) * B / (I(3.0) * R * R * G)
-    return [E, f, pR, I(flip) * pv, fR, fv], f
+    return [E, f, pR, pv, fR, fv], f
 
 
 def symbolic_checks():
@@ -398,13 +398,13 @@ def spline_enclose(bg, VH):
     return [hull(*[o[k] for o in outs]) for k in range(3)]
 
 
-def t2(nd, bgs, cache):
-    print("T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (T3's cells, clipped)")
+def t2(nd, bgs, cache, lo=0.70, hi=1.861):
+    print("T2 Gamma > 0 on the seed region R in [%.2f, %.3f] for the background itself (T3's cells, clipped)" % (lo, hi))
     q = load('qsign5')
     _, Gt, _ = q.gamma_formula()
     args = [q.R, q.MU] + list(q.PP)
     fG = sp.lambdify(args, Gt, modules=MODS)
-    va, vb = float((I(0.70) + T0).a), float((I(1.861) + T0).b)
+    va, vb = float((I(lo) + T0).a), float((I(hi) + T0).b)
     cells = sorted(k for k in cache if k[1] > va and k[0] < vb)
     assert cells[0][0] <= va and cells[-1][1] >= vb and all(x[1] == y[0] for x, y in zip(cells[:-1], cells[1:]))
     least, failed, reg3, nev = None, 0, True, 0
@@ -421,10 +421,28 @@ def t2(nd, bgs, cache):
         else:
             R1 = r1_enclose(VH)
             Y2, _ = ray(nd, R1)
+        reg3 &= bool(Y2[0].a >= Rs.b)
+        p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
+        reg3 &= bool(f3.a > 0)
+        val = fG(Rs, nd.mu3, p0, p1, p2)
+        nev += 1
+        if flipped_fail is None:
+            flipped_fail = not (float((-val).a) > 0)              # the sign-flipped Gamma on the first cell
+        if float(val.a) > 0:
+            least = float(val.a) if least is None else min(least, float(val.a))
+            sv = spline_enclose(bgs[160], VH)
+            for k, (x, y) in enumerate(zip(sv, (p0, p1, p2))):
+                errs[k] = max(errs[k], mag(x - y))
+            continue
+        if d >= 3:
+            failed += 1
+            continue
+        m = 0.5 * (a + b)
+        stack += [(a, m, d + 1), (m, b, d + 1)]
     print("   every cell in region III (R2 >= R on the slice): %s; Gamma/E^2 > 0 certified on every cell: %s (%d rays; "
           "least lower bound %.4f; %.0f s)" % (reg3, failed == 0, nev, least or float('nan'), time.time() - t))
     # a posteriori: the computed spline against psi_III at the cell ends (point rays)
-    pts = np.linspace(va, vb, ncell + 1)
+    pts = [va] + [a for a, b in cells if va < a < vb] + [vb]
     perr = [0.0, 0.0, 0.0]
     for x in pts:
         VH = I(x)
@@ -434,7 +452,7 @@ def t2(nd, bgs, cache):
         sv = spline_enclose(bgs[160], VH)
         for k in range(3):
             perr[k] = max(perr[k], mag(sv[k] - tr[k]))
-    t0, Rs_ = bgs[160]['tau0'], np.linspace(0.70, 1.861, 2001)
+    t0, Rs_ = bgs[160]['tau0'], np.linspace(lo, hi, 2001)
     s80, s160 = bgs[80]['sp_psi'], bgs[160]['sp_psi']
     d8 = [float(np.max(np.abs(s80.derivative(k)(t0 + Rs_) - s160.derivative(k)(t0 + Rs_)))) if k else
           float(np.max(np.abs(s80(t0 + Rs_) - s160(t0 + Rs_)))) for k in range(3)]
@@ -510,8 +528,7 @@ def t3(nd, rstar, cache):
             good &= g
             cell_worst = w if cell_worst is None else max(cell_worst, w)
             counts['packet'] += 1
-            insf, _ = packet_inputs(R, box[1], box[2], nd.cb[k], nd.Bb[k], a1, a2, flip=-1)
-            if not test(insf, R)[0]:
+            if not test([widen(x, 0.5 * mag(x)) for x in ins], R)[0]:     # control: inputs widened by half
                 ctl_fail += 1
         # region III: slice points with u >= u2 (R2 >= R on the slice)
         if Y2[0].b >= Rs.a:
@@ -535,7 +552,7 @@ def t3(nd, rstar, cache):
     print("   certified on every cell: %s (%d rays; slice pieces tested: region I %d, packet %d step boxes, region III "
           "%d; largest upper bound of kappa K^l_l = %.4e; %.0f s)" %
           (failed == 0, nray, counts['I'], counts['packet'], counts['III'], worst, time.time() - t))
-    print("   control: psi_vhat's sign flipped in the packet formula, %d of %d step boxes not certified (rejected): %s"
+    print("   control: every packet input widened by half its size, %d of %d step boxes not certified (rejected): %s"
           % (ctl_fail, counts['packet'], ctl_fail > 0))
     return failed == 0 and ctl_fail > 0 and counts['packet'] > 0 and counts['III'] > 0
 
