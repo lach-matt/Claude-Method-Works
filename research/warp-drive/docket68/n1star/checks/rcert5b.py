@@ -19,10 +19,11 @@ unchanged.
 
   B3 (round 4; the soundness gate the verifier of round 3 asked for) for each n, the certified sup of each component
      must be at least (a) the certified values at the centres of the finer (2n)^3 grid and (b) the certified values at
-     500 random points of the box (both lower bounds of the true sup).  And the bound assembly itself is tested: on
-     f = T_3(t) T_3(sig) T_3(x), whose sup on a box is known, the same assembly must bound it, and with the Lagrange
-     remainder replaced by the point Taylor coefficients (the unsound mutant, which on the residual itself passes
-     (a) and (b)) it must not.
+     500 random points of the box (both lower bounds of the true sup).  And the bound assembly itself is tested on
+     f1 = T_3(t) T_3(sig) T_3(x) and f2 = t^4 + sig^4 + x^4 (about the origin, where f2's Taylor coefficients of order
+     <= 3 vanish): the same assembly must bound both, and with the Lagrange remainder replaced by the point Taylor
+     coefficients (the unsound mutant, which on the residual itself passes (a) and (b), and on f1 too) it must not.
+     [Round 4: the first run tested f1 alone, which the mutant passes (0.68); f2 was added and the program rerun.]
 
   python3 checks/rcert5b.py [nmax]          (round 4: the PINNED approximant data/rcert5_C3.npz, read only, its five
                                             md5s checked; round 3 refitted from RUNDIR, an unsaved fit)
@@ -191,7 +192,7 @@ def main():
                                                             last_s[k8].str(3)))
     w_sound, w_mut = poly_test(False), poly_test(True)
     t_ok = w_sound <= 1.0 and w_mut > 1.0
-    print('B3 the assembly on T_3 T_3 T_3: largest true/bound %.4f (sound, must be <= 1), %.4f with the point Taylor '
+    print('B3 the assembly on T_3 T_3 T_3 and t^4 + s^4 + x^4: largest true/bound %.4f (sound, must be <= 1), %.4f with the point Taylor '
           'polynomial in place of the remainder (the mutant, must exceed 1) -> %s' % (
               w_sound, w_mut, 'the mutant is caught (good)' if t_ok else 'BAD'))
     ok &= t_ok and all(gates)

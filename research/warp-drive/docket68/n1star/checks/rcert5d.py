@@ -17,8 +17,9 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
   D2 (certified) the lower bound: a certified centre value exceeding a target proves that NO bound on that box, of
      any method, meets it.  Reported for tau' = 3.0e-5 (the demand at 2(d)'s placeholder G = 10).
   Control C1 (mutation of the code under test): the Lagrange remainder dropped (the order-Q coefficients taken at the
-     centre instead of over the box).  On the test polynomial f = T_3(t) T_3(sig) T_3(x), whose sup over a box is
-     known exactly, the mutated bound must fall below the true sup on some box (caught), and the real one must not.
+     centre instead of over the box).  On the test functions T_3(t) T_3(sig) T_3(x) and t^4 + sig^4 + x^4 (rcert5b.py
+     B3's), whose sups over the boxes are known, the mutated bound must fall below the true sup on some box (caught),
+     and the real one must not.
   Control C2: the approximant with W + 0.01 v (rcert5.py's control) must be refused at tau on the box's first child:
      a certified centre value above tau.
 
