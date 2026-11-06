@@ -1,0 +1,10 @@
+  P1 rho: alpha = 3*r**3/(mu + r**2)**2; -theta^2 Delta_Pi on th, p1, p2; no d_r^2 a, no d_r d_A a, no d(w, q): True;
+      lower order (for the record): a_th -2/((mu + r**2)*tan(2*theta)), a 6*(mu**3 + 2*mu**2*r**2 + 3*mu*r**4 +
+      r**6)/(r**2*(mu + r**2)**3), w -6*mu**2/(r**2*(mu + r**2)**(3/2))
+P1 PASS
+  P2 A0 = [[6, 0, 0, 0], [0, -2*r**2/(mu + r**2), 0, 0], [0, 0, -2*r**2/(mu + r**2), 0], [0, 0, 0, -2*r**2/(mu + r**2)]];
+      A^th = [[0, -2/r**2, 0, 0], [4, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]; A^p1 = [[0, 0, -2/(r**2*cos(theta)**2), 0],
+      [0, 0, 0, 0], [4, 0, 0, 0], [0, 0, 0, 0]]; S A0 = [6, 1/(mu + r**2), 1/((mu + r**2)*cos(theta)**2), 1/((mu +
+      r**2)*sin(theta)**2)].  J_r = 6 d_r w - 2 Pi^(AB) d_A q_B, J_A = -2 gamma^rr d_r q_A + 4 d_A w: True; no second
+      derivative of a in J: True; S A^B symmetric for B = th, p1, p2: True; S A0 diagonal positive at r^2 < mu and r^2 >
+      mu: True

@@ -15,3 +15,12 @@
       omega Z^1/2) = 0.01885, LHS/(m^2 omega^2) = 0.002827; k = 64: LHS/(Z + m omega Z^1/2) = 0.3176, LHS/(m^2 omega^2) =
       0.002501; k = 131072: LHS/(Z + m omega Z^1/2) = 655.4, LHS/(m^2 omega^2) = 0.0025
 T1 PASS
+  T2 corrected inequality LHS <= (2 + 2 4^7 L^2) Z + 2 4^7 m^2 omega^2 (c0 = 1): family (32 states, rows c and e) True;
+      random trigonometric polynomials (300 states) True; the proof's two steps, (i) LHS <= 2 Z + ||c a||^2_8 and (ii)
+      the product bound, at every state: True; d_r Z equal to the second route's at the random states: True; the
+      lower-order term equal to the product as Laurent polynomials (sympy, 40 states): True
+T2 PASS
+  T3 max over 60 iterates and 4001 points of E_i / (A sum W^k ((r-a)^k/k!)^(1/2)) = 1.000000000000; E_60(2) =
+      22024.672410, bound(2) = 37232.179119
+T3 PASS
+tame5: all checks pass, every control fails

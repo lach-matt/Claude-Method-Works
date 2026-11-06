@@ -19,6 +19,7 @@ H4 (exact) coherence of every combination after hierarchical rescaling; the reso
    N = 4, m = 5: c = 27/81832, M^2 = 8, Lam = 545548; 640 combinations, least |Q|/(a_T a_S) = 0.0006597 >= 2(c - ...) = 1.613e-09: True
    N = 3, m = 4: c = 136107/1631092, M^2 = 9/8, Lam = 217; 104 combinations, least |Q|/(a_T a_S) = 0.1669 >= 2(c - ...) = 0.000992: True
    N = 4, m = 5: c = 256/582233, M^2 = 8, Lam = 409384; 640 combinations, least |Q|/(a_T a_S) = 0.0008794 >= 2(c - ...) = 3.054e-09: True
+   [R6] resonant (antipodal pair + third): N = 3, m = 4: c = 121/145, M^2 = 2, Lam = 40; 104 combinations, least |Q|/(a_T a_S) = 1.547 >= 2(c - ...) = 0.06897: True
    control (Lam = 1): k_a + k_antipode - k_c has g(K, K) = 0 (exact resonance), so coherence fails without the rescaling: True
 H4 PASS
 H5 (numpy RK4, Newton) separation is kept by the flow: d alpha/d w = det DPhi/det(dy/dx0) > 0
@@ -31,6 +32,7 @@ H6 (mpmath; numpy) the label quadrature, and an N-uniform mean-field model
    model: N = 4: |w_N - w_ref| = 9.34e-02, quadrature residual 5.53e+00, ratio 0.017; N = 8: |w_N - w_ref| = 3.24e-03, quadrature residual 1.28e+00, ratio 0.003; N = 16: |w_N - w_ref| = 2.28e-04, quadrature residual 4.83e-02, ratio 0.005
    errors fall at least like N^-2 at each doubling: True; ratio to the residual bounded independently of N (within a factor 10, and below 10): True
    control (weights 2 pi/(N + 1)): errors 5.28e-01, 3.07e-01, 1.63e-01, rejected: True
+   [R6] stability constant sup|w_N(q0 + d q1) - w_N(q0)|/d at N = 4, 8, 16: 0.6031, 0.6670, 0.6673 (within a factor 2: True); control (coupling growing with N): 0.6031, 0.8725, 1.6541 (rejected): True
 H6 PASS
 H7 (exact) restricted particles focus at an axis
    (a) sqrt|g5| = sqrt|h| e^(psi1 + psi2): True; the 5D divergence of a restricted current is e^-(psi1 + psi2) times the orbit divergence of e^(psi1 + psi2) J: True
