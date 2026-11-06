@@ -144,7 +144,8 @@ def part_x():
     alpha = sp.Matrix([-2, 1 + 2*fp])
     lvec = sp.Matrix([-1, 1])
     gform = (alpha.T*sp.diag(-1, 1)*alpha)[0] - m*((lvec.T*alpha)[0])**2
-    mx = sp.maximize(gform.subs(m, 0), fp, sp.Interval(-Q(1, 4), Q(1, 4)))
+    from sympy.calculus.util import maximum
+    mx = maximum(gform.subs(m, 0), fp, sp.Interval(-Q(1, 4), Q(1, 4)))
     mono = sp.diff(gform, m)
     okx2 = mx == -Q(7, 4) and sp.simplify(mono + (3 + 2*fp)**2) == 0
     rng = random.Random(61)
