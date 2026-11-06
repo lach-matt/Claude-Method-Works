@@ -531,7 +531,7 @@ def main(selftest=False):
         print('  R6 (certified margin): over the %d values x and n <= %d, the least distance of a level in (3, 4 + '
               'eps_K] or of alpha from lambda_sharp + n d1 + x is %.6e (at x = %s, n = %d), > 0: %s' % (
                   len(X_set()), N, float(mg), where[0], where[1], OK['R6m']))
-    vfr = sorted(set(Fr(1) - Fr(rt.p, rt.q) for _l, rt in vec_ni))        # -mu = 1 - lambda_C, non-integers
+    vfr = sorted(set(Fr(1) - rt for _l, rt in vec_ni))        # -mu = 1 - lambda_C, non-integers
     frac_hit = []
     for m in vfr:
         fp = m - (m.numerator // m.denominator)
