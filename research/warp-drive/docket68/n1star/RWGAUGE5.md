@@ -131,8 +131,8 @@ r^(1/2) |h(e_i, e_j)| = |A| |S| on C_tau1, so the weight r^(1/2) of Theorem 2 (c
 *Proof.* Step 1 (Kruskal form of the master equation). Put U = -e^(-u/r_h), W = e^(v/r_h) (Kruskal's V, renamed to
 keep V for the potential); the surface gravity is 1/r_h. Then -UW = e^(2 r*/r_h) = e^(2r/r_h) (r - r_h)/(r + r_h),
 whose r-derivative at r_h is e^2/(2 r_h) != 0 [R2.0 m4: and 2 r^2 e^(2r/r_h)/(r_h (r + r_h)^2) > 0 at every r > 0,
-from -1 at r = 0, so r is a smooth function of UW on all of {UW < 1}], so r is a smooth function of UW near the horizons; d_u d_v = -(UW/r_h^2)
-d_U d_W, and the master equation 4 d_u d_v P + V P = 0 becomes d_U d_W P = c P with
+from -1 at r = 0, so r is a smooth function of UW on all of {UW < 1}], so r is a smooth function of UW near the
+horizons; d_u d_v = -(UW/r_h^2) d_U d_W, and the master equation 4 d_u d_v P + V P = 0 becomes d_U d_W P = c P with
 
     c = -(r_h^2/4) (V/f) (f/(-UW)) = -(r_h^2/4) (V/f) (r + r_h)^2 e^(-2r/r_h)/r^2,
 
@@ -163,9 +163,9 @@ r_h^2 != 0, so every (A, B) is reached by choosing alpha and then beta.
 
 Step 4 (the metric). With S = P_(l/2)(cos 2 theta), the supplement's (10.1) applied to P S gives h in the gauge f_a = 0
 = H_T; it is a linearised vacuum solution (Proposition 10.1 (iii), [KI03] (3.13)-(3.14) READ there; at l = 2, 4
-computed here: U3 (b), DRic(h) = 0 modulo the master equation), smooth up to the future horizon because P is smooth
-in (U, W) and (U, W) are smooth functions of the ingoing chart (v, r) there, T^2-invariant and even under both
-reflections because S depends on theta alone. Lemma 1 (ii) and the jets of Step 3 give (ii) of the theorem
+[R2.0 m5: and 6] computed here: U3 (b), DRic(h) = 0 modulo the master equation), smooth up to the future horizon
+because P is smooth in (U, W) and (U, W) are smooth functions of the ingoing chart (v, r) there, T^2-invariant and even
+under both reflections because S depends on theta alone. Lemma 1 (ii) and the jets of Step 3 give (ii) of the theorem
 (computed: U5).
 
 Step 5 (the data). On the part of Sigma_0 in r <= R_1 the solution is smooth on a compact set, so every energy there is
@@ -207,7 +207,10 @@ depending on mu and R_1 only, for tau >= 1 and every 0 < delta <= 1/2:
     (c)  sup_{r >= R_1} ( r^(-1/2) ||h_(ab)|| + r^(1/2) ||h_(ij)|| )(tau, r)  <=  C delta^(-1/2) D^(1/2) tau^(delta-1/2),
 
 the arguments meaning the point of Sigma_tau at radius r (on C_tau). The weights in (c) are the exact growth and
-decay of Theorem 1 and cannot be raised; in (a), r^-3 cannot be replaced by r^-2 (Theorem 1).
+decay of Theorem 1 and cannot be raised; in (a), r^-3 cannot be replaced by r^-2 (Theorem 1). [R2.0: (a) is against
+dr dsigma, dsigma the unit sphere's measure (R2.0.2); ||.|| is the L^2(S^3) norm at fixed (tau, r), and the pointwise
+bounds are Theorem 2' (R2.0.1); the proof below uses the class only through three properties (no vector type, no l = 1,
+h_0 = c K), which is what lets Theorem 2' apply it to rotated perturbations.]
 
 *Proof.* Step 1 (the energies on the cone; computed: U7 (ii)). On C_tau, n = L = f d_r|_u (R3), the v-measure is
 dr/f, Y = 0 (R4: r >= R_1 > r_1), and Ť(L, T) = (1/2)(L Psi)^2 + (1/2) f r^-2 |∇̊Psi|^2 (computed from (89)). With
@@ -245,9 +248,9 @@ Step 4 (c). The new input is sup |T^2 P| and sup |TP| (the terms of weight r^0 i
 handled by Step 3). For w = T^a P (a = 1, 2) on C_tau and p = 1 + 2 delta: |w(r)| <= |w(R_1)| + int_{R_1}^oo |w'| <=
 R_1^(1/2) sup r^(-1/2) |w| + (int s^p w'^2)^(1/2) (R_1^(1-p)/(p - 1))^(1/2). The first is <= C D^(1/2) tau^-1 (Step 3);
 for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi] [R2.0 m9: k here is [HKW18]'s exponent in (127), written
-k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder with s^p =
-s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I by [HKW18]
-Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
+k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder with s^p = s^(2-p)
+(s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I
+by [HKW18] Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
 for tau in [tau~_k, tau~_(k+1)], (128) at p = 1 from tau~_k and (R6)'s bound at tau~_k give E^1(tau) <= C (tau_k^-1 +
 tau~_k^-2) D, and tau <= tau_(k+1) = 2 tau_k. So the second term is <= C delta^(-1/2) D^(1/2) tau^(-(2-p)/2) = C
 delta^(-1/2) D^(1/2) tau^(-1/2 + delta) (computed: U7 (iv)). []

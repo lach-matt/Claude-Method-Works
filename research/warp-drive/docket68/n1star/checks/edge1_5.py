@@ -64,8 +64,8 @@ env^(N-1) and dominates once lam^(N-2) env^(N-1)/env >> 1.  This program compute
      with one sign (the U^(1) term is what decides the very edge).
 
   X12 (computed, mpmath; a model with unit constants; round 6, the verifier of round 5's MAJOR 1 (a)) The crossover
-     for N = 12, where the two real parts cancel, decided by Lemma W (B) applied to sigma := S/(lam^3 A d env) with
-     env factored out: with an adversarial O(T) relative error that cancels the quadrature part at the cancellation
+     for N = 12, lam = 1e-10, where the two real parts cancel, decided by Lemma W (B) applied to sigma := S/(lam^3 A d
+     env), env factored out: with an adversarial O(T) relative error that cancels the quadrature part at the cancellation
      and a non-explicit error of size (lam + 1/kappa)|nu|, every window of the 81 around it has |sigma'| >= |nu|
      kappa^(1/2), |sigma''| <= |sigma'|/(80 pi lam) and the non-harmonic error below pi lam |sigma'|/5, and has both
      signs.  Control: Lambda frozen at its crossover value (no transversality) violates (B)'s first condition.
@@ -596,7 +596,7 @@ def e11(control=False):
 # ------------------------------------------------------------------------------------------------------------ X12
 def e12(control=False):
     mp.mp.dps = 50
-    lam = mp.mpf(10)**-6
+    lam = mp.mpf(10)**-10
     N, r0, mu0, nu, Gam = 12, mp.mpf(3), mp.mpf(1), -mp.mpf(1)/9, mp.mpf(1)
     cN = N*mu0/(r0**2 + mu0)
     u = sp.Symbol('u')
@@ -611,7 +611,7 @@ def e12(control=False):
         Xi = ((1 - cN)*T - 1j*cN)/(T + 1j)
         return envk[1], lam**(N - 2)*envk[N - 1], Xi
 
-    lo, hi = mp.mpf('1e-4'), mp.mpf('2e-2')                  # Re sigma_main = 0: nu + Gam Re(-Xi) Lam = 0
+    lo, hi = mp.mpf('1e-7'), mp.mpf('2e-2')                  # Re sigma_main = 0: nu + Gam Re(-Xi) Lam = 0
     for _ in range(200):
         mid = mp.sqrt(lo*hi)
         kap, Lam, Xi = parts(mid)
@@ -652,6 +652,8 @@ def e12(control=False):
     out("  X12 the crossover by Lemma W (B), N = 12 (the real parts cancel: nu < 0, Gamma > 0, i^N = 1), exp(-1/x),"
         " lam = 1e-6, r0 = 3: Re sigma_main = 0 at x_c = %s (lam kappa = %s); with an O(T) relative error that cancels the"
         " quadrature part at x_c and a non-explicit error of size (lam + 1/kappa)|nu|, on the 81 windows around x_c:"
+        " (at lam = 1e-6 the margin lam (kappa_(N-1) - kappa) < 1/(80 pi) of (B)'s second condition is not yet met;"
+        " it tends to 0 like lam^(1 - (N-2)/(2(N-1))))"
         " min |sigma'|/(|nu| kappa^(1/2)) = %s, Lemma W (B)'s conditions hold on every one: %s, windows without both"
         " signs: %d" % (mp.nstr(xc, 6), mp.nstr(lam*kc, 4), mp.nstr(worst_L0, 4), worst_cond, bad_sign))
     return worst_cond and bad_sign == 0
