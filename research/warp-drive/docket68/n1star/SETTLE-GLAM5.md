@@ -2087,10 +2087,10 @@ N1STAR-PROOF.md, and the mathematics it states read from the text and checked). 
 exact, F1x; G5 with Lemma R4.5 widened, G5c; [arithmetic] labels), `r5edits5.py` (E1f: R5-D's mathematics read from its
 text), `zinv5.py` (its evaluation repaired; its first complete run; control m5 in place of m4, which is a no-op, ZI3).
 N1STAR-PROOF.md is cited here by quoted content, not by line number: another workstream (D625) is editing it while this
-is written; every R6-D old text is checked by r6edits5 E1a to occur exactly once in the file as it stood at the run (md5
-fb2fbf06). Rounds 1-5 are left as their verifiers read them; where a finding below withdraws or corrects a sentence, a
-bracketed note "[R6 (...)]" is inserted at the end of the paragraph or item that contains it, and the sentence is not
-changed. Sections R6.0 and R6-A ... R6-E.
+is written; every R6-D old text is checked by r6edits5 E1a to occur exactly once in the file as it stood at the final
+run (md5 7400212b; also at fb2fbf06, before D625's edit of that file). Rounds 1-5 are left as their verifiers read them;
+where a finding below withdraws or corrects a sentence, a bracketed note "[R6 (...)]" is inserted at the end of the
+paragraph or item that contains it, and the sentence is not changed. Sections R6.0 and R6-A ... R6-E.
 
 What this round settles, in one paragraph. The round-5 reader found no major gap and eight minors; each is re-derived
 and seated (R6.0), and every claim its list names as exercised by no check now has a computation or, where it is not
@@ -2212,11 +2212,12 @@ inserted at the round-5 header and ledger.
 with the degree -6 source, which makes P(Sigma) = O(lam r^(-13/2)) (r6sigma5 S4). If instead F_4 is the regular flat
 solution with data G_8(v1) (it exists as the other F_p do: the 2F1 with p = 4), h_R on N is unchanged (on N, s = 0 and
 Sigma's coefficients are G_(2p)(v1) whatever F_4's equation; off N, F_4's Taylor terms enter at r^-5 and beyond, so h_R
-= O(r^(-9/2)) still, G1), and P(Sigma) = O(lam r^-6) (measured, S4: Sigma_2 + Sigma_(5/2) without Sigma_4 decays like
-r^-6). Every use of the residual then still closes on the window: the residual's kernel is 4 - a > 1 (W3: a < 3),
-rho_inf = C lam/(3 - a), Step 8's tail ∫_(-oo)^T rho <= C lam |T|^(a - 3) -> 0, the exterior estimate of R6-A gives
-rho^(2a - 8), finite for a < 4 (X4'), and R4.9's d D_T = O(lam r^-4) is unchanged; the window is unchanged (W''). So
-R5-C (v) is not a condition of Theorem R5.1; it is kept, computed, as the sharper statement.
+= O(r^(-9/2)) still, G1), and P(Sigma) = O(lam r^-6) (measured without Sigma_4 in S4, where Sigma_2 + Sigma_(5/2) decays
+like r^-6; a flat Sigma_4 adds nothing at degree -6, the flat operator annihilating it, and its mu and quadratic terms
+are of degree -8). Every use of the residual then still closes on the window: the residual's kernel is 4 - a > 1 (W3: a
+< 3), rho_inf = C lam/(3 - a), Step 8's tail ∫_(-oo)^T rho <= C lam |T|^(a - 3) -> 0, the exterior estimate of R6-A
+gives rho^(2a - 8), finite for a < 4 (X4'), and R4.9's d D_T = O(lam r^-4) is unchanged; the window is unchanged (W'').
+So R5-C (v) is not a condition of Theorem R5.1; it is kept, computed, as the sharper statement.
 
 **Nits.**
 - R5.0 (r4-m5): the last term is -M_Gamma(P(H) - P(Sigma)), not +. Re-derived: 0 = DP(H)[Gamma H] + M_Gamma P(H) and
@@ -2400,7 +2401,7 @@ at Lemma 11.0's "*Proof.* By Lemma 11.1 below, u_1 = u - r^(-3/2) G_3 solves" an
 is at most C(lam, j) t^(-3/2) in L^2."; Edit 2's begins "Lemma 9.5's identity then gives ||d U_n(tau)|| <= ||d
 U_n(tau_n)|| +" and ends "uniformly in n.", just before "The bookkeeping of sup against". `checks/r6edits5.py` E1 reads
 the four blocks below as printed here and applies them to a copy of the live file: each old text occurs there exactly
-once (md5 fb2fbf06 at the run, and again at 7400212b, after D625's later edit), the file gains 31 lines, every line
+once (md5 fb2fbf06 when written, and 7400212b, after D625's edit, at the final run), the file gains 31 lines, every line
 stays within 121 characters, nothing outside Lemma 11.0 changes, and the edited lemma satisfies E1d's ten predicates
 (r5edits5's six and the reader's four nits) and E2's eight mathematical checks; E3's six mutations of the text each
 fail. Edit 1's new text is followed on its last line by the unchanged " The identity is not run on the region between {v
@@ -2614,7 +2615,7 @@ half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundar
 ```
 
 Ledger. Computed (new): `r6settle5.py` X, Y, M, L, A0, T (@@N_R6S@@ checks), `r6sigma5.py` S1-S4, W (@@N_R6G@@),
-`r6edits5.py` E1-E3 (@@N_R6E@@), each with controls that mutate the code or the text under test. Changed and rerun:
+`r6edits5.py` E1-E4 (@@N_R6E@@), each with controls that mutate the code or the text under test. Changed and rerun:
 `r5settle5.py` (@@N_R5S@@), `r5edits5.py` (@@N_R5E@@), `zinv5.py` (@@N_ZI@@). The other round-5 programs are unchanged
 and their `.out` files stand (r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22,
 f1lemma5 12, vac5 8 checks). Every new or changed `.out` is from a full run and byte-identical on a second run. The

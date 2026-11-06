@@ -26,3 +26,6 @@ C  the interpolation optimum recomputed (round 3, P8c-P8d)
 D  the causal structure on W: v is not a time function; v + eps t and Phi_W are (round 3, m1)
   D1 (g_b0 + eps h)^-1(dv, dv) vanishes at eps = 0, has first variation -h(ell, ell) (exact) and takes both signs (h =
         +-dx1^2, eps = 1/100): v is not a time function for the perturbed metrics: pass ['-1', '1']
+  D2 for g_b0, Y = -grad v is future null and dv(Y) = 0 (exact): the infimum of dv over the future causal cone is 0
+        (T1a's sampled 5.7e-2 is an artefact): pass
+  D3 g_b0^-1(d(v + eps t), d(v + eps t)) = -2 eps - eps^2 (1 + mu r^-2): margin 2 eps, uniform in r: pass

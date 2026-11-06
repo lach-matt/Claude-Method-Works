@@ -495,6 +495,19 @@ def s5(mats, polys, eC_val=sp.Rational(1, 102400), levels=(0, 2, 4)):
     return out
 
 
+def horizon_exponents(mats, kv):
+    """the regular singular point r = 1: with A2 = -(f/2) I and f ~ 2 (r - 1), the exponents are 0 (seven times) and
+    1 + eig(A1(1)); A1(1) at the record's inner c_C = (1/200) dt + (1/800) dr, c_U = r^-1 dt, c_H = -(1/2) dr"""
+    A, B, Pq, Q, K = jet('a'), jet('b'), jet('p'), jet('q'), jet('k')
+    sub = {A[0]: sp.Rational(1, 200), B[0]: sp.Rational(1, 800), Pq[0]: 1 / r, Pq[1]: -1 / r ** 2, Q[0]: 0, Q[1]: 0,
+           K[0]: sp.Rational(-1, 2), K[1]: 0}
+    M = sp.Matrix(7, 7, lambda i, j: sp.cancel(mats[1][i][j].subs(sub).subs(kap, kv).subs(r, 1)))
+    xs = sp.Symbol('x')
+    cp = sp.factor(M.subs(POINT).charpoly(xs).as_expr())
+    gen = sp.factor(M.charpoly(xs).as_expr())
+    return M, cp, gen
+
+
 # ------------------------------------------------------------------------------------------------ S6 the weight
 def nu(kv, comps):
     full = [1, sp.sqrt(2), 1, sp.sqrt(2 * kv), sp.sqrt(2 * kv), sp.sqrt(3),
@@ -603,6 +616,16 @@ def main(selftest=False):
     for lv, ok, rat, up, _N in S5:
         print('  S5 (exact): l = %d: det N_l(lam) / [(lam + l)(lam - l - 2) P_Ups(lam - 1) P_C(lam + 1) / D(lam)] = %s, '
               'a constant: %s; the least decaying root (real part > 1): %s' % (lv, rat, ok, mpm.nstr(up, 15)))
+    hx = [horizon_exponents(B['mats'], kv) for kv in (0, 8, 24)]
+    xs = sp.Symbol('x')
+    lfree = all(sp.expand(h[2] - hx[1][2]) == 0 for h in hx[1:])
+    gam_x = sp.Symbol('X')
+    OK['S5b'] = lfree
+    print('  S5b (exact): the horizon r = 1 is a regular singular point of the block; with c_C = (10.49)\'s inner '
+          'piece, c_U = r^-1 dt, c_H = -(1/2) dr, the exponents are 0 (seven) and 1 + eig A1(1), A1(1)\'s '
+          'characteristic polynomial (gam_C, e_C, gam_U, e_U, gam_H symbolic) is the same at kappa = 8 and 24 '
+          '(l-free): %s; at the record\'s point: %s (x = gam_C a_v r_h = 5000 in III.F\'\' Lemma 1.1)' % (
+              lfree, hx[1][1]))
     rows = []
     for lv, _ok, _r, up, N in S5:
         comps = [0, 1, 2, 5] if lv == 0 else list(range(7))
