@@ -52,14 +52,20 @@ fixed gamma).
      q1 >= 0 there give int T1(xi, n) < 0, so the dust amplitude s* = Q/(2 int T1(xi, n)) > 0 cancels the charge at
      second order: the intermediate-value construction of exactly localised Einstein-null-dust data inside the horizon.
      Control: the same dust on a band outside the horizon gives int T1(xi, n) > 0 (no positive s*).
-  Q7 (computed, Gauss-Legendre quadrature of closed forms; R7, the round-6 verifier's m1) seeds that reach the axes. A
-     smooth invariant momentum seed has psi = sin^2 th cos^2 th F(R, cos 2th) and s1 smooth in cos 2th (Kt = E psi_th/
-     sc is then smooth and generally nonzero on the axes); for this class the theta boundary terms of Q1's integrations
-     by parts, psi psi_th/sc, psi s1 and (cos 2th/sc^2) psi^2, vanish at th = 0, pi/2 because psi = O(sc^2). On
-     Tangherlini's slice in Part I's chart (psi_P = 0, mu = 0.82), six such seeds (random F, s1 polynomial in cos 2th,
-     two bands, one inside the horizon, Kt != 0 on the axes) have Q equal to the decomposition integrated over the
-     whole of [0, pi/2] to rounding, and Q <= -int Gamma psi^2/sin 2th < 0. Controls (must fail): Gamma -> (3/4) Gamma
-     misses Q by a quarter of the Gamma term; seeds with psi = O(sin th cos th) (not axis-regular) miss it.
+  Q7 (computed, Gauss-Legendre quadrature of closed forms; R7, the round-6 verifier's m1; R8, the round-7 reader's
+     nits) seeds that reach the axes. A smooth invariant momentum seed has psi = sin^2 th cos^2 th F(R, cos 2th) and
+     s1 smooth in cos 2th (Kt = E psi_th/sc is then smooth and generally nonzero on the axes); for this class the
+     theta flux of Q1's integrations by parts, 2 nu beta E^2 psi psi_th/sc - 2 nu E psi s1 - nu E^2 (cos 2th/sc^2)
+     psi^2, vanishes at th = 0, pi/2 because psi = O(sc^2). On Tangherlini's slice in Part I's chart (psi_P = 0,
+     mu = 0.82), six such seeds (random F, s1 polynomial in cos 2th, two bands, one inside the horizon) have Q equal
+     to the decomposition integrated over the whole of [0, pi/2] to rounding, and Q <= -int Gamma psi^2/sin 2th < 0.
+     [R8] They reach the axes on the whole band: Kt/E there is exactly +-2 env(R) L+-(R) with L+- linear of slope 1,
+     so it vanishes at most at one point, and its least |L+-| over the band is printed. [R8] On [t0, pi/2 - t0] the
+     integral of (Q-density - decomposition) equals the flux, top minus bottom, with the signs (+2, -2, -1), for the
+     regular seeds (where it vanishes like t0^2) and for seeds with psi = O(sc), not axis-regular (where it tends to a
+     nonzero limit: for them the identity on [0, pi/2] fails by the axis terms); no divergent integral is evaluated.
+     Controls (must fail): each flux term with its sign flipped misses the truncated identity; the decomposition with
+     4 nu E^2 -> 3 nu E^2 in Gamma, integrated as it stands, misses Q.
 
 Labels: computed (Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point; Q3's Gamma > 0 is certified by interval
 arithmetic in checks/intcert5.py C1). Run: python3 checks/qsign5.py   (about a quarter of an hour under load)
