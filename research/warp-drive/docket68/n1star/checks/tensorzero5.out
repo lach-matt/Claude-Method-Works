@@ -6,9 +6,11 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
   T2/T3: l = 4: tr h = 0, div h = 0: True, iota_{dt#} h = 0: True; D Ric(h) = (1/2) r^2 (A_l H) T in the angular block:
       True, every other component 0: True
   T3b: for every traceless class tensor T with div T = 0 (A arbitrary, B from div T = 0), D Ric(r^2 H T) = (1/2) r^2
-      [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]: largest residual 1.1e-159 at 50 digits (three test A, three points):
-      True; with the eigen-equation (lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every l (deduced)
-  T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: 12 (l (l + 2) + 4 = 12); for the scalar harmonic x1^2 - 1/4 at l =
+      [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]: largest residual 7.3e-158 at 50 digits (three test A, three H, four r,
+      three angles: 108 points; Round 8, one r and one H before): True; with the eigen-equation (lap + l (l + 2) - 2) T =
+      0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in T3)
+  T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: 12, at l = 4: 28 (l (l + 2) + 4 = 12, 28; the so(4) Casimir 2 [j1
+      (j1 + 1) + j2 (j2 + 1)] at (j1, j2) = (l/2 + 1, l/2 - 1): ['12', '28']); for the scalar harmonic x1^2 - 1/4 at l =
       2: 8 (l (l + 2) = 8): True
   T5 (deduced; exact rationals): C_T,l^2 = (2 + 5/L)(1 + kappa q) + q + 4 q^2 + q/f(b1), kappa = 5/2, 1/f(b1) = 36/11:
       C_T,2^2 = 55289/14256 = 3.878297, decreasing in l (checked to l = 200; every term decreasing), tending to 2; C_T =
@@ -17,7 +19,7 @@ tensorzero5: the zero-energy bound of L_b0 on the tensor-type blocks of the clas
   T6 (floating point): 300 test functions x l in {2, 4, 6}, tensor weight L + 4: largest N_T/F = 0.5416 <= C_T = 1.9693:
       True
   C1 (control): the trace part (s-type): tr h = 3*H(r) != 0 and D Ric(h) != (1/2) r^2 (A_2 H) h: True
-  C4 (control): T3b with -lap T + T in place of -lap T + 2 T: residual 3.577e-01: fails: True
+  C4 (control): T3b with -lap T + T in place of -lap T + 2 T: residual 3.535e+00: fails: True
   C2 (control): the scalar weight claimed on T at l = 2 (8): refuted by T4's 12: True
   C3 (control): T5 with the scalar weight L: C^2 = 3.190025, outside the pinned interval: True
 T1 PASS
