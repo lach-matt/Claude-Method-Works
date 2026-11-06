@@ -8,12 +8,21 @@ where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-
      G1 (a)-(c). Nk < 0 everywhere except a band inside the shell, R in [4.29, 4.53] (converged), max Nk = 1.79e-3 at
      R = 4.40: there the split is NOT hyperbolic. Controls (must fail): the same with the flux term -E f_v/2 of Nk
      dropped has no positive value (the shell's flux is the cause); with half the shell's amplitude no positive value.
+     [R6, the verifier of round 5, minor 2: the band printed before was the outermost positive samples. The edges are
+     now the interpolated zero crossings of Nk, [4.2916, 4.5283] at n = 80 and [4.2914, 4.5284] at n = 160, inside
+     [4.29, 4.53] with the margins printed (0.0014 and 0.0016).]
   R2 (exact, sympy) the region-I criterion and the obstruction. In ingoing Vaidya (psi = 0, f = 1 - mu(vhat)/R^2) B2's
      Nk is (mu/R^3)(f - 3) + mu'(vhat)/(2 R^2): hyperbolic iff mu' < 2 mu (2 + mu/R^2)/R. Where Nk > 0 the slice's K
      is negative definite (kappa < 0, K^l_l < 0, round): for every unit normal nhat of every foliation through the
      point, kappa' = K(nhat, nhat) < 0 and K'^l_l = tr K - kappa' < 0, so kappa' K'^l_l > 0 and [Rac16] Lemma 4.1's
      condition fails for every foliation. Control (must fail): a K of mixed sign admits a foliation with kappa' K'^l_l
-     < 0.
+     < 0. [R6, the verifier of round 5: Lemma 4.1 is sufficient only, so its failure proves nothing by itself. The
+     conclusion follows from [Rac16] (4.22): for a covector xi_S tangent to the leaf and orthogonal to k' (the leaves
+     are three-dimensional, so a torus direction serves; k'(e_phi) = 0 for a round K) the quadratic K'^l_l xi_n^2 - 2
+     xi_n (k'.xi_S) + kappa' |xi_S|^2 has discriminant -kappa' K'^l_l |xi_S|^2 < 0: complex characteristic roots, so
+     no tilted foliation is hyperbolic (computed exactly here); control: for the mixed-sign K's hyperbolic tilt the
+     discriminant is positive for the torus direction and for the in-plane one. This concerns foliations of the given
+     slice only; a different slice through the band is hyperbolic (racslice5).]
   R3 (exact, sympy) the invariant Killing fields of five-dimensional Tangherlini are the multiples of d_t: solving
      L_X g = 0 for X = X^t d_t + X^R d_R + X^th d_th, components functions of (t, R, th) (T^2 x Z2 x Z2-invariance
      excludes d_phi components, which are odd under phi_i -> -phi_i). Control (must fail): admitting d_phi components
@@ -101,6 +110,12 @@ def r1():
         o = slice_nk(tb, n)
         pos = o[o[:, 1] > 0]
         band = (float(pos[:, 0].min()), float(pos[:, 0].max())) if len(pos) else None
+        # [R6] the interpolated zero crossings of Nk
+        srt = o[np.argsort(o[:, 0])]
+        cr = [float(srt[j, 0] - srt[j, 1] * (srt[j + 1, 0] - srt[j, 0]) / (srt[j + 1, 1] - srt[j, 1]))
+              for j in range(len(srt) - 1) if srt[j, 1] * srt[j + 1, 1] < 0]
+        if len(cr) == 2:
+            band = (cr[0], cr[1])
         im = int(np.argmax(o[:, 1]))
         # region I check: Nk = (mu/R^3)(f - 3) + mu_vhat/(2 R^2) where psi = 0 and no outgoing dust (A > 0 rows)
         sh = o[o[:, 3] > 0.05]
@@ -110,11 +125,12 @@ def r1():
         rows.append((n, len(o), float(o[:, 0].min()), float(o[:, 0].max()), band, float(o[im, 1]), float(o[im, 0]),
                      float(o[:, 2].max()), dev))
     for (n, npts, rmin, rmax, band, mx, rmx, efmax, dev) in rows:
-        print("   n = %d: %d slice points, R in [%.3f, %.3f]; Nk > 0 exactly on R in [%.4f, %.4f]; max Nk = %.4e at "
-              "R = %.4f; max E f = %.4f < 1; region-I formula vs grid in the shell: %.1e" %
-              (n, npts, rmin, rmax, band[0], band[1], mx, rmx, efmax, dev))
-    conv = abs(rows[-1][4][0] - rows[-2][4][0]) < 0.01 and abs(rows[-1][4][1] - rows[-2][4][1]) < 0.01 and \
-        abs(rows[-1][5] - rows[-2][5]) < 1e-5
+        print("   n = %d: %d slice points, R in [%.3f, %.3f]; Nk > 0 on R in [%.4f, %.4f] (interpolated zero crossings; "
+              "margins to [4.29, 4.53]: %.4f, %.4f); max Nk = %.4e at R = %.4f; max E f = %.4f < 1; region-I formula "
+              "vs grid in the shell: %.1e" % (n, npts, rmin, rmax, band[0], band[1], band[0] - 4.29, 4.53 - band[1], mx,
+                                              rmx, efmax, dev))
+    conv = abs(rows[-1][4][0] - rows[-2][4][0]) < 1e-3 and abs(rows[-1][4][1] - rows[-2][4][1]) < 1e-3 and \
+        abs(rows[-1][5] - rows[-2][5]) < 1e-5 and rows[-1][4][0] > 4.29 and rows[-1][4][1] < 4.53
     falls = all(rows[i + 1][8] < rows[i][8] / 3 for i in range(2)) and rows[-1][8] < 1e-6
     ok = all(r[4] is not None and r[5] > 0 and r[7] < 1 for r in rows) and conv and falls
     print("   the region-I formula agrees with the grid to an error falling at second order: %s" % falls)
@@ -126,7 +142,7 @@ def r1():
     o_h = slice_nk(tb, 80)
     tb.AAMP = keep
     ctl2 = float(o_h[:, 1].max()) < 0
-    print("   converged (band to 0.01, max to 1e-5): %s; controls: flux term dropped, max Nk = %.4f < 0: %s; half the "
+    print("   converged (band edges to 1e-3, inside [4.29, 4.53]; max to 1e-5): %s; controls: flux term dropped, max Nk = %.4f < 0: %s; half the "
           "shell's amplitude, max Nk = %.4f < 0: %s" % (conv, float(o_nf[:, 1].max()), ctl1, float(o_h[:, 1].max()),
                                                         ctl2))
     print("   so the split is hyperbolic on Sigma_tau0 except on the band, which the example's shell creates")
@@ -159,11 +175,29 @@ def r2():
         mixed_found |= float(prod.subs({k0: 1.3, k: -0.4, b: bb})) < 0
     # and exactly: for k0, k < 0, kappa' < 0 and Kll' = sin^2 b k0 + (3 - sin^2 b) k < 0
     exact = sp.simplify(Kll - (sp.sin(b)**2 * k0 + (3 - sp.sin(b)**2) * k)) == 0
+    # [R6] [Rac16] (4.22): the discriminant for a leaf covector orthogonal to k' (a torus direction)
+    kp_plane = sp.sin(b) * sp.cos(b) * (k - k0)                     # k'(e1), e1 the in-plane leaf direction
+    disc_torus = sp.simplify(-Kll * kap)                            # (k'.xi)^2 - K'^l_l kappa' |xi|^2, xi = e_phi
+    disc_plane = sp.simplify(kp_plane**2 - Kll * kap)
+    dneg = True
+    for _ in range(400):
+        kk0, kk = -rng.uniform(0.01, 3), -rng.uniform(0.01, 3)
+        bb = rng.uniform(0, math.pi)
+        dneg &= float(disc_torus.subs({k0: kk0, k: kk, b: bb})) < 0
+    dpos = False
+    for _ in range(400):
+        bb = rng.uniform(0, math.pi)
+        vals = {k0: 1.3, k: -0.4, b: bb}
+        if float(prod.subs(vals)) < 0:
+            dpos |= float(disc_torus.subs(vals)) > 0 and float(disc_plane.subs(vals)) > 0
     print("   region I: Nk = (mu/R^3)(f - 3) + mu'/(2 R^2): %s; hyperbolic iff mu' < 2 mu (2 + mu/R^2)/R: %s" %
           (ok1, crit))
+    print("   [Rac16] (4.22): the discriminant for a torus direction (k' . e_phi = 0) is -kappa' K'^l_l: negative for "
+          "every tilt of a negative definite K (400 draws): %s; control: the mixed-sign K's hyperbolic tilt has both "
+          "discriminants positive: %s" % (dneg, dpos))
     print("   K negative definite: K'^l_l = sin^2 b k0 + (3 - sin^2 b) k (exact): %s; kappa' K'^l_l > 0 for every "
           "tilt (400 draws): %s; control (mixed signs) has a hyperbolic tilt: %s" % (exact, neg_ok, mixed_found))
-    return ok1 and crit and exact and neg_ok and mixed_found
+    return ok1 and crit and exact and neg_ok and mixed_found and dneg and dpos
 
 
 # ---------------------------------------------------------------- R3
