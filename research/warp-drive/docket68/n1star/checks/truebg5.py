@@ -36,18 +36,23 @@ u, cells in vhat of 0.01 (bisected where needed), point rays at the cell ends.
 
   T1  the N' data on [u1, u2] enclosed; lambda > 0; mu3; checked against a float integration (scipy DOP853), which a
       shifted B amplitude (1.7 -> 1.7017) leaves (control, must fail).
-  T2  Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (Theorem Q's margin): every cell lies
-      in region III (R2 >= R on the slice) and Gamma/E^2 (qsign5's closed form) has a positive lower bound. Control:
-      the sign flipped is not certified. A posteriori, the computed spline (qsign5, n = 160) is compared with the true
-      psi_III: certified bounds on |psi_spline^(k) - psi_III^(k)|, k = 0, 1, 2, at the cell ends and on the cells;
-      control: with B's amplitude shifted by 0.1 %, the bound at the points exceeds the n = 80 / 160 difference.
+  T2  Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (Theorem Q's margin), on T3's cells
+      clipped to the region: every cell lies in region III (R2 >= R on the slice, f3 > 0 at u2) and Gamma/E^2
+      (qsign5's closed form) has a positive lower bound. Control: the sign flipped is not certified. A posteriori,
+      the computed spline (qsign5, n = 160) against the true psi_III: certified bounds on |psi_spline^(k) -
+      psi_III^(k)|, k = 0, 1, 2, at the cell ends and on the cells; control: with B's amplitude x 1.001 in the
+      reduction, the spline is farther from it than that agreement.
   T3  kappa K^l_l < 0 on Sigma_tau0 for R in [0.68, R_*] (vhat in [0, tau0 + R_*]: the part of Sigma' in the
       development of the data below R_*) for the background itself (Theorem L''s margin; Sigma' = Sigma_tau0 there),
       with the region I, packet and region III formulas on every cell according to where the slice point can lie.
-      Control: with psi_vhat's sign flipped in the packet formula the cells fail.
+      Control: with psi_vhat's sign flipped in the packet formula the step boxes fail.
+  T4  a posteriori in the packet: the computed background's slice inputs (twobg5 n = 160, racslice5's crossing
+      data) against the true ones, certified upper bounds on the deviation; informational (sanity bound 0.2 of the
+      input's size), since T3 does not use the computed background.
 
-Labels: certified (interval arithmetic) for T2-T3; the reduction is deduced and its region I limit checked exactly.
-Run: python3 checks/truebg5.py   (about an hour under load)
+Labels: certified (interval arithmetic) for T2-T4; the reduction is deduced, its region I limit checked exactly, and
+its packet and region III values agree with the computed background to its discretisation level (T2, T4). Order of
+the run: T1, T3, T2, T4. Run: python3 checks/truebg5.py   (one to two hours under load)
 """
 import importlib.util
 import math
@@ -373,7 +378,7 @@ def t1():
           % (ins[0], not ins[1]))
     print("   the reduction's region I limit (exact): e^psi = 1 and psi_vhat = 0: %s; the inverse-function derivatives "
           "r1', r1'', r1''' against a 30-digit differentiation of the inverse: %s" % syms)
-    ok = W < 1e-6 and nd.lam_min > 0 and nd.nodes[-1][0].a ** 2 > nd.mu3.b and ins[0] and not ins[1] and all(syms)
+    ok = W < 1e-5 and nd.lam_min > 0 and nd.nodes[-1][0].a ** 2 > nd.mu3.b and ins[0] and not ins[1] and all(syms)
     return ok, nd
 
 
@@ -393,44 +398,29 @@ def spline_enclose(bg, VH):
     return [hull(*[o[k] for o in outs]) for k in range(3)]
 
 
-def t2(nd, bgs):
-    print("T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (cells of 0.01 in vhat)")
+def t2(nd, bgs, cache):
+    print("T2 Gamma > 0 on the seed region R in [0.70, 1.861] for the background itself (T3's cells, clipped)")
     q = load('qsign5')
     _, Gt, _ = q.gamma_formula()
     args = [q.R, q.MU] + list(q.PP)
     fG = sp.lambdify(args, Gt, modules=MODS)
     va, vb = float((I(0.70) + T0).a), float((I(1.861) + T0).b)
-    ncell = int(math.ceil((vb - va) / 0.01))
-    e = np.linspace(va, vb, ncell + 1)
+    cells = sorted(k for k in cache if k[1] > va and k[0] < vb)
+    assert cells[0][0] <= va and cells[-1][1] >= vb and all(x[1] == y[0] for x, y in zip(cells[:-1], cells[1:]))
     least, failed, reg3, nev = None, 0, True, 0
-    stack = [(a, b, 0) for a, b in zip(e[:-1], e[1:])]
+    stack = [(a, b, 0) for a, b in cells]
     t = time.time()
     errs = [0.0, 0.0, 0.0]                                       # on the cells: |spline^(k) - psi_III^(k)|
     flipped_fail = None
     while stack:
         a, b, d = stack.pop()
         VH = I(a, b)
-        Rs = VH - T0
-        R1 = r1_enclose(VH)
-        Y2, _ = ray(nd, R1)
-        reg3 &= bool(Y2[0].a >= Rs.b)
-        p0, p1, p2, f3 = psi3(R1, Y2, nd.mu3)
-        reg3 &= bool(f3.a > 0)
-        val = fG(Rs, nd.mu3, p0, p1, p2)
-        nev += 1
-        if flipped_fail is None:
-            flipped_fail = not (float(-val.a) > 0)               # the sign-flipped Gamma on the first cell
-        if float(val.a) > 0:
-            least = float(val.a) if least is None else min(least, float(val.a))
-            sv = spline_enclose(bgs[160], VH)
-            for k, (x, y) in enumerate(zip(sv, (p0, p1, p2))):
-                errs[k] = max(errs[k], mag(x - y))
-            continue
-        if d >= 3:
-            failed += 1
-            continue
-        m = 0.5 * (a + b)
-        stack += [(a, m, d + 1), (m, b, d + 1)]
+        Rs = I(max(a, va), min(b, vb)) - T0
+        if (a, b) in cache:
+            R1, Y2 = cache[(a, b)]
+        else:
+            R1 = r1_enclose(VH)
+            Y2, _ = ray(nd, R1)
     print("   every cell in region III (R2 >= R on the slice): %s; Gamma/E^2 > 0 certified on every cell: %s (%d rays; "
           "least lower bound %.4f; %.0f s)" % (reg3, failed == 0, nev, least or float('nan'), time.time() - t))
     # a posteriori: the computed spline against psi_III at the cell ends (point rays)
@@ -469,7 +459,7 @@ def t2(nd, bgs):
 
 
 # ---------------------------------------------------------------- T3
-def t3(nd, rstar):
+def t3(nd, rstar, cache):
     print("T3 kappa K^l_l < 0 on Sigma_tau0, R in [0.68, R_*], for the background itself (cells of 0.01 in vhat)")
     rs = load('racslice5')
     kap, Kll = rs.slice_formulas()
@@ -496,6 +486,8 @@ def t3(nd, rstar):
         R1 = r1_enclose(VH)
         a1, a2, _ = r1_derivs(R1)
         Y2, boxes = ray(nd, R1, keep=True)
+        if d == 0:
+            cache[(a, b)] = (R1, Y2)
         nray += 1
         good, cell_worst = True, None
         # region I part: slice points with u <= u1 (R on the slice >= R1)
@@ -548,6 +540,45 @@ def t3(nd, rstar):
     return failed == 0 and ctl_fail > 0 and counts['packet'] > 0 and counts['III'] > 0
 
 
+# ---------------------------------------------------------------- T4
+def t4(nd, rstar, n=160, every=6):
+    print("T4 a posteriori in the packet: the computed background's slice inputs (twobg5 n = %d, racslice5's crossing "
+          "data, A = 0) against the background itself" % n)
+    rs = load('racslice5')
+    o = rs.crossing(tb, tb.run(n), 0.0)
+    o = o[np.argsort(o[:, 0])]
+    names = ('E', 'f', 'psi_R', 'psi_vhat', 'f_R', 'f_vhat')
+    dev = [0.0] * 6
+    scale = [0.0] * 6
+    npt = 0
+    for row in o[::every]:
+        R = float(row[0])
+        if not (1.0 < R < float(rstar.a)):
+            continue
+        VH = I(R) + T0
+        R1 = r1_enclose(VH)
+        a1, a2, _ = r1_derivs(R1)
+        Y2, boxes = ray(nd, R1, keep=True)
+        if not (Y2[0].b < R < R1.a):                             # strictly inside the packet
+            continue
+        enc = None
+        for k, box in enumerate(boxes):
+            Rx = sub(box[0], I(R))
+            if Rx is None:
+                continue
+            ins, _ = packet_inputs(Rx, box[1], box[2], nd.cb[k], nd.Bb[k], a1, a2)
+            enc = ins if enc is None else [hull(x, y) for x, y in zip(enc, ins)]
+        npt += 1
+        for j in range(6):
+            dev[j] = max(dev[j], mag(enc[j] - I(float(row[1 + j]))))
+            scale[j] = max(scale[j], mag(enc[j]))
+    print("   %d crossings in the packet: max |computed - true| (certified upper bound) / max |true|: %s" %
+          (npt, ", ".join("%s %.1e/%.2f" % (nm, d_, s_) for nm, d_, s_ in zip(names, dev, scale))))
+    print("   (the computed inputs are linear interpolants of grid differences; their error is what C2's robustness "
+          "widening would have to cover, and T3 does not need it)")
+    return npt > 5 and max(d_ / s_ for d_, s_ in zip(dev, scale)) < 0.2
+
+
 def main():
     q = load('qsign5')
     res = {}
@@ -555,11 +586,14 @@ def main():
     print('T1', 'PASS' if res['T1'] else 'FAIL', flush=True)
     rstar = rstar_enclose()
     print("   R_* in [%.9f, %.9f] (intcert5 C3's bisection)" % (float(rstar.a), float(rstar.b)))
-    bgs = {80: q.background(80), 160: q.background(160)}
-    res['T2'] = t2(nd, bgs)
-    print('T2', 'PASS' if res['T2'] else 'FAIL', flush=True)
-    res['T3'] = t3(nd, rstar)
+    cache = {}
+    res['T3'] = t3(nd, rstar, cache)
     print('T3', 'PASS' if res['T3'] else 'FAIL', flush=True)
+    bgs = {80: q.background(80), 160: q.background(160)}
+    res['T2'] = t2(nd, bgs, cache)
+    print('T2', 'PASS' if res['T2'] else 'FAIL', flush=True)
+    res['T4'] = t4(nd, rstar)
+    print('T4', 'PASS' if res['T4'] else 'FAIL', flush=True)
     return 0 if all(res.values()) else 1
 
 

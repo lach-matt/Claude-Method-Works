@@ -47,7 +47,7 @@ P(h) := Ric^H(g_b0 + h; g_b0), g_b0 := eta + mu r^-2 k k, mu = 4/5, Cartesian; f
 Labels: computed (S1-S3 exact; S4 mpmath at 40 digits; W1 mpmath quadrature at 30 digits, W2-W3 exact sympy);
 W4-W8 [arithmetic] (exponents of typed scaling rules, solved exactly).
 
-    python3 checks/r6sigma5.py     (18 to 29 minutes on this loaded machine, beside the others; S4 most of it)
+    python3 checks/r6sigma5.py     (8 to 29 minutes on this loaded machine, beside the others; S4 most of it)
 """
 import os
 import random

@@ -33,3 +33,30 @@ scalarblock5: the scalar-type blocks of L-hat_b0(0) on 5D Tangherlini, every har
       reaches 9996. The scalar model's own quasi-mode gives sigma_min((1/2) A_l) <= (kappa + 1)/(2 (kappa + 2)^(1/2)),
       below that for every even l <= 19990: there route (a) yields nothing, so any threshold l_0 of route (a) exceeds
       19990: True
+  S7 (floating point): the quasi-mode on the full block at l = 2, x0 = log 400: Q = ||L h||_Y/||h||_X = 1.3900e+04 (W =
+      100), 1.3901e+03 (W = 1000), 1.3901e+02 (W = 10000); the dilation-invariant model of the proof gives 1.3900e+04,
+      1.3901e+03, 1.3901e+02 (agreement to 1e-3: True); Q W is constant to 10% (True): the cut-off term N'(1) v psi'
+      dominates at these widths and falls like 1/W, the Tangherlini terms are below 1e-3, as the proof of Lemma A.6 has
+      it; the limit W -> oo is S6's 2.6180e-07: True
+  C1 (control): D Ric without -nabla nabla tr h: the gauge identity fails: True
+  C2 (control): delta (D Ric h) without G: the identity fails: True
+  C3 (control): f = 1 - 1/r^3: not Ricci-flat: True
+  C4 (control): the record's box^C polynomial at e_C = 1/10240: not proportional: True
+  C5 (control): the claim sigma_min(L_2) >= 1e-4 at alpha = -1: refuted by S6 (2.6180e-07): True
+S0 PASS
+S1 PASS
+S2 PASS
+S3 PASS
+S4 PASS
+S5 PASS
+S5b PASS
+S6 PASS
+S8 PASS
+S7 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+15/15 (449 s)
+exit 0

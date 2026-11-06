@@ -411,7 +411,8 @@ def main():
     OK['Q3b'] = bx['conv'] and (bx['ma']['M'], bx['m24']['M'], bx['mf']['M'], bx['D0'], bx['FWD']) == (
         PINS['box9']['M_a'], PINS['box9']['M24'], PINS['box9']['M_f'], PINS['box9']['D0'], PINS['box9']['FWD'])
     print('  Q3b (round 8-9\'s box, superseded by Q7 in Round 12: the box [%d, %d], every order variable within it; '
-          'Round 9: the factors\' Peetre exponents over their orders, 2L\' = %d for (b)-(e) at depth 1 and %d for (f) at depth q + 1 = 4): M_a = %d (J1 = %d), M_2.4 = %d '
+          'Round 9: the factors\' Peetre exponents over their orders, 2L\' = %d for (b)-(e) at depth 1 and %d for (f) '
+          'at depth q + 1 = 4): M_a = %d (J1 = %d), M_2.4 = %d '
           '(C_ch = %d), M_f = %d; D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b + 4) = %d; FWD <= %d; '
           'pinned: %s' % (BOX[0], BOX[1], bx['m24']['twoLmax'], bx['mf']['twoLp'], bx['ma']['M'], bx['ma']['J1'],
                           bx['m24']['M'], bx['m24']['C_ch'], bx['mf']['M'], bx['D0'], bx['FWD'], OK['Q3b']))

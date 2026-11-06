@@ -7,7 +7,8 @@ l2par5: the level-2 loop per exponent or per (alpha_0, k): the applications at o
       >= Re alpha_0 + eps_ind, so no application at alpha_0 sees another's output: at one exponent the applications are a
       sum of families (Lemma 1.2 (a): the loss of one), and compositions arise only through remainders, which raise the
       real part; the loop's loss is at most 3 x the longest chain of exponents <= 3 |Lambda cap W| <= 3 P_W on either
-      reading and in any order (the model's increments all have positive real part: True)
+      reading and in any order. The PASS checks only P0 and that the model's increments all have positive real part
+      (True); the argument is deduced, not computed
   P2 (computed, exact): the model (window [11/10, 21/10), d1 = 1/8, E_ind = [('1/8', 1), ('3/8', 0), ('1', 0)], sources
       {'11/10': 2, '6/5': 0, '5/4': 1}): 23 exponents, the longest chain 8; the loop's loss {'(a) per (alpha_0, k), up':
       24, '(b) per exponent, up': 24, '(c) per (alpha_0, k), random': 24, '(d) per exponent, random': 24}; applications

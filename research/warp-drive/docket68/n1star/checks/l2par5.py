@@ -24,7 +24,9 @@ not to applications: J3 Lemma 1.2 (a) (a sum of families with loss d has loss d)
      arises only through a remainder, which raises the real part; so every chain of compositions visits each exponent
      of Lambda cap W at most once, and the loop's loss is at most 3 x (the longest chain) <= 3 |Lambda cap W| <= 3 P_W on
      either reading, in any order of treatment (revisits included: a term met again is a new sum of contributions, each
-     carried along its own chain). dnumber5's 3 P_W is therefore an upper bound on both readings.
+     carried along its own chain). dnumber5's 3 P_W is therefore an upper bound on both readings. [Round 12 (the
+     round-11 verifier's nit): P1's PASS checks only what a program can: P0's reads and that the model's increments
+     have positive real part. The argument itself is the deduction above, and it is not computed.]
   P2 (computed) The model: a scaled loop with exact rational exponents in a window, sources with log powers, E_ind with
      log orders (so that the log powers grow along chains and merge), treated (a) per (alpha_0, k) in increasing real
      part, (b) per exponent in increasing real part, (c) per (alpha_0, k) in a seeded random order (with revisits),
@@ -115,7 +117,10 @@ def run(per_pair, order, eind=EIND, serial=False, seed=11):
     order: 'up' (least real part first) or 'random' (any pending term, revisits allowed). Each pending term carries the
     loss of the family source -> term (Lemma 1.2: a sum takes the largest, an application adds COST); serial charges
     every application after every earlier one (the series reading of control C2). Returns (loss, applications,
-    loss by term)."""
+    loss by term). [Round 12 (the round-11 verifier): an increment of real part <= 0 is refused (ValueError) rather
+    than looped on, since the loop then does not end; run_zero treats that case, with a cap.]"""
+    if any(w <= 0 for w, _ in eind):
+        raise ValueError('run: an increment of real part <= 0; the loop would not end (P1\'s premise fails)')
     rnd = random.Random(seed)
     pend = {(a, j): 0 for a, k in SOURCES.items() for j in range(k + 1)}
     seen = {}
@@ -186,10 +191,17 @@ def main():
           'at real parts >= Re alpha_0 + eps_ind, so no application at alpha_0 sees another\'s output: at one exponent '
           'the applications are a sum of families (Lemma 1.2 (a): the loss of one), and compositions arise only through '
           'remainders, which raise the real part; the loop\'s loss is at most 3 x the longest chain of exponents <= 3 '
-          '|Lambda cap W| <= 3 P_W on either reading and in any order (the model\'s increments all have positive real '
-          'part: %s)' % pos)
+          '|Lambda cap W| <= 3 P_W on either reading and in any order. The PASS checks only P0 and that the model\'s '
+          'increments all have positive real part (%s); the argument is deduced, not computed' % pos)
     L, npts = longest_chain()
     res = {}
+    if not pos:
+        print('  P2: the model has an increment of real part <= 0, which run() refuses: P1\'s premise fails')
+        for k in ('P2', 'P3', 'P4'):
+            OK[k] = False
+        for k, v in OK.items():
+            builtins.print(k, 'PASS' if v else 'FAIL')
+        return 1
     for name, pp, od in (('(a) per (alpha_0, k), up', True, 'up'), ('(b) per exponent, up', False, 'up'),
                          ('(c) per (alpha_0, k), random', True, 'random'), ('(d) per exponent, random', False,
                                                                              'random')):

@@ -35,8 +35,9 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
      of Sigma' with R >= R_* is in {u <= u1} (checked: printed). Certified, for the background defined by the stated
      characteristic data: kappa' > 0 and K'^l_l < 0 on Sigma' from R_* to 5.75 (beyond, Sigma' = Sigma_tau0 in
      Tangherlini of mass mu_end, where Nk = (mu/R^3)(f - 3) < 0 exactly); and on Sigma_tau0 the band: on [R_*, 5.75]
-     Nk = (mu/R^3)(f - 3) + mu'/(2 R^2) is certified negative outside two enclosures of its edges and positive on
-     every cell between them (Sigma_tau0 fails to be hyperbolic on exactly one interval, enclosed).
+     Nk = (mu/R^3)(f - 3) + mu'/(2 R^2) is certified negative outside two edge zones and positive on the interval
+     between them (Sigma_tau0 is hyperbolic outside the zones and fails to be on that interval; inside the zones,
+     widths printed, the sign is not resolved).
      Controls (must fail): a float integration (scipy DOP853) of the same ODE lies inside the enclosures, and does
      not when its initial Q is shifted by 1e-6; A = 0 (Sigma_tau0) is not certified hyperbolic.
 
@@ -541,15 +542,25 @@ def c3():
         mu, mup = mu_on(T0 + Xr)
         Nk = mu / Xr**3 * (I(1.0) - mu / (Xr * Xr) - I(3.0)) + mup / (I(2.0) * Xr * Xr)
         signs.append(1 if Nk.a > 0 else (-1 if Nk.b < 0 else 0))
-    pos = [i for i, sgn in enumerate(signs) if sgn == 1]
     nonneg = [i for i, sgn in enumerate(signs) if sgn != -1]
-    # edge enclosures: from the first cell not certified negative to the first certified positive, and from the last
-    # certified positive to the last not certified negative; between them every cell must be certified positive
-    band_ok = bool(pos) and all(sgn == 1 for sgn in signs[pos[0]:pos[-1] + 1])
-    edges = [(e[nonneg[0]], e[pos[0]]), (e[pos[-1] + 1], e[nonneg[-1] + 1])] if band_ok else []
+    # the band's interior: the longest run of cells certified positive; its edge zones run from the first cell not
+    # certified negative to the run, and from the run to the last cell not certified negative (there the sign is not
+    # resolved: Nk changes sign at least once in each, by intermediate values); every other cell is certified negative
+    best, cur = (0, -1), None
+    for i, sgn in enumerate(signs + [0]):
+        if sgn == 1 and cur is None:
+            cur = i
+        elif sgn != 1 and cur is not None:
+            if i - 1 - cur > best[1] - best[0]:
+                best = (cur, i - 1)
+            cur = None
+    band_ok = bool(nonneg) and best[1] > best[0] and nonneg[0] < best[0] and nonneg[-1] > best[1]
+    edges = [(e[nonneg[0]], e[best[0]]), (e[best[1] + 1], e[nonneg[-1] + 1])] if band_ok else []
+    widest = max(b_ - a_ for a_, b_ in edges) if edges else float('nan')
     print("   the band on Sigma_tau0, the background itself, on [R_*, 5.75] (%d cells): Nk < 0 certified outside the "
-          "edge enclosures %s, Nk > 0 certified on every cell between them: %s" %
-          (len(signs), ", ".join("[%.4f, %.4f]" % ed for ed in edges), band_ok))
+          "edge zones %s, Nk > 0 certified on [%.4f, %.4f] between them, the sign unresolved inside the zones "
+          "(widest %.4f): %s" % (len(signs), ", ".join("[%.4f, %.4f]" % ed for ed in edges),
+                                  e[best[0]] if band_ok else 0, e[best[1] + 1] if band_ok else 0, widest, band_ok))
     ok = ok_br and before and W < 1e-6 and inside_ok[0] and not inside_ok[1] and good and not g0 and band_ok and r_ok
     return ok, rstar
 

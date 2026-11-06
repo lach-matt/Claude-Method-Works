@@ -689,3 +689,12 @@ of the operators and spaces; at b0, (C, h_0) in (6.6), the compactness choices o
 reconstruction, C_ext, the parametrix norms and the scalar-type blocks' sigma_min; uniformity in b; and the chain's
 other inputs. lambda1, delta > 0 exist (proved); their explicit lower bounds are not computed. This is a limit of the
 explicit computation, not a gap in Theorem 4.
+
+### R3.5 Programs and sources (round 3)
+
+`checks/inverse6_5m.py` 13/13 (M0-M7, C1-C5; 185 s), md5 5a8c3b3f...; its `.out` 07defe14...; the printed bounds of
+rounds 1-2 unchanged (the transfers 13.12, 20.11, 41.30, 122.7 and 21.39, 40.39, 90.14, 272.7). `checks/inverse6_5a.py`
+9/9 (A0-A4, C1-C4), md5 92712dbf...; its `.out` ed5d26cd... (A0 prints CONSTANTS5.md's current md5; its quotes are
+found by content). `checks/inverse6_5.py` unchanged, 17/17, md5 650c62d0..., `.out` 781d06cf.... Sources read this
+round: the verifier's report-vINV.md; proof5/PART-I-B-HIGHENERGY.md:1905-1925, 2038-2055 (md5 df7e5206...);
+proof5/PART-VI4-PARAMS.md step (5) (e7eebbb5...).

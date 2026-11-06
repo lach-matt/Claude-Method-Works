@@ -2755,7 +2755,12 @@ confirming read that starts after D630.
 - The paper's R6-E texts are superseded by R7-E's, which name BEYOND5 Lemma 6.4 (iv) and the window's two kinds of
   exponent.
 
-**The reader's mutants, rerun** (its scripts on scratch copies; outputs in this round's scratch, mutout7/): @@MUT7@@
+**The reader's mutants, rerun** (its scripts on scratch copies; outputs in this round's scratch, mutout7/): its mutation
+of W5's weight (r^(2a+1) -> r^(2a+3)) now fails W, W' and W''' as well as W5, since the window uses W5's exponent; its
+Step 2 threshold 2 -> 3 fails W6-W8, W and W'; its typed-bound mutation no longer applies, the bound no longer being
+typed. Its six text mutants of R6-D that passed now fail: R_gamma's orders j + 2, Lemma 9.3(b)'s hypothesis dropped,
+Gronwall per gamma, b . d U called known and "with the same constants" dropped fail E1d ((k)-(o)), and the product bound
+t^-1 fails E2g. The flux check K2' reproduces its computation that R6-A's cut fails at |delta|_op = 3 r^-2.
 
 ### R7-A Step 6's openness: the exterior regions cut by a cone (replacing R6-A (i)'s outer cut; completing (iv))
 
@@ -2833,9 +2838,9 @@ the deformation, the uniqueness kernels and the D-system's) are counted by hand,
 ([arithmetic]).
 
 *The text for the paper* (RESPONSE-HL-5D.md, not edited here; final, superseding R5-E's and R6-E's blocks). Each old
-text is located by content and occurs exactly once in the current file (md5 @@PAPERMD5@@ at the final run), every line
-of the edited file is within 121 characters, and the new texts state what the round-5 and round-6 readers asked
-(r6edits5 E4).
+text is located by content and occurs exactly once in the current file (md5 5930486d at the final run), every line of
+the edited file is within 121 characters, and the new texts state what the round-5 and round-6 readers asked (r6edits5
+E4).
 
 Block 1, in "Settling", old:
 
@@ -2913,19 +2918,20 @@ replaced by a gluing (section 8.7); that Theorem 4 applies to g_λ's own data, w
 half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundary).
 ```
 
-Ledger (round 7). Computed (new): `r7settle5.py` K1-K4 (@@N_R7S@@ checks), with controls that mutate the code under
-test. Changed and rerun: `r6sigma5.py` (@@N_R6G@@), `r6settle5.py` (@@N_R6S@@), `r6edits5.py` (@@N_R6E@@). Every new or
-changed `.out` is from a full run and byte-identical on a second run; the other programs are unchanged and their `.out`
-files stand (r5settle5 45, r5edits5 11, zinv5 3, r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5
-48, order5 22, f1lemma5 12, vac5 8 checks). Deduced: R7-A. READ: proof5/README.md's rows for III.A, III.C, VII and VIII
-and its Part VIII sentence (D231, D245, D324, D336); N1STAR-LOG.md D400, D405; BEYOND5.md Lemma 6.4;
-PART-III-K-NONLINEAR.md 471, 513-521 (md5 5b0ad3f0); RESPONSE-HL-5D.md (md5 @@PAPERMD5@@). None from outside sources.
+Ledger (round 7). Computed (new): `r7settle5.py` K1-K4 (8 checks), with controls that mutate the code under test.
+Changed and rerun: `r6sigma5.py` (21), `r6settle5.py` (21), `r6edits5.py` (24, E1s among them (the coordinator's: R6-D
+is seated, and E1-E3 run on the live file with R6-D undone in memory)). Every new or changed `.out` is from a full run
+and byte-identical on a second run; the other programs are unchanged and their `.out` files stand (r5settle5 45,
+r5edits5 11, zinv5 3, r5op5 7, cclass5 6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12,
+vac5 8 checks). Deduced: R7-A. READ: proof5/README.md's rows for III.A, III.C, VII and VIII and its Part VIII sentence
+(D231, D245, D324, D336); N1STAR-LOG.md D400, D405; BEYOND5.md Lemma 6.4; PART-III-K-NONLINEAR.md 471, 513-521 (md5
+5b0ad3f0); RESPONSE-HL-5D.md (md5 5930486d). None from outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
-    python3 checks/r7settle5.py   (@@T_R7S@@)
-    python3 checks/r6sigma5.py    (@@T_R6G@@)
-    python3 checks/r6settle5.py   (@@T_R6S@@)
-    python3 checks/r6edits5.py    (@@T_R6E@@)
+    python3 checks/r7settle5.py   (8 to 30 seconds)
+    python3 checks/r6sigma5.py    (about eight minutes, beside the others; S4 most of it)
+    python3 checks/r6settle5.py   (about six minutes)
+    python3 checks/r6edits5.py    (8 to 35 seconds)
 
 The times are wall-clock on this machine under the load of the other workstreams (about 25 on four cores).

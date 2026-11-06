@@ -30,6 +30,7 @@ scanned here.
      - FWD: III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, from d0count5 as corrected in Round 8 (the round-7
        verifier's A and A2: D_0 <= 399 and D_1 <= 52 on the order box, Q3b): 474 (round 7's 248 withdrawn); Round 9
        (the round-8 verifier's MAJOR 1: the Peetre exponents over the factors' orders): D_0 <= 435, FWD <= 510;
+       Round 12 (at the census's orders, d0count5 Q7): D_0 <= 766, D_1 <= 88, FWD <= 877;
      - BG: 2 per order-2 application (J3 (b)): I15's R_q u, Delta_q and Lemma 3.2's (L - L_b0) u;
      - III.I' Proposition 3.1 at I11's Step 1, the one-off application to the general class E^C_I: 2 (1 + J + L) by
        prop31loss5's chain on dweights5's data_ECI, 12 (R0), 30 (R1, 4 rounds), 48 (R1, 7 rounds): charged 48;
@@ -65,6 +66,7 @@ scanned here.
   M5 (READ; computed; Round 9, the round-8 verifier's MAJOR 2) the four admissibility conditions dweights5 W1 left
      undecided: (G) and eta_1, eta_2 off Re Lambda are decided (admissibility()); the levels off I11:156-160's
      exclusion sets and eps, eps' off I9:290-291's and I14:124-126's are not (they need the roots -mu as numbers).
+     [Round 12: those are decided in checks/rootavoid5.py, whose output M5 now reads (23 checks, all PASS).]
   M6 (READ; deduced on the reading; computed; Round 10) the base level, I15 Step 1. READ (BASE_READ, pinned by content):
      the background h + h_rem(q) has K+-order (alpha - 2)- (I15:305-308, 447), so a_K - 2 < alpha - 4 = eps_K;
      III.I'''''''' Proposition 4.1 at alpha_1 with N = 0 is its Lemma 3.1, whose Step 0 needs alpha'_K > alpha_0 + 2 -
@@ -87,6 +89,11 @@ scanned here.
   base at the lower end alpha_0 -> 2+ of Lemma 3.1's range: the same R, R_w, n_51, plus one Lemma 3.2 (III.I''''''''
   Proposition 4.1's one step to alpha_1), so alpha_0 := alpha_1 is the least total; C11 that comparison with the
   Lemma 3.2 not charged: no longer strict.
+  [Round 12 (the round-11 verifier; CONSTANTS5.md R12.2). FWD is d0count5 Q7's, at the orders the census
+  checks/ordcensus5.py reads site by site (Sobolev [-65/2, 14], symbols [-63, 31]): D_0 <= 766, D_1 <= 88, FWD <= 877
+  (round 9: 510). So c'_above = 1035, c'_below = 929, c' = 1035; per round c_r = c_S = 971, z = 889, c_51 = 967;
+  B_once = 575,023,419,632,184 and d <= 46,236,517,538,883,361 (pins C_PIN, D_PIN, B_PIN, DTOT_PIN). The loop counts
+  (BASE_PIN) do not move. M5 reads checks/rootavoid5.out (23 checks, all PASS): the finite avoidances are decided.]
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -317,8 +324,9 @@ def the_weights():
 
 def fwd_loss():
     """III.I Theorem 5.3's loss D_0 + D_1 + d' + d'' + 6, from d0count5 as corrected in Round 8 (the verifier's A, A2):
-    Sobolev orders Q4R, every operator order in the box BOX (Q3b)"""
-    c = DC.counts(*DC.Q4R, MU_BOX=DC.BOX)
+    Sobolev orders Q4R, every operator order in the box BOX (Q3b). [Round 12: at the census's orders, d0count5 Q7
+    (checks/ordcensus5.py): D_0 <= 766, D_1 <= 88, FWD <= 877.]"""
+    c = DC.census_counts()
     return c['FWD'], c['D0'], c['D1']
 
 
@@ -418,7 +426,7 @@ def totals(ch):
     return ab, be, max(ab, be)
 
 
-C_PIN, D_PIN = 668, 45661455037615687
+C_PIN, D_PIN = 1035, 45661494119251177       # Round 12 (Round 10-11: 668, 45661455037615687)
 
 
 # ------------------------------------------------------------------------------------------------ M4: the one-off steps
@@ -665,7 +673,7 @@ def base_total(w, ch, meta, Mb, W, nb=2, aK2=None, windows=True):
 
 KINDS = ('round', 'start', 'steps23', 'zero', 'iter')
 NB_ROWS, BASE_PIN = 89, (53191488, 26069149, 26595745)                     # Round 10: rows, (R, R_w, n_51)
-B_PIN, DTOT_PIN = 574994137715471, 46236449175331158                       # Round 10 (Round 9: 3943746411, ...)
+B_PIN, DTOT_PIN = 575023419632184, 46236517538883361    # Round 12 (Round 10-11: 574994137715471, 46236449175331158)
 
 
 def main():
@@ -697,7 +705,7 @@ def main():
     A1 = DN.D_PIN['R1']
     d = A1 + DN.KPLUS1 * cp
     N = 21 * d + 6
-    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 510 and meta['k12'] == 10 and meta['oneoff'][7] == 48
+    OK['M3'] = (cp, d) == (C_PIN, D_PIN) and meta['fwd'] == 877 and meta['k12'] == 10 and meta['oneoff'][7] == 48
     print('  M3: c\'_above = %d (FWD %d + %d), c\'_below = %d (FWD + %d): c\' = %d; d <= A\' + %d c\' = %d + %d = %d '
           '(%.6e); N = 21 d + 6 <= %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,
@@ -720,12 +728,17 @@ def main():
     print('      d <= A\' + (K + 1) c\' + B_once = %d (%.10e); N = 21 d + 6 <= %d; B_once is %.2e of d: pinned: %s' % (
         dtot, dtot, 21 * dtot + 6, ob['B'] / dtot, OK['M4']))
     oka, ad = admissibility(w)
-    OK['M5'] = oka
+    # Round 12: the finite avoidances are decided in checks/rootavoid5.py (Theorem B.5 at level 2 among them); its
+    # .out is read by content (another program's output: every check PASS, none FAIL, 23 in all), not md5-pinned
+    ra = open(os.path.join(HERE, 'rootavoid5.out'), encoding='utf-8').read().split('\n')
+    ra_ok = (ra[0].startswith('rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126')
+             and sum(x.endswith(' PASS') for x in ra) == 23 and not any(x.endswith(' FAIL') for x in ra))
+    OK['M5'] = oka and ra_ok
     print('  M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = %.6e < eta_2 = %.6e < '
           '%.4e, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5 '
           'pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: %s; the levels off I11:156-160\'s sets and '
-          'eps, eps\' off I9:290-291\'s and I14:124-126\'s: not decided (the roots -mu as numbers)' % (
-              float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka))
+          'eps, eps\' off I9:290-291\'s and I14:124-126\'s (Round 12): decided in checks/rootavoid5.py, its output '
+          'read: 23 checks, all PASS: %s' % (float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka, ra_ok))
     brows, buncl, bstale = base_census()
     bt = ob['base']
     bn, bc = bt['n'], bt['c']

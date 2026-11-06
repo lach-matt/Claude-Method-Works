@@ -1,0 +1,98 @@
+# python3 checks/cp3grid5.py --a8 <scratch>/r4/cp4/cp_M32_400_reg.npz cp_M32_800_reg.npz cp_M40_800_reg.npz
+A8 the Kretschmann scalar on 32 u-rows, at 2 null grids (M = 32) and M = 40 at the finest: dev = max |K/K_0 - 1| (finest,
+    M = 32); the successive null-step differences and the angular difference, over K_0; per areal-radius class (K_0 =
+    72/R^8):
+ areal radius 0.9-1.0:
+  x = +0.97:
+   v in [1.50, 1.65): dev 0.638; null step 7.44e-04; in M 1.62e-08 -> resolved
+   v in [1.65, 1.80): dev 0.723; null step 1.08e-03; in M 2.38e-06 -> resolved
+   v in [1.80, 1.90): dev 0.721; null step 7.94e-03; in M 5.23e-02 -> not resolved
+   v in [1.90, 2.00): dev 1.4; null step 1.59e+00; in M 7.02e+00 -> not resolved
+   v in [2.00, 2.25): dev 26.1; null step 4.63e+00; in M 3.71e+01 -> not resolved
+  x = +0.50:
+   v in [1.50, 1.65): dev 0.382; null step 1.83e-03; in M 1.84e-08 -> resolved
+   v in [1.65, 1.80): dev 0.521; null step 1.41e-02; in M 1.19e-06 -> resolved
+   v in [1.80, 1.90): dev 0.603; null step 7.24e-02; in M 4.07e-02 -> not resolved
+   v in [1.90, 2.00): dev 1.5; null step 3.63e+00; in M 6.99e+00 -> not resolved
+   v in [2.00, 2.25): dev 55.4; null step 3.23e+01; in M 5.47e+01 -> not resolved
+  x = +0.00:
+   v in [1.50, 1.65): dev 0.131; null step 5.01e-03; in M 5.11e-08 -> resolved
+   v in [1.65, 1.80): dev 0.111; null step 2.46e-02; in M 1.01e-05 -> not resolved
+   v in [1.80, 1.90): dev 0.426; null step 1.32e-01; in M 4.26e-02 -> not resolved
+   v in [1.90, 2.00): dev 3.02; null step 9.82e+00; in M 1.01e+00 -> not resolved
+   v in [2.00, 2.25): dev 226; null step 1.08e+02; in M 3.36e+02 -> not resolved
+  x = -0.50:
+   v in [1.50, 1.65): dev 0.915; null step 1.79e-02; in M 5.74e-08 -> resolved
+   v in [1.65, 1.80): dev 0.955; null step 2.84e-02; in M 3.03e-05 -> resolved
+   v in [1.80, 1.90): dev 0.783; null step 1.11e-01; in M 2.53e-01 -> not resolved
+   v in [1.90, 2.00): dev 20.3; null step 9.07e+00; in M 1.41e+01 -> not resolved
+   v in [2.00, 2.25): dev 243; null step 7.76e+01; in M 6.61e+02 -> not resolved
+  x = -0.97:
+   v in [1.50, 1.65): dev 2.82; null step 4.79e-02; in M 9.31e-08 -> resolved
+   v in [1.65, 1.80): dev 4.35; null step 6.74e-02; in M 4.13e-05 -> resolved
+   v in [1.80, 1.90): dev 4.48; null step 4.76e-01; in M 5.61e-01 -> not resolved
+   v in [1.90, 2.00): dev 28.6; null step 9.01e+00; in M 3.38e+01 -> not resolved
+   v in [2.00, 2.25): dev 99.1; null step 4.44e+01; in M 4.18e+02 -> not resolved
+ areal radius 1.0-1.2:
+  x = +0.97:
+   v in [1.50, 1.65): dev 0.638; null step 6.00e-04; in M 1.68e-08 -> resolved
+   v in [1.65, 1.80): dev 0.825; null step 1.09e-03; in M 6.82e-08 -> resolved
+   v in [1.80, 1.90): dev 0.853; null step 1.64e-03; in M 7.41e-04 -> resolved
+   v in [1.90, 2.00): dev 0.83; null step 2.11e-02; in M 1.01e+00 -> not resolved
+   v in [2.00, 2.25): dev 114; null step 1.12e+03; in M 4.41e+02 -> not resolved
+  x = +0.50:
+   v in [1.50, 1.65): dev 0.367; null step 8.58e-04; in M 1.85e-08 -> resolved
+   v in [1.65, 1.80): dev 0.603; null step 4.38e-03; in M 5.53e-08 -> resolved
+   v in [1.80, 1.90): dev 0.762; null step 2.61e-02; in M 5.42e-04 -> resolved
+   v in [1.90, 2.00): dev 0.832; null step 9.78e-02; in M 9.39e-01 -> not resolved
+   v in [2.00, 2.25): dev 216; null step 3.16e+02; in M 5.96e+02 -> not resolved
+  x = +0.00:
+   v in [1.50, 1.65): dev 0.23; null step 3.15e-03; in M 4.07e-08 -> resolved
+   v in [1.65, 1.80): dev 0.149; null step 8.41e-03; in M 1.61e-08 -> not resolved
+   v in [1.80, 1.90): dev 0.446; null step 4.83e-02; in M 1.75e-03 -> not resolved
+   v in [1.90, 2.00): dev 1.27; null step 2.05e-01; in M 1.54e-01 -> not resolved
+   v in [2.00, 2.25): dev 674; null step 3.25e+02; in M 1.45e+03 -> not resolved
+  x = -0.50:
+   v in [1.50, 1.65): dev 1.03; null step 1.33e-02; in M 3.64e-08 -> resolved
+   v in [1.65, 1.80): dev 1.06; null step 1.38e-02; in M 1.94e-08 -> resolved
+   v in [1.80, 1.90): dev 0.796; null step 4.10e-02; in M 5.42e-03 -> not resolved
+   v in [1.90, 2.00): dev 2.19; null step 6.60e-01; in M 3.43e+00 -> not resolved
+   v in [2.00, 2.25): dev 546; null step 8.42e+02; in M 3.07e+03 -> not resolved
+  x = -0.97:
+   v in [1.50, 1.65): dev 2.65; null step 1.95e-02; in M 5.42e-08 -> resolved
+   v in [1.65, 1.80): dev 3.89; null step 3.30e-02; in M 3.89e-08 -> resolved
+   v in [1.80, 1.90): dev 3.98; null step 1.50e-01; in M 7.96e-03 -> resolved
+   v in [1.90, 2.00): dev 5.27; null step 1.70e+00; in M 6.41e+00 -> not resolved
+   v in [2.00, 2.25): dev 70.5; null step 2.95e+02; in M 1.58e+03 -> not resolved
+ areal radius 1.2-1.4:
+  x = +0.97:
+   v in [1.50, 1.65): dev 0.571; null step 5.58e-04; in M 2.30e-09 -> resolved
+   v in [1.65, 1.80): dev 0.955; null step 1.30e-03; in M 6.71e-09 -> resolved
+   v in [1.80, 1.90): dev 1.09; null step 1.81e-03; in M 6.12e-08 -> resolved
+   v in [1.90, 2.00): dev 1.11; null step 2.44e-03; in M 3.82e-07 -> resolved
+   v in [2.00, 2.25): dev 1.02; null step 4.99e-02; in M 3.37e-01 -> not resolved
+  x = +0.50:
+   v in [1.50, 1.65): dev 0.297; null step 7.16e-04; in M 3.41e-09 -> resolved
+   v in [1.65, 1.80): dev 0.746; null step 1.05e-03; in M 7.04e-09 -> resolved
+   v in [1.80, 1.90): dev 1.02; null step 1.20e-03; in M 6.47e-08 -> resolved
+   v in [1.90, 2.00): dev 1.25; null step 2.19e-03; in M 4.23e-07 -> resolved
+   v in [2.00, 2.25): dev 1.27; null step 1.57e-01; in M 3.96e-01 -> not resolved
+  x = +0.00:
+   v in [1.50, 1.65): dev 0.359; null step 2.30e-03; in M 2.81e-09 -> resolved
+   v in [1.65, 1.80): dev 0.263; null step 1.52e-03; in M 4.37e-09 -> resolved
+   v in [1.80, 1.90): dev 0.62; null step 9.60e-04; in M 9.59e-09 -> resolved
+   v in [1.90, 2.00): dev 1.13; null step 5.25e-03; in M 2.31e-07 -> resolved
+   v in [2.00, 2.25): dev 1.57; null step 3.45e-01; in M 1.01e-01 -> not resolved
+  x = -0.50:
+   v in [1.50, 1.65): dev 1.2; null step 6.99e-03; in M 3.34e-09 -> resolved
+   v in [1.65, 1.80): dev 1.24; null step 9.23e-03; in M 9.30e-09 -> resolved
+   v in [1.80, 1.90): dev 0.947; null step 6.19e-03; in M 4.82e-08 -> resolved
+   v in [1.90, 2.00): dev 0.531; null step 2.39e-03; in M 9.52e-07 -> resolved
+   v in [2.00, 2.25): dev 2.31; null step 7.14e-01; in M 8.22e-01 -> not resolved
+  x = -0.97:
+   v in [1.50, 1.65): dev 2.88; null step 1.88e-03; in M 4.26e-09 -> resolved
+   v in [1.65, 1.80): dev 4.11; null step 5.28e-03; in M 1.42e-08 -> resolved
+   v in [1.80, 1.90): dev 4.2; null step 9.51e-03; in M 1.49e-08 -> resolved
+   v in [1.90, 2.00): dev 3.7; null step 2.32e-02; in M 6.49e-07 -> resolved
+   v in [2.00, 2.25): dev 2.36; null step 9.76e-02; in M 8.06e-01 -> not resolved
+cp3grid5 --a8 (1044 s)

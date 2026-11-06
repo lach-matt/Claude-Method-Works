@@ -8313,3 +8313,32 @@ no minor) and two optional wording nits, both now seated in proof5/PART-III-K-NO
 the Kerr-Schild $dt_{\mathrm{KS}}$, and the X-bracket (:725-727) adds that $X$ is closed, II.F Lemma 1.3 being applied on
 $X^\circ$ with the slab taken to $|c|+\delta$. K gains two lines after :725; `checks/vii5census.out` re-saved (its one C1
 use line K:733 is now K:735); r0census5 --selftest ok (323 lines) and vii5read unchanged.
+
+**D630 (2026-11-06): Lemma 11.0's replacement R6-D seated; the D627 reader's notes.**
+- WS-B's R6-D (SETTLE-GLAM5.md, final, superseding R5-D) is seated in N1STAR-PROOF.md's Lemma 11.0.
+  - Its four blocks were applied as printed. Each old text occurred once, and the result is byte-identical to WS-B's
+    round-6 verifier's applied copy (md5 172af376): 31 lines added, all inside Lemma 11.0.
+  - That verifier had found the mathematics correct and non-circular. R6-D answers SETTLE-GLAM5's F1, the section 11
+    reader's Major 1: the induction now counts the top-order term b . d U as unknown, through f_gamma in (9.3) before
+    Gronwall's lemma, at a lam-free factor e^(2C(1 + lam)).
+  - Two "[amended D630: WS-B round 6, R6-D ...]" marks close the two blocks. Each sits at the end of its block's last
+    line, and the rest of that line follows on its own line, so no text of R6-D is rewrapped. The old texts are R6-D's
+    "Edit 1, old" and "Edit 2, old" in SETTLE-GLAM5.md.
+- Section 11's status: "Proved means proved" is now pending only the section 9.5/11 confirming read. F1 is answered by
+  R6-D, seated here.
+- The D627 confirming reader confirmed D627, with four optional notes, all seated:
+  - (iv-b): "smooth approximants of its solutions";
+  - Lemma 10.1b's parenthesis: "smooth data of that mode", "Phi_n their solutions", rho "not identically 0";
+  - its label cites R16;
+  - its (b)'s note reads "was "a neighbourhood of the horizon"".
+- `checks/r6edits5.py` and `checks/r5edits5.py` now recognise the seated state. When R6-D's new blocks occur once in the
+  live file and its old ones not at all, they undo R6-D and its two marks in memory and run every check as before.
+  The undone copy restores the pre-seating Lemma 11.0 exactly. r6edits5's new E1s checks that re-applying the blocks
+  gives the live file but for the two marks.
+- Lines 1-958 are unchanged, so lzerotrace5's and lzeroaudit5's PIN and rows stand; their FILE_PIN is re-pinned.
+- Runs, every .out saved: redshift5 (R1-R16), eps1hyp5, support5, stagen5, r5edits5, r6edits5, census9, stagefree5,
+  support8b, zerohardy5, lzerotrace5 and lzeroaudit5 all pass. `response5.py --update-md5` refreshed three rows (the
+  proof, support5.out, census9.out), and its selftest passes, R1-R14.
+- Not yet read: D618's sections 9.5 and 11 (with R6-D now in place), and the D630 seating.
+- The header's Theorem M paragraph still says R5-D's replacement "is pending". It is left for the next pass of lines
+  1-958 (WS-A's D631).
