@@ -1,2 +1,11 @@
 scalarblock5: the scalar-type blocks of L-hat_b0(0) on 5D Tangherlini, every harmonic, exactly
   S0 (exact): Kerr-Schild Tangherlini (10.48), mu = 1, is Ricci-flat: True
+  S1 (exact): every component of L h reconstructs from seven radial coefficients (15 residuals, all 0: True); real: True;
+      l only through kappa = l (l + 2): True; second order in H with A2 = -(f/2) I_7: True; 301 lines written to
+      checks/scalarblock5_block.txt and read back identically: True (152 s): True
+  S2 (exact): D Ric(delta* w) = 0 for every scalar-type w (l symbolic): True; Upsilon(delta* w) = (1/2) box^Ups w, so L
+      delta* w = delta*_{E^C} (1/2) box^Ups w: True: True
+  S3 (exact): delta G (D Ric h) = 0 for every scalar-type h, l symbolic; so 2 delta G (L h) = box^C Upsilon(h) for every
+      gauge datum (R8.3 (c)'s factorisation of the block): True (308 s)
+  S4 (exact): h_mu = r^-2 (dt + dr)^2 = d/dmu of (10.48): D Ric(h_mu) = 0: True
+      (the record's box^C polynomials, damping5.polys, about half a minute)

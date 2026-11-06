@@ -34,8 +34,9 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
      sqrt(mu) ln((R - sqrt mu)/(R + sqrt mu)) + const: its crossing R_* with Sigma_tau0 is enclosed, and every point
      of Sigma' with R >= R_* is in {u <= u1} (checked: printed). Certified, for the background defined by the stated
      characteristic data: kappa' > 0 and K'^l_l < 0 on Sigma' from R_* to 5.75 (beyond, Sigma' = Sigma_tau0 in
-     Tangherlini of mass mu_end, where Nk = (mu/R^3)(f - 3) < 0 exactly); and on Sigma_tau0 the band: Nk = (mu/R^3)
-     (f - 3) + mu'/(2 R^2) is certified negative outside two enclosures of its edges and positive between them.
+     Tangherlini of mass mu_end, where Nk = (mu/R^3)(f - 3) < 0 exactly); and on Sigma_tau0 the band: on [R_*, 5.75]
+     Nk = (mu/R^3)(f - 3) + mu'/(2 R^2) is certified negative outside two enclosures of its edges and positive on
+     every cell between them (Sigma_tau0 fails to be hyperbolic on exactly one interval, enclosed).
      Controls (must fail): a float integration (scipy DOP853) of the same ODE lies inside the enclosures, and does
      not when its initial Q is shifted by 1e-6; A = 0 (Sigma_tau0) is not certified hyperbolic.
 
@@ -532,28 +533,23 @@ def c3():
           "of mass mu_end, Nk = (mu/R^3)(f - 3) < 0 exactly" % (rs.A_DEF, good, nev, worst))
     g0, w0, f0, _ = cert(False, float(rstar.b), 5.75, depth=3)
     print("   control: Sigma_tau0 (A = 0) not certified (%d cells fail; rejected): %s" % (f0, not g0))
-    # the band on Sigma_tau0: the sign of Nk = (mu/R^3)(f - 3) + mu'/(2 R^2), cell by cell
-    e = np.linspace(4.0, 4.8, 8001)
+    # the band on Sigma_tau0: the sign of Nk = (mu/R^3)(f - 3) + mu'/(2 R^2), cell by cell, on [R_*, 5.75]
+    e = np.linspace(float(rstar.b), 5.75, 23001)
     signs = []
     for a, b in zip(e[:-1], e[1:]):
         Xr = I(a, b)
         mu, mup = mu_on(T0 + Xr)
         Nk = mu / Xr**3 * (I(1.0) - mu / (Xr * Xr) - I(3.0)) + mup / (I(2.0) * Xr * Xr)
         signs.append(1 if Nk.a > 0 else (-1 if Nk.b < 0 else 0))
-    und = [i for i, sgn in enumerate(signs) if sgn == 0]
     pos = [i for i, sgn in enumerate(signs) if sgn == 1]
-    groups = []
-    for i in und:
-        if groups and i == groups[-1][-1] + 1:
-            groups[-1].append(i)
-        else:
-            groups.append([i])
-    edges = [(e[g[0]], e[g[-1] + 1]) for g in groups]
-    band_ok = (len(groups) == 2 and pos and min(pos) > groups[0][-1] and max(pos) < groups[1][0] and
-               all(sgn == -1 for sgn in signs[:groups[0][0]]) and all(sgn == -1 for sgn in signs[groups[1][-1] + 1:]))
-    print("   the band on Sigma_tau0, the background itself: Nk < 0 certified on [4.0, 4.8] outside the edge enclosures "
-          "%s, Nk > 0 certified between them: %s" %
-          (", ".join("[%.4f, %.4f]" % ed for ed in edges), band_ok))
+    nonneg = [i for i, sgn in enumerate(signs) if sgn != -1]
+    # edge enclosures: from the first cell not certified negative to the first certified positive, and from the last
+    # certified positive to the last not certified negative; between them every cell must be certified positive
+    band_ok = bool(pos) and all(sgn == 1 for sgn in signs[pos[0]:pos[-1] + 1])
+    edges = [(e[nonneg[0]], e[pos[0]]), (e[pos[-1] + 1], e[nonneg[-1] + 1])] if band_ok else []
+    print("   the band on Sigma_tau0, the background itself, on [R_*, 5.75] (%d cells): Nk < 0 certified outside the "
+          "edge enclosures %s, Nk > 0 certified on every cell between them: %s" %
+          (len(signs), ", ".join("[%.4f, %.4f]" % ed for ed in edges), band_ok))
     ok = ok_br and before and W < 1e-6 and inside_ok[0] and not inside_ok[1] and good and not g0 and band_ok and r_ok
     return ok, rstar
 

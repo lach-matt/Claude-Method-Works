@@ -501,7 +501,8 @@ def main():
     OK['C4'] = ex.b < 0
     print('  C4 (control): family B with s_L = 3/2: 1/s_L - 1 = %s < 0, the left tail bound grows toward the horizon: %s'
           % (iv.nstr(ex, 4), OK['C4']))
-    mut = transfer_rows(rr, Ph, gg, Bk, FY, ff, tensor_G_factor=2)[2]
+    r5, P5, g5, B5, F5 = sp.symbols('r Phi g B_k F_Y', positive=True)     # fresh: rr is an interval in C1
+    mut = transfer_rows(r5, P5, g5, B5, F5, 1 - 1 / r5**2, tensor_G_factor=2)[2]
     OK['C5'] = transfer_factor(mut) != mut[5]
     print('  C5 (control): the tensor row with G = 2 f r^(3/2) B (round 1\'s reading of the bracket): the derived '
           'factor is %s, not the printed 15/16: %s' % (transfer_factor(mut), OK['C5']))

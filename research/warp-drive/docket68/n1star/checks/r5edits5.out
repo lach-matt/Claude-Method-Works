@@ -1,4 +1,5 @@
 E1  R5-D's replacement text for Lemma 11.0, applied to a copy of N1STAR-PROOF.md
+  E1 is run on the live file with R6-D (seated at D630, superseding R5-D) and its marks undone in memory
   E1a each old block occurs exactly once in the current file: pass 1, 1
   E1b the edited file keeps every line within 121 characters: pass []
   E1c the edit changes nothing outside Lemma 11.0: pass 23 lines added

@@ -31,9 +31,14 @@ rest is homothety invariant.
 - **B2, I.B:1685** (Prop. 6.7, the absorbed inverse). No non-constructive step of its own. Here: absorption at
   h_0 = (2 C_a)^(-1/N) and (6.11) with the constant 4 F C_a, F <= 1.002659 (certified). Stops at: C_a, the a priori
   constant of Prop. 6.7 (a).
+  [R3: "no non-constructive step of its own" holds at b0, for one operator; the constants uniform over b in B_*-bar
+  come by compactness and contradiction (I.B section 9), R3.2. With R3 (a)'s notation the constant is 8 F C_a, R3.3.]
 - **B3, I.B:1978** (Thm 1.3 (3), high-energy invertibility). No non-constructive step of its own. Here: the inverse
   bound is 2 C_8.1 |sigma|^(-1+delta) with C_0 explicit in C_8.1; every threshold the chain reads, computed. Stops at:
   C_8.1, the chain constant of Prop. 8.1.
+  [R3: the bound carries the factor (1 - nu'^2)^(-(1-delta)/2) when h = |Re sigma|^-1 and holds in the h-dependent
+  semiclassical norms, not uniformly in X_sigma's (R3.1); "no non-constructive step" holds at b0 only, and even there
+  Prop. 8.1's finite cover and nu_1 are compactness choices (R3.2).]
 - **B4, III.F'':223** (Prop. 3.1, L_b0 at sigma != 0). Non-constructive: Fredholm index 0 and injectivity. Here:
   certified cut-off bounds for every Kodama-Ishibashi master operator at every l and every real sigma != 0; the exact
   transfer to the tensor-type blocks; a gluing lemma. Stops at: the gauge reconstruction of the vector and scalar types,
@@ -70,6 +75,8 @@ numbers, and the two mode-stability bounds (B4, B5) have their spectral input ce
   the end of Proposition 8.1 (a). CONSTANTS5.md R4.4 and R8.4 assign the "middle range" sigma_0 <= |sigma| <= sigma_1
   to this site; the statement at the site is |sigma| >= C_0, and the band below C_0 is B4's and B5's (and III.D''s
   for box^Ups), by mode stability.
+  [R3: read "<= 2 C_8.1 (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) in the semiclassical norms at h = h(sigma)",
+  R3.1.]
 - **B4, III.F'':223** (PART-III-F3-MODES.md:219-245, Proposition 3.1). For sigma != 0, Im sigma >= 0,
   L-hat_b0(sigma) : X_sigma -> Y_sigma is invertible; "Fredholm of index 0, so injectivity suffices" (line 223), and
   injectivity is shown type by type: box^C's mode stability, the Kodama-Ishibashi master equations (Theorem 2.2),
@@ -110,6 +117,8 @@ Proposition 5.1 downstream of B6): the content is C_B.
 for h <= h_0 := min((4C)^(-1/N), (4 C C_K)^-1); Theorem 1.3 (3) then holds with C_0 = h_0^-1 (1 - nu'^2)^(-1/2) and
 ||P-hat(sigma)^-1|| <= 2 C |sigma|^(-1+delta) (|sigma| >= C_0, by 8.4's choice of h). *Proof.* Move the absorbed terms
 to the left (each is at most half the left side). []
+[R3, the verifier's minor 3: the last bound omits (1 - nu'^2)^(-(1-delta)/2) in the case h = |Re sigma|^-1 and holds in
+the h-dependent semiclassical norms ||.||_o, ||.||_o', not uniformly in X_sigma's; corrected in R3.1.]
 
 **Lemma R4 (the interpolation constant of Proposition 6.7).** Let C_a be (a)'s constant on Im sigma in [beta, beta']
 (and C_a |sigma|^-1 on Im sigma = beta'), kappa := beta' - beta, and F := sup over sigma_0 >= h_0^-1 of
@@ -122,6 +131,8 @@ exp(3 log sigma_0 e^(-pi sigma_0/(2 kappa))). Then ||(P'_(h,z))^-1|| <= 4 F C_a 
 beta' = gamma_+ + eps, kappa = gamma_+ - gamma_- = nu/8 = 2^(-3/2) for every operator (K1-K2): F <= 1.002659 for every
 h_0 <= 1 (certified, K6), so (6.11) holds with the constant 4.01064 C_a. Lemma 6.6's last inequality,
 cosh(a)/cosh(2a) <= 2 e^(-a), is checked on a grid (K6; control C7: with kappa = nu/4, F = 1.04617).
+[R3, the verifier's n6: R4's C_a is the constant of (a) after absorption, R3 (a)'s 2 C_a; in R3 (a)'s notation (6.11)'s
+constant is 8 F C_a <= 8.02128 C_a.]
 
 **Lemma R5 (Schur at b0).** P-hat_b0(sigma) for box, box on 1-forms and L_b0 commutes with SO(4); in any
 SO(4)-invariant pair of norms the inverse's norm is the largest of its isotypic blocks' (R7.4). The norm of
@@ -144,6 +155,8 @@ the photon sphere r = 2^(1/2) in I): the radial-point estimates at the horizon a
 propagation, the elliptic estimate and the absorbing region. Its invertibility at a given sigma is a hypothesis of R6,
 not proved here (it holds for the symmetric scalar wave by the flux identity; for the bundle operators it is part of
 the input).
+[R3, the verifier's n6: "the absorption covers the photon sphere" is moot here: at a fixed sigma there is no trapping,
+and C_ext's proof is the Fredholm estimate's chain at that sigma with the absorbing term; the parenthesis is withdrawn.]
 
 **Lemma R7 (the Morawetz certificates).** For V = P(y) (y = 1/r^2, V' = -(2 f/r^3) P'(y), ' = d/dr_*) and phi = tanh g,
 g(x_c) = 0, g' = 1/s_R + (1/s_L - 1/s_R)/(1 + e^((r_* - x_c)/k_s)), s_L <= s_R:
@@ -215,7 +228,9 @@ gamma_C), so
 
     lam_max(p_1^Gamma(eta)) = eta^2 (gamma_C - 80 2^(1/2))^2/(192 gamma_C) + O(eta^3),
 
-which the certified rows match (0.0052072 at gamma_C = 10^6, eta = 10^-4). So (Gamma.4) needs eta below about
+which the certified rows match (0.0052072 at gamma_C = 10^6, eta = 10^-4).
+[R3, the verifier's n6: the number is lam_max/(gamma_C eta^2), certified in [0.005207, 0.005208] at gamma_C = 10^6,
+eta = 10^-4, against the leading order's (1 - 80 2^(1/2)/gamma_C)^2/192 = 0.0052072.] So (Gamma.4) needs eta below about
 16.48 gamma_C^(-1/2) and delta_Gamma(0) <= 1/2 below about 11.65 gamma_C^(-1/2); h_Gamma's eigenvalues relative to
 <,>_0 span eta^0 to eta^-16, so its condition number is eta^-16, about (gamma_C/271.5)^8 at the threshold: **the norm
 equivalence that converts the trapping estimate from h_Gamma to the frame's metric costs eta^-8, 1.85e14 at gamma_C =
@@ -311,6 +326,8 @@ constant); absorption with h_0 = (2 C_a)^(-1/N) (Lemma R3 (a)); (6.11) with the 
 constant of Proposition 6.7 (a)'s a priori estimate, a composition of Proposition 4.2 (elliptic, outside
 Gamma(3 delta_0/4)), Corollary 4.6 (propagation into the absorbing region, along curves that leave Gamma(delta_0) in
 explicit time at b0, phi_u, phi_s being explicit) and (6.6) [B1's input].
+[R3: at b0 only; the uniform constants over b (I.B section 9: compactness of B and the absorption of Prop. 6.7 (a) run
+by contradiction with sequences b_j) are a further input, R3.2; in R3 (a)'s notation the constant is 8 F C_a, R3.3.]
 
 **B3. I.B:1978, high-energy invertibility.** *Proved:* "Fredholm, so invertible" loses nothing: ||P-hat(sigma)^-1|| <=
 2 C_8.1 |sigma|^(-1+delta) for |sigma| >= C_0 = h_0^-1 (1 - nu'^2)^(-1/2), h_0 = min((4 C_8.1)^(-1/N), (4 C_8.1
@@ -321,6 +338,8 @@ product along the cover's chain (R) radial (Props. 5.2-5.3), (A) propagation (Co
 (U), (O) (Prop. 5.5) and the artificial boundary (7.2), each a microlocal estimate whose constant is a calculus
 constant (CONSTANTS5.md R7.A made the orders explicit, not these constants). The middle range R4.4 assigns here is B4's
 and B5's.
+[R3: the bound is 2 C_8.1 (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) in the semiclassical norms (R3.1); Prop.
+8.1's finite cover and nu_1 are compactness choices, and uniformity over b is by compactness and contradiction (R3.2).]
 
 **B4. III.F'':223, L_b0 at sigma != 0.** *Proved/computed:* by Lemmas R5 and R6, ||L-hat_b0(sigma)^-1||_(Y_sigma ->
 X_sigma) <= C_ext + C_ext^2 e_X e_Y ||W|| (1 + ||W|| C_D(sigma)) with C_D = sup over types and l of the cut-off bounds.
@@ -517,8 +536,15 @@ Im((equation) conj Phi) = -(Im Phi' conj Phi)' - s f q |Phi|^2 (inverse6_5a A4) 
 -sigma, so c_+ = 0 and Phi is a multiple of the outgoing Jost solution with coefficient 0: Phi = 0. Inside the horizon,
 Phi = 0 follows as in III.D Proposition 6.2 (d) (the system (r - r_h) Y' = M Y and Gronwall). [] With the wrong sign (s =
 -sgn sigma) the two terms can cancel (control C3).
+[R3, the verifier's n4: the harmonic-by-harmonic proof presumes q radial, q = q(r); the statement is restricted to radial
+q. A non-radial q would need the global flux identity on the slice and unique continuation from the support of q; not
+done. R6 needs only some Q = chi W chi with W >= 0, which can be taken radial, so the restriction costs nothing.]
 
 ### R2.2 Proposed texts (final; checked against the files as they stand)
+[R3: superseded by CONSTANTS5.md R12.7, which folds in pair 1 with the verifier's wording fixes (its minors 1-2: "the
+record's fibre metric", "on its reading", the convention that constants are taken >= 1); no new paper pair is given
+here. Pair 2's last sentence, "For d, the two finite avoidance conditions stay part of its reading", is no longer true
+(rootavoid5 decides them).]
 
 These supersede section 7's two pairs: section 7's first old text now occurs twice in CONSTANTS5.md (R9.7 and R10.7
 carry the same block 2), and its second (R9.5's clause) is superseded by R10.5's, targeted below.
@@ -585,3 +611,81 @@ the other six inverse bounds, as
 sections 2-3 (md5 a45e90dc...); proof5/PART-VI4-PARAMS.md sections 1-3 (e7eebbb5...); proof5/PART-III-D2-ZEROENERGY.md
 section 4 (cdbe8fe8...); CONSTANTS5.md round 10 (0320dd90...); paper/RESPONSE-HL-5D.md section 9 (7193c56e...);
 checks/scalarblock5.py's docstring.
+
+## Round 3 (2026-11-06): the verifier's findings seated
+
+*Status.* Appended; rounds 1-2 keep their text, with bracketed `[R3: ...]` notes after the lines corrected here. The
+independent verifier (report-vINV.md) found no Major and confirmed R1, R2-R4, R6, R8, R9, the chain's monotonicity with
+the relaxation K1 <= 2 C_d, the uniform-in-l certification (its mutations caught) and the stated limit at source. Seated
+here: its minors 3 and 4 and its nits 4, 5 and 6, the ones on this file. Its minors 1-2 (coordination, the paper's
+wording) belong to CONSTANTS5.md round 12: **R2.2 is superseded by CONSTANTS5.md R12.7**, and no paper pair is given
+here. Its minor 5 and nits 1-3 are INVERSE5-SCALAR's. Changed and rerun, each with its `.out`:
+`checks/inverse6_5m.py` (13/13: M7's tensor row from gmodes5's bracket, the factor derived and tested; control C5) and
+`checks/inverse6_5a.py` (9/9: A1 labelled proved by inspection). `checks/inverse6_5.py` is unchanged (17/17).
+CONSTANTS5.md, N1STAR-PROOF.md and the paper are not edited.
+
+### R3.1 Minor 3: the high-energy inverse, its factor and its norms (Lemma R3 (b); B3)
+
+*Corrected statement (proved).* Under Lemma R3 (b)'s hypotheses, for Im sigma >= 0 and |sigma| >= C_0 :=
+h_0^-1 (1 - nu'^2)^(-1/2), with h and z as in I.B section 8.4 and ||.||_o, ||.||_o' the semiclassical norms at that h,
+
+    ||u||_o <= 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta) ||P-hat(sigma) u||_o'    (h = |Re sigma|^-1, the case
+                                                                                            Im sigma < nu' |sigma|),
+    ||u||_o <= 2 C |sigma|^-1 ||P-hat(sigma) u||_o'                                       (h = |sigma|^-1, delta = 0).
+
+*Proof.* R3 (b) gives ||u||_o <= 2 C h^(-1-delta) ||P_(h,z) u||_o' and P_(h,z) = h^2 P-hat(sigma), so ||u||_o <=
+2 C h^(1-delta) ||P-hat u||_o'. In the first case |Re sigma| >= |sigma| (1 - nu'^2)^(1/2) (I.B 8.4), so h^(1-delta) =
+|Re sigma|^(-(1-delta)) <= (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-(1-delta)); and h < h_0 holds once |sigma| >= C_0. In
+the second, delta = 0 (Theorem 1.3 (2)). [] *The norms.* ||.||_o is H-bar^((s, r + alpha_+, b))_h at h = h(sigma); at
+each fixed h it is equivalent to X_sigma's norm (I.B 8.4, "up to an equivalent norm"), with constants depending on h.
+So the bound is uniform in sigma in the semiclassical norms, not in X_sigma's; a bound in X_sigma's norms needs those
+equivalence constants as functions of h, which are calculus constants and are not computed. B3's statement in round 1,
+"||P-hat(sigma)^-1||_(Y_sigma -> X_sigma) <= C_8.1 |sigma|^(-1+delta)", is read the same way (bracketed there).
+
+### R3.2 Minor 4: uniformity in b
+
+B2 and B3's "no non-constructive step of its own" holds at b0, for one operator, and even there not for every step:
+Proposition 8.1 chooses its cover "By compactness, finitely many of these neighbourhoods cover K_Sigma" (I.B:1912-1913)
+and "Take nu_1 so small that all of this holds" (I.B:1916-1917). At b0 the dynamics is explicit (VI.A), so an explicit
+cover and nu_1 are possible, but they are not made. The chain needs more: constants uniform over b in B_*-bar ("Every
+operator family of Parts I-IV is then taken over B_*-bar", proof5/PART-VI4-PARAMS.md step (5), READ), and I.B
+section 9 obtains that uniformity by compactness of the parameter set ("by compactness of B, finitely many suffice")
+and by running "the two arguments by contradiction (Proposition 6.4 and the absorption in Proposition 6.7 (a))" with
+sequences (h_j, z_j, b_j), b_j -> b_inf (I.B:2044-2053, READ; md5 df7e5206...). So **constants uniform in b are a
+further input, not computed**, even if every constant at b0 were explicit; the same holds for the mode-stability
+bounds near b0 (III.F'' Proposition 4.1 and III.D Proposition 6.3 cover a compact set of sigma by I.A Theorem 8.1's
+neighbourhoods). At b != b0 the operators do not separate, so the per-mode certificates of section 4 do not reach them;
+explicit uniform constants would need Lipschitz bounds in b in the write-out's norms (the BFAM rows of CONSTANTS5.md
+section 3.1).
+
+### R3.3 The nits
+
+- *n4 (Lemma R9).* Restricted to radial q (bracketed at R9): the harmonic-by-harmonic proof presumes q = q(r). A
+  non-radial q would need the global flux identity on the slice and unique continuation from the support of q, not done
+  here. R6 needs only some Q = chi W chi with W >= 0, which can be taken radial.
+- *n5 (inverse6_5m M7).* The tensor row is now written in gmodes5 G1's variables: h = 2 r^2 H T, F := L h = D Ric(h) =
+  -r^2 B[H] T with B[H] = box2 H + 3 f H_r/r - (k_T^2 + 2) H/r^2, and the master source G = -f r^(3/2) B, since
+  f r^(3/2) B[r^(-3/2) Phi] = -Phi_tt + f (f Phi_r)_r - V_T Phi (checked here exactly, independently of gmodes5's code).
+  Per unit dr_*, |h|^2 r^3 f = 4 f |Phi|^2 (c = 4) and |G|^2 = f (|F|^2 r^3 f) (k = 1), so ||h||_I <= (c k)^(1/2)
+  (max_I f) B ||L h||_I = 2 (15/16) B ||L h||_I and ||chi_I (2 L-hat_b0)^-1 chi_I|| <= (15/16) B. The program derives
+  (c k)^(1/2) (max_I f)/(operator factor) for each of the three rows and tests it against the printed 15/16; control C5:
+  round 1's G = 2 f r^(3/2) B (k = 4) gives 15/8 and fails. The printed bounds (13.12, 20.11, 41.30, 122.7 and 21.39)
+  are unchanged.
+- *n6.* (i) Section 3's "0.0052072 at gamma_C = 10^6, eta = 10^-4" is lam_max/(gamma_C eta^2), certified in [0.005207,
+  0.005208], against the leading order's 0.0052072 (bracketed there). (ii) R6's "the absorption covers the photon
+  sphere" is moot at fixed sigma, where there is no trapping; withdrawn (bracketed there). (iii) A1's monotonicity is
+  proved by inspection (with K1 <= 2 C_d each K_i, theta0, eps_NM, delta and lambda1 are monotone compositions of
+  monotone maps) and checked numerically; inverse6_5a now says so. (iv) R4's C_a is R3 (a)'s constant after
+  absorption, 2 C_a in R3 (a)'s notation, so (6.11)'s constant is 8 F C_a <= 8.02128 C_a there (bracketed at R4).
+  (v) Path styles: R2.2, which mixed "supplement `CONSTANTS5.md`" and "`docket68/n1star/...`", is superseded; this
+  round names files relative to docket68/n1star.
+
+### R3.4 The stated limit, amended
+
+R2.1 item 7 stands with one addition, before the chain's other inputs: **constants uniform over b in B_*-bar**, which
+the write-out obtains by compactness and by arguments by contradiction (I.B section 9; III.F'' Proposition 4.1;
+III.D Proposition 6.3) and which no explicit computation here supplies. So the order is: the numerical specification
+of the operators and spaces; at b0, (C, h_0) in (6.6), the compactness choices of Proposition 8.1, the gauge
+reconstruction, C_ext, the parametrix norms and the scalar-type blocks' sigma_min; uniformity in b; and the chain's
+other inputs. lambda1, delta > 0 exist (proved); their explicit lower bounds are not computed. This is a limit of the
+explicit computation, not a gap in Theorem 4.

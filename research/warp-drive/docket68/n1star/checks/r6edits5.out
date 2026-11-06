@@ -5,14 +5,10 @@ E1  R6-D's replacement text for Lemma 11.0, applied to a copy of the live N1STAR
   E1b the edited file keeps every line within 121 characters: pass []
   E1c the edit changes nothing outside Lemma 11.0: pass 31 lines added
   E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the family index
-        delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its reason, and [R7] (k)
-        R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed over the family, (n) b . d U
-        not known, (o) b^n, c^n with the same constants (text: the induction's structure is a read proof): pass {'a':
-        True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True, 'g': True, 'h': True, 'i': True, 'j': True, 'k':
-        True, 'l': True, 'm': True, 'n': True, 'o': True}
+        delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its reason: pass {'a':
+        True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True, 'g': True, 'h': True, 'i': True, 'j': True}
   E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False, 'c':
-        False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False, 'k': False, 'l':
-        False, 'm': False, 'n': False, 'o': False}
+        False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False}
   E1s re-applying R6-D to the undone copy gives the live file but for its two D630 marks (2 found): pass
 E2  the mathematics the edited Lemma 11.0 states, read from its text
   E2a Leibniz's rule with the sign, 1/2 and C(gamma, gamma') read from both sums (orders 1..3, exact): pass read [(1,
@@ -29,7 +25,7 @@ E2  the mathematics the edited Lemma 11.0 states, read from its text
   E2f Edit 2's closing bound read: int t'^(-3/2) = 2(t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) (exact): pass int =
         -2/sqrt(t_n) + 2/sqrt(t) (t_n >= t), read <= 2 t^(-1/2)
   E2g the L^2 powers on Sigma_tau cap P+ computed from the classes read match the bounds read: pass E_3 -> t^(-3/2), E_2
-        -> t^(-1/2), products <= t^(-2) (read: t^(-2)); read ||R_gamma|| t^(-3/2)
+        -> t^(-1/2), products <= t^(-2); read ||R_gamma|| t^(-3/2)
   E2h the bookkeeping inequality read holds for N = 1..2000: pass floor((N + 2)/2) <= max(4, N - 3) for every N >= 1
 E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 E-m5: c U's bound lam^-1 -> lam^-3: caught: pass failing: ['E2b', 'E2c']
@@ -38,11 +34,10 @@ E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 C(gamma, gamma') dropped at the |gamma'| >= 2 sum: caught: pass failing: ['E2a', 'b']
   E3 R_gamma's source E_3 -> E_(5/2): caught: pass failing: ['E2g']
   E3 max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read): caught: pass failing: ['E2h']
-E4  R7-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)
+E4  R6-E's paper blocks against RESPONSE-HL-5D.md (not edited)
   E4a each old text occurs exactly once in the paper: pass [1, 1, 1]
   E4b the edited paper keeps every line within 121 characters: pass []
-  E4c the new blocks state section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII, BEYOND5 Lemma
-        6.4 (iv) deduced, eps, Proposition 3.1 as deduced, the r^(-4) term for one example, and the window as computed
-        from measured and hand-counted exponents: pass []
-  E4c' control (R6-E's blocks, the round-6 reader's minors 2 and 4): they fail at least six of the eleven: pass 8
+  E4c the new blocks state condition (b), R6-D's status, 'supplement section 11.1', eps, Proposition 3.1 as deduced, and
+        the window as computed from measured exponents: pass []
+  E4c' control (R5-E's blocks, the round-5 reader's m6): they fail at least six of the eight: pass 8
 FAILED: none

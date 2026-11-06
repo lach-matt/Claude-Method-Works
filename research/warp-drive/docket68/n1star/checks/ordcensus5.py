@@ -19,9 +19,9 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
      a calculus site with its orders, a call (sets the orders of the statement called), a statement, or another
      part's own lemma (II.C/II.E/II.F's Lemma 1.2, II.F's Proposition 2.4, [Hin26c] Lemma 8.5). None unclassified.
   O2 (deduced; computed) the statements' order ranges, from their callers:
-     - II.A' Proposition 5.3 at the order s takes tau >= sup s + N (II.A2:726-727), so Lemma 4.2 runs Lemma 4.1 at
+     - II.A' Proposition 5.3 at the order s takes tau >= sup s + N (II.A2:727), so Lemma 4.2 runs Lemma 4.1 at
        s_j = s - tau + j kappa: s' in [inf s - sup s - N, sup s] = [-31, 10];
-     - II.A' Theorem 3.1's iteration at the order s runs r' = s - j/2 until J'/2 >= sup s + N (II.A2:399-401): r' in
+     - II.A' Theorem 3.1's iteration at the order s runs r' = s - j/2 until J'/2 >= sup s + N (II.A2:401-403): r' in
        [inf s - sup s - N + 1/2, sup s] = [-30.5, 10], its inputs r' - m;
      - the same scheme with B_0^(j) (order s_j + delta) in place of L (Lemma 4.2's parametrix, II.A2:529-533) and with
        E in place of L (Lemma 4.1 Step 2 (b), II.A2:495): v = s_j or s' in [-31, 10];
@@ -35,7 +35,7 @@ II.D sections 2-4, II.D', II.E -> II.A' Theorems 3.1 (L3), 5.4 (L4), Lemmas 4.1-
      N = 14 serves, and every site's -N, -N - m is in O3's range.
   Controls (each must fail): C1 one census row dropped: one hit unclassified; C2 Proposition 5.3's tau and Theorem
   3.1's J' taken without N and the oscillation (tau = 1): the box shrinks inside round 8's, so O3's finding depends on
-  them; C3 a pinned file altered in a copy: O0 fails; C4 N = 10 in place of 14: the box moves.
+  them; C3 II.A2:727 altered in a copy: its md5 and its read fail; C4 N = 10 in place of 14: the box moves.
 
     python3 checks/ordcensus5.py        (seconds)
 """
@@ -206,6 +206,10 @@ def lines_of(key, root=P5):
     return open(os.path.join(root, FILES[key][0]), encoding='utf-8').read().split('\n')
 
 
+def reads_ok(root=P5):
+    return all(t in lines_of(k, root)[i - 1] for k, i, t in READS)
+
+
 def md5_ok(root=P5):
     return all(hashlib.md5(open(os.path.join(root, f), 'rb').read()).hexdigest() == m for f, m in FILES.values())
 
@@ -278,11 +282,11 @@ def box(N=NERR):
 def main():
     print('ordcensus5: the orders at which the forward-solution chain invokes the closed-graph calculus, site by site')
     md5 = md5_ok()
-    reads = all(t in lines_of(k)[i - 1] for k, i, t in READS)
+    reads = reads_ok()
     OK['O0'] = md5 and reads
     print('  O0 (READ): %d files at their pinned md5: %s; the scope II.A2:358-785, II.D, II.D\', II.E, II.F\', II.C, '
-          'II.F; %d order statements found by content (II.A2:726 tau >= sup s + N; II.A2:400 J\'/2 >= sup s + N; '
-          'II.A2:394 -N - m; II.A2:520 s_j; II.D:1035 |chi u|_(-N) <= |u|_(s_0); II.D:287 tau := s - s_0; II.D:691 '
+          'II.F; %d order statements found by content (II.A2:727 tau >= sup s + N; II.A2:403 J\'/2 >= sup s + N; '
+          'II.A2:394 -N - m; II.A2:522 s_j; II.D:1035 |chi u|_(-N) <= |u|_(s_0); II.D:287 tau := s - s_0; II.D:691 '
           'tau = 1): %s' % (len(FILES), md5, len(READS), reads))
     rows, uncl, stale = census()
     by = {}
@@ -321,8 +325,8 @@ def main():
     allk = [(k, i) for k in FILES for i, x in enumerate(lines_of(k), 1) if "K'" in x and ('H^{K' in x or "K'\\ge" in x
                                                                                          or "$K'$" in x)]
     OK['O4'] = all(kp) and set(allk) <= {(k, i) for k, i, _ in KPRIME}
-    print('  O4 (READ): every K\' of the chain (%d lines) is the membership w in H^(K\') or its definition K\' >= sup|s| '
-          '+ m + 2 (II.A2:439), none an order of an O3 site: %s' % (len(allk), OK['O4']))
+    print('  O4 (READ): every K\' of the chain (%d lines) is the membership w in H^(K\') or its definition '
+          'K\' >= sup|s| + m + 2 (II.A2:439), none an order of an O3 site: %s' % (len(allk), OK['O4']))
     OK['O5'] = OK['O0'] and -NERR <= S_LO and r['sob'][0] <= -NERR - M_OP
     print('  O5 (READ; deduced): the a priori term |chi u|_(-N) <= |u|_(s_0) asks N >= -inf s_0 = 10 (II.D:1035); N = '
           '%s <= 14 serves, and -N, -N - m = %s, %s lie in O3\'s Sobolev range: %s' % (NERR, -NERR, -NERR - M_OP,
@@ -344,10 +348,11 @@ def main():
         p = os.path.join(tmp, FILES['A2'][0])
         s = open(p, encoding='utf-8').read().replace('Take $\\tau\\ge\\sup\\mathsf s+N$', 'Take $\\tau = 1$')
         open(p, 'w', encoding='utf-8').write(s)
-        OK['C3'] = not md5_ok(tmp)
+        OK['C3'] = not md5_ok(tmp) and not reads_ok(tmp)
     finally:
         shutil.rmtree(tmp)
-    print('  C3 (control): II.A2:726 altered in a copy: O0 fails: %s' % OK['C3'])
+    print('  C3 (control): II.A2:727 altered in a copy (tau = 1): the md5 and the read both fail, so O0 fails: %s'
+          % OK['C3'])
     r4 = evaluate(rows, N=Fr(10))
     OK['C4'] = r4['sob'] != r['sob'] and r4['sym'] != r['sym']
     print('  C4 (control): N = 10: Sobolev [%s, %s], symbol [%s, %s], not O3\'s: %s' % (

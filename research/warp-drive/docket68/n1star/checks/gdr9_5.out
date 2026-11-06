@@ -49,7 +49,7 @@ N4 PASS
       None}; kernel at weights in (-1, 0) (growth below r^1, from L2's gap): ['W*', '(d_v)^flat'], in (0, 2): ['W*'];
       scalar l = 1: 1 per harmonic (N2's exponents at nu = 1/2: [0, 2, 1]), vector l = 1: 0 (N3 at l = 1), l >= 2: none
       (N2, N3); harmonics of degree 0, 1: {0: 1, 1: 4}, G-fixed among them {0: 1, 1: 0} (N1's model), vector l = 1
-      dimension 6: the kernel is 2-dimensional in the class and 6-dimensional on all 1-forms: True
+      dimension 6 (= 6, asserted): the kernel is 2-dimensional in the class and 6-dimensional on all 1-forms: True
   N5 control (the same count at weights in (0, 2)): kernel ['W*'], dimension 1 (2 asked)
 N5 PASS
   N6: (indicial det, root 0 simple, null space dimension) {'l = 0': (lam*(lam - 3)*(lam - 2)*(lam + 1), True, 1), 'scalar

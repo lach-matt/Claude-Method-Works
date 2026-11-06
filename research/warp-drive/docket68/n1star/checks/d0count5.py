@@ -220,11 +220,12 @@ def M_f(t_lo, t_hi, mu_lo, mu_hi, q, ops, fac=(2, 2), delta=DELTA, m2mode='t0', 
 
 
 def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, fac_f=None,
-           depth_f=None):
+           depth_f=None, fac_be=None):
     """D_0 and D_1 at the Sobolev orders [T_LO, T_HI] (input order -N - m = -NMAX - 2). MU_BOX None: the operator
     orders of round 7 (constant, at most 2); MU_BOX = (lo, hi): every symbol and composite order variable within it
     (the commutants of II.A2 sections 4-5 at |s| <= 10 and their products), and Proposition 2.4 (f)'s instances at
-    II.A2:682-695 (q <= 3 drops, at most 3 operations per factor) counted."""
+    II.A2:682-695 (q <= 3 drops, at most 3 operations per factor) counted. [Round 12: fac_be, fac_f the factor-order
+    ranges of (b)-(e) and of (f); None: round 9's FAC.]"""
     da = D_a(T_LO, T_HI, delta=delta)
     db = D_b(T_HI, -NMAX - 2, delta=delta)
     d86 = max(D_a(T_LO + 2 - 2, T_HI - 2, delta=delta)['D'], D_b(T_HI - 2, -NMAX - 2, delta=delta)['D'])
@@ -236,7 +237,7 @@ def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True,
         lo, hi = MU_BOX
         ma = M_a(T_LO, T_HI, lo, hi, delta=delta, m2mode=m2mode, twoK=twoK)
         m24 = M_24(T_LO, T_HI, Fr(hi + 1, 2), Fr(hi + 1, 2), delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK,
-                   mu_lo=lo, fac=FAC)
+                   mu_lo=lo, fac=FAC if fac_be is None else fac_be)
         mf = M_f(T_LO, T_HI, lo, hi, 3, 3, fac=FAC if fac_f is None else fac_f, delta=delta, m2mode=m2mode,
                  Cch_on=Cch_on, twoK=twoK, depth=depth_f)
     M24 = max(m24['M'], mf['M'])
@@ -255,8 +256,22 @@ Q4R = (-16, 11, 14)                     # Round 8: T_LO = -N - m = -16, the reco
 BOX = (-22, 22)                         # Round 8: the operator-order box (II.A2 sections 4-5: k = s - 1/2, |s| <= 10)
 FAC = (Fr(-21, 2) + DELTA, Fr(19, 2) + DELTA)   # Round 9: the factors' orders there: a-check of order s - 1/2 + delta,
 #                                               # s in [-10, 10]; L (2) and D_R (1) inside
+# Round 12 (the round-11 verifier; CONSTANTS5.md R12.2): the orders at which the chain invokes the calculus, from the
+# census checks/ordcensus5.py (Q7): Sobolev orders [-65/2, 14] with N = 14, symbol orders [-63, 31], the factors of
+# Proposition 2.4 (f) in [-63/2, 951/100]; the factors of (b)-(e) taken anywhere in the symbol box (an upper bound).
+# Q4R, BOX and FAC above are round 8-9's, kept for the pins of Q2, Q3 and Q3b (history; superseded for D_0 and FWD).
+Q4C = (Fr(-65, 2), 14, 14)
+BOXC = (-63, 31)
+FAC_F = (Fr(-63, 2), Fr(951, 100))
+FAC_BE = (Fr(-63), Fr(31))
 PINS = dict(q4=dict(da=53, db=64, M_a=81, M24=197, M_f=224, D0=230),
-            box=dict(M_a=138, M24=376, M_f=429, D0=435, FWD=510))
+            box9=dict(M_a=138, M24=376, M_f=429, D0=435, FWD=510),
+            box=dict(M_a=235, M24=693, M_f=760, D0=766, D1=88, FWD=877))
+
+
+def census_counts(T=Q4C, B=BOXC, fac_be=FAC_BE, fac_f=FAC_F, **kw):
+    """Round 12: D_0, D_1 and FWD at the census's orders (Q7); the keywords override one input (the controls)"""
+    return counts(*T, MU_BOX=B, fac_be=fac_be, fac_f=fac_f, **kw)
 
 
 # ------------------------------------------------------------------------------------------------- Q5 census
