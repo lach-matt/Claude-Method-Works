@@ -53,8 +53,9 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     O(r^(-9/2)); with p = 4 dropped (control) the r^-4 coefficient survives. G2 (quadrature, 60 digits) the cap energy
     of the truncation (unit band in v at t = T, smoothstep cut-off, weight (2r)^(2a)) has fitted exponent 2a - 6 in |T|
     (a = 2.2, 2.75, 2.95), -> 0 exactly for a < 3; the control (p = 4 dropped) 2a - 5. G3 (exact, sympy) the N-flux
-    tail beyond |T| of the field h_R(v1, r) has exponent 2a - 7; the control (p = 4 dropped) 2a - 6. G4 the class on S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside
-    rho^(l0) L^2_b exactly when a + 1 >= l0 (exact on rho^beta). G5 the weight window: with the kernels of r5op5 O1
+    tail beyond |T| of the field h_R(v1, r) has exponent 2a - 7; the control (p = 4 dropped) 2a - 6. G4 the class on
+    S: the S-energy with Hardy (scale5 Z8a) gives rho^(a+1) L^2_b, inside rho^(l0) L^2_b exactly when a + 1 >= l0
+    (exact on rho^beta). G5 the weight window: with the kernels of r5op5 O1
     (> 1 for every a), the h_R rows 3/2 + a and a + 1/2 (from S1 and Hardy: exponents computed below), the residual
     9/2 - a (degree -13/2), the cap (G2), the N-flux (G3) and G4, the set of admissible a on the grid a = 0, 1/100,
     ..., 4 is (l0 - 1, 3) for l0 = 3.1, 3.3, 3.6, 3.9: the lower bound 5/2 of rounds 3-4 is needed by nothing.

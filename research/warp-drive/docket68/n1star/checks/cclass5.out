@@ -1,1 +1,6 @@
 C3  the wave's part of the gradient coefficient b
+  C3 b_W = b(g0 + U3) - b(g0), its largest value over the phases, is of lam-order 0: bounded and bounded away from 0 (lam
+        = 1e-2..1e-4): pass [['3.096', '3.187', '2.972'], ['3.027', '3.029', '2.898']]
+  C3' control (amplitude lam^2): b_W falls with lam, the test fails: pass [['0.01832', '0.001887', '0.000176'],
+        ['0.04585', '0.004588', '0.0004389']]
+C1  F1b with an envelope on the wave

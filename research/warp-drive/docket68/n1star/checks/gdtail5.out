@@ -1,3 +1,9 @@
   T1: a = t/(r^2 sqrt(t^2 - r^2)) solves the 4+1 radial equation: True; d_t a = -(t^2-r^2)^(-3/2): True; a -> r**(-2); a - r^-2 = 3*r**2/(8*t**4) + 1/(2*t**2); kernel route 4 pi^2 |int_t^oo E_4| t^2 = 1/2
   T1 control (3+1): H(t-r)/r solves the radial equation: True; tail coefficient 0, = 1/2: False
 T1 PASS
+  T2: P-hat(0) W* = 0: True; u_2's log r coefficients at r^0: dv -1/2, dr 1/2 (a multiple of (d_v)^flat: True); sigma log sigma coefficient (-I*beta_0*ell_f/(4*pi**2)) d psi; FT[t^-2 H(t-1)] = E_2(z), z = -i sigma, has z log z with coefficient 1; t^-2 tail from the resolvent (formal) (c_inf/2) d psi, from the time-domain model (c_inf/2) d psi: equal True
+  T2 control (W* with its dr component dropped): P-hat(0) u_0 = 0: False
+T2 PASS
+  T3: W*, d psi solve Box in the outgoing chart: True; E reduced by the flat equation vanishes at mu = 0: True; I+-orders of its terms [('Derivative(chi, u)', 4), ('Derivative(A, u)', 9/2), ('Derivative(chi, u)', 5), ('Derivative(A, (r, 2))', 11/2), ('Derivative(A, r)', 11/2)] (least 4); with A = K, chi = 1: I+-orders [9/2, 9/2], iota+-orders [6, 6]
+  T3 control (no flat reduction): E at mu = 0 vanishes: False
+T3 PASS
