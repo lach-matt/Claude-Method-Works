@@ -561,9 +561,9 @@ def t9_cap(shift=0):
                     return [names[i_] for i_ in sub_]
         return None
     certs = {k_: certificate(v_ - AK) for k_, v_ in targets.items()}
-    # tight: the box's alpha_K comes arbitrarily close to each target (its limit is the target)
-    tight = {"p-target": sp.simplify(sup_p - targets["p-target"].subs(Pp, B['p'])) == 0,
-             "cap": sp.simplify(sup_all - targets["cap"]) == 0}
+    # tight, computed afresh from the box (not from sup_p): alpha_K - target -> 0 along the box, so the box reaches it
+    tight = {"p-target": sp.simplify(sp.limit(B['aK'] - targets["p-target"].subs(Pp, B['p']), x7, sp.oo)) == 0,
+             "cap": sp.simplify(sp.limit(sp.limit(B['aK'], x7, sp.oo) - targets["cap"], x1, sp.oo)) == 0}
     ok = all(c_ is not None for c_ in certs.values()) and all(tight.values())
     return ok, targets, certs, tight
 

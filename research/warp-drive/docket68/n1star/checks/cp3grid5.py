@@ -118,13 +118,15 @@ def a7(paths, label='A7'):
 
 
 def a8(paths):
+    """the Kretschmann scalar on the null grids paths[:-1] (M = 32, coarse to fine) and paths[-1] (M = 40, at the
+    finest null grid), per areal-radius class (the verifier of round 4, m3: A6 merged 1.0-1.4)"""
     Z4 = np.load(paths[0])
     R4, mask4, v4 = Z4['R'], Z4['mask'], Z4['v']
     Rm = np.nanmean(R4, axis=2)
     vin = (v4 >= 1.5) & (v4 <= 2.25)
-    ok_rows = [i for i in range(1, R4.shape[0] - 1) if np.any(~mask4[i] & vin & (Rm[i] >= 0.95) & (Rm[i] <= 1.5))]
-    rows4 = [ok_rows[k] for k in np.linspace(0, len(ok_rows) - 1, 24).round().astype(int)] \
-        if len(ok_rows) > 24 else ok_rows
+    ok_rows = [i for i in range(1, R4.shape[0] - 1) if np.any(~mask4[i] & vin & (Rm[i] >= 0.85) & (Rm[i] <= 1.5))]
+    rows4 = [ok_rows[k] for k in np.linspace(0, len(ok_rows) - 1, 32).round().astype(int)] \
+        if len(ok_rows) > 32 else ok_rows
     Ks = []
     for path in paths:
         with np.load(path) as F:
@@ -148,38 +150,146 @@ def a8(paths):
         Ks.append((Kp, Rp, Mp, Zr['x']))
     bands = ((1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
     xs = (0.97, 0.5, 0.0, -0.5, -0.97)
+    ng = len(paths) - 1
 
     def cheb_x(Kc, xn, xe):
         M_ = len(xn); j = np.arange(M_)
         t = (-1.0) ** j * np.sin((2 * j + 1) * np.pi / (2 * M_)) / (xe - xn)
         return Kc @ (t / t.sum())
-    print('A8 the Kretschmann scalar on %d u-rows: dev = max |K/K_0 - 1| (1600 rows, M = 32); the null-step '
-          'differences 400-800 and 800-1600 (M = 32) and the angular difference M = 32-40 (1600 rows), over K_0, at '
-          'areal radius 1.0-1.4:' % len(rows4))
+    print('A8 the Kretschmann scalar on %d u-rows, at %d null grids (M = 32) and M = 40 at the finest: dev = max '
+          '|K/K_0 - 1| (finest, M = 32); the successive null-step differences and the angular difference, over K_0; '
+          'per areal-radius class (K_0 = 72/R^8):' % (len(rows4), ng))
     out = {}
-    for xe in xs:
-        print('  x = %+.2f:' % xe)
-        for vb in bands:
-            jv = (v4 >= vb[0]) & (v4 < vb[1])
-            k = [cheb_x(Kp, xn, xe) for Kp, _, _, xn in Ks]
-            Rr = np.nanmean(Ks[2][1], axis=2)
-            K0 = 72.0 / Rr ** 8
-            sel = jv[None, :] & (Rr >= 1.0) & (Rr <= 1.4)
-            for _, _, Mp, _ in Ks:
-                sel &= ~Mp
-            sel &= np.all(np.isfinite(np.stack(k)), axis=0)
-            if not sel.any():
-                print('   v in [%.2f, %.2f): no cells' % vb); continue
-            dev = float(np.nanmax(np.abs(k[2] / K0 - 1)[sel]))
-            n1 = float(np.nanmax(np.abs(k[0] - k[1])[sel] / K0[sel]))
-            n2 = float(np.nanmax(np.abs(k[1] - k[2])[sel] / K0[sel]))
-            dm = float(np.nanmax(np.abs(k[2] - k[3])[sel] / K0[sel]))
-            rr = n1 / n2 if n2 > 0 else np.inf
-            vd = 'resolved' if (max(n2, dm) < 0.05 * max(dev, 1e-3) and rr >= 2) else 'not resolved'
-            out[(xe, vb)] = vd
-            print('   v in [%.2f, %.2f): dev %.3g; null step %.2e, %.2e (ratio %.2f); in M %.2e -> %s' % (
-                vb[0], vb[1], dev, n1, n2, rr, dm, vd))
+    for cls, (lo, hi) in (('0.9-1.0', (0.9, 1.0)), ('1.0-1.2', (1.0, 1.2)), ('1.2-1.4', (1.2, 1.4))):
+        print(' areal radius %s:' % cls)
+        for xe in xs:
+            print('  x = %+.2f:' % xe)
+            for vb in bands:
+                jv = (v4 >= vb[0]) & (v4 < vb[1])
+                k = [cheb_x(Kp, xn, xe) for Kp, _, _, xn in Ks]
+                Rr = np.nanmean(Ks[ng - 1][1], axis=2)
+                K0 = 72.0 / Rr ** 8
+                sel = jv[None, :] & (Rr >= lo) & (Rr < hi)
+                for _, _, Mp, _ in Ks:
+                    sel &= ~Mp
+                sel &= np.all(np.isfinite(np.stack(k)), axis=0)
+                if not sel.any():
+                    print('   v in [%.2f, %.2f): no cells' % vb); continue
+                dev = float(np.nanmax(np.abs(k[ng - 1] / K0 - 1)[sel]))
+                dn = [float(np.nanmax(np.abs(k[i] - k[i + 1])[sel] / K0[sel])) for i in range(ng - 1)]
+                dm = float(np.nanmax(np.abs(k[ng - 1] - k[ng])[sel] / K0[sel]))
+                rr = dn[-2] / dn[-1] if ng >= 3 and dn[-1] > 0 else np.nan
+                vd = 'resolved' if (max(dn[-1], dm) < 0.05 * max(dev, 1e-3) and (ng < 3 or rr >= 2)) \
+                    else 'not resolved'
+                out[(cls, xe, vb)] = vd
+                print('   v in [%.2f, %.2f): dev %.3g; null step %s%s; in M %.2e -> %s' % (
+                    vb[0], vb[1], dev, ', '.join('%.2e' % q for q in dn),
+                    ' (ratio %.2f)' % rr if ng >= 3 else '', dm, vd))
     return out
+
+
+def pclass(pa, pb):
+    """|P_32 - P_40| per areal-radius class and v-band, M = 40 interpolated to M = 32's nodes by its Chebyshev series
+    (the verifier of round 4's pm_class.py, re-derived), on all kept cells of the finer file's common nodes"""
+    za, zb = np.load(pa), np.load(pb)
+    xa, xb = za['x'], zb['x']; Mb = len(xb)
+    Tbi = np.linalg.inv(np.cos(np.outer(np.arange(Mb), np.arccos(xb))).T)
+    Ta = np.cos(np.outer(np.arange(Mb), np.arccos(xa)))
+    keep = (~za['mask']) & (~zb['mask'])
+    Pa = (2 * (1 + xa) * za['m'] - (1 - xa) * za['n']) / 3
+    Pb = (2 * (1 + xb) * zb['m'] - (1 - xb) * zb['n']) / 3
+    Pbi = np.einsum('...j,kj,ki->...i', Pb, Tbi, Ta)
+    R = za['R'][..., len(xa) // 2]; v = za['v']
+    print('A9 |P_32 - P_40| (M = 40 interpolated to M = 32\'s nodes), %d rows, per areal-radius class and v-band:'
+          % (len(za['u']) - 1))
+    for cls, (lo, hi) in CLASSES:
+        row = []
+        for vb in ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25)):
+            jv = (v >= vb[0]) & (v < vb[1])
+            if not jv.any():
+                continue
+            sel = keep[:, jv] & (R[:, jv] >= lo) & (R[:, jv] < hi)
+            d = np.abs(Pa[:, jv][sel] - Pbi[:, jv][sel])
+            row.append('[%.2f, %.2f) %.1e' % (vb[0], vb[1], d.max() if d.size else np.nan))
+        print('   %s: %s' % (cls, '; '.join(row)))
+
+
+def dpm(path, ld=3):
+    """the regularisation's correction d_-, d_+ (cpaxis5.solve_reg) replayed at every cell from the stored solution:
+    the same formula on the same corner values, so the correction the scheme's last iteration applied (up to that
+    iteration's convergence); per band and areal-radius class, max |d+-| and max |d+-|/max |R_uv|"""
+    import importlib.util as iu
+    sp_ = iu.spec_from_file_location('cpaxis5', os.path.join(HERE, 'cpaxis5.py'))
+    CA = iu.module_from_spec(sp_); sp_.loader.exec_module(CA)
+    Z = np.load(path)
+    u, v, x = Z['u'], Z['v'], Z['x']
+    M = len(x); Nu = len(u) - 1
+    dv = v[1] - v[0]
+    nv_full = int(round(2.25 / dv))
+    G = d5.Grid(M, -10.0, float(-Z['rcut']), Nu, 0.0, 2.25, nv_full, a=0.002, ld=ld)
+    assert np.allclose(G.u, u) and np.allclose(G.v[-len(v):], v), 'grid mismatch'
+    E = d5.Eqs()
+    A = {f: Z[f] for f in CP.ALL}
+    mask = Z['mask']
+    acc = {}
+    for n1 in range(1, Nu + 1):
+        m1 = np.arange(1, len(v))
+        S = (n1 - 1, m1 - 1); Ec = (n1 - 1, m1); Wc = (n1, m1 - 1); Nc = (n1, m1)
+        ok = ~(mask[S] | mask[Ec] | mask[Wc] | mask[Nc])
+        if not ok.any():
+            continue
+        m1 = m1[ok]
+        S = (n1 - 1, m1 - 1); Ec = (n1 - 1, m1); Wc = (n1, m1 - 1); Nc = (n1, m1)
+        s_, e_, w_, nn = ({f: A[f][S] for f in CP.ALL}, {f: A[f][Ec] for f in CP.ALL}, {f: A[f][Wc] for f in CP.ALL},
+                          {f: A[f][Nc] for f in CP.ALL})
+        du = G.du[n1 - 1]
+        c = {f: 0.25 * (s_[f] + e_[f] + w_[f] + nn[f]) for f in CP.ALL}
+        fu = {f: (w_[f] - s_[f] + nn[f] - e_[f]) / (2 * du) for f in CP.FIELDS}
+        fv = {f: (e_[f] - s_[f] + nn[f] - w_[f]) / (2 * G.dv) for f in CP.FIELDS}
+        env = d5.env_from(G, c, fu, fv, c['sv'])
+        Ruv = (nn['R'] - e_['R'] - w_['R'] + s_['R']) / (du * G.dv)
+        sol, _ = CA._orig_solve(E, env, Ruv, G)
+        sol1, _ = CA._orig_solve(E, env, Ruv + 1.0, G)
+        sig = sol1 - sol
+        gm = (1 + x) * sol[..., 0]; gs_m = (1 + x) * sig[..., 0]
+        gn = (1 - x) * sol[..., 1]; gs_n = (1 - x) * sig[..., 1]
+        Sm, Sigm = CA.cheb_at(gm, x, -1.0), CA.cheb_at(gs_m, x, -1.0)
+        Sn, Sign_ = CA.cheb_at(gn, x, 1.0), CA.cheb_at(gs_n, x, 1.0)
+        with np.errstate(all='ignore'):
+            dm = np.where(np.abs(Sigm) > 0, -Sm / Sigm, 0.0)
+            dp = np.where(np.abs(Sign_) > 0, -Sn / Sign_, 0.0)
+        Rc = c['R'][..., M // 2]
+        vc = 0.5 * (v[m1 - 1] + v[m1])
+        for cls, (lo, hi) in CLASSES:
+            for vb in BANDS_D:
+                selc = (vc >= vb[0]) & (vc < vb[1]) & (Rc >= lo) & (Rc < hi)
+                if not selc.any():
+                    continue
+                key = (cls, vb)
+                a_ = acc.get(key, [0.0, 0.0])
+                a_[0] = max(a_[0], float(np.nanmax(np.maximum(np.abs(dm[selc]), np.abs(dp[selc])))))
+                a_[1] = max(a_[1], float(np.nanmax(np.abs(Ruv[selc]))))
+                acc[key] = a_
+    return acc, Nu
+
+
+BANDS_D = ((0.5, 1.0), (1.0, 1.5), (1.5, 1.65), (1.65, 1.8), (1.8, 1.9), (1.9, 2.0), (2.0, 2.25))
+
+
+def dpm_report(paths):
+    res = [dpm(p_) for p_ in paths]
+    print('A10 the regularisation\'s correction d+- (cpaxis5.py A3), replayed at every cell from the stored solution: '
+          'max |d+-| per band and areal-radius class, with max |d+-|/max |R_uv| in brackets, at %s rows, and the '
+          'successive ratios:' % ', '.join(str(n) for _, n in res))
+    for cls, _ in CLASSES:
+        print('  areal radius %s:' % cls)
+        for vb in BANDS_D:
+            vals = [r.get((cls, vb)) for r, _ in res]
+            if any(q is None for q in vals):
+                continue
+            rat = ['%.2f' % (vals[i][0] / vals[i + 1][0]) if vals[i + 1][0] > 0 else 'inf' for i in range(len(vals) - 1)]
+            print('   v in [%.2f, %.2f): %s; ratios %s' % (vb[0], vb[1], ', '.join('%.2e [%.1e]' % (q[0], q[0] / q[1])
+                                                                                 for q in vals), ', '.join(rat)))
 
 
 def main():
@@ -188,7 +298,11 @@ def main():
     if a[0] == '--a7':
         a7(a[1:5])
     elif a[0] == '--a8':
-        a8(a[1:5])
+        a8(a[1:])
+    elif a[0] == '--pclass':
+        pclass(a[1], a[2])
+    elif a[0] == '--dpm':
+        dpm_report(a[1:])
     elif a[0] == '--control':
         # the 800-row file twice (and the M = 40 800-row file as the 'angle' run): every last ratio is exactly 1
         v = a7([a[1], a[2], a[2], a[3]], label='control (A7 with 800 given for 1600)')
