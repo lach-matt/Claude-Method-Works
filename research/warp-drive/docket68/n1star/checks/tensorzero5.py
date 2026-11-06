@@ -202,10 +202,13 @@ def general_identity(shift=2):
         tgt = sp.Rational(1, 2) * r ** 2 * (AH0 * Tang[i] + r ** -2 * Hf * (-lapT[i] + shift * Tang[i]))
         d = (dR[i + 2, i + 2] - tgt).subs(B, Bsol)
         for At in tests:
-            dd = d.subs(A, At).subs(Hf, r ** sp.Rational(-5, 2)).doit()
-            for k in (1, 2, 3):
-                val = abs(sp.N(dd.subs({th: sp.Rational(k, 7), r: sp.Rational(5, 3)}), 50))
-                worst = max(worst, val)
+            # Round 8 (the round-7 verifier): four radii (one inside the horizon) and three radial functions, not one
+            for Ht in (r ** sp.Rational(-5, 2), sp.exp(-r) * r, 1 / (1 + r ** 2)):
+                dd = d.subs(A, At).subs(Hf, Ht).doit()
+                for rv in (sp.Rational(5, 3), sp.Rational(7, 2), sp.Rational(2, 3), sp.Rational(11, 10)):
+                    for k in (1, 2, 3):
+                        val = abs(sp.N(dd.subs({th: sp.Rational(k, 7), r: rv}), 50))
+                        worst = max(worst, val)
     return divres == 0, worst
 
 
@@ -293,14 +296,17 @@ def main():
     OK['T3b'] = dz and worst < sp.Float('1e-40')
     print('  T3b: for every traceless class tensor T with div T = 0 (A arbitrary, B from div T = 0), D Ric(r^2 H T) = '
           '(1/2) r^2 [(-r^-3 (P H\')\') T + r^-2 H (-lap T + 2 T)]: largest residual %.1e at 50 digits (three test A, '
-          'three points): %s; with the eigen-equation (lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every '
-          'l (deduced)' % (float(worst), OK['T3b']))
-    cas = {l: casimir(angular_tensor(harm[l])) for l in (2,)}
+          'three H, four r, three angles: 108 points; Round 8, one r and one H before): %s; with the eigen-equation '
+          '(lap + l (l + 2) - 2) T = 0 this is (1/2) r^2 (A_l H) T at every l (deduced; checked exactly at l = 2, 4 in '
+          'T3)' % (float(worst), OK['T3b']))
+    cas = {l: casimir(angular_tensor(harm[l])) for l in (2, 4)}      # Round 8: l = 4 too, as the docstring said
     xs = sp.cos(th) * sp.cos(p1)
     sc = casimir(None, scalar=xs ** 2 - sp.Rational(1, 4))          # a scalar harmonic at l = 2 (degree 2, traceless)
-    OK['T4'] = cas[2] == 2 * 4 + 4 and sc == 2 * 4
-    print('  T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: %s (l (l + 2) + 4 = 12); for the scalar harmonic x1^2 '
-          '- 1/4 at l = 2: %s (l (l + 2) = 8): %s' % (cas[2], sc, OK['T4']))
+    rep = {l: 2 * (Fr(l + 2, 2) * Fr(l + 4, 2) + Fr(l - 2, 2) * Fr(l, 2)) for l in (2, 4)}   # (j1, j2) = (l/2 +- 1)
+    OK['T4'] = all(cas[l] == l * (l + 2) + 4 == rep[l] for l in (2, 4)) and sc == 2 * 4
+    print('  T4: sum over K_ij of ||L_K T||^2/||T||^2 at l = 2: %s, at l = 4: %s (l (l + 2) + 4 = 12, 28; the so(4) '
+          'Casimir 2 [j1 (j1 + 1) + j2 (j2 + 1)] at (j1, j2) = (l/2 + 1, l/2 - 1): %s); for the scalar harmonic x1^2 '
+          '- 1/4 at l = 2: %s (l (l + 2) = 8): %s' % (cas[2], cas[4], [str(rep[l]) for l in (2, 4)], sc, OK['T4']))
     Cl = {l: tensor_constant(l) for l in range(2, 201, 2)}
     sup_l = max(Cl, key=lambda q: Cl[q])
     mono = all(Cl[l] >= Cl[l + 2] for l in range(2, 199, 2))

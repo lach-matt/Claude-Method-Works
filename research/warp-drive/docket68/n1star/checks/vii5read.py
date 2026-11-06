@@ -36,6 +36,7 @@ Run: python3 checks/vii5read.py   (about fifteen seconds)
 """
 import csv
 import os
+import re
 import sys
 import textwrap
 
@@ -111,21 +112,57 @@ def q1(rows, es, show=True):
     return ok
 
 
-def q2(rows, show=True):
+ANCHOR = re.compile(r'\{(PART-[A-Z0-9-]+\.md) \(([^)]+)\):((?: "[^"]+")+)\}')
+
+
+def paragraph(fname, label, text=None):
+    """the paragraph of proof5/fname that begins with '(label)', whitespace-normalised ('' if none)"""
+    t = text if text is not None else open(os.path.join(V.P5, fname), encoding="utf-8").read()
+    for par in re.split(r"\n\s*\n", t):
+        if par.lstrip().startswith("(%s)" % label):
+            return " ".join(par.split())
+    return ""
+
+
+def resolution_ok(res, texts=None):
+    """a resolution must cite a paragraph and quote it: {FILE (LABEL): "phrase" ...}, each phrase found there"""
+    found = ANCHOR.findall(res)
+    if not found:
+        return False, "no {FILE (LABEL): \"phrase\"} anchor"
+    for fname, label, quoted in found:
+        par = paragraph(fname, label, (texts or {}).get(fname))
+        if not par:
+            return False, "no paragraph (%s) in %s" % (label, fname)
+        for ph in re.findall(r'"([^"]+)"', quoted):
+            if " ".join(ph.split()) not in par:
+                return False, "%s (%s) does not print %r" % (fname, label, ph)
+    return True, ""
+
+
+def q2(rows, show=True, texts=None):
     count = {v: 0 for v in VERDICTS}
-    unres = []
+    unres, bad = [], []
     for r in rows:
         count[r["verdict"]] = count.get(r["verdict"], 0) + 1
-        if r["verdict"] in NEED_RES and not r.get("resolution", "").strip():
-            unres.append("%s:%s" % (r["file"], r["line"]))
+        if r["verdict"] in NEED_RES:
+            res = r.get("resolution", "").strip()
+            if not res:
+                unres.append("%s:%s" % (r["file"], r["line"]))
+            else:
+                good, why = resolution_ok(res, texts)
+                if not good:
+                    bad.append("%s:%s %s" % (r["file"], r["line"], why))
     if show:
         say("  Q2: " + ", ".join("%s %d" % (v, count[v]) for v in VERDICTS) +
-            "; MORE/UNDECIDED rows without a resolution: %d" % len(unres))
+            "; MORE/UNDECIDED rows without a resolution: %d; resolutions whose cited text is not printed where they "
+            "say: %d" % (len(unres), len(bad)))
+        for x in bad[:5]:
+            say("      " + x)
         for r in rows:
             if r["verdict"] in NEED_RES:
                 say("      %s:%s %s [%s] %s -- resolution: %s" % (r["file"], r["line"], r["verdict"], r["symbols"],
                                                                  r["note"], r.get("resolution", "")), "        ")
-    return not unres
+    return not unres and not bad
 
 
 def q3(mode=None):
