@@ -35,6 +35,9 @@
      largest indices: checked over every such n (N <= 4, m <= 5) for random rational configurations, and the bound is
      positive once Lam > (2 m M^2 + m^2 M^2/2)/c. Control (must fail): without the rescaling (Lam = 1) an antipodal
      pair and any third direction have the exactly null combination k_a + k_b - k_c (a resonance no division removes).
+     [R6, the verifier of round 5: the random configurations are not resonant, so the main loop passed with a_A = 1.
+     The main loop now also runs that resonant configuration (an antipodal pair of equal energies and a third
+     label) with the hierarchy, where the bound must hold; with a_A = 1 it fails there (mutation H4_NOHIER).]
   H5 (numpy RK4) separation is kept by the geodesic flow, with constant c/N^2. On the orbit space of Tangherlini
      (mu = 1), h = -f dt^2 + dR^2/f + R^2 dth^2, label phases u_w with initial gradient (cos w/sqrt f, R0 sin w) on
      t = 0: at a point y at t = T, d alpha/d w (alpha the momentum's angle) equals det DPhi / det(dy/dx0) (Phi the
@@ -48,6 +51,11 @@
      error that falls with N, and its ratio to the quadrature residual of the continuum solution sampled at the N
      labels (the N-system's residual) stays bounded independently of N: the stability constant of Proposition U does
      not grow with N (computed, model). Control (must fail): label weights 2 pi/(N + 1) (a mutated N-system).
+     [R6, the verifier of round 5: with the coupling removed (b) still passes, so it did not test stability. Added: the
+     N-system's stability constant measured directly, sup|w_N(q0 + d q1) - w_N(q0)|/d for d = 1e-3, within a factor 2
+     over N = 4, 8, 16; control (must fail): a mutated N-system whose coupling grows with N (transport speed tanh(2
+     (N/4) w + cos w_A)) has a stability constant growing by more than that factor. The model has none of the dust's
+     derivative-loss coupling; it is a model of the quadrature step only.]
   H7 (exact, sympy) restricted particles focus at an axis. (a) In the class sqrt|g5| = sqrt|h| e^(psi1 + psi2), so
      the conserved orbit-space density of a restricted current is e^(psi1 + psi2) n5, and near axis 2 e^psi2 = sqrt(a)
      rho2 (1 + O(rho2^2)) (axisloss5 X1 (a)). (b) In the plane of axis 2 restricted momenta move radially (p_phi2 =
@@ -441,11 +449,14 @@ def gq(x, y):
     return (x.T * ETA * y)[0]
 
 
+H4_NOHIER = False                                                              # mutation: a_A = 1
+
+
 def h4():
     print("H4 (exact) coherence of every combination after hierarchical rescaling; the resonance without it")
     rng = random.Random(41)
     ok = True
-    for trial in range(4):
+    for trial in range(5):
         N = 3 + trial % 2
         m = 4 + trial % 2
         ts_ = sorted({sp.Rational(rng.randint(-40, 40), rng.randint(1, 9)) for _ in range(N)})[:N]
@@ -453,11 +464,15 @@ def h4():
             ts_.append(sp.Rational(rng.randint(41, 80), 7))
         Es = [sp.Rational(rng.randint(2, 9), 4) for _ in range(N)]
         ks = [null2(t, E) for t, E in zip(ts_, Es)]
+        if trial == 4:                       # [R6] the resonant configuration: an antipodal pair and a third label
+            N, m = 3, 4
+            ka = null2(sp.Rational(1, 3), 1)
+            ks = [ka, sp.Matrix([-1, -ka[1], -ka[2]]), null2(sp.Rational(5, 2), 1)]
         c = min(abs(gq(ks[i], ks[j])) for i in range(N) for j in range(N) if i != j)
         M = max(sp.sqrt(sum(x**2 for x in k)) for k in ks)
         M2 = max(sum(x**2 for x in k) for k in ks)
         Lam = sp.ceiling((2 * m * M2 + m**2 * M2 / 2) / c) + 1
-        a = [Lam**i for i in range(N)]
+        a = [1] * N if H4_NOHIER else [Lam**i for i in range(N)]
         worst, cnt = None, 0
         for nvec in itertools.product(range(-m, m + 1), repeat=N):
             nz = [i for i in range(N) if nvec[i] != 0]
