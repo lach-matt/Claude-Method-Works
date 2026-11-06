@@ -655,9 +655,11 @@ lam^(m-1) (g^-1(du, d_X) + (1/2) box_g u + M) d_th Y + lam^m (1/2) g^{ab} d_a d_
 Y, which vanishes for the Y = D^(m) of the induction), g^-1(du, d_X) = ell . d_X + O(lam), box_g u = box_g0 v + O(lam),
 and M(X, th), from the coefficient Gamma[g] of dD (of size dg = O(1)), is a bounded multiplication operator on
 profiles. Induction on m = 0, ..., N - 2 with the hypothesis: D^(j) = 0 for j < m and d_th D^(m) = 0 (true at m = 0).
-At order m the oscillating part of (6.1) is the transport (ell . d_X + (1/2) box_g0 v + M) Z = (first order in <D^(m)>)
-for Z := d_th D^(m+1), and its mean is the linear wave equation (1/2) box_gbar <D^(m)> + (first order) <D^(m)> + <M Z>
-= 0; every other term vanishes by the hypothesis or because it contains R^(i), i <= m + 1 <= N - 1. The data are zero:
+At order m the oscillating part of (6.1) is the transport (ell . d_X + (1/2) box_g0 v) Z + Pi_osc(M Z) = (first order
+in <D^(m)>) for Z := d_th D^(m+1), and its mean is the linear wave equation (1/2) box_g0 <D^(m)> + (first order)
+<D^(m)> + <M Z> = 0 [corrected D619 (n9): printed (ell . d_X + (1/2) box_g0 v + M) Z and box_gbar; Pi_osc is the
+projection onto zero th-mean (M depends on th, so M Z has a mean part, which the wave equation carries), and the
+order-m equation does not depend on lam, so its wave operator is g0's, gbar = g0 + O(lam)]; every other term vanishes by the hypothesis or because it contains R^(i), i <= m + 1 <= N - 1. The data are zero:
 <D^(m)> by (F1), d_tau <D^(m)> by (F2), Z by (F1) at order m + 1. This linear system for (<D^(m)>, Z) closes without
 loss exactly as in Lemma 5.3 (the mean in H^(s+1), Z in H^s; Lemmas 2.3, 2.4; the transport curves reach Sigma inside
 Omega by Lemma 1.1(d)), so <D^(m)> = 0 and Z = 0: the hypothesis at m + 1. Then D(g_app) = lam^(N-1) [D^(N-1)] +
@@ -667,7 +669,8 @@ scaled norm of the second term is <= C lam^-1 lam^(N-1), of the first <= C lam^(
 **Lemma 6.2 (the stage data; deduced, with Lemma 6.4).** For every N there are stage data for Theorem A satisfying (F1)
 and (F2), all vanishing on Sigma cap {r < v_start - tau0}. The stage data constructed in the proof below are fixed by
 the seed and N, and "the stage data of Lemma 6.2" (Proposition 6.5, section 6.4) means these, not any others with
-the stated properties (D616).
+the stated properties (D616). [D619, n5: and by the slice Sigma = Sigma_tau0 on which they are posed: tau0 enters
+through the data on Sigma, the phase (tau0 + r)/lam there and the region r < v_start - tau0.]
 
 *Proof.* Stage 0: chi = 0 on Sigma, as chosen in 5.1. Stage m = 1, ..., N, everything of the earlier stages given
 (stage N's data are not needed for (F1), (F2) but are fixed here, so every stage's data are smooth, T^2 x Z2 x

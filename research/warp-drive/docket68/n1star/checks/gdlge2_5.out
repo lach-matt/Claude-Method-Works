@@ -37,3 +37,13 @@ L5 PASS
       True, True, True, [5, 6, 7]), (8, 3, True, True, True, [7, 8, 9])]
   L6 control (l = 0): W*, (d_v)^flat are horizon-smooth solutions growing below r^1: [True, True]
 L6 PASS
+  L7: spherical means of the Cartesian components (l, form, means): [(2, 'S dv (dt_*)', [0]), (2, 'S dr', [0, 0, 0, 0]),
+      (2, 'dS', [0, 0, 0, 0]), (4, 'S dv (dt_*)', [0]), (4, 'S dr', [0, 0, 0, 0]), (4, 'dS', [0, 0, 0, 0])]; ell vanishes
+      on them; the G-average of a constant spatial covector is [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]: True
+  L7 control: dv has spherical mean 1 and ell(dv) = 2*pi**2*s**3: degree-0 part present
+L7 PASS
+  L8: N_tf(sigma) = e^(-i sigma r) (Lap_e - sigma^2) e^(i sigma r) on degree-l components: True; Bessel order l + 1:
+      True; exponents at ztf {l, -l-2}: True; on beta in (-1, 3), l >= 1: kernel element excluded (l + q > 0): True,
+      adjoint element excluded (q < l + 2): True
+  L8 control (l = 0, beta in (-1, 0)): the adjoint element r^-2 lies in X*_tf,0 (q - 2 > 0): True
+L8 PASS
