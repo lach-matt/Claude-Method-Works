@@ -8175,3 +8175,33 @@ independent, and none edited a file.
     reading.
   - GAUGEDECAY5's own status line ("Not verified by a second reader") is stale against R2.V; that line is workstream
     A's.
+
+**D626, D628 (2026-11-06): III.K Lemma 6.2 and the census's spellings; the D621 seating read twice.**
+- D626 (no entry was written at the time): an independent verifier read the D621 seating.
+  - Lemma 6.1 holds, and so do its uses in Proposition 4.2 and Part VIII.
+  - Item 0: Proposition 1.2 applies II.F Lemma 1.3 with tau := t_IVP near infinity, for the perturbed metric, unchecked.
+    New III.K Lemma 6.2: for r >= R the Cartesian components of g_S - eta are at most 1/20 (III.C's class), so
+    g_S^-1(dt, dt) <= -1/2 and |V^x| <= 2|V^t| (`checks/scrirad5.py` R4, control N6).
+  - N1: Lemma 2.3's use of Lemma 6.1 repaired (its level lies below the support of h~').
+  - N2: vii5census widened to every spelling of the 1-form towers (twenty-four symbols beyond (C3)'s two) and to symbols
+    across a line break: 713 use lines, the 81 new ones read (375 / 246 / 87 / 0 MORE / 5 UNDECIDED). New V2: every
+    other spelling of omega is excluded with a reason (137 = 80 + 57 + 0).
+  - Nits 1-10 seated. Paper blocks 1-2 prepared, not seated.
+- D628: a confirming reader of D626.
+  - Minor: Lemma 6.2's compact-set clause claimed more than it proved. For tau = -t_IVP, r decreases along every future
+    causal curve inside the horizon, and the support hypothesis puts the level below Sigma_IVP. The clause now gives the
+    bound near infinity, r <= max(R, r(p)) + 2(tau(p) - c), which is what Proposition 1.2's uses need; away from
+    infinity the sets are as in Proposition 1.2's proof (future curves: N's inflow boundary and the slab). The proof's
+    lower bound on r is for past curves only, and its last sentence is withdrawn.
+  - New `checks/scrirad5.py` R5, on g_b0 in Kerr-Schild form. The future radial null slopes are -1 and -9/41 at mu = 1,
+    r = 4/5. Inside the horizon r decreases along future causal curves and increases along past ones. |dr/dt| <= 1, and
+    dt + a dr is past timelike for a in [0, 1/32]. z3 refutes controls N7 (r kept along future curves) and N8 (a up to
+    1). Mutants 8/8 caught.
+  - V2 keeps primes (150 = 83 + 67 + 0). A primed spelling is excluded only by its location, and none of the 13 hides a
+    C3, C3' or C4 object. The reader's planted primed spelling now fails V2, and a fourth control plants it as text. V2
+    mutants 6/6 caught.
+  - Also seated: Lemma 6.2's time orientation, (VII5)'s "twenty-four further" and K's trailing newline.
+  - The paper blocks: Block 1's completeness clause is reworded, and Blocks 3-5 (the Appendix entries and the claims
+    table) are new; all are prepared, not seated.
+  - SETTLE-GLAM5's re-keys (471, 513-521) have landed (workstream B). Its md5 pins of K and VII (14b79c32, 81a9effd) are
+    the D626 files; D628 leaves the pinned lines unchanged.
