@@ -47,6 +47,7 @@ import glob
 import os
 import re
 import sys
+import textwrap
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 P5 = os.path.join(HERE, "proof5")
@@ -98,14 +99,16 @@ GROUPS = [
 # V2 (D626): every printed spelling of omega in Parts III-IV is either covered by a C3/C3'/C4 symbol (it contains one)
 # or excluded here, by a rule with its reason; a spelling that is neither fails V2.
 OMEGA_EXCLUDE = [
-    (r"\\(?:bar\s*|breve\{\\bar)\\omega", "a Minkowski model 1-form (bar or breve-bar), explicit: III.D'' (1.2), "
-                                         "III.D''' (H1)-(H3), III.B section 5"),
-    (r"\\omega\^\{?\*", "a dual state, the kernel of an adjoint operator (III.D', III.E, III.E', III.F''): used in the "
-                       "zero-energy counts of III.D'-III.F'' only, in no file of the construction III.G-III.K"),
-    (r"\\dot\\omega", "the zero-energy gauge potential, the unique solution of a natural problem (III.F''' (2.1); Part "
-                      "VII Lemma 3.1's proof)"),
-    (r"\\omega_\{\(0\)\}", "the source's zero-energy state, in III.D' findings on the source"),
-    (r"\\omega\^\\sharp", "a musical dual or the explicit V_b + c_0|x|^-3 V(W) of III.E' (2.1)"),
+    (r"\\(?:bar\s*|breve\{\\bar)\\omega", "a Minkowski model 1-form (bar or breve-bar), explicit: "
+                                         "PART-III-D3-SYMSTATES.md (1.2), PART-III-D4-GENSTATES.md section 3 (its "
+                                         "models, genstates5.py H1-H3), III.B section 5"),
+    (r"\\omega\^\{?\*", "a dual state, the kernel of an adjoint operator (PART-III-D2, -E, -E2, -F4, -F5): used in the "
+                       "zero-energy counts of those files only, in no file of the construction (the III.G-III.K "
+                       "files)"),
+    (r"\\dot\\omega", "the zero-energy gauge potential, the unique solution of a natural problem "
+                      "(PART-III-F4-ZERO.md (2.1); Part VII Lemma 3.1's proof)"),
+    (r"\\omega_\{\(0\)\}", "the source's zero-energy state, in PART-III-D2-ZEROENERGY.md's remarks on the source"),
+    (r"\\omega\^\\sharp", "a musical dual, or the explicit V_b + c_0|x|^-3 V(W) of PART-III-E2-V1STATES.md:129-130"),
     (r"\\(?:tilde\\)?omega(?:_\\pi)?$", "a generic 1-form (or a coordinate on S^3), or its type-pi part"),
     (r"\\omega(?:_[0-2]|_[abcdirt]|_\{[a-z];[a-z]?\}|_\\mu|_\\lambda|_V|\^[iaT]|\^\\beta|\^\\gamma|\^\{\([01]\)\})$",
      "components of a generic 1-form or covector, a multi-index, or the Cauchy data of another equation (IV5, IV7)"),
@@ -123,6 +126,11 @@ def _braced(t, i):
             if d == 0:
                 return j + 1
     return len(t)
+
+
+def wrap(text):
+    print(textwrap.fill(text, 119, subsequent_indent="        ", break_long_words=False, break_on_hyphens=False),
+          flush=True)
 
 
 def omega_spellings(fs):
@@ -164,17 +172,16 @@ def v2(extra=(), show=True):
             why[t] = r[0] if r else None
     left = sorted(t for t, r in why.items() if r is None)
     if show:
-        print("  V2: %d distinct spellings of omega in Parts III-IV (%d occurrences): %d contain a C3/C3'/C4 symbol, "
-              "%d excluded by a rule with its reason, %d neither%s" % (len(sp), sum(sp.values()), len(covered),
-                                                                       len(why) - len(left), len(left),
-                                                                       (": " + " ".join(left)) if left else ""),
-              flush=True)
+        wrap("  V2: %d distinct spellings of omega in Parts III-IV (%d occurrences): %d contain a C3/C3'/C4 symbol, "
+             "%d excluded by a rule with its reason, %d neither%s" % (len(sp), sum(sp.values()), len(covered),
+                                                                      len(why) - len(left), len(left),
+                                                                      (": " + " ".join(left)) if left else ""))
         by = {}
         for t, r in why.items():
             if r:
                 by.setdefault(r, []).append(t)
         for r, ts in sorted(by.items()):
-            print("      excluded (%d spellings, %d occurrences): %s" % (len(ts), sum(sp[t] for t in ts), r), flush=True)
+            wrap("      excluded (%d spellings, %d occurrences): %s" % (len(ts), sum(sp[t] for t in ts), r))
     return not left
 
 
@@ -269,7 +276,7 @@ def main():
     good = v1(listing)
     good2 = v2()
     planted2 = not v2(extra=("\\omega^{(7)}_{b,\\mathrm s9}",), show=False)
-    print("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s" % planted2, flush=True)
+    wrap("  V2 control: a planted spelling omega^{(7)}_{b,s9} is reported as neither: %s" % planted2)
     ctl = control() and planted2
     good = good and good2
     print("V1 %s; control (every symbol found at its own site; a planted and a moved site reported missing): %s"

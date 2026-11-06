@@ -409,16 +409,22 @@ def part_f():
     def qsym(nn):
         gxn = (e0.T*sp.diag(-1, 1, 1, 1, 1)*nn)[0]
         return (e0*nn.T + nn*e0.T)/2 - gxn*etaI/2
-    ev_t = qsym(sp.Matrix([sp.cosh(sv), sp.sinh(sv), 0, 0, 0])).eigenvals()
-    ev_s = qsym(sp.Matrix([sp.sinh(sv), sp.cosh(sv), 0, 0, 0])).eigenvals()
-    want_t = {sp.exp(sv)/2: 1, sp.exp(-sv)/2: 1, sp.cosh(sv)/2: 3}
-    okx = (sorted(sp.simplify(sp.expand(k.rewrite(sp.exp))) for k in ev_t for _ in range(ev_t[k]))
-           == sorted(sp.simplify(sp.expand(k.rewrite(sp.exp))) for k in want_t for _ in range(want_t[k])))
-    negs = [k for k in ev_s if k.subs(sv, sp.Rational(3, 7)).evalf() < 0]
+    lm = sp.Symbol("lambda")
+
+    def charpoly_is(nn, roots):
+        cp = (qsym(nn) - lm*sp.eye(5)).det()
+        tgt = sp.Mul(*[(rt - lm) for rt in roots])
+        return sp.simplify(sp.expand((cp - tgt).rewrite(sp.exp))) == 0
+    ok_t = charpoly_is(sp.Matrix([sp.cosh(sv), sp.sinh(sv), 0, 0, 0]),
+                       [sp.exp(sv)/2, sp.exp(-sv)/2] + [sp.cosh(sv)/2]*3)
+    ok_s = charpoly_is(sp.Matrix([sp.sinh(sv), sp.cosh(sv), 0, 0, 0]),
+                       [sp.exp(sv)/2, -sp.exp(-sv)/2] + [sp.sinh(sv)/2]*3)
+    okx, negs = ok_t, [-sp.exp(-sv)/2] if ok_s else []
+    ev_t, ev_s = "e^s/2, e^-s/2, cosh(s)/2 (x3)", "e^s/2, -e^-s/2, sinh(s)/2 (x3)"
     check("F1x (exact) for X = e_0, n = (cosh s, sinh s, 0, 0, 0) the form p -> T(X, n) has eigenvalues e^s/2, e^-s/2, "
           "cosh(s)/2 (x3), all > 0: T(X, n) >= 0 for X, n future timelike, the dominant energy condition; control: n "
           "spacelike, (sinh s, cosh s, 0, 0, 0), gives a negative eigenvalue", okx and len(negs) >= 1,
-          f"{sorted(str(k) for k in ev_t)}; spacelike: {sorted(str(k) for k in ev_s)}")
+          f"timelike n: {ev_t}; spacelike n: {ev_s} (characteristic polynomials, exact)")
     tt, rr = sp.symbols("tt rr", positive=True)
     t1, t2, R1, R2 = 0, sp.Rational(1, 2), 2, 6
     phi = 1 + tt*rr + tt**2 - rr**2/7 + tt*rr**2/5 + rr**3/30
