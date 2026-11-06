@@ -252,17 +252,17 @@ frequencies 1, Λ, …, Λ^(N−1), torus polarisation.
   K(n̂, n̂) < 0 and K′^l_l = tr K − κ′ = sin²β κ + (3 − sin²β) K^l_l/3 < 0, so κ′K′^l_l > 0: [Rac16] Lemma 4.1 fails
   for every foliation. Control: a K of mixed sign has a hyperbolic tilt.
 
-**Proposition L (amended [R5]).** [R7 (the round-6 verifier's m6): superseded by FAMILIES5-R6 Theorem L″, which has
-no radial restriction.] As FAMILIES5-AXIS Proposition L, for a perturbation supported in {R1 < R < R2, θ1 <
-θ < π/2 − θ1} with [R1, R2] disjoint from the band B = [4.29, 4.53]: solved inward from R2 to a when R2 < 4.29, outward
-from R1 to b(τ0) when R1 > 4.53 (the split is hyperbolic on those intervals, R1). Existence on the whole interval:
-Theorem K's Cauchy stability [R7: Theorem K′, FAMILIES5-R6 section 5] around the background, which solves the
-system there ([Rac16] Theorem 4.3 is local in existence only); the constraints hold identically ([Rac16] p. 12: the system and (4.17) are the constraints); the
-support widens by Δ(R) = ∫c dR + O(ε) (finite speed). **Perturbations meeting B** are posed on the outgoing cone N
-(B6: exact localisation, any amplitude) [R6: the localisation holds for any amplitude; carrying the
-cone data to Σ_τ0 is Cauchy stability and needs small data], evolved by the characteristic problem ([Wu26] Theorem
-2.1, READ in the record)
-to Σ_τ0, where they are supported in the band widened by the angular light-cone spread, R|dΩ/dτ| ≤ 1 (augment5 S7).
+**Proposition L (amended [R5]).** [R7 (the round-6 verifier's m6): superseded by FAMILIES5-R6 Theorem L″, which has no
+radial restriction.] As FAMILIES5-AXIS Proposition L, for a perturbation supported in {R1 < R < R2, θ1 < θ < π/2 − θ1}
+with [R1, R2] disjoint from the band B = [4.29, 4.53]: solved inward from R2 to a when R2 < 4.29, outward from R1 to
+b(τ0) when R1 > 4.53 (the split is hyperbolic on those intervals, R1). Existence on the whole interval: Theorem K's
+Cauchy stability [R7: Theorem K′, FAMILIES5-R6 section 5] around the background, which solves the system there ([Rac16]
+Theorem 4.3 is local in existence only); the constraints hold identically ([Rac16] p. 12: the system and (4.17) are the
+constraints); the support widens by Δ(R) = ∫c dR + O(ε) (finite speed). **Perturbations meeting B** are posed on the
+outgoing cone N (B6: exact localisation, any amplitude) [R6: the localisation holds for any amplitude; carrying the cone
+data to Σ_τ0 is Cauchy stability and needs small data], evolved by the characteristic problem ([Wu26] Theorem 2.1, READ
+in the record) to Σ_τ0, where they are supported in the band widened by the angular light-cone spread, R|dΩ/dτ| ≤ 1
+(augment5 S7).
 
 ## 4. (b) Exact compact support (READ; computed: racglobal5 R3, R4)
 

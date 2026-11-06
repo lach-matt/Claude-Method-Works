@@ -847,13 +847,14 @@ def check_d1_d2():
     return F0, first
 
 
-DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean: a coefficient of lam^2 or higher
-  reaches order 1 only through one fast derivative lam^-1 d_s (gamma's lam^2 terms in Gamma; K's lam^2 terms in div K
-  and d tr K), and is then multiplied by an order-0 factor; the order-0 parts of gamma^-1 are g0's (not oscillating),
-  so these terms are d_s of something times a non-oscillating factor, of mean zero. A lam^3 term (gh_3) reaches order 1
-  only through d_s^2 in gamma^-1 d^2 gamma, again against g0^-1: mean zero; lam^2 means (m_2, phi_2) carry no fast
-  derivative and stay at order 2. gamma^-1 is kept to lam^2 since it meets the lam^-1 of d_s^2 (lam W); gh_2 (lam^2,
-  oscillating) is kept. The order-1 oscillating parts are incomplete and are not used."""
+DOC = """  DOC (deduced) Why the truncation at k = 1 gives the complete order-1 mean. Every intermediate series but
+  gamma^-1 is cut at lam^1. A dropped lam^2 coefficient (of Gamma, of K or of tr K) reaches order 1 only through one fast
+  derivative lam^-1 d_s (in D Gamma, D K, D tr K), and is multiplied there by gamma^-1's order-0 part, which is g0's
+  (not oscillating), or by nothing: d_s of something times a non-oscillating factor, of mean zero. The data are kept to
+  the order that reaches lam^1: gamma^-1 to lam^2 (it meets the lam^-1 of d_s^2 (lam W)) and gh_2 at lam^2 (one fast
+  derivative brings it to order 1 against the oscillating d_s W). gh_3 (lam^3) reaches order 1 only through d_s^2 in
+  gamma^-1 d^2 gamma, against g0^-1: mean zero; m_2 and d_tau phi_2 carry no fast derivative there and stay at order 2.
+  The order-1 oscillating parts are incomplete and are not used."""
 
 
 def check_d3_d4(F0):
