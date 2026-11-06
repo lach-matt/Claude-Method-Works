@@ -41,8 +41,10 @@ that they exist.
 
 Run: python3 checks/scrirad5.py   (about a minute)
 """
+import math
 import random
 import sys
+import textwrap
 from fractions import Fraction as Fr
 
 import sympy as sp
@@ -87,6 +89,22 @@ def prove(kappa=1, sign_tr=-1, decay=True, t1=True):
     s.add(e > -HALF)
     res = s.check()
     return res == z3.unsat, res
+
+
+def refuted(**kw):
+    """a control: True iff z3 finds a counterexample (sat), not merely fails to prove"""
+    return prove(**kw)[1] == z3.sat
+
+
+def past_directed():
+    """alpha(V) > 0 for V = t d_t + r d_r = t_* d_t* + r d_r: A t_* + (B + 1/r) r > 0 (z3: the negation is unsat)"""
+    v = variables()
+    rho, x, t, l, r, w = (v[k] for k in ("rho", "x", "t", "l", "r", "w"))
+    s = z3.Solver()
+    s.add(*hyps(v))
+    s.add(r * rho == t, w * r == 1)
+    s.add((1 - (1 + l) * x) * t + (l * rho * x + w) * r <= 0)
+    return s.check() == z3.unsat
 
 
 def vacuity():
@@ -140,12 +158,12 @@ def r2():
     eps = sp.Symbol("epsilon", positive=True)
     rho = eps**2 / 4
     x = sp.sqrt(rho)                                                # l = 1/2
-    s = eps * x / rho                                               # eps x rho^-1: the rho^-1 d_r^2 coefficient times rho^-1
+    s = eps * x / rho                                               # the coefficient eps x of rho^-1 d_r^2
     Ginv = sp.Matrix([[0, -1], [-1, 1 + s]])                        # (t_*, r) block; the angular block is gbar's
     g = Ginv.inv()
     lorentz = sp.simplify(Ginv.det()) == -1
     h_tt = sp.simplify(g[0, 0] - (-1))                              # gbar_t*t* = -1
-    coeff = sp.simplify(h_tt / rho**sp.Rational(-1, 2))             # in II.C's basis: h_t*t* = c x_I^(2l-2) = c rho^(l-1)
+    coeff = sp.simplify(h_tt / rho**sp.Rational(-1, 2))             # II.C's basis: h_t*t* = c rho^(l-1)
     dt = sp.Matrix([1, 1])                                          # dt = dt_* + dr
     gdt = sp.simplify((dt.T * Ginv * dt)[0])
     l = sp.Rational(1, 2)
@@ -171,8 +189,8 @@ def r3():
     tf = lambda t, r: t * (1 - (t / r) ** l)                       # noqa: E731
     t, r = 3.0, 1.0e5
     p_tf, p_r = tf(t, r), r
-    Rp = max(RT, p_r) * __import__("math").exp(p_tf - c)
-    B0, F0 = t + r, tf(t, r) + __import__("math").log(r)
+    Rp = max(RT, p_r) * math.exp(p_tf - c)
+    B0, F0 = t + r, tf(t, r) + math.log(r)
     n = 20000
     dt_ = (t - 1.0) / n
     Bmono, Fmono, rmax = True, True, r
@@ -187,39 +205,43 @@ def r3():
         k4 = f(t - dt_, r + dt_ * k3)
         r += dt_ * (k1 + 2 * k2 + 2 * k3 + k4) / 6
         t -= dt_
-        B, F = t + r, tf(t, r) + __import__("math").log(r)
+        B, F = t + r, tf(t, r) + math.log(r)
         Bmono = Bmono and B <= Bprev + 1e-9
         Fmono = Fmono and F <= Fprev + 1e-9
         Bprev, Fprev, rmax = B, F, max(rmax, r)
     return (not Bmono) and Fmono and rmax <= Rp, (B0, Bprev, F0, Fprev, rmax, Rp)
 
 
+def say(s, indent="      "):
+    print(textwrap.fill(s, 119, subsequent_indent=indent, break_long_words=False, break_on_hyphens=False), flush=True)
+
+
 def main():
     ok = {}
     p, res = prove()
+    pdir = past_directed()
     vac = vacuity()
     enc = encoding_guard()
-    ok["R1"] = p and vac and enc
-    print("  R1: r g^-1(alpha, alpha) <= -1/2 on the hypotheses: z3 %s (negation %s); vacuity guard (hypotheses sat, "
-          "also at the coefficients' ends): %s;\n      encoding guard (the form against the matrix, 200 rational points, "
-          "exactly): %s" % ("proved" if p else "NOT proved", res, vac, enc), flush=True)
+    ok["R1"] = p and pdir and vac and enc
+    say("  R1: r g^-1(alpha, alpha) <= -1/2 on the hypotheses: z3 %s (negation %s); alpha(V) > 0: %s; vacuity guard "
+        "(hypotheses sat, also at the coefficients' ends): %s; encoding guard (the form against the matrix, 200 "
+        "rational points, exactly): %s" % ("proved" if p else "NOT proved", res, pdir, vac, enc))
     a, info = r2()
     ok["R2"] = a
-    print("  R2: witness g^-1 = gbar^-1 + eps x rho^-1 d_r^2: Lorentzian %s; h's coefficient in II.C's basis %s; at "
-          "rho = eps^2/4, g^-1(dt, dt) = %s (B not a\n      time function for any eps > 0); dt^flat_* and alpha past "
-          "timelike there (eps = 1/10, 1/1000): %s" % info, flush=True)
+    say("  R2: witness g^-1 = gbar^-1 + eps x rho^-1 d_r^2: Lorentzian %s; h's coefficient in II.C's basis %s; at "
+        "rho = eps^2/4, g^-1(dt, dt) = %s, so B is not a time function, for every eps > 0; dt^flat_* and alpha past "
+        "timelike there (eps = 1/10, 1/1000): %s" % info)
     b, info = r3()
     ok["R3"] = b
-    print("  R3: extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1 (eps = 1/10): B %.6g -> %.6g (increases "
-          "towards the past), F %.6g -> %.6g\n      (decreases), max r %.6g <= R_p = %.6g" % info, flush=True)
+    say("  R3: extreme past null curve from (t_*, r) = (3, 1e5) to t_* = 1 (eps = 1/10): B %.6g -> %.6g (increases "
+        "towards the past), F %.6g -> %.6g (decreases), max r %.6g <= R_p = %.6g" % info)
     ctl = {}
-    ctl["N1 kappa = 0"] = not prove(kappa=0)[0]
-    ctl["N2 kappa = -1"] = not prove(kappa=-1)[0]
-    ctl["N3 threshold without T_1"] = not prove(t1=False)[0]
-    ctl["N4 decay removed"] = not prove(decay=False)[0]
-    ctl["N5 gbar^-1(dt_*, dr) = +1"] = not prove(sign_tr=1)[0]
-    print("  controls (each must find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()),
-          flush=True)
+    ctl["N1 kappa = 0"] = refuted(kappa=0)
+    ctl["N2 kappa = -1"] = refuted(kappa=-1)
+    ctl["N3 threshold without T_1"] = refuted(t1=False)
+    ctl["N4 decay removed"] = refuted(decay=False)
+    ctl["N5 gbar^-1(dt_*, dr) = +1"] = refuted(sign_tr=1)
+    say("  controls (each must make z3 find a counterexample): " + "; ".join("%s %s" % (k, v) for k, v in ctl.items()))
     good = all(ok.values())
     print("R1 %s; R2 %s; R3 %s; controls %s" % tuple(["PASS" if ok[k] else "FAIL" for k in ("R1", "R2", "R3")] +
                                                      ["behave" if all(ctl.values()) else "MISBEHAVE"]), flush=True)

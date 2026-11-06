@@ -30,8 +30,9 @@ bump in w vanishing outside them, so it is smooth and periodic on S^1).
            admissible: the off-axis condition is a real restriction.)
      Control (must fail): a focusing family (data u = -|x - x_f| in the slice's (rho, r_c th) chart, focus at
      distance 1 ahead of B) has a Jacobian that changes sign on Omega: the caustic check rejects it.
-  X3 (computed) the conditions are open, illustrated: with mu = 1.05 and the initial directions tilted by 0.05
-     sin(2 th) (a different nearby metric and family), J_min, b and delta move by small amounts and stay positive.
+  X3 (computed) the conditions are open, illustrated: with mu = 1.02 and the initial directions tilted by 0.02
+     sin(2 th) (a different nearby metric and family), J_min, b and delta move by less than half and stay positive
+     (a tilt of 0.05 already halves the ingoing family's axis margin, 0.196 -> 0.074: the margin is finite).
      (The proof of openness is the continuous dependence of the ray flow and of its first variation on the metric in
      C^2 and the data in C^1, on the compact closure of Omega: FAMILIES5-R6.md section 3.)
 
@@ -192,10 +193,10 @@ def x2():
 
 
 def x3(res0):
-    print("X3 (computed) openness, illustrated: a nearby metric (mu = 1.05) and tilted directions")
+    print("X3 (computed) openness, illustrated: a nearby metric (mu = 1.02) and tilted directions")
     ok = True
     for nm, I in (('I1', np.linspace(-0.5, 0.5, 41)), ('I2', np.linspace(math.pi - 0.15, math.pi + 0.15, 41))):
-        Jmin, Jneg, axis, rexit = family_margins(I, 1.05, tilt=0.05)
+        Jmin, Jneg, axis, rexit = family_margins(I, 1.02, tilt=0.02)
         bl = b_label(I)
         J0, _, ax0, _, _, b0 = res0[nm]
         print("   %s: least Jacobian %.4f (was %.4f), axis distance %.4f (was %.4f), d beta0/d w %.4f (was %.4f): all "

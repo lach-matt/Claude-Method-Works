@@ -20,8 +20,8 @@ c = M k^-(s'') cos(k th); then ||c||_(H^s), L, ||a||_(H^(s+1)) and omega stay bo
      at every k = 2^2, ..., 2^17, for c0 = 1 and c0 = 1/100, both rows, while the low norms stay below fixed bounds; so
      no omega_0, C depending only on the low norms give LHS <= omega_0 Z + C m omega Z^(1/2).  LHS/(m^2 omega^2) stays
      of order c0: the scale of the missing term.  (The family's k-mode is stationary, -k^2 a_k = (c a)_k, so d_r Z is
-     tiny and LHS is essentially the gain c0 ||a||^2_(s''+2): it is the gain D26's right side cannot pay for.)  Control: the same family with the lower-order term removed (c = 0 in the
-     equation) does not grow (LHS <= 2 Z).
+     tiny and LHS is essentially the gain c0 ||a||^2_(s''+2): it is the gain D26's right side cannot pay for.)
+     Control: the same family with the lower-order term removed (c = 0 in the equation) does not grow (LHS <= 2 Z).
   T2 (exact) The corrected inequality holds, with the explicit constants of its proof (c0 = 1, sig := s''):
          LHS <= (2 + 2 * 4^(sig-1) L^2) Z + 2 * 4^(sig-1) m^2 omega^2,
      from LHS = -||a||^2_(sig+2) + 2 Z - 2 <a, c a>_(sig+1) <= 2 Z + ||c a||^2_sig and the product bound
@@ -30,7 +30,8 @@ c = M k^-(s'') cos(k th); then ||c||_(H^s), L, ||a||_(H^(s+1)) and omega stay bo
      48 with a high-frequency spike in c, random rational coefficients), and each of the proof's two steps separately
      at every state ((i) LHS <= 2 Z + ||c a||^2_sig, (ii) the product bound, squared).  T1 also computes d_r Z by a
      second route, Z along a + h d_r a (a quadratic in h, so the central difference is exact), and requires the two to
-     agree (on the family the k-mode is stationary, so the agreement is tested at the random states too).  Control:
+     agree (on the family the k-mode is stationary, so the agreement is tested at the random states too), and T2
+     computes the lower-order term c a (or e w) a second way, as a product of Laurent polynomials in sympy.  Control:
      the test with the term 2 * 4^(sig-1) m^2 omega^2 replaced by D26's 2 * 4^(sig-1) m omega Z^(1/2)
      fails on the family.
   T3 (computed, floating point) Proposition 6.5's induction: the extremal recursion E_(i+1)(r) = A + W (int_a^r
@@ -184,6 +185,20 @@ def steps(row, a, coef, w=None):
     return i_ok, ii_ok
 
 
+def laurent_product(f, g):
+    """f g by a second route: the two as Laurent polynomials in z = e^(i th), multiplied by sympy"""
+    import sympy as sp
+    z = sp.Symbol('z')
+    sh = max(abs(n) for n in list(f) + list(g))
+    pf = sp.Poly(sum(sp.Rational(c.numerator, c.denominator) * z**(n + sh) for n, c in f.items()), z)
+    pg = sp.Poly(sum(sp.Rational(c.numerator, c.denominator) * z**(n + sh) for n, c in g.items()), z)
+    res = {}
+    for (e,), c in (pf * pg).terms():
+        if c != 0:
+            res[e - 2 * sh] = Fr(int(c.p), int(c.q))
+    return res
+
+
 def rand_poly(rng, kmax, spike=None):
     f = {}
     for n in rng.sample(range(0, kmax + 1), 5):
@@ -208,7 +223,7 @@ def t2(control=False):
     if control:
         return fam_ok
     rng = random.Random(619)
-    rnd_ok, step_ok, route_ok, n_rnd = True, True, True, 0
+    rnd_ok, step_ok, route_ok, prod_ok, n_rnd = True, True, True, True, 0
     for k in KS:
         for row in ('c', 'e'):
             step_ok &= all(steps(row, *family_state(k, row)))
@@ -221,12 +236,16 @@ def t2(control=False):
         rnd_ok &= corrected(*state(row, a, coef, w))
         step_ok &= all(steps(row, a, coef, w))
         route_ok &= state(row, a, coef, w)[0](Fr(0)) == dZ_independent(row, a, coef, w)
+        if i < 40:
+            low = {n_: c for n_, c in rhs(row, a, coef, w)[1].items() if c != 0}
+            prod_ok &= low == laurent_product(coef, a if row == 'c' else w)
         n_rnd += 1
     out("  T2 corrected inequality LHS <= (2 + 2 4^7 L^2) Z + 2 4^7 m^2 omega^2 (c0 = 1): family (%d states, rows c and"
         " e) %s; random trigonometric polynomials (%d states) %s; the proof's two steps, (i) LHS <= 2 Z + ||c a||^2_8"
-        " and (ii) the product bound, at every state: %s; d_r Z equal to the second route's at the random states: %s"
-        % (n_fam, fam_ok, n_rnd, rnd_ok, step_ok, route_ok))
-    return fam_ok and rnd_ok and step_ok and route_ok
+        " and (ii) the product bound, at every state: %s; d_r Z equal to the second route's at the random states: %s;"
+        " the lower-order term equal to the product as Laurent polynomials (sympy, 40 states): %s"
+        % (n_fam, fam_ok, n_rnd, rnd_ok, step_ok, route_ok, prod_ok))
+    return fam_ok and rnd_ok and step_ok and route_ok and prod_ok
 
 
 def t3(control=False):

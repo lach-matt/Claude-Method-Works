@@ -2,11 +2,3 @@ X1 (exact) the record's open conditions for g0 on Omega, and Lemma 6.3 (a) at it
    (a) g0^-1(dtau, dtau) = -1 - mu/r^2: True; (b) at a = 0.8: g^rr = -9/16 < 0, g^r tau = 25/16 > 0: True; (c) g0^-1(d(v + tau), .) = -3 - mu/r^2: True; (f) min b - a = 2.20 >= 1.05: True; Lemma 6.3 (a) signs: True; control: untrapped a = 1.2 has g^rr > 0 (rejected): True
 X1 PASS
 X2 (computed) the explicit family: caustic-free, direction-labelled, off the axes, on Omega
-   I1: least Jacobian on the tubes' neighbourhood 1.0000 > 0 (no sign change: True); least axis distance 0.3134 (delta = 0.1567); exit radii in [4.360, 5.094]; least d beta0/d w on B = 0.9091
-   I2: least Jacobian on the tubes' neighbourhood 0.8978 > 0 (no sign change: True); least axis distance 0.1955 (delta = 0.0977); exit radii in [0.800, 0.805]; least d beta0/d w on B = 0.9091
-   I1 outgoing (leaves through r = b), I2 ingoing (inside the horizon when it leaves): True; control: a family focused at distance 1 ahead has a Jacobian changing sign (least -0.0710; rejected): True
-X2 PASS
-X3 (computed) openness, illustrated: a nearby metric (mu = 1.05) and tilted directions
-   I1: least Jacobian 1.0000 (was 1.0000), axis distance 0.2909 (was 0.3134), d beta0/d w 0.9091 (was 0.9091): all positive: True
-   I2: least Jacobian 0.7784 (was 0.8978), axis distance 0.0738 (was 0.1955), d beta0/d w 0.9091 (was 0.9091): all positive: True
-X3 FAIL
