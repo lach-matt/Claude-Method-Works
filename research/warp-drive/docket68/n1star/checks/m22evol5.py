@@ -52,6 +52,7 @@ import sys
 import textwrap
 import time
 
+import flint
 import mpmath
 import numpy as np
 import sympy as sp
@@ -393,8 +394,21 @@ def cheb_lobatto(N):
     return (1 - xg) / 2, -2 * Dm
 
 
-def cheb_gauss(N):
-    x = np.cos(np.pi * (np.arange(N) + 0.5) / N)
+def lobatto(N, kind='cheb'):
+    """Lobatto nodes on [0, 1] (xi_0 = 0) and the differentiation matrix: Chebyshev or Legendre-Gauss-Lobatto"""
+    if kind == 'cheb':
+        return cheb_lobatto(N)
+    inner = np.sort(np.polynomial.legendre.Legendre.basis(N - 1).deriv().roots().real)[::-1]
+    xg = np.concatenate(([1.0], inner, [-1.0]))
+    w = np.array([1 / np.prod([xg[j] - xg[k] for k in range(N) if k != j]) for j in range(N)])
+    Dm = np.array([[w[j] / w[i] / (xg[i] - xg[j]) if i != j else 0.0 for j in range(N)] for i in range(N)])
+    Dm -= np.diag(Dm.sum(axis=1))
+    return (1 - xg) / 2, -2 * Dm
+
+
+def cheb_gauss(N, kind='cheb'):
+    """Gauss nodes in x (Chebyshev or Legendre), the interpolant's d_x, d_x^2 and its values at x = 1, -1"""
+    x = np.cos(np.pi * (np.arange(N) + 0.5) / N) if kind == 'cheb' else np.polynomial.legendre.leggauss(N)[0][::-1]
     V = np.polynomial.chebyshev.chebvander(x, N - 1)
     Vi = np.linalg.inv(V)
     dV, ddV = np.zeros_like(V), np.zeros_like(V)
@@ -413,11 +427,11 @@ class Solver:
     """the closed stage-1 subsystem: m_1 (8, regular variables), pi = d_tau m_1, psi = d_r m_1, phi_1, and gh_2's
     first harmonic in (r th, th th, phi1 phi1, phi2 phi2), on r in [rho(tau), vout - tau]"""
 
-    def __init__(self, Nr, Nx, system, env, vout=3.0, src_sign=1.0, gcouple=1.0, axis_fix=False):
+    def __init__(self, Nr, Nx, system, env, vout=3.0, src_sign=1.0, gcouple=1.0, axis_fix=False, nodes='cheb'):
         self.Nr, self.Nx, self.vout, self.src_sign, self.gcouple = Nr, Nx, vout, src_sign, gcouple
         self.axis_fix = axis_fix
-        self.xi, self.Dxi = cheb_lobatto(Nr)
-        self.x, self.Dx, self.Dxx, self.ep, self.em = cheb_gauss(Nx)
+        self.xi, self.Dxi = lobatto(Nr, nodes)
+        self.x, self.Dx, self.Dxx, self.ep, self.em = cheb_gauss(Nx, nodes)
         self.th = np.arccos(self.x) / 2
         self.s2 = np.sqrt(1 - self.x ** 2)
         self.S2, self.C2 = (1 - self.x) / 2, (1 + self.x) / 2
@@ -702,9 +716,52 @@ def rk4(Sv, state, cfl, tend=TAU_STAR, hook=None):
     return state, tau, len(steps)
 
 
-def m22(Sv, state):
+def m22(Sv, state, sign=-1.0):
     m = state[0]
-    return float(((m[5][0] - m[7][0]) @ Sv.ep) / Sv.a ** 2)        # (T - B)(r = a, x = 1)/a^2: p1 = C^2 (T - C^2 B)
+    return float(((m[5][0] + sign * m[7][0]) @ Sv.ep) / Sv.a ** 2)  # (T - B)(r = a, x = 1)/a^2: p1 = C^2 (T - C^2 B)
+
+
+def m22_coord(Sv, state):
+    """the same number read from the coordinate component h_p1/(r C)^2, interpolated to the axis x = 1"""
+    mval, _, _ = Sv.coord(state[0], state[4])
+    return float((mval['p1'][0] / Sv.C2) @ Sv.ep / Sv.a ** 2)
+
+
+def mean_gauge(Sv, mfun, state, tau):
+    """the harmonic-0 part of D^(1), lowered (N3b): its relative size max|Z| / max(sum of |terms|)"""
+    m, pi, psi, phi, G = state
+    r1, L, _ = Sv.grid(tau)
+    args, rr = Sv.args(tau, r1)
+    J = {}
+    for nm in NM:
+        val, ut, _ = Sv.pjets(Sv.FT[nm], m)
+        ur, _, _ = Sv.pjets(Sv.FT[nm], psi)
+        pv, _, _ = Sv.pjets(Sv.FT[nm], pi)
+        J[nm] = {(0, 0, 0): val, (1, 0, 0): pv, (0, 1, 0): ur - pv, (0, 0, 1): ut}
+    phr = Sv.dr(phi, L)
+    pht, _ = Sv.theta_even(phi)
+    PH = {(0, 0, 0): phi, (1, 0, 0): phr - J['rr'][(0, 0, 0)] / 2, (0, 1, 0): J['rr'][(0, 0, 0)] / 2, (0, 0, 1): pht}
+    _, Gv, _ = Sv.coord(m, G)
+    Gv = dict(Gv, rr=0 * G[0])
+    rel = 0.0
+    for b, (ks, f) in mfun.items():
+        vals = f(*args)
+        tot = np.broadcast_to(np.asarray(vals[-1], dtype=complex), rr.shape).copy()
+        scale = np.abs(tot).copy()
+        for (fname, jet), c in zip(ks, vals[:-1]):
+            c = np.broadcast_to(np.asarray(c, dtype=complex), rr.shape)
+            if fname.startswith('m_'):
+                term = c * J[fname[2:]][jet]
+            elif fname == 'phi':
+                term = c * PH[jet]
+            elif fname[:4] in ('Gp1_', 'Gm1_') and jet == (0, 0, 0):
+                term = c * (Gv[fname[4:]] if fname[:4] == 'Gp1_' else np.conj(Gv[fname[4:]]))
+            else:
+                raise KeyError((fname, jet))
+            tot, scale = tot + term, scale + np.abs(term)
+        if np.max(scale) > 0:
+            rel = max(rel, float(np.max(np.abs(tot)) / np.max(scale)))
+    return rel
 
 
 def gauge_residual(Sv, gfun, state, tau):
@@ -743,13 +800,13 @@ def load_gauge(gres):
     return gfun
 
 
-def gauge_system(low, unk):
+def gauge_system(low, unk, n=1, comps=range(3)):
     m1, G, phi = unk
     names = set(f.func.__name__ for f in list(m1.values()) + list(G.values()) + [phi])
     gres = {}
-    for b in range(3):
-        coef, rest = linear_coeffs(low[b].get((1, 1, 1), 0), names)
-        gres[b] = dict(coef=coef, src=plainify(sp.expand(low[b].get((1, 1, 0), 0))), rest=rest)
+    for b in comps:
+        coef, rest = linear_coeffs(low[b].get((1, n, 1), 0), names)
+        gres[b] = dict(coef=coef, src=plainify(sp.expand(low[b].get((1, n, 0), 0))), rest=rest)
     return gres
 
 
@@ -835,6 +892,18 @@ def check_s3(res):
           'but r r: %s; so (m_1, phi_1, those four) is closed: %s %s' % (c1, c2, c3, OK['S3'], el()))
 
 
+def check_s4b(mres):
+    keys = {k for d in mres.values() for k in d['coef']}
+    only_m = all(fn.startswith('m_') and sum(j) <= 1 for fn, j in keys)
+    nosrc = all(d['src'] == 0 for d in mres.values())
+    rest = all(d['rest'] == 0 for d in mres.values())
+    live = sorted(b for b, d in mres.items() if d['coef'])
+    OK['S4b'] = only_m and nosrc and rest and live == [0, 1, 2]
+    print('  S4b: the harmonic-0 part of D^(1) (lowered) is linear in m_1 and its first derivatives alone (no phi_1, no '
+          'gh_2): %s, with no known source: %s; its v, r and th components are live and the phi components vanish: %s: '
+          '%s %s' % (only_m, nosrc, live == [0, 1, 2], OK['S4b'], el()))
+
+
 def check_s4(gres):
     ok_keys = all(fn.startswith('Gp1_') and j == (0, 0, 0) or fn.startswith('m_') and j == (0, 0, 0)
                   or (fn, j) == ('phi', (0, 0, 1)) for d in gres.values() for (fn, j) in d['coef'])
@@ -854,18 +923,87 @@ RUNS = [(24, 12, 1.0), (32, 12, 1.0), (40, 12, 1.0), (48, 12, 1.0), (32, 12, 0.5
 BEST = (48, 16, 1.0)
 K43, BFRO = 12.593309, 16.127552                  # (4/3) K and B^(1/2), certified lower ends (READ, R8.2, R7.0)
 LAM = {'operator norm': 0.0024433, 'Frobenius': 0.0019079, 'largest entry': 0.0012228}   # certified (READ)
+S0_HI, EPS_ENT = 0.030768560, 0.0153989          # eps1 < s0 <= S0_HI (lzerotrace5 T7); largest entry (r6fixes5 F1)
+NODES2 = (40, 16, 0.5)                              # the second discretisation (Legendre nodes), for the pin N4
 
 
-def solve(funcs, gfun, env, fode, Nr, Nx, cfl, g_data=True, **kw):
+def solve(funcs, gfun, mfun, env, fode, Nr, Nx, cfl, g_data=True, **kw):
     t1 = time.time()
     Sv = Solver(Nr, Nx, funcs, env, **kw)
     st = cauchy_data(Sv, fode, g_data=g_data)
     gz = [(TAU0, gauge_residual(Sv, gfun, st, TAU0))]
+    mg = [mean_gauge(Sv, mfun, st, TAU0)]
+
+    def hook(t, s_):
+        gz.append((t, gauge_residual(Sv, gfun, s_, t)))
+        mg.append(mean_gauge(Sv, mfun, s_, t))
     with np.errstate(all='ignore'):
-        st, tau, n = rk4(Sv, st, cfl, hook=lambda t, s: gz.append((t, gauge_residual(Sv, gfun, s, t))))
+        st, tau, n = rk4(Sv, st, cfl, hook=hook)
         gz.append((tau, gauge_residual(Sv, gfun, st, tau)))
-        val = m22(Sv, st)
-    return dict(M22=val, steps=n, gauge=gz, secs=time.time() - t1)
+        mg.append(mean_gauge(Sv, mfun, st, tau))
+        val, valc, valw = m22(Sv, st), m22_coord(Sv, st), m22(Sv, st, sign=1.0)
+    return dict(M22=val, M22c=valc, M22w=valw, steps=n, gauge=gz, mg=mg, secs=time.time() - t1)
+
+
+def ceil7(x):
+    return math.ceil(x * 1e7 - 1e-9) / 1e7
+
+
+def lower_order_sizes(funcs, env):
+    """R1: the mean equations' lower-order coefficients, normalised by the d_tau^2 coefficient, at th = pi/4 (clear of
+    the axis's coordinate factors) over X*'s past: row sums of |first-order| (the th-derivative per unit length),
+    |zero-order| and |gh_2 coupling|, maximised over r and the eight equations"""
+    Sv = Solver(24, 12, funcs, env)
+    t = sp.Symbol('t')
+    Hs = (sp.cos(t) ** 4 + sp.sin(t) ** 4) ** sp.Rational(-1, 2)
+    Hq = [float(sp.diff(Hs, t, k).subs(t, sp.pi / 4)) for k in range(3)]
+    taus = np.linspace(TAU0, TAU_STAR, 81)
+    rows = []
+    for tau in taus:
+        r1, L, _ = Sv.grid(tau)
+        rr = np.linspace(r1[0], r1[-1], 200)
+        vv = tau + rr
+        Ev = [env[0](vv, k) for k in range(3)]
+        one = np.ones_like(rr)
+        args = (vv, rr, np.pi / 4 * one, Ev[0], Ev[1], Ev[2], env[1](vv), 2 / 9 * Ev[0] ** 2, 4 / 9 * Ev[0] * Ev[1],
+                Hq[0] * one, Hq[1] * one, Hq[2] * one)
+        k1, k0, kg = (np.zeros_like(rr) for _ in range(3))
+        for key, (ks, f) in funcs.items():
+            if key[0] != 'm':
+                continue
+            vals = [np.broadcast_to(np.asarray(q, dtype=complex), rr.shape) for q in f(*args)]
+            al = sum(c * (-1 if j == (1, 1, 0) else 1) for (fn, j), c in zip(ks, vals[:-1])
+                     if fn == 'm_' + key[1] and j in ((2, 0, 0), (0, 2, 0), (1, 1, 0)))
+            s1, s0, sg = (np.zeros_like(rr) for _ in range(3))
+            for (fn, j), c in zip(ks, vals[:-1]):
+                a_ = np.abs(c / al)
+                if fn.startswith('m_') and sum(j) == 1:
+                    s1 += a_ * (rr if j == (0, 0, 1) else 1)
+                elif fn.startswith('m_') and sum(j) == 0:
+                    s0 += a_
+                elif fn[0] == 'G':
+                    sg += a_
+            k1, k0, kg = np.maximum(k1, s1), np.maximum(k0, s0), np.maximum(kg, sg)
+        rows.append((tau, k1.max(), k0.max(), kg.max()))
+    return np.array(rows)
+
+
+def arb_cost(res, nbox=200):
+    """R2: seconds per space-time box to evaluate every coefficient function of the closed system in Arb balls
+    (python-flint; the complex unit replaced by 1, for timing only)"""
+    ns = {'sin': lambda x: x.sin(), 'cos': lambda x: x.cos(), 'sqrt': lambda x: x.sqrt(), 'exp': lambda x: x.exp(),
+          'pi': flint.arb.pi()}
+    fs, nexpr = [], 0
+    for d in [res[(nm, 0)] for nm in NM] + [res[(nm, 1)] for nm in GC]:
+        ex = [sp.expand(q.subs(A, 1)).subs(I, 1) for q in list(d['coef'].values()) + [d['src']]]
+        nexpr += len(ex)
+        fs.append(sp.lambdify(SYMS, ex, modules=[ns]))
+    box = [flint.arb(1.005, 0.005), flint.arb(0.505, 0.005), flint.arb(0.71, 0.01)] + [flint.arb(0.905, 0.005)] * 9
+    t0 = time.time()
+    for _ in range(nbox):
+        for f in fs:
+            f(*box)
+    return (time.time() - t0) / nbox, nexpr
 
 
 def grel(g):
@@ -898,10 +1036,8 @@ def chain_at_xstar(M, c, off=False):
 
 
 def lam_of(M):
-    op = LAM['operator norm'] * K43 / (K43 + abs(M))
-    fro = LAM['Frobenius'] * BFRO / math.sqrt(BFRO ** 2 + M ** 2)
-    ent = LAM['largest entry'] * K43 / (K43 + abs(M))
-    return op, fro, ent
+    """the three bounds from the unrounded chain (eps1 / C_app), rounded up to seven decimals"""
+    return (ceil7(S0_HI / (K43 + abs(M))), ceil7(S0_HI / math.sqrt(BFRO ** 2 + M ** 2)), ceil7(EPS_ENT / (K43 + abs(M))))
 
 
 def main():
