@@ -52,7 +52,8 @@ above 3): all rational (dweights5.weights and counts, imported).
   Negative controls (each mutates the computed path; each must fail): C1 a level planted at 3.5099 (R6 finds it);
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
-  sums appear); C5 a root planted at a value w takes (R4's margin is 0).
+  sums appear); C5 a root planted at a value w takes (R4's margin is 0); C6 the value 15/64 planted among the values
+  2 - alpha (R7 finds the hit).
 
     python3 checks/rootavoid5.py [--selftest]      (a few minutes; --selftest skips the R6 margin enumeration)
 """
@@ -597,11 +598,11 @@ def main(selftest=False):
     print('  R7 (exact): Proposition 5.1\'s hypothesis read for every j and every root: 2 - alpha + j is rational and '
           'never an integer, so it can meet only a non-integer rational root. R2 found none for box^Ups (every l), the '
           'physical factors, box^C at s0, s1 and the vector type (every l). The scalar sextic, scaled to integer '
-          'coefficients (lcm %s), is -64 lam^6 + %d lam^5 + ... with that coefficient odd and free of kappa: a rational '
+          'coefficients (lcm %s), is -64 lam^6 %+d lam^5 + ... with that coefficient odd and free of kappa: a rational '
           'root, at any l, is an integer or has fractional part %s exactly (rational root theorem and 2-adic '
           'valuations), so -mu = 1 - lam_C has fractional part 0 or %s. The values 2 - alpha in (1/64) Z that occur: %s '
-          '(3 - tau_i at I9, i <= %d; 2 - tau_i at I14 and the top levels, i <= %d: none); delta = %s, below 1/64. None '
-          'equals %s: %s' % (
+          '(3 - tau_i at I9, i <= %d; 2 - tau_i at I14 and the top levels, i <= %d: none); delta = %s, '
+          'below 1/64. None equals %s: %s' % (
               R7['den'], R7['c5'], R7['frac'], 1 - R7['frac'],
               ['%s = %s at i = %d' % (nm, v, i) for nm, i, v in R7['vals']], R7['imax2'], R7['imax3'],
               ', '.join('%.4e' % float(d) for d in R7['deltas']), 1 - R7['frac'], OK['R7']))
@@ -638,6 +639,10 @@ def main(selftest=False):
     OK['C5'] = R4c['margins'].get('d0') == 0
     print('  C5 (control): a root planted at w = %s (a value w takes): R4\'s margin %s: %s' % (
         wval, R4c['margins'].get('d0'), OK['C5']))
+    R7['vals'].append(('planted', 0, 1 - R7['frac']))
+    OK['C6'] = any((1 - v) % 1 == R7['frac'] for _n, _i, v in R7['vals'])
+    print('  C6 (control): the value 2 - alpha = %s planted among R7\'s values: R7\'s test finds the hit: %s' % (
+        1 - R7['frac'], OK['C6']))
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     builtins.print('%d/%d (%.0f s)' % (sum(OK.values()), len(OK), time.time() - t0))

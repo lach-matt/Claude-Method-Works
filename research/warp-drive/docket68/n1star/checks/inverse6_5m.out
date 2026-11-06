@@ -39,3 +39,29 @@
   M6 every master operator of III.D (M2)-(M4) and of III.F'' Theorem 2.2, every l in its range (l = 0 of V_0 by E2-PILOT
       3g): ||chi_I R(sigma) chi_I|| <= max(the rows) = 95.35, 246.2, 574.6, 1739 at sigma = 0+, 1, 3, 10, and at every
       real sigma != 0 by B(sigma), increasing in |sigma|
+  M7 (deduced; the identities rerun: modes5 M2, M3 and gmodes5 G1: True) on I x S^3 with r^3 dr dw and the static frame's
+      pointwise norm, ||u||_I = c^(1/2) (int_I f |Phi|^2 dr_*)^(1/2) and ||G||_I <= (max_I f)^(1/2) ||F||_I/c^(1/2)
+      (pointwise identities exact: True), max_I f = 15/16; so, Phi being the outgoing solution (the class of III.D
+      Proposition 6.2 and III.F'' Proposition 3.1): ||chi_I box-hat(sigma)^-1 chi_I|| <= (15/16) B on functions
+      (E2-PILOT's B) and on the vector-type 1-form blocks (V_1: l = 1 21.39, 40.39, 90.14, 272.7, l >= 2 13.12, 20.11,
+      41.30, 122.7), and ||chi_I (2 L-hat_b0(sigma))^-1 chi_I|| <= (15/16) B_T on the tensor-type blocks (l >= 2 13.12,
+      20.11, 41.30, 122.7), at sigma = 0+, 1, 3, 10
+  C1 (control): family C's multiplier centred at r_*(2^(1/2)) + 1/2: -phi U' at r = 1.45 <= -0.005476 < 0, the
+      monotonicity in a fails: True
+  C2 (control): V_V at l = 1 with phi_A: the bisection fails (True) and w <= -0.3617 at t = [-3.4975, -3.4975]: True
+  C3 (control): the V_S majorant from l = 3 (eps <= 1/12) with phi_C: W_S <= -0.1777 at t = [-3.83, -3.83]: True
+  C4 (control): family B with s_L = 3/2: 1/s_L - 1 = [-0.3333, -0.3333] < 0, the left tail bound grows toward the
+      horizon: True
+  (118 s)
+M0 PASS
+M1 PASS
+M2 PASS
+M3 PASS
+M4 PASS
+M5 PASS
+M6 PASS
+M7 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
