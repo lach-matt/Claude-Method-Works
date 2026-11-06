@@ -11,9 +11,9 @@ findings that are not measured on the full operator (those are in r5op5.py and c
     4J - 13 + n + m for J >= 4 (so R3.1's stated bound holds a fortiori). Control (the code mutated: no trade): the
     explicit monomials' order grows with m_max (no bound exists).
   B (exact; round 3 m5, nit s > 2) K*(a, 8, M, k0) of Lemma R3.2 with s := max(5/2, (2M + 1)/(7 - 2a)) and
-    M = 27 + 2 k0 grows quadratically in k0 (a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20; K*/k0^2 converges
-    to a positive limit), and with R5's M = 17 + 2 k0 too. Control (the code mutated: s held fixed, not growing with
-    M): K*/k0^2 falls like 1/k0 (K* linear).
+    M = 27 + 2 k0 is quadratic in k0 (a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20; for k0 >= 400 the second
+    differences are those of the quadratic s (a + k0), s = (2M + 1)/(7 - 2a)), and with R5's M = 17 + 2 k0 too.
+    Control (the code mutated: s held fixed, not growing with M): the second differences vanish (K* linear).
   C (exact; round 3 P8c-P8d) the interpolation optimum recomputed: the lam-exponent of L sigma^-(k-4)
     (lam^(K-3) + lam^-M sigma^(J'-3)) at sigma = lam^beta, maximised over beta on an exact grid, equals
     (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3), and beta* > 1 (sigma in the far region) exactly when
@@ -208,24 +208,25 @@ def part_b():
     print("B  K* of Lemma R3.2 as a function of k0 (round 3, m5)")
     a = Fr(11, 4)
     ks = [kstar(a, 8, 27 + 2*k0, k0)[1] for k0 in (0, 10, 20)]
-    big = [kstar(a, 8, 27 + 2*k0, k0)[1]/k0**2 for k0 in (100, 200, 400, 800)]
-    conv = abs(big[-1] - big[-2]) < Fr(1, 50)*big[-1] and big[-1] > 1
-    check("B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and K*/k0^2 converges to a positive "
-          "limit (k0 = 100..800): K* grows quadratically in k0 (a maximum of quadratics), not linearly",
-          ks == [116, Fr(1643, 2), Fr(4143, 2)] and conv, f"{[str(x) for x in ks]}, K*/k0^2: "
-          f"{[round(float(x), 3) for x in big]}")
-    big2 = [kstar(a, 8, 17 + 2*k0, k0)[1]/k0**2 for k0 in (100, 200, 400, 800)]
+    def d2(M0, k0s, **kw):
+        v = [kstar(a, 8, M0 + 2*k0, k0, **kw)[1] for k0 in k0s]
+        return [v[i + 2] - 2*v[i + 1] + v[i] for i in range(len(v) - 2)]
+    lead = Fr(4)/(7 - 2*a)  # the slope of s = (2M + 1)/(7 - 2a) in k0, M = M0 + 2 k0
+    big = d2(27, (400, 500, 600, 700))
+    check("B1 M = 27 + 2 k0, a = 11/4: K* = 116, 821.5, 2071.5 at k0 = 0, 10, 20, and for k0 >= 400 the second "
+          "differences (step 100) are constant, 2 (4/(7 - 2a)) 100^2 = 160000/3: K* is quadratic in k0, not linear",
+          ks == [116, Fr(1643, 2), Fr(4143, 2)] and big[0] == big[1] == 2*lead*100**2,
+          f"{[str(x) for x in ks]}, second differences {[str(x) for x in big]}")
     ks2 = [kstar(a, 8, 17 + 2*k0, k0)[1] for k0 in (0, 10, 20)]
-    check("B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too, and smaller at every k0 sampled",
-          abs(big2[-1] - big2[-2]) < Fr(1, 50)*big2[-1] and all(x < y for x, y in zip(ks2, ks)),
-          f"{[str(x) for x in ks2]}")
+    big2 = d2(17, (400, 500, 600, 700))
+    check("B2 with R5's M = 17 + 2 k0 (B_8 = 15): quadratic too (the same second differences), and smaller",
+          big2[0] == big2[1] == 2*lead*100**2 and all(x < y for x, y in zip(ks2, ks)), f"{[str(x) for x in ks2]}")
     s_old = [kstar(a, 8, 27 + 2*k0, k0, smin=Fr(2))[1] for k0 in (0, 10, 20)]
     check("B3 the nit s > 2: s := max(5/2, ...) leaves K* unchanged wherever (2M + 1)/(7 - 2a) > 5/2 (here)",
           s_old == ks)
-    kl = [kstar(a, 8, 27 + 2*k0, k0, sfixed=Fr(37))[1]/k0**2 for k0 in (100, 200, 400, 800)]
-    check("B4 control (the code mutated: s held fixed at 37): K*/k0^2 falls like 1/k0 (K* linear), so the quadratic "
-          "term is s's growth with M", all(kl[i + 1] < Fr(11, 20)*kl[i] for i in range(3)),
-          str([round(float(x), 4) for x in kl]))
+    kl = d2(27, (400, 500, 600, 700), sfixed=Fr(37))
+    check("B4 control (the code mutated: s held fixed at 37): the second differences vanish (K* linear), so the "
+          "quadratic term is s's growth with M", kl == [0, 0], str([str(x) for x in kl]))
 
 
 # ================================================================ C: the interpolation optimum

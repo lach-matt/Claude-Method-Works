@@ -11,7 +11,8 @@ the invariance of the continuation (both verifiers' m4). Machinery: f1lemma5.py'
      coefficient of decay q gives the kernel exponent q, a zero-order one q - 1 (through the Hardy inequality), the
      principal-part difference |g^-1 - g_b0^-1| (decay 2, measured from H) the second-order row's 2: all > 1.
      Control (H mutated to r^-2 (1 + sin(v)/2) P, a profile in v that is not self-similar): the H-coefficients decay
-     like r^-2 and the zero-order kernel exponent drops to 1, not integrable: the test fails.
+     like r^-2 (largest values over eight phases) and the zero-order kernel exponent drops to 1, not integrable: the
+     test fails.
   O2 (computed, 40 digits) the degrees of P(g_b0 + Sigma_p) from the operator, for the regular flat solutions of
      degree -p, Sigma_p = r^-p F_p(s) P with F_p = 2F1(p, p - 2; p - 1/2; s/2) (l = 0 in every Cartesian component;
      F_2 = 1): the fitted decay of |P| is 6 for p = 2 (mu Sigma_2 and Sigma_2 Sigma_2: what Sigma_4 must cancel) and
@@ -66,18 +67,24 @@ def fit(vals):
     return [float(mp.log(vals[i - 1]/vals[i])/mp.log(4)) for i in range(1, len(vals))]
 
 
-def coeffs(Jh_s, J0_s, rnd_seed=5):
+def coeffs(Jh_s, J0_s, rnd_seed=5, phases=1):
+    """the coefficient sizes at the ray points; with phases > 1 the largest value over t-shifts of 2 pi j/phases
+    (for a profile oscillating in v)"""
     rnd = random.Random(rnd_seed)
     K0, K1 = F.symmat(rnd), F.symmat(rnd)
     B0, C0, BH, CH = [], [], [], []
     for r in RAYS:
-        X = ray_point(r)
-        Jh, J0 = Jh_s.at(X, 0), J0_s.at(X, 0)
-        b0 = max(mp.mnorm(F.DF1(J0, J0, F.test_field("grad", K1, c)), 1) for c in (0, 1, 2))
-        bh = max(mp.mnorm(F.DF1(Jh, J0, F.test_field("grad", K1, c)) - F.DF1(J0, J0, F.test_field("grad", K1, c)), 1)
-                 for c in (0, 1, 2))
-        c0 = mp.mnorm(F.DF1(J0, J0, F.test_field("val", K0)), 1)
-        ch = mp.mnorm(F.DF1(Jh, J0, F.test_field("val", K0)) - F.DF1(J0, J0, F.test_field("val", K0)), 1)
+        b0 = c0 = bh = ch = mp.mpf(0)
+        for j in range(phases):
+            X = ray_point(r)
+            X[0] += 2*mp.pi*j/phases
+            Jh, J0 = Jh_s.at(X, 0), J0_s.at(X, 0)
+            gr0 = [F.DF1(J0, J0, F.test_field("grad", K1, c)) for c in (0, 1, 2)]
+            b0 = max(b0, max(mp.mnorm(g, 1) for g in gr0))
+            bh = max(bh, max(mp.mnorm(F.DF1(Jh, J0, F.test_field("grad", K1, c)) - gr0[c], 1) for c in (0, 1, 2)))
+            v0 = F.DF1(J0, J0, F.test_field("val", K0))
+            c0 = max(c0, mp.mnorm(v0, 1))
+            ch = max(ch, mp.mnorm(F.DF1(Jh, J0, F.test_field("val", K0)) - v0, 1))
         B0.append(b0)
         C0.append(c0)
         BH.append(bh)
@@ -93,8 +100,8 @@ def o1():
     H = RR**-2*(1 + S + S**2/3)*P_*sp.Rational(3, 10)
     Hm = RR**-2*(1 + sp.sin(t + RR)/2)*P_*sp.Rational(3, 10)
     out = {}
-    for name, HH in (("ss", H), ("mut", Hm)):
-        out[name] = coeffs(F.Jets(G0 + HH), J0_s)
+    for name, HH, ph in (("ss", H, 1), ("mut", Hm, 8)):
+        out[name] = coeffs(F.Jets(G0 + HH), J0_s, phases=ph)
     b0, c0, bh, ch = out["ss"]
     tail = lambda s: s[-1]
     meas = [tail(b0), tail(c0), tail(bh), tail(ch)]
