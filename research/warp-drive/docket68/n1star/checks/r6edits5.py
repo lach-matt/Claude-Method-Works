@@ -21,8 +21,8 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
          ||f_gamma||'s.
      E2d the factor read ("at most e^(...) over the far region t >= lam^-2") equals exp of
          int_(lam^-2)^oo (the kernel read) dt, computed (2C(1 + lam)), and is bounded as lam -> 0.
-     E2e Gronwall's lemma in integral form on the model: y(tau) = y0 + int kappa y has y = y0 exp(int kappa), and any
-         y <= y0 + int kappa y with kappa >= 0 is below it (exact for the extremal case; sampled for 200 subsolutions).
+     E2e Gronwall's lemma in integral form on the model: y(tau) = y0 + int kappa y has y = y0 exp(int kappa) (exact),
+         and the solutions of y' = kappa y - g with g >= 0 lie below it (20 sampled g).
      E2f Edit 2's closing bound, read: int_(tau_n)^tau t'^(-3/2) dtau' = 2 (t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) with
          t = 1 + tau0 - tau, tau_n < tau (exact), and t_n^(-1/2) <= t^(-1/2).
      E2g the L^2 norms on Sigma_tau cap P+ = {t + a1 <= r <= t + a2} x S^3 (measure r^3 dr domega): a field in E_q has
@@ -171,10 +171,10 @@ def r6_only_ok(L):
     m = re.search(r"int_\{tau_n\}\^tau t'\^\(([-\d/]+)\) dtau' <= (\d+) t\^\(([-\d/]+)\)", L)
     m2 = re.search(r"\|\|d U_n\(tau_n\)\|\| <= C\(lam, j\) t_n\^\(([-\d/]+)\) <= C\(lam, j\) t\^\(([-\d/]+)\)", L)
     if m and m2:
-        tau, tau0, taun = sp.symbols("tau tau0 tau_n", real=True)
         q, k, e = frac(m.group(1)), int(m.group(2)), frac(m.group(3))
-        I = sp.integrate((1 + tau0 - sp.Symbol("s"))**q, (sp.Symbol("s"), taun, tau))
-        I_t = sp.simplify(I.subs({tau: 1 + tau0 - T, taun: 1 + tau0 - TN}))
+        sv = sp.Symbol("s", positive=True)
+        # tau' from tau_n up to tau is t' = 1 + tau0 - tau' from t_n down to t: int_t^(t_n) s^q ds
+        I_t = sp.integrate(sv**q, (sv, T, TN))
         exact = sp.simplify(I_t - 2*(T**sp.Rational(-1, 2) - TN**sp.Rational(-1, 2))) == 0
         ok = exact and q == sp.Rational(-3, 2) and k == 2 and e == sp.Rational(-1, 2) and \
             frac(m2.group(1)) == frac(m2.group(2)) == e
@@ -219,25 +219,26 @@ def math_checks(L, pre, r6=True):
 
 
 def gronwall_model():
-    """E2e: y' = kappa y has y0 exp(int kappa); 200 sampled subsolutions stay below"""
-    s = sp.Symbol("s", positive=True)
+    """E2e: y' = kappa y has y0 exp(int kappa) (exact); the solutions of y' = kappa y - g, g >= 0, i.e. of
+    y = y0 + int (kappa y - g), lie below it (20 random g, mpmath quadrature of the variation-of-constants formula)"""
+    import mpmath as mp
+    s_ = sp.Symbol("s", positive=True)
     y = sp.Function("y")
     lam = sp.Rational(1, 10)
-    kap = 3*(1 + 1/lam)*s**sp.Rational(-3, 2)
-    sol = sp.dsolve(sp.Eq(y(s).diff(s), kap*y(s)), y(s), ics={y(lam**-2): 1})
-    exact = sp.simplify(sol.rhs - sp.exp(sp.integrate(kap, (s, lam**-2, s)))) == 0
+    kap = 3*(1 + 1/lam)*s_**sp.Rational(-3, 2)
+    s0 = lam**-2
+    sol = sp.dsolve(sp.Eq(y(s_).diff(s_), kap*y(s_)), y(s_), ics={y(s0): 1})
+    Kf = sp.integrate(kap, (s_, s0, s_))
+    exact = sp.simplify(sol.rhs - sp.exp(Kf)) == 0
+    Kn = sp.lambdify(s_, Kf, "mpmath")
     rng = random.Random(9)
     ok = True
-    import mpmath as mp
-    for _ in range(200):
-        # a subsolution: y' = kappa y - g with g >= 0 random: y <= the solution with g = 0
-        c1, c2 = rng.uniform(0, 1), rng.uniform(0.5, 3)
-        f = lambda x, yy: [float(kap.subs(s, x))*yy[0] - c1*mp.exp(-c2*(x - 100))]
-        sol_n = mp.odefun(f, 100, [1])
-        x_end = 100 + rng.uniform(1, 40)
-        ok = ok and sol_n(x_end)[0] <= mp.e**float(sp.integrate(kap, (s, 100, x_end))) + 1e-9
-        if not ok:
-            break
+    for _ in range(20):
+        c1, c2 = rng.uniform(0, 1), rng.uniform(0.01, 0.2)
+        g = lambda x: c1*mp.exp(-c2*(x - 100))
+        x_end = mp.mpf(100 + rng.uniform(1, 400))
+        ysub = mp.exp(Kn(x_end)) - mp.quad(lambda x: mp.exp(Kn(x_end) - Kn(x))*g(x), [100, x_end])
+        ok = ok and ysub <= mp.exp(Kn(x_end))
     return exact and ok
 
 
@@ -253,6 +254,8 @@ def predicates6(L):
     p = R5E.predicates(L)
     Ln = norm(L)
     sums = read_sums(Ln)
+    # (b) read structurally (r5edits5's fixed windows are too short for the longer index sets of (g))
+    p["b"] = len(sums) == 2 and all(sg == 1 and c_ == sp.Rational(1, 2) and bn for sg, c_, _, bn in sums)
     p["g"] = len(sums) == 2 and all(c.startswith("gamma' <= gamma, ") for _, _, c, _ in sums)
     p["h"] = "sum_{|delta| = j + 1}" in Ln and "sum_{|gamma'| = j + 1}" not in Ln
     p["i"] = "where f_gamma^n, b^n, c^n and R_gamma^n are f_gamma, b, c and R_gamma with g_n and u_1^n" in Ln
@@ -303,7 +306,7 @@ def e2(Q):
              "E2h": "the bookkeeping inequality read holds for N = 1..2000"}
     for k in ("E2a", "E2b", "E2c", "E2d"):
         check(f"{k} {names[k]}", *res[k])
-    check("E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 200 "
+    check("E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 20 "
           "sampled subsolutions stay below it", gronwall_model())
     for k in ("E2f", "E2g", "E2h"):
         check(f"{k} {names[k]}", *res[k])

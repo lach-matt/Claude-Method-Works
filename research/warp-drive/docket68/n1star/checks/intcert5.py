@@ -10,9 +10,9 @@ and 160 (qsign5 Q3, racslice5 S2), not certified.
      qsign5 Q3 sampled it). Gamma = E^2 (Gamma/E^2) with E^2 > 0, and Gamma/E^2 is qsign5's closed form in (R, mu0,
      psi_P, psi_P', psi_P''), psi_P(R) = psi_III(tau0 + R) the spline of qsign5/racglobal5 R4 in its piecewise-polynomial
      form. [0.70, 1.861] is cut at the spline's knots and into cells; on each cell the polynomial piece and its first two
-     derivatives are enclosed by interval evaluation, and Gamma/E^2 is enclosed by interval evaluation of the closed form,
-     cells whose lower bound is not positive being bisected (to a depth limit). Certified: the lower bound is positive on
-     every cell, at n = 80 and 160 (the least lower bound printed). Controls (must fail): Gamma with its sign flipped
+     derivatives are enclosed by interval evaluation, and Gamma/E^2 is enclosed by interval evaluation of the closed
+     form, cells whose lower bound is not positive being bisected (to a depth limit). Certified: the lower bound is
+     positive on every cell, at n = 80 and 160 (the least lower bound printed). Controls (must fail): Gamma with its sign flipped
      (the round-6 verifier's mutation), and Gamma without its 4 nu E^2 term, fail on some cell.
   C2 (mpmath interval arithmetic) Theorem L''s margin: kappa' K'^l_l < 0 on the whole of the bent slice Sigma'
      (racslice5, A = 0.01), not only at its grid crossings. Between consecutive crossings the background inputs (E, f,
@@ -20,9 +20,9 @@ and 160 (qsign5 Q3, racslice5 S2), not certified.
      so on a sub-cell each lies in the hull of its interpolated end values; V'' = phi'' is enclosed from its closed form
      (C-infinity bumps evaluated in interval arithmetic) and V' = 1 + phi' by phi'(R_a) + [0, R - R_a] phi''(cell), with
      a margin 1e-6 for the quadrature of phi'; R is the cell. Each crossing interval is cut into sub-cells (bisected
-     further if needed), and kappa' and K'^l_l are enclosed by interval evaluation of racslice5's closed forms. Certified:
-     kappa' > 0 and K'^l_l < 0 on every sub-cell, so kappa' K'^l_l < 0 on all of Sigma' in Omega_2, at n = 80 and 160
-     (the largest upper bound of kappa' K'^l_l printed). Controls (must fail): A = 0.001 (the round-6 verifier's
+     further if needed), and kappa' and K'^l_l are enclosed by interval evaluation of racslice5's closed forms.
+     Certified: kappa' > 0 and K'^l_l < 0 on every sub-cell, so kappa' K'^l_l < 0 on all of Sigma' in Omega_2, at n =
+     80 and 160 (the largest upper bound of kappa' K'^l_l printed). Controls (must fail): A = 0.001 (the round-6 verifier's
      mutation) and A = 0 (Sigma_tau0 itself) are not certified.
 
 Labels: certified (interval arithmetic, for the computed background in the stated interpolant). Run:
@@ -40,7 +40,7 @@ from mpmath import iv
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 iv.prec = 80
-MODS = [{'exp': iv.exp, 'sqrt': iv.sqrt, 'log': iv.log}, 'mpmath']
+MODS = [{'exp': iv.exp, 'sqrt': iv.sqrt, 'log': iv.log, 'mpf': iv.mpf}, 'mpmath']
 
 
 def load(name):
@@ -115,8 +115,8 @@ def c1(bgs):
     ok = True
     for n, bg in bgs.items():
         good, least, cell, failed, nev = c1_run(bg, f, 'Gamma')
-        print("   n = %d: certified on every cell: %s (%d interval evaluations; least lower bound of Gamma/E^2 = %.4f on "
-              "R in [%.5f, %.5f])" % (n, good, nev, least if least is not None else float('nan'), cell[0], cell[1]))
+        print("   n = %d: certified on every cell: %s (%d interval evaluations; least lower bound of Gamma/E^2 = %.4f "
+              "on R in [%.5f, %.5f])" % (n, good, nev, least if least is not None else float('nan'), cell[0], cell[1]))
         ok &= good
     bg = bgs[160]
     g1, _, _, f1, _ = c1_run(bg, fneg, 'neg', depth=0)
@@ -142,7 +142,8 @@ def bump_iv(X, a, b):
 
 
 def phi2_iv(X, rs, A, lam):
-    return I(A) * (bump_iv(X, *rs.P_IV) - I(float(lam[0])) * bump_iv(X, *rs.L_IV) - I(float(lam[1])) * bump_iv(X, *rs.R_IV))
+    return I(A) * (bump_iv(X, *rs.P_IV) - I(float(lam[0])) * bump_iv(X, *rs.L_IV)
+                   - I(float(lam[1])) * bump_iv(X, *rs.R_IV))
 
 
 def c2_run(rs, tb, bgd, A, fk, fK, nsub=4, depth=8):
@@ -200,8 +201,9 @@ def c2():
     for n in (80, 160):
         bgds[n] = tb.run(n)
         good, worst, failed, nev, npts = c2_run(rs, tb, bgds[n], rs.A_DEF, fk, fK)
-        print("   n = %d, A = %.3f: %d crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: %s (%d interval "
-              "evaluations; largest upper bound of kappa' K'^l_l = %.4e)" % (n, rs.A_DEF, npts, good, nev, worst))
+        print("   n = %d, A = %.3f: %d crossings; kappa' > 0 and K'^l_l < 0 certified on every sub-cell: %s (%d "
+              "interval evaluations; largest upper bound of kappa' K'^l_l = %.4e)" %
+              (n, rs.A_DEF, npts, good, nev, worst))
         ok &= good
     g1, w1, f1, _, _ = c2_run(rs, tb, bgds[160], 0.001, fk, fK, depth=1)
     g0, w0, f0, _, _ = c2_run(rs, tb, bgds[160], 0.0, fk, fK, depth=1)
