@@ -34,8 +34,8 @@ unresolved in angle.  Two candidates were named: cpsolve5 P3's axis defect and s
      Pass for the regularisation if that ratio is at most 1.5 on every band below v = 1.9 where it exceeded 2 without.
 
   python3 checks/cpaxis5.py FREE1600.npz CP1600.npz              (A1-A3)
-  python3 checks/cpaxis5.py --run lam rcut M Nu Nv vend out.npz [reg] [ld k]      (a run, with the regularisation if
-                                                                                    'reg' is given)
+  python3 checks/cpaxis5.py --run lam rcut M Nu Nv vend out.npz [reg] [ld k] [vsave V0]   (a run, with the
+        regularisation if 'reg' is given; with vsave only the columns v >= V0 are written)
   python3 checks/cpaxis5.py --compare M32.npz M40.npz M32reg.npz M40reg.npz      (A4)
   python3 checks/cpaxis5.py --nullstep M32reg400.npz M32reg800.npz M40reg800.npz  (A5)
   python3 checks/cpaxis5.py --kretschmann M32reg400.npz M32reg800.npz M40reg800.npz  (A6)
@@ -216,8 +216,11 @@ def main():
         G = d5.Grid(M, -10.0, -rcut, Nu, 0.0, vend, nv, a=0.002, ld=ld)
         t0 = time.time()
         A, mask = CP.run(E, G, d5.Data(lam, 1.0), rcut)
-        np.savez_compressed(out, mask=mask, u=G.u, v=G.v, x=G.x, lam=lam, rcut=rcut, reg=reg,
-                            **{f: A[f] for f in CP.ALL})
+        jv = np.arange(len(G.v))
+        if 'vsave' in opts:                       # keep only the columns v >= V0 (a modest output for the finest grids)
+            jv = np.nonzero(G.v >= float(opts[opts.index('vsave') + 1]))[0]
+        np.savez_compressed(out, mask=mask[:, jv], u=G.u, v=G.v[jv], x=G.x, lam=lam, rcut=rcut, reg=reg,
+                            v0=G.v[jv[0]], **{f: A[f][:, jv] for f in CP.ALL})
         print('written', out, 'reg' if reg else 'orig', '%.0f s' % (time.time() - t0), flush=True)
         return 0
     if a and a[0] == '--kretschmann':

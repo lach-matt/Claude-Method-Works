@@ -276,6 +276,86 @@ def r4(eps=sp.Rational(1, 20)):
     return cone == z3.unsat and neu is not None and neu == sp.Rational(1, 3) and samp, (cone, neu, samp)
 
 
+def ks_form(m, vt, vr, a2):
+    """g_b0(V, V) in Kerr-Schild form (III.B:146), eta + m (dt + dr)^2 with m := mu/r^2, on V = vt d_t + vr d_r + V^w;
+    a2 := r^2 |V^w|^2 >= 0 is the angular part.  Generic: works on sympy symbols and on z3 terms."""
+    return -vt * vt + vr * vr + m * (vt + vr) * (vt + vr) + a2
+
+
+def ks_inv(m, p, q):
+    """g_b0^-1(beta, beta) for beta = p dt + q dr: eta^-1 - m l# l#, l# := eta^-1 (dt + dr) = -d_t + d_r."""
+    return -p * p + q * q - m * (q - p) * (q - p)
+
+
+def r5_solver(m_lo, strict=True):
+    """z3 variables and the hypotheses 'V causal for g_b0 at m (> or >=) m_lo, a2 >= 0'."""
+    m, vt, vr, a2 = z3.Reals("m vt vr a2")
+    s = z3.Solver()
+    s.add(m > m_lo if strict else m >= m_lo, a2 >= 0, ks_form(m, vt, vr, a2) <= 0)
+    return s, m, vt, vr, a2
+
+
+def r5_future_keeps_r():
+    """The withdrawn clause's lower bound for tau = -t_IVP: 'r does not decrease along future causal curves', inside the
+    horizon (m > 1).  Returns z3's verdict on its negation: sat means refuted (control N7)."""
+    s, m, vt, vr, a2 = r5_solver(1)
+    s.add(vt > 0, vr < 0)
+    return s.check()
+
+
+def r5_inflow(a_hi):
+    """z3 on the negation of 'beta := dt + a dr is past timelike for g_b0, 0 <= a <= a_hi, every m >= 0'."""
+    m, a = z3.Reals("m a")
+    s = z3.Solver()
+    s.add(m >= 0, a >= 0, a <= a_hi, ks_inv(m, 1, a) >= 0)
+    return s.check()
+
+
+def r5():
+    """III.K Lemma 6.2 (D628): the future-curve case, on g_b0 (Kerr-Schild, radial part and angular a2).
+    (i) sympy: g = eta + m l (x) l and g^-1 = eta^-1 - m l# (x) l# are inverse, and ks_form, ks_inv are their forms;
+        the future radial null slopes dr/dt are -1 and (1 - m)/(1 + m): -1, -9/41 at mu = 1, r = 4/5, and -1, -1/5 at
+        mu = 3/2, r = 1 (the confirming reader's C4), both inside the horizon r = sqrt(mu).
+    (ii) z3, m > 1 (inside the horizon): V causal, V^t > 0 (future) gives V^r < 0; V^t < 0 (past) gives V^r > 0.
+    (iii) z3, m >= 0: V causal, V^t > 0 gives |V^r| <= V^t (bounded radial speed).
+    (iv) z3, m >= 0, 0 <= a <= 1/32 (nu' of N): dt + a dr past timelike, and (dt + a dr)(V) > 0 for future causal V.
+    Vacuity: m > 1 with V^t > 0 causal and a2 > 0 is sat."""
+    ms, vts, vrs, a2s, ps, qs, v = sp.symbols("m vt vr a2 p q v")
+    eta = sp.diag(-1, 1)
+    G = eta + ms * sp.Matrix([[1, 1], [1, 1]])
+    Gi = eta - ms * sp.Matrix([[1, -1], [-1, 1]])
+    V, b = sp.Matrix([vts, vrs]), sp.Matrix([ps, qs])
+    enc = (sp.simplify(G * Gi - sp.eye(2)) == sp.zeros(2, 2)
+           and sp.expand(ks_form(ms, vts, vrs, a2s) - (V.T * G * V)[0] - a2s) == 0
+           and sp.expand(ks_inv(ms, ps, qs) - (b.T * Gi * b)[0]) == 0
+           and sp.expand(ks_inv(ms, 1, 0) - (-1 - ms)) == 0)
+    slopes = []
+    for mu, r in ((sp.Integer(1), sp.Rational(4, 5)), (sp.Rational(3, 2), sp.Integer(1))):
+        mm = mu / r ** 2
+        slopes.append(tuple(sorted(sp.solve(ks_form(mm, 1, v, 0), v))))
+    slopes_ok = slopes == [(-1, sp.Rational(-9, 41)), (-1, sp.Rational(-1, 5))]
+    res = {}
+    s, m, vt, vr, a2 = r5_solver(1)
+    s.add(vt > 0, vr >= 0)
+    res["future"] = s.check()
+    s, m, vt, vr, a2 = r5_solver(1)
+    s.add(vt < 0, vr <= 0)
+    res["past"] = s.check()
+    s, m, vt, vr, a2 = r5_solver(0, strict=False)
+    s.add(vt > 0, z3.Or(vr > vt, vr < -vt))
+    res["speed"] = s.check()
+    res["inflow"] = r5_inflow(z3.RealVal("1/32"))
+    s, m, vt, vr, a2 = r5_solver(0, strict=False)
+    a = z3.Real("a")
+    s.add(a >= 0, a <= z3.RealVal("1/32"), vt > 0, vt + a * vr <= 0)
+    res["inflow_v"] = s.check()
+    s, m, vt, vr, a2 = r5_solver(1)
+    s.add(vt > 0, a2 > 0)
+    vac = s.check() == z3.sat
+    good = enc and slopes_ok and vac and all(x == z3.unsat for x in res.values())
+    return good, (enc, slopes, res, vac)
+
+
 def say(s, indent="      "):
     print(textwrap.fill(s, 119, subsequent_indent=indent, break_long_words=False, break_on_hyphens=False), flush=True)
 
