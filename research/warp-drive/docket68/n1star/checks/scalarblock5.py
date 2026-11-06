@@ -54,8 +54,9 @@ e^(i l phi1) with l a symbol, every field stripped of S, d log S = (0, 0, -l tan
      orthonormal components is free of kappa and of size gam_C a / r^2, so ||R_l||_{X -> Y} >= 10^4 (order) for every l,
      while sigma_min((1/2) A_l) <= (kappa + 1)/(2 (kappa + 2)^(1/2)): route (a) gives nothing at any even l up to the
      printed l_1, so its threshold, if it has one, lies above l_1.
-  S7 (floating point; a measurement) the lemma's quasi-mode on the actual block at l = 2, x0 = log 400, finite widths:
-     ||L h||_Y / ||h||_X approaches S6's bound.
+  S7 (floating point; a measurement) the lemma's quasi-mode on the actual block at l = 2, x0 = log 400, widths W =
+     100, 1000, 10000: ||L h||_Y / ||h||_X agrees with the dilation-invariant model of the lemma's proof to 1e-3 (the
+     Tangherlini terms) and falls like 1/W (the cut-off term), as the proof has it; the limit is S6's bound.
   Negative controls (each must fail): C1 D Ric without its -nabla nabla tr h term: S2's identity fails; C2 S3 with
   delta in place of delta G: the identity fails; C3 the background with f = 1 - 1/r^3: not Ricci-flat (S0
   fails); C4 the record's box^C polynomial at e_C = 1/10240: S5's proportionality fails; C5 the claim sigma_min(L_2)
@@ -598,16 +599,18 @@ def s8(mats, r0=sp.Rational(1, 2)):
 
 
 # ------------------------------------------------------------------------------------------------ S7 the quasi-mode
-def s7(mats, kv, v, W, x0=None):
-    """floating point: ||L h||_Y / ||h||_X for h = r^-1 psi(log r) v (normalized components), psi = sin^2 on
-    [x0, x0 + W], with the full Tangherlini block and the outer gauge data"""
+def s7(mats, kv, v, W, Nsym, x0=None):
+    """floating point: for h = r^-1 psi(log r) v (orthonormal components), psi = sin^2 on [x0, x0 + W], the quotient
+    Q = ||L h||_Y / ||h||_X on the full Tangherlini block with the outer gauge data, against the dilation-invariant
+    model of Lemma A.6's proof, Q_model = ||N(1 - d_x)(psi v)|| / ||h||_X, N the normalised indicial family"""
     x0 = mpm.log(400) if x0 is None else x0
     sub = outer_subs()
     comps = list(range(7))
-    n = [sp.sqrt(2 * kv) if j in (3, 4) else q for j, q in enumerate(nu(kv, comps))]
+    n = nu(kv, comps)
     x = sp.Symbol('x')
     psi = sp.sin(sp.pi * (x - sp.Float(str(x0), 30)) / W) ** 2
-    U = [r ** -1 * psi.subs(x, sp.log(r)) * sp.Float(mpm.nstr(v[j], 25), 30) for j in comps]
+    vv = [sp.Float(mpm.nstr(v[j], 25), 30) for j in comps]
+    U = [r ** -1 * psi.subs(x, sp.log(r)) * vv[j] for j in comps]
     H = [U[j] * r ** SH[j] / n[j] for j in comps]                 # u_j = nu_j H_j r^-SH_j
     Fs = []
     for i in comps:
@@ -621,6 +624,10 @@ def s7(mats, kv, v, W, x0=None):
     fF = [sp.lambdify(r, F, 'mpmath') for F in Fs]
     fU = [sp.lambdify(r, u, 'mpmath') for u in U]
     fUd = [sp.lambdify(r, sp.diff(u, r), 'mpmath') for u in U]
+    Nn = normalized(Nsym, kv, comps)
+    N0, N1, N2 = [Nn.subs(lam, 1), sp.diff(Nn, lam).subs(lam, 1), sp.diff(Nn, lam, 2).subs(lam, 1)]
+    Nv = [[sp.N(sum(M[i, j] * vv[j] for j in comps), 30) for i in comps] for M in (N0, N1, N2)]
+    p0, p1, p2 = (sp.lambdify(x, q, 'mpmath') for q in (psi, sp.diff(psi, x), sp.diff(psi, x, 2)))
     mpm.mp.dps = 30
     gx, gw = mpm.gauss_quadrature(48, 'legendre')
 
@@ -630,12 +637,15 @@ def s7(mats, kv, v, W, x0=None):
             a_, b_ = x0 + k * mpm.mpf(W) / 4, x0 + (k + 1) * mpm.mpf(W) / 4
             for xx, ww in zip(gx, gw):
                 t = (a_ + b_) / 2 + (b_ - a_) / 2 * xx
-                tot += ww * (b_ - a_) / 2 * fn(mpm.e ** t) * mpm.e ** t
+                tot += ww * (b_ - a_) / 2 * fn(t)
         return tot
-    Y2 = integ(lambda rr: rr ** 5 * sum(abs(f(rr)) ** 2 for f in fF))
-    X2 = integ(lambda rr: sum(rr * abs(u(rr)) ** 2 + rr ** 3 * abs(ud(rr)) ** 2 + kv * rr * abs(u(rr)) ** 2
-                              for u, ud in zip(fU, fUd)))
-    return mpm.sqrt(Y2 / X2)
+    Y2 = integ(lambda t: mpm.e ** (6 * t) * sum(abs(f(mpm.e ** t)) ** 2 for f in fF))
+    X2 = integ(lambda t: mpm.e ** t * sum(mpm.e ** t * abs(u(mpm.e ** t)) ** 2 + mpm.e ** (3 * t) *
+                                         abs(ud(mpm.e ** t)) ** 2 + kv * mpm.e ** t * abs(u(mpm.e ** t)) ** 2
+                                         for u, ud in zip(fU, fUd)))
+    # the model: N(1 - d_x)(psi v) = N(1) v psi - N'(1) v psi' + (1/2) N''(1) v psi''
+    M2 = integ(lambda t: sum(abs(Nv[0][i] * p0(t) - Nv[1][i] * p1(t) + Nv[2][i] * p2(t) / 2) ** 2 for i in comps))
+    return mpm.sqrt(Y2 / X2), mpm.sqrt(M2 / X2)
 
 
 # ------------------------------------------------------------------------------------------------ main
@@ -708,11 +718,17 @@ def main(selftest=False):
           'of route (a) exceeds %d: %s' % (R8['M33'], R8['kfree'], R8['bound'], float(R8['bmin']), float(R8['samp']),
                                             R8['l1'], R8['l1'], OK['S8']))
     if not selftest:
-        vals = [(W, s7(B['mats'], 8, v2, W)) for W in (100, 1000, 10000)]
-        OK['S7'] = vals[-1][1] < 2 * float(b2) + 1e-4 and vals[-1][1] < vals[0][1]
-        print('  S7 (floating point): the quasi-mode on the full block at l = 2, x0 = log 400: ||L h||_Y/||h||_X = %s '
-              '(widths W), tending to S6\'s %.4e: %s' % (
-                  ', '.join('%.4e (W = %d)' % (float(q), W) for W, q in vals), float(b2), OK['S7']))
+        N2s = [N for lv, _o, _r, _u, N in S5 if lv == 2][0]
+        vals = [(W,) + tuple(s7(B['mats'], 8, v2, W, N2s)) for W in (100, 1000, 10000)]
+        agree = all(abs(q - qm) / qm < 1e-3 for _W, q, qm in vals)
+        decay = abs(vals[0][1] * vals[0][0] / (vals[-1][1] * vals[-1][0]) - 1) < 0.1
+        OK['S7'] = agree and decay
+        print('  S7 (floating point): the quasi-mode on the full block at l = 2, x0 = log 400: Q = ||L h||_Y/||h||_X = '
+              '%s; the dilation-invariant model of the proof gives %s (agreement to 1e-3: %s); Q W is constant to 10%% '
+              '(%s): the cut-off term N\'(1) v psi\' dominates at these widths and falls like 1/W, the Tangherlini '
+              'terms are below 1e-3, as the proof of Lemma A.6 has it; the limit W -> oo is S6\'s %.4e: %s' % (
+                  ', '.join('%.4e (W = %d)' % (float(q), W) for W, q, _m in vals),
+                  ', '.join('%.4e' % float(m) for _W, _q, m in vals), agree, decay, float(b2), OK['S7']))
     # controls
     OK['C1'] = not s2(drop_trace=True)[0]
     print('  C1 (control): D Ric without -nabla nabla tr h: the gauge identity fails: %s' % OK['C1'])

@@ -210,8 +210,8 @@ B. ∎
 ### 4.3 Modes, gauge-fixing and the free functions (computed E4 (a), (b))
 
 A class seed on the static slice is a sum of scalar modes (h_RR = aS, h_Rθ = R b S′, h_ij = R²(c S γ̂ + e Ŝ), Ŝ :=
-D̂D̂S + (k²/3)γ̂S, S = P_j(cos 2θ), k² = l(l + 2); k likewise with (p, q, w, z)), tensor modes and an l = 0 part, and E_V,
-E_K and the constraints split mode by mode (Lemma H (d), orthogonality). The spatial gauge X = αS∂_R + βS′∂_θ shifts
+D̂D̂S + (k²/3)γ̂S, S = P_j(cos 2θ), k² = l(l + 2); k likewise with (p, q, w, z)), tensor modes and an l = 0 part, and
+E_V, E_K and the constraints split mode by mode (Lemma H (d), orthogonality). The spatial gauge X = αS∂_R + βS′∂_θ shifts
 (a, b, c, e) by ((1/f)′α + 2α′/f, α/(Rf) + Rβ′, 2α/R − (2k²/3)β, 2β) (computed), so β = −e/2, α = −Rf(b − Re′/2)
 reach b = e = 0 (the record's Regge–Wheeler-type gauge, GAUGEDECAY5 Lemma 1.3, on the slice), and
 
@@ -240,7 +240,8 @@ variable) fails the identity (rejected).
 (i) E_V = E_red + R⁴F′C + d/dR, with E_red = 24R³fF′² + (14k² − 24)RF² − R²f(k² + 12f)AF′ + (k²/2)Rf²A² + 3k²RfAF,
 algebraic in A. (ii) The Moncrief variable
 
-    ℓ := A − (2R/f)F′ + (2H_KI/(3f²))F   satisfies   ℓ′ + κℓ − (2k²H_KI/(9Rf³)) F = (R/(3f²)) C,   κ := (k² + 6 + 6x)/(3Rf),
+    ℓ := A − (2R/f)F′ + (2H_KI/(3f²))F   satisfies   ℓ′ + κℓ − (2k²H_KI/(9Rf³)) F = (R/(3f²)) C,
+    κ := (k² + 6 + 6x)/(3Rf),
 
 so on the constraint F = 9Rf³(ℓ′ + κℓ)/(2k²H_KI) and A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F, a map ℓ ↦ (A, F) that solves C
 identically and is onto. (iii) With Φ := R^(3/2) f² ℓ/H_KI,
