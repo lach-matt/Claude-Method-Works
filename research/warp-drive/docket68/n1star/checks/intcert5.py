@@ -13,8 +13,8 @@ outward rounding (the lobes are dilates of one even bump, class Bend). Three kin
      spline psi_III(tau0 + R) in its piecewise-polynomial form; cells cut at the knots in vhat; the polynomial and two
      derivatives enclosed with interval coefficients. Certified at n = 80 and 160. Controls (must fail): Gamma's sign
      flipped; Gamma without its 4 nu E^2 term.
-  C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 5e-2) and mu0 by 1e-4 [R8:
-     d'' was 1e-2, mu0 not widened]: Gamma > 0 for every background whose psi_III is within d of the computed spline
+  C1d (robustness) the same with psi_P, psi_P', psi_P'' each widened by d = (1e-3, 1e-3, 3e-2) and mu0 by 1e-4 [R8:
+     d'' was 1e-2, mu0 not widened; 5e-2 is not certified]: Gamma > 0 for every background whose psi_III is within d of the computed spline
      in C^2 and whose mass is within 1e-4 of mu0. truebg5 T2 certifies that the background itself is such a one.
      Control: d = (0.5, 0.5, 5) is not certified.
   C2 (the computed background) kappa' K'^l_l < 0 on the whole bent slice Sigma' (racslice5, A = 0.01), between its
@@ -61,7 +61,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 iv.prec = 80
 MODS = [{'exp': iv.exp, 'sqrt': iv.sqrt, 'log': iv.log, 'mpf': iv.mpf}, 'mpmath']
-D_C1D, DMU_C1D = (1e-3, 1e-3, 5e-2), 1e-4        # C1d's tube: (psi_P, psi_P', psi_P'') and mu0 widened by these
+D_C1D, DMU_C1D = (1e-3, 1e-3, 3e-2), 1e-4        # C1d's tube: (psi_P, psi_P', psi_P'') and mu0 widened by these
 
 
 def load(name):

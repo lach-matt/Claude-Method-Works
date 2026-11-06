@@ -1,5 +1,5 @@
 T1 the data on N' over the packet, u in [5.7, 7.2], enclosed (validated, 1500 steps of 0.001)
-   widest node enclosure 4.2e-06; lambda = 2 R_v >= 0.5291 > 0 on every step: True; mu3 = mu(u2) in [0.82209978, 0.82212534]; R_N'(u2) in [1.519357, 1.519359] > sqrt(mu3): True (17 s)
+   widest node enclosure 4.2e-06; lambda = 2 R_v >= 0.5291 > 0 on every step: True; mu3 = mu(u2) in [0.82209978, 0.82212534]; R_N'(u2) in [1.519357, 1.519359] > sqrt(mu3): True (8 s)
    control: DOP853 inside the enclosures: True; with B's amplitude 1.7 -> 1.7017 it leaves them (rejected): True
    the reduction's region I limit (exact): e^psi = 1 and psi_vhat = 0: True; the inverse-function derivatives r1', r1'', r1''' against a 30-digit differentiation of the inverse: True
 T1 PASS
