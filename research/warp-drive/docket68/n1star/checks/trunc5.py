@@ -9,7 +9,10 @@ P (N1STAR-PROOF.md:1053-1060): t_P := 1 + tau0 - tau, h(tau) = kappa t_P^(-1/4),
 
   T1 (exact) the causal structure: grad v = g_b0^-1 dv = -d_t + d_r is null and past-directed for every mu, so
      dv(Y) >= 0 for every future causal Y (computed at 2000 random points and directions with r^2 > mu, min >= 0):
-     v never decreases along future causal curves and J^-(N) lies in {v <= v1}. The strip Sigma_tau cap
+     v never decreases along g_b0-causal curves and J^-(N) lies in {v <= v1}. [Round 5: v is not a time function,
+     neither for g_b0 (dv is null; the infimum of dv(Y) is 0, at Y = -grad v) nor for perturbations of it, for which
+     g^-1(dv, dv) = -h(ell, ell) + O(h^2) has either sign (r5settle5.py D1-D2); the sampled minimum 5.7e-2 is an
+     artefact of the sampling.] The strip Sigma_tau cap
      {v1 <= v <= V_P - h(tau)} has width at least kappa (1 - t_P^(-1/4)) > 0 (exact), so g_lam's data on
      {t = T} cap {v <= v1 + kappa/4} exist for T <= tau0 - 15, and the Cauchy problem from {t = T} with those data,
      cut off beyond, reproduces g_lam on {v <= v1, t >= T} (domain of dependence): N carries g_lam's data with no
@@ -47,6 +50,9 @@ P (N1STAR-PROOF.md:1053-1060): t_P := 1 + tau0 - tau, h(tau) = kappa t_P^(-1/4),
   T8 (computed, quadrature) R2.6's wording: a field r^(-3/2) F(v) at past null infinity with F' != 0 has cap energy
      ~ |T|^(2a) int F'^2 on {t = T} (excluded at every a > 0); with F constant in v the cap energy is |T|^(2a-1),
      which tends to 0 for a < 1/2: what the weight a < 1/2 fails to exclude is an r^(-3/2) tail constant in v.
+Round 5 (SETTLE-GLAM5 R5.0): checks marked [arithmetic] integrate exponents typed from prose (T2, T6, T7); the cap
+and tail exponents are measured on explicit fields in r5settle5.py G2-G3 with mutation controls. T6 belongs to (N2) at
+a_0 < 1/2, which round 4 no longer uses (R4.7).
 Labels: computed (T1 numerical at random points, T3 mpmath at 40 digits, T8 quadrature; the rest exact, sympy).
 
     python3 checks/trunc5.py
@@ -112,7 +118,9 @@ def t1():
         dv = [1.0] + xh
         worst = min(worst, sum(dv[i]*Y[i] for i in range(5)))
         dr_signs.add(sum(xh[i]*Y[i + 1] for i in range(4)) > 0)
-    check("T1a dv(Y) >= 0 for every sampled future causal Y (g_b0, r^2 > mu): v is a time function", worst >= -1e-12,
+    check("T1a dv(Y) >= 0 for every sampled future causal Y (g_b0, r^2 > mu): v is non-decreasing along g_b0-causal "
+          "curves; it is not a time function (the infimum is 0, at Y = -grad v, and the sampled minimum an artefact: "
+          "r5settle5 D1-D2)", worst >= -1e-12,
           f"min dv(Y) = {worst:.3e}")
     eta = sp.diag(-1, 1, 1, 1, 1)
     k = sp.Matrix([1, x1/RR, x2/RR, x3/RR, x4/RR])
@@ -149,10 +157,12 @@ def t2():
         e = sp.integrate(rr**(2*a)*rr**(-2*q)*rr**3, (rr, T, T + 1))
         res[nm] = sp.limit(e, T, sp.oo)
     print("     limits as |T| -> oo:", {k: str(v) for k, v in res.items()})
-    check("T2a (b1): the cap energy tends to 0 at a0 = 1/4, 9/20", res["b1 a0=1/4"] == 0 and res["b1 a0=9/20"] == 0)
-    check("T2b (b2): with q = 9/2 it tends to 0 at a = 11/4, 59/20", res["b2 q=9/2 a=11/4"] == 0
+    check("T2a [arithmetic] (b1): the cap energy tends to 0 at a0 = 1/4, 9/20", res["b1 a0=1/4"] == 0 and res["b1 "
+          "a0=9/20"] == 0)
+    check("T2b [arithmetic; measured on fields in r5settle5 G2] (b2): with q = 9/2 it tends to 0 at a = 11/4, "
+          "59/20", res["b2 q=9/2 a=11/4"] == 0
           and res["b2 q=9/2 a=59/20"] == 0)
-    check("T2c controls: a0 = 1/2 (q = 2), and q = 4 at a = 11/4, do not tend to 0",
+    check("T2c [arithmetic] controls: a0 = 1/2 (q = 2), and q = 4 at a = 11/4, do not tend to 0",
           res["b1 a0=1/2"] != 0 and res["b2 q=4 a=11/4"] != 0)
 
 
@@ -284,8 +294,9 @@ def t6():
         s = sp.summation(2**(2*a*(n + 1))*2**(-n), (n, 0, sp.oo))
         ok_far = ok_far and s.is_finite
     s_half = sp.summation(2**(2*sp.Rational(1, 2)*(n + 1))*2**(-n), (n, 0, sp.oo))
-    check("T6a far region: sum_k 2^(2a(k+1)) 2^-k is finite at a = 1/4, 9/20 (times M^2 lam^(2(K' - i)))", ok_far)
-    check("T6b control: at a = 1/2 the far-region sum diverges", s_half == sp.oo)
+    check("T6a [arithmetic; no longer used, R4.7] far region: sum_k 2^(2a(k+1)) 2^-k is finite at a = 1/4, 9/20 "
+          "(times M^2 lam^(2(K' - i)))", ok_far)
+    check("T6b [arithmetic] control: at a = 1/2 the far-region sum diverges", s_half == sp.oo)
     ok = True
     for b0 in (2, 3):
         for a in (sp.Rational(1, 4), sp.Rational(9, 20)):
@@ -296,7 +307,8 @@ def t6():
             worst = sp.Max(piece(0), piece(K2))
             tot = sp.simplify(K2*(piece(0) + piece(K2)))
             ok = ok and sp.limit(tot, lam, 0, "+") == 0
-    check("T6c near region: log2(lam^-2) pieces, each <= lam^(2(K'-1) - 4 beta0 - 2(2a+1)); the sum -> 0 once "
+    check("T6c [arithmetic; no longer used, R4.7] near region: log2(lam^-2) pieces, each <= lam^(2(K'-1) - 4 beta0 - "
+          "2(2a+1)); the sum -> 0 once "
           "K' > 2 + 2 beta0 + 2a (beta0 = 2, 3; a = 1/4, 9/20)", ok)
 
 
@@ -307,10 +319,11 @@ def t7():
     tail1 = sp.integrate(rr**(2*a0)*rr**-6*rr**3, (rr, T, sp.oo))  # |ell h| ~ r^-3 (ell-gain), flux density
     a = sp.Rational(59, 20)
     tail2 = sp.integrate(rr**(2*a)*rr**-11*rr**3, (rr, T, sp.oo))  # |ell h_R| ~ r^(-11/2)
-    check("T7a the flux tails on N beyond r = |T| tend to 0 (a0 = 9/20 with ell-gain; a = 59/20 for h_R)",
+    check("T7a [arithmetic; the h_R tail measured in r5settle5 G3] the flux tails on N beyond r = |T| tend to 0 (a0 "
+          "= 9/20 with ell-gain; a = 59/20 for h_R)",
           sp.limit(tail1, T, sp.oo) == 0 and sp.limit(tail2, T, sp.oo) == 0, f"{tail1}, {tail2}")
     tail0 = sp.integrate(rr**0*rr**-4*rr**3, (rr, T, sp.oo))
-    check("T7b control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0", tail0 == sp.oo)
+    check("T7b [arithmetic] control: without the ell-gain (|d h| ~ r^-2) the tail is infinite at a0 = 0", tail0 == sp.oo)
 
 
 def t8():

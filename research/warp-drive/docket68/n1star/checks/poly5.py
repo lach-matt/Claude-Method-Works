@@ -9,7 +9,8 @@ every K, g_lam being unique, (P-v)).
      power of lam (D^alpha F has lowest order lam^(j - |alpha|), attained), and a rotation costs none (Omega v = 0);
      the two-scale formula agrees with the true derivative of A(X) sin(v(X)/lam). Control: x1 d_2 + x2 d_1 (not a
      rotation, it moves v) costs lam^-1.
-  P2 (exact) the coefficients of Lemma 11.0's energy identity: d(lam [W]) has order 0 (lam-free sup, so the
+  P2 (P2a, P2d exact; P2c computed: a first variation by a central difference at 60 digits) the coefficients of
+     Lemma 11.0's energy identity: d(lam [W]) has order 0 (lam-free sup, so the
      kernel ||d g_n|| <= C t^(-3/2) is lam-free); and S(u) of (11.4) contains -(1/2) lam^-1 u(ell, ell) [d_th^2 W]
      exactly at order -1, because (g^-1 - g0^-1)(dv, dv) = -u(ell, ell) + O(u^2) (5D Kerr-Schild g0): a term of F_1
      linear in u_1 with coefficient lam^-1 t^(-3/2), at the top order of the induction, which Lemma 9.5's kernel must
@@ -17,10 +18,12 @@ every K, g_lam being unique, (P-v)).
   P3 (exact) the Gronwall factors: on t >= lam^-2, exp(int C t^(-3/2)) = exp(2 C lam) and exp(int C lam^-1 t^(-3/2))
      = exp(2 C): lam-free. Control: the same lam^-1 kernel over the near region [1, lam^-2] gives exp(2C(lam^-1 - 1)),
      which beats every lam^-M.
-  P4 (exact) the data constants C(lam, j) of Lemma 11.0: in a 1+1 model of the record's equation for w_n
+  P4 (exact in a 1+1 model; that the record's equation has the model's structure is deduced: model-checked) the
+     data constants C(lam, j) of Lemma 11.0: in a 1+1 model of the record's equation for w_n
      (oscillating coefficients g^-1 - g0^-1 in lam E, the 1/lam coupling of (3.2), quadratic terms, residual
      lam^(N-1) [R]), with w = d_tau w = 0 on the initial slice, d_tau^m w there has order exactly N + 1 - m
-     (m = 2..6, N = 6): one lam^-1 per derivative, polynomial. Control: "order N - 1 at every m" fails at m = 3.
+     (m = 2..6, N = 6): one lam^-1 per derivative, polynomial. Control (round 5: the model's operator mutated, its
+     coupling lam^-1 replaced by lam^-2): the orders are no longer N + 1 - m (m = 2..4).
   P5 (exact, integer recursion) Lemma 11.0 as written: energies at order n carry lam^-P(n), pointwise bounds
      lam^-Q(n); Theorem P (K_0 = 6, k = 6) gives P(n) = n (n <= 6), Q(n) = n - 1 (n <= 4); the data P = n; the
      sources are products with the highest-order factor in L^2 and the others in sup, Q(n) = P(n + 2) by Lemma 9.3
@@ -30,26 +33,31 @@ every K, g_lam being unique, (P-v)).
   P6 (exact, integer recursion) the sharp reading: u_1 = a + w, a := g_app - g0 - r^(-3/2) G_3 explicit (order
      n - 1 at derivative order n, no Sobolev), w at order -(K'_0 - 2) + n (Proposition 9.8 read at order k, as 10.51
      reads section 4; lam <= lam_F(k)): the same recursion closes at P(N) = N, Q(N) = N - 1 for every N <= 40.
-     Control: with K'_0 = 5 the scaled bootstrap's quadratic term lam^(2K'-5) does not beat lam^K'.
+     P6b [arithmetic] with K'_0 = 5 the scaled bootstrap's quadratic term lam^(2K'-5) does not beat lam^K' (the
+     closing condition itself is order5.py O2).
   P7 (exact, integer recursion) Lemma 11.2 and Proposition 11.1: e(G_3) = -1, e(G_4) = 0 and the monomial bound
      (a linear term on G_(k-2) with at most one d_v, products of 2 or 3 earlier coefficients with at most two d_v)
      give e(G_k) = k - 4 (k = 4..40, a fixed point); the remainder u_J then has pointwise order B_J + n + m at n
      Cartesian/rotation and m ell-derivatives, the stage rule (S~: linear terms +1, quadratic terms with one factor
      taken crudely, |d u_J| <= lam^-(J-3) r^-2; S' adds e(G_(J+1)) + 1; Gronwall lam-free; Lemma 9.3 + 2; each ell
-     + 1) giving B_J = (J^2 - J)/2 - 3 for J = 4..40, with B_3 = -1 (P6). Control: no bound linear in J with
-     slope 3 (B_24 = 273).
+     + 1) giving B_J = (J^2 - J)/2 - 3 for J = 4..40, with B_3 = -1 (P6). P7c [arithmetic]: no bound linear in J
+     with slope 3 (B_24 = 273). Round 5: this recursion is a crude upper bound, and the products of three or more
+     coefficients are not in it; derived from every monomial with the far region's trade r^-1/2 <= lam, B_J = 3J - 9
+     (r5settle5.py A, with a mutation control), below (J^2 - J)/2 - 3 for J >= 4.
   P8 (exact) the interpolation lemma (the verifier's M1): a polynomial P(s) = sum_(i<=d) c_i s^i with |P| <= eta on
      [sigma/2, sigma] has |c_i| <= L_d sigma^-i eta (L_d from the inverse Vandermonde matrix at d + 1 nodes, exact;
      checked on 100 random polynomials). With r^2 e = sum_(k=4)^(J') s^(k-4) e_k + s^-4 (remainder), s = r^(-1/2),
      (P-iii)'s |e| <= C lam^(K-3) r^-2 and (Poly)'s remainder lam^-M r^(-(J'+1)/2), the optimal sigma gives
      |e_k| <= C lam^((K-3)(1 - th_k) - M th_k), th_k = (k - 4)/(J' - 3) (J' = 8), with sigma inside the far region
-     once K - 3 + M > J' - 3. Control: at a fixed radius the bound is only lam^-M.
-  P9 (exact) the threshold: with R = lam^-s, s = max(2, (2M + 1)/(J' - 1 - 2a)), the commuted flux of e's
+     once K - 3 + M > J' - 3. P8c, P8d [arithmetic]: the optimum is recomputed with mutation controls in
+     r5settle5.py C.
+  P9 (exact) the threshold: with R = lam^-s, s = max(5/2, (2M + 1)/(J' - 1 - 2a)) (round 5: s > 2, so that R lies
+     beyond the collar lam^-2 + d1), the commuted flux of e's
      remainder (subtraction through p = 4, j commutations with Z = r ell, which costs r below R, where the
      lam-uniform bounds have no ell-gain) is a sum of terms each tending to 0 once K > K*(a, J', M, j), the largest
      of 4 + j + s(a + j) and 3 + i + (s max(0, 2a + 2 - k)/2 + (M + i) th_k)/(1 - th_k) (k = 4..8, i <= j + 1);
      sampled exactly at K = floor(K*) + 1. Control: a = 11/4, J' = 8, M = 12: R2.10's K = 50 satisfies
-     K - 4 > a s but K* = 56, and the e_8 term of the flux tends to infinity.
+     K - 4 > a s but K* = 56, and the interpolation bound on the e_8 term of the flux diverges.
 Labels: computed (exact; sympy and integer arithmetic).
 
     python3 checks/poly5.py
@@ -232,8 +240,8 @@ def p3():
           "lam^-M", sp.simplify(k3 - 2*C*(1/lam - 1)) == 0 and lim == sp.oo, str(sp.simplify(k3)))
 
 
-def p4():
-    print("P4  the data constants: d_tau^m w on the initial slice (1+1 model, N = 6)")
+def p4_orders(cpow, ms):
+    """the 1+1 model of (3.2): orders of d_tau^m w on the initial slice; cpow = 1 is the model, 2 the mutation"""
     tau, x, q = sp.symbols("tau x q", real=True)
     N = 6
     thf = (tau + x)/lam
@@ -244,22 +252,30 @@ def p4():
     Rres = lam**(N - 1)*rho*sp.sin(thf)
     cs = {0: sp.Integer(0), 1: sp.Integer(0)}
     orders = {}
-    for m in range(2, 7):
+    for m in ms:
         Wm = sum(cs[i]*tau**i/sp.factorial(i) for i in range(m))
         wx, wxx, wt, wtx = sp.diff(Wm, x), sp.diff(Wm, x, 2), sp.diff(Wm, tau), sp.diff(Wm, tau, x)
-        rhs = (Rres + q*(wx**2 + Wm*wxx) - kap/(2*lam)*sp.cos(thf)*Wm - beta*sp.cos(thf)*wx
+        rhs = (Rres + q*(wx**2 + Wm*wxx) - kap/(2*lam**cpow)*sp.cos(thf)*Wm - beta*sp.cos(thf)*wx
                + gtx*wtx + gxx*wxx/2)
         phi = -2*rhs/gtt
         cm = sp.diff(phi, tau, m - 2).subs(tau, 0)
         cs[m] = sp.simplify(cm.subs(q, 1))
         e = sp.simplify(cs[m].subs(x, lam*th))
-        # order in lam: e is rational in lam with trig(th) coefficients; find the lowest power by series
         ser = sp.series(e, lam, 0, N + 2).removeO()
         orders[m] = lam_order(ser)
+    return N, orders
+
+
+def p4():
+    print("P4  the data constants: d_tau^m w on the initial slice (1+1 model, N = 6)")
+    N, orders = p4_orders(1, range(2, 7))
     print("     orders of d_tau^m w on the slice, m = 2..6:", [orders[m] for m in range(2, 7)])
     check("P4a d_tau^m w has order exactly N + 1 - m (one lam^-1 per derivative): polynomial",
           all(orders[m] == N + 1 - m for m in range(2, 7)))
-    check("P4b control: the claim 'order N - 1 at every m' fails (m = 3)", orders[3] != N - 1)
+    N, om = p4_orders(2, range(2, 5))
+    print("     mutated model (coupling lam^-2), m = 2..4:", [om[m] for m in range(2, 5)])
+    check("P4b control (the model's operator mutated: the coupling lam^-1 of (3.2) replaced by lam^-2): the orders are "
+          "not N + 1 - m", any(om[m] != N + 1 - m for m in range(2, 5)))
 
 
 # ---------------------------------------------------------------- integer recursions for Lemma 11.0
@@ -346,7 +362,7 @@ def p6():
           err is None and all(P[N] == N for N in range(41)))
     K = sp.Symbol("K", positive=True)
     ok = (2*K0p - 5 > K0p) and not (2*5 - 5 > 5)
-    check("P6b the scaled bootstrap closes at K'_0 = 17 (2K' - 5 > K'); control: at K' = 5 it does not", ok)
+    check("P6b [arithmetic] the scaled bootstrap closes at K'_0 = 17 (2K' - 5 > K'); control: at K' = 5 it does not", ok)
 
 
 # ---------------------------------------------------------------- Lemma 11.2 and Proposition 11.1
@@ -399,7 +415,7 @@ def p7():
     print("     B_J, J = 3..12:", [B[J] for J in range(3, 13)])
     check("P7b B_J = (J^2 - J)/2 - 3 for J = 4..40: M(J, n, m) = B_J + n + m, polynomial, K-independent",
           all(B[J] == closed(J) for J in range(4, 41)))
-    check("P7c control: no bound linear in J with slope 3 (B_24 > 72)", B[24] > 72, f"B_24 = {B[24]}")
+    check("P7c [arithmetic] no bound linear in J with slope 3 (B_24 > 72)", B[24] > 72, f"B_24 = {B[24]}")
 
 
 # ---------------------------------------------------------------- M1: e's coefficients by interpolation
@@ -438,11 +454,11 @@ def p8():
         ok = ok and sp.simplify(sp.expand(expo - target)) == 0
     check("P8b with J' = 8: |e_k| <= C lam^((K-3)(1 - th_k) - M th_k), th_k = (k - 4)/5, k = 5..8", ok)
     # sigma must lie in the far region: sigma <= s_0 = (2 lam^-2)^(-1/2)
-    check("P8c sigma = lam^((K - 3 + M)/(J' - 3)) <= lam/sqrt(2) once K - 3 + M > J' - 3 (lam small)",
+    check("P8c [arithmetic] sigma = lam^((K - 3 + M)/(J' - 3)) <= lam/sqrt(2) once K - 3 + M > J' - 3 (lam small)",
           sp.limit((lam**(sp.Rational(10 + 1, 5)))/(lam/sp.sqrt(2)), lam, 0, "+") == 0)
     # control: at a fixed radius (sigma fixed) the coefficient bound is only lam^-M
     fixed = sp.limit(lam**(-5)*(lam**(17) + lam**(-5)), lam, 0, "+")
-    check("P8d control: without the optimisation (sigma fixed) the bound lam^-M (eps + B) does not tend to 0",
+    check("P8d [arithmetic] without the optimisation (sigma fixed) the bound lam^-M (eps + B) does not tend to 0",
           fixed == sp.oo)
 
 
@@ -453,7 +469,7 @@ def kstar(a, Jp, Mx, j):
       (ii)  coefficient e_k with i <= j + 1 d_v's, up to R:   2[(K - 3 - i)(1 - th_k) - (M + i) th_k]
                                                                - s max(0, 2a + 2 - k) > 0
       (iii) above R, (11.7) with ell-gains:                   -2M + s(J' - 1 - 2a) > 0 (holds by the choice of s)"""
-    s = max(sp.Integer(2), (2*Mx + 1)/(Jp - 1 - 2*a))
+    s = max(sp.Rational(5, 2), (2*Mx + 1)/(Jp - 1 - 2*a))
     need = [4 + j + s*(a + j)]
     for k in range(4, 9):
         thk = sp.Rational(k - 4, Jp - 3)
@@ -498,7 +514,8 @@ def p9():
     t8 = sp.integrate(rr**(2*a)*(e8*rr**-5)**2*rr**3, (rr, 1, lam**(-s)))
     lim8 = sp.limit(t8, lam, 0, "+")
     check(f"P9b control: a = 11/4, J' = 8, M = 12: R2.10's K = {K} satisfies K - 4 > a s (s = {s_old}), but "
-          f"K < K* = {float(Ks):.2f} and the e_8 term (one d_v) of the flux does not tend to 0",
+          f"K < K* = {float(Ks):.2f} and the interpolation bound on the e_8 term (one d_v) of the flux does not tend "
+          "to 0",
           K - 4 > a*s_old and K < Ks and lim8 != 0, f"limit {lim8}")
 
 

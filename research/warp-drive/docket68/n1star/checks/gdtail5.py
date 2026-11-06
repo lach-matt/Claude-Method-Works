@@ -489,44 +489,48 @@ def t10(control=False):
 # -------------------------------------------------------------------------------------------------------------- T11
 def t11(control=False):
     """Theorem R6.4's conditions with w_I encoded (the round-6 verifier's minor on D2): alpha_K in (1, 2), gamma_+ in
-    (alpha_K, 2), eps_1 in (0, 1/2), eps in (0, (2 - gamma_+)/5], w_I = max(5/2, gamma_+ + 1 + eps_1) in its two cases,
-    and II.G' Proposition 3.3 (1) taken with eps_PP := min(eps, eps_1)"""
-    (x1, x2, x3, x4, x5), (y1, y2, y3, y4, y5) = pbox('x1', 'x2', 'x3', 'x4', 'x5')
-    pos = [x1, x2, x3, x4, x5]
+    (alpha_K, 2), eps_1 in (0, 1/2), eps in (0, (2 - gamma_+)/5], w_I := max(5/2, gamma_+ + 1 + eps_1), and II.G'
+    Proposition 3.3 (1) taken with eps_PP := min(eps, eps_1).  A max on the left (a min on the right) is handled
+    exactly: the condition holds if it holds for one argument (for every argument), each a positive sum or 0."""
+    (x1, x2, x3, x4), (y1, y2, y3, y4) = pbox('x1', 'x2', 'x3', 'x4')
+    pos = [x1, x2, x3, x4]
     aK = 1 + y1
     gp = aK + y2*(2 - aK)
+    e1 = y3/2
     ep = y4*(2 - gp)/5
-    allres = {}
-    for case in ("w_I = gamma_+ + 1 + eps_1", "w_I = 5/2"):
-        if case == "w_I = 5/2":
-            g2 = aK + y2*(sp.Rational(3, 2) - aK)/1                # needs gamma_+ + 1 + eps_1 <= 5/2
-            a2 = 1 + y1/2                                          # alpha_K in (1, 3/2) so that gamma_+ < 3/2 is possible
-            g2 = a2 + y2*(sp.Rational(3, 2) - a2)
-            e1 = y3*(sp.Rational(3, 2) - g2)
-            wI, gpc, aKc = sp.Rational(5, 2), g2, a2
-        else:
-            e1 = y3/2
-            wI, gpc, aKc = gp + 1 + e1, gp, aK
-        epc = y4*(2 - gpc)/5
-        epp = epc if control else epc*e1/(epc + e1)                 # a positive lower bound of min(eps, eps_1)
-        cond = {
-            "Lemma 4.1: w_I - 1 >= 3/2": wI - sp.Rational(5, 2) + (y5 if case == "w_I = 5/2" else 0),
-            "Lemma 4.1: w_I >= gamma_+ + 1 + eps_1": wI - (gpc + 1 + e1) + (0 if case != "w_I = 5/2" else y5),
-            "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP": wI - (gpc + 1 + epp),
-            "scf: min(w_I, gamma_+ + 2) - eps_PP >= 5/2 - eps": (wI - epp) - (sp.Rational(5, 2) - epc) + y5,
-            "step 3.1: gamma_+ - 1 in (0, 1)": gpc - 1, "gamma_+ < 2": 2 - gpc,
-            "column: gamma_+ + 1 < 3": 2 - gpc, "f_2 tf: gamma_+ + 1 <= 3 - eps": 2 - gpc - epc,
-            "f_2 zf: alpha_K - 1 < 1 - eps": 2 - aKc - epc,
-            "density: b_+ = 1 <= gamma_+": gpc - 1, "density: b_I + 1 = 9/4 <= w_I": wI - sp.Rational(9, 4),
-            "step 3.3: eps <= (2 - gamma_+)/5": (2 - gpc)/5 - epc + y5*(2 - gpc),
-        }
-        for k, e in cond.items():
-            allres[case + ": " + k] = positive_sum(e, pos)
-    ok = all(allres.values())
-    bad = [k for k, val in allres.items() if not val]
+    WI = [sp.Rational(5, 2), gp + 1 + e1]                       # w_I = max(WI)
+    EPP = [ep] if control else [ep, e1]                         # eps_PP = min(EPP)
+
+    def nonneg(e):
+        e = sp.simplify(e)
+        return e == 0 or positive_sum(e, pos)
+
+    def maxge(args, rhs):                                       # max(args) >= rhs
+        return any(nonneg(a_ - rhs) for a_ in args)
+
+    def ge(lhs, rhs_args_max):                                  # lhs >= max(rhs_args)
+        return all(nonneg(lhs - a_) for a_ in rhs_args_max)
+    cond = {
+        "Lemma 4.1: w_I - 1 >= 3/2": maxge(WI, sp.Rational(5, 2)),
+        "Lemma 4.1: w_I >= gamma_+ + 1 + eps_1": maxge(WI, gp + 1 + e1),
+        # Prop 3.3 (1): w_I >= gamma_+ + 2 - (1 - eps_PP): for eps_PP = min(EPP) it suffices for one argument of EPP
+        "Prop 3.3 (1): w_I >= gamma_+ + 1 + eps_PP": any(maxge(WI, gp + 1 + e_) for e_ in EPP),
+        # scf: min(w_I, gamma_+ + 2) - eps_PP >= 5/2 - eps, i.e. both w_I and gamma_+ + 2 >= 5/2 - eps + eps_PP
+        "scf (w_I)": any(maxge(WI, sp.Rational(5, 2) - ep + e_) for e_ in EPP),
+        "scf (gamma_+ + 2)": any(nonneg(gp + 2 - (sp.Rational(5, 2) - ep + e_)) for e_ in EPP),
+        "step 3.1: 0 < gamma_+ - 1 < 1": nonneg(gp - 1) and nonneg(2 - gp),
+        "column: gamma_+ + 1 < 3": nonneg(2 - gp),
+        "f_2 tf: gamma_+ + 1 <= 3 - eps": nonneg(2 - gp - ep),
+        "f_2 zf: alpha_K - 1 < 1 - eps": nonneg(2 - aK - ep),
+        "density: b_+ = 1 <= gamma_+, b_I + 1 = 9/4 <= w_I": nonneg(gp - 1) and maxge(WI, sp.Rational(9, 4)),
+        "step 3.3: eps <= (2 - gamma_+)/5": nonneg((2 - gp)/5 - ep),
+        "window: 0 < gamma_+ - alpha_K < 1": nonneg(gp - aK) and nonneg(1 - (gp - aK)),
+    }
+    ok = all(cond.values())
+    bad = [k for k, val in cond.items() if not val]
     tag = "  T11 control (Prop 3.3's eps not reduced to min(eps, eps_1))" if control else "  T11"
-    print("%s: %d conditions, all positive sums on the box: %s%s" % (tag, len(allres), ok,
-                                                                     "; failing %s" % bad if bad else ""), flush=True)
+    print("%s: %d conditions with w_I = max(5/2, gamma_+ + 1 + eps_1), all hold on the box: %s%s"
+          % (tag, len(cond), ok, "; failing %s" % bad if bad else ""), flush=True)
     return ok
 
 

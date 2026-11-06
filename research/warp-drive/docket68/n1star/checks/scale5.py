@@ -41,6 +41,11 @@ in Cartesian components; Z := (t - v1) d_t + x.d_x, acting on components (the di
      beta > a + 1; so a in (l0 - 1, 3) puts h_R|_S in rho^(l0) H_b and d h_R|_S in rho^(l0+1) H_b for every
      l0 in (3, 4). Sigma|_S has the exponents p + j, p in {2, 5/2, 3, 7/2, 4}, all in E_0^(1/2). Control: a
      pointwise reading O(rho^(1/2+a)) gives only a > l0 - 1/2 (round 2's R2.8), which fails at l0 = 3.8, a = 2.9.
+Round 5 (SETTLE-GLAM5 R5.0, the round-3 verifier's reading): Z7 integrates kernels whose exponents are typed from
+prose, and Z8b-Z8d are single rational comparisons: they are marked [arithmetic]. The coefficients' exponents are
+measured on the operator in r5op5.py O1-O2, the caps, tails, the class on S and the weight window on explicit fields in
+r5settle5.py G (with mutation controls). Z7's residual exponent (P(Sigma) = O(r^-6)) is round 3's; with p = 4 in Sigma
+it is O(lam r^(-13/2)) (boot5 B8, r5op5 O2), so a < 3 is set by the cap (trunc5 T2b, r5settle5 G2), not by Z7a.
 Labels: computed (Z1-Z2 mpmath at 40 digits on sympy-differentiated metrics; Z3-Z8 exact, sympy).
 
     python3 checks/scale5.py
@@ -374,12 +379,14 @@ def z7():
         res = sp.sqrt(sp.integrate(rr**(2*aa - 12)*rr**3, (rr, tt, sp.oo)))  # ||r^a P(Sigma)||, P(Sigma) ~ r^-6
         I3 = sp.integrate(sp.simplify(res), (tt, L, sp.oo))
         ok = ok and I1.is_finite and I2.is_finite and I3.is_finite
-    check("Z7a every kernel is integrable for a = 51/20, 11/4, 59/20 (in (5/2, 3))", ok)
+    check("Z7a [arithmetic] every kernel is integrable for a = 51/20, 11/4, 59/20 (in (5/2, 3))", ok)
     res3 = sp.sqrt(sp.integrate(rr**(2*3 - 12)*rr**3, (rr, tt, sp.oo)))
     I3 = sp.integrate(sp.simplify(res3), (tt, L, sp.oo))
-    check("Z7b control: at a = 3 the residual's kernel (v1 - t)^(a-4) is not integrable", I3 == sp.oo, str(res3))
+    check("Z7b [arithmetic] control: at a = 3 the residual's kernel (v1 - t)^(a-4) is not "
+          "integrable", I3 == sp.oo, str(res3))
     I1 = sp.integrate(tt**(-1), (tt, L, sp.oo))
-    check("Z7c control: at a = 1/2 the quasilinear h_R-kernel (v1 - t)^(-1/2-a) is not integrable", I1 == sp.oo)
+    check("Z7c [arithmetic] control: at a = 1/2 the quasilinear h_R-kernel (v1 - t)^(-1/2-a) is not "
+          "integrable", I1 == sp.oo)
 
 
 def z8():
@@ -395,13 +402,15 @@ def z8():
           ok)
     l0, aa = sp.Rational(19, 5), sp.Rational(29, 10)
     inclass = sp.integrate((rho**(-l0)*rho**(aa + 1 - sp.Rational(1, 100)))**2/rho, (rho, 0, 1)).is_finite
-    check("Z8b l0 = 3.8, a = 2.9 in (l0 - 1, 3): rho^(a + 1 - 0.01) lies in rho^(l0) L^2_b", inclass)
+    check("Z8b [arithmetic] l0 = 3.8, a = 2.9 in (l0 - 1, 3): rho^(a + 1 - 0.01) lies in rho^(l0) L^2_b", inclass)
     exps = sorted({p + sp.Rational(j, 1) for p in (2, sp.Rational(5, 2), 3, sp.Rational(7, 2), 4) for j in range(3)})
     half = all((2*e).is_integer and e >= 2 for e in exps)
-    check("Z8c Sigma|_S: rho^p F_p(1 - (v1 - f) rho) has exponents p + j, all in E_0^(1/2) = {2 + j/2}", half,
+    check("Z8c [arithmetic; recomputed in r5settle5 G6] Sigma|_S: rho^p F_p(1 - (v1 - f) rho) has exponents p + j, "
+          "all in E_0^(1/2) = {2 + j/2}", half,
           str([str(e) for e in exps[:8]]))
     ptw = (aa + sp.Rational(1, 2)) > l0
-    check("Z8d control: the pointwise reading O(rho^(1/2 + a)) (round 2 R2.8) fails at l0 = 3.8, a = 2.9", not ptw)
+    check("Z8d [arithmetic] control: the pointwise reading O(rho^(1/2 + a)) (round 2 R2.8) fails at l0 = 3.8, a = "
+          "2.9", not ptw)
 
 
 def main():

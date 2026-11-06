@@ -180,8 +180,8 @@ def main():
     for key in sorted(res):
         print('  I3 %s/%s: SUM X_7 = %d (swapped order), pinned in dnumber5: %d' % (key[0], key[1], res[key],
                                                                                  DN.X7_PIN[key]))
-    print('      every chain sum equal at both ends and to chain_level_sum: %s; d <= %d (R0), %d (R1) + %d c\', N = 21 d '
-          '+ 6 <= %d + %d c\' (R1); equal to dnumber5\'s pins: %s' % (
+    print('      every chain sum equal at both ends and to chain_level_sum: %s; d <= %d (R0), %d (R1) + %d c\', '
+          'N = 21 d + 6 <= %d + %d c\' (R1); equal to dnumber5\'s pins: %s' % (
               per_chain, dd['R0'], dd['R1'], c['K'] + 1, 21 * dd['R1'] + 6, 21 * (c['K'] + 1), OK['I3']))
     chs, _ = DN.chains(w, T, 'R1', 'wide', d1lo, d1hi)
     ch = [x for x in chs if x['lo'] != x['hi']][0]
