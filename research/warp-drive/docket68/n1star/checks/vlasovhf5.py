@@ -19,7 +19,8 @@
      |K|^2 + (tr K)^2) is, for every slow h and k,
          d rho^(-1) = -2 <h, p (x) W''p> + h(p, p) tr W'' + |p|^2 <h, W''>,
          d J_i^(-1) = 2 (h^jk p_j K1'_ki - p_i h^jk K1'_jk)          (p = du, W'' = d_s^2 W, K1' = d_s K1),
-     the record's formula (FAMILIES5-FULL section 6, S2), now on a non-round slice with a non-radial phase. For the
+     the record's formula (FAMILIES5-FULL section 6, S2), now on a non-round slice with a non-radial phase, and for a
+     wave that is neither transverse nor traceless (the formula's test bed). For the
      record's corrections (h = a dR^2, k arbitrary) both vanish for the torus wave. Controls (must fail): the second
      polarisation (an orbit component alpha q (x) q, q orthogonal to p) gives d rho^(-1) != 0 for h = a dR^2 when the
      phase is not radial; the formula with the sign of its first term flipped is rejected.
@@ -34,29 +35,31 @@
      largest indices: checked over every such n (N <= 4, m <= 5) for random rational configurations, and the bound is
      positive once Lam > (2 m M^2 + m^2 M^2/2)/c. Control (must fail): without the rescaling (Lam = 1) an antipodal
      pair and any third direction have the exactly null combination k_a + k_b - k_c (a resonance no division removes).
-  H5 (scipy) separation is kept by the geodesic flow, with constant c/N^2. On the orbit space of Tangherlini (mu = 1),
-     h = -f dt^2 + dR^2/f + R^2 dth^2, label phases u_w with initial gradient (cos w/sqrt f, R0 sin w) on t = 0: at a
-     point y at t = T, d alpha/d w (alpha the momentum's angle) equals det DPhi / det(dy/dx0) (Phi the flow map on
-     (x0, w)) to 1e-6, is positive, and min |g^-1(du_A, du_B)|/(Delta w)^2 over adjacent labels converges as N = 8, 16,
-     32, 64. Control (must fail): d alpha/d w taken at fixed x0 (the Schur term dropped) disagrees with the shooting.
+  H5 (numpy RK4) separation is kept by the geodesic flow, with constant c/N^2. On the orbit space of Tangherlini
+     (mu = 1), h = -f dt^2 + dR^2/f + R^2 dth^2, label phases u_w with initial gradient (cos w/sqrt f, R0 sin w) on
+     t = 0: at a point y at t = T, d alpha/d w (alpha the momentum's angle) equals det DPhi / det(dy/dx0) (Phi the
+     flow map on (x0, w)) to 1e-6, is positive, and min |g^-1(du_A, du_B)|/(Delta w)^2 over adjacent labels
+     converges as N = 8, 16, 32, 64. Control (must fail): d alpha/d w taken at fixed x0 (the Schur term dropped)
+     disagrees with the shooting.
   H6 (mpmath; numpy) the background step is uniform in N. (a) The label quadrature of a smooth stress, the periodic
      trapezoid rule, errs faster than any power of 1/N (error N^6 -> 0); control (must fail): a density with a kink
      errs like N^-2. (b) A mean-field model, w_tt - w_xx = sum_A (2 pi/N) q_A, q_A transported with speed
-     tanh(w + cos w_A): the N-label solution differs from the 256-label one by errors that fall faster than N^-4, with
-     the ratio to the initial quadrature error bounded independently of N.
-  H7 (exact; mpmath) restricted particles focus at an axis. (a) In the class sqrt|g5| = sqrt|h| e^(psi1 + psi2), so
+     tanh(2 w + cos w_A) (the source's zero mode removed): the N-label solution differs from the 128-label one by an
+     error that falls with N, and its ratio to the quadrature residual of the continuum solution sampled at the N
+     labels (the N-system's residual) stays bounded independently of N: the stability constant of Proposition U does
+     not grow with N (computed, model). Control (must fail): label weights 2 pi/(N + 1) (a mutated N-system).
+  H7 (exact, sympy) restricted particles focus at an axis. (a) In the class sqrt|g5| = sqrt|h| e^(psi1 + psi2), so
      the conserved orbit-space density of a restricted current is e^(psi1 + psi2) n5, and near axis 2 e^psi2 = sqrt(a)
-     rho2 (1 + O(rho2^2)) (axisloss5 X1 (a)). (b) Flat orbit space: a beam of restricted momenta crossing rho2 = 0 at
-     angle alpha != 0 has five-dimensional density with rho2 n5 -> F/rho1 != 0 at the crossing (computed along the
-     beam): T5 is unbounded there, with the non-smooth xhat (x) xhat form (vlasov5 V2's control). Control (must fail
-     to blow up): momenta along the axis (alpha = 0) keep n5 bounded.
+     rho2 (1 + O(rho2^2)) (axisloss5 X1 (a)). (b) In the plane of axis 2 restricted momenta move radially (p_phi2 =
+     0): the planar continuity equation for inward speed v is solved by n(r, t) = n0(r + v t)(r + v t)/r, so r n ->
+     v t n0(v t) > 0 as r -> 0 once the beam reaches the axis: the density, and T5 ~ n v^2 with the non-smooth xhat
+     (x) xhat form (vlasov5 V2's control), are unbounded. Control (must fail to blow up): axial momenta (v = 0).
 
-Labels: computed (H1-H4, H7 (a) exact; H5, H6 scipy/mpmath/numpy; H7 (b) mpmath). Run: python3 checks/vlasovhf5.py
+Labels: computed (H1-H4, H7 exact; H5 numpy; H6 mpmath and numpy, its (b) a model). Run: python3 checks/vlasovhf5.py
 (a few minutes)
 """
 from fractions import Fraction
 import itertools
-import math
 import os
 import random
 import sys
@@ -255,6 +258,17 @@ def h2_point(seed, polar='torus', hdir='dR2', flip=False):
         # trace balance: the torus part becomes G1 (2 a - alpha/2), G2 (-2 a - alpha/2) at order lam
         g[2][2] = G1 * ts.expo((am * 2 - al * F_(1, 2)) * C1)
         g[3][3] = G2 * ts.expo((-(am * 2) - al * F_(1, 2)) * C1)
+    if polar == 'generic':
+        # a wave that is neither transverse nor traceless, with a generic K oscillation: the formula's test bed
+        wo = [slow(F_(rng.randint(-3, 3), 4)) for _ in range(3)]
+        wt = [slow(F_(rng.randint(-3, 3), 4)) for _ in range(2)]
+        ko = [slow(F_(rng.randint(-3, 3), 4)) for _ in range(5)]
+        g[0][0], g[0][1], g[1][1] = g[0][0] + wo[0] * C1, g[0][1] + wo[1] * C1, g[1][1] + wo[2] * C1
+        g[1][0] = g[0][1]
+        g[2][2], g[3][3] = G1 * ts.expo(wt[0] * C1), G2 * ts.expo(wt[1] * C1)
+        K[0][0], K[0][1], K[1][1] = K[0][0] + ko[0] * S1, K[0][1] + ko[1] * S1, K[1][1] + ko[2] * S1
+        K[1][0] = K[0][1]
+        K[2][2], K[3][3] = K[2][2] + ko[3] * S1, K[3][3] + ko[4] * S1
     # the linearisation direction
     if hdir == 'dR2':
         dh = [[ah, TS()], [TS(), TS()]]
@@ -328,11 +342,13 @@ def h2():
         m_gen, z_gen, p0 = h2_point(seed, hdir='general')
         m_r, z_r, _ = h2_point(seed, hdir='dR2')
         m_s, z_s, _ = h2_point(seed, polar='second', hdir='dR2')
-        m_f, _, _ = h2_point(seed, hdir='general', flip=True)
-        print("   seed %d (p = %s): formula for a general h (rho, J_R, J_th): %s; torus wave, h = a dR^2: lam^-1 "
-              "coefficients vanish: %s; second polarisation, h = a dR^2: formula %s, rho's lam^-1 vanishes: %s "
-              "(control); flipped formula rejected: %s" % (seed, p0, m_gen, z_r, m_s, z_s[0], not m_f[0]))
-        ok &= all(m_gen) and all(z_r) and all(m_r) and all(m_s) and not z_s[0] and not m_f[0]
+        m_g, _, _ = h2_point(seed, polar='generic', hdir='general')
+        m_f, _, _ = h2_point(seed, polar='generic', hdir='general', flip=True)
+        print("   seed %d (p = %s): formula, general h, torus wave (rho, J_R, J_th): %s; a generic wave (neither "
+              "transverse nor traceless): %s; torus wave, h = a dR^2: lam^-1 coefficients vanish: %s; second "
+              "polarisation, h = a dR^2: formula %s, rho's lam^-1 vanishes: %s (control); flipped formula rejected: %s"
+              % (seed, p0, m_gen, m_g, z_r, m_s, z_s[0], not m_f[0]))
+        ok &= all(m_gen) and all(m_g) and all(z_r) and all(m_r) and all(m_s) and not z_s[0] and not m_f[0]
     return ok
 
 
@@ -356,7 +372,9 @@ def h3_point(seed, dim=3, drop_gamma=False):
         if pp[0] == 0:
             continue
         hi[0, 0] = -rest / pp[0]**2
-        if hi.det() != 0 and sum(1 for ev in sp.Matrix(hi).eigenvals() if sp.N(ev) < 0) == 1:
+        import numpy as np
+        evs = np.linalg.eigvalsh(np.array(hi.tolist(), dtype=float))
+        if hi.det() != 0 and int(np.sum(evs < 0)) == 1 and np.min(np.abs(evs)) > 1e-3:
             break
     hm = hi.inv()
     p = sp.Matrix(pp)
@@ -468,9 +486,230 @@ def h4():
     return ok and res == 0
 
 
+# ---------------------------------------------------------------- H5
+def h5_flow(R0, th0, w, T=0.5, nst=400, Rref=2.0, mu=1.0):
+    """vectorised RK4 for the null geodesics of h = -f dt^2 + dR^2/f + R^2 dth^2 (t as parameter); returns R, th,
+    alpha (the momentum's angle in the orthonormal frame) and the frame energy at time T"""
+    import numpy as np
+    R0, th0, w = np.broadcast_arrays(np.asarray(R0, float), np.asarray(th0, float), np.asarray(w, float))
+    f = lambda R: 1 - mu / R**2                                               # noqa: E731
+    fp = lambda R: 2 * mu / R**3                                              # noqa: E731
+    pR = np.cos(w) / np.sqrt(f(R0))
+    pth = Rref * np.sin(w)
+    pt = -np.sqrt(f(R0) * (f(R0) * pR**2 + pth**2 / R0**2))
+
+    def rhs(y):
+        R, th, pr = y
+        fr_ = f(R)
+        dR = -fr_**2 * pr / pt
+        dth = -fr_ * pth / (R**2 * pt)
+        dHdR = 0.5 * (pt**2 * fp(R) / fr_**2 + fp(R) * pr**2 - 2 * pth**2 / R**3)
+        dpr = fr_ * dHdR / pt
+        return np.array([dR, dth, dpr])
+    y = np.array([R0, th0, pR])
+    hstep = T / nst
+    for _ in range(nst):
+        k1 = rhs(y)
+        k2 = rhs(y + hstep / 2 * k1)
+        k3 = rhs(y + hstep / 2 * k2)
+        k4 = rhs(y + hstep * k3)
+        y = y + hstep / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
+    R, th, pr = y
+    al = np.arctan2(pth / R, np.sqrt(f(R)) * pr)
+    E = -pt / np.sqrt(f(R))
+    return R, th, al, E
+
+
+def h5_shoot(y, w, guess):
+    """x0 with flow(x0, w) = y, by Newton (vectorised in w)"""
+    import numpy as np
+    x = np.array(guess, float).copy()
+    d = 1e-6
+    for _ in range(30):
+        R, th, _, _ = h5_flow(x[0], x[1], w)
+        F0 = np.array([R - y[0], th - y[1]])
+        if np.max(np.abs(F0)) < 1e-13:
+            break
+        J = np.zeros((2, 2) + np.shape(w))
+        for k in range(2):
+            xp = x.copy()
+            xp[k] = xp[k] + d
+            Rp, thp, _, _ = h5_flow(xp[0], xp[1], w)
+            J[0, k], J[1, k] = (Rp - R) / d, (thp - th) / d
+        det = J[0, 0] * J[1, 1] - J[0, 1] * J[1, 0]
+        dx0 = (J[1, 1] * F0[0] - J[0, 1] * F0[1]) / det
+        dx1 = (-J[1, 0] * F0[0] + J[0, 0] * F0[1]) / det
+        x = x - np.array([dx0, dx1])
+    return x
+
+
+def h5():
+    import numpy as np
+    print("H5 (numpy RK4, Newton) separation is kept by the flow: d alpha/d w = det DPhi/det(dy/dx0) > 0")
+    ys = [(2.3, 0.7), (2.5, 0.8), (2.4, 0.65), (2.6, 0.75)]
+    ok = True
+    worst_rel, minslope, ctl_bad = 0.0, None, False
+    for y in ys:
+        for w0 in (-0.5, 0.0, 0.4):
+            x0 = h5_shoot(y, np.array(w0), [y[0] - 0.4, y[1]])
+            dw = 1e-4
+            xp = h5_shoot(y, np.array(w0 + dw), x0)
+            xm = h5_shoot(y, np.array(w0 - dw), x0)
+            ap = h5_flow(xp[0], xp[1], w0 + dw)[2]
+            am = h5_flow(xm[0], xm[1], w0 - dw)[2]
+            dadw = float((ap - am) / (2 * dw))
+            # the flow map's Jacobian DPhi (3x3) at (x0, w0) by central differences
+            e = 1e-5
+            cols = []
+            for k in range(3):
+                vp = [float(x0[0]), float(x0[1]), w0]
+                vm = list(vp)
+                vp[k] += e
+                vm[k] -= e
+                Fp = np.array(h5_flow(*vp)[:3])
+                Fm = np.array(h5_flow(*vm)[:3])
+                cols.append((Fp - Fm) / (2 * e))
+            D = np.array(cols).T
+            schur = np.linalg.det(D) / np.linalg.det(D[:2, :2])
+            rel = abs(schur - dadw) / abs(dadw)
+            worst_rel = max(worst_rel, rel)
+            minslope = dadw if minslope is None else min(minslope, dadw)
+            ctl_bad |= abs(D[2, 2] - dadw) / abs(dadw) > 1e-3                 # the Schur term dropped
+    ok = worst_rel < 1e-6 and minslope > 0 and ctl_bad
+    print("   12 (y, w) pairs: max relative |Schur - shooting| = %.2e; least d alpha/d w = %.4f > 0; control (d "
+          "alpha/d w at fixed x0) differs: %s" % (worst_rel, minslope, ctl_bad))
+    # the symbol over adjacent labels: |g^-1(du_A, du_B)|/(Delta w)^2 = E_A E_B (1 - cos(alpha_A - alpha_B))/dw^2
+    res = []
+    for N in (8, 16, 32, 64):
+        ws = -0.6 + 1.2 * (np.arange(N) + 0.5) / N
+        dwN = 1.2 / N
+        mins = []
+        for y in ys:
+            xs = h5_shoot(y, ws, np.array([np.full(N, y[0] - 0.4), np.full(N, y[1])]))
+            _, _, al, E = h5_flow(xs[0], xs[1], ws)
+            sym = E[1:] * E[:-1] * (1 - np.cos(al[1:] - al[:-1]))
+            mins.append(float(np.min(sym) / dwN**2))
+        res.append((N, min(mins)))
+    conv = abs(res[-1][1] - res[-2][1]) / res[-1][1] < 0.05 and all(r[1] > 0 for r in res)
+    print("   least symbol/(Delta w)^2 over adjacent labels and four points: %s; converged to 5 %%: %s"
+          % (", ".join("N = %d: %.4f" % r for r in res), conv))
+    return ok and conv
+
+
+# ---------------------------------------------------------------- H6
+def h6():
+    import mpmath as mp
+    import numpy as np
+    print("H6 (mpmath; numpy) the label quadrature, and an N-uniform mean-field model")
+    mp.mp.dps = 40
+    q = lambda w: mp.exp(mp.cos(w - mp.mpf('0.3'))) * (mp.mpf('1.5') + mp.sin(2 * w))        # noqa: E731
+    qk = lambda w: abs(mp.sin(w)) * (2 + mp.cos(w))                                          # noqa: E731
+    comp = lambda qq: (lambda w: qq(w) * mp.cos(w)**2)                                       # noqa: E731
+    ex = mp.quad(comp(q), [0, mp.pi / 2, mp.pi, 3 * mp.pi / 2, 2 * mp.pi])
+    exk = mp.quad(comp(qk), [0, mp.pi / 2, mp.pi, 3 * mp.pi / 2, 2 * mp.pi])
+    errs, errk = [], []
+    for N in (4, 8, 16, 32):
+        wa = [2 * mp.pi * (A + mp.mpf(1) / 2) / N for A in range(N)]
+        errs.append(abs(2 * mp.pi / N * sum(comp(q)(w) for w in wa) - ex))
+        errk.append(abs(2 * mp.pi / N * sum(comp(qk)(w) for w in wa) - exk))
+    sup = all(errs[i + 1] * (8 * 2**i)**6 < errs[i] * (4 * 2**i)**6 for i in range(3)) and errs[-1] < mp.mpf('1e-12')
+    kink = not (all(errk[i + 1] * (8 * 2**i)**6 < errk[i] * (4 * 2**i)**6 for i in range(3)) and errk[-1] < 1e-12)
+    print("   smooth density, T_11 error at N = 4, 8, 16, 32: %s; faster than N^-6: %s" %
+          (", ".join("%.2e" % float(e) for e in errs), sup))
+    print("   control (a kink, |sin w|): %s, about N^-2: rejected by the test: %s" %
+          (", ".join("%.2e" % float(e) for e in errk), kink))
+    # (b) the model: w_tt = w_xx + sum_A (2 pi/N) q_A, q_A,t + (c_A q_A)_x = 0, c_A = tanh(2 w + cos w_A)
+    nx, T, nt = 64, 1.5, 600
+    x = 2 * np.pi * np.arange(nx) / nx
+    kx = np.fft.fftfreq(nx, 1.0 / nx) * 1j
+
+    def dx(f):
+        return np.real(np.fft.ifft(kx * np.fft.fft(f, axis=-1), axis=-1))
+
+    def solve(N, weight=None):
+        wa = 2 * np.pi * np.arange(N) / N
+        wt = 2 * np.pi / N if weight is None else weight
+        q0 = np.exp(-3 * (1 - np.cos(x)))[None, :] * (1 + 0.5 * np.cos(wa) + 0.3 * np.sin(2 * wa))[:, None]
+        state = [np.zeros(nx), np.zeros(nx), q0.copy()]
+        dt = T / nt
+        hist = []
+
+        def rhs(st):
+            w, v, qq = st
+            src = wt * qq.sum(axis=0)
+            c = np.tanh(2 * w[None, :] + np.cos(wa)[:, None])
+            wxx = np.real(np.fft.ifft(-(np.fft.fftfreq(nx, 1.0 / nx)**2) * np.fft.fft(w)))
+            return [v, wxx + src - src.mean(), -dx(c * qq)]                      # the zero mode of the source removed
+        for _ in range(nt):
+            k1 = rhs(state)
+            k2 = rhs([a + dt / 2 * b for a, b in zip(state, k1)])
+            k3 = rhs([a + dt / 2 * b for a, b in zip(state, k2)])
+            k4 = rhs([a + dt * b for a, b in zip(state, k3)])
+            state = [a + dt / 6 * (b1 + 2 * b2 + 2 * b3 + b4) for a, b1, b2, b3, b4 in zip(state, k1, k2, k3, k4)]
+            hist.append(state[2].copy())
+        return state, hist, wa
+    ref, href, _ = solve(128)
+    rows = []
+    for N in (4, 8, 16):
+        st, _, wa = solve(N)
+        err = float(np.max(np.abs(st[0] - ref[0])))
+        step = 128 // N
+        # the quadrature residual of the continuum (the 128-label solution) sampled at N labels, over the history
+        qerr = max(float(np.max(np.abs((2 * np.pi / N) * h[::step].sum(axis=0) - (2 * np.pi / 128) * h.sum(axis=0))))
+                   for h in href[::10])
+        rows.append((N, err, qerr, err / max(qerr, 1e-300)))
+    fall = rows[1][1] < rows[0][1] / 4 and rows[2][1] < rows[1][1] / 4
+    ratio = max(r[3] for r in rows) < 10 * min(r[3] for r in rows) and max(r[3] for r in rows) < 10
+    print("   model: %s" % "; ".join("N = %d: |w_N - w_ref| = %.2e, quadrature residual %.2e, ratio %.3f" % r
+                                       for r in rows))
+    print("   errors fall at least like N^-2 at each doubling: %s; ratio to the residual bounded independently of N "
+          "(within a factor 10, and below 10): %s" % (fall, ratio))
+    # control (must fail): a mutated N-system whose label weight is 2 pi/(N + 1): its error does not fall like N^-2
+    errm = [float(np.max(np.abs(solve(N, weight=2 * np.pi / (N + 1))[0][0] - ref[0]))) for N in (4, 8, 16)]
+    ctl = not (errm[1] < errm[0] / 4 and errm[2] < errm[1] / 4)
+    print("   control (weights 2 pi/(N + 1)): errors %s, rejected: %s" % (", ".join("%.2e" % e for e in errm), ctl))
+    return sup and kink and fall and ratio and ctl
+
+
+# ---------------------------------------------------------------- H7
+def h7():
+    print("H7 (exact) restricted particles focus at an axis")
+    y0, y1, y2 = sp.symbols('y0:3')
+    Y = [y0, y1, y2]
+    hfun = [[sp.Function('h%d%d' % (min(a, b), max(a, b)))(*Y) for b in range(3)] for a in range(3)]
+    p1, p2 = sp.Function('psi1')(*Y), sp.Function('psi2')(*Y)
+    g = sp.zeros(5)
+    for a in range(3):
+        for b in range(3):
+            g[a, b] = hfun[a][b]
+    g[3, 3], g[4, 4] = sp.exp(2 * p1), sp.exp(2 * p2)
+    detok = sp.simplify(g.det() - sp.Matrix(hfun).det() * sp.exp(2 * p1 + 2 * p2)) == 0
+    J = [sp.Function('J%d' % a)(*Y) for a in range(3)]
+    sq = sp.sqrt(-sp.Matrix(hfun).det())
+    div5 = sum(sp.diff(sq * sp.exp(p1 + p2) * J[a], Y[a]) for a in range(3)) / (sq * sp.exp(p1 + p2))
+    orb = sum(sp.diff(sq * sp.exp(p1 + p2) * J[a], Y[a]) for a in range(3)) / sq
+    curr = sp.simplify(div5 * sp.exp(p1 + p2) - orb) == 0
+    print("   (a) sqrt|g5| = sqrt|h| e^(psi1 + psi2): %s; the 5D divergence of a restricted current is e^-(psi1 + psi2)"
+          " times the orbit divergence of e^(psi1 + psi2) J: %s" % (detok, curr))
+    # (b) flat orbit plane of the axis: particles with p_phi = 0 move radially in the (x3, x4) plane with speed v
+    r, t, v, r0 = sp.symbols('r t v r0', positive=True)
+    n0 = sp.Function('n0')
+    nrt = n0(r + v * t) * (r + v * t) / r                                    # the 2D continuity equation's solution
+    cont = sp.simplify(sp.diff(r * nrt, t) - sp.diff(r * v * nrt, r)) == 0  # d_t (r n) = d_r (r v n): inward flow
+    lim = (r * nrt).subs(r, 0)
+    blow = sp.simplify(lim - v * t * n0(v * t)) == 0
+    # control: axial momenta (no planar velocity) keep the density
+    nax = n0(r)
+    ctl = sp.limit(r * nax.subs(n0(r), sp.exp(-(r - r0)**2)), r, 0) == 0
+    print("   (b) inward restricted flow solves the planar continuity equation: %s; r n(r, t) -> v t n0(v t) as r -> 0 "
+          "(so T5 ~ n v^2 is unbounded once the beam reaches the axis): %s; control (axial momenta) bounded: %s"
+          % (cont, blow, ctl))
+    return detok and curr and cont and blow and ctl
+
+
 def main():
     res = {}
-    for name, fn in (('H1', h1), ('H2', h2), ('H3', h3), ('H4', h4)):
+    for name, fn in (('H1', h1), ('H2', h2), ('H3', h3), ('H4', h4), ('H5', h5), ('H6', h6), ('H7', h7)):
         res[name] = fn()
         print(name, 'PASS' if res[name] else 'FAIL', flush=True)
     return 0 if all(res.values()) else 1

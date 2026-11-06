@@ -15,14 +15,16 @@ in its source class, III.I' at Box (the expansion at null infinity), and the cor
      = sigma^(q - eps) (2 eps)^(-1/2) (1 + o(1)) for Phi = exp(-z^2), q = 2 (W* in A^2).  Controls: (a) as said;
      (b) q = 1 (the Killing form's column) gives g_tf < 1; (c) q = 0 ((d_v)^flat) gives the order -eps.
   D2 (exact, whole box) Theorem R6.4's weight conditions (III.I''' Proposition 2.1 at Box: Steps 3.1-3.4 with one
-     integration) on alpha_K in (1, 2), gamma_+ in (alpha_K, 2), w_I >= gamma_+ + 1 + eps_1 free, eps small: each a
-     positive sum on the box; and Theorem R5.1's conditions with w_I a box variable from its minimum and the condition
-     gamma_+ <= 3/2 - 2 eps of its step 7 (the round-5 verifier's minor 3).  Control: without the zero-energy step 3.1
+     integration) on alpha_K in (1, 2), gamma_+ in (alpha_K, 2), eps_1, eps small: each a positive sum on the box,
+     with w_I >= max(5/2, gamma_+ + 1 + eps_1) and every bound asked of w_I shown dominated by those two; and Theorem
+     R5.1's conditions with w_I >= max(5/2, gamma_+ + 2 - alpha_K) treated the same way and the condition gamma_+ <=
+     3/2 - 2 eps of its step 7 (the round-5 verifier's minor 3).  Control: without the zero-energy step 3.1
      the transform's zf-weight is that of its Taylor term, 0, below Lemma 4.2's beta_zf = alpha_K - 1.
-  D3 (exact) The coefficient B at alpha_K in (1, 2): the transform of (1 + t^2)^(-alpha_K/2) is B-hat(0) + C
-     |sigma|^(alpha_K - 1) + O(sigma^2) (II.G' Definition 2.7 with a constant polynomial part, the same for both
-     signs, equal to int B), at alpha_K in {11/10, 5/4, 3/2, 19/10}.  Control (the main path at the integer):
-     alpha_K = 2, where the one-sided t^-2 tail's transform carries w log w (no power law; the window's end).
+  D3 (exact) The coefficient B at alpha_K in (1, 2): the transform of B = (1 + t)^(-alpha_K) on t > 0, at sigma = i w,
+     is int B + Gamma(1 - alpha_K) w^(alpha_K - 1) + O(w) (II.G' Definition 2.7 with a constant polynomial part, the
+     same for both signs, equal to int B), at alpha_K in {11/10, 5/4, 3/2, 19/10}; the lower incomplete gamma by its
+     series, checked by differentiation.  Control (the same path at the integer): alpha_K = 2, where the remainder
+     over w diverges like log w (no power law; the window's end).
   D4 (exact) The rate.  With Theorem R6.4, kappa_sup(a) = min(3/2, a - 5/2) for a source of iota+-order a (sources
      with compact support: every kappa < 3/2, so t^(-2+eps)); the harmonic-gauge source a = 5/2 + delta_# keeps kappa
      < delta_#.  Control: without step 3.1 (alpha_K < 1) the compact-support exponent is 1/2.

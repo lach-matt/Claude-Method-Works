@@ -629,7 +629,9 @@ O(lam^N) with bounded profiles, and 2 G(g_app)(n, .) = 2 Gt(E)(n, .) + 2 Gt(S(D)
 scaled norm of the second term is <= C lam^-1 lam^(N-1), of the first <= C lam^(N-1) (E3). []
 
 **Lemma 6.2 (the stage data; deduced, with Lemma 6.4).** For every N there are stage data for Theorem A satisfying (F1)
-and (F2), all vanishing on Sigma cap {r < v_start - tau0}.
+and (F2), all vanishing on Sigma cap {r < v_start - tau0}. The stage data constructed in the proof below are fixed by
+the seed and N, and "the stage data of Lemma 6.2" (Proposition 6.5, section 6.4) means these, not any others with
+the stated properties (D616).
 
 *Proof.* Stage 0: chi = 0 on Sigma, as chosen in 5.1. Stage m = 1, ..., N, everything of the earlier stages given
 (stage N's data are not needed for (F1), (F2) but are fixed here, so every stage's data are smooth, T^2 x Z2 x

@@ -16,9 +16,17 @@ R6.0). Labels: computed (exact, sympy), certified (exact rationals and outward-r
      e^(kappa Dtau/2), not 2 c_Y q_lo^(-1/2) e^(kappa Dtau/2). With stage1rate5.out K3's enclosures (READ: c_Y^2 <= 2,
      q_lo >= 0.196683, e^(kappa Dtau/2) <= 1.105e17, and its own product 7.048e17 for the factor 2) the coefficient
      is < 3.525e17. The homogeneous factor q^(1/2) e^(kappa Dtau/2) <= 4.174e18 stands.
+  F3 (M2 and minor 8; exact) D4 Proposition 3.1's towers at -k and D4 (R4)'s class roots: every leading exponent m
+     there is <= -1, so Lemma 2.1's Lemma 1.4 part, whose exponents are >= lambda_s1,2 = 2 + d1 (D4 Lemma 2.1's
+     proof), sits at offsets >= 3 + d1 from m, beyond (0, 1.4901]; and at offset 1 the formal solutions (Lemma 1.5)
+     meet no root: with box^Ups(0)'s indicial polynomials at z = 4e-6 (gaugepot5.py G1's factors, READ: s0 lam (lam -
+     3)(lam^2 - lam - 2 - z); v1 (lam + 1)(3 - lam); s1 (4 - lam) lam Q_1(lam (lam - 1))), -k + 1 (k = 2, 3, 4) is not
+     an s0 or s1 root, and 0 (the v1 tower at -1) is not a v1 root. So every tower's offset-1 log order is 0 at the
+     record's point; at z = 0, -1 is an s1 root (control C3), which is the verifier's remark at z = 0.
   Controls (each mutates the computed path; each must fail): C1 F1 with v = e_tau + e_1 (the other sign): the
   determinant is -1 for every t, no degeneration, so F1's test (a root in t > 0) fails; C2 F2's recursion with
-  box~ u = -f (the factor 2 dropped): the coefficient is c_Y/2, and F2's identity fails.
+  box~ u = -f (the factor 2 dropped): the coefficient is c_Y/2, and F2's identity fails; C3 F3 at z = 0: -1 is an s1
+  root and F3's test fails.
 
     python3 checks/r6fixes5.py       (seconds)
 """
@@ -53,6 +61,17 @@ def f2_coeff(factor):
     return sp.simplify(cY / 2 * factor * f / f)
 
 
+def tower_roots(z):
+    lam = sp.Symbol('lam')
+    kap = 3
+    Q = lambda S: S ** 2 - (2 + 2 * kap + z) * S + kap * (kap + 1) + z * kap  # noqa: E731
+    s0 = lam * (lam - 3) * (lam ** 2 - lam - 2 - z)
+    s1 = (4 - lam) * lam * Q(lam * (lam - 1))
+    v1 = (lam + 1) * (3 - lam)
+    ok = all(s0.subs(lam, 1 - k) != 0 and s1.subs(lam, 1 - k) != 0 for k in (2, 3, 4)) and v1.subs(lam, 0) != 0
+    return ok
+
+
 def main():
     print('r6fixes5: the round-5 verifier\'s minor findings 2 and 3, re-derived')
     D, m, t = det_form(-1)
@@ -82,6 +101,11 @@ def main():
     c2b = f2_coeff(1)
     OK['C2'] = not (sp.simplify(c2b - cY) == 0)
     print('  C2 (control): box~ u = -f: coefficient %s, not c_Y: F2\'s identity fails: %s' % (c2b, OK['C2']))
+    OK['F3'] = tower_roots(Fr(4, 10 ** 6))
+    print('  F3: at z = 4e-6, -1, -2, -3 are not s0 or s1 roots of box^Ups(0) and 0 is not a v1 root (exact): the '
+          'towers at -k carry log order 0 at offset 1: %s' % OK['F3'])
+    OK['C3'] = not tower_roots(0)
+    print('  C3 (control): at z = 0, -1 is an s1 root and F3\'s test fails: %s' % OK['C3'])
     for k, v in OK.items():
         builtins.print(k, 'PASS' if v else 'FAIL')
     return 0 if all(OK.values()) else 1

@@ -1,5 +1,5 @@
-  G4 N1STAR-PROOF.md md5 f436ef75d46b2a3668c31110fbe2da3b: Lemma 6.2 statement 631; Lemma 6.2 proof range 634; Lemma 6.2
-      stage N fixed 635; 6.4 805; 6.4 seed data 812; RESPONSE-HL-5D.md md5 a1a79b1777b5f1cf4a9a82162f3cda40: Theorem A
+  G4 N1STAR-PROOF.md md5 709c63be1748117de9fadf6410eb53a2: Lemma 6.2 statement 631; Lemma 6.2 proof range 636; Lemma 6.2
+      stage N fixed 637; 6.4 807; 6.4 seed data 814; RESPONSE-HL-5D.md md5 a1a79b1777b5f1cf4a9a82162f3cda40: Theorem A
       492
 G4 PASS
   G2 box f_M = -2 Psi_M Q b_M (M = 3): True; b_1 = -(3/8)(r^(-5/2) + mu0 r^(-9/2)): True; b_2 = -3*(-27*mu0**2 +
@@ -12,6 +12,6 @@ G2 PASS
       a tenth of lam^3 env: True
 G3 PASS
   G1 h = 2 grad grad f, f(v, r, th) arbitrary: dD(h) = d(box f): True; dRic(h) = 0 (15 components): True; dRic^H(h) =
-      -grad grad(box f): True  [76 s]
+      -grad grad(box f): True  [43 s]
 G1 PASS
-stagefree5: all checks pass, every control fails  [78 s]
+stagefree5: all checks pass, every control fails  [44 s]

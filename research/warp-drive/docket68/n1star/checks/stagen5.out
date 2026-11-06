@@ -1,6 +1,6 @@
-  S1 N1STAR-PROOF.md md5 f436ef75d46b2a3668c31110fbe2da3b; lines: 5.4 stages 1..N 543; 6.2 statement 631; 6.2 proof range
-      634; 6.2 stage N fixed 635; 6.2 step at m = N 636; (F1) 610; (F2) 611; 6.5 uses 6.2 759; 6.4 uses 6.2 805; 6.4 seed
-      data 812
+  S1 N1STAR-PROOF.md md5 709c63be1748117de9fadf6410eb53a2; lines: 5.4 stages 1..N 543; 6.2 statement 631; 6.2 proof range
+      636; 6.2 stage N fixed 637; 6.2 step at m = N 638; (F1) 610; (F2) 611; 6.5 uses 6.2 761; 6.4 uses 6.2 807; 6.4 seed
+      data 814
 S1 PASS
   S2 lowest order - N at which stage N's unknowns enter: D mean: 0 (m_j with d_X); D phase: 0 (dphi_j d_th W); D osc: 0
       (lam^-1 d_th gh_j); RicH mean: -1 (m_j(ell, ell) in e_j, against d_th^2 W); RicH phase: -1 (dv x dphi_j d_th^2 W

@@ -1019,6 +1019,8 @@ note after the line, the old figure kept). New programs (each with its `.out`, e
   37,919,137,148,906,758 + 53,244,736 X_7 + 106,489,470 c' (3.7919e16; N <= 7.9630e17 + ...), 4.5 times the floor.
   [Round 5, R5.2: the construction's own log orders are <= 2 except at 26 points (excess 23 on R0, 44 on R1), so this
   is the ceiling on the construction's count, not a hypothesis (deduced; `eflat5.py`).]
+  [Round 6, R6.0 M1-M2: R1's excess is 47, not 44 (the completion between (3.2)'s rounds); and "not a hypothesis" is
+  withdrawn: it is a deduced ceiling on a step-by-step reading of I11:352-387, which the write-out does not state.]
 - *The exact obstruction to a proved ceiling, now.* (1) The log orders of E^flat actually produced (the record's
   K(lambda) alone puts the ceiling at 1e31); (2) E_ind's and E^iota_ind's Lemma 1.4 log orders at every constituent
   site (one site computed, 10); (3) L_0; (4) X_7; (5) II.E's tame orders in c'; (6) round 1's three readings.
@@ -1112,7 +1114,8 @@ earlier program is changed.
   perturbation gives the largest-entry reading **lambda0 < 0.0012968** (certified, R2). Stage 1 does not close: its
   coefficients are extracted (`bbar5.py`, D569, which round 4 missed), Lemma 2.3 at g0 is now explicit (certified:
   rate kappa <= 13.2197, factor e^39.244 = 1.105e17, `stage1rate5.py`), and what is missing is the stage data.
-- **(ii) d. Settled the second way: the log orders are <= 2.** Followed step by step, the construction of
+- **(ii) d. Settled the second way: the log orders are <= 2.** [Round 6, R6.0 M2: "settled" withdrawn, a deduced
+  reading of I11:352-387; the write-out states K(lambda).] Followed step by step, the construction of
   III.I'''''''''' Proposition 3.1 writes E^flat with log order <= 2 at every exponent below 3 + eps_+ except at the 26
   points of pi_1 E^C_I in [2, 3], where it is <= 5 (R0) or <= 11 (R1) (deduced from the cited steps; the table
   computed, `eflat5.py` F4). So n_iota <= 3 P_iota + 23 (R0) or + 44 (R1), and **d <= 37,919,139,491,675,142 +
@@ -1122,6 +1125,8 @@ earlier program is changed.
 - **(iii) lambda1, delta.** The scalar zero-energy bound now holds at every l >= 0 with the sharp constant 1/(l + 1)^2,
   l = 0 included, and crosses the horizon without loss (`zerohardy5.py`); in the class the zero-energy kernel the bound
   must avoid is one direction (s0). Still not in the norm of (3.2), and not for L_b0's fifteen components.
+  [Round 6: R1's figure is 37,919,139,651,409,350 (R6.0 M1); "without loss" overreached: u' is bounded across the
+  horizon by sup |A_l u| and, for l >= 1, sup |u| (R6.0 minor 5). The bound is now in (3.2)'s norm at s = 1 (R6.3).]
 
 ### R5.1 Round 4 read adversarially
 
@@ -1138,6 +1143,8 @@ argument. **Sharpening** (R2, certified): e e^T's largest entry is e_tau^2 = f(m
 direction xhat (e_tau^2 > e_x^2 iff m > 0), f decreasing, f(m*) <= 0.5307395; so the largest-entry reading has eps1 <
 0.0163302 and **lambda0 < 0.0012968** (round 4's 0.0024433 there is valid, not sharp). Controls: the positive
 eigenvector does not degenerate (C1); at the outer corner the bound is 0.9934 (C2).
+[Round 6, R6.0 minor 2: t (e_tau - e_1)(e_tau - e_1)^T gives det(g0 + t v v^T) = 4 m t - 1 exactly, every entry t, so
+the largest-entry eps1 < 1/(4 m*) <= 0.0153989 and lambda0 < 0.0012228 (`r6fixes5.py` F1); not claimed sharp.]
 
 (b) *iotapoles5.py.* The recursion (zeta - lam) L1(zeta) h-hat(zeta) + N(zeta - 1) h-hat(zeta - 1) = F-hat(zeta) and the
 product Pi_j = -((j - 1)!)^-1 L1(lam)^-1 N(lam - 1) ... L1(lam - j + 1)^-1 N(lam - j) re-derived (deduced:
@@ -1216,11 +1223,15 @@ d_b, so stage 1 needs Lemma 2.3 at gt = g0 itself, which R5.5 writes out.
 - *The result* (deduced; computed table, F4). E^flat has log order <= 2 at every exponent below 3 + eps_+ except at the
   26 points of pi_1 E^C_I in [2, 3]: on R0 at most 5 at 3, 4 at 2.5, 2.5099, 2.51, 2.52 and 3 at twelve points in
   (2.5, 2.56]; on R1 at most 11 at 3, 7 at the four, 5 at 2 and 3 at the twelve. Excess over 2: 23 (R0), 44 (R1).
+  [Round 6, R6.0 M1: on R1 the raise at 2 (to 5) completes to (3, 5) before the round at 3, which gives 5 + 8 + 1 = 14
+  there, not 11; excess 47; log order above 2 at 17 points (R0), 18 (R1), not 26 (`eflat5.py` f4_table, C4).]
 - *The ceiling* (computed, F5). n_iota <= 3 P_iota + excess, so dceiling5's D6 per exponent gives
   **d <= 37,919,138,373,535,686 (R0), 37,919,139,491,675,142 (R1) + 53,244,736 X_7 + 106,489,470 c'**, N = 21 d + 6
   <= 7.96302e17 + .... The floor is 8,407,505,890,317,054: the ceiling is 4.51 times it. It is a ceiling on the
   record's bookkeeping with the construction's own log orders; it is not proved in the record's words (I11 Proposition
   3.1 (c) states K(lambda)), so it is a deduced ceiling resting on the reading above.
+  [Round 6, R6.0 M1: R1's constant is 37,919,139,651,409,350 (+159,734,208); R0's stands. With X_7 summed exactly
+  (R6.1): d <= 45,661,383,902,649,727 + 106,489,470 c' (R1).]
 - *Controls* (each fails): C1 the windows' raises summed instead of maximised: log order 45,000,050 at 3; C2 the v1
   site's extended unions counted twice: log order 4 at offset 1; C3 every type's roots at k = 2: offsets below 1 {d0,
   d1}.
@@ -1271,6 +1282,9 @@ not read here. **c' does not matter at this size** unless it exceeds about 1e7: 
   on Omega: **||du(tau)|| <= 4.174e18 ||du(tau0)|| + 7.048e17 int ||f||**, the Gronwall factor e^(kappa Dtau/2) <=
   e^39.244 = 1.105e17 (Dtau <= 5.937209). B-bar and C-bar add their sup norms (over q_lo^(1/2)) to kappa. Controls: the
   Gamma term removed changes kappa (C1); Y = d_tau is not coercive at m = 2 (C2).
+  [Round 6, R6.0 minor 3: the coefficient of int ||f|| is c_Y q_lo^(-1/2) e^(kappa Dtau/2) < 3.525e17, not 7.048e17
+  (y' <= (kappa/2) y + c_Y ||f|| from box~ u = -2 f; `r6fixes5.py` F2); and C-bar's sup norm enters only with ||u||
+  inside the energy (Lemma 2.3's <u, d_tau u> step), not through du alone.]
 - *Why stage 1 does not close* (deduced). With the energy constant explicit, a certified L^2 bound for (m_1, phi_1,
   Psi_1, Z) needs (1) the stage data (m_1, d_tau m_1, phi_1, gh_2) on Sigma_tau0, fixed by Lemma 6.2 through Lemma
   6.4's parabolic-hyperbolic constraint solve, whose constant is not written out (N1STAR-PROOF.md:631-755); (2) the
@@ -1291,6 +1305,9 @@ not read here. **c' does not matter at this size** unless it exceeds about 1e7: 
   int_{r_h}^r s^3 (l (l + 2) s^-2 u - A_l u) ds and |u'| <= sup |s^3 (l (l + 2) s^-2 u - A_l u)| / (r (r + r_h)) on both
   sides (H4): at zero energy the scalar model loses no derivative at the horizon (factor 1/(2 mu) there), so the
   radial-point constant is not needed at sigma = 0 for this model.
+  [Round 6, R6.0 minor 5: overreached; u' is bounded there by sup |A_l u| and, for l >= 1, sup |u| (A_l u in C^k gives
+  u in C^(k+1)); the L^2-level passage through the horizon is R6.3's multiplier identity. Minor 6: the inverse bound is
+  sharp too, ||r A_l u||^2/||r^-1 u||^2 -> (l + 1)^4 on r^(-1-delta) (`zerohardy5.py` H3b).]
 - *The kernel in the class* (READ N1STAR-PROOF.md:4983-4984; deduced, H5): L_b0's eleven zero-energy states are 1 (s0,
   mu-dot) + 6 (v1, so(4)) + 4 (s1, h_s1(S)); the class has even scalar harmonics and no vector type, so I.C:497's
   sigma_min is needed on the complement of one direction, in s0, and on s_l, t_l (l even >= 2) without a kernel.
@@ -1306,6 +1323,7 @@ not read here. **c' does not matter at this size** unless it exceeds about 1e7: 
 - *Computed, exact*: E_ind's Lemma 1.4 log orders at four sites on the block reading (offsets below 1 {d1}, 10 at 5);
   the singleton pole orders' premises, and order 1, rank 2 at 5 by an independent route; E^flat's log-order table and
   the ceiling 3.7919e16 + 53,244,736 X_7 + 106,489,470 c'; the zero-energy constants 1/(l + 1)^2, sharp.
+  [Round 6, R6.0 M2: E^flat's table and the ceiling move to *Deduced* (a reading of I11:352-387); M1: R1 47, 14 at 3.]
 - *Deduced*: the block reading; E^flat's log orders from the construction's steps; X_7 = |E_K,<=| + (2.26a)'s losses;
   the tame orders' structure; stage 1 needs Lemma 2.3 at g0 only; the kernel in the class is one direction.
 - *Open, with the exact obstruction*: lambda0's value (stage 1's data, Lemma 6.4); d's ceiling: X_7's E_K (Step 5's
@@ -1328,6 +1346,7 @@ not read here. **c' does not matter at this size** unless it exceeds about 1e7: 
     The loss d is not yet a number. At a parameter point meeting every condition decidable there, d >= 8.40 x 10^15
     and N >= 1.76 x 10^17 (computed). Followed step by step, the construction keeps at most two logarithms at every
     parameter exponent but 26, so the write-out's own bookkeeping gives d <= 3.80 x 10^16, plus 5.3 x 10^7 times one
+    [Round 6: superseded by R6.6; "but 26" is "but 18 (R1)", and the figure is a deduced ceiling on a reading]
     uncounted loss, that of the inverse Fourier transform at the final joint step, which depends on the K+-exponents of
     the zero-frequency terms, and 1.1 x 10^8 times the fixed per-level loss, which matters only if it exceeds about
     10^7 (deduced; the record's own coarser bound, which allows a logarithm at every step of every window, gives
@@ -1350,3 +1369,204 @@ PART-III-I10-CORR4.md:33-44; PART-III-I12-SPECTRAL.md:76-108, 380-407; PART-II-F
 PART-II-E-ENERGY.md:300-430, 648-660, 727-745, 842-856, 1148-1170; PART-II-A-SETUP.md:938-944, 1314-1330; LOSS-D.md
 LD9, LD14; checks: bbar5.py and its .out (D569), iotapoles5.py, lzerotrace5.py, dceiling5.py, dweights5.py (imported,
 not copied).
+
+## Round 6 (2026-11-02)
+
+*Status.* Appended to rounds 1-5; not yet read by a verifier. R6.0 seats the round-5 verifier's report, each item
+re-derived first; where it corrects a line of rounds 4-5 a bracketed `[Round 6, ...]` note follows that line, the old
+figure kept. R6.1-R6.3 take the three items in the order asked. New programs, each with its `.out` and controls that
+mutate the computed path and fail as they must: `checks/dnumber5.py`, `checks/r6fixes5.py`, `checks/zeroext5.py`,
+`checks/stage1cap5.py`. Changed and rerun: `eflat5.py` (F4 as a function with the completion of (3.2), C1 rerun through
+it, C4 new, F5's assert), `zerohardy5.py` (H3b, H4b, C3 replaced, H5's READ found by search). Found here: N1STAR-PROOF.md
+has moved since D614 (D615 rewrote Lemma 6.2's proof; 10856 lines, the eleven states now at :4986), so
+`lzerotrace5.py` T0 fails its md5 pin on a rerun (checked; `lzeroaudit5.py` pins the same md5); rows below :634 move
+by +3 (not re-pinned here: the file was still changing while this round ran).
+
+### R6.0 (verifier of round 5)
+
+The verifier confirmed every certified figure of round 5, the byte-identical reruns, the ceiling arithmetic, its own
+interval lambda0 (operator < 0.00244325, Frobenius < 0.00199491, largest entry < 0.00129673), and the windows'
+"maximised, not summed" rule. Its findings, each re-derived before it is seated:
+
+- **M1 (accepted; computed).** III.I' (3.2) takes extended unions round by round, and each completes the index set by
+  (2.2) (A-PREREQ:122-130). On R1 the round at [2, 3) raises 2 to 0 + 4 + 1 = 5, the completion puts (3, 5), and the
+  round at [3, 4) raises 3 to 5 + 8 + 1 = 14, not 11; on R0 the completion (3, 1) lies below G's (3, 2). `eflat5.py`
+  f4_table now runs the rounds with the completion; C4 reruns it without and recovers round 5's 44 and 11. R1's excess
+  is **47**, the constant **37,919,139,651,409,350** (+159,734,208, the verifier's figure); R0's 23 and
+  37,919,138,373,535,686 stand. No other completion meets a later raise: the windows raise only at real part >= 5/2
+  (I11:382-386) and complete above 3 + eps_+; folded into `dnumber5.py`, whose log tables call f4_table.
+- **M2 (accepted).** The ceiling rests on a step-by-step reading of I11:352-387, while I11 Proposition 3.1 (c) and
+  Lemma 1.2 (c) state K(lambda) only: it is a *deduced ceiling on that reading*, and R5.0's "settled", R5.7's "computed"
+  and R4.3's bracketed "not a hypothesis" are withdrawn in place. The log order exceeds 2 at 17 points (R0) and 18 (R1),
+  not 26. On the towers: every leading exponent of D4 Proposition 3.1's towers and of D4 (R4)'s class roots is <= -1,
+  so Lemma 2.1's Lemma 1.4 part sits at offsets >= 3 + d1, and at offset 1 the formal solutions meet no root of
+  box^Ups(0) at z = 4e-6 (-1, -2, -3 are not s0 or s1 roots, 0 is not a v1 root; `r6fixes5.py` F3, exact); at z = 0, -1
+  is an s1 root (control C3), which is where the remark holds. III.F'''' (5.3) lives at offsets >= 2 (R5.2) and does not
+  touch E^flat's window. What would make the ceiling proved: the reading written into the supplement as a sharpened I11
+  Proposition 3.1 (c) (log order <= 2 off the 18 points, the table at them), whose proof is I11:352-387 with the inputs
+  computed in eflat5.py; it is implied by and much smaller than K(lambda). Not done here (it edits the write-out).
+- **Minor 1 (accepted).** eflat5 C1 now reruns f4_table with the windows summed and F4's test fails on it.
+- **Minor 2 (accepted; computed, certified).** det(g0 + t v v^T) = 4 m t - 1 for v = e_tau - e_1 (sympy), every entry of
+  t v v^T being t or 0: the largest-entry reading gives eps1 < 1/(4 m*) <= 0.0153989 and **lambda0 < 0.0012228**
+  (`r6fixes5.py` F1; control: the other sign never degenerates). Valid; not claimed sharp.
+- **Minor 3 (accepted; deduced, computed).** stage1rate5's 7.048e17 carries a spurious 2: y = E^(1/2) obeys y' <=
+  (kappa/2) y + c_Y ||f||, so the coefficient is c_Y q_lo^(-1/2) e^(kappa Dtau/2) < 3.525e17 (`r6fixes5.py` F2). The
+  remark on C-bar is seated at R5.5.
+- **Minor 4 (accepted; reproduced by rerunning the verifier's script).** At 5 the order 1 is a cancellation in the
+  computed operator: with L1 replaced by L1 + 10^-3 R the norm of Pi_4(5 + eps)^-1 grows like eps^-2 (1.2e18 at 1e-8,
+  1.2e34 at 1e-16). R4.3's "every pole <= 5 is simple" holds for the operator computed (exact), not generically; it does
+  not enter (B1).
+- **Minors 5, 6 (accepted).** zerohardy5's H4 now says u' is bounded across the horizon by sup |A_l u| and, for l >= 1,
+  sup |u|; H3b shows the inverse bound sharp (||r A_l u||^2/||r^-1 u||^2 = ((l + 1)^2 - delta^2)^2 + O(delta)); C3 now
+  reruns H4's integrated identity (H4b, exact on a polynomial u) with the l (l + 2) term dropped, and fails.
+- **Minor 7** is item 1 (R6.1). **Minor 8 (accepted).** F2's "Lemma 1.4's part starts at 2 + d1 - m >= 2 + d1" needs
+  m <= 0; every m used there is <= -1 (above), so the statement holds with that range. **Minor 9 (accepted).** The
+  stage-1 energy constant covers the principal part; the sup norms of B-bar, C-bar are not taken (R6.2).
+- **Nits.** c' reaches 1 % of the ceiling at about 4.3e6 now (3.6e6 against 3.79e16, the verifier's figure); iotamut5's
+  run was 2233 s; eflat5 C3 changes the input (kept, labelled so); R5.8 superseded by R6.6.
+
+### R6.1 (i) d: X_7 summed over the levels, and c' (`dnumber5.py`)
+
+- *E_K, computed exactly* (deduced from I12:328-376, Step 5 (i)-(iv), and Lemma 2.3, I12:174-216; at every level by
+  I14:131). By the dictionary (I12:46-49) a zf-term |sigma|^z log^m is t^(-z-1) log^m at K+, so E_K = 1 + the
+  zf-exponents of the pieces. Only Lemma 2.3's c_tau(sigma) T_tau(sigma) at levels 1 and 2 have non-integer degree:
+  alpha_0 - 3 + j + i (s1) and alpha_0 - 2 - mu + j + i (other rows), alpha_0 the tf-exponent at level j, of u-exponent
+  lambda = alpha_0 + j - 1; so s1 gives lambda - 1 + i and the other rows lambda - mu + i (mu <= 0), with log order
+  k(lambda), plus one where alpha_0 = 2 (c_s1 = -|sigma|^-1 log|sigma|; beta_0(2) = 0). Zero-energy pieces, P_int and
+  columns have integer degree and no log|sigma|. Level 1 treats lambda in [2, 2 + eta_1) = {2}; level 2 treats
+  [2 + eta_1, 3 + eta_2). With beta_K = beta - 2 - eps <= 2 + eps_K - eps and (G):
+      E_K cap {Re <= beta_K} = {(1, <= k_1(2) + 1)} u {(lambda - 1, <= k_2(lambda)) : lambda in Lambda cap (2, 3)}
+                               u {(2, <= max(k_2(3), k_1(2)) + 1)},   cut at beta_K;
+  n_iota = 0 at Step 7, and LOSS-D (2.2) (verifier 166) gives X_7(beta) = n_K(beta) + ceil(beta - 5/2). [R5.3 wrote
+  "(2.26a)'s losses" twice; (2.2) charges the first application in parallel, once: at most 2 per level less.]
+- *The log orders* (deduced on round 5's reading, R6.0 M2; computed tables). The level-2 sources at lambda in (2, 3]:
+  E^flat (eflat5 f4_table), 2 + E_col and 3 + E_col (Lemma 1.1, E_col := E cap {Re >= 0}, E's exponents b + w + sigma,
+  b in {0, 2, 3}, w in E_ind, sigma >= -5: the reading under which lambdagen5's eleven E_col bases enter P_W; log
+  order 10 at 0, 12 at 1, <= 5 off the integers), u_0's (Lemma 1.4 with the one root 2, meeting the sources only at 3:
+  log 26 there on R1), and Proposition 4.4's remainders (alpha_0, k) + E_ind, whose only offset below 1 is d1 with log
+  order 0, so a log order is carried along its d1-chain; the offset 1 lands above 3 except from the level-1 point 2
+  (k_1(2) + 2 at 3). So k_2 <= 2 + e_c on each chain c, e_c the excess of the chain's first point in (2, 3) (each excess
+  source is that point: asserted). R1: k_1(2) = 10, k_2(3) = 26, E_K log order 11 at 1 and 27 at 2; chain excesses 8
+  (the chain of 2), 5 (2.5, 2.5099, 2.51, 2.52), 1 (the twelve), 3, 2, 2, 1, 1 (E_col's bases 2 + d0, 2 + delta'_1,
+  2 + delta_2, 2 + delta'_2, 2 + delta_3); 15 chains carry <= 2.
+- *The sum* (computed, certified: per chain and level range a floor sum, evaluated at both ends of the d1 and base
+  intervals and equal). Over the 53,244,736 levels above 3 (R1, the wide E_col reading):
+      SUM X_7 = 7,742,244,251,240,377 = 5,794,881,998,695,725 (3 per point) + 1,947,361,533,740,659 (excess)
+                + 638,936,888 (the points 1, 2) + 79,867,105 (ceil(beta - 5/2));
+  X_7(alpha) = 352,162,875 at the top level; the uniform bound L_above X_7(alpha) would add 1.10e16. On the shifted
+  E_col reading 6,783,838,625,545,958; on R0 (wide) 7,512,059,369,168,913. Controls: C1 a brute-force simulation of
+  levels 1-2 on a scaled instance (d1 = 1/97, 90 levels) equals the closed form (37,655), and both the closed form
+  without the carried excess and the simulation without propagation differ; C2 the s1 rows at rate lambda (no
+  dictionary shift) collapse E_K; C3 the excess dropped from K1; C4 a perturbed d1 moves a certified chain sum.
+- *d* (computed on the deduced reading). **d <= 45,661,383,902,649,727 + 106,489,470 c'** (R1; 45,431,197,742,704,599
+  on R0), **N = 21 d + 6 <= 958,889,061,955,644,273 + 2,236,278,870 c'**; 5.43 times the floor 8,407,505,890,317,054.
+  c' = 10 gives d <= 45,661,384,967,544,427; c' = 10^6 gives 4.5768e16; c' moves d by 1 % only above about 4.3e6.
+- *c'* (READ; deduced). c' >= D_0 + D_1 + d' + d'' + 6 (III.I Theorem 5.3's FWD loss, II.F2-TAME (3.2)-(3.3)) + 2 (BG)
+  + the fixed MODs of a level (among them III.A Proposition 4.2 (2) at I12:350 and in Lemma 2.4, III.I'' Lemmas
+  4.1-4.2, III.H Proposition 3.2: closed forms in LOSS-D section 2b, in s_c and the thresholds), so c' >= 14 + D_0
+  (D_1 >= d-tilde >= 6). D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) has no number: d^T_0 is II.A Proposition 9.6's d_0, which
+  is II.A Lemma 8.5's d_* + K + 1 with d_* from the closed graph theorem (II.A:955-967); d^E_0 and d^S_0 rest on
+  (L3)-(L4) and Lemma 8.6, whose d_0 the write-out fixes by d_0 - 2 >= M_2.4 + 2 (II.A2:722-723), M_2.4 again a
+  closed-graph seminorm count (II.A2:277-279). The calculus it rests on gives no count either (READ [SBG]: Proposition
+  3.32 cites [Hin23a] Corollary 4.34 for uniformly bounded symbols, Theorem 3.44 is "an immediate consequence", variable
+  orders "mutatis mutandis", p. 66). So **d is not an integer from this record**: numbering D_0 needs a quantitative
+  boundedness theorem (Calderon-Vaillancourt with a seminorm count) for variable-order symbols of finite regularity in
+  [SBG]'s calculus, carried through Lemma 8.5, Proposition 2.4 and (L3)-(L4); the write-out has none, and none is
+  proved here. Everything else in the chain is an integer.
+
+### R6.2 (ii) stage 1 of lambda0 (`stage1cap5.py`)
+
+- *What stage 1 can do* (computed, exact; deduced). W_TT is a first harmonic in the phase and chi a second (closed
+  forms of stage0bd5.py), so for g(s) = M + W_TT(s) + chi(s) D: g(s) - g(s + pi) = 2 W_TT(s), (g(s) + g(s + pi))/2 =
+  M + chi(s) D and (g(s) + g(s + pi)) - (g(s + pi/2) + g(s + 3 pi/2)) = 4 chi(s) D. Hence every admissible C_app is
+  >= max(sup |W_TT|, sup |m_1 + chi dv dv|) >= max(sup |W_TT|, 2 sup |chi|), |dv dv|_op = 2.
+- *Stage 0's second harmonic does not move the bound* (certified). The angular factor of chi is <= 1/3 exactly
+  (36 (1 + q^2)^2/9 - 16 q^2 - (1 - q^2)^2 = 3 (1 - q^2)^2); the radial factor is largest at r = a on Omega; so
+  2 sup_Omega |chi| <= 11.8821 < 12.593309 (Arb over 4000 cells of v). Control: at r = a/2, outside Omega, it is 52.4.
+- *The criterion* (deduced). Stage 1 lowers the certified bound lambda0 < 0.0024433 iff a certified *lower* bound of
+  sup |m_1 + chi dv dv|_op exceeds 12.593309; a stage-1 *upper* bound, which is what Lemma 6.4's estimate yields,
+  cannot. With 2 sup |chi| at 11.88, an m_1 of order one at the right point would do it.
+- *Lemma 6.4's principal constants at the background on Sigma_tau0* (certified; Lemma 6.3 (a)'s closed forms, READ):
+  alpha = 3 r^3/(r^2 + mu)^2 >= 0.0374252 (r = a, mu_end; 0.0512241 with mu = mu0, its value there), angular
+  ellipticity and min eig S A0 >= 0.00550234 (r = b(tau0)), speed^2 <= 157.778 (r = a).
+- *Why the stage-1 data are not produced, exactly* (deduced). Lemma 6.2 (iii) at m = 1 is the linearised constraint
+  system P(h_1, Q_1) + B_1(h_1) = S_1 in (a_1, w_1, q_1), solved by Lemma 6.4 from zero data at r = a. Its source S_1
+  and B_1 are the order-1 means of the constraint map at the approximant's slice data, products of W (and chi) with
+  themselves and with gh_2 of Lemma 6.2 (i): a second-order two-scale expansion of (J, rho), one order beyond data5.py
+  (which reaches the linearisation, S2-S6), and of the size of stage5.py's lam^1 Ricci expansion (966 s). Not
+  computed. A certified solve then needs Lemma 6.4's constant: at the index s > 7/2 that the lemma states it contains
+  the Moser and Kato-Ponce constants on S^3 ([GO13], [DS23]), not numbered in the record; an L^2-level estimate needs
+  only the constants above and sup norms of the lower-order coefficients b, c, e, c', f, f', c'' at the background,
+  computable but not computed. Stages 2-9 each need R^(m) to order m symbolically, which stage5.py could not reach at
+  m = 2. So no stage is solved and lambda0 has no value; its certified bounds are those of R4-R6 (operator < 0.0024433,
+  Frobenius < 0.0019950, largest entry < 0.0012228), unchanged by stage 1 until a lower bound on m_1 exists.
+
+### R6.3 (iii) the inverse bounds (`zeroext5.py`; `zerohardy5.py` changed)
+
+- *The zero-energy bound in (3.2)'s norm, scalar model at b0* (computed, exact identities; certified constants;
+  deduced inequalities). On harmonic l, with P = r^3 - mu r, L = l (l + 2) and the extended domain [r_h/2, oo) (the
+  artificial boundary inside the horizon at which nothing is imposed), N(u)^2 = int (r |u|^2 + r^3 |u'|^2 + L r |u|^2) dr
+  is ||u||^2 in Hbar^(1,-1)_b (the b-fields r d_r and the so(4) Killing fields) and F^2 = int r^5 |A_l u|^2 dr is
+  ||A_l u||^2 in Hbar^(0,1)_b; alpha + 2 = 1 lies in the model's gap (0, 2) at infinity (roots -l, l + 2). The
+  multiplier w = r gives, for every b > 1, the exact identity of Z1 with bulk int r^3 |u'|^2 + L int r |u|^2 and every
+  boundary term non-negative, the one at the inner boundary because P < 0 inside the horizon (Z2); with the exterior
+  Hardy bound (zerohardy5 H1-H2) and a choice of b in [6/5, 2]:
+      ||u||_{Hbar^(1,-1)_b} <= 2.8002 ||A u||_{Hbar^(0,1)_b}   on [r_h/2, oo) x S^3, every l at once,
+  sup_l C_l^2 = C_0^2 < 7.85 (exact rationals). Scale invariant in mu. The family u = r^(-1-delta) (exact) reaches
+  N/F = 1.318 at delta = 1/100, l = 0, tending to 2^(1/2): the constant is within a factor 2.1 of the best. Controls: w =
+  1 loses positivity at r = 1/2; the identity fails with the boundary term's sign flipped; the claim C/4 is refuted
+  by r^(-1.01). At s = 1 the threshold s > 1/2 + theta_H of (3.2) holds if theta_H < 1/2 for the model (deduced: a real,
+  formally symmetric scalar operator, theta_H = 0); the estimate itself gives H^1 through the horizon.
+- *What remains, and why* (deduced). (a) I.C:497 itself is sigma_min of L-hat_b0(0) on fifteen components, type by type
+  in the class (s0 on the complement of the one state, s_l and t_l at even l): the multiplier and Hardy arguments use
+  the scalar operator's symmetric form and its ground state 1/r; for the coupled, non-self-adjoint system no such
+  identity is written, so the input needed is that system's per-type ODEs (lin5.py, class5.py) with a coercive identity
+  or a validated solve per harmonic and a uniform-in-l tail: computable, not done. (b) The other six (I.B:1513, :1685,
+  :1978; III.F'':223; III.D:365; II.F:1393 with ||Pi||) are estimates whose constants, in the write-out, are products
+  of the constants of I.A's microlocal estimates and of the finite-regularity calculus; those the write-out fixes by
+  the closed graph theorem (II.A2 Proposition 2.4, II.A Lemma 8.5, (L3)-(L4)), the same input R6.1 finds missing for
+  D_0, and the trapping and middle-range ones need besides certified spectral bounds in the write-out's norms (E2-PILOT
+  has them only in its own norm, for the scalar wave). So no lower bound for lambda1 or delta; the upper bounds stand
+  (log10 delta < -7.6666e16, lambda1 < delta).
+
+### R6.4 Proved, computed, open
+
+- *Certified*: lambda0 < 0.0012228 (largest entry, R6.0); 2 sup_Omega |chi| <= 11.8821; Lemma 6.4's principal
+  constants on Sigma_tau0; the scalar zero-energy bound 2.8002 in (3.2)'s norm at s = 1.
+- *Computed, exact*: the completion at 3 (14, R1 excess 47, constant 37,919,139,651,409,350); E_K below beta_K; SUM X_7
+  = 7,742,244,251,240,377 and d <= 45,661,383,902,649,727 + 106,489,470 c' (on the reading); the four-point identities;
+  the multiplier identity; the tower roots at -k; stage1rate5's coefficient 3.525e17.
+- *Deduced*: E_K's form; X_7 = n_K + ceil(beta - 5/2) by LOSS-D (2.2); the criterion for stage 1; c' >= 14 + D_0 and
+  D_0's closed-graph origin; the obstructions of R6.2 and R6.3.
+- *Open, with the exact obstruction*: d as an integer (D_0: a quantitative boundedness count in [SBG]'s calculus);
+  the ceiling as a theorem (the sharpened I11 Proposition 3.1 (c) written into the supplement); lambda0's value (S_1,
+  B_1 and a solve of Lemma 6.4; then stages 2-9); lambda1, delta from below (L_b0's zero-energy system; the six
+  others through the same calculus constants and certified spectral bounds in the write-out's norms).
+
+### R6.5 Sources (round 6)
+
+N1STAR-PROOF.md:355-357, 461-462, 548, 521-548, 631-805 (now +3 below :634), 4986; proof5: PART-III-I12-SPECTRAL.md:
+1-420; PART-III-I14-LEVELS.md:1-213; PART-III-G5-TF.md:380-520; PART-III-A-PREREQ.md:115-135, 170-182, 455-470,
+560-704; PART-III-I2-SCRI.md:160-240; PART-III-D4-GENSTATES.md:50-135; PART-III-J3-TAME.md:90-180, 240-300;
+PART-II-F2-TAME.md:440-560; PART-II-E-ENERGY.md:640-660, 840-860, 1148-1172; PART-II-A-SETUP.md:340-445, 900-1010,
+1110-1170, 1290-1335; PART-II-A2-STANDARD.md:170-306, 722-723; PART-I-C-LOWENERGY.md:32-100, 360-400; LOSS-D.md
+sections 1-3, LD16; [SBG] arXiv:2408.06651v1 Proposition 3.32, Remark 3.33, Theorem 3.44, Remark 3.47, Definition 4.6
+(READ 2026-11-02); the round-5 verifier's report and scratch (iotasub.py rerun); checks imported, not copied:
+dweights5, dceiling5, eflat5, lambdagen5, prop31loss5, iotapoles5, lzerotrace5.out, envelope5.out, stage1rate5.out.
+
+### R6.6 Proposed text for the paper's section 9 (replaces R5.8; 14 lines)
+
+  The threshold lambda0 that the proof of Theorem 1 delivers is traced term by term to the supplement. At the numerical
+  point it is below 0.0025 (certified; below 0.0013 with the pointwise norm read as the largest entry), so the wavelength
+  10 l5 lies more than 400 times beyond it. The first linear stage can lower this only through a certified lower bound on
+  its mean correction (stage 0's second harmonic cannot: certified); its data, which solve the constraints linearised
+  about the background with the wave as source, are not computed, so no value of lambda0 is given.
+  The loss d: d >= 8.40 x 10^15 at a parameter point meeting every condition decidable there (computed). Reading the
+  construction's logarithms step by step (deduced) and summing every count the write-out fixes over its 1.06 x 10^8
+  levels gives d <= 4.567 x 10^16 + 1.07 x 10^8 c' and N = 21 d + 6 <= 9.59 x 10^17 + 2.24 x 10^9 c' (computed), c' the
+  fixed loss per level, which is at least 14 plus a coefficient-regularity order the write-out fixes only by the closed
+  graph theorem: d is not an integer here, and any c' below 4 x 10^6 changes it by less than one per cent.
+  For what the proof's formulas can deliver, log10 delta < -7.66 x 10^16 and lambda1 < delta; no lower bound follows. Of
+  the seven inverse bounds a lower bound needs, the zero-energy one is proved for the scalar model in the supplement's
+  norm (exact identities, certified constant 2.81, every harmonic, through the horizon); the others rest on calculus
+  constants that the write-out also fixes only by the closed graph theorem.

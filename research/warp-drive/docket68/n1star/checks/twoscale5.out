@@ -1,0 +1,2 @@
+T1 (exact) two-scale product rule: True; chain rule for exp(lam a cos s): True; control (mutated d/ds) rejected: True
+PASS

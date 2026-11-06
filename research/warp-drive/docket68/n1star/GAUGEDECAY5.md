@@ -2275,3 +2275,716 @@ compactly supported data it settles on each region r ≤ R to μ̇K* + c π_{W*}
 >   supported gauge data, never above the formal model's exponent. Each with a control that must fail. Exact.
 
 *Files.* `GAUGEDECAY5.md` (this section appended); `checks/gdkplus5.py` with `checks/gdkplus5.out`.
+
+## Round 6 (2026-11-02)
+
+*Status.* Written 2026-11-02 (round 6, this section). Not verified by a second reader. Rounds 1-5 are left as they
+stand; every change to them is a numbered amendment, (A37)-(A56) in section R6.g, the findings of the verifiers of
+rounds 4 and 5 among them. New program: `checks/gdrad5.py` (D1-D13) with `checks/gdrad5.out`; every check has a control
+that mutates the computed path and must fail, and fails. Labels as in rounds 1-5. Readings use round 5's abbreviations
+(I3, I4, G2, F2, D, H$'$) and I2 for `PART-III-I2-SCRI.md` (III.I$'$) and H for `PART-III-H-AUGMENT.md`, all under
+`proof5/`. Section headings are lettered (R6.a-R6.h).
+
+*The result, in one paragraph.*
+- **III.I$'''$ Proposition 2.1 with Lemmas 1.1-1.3 carries over to $\Box$** (Lemmas R6.1-R6.3, Theorem R6.4). For a
+  source of $K^+$-weight $\alpha_K\in(1,2)$ and $\iota^+$-weight $\gamma_++2$, $\gamma_+\in(\alpha_K,2)$, the forward
+  solution is $c_0\chi_KW^*$ plus a remainder of $K^+$-weight $\alpha_K-1$, and finer, $u'+\beta W^*$ with $u'$ and the
+  coefficient $B$ at $K^+$-weight $\alpha_K$; $c_0 = (4\pi^2)^{-1}\int\ell(f)$. The zero-frequency Taylor term
+  $\hat f(0) = \int f\,dt_*$ is inverted by the augmented operator at $\alpha+2 = \gamma_+-1$ (round 5's stop), and one
+  integration in $t_*$ suffices. The cap $\alpha_K<2$ is the zero-energy window, not the radiation field.
+- **The rate** (Theorem R6.5): $u-c_f(t_*)W^* = O(t_*^{-\alpha_K})$ on compact sets for every $\alpha_K<2$.
+- **A gauge vector with $\Box Y = 0$ and data compactly supported on $\Sigma^\circ$ settles at $t_*^{-2+\epsilon}$**
+  (Corollary R6.6), for every $\epsilon>0$, to $(Q[Y]/4\pi^2)W^*$. The route is a cut-off with compact support in
+  spacetime, admissible because $Y$ vanishes near $\Sigma^\circ$ off the domain of influence of the data; it gives a
+  smooth compactly supported source. Round 5's "next cap $t_*^{-3/2}$ from the radiation field" belongs to the slab and
+  cone route of Corollary R4.6, whose cone source inherits II.F$'$'s a priori $\iota^+$-weight $b_+<\frac32$: it is a
+  cap of that route, not of the rate.
+- **The low-frequency expansion, settled** (Proposition R6.7, formal; computed D5-D6). The round-4 verifier's m1 is
+  right: on Tangherlini the first non-smooth term of $\Box$'s resolvent at zero energy is $\sigma\log\sigma$, one
+  order above $\sigma^0$ and two above the pole, with coefficient $-\frac i{8\pi^2}\,d\psi\otimes\ell$; round 4's
+  $\sigma^2\log\sigma$ is the free kernel's. Its time-domain counterpart is
+  $Y-(Q/4\pi^2)W^* = \frac Q{8\pi^2}t_*^{-2}\,d\psi+o(t_*^{-2})$, so the proved exponent $2-\epsilon$ is the formal one
+  up to $\epsilon$. No $\sigma^0\log\sigma$ term, so no $t_*^{-1}$ tail: that is proved (Theorem R6.4).
+- **The harmonic-gauge exponent is sharp in its source class** (Lemma R6.8, Proposition R6.9; computed D7). The
+  $l = 0$ part of the harmonic-gauge source is exactly $\Box$ of a radial 1-form, $F_{Y,0} = \Box(X_{\mathrm{RW},0}+
+  \dot\mu(1-\chi_K)W^{**}_H)$. Within that form there is an explicit source of $\iota^+$-order $\frac52+\delta_\sharp$
+  whose solution is $\chi'v^{-1/2-\delta_\sharp}d\psi$ exactly, with metric part $\mu_0v^{-1/2-\delta_\sharp}\mathcal
+  L_{W^*}g+O(v^{-3/2-\delta_\sharp})$. "Formally sharp" is replaced by "sharp in the class" (proved). Whether the
+  source of a particular perturbation attains the bound is the value of one coefficient, and the theorem does not
+  depend on it.
+- **III.I$'$ at $\Box$** (Lemma R6.10, Propositions R6.11-R6.12, Corollary R6.13; computed D13). At $\mathscr I^+$,
+  $\rho_I^{-1}\rho_+^{-2}\Box = 2(X_+-X_I)(X_I-\frac32)+\rho_I\mathrm{Diff}^2_{\mathrm b}$ on Cartesian components, every
+  component carries a radiation field, the index set is $\{(\frac32+j,0)\}$ with no logarithm, and the gauge vector of
+  Corollary R6.6 has that expansion at $\mathscr I^+$ to every order, with $\iota^+$-weight up to $2-\epsilon$.
+- **Verifiers.** The round-4 verifier's report (no mathematical error; M1, m1-m5, n1-n8) and the round-5 verifier's
+  (no major error; minors 1-8 and nits) are seated as (A37)-(A56). Corrected checks for their findings are D1-D3, D8-D12.
+- **Replacement texts** (section R6.h) for R2.13 (b), R3.4 (iii)-(iv), Corollary R4.4, supplement 10.2 (iv) and 10.8,
+  and the paper's sections 8.2 and 9 and its list of checks, superseding rounds 4 and 5's.
+
+### R6.a III.I$'''$ Lemmas 1.1-1.3 at $\Box$
+
+*Setting* (READ, I4:24-33, I3:22-60). As in R5.a: $M'$, $X^\pm_{\mathrm{sc}\text-\mathrm b}$ with faces scf, tf, zf,
+$\rho = \langle x\rangle^{-1}$, and $\chi_{\mathrm{zf}} := \chi_1(|\sigma|\langle x\rangle)$, II.G$'$ section 3.1's
+cut-off; $c\le\frac1{8\sqrt5}$ and below the $k$-independent bound that makes $\chi_{\mathrm{zf}} = 1$ on
+$\mathrm{supp}\,\varphi$ ($\varphi$ of R2.1). $L_b = \Box$ at $b_0$, $\hat P(\sigma)$ its spectral family, $\tilde
+P(\sigma)$ Definition R2.1's augmentation, with one column $\hat f_*$ and no $\mathcal S_1$-column.
+
+**Lemma R6.1 (III.I$'''$ Lemma 1.1 at $\Box$; deduced, computed D1).** I4:35-58 verbatim: no operator enters, only
+$P\in\rho^p\mathrm{Diff}^m_{\mathrm b}(\bar X)$ with smooth coefficients. The Fubini count of (a) is D1 (b): the weight
+it produces is $\rho^{-2(\gamma_{\mathrm{tf}}-j)}$ exactly, and the inner integral converges iff
+$\gamma_{\mathrm{zf}}<j$ (control in D1: the weights of the column at $q = 1$).
+
+**Lemma R6.2 (III.I$'''$ Lemma 1.2 at $\Box$; deduced, computed D1, D5).** For $u_0\in H^{\infty,a}_{\mathrm b}(X)$ and
+$|\sigma|\le c$: (a) $(\hat P(\sigma)-\hat P(0))(\chi_{\mathrm{zf}}u_0)\in H^{\infty,(\infty,a+2,\gamma_{\mathrm{zf}})}
+_{\mathrm b}$ for every $\gamma_{\mathrm{zf}}<1$; (b) $\hat f_*(\sigma)-\chi_{\mathrm{zf}}\hat f_*(0)\in H^{\infty,(N,
+3-\epsilon,1-\epsilon)}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-\mathrm b})$ for every $N$ and $\epsilon>0$, and $\hat
+f_*(0)\in\mathcal A^3$.
+
+*Proof.* (a) $\hat P(\sigma)-\hat P(0) = -i\sigma L_1-\sigma^2L_2$ with $L_1\in\rho\,\mathrm{Diff}^1_{\mathrm b}$,
+$L_2\in\rho^2C^\infty$ near $\partial X$ (R2.1, from III.D Lemma 2.1 (1)-(3); in the retarded frame $L_2 = 0$, D5);
+then I4:76-83 verbatim. (b) $\hat f_*$ is the transform of $[\Box,\chi_K]W^*$ (Definition R2.1); by Lemma R2.2 (c),
+III.H Lemma 2.4 (a) holds for it: $\hat f_* = \hat f_c+\hat f_\infty$, $\hat f_c$ entire and supported in $\{r\le2\}$,
+$\hat f_\infty = r^{-3}G(\sigma r,x)$ with $G$ entire and rapidly decreasing for $\mathrm{Im}\,\zeta\ge0$. The form
+$r^{-3}G(\sigma r)$ is the homogeneity of the commutator: D1 (a) computes $r^4[\Box_0,\chi(r/t)]r^{-2}$ as a function
+of $r/t$ alone (control: on the Killing form's component $r^0$ it is $r^2$ times one), and B2 with Lemma R2.2 (a)
+gives the $O(r^{-4})$ bound with the mass. Then I4:84-96 verbatim; the Fubini count is D1 (b): finite iff
+$\gamma_{\mathrm{zf}}<1$ and $\gamma_{\mathrm{tf}}<3$ (control: $q = 1$ gives $\gamma_{\mathrm{tf}}<1$). $\hat
+f_*(0)\in\mathcal A^3$ is Lemma R2.2 (b). $\square$
+
+**Lemma R6.3 (III.I$'''$ Lemma 1.3 at $\Box$; deduced, computed D1).** With $G_1(\sigma)b := \Psi(\sigma,\cdot)bW^*$
+(R5.1 step 3) and $b_0\in\mathbb C$, $\chi(|\sigma|)G_1(\sigma)(b_0)-\chi_{\mathrm{zf}}b_0W^*\in H^{\infty,(N,2-\epsilon,
+1-\epsilon)}_{\mathrm b}$ for every $N$, $\epsilon>0$, and $W^*\in H^{\infty,2-\epsilon}_{\mathrm b}(X)$.
+
+*Proof.* I4:107-117 for $G_1$ alone (there is no $G_2$: no generalised state): $\Psi = \Phi(\sigma r)$ for $r\ge1$,
+$\Phi(0) = 1$ (III.H Lemma 2.5 (b)), $W^*\in\mathcal A^2$ (Q3), and the Fubini count with $\langle x\rangle^{-2}$ gives
+$\gamma_{\mathrm{tf}}<2$ (D1 (b) at $q = 2$). D1 (c) computes the cut-off state's tf-order with the weight $W_\beta$ of
+II.G$'$ Lemma 4.6's proof, not by assignment: $\|W_\beta^{-1}\Phi(\sigma r)r^{-2}\|_{L^2(\mu_{\mathrm b})} =
+\sigma^{2-\epsilon}(2\epsilon)^{-1/2}(1+o(1))$ (control: $q = 0$ gives the order $-\epsilon$). $\square$
+
+### R6.b III.I$'''$ Proposition 2.1 at $\Box$, and the rate
+
+**Theorem R6.4 (III.I$'''$ Proposition 2.1 at $\Box$, at $b_0$; deduced, computed D1-D3).** Let $\alpha_K\in(1,2)$,
+$\gamma_+\in(\alpha_K,2)$, $\epsilon_1\in(0,\frac12)$, $w_I\ge\max(\frac52,\gamma_++1+\epsilon_1)$ and
+$$f\in H^{\infty,(w_I,\gamma_++2,\alpha_K)}_{\mathrm b}(\Omega_*;T^*)^{\bullet,-}\quad\text{(plain weights, no
+expansion at }\mathscr I^+),\tag{R6.1}$$
+and let $u$ be the forward solution of $\Box u = f$ (II.F$'$ Theorem 1.1 at $P = P_0 = \Box$). Then for every
+$\epsilon\in(0,\frac15(2-\gamma_+)]$:
+
+(i) $u = u'+u_{\mathrm{sing}}$, $u' := u_{\mathrm{hi}}+u_{\mathrm{reg}}\in H^{\infty,(\min(\frac32,\gamma_+)-3\epsilon,
+\gamma_+,\alpha_K)}_{\mathrm b}(M')$;
+
+(ii) $u_{\mathrm{sing}} = \beta(t_*,r)W^*$, $\partial_{t_*}\beta(\cdot,r) = (\partial_t\chi_K)(\cdot,r)*B$,
+$\beta(\cdot,r)-\beta(\cdot,r') = (\chi_K(\cdot,r)-\chi_K(\cdot,r'))*B$, with $B\in H^{k,\alpha_K}_{\mathrm b}(\mathbb
+R)$ (II.G$'$ Definition 2.1, G2:79-81) and $\int B = c_0 := (4\pi^2)^{-1}\int\ell(f)\,dv$;
+
+(iii) $u-c_0\chi_KW^*\in H^{\infty,(\min(\frac32,1+\gamma_+-\alpha_K)-3\epsilon,\gamma_+-2\epsilon,\alpha_K-1)}_{\mathrm
+b}(M')$: at $K^+$, $u = c_0W^*$ plus a term of weight $\alpha_K-1>0$.
+
+At each order $k$ the norms are bounded by $C_k$ times the norm of $f$ in (R6.1) at an order $k+\ell$, $\ell$
+independent of $k$. $u'$, $u_{\mathrm{sing}}$ and $B$ depend on $k$ through $c = c_k$ (I3:193-198); $u$ and $c_0$ do
+not. (The same caveat applies to Theorem R5.1 (i)-(ii): (A52).)
+
+*Proof: the steps of III.I$'''$ Proposition 2.1, and why each carries over.* References are to I4 unless said otherwise.
+- *Step 0* (I4:133-144) improves $u$ through III.I$''$ Proposition 5.1 and the error $(L-L_b)u$. Here $L = L_b = \Box$,
+so it is void. - *Step 1* (I4:145-158) removes the source's terms at $\mathscr I^+$ by III.I$'$ Proposition 3.1. (R6.1)
+has none, as $w_I\ge\gamma_++1+\epsilon_1$ is what Step 2 asks; so $u^\flat = u$, $f^\flat = f$. For sources with
+$\mathscr I^+$-terms, Proposition R6.12 does what Step 1 does, with the $\iota^+$-index sets it states. - *Step 2*
+(I4:159-171). The decomposition $u = u_{\mathrm{hi}}+u_{\mathrm{reg}}+u_{\mathrm{sing}}$ is R5.1 step 3 (III.H$'$ at
+$\Box$, R2.5's proof). III.I$''$ Lemma 4.1 (I3:216-242) applies with $(\beta^f_I+1,\beta_\iota+2,\beta_K) =
+(w_I,\gamma_++2,\alpha_K)$. Its conditions are $\beta_K\in(0,\infty)\setminus\mathbb N$, $\beta^f_I\ge\frac32$ and
+$\beta^f_I+1\ge\beta_\iota+2-\min(\beta_K,1-\epsilon_1) = \gamma_++1+\epsilon_1$ (as $\alpha_K>1$). These are the
+hypotheses on $\alpha_K$ and $w_I$ (D2), and its inputs at $\Box$ are R5.1 step 4's. So $u_{\mathrm{hi}}\in
+H^{\infty,(\frac32-\epsilon,N,N)}_{\mathrm b}$. (2.25a) (II.G$'$ Proposition 3.3 (1), G2:422-431, with $\beta_K =
+\alpha_K\in(1,2)$) gives, as I4 (2.3) does,
+$$\hat f|_{\pm(0,c]}\in H^{\infty,(\min(w_I,\gamma_++2)-\epsilon,\gamma_++1,((0,0),\alpha_K-1))}_{\mathrm b}(X^\pm
+_{\mathrm{sc}\text-\mathrm b}),$$
+with zf-coefficient $\hat f(0) = \int f\,dt_*\in H^{\infty,\gamma_++1}_{\mathrm b}(X)$, the same for both signs
+($f(\cdot,x)$ is integrable, as $\alpha_K>1$). The density step is R5.1 step 3's, with $b_+ := 1$, $b_I := \frac54$ in
+II.F$'$ (1.4) ($\frac12<b_+<b_I<\frac32$, $b_+\le\gamma_+$, $b_I+1\le w_I$; D2). - *Step 3.1, zero energy* (I4:172-193).
+Proposition R2.3 at the weight $\alpha := \gamma_+-3$: $\alpha+2 = \gamma_+-1\in (0,1)$; $\mathcal Y_0$ has $\mu_{\mathrm
+b}$-weight $\alpha+4 = \gamma_++1$, so $\hat f(0)\in\mathcal Y_0$; and the column $\hat f_*(0)\in\mathcal A^3$ lies in
+$\mathcal Y_0$ as $\gamma_++1<3$ (D2). Put $(\hat u_0,c_0) := \tilde P(0) ^{-1}(\hat f(0),0)$, $\hat u_0\in
+H^{\infty,\gamma_+-1}_{\mathrm b}(X)$. Applying $\ell$ to $\hat P(0)\hat u_0+c_0\hat f_*(0) = \hat f(0)$ gives $c_0 =
+\ell(\hat f(0))/4\pi^2$: $\ell\circ\hat P(0) = 0$ on $\mathcal X_0$ and $\ell(\hat f_*(0)) = 4\pi^2$ (R2.3's proof, B3),
+and $\ell(\hat f(0)) = \int\ell(f)\,dv$, $t_*-v$ being a function of $r$. As at I4 (2.5), for $0<|\sigma|\le c$, $\tilde
+P(\sigma)(\chi_{\mathrm{zf}}\hat u_0,c_0) = (\hat f(\sigma)-\hat f_2(\sigma),0)$, with
+$$\hat f_2 := (\hat f-\chi_{\mathrm{zf}}\hat f(0))-[\hat P(0),\chi_{\mathrm{zf}}]\hat u_0-(\hat P(\sigma)-\hat P(0))
+(\chi_{\mathrm{zf}}\hat u_0)-c_0(\hat f_*(\sigma)-\chi_{\mathrm{zf}}\hat f_*(0)).$$
+The row $\langle\cdot,\varphi\rangle_h$ is $\sigma$-independent, $\langle\chi_{\mathrm{zf}}\hat u_0,\varphi\rangle =
+\langle\hat u_0,\varphi\rangle = 0$, and $\chi_{\mathrm{zf}}\hat u_0\in\mathcal X_\sigma$ by compact support. The four
+terms lie in $H^{\infty,(\cdot,\gamma_++1,\alpha_K-1)}$ (definition of the space), $H^{\infty,(\infty,\gamma_++
+1,\infty)}$ (Lemma R6.1 (b), $p = 2$, $\hat P(0)\in\rho^2\mathrm{Diff}^2_{\mathrm b}$), $H^{\infty,(\infty,\gamma_++
+1,\gamma_{\mathrm{zf}})}$ (Lemma R6.2 (a), $a = \gamma_+-1$) and $H^{\infty,(N,3-\epsilon,1-\epsilon)}$ (Lemma R6.2 (b)).
+As $\gamma_++1\le3-\epsilon$ and $\alpha_K-1<1-\epsilon$ (D2),
+$$\hat f_2|_{\pm(0,c]}\in H^{\infty,(\frac52-\epsilon,\gamma_++1,\alpha_K-1)}_{\mathrm b}(X^\pm_{\mathrm{sc}\text-
+\mathrm b}).$$
+- *Step 3.2* (I4:195-207). $(\hat u_{\mathrm{reg},1},\hat b_1) = (\chi_{\mathrm{zf}}\hat u_0,c_0)+\tilde P(\sigma)^{-1}
+(\hat f_2,0)$. III.I$''$ Lemma 4.2 (I3:244-269), at $\Box$ as in R5.1 step 6, applies with $\beta_{\mathrm{scf}} :=
+\frac32-\epsilon$, $\beta_{\mathrm{tf}} := \gamma_+-1$, $\beta_{\mathrm{zf}} := \alpha_K-1$ and the window $\alpha'+2 :=
+\gamma_+-\alpha_K\in(0,1)$ (Theorem R2.4 at that weight). It gives $\hat u_{\mathrm{reg},1}\in H^{\infty,(\frac32-
+2\epsilon,\gamma_+-1,((0,0),\alpha_K-1))}_{\mathrm b}$ and $\hat b_1\in H^{\infty,((0,0),\alpha_K-1)}_{\mathrm b}(\pm(0,
+c],|\frac{d\sigma}\sigma|)$ with coefficient $c_0$ at $\sigma = 0$, the same for both signs. (2.26a) (II.G$'$ Proposition
+3.5 (1), G2:526-538), with $\beta_K = \alpha_K\in(1,2)$ and its one Taylor coefficient, of order $0<\alpha_K-1$, agreeing
+for the two signs, gives $u_{\mathrm{reg}}\in H^{\infty,(\min(\frac32,\gamma_+)-3\epsilon, \gamma_+,\alpha_K)}_{\mathrm
+b}(M')$, as I4 (2.8) does. With Step 2 this is (i). - *Step 3.3, the singular part: one integration* (in place of
+I4:209-241). $\mathcal F(\partial_{t_*}u_{\mathrm{sing}}) = \chi(|\sigma|)G_1(\sigma)(\hat b_1)$ (R5.1 step 3). Lemma
+R6.3 applies for $c_0$, and III.I$''$ Lemma 4.3 (I3:271-305, R5.1 step 8) with $a = \alpha_K-1$ for $\hat b_1-c_0$, of
+tf-weight $\alpha_K+1-\epsilon>2-\epsilon$. So $\mathcal F(\partial_{t_*}u_{\mathrm{sing}})\in
+H^{\infty,(N,2-\epsilon,((0,0),\alpha_K-1))}_{\mathrm b}$, with zf-coefficient $c_0W^*$, the same for both signs.
+III.I$''$ Lemma 3.1 (I3:115-131) is applied once, to $u := u_{\mathrm{sing}}$, with $\beta_I := 1+\gamma_+-\alpha_K$,
+$\beta_\iota := \gamma_+$, $\beta_K := \alpha_K-1\in(0,1)$. Its hypotheses are: $\beta_\iota>\beta_I$ (as $\alpha_K>1$);
+$\beta_K\le\beta_\iota-\beta_I$ (an equality); $\beta_K\in(-1,1)\setminus\{0\}$; the zf-restrictions agree ($\beta_K>0$);
+(3.1)'s tf-weight $2-\epsilon\ge\gamma_+$ ($\epsilon\le\frac15(2-\gamma_+)$); the bound on $\Omega_<$, from
+$u_{\mathrm{sing}} = -(u_{\mathrm{hi}}+u_{\mathrm{reg}}) $ for $t_*<1$, of weights $(\cdot,\gamma_+,\alpha_K)$, at least
+$(\infty,\beta_\iota,\beta_K)$; and the support of $\mathcal Fu_{\mathrm{sing}}$ in
+$\mathrm{supp}\,\chi(|\cdot|)\cup\{0\}$ (R5.1 step 9). So $u_{\mathrm{sing}}\in
+H^{\infty,(1+\gamma_+-\alpha_K,\gamma_+-\epsilon,((0,0),\alpha_K-1))}_{\mathrm b}(M')$. Its $(0,0)$-coefficient at $K^+$
+is $\lim_{t_*\to\infty}u_{\mathrm{sing}} = \int\partial_{t_*}u_{\mathrm{sing}}\,dt_* = \mathcal F(\partial_{t_*}
+u_{\mathrm{sing}})(0) = c_0W^*$. This is I4 Step 3.4's argument (I4:242-249) for one integration, $\partial_{t_*}
+u_{\mathrm{sing}}(\cdot,x)$ being integrable since its $K^+$-weight is $\alpha_K>1$. Replacing $c_0W^*$ by $c_0\chi_KW^*$
+($\chi_K = 0$ near $\mathscr I^+$; weights $(\infty,2-\epsilon,0)$) gives (iii). - *Step 3.4, the coefficient $B$* (R5.1
+step 10). $B := \mathcal F^{-1}(\chi\hat b_1)$. The pair $(\chi\hat b_1|_{\sigma<0},\chi\hat b_1|_{\sigma>0})$ lies in
+II.G$'$ Definition 2.7's $X^{k,\alpha_K-1}$ (G2:233-237). Its polynomial part, of degree $<\alpha_K-1\in(0,1)$, is the
+constant $c_0$, the same for both signs. II.G$'$ Proposition 2.8 (2) (G2:246-253) with $\beta =
+\alpha_K\in(1,2)\setminus\mathbb N$ gives $B\in H^{k,\alpha_K}_ {\mathrm b}(\mathbb R)$, and $\int B = (\chi\hat b_1)(0)
+= c_0$. D3 computes the pair: the transform of $(1+t)^{-\alpha_K}$ is $\int B+\Gamma(1-\alpha_K)w^{\alpha_K-1}+O(w)$ at
+four rational $\alpha_K\in(1,2)$. The control runs the same path at $\alpha_K = 2$: there the remainder over $w$ diverges
+like $\log w$, $\Gamma(-1)$ being infinite. The identities of (ii) are R2.5 (ii)'s. - *Step 4* (I4:258-270) is III.I$'$
+Proposition 2.1, the expansion at $\mathscr I^+$. It is not needed for (i)-(iii); at $\Box$ it is Proposition R6.11.
+$\square$
+
+*What changes against III.I$'''$, and where this one stops.* There are no Steps 0 and 1. There is one state and no
+generalised partner, so one integration, and the $K^+$-term is the constant $c_0W^*$ where $L$ has $t_*h(\dot S)$. The
+$\iota^+$-weight $\gamma_+$ may exceed $\frac32$. For $L$, III.I$'''$ (2.2) caps it at $\frac32+(1-e_\Upsilon)
+\gamma_\Upsilon$ through the formal solutions of Step 1, which (R6.1) does not need. The cap here is $\gamma_+<2$: the
+zero-energy inversion of Step 3.1 needs $\alpha+2 = \gamma_+-1<1$, the column $\hat f_*(0)\in\mathcal A^3$ having to
+lie in $\mathcal Y_0$. The bookkeeping is D2, each condition a positive sum on the whole box $\alpha_K\in(1,2)$,
+$\gamma_+\in(\alpha_K,2)$, $\epsilon$, $\epsilon_1$, with $w_I$ from its least admissible value. D2's control drops
+Step 3.1: Lemma 4.2 would then be applied to $\hat f$ itself, whose plain zf-weight is that of its Taylor term, 0,
+below $\beta_{\mathrm{zf}} = \alpha_K-1$, which was round 5's stop at $\alpha_K = 1$. At $\alpha_K = 2$ II.G$'$
+Propositions 2.8, 3.3 and 3.5 exclude the integer, and the Taylor term of order 1 enters with $\sigma\log\sigma$ (D3's
+control, Proposition R6.7). This is a stop of the method as carried; Proposition R6.7 says what lies beyond it.
+
+**Theorem R6.5 (the rate at $K^+$-weight $\alpha_K\in(1,2)$; deduced from Theorem R6.4, Lemma 2.2 and B4).** Let $f$,
+$u$ be as in Theorem R6.4 and $R'>r_0$. On $\{r_0<r\le R',\ t_*\ge8\max(R',1)\}$, with every number of derivatives in
+$x$ and $t_*$ (the constant depending on the number),
+$$\big|u-c_f(t_*)W^*\big|\le C\,t_*^{-\alpha_K}\|f\|,\tag{R6.2}$$
+with $c_f$ of (R2.2). In particular, if $\ell(f)$ vanishes for large $v$, $u = c_\infty W^*+O(t_*^{-\alpha_K})$.
+
+*Proof.* R5.2's proof verbatim, with Theorem R6.4 (i)-(ii) for R5.1 (i)-(ii). $|B(t)|\le C\langle t\rangle^{-\alpha_K}
+\|f\|$ by Lemma R2.6 on $[\frac T2,4T]$, as $\langle t\rangle^{\alpha_K-\frac12}(B,t\partial_tB)\in L^2(dt)$, and the
+convolutions sample $B$ on $[\frac{t_*}2,t_*]$ ((A20)). $u' = O(t_*^{-\alpha_K})$ with its b-derivatives by b-Sobolev
+embedding near $K^+$, where $\rho_K\asymp t_*^{-1}$ on compact $r$-sets; so $|Q[u']|\le Ct_*^{-\alpha_K}\|f\|$, and
+$4\pi^2\beta(t_*,r_h) = 4\pi^2c_f+O(t_*^{-\alpha_K})$ as in R2.7's step (4). $\square$
+
+### R6.c Compactly supported gauge data: the rate $t_*^{-2+\epsilon}$
+
+**Corollary R6.6 (deduced; computed D4).** Let $Y$ be a smooth 1-form on $N^+$ with $\Box Y = 0$ whose Cauchy data on
+$\Sigma^\circ$ have compact support. For every $\epsilon>0$, on each $\{r_0<r\le R',\ t_*\ge T'\}$ and with every
+number of derivatives,
+$$\big|Y-(Q[Y]/4\pi^2)W^*\big|\le C_\epsilon\,t_*^{-2+\epsilon},\tag{R6.3}$$
+$Q[Y]$ being constant at late times. Hence Corollary R4.6's late-time clause, Proposition R2.13 (b) and the
+$Y_h$-clauses of Theorems R2.12 (iv), R3.4 (iv) and Corollary R4.4 hold with $t_*^{-2+\epsilon}$ for the gauge
+vector's part.
+
+*Proof.* (1) *The cut-off.* Let $K\subset\Sigma^\circ$ be the support of the data. $Y$ vanishes on $N^+\setminus J^+(K)$,
+a relatively open set containing $\Sigma^\circ\setminus K$ (domain of dependence on $\Omega^\sharp$, IX Lemmas 1.1-1.2,
+with Lemma R3.1). Take $\chi\in C^\infty_c(M^\circ)$ equal to 1 on a neighbourhood of $K$. Then $U := (1-\chi)Y$ vanishes
+on a neighbourhood of $\Sigma^\circ$: near $K$ because $\chi = 1$, elsewhere because $Y = 0$. So $F := \Box U =
+-[\Box,\chi]Y$ is smooth, supported in a compact subset of $N^+$, and vanishes near $\Sigma^\circ$. (2) *The forward
+problem.* Let $T_a := \min t_*$ on $\mathrm{supp}\,F$. For $p\in N^+$ with $t_*(p)<T_a$, $J^-(p)$ within $N^+$ lies in
+$\{t_*<T_a\}$ ($dt_*$ is timelike, III.B Lemma 3.7 (a), B:228-229), where $F = 0$; so $U(p) = 0$ by uniqueness with zero
+data (IX Lemma 1.1 on $\Omega^\sharp$, Lemma R3.1). Extended by 0 below $\Sigma^\circ$, $U$ is smooth on $\{t_*\ge T_a,\
+r\ge r_0\}$, vanishes for $t_*<T_a$, and solves $\Box U = F$ there. As $g_{b_0}$ is stationary ($\partial_{t_*}$ is
+Killing), the translate of $U$ by $1-T_a$ in $t_*$ is the forward solution on $\Omega_*$ (II.E Proposition 3.4) of the
+translate of $F$. That source is smooth with compact support, so it lies in (R6.1) for every $\alpha_K<2$, $\gamma_+<2$
+and $w_I$. (3) *The rate.* On compact $r$-sets at late times $\chi = 0$ and $Y = U$. Theorem R6.5 with $\alpha_K :=
+2-\epsilon$ and $\gamma_+\in(\alpha_K,2)$ gives $|U-c_fW^*|\le Ct_*^{-2+\epsilon}$. Once $\chi = 0$ near the horizon,
+$c_f(t_*) = (4\pi^2)^{-1}\int^{v_h(t_*)}\ell(F) = Q[U]/4\pi^2 = Q[Y]/4\pi^2$, by (2.1) and $U = 0$ for $t_*<T_a$. For
+R2.13 (b): $\mathcal L_{Z'_0}g-c\,\mathcal L_{W^*}g = \mathcal L_{Z'_0-cW^*}g$. $\square$
+
+*What this replaces, and why round 5 stopped short.* R2.8's original proof took a cut-off $\chi(t_*)$ in time; its
+commutator reaches $\mathscr I^+$, the false step of (A23). Corollary R4.6 repaired the route with the slab estimate of
+Proposition R4.2 and a cone cut-off $\chi'$, and Corollary R5.4 kept that route. The cone source $[\Box,\chi']Y$ there
+has $\iota^+$-order $b_++2$, $b_+<b_I<\frac32$, II.F$'$'s a priori weight, below the radiation order $\frac32$; that is
+the "next cap $t_*^{-3/2}$" of R5.4's last paragraph. A cut-off with compact support in spacetime avoids it, and is
+admissible because $Y$ vanishes near $\Sigma^\circ$ off $J^+(K)$. R4.6's statement at $\mathscr I^+$ on the slab is
+unaffected. D4 computes the exponent: $\kappa_{\sup} = \min(\frac32,a-\frac52)$ for a source of $\iota^+$-order $a$,
+$\kappa_{\sup} = \frac32$ for a compactly supported one, and $\kappa<\delta_\sharp$ still for the harmonic-gauge
+source. Control: with round 5's $\alpha_K<1$ the compactly supported exponent is $\frac12$.
+
+### R6.d The low-frequency expansion, and the true rate (formal)
+
+**Proposition R6.7 (the first non-smooth term at zero energy; formal, computed D5-D6).** (a) *The operator.* On $l = 0$
+1-forms $a\,dv+b\,dr$, in the retarded frame $T = v-2r_*$, $\hat P(\sigma) := e^{i\sigma T}\Box e^{-i\sigma T} = \hat P
+(0)-i\sigma L_1$ exactly ($L_2 = -g^{-1}(dT,dT) = 0$), with $\hat P(0) = (r^{-3}fq',\ \phi'-r^{-3}q')$, $\phi = \delta
+Y$, $q = r^3(dY)_{vr}$, round 2's B5 (D5, from $d\delta+\delta d$ on Tangherlini). (b) *The chain.* The formal outgoing
+expansion $u_\sigma = W^*+\sigma u_1+\sigma^2(u_2+\log\sigma\,u_{2L})+\dots$ of III.D$'$ Proposition 4.1, Step 1's
+$u_\sigma$ has $\hat P(0)u_1 = iL_1W^*$. The time component of $u_1$ is $-i/r+O(r^{-3})$, with no logarithm. The time
+component of $u_2$ carries $-\frac12\log r$ at the indicial root 0 (D5; control: the chain started from $rW^*$, a state
+decaying like $r^{-1}$, has $-\frac i2\log r$ already at order $\sigma$, which is the chain of the round-4 verifier's
+m1). As in the free kernel (G3), the near-zone $\log r$ at the root 0 is the far zone's $\log(\sigma r)$. So $u_{2L}$ is
+the bounded horizon-regular stationary solution whose time component is $-\frac12$ at infinity: $u_{2L} =
+\frac12(\partial_v)^\flat+\alpha W^*$, $\alpha$ fixed by the normalisation. (c) *The resolvent.* With $\hat
+P(\sigma)^{-1}f = w_\sigma-(d_\sigma/c_\sigma)u_\sigma$, $c_\sigma\ell(\psi) = i\sigma q(\sigma,u_\sigma)$ and
+$q(0,\cdot) = Q$ (Lemma 2.2: $\ell(\hat P(\sigma)u) = -i\sigma q(\sigma,u)$), the coefficient of $\sigma\log\sigma$ in
+$-(d_\sigma/c_\sigma)u_\sigma$ is $-\frac{\ell(f)}{4\pi^2i}(u_{2L}-\frac{Q[u_{2L}]}{4\pi^2}W^*) = -\frac{i\,\ell(f)}
+{8\pi^2}\,d\psi$, $d\psi = \mu_0W^*-(\partial_v)^\flat$. It is independent of $\alpha$ (D6; control: without the charge's
+$\sigma^2\log\sigma$ term in $c_\sigma$ the coefficient keeps $\alpha$), and $w_\sigma$'s first logarithm is at
+$\sigma^2$. So
+$$\hat P(\sigma)^{-1}f = \frac i{4\pi^2\sigma}\ell(f)W^*+R_0f-\frac{i\,\ell(f)}{8\pi^2}\,d\psi\;\sigma\log
+\sigma+O(\sigma)\quad(\text{formal}),$$
+the first non-smooth term being $\sigma\log\sigma$: one order above $\sigma^0$, two above the pole. (d) *Time domain.*
+$\mathcal F[t_+^{-2}] = (-i\sigma)\log(-i\sigma)+(\text{analytic})$ (D6, the finite part of $\Gamma(s)(-i\sigma)^{-s}$ at
+$s = -1$), and $\sigma\log\sigma = i(-i\sigma)\log(-i\sigma)$ modulo analytic terms. So a solution with charge
+$4\pi^2c_\infty$ settles formally as
+$$u = c_\infty W^*+\tfrac{c_\infty}2\,t_*^{-2}\,d\psi+o(t_*^{-2}),\qquad\mathcal L_ug-c_\infty\mathcal L_{W^*}g =
+\tfrac{\mu_0c_\infty}2\,t_*^{-2}\,\mathcal L_{W^*}g+o(t_*^{-2})$$
+on compact sets, since $\mathcal L_{d\psi}g = \mu_0\mathcal L_{W^*}g$ ($(\partial_v)^\flat$ is Killing). For $Y$ of
+Corollary R6.6, $c_\infty = Q[Y]/4\pi^2$.
+
+*What is proved and what is formal.* (a) is computed exactly. (b)-(d) are formal: they rest on the matching of the
+near-zone logarithm at the root 0 with $\log\sigma$, as for the free kernel. Proved: there is no $\sigma^0\log\sigma$
+term and no $t_*^{-1}$ tail, and the rate is $t_*^{-2+\epsilon}$ (Theorems R6.4-R6.5, Corollary R6.6). Proving the
+leading term $\frac{c_\infty}2t_*^{-2}d\psi$ would need the expansion past the window, at $\alpha_K>2$, where the Taylor
+term of order 1 and $\sigma\log\sigma$ enter (D3's control); II.G$'$ as written excludes integer $K^+$-weights. The
+paper states the proved rate and does not state the formal coefficient.
+
+*The round-4 verifier's m1, settled.* R4.5 (a)'s "first non-smooth term $\sigma^2\log\sigma$, two orders above the
+pole" is the flat operator's, with no pole. On Tangherlini, relative to the pole $\sigma^{-1}$, the logarithm appears at
+order $\sigma^1$, as the verifier found; the verifier's $u_1 = -\frac i2\log r$ is the chain indexed from the pole.
+Its consequence is $t_*^{-2}$, not $t_*^{-1}$. "Does not block a first improvement" survives, and is now proved, to
+$t_*^{-2+\epsilon}$. (A38) records the readings.
+
+### R6.e The harmonic-gauge exponent: sharp in its source class
+
+**Lemma R6.8 (the spherically symmetric part of the gauge source; deduced from Theorem 1.5 (a), Proposition 2.1 (d),
+H1).** On $N^+$ the $l = 0$ part of $F_Y$ of (R3.2) is
+$$F_{Y,0} = \Box\big(X_{\mathrm{RW},0}+\dot\mu(1-\chi_K)W^{**}_H\big),\qquad\text{so}\quad J_{h,0} =
+\Box X_{\mathrm{RW},0}\ \text{on }\{\chi_K = 1\},\tag{R6.4}$$
+$X_{\mathrm{RW},0}$ the $l = 0$ part of the Regge-Wheeler-type gauge vector of Theorem 1.5.
+
+*Proof.* $\dot g = \dot g_{\mathrm{RW}}-\mathcal L_{X_{\mathrm{RW}}}g$ with $(\dot g_{\mathrm{RW}})_0 = \dot\mu K$
+(Theorem 1.5 (a), read on $N^+$ by (A2)); $\Theta$ and $\mathcal L_\cdot g$ commute with the $SO(4)$-average ($SO(4)$
+acts by isometries); $\Theta(\mathcal L_Xg) = \Box X$ (H1) and $\Theta(K) = -\Box W^{**}_H$ (Proposition 2.1 (d)). So
+$F_{Y,0} = -\dot\mu\Theta(K)+\Box X_{\mathrm{RW},0}-\dot\mu\Box(\chi_KW^{**}_H)$. $\square$
+
+So on the cone the spherically symmetric gauge source is $\Box$ of a radial 1-form, exactly, and Proposition R4.5 (c)'s
+model coefficient is the $\iota^+$-behaviour of $X_{\mathrm{RW},0}$ there.
+
+**Proposition R6.9 (the exponent is attained in the class; deduced, computed D7).** Let $a\in(\frac52,3)$, $\phi(v) :=
+v^{2-a}$, $\chi'$ the cut-off of (A8), $d\psi = \mu_0W^*-(\partial_v)^\flat$ (B5), and
+$$f_a := \Box\big(\chi'\phi(v)\,d\psi\big).$$
+(a) $f_a$ is $\Box$ of a radial 1-form, as $J_{h,0}$ is (Lemma R6.8). It is supported in $\mathrm{supp}\,\chi'\subset\{r
+\le t_*/20\}$, has $\iota^+$-order $a$ and $K^+$-order $a-1$, and lies in (R5.1) for every $\gamma_+<a-2$, $\alpha_K\in
+[\frac12,\gamma_+)$ (D7: $\Box(\phi\,d\psi) = (\Box_0\phi)\,d\psi-2\nabla_{\mathrm{grad}\,\phi}d\psi$, $\Box_0\phi =
+-3\phi'/r$, and along $r = \lambda v$, $v^{a-1}r\,\Box(\phi\,d\psi)$ has the finite nonzero limit $(3a-6)$ in the $dv$
+component; the commutator terms on $\mathrm{supp}\,d\chi'$ have the same orders by S6).
+(b) $Q[\phi(v)\,d\psi] = 0$ identically (D7; control: $Q[\phi(v)W^*] = 4\pi^2\phi\ne0$). So $\ell(f_a) = 0$ once
+$\chi' = 1$ near the horizon, and $c_f = c_\infty = 0$ at late times.
+(c) The forward solution of $\Box u = f_a$ is $u = \chi'\phi(v)\,d\psi$: it is smooth, vanishes for $t_*<T_1$ and solves
+the equation (II.E Proposition 3.4). On compact $r$-sets at late times
+$$u-c_\infty W^* = v^{2-a}\,d\psi,\qquad\mathcal L_ug = \mu_0v^{2-a}\mathcal L_{W^*}g+2(2-a)v^{1-a}\,dv\otimes_sd\psi
+\tag{R6.5}$$
+exactly (D7), and $d\psi$ (its $dv$-component is 1) and $\mathcal L_{W^*}g$ ($(\mathcal L_{W^*}g)_{vr} = -\frac7{24}
+r_h^{-3}$ at $r = 2r_h$, D7) do not vanish.
+
+So for sources of $\iota^+$-order $a$ the bound $t_*^{-\alpha_K}$, $\alpha_K<a-2$, of Theorem R5.2 is attained up to its
+endpoint, with the explicit coefficient $\mu_0\mathcal L_{W^*}g$ in the metric. At $a = \frac52+\delta_\sharp$, the
+$\iota^+$-order of the harmonic-gauge source (Proposition R3.2), the solution of $f_a$ decays like
+$t_*^{-1/2-\delta_\sharp}$ and no faster. Hence, proved: **Corollary R5.3's rate $t_*^{-1/2-\kappa}$,
+$\kappa<\delta_\sharp$, cannot be improved by any estimate that uses of the gauge source its $\iota^+$-order and the
+structure (R6.4) of its $l = 0$ part.** This
+replaces "formally sharp" (A35, R5.b, R5.d item 2). What Proposition R6.9 does not decide is whether the source of a
+given perturbation attains the bound. That is the value of one coefficient, the $\iota^+$-term of order
+$\lambda_\sharp-1$ of $X_{\mathrm{RW},0}$ on the cone. The theorem holds whatever that value is, and the paper states
+it in that form: a rate valid for every perturbation in the class, sharp for the class of sources it uses.
+
+### R6.f III.I$'$ at $\Box$: the expansion at null infinity
+
+**Lemma R6.10 (III.I$'$ Lemma 1.1 at $\Box$; computed D13, gdext5.py E1-E2).** On $U_I$ with III.I's coordinates (3.1)
+(I2:22-31, $\rho_+ = (t_*+1)^{-1}$, $\rho_I = (t_*+1)/|x|$), on Cartesian components,
+$$\rho_I^{-1}\rho_+^{-2}\,\Box = 2(X_+-X_I)\big(X_I-\tfrac32\big)\otimes\mathrm{Id}+\tilde L_\Box,\qquad\tilde L_\Box\in
+\rho_I\mathrm{Diff}^2_{\mathrm b}\ \text{(smooth coefficients)}.\tag{R6.6}$$
+The scalar part is D13: $\rho_I^{-1}\rho_+^{-2}\Box_0$ acts on $\rho_+^m\rho_I^\lambda$ by
+$2(m-\lambda)(\lambda-\frac32)$ plus a remainder gaining $\rho_I$ (control: at $n = 3$ the root is 1). The coupling
+$C\partial+D$ of Lemma R4.1 (a), of degrees $-3$ and $-4$, has $\rho_I$-orders 2 and 3 there (D13). So $\bar A = 0$ (as
+Lemma R4.1 (b) found in Part IV's chart), every Cartesian component is a slot of eigenvalue 0, I2's slot 6. The factor 2
+against I2 (1.2) is $\Box$'s normalisation (principal symbol $G$); it moves no root, index set or integration step.
+
+**Proposition R6.11 (III.I$'$ Lemma 2.2 and Proposition 2.1 at $\Box$, at $b_0$; deduced).** Let $u$, $f$ vanish for
+$t_*\le1$ with $\Box u = f$ on $U_I$, $f\in H^{\infty,\ell_I+1,\ell_++2}_{\mathrm b}$ (plain weights) and $u\in
+H^{\infty,\alpha_I,\ell_+}_{\mathrm b}$ for some $\alpha_I$, where $\ell_I>\frac32$, $\ell_+<\ell_I$ and $\ell_I,\ell_+
+\notin\frac32+\mathbb N_0$. Then each Cartesian component is
+$$u_c = \sum_{j\in\mathbb N_0,\ \frac32+j<\ell_I}\chi(\rho_I)\rho_I^{\frac32+j}u_{c,j}(\rho_+,\omega)+\tilde u_c,\qquad
+\tilde u_c\in H^{\infty,\ell_I,\ell_+}_{\mathrm b},\tag{R6.7}$$
+with $\mathscr I^+$-index set $\mathcal E_\Box := \{(\frac32+j,0):j\in\mathbb N_0\}$, no logarithm, the
+$\iota^+$-weight $\ell_+$ kept, and $u_{c,0}$ the radiation field of the component.
+
+*Proof.* I2's Lemma 2.2 (I2:72-135) with one slot type. Step 1 (I2:79-93): every eigenvalue is 0, so $\frac32+0>
+\alpha_I+\eta$ and the two integrations (III.A Lemmas 1.2 and 3.2) hold in every component. $\tilde L_\Box$ gains a
+full power of $\rho_I$ (smooth coefficients), where I2's $\tilde L$ gains $\frac12$. Step 2 (I2:95-110): every
+component acquires $(\frac32,0)$, as slot 6 does there. Step 3 (I2:111-134): the shifts are integers, and at $z =
+\frac32+j$, $j\ge1$, $X_I-\frac32$ acts by $j\ne0$ (D13's factor $z-\frac32$), so no logarithm is added. Then
+Proposition 2.1's Steps 1-2 (I2:136-161) verbatim, with $\mathcal E_+ = \emptyset$ and $\mathcal E^{\mathrm{tot}}_I$
+replaced by $\mathcal E_\Box$; III.A Lemma 3.2's conditions are $\ell_+\notin\frac32+\mathbb N_0$ and $\ell_+<\ell_I$.
+The $\iota^+$-weight need not stay below $\frac32$. I2's Lemma 2.2 caps it at $\frac32$ because it starts from no a
+priori $\iota^+$-information; with the a priori weight $\ell_+$, Step 2 of Proposition 2.1 keeps it, and the
+$(\frac32,0)$-term that III.A Lemma 3.2 would add at $\iota^+$ lies above $\ell_+$ only when $\ell_+<\frac32$. For
+$\ell_+>\frac32$ its coefficient must vanish, the a priori bound excluding it. $\square$
+
+**Proposition R6.12 (III.I$'$ Proposition 3.1 at $\Box$; deduced, computed D13).** A source term $\chi\rho_I^{z+1}
+(\log\rho_I)^kf^{(z+1,k)}$ at $\mathscr I^+$ is solved formally by $\rho_I^z(\log\rho_I)^ku^{(z,k)}$ with
+$2(z-\frac32)(X_+-z)u^{(z,k)} = \rho_+^{-2}f^{(z+1,k)}$ plus lower log orders (D13: $L_0(\rho_I^zw) = \rho_I^z(z-\frac32)
+(X_+-z)w$), for $z\ne\frac32$. Its $\iota^+$-index set gains $(z,0)$ (III.A Lemma 1.2), as I2 (3.2) records for $L$. At
+$z = \frac32$, a source term of $\mathscr I^+$-order exactly $\frac52$, the factor vanishes: no power solves it, and the
+formal solution carries $\rho_I^{3/2}\log\rho_I$. This is the radiation root, which I2's index sets avoid ($\min
+\mathrm{Re}\,\mathcal E^C_I>\frac32+2\gamma_\Upsilon$). So for $\Box$ the formal solutions' $\iota^+$-index sets start
+at the least $\mathscr I^+$-exponent of the source less one: this is III.I$'''$ Step 1 at $\Box$, for sources that
+reach $\mathscr I^+$ with an expansion.
+
+**Corollary R6.13 (the expansion of the gauge vector at null infinity; deduced).** Let $Y$ be as in Corollary R6.6 and
+$U$ the translate of its proof. For every $\gamma_+<2$ and every $\ell_I>\max(\frac32,\gamma_+)$ off $\frac32+
+\mathbb N_0$, $U$ has the expansion (R6.7) near $\mathscr I^+\cap\iota^+$, with $\iota^+$-weight $\gamma_+-2\epsilon$:
+every Cartesian component has a radiation field $u_{c,0}$, and the expansion continues in integer steps with no
+logarithm. *Proof.* Theorem R6.4 (i), (iii) gives the a priori weights ($\alpha_I = \frac32-3\epsilon$, $\ell_+ =
+\gamma_+-2\epsilon$); the source is compactly supported, so (R6.1)'s plain weight holds at every $\ell_I$; Proposition
+R6.11. $\square$
+
+The same holds for the cone-localised piece $\chi'Y$ of the harmonic-gauge vector in R5.3's proof, whose source vanishes
+near $\mathscr I^+$, with $\iota^+$-weight below $\frac12+\delta_\sharp$. For $Z_1$ itself near $\mathscr I^+$ on the
+initial slab the expansion would need the slab source's own expansion, IV$''$ Theorem 2.4 Steps 4-6 at $\Box$ (R4.2 step
+6). That is not carried and not used: R4.3 gives the order $p<\min(\frac32,q_{\dot h}-1)$ there, which is what (i)-(ii)
+need.
+
+### R6.g Amendments
+
+*The round-4 verifier's findings* (relayed during round 6; verifier of round 4; nothing in the mathematics found false:
+R4.2, R4.3, R4.4 and R4.6 hold as deduced).
+
+(A37) *M1, the status claim* (verifier of round 4). Lines 1359-1361, 1586, 1835-1837 and the round-4 paper texts (lines
+1863, 1875) say "no hypothesis beyond the write-out's proved parts". Corollary R4.4 also uses Part IX: Lemma R3.1 (IX
+Theorem 2.2 Step 3), IX Lemmas 1.1-1.2, and Theorem 1.5 (d). Part IX is labelled verified (D347), repaired (D610),
+repair read (D611), not proved. Read each as "from Part VIII and the write-out's proved parts, with Part IX
+(verified)". The replacement texts of R6.h carry this as one clause, "with Part IX (verified)", which can be dropped if
+Part IX is promoted to proved. Corollary R6.6 uses Part IX in the same way (domain of dependence on $\Omega^\sharp$).
+
+(A38) *m1, Proposition R4.5 (a)* (verifier of round 4). Lines 1603-1613, the summary (1363), the indicial data (1596)
+and (GD20) (1838-1841). Relabel R4.5 (a) formal: it is the flat operator's expansion, with no pole. On Tangherlini the
+first non-smooth term is $\sigma\log\sigma$, with coefficient $-\frac i{8\pi^2}d\psi\otimes\ell$ (Proposition R6.7,
+formal, D5-D6). Read "first non-smooth term $\sigma^2\log\sigma$, two orders above the pole" as "first non-smooth term
+$\sigma\log\sigma$, one order above $\sigma^0$ and two above the pole; its time-domain counterpart is $t_*^{-2}$". "Does
+not block a first improvement" stands, now as Theorem R6.4.
+
+(A39) *m2, T3's S7 row* (verifier of round 4). `gdr3fix5.py`:161-162 tests $p = \frac32$ against $b_I =
+\frac{\beta+2}2$, and fixes $\alpha = 4+\frac d2$. D8 re-encodes S4 and S7 with $b_I = \frac{b_++p}2$, $p\in(\frac12+
+\beta,\min(\frac32,q-1))$, $q>\frac32+2\gamma_\Upsilon$ and $\alpha\ge4$ free; every row is a positive sum on the whole
+box. Control: the old $b_I$ against the new $p$ fails at $\gamma_\Upsilon = \frac1{20}$. `gdr3fix5.py` is left as the
+verifier read it; read T3's S4/S7 rows as D8.
+
+(A40) *m3, compact-support claims outside (A23)'s list* (verifier of round 4). Lines 427-428, 437, 445, 655, 864-866
+((S1)), 883-884 ((S3)), 893-894 ((S4)), 922-925 ((GD7)) and 929 ((GD9)): read "data compactly supported on
+$\Sigma^\circ$" and cite Corollary R4.6, and for the rate Corollary R6.6 ($t_*^{-2+\epsilon}$). `N1STAR-PROOF.md`
+1795-1797 and 2940-2942 cite R2.13 (b) without "on $\Sigma^\circ$": replacement texts in R6.h. Line 1582's promise
+("with Corollary R4.6 added to the citation") is discharged by those texts.
+
+(A41) *m4, the paper's section 9 text* (verifier of round 4). "The rate of section 8.2" is, in section 8.2's
+Regge-Wheeler part, [HKW18]'s rate. Theorem 1.5 (b) proves Part VIII's rate $t_*^{-w+\epsilon'}$, $w>2$, with two
+derivatives lost and a constant depending on $R'$. In harmonic gauge $X$ is determined only modulo solutions of $\Box Y
+= 0$ (R2.0, (A13)). R6.h's section 9 text cites Theorem 1.5, states $O(t_*^{-2-\epsilon})$ on $r\le R$ with two
+derivatives lost, and says "constructed" for the harmonic gauge.
+
+(A42) *m5, Corollary R4.4 and the section 8.2 text* (verifier of round 4). Add to Corollary R4.4: "and $\dot g_H = \dot
+g$ on a neighbourhood of $\Sigma^\circ$". Near $\Sigma^\circ$, $\chi_K = 0$, and $Z_1$ has zero data with source $F_Y =
+\chi^\natural_0E^\Upsilon G\dot h$, which vanishes near $\Sigma_{\mathrm{IVP}}$ (R4.3 step (2), K Lemma 1.1 (d)); so $Z_1
+= 0$ there by uniqueness with zero data (IX Lemma 1.1 on $\Omega^\sharp$, Lemma R3.1). In the section 8.2 text, "a
+gauge change" reads "a gauge change by $Y$ with $\Box Y = 0$", and $c_\infty$ is "the limit of a horizon charge", not a
+conserved one (R6.h).
+
+(A43) *n1-n4, the controls* (verifier of round 4). E4's control (`gdext5.py`:339-344) was a hand-written limit; D9
+mutates E4's normalisation ($\rho^{-1-\alpha}$), and the claim fails. E3's control printed an uncomputed "True" for the
+full 1-form part (`gdext5.py`:304, 328-330); D10 runs the conjugation by $\rho$ through the same radial and full 1-form
+pipeline, and both fail. In G4 (b) (`gdrate5.py`:162-163) "converges" and "predicted" were one inequality; D11 computes
+the integral. G4 (c) and its control are superseded by Q6 and D4. In E6 (`gdext5.py`:396-402) $f_I$ was identically 0 and
+$p>\frac12+\beta$ held by construction; D12 computes $f_I$ from the source's order ($\delta_\sharp>0$, not binding),
+reports the interval's non-emptiness and $p_{\max} = \frac12+2\gamma_\Upsilon$, and the control without $|x|^{-1}$
+empties it. The old files are left as the verifier read them.
+
+(A44) *n5* (verifier of round 4). Proposition R4.2's heading: read "IV$'''$ Theorem 2.1 (i)-(iii) at $\Box$, without
+IV$''$ Theorem 2.4's Steps 4-6 (step 6)".
+
+(A45) *n6* (verifier of round 4). "Why the order is $\min(\frac32,q_{\dot h}-1)$ and not $\frac32$" (line 1531): label
+it heuristic, a statement about the method's limit.
+
+(A46) *n7* (verifier of round 4). (A14) cites `N1STAR-PROOF.md`:2938-2940; the text is at 2940-2942. IV$'''$:24-28 is
+cited for $\rho_0$ bounded below on the slab; it is at IV$'''$:50. "Two orders above the pole" is superseded by (A38).
+
+(A47) *n8* (verifier of round 4). `gdext5.py`'s docstring says "a few minutes"; E1 alone ran past 21 minutes under
+load. Read "up to half an hour under load".
+
+*The round-5 verifier's findings* (relayed during round 6; verifier of round 5; no major error; R5.1 carries III.I$''$
+Proposition 5.1 faithfully and R5.2-R5.4 follow; `gdkplus5.py` reran byte-identically, with 11 code mutants all
+failing).
+
+(A48) *Minor 1* (verifier of round 5). R5.3's proof (line 2084): "$K^+$-order $\alpha-2-\eta>1$ (Proposition R3.2)"
+reads "$K^+$-order $\alpha-2-\eta>2$ ($w = \alpha-2>2$, section 0, Part VIII (2.3)); Proposition R3.2 gives only
+$>\frac12$". R5.1 needs more than $\alpha_K = \frac12+\kappa$.
+
+(A49) *Minor 2* (verifier of round 5). (A33) is mis-scoped at lines 428-429. That bullet is R2.7's general class
+($t_*^{-1/2}$ at $K^+$-weight $\frac12$) and the homogeneous solutions. Append: "for $K^+$-weight
+$\alpha_K\in(\frac12,1)$ Theorem R5.2 gives $t_*^{-\alpha_K}$, and for $\alpha_K\in(1,2)$ Theorem R6.5; homogeneous
+solutions with data compactly supported on $\Sigma^\circ$ settle at $t_*^{-2+\epsilon}$ (Corollary R6.6)".
+
+(A50) *Minor 3* (verifier of round 5). Q5 fixed $w_I = 3$, lacked step 7's $\gamma_+\le\frac32-2\epsilon$, and had
+vacuous entries (`eq_ok`, `Integer(1)`, a $10^{-6}$ offset). D2 re-encodes R5.1's box with $w_I$ from its least value
+$\max(\frac52,\gamma_++2-\alpha_K)$, (2.25a)'s bound at $\epsilon' = \frac12(1-\alpha_K)$, and step 7's condition, with
+no vacuous entry; all hold. Read Q5 as D2.
+
+(A51) *Minor 4* (verifier of round 5). Q4's control was a separate branch; D3's control runs the same path at the
+integer. Q3's tf-order was assigned and its tail hard-coded; D1 (c) computes it with $W_\beta$. Read Q3-Q4 as D1 (c) and
+D3.
+
+(A52) *Minor 5* (verifier of round 5). R5.1 (i)-(ii) read as $k$-independent. $u'$, $u_{\mathrm{sing}}$ and $B$ depend on
+$k$ through $c = c_k$ (I3:193-198); $u$ does not. R5.2 uses finite $k$. Theorem R6.4 carries the caveat.
+
+(A53) *Minor 6* (verifier of round 5). "Where this one stops: the operator" (lines 2123-2131), (GD26) and the summary
+bullet: the stop at $\alpha_K = 1$ is the method as carried, not an obstruction. The verifier's route (invert
+$\tilde P(0)$ on $(\hat f(0),0)$ at $\alpha+2 = \gamma_+-1$, Lemma 1.2 from R2.1 and R2.2 (c), Lemma 1.3 for $G_1$
+alone, one integration, Proposition 2.8 (2) with a constant polynomial part) is Theorem R6.4's. With Corollary R6.6's
+cut-off it gives $t_*^{-2+\epsilon}$, not the $t_*^{-3/2+\epsilon}$ the cone route gives. Read the paragraph as
+superseded by R6.b-R6.c.
+
+(A54) *Minor 7* (verifier of round 5). Incomplete supersession of $t_*^{-1/2}$ for compactly supported gauge data:
+R2.S (S1) (line 865), (S3)/(A14) (lines 883-885, 1698), and R4.6's "their rate $t_*^{-1/2}$ stands" (line 1582). Add
+them to (A34)'s list, read with Corollary R6.6's $t_*^{-2+\epsilon}$; the texts are R6.h's.
+
+(A55) *Minor 8* (verifier of round 5). R5.e (5) said "deduced from the supplement's proved parts ... R5.1-R5.4" while
+round 5 was unverified, and its condition "when the spherically symmetric part of that source does not vanish" was
+broader than R4.5 (c)'s. Superseded by R6.h (5). Round 5 is now verified, with minors seated here. Round 6 is not
+verified, and the text says so.
+
+(A56) *Nits* (verifier of round 5). (A32) cites 905-907 for R2.5 item 3: it is 908-910. "Is Theorem R5.1" misdescribes
+R3.4's ask (an expansion beyond the pole): read "is Theorem R5.1, and beyond the pole Theorem R6.4 and Proposition R6.7".
+"$\mathscr I^+$-weight $\ge\frac52$" (summary, step 11, (GD23)) reads $\max(\frac52,\gamma_++2-\alpha_K)$. "At $\alpha_K
+= \frac12$ this is Theorem R2.5" reads "... for b-regular sources". Q5's control applies III.I$''$'s $\beta_\iota =
+\gamma_++1$ to $u_{\mathrm{sing}}$, where III.I$''$ uses it for $\partial_{t_*}u_{\mathrm{sing}}$. "$r^3W^*_r \to r_h$"
+holds in the static frame; in $(dt_*,dx)$ the $dr$-component is $O(r^{-2})$, and $q = 2$ is unaffected. Q4's `expected`
+was unused, and Q1's "iff" was tested at one point (D1 (b) tests the thresholds symbolically). $\beta$ had four meanings
+in round 5; round 6 writes $B$ for the coefficient, $\beta(t_*,r)$ for its primitive and $\beta_I,\beta_\iota,\beta_K$
+for Lemma 3.1's weights. R5.e (2)'s "reads the same" means with $Z_1$ for $Y$. R5.e (7)'s Q2 computes $-\Delta$'s roots
+on Cartesian components; the 1-form reduction is `gdext5.py` E1-E2 and III.D Lemma 4.1. The "exactly when $\alpha_K\ge1$"
+argument (lines 2127-2130) uses the window weight, whereas III.I$'''$ Step 3.1 inverts $\hat f(0)$ at $\alpha+2 =
+\gamma_+-1$, as Theorem R6.4 does.
+
+*Round 5's own items.* R5.d item 1 (Theorem R5.1 at $\alpha_K\ge1$) is Theorem R6.4. Item 2 (sharpness) is Proposition
+R6.9, in the form stated there. Item 3 (III.I$'$ at $\Box$) is Lemma R6.10 and Propositions R6.11-R6.12. Corollary R5.4
+is superseded by Corollary R6.6, and (A34)'s $t_*^{-1+\epsilon}$ reads $t_*^{-2+\epsilon}$.
+
+### R6.h What is not proved; findings, labels, files and replacement texts
+
+*Not proved, and not claimed anywhere downstream.*
+1. *The leading coefficient at $t_*^{-2}$* for compactly supported gauge data, $\frac{Q}{8\pi^2}t_*^{-2}d\psi$
+   (Proposition R6.7, formal). It needs $K^+$-weights above 2, past II.G$'$'s integer exclusion and the zero-energy
+   window. The proved statement is $t_*^{-2+\epsilon}$ for every $\epsilon>0$ (Corollary R6.6).
+2. *Whether a given perturbation's gauge source attains $t_*^{-1/2-\delta_\sharp}$.* That is the value of one coefficient
+   (Proposition R6.9). The rate of Corollary R5.3 holds for every perturbation in the class and is sharp for its source
+   class.
+3. *The expansion of $Z_1$ at $\mathscr I^+$ on the initial slab beyond the order $p$ of Theorem R4.3*, which would need
+   IV$''$ Theorem 2.4 Steps 4-6 at $\Box$. It is not used.
+4. *A second reading* of round 6, in particular of Theorem R6.4's Steps 3.1-3.3, Corollary R6.6's cut-off and
+   Proposition R6.11.
+
+*Findings.* - (GD27) III.I$'''$ Proposition 2.1 and Lemmas 1.1-1.3 carry over to $\Box$ at $b_0$ (Theorem R6.4). For
+sources of $K^+$-weight $\alpha_K\in(1,2)$ the zero-frequency term $\hat f(0)$ is inverted by the augmented operator at
+$\alpha+2 = \gamma_+-1$, and one integration gives $u = c_0\chi_KW^*+O(K^+\text{-weight }\alpha_K-1)$, $c_0$ the total
+horizon charge, with the finer form $u'+\beta W^*$ at weight $\alpha_K$ (D1-D3). The cap $\alpha_K<2$ is the zero-energy
+window. - (GD28) Modulo the running charge the forward solution decays like $t_*^{-\alpha_K}$, $\alpha_K<2$ (Theorem
+R6.5). A gauge vector with $\Box Y = 0$ and data compactly supported on $\Sigma^\circ$ settles to $(Q[Y]/4\pi^2)W^*$ at
+$t_*^{-2+\epsilon}$ (Corollary R6.6, D4), by a cut-off with compact support in spacetime. Round 5's "radiation cap
+$t_*^{-3/2}$" was a cap of the slab and cone route. - (GD29) The first non-smooth term of $\Box$'s resolvent at zero
+energy on Tangherlini is $\sigma\log\sigma$, coefficient $-\frac i{8\pi^2}d\psi\otimes\ell$ (Proposition R6.7, formal;
+D5-D6). Its time-domain counterpart is $\frac{c_\infty}2t_*^{-2}d\psi$, so $t_*^{-2+\epsilon}$ is the formal exponent up
+to $\epsilon$; there is no $t_*^{-1}$ tail (proved). This settles the round-4 verifier's m1. - (GD30) The $l = 0$ part of
+the harmonic-gauge source is $\Box$ of a radial 1-form (Lemma R6.8). An explicit source of that form and of
+$\iota^+$-order $\frac52+\delta_\sharp$ has the solution $\chi'v^{-1/2-\delta_\sharp}d\psi$, metric part
+$\mu_0v^{-1/2-\delta_\sharp}\mathcal L_{W^*}g$ (Proposition R6.9, D7). Corollary R5.3's $\kappa<\delta_\sharp$ is sharp
+for its source class. - (GD31) III.I$'$ at $\Box$: at $\mathscr I^+$, $\rho_I^{-1}\rho_+^{-2}\Box =
+2(X_+-X_I)(X_I-\frac32)+\rho_I\mathrm{Diff}^2 _{\mathrm b}$ on Cartesian components; the index set is
+$\{(\frac32+j,0)\}$, a radiation field in every component, no logarithm, and formal solutions are obstructed only at
+source order $\frac52$ (Lemma R6.10, Propositions R6.11-R6.12, D13). The gauge vector of Corollary R6.6 has this
+expansion to every order (Corollary R6.13). - (GD32) The verifiers of rounds 4 and 5 found no mathematical error and no
+major one; their findings are seated as (A37)-(A56), with corrected checks D1-D3 and D8-D12.
+
+*Labels.* Computed: `checks/gdrad5.py` D1-D13 (exact, sympy; D2 and D8 on the whole parameter box, D12 at 60 exact
+rational samples, D3 at four rationals and the integer; D5-D6 compute a formal expansion), each with a control that
+mutates the computed path and fails. Deduced: Lemmas R6.1-R6.3, Theorems R6.4-R6.5, Corollary R6.6, Lemma R6.8,
+Proposition R6.9, Lemma R6.10 (with D13), Propositions R6.11-R6.12, Corollary R6.13, and (A37)-(A56). Formal: Proposition
+R6.7 (b)-(d). READ: the file:line citations above. Standard: b-Sobolev embedding, Lemma R2.6. Everything is at $b_0$,
+where (Dyn) is Part VI.A Theorem 6.1. Corollaries R4.4 and R6.6 use Part IX (verified) as (A37) states.
+
+*Files.* `GAUGEDECAY5.md` (this section appended); `checks/gdrad5.py` with `checks/gdrad5.out`.
+
+*Replacement texts.* Each is old (quoted from the file as it now stands) and new. Those for this file are readings, per
+the amendments; those for `N1STAR-PROOF.md` and the paper are for the main session to seat. The clause "with Part IX
+(verified)" is the one to drop if Part IX is promoted to proved ((A37)).
+
+(1) *This file, Proposition R2.13 (b)* (lines 820-823). Old:
+
+```text
+(b) *Decaying gauge data.* If $Z'_0$ has compactly supported Cauchy data, then on each $\{r_0<r\le R'\}$, with the
+derivatives of (R2.2),
+$$(\dot g_H)_0 = \dot\mu K^*+c\,\mathcal L_{W^*}g+O(t_*^{-1/2}),\qquad c = Q[Z'_0]/4\pi^2.$$
+When $\dot\mu\ne0$ this grows linearly in $v$ and is not (stationary, smooth at $r_h$) $+\,o(1)$.
+```
+
+New:
+
+> (b) *Decaying gauge data.* If $Z'_0$ has Cauchy data compactly supported on $\Sigma^\circ$, then on each
+> $\{r_0<r\le R'\}$, with every number of derivatives and for every $\epsilon>0$,
+> $$(\dot g_H)_0 = \dot\mu K^*+c\,\mathcal L_{W^*}g+O(t_*^{-2+\epsilon}),\qquad c = Q[Z'_0]/4\pi^2$$
+> (Corollaries R4.6 and R6.6). When $\dot\mu\ne0$ this grows linearly in $v$ and is not (stationary, smooth at $r_h$)
+> $+\,o(1)$.
+
+and in its proof (line 836) "(b): Corollary R2.8 for $Z'_0$" reads "(b): Corollary R6.6 for $Z'_0$".
+
+(2) *This file, Theorem R3.4 (iii)-(iv)* (lines 1205-1212). Old:
+
+```text
+(iii) On each $\{r_0<r\le R',\ t_*\ge T'\}$, with the derivatives of (R2.2),
+$$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le Ct_*^{-1/2},\qquad c_\infty = \frac1{4\pi^2}\int\ell\big(
+\chi'J_h+[\Box,\chi']Y\big)\,dv,$$
+$\chi'$ of (A8): a horizon charge, as in R2.12 (iii).
+
+(iv) For $Y_h$ on $N^+$ with $\Box Y_h = 0$ and compactly supported Cauchy data on $\Sigma^\circ$, $\dot g_H+\mathcal
+L_{Y_h}g$ has (ii), induces $(\dot\gamma,\dot k)$ up to the data of $\mathcal L_{Y_h}g$, and has (iii) with
+$c_\infty+Q[Y_h]/4\pi^2$.
+```
+
+New:
+
+> (iii) On each $\{r_0<r\le R',\ t_*\ge T'\}$, with every number of derivatives and for every
+> $\kappa\in(0,\delta_\sharp)$, $\delta_\sharp = (1-e_\Upsilon)\gamma_\Upsilon$,
+> $$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le C_\kappa\,t_*^{-1/2-\kappa},\qquad c_\infty =
+> \frac1{4\pi^2}\int\ell\big(\chi'J_h+[\Box,\chi']Y\big)\,dv,$$
+> $\chi'$ of (A8): the limit of a horizon charge (Corollary R5.3). The exponent is sharp for the source class used
+> (Proposition R6.9).
+>
+> (iv) For $Y_h$ on $N^+$ with $\Box Y_h = 0$ and Cauchy data compactly supported on $\Sigma^\circ$, $\dot g_H+\mathcal
+> L_{Y_h}g$ has (ii), induces $(\dot\gamma,\dot k)$ up to the data of $\mathcal L_{Y_h}g$, and has (iii) with
+> $c_\infty+Q[Y_h]/4\pi^2$, as $Y_h-(Q[Y_h]/4\pi^2)W^* = O(t_*^{-2+\epsilon})$ for every $\epsilon>0$ (Corollaries R4.6
+> and R6.6).
+
+(3) *This file, Corollary R4.4* (lines 1540-1544). Old:
+
+```text
+\dot g_H) = 0$, $\Theta(\dot g_H) = 0$ on all of $N^+$, $\dot g_H$ induces $(\dot\gamma,\dot k)$ exactly, and on each
+$\{r_0<r\le R',\ t_*\ge T'\}$, with the derivatives of (R2.2) as amended by (A12),
+$$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le Ct_*^{-1/2},\qquad c_\infty = \frac1{4\pi^2}\int\ell\big(
+\chi'J_h+[\Box,\chi']Z_1\big)\,dv,$$
+a horizon charge; for $Y_h$ with $\Box Y_h = 0$ and compactly supported data on $\Sigma^\circ$, $\dot g_H+\mathcal
+L_{Y_h}g$ has the same properties with $c_\infty+Q[Y_h]/4\pi^2$, the data changed by those of $\mathcal L_{Y_h}g$.
+```
+
+New:
+
+> \dot g_H) = 0$, $\Theta(\dot g_H) = 0$ on all of $N^+$, $\dot g_H$ induces $(\dot\gamma,\dot k)$ exactly, $\dot g_H =
+> \dot g$ on a neighbourhood of $\Sigma^\circ$ ((A42)), and on each $\{r_0<r\le R',\ t_*\ge T'\}$, with every number of
+> derivatives and for every $\kappa\in(0,\delta_\sharp)$,
+> $$\big|\dot g_H-\dot\mu K^*-c_\infty\mathcal L_{W^*}g\big|\le C_\kappa\,t_*^{-1/2-\kappa},\qquad c_\infty =
+> \frac1{4\pi^2}\int\ell\big(\chi'J_h+[\Box,\chi']Z_1\big)\,dv,$$
+> the limit of a horizon charge (Corollary R5.3, sharp for its source class by Proposition R6.9); for $Y_h$ with $\Box
+> Y_h = 0$ and data compactly supported on $\Sigma^\circ$, $\dot g_H+\mathcal L_{Y_h}g$ has the same properties with
+> $c_\infty+Q[Y_h]/4\pi^2$, the data changed by those of $\mathcal L_{Y_h}g$, and $Y_h-(Q[Y_h]/4\pi^2)W^* =
+> O(t_*^{-2+\epsilon})$ (Corollary R6.6).
+
+(4) *`N1STAR-PROOF.md`, 10.2 (iv)* (lines 1800-1803 as the file now stands; 1795-1798 when the verifier read
+it), from "When" to "as in four dimensions.". Old:
+
+```text
+When
+Z has compactly supported data it settles to mu-dot K* + c pi_{W*} on each {r <= R} at the rate t_*^-1/2, c the
+conserved horizon charge of Z divided by that of W* (deduced, GAUGEDECAY5 Proposition R2.13 (b), with (Dyn), which Part
+VI.A Theorem 6.1 proves at b_0; `checks/admbox5.py` B1-B8); the mass change grows linearly in v, as in four dimensions.
+```
+
+New:
+
+> When Z has data compactly supported on the initial surface Sigma it settles to mu-dot K* + c pi_{W*} on each
+> {r <= R} at the rate t_*^(-2+eps) for every eps > 0, c the conserved horizon charge of Z divided by that of W*
+> (deduced, GAUGEDECAY5 Proposition R2.13 (b) with Corollaries R4.6 and R6.6, from Part VIII and the write-out's proved
+> parts, with Part IX (verified); `checks/admbox5.py` B1-B8, `checks/gdkplus5.py` Q1-Q6, `checks/gdrad5.py` D1-D13);
+> the mass change grows linearly in v, as in four dimensions.
+
+(5) *`N1STAR-PROOF.md`, 10.8* (lines 2945-2947 now; 2940-2942 when read), from "For W' with compactly supported
+data" to "proves at b_0);".
+Old:
+
+```text
+For W' with compactly supported data
+GAUGEDECAY5 Proposition R2.13 (b) gives the rate t_*^-1/2 on each {r <= R} (deduced, with (Dyn), which Part VI.A Theorem
+6.1 proves at b_0);
+```
+
+New:
+
+> For W' with data compactly supported on the initial surface Sigma, GAUGEDECAY5 Proposition R2.13 (b) with
+> Corollaries R4.6 and R6.6 gives the rate t_*^(-2+eps), every eps > 0, on each {r <= R} (deduced, from Part VIII and
+> the write-out's proved parts, with Part IX (verified); `checks/gdrad5.py`);
+
+(6) *The paper, section 8.2* (`paper/RESPONSE-HL-5D.md`:805-811), from "In harmonic gauge the spherically symmetric
+part of a" to "does not decay at infinity;". Old:
+
+```text
+In harmonic gauge the spherically symmetric part of a
+perturbation is μ̇K* + π_Z, μ̇ the change of mass and Z a 1-form with □Z = 0; when Z has compactly supported data it
+settles on each region r ≤ R to μ̇K* + c π_{W*}, growing linearly in v, at the rate τ^(−1/2) (deduced from the
+zero-energy structure of the 1-form wave operator, supplement GAUGEDECAY5 R2.13, `docket68/n1star/checks/admbox5.py`,
+with the horizon and trapping hypotheses the supplement's Part VI verifies at Tangherlini); without decay of Z's data
+the growth can be traded for a stationary term that does not decay at infinity;
+```
+
+New (it supersedes round 4's and round 5's proposals, (A36) and (A55)):
+
+> In harmonic gauge every perturbation in the class has a representative constructed on the whole domain: it is in
+> harmonic gauge there, induces the given data and equals the solution above near the initial surface. Its
+> spherically symmetric part is μ̇K* + π_Z, μ̇ the change of mass and Z a 1-form with □Z = 0. On each region r ≤ R the
+> representative settles to μ̇K* + c π_{W*}, growing linearly in v, with c the limit of a horizon charge, at the rate
+> τ^(−1/2−κ) for every κ < δ♯ = (1 − e_Υ)γ_Υ. δ♯ is the margin by which the constraint damping makes the gauge source
+> decay along the forward cone, and the exponent is sharp for the sources the estimate uses: a source of the same form
+> attains τ^(−1/2−δ♯) exactly. A gauge change by a 1-form Y with □Y = 0 and data compactly supported on the initial
+> surface moves only c, by Y's horizon charge over W*'s, and Y itself settles to that multiple of W* at the rate
+> τ^(−2+ε) for every ε > 0 (deduced from Part VIII and the supplement's proved parts, with Part IX (verified):
+> supplement GAUGEDECAY5 R4.4, R5.3, R6.6, R6.9; `docket68/n1star/checks/gdscri5.py`, `checks/gdext5.py`,
+> `checks/gdkplus5.py`, `checks/gdrad5.py`). Without decay of Z's data the growth can be traded for a stationary term
+> that does not decay at infinity;
+
+(7) *The paper, section 9, the "Settling" item* (`paper/RESPONSE-HL-5D.md`:1396-1398). Old:
+
+```text
+The decay of X is not proved, so the routes in a Regge–Wheeler-type
+  gauge and in the harmonic gauge (Hung's sections 5–8 in five dimensions), which argue decay in those gauges, remain
+  deductions.
+```
+
+New (it supersedes round 4's proposal and R5.e (6)):
+
+> The gauge vector X is determined in a Regge–Wheeler-type gauge and constructed in the harmonic gauge, where it is
+> unique only up to solutions of □Y = 0 (supplement GAUGEDECAY5). In the Regge–Wheeler-type gauge it is explicit, and
+> the perturbation settles to the change of mass on each region r ≤ R, the horizon included, at Part VIII's rate,
+> O(τ^(−2−ε)) for some ε > 0, with two derivatives lost (GAUGEDECAY5 Theorem 1.5). In the harmonic gauge a
+> representative exists on the whole domain, induces the given data and settles to μ̇K* + c π_{W*} at τ^(−1/2−κ) for
+> every κ < δ♯, an exponent sharp for the sources used (GAUGEDECAY5 R4.4, R5.3, R6.9). Both are deduced from Part VIII
+> and the supplement's proved parts, with Part IX (verified). Hung's route in five dimensions (his sections 5–8) is
+> needed for neither and remains a deduction.
+
+(8) *The paper's list of checks*, after the entry for `checks/gdkplus5.py` (R5.e (7)), or after `checks/admbox5.py` if
+that entry is not yet seated:
+
+> - `checks/gdrad5.py` D1–D13: section 8.2's rates in harmonic gauge past the first zero-frequency term (supplement
+>   GAUGEDECAY5 round 6). D1, the column and the cut-off state near zero energy (homogeneity, the Fubini counts, the
+>   tf-order with its weight computed); D2, every weight condition of the carried-over steps on the whole parameter box;
+>   D3, the transform (1 + t)^(−α) ↔ ∫B + Γ(1 − α) w^(α−1) for α in (1, 2), and its failure at α = 2; D4, the
+>   exponent, τ^(−2+ε) for compactly supported gauge data; D5–D6, the low-frequency expansion on Tangherlini (formal):
+>   no logarithm at order σ, −(1/2) log r at order σ², first non-smooth term σ log σ, a multiple of dψ; D7, a gauge
+>   source of the harmonic-gauge form attaining τ^(−1/2−δ♯) exactly; D8–D12, corrected checks for the earlier rounds;
+>   D13, the 1-form wave operator at null infinity. Each with a control that must fail. Exact; about a minute.
