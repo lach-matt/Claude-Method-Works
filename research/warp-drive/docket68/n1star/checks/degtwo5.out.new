@@ -17,3 +17,10 @@ T4 PASS
       1.1].  Model (exp(-1/x), lam = 1e-6): maxima over 80 consecutive carrier periods around R = 1 strictly decreasing:
       True, sign changes: 1
 T5 PASS
+  T6 on J_n, the zero interval after the bump with height in [lam^4, lam^3.1], 8 integrations by parts: lam = 1e-8: n = 8
+      (height lam^3.529), first-degree <= 1.04e-69, U1-memory <= 2.38e-91, m0 >= 2.48e-61: True; lam = 1e-10: n = 9
+      (height lam^3.561), first-degree <= 2.76e-93, U1-memory <= 6.45e-130, m0 >= 2.12e-76: True; lam = 1e-12: n = 10
+      (height lam^3.655), first-degree <= 9.91e-118, U1-memory <= 2.37e-169, m0 >= 3.33e-93: True (spacelike throughout
+      J_n)
+T6 PASS
+degtwo5: all checks pass, every control fails  [96 s]

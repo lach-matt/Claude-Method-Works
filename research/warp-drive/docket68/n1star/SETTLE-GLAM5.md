@@ -779,10 +779,10 @@ there: [DS23] Theorems 2.4, 2.6, [AO14] Theorem 1.1) applies on bounded domains;
 overlaps. (iv) The cap energies: the band costs |T|^(2a_0 − 1) for h ~ r^(−2), → 0 exactly for a_0 < ½ (T2a, control
 T2c), and |T|^(2a − 6) for the remainder h_R = O(r^(−9/2)) of R3-D, → 0 exactly for a < 3 (T2b); the subtraction through
 p = 7/2 only (h_R = O(r^(−4))) does not tend to 0 at a = 11/4 (T2c). ∎
-[R5.0 (r3-m1): the infimum is 0, attained at Y = −∇v (r5settle5 D2); the sampled minimum is an artefact.]
-[Withdrawn, R5.0 (r3-m1): v is not a time function (dv is null for g_b0, and g^(−1)(dv, dv) = −h(ℓ, ℓ) + O(h²) has either
-sign, r5settle5 D1-D2); the localisation is by Φ_W = v + 1/r (or v + εt on the bounded slab) and does not change the data
-(R5-B).]
+[R5.0 (r3-m1): in (i) the infimum is 0, attained at Y = −∇v (r5settle5 D2); the sampled minimum is an artefact. (iii) is
+withdrawn: v is not a time function (dv is null for g_b0, and g^(−1)(dv, dv) = −h(ℓ, ℓ) + O(h²) has either sign,
+r5settle5 D1-D2); the localisation is by Φ_W = v + 1/r (or v + εt on the bounded slab) and does not change the data
+(R5-B). (i), (ii) and (iv) stand.]
 
 **The energy identity for the quasilinear metric (computed T3).** For g = g_b0 + h, not stationary, and X = w(u)∂_t,
 
