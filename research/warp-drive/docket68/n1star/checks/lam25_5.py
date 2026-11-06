@@ -65,6 +65,16 @@ def up(p, d=4):
         return mp.nstr(mp.ceil(mp.mpf(p._mpi_[1])*10**d)/10**d, 15)
 
 
+def dn(p, d=6):
+    with mp.workdps(50):
+        return mp.nstr(mp.floor(mp.mpf(p._mpi_[0])*10**d)/10**d, 15)
+
+
+def mid(p):
+    with mp.workdps(50):
+        return mp.nstr((mp.mpf(p._mpi_[0]) + mp.mpf(p._mpi_[1]))/2, 7)
+
+
 # ------------------------------------------------------------------------------------------------------------ inputs
 def bump_bounds(kmax):
     """log10 B_k+ for k <= kmax (certified upper bounds)"""
@@ -193,11 +203,11 @@ def l1(control=False):
         top = sorted(rows, key=lambda x: -x[1].b)[:3]
         desc = ", ".join("%s %s" % (r_[0], up(r_[1], 1)) for r_ in top)
         abc = [r_ for r_ in rows if r_[0] in ("W1", "W2", "H2")]
-        form = "; ".join("%s: a = %s, b = %s, c = %s" % (r_[0], up(r_[2][0]), up(r_[2][1]), up(r_[2][2]))
+        form = "; ".join("%s: a = %s, b = %s, c = %s" % (r_[0], mid(r_[2][0]), mid(r_[2][1]), mid(r_[2][2]))
                          for r_ in abc)
         rows_out.append("delta = %s: E_25 = %s (binding %s; the three largest E_i: %s); %s"
                         % ("1/10" if delta.a < 0.2 else "1/2", up(E, 1), nm, desc, form))
-    out("  L1 unit constants (every gamma = 0), K = 6, log10 B_44+ = %s, I_beta >= %s: " % (up(lB[44], 2), up(Ib, 6))
+    out("  L1 unit constants (every gamma = 0), K = 6, log10 B_44+ = %s, I_beta >= %s: " % (up(lB[44], 2), dn(Ib))
         + "; ".join(rows_out))
     return True
 
@@ -209,7 +219,7 @@ def l2(control=False):
         E, nm, _ = e25(delta, 6, lB, Ib, gammas={"W1": iv.mpf('1.8e6')})
         rows_out.append("delta = %s: E_25 = %s (binding %s)" % ("1/10" if delta.a < 0.2 else "1/2", up(E, 0), nm))
     out("  L2 R5.5's illustration, gamma_w = log10 C_L4 = 1.8*10^6, other gammas 0: " + "; ".join(rows_out)
-        + ": lambda_25 <= 10^(-E_25) with these inputs")
+        + ": with these inputs L.25'' (a) holds for lam <= min(lam_rec, 10^(-E_25))")
     return True
 
 

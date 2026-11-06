@@ -14,11 +14,13 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      five more predicates check that the text states each step: (k) "contains derivatives of u_1 of order <= j + 1
      only", (l) "by Lemma 9.3(b) (U vanishes on {v = v_start})", (m) "summed over the family, Gronwall's lemma then
      costs", (n) "b . d U is of the order this step estimates and is not known", (o) "obey the bounds on b and c
-     above with the same constants". Control: on the live, unedited Lemma 11.0 every predicate fails.
+     above with the same constants"; and round 8 two more: (p) "and c U is one order lower.", (q) "(Lemma 11.1
+     applies to u_1^n verbatim". Control: on the live, unedited Lemma 11.0 every predicate fails.
   E2 (exact, sympy) what the edited text states, every quantity read from the text by a pattern:
      E2a Leibniz's rule with the sign, the coefficient and the binomial factor read from both sums: for generic g, u of
          (x, y) and every gamma of order 1..3, -(1/2) g d_x^2 d^gamma u = d^gamma(-(1/2) g d_x^2 u) + s c sum_{0 <
          gamma' <= gamma} B (d^gamma' g) d^(gamma - gamma') d_x^2 u holds exactly (s, c, B as read).
+         Round 8: B is the text's own definition of C(gamma, gamma'), read and evaluated, not sympy's binomial.
      E2b the bounds read for ||b . d U|| and ||c U|| have the lam- and t-powers of the coefficients the text defines:
          b of lam-order 0 in E_(3/2), and c's leading term -(1/2) lam^p (.)(ell, ell) [d_th^2 W_TT] with p read and
          W_TT ~ r^(-3/2) (read from "lam [W_TT] = r^(-3/2) G_3" before the lemma): on the model
@@ -37,6 +39,7 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
          E_2 the t^(-1/2) read for the lower steps' energies, and a product (E_(3/2) or E_2) x t^(-1/2) at most
          t^(-2), which must equal the text's own "each product at most C t^(-2)" (read, round 7): the bound read for
          ||R_gamma|| is the largest of them.
+         Round 8: the slice's volume read ("whose volume is at most C t^3") against the computed power.
      E2h the bookkeeping inequality read ("floor((N + 2)/2) <= max(4, N - 3)") holds for N = 1..2000.
   E3 controls: the text under test mutated in memory, each mutation must make E1 or E2 fail: c U's bound lam^-1 ->
      lam^-3 (the reader's E-m5), the factor -> e^(2C/lam) (E-m6), the coefficient 1/2 of the |gamma'| = 1 sum dropped,
@@ -49,8 +52,8 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      each old text once, every line within 121 characters after the edit, and the new texts state what the round-5
      and round-6 readers asked (section 11.1's status, the rounds read and unread, Parts III, IV, VII and VIII,
      BEYOND5 Lemma 6.4 (iv) as deduced, eps named, Proposition 3.1 deduced, the r^(-4) term built for one example,
-     the window computed from measured and hand-counted exponents, R6-D seated). Control: R6-E's blocks fail at least
-     six of the eleven.
+     the window computed from measured and hand-counted exponents, R6-D seated). Control (round 8): R7-E's blocks
+     fail at least four of the sixteen predicates.
   D630: R6-D is seated in N1STAR-PROOF.md (each new block occurs there once, no old block); the program then undoes it
      in memory, with its two "[amended D630: WS-B round 6, R6-D ...]" marks, and runs E1-E3 on that copy, and E1s
      checks that re-applying the blocks gives the live file but for the two marks.
