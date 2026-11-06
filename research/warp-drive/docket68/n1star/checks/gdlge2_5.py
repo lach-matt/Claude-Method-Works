@@ -269,7 +269,8 @@ def l2(control=False):
     def nonneg(e_):                                          # a polynomial in n >= 0 with coefficients >= 0
         P_ = sp.Poly(sp.expand(e_), n)
         return all(cf >= 0 for cf in P_.coeffs())
-    gap_s = all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg) and all(nonneg((x_ - 3).subs(l_, 2 + n)) for x_ in pos)
+    gap_s = all(nonneg((-(x_ + 1)).subs(l_, 2 + n)) for x_ in neg)
+    gap_s &= all(nonneg((x_ - 3).subs(l_, 2 + n)) for x_ in pos)
     gap_v = nonneg((l_ - 2).subs(l_, 2 + n)) and nonneg((l_ + 2 - 4).subs(l_, 2 + n))
     # the full bundle: l = 0 (2 x 2 system, c absent) and l = 1 scalar
     M0, lam0 = indicial_scalar(0, with_c=False)
@@ -403,7 +404,8 @@ def l4(control=False):
         vecf.append(eqv == 0 and sp.Poly(hp, x).degree() == (l + 1)//2 and sp.Poly(hp, x).LC() != 0)
     ok_cf = all(el) and all(vecf)
     if control:
-        # l = 0: W* has a = 1/r^2 (its dv component), regular and decaying, f (r^3 a')' = 0; V_2 < 0 near r_h at kappa = 0
+        # l = 0: W* has a = 1/r^2 (its dv component), regular and decaying, f (r^3 a')' = 0; V_2 < 0 near r_h at
+        # kappa = 0
         a0 = 1/r**2
         coul = zero(F_*sp.diff(r**3*sp.diff(a0, r), r))
         V20 = sp.simplify((F_/r**2*(sp.Rational(3, 4) - sp.Rational(7, 4)*mu/r**2)*r**2/F_).subs(r, s))
@@ -457,26 +459,29 @@ def poly_basis(l, m=1):
     return basis
 
 
-def horizon_free(l, K=8, m=1):
-    """the formal power series solutions at r = 1 (mu = 1) to order K: the free parameters"""
+def horizon_free(l, K=7, m=1):
+    """the formal power series solutions at r = 1 (mu = 1): unknowns U_0..U_K, the equations of orders 0..K-1; returns
+    the nullspace dimension and the matrix of its (a_1, b_0, c_0) coordinates"""
     k = l*(l + 2)
     y = sp.Symbol('y')
-    A = sp.symbols('A0:%d' % (K + 2))
-    B = sp.symbols('B0:%d' % (K + 2))
-    C = sp.symbols('C0:%d' % (K + 2))
-    a = sum(A[i]*y**i for i in range(K + 2))
-    b = sum(B[i]*y**i for i in range(K + 2))
-    c = sum(C[i]*y**i for i in range(K + 2))
+    A = sp.symbols('A0:%d' % (K + 1))
+    B = sp.symbols('B0:%d' % (K + 1))
+    C = sp.symbols('C0:%d' % (K + 1))
+    a = sum(A[i]*y**i for i in range(K + 1))
+    b = sum(B[i]*y**i for i in range(K + 1))
+    c = sum(C[i]*y**i for i in range(K + 1))
     E = sys_scalar(a.subs(y, r - 1), b.subs(y, r - 1), c.subs(y, r - 1), k, m)
     eqs = []
     for e, pw in zip(E, (3, 4, 3)):
         P = sp.Poly(sp.expand(sp.simplify(e*r**pw).subs(r, y + 1)), y)
         cf = P.all_coeffs()[::-1]
         eqs += cf[:K]
-    sol = sp.solve(eqs, list(A) + list(B) + list(C), dict=True)[0]
-    unknowns = list(A[:K]) + list(B[:K]) + list(C[:K])
-    free = [u for u in unknowns if u not in sol]
-    return free, sol
+    unknowns = list(A) + list(B) + list(C)
+    Mx = sp.Matrix([[sp.expand(e_).coeff(u_) for u_ in unknowns] for e_ in eqs])
+    ns = Mx.nullspace()
+    idx = [unknowns.index(A[1]), unknowns.index(B[0]), unknowns.index(C[0])]
+    sub = sp.Matrix([[vec[i] for i in idx] for vec in ns])
+    return len(ns), sub
 
 
 def l6(control=False):
@@ -496,9 +501,9 @@ def l6(control=False):
     rep = []
     for l in (2, 4, 6, 8):
         basis = poly_basis(l)
-        free, _ = horizon_free(l)
+        dim, sub = horizon_free(l)
         jets = sp.Matrix([[sp.diff(bb[0], r).subs(r, 1), bb[1].subs(r, 1), bb[2].subs(r, 1)] for bb in basis])
-        free_ok = sorted(map(str, free)) == ['A1', 'B0', 'C0']
+        free_ok = dim == 3 and sub.shape == (3, 3) and sub.det() != 0
         jet_ok = jets.det() != 0
         # growth map: coefficients of r^p, p >= 1, of the Cartesian-normalised components a, b, c/r
         cols = []
