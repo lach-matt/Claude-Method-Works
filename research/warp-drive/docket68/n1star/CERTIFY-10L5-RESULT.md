@@ -992,7 +992,9 @@ READ). Machine load was 9–36 on 4 cores until the machine restarted on 2026-11
        [2.0, 2.25). At areal radius 0.9–1.0 it grows there.
      - So a vacuum limit is supported to v = 1.9 at areal radius ≥ 0.9 (computed), and not from v = 1.9 at M = 32.
        There the null step is not the limiting error.
-     - M40_SUMMARY
+     - M = 40 on the same grid does not separate the causes. It raises the monitor 2–25-fold everywhere from v = 1.0,
+       the scheme's angular defect. P agrees with M = 32 to 3.3 × 10⁻⁴ on [1.9, 2.0) and differs by 5 × 10⁻² on
+       [2.0, 2.25). So v ≥ 1.9 at areal radius 1.0–1.2 is still not decided (`checks/cplate5d.out`).
    - The Kretschmann scalar was not computed, so a singularity and a steep smooth feature are still not told apart.
 
 ### 7.1 The reduction (`checks/reduce5.py`; deduced, every identity exact)
@@ -1198,7 +1200,7 @@ so the runs were first skipped. After the machine restarted (2026-11-06) the loa
 - *The runs (computed).*
   - `cpsolve5.py --run 1 0.9 32 1600 720 2.25 … ld 3`: 1,986 s.
   - `szrun5.py 1 0.7 32 1600 720 1.85 … ld 3`: 2,008 s.
-  - To separate angle from the rest, `cpsolve5.py --run 1 0.9 40 1600 720 2.25 … ld 3`: M40_TIME.
+  - To separate angle from the rest, `cpsolve5.py --run 1 0.9 40 1600 720 2.25 … ld 3`: 3,389 s.
 - *A repair.* `late5b.py --small` had never run: a local tuple in `main` shadowed the function `small`, which raised
   on the call. The tuple is renamed (`sm_cls`); the program's other output is unchanged.
 
@@ -1238,7 +1240,23 @@ M = 32, compared on the 400-row nodes).
   - So the null step is no longer the limiting error there. At M = 32 the discrete solutions converge in (u, v) to a
     metric that does not satisfy Ric_xx = 0.
   - At areal radius ≥ 1.2 the monitor still falls on [2.0, 2.25) (46-fold).
-- *Angle (`checks/cplate5d.out`, M = 32 against 40 at 1600 × 720).* M40_RESULT
+- *Angle (`checks/cplate5d.out`, M = 32 against 40 at 1600 × 720).* It does not separate the causes.
+  - Raising M to 40 raises the Ric_xx monitor on every band from v = 1.0 on, at every areal radius. On |x| ≤ 0.9 the
+    rise is 2–25-fold, including bands where P has converged.
+  - So the monitor's level is set by the scheme's angular defect, not by the solution. The defect is either
+    cpsolve5's P3 axis defect, which grows like M² times the truncation error, or the shift term of
+    `symbol5s.py` S5. That is the record's D418 pattern again, now in the constraint-preserving scheme.
+  - P agrees between M = 32 and 40 to ≤ 7.8 × 10⁻⁵ to v = 1.9 at areal radius 1.0–1.2, and to 3.3 × 10⁻⁴ on
+    [1.9, 2.0). On [2.0, 2.25) it differs by 5.0 × 10⁻², as much as a different solution does (control, 4.6 × 10⁻²).
+    So the metric is unresolved in angle there.
+  - *Control.* The amplitude-7/8 solution differs from the M = 32 run more than M = 40 does, on every band below
+    v = 1.8.
+- *Verdict on v ≥ 1.9 at areal radius 1.0–1.2 (computed): not decided.*
+  - On [1.9, 2.0) the metric is converged in the null step and in angle (5.5 × 10⁻⁴ and 3.3 × 10⁻⁴).
+  - The constraint there cannot be judged by this scheme's monitor, which grows with M everywhere.
+  - On [2.0, 2.25) the metric is not resolved in angle.
+  - What would decide it: a scheme whose constraint monitor converges in M at fixed null step, for instance one
+    without the axis defect, or the frame hierarchy of 7.2. Or the Kretschmann scalar converging in both.
 - *Not done.* The Kretschmann scalar on these runs, and M = 40 on the coarser null grids.
 
 7.4 adds one fact bearing on all this (computed): signals cross the angular range about three times within rcert5's
@@ -1262,8 +1280,9 @@ Runs (scratch, not committed).
 - Read in place: D432's `l1_rc0.9_M32.npz` (linest5), resid5's `l1_M16_800.npz` (rcert5b, rcert5c), and round 2's
   constraint-preserving runs at 400 and 800 rows (cplate5c).
 - Made this round: `cpsolve5.py --run 1 0.9 32 1600 720 2.25 … ld 3` (1,986 s; md5 776da11e…), the same at M = 40
-  (M40_TIME), and `szrun5.py 1 0.7 32 1600 720 1.85 … ld 3` (2,008 s; md5 c326bd19…). The last was deleted after
-  late5b --small had read it, for disk space.
+  (3,389 s; md5 0b6737d6…), and `szrun5.py 1 0.7 32 1600 720 1.85 … ld 3` (2,008 s; md5 c326bd19…).
+- The M = 40 and szrun5 files were deleted after their analyses had read them, because the disk was full. The M = 32
+  file is kept, under the scratch directory's `r3/`.
 
 ### 7.9 A proposed replacement for the paper's section 9 sentences on existence at 10 l5
 

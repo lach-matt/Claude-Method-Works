@@ -23,9 +23,9 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
   U3 (exact) The master equation and the vacuum certificate.  (a) box_2 of the orbit metric in the outgoing chart is
      -2 d_u d_r + d_r (f d_r), so (d_t^2 - d_r*^2 + V) P = 0 is 2 f P_ur = f d_r(f P_r) - V P; in the ingoing chart
      box_2 = 2 d_v d_r + d_r (f d_r).  (b) With V the scalar potential of [CLY03b] (settle5.py T2), h built from (10.1)
-     at l = 2 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution of the
-     master equation gives a linearised vacuum solution of the class in the gauge f_a = 0 = H_T.  Control: the tensor
-     potential in place of the scalar one leaves DRic(h) != 0.
+     at l = 2 and l = 4 has DRic(h) = 0 modulo the master equation (every mixed derivative eliminated): every solution
+     of the master equation gives a linearised vacuum solution of the class in the gauge f_a = 0 = H_T.  Control: the
+     tensor potential in place of the scalar one leaves DRic(h) != 0.
   U4 (exact) The weights, uniformly in r >= R_1 and in l.  With P_rr eliminated by U3 (a), r^(-1/2) h(e_a, e_b) and
      r^(1/2) 2F are combinations of T^2 P, d_r T P, T P, d_r P, P whose coefficients are f^-K times sums of monomials
      H^a r^b with a <= 0 (a <= 1 for P alone: the factor m, two angular derivatives) and b <= 0 for T^2 P, d_r T P;
@@ -45,12 +45,13 @@ P_r, P_ur = d_r T P, P_rr (Bondi chart).
      (rho = 1/r) give d_r P_j = O(r^-2) for j = 2, 3, 4, so every r^p energy (p <= 2) and every energy of T^j Psi on C is
      finite.  Control: with the long-range potential d_r P_2 = O(r^-1) and r^2 (d_r P_2)^2 tends to a nonzero constant.
   U7 (exact) The lemmas of Theorem 2.  (i) d_s(w^2/s) = 2 w w'/s - w^2/s^2, and the inequality sup_{r >= R} w^2/r <= 2
-     (int w^2/s^2)^(1/2) (int w'^2)^(1/2) + int w^2/s^2 holds on the test functions w = s^a (a = 0, 1/4, 1/3) and w = 1 +
-     1/s, exactly; (ii) [HKW18]'s L = d_t + d_r* is f d_r on the outgoing chart, and their v-measure on an outgoing cone
-     is dr/f; (iii) the mode comparisons for l >= 2: k^2 >= 8, H <= (11/8) k^2, (1 + m)^2 <= k^4, (V/f) r^2 = q <= (3/2)
-     k^2 on r >= r_h; (iv) the exponents: s^p = s^(2 - p) (s^2)^(p - 1) (Hoelder), E^p <~ tau^-(2-p), and the rates
-     tau^-2, tau^-1, tau^-(1/2) + delta at p = 1 + 2 delta.  Control: (i) without its second term fails for w = 1.
-
+     (int w^2/s^2)^(1/2) (int w'^2)^(1/2) + int w^2/s^2 holds on the test functions w = 1, s^(1/4), s^(1/3), 1 + 1/s,
+     exactly; (ii) [HKW18]'s L = d_t + d_r* is f d_r on the outgoing chart (their v is r* + const on an outgoing cone,
+     dv = dr/f by U5), and their (89) gives T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 there; (iii) on S^3,
+     int |D Y|^2 = (k^2 - 6) int |Y|^2 for Y = (D D - gamma Lap/3) P_j(cos 2 th), j = 1, 2, and the constant C_1 = 9/(2
+     f_1) + 8; the mode comparisons for l >= 2: k^2 >= 8, H <= (11/8) k^2, k^4 - (1 + m)^2 = 4 k^2 - 4; (iv) the
+     exponents: s^p = s^(2 - p) (s^2)^(p - 1) (Hoelder), int_R^oo s^-p = R^(1-p)/(p-1), E^p <~ tau^-(2-p), and the rates
+     tau^-1 and tau^(delta - 1/2) at p = 1 + 2 delta.  Control: (i) without its second term fails for w = 1.
   U8 (exact) The replacement text of RWGAUGE5.md section 6: its old text occurs exactly once in the paper, its new
      text not at all, and no line of the note or of this program exceeds 121 characters.  Control: the old text with
      "r <= R" for "r ≤ R" (a transcription slip) is not found.
@@ -74,6 +75,14 @@ P = sp.Function("P")(u, r)
 JET_NAMES = {P: "P", sp.Derivative(P, u): "P_u", sp.Derivative(P, u, u): "P_uu", sp.Derivative(P, r): "P_r",
              sp.Derivative(P, u, r): "P_ur", sp.Derivative(P, r, r): "P_rr"}
 JS = {nm: sp.Symbol(nm) for nm in JET_NAMES.values()}
+
+
+def say(msg, **_):
+    """print, wrapped at 121 characters with a hanging indent (the .out obeys the line width too)"""
+    import textwrap
+    ind = len(msg) - len(msg.lstrip())
+    for ln in textwrap.wrap(msg, width=121, subsequent_indent=" "*(ind + 4), break_on_hyphens=False) or [""]:
+        print(ln, flush=True)
 
 
 def christoffel(g, Y):
@@ -213,8 +222,8 @@ def u1(control=False):
         dj = jets(direct[k])
         diff = FB[k] - sum(dj[n]*JS[n] for n in dj)
         ok &= all(iszero(sp.expand(diff).coeff(JS[n])) for n in JS) and iszero(diff.subs({JS[n]: 0 for n in JS}))
-    print("  U1%s: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + %d dr/f: %s"
-          % (" control" if control else "", c2, ok), flush=True)
+    say("  U1%s: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + %d dr/f: %s"
+          % (" control" if control else "", c2, ok))
     return ok
 
 
@@ -231,10 +240,10 @@ def u2(control=False):
     ok &= iszero(cs["h00"]["P_uu"] - w) and iszero(cs["h01"]["P_uu"] + w)
     ok &= iszero(cs["h11"]["P_uu"] - w) and cs["2F"]["P_uu"] == 0
     ok &= iszero(cs["2F"]["P_u"] + 1/sp.sqrt(r))
-    print("  U2%s: frame orthonormal %s; T^2 P coefficients (h00, h01, h11, 2F) = (%s, %s, %s, %s); T P in 2F: %s;"
+    say("  U2%s: frame orthonormal %s; T^2 P coefficients (h00, h01, h11, 2F) = (%s, %s, %s, %s); T P in 2F: %s;"
           " the identities: %s" % (" control (weight 1)" if control else "", orth,
                                    *[sp.factor(cs[k]["P_uu"]) for k in ("h00", "h01", "h11", "2F")],
-                                   sp.factor(cs["2F"]["P_u"]), ok), flush=True)
+                                   sp.factor(cs["2F"]["P_u"]), ok))
     return ok
 
 
@@ -260,12 +269,12 @@ def u3a(control=False):
     bS = box2(sp.Matrix([[-f, 0], [0, 1/f]]), [t_, r], ws)
     tS = (-sp.diff(ws, t_, 2) + f*sp.diff(f*sp.diff(ws, r), r))/f              # f^-1 (-d_t^2 + d_r*^2)
     ok = sp.simplify(bB - tB) == 0 and sp.simplify(bI - tI) == 0 and sp.simplify(bS - tS) == 0
-    print("  U3 (a)%s: box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 +"
-          " d_r*^2) (static): %s" % (" control (cross term's sign flipped)" if control else "", ok), flush=True)
+    say("  U3 (a)%s: box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 +"
+          " d_r*^2) (static): %s" % (" control (cross term's sign flipped)" if control else "", ok))
     return ok
 
 
-def u3b(control=False, ls=(2,)):
+def u3b(control=False, ls=(2, 4)):
     """DRic of h_ab = F_ab S, h_ij = 2 r^2 F S gamma with abstract F's (rwgauge5.py's tensor calculus, ingoing chart),
     then F, F_ab replaced by (10.1) (kirecon5.py) as linear combinations of the jets J(a, b) = d_v^a d_r^b of the
     master field, every mixed jet reduced by the master equation 2 u_vr = (V/f) u - (f u_r)_r; every coefficient of
@@ -372,7 +381,7 @@ def u3b(control=False, ls=(2,)):
                     break
             if control and not good:
                 break
-        print("  U3 (b)%s l = %d: DRic(h) = 0 modulo the master equation, %d jet coefficients over the 15 components "
+        say("  U3 (b)%s l = %d: DRic(h) = 0 modulo the master equation, %d jet coefficients over the 15 components "
               "(mixed derivatives eliminated): %s" % (" control (tensor potential)" if control else "", l, count, good),
               flush=True)
         ok &= good
@@ -432,14 +441,14 @@ def u4(control=False):
         eb &= all(BOUND_ANG[j][1] - sp.Rational(1, 2) <= {"P_uu": -sp.Rational(1, 2), "P_u": -sp.Rational(1, 2),
                                                          "P_ur": 0, "P_r": 0, "P": -sp.Rational(1, 2)}[j]
                   for j in BOUND_ANG)
-        print("  U4: r^(-1/2) h(e_a, e_b) and r^(1/2) 2F in the jets (P_rr eliminated by U3 (a)), monomials H^a r^b:",
+        say("  U4: r^(-1/2) h(e_a, e_b) and r^(1/2) 2F in the jets (P_rr eliminated by U3 (a)), monomials H^a r^b:",
               flush=True)
         for ln in lines:
-            print(ln, flush=True)
-        print("  U4: the powers 0 attained (T^2 P in h00, T P in 2F): %s; Theorem 2 (a)'s weights %s, (b)'s %s"
-              % (att, ea, eb), flush=True)
+            say(ln)
+        say("  U4: the powers 0 attained (T^2 P in h00, T P in 2F): %s; Theorem 2 (a)'s weights %s, (b)'s %s"
+              % (att, ea, eb))
         return ok and att and ea and eb
-    print("  U4 control (unweighted h00, h01, h11, 2F, same reader and bounds): passes: %s" % ok, flush=True)
+    say("  U4 control (unweighted h00, h01, h11, 2F, same reader and bounds): passes: %s" % ok)
     return ok
 
 
@@ -463,9 +472,9 @@ def u5(control=False):
                and iszero(a0["h11"] - a0["h00"]) and iszero(a0["2F"]))
         ang = iszero(onC["2F"] + A/sp.sqrt(r))
         cA = back(rat((onC["h00"] - Bf*sp.sqrt(r)/f)/A))
-        print("  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): %s; with A = 0, h00 ="
+        say("  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): %s; with A = 0, h00 ="
               " B r^(1/2)/f, h01 = -h00, h11 = h00, 2F = 0: %s; 2F = -A r^(-1/2): %s; h00 = r^(1/2) B/f + (%s) A"
-              % (forced, fam, ang, cA), flush=True)
+              % (forced, fam, ang, cA))
         ok &= forced and fam and ang
         # Kruskal: U = -e^(-u/r_h), V = e^(v/r_h), v - u = 2 r*
         rstar = r + (rh/2)*sp.log((r - rh)/(r + rh))
@@ -490,16 +499,16 @@ def u5(control=False):
             G = g_.subs({uu: tt - rs_, vv: tt + rs_})
             k7 &= sp.simplify(sp.diff(G, tt, 2) - sp.diff(G, rs_, 2) - (4*sp.diff(g_, uu, vv)).subs(
                 {uu: tt - rs_, vv: tt + rs_})) == 0
-        print("  U5: dr*/dr = 1/f %s; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) %s; d(-UV)/dr = e^2/(2 r_h) at r_h %s;"
+        say("  U5: dr*/dr = 1/f %s; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) %s; d(-UV)/dr = e^2/(2 r_h) at r_h %s;"
               " f/(-UV) = (r + r_h)^2 e^(-2r/r_h)/r^2 %s; d_u d_v = -(UV/r_h^2) d_U d_V %s; d_u^2 = (U^2 d_U^2 + U d_U)"
-              "/r_h^2 %s; d_t^2 - d_r*^2 = 4 d_u d_v %s" % (k1, k2, k3, k4, k5, k6, k7), flush=True)
+              "/r_h^2 %s; d_t^2 - d_r*^2 = 4 d_u d_v %s" % (k1, k2, k3, k4, k5, k6, k7))
         ok &= k1 and k2 and k3 and k4 and k5 and k6 and k7
     Vl = potential(2).subs(mu, 1)
     integrand = sp.simplify(Vl/(1 - 1/r**2)) + (1/r if control else 0)
     I = sp.integrate(integrand, (r, 1, sp.oo))
     fin = I.is_finite is True and I.is_real is not False
-    print("  U5%s: int_{r_h}^oo V/f dr at l = 2, r_h = 1: %s = %s, finite: %s"
-          % (" control (V/f + 1/r)" if control else "", sp.simplify(I), sp.N(I, 12) if fin else I, fin), flush=True)
+    say("  U5%s: int_{r_h}^oo V/f dr at l = 2, r_h = 1: %s = %s, finite: %s"
+          % (" control (V/f + 1/r)" if control else "", sp.simplify(I), sp.N(I, 12) if fin else I, fin))
     return ok and fin
 
 
@@ -534,9 +543,8 @@ def u6(control=False, order=8):
         # P_j = P_j(oo) + int_oo^r d_r P_j dr' = c_j - int_0^rho d_r P_j rho'^-2 d rho'   (dr = -d rho/rho^2)
         Pj.append(trunc(consts[j] - sp.integrate(sp.expand(dpj/rho**2), (rho, 0, rho))))
     lead_coef = [sp.factor(sp.Poly(d, rho).coeff_monomial(rho**2)) for d in dP[2:]] if ok else "-"
-    print("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s; r^p energies (p <= 2)"
-          " finite: %s" % (" control (V/f + 1/r)" if control else "", pw, lead_coef, ok),
-          flush=True)
+    say("  U6%s: d_r T^j P on C for j = 2, 3, 4 starts at rho^%s (rho = 1/r), coefficients %s; r^p energies (p <= 2)"
+          " finite: %s" % (" control (V/f + 1/r)" if control else "", pw, lead_coef, ok))
     return ok
 
 
@@ -556,7 +564,7 @@ def u7(control=False):
         for Rv in (1, 2, 10, 1000):
             ok &= bool(sp.N((rhs - lhs).subs(R, Rv), 30) >= 0) and bool(sp.N(dec.subs(R, Rv), 30) <= 0)
     if control:
-        print("  U7 control (the lemma without int w^2/s^2): holds on the tests: %s" % ok, flush=True)
+        say("  U7 control (the lemma without int w^2/s^2): holds on the tests: %s" % ok)
         return ok
     t_, p_, d_ = sp.symbols("t p delta", positive=True)
     # L = d_t + d_r* on w(t, r) = W(t - r*(r), r): d_r* = f d_r|_t; on the outgoing chart it is f d_r|_u (test functions)
@@ -607,14 +615,12 @@ def u7(control=False):
     chain = (sp.simplify(sp.Rational(9, 4)/f1 + 4 - 2/f1 - (sp.Rational(1, 4)/f1 + 4)) == 0      # 9/(4f1)+4 >= 2/f1
              and sp.expand(4*(k2 - 6) - k2 - 3*(k2 - 8)) == 0 and sp.simplify(C1 - 2*(sp.Rational(9, 4)/f1 + 4)) == 0)
     ok &= iiL and c1 and c2 and c3 and holder and ip and ep and rate_c and rate_b and cone and sph and chain
-    print("  U7 (ii)-(iii): T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 on the cone: %s; int |D Y|^2 = (k^2 - 6)"
-          " int |Y|^2 at l = 2, 4: %s; C_1 = 9/(2 f_1) + 8 from k^2 <= 4 (k^2 - 6) (k^2 >= 8): %s" % (cone, sph, chain),
-          flush=True)
-    print("  U7: d_s(w^2/s) and the lemma on w = 1, s^(1/4), s^(1/3), 1 + 1/s at R = 1, 2, 10, 1000: True; L = f d_r|_u:"
+    say("  U7 (ii)-(iii): T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 on the cone: %s; int |D Y|^2 = (k^2 - 6)"
+          " int |Y|^2 at l = 2, 4: %s; C_1 = 9/(2 f_1) + 8 from k^2 <= 4 (k^2 - 6) (k^2 >= 8): %s" % (cone, sph, chain))
+    say("  U7: d_s(w^2/s) and the lemma on w = 1, s^(1/4), s^(1/3), 1 + 1/s at R = 1, 2, 10, 1000: True; L = f d_r|_u:"
           " %s; k^2 >= 8 (l = 2..198): %s; H <= (11/8)k^2 at x <= 1: %s; k^4 - (1 + m)^2 = 4k^2 - 4: %s; Hoelder"
           " s^p = s^(2-p) (s^2)^(p-1): %s; int_R^oo s^-p = R^(1-p)/(p-1): %s; E^p ~ tau^-(2-p): %s; rates tau^-1"
-          " and tau^(-1/2 + delta) at p = 1 + 2 delta: %s" % (iiL, c1, c2, c3, holder, ip, ep, rate_b and rate_c),
-          flush=True)
+          " and tau^(-1/2 + delta) at p = 1 + 2 delta: %s" % (iiL, c1, c2, c3, holder, ip, ep, rate_b and rate_c))
     return ok
 
 
@@ -634,9 +640,9 @@ def u8(control=False):
     width = max(len(ln) for ln in note.splitlines() + open(os.path.abspath(__file__), encoding="utf-8")
                 .read().splitlines())
     ok = n_old == 1 and n_new == 0 and new.startswith(old.split(" (uniformly")[0]) and width <= 121
-    print("  U8%s: the old text occurs %d time(s) in the paper, the new text %d; new keeps the old opening: %s;"
+    say("  U8%s: the old text occurs %d time(s) in the paper, the new text %d; new keeps the old opening: %s;"
           " widest line %d: %s" % (" control (r <= R)" if control else "", n_old, n_new,
-                                   new.startswith(old.split(" (uniformly")[0]), width, ok), flush=True)
+                                   new.startswith(old.split(" (uniformly")[0]), width, ok))
     return ok
 
 
@@ -651,10 +657,10 @@ def main():
             continue
         good = fn()
         ctl = fn(control=True)
-        print("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
+        say("%s %s%s" % (name, "PASS" if good and not ctl else "FAIL", " (control passed)" if ctl else ""),
               flush=True)
         ok &= good and not ctl
-    print("EXIT %d" % (0 if ok else 1))
+    say("EXIT %d" % (0 if ok else 1))
     return 0 if ok else 1
 
 

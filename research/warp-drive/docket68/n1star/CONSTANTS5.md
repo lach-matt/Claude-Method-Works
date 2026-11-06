@@ -1588,8 +1588,8 @@ re-derived first; R7.1 is the re-pin; R7.2-R7.4 take the three items in the orde
 asked for. New programs, each with its `.out` and controls that mutate the computed path and fail as they must:
 `checks/r7fixes5.py` (11/11), `checks/x7indep5.py` (9/9), `checks/tensorzero5.py` (11/11), `checks/d0count5.py`
 (12/12).
-Changed and rerun: `lzerotrace5.py` (14/14), `lzeroaudit5.py` (7/7), `dnumber5.py` (aggregation made a function,
-K4-K5 pinned; output byte-identical), `stage1cap5.py` (7/7), `zeroext5.py` (10/10), `r6fixes5.py` (6/6, F2-F3
+Changed and rerun: `lzerotrace5.py` (14/14), `lzeroaudit5.py` (7/7), `dnumber5.py` (10/10; aggregation made a
+function, K4-K5 pinned; output byte-identical), `stage1cap5.py` (7/7), `zeroext5.py` (10/10), `r6fixes5.py` (6/6, F2-F3
 annotated); `zerohardy5.py` rerun (10/10, now :4988). N1STAR-PROOF.md is not edited; no change to it is needed.
 
 ### R7.0 (verifier of round 6)

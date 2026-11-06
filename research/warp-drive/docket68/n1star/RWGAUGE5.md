@@ -21,8 +21,8 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   weight r^(-1/2), which is the exact growth: r^(-1/2)|h(e_a, e_b)| + r^(1/2)|h(e_i, e_j)| <= C delta^(-1/2) D^(1/2)
   tau^(delta - 1/2) on every leaf, uniformly in r >= R_1 and in l; with one more power, r^-1 |h(e_a, e_b)| + |h(e_i,
   e_j)| <= C D^(1/2) tau^-1; and the squared L^2 norm along the leaf of r^(-3/2) h(e_a, e_b) and r^(-1/2) h(e_i, e_j)
-  decays at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated; every
-  coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
+  decays at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated;
+  every coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
   and the rotations. The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
 
 The rest of this note is: 1. what is READ; 2. the components on the outgoing chart (Lemma 1); 3. Theorem 1; 4.
@@ -37,12 +37,13 @@ Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies);
   Ψ solving any one of the equations (134, 149, 153, 174) satisfies the uniform boundedness estimate Ě^N_Ψ(Σ_τ) ≤
   C(n, M) Ě^N_Ψ(Σ_0), (6) and, in spacetime dimension six and below, the uniform decay estimate Ě^N_Ψ(Σ_τ) ≤ C(n, M)
   I_Ψ(Σ_0)/τ^2, (7)". The same estimate for the summed scalar quantity, (186), p. 69; the uniformity in l, p. 67: "The
-  estimates for the Q^(+) in the previous subsection are uniform in the angular mode numbers ℓ and m".
+  estimates for the Q^(+)_{ℓ m_s(n,ℓ), αβ} in the previous subsection are uniform in the angular mode numbers ℓ and
+  m_s(n, ℓ)".
 - (R2) Pointwise bounds are not proved there, p. 4 (and again p. 69): "We remark that further pointwise uniform
   boundedness and uniform decay estimates can be derived from those above by means of commutation with the angular
   Killing fields and application of Sobolev estimates on the orbit spheres."
-- (R3) The foliation, p. 30, section 7.3: "Σ_0 ∩ {R_1 ≤ r} = {u = −½(R_1)^*} ∩ {R_1 ≤ r}", with u = ½(t − r^*), v =
-  ½(t + r^*) ((13), p. 5), and "L := ∂/∂v = ∂/∂t + ∂/∂r^*" ((92), p. 30); "We define n_Στ as the unit timelike normal
+- (R3) The foliation, p. 30, section 7.3: "Σ_0 ∩ {R_1 ≤ r} = {u = −½(R_1)_*} ∩ {R_1 ≤ r}", with u = ½(t − r_*), v =
+  ½(t + r_*) ((13), p. 5), and "L := ∂/∂v = ∂/∂t + ∂/∂r_*" ((92), p. 30); "We define n_Στ as the unit timelike normal
   vector for Σ_τ for r ≤ R_1 and n_Στ := L for r > R_1." So the part of Σ_τ in r >= R_1 is one outgoing null cone.
 - (R4) The energies, p. 39: "We define the strictly timelike red-shift multiplier N := T + Y, in addition to the
   current J^N_a[Ψ] := T_ab[Ψ]T^b + Ť_ab[Ψ]Y^b, (114) and energies E^N_Ψ(Σ_τ) := ∫_Στ J^N_a[Ψ] n^a_Στ dVol_Στ, Ě^N_Ψ(Σ_τ)
@@ -59,8 +60,9 @@ Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies);
   pp. 60-61), so its pointwise norm is r^(-3/2) |Phi| and the r^p energies (124), (127) are of Phi itself.
 
 [KI03] (H. Kodama and A. Ishibashi, arXiv:hep-th/0305147v3) is used only through the supplement's Proposition 10.1
-(ii)-(iii), the gauge and the reconstruction (10.1), READ there; at l = 2 the reconstruction is also checked here
-against the linearised Einstein equations (U3 (b)). The scalar potential is [CLY03b]'s, as `settle5.py` T2 READ it.
+(ii)-(iii), the gauge and the reconstruction (10.1), READ there; at l = 2 and 4 the reconstruction, with the
+potential below, is also checked here against the linearised Einstein equations (U3 (b)). The scalar potential is
+[CLY03b]'s, as `settle5.py` T2 READ it.
 
 ## 2. The components on the outgoing chart
 
@@ -102,9 +104,9 @@ Fix R_1 and [HKW18]'s foliation (R3). In the coordinates of section 2 the part o
 C_tau := {u = u_tau, r >= R_1}, u_tau = u_0 + tau.
 
 **Theorem 1 (proved; the identities computed: U2, U3, U5, U6).** For every tau_1 >= 0, every even l >= 2 and every
-(A, B) in R^2 there is a smooth linearised vacuum solution h about five-dimensional Tangherlini, on the exterior and
-up to the future horizon, of the class (T^2-invariant and even under both reflections), consisting of the single
-scalar mode l in the gauge f_a = 0 = H_T (no l = 0 part, no tensor part), such that
+(A, B) in R^2 there is a smooth linearised vacuum solution h about five-dimensional Tangherlini, on the future of
+Sigma_0 in the exterior and up to the future horizon, of the class (T^2-invariant and even under both reflections),
+consisting of the single scalar mode l in the gauge f_a = 0 = H_T (no l = 0 part, no tensor part), such that
 
 (i) its master field has I_{X Psi}(Sigma_0) < oo for every X a product of T and the rotations Omega_i (all orders);
 
@@ -131,8 +133,10 @@ d_U d_W, and the master equation 4 d_u d_v P + V P = 0 becomes d_U d_W P = c P w
 smooth wherever r > 0 (computed: U5). The past horizon is W = 0, the future horizon U = 0, and C_tau1 lies on {U =
 U_1}, U_1 := -e^(-u_tau1/r_h).
 
-Step 2 (the Goursat problem). Let g(U) := alpha (U - U_1) + (beta/2)(U - U_1)^2 and consider, on each compact rectangle
-Q = [U_0', U_+] x [0, W_+] with U_0' <= U_0 := -e^(-u_0/r_h), 0 < U_+ small enough that r > 0 on Q, the integral equation
+Step 2 (the Goursat problem). Let U_0' be at most the least value of U on Sigma_0 (finite: Sigma_0 ∩ {r <= R_1} is
+compact in the Kruskal chart, and U = U_0 := -e^(-u_0/r_h) on C_0), so that the future of Sigma_0 lies in {U >= U_0'},
+U increasing along causal curves. Let g(U) := alpha (U - U_1) + (beta/2)(U - U_1)^2 and consider, on each compact
+rectangle Q = [U_0', U_+] x [0, W_+] with 0 < U_+ small enough that r > 0 on Q, the integral equation
 
     P(U, W) = g(U) + int_{U_1}^U int_0^W c(U', W') P(U', W') dW' dU'                                           (3.1)
 
@@ -150,10 +154,11 @@ alpha/r_h, and B = (U_1^2 (beta + alpha int_0^oo c(U_1, W) dW) + U_1 alpha)/r_h^
 r_h^2 != 0, so every (A, B) is reached by choosing alpha and then beta.
 
 Step 4 (the metric). With S = P_(l/2)(cos 2 theta), the supplement's (10.1) applied to P S gives h in the gauge f_a = 0
-= H_T; it is a linearised vacuum solution (Proposition 10.1 (iii), [KI03] (3.13)-(3.14) READ there; at l = 2 computed
-here: U3 (b), DRic(h) = 0 modulo the master equation), smooth up to the future horizon because P is smooth in (U, W)
-and (U, W) are smooth functions of the ingoing chart (v, r) there, T^2-invariant and even under both reflections
-because S depends on theta alone. Lemma 1 (ii) and the jets of Step 3 give (ii) of the theorem (computed: U5).
+= H_T; it is a linearised vacuum solution (Proposition 10.1 (iii), [KI03] (3.13)-(3.14) READ there; at l = 2, 4
+computed here: U3 (b), DRic(h) = 0 modulo the master equation), smooth up to the future horizon because P is smooth
+in (U, W) and (U, W) are smooth functions of the ingoing chart (v, r) there, T^2-invariant and even under both
+reflections because S depends on theta alone. Lemma 1 (ii) and the jets of Step 3 give (ii) of the theorem
+(computed: U5).
 
 Step 5 (the data). On the part of Sigma_0 in r <= R_1 the solution is smooth on a compact set, so every energy there is
 finite. On C_0 = Sigma_0 ∩ {r >= R_1} (u_0 <= u_tau1): the rotations act within the mode, so it suffices to take X =
@@ -172,9 +177,9 @@ as power series in 1/r, then d_r P_j = O(r^-2) and P_j = c_j + O(1/r), so the in
 computes a <= 4, which is what X in {1, T, T^2, Omega, T Omega, Omega^2} with [HKW18]'s L_K^2 asks of Theorem 2). []
 
 *What it shows.* The obstruction is not a defect of the estimates: on [HKW18]'s leaves, which run out to null infinity,
-the gauge f_a = 0 = H_T puts the radiation of the master field into the orbit-space components with the weight
-r^(1/2), as the Regge-Wheeler gauge does in four dimensions (where the weight is r). The family is the cleanest such
-solution: P vanishes along the cone and only T^2 P survives there.
+the gauge f_a = 0 = H_T puts T^2 P, the radiation of the master field, into the orbit-space components with the weight
+r^(1/2) (Lemma 1 (ii)). The family is the cleanest such solution: P vanishes along the cone and only T^2 P (and, for A
+!= 0, TP) survives there.
 
 ## 4. Theorem 2: what holds uniformly in r
 
@@ -197,15 +202,17 @@ the arguments meaning the point of Sigma_tau at radius r (on C_tau). The weights
 decay of Theorem 1 and cannot be raised; in (a), r^-3 cannot be replaced by r^-2 (Theorem 1).
 
 *Proof.* Step 1 (the energies on the cone; computed: U7 (ii)). On C_tau, n = L = f d_r|_u (R3), the v-measure is
-dr/f, Y = 0 (R4: r >= R_1 > r_1), and Ť(L, T) = (1/2)(L Psi)^2 + (1/2) f r^-2 |∇̊Psi|^2 (computed from (89)), so with
-Psi = r^(-3/2) Phi Y_l (R7), ||Y_l|| bounded below uniformly in l, and int_{S^3} |∇̊Y_l|^2 = (k^2 - 6) ||Y_l||^2 >=
-(k^2/4)||Y_l||^2 for the scalar-derived tensor harmonics (k^2 >= 8; the least value 2 is [HKW18]'s lambda = 2, p. 31),
+dr/f, Y = 0 (R4: r >= R_1 > r_1), and Ť(L, T) = (1/2)(L Psi)^2 + (1/2) f r^-2 |∇̊Psi|^2 (computed from (89)). With
+Psi = r^(1/2) Phi Y_l (R7), |Y_l|_g = r^-2 |Y_l|_gamma, so r^3 |∇_r Psi|^2 = (d_r Phi - 3 Phi/(2r))^2 |Y_l|^2; the ratio
+||Y_l||/||S_l|| is bounded below uniformly in l (1 for unit harmonics; (2/3) k^2 (k^2 - 3) >= 80/3 in square for Y_l =
+(D D - gamma Lap/3) S_l, `checks/rwgauge5.py` R3 (e)); and int_{S^3} |∇̊Y_l|^2 = (k^2 - 6) ||Y_l||^2 >= (k^2/4)
+||Y_l||^2 for the scalar-derived tensor harmonics (k^2 >= 8; the least value 2 is [HKW18]'s lambda = 2, p. 31). So
 
-    int_{R_1}^oo ( (d_r Phi)^2 + k^2 Phi^2/r^2 ) dr  <=  C_1 Ě^N_Psi(Sigma_tau),   C_1 = 9/(2 f_1) + 8,  f_1 = f(R_1)
+    int_{R_1}^oo ( (d_r Phi)^2 + k^2 Phi^2/r^2 ) dr  <=  C_1 Ě^N_Psi(Sigma_tau)/||Y_l||^2,   C_1 = 9/(2 f_1) + 8
 
-(computed: U7 (ii)-(iii)); the same for X Psi with X Phi in place of Phi, and sum_i Ě^N[Omega_i Psi_l] = k^2 Ě^N[Psi_l]
-mode by mode (the Casimir of so(4) on the mode, l(l + 2) = k^2, commutes with the energy densities). By (R6) applied to
-X Psi, each Ě^N[X Psi](Sigma_tau) <= C I_{X Psi}(Sigma_0) tau^-2.
+(f_1 = f(R_1); computed: U7 (ii)-(iii)); the same for X Psi with X Phi in place of Phi, and sum_i Ě^N[Omega_i Psi_l] =
+k^2 Ě^N[Psi_l] mode by mode (the Casimir of so(4) on the mode, l(l + 2) = k^2, commutes with the energy densities).
+By (R6) applied to X Psi, each Ě^N[X Psi](Sigma_tau) <= C I_{X Psi}(Sigma_0) tau^-2.
 
 Step 2 (a). By Lemma 1 (iii) and (2.1), r^(-3/2) h_(ab) and r^(-1/2) h_(ij) are combinations of T^2 P, TP and P with
 coefficients O(r^-1) (times H <= (11/8) k^2 for P) and of d_r TP, d_r P with coefficients O(1), uniformly in l
@@ -238,8 +245,9 @@ delta^(-1/2) D^(1/2) tau^(-1/2 + delta) (computed: U7 (iv)). []
 three powers of r^(1/2) better than the angular block of the scalar type, and Step 1 and Lemma S give (a)-(c) for it
 directly; it is included in h_(ij) above.
 
-*The l = 0 part.* h_0 - c K = 0 by the gauge condition, and K's frame components are O(mu/r^2): c K is the change of
-mass to which h settles.
+*The l = 0 part.* h_0 - c K = 0 by the gauge condition, and K's frame components are O(r^-2): c K is the change of mass
+to which h settles. *The mode sum.* Every constant above is uniform in l, and ||h_(ab)||^2 = sum_l ||h_(ab), l||^2 with
+sup_r of a sum at most the sum of the sups, so (a)-(c) for the modes add up to (a)-(c) for h.
 
 ## 5. Remarks
 
@@ -281,12 +289,12 @@ as a power of R, with the loss of two derivatives so counted. Uniformly in r it 
 outgoing part of [HKW18]'s leaves, the orbit-space components of the scalar type grow as r^(1/2): for every leaf there
 is a single-mode perturbation of the class, with finite [HKW18] data of every order, whose component h(e_0, e_0) is
 B r^(1/2) f^(−1) S on that leaf, f = 1 − μ/r² and S its harmonic (Theorem 1, proved; the components computed
-exactly). With that weight they settle, and the angular components and the tensor type settle without it: on r ≥ R_1,
-r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2), r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1),
-and the squared L² norms along the leaf of r^(−3/2) h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate,
-all uniformly in r and l, for data with two more commutations with T and the rotations (Theorem 2, proved from
-[HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent computed). The powers r^(±1/2) are attained, so
-the weights cannot be improved.
+exactly). With that weight they settle, and the angular components and the tensor type settle without it, uniformly in
+r and l along the outgoing part of the leaves: r^(−1/2)|h(e_a, e_b)| and r^(1/2)|h(e_i, e_j)| decay as τ^(δ−1/2) for
+every δ > 0, r^(−1)|h(e_a, e_b)| and |h(e_i, e_j)| as τ^(−1), and the squared L² norms along the leaf of r^(−3/2)
+h(e_a, e_b) and r^(−1/2) h(e_i, e_j) as τ^(−2), [HKW18]'s rate, for data with two more commutations with T and the
+rotations (Theorem 2, proved from [HKW18]'s Theorems 2, 16 and 18 as READ; every coefficient and exponent computed).
+The powers r^(±1/2) are attained, so the weights cannot be improved.
 ```
 
 ## 7. Files

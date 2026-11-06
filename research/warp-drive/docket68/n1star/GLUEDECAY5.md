@@ -14,15 +14,15 @@ the glued data's smallness in Hintz's weighted norm depends on the gluing radius
 perturbations $h$ of the data of (i) with $|\partial^kh|\le\epsilon r^{-a-k}$ (conormal of order $a$), in Hintz's class
 or not.
 
-**Answer.** The statement holds, for every such perturbation, exactly when $a>\ell_0$; then no gluing is needed. At and
-below $\ell_0$ it holds exactly for the perturbations that are in Hintz's class, and for those Theorem 4 (ii) applies
-directly. So the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's, with or without gluing.
+**Answer.** The statement holds for every such perturbation of small size exactly when $a>\ell_0$, and then no gluing is
+needed. At and below $\ell_0$ it holds exactly for the perturbations that are in Hintz's class, and for those Theorem 4
+(ii) applies directly. So the class in which Theorem 4 (ii)'s conclusion is reached is Hintz's, with or without gluing.
 
 - **(A) Above the threshold** (proved, Proposition 1; computed, E1). If $a>\ell_0$, a conormal perturbation of order $a$
   lies in the class, its terms of orders $r^{-2}$, $r^{-3}$ being zero. Its norm is at most
   $C_1\epsilon(1+(a-\ell_0)^{-1/2})$, so Theorem 4 (ii) applies to it directly when this is below $\delta$. Theorem 4
-  holds for every $\ell_0\in(3,4)$, so with $\ell_0\in(3,a)$ every such perturbation with $a>3$ is covered (Corollary
-  1.1). At $a = \ell_0$ the weighted integral diverges logarithmically.
+  holds for every $\ell_0\in(3,4)$, so with $\ell_0\in(3,\min(a,4))$ every such perturbation with $a>3$ is covered
+  (Corollary 1.1). At $a = \ell_0$ the weighted integral diverges logarithmically.
 - **(B) The gluing statement is class membership** (proved, Proposition 2 and Corollary 2.1). Let $N_R$ be the least
   norm of data in the class that agree with the perturbation on $\{r<R\}$. Then $N_R$ is nondecreasing in $R$, its limit
   is at least the perturbation's own norm (infinite if it is not in the class at that regularity), and equality holds in
@@ -248,9 +248,9 @@ $$\Psi^*\big(A\hat x\hat x+B(\delta-\hat x\hat x)\big) = A(\phi)\phi'^2\,\hat x\
 x+[B(\phi)\phi^2/r^2-B](\delta-\hat x\hat x)$ on $\{r\ge r_2\}$ and $h = 0$ inside, and likewise $\kappa$ with $(C,D)$.
 Write $A(\phi)\phi'^2-A = (\phi'^2-1)+(\alpha(\phi)-\alpha)\phi'^2+\alpha(\phi'^2-1)$, with $\alpha(\phi)-\alpha =
 \epsilon\chi_1v\int_0^1\alpha'(r+s\epsilon\chi_1v)\,ds$. Each term is conormal, with constants times $\epsilon$, of
-order $a$, $a+2$ and $a+2$; the $B$ and $(C,D)$ terms likewise, of orders $a$ and $a+3$. The components $\hat x_i\hat
-x_j$ lie in $C^\infty(\bar X)$. So (1.1) holds with $C_P\epsilon$ in place of $\epsilon$, and with $C_\beta\epsilon$ at
-all orders.
+order $a$, $a+2$ and $a+2$; the $B$ terms likewise, and the $(C,D)$ terms are of order $a+3$. The components $\hat
+x_i\hat x_j$ lie in $C^\infty(\bar X)$. So (1.1) holds with $C_P\epsilon$ in place of $\epsilon$, and with
+$C_\beta\epsilon$ at all orders.
 
 (b) Let $R\ge4r_2$ and let $(\gamma',k')$ be admissible for $N^{(d)}_R$. Write $u := \gamma'-\gamma_\lambda$ as in
 Definition 1.1, and $\Gamma := \{R/2<r<R\}$, contained in $\{\chi = 1\}\cap\{\chi_1 = 1\}\cap\{r<R\}$. On $\Gamma$, $u =
@@ -282,10 +282,10 @@ u\|^2\ge\sum_j(c_P\epsilon)^2$ over $\lfloor\log_2(R/R_P)\rfloor+1$ annuli. (c) 
 $\square$
 
 *Computed* (E3), an instance: $(a,\ell_0) = (\frac52,\frac72)$ and $(\frac72,\frac72)$, $\epsilon = 10^{-2}$, with the
-Tangherlini term $\alpha = r^{-2}$, at $R = 10^2,10^3,10^4$. By quadrature, $D_R/(\epsilon R^{\ell_0-a})$ is within
-$10^{-2}$ of $2A_a\,\mathrm{dist}(\log R+\phi_a)$ and above $2A_a\kappa$, where $D_R$ is the least-squares remainder of
-$r^{\ell_0}\tau$ on $(\frac R2,R)$ against $r^{\ell_0-2}$ and $r^{\ell_0-3}$. Here $\mathrm{dist}(\cdot)$ oscillates
-with $\log R$ between $\kappa$ and its maximum.
+Tangherlini term $\alpha = r^{-2}$, at $R = 10^2,10^3,10^4$. By quadrature, $D_R/(\epsilon R^{\ell_0-a})$ is within a
+relative $10^{-2}$ of $2A_a\,\mathrm{dist}(\log R+\phi_a)$ and above $2A_a\kappa$, where $D_R$ is the least-squares
+remainder of $r^{\ell_0}\tau$ on $(\frac R2,R)$ against $r^{\ell_0-2}$ and $r^{\ell_0-3}$. Here $\mathrm{dist}(\cdot)$
+oscillates with $\log R$ between $\kappa$ and its maximum.
 
 *Remark 3.2 (what the examples show).* The examples are pure gauge. Their maximal developments are isometric to that of
 the data of (i), so the obstruction lies in the norm of Theorem 4 (ii), which a diffeomorphism of the initial surface
@@ -388,38 +388,40 @@ from (1.1) for $(\gamma,k)$. By (5.1), $|\Delta\mathfrak Q_X|\le C\epsilon
 R_\lambda^{2+d-a}+C\epsilon\int_{R_\lambda}^\infty r^{d-2}(r^{-2}+\epsilon r^{-a})r^{-a}r^3dr$, and the integral
 converges, since $d-a<0$ and $d+2-2a<0$ (computed, E4). $\square$
 
-**Proposition 4 (gluing to the Myers-Perry data on Hintz's surface, with the error).** Let $\frac32<a\le\ell_0$ and $k
-:= d_1+2$. There are $R_G$, $\epsilon_0$ and $C$ with the following property. For every perturbation $(\gamma,k)$ of
-order $a$ and size $\epsilon\le\epsilon_0$, and every $R\ge R_G$, there are $p_R$ and smooth vacuum data
-$(\hat\gamma_R,\hat k_R)$ on $\Sigma$, equal to $(\gamma,k)$ on $\{r\le R\}$ and to $(\tilde g_{p_R},\tilde K_{p_R})$ on
-$\{r\ge4R\}$, with
+**Proposition 4 (gluing to the Myers-Perry data on Hintz's surface, with the error).** Let $\frac32<a\le\ell_0$ and
+$k_{\mathrm g} := d_1+2$, the order of the gluing. There are $R_G$, $\epsilon_0$ and $C$ with the following property.
+For every perturbation $(\gamma,k)$ of order $a$ and size $\epsilon\le\epsilon_0$, and every $R\ge R_G$, there are $p_R$
+and smooth vacuum data $(\hat\gamma_R,\hat k_R)$ on $\Sigma$, equal to $(\gamma,k)$ on $\{r\le R\}$ and to $(\tilde
+g_{p_R},\tilde K_{p_R})$ on $\{r\ge4R\}$, with
 $$|\Delta p_{R,2}|\le C\epsilon R^{\min(0,2-a)},\qquad|\Delta p_R|\le C\epsilon R^{\min(0,3-a)},\tag{5.2}$$
-$$\sup_{R\le r\le4R}\Big(\sum_{|\beta|\le k-1}r^{|\beta|}|\partial^\beta(\hat\gamma_R-\gamma_\lambda)|+
-\sum_{|\beta|\le k-2}r^{1+|\beta|}|\partial^\beta(\hat k_R-k_\lambda)|\Big)\le C\epsilon R^{-a}.\tag{5.3}$$
+$$\sup_{R\le r\le4R}\Big(\sum_{|\beta|\le k_{\mathrm g}-1}r^{|\beta|}|\partial^\beta(\hat\gamma_R-\gamma_\lambda)|+
+\sum_{|\beta|\le k_{\mathrm g}-2}r^{1+|\beta|}|\partial^\beta(\hat k_R-k_\lambda)|\Big)\le C\epsilon R^{-a}.\tag{5.3}$$
 
-*Proof.* We follow Part V's proof of Theorem 3.1, with $k$ in place of 3 as in Part VII Proposition 2.2 (its Step 1
-allows every $k>\frac n2$), and make six changes. Data with (1.1) have $|||(\gamma,k)|||_{\min(a,2),k+4}<\infty$.
+*Proof.* We follow Part V's proof of Theorem 3.1, with $k_{\mathrm g}$ in place of 3 as in Part VII Proposition 2.2 (its
+Step 1 allows every order above $\frac n2$), and make six changes. Data with (1.1) have
+$|||(\gamma,k)|||_{\min(a,2),k_{\mathrm g}+4}<\infty$.
 
 (1) *The family and the box.* Lemma 4.1's members replace Part V's: (a) gives Lemma 2.2's bounds and (c) gives Corollary
 2.4. In Step 2 let $Q$ range over the box $\bar B_R := \{Q:|Q_X-\tilde{\mathfrak q}_X(p_\lambda)|\le r_X\}$, with $r_X
 := C_0\epsilon R^{\min(0,2+d(X)-a)}$ and $C_0 := C_1'+1$. Then $\bar B_R$ lies in the ball of radius $r_V$ once
-$\sqrt{15}\,C_0\epsilon_0<r_V$. For $Q\in\bar B_R$, Lemma 4.1 (c) gives $|\Delta p_2|\le\sqrt5LC_0\epsilon
-R^{\min(0,2-a)}$ and $|\Delta p|\le\sqrt{15}LC_0\epsilon R^{\min(0,3-a)}$, where $\Delta p := p(Q)-p_\lambda$. The
-exponents of the five degree-0 components are at most the first and those of the other ten at most the second.
+$\sqrt{15}\,C_0\epsilon_0<r_V$. The five degree-0 radii are $C_0\epsilon R^{\min(0,2-a)}$, and the ten others
+$C_0\epsilon R^{\min(0,3-a)}$, the larger. So for $Q\in\bar B_R$, Lemma 4.1 (c) gives $|\Delta p_2|\le\sqrt5LC_0\epsilon
+R^{\min(0,2-a)}$ and $|\Delta p|\le\sqrt{15}LC_0\epsilon R^{\min(0,3-a)}$, where $\Delta p := p(Q)-p_\lambda$.
 
 (2) *The source in relative form.* Write $a_\sigma := \sigma_R(\gamma,k)$ and $b_Q := \sigma_R(\tilde g_{p(Q)}, \tilde
 K_{p(Q)})$ on $M = \bar\Gamma(1,4)$. Both are vacuum (Part V Lemma 1.4), and $x_{Q,R} = b_Q+\chi(a_\sigma-b_Q)$. The
 constraint map is smooth near flat data and vanishes at $b_Q$. So, as in Part VII Proposition 2.2 (6),
-$\|(J,\rho)(x_{Q,R})\|_{C^{k+1}}\le C\|a_\sigma-b_Q\|_{C^{k+3}\times C^{k+4}}\le C\theta_R(Q)$, with
+$\|(J,\rho)(x_{Q,R})\|_{C^{k_{\mathrm g}+1}}\le C\|a_\sigma-b_Q\|_{C^{k_{\mathrm g}+3}\times C^{k_{\mathrm g}+4}}\le
+C\theta_R(Q)$, with
 $$\theta_R(Q) := \epsilon R^{-a}+|\Delta p_2|R^{-2}+|\Delta p|R^{-3}\le C(1+C_0)\,\epsilon R^{-a}\tag{5.4}$$
 by (1.1), Lemma 4.1 (b) with $(\tilde g_{p_\lambda},\tilde K_{p_\lambda}) = (\gamma_\lambda,k_\lambda)$ on $\{r\ge R\}$,
 the scaling $\|\sigma_Ru\|_{C^m(M)}\le C\sup_{R\le r\le4R}\sum_{|\beta|\le m}r^{|\beta|}|\partial^\beta u|$ (one more
 power of $r$ for $K$), and (1) (the inequality in (5.4): computed, E4). By Step 1's bound and Lemma 3.2, $\|\delta
-x_{Q,R}\|_{C^{k-1}(M)}\le C\|\delta x_{Q,R}\|_{H^{k+2}(M)}\le C\theta_R(Q)$, continuously in $Q$. So the unscaled
-$\hat{\mathfrak x}_Q := \sigma_R^{-1}(x_{Q,R}+\delta x_{Q,R})$ satisfies (5.3)'s bound by $C\theta_R(Q)$ against
-$(\gamma_\lambda,k_\lambda)$. It is the sum of $\chi$ times the data's deviation, $(1-\chi)$ times the member's, and
-$\delta x$. Part V's Step 1 hypotheses hold for $R$ large, as $x_{Q,R}$ is within $CR^{-2}+C\epsilon R^{-a}$ of flat
-data.
+x_{Q,R}\|_{C^{k_{\mathrm g}-1}(M)}\le C\|\delta x_{Q,R}\|_{H^{k_{\mathrm g}+2}(M)}\le C\theta_R(Q)$, continuously in
+$Q$. So the unscaled $\hat{\mathfrak x}_Q := \sigma_R^{-1}(x_{Q,R}+\delta x_{Q,R})$ satisfies (5.3)'s bound by
+$C\theta_R(Q)$ against $(\gamma_\lambda,k_\lambda)$. It is the sum of $\chi$ times the data's deviation, $(1-\chi)$
+times the member's, and $\delta x$. Part V's Step 1 hypotheses hold for $R$ large, as $x_{Q,R}$ is within
+$CR^{-2}+C\epsilon R^{-a}$ of flat data.
 
 (3) *Step 4 in relative form.* Lemma 1.4 and (1.1) of Part V give $G_R(Q)_X := R^{2+d(X)}F_R(Q)_X =
 \oint_{S_{4R}}\mathfrak b_X(\hat{\mathfrak x}_Q)-\oint_{S_R}\mathfrak b_X(\hat{\mathfrak
@@ -528,8 +530,8 @@ as Part VII Proposition 2.2 does with Tangherlini in the class. The paper's "can
 true with this family, whose charge map Lemma 4.1 (c) shows to be a local diffeomorphism.
 
 (GD4) *Decoupling.* The energy and momentum of the family depend on mass and boost alone (Lemma 4.1 (c)). Without this,
-the parameters of the glued metric would be known only to $O(\epsilon)$. The term $|\Delta p_2|R^{\ell_0-2}$ would then
-exceed $\epsilon R^{\ell_0-a}$ for $2<a\le3$, which E4's control exhibits.
+mass and boost would be bounded only as the degree-1 charges are, by $\epsilon R^{\min(0,3-a)}$. The term $|\Delta
+p_2|R^{\ell_0-2}$ would then exceed $\epsilon R^{\ell_0-a}$ for $2<a\le3$, which E4's control exhibits.
 
 (GD5) *The record's bump estimate.* `checks/support8b.py` M3 computes one term of the upper bound at $a = 3$. The lower
 bound, which decides the item, is Proposition 3.
@@ -544,9 +546,9 @@ Brouwer's fixed point theorem and the inverse function theorem are cited, as in 
 (1.1)-(1.2), Proposition 1.3, Lemma 1.4, Definition 2.1, Lemma 2.2, Proposition 2.3, Corollary 2.4), together with
 `proof5/PART-VII-ASSEMBLY.md` (Theorem 0.2, Lemma 0.1, Lemma 2.1, Proposition 2.2 (6), finding (VII1)). Also
 `proof5/PART-III-B-FAMILY.md` ((3.3), Lemma 3.5 (a), Proposition 3.4), `proof5/PART-III-A-PREREQ.md` section 1.1, and
-`checks/mpdata5.py` B2-B3. Nothing from outside `research/warp-drive/` other than [Hin26].
+`checks/mpdata5.py` B2-B3. No file outside `research/warp-drive/` is cited.
 
-    python3 checks/gluedecay5.py   (about two minutes; output in checks/gluedecay5.out)
+    python3 checks/gluedecay5.py   (about a minute; output in checks/gluedecay5.out)
 
 ## 8. Proposed replacement for the paper
 
@@ -573,10 +575,10 @@ New:
 a translation, and the structural step that a Cartesian derivative gains a power of ρ). It also contains every
 perturbation conormal of an order a > ℓ0, with |∂^k h| ≤ ε r^(−a−k) in the metric and ε r^(−a−1−k) in the second
 fundamental form. Such a perturbation has no terms of orders r^(−2) and r^(−3), and its norm is at most C ε (1 + (a −
-ℓ0)^(−1/2)). Since Theorem 4 holds for every ℓ0 ∈ (3, 4), taking ℓ0 ∈ (3, a) covers every such perturbation with a > 3
-(proved: supplement `docket68/n1star/GLUEDECAY5.md` Proposition 1 and Corollary 1.1). For 3/2 < a ≤ ℓ0 the decay rate
-does not decide, and gluing does not enlarge the class. A perturbation agrees on every ball r < R with data to which
-Theorem 4 (ii) applies, uniformly in R in every norm of the class, if and only if Theorem 4 (ii) applies to the
+ℓ0)^(−1/2)). Since Theorem 4 holds for every ℓ0 ∈ (3, 4), taking ℓ0 ∈ (3, min(a, 4)) covers every such perturbation with
+a > 3 (proved: supplement `docket68/n1star/GLUEDECAY5.md` Proposition 1 and Corollary 1.1). For 3/2 < a ≤ ℓ0 the decay
+rate does not decide, and gluing does not enlarge the class. A perturbation agrees on every ball r < R with data to
+which Theorem 4 (ii) applies, uniformly in R in every norm of the class, if and only if Theorem 4 (ii) applies to the
 perturbation itself: the least norm of data in the class that agree with it on r < R increases with R, to its own norm
 if it lies in the class, and without bound if it does not lie in the class at the norm's regularity (proved:
 GLUEDECAY5.md Proposition 2 and Corollary 2.1). At every such a there are vacuum perturbations of size ε outside the

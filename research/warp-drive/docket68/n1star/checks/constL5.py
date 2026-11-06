@@ -23,7 +23,8 @@ Lemma L.4's assembly as explicit sympy expressions, and checks:
      Control: a mutated node with a difference (C_tr - 1) is detected as not monotone.
   K3 (computed) at P* with the certified leaves inserted, printed in the remaining leaves; with the seed's constants
      and the profile bounds all equal to one (an illustration, not a bound), log10 C_L11 and log10 C_L4 are printed.
-     Control: C_S (Lemma 2.1) replaced by 10^-40 makes C_L4 < 1 (the formula is proportional to it).
+     Control: C_S (Lemma 2.1) replaced by 0 makes C_L4 vanish (the formula is proportional to it), so the check
+     C_L4 > 1 fails.
 
 Labels: the formulas deduced (each from the proof step named beside it); K1-K3 computed.  Run: python3 checks/constL5.py
 """
@@ -169,13 +170,14 @@ def k3(control=False):
     d, C11, C4 = build()
     cert = dict(CERT)
     if control:
-        cert[C_S] = sp.Rational(1, 10**40)                   # a mutation: Lemma 2.1's constant dropped
+        cert[C_S] = sp.Integer(0)                            # a mutation: Lemma 2.1's constant dropped
     rest = {s_: 1 for s_ in d.leaves() if s_ not in cert}
     rest[lam0] = sp.Rational(244, 100000)                    # lambda0 < 0.0024433 (CONSTANTS5 Round 4)
     vals = d.value({**cert, **rest})
     import mpmath as mp
     l11 = mp.log10(mp.mpf(sp.N(vals[C11], 30)))
-    l4 = mp.log10(mp.mpf(sp.N(vals[C4], 30)))
+    v4 = mp.mpf(sp.N(vals[C4], 30))
+    l4 = mp.log10(v4) if v4 > 0 else -mp.inf
     if control:
         return l11 > 0 and l4 > 0
     out("  K3 at P* (certified leaves inserted) C_L11 and C_L4 depend on %s; with every remaining leaf equal to 1 and"

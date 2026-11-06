@@ -29,3 +29,14 @@ X7 PASS
   X8 |Xi|^2 = [(1 - c)^2 T^2 + c^2]/(T^2 + 1): True, a weighted mean of (1 - c)^2 and c^2: True (so >= min: True); Xi =
       -c - i T + O(T^2): True; at a real cancellation the quadrature part is T nu (2 - 1/c), both signs: True
 X8 PASS
+  X9 Lemma W on 4000 random amplitudes (2000 with a zero of S inside the window, 2000 with |S| >= m): windows with one
+      sign only: 0
+X9 PASS
+  X10 hypothesis (H_N) sampled: exp(-1/x): env^(k) > 0, log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in
+      ['0.01', '0.0032', '0.001', '0.00032']; sup |kappa_k'|/kappa_k^(3/2) = 2.76; record C_c^inf: env^(k) > 0,
+      log-concave, kappa_k/kappa in (1/2, 2) for k <= 12 at x in ['0.01', '0.0032', '0.001', '0.00032']; sup
+      |kappa_k'|/kappa_k^(3/2) = 2.75: True
+X10 PASS
+  X11 model (exp(-1/x), lam = 1e-6, r0 = 3, nu = -1/9, Gamma = 1, x from env = lam^4 down to 0.2 lam^(1/2); values per
+      env): N = 9 (c_N = 0.9): windows with one sign 0 of 1200; N = 12 (c_N = 1.2): windows with one sign 0 of 1200  [333
+      s]

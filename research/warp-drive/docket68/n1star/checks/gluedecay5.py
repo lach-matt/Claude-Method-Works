@@ -56,7 +56,7 @@ Labels: computed (exact, sympy; E2's positivity certified by interval arithmetic
 at 30 digits). Reach: E3's quadrature is an instance of Proposition 3, not its proof; E4 checks the exponents, not
 the constants; E5 checks the expansions that Lemma 4.1 uses, not the gluing.
 
-Run: python3 checks/gluedecay5.py   (about five minutes on a loaded machine)
+Run: python3 checks/gluedecay5.py   (about a minute; E3 and E5 most of it)
 """
 import os
 import sys
@@ -69,6 +69,13 @@ import sympy as sp
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAPER = os.path.join(HERE, "..", "..", "paper", "RESPONSE-HL-5D.md")
 DOC = os.path.join(HERE, "GLUEDECAY5.md")
+
+
+def say(text):
+    """print a report wrapped to 118 columns, continuation lines indented"""
+    for k, para in enumerate(text.split("\n")):
+        print(textwrap.fill(para.strip(), 118, initial_indent="  " if k == 0 else "      ",
+                            subsequent_indent="      "), flush=True)
 
 
 # ---------------------------------------------------------------------------------------------------------- E1
@@ -107,13 +114,6 @@ def e1(control=False):
 
 
 # ---------------------------------------------------------------------------------------------------------- E2
-def say(text):
-    """print a report wrapped to 118 columns, continuation lines indented"""
-    for k, para in enumerate(text.split("\n")):
-        print(textwrap.fill(para.strip(), 118, initial_indent="  " if k == 0 else "      ",
-                            subsequent_indent="      "), flush=True)
-
-
 def gram_closed(q, p1, p2, ivm=mpm.iv):
     """Gram matrix of (f_c, f_s, g1, g2) = (e^(qu) cos u, e^(qu) sin u, e^(p1 u), e^(p2 u)) on u in (-log 2, 0)"""
     L = ivm.log(2)
@@ -276,7 +276,7 @@ def e3(control=False):
             pred = 2 * Aa * dist
             good = abs(ratio / pred - 1) < mpm.mpf(10)**-2 and ratio > 2 * Aa * kap * (1 - mpm.mpf(10)**-2)
             inst_ok &= good
-            lines.append("(a, l0) = (%s, %s), R = %s: D_R/(eps R^(l0-a)) = %s, 2 A_a dist = %s, 2 A_a kappa = %s"
+            lines.append("(a, l0) = (%s, %s), R = %s: D_R/(eps R^(l0-a)) = %s, 2 A_a dist = %s, 2 A_a kappa %s"
                          % (mpm.nstr(A_, 3), mpm.nstr(L0, 3), mpm.nstr(RR, 3), mpm.nstr(ratio, 6),
                             mpm.nstr(pred, 6), mpm.nstr(2 * Aa * kap, 6)))
     say("E3: Psi^* of a radial tensor (generic phi, A, B, three points): %s; tr(Psi^* delta - delta) identity: %s;"
@@ -284,7 +284,7 @@ def e3(control=False):
           "sin log r): %s;\n      quadrature instance of Proposition 3 (within 1e-2 of the prediction, above the "
           "kappa bound): %s" % (pullok, trok, rate, inst_ok))
     for ln in lines:
-        print("        " + ln, flush=True)
+        print("      " + ln, flush=True)
     return pullok and trok and rate and inst_ok
 
 

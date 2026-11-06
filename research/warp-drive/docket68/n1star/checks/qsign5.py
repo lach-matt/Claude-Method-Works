@@ -30,10 +30,11 @@ fixed gamma).
   Q3 (computed, floating point; twobg5's background at n = 80, 160) Gamma > 0 on the seed region (region III, psi_P =
      psi_III(vhat) read as in racglobal5 R4), including its part inside the horizon; psi_P = 0 on the slice's vacuum
      points with u <= u1 (the gap and outside the shell), so Gamma = 4 mu/R > 0 there by Q2.
-  Q4 (computed, floating point) the bound on explicit seeds: for racglobal5 R4's 45 stream seeds (ds1 = 0) and 30 seeds
-     with ds1 != 0 (including ds1 equal to the maximiser 2 E X/(3 sc)), Q computed directly equals the integral of the
-     decomposition to the quadrature's accuracy, and Q <= -int Gamma psi^2/sin 2th < 0 for every one. Control (must
-     fail): the decomposition with the -Gamma psi^2/sin 2th term dropped does not reproduce Q.
+  Q4 (computed, floating point) the bound on explicit seeds: for racglobal5 R4's 45 stream seeds (ds1 = 0) and 54 seeds
+     with ds1 != 0 (including ds1 equal to the maximiser 2 E X/(3 sc), and ds1 alone), Q computed directly equals the
+     integral of the decomposition to the quadrature's accuracy (relative to Q, and relative to the decomposition's
+     Gamma term), and Q <= -int Gamma psi^2/sin 2th < 0 for every one. Control (must fail): the decomposition with its
+     -Gamma psi^2/sin 2th term dropped misses Q by about that term.
   Q5 (exact, sympy; ingoing Vaidya in Part I's chart, psi_P = 0, mu = mu(vhat) arbitrary) the KID and the matter term:
      (a) (N_s, 2 Y_s) is in the kernel of the adjoint of the linearised constraint map (H, M) on Tangherlini's slice
          (the Euler operator of sqrt(gamma)(N_s DH + 2 Y_s^R DM_R) in all nine invariant fields of (dgamma diagonal,

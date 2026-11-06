@@ -1,17 +1,16 @@
 V2  the D-energy on W along the truncations (exact)
-  V2a every kernel of the D-system's energy at weight a_D is integrable along W (a = 11/4; the exponents do not involve
-        a_D): pass {'first order, (lam + mu) r^-3': '3', 'first order, eps r^(-3/2-a)': '17/4', 'zero order with Hardy,
-        (lam + mu) r^-4 * r': '3', 'zero order with Hardy, eps r^(-3/2-a) * r': '13/4', 'deformation d_t g: eps
-        r^(-3/2-a) and lam r^-3': '17/4'}
-  V2b the cap beyond the band: int_(|T|)^oo r^(2 a_D) (r^-4)^2 r^3 dr = |T|^(2 a_D - 4)/(4 - 2 a_D) -> 0 for a_D = 1/2,
-        1, 19/10: pass -T**(2*a_D - 4)/(2*a_D - 4)
-  V2c the band (unit width at r ~ |T|): D-energy ~ |T|^(2 a_D - 6) -> 0 for a_D < 3 (a_D = 1): pass
-  V2d control: at a_D = 2 the cap's D-energy does not tend to 0 (it is infinite): pass oo
-  V2e control: the zero-order kernel with Hardy at a = 1/2 (q = a + 1/2 = 1) is not integrable: pass
+  V2a [arithmetic] every kernel of the D-system's energy at weight a_D is integrable along W (a = 11/4; the exponents do
+        not involve a_D): pass {'first order, (lam + mu) r^-3': '3', 'first order, eps r^(-3/2-a)': '17/4', 'zero order
+        with Hardy, (lam + mu) r^-4 * r': '3', 'zero order with Hardy, eps r^(-3/2-a) * r': '13/4', 'deformation d_t g:
+        eps r^(-3/2-a) and lam r^-3': '17/4'}
+  V2b [arithmetic] the cap beyond the band: int_(|T|)^oo r^(2 a_D) (r^-4)^2 r^3 dr = |T|^(2 a_D - 4)/(4 - 2 a_D) -> 0 for
+        a_D = 1/2, 1, 19/10: pass -T**(2*a_D - 4)/(2*a_D - 4)
+  V2c [arithmetic] the band (unit width at r ~ |T|): D-energy ~ |T|^(2 a_D - 6) -> 0 for a_D < 3 (a_D = 1): pass
+  V2d [arithmetic] control: at a_D = 2 the cap's D-energy does not tend to 0 (it is infinite): pass oo
+  V2e [arithmetic] control: the zero-order kernel with Hardy at a = 1/2 (q = a + 1/2 = 1) is not integrable: pass
 V1  the contracted Bianchi identity of the gauge-fixed operator (60 digits)
   V1a (1/2)(box_g D_n + Ric_n^d D_d) + nabla^m Ein(C)_mn + nabla^m Ein(E)_mn = 0, five components, three points (h of
         size 0.3, no equation solved): pass max |defect| 3.1e-41 against terms up to 0.0787
   V1b control: without the Ric(g) D term the identity fails at every point: pass min defect 0.000332
   V1c control: without the C term (Gamma[g] - Gamma[g_b0]) D it fails at every point: pass min defect 0.0012
 FAILED: none
-exit 0
