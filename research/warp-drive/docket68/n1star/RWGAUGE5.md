@@ -24,6 +24,10 @@ change of mass at [HKW18]'s rate on each region r <= R, uniformly in l with a co
   decays at [HKW18]'s rate tau^-2 (Theorem 2: proved from [HKW18]'s Theorems 2, 16 and 18 READ, applied as stated;
   every coefficient and exponent computed). D is [HKW18]'s data norm for the master field commuted with at most two of T
   and the rotations. The exponents 1/2 and -1/2 of the weights are attained (Theorem 1), so they cannot be improved.
+  [R2.0 M1: Theorem 2 (b)-(c) bound the L^2(S^3) norm at fixed (tau, r); the pointwise |.| written here is Theorem 2'
+  (R2.0.1), with D' (two more rotations) in place of D. R2.0 M2: "the squared L^2 norm along the leaf" is the
+  integral against dr dsigma, dsigma the unit sphere's measure, which is Theorem 2 (a); against the leaf's own volume
+  form it is false (R2.0.2).]
 
 The rest of this note is: 1. what is READ; 2. the components on the outgoing chart (Lemma 1); 3. Theorem 1; 4.
 Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies); 6. the replacement text; 7. files.
@@ -32,13 +36,14 @@ Theorem 2; 5. remarks (the region r <= R_1 and a reading of [HKW18]'s energies);
 
 [HKW18] P.-K. Hung, J. Keller and M.-T. Wang, arXiv:1809.05144v1 (read 2026-11-06).
 
-- (R1) The decay estimate, p. 4, Theorem 2: "With further specification of an initial data slice Σ_0 and a decay
+- (R1) [R2.0 m8: the p. 67 quote below is corrected in place to the source's wording.] The decay estimate, p. 4,
+  Theorem 2: "With further specification of an initial data slice Σ_0 and a decay
   foliation Σ_τ := φ_τ(Σ_0) formed by flowing along the static Killing vector field, a symmetric traceless two-tensor
   Ψ solving any one of the equations (134, 149, 153, 174) satisfies the uniform boundedness estimate Ě^N_Ψ(Σ_τ) ≤
   C(n, M) Ě^N_Ψ(Σ_0), (6) and, in spacetime dimension six and below, the uniform decay estimate Ě^N_Ψ(Σ_τ) ≤ C(n, M)
   I_Ψ(Σ_0)/τ^2, (7)". The same estimate for the summed scalar quantity, (186), p. 69; the uniformity in l, p. 67: "The
-  estimates for the Q^(+)_{ℓ m_s(n,ℓ), αβ} in the previous subsection are uniform in the angular mode numbers ℓ and
-  m_s(n, ℓ)".
+  estimates for the Q^(+)_{ℓm_s(n,ℓ),αβ} in the previous subsection are uniform in the angular mode numbers ℓ and m,
+  owing to convergence of the potentials V^(+)_ℓ to the limiting potential V^(+) (178)."
 - (R2) Pointwise bounds are not proved there, p. 4 (and again p. 69): "We remark that further pointwise uniform
   boundedness and uniform decay estimates can be derived from those above by means of commutation with the angular
   Killing fields and application of Sobolev estimates on the orbit spheres."
@@ -125,7 +130,8 @@ r^(1/2) |h(e_i, e_j)| = |A| |S| on C_tau1, so the weight r^(1/2) of Theorem 2 (c
 
 *Proof.* Step 1 (Kruskal form of the master equation). Put U = -e^(-u/r_h), W = e^(v/r_h) (Kruskal's V, renamed to
 keep V for the potential); the surface gravity is 1/r_h. Then -UW = e^(2 r*/r_h) = e^(2r/r_h) (r - r_h)/(r + r_h),
-whose r-derivative at r_h is e^2/(2 r_h) != 0, so r is a smooth function of UW near the horizons; d_u d_v = -(UW/r_h^2)
+whose r-derivative at r_h is e^2/(2 r_h) != 0 [R2.0 m4: and 2 r^2 e^(2r/r_h)/(r_h (r + r_h)^2) > 0 at every r > 0,
+from -1 at r = 0, so r is a smooth function of UW on all of {UW < 1}], so r is a smooth function of UW near the horizons; d_u d_v = -(UW/r_h^2)
 d_U d_W, and the master equation 4 d_u d_v P + V P = 0 becomes d_U d_W P = c P with
 
     c = -(r_h^2/4) (V/f) (f/(-UW)) = -(r_h^2/4) (V/f) (r + r_h)^2 e^(-2r/r_h)/r^2,
@@ -133,7 +139,9 @@ d_U d_W, and the master equation 4 d_u d_v P + V P = 0 becomes d_U d_W P = c P w
 smooth wherever r > 0 (computed: U5). The past horizon is W = 0, the future horizon U = 0, and C_tau1 lies on {U =
 U_1}, U_1 := -e^(-u_tau1/r_h).
 
-Step 2 (the Goursat problem). Let U_0' be at most the least value of U on Sigma_0 (finite: Sigma_0 ∩ {r <= R_1} is
+Step 2 (the Goursat problem). [R2.0 m4: U_0' is unnecessary, and the domain is the union of the rectangles Q =
+[U_-, U_+] x [0, W_+] with U_- <= U_1 <= U_+ and U_+ W_+ < 1, which covers the whole exterior and the future horizon;
+see R2.0.3.] Let U_0' be at most the least value of U on Sigma_0 (finite: Sigma_0 ∩ {r <= R_1} is
 compact in the Kruskal chart, and U = U_0 := -e^(-u_0/r_h) on C_0), so that the future of Sigma_0 lies in {U >= U_0'},
 U increasing along causal curves. Let g(U) := alpha (U - U_1) + (beta/2)(U - U_1)^2 and consider, on each compact
 rectangle Q = [U_0', U_+] x [0, W_+] with 0 < U_+ small enough that r > 0 on Q, the integral equation
@@ -206,7 +214,8 @@ dr/f, Y = 0 (R4: r >= R_1 > r_1), and Ť(L, T) = (1/2)(L Psi)^2 + (1/2) f r^-2 |
 Psi = r^(1/2) Phi Y_l (R7), |Y_l|_g = r^-2 |Y_l|_gamma, so r^3 |∇_r Psi|^2 = (d_r Phi - 3 Phi/(2r))^2 |Y_l|^2; the ratio
 ||Y_l||/||S_l|| is bounded below uniformly in l (1 for unit harmonics; (2/3) k^2 (k^2 - 3) >= 80/3 in square for Y_l =
 (D D - gamma Lap/3) S_l, `checks/rwgauge5.py` R3 (e)); and int_{S^3} |∇̊Y_l|^2 = (k^2 - 6) ||Y_l||^2 >= (k^2/4)
-||Y_l||^2 for the scalar-derived tensor harmonics (k^2 >= 8; the least value 2 is [HKW18]'s lambda = 2, p. 31). So
+||Y_l||^2 for the scalar-derived tensor harmonics (k^2 >= 8; the least value 2 is [HKW18]'s lambda = 2, p. 31) [R2.0
+m9: for every l this is [HKW18] (36), p. 8, "˚∆Y_αβ = (2n − ℓ(ℓ + n − 1)) Y_αβ", at n = 3]. So
 
     int_{R_1}^oo ( (d_r Phi)^2 + k^2 Phi^2/r^2 ) dr  <=  C_1 Ě^N_Psi(Sigma_tau)/||Y_l||^2,   C_1 = 9/(2 f_1) + 8
 
@@ -235,14 +244,17 @@ orbit block and r^0 on the angular block, puts every term under one of these sup
 Step 4 (c). The new input is sup |T^2 P| and sup |TP| (the terms of weight r^0 in Lemma 1 (iii); the others are
 handled by Step 3). For w = T^a P (a = 1, 2) on C_tau and p = 1 + 2 delta: |w(r)| <= |w(R_1)| + int_{R_1}^oo |w'| <=
 R_1^(1/2) sup r^(-1/2) |w| + (int s^p w'^2)^(1/2) (R_1^(1-p)/(p - 1))^(1/2). The first is <= C D^(1/2) tau^-1 (Step 3);
-for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder with s^p =
-s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2) and E^1[T^a Psi](tau) <= C D/tau:
+for the second, int s^p w'^2 <= f_1^-(k+2) E^p[T^a Psi] [R2.0 m9: k here is [HKW18]'s exponent in (127), written
+k_H in R2.0, not the k of k^2 = l(l + 2)], and E^p <= (E^1)^(2-p) (E^2)^(p-1) (Hoelder with s^p =
+s^(2-p) (s^2)^(p-1)), where E^2[T^a Psi](tau) <= E^2(0) + C Ě^N(0) ((128) at p = 2; [R2.0 m1: Ě^N(0) <= C E^N(0) <= C I by [HKW18]
+Lemma 11, p. 39, (R8) in R2.0]) and E^1[T^a Psi](tau) <= C D/tau:
 for tau in [tau~_k, tau~_(k+1)], (128) at p = 1 from tau~_k and (R6)'s bound at tau~_k give E^1(tau) <= C (tau_k^-1 +
 tau~_k^-2) D, and tau <= tau_(k+1) = 2 tau_k. So the second term is <= C delta^(-1/2) D^(1/2) tau^(-(2-p)/2) = C
 delta^(-1/2) D^(1/2) tau^(-1/2 + delta) (computed: U7 (iv)). []
 
 *The tensor type.* Its components in the frame are 2 H_T T_(ij) = 2 r^(-3/2) Phi_T T_(ij) (Proposition 10.1 (iii)),
-three powers of r^(1/2) better than the angular block of the scalar type, and Step 1 and Lemma S give (a)-(c) for it
+three powers of r^(1/2) better than the angular block of the scalar type [R2.0 m9: two powers: r^(-3/2) against
+r^(-1/2)], and Step 1 and Lemma S give (a)-(c) for it
 directly; it is included in h_(ij) above.
 
 *The l = 0 part.* h_0 - c K = 0 by the gauge condition, and K's frame components are O(r^-2): c K is the change of mass

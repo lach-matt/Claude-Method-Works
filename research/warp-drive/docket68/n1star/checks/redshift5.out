@@ -11,3 +11,34 @@ R3 PASS
   R4 control (orientation reversed): d_v(u^2) + d_r((f/2)u^2) + (2a - f'/2)u^2 - 2uF = 0; bulk (2j + 1) f'/2: True; leaf densities and g^-1(dw, dw): {"t = const (s' = 1/f)": ('3/2', 'rr**2/(mu - rr**2)'), "t_* = const (s' = 1)": ('-mu/(2*rr**2) + 3/2', '-(mu + rr**2)/rr**2'), "u = const (s' = 2/f)": ('2', '0')}; spacelike t, t_* leaves: True; null leaf density 0: False; outgoing ray flux 0: True
 R4 PASS
   R5: Q(1) - Q(0) + outflow - horizon + bulk - int int 2uF = -9.8608e-32 (horizon flux 0.0)
+  R5 control (density 1 + s'f/2): Q(1) - Q(0) + outflow - horizon + bulk - int int 2uF = -0.75457 (horizon flux 0.0)
+R5 PASS
+  R6: max over tau of (1 + tau)^2 int e^(-c(tau - w))(1 + w)^-2 / C_c, per c: [(0.01, 0.2182), (0.1, 0.2611), (0.5, 0.285), (1.0, 0.2404), (3.0, 0.1913), (10.0, 0.0319), (30.0, 0.0)]; a defect-forced Q stays below the extremal: True
+  R6 control (C_c = 4/c): max over tau of (1 + tau)^2 int e^(-c(tau - w))(1 + w)^-2 / C_c, per c: [(0.01, 12.0896), (0.1, 1.7469), (0.5, 0.6813), (1.0, 0.455), (3.0, 0.3461), (10.0, 0.2879), (30.0, 0.2619)]; a defect-forced Q stays below the extremal: True
+R6 PASS
+  R7: Q/(16 H^2) = m + R(x, 1/H) exactly: True; H >= 5 on the box (min 5): True; |(x d_x)^i R| <= ['3747/50', '115563/500', '2767959/2500', '89381811/12500'] on x in [0, 1], 1/H in [0, 1/5] (certified); W_T r^2 - k^2 = 3/4 + 9x/4 in [3/4, 3]: True
+  R7 control (H = m - 6x): Q/(16 H^2) = m + R(x, 1/H) exactly: True; H >= 5 on the box (min -1): False; |(x d_x)^i R| <= ['3747/50', '115563/500', '2767959/2500', '89381811/12500'] on x in [0, 1], 1/H in [0, 1/5] (certified); W_T r^2 - k^2 = 3/4 + 9x/4 in [3/4, 3]: True
+R7 PASS
+  R8: indicial roots {0, sigma/kappa} for W_S, W_T at l = 2, 4: True; recursion denominators 2 kappa n (n + 5/4): True; Frobenius a1 at l = 2 = [2077/792]; R' in L^2: True; R'' not in L^2: True
+  R8 control (sigma/kappa = 7/4): indicial roots {0, sigma/kappa} for W_S, W_T at l = 2, 4: True; recursion denominators 2 kappa n (n + 7/4): True; Frobenius a1 at l = 2 = [3133/968]; R' in L^2: True; R'' not in L^2: False
+R8 PASS
+  R9: (line, term, a, extra power p) with integrand t'^(-1-a)(T/t')^beta and factor t^p/(beta + a): [('H', 1, -1/2), ('H', 1, -1/2), ('H', 3/2, -1), ('D0/D1', 0, 0), ('D2', -1, 0), ("Q'", 0, 0), ("Q'", 0, 0), ("Q'", 1/2, -1/2), ("Q'", 1, -1)]; the terms with no extra power: [('D0/D1', 't^-1/2 H', 0), ('D2', 't^1/2 H', -1), ("Q'", 't^1/2 t^-1 H', 0), ("Q'", 't^1/2 t^-2 D1', 0)]; C/(beta0 - 1) <= 1/4 for beta0 = max(2, 4C + 1): True
+  R9 control (D2 read with an extra power): (line, term, a, extra power p) with integrand t'^(-1-a)(T/t')^beta and factor t^p/(beta + a): [('H', 1, -1/2), ('H', 1, -1/2), ('H', 3/2, -1), ('D0/D1', 0, 0), ('D2', 1/2, -3/2), ("Q'", 0, 0), ("Q'", 0, 0), ("Q'", 1/2, -1/2), ("Q'", 1, -1)]; the terms with no extra power: [('D0/D1', 't^-1/2 H', 0), ("Q'", 't^1/2 t^-1 H', 0), ("Q'", 't^1/2 t^-2 D1', 0)]; C/(beta0 - 1) <= 1/4 for beta0 = max(2, 4C + 1): True
+R9 PASS
+  R10: Z = -s/r**(5/2) solves (d_r + 3/(2r)) Z = r^(-7/2) s with r^(3/2) Z -> 0: True; r^(5/2) Z bounded: True; r^(7/2) d_r Z bounded: True; r^3 Z unbounded: True
+  R10 control (weight 5/2): Z = -s/r**(5/2) solves (d_r + 3/(2r)) Z = r^(-7/2) s with r^(3/2) Z -> 0: True; r^(5/2) Z bounded: True; r^(7/2) d_r Z bounded: True; r^5/2 Z unbounded: False
+R10 PASS
+  R11: the Taylor rewriting to lam^3 commutes with the induced action for generic g_j, phi_j: True
+  R11 control (phi_j -> sigma^* phi_j): the Taylor rewriting to lam^3 commutes with the induced action for generic g_j, phi_j: False
+R11 PASS
+  R12: the zero within C' lam = (4 mu_max/3) C0 lam: True; sup theta at sqrt mu - C' lam = 0 (can vanish); at sqrt mu - 2 C' lam = -C0*lam
+  R12 control (C'): the zero within C' lam = (4 mu_max/3) C0 lam: True; sup theta at sqrt mu - C' lam = 0 (can vanish); at sqrt mu - 1 C' lam = 0
+R12 PASS
+  R14: Z3: radial eigenvalue in [3/10, 1] and angular in [4/5, 6/5] for 0 < lam <= min(1/10, d0/20), Delta >= d0 >= 1, r >= 1: True (unsat); at lam = 1/10, Delta = 1, sigma0' = -7 the radial eigenvalue is -2/5
+  R14 control (lam <= 1/10 only): Z3: radial eigenvalue in [3/10, 1] and angular in [4/5, 6/5] for 0 < lam <= min(1/10, d0/20), Delta >= d0 >= 1, r >= 1: False (sat); witness (lam, Delta, sigma0', radial eigenvalue) = (0.0625, 1.0625, -6.0, 0.2941176470588235); at lam = 1/10, Delta = 1, sigma0' = -7 the radial eigenvalue is -2/5
+R14 PASS
+  R13: (block, old count, new count, widest line): [('8.2', 1, 0, 119), ('Theorem 1 item 7', 1, 0, 121), ('Proposition 3.3', 1, 0, 120), ('Proposition 3.3 proof', 1, 0, 121), ('8.2 orthonormal', 1, 0, 116), ('Theorem 2 item 5', 1, 0, 115), ('references [DR08]', 1, 0, 117), ('references [HKW18]', 1, 0, 116)]; this file's widest line 121; 'N-th order' in N1STAR-PROOF.md 2 time(s), each inside an [amended D622 note: True; Lemmas 10.1a-10.1b and (iv-a), (iv-b) seated: True
+  R13 control (old text mutated): (block, old count, new count, widest line): [('8.2', 0, 0, 119), ('Theorem 1 item 7', 0, 0, 121), ('Proposition 3.3', 0, 0, 120), ('Proposition 3.3 proof', 0, 0, 121), ('8.2 orthonormal', 0, 0, 116), ('Theorem 2 item 5', 0, 0, 115), ('references [DR08]', 0, 0, 117), ('references [HKW18]', 0, 0, 116)]; this file's widest line 121; 'N-th order' in N1STAR-PROOF.md 2 time(s), each inside an [amended D622 note: True; Lemmas 10.1a-10.1b and (iv-a), (iv-b) seated: True
+R13 PASS
+EXIT 0
+EXITCODE 0

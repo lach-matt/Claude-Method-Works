@@ -17,11 +17,13 @@ f = 1 - mu/r^2, mu = 1 (zeroext5 Z0: the bound is scale invariant). L_b = D Ric 
   T3 (exact) D Ric(h) = d/deps Ric(g + eps h) at eps = 0 (every component, H symbolic) equals (1/2) r^2 (A_l H) T, with
      A_l H = -r^-3 (P H')' + l (l + 2) r^-2 H, P = r^3 - mu r: the scalar model of zeroext5.py at the same l, exactly,
      and every component outside the angular block vanishes. (The tensor mode obeys the massless scalar equation.)
-  T3b (computed, 50-digit evaluation) the same as an operator identity for every traceless class tensor with div T = 0:
+  T3b (computed, 50-digit evaluation at 108 points; Round 8: one r and one H before, so "operator identity" is read as
+     an evaluation) the same for every traceless class tensor with div T = 0:
      D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + 2 T)]; with the eigen-equation of the TT harmonics
      (lap + l (l + 2) - 2) T = 0 it is T3's identity at every even l (deduced), which T3 checks exactly at l = 2, 4.
   T4 (exact) the norm's angular weight on the block: with the six rotation fields K_ij = x_i d_j - x_j d_i of R^4
-     restricted to S^3, sum_ij ||L_{K_ij} T||^2 = (l (l + 2) + 4) ||T||^2 (L^2(S^3), round metric), at l = 2 and 4;
+     restricted to S^3, sum_ij ||L_{K_ij} T||^2 = (l (l + 2) + 4) ||T||^2 (L^2(S^3), round metric), at l = 2 and 4
+     (Round 8: the code ran l = 2 only; it now runs both, beside the so(4) Casimir at (j1, j2) = (l/2 + 1, l/2 - 1));
      for the scalar harmonics the same sum is l (l + 2) (zeroext5's L).
   T5 (deduced, certified arithmetic) the constant. N_T(u)^2 := int (r |u|^2 + r^3 |u'|^2 + (L + 4) r |u|^2) dr is the
      block's ||h||^2 in Hbar^(1,-1)_b with the generators r d_r and L_{K_ij} on frame components; F^2 = int r^5 |A_l
@@ -184,7 +186,8 @@ def gauge_and_dric(Tang):
 def general_identity(shift=2):
     """T3b: D Ric(r^2 H T) = (1/2) r^2 [(-r^-3 (P H')') T + r^-2 H (-lap T + shift T)] for every traceless T = diag(A,
     B cos^2, -(A + B) sin^2) of the class with div T = 0 (B solved from it): evaluated at 50 digits for three test
-    functions A and three points (the symbolic normal form is not reached by simplify); returns the largest |residual|"""
+    functions A, three radial functions H and twelve points (four r, one inside the horizon, three angles; Round 8:
+    one H and one r before) (the symbolic normal form is not reached by simplify); returns the largest |residual|"""
     A = sp.Function('A')(th)
     B = sp.Function('B')(th)
     Tang = [A, B * sp.cos(th) ** 2, -(A + B) * sp.sin(th) ** 2]
