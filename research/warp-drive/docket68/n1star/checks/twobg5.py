@@ -51,6 +51,9 @@ K_in R^3 = A(v), K_out R^3 = B(u) (twodust5 B1-B3), mu := R^2 (1 + 2 e^(-2s) R_u
      N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 inside the domain: the verifier's case, rejected. Region I (u <= u1) is
      explicit ingoing Vaidya with the data's mu(vhat), so the cone can be moved out at no cost: the least R at v = 0
      whose outgoing ray keeps R - b(tau) >= 1 on all of [tau0, tau_end] is found by bisection, and the margin printed.
+     Round 5 (the verifier of Part V, minor 4: the bisection made G3 pass by construction, a ray ODE x 1/2 passing with
+     R0 = 10.719): the reported R0's ray is re-integrated independently (scipy DOP853) and R - b checked on [tau0,
+     tau_end]; control (must fail): the cone found with the ray ODE x 1/2 fails that independent check.
   G4 (computed; round 2, the verifier's nit 5) the mixed symbol on R = a resolved where the grid thins: in region III
      (u >= u2, B = 0) psi and mu depend on v alone (G1 (a), (b)), and along an outgoing ray dR/dv = vhat' e^psi (1 -
      mu/R^2)/2 and d ln|R_u|/dv = vhat' e^psi mu/R^3 (from R_uv = -e^(2s) mu/R^3, G1 (c)), while |g0^-1(dvhat, du)| =
@@ -416,8 +419,9 @@ def main():
           '      on all of [tau0, tau_end] (%.3f at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: %s'
           % (r3['l5'], r3['seed'], r3['V'], r3['tau_end'], r3['b0'], r3['ex'][0], r3['R0new'], r3['new'][1],
              r3['new'][0], g3ok), flush=True)
-    print('      independent check (DOP853 on the reported R0): R - b = %.4f at tau0, least %.4f: %s; mutation (ray ODE\n'
-          '      x 1/2, R0 = %.3f re-found by the bisection) fails the independent check (least R - b = %.4f): %s'
+    print('      independent check (DOP853 on the reported R0): R - b = %.4f at tau0, least %.4f: %s; mutation\n'
+          '      (ray ODE x 1/2, R0 = %.3f re-found by the bisection) fails the independent check (least R - b =\n'
+          '      %.4f): %s'
           % (ind0, indmin, indep_ok, r3m['R0new'], indmmin, mut_rej), flush=True)
     ok['G3'] = g3ok
     # G4: the mixed symbol on R = a, resolved along region III's rays (round 2, the verifier's nit 5)
