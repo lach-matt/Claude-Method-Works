@@ -23,18 +23,21 @@ of the record.
 
 ## 0. Summary
 
-- **(B) is settled.** Both avoidances hold at the weights of `dweights5.py` W1 (eps = eps' = 10^-12, eps_ind =
-  1.9 x 10^-8, eps_K = 1.88 x 10^-8), at every one of the 106,489,470 levels and every round, exactly, with certified
-  margins (proved, Theorems B.2-B.3; `rootavoid5.py` 16/16). The mechanism is arithmetic: the levels, rounds and
-  weights are rational; every indicial root of L-hat_b0(0) that the conditions can meet is an integer or irrational
-  (Lemma B.1, every type and degree, the box^C sextic included through a 2-adic argument); so the conditions reduce to
-  integer congruences, which have no solution in range, and to field-membership tests over Q(d1), which fail as they
-  must. The one rational coincidence that could occur, beta = lambda_sharp + 2 = 3.5099, is not a level. Margins: w is
-  at least 4.0 x 10^-13 (I9) and 2.0 x 10^-13 (I14) from every root it could meet; the levels are at least
-  3.19 x 10^-16 from I11:156-160's set. Proposition 5.1's hypothesis holds even as literally stated (every j, every
-  root). On R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). One condition of I11:156-160's
+- **(B) is settled.** Both avoidances hold at the weights of `dweights5.py` W1 (eps = eps' = 10^-12, eps_ind = 1.9 x
+  10^-8, eps_K = 1.88 x 10^-8), at every one of the 106,489,470 levels and every round, exactly, with certified margins
+  (proved, Theorems B.2-B.4; `rootavoid5.py` {RAPASS}). The levels' admissibility is settled on both sides of 3: below 3
+  through I9:55-58, which I11:156-157 assigns there (Theorem B.4, the round-10 verifier's gap, alpha_1 included), above
+  3 through I11:156-160 as I14 Definition 1.1 (b) applies it (Theorem B.3), with Definition 1.1 (a) besides (B.7b). The
+  mechanism is arithmetic: the levels, rounds and weights are rational; every indicial root of L-hat_b0(0) the
+  conditions can meet is an integer or irrational (Lemma B.1, every type and degree, the box^C sextic included through a
+  2-adic argument); so the conditions reduce to integer congruences, which have no solution in range, and to
+  field-membership tests over Q(d1), which fail as they must. The rational coincidences that could occur, alpha =
+  lambda_sharp + 1 = 2.5099 below 3 and beta = lambda_sharp + 2 = 3.5099 above, are not levels. Margins: w is at least
+  4.0 x 10^-13 (I9) and 2.0 x 10^-13 (I14) from every root it could meet; the levels are at least {R10M} (below 3) and
+  3.19 x 10^-16 (above 3) from the excluded sets. Proposition 5.1's hypothesis holds even as literally stated (every j,
+  every root). All on R9.1's reading of Lambda (Lambda below 2 = lambda_sharp + N_0 d1). One condition of I11:156-160's
   *appended* set is not decided: (4.2) of III.G'''' Proposition 4.4 at level 2, whose tf-exponents the record does not
-  list (B.7).
+  list (B.7); B.7c lists every condition with its range.
 - **(A) is not settled; it is sharpened.** The scalar-type blocks are now written exactly, for every harmonic at once
   (computed, exact, l symbolic: `scalarblock5.py` S1, with the gauge identity, the linearised Bianchi identity and the
   mass state, S2-S4), their indicial roots at infinity are the record's (lin5 E2's factorisation reproduced from the
@@ -343,6 +346,15 @@ in Q, theta in {0, d0, d1, delta'_1, delta_2}: by Theorem B.3's field tests only
 + 1 = 25099/10000, which is not a level (exact). The margin: the same fixed-point enumeration as Theorem B.3's over the
 seven x and n <= 1,470,302 against the levels in (2, 3). Control C8: a level planted at 2.5099 is found. []
 
+The two places I9 uses that admissibility with further conditions are decided with it (R10, exact). Lemma 3.1 (the
+base) asks alpha_0 = alpha_1 in (2, min(a_K, 2 + eps_ind, 5/2)): 2 + 9.4 x 10^-9 < 2 + (1 - 10^-9) eps_K < 2 + eps_ind.
+Lemma 3.2's Step 3 (I9:276-279) runs III.G'''' Proposition 5.1 at each level with alpha_K = alpha - eps', l_zf =
+alpha_K - 2 and w = alpha_K - 2 + eps, so Proposition 5.1's alpha is 2 - eps: w and l_zf lie in (0, 1) and are
+rational (w = alpha - 2 at eps = eps'), so they meet no root (Lemma B.1: the roots in (0, 1) are d0 and d1,
+irrational) and l_zf is not in N_0; 2 - alpha_P + j = eps + j, with eps = 10^-12 below d1, the least positive root,
+and of fractional part 10^-12, neither 0 nor 15/64. Its Steps 1-2 use only the admissibility above ("off its
+exclusions by admissibility", I9:225, 258).
+
 ### B.6 The literal hypothesis "for every j" (proved; R7)
 
 Proposition 5.1's hypotheses hold as stated, for every j in N_0 and every root (Theorem B.2 covers them): the only
@@ -376,15 +388,41 @@ theta2 (theta2 in {0, d0}) lies in Q(d1) (exact), so only theta1 = theta2 = 0, n
 candidates lambda + 2, lambda + 1 (s1) for lambda in R in range are not levels (exact). Control C7: the test reports
 2 d1 + 1/3, which lies in Q(d1).
 
+### B.7c What is settled, over which ranges
+
+- I9:55-58 (III.I'''''''' admissibility, which I11:156-157 assigns to alpha < 3): the 53,244,734 levels in (2, 3),
+  alpha_1 = beta_0 included; proved (Theorem B.4); least distance {R10M}.
+- I9:201 (Lemma 3.1's range for alpha_0 = alpha_1): the base; proved (exact).
+- I9:276-279 (Proposition 5.1 in Lemma 3.2's Step 3): every level in (2, 3); proved (exact: rational values against
+  irrational roots, eps below d1).
+- I9:290-291 (Step 3.4', w and 2 - alpha_i + j): every level in (2, 3), every tf round; proved (Theorem B.2); w at least
+  4.0e-13 from 0, 3.41e-13 from d0, 3.54e-13 from d1.
+- I11:156-160 = I14 Definition 1.1 (b), its main clause: the 53,244,736 levels in (3, 4 + eps_K], alpha included; proved
+  (Theorem B.3); least distance 3.19e-16.
+- I14 Definition 1.1 (a) (rates): the same levels; proved (exact, B.7b).
+- I14:124-126 (level 3, w and 2 - tau + j): the 53,244,734 levels in (3, 4), every level-3 round; proved (Theorem B.2);
+  |w| at least 2.0e-13, 8.59e-13 from d0, 2.46e-13 from d1.
+- I12:289-292 (level 3 above 4, delta off {-mu - j}): the two levels above 4; proved (Theorem B.2) with delta :=
+  (eps_ind - l_3 - 2 eps)/2.
+- Proposition 5.1's hypothesis for every j and every root: everywhere above; proved (B.6).
+- I12 section 1 = I14 Definition 1.1 (c): l_zf not in N_0, (4.2) at level 1, Lemma 4.2's interval: the levels in (3, 4 +
+  eps_K]; proved (exact; the interval deduced; B.7).
+- I12 section 1 = I14 Definition 1.1 (c): (4.2) at level 2: the levels in (3, 4 + eps_K]; **not decided** (its
+  tf-exponents are not listed).
+
+Every item is at the weights of B.2 and on R9.1's reading of Lambda below 2 (lambda_sharp + N_0 d1; E^iota_ind's
+increments below 1/2, unlisted, taken empty as in rounds 1-10). The base's own loops (R10.1) are not checked here; the
+round-10 verifier finds that they add no fixed-weight condition, their exclusions being free choices per round.
+
 ### B.8 Status
 
 (B) as R9 posed it -- the levels off I11:156-160's exclusion values, eps and eps' off I9:290-291's and I14:124-126's --
-is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda, and with it Definition 1.1
-(a) at the levels (B.7b); the one part of I11:160's appended set left (B.7) is a further condition of the same kind, not
-one of the two R9 named. d's integer (round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was
-computed at); its reading loses the clause "two of the weights' admissibility conditions ... are not decided" (section
-C). Round 10's base-level choices (a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the
-levels and rounds of B.2.
+is decided at the weights used: proved, with certified margins, on R9.1's reading of Lambda, at every level, the
+53,244,734 below 3 through I9:55-58 (B.5b) and the 53,244,736 above 3 through I14 Definition 1.1 (B.5, B.7b); the one
+part of I11:160's appended set left (B.7) is a further condition of the same kind, not one of the two R9 named. d's
+integer (round 10: d <= 46,236,449,175,331,158) is unchanged (the weights are those it was computed at); its reading
+loses the clause "two of the weights' admissibility conditions ... are not decided" (section C). Round 10's base-level
+choices (a_K - 2, s_0, tau, t of R10.1) are not checked here: they enter the loops, not the levels and rounds of B.2.
 
 ## C. Proposed replacement text for CONSTANTS5.md R10.7 (old/new; not applied)
 
@@ -408,11 +446,12 @@ R10.7's block 1 (R9.7's superseded block 1 carries the same clause, wrapped diff
   Two parts of the reading are not statements of the write-out: the logarithmic orders of one index set, a ceiling
   deduced step by step from the proof of the write-out's coarser bound; and the order range of the calculus count, read
   from its estimates' thresholds. The weights' admissibility conditions hold at the weights used, the two avoidances of
-  finite sets of roots among them, exactly and with certified margins: the levels and rounds are rational, every
-  indicial root they can meet is an integer or irrational, and the one rational coincidence possible is not a level
-  (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B, `checks/rootavoid5.py`), on the reading of that index set
-  below 2 the integer uses; one condition of the same kind at the second Taylor level waits on exponents the write-out
-  does not list. So the integer bounds the loss this proof's bookkeeping produces on that reading, not the optimal one.
+  finite sets of roots among them, exactly and with certified margins, at every level below and above 3: the levels
+  and rounds are rational, every indicial root they can meet is an integer or irrational, and the two rational
+  coincidences possible are not levels (supplement `docket68/n1star/INVERSE5-SCALAR.md` part B,
+  `checks/rootavoid5.py`), on the reading of that index set below 2 the integer uses; one condition of the same kind
+  at the second Taylor level waits on exponents the write-out does not list. So the integer bounds the loss this
+  proof's bookkeeping produces on that reading, not the optimal one.
 ```
 
 **C.2 Block 2 (lambda1 and delta), the scalar-type clause only.** The old text is the clause of R10.7's block 2 up to

@@ -789,9 +789,9 @@ def r16(control=False):
         "e^(-sigma v) x^(sigma/kappa); %s): per sigma/kappa, I_(T^a (Psi_eps - Psi)) for a = 0, 1, 2 at eps = 1e-3, "
         "1e-5, 1e-7, convergence (each falls tenfold, the last below 1e-8), the averaged limit against (int rho "
         "e^(-sigma t)) e^(-sigma v) x^(sigma/kappa), the exact solution's data against the naive data, Q(0) of the "
-        "averages and its growth, the averages' jets against the model's relations: %s" % (" control (the data themselves, not averaged)" if control else "",
-                                        "the data themselves" if control else "averaged over the flow of T with a "
-                                        "smooth bump on (0, 1/4)", rows))
+        "averages and its growth, the averages' jets against the model's relations: %s"
+        % (" control (the data themselves, not averaged)" if control else "",
+           "the data themselves" if control else "averaged over the flow of T with a smooth bump on (0, 1/4)", rows))
     return bool(ok)
 
 

@@ -57,7 +57,9 @@ above 3): all rational (dweights5.weights and counts, imported).
   R10 (computed, exact; certified margin) I9:55-58, the III.I'''''''' admissibility I11:157 assigns to the levels
      alpha < 3 (the round-10 verifier's gap): at every one of the 53,244,734 levels in (2, 3), alpha_1 = beta_0
      included, alpha - 2 != Re lambda - 1 and alpha - Re lambda not in {-Re mu} u Re pi_1 E_K for lambda in pi_1 M
-     = lambda_sharp + N_0 d1 (R9.1's reading); the range alpha in (2, min(a_K, 3)) (a_K at the base from R10.1).
+     = lambda_sharp + N_0 d1 (R9.1's reading); the range alpha in (2, min(a_K, 3)) (a_K at the base from R10.1),
+     Lemma 3.1's alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2), and Lemma 3.2 Step 3's Proposition 5.1 at each level
+     (I9:276-279: w = alpha - eps' - 2 + eps, 2 - alpha_P = eps).
   Negative controls (each mutates the computed path; each must fail): C1 a level planted at 3.5099 (R6 finds it);
   C2 eps' moved to make w = 0 at one (k, i) (R4's congruence finds it); C3 z = 7/2, where (z + 2)^2 + 12 = (13/2)^2
   (R2 (b) finds a rational class root at l = 1); C4 d1 replaced by a rational (R6's field argument fails: rational
@@ -633,8 +635,18 @@ def r10(C, plant=None):
     hit = v.denominator == 1 and (int(v) - a1) % I['s'] == 0 and 0 <= (int(v) - a1) // I['s'] < C['k3']
     eK = C['w']['eps_K']
     aK_base = 2 + (1 - Fr(1, 10 ** 9)) * eK
-    rng = (Fr(I['alpha1'], D) > 2 and Fr(I['alpha1'], D) < aK_base and Fr(beta(C, C['k3'] - 1), D) < 3)
-    return dict(cand=cand, hit=hit, rng=rng, aK=aK_base)
+    a1f = Fr(I['alpha1'], D)
+    # Lemma 3.1 (I9:201): alpha_0 = alpha_1 in (2, min(a_K, 2 + eps_ind, 5/2))
+    rng = (2 < a1f < min(aK_base, 2 + Fr(I['eps_ind'], D), Fr(5, 2)) and Fr(beta(C, C['k3'] - 1), D) < 3)
+    # Lemma 3.2 Step 3 (I9:276-279): Proposition 5.1 with alpha_K = alpha - eps', l_zf = alpha_K - 2, w = alpha_K - 2
+    # + eps, its alpha 2 - eps: w and l_zf in (0, 1) and rational, 2 - alpha_P = eps in (0, d1), d1 the least positive
+    # root: off every root (Lemma B.1), l_zf not in N_0
+    eps, epsp = Fr(I['eps'], D), Fr(I['epsp'], D)
+    d1lo = DW.d1_interval()[0]
+    lo_w = Fr(beta(C, 0), D) - epsp - 2 + eps
+    hi_w = Fr(beta(C, C['k3'] - 1), D) - epsp - 2 + eps
+    step3 = 0 < lo_w and hi_w < 1 and 0 < eps < d1lo and 0 < Fr(beta(C, 0), D) - epsp - 2
+    return dict(cand=cand, hit=hit, rng=rng, aK=aK_base, step3=step3, w=(lo_w, hi_w))
 
 
 # ------------------------------------------------------------------------------------------------ main
@@ -745,7 +757,7 @@ def main(selftest=False):
               R9['eci'], [str(x) for x in R9['cands']], R9['hits'] or 'none', R9['ntests'], R9['bad'] or 'none',
               OK['R9']))
     R10 = r10(C)
-    OK['R10'] = not R10['hit'] and R10['rng'] and OK['R6']
+    OK['R10'] = not R10['hit'] and R10['rng'] and R10['step3'] and OK['R6']
     print('  R10 (exact): I9:55-58 (III.I\'\'\'\'\'\'\'\' admissibility), which I11:157 assigns to the levels '
           'alpha < 3, '
           'at every level in (2, 3), alpha_1 = beta_0 = %s included: the range alpha in (2, min(a_K, 3)) holds (at the '
@@ -753,8 +765,11 @@ def main(selftest=False):
           'lambda, lambda in lambda_sharp + N_0 d1, lies in (0, 1.4901), where {-mu} u Re pi_1 E_K is {1, d0, d1, 1 + '
           'd0, 1 + d1, 1 + delta\'_1, 1 + delta_2} (the first clause, alpha - 2 != lambda - 1, is x = 1); the offsets '
           'are R6\'s, outside Q(d1), so the only rational candidate is alpha = lambda_sharp + 1 = %s, a level: '
-          '%s: %s' % (
-              Fr(I['alpha1'], D), R10['aK'], R10['rng'], R10['cand'], R10['hit'], OK['R10']))
+          '%s; Lemma 3.1\'s alpha_0 = alpha_1 < min(a_K, 2 + eps_ind, 5/2) (in the range check above); Lemma 3.2 Step '
+          '3\'s Proposition 5.1 (I9:276-279) at every level below 3: w = alpha - eps\' - 2 + eps in [%.4e, %.4e] '
+          'and l_zf in (0, 1), rational, and 2 - alpha_P = eps below d1, the least positive root: off every root: '
+          '%s: %s' % (Fr(I['alpha1'], D), R10['aK'], R10['rng'], R10['cand'], R10['hit'], float(R10['w'][0]),
+                      float(R10['w'][1]), R10['step3'], OK['R10']))
     if not selftest:
         mg9, where9, N9 = levels_margin(C, X9_set(), 0, C['k3'] - 1, top=False)
         OK['R10m'] = mg9 > 0

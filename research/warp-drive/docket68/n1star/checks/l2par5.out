@@ -1,0 +1,33 @@
+l2par5: the level-2 loop per exponent or per (alpha_0, k): the applications at one exponent act in parallel
+  P0 (READ): 3 files at their pinned md5: True; 10 lines found by content: True (I12:278-281 Step 3 "for each tf-exponent
+      (alpha_0, k) ... treated in turn"; G5:448-461 Proposition 4.4, (4.3), min Re E_ind >= eps_ind, the exponents at 4
+      above Re alpha_0 + eps_ind; G5:479-481 "f is a sum of k+1 such terms ... terms with lower log powers are treated
+      the same way"; J3:62-66 Lemma 1.2 (a), (b))
+  P1 (deduced): each application at alpha_0 acts on the source's terms at alpha_0 and leaves its remainder at real parts
+      >= Re alpha_0 + eps_ind, so no application at alpha_0 sees another's output: at one exponent the applications are a
+      sum of families (Lemma 1.2 (a): the loss of one), and compositions arise only through remainders, which raise the
+      real part; the loop's loss is at most 3 x the longest chain of exponents <= 3 |Lambda cap W| <= 3 P_W on either
+      reading and in any order (the model's increments all have positive real part: True)
+  P2 (computed, exact): the model (window [11/10, 21/10), d1 = 1/8, E_ind = [('1/8', 1), ('3/8', 0), ('1', 0)], sources
+      {'11/10': 2, '6/5': 0, '5/4': 1}): 23 exponents, the longest chain 8; the loop's loss {'(a) per (alpha_0, k), up':
+      24, '(b) per exponent, up': 24, '(c) per (alpha_0, k), random': 24, '(d) per exponent, random': 24}; applications
+      {'(a) per (alpha_0, k), up': 123, '(b) per exponent, up': 23, '(c) per (alpha_0, k), random': 547, '(d) per
+      exponent, random': 38}: the loss is 3 x the longest chain in all four, the counts differ: True
+  P3 (computed): per (alpha_0, k), every term (alpha_0, j) carries at most its exponent's loss read per exponent, and the
+      largest over j equals it (23 exponents, 123 terms): True
+  P4 (READ; computed): LOSS-D LD15 C2-C3 found: True (the named part of Lambda cap W: chains of 3,000,002, 1,470,302,
+      3,000,002 points and the point 3, 7470307 in all); P_W = 85025783 (dnumber5.out, md5 pinned: True) bounds every
+      chain of compositions in W, so the per-level charge 3 P_W = 255077349 holds on both readings: True
+  C1 (control): E_ind with (0, 1) added (a remainder at the same exponent, one log power up; log powers capped at 6):
+      loss 168 > 3 x the longest chain of exponents, 24: True
+  C2 (control): the parallel sums charged in series: loss per (alpha_0, k) 369 = 3 x 123 applications, per exponent 69:
+      the readings differ and neither is 3 x the longest chain: True
+  C3 (control): G5:481 altered in a copy: P0 fails: True
+P0 PASS
+P1 PASS
+P2 PASS
+P3 PASS
+P4 PASS
+C1 PASS
+C2 PASS
+C3 PASS

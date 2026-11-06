@@ -623,27 +623,32 @@ def base_charges(w, ch, meta, cor45_plus_one=True):
                    c_51=tot['iter'], steps23=tot['steps23'])
 
 
-def base_counts(w, aK2=None, theta=Fr(1, 10 ** 9), eta=Fr(1, 10 ** 6)):
+def base_counts(w, aK2=None, theta=Fr(1, 10 ** 9), eta=Fr(1, 10 ** 6), a0=None):
     """the loops of the base at an explicit admissible choice (exact rationals), every choice at the economical end of
     its open range: a_K - 2 = (1 - theta) eps_K < alpha - 4 (the background's (alpha - 2)-); Lemma 3.1's alpha_0 :=
     alpha_1 (III.I'''''''' Proposition 4.1 with N = 0: alpha_1 < a_K as a_K - 2 > eps_K / 2); the Start at s_0 := 1 +
     d - eta d < a_K - 1; the target tau := alpha_1 - d + eta d > alpha_0 + 2 - a_K; III.I''''' Proposition 2.1's rounds
     s_i = min(s_0 + i d, tau) up to tau (I6:223), those with s_i >= lambda_sharp running Step 2's windows (I6:110);
     III.I'' Proposition 5.1 at the target t := s_0 - d in [1/2, 1) (I4:132), from 1/2 (I3:337) in steps
-    min(d, t - alpha'_K) (I3:423). aK2 (a control) replaces a_K - 2."""
+    min(d, t - alpha'_K) (I3:423). aK2 (a control) replaces a_K - 2. a0 (Round 11, the round-10 verifier's nit 2)
+    replaces alpha_0 := alpha_1 by a lower admissible alpha_0; then III.I'''''''' Proposition 4.1 runs N = floor((alpha_1
+    - alpha_0)/d) + 1 steps from alpha_0 to alpha_1 (I9:374-375), each a Lemma 3.2."""
     d = aK2 if aK2 is not None else (1 - theta) * w['eps_K']
     a1, ls = w['alpha1'], DW.LSHARP
+    a0 = a1 if a0 is None else a0
+    N = 0 if a0 == a1 else int((a1 - a0) // d) + 1
     s0 = min(1 + d, Fr(3, 2)) - eta * d
-    tau = max(a1 - d, Fr(1)) + eta * d
+    tau = max(a0 - d, Fr(1)) + eta * d
     t = max(s0 - d, Fr(1, 2))
     R = max(0, ceil((tau - s0) / d))
     i0 = max(1, ceil((ls - s0) / d))
     Rw = R - i0 + 1 if i0 <= R else 0
     n51 = max(0, ceil((t - Fr(1, 2)) / d))
-    req = (0 < d < w['alpha'] - 4 and a1 < 2 + d and 1 < s0 < min(1 + d, Fr(3, 2), tau) and a1 - d < tau < 2
+    req = (0 < d < w['alpha'] - 4 and 2 < a0 <= a1 < 2 + d and 1 < s0 < min(1 + d, Fr(3, 2), tau)
+           and a0 - d < tau < 2
            and Fr(1, 2) <= t < 1 and s0 - d <= t and s0 + (R - 1) * d < tau <= s0 + R * d
            and s0 + (i0 - 1) * d < ls <= s0 + i0 * d)
-    return dict(d=d, s0=s0, tau=tau, t=t, R=R, Rw=Rw, i0=i0, n51=n51, req=req)
+    return dict(d=d, s0=s0, tau=tau, t=t, R=R, Rw=Rw, i0=i0, n51=n51, req=req, N=N)
 
 
 def base_total(w, ch, meta, Mb, W, nb=2, aK2=None, windows=True):
@@ -727,7 +732,12 @@ def main():
     lim = (int((a1 - 1 - 2 * eK) // eK) + 1, None, ceil(1 / (2 * eK)))
     lim = (lim[0], lim[0] - ceil((DW.LSHARP - 1) / eK) + 2, lim[2])
     trip = (bn['R'], bn['Rw'], bn['n51'])
-    OK['M6'] = (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale and len(brows) == NB_ROWS
+    bl = base_counts(w, a0=2 + Fr(1, 10 ** 6) * (1 - Fr(1, 10 ** 9)) * eK)
+    least = lambda m, l32: (m['n51'] * bc['c_51'] + m['R'] * bc['c_r'] + m['Rw'] * 15 * ob['n']['W']  # noqa: E731
+                            + m['N'] * l32)
+    least_ok = (bl['req'] and bl['R'] == bn['R'] and bl['Rw'] == bn['Rw'] and bl['n51'] == bn['n51'] and bl['N'] == 1
+                and least(bl, ob['Mb']) > least(bn, ob['Mb']))
+    OK['M6'] = least_ok and (base_reads_ok() and ranges_ok(BASE_ANCHORS) and not buncl and not bstale and len(brows) == NB_ROWS
                 and bids == set(bt['b']) and bn['req'] and trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim
                 and trip == BASE_PIN)
     by = {}
@@ -760,6 +770,11 @@ def main():
           'floor((alpha_1 - 1 - 2 eps_K)/eps_K) + 1, R - ceil((lambda_sharp - 1)/eps_K) + 2, ceil(1/(2 eps_K)): %s; '
           'pinned: %s' % (bn['req'], bn['R'], bn['Rw'], bn['i0'], bn['n51'],
                           trip == (bn2['R'], bn2['Rw'], bn2['n51']) == lim, trip == BASE_PIN))
+    print('      Round 11 (the round-10 verifier\'s nit 2): alpha_0 := alpha_1 is the least total. At alpha_0 = 2 + '
+          '10^-6 d, the lower end of Lemma 3.1\'s range, the conditions hold (%s), R = %d, R_w = %d, n_51 = %d (the '
+          'same), and III.I\'\'\'\'\'\'\'\' Proposition 4.1 then runs N = %d step from alpha_0 to alpha_1, a '
+          'Lemma 3.2 (one level\'s maps, M_b): its total exceeds alpha_0 := alpha_1\'s: %s' % (
+              bl['req'], bl['R'], bl['Rw'], bl['n51'], bl['N'], least_ok))
     print('      B_base = z + n_51 c_51 + c_S + R c_r + R_w 15 W + 2 M_b = %d + %d + %d + %d + %d + %d = %d (%.4e); the '
           'windows are %.4f of it; Round 9\'s 6 M_b = %d withdrawn' % (
               bc['z'], bn['n51'] * bc['c_51'], bc['c_S'], bn['R'] * bc['c_r'], bt['win'], 2 * ob['Mb'], bt['total'],
@@ -802,6 +817,9 @@ def main():
     OK['C10'] = len(u10) == 1
     print('  C10 (control; Round 10): the base row I6:87 (a round\'s BG) dropped: %d unclassified: %s' % (
         len(u10), OK['C10']))
+    OK['C11'] = not (least(bl, 0) > least(bn, 0))
+    print('  C11 (control; Round 11): at alpha_0 = 2 + 10^-6 d with its Lemma 3.2 not charged, alpha_0 := alpha_1 is '
+          'no longer the strictly least total: %s' % OK['C11'])
     OK['C6'] = not ranges_ok(shift=1)
     print('  C6 (control): every range\'s opening line searched one line off: the anchors fail: %s' % OK['C6'])
     for k, v in OK.items():

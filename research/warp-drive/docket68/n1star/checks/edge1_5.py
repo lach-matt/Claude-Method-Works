@@ -819,8 +819,8 @@ def kvv(r0):
 
 
 def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
-    """sigma(x) = nu st(x) + lam b4 - Xi_ex Lambda (Gamma_R = 1, i^N = 1), Xi_ex with rho_g = -lam^2 kappa_g' (iv'');
-    returns x -> (sigma, kappa, kappa_(N-1), T0)"""
+    """sigma(x) = nu st(x) + lam b4 - i^N Xi_ex Lambda (Gamma_R = 1), Xi_ex with rho_g = -lam^2 kappa_g' (iv'');
+    returns x -> (sigma, kappa, kappa_(N-1), T0, nu)"""
     f, ell = yfun(nm, N + 1)
 
     def sig(x):
@@ -835,7 +835,7 @@ def sigma_model(nm, lam, N, rho0, nu_mode, b4=0, freeze=None):
         Xi = (1 - cN) - 1j*(1 + rho_g)/(T + 1j)
         Lam = lam**(N - 2)*Y[N - 1] if freeze is None else freeze
         st = sum((k + 1)*(1j*lam)**k*Y[k] for k in range(N - 1))
-        return nu*st + lam*b4 - Xi*Lam, kap, kN1, T0, nu
+        return nu*st + lam*b4 - (1j)**N*Xi*Lam, kap, kN1, T0, nu
     return sig, ell
 
 
@@ -848,7 +848,7 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
     def lamb(x):
         Y = f(x)
         return lam**(N - 2)*Y[N - 1]
-    x0 = (lam**(N - 2)*9)**(mp.mpf(1)/(2*N - 2))
+    x0 = (lam**(N - 2)/nuabs(mp.mpf(10)**-3))**(mp.mpf(1)/(2*N - 2))
 
     def bis(fun, lo, hi):
         for _ in range(140):
@@ -858,7 +858,7 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
             else:
                 hi = mid
         return hi
-    nuabs = lambda x: abs(sig(x)[4])                                               # noqa: E731
+    nuabs = lambda x: abs(sig(x)[4] + lam*b4)              # noqa: E731  the stage's scale |nu + lam b4|
     xl = bis(lambda x: lamb(x) - 4*nuabs(x), x0/10**6, x0*10**6)
     xh = bis(lambda x: lamb(x) - nuabs(x)/4, x0/10**6, x0*10**6)
     # min |sigma| on the crossover: coarse log grid, then golden section
@@ -888,7 +888,7 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
         vals = [sig(t) for t in ts]
         S = [v_[0]*mp.e**(ell(t) - ell(x1)) for v_, t in zip(vals, ts)]
         es = [err(t)[0]*mp.e**(ell(t) - ell(x1)) for t in ts]
-        thr = [(v_[1] - v_[2])/(8*v_[1])*abs(v_[4]) for v_ in vals]             # tau_A: c_t kappa^(alpha-1)|nu|/8
+        thr = [(v_[1] - v_[2])/(8*v_[1])*abs(v_[4] + lam*b4) for v_ in vals]    # tau_A: c_t kappa^(alpha-1)|A_s|/8
         if all(abs(v_[0]) >= th for v_, th in zip(vals, thr)):
             ph = max(abs(mp.arg(S[j]/S[0])) for j in range(9)) + max(2*mp.asin(min(1, e_/abs(s_)))
                                                                     for e_, s_ in zip(es, S))
@@ -909,7 +909,7 @@ def dichotomy(nm, lam, N, rho0, nu_mode, b4=0, errmode="r7", nwin=60, ngrid=201)
     for k in range(-nwin, nwin + 1):
         okB &= window(xm + k*per/4)
     T0m = sig(xm)[3]
-    return dict(ok=okA and okB, xm=xm, T0=T0m, smin=smin, nuabs=abs(sig(xm)[4]), nA=nA, nB=nB,
+    return dict(ok=okA and okB, xm=xm, T0=T0m, smin=smin, nuabs=abs(sig(xm)[4]), amag=nuabs(xm), nA=nA, nB=nB,
                 kx2=sig(xm)[1]*xm**2)
 
 
@@ -948,38 +948,60 @@ def e14(control=False):
 CACHE15 = {}
 
 
+def x15_adversary(nm, lam, N, rs):
+    """for i^N = -1: the x where Lambda c_N (kappa - kappa_(N-1)) = |nu'| with b4 > 0 real making sigma(x) = 0, so that
+    sigma' ~ nu' + |B| (kappa - kappa_(N-1)) cancels there"""
+    f, _ = yfun(nm, N + 1)
+
+    def parts(x):
+        Y = f(x)
+        kap, kN1 = Y[1], Y[N]/Y[N - 1]
+        cN = N/((rs + x)**2 + 1)
+        Lam = lam**(N - 2)*Y[N - 1]
+        nup = mp.diff(lambda t: kvv(rs + t), x)
+        return Lam*cN*(kap - kN1) + nup, Lam*cN, kvv(rs + x)
+    x0 = (lam**(N - 2))**(mp.mpf(1)/(2*N))
+    lo, hi = x0/10**8, x0*10**8
+    for _ in range(200):
+        mid = mp.sqrt(lo*hi)
+        if parts(mid)[0] > 0:
+            lo = mid
+        else:
+            hi = mid
+    g0, Bm, nu = parts(hi)
+    return (Bm - nu)/lam                                   # nu + lam b4 = |B|: sigma ~ 0 there
+
+
 def e15(control=False):
-    """Case 3' at rho0 = rho* (N = 12, nu = K(r0)) with (H_rho*)'s first half only (kappa x^2 bounded below) and an
-    unknown structured stage lambda-family lam b4, |b4| = 1, four phases; control: kappa x^2 -> 0 (exp(-1/x^(1/2))) with
-    b4 chosen real and positive so that the two transversal terms cancel at the crossover"""
+    """Case 3' at rho0 = rho* (nu = K(r0)) with (H_rho*)'s first half only (kappa x^2 bounded below) and an unknown
+    structured stage lambda-family lam b4, |b4| = 1, b4 in {1, i, -1, -i}: N = 12 (i^N = 1) and N = 10 (i^N = -1).
+    Control: exp(-1/x^(1/2)) (kappa x^2 -> 0: the first half fails), N = 10, b4 > 0 real chosen so that the two
+    transversal terms of sigma' cancel where sigma is small: a window is left undecided"""
     mp.mp.dps = 60
-    N = 12
     rs = mp.findroot(lambda q: 2*q**3 - 3*q**2 - 2, mp.mpf('1.8'))
     rows, ok = [], True
     if control:
-        lam = mp.mpf(10)**-40
-        nm = "exp(-1/x^(1/2))"
-        # b4 with sigma' ~ nu' + (nu + lam b4) kappa |delta_T| = 0 at the crossover point of b4 = 0
-        d0 = dichotomy(nm, lam, N, rs, 'K', b4=0, nwin=0, ngrid=2)
-        sig, _ = sigma_model(nm, lam, N, rs, 'K')
-        s_, kap, kN1, T0, nu = sig(d0['xm'])
-        nup = mp.diff(lambda t: kvv(rs + t), d0['xm'])
-        b4 = (-nup/(kap - kN1) - nu)/lam
-        d = dichotomy(nm, lam, N, rs, 'K', b4=b4)
+        nm, lam, N = "exp(-1/x^(1/2))", mp.mpf(10)**-40, 10
+        if 'adv' not in CACHE15:
+            b4 = x15_adversary(nm, lam, N, rs)
+            CACHE15['adv'] = (b4, dichotomy(nm, lam, N, rs, 'K', b4=b4, nwin=40, ngrid=41))
+        b4, d = CACHE15['adv']
+        CACHE15['advrow'] = ("exp(-1/x^(1/2)), N = 10, lam = 1e-40, b4 = %s: lam/|nu| = %s at the crossover, windows"
+                             " decided: %s" % (mp.nstr(b4, 3), mp.nstr(lam/d['nuabs'], 3), d['ok']))
         return d['ok']
-    for nm in ("exp(-1/x)", "record C_c^inf"):
-        for E in (40, 80):
-            lam = mp.mpf(10)**-E
-            for b4 in (1, 1j, -1, -1j):
-                key = (nm, E, b4)
-                if key not in CACHE15:
-                    CACHE15[key] = dichotomy(nm, lam, N, rs, 'K', b4=b4, nwin=30, ngrid=101)
-                d = CACHE15[key]
-                ok &= d['ok']
-            rows.append("%s, lam = 1e-%d: kappa x^2 = %s, lam kappa = %s, decided for b4 = 1, i, -1, -i: %s"
-                        % (nm, E, mp.nstr(d['kx2'], 3), mp.nstr(d['T0'], 3),
-                           all(CACHE15[(nm, E, b)]['ok'] for b in (1, 1j, -1, -1j))))
-    out("  X15 Case 3' at rho0 = rho* = %s, N = 12, nu = K(r0), unit constants, with an unknown structured lambda-family"
+    for nm, N, E in (("exp(-1/x)", 12, 40), ("exp(-1/x)", 12, 80), ("exp(-1/x)", 10, 40), ("record C_c^inf", 12, 40)):
+        lam = mp.mpf(10)**-E
+        allb = True
+        for b4 in (1, 1j, -1, -1j):
+            key = (nm, N, E, b4)
+            if key not in CACHE15:
+                CACHE15[key] = dichotomy(nm, lam, N, rs, 'K', b4=b4, nwin=30, ngrid=61)
+            d = CACHE15[key]
+            allb &= d['ok']
+        ok &= allb
+        rows.append("%s, N = %d, lam = 1e-%d: kappa x^2 = %s, lam/|nu| = %s at the crossover, decided for b4 = 1, i,"
+                    " -1, -i: %s" % (nm, N, E, mp.nstr(d['kx2'], 3), mp.nstr(lam/d['nuabs'], 3), allb))
+    out("  X15 Case 3' at rho0 = rho* = %s, nu = K(r0), unit constants, with an unknown structured lambda-family"
         " lam b4: " % mp.nstr(rs, 7) + "; ".join(rows) + "; all decided: %s  [%.0f s]" % (ok, time.time() - T0))
     return ok
 

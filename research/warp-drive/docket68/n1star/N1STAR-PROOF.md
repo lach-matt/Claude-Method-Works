@@ -112,18 +112,19 @@ For pointwise bounds on a symmetric 2-tensor A of Cartesian components, |A| is t
 largest absolute eigenvalue); for arrays of higher rank (|dw|, |dg|), |.| is the Frobenius norm, and ||.|| always
 integrates the Euclidean sum of squares, as Lemmas 2.3-2.4 use <u, d_tau u>. With it, Lemma 1.1 (e) holds for every
 eps1 <= 3/5 with eps1 < mu0/a^2 - 1: g0 restricted to ker dtau, to ker dr on {r = a} and to ker d(v + tau) has least
-eigenvalues 1, min(1, mu/a^2 - 1) and min(1, (3 + mu/r^2)/5), and where mu = mu0 on {r = a} a Lorentzian g with |g - g0|
-= mu0/a^2 - 1 makes {r = a} null [amended D625, noted D627: was "makes it null"] (at the numerical point mu0/a^2 - 1 >
-12, so every eps1 <= 3/5 serves there and none above 0.6013096; D612; computed, `checks/lzerotrace5.py` T6 and
-`checks/eps1hyp5.py` H1-H4). Lemma 2.3 needs more of the same eps1: eps1 < s0, where s0 := inf over Omega of g0's least
-absolute eigenvalue = (m*^2 + 1)^(1/2) - m*, m* := sup_Omega mu/r^2 <= mu_end/a^2. Then every gt with |gt - g0| <= eps1
-is Lorentzian with |gt^-1| <= (s0 - eps1)^-1 (deduced: every eigenvalue of g0 has absolute value >= s0, so |gt x| >= |g0
-x| - |(gt - g0) x| >= (s0 - eps1)|x|; and x.gt x >= (s0 - eps1)|x|^2 on the four-dimensional span of g0's positive
-eigenvectors, while e.gt e <= -s0 + eps1 < 0 for the unit eigenvector e of its negative one, so gt has exactly one
-negative eigenvalue, since a second non-positive direction would meet that span [amended D627: was "a second
-non-positive direction meeting that span"]; this is Weyl's inequality in the case used [amended D625: was "(Weyl's
-inequality)"]), which Lemma 2.3's constants use; for eps1 >= s0 there are Lorentzian gt within eps1 of g0 with |gt^-1|
-unbounded (`checks/eps1hyp5.py` H5-H6). Since mu/a^2 > 1 on {r = a}, s0 < 2^(1/2) - 1 < 3/5. From here on eps1 is
+eigenvalues 1, min(1, mu/a^2 - 1) and min(1, (3 + mu/r^2)/5), and where mu = mu0 on {r = a} a Lorentzian g with
+|g - g0| = mu0/a^2 - 1 makes {r = a} null [amended D625, noted D627: was "makes it null"] (at the numerical point
+mu0/a^2 - 1 > 12, so every eps1 <= 3/5 serves there and none above 0.6013096; D612; computed,
+`checks/lzerotrace5.py` T6 and `checks/eps1hyp5.py` H1-H4). Lemma 2.3 needs more of the same eps1: eps1 < s0,
+where s0 := inf over Omega of g0's least absolute eigenvalue = (m*^2 + 1)^(1/2) - m*, m* := sup_Omega mu/r^2 <=
+mu_end/a^2. Then every gt with |gt - g0| <= eps1 is Lorentzian with |gt^-1| <= (s0 - eps1)^-1 (deduced: every
+eigenvalue of g0 has absolute value >= s0, so |gt x| >= |g0 x| - |(gt - g0) x| >= (s0 - eps1)|x|; and x.gt x >=
+(s0 - eps1)|x|^2 on the four-dimensional span of g0's positive eigenvectors, while e.gt e <= -s0 + eps1 < 0 for
+the unit eigenvector e of its negative one, so gt has exactly one negative eigenvalue, since a second
+non-positive direction would meet that span [amended D627: was "a second non-positive direction meeting that
+span"]; this is Weyl's inequality in the case used [amended D625: was "(Weyl's inequality)"]), which Lemma 2.3's
+constants use; for eps1 >= s0 there are Lorentzian gt within eps1 of g0 with |gt^-1| unbounded
+(`checks/eps1hyp5.py` H5-H6). Since mu/a^2 > 1 on {r = a}, s0 < 2^(1/2) - 1 < 3/5. From here on eps1 is
 one fixed number with 0 < eps1 < min(s0, mu0/a^2 - 1). At the numerical point s0 is in [0.030768559, 0.030768560],
 its value at r = a, mu = mu_end (`checks/lzerotrace5.py` T7; CONSTANTS5.md R4.0 (i)), so there eps1 < 0.0308.
 [amended D623: these sentences replace "With it Lemma 1.1 (e) holds with eps1 = 3/5 (D612; computed,
@@ -381,12 +382,12 @@ O(lam d s) by (M3), and |ell_app - ell| <= C lam. Two things remain: box~_app ph
 phi is driven by s.
 
 **Lemma 3.3 (the ell-ell component; deduced).** box~ s = c1 . d h + c0 . h + c2 . d phi + c3 phi - 2q F(ell, ell) - 2q
-N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded coefficients (profiles, and
-profiles times q of the proof, which depends on w, so not profiles; the terms 2 g0^{ab} d_a(ell ell) . d_b h and h .
-box~(ell ell) carry no q) [amended D623: was "bounded profiles"; amended D625, noted D627: D623's parenthesis read
-"(profiles times q of the proof, which depends on w, so not profiles)"], the sum runs over pairs with i spatial,
-|c^{ai}| <= C(lam + |w|) and |d c^{ai}| <= C(1 + |d w|); N_phi(ell, ell) contains no second derivative of phi. There is
-no 1/lam coefficient.
+N(w)(ell, ell) + 2q N_phi(ell, ell) + sum_{a, i} c^{ai} d_a d_i h, where c0..c3 are bounded coefficients (profiles,
+and profiles times q of the proof, which depends on w, so not profiles; the terms 2 g0^{ab} d_a(ell ell) . d_b h and
+h . box~(ell ell) carry no q) [amended D623: was "bounded profiles"; amended D625, noted D627: D623's parenthesis
+read "(profiles times q of the proof, which depends on w, so not profiles)"], the sum runs over pairs with i
+spatial, |c^{ai}| <= C(lam + |w|) and |d c^{ai}| <= C(1 + |d w|); N_phi(ell, ell) contains no second derivative of
+phi. There is no 1/lam coefficient.
 
 *Proof.* box~ s = (box~ h)(ell, ell) + 2 g0^{ab} d_a(ell ell) . d_b h + h . box~(ell ell). Write g0^{ab} d_a d_b =
 q g^{ab} d_a d_b + sum c^{ai} d_a d_i with q := g0^{tautau}/g^{tautau} (g^{tautau} != 0 by Lemma 1.1(e)); then

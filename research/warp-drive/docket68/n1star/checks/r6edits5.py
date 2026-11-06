@@ -42,7 +42,7 @@ mutants E-m5 and E-m6 passed r5edits5 E1, which read phrases only).
      measured exponents). Control: R5-E's blocks fail at least six of the eight.
 Labels: E1 and E4 text checks; E2 exact (sympy), E2e partly sampled.
 
-    python3 checks/r6edits5.py     (about a minute)
+    python3 checks/r6edits5.py     (one to two minutes on this loaded machine)
 """
 import os
 import random

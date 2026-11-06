@@ -26,7 +26,7 @@ exact numbers; the expression and the values substituted are the same, so the de
 number, evaluated at 60 digits; a component now takes under a second. (2) In mode m3 the mu term is the Python
 integer 0, which has no .doit(): that process died at once, so ZI2 could never have passed; it is now sympified. The
 driver also fails loudly on a missing RESULT line, and three random draws are taken (one in round 5). (3) The first
-complete run showed that m4 does not fail (ZI3 above); m5 replaces it as the fourth control. About eleven minutes for
+complete run showed that m4 does not fail (ZI3 above); m5 replaces it as the fourth control. About fourteen minutes for
 the six modes on this loaded machine (load about 25 on four cores).
 """
 

@@ -69,6 +69,9 @@ D625 (the confirming reads of D623 and D622 seated, with D618's status lines): T
 (the D625 map below), section 6's by _repin_section6; T6 says "at P*" (the confirming reader's nit 8: eps1 = 3/5 holds
 at the numerical point, not in general). Later edits to N1STAR-PROOF.md (the confirming read of D618's sections 9.5 and
 11, Lemma 11.0's replacement) will stale FILE_PIN again; PIN, of sections 0-6, only if they reach those sections.
+D627 (the reader of the D625 seating: one minor, eight notes, seated): T0 re-pinned to the D627 file (lines 1-958 and
+the whole file of 11310 lines) and every row outside section 6 re-keyed by content (the D627 map below); the
+seating's wraps keep every fragment on one line. The same later edits will stale FILE_PIN again.
 """
 import hashlib
 import os
@@ -87,10 +90,10 @@ import envelope5 as EV  # noqa: E402  (round 2's envelope: the Riemann sums that
 
 PROOF = os.path.join(HERE, '..', 'N1STAR-PROOF.md')
 LEAD = os.path.join(HERE, '..', 'lead5.py')
-PIN = '0c9fa8c22c27ca3e93524546f2f38a68'          # md5 of lines 1-948 (sections 0-6, to '## 7.') joined by newlines
-LAST = 948                                         # D625; 817 at D616 (pin 39acbcf0...), 812 at D614 (6e8947ad...)
+PIN = 'f32ebb1a717b08362c04569fb82973de'          # md5 of lines 1-958 (sections 0-6, to '## 7.') joined by newlines
+LAST = 958                                         # D627; 948 at D625 (0c9fa8c2...), 817 at D616 (39acbcf0...)
 SEC7 = '## 7. What is left'                        # D623: LAST is the line of this heading, located by content
-FILE_PIN = '7400212b8ab4ab746fefc00381d6aa4e'     # the whole file at D625 (11287 lines); D616: 709c63be... (10858)
+FILE_PIN = '223e17497eb670ae45f5d4ad28e0d9f5'     # the whole file at D627 (11310 lines); D625: 7400212b... (11287)
 # D615 (Lemma 6.2's proof, D614 lines 634-637 -> 636-642) and D616 (its statement, D614 line 632 -> 632-634) add 5
 # lines; every D614 line above 637 moved by +5, its text unchanged (checked line by line against D614's file).
 
@@ -168,6 +171,12 @@ D625 = {91: 110, 96: 114, 100: 122, 113: 135, 115: 137, 117: 139, 122: 144, 124:
         167: 189, 169: 191, 171: 193, 173: 195, 181: 203, 182: 204, 199: 221, 201: 223, 244: 268, 385: 410, 394: 419,
         395: 420, 440: 463, 441: 464, 442: 465, 468: 490, 470: 492, 504: 529, 505: 530, 584: 609}
 TRACE = [(t, f, (ln if t.startswith('D-') else D625[ln]), fr, st) for t, f, ln, fr, st in TRACE]
+# D627 (the D625 seating's reader's findings seated: the header, 0.3, 0.7, the mollifier, Lemmas 2.2 and 3.3 and Step
+# 6 rewritten or reflowed, with notes): the same re-key, D625 line -> D627 line, against the D625 file (md5 7400212b...)
+D627 = {110: 114, 114: 119, 122: 128, 135: 141, 137: 143, 139: 145, 144: 150, 146: 152, 156: 162, 162: 168, 188: 194,
+        189: 195, 191: 197, 193: 199, 195: 201, 203: 209, 204: 210, 221: 227, 223: 229, 268: 276, 410: 419, 419: 428,
+        420: 429, 463: 473, 464: 474, 465: 475, 490: 500, 492: 502, 529: 539, 530: 540, 609: 619}
+TRACE = [(t, f, (ln if t.startswith('D-') else D627[ln]), fr, st) for t, f, ln, fr, st in TRACE]
 
 
 def _repin_section6(rows):

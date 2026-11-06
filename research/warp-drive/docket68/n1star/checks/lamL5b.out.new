@@ -1,0 +1,11 @@
+  M1 CONSTANTS5.md md5 0320dd9049430c771639045c46b19344: Round 4 at line 880; 'lambda0 < 0.0024433' at lines [891, 899,
+      1064, 1120, 1329, 1500, 1749, 1823, 2055]; the eigenvalue interval at [896, 956, 1065, 2054]; N1STAR-PROOF.md md5
+      223e17497eb670ae45f5d4ad28e0d9f5: 'Z := d_tau - beta_ext' from line [493]
+M1 PASS
+  M2 B <= 1.0974028; C_Phi = C1 ((1 + B)^2 + B^2) <= 5.6033913 C1; Lam_6 = (288 C_Phi/25)^(1/27) <= (64.5511 C1)^(1/27),
+      which is below lambda0's bound 0.0024433 only if C1 < 4.629e-73
+M2 PASS
+  M3 row sums = T_n^(i)(1), signs alternating, n = 6, 10, 16, 24 and i <= 4 (50 digits): True; n = 1455: relative errors
+      5.7e-12, 1.3e-11, 2.7e-11, 5.6e-11, alternating: True; log10 T_1455^(i)(1), i = 1..4: 6.3257, 12.1743, 17.8011,
+      23.2817  [1 s]
+M3 PASS
