@@ -40,7 +40,9 @@ explicit lower bounds for the thresholds (delta_K, eps_m, eps_dat, lambda_1.1, e
      compact X_sigma -> Y_sigma) the absorbed problem is invertible at every real sigma != 0 (deduced).
   A5 (computed; Round 4, the reader's minor 1 and nits 1-2) INVERSE5-SIX R3.1's bound covers both cases of I.B 8.4's
      h for |sigma| >= C_0 >= 1, with h <= h_0, on 2 x 10^5 random (sigma, nu', h_0, delta); control C5: the exponent
-     -(1-delta)/4 in place of -(1-delta)/2 is violated.
+     -(1-delta)/4 in place of -(1-delta)/2 is violated. Round 5: |sigma| = C_0 (1 + 10^U(-8, 3)), so the threshold
+     region |sigma| -> C_0 is sampled (U(0, 3) gave |sigma| >= 2 C_0 only); control C6, the reader's mutant M2 (C_0
+     with exponent -1/4), is violated under U(-8, 3) and printed as surviving U(0, 3).
   Controls (each must fail): C1 lambda1 with eta_gl C_R in place of eta_gl/C_R: A1's monotonicity test fails; C2 alpha
   = 8d: A2's exact value check fails; C3 the absorption with the wrong sign (s = -sgn sigma): the two terms can cancel
   (an
@@ -170,7 +172,8 @@ def a2(alpha_shift=0):
 
 INVENTORY = [
     ('d (the loss), N = 21 d + 6', 'explicit on a reading', 'd <= 46,236,517,538,883,361 (CONSTANTS5 R12.2; deduced on '
-     'its reading, Lambda on (1, 3 + eps_K] as R9.1 takes it; the avoidance conditions decided, rootavoid5 23/23)',
+     'its reading, Lambda on (1, 3 + eps_K] as R9.1 takes it, at the record\'s computational point (R13.2); the '
+     'avoidance conditions decided, rootavoid5 26/26)',
      '-'),
     ('C_k (k <= N), C_(s,t), C1, C2', 'not computed', 'III.K map and right inverses; smoothing constants explicit in '
      'principle (EFFECTIVE-CONSTANTS section 2)', 'B1-B6 and I.C:497 through III.J\'s inverses and the linear theory'),
@@ -218,7 +221,7 @@ def a4():
     return ident and ok_ends
 
 
-def a5(expo=None, n=200000, seed=3):
+def a5(expo=None, n=200000, seed=3, lo=-8, c0e=-0.5):
     """Round 4 (the reader's minor 1, nits 1-2): R3.1's bound covers both cases of I.B 8.4's h. For |sigma| >= C_0 :=
     h_0^-1 (1 - nu'^2)^(-1/2) >= 1: case 1 (Im sigma < nu' |sigma|) h = |Re sigma|^-1 with loss delta; case 2 h =
     |sigma|^-1 with delta = 0; in both 2 C h^(1 - delta_case) <= 2 C (1 - nu'^2)^(-(1-delta)/2) |sigma|^(-1+delta),
@@ -228,8 +231,8 @@ def a5(expo=None, n=200000, seed=3):
     for _ in range(n):
         nu = rnd.uniform(0.01, 0.99)
         h0 = rnd.uniform(1e-3, 1.0)
-        C0 = (1 / h0) * (1 - nu * nu) ** -0.5
-        mod = C0 * (1 + 10 ** rnd.uniform(0, 3))
+        C0 = (1 / h0) * (1 - nu * nu) ** c0e        # c0e = -1/4: the reader's mutant M2 (control C6)
+        mod = C0 * (1 + 10 ** rnd.uniform(lo, 3))   # Round 5: lo = -8 reaches |sigma| -> C_0; lo = 0 did not
         th = rnd.uniform(0, math.pi / 2)
         re_, im_ = mod * math.cos(th), mod * math.sin(th)
         delta = rnd.uniform(0, 1)
@@ -281,7 +284,8 @@ def main():
     OK['A5'] = bad5 == 0
     print('  A5 (computed; Round 4): R3.1\'s bound 2 C (1 - nu\'^2)^(-(1-delta)/2) |sigma|^(-1+delta) covers both cases '
           'of I.B 8.4\'s h (h = |Re sigma|^-1 with loss delta, h = |sigma|^-1 with delta = 0) for |sigma| >= C_0 >= 1, '
-          'with h <= h_0: violations in 2 x 10^5 random (sigma, nu\', h_0, delta): %d' % bad5)
+          'with h <= h_0: violations in 2 x 10^5 random (sigma, nu\', h_0, delta), |sigma| = C_0 (1 + 10^U(-8, 3)): %d'
+          % bad5)
     OK['C1'] = not a1(mutant=True, n=600)
     print('  C1 (control): lambda1 with eta_gl C_R: monotonicity fails: %s' % OK['C1'])
     g2m, valm, _ = a2(alpha_shift=1)
@@ -294,6 +298,10 @@ def main():
     bm = a5(expo=lambda dl: -(1 - dl) / 4)
     OK['C5'] = bm > 0
     print('  C5 (control; Round 4): the factor with exponent -(1-delta)/4: %d violations: %s' % (bm, OK['C5']))
+    m2, m2old = a5(c0e=-0.25), a5(c0e=-0.25, lo=0)
+    OK['C6'] = m2 > 0
+    print('  C6 (control; Round 5): the reader\'s M2, C_0 = h_0^-1 (1 - nu\'^2)^(-1/4): %d violations under U(-8, 3): '
+          '%s (under round 4\'s U(0, 3): %d, which is why A5 was widened)' % (m2, OK['C6'], m2old))
     bad = QUOTES[:7] + [('proof5/PART-VI4-PARAMS.md', r'$\gamma_C = 10^6$, inside the proved set')]
     OK['C4'] = not a0(bad)[0]
     print('  C4 (control): the quote mutated to "inside the proved set": not found: %s' % OK['C4'])
