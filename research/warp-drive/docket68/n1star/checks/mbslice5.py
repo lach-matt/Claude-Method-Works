@@ -633,7 +633,7 @@ def main():
     ok = s3
     s1, ctl1, ctlK = True, True, True
     iq = {}
-    for n in (0, 1):
+    for n in (0, 1, 2, 3):
         A, B, C, kT2, l = MB.class_tt(n)
         nT = sp.integrate(sp.expand(sp.expand_trig((A**2 + B**2 + C**2) * MB.s_ * MB.c_)), (MB.th, 0, sp.pi / 2))
         Iq = MB.theta_integral(td['dens'], td['TA'], n)
@@ -663,28 +663,44 @@ def main():
             ctlK = not zb
             print("   control: K_RR with its w' term dropped (a wrong slice), l = 2: identity fails (rejected): %s "
                   "(%.0f s)" % (ctlK, time.time() - T0), flush=True)
+    # [R9] every l: the theta-integrated density over |T|^2 is affine in k_T^2 (FAMILIES5-MB.md minor 8, deduced);
+    # computed here pointwise in R on every slice for l = 2, 4, 6, 8: (Iq/|T|^2)(l) is the affine interpolant of l = 2, 4
+    cv = Converter(td['F'], sq)
+    u = {l_: cv(v[0]) * RF(QQ(1) / QQ(int(v[1].p), int(v[1].q))) for l_, v in iq.items()}
+    aff = True
+    for l_ in (6, 8):
+        lam_ = QQ(iq[l_][2] - iq[2][2], iq[4][2] - iq[2][2])
+        aff &= (u[l_] - u[2] - RF(lam_) * (u[4] - u[2])).iszero()
+    print("   the theta-integrated density over |T|^2 at l = 6 and 8 is the affine interpolant in k_T^2 of l = 2 and 4, "
+          "pointwise, on every slice: %s (every l: the minor-8 deduction, which this checks at two more l)" % aff)
+    s1 &= aff
     print('S1', 'PASS' if s1 else 'FAIL', flush=True)
     ok &= s1
-    # S2: Lemma X1, l = 2
-    Iq, nT, kT2 = iq[2]
-    cv = Converter(td['F'], sq)
+    # S2: Lemma X1, l = 2, 4, 6, 8
     fR = 1 - MB.mu / R_**2
-    res = {}
-    for extra, label in ((2, 'identity'), (3, 'k_T^2 + 3')):
-        dX = Iq.subs(P, -Yf / Nf * HR).doit() + nT * (R_**3 * fR * HR**2 + (kT2 + extra) * R_ * H**2)
-        res[label] = euler(cv(dX), HJ).iszero()
-    d0 = Iq.subs(H, 0).doit()
-    b_ok = cv(d0 + nT * R_**3 * P**2).iszero()
-    b_ctl = not cv(d0 + 2 * nT * R_**3 * P**2).iszero()
-    s2 = res['identity'] and b_ok
-    print("   S2, l = 2: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero Euler "
-          "operator in H: %s; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: %s (%.0f s)" %
-          (res['identity'], b_ok, time.time() - T0), flush=True)
-    print("   controls: k_T^2 + 3 in place of k_T^2 + 2 fails (rejected): %s; R^3 P^2 doubled fails (rejected): %s" %
-          (not res['k_T^2 + 3'], b_ctl))
+    s2, ctl2, b_ctl = True, True, True
+    for l_ in sorted(iq):
+        Iq, nT, kT2 = iq[l_]
+        res = {}
+        for extra, label in ((2, 'identity'), (3, 'k_T^2 + 3')):
+            dX = Iq.subs(P, -Yf / Nf * HR).doit() + nT * (R_**3 * fR * HR**2 + (kT2 + extra) * R_ * H**2)
+            res[label] = euler(cv(dX), HJ).iszero()
+        d0 = Iq.subs(H, 0).doit()
+        b_ok = cv(d0 + nT * R_**3 * P**2).iszero()
+        b_ctl &= not cv(d0 + 2 * nT * R_**3 * P**2).iszero()
+        s2 &= res['identity'] and b_ok
+        ctl2 &= not res['k_T^2 + 3']
+        print("   S2, l = %d: with P = -(Y_s^R/N_s) H_R, Q-density + |T|^2 (R^3 f H_R^2 + (k_T^2 + 2) R H^2) has zero "
+              "Euler operator in H: %s; with H = 0 the Q-density is -|T|^2 R^3 P^2 pointwise: %s (%.0f s)" %
+              (l_, res['identity'], b_ok, time.time() - T0), flush=True)
+    print("   controls: k_T^2 + 3 in place of k_T^2 + 2 fails at every l (rejected): %s; R^3 P^2 doubled fails at every "
+          "l (rejected): %s" % (ctl2, b_ctl))
     print('S2', 'PASS' if s2 else 'FAIL', flush=True)
     ok &= s2
-    ctl = ctl1 and ctlK and not res['k_T^2 + 3'] and b_ctl
+    s4ok, ctl4 = s4()
+    s5ok, ctl5 = s5()
+    ok &= s4ok and s5ok
+    ctl = ctl1 and ctlK and ctl2 and b_ctl and ctl4 and ctl5
     print("controls rejected:", 'PASS' if ctl else 'FAIL')
     print("S1-S3:", 'PASS' if ok else 'FAIL', "(%.0f s)" % (time.time() - T0))
     return 0 if ok and ctl else 1
