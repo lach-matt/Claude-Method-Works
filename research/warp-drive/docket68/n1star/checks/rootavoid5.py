@@ -715,13 +715,13 @@ def r11(C, plant=None):
 def r12(polys, eC_val=Fr(1, 102400), z_samples=(Fr(4, 10 ** 6), Fr(1, 5), Fr(1, 1000), Fr(49, 256))):
     """the round-2 confirming reader's minor 2: what of Lemma B.1 holds at every admissible parameter point,
     symbolically. (a) box^Ups, z = p/q symbolic: (z + 2)^2 + 4 l (l + 2) = (m/q)^2 iff m^2 - (2 q (l + 1))^2 = p^2 +
-    4 p q (an identity in p, q, l, m), so for every rational z only the finitely many l from the divisor pairs of
-    p (p + 4 q) can carry a rational Q_l root; the s0 class root is rational iff 9 + 4z is a rational square (a
+    4 p q (an identity in p, q, l, m), so for every rational z only the finitely many l from the divisor pairs of p
+    (p + 4 q) can carry a rational Q_l root; the s0 class root is rational iff 9 + 4z is a rational square (a
     countable set of z, met by admissible z < 1/4, e.g. z = 49/256). (b) box^C with gam_C = N symbolic and kappa
-    symbolic (e_C = 1/102400, v_C = 1/2, row c1): N^3 times the scalar sextic is -lam^6 + sum c_i lam^i with c_i in (1/102400) Z[N,
-    kappa]; so for every integer N and every l a rational root lies in (1/102400) Z (substitute lam = y/102400: monic
-    integer); the s0 quartic (times N^2) likewise; the vector quadratic (times N) is monic integer, its rational roots
-    integers."""
+    symbolic (e_C = 1/102400, v_C = 1/2, row c1): N^3 times the scalar sextic is -lam^6 + sum c_i lam^i with c_i in
+    (1/102400) Z[N, kappa]; so for every integer N and every l a rational root lies in (1/102400) Z (substitute lam =
+    y/102400: monic integer); the s0 quartic (times N^2) likewise; the vector quadratic (times N) is monic integer,
+    its rational roots integers."""
     p, q, l, m = sp.symbols('p q l m', integer=True)
     lhs = sp.expand(((p + 2 * q) ** 2 + 4 * q ** 2 * l * (l + 2)) - m ** 2)
     rhs = sp.expand(-(m ** 2 - (2 * q * (l + 1)) ** 2 - (p ** 2 + 4 * p * q)))

@@ -873,9 +873,10 @@ and the paper are not edited; no earlier note is edited.
 
 ### R5.1 Nits 1-3: wording
 
-- *Nit 1 (Lemma R3's [R4] note).* It wrote "h <= min(...)"; R4.1 proves the conclusions for h < min(h_ch', (2 C_a)^(-1/N))
-  and h < min(h_ch, (4C)^(-1/N), (4 C C_K)^-1) only, the record's chain thresholds being strict ("h < h_0", I.B:1505,
-  :1704, :1881). Read "<" (bracketed there). R3.1 is unaffected: |sigma| >= C_0 gives h < h_1 (R4.1).
+- *Nit 1 (Lemma R3's [R4] note).* It wrote "h <= min(...)"; R4.1 proves the conclusions for h < min(h_ch',
+  (2 C_a)^(-1/N)) and h < min(h_ch, (4C)^(-1/N), (4 C C_K)^-1) only, the record's chain thresholds being strict
+  ("h < h_0", I.B:1505, :1704, :1881). Read "<" (bracketed there). R3.1 is unaffected: |sigma| >= C_0 gives h < h_1
+  (R4.1).
 - *Nit 2 (section 5, B3).* "The single missing input: C_8.1, the constant of (8.1)" read with the [R4] note below it
   (C_8.1 before absorption there) said two things; it is read "(8.1)'s chain constant before absorption", the
   record's (8.1) constant being twice it (R4.2; bracketed there).
