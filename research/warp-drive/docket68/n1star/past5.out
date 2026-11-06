@@ -1,4 +1,4 @@
-# past5.py run in full, D632 (2026-11-06); past5.py md5 6f363d664f224b3f5671305c55b46e72; sympy 1.14.0, mpmath 1.3.0
+# past5.py run in full, D632 (2026-11-06); past5.py md5 860f433b477a2875b25e2c8632b4c3cd; sympy 1.14.0, mpmath 1.3.0
 $ python3 past5.py --selftest
 P1 the outer boundary of the past domain is spacelike, margin (kappa/2) t^(-5/4)                     PASS
 P2 box~ (r^-p M(v) Y): no r^(-5/2) term at p = 3/2; g0^-1 in (v, r)                                  PASS
@@ -20,9 +20,12 @@ P6 the rotations annihilate v and r and commute with L0 and box~                
       P7 control 4: failing checks ['d quadrature']
 P7 the sphere-mean flux of the record's radiation field (term by term; quadrature), its v-integral   PASS
 P8 the shift's commutator with box~ is -L0(X) plus terms with decaying factors                       PASS
-      P9: (9.10) = the computed sphere mean True, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms True, the coefficient is 1 - pi/2 True
-      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 True
-      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 False
+      P9: (9.10) = the computed sphere mean True, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms True, the
+        coefficient is 1 - pi/2 True
+      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms
+        False, the coefficient is 1 - pi/2 True
+      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms
+        False, the coefficient is 1 - pi/2 False
 P9 the printed (9.10) and (11.3) (N1STAR-PROOF.md) have the computed coefficients                    PASS
 past5.py: 9/9
 exit 0
@@ -45,10 +48,12 @@ mutant 3 of P7: caught
 mutant 4 of P7: caught
 mutant 1 of P8: caught
 mutant 2 of P8: caught
-      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 True
+      P9 control 1: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms
+        False, the coefficient is 1 - pi/2 True
 mutant 1 of P9: caught
-      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms False, the coefficient is 1 - pi/2 False
+      P9 control 2: (9.10) = the computed sphere mean False, (11.3)'s env'^2 coefficient True, (11.3)'s boundary terms
+        False, the coefficient is 1 - pi/2 False
 mutant 2 of P9: caught
 past5.py mutants: 14/14
 exit 0
-[529 s]
+[485 s]
