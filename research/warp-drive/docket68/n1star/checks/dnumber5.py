@@ -52,7 +52,7 @@ The chain (from the table: dweights5 W1/W3, dceiling5 D4/D6, eflat5 F4-F5, impor
      (II.A2:722-723), M_2.4 again a closed-graph seminorm count (II.A2 Proposition 2.4's proof, :277-279). [SBG]'s own
      boundedness theorem gives no count either (READ: its Proposition 3.32 cites [Hin23a] Corollary 4.34 for uniformly
      bounded symbols; its Theorem 3.44 is "an immediate consequence"; variable orders "mutatis mutandis", p. 66). So
-     c' >= 10 + D_0 and c' has no number in the record (deduced); the program prints d as A' + 106,489,470 c' and what
+     c' >= 14 + D_0 (D_1 >= d-tilde >= 6) and c' has no number in the record (deduced); d is A' + 106,489,470 c'; what
      each c' would give.
   Controls (each mutates the computed path and must fail): C1 the level sum of K4 on a scaled instance (d1 -> 1/97,
   four chains, a level step 1/89, three excess sources) against a brute-force simulation of levels 1-2 (sources,
