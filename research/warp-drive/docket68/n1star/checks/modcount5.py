@@ -96,6 +96,9 @@ scanned here.
   (BASE_PIN) do not move. M5 reads checks/rootavoid5.out (23 checks, all PASS): the finite avoidances are decided.]
   [Round 13: M5 asks at least 23 checks, all PASS, as rootavoid5's author may add checks. M3's partial sum A' + (K +
   1) c' is labelled as such (the round-12 reader's nit 7): d adds B_once (M4).]
+  [Round 14 (the round-13 reader's minor 3, nit 10): M5 requires rootavoid5's rows R0-R11 by name, each PASS (a
+  deleted row fails it; "at least 23" alone did not), none FAIL; M3's second line states the floor and (K + 1) c' as
+  fractions of d itself.]
 
     python3 checks/modcount5.py        (seconds)
 """
@@ -713,11 +716,11 @@ def main():
           '+ 6 = %d (%.6e); pinned: %s' % (
               ab, meta['fwd'], ab - meta['fwd'], be, be - meta['fwd'], cp, DN.KPLUS1, A1, DN.KPLUS1 * cp, d, d, N, N,
               OK['M3']))
-    print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; c\' moves d by %.2e '
-          'of itself; the floor 8,407,505,890,317,054 is %.4f of the bound' % (
-              ab - meta['fwd'], be - meta['fwd'], DN.KPLUS1 * cp / d, 8407505890317054 / d))
     okb, ob = one_offs(w, ab, be, fwd=meta['fwd'], ch=ch, meta=meta)
     dtot = d + ob['B']
+    print('      against round 7\'s c\' in [62, 250 + MODs]: the MODs are %d above 3 and %d below; (K + 1) c\' is %.2e '
+          'of d (Round 14: of d, M4\'s total, not of the partial sum); the floor 8,407,505,890,317,054 is %.4f of d' % (
+              ab - meta['fwd'], be - meta['fwd'], DN.KPLUS1 * cp / dtot, 8407505890317054 / dtot))
     OK['M4'] = okb and (ob['B'], dtot) == (B_PIN, DTOT_PIN)
     print('  M4 (deduced on the reading; computed; Round 9: itemised; Round 10: the base counted, M6): the steps '
           'outside the levels, I15 Step 0 (FWD), Step 1 (the base: M6\'s loops B_loops = %d and two below-3 level '
@@ -735,14 +738,18 @@ def main():
     # .out is read by content (another program's output: every check PASS, none FAIL, at least 23; Round 13: its
     # author may add checks), not md5-pinned
     ra = open(os.path.join(HERE, 'rootavoid5.out'), encoding='utf-8').read().split('\n')
+    # Round 14 (the round-13 reader's minor 3): the rows d rests on, R0-R11, each present by name and PASS
+    rows = dict(x.split() for x in ra if re.match(r'^[RC]\d+ (PASS|FAIL)$', x))
     ra_ok = (ra[0].startswith('rootavoid5: the avoidances of I11:156-160 and of I9:290-291 / I14:124-126')
-             and sum(x.endswith(' PASS') for x in ra) >= 23 and not any(x.endswith(' FAIL') for x in ra))
+             and all(rows.get('R%d' % i) == 'PASS' for i in range(12)) and 'FAIL' not in rows.values()
+             and sum(v == 'PASS' for v in rows.values()) >= 23)
     OK['M5'] = oka and ra_ok
     print('  M5 (READ; computed; Round 9): admissibility. (G): decided in rounds 1-2; eta_1 = %.6e < eta_2 = %.6e < '
           '%.4e, the least real part of Lambda above 2 or 3 minus 2 or 3 (lambdagen5.out L4, dweights5.out W2, md5 '
           'pinned), so 2 + eta_1 and 3 + eta_2 are off Re Lambda: decided: %s; the levels off I11:156-160\'s sets and '
           'eps, eps\' off I9:290-291\'s and I14:124-126\'s (Round 12): decided in checks/rootavoid5.py, its output '
-          'read: at least 23 checks, all PASS: %s' % (float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka, ra_ok))
+          'read: R0-R11 by name (R10: I9:55-58; R11: Theorem B.5), each PASS, none FAIL, at least 23 rows: %s' % (
+              float(ad['eta1']), float(ad['eta2']), float(ad['m']), oka, ra_ok))
     brows, buncl, bstale = base_census()
     bt = ob['base']
     bn, bc = bt['n'], bt['c']

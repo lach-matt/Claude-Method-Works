@@ -35,6 +35,15 @@ certified sup over the whole box, and sum(vol * sup^2) a certified bound on the 
                                                     round-robin into W2; accepted boxes and counters go to chunk 0)
 Checkpoints go to $RCERT5D_DIR (default: <tmp>/rcert5d; round 4 used the session's scratch directory).
 
+[Round 6, the verifier of round 5, M5-A: the round-5 C1 reached Engine.bound and its flag only, never kids(),
+box_coeffs or inputs(..., box=True); a mutant passing vp twice at kids' call site (the remainder dropped there) passed
+every check of --collect, and one dropping abs in bound passed C1.  C1 now also runs END TO END through Engine.kids
+(kids_control): an Engine on test fields t^4 and x^4 (exact sups known; for them the sound bound exceeds the true sup
+by only 3 h^4) and eight signed combinations, negative centre values included, at half-widths 0.005-0.25.  The
+verifier's mutants mA1-mA4 and mA6, rebuilt on this file, fail it; mA5 (box_coeffs at half the half-width) is sound
+for every function -- the enclosure's overcount factors of the order-4 and order-5 terms, 4 and 10, become 2 and 2.5,
+still >= 1 -- so no test can fail it.  D2 now uses certified LOWER ends (D4's centre points), and D4's independence is
+stated exactly: it does not use the Taylor models, but shares point_coeffs and the generated frame code.]
 [Round 5, the verifier of round 4, M-A: C1 exercised its own copy of the bound assembly, so a mutant with the
 engine's Lagrange remainder dropped passed D1 with an unsound bound while C1 still printed "caught".  Repaired: the
 engine and C1 now call ONE assembly, Engine.bound (C1 builds an Engine and bounds its test polynomials with it, so a
@@ -295,28 +304,35 @@ def collect(W, tau):
         'finished' if done else 'NOT finished', len(acc), ', '.join('%d: %d' % kv for kv in sorted(dist.items())),
         nb, npar, tiles))
     print('   certified sup over the box: ' + ', '.join('%s <= %.3e' % (k, s_) for k, s_ in zip(FRL, sup)))
-    print('   largest certified centre values (lower bounds for the sup): ' +
+    print('   largest centre values, the upper ends of the engine\'s centre balls: ' +
           ', '.join('%s %.3e' % (k, c_) for k, c_ in zip(FRL, cen)))
     print('   sum vol * max_k sup_k^2 = %.4e over vol %.4e (rms bound %.3e); cpu %.0f s, wall %.0f s (%.2f s per box)'
           % (l2, vol0, (l2 / vol0) ** 0.5, cpu, wall, cpu / max(nb, 1)))
     ok1 = done and tiles and max(sup) <= tau
     print('D1 %s' % ('PASS (every component certified <= tau on the whole box)' if ok1 else 'FAIL'))
-    over = [k for k, c_ in zip(FRL, cen) if c_ > TAU_G10]
-    print('D2 (certified) components whose certified centre value exceeds tau\' = %.1e somewhere in the box: %s; so no '
-          'bound of any method meets tau\' there' % (TAU_G10, ', '.join(over) or 'none'))
     frame, names = frame_cached()
     w_real = test_poly_control(Engine(C3, g, frame, names))
     w_mut = test_poly_control(Engine(C3, g, frame, names, drop_remainder=True))
-    c1 = w_real <= 1.0 and w_mut > 1.0
-    print('C1 (control) the ENGINE\'s own assembly (Engine.bound) on the test polynomials: largest true/bound %.4f '
-          '(must be <= 1); the same engine with the remainder dropped: %.4f (must exceed 1) -> %s' % (
-              w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else 'BAD'))
+    k_real = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm), g)
+    k_mut = kids_control(lambda C_, g_, fr, nm: Engine(C_, g_, fr, nm, drop_remainder=True), g)
+    c1 = w_real <= 1.0 and w_mut > 1.0 and k_real <= 1.0 + 1e-12 and k_mut > 1.0
+    print('C1 (control, round 6: END TO END through Engine.kids) test fields t^4 and x^4 and eight signed combinations '
+          'on the children of %d parent boxes (half-widths 0.005-0.25), exact sups known: largest true/bound %.10f '
+          '(must be <= 1); the same with the remainder dropped: %.4f (must exceed 1); and Engine.bound alone on the '
+          'round-5 test polynomials: %.4f and %.4f -> %s' % (
+              len(KIDS_PARENTS), k_real, k_mut, w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else
+              'BAD'))
     t4 = time.time()
     worst, viol, npts = box_gate(C3, g, frame, names, acc)
     d4 = viol == 0
-    print('D4 (certified, independent of the engine) certified lower ends at the centre and 8 corners of every one of '
-          'the %d accepted sub-boxes (%d points, grid_values): largest (point value)/(box sup) %.3f, violations %d -> '
-          '%s (%.0f s)' % (len(acc), npts, worst, viol, 'PASS' if d4 else 'FAIL', time.time() - t4))
+    print('D4 (certified; independent of the engine\'s Taylor models, sharing its point_coeffs and generated frame '
+          'code) certified lower ends at the centre and 8 corners of every one of the %d accepted sub-boxes (%d points, '
+          'grid_values): largest (point value)/(box sup) %.3f, violations %d -> %s (%.0f s)' % (
+              len(acc), npts, worst, viol, 'PASS' if d4 else 'FAIL', time.time() - t4))
+    over = [k for k, c_ in zip(FRL, box_gate.cen_lo) if c_ > TAU_G10]
+    print('D2 (certified, from D4\'s centre points: certified LOWER ends) largest per component: %s; components above '
+          'tau\' = %.1e somewhere in the box: %s; so no bound of any method meets tau\' there' % (
+              ', '.join('%s %.3e' % kv for kv in zip(FRL, box_gate.cen_lo)), TAU_G10, ', '.join(over) or 'none'))
     Cs = R5.shifted(C3, g, 0.01)
     eng = Engine(Cs, g, frame, names)
     kids = eng.kids(children(BOX)[0])
@@ -363,6 +379,7 @@ def box_gate(C3, g, frame, names, acc):
     """D4: for every accepted box, the certified lower ends at its centre and its 8 corners (grid_values on the lattice
     of the box's size) against the box's certified sup; returns (largest ratio, violations, points evaluated)"""
     worst, viol, npts = 0.0, 0, 0
+    cen_lo = [0.0] * 8
     bysize = {}
     for b, sup, cen, d in acc:
         bysize.setdefault((b[1], b[3], b[5]), []).append((b, sup))
@@ -379,10 +396,13 @@ def box_gate(C3, g, frame, names, acc):
             for b, sup in boxes:
                 for ot, os_, ox in itertools.product(offs, offs, offs):
                     vals = lo[it[key(b[0] + ot * ht)], is_[key(b[2] + os_ * hs)], ix[key(b[4] + ox * hx)]]
+                    if len(offs) == 1:
+                        cen_lo = [max(a_, float(v_)) for a_, v_ in zip(cen_lo, vals)]
                     for k8 in range(8):
                         r_ = vals[k8] / sup[k8] if sup[k8] > 0 else (np.inf if vals[k8] > 0 else 0.0)
                         worst = max(worst, r_)
                         viol += int(r_ > 1)
+    box_gate.cen_lo = cen_lo
     return worst, viol, npts
 
 

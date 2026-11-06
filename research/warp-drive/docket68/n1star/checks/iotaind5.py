@@ -45,6 +45,12 @@ constructions, which this program follows at b0:
   d0 enters and I3 fails; C2 the recipe collecting the 1-form statements' E_ind (III.D''' (4)-(7), relative to mu + 2):
   1 + 2 d0 enters and I3 fails; C3 Proposition 5.1's u_b with the roots above its leading exponent -2 admitted (a weight
   just above -2 in place of (0, eps_ind)): 1 - delta_2 enters and I1 fails; C4 G3:339 altered in a copy: I0 fails.
+  [Round 14 (the round-13 reader's nits 4-6). I1's run near b0 now mixes the types (every type's roots in u_2) as well
+  as adding the companions; it still gives the window {1}. The reason S_1 = V_1 = 0 at b0 is that their equations'
+  data, the linear forms lambda_s1 and lambda^sharp of h-approx (F5:290-293), pair the physical state (l = 2) with the
+  s1 and v1 dual states (l = 1) and vanish by type orthogonality at b0 (F5:210-211); A(b0) = 0 alone would not do it.
+  The models leave out pieces that cannot bring an offset below 2: roots_L lists no v-type box^Ups roots + 1 for v2 and
+  nothing for t2, and Proposition 5.1's u_b omits box^C's root just above 1 (F5:314), at offset about 3 from -2.]
 
     python3 checks/iotaind5.py        (about two minutes: two root censuses)
 """
@@ -354,7 +360,7 @@ def main():
           'F5:294 the companions; VI4:31-32 e_Ups, gamma_Ups bounded above; VI4:147 h = 10^-6 outside (0, h_*)); the '
           'root census certified: %s' % (len(FILES), md5, len(READS), found, CENSUS_OK))
     E0, rows = least()
-    EG, _ = least(generic=True)
+    EG, _ = least(all_types=True, generic=True)
     w0, wG = window(E0), window(EG)
     OK['I1'] = not [w for w in E0 if val(w) < 2] and [val(w) for w in wG] == [1]
     print('  I1 (computed): the least E^iota_ind at b0, the offsets of every tower term from its chain degree, %d '

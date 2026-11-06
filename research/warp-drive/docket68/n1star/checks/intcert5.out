@@ -4,3 +4,7 @@ C3 (interval arithmetic, the background itself) R >= R_*: hyperbolicity of Sigma
    control: DOP853 inside the enclosures: True; with Q(3) shifted by 1e-6 it leaves them (rejected): True
    Sigma' (R >= R_*) in {u <= u1}: R_*^2 > mu_end: True; phi < tau_ray(3.50) - tau0 = 0.0807 on the support (phi <= 2.7e-06): True; the ray reaches R = 3.50 before the shell: True; the shell ends on Sigma_tau0 at R < 5.3725 < 5.75: True
    Sigma' (A = 0.01) on R in [R_*, 5.75]: kappa' > 0 and K'^l_l < 0 certified on every cell: True (2300 interval evaluations; largest upper bound of kappa' K'^l_l = -2.9597e-04); beyond 5.75, Sigma' = Sigma_tau0 in Tangherlini of mass mu_end, Nk = (mu/R^3)(f - 3) < 0 exactly
+   control: Sigma_tau0 (A = 0) not certified (1944 cells fail; rejected): True
+   the band on Sigma_tau0, the background itself, on [R_*, 5.75] (23000 cells): Nk < 0 certified outside the edge zones [4.2882, 4.2955], [4.5258, 4.5310], Nk > 0 certified on [4.2955, 4.5258] between them, the sign unresolved inside the zones (widest 0.0073): True
+C3 PASS
+C1, C1d (interval arithmetic) Gamma > 0 on the whole seed region R in [0.70, 1.861]: the computed background, and every background within d of it

@@ -7,13 +7,14 @@ E1  R6-D's replacement text for Lemma 11.0, applied to a copy of the live N1STAR
   E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the family index
         delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its reason, and [R7] (k)
         R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed over the family, (n) b . d U
-        not known, (o) b^n, c^n with the same constants, [R8] (p) c U one order lower, (q) Lemma 11.1 applies to u_1^n
-        (text: the induction's structure is a read proof): pass {'a': True, 'b': True, 'c': True, 'd': True, 'e': True,
-        'f': True, 'g': True, 'h': True, 'i': True, 'j': True, 'k': True, 'l': True, 'm': True, 'n': True, 'o': True,
-        'p': True, 'q': True}
+        not known, (o) b^n, c^n with the same constants, [R8] (p) c U one order lower, (q) Lemma 11.1 applies to u_1^n,
+        and on Edit 2 (r) the forcing is f_gamma^n, whose definition contains b . d U, (s) Gronwall on sums over the
+        family, (t) one family index throughout (text: the induction's structure is a read proof): pass {'a': True, 'b':
+        True, 'c': True, 'd': True, 'e': True, 'f': True, 'g': True, 'h': True, 'i': True, 'j': True, 'k': True, 'l':
+        True, 'm': True, 'n': True, 'o': True, 'p': True, 'q': True, 'r': True, 's': True, 't': True}
   E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False, 'c':
         False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False, 'k': False, 'l':
-        False, 'm': False, 'n': False, 'o': False, 'p': False, 'q': False}
+        False, 'm': False, 'n': False, 'o': False, 'p': False, 'q': False, 'r': False, 's': False, 't': False}
   E1s re-applying R6-D to the undone copy gives the live file but for its two D630 marks (2 found): pass
 E2  the mathematics the edited Lemma 11.0 states, read from its text
   E2a Leibniz's rule with the sign, 1/2 and C(gamma, gamma') read from both sums (orders 1..3, exact): pass read [(1,
@@ -25,7 +26,7 @@ E2  the mathematics the edited Lemma 11.0 states, read from its text
   E2c the Gronwall kernel and ||f_gamma||'s bound read are the sum of the two bounds read: pass kernel C(1 + lam^-1)
         t^(-3/2); f's C(1 + lam^-1) t^(-3/2)
   E2d the factor read equals exp of the kernel's integral over t >= lam^-2 (computed), lam-free: pass read e^(2C(1 +
-        lam)); computed exp(2*C*(lam + 1))
+        lam)), Edit 2 e^(2C(1 + lam)); computed exp(2*C*(lam + 1))
   E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 20 sampled
         subsolutions stay below it: pass
   E2f Edit 2's closing bound read: int t'^(-3/2) = 2(t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) (exact): pass int =
@@ -33,6 +34,10 @@ E2  the mathematics the edited Lemma 11.0 states, read from its text
   E2g the L^2 powers on Sigma_tau cap P+ computed from the classes read match the bounds read: pass E_3 -> t^(-3/2), E_2
         -> t^(-1/2), products <= t^(-2) (read: t^(-2)); read ||R_gamma|| t^(-3/2); volume t^3 (read: t^3)
   E2h the bookkeeping inequality read holds for N = 1..2000: pass floor((N + 2)/2) <= max(4, N - 3) for every N >= 1
+  E2i [R8, n3] the rotation case: for pure-rotation gamma the |gamma'| = |gamma| product is t^(-3/2), not <= t^(-2), and
+        ||R_gamma|| <= C t^(-3/2) stands (or the family, kernel t^-2); c U as a source needs Cartesian gamma (exact):
+        pass Omega: E_5/2 -> r^(-5/2), d: -> r^(-7/2); Lagrange True; product t^(-3/2) (rotation), t^(-5/2) (Cartesian),
+        source t^(-3/2); kernel t^-2 -> C*lam**2; c U as a source: lam**2 (Cartesian), oo (rotation)
 E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 E-m5: c U's bound lam^-1 -> lam^-3: caught: pass failing: ['E2b', 'E2c']
   E3 E-m6: the factor -> e^(2C/lam): caught: pass failing: ['E2d']
@@ -40,6 +45,10 @@ E3  controls: the text under test mutated, each mutation must fail E1 or E2
   E3 C(gamma, gamma') dropped at the |gamma'| >= 2 sum: caught: pass failing: ['E2a', 'b']
   E3 R_gamma's source E_3 -> E_(5/2): caught: pass failing: ['E2g']
   E3 max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read): caught: pass failing: ['E2h']
+  E3 M10: Edit 2's factor e^(2C(1 + lam)) -> e^(2C/lam): caught: pass failing: ['E2d']
+  E3 M14: Edit 2's f = f_gamma^n -> R_gamma^n (b . d U taken as known): caught: pass failing: ['r']
+  E3 M19: Edit 2's sums removed (Gronwall per gamma): caught: pass failing: ['s', 't']
+  E3 M12: the family index |delta| = j + 1 -> j: caught: pass failing: ['t']
 E4  R8-E's paper blocks (final) against RESPONSE-HL-5D.md (not edited)
   E4a each old text occurs exactly once in the paper: pass [1, 1, 1]
   E4b the edited paper keeps every line within 121 characters: pass []
