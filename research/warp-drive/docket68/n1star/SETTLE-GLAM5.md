@@ -2082,7 +2082,7 @@ Status: written; not yet read by a verifier. Labels as in rounds 2-5: a check ma
 consequence of exponents or rules entered by hand, and its control cannot fail under a mutation of the operator. New
 programs, each with its `.out` from a full run, byte-identical on a second run, and with controls that mutate the code
 or the text under test: `checks/r6settle5.py` (X, Y, M, L, A0, T), `checks/r6sigma5.py` (S1-S4: F_4 on the full
-operator; W: the window computed as a whole), `checks/r6edits5.py` (E1-E3: R6-D applied to a copy of the live
+operator; W: the window computed as a whole), `checks/r6edits5.py` (E1-E4: R6-D applied to a copy of the live
 N1STAR-PROOF.md, and the mathematics it states read from the text and checked). Changed and rerun: `r5settle5.py` (F1
 exact, F1x; G5 with Lemma R4.5 widened, G5c; [arithmetic] labels), `r5edits5.py` (E1f: R5-D's mathematics read from its
 text), `zinv5.py` (its evaluation repaired; its first complete run; control m5 in place of m4, which is a no-op, ZI3).
@@ -2244,13 +2244,19 @@ R5-C (v) is not a condition of Theorem R5.1; it is kept, computed, as the sharpe
 - Run times, measured on this machine under load (about 25 on four cores), are given with the run lines below; the
   round-5 figures were optimistic.
 
-**The reader's surviving mutants, rerun on the code and text as they now stand** (its scripts, applied to scratch
-copies, unchanged except for the path): F-m1 (Phi = v - 1/r in F1) and F-m2 (|H| = 6 r^-2 in F1) now fail F1 (r^2
-lambda_min -0.746 and -2.456); E-m5 (c U's bound lam^-1 -> lam^-3) and E-m6 (the factor -> e^(2C/lam)) now fail r5edits5
-E1f, and their counterparts on R6-D fail r6edits5 E2b-E2d (E3). Every other mutant of its report still fails as before
-(A-m1, A-m3, A-m2 by assertion, D-m1, F-m3, C-m1, E-m1-E-m4, E-m7, E-m8); A-m4 is still a no-op of the model, and G-m1's
-anchor (G5's condition line) has changed; its content is now G5c, a control that fails as it must. Counts: R6.0's
-ledger.
+**The reader's surviving mutants, rerun on the code and text as they now stand** (its scripts, applied to scratch copies
+of the current files, unchanged except for the path; outputs in this round's scratch, mutout/): F-m1 (Phi = v - 1/r in
+F1) and F-m2 (|H| = 6 r^-2 in F1) now fail F1 (the minimum of r^2 lambda_min is -0.7322 and -2.2860 against 0.2678
+unmutated). E-m6 (the factor -> e^(2C/lam)) now fails r5edits5 E1f (its E2d). E-m5 (c U's bound lam^-1 -> lam^-3), as
+its mutE.py applies it, replaces the first occurrence of its string in the file, and that is R4-B's superseded
+replacement text (line 1106 of the round-5 file), not R5-D: the mutant never reached the code under test, in round 5 or
+now, and no check of R5-D could have caught it; the same script's E-m4 has the same defect (R4-B's line 1075), which its
+mutE2.py avoided by working inside R5-D's section. Applied inside R5-D, E-m5 fails E1f (E2b, E2c) and E-m4 fails E1a;
+applied inside R6-D, E-m5, E-m6 and E-m4 fail r6edits5 (E2b-E2c, E2d, E1a), and r6edits5 E3 carries E-m5 and E-m6 among
+its own six controls. Every other mutant rerun fails as before: A-m1 and A-m3 (A2), A-m2 (by assertion), D-m1 (D5), F-m3
+(F1), E-m1, E-m2, E-m3, E-m7 (E1d, and E1f for E-m2 and E-m7), E-m8 (E1a); A-m4 is still a no-op of the model; G-m1's
+anchor (G5's condition line) has changed, and its content is now G5c, a control in the program that fails as it must;
+C-m1 (cclass5, unchanged) was not rerun.
 
 **The claims the reader found exercised by no check**, each now: R5-D's mathematics and the uniformity in n (r6edits5
 E2a-E2h, E1d (j), with mutation controls E3); the exterior energy identity and the continuity of 𝔈 (r6settle5 X1-X4);

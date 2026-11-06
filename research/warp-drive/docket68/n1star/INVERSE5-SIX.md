@@ -11,7 +11,7 @@ text for CONSTANTS5.md R9.7 block 2 and R9.5.
 
 *Programs* (new; each with `--selftest`, named checks, failing controls, full run in its `.out`):
 `checks/inverse6_5.py` (the microlocal constants at L_b0 and the replacements' arithmetic; 17/17: K1-K8, controls
-C1-C9; seconds) and `checks/inverse6_5m.py` (certified spectral bounds for the mode-decomposed operators; 12/12: M0-M7,
+C1-C9; about a minute) and `checks/inverse6_5m.py` (certified spectral bounds for the mode-decomposed operators; 12/12: M0-M7,
 controls C1-C4; about two minutes). Imported, not copied: `strap5.py` (III.F (4.2)'s matrix A), `e2certify5.py`
 (r_*(t), decimal rounding), `modes5.py` M2-M3 and `gmodes5.py` G1 (the master relations, rerun inside M7).
 

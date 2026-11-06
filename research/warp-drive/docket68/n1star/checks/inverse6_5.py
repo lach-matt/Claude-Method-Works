@@ -56,7 +56,7 @@ under the homothety t, r -> lam t, lam r or scales as stated. Units: the trapped
   vartheta_L = 2 - 2x > 0; C7 K6 with kappa = nu/4 (the gap doubled): F moves outside the pinned interval; C8 K7
   without the R' term; C9 K8 without the last term of the identity.
 
-    python3 checks/inverse6_5.py [--selftest]          (seconds)
+    python3 checks/inverse6_5.py [--selftest]          (about a minute on a loaded machine)
 """
 import builtins
 import contextlib

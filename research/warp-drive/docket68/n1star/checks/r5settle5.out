@@ -18,3 +18,11 @@ B  K* of Lemma R3.2 as a function of k0 (round 3, m5)
   B4 control (the code mutated: s held fixed at 37): the second differences vanish (K* linear), so the quadratic term is
         s's growth with M: pass ['0', '0']
 C  the interpolation optimum recomputed (round 3, P8c-P8d)
+  C1 the optimum over sigma = lam^beta is (K - 3)(1 - th_k) - M th_k at beta* = (K - 3 + M)/(J' - 3) (12 random K, M; k =
+        5, 6, 7): pass
+  C2 beta* > 1 (sigma inside the far region r >= lam^-2) exactly when K - 3 + M > J' - 3: pass
+  C3 control (the remainder exponent mutated to J' - 4): the formula fails: pass
+  C4 control (no optimisation, beta = 0: a fixed radius): the exponent is -M < 0: pass
+D  the causal structure on W: v is not a time function; v + eps t and Phi_W are (round 3, m1)
+  D1 (g_b0 + eps h)^-1(dv, dv) vanishes at eps = 0, has first variation -h(ell, ell) (exact) and takes both signs (h =
+        +-dx1^2, eps = 1/100): v is not a time function for the perturbed metrics: pass ['-1', '1']
