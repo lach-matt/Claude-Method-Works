@@ -3297,12 +3297,13 @@ repair finds exactly this one displacement and nothing else; round 8's seven lin
 
 **(m2) R8-E's status was behind D632.** Accepted. D632 (N1STAR-LOG.md; N1STAR-PROOF.md lines 55-61 and 10941-10952 at
 md5 5043cedf) seats the confirming read of sections 9.5, 9.10 and 11: R6-D byte-exact in Lemma 11.0, its induction
-holding line by line, one minor finding and eight nits seated; D633 (in progress in N1STAR-PROOF.md, which now reads "It
-is proved (D632) [amended D633: was "It is deduced"]") marks section 11 proved. R8-E (b), its list of what must be read
-for "proved", and its Blocks 1 and 2 ("whose Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11,
-awaits a confirming read") are superseded by R9-E, where the repair "has been read by a confirming reader (D632)" and
-section 11.1 is "proved (D632, D633)". [R9] notes are inserted at the four sites. E4 now reads R9-E's blocks, and E4c'
-checks that R8-E's blocks fail exactly the eight predicates round 9 adds.
+holding line by line, one minor finding and eight nits seated; D633 (landed: N1STAR-PROOF.md md5 5c1a186a, 11402 lines;
+section 9.5 and Theorem M, section 11, now "proved (D632)", amended in place, the header saying sections 9.1-9.5, lines
+1-962 keeping their numbers) marks section 11 proved. R8-E (b), its list of what must be read for "proved", and its
+Blocks 1 and 2 ("whose Lemma 11.0 repair is seated and, with D618's edits to sections 9.5 and 11, awaits a confirming
+read") are superseded by R9-E, where the repair "has been read by a confirming reader (D632)" and section 11.1 is
+"proved (D632, D633)". [R9] notes are inserted at the four sites. E4 now reads R9-E's blocks, and E4c' checks that
+R8-E's blocks fail exactly the eight predicates round 9 adds.
 
 **Nits.**
 - (1) The paper's md5 is now b21cd7ca; it differs from 4c121081 in md5-table rows only. R9-E's old texts are located by
@@ -3404,9 +3405,8 @@ point with r >= 4R and v >= v1: a point of S. Otherwise gamma stays in {r >= 4R}
 while t~ <= 0 it lies in the compact set {t~(p) <= t~ <= 0, 4R <= r <= r(p) + 2|t~(p)|}, where, since dt~ is uniformly
 timelike, its coordinate velocity parametrised by t~ is bounded; if t~ stayed below 0, gamma would have an endpoint and
 be extendible. So gamma reaches t~ = 0, at a point with r >= 4R and v >= v1: a point of S. In the chart, W's boundary is
-{t~ = 0} cap W = S, {v = v1} cap W = N and the end tau -> -oo at fixed v and xhat; r = v
-- tau >= v1 - tau on W.
-(ii) From Part VII Lemma 1.2's proof (PART-VII-ASSEMBLY.md 150-159, proved): on Sigma_IVP cap {r_0 <= r <= 4R}, which
+{t~ = 0} cap W = S, {v = v1} cap W = N and the end tau -> -oo at fixed v and xhat; r = v - tau >= v1 - tau on W. (ii)
+From Part VII Lemma 1.2's proof (PART-VII-ASSEMBLY.md 150-159, proved): on Sigma_IVP cap {r_0 <= r <= 4R}, which
 contains dS, tau >= tau0 + 1, v >= v_end + 2 and tau <= tau_top, so tau_S >= tau0 + 1, tau_S <= tau_top and v1 >=
 v_end + 2; V' >= tau_top + 2R + q_end + 1; tau'_end >= V' - q_end and tau'_end >= tau_top + 1; r_0 > a' and 4R > r_0.
 Then m_Omega = V' + 1 + tau'_end - 2 tau_S - 4R >= 2V' + 1 - q_end - 2 tau_top - 4R >= q_end + 3. For v <= v1 + 1/2 and
@@ -3469,11 +3469,10 @@ confirmed, every finding seated in R5.0-R9.0; round 9 not yet read), and **condi
 
 What has to be read for the label "proved": round 9 of this file (Lemma R9.1 with `r9beyond5.py`, and the repairs of
 R9.0). When an independent reader has read it and confirmed it, Theorem R5.1 is **proved**, conditional on supplement
-section 11.1, proved (D632, D633): outcome B below; until then outcome A. Both outcomes presuppose D633: if section 11
-is not yet labelled proved when a block is seated, "proved (D632, D633)" does not hold, and neither block is to be
-seated. Not evaluated: lam_2, eps, delta, lam_1 (another workstream), in either class. The list was made by reading
-every statement outside this file that rounds 2-9 cite on the theorem's chain and the round-6 to round-8 readers' lists;
-nothing else is open in the theorem.
+section 11.1, proved (D632, D633): outcome B below; until then outcome A. Both outcomes rest on D633, which has landed
+(N1STAR-PROOF.md md5 5c1a186a: Theorem M, section 11, "proved (D632)" [amended D633]). Not evaluated: lam_2, eps, delta,
+lam_1 (another workstream), in either class. The list was made by reading every statement outside this file that rounds
+2-9 cite on the theorem's chain and the round-6 to round-8 readers' lists; nothing else is open in the theorem.
 
 *Computational support, stated as what was computed.* As R8-E's, with: the past domain of dependence, its placement and
 its displacement (Lemma R9.1, `r9beyond5.py` B1-B6); K5 and K6 attained, K2's worst directions computed (r7settle5);
@@ -3647,12 +3646,12 @@ half-integer orders, is proved in section 9 (Beyond the boundary), conditional o
 
 Ledger (round 9). New: `r9beyond5.py` (@@N_B@@ checks) and `r9text5.py` (@@N_T@@). Changed and rerun: `r7settle5.py`
 (@@N_K@@ checks), `r6edits5.py` (@@N_E@@). Every new or changed `.out` is from a full run and byte-identical on a second
-run; the other programs are unchanged and their `.out` files stand, r5edits5 and r6sigma5 rerun as well (r5edits5 reads
-R5-D and imports r6edits5): @@OTHERS@@. Deduced: Lemma R9.1. READ: PART-VII-ASSEMBLY.md 123-129, 150-159, 162-163, 177
-(Lemma 1.2's proof, the radiation field after the shell, Sigma_IVP's form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1
-(c), Theorem P (P-i)-(P-v), at md5 @@PROOFMD5@@ (5043cedf at D632; D633's edits since are to status lines);
-N1STAR-LOG.md D632; BEYOND5.md 177-212 (md5 b67a56b2, not edited); RESPONSE-HL-5D.md (md5 @@PAPERMD5@@); git 54c8634's
-SETTLE-GLAM5.md. None from outside sources.
+run; the other programs are unchanged and their `.out` files stand (@@OTHERS@@); r5edits5, which reads R5-D and imports
+r6edits5, was rerun after this round's last edit of the file: its `.out` unchanged. Deduced: Lemma R9.1. READ:
+PART-VII-ASSEMBLY.md 123-129, 150-159, 162-163, 177 (Lemma 1.2's proof, the radiation field after the shell, Sigma_IVP's
+form); N1STAR-PROOF.md 0.1, (1.1), (9.1), Lemma 9.1 (c), Theorem P (P-i)-(P-v), at md5 @@PROOFMD5@@ (5043cedf at D632;
+D633's edits since are to status lines); N1STAR-LOG.md D632; BEYOND5.md 177-212 (md5 b67a56b2, not edited);
+RESPONSE-HL-5D.md (md5 @@PAPERMD5@@); git 54c8634's SETTLE-GLAM5.md. None from outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
