@@ -1,6 +1,6 @@
-# RCERT5D_DIR=<scratch>/r5/rcert5d_ck python3 checks/rcert5d.py --collect 4 5.3e-4   (round 5: the round-4
+# RCERT5D_DIR=<scratch>/r5/rcert5d_ck python3 checks/rcert5d.py --collect 4 5.3e-4   (round 6: the round-4
 #   checkpoints, copied unchanged, md5s as in r4/rcert5d; then --census 5.3e-4, whose output follows; the
-#   program repaired per the verifier of round 4, M-A: one assembly Engine.bound, upward rounding, the D4 gate)
+#   program repaired per the verifier of round 5, M5-A: C1 runs the engine end to end, through Engine.kids)
 D0 the pinned tensors n1star/data/rcert5_C3.npz: md5s equal the record's (rcert5c.out)
    checkpoint 0/4: 13952 accepted, 0 queued, cpu 1733 s, wall 6430 s
    checkpoint 1/4: 6272 accepted, 0 queued, cpu 588 s, wall 6425 s
@@ -11,22 +11,26 @@ D1 (certified) the box t in [-1/2, 0], sig in [-1/2, 0], x in [0, 1/4], target t
        True
    certified sup over the box: ll <= 3.007e-04, ln <= 7.030e-05, nn <= 2.441e-04, lx <= 9.749e-05, nx <= 5.585e-05, xx <=
        7.270e-05, 11 <= 5.350e-05, 22 <= 6.216e-05
-   largest certified centre values (lower bounds for the sup): ll 1.727e-04, ln 1.294e-05, nn 2.496e-05, lx 4.976e-05, nx
-       9.871e-06, xx 1.226e-05, 11 2.286e-05, 22 2.250e-05
+   largest centre values, the upper ends of the engine's centre balls: ll 1.727e-04, ln 1.294e-05, nn 2.496e-05, lx
+       4.976e-05, nx 9.871e-06, xx 1.226e-05, 11 2.286e-05, 22 2.250e-05
    sum vol * max_k sup_k^2 = 1.7203e-09 over vol 6.2500e-02 (rms bound 1.659e-04); cpu 3500 s, wall 10365 s (0.09 s per
        box)
 D1 PASS (every component certified <= tau on the whole box)
-D2 (certified) components whose certified centre value exceeds tau' = 3.0e-05 somewhere in the box: ll, lx; so no bound
-    of any method meets tau' there
-C1 (control) the ENGINE's own assembly (Engine.bound) on the test polynomials: largest true/bound 0.2500 (must be <= 1);
-    the same engine with the remainder dropped: inf (must exceed 1) -> sound, and the mutation is caught (good)
-D4 (certified, independent of the engine) certified lower ends at the centre and 8 corners of every one of the 32768
-    accepted sub-boxes (68705 points, grid_values): largest (point value)/(box sup) 0.809, violations 0 -> PASS (86 s)
+C1 (control, round 6: END TO END through Engine.kids) test fields t^4 and x^4 and eight signed combinations on the
+    children of 4 parent boxes (half-widths 0.005-0.25), exact sups known: largest true/bound 0.9999999926 (must be <=
+    1); the same with the remainder dropped: 2.7527 (must exceed 1); and Engine.bound alone on the round-5 test
+    polynomials: 0.2500 and inf -> sound, and the mutation is caught (good)
+D4 (certified; independent of the engine's Taylor models, sharing its point_coeffs and generated frame code) certified
+    lower ends at the centre and 8 corners of every one of the 32768 accepted sub-boxes (68705 points, grid_values):
+    largest (point value)/(box sup) 0.809, violations 0 -> PASS (61 s)
+D2 (certified, from D4's centre points: certified LOWER ends) largest per component: ll 1.727e-04, ln 1.294e-05, nn
+    2.496e-05, lx 4.976e-05, nx 9.871e-06, xx 1.226e-05, 11 2.286e-05, 22 2.250e-05; components above tau' = 3.0e-05
+    somewhere in the box: ll, lx; so no bound of any method meets tau' there
 C2 (control, W + 0.01 v) certified centre values up to 4.788e-02 on the first child's children against tau -> refused
     (good)
-rcert5d --collect (153 s): all checks pass
+rcert5d --collect (114 s): all checks pass
 
-D3 (certified) K1's 16128 points, certified lower bounds of |component|, over K2's 416 boxes with points (128 s):
+D3 (certified) K1's 16128 points, certified lower bounds of |component|, over K2's 416 boxes with points (39 s):
    boxes holding a point above tau = 5.3e-04: 193 of 416 (no certificate at tau possible there); above tau' = 3.0e-05:
        337 of 416
    largest certified lower bound over all points: 2.414e-03; per component: ll 2.41e-03, ln 1.44e-04, nn 7.23e-05, lx
