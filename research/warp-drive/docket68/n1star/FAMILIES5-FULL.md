@@ -158,9 +158,9 @@ without changing the background elsewhere (uniqueness on the smaller rectangle).
 verifier's case; the outgoing ray of region I from R = 7.505 at v = 0 keeps R − b ≥ 0.9958 [R5: re-integrated
 independently; round 2 printed 1.01, its RK4 sampling τ at its steps] [R6 (the round-5 verifier's minor 3):
 0.9951, attained at τ0, which the round-5 minimum left out; twobg5.py repaired] on all of [τ0, τ_end] (along it R
-and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d), (e) as FAMILIES5.md
-4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c) above; (f) with r_q^♭ := r_q(μ) ≥
-r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3) e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which
+and τ increase while b decreases), so with that N the condition holds. Then Lemma 1.1 (a)-(f) hold: (a), (c), (d),
+(e) as FAMILIES5.md 4i (D533, D537) shows, with at least the record's margins (ψ ≤ 0, f ≤ 1); (b) by (c) above;
+(f) with r_q^♭ := r_q(μ) ≥ r_q(μ0) = q0 by (b), the curvature boundary being {K ≤ l5⁻⁴}, K = 72μ²/R⁸ + (8/3) e^(−4s) 𝒜ℬ/R⁶ (twodt5 T1), which
 gives R ≥ r_q(μ) ≥ q0 when 𝒜ℬ ≥ 0. Every past causal curve from Ω₂ meets Σ_τ0 inside Ω₂ (record's (d)-(e)), so both
 generators reach Σ_τ0 transversally (they are null, dτ timelike). Compactness is (d).
 

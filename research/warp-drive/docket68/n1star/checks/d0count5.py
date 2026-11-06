@@ -124,11 +124,17 @@ def d0_86(s_lo, s_hi, m, N):
 
 
 # ------------------------------------------------------------------------------------------------- Q3
-def M_a(t_lo, t_hi, m_lo, m_hi, delta=DELTA, drop2L=False):
+def M_a(t_lo, t_hi, m_lo, m_hi, delta=DELTA, drop2L=False, m2mode='t0', twoK=None):
     """Proposition A.7's pieces (R7.A): left expansion J1 (Lambda_(t-m) o Op(a)), right expansion J2 (o Lambda'_t),
-    Theorem A.1 on the main terms, kernel bounds on the remainders; returns the count and the checks"""
-    twoK = even_above(n)                                     # Schur decay: (1 + |x - y|)^-2K integrable, 2K > n
-    M2 = ceil(Fr(max(0, t_hi), 2))                           # Lambda'_t: L^2 -> H^(-sup t)
+    Theorem A.1 on the main terms, kernel bounds on the remainders; returns the count and the checks.
+    [Round 8, the round-7 verifier's A: the left remainder acts on u through its lower norm H^(t0), t0 = floor(inf t)
+    - 1 (or through Lambda'_t, of order -t up to -inf t), not through sup t: M2 := ceil(-t0/2) ('t0', the default,
+    matching the norm), ceil(max(0, -inf t)/2) ('inf'); round 7's ceil(max(0, sup t)/2) is kept as 'sup' for C5.]"""
+    if twoK is None:
+        twoK = even_above(n)                                 # Schur decay: (1 + |x - y|)^-2K integrable, 2K > n
+    t0 = floor(t_lo) - 1
+    M2 = {'t0': ceil(Fr(max(0, -t0), 2)), 'inf': ceil(Fr(max(0, -t_lo), 2)),
+          'sup': ceil(Fr(max(0, t_hi), 2))}[m2mode]
     tm_hi = t_hi - m_lo
     # left: remainder order mu1 = (t - m)_hi + m_hi + delta - J1 (1 - 2 delta); need mu1 + 2 M2 < -n
     J1 = least_J(tm_hi + m_hi + delta + 2 * M2 + n, 1 - 2 * delta)
@@ -141,7 +147,6 @@ def M_a(t_lo, t_hi, m_lo, m_hi, delta=DELTA, drop2L=False):
     conv2 = t_hi + delta - J2 * (1 - 2 * delta) - t_lo < -n and twoL2 > n
     # the lower-order norm part (constant orders): tau0 = floor((t - m)_lo) - 1, right weight <xi>^(-t0)
     tau0 = floor(t_lo - m_hi) - 1
-    t0 = floor(t_lo) - 1
     J3 = least_J(tau0 + m_hi + max(0, -t0) + n + delta, 1 - delta)
     mu_f3 = tau0 - J3
     twoLp3 = even_above(n + abs(mu_f3))
@@ -150,20 +155,71 @@ def M_a(t_lo, t_hi, m_lo, m_hi, delta=DELTA, drop2L=False):
     P3 = (J1 - 1) + J2 + twoL2 + twoK
     P4 = (J1 - 1) + NCV
     P5 = max((J3 - 1) + NCV, J3 + twoLp3 + twoK)
-    return dict(M=max(P1, P2, P3, P4, P5), J1=J1, J2=J2, J3=J3, P=(P1, P2, P3, P4, P5), conv=conv1 and conv2,
-                twoLp1=twoLp1)
+    schur = twoK > n                                         # Round 8: the Schur decay condition, checked
+    return dict(M=max(P1, P2, P3, P4, P5), J1=J1, J2=J2, J3=J3, P=(P1, P2, P3, P4, P5),
+                conv=conv1 and conv2 and schur, twoLp1=twoLp1, M2=M2, twoK=twoK)
 
 
-def M_24(t_lo, t_hi, m1_hi, m2_hi, delta=DELTA):
-    """Proposition 2.4 (b)-(f), R7.A Proposition A.8: the J = 1 composition remainder's derivatives cost 1 + max(2L,
-    2L') more of each factor; a change of chart costs C_ch = 2 J1 + 2L'_1 + 2K xi-derivatives; (d) one more"""
+def M_24(t_lo, t_hi, m1_hi, m2_hi, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None, mu_lo=None):
+    """Proposition 2.4 (b)-(e), R7.A Proposition A.8: the J = 1 composition remainder's derivatives cost 1 + max(2L,
+    2L') more of each factor; a change of chart costs C_ch = 2 J1 + 2L'_1 + 2K xi-derivatives; (d) one more.
+    [Round 8: (f) is not this count (the verifier's A2); see M_f. mu_lo: a variable composite order's infimum.]"""
     mu = m1_hi + m2_hi - 1 + delta
-    base = M_a(t_lo, t_hi, mu, mu)
+    base = M_a(t_lo, t_hi, mu if mu_lo is None else mu_lo, mu, delta=delta, m2mode=m2mode, twoK=twoK)
     twoL = even_above(n)
     twoLp = even_above(n + abs(m1_hi - 1) + delta)
-    C_ch = 2 * base['J1'] + base['twoLp1'] + even_above(n)
+    C_ch = (2 * base['J1'] + base['twoLp1'] + base['twoK']) if Cch_on else 0
     Mb = base['M'] + 1 + max(twoL, twoLp) + C_ch
-    return dict(M=Mb + 1, Mb=Mb, base=base, C_ch=C_ch)
+    return dict(M=Mb + 1, Mb=Mb, base=base, C_ch=C_ch, twoLmax=max(twoL, twoLp))
+
+
+def M_f(t_lo, t_hi, mu_lo, mu_hi, q, ops, m1_hi=2, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None):
+    """Round 8 (the verifier's A2): Proposition 2.4 (f) at an instance with q order drops (adjoint defects and
+    commutators, each an exact cancellation of main terms in the symbol calculus) and ops binary operations
+    (compositions and adjoints) through which a factor passes. Each operation on a factor is expanded to depth q + 1:
+    its main terms take q more derivatives of the factor, its remainder (the master estimate of A.7 (3)) q + 1 +
+    max(2L, 2L'); one change of chart per factor (C_ch); the composite, of order mu in [mu_lo, mu_hi], is then bounded
+    as in Proposition A.7 (M_a at its orders). M_f = M_a + ops (q + 1 + max(2L, 2L')) + C_ch + 1."""
+    base = M_a(t_lo, t_hi, mu_lo, mu_hi, delta=delta, m2mode=m2mode, twoK=twoK)
+    twoL = even_above(n)
+    twoLp = even_above(n + abs(m1_hi - 1) + delta)
+    C_ch = (2 * base['J1'] + base['twoLp1'] + base['twoK']) if Cch_on else 0
+    return dict(M=base['M'] + ops * (q + 1 + max(twoL, twoLp)) + C_ch + 1, base=base, C_ch=C_ch)
+
+
+def counts(T_LO, T_HI, NMAX, MU_BOX=None, delta=DELTA, m2mode='t0', Cch_on=True, twoK=None):
+    """D_0 and D_1 at the Sobolev orders [T_LO, T_HI] (input order -N - m = -NMAX - 2). MU_BOX None: the operator
+    orders of round 7 (constant, at most 2); MU_BOX = (lo, hi): every symbol and composite order variable within it
+    (the commutants of II.A2 sections 4-5 at |s| <= 9 and their products), and Proposition 2.4 (f)'s instances at
+    II.A2:682-695 (q <= 3 drops, at most 3 operations per factor) counted."""
+    da = D_a(T_LO, T_HI, delta=delta)
+    db = D_b(T_HI, -NMAX - 2, delta=delta)
+    d86 = max(D_a(T_LO + 2 - 2, T_HI - 2, delta=delta)['D'], D_b(T_HI - 2, -NMAX - 2, delta=delta)['D'])
+    if MU_BOX is None:
+        ma = M_a(T_LO, T_HI, 0, 2, delta=delta, m2mode=m2mode, twoK=twoK)
+        m24 = M_24(T_LO, T_HI, 2, 2, delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK)
+        mf = M_f(T_LO, T_HI, 3 + delta, 3 + delta, 3, 3, delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK)
+    else:
+        lo, hi = MU_BOX
+        ma = M_a(T_LO, T_HI, lo, hi, delta=delta, m2mode=m2mode, twoK=twoK)
+        m24 = M_24(T_LO, T_HI, Fr(hi + 1, 2), Fr(hi + 1, 2), delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK,
+                   mu_lo=lo)
+        mf = M_f(T_LO, T_HI, lo, hi, 3, 3, delta=delta, m2mode=m2mode, Cch_on=Cch_on, twoK=twoK)
+    M24 = max(m24['M'], mf['M'])
+    L3 = max(M24 + 2, da['D'], d86)
+    L4 = max(M24 + 4, L3, d86, 2)
+    D0 = max(M24 + 6, d86 + 2, da['D'] + 2, db['D'] + 4, L4)
+    dt_max = max(0, T_HI) + 2 * max(0, -T_LO) + 6                 # Proposition 9.6's d-tilde on the whole range
+    D1 = dt_max + 3
+    dp, dpp = 8, 9
+    return dict(da=da, db=db, d86=d86, ma=ma, m24=m24, mf=mf, M24=M24, L3=L3, L4=L4, D0=D0, D1=D1,
+                FWD=D0 + D1 + dp + dpp + 6, conv=da['conv'] and db['conv'] and ma['conv'] and m24['base']['conv']
+                and mf['base']['conv'])
+
+
+Q4R = (-16, 11, 14)                     # Round 8: T_LO = -N - m = -16, the record's own input order (II.A2:389-391)
+BOX = (-19, 19)                         # Round 8: the operator-order box (II.A2 sections 4-5: k = s - 1/2, |s| <= 9)
+PINS = dict(q4=dict(da=53, db=64, M_a=81, M24=200, D0=206), box=dict(M_a=0, M24=0, D0=0, FWD=0))
 
 
 # ------------------------------------------------------------------------------------------------- Q5 census

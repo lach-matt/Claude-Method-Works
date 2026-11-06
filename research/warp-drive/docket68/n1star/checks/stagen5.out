@@ -1,4 +1,4 @@
-  S1 N1STAR-PROOF.md md5 f86e646107b64dccf255365165932c00; lines: 5.4 stages 1..N 579; 6.2 statement 678; 6.2 proof range
+  S1 N1STAR-PROOF.md md5 92c07c8d19768839508d3472f6db5712; lines: 5.4 stages 1..N 579; 6.2 statement 678; 6.2 proof range
       684; 6.2 stage N fixed 685; 6.2 step at m = N 686; (F1) 654; (F2) 655; 6.5 uses 6.2 846; 6.4 uses 6.2 906; 6.4 seed
       data 917
 S1 PASS
@@ -14,7 +14,7 @@ S3 PASS
   S4 top slice data, Lemma 6.2's rule at m = N over zero data for stage N: at the very edge 12.6527, in the window
       0.0400658
 S4 PASS
-  S5 N1STAR-PROOF.md md5 f86e646107b64dccf255365165932c00: D616's sentence inside Lemma 6.2's statement: True (from line
+  S5 N1STAR-PROOF.md md5 92c07c8d19768839508d3472f6db5712: D616's sentence inside Lemma 6.2's statement: True (from line
       679)
 S5 PASS
 stagen5: all checks pass, every control fails
