@@ -15,19 +15,24 @@ A_l u = -r^-3 (r^3 f u')' + l (l + 2) r^-2 u, f = 1 - mu/r^2, r_h = mu^(1/2) (ze
      (deduced from exact identities): the l = 0 harmonic, which round 4 left open, has constant 1, and l = 2 has 1/9
      (round 4: 1/8).
   H3 (exact) the quadratic-form constant is sharp: for u_delta = r^(-1-delta) on (r_h, oo), delta > 0,
-     <A_l u, u>/||r^-1 u||^2 = (l + 1)^2 + delta exactly (sympy, symbolic mu, delta, l).
+     <A_l u, u>/||r^-1 u||^2 = (l + 1)^2 + delta exactly (sympy, symbolic mu, delta, l). [Round 6, R6.0 minor 6:
+     H3b, the inverse bound is sharp too: A_l u_delta = ((l + 1)^2 - delta^2) r^(-3-delta) + mu (1 + delta)^2
+     r^(-5-delta) exactly, so ||r A_l u||^2/||r^-1 u||^2 = ((l + 1)^2 - delta^2)^2 + O(delta) -> (l + 1)^4.]
   H4 (exact; deduced) across the horizon: r^3 f = r (r - r_h)(r + r_h), so for u smooth across r = r_h the equation
      integrates to r^3 f u'(r) = int_{r_h}^r s^3 (l (l + 2) s^-2 u - A_l u) ds, and |u'(r)| <= sup over [r_h, r] (or
-     [r, r_h]) of |s^3 (l (l + 2) s^-2 u - A_l u)| / (r (r + r_h)) on both sides of the horizon: at zero energy the
-     scalar model loses no derivative there, with the explicit factor 1/(r (r + r_h)) <= 1/(2 mu) at r_h.
+     [r, r_h]) of |s^3 (l (l + 2) s^-2 u - A_l u)| / (r (r + r_h)) on both sides of the horizon, with the explicit
+     factor 1/(r (r + r_h)) <= 1/(2 mu) at r_h. [Round 6, R6.0 minor 5: so u' is bounded across the horizon by
+     sup |A_l u| and, for l >= 1, sup |u|; "no loss across the horizon" overreached (A_l u in C^k gives u in C^(k+1)
+     only). The integrated identity is now checked exactly on a polynomial u (H4b).]
   H5 (deduced; READ N1STAR-PROOF.md:4983-4990 and class5.py C2 as quoted in iotapoles5.py) L_b0's eleven zero-energy
      states are g-dot^Ups(mu-dot) (s0, one), g-dot^Ups(0, A) (v1, six) and h_s1(S) (s1, four); the T^2 x Z2 x Z2 class
      has scalar harmonics at even l only and no vector harmonic, so s1 (l = 1) and v1 are absent and the kernel met in
      the class is the single s0 state: I.C:497's sigma_min there is on the complement of one direction, in s0.
   Controls (mutating the computed path; each must fail): C1 H1 with w = r^-2: -(r^3 f w')' - (1 + mu r^-2) r w is not
   zero and is negative at r = 2 r_h, so the supersolution test fails; C2 H3's family at the claimed constant raised by
-  1/10: for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 H4 with r^3 f
-  taken as r^3 (r - r_h): the factorisation test fails.
+  1/10: for delta = 1/20 the ratio (l + 1)^2 + 1/20 is below it, so the raised claim is refuted; C3 [Round 6, R6.0
+  minor 6: round 5's C3 tested an unrelated expression] H4b's identity rerun with the l (l + 2) term dropped from the
+  integrand: it fails.
 
     python3 checks/zerohardy5.py       (seconds)
 """
@@ -71,6 +76,16 @@ def ratio(delta):
     return sp.simplify(num / den)
 
 
+def h4b(drop_L=False):
+    """H4's integrated identity, exact, on a polynomial u smooth across r_h"""
+    s_ = sp.Symbol('s', positive=True)
+    u = 1 + r + r ** 3 - 2 * r ** 4
+    Au = -r ** -3 * sp.diff(r ** 3 * f * sp.diff(u, r), r) + l * (l + 2) * r ** -2 * u
+    integrand = (0 if drop_L else l * (l + 2) * r * u) - r ** 3 * Au
+    rhs = sp.integrate(sp.expand(integrand.subs(r, s_)), (s_, rh, r))
+    return sp.simplify(sp.expand(r ** 3 * f * sp.diff(u, r) - rhs)) == 0
+
+
 def main():
     print('zerohardy5: the scalar zero-energy bound at every l, sharp; across the horizon; the kernel in the class')
     h1 = supersol(1 / r)
@@ -90,6 +105,18 @@ def main():
         sp.limit((r - rh) / (r ** 3 * f), r, rh) - 1 / (2 * mu)) == 0
     print('  H4: r^3 f = %s = r (r - r_h)(r + r_h): %s; (r - r_h)/(r^3 f) = 1/(r (r + r_h)) -> 1/(2 mu) at r_h' % (
         fac, OK['H4']))
+    # Round 6 (R6.0 minor 6): the inverse bound's sharpness, and H4's integrated identity checked on a polynomial u
+    Au_d = sp.simplify(-r ** -3 * sp.diff(r ** 3 * f * sp.diff(r ** (-1 - dl), r), r)
+                       + l * (l + 2) * r ** -2 * r ** (-1 - dl))
+    form = ((l + 1) ** 2 - dl ** 2) * r ** (-3 - dl) + mu * (1 + dl) ** 2 * r ** (-5 - dl)
+    OK['H3b'] = sp.simplify(Au_d - form) == 0
+    lead = sp.limit(((l + 1) ** 2 - dl ** 2) ** 2, dl, 0)
+    print('  H3b: A_l r^(-1-delta) = ((l + 1)^2 - delta^2) r^(-3-delta) + mu (1 + delta)^2 r^(-5-delta) (exact): %s; '
+          'so ||r A_l u||^2/||r^-1 u||^2 -> %s as delta -> 0: the inverse bound 1/(l + 1)^2 is sharp' % (
+              OK['H3b'], sp.factor(lead)))
+    OK['H4b'], OK['C3'] = h4b(), not h4b(drop_L=True)
+    print('  H4b: r^3 f u\'(r) = int_{r_h}^r s^3 (l (l + 2) s^-2 u - A_l u) ds for u = 1 + r + r^3 - 2 r^4 (exact, '
+          'symbolic mu, l): %s' % OK['H4b'])
     import os
     proof = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'N1STAR-PROOF.md')
     with open(proof) as fh:
@@ -110,8 +137,8 @@ def main():
     OK['C2'] = all(sp.simplify(R20.subs(l, q) - ((q + 1) ** 2 + sp.Rational(1, 10))) < 0 for q in (0, 2, 4))
     print('  C2 (control): the claim <A_l u, u> >= ((l + 1)^2 + 1/10) ||r^-1 u||^2 at delta = 1/20: ratio (l + 1)^2 + '
           '1/20, refuted at l = 0, 2, 4: %s' % OK['C2'])
-    OK['C3'] = sp.simplify(r ** 3 * f - r ** 3 * (r - rh)) != 0
-    print('  C3 (control): r^3 f against r^3 (r - r_h): not equal, H4\'s test fails on it: %s' % OK['C3'])
+    print('  C3 (control): H4b rerun with the l (l + 2) term dropped from the integrand: the identity fails: %s' %
+          OK['C3'])
     for k_, val in OK.items():
         builtins.print(k_, 'PASS' if val else 'FAIL')
     return 0 if all(OK.values()) else 1

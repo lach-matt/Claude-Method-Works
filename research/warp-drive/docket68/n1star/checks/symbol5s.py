@@ -8,8 +8,8 @@ symbol5.py Y1 took the 4 x 4 system (R, m, n, W)_uv with the shift held fixed.  
 (R, m, n, W, s) and all five rows (Ric_11, Ric_22, Ric_xx, Ric(Y, d_v), Ric_vx) are kept.
 
   S1 (exact) which second derivatives of s enter which row: s_vx in Ric_xx and Ric(Y, d_v), s_vv in Ric_vx, none in
-     Ric_11 and Ric_22; no s_uu, s_uv, s_ux, s_xx anywhere (Ric_uv's s_vv cancels in Ric(Y, d_v)).  The f_vx coefficients of Ric_vx are -d zeta (zeta = W +
-     2 log R + P + Q, symbol5.py Y1's left null vector).
+     Ric_11 and Ric_22; no s_uu, s_uv, s_ux, s_xx anywhere (Ric_uv's s_vv cancels in Ric(Y, d_v)).  The f_vx
+     coefficients of Ric_vx are -d zeta (zeta = W + 2 log R + P + Q, symbol5.py Y1's left null vector).
   S2 (exact) eliminate s at principal order through Ric_vx (c_s xi_v^2 s^ = xi_v xi_x d zeta . f^): the four rows'
      xi_x^2 matrix becomes N_eff = N + n d zeta / c_s (n the s_vx column).  A_eff = M^-1 N_eff / Lambda.
   S3 (exact) A_eff's characteristic polynomial is l^2 (l + 1)^2, as before, but rank A_eff = 2 and rank(A_eff + I) = 2:
