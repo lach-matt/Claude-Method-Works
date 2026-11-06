@@ -1,0 +1,10 @@
+N3 (exact) an even N with antipodal labels: every Q_n bounded below with the hierarchy; HL's (7.31) is 0
+   N = 4, |n|_1 <= 5, Lam = 36: least |Q_n|/(a_T a_S) = 359/216 >= 1/18 > 0 (no zero): True; [HL25]'s data divisor (a_B sin(w_A - w_B))^2 for the antipodal pair = 0; control: without the hierarchy some Q_n = 0 (rejected): True
+N3 PASS
+N4 (exact) the radial dusts with the label families: an angle eta from the radial directions is needed
+   N = 3 labels + 2 radial, |n|_1 <= 4, Lam = 781: label-radial |g| >= 2/5 >= c(eta) = 1/5, c = 2/65; least |Q_n|/(a_T a_S) = 35612/609961 >= 4/50765: True; control: a label along k_in, Q_n = 0 at Lam = 10^6 (rejected): True
+N4 PASS
+N5 (exact) Lemma 2.4's boundary signs for every family on the record's domain
+   radial extremes dr/dtau = -1 and (r^2 - mu)/(r^2 + mu): True; every null direction between them (15 samples): True; outer flux b' - dr <= -1: True; inner (a = 0.7 < sqrt(0.82)) dr <= -33/131 < 0: True; control: untrapped a = 1.2 has dr > 0 (rejected): True
+N5 PASS
+N1 (exact, multi-phase jets) N = 3 overlapping torus waves with lam^2 mixed harmonics: no lam^-1 coefficient

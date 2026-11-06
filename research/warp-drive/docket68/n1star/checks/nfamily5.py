@@ -30,10 +30,10 @@ sum_A (u_A)_i d/ds_A):
      hierarchy has the exact zero of an antipodal pair and a third label.
   N4 (exact) the radial dusts and the labels. With the radial covectors k_in, k_out added to N label covectors at
      angle >= eta from both radial directions, and the hierarchy over all N + 2 phases, every combination with |n|_1
-     <= m has |Q_n| >= 2 a_T a_S (c - m M^2/Lam - m^2 M^2/(2 Lam)), c = min(pairwise |g(k_A, k_B)|) >= c(eta) =
-     E E' (1 - cos eta) > 0 (Lemma C, sharpened constant). Control (must fail): a label along the ingoing radial
-     direction has g(k_A, k_in) = 0 and Q_n = 0 for every n supported on the pair, at any Lam: the hypothesis (V2')
-     cannot be dropped.
+     <= m has |Q_n| >= 2 a_T a_S (c - m M^2/Lam - m^2 M^2/(2 Lam)), c = min(pairwise |g(k_A, k_B)|) = min(the labels'
+     own, the label-radial ones >= c(eta) = E E' (1 - cos eta) > 0) (Lemma C, sharpened constant). Control (must
+     fail): a label along the ingoing radial direction has g(k_A, k_in) = 0 and Q_n = 0 for every n supported on the
+     pair, at any Lam: the hypothesis (V2') cannot be dropped.
   N5 (exact, sympy) FAMILIES5-FULL Lemma 2.4 holds for every family. On the record's g0 = eta + (mu/r^2) dv dv (any mu
      > 0) every future null direction l with l(tau) = 1, radial or not, has dr(l) in [-1, (r^2 - mu)/(r^2 + mu)]; so
      at the outer boundary r = b(tau) (b' = -2) the flux coefficient b' - dr(l) <= -1 < 0, and at r = a < sqrt(mu)
@@ -279,10 +279,12 @@ def build(seed, second=None, mixed_order=2, trace_wave=False, hdir='dR2', with_e
     wave = MTS()
     for A in range(NPH):
         wave = wave + am[A] * MTS.trig(A, 'c', kl=1) * 2
+    al = slow(F_(rng.randint(1, 4), 4))
+    bal = MTS() if second is None else al * MTS.trig(second, 'c', kl=1) * F_(-1, 2)   # the second polarisation's trace
     if trace_wave:
         g[2][2], g[3][3] = G1 * expo(wave), G2 * expo(wave)
     else:
-        g[2][2], g[3][3] = G1 * expo(wave), G2 * expo(-wave)
+        g[2][2], g[3][3] = G1 * expo(wave + bal), G2 * expo(-wave + bal)
     K = [[MTS()] * 4 for _ in range(4)]
     K[0][0], K[0][1], K[1][0], K[1][1], K[2][2], K[3][3] = Kc[0], Kc[1], Kc[1], Kc[2], Kc[3], Kc[4]
     for A in range(NPH):
@@ -305,7 +307,6 @@ def build(seed, second=None, mixed_order=2, trace_wave=False, hdir='dR2', with_e
     if second is not None:
         # family `second` in the other polarisation: an orbit component alpha q (x) q, q orthogonal to its p
         A = second
-        al = slow(F_(rng.randint(1, 4), 4))
         g0m = sp.Matrix(2, 2, lambda i, j: sp.Rational([[Gs, Es], [Es, Fs]][i][j].val0()))
         gi0 = g0m.inv()
         p0 = sp.Matrix([sp.Rational(dus[A][i].val0()) for i in range(2)])
@@ -345,9 +346,9 @@ def n1():
         JRm, Jtm, rho_m = constraints(F, g, K)
         c_mix = any(bool(coef(x, -1)) for x in (rho_m, JRm, Jtm))
         nh = len({t for t in coef(rho, 0)})
-        print("   seed %d: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: %s (rho's lam^0 part has %d "
-              "harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): %s; mixed harmonics at "
-              "order lam leave one (rejected): %s" % (seed, z, nh, c_sec, c_mix))
+        print("   seed %d: lam^-1 coefficients of (rho, J_R, J_th) in (h = a dR^2, k) vanish: %s (rho's lam^0 part has "
+              "%d harmonics); controls: family 2 in the second polarisation leaves rho's (rejected): %s; mixed "
+              "harmonics at order lam leave one (rejected): %s" % (seed, z, nh, c_sec, c_mix))
         ok &= all(z) and c_sec and c_mix and nh > 1
     return ok
 
@@ -428,6 +429,7 @@ def n4():
     labels = [null2(sp.Rational(1, 2)), null2(sp.Rational(2, 3)), null2(sp.Rational(-1, 2))]
     ks = [k_in, k_out] + labels
     c = min(abs(gq(ks[i], ks[j])) for i in range(len(ks)) for j in range(len(ks)) if i != j)
+    crad = min(abs(gq(k, l)) for k in (k_in, k_out) for l in labels)
     t = eta
     ceta = 1 - (1 - t**2) / (1 + t**2)                                         # E E' (1 - cos eta), E = 1
     M2 = max(sum(x**2 for x in k) for k in ks)
@@ -435,13 +437,14 @@ def n4():
     Lam = sp.ceiling((m * M2 + m**2 * M2 / 2) / c) + 1
     least, zero = lemma_c(ks, m, Lam)
     bound = 2 * (c - m * M2 / Lam - m**2 * M2 / (2 * Lam))
-    ok = (not zero) and least >= bound > 0 and c >= ceta
+    ok = (not zero) and least >= bound > 0 and crad >= ceta
     # control: a label along k_in
     ks2 = [k_in, k_out, null2(sp.Rational(1, 2)), sp.Matrix([-2, -2, 0])]
     _, zero2 = lemma_c(ks2, m, 10**6)
-    print("   N = 3 labels + 2 radial, |n|_1 <= 4, Lam = %s: c = %s >= c(eta) = %s; least |Q_n|/(a_T a_S) = %s >= %s: %s; "
-          "control: a label along k_in, Q_n = 0 at Lam = 10^6 (rejected): %s" %
-          (Lam, sp.nsimplify(c), sp.nsimplify(ceta), sp.nsimplify(least), sp.nsimplify(bound), ok, zero2))
+    print("   N = 3 labels + 2 radial, |n|_1 <= 4, Lam = %s: label-radial |g| >= %s >= c(eta) = %s, c = %s; least "
+          "|Q_n|/(a_T a_S) = %s >= %s: %s; control: a label along k_in, Q_n = 0 at Lam = 10^6 (rejected): %s" %
+          (Lam, sp.nsimplify(crad), sp.nsimplify(ceta), sp.nsimplify(c), sp.nsimplify(least), sp.nsimplify(bound),
+           ok, zero2))
     return ok and zero2
 
 
