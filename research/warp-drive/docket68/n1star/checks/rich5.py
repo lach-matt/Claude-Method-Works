@@ -33,6 +33,9 @@ tensor's float64 bytes, and every statement below is about those coefficients an
         inputs(..., box=True), the frame, Engine.bound) on test fields with exact sups (rcert5d.kids_control), and
         Engine.bound alone on two known polynomials, are sound; the same engine with the Lagrange remainder dropped
         under-bounds them.  [Round 6, the verifier of round 5, M5-A: the round-5 C1 reached Engine.bound only.]
+        [Round 7, the verifier of round 6, M6-A: the test fields now vary in t, sig and x (rcert5d.kids_fields2), and
+        C1(b), rcert5d.contain_control on the Richardson tensors and the frame, checks that every box enclosure the
+        engine forms contains its corners' point values -- box_coeffs' and the box-path frame output's.]
      C2 (rcert5.py's): the Richardson approximant with W + 0.01 v: its certified point values exceed tau (refused).
      C3 the census code: on the round-3 tensors it must find points above tau (the regression of R2) -- a census that
         under-reports would pass the Richardson approximant vacuously.
@@ -302,11 +305,18 @@ def main():
     k_real = RD.kids_control(lambda C_, g_, fr, nm: RD.Engine(C_, g_, fr, nm), g)
     k_mut = RD.kids_control(lambda C_, g_, fr, nm: RD.Engine(C_, g_, fr, nm, drop_remainder=True), g)
     c1 = w_real <= 1.0 and w_mut > 1.0 and k_real <= 1.0 + 1e-12 and k_mut > 1.0
-    print('C1 (control, round 6: end to end through Engine.kids, rcert5d.kids_control) largest true/bound %.10f '
-          '(<= 1: sound); with the remainder dropped %.4f (> 1); Engine.bound alone on the round-5 test polynomials '
-          '%.4f and %.4f -> %s' % (k_real, k_mut, w_real, w_mut, 'sound, and the mutation is caught (good)' if c1 else
-                                   'BAD'))
-    ok &= c1
+    print('C1 (control, rounds 6-7: end to end through Engine.kids, rcert5d.kids_control, test fields in t, sig and x) '
+          'largest true/bound %.10f (<= 1: sound); with the remainder dropped %.4f (> 1); Engine.bound alone on the '
+          'round-5 test polynomials %.4f and %.4f -> %s' % (k_real, k_mut, w_real, w_mut, 'sound, and the mutation is '
+                                                            'caught (good)' if c1 else 'BAD'))
+    t1 = time.time()
+    (n1, f1), (n2, f2) = RD.contain_control(RD.Engine(CR, g, frame, names), RD.CONTAIN_PARENTS)
+    c1b = n1 > 0 and n2 > 0 and f1 == 0 and f2 == 0
+    print('C1(b) (control, round 7: rcert5d.contain_control on the Richardson tensors and the frame) box_coeffs\' '
+          'enclosures against point_coeffs at their corners: %d checks, %d not contained; the box-path frame output '
+          'against the point path at the corners: %d checks, %d not contained -> %s (%.0f s)' % (
+              n1, f1, n2, f2, 'every enclosure contains its corners (good)' if c1b else 'BAD', time.time() - t1))
+    ok &= c1 and c1b
     old_after = fmd5(OLD)
     print('   data/rcert5_C3.npz md5 after: %s (%s)' % (old_after,
                                                      'unchanged' if old_after == old_before else 'CHANGED'))

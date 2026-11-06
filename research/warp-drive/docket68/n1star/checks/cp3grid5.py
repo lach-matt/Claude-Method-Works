@@ -102,7 +102,8 @@ def a7(paths, label='A7'):
     Rm = Z[0]['R'][..., len(x) // 2]
     m40 = len(Z) == 4                  # round 7: without the M = 40 file the M ratio is pending, the rest unchanged
     print('%s the regularised scheme, cut 0.9, on three null grids (M = 32)%s; every quantity on the 400-row nodes kept '
-          'by all %d runs:' % (label, ' and at 1600 rows M = 40' if m40 else ' (M = 40 at 1600 rows pending)', len(Z)))
+          'by all %s runs:' % (label, ' and at 1600 rows M = 40' if m40 else ' (M = 40 at 1600 rows pending)',
+                               'four' if m40 else 'three'))
     verdicts = {}
     for cls, (lo, hi) in CLASSES:
         print('  areal radius %s:' % cls)
