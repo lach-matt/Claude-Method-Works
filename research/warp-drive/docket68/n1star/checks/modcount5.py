@@ -393,12 +393,12 @@ def totals(ch):
     return ab, be, max(ab, be)
 
 
-C_PIN, D_PIN = 406, 45661427137374547
+C_PIN, D_PIN = 632, 45661451203994767
 
 
 # ------------------------------------------------------------------------------------------------ M4: the one-off steps
 DN_OUT = os.path.join(HERE, 'dnumber5.out')
-DN_OUT_MD5 = 'ad77abe04556f0d06ce977fe545c375a'
+DN_OUT_MD5 = '3db10f0e1cea470f903b38060a8b352c'
 
 
 def dn_counts():
@@ -432,7 +432,7 @@ def one_offs(w, cab, cbe, x7_term=True, factor=2):
     return ok, dict(r3max=r3max, r2max=r2max, x7top=x7top, Ma=Ma, Mb=Mb, B=B, levels=c, n=n)
 
 
-B_PIN, DTOT_PIN = 3524215720, 45661430661590267
+B_PIN, DTOT_PIN = 3524217980, 45661454728212747
 
 
 def main():
