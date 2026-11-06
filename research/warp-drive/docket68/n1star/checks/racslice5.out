@@ -13,3 +13,4 @@ S2 PASS
 S3 (computed) the lens between Sigma' and Sigma_tau0, and the angular widening it causes
    the lens: R in [3.026, 5.723] (inside [3.00, 5.75]), thickness 0.00145 in tau; angular widening <= max |phi|/R_min = 0.00048 rad: True
 S3 PASS
+exit 0

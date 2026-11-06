@@ -10,3 +10,4 @@ X3 (computed) openness, illustrated: a nearby metric (mu = 1.02) and tilted dire
    I1: least Jacobian 1.0000 (was 1.0000), axis distance 0.3041 (was 0.3134), d beta0/d w 0.9091 (was 0.9091): all positive: True
    I2: least Jacobian 0.8471 (was 0.8978), axis distance 0.1447 (was 0.1955), d beta0/d w 0.9091 (was 0.9091): all positive: True
 X3 PASS
+exit 0

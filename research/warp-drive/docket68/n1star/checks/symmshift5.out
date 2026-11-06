@@ -1,0 +1,7 @@
+  Y1 12 metrics (the reader's two, gamma_rA = 0 and != 0, and ten random rational positive-definite ones with gamma_rA !=
+      0): reading R (Racz's, normal-adapted): a one-dimensional symmetrizer space with S A0 > 0 at all 12: True; reading
+      C (coordinate): one-dimensional at all 12: True, S A0 > 0 at the reader's two: True, but no symmetrizer with S A0 >
+      0 at 5 of the ten random ones (random 2, random 3, random 5, random 6, random 9: the coordinate reading is
+      symmetric hyperbolic near gamma_rA = 0 only, Y2); at gamma_rA = 0, S = diag(1, -(1/2) Pi_ang^-1) in both readings:
+      True
+Y1 PASS

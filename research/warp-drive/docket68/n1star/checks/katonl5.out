@@ -9,3 +9,4 @@ K1 (numpy) Picard iteration with the non-local source -(1 - d_x^2)^-1 (u^2):
    control (F = 0.5 u_xx, not L2-Lipschitz): sup_t |u^n|_H2 = 2.07, 2.07, 2.07, 2.49, 4.84, 230: grows without bound (rejected): True
 K1 PASS
 PASS
+exit 0

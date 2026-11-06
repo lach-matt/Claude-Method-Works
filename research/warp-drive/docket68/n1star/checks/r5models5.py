@@ -256,11 +256,13 @@ def leaf(U, Ufun_coef, f_src, n=400):
     h = 1.0 / n
     Um = 0.5 * (U[1:] + U[:-1])
     A = Ufun_coef(Um, (U[1:] - U[:-1]) / h)
+    from scipy.linalg import solve_banded
     main = (A[:-1] + A[1:]) / h**2
     off = -A[1:-1] / h**2
-    M = np.diag(main) + np.diag(off, 1) + np.diag(off, -1)
+    ab = np.zeros((3, n - 1))
+    ab[0, 1:], ab[1], ab[2, :-1] = off, main, off
     w = np.zeros(n + 1)
-    w[1:-1] = np.linalg.solve(M, f_src(U[1:-1]))
+    w[1:-1] = solve_banded((1, 1), ab, f_src(U[1:-1]))
     return w
 
 

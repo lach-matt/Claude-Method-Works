@@ -25,3 +25,4 @@ Q6 (computed) inside the horizon, outgoing dust cancels the charge at second ord
    band [0.72, 0.9] (f in [-0.586, -0.015]): Q = -7.2480e+04, int T1(xi, n) = -4.3509e-02, s* = 8.3294e+05 > 0: True
    control: band [1.0, 1.75] (f in [0.178, 0.732]): Q = -4.7882e+04, int T1(xi, n) = 1.6353e+00 > 0, no positive s*: True
 Q6 PASS
+exit 0
