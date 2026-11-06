@@ -14,7 +14,8 @@ L2, recomputed here).
      (2/9) env^2, mu >= mu0 = 1), and C_Phi = C1 max_(|beta| <= B) ((1 - beta)^2 + beta^2) = C1 ((1 + B)^2 + B^2): the
      constant of EQUALITY5 section 0 for the covectors dr - beta dv, |dr - beta dv|_e^2 = (1 - beta)^2 + beta^2 in the
      Cartesian components (dv = dtau + dr, dr = xhat . dx).  Control: the maximum taken at beta = +B instead (a
-     mutation) is smaller, so it is not the constant.
+     mutation) is smaller, so it is not the constant.  [Round 5: replaced by a mutation of the computed path, mu' =
+     (4/9) env^2 for (2/9) env^2, which the check C_Phi < 6 C1 detects.]
   M3 (computed) Duffin-Schaeffer: on the Chebyshev-Lobatto nodes cos(k pi/n) the i-th derivative at the endpoint of the
      Lagrange basis has row sum sum_k |l_k^(i)(1)| = T_n^(i)(1) = prod_(j<i) (n^2 - j^2)/(2j + 1) (signs alternating):
      exact to 50 digits at n = 6, 10, 16, 24 and i <= 4, and at n = 1455, i <= 4, in floating point (relative error
@@ -25,13 +26,15 @@ L2, recomputed here).
      C_(i,m) (5/4)^(1-i/m) M_m^(i/m) lam^(14(1-i/m)) <= lam/5, gives Lam_5' = min_i [5 C_(i,m) (5/4)^(1-i/m)
      M_m^(i/m)]^(-1/(14(1-i/m)-1)); printed for C*_(i,m) (equal nodes, Round 3) and C^DS_(i,m), and min(lambda0 <
      0.0024433, Lam_4(0) = 1.2519e-12 (lamL5 L4), Lam_5').  And C_eps (the 26-derivative envelope cost of the error
-     terms Lam_8b-d) with C^DS at every i <= 26.
+     terms Lam_8b-d) with C^DS at every i <= 26.  [Round 5, the verifier of round 4's MINOR 4: computed with B these are
+     printed as what they are, lower bounds of the thresholds (and an upper bound of C_eps).]
      Control: at 1.01 Lam_5' the binding term's inequality fails.  [These use B >= M_m, so, as the verifier of round
      3 found for lamL5 (M2), they are LOWER bounds of the proof's thresholds; M5 gives the upper bounds.]
   M5 (certified at the stated point) A lower bound of M_m = sup |env^(m)|: every derivative of env vanishes at v_s, so
      env(v) = env^(m)(xi) (v - v_s)^m/m! and M_m >= m! env(v)/(v - v_s)^m at every v; at m = 1456 the best grid point
      gives log10 M_1456 >= 8091.6 (against B's 8573.89); cross-checked against CONSTANTS5's e_k (k <= 14).  With it, the
-     UPPER bounds of the thresholds that decrease in M_m (Lam_4, Lam_5, Lam_5', Lam_8b), and the LOWER bounds with B,
+     UPPER bounds of the thresholds that decrease in M_m (Lam_4, Lam_5, Lam_5', Lam_8b, Lam_8c), and the LOWER bounds
+     with B,
      for round 1's constants, A15's and the Duffin-Schaeffer ones; the certified bound of lam_L with Lemma L.4' is
      min(lambda0 < 0.0024433, Lam_4(0) upper, Lam_5' upper).  Control: the Taylor bound at k = 14 with k! mutated to
      (k + 2)! exceeds CONSTANTS5's certified e_14, so it is refuted.
@@ -87,9 +90,10 @@ def m2(control=False):
     c = LL.C_HI
     B = 1 + c**2/18
     if control:
-        Bm = B
-        val_m = (1 - Bm)**2 + Bm**2                       # at beta = +B
-        return val_m.b >= ((1 + B)**2 + B**2).a
+        # a mutation of the computed path (round 5, the verifier of round 4's nit): mu' = (4/9) env^2 in place of
+        # (2/9) env^2, i.e. B = 1 + c^2/9; the check (C_Phi < 6 C1) must then fail
+        Bm = 1 + c**2/9
+        return ((1 + Bm)**2 + Bm**2).b < 6
     ratio = (1 + B)**2 + B**2
     lam6 = (iv.mpf(288)/25*ratio)                     # Lam_6 = (lam6 C1)^(1/27)
     thr = (iv.mpf('0.0024433')**27)/lam6
@@ -231,12 +235,13 @@ def m4(control=False):
     lG = iv.log(G)/iv.log(10)
     l8b = (lG - lce)*iv.mpf(4)/3
     l8c = (lG - 2*lce)/iv.mpf('11.5')
-    out("  M4 log10 M_m^(1/m) <= %s.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14): with C*_(i,m) (equal nodes)"
-        " log10 Lam_5' <= %s (binding i = %d); with C^DS_(i,m) log10 Lam_5' <= %s (binding i = %d); log10 C^DS_(i,m),"
+    out("  M4 log10 M_m^(1/m) <= %s.  Lam_5' (L.4' hypothesis eps_4 <= lam at y = lam^14), LOWER bounds: with"
+        " C*_(i,m) (equal nodes) log10 Lam_5' >= %s (binding i = %d); with C^DS_(i,m) log10 Lam_5' >= %s (binding i ="
+        " %d); log10 C^DS_(i,m),"
         " i = 1..4: %s.  With B (each term a lower bound; M5 gives the upper ones): min(lambda0 < 0.0024433, Lam_4(0) ="
         " 1.2519e-12, Lam_5') = %s.  With"
-        " C^DS at every i <= 26: log10 C_eps <= %s (round 3: 613.2166), so Lam_8b, Lam_8d <= 10^(%s) min(C_L11,"
-        " C_L4)^(-4/3) and Lam_8c <= 10^(%s) C_L11^(-1/11.5)"
+        " C^DS at every i <= 26 and B: log10 C_eps <= %s (an upper bound; round 3: 613.2166), so, as LOWER bounds of the"
+        " thresholds: min(Lam_8b, Lam_8d) >= 10^(%s) max(C_L11, C_L4)^(-4/3) and Lam_8c >= 10^(%s) C_L11^(-1/11.5)"
         % (mp.nstr(mp.mpf(lMm.b), 8), mp.nstr(mp.mpf(res['eq'][0].b), 6), res['eq'][1],
            mp.nstr(mp.mpf(res['ds'][0].b), 6), res['ds'][1],
            ", ".join(mp.nstr(mp.mpf((iv.log(CACHE['ds'][i])/iv.log(10)).b), 6) for i in (1, 2, 3, 4)),
@@ -293,18 +298,20 @@ def m5(control=False):
         ce26 = {k: c + (1 - mp.mpf(26)/MM)*mp.log10(mp.mpf(5)/4) + 26*lM
                 for k, c in (('A15', mp.mpf('460.016')), ('DS', mp.mpf((iv.log(cds(26, MM)[0])/iv.log(10)).a)))}
         lam8b = {k: (lG - c)*mp.mpf(4)/3 for k, c in ce26.items()}
-        res[tag] = (lam4, lam5, lam5p, lam8b)
+        lam8c = {k: (lG - 2*c)/mp.mpf('11.5') for k, c in ce26.items()}
+        res[tag] = (lam4, lam5, lam5p, lam8b, lam8c)
     up = res['low']
     bound = min(LAMBDA0, mp.mpf(10)**up[0]['ch'], mp.mpf(10)**up[2])
     f = lambda d: ", ".join("%s 10^%s" % (k, mp.nstr(v, 7)) for k, v in d.items())                       # noqa: E731
     out("  M5 log10 M_1456 >= %s (Taylor at v_s + %s, m! env(v)/(v - v_s)^m; certified at that point), against log10"
         " B(1456) <= %s; at k = 1..14 the Taylor bound lies below CONSTANTS5's e_k: %s.  UPPER bounds of the proof's"
         " thresholds (with the lower bound of M_m): Lam_4(0): %s; Lam_5 (L.4, its i = 26 term): %s; Lam_5' (L.4', i = 4,"
-        " Duffin-Schaeffer): 10^%s; Lam_8b with C_L11 = 1 (C_eps >= its i = 26 term): %s.  LOWER bounds (with B):"
-        " Lam_4(0): %s; Lam_5: %s; Lam_5': 10^%s; Lam_8b: %s.  Certified with L.4': lam_L <= %s"
+        " Duffin-Schaeffer): 10^%s; Lam_8b with max(C_L11, C_L4) = 1 (C_eps >= its i = 26 term): %s; Lam_8c with C_L11"
+        " = 1: %s.  LOWER bounds (with B): Lam_4(0): %s; Lam_5: %s; Lam_5': 10^%s; Lam_8b: %s.  Certified with L.4':"
+        " lam_L <= %s"
         % (mp.nstr(low, 10), mp.nstr(x_at, 6), mp.nstr(mp.mpf(lb_up), 10), cross, f(up[0]), f(up[1]),
-           mp.nstr(up[2], 6), f(up[3]), f(res['B'][0]), f(res['B'][1]), mp.nstr(res['B'][2], 6), f(res['B'][3]),
-           mp.nstr(bound, 5)))
+           mp.nstr(up[2], 6), f(up[3]), f(up[4]), f(res['B'][0]), f(res['B'][1]), mp.nstr(res['B'][2], 6),
+           f(res['B'][3]), mp.nstr(bound, 5)))
     return cross and low < mp.mpf(lb_up) and bound < mp.mpf('1e-11')
 
 

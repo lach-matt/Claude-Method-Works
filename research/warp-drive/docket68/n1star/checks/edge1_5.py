@@ -502,7 +502,8 @@ def e11(control=False):
         bad = 0
         for k in range(nwin):
             x = x_top*(x_bot/x_top)**(mp.mpf(k)/(nwin - 1))
-            pos = neg = False
+            pos = {1: False, -1: False}
+            neg = {1: False, -1: False}
             for j in range(64):
                 xx = x + 4*mp.pi*lam*j/63
                 envk = [Pf[i](1/xx) for i in range(N + 1)]
@@ -518,9 +519,9 @@ def e11(control=False):
                 val = -lam**3*(S*mp.exp(1j*xx/lam)).real
                 for sg in (1, -1):
                     w = val - m0 + sg*D2
-                    pos |= w > 0
-                    neg |= w < 0
-            if not (pos and neg):
+                    pos[sg] |= w > 0
+                    neg[sg] |= w < 0
+            if not all(pos[sg] and neg[sg] for sg in (1, -1)):
                 bad += 1
         worst.append("N = %d (c_N = %s): windows with one sign %d of %d" % (N, mp.nstr(cN, 3), bad, nwin))
         ok &= bad == 0

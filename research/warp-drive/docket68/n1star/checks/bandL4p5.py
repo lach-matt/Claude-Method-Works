@@ -16,13 +16,18 @@ needs only eps_4(v1) <= lam, and returns the same bound |w| <= C lam^(N-5) eps_(
      top, a bounded Gronwall coefficient).  Every term is admissible at h = 1.  Controls (mutations of the computed
      path): h = 1/2 fails (at level 0, lam^-1 eps_2 is a large Gronwall coefficient); the non-triangular rule (every
      coefficient into Gronwall, e >= 0) fails at h = 1 and holds only from h = 3, which is Lemma L.4's hypothesis.
-  H2 (exact rationals) Proposition L.12 with Lemma L.4' (N = K + 3, M = 2N + 8, m = 56 M, delta = gamma = 1/10): (i)
-     the upper layer E >= lam^(3 - delta) is spacelike for every K in [6, 40]: where eps_4 <= lam (E <= lam^(s_A),
-     s_A = (1 + delta)/(1 - 4/m)) the margin c E^(2 + 1/m) beats the signal, lam^4 eps, lam eps^2 and L.4''s w = lam^(N -
-     5) eps (linear in the exponent s, checked at s_A and 3 - delta); above, Theorem E's w = lam^(K-3) as in layerband5
-     B2 (i) for s <= (K - 3)/2 - delta; and the two ranges overlap (s_A <= (K - 3)/2 - delta) for every K >= 6; (iii)
-     the band lam^(3+delta) <= E <= lam^(3-delta): every error below lam^gamma min(margin, signal), K in [6, 40].
-     Controls: K = 5 fails (iii); Theorem E's w in place of L.4''s fails (iii) at K = 9 (layerband5's control).
+  H2 (exact rationals; amended in round 5 on the verifier of round 4's MAJOR 2 and MINOR 5) Proposition L.12 with
+     Lemma L.4' (N = K + 3, M = 2N + 8, m := max(56 M, 4 P M, ceil(4 M/delta)), P = 50 and 200) on the delta-grid
+     {1/1000, 1/100, 1/20, 1/10, 1/5, 1/4, 3/10, 2/5, 49/100}, each comparison made pointwise (every error at the level
+     E = lam^s against the margin c E^(2 + 1/m) at the same E, all exponents linear in s, so checked at the ends of
+     each range): (i) the upper layer E >= lam^(3 - delta) is spacelike for every K in [6, 40]: where eps_4 <= lam (s
+     >= s_A = (1 + delta)/(1 - 4/m)) the margin beats the signal, lam^4 eps, lam eps^2 and L.4''s w = lam^(N - 5) eps
+     on s in [s_A, 3 - delta]; for s <= s_A Theorem E's w = lam^(K - 3) as in layerband5 B2 (i), on s in [delta/2, s_A]
+     (below lam^(delta/2), E is above every power the proof uses), which needs s_A <= (K - 3)/2 - delta/2; (iii) the
+     band lam^(3 + delta) <= E <= lam^(3 - delta): every error below lam^gamma times the margin at the same level, with
+     gamma(delta, K) := min(1/10, half the least slack), printed, and L.4''s hypothesis s (1 - 4/m) > 1 on the band.
+     Controls: K = 5 fails (iii); Theorem E's w in place of L.4''s fails (iii) at K = 9; round 4's level-mixed
+     comparison (errors at E = lam^(3 - delta) against the margin at lam^(3 + delta), m = 56 M) fails at delta = 1/4.
   H3 (computed, mpmath; layerband5 B3's model with unit constants, env = exp(-1/x), M = 26) The regime map at lam =
      10^-1000 and 10^-3000 with Lemma L.4' (windows: eps_4 <= lam; the remainder lam^(N-5) eps_26 wherever eps_4 <=
      lam, Theorem E's lam^(K-3) elsewhere): K = 6 covers [x_deep, x_top] with no gap.  Control: with Lemma L.4's rule
@@ -97,39 +102,68 @@ def h1(control=False):
 
 
 # ------------------------------------------------------------------------------------------------------------ H2
-def ledger_upper_L4p(K, delta=Fr(1, 10)):
+def m_amended(M, delta, P):
+    return max(Fr(56*M), Fr(4*P*M), Fr(-(-4*M//delta)))
+
+
+def ledger_upper_L4p(K, delta=Fr(1, 10), P=50):
+    """(i) pointwise: the margin exponent s (2 + 1/m) below every error exponent at the same level s"""
     N = K + 3
     M = 2*N + 8
-    m = 56*M
-    sA = (1 + delta)/(1 - Fr(4, m))
-    res = {}
+    m = m_amended(M, delta, P)
+    sA = (1 + delta)/(1 - 4/m)
+    ok = True
     for s in (sA, 3 - delta):
-        marg = s*(2 + Fr(1, m))
-        res[s] = {"signal": marg < 3 + s, "lam^4 eps": marg < 4 + s*(1 - Fr(M, m)),
-                  "lam eps^2": marg < 1 + 2*s*(1 - Fr(M, m)), "w (L.4')": marg < N - 5 + s*(1 - Fr(M, m))}
-    overlap = sA <= Fr(K - 3, 2) - delta
-    thmE = all(LB.ledger_upper(K, min(Fr(3), Fr(K - 3, 2))).values())
-    return all(all(d.values()) for d in res.values()) and overlap and thmE
+        marg = s*(2 + 1/m)
+        ok &= marg < 3 + s and marg < 4 + s*(1 - M/m) and marg < 1 + 2*s*(1 - M/m) and marg < N - 5 + s*(1 - M/m)
+    for s in (delta/2, sA):                      # Theorem E's w = C M lam^(K - 3), and the record's eps_M terms
+        marg = s*(2 + 1/m)
+        ok &= marg < K - 3 and marg < 3 + s and marg < 4 + s*(1 - M/m) and marg < 1 + 2*s*(1 - M/m)
+    return ok and sA <= Fr(K - 3, 2) - delta/2
 
 
-def ledger_band_L4p(K, delta=Fr(1, 10), gamma=Fr(1, 10), w="L4p"):
+def band_slacks(K, delta, P=50, w="L4p", mixed=False):
+    """(iii) pointwise: least slack of the error exponents over the margin's, on s in [3 - delta, 3 + delta]"""
     N = K + 3
     M = 2*N + 8
-    m = Fr(56*M)
-    floor = (3 + delta)*(2 + 1/m) + gamma
-    s = 3 - delta
-    wexp = N - 5 + s*(1 - M/m) if w == "L4p" else Fr(K - 3)
-    return {"lam^4 eps": 4 + s*(1 - M/m) > floor, "lam eps^2": 1 + 2*s*(1 - M/m) > floor, "w": wexp > floor,
-            "L.4' hypothesis in the band": s*(1 - Fr(4)/m) > 1}
+    m = Fr(56*M) if mixed else m_amended(M, delta, P)
+    sl = {}
+    for s in (3 - delta, 3 + delta):
+        marg = s*(2 + 1/m) if not mixed else (3 + delta)*(2 + 1/m)
+        se = (3 - delta) if mixed else s
+        wexp = N - 5 + se*(1 - M/m) if w == "L4p" else Fr(K - 3)
+        for nm, e in (("lam^4 eps", 4 + se*(1 - M/m)), ("lam eps^2", 1 + 2*se*(1 - M/m)), ("w", wexp)):
+            sl[nm] = min(sl.get(nm, e - marg), e - marg)
+        sl["L.4' hypothesis"] = min(sl.get("L.4' hypothesis", s*(1 - 4/m) - 1), s*(1 - 4/m) - 1)
+    return sl
+
+
+DELTAS = (Fr(1, 1000), Fr(1, 100), Fr(1, 20), Fr(1, 10), Fr(1, 5), Fr(1, 4), Fr(3, 10), Fr(2, 5), Fr(49, 100))
 
 
 def h2(control=False):
     if control:
-        return all(ledger_band_L4p(5).values()) or all(ledger_band_L4p(9, w="thmE").values())
-    up = all(ledger_upper_L4p(K) for K in range(6, 41))
-    band = all(all(ledger_band_L4p(K).values()) for K in range(6, 41))
-    out("  H2 with Lemma L.4': (i) the upper layer E >= lam^(3 - delta), every K in [6, 40] (both sub-ranges, which"
-        " overlap): %s; (iii) the band, every K in [6, 40]: %s; at K = 6: %s" % (up, band, ledger_band_L4p(6)))
+        k5 = min(band_slacks(5, Fr(1, 10)).values()) > 0
+        te = min(band_slacks(9, Fr(1, 10), w="thmE").values()) > 0
+        mixed = min(band_slacks(6, Fr(1, 4), mixed=True).values()) > 0
+        return k5 or te or mixed
+    # (i) is monotone in delta ({E >= lam^(3 - delta)} shrinks as delta grows): it is checked at min(delta, 1/4)
+    up = all(ledger_upper_L4p(K, min(d, Fr(1, 4)), P) for K in range(6, 41) for d in DELTAS for P in (50, 200))
+    up_raw = sorted({(K, str(d)) for K in range(6, 41) for d in DELTAS if not ledger_upper_L4p(K, d)})
+    band = True
+    gam = {}
+    for d in DELTAS:
+        for P in (50, 200):
+            for K in range(6, 41):
+                least = min(band_slacks(K, d, P).values())
+                band &= least > 0
+                g = min(Fr(1, 10), least/2)
+                gam[d] = min(gam.get(d, g), g)
+    out("  H2 with Lemma L.4', pointwise, m = max(56 M, 4 P M, 4 M/delta), P in {50, 200}, every K in [6, 40] and delta"
+        " in %s: (i) the upper layer (checked at min(delta, 1/4), which implies it at delta): %s (the ledger run at"
+        " delta itself fails only at %s); (iii) the band, every error below lam^gamma times the margin at its own"
+        " level: %s, with gamma(delta) = %s" % ([str(d) for d in DELTAS], up, up_raw, band,
+                                               "; ".join("%s: %s" % (d, float(g)) for d, g in gam.items())))
     return up and band
 
 
@@ -234,8 +268,9 @@ def h4(control=False):
     old_fail = sorted({k for d in deltas for P in Ps for rs in (False, True) for pp in (3 + d, P)
                        for k, vv in ledger_window_fix(6, pp, d, P, rs, "L4", fix=False).items() if not vv})
     out("  H4 Theorem L's window conditions at every level lam^p, 3 + delta <= p <= P, generic and at rho*, with m ="
-        " max(56 M, 4 P M, 4 M/delta) and kappa = max(64, 8 P, 8/delta), every K in [6, 40], delta in {1/100, 1/20, 1/10,"
-        " 1/4, 1/2}, P in {50, 200}, under L.4 and under L.4': failures %s; with round 3's m = 56 M, kappa = 64 (K = 6)"
+        " max(56 M, 4 P M, 4 M/delta) and kappa = max(64, 8 P, 8/delta), every K in [6, 40], delta in {1/100, 1/20,"
+        " 1/10, 1/4, 1/2}, P in {50, 200}, under L.4 and under L.4': failures %s; with round 3's m = 56 M, kappa = 64"
+        " (K = 6)"
         " the conditions failing somewhere: %s" % (bad if bad else "none", old_fail))
     return not bad
 

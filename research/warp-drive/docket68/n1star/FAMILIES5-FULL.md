@@ -10,15 +10,16 @@ non-round) families is **open**, with the obstruction stated. Part III: the lite
 T²-class reduction of the Vlasov passage to Part I is **deduced** with its identities computed; the non-round case is
 **open** and stops at Part II's obstruction. Nothing in FAMILIES5.md, the paper or the log is changed.
 
-Round 2 (2026-11-02, Part V). An independent verifier read this note at commit 169c9b5 and found no major gap; its seven
-findings are seated (section 11, each with its disposition, the text corrected in place where it stood). Theorem E₂'s
-Lemma 3.3₂ and Steps 4-6 are written in full (section 8), every identity behind them computed (`checks/twodecomp5.py`,
-from the reduced Ricci tensor, whose principal part is what J1-J7 exercise [R5]) and the power counting computed term by term (`checks/twoledger5.py`): Theorem E₂,
-and with it Theorem 1₂ items 1-5, is **deduced**. The record's item 6 (one zero per column of the outgoing expansion) is
-**deduced for two families**, with no condition on where the outgoing packet lies: the outgoing wave's would-be O(1)
-contribution to ∂_R θ⁺ along a column is computed to vanish at stage 0 (section 9) [R5: and proved for every function,
-section 9, `checks/h3proof5.py`]; item 7 (the mean mass) is **deduced** with the outgoing family's parity base computed
-(section 10). [R5: read by an independent verifier at commit 9872bb3, findings in section 12.]
+Round 2 (2026-11-02, Part V). An independent verifier read this note at commit 169c9b5 and found no major gap; its
+seven findings are seated (section 11, each with its disposition, the text corrected in place where it stood). Theorem
+E₂'s Lemma 3.3₂ and Steps 4-6 are written in full (section 8), every identity behind them computed
+(`checks/twodecomp5.py`, from the reduced Ricci tensor, whose principal part is what J1-J7 exercise [R5]) and the power
+counting computed term by term (`checks/twoledger5.py`): Theorem E₂, and with it Theorem 1₂ items 1-5, is **deduced**.
+The record's item 6 (one zero per column of the outgoing expansion) is **deduced for two families**, with no condition
+on where the outgoing packet lies: the outgoing wave's would-be O(1) contribution to ∂_R θ⁺ along a column is computed
+to vanish at stage 0 (section 9) [R5: and proved for every function, section 9, `checks/h3proof5.py`]; item 7 (the mean
+mass) is **deduced** with the outgoing family's parity base computed (section 10). [R5: read by an independent verifier
+at commit 9872bb3, findings in section 12.]
 
 Round 5 (2026-11-06). The independent verifier of Part V (sections 8-11, commit 9872bb3) found Lemma 3.3₂, Steps 4-7 (the
 94 ledger rows), item 7, section 2 (d)-(e) and V3's Schur argument sound, reran all eight programs to their `.out`
@@ -115,33 +116,34 @@ on [v′, v″], so R(u_p, v″) < min(R(p), √μ0), and continuity forces v″
 the grid the margin is 0 at every n; R = a is crossed in every resolved column and trapped there with μ − a² ≥ 0.332; the
 mass of region III, read on u = u2 + 0.1, is ≥ μ0 − 10⁻⁴ at n = 160.)
 
-(d) *Existence on the whole domain (deduced).* FAMILIES5.md 4i (D558) solves the integral form of the 1+1 system for U =
-(R, s, R_u, R_v) by a truncated Volterra iteration in the Bielecki norm on Q := [u0, ∞) × [v0, V1] (each single integral
-divides the Lipschitz constant by γ, the double one by γ², on an unbounded u-interval as well), and shows the fixed point
-solves the true system on Q_a := {p : R̃ > a on J⁻(p)}, given D552's a priori chain on {R ≥ a}. With (b) the chain
-simplifies: s_uv = (3/2) e^(2s) μ/R⁴ ≥ 0 gives s ≥ D[s] with no hypothesis (D552's m0⁻ = 0), and the upper bounds on μ
-and s follow from D552 (iv)-(v) on the bounded part of Q where R ≥ a′. Two points D558 left as sketches are written here.
-*Regularity.* Let U be the continuous solution on a past-closed set. From the integral equations, R_u = P and R_v = Q
-exactly (differentiate R = R(u0, v) + ∫ P du′ in v and use the Q-equation), P_v = F(U), Q_u = F(U), and s_u, s_v are
-continuous; for ∂_u P, the difference quotients δ_h P solve δ_h P(u, v) = δ_h P(u, v0) + ∫_(v0)^v (a_h · δ_h(R, s, Q) +
-b_h δ_h P) dv′, with a_h, b_h the mean values of ∇F on the segment, continuous and converging uniformly, and δ_h(R, s, Q)
-→ (P, s_u, F) uniformly; Gronwall in v makes δ_h P uniformly Cauchy, so ∂_u P exists and is continuous, and likewise ∂_v
-Q. So U ∈ C¹; the k-th derivatives solve linear Volterra equations of the same form with coefficients built from lower
-derivatives, so by induction U ∈ C^∞ for smooth data. *Boundedness of the domain.* On N′, in the gauge s = const there
-(twodomain5's cone()), R_uu = 0 for u ≥ u2, so R_u(u, v0) = c0 < 0 there; R_uv = −e^(2s) μ/R³ < 0 gives R_u ≤ c0 on
-{u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded, and by the same bound {R ≥ a′, v ≤ V1} for every a′ > 0 [R5: stated with
-a′ before step (1), which uses a uniform K_0 on {R ≥ a′}]. *The first exit* (written in round 2, the verifier's item 1: (c) assumes the
-solution on J⁻(p), so Ω₂ ⊂ Q_(a′) needs an argument). Fix a′ < a, K > K_0 (the chain's bound on {R ≥ a′}), the truncated
-fixed point Ũ on Q (F_K, G_K equal to F, G on {|U| ≤ K, R ≥ a′}) and Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p) ∩ Q}. (1) Ũ
-solves the true system on Q_(a′): for p ∈ Q_(a′), if |Ũ| ≥ K somewhere on the compact J⁻(p) ∩ Q, let q be such a point
-with u + v least; on J⁻(q) ∖ {q}, |Ũ| < K and R̃ > a′, so Ũ solves the true system there, the chain gives |Ũ| ≤ K_0
-there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set, open in Q (the least of R̃ over J⁻(p) is
-continuous in p), and the development D := ∪_(a″>0) Q_(a″) is a past set carrying one smooth solution (two truncations
-agree where both solve B1, by the contraction). (3) For p ∈ D with R(p) ≥ a, (c) applies, J⁻(p) ⊂ D, and gives R ≥
-min(R(p), √μ0) ≥ a > a′ on J⁻(p): p ∈ Q_(a′). (4) So G := {p ∈ D : R ≥ a on J⁻(p)} ⊂ Q_(a′), and G is not cut by the
-edge of the development: G is closed in Q [R5: G ⊂ Q_(a′) and R̃ is continuous on Q_(a′)], and at p ∈ ∂G the least of R over J⁻(p) is a (were it larger, a neighbourhood of
-p would lie in G), so (c) at p gives min(R(p), √μ0) ≤ a < √μ0, i.e. R(p) = a: ∂G ⊂ {R = a}. Ω₂ ⊂ G below, and the
-background exists, smooth, on all of it.
+(d) *Existence on the whole domain (deduced).* FAMILIES5.md 4i (D558) solves the integral form of the 1+1 system for U
+= (R, s, R_u, R_v) by a truncated Volterra iteration in the Bielecki norm on Q := [u0, ∞) × [v0, V1] (each single
+integral divides the Lipschitz constant by γ, the double one by γ², on an unbounded u-interval as well), and shows the
+fixed point solves the true system on Q_a := {p : R̃ > a on J⁻(p)}, given D552's a priori chain on {R ≥ a}. With (b)
+the chain simplifies: s_uv = (3/2) e^(2s) μ/R⁴ ≥ 0 gives s ≥ D[s] with no hypothesis (D552's m0⁻ = 0), and the upper
+bounds on μ and s follow from D552 (iv)-(v) on the bounded part of Q where R ≥ a′. Two points D558 left as sketches are
+written here. *Regularity.* Let U be the continuous solution on a past-closed set. From the integral equations, R_u = P
+and R_v = Q exactly (differentiate R = R(u0, v) + ∫ P du′ in v and use the Q-equation), P_v = F(U), Q_u = F(U), and
+s_u, s_v are continuous; for ∂_u P, the difference quotients δ_h P solve δ_h P(u, v) = δ_h P(u, v0) + ∫_(v0)^v (a_h ·
+δ_h(R, s, Q) + b_h δ_h P) dv′, with a_h, b_h the mean values of ∇F on the segment, continuous and converging uniformly,
+and δ_h(R, s, Q) → (P, s_u, F) uniformly; Gronwall in v makes δ_h P uniformly Cauchy, so ∂_u P exists and is
+continuous, and likewise ∂_v Q. So U ∈ C¹; the k-th derivatives solve linear Volterra equations of the same form with
+coefficients built from lower derivatives, so by induction U ∈ C^∞ for smooth data. *Boundedness of the domain.* On N′,
+in the gauge s = const there (twodomain5's cone()), R_uu = 0 for u ≥ u2, so R_u(u, v0) = c0 < 0 there; R_uv = −e^(2s)
+μ/R³ < 0 gives R_u ≤ c0 on {u ≥ u2}, so {R ≥ a, v ≤ V1} has u bounded, and by the same bound {R ≥ a′, v ≤ V1} for every
+a′ > 0 [R5: stated with a′ before step (1), which uses a uniform K_0 on {R ≥ a′}]. *The first exit* (written in round
+2, the verifier's item 1: (c) assumes the solution on J⁻(p), so Ω₂ ⊂ Q_(a′) needs an argument). Fix a′ < a, K > K_0
+(the chain's bound on {R ≥ a′}), the truncated fixed point Ũ on Q (F_K, G_K equal to F, G on {|U| ≤ K, R ≥ a′}) and
+Q_(a′) := {p ∈ Q : R̃ > a′ on J⁻(p) ∩ Q}. (1) Ũ solves the true system on Q_(a′): for p ∈ Q_(a′), if |Ũ| ≥ K somewhere
+on the compact J⁻(p) ∩ Q, let q be such a point with u + v least; on J⁻(q) ∖ {q}, |Ũ| < K and R̃ > a′, so Ũ solves the
+true system there, the chain gives |Ũ| ≤ K_0 there and, by continuity, at q: a contradiction. (2) Q_(a′) is a past set,
+open in Q (the least of R̃ over J⁻(p) is continuous in p), and the development D := ∪_(a″>0) Q_(a″) is a past set
+carrying one smooth solution (two truncations agree where both solve B1, by the contraction). (3) For p ∈ D with R(p) ≥
+a, (c) applies, J⁻(p) ⊂ D, and gives R ≥ min(R(p), √μ0) ≥ a > a′ on J⁻(p): p ∈ Q_(a′). (4) So G := {p ∈ D : R ≥ a on
+J⁻(p)} ⊂ Q_(a′), and G is not cut by the edge of the development: G is closed in Q [R5: G ⊂ Q_(a′) and R̃ is continuous
+on Q_(a′)], and at p ∈ ∂G the least of R over J⁻(p) is a (were it larger, a neighbourhood of p would lie in G), so (c)
+at p gives min(R(p), √μ0) ≤ a < √μ0, i.e. R(p) = a: ∂G ⊂ {R = a}. Ω₂ ⊂ G below, and the background exists, smooth, on
+all of it.
 
 (e) *The domain and the record's Lemma 1.1 (deduced; computed twodomain5 D1-D2, twodt5 T1-T2, twotransport5, twobg5
 G3).* Define Ω₂ ⊂ G by the record's (1.1) with v̂, τ = v̂ − R and R in place of v, τ, r, the outer data cone N = {u =

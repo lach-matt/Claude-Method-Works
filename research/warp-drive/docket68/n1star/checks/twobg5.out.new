@@ -28,10 +28,10 @@
       b(tau0) = 12.995. The example's own N (u0 = 0, R = 5 at v = 0) meets Sigma_tau0 at R - b = -4.092:
       inside the domain, the verifier's case (rejected, as it must be). Moving N out inside region I
       (explicit ingoing Vaidya, the same solution there): from R = 7.505 at v = 0 the cone has R - b >= 1.010
-      on all of [tau0, tau_end] (1.010 at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: False
-      independent check (DOP853 on the reported R0): R - b = 0.9951 at tau0, least 0.9958: False; mutation
-      (ray ODE x 1/2, R0 = 10.719 re-found by the bisection) fails the independent check (least R - b =
-      7.4976): False
+      on all of [tau0, tau_end] (1.010 at tau0): N cap {tau >= tau0} lies in {R > b(tau)}: True
+      independent check (DOP853 on the reported R0): R - b = 0.9951 at tau0 (the bisection's RK4 samples tau
+      at its steps: within 0.02), least 0.9958 > 0: True; control: the same check on the example's own cone
+      (R0 = 5) gives R - b = -4.1001 at tau0 < 0, agreeing with the RK4 value: rejected True
   G4: least |g^-1(dvhat, du)| over every computed cell with R >= a: 0.1312 0.0713 0.0422 at n = 40, 80, 160:
       NOT converged (each finer grid reaches further into the late-v strip near R = a, where the grid
       thins). Resolved on R = a by region III's rays (n = 160 coefficients):
@@ -52,9 +52,9 @@
       the shell and crosses its columns' horizon band, so G5 fails for it: True
 G1 PASS
 G2 PASS
-G3 FAIL
+G3 PASS
 G4 PASS
 G5 PASS
 control PASS
 G5 control PASS
-exit 1
+exit 0
