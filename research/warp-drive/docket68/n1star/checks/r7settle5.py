@@ -18,7 +18,10 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      directions at the size drawn, delta along beta beta^T at f' = -1/4 and along alpha alpha^T at f' = 1/4, m = 0,
      where the conormals' thresholds attain 7/25. Controls: R6-A's cut {Phi_W = V_*}, conormal dt + (1 - r^-2) dr, at
      |delta|_op = 3 r^-2 (r in [8, 400]) has a negative least eigenvalue somewhere (that cut needs the bootstrap's
-     margin); and the cone at |delta|_op = 0.30 has a non-timelike conormal somewhere.
+     margin); and the cone at |delta|_op = 0.30 has a non-timelike conormal somewhere. Round 9 (the round-8 reader's
+     N9, N10): the worst directions are computed, not typed: the f' at which each threshold -g_b0^-1(c, c)/|c|_E^2
+     (m = 0) is least is found exactly (-1/4 for beta, 1/4 for alpha, both 7/25), and K2'' checks that along them
+     delta of size 7/25 makes the conormal null and 0.27 keeps it timelike.
   K3 (exact and sampled) the margins from |H|: with g = g_b0 + H, g^-1 - g_b0^-1 = -g_b0^-1 H g^-1, so |g^-1 -
      g_b0^-1|_op <= s^2 |H|/(1 - s |H|) with s := |g_b0^-1|_op = m + (1 + m^2)^(1/2) (the (t, r) block of g_b0^-1 has
      the eigenvalues -m -+ (1 + m^2)^(1/2), the rest 1); at m = 1/16 the bound is <= 0.0232 for |H|_op <= 1/50 and
@@ -31,14 +34,16 @@ Setting as R4-D: g_b0 = eta + mu r^-2 k k on r >= 4R, mu r^-2 <= 1/16, t~ = t - 
      -rout'(t) e - phi_t phi_r and checked equal to the one typed) has eigenvalues 1/2, 3/2. Control: the outer piece
      at speed 1/2 (timelike) has a flux form with the eigenvalue -1/4.
   K5 (exact; round 8, the round-7 reader's nit 3) every metric with |g^-1 - g_b0^-1|_op <= delta < 7/25 (m <= 1/16,
-     |f'| <= 1/4) has |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4521 (g - g_b0 = g (g_b0^-1 - g^-1) g_b0,
-     |g_b0|_op = s), so g(d_t, d_t) <= -1 + 1/16 + 0.4521 < -0.485, and g^-1(dt~, dt~) <= g_b0^-1(dt~, dt~) + delta
+     |f'| <= 1/4) has |g - g_b0|_op <= s^2 delta/(1 - s delta) <= 0.4520 (g - g_b0 = g (g_b0^-1 - g^-1) g_b0,
+     |g_b0|_op = s), so g(d_t, d_t) <= -1 + 1/16 + 0.4520 < -0.485, and g^-1(dt~, dt~) <= g_b0^-1(dt~, dt~) + delta
      |dt~|_E^2 <= -15/16 + (7/25)(17/16) = -0.64 (g_b0^-1(dt~, dt~) = -1 + f'^2 - m(1 + f')^2): d_t is future timelike
-     and the slices Sigma~ spacelike, with margins uniform in delta < 7/25. Control: at delta = 0.9 the bound on
-     |g - g_b0| exceeds 15/16 and no longer keeps d_t timelike.
+     and the slices Sigma~ spacelike, with margins uniform in delta < 7/25. Round 9 (the round-8 reader's N1): the
+     bound is attained, delta = -sign(w) c e e^T along g_b0^-1's eigenvector e of least |eigenvalue| w at c = 0.2797,
+     m = 1/16, giving |g - g_b0|_op = 0.4512716, the bound's value. Control: at delta = 0.9 the bound on |g - g_b0|
+     exceeds 15/16 and no longer keeps d_t timelike.
   K6 (exact; round 8, nit 4) Step 4's margin: |H|_op <= r^-2/4 with r >= 8 and m <= 1/16 gives |g^-1 - g_b0^-1|_op
-     <= s^2 (r^-2/4)/(1 - s r^-2/4) <= 0.2847 r^-2 < r^-2/2, the margin of D4-D5 (B2d); |H|_op <= r^-2/2 would give
-     0.57 r^-2 (control).
+     <= s^2 (r^-2/4)/(1 - s r^-2/4) <= 0.2845 r^-2 < r^-2/2, the margin of D4-D5 (B2d); round 9 (N8): attained at
+     r = 8 by H along g_b0's eigenvector of least |eigenvalue|; |H|_op <= r^-2/2 would give 0.57 r^-2 (control).
 Labels: computed (K1, K4-K6 exact sympy; K2-K3 floating point, the least eigenvalue exact over the covector).
 
     python3 checks/r7settle5.py     (5 to 30 seconds)
