@@ -79,3 +79,13 @@ X12 PASS
       1.0: |rho|/eps' 1.0; lam = 1.0e-9, lam kappa = 10.0: |rho|/eps' 1.981; lam = 1.0e-9, lam kappa = 1.0e+4: |rho|/eps'
       2.0; max |rho|/eps' = 2.001 <= 3, max sharp ratio = 3.972 <= 5: True  [1220 s]
 X13 PASS
+  X14 Case 3' at a real cancellation with c_N(rho0) = 1/2 (rho0^2 = 23 = 2N - 1, N = 12; unit constants, nu = -1/9, exact
+      derivatives, rho_g by (iv'')): exp(-1/x), lam = 1e-40: lam kappa = 0.000201, min |sigma|/(|nu| T0^2) = 1.51e-13;
+      windows by (A) 201, by (B) 121, all decided: True; exp(-1/x), lam = 1e-80: lam kappa = 4.65e-8, min |sigma|/(|nu|
+      T0^2) = 4.3e-28; windows by (A) 201, by (B) 0, all decided: False; exp(-1/x), lam = 1e-160: lam kappa = 2.48e-15,
+      min |sigma|/(|nu| T0^2) = 1.93e-16; windows by (A) 322, by (B) 0, all decided: True; record C_c^inf, lam = 1e-40:
+      lam kappa = 0.000201, min |sigma|/(|nu| T0^2) = 1.75e-13; windows by (A) 201, by (B) 121, all decided: True; record
+      C_c^inf, lam = 1e-80: lam kappa = 4.65e-8, min |sigma|/(|nu| T0^2) = 4.99e-28; windows by (A) 201, by (B) 0, all
+      decided: False; record C_c^inf, lam = 1e-160: lam kappa = 2.48e-15, min |sigma|/(|nu| T0^2) = 3.26e-18; windows by
+      (A) 322, by (B) 0, all decided: True; the T0^2 route fails (min |sigma| < 10^-3 |nu| T0^2) and every window is
+      decided: False  [2649 s]
