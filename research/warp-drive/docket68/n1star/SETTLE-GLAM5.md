@@ -3189,9 +3189,11 @@ half-integer orders, is deduced, conditionally, in section 9 (Beyond the boundar
 Ledger (round 8). Changed and rerun: `r7settle5.py` (12 checks), `r6edits5.py` (24, E1s among them), `r6sigma5.py` (21;
 only its stated run time changed). Every changed `.out` is from a full run and byte-identical on a second run; the other
 programs are unchanged and their `.out` files stand (r6settle5 21, r5settle5 45, r5edits5 11, zinv5 3, r5op5 7, cclass5
-6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks). Deduced: R8-A. READ:
-BEYOND5.md Lemma 6.4's label; N1STAR-LOG.md D400, D405; SETTLE-GLAM5.md round 2 (R2.1-R2.4) for the citations of nit 7;
-RESPONSE-HL-5D.md (md5 4c121081; 5930486d when written). None from outside sources.
+6, poly5 28, scale5 25, trunc5 23, scatter5 16, boot5 48, order5 22, f1lemma5 12, vac5 8 checks). r5edits5 and r6edits5,
+which read this file's R5-D, R6-D and R8-E, were rerun after its last edit of this round (the line-break moves of nit
+(8) included): both .out files unchanged. Deduced: R8-A. READ: BEYOND5.md Lemma 6.4's label; N1STAR-LOG.md D400, D405;
+SETTLE-GLAM5.md round 2 (R2.1-R2.4) for the citations of nit 7; RESPONSE-HL-5D.md (md5 4c121081; 5930486d when written).
+None from outside sources.
 
 Open in the theorem: nothing beyond its status (the readings named above). Not evaluated: lam_2, eps, delta, lam_1.
 
