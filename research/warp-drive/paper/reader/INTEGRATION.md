@@ -326,3 +326,18 @@ Items found while chapters were written in parallel; each is settled once, editi
   (m, 0, 0, 0)"; chapter 61 fixes the norm ‖·‖_(d_1) (def:after-shell-norm) that chapter 46 leaves open — chapter 46
   may point to it; thm:after-shell-reach for chapter 03's further results and chapter 60's rem:settling-class;
   rem:after-shell-bump for chapter 47's rem:s28-mass-bound.
+
+## Two ε_ind constants; proof C2a; Ch 8-9 and S23 second readings (2026-11-13)
+
+- S13's ϵ_ind (indicial roots of □^Υ) and S15's ε_ind (eq:iii-f1-2-2, roots of L̂_b(0)) are different constants
+  (S15 34:1113-1116 says so; the S23 reader found a counterexample to identifying them). Decision: S13's becomes ε_Υ;
+  S17, S22 (and S14's δ_50) state which they need, min(ε_Υ, ε_ind) where both (sent to the S13, S14, S22 fixers and the
+  S17 reader). S23 no longer uses the identification (its inequality uses δ_+ ≤ η_E and S22's η_2 > ε_+ − δ_+).
+  S25's prop:iii-i15-2-5 should cite S21's (e).
+- Ch 8-9: Ch 9 gets Σ̂_τ := {τ(X) = τ} for whole level sets; Ch 10 line 31 should take that name. Optional Ch 3 item 5:
+  "with item 1" → "with g = g0 on P ∩ {v ≤ v_start}". (The earlier INTEGRATION note "Chapter 9, computational-1" should
+  read Ch 8.)
+- Proof C2a: 10 of the source's 15 envelope bounds e_k proved as printed; 5 printed values are below the true supremum
+  (rounded to nearest) — proved instead e_0 ≤ 1.3241, e_2 ≤ 18.61, e_7 ≤ 3.842e5, e_10 ≤ 3.734e8, e_12 ≤ 4.215e10. Only
+  the D[n] bounds (C261, project C2b) use them, and no result uses D[n]. The λ0 norms 0.0024433, 0.0019079, 0.0012228
+  are proved; prop:lambda0-norms holds for any m1 and uses only c ≥ 1.32404. Reader to start when C2b finishes.

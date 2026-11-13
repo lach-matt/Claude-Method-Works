@@ -198,7 +198,7 @@ and |R′ − R̂′| ≤ E₁ with E₀, E₁ of that row, and |S − Ŝ| ≤ I
 
 Proof. Let δ(u) := R̂″ + B/(3R̂²) on a segment. On the ten middle segments δ is holomorphic on the disc |u − c| ≤ r, r =
 (4/5)min(c − u1, u2 − c), since B is holomorphic off u1 and u2 ([[lem:bg-tools]] (e)) and |R̂| > 0 there; on the
-disc, |R̂″| ≤ Σ n(n − 1)|r_n|(r/h)^(n−2)/h², |R̂| ≥ r_0 − Σ_(n≥1)|r_n|(r/h)ⁿ and |B| is bounded by [[eq:bg-bump-disc]]
+disc, |R̂″| ≤ Σ n(n − 1)|q_n|(r/h)^(n−2)/h², |R̂| ≥ q_0 − Σ_(n≥1)|q_n|(r/h)ⁿ and |B| is bounded by [[eq:bg-bump-disc]]
 with w0 = (c − 6.45)/0.75, ϱ = r/0.75. This gives M. The Taylor coefficients δ_n of δ at c follow from those of B
 ([[lem:bg-tools]] (e)) by multiplication and division of power series, and [[lem:bg-tools]] (b) with N = 60 gives the
 bound δ of [[sec:tab-bg-nprime-defects]]. On the outer segments R̂″ = 0 and |δ| = B/(3R̂²) ≤ B_max/(3R̂_min²), B being

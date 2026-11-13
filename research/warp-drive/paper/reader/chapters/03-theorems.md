@@ -261,13 +261,13 @@ element of the set Λ of [[def:iii-i10-1-1]], discrete and fixed before these co
 do z + d_c0, z + d_c1 have real part in (2, 2 + ε_K] (the gap (G), [[def:iii-i10-1-3]]), d_c0, d_c1 ∈ (0, 1) being
 the offsets of the two class roots of [[def:iii-i9-gap]]. [[ch:s27]] collects these conditions with the other choices
 of parameters. Fix ε < ε_K. Let g_λ be the solutions of [[thm:main]], with A and the envelope fixed, with K large
-enough and on the enlarged domain Ω′ of [[lem:vii-1-2]]. For every ε_m > 0 there are λ1 > 0 and
-δ > 0, depending on ε_m and ε, such that for λ ≤ λ1:
+enough and on the enlarged domain Ω′ of [[lem:vii-1-2]]. For every ε_m > 0 there are λ1 > 0 and δ > 0, depending on
+ε_m and ε, such that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface, continued G-equivariantly to exact Tangherlini data
-beyond a ball ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with the same data as g_λ on that ball,
-which settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m: its difference from that metric
-is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
+beyond a ball ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with the same data as g_λ
+on that ball, which settles to five-dimensional Tangherlini of a mass m′ with |m′ − μ_end| < ε_m: its difference from
+that metric is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
 
 (ii) (without symmetry) every smooth vacuum data set on the same surface whose difference from the data of (i) lies
 in Hintz's data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and
@@ -322,12 +322,12 @@ The remaining chapters prove the following; each is stated in full where it is p
   included where the lateral boundaries meeting them are adapted to the dust ([[thm:class-stability]]); restricted
   massless Vlasov limits, for fields that are caustic-free families of dusts meeting the hypotheses stated there, as
   weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
-  near the initial data of the two-dust background of [[thm:two-dusts]]: data equal to the background's outside a
-  compact subset of a band, vacuum in the band, whose first-order part in a small amplitude is a perturbation of the
-  metric that is not a gauge perturbation. On every vacuum band of the initial slice (a shell {R1 < r < R2} whose
-  closure lies where the background is vacuum) that meets the inside of the apparent horizon such data exist for small amplitude, while on vacuum bands
-  outside it the sign of their charge at second order excludes them for small amplitude when the first-order part is
-  T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
+  near the initial data of the two-dust background of [[thm:two-dusts]]: on a vacuum band of the initial slice (a
+  shell {R1 < r < R2} whose closure lies where the background is vacuum), data equal to the background's outside a
+  compact subset of the band and vacuum in the band, whose first-order part in a small amplitude is a perturbation of
+  the metric that is not a gauge perturbation. On every vacuum band that meets the inside of the apparent horizon such
+  data exist for small amplitude, while on vacuum bands outside it the sign of their charge at second order excludes
+  them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
 - *The boundary at equality.* If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the
   start of the shell, where timelike curves of g_λ cross it ([[thm:layer]], [[cor:layer]]), and at the very edge of
   the layer the character of the boundary is decided column by column ([[thm:very-edge]]).

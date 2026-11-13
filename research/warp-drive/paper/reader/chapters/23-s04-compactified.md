@@ -1957,7 +1957,15 @@ For a small perturbation L′ the same α_i serve. If α_i ∉ Char(L), it lies 
 proof of [[prop:ii-a1-5-3]]). By [[lem:ii-a1-5-1]] (c) that curve stays close to γ_(α_i), and the sets on which its
 b_0^((j)) are elliptic contain fixed neighbourhoods of γ_(α_i)([0, t′_(α_i)]); a B_(α_i) microsupported in these serves
 for L′ too. The resulting operators remain jointly elliptic on WF′(B), once the B_(α_i) are chosen elliptic on open sets
-that still cover WF′(B) when shrunk slightly. ∎
+that still cover WF′(B) when shrunk slightly.
+
+*The index.* The regularity used is that of [[thm:ii-a1-3-1]], of [[lem:ii-a-8-6]] (a) and of [[prop:ii-a1-5-3]]. In
+the last, d_0 − 2 ≥ M′ + 2, with M′ the number of [[prop:ii-a1-2-4]] for index 1 at the orders 𝗌, 𝗄 = 𝗌 − (m − 1)/2,
+m and those of [[lem:ii-a1-4-2]], whose τ, J and κ are fixed by 𝗌 and N (τ := max(1, sup 𝗌 + N), J the least integer
+above 4τ, κ := τ/J); the flow box of [[lem:ii-a1-5-2]] has d_0 − 1 derivatives whatever the curve; [[lem:ii-a1-2-5]]
+and [[lem:ii-a1-2-6]] keep the number of derivatives. The curves γ_α, the localisers, the cut-offs and the operators
+B_α, G_α, B, E, G enter only through [[prop:ii-a1-2-4]] (e) and exact identities of symbols, hence only the constants.
+So d_0 depends only on m, 𝗌 and N. ∎
 
 **Remark {#rem:ii-a1-hypotheses}** (The hypotheses of [[thm:ii-a1-5-4]].) [Hin26c, Proposition 3.24] asks for 𝖧𝗌 ≤ 0
 only "in a neighborhood of WF′_e3b(B) ∩ Char_e3b(L) within Char_e3b(L)" (p. 70). That does not suffice. Take L = D_t in
@@ -2019,8 +2027,9 @@ says so), and [HJS] has constant differential orders. In this edition the two es
 as (L3) and (L4) and recall their content.
 
 (L3) (Elliptic estimate, k = 0; [[thm:ii-a1-3-1]].) There is d_0 = d_0(m, 𝗌, N) such that the following holds for every
-finite 𝒫 ⊂ C^∞_b Ψ^m_e3b, every N′ and every L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions. Let B, G ∈ C^∞_b Ψ⁰_e3b be
-carried by χ, with WF′(B) ⊂ Ell(G) ∩ Ell(L). If χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
+finite 𝒫 ⊂ C^∞_b Ψ^m_e3b, every N′ and every L ∈ C^(d_0)_e3b 𝒫 on ℂ^(N′)-valued functions; d_0 depends neither on 𝒫,
+N′ and L nor on B, G and χ. Let B, G ∈ C^∞_b Ψ⁰_e3b be carried by χ, with WF′(B) ⊂ Ell(G) ∩ Ell(L). If
+χu ∈ H^(−N)_e3b and GLu ∈ H^(𝗌−m)_e3b, then Bu ∈ H^𝗌_e3b and
 
     ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m)_e3b) + ‖χu‖_(H^(−N)_e3b)),
 
@@ -2028,7 +2037,7 @@ with C uniform for L in a neighbourhood in C^(d_0)_e3b 𝒫 on which WF′(B) �
 
 (L4) (Real principal type propagation, k = 0; [[thm:ii-a1-5-4]].) Let m ∈ ℕ_0. There is d_0 = d_0(m, 𝗌, N) such that
 the following holds for every δ > 0, all finite sets 𝒫_(m−j) ⊂ C^∞_b Ψ^(m−j)_e3b, j = 0, 1, the elements of 𝒫_m having
-classical principal symbols, every N′, and operators on ℂ^(N′) of the form
+classical principal symbols, every N′, all B, E, G and χ as below, and operators on ℂ^(N′) of the form
 
     L = L_0 + L_1 + L_2,   L_0 ∈ Diff^m_e3b ⊗ Id,   L_1 ∈ C^(d_0,(2δ,δ,δ))_e3b 𝒫_m ⊗ Id,
     L_2 ∈ C^(d_0)_e3b 𝒫_(m−1) ⊗ End ℂ^(N′),
@@ -2044,8 +2053,14 @@ to their first entry into Ell(E). If χu ∈ H^(−N), GLu ∈ H^(𝗌−m+1) an
     ‖Bu‖_(H^𝗌_e3b) ≤ C(‖GLu‖_(H^(𝗌−m+1)_e3b) + ‖Eu‖_(H^𝗌_e3b) + ‖χu‖_(H^(−N)_e3b)),
 
 with C locally uniform for perturbations of L_0, L_1, L_2 in Diff^m_e3b, C^(d_0,(2δ,δ,δ))_e3b 𝒫_m and
-C^(d_0)_e3b 𝒫_(m−1) with real principal symbols, for which 𝖧′𝗌 ≤ 0 on the same neighbourhood of T; the other hypotheses
-persist under small perturbations, by the continuity of the flow in the field ([[lem:ii-a1-5-1]] (c)).
+C^(d_0)_e3b 𝒫_(m−1) with real principal symbols, for which 𝖧′𝗌 ≤ 0 on the same neighbourhood of T; the proof uses the
+other hypotheses for L only, and the perturbed backward curves reach Ell(E) within a slightly larger time, by the
+continuity of the flow in the field ([[lem:ii-a1-5-1]] (c)).
+
+In (L3) and (L4) the number d_0 depends only on m, 𝗌 and N, not on the operators B, E, G, the cut-off χ, the finite
+sets of operators or the rank N′ ([[thm:ii-a1-3-1]], [[thm:ii-a1-5-4]]). The inductions below apply (L3) and (L4) to
+auxiliary operators, cut-offs, finite sets and systems chosen anew at every order of b-regularity k; this is why the
+indices they give do not depend on k.
 
 Everything else in [[sec:ii-a-8]] and [[sec:ii-a-9]] is proved from (L3), (L4) and the calculus of [[sec:ii-a-3]].
 

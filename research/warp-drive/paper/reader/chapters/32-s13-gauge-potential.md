@@ -353,6 +353,54 @@ iξ((f′ + 2γ_H c_v)u_v, 2γ_H c_r u_v + (−f′ + 4γ_H c_v)u_r, 2γ_H c_v u
 (iv) g⁻¹(dt − dr, dt − dr) = g^tt + g^rr = −f⁻¹ + f = −(1 − f)(1 + f)/f with 1 − f = m_0ρ² and 1 + f = 2 − m_0ρ²;
 and g − ḡ = (1 − f)dt² + (f⁻¹ − 1)dr². ∎
 
+The incoming radial set R_in of [[eq:i-a-1-5]] sees the operator at ∂X through the following structure.
+
+**Proposition {#prop:np-10-19-i}** (The radial structure at the incoming radial set.) (a) For c ∈ ℝ, the operator
+ρ(ρ∂_ρ − c) on C_c^∞((0, ∞)) is formally skew-adjoint for the density ρ⁻⁵dρ, the radial factor of the Euclidean
+density r³dr dx̂ of ℝ⁴, if and only if c = 3/2.
+
+(b) On 4 + 1 Minkowski space write the first-order part of the zero energy operator (□̄^Υ)^(0), in the Cartesian
+coordinates x and the frame of the splitting [[eq:iii-a1-2-2]], as Σ_i C^i ∂_(x^i), and put A_w := r Σ_i x̂^i C^i, the
+coefficient of ∂_r times r. Then
+
+    A_w = −γ_Υ M_D,     M_D := ((−(1 + e_Υ), −(1 − e_Υ), 0), (1 − e_Υ, 1 + e_Υ, 0), (0, 0, 0)),
+
+M_D being the coefficient of ρ∂_ρ in M_E of [[eq:iii-d-3-2]], and A_w + S̄ = ΞS̄Ξ, where Ξ exchanges the first two
+components and fixes the third: Ξ is the reflection dr ↦ −dr of the radial direction, which exchanges dx̄⁰ = dt̄ + dr
+and dx̄¹ = dt̄ − dr. Hence spec(A_w + S̄) = spec S̄ = {γ_Υ(1 − e_Υ), 2γ_Υ, γ_Υ}, and at γ_Υ = 0 both vanish.
+
+(c) For P̂ = (□^Υ_b)^(σ) and every fibre inner product h smooth near ∂X, the endomorphisms of [[eq:i-a-1-5]] satisfy
+p_in − (S + S^(∗h)) = −2Re_h(A_w + S̄) at ∂X.
+
+*Proof.* (a) For u, v ∈ C_c^∞((0, ∞)), ∫ρ²u′v̄ ρ⁻⁵dρ = ∫u′v̄ ρ⁻³dρ = ∫u(−ρ²v̄′ + 3ρv̄)ρ⁻⁵dρ, so the formal adjoint
+of ρ²∂_ρ is −ρ²∂_ρ + 3ρ, and that of ρ(ρ∂_ρ − c) is −ρ(ρ∂_ρ − (3 − c)). It equals −ρ(ρ∂_ρ − c) if and only if
+3 − c = c.
+
+(b) By [[eq:iii-d-3-3]], (□̄^Υ)^(0) = ᵇ□̄(0) + γ_Υρ²M_E. In the Cartesian frame ᵇ□̄(0) is −Σ_i ∂²_(x^i) Id, as □̄
+acts componentwise there (proof of [[lem:iii-a1-2-1]]); it has no first-order part. The splitting differs from the
+Cartesian frame by a matrix Θ(x̂), homogeneous of degree 0, and conjugation by Θ adds the first-order part
+−2Σ_i Θ⁻¹(∂_(x^i)Θ)∂_(x^i), whose radial contraction Σ_i x̂^iΘ⁻¹∂_(x^i)Θ = r⁻¹Θ⁻¹(r∂_rΘ) vanishes. In γ_Υρ²M_E the
+operators d_𝕊 and δ_𝕊 differentiate along the spheres, so their Cartesian coefficients are tangential and do not enter
+A_w; the remaining first-order part is γ_Υρ²M_D ρ∂_ρ = −γ_Υ ρ M_D ∂_r. So A_w = −γ_Υ M_D, and, with S̄ of
+[[eq:iii-d-3-2]],
+
+    A_w + S̄ = γ_Υ ((2, 1 − e_Υ, 0), (0, 1 − e_Υ, 0), (0, 0, 1)),
+
+which is S̄ with its first two rows and its first two columns exchanged, that is ΞS̄Ξ. Conjugate matrices have the
+same spectrum, and that of S̄ is [[lem:iii-d-3-1]].
+
+(c) We compute in the frame of the splitting: the change Θ(x̂) to the Cartesian frame is homogeneous of degree 0,
+commutes with ρ∂_ρ, and conjugates p_in, S, A_w and S̄ alike, h being carried along. Write D := ρ∂_ρ. By (b),
+[[eq:iii-d-3-3]] and [[lem:iii-a1-2-1]] (1), ρ⁻²(□̄^Υ)^(0) = −D² + (2 − A_w)D + B, where B collects the terms with
+angular derivatives and those of order 0; and P̂(0) − (□̄^Υ)^(0) ∈ ρ⁴Diff_b² ([[lem:iii-d-2-1]] (3)), with real
+scalar principal symbol, so its h-imaginary part lies in ρ⁴Diff_b¹. For the density ρ⁻⁵dρ dx̂ the formal adjoint of D
+is −D + 4, as in (a); hence (ρ²D)^* = −ρ²D + 2ρ² and (ρ²D²)^* = ρ²(D² − 4D + 4), so ρ²(−D² + 2D) is formally
+self-adjoint, and Im_h(−ρ²A_wD) = −(2i)⁻¹ρ²(A_w + A_w^(∗h))D + ρ²(order 0), up to terms in ρ³Diff_b¹ from the
+derivatives of h along D. The h-adjoints of the terms of B have no D-term. So ρ⁻¹Im_h P̂(0) is
+−(2i)⁻¹(A_w + A_w^(∗h))ρD plus terms with angular derivatives and terms vanishing at ρ = 0. As ρD = −∂_r has
+scattering symbol −iξ at ξ dr, the symbol at ξ = −2, η = 0, ρ = 0 is p_in = −(A_w + A_w^(∗h)) = −2Re_h A_w. Since
+S = S̄ at ∂X ([[lem:iii-d-2-1]] (3)), p_in − (S + S^(∗h)) = −2Re_h(A_w + S̄). ∎
+
 **Lemma {#lem:iii-d-5-1}** (The threshold.) Let c_(Υ,H) = −½χ(r)dr near r_h, with χ = 1 near r_h (the choice of
 [[sec:iii-d1-1]]). Then at b_0 the threshold quantity ϑ_ℋ of [[eq:i-a-1-5]], computed in a suitable fibre inner
 product, is 1 for every γ_(Υ,H), and the regularity condition s > ½ + ϑ_ℋ is s > 3/2. For every δ > 0 there is a
@@ -391,8 +439,8 @@ S_sub(P) := −iH_G + σ_sub(P), σ_sub(P) being the matrix p̃_1 − (1/2i)Σ_j
 [[prop:np-10-18]] (iii). The static Christoffel symbols are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2, Γ^r_rr = −f′/(2f),
 Γ^r_ab = −rf(g_𝕊)_ab, Γ^a_rb = r⁻¹δ^a_b and the Γ^a_bc of g_𝕊; the others vanish.
 
-**Proposition {#prop:np-10-17-i}** (The subprincipal operator; [Hin17, Proposition 4.1] in dimension 4 + 1.) For every
-metric g, on half-densities by |dg| and in a coordinate frame, □_g = 2δ_gG_gδ*_g has principal part G Id and
+**Proposition {#prop:np-10-17-i}** (The subprincipal operator; [Hin17, Proposition 4.1].) For every metric g, on
+half-densities by |dg| and in a coordinate frame, □_g = 2δ_gG_gδ*_g has principal part G Id and
 subprincipal symbol the matrix iΓ^μ_(αν)∂_(ζ_α)G. Equivalently, S_sub(□_g) = −i∇^(π*T*)_(H_G).
 
 *Proof.* By [[prop:np-10-16]] (i), □_g = ∇*∇ − Ric, and the Ricci term is of order zero. The proof of
@@ -452,14 +500,22 @@ H_G a = 2f²ξ² + rff′ξ² − rσ²f′/f + 2r⁻²fC, so (∇_(H_G)e_1)_t =
 {G = 0}. For the second, H_G b = −σ(2ξ − 2rf′ξ/f), so (∇_(H_G)e_1)_r = −2σξ + 2σrf′ξ/f − 2σrf′ξ/f = −2σξ. Hence
 ∇_(H_G)e_1 = 2σ²dt − 2σξ dr − 2ση = −2σζ. ∎
 
-**Proposition {#prop:np-10-17-v}** (A nilpotent endomorphism.) Let N be the endomorphism of span{e_0, e_1, e_2} with
-Ne_0 = 0, Ne_1 = e_0 and Ne_2 = e_1, and let ϵ > 0. For the inner product diag(1, ϵ⁻¹, ϵ⁻²) in the basis
-(e_0, e_1, e_2)/C^(1/2), N + N* has norm 2^(1/2)ϵ^(1/2). For diag(1, ϵ⁻², ϵ⁻⁴) its norm is 2^(1/2)ϵ.
+**Proposition {#prop:np-10-17-v}** (A nilpotent endomorphism.) Let 𝔫 be the endomorphism of span{e_0, e_1, e_2} with
+𝔫e_0 = 0, 𝔫e_1 = e_0 and 𝔫e_2 = e_1, and let ϵ > 0. For the inner product diag(1, ϵ⁻¹, ϵ⁻²) in the basis
+(e_0, e_1, e_2)/C^(1/2), 𝔫 + 𝔫* has norm 2^(1/2)ϵ^(1/2). For diag(1, ϵ⁻², ϵ⁻⁴) its norm is 2^(1/2)ϵ.
 
-*Proof.* The vectors e_0/C^(1/2), ϵ^(1/2)e_1/C^(1/2) and ϵe_2/C^(1/2) are orthonormal. In this basis N has the entries
-ϵ^(1/2), ϵ^(1/2) above the diagonal and zeros elsewhere. So N + N* = ϵ^(1/2)B with B := ((0, 1, 0), (1, 0, 1),
+*Proof.* The vectors e_0/C^(1/2), ϵ^(1/2)e_1/C^(1/2) and ϵe_2/C^(1/2) are orthonormal. In this basis 𝔫 has the entries
+ϵ^(1/2), ϵ^(1/2) above the diagonal and zeros elsewhere. So 𝔫 + 𝔫* = ϵ^(1/2)B with B := ((0, 1, 0), (1, 0, 1),
 (0, 1, 0)), whose eigenvalues are 0 and ±2^(1/2). For the second inner product the basis is e_0, ϵe_1, ϵ²e_2 (divided
 by C^(1/2)), and the entries are ϵ, ϵ. ∎
+
+**Remark {#rem:s13-kerr-frame}** (The frame on Kerr.) [Hin26, (6.16c)] writes ∇_(H_G) on Kerr as H_G plus 2σ times
+the shift e_1 ↦ e_0, e_2 ↦ e_1 in a frame e_0, …, e_3 whose fourth member it annihilates. In the conventions here
+∇_(H_G)e_1 = −2σe_0 ([[prop:np-10-17-iv]]); in the frame (e_0, −e_1, e_2) the relations take the form printed there,
+and the matrix is nilpotent either way. For the inner product diag(1, ϵ⁻¹, ϵ⁻², ϵ⁻³) named in the proof of
+[Hin26, Lemma 6.4] the norm of 𝔫 + 𝔫* is 2^(1/2)ϵ^(1/2) by the computation above, 𝔫 vanishing on e_3; the order O(ϵ)
+stated there holds for the squared weights, which is why the second inner product of [[prop:np-10-17-v]] is recorded.
+Either norm tends to 0 with ϵ, which is all that [[lem:iii-d-5-2]] uses.
 
 **Proposition {#prop:np-10-19-iii}** (The loss at the trapped set.) At a point of the trapped set Γ of
 [[prop:np-10-19-ii]], where σ = 1 and C = 4m_0, ∇_(H_G) maps e_0 ↦ 0, e_1 ↦ −2e_0 and e_2 ↦ −2e_1. It preserves
@@ -469,8 +525,8 @@ sup p_1/(2β_0) = (2ϵ)^(1/2)/4 and 2 sup p_1/ν = (m_0ϵ)^(1/2) there, with β_
 [[prop:np-10-19-ii]].
 
 *Proof.* On Γ, G = 0, σ = 1 and C = 4m_0 > 0, so the frame is defined. By [[prop:np-10-17-iv]], 𝒫 is invariant. Since
-H_G C = 0 ([[prop:np-10-17-iii]]), the matrix of ∇_(H_G) in the basis e_j/C^(1/2) is M = −2N. Because ∇ is metric,
-V_⊥ is invariant as well. Then p_1 = N + N*, whose spectrum is 0, ±(2ϵ)^(1/2) by the proof of [[prop:np-10-17-v]].
+H_G C = 0 ([[prop:np-10-17-iii]]), the matrix of ∇_(H_G) in the basis e_j/C^(1/2) is M = −2𝔫. Because ∇ is metric,
+V_⊥ is invariant as well. Then p_1 = 𝔫 + 𝔫*, whose spectrum is 0, ±(2ϵ)^(1/2) by the proof of [[prop:np-10-17-v]].
 Finally, (2ϵ)^(1/2)/(2 · 2) = (2ϵ)^(1/2)/4, and 2(2ϵ)^(1/2)(2m_0)^(1/2)/4 = (m_0ϵ)^(1/2). ∎
 
 (a) The subprincipal operator of □_(g_(b_0)) on half-densities by |dg| is −i∇^(π*T*)_(H_G) ([[prop:np-10-17-i]]).

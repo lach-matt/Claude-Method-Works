@@ -1,0 +1,248 @@
+## The linear solution in a Regge–Wheeler-type gauge {#ch:rw-gauge}
+
+[[thm:viii-2-2]] and [[cor:viii-2-3]] give, for every linearised data set in the class, a linearised vacuum
+development in the gauge of the nonlinear problem which settles to a change of mass, and [[cor:ix-2-3]] shows that a
+solution in any other gauge with the same data differs from it by a linearised diffeomorphism L_X g, about which
+nothing is asserted ([[rem:ix-2-4]] (b)). This chapter determines X for the gauge of Kodama and Ishibashi's master
+equations [KI03], in which the scalar modes have no mixed and no trace-free angular components, and proves the decay
+of every metric component there. The class carries no vector-type perturbation and no harmonic of degree l = 1
+([[lem:gd-1-2]]), so the gauge is reached by an explicit gauge vector, local in the orbit coordinates and built on
+each sphere by inverting the Laplacian and (2/3)Δ̂(Δ̂ + 3) ([[lem:gd-1-3]]); its spherically symmetric part is a time
+integral ([[lem:gd-1-4]]). In this gauge the perturbation settles to the change of mass at the rate of
+[[thm:viii-2-2]], with all derivatives and the horizon included, with a loss of two derivatives and no sum over
+harmonics ([[thm:rw-settling]]).
+
+The rest of the chapter compares this with the decay of the master quantities proved by Hung, Keller and Wang
+[HKW18], who leave the metric components to "a suitable choice of linearized gauge" ([HKW18, p. 4]). In the class the
+components are, mode by mode, Kodama and Ishibashi's reconstruction from the master fields, with coefficients bounded
+uniformly in l in a suitable normalisation ([[prop:np-10-1]]). For [HKW18]'s data they settle on each region r ≤ R at
+[HKW18]'s rate τ⁻² in energy, once one more datum is finite: the second derivative of the master fields transversal
+to the horizon. That datum is needed, because [HKW18]'s energies are first order and the master equation degenerates
+at the horizon ([[lem:np-10-1b]]), and it suffices, by a red-shift commutation that is exact in the class
+([[lem:np-10-1a]]). Uniformly in r the statement fails: on the outgoing part of [HKW18]'s leaves the orbit-space
+components can grow as r^(1/2) ([[thm:rwg-1]]), and with that weight, and only with it, they settle pointwise and
+uniformly in r ([[thm:rwg-2]], [[thm:rwg-2-prime]]).
+
+### Setting {#sec:rw-setting}
+
+*The metric and the charts.* Throughout, g := g_(b₀), b₀ = (m₀, 0), is the five-dimensional Schwarzschild–Tangherlini
+metric of mass m₀ in the coordinates (t, x) of [[sec:iii-b-3]]: g = Φ*_(m₀) g^KS_(m₀), with Φ_m(t, x) = (t − T_m(|x|), x)
+and g^KS_m = η + m|x|⁻²(dt_KS + d|x|)² ([[eq:iii-b-3-3]], [[prop:iii-b-3-4]]). So r := |x| is the area radius of the
+spheres {t = c, |x| = r}, and SO(4), acting on x, acts by isometries. Put
+
+    v := t − T_(m₀)(r) + r   (that is, t_KS + r),     f := 1 − m₀/r²,     r_h := m₀^(1/2) = R₁,     ς := m₀/r².
+
+On {r ≥ r_♭} (r_♭ ∈ (0, ½R₁] the inner radius of [[ch:s11]]), with γ = dϑ² + c²dφ1² + s²dφ2² the round metric of the
+unit sphere (c := cos ϑ, s := sin ϑ, in the coordinates of [[sec:background]]),
+
+    g = −f dv² + 2 dv dr + r² γ,                                                                            {#eq:rw-ingoing}
+
+since −dt_KS² + d|x|² = −(dv − dr)² + dr² = −dv² + 2 dv dr. The surface gravity of the horizon {r = r_h} is
+f′(r_h)/2 = m₀/r_h³ = 1/r_h. The function t_* of [[eq:iii-b-3-6]] has t_* − v = T_(m₀)(r) − ψ(r) − r, a function of r
+alone; so on {r ≤ R′}, |t_* − v| ≤ C_(R′), and ∂_v = ∂_t = ∂_(t_*) at fixed x.
+
+*The class.* G = O(2) × O(2) acts as in [[sec:class]]. In the coordinates (v, r, ϑ, φ1, φ2) the torus acts by
+translation of φ1, φ2, so the components of a G-invariant tensor in the coordinate frame do not depend on φ1, φ2, and
+the reflection φ_i ↦ −φ_i changes the sign of every component with an odd number of φ_i indices. So a G-invariant
+symmetric 2-tensor has eight components, functions of (v, r, ϑ): h_ab, h_aϑ, h_ϑϑ, h_(φ1φ1), h_(φ2φ2) (a, b ∈ {v, r});
+a G-invariant 1-form has X_v, X_r, X_ϑ. We write y^a for (v, r), z^i for the angles, D for the covariant derivative of
+the orbit metric g_ab dy^a dy^b = −f dv² + 2 dv dr, □ := D^aD_a, and D̂, Δ̂ for the covariant derivative and Laplacian
+of (S³, γ). "Class" means G-invariant.
+
+*The mass change.* Put K := r⁻² dv² and K_V := ∂_m g_((m,0))|_(m=m₀), the change of mass of [[cor:viii-2-3]]. At fixed
+(t_KS, x), ∂_m g^KS_m = |x|⁻²(dt_KS + d|x|)² = r⁻² dv², and Φ_(m+ε) = Φ_m ∘ φ_ε + O(ε²) with φ_ε(t, x) =
+(t − ε ∂_mT_m(|x|), x), the flow of V := −(∂_mT_m)|_(m₀)(r) ∂_t. Hence
+
+    K_V = K + ℒ_V g,        ℒ_V g = 0 on {r ≤ 2R₁},                                                         {#eq:gd-0-1}
+
+since T_m(ϱ) = T_m(2R₁) for ϱ ≤ 2R₁ (χ_∞ = 0 there, [[eq:iii-b-3-3]]), so that V is a constant multiple of the Killing
+field ∂_t there. V is smooth, stationary and spherically symmetric. K and K_V are linearised vacuum solutions: K is
+the derivative in m of the Ricci-flat metrics −(1 − m/r²) dv² + 2 dv dr + r²γ at m₀, and DRic(ℒ_V g) = 0
+([[lem:ix-2-1]] (b)).
+
+*Part VIII's solution in the class.* Let (γ̇, k̇) be G-invariant data of [[cor:viii-2-3]], ġ its solution and ṁ its
+mass change. ġ is G-invariant, smooth on the interior of N = {t_IVP ≥ −ν(r)}, with DRic(ġ) = 0 there, and its
+restriction to N⁺ = M°_♭ ∩ {t_IVP ≥ 0} is smooth up to Σ° ([[lem:s29-g-on-n]], [[sec:ix-0]]). N and N⁺ are unions of
+spheres, t_IVP = t − ψ_IVP(r) ([[lem:iii-b-3-7]] (b)). Put
+
+    h := ġ − ṁ K_V,        w := α − 2,
+
+so that w > 2 + ε_t by [[thm:viii-2-2]] (4). For a tensor field u put
+
+    |u|_k(v, r) := Σ_(j≤k) sup_(S³_(v,r)) |D^j u|,
+
+D^j ranging over the products of j of the operators ℒ_(∂_v), ℒ_(∂_r) (the coordinate fields of (v, r, x/r)) and the
+Lie derivatives along the rotation fields Ω_ij = x^i∂_j − x^j∂_i, and |·| the Euclidean norm of the components in the
+coordinates (t, x). On {r_♭ ≤ r ≤ R′} these operators and ∂_t, ∂_(x^i) span the same module over functions with bounded
+derivatives, and ∂_t = t_*⁻¹ (t_*∂_(t_*)) at fixed x. So [[eq:viii-2-3]] with ḃ = (ṁ, 0) reads: for every k, R′ and
+ε′ > 0 there are C, k₁ = k₁(k) and T′ with
+
+    |h|_k ≤ C ‖(γ̇, k̇)‖_(H^(k₁)) t_*^(−w+ε′)     on {r_♭ ≤ r ≤ R′, t_* ≥ T′}.                              {#eq:gd-0-2}
+
+We take T′ ≥ 0; then this set lies in N⁺, as t_IVP ≥ t_* there ([[cor:ix-2-3]]).
+
+### The decomposition on the spheres {#sec:rw-spheres}
+
+All operators below act on the sphere S³ at a point (v, r) of the orbit space, with (v, r) as parameters. For a
+function u on S³ put ⟨u⟩ := |S³|⁻¹ ∫_(S³) u dω, |S³| = 2π², dω the measure of γ, and ‖·‖ the norm of L²(S³, dω). For a
+class tensor h at (v, r) we write h_(a·) for the 1-form h_ai dz^i on S³, and h^TF for the γ-trace-free part of the
+angular block h_ij dz^i dz^j. Its spherical harmonics are described by [[lem:gd-1-2]] (a) below, by which the
+operator 𝒢 := [(2/3)Δ̂(Δ̂ + 3)]⁻¹ is defined on class functions of mean zero. We put:
+
+- the *l = 0 part* h_0 := ⟨h_ab⟩ dy^a dy^b + 2r²⟨H_L⟩ γ, where H_L := γ^(ij)h_ij/(6r²);
+- the *1-form potentials* β_a := Δ̂⁻¹ D̂^i h_ai, with ⟨β_a⟩ = 0;
+- the *scalar potential* τ := 𝒢 D̂^iD̂^j h^TF_ij;
+- the *tensor part* h^TT := h^TF − (D̂D̂ − (1/3)γΔ̂)τ.
+
+h_0 is the average of h over SO(4): the orbit components average to ⟨h_ab⟩, the mixed ones to 0 (S³ carries no
+SO(4)-invariant 1-form), and the angular block to an invariant symmetric tensor on S³, a multiple of γ, fixed by its
+trace. In [[lem:gd-1-2]] the spectral norm of a function u = Σ_l u_l on S³ (u_l of degree l, −Δ̂u_l = k²u_l,
+k² := l(l + 2)) is ‖u‖²_(H^σ) := Σ_l (1 + k²)^σ ‖u_l‖², and the six rotation fields of R⁴ restricted to S³ are written
+Ω_1, …, Ω_6.
+
+**Lemma {#lem:rwg-a}** (A Sobolev inequality on S³ with rotations.) For a function w on S³,
+
+    sup |w|² ≤ (1/12) ‖(1 − Δ̂)w‖² ≤ (1/6) (‖w‖² + Σ_(i,j) ‖Ω_iΩ_j w‖²),
+
+and for a symmetric 2-tensor T on S³, with L_i the Lie derivative along Ω_i and |·| the norm of γ,
+
+    sup |T|² ≤ (1/6) (2305 ‖T‖² + 192 Σ_i ‖L_iT‖² + 4 Σ_(i,j) ‖L_iL_jT‖²).
+
+Moreover Σ_i Ω_i² = Δ̂ on functions, and Σ_i (Ω_i w)² = |D̂w|².
+
+*Proof.* The harmonics of degree l on S³, the restrictions of the harmonic polynomials of degree l on R⁴, form a space
+of dimension (l + 1)², on which −Δ̂ = l(l + 2). For an L²-orthonormal basis Y_1, …, Y_((l+1)²) of it, Σ_m |Y_m(ω)|² does
+not depend on the basis and is carried to itself by the rotations, so it is constant, equal to
+(l + 1)²/|S³| = (l + 1)²/(2π²). By Cauchy–Schwarz in the coefficients, |w_l(ω)| ≤ (l + 1)‖w_l‖/(2π²)^(1/2) for w_l of
+degree l. So, by Cauchy–Schwarz in l,
+
+    sup |w| ≤ Σ_l (l + 1)‖w_l‖/(2π²)^(1/2) ≤ (Σ_l (l + 1)⁻²)^(1/2) (Σ_l (l + 1)⁴‖w_l‖²)^(1/2)/(2π²)^(1/2),
+
+and (l + 1)² = 1 + l(l + 2), Σ_(l≥0) (l + 1)⁻² = π²/6: this is the first inequality, with (π²/6)/(2π²) = 1/12. For a
+function u on R⁴ and the rotation fields Ω_ab = x_a∂_b − x_b∂_a (a < b), Lagrange's identity gives
+Σ_(a<b) (Ω_ab u)² = |x|²|∇u|² − (x · ∇u)², which on |x| = 1 is |D̂u|² for the tangential gradient. Applied to
+u = w(x/|x|) and polarised, Σ_i ∫ (Ω_iw)(Ω_iw′) dω = ∫ ⟨D̂w, D̂w′⟩ dω; each Ω_i is skew on L²(S³), so
+−Σ_i Ω_i² = −Δ̂ in the weak sense, and Σ_i Ω_i² = Δ̂. Each Ω_i commutes with Δ̂ (it is a Killing field), so
+‖Δ̂w‖² = ⟨w, Δ̂²w⟩ = Σ_(i,j) ⟨w, Ω_i²Ω_j²w⟩ = Σ_(i,j) ‖Ω_iΩ_jw‖², and ‖(1 − Δ̂)w‖² ≤ 2‖w‖² + 2‖Δ̂w‖² gives the second
+inequality.
+
+For T: extend T to R⁴ ∖ 0 by T(PX, PY), P = 1 − xxᵀ/|x|² the projection onto the tangent spaces of the spheres; its
+Cartesian components T_AB (A, B = 1, …, 4) restrict to functions on S³ with Σ_(A,B) T_AB² = |T|². The rotations
+preserve P, so the Lie derivative of the extension along Ω_i is the extension of L_iT, and in Cartesian components
+Ω_i(T_AB) = (L_iT)_AB − (ωᵀT + Tω)_AB, ω the constant antisymmetric generator of Ω_i, of operator norm 1. So, with
+|·|_F the Frobenius norm, |Ω_iT|_F ≤ |L_iT| + 2|T| and |Ω_iΩ_jT|_F ≤ |L_iL_jT| + 2|L_jT| + 2|L_iT| + 4|T|. Sum the
+inequality for functions over (A, B), use (a + b + c + d)² ≤ 4(a² + b² + c² + d²) and count the six rotations: the
+coefficient of ‖T‖² is 1 + 4 · 16 · 36 = 2305, that of Σ_i ‖L_iT‖² is 4 · 4 · 6 + 4 · 4 · 6 = 192, and that of
+Σ_(i,j) ‖L_iL_jT‖² is 4. ∎
+
+**Lemma {#lem:gd-1-2}** (The sphere.) (a) The T²-invariant spherical harmonics on S³ are the functions P_j(cos 2ϑ),
+P_j the Legendre polynomials, with Δ̂P_j(cos 2ϑ) = −l(l + 2)P_j(cos 2ϑ), l = 2j; they are complete in the T²-invariant
+part of L²(S³). So class functions carry only even l, and on their mean-zero part k² = l(l + 2) ≥ 8 and
+(2/3)k²(k² − 3) ≥ 80/3: 𝒢 is defined.
+
+(b) For every function τ, D̂^iD̂^j(D̂_iD̂_j − (1/3)γ_ijΔ̂)τ = (2/3)Δ̂(Δ̂ + 3)τ. So D̂^iD̂^jh^TT_ij = 0.
+
+(c) A class 1-form on S³ with zero divergence vanishes, and every class 1-form on S³ is exact: there is no
+vector-type part in the class, and h_ai dz^i = dβ_a. The divergence of a class symmetric 2-tensor is a class 1-form;
+so D̂^ih^TT_ij = 0, and h^TT is transverse and trace-free (the tensor type).
+
+(d) (Bounds uniform in l.) For a harmonic S of degree l, ‖D̂S‖² = k²‖S‖² and
+‖(D̂D̂ − (1/3)γΔ̂)S‖² = (2/3)k²(k² − 3)‖S‖². Hence, for a class tensor h,
+
+    ‖β_a‖_(H^1) ≤ (9/8)^(1/2) ‖h_(a·)‖,        ‖τ‖_(H^2) ≤ (243/80)^(1/2) ‖h^TF‖,
+
+and, with constants independent of h and of l,
+
+    sup|β_a| ≤ C|h_(a·)|_1,     sup|τ| ≤ C|h^TF|_0,     sup|D̂τ| ≤ C|h^TF|_1,
+
+the same holding with any product D^j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k and
+|h^TF|_k are taken with the norm of the unit sphere; on {r_♭ ≤ r ≤ R′} each is at most C_(R′)|h|_k. No sum over
+harmonics is formed.
+
+*Proof.* (a) In the coordinates (ϑ, φ1, φ2), dω = cs dϑ dφ1 dφ2, and on functions of ϑ alone
+Δ̂u = (cs)⁻¹∂_ϑ(cs ∂_ϑu) = (sin 2ϑ)⁻¹∂_ϑ(sin 2ϑ ∂_ϑu). With x := cos 2ϑ, ∂_ϑ = −2 sin 2ϑ ∂_x, so
+sin 2ϑ ∂_ϑu = −2(1 − x²)∂_xu and Δ̂u = 4∂_x((1 − x²)∂_xu). Legendre's equation ((1 − x²)P_j′)′ = −j(j + 1)P_j gives
+Δ̂P_j(cos 2ϑ) = −4j(j + 1)P_j = −2j(2j + 2)P_j. The T²-orbits are the level sets of ϑ, so T²-invariant functions are
+functions of ϑ, and after the φ integrals dω = 4π² cs dϑ = π² dx; the Legendre polynomials are complete in L²(−1, 1).
+For l = 2j ≥ 2, k² ≥ 8 and (2/3)k²(k² − 3) ≥ (2/3) · 8 · 5 = 80/3.
+
+(b) On the unit S³, Ric = 2γ, so D̂^jD̂_iD̂_jτ = D̂_iΔ̂τ + 2D̂_iτ, and D̂^iD̂^jD̂_iD̂_jτ = Δ̂²τ + 2Δ̂τ. Subtracting
+(1/3)Δ̂²τ gives (2/3)Δ̂² τ + 2Δ̂τ = (2/3)Δ̂(Δ̂ + 3)τ. D̂^iD̂^jh^TF_ij is a divergence, so of mean zero, and by
+definition of τ, D̂^iD̂^jh^TT_ij = D̂^iD̂^jh^TF_ij − (2/3)Δ̂(Δ̂ + 3)τ = 0.
+
+(c) A class 1-form on S³ is a(ϑ) dϑ: the components along dφ1, dφ2 have one φ_i index. Its divergence is
+(cs)⁻¹∂_ϑ(cs a); if this vanishes, a = C/sin 2ϑ, and |a dϑ| = |a| is bounded near ϑ = 0 only if C = 0. For any class
+1-form α let η be the mean-zero solution of Δ̂η = D̂^iα_i; η is a class function (Δ̂ commutes with G), so α − dη is
+a class 1-form with zero divergence, hence 0. Every operator above is G-equivariant, so the divergence of a class
+tensor is a class 1-form; by (b) D̂^ih^TT_ij has zero divergence, so it vanishes. For h_(a·): h_(a·) = dη_a with
+Δ̂η_a = D̂^ih_ai, so η_a = β_a.
+
+(d) Integrating by parts, ‖D̂S‖² = −⟨S, Δ̂S⟩ = k²‖S‖², and, with (b),
+‖(D̂D̂ − (1/3)γΔ̂)S‖² = ⟨S, D̂^iD̂^j(D̂_iD̂_j − (1/3)γ_ijΔ̂)S⟩ = ⟨S, (2/3)Δ̂(Δ̂ + 3)S⟩ = (2/3)k²(k² − 3)‖S‖².
+As h_(a·) = dβ_a, ‖h_(a·)‖² = Σ_l k²‖β_(a,l)‖², and ‖β_a‖²_(H^1) = Σ_l (1 + k²)‖β_(a,l)‖² ≤ (9/8)‖h_(a·)‖², since
+(1 + k²)/k² decreases in k² ≥ 8. The two parts of h^TF are orthogonal:
+⟨(D̂D̂ − (1/3)γΔ̂)τ, h^TT⟩ = ⟨τ, D̂^iD̂^jh^TT_ij⟩ = 0. So ‖h^TF‖² ≥ Σ_l (2/3)k²(k² − 3)‖τ_l‖², and
+‖τ‖²_(H^2) ≤ (243/80)‖h^TF‖², since (1 + k²)²/((2/3)k²(k² − 3)) decreases in k² ≥ 8 (the logarithmic derivative in
+x = k² is 2/(1 + x) − 1/x − 1/(x − 3) = (3 − 5x)/(x(1 + x)(x − 3)) < 0) and equals 243/80 at k² = 8.
+
+The rotations are Killing fields of (S³, γ), so they commute with D̂, Δ̂, 𝒢 and the decomposition, and preserve the
+degree. By [[lem:rwg-a]], sup|β_a|² ≤ (1/12)‖β_a‖²_(H^2), and
+‖β_a‖²_(H^2) = Σ_l (1 + k²)²‖β_(a,l)‖² ≤ (9/8) Σ_l (k² + k⁴)‖β_(a,l)‖² = (9/8)(‖h_(a·)‖² + Σ_i ‖L_ih_(a·)‖²),
+as Σ_i ‖L_i dβ_(a,l)‖² = Σ_i ‖dΩ_iβ_(a,l)‖² = k²Σ_i‖Ω_iβ_(a,l)‖² = k⁴‖β_(a,l)‖² by [[lem:rwg-a]]. The L² norms are at
+most 2π² times the squared suprema. Likewise sup|τ|² ≤ (1/12)‖τ‖²_(H^2) ≤ C‖h^TF‖², and
+sup|D̂τ|² = sup Σ_i (Ω_iτ)² ≤ (1/12) Σ_i ‖Ω_iτ‖²_(H^2) ≤ (1/12) Σ_l (1 + k²)³‖τ_l‖², which is at most
+(243/80)(1/12)(‖h^TF‖² + Σ_i ‖L_ih^TF‖²), the projection of h^TF on its scalar-derived part being orthogonal and
+commuting with the L_i. Finally ℒ_(∂_v) and ℒ_(∂_r) commute with every operator on the spheres, γ not depending on
+(v, r). ∎
+
+**Definition {#def:gd-1-1}** (The Regge–Wheeler-type gauge in the class.) A class tensor h is in the
+*Regge–Wheeler-type gauge* if β_v = β_r = 0, τ = 0 and h_0 = cK_V for a constant c. When K replaces K_V in the last
+condition we say *with the mass change K*; on {r ≤ 2R₁} the two conditions agree ([[eq:gd-0-1]]).
+
+For a scalar mode the conditions β_a = 0, τ = 0 are Kodama and Ishibashi's f_a = 0 = H_T ([[lem:gd-1-3]] (b)).
+
+**Lemma {#lem:gd-1-3}** (The gauge vector.) For a class tensor h put
+
+    ξ[h] := (−β_a + (r²/2) ∂_a(τ/r²)) dy^a − (1/2) D̂τ.                                                    {#eq:gd-1-1}
+
+(a) ℒ_(ξ[h]) g has the mixed components (ℒ_ξ g)_(ai) dz^i = −dβ_a, and its angular block has trace-free part
+−(D̂D̂ − (1/3)γΔ̂)τ. So h + ℒ_(ξ[h])g has β = 0, τ = 0, the same h^TT as h, and the same l = 0 part.
+
+(b) For a scalar mode of degree l ≥ 2 written as in [KI03, (2.4)–(2.6), p. 4],
+
+    h_ab = f_ab S,   h_ai = r f_a S_i,   h_ij = 2r²(H_L γ_ij S + H_T S_ij),   S_i = −D̂_iS/k,   S_ij = D̂_iD̂_jS/k² + γ_ijS/3,
+
+one has β_a = −(r/k)f_a S and τ = 2r²H_TS/k²; the orbit part of ξ[h] is X_aS with Kodama and Ishibashi's
+X_a = (r/k)(f_a + (r/k)D_aH_T) [KI03, (2.8), p. 5], and
+
+    h + ℒ_(ξ[h]) g = F_ab S dy^a dy^b + 2r²F S γ,
+
+with their gauge invariants F = H_L + H_T/3 + r⁻¹D^arX_a and F_ab = f_ab + D_aX_b + D_bX_a [KI03, (2.7), p. 5].
+
+(c) (Uniqueness.) For a class 1-form Z with no l = 0 part, ξ[ℒ_Z g] = −Z. In particular ℒ_Z g has β = τ = 0 only if
+Z = 0.
+
+*Proof.* For g = g_ab dy^ady^b + r²γ the Christoffel symbols mixing the factors are Γ^a_ij = −r D^ar γ_ij and
+Γ^i_aj = (∂_ar/r) δ^i_j, the others being those of the two factors. So for a 1-form ξ = ξ_a dy^a + ξ_i dz^i,
+
+    (ℒ_ξg)_ab = D_aξ_b + D_bξ_a,   (ℒ_ξg)_ai = ∂_iξ_a + r²∂_a(ξ_i/r²),   (ℒ_ξg)_ij = D̂_iξ_j + D̂_jξ_i + 2rD^arξ_a γ_ij.
+
+(a) With ξ_i = −(1/2)D̂_iτ and ξ_a = −β_a + (r²/2)∂_a(τ/r²): (ℒ_ξg)_ai = ∂_i(ξ_a − (r²/2)∂_a(τ/r²)) = −∂_iβ_a, and
+(ℒ_ξg)_ij = −D̂_iD̂_jτ + (a multiple of γ_ij), whose trace-free part is −(D̂D̂ − (1/3)γΔ̂)τ. As h_(a·) = dβ_a
+([[lem:gd-1-2]] (c)), h + ℒ_ξg has vanishing mixed components, so β = 0; its h^TF is h^TT, so τ = 0 and the tensor part
+is unchanged. The components of ξ have mean zero on each sphere, so the SO(4)-average of ξ vanishes; rotations are
+isometries, so the average of ℒ_ξg is ℒ of the average of ξ, which is 0.
+
+(b) h_ai = rf_a(−D̂_iS/k) = ∂_i(−(r/k)f_aS), so β_a = −(r/k)f_aS. As Δ̂S = −k²S,
+h^TF = 2r²H_T(D̂D̂S − (1/3)γΔ̂S)/k², so h^TT = 0 and τ = 2r²H_TS/k². Then
+ξ_a = (r/k)f_aS + (r²/2)∂_a(2H_TS/k²) = (r/k)(f_a + (r/k)D_aH_T)S = X_aS. The orbit block of h + ℒ_ξg is
+(f_ab + D_aX_b + D_bX_a)S = F_abS. Its angular block is
+
+    2r²(H_LγS + H_T(D̂D̂S/k² + γS/3)) − (2r²H_T/k²)D̂D̂S + 2rD^arX_aSγ = 2r²(H_L + H_T/3 + r⁻¹D^arX_a)Sγ = 2r²FSγ.
+
+(c) Write Z = Z_a dy^a + Z_ϑ dϑ; by [[lem:gd-1-2]] (c), Z_ϑ dϑ = dη on each sphere with ⟨η⟩ = 0, and ⟨Z_a⟩ = 0. By the
+formulas above, (ℒ_Zg)_ai dz^i = d(Z_a + r²∂_a(η/r²)), so β_a[ℒ_Zg] = Z_a + r²∂_a(η/r²); and the trace-free angular
+part of ℒ_Zg is 2(D̂D̂ − (1/3)γΔ̂)η, so τ[ℒ_Zg] = 2η by (b) of [[lem:gd-1-2]]. Inserting in [[eq:gd-1-1]]:
+ξ[ℒ_Zg] = (−Z_a − r²∂_a(η/r²) + r²∂_a(η/r²))dy^a − dη = −Z. ∎
+
+[[pending:issue-rw-continue]]
