@@ -868,8 +868,9 @@ built from them being smooth up to and including the horizon and in the class. �
 (B) of [[thm:rw-hkw]] with Lemma 11 gives Ě^N_(XΨ)(Σ_τ) ≤ CI_(XΨ)(Σ_0)(1 + τ)⁻² for each X, which commutes with their
 equations, its fields being Killing; the constant is uniform in l ((M) of [[thm:rw-hkw]]). By
 [[prop:np-10-1]] (iii) every component in the chart (v, r) and the orthonormal frame of the spheres is a combination of
-∂_v²ψ, ∂_v∂_rψ, ∂_r²ψ, ∂ψ, ψ and 𝔭ψ with coefficients bounded on {r ≥ r_h} uniformly in l, so O(r^(3/2)) in Φ. On the
-spacelike part, ∂_v²Φ = ∂_v(TΦ) and ∂_r∂_vΦ = ∂_r(TΦ) are bounded in L² by Ě^N_(TΨ), k²Φ by Σ_iĚ^N_(Ω_iΨ), and
+∂_v²ψ, ∂_v∂_rψ, ∂_r²ψ, ∂ψ, ψ and 𝔭ψ with coefficients bounded on {r ≥ r_h} uniformly in l, so O(r^(3/2)) in the
+jets of Φ, 𝔭Φ counted among them. On the spacelike part, ∂_v²Φ = ∂_v(TΦ) and ∂_r∂_vΦ = ∂_r(TΦ) are bounded in L² by
+Ě^N_(TΨ), k²Φ, and with it 𝔭Φ (0 < 𝔭 < k²), by Σ_iĚ^N_(Ω_iΨ) = λĚ^N_Ψ ≥ k²Ě^N_Ψ ([[lem:rwg-cone]]), and
 ∂_r²Φ by [[lem:np-10-1a]], the horizon included ([[lem:rwg-cone]]). On the outgoing part (f ≥ f_1), with
 ∂_r|_v = ∂_r|_u − (2/f)T, they are bounded by Ě^N_(T²Ψ), Ě^N_(TΨ), Ě^N_(ΩΨ) and the equation, which gives ∂_r²Φ at
 fixed u ([[eq:rwg-master]] below); there the zeroth-order terms carry the weight r⁻² in [[lem:rwg-cone]], which costs
@@ -883,13 +884,12 @@ cannot be dropped is [[lem:np-10-1b]]. ∎
 The statements on the regions {r ≤ R} have constants growing with R. This section decides what holds uniformly in r,
 on the outgoing part of [HKW18]'s leaves.
 
-*Notation.* r_* := r + (r_h/2) log((r − r_h)/(r + r_h)), so that dr_*/dr = 1/f (it differs from the r_* of [HKW18],
-normalised by r_*(r_P) = 0, by a constant); u := t − r_* and v := t + r_*, which are 2u_H and 2v_H up to constants; t is
-the static time, and the v of [[sec:rw-setting]] is t + r_* up to a constant. In the outgoing chart (u, r), g = −f du² −
-2 du dr + r²γ and T = ∂_t = ∂_u. A scalar mode of the class has harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field Φ(u,
+*Notation.* r_* and the static time t_s are those of [[sec:rw-setting]], so that v = t_s + r_*; r_* differs from the
+r_* of [HKW18], normalised by r_*(r_P) = 0, by a constant. Put u := t_s − r_*; u and v are 2u_H and 2v_H up to
+constants. In the outgoing chart (u, r), g = −f du² − 2 du dr + r²γ and T = ∂_(t_s) = ∂_u. A scalar mode of the class has harmonic S = P_j(cos 2ϑ), l = 2j ≥ 2, master field Φ(u,
 r), and in the gauge of [[prop:np-10-1]] (ii) it is h = F_abS dy^ady^b + 2r²FSγ with [[eq:np-10-1]]. The orthonormal
-frame of the static observers on {r > r_h} is e_0 = f^(−1/2)∂_t = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_t = f^(1/2)∂_r −
-f^(−1/2)∂_u, and the unit frame e_i of the sphere of radius r, in which h(e_i, e_j) = 2FSδ_ij. The master equation □Φ =
+frame of the static observers on {r > r_h} is e_0 = f^(−1/2)∂_(t_s) = f^(−1/2)∂_u, e_1 = f^(1/2)∂_r|_(t_s) =
+f^(1/2)∂_r − f^(−1/2)∂_u, and the unit frame e_i of the sphere of radius r, in which h(e_i, e_j) = 2FSδ_ij. The master equation □Φ =
 W_SΦ, with □ = −2∂_u∂_r + ∂_r(f∂_r) in this chart, reads
 
     2f∂_rTΦ = f∂_r(f∂_rΦ) − VΦ,        V = V_S.                                                         {#eq:rwg-master}

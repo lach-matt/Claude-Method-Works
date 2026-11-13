@@ -356,9 +356,9 @@ So −id + A_k is invertible for (h, p⃗, q) small, and 𝒫_(k+1) is a graph.
 *The induction bound at k + 1.* At the point of 𝒫_k whose new coordinates are 0, C^(k+1) on the new rows is the tuple of
 the S^(h,p⃗,β_(k+1))_ν(G′) and A_(b,ν)(G′). By [[lem:iii-i15-2-4]] it is at most C‖G′‖_(𝒴,k+1) + C(‖h‖ + |p⃗|)‖u_0‖_(w)
 (below 3, by [[lem:iii-i8-3-2]], with ‖·‖_(α″) in place of ‖·‖_(w)), and by the induction bound at k this is at most
-C(‖F‖ + |W⃗_free|): G′ is G̃ = F − Δ_q(p⃗′) − R_q u less the terms of the list and of f^S, f^b, f^(s1), and u_0 =
-u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν). As (−id + A_k)⁻¹ is bounded, the new coordinates on 𝒫_(k+1), and so all the coordinates, are
-at most C(‖F‖ + |W⃗_free|), W⃗_free the coordinates of higher rate. On 𝒫_(k+1) every coefficient in [[eq:iii-i15-2-3]]
+C(‖F‖ + |W⃗_free|): G′ is G̃ = F − Δ_q(p⃗′) − R_q u less the terms of the list and of f^S, f^b, f^(s1), and
+u_0 = u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν). As (−id + A_k)⁻¹ is bounded, the new coordinates on 𝒫_(k+1), and so all the
+coordinates, are at most C(‖F‖ + |W⃗_free|), W⃗_free the coordinates of higher rate. On 𝒫_(k+1) every coefficient in [[eq:iii-i15-2-3]]
 vanishes, so u(p⃗′) = ũ. Like the coefficients, ũ is obtained from f′ := G′ − (L_(h,p⃗) − L_b)u_0 and the W′_ν by maps
 linear and bounded uniformly in b, each level losing finitely many derivatives (the proofs of [[prop:iii-i10-3-1]],
 [[prop:iii-i11-3-1]] and [[lem:iii-i11-3-2]], at the level β_(k+1) as in [[lem:iii-i13-2-2]]; below 3 the bound on ũ of
@@ -368,14 +368,15 @@ linear and bounded uniformly in b, each level losing finitely many derivatives (
 At k = K every row has rate below α − 2 (the rotation rows at b: Re λ ≤ 2 < α − 2), so 𝒫_K is one point p⃗′. It satisfies
 [[eq:iii-i15-2-2]], and u(p⃗′) ∈ 𝒵_α with no rotation-row content; by the induction bound, |p⃗′| ≤ C‖F‖ and the seminorms
 of u(p⃗′) in 𝒵_α are at most C‖F‖, C uniform in b. The rest of the proof of [[thm:iii-i14-3-1]], the splitting
-u = h_(b,rem)(q′) + h′ by [[thm:iii-i12-3-1]] at b ([[cor:iii-i15-2-10]], with G := G′(p⃗′), u_0 := u(p⃗′) + Σ_(𝒩⊔𝒩_rot)
-m_ν(W′_ν) and the W′_ν as the W_ν there), then applies. The three terms of the bound of [[cor:iii-i15-2-10]] are at most
-C‖F‖: ‖G′(p⃗′)‖_(𝒴,K) ≤ C‖F‖, by the terms of G′ and G̃ = F − Δ_q(p⃗′) − R_q u(p⃗′); with w_0 := min(α − 2, λ_♯ − 1),
-‖u_0‖_(w_0) ≤ ‖u(p⃗′)‖_(w_0) + C|p⃗′| ≤ C‖F‖, as w_0 < α − 2; and |W′_ν| ≤ |p⃗′| ≤ C‖F‖. So the seminorms of q′ and h′
-are at most C‖F‖, C uniform in b. The v1 coefficient of q′ has no term at ℳ_rot. p⃗′ is affine in F, which enters through
-G̃ only, and linear since it vanishes at F = 0. Uniqueness: any p⃗″ satisfying [[eq:iii-i15-2-2]] with u(p⃗″) ∈ 𝒵_α lies
-in 𝒫_0 (the uniqueness in Step 1 of the proof of [[thm:iii-i14-3-1]]). Its non-rotation coefficients vanish level by
-level by [[lem:iii-i15-1-2]], since [[eq:iii-i15-2-2]] removes the rotation rows from [[eq:iii-i15-2-3]]. So p⃗″ ∈ 𝒫_K.
+u = h_(b,rem)(q′) + h′ by [[thm:iii-i12-3-1]] at b ([[cor:iii-i15-2-10]], with G := G′(p⃗′),
+u_0 := u(p⃗′) + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν) and the W′_ν as the W_ν there), then applies. The three terms of the bound of
+[[cor:iii-i15-2-10]] are at most C‖F‖: ‖G′(p⃗′)‖_(𝒴,K) ≤ C‖F‖, by the terms of G′ and G̃ = F − Δ_q(p⃗′) − R_q u(p⃗′);
+with w_0 := min(α − 2, λ_♯ − 1), ‖u_0‖_(w_0) ≤ ‖u(p⃗′)‖_(w_0) + C|p⃗′| ≤ C‖F‖, as w_0 < α − 2; and |W′_ν| ≤ |p⃗′| ≤ C‖F‖.
+So the seminorms of q′ and h′ are at most C‖F‖, C uniform in b. The v1 coefficient of q′ has no term at ℳ_rot. p⃗′ is
+affine in F, which enters through G̃ only, and linear since it vanishes at F = 0. Uniqueness: any p⃗″ satisfying
+[[eq:iii-i15-2-2]] with u(p⃗″) ∈ 𝒵_α lies in 𝒫_0 (the uniqueness in Step 1 of the proof of [[thm:iii-i14-3-1]]). Its
+non-rotation coefficients vanish level by level by [[lem:iii-i15-1-2]], since [[eq:iii-i15-2-2]] removes the rotation
+rows from [[eq:iii-i15-2-3]]. So p⃗″ ∈ 𝒫_K.
 
 *At b₀.* Write W′^rot := (W′_ν)_(ν∈𝒩_rot). At b₀ the v1 coefficient of u = u_0 − Σ m_ν(W′_ν) at ℳ_rot is
 A_(b₀)(G′) − W′^rot. The v1 pieces of u_0 are the construction's, with the coefficients A_(b₀)(G′)

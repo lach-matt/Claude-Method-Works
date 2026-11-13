@@ -904,12 +904,14 @@ U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0:
 (c) P_5(Ψ(U)) ∈ ℱ^∞_ex, and U ↦ P_5(Ψ(U)) satisfies [[prop:iii-j2-4-3]] on the scales of [[cor:iii-j3-6-6]], with
 constants depending on the data through finitely many norms of (γ̃, k̃);
 
-(d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤ C_k‖(γ̃, k̃)‖_(H^(k+k′_k)),
-with k′_k of [[prop:iii-k-1-2]] (3).
+(d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤ C_kω_k(‖(γ̃, k̃)‖_(H^(k+k′_k)))
+when ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k, with k′_k, s_k and ω_k of [[prop:iii-k-1-2]] (3).
 
-Below, N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] and k″ := max_(k≤N_NM) k′_k. The smallness constants use
-orders k ≤ N_NM only; a bound needed at every order k (the bound on e_S and e_(S⁰) in the proof of
-[[lem:iii-k-2-3]], which feeds [[eq:ii-g-2-4]]) carries k′_k.
+Below, d is the d of [[thm:iii-k-3-2]], fixed in its proof (not the d = 7 of [[ch:s26]], whose N_NM is the N_ex of
+[[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := max_(k≤N_NM) k′_k = k′_(N_NM),
+s_♭ := min_(k≤N_NM) s_k and ω_♭ := max_(k≤N_NM) ω_k on [0, s_♭]. The smallness constants use orders k ≤ N_NM only; a
+bound needed at every order k (the bound on e_S and e_(S⁰) in the proof of [[lem:iii-k-2-3]], which feeds
+[[eq:ii-g-2-4]]) carries k′_k and ω_k.
 
 *Proof.* Write ĝ := ĝ_(S,S⁰) and G := G_(S,S⁰), with S⁰ := S^(0)_1. On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so
 g_(p⃗) = ĝ ([[sec:iii-k-0]]). Also h_tot(p⃗) and ϑ_tot(p⃗) vanish there, being supported in 𝒞 ⊂ supp χ_K
@@ -943,8 +945,9 @@ with constants depending on finitely many norms of h_(−S,−S⁰) and of its d
 (d) At U = 0, h̃ = 0 and S = S⁰ = 0, so P_5(Ψ(0)) = P(g_(b₀) + χ_−h_0, g_(b₀)) on Ω_* ∩ {t^♭_* < T̂ + 2} by the display
 above, and P_5(Ψ(0)) = P_5(Φ(0)) = P(g_(b₀), g_(b₀)) = 0 on {t^♭_* > T̂ + 2} by (a). On {t^♭_* < T̂ + 7/4} it is
 P(g_(b₀) + h_0, g_(b₀)) = 0 by [[prop:iii-k-1-2]] (2). So it vanishes outside supp dχ_−, and it is a smooth function
-of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0; so its ℱ^k_ex-norm is at most C‖h_0‖_(H^(k+2)),
-which [[prop:iii-k-1-2]] (3) bounds. ∎
+of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0; so its ℱ^k_ex-norm is at most C_k‖h_0‖_(H^(k+2))
+while h_0 is bounded in a fixed norm of finite order (a Moser bound), and [[prop:iii-k-1-2]] (3) bounds
+‖h_0‖_(H^(k+2)) by ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))). ∎
 
 **Lemma {#lem:iii-k-2-3}** (Right inverses for Ψ; [[thm:iii-j1-2-1]] for Ψ, [Hin26, Theorem 12.8, last paragraph].)
 There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0 there is a linear map
@@ -985,7 +988,7 @@ vanishes on {t^♭_* < T̂}, e_S and e_(S⁰) vanish there, and they lie in ℱ^
 [[lem:iii-k-2-2]] (c). Their bounds are tame, e_S and e_(S⁰) involving h̃ through D_hP_5 at Ψ(U):
 
     ‖e_S(S′)‖_(ℱ^k_ex) + ‖e_(S⁰)(S⁰′)‖_(ℱ^k_ex)
-        ≤ C_k (‖(γ̃, k̃)‖_(H^(k+k′_k)) + ‖(γ̃, k̃)‖_(H^(k″)) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
+        ≤ C_k (ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))) + ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
 
 by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]].
 

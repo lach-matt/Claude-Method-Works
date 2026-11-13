@@ -280,13 +280,3 @@ includes one application of L̃, of loss 2; the next forcing is formed from thei
 least 4 + d_ι(ϰ_0). For 3 < ℓ_I < 3.5 and λ_♯ ≤ Re ϰ_0 < 2 − δ, 1 < ℓ_I − Re ϰ_0 < 2, so d_ι(ϰ_0) = 11 by
 [[lem:ec-closed-forms]] (e). ∎
 
-**Lemma {#lem:ec-level-sum}** (Sums over the levels.) Let a < b, let g be a non-decreasing function on ℝ with
-0 ≤ g(y) − g(x) ≤ y − x for x ≤ y, let c > 0, and let x_1 < x_2 < ⋯ < x_m be points with x_1 ≤ a, x_m ≥ b and
-x_(j+1) − x_j < c for every j. Then
-
-    Σ_(j=1)^(m) g(x_j) ≥ (1/c)(∫_a^b g − c(b − a)/2) − |g(x_m)| … ≥ (1/c)(∫_a^b g − c(b − a)/2)   when g ≥ 0.
-
-*Proof.* Let g ≥ 0 and h_j := x_(j+1) − x_j < c. As g is non-decreasing with Lipschitz constant 1,
-∫_(x_j)^(x_(j+1)) g ≤ h_j g(x_j) + h_j²/2 ≤ h_j g(x_j) + c h_j/2. Summing over the j with [x_j, x_(j+1)] meeting
-[a, b], and using g ≥ 0 and x_1 ≤ a, x_m ≥ b,
-∫_a^b g ≤ Σ_(j<m) h_j g(x_j) + (c/2)(b − a + 2c) ≤ c Σ_(j<m) g(x_j) + c(b − a)/2 + c². ∎
