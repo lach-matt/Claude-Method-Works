@@ -101,8 +101,9 @@ is the modification C_(g,c,e,h) of [Hin26a, (3.1)] with the trace weight 2/3 in 
 
 The weight 2/3 = 2/(D − 2) is the one for which h G_g E^C ω has the form 2c ⊗_s ω − e g⟨c, ω⟩ for every e
 ([[prop:np-10-12]] (i)). With the weight 1, the literal transcription of the four-dimensional operator, the conclusions
-below fail: the scalar type 0 then has an indicial root in (−1, 1) for all small h > 0 ([[prop:np-10-12]] (iv)), and
-the fibre inner product B of [[prop:np-10-13]] (i) is indefinite.
+below fail: at the constants v_C = 1/2, e_C = 1/102400 of [[eq:iv4-0-1]] the scalar type 0 then has, for all small
+h > 0, an indicial root near ι_w = (1 + 5e_C)/(3 − 5e_C), which lies in (1/3, 1), so a root with real part in (−1, 1)
+([[prop:np-10-12]] (iv)); and the fibre inner product B of [[prop:np-10-13]] (i) is indefinite.
 
 *The constants.* We fix, once for the whole stability theory,
 
@@ -113,8 +114,10 @@ where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 
 and at C_0 − 1, and h_tf the threshold of [[thm:iv6-3-1]]; and 𝖹 := 𝖹₁ ∪ 𝖹₂ ∪ 𝖹₃ ⊂ (0, 10⁻⁶] is the countable set
 made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The nonlinear theorem
 of [[ch:s27]] takes C_0 = 100.
-The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 and rescaled to m₀
-(every condition on it depends on m r_0⁻² and r/r_0 only, by scaling). It is stationary and equals
+The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 outside
+[r_0/2, 2r_0], within [r_0/4, r_0/2] and [2r_0, 3r_0] ([[prop:np-10-14]] (b)), so that it is unchanged on
+[r_0/2, 2r_0] and equals r⁻¹(dt − v_C dr) for r ≥ 3r_0, and rescaled to m₀ (every condition on it depends on m r_0⁻²
+and r/r_0 only, by scaling). It is stationary and equals
 |x|⁻¹(dt − v_C d|x|) for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the static time, and the
 time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
 O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
@@ -187,8 +190,9 @@ which at e = 0 is −16v³(ι − 3)(ι − 2)². Giving ι the weight 1 and κ 
 p_(v) are h³(κ − ι²)³ and h(κ − ι²).
 
 (iv) (*The weight 1 fails.*) Let m_tr = 1 and e ∈ [0, 1/3). At h = 0 the scalar type l = 0 has the indicial root
-ι_w := (7v² − 1 + 3e(1 + v²))/(5v² + 1 − 3e(1 + v²)), which at e = 0 lies in (−1, 1) for every v ∈ (0, 1); and for
-every sufficiently small h > 0 the scalar type 0 has an indicial root ι_w(h) with ι_w(h) → ι_w as h → 0⁺.
+ι_w := (7v² − 1 + 3e(1 + v²))/(5v² + 1 − 3e(1 + v²)), which at e = 0 lies in (−1, 1) for every v ∈ (0, 1), and at
+v = 1/2 equals (1 + 5e)/(3 − 5e), which lies in (1/3, 1) for 0 < e < 1/5; and for every sufficiently small h > 0 the
+scalar type 0 has an indicial root ι_w(h) with ι_w(h) → ι_w as h → 0⁺.
 
 *Proof.* (i) is the first identity in the proof of [[lem:s14-box-c]], which uses only tr_g g = D; with m_tr = 1
 and D = 5 the coefficient is −1 + (3/2)(1 − e) = −e′.
@@ -229,7 +233,8 @@ proofs of (ii)–(iii) do not use the sign of e; so its scalar type 0 polynomial
 h = 0, [[eq:s14-c0]] is the linear polynomial (4e(1 + v²) − 8v²)ι + 4e(1 + v²) + 16v², whose root is
 (4v² + e(1 + v²))/(2v² − e(1 + v²)); with e′ for e this is ι_w, and the leading coefficient 4e′(1 + v²) − 8v² is
 negative, as e′ < 0 for e < 1/3. At e = 0, ι_w = (7v² − 1)/(5v² + 1), which increases from −1 to 1 as v runs over
-(0, 1). The coefficients of C are polynomials in h, so by Hurwitz's theorem, as in [[lem:s14-small-h]] (b), C has a
+(0, 1). At v = 1/2, 7v² − 1 = 3/4 and 5v² + 1 = 9/4, so ι_w = (3/4 + 15e/4)/(9/4 − 15e/4) = (1 + 5e)/(3 − 5e), which
+exceeds 1/3 for e > 0, as 3(1 + 5e) > 3 − 5e, and is below 1 for e < 1/5, as 1 + 5e < 3 − 5e. The coefficients of C are polynomials in h, so by Hurwitz's theorem, as in [[lem:s14-small-h]] (b), C has a
 root ι_w(h) → ι_w as h → 0⁺; it differs from 2, so it is a root of P_0. ∎
 
 From now on in this section (v, e) = (1/2, 1/102400), and we write P_l, p_(v), C and Q_5 for the polynomials of
@@ -299,10 +304,12 @@ C is (2h² + eh − 3h)/h² = 2 − (3 − e)/h < −2.9·10⁶; so C has exactl
 < −2.9·10⁶ − ι₁: if they are not real, their common real part is below −100; if they are real, neither lies in
 [−100, 2] nor in (2, ∞), so both are below −100.
 
-*Scalar type l ≥ 1.* The claim is: for every h ∈ (0, 10⁻⁶] and every l ≥ 1, P_l has no root with real part in
-[−100, 19/10], and, with multiplicity, exactly three roots with real part > 19/10 and three with real part < −100;
-for every l ≥ 2 no root of P_l has real part in (19/10, 2]; and at l = 1 the only root with real part in (19/10, 2] is
-ι = 2, a simple root. [[pending:computational-1]]
+*Scalar type l ≥ 1.* Let h ∈ (0, 10⁻⁶] and l ≥ 1. By [[prop:s14-scalar-every-h]], counted with multiplicity, P_l has
+three roots with real part less than −1/(2h) and three with real part at least 2; for l ≥ 2 the latter have real part
+greater than 2, and for l = 1 they are the simple root ι = 2 and two roots with real part greater than 2. As
+−1/(2h) ≤ −5·10⁵ < −100 and 2 > 19/10, P_l has no root with real part in [−100, 19/10], and exactly three roots with
+real part > 19/10 and three with real part < −100; for l ≥ 2 no root has real part in (19/10, 2]; and at l = 1 the only
+root with real part in (19/10, 2] is ι = 2, a simple root.
 
 (iii) Fix h. By [[prop:np-10-12]] (iii), P_l(ι) = h³(κ − ι²)³ + Σ_(j+2k≤5) a_(jk)ι^jκ^k, with coefficients a_(jk)
 depending on (v, e, h) and not on l: the part of top weight is h³(κ − ι²)³, and every other term has weight at most
@@ -351,10 +358,11 @@ entries of T := r²(−ℓ(dw/w) + S) are polynomials in e; at e = 0 its eigenva
 2v(2 − d) (three times) at ρ_K = 0, and, at b_K = 0, the same with d = b_sf at every ρ_K. They are positive if and
 only if d < 1.
 
-(iii) (*The interior saddle.*) With c = r_0⁻²(r_0 dt − v(r − r_0) dr) on Minkowski space, at the point r = r_0(1 +
-xe^(1/2)/v), r₀²S is block diagonal in the splitting by dt, dr and r dω: the angular block is v(6e^(1/2)x +
-v)/(e^(1/2)x + v) Id, and the (dt, dr) block has, at e = 0, trace 5v and determinant 2v²(3 − 2x²), positive for |x| ≤
-6/5 < (3/2)^(1/2). At (v, e) = (1/2, 1/102400) the block has trace and determinant
+(iii) (*The interior saddle.*) With c = r_0⁻²(r_0 dt − v(r − r_0) dr) on Minkowski space and e ∈ (0, 1), at a point
+r = r_0(1 + xe^(1/2)/v) > 0 at which c is timelike, that is ex² < 1, r₀²S is block diagonal in the splitting by dt, dr
+and r dω: the angular block is v(6e^(1/2)x + v)/(e^(1/2)x + v) Id; and as e → 0 with x and v fixed, the trace and the
+determinant of the (dt, dr) block tend to 5v and 2v²(3 − 2x²), which are positive for |x| ≤ 6/5 < (3/2)^(1/2). At
+(v, e) = (1/2, 1/102400) the block has trace and determinant
 
     tr = (614401x³ + 24575920x² − 73400524800x − 4194312192000) / (102400 (x − 320)(x + 160)(x + 320)),
     det = N(x) / (51200 (x − 320)²(x + 160)²(x + 320)²),
@@ -456,19 +464,41 @@ has characteristic polynomial q_(v,e)(ν) with
 At e = 0, q_(v,0)(ν) = (ν − 2v(1 − d))(ν − 4v(1 − d)). At b_K = 0 the terms in ρ_K vanish, and T is the same with
 d = b_sf.
 
-(iii) Here a = r_0⁻¹ and b = −v(r − r_0)r_0⁻², so a′ = 0, b′ = −vr_0⁻² and F = 0. Put y := xe^(1/2)/v, so that
-r = r_0(1 + y) and r_0b = −xe^(1/2). Then
+(iii) Here a = r_0⁻¹ and b = −v(r − r_0)r_0⁻², so a′ = 0, b′ = −vr_0⁻² and F = 0. Put q := e^(1/2) and y := qx/v,
+so that r = r_0(1 + y) and r_0b = −qx; by hypothesis 1 + y > 0, that is v + qx > 0, and 1 − ex² > 0. Then
 
-    r_0²G = ex² − 1,     r_0² tr K = −v(1 + 4y)/(1 + y),     r_0⁴K(c♯, c♯) = −evx²,
+    r_0²a² = 1,     r_0²b² = ex²,     r_0²b′ = −v,     r_0²G = ex² − 1,
+    r_0² tr K = −v(1 + 4y)/(1 + y) = −v(v + 4qx)/(v + qx).
 
-and [[eq:s14-s-rad]] gives, with Λ := (1 + e)²(r_0²G)⁻¹r_0² tr K − 2(1 − e²)(r_0²G)⁻²evx²,
+By [[eq:s14-s-ang]] the angular entry of r_0²S is v + 5vy/(1 + y) = v(6qx + v)/(qx + v).
 
-    r_0²s = (0, 0; 0, 2v) + r_0² tr K (1, 0; 0, −1) + Λ(1, xe^(1/2); xe^(1/2), ex²),
-    B = (−1, 0; 0, 1) − (1 + e)(r_0²G)⁻¹(1, xe^(1/2); xe^(1/2), ex²).
+On span{dt, dr} we use the basis c, f with f := b dt + a dr. Then ⟨c, f⟩ = −ab + ba = 0 and G(f) = a² − b² = −G. The
+vectors c♯ = −a∂_t + b∂_r and f♯ = −b∂_t + a∂_r lie in span{∂_t, ∂_r}, on which Π vanishes, so on them
+K(X, Y) = b′ dr(X) dr(Y), with dr(c♯) = b and dr(f♯) = a: K(c♯, c♯) = b′b², K(c♯, f♯) = K(f♯, c♯) = b′ab and
+K(f♯, f♯) = b′a². In [[eq:s14-s]], F = 0 and ⟨c, f⟩ = 0 leave only the first two terms in s(c, f) and s(f, f), and with
+⟨c, c⟩ = G, [[eq:s14-s]] and the definition of B in [[eq:s14-ell]] give
 
-By [[eq:s14-s-ang]] the angular entry of r_0²S is v + 5vy/(1 + y) = v(6e^(1/2)x + v)/(e^(1/2)x + v). The trace and the
-determinant of r_0²S = B⁻¹(r_0²s) on span{dt, dr} are therefore rational in (x, e^(1/2), v); their values at e = 0, with
-x fixed, are 5v and 2v²(3 − 2x²), and at (v, e) = (1/2, 1/102400), e^(1/2) = 1/320, they are the stated functions.
+    s(c, c) = −2b′b² − G tr K + (1 + e)²G tr K + 2(1 − e²)b′b² = e(−2eb′b² + (2 + e)G tr K),
+    s(c, f) = −2b′ab,     s(f, f) = −2b′a² + G tr K,
+    B(c, c) = G − (1 + e)G = −eG,     B(c, f) = 0,     B(f, f) = G(f) = −G.
+
+As B(Sω, ω′) = s(ω, ω′), the matrix of S in the basis c, f is the inverse of the Gram matrix of B times that of s; the
+former is diagonal, so on span{dt, dr}
+
+    tr S = s(c, c)/B(c, c) + s(f, f)/B(f, f),     det S = (s(c, c)s(f, f) − s(c, f)²)/(B(c, c)B(f, f)).
+
+In tr S the factor e of s(c, c) cancels against B(c, c) = −eG. In det S, B(c, c)B(f, f) = eG², the factor e of
+s(c, c) cancels, and s(c, f)² = 4b′²a²b², where r_0²b² = ex², so e cancels there too. Multiplying by r_0² and r_0⁴ and
+inserting the values above, the (dt, dr) block of r_0²S has
+
+    tr = 2v(1 + e²x²)/(1 − ex²) − (3 + e)r_0² tr K,
+    det = ((2ve²x² − (2 + e)(1 − ex²)r_0² tr K)(2v − (1 − ex²)r_0² tr K) − 4v²x²)/(1 − ex²)²,
+
+valid for every e ∈ (0, 1). With x and v fixed these are rational functions of q, and their denominators, 1 − ex²,
+(1 − ex²)² and the factor v + qx of r_0² tr K, equal 1, 1 and v at q = 0. So both are continuous at q = 0 and tend, as
+e → 0, to their values at q = 0, where r_0² tr K = −v: the trace to 2v + 3v = 5v and the determinant to
+2v·3v − 4v²x² = 2v²(3 − 2x²). At |x| ≤ 6/5 the latter is at least 2v²(3 − 72/25) > 0. Inserting (v, q) = (1/2, 1/320),
+that is (v, e) = (1/2, 1/102400), into the two formulas gives the stated functions.
 For |x| ≤ 6/5 the denominator of tr is negative and its numerator is at most −4194312192000 + 73400524800·(6/5) +
 24575920·(36/25) + 614401·(216/125) < 0, so tr > 0. The denominator of det is positive. Write N(x) = A₀ + A₁x + A₂x² +
 A₃x³ + A₄x⁴ + A₅x⁵ + A₆x⁶ with the coefficients displayed. For |x| ≤ 6/5, A₀ + A₂x² ≥ A₀ + (36/25)A₂ > 8.3·10¹⁷; the
@@ -521,8 +551,9 @@ if and only if b_sf < b*, where b* = 0.99340731… is the smaller root of 204795
 
 Moreover: (a) conditions (4)–(5) of [Hin26a, Proposition 5.1] off 𝗌𝖿, for 0 < ρ_sf ≤ 2δ_r with some δ_r > 0, follow
 from (iv) by continuity, since Tangherlini space differs from its Minkowski model by terms in ρ_sf C^∞ ([Hin26a, p. 39]);
-(b) a smoothing of c near r_0/2 and 2r_0 preserves (i) and (ii), which there involve only c and not its derivatives
-([Hin26a, p. 41]); (c) in the static time t_s the outer piece is r⁻¹(dt_s − v dr) + O(mr⁻³) dr.
+(b) for every ε ∈ (0, r_0/4] there is a smooth 1-form c_ε equal to c outside (r_0/2 − ε, r_0/2) ∪ (2r_0, 2r_0 + ε),
+so on [r_0/2, 2r_0] and for r ≥ 3r_0, with c_ε − c → 0 uniformly as ε → 0; for ε small enough c_ε satisfies (i) and
+(ii), which involve only the 1-form and not its derivatives ([Hin26a, p. 41]); (c) in the static time t_s the outer piece is r⁻¹(dt_s − v dr) + O(mr⁻³) dr.
 
 *Proof.* All three pieces have the form α(dt + b dr) with α > 0; at r_0/2 and 2r_0 adjacent pieces agree, so c is
 continuous. With g^(tr) = 1 − f,
@@ -601,9 +632,20 @@ depend on ρ_K, so d = b_sf.
 
 (v) 2(1 − e)/(e(1 − v²)) = 273064, and |ρ − 1/2| ≥ 1/200 gives 273064(ρ − 1/2)² ≥ 6.8 > 1 ≥ 1 − ρ².
 
-(a)–(c) are the stated arguments: (a) the positivity in (iv) is strict and stable under perturbations of the metric
-and the 1-form by ρ_sf C^∞ terms near 𝗌𝖿; (b) the conditions in (i)–(ii) are open conditions on the value of c at each
-point; (c) the static time t_s satisfies dt = dt_s + (f⁻¹ − 1) dr with f⁻¹ − 1 = O(mr⁻²). ∎
+(a) The positivity in (iv) is strict and stable under perturbations of the metric and the 1-form by ρ_sf C^∞ terms
+near 𝗌𝖿.
+
+(b) Let c_in, c_mid and c_out be the three formulas of [[eq:s14-cform]], each smooth on r > 0. Choose smooth χ₁, χ₂ with
+values in [0, 1], χ₁ = 1 on (0, r_0/2 − ε] and χ₁ = 0 on [r_0/2, ∞), χ₂ = 1 on (0, 2r_0] and χ₂ = 0 on [2r_0 + ε, ∞).
+Put c_ε := c_in + (1 − χ₁)(c_mid − c_in) for r ≤ 2r_0 and c_ε := c_mid + (1 − χ₂)(c_out − c_mid) for r ≥ r_0/2. Both
+formulas give c_mid on [r_0/2, 2r_0], so c_ε is well defined and smooth. It equals c outside the two intervals; on
+(r_0/2 − ε, r_0/2), c_ε − c = (1 − χ₁)(c_mid − c_in), and on (2r_0, 2r_0 + ε), c_ε − c = χ₂(c_mid − c_out). As adjacent
+pieces agree at r_0/2 and at 2r_0, these tend to 0 uniformly as ε → 0. The conditions of (i) and (ii) are strict
+inequalities between continuous functions of r and of the value of the 1-form at r. They hold for c on the compact sets
+[r_0/4, r_0/2] and [2r_0, 3r_0], which lie in (0, r_0 − r_0e^(1/2)/v] and in [r_0 + r_0e^(1/2)/v, ∞) respectively, so
+they hold there with a positive margin, and they hold for c_ε once ε is small. Elsewhere c_ε = c.
+
+(c) The static time t_s satisfies dt = dt_s + (f⁻¹ − 1) dr with f⁻¹ − 1 = O(mr⁻²). ∎
 
 **Remark {#rem:s14-r0}** (Numerical observation.) Among integer values of r_0, with m = 1 and
 (v, e) = (1/2, 1/102400), conditions (i)–(iii) of [[prop:np-10-14]] held together first at r_0 = 86: (i) at every
@@ -919,10 +961,10 @@ cut-offs χ_(r,j) in [r_♯, r̂], and t_1 < ¼T_0r_♯ in [[prop:iv5-7-2]]. Not
 g := g^KS_b = η + H_b k_b ⊗ k_b is defined, smooth and Lorentzian with H_b > 0 on ℝ_t × {r ≥ ½r_♯}, smoothly in b,
 and the condition of [[lem:iii-b-3-3]] (c) holds there ([[lem:s11-ks-domain]]). The metric g_b of [[sec:iii-b-3-1]]
 is Φ_m*g with Φ_m(t, x) = (t − T_m(|x|), x), and [[rem:iv5-7-4]] transfers the results to it. The 1-form c := c_C of
-[[sec:iv4-0]] is given by its formula on {r ≥ ½r_♯}; below the smoothing near ½r_c it is a positive multiple of
-dt + (v/2) dr. It is past timelike for g_(b₀) at every r > 0 ([[prop:np-10-14]] (i), (b)), so for g_b, b near b₀, on
-the compact set {½r_♯ ≤ r ≤ 3r_c}, by continuity; and for r ≥ 3r_c it is r⁻¹(dt − v dr), past timelike for every g_b
-by [[lem:iv5-0-3]] (a).
+[[sec:iv4-0]] is given by its formula on {r ≥ ½r_♯}; below the smoothing, which lies in [¼r_c, ½r_c], it is a
+positive multiple of dt + (v/2) dr. It is past timelike for g_(b₀) at every r > 0 ([[prop:np-10-14]] (i), (b)), so for
+g_b, b near b₀, on the compact set {½r_♯ ≤ r ≤ 3r_c}, by continuity; and for r ≥ 3r_c it is r⁻¹(dt − v dr), past
+timelike for every g_b by [[lem:iv5-0-3]] (a).
 
 **Definition {#def:iv5-0-1}** (The compactification and the spaces; [Hin26a, Definitions 2.1, 2.2, 2.5, (2.2)–(2.3),
 (2.10), (2.11), (5.19)] in dimension 4 + 1.) Let M₀ := [ℝ̄^(1+4); k₊, k₋], where k_± are the poles of the radial

@@ -886,3 +886,10 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S11/S12 third reading (R3-S11-S12): S12 CONFIRMED (0.80 → about 0.79); S11 two minors (poles of N(A,·)⁻¹ are the
   indicial roots — used by S13:1862, S14:2399, S17:1622; H^∞_loc claim) and one nit; [Shu92, App. 1, Lemma 1.4, pp.
   69-70] quotation verbatim. Third fix running (also labels for chapter 30 formulas cited by chapter 70).
+- S4 third reading (R3-S04): 0M 3m 3n; all R2 findings fixed; the three cut-off claims hold against [Hin26d] v1
+  (Lemma 3.42 quoted correctly; χ_* needs no margin; h(χ) needs no room); Lemma 4.1's change satisfied (Proposition 5.3
+  proves (iii) for every w; d₀ fixed before k). Minors: add (S15) for the truncation results (Prop 2.3, (2.3)/(2.5),
+  Lemma 3.42 p. 52, p. 75); Prop 9.2 "do not accumulate" false (they grow by each level's room); name χ_1 in Prop 9.2.
+  Chapter 25 changes listed (l. 168, 205-206, 211, 221, 231, 235-236, 241, 278, 393-395, 508-512, 716-721, 1030).
+  Chapters 28, 29, 38-43 need nothing. Third fix running on S4 and chapter 25 together; Appendix A (S15) entry text to
+  be carried at integration if the fixer lists it.
