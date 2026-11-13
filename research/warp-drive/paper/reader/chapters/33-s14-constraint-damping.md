@@ -2455,9 +2455,17 @@ h_0 − 3c_0r⁻⁴dr ⊗_s V = ρ³(m dt_* + (2m − 3c_0) d|x|) ⊗_s ρV, and
 
 *Step 2, the formal solution.* Let J := ⌊C_0⌋ + 2. Near ∂X, ρ⁻²P* is a b-differential operator with coefficients smooth
 on X̄ and b-independent normal operator (as P^C_b − P̄^C ∈ ρ⁴Diff²_b), so P*(ρ^jc) = ρ^(j+2)N(ρ⁻²P*, j)c + ρ^(j+3)C^∞
-for c ∈ C^∞(∂X; T*X|_(∂X)). For 3 ≤ j ≤ J, N(ρ⁻²P*, j) is invertible on C^∞(∂X), since the indicial roots of P* are 0,
-have negative real part, or have real part > C_0 + 2 ≥ J ([[lem:iii-e-2-1]] (2)), and it is elliptic (the ellipticity
-hypothesis (E2) of [[ch:s11]]). Removing in turn, for j = 3, …, J, the coefficient of ρ^(j+2) of the current remainder
+for c ∈ C^∞(∂X; T*X|_(∂X)). For 3 ≤ j ≤ J, N(ρ⁻²P*, j) is invertible on C^∞(∂X). Indeed, in the trivialisation by
+dt_*, dx¹, …, dx⁴, ρ⁻²P* is near ∂X an element of Diff²_b with values in 5 × 5 matrices, elliptic, its principal symbol
+at ∂X being, like that of ρ⁻²P^C_b ([[lem:iv4-1-6]], (H2)), the Euclidean Laplacian's in b-form times the identity (the
+formal adjoint for a smooth nondegenerate pairing has the adjoint principal symbol, and this one is real and scalar);
+so it lies in the setting of [[sec:iii-a-1-1]] with N_E = 5, and (E2) there applies to N(ρ⁻²P*, ι). The number j is
+not an indicial root of P*, whose indicial roots are 0, have negative real part, or have real part > C_0 + 2 ≥ J
+([[lem:iii-e-2-1]] (2)). So j is not a pole of N(ρ⁻²P*, ·)⁻¹: at a pole of order p ≥ 1 the coefficient W of (ι − j)^(−p)
+is nonzero and, by (E2), maps C^∞(∂X) to C^∞(∂X), so as C^∞(∂X) is dense in L² and W is bounded on L², Wg ≠ 0 for
+some g ∈ C^∞(∂X); and the coefficient of (ι − j)^(−p) in N(ρ⁻²P*, ι)N(ρ⁻²P*, ι)⁻¹g = g gives N(ρ⁻²P*, j)Wg = 0,
+which would make j an indicial root. By (E2), N(ρ⁻²P*, j)⁻¹ then maps C^∞(∂X) to C^∞(∂X), and it inverts
+N(ρ⁻²P*, j) there. Removing in turn, for j = 3, …, J, the coefficient of ρ^(j+2) of the current remainder
 by ρ^jc_j(W), c_j(W) := −N(ρ⁻²P*, j)⁻¹ applied to that coefficient, gives ω′♯₁(W) := Σ_(j=3)^J ρ^jc_j(W), linear in W
 and smooth in b, with
 

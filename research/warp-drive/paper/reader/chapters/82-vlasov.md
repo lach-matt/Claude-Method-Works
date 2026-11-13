@@ -334,19 +334,19 @@ whatever the pairwise separations.
 E(−1, −f), and g⁻¹(K, K) = E²(−1 + 1) = 0. ∎
 
 **Lemma {#lem:vlasov-hierarchy}** (Coherence under a hierarchy of frequencies.) Let k_1, …, k_n be covectors at a point
-of a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_B)| ≥ c > 0 for A ≠ B, and |k_A| ≤ M in an
+of a 2+1-dimensional Lorentzian space with g⁻¹(k_A, k_A) = 0, |g⁻¹(k_A, k_B)| ≥ c > 0 for A ≠ B, and |k_A| ≤ Ē in an
 orthonormal frame. Let Λ > 1 and ν_A := Λ^(A−1). For every j ∈ ℤⁿ with at least two nonzero entries and |j|₁ ≤ m, let B1
 and B2, B1 > B2, be its two largest indices with nonzero entries. Then
 
-    |g⁻¹(K_j, K_j)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ − m² M²/(2Λ)).                                    {#eq:vlasov-hierarchy}
+    |g⁻¹(K_j, K_j)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ − m² Ē²/(2Λ)).                                    {#eq:vlasov-hierarchy}
 
-In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) M²/c.
+In particular every such combination is non-null, with this margin, once Λ > (m + m²/2) Ē²/c.
 
 *Proof.* In the orthonormal frame |g⁻¹(k, k′)| ≤ |k| |k′|. Put K := K_j = j_B1 ν_B1 k_B1 + V, V := Σ_(A ≠ B1) j_A ν_A
 k_A. Since k_B1 is null, g⁻¹(K, K) = 2 j_B1 ν_B1 g⁻¹(k_B1, V) + g⁻¹(V, V). Here g⁻¹(k_B1, V) = j_B2 ν_B2 g⁻¹(k_B1,
-k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m M²/Λ), using
-|j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A M ≤ m ν_B2 M, so |g⁻¹(V, V)| ≤ m² M² ν_B2² ≤ m² M² ν_B1
-ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m M²/Λ) − m² M² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
+k_B2) + Σ_(A < B2) j_A ν_A g⁻¹(k_B1, k_A), and ν_A ≤ ν_B2/Λ for A < B2, so |g⁻¹(k_B1, V)| ≥ ν_B2 (c − m Ē²/Λ), using
+|j_B2| ≥ 1 and Σ|j_A| ≤ m. Further |V| ≤ Σ_(A ≤ B2) |j_A| ν_A Ē ≤ m ν_B2 Ē, so |g⁻¹(V, V)| ≤ m² Ē² ν_B2² ≤ m² Ē² ν_B1
+ν_B2/Λ. With |j_B1| ≥ 1, |g⁻¹(K, K)| ≥ 2 ν_B1 ν_B2 (c − m Ē²/Λ) − m² Ē² ν_B1 ν_B2/Λ, which is [[eq:vlasov-hierarchy]]. ∎
 
 With c = c0 (2π/n)², Λ is of order n², as in the choice a_A = c n² a_(A−1) of [HL25, Lemma 4.16, p. 18]. The phases ν_A
 u_A are eikonals, so the two-scale scheme is unchanged; the wave of family A carries the amplitude λ F_A/ν_A, so that its
@@ -599,13 +599,13 @@ n), possibly with two radial dusts, such that:
 
 - (i) (Ω) holds for g0;
 - (ii′) on the overlap of the supports of any two families, the radial ones included, |g0⁻¹(du_A, du_B)| ≥ c > 0, and
-  the frequencies are ν_A := Λ^(A−1) over all the phases, with Λ > (m* + m*²/2) M²/c, where m* := N + 2, N is the number
-  of stages, and M bounds |du_A| in orthonormal frames on the supports;
+  the frequencies are ν_A := Λ^(A−1) over all the phases, with Λ > (m* + m*²/2) Ē²/c, where m* := N + 2, N is the number
+  of stages, and Ē bounds |du_A| in orthonormal frames on the supports;
 - (iii) the waves of the non-radial families are torus-polarised ([[def:vlasov-torus-wave]]), those of the radial dusts
   are those of [[thm:two-dusts]].
 
 By [[lem:vlasov-hierarchy]] with m = m*, every symbol [[eq:vlasov-symbol]] with at least two nonzero entries and |j|₁ ≤
-m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* M²/Λ − m*² M²/(2Λ) > 0. These conditions are those of
+m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* Ē²/Λ − m*² Ē²/(2Λ) > 0. These conditions are those of
 the two-dust theorem with one transport and one phase per family, the mixed symbols bounded below on every harmonic
 used; we list what changes from two families to n.
 
@@ -732,7 +732,8 @@ large, the generators of its families being C⁰-close to those of g.
 (ii′) By [[lem:vlasov-separation]], |g⁻¹(du_(α_A), du_(α_B))| ≥ c0 (2π/n)² on the overlaps, so for g^(n),
 |g^(n)⁻¹(du_A, du_B)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). By (V2′) and
 [[rem:vlasov-radial-pair]], the label–radial symbols are at least ½ c(η), and the radial pair, one ingoing and one
-outgoing, is separated. So c := min(½ c0 (2π/n)², ½ c(η), c_rad) > 0, and Λ = Λ(n) is chosen as in (ii′).
+outgoing, is separated with some c_rad > 0, its two null directions being distinct at every point of its compact
+overlap. So c := min(½ c0 (2π/n)², ½ c(η), c_rad) > 0, and Λ = Λ(n) is chosen as in (ii′).
 
 (iii) The wave of each label is the torus-polarised wave of the eikonal ν_A u_A with amplitude F_A/ν_A, F_A² = q_A the
 density of g^(n) (smooth, F_A being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2) F(·, α_A)),
@@ -765,8 +766,8 @@ g^(n_i)_(λ_(n_i)) along the odd n_i → ∞. Then:
 
 - |g_i − g| ≤ |g^(n_i)_(λ_(n_i)) − g^(n_i)| + |g^(n_i) − g| ≤ 1/n_i + C_k n_i^(−k) → 0 uniformly on Ω;
 - ‖∂g_i‖_(L²) ≤ ‖∂g^(n_i)‖_(L²) + (Σ_A ‖ν_A du_A ⊗ [∂_(θ_A) W_A]‖²_(L²) + 1)^(1/2) + 1, bounded independently of i;
-- for each j and n_i ≥ j, |∫ η_j · (∂g_i − ∂g)| ≤ 1/n_i + |∫ η_j · (∂g^(n_i) − ∂g)| ≤ 1/n_i + C_k n_i^(−k) ‖η_j‖_(L¹) →
-  0.
+- for each j and n_i ≥ j, |∫ η_j · (∂g_i − ∂g)| ≤ 1/n_i + |∫ η_j · (∂g^(n_i) − ∂g)| ≤ 1/n_i + C_k n_i^(−k) ‖η_j‖_(L¹),
+  which tends to zero.
 
 A sequence bounded in L² that converges against a dense set converges weakly: ∂g_i ⇀ ∂g in L²(Ω). Each g_i is vacuum,
 smooth and invariant under T² and both reflections. ∎
@@ -777,10 +778,10 @@ needs. No smallness threshold enters: the theorem is a large-data statement, its
 
 **Corollary {#cor:vlasov-two-dust}** (The two-dust background with a restricted Vlasov field.) Let g0 be the two-dust
 background of [[thm:two-dusts]] on its domain, with lateral boundaries adapted where they meet an axis as in
-[[pending:class-adapted-domain]]. Let (q, u) be a restricted field in label form on Σ_τ0 whose labels satisfy (V1),
-(V2) and the angle clause of (V2′) for g0, with margins, on a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ with supp q ⊂ int S.
-Then for amplitudes ε small the class Einstein–restricted massless Vlasov solution with the two radial dusts of g0 and
-the field ε q, with data corrected by the radial solve, exists on the domain and is a weak limit of class vacuum
+[[pending:class-adapted-domain]]. Let (F, u) be a restricted field in label form on Σ_τ0 whose labels satisfy (V1), (V2)
+and the angle clause of (V2′) for g0, with margins, on a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ with supp q ⊂ int S. Then for
+amplitudes ε small the class Einstein–restricted massless Vlasov solution with the two radial dusts of g0 and the field
+of amplitude ε F, with data corrected by the radial solve, exists on the domain and is a weak limit of class vacuum
 metrics in the sense of [[thm:vlasov]].
 
 *Proof.* The solution exists on the domain for ε small by [[prop:vlasov-cauchy]] around g0, the radial pair being

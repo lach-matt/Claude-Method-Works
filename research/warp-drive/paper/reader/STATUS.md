@@ -32,10 +32,10 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fourth fix done (time function at exponent ½, class parameter ℓ_I ∈ (0, ½) separate; eq:s19-time-hyp; (B2) at weight 1; 𝒢⁺ non-degenerate; chapter 28 rem:ii-f1-7-4); fifth reading running (38 and 28) |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
-| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third fix done (cor:iii-i15-2-10 bound C‖G‖ + C(‖h‖+|p⃗|)‖u_0‖ + CΣ|W_ν|, uniform C; ch 44 bounds by G plus the solution term; nits); fourth reading running (41 and 44) |
+| 41 S22 | NOT CONFIRMED 1M 3m 6n | done | CONFIRMED (fourth reading 0M 0m 2n: w_0 clash 1429/1440, trailing newline; applied in the S25 fix round) |p⃗|)‖u_0‖ + CΣ|W_ν|, uniform C; ch 44 bounds by G plus the solution term; nits); fourth reading running (41 and 44) |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
-| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | CONFIRMED (third reading 0M 0m 4n, with 38a); reopened for one minor from S22's Step 6 (lem:iii-i15-2-4, def:iii-i15-2-3, prop:iii-i15-2-5 Step 3), in the S22 third fix |
+| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | fourth reading NOT CONFIRMED 0M 2m 3n (motion coordinates move by O(η) unproved at b; a wrapped line starts with "+ A_k"); fix running |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | second fix done (Step 4 at low order by Leibniz; k = 0 clause; h_S smallness k₂ = 308; nits; lem:s26-interpolation for k ≥ 7; commutator tame terms; second fundamental form sign, letter k); third reading running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | second reading NOT CONFIRMED 1M 6m 8n (lem:s27-below (iii) on ½ ≤ t_* ≤ 1); second fix done (g⁻¹(dt_*, dt_*) ≤ 0 with exact Tangherlini values; C_g ≥ max(4(r′₀+1), 32, 16R₁); (L) k ≥ 4 unique in H²); third reading running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | done (Option A, CD03 p. 11 literal; Prop 5.10 smallness) | CONFIRMED (second reading 0M 0m 7n; [CD03] quoted literally against page images) |

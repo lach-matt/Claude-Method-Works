@@ -263,10 +263,10 @@ with S_A := −(Θ_A − κ_A1 − κ_A2)² − κ_A1² − κ_A2² − Σ_B q_B
 set, and put ν_A := g⁻¹(p_A, p_A), Δ_A := Θ_A − div_g P_A and T := Σ_A q_A p_A ⊗ p_A.
 
 (a) (Orders.) The right sides of (Aug2)–(Aug4) are smooth functions of (g, dg, p_B, Θ_B, q_B), and the lower-order
-part of (Aug1) is a smooth function of (g, dg, p_B, q_B). So if an energy controls ∂^j of (dg, p_A, Θ_A, q_A) for j ≤ k, every
-right side is controlled at order k, and the loop closes. Each of three variants loses one derivative: the transport
-P_A(q_A) = −(div_g P_A) q_A in place of (Aug4), whose right side holds ∂p_A; the general Raychaudhuri right side
-−|∇²u_A|², which holds ∂p_A; and S_A at an axis point, where κ_A2 is of the order of ∂p_A ([[prop:class-axis]] (b)).
+part of (Aug1) is a smooth function of (g, dg, p_B, q_B). So if an energy controls ∂^j of (dg, p_A, Θ_A, q_A) for j ≤ k,
+every right side is controlled at order k, and the loop closes. Each of three variants loses one derivative: the
+transport P_A(q_A) = −(div_g P_A) q_A in place of (Aug4), whose right side holds ∂p_A; the general Raychaudhuri right
+side −|∇²u_A|², which holds ∂p_A; and S_A at an axis point, where κ_A2 is of the order of ∂p_A ([[prop:class-axis]] (b)).
 
 (b) (The phase.) P_A(ν_A) = 2 g⁻¹(p_A, ∇_(P_A) p_A), ∇_(P_A) p_A = ½ dν_A + ι_(P_A) dp_A, and ℒ_(P_A)(dp_A) =
 d(ι_(P_A) dp_A), with ι_P ω := ω(P, ·). So under (Aug2) ν_A is constant along P_A, and where ν_A ≡ 0, dp_A is
@@ -433,10 +433,10 @@ on [0, T], and
 
 with M, L, C depending on ū and T.
 
-*Proof.* Put K := sup_t ‖ū‖_(W^(1,∞)) + 1 and let T* ≤ T be the supremum of the t for which the solution exists on
-[0, t] with ‖u − ū‖_(W^(1,∞)) ≤ 1. On [0, T*): (1) ‖u‖_(W^(1,∞)) ≤ K, so Moser's tame bound for the commutators,
-‖[∂^α, A(u)] ∂u‖_(L²) ≤ C(‖u‖_(W^(1,∞))) ‖u‖_(H^s) ([[thm:std-gn-moser]]), and (K1′) give d/dt E_s ≤ C(K)(1 + E_s), so
-‖u(t)‖_(H^s) ≤ (1 + ‖u0‖_(H^s)) e^(C(K) T) =: M, uniformly for data within ε0 ≤ 1 of ū(0). (2) w := u − ū solves the
+*Proof.* Put K_ū := sup_t ‖ū‖_(W^(1,∞)) + 1 and let T* ≤ T be the supremum of the t for which the solution exists on
+[0, t] with ‖u − ū‖_(W^(1,∞)) ≤ 1. On [0, T*): (1) ‖u‖_(W^(1,∞)) ≤ K_ū, so Moser's tame bound for the commutators,
+‖[∂^α, A(u)] ∂u‖_(L²) ≤ C(‖u‖_(W^(1,∞))) ‖u‖_(H^s) ([[thm:std-gn-moser]]), and (K1′) give d/dt E_s ≤ C(K_ū)(1 + E_s), so
+‖u(t)‖_(H^s) ≤ (1 + ‖u0‖_(H^s)) e^(C(K_ū) T) =: M, uniformly for data within ε0 ≤ 1 of ū(0). (2) w := u − ū solves the
 linear system with coefficients at u and forcing term −(A(u) − A(ū)) ∂ū + F(u) − F(ū); its L² energy, with (K2) on the
 H^s ball of radius max(M, sup_t ‖ū‖_(H^s)), gives ‖w(t)‖_(L²) ≤ e^(L t) ‖w(0)‖_(L²). (3) By Sobolev's embedding H^(s′) ⊂
 W^(1,∞) and the interpolation inequality ‖w‖_(H^(s′)) ≤ ‖w‖_(L²)^(1−s′/s) ‖w‖_(H^s)^(s′/s), which on R^d is Hölder's
@@ -705,9 +705,9 @@ the meridional plane.
     ∇²u(X, Y) = hess_M3 u(X, Y) − n(u) K_Σ(X, Y).                                                       {#eq:class-gauss}
 
 (b) Let u be a phase in the class with g⁻¹(du, du) = 0 to first order, at a point off the axes with ∇_Σ u ≠ 0, and Θ :=
-□_g u. The trace of ∇²u over TΣ_L is Θ − κ1. With k := hess_M3 u/|∇_M3 u| on TΣ_L, the second fundamental form of
-Σ_L in M3 for the normal ν_L := ∇_M3 u/|∇_M3 u|, the restriction χ̸ of ∇²u to TΣ_L is χ̸ = |∇_M3 u| k − n(u) K_Σ, it is
-diagonal in the frame (e_r, e2), χ̸(e2, e2) = κ2, χ̸(e_r, e_r) = Θ_h, and with k_r := k(e_r, e_r), k_φ := k(e2, e2),
+□_g u. The trace of ∇²u over TΣ_L is Θ − κ1. With k_L := hess_M3 u/|∇_M3 u| on TΣ_L, the second fundamental form of
+Σ_L in M3 for the normal ν_L := ∇_M3 u/|∇_M3 u|, the restriction χ̸ of ∇²u to TΣ_L is χ̸ = |∇_M3 u| k_L − n(u) K_Σ, it is
+diagonal in the frame (e_r, e2), χ̸(e2, e2) = κ2, χ̸(e_r, e_r) = Θ_h, and with k_r := k_L(e_r, e_r), k_φ := k_L(e2, e2),
 
     σ = |∇_M3 u| (k_r − k_φ) − n(u) (K_Σ(e_r, e_r) − K_Σ(e2, e2)),                                 {#eq:class-shear-leaf}
 
@@ -720,9 +720,9 @@ M3 is totally geodesic.
 (b) TS_c = TΣ_L ⊕ R e1 orthogonally, e1 being normal to M3 and tangent to S_c. TS_c is spacelike, orthogonal to P (du
 vanishes on it) and does not contain P (P is null), so it is a screen, and by [[prop:class-structure]] (b) the trace of
 ∇²u over it is Θ. By [[prop:class-structure]] (a), ∇²u(e1, e1) = κ1 and ∇²u(e1, TΣ_L) = 0, which gives the trace over
-TΣ_L. On TΣ_L, hess_M3 u = |∇_M3 u| k, the second fundamental form of a level set, and |∇_M3 u| = |∇_Σ u|; with (a)
-this is the formula for χ̸. The frame (e_r, e2) diagonalises k, K_Σ and ∇²u by the reflection φ2 ↦ −φ2, and χ̸(e2, e2) =
-κ2 by [[prop:class-structure]] (a). The vectors e_r and e_h of [[prop:class-structure]] (b) are unit, orthogonal to P
+TΣ_L. On TΣ_L, hess_M3 u = |∇_M3 u| k_L, the second fundamental form of a level set, and |∇_M3 u| = |∇_Σ u|; with (a)
+this is the formula for χ̸. The frame (e_r, e2) diagonalises k_L, K_Σ and ∇²u by the reflection φ2 ↦ −φ2, and χ̸(e2, e2)
+= κ2 by [[prop:class-structure]] (a). The vectors e_r and e_h of [[prop:class-structure]] (b) are unit, orthogonal to P
 and tangent to the orbit space; the vectors of the orbit space orthogonal to P form the plane span(P, e_h), so e_r =
 ± e_h + c P, and ∇²u(P, ·) = 0 gives χ̸(e_r, e_r) = Θ_h. Then σ = χ̸(e_r, e_r) − χ̸(e2, e2), and a symmetric form on a
 plane with eigenvalues x, y has trace-free part of norm |x − y|/√2.
@@ -785,25 +785,25 @@ det₂ and a_L are smooth and even; H_L is a smooth invariant function on the le
 ½ ν(log B3), and k_r + k_φ = H_L. In the flat case, linearised at h = 0, H_L = −(h″ + h′/r) and E_L = 0. ∎
 
 **Lemma {#lem:class-interior-regularity}** (Interior regularity in two variables.) Let L := a^(ij) ∂_i ∂_j + b^i ∂_i + c
-on the disc 𝔻_(2δ) ⊂ R², with a^(ij) = a^(ji), b^i, c ∈ C^∞(𝔻̄_(2δ)) and a^(ij) ξ_i ξ_j ≥ λ |ξ|², λ > 0. Let j ≥ 0. If
-w ∈ H¹(𝔻_(2δ)) and Lw = f ∈ H^j(𝔻_(2δ)) in the sense of distributions, then w ∈ H^(j+2)(𝔻_δ) and
+on the disc 𝔻_(2δ) ⊂ R², with a^(ij) = a^(ji), b^i, c ∈ C^∞(𝔻̄_(2δ)) and a^(ij) ξ_i ξ_j ≥ c_a |ξ|², c_a > 0. Let j ≥ 0.
+If w ∈ H¹(𝔻_(2δ)) and Lw = f ∈ H^j(𝔻_(2δ)) in the sense of distributions, then w ∈ H^(j+2)(𝔻_δ) and
 
     ‖w‖_(H^(j+2)(𝔻_δ)) ≤ C (‖f‖_(H^j(𝔻_(2δ))) + ‖w‖_(L²(𝔻_(2δ)))),
 
-C depending on δ, j, λ and norms of the coefficients.
+C depending on δ, j, c_a and norms of the coefficients.
 
 *Proof.* Write Lw = ∂_i(a^(ij) ∂_j w) + b̃^i ∂_i w + c w, b̃^i := b^i − ∂_j a^(ij), so that Lw = f means ∫ a^(ij) ∂_j w
 ∂_i φ = ∫ (b̃^i ∂_i w + c w − f) φ =: ∫ G φ for φ ∈ H¹_0. Let 𝔻′ ⊂ 𝔻″ be concentric discs between 𝔻_δ and 𝔻_(2δ), and ζ a
 cut-off equal to 1 on 𝔻′ and supported in 𝔻″. (i) With φ = ζ² w, ellipticity and the Cauchy–Schwarz inequality give
-λ ‖ζ ∇w‖² ≤ C (‖ζ ∇w‖ + ‖w‖) ‖w‖ + C ‖ζ ∇w‖ ‖w‖ + ‖f‖ ‖w‖, so ‖∇w‖_(L²(𝔻′)) ≤ C (‖f‖ + ‖w‖) (norms on 𝔻_(2δ) when
+c_a ‖ζ ∇w‖² ≤ C (‖ζ ∇w‖ + ‖w‖) ‖w‖ + C ‖ζ ∇w‖ ‖w‖ + ‖f‖ ‖w‖, so ‖∇w‖_(L²(𝔻′)) ≤ C (‖f‖ + ‖w‖) (norms on 𝔻_(2δ) when
 unlabelled). (ii) For a unit vector e and small h ≠ 0 let ∂^e_h w(x) := (w(x + h e) − w(x))/h, and take φ := −∂^(−e)_h
-(ζ² ∂^e_h w). Summation by parts moves the difference quotient onto a^(ij) ∂_j w, and ∂^e_h(a^(ij) ∂_j w) = a^(ij)(· +
-he) ∂_j ∂^e_h w + (∂^e_h a^(ij)) ∂_j w. Ellipticity, ‖∂^(−e)_h ψ‖ ≤ ‖∇ψ‖ and ‖∂^e_h w‖_(L²(𝔻″)) ≤ ‖∇w‖ give λ ‖ζ ∇∂^e_h
-w‖² ≤ C (‖ζ ∇∂^e_h w‖ + ‖∇w‖)(‖∇w‖ + ‖G‖), so ‖ζ ∇∂^e_h w‖ ≤ C (‖f‖ + ‖w‖_(H¹)) uniformly in h. A weak limit h → 0 gives
-∂_e ∇w ∈ L² with the same bound, and with (i) on a larger disc, ‖w‖_(H²(𝔻′)) ≤ C (‖f‖ + ‖w‖). (iii) For j ≥ 1, the case j
-− 1 on a larger disc gives w ∈ H^(j+1), so ∂_e w ∈ H¹ there and L(∂_e w) = ∂_e f − (∂_e a^(ij)) ∂_i ∂_j w − (∂_e b^i) ∂_i
-w − (∂_e c) w ∈ H^(j−1); the case j − 1 applied to ∂_e w gives ∂_e w ∈ H^(j+1) on a smaller disc. Finitely many nested
-discs between 𝔻_δ and 𝔻_(2δ) conclude. ∎
+(ζ² ∂^e_h w). Summation by parts moves the difference quotient onto a^(ij) ∂_j w, and ∂^e_h(a^(ij) ∂_j w) =
+a^(ij)(· + he) ∂_j ∂^e_h w + (∂^e_h a^(ij)) ∂_j w. Ellipticity, ‖∂^(−e)_h ψ‖ ≤ ‖∇ψ‖ and ‖∂^e_h w‖_(L²(𝔻″)) ≤ ‖∇w‖ give
+c_a ‖ζ ∇∂^e_h w‖² ≤ C (‖ζ ∇∂^e_h w‖ + ‖∇w‖)(‖∇w‖ + ‖G‖), so ‖ζ ∇∂^e_h w‖ ≤ C (‖f‖ + ‖w‖_(H¹)) uniformly in h. A weak limit h → 0 gives
+∂_e ∇w ∈ L² with the same bound, and with (i) on a larger disc, ‖w‖_(H²(𝔻′)) ≤ C (‖f‖ + ‖w‖). (iii) For j ≥ 1, the case
+j − 1 on a larger disc gives w ∈ H^(j+1), so ∂_e w ∈ H¹ there and L(∂_e w) = ∂_e f − (∂_e a^(ij)) ∂_i ∂_j w − (∂_e b^i)
+∂_i w − (∂_e c) w ∈ H^(j−1); the case j − 1 applied to ∂_e w gives ∂_e w ∈ H^(j+1) on a smaller disc. Finitely many
+nested discs between 𝔻_δ and 𝔻_(2δ) conclude. ∎
 
 On the slice, near a point of axis 2 where ρ1 ≥ c0 > 0, let 𝒰_δ := {ρ2 < δ}.
 
@@ -817,7 +817,7 @@ on δ, on lower bounds for |∇_Σ u| and |∂_z u| on 𝒰_(2δ), on C² norms 
 H^k in all directions: along the axis, in the planes, and in τ through the equations. On the axis σ = 0 and κ2 =
 (Θ − κ1)/2, and |χ̸ − ½ (tr χ̸) γ̸| = |σ|/√2 ([[lem:class-gauss]] (b)).
 
-*Proof.* (1) By [[lem:class-gauss]] (b), tr χ̸ = |∇_M3 u| tr k − n(u) tr K_Σ, so on each leaf
+*Proof.* (1) By [[lem:class-gauss]] (b), tr χ̸ = |∇_M3 u| tr k_L − n(u) tr K_Σ, so on each leaf
 
     H_L = ± (Θ − κ1 + n(u) tr K_Σ|_(TΣ_L))/|∇_Σ u|,
 
@@ -833,7 +833,7 @@ sup |∂h| and the 1-jet of γ3 through [[eq:class-leaf-volterra]]: this is why 
 derivative gives the same elliptic equation, linearised at h, for ∂_c h (or ∂_τ h), with a right side one order lower and
 coefficients again of first order in γ3, and ∂_c (H_L(h(y), y)) = ∂_z H_L ∂_c h. The change of variables (z, y) ↔ (c, y)
 has the Jacobian 1/∂_z u, in H^k. Induction on the number of transverse derivatives gives the bound in all directions.
-(5) Then k ∈ H^k, and σ ∈ H^k by [[eq:class-shear-leaf]], whose last term is a smooth function of dg and of the leaf's
+(5) Then k_L ∈ H^k, and σ ∈ H^k by [[eq:class-shear-leaf]], whose last term is a smooth function of dg and of the leaf's
 tangent. On the axis σ = 0 and κ2 = (Θ − κ1)/2 by [[prop:class-axis]] (d). ∎
 
 The radial form [[eq:class-leaf-volterra]] is step (3) in the radial variable: the bound appears directly, through the
@@ -884,7 +884,7 @@ near those points, B by the leaves {u_A = c_B(τ)} of the solution's own phase, 
 [[thm:class-stability-off-axes]] holds, on the adapted domain, with (H2) replaced by
 
 (H2′) closed G-invariant sets S_A ⊂ Σ_τ0 containing supp q̊_A ∩ Σ_τ0 such that, where a lateral boundary component B
-of Ω meets an axis, the tubes 𝒯̊_C meeting a neighbourhood of that point all belong to one family A = A(B), and B is
+of Ω meets an axis, the tubes 𝒯̊_(A′) meeting a neighbourhood of that point all belong to one family A = A(B), and B is
 adapted to that family there if there are such tubes.
 
 The dusts may reach the axes. The lateral boundaries of the adapted domain depend on the solution through u_A and stay
@@ -902,9 +902,10 @@ where σ_A[Θ_A] is the planar shear of the leaves of u_A defined from (p_A, Θ_
 partition of unity in the slice joins S_A^ax near the axes to S_A of [[thm:class-stability-off-axes]] away from them, so
 for family A no cut-off ζ_A is needed at the axes. [[lem:class-leaf-differences]] (a) gives ‖∂^α(S_A^ax(U) −
 S_A^ax(ů))‖ ≤ C 𝒩_k for |α| ≤ k. By (H2′) the leaves used at points of the domain lie in it: a leaf of the family
-meeting an adapted boundary does not cross it. The leaves of another family C can cross that boundary at distance
-O(ε); so ζ_C = 0 near the points where B meets an axis, for C ≠ A(B), which is allowed because (H2′) puts no dust of C
-there, and in Step 10 the energy of Δ_C is taken on a set inside {ζ_C = 1} that is a union of leaves of u_C.
+meeting an adapted boundary does not cross it. The leaves of another family A′ can cross that boundary at distance
+O(ε); so ζ_(A′) = 0 near the points where B meets an axis, for A′ ≠ A(B), which is allowed because (H2′) puts no
+dust of A′ there, and in Step 10 the energy of Δ_(A′) is taken on a set inside {ζ_(A′) = 1} that is a union of leaves of
+u_(A′).
 
 *Step 9.* The right side of the augmented system is now non-local in the planar directions, an integral from the axis
 along each leaf. It is tame by [[lem:class-leaf-differences]] (a), L²-Lipschitz on the ball 𝔅 by
@@ -934,8 +935,8 @@ the inner sphere: {u1 ≤ u ≤ u2} ∩ Ω₂ ∩ {R = a} = ∅. Replace the lat
 
 For the background both are the spheres {R = a} and {R = b(τ)} of Ω₂. Let S_in := {v_start − η ≤ v ≤ v_end + η} ∩ Σ_τ0
 and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small that {u1 − η ≤ u ≤ u2 + η} ∩ Ω₂ does not meet
-{R = a}, and let ů_C, C = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_C =
-0 and sets S_C whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every
+{R = a}, and let ů_A, A = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_A =
+0 and sets S_A whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every
 datum on Σ_τ0 that satisfies the constraints and the gauge condition, lies within ε of ů's and has supp q_A ∩ Σ_τ0 ⊂
 S_A for every A has its Einstein–null-dust development on the whole adapted domain, within C ε of ů. The datum may be
 non-round, and it carries the further families with small densities.
@@ -959,6 +960,6 @@ the stated supports; data localised in an angle are constructed in [[ch:localise
 high-frequency construction over a non-round background needs more. By [[prop:class-separation]], two families of one
 orientation are not separated at an axis point, so beyond one ingoing and one outgoing family the further families must
 have densities vanishing near the axes. For three or more families present at a point, pairwise separation is not
-enough, since at the first stage combinations of three phases occur; [[ch:vlasov]] combines separation with
-frequencies 1, Λ, Λ², … for the families. This, the polarisation of the waves
-for a non-radial family, and the limits that carry massless Vlasov matter are taken up in [[ch:vlasov]].
+enough, since at the first stage combinations of three phases occur. The frequency hierarchy that replaces it, the
+polarisation of the waves for a non-radial family, and the limits that carry massless Vlasov matter are taken up in
+[[ch:vlasov]].

@@ -893,3 +893,9 @@ Items found while chapters were written in parallel; each is settled once, editi
   Chapter 25 changes listed (l. 168, 205-206, 211, 221, 231, 235-236, 241, 278, 393-395, 508-512, 716-721, 1030).
   Chapters 28, 29, 38-43 need nothing. Third fix running on S4 and chapter 25 together; Appendix A (S15) entry text to
   be carried at integration if the fixer lists it.
+- S22 CONFIRMED (R4-S22): cor:iii-i15-2-10's Σ|W_ν| term right and needed; both application sites bound it by C‖F‖
+  through |p⃗′|. S25 (chapter 44): R3's I1 fixed, induction bound proved, A_k bound in its old form, chapter 46's
+  citations keep their strength; minors: ‖δG′‖ ≤ Cη|δW′| needs the motion coordinates to move by O(η) (pre-existing;
+  uniqueness at α_1); line 595 starts "+ A_k" (pandoc drops the sign). Fix running (also ch 41's two nits).
+  INTEGRATION CHECK: before assembly, scan every chapter for wrapped lines starting with "+ ", "- ", "* ", "> ", "#",
+  "=" or "|" in running text (lint.py should gain this check).
