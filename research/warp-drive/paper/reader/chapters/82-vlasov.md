@@ -1020,27 +1020,35 @@ m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* Ē²/Λ 
 the two-dust theorem with one transport and one phase per family, the mixed symbols bounded below on every harmonic
 used; we list what changes from two families to n.
 
-**Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iii), for every N ≥ 1 and every
+**Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iv), for every N ≥ 1 and every
 smooth choice of stage data there are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
 λ [g_1] + Σ_(l=2)^N λ^l [g_l], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
-N − 1 at every regularity k, in the sense of [[pending:two-dust-approximant-definition]] with one phase per family.
+N − 1 at every regularity k, in the sense of [[def:two-dust-approximant]] with one phase per family, and with g_1 =
+m_1 + Σ_A W_A(X, θ_A + φ_1^A(X)), W_A the waves of (iii).
 
-*Proof.* The stage system is that of [[pending:two-dust-stages]] with n phases: (a) the mean, a linear wave equation; (b)
+*Proof.* The stage system is that of [[lem:two-dust-stages]] with n phases: (a) the mean, a linear wave equation; (b)
 n phase corrections, each transported along its own generator; (c) the pure harmonics of each family, transported along
 its own generator; (d) every mixed harmonic e^(i j·θ) with at least two nonzero entries and |j|₁ ≤ m + 2 at stage m,
 divided by Q_j. On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c*, by (ii′). The phase corrections and the mean change Q_j by O(λ),
-and this change is moved to the next order, as in [[pending:two-dust-nonresonance]], since |j|₁ is bounded at each stage;
+and this change is moved to the next order, as in [[lem:two-dust-nonresonance]], since |j|₁ is bounded at each stage;
 each division costs one derivative, and there are finitely many stages. Every generator through a point of Ω reaches Σ_τ0
-inside Ω, by (Ω), so the Picard argument of [[thm:approximant]] closes the stage system. Stage 0 is
-[[lem:vlasov-torus-ricci]] for each non-radial family: no term of order λ⁻¹, the torus polarisation kept by
-[[eq:vlasov-xi-transport]]; the wave of family A is the torus-polarised wave of the eikonal ν_A u_A with amplitude
-F_A/ν_A, whose mean F_A² du_A ⊗ du_A balances the background's stress. The assembly is that of
-[[pending:two-dust-approximant]]. ∎
+inside Ω, by (Ω), so the Picard argument of [[thm:approximant]] closes the stage system. Stage 0: with g_1 := Σ_A W_A
+and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its R^(0) is Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the
+contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b) with n phases: a term with two phase derivatives on one
+wave W_A is that of R[g0 + λ W_A], a product of two different waves has only mixed harmonics, and the cross terms of
+order λ⁻¹ vanish since each W_A depends on one phase. By [[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with
+no oscillating part, the gauge part χ_A k_A ⊗ k_A removing the second harmonic of the quadratic term; the sum of these
+means is Ric(g0) − Σ_A F_A² du_A ⊗ du_A = 0, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are
+removed by the mixed harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ = 2, bounded below
+by (ii′). The assembly is that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage
+to the fixed phases ν_A u_A/λ by the Taylor expansion in the phase corrections. ∎
 
-Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[pending:two-dust-uniform]], with one
-index per family; 𝒫 is the mollifier of [[lem:mollifier]].
+Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[thm:two-dust-uniform]] (defined
+before it), with one index per family and the phase derivative ∂_(θ_A) in place of the operator written F_𝔨 there:
+G1^A := [∂_(θ_A) g1], G2^A := [∂²_(θ_A) g1] and Y_A := [∂_(θ_A) g1 + λ ∂_(θ_A) g2]. 𝒫 is the mollifier of
+[[lem:mollifier]].
 
-**Theorem {#thm:vlasov-n-uniform}** (Uniform existence with n phases.) Fix k = 6 and K ≥ 6. Under (i)–(iii) let g_app be
+**Theorem {#thm:vlasov-n-uniform}** (Uniform existence with n phases.) Fix k = 6 and K ≥ 6. Under (i)–(iv) let g_app be
 an n-phase approximant with N stages of order K at regularity k, with constant C_R in (E3), and let g be a Cauchy datum
 on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying (E4) of [[thm:uniform-existence]], Data(w) ≤ C_D λ^K. There are
 λ0(n) > 0 and M(n), depending on Ω, k, K, C_R, C_D, n and the bounds on the profiles but not on λ, such that for 0 <

@@ -1188,6 +1188,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - P-U71-close written (reports/P-U71-close.md). FOR THE FINAL REPORT (pending its reader): the upper bound on d is
   not reached; the paper's statements give no upper bound at all, because the index sets entering (G) are specified only
   by their least real parts (prop:uc-no-eps). The missing statement (IS) is the explicit exponents of those index sets,
-  which needs chapters 32-36 with the exponents tracked. Per the author's directive (evaluate and prove), P-IS scopes
-  and begins (IS) while R-P-U71-close reads the non-reachability argument. The report also lists a loss-free bound in
+  which needs chapters 32-36 with the exponents tracked. Per the author's directive (evaluate and prove), the (IS)
+  project starts once R-P-U71-close confirms the non-reachability argument. The report also lists a loss-free bound in
   lem:iii-j2-2-4 that its own proof does not support: to the chapter's fix list.

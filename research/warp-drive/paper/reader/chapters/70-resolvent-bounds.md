@@ -2318,9 +2318,11 @@ content is C_B, a quantitative form of the injectivity.
 ‖u‖_𝐨 ≤ C(h^(−1−δ)‖Pu‖_(𝐨′) + h^M‖u‖_𝐨 + ‖u‖_(−M𝟏)) and ‖u‖_(−M𝟏) ≤ C_K h‖u‖_𝐨. Then ‖u‖_𝐨 ≤ 2Ch^(−1−δ)‖Pu‖_(𝐨′)
 for h < h_1 := min(h_c, (4C)^(−1/M), (4CC_K)⁻¹).
 
-(c) In the proof of [[thm:i-b-1-3]] (3) ([[sec:i-b-8-4]]), let C be the larger of the constants of the displays before
-absorption in the proof of [[prop:i-b-8-1]] (a)–(c), h_c the least of their thresholds, C_K the constant of its
-absorption step, h_1 as in (b), and C_0 := h_1⁻¹(1 − ν′²)^(−1/2). Then for Im σ ≥ 0 and |σ| ≥ C_0, with h = h(σ) and
+(c) In the proof of [[thm:i-b-1-3]] (3) ([[sec:i-b-8-4]]), let C be the largest of the constants of the display
+[[eq:i-b-8-chain]] before absorption in the proof of [[prop:i-b-8-1]], in its parts (a)–(c) (with δ = 0 in (b) and
+(c)), h_c the least of their thresholds, C_K the constant of the absorption step [[eq:i-b-8-absorb]] there, h_1 as in
+(b), and C_0 := h_1⁻¹(1 − ν′²)^(−1/2), where ν′ ∈ (0, 1) is the constant of [[thm:i-b-1-3]] (2) used in
+[[sec:i-b-8-4]]. Then for Im σ ≥ 0 and |σ| ≥ C_0, with h = h(σ) and
 z = hσ as in [[sec:i-b-8-4]], ‖·‖_𝐨 and ‖·‖_(𝐨′) the semiclassical norms at that h, and δ ∈ [0, 1] the loss of
 [[eq:i-b-8-1]] at z,
 

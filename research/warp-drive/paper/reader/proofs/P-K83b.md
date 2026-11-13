@@ -334,7 +334,7 @@ different type and degree, [[lem:loc-harmonics]], the mode sums converging for s
 
 **Proposition {#prop:bg-region-three-end}** (The end of region III.) Let R_u2 be as in [[prop:bg-seed]] (a) and ρ_u2 the
 zero of g(ρ) := Φ(ρ) − v̂(ρ) − 0.68 on [2.32, 3.44] found in its proof, so that R_u2 = v̂(ρ_u2) + 0.68 and region III
-meets Σ_τ0, which starts at R = 0.70, in the points with 0.70 ≤ R ≤ R_u2.
+meets the slice Σ_τ0 of [[sec:loc-setting]], which starts at R = 0.70, in the points with 0.70 ≤ R ≤ R_u2.
 
 (a) 2.773631 < ρ_u2 < 2.7736325 and 1.8614372 ≤ R_u2 ≤ 1.8614410.
 
@@ -434,16 +434,17 @@ Region III meets Σ_τ0 in {0.70 ≤ R ≤ R_u2}, 1.8614372 ≤ R_u2 ≤ 1.86144
 
 <!-- Part 3. Block 3.5: in thm:bg-margins (b) (chapter lines 1112-1114), "where 1.861394 ≤ R_u2 ≤ 1.861466" becomes
 "where 1.8614372 ≤ R_u2 ≤ 1.8614410", the last clause "and Γ > 0 on the seed region." becomes "and Γ > 0 on the seed
-region; for 1.861 ≤ R ≤ R_u2, Γ/E² ≥ 10.40, so Γ > 0 on the whole of region III ∩ Σ_τ0.", and the proof's "(b) is
-[[prop:bg-seed]]" becomes: -->
+region; for 1.861 ≤ R ≤ R_u2, Γ/E² ≥ 10.40, so Γ > 0 for 0.70 ≤ R ≤ R_u2.", and the proof's "(b) is [[prop:bg-seed]]"
+becomes: -->
 
 (b) is [[prop:bg-seed]] and [[prop:bg-region-three-end]]
 
 <!-- Part 3. Block 3.6: the paragraph after the proof of prop:margins-seed (chapter lines 1702-1703) becomes: -->
 
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region; with
-[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III ∩ Σ_τ0, and so [[cor:loc-charge-seed]] there.
+[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III on the slice Σ_τ0 of [[sec:loc-setting]], {0.70 ≤ R
+≤ R_u2}, and so [[cor:loc-charge-seed]] there.
 
 <!-- Part 3. Block 3.7: in the paragraph that opens sec:bg-below, after "([[prop:bg-seed]]);" insert: -->
 
-that Γ > 0 on the rest of region III on Σ_τ0, which ends at R_u2 ([[prop:bg-region-three-end]]);
+that region III ends on Σ_τ0 at R_u2, with Γ > 0 for 1.861 ≤ R ≤ R_u2 ([[prop:bg-region-three-end]]);

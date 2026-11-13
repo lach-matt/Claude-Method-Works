@@ -122,7 +122,8 @@ eq:i-b-6-10	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1621	I.B (6.10)
 lem:i-b-6-5	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1625	I.B Lemma 6.5	symbol order m renamed l; G_1 written G_(z_0)
 lem:i-b-6-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1655	I.B Lemma 6.6	bounds M, M_0, M_1 renamed A, A_0, A_1
 prop:i-b-6-7	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1668	I.B Proposition 6.7	kappa := beta-prime - beta written out; residual K renamed M
-eq:i-b-6-11	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1670	I.B (6.11)	
+eq:i-b-6-11	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1670	I.B (6.11)
+eq:i-b-6-apriori	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1681	I.B proof of Proposition 6.7 (a), a priori display	label added so that chapter 70 (lem:rb-interpolation) cites the display; display unchanged
 sec:i-b-6-6	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1698	I.B section 6.6	
 thm:i-b-6-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1700	I.B Theorem 6.8	D189 parenthetical turned into a sentence; theta -> eps_W; G_1 written G_(z_0)
 eq:i-b-6-12	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1705	I.B (6.12)	
@@ -140,7 +141,9 @@ sec:i-b-8	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1860	I.B section 8
 sec:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1866	I.B section 8.1	D189 history sentence turned into mathematics
 sec:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1879	I.B section 8.2	
 prop:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1881	I.B Proposition 8.1	
-eq:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1884	I.B (8.1)	
+eq:i-b-8-1	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1884	I.B (8.1)
+eq:i-b-8-chain	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1922-1927	I.B proof of Proposition 8.1 (a), the chain before absorption	display written out for u (the source combines the phi-display with the artificial-boundary step in words); labelled so that chapter 70 (lem:rb-absorption) cites it; (b)-(c) state it with delta = 0
+eq:i-b-8-absorb	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1928-1930	I.B proof of Proposition 8.1 (a), absorption step	inline inequality made a labelled display, its constant named C_K, for chapter 70 (lem:rb-absorption)
 sec:i-b-8-3	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1942	I.B section 8.3	
 prop:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1944	I.B Proposition 8.2	
 eq:i-b-8-2	docket68/n1star/proof5/PART-I-B-HIGHENERGY.md:1946	I.B (8.2)	
