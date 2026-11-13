@@ -674,3 +674,12 @@ Items found while chapters were written in parallel; each is settled once, editi
   lem:first-mean-forcing). Minors: the opening's dependence claim; rem:energy-one-sided vs (c); c and w doubled;
   Poisson summation uncited; lem:epsilon-one duplicates chapter 02. The C261 chain, e_k and the energy constant are
   used by no result: keep as proved results only if a planned chapter cites them, else drop. Fix running.
+- S19 fourth reading (R4-S19): eq:iii-i-3-7 proved for ℓ_I < ½ with the failure at ½ explained; the survey sites hold.
+  Major: 46:34, 487, 541 and 48:50 build Ω_* with ℓ = ½ and apply chapter 38 there; S27's smoothing lemma needs ½.
+  Fourth fix: decouple the time-function parameter (½) from the class ℓ_I, plus a remark in S9. Nit: non-degeneracy
+  in 𝒢⁺'s definition (213).
+- Ch 3 fourth reading (R4-00-03): thm:main proof, ε_K clause with ε_K < ε_Υ, K = d_1 + 14, the slice
+  φ_S(ψ_(S⁰)(Σ^IVP)), the chapter 48 paragraph, the envelope remark (c ≈ 1.3240873, ∫ = 105/128) and nit 18 confirmed;
+  chapters 0-2 agree. Minor M1: thm:settling chooses ε_K before the data and r_♭ (chapter 60 fixes them first) and
+  does not name the Tangherlini background of mass μ_end. Nits N1-N4. Fifth fix running together with chapter 60's S⁰
+  (about eight sites).

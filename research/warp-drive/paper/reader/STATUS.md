@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth fix done (Ch 3 only); fourth reading running |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth reading NOT CONFIRMED 0M 1m 4n (thm:settling quantifier order); fifth fix running, with chapter 60's S⁰ |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |
@@ -29,7 +29,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | CONFIRMED (4 optional nits) |
-| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | third fix done (ℓ_I ∈ (0, ½)); fourth reading running |
+| 38 S19 | NOT CONFIRMED 1M 2m 5n | done | fourth reading NOT CONFIRMED 1M 0m 1n (46, 48 build Ω_* with ℓ = ½); fourth fix running (decouple the time-function ℓ = ½ from the class ℓ_I) |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
 | 40 S21 | NOT CONFIRMED 1M 5m 8n | done | CONFIRMED (third reading; 3 nits); (P6) re-keyed to lem:s25-p6 |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | third reading NOT CONFIRMED 0M 1m 4n (cor:iii-i15-2-10 bound at b after Step 6 via ‖F‖; also ch 44 G-alone bounds); third fix running |
