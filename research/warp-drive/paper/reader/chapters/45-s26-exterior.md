@@ -882,26 +882,45 @@ and let w ∈ H^(m,(a₀,2γ))_b(Ω_c) vanish on {ρ_I > c/2}. Let v on Ω_c van
 
 (a) If (X_I − d)v = w with d > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (d − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
-(b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ with v^((0)) a function of (ρ₀, ω) on ℐ⁺_c, the image of Ω_c under
-(ρ₀, ρ_I, ω) ↦ (ρ₀, ω) (as after [[eq:iv2-0-3]]), and
+(b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ on Ω_c, with v^((0)) a function of (ρ₀, ω) on ℐ⁺_c, the image of Ω_c
+under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω) (as after [[eq:iv2-0-3]]), v^((0)) and ṽ depending linearly on w, and
 
-    ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺_c)) ≤ (2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
-    ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ γ⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
+    ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺_c)) ≤ C(2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
+    ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ Cγ⁻¹‖w‖_(H^(m,(a₀,2γ))_b),
+
+with C depending only on m and Ω_c. Over a point of ℐ⁺_c whose X_I-curve lies in Ω_c for all ρ_I < c, v^((0)) is the
+limit of v along that curve as ρ_I → 0.
 
 (c) If (X₀ − X_I)v = w and a₀ > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (a₀ − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
 The norms are those of the b-density |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|, equivalent to that of μ_b on Ω_c ([[lem:iv-2-1]]).
 
-*Proof.* (a), (b): in the coordinates (s, ρ₀, ω), s := log ρ_I, X_I = ∂_s and the density is ds (dρ₀/ρ₀) dg̸. By
-[[lem:iv2-1-1]] (b), for p ∈ Ω_c the segment of its X_I-curve from p to s_c := log c lies in Ω_c, and v = 0 near s_c.
-So v(s) = −∫_s^(s_c) e^(d(s−s′))w(s′) ds′, with w extended by zero along the curve outside Ω_c. Hence
+*Proof.* (a), (b): in the coordinates (s, ρ₀, ω), s := log ρ_I, X_I = ∂_s, X₀ = ρ₀∂_(ρ₀) at fixed s, and the density
+is ds (dρ₀/ρ₀) dg̸. By [[lem:iv2-1-1]] (b), for p ∈ Ω_c the segment of its X_I-curve from p to s_c := log c lies in Ω_c,
+and v = 0 near s_c. So v(s) = −∫_s^(s_c) e^(d(s−s′))w(s′) ds′. Hence
 
     e^(−γs)|v(s)| ≤ ∫_s^(s_c) e^(−(d−γ)(s′−s)) e^(−γs′)|w(s′)| ds′,
 
 a convolution with a kernel of L¹-norm (d − γ)⁻¹; Young's inequality in s, then integration in (ρ₀, ω) with the weight
-ρ₀^(−2a₀), gives (a) for m = 0. For (b), d = 0: v = v^((0)) + ṽ with v^((0)) := −∫_(−∞)^(s_c) w ds′ and
-ṽ(s) := ∫_(−∞)^s w ds′. By Cauchy–Schwarz, |v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w|² ds′, and
-e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w(s′)| ds′, a kernel of L¹-norm γ⁻¹. (c): in the coordinates (z, y, ω),
+ρ₀^(−2a₀), gives (a) for m = 0.
+
+For (b), d = 0, and the X_I-curve over a point of ℐ⁺_c may leave Ω_c through Σ_(fut,r₀) before it reaches ℐ⁺ (after
+[[eq:iv2-0-3]]), at a value of s that varies with the point; so we first extend w. Let Ω^♯_c be the set of the points
+with (ρ₀, ω) ∈ ℐ⁺_c and ρ_I < c. It lies in M_♯ for r₀ large: over a point of ℐ⁺_c, x¹ ≤ C″ − r₀ + 2 by the upper
+condition of [[eq:iv2-0-5]] at a point of Ω_c (see the proof of [[lem:iv2-1-1]]), and |x| = (2 − x¹)/ρ_I ≥ 2(r₀ − C″)
+for ρ_I < c ≤ ½. It contains the whole X_I-curve over each point of ℐ⁺_c. Let E be the extension operator of the proof
+of [[lem:iv1-2-3]] for Ω = Ω_c, one linear operator bounded on every H^j_b, and put
+w_♯ := ρ₀^(a₀)ρ_I^γE(ρ₀^(−a₀)ρ_I^(−γ)w) on Ω^♯_c. Then w_♯ = w on Ω_c and
+‖w_♯‖_(H^(m,(a₀,2γ))_b(Ω^♯_c)) ≤ C‖w‖_(H^(m,(a₀,2γ))_b(Ω_c)), with C depending only on m and Ω_c. Put
+
+    v^((0)) := −∫_(−∞)^(s_c) w_♯ ds′,     ṽ(s) := ∫_(−∞)^s w_♯ ds′     on Ω^♯_c.
+
+At a point of Ω_c, v^((0)) + ṽ(s) = −∫_s^(s_c) w_♯ ds′ = −∫_s^(s_c) w ds′ = v(s), as the segment from s to s_c lies in
+Ω_c. By Cauchy–Schwarz, |v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w_♯|² ds′ = (2γ)⁻¹c^(2γ)∫ e^(−2γs′)|w_♯|² ds′,
+and e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′, a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with
+the weight ρ₀^(−2a₀) gives (b) for m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along
+it, and for almost every such point ∫ e^(−2γs′)|w|² ds′ is finite; then |ṽ(s)|² ≤ (2γ)⁻¹e^(2γs)∫ e^(−2γs′)|w|² ds′ by
+Cauchy–Schwarz on (−∞, s], so v(s) = v^((0)) + ṽ(s) → v^((0)) as s → −∞. (c): in the coordinates (z, y, ω),
 z := log ρ₀, y := log ρ, X₀ − X_I = ∂_z and log ρ_I = y − z, so the density is dz dy dg̸ and {ρ_I = c} is
 {z = z_c(y) := y − log c}. By [[lem:iv2-1-1]] (b), v(z, y) = ∫_(z_c(y))^z w(z′, y) dz′. The weight is
 ρ₀^(−a₀)ρ_I^(−γ) = e^(−γy)e^(−(a₀−γ)z), and
@@ -911,10 +930,14 @@ z := log ρ₀, y := log ρ, X₀ − X_I = ∂_z and log ρ_I = y − z, so the
 a kernel of L¹-norm (a₀ − γ)⁻¹; Young's inequality in z gives (c) for m = 0.
 
 *Derivatives.* Let V be one of X₀, X_I and the rotation fields. V commutes with X_I and with X₀ − X_I, and Vv vanishes
-where v does; so Vv solves the same equation with Vw, and the bounds for m = 0 apply to it. (In (c), differentiating
-the integral in y produces the boundary term w(z_c(y), y)∂_yz_c, which vanishes as w = 0 near {ρ_I = c}.) Induction on
-m gives the bounds for m ≥ 1, with the same constants; for v^((0)) the fields tangent to ℐ⁺ are X₀ and the rotations,
-and X_Iv^((0)) = 0. ∎
+where v does; so in (a) and (c) Vv solves the same equation with Vw, and the bounds for m = 0 apply to it. (In (c),
+differentiating the integral in y produces the boundary term w(z_c(y), y)∂_yz_c, which vanishes as w = 0 near
+{ρ_I = c}.) Induction on m gives (a) and (c) for m ≥ 1, with the same constants. In (b) the limits of the integrals
+defining v^((0)) and ṽ do not depend on (ρ₀, ω), so X₀ and the rotations, which act at fixed s, commute with them:
+Vv^((0)) = −∫_(−∞)^(s_c) Vw_♯ ds′ and Vṽ(s) = ∫_(−∞)^s Vw_♯ ds′; and X_Iv^((0)) = 0, X_Iṽ = w_♯. The fields tangent to
+ℐ⁺ are X₀ and the rotations, so the bounds for m = 0, applied to the derivatives of w_♯, give (b) for every m, with the
+bound for w_♯ above. Without the extension, the lower limit would be the value of s at which the curve leaves Ω_c,
+which depends on (ρ₀, ω), and its derivatives would enter those of v^((0)) and ṽ. ∎
 
 ### The linear theorem {#sec:iv2-2}
 

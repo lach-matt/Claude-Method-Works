@@ -1060,3 +1060,8 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S25 CONFIRMED: crosswalk/44 (21 rows) and the new crosswalk/38a-s25a-base-points.tsv (8 rows) match their
   chapters' labels in order (checked by script). INTEGRATION crosswalk sweep (from R5-S25): rows missing or extra in
   00, 02, 03, 04, 06, 07, 08, 09, 27, 33, 40, 62, 95; order only in 10, 30, 39, 45, 46, 64; 85 has no crosswalk yet.
+- P-K83a written: chapter 83's issue-1 closed without [CS06] or [CD03] (lem:loc-kid-space, lem:loc-continuity, new
+  prop:loc-projection (b), end of thm:loc-matter (b)'s proof); dust energy density becomes ε²s(ε) times the γ_D-norm
+  of J₁ (exactly null and radial for the unknown metric); dust data C², vacuum corrections smooth. R-P-K83a reading.
+  After confirmation: merge into chapter 83 per the report's edit list; delete thm:std-cd-compact,
+  thm:std-corvino-schoen and the [CS06] entry if no chapter cites them.
