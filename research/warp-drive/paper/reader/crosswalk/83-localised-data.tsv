@@ -9,6 +9,7 @@ eq:racz-kid	docket68/n1star/FAMILIES5-VLASOV.md:274-276; docket68/n1star/FAMILIE
 eq:racz-vacuum	paper/reader/proofs/P-E-margins.md:522-528	proof E margins seed-region quantities	N_κ on a vacuum region
 prop:loc-band	docket68/n1star/FAMILIES5-VLASOV.md:251-256; docket68/n1star/FAMILIES5-R6.md:244-251; docket68/n1star/FAMILIES5-R8.md:207-209	racglobal5 R2 (no foliation); R6 2 (4.22) argument; R8.2 C3 band	extent from thm:margins-hyperbolic and thm:bg-margins (c)
 thm:loc-bent-slice	docket68/n1star/FAMILIES5-R8.md:229-242; docket68/n1star/FAMILIES5-R6.md:260-282; docket68/n1star/FAMILIES5-AXIS.md:150-171	Theorem L″ with the moved lobe (R8.3); R6 section 2; AXIS Proposition L	Cauchy stability Theorem K′ left as pending key (chapter 81)
+rem:loc-band-grid	docket68/n1star/FAMILIES5-VLASOV.md:245-250	racglobal5 R1 (class (b) item C172)	numerical observation; no proof uses it
 sec:loc-cones	docket68/n1star/FAMILIES5-AXIS.md:75-92	AXIS 2.1 characteristic data (bandconst5 B6, dnull5 D2, D5)	
 eq:loc-double-null	docket68/n1star/FAMILIES5-AXIS.md:79-80	AXIS 2.1 class double-null gauge	A, B written A_c, A_s
 lem:loc-cone-equations	docket68/n1star/FAMILIES5-AXIS.md:81-88	AXIS 2.1 (dnull5 D2, D5)	Ric_vv and Ric_vϑ written out (checked privately)
@@ -51,6 +52,7 @@ lem:loc-positivity	docket68/n1star/FAMILIES5-MB.md:316-320; docket68/n1star/FAMI
 thm:loc-outside	docket68/n1star/FAMILIES5-MB.md:344-352	Theorem P	
 sec:loc-sign	docket68/n1star/FAMILIES5-R10.md:105-155	R10.1 block	
 thm:charge-sign	docket68/n1star/FAMILIES5-R10.md:129-153; docket68/n1star/FAMILIES5-R11.md:63-66	R10.1 block (f < 0 / f > 0 wording); R11.1 unchanged	exported key; collects Corollary Q, Theorem Q′, Theorem X and Theorem P
+rem:loc-trapped-rays	docket68/n1star/FAMILIES5-R11.md:39-43; docket68/n1star/FAMILIES5-MB.md:14-19	ehband5 H1 (class (b) item C321)	numerical observation; the event-horizon deduction dropped as unused
 sec:bg-below	paper/reader/proofs/P-E-background.md:1	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:bg-data	paper/reader/proofs/P-E-background.md:11	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 eq:bg-profiles	paper/reader/proofs/P-E-background.md:16	proof E background (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part

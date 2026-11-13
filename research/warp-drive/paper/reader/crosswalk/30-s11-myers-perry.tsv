@@ -29,6 +29,7 @@ sec:iii-a1-2-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:288-388	III.A1 se
 lem:iii-a1-2-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:290-388	III.A1 Lemma 2.1	1-form matrices named B1, E1; harm5 K5 sentence dropped (proof by hand already)
 eq:iii-a1-2-7	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:309	III.A1 (2.7)	matrix named B2
 eq:iii-a1-2-8	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:314	III.A1 (2.8)	matrix of d_t* named E2
+eq:s11-box-tensors	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:343-349	III.A1 proof of Lemma 2.1, unnumbered display (box of a symmetric 2-tensor, Cartesian splitting)	label added so that later chapters can cite the display; text unchanged
 sec:iii-a1-2-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:390-443	III.A1 section 2.3	
 eq:iii-a1-2-9	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:396	III.A1 (2.9)	
 eq:iii-a1-2-10	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:403	III.A1 (2.10)	

@@ -164,6 +164,12 @@ background's.
 joining Σ′ to Σ_τ0 runs in it. The development exists near the smooth background by the Cauchy stability of the class
 Einstein–null-dust system ([[thm:class-stability]]), and the angular widening is that of [[cor:margins-lens]]. ∎
 
+**Remark {#rem:loc-band-grid}** (Numerical observation.) On the discretisation of [[rem:two-dust-example]] at 40, 80 and
+160 steps per unit, N_κ evaluated on Σ_τ0 from the grid solution was negative except on R ∈ [4.2956, 4.5264] at 160
+steps ([4.3017, 4.5204] at 80), with largest value 1.7925 × 10⁻³ at R = 4.3994, and qf ≤ 0.9052 throughout; with the
+flux term −qf_v̂/2 dropped the largest value was −0.036, and with half the shell's amplitude it was −0.017. No proof
+uses this remark; the band is that of [[prop:loc-band]].
+
 ### Exact localisation on the cones {#sec:loc-cones}
 
 In the double-null gauge of the class,
@@ -489,7 +495,7 @@ dR and the second fundamental form of the spheres, all of which are round. (ii) 
 (iv) With g(ξ, n) = −N_s, T_m = R³(½N_sΠ² + Y_s^RΠ ∂_RH + (N_s/(2G))(∂_RH)²) + ½N_s(k_T² + 2)RH², and the
 determinant is R⁶(N_s² − G(Y_s^R)²)/(4G) = R⁶f/(4G) by (ii). ∎
 
-The quantity T_m is the flux through Σ of J^a = T^a_b ξ^b for T_ab := R³(∂_aH ∂_bH − ½g_ab|dH|²) − ½g_ab(k_T² +
+The quantity T_m is the flux through Σ of J^a = 𝕋^a_b ξ^b for 𝕋_ab := R³(∂_aH ∂_bH − ½g_ab|dH|²) − ½g_ab(k_T² +
 2)RH², the canonical stress of the tensor master equation D_a(R³D^aH) − (k_T² + 2)RH = 0 of the orbit space
 ([[thm:std-ki-master]] (1), with n = 3, K = 1).
 
@@ -663,6 +669,12 @@ event horizon. In the class, −Q on a static slice is the sum over the even har
 Ishibashi's master equations, scalar and tensor, whose potentials are positive in five dimensions for every l ≥ 2:
 for the scalar potential, Qp > 0 on x ∈ [0, 1] holds for m = 5 and for every m ≥ 12 by the proof of
 [[lem:loc-positivity]], which covers m = l(l + 2) − 3 for every l ≥ 2.
+
+**Remark {#rem:loc-trapped-rays}** (Numerical observation.) On the same discretisation at 80 and 160 steps per unit,
+every outgoing grid ray crossing Σ_τ0 between √μ3 = 0.9067 and R = 1.000 was untrapped at the crossing and ended
+trapped after the ingoing shell, and every ray crossing from R = 1.005 outward ended untrapped; with the ingoing shell
+removed no ray above √μ3 was trapped. So bands of Σ_τ0 on which f > 0 can lie where the outgoing rays end trapped;
+[[thm:charge-sign]] is stated in terms of f. No proof uses this remark.
 
 ### The background below R_* {#sec:bg-below}
 
