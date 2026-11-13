@@ -291,10 +291,10 @@ depending on Ω and on the field and not on any choice of labels, such that at e
 
     |g⁻¹(du_α, du_α′)(y)| ≥ c0 d(α, α′)².                                                       {#eq:vlasov-separation}
 
-*Proof.* Let 𝒫 be the bundle of null directions of g3 over the orbit slices, a circle bundle, with the angle β of the
+*Proof.* Let ℬ be the bundle of null directions of g3 over the orbit slices, a circle bundle, with the angle β of the
 spatial part in a frame orthonormal for the slice metric. For τ ∈ [τ0, τ_end] let Φ_τ take (x0, α) ∈ Σ_τ0 × S¹ to (y, β)
-∈ 𝒫|Σ_τ, the point where the ray of u_α from x0 meets Σ_τ and the angle of du_α there. Φ_τ is the flow of the null
-geodesic spray on 𝒫 from Σ_τ0 to Σ_τ composed with the section σ(x0, α) := (x0, β0(x0, α)). The flow is a
+∈ ℬ|Σ_τ, the point where the ray of u_α from x0 meets Σ_τ and the angle of du_α there. Φ_τ is the flow of the null
+geodesic spray on ℬ from Σ_τ0 to Σ_τ composed with the section σ(x0, α) := (x0, β0(x0, α)). The flow is a
 diffeomorphism with positive Jacobian (it depends continuously on τ and is the identity at τ0), and Dσ is triangular
 with determinant ∂_α β0 ≥ b. So det DΦ_τ ≥ c_Φ > 0 on the compact set of the (x0, α) in question. Write DΦ_τ in blocks,
 with A := ∂y/∂x0, B := ∂y/∂α, C := ∂β/∂x0, D := ∂β/∂α. At fixed y the label α determines its ray, and x0 = x0(y, α),
@@ -611,7 +611,7 @@ used; we list what changes from two families to n.
 
 **Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iii), for every N ≥ 1 and every
 smooth choice of stage data there are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
-λ [g_1] + Σ_(j=2)^N λ^j [g_j], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
+λ [g_1] + Σ_(l=2)^N λ^l [g_l], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
 N − 1 at every regularity k, in the sense of [[pending:two-dust-approximant-definition]] with one phase per family.
 
 *Proof.* The stage system is that of [[pending:two-dust-stages]] with n phases: (a) the mean, a linear wave equation; (b)
@@ -826,10 +826,10 @@ reference's in H^m has a unique smooth class development on Ω, a solution of th
 system with radial dusts, within C ε of the reference in H^m. No smallness of the reference is assumed.
 
 *Proof.* By [[lem:vlasov-open]] the perturbed labels keep their margins, so their tubes stay at distance at least δ from
-the axes and free of caustics. Off the axes write the field as an orbit density f on the bundle 𝒫 of null directions
+the axes and free of caustics. Off the axes write the field as an orbit density f on the bundle ℬ of null directions
 of g3, as in the proof of [[lem:vlasov-separation]]: at each point the labels present are mapped diffeomorphically onto
 their directions, and T_V is algebraic in (f, g). By [[lem:vlasov-flow]] (b) and (c) the Vlasov equation is the
-transport of f along the generator of the null geodesic flow on 𝒫, whose coefficients are first derivatives of g3. In
+transport of f along the generator of the null geodesic flow on ℬ, whose coefficients are first derivatives of g3. In
 the energy of the proof of [[thm:class-stability]] put the transport of f in place of the transports of finitely many
 dusts: m derivatives of f cost m + 1 derivatives of the metric through the flow's coefficients, which the metric's
 energy controls at that order, and m derivatives of T_V cost m derivatives of f and of g. So there is no loss of
