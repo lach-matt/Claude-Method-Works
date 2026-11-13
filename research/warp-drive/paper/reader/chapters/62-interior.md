@@ -48,14 +48,13 @@ so the inner boundary {r = r_♭} of M is spacelike, for every final mass.
 
 The stability theory is written for every inner radius r_♭ ∈ (0, ½R₁] ([[ch:s11]], [[def:s12-radii]], [[ch:s14]],
 [[ch:s27]]); in [[ch:s14]] the inner radius r_♯ of the analysis near the black hole is r_♭ ([[sec:iv5-0]]). One
-explicit fact at small radii is the sign of the damping 1-form, which [[prop:np-10-14]] gives at mass 1: (i) at every
+explicit fact at small radii is the sign of the damping 1-form, which [[prop:np-10-14]] gives at m = 1: (i) at every
 r > 0, and (ii) on (0, 99.375], which ends just inside the saddle point r_0 = 100 of the 1-form. The next lemma writes
 out the inequalities on the inner piece of the 1-form, all of them strict.
 
 **Lemma {#lem:interior-damping}** (The damping 1-form inside half the horizon radius.) Let m = 1, so that r_h = 1 (the
 case μ_end = 1), let g and c be as in [[prop:np-10-14]], and e its constant. On the piece 0 < r ≤ 50 of
-[[eq:s14-cform]], c = α(dt + ¼ dr) with α = 1/200,
-and for every r in (0, 50]
+[[eq:s14-cform]], c = α(dt + ¼ dr) with α = 1/200, and for every r in (0, 50]
 
     g⁻¹(c, c) = α²(−3/2 + (9/16) f) < 0,    g⁻¹(c, dt) = α(−7/4 + (3/4) f) < −α,    g⁻¹(c, dr) = α(¼ + (3/4) r⁻²) > 0;
 
@@ -97,8 +96,8 @@ and for b near b₀ uniformly on the compact {½r_♭ ≤ r ≤ ¾R₁}, by cont
 1-form has the signs of [[prop:np-10-14]] (i)–(ii) for g_(b₀) on all of (0, r_h/2], which contains the collar down to
 ½r_♭ ([[prop:np-10-14]], [[lem:interior-damping]]), and, the inequalities being strict there, for b near b₀ by
 continuity in b: (i) on the compact {½r_♭ ≤ r ≤ ½r_h} ([[sec:iv5-0]]) and (ii) on {r_♭ ≤ r ≤ ½r_h}
-([[lem:iv5-0-5]]). [[lem:vii-1-2]] takes δ′_0 in
-(max(0, q0 − ½r_♭), q0), which is not empty, so that a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
+([[lem:iv5-0-5]]). [[lem:vii-1-2]] takes δ′_0 in (max(0, q0 − ½r_♭), q0), which is not empty, so that
+a′ = q0 − δ′_0 < ½r_♭; [[thm:main]] holds on such an Ω′.
 
 *The domain.* g is defined on Ω_* ∪ 𝒟_0 ([[thm:settling-precise]] (i)). This set is M ∩ {t_IVP ≥ 0}. Indeed,
 t^♭_* ≤ t_* ≤ t_IVP where t^♭_* is defined ([[sec:iii-k-0]]), so Ω_* = cl_M{t^♭_* ≥ 1} lies in {t_IVP ≥ 1}; and a
