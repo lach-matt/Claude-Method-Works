@@ -32,7 +32,7 @@ the divergences drop out and
                                 = ∫ ⟨𝒢(g_ε), h⟩_(g_ε) dvol_(g_ε),
 
 g_ε := g + εh, 𝒢(g) := ½ Scal(g) g − Ric(g). Take g = γ̂ and h = T, and let E(ε) := ∫ Scal(γ̂ + εT) dvol_(γ̂+εT); all
-integrals below are over S³ against dvol_γ̂, and |T|²_γ̂ := |T|²_γ̂. Since Ric(γ̂) = 2γ̂ and Scal(γ̂) = 6, 𝒢(γ̂) = γ̂ and
+integrals below are over S³ against dvol_γ̂. Since Ric(γ̂) = 2γ̂ and Scal(γ̂) = 6, 𝒢(γ̂) = γ̂ and
 DScal[T] = −⟨T, Ric(γ̂)⟩ = −2 tr T = 0. The Riemann tensor of the unit S³ is γ̂_ikγ̂_jl − γ̂_ilγ̂_jk, and the Ricci
 identity gives, for trace-free T, ∇^k∇_iT_jk = ∇_i∇^kT_jk + 3T_ij = 3T_ij; so Ric′[T] = ½(6T − Δ̂T) = ½(6 + k_T²)T.
 Differentiating E′(ε) = ∫⟨𝒢(γ̂ + εT), T⟩_(γ̂+εT) dvol_(γ̂+εT) at ε = 0, the derivative of 𝒢 is ½DScal[T]γ̂ + ½Scal(γ̂)T −
@@ -47,8 +47,8 @@ E″(0) gives [[eq:loc-tt-second]]. ∎
 **Lemma {#lem:loc-tensor-variations}** (Second variations for tensor data on a round slice.) Let γ = G dR² + R²γ̂ and
 K0 = κ0 G dR² + Y0 R² γ̂ be round data on a band, with G > 0, κ0 and Y0 smooth functions of R. Let T be as in
 [[lem:loc-tt-second]], H and Π smooth functions of R, h := 2R²H T and k := R²(Π + 2Y0H) T. For a function X of the
-data write [X]_2 for the ε² coefficient of X(γ + εh, K0 + εk), write ′ := d/dR, and let |T|²_γ̂ := |T|²_γ̂, a function on
-S³. Then, with ℳ_R := ℳ(∂_R) the radial component of the momentum constraint,
+data write [X]_2 for the ε² coefficient of X(γ + εh, K0 + εk), and write ′ := d/dR. Then, with ℳ_R := ℳ(∂_R) the
+radial component of the momentum constraint and |T|²_γ̂ the pointwise norm, a function on S³,
 
     [(tr K)² − |K|²]_2 = −(Π² + 4(κ0 + 2Y0)HΠ) |T|²_γ̂,
     [ℳ_R]_2 = (2(HΠ)′ + 2HΠ/R − H′Π + 2(Y0 − κ0)HH′) |T|²_γ̂,

@@ -500,11 +500,11 @@ loss d_NM ([[eq:ii-g-2-5]]). *d_NM ≥ d_acc.* Hypothesis (iii) of [[thm:ii-g-2-
 d_NM, of the right inverse Zℛ(U) of the proof of [[thm:iii-k-3-2]], where ℛ(U) is that of [[lem:iii-k-2-3]] and the
 multiplication Z loses nothing; so the loss of ℛ(U), the loss of [[eq:iii-j2-4-2]] for it, is one of the three whose
 largest is d_NM. By the proof of [[lem:iii-k-2-3]], ℛ(U) is the construction of [[thm:iii-j2-4-2]] at the base point
-Ψ(U), with two more terms, linear in the finite-dimensional boost and translation components, in the forcing of
-Step 2 of the proof of [[thm:iii-i14-3-1]] and terms of the same kind in its Step 1; and the construction of
-[[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its output by maps of
-non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The base point enters the elementary losses not at all
-([[lem:ec-closed-forms]], [[rem:ec-other-losses]]). By [[def:ec-accounted-loss]], a further summand does not lower the
+Ψ(U), with two more terms, linear in the finite-dimensional boost and translation components, added to the forcing
+of Step 2 of the proof of [[thm:iii-i14-3-1]] and entering its Steps 1 and 3 as terms of the same kind; and the
+construction of [[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its
+output by maps of non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The elementary losses do not depend
+on the base point ([[lem:iii-j2-2-1]]: only its constants do). By [[def:ec-accounted-loss]], a further summand does not lower the
 largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a composition;
 so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
 [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
@@ -520,26 +520,30 @@ bound for d_acc, and holds for d_NM and N_NM because d_NM ≥ d_acc and N_NM inc
 
 ### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
 
-**Proposition {#prop:ec-delta-cap}** (Upper bounds for δ and λ1.) In the proof of [[thm:settling]], let the
-Nash–Moser threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]; let the data
-threshold ε of [[cor:s27-rate]] satisfy ε ≤ ε_NM/A, where A ≥ 1 is a constant with
-‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ A‖(γ̃, k̃)‖ ([[lem:iii-k-2-2]] (d)); and let C_R ≥ 1 be the constant of [[cor:vii-2-3]].
-Then δ = ½ε and λ1 satisfy
+**Proposition {#prop:ec-delta-cap}** (Upper bounds for δ and λ1.) In the proof of [[thm:settling]], let d be the loss
+d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_acc, [[thm:loss-d]]), and let the Nash–Moser
+threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let C_(2d) and ω_(2d) be the
+constant and the modulus of [[lem:iii-k-2-2]] (d) at the order 2d, in the norm of H^(2d+k′_(2d)), enlarged if
+necessary so that C_(2d) ≥ 1 and ω_(2d)(s) ≥ s, and let the data threshold ε of [[cor:s27-rate]] satisfy
+C_(2d)ω_(2d)(ε) ≤ ε_NM; and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
 
     δ ≤ 2^(−(32d+9)),        λ1 < δ,        log₁₀ δ < −(59/196)(32d + 9).
 
-With d = d_acc and the bound of [[thm:loss-d]] (ii), log₁₀ δ < −7.666 × 10¹⁶; the same bound holds for λ1.
+As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives log₁₀ δ < −7.666 × 10¹⁶; the same bound holds for λ1.
 
-*Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
-ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ε_NM/(2A) ≤ 2^(−(32d+9)), as A ≥ 1. The proof of [[thm:settling]]
+*Proof.* Replacing ω_(2d) by s ↦ max(ω_(2d)(s), s) and C_(2d) by max(C_(2d), 1) keeps [[lem:iii-k-2-2]] (d) true and
+keeps ω_(2d) non-decreasing with limit 0 at 0, so the proof of [[thm:iii-k-3-2]] runs with them unchanged. Then
+ε ≤ ω_(2d)(ε) ≤ C_(2d)ω_(2d)(ε) ≤ ε_NM. The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so
+θ_0 ≥ 16 and ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So δ = ½ε ≤ ½ε_NM ≤ 2^(−(32d+9)). The proof of [[thm:settling]]
 ([[sec:vii-4]]) takes λ1 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so
 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the binomial expansion, all of whose terms are positive,
 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, which
-gives the third bound. With d > 7.959 × 10¹⁵, (59/196)(32d + 9) > 7.666 × 10¹⁶. ∎
+gives the third bound. With d ≥ d_acc > 7.959 × 10¹⁵, (59/196)(32d + 9) > 7.666 × 10¹⁶. ∎
 
-The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
-enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), 1/A and 1/C_R, that is, upper
-bounds for every constant of the proof that enters them; [[rem:ec-not-evaluated]] says where those stop.
+The bounds hold whatever the other constants are, once C_(2d), ω_(2d) and C_R are enlarged as above, which keeps the
+estimates in which they enter true. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), for the inverse of
+the modulus s ↦ C_(2d)ω_(2d)(s) and for 1/C_R, that is, upper bounds for every constant of the proof that enters them;
+[[rem:ec-not-evaluated]] says where those stop.
 
 ### The loss at the computational point {#sec:ec-integer}
 
