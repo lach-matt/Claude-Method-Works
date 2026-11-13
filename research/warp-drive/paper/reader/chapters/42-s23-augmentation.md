@@ -181,8 +181,8 @@ rotation-row terms being part of the right-hand side (Step 4′).
 4: their proofs do not use the coefficient space. [[lem:iii-i9-2-2]] (f), the injectivity of h_τ on 𝒲_τ, fails for them,
 h_v1 being 0 on 𝒱_1, and is not used for them ([[cor:iii-i10-2-3]] excludes v1). Each h_ν(W) is supported in 𝒞 with
 ι⁺-exponents in (λ, k) + ℱ ⊂ ℰ_+, as for the v1 rows (v1, λ, k) of 𝒩, which exist as ℳ_rot ⊂ ℰ_par ([[eq:iii-i10-1-2]]);
-here (λ, k) + ℱ ⊂ ℰ_+ is (H3) of [[sec:iii-i9-1]], which holds below 2 by [[eq:iii-i8-1-1]] and ℰ_(++) + ℰ_ind ⊂ ℰ_(++)
-⊂ ℰ_+. So (H3) holds and h_tot(p⃗) ∈ 𝒳^∞. Finally
+here (λ, k) + ℱ ⊂ ℰ_+ is (H3) of [[sec:iii-i9-1]], which holds below 2 by [[eq:iii-i8-1-1]] and ℰ_++ + ℰ_ind ⊂ ℰ_++ ⊂
+ℰ_+. So (H3) holds and h_tot(p⃗) ∈ 𝒳^∞. Finally
 
     f^ν_(h,p⃗)(W) := D_(p⃗)P_4(h, p⃗)(W_ν = W) = L_(h,p⃗) m_ν(W) + r^ν_(h,p⃗)(W)
 
@@ -519,7 +519,7 @@ parameterisation that accounts for this is [[sec:iii-j-1]]–[[sec:iii-j-2]]. ##
 
 Everything of [[sec:iii-i14-1]] is kept, and through it everything of [[ch:s21]] and [[ch:s22]]: α, the constants 0 <
 ε_K < ε_+ < min(δ_♯, ε_ind) of [[eq:iii-i9-1-1]], w_+ = 5 + ε_+, η_2, (H1)–(H5), (C5), (G), Λ, K(λ), L_0, l_*, N_*,
-ℰ_par, ℰ_♯, ℳ, ℰ_(++), 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℱ = (0, 0) ∪ ℰ_ind, the rows 𝒩 with the rotation rows 𝒩_rot and the
+ℰ_par, ℰ_♯, ℳ, ℰ_++, 𝒢 = (2, 0) ∪ (2 + ℰ_ind), ℱ = (0, 0) ∪ ℰ_ind, the rows 𝒩 with the rotation rows 𝒩_rot and the
 enlarged 𝒫, the towers T_(ρ,b), ℛ, ℛ′, d_ρ, k_μ, 𝒬, h_(b,rem)(q) and P_5. The black hole parameter b ranges near b₀, and
 p⃗_(≤0) = (S, b − b₀, S^(0)_1), with g_0 = g_(p⃗_(≤0)) ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces
 [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces,
@@ -984,10 +984,10 @@ tame form of the bound of [[thm:iii-j1-2-1]], ‖U′‖_k ≤ C_k(‖f‖_(k+d)
 ### The statements at a base point near b₀ {#sec:s23-base-points}
 
 The results of [[sec:iii-i14-1]]–[[sec:iii-j1-2]] that are stated at b = b₀ hold at every base point whose black hole
-parameter b lies in the neighbourhood ℬ_* of b₀ fixed in [[ch:s25]], with constants and smallness conditions uniform in
-b ([[thm:iii-i15-3-1]]). The statement at b of each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states,
-towers and companions at b₀ and the index set ℰ_ind by those at b, by taking derivatives in b at b, and by treating the
-v1 terms as in [[ch:s25]]. In detail:
+parameter b lies in the closed ball ℬ̄_* about b₀ of [[sec:iii-h2-0]], shrunk as in [[lem:iii-i15-1-2]] and
+[[prop:iii-i15-2-5]], with constants and smallness conditions uniform in b ([[thm:iii-i15-3-1]]). The statement at b of
+each of them is obtained by replacing L_(b₀), g_(b₀) near K⁺, the states, towers and companions at b₀ and the index set
+ℰ_ind by those at b, by taking derivatives in b at b, and by treating the v1 terms as in [[ch:s25]]. In detail:
 
 (1) [[def:iii-i14-1-2]] with [[eq:iii-i14-1-4]], [[lem:iii-i14-2-2]]–[[lem:iii-i14-2-5]] and [[rem:iii-i14-3-2]] (2)
 hold at b. The proof of [[lem:iii-i14-2-4]] (c) above is written for every b near b₀; it uses that every coefficient of
@@ -1007,6 +1007,6 @@ rows are built at b₀ or at b, as the rows enter P_4 only through the correctio
 not depend on b ([[lem:iii-j-2-2]]). The pure gauge of [[rem:iii-j-2-6]] refers to g_(b₀).
 
 (4) [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]], and [[thm:iii-j1-2-1]], with its tame and exact
-forms, holds at every base point U ∈ 𝒟^∞ small in 𝒟^d, whose black hole parameter then lies in ℬ_*, with constants
+forms, holds at every base point U ∈ 𝒟^∞ small in 𝒟^d, whose black hole parameter then lies in ℬ̄_*, with constants
 uniform in U; at a rotating b the right inverse is the one constructed from [[prop:iii-i15-2-5]] ([[cor:iii-i15-3-2]]).
 These are the right inverses that [[thm:ii-g-2-1]] (iii) asks for at every point of its domain.

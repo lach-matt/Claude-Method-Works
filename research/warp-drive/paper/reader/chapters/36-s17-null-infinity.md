@@ -310,8 +310,9 @@ with S̄ the endomorphism of [[lem:iii-f-2-1]] (2), and R̃_b with coefficients 
 
 *Proof.* By [[eq:iii-f-2-2]]–[[eq:iii-f-2-3]], on {|x| > 3R₁},
 2L_b = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + 2L̄̂(0) − g_b^(00)∂²_(t_*) + Q_b∂_(t_*) + R_b, where 2L̄̂(0), the spectral
-family of 2L̄ at σ = 0, is its stationary part, with 2L̄̂(0) ∈ ρ²Diff²_b, g_b^(00) ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b, R_b ∈ ρ⁴Diff²_b, all
-stationary b-operators on X̄: polynomials in ρ∂_ρ|_(t_*) and ∂_ω with coefficients in C^∞(X̄). By [[eq:iii-c-1-4]]
+family of 2L̄ at σ = 0, is its stationary part, with 2L̄̂(0) ∈ ρ²Diff²_b, g_b^(00) ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b,
+R_b ∈ ρ⁴Diff²_b, all stationary b-operators on X̄: polynomials in ρ∂_ρ|_(t_*) and ∂_ω with coefficients in C^∞(X̄).
+By [[eq:iii-c-1-4]]
 these vector fields are b-vector fields on U (∂_ω at fixed t_*, ρ is ∂_ω at fixed ρ₀, ρ_I, as t_* and ρ do not depend on
 ω), and ρ = ρ₀ρ_I, ∂_(t_*) = ρ₀(X₀ − X_I). So the last four terms lie in ρ₀²ρ_I²Diff²_b(U); for instance
 g_b^(00)∂²_(t_*) ∈ ρ₀⁴ρ_I²Diff²_b. For the first, (X₀ − X_I)ρ = 0, so
@@ -1110,7 +1111,8 @@ h̄^(≤2)_(v1)(±r̂, V) = Σ_(j=0)^1 (∓ir̂)^j r̂ (ρ^(1+j)h̆̄^(1+j)_(v1)
 **Lemma {#lem:iii-g4-2-2}** ([Hin26, (9.57), (9.60)] in dimension 4 + 1.) (1) For σ = ±|σ| ≠ 0 and r̂ = |σ|r,
 Σ_(j=0)^k (−iσ)^j h̆̄^((μ),j)_τ(Y) = |σ|^μ h̄^((μ),≤k)_τ(±r̂, Y), with the re-indexed chains for s1 and v1. (2) Exactly,
 
-    N_tf h̄^((μ),≤k)_τ(±r̂, Y) = (∓i)^(k+1) r̂^(k−1−μ) ψ^((μ,τ))_k(ω; Y),     ψ_k := −(μ − k − 3/2 − S̄)φ_k.     {#eq:iii-g4-2-2}
+    N_tf h̄^((μ),≤k)_τ(±r̂, Y) = (∓i)^(k+1) r̂^(k−1−μ) ψ^((μ,τ))_k(ω; Y),
+    ψ_k := −(μ − k − 3/2 − S̄)φ_k.                                                                      {#eq:iii-g4-2-2}
 
 In particular PH_(μ,τ)(Y) = (∓i)^(c_μ+1) r̂^(3+{−μ}) ψ_(c_μ), as c_μ + 1 − μ = 3 + {−μ}.
 
