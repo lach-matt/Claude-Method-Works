@@ -355,13 +355,13 @@ step of the iteration; the transports solved along the integral curves of L0 fro
 leading terms. These data and the forcing terms of (a)–(c) vanish for v ≤ v_start, since each forcing term contains a
 profile of an earlier stage; so every iterate vanishes there, by the last clause of [[lem:past-linear-wave]] for (a) and
 because the transports run at fixed v. Hence the differences of iterates and the solution vanish on P_n ∩ {v ≤ v_start},
-as [[lem:past-energy]] requires. The remainders of this solution start at zero. Commute the system with ∂_X and Ω to an order j0 (the
-classes are preserved), and let e(τ) be the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of
-Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ := ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at
-most C t^(3/2−q), and [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with
-c0 = 0 for ∂_v φ̃ and Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport of
-[[lem:commutator-transport]] with σ̃ := m̃(ℓ, ℓ) + q_m in place of 𝒫 s, □̃ σ̃ taken from (a), so that no derivative is
-lost), and with c0 = 3/2 for Z̃ ((c) and [[lem:first-stage-operator]]) give, with every integral over (τ_n, τ),
+as [[lem:past-energy]] requires. The remainders of this solution start at zero. Commute the system with ∂_X and Ω to an
+order j0 (the classes are preserved), and let e(τ) be the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃,
+p(τ) that of Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ := ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on
+A_P(τ) is at most C t^(3/2−q), and [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a),
+[[lem:past-transport]] with c0 = 0 for ∂_v φ̃ and Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport
+of [[lem:commutator-transport]] with σ̃ := m̃(ℓ, ℓ) + q_m in place of 𝒫 s, □̃ σ̃ taken from (a), so that no derivative
+is lost), and with c0 = 3/2 for Z̃ ((c) and [[lem:first-stage-operator]]) give, with every integral over (τ_n, τ),
 
     e ≤ C ∫ ( t⁻² e + t^(−3/2) z + t⁻³ f + t⁻² ),            t^(−3/2) f ≤ C ∫ t^(−3/2) ( e + t^(−3/2) ),
     t^(1/2) p ≤ C ∫ t^(1/2) ( t⁻¹ e + t⁻² f + t^(−3/2) (z + p) + t⁻² ),
@@ -556,10 +556,10 @@ N = K + 4 + ⌈4β0⌉ stages, such that:
   phase v/λ;
 - (P-iii) on P, |g_λ − g_app| ≤ C λ^(K−3) t⁻² and |∂(g_λ − g_app)| ≤ C λ^(K−4) t⁻²;
 - (P-iv) on Ω, the conclusions of [[thm:uniform-existence]] with this K, the bound on 𝒩 included;
-- (P-v) g_λ is invariant under T² × Z2 × Z2, and it is the only solution of Ric^H(g) = 0 on P with (P-i), with
-  |g − g_app| + |∂(g − g_app)| ≤ ε_U t^(−3/2), and with the energy of g − g_app on A_P(τ) tending to zero as τ → −∞;
-  here ε_U > 0 is so small that this class lies in the margin of [[lem:past-domain]] (f), since |g_app − g0| ≤
-  C λ t^(−3/2) and t^(−3/2) ≤ t^(−5/4).
+- (P-v) g_λ is invariant under T² × Z2 × Z2, and it is the only solution of Ric^H(g) = 0 on P with g = g0 on
+  P ∩ {v ≤ v_start}, with |g − g_app| + |∂(g − g_app)| ≤ ε_U t^(−3/2), and with the energy of g − g_app on A_P(τ)
+  tending to zero as τ → −∞; here ε_U > 0 is so small that this class lies in the margin of [[lem:past-domain]] (f),
+  since |g_app − g0| ≤ C λ t^(−3/2) and t^(−3/2) ≤ t^(−5/4).
 
 These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-construction]], (P-iii) being item 3 together
 with the bound on the first derivatives; the second part of item 4 is [[prop:past-items]].
@@ -581,13 +581,13 @@ uniqueness of (P-v). It solves Ric^H(g_λ) = 0 on P ∪ Ω, it satisfies the bou
 |g_λ − g0| ≤ C λ ≤ ε1 among them, and it equals g0 on P ∩ {v ≤ v_start}, since each g_n does, by [[lem:seed-region]]
 with the margin of [[prop:far-region]] and [[prop:near-region]].
 
-*The seed region on Ω.* The proof of [[lem:seed-region]] runs on Ω from Σ_τ0, where g_λ agrees with g0 on
-{v ≤ v_start} together with its first τ-derivative, g_λ being smooth on P ∪ Ω. In place of {v + ε h_P(τ) = v_start}
-it uses the surfaces {v + ε(τ − τ0) = v_start}, 0 < ε ≤ 1, for which g0⁻¹(dv + ε dτ, dv + ε dτ) = −2ε −
-ε²(1 + μ/r²) < 0 by [[prop:vaidya]] (d), while v + ε(τ − τ0) increases along future causal curves of g0. So near the
-points where g_λ = g0 these surfaces are spacelike for g_λ too, with {v + ε(τ − τ0) ≤ v_start} to their past, and the
-other boundary pieces of Ω are spacelike for g_λ with Ω to their past ([[lem:domain]] (e)). Letting ε → 0 gives
-g_λ = g0 on Ω ∩ {v ≤ v_start}. This is (P-i).
+*The seed region on Ω.* The proof of [[lem:seed-region]] runs on Ω from Σ_τ0, where g_λ agrees with g0 on {v ≤ v_start}
+together with its first τ-derivative, g_λ being smooth on P ∪ Ω. In place of {v + ε h_P(τ) = v_start} it uses the
+surfaces {v + ε(τ − τ0) = v_start}, 0 < ε ≤ 1, for which g0⁻¹(dv + ε dτ, dv + ε dτ) = −2ε − ε²(1 + μ/r²) < 0 by
+[[prop:vaidya]] (d), while v + ε(τ − τ0) increases along future causal curves of g0. So near the points where g_λ = g0
+these surfaces are spacelike for g_λ too, with {v + ε(τ − τ0) ≤ v_start} to their past, and the other boundary pieces of
+Ω are spacelike for g_λ with Ω to their past ([[lem:domain]] (e)). Letting ε → 0 gives g_λ = g0 on Ω ∩ {v ≤ v_start}.
+This is (P-i).
 
 *The bounds (P-iii).* On the far region, [[eq:far-energy]] and [[lem:past-sobolev]] (a) give |w| ≤ C M_F λ^(K′−3) t⁻²
 and |∂w| ≤ C M_F λ^(K′−4) t⁻². On the near region, [[eq:near-bootstrap]] with (T_λ/t)^β0 ≤ λ^(−2β0) gives
@@ -615,11 +615,12 @@ with j ≥ 2 is in E_2 (means, oscillating profiles and the Taylor terms φ_i^p 
 Along v = const and x̂ = const, t and r grow together (r − t is bounded on P⁺), so r^(3/2) times the sum tends to zero
 as r → ∞.
 
-*Uniqueness and symmetry (P-v).* For a second solution g′ with (P-i), |g′ − g_app| + |∂(g′ − g_app)| ≤ ε_U t^(−3/2)
-and energy of g′ − g_app tending to zero, δ := g_λ − g′ solves a linear system with coefficients at most
-C(λ) t^(−3/2) (they involve ∂²g_λ and ∂g′, both controlled), its energy tends to zero at −∞, and [[lem:past-energy]]
-gives δ = 0 on P; the uniqueness of Step 8 of the proof of [[thm:uniform-existence]] continues this to Ω. The data at
-past null infinity, g_app and the equation are invariant under T² × Z2 × Z2, so g_λ is too, by this uniqueness. ∎
+*Uniqueness and symmetry (P-v).* For a second solution g′ with g′ = g0 on P ∩ {v ≤ v_start},
+|g′ − g_app| + |∂(g′ − g_app)| ≤ ε_U t^(−3/2) and energy of g′ − g_app tending to zero, δ := g_λ − g′ solves a linear
+system with coefficients at most C(λ) t^(−3/2) (they involve ∂²g_λ and ∂g′, both controlled), its energy tends to zero
+at −∞, and [[lem:past-energy]] gives δ = 0 on P; the uniqueness of Step 8 of the proof of [[thm:uniform-existence]]
+continues this to Ω. The data at past null infinity, g_app and the equation are invariant under T² × Z2 × Z2, so g_λ is
+too, by this uniqueness. ∎
 
 ### The horizon and the mean mass for these solutions {#sec:past-items}
 

@@ -1,10 +1,12 @@
 label	source	source_name	note
 ch:s20	docket68/n1star/proof5/PART-III-I4-BOOST.md:10; docket68/n1star/proof5/PART-III-I5-UNBOOST.md:12; docket68/n1star/proof5/PART-III-I6-ALMOSTBDD.md:9; docket68/n1star/proof5/PART-III-I7-PARAMS.md:9; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:375	III.I(3)-III.I(6) intros; III.I(15) §2.6	chapter heading; intro composed from the parts' status sentences and "What n = 4 changes" paragraphs (status and labels dropped); written at general b
-sec:s20-setting	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:699	III.I(15) Lemma 1.1 (P1)-(P5) and Theorem 3.1 items (i)-(v), as used by III.I(3)-(6)	private section: the base-point properties (B1)-(B5) each stated with the result of S11-S19 that supplies it; the use of S19's III.I(1)-(2) at b rests on thm:iii-i15-3-1 (issue-1)
-lem:s20-injective	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:143	III.I(15) Lemma 1.2 restricted to the s1 states (item (v) at 732-735)	private key; the perturbation proof of III.I(15) Lemma 1.2 written for S ↦ h_b(S) alone, with a finite set K_0; replaces the uses of III.F3 Prop 4.1 (1) at b (I4:128, I5:343, I6:211, I7:208, 306)
+sec:s20-setting	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:699; docket68/n1star/BEYOND5-R0-PROOF.md:273	III.I(15) Lemma 1.1 (P1)-(P5) and Theorem 3.1 items (i)-(v), as used by III.I(3)-(6)	private section: the base-point properties (BP1)-(BP5) (renamed from (B1)-(B5), which clashed with S19's (B1)-(B5) of sec:iii-h2-0), each stated with the result of S11-S19 that supplies it; ℬ_* is S19's B_*, shrunk to a ball; (BP3) states C^k dependence on b (prop:iii-f3-2-2 (3), lem:iii-d2-2-2) with b-derivatives bounded in A^(q-δ); the use of S19's III.I(1)-(2) at b cites prop:iii-i2-5-1-b, which uses nothing of S20; inner radius as BEYOND5-R0-PROOF:273-280
+lem:s20-rows	docket68/n1star/proof5/PART-III-H-AUGMENT.md:286; docket68/n1star/proof5/PART-III-F4-ZERO.md:403; docket68/n1star/proof5/BASEPOINT-LEDGER.md:164	III.H §3 "the matrix B(b) ... is invertible near b0, with B(b0) = I" (H-AUGMENT:290-291), from III.F3 Prop 4.1 Step 5	private key; B(b) defined; |B(b) - I| <= C_B|b - b0| by C^1 dependence of the states in b (prop:iii-f3-2-2 (3), lem:iii-d2-2-2); ℬ_* shrunk to radius <= 1/(2C_B); |B(b)^-1| <= 2 by the Neumann series; supplies the ledger rows "III.H B(b)" (I7 101-117, 326-330) (review R-S20 finding 1)
+eq:s20-rows	docket68/n1star/proof5/PART-III-H-AUGMENT.md:290	III.H §3: B(b) := (<·, f*>) of the nullspace	private key; the definition of B(b), displayed
+lem:s20-injective	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:143; docket68/n1star/proof5/PART-III-H-AUGMENT.md:290	III.I(15) Lemma 1.2 restricted to the states ġ_b, h_b (item (v) at 732-735); III.H §3 "B(b) invertible"	private key; proved from lem:s20-rows (|B(b)^-1| <= 2) with K_0 = supp f*_1 ∪ supp f*_2 and c = 1/(2C_f); joint injectivity of (ḃ, S) -> ġ_b(ḃ) + h_b(S) included; replaces the uses of III.F3 Prop 4.1 (1) at b (I4:128, I5:343, I6:211, I7:208, 306); S25 should cite it for the s1 injectivity used in S20
 sec:iii-i3-1	docket68/n1star/proof5/PART-III-I4-BOOST.md:24	III.I(3) §1	
 lem:iii-i3-1-1	docket68/n1star/proof5/PART-III-I4-BOOST.md:35	III.I(3) Lemma 1.1	inner integral of the Fubini count written out
-lem:iii-i3-1-2	docket68/n1star/proof5/PART-III-I4-BOOST.md:61	III.I(3) Lemma 1.2 (= [Hin26] Lemma 11.21)	at b; states and columns at b by (B3)-(B4)
+lem:iii-i3-1-2	docket68/n1star/proof5/PART-III-I4-BOOST.md:61	III.I(3) Lemma 1.2 (= [Hin26] Lemma 11.21)	at b; states and columns at b by (BP3)-(BP4)
 lem:iii-i3-1-3	docket68/n1star/proof5/PART-III-I4-BOOST.md:98	III.I(3) Lemma 1.3	at b; G_1, G_2 restated from III.I(2) (4.1) with the states at b
 sec:iii-i3-2	docket68/n1star/proof5/PART-III-I4-BOOST.md:115	III.I(3) §2	
 prop:iii-i3-2-1	docket68/n1star/proof5/PART-III-I4-BOOST.md:120	III.I(3) Proposition 2.1 (= [Hin26] Prop 11.20) at b, as in III.I(15) Theorem 3.1 first bullet	stated at b with g_0 = g_(b0,b,-S); cut-off written χ^H_K (III.H's); injectivity by lem:s20-injective; u_sing pieces named v_ġ, v_h as in S19
@@ -35,7 +37,7 @@ eq:iii-i4-2-2	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:153	III.I(4) (2.2)
 lem:iii-i4-2-4	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:158	III.I(4) Lemma 2.4 (boost identity at b0)	stated at b0 only; its form at b is lem:iii-i15-2-7; the state derivative written k′ (source's ġ) to avoid the state symbol
 eq:iii-i4-2-3	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:161	III.I(4) (2.3)	
 lem:iii-i4-2-5	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:188	III.I(4) Lemma 2.5	at b
-eq:iii-i4-2-4	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:189	III.I(4) (2.4)	ℰ_ind independent of b by (B3)
+eq:iii-i4-2-4	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:189	III.I(4) (2.4)	ℰ_ind independent of b by (BP3)
 sec:iii-i4-3	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:207	III.I(4) §3	k_S := g_(b0,b,-S) − g_b (III.I(15) Theorem 3.1 item (i))
 lem:iii-i4-3-1	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:215	III.I(4) Lemma 3.1	at b
 eq:iii-i4-3-1	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:220	III.I(4) (3.1)	
@@ -44,14 +46,15 @@ eq:iii-i4-3-2	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:242	III.I(4) (3.2)
 eq:iii-i4-3-3	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:246	III.I(4) (3.3)	
 eq:iii-i4-3-4	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:255	III.I(4) (3.4)	
 sec:iii-i4-4	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:316	III.I(4) §4	(I''''5) folded as one sentence (a_I ≥ 2)
-prop:iii-i4-4-1	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:322; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:415	III.I(4) Proposition 4.1 (= [Hin26] Prop 11.30); (2) in the form of III.I(15) Prop 2.8	at b; (2) proved by prop:iii-i15-2-8 (the b0 continuity proof of (2) via Lemma 4.2 (b) is not used: III.I(15) Theorem 3.1 first bullet and item (ix))
+prop:iii-i4-4-1	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:322; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:415	III.I(4) Proposition 4.1 (= [Hin26] Prop 11.30); (2) in the form of III.I(15) Prop 2.8	at b; (2) proved by prop:iii-i15-2-8 (the b0 continuity proof of (2) via Lemma 4.2 (b) is not used: III.I(15) Theorem 3.1 first bullet and item (ix)); d fixed by eq:s20-d, d >= max(d_T, k_0+2, k_1+d_T+7) (I5:353, 380, 388)
+eq:s20-d	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:388; docket68/n1star/proof5/PART-III-I5-UNBOOST.md:353	III.I(4) proof of Prop 4.1 (2): "k = d, d >= k_0+2"; Lemma 4.2 (b): "d >= k_1+d_T+7"	private key; the choice of d that the b0 proof of (2) carried, stated once because that proof is replaced by prop:iii-i15-2-8 (review R-S20 finding 3)
 eq:iii-i4-4-1	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:330	III.I(4) (4.1)	
 lem:iii-i4-4-2	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:347	III.I(4) Lemma 4.2	at b (Π_b); (b) stated at fixed b and noted as not used for Prop 4.1 (2) (III.I(15) 452-454)
 eq:s20-diff	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:374	III.I(4) Lemma 4.2 (b)'s difference formula	private key; unnumbered display in the source, numbered because III.I(15) Prop 2.8 cites it
 sec:iii-i15-2-6	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:375	III.I(15) §2.6	folded into S20 as a subsection of the elimination (WRITER-BRIEF-S item 5); verifier attributions and D-label dropped
-lem:iii-i15-2-7	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:382	III.I(15) Lemma 2.7	file:line pointer (I5:274-279) replaced by "the proof of lem:iii-i4-3-2"; "VI.C row b4" (ball) replaced by "the ball ℬ̄_*"
+lem:iii-i15-2-7	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:382	III.I(15) Lemma 2.7	file:line pointer (I5:274-279) replaced by "the proof of lem:iii-i4-3-2"; "VI.C row b4" (ball) replaced by "the ball ℬ̄_*"; size step: b-derivative of the state bounded in A^(G-δ) by prop:iii-d2-3-1 and lem:iii-d2-2-2 via (BP3) (review R-S20 finding 5)
 eq:iii-i15-2-4	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:387	III.I(15) (2.4)	
-prop:iii-i15-2-8	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:415	III.I(15) Proposition 2.8	pointer I5:320 replaced by the hypothesis α_+ < 2 of sec:iii-i4-4; Neumann series threshold made explicit (1/2)
+prop:iii-i15-2-8	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:415	III.I(15) Proposition 2.8	pointer I5:320 replaced by the hypothesis α_+ < 2 of sec:iii-i4-4; Neumann series threshold made explicit (1/2); first term: D_h f includes the variation of the first metric slot by h^(-1)(S′) (I16:431-435); d fixed by eq:s20-d (I5:353, 380, 388)
 eq:iii-i15-2-5	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:419	III.I(15) (2.5)	
 cor:iii-i4-4-3	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:393	III.I(4) Corollary 4.3 (= [Hin26] (11.95))	at b, by prop:iii-i15-2-8; closing remark on P′ ([Hin26] (11.90)-(11.91)) kept
 eq:iii-i4-4-2	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:395	III.I(4) (4.2)	
@@ -70,11 +73,11 @@ sec:iii-i6-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:21	III.I(6) §1	at b
 eq:iii-i6-1-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:33	III.I(6) (1.1)	
 lem:iii-i6-1-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:49	III.I(6) Lemma 1.1	one line added: the inner integral for the O(r̂²) remainder
 lem:iii-i6-1-2	docket68/n1star/proof5/PART-III-I7-PARAMS.md:75	III.I(6) Lemma 1.2	"(III.F'') mode stability" cited as cor:iii-h-4-4 (invertibility at b for real σ ≠ 0)
-lem:iii-i6-1-3	docket68/n1star/proof5/PART-III-I7-PARAMS.md:101	III.I(6) Lemma 1.3	at b
-lem:iii-i6-1-4	docket68/n1star/proof5/PART-III-I7-PARAMS.md:120	III.I(6) Lemma 1.4	at b (h^(≤3)_(b,s1)); III.G4 Prop 5.1 and Lemma 4.3 at b by (B4)
+lem:iii-i6-1-3	docket68/n1star/proof5/PART-III-I7-PARAMS.md:101; docket68/n1star/proof5/PART-III-H-AUGMENT.md:290; docket68/n1star/proof5/BASEPOINT-LEDGER.md:164	III.I(6) Lemma 1.3	at b: w_e built with e′ = B(b)^-1 e (the source states it at b0, where B(b0) = I; ledger row I7 101-117 supplies r(w_e) = e at b by 'III.H B(b)'); uniform in b by |B(b)^-1| <= 2; the remark at σ = 0 with e′
+lem:iii-i6-1-4	docket68/n1star/proof5/PART-III-I7-PARAMS.md:120	III.I(6) Lemma 1.4	at b (h^(≤3)_(b,s1)); III.G4 Prop 5.1 and Lemma 4.3 at b by (BP4)
 eq:iii-i6-1-2	docket68/n1star/proof5/PART-III-I7-PARAMS.md:124	III.I(6) (1.2)	
 sec:iii-i6-2	docket68/n1star/proof5/PART-III-I7-PARAMS.md:141	III.I(6) §2	findings (I''''''1)-(I''''''4) folded as the intro and a closing paragraph
-prop:iii-i6-2-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:143	III.I(6) Proposition 2.1 (= [Hin26] Prop 11.34)	at b; S_0 = 0 and Ŝ_4^+ = Ŝ_4^- by lem:s20-injective; reality via (B3)
+prop:iii-i6-2-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:143	III.I(6) Proposition 2.1 (= [Hin26] Prop 11.34)	at b; S_0 = 0 and Ŝ_4^+ = Ŝ_4^- by lem:s20-injective; Step 3.5 bounds the row term through lem:iii-i6-1-3 with B(b)^-1, uniformly in b; parameters determined, and reality, via lem:s20-rows and lem:s20-injective (ledger row I7 326-330: 'III.H B(b)')
 eq:iii-i6-2-1	docket68/n1star/proof5/PART-III-I7-PARAMS.md:150	III.I(6) (2.1)	
 eq:iii-i6-2-2	docket68/n1star/proof5/PART-III-I7-PARAMS.md:182	III.I(6) (2.2)	
 eq:iii-i6-2-3	docket68/n1star/proof5/PART-III-I7-PARAMS.md:198	III.I(6) (2.3)	

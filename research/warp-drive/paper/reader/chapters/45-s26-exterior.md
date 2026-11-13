@@ -873,7 +873,7 @@ coefficients of the perturbation, which are rational in h and two of its b-deriv
 run backward in time, which uses only the b-structure of L, that dτ′ is timelike, and that Σ_(past,r₀) is spacelike
 ([[lem:iii-c1-1-1]]); the backward problem is argued directly as t ↦ −t is not an isometry of the gauge-fixed operator,
 whose E_C-term is odd in time. Uniqueness: the estimate applied to the difference of two solutions, which has vanishing
-data and source. ∎
+data and forcing term. ∎
 
 **Lemma {#lem:iv2-2-3}** (The forward problem with growth at ℐ⁺; [[rem:iv-4-2]] for the system.) Let
 Ω⁺₁ := Ω⁺ ∩ {τ′ ≥ 1/16}, a₀ ∈ ℝ, α_I < min(a₀, 0), 3 ≤ m ≤ k_h − 3, k_h ≥ 8, with h ∈ H^(k_h) small in H⁸, and let
@@ -978,7 +978,7 @@ u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−
 by [[eq:iv2-2-5]], Step 5 by the constants of [[lem:iv2-1-2]]. The tame terms carry ‖h‖ at most three orders above the
 order of the norm on the right ([[eq:iv2-2-1]], [[eq:iv2-2-2]], [[eq:iv2-2-5]]), and the lower norms of f and of the
 data are of order at most 8; this gives [[eq:iv2-2-3]]. *Uniqueness.* Two solutions differ by one with vanishing data
-and source; it vanishes on Ω_N by [[lem:iv2-2-2]], and on Ω⁺ as the forward solution with vanishing source
+and forcing term; it vanishes on Ω_N by [[lem:iv2-2-2]], and on Ω⁺ as the forward solution with vanishing forcing term
 ([[lem:ii-f-1-3]]). ∎
 
 [Hin23a, Theorem 3.35] integrates π_(CΥ)u, then π̸₀u, then π₁₁u, and repeats, because in dimension 3 + 1 the radiation
@@ -1219,7 +1219,7 @@ min Re ℰ₀ > 3/2 + 2γ_Υ and jℰ₀ ⊂ ℰ₀ for j ∈ ℕ. Let ℓ₀, �
 
 and for every k and ε > 0 there are k₀ and ε₀ with
 
-    ‖h_j‖_(H^(k₀,(ℰ₀,ℓ₀))_b) < ε₀ (j = 0, 1)   ⟹   ‖h‖_(H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b) < ε.                    {#eq:iii-c1-3-2}
+    ‖h_j‖_(H^(k₀,(ℰ₀,ℓ₀))_b) < ε₀ (j = 0, 1)   ⟹   ‖h‖_(H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b) < ε.             {#eq:iii-c1-3-2}
 
 As in [Hin26, Remark 5.22], smallness of ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) does not make the coefficients of the expansions small,
 which is why [[eq:iii-c1-3-2]] is stated separately.
@@ -1238,8 +1238,8 @@ H^(∞,(ℰ₀+2,α₀+3),(2ℰ_I^tot,ℓ^♭_I+1))_b: at I₀ the index set is 
 α₀ + 2 + min Re ℰ₀ > α₀ + 3 (as min Re ℰ₀ > 1); at ℐ⁺, 2ℰ_I^tot ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (b)), at the weight
 ℓ^♭_I + 3/2 > ℓ^♭_I + 1. Away from U the spaces impose only regularity. So h solves
 
-    L_(g_(b₀))h ∈ H^(∞,(ℰ₀+2,α₀+3),(−′,ℓ^♭_I+1))_b,     h|_(Σ_(IVP,r₀)) = h₀,  rℒ_(∂_t)h|_(Σ_(IVP,r₀)) = h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b.
-                                                                                                          {#eq:iii-c1-3-4}
+    L_(g_(b₀))h ∈ H^(∞,(ℰ₀+2,α₀+3),(−′,ℓ^♭_I+1))_b,
+    h|_(Σ_(IVP,r₀)) = h₀,     rℒ_(∂_t)h|_(Σ_(IVP,r₀)) = h₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b.                            {#eq:iii-c1-3-4}
 
 This is one order better at I₀ than [[prop:iii-c-5-2]] alone gives. ([Hin26] writes ℰ₀ + 3; the index set is ℰ₀ + 2,
 the gain being in the weight, which is what the argument uses.) Lower α₀ slightly if needed so that
@@ -1271,7 +1271,8 @@ h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
 [[def:iii-c-3-1]] with ℰ₀ ⊂ ℰ_I^C; Step 1 gives this for α_I = ℓ^♭_I, with any such ℰ_I^C (one exists:
 [[lem:iii-c-3-2]] (e) applied to ℰ₀). By [[eq:iii-c1-3-3]] and [[prop:iii-c-4-4]] on U,
 
-    (X_I − 3/2 − Ā)(X₀ − X_I)h = f̃ := ρ₀⁻²ρ_I⁻¹(R̃_bh + ∫₀¹ (L_(g_(b₀)+sh,g_(b₀)) − L_(g_(b₀)))h ds),          {#eq:iii-c1-3-5}
+    (X_I − 3/2 − Ā)(X₀ − X_I)h = f̃
+        := ρ₀⁻²ρ_I⁻¹(R̃_bh + ∫₀¹ (L_(g_(b₀)+sh,g_(b₀)) − L_(g_(b₀)))h ds),                               {#eq:iii-c1-3-5}
 
 with R̃_b ∈ ρ₀²ρ_I²C^∞Diff²_b ([[eq:iii-c-4-4]] at h = 0). The first term maps the slots of h, in (ℰ_I^tot, α_I) at ℐ⁺,
 to (ℰ_I^tot + 1, α_I + 1) ⊂ (ℰ_I^C, α_I + 1) ([[lem:iii-c-3-2]] (a)). The second is ρ_I⁻¹ times a Diff²_b-operator
@@ -1321,15 +1322,15 @@ containing ℰ₀. As the number of repetitions and every step depend only on �
 ℰ_I^C. This is [[eq:iii-c1-3-1]].
 
 *Smallness, [[eq:iii-c1-3-2]].* Each step is linear in the data of the previous one: the coefficients of the expansion
-at I₀ are obtained from Rh, which [[eq:iii-c1-2-2]] bounds by the data and the source of [[eq:iii-c1-3-4]]; that source
-is quadratic in h, bounded in H^(k,α₀+3) by the norms of the previous step times the small
+at I₀ are obtained from Rh, which [[eq:iii-c1-2-2]] bounds by the data and the right side of [[eq:iii-c1-3-4]]; that
+right side is quadratic in h, bounded in H^(k,α₀+3) by the norms of the previous step times the small
 ‖h‖_(H^(k+2,ℓ^♭₀,(−,ℓ^♭_I))); and [[lem:iii-a-1-2]], [[lem:iii-a-1-3]] and [[lem:iii-a-3-2]] are bounded at every order.
 At ℐ⁺ the coefficients are obtained by the integrations (i)–(iv), bounded likewise. Finitely many steps compose to
 [[eq:iii-c1-3-2]], with k₀ the sum of the losses plus that of [[thm:iii-c1-2-1]]. ∎
 
 **Remark {#rem:iii-c1-3-2}** (No subtraction of radiation fields.) In dimension 3 + 1 the entries A^h − A₀ and B^h of
 [Hin26, (5.28)] are of the order of A₀ at ℐ⁺, so the radiation fields of π₁₁h and π̸₀h enter the leading part of the
-operator; [Hin26, Theorem 5.21, Step 2] removes them by measuring h from g₀ = g_(b₀) + h₀, at the cost of the source
+operator; [Hin26, Theorem 5.21, Step 2] removes them by measuring h from g₀ = g_(b₀) + h₀, at the cost of the forcing
 term P(g₀, g_(b₀)) ([Hin26, (5.64)], with the class ⟨(2, 0)⟩₀). In dimension 4 + 1 they are half an order lower
 ([[rem:s17-dimension]] (c)) and sit in the error of [[eq:iii-c1-3-5]], whose index set ℰ_I^tot + ℰ_I^tot − 1 lies in
 ℰ_I^C by [[def:iii-c-3-1]] (3). So the subtraction is not needed, and no class with (3/2, 0) in slot 6 is used as a

@@ -32,8 +32,9 @@ One result of the main argument enters as an input and is proved here: [[prop:np
 linearised rotations of Minkowski space under rotations and the bracket form of 𝔰𝔬(4). The bound on the number
 ε_ind of [[eq:iii-f1-2-2]] at the fixed gauge parameters is [[prop:np-10-52]] of [[ch:s14]].
 
-Every outside result used without proof is from [KI03]: the reduction of the vacuum Einstein equations for each
-harmonic type to a master equation. It is stated where it is used ([[sec:iii-f2-2]]), with its numbers and pages.
+The outside results used without proof are the reduction of the vacuum Einstein equations for each harmonic type to
+a master equation [KI03], stated where it is used ([[thm:s15-ki]]) with its numbers and pages, and the subprincipal
+operator of a tensor wave operator [Hin17, Proposition 4.1].
 Everything else is proved here from [[ch:s01]]–[[ch:s14]].
 
 *The dynamical hypotheses* (Dyn) are those of [[ch:s13]]: the hypotheses of [[ch:s01]]–[[ch:s03]] that concern the
@@ -80,7 +81,7 @@ the operator L_(g_b) of [[eq:iii-b-6-8]], acting on symmetric 2-tensors, with δ
 
     2L_b = □_(g_b) + 2E^C_(g_b) δ_(g_b) G_(g_b) + 2δ*_(g_b,E_C) E^Υ_(g_b) G_(g_b) + 2R_(g_b),             {#eq:iii-f-1-2}
 
-with □_g ġ := −g^(κλ) ġ_(;κλ) and R_g the curvature term of [[eq:iii-b-6-7]]: expand
+with □_g ġ := −g^(αβ) ġ_(;αβ) and R_g the curvature term of [[eq:iii-b-6-7]]: expand
 2(δ* + E^C)(δ + E^Υ)G and use 2D Ric = □ − 2δ*δG + 2R. The spectral family L_b^(σ) acts on stationary sections of
 S²T*X, trivialised by the products of dt_*, dx¹, …, dx⁴: the bundle E of [[sec:i-a-1]] with N_E = 15.
 
@@ -887,7 +888,7 @@ at infinity (a function of ς times f/r²) and O(f) at r_h (H ≥ p > 0).
 *The low sectors.* For the types l ≤ 1 not covered by [KI03]'s master equations we use the linearised Ricci tensor
 directly. The Christoffel symbols of g_(b_0) in the static chart are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2,
 Γ^r_rr = −f′/(2f), Γ^r_ij = −rfγ_ij, Γ^i_rj = δ^i_j/r and those of γ; with them,
-D Ric(h)_μν = ½(∇^λ∇_μ h_νλ + ∇^λ∇_ν h_μλ − ∇^λ∇_λ h_μν − ∇_μ∇_ν tr h) is written out on each type.
+D Ric(h)_μν = ½(∇^α∇_μ h_να + ∇^α∇_ν h_μα − ∇^α∇_α h_μν − ∇_μ∇_ν tr h) is written out on each type.
 
 **Lemma {#lem:s15-low}** (The low sectors.) Let σ ∈ ℂ, and let a, b, c be functions of r on an interval in (r_h, ∞).
 
@@ -942,7 +943,7 @@ a = f(fb + c_1) = ṁ/r² + c_1 f. ∎
 time function with ∂_τ the Killing field (τ = t on {r > r_h}, or τ = t_* on {r > r_0}). For a symmetric 2-tensor
 h = e^(−iστ)k of that type and degree, the r-row of δ*ω = h, (δ*ω)_rμ = h_rμ for ω = e^(−iστ)w of the same type and
 degree, is a linear system ∂_rW = A(r)W + H(r) for the coefficients W of w, with A smooth where the chart is:
-∂_r w_r = h_rr + Γ^λ_rr w_λ, ∂_r w_τ = 2h_rτ + iσw_r + 2Γ^λ_rτ w_λ, ∂_r w_A = 2h_rA − ∂_A w_r + 2Γ^λ_rA w_λ, the angular
+∂_r w_r = h_rr + Γ^α_rr w_α, ∂_r w_τ = 2h_rτ + iσw_r + 2Γ^α_rτ w_α, ∂_r w_A = 2h_rA − ∂_A w_r + 2Γ^α_rA w_α, the angular
 derivative acting on the harmonic algebraically. Hence: (a) every 1-form of that type with δ*ω = h on an interval is
 the solution of the system determined by its value at one point; (b) in the chart (t_*, r, z) on {r > r_0}, if h is a
 mode, so are the solutions; (c) in the static chart the coefficients are real-analytic in r on (r_h, ∞).
@@ -950,7 +951,7 @@ mode, so are the solutions; (c) in the static chart the coefficients are real-an
 *Proof.* The formulas are the definition of δ* with ∂_τ ↦ −iσ. (a) is uniqueness for the system. (b) A is smooth on
 (r_0, ∞), as the chart is. Near infinity, in the time t_* (t − r_* + c_0 + O(r⁻¹) there), g_(t_*t_*) + 1, g_(t_*r) + 1
 and g_rr are O(r⁻²) with b-derivatives, and g is t_*-independent and block-diagonal against the sphere. So
-Γ^λ_rr and Γ^λ_(rt_*) (λ ∈ {t_*, r}) are O(r⁻³), Γ^(t_*)_rA = Γ^r_rA = Γ^A_rr = Γ^A_(rt_*) = 0 and
+Γ^α_rr and Γ^α_(rt_*) (α ∈ {t_*, r}) are O(r⁻³), Γ^(t_*)_rA = Γ^r_rA = Γ^A_rr = Γ^A_(rt_*) = 0 and
 Γ^B_rA = r⁻¹δ^B_A: the one entry of A that does not decay is iσ, coupling w_r into the w_(t_*) row. In
 W̃ := (w_r, r⁻¹w_(t_*), r⁻¹w_A) the system is r∂_rW̃ = ÃW̃ + H̃ with Ã bounded with all b-derivatives (the entry iσ in
 the second row; in the angular row r∂_rW̃_A = W̃_A − ∂_AW̃_r + 2h_rA, from Γ^B_rA = r⁻¹δ^B_A and the scaling, a diagonal
@@ -1713,15 +1714,15 @@ mass times the centre of mass, in the normalisations used.
 
 For a stationary v of weight ≥ −2, smooth on X, with L_b^(0)v of weight > 1, and W ∈ 𝔰𝔬(4), put
 
-    λ♯_v(W) := ⟨L_b^(0)v, h♯_(b,v1)(W)⟩ − ⟨v, L_b^(0)*h♯_(b,v1)(W)⟩.                                     {#eq:iii-f4-4-1}
+    ℓ♯_v(W) := ⟨L_b^(0)v, h♯_(b,v1)(W)⟩ − ⟨v, L_b^(0)*h♯_(b,v1)(W)⟩.                                     {#eq:iii-f4-4-1}
 
 Both pairings converge absolutely: h♯ has weight 3, and L_b^(0)*h♯_(b,v1)(W) ∈ ρ^(⌊C_0⌋+6)C^∞ + C_c^∞ by
 [[eq:iii-e1-3-4]] and [[eq:iii-f3-4-4]]. If moreover L_b^(0)v pairs absolutely with h*_(b,v1)(V′), then
 
-    ⟨L_b^(0)v, h*_(b,v1)(V′)⟩ = λ♯_v([A(b), A_(V′)]),                                                    {#eq:iii-f4-4-2}
+    ⟨L_b^(0)v, h*_(b,v1)(V′)⟩ = ℓ♯_v([A(b), A_(V′)]),                                                    {#eq:iii-f4-4-2}
 
 since ⟨L_b^(0)v, h♭⟩ = ⟨v, L_b^(0)*h♭⟩ (h♭ ∈ Ḣ_b^(0,C_0+3), C_0 > 1, so the boundary terms vanish) and
-L_b^(0)*h♭ = −L_b^(0)*h♯, the dual state lying in ker L_b^(0)*. λ♯_v is defined on all of 𝔰𝔬(4), while the right side
+L_b^(0)*h♭ = −L_b^(0)*h♯, the dual state lying in ker L_b^(0)*. ℓ♯_v is defined on all of 𝔰𝔬(4), while the right side
 of [[eq:iii-f4-4-2]] sees only im ad_(A(b)), which is 0 at b_0; this is the device [Hin26, (8.33)] for smoothness in b.
 
 The algebra of 𝔰𝔬(4) used here and in [[sec:iii-f4-5]] is the following.
@@ -1762,7 +1763,7 @@ isomorphism 𝒮_1 → 𝒮_1*, smooth in b.
 (2) (*Vector type 1.*) L_b^(0)h̆¹_(b,v1)(V) = −L_1h_(b,v1)(V), which pairs to 0 with h*_(b,s0) and h*_(b,s1)(S′), and
 
     ⟨L_b^(0)h̆¹_(b,v1)(V), h*_(b,v1)(V′)⟩ = π²m⟨A_V, [A(b), A_(V′)]⟩_F,
-    λ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F  for all W ∈ 𝔰𝔬(4).                                           {#eq:iii-f4-4-3}
+    ℓ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F  for all W ∈ 𝔰𝔬(4).                                           {#eq:iii-f4-4-3}
 
 *Proof.* (1) h^(≤2)_(b,s1)(S) = t_*²h + 2t_*h̆¹ + 2h̆², h := h_(b,s1)(S), lies in ker L_b ([[prop:iii-d3-3-1]] (2), with
 its normalisation: the constant coefficient of h^(≤k) is k! h̆^k); expanding as in [[sec:iii-f4-2]] with Lh = 0 and
@@ -1771,13 +1772,13 @@ L(t_*h + h̆¹) = 0 gives 2(L_2h + L_1h̆¹) + 2L_b^(0)h̆² = 0. [[lem:iii-f4-3
 (2) t_*h_(b,v1)(V) + h̆¹_(b,v1)(V) ∈ ker L_b ([[prop:iii-d3-3-1]] (3)), so L_b^(0)h̆¹ = −L_1h_(b,v1)(V), and by
 [[rem:iii-f3-2-3]], h_(b,v1)(V) = ½ġ^Υ_b(0, [A, A_V]). [[lem:iii-f4-3-1]] (2) then gives 0 against h*_s0, h*_s1, and
 −½ · 2π²m⟨[A, A_V], A_(V′)⟩_F = π²m⟨A_V, [A, A_(V′)]⟩_F against h*_v1(V′), by [[prop:np-10-34-iv]] (b). By
-[[eq:iii-f4-4-2]], λ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F for W ∈ im ad_(A(b)). Now
-λ♯_(h̆¹_(b,v1)(V))(W) = −lim_R ⟨[L_b^(0), χ_R]h̆¹_(b,v1)(V), h♯_(b,v1)(W)⟩ (insert χ_R into [[eq:iii-f4-4-1]]:
+[[eq:iii-f4-4-2]], ℓ♯_(h̆¹_(b,v1)(V))(W) = π²m⟨A_V, W⟩_F for W ∈ im ad_(A(b)). Now
+ℓ♯_(h̆¹_(b,v1)(V))(W) = −lim_R ⟨[L_b^(0), χ_R]h̆¹_(b,v1)(V), h♯_(b,v1)(W)⟩ (insert χ_R into [[eq:iii-f4-4-1]]:
 L_b^(0)* of the compactly supported side is exact, and the limit of
 ⟨χ_RL_b^(0)v, h♯⟩ − ⟨χ_Rv, L_b^(0)*h♯⟩ is [[eq:iii-f4-4-1]]). Its weights are −1 and 3 with
 [L_b^(0), χ_R] ∈ ρ²Diff¹_b, excess 0, so as in [[lem:iii-f4-2-2]] (3) it is the integral of the leading terms:
 h̄¹_v1(V) of [[eq:iii-d3-3-3]], independent of b; h̄♯(W) = mρ³(dt_* + κ_C d|x|) ⊗_s ρV(W) of [[eq:iii-e1-3-3]], which
-depends on b only through m; and the model operator. So λ♯_(h̆¹_(b,v1)(V))(W) = m c(V, W) with c a bilinear form
+depends on b only through m; and the model operator. So ℓ♯_(h̆¹_(b,v1)(V))(W) = m c(V, W) with c a bilinear form
 independent of b. For b = (m, A) in the parameter neighbourhood, c(V, W) = π²⟨A_V, W⟩_F on im ad_A ([[lem:iii-f4-3-1]]
 (2) holds at every such b, spinning or not, with the same value, as the leading term
 2mρ³(dt_* + 2d|x|) ⊗_s ρV(Ȧ) of ġ^Υ_b(0, Ȧ), [[eq:iii-e1-2-2]], does not depend on A); and these images, for A small,
@@ -1810,14 +1811,14 @@ h^≈_b := χh̄ + h′_(b,1); ℱ ⊂ −2 + ℰ_ind as min Re ℱ ≥ 0.
 *Step 2: the obstructions.* By [[prop:iii-f3-4-1]] (2) and [[cor:iii-f3-4-2]] (2), L_b^(0)h = f is solvable, smoothly
 in b, for f ∈ 𝒜^(α+2) orthogonal to the eleven dual states. (a)
 ⟨L_b^(0)h^≈_b, h*_(b,s0)⟩ = ⟨h^≈_b, L_b^(0)*h*_(b,s0)⟩ = 0: h*_(b,s0) ∈ Ḣ_b^(0,C_0+3), C_0 > 1, so the boundary terms,
-O(R^(1−C_0)), vanish. (b) λ_s1(S′) := ⟨L_b^(0)h^≈_b, h*_(b,s1)(S′)⟩, a linear form on 𝒮_1, smooth in b. (c) By
-[[eq:iii-f4-4-2]], ⟨L_b^(0)h^≈_b, h*_(b,v1)(V′)⟩ = λ♯_(h^≈_b)([A(b), A_(V′)]), with λ♯_(h^≈_b) a linear form on
-𝔰𝔬(4), smooth in b. Let S_1 ∈ 𝒮_1 solve λ_s1(·) − (3π²/2)m ξ_(S_1) · ξ_((·)) = 0 ([[lem:iii-f4-4-1]] (1)), and
+O(R^(1−C_0)), vanish. (b) ℓ_s1(S′) := ⟨L_b^(0)h^≈_b, h*_(b,s1)(S′)⟩, a linear form on 𝒮_1, smooth in b. (c) By
+[[eq:iii-f4-4-2]], ⟨L_b^(0)h^≈_b, h*_(b,v1)(V′)⟩ = ℓ♯_(h^≈_b)([A(b), A_(V′)]), with ℓ♯_(h^≈_b) a linear form on
+𝔰𝔬(4), smooth in b. Let S_1 ∈ 𝒮_1 solve ℓ_s1(·) − (3π²/2)m ξ_(S_1) · ξ_((·)) = 0 ([[lem:iii-f4-4-1]] (1)), and
 V_1 ∈ 𝒱_1 solve
 
-    λ♯_(h^≈_b) + λ♯_(h̆²_(b,s1)(S_1)) + π²m⟨A_(V_1), ·⟩_F = 0     on 𝔰𝔬(4)                               {#eq:iii-f4-5-2}
+    ℓ♯_(h^≈_b) + ℓ♯_(h̆²_(b,s1)(S_1)) + π²m⟨A_(V_1), ·⟩_F = 0     on 𝔰𝔬(4)                               {#eq:iii-f4-5-2}
 
-([[lem:iii-f4-4-1]] (2); λ♯_(h̆²_(b,s1)(S_1)) is defined since h̆²_(b,s1) has weight −1 and L_b^(0)h̆²_(b,s1), by
+([[lem:iii-f4-4-1]] (2); ℓ♯_(h̆²_(b,s1)(S_1)) is defined since h̆²_(b,s1) has weight −1 and L_b^(0)h̆²_(b,s1), by
 [[lem:iii-f4-4-1]] (1), weight ≥ 2). Both are smooth in b. Put h^(≈,2)_b := h^≈_b + h̆²_(b,s1)(S_1) + h̆¹_(b,v1)(V_1).
 Then L_b^(0)h^(≈,2)_b pairs to 0 with all eleven dual states: with h*_s0 by (a) and [[lem:iii-f4-4-1]]; with h*_s1 by
 the choice of S_1 and [[lem:iii-f4-4-1]] (2) (h̆¹_v1 pairs to 0); with h*_v1(V′) by [[eq:iii-f4-4-2]] for each summand
@@ -1862,4 +1863,5 @@ companions in [Hin26, Step 4 of the proof of Proposition 8.14] would need −3 n
 in dimension 4 + 1 it is [[eq:iii-f3-4-4]], with G⁻¹ = Id − ⅓g tr, and the inclusion G δ* ker(□^C)* ⊂ ker L* holds as
 there. (b) The threshold s > 5/2 of [Hin26, footnote 78] is that of the operator without constraint damping;
 [[lem:iii-f2-1-1]] gives the threshold with it. (c) In the proof of [Hin26, Proposition 8.14], the printed
-"−8πm a(V_1) = v_b" has the sign reversed against [Hin26, (8.33)], and [Hin26, (8.35)] prints λ_(b,s1) for λ_(b,v1).
+"−8πm a(V_1) = v_b" has the sign reversed against [Hin26, (8.33)], and [Hin26, (8.35)] prints the scalar type 1
+functional where the vector type 1 functional is meant.

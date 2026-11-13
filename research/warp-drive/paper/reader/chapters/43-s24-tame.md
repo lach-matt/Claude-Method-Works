@@ -253,7 +253,13 @@ each of which is stated at every order with the loss independent of it, and with
 [[cor:iii-h2-1-2]] gives, for every k, an inner product and ε_k > 0 with δ_Γ(−η) ≤ 1/(k + 1) for η ∈ (0, ε_k] and every
 b ∈ ℬ̄_1; its proof bounds γ_+ by the bound [[eq:iii-h2-1-1]] of [[prop:iii-h2-1-1]] and γ_+ − γ_− from below by
 ν_min/(2 sup_Γ q^Γ), where β_0, ν_min and q^Γ do not depend on the inner product and are continuous and positive on
-ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is not used. (g) Each
+ℬ̄_1. So (k + 1)δ ≤ 1 and ⌈kδ⌉ ≤ 1. The constants of [[cor:ii-g1-4-5]] at the order k, with the inner product
+h_(η_k,b) of [[cor:iii-h2-1-2]], are uniform in b ∈ ℬ̄_1. Indeed [[lem:ii-g1-4-3]], [[prop:ii-g1-3-3]] and
+[[prop:ii-g1-3-5]] do not involve the operator, and [[prop:ii-g1-4-4]] takes its constants and C_0 from
+[[thm:i-b-1-3]] (3) and (5), whose constants are uniform in b by [[sec:i-b-9]]: (H5)–(H8) hold continuously in b ((B1)
+in [[sec:iii-h2-0]]), and h_(η_k,b) is smooth in b ([[prop:iii-h2-1-1]]). This is (ii) of the proof of
+[[thm:iii-h2-2-1]] ([[lem:iii-i15-1-1]] (P4)). The remark after [[prop:ii-g1-4-4]] treats only γ_+ ≤ 0 and is not
+used. (g) Each
 statement is a finite composition of maps of (b)–(e) and of the two face inverses cited, at a fixed number of steps;
 [[lem:iii-j2-1-2]] (e)–(f) applies, β entering only through the families of (b) (in [[prop:iii-i1-2-1]] and
 [[prop:iii-i1-3-1]], through L̃). ∎
@@ -349,13 +355,15 @@ is used in its form at b, named in the entry where it differs from the form at b
   L_b; [[cor:iii-g2-4-3]]), FIN (at a rotating b, the rotation rows with the coefficients of [[prop:iii-i15-2-2]] (a));
   windows, at most N_*.
 - [[lem:iii-i11-2-1]]–[[lem:iii-i11-2-5]], [[prop:iii-i11-3-1]], [[lem:iii-i11-3-2]], [[lem:iii-i11-3-3]],
-  [[thm:iii-i11-4-1]]: MOD (L̃_b(0)⁻¹; [[prop:iii-g4-4-4]], [[prop:iii-g4-5-1]]; [[lem:iii-i2-4-2]];
-  [[prop:iii-a-4-2]]), BG (the columns), FIN (at a rotating b, the coefficients of [[prop:iii-i15-2-2]] (b)), FWD; steps
-  rising by ε_ind, and the level-3 loop.
+  [[thm:iii-i11-4-1]] (at a rotating b, [[thm:iii-i11-4-1]] only inside [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]],
+  the latter with q = 0 being its form there): MOD (L̃_b(0)⁻¹; [[prop:iii-g4-4-4]], [[prop:iii-g4-5-1]];
+  [[lem:iii-i2-4-2]]; [[prop:iii-a-4-2]]), BG (the columns), FIN (at a rotating b, the coefficients of
+  [[prop:iii-i15-2-2]] (b)), FWD; steps rising by ε_ind, and the level-3 loop.
 - [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]], [[thm:iii-i12-3-1]] (at b, in the forms of [[lem:iii-i15-2-9]] and
   [[cor:iii-i15-2-10]]): FWD, MOD (as in the preceding entry), BG, FIN; pairs removed, finitely many.
-- [[prop:iii-i13-2-1]], [[lem:iii-i13-2-2]], [[lem:iii-i13-2-3]], [[prop:iii-i13-2-4]] (at b, in the form of
-  [[lem:iii-i15-2-4]]): as in the two preceding entries, at each level β; as there.
+- [[prop:iii-i13-2-1]], [[lem:iii-i13-2-2]], [[lem:iii-i13-2-3]], [[prop:iii-i13-2-4]] (at b, the first three in the
+  form of [[lem:iii-i15-2-4]]; at a rotating b, [[prop:iii-i13-2-4]] only inside [[prop:iii-i15-2-5]], the latter with
+  q = 0 being its form there): as in the two preceding entries, at each level β; as there.
 - [[thm:iii-i14-3-1]]: FWD (L_(h+h_rem(q),p⃗)), BG (R_q, Δ_q), FIN, and the entries of [[prop:iii-i8-4-1]] and of
   [[ch:s22]]; levels β_0 < ⋯ < β_K, their number fixed by α and α_1.
 - [[prop:iii-i15-2-5]] ([[thm:iii-i14-3-1]] at a rotating b): as [[thm:iii-i14-3-1]], and FIN (A_b, of finite rank,
@@ -366,38 +374,42 @@ is used in its form at b, named in the entry where it differs from the form at b
 ### The tame theorems {#sec:iii-j2-4}
 
 **Theorem {#thm:iii-j2-4-1}** (The tame form of the forward problem with parameters.) Let ε ∈ (0, ε_1], and let
-ε′ ∈ (0, ε] be the input loss that [[thm:iii-i14-3-1]] assigns to the output loss ε ([[sec:iii-j2-1]]). There are
-d, d_0 ∈ ℕ and δ_0 > 0 such that for (h, p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_0 the maps
-F ↦ (h′, p⃗′, q′) of [[thm:iii-i14-3-1]] (at a rotating black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every
-k ∈ ℕ₀,
+ε′_j := ε′(ε, j) ∈ (0, ε], j ∈ ℕ₀, non-increasing in j, be the input losses that [[thm:iii-i14-3-1]] assigns to the
+output loss ε ([[sec:iii-j2-1]]; independent of j for the statements listed there). There are d, d_0 ∈ ℕ and δ_𝔹 > 0
+such that for (h, p⃗, q) with ‖h‖_(𝒳^(d_0)) + |p⃗| + ‖q‖_(𝒬^(d_0)) < δ_𝔹 the maps F ↦ (h′, p⃗′, q′) of
+[[thm:iii-i14-3-1]] (at a rotating black hole parameter, of [[prop:iii-i15-2-5]]) satisfy, for every k ∈ ℕ₀,
 
     ‖h′‖_k + |p⃗′| + ‖q′‖_k ≤ C_k (‖F‖_(k+d) + (‖h‖_(k+d) + |p⃗| + ‖q‖_(k+d)) ‖F‖_d),                  {#eq:iii-j2-4-1}
 
 with ‖h′‖_k and ‖q′‖_k the norms of the order-k spaces of [[eq:iii-i14-3-2]] and of 𝒬^k ([[eq:iii-i14-1-1]]) at the
-loss ε, the background norms at the loss ε, and ‖F‖_k the norm of 𝒴^♮(α−) at the loss ε′. Here δ_0 is at most the
-radius of a ball about b_0 in ℬ_*, so the black hole parameter b of p⃗ lies in ℬ_*, and d, d_0, δ_0 and the C_k do not
-depend on b. The same holds for the solution maps of [[ch:s19]]–[[ch:s22]] in their spaces, and for
-[[thm:iii-i14-3-1]] with η_2 replaced by ε_+ ([[lem:iii-j1-1-1]]).
+loss ε, the background norms at the loss ε, and ‖F‖_j the norm of the order-j space of 𝒴^♮(α−) at the loss ε′_j. On
+the exact scales of [[sec:iii-j3-1]] it holds with ε′_j = ε = 0 for every j ([[cor:iii-j3-6-6]]). Here δ_𝔹 is at most
+the radius of a ball about b_0 in ℬ_*, so the black hole parameter b of p⃗ lies in ℬ_*, and d, d_0, δ_𝔹 and the C_k do
+not depend on b. The same holds for the solution maps of [[ch:s19]]–[[ch:s22]] in their spaces (at a rotating b, those
+of [[thm:iii-i11-4-1]] and [[prop:iii-i13-2-4]] read as in [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]], with q = 0),
+and for [[thm:iii-i14-3-1]] with η_2 replaced by ε_+ ([[lem:iii-j1-1-1]]).
 
 This is the tame estimate that [Hin26, Corollary 11.66, pp. 294–295] states.
 
 *Proof.* By induction over the entries of [[sec:iii-j2-3]] in their order. Each solution map is, by [[sec:iii-j2-3]], a
 composition of a fixed number of the families of [[lem:iii-j2-2-1]] and of the solution maps of earlier entries, which
 are tame by the induction; each loop has a length fixed independently of k. [[lem:iii-j2-1-2]] (b)–(g) gives a tame
-family with a loss d equal to the sum of the losses, independent of k, for d_0 ≥ d and δ_0 small
-([[lem:iii-j2-2-3]]); the weights compose in the same way, each family taking its input at the loss its statement
-assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and [[eq:iii-j2-1-1]] is
+family with a loss d equal to the sum of the losses, independent of k, for d_0 ≥ d and δ_𝔹 small
+([[lem:iii-j2-2-3]]); the weights compose in the same way, each family taking its input in the graded space of the
+losses its statement assigns ([[sec:iii-j2-1]]). For [[thm:iii-i14-3-1]] the background is β = (h, p⃗, q), and [[eq:iii-j2-1-1]] is
 [[eq:iii-j2-4-1]]. At a base point with parameter b the entries are used in their forms at b; the constants of
 [[lem:iii-j2-2-1]] are uniform on ℬ̄_*, and d_* of [[lem:iii-j2-2-3]] does not depend on b; so neither do d, d_0 and the
 C_k. ∎
 
-**Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε and ε′ be as in [[thm:iii-j2-4-1]], for
-[[thm:iii-j1-2-1]]. There are d, d_0 ∈ ℕ and ε_0 > 0 such that for U ∈ 𝒟^∞_ε with ‖U‖_(𝒟^(d_0)_ε) < ε_0, whose black
-hole parameter then lies in ℬ_*, the solution U′ of [[eq:iii-j1-2-1]] satisfies, for every k,
+**Theorem {#thm:iii-j2-4-2}** (The tame form of the right inverse.) Let ε ∈ (0, ε_1], and let ε′_j = ε′(ε, j),
+non-increasing in j, be the input losses that [[thm:iii-j1-2-1]] assigns, as in [[thm:iii-j2-4-1]]. There are
+d, d_0 ∈ ℕ and ε_0 > 0 such that for U ∈ 𝒟^∞_ε with ‖U‖_(𝒟^(d_0)_ε) < ε_0, whose black hole parameter then lies in
+ℬ_*, the solution U′ of [[eq:iii-j1-2-1]] satisfies, for every k,
 
-    ‖U′‖_(𝒟^k_ε) ≤ C_k (‖f‖_(ℱ^(k+d)_(ε′)) + ‖U‖_(𝒟^(k+d)_ε) ‖f‖_(ℱ^d_(ε′))),                            {#eq:iii-j2-4-2}
+    ‖U′‖_(𝒟^k_ε) ≤ C_k (‖f‖_(ℱ^(k+d)_(ε′_(k+d))) + ‖U‖_(𝒟^(k+d)_ε) ‖f‖_(ℱ^d_(ε′_d))),                   {#eq:iii-j2-4-2}
 
-with C_k independent of U. At a rotating black hole parameter, U′ is built from the solution map of
+with C_k independent of U. On the exact scales of [[sec:iii-j3-1]] it holds with ε′_j = ε = 0 for every j
+([[cor:iii-j3-6-6]]). At a rotating black hole parameter, U′ is built from the solution map of
 [[prop:iii-i15-2-5]]. The smallness is in one norm for every k ([[lem:iii-j2-2-3]]), which replaces the orders d_k of
 [[thm:iii-j1-2-1]].
 
@@ -408,8 +420,8 @@ C_k ‖U‖_(𝒟^(k+d)) ([[thm:iii-j-2-4]]) and ‖Φ(U)‖_(d_0) small for ‖
 [[eq:iii-j2-4-1]] has the form [[eq:iii-j2-1-1]] in the background U. At a rotating black hole parameter b,
 [[lem:iii-j1-1-1]] holds for the output of [[prop:iii-i15-2-5]]: the indicial roots are those at b_0
 ([[lem:iii-i15-1-1]] (P2)), [[prop:iii-h-3-2]] holds at b ((P4) there), and neither A_b, which reads only ι⁺-data and
-level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3 subtract
-D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of Step 1 (bounded by a low norm of (h′, p⃗′, q′),
+level-1 tf-data ([[def:iii-i15-2-3]]), nor E^ν, a fixed tensor ((P6) there), depends on η_2. Steps 1–3, which hold
+at b with the rows built at b_0 ([[sec:s23-base-points]] (3)), subtract D_UΦ(U′_•) for finitely many U′_•: the finite-dimensional data of Step 1 (bounded by a low norm of (h′, p⃗′, q′),
 [[lem:iii-j2-2-1]] (c)); the data of Case B of Step 2, f_(λ_0) ∈ Poly^(K_ι(λ_0))(ℂ; H^(k,…)) and G′(λ_0) ∈ Res^k, which
 are not finite-dimensional and are mapped by the right inverse of [[prop:iii-g3-3-7]], independent of U with the loss l,
 on the finitely many λ_0 ∈ Λ_* ([[lem:iii-j2-2-1]] (g), [[lem:iii-j2-1-2]] (d)); and the conormal remainders of Step 3
@@ -456,7 +468,7 @@ and [[thm:iii-j3-5-5]], stated at every b ∈ ℬ_*. The support conditions, the
 ### The exact classes and the exactness conditions {#sec:iii-j3-1}
 
 Throughout [[sec:iii-j3-1]]–[[sec:iii-j3-6]], α is a fixed K⁺-weight, admissible in the sense of [[def:iii-i10-1-3]],
-with α ∈ (4 + ε_K − ε′_0, 4 + ε_K], satisfying (A_J) of [[sec:iii-j-1]] and [[def:iii-j3-1-3]] below. The exact
+with α ∈ (4 + ε_K − ε′_0, 4 + ε_K], satisfying (A_J) of [[def:iii-j-a-j]] and [[def:iii-j3-1-3]] below. The exact
 classes and the conditions of [[def:iii-j3-1-3]] do not involve the black hole parameter b of the base point: the
 exponents, indicial roots and index sets in them are those at b_0, which serve at every b ∈ ℬ̄_*
 ([[lem:iii-i15-1-1]] (P2)–(P3)).
@@ -464,9 +476,9 @@ exponents, indicial roots and index sets in them are those at b_0, which serve a
 **Definition {#def:iii-j3-1-1}** (Exact classes.) Each class below is the class named after it with every order "w−"
 replaced by w and every index set unchanged:
 
-- 𝒳^k_(J,ex) := H^(k,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,3+ε_+),α)_b(Ω_*; S²T*)^(•,−) (the class 𝒳^k_J of [[sec:iii-j-1]]);
+- 𝒳^k_(J,ex) := H^(k,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,3+ε_+),α)_b(Ω_*; S²T*)^(•,−) (the class 𝒳^k_J of [[def:iii-j-classes]]);
 - ℱ^k_ex := H^(k,(⟨ℰ^C_I+1⟩′,ℓ_I+1),w_+,α)_b(Ω_*; S²T*)^(•,−), a plain weight at ι⁺ (the class ℱ^k of
-  [[sec:iii-j-1]]);
+  [[def:iii-j-classes]]);
 - 𝒴^0_ex(β) and 𝒴^♮_ex(β): the classes 𝒴^0(β) of [[sec:iii-i10-1]] and 𝒴^♮(β) of [[def:iii-i13-1-2]] with the
   ι⁺-weight w_+ − ε replaced by w_+ (their K⁺-weight β is exact already);
 - 𝒬_ex: the class 𝒬 of [[eq:iii-i14-1-1]] with S_rem ∈ Ḣ^(∞,α−2)_b, b_rem ∈ Ḣ^(∞,α−1)_b and
@@ -487,7 +499,7 @@ below.
 
 **Definition {#def:iii-j3-1-3}** (The exactness conditions.) Besides admissibility and (A_J):
 
-- (E1) (G⁺) of [[sec:iii-j-1]], used with its closed endpoint: no λ ∈ Λ has real part in (3, 3 + ε_+], that is,
+- (E1) (G⁺) of [[def:iii-j-g-plus]], used with its closed endpoint: no λ ∈ Λ has real part in (3, 3 + ε_+], that is,
   ε_+ < min{Re λ − 3 : λ ∈ Λ, Re λ > 3}, a smallness condition. With [[lem:iii-i10-1-2]] (c) (every exponent produced
   with real part in [2, 3 + ε_+] lies in Λ), no exponent produced has u-exponent of real part 3 + ε_+.
 - (E2) 3 + ε_+ ∉ Re π_1ℰ^tot_I ∪ {λ_♯}: the exclusions of [[prop:iii-i1-3-1]] (Re π_1ℰ^C_I and λ_♯) and of
@@ -500,7 +512,8 @@ below.
 - (A_K) (Optional.) α := 4 + ε_K is admissible and satisfies (A_J), (E3) and (E4).
 
 No condition is needed for the final zero-energy solve: [[lem:iii-i2-4-2]] excludes no real part and asks only
-β_tf − β_zf = α_H + 2 ∈ (0, 1).
+β_tf − β_zf = α_sf + 2, where α_sf denotes the weight α of [[eq:iii-h-1-1]] (not the K⁺-weight α of this chapter), and
+α_sf + 2 ∈ (0, 1).
 
 **Lemma {#lem:iii-j3-1-4}** (The conditions are generic.) (E1) is a smallness condition on ε_+, (E2) excludes finitely
 many ε_+ in any bounded range, (E3)–(E4) exclude finitely many α, and (A_K) excludes finitely many ε_K at fixed ε_+. So
@@ -554,9 +567,9 @@ and concludes [[eq:iii-g2-4-5]] at the K⁺-weight λ_0 + ℓ_K − ε. By [[eq:
 in the sense of [Hin26, Definition 2.8] has t_*-coefficients containing (log R)^(ℓ−j) R^(−z) a_ℓ, which lie in
 H^(α−Re z−ε) for every ε > 0 but in general not at ε = 0:
 
-    ‖ρ^(−w+ε) (log ρ)^k g‖ ≤ (k/(eε))^k ‖ρ^(−w) g‖,
+    ‖R^(−w+ε) (log R)^k g‖ ≤ (k/(eε))^k ‖R^(−w) g‖,
 
-as sup_(0<ρ<1) ρ^ε |log ρ|^k = (k/(eε))^k, and this is sharp. Conversely, for k = 1, f^(0) = 0 and f^(1) = g generic in
+as sup_(0<R<1) R^ε |log R|^k = (k/(eε))^k, and this is sharp. Conversely, for k = 1, f^(0) = 0 and f^(1) = g generic in
 H^(ℓ_K−2), the coefficient of ρ_+^(λ_0+2) in the expansion of [Hin26, Definition 2.8] is −(log φ) φ^(λ_0+2) g, as
 log t_* = −log ρ_+ − log φ, and it is not in H^α. So for k ≥ 1 the two classes at the exact weight are incomparable (for
 k = 0 they coincide), and [[cor:iii-g2-4-3]] cannot be applied at ε = 0 to a right side of the class of [Hin26,
@@ -768,7 +781,7 @@ tf-exponent of real part ≤ 1 + ε_+ (the exponents of E − 1 exceed 1 + ε_+;
 ((0,0), ℓ_3).
 
 *Level 3.* [[prop:iii-g4-5-1]] at α_τ = 1 + ε_+, ℓ_zf = ℓ_3: α_τ ∈ (1, 2); w := ℓ_3 − α_τ + 2 = ℓ_3 + 1 − ε_+ ∈
-(1 − ε_+, 1), so −ε_ind < w < ℓ^max_K; ℓ_3 ∉ ℕ₀; w ≠ −μ and 2 − α_τ = 1 − ε_+ ≠ −μ, as both lie within
+(1 − ε_+, 1), as 0 < ℓ_3 ≤ ε_K < ε_+ ([[eq:iii-i9-1-1]]), so −ε_ind < w < ℓ^max_K; ℓ_3 ∉ ℕ₀; w ≠ −μ and 2 − α_τ = 1 − ε_+ ≠ −μ, as both lie within
 ε_+ < ε_ind of the integer 1 without being integers ([[eq:iii-f1-2-2]]). Its proof uses the conditions
 2 − α_τ + j ≠ −μ only for j ≤ ⌊ℓ_zf⌋ = 0. The output is exact at tf and zf: the piece σ³u has tf-weight 2 + ε_+ and
 zf ((0,0), ℓ_3). Later rounds start from tf-weights ≥ 1 + ε_+ + ε_ind − ε, with fixed room above 2 + ε_+ − 1; their α_τ
@@ -1029,7 +1042,8 @@ This is [Hin26, Theorem 12.8, p. 312] in dimension 4 + 1.
 
 *Proof.* Step 0: Φ(U) is admissible in [[thm:iii-j3-5-3]] ([[prop:iii-j3-5-4]]), and f ∈ ℱ_ex ⊂ 𝒴^0_ex(α)
 ([[rem:iii-j3-1-2]]); [[thm:iii-j3-5-3]] gives (h′, p⃗′, q′) in the exact classes, with (H5) satisfied as
-a_+ = 3 + ε_+. Steps 1–2 of the proof of [[thm:iii-j1-2-1]] subtract values of D_UΦ, which lie in the exact classes and
+a_+ = 3 + ε_+. Steps 1–2 of the proof of [[thm:iii-j1-2-1]], which hold at b with the rows built at b_0
+([[sec:s23-base-points]] (3)), subtract values of D_UΦ, which lie in the exact classes and
 whose images under D_(Φ(U))P_5 lie in ℱ_ex ([[prop:iii-j3-5-4]]); Step 2 reads g_j at ℓ_K(λ_0) − ε, a loss it
 tolerates, as it needs only the formal solutions of rate < α to be visible below ℓ_K. Step 3: after the subtractions h′
 has no ι⁺-term below 3 + ε_+, so its class (ℰ_♯, 3 + ε_+) with vanishing coefficients is the plain weight 3 + ε_+, and

@@ -153,3 +153,15 @@ Items found while chapters were written in parallel; each is settled once, editi
   x^α H^(m−2)_0 → x^α H^m_0 on the compact ball X̂ (n = 4) for every integer m and real α; the literature agent has
   this. [MM87, Lemma (5.10), p. 284] and [Hin23e, Section 2, p. 9] are confirmed. Optional nits: letters reused at
   line 1394, a stray c at line 1443, no label on L′_p.
+
+## From S27, S28, S17 and the front matter (2026-11-13)
+
+- S27 defines the forward keys S23 uses (def:iii-k-2-1, lem:iii-k-2-2, lem:iii-k-2-3) and cites ε_ind ≤ δ_50 through
+  prop:np-10-52. Its writer raised three issues (translation parameter outside the class; Lemma 2.3's support step at
+  level 7/8 below Ω_*; the gap (G) and (E1)-(E4) added to the parameter table); the S27 reader adjudicates them.
+- S28's continuity lemma lem:v-3-2 is stated for a general compact manifold with hypothesis (Fin), for chapter 83 to
+  cite. Its pending marker after-shell-mp-data-on-sigma-ivp (GLUEDECAY5 Lemma 4.1 (d)) is to be exported by chapter 61
+  (asked for under lem:after-shell-mp-data). cor:vii-2-3 cites S30 forward; could move to chapter 60.
+- S17 reader: α₅ = 2 is used by no proof and contradicted by S21/S23 (least ι⁺-exponent λ_♯ < 2); correctly omitted.
+- Front matter (R2-00-03): λ* conflicts with the wavelength-only rule and with chapter 8's λ*; the second fix round
+  decides and lists chapter 8's lines if a rename is needed.

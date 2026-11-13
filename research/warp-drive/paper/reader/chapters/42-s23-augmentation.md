@@ -652,9 +652,9 @@ in the row coordinates W:
 
 with Q at least quadratic in (h″, W). Every term of h″ and every h_ν(W_ν), m_ν(W_ν) has ι⁺-order at least λ_♯: u_λ and
 h_(λ₀) as Λ ⊂ {Re ≥ λ_♯} ([[lem:iii-i10-1-2]] (a)); h̃ by its class; the rows by [[lem:iii-i9-2-2]] (b) (with
-[[def:iii-i14-1-3]]); the towers by [[lem:iii-i14-2-2]] (a) (at b, [[thm:iii-i15-3-1]]). Q is of order two in its arguments and their first two
-derivatives, each derivative giving a factor ρ_+ at ι⁺, so its u-exponents are at least 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (ε_+ <
-δ_♯, [[eq:iii-i9-1-1]]), and it has the weight (5 + 2δ_♯)− > w_+.
+[[def:iii-i14-1-3]]); the towers by [[lem:iii-i14-2-2]] (a) (at b, [[thm:iii-i15-3-1]]). Q is of order two in its
+arguments and their first two derivatives, each derivative giving a factor ρ_+ at ι⁺, so its u-exponents are at least
+2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ (ε_+ < δ_♯, [[eq:iii-i9-1-1]]), and it has the weight (5 + 2δ_♯)− > w_+.
 
 L_(0,p⃗_(≤0)) = L^(g_0+h_tot(p⃗_(≤0)),g_0) differs from L_(b₀) by coefficients of ι⁺-order at least 2: g_0 − g_(b₀) and
 h_tot(p⃗_(≤0)) have ι⁺-order ≥ 2 ([[eq:iii-i7-1-3]] and [[lem:iii-i7-2-2]], [[lem:iii-i9-2-5]]). And L_(b₀) differs from
@@ -665,14 +665,14 @@ and δ*_(g_0,E_C), [[eq:iii-i9-2-3]]), of u-exponent ≥ λ_♯ + 2; and D_(W_ν
 ([[lem:iii-i9-2-4]]; for the rotation rows [[def:iii-i14-1-3]]), so its term of u-exponent λ₀ is L̄[m_ν(W)]_(λ₀).
 Summing gives [[eq:iii-j-2-2]].
 
-The conormal remainders: h̃ and the conormal parts of q have ι⁺-order (3 + ε_+)− ([[lem:iii-i14-2-2]] (a), at b by [[thm:iii-i15-3-1]], with 3 + ε_+
-for 3 + η_2; S_rem, b_rem give (α + 1)−), which L_(0,p⃗_(≤0)) maps to the weight (5 + ε_+)−. The terms of the rows of
-u-exponent ≥ 3 + ε_+ have the weight w_+ ([[lem:iii-i9-2-6]] (b): the plain weight a_+ + Re λ + 2 − ε). And P_4(0,
-p⃗_(≤0)) is smooth in p⃗_(≤0) and supported in supp dχ_K: there g_0 is a pulled-back Myers–Perry metric, so Ric(g_0) = 0
-off supp dχ_K ([[eq:iii-i7-1-3]]), and h_tot(p⃗_(≤0)), ϑ_tot(p⃗_(≤0)) are supported in supp dχ_K ([[def:iii-i7-2-3]]), a
-set whose closure meets ι⁺ in a compact subset of (ι⁺)° (χ_K is a function of R near ι⁺, equal to 1 near R = 0 and to 0
-near ℐ⁺). Its ι⁺-exponents lie in 𝒢 ([[lem:iii-i7-2-2]], [[lem:iii-i9-2-5]]), and those of every other term lie in Λ
-([[lem:iii-j-2-3]], which [[eq:iii-j-2-2]] does not use). ∎
+The conormal remainders: h̃ and the conormal parts of q have ι⁺-order (3 + ε_+)− ([[lem:iii-i14-2-2]] (a), at b by
+[[thm:iii-i15-3-1]], with 3 + ε_+ for 3 + η_2; S_rem, b_rem give (α + 1)−), which L_(0,p⃗_(≤0)) maps to the weight (5 +
+ε_+)−. The terms of the rows of u-exponent ≥ 3 + ε_+ have the weight w_+ ([[lem:iii-i9-2-6]] (b): the plain weight a_+ +
+Re λ + 2 − ε). And P_4(0, p⃗_(≤0)) is smooth in p⃗_(≤0) and supported in supp dχ_K: there g_0 is a pulled-back
+Myers–Perry metric, so Ric(g_0) = 0 off supp dχ_K ([[eq:iii-i7-1-3]]), and h_tot(p⃗_(≤0)), ϑ_tot(p⃗_(≤0)) are supported
+in supp dχ_K ([[def:iii-i7-2-3]]), a set whose closure meets ι⁺ in a compact subset of (ι⁺)° (χ_K is a function of R near
+ι⁺, equal to 1 near R = 0 and to 0 near ℐ⁺). Its ι⁺-exponents lie in 𝒢 ([[lem:iii-i7-2-2]], [[lem:iii-i9-2-5]]), and
+those of every other term lie in Λ ([[lem:iii-j-2-3]], which [[eq:iii-j-2-2]] does not use). ∎
 
 **Lemma {#lem:iii-j-2-2}** (Rows and towers at ι⁺.) Let λ₀ ∈ Λ_* and j ∈ ℕ_0.
 
@@ -780,11 +780,11 @@ coefficients of q in 𝒬^∞_J.
 *Proof.* By induction over Λ_* in order of real part. The log powers at λ₀ come from: the data u_(λ₀), ≤ 2l_*
 ([[lem:iii-j-1-2]]); F_0(λ₀), ≤ k̄_0 (𝒢, [[def:iii-i10-1-1]]); the corrections of rows and towers chosen at λ < λ₀, ≤
 k̄(λ) + l_* by induction, as λ₀ ∈ λ + π_1ℰ_ind and the log orders of ℰ_ind are ≤ l_*; and 𝒮_(λ₀) adds at most l_* for Re
-λ₀ ≥ 2 and nothing below 2. For Re λ₀ ≥ 2, λ₀ ∈ Λ has n(λ₀) ≥ n(λ) + 1 for each such λ, so k̄(λ₀) ≥ k̄(λ) + (J_* +
-1)(l_* + 1) ≥ k̄(λ) + 2l_* and k̄(λ₀) ≥ k̄_0 + (J_* + 1)(l_* + 1): every log power is ≤ k̄(λ₀). Below 2: the data lie in ℳ
-([[lem:iii-j-1-2]]), F_0(λ₀) = 0 (𝒢 ⊂ {Re ≥ 2}), the corrections of terms at exponents in ℳ lie in ℳ + ℰ_ind, which
-below 2 is in ℳ ([[eq:iii-i8-1-1]], [[sec:iii-i12-1]]), and no log is raised. So (λ₀, i) ∈ ℰ_♯. The rows: a row assigned
-in (i) is (τ, λ₀, i) with (λ₀, i) ∈ ℰ_♯ and Re λ₀ ≤ 3 (its rate Re λ₀ + d_τ ≤ 2, d_τ ≥ −1), hence (λ₀, i) ∈ ℰ_par
+λ₀ ≥ 2 and nothing below 2. For Re λ₀ ≥ 2, λ₀ ∈ Λ has n(λ₀) ≥ n(λ) + 1 for each such λ, so k̄(λ₀) ≥ k̄(λ) +
+(J_* + 1)(l_* + 1) ≥ k̄(λ) + 2l_* and k̄(λ₀) ≥ k̄_0 + (J_* + 1)(l_* + 1): every log power is ≤ k̄(λ₀). Below 2: the data lie in ℳ
+([[lem:iii-j-1-2]]), F_0(λ₀) = 0 (𝒢 ⊂ {Re ≥ 2}), the corrections of terms at exponents in ℳ lie in ℳ + ℰ_ind, which below
+2 is in ℳ ([[eq:iii-i8-1-1]], [[sec:iii-i12-1]]), and no log is raised. So (λ₀, i) ∈ ℰ_♯. The rows: a row assigned in (i)
+is (τ, λ₀, i) with (λ₀, i) ∈ ℰ_♯ and Re λ₀ ≤ 3 (its rate Re λ₀ + d_τ ≤ 2, d_τ ≥ −1), hence (λ₀, i) ∈ ℰ_par
 ([[eq:iii-i10-1-2]]) and ν ∈ 𝒩; the rotation rows of (ii) are in 𝒩_rot, their exponents lying in ℰ_♯ ∩ {Re ≤ 2} = ℳ_rot.
 The coefficients of (iii): (λ₀ − d_ψ, i) ∈ ℰ_♯ − d_ψ with rate > 2, which is ℰ^α_ψ ([[def:iii-i14-1-1]]; for v1, Re λ₀ >
 2), and Re(λ₀ − d_ψ) < 3 + ε_+ − d_ψ, below the conormal order of 𝒬^∞_J. ∎
@@ -849,10 +849,10 @@ b-regularity there ([[prop:iii-g3-2-4]]), the functionals of [[thm:iii-g2-3-1]] 
 the towers are. As U_0 is finite-dimensional, |U_0| ≤ C‖U‖_(𝒟⁰), and the tame bound follows from [[eq:iii-j-2-4]].
 
 *(1), (2)* hold by [[eq:iii-j-2-1]]. *(3)* By linearity in U_1, Φ(U′) − Φ(U) = A(U_0)(0, …, (u′^0, f′), …, 0). In the
-construction with these data, every step below Re λ₀ has u = 0, F_0 = 0 and T = 0, so assigns nothing; at λ₀, f = 0 and
-v = u′_(λ₀), so [h′]_(λ₀) = u′_(λ₀) − R′(λ₀) with R′(λ₀) removing exactly the formal solutions of u′_(λ₀). *(4)* L̄,
-χ_K, χ_ι, the states (at b, [[lem:iii-i15-1-1]] (P3)) and the cut-offs are real, conjugation maps the construction at λ₀ to that at λ̄₀, and the data are
-conjugation-symmetric. ∎
+construction with these data, every step below Re λ₀ has u = 0, F_0 = 0 and T = 0, so assigns nothing; at λ₀, f = 0
+and v = u′_(λ₀), so [h′]_(λ₀) = u′_(λ₀) − R′(λ₀) with R′(λ₀) removing exactly the formal solutions of u′_(λ₀). *(4)* L̄,
+χ_K, χ_ι, the states (at b, [[lem:iii-i15-1-1]] (P3)) and the cut-offs are real, conjugation maps the construction at λ₀
+to that at λ̄₀, and the data are conjugation-symmetric. ∎
 
 **Remark {#rem:iii-j-2-5}** (Linearisation; [Hin26, Remark 12.4].) Differentiating [[eq:iii-j-2-5]] in U: for U′ ∈ 𝒟^∞,
 D_(Φ(U))P_5(D_UΦ(U′)) ∈ ℱ^∞, and

@@ -1,13 +1,13 @@
 label	source	source_name	note
 part:stability-forward	-	-	part heading assigned by OUTLINE.md
-ch:s19	-	-	chapter heading; intro composed from the status sentences and "What n = 4 changes" paragraphs of III.I (13-19), III.H2 (4-26), III.I(1) (8-18), III.I(2) (8-20)
+ch:s19	-	-	chapter heading; intro composed from the status sentences and "What n = 4 changes" paragraphs of III.I (13-19), III.H2 (4-26), III.I(1) (8-18), III.I(2) (8-20); F-S19: sigma_Y and sigma_C cited from sec:iii-c-3 and eq:iii-g1-1-4 (no redefinition), slot eigenvalues written s (lambda freed)
 sec:iii-i-1	docket68/n1star/proof5/PART-III-I-CONE.md:22	III.I section 1	
 eq:iii-i-1-1	docket68/n1star/proof5/PART-III-I-CONE.md:25	III.I (1.1)	
 eq:iii-i-1-2	docket68/n1star/proof5/PART-III-I-CONE.md:28	III.I (1.2)	
 def:iii-i-1-1	docket68/n1star/proof5/PART-III-I-CONE.md:37	III.I Definition 1.1	
 eq:iii-i-1-3	docket68/n1star/proof5/PART-III-I-CONE.md:40	III.I (1.3)	
 eq:iii-i-1-4	docket68/n1star/proof5/PART-III-I-CONE.md:67	III.I (1.4)	finding (I5) folded into a sentence after the display
-sec:iii-i-2	docket68/n1star/proof5/PART-III-I-CONE.md:72	III.I section 2	
+sec:iii-i-2	docket68/n1star/proof5/PART-III-I-CONE.md:72	III.I section 2	F-S19: "asymptotically Kerr" sentence cites def:ii-c-3-1 (cf. Hin26c Def 5.15)
 eq:iii-i-2-1	docket68/n1star/proof5/PART-III-I-CONE.md:77	III.I (2.1)	
 lem:iii-i-2-1	docket68/n1star/proof5/PART-III-I-CONE.md:81	III.I Lemma 2.1	
 lem:iii-i-2-2	docket68/n1star/proof5/PART-III-I-CONE.md:91	III.I Lemma 2.2	
@@ -43,22 +43,22 @@ thm:iii-i-5-3	docket68/n1star/proof5/PART-III-I-CONE.md:394	III.I Theorem 5.3	st
 eq:iii-i-5-1	docket68/n1star/proof5/PART-III-I-CONE.md:397	III.I (5.1)	
 eq:iii-i-5-2	docket68/n1star/proof5/PART-III-I-CONE.md:402	III.I (5.2)	
 rem:iii-i-5-5	docket68/n1star/proof5/PART-III-I-CONE.md:441	III.I Remark 5.5	(I6) pointer replaced by the range of prop:iii-i-4-1
-sec:iii-h2-0	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:27	III.H2 section 0	(B2) adds dr future timelike on {r_flat/2 <= r <= 15R1/16} for b in B1 (BEYOND5-R0-PROOF.md 0-1 F2-F3 and 4, III.H3 entry), with a written derivation at b0; the slab-clause history and attributions dropped
-sec:iii-h2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:76	III.H2 section 1	
-prop:iii-h2-1-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:78	III.H2 Proposition 1.1	Step 3 replaces the program lgrade5.py G1 by a hand derivation of the W-preserving part (Phi on every monomial); attributions dropped
+sec:iii-h2-0	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:27	III.H2 section 0	(B2) adds dr future timelike on {r_flat/2 <= r <= 15R1/16} for b in B1 (BEYOND5-R0-PROOF.md 0-1 F2-F3 and 4, III.H3 entry), with a written derivation at b0; the slab-clause history and attributions dropped; F-S19: (B2) restated with dt (not dt_*) on the annulus as in R0P F3, c = 31/450, time orientation extended from (H6) by the path dt - beta dr, purpose sentence added
+sec:iii-h2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:76	III.H2 section 1	F-S19: [Hin17, Proposition 4.1, p. 20 of arXiv:1502.03183v2] stated exactly, with the restriction to the nabla-invariant subbundle S2T* derived from [Hin17, Definition 3.8]
+prop:iii-h2-1-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:78	III.H2 Proposition 1.1	Step 3 replaces the program lgrade5.py G1 by a hand derivation of the W-preserving part (Phi on every monomial); attributions dropped; F-S19: def:ii-c-2-1 cited for strong trapping admissibility; scalar c renamed a-prime, map iota renamed J (S15 writes iota), kappa R -> varkappa R as in S15
 eq:iii-h2-1-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:81	III.H2 (1.1)	
 eq:iii-h2-1-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:107	III.H2 (1.2)	
 eq:iii-h2-1-3	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:116	III.H2 (1.3)	
-cor:iii-h2-1-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:153	III.H2 Corollary 1.2	last sentence phrased as B1-bar inside B_k of S18 (rem:s18-every-k)
+cor:iii-h2-1-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:153	III.H2 Corollary 1.2	last sentence phrased as B1-bar inside B_k of S18 (rem:s18-every-k); F-S19: B_k paraphrase carries z_0 = +-1
 sec:iii-h2-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:170	III.H2 section 2	
-thm:iii-h2-2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:172	III.H2 Theorem 2.1	III.H2:222 fold: III.H1 Theorem 1.3 holds for every k on B1-bar; the k <= K restriction is not stated anywhere
+thm:iii-h2-2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:172	III.H2 Theorem 2.1	III.H2:222 fold: III.H1 Theorem 1.3 holds for every k on B1-bar; the k <= K restriction is not stated anywhere; F-S19: last clause attributed to cor:iii-h2-1-2
 sec:iii-h2-3	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:224	III.H2 section 3	
 lem:iii-h2-3-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:226	III.H2 Lemma 3.2	
-thm:iii-h2-3-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:242	III.H2 Theorem 3.1	
+thm:iii-h2-3-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:242	III.H2 Theorem 3.1	F-S19: P_lambda renamed P_Lambda as in S9 sec:ii-f-6-3
 sec:iii-h2-4	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:284	III.H2 section 4	
-thm:iii-h2-4-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:286	III.H2 Theorem 4.1	(H''3) folded as a closing sentence
+thm:iii-h2-4-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:286	III.H2 Theorem 4.1	(H''3) folded as a closing sentence; F-S19: continuity proof repaired as S9 sec:ii-f1-6 (R-S19 Major 1): weak limit in X(s;k+d'), identification by lem:ii-f1-2-2 at s_u under ||P - 2L_b||_(0;d) < eps_0 with d_0 uniform on B1-bar; source III.H2:316-321 called the uniqueness qualitative
 sec:iii-h2-5	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:322	III.H2 section 5	
-cor:iii-h2-5-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:324	III.H2 Corollary 5.1	(H''4) folded as a closing sentence; "removes (I3)" sentence dropped
+cor:iii-h2-5-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:324	III.H2 Corollary 5.1	(H''4) folded as a closing sentence; "removes (I3)" sentence dropped; F-S19: continuity proof checks every hypothesis of thm:iii-h2-4-1 continuity, incl. ||P - 2L_b||_(0;d) < eps_0 at the limit by (B5)
 sec:iii-i1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:20	III.I(1) section 1	
 eq:iii-i1-1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:31	III.I(1) (1.1)	finding (I'2) folded into the paragraph after the display
 lem:iii-i1-1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:33	III.I(1) Lemma 1.1	
@@ -67,7 +67,7 @@ eq:iii-i1-1-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:54	III.I(1) (1.3)
 sec:iii-i1-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:57	III.I(1) section 2	
 prop:iii-i1-2-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:59	III.I(1) Proposition 2.1	finding (I'2) folded as a comparison sentence
 eq:iii-i1-2-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:64	III.I(1) (2.1)	
-lem:iii-i1-2-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:72	III.I(1) Lemma 2.2	
+lem:iii-i1-2-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:72	III.I(1) Lemma 2.2	F-S19: slot eigenvalue written s, s in sigma_C for slots 1-3
 eq:iii-i1-2-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:77	III.I(1) (2.2)	
 eq:iii-i1-2-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:93	III.I(1) (2.3)	
 eq:iii-i1-2-4	docket68/n1star/proof5/PART-III-I2-SCRI.md:106	III.I(1) (2.4)	
@@ -95,7 +95,7 @@ eq:iii-i2-4-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:251	III.I(2) (4.2)
 lem:iii-i2-4-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:271	III.I(2) Lemma 4.3	
 eq:iii-i2-4-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:276	III.I(2) (4.3)	
 sec:iii-i2-5	docket68/n1star/proof5/PART-III-I3-ALMOST.md:307	III.I(2) section 5	
-prop:iii-i2-5-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:309	III.I(2) Proposition 5.1	findings (I''1), (I''2), (I''4) folded into the comparison paragraph and a closing paragraph
+prop:iii-i2-5-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:309	III.I(2) Proposition 5.1	findings (I''1), (I''2), (I''4) folded into the comparison paragraph and a closing paragraph; F-S19: "the one just checked" replaced by the explicit inequality
 eq:iii-i2-5-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:312	III.I(2) (5.1)	
 eq:iii-i2-5-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:317	III.I(2) (5.2)	
 eq:iii-i2-5-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:336	III.I(2) (5.3)	
