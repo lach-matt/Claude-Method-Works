@@ -1540,24 +1540,22 @@ h_R|_S ∈ ρ^(a+1) H_b^k and ∂h_R|_S ∈ ρ^(a+2) H_b^k (dρ/ρ dω) for ever
 
 *Proof.* Steps 1–5 fix J ≥ 2k1 + 7 and write g_T for g_T^(J); λ_2, ε_2 and ε_B will not depend on J.
 
-*Step 1 (the bootstrap and the pointwise bounds).* Let T ≤ T_1(λ, J) (chosen in Step 3, with T_1(λ, J) ≤ T_0), and
-assume (BA): 𝔈_(k1)(σ) ≤ 4ε_B² on [T, σ*] and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 on W_T ∩ {t̃ ≤ σ*} ∩ {r ≥ ϱ_0}, where
-σ* < σ_1(T), ϱ_0 is that of [[lem:own-exterior]], and ε_B ≤ ε_2 is to be fixed. Under (BA), for σ ∈ [T, σ*] and
-r ≥ r_σ,
-
-    |∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 3),     |∂∂ Γ^β h_R| ≤ C_S ε_B r^(−3/2−a)  (|β| ≤ k1 − 4),
-    |Γ^β h_R| ≤ C_S ε_B r^(−1/2−a)  (|β| ≤ k1 − 3).
-                                                                                                      {#eq:own-pointwise}
-
-Indeed, by [[lem:own-exterior]] (c), with σ′ := σ* and c := 0.0474, 𝔈_(k1)(σ) is finite; by [[lem:own-margins]] (d),
-E_σ[φ] ≥ c_1 ∫ r^(2a) |∂φ|² r³ dr dω, w ≥ r^(2a); and by [[eq:own-ray-derivative]] the ray derivative of
-F := Ω^γ ∂Γ^β h_R, |γ| ≤ 2, is a combination of first derivatives of commuted fields of one more order, with no
-undifferentiated term. So [[eq:own-s1]] with the Sobolev embedding H²(S³) ⊂ L^∞(S³) gives the first bound with
-𝔈_(|β|+3); the second is the first with one more commutation, by [[lem:own-rays]] (a). Every Γ^β h_R(σ, ·) tends to 0
-at spatial infinity along Σ̃_σ, by [[lem:own-exterior]] (a). So [[eq:own-hardy]] applies, and its second inequality
-gives the third bound. With [[lem:own-sigma-data]] (b), on W ∩ {t̃ ≤ σ*},
-H satisfies |H| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ min(1/50, 𝔪/2, r⁻²/4) for λ ≤ λ_2 and ε_B ≤ ε_2, since a ≥ 3/2;
-so [[lem:own-margins]] (a)–(e) apply, with |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 and ≤ 0.2845 r⁻².
+*Step 1 (the bootstrap and the pointwise bounds).* Let T ≤ T_1(λ, J) (chosen in Step 3, with T_1(λ, J) ≤ T_0), put
+H := g_T − g_b0 and h_R := H − Σ, and assume (BA): 𝔈_(k1)(σ) ≤ 4ε_B² on [T, σ*] and |H| ≤ 1/50 on W_T ∩ {t̃ ≤ σ*},
+where σ* < σ_1(T) and ε_B ≤ ε_2 is to be fixed. Under (BA) the bounds [[eq:own-pointwise]] hold for σ ∈ [T, σ*] and
+r ≥ r_σ, with C_S independent of T, J, λ and ε_B. Indeed, by [[lem:own-margins]] (a), |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 on
+W_T ∩ {t̃ ≤ σ*}, so [[lem:own-exterior]] applies with σ′ := σ* and c := 0.0232; and by [[lem:own-margins]] (d),
+E_σ[φ] ≥ c_1 ∫ r^(2a) |∂φ|² r³ dr dω, as w ≥ r^(2a). By [[eq:own-ray-derivative]] the ray derivative of
+F := Ω^γ ∂Γ^β h_R, |γ| ≤ 2, is a combination, with bounded coefficients, of first derivatives of commuted fields of
+order at most |β| + 3, with no undifferentiated term; so the two norms in [[eq:own-s1]] are at most C 𝔈_(|β|+3)(σ)^(1/2),
+and [[eq:own-s1]] with the Sobolev embedding H²(S³) ⊂ L^∞(S³) gives the first bound for |β| ≤ k1 − 3. The second is
+the first with one more commutation, by [[lem:own-rays]] (a). For the third, ψ := Ω^γ Γ^β h_R, |γ| ≤ 2, tends to 0 at
+spatial infinity along the rays of Σ̃_σ by [[lem:own-exterior]] (a), and ∫ r^(2a+3) |dψ/dr|² dr < ∞ on almost every
+ray; so the second inequality of [[eq:own-hardy]], integrated over S³, gives
+∫_(S³) r^(2a+2) |ψ(r, ω)|² dω ≤ (2a + 2)⁻¹ ∫_(S³) ∫_r^∞ s^(2a+3) |dψ/ds|² ds dω ≤ C 𝔈_(|β|+2)(σ), and the Sobolev
+embedding on S³ gives |Γ^β h_R| ≤ C ε_B r^(−1−a) ≤ C ε_B r^(−1/2−a). With [[lem:own-sigma-data]] (b), on
+W_T ∩ {t̃ ≤ σ*}, |H| ≤ C λ r⁻² + C_S ε_B r^(−1/2−a) ≤ min(1/100, 𝔪/2, r⁻²/4) for λ ≤ λ_2 and ε_B ≤ ε_2, since a ≥ 3/2
+and r ≥ 4R ≥ 1; so [[lem:own-margins]] (a)–(e) apply, with |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 and ≤ 0.2845 r⁻².
 
 *Step 2 (the commuted equations and the energy inequality).* By [[lem:far-scaling]] (b), differentiated in ς at ς = 1,
 (Z + 2)P_μ(h) = DP_μ(h)[Zh] − 2μ∂_μ P_μ(h) for every h; ∂_t P(h) = DP(h)[∂_t h], P being static; and
@@ -1569,9 +1567,11 @@ DP(H)[Γh_R] = −(Γ + c_Γ)P(Σ) − (DP(H) − DP(Σ))[ΓΣ] − M_Γ(P(H) �
     DP(H)[Γ^α h_R] = −R^α + (A) + (B) + (C),     R^α := Π_i (Γ_i + c_(Γ_i)) P(Σ),
                                                                                                        {#eq:own-commuted}
 
-where (A) is linear in one Γ^β h_R, |β| ≤ |α|, with coefficients built from the Γ^γ Σ (from D^m P(H) with one slot h_R
-and the others Σ, m ≥ 2, and from DP(H) − DP(Σ) on Γ^α Σ); (B) has at least two slots h_R, each |α_i| ≥ 1 and
-Σ|α_i| ≤ |α|; and (C) is (μ∂_μ)^j DP(H)[Γ^β h_R], j ≥ 1, |β| < |α|. Componentwise DP(H)[k] = −½ g^(ab)∂_a∂_b k +
+where (A) is linear in one Γ^β h_R, |β| ≤ |α|, with coefficients built from the Γ^γ Σ (from D^n P(H) with one slot h_R
+and the others Σ, n ≥ 2, and from DP(H) − DP(Σ) on Γ^α Σ); (B) has at least two slots Γ^(α_i) h_R, with
+Σ_i |α_i| ≤ |α|; and (C) is (μ∂_μ)^j DP(H)[Γ^β h_R], j ≥ 1, |β| < |α|. In (A), (B) and (C) a slot that carries two
+derivatives has order at most max(|α| − 1, 0): second derivatives of a field of order |α| occur only in
+DP(H)[Γ^α h_R], as the identities above show by induction. Componentwise DP(H)[k] = −½ g^(ab)∂_a∂_b k +
 B(H)·∂k + C(H)k ([[prop:far-coefficients]]). For φ := (Γ^α h_R)_ij, [[eq:own-energy-identity]] on the bounded domain
 D_*(σ) := W_T ∩ {t̃ ≤ σ} ∩ {Φ_W ≤ V_*}, σ ≤ σ*, whose boundary consists of Σ̃_σ ∩ {Φ_W ≤ V_*} (future), Σ̃_T ∩ {Φ_W ≤
 V_*} and N ∩ D_*(σ) (past) and {Φ_W = V_*} (future, spacelike by [[lem:own-margins]] (c), with nonnegative flux,
@@ -1584,9 +1584,10 @@ with □_g φ = −2(DP(H)[Γ^α h_R])_ij + 2(B(H)·∂Γ^α h_R)_ij + 2(C(H)Γ^
 T_g[φ](∇w, ∂_t) ≥ 0 dropped, the integrals over D_*(σ) and the energies restricted to {Φ_W ≤ V_*}; as V_* → ∞, the left
 side increases to E_σ[φ] and the right side converges to its value on the full slices, every integrand being integrable
 over W_T ∩ {t̃ ≤ σ} by [[lem:own-exterior]] (b), as |□_g φ| ≤ C(|∂∂φ| + |∂φ|), |∂_t g| ≤ C and w ≤ C r^(2a) there.
-The error terms are bounded by [[cor:far-kernels]], with [[lem:own-rays]] and
-[[eq:own-pointwise]] as its tools; in (B), a term of total order at most k1 with at least two slots has its slot of
-highest order in L² (an undifferentiated slot through [[eq:own-hardy]], a twice differentiated one through
+The hypotheses of [[cor:far-kernels]] hold on [T, σ*]: |H| ≤ 1/50 and 𝔈_(k1) < ∞ by (BA), the decay at spatial
+infinity by [[lem:own-exterior]] (a), and [[eq:own-pointwise]] by Step 1. So the error terms are bounded by
+[[cor:far-kernels]]; in (B), a term of total order at most k1 with at least two slots has its slot of highest order in
+L² (an undifferentiated slot through [[eq:own-hardy]], a twice differentiated one, of order at most k1 − 1, through
 [[lem:own-rays]] (a)) and the others pointwise by [[eq:own-pointwise]], which is possible since the second-largest order
 is at most k1/2 and k1/2 + 4 ≤ k1 for k1 ≥ 8. Summing over |α| ≤ k1 and the components, with the fluxes bounded by
 [[lem:own-n-data]] (iii),
@@ -1594,8 +1595,7 @@ is at most k1/2 and k1/2 + 4 ≤ k1 for k1 ≥ 8. Summing over |α| ≤ k1 and t
     𝔈_(k1)(σ) ≤ C_E [ 𝔈_(k1)(T) + 𝔉_(k1) + ∫_T^σ κ 𝔈_(k1) + ∫_T^σ κ_Σ 𝔈_(k1)^(1/2) ],
                                                                                                        {#eq:own-gronwall}
 
-κ and κ_Σ as in [[eq:far-kernels]] with κ_Σ(σ) = C λ (1 + |σ|)^(a−4) (□_η Σ_4 = 0); ∫ κ ≤ K_κ := C(μ + 1) and
-∫ κ_Σ ≤ κ_∞ := C λ/(3 − a), independent of T.
+κ and κ_Σ as in [[eq:far-kernels]]; ∫ κ ≤ K_κ := C(μ + 1) and ∫ κ_Σ ≤ κ_∞ := C λ/(3 − a), independent of T.
 
 *Step 3 (closing).* With y(σ) := sup_[T,σ] 𝔈_(k1)^(1/2), Gronwall's inequality gives
 y² ≤ C_E e^(C_E K_κ)(𝔈_(k1)(T) + 𝔉_(k1) + 2y κ_∞), so 𝔈_(k1) ≤ C_*(𝔈_(k1)(T) + 𝔉_(k1) + λ²) on [T, σ*], with C_*

@@ -1208,3 +1208,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R-87 NOT CONFIRMED 1M 4m 9n (reviews/R-87.md), exact texts given; marker judgements sent to P-K87. F-87 follows
   P-K87. FOR THE FINAL REPORT: the source's 2.41·10⁻³ is false (f_ll = −2.41418·10⁻³ at the worst point); the edition
   prints 2.42·10⁻³.
+- F-P-U71-assembly done (reports/F-P-U71-assembly.md): all 13 findings fixed; refreshed chapter 71 and chapter 3
+  integration list in the report. R2-P-U71-assembly reads it. Chapter 71 integration waits on that reading,
+  R-P-U71-forward and R-P-U71-close.

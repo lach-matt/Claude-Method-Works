@@ -400,11 +400,13 @@ Both rest on [DS23, Theorems 2.4, 2.5 and 2.6] ([[thm:std-ds-existence]], [[thm:
 orthogonal to the levels of t_IVP for g_(b₀). The levels are spacelike and the time lines timelike for g_(b₀), with a
 margin on Ū ([[lem:iii-b-3-7]] (b)); δ_L is so small that both keep half that margin for every metric within δ_L of
 g_(b₀) in the components on Ū. As in Step 8 (i)–(iii) of [[sec:ue-existence]], the equation is posed on a slab
-X := I × 𝕋⁴, I a compact τ-interval containing the t_IVP-range of U, with the coefficients extended as follows: G as
-G_ref + χ_U(G − g_(b₀)), and (a, b) as (a_ref, b_ref) + χ_U(a − a_0, b − b_0), where G_ref, a_ref and b_ref are fixed
-smooth extensions of g_(b₀), a_0 and b_0 from U to X (a_0 = b_0 = 0 if no P_0 is given), the levels of τ being spacelike
-and the time lines timelike for G_ref, and χ_U ∈ [0, 1] is a fixed cut-off, equal to 1 on a neighbourhood of 𝒦′ and
-supported in U. Outside I the coefficients are taken constant in τ, as in Step 8 (iii). The forcing is replaced by
+X := I × 𝕋⁴, I a compact τ-interval containing the t_IVP-range of U, with the coefficients extended as follows: G⁻¹ as
+G_ref⁻¹ + χ_U(G⁻¹ − g_(b₀)⁻¹), and (a, b) as (a_ref, b_ref) + χ_U(a − a_0, b − b_0), where G_ref, a_ref and b_ref are
+fixed smooth extensions of g_(b₀), a_0 and b_0 from U to X (a_0 = b_0 = 0 if no P_0 is given), the levels of τ being
+spacelike and the time lines timelike for G_ref (that is, G⁻¹(dτ, dτ) < 0 and G⁻¹ positive definite on the covectors
+that vanish on the time lines: conditions convex in G⁻¹, which the extended G⁻¹ therefore keeps, with half the margin,
+and which make it Lorentzian), and χ_U ∈ [0, 1] is a fixed cut-off, equal to 1 on a neighbourhood of 𝒦′ and supported
+in U. Outside I the coefficients are taken constant in τ, as in Step 8 (iii). The forcing is replaced by
 χ_Uf; the data are extended from the smooth domain Σ′ of Σ^IVP by the extension operator of [[thm:std-ly-extension]],
 one operator bounded on every H^j, and then cut off in the same way. In V := (h, ∂_τh, ∂_yh), y the coordinates along
 the levels of τ transported by the time lines, the equation becomes, as in Step 8 (iii),
@@ -412,8 +414,9 @@ the levels of τ transported by the time lines, the equation becomes, as in Step
     A⁰∂_τV + A^c∂_cV = BV + F,                                                                          {#eq:s27-system}
 
 with A⁰ = diag(1, −G^(ττ), G^(ab)) and A^c symmetric, both linear in the components of G⁻¹ in (τ, y), c_0 ≤ A⁰ ≤ c_0⁻¹
-for some c_0 > 0, B linear in (a, b), and F = (0, 2f, 0); the relation between the last components of V and ∂_yh
-propagates. Divided by A⁰, it is a system ∂_τV + A^i∂_iV = B̃V + F̃ that satisfies (A1)–(A4) of [DS23]. The parameters
+for some c_0 > 0, B linear in (G⁻¹, a, b) (the change to the coordinates (τ, y) adds first-order terms linear in G⁻¹),
+and F = (0, 2f, 0); the relation between the last components of V and ∂_yh propagates. Divided by A⁰, it is a system
+∂_τV + A^i∂_iV = B̃V + F̃ that satisfies (A1)–(A4) of [DS23]. The parameters
 (S, S⁰) are adjoined as unknowns constant in τ, which adds the eigenvalue 0 that the symbol already has. [DS23] asks
 r > N/2 + 1 = 3 for u ∈ H^r, r an integer, so r ≥ 4, which for h means data in H^(r+1) × H^r; this is why (L) is
 stated for k ≥ 4. Finite speed of propagation, [[lem:ii-f-1-3]] with τ := ±t_IVP and the compact sets that the kind of
