@@ -1,4 +1,4 @@
-### The inputs of the upper bound for d {#sec:uc-close}
+### The inputs of the upper bound for the accounted loss {#sec:uc-close}
 
 This section takes the inputs that [[prop:ec-upper]] leaves free and decides, for each, whether this paper determines
 it. Two are determined. The loss of the inverse of the transition face model is 1 at the weights at which the
@@ -315,8 +315,8 @@ of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, of which this paper states only
 below each bound ([[lem:iii-g1-4-2]] (a)). Memberships and least real parts alone fix no admissible ε_K
 ([[prop:uc-no-eps]]).
 
-So this paper gives the lower bound of [[thm:loss-d]] (ii), and an upper bound for d_acc, d_NM and N_NM only in terms
-of these numbers; it evaluates none of them and proves no integer upper bound.
+So this paper gives the lower bound of [[thm:loss-d]] (ii), and an upper bound for d_acc, d_NM and N_NM, at levels
+more than ½(α − 4) apart, only in terms of these numbers; it evaluates none of them and proves no integer upper bound.
 
 *Proof.* (i) is [[prop:uc-ltf]] and [[prop:uc-dbg]] substituted into [[prop:ec-upper]] and [[rem:ec-upper-point]]:
 9.394·10¹⁹ · 1 + 1.2923·10²¹ = 1.38624·10²¹; the failure of (G) is [[cor:uc-two-offsets]] (b). (ii) is

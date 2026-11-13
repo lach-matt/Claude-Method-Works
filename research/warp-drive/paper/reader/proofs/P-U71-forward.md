@@ -549,7 +549,7 @@ So (b) holds with 34T + 24 [3,424] derivatives, by [[eq:fwd-assembly]].
 with r = 1 for both, S := 2T + 1 [201]. The terms of grade 0 of t_α = s^α_1(a^*) − s^α_1(a^*) (the first for the
 adjoint, the second for the quantization of a^*) are χ_αa^* − χ_αa^* = 0 by [[lem:fwd-transport]]. μ := 𝗆 − 1,
 B_G := T + 1. Counts: R = 3T + 1 [301], B = 2T + 7 [207], J_R = 4T + 2 [402]; the remainders cost at most
-2J_R + B + 𝔢(5T + 8) ≤ 15T + 21 [1,521], 6T + 10 [609] and 10T + 9 [1,009]; the main symbol
+2J_R + B + 𝔢(5T + 8) ≤ 15T + 21 [1,521], 6T + 9 [609] and 10T + 9 [1,009]; the main symbol
 K(T, T + 1) + 2(J_R − 1) = (10T + 21) + (8T + 2) = 18T + 23 [1,823], K(T, T + 1) = (4T + 3) + 6 + (6T + 12).
 
 *(d).* Here 𝒯 := i[Op(a_1), Op(a_2)] − Op(H_(a_1)a_2), one of a_1, a_2 scalar. [[lem:fwd-expansion]] with r = 2 for
@@ -593,7 +593,7 @@ B = 12T + 9 [1,209], J_R = 14T + 4 [1,404], 2K = 14T + 4 [1,404], J_C = 19T + 4 
 infinity. So Bℓ(I − B^♯), a product of three quantizations of order 0 (ℓ = Op(ℓ) as in (a)), is the case r = 3 of (e)
 at the constant order 𝗍 := inf 𝗌_0 with N := max(0, ⌈sup 𝗌 − inf 𝗌_0⌉) ≤ T: it maps H^(𝗌_0) ⊂ H^(inf 𝗌_0) to
 H^(inf 𝗌_0 + N) ⊂ H^𝗌. With S = 2T: R = 5T, B = 4T + 6, J_R = 6T + 1, J_C = 8T + 1, and the counts of
-[[eq:fwd-ecount]] are at most 23T + 17, 10T + 8, 16T + 6, 32T + 7 and 34T + 16 [3,415]. So d_0 = 34T + 16 serves in
+[[eq:fwd-ecount]] are at most 23T + 17, 10T + 8, 16T + 6, 32T + 7 and 34T + 15 [3,415]. So d_0 = 34T + 15 serves in
 (b), and d_0 = 𝔐(T) a fortiori. The index does not depend on B and B^♯.
 
 In every item the number of derivatives of any symbol is at most 158T + 52 ≤ 𝔐(T) − 2, and every product estimated
@@ -607,14 +607,15 @@ By [[eq:ii-f1-3-2]] and [[rem:ii-f1-7-1]] with d̄_ℵ = 1, D_0 = max(d^E_0, d^S
 [[prop:ii-e-3-4]] (i) at s′ = s_u = −12. By [[lem:fwd-orders]], 𝗌 has values in [−10, 11], equals 11 near the
 horizon, the trapped set, ∂R_(∂K⁺,in) and ∂R_(ℐ⁺,in,+), and −10 near ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out); 𝗌_0 has values in
 [−13, 8]. The a priori order of [[ch:s06]] is N′ := 13 = −inf 𝗌_0, which is all that its a priori terms
-‖χu‖_(−N′) ≤ ‖u‖_(𝗌_0) require. A *site* is a result of chapters 23 and 25–28 whose proof applies a closed-graph index
+‖χu‖_(−N′) ≤ ‖u‖_(𝗌_0) require. A *site* is a result of [[ch:s04]] and [[ch:s06]]–[[ch:s09]] whose proof applies a
+closed-graph index
 (an index of [[prop:ii-a1-2-4]] or of [[lem:ii-a-8-5]], directly or through another site), or raises one. For s an order
 function write s⁺ := sup s and s⁻ := inf s. [[prop:fwd-calculus]] with T = 100 applies at a site when (B1) every
 quantized symbol has order with values in [−100, 100], (B2) every Sobolev order on which an item is applied has values
 in [−100, 100], (B3) every N in (e) and in [[lem:ii-a-8-5]] (b) is at most 100, (B4) every product in (e), (f) has at
 most six quantizations, and (B5) each use of (f) has the form required there.
 
-**Lemma {#lem:fwd-derived}** (The sites of chapter 23.) Each site of [[ch:s04]] uses the items of
+**Lemma {#lem:fwd-derived}** (The sites of [[ch:s04]].) Each site of [[ch:s04]] uses the items of
 [[prop:fwd-calculus]] as follows, and satisfies (B1)–(B5) under the stated condition.
 
 (D1) [[lem:ii-a-8-5]] (a) at 𝗌: item (a), 𝗆 = 0, 𝗍 = 𝗌. Condition |s^±| ≤ 100.

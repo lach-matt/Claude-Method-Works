@@ -707,9 +707,9 @@ estimates of (3), with w(0) = u0 − ū(0), give q(0) ≤ ½ for ε0 small. Let 
 with q ≤ 1 on [0, t]; we show q ≤ ½ on [0, T*) for ε0 small, which excludes T* < min(T_m, T), and T_m ≤ T.
 
 (1) Put K := K_ū + 1. On [0, T*), sup (‖u‖_(W^(1,∞)) + ‖∂_t u‖_(L^∞)) ≤ K, and ‖ū‖_(W^(1,∞)) + ‖∂_t ū‖_(L^∞) ≤ K.
-On [0, t] for t < T*, v := u satisfies the
-hypotheses of [[lem:class-kato-linear]], ∂_t u being bounded in H^(s−1) by its equation, and u solves the linear problem
-with f := F(t, u); by part (a) of the lemma it is the solution of (b), so (c) and (F1′) give
+On [0, t] for t < T*, v := u satisfies the hypotheses of [[lem:class-kato-linear]], ∂_t u being bounded in H^(s−1) by
+its equation, and u solves the linear problem with f := F(t, u); by part (a) of the lemma it is the solution of (b), so
+(c) and (F1′) give
 
     E_s(t; u)^(1/2) ≤ e^(C_* t) (E_s(0; u)^(1/2) + C_* ∫_0^t (C′(K)(1 + ‖u‖_(H^s)) + K ‖u‖_(H^s))),
 
@@ -799,8 +799,8 @@ put x̂ := x/|x|. On [0, T] × R^(n+1) let
     F̃ := χ(|x|) G(t, x̂, W),
 
 (W_ab)^j the components of W_ab, linear in x; these are zero or the identity off {1/2 < |x| < 2}. They are smooth and
-symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W, by (1) their bounds of order s (in
-the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are
+symmetric, Ã^0 ≥ min(2c0, 1) I, every derivative is bounded on bounded sets of W and, by (1), their bounds of order s
+(in the sense of [[sec:class-kato]]) are uniform in P, and F̃(t, x, 0) vanishes for |x| ∉ (1/2, 2). As the W_ab are
 tangent to the spheres |x| = r and commute with dilations, the system Ã^0 ∂_t W + Ã^j ∂_j W = F̃ holds no derivative
 across the spheres, and on each sphere |x| = r ∈ [3/4, 4/3], with W_r(t, ω) := W(t, rω), it is the system of (1) for W_r.
 Its forcing term is local and satisfies (F1)–(F3) and (F1′) by [[rem:class-kato-local]], and for P = P̄, W̄ := 0 solves
@@ -1469,7 +1469,7 @@ axes being a leaf of U and the leaves of U foliating; by the uniqueness in [[lem
 
 So e(τ) := ∫_(Σ_τ∩Ω_U) ⟨A^0 z, z⟩ satisfies e(τ) ≤ e(τa) + C ∫_(τa)^τ e, and e(τa) = 0; hence z = 0 on Ω_U.
 
-*Existence and uniqueness.* Restart as in the proof of [[thm:class-kato]] (b) (ii): at the times τ_i extend the data
+*Existence.* Restart as in the proof of [[thm:class-kato]] (b) (ii): at the times τ_i extend the data
 from Σ_(τ_i) ∩ Ω_U by 𝔼, bounded on H^k uniformly, and solve on R⁴; by the domain of dependence the solutions agree on
 the adapted domain, whose boundary near the axes is determined by the solution there. The bootstrap of Steps 3–8, run
 on the adapted domain, keeps 𝒩_k ≤ C ε there, hence the extended data within η_ρ ρ of 0, so the solution exists on the
@@ -1489,12 +1489,11 @@ the H^k bound, gives a linear Gronwall inequality for ‖U(τ)‖_(H^σ), so tha
 the equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step (4) of the proof of
 [[lem:class-planar-shear]], every ∂_τ^j U is bounded in every H^σ, by induction on j. So the solution is smooth.
 
-*Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on
-its own adapted domain, with the same datum and 𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that
-Step 9, its Θ_A on the tubes being □_g u_A and its σ_A that of its own leaves by Step 10 below; by the domain of
-dependence at the order k − 1 (with the bound of [[def:class-adapted]] on T_(τ,U) − id at the order k − 1, from the
-proof of [[lem:class-leaf-differences]] (a) at that order, and 𝔼 bounded on H^(k−1)) it agrees with the solution
-constructed on its adapted domain. The two adapted domains coincide: T_(τ,U) depends only on the values of U on the
+*Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on its own adapted domain, with the same datum and
+𝒩_(k−1) ≤ ε2, gives a solution of the augmented system there as in that Step 9, its Θ_A on the tubes being □_g u_A and
+its σ_A that of its own leaves by Step 10 below; by the domain of dependence at the order k − 1 (with the bound of
+[[def:class-adapted]] on T_(τ,U) − id at the order k − 1, from the proof of [[lem:class-leaf-differences]] (a) at that
+order, and 𝔼 bounded on H^(k−1)) it agrees with the solution constructed on its adapted domain. The two adapted domains coincide: T_(τ,U) depends only on the values of U on the
 axes, along the integral curves of P_A from Σ_τ0, and on the leaves h_B, and for the development these lie in its own
 adapted domain, where the two solutions agree. Invariance under G follows as before.
 
