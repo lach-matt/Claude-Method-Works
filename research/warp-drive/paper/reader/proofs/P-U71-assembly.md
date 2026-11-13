@@ -77,10 +77,9 @@ alone, through z, so the bound holds at every h. ∎
 
 **Remark {#rem:ec-gauge-gap}** (The two gaps.) At the computational point ε_ind(10⁻⁶) = δ_50 > 1.94·10⁻⁸
 ([[cor:s14-eps-ind-point]]), so ε_Υ < δ_50/132, and ε_g = ε_Υ whenever ε_ind is taken at least ε_Υ, as it may be. In
-every case ε_g ≤ ε_Υ < 1.46214·10⁻¹⁰. The construction of [[ch:s21]] and
-[[ch:s22]] advances its transition face and level-3 weights by ε_g − ε and asks ε_K < ε_Υ ([[def:iii-i10-1-3]]); both
-long iterations of [[sec:ec-floor]] are therefore governed by ε_Υ, the separation of the shifted roots of the gauge
-potential operator, and not by ε_ind.
+every case ε_g ≤ ε_Υ < 1.46214·10⁻¹⁰. The construction of [[ch:s21]] and [[ch:s22]] advances its transition face and
+level-3 weights by ε_g − ε and asks ε_K < ε_Υ ([[def:iii-i10-1-3]]); both long iterations of [[sec:ec-floor]] are
+therefore governed by ε_Υ, the separation of the shifted roots of the gauge potential operator, and not by ε_ind.
 
 **Proposition {#prop:ec-rounds}** (The number of rounds.) At the computational point, for every choice of ε_K, ε_+,
 η_2, α, the levels and the losses ε, ε′ admissible for [[thm:iii-i14-3-1]], [[lem:iii-i8-3-2]] and
@@ -139,8 +138,8 @@ tame estimates hold.
 
 *Proof.* The first assertions are [[lem:iii-j2-1-2]] with [[lem:ec-split-loss]], which give the tame estimates with
 any loss at least the accounted one, the parameters of [[thm:ii-g-2-1]] ([[eq:ii-g-2-5]]) and d_NM ≥ d_acc
-([[def:ec-accounted-loss]] and the paragraph after it). (i) is
-[[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]] and [[lem:ec-round-loss]].
+([[def:ec-accounted-loss]] and the paragraph after it). (i) is [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]],
+[[rem:ec-other-losses]] and [[lem:ec-round-loss]].
 
 (ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the
 rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and the
@@ -151,16 +150,16 @@ So all the rounds of all the levels lie on one chain of compositions, and by [[d
 1.403·10²⁰ > 2.946·10²¹. (iii) is [[prop:ec-upper]]. ∎
 
 **Proposition {#prop:ec-delta-cap}** (The thresholds δ and λ1.) In the proof of [[thm:settling]], let the Nash–Moser
-threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]] and d = d_NM the loss of the proof of
-[[thm:iii-k-3-2]]; let ε be the data threshold of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with
-ε ≤ s_(2d) and C_(2d)ω_(2d)(ε) ≤ ε_NM, where C_(2d) ≥ 1, s_(2d) and the modulus ω_(2d) are those of [[lem:iii-k-2-2]]
-(d) at the order 2d ([[prop:iii-k-1-2]] (3)); and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1
-satisfy
+threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]] and d = d_NM the loss of the
+proof of [[thm:iii-k-3-2]]; let ε be the data threshold of [[cor:s27-rate]], chosen, as in the proof of
+[[thm:iii-k-3-2]], with ε ≤ s_(2d) and C_(2d)ω_(2d)(ε) ≤ ε_NM, where C_(2d) ≥ 1, s_(2d) and the modulus ω_(2d) are
+those of [[lem:iii-k-2-2]] (d) at the order 2d ([[prop:iii-k-1-2]] (3)); and let C_R ≥ 1 be the constant of
+[[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
 
     λ1 < δ,        ω_(2d)(2δ) ≤ 2^(−(32d+8)),        log₁₀ ω_(2d)(2δ) < −(59/196)(32d + 8).
 
-As d = d_NM ≥ d_acc, [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < −1.351 × 10²¹. If moreover ω_(2d)(s) ≥ s/A on [0, s_(2d)]
-for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
+As d = d_NM ≥ d_acc, [[thm:loss-d]] (ii) gives log₁₀ ω_(2d)(2δ) < −1.351 × 10²¹. If moreover ω_(2d)(s) ≥ s/A on [0,
+s_(2d)] for some A ≥ 1, then δ ≤ A·2^(−(32d+9)).
 
 *Proof.* The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and ε_NM ≤ 16^(−(8d+2)) =
 2^(−(32d+8)). So ω_(2d)(2δ) = ω_(2d)(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)). The proof of [[thm:settling]] ([[sec:vii-4]])
@@ -208,13 +207,14 @@ induction, T_m ⋯ T_1 has split loss (Σ_i a_i; max_i(c_i + Σ_(j>i) a_j), max_
 
 The families of [[lem:iii-j2-2-1]] fall into this frame. A linear map independent of β bounded E^(k+m) → G^k has split
 loss (m; 0, 0) ([[lem:iii-j2-1-2]] (d)). The forward solution operators have split loss (d_F; d_F, d_F), d_F the loss
-d of [[thm:iii-i-5-3]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]]). The background terms of [[lem:iii-j2-2-1]] (b), and the operator L̃ of
-[[lem:iii-j2-2-1]] (g) where its coefficients depend on h, have split loss (2; d_B, d_B), d_B the order of the
-background in the bound displayed in [[lem:iii-j2-2-1]] (b); in the sense of [[def:iii-j2-1-1]] they are tame with
-loss max(2, d_B), not 2. By (c) the difference is paid once: a composition in which every background term is charged 2
-and every other family its loss is tame with that sum plus (d_B − 2)_+, whatever the number of background terms in it.
-A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections v^i, as the rows and the
-coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ), so it adds no excess.
+d of [[thm:iii-i-5-3]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]]). The background terms of
+[[lem:iii-j2-2-1]] (b), and the operator L̃ of [[lem:iii-j2-2-1]] (g) where its coefficients depend on h, have split
+loss (2; d_B, d_B), d_B the order of the background in the bound displayed in [[lem:iii-j2-2-1]] (b); in the sense of
+[[def:iii-j2-1-1]] they are tame with loss max(2, d_B), not 2. By (c) the difference is paid once: a composition in
+which every background term is charged 2 and every other family its loss is tame with that sum plus (d_B − 2)_+,
+whatever the number of background terms in it. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and
+fixed sections v^i, as the rows and the coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split
+loss (d_ℓ; 0, d_ℓ), so it adds no excess.
 
 **Lemma {#lem:ec-iota-gap}** (The gaps of the index sets at ι⁺.) The index set ℰ^ι_ind of [[thm:iii-g2-4-2]]
 ([[eq:iii-g2-4-4]]) satisfies ε^ι_ind := min Re ℰ^ι_ind ≥ ε_Υ, and the number η_0 of [[def:iii-i10-1-1]] satisfies η_0
@@ -439,10 +439,13 @@ admissible ε_K, and with it no upper bound for the number of levels, follows fr
 regularity s is taken large and whose incoming order exceeds a threshold computed in a fibre inner product that this
 paper does not fix; ℓ_tf ≥ 1 is proved, no value. (3) The single-step losses c(β), c_b, c′_b and c_0: each is a finite
 composition of the elementary losses of [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the forward loss
-d_F ≤ 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply, but their step counts and the counts n(E, β) of the index sets entering [[eq:ec-fourier-loss]] are not evaluated
-here; c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]],
-and the loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ
-∩ {Re < 3 + ε_+}, a number of steps not evaluated here. (4) d_B, the background order in [[lem:iii-j2-2-1]] (b), fixed
-by the product estimates there and not evaluated. Given ε_K, the bound [[eq:ec-upper]] is of the order 1/(ε_Kε_g), the
-order of the lower bound of [[prop:ec-rounds]]; ℓ_tf multiplies terms of that order, and the losses of (3) and (4)
-enter at most about 3/ε_K times.
+d_F ≤ 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply, but their step counts and the counts
+n(E, β) of the index sets entering [[eq:ec-fourier-loss]] are not evaluated here; c_0 contains, besides, the
+iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the loss of
+[[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re < 3 +
+ε_+}, a number of steps not evaluated here. (4) d_B, the background order in [[lem:iii-j2-2-1]] (b), fixed by the
+product estimates there and not evaluated. An upper bound for N_NM needs besides upper bounds for the losses of
+[[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]], which enter d_NM; their proofs fix them through the loss of
+[[thm:iii-j-2-4]] and the product orders of [[lem:iii-j2-2-4]], not evaluated here. Given ε_K, the bound
+[[eq:ec-upper]] is of the order 1/(ε_Kε_g), the order of the lower bound of [[prop:ec-rounds]]; ℓ_tf multiplies terms
+of that order, and the losses of (3) and (4) enter at most about 3/ε_K times.

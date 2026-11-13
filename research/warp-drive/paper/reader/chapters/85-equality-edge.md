@@ -919,3 +919,112 @@ whole crossover 1/4 ≤ |S_U|/|S_st| ≤ 4 the least ratio of |σ_main| to the e
 1.8·10⁻¹³ |ν| T0². At ρ*, with exp(−1/x^(1/2)) (κx² → 0) and N = 9, …, 13 at λ = 10⁻⁴⁰, with b̂4 and b̂5 = 3b̂4 of
 [[lem:edge-next-family]], every one of the 122 windows of each run was decided, while adversarial values (|b̂4| =
 0.0033, |b̂5| = 1.0·10⁻⁴, chosen so that σ and σ′ vanish together) left a window undecided. No proof uses these figures.
+
+### The very edge for the metric of the main theorem {#sec:edge-theorem}
+
+**Theorem {#thm:very-edge}** (The very edge.) Let μ0 = √72 l5², K ≥ 6, N = K + 3, and let g_λ be the metric of
+[[thm:main]], as in [[thm:layer]]. Let τ0 be admissible, ρ0 := (v_s − τ0)/√μ0, and let env satisfy (H_N), (H_D) and
+(B_(c′)), c′ := max(c, M*) with c the cost of [[lem:edge-degree-two]], on (v_s, v_s + x0] for some x0 > 0, and
+moreover
+
+    if N ≡ 0 mod 4 and ρ0² = 2N − 1:   (H_N+2) and (H_t);
+    if ρ0 = ρ*:                         (H_N+2) and (H_t), except when N ≢ 0 mod 4 and (H_*) holds.
+
+Then there are λ_1E > 0, x0′ ∈ (0, x0] and P1 such that for λ ≤ λ_1E, every v ∈ (v_s, v_s + x0′] with env(v + 4πλ) ≤
+λ^(P1) and every x̂ ∈ S³, the boundary {x_K = 1} has, on [v, v + 4πλ] and at x̂, points where it is timelike for g_λ
+and points where it is spacelike. This holds in particular for every v ∈ (v_s, v_s + x0′] with λκ(v + 4πλ) ≥ 1, down
+to v_s. If env is increasing on (v_s, v_s + x0], then, with [[prop:layer-regions]] (ii) at P := P1 + 1, for λ ≤
+min(λ_U(P1 + 1), λ_1E) the same holds on every interval [v, v + 4πλ] with v_s < v ≤ v_s + x0′ and env(v) ≤ λ^(3+δ).
+
+When ρ0 = ρ* and (H_*) fails, the proof uses [[lem:edge-rho-star]], and with it the value of b̂4 of
+[[lem:edge-next-family]].
+
+*Proof.* Take x0′ so small that [[prop:edge-horizon-value]], [[lem:edge-localisation]], [[lem:edge-kappa]] (c) for j ≤
+c′ and the conclusions of [[lem:edge-kappa]] (a), (b), (e) used below hold on (v_s, v_s + x0′]. Fix x̂ and let J :=
+[v, v + 4πλ]. At a boundary point X = (v′, r_q(v′), x̂), v′ ∈ J, [[lem:layer-inverse]] with k = h^(1) + r2 − (g0 −
+g0°) gives
+
+    g_λ⁻¹(dΦ0, dΦ0) = −Re[S(v′) e^(iv′/λ)] + ε(v′),
+
+where S is that of [[prop:edge-horizon-value]] and ε(v′) := −m0 − r2(Φ0♯, Φ0♯) + (g0 − g0°)(Φ0♯, Φ0♯) + q − [h^(1)(Φ0♯,
+Φ0♯) − h^(1)_vv(v′, √μ0)]. The last bracket is the shift from √μ0 to r_q, at most C ε_0² |∂_r h^(1)|, plus the β_Φ-terms,
+at most C ε_0² |h^(1)|, with β_Φ and r_q − √μ0 at most C ε_0² ([[cor:layer-expansion]]) and |h^(1)| + |∂h^(1)| ≤ C ε_c.
+So |ε| ≤ C κ^(2c′) env², by [[lem:edge-localisation]], [[eq:edge-degree-two]], m0 ≤ C(env² + ∫_(v_s)^(v′) env²) ≤ C env²
+([[cor:layer-expansion]], [[lem:edge-kappa]] (d)) and κ^p env → 0 ([[lem:edge-kappa]] (e)). The hypothesis of
+[[lem:edge-localisation]] holds since env(v′ + 1/κ(v′)) ≤ e env(v′) ≤ e λ^(P1).
+
+Use σ, Λ, ê of [[eq:edge-sigma]], so that f := g_λ⁻¹(dΦ0, dΦ0) = Re[−S e^(i·/λ)] + ε, to which [[lem:edge-two-signs]]
+applies as to S. Fix M ≥ 8, large against the constants, and split by the values at v: Case 1 is Γ_R|Ξ|Λ ≥ M|ν||1 + 2iT0|
+or T0 > 1, Case 2 is Γ_R|Ξ|Λ ≤ |ν|/M, and Case 3 is the rest. These conditions persist on J with M replaced by M/C_0, for
+a constant C_0, which we absorb into M. Indeed, if λκ(v)^α > 1, then for t ∈ J, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R 4πλ ≤ (1 +
+4πα c_R)λ, so λκ(t) ≥ c λ^(1−1/α) > 1 for λ small: Case 1 on all of J. Otherwise 4πλ ≤ 4πκ(v)^(−α); κ is nonincreasing
+and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change over J by bounded factors, and so do |1 + 2iT0|
+and |Ξ|; log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor at most 1 + 4πα c_R
+(κ^(−α) ≤ α c_R x), so ν by a bounded factor.
+
+*Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small. Indeed ϵ′ + 1/κ + λ → 0, as ϵ′ ≤ κ^(α−1)
+for every λ. Where T0 ≤ 1, |ν| T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ: off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|); at ρ*, if x² < Mλ then
+κ ≥ c_*/(Mλ) by (H_*), T0 ≥ c_*/M and Λ ≥ 2^(−(N−1)) T0^(N−2) κ ≫ λ, and if x² ≥ Mλ then Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M x² ≥
+c M² λ. Where T0 > 1, the term Λ/κ of ê is small against Γ_R|Ξ|Λ: |Ξ| ≥ min(c_N, |1 − c_N|) when c_N(ρ0) ≠ 1, and at
+c_N = 1, where Ξ = −i/(T + i), Γ_R|Ξ|Λ/(Λ/κ) ≥ Γ_R κ (1 + T²)^(−1/2) ≥ Γ_R/(2√2 λ) for T ≥ 1, the other terms being
+relative to |Ξ| by [[lem:edge-constraint]]. The phase: arg(Γ_R i^N Ξ Λ) = const + arg Ξ, and |d arg Ξ/dT| ≤ C/(1 + T²)
+with |dT/dv| ≤ c_R λ (2κ)^(1+α), so it moves over J by O(κ^(α−1) + λ^(1−α)); the rest moves arg σ by at most 2
+arcsin(2/M) + o(1), and the total is at most π/6. The pointwise ratio |ε|/|S| ≤ C κ^(2c′) env/(λ³ Γ_R|Ξ|Λ) tends to 0
+once env ≤ λ^(P1): where T0 ≤ 1, Γ_R|Ξ|Λ ≥ cλ, and where T0 > 1, |Ξ|Λ ≥ c κ/T ≥ c/λ. [[lem:edge-two-signs]] (A).
+
+*Case 2.* Λ ≥ 2^(−(N−1)) T0^(N−2) κ and Λ ≤ C|ν| ≤ C, with κ → ∞, so T0 → 0. |σ| ≥ |ν|(1 − 1/M) − |ê| ≥ |ν|/2,
+since λ ≪ |ν|: off ρ* because |ν| ≥ ν_*; at ρ* because x² ≥ Mλ (otherwise, as in Case 1, Λ ≫ λ ≥ x²/M ≥ c|ν|/M,
+against Case 2), so |ν| ≥ c_ν M λ/2. The phase: arg σ stays within 2 arcsin(2/M) + o(1) of arg(ν(1 + 2iT0)), which
+moves over J by O(λ²|κ′|) = O(λ^(1−α) T0^(1+α)). [[lem:edge-two-signs]] (A), with ε ≤ |S|/4 once env ≤ λ^(P1) (κ ≤ 1/λ
+here).
+
+*Case 3.* Here Λ ≍ |ν|, so κ ≍ (|ν| λ^(−(N−2)))^(1/(N−1)), T0 → 0 and λκ² → ∞: off ρ*, λκ² ≍ λ^(−(N−3)/(N−1)); at
+ρ*, T0^(N−2) κ ≍ |ν| ≥ c x² ≥ c c_*/κ gives T0 κ ≥ c κ^(1−2/(N−2)) → ∞. With −Ξ = c_N + iT + O(T²),
+
+    σ_main := ν(1 + 2iT0) + Γ_R i^N (c_N + iT) Λ,      σ = σ_main + O(|ν| T0²) + ê.
+
+(i) N ≢ 0 mod 4. If N is odd, Γ_R i^N c_N Λ is imaginary and Re σ_main = ν(1 + O(T0)); if N ≡ 2 mod 4, Re σ_main = ν −
+Γ_R c_N Λ, of modulus at least |ν|. So |σ_main| ≥ |ν|/2, and |ê| ≤ C|ν|(T0² + λ/|ν| + M(ϵ′ + 1/κ + λ)) ≪ |ν|, λ ≪ |ν| at
+ρ* as in Case 2. The real and imaginary parts of σ move over J by O(|ν| λ(κ^α + |ν′/ν|) + |ν| λ² κ^(1+α)), which is
+o(|ν|) (λ/x ≤ (λ/M)^(1/2) at ρ*). [[lem:edge-two-signs]] (A).
+
+(ii) N ≡ 0 mod 4, ρ0² ≠ 2N − 1 and ρ0 ≠ ρ*. With X := Γ_R c_N Λ/|ν| and ν < 0, Re σ_main = |ν|(X − 1) and Im σ_main =
+2νT0 + Γ_R T Λ = |ν| T0 (X/c_N − 2) + O(|ν| T0 κ^(α−1)). Put η_c := |1 − 2c_N|/4, positive near the edge as c_N(ρ0) ≠
+1/2. If |X − 1| ≥ η_c, |σ_main| ≥ |ν| η_c; if |X − 1| < η_c, then |X/c_N − 2| ≥ |1/c_N − 2| − η_c/c_N = (3/4)|1 −
+2c_N|/c_N, so |Im σ_main| ≥ |ν| T0 |1 − 2c_N|/(2c_N). Either way |σ_main| ≥ c₃ |ν| T0, c₃ := min(η_c, |1 − 2c_N|/(2c_N)).
+And |ê| + O(|ν| T0²) ≤ C|ν|[T0² + λ/|ν| + M(T0² + T0 κ^(α−1) + 1/κ + λ)] ≤ c₃ |ν| T0/2 for λ small: T0² ≪ T0; λκ^α = T0
+κ^(α−1) ≪ T0 for every α < 1, which bounds the part λκ^α of ϵ′; 1/κ ≪ T0, as λκ² → ∞; λ ≪ T0; and λ/|ν| ≪ T0, as |ν| ≥
+ν_*. Over J, Re σ_main moves by O(|ν| λ(κ^α + |ν′/ν|)), Im σ_main by O(|ν| λ² κ^(1+α)), and ê by O(λκ)|ê|, by
+[[eq:edge-s]]; against |σ| ≥ c₃ |ν| T0/2 these are O(κ^(α−1) + 1/κ + λκ^α) → 0. [[lem:edge-two-signs]] (A), with m :=
+c₃ |ν| T0 λ³ A |d| env/2 and ε ≤ C κ^(2c′) env² ≤ m/4 once env ≤ λ^(P1) (κ ≤ 1/λ here).
+
+(iii) N ≡ 0 mod 4, and ρ0² = 2N − 1 or ρ0 = ρ* (with (H_*)): the windows of Case 3 are those of [[prop:l-26]], whose
+hypotheses, (H_N+2), (H_t) and at ρ* (H_*), are those of the theorem in these cases.
+
+*ρ0 = ρ* without (H_*).* Every window is decided by [[lem:edge-rho-star]].
+
+*The very edge.* If λκ(v + 4πλ) ≥ 1, then by [[lem:edge-kappa]] (e), env(v + 4πλ) ≤ κ(v + 4πλ)^(−P1−1) ≤ λ^(P1+1) ≤
+λ^(P1) once x0′ is small.
+
+*The levels.* Let env be increasing and env(v) ≤ λ^(3+δ). Every point is a first-reach point, and points with env(v) ≤
+λ^(3+δ) near v_s lie in the layer (as in the proof of [[thm:layer]]). If env(v) ≥ λ^(P1+1), [[prop:layer-regions]] (ii)
+applies. If env(v) < λ^(P1+1) and λκ(v) ≤ 1, then env(v + 4πλ) ≤ e^(4πλκ(v)) env(v) ≤ e^(4π) λ^(P1+1) ≤ λ^(P1). If
+λκ(v) > 1, then 4πλ ≤ 4πκ(v)^(−1) ≤ κ(v)^(−α)/(α c_R) near v_s, so κ ≥ 2^(−1/α) κ(v) on J by [[lem:edge-kappa]] (b),
+and env(v + 4πλ) ≤ κ(v + 4πλ)^(−P1−1) ≤ (2^(−1/α)/λ)^(−P1−1) ≤ λ^(P1) for λ small. In the last two cases the first part
+applies. ∎
+
+For the envelope of the numerical point every hypothesis holds, for every K ≥ 6 and every admissible τ0, by
+[[cor:edge-envelope]] below; and that envelope satisfies (H_*), so [[lem:edge-next-family]] is not used for it.
+
+**Remark {#rem:edge-carried}** (What carries the first-degree term.) Once Λ ≫ |ν|, the first-degree amplitude S is
+carried by S_U, that is by the constraint correction U^(1) of the data at first degree, and not by the approximant's
+profiles: on the very edge of the metric of [[thm:main]] the causal character of the boundary is decided by the
+solution of the constraint equations of [[sec:data-evolution]] at first degree. At ρ0² = N − 1, where c_N = 1, |S_U|
+falls with Ξ = −i/(T + i), and the argument still closes because the errors of [[lem:edge-constraint]] are relative to
+the bracket there.
+
+**Remark {#rem:edge-very-edge-numbers}** (Numerical observation.) The two-term formula S_st + S_U was run with unit
+constants (exp(−1/x), λ = 10⁻⁶, r0 = 3, ν = −1/9), with the cut-off of S_st at λκ > 1, for N = 9, where the two
+amplitudes are in quadrature, and N = 12, where their real parts cancel at the crossover, over 1200 windows each from
+env = λ⁴ to x = 0.2 λ^(1/2): every window had both signs, while with S_U removed some windows had one sign only. No
+proof uses this observation.

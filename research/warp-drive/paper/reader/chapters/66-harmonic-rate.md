@@ -1046,15 +1046,15 @@ of k. There is no singular part and no W*.
 
 *Proof.* Πu = u by [[lem:gd-r8-2]] (b). We follow the proof of [[thm:gd-r6-4]].
 
-*The decomposition.* For f with Πf = f, (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) has b̂_1 = 0 and û_(reg,1) = P_Π(σ)⁻¹f̂ for 0
-< |σ| ≤ c: Π_0 commutes with P̂(σ), fixes the column f̂_*(σ), the transform of the SO(4)-invariant [□, χ^H_K]W*, and the
-row, φ_* and h being SO(4)-invariant, and kills f̂ (Π_0Π = 0); so P̃(σ)(Π_0û_(reg,1), b̂_1) = (Π_0f̂, ⟨û_(reg,1),
-φ_*⟩_h) = (0, 0), whence Π_0û_(reg,1) = 0, b̂_1 = 0, and P̂(σ)û_(reg,1) = f̂. Moreover Πû_(reg,1) = û_(reg,1): Π commutes
-with
-P̂(σ), Π^(*h) = Π ([[lem:gd-r8-2]] (a)), and Πφ_* = ΠΠ_0φ_* = 0, as ΠΠ_0 = 0 (the orthogonality of characters, and Π_G(1
-− Π_0)Π_0 = 0); so P̃(σ)(Πû_(reg,1), 0) = (ΠP̂(σ)û_(reg,1), ⟨û_(reg,1), Πφ_*⟩_h) = (Πf̂, 0) = (f̂, 0), and the
-invertibility of P̃(σ) gives Πû_(reg,1) = û_(reg,1). As P_Π(σ) is invertible ([[thm:gd-r8-7]] (a)), û_(reg,1) =
-P_Π(σ)⁻¹f̂. So u_sing = 0 and u = u_hi + u_reg, with c at most the constant c_k of [[cor:gd-r8-9]] at the weight below.
+*The decomposition.* For f with Πf = f, (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) has b̂_1 = 0 and
+û_(reg,1) = P_Π(σ)⁻¹f̂ for 0 < |σ| ≤ c: Π_0 commutes with P̂(σ), fixes the column f̂_*(σ), the transform of the
+SO(4)-invariant [□, χ^H_K]W*, and the row, φ_* and h being SO(4)-invariant, and kills f̂ (Π_0Π = 0); so
+P̃(σ)(Π_0û_(reg,1), b̂_1) = (Π_0f̂, ⟨û_(reg,1), φ_*⟩_h) = (0, 0), whence Π_0û_(reg,1) = 0, b̂_1 = 0, and
+P̂(σ)û_(reg,1) = f̂. Moreover Πû_(reg,1) = û_(reg,1): Π commutes with P̂(σ), Π^(*h) = Π ([[lem:gd-r8-2]] (a)), and
+Πφ_* = ΠΠ_0φ_* = 0, as ΠΠ_0 = 0 (the orthogonality of characters, and Π_G(1 − Π_0)Π_0 = 0); so
+P̃(σ)(Πû_(reg,1), 0) = (ΠP̂(σ)û_(reg,1), ⟨û_(reg,1), Πφ_*⟩_h) = (Πf̂, 0) = (f̂, 0), and the invertibility of P̃(σ)
+gives Πû_(reg,1) = û_(reg,1). As P_Π(σ) is invertible ([[thm:gd-r8-7]] (a)), û_(reg,1) = P_Π(σ)⁻¹f̂. So u_sing = 0
+and u = u_hi + u_reg, with c at most the constant c_k of [[cor:gd-r8-9]] at the weight below.
 
 *Step 2* is that of [[thm:gd-r6-4]]: [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), whose conditions are w_I − 1 ≥ 3/2 and
 w_I ≥ γ_+ + 1 + ϵ_1 (as α_K > 1 − ϵ_1), gives u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b; and [[prop:ii-g1-3-3]] (1) with ϵ_PP gives
@@ -1096,15 +1096,16 @@ constant bounded by finitely many norms of the data.
     γ_+ ∈ (max(½, α_K − 1), ½ + δ_♯),        β ∈ (γ_+ − ½, δ_♯),        η ∈ (0, ½ + δ_♯ − γ_+),
 
 possible as α_K − 1 < ½ + δ_♯; then γ_+ < ¾ < 1 and β > 0. As in the proof of [[cor:gd-r5-3]] at this β, with
-[[thm:gd-r4-3]] (some p ∈ (½ + β, min(3/2, q_ḣ − 1)), which is nonempty as q_ḣ − 1 > ½ + 2γ_Υ), b_+ := ½ + β and b_I ∈
-(b_+, p): Y := χ(t^♭_*)Z_1 ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b), and χ′Y is the forward solution of f := χ′J_h + [□, χ′]Y.
-Put f_(≥2) := Π_cl f; its forward solution is Π_cl(χ′Y) ([[lem:gd-r8-2]] (b)). f vanishes near ℐ⁺, so every w_I is
-allowed. χ′J_h has ι⁺-order 5/2 + δ_♯ − η > γ_+ + 2 and K⁺-order w − η > 2 + ε_t − η > α_K ([[prop:gd-r3-2]] with some β′
-∈ (0, δ_♯ − η), which exists as η < ½ + δ_♯ − γ_+ < δ_♯; and w − η > 2 − ¼ > 3/2 + δ_♯ > α_K, as η < δ_♯ < ¼); [□, χ′]Y ∈
-H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+; and Π_cl preserves these classes ([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the
-hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every
-derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1, so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) +
-ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2; and |h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
+[[thm:gd-r4-3]] (some p ∈ (½ + β, min(3/2, q_ḣ − 1)), which is nonempty as q_ḣ − 1 > ½ + 2γ_Υ), b_+ := ½ + β and
+b_I ∈ (b_+, p): Y := χ(t^♭_*)Z_1 ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b), and χ′Y is the forward solution of
+f := χ′J_h + [□, χ′]Y. Put f_(≥2) := Π_cl f; its forward solution is Π_cl(χ′Y) ([[lem:gd-r8-2]] (b)). f vanishes near
+ℐ⁺, so every w_I is allowed. χ′J_h has ι⁺-order 5/2 + δ_♯ − η > γ_+ + 2 and K⁺-order w − η > α_K: [[prop:gd-r3-2]]
+applies with some β′ ∈ (0, δ_♯ − η), which exists as η < ½ + δ_♯ − γ_+ < δ_♯; and w − η > 2 − ¼ > 3/2 + δ_♯ > α_K,
+as w > 2 + ε_t and η < δ_♯ < ¼. [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+, and Π_cl preserves these classes
+([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives
+Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1,
+so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) + ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2;
+and |h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
 
 **Theorem {#thm:harmonic-rate}** (The harmonic-gauge representative and its rate.) Let (γ̇, k̇) be data in the class of
 [[cor:viii-2-3]], ġ its linear solution and ṁ its mass change, and let ġ_H = ġ + ℒ_Zg be the representative of

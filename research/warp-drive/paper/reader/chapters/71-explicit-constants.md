@@ -326,8 +326,27 @@ each. So l₀ = 1 + n_ι + 2(n_K + ⌊β_K⌋). *Part (1), general E_I.* χ_Ku c
 K-weight is raised to a non-integer β′_K in (B, ⌊B⌋ + 1), so ⌊β′_K⌋ = ⌊B⌋; R_Iu costs n_I, the case E_I = ∅ at the
 weight β′_K costs 1 + n_ι + 2⌊B⌋, and the integrations from scf cost n_I. The larger of the two gives
 [[eq:ec-fourier-loss]] (1). *Part (2).* With E_K = ∅, (T3) costs ℓ_F, R_tf costs n_ι, and [[lem:iii-a-1-3]] at ι
-costs nothing more; for general E_K, R_zf costs n_K and [[lem:iii-a-1-3]] at K nothing more. This gives
-[[eq:ec-fourier-loss]] (2). ∎
+costs nothing more; for general E_K, R_zf costs n_K and [[lem:iii-a-1-3]] at K nothing more. The harmless terms that
+the proof sets aside cost nothing more. The factors of R_tf commute with one another and with 1_(±σ>0), and each
+differs from its value on functions of x only through σ∂_σ, with σ∂_σ(ψ(σ)w) = ψσ∂_σw + (σ∂_σψ)w; so
+R_tf(χ(σ)w) − χ(σ)R_tf w is a sum of terms ((σ∂_σ)^mχ)(σ)Qw, m ≥ 1, with Q a product of at most n_ι − 1 of the
+factors, and likewise for R_zf with at most n_K − 1. As χ = 1 near [−½, ½] and supp χ is a compact subset of (−1, 1),
+each (σ∂_σ)^mχ, m ≥ 1, is supported in a compact subset of {½ < |σ| < 1}. So such a term, with w = v^± on each side,
+vanishes near tf and zf: it lies in the space of (T3) at the weights (β_scf, β_ι − 1, ((0, 0), β_K − 1)), with
+σ-Taylor coefficients 0, at an order at least one more than that of the main term R_tf v^±, resp. R_zf v^±, and it
+is its own product with a cut-off in C^∞_c((−1, 1)) equal to 1 near [−½, ½] and near supp χ. (T3) at these weights
+gives its inverse transform the weights (min(β_scf, β_ι) − ε, β_ι, β_K), which contain the target weights of
+[[eq:iii-a-4-5]], with the loss ℓ_F; so it reaches the order of the main term, which loses ℓ_F, resp. n_ι + ℓ_F,
+after R_tf, resp. R_zf. This gives [[eq:ec-fourier-loss]] (2).
+
+(h) In the proof of [[lem:iii-i2-3-1]], the piece f_2 comes from (1 − χ_scf)ℱf, which vanishes near scf, by
+[[prop:ii-g1-3-5]] (1) with the scf-weight taken at least β_ι + 1 and the tf- and K-weights β_ι + 1 and β_K + 1 of
+[[eq:iii-i2-3-3]]; its loss is ⌈(max(β_ι + 1 − β_scf, β_K + 1) + ε − ½)_+⌉ = ⌈(β_K + ½ + ε)_+⌉, as
+β_ι + 1 − β_scf ≤ 0 < β_K + 1. The piece f_1 comes from ℱf_1 = ρ^(β_I)|σ|^γ w by [[prop:ii-g1-2-8]] (2) at
+β = γ + 1, which takes X^(j+ℓ_+(β),γ) to H^(j,β)_b; with the b-vector fields of X̄ taking the remaining
+k − j derivatives, this costs ℓ_+(γ + 1) = ⌈γ + ½⌉, as γ > 0. The same proof needs ℓ ≥ 1 for the bound
+|ℱf_1(σ)| ≤ C|σ|^γ, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrations of [[lem:iii-i2-2-1]] and
+[[lem:iii-a-1-2]] and the multiplication by χ, keeps the order k. This is [[eq:ec-moment-loss]]. ∎
 
 **Remark {#rem:ec-other-losses}** (The other elementary losses.) The remaining elementary losses of
 [[lem:iii-j2-2-1]] are fixed in its statement: 0 for finite-dimensional maps and for the integrations along faces of
