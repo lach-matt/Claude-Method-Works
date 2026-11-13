@@ -26,12 +26,12 @@ eq:ii-a-2-2	docket68/n1star/proof5/PART-II-A-SETUP.md:287	II.A (2.2)
 sec:ii-a-2-6	docket68/n1star/proof5/PART-II-A-SETUP.md:294	II.A section 2.6	
 lem:ii-a-2-10	docket68/n1star/proof5/PART-II-A-SETUP.md:296	II.A Lemma 2.10	
 lem:ii-a-2-11	docket68/n1star/proof5/PART-II-A-SETUP.md:321	II.A Lemma 2.11	
-sec:ii-a-3	docket68/n1star/proof5/PART-II-A-SETUP.md:343	II.A section 3	quoted [SBG] = [Hin26d] black box (S1)-(S11) as a numbered list; pages added from arXiv:2408.06651v1 (printed page = PDF page)
+sec:ii-a-3	docket68/n1star/proof5/PART-II-A-SETUP.md:343	II.A section 3	quoted [SBG] = [Hin26d] black box (S1)-(S11) as a numbered list; pages added from arXiv:2408.06651v1 (printed page = PDF page); F3-S04: (S15) added ([Hin26d] Prop 2.3 with (2.3), (2.5) pp. 19-20; Lemma 3.42 and proof p. 51; p. 52; proof of Prop 4.22 p. 75), quoted from arXiv v1; list cited as (S1)-(S15)
 sec:ii-a-4	docket68/n1star/proof5/PART-II-A-SETUP.md:448	II.A section 4	
 sec:ii-a-4-1	docket68/n1star/proof5/PART-II-A-SETUP.md:450	II.A section 4.1	
 sec:ii-a-4-2	docket68/n1star/proof5/PART-II-A-SETUP.md:482	II.A section 4.2	
 eq:ii-a-4-1	docket68/n1star/proof5/PART-II-A-SETUP.md:495	II.A (4.1)	
-lem:ii-a-4-1	docket68/n1star/proof5/PART-II-A-SETUP.md:500	II.A Lemma 4.1	
+lem:ii-a-4-1	docket68/n1star/proof5/PART-II-A-SETUP.md:500	II.A Lemma 4.1	F3-S04: truncation cited by (S15); the residual change lies in the subalgebra of (S10)
 sec:ii-a-4-3	docket68/n1star/proof5/PART-II-A-SETUP.md:516	II.A section 4.3	
 sec:ii-a-5	docket68/n1star/proof5/PART-II-A-SETUP.md:523	II.A section 5	
 sec:ii-a-5-1	docket68/n1star/proof5/PART-II-A-SETUP.md:525	II.A section 5.1	F-S04 (R-S04 finding 3): Fourier transform e^(i sigma t), (S9) after sigma -> -sigma
@@ -59,7 +59,7 @@ def:ii-a-8-1	docket68/n1star/proof5/PART-II-A-SETUP.md:825	II.A Definition 8.1
 lem:ii-a-8-2	docket68/n1star/proof5/PART-II-A-SETUP.md:844	II.A Lemma 8.2	
 sec:ii-a-8-2	docket68/n1star/proof5/PART-II-A-SETUP.md:859	II.A section 8.2	
 def:ii-a-8-3	docket68/n1star/proof5/PART-II-A-SETUP.md:861	II.A Definition 8.3	
-sec:ii-a-8-3	docket68/n1star/proof5/PART-II-A-SETUP.md:877	II.A section 8.3	
+sec:ii-a-8-3	docket68/n1star/proof5/PART-II-A-SETUP.md:877	II.A section 8.3	F3-S04: Cut-offs cite (S15) for d_B, Lemma 3.42 and (2.3); truncated operators stay in the subalgebra of (S10) (p. 75), so [[eq:ii-a-4-1]] and Lemma 8.4 (a) apply; (R3) subword order reversed (R3-S04 n1)
 lem:ii-a-8-4	docket68/n1star/proof5/PART-II-A-SETUP.md:893	II.A Lemma 8.4	
 sec:ii-a-8-4	docket68/n1star/proof5/PART-II-A-SETUP.md:936	II.A section 8.4	
 lem:ii-a-8-5	docket68/n1star/proof5/PART-II-A-SETUP.md:938	II.A Lemma 8.5	F-S04 (R-S04 finding 1): (b) proved by the commutator expansion eq:ii-a-comm-split, index d_0(s, s_0) independent of B, B#; (a) closed graph unchanged
@@ -100,7 +100,7 @@ lem:ii-a1-4-1	docket68/n1star/proof5/PART-II-A2-STANDARD.md:425	II.A1 Lemma 4.1	
 eq:ii-a1-4-2	docket68/n1star/proof5/PART-II-A2-STANDARD.md:443	II.A1 (4.2)	
 eq:ii-a1-4-3	docket68/n1star/proof5/PART-II-A2-STANDARD.md:450	II.A1 (4.3)	
 eq:ii-a1-4-4	docket68/n1star/proof5/PART-II-A2-STANDARD.md:463	II.A1 (4.4)	
-lem:ii-a1-4-2	docket68/n1star/proof5/PART-II-A2-STANDARD.md:510	II.A1 Lemma 4.2	F-S04: localisers in the hypotheses; parametrix step with B_0 = Op(b_0)Phi_0
+lem:ii-a1-4-2	docket68/n1star/proof5/PART-II-A2-STANDARD.md:510	II.A1 Lemma 4.2	F-S04: localisers in the hypotheses; parametrix step with B_0 = Op(b_0)Phi_0; F3-S04: G_j are truncated quantizations of f(theta)g_j, auxiliary operators of (R1) for G and E; the step from |G_(j-1)Lu| to |GLu| written with chi_* of (R2) (R3-S04 n3)
 eq:ii-a1-4-5	docket68/n1star/proof5/PART-II-A2-STANDARD.md:520	II.A1 (4.5)	
 sec:ii-a1-5	docket68/n1star/proof5/PART-II-A2-STANDARD.md:543	II.A1 section 5	
 sec:ii-a1-5-1	docket68/n1star/proof5/PART-II-A2-STANDARD.md:545	II.A1 section 5.1	
@@ -110,14 +110,14 @@ sec:ii-a1-5-2	docket68/n1star/proof5/PART-II-A2-STANDARD.md:610	II.A1 section 5.
 prop:ii-a1-5-3	docket68/n1star/proof5/PART-II-A2-STANDARD.md:612	II.A1 Proposition 5.3	F-S04: localisers paragraph; remainders bounded by a global norm; exact symbol identities
 eq:ii-a1-5-1	docket68/n1star/proof5/PART-II-A2-STANDARD.md:618	II.A1 (5.1)	
 sec:ii-a1-5-3	docket68/n1star/proof5/PART-II-A2-STANDARD.md:744	II.A1 section 5.3	
-thm:ii-a1-5-4	docket68/n1star/proof5/PART-II-A2-STANDARD.md:746	II.A1 Theorem 5.4	statement at II.A1 746-756 with II.A 1144-1166 ((L4), corrected hypotheses); F-S04: index paragraph; chi_* (finding 10); perturbation sentence (nit n7)
+thm:ii-a1-5-4	docket68/n1star/proof5/PART-II-A2-STANDARD.md:746	II.A1 Theorem 5.4	statement at II.A1 746-756 with II.A 1144-1166 ((L4), corrected hypotheses); F-S04: index paragraph; chi_* (finding 10); perturbation sentence (nit n7); F3-S04: only G_alpha is taken auxiliary here; the G_j are so in Lemma 4.2 itself
 rem:ii-a1-hypotheses	docket68/n1star/proof5/PART-II-A-SETUP.md:1540-1554; PART-II-A2-STANDARD.md:788-809	II.A (G6)-(G7), II.A1 (G6)-(G7)	private key; folded from the dropped tails (risk R7): the counterexample L = D_t and the reasons for the corrected hypotheses of Theorem 5.4
-sec:ii-a-9	docket68/n1star/proof5/PART-II-A-SETUP.md:1083	II.A section 9	
+sec:ii-a-9	docket68/n1star/proof5/PART-II-A-SETUP.md:1083	II.A section 9	F3-S04: Choosing auxiliary operators restricts O to {theta > 3c/4} (R3-S04 n2)
 sec:ii-a-9-1	docket68/n1star/proof5/PART-II-A-SETUP.md:1121	II.A section 9.1	(L3)-(L4) recalled as statements of thm:ii-a1-3-1 and thm:ii-a1-5-4; "standing inputs" sentence replaced by the citation
 sec:ii-a-9-2	docket68/n1star/proof5/PART-II-A-SETUP.md:1168	II.A section 9.2	
 prop:ii-a-9-1	docket68/n1star/proof5/PART-II-A-SETUP.md:1170	II.A Proposition 9.1	
 eq:ii-a-9-1	docket68/n1star/proof5/PART-II-A-SETUP.md:1175	II.A (9.1)	
-prop:ii-a-9-2	docket68/n1star/proof5/PART-II-A-SETUP.md:1207	II.A Proposition 9.2	
+prop:ii-a-9-2	docket68/n1star/proof5/PART-II-A-SETUP.md:1207	II.A Proposition 9.2	F3-S04: kernel ranges grow by the room of each level, harmlessly (R3-S04 minor 2); the bound of |BV_ju| names the cut-off chi_1 of (R3) (R3-S04 minor 3)
 eq:ii-a-9-2	docket68/n1star/proof5/PART-II-A-SETUP.md:1212	II.A (9.2)	
 eq:ii-a-9-3	docket68/n1star/proof5/PART-II-A-SETUP.md:1216	II.A (9.3)	
 sec:ii-a-9-3	docket68/n1star/proof5/PART-II-A-SETUP.md:1249	II.A section 9.3	
