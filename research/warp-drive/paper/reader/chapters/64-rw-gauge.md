@@ -843,7 +843,7 @@ the null part Φ_n = Φ for n large, by (iii); and by (iii) the limit is Φ on �
     Ě^N_Ψ(Σ_w) = lim_n Ě^N_(Ψ_n)(Σ_w) ≤ C lim_n Ě^N_(Ψ_n)(Σ_0) = CĚ^N_Ψ(Σ_0) ≤ CI_Ψ(Σ_0),
 
 the last by Lemma 11 at Σ_0, a comparison of two quadratic forms in the data that passes to the limit. Likewise
-Ě^N_(Ψ_n−Ψ)(Σ_t) → 0 uniformly in t ≥ 0.
+Ě^N_(Ψ_n−Ψ)(Σ_s) → 0 uniformly in s ≥ 0.
 
 *Q(τ) = ∞.* For τ > 0 run (a)'s argument between the outgoing rays from (Σ_0, r_h + ε) and from (Σ_0, ρ_1), both of
 which carry no flux and stay in {r_h < r < R_H} until Σ_τ, so that Φ is smooth on the region between them. It gives
@@ -851,15 +851,15 @@ q_ε(0) ≤ e^(Cτ)(q_ε(τ) + C∫_0^τ G), q_ε the integral of (1 − v_Σ′
 G(w) ≤ C(1 + k²)²Ě^N_Ψ(Σ_w)/‖𝒴‖² ≤ C(1 + k²)²I_Ψ(Σ_0)/‖𝒴‖² by [[lem:rwg-cone]] and (iv), a bound independent of ε. As
 ε → 0, q_ε(0) → ∞, so q_ε(τ) → ∞, and q_ε(τ) ≤ Q(τ).
 
-*For smooth h.* Let χ ≥ 0 be smooth, not identically 0, with support in (0, t_0), 0 < t_0 < v_Σ(ρ_0′) − v_Σ(r_h), and
-let Φ̄_n := ∫χ(t)Φ_n∘φ_t dt and Φ̄ := ∫χ(t)Φ∘φ_t dt, φ_t the flow of T. The Φ̄_n are solutions smooth up to and
+*For smooth h.* Let χ ≥ 0 be smooth, not identically 0, with support in (0, s_0), 0 < s_0 < v_Σ(ρ_0′) − v_Σ(r_h), and
+let Φ̄_n := ∫χ(s)Φ_n∘φ_s ds and Φ̄ := ∫χ(s)Φ∘φ_s ds, φ_s the flow of T. The Φ̄_n are solutions smooth up to and
 including the horizon, and they converge to Φ̄ in every I_(XΨ)(Σ_0). Each T falls on χ: T^aΦ̄_n =
-(−1)^a∫χ^((a))(t)Φ_n∘φ_t dt, and the energy on Σ_0 of Φ_n∘φ_t − Φ∘φ_t is Ě^N_(Ψ_n−Ψ)(Σ_t), φ_t being an isometry that
-maps Σ_0 to Σ_t, so the energies of T^a(Φ̄_n − Φ̄) on Σ_0 are at most (∫|χ^((a))|)² sup_(0≤t≤t_0) Ě^N_(Ψ_n−Ψ)(Σ_t) → 0 by
+(−1)^a∫χ^((a))(s)Φ_n∘φ_s ds, and the energy on Σ_0 of Φ_n∘φ_s − Φ∘φ_s is Ě^N_(Ψ_n−Ψ)(Σ_s), φ_s being an isometry that
+maps Σ_0 to Σ_s, so the energies of T^a(Φ̄_n − Φ̄) on Σ_0 are at most (∫|χ^((a))|)² sup_(0≤s≤s_0) Ě^N_(Ψ_n−Ψ)(Σ_s) → 0 by
 (iv). The rotations act within the mode and multiply these energies by λ or λ² ([[lem:rwg-cone]]). The r^p energies of
-the differences on the null part of Σ_0 vanish for n large, as Φ_n = Φ on the null parts of the Σ_t, 0 ≤ t ≤ t_0, by
-(iii). Near the horizon on Σ_0, φ_t maps the points of Σ_0 into {v < v_Σ(ρ_0′)} for 0 ≤ t ≤ t_0, where Φ = Φ_*, so there
-Φ̄ = (∫χ(t)e^(−σt) dt)Φ_*, a positive multiple of Φ_*: Q(0) = ∞ for Φ̄. The Q(0) of the Φ̄_n tend to ∞: for each ρ ∈
+the differences on the null part of Σ_0 vanish for n large, as Φ_n = Φ on the null parts of the Σ_s, 0 ≤ s ≤ s_0, by
+(iii). Near the horizon on Σ_0, φ_s maps the points of Σ_0 into {v < v_Σ(ρ_0′)} for 0 ≤ s ≤ s_0, where Φ = Φ_*, so there
+Φ̄ = (∫χ(s)e^(−σs) ds)Φ_*, a positive multiple of Φ_*: Q(0) = ∞ for Φ̄. The Q(0) of the Φ̄_n tend to ∞: for each ρ ∈
 (r_h, R_H) the part of Q(0) over [ρ, R_H] converges, as there f∂_r²Φ = WΦ − 2∂_r(TΦ) − f′∂_rΦ with f ≥ f(ρ) > 0 expresses
 u_2 through first derivatives of Φ and TΦ, which converge in L²; and for Φ̄ that part tends to ∞ as ρ → r_h. A bound of
 the left side of [[eq:np-10-1-iv-b]] by the data would bound the Q(0) of the Φ̄_n by (a), the perturbations built from

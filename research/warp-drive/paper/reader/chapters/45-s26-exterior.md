@@ -1075,8 +1075,12 @@ satisfy
     Lw = f₂ := (1 − χ)f − [L, χ]ġ_N,     w = 0 on {τ′ < ⅛},
 
 as ġ = ġ_N on Ω_N (uniqueness in [[lem:iv2-2-2]]). f₂ vanishes on {τ′ < ⅛}, and [L, χ] ∈ ρ²Diff¹_b is supported in
-{⅛ ≤ τ′ ≤ ¼}, where ρ_I ≥ ½, so ‖[L, χ]ġ_N‖_(H^(k+3,α₀+2,(−′,ℓ^♭_I+1))_b) ≤ C‖ġ_N‖_(H^(k+4,α₀)_b). Put u := ρ^(−3/2)w;
-then L_gu = f_(2,♭) := 2ρ_Iρ^(−7/2)f₂ ∈ H^(k+3,(a₀,2β))_b in every slot ([[sec:iv2-0]]).
+{⅛ ≤ τ′ ≤ ¼}, where ρ_I ≥ ½. The argument for [[eq:s26-commutator]], with χ in place of χ_c, L in place of L_g and the
+factor ρ² of [L, χ] giving the weight α₀ + 2, gives
+
+    ‖[L, χ]ġ_N‖_(H^(k+3,α₀+2,(−′,ℓ^♭_I+1))_b) ≤ C(‖ġ_N‖_(H^(k+4,α₀)_b) + ‖h‖_(H^(k+4))‖ġ_N‖_(H^(4,α₀)_b)).
+
+Put u := ρ^(−3/2)w; then L_gu = f_(2,♭) := 2ρ_Iρ^(−7/2)f₂ ∈ H^(k+3,(a₀,2β))_b in every slot ([[sec:iv2-0]]).
 
 *Step 3 (growth).* Fix ε := ¼(½ − β) > 0 and γ₀ := β − 1 + 2ε < 0; then γ₀ < min(a₀, 0), as a₀ > β > γ₀.
 [[lem:iv2-2-3]] with m := k + 3 and α_I := γ₀ gives u on Ω⁺₁, with [[eq:iv2-2-2]], and u = 0 on {τ′ < ⅛}, so u is the
@@ -1157,10 +1161,30 @@ Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = �
 (1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So
 u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
 
-*The estimate.* Each step is bounded by the previous ones: Step 1 by [[eq:iv2-2-1]], Step 3 by [[eq:iv2-2-2]], Step 4
-by [[eq:iv2-2-5]] and [[eq:iv2-2-5-low]], Step 5 by the constants of [[lem:iv2-1-2]]. The tame terms carry ‖h‖ at most
-three orders above the order of the norm on the right ([[eq:iv2-2-1]], [[eq:iv2-2-2]], [[eq:iv2-2-5]]), and the lower
-norms of f and of the data are of order at most 8; this gives [[eq:iv2-2-3]].
+*The estimate.* Write |h|_j := ‖h‖_(H^(j,ℓ^♭₀,(−,ℓ^♭_I))_b) and N_j := N(f, ġ₀, ġ₁; j), and let C depend only on k,
+α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, so that |h|_j ≤ C for j ≤ 8. Each step is bounded by the previous
+ones; every lower norm is bounded by the same steps at a low order, where the tame factors are |h|_j with j ≤ 7.
+
+- Step 1, by [[eq:iv2-2-1]] at s = k + 3 (for k = 0, its clause for s ≤ 3):
+  ‖ġ_N‖_(H^(k+4,α₀)_b) ≤ C(N_(k+4) + |h|_(k+5)N_5); at s = 3, ‖ġ_N‖_(H^(4,α₀)_b) ≤ CN_4.
+- Step 2, by the bound for [L, χ]ġ_N: ‖f_(2,♭)‖_(H^(k+3,(a₀,2β))_b) ≤ C(N_(k+4) + ‖ġ_N‖_(k+4) + |h|_(k+4)‖ġ_N‖_4)
+  ≤ C(N_(k+4) + |h|_(k+5)N_5); at k = 1, ‖f_(2,♭)‖_(H^(4,(a₀,2β))_b) ≤ CN_5.
+- Step 3, by [[eq:iv2-2-2]] at m = k + 3 (for k = 0, its clause for m = 3): ‖u₂‖_(H^((1;k+3),(a₀,2γ₀))_(e,b;b)), the
+  norm of u in H^(k+4,a₀)_b(Ω⁺ ∩ {ρ_I > c/2}), and, by the proof of [[lem:iv2-2-3]], those of u₁ in H^(k+4,a₀)_b(Ω′)
+  and of f₃ in H^(k+3,(a₀,2β))_b are at most C(‖f_(2,♭)‖_(k+3) + |h|_(k+6)‖f_(2,♭)‖_4) ≤ C(N_(k+4) + |h|_(k+6)N_5); at
+  k = 1, ‖u₂‖_(H^((1;4),(a₀,2γ₀))_(e,b;b)) ≤ CN_5.
+- The first integration, by [[eq:iv2-2-5]] in H^((1;m)) with m = k + 3 (for k = 0, [[eq:iv2-2-5-low]]) and the
+  constants of [[lem:iv2-1-2]]: ‖u₂‖_(H^(k+2,(a₀,2γ₁))_b) ≤ C(‖f₃‖_(k+2) + ‖u₂‖_((1;k+3)) + |h|_(k+4)‖u₂‖_((1;4)))
+  ≤ C(N_(k+4) + |h|_(k+6)N_5). At k = 3 this is ‖u₂‖_(H^(5,(a₀,2γ₁))_b) ≤ C(N_7 + |h|_9N_5).
+- The second integration, by [[eq:iv2-2-5]] at j = k + 2 (for k ≤ 2, [[eq:iv2-2-5-low]]) and [[lem:iv2-1-2]]: the
+  norms of u_(2,j) (j ≠ 6), u^((0)) and ũ₆ in 𝒴^k_(a₀) are at most C(‖f₃‖_k + ‖u₂‖_(H^(k+2,(a₀,2γ₁))_b) + T), with
+  T := 0 for k ≤ 2 and T := |h|_(k+2)‖u₂‖_(H^(5,(a₀,2γ₁))_b) ≤ C|h|_(k+2)(N_7 + |h|_9N_5) for k ≥ 3. For 3 ≤ k ≤ 6,
+  |h|_(k+2) ≤ C, so T ≤ C(N_7 + |h|_9N_5) ≤ C(N_(k+4) + |h|_(k+7)N_5). For k ≥ 7, |h|_(k+2)N_7 ≤ |h|_(k+7)N_8, and
+  [[eq:s26-interpolation-product]] with s₀ := 8, b := 9 and a := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3)
+  ≤ C|h|_(k+3); so T ≤ C(N_(k+4) + |h|_(k+7)N_8).
+
+By Step 6, ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b) is at most C times the sum of these bounds, which is at most
+C(N_(k+4) + |h|_(k+7)N_8): this is [[eq:iv2-2-3]].
 
 *The estimate with C depending on h.* Let k ≥ 1. The lower norms in the tame terms are of orders 4, 5 and 4 for f, ġ₀
 and ġ₁ in [[eq:iv2-2-1]] at s = k + 3, of order 4 for f_(2,♭) in [[eq:iv2-2-2]] at m = k + 3, and of orders (1;4) and 5
