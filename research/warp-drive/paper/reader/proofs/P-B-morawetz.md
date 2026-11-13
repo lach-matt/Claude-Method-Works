@@ -328,7 +328,7 @@ the row's multiplier; B is even in σ and increasing in |σ|, and its values at 
 | A′ | V_(a,9/4), a ≥ 15/4 | F_A | 0.0756 | 22.16 | 41.46 | 92.09 | 278.11 |
 | B | V_(a,b), a ≥ 35/4, −7/4 ≤ b ≤ 9/4 | F_B | 0.211 | 12.85 | 19.51 | 40.27 | 120.24 |
 | B′ | V_(a,9/4), a ≥ 35/4 | F_B | 0.224 | 12.44 | 18.61 | 38.04 | 113.30 |
-| Z | V_(a,9/4), a ≥ 35/4 | F_2 | 0.139 | 21.93 | 25.97 | 40.17 | 103.43 |
+| E | V_(a,9/4), a ≥ 35/4 | F_2 | 0.139 | 21.93 | 25.97 | 40.17 | 103.43 |
 | C | V_(a,b), a ≥ 63/4, −27/4 ≤ b ≤ 9/4 | F_C | 0.325 | 13.11 | 15.25 | 23.64 | 62.09 |
 | C3 | V_(a,9/4), a ≥ 63/4 | F_C | 0.352 | 12.59 | 14.50 | 22.10 | 57.43 |
 | C4 | V_(a,9/4), a ≥ 99/4 | F_C | 0.559 | 9.94 | 10.92 | 15.15 | 36.66 |
@@ -339,7 +339,7 @@ the row's multiplier; B is even in σ and increasing in |σ|, and its values at 
 | T2 | V_V, l = 2 | F_T | 0.19 | 12.96 | 20.98 | 45.44 | 138.20 |
 
 At the harmonic l the scalar wave is V_(a,9/4) with a = κ + 3/4, which is 15/4, 35/4, 63/4, 99/4, 143/4 and 195/4 at
-l = 1, …, 6; so rows A′, B′ and Z, C3, C4, C5 and C6 serve every l ≥ 1, 2, 3, 4, 5 and 6 respectively.
+l = 1, …, 6; so rows A′, B′ and E, C3, C4, C5 and C6 serve every l ≥ 1, 2, 3, 4, 5 and 6 respectively.
 
 *Proof.* The hypotheses. F_2 has F_z = 1 − z² ≥ 0. For F_A, F_B, F_C and F_T the Bernstein coefficients of F_z on [−1, 1]
 (on [−1, 0] and [0, 1] for F_C) are positive ([[sec:tb-morawetz-monotone]]), so F_z > 0 on [−1, 1] by
@@ -351,13 +351,13 @@ give p_I and p_∞. For F_T, q = ½(1 − y)y^(5/2), whose derivative ¼y^(3/2)(
 The weights. By [[lem:morawetz-polynomial-weight]], W = ηG with G of [[eq:pb-weight-poly]], a polynomial in y for
 V = V_(a,b). [[sec:tb-morawetz-weights]] lists G at the corners A1 = (15/4, 5/4), A2 = (15/4, 9/4), B1 = (35/4, −7/4),
 B2 = (35/4, 9/4), C1 = (63/4, −27/4), C3 = (63/4, 9/4), C4 = (99/4, 9/4), C5 = (143/4, 9/4) and C6 = (195/4, 9/4) of
-their multipliers, G for F_2 at (35/4, 9/4) (Z2), G for F_T and V_V at l = 2, that is (35/4, −27/4) (T2), and, for V_S
+their multipliers, G for F_2 at (35/4, 9/4) (E2), G for F_T and V_V at l = 2, that is (35/4, −27/4) (T2), and, for V_S
 at l = 3, where p = 12 and H = 6(2 + y), the polynomial Π := 120(2 + y)³G (S3). Their Bernstein coefficients on the
 subintervals of [0, 1] listed in [[sec:tb-morawetz-positivity]] are positive, so each is positive on [0, 1] by
 [[lem:bernstein-lower-bound]], and W > 0 on ℝ. For F_A, F_B, F_2 and F_C, g = 0 and F(0) = 0, so G is nondecreasing in a
 and affine in b: in row A, for a ≥ 15/4 and 5/4 ≤ b ≤ 9/4, G is at least the smaller of its values at A1 and A2, on ℝ
-and on I; in the same way rows B and C reduce to the corners B1, B2 and C1, C3, and rows A′, B′, Z, C3, C4, C5 and C6
-to the single corners A2, B2, Z2, C3, C4, C5 and C6.
+and on I; in the same way rows B and C reduce to the corners B1, B2 and C1, C3, and rows A′, B′, E, C3, C4, C5 and C6
+to the single corners A2, B2, E2, C3, C4, C5 and C6.
 
 Row S4. Here κ ≥ 24, p = κ − 3 = 21 + t with t := κ − 24 ≥ 0, and H = H_0 + t with H_0 := 21 + 6y. Expanding,
 16H³G = Σ_(j≤4) c_j(y)t^j with the polynomials c_0, …, c_4 of [[sec:tb-morawetz-weights]]; c_4 = 32zF_C(z) ≥ 0 by
@@ -385,7 +385,7 @@ with the constants above, rounding up. ∎
 ### Every harmonic of the scalar wave {#sec:morawetz-harmonics}
 
 **Proposition {#prop:morawetz-harmonics}** (The scalar wave at every harmonic.) (i) For l ≥ 1 let B*_l(σ) be the least of
-B_l(σ) of [[prop:morawetz-resolvent-l-ge-1]] and the bounds B(σ) of the rows A′ (l ≥ 1), B′ and Z (l ≥ 2), C3 (l ≥ 3),
+B_l(σ) of [[prop:morawetz-resolvent-l-ge-1]] and the bounds B(σ) of the rows A′ (l ≥ 1), B′ and E (l ≥ 2), C3 (l ≥ 3),
 C4 (l ≥ 4), C5 (l ≥ 5) and C6 (l ≥ 6) of [[prop:morawetz-polynomial]], each taken when l is in its range. Then for every
 real σ ≠ 0, ‖χ_I R_l(σ) χ_I‖ ≤ B*_l(σ); B*_l is even in σ, increasing in |σ| and bounded as σ → 0; and for l ≥ 6,
 B*_l is at most the least of B_6 and the bound of row C6, which the line "every l ≥ 6" below evaluates.
@@ -409,7 +409,7 @@ At σ → 0 and |σ| = 1/2, 1, 2, 3 and 10, B*_l is at most:
 *Proof.* (i) By the last sentence of [[prop:morawetz-polynomial]], each listed row contains V_(κ+3/4,9/4) for the l in
 its range, and each bound is even in σ and increasing in |σ|, hence so is their least. For l ≥ 6, rows C6 and
 [[prop:morawetz-resolvent-l-ge-1]] give bounds independent of l. The entries come from row A′ at l = 1; from row B′ at
-l = 2, except at σ = 10, from row Z; from [[prop:morawetz-resolvent-l-ge-1]] at l = 3 for σ → 0 and |σ| = 1/2, and from
+l = 2, except at σ = 10, from row E; from [[prop:morawetz-resolvent-l-ge-1]] at l = 3 for σ → 0 and |σ| = 1/2, and from
 row C3 otherwise; and from rows C4, C5 and C6 at l = 4, 5 and every l ≥ 6. At |σ| = 1/2 and 2 they evaluate
 [[eq:pb-bound]] with the constants of those rows, rounding up.
 

@@ -1593,9 +1593,9 @@ identities of symbols, χ̃_(i+1) being 1 on supp a. So
 E_A has order 𝗋 − 1 + δ. The term Op(q) Σ a_jR_j has every order, by [[prop:ii-a1-2-4]] (a) and [[lem:ii-a-8-5]] (a)
 for the multiplications, R_j being residual. Below, A is B or one of the G_i, so Aχ = A, and Au = Aχu. Apply
 [[eq:ii-a1-3-1]] to χu ∈ H^(−N): L maps it to H^(−N−m) ([[lem:ii-a-8-6]] (a)), and all terms make sense once d_0 is
-large for the finitely many orders involved. Let χ_* be the cut-off of (R2) of [[sec:ii-a-8-3]]. As Lemma 8.4 (c) asks
-([[lem:ii-a-8-4]]), Gχ_* = G and G_iχ_* = G_i; no margin around these kernels is needed for that. And χ = 1 within D of
-supp χ_*, so ‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
+large for the finitely many orders involved. Let χ_* be the cut-off of (R2) of [[sec:ii-a-8-3]]. Then Gχ_* = G and
+G_iχ_* = G_i, which is all that [[lem:ii-a-8-4]] (c) asks of the cut-off: χ_* needs no margin of its own. And χ = 1
+within D of supp χ_*, so ‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
 
 *Localisation.* G_(i+1) = Op(χ̃_(i+1)) is microsupported in K_(i+1), and 1 − χ̃_(i+1) vanishes near K_i ⊃ supp a, so
 (I − G_(i+1))A ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]). I − G_(i+2) = Op(1 − χ̃_(i+2)) is microsupported in the support of
@@ -1607,7 +1607,9 @@ I = G_(i+2) + (I − G_(i+2)) after Op(q) and after E_A,
 
 By [[prop:ii-a1-2-4]] (e), with B_1 = G_(i+1), B_2 = I − G_(i+2) and the expressions Op(q) and E_A (whose terms with a
 residual factor R_j or R_A have every order directly), the third and fourth operators have every order; so has the
-fifth. By the support convention they may be applied to χ_*Lu, χu and χu. Hence, for every order 𝗋′,
+fifth. The identity is applied to χu, as Au = Aχu: the third operator then acts on Lχu ∈ H^(−N−m), and the fourth and
+fifth on χu, so these three terms are bounded by C‖χu‖_(−N). In the first two, G_(i+2)Lχu = G_(i+2)Lu and
+G_(i+2)χu = G_(i+2)u, as G_(i+2) is carried by χ. Hence, for every order 𝗋′,
 
     ‖Au‖_(𝗋′) ≤ C‖G_(i+2)Lu‖_(𝗋′+𝗋−m) + C‖G_(i+2)u‖_(𝗋′+𝗋−1+δ) + C‖χu‖_(−N),
 
@@ -1628,9 +1630,11 @@ changes. Variable orders enter only through the spaces, on which the operators o
 [[prop:ii-a1-2-4]] (a).
 
 *The index.* The regularity used is that of [[prop:ii-a1-2-4]] (a), (b) and (e), for the finitely many expressions and
-orders of the steps above (determined by m, 𝗌, N and J′, with δ = 1/2), and that of [[lem:ii-a-8-6]] (a) at
-(−N, m, N). By [[prop:ii-a1-2-4]] and [[lem:ii-a-8-6]], none of these numbers depends on B, G, L, 𝒫, N′, χ or the
-auxiliary K_i, χ̃_i, χ_*, which enter only the constants. So d_0 depends only on m, 𝗌 and N. ∎
+orders of the steps above (determined by m, 𝗌, N and J′, with δ = 1/2); that of [[lem:ii-a-8-5]] (a), for the
+multiplications by the a_j in Op(q) Σ_j a_jR_j, at the finitely many orders so determined; and that of
+[[lem:ii-a-8-6]] (a) at (−N, m, N). By [[prop:ii-a1-2-4]], [[lem:ii-a-8-5]] and [[lem:ii-a-8-6]], none of these numbers
+depends on B, G, L, 𝒫, N′, χ or the auxiliary K_i, χ̃_i, χ_*, which enter only the constants. So d_0 depends only on
+m, 𝗌 and N. ∎
 
 ### The positive commutator lemma {#sec:ii-a1-4}
 
