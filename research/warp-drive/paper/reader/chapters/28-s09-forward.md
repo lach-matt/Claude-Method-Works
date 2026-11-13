@@ -897,7 +897,9 @@ every P with (1) and (2) of that class and the stated smallness.
 
 This is [Hin26c, Theorem 11.1] in dimension 4 + 1. [Hin26c] states it with ℓ_+ > δ; the class of [[def:ii-c-3-1]] has
 ℓ_+ ≤ 1. The conditions of [Hin26c] are those of [[eq:ii-f1-1-3]], and the dimension enters through the densities
-([[cor:ii-f1-1-2]]) and through the indicial gap ([[rem:ii-f1-7-3]]).
+([[cor:ii-f1-1-2]]) and through the indicial gap ([[rem:ii-f1-7-3]]). In the theorem the time function t^♭ is built
+with the exponent ℓ = ℓ_I, the weight of the class; [[rem:ii-f1-7-4]] allows any exponent in [ℓ_I, ½], under one
+further smallness condition on the metric of P.
 
 **Corollary {#cor:ii-f1-1-2}** (The estimate with unweighted b-densities.) Put μ_b := |dt_* dx|/(t_* ⟨x⟩⁴), a smooth
 positive b-density on M̃ near Ω̄ ([[lem:ii-a-8-8]]), and
@@ -1568,7 +1570,7 @@ and by what was just shown its limit is u. Hence u^((j)) ⇀ u in X, and so in H
 H in H^(k−1,(α_I−ς,α_+−δ−ς,−ℵ−ς))_b(Ω_*; E)^(•,−) is compact, so u^((j)) → u in norm there (each subsequence has a
 norm-convergent subsequence, whose limit is the weak limit u). ∎
 
-### Three remarks {#sec:ii-f1-7}
+### Four remarks {#sec:ii-f1-7}
 
 **Remark {#rem:ii-f1-7-1}** (Relaxed ℵ-admissibility.) Let P_0 be ℵ-admissible with margin d_ℵ ≥ 0 (the relaxed version
 after [[def:ii-c-2-7]]), and put d̄_ℵ := ⌈d_ℵ⌉ ∈ ℕ₀. Then [[thm:ii-f1-1-1]] holds with d increased by d̄_ℵ, that is,
