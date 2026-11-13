@@ -117,16 +117,13 @@ positive multiple of x_I⁻⁸ |dt_* (dx_I/x_I) dω|, the weight 2α there is 2(
 L²(|dg|) = x_I^(2(α+2)) L²(|dt_* (dx_I/x_I) dω|). So the threshold α < −1/2 + p̄_1 of [[ch:s07]], with p̄_1 = S̄ for P_0
 and for the operators below ([[def:ii-c-3-5]]; [Hin26c, Remark 10.2]), is γ < 3/2 + S̄.
 
-The existence of solutions below uses one standard result on hyperbolic equations, which the appendix of results from the
-literature states with its page.
+The existence of solutions below uses one standard result on hyperbolic equations, [[thm:std-hormander-cauchy]], in
+the following case.
 
-*The Cauchy problem* ([Hö85, Theorem 23.2.4] [[pending:issue-1]]). Let Q be a second-order operator on ℂ^N-valued
-functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski metric ḡ, and with smooth
-lower-order coefficients, and let t be the Minkowski time. For s ∈ ℝ, t_0 ∈ ℝ and f ∈ H^(s−1)_loc(ℝ^(1+4)) with supp f ⊂
-{t ≥ t_0} there is u ∈ H^(s)_loc(ℝ^(1+4)) with Qu = f and supp u ⊂ {t ≥ t_0}. [Hö85, Theorem 23.2.4] states this for a
-scalar operator of order m, strictly hyperbolic with respect to the level sets of a time function, with u ∈ H^(s+m−1)_loc
-for f ∈ H^(s)_loc. For Q the energy estimates are the scalar ones applied to each component, the coupling between the
-components being of lower order.
+*The Cauchy problem* ([[thm:std-hormander-cauchy]] on ℝ^(1+4) with the Minkowski metric). Let Q be a second-order
+operator on ℂ^N-valued functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski
+metric ḡ, and with smooth lower-order coefficients, and let t be the Minkowski time. For s ∈ ℝ, t_0 ∈ ℝ and
+f ∈ H^(s−1)_loc(ℝ^(1+4)) with supp f ⊂ {t ≥ t_0} there is u ∈ H^(s)_loc(ℝ^(1+4)) with Qu = f and supp u ⊂ {t ≥ t_0}.
 
 **Lemma {#lem:ii-f-6-3}** (Control at 𝓘⁺ of the extension.) Let s′ ∈ ℝ, T ∈ ℝ, and g ∈ H^(s′−1)_c with support in
 {T ≤ t_* ≤ T + 2, 2 ≤ r ≤ 3}. There is a unique u on {t_* < T + 2}, vanishing for t_* < T and for r < 1, with
@@ -266,11 +263,11 @@ scalings (1 + ρ_K|σ|)⁻¹, ⟨σ⟩⁻¹, x_I⟨σ⟩⁻¹ of [[sec:ii-a-6-2]
 differ from ρ_K^c by factors in [h^ν, h^(−ν)], as ρ_tf = h + ρ_K, ρ_sf = h/(h + ρ_K) and ρ_cf = ρ_K/(h + ρ_K)
 ([[sec:ii-f-2-1]]).
 
-The support lemma below uses the Paley–Wiener–Schwartz theorem [Hö83, Theorem 7.3.1], which the appendix of results
-from the literature states with its page: *a distribution u on ℝ with compact support in an interval [a, b] has an
-entire Fourier–Laplace transform û(ζ) = ∫ e^(−itζ) u(t) dt with |û(ζ)| ≤ C (1 + |ζ|)^ν e^(H(Im ζ)) for some C, ν, where
-H(η) := sup_(t∈[a,b]) tη is the supporting function of [a, b]; conversely, an entire function with such a bound is the
-Fourier–Laplace transform of a distribution supported in [a, b].*
+The support lemma below uses the Paley–Wiener–Schwartz theorem, [[thm:std-paley-wiener]], in dimension one: *a
+distribution u on ℝ with compact support in an interval [a, b] has an entire Fourier–Laplace transform û(ζ) =
+∫ e^(−itζ) u(t) dt with |û(ζ)| ≤ C (1 + |ζ|)^ν e^(H(Im ζ)) for some C, ν, where H(η) := sup_(t∈[a,b]) tη is the
+supporting function of [a, b]; conversely, an entire function with such a bound is the Fourier–Laplace transform of a
+distribution supported in [a, b].*
 
 **Lemma {#lem:ii-f-6-4}** (Support.) Let m ∈ ℤ, T > 0, and let w ∈ H^(m,(2γ_I,γ_+,γ_cf))_ebe have τ-support in a
 compact subset of (0, ∞), with N_ι⁺(P_0) w ∈ H^(m−1,(2γ_I+2,γ_++2,γ_cf−2))_ebe supported in {t_* ≥ T}. Then w is
@@ -298,7 +295,7 @@ Fourier transform ∫ e^(iσt) ⟨w, φ⟩ dt, as τ^(−iσ) = e^(iσt). It is 
 −log τ_1], it is bounded by C ⟨σ⟩^(ν_1) e^((log τ_1) Im σ) for Im σ ≤ 0 (|e^(iσt)| = e^(−t Im σ), largest at t =
 −log τ_1). With the last bound for Im σ ≥ 0 it is bounded by C ⟨σ⟩^(ν_1) e^(H(Im σ)), H(η) := sup{−tη : t ∈ [log T,
 −log τ_1]}; this is the supporting function of that interval for the transform σ ↦ û(−σ), û(ζ) = ∫ e^(−itζ) u dt. By
-the Paley–Wiener–Schwartz theorem the support lies in {t ≥ log T} = {t_* ≥ T}. As φ is arbitrary, supp w ⊂ {t_* ≥ T}. ∎
+the Paley–Wiener–Schwartz theorem ([[thm:std-paley-wiener]]) the support lies in {t ≥ log T} = {t_* ≥ T}. As φ is arbitrary, supp w ⊂ {t_* ≥ T}. ∎
 
 *Proof of [[prop:ii-f-6-2]] (2).* The proof uses only the integer order s″ := ⌊inf 𝗌⌋, and not part (1).
 

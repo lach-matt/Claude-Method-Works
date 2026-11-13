@@ -561,7 +561,7 @@ Q̃_ε := χ̃Q_ε + (1 − χ̃)c_Q Id ≥ c_Q Id. Define
 Both are smooth: the first by [[lem:i-a-2-2]]; the second because ψ′(ς_Rq̃) ≠ 0 only where q̃ ≥ (2ς_R)⁻¹, on which
 𝖧q̃/q̃ ≥ c′. They satisfy b_ε^(∗h) = b_ε and
 
-    ±ρ_∞ σ_(2s′)(C_ε) = −ρ_∞(b_ε² + b_(R,ε)² Id) + r_ε,
+    ±ρ_∞ σ_(2s′)(C_ε) = −ρ_∞(b_ε² + b_(R,ε)² Id) + r_ε Id,
 
 using 2ς_Rψ_Rψ_R′𝖧q̃ = −2(𝖧q̃/q̃)(−xψψ′)|_(x = ς_Rq̃). Let B_ε := ½(Op(b_ε) + Op(b_ε)^(∗h)) and
 B_(R,ε) := Op(b_(R,ε))Id. By [[lem:i-a-2-1]], ±C_ε = −B_ε^(∗h)B_ε − B_(R,ε)^(∗h)B_(R,ε) + R_ε with R_ε bounded in
@@ -577,7 +577,7 @@ do not depend on σ. [[lem:i-a-3-2]] gives [[eq:i-a-4-2]].
 (2) For P̂(σ)^(∗h): Re_h(P̂^(∗h)) = P̂_R and Im_h(P̂^(∗h)) = −P̂_I. Take the target order s̃ := 1 − s′ (s′ ≥ s) and the
 same commutant with s̃ in place of s′. The same symbol calculus gives
 
-    ±ρ_∞σ(C_ε) = ρ_∞^(−2s̃+1)φ_ε²χ_∞²[ψ_R²Q^♭_ε + 2ς_Rψ_Rψ_R′𝖧q̃] + r_ε,
+    ±ρ_∞σ(C_ε) = ρ_∞^(−2s̃+1)φ_ε²χ_∞²[ψ_R²Q^♭_ε + 2ς_Rψ_Rψ_R′𝖧q̃ Id] + r_ε Id,
 
 where
 
@@ -745,8 +745,9 @@ with R_ε bounded in Ψ^(−∞,2𝗋′−1). By [[lem:i-a-2-3]], K = L^(∗h)L
 
 the last term bounded in Ψ^(−∞,−∞), and F_ε := B_(R,ε)^(∗h)B_(R,ε) + 2σ₁Ǎ_εKǍ_ε satisfies
 ⟨F_εw, w⟩ ≥ −C‖w‖²_(−𝐌) for Schwartz w, as σ₁ ≥ 0. This is [[eq:i-a-3-1]] with ς = ε₀. The remaining hypotheses (Z_ε,
-Y_ε, convergence) are verified as in [[prop:i-a-4-2]], with z_ε := ρ^(−1/2)Q̃_ε^(−1/2), bounded in
-S^(−∞,1/2) = S^(−½(𝐦−𝟏)), as 𝐦 − 𝟏 = (1, −1). [[lem:i-a-3-2]] in the decay component gives [[eq:i-a-4-8]].
+Y_ε, convergence) are verified as in [[prop:i-a-4-2]], with z_ε the product of ρ^(−1/2)Q̃_ε^(−1/2) and a cut-off to
+finite frequencies equal to 1 on supp ǎ_ε. Then z_εb_ε = ǎ_ε Id, and z_ε is bounded in S^(−∞,1/2) ⊂ S^(−½(𝐦−𝟏)), as
+𝐦 − 𝟏 = (1, −1). [[lem:i-a-3-2]] in the decay component gives [[eq:i-a-4-8]].
 
 (2) For P^(∗h) the imaginary part is −P_I. With target decay order 𝗋̃ := −𝗋′ − 1, the same commutant and symbol calculus
 give, at R_(σ₀,in),
@@ -881,8 +882,10 @@ uniformly. The cut-off term is +8ς_R|η|²(−ψ_Rψ_R′) ≥ 0. On supp ψ_Σ
 is smooth. So C_ε = −B_ε^(∗h)B_ε + E_ε^(∗h)E_ε − F_ε + R_ε, with b_ε := ρ^(−𝗋′)φ_εψ_∂ψ_Σψ_RQ̃_ε^(1/2),
 E_ε := Op(e_(R,ε))Id, F_ε := 2ι_σ Σ_j (W_jǍ_ε)^(∗h)(W_jǍ_ε) ≥ 0, and R_ε bounded in Ψ^(−∞,2𝗋′−1). E_ε is
 microsupported in supp ψ′(ς_Rq), a closed set disjoint from R_out; let E be elliptic on the union K_E^∗ of these sets
-over the steps of [[lem:i-a-3-2]], closed and disjoint from R_out. This is [[eq:i-a-3-1]] with ς = 1. Regularising
-lowers 𝗋′_ε and keeps Q_ε > 0, so [[lem:i-a-3-2]] runs from −M.
+over the steps of [[lem:i-a-3-2]], closed and disjoint from R_out. This is [[eq:i-a-3-1]] with ς = 1. The remaining
+hypotheses of [[lem:i-a-3-1]] are verified as in [[sec:i-a-4-3]], with z_ε the product of ρ^(−1/2)Q̃_ε^(−1/2) and a
+cut-off to finite frequencies equal to 1 on supp ǎ_ε. Regularising lowers 𝗋′_ε and keeps Q_ε > 0, so [[lem:i-a-3-2]]
+runs from −M.
 
 (2) For P̃^(∗h) the imaginary part is −Im_h P̃. With target 𝗋̃ := −𝗋′ − 1 and a priori order −𝗋₀ − 1, the bracket at
 R_out is 2(2𝗋̃_ε + 1) Id + 2(S + S^(∗h)). This is positive definite when 𝗋̃_ε > −½ − ½ min spec(S + S^(∗h)), which
@@ -1189,7 +1192,7 @@ Apply [[prop:i-a-6-4]] (i). For [[eq:i-a-6-2]]: the restriction of u to Ω_(r₀
 H^(1−s)(Ω_(r₀,b″))^(−,•) (supported at r₀, extendible at b″); apply [[prop:i-a-6-4]] (ii) to L = P̂(σ)^(∗h). The
 constants are uniform in σ ∈ 𝒟 since the coefficients are polynomial in σ. ∎
 
-### The spectral family at bounded nonzero frequencies {#sec:i-a-7}
+### The Fredholm theorem {#sec:i-a-7}
 
 **Lemma {#lem:i-a-7-1}** (Admissible orders exist, locally uniformly.) Let σ_* ≠ 0 be real. Fix constants
 𝗋_in > (−1 + ϑ_in)/2 − α₊ and 𝗋_out < −½ + S̄ − α₊ with 𝗋_in ≥ 𝗋_out, and s_c > ½ + ϑ_ℋ. Then there is an order pair

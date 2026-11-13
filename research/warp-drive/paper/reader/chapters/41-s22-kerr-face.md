@@ -24,7 +24,7 @@ The dimension changes the scheme of [Hin26] in these places. (1) Under the hypot
 of its proof). The rows this produces are all the rows of [[sec:iii-i9-1]] with Re λ < 2, and they are identified
 through the towers ([[lem:iii-i10-2-1]]). (2) The parameter exponents, which [Hin26] builds after the proof by the
 procedure of its (11.186), are fixed in advance ([[def:iii-i10-1-1]]), with logarithmic orders that grow with the real
-part. The rows' own sources never pass through the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]]);
+part. The rows' own sources never enter the construction, since f^ν = Lm_ν + r^ν exactly ([[lem:iii-i9-2-6]]);
 this is how the self-consistency of [Hin26, Remark 11.62] enters. (3) Two further conditions are needed: (H4),
 ℓ_I > 3 + ε_+, and the gap condition (G) on ε_K. (4) The zero frequency Taylor expansion of the transformed forcing has
 four terms (orders σ⁰ to σ³, as α − 1 > 3); the four zero energy solves are written out, with the polyhomogeneous
@@ -1588,8 +1588,8 @@ place of those at b_0, the v1 tower being T_(v1,b). Two changes are needed:
   the early ġ terms enter through the rotation towers T_(v1,b).
 
 - The conormal towers C of Step 1 (viii) include T_(v1,b)(Y^c_v1), and Ẏ_v1 := a_v1 + Y^c_v1. At b the level-3
-  conormal rotation tower has the K⁺-rate α_κ + 2 ∈ [3 + η_2 − 2ε, 4), below α, since its bottom h_(b,v1) no longer
-  vanishes. The space [[eq:iii-i12-3-2]] admits this coefficient (w_v1 = 3 + η_2 − 2ε), and L_b of it has K⁺-order
+  conormal rotation tower has the K⁺-rate α_κ + 2 ∈ [3 + η_2 − 2ε, 4), below α, since its bottom h_(b,v1) need not
+  vanish. The space [[eq:iii-i12-3-2]] admits this coefficient (w_v1 = 3 + η_2 − 2ε), and L_b of it has K⁺-order
   α_κ + 5 > α.
 
 The solution of [[thm:iii-i11-4-1]] at b_0 and the solution of [[prop:iii-i15-2-5]] with q = 0 at b are of this form,

@@ -353,19 +353,40 @@ whose two roots ζ_− < 0 < ζ_+ are real with product g^(ab) ξ_a ξ_b/g^(00) 
 = 0, with w free: a space of dimension four for each component. So (A⁰)⁻¹ A^c ξ_c is diagonalizable with the real
 eigenvalues ζ_− < 0 < ζ_+ and 0, which never meet; ζ_± are simple roots of a quadratic with smooth coefficients and 0 is
 constant, so all three are smooth in (τ, y, V, ξ) for ξ ≠ 0, as (A4) of [DS23] ([[thm:std-ds-existence]]) also requires,
-and the system satisfies (A1)–(A4) of [DS23] on all of the state space, the cut-off keeping the coefficients defined for
-every value of w. The relation u_a = ∂_a w propagates, since ∂_τ(u_a − ∂_a w) = ∂_a(u_0 − ∂_τ w) = 0.
+and the system satisfies (A1)–(A4) of [DS23] with 𝒰 the whole state space, the cut-off keeping the coefficients defined
+for every value of w. The complement of 𝒰 is empty, so the conditions on the distance to it in [DS23, Theorems 2.4 and
+2.6] hold for every datum, and T depends on ‖u0‖_r alone. The relation u_a = ∂_a w propagates, since ∂_τ(u_a − ∂_a w) =
+∂_a(u_0 − ∂_τ w) = 0.
 
-(iv) *The restarts.* At τ_i extend the data from Σ_(τ_i) ∩ Ω = A(τ_i), in x, by the universal Seeley-type operator of
-[LY22, Theorem 26] for the smooth annulus (one operator bounded on every H^m, so smooth data extend to smooth data), cut
-off, and compose with Φ_Z(τ_i, ·) to pass to y. The constants are uniform in τ, the annuli being images of a fixed one
-under radial diffeomorphisms with bounded derivatives: [LY22, Lemma 27] states the composition bounded, and its proof,
-by the chain and product rules and a change of variables, gives a bound through finitely many derivatives of the
-diffeomorphism and its inverse. [DS23, Theorem 2.4] with r = k > 4/2 + 1 (k = 6) gives a solution on [τ_i, τ_i + δ], δ
-depending only on the norm of the data, which Steps 1 and 7 bound for each fixed λ (|w|_(k+1) ≤ C 𝒩 ≤ C M λ^K). The data
-are smooth; by [DS23, Theorem 2.6] at every r ≥ k, the solution with data in H^r continues as long as its C¹ norm stays
-bounded, so it lies in every H^r on the same interval, and it is smooth. On Ω ∩ {τ_i ≤ τ ≤ τ_i + δ} it solves the
-original system while |w| ≤ ε2/2.
+(iv) *The restarts.* At τ_i extend the data from Σ_(τ_i) ∩ Ω = A(τ_i) to R⁴, in x, and compose with Φ_Z(τ_i, ·) to pass
+to y, with bounds uniform in τ_i. For the extension let A_* := {a ≤ |x| ≤ a + 1 + δ0}, d_* := a(1 + δ0)/(2(b(τ0) −
+a)), U_* := {a − d_* < |x| < a + 1 + δ0 + d_*}, and E_* the operator of [LY22, Theorem 26] for the smooth annulus A_*
+and its neighbourhood U_*. The radial map
+
+    ψ_τ(x) := (a + (|x| − a)(b(τ) − a)/(1 + δ0)) x̂
+
+maps A_* onto A(τ), and U_* diffeomorphically onto a neighbourhood of A(τ): since 1 + δ0 ≤ b(τ) − a ≤ b(τ0) − a
+([[lem:domain]] (f)), the factor (b(τ) − a)/(1 + δ0) lies in [1, a/(2 d_*)], so the radius stays at least a/2 on U_*.
+Put E_τ f := E_*(f ∘ ψ_τ) ∘ ψ_τ⁻¹ on ψ_τ(U_*) and E_τ f := 0 elsewhere. Composition with a diffeomorphism ψ between
+bounded open sets is bounded on H^m, with a constant depending only on m, on bounds for the derivatives of ψ of orders
+1 to m and on a bound for the Jacobian determinant of ψ⁻¹: by the chain rule ∂^α(u ∘ ψ) is a sum of terms (∂^β u) ∘ ψ,
+1 ≤ |β| ≤ |α|, times polynomials in the derivatives of ψ of orders at most |α|, and ∫ |v ∘ ψ|² = ∫ |v|² |det Dψ⁻¹|.
+For ψ_τ on U_* and ψ_τ⁻¹ on ψ_τ(U_*) these bounds are uniform in τ. So E_τ f = f on A(τ), E_τ is bounded from
+H^m(A(τ)) to H^m(R⁴) for every m uniformly in τ, its values are supported in the fixed ball {|x| ≤ b(τ0) + a}, and it
+maps smooth functions to smooth functions. The flow Φ_Z(τ_i, ·) is a diffeomorphism of R⁴ equal to the identity outside
+a compact set, and its derivatives of positive order and those of its inverse are bounded uniformly for τ_i ∈ [τ0,
+τ_end]; by [LY22, Lemma 27] ([[thm:std-ly-extension]]) composition with it, after multiplication by a smooth compactly
+supported function equal to 1 on that ball, is bounded on every H^m(R⁴), and the chain-rule bound above makes the
+constants uniform in τ_i.
+
+[DS23, Theorem 2.4] with r = k > 4/2 + 1 (k = 6) gives a solution on [τ_i, τ_i + δ], δ depending only on the norm of
+the data, which Steps 1 and 7 bound for each fixed λ (|w|_(k+1) ≤ C 𝒩 ≤ C M λ^K). The data are smooth, so they lie in
+H^r for every r ≥ k, and the hypotheses (A1)–(A4) do not depend on r. By the first clause of [DS23, Theorem 2.6],
+applied at each r ≥ k on [τ_i, τ_i + δ], the solution lies in C([τ_i, τ_i + δ]; H^r) for every r. By Sobolev's
+embedding on the torus every spatial derivative of V is then continuous; the system, solved for ∂_τ V with A⁰
+invertible, expresses ∂_τ V through V and its spatial derivatives with coefficients smooth in (τ, y, V), and
+differentiating it expresses every derivative of V in the same way. So the solution is smooth. On Ω ∩ {τ_i ≤ τ ≤ τ_i +
+δ} it solves the original system while |w| ≤ ε2/2.
 
 It is the only C² solution there with the data on Σ_(τ_i) ∩ Ω and |g − g0| ≤ ε1, the class in which the energy
 inequality applies; the solution here is in it by Step 3, and so is its image under an isometry of g0, which fixes g0

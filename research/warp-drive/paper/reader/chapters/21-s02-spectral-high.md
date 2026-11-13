@@ -376,14 +376,19 @@ as in [[thm:i-b-2-4]]. ∎
     (i/h)[Op_h(a), Op_h(b)] − Op_h((i/h)(ab − ba) + {a, b}) ∈ Ψ^(𝐨+𝐨′−(2,2,1)+ϵ𝟏),                       {#eq:i-b-2-5}
 
 with {a, b} := Σ_j (∂_(ζ_j)a ∂_(x_j)b − ∂_(ζ_j)b ∂_(x_j)a) (products in the written order). If a = p Id is scalar, the
-symbol is H_p b, H_p := ∂_ζ p · ∂_x − ∂_x p · ∂_ζ. If a is scalar only modulo S^(𝐨−𝟏), the left side of
-[[eq:i-b-2-5]] is still in Ψ^(𝐨+𝐨′−(1,1,0)+ϵ𝟏).
+symbol is H_p b, H_p := ∂_ζ p · ∂_x − ∂_x p · ∂_ζ. If a is scalar only modulo lower order, a = p Id + a_1 with p
+scalar and a_1 ∈ S^(𝐨−𝟏+ϵ𝟏) for every ϵ > 0, then
+
+    (i/h)[Op_h(a), Op_h(b)] − Op_h(H_p b) ∈ Ψ^(𝐨+𝐨′−(1,1,0)+ϵ𝟏)     for every ϵ > 0,
+
+since (i/h)(ab − ba) = (i/h)(a_1b − ba_1) ∈ S^(𝐨+𝐨′−(1,1,0)+ϵ𝟏) and {a, b} − H_p b = {a_1, b} lies in
+S^(𝐨+𝐨′−(2,2,1)+ϵ𝟏).
 
 (iii) If Op_h(a) is self-adjoint, then a − a* ∈ S^(𝐨−𝟏+ϵ𝟏).
 
 (iv) If a vanishes on an open set U, then a#b and b#a, restricted to any open U′ with closure in U, obey the bounds of
-S^(−K𝟏) for every K: every term of [[eq:i-b-2-4]] vanishes there, and the remainder lies in S^(𝐨+𝐨′−(K/2)𝟏) for every
-K.
+S^(−M𝟏) for every M: every term of [[eq:i-b-2-4]] vanishes there, and the remainder lies in S^(𝐨+𝐨′−(M/2)𝟏) for every
+M.
 
 *Fibre inner products.* For a fibre inner product h = ⟨H·,·⟩ (H smooth on the compactification, so H^(±1/2) ∈ S^0),
 u ↦ H^(1/2)u is unitary from L²_h to L², and A ↦ H^(1/2) A H^(−1/2) preserves every Ψ^𝐨, conjugates principal
@@ -411,17 +416,17 @@ and Schur's test gives the claim. ∎
 
 the supremum over (x, ζ) and h. In particular Ψ^0 acts on L², uniformly in h.
 
-*Proof.* Put M := sup |a|² + ϵ² and e := M − a*a ≥ ϵ², a Hermitian symbol in S^0. Its positive square root
-b_0 := e^(1/2) = (2πi)⁻¹ ∮_𝒞 κ^(1/2) (κ − e)⁻¹ dκ, with 𝒞 a circle in {Re κ > 0} around [ϵ², M], lies in S^0
-(differentiate under the integral; each derivative of (κ − e)⁻¹ is a sum of products of resolvents and derivatives of
+*Proof.* Put c_a := sup |a|² + ϵ² and e := c_a − a*a ≥ ϵ², a Hermitian symbol in S^0. Its positive square root
+b_0 := e^(1/2) = (2πi)⁻¹ ∮_𝒞 τ^(1/2) (τ − e)⁻¹ dτ, with 𝒞 a circle in {Re τ > 0} around [ϵ², c_a], lies in S^0
+(differentiate under the integral; each derivative of (τ − e)⁻¹ is a sum of products of resolvents and derivatives of
 e), as does b_0⁻¹. By [[thm:i-b-2-4]] and [[thm:i-b-2-5]],
-Op_h(b_0)* Op_h(b_0) + Op_h(a)* Op_h(a) = M + Op_h(r_1) with r_1 ∈ S^(−½𝟏) and Op_h(r_1) self-adjoint. Given
+Op_h(b_0)* Op_h(b_0) + Op_h(a)* Op_h(a) = c_a + Op_h(r_1) with r_1 ∈ S^(−½𝟏) and Op_h(r_1) self-adjoint. Given
 b_0 + ⋯ + b_(j−1) with self-adjoint remainder Op_h(r_j), r_j ∈ S^(−(j/2)𝟏), put b_j := −¼ b_0⁻¹ (r_j + r_j*); then
 b_0* b_j + b_j* b_0 = −½(r_j + r_j*) and, by (iii) and [[thm:i-b-2-4]], the new remainder lies in
 S^(−((j+1)/2)𝟏+ϵ𝟏) (we absorb the ϵ by taking two steps per half order). With J := 4n + 8 and
 B := Op_h(b_0 + ⋯ + b_J),
 
-    ‖Op_h(a)u‖² = M‖u‖² − ‖Bu‖² + ⟨Op_h(r_(J+1))u, u⟩ ≤ (M + C h^(1/2)) ‖u‖²
+    ‖Op_h(a)u‖² = c_a‖u‖² − ‖Bu‖² + ⟨Op_h(r_(J+1))u, u⟩ ≤ (c_a + C h^(1/2)) ‖u‖²
 
 by [[lem:i-b-2-6]] with β = −½, since r_(J+1) ∈ S^(−(n+1)𝟏) ⊂ S^((−n−1,−1,−½)). Take square roots. ∎
 
@@ -429,9 +434,10 @@ by [[lem:i-b-2-6]] with β = −½, since r_(J+1) ∈ S^(−(n+1)𝟏) ⊂ S^((�
 Op_h(w_(−𝐨)) W_𝐨 = I + Op_h(e) and W_𝐨 Op_h(w_(−𝐨)) = I + Op_h(e′) with e, e′ ∈ S^(−½𝟏), so by [[thm:i-b-2-7]] there
 is h_0 > 0 such that for h < h_0 both are invertible on L² with inverses bounded uniformly. For h < h_0 define
 H_h^𝐨 := {u ∈ 𝒮′ : W_𝐨 u ∈ L²}, ‖u‖_𝐨 := ‖W_𝐨 u‖_(L²). For constant orders H_h^𝐨 = h^𝖻 ⟨x⟩^(−𝗋) ⟨hD⟩^(−s) L²
-with uniformly equivalent norm. For each fixed h, H_h^𝐨 is the scattering Sobolev space of [HJS, Definition 10.2] with
-the decay order 𝗋(x, hζ) and the constant regularity order s, with a norm equivalent for that h: h^(−𝖻(x,hζ)) is a
-symbol of order 0 at fixed h. This is how the fixed-frequency results of [[ch:s01]] are used.
+with uniformly equivalent norm. For each fixed h, when s is constant, H_h^𝐨 is the scattering Sobolev space
+H^(s,𝗋_h) of [[sec:i-a-2-2]], with the decay order 𝗋_h(x, ξ) := 𝗋(x, hξ) in the variable ξ = ζ/h and the regularity
+order s, with a norm equivalent for that h: h^(−𝖻(x,hξ)) is a symbol of order 0 at fixed h. This is how the
+fixed-frequency results of [[ch:s01]] are used.
 
 **Proposition {#prop:i-b-2-8}** (Mapping.) For A ∈ Ψ^𝐦 and orders 𝐨, ‖Au‖_(𝐨−𝐦) ≤ C ‖u‖_𝐨 for h < h_0.
 
@@ -448,7 +454,7 @@ the compactified scattering cotangent bundle of ℝ̄^n as in [Hin26c, (3.36)]).
 ℝ̄^n × ∂ℝ̄^n and the face ∂ℝ̄^n × ℝ̄^n over spatial infinity.
 
 **Definition {#def:i-b-2-9}** For A = Op_h(a) ∈ Ψ^𝐨: ϖ ∈ 𝒫 is *not* in WF′_h(A) if it has a neighbourhood U in 𝒫 on
-which a obeys the bounds of S^(−K𝟏) for every K; it is in Ell_h(A) if it has a neighbourhood U and h_0 > 0 with a_h
+which a obeys the bounds of S^(−M𝟏) for every M; it is in Ell_h(A) if it has a neighbourhood U and h_0 > 0 with a_h
 invertible and |a_h⁻¹| ≤ C w_𝐨⁻¹ on U ∩ ℝ^(2n) for h < h_0.
 
 By (iv), WF′_h(AB) ⊂ WF′_h(A) ∩ WF′_h(B). Ellipticity at ϖ depends only on a modulo symbols that are small compared
