@@ -8,16 +8,16 @@ outward in r, as a parabolic–hyperbolic system, from a sphere inside the shell
 seed's exactly ([[sec:data-evolution]]). The data then coincide with the seed's on Σ ∩ {r < v_start − τ0}.
 
 Notation is that of [[ch:uniform-existence]]. In addition, the ansatz [[eq:ansatz]], G = ḡ + λ W + Σ_(j=2)^(N+1) λ^j ĝ_j
-with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app =
-G(X, u/λ) (in (E4), and so in [[thm:data]], g_app is the fixed-phase form [[eq:approximant]] instead; the two differ
-by O(λ^(N+1)) in scaled norms, [[sec:approximant]]), the two-scale operator R_u of [[def:two-scale]] with the orders ℛ^(m) of the expansion R_u[G] = Σ_m λ^m
-ℛ^(m), and the coefficients e_j = 2 ℓ·dφ_j − m_j(ℓ, ℓ) − q_j of ḡ⁻¹(du, du) = Σ_(j≥1) λ^j e_j
-([[eq:eikonal-coefficients]]) are those of [[ch:approximant]]. Stage 0 is [[lem:stage-zero]]: the wave W = W_TT + χ dv
-dv has W(ℓ, ·) = 0 and tr_g0 W = 0, and χ vanishes on Σ_τ0 ([[eq:chi-transport]]). Where each unknown first enters the
-expansion is [[lem:first-entry]]; the stage equations (a)–(c), each a linear hyperbolic system solved without loss, are
-[[lem:stage-system]]; and the passage from G(X, u/λ) to the fixed-phase form [[eq:approximant]], with ℛ^(m) = 0 for m ≤
-N − 1, is the proof of [[thm:approximant]] ([[sec:approximant]]). The leading wave W_TT of [[eq:waves]] has no dv and no
-dr component and is traceless on the spheres {τ, r = const} ([[lem:waves]] (b)).
+with the mean metric ḡ = g0 + Σ_(j=1)^(N) λ^j m_j, the phase u = v + Σ_(j=1)^(N) λ^j φ_j and the approximant g_app = G(X,
+u/λ) (in (E4), and so in [[thm:data]], g_app is the fixed-phase form [[eq:approximant]] instead; the two differ by
+O(λ^(N+1)) in scaled norms, [[sec:approximant]]), the two-scale operator R_u of [[def:two-scale]] with the orders ℛ^(m)
+of the expansion R_u[G] = Σ_m λ^m ℛ^(m), and the coefficients e_j = 2 ℓ·dφ_j − m_j(ℓ, ℓ) − q_j of ḡ⁻¹(du, du) = Σ_(j≥1)
+λ^j e_j ([[eq:eikonal-coefficients]]) are those of [[ch:approximant]]. Stage 0 is [[lem:stage-zero]]: the wave W = W_TT +
+χ dv dv has W(ℓ, ·) = 0 and tr_g0 W = 0, and χ vanishes on Σ_τ0 ([[eq:chi-transport]]). Where each unknown first enters
+the expansion is [[lem:first-entry]]; the stage equations (a)–(c), each a linear hyperbolic system solved without loss,
+are [[lem:stage-system]]; and the passage from G(X, u/λ) to the fixed-phase form [[eq:approximant]], with ℛ^(m) = 0 for m
+≤ N − 1, is the proof of [[thm:approximant]] ([[sec:approximant]]). The leading wave W_TT of [[eq:waves]] has no dv and
+no dr component and is traceless on the spheres {τ, r = const} ([[lem:waves]] (b)).
 
 ### The theorem {#sec:data-theorem}
 
@@ -189,9 +189,9 @@ q′_m) vanish on r < v_start − τ0, and they are smooth. ∎
 
 ### The constraints as an evolution in r {#sec:data-evolution}
 
-On Σ use (r, ω), ω ∈ S³, a ≤ r ≤ b1 := b(τ0); a stays the inner radius of Ω. For data (γ, κ) on Σ put Π := γ − |dr|_γ⁻² dr ⊗
-dr; on vectors tangent to the spheres {r = const} Π is the induced metric, and Π(γ⁻¹dr, ·) = 0. For U := (α, ϖ, q), with
-α and ϖ functions and q a covector with q(γ⁻¹dr) = 0 (so that q is fixed by its angular components q_A, and q_r =
+On Σ use (r, ω), ω ∈ S³, a ≤ r ≤ b1 := b(τ0); a stays the inner radius of Ω. For data (γ, κ) on Σ put Π := γ − |dr|_γ⁻²
+dr ⊗ dr; on vectors tangent to the spheres {r = const} Π is the induced metric, and Π(γ⁻¹dr, ·) = 0. For U := (α, ϖ, q),
+with α and ϖ functions and q a covector with q(γ⁻¹dr) = 0 (so that q is fixed by its angular components q_A, and q_r =
 −γ^(rA) q_A/γ^(rr)), put, as in [Rac16] (the lapse of the foliation by the spheres, and the mixed and trace parts of κ),
 
     γ_U := γ + α dr ⊗ dr,      κ_U := κ + ϖ Π + q ⊗ dr + dr ⊗ q.                                          {#eq:data-u}
@@ -322,19 +322,19 @@ on the spheres, the term −ν_U⁻² Π^(AB) ∂_r² Π_AB of −2 ∂_(e_r) H 
 
 (c) The principal coefficients are γ^(rr), Π^(AB), γ^(rA) and p = (γ^(rr))^(3/2) H; the first three are algebraic in γ =
 γ0 + O(λ), and H = (1/(2 ν)) Π^(AB)(∂_r Π_AB − (𝓛_σ Π)_AB) has the order-one oscillating part (1/(2 ν)) Π0^(AB) [∂_θ
-W_AB] = 0, the rest being γ0's value plus O(λ). The coefficient of α in ρ contains, from −|𝒜|² with 𝒜 = (1/(2
-ν_U))(∂_r Π − 𝓛_σ Π), the term ∂_α(−(ν²/ν_U²)|𝒜|²) = |𝒜|²/ν² at α = 0, and the oscillating part of 𝒜 is (1/(2 ν))
-[∂_θ W_AB], so that |𝒜|²/ν² has the oscillating part (1/(4 ν⁴)) |[∂_θ W]|²_(Π0) − (its θ-mean), and the θ-mean (1/(4 ν⁴)) ⟨|∂_θ
-W|²_(Π0)⟩, positive where the waves do not vanish. (|∂_θ W|² is not constant in θ: by the form [[eq:waves]] of W_TT it
-is a positive multiple of c⁴ sin²θ + s⁴ cos²θ + c²s² sin θ cos θ, with c = cos ϑ and s = sin ϑ, a quadratic form in (sin
-θ, cos θ) that is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quadratic in the oscillation come
-from ∂_r H̃ in ∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ W]|² −
-(1/2) [W^(AB) ∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms carry
-κ̃(γ⁻¹dr, ·) and tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the
-term −γ^(jk) Γ(γ_U)^l_(jk) κ_lA of −div κ_U contributes 2 γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ −γ^(rr) Π^(BC) κ_AB ∂_C α, from
-γ^(jk) Γ(γ_U)^B_(jk) ⊃ −(1/2) γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or
-κ_Ar, whose oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a
-multiple of δ_A^C, W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
+W_AB] = 0, the rest being γ0's value plus O(λ). The coefficient of α in ρ contains, from −|𝒜|² with 𝒜 = (1/(2 ν_U))(∂_r Π
+− 𝓛_σ Π), the term ∂_α(−(ν²/ν_U²)|𝒜|²) = |𝒜|²/ν² at α = 0, and the oscillating part of 𝒜 is (1/(2 ν)) [∂_θ W_AB], so that
+|𝒜|²/ν² has the oscillating part (1/(4 ν⁴)) |[∂_θ W]|²_(Π0) − (its θ-mean), and the θ-mean (1/(4 ν⁴)) ⟨|∂_θ W|²_(Π0)⟩,
+positive where the waves do not vanish. (|∂_θ W|² is not constant in θ: by the form [[eq:waves]] of W_TT it is a positive
+multiple of c⁴ sin²θ + s⁴ cos²θ + c²s² sin θ cos θ, with c = cos ϑ and s = sin ϑ, a quadratic form in (sin θ, cos θ) that
+is not a multiple of sin²θ + cos²θ.) The other terms of the coefficient quadratic in the oscillation come from ∂_r H̃ in
+∂_(e_r) H, whose quadratic part (1/2) ∂_r Π^(AB) ∂_r Π_AB + (1/2) Π^(AB) ∂_r² Π_AB ⊃ −(1/2) |[∂_θ W]|² − (1/2) [W^(AB)
+∂_θ² W_AB] has θ-mean zero, and from H², which has no oscillating part of order one; the κ-terms carry κ̃(γ⁻¹dr, ·) and
+tr κ̃, and κ̃_rA = 0, while tr_(Π0) κ̃_AB = 0 and κ̃_rr vanishes with χ on Σ. In J_A = 2(…), the term −γ^(jk)
+Γ(γ_U)^l_(jk) κ_lA of −div κ_U contributes 2 γ^(jk) Γ(γ_U)^B_(jk) κ_AB ⊃ −γ^(rr) Π^(BC) κ_AB ∂_C α, from γ^(jk)
+Γ(γ_U)^B_(jk) ⊃ −(1/2) γ^(rr) Π^(BC) ∂_C α, while the other terms with ∂_C α carry κ(γ⁻¹dr, γ⁻¹dr) δ_A^C or κ_Ar, whose
+oscillating parts are multiples of δ_A^C or zero; the oscillating part −γ^(rr) Π^(BC) κ̃_AB is not a multiple of δ_A^C,
+W_TT being traceless, so it does not cancel. The remaining claims are those of (a). ∎
 
 **Lemma {#lem:linear-evolution}** (The linear evolution.) Consider on [a, b1] × S³, b1 > a, the linear system, with
 coefficients measurable in r for which M_s below is finite,
@@ -469,29 +469,36 @@ index s″ > s the bound of [[lem:linear-evolution]] is linear in the top norms,
 α) entering linearly by the Moser and Kato–Ponce inequalities with factors depending only on the X_s bound. With ℰ_i(r)
 the X_(s″) norm of U_i on [a, r] it reads
 
-    ℰ_(i+1)(r) ≤ Y_0 + Y_1 (∫_a^r ℰ_i²)^(1/2),
+    ℰ_(i+1)(r) ≤ Ξ_0 + Ξ_1 (∫_a^r ℰ_i²)^(1/2),
 
-with Y_1 uniform in i. Indeed, by the tame form of [[lem:linear-evolution]] the forcing terms enter in L² H^(s″), and
-the weight built from ‖∂_r α_(i+1)‖_∞ and ‖∂_r (ϖ, q)_(i+1)‖_∞, bounded in L²(a, R), enters through the Cauchy–Schwarz
+with Ξ_1 uniform in i. Indeed, by the tame form of [[lem:linear-evolution]] the forcing terms enter in L² H^(s″), and
+the weight built from ‖∂_r α_(i+1)‖_∞ and ‖∂_r (ϖ, q)_(i+1)‖_∞, bounded in L²(a, b1), enters through the Cauchy–Schwarz
 inequality, ‖∂_r (𝒮 A0)‖_∞ entering Gronwall's exponent; a forcing term carrying ∂_r α_i would put ℰ_i(r) itself on the
 right, which is why the coefficient of ∂_r α is frozen. The term ‖m_(s″) ω_∞‖_(L²(a, r)) of the tame bound changes
-neither the rate of Y_0 nor the uniformity of Y_1: ω_∞ ≤ C ‖U_(i+1)‖_(X_(s_1)) ≤ C λ^(N−2) in the ball; the lower-order
+neither the rate of Ξ_0 nor the uniformity of Ξ_1: ω_∞ ≤ C ‖U_(i+1)‖_(X_(s_1)) ≤ C λ^(N−2) in the ball; the lower-order
 coefficients b, c, e, c′, f′, c″ are those of [[lem:constraints-evolution]] at U = 0, independent of U and smooth in the
 angles uniformly in λ; and the others are functions of U_i entering linearly and changing by C λ⁻¹ ‖U_i‖, so that m_(s″)
-≤ C (1 + λ⁻¹ ℰ_i), and the term is at most C λ^(N−2) (R − a)^(1/2) + C λ^(N−3) (∫_a^r ℰ_i²)^(1/2): a part of Y_0
-proportional to λ^(N−2) and a part of Y_1 at most C λ^(N−3) ≤ C, as N ≥ 4.
+≤ C (1 + λ⁻¹ ℰ_i), and the term is at most C λ^(N−2) (b1 − a)^(1/2) + C λ^(N−3) (∫_a^r ℰ_i²)^(1/2): a part of Ξ_0
+proportional to λ^(N−2) and a part of Ξ_1 at most C λ^(N−3) ≤ C, as N ≥ 4.
 
-By induction, ℰ_i(r) ≤ Y_0 Σ_(k≥0) Y_1^k ((r − a)^k/k!)^(1/2) for every i, with no smallness. For ℰ_0 = 0 this holds,
-and if it holds for ℰ_i, then Minkowski's inequality gives (∫_a^r ℰ_i²)^(1/2) ≤ Y_0 Σ_k Y_1^k (∫_a^r (r′ − a)^k/k!
-dr′)^(1/2) = Y_0 Σ_k Y_1^k ((r − a)^(k+1)/(k + 1)!)^(1/2), so ℰ_(i+1)(r) ≤ Y_0 + Y_0 Σ_(k≥0) Y_1^(k+1) ((r −
+By induction, ℰ_i(r) ≤ Ξ_0 Σ_(k≥0) Ξ_1^k ((r − a)^k/k!)^(1/2) for every i, with no smallness. For ℰ_0 = 0 this holds,
+and if it holds for ℰ_i, then Minkowski's inequality gives (∫_a^r ℰ_i²)^(1/2) ≤ Ξ_0 Σ_k Ξ_1^k (∫_a^r (r′ − a)^k/k!
+dr′)^(1/2) = Ξ_0 Σ_k Ξ_1^k ((r − a)^(k+1)/(k + 1)!)^(1/2), so ℰ_(i+1)(r) ≤ Ξ_0 + Ξ_0 Σ_(k≥0) Ξ_1^(k+1) ((r −
 a)^(k+1)/(k + 1)!)^(1/2), which is the claim for i + 1; the series converges by the ratio test. So the limit U lies in
-X_(s″) for every s″. Y_0 is proportional to λ^(N−2) (the forcing term 𝒞(γ, κ) and the low norms are) and Y_1 is bounded
+X_(s″) for every s″. Ξ_0 is proportional to λ^(N−2) (the forcing term 𝒞(γ, κ) and the low norms are) and Ξ_1 is bounded
 independently of λ, so ‖U‖_(X_(s″)) ≤ C_(s″) λ^(N−2) for every s″, which with the equations gives the stated rate at
 every s and j. So U is smooth for λ ≤ λ0, λ0 independent of s″. [[thm:uniform-existence]] needs only k + 1 = 7
 derivatives of the data in any case. ∎
 
-The rates of [[prop:exact-correction]] observed on the data of the stage-0 approximant in the symmetric class, and the
-contraction of its scheme there: [[pending:computational-1]].
+**Remark {#rem:data-rates}** (Numerical observation.) On the data of the approximant with N = 6 built on stage 0, in
+the class of fields of (r, ϑ) invariant under T² and both reflections, the linear system of [[lem:linear-evolution]] was
+solved numerically by a pseudo-spectral discretisation on S³ marched in r, with a forcing term of size λ⁴. Over the
+last halving of λ, from 1/32 to 1/64, the suprema in r of norms of H² type of U, ∂_r U and ∂_r² U decreased as λ^4.00,
+λ^3.99 and λ^3.00, within the rates λ^(N−2−j) of [[prop:exact-correction]] (the first r-derivative costing nothing). With
+a trace of the waves on the spheres put in, which creates a coefficient of order 1/λ ([[lem:constraints-evolution]]
+(b)), the first r-derivative cost a factor λ⁻¹. The iteration of the proof, principal coefficients frozen, contracted
+with first ratios 6.8 × 10⁻³, 5.8 × 10⁻⁴ and 3.5 × 10⁻⁵ at λ = 1/8, 1/16 and 1/32. These are floating-point
+observations, and no proof uses them.
 
 ### Proof of the theorem {#sec:data-proof}
 

@@ -1652,8 +1652,8 @@ w := (𝐏″)⁻¹Xf: G𝐏″w = GXf = O(h^∞) and ‖w‖ ≤ Ch⁻¹‖Xf�
 
 This is [Hin26c, Proposition 9.35], the semiclassical form of [[sec:i-a-6]]. [Hin26c] proves the energy estimate for
 h⁻¹ Im z large and cites [Hin25a, Theorem 9.44] for bounded h⁻¹ Im z; here one argument covers every z with Im z ≥ 0,
-the weight e^(ℓr) of [[prop:i-a-6-3]] supplying the positivity that the weight in t supplies there only for h⁻¹ Im z
-large. The slab spaces H^s(Ω_(a,b))^(•,−) (supported at r = b, extendible at r = a) and H^s(Ω_(a,b))^(−,•) are those of
+the exponential weight in r of [[prop:i-a-6-3]] supplying the positivity that the weight in t supplies there only for
+h⁻¹ Im z large. The slab spaces H^s(Ω_(a,b))^(•,−) (supported at r = b, extendible at r = a) and H^s(Ω_(a,b))^(−,•) are those of
 [[sec:i-a-6-1]], with the semiclassical norms ‖u‖_(H_h^s) := ‖⟨hD⟩^s u‖; over the compact slabs used here the decay
 order plays no role, and an admissible 𝖻 is constant ([[sec:i-b-1-4]]), so it enters only as the factor h^(−𝖻).
 
@@ -1675,8 +1675,8 @@ z ∈ Z, h ∈ (0, 1],
 and ‖v‖_(H¹_h(Ω_(a,b))) ≤ C h⁻¹ ‖P_(h,z)^(*h) v‖_(L²(Ω_(a,b))) for v ∈ H²(Ω_(a,b))^(−,•). C depends on bounds for
 the coefficients, on inf(−G_0(dr)) over the slab and on Z.
 
-*Proof.* By density ([[lem:i-a-6-1]] (c)) take u smooth on Ω̄_(a,b) and vanishing near r = b. P_0 − □_g Id =: L_1 is
-first order with t-independent coefficients ([[sec:i-b-1-2]]), so L̂_1(σ) = L̂_1(0) + σY_0 with Y_0 a matrix
+*Proof.* By density ([[lem:i-a-6-1]] (c), and smooth approximation up to the extendible side) take u smooth on
+Ω̄_(a,b) and vanishing near r = b. P_0 − □_g Id =: L_1 is first order with t-independent coefficients ([[sec:i-b-1-2]]), so L̂_1(σ) = L̂_1(0) + σY_0 with Y_0 a matrix
 function and |L̂_1(z/h)u| ≤ C(|du| + h⁻¹|u|). Let u′(t, x) := e^(−izt/h) u(x) on D := [0, 1]_t × Ω_(a,b), so that
 □_g u′ = e^(−izt/h)(P̂(z/h) − L̂_1(z/h))u, and let W := wX with w := e^(−2(Im z)t/h) e^(ℓr). Then
 
@@ -1826,8 +1826,8 @@ and h^(−δ) · h⁻¹ ≤ h^(−1−δ),
 being constant there apart from s; the last term is the previous display with φ = χ_1, and
 ‖u‖ ≤ ‖χu‖ + ‖(1 − χ)u‖, the second by the previous display with φ = 1 − χ.
 
-*Absorption.* ‖u‖_(H̄_h^(−M𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for K ≥ max(−s, −min(𝗋 + α_+), 1 − min 𝖻), since w_(−M𝟏)/w_𝐨 ≤ Ch;
-so for h < h_0 the last two terms are absorbed, which is [[eq:i-b-8-1]].
+*Absorption.* ‖u‖_(H̄_h^(−M𝟏)) ≤ Ch‖u‖_(H̄_h^𝐨) for M ≥ max(1, −s, −min(𝗋 + α_+), 1 − min 𝖻), since
+w_(−M𝟏)/w_𝐨 ≤ Ch, and h^M ≤ h; so for h < h_0 the last two terms are absorbed, which is [[eq:i-b-8-1]].
 
 (b) For Im z ≥ ν_1, P_(h,z) is elliptic at finite frequencies over X̃° ([[lem:i-b-1-1]] (d)) and over ∂X except at
 R_out ([[sec:i-b-4-1]]), uniformly for Im z ∈ [ν_1, ν] by compactness. The characteristic set over {r ≥ b′_2} is
@@ -1865,7 +1865,8 @@ and in (2) the loss is h⁻¹. ∎
 h := |Re σ|⁻¹, z := hσ ∈ z_0 + i[0, 2ν′] with z_0 = sgn Re σ (part (1) with ν := 2ν′). In both cases h < h_0 for C_0
 large. At this fixed h, H_h^𝐨 is the space H^(s,(𝗋+α_+)_h) of [[ch:s01]] with 𝗋_h(x, ξ) := 𝗋(x, hξ), up to an
 equivalent norm ([[sec:i-b-2-3]]; h^(−𝖻(x,hξ)) is a symbol of order 0 at fixed h), and in the case of part (1) 𝗋_h is
-admissible for Re σ in the sense of (O2)–(O3) of [[sec:i-a-1-4]] (the characteristic set over ∂X at σ in the variable
+admissible for Re σ in the sense of (O2)–(O3) of [[def:i-a-admissible]] (the characteristic set over ∂X at σ in the
+variable
 ξ is that at z in ζ = hξ, and [[sec:i-b-1-4]] asks more than (O2)); in the case of part (2) it is constant near R_out
 with the threshold there, which is what [[thm:i-a-7-2]] (2) asks, for every real part including 0. So 𝒳_σ and 𝒴_σ of
 [[thm:i-a-7-2]] are the spaces of [[eq:i-b-1-6]], and [[eq:i-b-1-6]] shows that P̂(σ) = h⁻²P_(h,z) is injective on
@@ -1964,8 +1965,9 @@ needs γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by 
 axis, which the adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for
 P* as for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the
 range z_0 + i[hβ, ν′] of [[thm:i-b-6-8]] serves both. (d) The second step of the b-regular estimate at R_out in
-[Hin26c, (9.77)] carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set are
-those of [[lem:i-a-4-8]]; [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed
+[Hin26c, (9.77)] carries the diagonal term −2kihzρδ_(α,(k,0,…,0)) of [Hin26c, (9.45)], whose sign and index set differ
+from those of the commutator computed in [[lem:i-a-4-8]] (there the diagonal term is +2iα_1σρ, for every α with
+α_1 ≥ 1; see [[rem:i-a-4-8-sign]]); [[lem:i-b-5-6]] moves the term to the right side through Pu, as [[lem:i-a-4-8]] does at fixed
 σ, and [[prop:i-b-5-7]] then needs no sign of it. (e) [Hin26c, (3.35)] defines H_(sc,h)^(s,𝗋,𝖻) = ρ^𝗋 h^𝖻 H_(sc,h)^s,
 which gives ‖u‖ = h^(−𝖻)‖⟨hD⟩^s(⟨x⟩^𝗋 u)‖ on ℝ^n, while the parenthesis after it prints ⟨x⟩^(−𝗋)u; we use
 w_𝐨 = ⟨ζ⟩^s⟨x⟩^𝗋h^(−𝖻), as (3.35) does. (f) The method differs in these points: one positive commutator scheme
