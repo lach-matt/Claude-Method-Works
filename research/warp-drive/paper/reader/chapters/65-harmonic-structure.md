@@ -766,8 +766,8 @@ The hypothesis of [[prop:gd-r3-6]] concerns the region near I₀ ∪ ℐ⁺, whe
 gauge-fixed Einstein operator. It carries over to □: in Cartesian components □ is the scalar wave operator on each
 component plus a coupling that decays like |x|⁻³.
 
-*Setting.* On {|x| ≥ 3R₁}, in the coordinates (t, x) of [[sec:iii-b-3]], g = η + m₀|x|⁻²ℓ ⊗ ℓ with
-ℓ := dt − d|x| ([[lem:iii-b-3-5]] (b)), a Kerr–Schild metric with the η-null form ℓ, so det g = −1. The chart of
+*Setting.* On {|x| ≥ 3R₁}, in the coordinates (t, x) of [[sec:iii-b-3]], g = η + m₀|x|⁻²𝔩 ⊗ 𝔩 with
+𝔩 := dt − d|x| ([[lem:iii-b-3-5]] (b)), a Kerr–Schild metric with the η-null form 𝔩, so det g = −1. The chart of
 [[sec:iv-0]] is used: ρ₀, ρ_I, ρ = ρ₀ρ_I = |x|⁻¹, x_I = ρ_I^(1/2), X₀ and X_I, with M_♯ and the edge-b structures there.
 1-forms are written in the Cartesian frame dt, dx^i (i = 1, …, 4), the fixed smooth frame of the spaces of
 [[ch:s05]]; the frames (dt, dr, r dω) and that of [[sec:iii-c-1]] differ from it by smooth bounded functions of x/|x|,
@@ -788,9 +788,9 @@ L̃_□ := L̃ ⊗ Id + E ∈ x_IDiff²_(e,b); [[eq:iv1-1-1]] holds for L_□ wi
 commutators of L_□ with X₀, X_I and the rotation fields, acting on each Cartesian component, lie in
 x_IDiff^(1;1)_(e,b;b) (as [[eq:iv-2-3]] for L).
 
-(c) (*At ℐ⁺.*) For every constant Cartesian covector e, L_□(ρ₀^aρ_I^λ e) = −2λ(a − λ)ρ₀^aρ_I^λ e + o(ρ_I^λ) at fixed
-ρ₀ and ω. The indicial roots are λ = 0, a radiation field (Z = ρ^(3/2)u of ℐ⁺-order 3/2 in every Cartesian
-component), and λ = a.
+(c) (*At ℐ⁺.*) For a, ι ∈ ℂ and every constant Cartesian covector ξ,
+L_□(ρ₀^aρ_I^ι ξ) = −2ι(a − ι)ρ₀^aρ_I^ι ξ + o(ρ_I^(Re ι)) at fixed ρ₀ and ω. The indicial roots are ι = 0, a radiation
+field (Z = ρ^(3/2)u of ℐ⁺-order 3/2 in every Cartesian component), and ι = a.
 
 (d) (*At I₀.*) In (τ, ρ) := (t/|x|, |x|⁻¹), ρ^(−2−α)□_0(ρ^αv(τ)) → (1 − τ²)v″ + (1 − 2α)τv′ + α(2 − α)v as ρ → 0,
 the coefficient of v″ not depending on α; the coupling of (a) is O(ρ²) relative to this and does not enter. So τ is a
@@ -800,15 +800,15 @@ b-time function on {|τ| < 1} for every weight: there is no indicial restriction
 −4α_I, 4κ(α₀ − α_I) and c_A = 1 + 2(α₀ − α_I) + κ(1 − 2α_I) are positive for every κ > 0 if and only if
 α_I < min(α₀, 0).
 
-*Proof.* (a) As g − η = m₀Hℓ ⊗ ℓ with H := |x|⁻² and ℓ η-null, g⁻¹ = η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯ exactly (ℓ^♯ := η⁻¹ℓ):
-(η + m₀Hℓ ⊗ ℓ)(η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯) = I − m₀²H²η⁻¹(ℓ, ℓ)ℓ ⊗ ℓ^♯ = I. The coefficients of ℓ are homogeneous of degree 0
-in x and stationary, so ∂(Hℓ ⊗ ℓ) is homogeneous of degree −3, and the Christoffel symbols are Γ = m₀Γ_1 + m₀²Γ_2,
-with Γ_1 = ½η⁻¹∂(Hℓ ⊗ ℓ)-terms of degree −3 and Γ_2 = −½Hℓ^♯ ⊗ ℓ^♯ · ∂(Hℓ ⊗ ℓ)-terms of degree −5. On the Ricci-flat
+*Proof.* (a) As g − η = m₀H𝔩 ⊗ 𝔩 with H := |x|⁻² and 𝔩 η-null, g⁻¹ = η⁻¹ − m₀H𝔩^♯ ⊗ 𝔩^♯ exactly (𝔩^♯ := η⁻¹𝔩):
+(η + m₀H𝔩 ⊗ 𝔩)(η⁻¹ − m₀H𝔩^♯ ⊗ 𝔩^♯) = I − m₀²H²η⁻¹(𝔩, 𝔩)𝔩 ⊗ 𝔩^♯ = I. The coefficients of 𝔩 are homogeneous of degree 0
+in x and stationary, so ∂(H𝔩 ⊗ 𝔩) is homogeneous of degree −3, and the Christoffel symbols are Γ = m₀Γ_1 + m₀²Γ_2,
+with Γ_1 = ½η⁻¹∂(H𝔩 ⊗ 𝔩)-terms of degree −3 and Γ_2 = −½H𝔩^♯ ⊗ 𝔩^♯ · ∂(H𝔩 ⊗ 𝔩)-terms of degree −5. On the Ricci-flat
 g, □ = −∇^α∇_α; written out, −∇^α∇_αZ_c = −g^(ab)(∂_a∂_bZ_c − Γ^d_(ab)∂_dZ_c) + 2g^(ab)Γ^ν_(ac)∂_bZ_ν + (terms in ∂Γ
 and ΓΓ)Z, and the first bracket is □_0Z_c. So C^(νb)_c = 2g^(ab)Γ^ν_(ac) and D is a sum of products g⁻¹∂Γ and
-g⁻¹ΓΓ; expanding g⁻¹ = η⁻¹ − m₀Hℓ^♯ ⊗ ℓ^♯ gives the stated sums and degrees, and no second-order term other than
+g⁻¹ΓΓ; expanding g⁻¹ = η⁻¹ − m₀H𝔩^♯ ⊗ 𝔩^♯ gives the stated sums and degrees, and no second-order term other than
 □_0's. C_1 = 2η^(ab)(Γ_1)^ν_(ac): its component with ν = b = t and c the index of x^1 is −2(Γ_1)^t_(t1), and
-(Γ_1)^t_(t1) = ½η^(tt)∂_1(Hℓ_tℓ_t) = −½∂_1H (ℓ_t = 1, ∂_tH = 0), so the component is ∂_1H = −2x^1|x|⁻⁴ ≠ 0.
+(Γ_1)^t_(t1) = ½η^(tt)∂_1(H𝔩_t𝔩_t) = −½∂_1H (𝔩_t = 1, ∂_tH = 0), so the component is ∂_1H = −2x^1|x|⁻⁴ ≠ 0.
 
 (b) By [[lem:iv1-1-1]], ∂_t, ∂_(x^i) ∈ ρ₀𝒱_(e,b) and |x|⁻¹∂_ω ∈ ρ₀x_I𝒱_(e,b). A coefficient homogeneous of degree −d in
 x is ρ^d times a smooth function of x/|x|, and ρ = ρ₀x_I². The prefactor is ρ_Iρ^(−2) = ρ₀^(−2)x_I^(−2), and the
@@ -820,8 +820,8 @@ X ∈ {X₀, X_I, rotations}, and with [[eq:iv-2-3]] for L this gives the commut
 E ∈ x_IDiff²_(e,b), and its first-order part replaces the matrix Ā of [[eq:iv1-1-1]] by 0.
 
 (c) By [[eq:iv-2-2]], L = −2X_I(X₀ − X_I) + x_I²(Δ̸ + ¾) + L̃ with L̃ ∈ x_IDiff²_(e,b). As X₀ρ₀^a = aρ₀^a and
-X_Iρ_I^λ = λρ_I^λ, −2X_I(X₀ − X_I)(ρ₀^aρ_I^λ) = −2λ(a − λ)ρ₀^aρ_I^λ; the other terms of L, and E by (b), are
-O(x_Iρ_I^λ) = o(ρ_I^λ). The roots of −2λ(a − λ) are 0 and a, and Z = ρ^(3/2)u with u of ℐ⁺-order 0 has order 3/2.
+X_Iρ_I^ι = ιρ_I^ι, −2X_I(X₀ − X_I)(ρ₀^aρ_I^ι) = −2ι(a − ι)ρ₀^aρ_I^ι; the other terms of L, and E by (b), are
+O(x_I|ρ_I^ι|) = o(ρ_I^(Re ι)). The roots of −2ι(a − ι) are 0 and a, and Z = ρ^(3/2)u with u of ℐ⁺-order 0 has order 3/2.
 
 (d) For η, □_0 = ∂_t² − ∂_r² − 3r⁻¹∂_r − r⁻²Δ̂ on functions. With ρ = 1/r and τ = t/r, ∂_tρ = 0, ∂_tτ = ρ, ∂_rρ = −ρ²
 and ∂_rτ = −τρ; so for u = ρ^αv(τ), ∂_t²u = ρ^(α+2)v″, ∂_ru = −ρ^(α+1)(αv + τv′) and
@@ -868,7 +868,7 @@ u := ρ^(−3/2)Z satisfies
    L_□ ∈ Diff²_b with principal symbol ρ_IG_b ⊗ Id up to O(ρ), and E ∈ ρ₀²Diff¹_b is a bounded first-order b-operator,
    absorbed by the exponential weight in τ (or τ′) as the first-order terms of the system are absorbed there; τ′ is a
    b-time function for every weight ([[lem:gd-r4-1]] (d)). [[lem:iv2-2-2]] at □, with zero data and the forcing term F
-   (which it does not ask to vanish near Σ^IVP), gives Z on Ω_N.
+   (which it does not ask to vanish near Σ^IVP), gives Z on the region of [[lem:iv2-2-2]].
 4. *The gluing: Steps 1–3 of the proof of [[thm:iv2-2-4]] and [[lem:iv2-2-3]] at □*, with 2 and 3: the cut-off
    χ̂_N(τ′) of Step 2, whose commutator lives where ρ_I ≥ ½, so that every ℐ⁺-weight is met there; then
    [[lem:iv2-2-3]], away from ℐ⁺ by 3, and near ℐ⁺ the forward problem for u − χ_cu_1, the first-order b-commutator
