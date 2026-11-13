@@ -71,7 +71,7 @@ r_A² ≥ |x|² − ‖A‖² > r_♭²/4 − r_♭²/16 = 3r_♭²/16 > 3‖A�
 
 which is the condition of [[lem:iii-b-3-3]] (c); so F_A ∈ (0, 1] and H_(m,A) > 0. By [[lem:iii-b-3-1]] (b), r_A is
 smooth in (x, A) on {|x|² > s}, and P(r_A) > 0, so ℓ_A, F_A and H_(m,A) are smooth in (x, b), and g^KS_b is smooth.
-For c ∈ [0, 1] let g_c := η + cH_(m,A) k_A ⊗ k_A. As k_A is null for η ([[lem:iii-b-3-3]] (a)), the computation of
+For c ∈ [0, 1] let g_c := η + cH_(m,A) k_A ⊗ k_A. As k_A is null for η ([[lem:iii-b-3-3]] (a)), the argument of
 [[lem:iii-b-3-3]] (d) with cH_(m,A) for H_(m,A) gives g_c⁻¹ = η⁻¹ − cH_(m,A) k_A^♯ ⊗ k_A^♯; so every g_c is
 non-degenerate. A continuous path of non-degenerate symmetric forms has constant signature, and g₀ = η has signature
 (1, 4). So g₁ = g^KS_b has signature (1, 4). ∎
@@ -105,7 +105,7 @@ G^(vv) = 0, G^(vr) = 1, G^(rr) = f and G = r⁻²g̸⁻¹ on T*𝕊³; and dτ =
 
 At F = 0 this is fξ² − 2z₀ξ + r⁻²C, regular for all r > 0. At F = r_*, on {r > r_h}, it is
 
-    G^s := fξ² + r⁻²C − f⁻¹,                                                                                {#eq:s12-static-symbol}
+    G^s := fξ² + r⁻²C − f⁻¹,                                                                      {#eq:s12-static-symbol}
 
 the static form, which does not depend on z₀ ∈ {1, −1}.
 
@@ -226,8 +226,9 @@ rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
 H_(G₁) ξ = −∂_rG₁ = −f′f⁻² + 2Cr⁻³ = (2f − rf′)/(f r) = 2(r² − 2m)/(f r³), which vanishes only at r² = 2m; then
 C = 2m·2 = 4m. This is [[prop:np-10-17-ii]] (a)–(b) at σ = 1. (b) By [[prop:np-10-17-ii]] at σ = 1, the linearisation
 is δṙ = δξ, δξ̇ = 16 r_ph⁻² δr, with eigenvalues ±4r_ph⁻¹ = ±ν. For a function φ vanishing at the zero p of a vector
-field V, d(Vφ)_p = dφ_p ∘ DV_p. Here dφ_(s/u) = dξ ± ν dr at p, as f(r_ph) = ½ and (r − r_ph) vanishes at p; the linearisation maps
-(δr, δξ) to (δξ, ν²δr), as 16r_ph⁻² = ν², and dξ ± ν dr applied to (δξ, ν²δr) gives ν²δr ± νδξ = ±ν(δξ ± νδr). On Σ₁, ∂_ξC = −2r²fξ = 0 and
+field V, d(Vφ)_p = dφ_p ∘ DV_p. Here dφ_(s/u) = dξ ± ν dr at p, as f(r_ph) = ½ and (r − r_ph) vanishes at p.
+The linearisation maps (δr, δξ) to (δξ, ν²δr), as 16r_ph⁻² = ν², and dξ ± ν dr applied to (δξ, ν²δr) gives
+ν²δr ± νδξ = ±ν(δξ ± νδr). On Σ₁, ∂_ξC = −2r²fξ = 0 and
 ∂_rC = r(2f − rf′)f⁻² = 0 at p, so the linearisation on Σ₁ in the coordinates (r, ξ) is the one at fixed C.
 (c) At p, ∂_ξφ_(s/u) = 1 and ∂_rφ_(s/u) = ±ν/(2f), the term with the derivative of f⁻¹ vanishing with r − r_ph. So
 {φ_u, φ_s} = ∂_ξφ_u ∂_rφ_s − ∂_rφ_u ∂_ξφ_s = ν/(2f) + ν/(2f) = ν/f = 2ν. ∂_CG₁ = r⁻² by inspection. (d) In static
@@ -252,7 +253,7 @@ r₀ − 2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4)
 On {|x| ≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b.
 *dt_* is timelike.* As in the proof of [[lem:iii-b-3-7]] (a): in the coordinates (t_KS, x) = Φ_m(t, x), a function
 t − φ(|x|) has differential dt_KS − β d|x| with β := φ′ − T_m′. For φ = ψ, β = 1 off supp χ_∞, that is on
-[r₀ − 2δ₀, 2R₁], where ψ′ = 1 and T_m′ = 0; and on supp χ_∞ ⊂ [2R₁, ∞) the computation of [[lem:iii-b-3-7]] (a), which
+[r₀ − 2δ₀, 2R₁], where ψ′ = 1 and T_m′ = 0; and on supp χ_∞ ⊂ [2R₁, ∞) the estimate in the proof of [[lem:iii-b-3-7]] (a), which
 does not involve the inner radius, gives β ∈ (−1, 1). So β ∈ (−1, 1] on [r₀ − 2δ₀, ∞), and [[lem:iii-b-3-3]] (e),
 valid there by [[lem:s12-ks-domain]], makes dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i
 do not depend on t_*, as t_* − t is a function of |x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed
@@ -301,4 +302,208 @@ is Lorentzian of signature (1, 3), G₀(dr) = f < 0, and 𝖧r < 0 on ∂Σ₀. 
 
 This is [Hin26c, Section 9.2.1, (1)–(4)] for Tangherlini. At b₀ the flow on ∂ℛ_± is the fibre dilation alone; at
 b ≠ b₀ the Killing field normal to the horizon is not ∂_t, the flow on N*ℋ moves the base point, and (H3), which asks
-only for an invariant source set with the stated rates, is proved by perturbation in [[sec:vi-b-2]].
+only for invariant radial sets with the stated rates, is proved by perturbation in [[sec:vi-b-2]].
+
+### The trapped set {#sec:vi-a-3}
+
+On {r > r_h} we use static variables ([[lem:vi-a-0-1]]). Put u(r) := 1 − 2m r⁻² and, near Γ and on
+Σ^s := {G^s = 0},
+
+    φ₁ := fξ − u,     φ₂ := fξ + u,     Γ := {r = r_ph, ξ = 0} ∩ Σ^s = {r = r_ph, ξ = 0, C = 4m}.          {#eq:vi-a-3-1}
+
+**Proposition {#prop:vi-a-3-1}** ((Γ.1)–(Γ.3) at b₀.) For z₀ ∈ {1, −1}, with the future field 𝖧^♭ = z₀H_(G^s) on
+Σ^s:
+
+(a) Γ is compact and invariant, and it lies in T*{r₂ < r < ρ₁⁻¹} for the ρ₁ of (H2) provided ρ₁⁻¹ > r_ph = √2 R₁, as
+holds for the operators used, whose (H2) is set on {r > 3R₁};
+
+(b) on Σ^s near Γ, exactly,
+
+    𝖧^♭φ₁ = −ν₁φ₁,     𝖧^♭φ₂ = ν₂φ₂,     ν_(1,2) = 2z₀(r⁴ ± ξ(r² − m)(r² − 2m)) / (r³(r² − m)),        {#eq:vi-a-3-2}
+
+with ν₁ = ν₂ = 4z₀(2m)^(−1/2) on Γ;
+
+(c) {φ₁, φ₂} = (2/m)^(1/2) > 0 on Γ, and dG^s ≠ 0 there.
+
+So (Γ.1)–(Γ.3) hold. For z₀ = 1 take φ_u := φ₁ and φ_s := φ₂; for z₀ = −1 take φ_u := φ₂ and φ_s := −φ₁. Then
+ν_min = 4(2m)^(−1/2) for both signs, and Γ_(u/s) = {φ_(u/s) = 0} ∩ Σ^s are the two branches of {C = 4m} ∩ Σ^s.
+
+*Proof.* On Σ^s, C = r²(f⁻¹ − fξ²), so (fξ)² = 1 − CW with W := f r⁻² and C conserved, and W′ = 2(2m − r²) r⁻⁵
+([[prop:np-10-19-iv]]). W has the single critical point r_ph on (r_h, ∞), a maximum W = (4m)⁻¹.
+
+(a) 𝖧^♭r = 2z₀fξ vanishes on Γ, and 𝖧^♭ξ = −z₀∂_rG^s = −z₀(f′f⁻² + f′ξ² − 2C r⁻³) vanishes there by
+[[prop:np-10-19-ii]] (a). C and the flow on 𝕊³ preserve Γ, and Γ ≅ {(ω, η) : |η|² = 4m} is compact. Finally
+r₂ = 7R₁/8 < r_ph.
+
+(b) On Σ^s, (fξ)² = 1 − CW, and 1 − 4mW = 1 − 4m r⁻² + 4m² r⁻⁴ = u². So (fξ)² − u² = (4m − C)W, and
+{φ₁φ₂ = 0} ∩ Σ^s = {C = 4m} ∩ Σ^s. Each branch is a union of orbits, by the identities derived next. Write X := fξ
+and H := H_(G^s), with Hr = 2fξ and Hξ = −∂_rG^s. Then
+
+    H(fξ) = 2ff′ξ² − f(f′ξ² − 2C r⁻³ + f′f⁻²) = ff′ξ² + 2fC r⁻³ − f′f⁻¹,
+
+and on Σ^s, 2fC r⁻³ = 2r⁻¹(1 − f²ξ²). Since f′ − 2f r⁻¹ = (4m − 2r²) r⁻³ = −2u r⁻¹ and
+2r⁻¹ − f′f⁻¹ = 2(r²f − m)/(r³f) = 2u (rf)⁻¹ (as r²f = r² − m), this gives H(fξ) = 2u (rf)⁻¹(1 − X²). Moreover
+1 − u² = (1 − u)(1 + u) = 4m f r⁻², and Hu = u′·2fξ = 8m r⁻³X. Hence
+
+    H(fξ) = 8m u r⁻³ − 2u (rf)⁻¹ (X − u)(X + u),
+    Hφ₁ = H(fξ) − Hu = −(X − u) (8m r⁻³ + 2u (rf)⁻¹ (X + u)),
+    Hφ₂ = H(fξ) + Hu = (X + u) (8m r⁻³ − 2u (rf)⁻¹ (X − u)).
+
+With rf = (r² − m) r⁻¹ and u = (r² − 2m) r⁻²,
+
+    8m r⁻³ + 2u² (rf)⁻¹ = 2((r² − 2m)² + 4m(r² − m)) / (r³(r² − m)) = 2r⁴ / (r³(r² − m)),
+    2u (rf)⁻¹ · fξ = 2uξ r⁻¹ = 2ξ(r² − m)(r² − 2m) / (r³(r² − m)),
+
+so the two brackets are ν₁/z₀ and ν₂/z₀ of [[eq:vi-a-3-2]]. Multiplying by z₀ gives [[eq:vi-a-3-2]] on Σ^s. On Γ,
+ξ = 0 and r² = 2m, so ν₁ = ν₂ = 2z₀ r_ph (r_ph² − m)⁻¹ = 2z₀(2m)^(1/2) m⁻¹ = 4z₀(2m)^(−1/2), the rate of
+[[prop:np-10-19-ii]] (b).
+
+(c) {φ₁, φ₂} = ∂_ξφ₁ ∂_rφ₂ − ∂_rφ₁ ∂_ξφ₂ = f(f′ξ + u′) − (f′ξ − u′)f = 2fu′, which at r_ph is
+2·½·4m r_ph⁻³ = (2/m)^(1/2). ∂_η G^s = 2r⁻²η^♯ ≠ 0, as |η|² = 4m. For z₀ = −1 the roles of φ₁ and φ₂ are exchanged,
+and the sign of φ_s restores {φ_u, φ_s} = {φ₂, −φ₁} = {φ₁, φ₂} > 0 without changing (Γ.2). (Γ.1): φ₁ and φ₂ are
+functions of (r, ξ) with dφ₁ ∧ dφ₂ = −2fu′ dr ∧ dξ ≠ 0 (u′ = 4m r⁻³), while on Γ, ∂_rG^s = ∂_ξG^s = 0, so dG^s ≠ 0
+has no dr or dξ component there. So dφ₁, dφ₂ and dG^s are independent along Γ, and Γ_u, Γ_s are smooth hypersurfaces
+of Σ^s near Γ, meeting transversally in Γ, to which 𝖧^♭ is tangent by [[eq:vi-a-3-2]]. Γ, Γ_(u/s), the flow and
+(Γ.1)–(Γ.3) transfer to t_* by [[lem:vi-a-0-1]] (a)–(b), and the function q of (Γ.4) on Γ by [[lem:vi-a-0-1]] (c). ∎
+
+This is [Hin26c, (Γ.1)–(Γ.3)] for Tangherlini; for Kerr it is [Hin26c, Lemma 4.16].
+
+### r-normal hyperbolicity {#sec:vi-a-4}
+
+**Proposition {#prop:vi-a-4-1}** ((K3) at b₀.) (K3) holds at b₀: Γ is eventually absolutely r-normally hyperbolic for
+every r, for 𝖵 := q_(*,1)⁻¹ H_(G₁) on Σ^♭₁, with q_(*,1) and G₁ those of t_*.
+
+*Proof.* First take the field of the static time, 𝖵_s := q_(s,1)⁻¹ H_(G^s), in static variables
+([[lem:vi-a-0-1]] (a)). Here q_(s,1) = 2f⁻¹, so 𝖵_s = (f/2) H_(G^s), and on Γ, 𝖵_s = ¼H_(G^s), as f(r_ph) = ½. Use the
+coordinates (r, ξ, ω, η) on Σ^s, where C is determined by (r, ξ). On Γ the flow is ṙ = ξ̇ = 0, and (ω, η) moves by
+¼r_ph⁻² H^(𝕊³)_C, the geodesic flow of the round 𝕊³ on the cosphere bundle {|η|² = 4m}, reparametrised by a constant.
+Its orbits are periodic, so De^(s𝖵_s)|_(TΓ) is bounded uniformly in s, and the tangential bound of (K3) holds with
+C_ϵ = C for every ϵ > 0. Normal directions: the linearisation of 𝖵_s at Γ is block triangular. The (δr, δξ)-block is
+autonomous, with eigenvalues ±¼ν, ν = 4(2m)^(−1/2), by [[eq:vi-a-3-2]] at z₀ = 1: on ker dφ₂, tangent to Γ_s, dφ₁
+decays forward at the rate ¼ν, and on ker dφ₁, tangent to Γ_u, dφ₂ decays backward. The (δω, δη)-block is driven by
+(δr, δξ), through r and C, which enter the speed of the spray. As the homogeneous tangential solutions are bounded and
+the normal ones grow or decay at the rate ¼ν ≠ 0, each normal eigensolution e^(±νs/4)v_± has a unique tangential
+correction e^(±νs/4)w_±, obtained by solving the driven equation with the variation-of-constants integral over
+(−∞, s] or [s, ∞). This gives the invariant splitting [[eq:ii-b-1-1]], with N̄^u and N̄^s spanned by these solutions,
+continuous along Γ, and the rate μ = ¼ν of (K3).
+
+*The field of t_*.* Transported by T_F ([[lem:vi-a-0-1]] (a)), 𝖵 = a𝖵_s with a := q_(s,1)/q_(*,1), smooth and positive
+near Γ, as both time differentials are timelike there, and a = 1 on Γ by [[lem:vi-a-0-1]] (c). Hence e^(s𝖵) = e^(s𝖵_s)
+on the invariant set Γ, and along Γ, D(a𝖵_s) = D𝖵_s + 𝖵_s ⊗ da. Here 𝖵_s is tangent to Γ and da vanishes on TΓ, so
+the added term maps the normal directions into TΓ and annihilates TΓ. The normal block, its rates and the homogeneous
+tangential equation are unchanged, and the added driving term is absorbed by the same variation-of-constants step. ∎
+
+This is [Hin26c, Proposition 4.19] for Tangherlini.
+
+### The global dynamics {#sec:vi-a-5}
+
+On Σ^(z₀)_(z₀) the future integral curves of G_(z₀) project to future null geodesics of g_(b₀) with velocity
+2z₀ν^♯, ν = −z₀ dτ + ζ, whose energy −g(2z₀ν^♯, ∂_t) = −2z₀ν(∂_t) = 2 is positive for both signs of z₀. On
+Σ^(−z₀)_(z₀), which occurs only inside the horizon, the velocity is −2z₀ν^♯ and the energy −2, which is allowed there
+since ∂_t is spacelike. C is the squared angular momentum. By [[lem:vi-a-0-1]] each statement below may be checked in
+the time function named; ξ_s and ξ_* denote ξ in the t_s and in the t_* variables. Near infinity, t_* = t_s − F(r)
+with F = t_s − t_* = r − r_* − T_m + ψ ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]), so that on {r ≥ 3R₁}
+
+    F′ = 1 − f⁻¹ − T_m′ + ψ′ = 1 + m(r² − m)⁻¹ − 8m r⁻² = 1 + O(r⁻²),                                     {#eq:s12-shift}
+
+and ξ_* = ξ_s − z₀F′ by [[lem:vi-a-0-1]] (a).
+
+**Proposition {#prop:vi-a-5-1}** ((H8) at b₀.) (H8) (a) and (b) hold at b₀ for z₀ ∈ {1, −1}, with
+Γ̄_u = {φ_u = 0} ∩ Σ^s ∩ {r > r_h}, Γ̄_s = {φ_s = 0} ∩ Σ^s ∩ {r > r_h}, and every neighbourhood O ⊂ {r > r_h} of Γ.
+
+*Proof.* *Outside the horizon* (static variables). Along 𝖧^♭, ṙ = 2z₀fξ, C is conserved and (fξ)² = 1 − CW(r), so
+the radial motion is that of a particle in the potential CW, which has a single maximum C/(4m) at r_ph and tends to 0
+at r_h and at ∞ ([[prop:np-10-19-iv]]). There are three cases.
+
+- C < 4m: fξ ≠ 0 throughout, so r is strictly monotone.
+- C > 4m: {CW > 1} is an interval (r_−, r_+) ∋ r_ph with r_h < r_−. A curve stays in (r_h, r_−] or in [r_+, ∞), with
+  exactly one turning point, where ξ = 0 and ξ̇ ≠ 0.
+- C = 4m: the curve lies on Γ or on one of the four branches of {fξ = ±u}, along which r is monotone and tends to r_ph
+  at one end.
+
+In the first two cases the curve meets neither Γ̄_u nor Γ̄_s, and r tends, at each end, to r_h or to ∞. In the third,
+the branches with φ_u = 0 are backward asymptotic to Γ and those with φ_s = 0 are forward asymptotic, by
+[[eq:vi-a-3-2]]. This identifies Γ̄_(u/s) outside the horizon. Inside the horizon no curve tends to Γ, as shown below.
+
+*At infinity.* If r → ∞ forward, then (fξ_s)² → 1 and ṙ > 0 give ξ_s → z₀. By [[eq:s12-shift]], ξ_* → 0; and
+|η|/r = C^(1/2) r⁻¹ → 0, as C is conserved. So the curve converges in the scattering phase space ([[sec:i-a-4]]) to
+{ξ_* = 0, η = 0} over ∂X, which is R_out ([[eq:i-a-4-6]]). Backward with r → ∞, ξ_s → −z₀, so ξ_* → −2z₀ and
+η/r → 0: the curve converges to R_(z₀,in) = {ξ_* = −2z₀, η = 0} over ∂X ([[eq:i-a-4-6]]).
+
+*At the horizon* (v variables, regular across r = r_h; v is a chart, and the components are those of t_*,
+[[sec:vi-a-0]]). On {G^(0)_(z₀) = 0}, fξ² − 2z₀ξ + r⁻²C = 0, with the roots ξ = (z₀ ± (1 − fC r⁻²)^(1/2))/f. One root
+is regular at f = 0, where it tends to C/(2z₀r_h²); the other is ∼ 2z₀/f. A future null covector with
+ν(∂_t) = −z₀ ≠ 0 is not a multiple of dr, so ν^♯ is not tangent to the null generator ∂_v of ℋ, and dr(γ̇) < 0 there
+by [[prop:np-10-19-iv]] (d): on the regular root a curve crosses ℋ inward in finite parameter. Inside, dr is timelike
+(G(dr) = f < 0) and ṙ < 0 strictly. On compact subsets of Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r_h − ϵ}, compactified at fibre
+infinity, ṙ is bounded above by a negative constant, including at fibre infinity by [[prop:vi-a-2-1]] (𝖧r = 2f). So
+the curve reaches {r < r₀ − δ₀} in finite parameter. On the singular root, which near ℋ is the component
+Σ^(−z₀)_(z₀) inside and the outgoing branch outside, |ξ| → ∞ as r → r_h with C fixed. So η/ξ → 0 and the curve tends
+backward to ∂ℛ₊ ∪ ∂ℛ₋, reaching r_h only asymptotically in the parameter of the rescaled field, ρ_∞ times the future
+field. For the unrescaled future field, |ṙ| → 2 and the curve reaches fibre infinity at a finite parameter; (H8) is
+read for the rescaled field, whose integral curves are the same up to parametrisation.
+
+So every curve not in Γ̄_u tends backward to ∂ℛ_± or R_(z₀,in), and every curve not in Γ̄_s tends forward to R_out or
+reaches {r < r₀ − δ₀} in finite time.
+
+*Uniformity on compact sets.* Let 𝖪 ⊂ Σ_(z₀) ∩ T*{r > r₀ − 2δ₀} be compact and disjoint from Γ̄_s. C is conserved,
+and C ≤ C_𝖪 on 𝖪. For ϵ ∈ (0, ¼) and R large given C_𝖪, put 𝒜_out := {r > R, |ξ_*| < ϵ}. While z₀ξ_s > 0 and r > R:
+𝖧^♭r = 2z₀fξ_s = 2(1 − Cf r⁻²)^(1/2) ≥ 1, and (fξ_s)² = 1 − Cf r⁻² gives z₀ξ_* = |ξ_s| − F′, hence
+|ξ_*| ≤ c₁(C + 1) r⁻² and |η|/r = C^(1/2) r⁻¹, with c₁ depending only on m. Take R with c₁(C_𝖪 + 1) R⁻² < ϵ/2 and
+F′ > ½ on {r > R}. A curve from 𝖪 that enters 𝒜_out has z₀ξ_s = z₀ξ_* + F′ > 0 there, and on the maximal parameter
+interval after entry on which z₀ξ_s > 0, r increases (𝖧^♭r ≥ 1), so r > R persists and |ξ_*| < ϵ/2, hence
+z₀ξ_s > ¼; that interval is therefore closed as well as open, and contains every later parameter. So the curve stays
+in 𝒜_out, with r ≥ R + s at parameter s after entry, and converges to R_out at rates independent of its initial point.
+For T > 0 let U_T be the set of points of 𝖪 whose forward curve enters 𝒜_out or {r < r₀ − δ₀} before parameter T. Each
+U_T is open, as both target sets are open and the flow is continuous; the U_T increase with T; and they cover 𝖪 by the
+pointwise statement, since a curve tending to R_out has r → ∞ and ξ_* → 0. So 𝖪 ⊂ U_T for one T, and the forward
+convergence is uniform on 𝖪.
+
+Backward, for 𝖪 disjoint from Γ̄_u, the same argument applies with 𝒜_in := {r > R, |ξ_* + 2z₀| < ϵ} for R_(z₀,in),
+with R also so large that F′ < 3/2 on {r > R}: on 𝒜_in, z₀ξ_s = z₀(ξ_* + 2z₀) − 2 + F′ < −¼, and
+|ξ_* + 2z₀| = ||ξ_s| − (2 − F′)| ≤ c₁(C + 1) r⁻²; and with 𝒰_H := {|r − r_h| < δ, ρ_∞ < δ′, C < C_𝖪 + 1} near the
+horizon, where δ, δ′ are so small, given C_𝖪, that 𝒰_H meets only the singular root. 𝒰_H is backward invariant, as
+|r − r_h| decreases backward on both of its branches and ρ_∞ with it, and on 𝒰_H, ρ_∞ ≤ c|f| and
+|η/ξ| ≤ c C_𝖪^(1/2)|f|. In the rescaled parameter, |dr/ds| = ρ_∞|ṙ| = |f|(1 + O(C_𝖪 f)) on 𝒰_H, and
+|f| = β₀|r − r_h|(1 + O(r − r_h)), so |r − r_h| decays backward exponentially at a rate close to β₀, uniformly on 𝒰_H.
+With the cover argument this makes the backward convergence to ∂ℛ_± and to R_(z₀,in) uniform on 𝖪.
+
+(b) Γ̄_u is the union of Γ and the two branches of {φ_u = 0}, on each of which r is monotone. So
+Γ̄_u ∩ O = {φ_u = 0} ∩ Σ^s ∩ O = Γ_u for every O ⊂ {r > r_h}, and likewise for Γ̄_s. ∎
+
+This is [Hin26c, Proposition 4.24] and the paragraph after [Hin26c, (9.5)], for Tangherlini.
+
+**Lemma {#lem:vi-a-5-2}** (An escape function.) On Σ^s, ℱ := (r² − 2m)ξ satisfies
+
+    H_(G^s)ℱ = 2r(ξ²(r² − m)² + (r² − 2m)²) / (r² − m)²  ≥ 0,                                              {#eq:vi-a-5-1}
+
+with equality exactly on Γ.
+
+*Proof.* For ℱ = a(r)ξ, H_(G^s)ℱ = a′·2fξ·ξ − a(f′ξ² − 2C r⁻³ + f′f⁻²). On Σ^s, 2C r⁻³ = 2r⁻¹(f⁻¹ − fξ²), so
+
+    H_(G^s)ℱ = ξ²(2fa′ − a(f′ + 2f r⁻¹)) + a f⁻¹(2r⁻¹ − f′f⁻¹).
+
+Here f′ + 2f r⁻¹ = 2r⁻¹, so the first term is 2ξ² r⁻²((r² − m)a′ − ra), using r²f = r² − m; and
+2r⁻¹ − f′f⁻¹ = 2u(rf)⁻¹ (proof of [[prop:vi-a-3-1]]), so the second is 2ua(rf²)⁻¹ = 2r(r² − 2m)(r² − m)⁻²a. At
+a = r² − 2m, (r² − m)a′ − ra = 2r(r² − m) − r(r² − 2m) = r³, and [[eq:vi-a-5-1]] follows. It vanishes exactly when
+ξ = 0 and r² = 2m, and on Σ^s these give C = r²f⁻¹ = 4m: the set Γ. ∎
+
+[[lem:vi-a-5-2]] is not needed at b₀, where [[prop:vi-a-5-1]] uses the conserved C. At b ≠ b₀, where C is not
+conserved, [[sec:vi-b1-4]] uses the separation of [[sec:vi-b1-0]] instead. Exactly, φ₂² − φ₁² = 4fξu, so
+ℱ = (r²/(4f))(φ₂² − φ₁²); with the choices of [[prop:vi-a-3-1]], z₀ℱ = (r²/(4f))(φ_s² − φ_u²) for both signs of z₀,
+while 𝖧^♭(z₀ℱ) = H_(G^s)ℱ ≥ 0.
+
+### The theorem at b₀ {#sec:vi-a-6}
+
+**Theorem {#thm:vi-a-6-1}** ((Dyn) at b₀.) For g_(b₀) with the time function t_* and the radii of [[def:s12-radii]]:
+(H6) and (K1) hold ([[lem:vi-a-1-1]], for every b ∈ ℬ_♭); the dynamical parts of (H3) and all of (H4) hold
+([[prop:vi-a-2-1]]); (Γ.1)–(Γ.3) hold with ν_min = 4(2m₀)^(−1/2) ([[prop:vi-a-3-1]]); on Γ, q_(z₀) is the same in t_*
+as in t_s ([[lem:vi-a-0-1]] (c)), where it is 2z₀f(r_ph)⁻¹ = 4z₀, so q^Γ := z₀q_(z₀) = 4 on Γ and
+β₀ = ½ min_Γ |q_(z₀)| = 2; (K3) holds ([[prop:vi-a-4-1]]); and (H8) holds ([[prop:vi-a-5-1]]). These hold for every
+operator with principal symbol G Id.
+
+*Proof.* Each item is the result cited for it. ∎
+
+**Remark {#rem:s12-two-beta}** (Two constants named β₀.) The β₀ of (H3), f′(r_h) = 2m₀^(−1/2), is twice the surface
+gravity; the β₀ of (Γ.4), ½ min_Γ |q_(z₀)| = 1/f(r_ph) = 2, belongs to the trapped set. They are different quantities,
+named by the same letter in [[sec:i-a-1-3]] and [[sec:i-b-1-5]].

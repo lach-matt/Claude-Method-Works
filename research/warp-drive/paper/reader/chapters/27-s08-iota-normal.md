@@ -503,7 +503,7 @@ and 𝒜 is one order h⁻¹ above 𝒫_1; here 𝒜 is one order ρ_sf⁻¹ abo
 (D4) The residual error ‖u‖_(−K𝟏) is ‖u‖_(𝐨−K𝐞) (the weights at 0f, cf, tf are never lowered).
 
 (D5) Iteration lowers all of 𝐨: in place of [[lem:i-b-3-4]], which lowers only the semiclassical order, the iteration of
-[[pending:i-b-corollary-4-6-prime]] (the form of [[cor:i-b-4-6]] with all orders lowered) is used, applying
+[[cor:i-b-4-6-prime]] (the form of [[cor:i-b-4-6]] with all orders lowered) is used, applying
 [[lem:i-b-3-3]] at the orders 𝐨 − ((J − j)/4)𝐞, j = 1, …, J; it needs the decomposition [[eq:i-b-3-3]] at each of these
 orders, on the same nested sets, and leaves the error ‖Gu‖_(𝐨−(J/4)𝐞) in place of h^M‖Gu‖_𝐨. The constant semiclassical
 scaling used in [[sec:i-b-3-3]] is not available here: ρ_sf is not constant on ι⁺ at fixed h.

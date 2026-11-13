@@ -1177,3 +1177,375 @@ Let 𝒟 ⊂ ℂ be compact. Then for σ ∈ 𝒟,
 supp dχ. Apply [[prop:i-a-6-4]] (i). For [[eq:i-a-6-2]]: the restriction of u to Ω_(r₀,b″) lies in
 H^(1−s)(Ω_(r₀,b″))^(−,•) (supported at r₀, extendible at b″); apply [[prop:i-a-6-4]] (ii) to L = P̂(σ)^(∗h). The
 constants are uniform in σ ∈ 𝒟 since the coefficients are polynomial in σ. ∎
+
+### The spectral family at bounded nonzero frequencies {#sec:i-a-7}
+
+**Lemma {#lem:i-a-7-1}** (Admissible orders exist, locally uniformly.) Let σ_* ≠ 0 be real. Fix constants
+𝗋_in > (−1 + ϑ_in)/2 − α₊ and 𝗋_out < −½ + S̄ − α₊ with 𝗋_in ≥ 𝗋_out, and s_c > ½ + ϑ_ℋ. Then there is an order pair
+(s, 𝗋) admissible for every σ₀ in a neighbourhood J of σ_*, with weight α₊ and a margin independent of σ₀ ∈ J.
+
+*Proof.* Take s ≡ s_c. Let ε_* := sgn σ_* and J := {σ₀ : |σ₀ − σ_*| < |σ_*|/4}. Let Θ ∈ C^∞(ℝ) satisfy ε_*Θ′ ≤ 0,
+Θ = 1 on {ε_*ξ ≤ −(3/2)|σ_*|} and Θ = 0 on {ε_*ξ ≥ −½|σ_*|}. Let χ_c ∈ C_c^∞ equal 1 on {ξ² + |η|² ≤ (3|σ_*|)²},
+which contains Σ^∂_(σ₀) for σ₀ ∈ J ([[lem:i-a-4-5]]: |ξ| ≤ 2|σ₀| and |η| ≤ |σ₀| there). On the boundary face set
+
+    𝗋 := 𝗋_out + (𝗋_in − 𝗋_out) Θ(ξ) χ_c(ξ² + |η|²),
+
+and extend it smoothly. Every R_(σ₀,in), σ₀ ∈ J, has ε_*ξ = −2|σ₀| < −(3/2)|σ_*|, where 𝗋 = 𝗋_in; and R_out has
+ξ = 0, where 𝗋 = 𝗋_out. By [[eq:i-a-4-5]], 𝖧_(σ₀)ξ = 2|η|² at ρ = 0. So on Σ^∂_(σ₀),
+
+    ε_*𝖧_(σ₀)𝗋 = (𝗋_in − 𝗋_out) ε_*Θ′(ξ) · 2|η|² ≤ 0,
+
+which is (O2). The thresholds [[eq:i-a-1-5]] hold with the margins of the constants. ∎
+
+Fix a fibre inner product h for the adjoints. For orders (s, 𝗋) and σ set
+
+    𝒴_σ := H̄^(s−1,𝗋+α₊+1),     𝒳_σ := {u ∈ H̄^(s,𝗋+α₊) : P̂(σ)u ∈ 𝒴_σ},
+    𝒳^∗_σ := {v ∈ Ḣ^(1−s,−𝗋−α₊−1) : P̂(σ)^(∗h)v ∈ Ḣ^(−s,−𝗋−α₊)},
+
+the first two being the target and the domain of [Hin26c, (9.18)]. These are Hilbert spaces with the graph norms.
+
+**Theorem {#thm:i-a-7-2}** (The spectral family at bounded nonzero frequencies.) Assume (H1)–(H4), and let α₊ ∈ ℝ.
+
+(1) (*Fredholm estimates, I.*) Let I ⊂ (0, ∞) or I ⊂ (−∞, 0) be compact, ν ≥ 0 and N ∈ ℝ. Let I ∋ σ₀ ↦ (s, 𝗋_(σ₀))
+be order pairs, continuous into C^∞, each admissible for σ₀ with weight α₊, with margins and constancy neighbourhoods
+uniform in σ₀. There is C such that for σ = σ₀ + iσ₁ with σ₀ ∈ I and σ₁ ∈ [0, ν], writing 𝗋 := 𝗋_(σ₀),
+
+    ‖u‖_(H̄^(s,𝗋+α₊)) ≤ C(‖P̂(σ)u‖_(H̄^(s−1,𝗋+α₊+1)) + ‖u‖_(H̄^(−N,−N))),     u ∈ 𝒳_σ,                      {#eq:i-a-7-1}
+
+    ‖v‖_(Ḣ^(−s+1,−𝗋−α₊−1)) ≤ C(‖P̂(σ)^(∗h)v‖_(Ḣ^(−s,−𝗋−α₊)) + ‖v‖_(Ḣ^(−N,−N))),     v ∈ 𝒳^∗_σ.            {#eq:i-a-7-2}
+
+(2) (*Fredholm estimates, II.*) Let I ⊂ ℝ be compact and 0 < ν^♭ ≤ ν. Let s satisfy (O1) with s_c > ½ + ϑ_ℋ, and let
+𝗋 be constant near R_out with 𝗋 + α₊ < −½ + S̄ there. Then [[eq:i-a-7-1]] and [[eq:i-a-7-2]] hold uniformly for
+σ ∈ I + i[ν^♭, ν].
+
+(3) (*Fredholm property.*) In the settings of (1) and (2), P̂(σ) : 𝒳_σ → 𝒴_σ is Fredholm. Its kernel and the
+annihilator of its range do not depend on the admissible orders. Its index is independent of
+σ ∈ {σ ≠ 0, Im σ ≥ 0}. Under the hypotheses of [[thm:i-b-1-3]] the index is 0, since by [[thm:i-b-1-3]] (3) the
+operator P̂(σ) is invertible for Im σ ≥ 0 and |σ| large.
+
+(4) (*Higher b-regularity.*) If u ∈ 𝒳_σ and P̂(σ)u ∈ H̄^((s−1;k),𝗋+α₊+1) for some k ∈ ℕ₀, then
+u ∈ H̄^((s;k),𝗋+α₊) and
+
+    ‖u‖_(H̄^((s;k),𝗋+α₊)) ≤ C(‖P̂(σ)u‖_(H̄^((s−1;k),𝗋+α₊+1)) + ‖u‖_(H̄^(s,𝗋+α₊))).                          {#eq:i-a-7-3}
+
+(5) (*Kernel elements.*) In the settings of (1) and (2), every u ∈ H̄^(s,𝗋+α₊) with P̂(σ)u = 0 lies in
+
+    𝒜^(3/2+S̄−ε)(X̄; E) := ρ^(3/2+S̄−ε) C^∞_b(X̄; E)     for every ε > 0.                                   {#eq:i-a-7-4}
+
+Here C^∞_b means smooth up to ∂_♯X and conormal at ∂X. Conversely, ⋂_(ε>0) 𝒜^(3/2+S̄−ε) ⊂ 𝒳_σ. If moreover S(0, ·)
+has constant spectrum on ∂X, then
+
+    u = ρ^(3/2+S(0,·))u₀ + ũ,     u₀ ∈ C^∞(∂X; E),     ũ ∈ 𝒜^(5/2+S̄−ε) for all ε > 0,                      {#eq:i-a-7-5}
+
+where ρ^(3/2+S(0,·)) = ρ^(3/2) exp(S(0, ·) log ρ). This is the first step of [Hin26c, (9.21)] in dimension 4 + 1; the
+weights 1 + S̄ and ρ^(1+S) of [Hin26c] are the values at n = 3.
+
+(6) (*Regularity in σ.*) Suppose P̂(σ_*) : 𝒳_(σ_*) → 𝒴_(σ_*) is invertible. Then for σ near σ_*, with orders fixed
+near σ_* as in [[lem:i-a-7-1]], the estimates [[eq:i-a-7-1]] and [[eq:i-a-7-3]] hold without their last terms,
+uniformly, and P̂(σ) is invertible. For each j ∈ ℕ₀ and ε > 0, σ ↦ P̂(σ)⁻¹ is j times continuously differentiable
+near σ_* in the strong operator topology, as a map H̄^((s+ε−1;j),𝗋+ε+α₊+1) → H̄^((s−ε;0),𝗋−ε+α₊) (orders those at σ_*).
+If Im σ_* > 0, it is holomorphic near σ_* as a map H̄^(s−1,𝗋+α₊+1) → H̄^(s,𝗋+α₊−1). Finally, for k ∈ ℕ₀,
+
+    ∂_σ^j P̂(σ_*)⁻¹ : H̄^((s−1;k+j),𝗋+α₊+1) → H̄^((s+j;k),𝗋+α₊)     boundedly.                              {#eq:i-a-7-6}
+
+This is [Hin26c, Theorem 9.5] in dimension 4 + 1, on the bundle E, for a constant regularity order.
+
+**Remark {#rem:i-a-7-3}** (Strong estimates; [Hin26c, Remark 9.6].) Each microlocal estimate used below holds in the
+strong sense. Hence [[eq:i-a-7-1]] holds in the strong sense with the error term replaced by ‖u‖_(H̄^(s₀,𝗋₀+α₊)) for
+orders s₀ < s and 𝗋₀ < 𝗋 that are still above the thresholds at ∂ℛ_± and at R_in: if the right side is finite, so is
+the left. Likewise for [[eq:i-a-7-2]], with an a priori order at R_out.
+
+#### The Fredholm estimates {#sec:i-a-7-1}
+
+*Proof of (1).* Fix σ = σ₀ + iσ₁ as in (1), and write 𝐬 := (s, 𝗋 + α₊) and 𝐬′ := 𝐬 − (1, −1). All constants below are
+uniform over σ₀ ∈ I and σ₁ ∈ [0, ν], for three reasons. The component estimates are uniform over compact parameter
+sets. The order family is continuous. And the finite coverings chosen below for one σ₀ serve for σ₀′ near it, by
+continuity of the flows and of the characteristic sets, so compactness of I leaves finitely many.
+
+*The pieces.* Let χ, χ₁ and b′ < b″ be as in [[cor:i-a-6-5]], and χ_far := 1 − χ, supported in {r ≥ b′} ⊂ X̄°. Then
+‖u‖_(H̄^𝐬) ≤ C(‖χu‖_(H̄^s) + ‖χ_far u‖_(H^𝐬)). Choose a finite microlocal partition of unity
+χ_far = Σ_k Q_k + Q_res, with Q_k ∈ Ψ^(0,0), Q_res ∈ Ψ^(−∞,−∞) and kernels supported in {r > r₀ + ½(b′ − r₀)}².
+Each Q_k is microsupported in one of the following open sets of the boundary of phase space, over the support of χ_far.
+
+(A) A neighbourhood U_ℋ of ∂ℛ₊ ∪ ∂ℛ₋.
+
+(B) A neighbourhood of a compact subset of ∂Σ₀ ∖ U′_ℋ, where Ū′_ℋ ⊂ U_ℋ.
+
+(C) A neighbourhood U_in of R_(σ₀,in).
+
+(D) A neighbourhood of a compact subset of Σ^∂_(σ₀) ∖ (U′_in ∪ U′_out).
+
+(E) A neighbourhood U_out of R_out.
+
+(F) The elliptic set of P̂(σ), uniformly in σ: fibre infinity off ∂Σ₀, including the corner over ∂X, where the symbol
+is comparable to ξ² + |η|², and the boundary face off a neighbourhood of Σ^∂_(σ₀), where |G_σ| ≥ |g_(σ₀)| is bounded
+below.
+
+For each k choose B_k elliptic on WF′(Q_k) from the corresponding estimate, so that
+‖Q_ku‖_𝐬 ≤ C(‖B_ku‖_𝐬 + ‖u‖_(−𝐍)). Let δ_in > 0 be the margin of the threshold at R_in in [[eq:i-a-1-5]], so that
+𝗋 + α₊ ≥ (−1 + ϑ_in)/2 + δ_in there.
+
+*The estimates, in order.* (A): [[prop:i-a-4-2]] (1), with s_c > s₀ > ½ + ϑ_ℋ, gives
+‖B_Au‖_(s_c) ≤ C(‖GP̂u‖_(s_c−1) + ‖Gu‖_(s₀) + ‖u‖_(−N)). (B): by (H4) every point of ∂Σ₀ over {r ≥ b′} outside U′_ℋ
+lies on a curve of 𝖧 whose backward continuation enters U′_ℋ in finite time. [[prop:i-a-5-2]], in the use (i) of
+[[rem:i-a-5-2-uses]], with E microsupported in Ell(B_A), applies along it. By compactness finitely many curves
+suffice. (Near r = b′ such a curve stays over {r > r₀} backward, since r increases backward.) (C): [[prop:i-a-4-6]]
+(1), with 𝗋₀ := 𝗋 − δ_in/2 at R_in. (D): by [[lem:i-a-4-5]] every point of Σ^∂_(σ₀) outside U′_in ∪ U′_out lies on a
+curve of ε₀𝖧_(σ₀) whose backward continuation enters U′_in. [[prop:i-a-5-2]], in the use (ii), applies, with E in
+Ell(B_C) and the order monotone by (O2). (E): [[prop:i-a-4-9]] (1), with E elliptic on the set K_E^∗ of
+[[lem:i-a-3-2]] and microsupported near it, U′_out being chosen disjoint from K_E^∗; the part of K_E^∗ on Σ^∂_(σ₀)
+lies in the region (D), and its part off Σ^∂_(σ₀) lies in (F). (F): [[prop:i-a-5-1]]. Each E-term is bounded by the
+estimates of earlier pieces. Each ‖GP̂(σ)u‖ is at most C‖P̂(σ)u‖_(H̄^(𝐬′)), since G has kernel supported in X̄°. The
+orders used are those of 𝐬, through (O1)–(O3): at fibre infinity over the compact region only s_c matters, at the
+boundary face only 𝗋 + α₊, and at the corner both, by ellipticity.
+
+*The artificial boundary.* By [[eq:i-a-6-1]], ‖χu‖_(H̄^s) ≤ C(‖P̂(σ)u‖_(H̄^(s−1)) + ‖χ₁u‖_(H^s)). The function χ₁u
+is compactly supported in {b′ < r < b″}, so ‖χ₁u‖_(H^s) is bounded by the pieces (B) and (F) over that region, at
+order s_c.
+
+*Absorbing the a priori terms.* Adding up,
+
+    ‖u‖_(H̄^𝐬) ≤ C(‖P̂(σ)u‖_(H̄^(𝐬′)) + ‖u‖_(H̄^(𝐬−τ𝟏)) + ‖u‖_(H̄^(−𝐍))),     τ := min(s_c − s₀, δ_in/2) > 0.
+
+The embedding H̄^𝐬 ↪ H̄^(𝐬−τ𝟏) is compact: take extensions, multiply by a fixed cut-off, and use (C4). Ehrling's lemma
+then gives ‖u‖_(𝐬−τ𝟏) ≤ δ‖u‖_𝐬 + C_δ‖u‖_(−𝐍). For u ∈ H̄^𝐬 the left side is finite, so taking δ small and absorbing
+proves [[eq:i-a-7-1]].
+
+*The adjoint estimate.* For v ∈ Ḣ^(1−s,−𝗋−α₊−1), run the chain in the reverse order with the adjoint estimates.
+(E∗): [[prop:i-a-4-9]] (2) at R_out, above threshold, with an a priori order −𝗋₀′ − α₊ − 1, where 𝗋 < 𝗋₀′ and
+𝗋₀′ + α₊ < −½ + S̄ at R_out, which is possible by the margin in [[eq:i-a-1-5]]. (D∗): [[prop:i-a-5-2]] for P̂^(∗h) with
+the backward field, propagating from U′_out; the order is −𝗋 − α₊ − 1, monotone along the backward field. (C∗):
+[[prop:i-a-4-6]] (2), with E in the region (D∗). At fibre infinity: [[eq:i-a-6-2]] bounds v on {r₀ ≤ r ≤ b″} by
+P̂^(∗h)v alone. (B∗): [[prop:i-a-5-2]] with the backward field, from that region toward ∂ℛ_±, since backward curves of
+𝖧 starting near r₀ reach every point of ∂Σ₀ outside U′_ℋ. (A∗): [[prop:i-a-4-2]] (2), with E in the region (B∗). (F)
+as before. The a priori term at R_out is absorbed as above, which proves [[eq:i-a-7-2]]. ∎
+
+#### Away from the real axis {#sec:i-a-7-2}
+
+*Proof of (2).* For σ₁ ≥ ν^♭ > 0, G_σ = g_(σ₀) + 2iσ₁ξ vanishes on the boundary face only where ξ = 0 = |η|, that is
+on R_out. On the complement of a neighbourhood of R_out, |G_σ| is bounded below uniformly for σ ∈ I + i[ν^♭, ν],
+including near fibre infinity. So the boundary face contributes only (E) and (F) (and (E∗) and (F) for the adjoint).
+[[prop:i-a-4-9]] holds on the compact set I + i[ν^♭, ν] ⊂ {σ ≠ 0, Im σ ≥ 0}, and its E-term lies in (F). Fibre infinity
+and the artificial boundary are as in (1). No condition on 𝗋 is used except at R_out. ∎
+
+#### The Fredholm property {#sec:i-a-7-3}
+
+**Lemma {#lem:i-a-7-green}** (Green's formula.) In the settings of [[thm:i-a-7-2]] (1) and (2), for u ∈ 𝒳_σ and
+v ∈ 𝒳^∗_σ, ⟨P̂(σ)u, v⟩_h = ⟨u, P̂(σ)^(∗h)v⟩_h, where ⟨·, ·⟩_h are the pairings of [[lem:i-a-6-1]] (b) with the weight
+H inserted, for which P̂^(∗h) is the adjoint.
+
+*Proof.* With 𝐬 and 𝐬′ as in [[sec:i-a-7-1]], let f := P̂u, and extend χu beyond r₀ as a solution. With
+a′ ∈ (r₀ − δ₀, r₀), let f′ extend P̂(χu) to Ω_(a′,b″), and let w solve P̂w = f′ there ([[prop:i-a-6-4]] (iii)); by
+uniqueness w = χu on Ω_(r₀,b″). Then ũ := χ′(w + (1 − χ)u), with χ′ a cut-off equal to 1 on
+{r ≥ r₀ − ½(r₀ − a′)} and supported in {r > a′}, lies in H^𝐬(ℝ⁴), restricts to u, and has P̂ũ ∈ H^(𝐬′)(ℝ⁴). With T_t
+from (C8), u_t := T_tũ is Schwartz, u_t → ũ in H^𝐬, and P̂u_t = T_tP̂ũ + [P̂, T_t]ũ → P̂ũ in H^(𝐬′). This uses that
+[P̂, T_t] is bounded in Ψ^(1,−1), maps H^𝐬 to H^(𝐬′), and tends to 0 strongly (as in [[lem:i-a-3-1]], Step 1). For
+Schwartz u_t the identity is the definition of P̂^(∗h)v as a distribution. Pass to the limit, using that v and
+P̂^(∗h)v are supported in X̄, so that the pairings see only u and P̂u. ∎
+
+*Proof of (3).* *Fredholm.* The embedding 𝒳_σ ↪ H̄^(−N,−N) is compact for N > max(−s, sup(−𝗋 − α₊)), so
+[[eq:i-a-7-1]] gives a finite-dimensional kernel and closed range (Peetre's lemma). Likewise [[eq:i-a-7-2]] for
+P̂^(∗h) on 𝒳^∗_σ.
+
+*Cokernel.* An element v ∈ Ḣ^(1−s,−𝗋−α₊−1) = (𝒴_σ)^∗ annihilates the range if and only if v ∈ ker_(𝒳^∗_σ) P̂^(∗h).
+Indeed, C_c^∞(ℝ⁴)|_(X̄) ⊂ 𝒳_σ, so an annihilator satisfies ⟨φ, P̂^(∗h)v⟩ = 0 for all φ ∈ C_c^∞(ℝ⁴); the converse is
+[[lem:i-a-7-green]]. Symmetrically, w ∈ H̄^(s,𝗋+α₊) = (Ḣ^(−s,−𝗋−α₊))^∗ annihilates P̂^(∗h)(𝒳^∗_σ) if and only if
+w ∈ ker_(𝒳_σ) P̂, testing with C_c^∞(X̄°) ⊂ 𝒳^∗_σ. Hence ind(P̂^(∗h)|_(𝒳^∗_σ)) = −ind(P̂|_(𝒳_σ)).
+
+*Independence of the orders.* By (5), whose proof uses only (1), (2) and (4), kernel elements lie in
+⋂_ε 𝒜^(3/2+S̄−ε), which is contained in 𝒳_σ for every admissible order. For the adjoint: if v lies in the kernel for
+one admissible order, the strong forms of the adjoint estimates place it in the space of any other. At R_out the
+adjoint estimate is above threshold, with the a priori order given by the space of v itself (whose order is above the
+threshold, by (O3)). Elsewhere the adjoint estimates are below threshold or propagation estimates, with no a priori
+condition.
+
+*Local constancy of the index.* Let σ_* be in one of the settings, and fix orders admissible for all σ near σ_*:
+[[lem:i-a-7-1]] if σ_* is real, any 𝗋 as in (2) if Im σ_* > 0. Let 𝒩 := ker P̂(σ_*). Let 𝒲 ⊂ C_c^∞(X̄°; E) be a
+complement of the closed, finite-codimensional range in 𝒴_(σ_*); it exists because C_c^∞(X̄°) is dense in 𝒴_(σ_*).
+Let E₀₁ : ℂ^(dim 𝒲) → 𝒲 be an isomorphism and E₁₀u := (⟨u, v_j⟩)_j with v_j ∈ C_c^∞(X̄°) chosen so that E₁₀|_𝒩 is an
+isomorphism. Then the operator
+
+    P^♯(σ) := ( P̂(σ)   E₀₁ )
+              ( E₁₀     0  )
+
+has index ind P̂(σ) + dim 𝒲 − dim 𝒩, and is invertible at σ_*.
+
+*Injectivity.* P^♯(σ) is injective for σ near σ_*. Otherwise there are σ_j → σ_* and (u_j, c_j) ≠ 0 in the kernel,
+normalised by ‖u_j‖_(−𝐍) + |c_j| = 1. By [[eq:i-a-7-1]], ‖u_j‖_𝐬 ≤ C(|c_j| + ‖u_j‖_(−𝐍)) ≤ C. Pass to a subsequence
+with u_j ⇀ u in H̄^𝐬, hence u_j → u in H̄^(−𝐍) (compactness), and c_j → c. Then ‖u‖_(−𝐍) + |c| = 1. Moreover
+P̂(σ_j)u_j → P̂(σ_*)u as distributions, so P̂(σ_*)u = −E₀₁c and u ∈ 𝒳_(σ_*), and E₁₀u = lim E₁₀u_j = 0. This
+contradicts the invertibility of P^♯(σ_*).
+
+So ind P̂(σ) ≤ dim 𝒩 − dim 𝒲 = ind P̂(σ_*) near σ_*. The same argument for the adjoint family, with [[eq:i-a-7-2]],
+gives ind P̂^(∗h)(σ) ≤ ind P̂^(∗h)(σ_*), that is ind P̂(σ) ≥ ind P̂(σ_*). So the index is locally constant, and by
+independence of the orders it does not depend on the local choice of orders. The set {σ ≠ 0, Im σ ≥ 0} is connected
+and covered by these neighbourhoods, so the index is constant. ∎
+
+#### Higher b-regularity {#sec:i-a-7-4}
+
+*Proof of (4).* Run the chain of [[sec:i-a-7-1]] with the orders 𝐬 + k𝟏 away from R_out, and with [[prop:i-a-4-9]]
+(3) at R_out. By [[lem:i-a-4-10]], away from the zero section of the boundary face (and at fibre infinity)
+H^((s;k),𝗋) and H^(s+k,𝗋+k) are microlocally the same, uniformly. The shifted orders still satisfy (O1)–(O3) at ∂ℛ_±
+and R_in (they are larger there) and (O2) (shifted by a constant). Over compact subsets of X̄°, (s;k)-regularity is
+H^(s+k), and [[cor:i-a-6-5]] holds at order s + k. The a priori terms are bounded by ‖u‖_(H̄^(s,𝗋+α₊)) because
+u ∈ 𝒳_σ. ∎
+
+#### Kernel elements {#sec:i-a-7-5}
+
+**Lemma {#lem:i-a-7-4}** (Conormal functions and scattering spaces.) Let a ∈ ℝ.
+
+(a) 𝒜^a ⊂ H̄^(s,𝗋′) for every s and every order 𝗋′ with 𝗋′ < a − 2 on a neighbourhood of the zero section o_(∂X) of
+the boundary face.
+
+(b) Conversely, if u ∈ H̄^((s;k),𝗋′) for every k, with 𝗋′ ≡ 𝗋_* constant near o_(∂X), then u ∈ ρ^(𝗋_*+2)C^∞_b
+near ∂X.
+
+*Proof.* Near ∂X, |dx| = ρ⁻⁵dρ dω, and μ_b := ρ⁴|dx| = ρ⁻¹dρ dω is the b-density. So
+H^(0,𝗋_*)_sc = ρ^(𝗋_*)L²(|dx|) = ρ^(𝗋_*+2)L²(μ_b). Also H^((s;k),𝗋′) ⊂ H^(s+k,𝗋′). For k = 1: if u ∈ H^((s;1),𝗋′)
+then ∂_ju = ⟨x⟩⁻¹(⟨x⟩∂_ju) ∈ H^(s,𝗋′+1) ⊂ H^(s,𝗋′), and u, ∂u ∈ H^(s,𝗋′) give u ∈ H^(s+1,𝗋′) by ellipticity of
+⟨D⟩ ∈ Ψ^(1,0); induct on k. By [[lem:i-a-4-10]], microlocally away from o_(∂X), H^((s;k),𝗋′) is H^(s+k,𝗋′+k).
+
+(a) For u = ρ^aw with V^αw bounded for all α, ∫ |V^αu|²ρ^(−2𝗋_*)|dx| < ∞ near ∂X if and only if
+2a − 2𝗋_* − 5 > −1, that is 𝗋_* < a − 2. So u ∈ H^((0;k),𝗋_*) for all k, near o_(∂X) at order 𝗋_*, and away from it at
+every order. Hence u ∈ H^(s,𝗋′) for every s and every 𝗋′ as stated.
+
+(b) Let Q ∈ Ψ^(0,0) be microlocally the identity near o_(∂X), microsupported where 𝗋′ = 𝗋_*. Then
+(Id − Q)u ∈ H^(∞,∞) by the last remark, and Qu ∈ H^((0;∞),𝗋_*), so ρ^(−𝗋_*−2)Qu ∈ H^∞_b(μ_b) near ∂X, as
+[V, ρ^c] ∈ ρ^cC^∞. In t := −log ρ, the map (ρ, ω) ↦ (t, ω) takes b-vector fields to vector fields on the half-cylinder
+(t₁, ∞) × 𝕊³ spanned by ∂_t and 𝒱(𝕊³), and μ_b to dt dω. Sobolev embedding on the unit cylinders (t₀, t₀ + 1) × 𝕊³,
+with k > 2 and constants independent of t₀, gives H^∞_b(μ_b) ⊂ C^∞_b. ∎
+
+*Proof of (5).* Let u ∈ H̄^(s,𝗋+α₊) with P̂(σ)u = 0. By [[rem:i-a-7-3]], u lies in H̄^(s′,𝗋′+α₊) for every admissible
+(s′, 𝗋′), since the a priori terms are given by the space of u itself. In particular this holds for every s′ ≥ s and
+for decay orders whose value at R_out is any number less than −½ + S̄ − α₊ ([[lem:i-a-7-1]], with [[lem:i-a-2-4]] for
+the inner product at R_out). By (4) with f = 0, u ∈ H̄^((s′;k),𝗋′+α₊) for all k. [[lem:i-a-7-4]] (b), with
+𝗋_* = (𝗋′ + α₊)(R_out) arbitrarily close to −½ + S̄, gives u ∈ ρ^(3/2+S̄−ε)C^∞_b near ∂X. Away from ∂X,
+u ∈ H̄^(s′) for all s′, which is smoothness up to ∂_♯X. This proves [[eq:i-a-7-4]].
+
+Conversely, let u ∈ ⋂_ε 𝒜^(3/2+S̄−ε). Since 𝗋 + α₊ is constant and less than −½ + S̄ near R_out = o_(∂X),
+[[lem:i-a-7-4]] (a) with a = 3/2 + S̄ − ε (ε small) gives u ∈ H̄^(s,𝗋+α₊). Each part of P̂(σ) maps 𝒜^a to 𝒜^(a+1):
+ρDiff¹_b, ρ²Diff²_b, ρ³Diff¹_b and ρ²C^∞ do. So P̂(σ)u ∈ 𝒜^(a+1) ⊂ H̄^(s−1,𝗋+α₊+1), again by [[lem:i-a-7-4]] (a).
+Hence u ∈ 𝒳_σ.
+
+*The leading term.* Let S₀ := S(0, ·), with constant spectrum. For an eigenvalue e of S₀, the Riesz projection
+Π_e(ω) = (2πi)⁻¹ ∮_(|z−e|=δ) (z − S₀)⁻¹ dz is smooth, the contours being fixed. It commutes with S₀, and
+N_e := (S₀ − e)Π_e is nilpotent and smooth. Let a := 3/2 + S̄ − ε. Near ∂X, P̂(σ)u = 0 and [[eq:i-a-1-2]] give
+
+    (ρ∂_ρ − 3/2 − S₀)u = F′ := −(2iσρ)⁻¹(P̂(0) − iσQ + σ²g₀₀)u + (S − S₀)u ∈ 𝒜^(a+1),
+
+because P̂(0)u ∈ 𝒜^(a+2), Qu ∈ 𝒜^(a+3), g₀₀u ∈ 𝒜^(a+2) and S − S₀ ∈ ρC^∞. Let v := Π_eu, μ := 3/2 + e and
+g := Π_eF′; then (ρ∂_ρ − μ − N_e)v = g. Equivalently ∂_ρ(ρ^(−μ−N_e)v) = ρ^(−μ−N_e−1)g, and
+‖τ^(μ+N_e)‖ ≤ Cτ^(Re μ)(1 + |log τ|)^(N−1), as N_e is nilpotent on ℂ^N.
+
+Case Re μ < a + 1. Then ∫_0^(ρ₁) ‖s^(−μ−N_e−1)g(s)‖ ds < ∞, so
+
+    v = ρ^(μ+N_e)c_e + ρ^(μ+N_e)∫_0^ρ s^(−μ−N_e−1)g(s) ds,     c_e ∈ C^∞(∂X; ran Π_e).
+
+The integral term is bounded by Cρ^(a+1)∫_0^1 τ^(a−Re μ)(1 + |log τ|)^(N−1) dτ ≤ Cρ^(a+1). The same holds for its
+V^α-derivatives: ρ∂_ρ of it is (μ + N_e) times it plus g, and angular derivatives fall on smooth factors. So it lies
+in 𝒜^(a+1).
+
+Case Re μ ≥ a + 1. Write v = ρ^(μ+N_e)ρ₁^(−μ−N_e)v(ρ₁) − ρ^(μ+N_e)∫_ρ^(ρ₁) s^(−μ−N_e−1)g ds. Both terms are
+O(ρ^(a+1)|log ρ|^N) with their derivatives, hence in 𝒜^(a+1−ε′).
+
+Summing over the eigenvalues e,
+
+    u = Σ_(Re e < S̄+1−ε) ρ^(3/2+e+N_e)c_e + 𝒜^(5/2+S̄−ε−ε′).
+
+This is ρ^(3/2+S₀)u₀ with u₀ := Σ_e c_e (the terms with Re e ≥ S̄ + 1 − ε being absorbed into the remainder), which
+is [[eq:i-a-7-5]]. No condition on integer differences of the spectrum is needed for this step. ∎
+
+#### Regularity in the spectral parameter {#sec:i-a-7-6}
+
+*Proof of (6).* Fix orders admissible near σ_* ([[lem:i-a-7-1]], or (2)), and let 𝐬 = (s, 𝗋 + α₊) and
+𝐬′ = 𝐬 − (1, −1) as in [[sec:i-a-7-1]].
+
+*Estimates without error terms.* If [[eq:i-a-7-1]] without its last term failed uniformly near σ_*, there would be
+σ_j → σ_* and u_j with ‖u_j‖_𝐬 = 1 and ‖P̂(σ_j)u_j‖_(𝐬′) → 0. By [[eq:i-a-7-1]], ‖u_j‖_(−𝐍) ≥ c > 0. A weak limit in
+H̄^𝐬, which is a norm limit in H̄^(−𝐍), is nonzero and lies in ker P̂(σ_*). That is a contradiction. The same argument
+applies to [[eq:i-a-7-3]].
+
+*Invertibility.* By the above, P̂(σ) is injective near σ_*; by (3) its index equals that at σ_*, which is 0. So it is
+invertible, with ‖P̂(σ)⁻¹‖_(𝒴_σ→H̄^𝐬) ≤ C uniformly.
+
+*Continuity.* Let f ∈ H̄^(𝐬′+ε𝟏) and u(σ) := P̂(σ)⁻¹f. The orders 𝐬 ± (ε/2)𝟏 are admissible for ε small (the
+margins), so u(σ) is bounded in H̄^(𝐬+(ε/2)𝟏). For σ_j → σ, a subsequence converges weakly there, hence in norm in
+H̄^(𝐬−ε𝟏), to some u₀ with P̂(σ)u₀ = f. By uniqueness in 𝒳_σ at the orders 𝐬 − ε𝟏 (admissible), u₀ = u(σ), so the
+whole sequence converges.
+
+*Differentiability.* P̂(σ) − P̂(σ_*) = (σ − σ_*)(T + (σ + σ_*)P₂), so
+
+    (P̂(σ)⁻¹ − P̂(σ_*)⁻¹)/(σ − σ_*) = −P̂(σ)⁻¹(T + (σ + σ_*)P₂)P̂(σ_*)⁻¹.
+
+T ∈ ρDiff¹_b near ∂X (by [[eq:i-a-1-2]]) and P₂ ∈ ρ²C^∞. So T maps H̄^((t;q),𝗍) to H̄^((t;q−1),𝗍+1), trading one
+b-derivative for one order of decay; away from ∂X it is a first-order operator, and (t;q)-regularity is H^(t+q) there.
+Hence f ∈ H̄^((s+ε−1;1),𝗋+ε+α₊+1) maps under P̂(σ_*)⁻¹ to H̄^((s+ε;1),𝗋+ε+α₊) by (4), and then under T + (σ + σ_*)P₂
+to H̄^(s+ε,𝗋+ε+α₊+1). By continuity, P̂(σ)⁻¹ of that tends to P̂(σ_*)⁻¹ of it in H̄^(𝐬−ε𝟏). So the difference
+quotients converge strongly, to −P̂⁻¹(T + 2σ_*P₂)P̂⁻¹. For j ≥ 2 the same argument runs at b-regular levels. First,
+for q ∈ ℕ₀ and f ∈ H̄^((s+ε−1;q),𝗋+ε+α₊+1), σ ↦ P̂(σ)⁻¹f is continuous into H̄^((s−ε;q),𝗋−ε+α₊): the argument for
+continuity applies with [[eq:i-a-7-3]], uniform near σ_* by the first paragraph, in place of [[eq:i-a-7-1]], since
+H̄^((t;q),𝗍) ↪ H̄^((t′;q),𝗍′) is compact for t′ < t and 𝗍′ < 𝗍 ((C4) for each b-derivative up to order q). Then
+∂^j_σP̂⁻¹, a finite sum of products as in the proof of [[eq:i-a-7-6]] below, is obtained from ∂^(j−1)_σP̂⁻¹ as
+∂_σP̂⁻¹ was from P̂⁻¹: the difference quotient of a product splits into terms in which one factor P̂⁻¹ is differenced,
+handled by the case j = 1 at a b-regular level, and terms in which a factor D_i is differenced, polynomial in σ. Every
+factor is uniformly bounded and strongly continuous between the spaces of [[eq:i-a-7-6]] with ε-losses, so the
+products are strongly continuous. This spends j b-derivatives and jε in orders; renaming ε gives the C^j statement.
+
+*Holomorphy.* For Im σ_* > 0 the orders in (2) may have any decay order below the threshold at R_out, so 𝗋 − 1 is
+admissible. The operator T + (σ + σ_*)P₂ ∈ Ψ^(1,0) maps H̄^(s,𝗋+α₊) to H̄^(s−1,𝗋+α₊), and P̂(σ)⁻¹ maps that to
+H̄^(s,𝗋+α₊−1), uniformly near σ_*. So ‖P̂(σ)⁻¹ − P̂(σ′)⁻¹‖ ≤ C|σ − σ′| for σ, σ′ near σ_*, as maps
+𝔄 := H̄^(s−1,𝗋+α₊+1) → 𝔅 := H̄^(s,𝗋+α₊−1), and likewise at the orders (s, 𝗋 − 1). A Lipschitz bound does not by itself
+make difference quotients converge, so we argue as follows. The difference quotient is D(σ) := −P̂(σ)⁻¹M(σ)P̂(σ_*)⁻¹,
+where M(σ) := T + (σ + σ_*)P₂, and
+
+    D(σ) − D(σ′) = −(P̂(σ)⁻¹ − P̂(σ′)⁻¹)M(σ)P̂(σ_*)⁻¹ − (σ − σ′)P̂(σ′)⁻¹P₂P̂(σ_*)⁻¹.
+
+By the Lipschitz bound at the orders (s, 𝗋 − 1), both terms are O(|σ − σ′|) as maps 𝔄 → 𝔅′ := H̄^(s,𝗋+α₊−2). So D(σ)
+is Cauchy in L(𝔄, 𝔅′) as σ → σ_*, and the same holds at every point near σ_*: P̂⁻¹ is holomorphic into L(𝔄, 𝔅′). It is
+norm-continuous into L(𝔄, 𝔅) by the Lipschitz bound. Cauchy's integral formula over a small circle holds in L(𝔄, 𝔅′),
+and its integrand is continuous into L(𝔄, 𝔅); so it represents P̂⁻¹ as a holomorphic L(𝔄, 𝔅)-valued function.
+
+*The mapping property [[eq:i-a-7-6]].* ∂_σ^j(P̂⁻¹) is a sum of products P̂⁻¹D₁P̂⁻¹D₂ ⋯ D_mP̂⁻¹ with
+D_i ∈ {∂_σP̂, ∂²_σP̂} = {T + 2σP₂, 2P₂} and Σ_i (order of the derivative in D_i) = j. Each D_i maps H̄^((t;q),𝗍) to
+H̄^((t;q−1),𝗍+1) (and 2P₂ even to H̄^((t;q),𝗍+2)). Each P̂⁻¹ maps H̄^((t−1;q),𝗋+α₊+1) to H̄^((t;q),𝗋+α₊) for t = s + ℓ,
+ℓ ≥ 0. That is (4) and invertibility at the orders (s + ℓ, 𝗋), which are admissible since raising s by a constant
+preserves (O1)–(O3). Starting from H̄^((s−1;k+j),𝗋+α₊+1), each pair D_iP̂⁻¹ raises t by one and spends one
+b-derivative, which ends in H̄^((s+j;k),𝗋+α₊). This is [Hin26c, (9.57)] in dimension 4 + 1; the formula
+σ∂_σP̂(σ) = 2iσρ(ρ∂_ρ − 3/2 − S) − iσQ + 2σ²g₀₀ is [Hin26c, (9.56)] at n = 4. The count treats every D_i as spending
+one b-derivative; the factors 2P₂ spend none, which only helps, since H̄^((t;q+1),𝗍) ⊂ H̄^((t+1;q),𝗍). ∎
+
+### Uniformity in the operator {#sec:i-a-8}
+
+**Theorem {#thm:i-a-8-1}** (Uniformity in the operator.) Assume (H1)–(H5). Then the constants in [[prop:i-a-4-2]],
+[[prop:i-a-4-6]], [[prop:i-a-4-9]], [[prop:i-a-5-1]], [[prop:i-a-5-2]], [[prop:i-a-6-3]], [[prop:i-a-6-4]] and
+[[thm:i-a-7-2]] (1), (2) and (4) can be chosen uniform in b ∈ ℬ, for fixed orders admissible at every b (with uniform
+margins). The index in [[thm:i-a-7-2]] (3) is constant on connected subsets of {(σ, b)}. If P̂^(b_*)(σ_*) is
+invertible, then P̂^b(σ) is invertible for (σ, b) near (σ_*, b_*), with uniformly bounded inverses that depend
+continuously on (σ, b) in the strong operator topology, and the statements of [[thm:i-a-7-2]] (6) hold jointly in
+(σ, b).
+
+*Proof.* Every constant above is produced by finitely many seminorms of the coefficients of the operator, which depend
+continuously on b by (H5). It is also produced by positivity margins: c_Q in each radial estimate, M in
+[[prop:i-a-5-2]], and c₀ and C_P in [[prop:i-a-6-3]]. These margins depend continuously on the data ℋ, ρ_∞ and q_± and
+on the order functions, so a choice made at b₁ serves for b near b₁ with halved margins. So does the finite covering of
+the characteristic sets by flow boxes in [[sec:i-a-7-1]], with the flow-box coordinates of [[prop:i-a-5-2]] rebuilt at
+each b from the flow of 𝖧_f^b through the same transversals, so that 𝖧_f^b = ∂_z exactly: the flows are continuous in b
+in C^∞, and the backward entry times into the neighbourhoods of the radial sets are bounded by (H5), so the same
+covering serves nearby. The commutants are built from these data and are bounded in their symbol classes uniformly in b
+near b₁. Compactness of ℬ gives finitely many b₁. The index and invertibility statements follow by the arguments of
+[[sec:i-a-7-3]] and [[sec:i-a-7-6]], run with sequences (σ_j, b_j) → (σ_*, b_*) in place of σ_j → σ_*: the uniform
+estimates supply the bounds, and P̂^(b_j)(σ_j)u_j → P̂^(b_*)(σ_*)u as distributions supplies the limit. ∎
+
+**Remark {#rem:i-a-sources}** (Comparison with [Hin26c].) Besides the changes forced by the dimension and the sign of
+the term in [Hin26c, (9.45)] ([[rem:i-a-4-8-sign]]), the proofs above differ from those of [Hin26c, Sections 9.1–9.2]
+as follows. (a) At R_in and R_out [Hin26c, Propositions 9.10–9.11], the inequality 𝖧q ≥ cq holds only near the
+characteristic set, so the symbol b_R is a smooth square root only after a cut-off to that set; the commutants here
+carry ψ_Σ = ψ(ς_Σg²) with 𝖧g = 0, so that the cut-off costs nothing. At the horizon, [[lem:i-a-4-1]] replaces the
+cut-off and the G₀-term of [Hin26c] by a defining function in S∗X̃°. (b) The regularisation and quantisation of the
+commutants, which [Hin26c, p. 165] does not give, are [[lem:i-a-3-1]] and [[lem:i-a-3-2]], with steps κ ≤ ¼ so that
+the effective order never leaves the admissible range. (c) [Hin26c, (9.39) and (9.50)] pair the commutator with u
+itself. Where the absorbing term has top decay order (σ₁Re_h T at R_in, −ι_σ Σ_j W_j^(∗h)W_j at R_out), that pairing is
+not defined for u in the a priori space; [[lem:i-a-3-1]] pairs only Schwartz approximants and passes to the limit in the
+other terms. (d) Over ∂X, H_(Re G_σ)q = 4σ₀|η|² in the proof of [Hin26c, Proposition 9.10] (p. 167), which prints
+2σ₀|η|²; only the sign is used ([[sec:i-a-4-3]]). (e) The estimates near the artificial boundary at every order
+([[prop:i-a-6-4]]) are proved here; [Hin26c] cites [Hin25a, Corollary 9.38] for them.
