@@ -667,3 +667,10 @@ Items found while chapters were written in parallel; each is settled once, editi
   Σ^(IVP/fut/past)_(r₀); chapter 3 line 312 already right. For integration: chapter 65 defines its own Θ := δGk (rename
   edition-wide); chapter 45's κ (second fundamental form) shares a letter with chapter 46's gauge 1-form κ. Two
   chapter 46 items (sign in sec:s27-local; lem:s27-cover (c) omits Σ^past_(r_1)) sent to the S27 second fix.
+- Proof C first reading (R-P-C): C2a correct (930 node coefficients, 23 cells, 15 peak rows exact; e_k outward-rounded;
+  the source's e_k fall below the true values at k = 0, 2, 7, 10, 12); all 385 T-C261 entries exact upward roundings;
+  S re-derived for any μ, h(ϑ) and zero-mean χ; D[n] below the source's at every order (largest ratio 0.435); no
+  Cauchy estimate needs env smoother than C^14. Major: the cubic term of C_0·C_1 dropped at 487 (zero mean; cite
+  lem:first-mean-forcing). Minors: the opening's dependence claim; rem:energy-one-sided vs (c); c and w doubled;
+  Poisson summation uncited; lem:epsilon-one duplicates chapter 02. The C261 chain, e_k and the energy constant are
+  used by no result: keep as proved results only if a planned chapter cites them, else drop. Fix running.
