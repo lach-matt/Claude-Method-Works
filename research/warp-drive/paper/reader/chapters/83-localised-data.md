@@ -809,10 +809,11 @@ satisfies the dominant energy condition. Since ℓ_out^♭ = −(q²f/2) dv̂ + 
 which has the sign of f. On Σ_τ0, where dv̂ = dR, ℓ_out^♭ restricts to (q − q²f/2) dR = (G/2) dR. With N(2 − qf) = √G
 and |dR|_γ = G^(−1/2), the data of T on Σ_τ0 are ρ_T := T(n, n) = ϖG/4 and J_T := T(n, ·) = −ρ_T dR/|dR|_γ, and
 T(ξ, n) = N_sρ_T + Y_s·J_T. Fix a nonzero invariant dust density ϖ_1 ≥ 0, smooth with compact support in U ∩ {f < 0},
-with stress T_1 and data (ρ_1, J_1) := (ρ_(T_1), J_(T_1)); then ∫T_1(ξ, n) dvol < 0. Put s* := Q(δ)/(2∫T_1(ξ, n) dvol)
-> 0. Let Ω_c := supp δ ∪ supp ϖ_1 and U′ ⋐ U a band containing Ω_c; its closure lies in the interior of the vacuum
-region, as in the proof of [[cor:loc-charge-seed]]. By [[lem:loc-continuity]] on U′, with δ_s := δ for s ∈ [0, 2s*],
-this ρ_1 and k = 3, there are, for ε small, invariant data D_(ε,s) = bg + εδ + c_(ε,s) of class C², with
+with stress T_1 and data (ρ_1, J_1) := (ρ_(T_1), J_(T_1)); then ∫T_1(ξ, n) dvol < 0. Put
+s* := Q(δ)/(2∫T_1(ξ, n) dvol), which is positive. Let Ω_c := supp δ ∪ supp ϖ_1 and U′ ⋐ U a band containing Ω_c; its
+closure lies in the interior of the vacuum region, as in the proof of [[cor:loc-charge-seed]]. By [[lem:loc-continuity]]
+on U′, with δ_s := δ for s ∈ [0, 2s*], this ρ_1 and k = 3, there are, for ε small, invariant data
+D_(ε,s) = bg + εδ + c_(ε,s) of class C², with
 ‖c_(ε,s)‖_(C²) ≤ Cε², equal to the background's outside a compact subset of U′ independent of ε and s, and a
 continuous function m(ε, ·) on [0, 2s*] with
 

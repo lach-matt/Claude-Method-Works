@@ -2610,8 +2610,8 @@ as a scalar on the trace-free angular tensors; on the block it acts on the coeff
 these three restrictions, which by the above are triangular with diagonal entries 2 − 2x (dv²), 0 (dv dr),
 −(1 − e_C)x (T) and −2 (dr²); 1 − x and −1; and 0. This is the list. If c_Υ = ζr⁻¹dt near r_h, then at r_h,
 c_Υ = ζ_h(dv − dr) and g⁻¹c_Υ = ζ_h(∂_r − ∂_v), and the principal symbol of 2δ*E^Υ_∞G at ξdr adds to K the term
-K_∞h = −ζ_hγ_Υ r_h dr ⊗_s (2ι_(∂_r−∂_v)h − e_Υ(dv − dr) tr h) ([[eq:iii-b-6-5]]). For the grading of the proof of
-[[lem:iii-f2-1-1]] (weights 1, −1, 0 for dv, dr and the angular covectors), its part with ι_(∂_r) and its part with
+K_∞h = −ζ_hγ_Υ r_h dr ⊗_s (2ι_(∂_r−∂_v)h − e_Υ(dv − dr) tr h) ([[eq:iii-b-6-5]]). For the grading above (weights
+1, −1, 0 for dv, dr and the angular covectors), its part with ι_(∂_r) and its part with
 e_Υ dr ⊗_s dv preserve the weight and the others lower it by 2, so K stays block triangular. The weight-preserving
 part adds −ζ_hγ_Υ on dr ⊗_s e (ι_(∂_r)(dr ⊗_s e) = ½e) and −2ζ_hγ_Υ on dr², nothing on dv² and dv ⊗_s e, and on the
 weight-zero span of dv dr and T it adds −ζ_hγ_Υ(1 − e_Υ) on dv dr (ι_(∂_r)(dv dr) = ½dv and tr(dv dr) = 1) and maps T
