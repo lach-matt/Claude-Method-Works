@@ -352,9 +352,9 @@ up to O(λ): the wave enters at order λ⁰ only through the term ½ k^±(ℓ) �
 vanishes by [[eq:wave-traceless]]. So M[S_(v,r)](g_app) − μ(v) = O(λ), and the remainder contributes C(|w| + |∂w|) ≤
 C λ^(K−4). ∎
 
-The first mean m1 is driven by the following forcing. By [[lem:first-entry]] with m1, φ1 and ĝ2 set to zero, 𝒦_1 is
-the coefficient R^(1) of λ in R[g0 + λ W], so the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a))
-is 𝒮_1 = −⟨R^(1)⟩.
+The first mean m1 is driven by the following forcing. By [[lem:first-entry]], the part of the coefficient of λ that is
+free of the unknowns m1, φ1 and ĝ2 is its value with these set to zero, which is the coefficient R^(1) of λ in
+R[g0 + λ W]; so the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a)) is 𝒮_1 = −⟨R^(1)⟩.
 
 **Lemma {#lem:first-mean-forcing}** (The forcing of the first mean.) Let W = W_TT + χ dv ⊗ dv with χ a profile of zero
 θ-mean, and let R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λ W] ([[def:two-scale]]). In the

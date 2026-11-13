@@ -730,9 +730,9 @@ x_I²(¼(x_I∂_(x_I))² + Δ)] is a sum of squares of hx_I∂_(x_I), hx_IZ_a wi
 symbol x_I²iξ(c + S_0), the principal symbol of Im X is (1/2i)(x_I²iξ(c + S_0) + x_I²iξ(c + S_0^(*𝔢))) = x_I²(c + Re
 S_0)ξ, and h² Im(x_I²D(c + S_0)) = h Im X. The term h²x_I⁴P⁽⁰⁾(0, ω, ½x_I∂_(x_I), ∂_ω) contributes O(hx_I³): its
 second-order part has imaginary part x_I⁴ times a first-order b-operator (the conjugation of (x_I∂_(x_I))² by x_I⁴, and
-of Δ_(𝕊³) by the matrix of 𝔢), and its first-order part is x_I⁴Diff¹_b ⊂ x_I³Diff¹_0. As the first-order part of N⁰(0)
-near ℐ⁺ is −½x_I²D² + x_I²D(c + S_0) by [[eq:ii-f-1-6]], σ(h² Im N⁰(0)) = hx_I²(1 + c + Re S_0)ξ + O(hx_I³), and with
-(b), σ(hQ_0) = −hx_I²(4 + 2 Re S_0); 1 + c = 5/2. Adding the two gives [[eq:ii-f-3-7]].
+of Δ_(𝕊³) by the matrix of 𝔢), and its first-order part is x_I⁴Diff¹_b ⊂ x_I³Diff¹_0. As N⁰(0) = −½x_I²D² + x_I²D(c +
+S_0) + x_I⁴P⁽⁰⁾(0, ω, ½x_I∂_(x_I), ∂_ω) near ℐ⁺ by [[eq:ii-f-1-6]], σ(h² Im N⁰(0)) = hx_I²(1 + c + Re S_0)ξ + O(hx_I³),
+and with (b), σ(hQ_0) = −hx_I²(4 + 2 Re S_0); 1 + c = 5/2. Adding the two gives [[eq:ii-f-3-7]].
 
 *Near F_K.* The term −2h²R⁻¹R∂_R(R∂_R + c + S_0) of h²N⁰(0) is R·O(1) in Ψ^𝐦 (as h²R⁻¹(R∂_R)² = R(1 + ĥ)²V_1² up to
 bounded factors), so its imaginary part has symbol O(Rĥ), which vanishes at R = 0 relative to ϖ. For h²R⁻²P⁽⁰⁾(0, ω,
@@ -852,9 +852,9 @@ the same condition [Hin26c, (10.28)]; the dimension cancels.) In case (A) the co
 of (D9).
 
 (R4) ϱ = R, Λ = {R = 0, ξ_cħ = η_cħ = 0}, p = 2ξ + Re(z⁻¹)((1 + 2R)ξ² + |η|²), and β_ϱ = ∂_ξp → 2: a ϱ-source. (ii) as
-in (R2). (iii): g := p (|z⁻¹G_(ι,z)| ≥ |p|) and ϕ := ξ² + |η|²; at R = 0, 𝖧ϕ = 2ξ·2 Re(z⁻¹)|η|² − 2∂_ξp|η|² = −4|η|² +
-O(|ξ||η|²), and |ξ| ≤ C(|g| + |η|²) near Λ, so 𝖧ϕ ≤ −2ϕ + C(g² + |η|⁴) + CR ≤ −c_1ϕ + C_1(ϱ + g²): a ϕ-sink. (iv) κ̃ =
-γ_cf − 𝖻 − ½. (v) ϖ⁻¹p̃_1 = −(4 + 2 Re S_0) at Λ, so with β_ϱ = 2,
+in (R2). (iii): g := p (|z⁻¹G_(ι,z)| ≥ |p|) and ϕ := ξ² + |η|²; at R = 0, 𝖧ϕ = 2ξ·2 Re(z⁻¹)|η|² − 2∂_ξp|η|² = −4|η|²,
+and |ξ| ≤ C(|g| + |η|²) near Λ, so 𝖧ϕ ≤ −2ϕ + C(g² + |η|⁴) + CR ≤ −c_1ϕ + C_1(ϱ + g²): a ϕ-sink. (iv) κ̃ = γ_cf − 𝖻 − ½.
+(v) ϖ⁻¹p̃_1 = −(4 + 2 Re S_0) at Λ, so with β_ϱ = 2,
 
     𝒯 = 2(γ_cf − 𝖻 − ½)·2 + 2(4 + 2 Re S_0) = −4(𝖻 + α_+) − 8 − 2 + 8 + 4 Re S_0
       = −4(𝖻 + α_+) − 2 + 4 Re S_0 ≥ −4(𝖻 + α_+) − 2 + 4(S̄ − ϵ) > 0

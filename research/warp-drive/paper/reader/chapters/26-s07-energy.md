@@ -43,8 +43,11 @@ hypotheses of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:ii-b-1-1]] hold.
 #### Slabs and spaces {#sec:ii-e-1-1}
 
 Ω, Ω_* = cl_M{t^♭_* ≥ 1} and the time function t^♭_* are those of [[lem:ii-c-3-2]]; below t^♭ := t^♭_*, and t_* = t − r
-is the coordinate of [[def:ii-a-1-3]]. P is weakly admissible of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) relative to P_0
-([[def:ii-c-3-3]]), with
+is the coordinate of [[def:ii-a-1-3]]. P is weakly admissible of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) relative to P_0 in the
+following sense: conditions (1) and (2) of [[def:ii-c-3-3]] hold, with the weights of a weakly admissible operator, and
+condition (3), the triangular structure of p_1 and p_0, is not assumed. No proof in this chapter uses condition (3)
+([[sec:ii-e-1-3]]), nor do the results of [[ch:s06]] cited here ([[lem:ii-f1-2-1]] (b)); throughout the chapter "of
+class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K))" and "weakly admissible" are meant in this sense. We take
 
     ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 
@@ -90,7 +93,7 @@ the set of restrictions to V′ of functions in C_c^∞(M°) supported in {t^♭
     P − (1/2) x_I² [−2(x_I∂_(x_I) − 3 − 2p_1)∂_(t_*) + 2x_I² Δ_(𝕊³) + t_*⁻¹ p_0]
         ∈ x_I² C^((d_0;k),2ℓ_I)_(e;b) Diff²_e,                                                         {#eq:ii-e-1-1}
 
-with p_0, p_1 of [[def:ii-c-3-3]] and Δ_(𝕊³) ≥ 0 the Laplacian of the round sphere. Hence, for covectors
+with p_0 and p_1 := S|_(∂X) + p̃_1 as in [[def:ii-c-3-3]], and Δ_(𝕊³) ≥ 0 the Laplacian of the round sphere. Hence, for covectors
 ζ = ζ_(t_*) dt_* + ξ dx_I/x_I + η, G(ζ) ≡ x_I²(ξ ζ_(t_*) + x_I²|η|²) modulo x_I^(2+2ℓ_I) times a quadratic form in
 (ζ_(t_*), ξ, x_I η); that is, g⁻¹ ≡ x_I²(x_I∂_(x_I) ⊗_s ∂_(t_*) + x_I² g̸⁻¹), with a ⊗_s b := (a ⊗ b + b ⊗ a)/2 and g̸
 the round metric.
@@ -125,9 +128,22 @@ neighbourhood of cl(ℐ⁺ ∩ Ω), extended independently of x_I, with
 
     Re_(h_I) p_1 ≥ p̄_1 − δ′     on cl(ℐ⁺ ∩ Ω).                                                     {#eq:ii-e-1-2}
 
-[Hin26c, (8.4)] asks in addition |Im_h p_1| < ε and ‖p_0‖_h < ε. That is not needed below: in [[lem:ii-e-2-5]] every
-first-order term other than the one carrying p_1 is kept as a quadratic form in the edge derivatives and absorbed by the
-exponential weight in time, and p_0 by the Poincaré inequality, so only [[eq:ii-e-1-2]] is used.
+It is built by Jordan scalings of p_1 at single points, continuity and a smooth partition of unity: at each point x of
+the compact set cl(ℐ⁺ ∩ Ω) a Jordan scaling gives an inner product h_x with Re_(h_x) p_1(x) ≥ p̄_1 − δ′/2, by continuity
+Re_(h_x) p_1 ≥ p̄_1 − δ′ near x, and the condition Re h(p_1 v, v) ≥ (p̄_1 − δ′) h(v, v) for all v is linear in h, so it
+passes to a convex combination of such inner products. No triangular structure of p_1 is used.
+
+Of the data p_0, p_1 at ℐ⁺, the proofs below use only [[eq:ii-e-1-2]], and that only through the positivity of
+4 Re_(h_I) p_1 − 2 − 4α at ℐ⁺: with δ′ := (p̄_1 − 1/2 − α)/4, [[eq:ii-e-1-2]] gives
+4 Re_(h_I) p_1 − 2 − 4α ≥ 12δ′, and ≥ 8δ′ where it holds with 2δ′ in place of δ′ (in [[lem:ii-e-2-5]] and
+[[prop:ii-e-2-7]], and in [[prop:ii-e-3-2]]). The other terms enter without any smallness. In [[lem:ii-e-2-5]] every
+first-order term other than 2x_I² p_1^A ∂_(t_*) of [[eq:ii-e-2-3]], and the part of that term carrying Im p_1, which
+enters only through a cross term with x_I∂_(x_I), is kept as a pointwise quadratic form in the edge derivatives and
+absorbed by the exponential weight in time; the zeroth-order terms, among them the one carrying p_0, are absorbed by
+the Poincaré inequality [[lem:ii-e-2-3]]. The commuted systems of [[sec:ii-e-4]] have the same p_1 ([[eq:ii-e-4-1]] and
+the paragraph after it). So the fibre inner product need not make Im_h p_1 or p_0 small, as [Hin26c, (8.4)] requires
+(|Im_h p_1| < ε and ‖p_0‖_h < ε), and the block-diagonal inner product by which [Hin26c] obtains that smallness from
+condition (3) of [[def:ii-c-3-3]] is not used.
 
 #### Extensions of the operator {#sec:ii-e-1-4}
 
@@ -1275,7 +1291,8 @@ the scheme of [[prop:ii-e-3-4]]), and admissible orders are slab orders by [[pro
         ≤ C_k (‖Pu‖_(H^((𝗌;k),(2α_I+2,α_++2,α_K))_(e3b;b)(Ω_*)^(•,−))
                + ‖u‖_(H^((𝗌_0;k),(2α_I,α_+,α_K))_(e3b;b)(Ω_*)^(•,−)))                               {#eq:ii-e-6-1}
 
-for P = P_0, in the strong sense, and for every weakly admissible P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) with ε_(P,k)
+for P = P_0, in the strong sense, and for every weakly admissible P of class ((d_0;k),(2ℓ_I,ℓ_+,ℓ_K)) (conditions (1)
+and (2) of [[def:ii-c-3-3]], as in [[sec:ii-e-1-1]]) with ε_(P,k)
 small, with C_k uniform; d_0 depends only on 𝗌_0 and 𝗌. Moreover, if 𝗌 and 𝗌_0 are constant near {r ≤ r_0}, with
 nonnegative integer values there [[pending:issue-1]], there is d ∈ ℕ such that for every k and every P of that class
 with ε_(P,d) small,
