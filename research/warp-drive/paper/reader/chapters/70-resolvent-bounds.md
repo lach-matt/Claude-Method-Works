@@ -2340,27 +2340,36 @@ h_c are those of the chains of estimates [[eq:i-b-6-apriori]] and [[eq:i-b-8-cha
 (a) and [[prop:i-b-8-1]], which contain the threshold of [[eq:i-b-6-6]]. The bound [[eq:rb-high-energy]] is uniform in σ in the semiclassical norms at h = h(σ); at each fixed h
 these are equivalent to the norms of 𝒳_σ and 𝒴_σ ([[sec:i-b-8-4]]), with constants that depend on h.
 
-**Lemma {#lem:rb-interpolation}** (The constant of the interpolation.) In [[prop:i-b-6-7]], let C′_a be such that, after
-the absorption of its part (a), ‖P̂′(σ)⁻¹‖ ≤ C′_a for Re σ ≥ h_0⁻¹ and Im σ ∈ [β, β′], and ‖P̂′(σ)⁻¹‖ ≤ C′_a|σ|⁻¹ on
-Im σ = β′. Put κ_Γ := β′ − β and
+**Lemma {#lem:rb-interpolation}** (The constant of the interpolation.) In [[prop:i-b-6-7]], let h_0 ≤ 1, put
+κ_Γ := β′ − β, and let C′_a be such that ‖P̂′(σ)⁻¹‖_(L²→L²) ≤ C′_a for Re σ ≥ h_0⁻¹ (Re σ ≤ −h_0⁻¹ when z_0 = −1)
+and Im σ ∈ [β, β′], and ‖P̂′(σ)⁻¹‖ ≤ C′_a|σ|⁻¹ there on Im σ = β′. Such a C′_a is given by the a priori estimate
+[[eq:i-b-6-apriori]] in the proof of [[prop:i-b-6-7]] once its last term is absorbed, read at h = |Re σ|⁻¹ (part (c)
+of that proof). Put
 
     F_Γ := sup_(σ_0 ≥ h_0⁻¹) exp(3 log σ_0 · e^(−πσ_0/(2κ_Γ))).
 
 Then [[eq:i-b-6-11]] holds with the constant 4F_ΓC′_a: for h ≤ h_0/2 and z ∈ z_0 + i[hβ, hβ′],
-‖(P′_(h,z))⁻¹‖ ≤ 4F_ΓC′_a h^(−1−(β′−Im(z/h))/κ_Γ). If κ_Γ = 2^(−3/2) and h_0 ≤ 1, then F_Γ ≤ 1.002659.
+‖(P′_(h,z))⁻¹‖ ≤ 4F_ΓC′_a h^(−1−(β′−Im(z/h))/κ_Γ). If κ_Γ = 2^(−3/2), then F_Γ ≤ 1.002659.
 
-*Proof.* In part (c) of the proof of [[prop:i-b-6-7]], [[lem:i-b-6-6]] is applied on a rectangle with L = 2σ_0/κ_Γ,
-A = A_0 = C′_a‖w‖, A_1 = C′_aσ_0⁻¹‖w‖ and Λ = log σ_0, w ∈ L². It gives
-‖P̂′(σ)⁻¹w‖ ≤ C′_a σ_0^(−θ) exp(3 log σ_0 e^(−πσ_0/(2κ_Γ)))‖w‖ ≤ F_Γ C′_a σ_0^(−θ)‖w‖, θ := (Im σ − β)/κ_Γ ∈ [0, 1],
-for Re σ ∈ [2σ_0, 4σ_0]. There h = 1/Re σ ∈ [1/(4σ_0), 1/(2σ_0)], so σ_0^(−θ) ≤ (4h)^θ ≤ 4h^θ, and
-(P′_(h,z))⁻¹ = h⁻²P̂′(z/h)⁻¹; as 2 − θ = 1 + (β′ − Im(z/h))/κ_Γ, this is the bound. For the value: with
-c := π/(2κ_Γ) = √2π > 4.44288 and s := σ_0 ≥ 1, the function g(s) := log s · e^(−cs) has g′(s) = e^(−cs)(1/s − c log s),
-and 1/s − c log s decreases, so g attains its maximum on [1, ∞) at the point s_* where s_* log s_* = 1/c, with
-g(s_*) = e^(−cs_*)/(cs_*). As s log s increases on [1, ∞) and 1.205 log 1.205 < 0.22471 < 0.22507 < 1/c, s_* > 1.205;
-and t ↦ e^(−t)/t decreases, so g(s_*) < e^(−5.3536)/5.3536 < 8.837 · 10⁻⁴. Hence F_Γ ≤ exp(0.0026511) < 1.002659. ∎
+*Proof.* Let z_0 = 1; for z_0 = −1 the same argument runs with Re σ ≤ −h_0⁻¹ and the rectangle reflected in the
+imaginary axis. Let σ_0 ≥ h_0⁻¹, so σ_0 ≥ 1, and w ∈ L². Apply [[lem:i-b-6-6]] to F(ζ) := P̂′(3σ_0 + iβ + κ_Γζ)⁻¹w on
+the rectangle [−L, L] + i[0, 1], L := 2σ_0/κ_Γ, where Re σ ∈ [σ_0, 5σ_0] and Im σ ∈ [β, β′]. F is holomorphic near the
+rectangle, as P̂′(σ) is a polynomial in σ and is invertible on an open set containing this range ([[prop:i-b-6-7]]).
+There ‖F‖ ≤ A := C′_a‖w‖, and ‖F‖ ≤ A_0 := C′_a‖w‖ on Im ζ = 0 and ‖F‖ ≤ A_1 := C′_aσ_0⁻¹‖w‖ on Im ζ = 1, as
+|σ| ≥ σ_0 there; A_1 ≤ A since σ_0 ≥ 1, and the Λ of [[lem:i-b-6-6]] is Λ_0 := log(A/A_1) = log σ_0. With
+t := Im ζ = (Im σ − β)/κ_Γ ∈ [0, 1] and πL/4 = πσ_0/(2κ_Γ), the lemma gives, for Re σ ∈ [2σ_0, 4σ_0],
+‖P̂′(σ)⁻¹w‖ ≤ C′_a σ_0^(−t) exp(3Λ_0 e^(−πσ_0/(2κ_Γ)))‖w‖ ≤ F_Γ C′_a σ_0^(−t)‖w‖. There h = 1/Re σ ∈ [1/(4σ_0),
+1/(2σ_0)], so σ_0^(−t) ≤ (4h)^t ≤ 4h^t, and (P′_(h,z))⁻¹ = h⁻²P̂′(z/h)⁻¹; as 2 − t = 1 + (β′ − Im(z/h))/κ_Γ, this is
+the bound, and every h ≤ h_0/2 is 1/Re σ for some such σ_0. For the value: with c := π/(2κ_Γ) = √2π > 4.44288 and
+s := σ_0 ≥ 1, the function g(s) := log s · e^(−cs) has g′(s) = e^(−cs)(1/s − c log s), and 1/s − c log s decreases,
+so g attains its maximum on [1, ∞) at the point s_* where s_* log s_* = 1/c, with g(s_*) = e^(−cs_*)/(cs_*). As
+s log s increases on [1, ∞) and 1.205 log 1.205 < 0.22471 < 0.22507 < 1/c, s_* > 1.205; so
+cs_* > 4.44288 · 1.205 > 5.35367, and x ↦ e^(−x)/x decreases, so g(s_*) < e^(−5.35367)/5.35367 < 8.8365 · 10⁻⁴.
+Hence F_Γ ≤ exp(3g(s_*)) ≤ exp(0.0026510) < 1.002659. ∎
 
-At b_0 with m_0 = 1, q^Γ = 4 on Γ and ν_min = 2^(3/2) ([[thm:vi-a-6-1]]), so the function of η in (Γ.4) is
-sup_Γ λ_max(p_1^Γ) − 4η exactly, whatever the fibre inner product, and γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the
+At b_0 with m_0 = 1, q^Γ = 4 on Γ and ν_min = 2^(3/2) ([[thm:vi-a-6-1]]), so the function of (Γ.4) decreases at
+exactly the rate 4 from its value sup_Γ λ_max(p_1^Γ) at 0, whatever the fibre inner product, and
+γ_+ − γ_− = ν_min/8 = 2^(−3/2). For the
 choice β = γ_− + ϵ, β′ = γ_+ + ϵ of [[prop:i-b-6-7]], κ_Γ = 2^(−3/2), and [[eq:i-b-6-11]] holds with the constant
 4.01064 C′_a for every operator with principal symbol G Id at b_0, once h_0 ≤ 1.
 

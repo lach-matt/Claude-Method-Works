@@ -678,34 +678,36 @@ on [s_a, s_b], gives s(ε) with m(ε, s(ε)) = 0. ∎
 On a round slice γ = G dR² + R² dΩ₃² with round second fundamental form K0 = κ0 G dR² + Y0 R² dΩ₃², write an
 invariant δK by its components in the frame of [[sec:loc-setting]]:
 
-    δK(e_R, e_R) = κ,   δK(e_R, e_ϑ) = p̂,   δK(e_ϑ, e_ϑ) = Kt/3 + s1,   δK(e_s, e_s) = Kt/3 + s2,
+    δK(e_R, e_R) = δκ,   δK(e_R, e_ϑ) = p̂,   δK(e_ϑ, e_ϑ) = Kt/3 + s1,   δK(e_s, e_s) = Kt/3 + s2,
     δK(e_c, e_c) = Kt/3 − s1 − s2,                                                                    {#eq:loc-dk}
 
-the other components vanishing. Put c := −(κ0 + 2Y0)/(3Y0), β := −κ0/(3Y0), a := −3(1 − β)/R, so that 3c − 1 = Ra.
+the other components vanishing. Put c := −(κ0 + 2Y0)/(3Y0), β_K := −κ0/(3Y0), 𝔞 := −3(1 − β_K)/R, so that 3c − 1 =
+R𝔞.
 
 **Lemma {#lem:loc-momentum-constraints}** (The linearised constraints at δγ = 0.) Let Y0 ≠ 0. For δ = (0, δK),
 
-    Dℋ[δ] = 2(3Y0 κ + (κ0 + 2Y0) Kt),
-    √G Dℳ[δ](e_R) = −∂_R Kt + (3κ − Kt)/R + (√G/R)(1/sc) ∂_ϑ(sc p̂),
-    R Dℳ[δ](e_ϑ) = (1/(√G R³)) ∂_R(R⁴ p̂) − (2/3)∂_ϑ Kt − ∂_ϑκ + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1 − s2/sc,  {#eq:loc-dm}
+    Dℋ[δ] = 2(3Y0 δκ + (κ0 + 2Y0) Kt),
+    √G Dℳ[δ](e_R) = −∂_R Kt + (3δκ − Kt)/R + (√G/R)(1/sc) ∂_ϑ(sc p̂),
+    R Dℳ[δ](e_ϑ) = (1/(√G R³)) ∂_R(R⁴ p̂) − (2/3)∂_ϑ Kt − ∂_ϑδκ + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1 − s2/sc,  {#eq:loc-dm}
 
-and the other components of Dℳ[δ] vanish. So δ is a momentum seed exactly when κ = c Kt,
-∂_R Kt = a Kt + (√G/R)(1/sc)∂_ϑ(sc p̂), and
+and the other components of Dℳ[δ] vanish. So δ is a momentum seed exactly when δκ = c Kt,
+∂_R Kt = 𝔞 Kt + (√G/R)(1/sc)∂_ϑ(sc p̂), and
 
-    s2 = sc ((1/(√G R³)) ∂_R(R⁴ p̂) − β ∂_ϑ Kt + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1).                          {#eq:loc-s2}
+    s2 = sc ((1/(√G R³)) ∂_R(R⁴ p̂) − β_K ∂_ϑ Kt + ∂_ϑ s1 + (cot ϑ − 2 tan ϑ) s1).                        {#eq:loc-s2}
 
-*Proof.* At δγ = 0, Dℋ[δ] = 2 tr K0 tr δK − 2⟨K0, δK⟩ with tr K0 = κ0 + 3Y0, tr δK = κ + Kt and ⟨K0, δK⟩ = κ0κ + Y0Kt.
+*Proof.* At δγ = 0, Dℋ[δ] = 2 tr K0 tr δK − 2⟨K0, δK⟩ with tr K0 = κ0 + 3Y0, tr δK = δκ + Kt and ⟨K0, δK⟩ = κ0δκ +
+Y0Kt.
 Dℳ[δ] = div δK − d tr δK, with the Christoffel symbols of γ in (R, ϑ, φ1, φ2): Γ^R_RR = G′/(2G), Γ^R_ϑϑ = −R/G,
 Γ^R_(φ1φ1) = −R cos²ϑ/G, Γ^R_(φ2φ2) = −R sin²ϑ/G, Γ^ϑ_(Rϑ) = Γ^(φi)_(Rφi) = 1/R, Γ^ϑ_(φ1φ1) = sc, Γ^ϑ_(φ2φ2) = −sc,
-Γ^(φ1)_(ϑφ1) = −tan ϑ, Γ^(φ2)_(ϑφ2) = cot ϑ. Inserting the coordinate components of [[eq:loc-dk]] (δK_RR = Gκ,
+Γ^(φ1)_(ϑφ1) = −tan ϑ, Γ^(φ2)_(ϑφ2) = cot ϑ. Inserting the coordinate components of [[eq:loc-dk]] (δK_RR = Gδκ,
 δK_Rϑ = √G R p̂, δK_ϑϑ = R²(Kt/3 + s1), δK_(φ2φ2) = R² sin²ϑ (Kt/3 + s2), δK_(φ1φ1) = R² cos²ϑ (Kt/3 − s1 − s2)) gives
-[[eq:loc-dm]]; the φ components vanish because nothing depends on φ_i and δK has no mixed φ components. With κ = cKt,
-the combination −(2/3)∂_ϑKt − ∂_ϑκ is −β∂_ϑKt. ∎
+[[eq:loc-dm]]; the φ components vanish because nothing depends on φ_i and δK has no mixed φ components. With δκ = cKt,
+the combination −(2/3)∂_ϑKt − ∂_ϑδκ is −β_K∂_ϑKt. ∎
 
 **Theorem {#thm:charge-identity}** (The charge of a momentum seed.) Let U be a band of a round slice on which Y0 ≠ 0,
 let N > 0 be a function of R, and for a momentum seed δ supported in U put
 
-    Q_N(δ) := ∫_U N((tr δK)² − |δK|²) dvol,      ν := N √G R³,      E := e^(∫a dR),
+    Q_N(δ) := ∫_U N((tr δK)² − |δK|²) dvol,      ν := N √G R³,      E := e^(∫𝔞 dR),
     P := 8νE²R/G − (2νER/√G)′ RE/√G,      Γ := 4νE² − P′,  {#eq:charge-identity-defs}
 
 ′ = d/dR. Then there is a function η(R, ϑ), compactly supported in R, with
@@ -719,12 +721,13 @@ and, with Z := s2 + s1/2 and X := ∂_ϑη − (3/2)(cos 2ϑ/sc) η,
 
 For N = N_s, Q_N(δ) = Q(δ).
 
-*Proof.* *The stream function.* Since E′ = aE, the second condition of [[lem:loc-momentum-constraints]] reads
+*Proof.* *The stream function.* Since E′ = 𝔞E, the second condition of [[lem:loc-momentum-constraints]] reads
 ∂_R(sc Kt/E) = ∂_ϑ(√G sc p̂/(RE)). Put η(R, ϑ) := ∫_(R1)^R √G sc p̂/(RE) dR′. Then ∂_Rη is as stated, and
 ∂_R(∂_ϑη − sc Kt/E) = 0 with both terms vanishing for R near R1, so ∂_ϑη = sc Kt/E. Near the axis ϑ = 0 the
-component p̂ = δK(e_R, e_ϑ) is O(sin ϑ): in the plane (x3, x4) of [[sec:background]], e_ϑ is the unit radial
-direction, and the rotation by π in that plane, an isometry preserving δK, reverses it, so p̂ at the point with polar
-radius ϱ in that plane is an odd smooth function of ϱ = R sin ϑ. Likewise p̂ = O(cos ϑ) at ϑ = π/2. Hence ∂_Rη = O(sc²),
+component p̂ = δK(e_R, e_ϑ) is O(sin ϑ). Indeed, in the plane (x3, x4) of [[sec:background]], with polar radius
+ϱ = R sin ϑ, e_ϑ is the unit radial direction; along a line through the axis in that plane, the rotation by π in that
+plane, an isometry preserving δK, maps the point at ϱ to the point at −ϱ and e_ϑ to −e_ϑ, so ϱ ↦ p̂ is an odd smooth
+function on that line, and p̂ = O(ϱ). Likewise p̂ = O(cos ϑ) at ϑ = π/2. Hence ∂_Rη = O(sc²),
 so η = O(sc²); and ∂_ϑη = sc Kt/E = O(sc), Kt being bounded. For R ≥ R2, ∂_ϑη = 0, so η is constant on each sphere
 there, and η = 0 on the axis; so η is compactly supported in R.
 

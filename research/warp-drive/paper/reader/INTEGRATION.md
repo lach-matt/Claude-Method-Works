@@ -1191,3 +1191,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   which needs chapters 32-36 with the exponents tracked. Per the author's directive (evaluate and prove), the (IS)
   project starts once R-P-U71-close confirms the non-reachability argument. The report also lists a loss-free bound in
   lem:iii-j2-2-4 that its own proof does not support: to the chapter's fix list.
+- F-P-K83b done (reports/F-P-K83b.md): all 11 findings fixed in the proof file. Chapter 83 defines Σ_τ0 twice (from
+  0.68 and from 0.70; Γ > 0 not proved on [0.68, 0.70)): sent to F-83. Merge after F-83.
