@@ -1429,8 +1429,8 @@ u_(A′).
 
 *Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
 the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side
-S_A^ax near the axes for the families present there (Step 6) and ζ_A S_A away from them; the leaves are those of [[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A)
-by [[eq:class-leaf-volterra]] and [[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right
+S_A^ax near the axes for the families present there (Step 6) and ζ_A S_A away from them; the leaves are those of
+[[lem:class-leaf-differences]], defined on each slice from (g, p_A, Θ_A) by [[eq:class-leaf-volterra]] and [[lem:class-volterra]], so that p_A need not be closed for them to exist, and the right
 side at a time depends on the unknowns at that time only. The cut-off on p_A keeps P_A^τ > 0, as before. In the
 unknowns U of that Step 9 the forcing term is defined on a ball 𝒟_ρ about u_* := 0 in H^k, with ρ so small that the
 states of 𝒟_ρ lie in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-differences]] near the axes; it satisfies (F1) by
@@ -1456,8 +1456,8 @@ T_(τ,U) − id in [[def:class-adapted]]; those of Φ⁻¹ are polynomials in th
 Φ⁻¹, which is bounded; and the Jacobian determinants of Φ and Φ⁻¹ are bounded. So, by the chain-rule bound of Step 8
 (iv) of [[sec:ue-existence]], composition with Φ and with Φ⁻¹ is bounded on H^σ, 0 ≤ σ ≤ k, uniformly in τ and U, and
 as G acts by isometries of R⁴, 𝔼 is bounded from H^σ(Σ_τ ∩ Ω_U) to H^σ(R⁴), 0 ≤ σ ≤ k, uniformly in τ and U. Then
-Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a point x ∈ Σ_τ ∩ Ω_U the leaf of U
-through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the axes being a leaf of U and the
+Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a
+point x ∈ Σ_τ ∩ Ω_U the leaf of U through x comes from an axis point of Ω_U and lies in Ω_U, the boundary of Ω_U near the axes being a leaf of U and the
 leaves of U foliating; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] =
 σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)
 
