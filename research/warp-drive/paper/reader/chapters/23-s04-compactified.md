@@ -922,20 +922,23 @@ does not combine them. (This is how the tame estimates are used: an operator arr
 #### Smooth operators on mixed spaces {#sec:ii-a-8-3}
 
 *Cut-offs.* [Hin26d, Definition 3.34] calls an operator *localized near the diagonal* when its Schwartz kernel is
-supported within a finite d_ℬ-distance of the diagonal. Here d_ℬ is the metric of [Hin26d, Proposition 2.3, p. 19]:
-d_ℬ(p, q) is the infimum of the lengths L(γ, T, I) of the chains from p to q, that is, of piecewise smooth curves cut
-into pieces each of which lies in one chart of ℬ, L being the sum of the Euclidean lengths of the pieces in their charts
-[Hin26d, (2.5)]. Being localized near the diagonal is a property an operator of the calculus may or may not have, and
+supported within a finite d_ℬ-distance of the diagonal. Here d_ℬ is the metric of (S15) ([Hin26d, Proposition 2.3,
+p. 19]): d_ℬ(p, q) is the infimum of the lengths L(γ, T, I) of the chains from p to q, that is, of piecewise smooth
+curves cut into pieces each of which lies in one chart of ℬ, L being the sum of the Euclidean lengths of the pieces in
+their charts [Hin26d, (2.5)]. Being localized near the diagonal is a property an operator of the calculus may or may not have, and
 residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary operators are
 taken localized near the diagonal. The *kernel range* of such an operator is the supremum of d_ℬ(p, q) over the
 support of its Schwartz kernel. Quantizations are localized near the diagonal, by the cut-off ψ(x − x′) of [Hin26d,
 (3.26)] and the chart cut-offs of [Hin26d, Definition 3.31]. Their kernel ranges may be made as small as we please:
-[Hin26d, Lemma 3.42, p. 51] states that (1 − η̃)Op_𝒱(a) is residual for a ∈ wS^m whenever η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M)
+by (S15) ([Hin26d, Lemma 3.42, p. 51]), (1 − η̃)Op_𝒱(a) is residual for a ∈ wS^m whenever η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M)
 equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each local quantization,
 ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form used on p. 52). If
-supp η_0 ⊂ {|x| < ϵ/C}, C the constant of [Hin26d, (2.3)], the new kernel has range at most ϵ. We call this
-*truncating* the quantization to range ϵ. It changes the operator by a residual one, so it changes no principal symbol,
-wave front set or elliptic set, and it commutes with multiplication on the left by functions. For the quantizations Op
+supp η_0 ⊂ {|x| < ϵ/C}, C the constant of (2.3) in (S15), the new kernel has range at most ϵ. We call this
+*truncating* the quantization to range ϵ. It changes the operator by a residual operator of the subalgebra of (S10),
+by the strengthening on p. 75 quoted in (S15), the operators of this chapter being taken in that subalgebra
+([[sec:ii-a-4-2]]). So the truncated operators lie in the subalgebra, [[eq:ii-a-4-1]] and [[lem:ii-a-8-4]] (a) apply
+to them, and truncation changes no principal symbol, wave front set or elliptic set; it commutes with multiplication
+on the left by functions. For the quantizations Op
 of Ψ̃ ([[sec:ii-a-4-2]]) the same holds with ρℬ in place of ℬ: its charts are boxes in those of ℬ, magnified by factors
 at least 1, so d_ℬ ≤ d_(ρℬ). The class is closed under compositions and adjoints, since kernel supports add or are
 reflected, and under commutators with vector fields, which do not enlarge kernel supports. It contains the finite-order
