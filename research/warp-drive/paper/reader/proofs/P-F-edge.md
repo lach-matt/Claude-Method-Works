@@ -125,10 +125,10 @@ For both envelopes σ_k x ≤ 2(n + 1)(n + 14)/((3/4) · 96 (n + 2)²) ≤ (n + 
 
     R_k(x) ≥ a − 1/144 − x/7 ≥ a − 1/140 > 0,      R_k(x) − A(x) ≤ x(1/7 − 2k) < 0   for k ≥ 1,
 
-the first because x ≤ x_1 = 1/864 and 1/144 + 1/6048 < 1/140. So [[lem:edge-logderivatives]] applies on (0, x_n] with m
-= n + 1. By its (a), env^(k) > 0 for k ≤ n + 2. By (b), κ_k/κ = R_k/A lies in [1 − 1/(140a), 1] ⊂ [99/100, 1], since
-4/(3 · 140) < 1/100, and env^(j)/(κ^j env) = Π_(i<j) R_i/A ∈ (0, 1] for j ≤ n + 2. This is (a) and the bounds of κ_k/κ
-in (b). For the rest of (b), |A′(x)| ≤ 12 by [[eq:edge-a-real]] (A′ = 0 for exp(−1/x)), so
+the first because x ≤ x_1 = 1/864 and 1/144 + 1/6048 < 1/140. So [[lem:edge-logderivatives]] applies on (0, x_n]
+with m = n + 1. By its (a), env^(k) > 0 for k ≤ n + 2. By (b), κ_k/κ = R_k/A lies in [1 − 1/(140a), 1] ⊂ [99/100, 1],
+since 4/(3 · 140) < 1/100, and env^(j)/(κ^j env) = Π_(i<j) R_i/A ∈ (0, 1] for j ≤ n + 2. This is (a) and the bounds of
+κ_k/κ in (b). For the rest of (b), |A′(x)| ≤ 12 by [[eq:edge-a-real]] (A′ = 0 for exp(−1/x)), so
 
     |x R_k′(x)| ≤ 12x + 2kx + 3σ_k x² ≤ 12/864 + 1/144 + 3/(7 · 864) < 0.0214,   resp.  1/144 + 3/(7 · 864) < 0.0075,
 

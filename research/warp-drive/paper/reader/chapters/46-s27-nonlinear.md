@@ -980,3 +980,203 @@ no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:
 
 The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_0, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
 σ ∈ Σ_0, |σ| ≤ c_0, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.
+
+### The symmetry class {#sec:s27-class}
+
+*The group.* G := O(2) × O(2) acts on ℝ⁴ = ℝ² × ℝ² by the rotations of the planes (x¹, x²) and (x³, x⁴) and by the
+reflections x² ↦ −x² and x⁴ ↦ −x⁴; on spacetime it acts by (t, x) ↦ (t, σx). Every element of O(4), acting so, is an
+isometry of every g^KS_(m,0) and fixes every function of (t, |x|). The fixed spaces are
+
+    (ℝ⁴)^G = 0,     𝔰𝔬(4)^G = 0.
+
+Indeed, the torus T² = SO(2) × SO(2) fixes in ℝ⁴ only 0, and in 𝔰𝔬(4), acting by conjugation, exactly
+span(W₁₂, W₃₄), the infinitesimal rotations of the two planes (T² is a maximal torus of SO(4), so its fixed subalgebra
+is its own Lie algebra); and x² ↦ −x² reverses W₁₂ while fixing W₃₄, x⁴ ↦ −x⁴ reverses W₃₄ while fixing W₁₂.
+
+*The data class.* In the class we take, in step (3) of [[thm:vi-c-2-1]],
+
+    ℰ_0 := {(j, 0) : j ∈ ℕ, j ≥ 2},     ℓ_0 ∈ (3, 4),     ℓ_I ∈ (3, ℓ_0).                               {#eq:vii-0-1}
+
+Row d1 holds: min Re ℰ_0 = 2 > 3/2 + 2γ_Υ, as γ_Υ < ¼ (step (2)); ℰ_0 is closed under sums and positive multiples; and
+ℓ_0 > 3 with ℓ_0 ∉ ℕ, so ℓ_0 ∉ Re π_1ℰ_0. Row d2 holds for ℓ_I ∈ (3, min(ℓ_0, 3/2 + s_C)) = (3, ℓ_0), as s_C > 100,
+off the discrete exclusion sets of row d2 and of (H4). Step (4) then takes ε_+ < ℓ_I − 3, so (H4) of
+[[sec:iii-i10-1]] holds. ε and d_1 are those of [[thm:iii-k-4-3]] (step (6)). For a pair (γ̃, k̃) of symmetric
+2-tensors on Σ^IVP, ‖(γ̃, k̃)‖_(d_1) denotes the norm in which [[thm:iii-k-4-3]] measures (γ − γ_(b₀), k − k_(b₀)):
+the H^(d_1)-norm of H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b, and ∞ outside these spaces. The weights are those of the
+b-density, so that a weight is the pointwise order ([[sec:iii-c1-0]]).
+
+**Lemma {#lem:vii-0-1}** (What lies in the class.) Let ρ := |x|⁻¹, and let γ̃, k̃ be smooth symmetric 2-tensors on
+Σ^IVP whose Cartesian components lie, on {r ≥ R′}, in ρ²C^∞ and ρ³C^∞ of the radial compactification. Then
+‖(γ̃, k̃)‖_(d_1) is finite, and it is bounded by C_(R′) times the sum of the C^(d_1+3)-norms of the components on
+{r ≤ 2R′} and finitely many C^∞-seminorms of ρ⁻²γ̃ and ρ⁻³k̃ on the compactified {r ≥ R′}.
+
+*Proof.* Near ρ = 0, Taylor's formula in ρ writes a function of ρ²C^∞ as ρ²a₂(ω) + ρ³a₃(ω) + ρ⁴C^∞. The a_j are
+smooth on 𝕊³, and the seminorms of the remainder are bounded by those of ρ⁻²γ̃. The exponents (2, 0) and (3, 0) lie in
+ℰ_0 below ℓ_0, and ρ⁴C^∞ ⊂ ρ^(ℓ_0)H^∞_b, as ℓ_0 < 4. Likewise ρ³C^∞ = ρ³a₃ + ρ⁴a₄ + ρ⁵C^∞, with (3, 0) and (4, 0)
+in ℰ_0 + 1 below ℓ_0 + 1 < 5. On {r ≤ 2R′} the weights are bounded above and below. ∎
+
+### The nonlinear theorem in the symmetry class {#sec:vii-3}
+
+O(4) acts on M by (t, x) ↦ (t, σx) and on tensors by σ_* := (σ⁻¹)^*. On the components of 𝒟_ex ([[def:iii-j3-1-1]],
+[[def:iii-j-1-1]]) it acts as follows: on b = (m, A) ∈ 𝔟 by (m, σAσ⁻¹); on 𝒮_1 ∋ S_w by S_w ↦ S_(σw); on the
+coefficient spaces 𝒲_τ, 𝒴_ρ (spaces of harmonics on 𝕊³, 𝒮_1, and 𝒱′ = 0) by their representations; on 𝒱_1, the
+rotations, the coefficient space of the rotation rows ([[def:iii-i14-1-3]]), by conjugation V ↦ σVσ⁻¹; and on the
+tensor and function components (u^0_λ, f_λ, h̃, and the values of the q-tails) by σ_*.
+
+**Lemma {#lem:vii-3-1}** (Naturality.) Make the following choices O(4)-equivariant.
+
+(C1) *Cut-offs:* χ^♭_K, χ_K, χ^♯_K, χ_IVP, χ^♯_IVP and χ_r of [[sec:iii-b-5]], χ_∞ of [[eq:iii-b-3-6]], χ_ι and χ_9
+([[sec:iii-k-0]], [[sec:iii-k-3]]), χ_− ([[def:iii-k-2-1]]), the factor Θ = χ_rχ^♯_IVP(1 − χ^♭_K), and the cut-offs
+inside t^♭_* ([[lem:ii-c-3-2]]). Every set in their conditions (the values 0 and 1, the supports, and the nesting of
+[[sec:iii-b-5]], each later function equal to 1 near the support of the earlier) is defined by (t, t_*, t_IVP, t^♭_*,
+|x|), hence O(4)-invariant. So they are chosen directly, in nesting order, as smooth functions of these and of |x|²:
+each is a cut-off between an invariant closed set and the interior of a larger invariant set. No averaging is used;
+averaging separately could break the nesting.
+
+(C2) *Gauge 1-forms:* c_Υ, c_(Υ,H), c_C ([[def:iii-b-6-1]], [[sec:iii-e-1]]). They are stationary, lie in |x|⁻¹C^∞ or
+are supported in {|x| < 5R₁}, and equal |x|⁻¹dt or |x|⁻¹(dt − v_C d|x|) for large |x|. The proofs use the forms
+c_Υ = ζ(|x|)|x|⁻¹dt, c_(Υ,H) = −½χ(|x|)d|x| ([[sec:iii-d2-1]]) and c_C of [[sec:iv4-0]] (that of [[prop:np-10-14]],
+whose coefficients are functions of r), which are O(4)-invariant; no averaging is needed.
+
+(C3) *Linear maps given by existence statements:* ω_s1(S) and ω̆(S) ([[prop:iii-d2-3-1]] at b₀, linear in S ∈ 𝒮_1);
+the 1-form towers ω̆^i_τ(W), 0 ≤ i ≤ K_τ, of every type τ ∈ 𝒯 ([[prop:iii-d2-3-1]] and [[prop:iii-d3-3-1]] at b₀,
+linear in W), for v1 as a map of all of 𝒱_1 and not only of 𝒲_v1 = 𝒱′ = 0, since the rotation rows use it there
+([[def:iii-i14-1-3]]); the proofs use these towers themselves, in the term dt_* ⊗_s ω̆^(K_τ)_τ of the rows m_ν and in
+the corrections h_ν = −dχ_K ⊗_s ω_ν at every level ([[sec:iii-i9-2]]); the states and towers of the table of
+[[sec:iii-g2-1]], as linear maps of the coefficient spaces 𝒴_τ; and the solution operators 𝒮_(λ₀) of
+[[sec:iii-j-2]]. Each is a linear map L : V → 𝒯 from an O(4)-representation into tensors. Its conditions are affine
+in L and O(4)-invariant: equations with natural operators of g_(b₀), asymptotic or support conditions at faces fixed by
+O(4), and prescribed leading terms and right sides given by O(4)-equivariant data (for the towers the leading terms
+d(|x|S) for s1, V and (1 + (2/5)γ_Υ)|x|V for v1, χ_∂W̄ for s0 and the model ω̄(Y) for s2, c0, c1,
+[[prop:iii-d3-3-1]]), so that an average of solutions is a solution. So
+
+    L^(O(4)) := ∫_(O(4)) σ_* ∘ L ∘ σ⁻¹ dσ
+
+(Haar probability measure) meets them, with the same bounds. The 1-form towers are averaged once, and the towers of
+the table of [[sec:iii-g2-1]] at b₀ of the types of 𝒯 are taken as δ*_(g_(b₀)) of the averaged 1-forms, as they are
+of the unaveraged ones; the pure-gauge rows outside 𝒯 are δ*-images of 1-forms that (C3) does not name, and the
+physical rows are not δ*-images; both are averaged as the maps of 𝒴_τ. One averaged choice serves both names, as
+δ*_(g_(b₀)) commutes with the average: δ*_g ω = ½ℒ_(g⁻¹ω) g, and for a diffeomorphism φ,
+φ^*(ℒ_X g) = ℒ_(φ^*X)(φ^*g) and φ^*(g⁻¹ω) = (φ^*g)⁻¹(φ^*ω), so φ^*(δ*_g ω) = δ*_(φ^*g)(φ^*ω); every σ ∈ O(4) is an
+isometry of g_(b₀), so σ_* δ*_(g_(b₀)) = δ*_(g_(b₀)) σ_*.
+
+(C3′) *Families in b:* the towers and states at b used in h_(b,rem)(q), namely T_(ρ,b), h^(≤1)_(b,s1), h_(b,v1) and
+h^(≤2)_(b,v1), chosen smooth in b by [[lem:iii-i14-2-1]]. Replace a family L_b by
+
+    L^(O(4))_b := ∫_(O(4)) σ_* ∘ L_(σ⁻¹·b) ∘ σ⁻¹ dσ.
+
+Then σ_* ∘ L^(O(4))_b ∘ σ⁻¹ = L^(O(4))_(σ·b), and the average keeps the tower relations for L_b (natural, given (C2)),
+smoothness in b, the b-independent leading terms, and the value at b₀ once (C3) is applied there. The parameter balls
+are O(4)-invariant, being balls in the conjugation-invariant norm of step (5) of [[thm:vi-c-2-1]].
+
+(C4) *The complement 𝒱′* of [[sec:iii-i9-1]], which is 0 at b₀.
+
+Then, for every closed subgroup G′ of O(4), every G′-invariant data (γ, k), every σ ∈ G′ and every small U ∈ 𝒟_ex,
+
+    Φ(σ·U) = σ·Φ(U),     Ψ(σ·U) = σ_*Ψ(U),     P_5(Ψ(σ·U)) = σ_*P_5(Ψ(U)).
+
+The averaged choices are admissible: each object of (C3) and (C3′) is introduced by a statement that a choice with the
+conditions listed exists, and the results of [[ch:s13]]–[[ch:s25]] that use it hold for every such choice. Three
+properties used there are not themselves linear conditions, and each is kept. The s1 and v1 states are unique given
+their conditions (the zero energy operator is injective at the weights in the gap, [[prop:iii-d2-3-1]]), so the
+average is the choice. The bijectivity of [[lem:iii-g2-1-2]] is a statement about leading terms, which are prescribed
+by O(4)-equivariant maps onto kernels split by harmonic, and which the average keeps. The isotypic type of each
+construction is that of an equivariant map (Schur's lemma).
+
+*Proof.* By induction along the definitions; each object is natural, given (C1)–(C4) and (C3′).
+
+- g_b = Φ_m^*g^KS_(m,A): [[def:iii-b-3-2]] builds r_A, ℓ_A and H_(m,A) from (m, A, x) by matrix operations, which are
+  equivariant under x ↦ σx, A ↦ σAσ⁻¹; so σ_*g_((m,A)) = g_((m,σAσ⁻¹)). Φ_m and T_m are radial. So
+  g_(b₀,σ·b,−σ·S) = σ_*g_(b₀,b,−S) ([[eq:iii-i-1-1]]), given the next item.
+
+- φ_S = exp V(S_w), V(S_w) = ½ΘX_w, X_w = t w·∂_x + (w·x)∂_t ([[lem:iii-b-5-1]]). So σ_*X_w = X_(σw) and
+  σφ_(S_w)σ⁻¹ = φ_(S_(σw)); likewise for the translations ψ_(S_w) of [[eq:iii-i7-1-3]], generated by ½Θ w·∂_x.
+
+- t_* and t_IVP are functions of (t, |x|), and t^♭_* is a function of (t_*, r): C_♭(t_* + R̃(r)) and t_*F(t_*/r)
+  ([[lem:ii-c-3-2]]), given (C1).
+
+- E^Υ_(g_0), E^C_g, Υ^(E_Υ)(g, g_0) = Υ^0(g, g_0) − E^Υ_(g_0)G_(g_0)(g − g_0) and δ*_(g,E_C) ([[def:iii-b-6-1]]) are
+  natural in (g, g_0) and the forms of (C2). So are P, P_2–P_5 ([[eq:iii-i9-2-3]], [[eq:iii-i14-1-3]]) and P^♮,
+  χ^♮_0 being a function of (t_IVP, |x|, t_*).
+
+- ω̇_b(ḃ) = −(□̂^Υ_b(0))⁻¹η_b(ḃ) and ġ^Υ_b ([[eq:iii-f3-2-1]]) are natural, the inverse being unique.
+  w(S) = g_(b₀)(X_S, ·) is natural.
+
+- h_tot and ϑ_tot ([[def:iii-i7-2-3]], [[def:iii-i8-2-1]], [[def:iii-i9-2-1]], [[def:iii-i9-2-3]]) are built from χ_K,
+  δ*_(g_(b₀)) and commutators with χ_K, the maps of (C3), w(S), Θ and functions of t_*. h_(b,rem)(q)
+  ([[def:iii-i14-1-2]]) is χ_K times h^(≤1)_(b,s1), ġ_b and the towers of (C3′).
+
+- Φ ([[eq:iii-j-2-1]]) is built from χ_ι, u_λ = u^0_λ + res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f_λ(z)), with N_(ι⁺) the normal
+  operator of a natural operator, h̃, and the corrections h_(λ₀), given by the solution operators 𝒮_(λ₀) and the
+  t_*^(−λ₀)-terms of rows and towers ([[sec:iii-j-2]]).
+
+- h_(−S) ([[prop:iii-k-1-2]]) is the unique solution of [[eq:iii-k-1-2]] with data h_(S,0), h_(S,1), the pull-backs by
+  φ_S of the data h̊_0, h̊_1 of [[prop:iii-c2-4-1]]. The proof of [[prop:iii-c2-4-1]] builds these from (γ̃, k̃) and
+  g_(b₀) by setting h̊_0 := γ̃ with h̊_0(ν_(b₀), ·) := 0, and by solving tensorial linear equations for the second datum,
+  uniquely. So for G′-invariant data and σ ∈ G′, h_(σS,j) = σ_*h_(S,j), and h_(σS) = σ_*h_S by uniqueness.
+
+So Ψ(U) = (χ_−h_(−S), 0, 0) + Φ(U) ([[eq:iii-k-2-1]]) and P_5 ∘ Ψ are equivariant. ∎
+
+**Proposition {#prop:vii-3-2}** ([[thm:iii-k-4-3]] in the symmetry class; [Hin26, Theorem 13.1] in the class.) Make
+the choices of [[lem:vii-3-1]] equivariant. If the data (γ, k) of [[thm:iii-k-4-3]] are G-invariant, and small for the
+threshold ε^G_NM below, its conclusion holds with U fixed by G, b = (m′, 0), S = 0 and g G-invariant.
+
+*Proof.* *The action.* G ⊂ O(4) acts on M by diffeomorphisms that are smooth on the compactification, preserve each
+boundary hypersurface (the defining functions of [[eq:iii-b-2-2]] are functions of (t, |x|)), and fix t, t_*, t_IVP and
+t^♭_*. So it preserves Σ^IVP, Ω_*, 𝒟, the classes B^k, B^k_η, F^k, F^∞_η of [[sec:iii-k-3]], and the collar of
+[[lem:iii-k-3-1]]. Its action on each 𝒟^k_ex and ℱ^k_ex is bounded uniformly in σ, G being compact and acting
+smoothly. Replace each norm |·|_k by sup_(σ∈G)|σ·(·)|_k, an equivalent norm. Then G acts isometrically, and every
+estimate used below holds with changed constants.
+
+*Fixed spaces.* Let B^(k,G), B^(k,G)_η, F^(k,G) and F^(∞,G)_η be the G-fixed elements. They are closed, and
+Π := ∫_G σ dσ (Haar probability measure) is a projection onto them of norm at most 1 that preserves every support
+class.
+
+*[[thm:ii-g-2-1]] on the fixed spaces.* (i) ΠS_θ, with S_θ of [[lem:iii-k-3-1]], maps B^(∞,G)_(θ^(−1/2)) into B^(∞,G)
+and B^(∞,G)_η into B^(∞,G)_(η−θ^(−1/2)), and satisfies [[eq:ii-g-2-1]] with the constants of the G-sup norms: for
+v ∈ B^(∞,G), v − ΠS_θv = Π(v − S_θv), and Π has norm at most 1. (ii) By [[lem:vii-3-1]], U ↦ P_5(Ψ(U)) maps the
+fixed part of the domain of [[thm:iii-k-3-2]] into F^(∞,G), and B^(∞,G)_η into F^(∞,G)_η. Differentiability and
+[[eq:ii-g-2-2]]–[[eq:ii-g-2-3]] hold by restriction. (iii) For U ∈ B^(∞,G), differentiating
+P_5(Ψ(σ·V)) = σ_*P_5(Ψ(V)) at V = U gives D_U(P_5 ∘ Ψ) ∘ σ = σ_* ∘ D_U(P_5 ∘ Ψ), so D_U(P_5 ∘ Ψ) commutes with Π. So
+Ψ^G_NM(U) := ΠΨ_NM(U) on F^(∞,G) satisfies D_U(P_5 ∘ Ψ)Ψ^G_NM(U)f = ΠD_U(P_5 ∘ Ψ)Ψ_NM(U)f = Πf = f. It maps F^(∞,G)_η
+into B^(∞,G)_η for U in the domain of (ii) and in B^(∞,G)_η, which is what [[thm:ii-g-2-1]] (iii) asks, and it
+inherits [[eq:ii-g-2-4]]. So [[thm:ii-g-2-1]] holds on the fixed spaces, with its own threshold ε^G_NM computed from
+the constants of the G-sup norms, and gives U ∈ B^(∞,G)_(1/2) with P_5(Ψ(U)) = 0 on Ω_*.
+
+*The metric.* [[prop:iii-k-4-2]] builds g from (h, p⃗, q) = Φ(U), h_(−S) and g_(b₀,b,−S). By [[lem:vii-3-1]] every
+ingredient is equivariant and U is fixed, so g is G-invariant. U_0 = (b − b₀, S, S^(0)_1) is fixed: 𝔟^G = ℝ × {0} and
+𝒮_1^G = 0, 𝒮_1 being ℝ⁴ as a representation. So b = (m′, 0) and S = S^(0)_1 = 0, and [[thm:iii-k-4-3]] (1)–(5) hold
+with these values. ∎
+
+### Small final parameters and the rate of settling {#sec:s27-rate}
+
+**Corollary {#cor:s27-rate}** (Small final parameters; the rate on compact sets.) Let ε_m > 0 and ε_t ∈ (0, ε_K).
+Choose the parameters as in [[thm:vi-c-2-1]], with α > 4 + ε_t in row w2 (possible, as ε_K does not depend on ε_t and
+the admissible α are dense in (4 + ε_K − ε′_0, 4 + ε_K]). Then there is ε = ε(ε_m, ε_t) > 0, with d_1 as in
+[[thm:iii-k-4-3]], such that for data as in [[thm:iii-k-4-3]] of norm below ε:
+
+(a) the conclusion of [[thm:iii-k-4-3]] holds with |b − b₀| < ε_m and |S| < ε_m;
+
+(b) if the data are G-invariant, the conclusion of [[prop:vii-3-2]] holds, with |m′ − m₀| < ε_m;
+
+(c) in either case, for every R′, ε′ > 0 and i, β there are C and T′ with
+
+    |(t_*∂_(t_*))^i ∂^β_x (g − g_b)| ≤ C t_*^(−(α−2)+ε′)     on {r_♭ ≤ r ≤ R′, t_* ≥ T′},              {#eq:s27-rate}
+
+where α − 2 > 2 + ε_K − ε′_0 > 2 ([[def:iii-i10-1-3]]) and α − 2 > 2 + ε_t; with ε′ := α − 4 − ε_t, g − g_b =
+O(t_*^(−2−ε_t)) there.
+
+*Proof.* (a) In the proof of [[thm:iii-k-3-2]], apply [[thm:ii-g-2-1]] with its radius δ replaced by min(δ, ε_m): its
+hypotheses restrict to the smaller set, and its threshold then depends on ε_m. This gives [[thm:iii-k-4-3]] with
+|b − b₀| ≤ ‖U‖_(𝒟^d_ex) ≤ |U|_(3d) < ε_m and |S| ≤ |U|_(3d) < ε_m, the black hole parameter and the boost being
+components of U, for data of norm below some ε. (b) Take ε moreover below the threshold ε^G_NM of the run of
+[[thm:ii-g-2-1]] in [[prop:vii-3-2]], with the radius min(δ, ε_m) there too, through the equivalence of the norms.
+
+(c) Where χ_K = 1, g − g_b = h_tot(p⃗) + h_(b,rem)(q) + h ([[thm:iii-k-4-3]] (4)). h_tot(p⃗) is supported in 𝒞, whose
+closure is disjoint from K⁺ ([[lem:iii-i7-2-2]]); so it vanishes on {r ≤ R′} for t_* large, as does 1 − χ_K.
+h ∈ 𝒳^∞_(J,ex) has K⁺-order α, and h_(b,rem)(q) has K⁺-order (α − 2)− ([[lem:iii-i14-2-2]] (a) at b₀; at b near b₀,
+the rates of [[eq:iii-i14-1-1]], which exceed α − 2, with [[lem:iii-i14-2-1]]). Near the interior of K⁺,
+ρ_K = t₀⁻¹ with t₀ = t − |x| ([[eq:iii-b-2-2]]), comparable to t_* on {r ≤ R′}, and the b-vector fields there are
+spanned by t_*∂_(t_*) and ∂_x. By b-Sobolev embedding (a weight is the pointwise order, [[sec:iii-c1-0]]),
+(t_*∂_(t_*))^i∂^β_x of a function of K⁺-order w− is O(t_*^(−w+ε′)) for every ε′ > 0. With w = α − 2 this is
+[[eq:s27-rate]]. ∎

@@ -96,8 +96,8 @@ h̆_b(S) because their 1-forms are of class C^k in b (the construction of [[prop
 whose b-derivatives are inverse images of the same kind) and δ*_(g_b) has coefficients smooth in b. By the b-Sobolev
 embedding H̄_b^(∞,a) ⊂ 𝒜^(a+2) of [[rem:iii-h-2-6]], the states and their first derivatives in b are therefore
 bounded in 𝒜^(q−δ), uniformly on ℬ̄_*, for every δ > 0, with q = 2 for ġ_b(1, 0) and h̆_b(S) and q = 3 for
-ġ_b(0, Ȧ) and h_b(S); and in C⁰ on compact subsets of X°. The loss δ is absorbed below, where every weight is used
-with room. The generalised state of the boosts
+ġ_b(0, Ȧ) and h_b(S); and, by Sobolev embedding on compact sets, they are of class C^k in b with values in C⁰(K) for
+every compact K ⊂ X°. The loss δ is absorbed below, where every weight is used with room. The generalised state of the boosts
 
     h^(≤1)_b(S) := t_* h_b(S) + h̆_b(S) = δ*_(g_b)(t_* ω^(0)_(b,s1)(S) + ω̆^((0),1)_(b,s1)(S))
 
@@ -108,30 +108,53 @@ L_b ġ_b(ḃ) = 0. These results use the dynamical hypotheses (Dyn) of [[ch:s13]
 (BP4) The results of [[ch:s18]] that we use — [[def:iii-h-2-1]], [[def:iii-h-3-1]], [[lem:iii-h-2-2]]–[[lem:iii-h-2-5]],
 [[prop:iii-h-3-2]], [[thm:iii-h-4-1]] and [[cor:iii-h-4-2]]–[[cor:iii-h-4-4]] — are stated for b near b₀ and hold on
 ℬ̄_* with constants uniform in b, by [[thm:iii-h2-2-1]]. So do [[prop:iii-g4-5-1]] and [[lem:iii-g4-4-3]], whose inputs
-are the tf-normal operator (B2), the zero energy states (B3) and [[ch:s18]].
+are the tf-normal operator (BP2), the zero energy states (BP3) and [[ch:s18]].
 
-(B5) S ↦ h_b(S) is injective, uniformly in b ([[lem:s20-injective]] below).
+(BP5) The rows f*_1, f*_2 of [[eq:iii-h-3-1]] are normalised at b₀. At b their matrix B(b) on the states is
+invertible, with |B(b)⁻¹| ≤ 2, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective, uniformly in b ([[lem:s20-rows]] and
+[[lem:s20-injective]] below).
 
 The results of [[ch:s19]] that we use — [[prop:iii-i1-2-1]], [[prop:iii-i1-3-1]], [[lem:iii-i2-2-1]],
 [[lem:iii-i2-3-1]], [[lem:iii-i2-4-1]]–[[lem:iii-i2-4-3]] and [[prop:iii-i2-5-1]] — are used at b: L_(b₀), g_(b₀) near
 K⁺ and the states at b₀ are replaced by L_b, g_b and the states at b, and the background g_(b₀,b₀,−S) by
-g_(b₀,b,−S). In this form they hold at every b ∈ ℬ̄_*, with constants uniform in b ([[thm:iii-i15-3-1]])
-[[pending:issue-1]].
+g_(b₀,b,−S). In this form they hold at every b ∈ ℬ̄_*, with constants and smallness conditions uniform in b, and with
+the continuity of [[prop:iii-i2-5-1]] in (S, h) at fixed b ([[prop:iii-i2-5-1-b]]).
 
-**Lemma {#lem:s20-injective}** (The s1 states at b.) After shrinking ℬ_*, there are a compact set 𝒦_0 ⊂ X° and c > 0
-such that
+**Lemma {#lem:s20-rows}** (The rows at b.) Fix the bases of 𝔟 and 𝒮_1 in which [[eq:iii-h-3-1]] is written, with the
+Euclidean norms in these bases and the operator norm on matrices, and a fibre norm |·| on S²T*X̄. Let r(u) := (⟨u, f*_1⟩, ⟨u, f*_2⟩), with the pairing
+of [[sec:iii-h-1]] at b, and let 𝒦_0 := supp f*_1 ∪ supp f*_2, a compact subset of X°. For b ∈ ℬ̄_* let
 
-    sup_(𝒦_0) |h_b(S)| ≥ c|S|        for all b ∈ ℬ̄_* and S ∈ 𝒮_(1,ℂ).
+    B(b) : 𝔟_ℂ ⊕ 𝒮_(1,ℂ) → 𝔟_ℂ ⊕ 𝒮_(1,ℂ),        B(b)(ḃ, S) := r(ġ_b(ḃ) + h_b(S)),                    {#eq:s20-rows}
 
-In particular S ↦ h_b(S) is injective, and h_b(Ṡ) determines Ṡ, with |Ṡ| ≤ c⁻¹ sup_(𝒦_0)|h_b(Ṡ)|.
+the matrix of the rows on the states. Then B(b) is real and B(b₀) = I, and there are C_f and C_B such that, for every
+b ∈ ℬ̄_* and every continuous u,
 
-*Proof.* At b₀ the map S ↦ h_(b₀)(S) is injective ([[prop:iii-f3-4-1]] (1)). Let S lie on the unit sphere of
-𝒮_(1,ℂ) ≅ ℂ⁴. Then h_(b₀)(S) is a nonzero smooth tensor on X°, so it does not vanish at some point x_S, and by linearity
-and continuity |h_(b₀)(S′)(x_S)| > 0 for S′ in a neighbourhood of S on the sphere. Finitely many such neighbourhoods
-cover the sphere; let 𝒦_0 be the finite set of their points x_S. The function S ↦ max_(𝒦_0)|h_(b₀)(S)| is continuous
-and positive on the sphere, so it is at least 2c for some c > 0, and by homogeneity sup_(𝒦_0)|h_(b₀)(S)| ≥ 2c|S|.
-h_b(S) is smooth in b and linear in S ((B3)), so |h_b(S) − h_(b₀)(S)| ≤ C|b − b₀||S| on 𝒦_0, and the bound with c
-holds for |b − b₀| ≤ c/C. ∎
+    |r(u)| ≤ C_f sup_(𝒦_0)|u|,        |B(b) − I| ≤ C_B|b − b₀|.
+
+After shrinking ℬ_* to a ball of radius at most 1/(2C_B), |B(b) − I| ≤ 1/2, and
+
+    |B(b)⁻¹| ≤ 2        for every b ∈ ℬ̄_*.
+
+*Proof.* B(b₀) = I is [[eq:iii-h-3-1]], and B(b) is real, as the states are real on real arguments ((BP3)) and f*_j
+and g_b are real. The pairing is ⟨u, f*_j⟩ = ∫_X ⟨u, f*_j⟩_(g_b) |dx| ([[sec:iii-h-1]]), an integral over the compact
+set supp f*_j, on which |⟨u, v⟩_(g_b)| ≤ C|u||v| with C uniform for b ∈ ℬ̄_*, g_b being smooth in b. So the first
+bound holds with C_f := C(Σ_i ‖f*_(i)‖²_(L¹(|dx|)))^(1/2), the f*_(i) being the eleven components of f*_1 and f*_2 in
+the fixed bases. The states and the fibre inner product of g_b are of class C¹ in b with values in C⁰(𝒦_0) ((BP3)),
+so B(b) is of class C¹ in b, and C_B := sup_(ℬ̄_*)|∂_bB| is finite, ℬ̄_* being compact. The mean value theorem along
+the segment from b₀ to b, which lies in the ball ℬ̄_*, gives |B(b) − I| ≤ C_B|b − b₀|. Shrinking ℬ_* does not
+increase C_B, so on a ball of radius at most 1/(2C_B), |B(b) − I| ≤ 1/2, the Neumann series
+B(b)⁻¹ = Σ_(n≥0)(I − B(b))^n converges, and |B(b)⁻¹| ≤ Σ_(n≥0) 2^(−n) = 2. ∎
+
+**Lemma {#lem:s20-injective}** (The states at b are determined on 𝒦_0.) Let 𝒦_0 and C_f be those of [[lem:s20-rows]]
+and c := (2C_f)⁻¹. Then
+
+    sup_(𝒦_0)|ġ_b(ḃ) + h_b(S)| ≥ c|(ḃ, S)|,        in particular        sup_(𝒦_0)|h_b(S)| ≥ c|S|,
+
+for all b ∈ ℬ̄_*, ḃ ∈ 𝔟_ℂ and S ∈ 𝒮_(1,ℂ). So (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) and S ↦ h_b(S) are injective, uniformly in
+b, and h_b(Ṡ) determines Ṡ, with |Ṡ| ≤ c⁻¹ sup_(𝒦_0)|h_b(Ṡ)|.
+
+*Proof.* By [[eq:s20-rows]], (ḃ, S) = B(b)⁻¹r(ġ_b(ḃ) + h_b(S)), so by [[lem:s20-rows]]
+|(ḃ, S)| ≤ 2|r(ġ_b(ḃ) + h_b(S))| ≤ 2C_f sup_(𝒦_0)|ġ_b(ḃ) + h_b(S)|. The second bound is the case ḃ = 0. ∎
 
 ### Profiles at zero energy {#sec:iii-i3-1}
 
@@ -210,20 +233,20 @@ for every N and ε > 0; and ġ_b(ḃ_0) ∈ H^(∞,2−ε)_b(X), h_b(S_0) ∈ H^
     G_1(ḃ_0) − χ_zf ġ_b = (Φ(ζ) − χ_1(|σ|⟨x⟩)) ġ_b,
     G_2(S_0) − χ_zf h_b = ((Φ − ζΦ′)(ζ) − χ_1(|σ|⟨x⟩)) h_b − iζΦ(ζ) r⁻¹h̆_b,
 
-both O(min(|ζ|, 1)⟨ζ⟩^(−N)) times states in 𝒜², resp. 𝒜³ ((B3); r⁻¹h̆_b ∈ 𝒜³). For r ≤ 1, Ψ − 1 = O(|σ|) with its
+both O(min(|ζ|, 1)⟨ζ⟩^(−N)) times states in 𝒜², resp. 𝒜³ ((BP3); r⁻¹h̆_b ∈ 𝒜³). For r ≤ 1, Ψ − 1 = O(|σ|) with its
 derivatives ([[lem:iii-h-2-5]] (d) and its proof). And χ(|σ|) − 1 vanishes for |σ| ≤ c/2; on supp χ_zf the remaining
 term is supported in a compact set of x away from tf and zf. The Fubini count of [[lem:iii-i3-1-2]] (b), with ⟨x⟩⁻² in
 place of ⟨x⟩⁻³ for G_1, gives γ_tf < 2 there. ∎
 
 ### The boost parameter {#sec:iii-i3-2}
 
-Let h^(≤1)_b(S) = t_* h_b(S) + h̆_b(S) be the generalised state of the boosts at b ((B3); [Hin26, (6.37), (6.32b)]),
+Let h^(≤1)_b(S) = t_* h_b(S) + h̆_b(S) be the generalised state of the boosts at b ((BP3); [Hin26, (6.37), (6.32b)]),
 and χ^H_K the cut-off of [[eq:iii-h-1-2]]: smooth, vanishing for t_* ≤ 1 and for |x| ≥ t_*/2, and equal to 1 on
 {t_* ≥ 2, |x| ≤ t_*/4}.
 
 **Proposition {#prop:iii-i3-2-1}** (The boost parameter; [Hin26, Proposition 11.20] in dimension 4 + 1.) Let
 b ∈ ℬ̄_* and L := L^(g,g_0), with g_0 := g_(b₀,b,−S), g := g_0 + h, |S| < ε_0, h ∈ 𝒳^∞ and ‖h‖_(𝒳^d) < ε_0, ε_0 and d
-those of [[thm:iii-i-5-3]]. Let ℓ_I satisfy [[eq:iii-i2-5-1]], α_K ∈ (1, min(a_K − 1, 3/2)) and α_+ > α_K. For
+those of [[thm:iii-i-5-3]] at b ((BP1)). Let ℓ_I satisfy [[eq:iii-i2-5-1]], α_K ∈ (1, min(a_K − 1, 3/2)) and α_+ > α_K. For
 f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α_K)_b(Ω_*; S²T*)^(•,−), the forward solution of Lu = f is
 
     u = χ^H_K h^(≤1)_b(Ṡ) + ũ,     Ṡ ∈ 𝒮_1,
@@ -349,8 +372,8 @@ are [[eq:iii-i3-2-10]] (at K⁻ the weight α_K, with no expansion) and [[eq:iii
 
     u_sing ∈ H^(∞,min(3/2,α^♯_+)−3ε,min(3/2,α^♯_+)−4ε,({(−1,0),(0,0)},α_K−2))_b(M′),                    {#eq:iii-i3-2-12}
 
-in which only (−1, 0) lies below the weight α_K − 2 ∈ (−1, −1/2): u_sing = t_* χ u_(K⁺) + O(α_K − 2) at K⁺, for some
-u_(K⁺) on K⁺ and a cut-off χ equal to 1 near K⁺.
+in which only (−1, 0) lies below the weight α_K − 2 ∈ (−1, −1/2): u_sing = t_* χ^H_K u_(K⁺) + O(α_K − 2) at K⁺, for
+some u_(K⁺) on K⁺.
 
 *Step 3.4* (the coefficient; [Hin26, (11.75)]). u_(K⁺) is the (0, 0)-coefficient of ∂_(t_*)u_sing at K⁺ in
 [[eq:iii-i3-2-11]], that is, lim_(t_*→∞) ∂_(t_*)u_sing(t_*, x). As ∂_(t_*)u_sing tends to 0 as t_* → −∞ (its
@@ -383,7 +406,7 @@ choices, being determined by u.
 construction of [[prop:iii-i1-3-1]], [[prop:iii-h-3-2]], [[lem:iii-i3-1-1]]–[[lem:iii-i3-1-3]], [[lem:iii-i2-2-1]],
 [[lem:iii-i2-3-1]], [[lem:iii-i2-4-1]]–[[lem:iii-i2-4-3]], [[prop:ii-g1-3-3]] (1) and [[prop:ii-g1-3-5]] (1)). So
 Ṡ = S_0 and ũ depend continuously on f; the 𝓘⁺-data of Step 4 do so by the closed graph theorem, L being fixed, or
-by the constructive bound of [[prop:iii-i1-2-1]]. Every input is uniform on ℬ̄_* by (B1)–(B5), and so are the bounds. ∎
+by the constructive bound of [[prop:iii-i1-2-1]]. Every input is uniform on ℬ̄_* by (BP1)–(BP5), and so are the bounds. ∎
 
 ### Undoing the boost: the setting {#sec:iii-i4-1}
 
@@ -450,7 +473,7 @@ where ω̄_s1(S) = d(|x|S), ω̄̆_s1(S) = |x| d(|x|S) − |x|S dt̄ and t̄ = t
 
     h^(≤1)(S) = t_* h(S) + h̆(S) = δ*_(g_(b₀))(t_* ω_s1(S) + ω̆(S)),        h̆(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)),
 
-is the generalised state h^(≤1)_(b₀) of (B3); h(S) and h^(≤1)(S) lie in the kernels of D_(g_(b₀))Ric and of
+is the generalised state h^(≤1)_(b₀) of (BP3); h(S) and h^(≤1)(S) lie in the kernels of D_(g_(b₀))Ric and of
 δ_(g_(b₀),E_Υ)G_(g_(b₀)). Near infinity t̄ = t + C′ − 8m₀|x|⁻¹ ([[sec:iii-d2-1]], from [[eq:iii-b-3-6]]) and
 g_(b₀) − η ∈ |x|⁻²C^∞ ([[eq:iii-b-3-5]], [[prop:iii-b-3-6]]); C′ is that constant.
 
@@ -464,7 +487,7 @@ and at b ∈ ℬ̄_*, with the same constant C′,
     h^(≤1)_(b,♮)(S) := δ*_(g_b)ω^(≤1)_(b,♮)(S) = h^(≤1)_b(S) − C′h_b(S).
 
 Each lies in the kernels of D Ric and of δ_(E_Υ)G at its own metric, being a linear combination of the generalised
-state and the state of (B3). At b₀, h^(≤1)_(b₀,♮) = h^(≤1)_♮.
+state and the state of (BP3). At b₀, h^(≤1)_(b₀,♮) = h^(≤1)_♮.
 
 **Lemma {#lem:iii-i4-1-2}** (The time origin.) (a) Near infinity,
 
@@ -488,7 +511,7 @@ S d|x| lie in |x|⁻¹C^∞, resp. C^∞, homogeneous of degree −1, resp. 0.
 Both cut-offs are smooth on M, equal to 1 near K⁺ (χ^H_K = 1 on {|x| ≤ t_*/4, t_* ≥ 2}) and to 0 near 𝓘⁺; so
 χ^H_K − χ_K is supported in a set whose closure meets ∂M in a compact subset of (ι⁺)°. There |x| ∼ t_*, and functions
 in 𝒜^ℰ(X̄) are in 𝒜^ℰ at ι⁺, ⟨x⟩⁻¹ being ρ_+ times a positive smooth function; so h^(≤1)_b(Ṡ) = t_* h_b(Ṡ) + h̆_b(Ṡ)
-lies in 𝒜^((2,0)∪(2+ℰ_ind)) ((B3)), hence in H^(∞,2−ε)_b at ι⁺, with no condition at 𝓘⁺ or K⁺; the compact part is
+lies in 𝒜^((2,0)∪(2+ℰ_ind)) ((BP3)), hence in H^(∞,2−ε)_b at ι⁺, with no condition at 𝓘⁺ or K⁺; the compact part is
 smooth. And χ_K h_b(Ṡ) vanishes near 𝓘⁺, is bounded and stationary near K⁺ (K⁺-weight −ε for every ε > 0, above
 α_K − 2 < 0), and is O(⟨x⟩⁻³) with its b-derivatives near ι⁺ (ι⁺-weight 3 − ε). As β_+ < 2, both terms lie in the
 space of ũ. ∎
@@ -540,7 +563,7 @@ g′ := g_0 + h^(−1)(S) + h, put
     P_1(h, S, b) := Ric(g′) − δ*_(g_0,E_C)(Υ^(E_Υ)(g′, g_0) − ϑ_♯(S)),     L_(h,S) := D_hP_1(·, S, b) at h.
                                                                                                          {#eq:iii-i4-2-2}
 
-P_1(0, 0, b₀) = P(g_(b₀), g_(b₀)) = 0. For b ≠ b₀, P_1(0, 0, b) does not vanish in 𝒞, where the background
+P_1(0, 0, b₀) = P(g_(b₀), g_(b₀)) = 0. For b ≠ b₀, P_1(0, 0, b) need not vanish on 𝒞, where the background
 interpolates between g_(b₀) and g_b; the linear theory uses only D_hP_1 and D_SP_1. [Hin26, (11.83)] has
 Υ^(E_Υ)(g_0 + h, g_0) and ϑ^(−1); [Hin26, Remark 11.27] notes that the present form makes the linearisation in h
 exactly a gauge-fixed linearised Einstein operator ([[lem:iii-i4-2-5]]). With the form of [Hin26, (11.83)] one needs in
@@ -586,7 +609,7 @@ forward solution χ_K h^(≤1)_♮(Ṡ): the final black hole boosted along −�
 
     2 + ℰ_ind ⊂ ℰ_+.                                                                                     {#eq:iii-i4-2-4}
 
-(ℰ_ind is the index set of [[prop:iii-d2-3-1]], independent of b by (B3) and fixed once, so [[eq:iii-i4-2-4]] is a
+(ℰ_ind is the index set of [[prop:iii-d2-3-1]], independent of b by (BP3) and fixed once, so [[eq:iii-i4-2-4]] is a
 condition on ℰ_+.) Then h^(−1)(S) ∈ 𝒳^∞ with ‖h^(−1)(S)‖_(𝒳^k) ≤ C_k|S|, and, at b ∈ ℬ̄_*,
 
     L_(h,S) = L^(g′,g_0),       g′ = g_0 + h′,     h′ := h^(−1)(S) + h,     g_0 = g_S.
@@ -738,8 +761,17 @@ with Ṡ(f) and ũ depending linearly and continuously on f.
 (which lies in the space of (1) by [[eq:iii-i4-3-3]], as ℓ_I ≤ a_I and α_+ < 2), is invertible, with inverse of norm
 at most 2.
 
-The constants, d and ε_1 do not depend on b ∈ ℬ̄_* (after the shrinking of ℬ_* in [[prop:iii-i15-2-8]]). (2) is
-proved in [[sec:iii-i15-2-6]], with the bound [[eq:iii-i15-2-5]].
+Here d is any integer with
+
+    d ≥ max(d_T, k_0 + 2, k_1 + d_T + 7),                                                                {#eq:s20-d}
+
+where d_T is the d of [[thm:iii-i-5-3]] at b ((BP1)) and k_0, k_1 are the regularities of [[lem:iii-i4-4-2]]. The
+first bound serves (1). For (2): [[lem:iii-i4-3-2]] with k = d puts f_(h,S)(S′) in H^(d−2) ⊂ H^(k_0), the regularity
+of the bound [[lem:iii-i4-4-2]] (a); and the map Π_b of the proof of [[lem:iii-i4-4-2]] needs the forward solutions,
+and their dependence on (h, S), at the regularity k_1 + 2, which [[thm:iii-i-5-3]] and its continuity, through
+[[eq:iii-i-3-7]], give with constants controlled by ‖h‖_(𝒳^d) once d ≥ k_1 + d_T + 7. The constants, d and
+ε_1 do not depend on b ∈ ℬ̄_* (after the shrinking of ℬ_* in [[prop:iii-i15-2-8]]). (2) is proved in
+[[sec:iii-i15-2-6]], with the bound [[eq:iii-i15-2-5]].
 
 [Hin26, (11.92)] admits f = f¹ + (1 − χ^♭_K)f² with f² of ι⁺-index set (3, 0), and [Hin26, Remark 11.31] a further
 f² with K⁺-weight 1 + ε_K; in dimension 4 + 1 both kinds of term have ι⁺-order 4 and lie in the space of (1). [Hin26,
@@ -757,14 +789,14 @@ of [[eq:iii-i4-4-1]]. There are k_0 ∈ ℕ and C such that, for b ∈ ℬ̄_* a
 (a) |Ṡ_(h,S)(f)| ≤ C‖f‖_(H^(k_0,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α_K)_b);
 
 (b) if ℓ_I > 2, or if f vanishes near 𝓘⁺, then for fixed f and b the map (h, S) ↦ Ṡ_(h,S)(f) is continuous, h in
-the 𝒳^d-topology with d ≥ k_1 + d_T + 7, d_T the d of [[thm:iii-i-5-3]] and k_1 below.
+the 𝒳^d-topology with d ≥ k_1 + d_T + 7 ([[eq:s20-d]]), d_T the d of [[thm:iii-i-5-3]] and k_1 below.
 
 *Proof.* In the proof of [[prop:iii-i3-2-1]] with L := L_(h,S), Ṡ = S_0 is obtained from f′ := f − (L − L_b)u alone:
 u_I by the construction of [[prop:iii-i1-3-1]] for L_b, f^♭ := f′ − L_b u_I, and S_0 the 𝒮_1-component of
 L̃_b(0)⁻¹(f̂^♭(0), 0, 0) ([[eq:iii-i3-2-4]]). So Ṡ = Π_b f′ with a linear map Π_b that depends on L_b only and is
 bounded on H^(k_1,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α^♯_++2,α_K)_b for some k_1: the construction of [[prop:iii-i1-3-1]] loses
 finitely many derivatives, and so do [[prop:ii-g1-3-3]] (1) and [[prop:iii-h-3-2]], which give f̂^♭(0) and
-L̃_b(0)⁻¹. The bound of Π_b is uniform in b ∈ ℬ̄_* by (B1) and (B4). Moreover Ṡ is determined by u, so it does not
+L̃_b(0)⁻¹. The bound of Π_b is uniform in b ∈ ℬ̄_* by (BP1) and (BP4). Moreover Ṡ is determined by u, so it does not
 depend on the auxiliary weights (α′_K, β′_+, α^♯_+, ℓ_I) of that proof, which may therefore be taken with room:
 α′_K > α_K − (a_K − 2) strictly and ℓ_I > 2 strictly, so that lowering the weights of u by a small ς > 0 keeps f′ in
 a space on which some such Π_b is bounded. If ℓ_I = 2 and f vanishes near 𝓘⁺, f lies in the space for any
@@ -824,8 +856,11 @@ and in ker δ_(g_b,E_Υ)G_(g_b) because ω^(≤1)_(b,♮) is a generalised zero 
 
 *Size.* Every term of E^S_b(Ṡ) is linear in Ṡ and a smooth function of b on 𝒞. Its ingredients are
 G − g_(b₀) = χ_K(g_b − g_(b₀)), which lies in |b − b₀|ρ_+²C^∞ near (ι⁺)° (on 𝒞, |x| ≥ t/10, and
-g_b − g_(b₀) = O(|b − b₀||x|⁻²) with all Cartesian derivatives, [[prop:iii-b-3-6]]); the state h^(≤1)_(b,♮), smooth in
-b in 𝒜^(𝒢−δ) ((B3), with the loss of [[rem:iii-h-2-6]]); the b-independent corrections; and
+g_b − g_(b₀) = O(|b − b₀||x|⁻²) with all Cartesian derivatives, [[prop:iii-b-3-6]]); the state
+h^(≤1)_(b,♮) = (t_* − C′)h_b + h̆_b, which near (ι⁺)° lies in 𝒜^(𝒢−δ) together with its first derivative in b,
+uniformly on ℬ̄_* ((BP3): h_b, h̆_b and their b-derivatives are bounded in 𝒜^(3−δ), resp. 𝒜^(2−δ), by
+[[prop:iii-d2-3-1]] and [[lem:iii-d2-2-2]] with the b-Sobolev embedding of [[rem:iii-h-2-6]], and t_* ∈ ρ_+⁻¹C^∞
+there); the b-independent corrections; and
 k′ := ∂_S g_S(Ṡ) = −(1 − χ_K)δ*_(g_(b₀))(Θw(Ṡ)), which does not depend on b and lies in ρ_+²C^∞ near (ι⁺)° (the proof
 of [[lem:iii-i4-3-2]]), and which enters because w itself has order ρ_+⁻¹. The count of [[lem:iii-i4-2-2]], that
 D_(g_0)Ric and δ*δG lie in ρ_+²Diff²_b near (ι⁺)°, takes 𝒜^(𝒢−δ) into 𝒜^(𝒢+2−δ), uniformly for b ∈ ℬ̄_*. So
@@ -842,8 +877,8 @@ So, after shrinking ℬ_* and the smallness of (h, S), S^(−1)_(h,S;b) is inver
 [[cor:iii-i4-4-3]] and [[cor:iii-i5-2-2]] hold at b, with constants uniform in b.
 
 *Proof.* At b, the map of [[lem:iii-i4-4-2]] is Ṡ_(h,S;b)(f) = Π_b f′, with f′ := f − (L_(h,S;b) − L_b)u. Here Π_b is
-built from the construction of [[prop:iii-i1-3-1]] for L_b and from L̃_b(0)⁻¹ ([[prop:iii-h-3-2]] at b, (B4)), and
-its bound [[lem:iii-i4-4-2]] (a) holds with C uniform in b, by (B1) and (B4). χ_K h^(≤1)_(b,♮)(S′) vanishes for
+built from the construction of [[prop:iii-i1-3-1]] for L_b and from L̃_b(0)⁻¹ ([[prop:iii-h-3-2]] at b, (BP4)), and
+its bound [[lem:iii-i4-4-2]] (a) holds with C uniform in b, by (BP1) and (BP4). χ_K h^(≤1)_(b,♮)(S′) vanishes for
 t^♭_* < 10, as supp χ_K ⊂ {t^♭_* ≥ 10}. By [[lem:iii-i15-2-7]] it is therefore the forward solution
 ([[prop:ii-e-3-4]]) of the operator L_(0,0;b) = L^(G,G) ([[lem:iii-i4-2-5]] at h = 0, S = 0) with the right-hand side
 f_(0,0;b)(S′) − E^S_b(S′), and it has the form [[eq:iii-i4-4-1]] with Ṡ = S′ and ũ = 0. Hence, for S′ in a basis of
@@ -853,10 +888,13 @@ f_(0,0;b)(S′) − E^S_b(S′), and it has the form [[eq:iii-i4-4-1]] with Ṡ 
                               + Ṡ_(0,0;b)(E^S_b(S′)).
 
 *The first term.* f_(h,S;b) := D_SP_1(h, S, b) depends smoothly on (h, S). The bounds of [[lem:iii-i4-3-2]] hold for
-small (h, S) and depend on b only through finitely many seminorms of g_(b₀,b,−S); the derivative of f_(h,S;b) in h is
-bounded by [[eq:iii-i4-3-1]], and that in S by the count of [[eq:iii-i4-3-4]], for d as in [[prop:iii-i4-4-1]]. So
-‖f_(h,S;b)(S′) − f_(0,0;b)(S′)‖ ≤ C(‖h‖_(𝒳^d) + |S|)|S′| in the norm of [[lem:iii-i4-4-2]] (a), and the first term
-is at most C(‖h‖_(𝒳^d) + |S|)|S′|.
+small (h, S) and depend on b only through finitely many seminorms of g_(b₀,b,−S). The derivative of f_(h,S;b)(S′) in
+h is ∂_S L_(h,S)(S′), where L_(h,S) = L^(g_S+h′,g_S) with h′ = h^(−1)(S) + h ([[lem:iii-i4-2-5]]): the operator L̇ of
+[[lem:iii-i4-3-1]] with h′ in place of sh, bounded by [[eq:iii-i4-3-1]], plus the variation of the first metric slot
+by h^(−1)(S′), which lies in 𝒳^∞ with norm O(|S′|) ([[lem:iii-i4-2-5]]) and is counted as a difference in the same
+way. The derivative in S is bounded by the count of [[eq:iii-i4-3-4]]. With k = d in [[lem:iii-i4-3-2]] and
+d − 2 ≥ k_0 ([[eq:s20-d]]), ‖f_(h,S;b)(S′) − f_(0,0;b)(S′)‖ ≤ C(‖h‖_(𝒳^d) + |S|)|S′| in the norm of
+[[lem:iii-i4-4-2]] (a), and the first term is at most C(‖h‖_(𝒳^d) + |S|)|S′|.
 
 *The second term.* By [[eq:s20-diff]], with (h_1, S_1) := (h, S) and (0, 0) in place of (h, S), it is
 
@@ -868,8 +906,8 @@ C(‖h‖_(𝒳^d) + |S|): they are polynomial in the differences of the metrics
 (the proofs of [[lem:iii-i4-3-1]] and [[lem:iii-i4-2-5]]). So [[eq:iii-i-4-2]] gives
 ‖(L_(h,S;b) − L_(0,0;b))u_(h,S)‖ ≤ C(‖h‖_(𝒳^d) + |S|)‖f‖. Since L_(0,0;b)(u_(h,S) − u_(0,0)) =
 −(L_(h,S;b) − L_(0,0;b))u_(h,S), [[prop:iii-i2-5-1]], with the weights lowered by the room ς of the proof of
-[[lem:iii-i4-4-2]], gives ‖u_(h,S) − u_(0,0)‖ ≤ C(‖h‖_(𝒳^d) + |S|)‖f‖, and [[eq:iii-i-4-2]] bounds the second summand
-in the same way. Π_b is bounded on the space with that room, uniformly in b. So the second term is at most
+[[lem:iii-i4-4-2]], gives ‖u_(h,S) − u_(0,0)‖ ≤ C(‖h‖_(𝒳^d) + |S|)‖f‖ at the regularity k_1 + 2 that Π_b needs, as
+d ≥ k_1 + d_T + 7 ([[eq:s20-d]]), and [[eq:iii-i-4-2]] bounds the second summand in the same way. Π_b is bounded on the space with that room, uniformly in b. So the second term is at most
 C(‖h‖_(𝒳^d) + |S|)|S′|.
 
 *The third term.* By [[lem:iii-i15-2-7]], E^S_b(S′) is supported in 𝒞. It vanishes near 𝓘⁺ and K⁺, and its
@@ -905,7 +943,7 @@ in steps, each a run of the argument of [[prop:iii-i3-2-1]] with no boost term. 
 the formal solution at null infinity leaves at ι⁺ begin at λ_♯, not at 1, and the ι⁺-spectrum is empty below 2
 ([[lem:iii-g1-4-2]] (a)), so the step at ι⁺ solves away finitely many quasi-homogeneous terms with no pole. The zero
 energy step needs neither [Hin26, Lemma 11.33] nor [Hin26, Proposition 9.30]: L̂_b(0) has no indicial root in (0, 1]
-((B2)), and the columns have tf-order 3 − ε ([[lem:iii-i3-1-2]] (b)), so the relative tf–zf order stays in (2, 3).
+((BP2)), and the columns have tf-order 3 − ε ([[lem:iii-i3-1-2]] (b)), so the relative tf–zf order stays in (2, 3).
 
 L := L_(h,S) is the linearisation [[eq:iii-i4-2-2]] of P_1 at (h, S, b), b ∈ ℬ̄_*, with h ∈ 𝒳^∞ vanishing near
 {t^♭_* = 1}, ‖h‖_(𝒳^d) and |S| small, and
@@ -1028,9 +1066,9 @@ H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),λ_0+2+ℰ^ι_ind+(0,k),λ_0+ℓ_K(λ_0)
 definition in [[thm:iii-g2-4-2]], ℰ^gr_K(λ_0) contains the index set of a_s1 ∼ t_*^(−λ_0+1) ([[eq:iii-g2-4-2]]); the
 others are that of a_v1 ∼ t_*^(−λ_0) and λ_0 − μ + j, j ≥ 0, for the roots μ ∈ 𝒲(ℓ_K(λ_0)), which have
 −ℓ_K(λ_0) < Re μ ≤ 0 ([[sec:iii-g2-1]]). As ℓ_K(λ_0) < 1, −1 ∉ 𝒲(ℓ_K(λ_0)), so S^(−1)_1 = 0, the a_s1 and a_v1 terms
-are absent, and the least exponent is in fact ≥ Re λ_0; the bound suffices. (At a rotating b the bottom of a v1 tower
-with coefficient a_v1 is a_v1 h_(b,v1), h_(b,v1) ∈ 𝒜³ stationary ([[prop:iii-d2-3-1]]), of K⁺-weight Re λ_0 − ε, so the
-bound holds at every b ∈ ℬ̄_*.) So u_(λ_0) has the K⁺-weight min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > 0 > α_K − 2 for
+are absent, and the least exponent is in fact ≥ Re λ_0; the bound suffices. (If at a rotating b an a_v1 term is
+present, the bottom of its v1 tower is a_v1 h_(b,v1), with h_(b,v1) ∈ 𝒜³ stationary ([[prop:iii-d2-3-1]]), of
+K⁺-weight Re λ_0 − ε ≥ Re λ_0 − 1; so the bound holds at every b ∈ ℬ̄_*.) So u_(λ_0) has the K⁺-weight min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > 0 > α_K − 2 for
 ε < c_K − 2, and the error has the K⁺-weight Re λ_0 + ℓ_K(λ_0) − ε = c_K − ε > 2 > α_K.
 
 The 𝓘⁺-expansion of the error is removed by [[prop:iii-i1-3-1]] with ℰ̆_+ := λ_0 + ℰ^ι_ind + (0, k) and
@@ -1097,7 +1135,7 @@ this is [[eq:iii-i5-2-1]]. The growth: the K⁺-weight α_K − 2 and b-Sobolev 
 spatial sets. *Continuity:* every map of the rounds is linear and bounded between the spaces above
 ([[prop:iii-i4-4-1]] (1), [[eq:iii-i-4-2]], [[prop:iii-i1-2-1]], [[prop:iii-i1-3-1]], [[cor:iii-g2-4-3]], and Steps
 2–3 of the proof of [[prop:iii-i3-2-1]] with their continuity paragraph), with bounds uniform in b ∈ ℬ̄_* by
-(B1)–(B5). ∎
+(BP1)–(BP5). ∎
 
 In [Hin26], Step 2 begins at λ = 1, where ℰ^♯_+ ∋ (1, 0) forces [Hin26, Proposition 9.11] at λ = 1 and a logarithm
 in a_s1; in dimension 4 + 1 the least exponent is λ_♯ > 3/2, and a_s1 is a power. Step 3 of [Hin26] needs the
@@ -1131,7 +1169,7 @@ f̂_ḃ(σ) = L̂_b(σ)ĝ^aug(σ)(ḃ) and f̂_S(σ) = L̂_b(σ)ĥ^aug(σ)(S) ([
     ĝ^aug(σ)(ḃ) = iσ⁻¹Ψ ġ_b(ḃ),        ĥ^aug(σ)(S) = ∂_σ(σ⁻¹Ψ) h_b(S) + iσ⁻¹Ψ h̆_b(S)                    {#eq:iii-i6-1-1}
 
 ([[eq:iii-h-2-6]]), Ψ(σ, x) = Φ(σr) for r ≥ 1 with Φ(0) = 1 ([[lem:iii-h-2-5]] (b)), and ġ_b, h_b, h̆_b are the states
-of (B3). Then G_1(σ)(ḃ) = Ψġ_b(ḃ) = −iσĝ^aug(σ)(ḃ) and G_2(σ)(S) = (Ψ − σ∂_σΨ)h_b(S) − iσΨh̆_b(S) =
+of (BP3). Then G_1(σ)(ḃ) = Ψġ_b(ḃ) = −iσĝ^aug(σ)(ḃ) and G_2(σ)(S) = (Ψ − σ∂_σΨ)h_b(S) − iσΨh̆_b(S) =
 −σ²ĥ^aug(σ)(S) are the functions of [[lem:iii-i3-1-3]]. The constant c and the cut-off χ are fixed for each order k as
 in [[sec:iii-i2-4]], and the memberships of the spectral pieces below hold at order k for that c.
 
@@ -1392,13 +1430,13 @@ after Step 6.
 ℓ′_+ := 3/2 − 5ε. Near 𝓘⁺, χ_K = 0 and Lũ = f; [[prop:iii-i1-2-1]] with ℓ_+ := min(ℓ′_+, min Re ℰ_+ − ε), as in Step
 4 of the proof of [[prop:iii-i3-2-1]], gives the 𝓘⁺-data (⟨ℰ^C_I⟩, ℓ_I). This is [[eq:iii-i6-2-1]].
 
-*Reality.* u is real, as f and L are and forward solutions are unique. ġ_b and h_b are real on real arguments ((B3)),
+*Reality.* u is real, as f and L are and forward solutions are unique. ġ_b and h_b are real on real arguments ((BP3)),
 so χ_K(ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1)) = −Im ũ has the K⁺-weight α_K − 2 > 0. A stationary tensor of positive K⁺-weight
 vanishes on X°, so ġ_b(Im ḃ) + h_b(Im Ṡ^(0)_1) = 0, and Im ḃ = 0, Im Ṡ^(0)_1 = 0 by the rows [[eq:iii-h-3-1]].
 
 *Continuity.* Every map above is linear and bounded between the spaces stated ([[prop:iii-h-3-2]], the construction
 of [[prop:iii-g4-5-1]], [[lem:iii-i2-4-2]], [[lem:iii-i6-1-1]]–[[lem:iii-i6-1-4]], [[prop:ii-g1-3-3]] (1),
-[[prop:ii-g1-3-5]] (1), and Steps 0–2 as in [[prop:iii-i5-2-1]]), with bounds uniform in b ∈ ℬ̄_* by (B1)–(B5). ∎
+[[prop:ii-g1-3-5]] (1), and Steps 0–2 as in [[prop:iii-i5-2-1]]), with bounds uniform in b ∈ ℬ̄_* by (BP1)–(BP5). ∎
 
 The step of [Hin26, Proposition 9.30] and the expansion [Hin26, (11.107b)] of the zero energy solution are not needed
 (see the end of [[sec:iii-i5-2]]); the tf-improvement of [Hin26, Proposition 9.35] is needed, because the first moment

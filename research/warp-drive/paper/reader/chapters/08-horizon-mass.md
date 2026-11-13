@@ -83,8 +83,8 @@ the inequality of the time orientation. So Φ ∘ γ < 0 immediately after τ1: 
 there. If γ(τ2) ∈ D_T for some τ2 > τ1, let τ3 be the infimum of the τ > τ1 with Φ(γ(τ)) ≥ 0. Then τ3 > τ1,
 Φ(γ(τ3)) = 0 and Φ ∘ γ < 0 on (τ1, τ3), which contradicts the strict decrease of Φ ∘ γ near τ3. So γ does not return.
 
-*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b and the third term is at most
-0, so g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of [[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on
+*The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b and the third term is at most 0, so
+g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of [[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on
 the compact Ω and inversion is smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
 
     g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ_b + C λ ≤ −δ_b/2      once C λ ≤ δ_b/2.
@@ -319,14 +319,14 @@ S g = g:
 
     (J* g_j)(·, 3π/2 − ·) = (−1)^j g_j,   and for the means,   J* ⟨g_j⟩ = (−1)^j ⟨g_j⟩;   in particular J* m1 = −m1.
 
-*Proof.* (a) The operator R[g] is Ric^H of [[eq:gauge]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹
-(∂_a v) ∂_θ ([[def:two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) =
-−(∂_θ f) ∘ ρ, we have D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[g ∘ ρ](·; λ) = R[g](·; −λ) ∘ ρ. Since J is linear in
-x and fixes v, D^λ commutes with J*, and Ric^H(J* g) = J* Ric^H(g) for every metric g, because Ric^H is built from g
-and g0 alone and J is an isometry of g0. So R[J* g] = J* R[g]. Now g̃ = J* g(·, ρ(·); −λ), because λ^j (S g)_j =
-(−λ)^j J* g_j ∘ ρ and J* g0 = g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved because
-J_* ℓ = ℓ; (E2) and the vanishing of each R^(m) because R^(m) ↦ (−1)^m J* R^(m) ∘ ρ; and J preserves each slice
-and its flat L² norms.
+*Proof.* (a) The operator R[g] is Ric^H of [[eq:gauge]] with every ∂_a replaced by D^λ_a := ∂_a + λ⁻¹ (∂_a v) ∂_θ
+([[def:two-scale]]), and it contains no explicit θ. Let ρ(θ) := 3π/2 − θ. Since ∂_θ (f ∘ ρ) = −(∂_θ f) ∘ ρ, we have
+D^λ_a (f ∘ ρ) = (D^(−λ)_a f) ∘ ρ, hence R[g ∘ ρ](·; λ) = R[g](·; −λ) ∘ ρ. Since J is linear in x and fixes v, D^λ
+commutes with J*, and Ric^H(J* g) = J* Ric^H(g) for every metric g, because Ric^H is built from g and g0 alone and J is
+an isometry of g0. So R[J* g] = J* R[g]. Now g̃ = J* g(·, ρ(·); −λ), because λ^j (S g)_j = (−λ)^j J* g_j ∘ ρ and J* g0 =
+g0; combining the two identities gives the formula. Expanding in λ gives the coefficients. (E1) is preserved because J_*
+ℓ = ℓ; (E2) and the vanishing of each R^(m) because R^(m) ↦ (−1)^m J* R^(m) ∘ ρ; and J preserves each slice and its flat
+L² norms.
 
 (b) Under ϑ ↦ π/2 − ϑ, cos ϑ and sin ϑ exchange, ζ ↦ −ζ and h(−ζ) = h(ζ). Under θ ↦ 3π/2 − θ, sin θ ↦ −cos θ and
 cos θ ↦ −sin θ. So F(JX, 3π/2 − θ) = −G(X, θ) and G(JX, 3π/2 − θ) = −F(X, θ), and from [[eq:waves-hopf]]
@@ -478,16 +478,16 @@ div_γ the divergence on the unit S³; and V_a = r⁻³ ⟨ω_a^c (div_γ ω̇)_
 on ξ1, ξ2 and is diagonal, so (div_γ ω̇)_ξ1 = (div_γ ω̇)_ξ2 = 0. Every component therefore vanishes except
 ⟨R^(1)⟩_vϑ = −¼ X_ϑ − ½ V_ϑ.
 
-Write c := cos ϑ, s := sin ϑ and κ_A := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form
-κ_A h (α cos θ + β sin θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
+Write c := cos ϑ, s := sin ϑ and κ_A := A env/3. By [[eq:waves-hopf]] each of Q1, Q2, P has the form κ_A h (α cos θ + β
+sin θ), with (α, β) = (2c², −s²), (−c², 2s²) and (c², s²) respectively. For two such functions Q and Q′, the second with
 coefficients (α′, β′), the terms with ∂_ϑ h cancel and
 
     ⟨∂_θ Q ∂_ϑ Q⟩ = ½ κ_A² h² (β ∂_ϑ α − α ∂_ϑ β),      ⟨Q ∂_θ Q′⟩ = ½ κ_A² h² (α β′ − β α′).
 
 This gives ⟨∂_θ P ∂_ϑ P⟩ = −κ_A² h² c s, ⟨∂_θ Q_i ∂_ϑ Q_i⟩ = 2 κ_A² h² c s (i = 1, 2), ⟨P ∂_θ Q1⟩ = −(3/2) κ_A² h² c² s²
 and ⟨P ∂_θ Q2⟩ = (3/2) κ_A² h² c² s². Now ω̇ · ∂_ϑ ω = 4 (∂_θ P ∂_ϑ P + ∂_θ Q1 ∂_ϑ Q1 + ∂_θ Q2 ∂_ϑ Q2) plus multiples of
-Q_i ∂_θ Q_i, which have mean zero; so X_ϑ = 4 r⁻³ κ_A² h² c s (−1 + 2 + 2) = 12 κ_A² h² c s/r³. The divergence of a diagonal
-tensor depending on ϑ alone is (div_γ T)_ϑ = (cs)⁻¹ ∂_ϑ(cs T_ϑϑ) − ½ (∂_ϑ γ_AB) T^(AB), which gives
+Q_i ∂_θ Q_i, which have mean zero; so X_ϑ = 4 r⁻³ κ_A² h² c s (−1 + 2 + 2) = 12 κ_A² h² c s/r³. The divergence of a
+diagonal tensor depending on ϑ alone is (div_γ T)_ϑ = (cs)⁻¹ ∂_ϑ(cs T_ϑϑ) − ½ (∂_ϑ γ_AB) T^(AB), which gives
 
     (div_γ ω̇)_ϑ = −2 ∂_ϑ ∂_θ P + (4 s/c − 2 c/s) ∂_θ Q1 + (2 s/c − 4 c/s) ∂_θ Q2.
 

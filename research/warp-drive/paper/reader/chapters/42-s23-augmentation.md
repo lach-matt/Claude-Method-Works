@@ -49,7 +49,8 @@ leave P_5 at a rotating b with the K⁺-order 4 only ([[eq:iii-j-2-5]]).
 (4) *The exterior family.* [Hin26, (11.228)] contains a tensor χ_−h_(−S), supported there in t_* ≤ 2, which carries
 the initial data; [Hin26] permits h_(−S) = 0 in its Section 11.8.3, and we take h_(−S) = 0 throughout this chapter. The
 family h_(−S) is built in [[prop:iii-k-1-2]] ([Hin26, (12.33)]). The term is restored in [[ch:s27]], with a cut-off
-χ_−(t^♭_*) supported in {t^♭_* ≤ T̂ + 2}, where the map Ψ := (χ_−h_(−S), 0, 0) + Φ is formed ([[def:iii-k-2-1]]):
+χ_−(t^♭_*) supported in {t^♭_* ≤ T̂ + 2}, T̂ ≥ 2 as in [[sec:iii-k-0]], where the map Ψ := (χ_−h_(−S), 0, 0) + Φ is
+formed ([[def:iii-k-2-1]]):
 [Hin26, Lemma 12.7], the counterpart of [[thm:iii-j-2-4]] for Ψ, is [[lem:iii-k-2-2]], and [Hin26, Theorem 12.8] for Ψ,
 the counterpart of [[thm:iii-j1-2-1]], is [[lem:iii-k-2-3]]. [Hin26, Corollary 11.67], a linear stability statement
 sketched there, is not used in this paper. The linear stability statement proved here is that of the
@@ -85,8 +86,10 @@ without this the scheme would lose ε_+ − η_2 at ι⁺ at every step.
 
 *Base points.* The black hole parameter b ranges near b₀ = (m₀, 0). The coefficients and the augmented operator
 ([[def:iii-i14-1-1]]–[[def:iii-i14-1-3]], [[eq:iii-i14-1-4]]), the towers ([[lem:iii-i14-2-1]]), the order of L_b
-h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated and proved at
-every such b. [[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]], [[thm:iii-i14-3-1]],
+h_(b,rem)(q) ([[lem:iii-i14-2-2]] (b)) and the construction of [[sec:iii-j-1]]–[[sec:iii-j-2]] are stated at every such
+b. Their proofs at b use [[lem:iii-i14-2-2]] (a) at b, which [[thm:iii-i15-3-1]] supplies, the reality of the states at
+b, which [[lem:iii-i15-1-1]] (P3) supplies, and, for the rate of the rotation rows at b, [[lem:iii-i15-2-1]].
+[[lem:iii-i14-2-2]] (a), (c), [[lem:iii-i14-2-3]], [[lem:iii-i14-2-4]], [[lem:iii-i14-2-5]], [[thm:iii-i14-3-1]],
 [[rem:iii-i14-3-2]], [[lem:iii-j1-1-1]] and [[thm:iii-j1-2-1]] are stated and proved at b = b₀, with derivatives in b
 taken at b₀. Their forms at a base point whose black hole parameter is near b₀ are proved in [[ch:s25]];
 [[sec:s23-base-points]] states what holds there and where it is proved.
@@ -98,18 +101,21 @@ a parameter, with constants that depend on it. No result names the inner radius:
 out (|x| ≥ 5R₁, |x| ≤ 3R₁), and the levels and windows are fixed by weights at infinity and at K⁺.
 
 *Notation.* For a function a of t_*, a′, a″ and a^(j) are its t_*-derivatives; on parameters and tensors (p⃗′, q′, h′,
-W′_ν) a prime marks a second element or a direction of linearisation. The black hole parameter is b = (m, A), with mass
-m. The number of levels in the proof of [[thm:iii-i14-3-1]] is written K; it is unrelated to the K of K⁺, χ_K, K(λ), K_τ
-and K_ι(λ).
+W′_ν) a prime marks a second element or a direction of linearisation. The double prime of h″ := h + h_(b,rem)(q)
+([[def:iii-i14-1-2]]), and of the metric g″ built from it, marks the augmented background. The black hole parameter is
+b = (m, A), with mass m. The rows of the table of roots are written ψ = (μ, τ), as in [[sec:iii-i12-1]]. The number of
+levels in the proof of [[thm:iii-i14-3-1]] is written K; it is unrelated to the K of K⁺, χ_K, K_τ and K_ι(λ).
 
 ### The coefficients and the augmented operator {#sec:iii-i14-1}
 
 Everything of [[sec:iii-i12-1]], with w_ψ = 3 + η_2 − 2ε − d_ψ, and of [[sec:iii-i13-1]] is kept. α ∈ (4, 4 + ε_K] is
 admissible in the sense of [[def:iii-i10-1-3]], where [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are proved;
-[[def:iii-i13-1-1]] serves the intermediate levels. The δ_+ of [[sec:iii-i12-1]] is taken ≤ η_E := min Re ℰ_ind > 0, so
-that 3 + η_2 + η_E > 3 + ε_+. The class 𝒳 is restricted by two requirements, [Hin26, Remark 11.64 (2)]. The first is ℰ_+
-⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed together with (H1)–(H3) of [[sec:iii-i9-1]], as both sets do not
-depend on ℰ_+ below 3 + ε_+ ([[lem:iii-i10-1-2]] (b), as in [[sec:iii-i12-1]]). The second is
+[[def:iii-i13-1-1]] serves the intermediate levels. The δ_+ of [[sec:iii-i12-1]] is taken ≤ η_E := min Re ℰ_ind. Then
+3 + η_2 + η_E > 3 + ε_+, as η_E ≥ ε_ind > ε_+: the first by the convention for ℰ_ind of [[ch:s13]], with ε_ind the
+constant of [[eq:iii-f1-2-2]] as in [[lem:iii-g4-4-3]], the second by [[eq:iii-i9-1-1]]. The class 𝒳 is restricted by
+two requirements, [Hin26, Remark 11.64 (2)]. The first is ℰ_+ ⊃ (ℰ_♯ ∪ ℰ^♮) ∩ {Re < 3 + ε_+}, which can be imposed
+together with (H1)–(H3) of [[sec:iii-i9-1]], as both sets do not depend on ℰ_+ below 3 + ε_+ ([[lem:iii-i10-1-2]] (b),
+as in [[sec:iii-i12-1]]). The second is
 
     (H5)     a_+ < 3 + η_2.
 
@@ -146,18 +152,18 @@ h_(b₀,v1) = 0, and Re z > 2 at a rotating b. So by the gap (G) of [[def:iii-i1
 with the towers T_(ψ,b) of the table of [[sec:iii-g2-1]] for L_b ([[def:iii-g2-2-5]], chosen by [[lem:iii-i14-2-1]]),
 with h^(≤2)_(b,v1) for v1, and with ġ_b(ḃ) := ṁ ġ^Υ_b(1, 0) + ġ^Υ_b(0, Ȧ) for ḃ = (ṁ, Ȧ) ([[sec:iii-h-1]]). At b = b₀ it
 is the tensor χ_K u_exp of [[eq:iii-i12-3-1]] with the coefficients q. For p⃗ ∈ 𝒫 with black hole parameter b, and h and
-q small, put
+q small, put h″ := h + h_(b,rem)(q), the augmented background, and
 
-    P_5(h, p⃗, q) := P_4(h + h_(b,rem)(q), p⃗)                                                         {#eq:iii-i14-1-3}
+    P_5(h, p⃗, q) := P_4(h″, p⃗) = P_4(h + h_(b,rem)(q), p⃗)                                          {#eq:iii-i14-1-3}
 
-with P_4 of [[eq:iii-i9-2-3]]. This is [Hin26, (11.228)] with h_(−S) = 0: q and h enter only through h + h_(b,rem)(q),
-both in the Ricci term and in the gauge term. Since q ↦ h_(b,rem)(q) is linear, with h′ := h + h_(b,rem)(q),
+with P_4 of [[eq:iii-i9-2-3]]. This is [Hin26, (11.228)] with h_(−S) = 0: q and h enter only through h″, both in the
+Ricci term and in the gauge term. Since q ↦ h_(b,rem)(q) is linear,
 
-    D_h P_5(h, p⃗, q) = L_(h′,p⃗),     D_q P_5(h, p⃗, q)(q′) = L_(h′,p⃗)(h_(b,rem)(q′)),               {#eq:iii-i14-1-4}
+    D_h P_5(h, p⃗, q) = L_(h″,p⃗),     D_q P_5(h, p⃗, q)(q′) = L_(h″,p⃗)(h_(b,rem)(q′)),               {#eq:iii-i14-1-4}
 
 which is [Hin26, (11.231)]. We write
 
-    R_q := L_(h′,p⃗) − L_(h,p⃗),     Δ_q := D_(p⃗)P_5(h, p⃗, q) − D_(p⃗)P_4(h, p⃗).
+    R_q := L_(h″,p⃗) − L_(h,p⃗),     Δ_q := D_(p⃗)P_5(h, p⃗, q) − D_(p⃗)P_4(h, p⃗).
 
 At b = b₀ we write h_rem(q) := h_(b₀,rem)(q).
 
@@ -171,13 +177,14 @@ W̄_ν, ν̄ := (rot, λ̄, k)), and h_tot(p⃗), ϑ_tot(p⃗) of [[def:iii-i9-2
 So P_4 and P_5 take p⃗ in the enlarged 𝒫, of which the space of [[sec:iii-i9-1]] is the subspace W⃗^rot :=
 (W_ν)_(ν∈𝒩_rot) = 0.
 
-A rotation row is given the rate Re λ + 1: at b₀ every rotation is Killing, so h_v1 = 0, m_ν(W) has K⁺-weight Re λ + 1 −
-ε > α − 2 ([[lem:iii-i9-2-2]] (e)), and no level of [[thm:iii-i11-4-1]] or of [[thm:iii-i14-3-1]] eliminates it; its
-coordinate is fixed in [[thm:iii-i14-3-1]] by the expansion (Step 4′ of the proof). The results of [[ch:s21]] and
-[[ch:s22]] hold with the enlarged 𝒫, except the uniqueness in [[thm:iii-i11-4-1]], which fails there: the solutions form
-a graph over W⃗^rot (Step 3 of the proof of [[thm:iii-i14-3-1]]). [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are used
-only with the unknown parameter in the space of [[sec:iii-i9-1]] (the background p⃗ may lie in the enlarged one), the
-rotation-row terms being part of the right-hand side (Step 4′).
+At b₀ a rotation row is given the rate Re λ + 1: every rotation is Killing there, so h_v1 = 0, m_ν(W) has K⁺-weight
+Re λ + 1 − ε > α − 2 ([[lem:iii-i9-2-2]] (e)), and no level of [[thm:iii-i11-4-1]] or of [[thm:iii-i14-3-1]] eliminates
+it; its coordinate is fixed in [[thm:iii-i14-3-1]] by the expansion (Step 4′ of the proof). At a rotating b its rate is
+Re λ ([[lem:iii-i15-2-1]]), and the coordinates of the rotation rows are assigned as in [[prop:iii-i15-2-5]]. The
+results of [[ch:s21]] and [[ch:s22]] hold with the enlarged 𝒫, except the uniqueness in [[thm:iii-i11-4-1]], which
+fails there: the solutions form a graph over W⃗^rot (Step 3 of the proof of [[thm:iii-i14-3-1]]). [[thm:iii-i11-4-1]]
+and [[thm:iii-i12-3-1]] are used only with the unknown parameter in the space of [[sec:iii-i9-1]] (the background p⃗
+may lie in the enlarged one), the rotation-row terms being part of the right-hand side (Step 4′).
 
 [[lem:iii-i9-2-2]] (a)–(e) and [[lem:iii-i9-2-4]]–[[lem:iii-i9-2-6]] hold for ν ∈ 𝒩_rot, with e_ν = λ and κ_ν = Re λ +
 4: their proofs do not use the coefficient space. [[lem:iii-i9-2-2]] (f), the injectivity of h_τ on 𝒲_τ, fails for them,

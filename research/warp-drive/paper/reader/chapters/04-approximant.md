@@ -382,37 +382,38 @@ with values in ℝ^d and smooth u0, u1 on Σ_τ0 there is a unique smooth u on �
 [[lem:energy]] with g̃ = g0 gives ‖∂w(τ)‖ + ‖w(τ)‖ ≤ C ∫_(τ0)^τ (‖∂w(s)‖ + ‖w(s)‖) ds, and w = 0 by Gronwall's
 inequality.
 
-Existence. (i) The domain. Let M := {(τ, x) : |x| > a/2} with the metric g0, time-oriented so that τ increases to the
-future, and S := Σ_τ0 ∩ M. Since g0⁻¹(dτ, dτ) = −1 − μ/r² < 0 ([[prop:vaidya]] (d)), τ is strictly increasing along
-future causal curves, so S is a smooth spacelike hypersurface which every causal curve meets at most once: S is
-acausal. By [[thm:std-bgp-development]] its Cauchy development D, the set of points of M through which every
-inextendible causal curve meets S, is open and globally hyperbolic, with S as a Cauchy hypersurface. We show Ω ⊂ D.
-Let p ∈ Ω, and follow an inextendible causal curve γ of M through p to the past. While τ ≥ τ0 along γ, γ stays in Ω,
-by [[lem:domain]] (e) applied to g0. Suppose τ > τ0 along all of it. Parametrised by τ ∈ (τ*, τ(p)], τ* ≥ τ0, its
-velocity V has dτ(V) = 1. At the points of the compact set Ω the causal vectors V with dτ(V) = 1 form a compact set:
-a sequence of them with Euclidean norms tending to infinity would have, after normalisation, a causal limit V ≠ 0
-with dτ(V) = 0, which the timelike covector dτ excludes. So γ is Lipschitz in τ and converges, as τ decreases to τ*,
-to a point of Ω ⊂ M, and γ is extendible, a contradiction. Hence γ reaches {τ = τ0}, at a point of Ω ∩ Σ_τ0 ⊂ S, and
-p ∈ D. Ω is connected and meets S, so it lies in the connected component of D that contains the connected set S. This
+Existence. (i) The domain. Give the region {r > a/2} the metric g0 and the time orientation in which τ increases to
+the future; it plays the role of the manifold M of [[thm:std-bgp-development]]. Let S := {τ = τ0, r > a/2}, the whole
+level set of τ in this region, which contains the annulus Σ_τ0 = A(τ0). Since g0⁻¹(dτ, dτ) = −1 − μ/r² < 0
+([[prop:vaidya]] (d)), τ is strictly increasing along future causal curves, so S is a smooth spacelike hypersurface
+without boundary which every causal curve meets at most once: S is acausal. By [[thm:std-bgp-development]] its Cauchy
+development D, the set of points of {r > a/2} through which every inextendible causal curve meets S, is open and
+globally hyperbolic, with S as a Cauchy hypersurface. We show Ω ⊂ D. Let p ∈ Ω, and follow an inextendible causal
+curve γ of {r > a/2} through p to the past. While τ ≥ τ0 along γ, γ stays in Ω, by [[lem:domain]] (e) applied to g0.
+Suppose τ > τ0 along all of it. Parametrised by τ ∈ (τ*, τ(p)], τ* ≥ τ0, its velocity V has dτ(V) = 1. At the points
+of the compact set Ω the causal vectors V with dτ(V) = 1 form a compact set: a sequence of them with Euclidean norms
+tending to infinity would have, after normalisation, a causal limit V ≠ 0 with dτ(V) = 0, which the timelike covector
+dτ excludes. So γ is Lipschitz in τ and converges, as τ decreases to τ*, to a point of Ω ⊂ {r > a/2}, and γ is
+extendible, a contradiction. Hence γ reaches {τ = τ0}, at a point of Ω ∩ {τ = τ0} = Σ_τ0 ⊂ S, and p ∈ D. Ω is connected and meets S, so it lies in the connected component of D that contains the connected set S. This
 component is open and globally hyperbolic with Cauchy hypersurface S, since an inextendible causal curve in it is one
 of D; we call it D again.
 
 (ii) The extension. The interior of Ω is a bounded Lipschitz domain in ℝ⁵: near each point of its boundary it is
-bounded by at most two of the hypersurfaces Σ_τ0, Σ_τ_end, {r = a} and {v + τ = V + 1 + τ_end}, which are smooth and
-have linearly independent normals where two of them meet. Stein's operator of [[thm:std-sy-extension]], applied to
-B^a, C and f, which lie in W^(k,∞) of the interior for every k, gives extensions to ℝ⁵ with bounded derivatives of
-every order, hence smooth. Likewise extend u0 and u1 from the annulus Σ_τ0 ∩ Ω to smooth functions on {τ = τ0}. Let
-ψ be a smooth function with compact support in D, equal to 1 on a neighbourhood of Ω, which exists since Ω is compact
-and D open; multiply the extensions of f, u0 and u1 by ψ.
+bounded by at most two of the hypersurfaces {τ = τ0}, {τ = τ_end}, {r = a} and {v + τ = V + 1 + τ_end}, which are
+smooth and have linearly independent normals where two of them meet. Stein's operator of [[thm:std-sy-extension]],
+applied to B^a, C and f, which lie in W^(k,∞) of the interior for every k, gives extensions to ℝ⁵ with bounded
+derivatives of every order, hence smooth. Likewise extend u0 and u1 from the annulus Σ_τ0 to smooth functions on S.
+Let ψ be a smooth function with compact support in D, equal to 1 on a neighbourhood of Ω, which exists since Ω is
+compact and D open; multiply the extensions of f, u0 and u1 by ψ.
 
-(iii) The solution. The operator P := □̃ − 2 B^a ∂_a − 2 C acts on sections of the trivial bundle D × ℝ^d and has
-principal symbol ∓ g0⁻¹(ξ, ξ) id, so P or −P is normally hyperbolic for g0 ([[def:std-normally-hyperbolic]]); we take
-that one, changing the sign of the right-hand side with it. With n the future unit normal of S and ∇ the connection
-of [[thm:std-bgp-cauchy]], prescribing u and ∇_n u on S is equivalent to prescribing u and ∂_τ u on S, since dτ(n) > 0
-and the other terms of ∇_n u are tangential derivatives of u and multiples of u. [[thm:std-bgp-cauchy]] (5) therefore
-gives u ∈ C^∞(D) solving P u = −2 ψ f̃, f̃ the extension of f, with the data ψ ũ0, ψ ũ1, the extensions of u0 and u1.
-On Ω the cut-off equals 1 and the extensions agree with B^a, C, f, u0 and u1, so u restricted to Ω solves
-[[eq:linear-wave]]. ∎
+(iii) The solution. The operator P := −□̃ + 2 B^a ∂_a + 2 C = −g0^(ab) ∂_a ∂_b + 2 B^a ∂_a + 2 C acts on sections of
+the trivial bundle D × ℝ^d and has the local form of [[def:std-normally-hyperbolic]], so P is normally hyperbolic for
+g0, with principal symbol −g0⁻¹(ξ, ξ) id; [[eq:linear-wave]], multiplied by 2, reads P u = 2 f. With n the future unit
+normal of S and ∇ the connection of [[thm:std-bgp-cauchy]], prescribing u and ∇_n u on S is equivalent to prescribing
+u and ∂_τ u on S, since dτ(n) > 0 and the other terms of ∇_n u are tangential derivatives of u and multiples of u.
+[[thm:std-bgp-cauchy]] (5) therefore gives u ∈ C^∞(D) solving P u = 2 ψ f̃, f̃ the extension of f, with the data ψ ũ0,
+ψ ũ1, the extensions of u0 and u1. On Ω the cut-off equals 1 and the extensions agree with B^a, C, f, u0 and u1, so u
+restricted to Ω solves [[eq:linear-wave]]. ∎
 
 **Lemma {#lem:stage-system}** (Each stage is a linear hyperbolic system.) Let m ≥ 1 and let everything of earlier stages
 be given and smooth. Write the θ-mean of 𝒲(m_m, 0) as −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m, put 𝒲_φ(φ_m) := 𝒲(0, φ_m),
@@ -448,8 +449,11 @@ We solve it by Picard iteration on Ω. Given an iterate, the next one takes m_m 
 the right-hand side evaluated at the given iterate, and φ_m, Ψ_m and Z from their transports, which are ordinary
 differential equations with smooth coefficients along the integral curves of ℓ, solved from Σ_τ0 ([[lem:domain]] (d)).
 Every iterate is smooth. The difference of two successive iterates solves the same linear system with zero data and
-with the previous difference in its right-hand sides. So the energy and transport estimates [[lem:energy]] and
-[[lem:transport]], in which λ plays no role, give for the sum e_n(τ) of the norms of the n-th difference, at the
+with the previous difference in its right-hand sides. For the profile Z, the statement and proof of [[lem:transport]]
+hold verbatim with L²(A(τ) × S¹) in place of L²(A(τ)) and with c := −ℳ', since −(ℓ·∂_X) = L0: at each X, c is a
+bounded operator on the zero-mean functions in L²(S¹), bounded uniformly in X, and the largest eigenvalue of its
+symmetric part is read as the supremum of ⟨z, c z⟩ over unit z. So the energy and transport estimates [[lem:energy]]
+and [[lem:transport]], in which λ plays no role, give for the sum e_n(τ) of the norms of the n-th difference, at the
 regularities just stated, e_(n+1)(τ) ≤ C ∫_(τ0)^τ e_n(s) ds, hence e_n(τ) ≤ (C (τ − τ0))^n sup e_0 / n!. The iterates
 converge and the limit solves the system; the same estimate, for zero data and zero right-hand side, gives uniqueness.
 Ψ_m = □̃φ_m holds because, by [[eq:commutator]] applied to (b), □̃φ_m solves the same transport as Ψ_m, so their

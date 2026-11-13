@@ -11,7 +11,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | running |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | running | - |
 | 10 Ch 10 | NOT CONFIRMED 0M 7m 13n | running | - |
-| 20 S1 | NOT CONFIRMED 1M 5m 3n | done | running |
+| 20 S1 | NOT CONFIRMED 1M 5m 3n | done | CONFIRMED (6 nits) |
 | 21 S2 | NOT CONFIRMED 1M 6m 17n | done | running |
 | 22 S3 | NOT CONFIRMED 0M 6m 11n | done | CONFIRMED (4 nits) |
 | 23 S4 | NOT CONFIRMED 3M 8m 7n | running (tameness) | - |
@@ -37,7 +37,9 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | running | - |
 | 44 S25 | running | - | - |
 | 45-48 S26-S29 | being written | - | - |
-| 60-90 | not yet written | - | - |
+| 60 S30 | being written | - | - |
+| 61-62 M Ch 11-12 | being written | - | - |
+| 63-90 | not yet written | - | - |
 | 95 Appendix A | (in R-04-05-95) | merged; four citations being resolved | - |
 
 ## Proof files (merged into their chapters after an independent reading)

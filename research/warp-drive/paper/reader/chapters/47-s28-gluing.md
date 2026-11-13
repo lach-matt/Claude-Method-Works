@@ -29,11 +29,12 @@ background, with every hypothesis explicit ([[sec:s28-solvability]]), and is the
 uses the Myers–Perry family on {|x| ≥ 50R₁} only, and [[sec:vii-2]] takes data on Σ^IVP ∩ {r_♭ ≤ |x| ≤ 3R} and changes
 them only on {R ≤ |x| ≤ 4R}. So every result holds for every inner radius r_♭ ∈ (0, ½R₁] of [[sec:iii-b-2]].
 
-*Notation.* As in [CD03], K denotes the second fundamental form of an initial data set, and N a lapse or the function
-in a pair (Y, N); neither the approximant's order nor its number of stages occurs in this chapter. The mass parameter
-of the Myers–Perry family is m, as in [[ch:s11]]; b₀ = (m₀, 0) and R₁ = m₀^(1/2). 𝔎 is the space of Killing initial
-data of flat space ([[eq:v-0-4]]). A pair (K, g) in the argument of a map of [CD03] is written u = (K, g). π_(g′)
-always denotes a projection, and the number π occurs only in the charges.
+*Notation.* n = 4 is the space dimension, except in [[sec:s28-solvability]], where n is general. As in [CD03], K denotes
+the second fundamental form of an initial data set, and N a lapse or the function in a pair (Y, N); neither the
+approximant's order nor its number of stages occurs in this chapter. The mass parameter of the Myers–Perry family is m,
+as in [[ch:s11]]; b₀ = (m₀, 0) and R₁ = m₀^(1/2). 𝔎 is the space of Killing initial data of flat space ([[eq:v-0-4]]). A
+pair (K, g) in the argument of a map of [CD03] is written u = (K, g). π_(g′) always denotes a projection, and the number
+π occurs only in the charges.
 
 ### Initial data and the Killing initial data of flat space {#sec:v-0}
 
@@ -58,7 +59,7 @@ where D is the connection of g and β_i = 𝔤_0i; the Gauss–Codazzi equations
                                                                                                           {#eq:v-0-3}
 
 the components taken in Cartesian coordinates. This is the r^(−α)W^(j,∞)_r-asymptotic flatness of g, with
-K ∈ r^(−α−1)W^(j−1,∞)_r, of [CD03, Section 7, (7.1)], at j = k + 4.
+K ∈ r^(−α−1)W^(j−1,∞)_r, of [CD03, Section 7, (7.1)], at j = k + 4, k the order of the proof of [[thm:v-3-1]].
 
 *The Killing initial data of flat space.* Let 𝔎 be the space of pairs X = (Y, N) with Y a Killing field of (ℝ⁴, δ)
 and N an affine function, and fix the basis
@@ -85,7 +86,7 @@ satisfies P*_((0,δ))(Y, N) = 0 if and only if it is the restriction of an eleme
 
 *Proof.* At K = 0, g = δ, [CD03, (2.4)] gives P*(Y, N) = (2(∂_(iY_j) − (div Y)δ_ij), −ΔN δ_ij + ∂_i∂_jN). The trace of
 the first component is 2(1 − n) div Y, so div Y = 0 and ∂_(iY_j) = 0. The trace of the second is (1 − n)ΔN, so ΔN = 0
-and ∂_i∂_jN = 0, and N is affine on the connected 𝒪. For a Killing field, S_ij := ∂_iY_j is antisymmetric, so
+and ∂_i∂_jN = 0, and N is affine on the connected 𝒪. For a Killing field, ∂_iY_j is antisymmetric, so
 ∂_k∂_iY_j = −∂_k∂_jY_i = −∂_j∂_kY_i = ∂_j∂_iY_k = ∂_i∂_jY_k = −∂_i∂_kY_j = −∂_k∂_iY_j, which therefore vanishes. So Y is
 affine with antisymmetric linear part. The converse is immediate. ∎
 
@@ -235,7 +236,8 @@ Likewise 𝔮(p₀) is O(4)-invariant, so only its trivial component 𝔔_(e₀)
 
 *c_E.* ∂_m h₀ = r⁻² x̂ ⊗ x̂, h_ij = m x_ix_j r⁻⁴. So ∂_jh_ij = m(n + 1 − 4)x_i r⁻⁴ = m x_i r⁻⁴ and
 ∂_i tr h = −2m x_i r⁻⁴, and 𝔟_(e₀) = 3m r⁻³ dS. Integrating over S_ϱ, of area 2π²ϱ³, gives 6π²m at every radius:
-𝔔_(e₀)(g_(m,0), K_(m,0)) = 6π²m and c_E = 6π². (In ADM units this is 3πm/8, the mass of five-dimensional Tangherlini.)
+𝔔_(e₀)(g_((m,0,0,0)), K_((m,0,0,0))) = 6π²m and c_E = 6π². (In ADM units this is 3πm/8, the mass of
+five-dimensional Tangherlini.)
 
 *a₂₂ and a₁₂.* The translation in c_k changes the data to (h₀, K₀)(y + c), with derivative ∂_k(h₀, K₀). For
 e′_l = (0, x^l): x^l∂_k(∂_jh_ij − ∂_i tr h)νⁱ = 3m x^l∂_k(x_i r⁻⁴)x̂_i = −9m x^lx_k r⁻⁵, and
@@ -303,7 +305,7 @@ and [[thm:std-cd-exponential]] we use the following statements of [CD03], which 
 - [CD03, (2.9), p. 7]: "We define a map Φ by Φ(x, y) := (φx, φ²y)."
 - [CD03, Lemma 2.6, p. 7]: "Let k ∈ ℤ. Suppose that g ∈ W^(k+3,∞)_loc and that Ric(g) ∈ φ⁻²W^(k+2,∞)_φ,
   K ∈ φ⁻¹W^(k+3,∞)_φ. If (A.2) holds with 0 ≤ i ≤ k + 2, then the linear operators
-  ΦP* : H̊^(k+3)_(φ,ψ) × H̊^(k+4)_(φ,ψ) ⟶ H̊^(k+2)_(φ,ψ) × H̊^(k+2)_(φ,ψ), k ≥ −2, and
+  ΦP* : H̊^(k+3)_(φ,ψ) × H̊^(k+4)_(φ,ψ) ⟶ H̊^(k+2)_(φ,ψ) × H̊^(k+2)_(φ,ψ), k ≥ −2,
   ψ⁻²PΦψ² : H̊^(k+2)_(φ,ψ) × H̊^(k+2)_(φ,ψ) ⟶ H̊^(k+1)_(φ,ψ) × H̊^k_(φ,ψ), k ≥ 0, are well defined, and bounded."
 - [CD03, Proposition 3.3, p. 11]: "Under the hypotheses of Lemma 2.8 with (K, g) = (K₀, g₀), let 𝒦₀ be kernel of
   ΦP*₀ : H̊¹_(φ,ψ)(g₀) × H̊²_(φ,ψ)(g₀) ⟶ L²_ψ(g₀) × L²_ψ(g₀), and let 𝒦₀^(⊥g₀) be its L²_ψ(g₀) ⊕ L²_ψ(g₀)-orthogonal.
@@ -340,9 +342,9 @@ For u′ ∈ 𝒩_ε and z ∈ 𝒴 put
 
 with P*_(u′) the operator [CD03, (2.4)] at u′. The one further hypothesis is:
 
-(𝒦) 𝒦₀ is finite-dimensional, with a basis (e_i)_(i∈I) of pairs smooth on 𝒜.
+(Fin) 𝒦₀ is finite-dimensional, with a basis (e_i)_(i∈I) of pairs smooth on 𝒜.
 
-**Lemma {#lem:s28-setting}** (The solvability statement.) In the setting above, with (𝒦):
+**Lemma {#lem:s28-setting}** (The solvability statement.) In the setting above, with (Fin):
 
 (a) The hypotheses of [[thm:std-cd-exponential]] ([CD03, Theorem 5.9, Proposition 5.10 and Corollary 5.11]) hold for
 g₀, K₀ and x. So there is ε > 0 such that for u′ ∈ 𝒩_ε and every (δJ, δρ) ∈ 𝒮 of norm < ε there is z ∈ 𝒴 close to zero
@@ -397,7 +399,7 @@ e_i are bounded on 𝒜 with all derivatives and ψ² is integrable, so e_i and 
 ‖𝒞_(g′)⁻¹e_i − 𝒞_(g″)⁻¹e_i‖_𝒵̃ ≤ C‖g′ − g″‖_(W^(k+1,∞)_(x²)(g₀)), as 𝒞⁻¹ is a smooth function of g′. Also
 |A_(g′) − A_(g″)| ≤ C‖g′ − g″‖_(C⁰) and |⟨v, e_j⟩_(L²_ψ(g₀))| ≤ C‖v‖_𝒵̃. This gives the bound. ∎
 
-**Lemma {#lem:v-3-2}** (Continuity in the background.) In the setting above, with (𝒦), let ε and C₁ be as in
+**Lemma {#lem:v-3-2}** (Continuity in the background.) In the setting above, with (Fin), let ε and C₁ be as in
 [[lem:s28-setting]]. There are ε_c ∈ (0, ε] and r_c > 0 such that, with B the ball of radius r_c about zero in 𝒴:
 
 (a) for u′ ∈ 𝒩_(ε_c) and z₁, z₂ ∈ B,
@@ -478,7 +480,7 @@ proof has five steps.
 
 *Step 1: the solvability statement on the annulus.* Apply [[sec:s28-solvability]] with 𝒜 := Γ̄(1, 4), a compact
 manifold with boundary, n = 4, x ∈ C^∞(𝒜) a defining function of ∂𝒜 with 0 < x ≤ 1 in the interior that equals the
-Euclidean distance to ∂𝒜 near it, u₀ := (0, δ), s := 1 and k = 3. Hypothesis (𝒦) holds: 𝒦₀ is the restriction of 𝔎 to
+Euclidean distance to ∂𝒜 near it, u₀ := (0, δ), s := 1 and k = 3. Hypothesis (Fin) holds: 𝒦₀ is the restriction of 𝔎 to
 𝒜, with the basis [[eq:v-0-4]]. Indeed, the fifteen elements of 𝔎 are bounded on 𝒜, so they lie in
 H̊¹_(x²,ψ) × H̊²_(x²,ψ), and P*_((0,δ)) annihilates them ([[lem:v-1-1]]); and an element of the kernel of ΦP*_((0,δ)) is
 annihilated by P*_((0,δ)), Φ being multiplication by positive functions, so it is smooth in 𝒜° by interior regularity
@@ -569,7 +571,7 @@ r⁻² as the metric, which (E.9) would exclude. The convergence rate of [CD03, 
 min(α, 1), and the power of R in [CD03, (8.7)] is R^(−(n−2)−d). [CD03, Theorem 5.6] states s ≥ n − 2 where its proof
 uses s ≥ n − 1, and [CD03, (8.5)] applies it with s = t − 1 where its solution space requires s = t + n − 2; the
 exponentially weighted spaces of [CD03, Theorem 5.9], which [CD03] uses for smooth data, avoid both. [CD03, Theorem
-3.19] applies [CD03, Lemma 3.18] to the maps F_λ of [CD03, (3.29)], which must be continuous in Q; this is
+3.19] applies [CD03, Lemma 3.18] to the maps of [CD03, (3.29)], which must be continuous in Q; this is
 [[lem:v-3-2]]. Finally the projection of [CD03] is orthogonal in L²_ψ of the current metric, so the obstruction it
 leaves is 𝒞_(g′)⁻¹𝒦₀ ([[lem:s28-setting]] (e)), and Step 3 pairs with these converted Killing initial data, whose Gram
 matrix tends to the flat one.
@@ -580,7 +582,7 @@ In this section b₀ = (m₀, 0), Σ^IVP is the hypersurface of [[sec:iii-b-3-3]
 (t, x) ↦ x, and G = O(2) × O(2) acts on ℝ⁴ as in [[sec:class]] and on spacetime by (t, x) ↦ (t, Ox), O ∈ G ⊂ O(4).
 Every element of O(4), acting so, is an isometry of every g^KS_(m,0) and fixes every function of (t, |x|). The fixed
 spaces are (ℝ⁴)^G = 0 and 𝔰𝔬(4)^G = 0: the torus T² ⊂ G fixes in ℝ⁴ only 0, and in 𝔰𝔬(4) exactly span(W₁₂, W₃₄),
-while x² ↦ −x² reverses W₁₂ and x⁴ ↦ −x⁴ reverses W₃₄. So 𝔎^G = span(e₀).
+while x₂ ↦ −x₂ reverses W₁₂ and x₄ ↦ −x₄ reverses W₃₄. So 𝔎^G = span(e₀).
 
 For |x| ≥ R₃, Σ^IVP = {t = C″} ([[lem:iii-b-3-7]] (b)), that is {t_KS = f(|x|)} with f := C″ − T_(m₀)(|x|) in the
 Kerr–Schild time t_KS = t − T_(m₀)(|x|) of [[eq:iii-b-3-3]]. For m ∈ I_m := [¾m₀, (5/4)m₀], let (γ^m, k^m) be the data
@@ -659,11 +661,12 @@ by at most Cζ. Hence
 Write a := 𝒮_R(g, K) and b := 𝒮_R(γ^m, k^m); both are vacuum, and u_(m,R) = b + χ(a − b). The constraint map is smooth
 near flat data and vanishes at b. So the right side of Step 1 has
 ‖(J, ρ)(u_(m,R))‖_(C^(k+1)) ≤ C‖a − b‖_(C^(k+3) × C^(k+4)) ≤ C(ζ + |m − m₀|)R⁻². By the bound of Step 1, δu_(m,R) is of
-the same size in H^(k+2)(𝒜) ⊂ C^(k−1)(𝒜). Unscaled,
-û − (γ^(m₀), k^(m₀)) = χ(a − 𝒮_R(γ^(m₀), k^(m₀))) + (1 − χ)(b − 𝒮_R(γ^(m₀), k^(m₀))) + δu, rescaled back, has
-|h| ≤ C(ζ + |m − m₀|)R⁻², with each derivative, and K, a further factor R⁻¹. Both û and (γ^(m₀), k^(m₀)) have
-|h| ≤ CR⁻² with the same scaling. q_(e₀) is a smooth function of (h, ∂h, ∂²h, K, ∂K) vanishing to second order at 0
-(the proof of [[lem:v-1-2]]), with the quadratic bound [[eq:v-1-2]]. So |q(û) − q(γ^(m₀))| ≤ C(ζ + |m − m₀|)R⁻⁶ on
+the same size in H^(k+2)(𝒜) ⊂ C^(k−1)(𝒜). On 𝒜,
+û_(m,R) − 𝒮_R(γ^(m₀), k^(m₀)) = χ(a − 𝒮_R(γ^(m₀), k^(m₀))) + (1 − χ)(b − 𝒮_R(γ^(m₀), k^(m₀))) + δu_(m,R); unscaled,
+the difference û − (γ^(m₀), k^(m₀)), û := 𝒮_R⁻¹û_(m,R), has |h| ≤ C(ζ + |m − m₀|)R⁻², with each derivative, and K, a
+further factor R⁻¹. Both û and (γ^(m₀), k^(m₀)) have |h| ≤ CR⁻² with the same scaling. q_(e₀) is a smooth function
+of (h, ∂h, ∂²h, K, ∂K) vanishing to second order at 0 (the proof of [[lem:v-1-2]]), with the quadratic bound
+[[eq:v-1-2]]. So |q(û) − q(γ^(m₀))| ≤ C(ζ + |m − m₀|)R⁻⁶ on
 Γ(R, 4R), and |q(γ^m) − q(γ^(m₀))| ≤ C|m − m₀|r⁻⁶. Integrating, 6π²|m − m₀| ≤ C(ζ + |m − m₀|)R⁻² + Cζ, so
 |m − m₀| ≤ Cζ for R large.
 
@@ -676,14 +679,14 @@ the proof of [[thm:v-3-1]], and G-invariant by (3). ∎
 equivariance of its Step 1, a one-dimensional obstruction, and the a priori bound |m − m₀| ≤ Cζ from the flux identity.
 The bound makes the glued data close to Tangherlini, by a multiple of ζ, at a fixed gluing radius (by O(λ) in
 [[cor:vii-2-3]]), which the weighted norm of the data class [[eq:vii-0-1]] of [[thm:iii-k-4-3]] needs: a bump of
-relative size R⁻¹ at radius R has, in that norm, size about R^(ℓ₀−3), which grows with R, ℓ₀ ∈ (3, 4) being the weight
+relative size R⁻¹ at radius R has, in that norm, size about R^(ℓ_0−3), which grows with R, ℓ_0 ∈ (3, 4) being the weight
 of the class.
 
 **Corollary {#cor:vii-2-3}** (The data of item (i) of [[thm:settling]].) Let b₀ = (μ_end, 0), so that m₀ = μ_end. Let
 k ≥ 3 and R ≥ max(R_gl, R₃), and let c₀ and Ω′ be as in [[lem:vii-1-2]]. Take J = k + 5 in [[lem:vii-1-1]], and let
 (g, K) be the data of g_λ on Σ^IVP ∩ {r_♭ ≤ r ≤ 4R}. Then [[eq:vii-2-1]] holds with ζ ≤ C_Rλ, and for λ small
-[[prop:vii-2-2]] gives (γ_λ, k_λ) := (ĝ, K̂) and m_λ := m, with |m_λ − μ_end| ≤ C_Rλ. If k ≥ d₁ + 5, d₁ the order of
-[[thm:iii-k-4-3]], then also ‖(γ_λ − γ_(b₀), k_λ − k_(b₀))‖_(d₁) ≤ C_Rλ, in the norm of the data class of
+[[prop:vii-2-2]] gives (γ_λ, k_λ) := (ĝ, K̂) and m_λ := m, with |m_λ − μ_end| ≤ C_Rλ. If k ≥ d_1 + 5, d_1 the order of
+[[thm:iii-k-4-3]], then also ‖(γ_λ − γ_(b₀), k_λ − k_(b₀))‖_(d_1) ≤ C_Rλ, in the norm of the data class of
 [[thm:iii-k-4-3]] ([[eq:vii-0-1]]).
 
 *Proof.* The data a metric induces on a fixed spacelike slice are smooth functions of its components and their first
@@ -691,5 +694,5 @@ derivatives at the slice. By [[lem:vii-1-2]] the slice piece lies in Ω′_+, wh
 [[lem:vii-1-1]] the data of g_λ differ from (γ_(b₀), k_(b₀)) = (γ^(μ_end), k^(μ_end)) by Cλ in C^(k+4) there. With the
 weights r^(2+|β|) ≤ (3R)^(k+6), ζ ≤ C_Rλ. The data are G-invariant (g_λ and Σ^IVP are, [[lem:vii-1-1]] and
 [[lem:vii-1-2]]) and vacuum. For the last claim apply [[lem:vii-0-1]] with R′ = 4R: on {r ≤ 8R} the deviation is
-C_Rλ in C^(d₁+3), by [[lem:vii-1-1]], [[eq:vii-2-2]] and [[lem:vii-2-1]] (a), and on {r ≥ 4R} it is
+C_Rλ in C^(d_1+3), by [[lem:vii-1-1]], [[eq:vii-2-2]] and [[lem:vii-2-1]] (a), and on {r ≥ 4R} it is
 (γ^m − γ_(b₀), k^m − k_(b₀)), whose seminorms are O(|m − μ_end|) = O(λ). ∎

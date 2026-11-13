@@ -687,3 +687,358 @@ last term gives the formula for l + 1. ∎
 Sobolev index d_(dim M−1), is used in [Hin23a] only for the term A⁰_h, which does not arise in dimension 4 + 1
 ([[rem:iv1-1-3]]). In dimension 4 + 1 its index is d₄ = 3 ([[prop:np-10-64]] (6)).
 
+### Sharp decay: the setting {#sec:iv2-0}
+
+[[sec:iv2-0]]–[[sec:iv2-4]] carry [Hin23a, Section 3.6] (Theorem 3.35, Corollary 3.36; pp. 30–32) to the gauge-fixed
+operator of [[sec:iii-c-4]] in dimension 4 + 1 on the exterior domain Ω_(ext,r₀) of [[lem:iii-c1-1-1]]. They give the
+linear estimate with its tame form ([[thm:iv2-2-4]]), the nonlinear solution ([[thm:iv2-3-1]]) and the backward
+solution on the past slab ([[lem:iv2-2-2]]), and both in the cut-off gauge of [[sec:iii-c2-2]] and for the
+backgrounds of [[rem:iii-c1-2-2]] (2) ([[cor:iv2-4-1]]). [[sec:iv2-1]] integrates the leading part along its two
+families of curves; [[sec:iv2-2]] proves the linear theorem in three steps: the Cauchy problem near the interior of I₀,
+the energy estimate of [[prop:iv1-2-2]] near ℐ⁺, and the recovery of the sharp weight at ℐ⁺; [[sec:iv2-3]] applies
+[[thm:ii-g-2-1]]. In dimension 4 + 1 the recovery needs two integrations and no leading terms depending on h
+([[rem:iv1-1-3]]), and only slot 6 carries a radiation field. Lemmas [[lem:iv2-1-1]], [[lem:iv2-1-2]] and
+[[lem:iv2-2-1]] are stated so that the continuation of the solution near ℐ⁺ on a slab beyond Σ_(fut,r₀), which the
+nonlinear theorem of [[ch:s27]] poses, can use them.
+
+U, M_♯, x_I = ρ_I^(1/2), X₀, X_I, the edge-b and b-spaces and the weights are those of [[sec:iv-0]]; the splitting
+[[eq:iii-c-1-6]], its slots 1–7 and Ā are those of [[lem:iii-c-4-2]]; L_g is [[eq:iv1-0-2]]. As in [[sec:iv-0]],
+H^(k,(a₀,2a_I))_b = ρ₀^(a₀)ρ_I^(a_I)H^k_b, the weight at ℐ⁺ in this notation being written in powers of x_I; all other
+weights at ℐ⁺ below are powers of ρ_I.
+
+*Parameters.* ℓ^♭₀, ℓ^♭_I are as in [[eq:iii-c1-1-1]], and
+
+    β := ℓ^♭_I − 3/2 ∈ (0, ½),     β < d_* := min_(j≠6) Ā_(jj) = (1 − e_Υ)γ_Υ.                           {#eq:iv2-0-1}
+
+The diagonal [[eq:iii-c-4-3]] is 2(1 − v_C)γ_C, (1 − v_C)γ_C, (1 − e_C)(1 − v_C)γ_C, (1 − e_Υ)γ_Υ, γ_Υ, 0, 2γ_Υ; the
+first three exceed 100 ([[sec:iii-f-1]]: (1 − e_C)(1 − v_C)γ_C > 100, 0 < e_C, v_C < 1), and
+(1 − e_Υ)γ_Υ ≤ γ_Υ ≤ 2γ_Υ; so d_* = (1 − e_Υ)γ_Υ, and β < d_* is the condition ℓ^♭_I < 3/2 + (1 − e_Υ)γ_Υ of
+[[eq:iii-c1-1-1]]. By [[lem:iii-c-4-2]] the off-diagonal entries of Ā are at (3, 1), (4, 1), (4, 3), (5, 2), (7, 3) and
+(7, 4): no row couples to slot 6, and row 6 has no off-diagonal entry.
+
+*Conjugation.* For a symmetric 2-tensor ġ on U put u := ρ^(−3/2)ġ. Then
+
+    L^(g,g₀)ġ = f   ⟺   L_gu = f_♭ := 2ρ_Iρ^(−7/2)f.                                                  {#eq:iv2-0-2}
+
+Multiplication by ρ^(±3/2) = ρ₀^(±3/2)ρ_I^(±3/2) and by ρ_I maps weighted b-Sobolev spaces isomorphically onto each
+other with the weights shifted (b-derivatives of these functions are constant multiples of them). So
+ġ ∈ H^(k,α₀,α_I)_b if and only if u ∈ H^(k,(α₀−3/2,2(α_I−3/2)))_b, and f ∈ H^(k,α₀+2,α_I+1)_b if and only if
+f_♭ ∈ H^(k,(α₀−3/2,2(α_I−3/2)))_b. Put a₀ := α₀ − 3/2.
+
+*The classes of [[thm:iii-c1-2-1]] in these terms.* The forcing class H^(k,α₀+2,(−′,ℓ^♭_I+1))_b ([[def:iii-c-5-1]]
+(2)) has every slot in H^(k,α₀+2,ℓ^♭_I+1)_b near ℐ⁺: its index sets ℰ_I^C + 1 and ℱ_(I,11) have real parts above
+ℓ^♭_I + 1 (by [[eq:iii-c1-1-1]], and min Re ℱ_(I,11) ≥ 5/2 + (1 − e_Υ)γ_Υ by [[eq:iii-c-5-1]]). So
+f_♭ ∈ H^(k,(a₀,2β))_b in every slot. The solution class H^(k,α₀,(−,ℓ^♭_I))_b ([[sec:iii-c1-1]]) has every slot in
+H^(k,α₀,ℓ^♭_I)_b except π̸₀ġ ∈ H^(k,α₀,((3/2,0),ℓ^♭_I))_b. In terms of u it is
+
+    𝒴^k_(a₀)(Ω) := {u : u_j ∈ H^(k,(a₀,2β))_b (j ≠ 6),  u₆ = χ_Iu^((0)) + ũ₆,
+                         u^((0)) ∈ H^(k,a₀)_b(ℐ⁺ ∩ Ω̄),  ũ₆ ∈ H^(k,(a₀,2β))_b},                          {#eq:iv2-0-3}
+
+with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 near 0, c the constant of [[lem:iv2-2-1]] (so u^((0)) is used only
+over Ω_c; another χ̂ gives an equivalent norm), u^((0)) extended to be constant in ρ_I, and the norm the sum of the
+norms; the radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2). Away from U the classes impose only
+H^k.
+
+*The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise
+bounds of the proof of [[lem:iii-c1-1-1]], or g₀ = g_(b₀); let h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and
+g := g₀ + h. In the terms of [[sec:iv1-0]], h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b for every k, with ℰ₀ := ∅, ℓ₀ := ℓ^♭₀,
+ℱ := ⋃_(j≥1)(3j/2, 0) and ℓ_I := ℓ^♭_I: ℱ + ℱ ⊂ ℱ, and [[eq:iv1-0-1]] holds, as min Re ℱ = 3/2 and ℓ^♭_I > 3/2. So
+[[prop:iv1-1-2]] applies to L_g on U: in its coefficient class H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b the exponents at ℐ⁺ are at
+least ½ and the weight is ℓ^♭_I − 1 > ½, so
+
+    L̃_g = x_I Σ_i (a_i + ã_i)P_i,     a_i ∈ C^∞(M_♯),     ã_i ∈ x_I⁻¹H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b,
+    P_i ∈ Diff²_(e,b),                                                                                   {#eq:iv2-0-4}
+
+with ã_i bounded (its expansion at ℐ⁺ starts at ρ_I⁰) and ‖ã_i‖_(H^j) ≤ C‖h‖_(H^(j+2)) in these classes (the proof of
+[[prop:iv1-1-2]]: the coefficients are rational in h and in two b-derivatives of it). L denotes L^(g,g₀), or
+L^(χ₀)_(g,g₀) in [[sec:iv2-4]].
+
+*Domains.* Ω⁺ := Ω_(ext,r₀) ∩ {t_IVP ≥ 0} and the past slab Ω⁻ := Ω_(ext,r₀) ∩ {t_IVP ≤ 0}. For |x| ≥ R₃,
+t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), and
+
+    Ω⁺ = {0 ≤ t_IVP ≤ F₀(|x|)},     F₀(r) := r + 2r^(1−ℓ^♭_I) − (r₀ + 2r₀^(1−ℓ^♭_I)),                    {#eq:iv2-0-5}
+
+which is empty where r < r₀; Ω_(ext,r₀) ⊂ U ∩ {|x| ≥ r₀} (the proof of [[lem:iii-c1-1-1]]). Near the interior of I₀,
+τ := t/|x| and ρ = |x|⁻¹ are the coordinates of [[sec:iii-b-2]], ρ_I = 1 − τ + 2ρ ([[sec:iv-4]]), and
+τ′ := t_IVP/|x| = τ − C″ρ.
+
+### The two families of curves {#sec:iv2-1}
+
+This section gives the integrations of [Hin23a, Theorem 3.35] along the integral curves of X_I and of X₀ − X_I.
+
+**Lemma {#lem:iv2-1-1}** (The curves.) Let c ∈ (0, ½] and r₀ ≥ max(R₀, 4|C″| + 4).
+
+(a) {ρ_I = c} ∩ U = {t = (1 − c)|x| + 2} is spacelike for g_(b₀) near infinity, and {ρ_I < c} lies to its future.
+Ω⁻ ⊂ {ρ_I ≥ ½}.
+
+(b) Let p ∈ Ω⁺ with ρ_I(p) < c. The integral curve of X_I through p (at fixed ρ₀ and ω: the outgoing ray of η at fixed
+x¹) and that of X₀ − X_I (at fixed |x| and ω), followed in the direction of increasing ρ_I, stay in Ω⁺ until they reach
+{ρ_I = c}, which they do.
+
+*Proof.* (a) ρ_I = (2 − x¹)/|x| = c if and only if t = (1 − c)|x| + 2. For η, ζ := dt − (1 − c)d|x| has
+η⁻¹(ζ, ζ) = −1 + (1 − c)² < 0; the correction from g_(b₀) − η, O(|x|⁻²) in the frame ([[lem:iii-c-1-3]]), does not
+change the sign for |x| large. Along ∂_t, ρ_I decreases. On Ω⁻, t ≤ C″, so ρ_I ≥ (2 − C″ + |x|)/|x| ≥ ½ for |x| ≥ r₀.
+
+(b) *The X_I-curve.* Along it x¹ = x¹_p is fixed and |x| decreases from |x|_p to r_c := (2 − x¹_p)/c, where ρ_I = c.
+The upper condition of [[eq:iv2-0-5]] is x¹ ≤ C″ − r₀ − 2r₀^(1−ℓ^♭_I) + 2|x|^(1−ℓ^♭_I), whose right side decreases in
+|x| (ℓ^♭_I > 1); it holds at p, so at every smaller |x|. It gives x¹_p ≤ C″ − r₀ < 0. The lower condition is
+x¹_p + |x| ≥ C″, and x¹_p + |x| decreases along the curve; at r_c, x¹_p + r_c = x¹_p(1 − c⁻¹) + 2c⁻¹ ≥ |x¹_p|
+≥ r₀ − C″ > C″, as c⁻¹ − 1 ≥ 1. And r_c ≥ (2 + r₀ − C″)/c ≥ r₀. *The (X₀ − X_I)-curve.* Along it |x| = |x|_p and t
+decreases to t_c := (1 − c)|x|_p + 2. The upper condition is monotone in t; the lower one holds at t_c, as
+t_c − C″ ≥ ½|x|_p + 2 − C″ > 0. In both cases ρ_I increases to c along the curve. ∎
+
+Both curves are integral curves of commuting b-vector fields: in the coordinates (ρ₀, ρ, ω), X_I = ρ∂_ρ at fixed ρ₀ and
+X₀ − X_I = ρ₀∂_(ρ₀) at fixed ρ; X₀, X_I and the rotation fields of 𝕊³ commute with both.
+
+**Lemma {#lem:iv2-1-2}** (Integration.) Let c, r₀ be as in [[lem:iv2-1-1]], Ω_c := Ω⁺ ∩ {ρ_I < c}, m ∈ ℕ₀, a₀, γ ∈ ℝ,
+and let w ∈ H^(m,(a₀,2γ))_b(Ω_c) vanish on {ρ_I > c/2}. Let v on Ω_c vanish on {ρ_I > c/2}.
+
+(a) If (X_I − d)v = w with d > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (d − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
+
+(b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ with v^((0)) a function of (ρ₀, ω), and
+
+    ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺∩Ω̄_c)) ≤ (2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
+    ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ γ⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
+
+(c) If (X₀ − X_I)v = w and a₀ > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (a₀ − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
+
+The norms are those of the b-density |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|, equivalent to that of μ_b on Ω_c ([[lem:iv-2-1]]).
+
+*Proof.* (a), (b): in the coordinates (s, ρ₀, ω), s := log ρ_I, X_I = ∂_s and the density is ds (dρ₀/ρ₀) dg̸. By
+[[lem:iv2-1-1]] (b), for p ∈ Ω_c the segment of its X_I-curve from p to s_c := log c lies in Ω_c, and v = 0 near s_c.
+So v(s) = −∫_s^(s_c) e^(d(s−s′))w(s′) ds′, with w extended by zero along the curve outside Ω_c. Hence
+
+    e^(−γs)|v(s)| ≤ ∫_s^(s_c) e^(−(d−γ)(s′−s)) e^(−γs′)|w(s′)| ds′,
+
+a convolution with a kernel of L¹-norm (d − γ)⁻¹; Young's inequality in s, then integration in (ρ₀, ω) with the weight
+ρ₀^(−2a₀), gives (a) for m = 0. For (b), d = 0: v = v^((0)) + ṽ with v^((0)) := −∫_(−∞)^(s_c) w ds′ and
+ṽ(s) := ∫_(−∞)^s w ds′. By Cauchy–Schwarz, |v^((0))|² ≤ ∫_(−∞)^(s_c) e^(2γs′) ds′ · ∫ e^(−2γs′)|w|² ds′, and
+e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w(s′)| ds′, a kernel of L¹-norm γ⁻¹. (c): in the coordinates (z, y, ω),
+z := log ρ₀, y := log ρ, X₀ − X_I = ∂_z and log ρ_I = y − z, so the density is dz dy dg̸ and {ρ_I = c} is
+{z = z_c(y) := y − log c}. By [[lem:iv2-1-1]] (b), v(z, y) = ∫_(z_c(y))^z w(z′, y) dz′. The weight is
+ρ₀^(−a₀)ρ_I^(−γ) = e^(−γy)e^(−(a₀−γ)z), and
+
+    e^(−(a₀−γ)z)|v(z)| ≤ ∫_(z_c)^z e^(−(a₀−γ)(z−z′)) e^(−(a₀−γ)z′)|w(z′)| dz′,
+
+a kernel of L¹-norm (a₀ − γ)⁻¹; Young's inequality in z gives (c) for m = 0.
+
+*Derivatives.* Let V be one of X₀, X_I and the rotation fields. V commutes with X_I and with X₀ − X_I, and Vv vanishes
+where v does; so Vv solves the same equation with Vw, and the bounds for m = 0 apply to it. (In (c), differentiating
+the integral in y produces the boundary term w(z_c(y), y)∂_yz_c, which vanishes as w = 0 near {ρ_I = c}.) Induction on
+m gives the bounds for m ≥ 1, with the same constants; for v^((0)) the fields tangent to ℐ⁺ are X₀ and the rotations,
+and X_Iv^((0)) = 0. ∎
+
+### The linear theorem {#sec:iv2-2}
+
+This section is [Hin23a, Theorem 3.35] with data, for the operator of [[sec:iii-c-4]], in dimension 4 + 1.
+
+**Lemma {#lem:iv2-2-1}** (The region of the radiation field.) Fix c ∈ (0, ½] so small that [[prop:iv1-2-2]] holds on
+Ω_c with Σ_in := {ρ_I = c} ∩ Ω⁺ and Σ_fin := Σ_(fut,r₀) ∩ {ρ_I < c}. These are admissible in [[sec:iv-3]].
+
+*Proof.* Ω_c ⊂ Ω_(ext,r₀) ⊂ U and Ω_c ⊂ {x_I < c^(1/2)}; Σ_in is spacelike with Ω_c to its future ([[lem:iv2-1-1]]
+(a)); Σ_fin is spacelike for g ([[lem:iii-c1-1-1]]); and every X_I-curve in Ω_c begins on Σ_in ([[lem:iv2-1-1]] (b)). ∎
+
+**Lemma {#lem:iv2-2-2}** (The Cauchy problem near the interior of I₀, in both directions.) Let
+Ω_N := Ω_(ext,r₀) ∩ {τ′ ≤ ¼}, which contains Ω⁻, and α ∈ ℝ, s ∈ ℕ₀. For h small in H⁵ with h ∈ H^(s+2),
+f ∈ H^(s,α+2)_b(Ω_N) and data ġ_j ∈ H^(s+1−j,α)_b(Σ_(IVP,r₀)), j = 0, 1, there is a unique ġ ∈ H^(s+1,α)_b(Ω_N) with
+Lġ = f, ġ = ġ₀ and rℒ_(∂_(t_IVP))ġ = ġ₁ on Σ_(IVP,r₀), and
+
+    ‖ġ‖_(H^(s+1,α)_b(Ω_N)) ≤ C(‖f‖_(H^(s,α+2)_b) + ‖ġ₀‖_(H^(s+1,α)_b) + ‖ġ₁‖_(H^(s,α)_b))
+        + C‖h‖_(H^(s+2))(‖f‖_(H^(4,α+2)_b) + ‖ġ₀‖_(H^(5,α)_b) + ‖ġ₁‖_(H^(4,α)_b)).                         {#eq:iv2-2-1}
+
+Here the weight at I₀ is a power of ρ; on Ω_N, ρ_I ≥ ½, so it is one of ρ₀.
+
+*Proof.* On Ω_N, τ′ ∈ [−1/12, ¼] ([[lem:iii-c1-1-1]]: t_IVP ≥ −(|x| − r₀)/12), so τ ∈ [−1/12 − ε, ¼ + ε] for r₀
+large, inside the range of [[prop:iv-4-1]] with δ = ½. That proposition, for the system as in the proof of
+[[prop:iv1-2-2]] (the principal part is scalar, and the first-order terms are bounded b-operators, absorbed by the
+exponential weight), and with τ replaced by τ′, applies here: τ′ is a smooth function near the interior of I₀ with
+G_b(dτ′, dτ′) = G_b(dτ, dτ) + O(ρ) = τ² − 1 + O(ρ) < 0, and its proof uses only that dτ is uniformly timelike in the
+b-sense on the τ-range and that L ∈ ρ²Diff²_b is a wave operator; the change L − L_(b₀) lies in
+ρ²(ρC^∞ + H^(s₀−2))Diff²_b, small for h and g₀ − g_(b₀) small ([[prop:iii-c-4-4]], near the interior of I₀;
+[[lem:iii-c2-2-1]] for L^(χ₀)). Two changes are needed.
+
+*Data.* [[prop:iv-4-1]] has vanishing data and f vanishing near the initial surface. With the data above, the energy
+identity of its proof, on {0 ≤ τ′ ≤ τ′₁}, has in addition the flux through Σ_(IVP,r₀) = {τ′ = 0} of the energy current
+of its multiplier, bounded by C(‖ġ₀‖²_(H^(1,α)_b) + ‖ġ₁‖²_(H^(0,α)_b)), as r∂_(t_IVP) = ∂_(τ′) modulo b-vector fields
+tangent to {τ′ = 0} (with ρ∂_ρ at fixed τ′). The term on the left of the identity coming from f does not need f to
+vanish there. This gives the case s = 0. For s ≥ 1, commute the b-vector fields tangent to {τ′ = 0}, ρ∂_ρ at fixed τ′
+and the rotations: their commutators with L lie in ρ²Diff²_b (with coefficients in H^(s₀−3) for the perturbation), of
+first order in the commuted fields, and their data are tangential derivatives of ġ₀, ġ₁ together with one normal
+derivative, given at {τ′ = 0} by the data and the equation; the commutator terms enter as sources and are absorbed as
+in the proof of [[prop:iv-4-1]]. The normal derivatives ∂²_(τ′) are recovered from the equation, which is
+non-characteristic at the level sets of τ′. The tame term comes from the Moser estimate ([[lem:iv1-2-3]]) for the
+coefficients of the perturbation, which are rational in h and two of its b-derivatives.
+
+*Both directions.* On Ω⁺ ∩ Ω_N the solution is the forward one; on Ω⁻ it is the backward one, given by the same argument
+run backward in time, which uses only the b-structure of L, that dτ′ is timelike, and that Σ_(past,r₀) is spacelike
+([[lem:iii-c1-1-1]]); the backward problem is argued directly as t ↦ −t is not an isometry of the gauge-fixed operator,
+whose E_C-term is odd in time. Uniqueness: the estimate applied to the difference of two solutions, which has vanishing
+data and source. ∎
+
+**Lemma {#lem:iv2-2-3}** (The forward problem with growth at ℐ⁺; [[rem:iv-4-2]] for the system.) Let
+Ω⁺₁ := Ω⁺ ∩ {τ′ ≥ 1/16}, a₀ ∈ ℝ, α_I < min(a₀, 0), 3 ≤ m ≤ k_h − 3, k_h ≥ 8, with h ∈ H^(k_h) small in H⁸, and let
+f_♭ ∈ H^(m,(a₀,2α_I))_b(Ω⁺₁) vanish on {τ′ < ⅛}. The forward solution u of L_gu = f_♭ on Ω⁺₁, vanishing on
+{τ′ < ⅛}, satisfies
+
+    ‖u‖_(H^(m+1,a₀)_b(Ω⁺₁∩{ρ_I>c/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω_c))
+        ≤ C(‖f_♭‖_(H^(m,(a₀,2α_I))_b) + ‖h‖_(H^(m+3))‖f_♭‖_(H^(4,(a₀,2α_I))_b)).                       {#eq:iv2-2-2}
+
+*Proof.* *Away from ℐ⁺.* Ω′ := Ω⁺₁ ∩ {ρ_I > c/4} lies in {1/16 ≤ τ′ ≤ 1 − c/8} for r₀ large (ρ_I = 1 − τ + 2ρ). Its
+interior boundary consists of {τ′ = 1/16}, initial, and the piecewise smooth ({ρ_I = c/4} ∪ Σ_(fut,r₀)) ∩ Ω̄′,
+spacelike ([[lem:iv2-1-1]] (a), [[lem:iii-c1-1-1]]) with Ω′ to its past. [[prop:iv-4-1]], for the system and with
+τ′, as in the proof of [[lem:iv2-2-2]], gives u₁ on Ω′ with ‖u₁‖_(H^(m+1,a₀)_b) ≤ C(‖f_♭‖_(H^(m,a₀)_b) plus the tame
+term); on Ω′, ρ_I > c/4, so the weight at ℐ⁺ does not matter. As the boundary to its future is spacelike, Ω′ is closed
+under the past within Ω⁺₁, and u₁ = u on Ω′ ([[lem:ii-f-1-3]]).
+
+*Near ℐ⁺.* Let χ_c := χ̂_c(ρ_I) with χ̂_c = 1 on [c/2, ∞) and 0 on [0, c/4], and u₂ := u − χ_cu₁ on Ω_c. Then
+u₂ = 0 on {ρ_I > c/2}, and
+
+    L_gu₂ = f₃ := (1 − χ_c)f_♭ − [L_g, χ_c]u₁,
+
+which vanishes on {ρ_I > c/2}, hence near Σ_in = {ρ_I = c}. The commutator is a first-order b-operator supported in
+{c/4 ≤ ρ_I ≤ c/2}, so ‖[L_g, χ_c]u₁‖_(H^(m,(a₀,2α_I))_b) ≤ C‖u₁‖_(H^(m+1,a₀)_b(Ω′)). u₂ is the forward solution on Ω_c
+from Σ_in (uniqueness by [[lem:ii-f-1-3]]), and [[prop:iv1-2-2]] on Ω_c ([[lem:iv2-2-1]]) gives the second term of
+[[eq:iv2-2-2]]. ∎
+
+**Theorem {#thm:iv2-2-4}** (The linear exterior estimate; [Hin23a, Theorem 3.35] in dimension 4 + 1, with [Hin26,
+(5.52)–(5.53)].) Let α₀ > ℓ^♭_I, a₀ := α₀ − 3/2, k ∈ ℕ₀, d := 4, and let h be small in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b. For
+f ∈ H^(k+d,α₀+2,(−′,ℓ^♭_I+1))_b(Ω_(ext,r₀)) and ġ₀, ġ₁ ∈ H^(k+d,α₀)_b(Σ_(IVP,r₀)) there is a
+ġ ∈ H^(k,α₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀)), unique in H^(max(k,1),α₀,(−,ℓ^♭_I))_b (the energy estimate needs H¹), with
+Lġ = f, ġ|_(Σ_(IVP,r₀)) = ġ₀ and rℒ_(∂_(t_IVP))ġ|_(Σ_(IVP,r₀)) = ġ₁; and with
+N(f, ġ₀, ġ₁; j) := ‖f‖_(H^(j,α₀+2,(−′,ℓ^♭_I+1))_b) + ‖ġ₀‖_(H^(j,α₀)_b) + ‖ġ₁‖_(H^(j,α₀)_b),
+
+    ‖ġ‖_(H^(k,α₀,(−,ℓ^♭_I))_b)
+        ≤ C(N(f, ġ₀, ġ₁; k + d) + ‖h‖_(H^(k+d+3,ℓ^♭₀,(−,ℓ^♭_I))_b)N(f, ġ₀, ġ₁; 8)),                        {#eq:iv2-2-3}
+
+with C depending on k, α₀, ℓ^♭_I, the parameters and the bound on h in H⁸, and not on h otherwise. At α₀ = ℓ^♭₀ this
+is the tame form [Hin26, (5.52)] of [[eq:iii-c1-2-2]]; [[eq:iii-c1-2-2]] itself follows, with C depending on h.
+
+*Proof.* *Step 1 (near Σ_IVP).* [[lem:iv2-2-2]] with s := k + 3 and α := α₀ gives ġ_N on Ω_N, including the past
+slab, bounded in H^(k+4,α₀)_b by [[eq:iv2-2-1]].
+
+*Step 2 (the forcing for the rest).* Let χ := χ̂_N(τ′), χ̂_N = 1 on (−∞, ⅛] and 0 on [¼, ∞). On Ω⁺, w := ġ − χġ_N must
+satisfy
+
+    Lw = f₂ := (1 − χ)f − [L, χ]ġ_N,     w = 0 on {τ′ < ⅛},
+
+as ġ = ġ_N on Ω_N (uniqueness in [[lem:iv2-2-2]]). f₂ vanishes on {τ′ < ⅛}, and [L, χ] ∈ ρ²Diff¹_b is supported in
+{⅛ ≤ τ′ ≤ ¼}, where ρ_I ≥ ½, so ‖[L, χ]ġ_N‖_(H^(k+3,α₀+2,(−′,ℓ^♭_I+1))_b) ≤ C‖ġ_N‖_(H^(k+4,α₀)_b). Put u := ρ^(−3/2)w;
+then L_gu = f_(2,♭) := 2ρ_Iρ^(−7/2)f₂ ∈ H^(k+3,(a₀,2β))_b in every slot ([[sec:iv2-0]]).
+
+*Step 3 (growth).* Fix ε := ¼(½ − β) > 0 and γ₀ := β − 1 + 2ε < 0; then γ₀ < min(a₀, 0), as a₀ > β > γ₀.
+[[lem:iv2-2-3]] with m := k + 3 and α_I := γ₀ gives u on Ω⁺₁, with [[eq:iv2-2-2]], and u = 0 on {τ′ < ⅛}, so u is the
+solution on Ω⁺. On Ω⁺ ∩ {ρ_I > c/2} this already bounds u in H^(k+4,a₀)_b, which is the claim there.
+
+*Step 4 (the equation near ℐ⁺).* On Ω_c, with u₂ of the proof of [[lem:iv2-2-3]], u₂ = 0 on {ρ_I > c/2} and, by
+[[eq:iv1-1-1]],
+
+    (X_I − Ā)(X₀ − X_I)u₂ = F := −½(f₃ − x_I²Δ̸u₂ − L̃_gu₂).                                              {#eq:iv2-2-4}
+
+*The gain.* For u₂ ∈ H^(j,(a₀,2γ))_b, x_I²Δ̸u₂ and L̃_gu₂ lie in H^(j−2,(a₀,2γ+1−2ε))_b: x_I²Δ̸ and x_Ia_iP_i carry the
+factor x_I and are of second order; for x_Iã_iP_i, [[lem:iv1-2-3]] with ã_i ∈ L^∞ and ã_i ∈ H^(j−2,(ℓ^♭₀,−2ε))_b (its
+expansion at ℐ⁺ starts at ρ_I⁰, which lies in every x_I^(−2ε)L²_b near ℐ⁺ but not in L²_b), and P_iu₂ ∈ x_I^(2γ)L^∞ by
+the embedding [[eq:iv-0-1]], gives
+
+    ‖x_Iã_iP_iu₂‖_(H^(j−2,(a₀,2γ+1−2ε))_b)
+        ≤ C(‖u₂‖_(H^(j,(a₀,2γ))_b) + ‖h‖_(H^j)‖u₂‖_(H^(5,(a₀,2γ))_b)).                                    {#eq:iv2-2-5}
+
+With u₂ ∈ H^((1;m))_(e,b;b) in place of H^j, the loss is one b-derivative instead of two, as
+P_i ∈ Diff¹_(e,b)Diff¹_b and x_I²Δ̸ ∈ x_IDiff¹_(e,b)Diff¹_b. And f₃ ∈ H^(k+3,(a₀,2β))_b: f_(2,♭) is, and [L_g, χ_c]u₁
+is supported in {ρ_I ≥ c/4}.
+
+*Step 5 (the integration, slot by slot).* Write [[eq:iv2-2-4]] by slots. As Ā is lower triangular with the entries of
+[[sec:iv2-0]], for j ≠ 6
+
+    (X_I − Ā_(jj))Y_j = F_j + Σ_(i<j, i≠6) Ā_(ji)Y_i,     Y_j := (X₀ − X_I)u_(2,j),                    {#eq:iv2-2-6}
+
+and, X_I and X₀ − X_I commuting, for slot 6
+
+    (X₀ − X_I)Z₆ = F₆,     Z₆ := X_Iu_(2,6).                                                           {#eq:iv2-2-7}
+
+All of Y_j, Z₆, u₂, F vanish on {ρ_I > c/2}, so [[lem:iv2-1-2]] applies; the solution of each equation vanishing there
+is unique (it is an ordinary differential equation along curves that reach {ρ_I = c}, [[lem:iv2-1-1]] (b)).
+
+*First integration.* u₂ ∈ H^((1;k+3),(a₀,2γ₀))_(e,b;b) (Step 3), so by Step 4, F ∈ H^(k+2,(a₀,2γ₁))_b with
+γ₁ := min(β, γ₀ + ½ − ε) = β − ½ + ε < 0. For j ≠ 6, in the order 1, 2, 3, 4, 5, 7, [[lem:iv2-1-2]] (a) with
+d = Ā_(jj) ≥ d_* > γ₁ gives Y_j ∈ H^(k+2,(a₀,2γ₁))_b, the right side of [[eq:iv2-2-6]] lying there by induction; then
+[[lem:iv2-1-2]] (c), a₀ > γ₁, gives u_(2,j) ∈ H^(k+2,(a₀,2γ₁))_b. For slot 6, [[lem:iv2-1-2]] (c) gives Z₆, and
+[[lem:iv2-1-2]] (a) with d = 0 > γ₁ gives u_(2,6) ∈ H^(k+2,(a₀,2γ₁))_b.
+
+*Second integration.* Now u₂ ∈ H^(k+2,(a₀,2γ₁))_b, so by Step 4 (with two derivatives lost), F ∈ H^(k,(a₀,2γ₂))_b,
+γ₂ := min(β, γ₁ + ½ − ε) = β. As in the first integration, with d_* > β ([[eq:iv2-0-1]]) and a₀ > β,
+u_(2,j) ∈ H^(k,(a₀,2β))_b for j ≠ 6. For slot 6, Z₆ ∈ H^(k,(a₀,2β))_b by [[lem:iv2-1-2]] (c), and [[lem:iv2-1-2]] (b),
+β > 0, gives u_(2,6) = u^((0)) + ũ₆ with u^((0)) ∈ H^(k,a₀)_b(ℐ⁺ ∩ Ω̄_c) and ũ₆ ∈ H^(k,(a₀,2β))_b.
+
+*Step 6 (assembly).* On Ω_c, u = u₂ + χ_cu₁, with χ_cu₁ supported in {ρ_I ≥ c/4}; on Ω⁺ ∩ {ρ_I > c/2}, Step 3; on Ω_N,
+Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = ũ₆ + (1 − χ_I)u^((0)) + χ_cu_(1,6) on Ω_c, and
+(1 − χ_I)u^((0)) is supported in {ρ_I ≥ c/4} within Ω_c, where every weight at ℐ⁺ is equivalent. So
+u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
+
+*The estimate.* Each step is bounded by the previous ones: Step 1 by [[eq:iv2-2-1]], Step 3 by [[eq:iv2-2-2]], Step 4
+by [[eq:iv2-2-5]], Step 5 by the constants of [[lem:iv2-1-2]]. The tame terms carry ‖h‖ at most three orders above the
+order of the norm on the right ([[eq:iv2-2-1]], [[eq:iv2-2-2]], [[eq:iv2-2-5]]), and the lower norms of f and of the
+data are of order at most 8; this gives [[eq:iv2-2-3]]. *Uniqueness.* Two solutions differ by one with vanishing data
+and source; it vanishes on Ω_N by [[lem:iv2-2-2]], and on Ω⁺ as the forward solution with vanishing source
+([[lem:ii-f-1-3]]). ∎
+
+[Hin23a, Theorem 3.35] integrates π_(CΥ)u, then π̸₀u, then π₁₁u, and repeats, because in dimension 3 + 1 the radiation
+field of π̸₀u enters the equation of π₁₁u through the h-dependent entry A̸₁₁ of [Hin23a] and through the second-order
+error acting on π̸₀u, and π₁₁u has the size of the leading part. In dimension 4 + 1 both are in L̃_g, gaining
+x_I^(1−2ε), and Ā₇₆ = 0: so all slots improve together, two integrations from the growth weight γ₀ suffice, with a loss
+of d = 4 derivatives, and π₁₁ġ has no radiation field ([[rem:s17-no-radiation]]).
+
+### The nonlinear exterior solution {#sec:iv2-3}
+
+This section is [Hin23a, Corollary 3.36] in dimension 4 + 1, the nonlinear part of [Hin26, Theorem 5.17].
+
+**Theorem {#thm:iv2-3-1}** (The nonlinear exterior solution.) Let g₀ be as in [[sec:iv2-0]] and d := 7. There are
+ε₀ > 0 and, for every k and ε > 0, an ε₁ ∈ (0, ε₀] such that for h₀, h₁ ∈ H^(∞,ℓ^♭₀)_b(Σ_(IVP,r₀); S²T*) with
+‖h_j‖_(H^(2d,ℓ^♭₀)_b) < ε₀ the problem
+
+    P(g₀ + h, g₀) = 0 in Ω_(ext,r₀),     h = h₀,  rℒ_(∂_(t_IVP))h = h₁ on Σ_(IVP,r₀),                     {#eq:iv2-3-1}
+
+has a solution h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀)) small in H^(3d) of this class, unique among the solutions small
+in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, and ‖h_j‖_(H^(2d+k,ℓ^♭₀)_b) < ε₁ gives ‖h‖_(H^(3d+k,ℓ^♭₀,(−,ℓ^♭_I))_b) < ε.
+
+*Proof.* Apply [[thm:ii-g-2-1]] with d = 7 and:
+
+- B^k := H^(k,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*), with the norm of [[eq:iv2-0-3]] after conjugation, and
+  F^k := H^(k,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b(Ω_(ext,r₀)) × H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀))², the norms made monotone in k by
+  [[rem:ii-g-2-2]];
+- trivial support classes: the subspaces B^k_η and F^∞_η of [[thm:ii-g-2-1]] all equal to B^k and F^∞, and η₀ := 1;
+- Φ(h) := (P(g₀ + h, g₀), h|_(Σ_(IVP,r₀)) − h₀, rℒ_(∂_(t_IVP))h|_(Σ_(IVP,r₀)) − h₁) on the set {|h|_(3d) < δ}.
+
+*(i) Smoothing.* Componentwise: for the slots other than 6, and separately for the remainder ũ₆ and the radiation
+field u^((0)) of slot 6, the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], which acts on weighted b-Sobolev
+spaces without support conditions, built in the same way on Ω_(ext,r₀) and on ℐ⁺ ∩ Ω_(ext,r₀) respectively; then
+reassemble with χ_I. The norm of B^k is the sum of these norms, so [[eq:ii-g-2-1]] holds; the support conditions are
+vacuous.
+
+*(ii) The map.* By [[cor:iii-c-5-3]] (with ℰ₀ = ∅, ℓ₀ = ℓ^♭₀, and ⟨ℰ_I^C⟩ at the weight ℓ^♭_I, which by
+[[def:iii-c-3-1]] is the class (−, ℓ^♭_I) of B^k), P(g₀ + h, g₀) ∈ H^(k−2,ℓ^♭₀+2,(−′,ℓ^♭_I+1))_b for h ∈ B^k small in
+B⁵, and by [[eq:iii-c-5-5]] and [[prop:iii-c-5-2]] it is C² in h, with
+Φ′(h)ḣ = (L^(g₀+h,g₀)ḣ, ḣ|_Σ, rℒ_(∂_(t_IVP))ḣ|_Σ) and Φ″ bilinear in two b-derivatives, with coefficients rational in
+h and its first two b-derivatives. [[eq:ii-g-2-2]] and [[eq:ii-g-2-3]] follow from the Moser estimates
+([[lem:iv1-2-3]], [[lem:iii-c-2-1]]), the loss being 2 and the low norms of order at most 5 ≤ d. The trace on
+Σ_(IVP,r₀) is bounded B^(k+1) → H^(k,ℓ^♭₀)_b(Σ_(IVP,r₀)), which lies within the loss d.
+
+*(iii) Right inverses.* For h in the set above, Ψ(h)(f, ġ₀, ġ₁) := ġ of [[thm:iv2-2-4]] with α₀ := ℓ^♭₀ > ℓ^♭_I. Then
+Φ′(h)Ψ(h) = id on F^∞, and [[eq:iv2-2-3]] gives [[eq:ii-g-2-4]]:
+|Ψ(h)F|_k ≤ C(‖F‖_(k+4) + |h|_(k+7)‖F‖₈) ≤ C(‖F‖_(k+d) + |h|_(k+d)‖F‖_(2d)) for k ≥ d, and 3d ≥ 8 gives the
+smallness of h that [[thm:iv2-2-4]] asks. The support statement of (iii) is vacuous.
+
+Φ(0) = (0, −h₀, −h₁), as P(g₀, g₀) = 0 (the proof of [[cor:iii-c-5-3]]). So [[thm:ii-g-2-1]] gives h with |h|_(3d) < δ
+and Φ(h) = 0 when ‖h₀‖_(2d) + ‖h₁‖_(2d) is below the ε of that theorem. *Higher norms.* For k ≥ 0 the shifted scales
+|v|′_j := |v|_(j+k), ‖f‖′_j := ‖f‖_(j+k) satisfy (i)–(iii) with the same d: [[eq:ii-g-2-1]] and [[eq:ii-g-2-4]] are
+invariant under the shift, and [[eq:ii-g-2-3]] holds on {|h|′_(3d) < δ} ⊂ {|h|_(3d) < δ} with constants depending on k.
+So data small in H^(2d+k) give a solution small in H^(3d+k), with any δ = ε; by uniqueness it is the same h.
+*Uniqueness.* If h and h′ solve [[eq:iv2-3-1]] and are small in B⁸, then L̄(h − h′) = 0 with vanishing data, where
+L̄ := ∫₀¹ L^(g₀+h′+s(h−h′),g₀) ds. Each L^(g₀+h_s,g₀) has the form [[eq:iv1-1-1]] with the same leading part, which does
+not depend on h, and a remainder in the class [[eq:iv2-0-4]], uniformly in s; so L̄ has this form too, and its principal
+part, an average of ½□_(g_s) with g_s close to g_(b₀), is a wave operator with the same causal structure. [[lem:iv2-2-2]]
+and [[lem:iv2-2-3]] hold for L̄ (their proofs use only these properties), and the difference vanishes. ∎
+
+**Remark {#rem:iv2-3-2}** (Constraints.) If the data of [[thm:iv2-3-1]] satisfy the vacuum constraint equations and
+the gauge condition on Σ_(IVP,r₀), the solution is Ricci flat and satisfies the gauge condition on Ω_(ext,r₀):
+[[rem:iii-c1-2-2]] (1) applies to it as stated there.
+

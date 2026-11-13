@@ -136,10 +136,10 @@ bounded factors. ∎
 
 **Lemma {#lem:energy}** (Energy inequality.) Let g̃ be a Lorentzian metric on Ω with |g̃ − g0| ≤ ε1, ε1 the number fixed
 after [[lem:lorentz-margin]], so that [[lem:domain]] (e) applies to g̃ and |g̃⁻¹| ≤ (s0 − ε1)⁻¹ by
-[[lem:lorentz-margin]], and with ‖∂g̃‖_∞ ≤ M. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u =
+[[lem:lorentz-margin]], and with ‖∂g̃‖_∞ ≤ Λ. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u =
 f on Ω. Then for τ ∈ [τ0, τ_end],
 
-    ‖∂u(τ)‖ + ‖u(τ)‖ ≤ C(M) (‖∂u(τ0)‖ + ‖u(τ0)‖ + ∫_(τ0)^τ ‖f(s)‖ ds).                                {#eq:energy}
+    ‖∂u(τ)‖ + ‖u(τ)‖ ≤ C(Λ) (‖∂u(τ0)‖ + ‖u(τ0)‖ + ∫_(τ0)^τ ‖f(s)‖ ds).                                {#eq:energy}
 
 *Proof.* Take the multiplier Y := −g̃⁻¹ dτ, future timelike by [[lem:domain]] (e), the energy current
 J^a = T^a_b Y^b with T_ab = ∂_a u ∂_b u − (1/2) g̃_ab g̃(du, du), and apply the divergence theorem on Ω ∩ {τ0 ≤ s ≤ τ}
@@ -147,7 +147,7 @@ in the coordinate density. The flux through Σ_τ equals the flux through Σ_τ0
 boundaries, plus the bulk integral. The lateral boundaries are spacelike with Ω to their past
 ([[lem:domain]] (b), (c), (e)), so their fluxes are nonnegative and are dropped. The fluxes through
 Σ_τ are comparable to ‖∂u‖², by the dominant energy condition, since Y and the normal are uniformly timelike by
-[[lem:domain]] (e) and |g̃⁻¹| ≤ (s0 − ε1)⁻¹. The bulk is bounded by C(M)(‖∂u‖² + ‖f‖ ‖∂u‖), since ∂g̃,
+[[lem:domain]] (e) and |g̃⁻¹| ≤ (s0 − ε1)⁻¹. The bulk is bounded by C(Λ)(‖∂u‖² + ‖f‖ ‖∂u‖), since ∂g̃,
 g̃⁻¹ and ∂Y = g̃⁻¹ (∂g̃) g̃⁻¹ dτ are bounded, the constant depending also on Ω and s0 − ε1. The norm ‖u‖ is added through
 ∂_τ ‖u‖² = 2 ⟨u, ∂_τ u⟩ plus the boundary term b'(τ) ∫_(|x|=b) |u|² ≤ 0. Gronwall's inequality concludes. ∎
 

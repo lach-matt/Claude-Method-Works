@@ -122,3 +122,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   chapters keep the stated constants; sharpening them is optional. Its optional corollary bounds |R_app - R|.
 - Notation: the S16 reader proposes ϰ in place of λ for the ι⁺ parameter (S16-S21), with a caveat about κ. The S16 fix
   round applies it in S16 and lists the other chapters; the integration pass carries it.
+
+## From the S1 confirming reading (2026-11-13)
+
+- S1's six nits (R2-S01): N1 the initial-segment step for (H4)'s maximal curves on the smaller domain; N2 the
+  parenthesis in Proposition 5.2 on where a derivative is negative; N3 Lemma 4.1 names C_y before y is defined; N4 the
+  high-energy remark uses the cokernel description from Theorem 7.2 (3) as well as the Fredholm property; N5 the
+  symbol r₂ := σ(ρ⁻¹R₂) collides with the radius r₂; N6 𝒩 names a kernel (reserved for an energy).
+- The radii ordering r₀ + δ₀ < r₂ is now a standing hypothesis in S1 (margin at least 5R₁/16, sharp at r_♭ = ½R₁).
+  Chapter 31 fixes the radii; carry the condition into chapters 21, 24, 25, 26, 28, 29, 31, 32 and 34 (38 optional).
+- Rank still written ℂ^N in chapters 23, 24, 28 and 34, and "N" at chapter 22 line 33: change to N_E.
+- Chapter 23 writes e^(−Mz); C_z would match S1.

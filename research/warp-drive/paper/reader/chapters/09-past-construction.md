@@ -41,28 +41,28 @@ infinity (v and x̂ fixed, r → ∞). (f) There is ε_P > 0 such that for every
 decreasing along future causal curves; L0 is transverse to Σ_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
 τ1 ≤ τ(p).
 
-*Proof.* (a) is [[lem:domain]] (a). (b) dΦ_B = dv + h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because
-dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r²,
-so g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and
-dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the condition reads v ≤ V_P − κ_P. (d) On P⁺, r = v − τ = v − τ0 − 1 + t
-with v ∈ [v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because V_P − κ_P = V + 1 + τ_end − τ0 ≥
-v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so v + h_P ≤ V_P is kept, r = v − τ grows
-without bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of [[lem:domain]] (b) are strict,
-with a margin of at least (κ_P/2) t^(−5/4) in (b) and fixed margins in (a) and in [[lem:domain]] (b), the latter
-holding at r = a < √μ0 whatever τ is; the causal claim follows as in [[lem:domain]] (e). ∎
+*Proof.* (a) is [[lem:domain]] (a). (b) dΦ_B = dv + h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because dt/dτ =
+−1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r², so g0⁻¹(dΦ_B, dΦ_B) =
+−2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and dτ(Y) > 0, so
+dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the condition reads v ≤ V_P − κ_P. (d) On P⁺, r = v − τ = v − τ0 − 1 + t with v ∈
+[v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because V_P − κ_P = V + 1 + τ_end − τ0 ≥ v_start +
+1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so v + h_P ≤ V_P is kept, r = v − τ grows without
+bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of [[lem:domain]] (b) are strict, with a margin of
+at least (κ_P/2) t^(−5/4) in (b) and fixed margins in (a) and in [[lem:domain]] (b), the latter holding at r = a < √μ0
+whatever τ is; the causal claim follows as in [[lem:domain]] (e). ∎
 
 **Lemma {#lem:seed-region}** (The seed region.) Let g solve Ric^H(g) = 0 on P ∩ {τ1 ≤ τ ≤ τ2}, be C², satisfy the
 margin of [[lem:past-domain]] (f), and agree with g0 on Σ_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
 Then g = g0 on P ∩ {τ1 ≤ τ ≤ τ2, v ≤ v_start}.
 
 *Proof.* g0 is vacuum on {v ≤ v_start}, where μ is constant. For 0 < ε ≤ 1 let R_ε := P ∩ {τ ≥ τ1, v + ε h_P(τ) ≤
-v_start}, and τ* the supremum of the τ′ ≤ τ2 with g = g0 on R_ε ∩ {τ ≤ τ′}. R_ε ∩ Σ_τ* is compact, g = g0 on it, and g is
-continuous, so on a neighbourhood U of it |g⁻¹ − g0⁻¹| ≤ (εκ_P/8) t^(−5/4). There {v + ε h_P = v_start} is spacelike for g
-and g0 with R_ε to its past (the calculation of [[lem:past-domain]] (b) with εκ_P in place of κ_P), and {r = a} likewise
-([[lem:past-domain]] (f)). The difference u := g − g0 solves −½ g^(ab) ∂_a ∂_b u = f with |f| ≤ C(|u| + |∂u|), since
-the principal part and Q of [[eq:gauge]] are smooth in (g, ∂g) and ∂²g0 is bounded; u = ∂_τ u = 0 on Σ_τ*,
-and the proof of [[lem:energy]] on R_ε ∩ {τ* ≤ τ ≤ τ* + δ}, δ small so that the region lies in U, gives u = 0
-there. So τ* = τ2. Letting ε → 0 covers {v < v_start}, and continuity covers v = v_start. ∎
+v_start}, and τ* the supremum of the τ′ ≤ τ2 with g = g0 on R_ε ∩ {τ ≤ τ′}. R_ε ∩ Σ_τ* is compact, g = g0 on it, and g
+is continuous, so on a neighbourhood U of it |g⁻¹ − g0⁻¹| ≤ (εκ_P/8) t^(−5/4). There {v + ε h_P = v_start} is spacelike
+for g and g0 with R_ε to its past (the calculation of [[lem:past-domain]] (b) with εκ_P in place of κ_P), and {r = a}
+likewise ([[lem:past-domain]] (f)). The difference u := g − g0 solves −½ g^(ab) ∂_a ∂_b u = f with |f| ≤ C(|u| + |∂u|),
+since the principal part and Q of [[eq:gauge]] are smooth in (g, ∂g) and ∂²g0 is bounded; u = ∂_τ u = 0 on Σ_τ*, and the
+proof of [[lem:energy]] on R_ε ∩ {τ* ≤ τ ≤ τ* + δ}, δ small so that the region lies in U, gives u = 0 there. So τ* = τ2.
+Letting ε → 0 covers {v < v_start}, and continuity covers v = v_start. ∎
 
 ### Inequalities on the past slices {#sec:past-inequalities}
 
@@ -148,9 +148,9 @@ commutes with 𝒞 and with ψ_v. When ψ depends on τ, L0 𝒞 g and L0² 𝒞
 
     ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h_P′/Δ²,
 
-since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are at
-most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ − τ)|
-≤ C/r.
+since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are
+at most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and |3ψ_v/r − 3/(ψ
+− τ)| ≤ C/r.
 
 *The angular part.* Δ̊ acts on x̂ at fixed (τ, v) and commutes with 𝒞, so [r⁻² Δ̊, 𝒞] = (r⁻² − (ψ − τ)⁻²) 𝒞 Δ̊, of size
 C λ r⁻³ times two rotations, that is C λ r⁻¹ times two derivatives.
@@ -355,13 +355,13 @@ step of the iteration; the transports solved along the integral curves of L0 fro
 leading terms. These data and the forcing terms of (a)–(c) vanish for v ≤ v_start, since each forcing term contains a
 profile of an earlier stage; so every iterate vanishes there, by the last clause of [[lem:past-linear-wave]] for (a) and
 because the transports run at fixed v. Hence the differences of iterates and the solution vanish on P_n ∩ {v ≤ v_start},
-as [[lem:past-energy]] requires. Its remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the classes are preserved), and let e(τ) be
-the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ :=
-∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at most C t^(3/2−q), and
-[[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with c0 = 0 for ∂_v φ̃ and
-Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport of [[lem:commutator-transport]] with
-σ̃ := m̃(ℓ, ℓ) + q_m in place of 𝒫 s, □̃ σ̃ taken from (a), so that no derivative is lost), and with c0 = 3/2 for Z̃
-((c) and [[lem:first-stage-operator]]) give, with every integral over (τ_n, τ),
+as [[lem:past-energy]] requires. Its remainders start at zero. Commute the system with ∂_X and Ω to an order j0 (the
+classes are preserved), and let e(τ) be the energy of m̃ to that order, f(τ) the norms of ∂_v φ̃ and Ω φ̃, p(τ) that of
+Ψ̃ := □̃ φ̃, and z(τ) that of Z̃ := ∂_θ ĝ̃ (zero mean, so ‖ĝ̃‖ ≤ ‖Z̃‖). The L² norm of an E_q-profile on A_P(τ) is at
+most C t^(3/2−q), and [[lem:past-sobolev]] (b) bounds m̃ by e. [[lem:past-energy]] for (a), [[lem:past-transport]] with
+c0 = 0 for ∂_v φ̃ and Ω φ̃ (L0 commutes with ∂_v and Ω), with c0 = 2 for Ψ̃ (the transport of
+[[lem:commutator-transport]] with σ̃ := m̃(ℓ, ℓ) + q_m in place of 𝒫 s, □̃ σ̃ taken from (a), so that no derivative is
+lost), and with c0 = 3/2 for Z̃ ((c) and [[lem:first-stage-operator]]) give, with every integral over (τ_n, τ),
 
     e ≤ C ∫ ( t⁻² e + t^(−3/2) z + t⁻³ f + t⁻² ),            t^(−3/2) f ≤ C ∫ t^(−3/2) ( e + t^(−3/2) ),
     t^(1/2) p ≤ C ∫ t^(1/2) ( t⁻¹ e + t⁻² f + t^(−3/2) (z + p) + t⁻² ),
@@ -389,24 +389,24 @@ forcing term of (c) is in E_(7/2); and ĝ̃ is in E_(5/2) with ℓĝ̃ in E_(7/2
 likewise for the derivatives that commute with ℓ, and ℓĝ̃ = −(3/(2r)) ĝ̃ − c ĝ̃ + (forcing) is in E_(7/2). So
 ĝ_(m+1) = ĝ⁰ + ĝ̃ is in O_2. This is [[eq:past-classes]] at stage m.
 
-*The residual, the phase, the continuation.* The argument of the proof of [[thm:approximant]] gives ℛ^(m) = 0 for m ≤ N −
-1. The rest of the residual is λ^N times a sum of monomials of [[eq:gauge]] with all factors known, each in E_3 by the
+*The residual, the phase, the continuation.* The argument of the proof of [[thm:approximant]] gives ℛ^(m) = 0 for m ≤ N
+− 1. The rest of the residual is λ^N times a sum of monomials of [[eq:gauge]] with all factors known, each in E_3 by the
 count; the expansion of g⁻¹ converges uniformly, since |g_app − g0| ≤ C λ r^(−3/2). Rewriting with the fixed phase v
-(Taylor's formula in λ Σ_(j≥2) λ^(j−2) φ_j about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in its class, and costs
-λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows because ∂^i [f] costs λ^(−i) and Ω
-costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2). (E1) holds (W_TT and χ dv dv are
-transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles' data determine, by
-[[lem:stage-system]] on Ω, solutions there; the two solve the same smooth linear system and agree on Σ_τ0 with all their
-τ-derivatives, each fixed by the system from the data, so together they are smooth on P ∪ Ω. The stage system is
-equivariant under T² × Z2 × Z2 and under S of [[lem:quarter-turn]], the condition of nothing coming in is invariant, and
-the solutions are unique, so they are invariant. ∎
+(Taylor's formula in λ Σ_(j≥2) λ^(j−2) φ_j about θ + φ1) multiplies profiles by powers of φ_j, keeping every product in
+its class, and costs λ^(N+1) in the metric and so λ^(N−1) in Ric^H: R_N is in E_3. The scaled norm follows because ∂^i
+[f] costs λ^(−i) and Ω costs nothing, and the L² norm of an E_3 profile on A_P(τ) is at most C t^(−3/2). (E1) holds
+(W_TT and χ dv dv are transverse to ℓ), and (E2) by stage 0. On Σ_τ0 ([[lem:past-domain]] (c)) the profiles' data
+determine, by [[lem:stage-system]] on Ω, solutions there; the two solve the same smooth linear system and agree on Σ_τ0
+with all their τ-derivatives, each fixed by the system from the data, so together they are smooth on P ∪ Ω. The stage
+system is equivariant under T² × Z2 × Z2 and under S of [[lem:quarter-turn]], the condition of nothing coming in is
+invariant, and the solutions are unique, so they are invariant. ∎
 
 ### The far and near regions {#sec:far-near}
 
 Let β0 be the number of [[prop:near-region]], which does not depend on the order of the approximant. For K ≥ 6 take the
 approximant of [[thm:past-approximant]] with N := K + 4 + ⌈4β0⌉ stages and put K′ := N − 1 = K + 3 + ⌈4β0⌉, its order,
-so that the residual F_R := −Ric^H(g_app) has |F_R|_(k,P) ≤ C_R λ^(K′) t^(−3/2), with k = 6. Put T_λ := λ⁻² and let τ_λ be the time with t =
-T_λ; the *far region* is P ∩ {τ ≤ τ_λ}, the *near region* P ∩ {τ_λ ≤ τ ≤ τ0}.
+so that the residual F_R := −Ric^H(g_app) has |F_R|_(k,P) ≤ C_R λ^(K′) t^(−3/2), with k = 6. Put T_λ := λ⁻² and let τ_λ
+be the time with t = T_λ; the *far region* is P ∩ {τ ≤ τ_λ}, the *near region* P ∩ {τ_λ ≤ τ ≤ τ0}.
 
 *The coefficients on P.* By [[thm:past-approximant]] and [[eq:ue-linearisation]], on P⁺: the coefficients B and C
 of the linearised operator are in E_(3/2), being built from g_app and ∂g_app, and ∂[λ g1] = dv [∂_θ g1] + λ [∂g1];
@@ -548,10 +548,10 @@ bound: the bootstrap bounds improve to B/2. The margin of [[lem:past-domain]] (f
 ### Proof of the construction {#sec:past-proof}
 
 The proof below gives, for every K ≥ 6, numbers λ_P > 0 and C and, for 0 < λ ≤ λ_P, a smooth vacuum metric g_λ on
-P ∪ Ω in the wave-map gauge relative to g0, with g_app the approximant of [[thm:past-approximant]] of order N =
-K + 4 + ⌈4β0⌉, such that:
+P ∪ Ω in the wave-map gauge relative to g0, with g_app the approximant of [[thm:past-approximant]] with
+N = K + 4 + ⌈4β0⌉ stages, such that:
 
-- (P-i) g_λ = g0 on P ∩ {v ≤ v_start}: the seed, exactly;
+- (P-i) g_λ = g0 on (P ∪ Ω) ∩ {v ≤ v_start}: the seed, exactly;
 - (P-ii) for every v < V_P and x̂, r^(3/2) (g_λ − g0 − λ [W_TT])(v − r, r x̂) → 0 as r → ∞, with [W_TT] taken at the
   phase v/λ;
 - (P-iii) on P, |g_λ − g_app| ≤ C λ^(K−3) t⁻² and |∂(g_λ − g_app)| ≤ C λ^(K−4) t⁻²;
@@ -561,8 +561,8 @@ K + 4 + ⌈4β0⌉, such that:
   here ε_U > 0 is so small that this class lies in the margin of [[lem:past-domain]] (f), since |g_app − g0| ≤
   C λ t^(−3/2) and t^(−3/2) ≤ t^(−5/4).
 
-These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-construction]]; the second part of item 4 is
-[[prop:past-items]].
+These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-construction]], (P-iii) being item 3 together
+with the bound on the first derivatives; the second part of item 4 is [[prop:past-items]].
 
 *Proof of [[thm:past-construction]].* *The solution on P ∪ Ω.* At τ0, Data(w_n), the norm of (E4) of
 [[thm:uniform-existence]], satisfies Data(w_n) ≤ C λ⁻¹ 𝒩_P(τ0) ≤ C M_N λ^(K′−2β0−1), since the term ‖∂_x(φ G1)‖
@@ -577,7 +577,17 @@ with k − 5 derivatives on compact sets. The limit is smooth: for fixed λ the 
 in n by the linear energy estimates for the commuted equation, with constants depending on λ and the order, whose
 kernels are C(λ) t^(−3/2) on the far region, which is integrable, and are taken over the bounded interval [τ_λ, τ0] on
 the near region, with no decomposition needed for fixed λ; the limit does not depend on the order used, by the
-uniqueness of (P-v). It solves Ric^H(g_λ) = 0 on P ∪ Ω and equals g0 on {v ≤ v_start}: (P-i).
+uniqueness of (P-v). It solves Ric^H(g_λ) = 0 on P ∪ Ω, it satisfies the bounds of [[thm:uniform-existence]] on Ω,
+|g_λ − g0| ≤ C λ ≤ ε1 among them, and it equals g0 on P ∩ {v ≤ v_start}, since each g_n does, by [[lem:seed-region]]
+with the margin of [[prop:far-region]] and [[prop:near-region]].
+
+*The seed region on Ω.* The proof of [[lem:seed-region]] runs on Ω from Σ_τ0, where g_λ agrees with g0 on
+{v ≤ v_start} together with its first τ-derivative, g_λ being smooth on P ∪ Ω. In place of {v + ε h_P(τ) = v_start}
+it uses the surfaces {v + ε(τ − τ0) = v_start}, 0 < ε ≤ 1, for which g0⁻¹(dv + ε dτ, dv + ε dτ) = −2ε −
+ε²(1 + μ/r²) < 0 by [[prop:vaidya]] (d), while v + ε(τ − τ0) increases along future causal curves of g0. So near the
+points where g_λ = g0 these surfaces are spacelike for g_λ too, with {v + ε(τ − τ0) ≤ v_start} to their past, and the
+other boundary pieces of Ω are spacelike for g_λ with Ω to their past ([[lem:domain]] (e)). Letting ε → 0 gives
+g_λ = g0 on Ω ∩ {v ≤ v_start}. This is (P-i).
 
 *The bounds (P-iii).* On the far region, [[eq:far-energy]] and [[lem:past-sobolev]] (a) give |w| ≤ C M_F λ^(K′−3) t⁻²
 and |∂w| ≤ C M_F λ^(K′−4) t⁻². On the near region, [[eq:near-bootstrap]] with (T_λ/t)^β0 ≤ λ^(−2β0) gives
@@ -594,8 +604,10 @@ g^(ab)(Γ[g] − Γ[g0])^ρ_(ab), and equals g0^(ρσ) (∂_θ g1)(ℓ, ·)_σ �
 −(3/(2r)) W_TT and r⁻¹ Ω W_TT are in E_(5/2); and every other term is a product, or a derivative of a stage-j profile of
 class E_2. An r⁻² amplitude on A_P(τ) has L² norm at most C (∫_(r_in)^(r_in+d1) r⁻⁴ r³ dr)^(1/2) ≤ C t^(−1/2); so the
 energy of D(g_λ) on A_P(τ) is at most C t^(−1/2), and tends to zero as τ → −∞. [[lem:past-energy]], with the integrable
-kernel C(λ) t^(−3/2), gives D(g_λ) = 0 on P. Then D = ∂_τ D = 0 on Σ_τ0, and [[lem:gauge-propagation]] gives D = 0 on Ω:
-g_λ is vacuum.
+kernel C(λ) t^(−3/2), gives D(g_λ) = 0 on P. Then Ric(g_λ)_mn = Ric^H(g_λ)_mn + ½(g_mρ ∇̂_n D^ρ + g_nρ ∇̂_m D^ρ) = 0 on
+P, Σ_τ0 included, so the Cauchy data of g_λ on Σ_τ0 satisfy the vacuum constraints, and D(g_λ) = 0 there. On Ω, g_λ is
+smooth, solves Ric^H(g_λ) = 0 and is within ε1 of g0. These are the hypotheses of [[lem:gauge-propagation]], which gives
+D(g_λ) = 0 on Ω: g_λ is vacuum.
 
 *The radiation field (P-ii).* g_λ − g0 − λ[W_TT] = w + λ[m1] + λ[χ dv dv] + λ([W_TT(· + φ1)] − [W_TT]) +
 Σ_(j≥2) λ^j [g_j]. Here |w| ≤ C λ^(K−3) t⁻², m1 and χ are in L_2, W_TT(· + φ1) − W_TT is in L_1 L_(3/2), and every g_j
@@ -607,9 +619,7 @@ as r → ∞.
 and energy of g′ − g_app tending to zero, δ := g_λ − g′ solves a linear system with coefficients at most
 C(λ) t^(−3/2) (they involve ∂²g_λ and ∂g′, both controlled), its energy tends to zero at −∞, and [[lem:past-energy]]
 gives δ = 0 on P; the uniqueness of Step 8 of the proof of [[thm:uniform-existence]] continues this to Ω. The data at
-past null infinity, g_app and the equation are invariant under T² × Z2 × Z2, so g_λ is too, by this uniqueness.
-Finally, the argument of [[lem:gauge-propagation]] holds on Ω for g_λ, with the datum on Σ_τ0 being the trace of g_λ
-itself. ∎
+past null infinity, g_app and the equation are invariant under T² × Z2 × Z2, so g_λ is too, by this uniqueness. ∎
 
 ### The horizon and the mean mass for these solutions {#sec:past-items}
 
@@ -651,7 +661,8 @@ expansion as a function of the metric; (iii) is (2); (iv) is (1), giving C λ^(K
 only. In the proof of [[prop:mean-mass]], outside the shell g_app = g0 + λ m1 + λ² E by (3), DM[m1] = 0 by (4) and
 naturality, and the remainder is O(λ^(K−4)) by (1); inside the shell the wave enters M[S](g_app) at order λ⁰ only
 through ½ k^±(ℓ) ∂_θ tr_S g1, which vanishes by (2), θ⁻, the area and g(n⁺, n⁻) carrying none
-([[lem:sphere-two-scale]]). ∎
+([[lem:sphere-two-scale]]); and for λ* < λ ≤ λ_P, λ* that of [[lem:sphere-two-scale]], its step for larger λ uses only
+|g_λ − g0| ≤ ε1 and |∂g_λ| ≤ C on Ω, which are conclusions of [[thm:uniform-existence]] and hold for g_λ by (1). ∎
 
 The columns of [[prop:one-zero]] are those of D_T ∩ {τ ≥ τ0}. On P the columns continue below Σ_τ0, where (P-iii)
 bounds g_λ − g_app and its first derivatives by C λ^(K−3) t⁻² and C λ^(K−4) t⁻², and the second derivatives that step
@@ -667,12 +678,12 @@ the polarizations of [[eq:waves-hopf]] at the phase v/λ, and
 
     a_s(v) := λ env(v) sin(v/λ),   a_c(v) := λ env(v) cos(v/λ),   D_s := a_s′,   D_c := a_c′,
 
-so that F = A h(ζ) a_s and G = A h(ζ) a_c along the phase. The flux density is the quadratic form (4/3)(∂_v P1² + ∂_v P1
-∂_v P2 + ∂_v P2²), whose phase mean at leading order is μ′ ([[eq:stage-zero]], [[prop:limit]]).
+so that F = A h(ζ) a_s and G = A h(ζ) a_c along the phase. The flux density is the quadratic form (4/3)((∂_v P1)² + ∂_v
+P1 ∂_v P2 + (∂_v P2)²), whose phase mean at leading order is μ′ ([[eq:stage-zero]], [[prop:limit]]).
 
 **Lemma {#lem:flux-density}** (The flux and its integral.) (a) The flux density is
 
-    (4/3)(∂_v P1² + ∂_v P1 ∂_v P2 + ∂_v P2²) = (4/9) A² h(ζ)² (cos⁴ϑ D_c² + sin⁴ϑ D_s² − cos²ϑ sin²ϑ D_c D_s).
+    (4/3)((∂_v P1)² + ∂_v P1 ∂_v P2 + (∂_v P2)²) = (4/9) A² h(ζ)² (cos⁴ϑ D_c² + sin⁴ϑ D_s² − cos²ϑ sin²ϑ D_c D_s).
 
 (b) Its mean over S³ is exactly
 

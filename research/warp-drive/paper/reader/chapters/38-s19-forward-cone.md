@@ -604,9 +604,9 @@ and future directed there. As ∂_(t_*) is Killing, H_Gσ = 0; and ∇^(π*T*)_(
 (the identity of [[sec:iii-d-5-2]] (c), which uses no property of the metric). So ∇_(H_G)e_0 = 0 on Σ ∩ O. Let
 τ := dt_*, timelike by (B2). A timelike covector and a nonzero null covector are never g⁻¹-orthogonal, so with
 
-    e_2 := aτ + ce_0,        a := −1/g⁻¹(τ, e_0),        c := −a g⁻¹(τ, τ)/(2g⁻¹(τ, e_0)),
+    e_2 := aτ + a′e_0,        a := −1/g⁻¹(τ, e_0),        a′ := −a g⁻¹(τ, τ)/(2g⁻¹(τ, e_0)),
 
-expansion with g⁻¹(e_0, e_0) = 0 gives g⁻¹(e_0, e_2) = −1 and g⁻¹(e_2, e_2) = a²g⁻¹(τ, τ) + 2ac g⁻¹(τ, e_0) = 0 on
+expansion with g⁻¹(e_0, e_0) = 0 gives g⁻¹(e_0, e_2) = −1 and g⁻¹(e_2, e_2) = a²g⁻¹(τ, τ) + 2aa′ g⁻¹(τ, e_0) = 0 on
 Σ ∩ O; e_2 is stationary and homogeneous of degree 0. Let V := {e_0, e_2}^⊥, a bundle of rank 3 on which g⁻¹ is
 positive definite (the orthogonal complement of a Lorentzian plane). Every covector is ω = ω_0e_0 + ω_V + ω_2e_2 with
 ω_V ∈ V, ω_2 = −g⁻¹(ω, e_0) and ω_0 = −g⁻¹(ω, e_2). As ∇ is metric and ∇_(H_G)e_0 = 0,
@@ -641,32 +641,32 @@ alone, by skew maps, and preserves wt.
 
 (b) As G = I − ½g tr, for h ∈ S²T*
 
-    ιh := −ι_(E_2)Gh = −ι_(E_2)h − ½(tr h)e_0,
+    Jh := −ι_(E_2)Gh = −ι_(E_2)h − ½(tr h)e_0,
 
 tr h being the g⁻¹-trace. ι_(E_2) removes a factor e_2 and so lowers wt by 2, and tr h vanishes on the parts of h of
-weight ≠ 2, since g⁻¹ pairs e_0 only with e_2 and V only with V. So ι maps the part of weight w of S²T* to the part of
+weight ≠ 2, since g⁻¹ pairs e_0 only with e_2 and V only with V. So J maps the part of weight w of S²T* to the part of
 weight w − 2 of T*.
 
 (c) In E^C_(c), the component c_μe_μ of c_C raises wt by wt(e_μ) in the first term; in the second, ⟨e_μ, ω⟩ ≠ 0 only
 for the part of ω of weight 2 − wt(e_μ), and g has weight 2, so it raises wt by wt(e_μ) as well. Hence
-2γ_C E^C_(c) ∘ ι changes wt by wt(e_μ) − 2 ≤ 0, with equality only for μ = 2.
+2γ_C E^C_(c) ∘ J changes wt by wt(e_μ) − 2 ≤ 0, with equality only for μ = 2.
 
 So A + Ω does not raise wt, and its wt-preserving part is
 
-    D := 2γ_C c_2 Φ + Ω,        Φh := 2e_2 ⊗_s ιh − (2/3)(1 − e_C) g ⟨e_2, ιh⟩,
+    D := 2γ_C c_2 Φ + Ω,        Φh := 2e_2 ⊗_s Jh − (2/3)(1 − e_C) g ⟨e_2, Jh⟩,
 
 where ⟨e_2, ω⟩ = −ω_0 is minus the e_0-coefficient of ω. On the monomials (v ∈ V, i ≠ j):
 
-- e_0² and e_0v: ι_(E_2) vanishes on them and so does tr, so ι = 0 and Φ = 0.
-- e_0e_2: ι_(E_2)(e_0e_2) = ½e_0 and tr(e_0e_2) = g⁻¹(e_0, e_2) = −1, so ι(e_0e_2) = −½e_0 + ½e_0 = 0 and Φ = 0.
+- e_0² and e_0v: ι_(E_2) vanishes on them and so does tr, so J = 0 and Φ = 0.
+- e_0e_2: ι_(E_2)(e_0e_2) = ½e_0 and tr(e_0e_2) = g⁻¹(e_0, e_2) = −1, so J(e_0e_2) = −½e_0 + ½e_0 = 0 and Φ = 0.
 - v_iv_j: ι_(E_2) and tr vanish, so Φ(v_iv_j) = 0.
-- v_i²: ι_(E_2)v_i² = 0 and tr v_i² = 1, so ι(v_i²) = −½e_0 and ⟨e_2, −½e_0⟩ = ½. Hence
+- v_i²: ι_(E_2)v_i² = 0 and tr v_i² = 1, so J(v_i²) = −½e_0 and ⟨e_2, −½e_0⟩ = ½. Hence
 
       Φ(v_i²) = −e_0e_2 − (1/3)(1 − e_C)g = −(1/3)(1 + 2e_C)e_0e_2 − (1/3)(1 − e_C)T,
 
   by g = −2e_0e_2 + T. So Φ(T) = −(1 + 2e_C)e_0e_2 − (1 − e_C)T, and Φ(v_i² − v_j²) = 0.
-- e_2v: ι_(E_2)(e_2v) = ½v and tr(e_2v) = 0, so ι(e_2v) = −½v; ⟨e_2, v⟩ = 0, and Φ(e_2v) = −e_2v.
-- e_2²: ι_(E_2)e_2² = e_2 and tr e_2² = 0, so ι(e_2²) = −e_2; ⟨e_2, e_2⟩ = 0, and Φ(e_2²) = −2e_2².
+- e_2v: ι_(E_2)(e_2v) = ½v and tr(e_2v) = 0, so J(e_2v) = −½v; ⟨e_2, v⟩ = 0, and Φ(e_2v) = −e_2v.
+- e_2²: ι_(E_2)e_2² = e_2 and tr e_2² = 0, so J(e_2²) = −e_2; ⟨e_2, e_2⟩ = 0, and Φ(e_2²) = −2e_2².
 
 Moreover Ω T = 2Σ_i v_i ⊗_s Ωv_i = 2Σ_(i,j) Ω_(ji) v_iv_j = 0, Ω being skew, and Ω maps the trace-free part S²_0V of
 S²V into itself, the trace on S²V being invariant under the infinitesimal rotation Ω.
@@ -686,18 +686,18 @@ where D_− lowers W and D_0 preserves each piece, and on the seven pieces, in t
 
     0,   0,   0,   −2(1 − e_C)γ_C c_2,   0,   −2γ_C c_2,   −4γ_C c_2.
 
-This is the structure of [[prop:iii-f-4-1]], with N_1 in place of 2N, γ_C in place of γ and Ω in place of κR. The
-grading argument uses the frame only through four facts: g = −2e_0e_2 + Σ_i v_i²; the weights; that the part of the
-connection that does not preserve wt lowers it; and that the wt-preserving part acts on V by skew maps. All four hold
-here, as does g⁻¹e_0 = −E_2 with e_0 proportional to ζ. Finally c_2 = −g⁻¹(c_C, e_0) < 0: c_C is past timelike (B3)
-and e_0 is future null, and a past and a future causal covector, not both null, have positive g⁻¹-pairing. As e_C < 1,
-the scalars are ≥ 0.
+This is the structure of [[prop:iii-f-4-1]], with N_1 in place of 2N, γ_C in place of γ, Ω in place of ϰR, and J
+the map written ι there. The grading argument uses the frame only through four facts: g = −2e_0e_2 + Σ_i v_i²; the
+weights; that the part of the connection that does not preserve wt lowers it; and that the wt-preserving part acts on V
+by skew maps. All four hold here, as does g⁻¹e_0 = −E_2 with e_0 proportional to ζ. Finally c_2 = −g⁻¹(c_C, e_0) < 0:
+c_C is past timelike (B3) and e_0 is future null, and a past and a future causal covector, not both null, have positive
+g⁻¹-pairing. As e_C < 1, the scalars are ≥ 0.
 
 *Step 4: the inner product.* Let ⟨·, ·⟩_0 be the inner product on π*S²T* induced by declaring e_0, v_1, v_2, v_3, e_2
 orthonormal. It does not depend on the choice of (v_i), as O(V) acts unitarily, so it is defined on O, stationary,
 homogeneous of degree 0 and smooth in b (the frame is built from g_b, ζ and dt_*); the seven pieces are orthogonal for
 it, and Ω is skew for it. Put h⁰_(η,b) := Σ_P η^(−2W(P)) ⟨·_P, ·_P⟩_0 on Σ ∩ O, the sum over the pieces, and extend it
-to O by the same formulas: e_0, e_2 (by the formulas for a and c), V, the frame and the pieces are defined near Σ_b,
+to O by the same formulas: e_0, e_2 (by the formulas for a and a′), V, the frame and the pieces are defined near Σ_b,
 where span{e_0, e_2} = span{τ, e_0} stays Lorentzian and e_0, τ stay independent (on O, by (B1)–(B2)). This gives a
 stationary inner product on O, homogeneous of degree 0 and smooth in b; p_1^Γ involves the inner product only on Γ_b
 and through its derivative along H_G, which is tangent to Σ, so the extension does not enter. In an
