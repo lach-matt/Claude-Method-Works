@@ -254,8 +254,9 @@ interval of existence.
 ### Existence, continuation and uniqueness {#sec:ue-existence}
 
 **Step 8** (existence and continuation). The local theory needs the time lines timelike as well as the slices spacelike.
-[AO14, Theorem 1.1, p. 2] asks, in its hypothesis (1.3), that A^(ij) ξ_i ξ_j ≥ c_0 |ξ|² and A^(00) ≤ −c_0 for the
-coefficients A^(μν) of the second-order operator, with a constant c_0 > 0; and in the first-order form the eigenvalue 0
+[AO14, Theorem 1.1, p. 2] ([[thm:std-ao-existence]]), for the divergence-form equation ∂_μ(A^(μν)(U) ∂_ν U) = F on
+[0, T] × R^n, asks in its hypothesis (1.3) that (1/γ)|ξ|² ≤ A^(ij) ξ_i ξ_j ≤ γ|ξ|² and A^(00) ≤ −κ for all (U, ξ),
+with constants γ, κ > 0; and in the first-order form the eigenvalue 0
 of the symbol meets a characteristic speed wherever g^(ij) ξ_i ξ_j = 0, against [DS23, (A4)], which asks that the
 distinct eigenvalues of the symbol never meet. In the coordinates (τ, x) this fails on part of Ω: g0^(ij) ξ_i ξ_j = |ξ|²
 − (μ/r²)(x̂·ξ)² < 0 for radial ξ where r² < μ, and Ω reaches r = a < √μ0. So the local theorems are applied in other
@@ -271,8 +272,9 @@ coordinates, in four steps. The results used are the following.
   tends to the maximal time.
 - [LY22, Theorem 26]: a bounded smooth domain in R^n has an extension operator E, one operator, bounded from W^(m,p) of
   the domain to compactly supported W^(m,p) functions on a neighbourhood, for every m and 0 < p ≤ ∞; it maps smooth
-  functions to smooth functions. [LY22, Lemma 27]: the composition of such an operator with a diffeomorphism with
-  bounded derivatives is bounded.
+  functions to smooth functions. [LY22, Lemma 27] ([[thm:std-ly-extension]]): for χ ∈ C_c^∞(R^n) and a
+  bijection Φ of R^n whose derivatives of positive order and those of its inverse are bounded, f ↦ (χ f) ∘ Φ is
+  bounded on every W^(m,p)(R^n).
 - [SY21, Sections 1 and 2.1]: a bounded Lipschitz domain in R^n has a universal extension operator (Stein's, or
   Rychkov's), one operator bounded from W^(m,p) of the domain to W^(m,p)(R^n) for every m and every 1 ≤ p ≤ ∞.
 
@@ -331,9 +333,10 @@ gives
 
 whose two roots ζ_− < 0 < ζ_+ are real with product g^(ab) ξ_a ξ_b/g^(00) < 0. If ζ = 0, then u_0 = 0 and g^(ab) ξ_a u_b
 = 0, with w free: a space of dimension four for each component. So (A⁰)⁻¹ A^c ξ_c is diagonalizable with the real
-eigenvalues ζ_− < 0 < ζ_+ and 0, which never meet, and the system satisfies (A1)–(A4) of [DS23] on all of the state
-space, the cut-off keeping the coefficients defined for every value of w. The relation u_a = ∂_a w propagates, since
-∂_τ(u_a − ∂_a w) = ∂_a(u_0 − ∂_τ w) = 0.
+eigenvalues ζ_− < 0 < ζ_+ and 0, which never meet; ζ_± are simple roots of a quadratic with smooth coefficients and 0 is
+constant, so all three are smooth in (τ, y, V, ξ) for ξ ≠ 0, as (A4) of [DS23] ([[thm:std-ds-existence]]) also requires,
+and the system satisfies (A1)–(A4) of [DS23] on all of the state space, the cut-off keeping the coefficients defined for
+every value of w. The relation u_a = ∂_a w propagates, since ∂_τ(u_a − ∂_a w) = ∂_a(u_0 − ∂_τ w) = 0.
 
 (iv) *The restarts.* At τ_i extend the data from Σ_(τ_i) ∩ Ω = A(τ_i), in x, by the universal Seeley-type operator of
 [LY22, Theorem 26] for the smooth annulus (one operator bounded on every H^m, so smooth data extend to smooth data), cut

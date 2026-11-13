@@ -7,14 +7,17 @@ This chapter collects the four estimates on the slices Σ_τ of Ω on which the 
 functions on the annulus Σ_τ to functions on it, with the bounds of Bernstein and Friedrichs type; the energy inequality
 for wave equations on Ω; and the estimate for transport along L0.
 
-The domain Ω, its slices Σ_τ = A(τ) := {a ≤ |x| ≤ b(τ)} with outer radius b(τ), the numbers a, δ0, τ0 and τ_end, and
-the properties of Ω under g0 and its small perturbations are those of [[sec:domain]], [[eq:omega]] and [[lem:domain]]; the scaled norms |f|_j = Σ_(i≤j) λ^i ‖∂^i f‖, with ‖·‖ the flat L²(Σ_τ) norm and ∂^i
-all spacetime coordinate derivatives of order i, and the chain rule for profiles are those of [[sec:profiles]] ([[eq:scaled-norm]]); and the numbers ε1 and s0 are those fixed in [[sec:profiles]], after [[lem:lorentz-margin]]. All constants below
-depend on Ω, through a, b(τ0) and δ0, and not on λ, and throughout
+The domain Ω, its slices Σ_τ = A(τ) := {a ≤ |x| ≤ b(τ)} with outer radius b(τ), the numbers a, δ0, τ0 and τ_end, and the
+properties of Ω under g0 and its small perturbations are those of [[sec:domain]], [[eq:omega]] and [[lem:domain]]; the
+scaled norms |f|_j = Σ_(i≤j) λ^i ‖∂^i f‖, with ‖·‖ the flat L²(Σ_τ) norm and ∂^i all spacetime coordinate derivatives of
+order i, and the chain rule for profiles are those of [[sec:profiles]] ([[eq:scaled-norm]]); and the numbers ε1 and s0
+are those fixed in [[sec:profiles]], after [[lem:lorentz-margin]]. All constants below depend on Ω, through a, b(τ0) and
+δ0, and not on λ, and throughout
 
     0 < λ ≤ λ1 := min(1, δ0)/10.                                                                        {#eq:lambda-one}
 
-The outer radius is b(τ) = V + 1 − τ + (τ_end − τ), so b' = −2, and b(τ) − a ≥ 1 + δ0 and b(τ) ≤ b(τ0) on [τ0, τ_end] ([[lem:domain]] (f)).
+The outer radius is b(τ) = V + 1 − τ + (τ_end − τ), so b' = −2, and b(τ) − a ≥ 1 + δ0 and b(τ) ≤ b(τ0) on [τ0, τ_end]
+([[lem:domain]] (f)).
 
 ### Sobolev inequalities and products {#sec:sobolev}
 
@@ -32,7 +35,8 @@ it gives ‖∂^i f‖_(L^∞) ≤ C Σ_(j≤3) λ^(−i−j) λ^(i+j) ‖∂^(i
 For products, expand λ^j ∂^j (f g) for j ≤ 6 by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g and put the
 factor with at most three derivatives in L^∞. If i ≤ 3, then ‖λ^i ∂^i f‖_(L^∞) ≤ C λ⁻³ |f|_(i+3) ≤ C λ⁻³ |f|_6 by
 [[eq:sobolev]], and ‖λ^(j−i) ∂^(j−i) g‖ ≤ |g|_6; if i ≥ 4, then j − i ≤ 2 and the roles are exchanged. For the last
-claim, the chain rule for profiles in [[sec:profiles]] gives ‖λ^i ∂^i [m]‖_(L^∞) ≤ C_i for every i, so each term λ^i ∂^i [m] · λ^(j−i) ∂^(j−i) f of λ^j ∂^j ([m] f) is bounded in L² by C |f|_k. ∎
+claim, the chain rule for profiles in [[sec:profiles]] gives ‖λ^i ∂^i [m]‖_(L^∞) ≤ C_i for every i, so each term λ^i ∂^i
+[m] · λ^(j−i) ∂^(j−i) f of λ^j ∂^j ([m] f) is bounded in L² by C |f|_k. ∎
 
 ### The mollifier {#sec:mollifier}
 
@@ -117,7 +121,8 @@ onto ρ gives 𝒫(∂_j f) = λ⁻¹ ∫ (∂_j ρ)(z) f(Φ(x) − λz) dz, so 
 
     [m, 𝒫] ∂_j f (x) = ∫ ρ(z) (m(x) − m(Φ(x) − λz)) (∂_j f)(Φ(x) − λz) dz.
 
-Integrating by parts in z as in (M4), the factor λ⁻¹ meets either ∂_z of m(Φ(x) − λz), which is −λ (∂m)(Φ(x) − λz), or m(x) − m(Φ(x) − λz), whose size is at most 3λ ‖∂_x m‖_∞ by the length of the segment. Both are O(λ ‖∂_x m‖_∞), and the
+Integrating by parts in z as in (M4), the factor λ⁻¹ meets either ∂_z of m(Φ(x) − λz), which is −λ (∂m)(Φ(x) − λz), or
+m(x) − m(Φ(x) − λz), whose size is at most 3λ ‖∂_x m‖_∞ by the length of the segment. Both are O(λ ‖∂_x m‖_∞), and the
 change of variables of (M1) gives the first bound. The second is the same without the integration by parts.
 
 (M6): σ depends on τ through b(τ), with ∂_τ σ = −σ0' (|x| − a) b'/(b − a)², bounded since b' = −2 and b − a ≥ 1. So
@@ -129,8 +134,10 @@ bounded factors. ∎
 
 ### The energy inequality {#sec:energy}
 
-**Lemma {#lem:energy}** (Energy inequality.) Let g̃ be a Lorentzian metric on Ω with |g̃ − g0| ≤ ε1, ε1 the number fixed after [[lem:lorentz-margin]], so that [[lem:domain]] (e) applies to g̃ and |g̃⁻¹| ≤ (s0 − ε1)⁻¹ by [[lem:lorentz-margin]], and with ‖∂g̃‖_∞ ≤ M. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u = f on Ω. Then
-for τ ∈ [τ0, τ_end],
+**Lemma {#lem:energy}** (Energy inequality.) Let g̃ be a Lorentzian metric on Ω with |g̃ − g0| ≤ ε1, ε1 the number fixed
+after [[lem:lorentz-margin]], so that [[lem:domain]] (e) applies to g̃ and |g̃⁻¹| ≤ (s0 − ε1)⁻¹ by
+[[lem:lorentz-margin]], and with ‖∂g̃‖_∞ ≤ M. Let u, a function or a Cartesian array, satisfy −(1/2) g̃^(ab) ∂_a ∂_b u =
+f on Ω. Then for τ ∈ [τ0, τ_end],
 
     ‖∂u(τ)‖ + ‖u(τ)‖ ≤ C(M) (‖∂u(τ0)‖ + ‖u(τ0)‖ + ∫_(τ0)^τ ‖f(s)‖ ds).                                {#eq:energy}
 

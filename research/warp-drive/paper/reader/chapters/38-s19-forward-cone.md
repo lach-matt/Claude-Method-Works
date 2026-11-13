@@ -482,3 +482,895 @@ L_b u = f − (L^(g,g_0) − L_b)u and using [[eq:iii-i-4-2]], the tameness of [
 finite number of such rewritings, with a total loss of b-regularity independent of k. This is used in the later
 chapters, whose statements are written with k = ∞. Each rewriting uses [[eq:iii-i-4-2]], so the weights must lie in
 the range of [[prop:iii-i-4-1]].
+
+### Uniformity near b₀: the setting {#sec:iii-h2-0}
+
+This section and [[sec:iii-h2-1]]–[[sec:iii-h2-5]] prove, on one fixed neighbourhood of b₀ and with constants uniform
+in b, the two inputs that [[thm:iii-i-5-3]] needs at b ≠ b₀: the 2-admissibility of 2L_b for every order k of
+b-regularity, which is [Hin26, Proposition 8.3 and Theorem 10.1] near b₀, and the forward solution theory of
+[[thm:ii-f-8-1]] and [[thm:ii-f1-1-1]] uniformly over the stationary models 2L_b, which is [Hin26c, Theorems 10.1 and
+11.1] for this family. Three facts make this possible. (1) [[prop:iii-f-4-1]] proves strong trapping admissibility at
+b₀ from a frame built with the symmetry of Schwarzschild–Tangherlini; near b₀ it gives a bound ε only on a
+neighbourhood that shrinks with ε. [Hin26, pp. 147–149] proves the bound at every Kerr parameter in Marck's tetrad.
+Here the frame comes from the null geometry alone: along every null bicharacteristic e_0 := ζ/σ is parallel and the
+filtration span e_0 ⊂ e_0^⊥ ⊂ T* is invariant, so in an adapted frame the connection is a rotation of the screen plus
+a part that lowers a grading. The grading argument holds in such a frame at every b, with bounds uniform near b₀
+([[prop:iii-h2-1-1]]). (2) The model at ι⁺ does not see b ([[lem:iii-h2-3-2]]), so [[sec:ii-f-1]]–[[sec:ii-f-6]],
+which concern that operator alone, hold for every b with the same constants. (3) The rest is continuity and
+compactness, as in [[sec:i-a-8]], [[sec:i-b-9]] and [[rem:iii-h-2-6]].
+
+*The parameters.* They are those of [[sec:iii-h-1]]: the gauge modification E_Υ of [[sec:iii-d-1]] and the constraint
+damping (c_C, e_C, γ_C) of [[sec:iii-f-1]], with e_C ∈ (0, 1) and γ_C > 0, and the dynamical hypotheses (Dyn) of
+[[ch:s12]]. ℬ is the neighbourhood of b₀ of [[cor:iii-h-4-4]], on which [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] hold
+uniformly. U_Γ is the fixed neighbourhood of the projections of the trapped sets of [[sec:iii-d-1]], over which
+E^Υ = 0 for every b ∈ ℬ. As in [[sec:iii-f-4]] we take z_0 = 1 (the operator has real coefficients, and z_0 = −1 is
+the conjugate case); then σ = 1 on Γ_b in the normalisation of [[ch:s02]], and Γ_b lies in the future characteristic
+set over {|x| > r_h}.
+
+The neighbourhoods are chosen in two steps. First fix an open B_1 ∋ b₀ whose closure B̄_1 is a compact subset of ℬ
+such that for b ∈ B̄_1:
+
+(B1) Γ_b lies over a fixed compact subset of U_Γ and in a fixed conic neighbourhood O of Γ_(b₀) in T*M ∖ o, on which
+σ > 0 and which meets the characteristic set Σ_b of g_b only in its future component; O lies over U_Γ and is so small
+that on it ζ and dt_* are independent and g_b⁻¹(dt_*, ζ) ≠ 0 (both hold on Σ_b, where a nonzero null covector is
+independent of, and not orthogonal to, the timelike dt_* of (B2), hence near Γ_(b₀) for b near b₀); and (Γ.1)–(Γ.3)
+of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in b and positive ((Dyn)).
+
+(B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and g_b − g_(b₀) is below the ϵ_G of
+[[lem:ii-c-3-2]] (2), so that the time function t^♭ := t^♭_* built from g_(b₀) serves every g_b and
+Ω_* = cl_M{t^♭ ≥ 1} does not depend on b. Moreover g_b⁻¹(dr, dr) ≤ −c < 0 and g_b⁻¹(dt_*, dr) > 0 on
+{½r_♭ ≤ r ≤ 15R₁/16}, with c independent of b. Then dr is future timelike for g_b there: dt_* is past timelike
+([[lem:vi-a-1-1]]), and two timelike covectors lie in the same cone exactly when their g_b⁻¹-pairing is negative. At b₀
+this holds by [[eq:vi-a-0-1]]. On {r ≤ 2R₁} the change of time Φ_(m₀) is a translation ([[lem:iii-b-3-5]] (c)) and
+ψ′ = 1 ([[def:s12-radii]]), so dt_* = dt − dr = dv − 2dr with v = t_KS + r; and g_(b₀)⁻¹(dv, dv) = 0,
+g_(b₀)⁻¹(dv, dr) = 1, g_(b₀)⁻¹(dr, dr) = f = 1 − m₀r⁻². So
+
+    g_(b₀)⁻¹(dr, dr) = 1 − m₀r⁻² < 0,      g_(b₀)⁻¹(dt_*, dr) = 1 − 2f = 2m₀r⁻² − 1 > 0      (r < R₁).
+
+The metrics g_b are stationary and depend smoothly on b on {|x| ≥ ½r_♭} ([[lem:s12-ks-domain]]), and
+{½r_♭ ≤ r ≤ 15R₁/16} is compact in X, so both strict inequalities persist for b near b₀.
+
+(B3) c_C is past timelike for g_b over U_Γ ([[thm:iii-e-1-1]] at b₀, and continuity over the closure of U_Γ, which is
+compact modulo t_*-translations, all quantities being stationary).
+
+(B4) The order 𝗌 of [[prop:ii-c-5-1]], built for 2L_(b₀), is admissible for 2L_b with the same weights and margin
+([[prop:ii-c-5-1]] (4)), and satisfies (C1)–(C3) of [[def:iii-h1-1-1]] for 2L_b. At b₀ this is [[lem:iii-i-5-1]]. At b,
+(C1) and (C2) do not involve the metric. For (C3): [[lem:ii-c-5-3]] and [[lem:ii-c-5-5]] hold for every g of
+[[prop:ii-c-5-1]] (2), whose item (4) includes the models 2L_b at nearby b, so the proof of [[lem:iii-i-5-1]] runs
+verbatim with G_b, its margins (𝖧f_T ≥ ϱ⁻¹ against 2ϱ⁻¹, 𝖧f_W ≥ δ/8, and the gap ξ̂_(3b) < −δ/8 off Σ) being relative.
+
+[[sec:iii-h2-1]]–[[sec:iii-h2-4]] are stated and proved on B̄_1, with constants uniform there; their proofs use only
+(B1)–(B4). Then fix an open B_* ∋ b₀ with B̄_* ⊂ B_1 and
+
+(B5) |b − b₀| so small, for b ∈ B̄_*, that ‖P − 2L_b‖_((0;d)) < ε_0 of [[thm:iii-h2-4-1]] in [[cor:iii-h2-5-1]] for |S|
+and ‖h‖ small ([[prop:iii-i-3-4]], [[eq:iii-i-3-7]]).
+
+This is the only condition on B_* in this chapter; [[ch:s25]] shrinks B_* further. [[thm:iii-h2-3-1]] and
+[[thm:iii-h2-4-1]] apply the slab estimates of [[ch:s07]] relative to 2L_b itself, so no condition on slabs enters
+(B5). The choices are made in this order: B_1 by (B1)–(B4); the constants of [[sec:iii-h2-1]]–[[sec:iii-h2-4]],
+uniform on B̄_1; then B_* by (B5), which involves only the ε_0 of [[thm:iii-h2-4-1]]. So nothing is circular, and every
+statement of [[sec:iii-h2-1]]–[[sec:iii-h2-4]] holds a fortiori on B̄_*.
+
+Put f_b := |dg_b|/(|dt_*| |dx|), a smooth positive stationary function, smooth in b.
+
+### Strong trapping admissibility near b₀ {#sec:iii-h2-1}
+
+This section is [Hin26, Proposition 8.3] on B̄_1, in dimension 4 + 1 and with a different frame. We use the following
+identity of [Hin17, Proposition 4.1], valid in every dimension and for every metric: for the tensor wave operator
+□_g = −g^(κλ)∇_κ∇_λ on a bundle with the connection ∇ induced by the Levi-Civita connection, the subprincipal operator
+on half-densities by |dg| is iS_sub(□_g) = ∇^(π*E)_(H_G), the derivative along the Hamilton vector field H_G of
+G(ζ) = g⁻¹(ζ, ζ) for the pullback connection ∇^(π*E) on π*E over T*M ∖ o.
+
+**Proposition {#prop:iii-h2-1-1}** (Strong trapping admissibility near b₀.) For η ∈ (0, 1] and b ∈ B̄_1 there is a
+stationary fibre inner product h_(η,b) on π*S²T* over O, homogeneous of degree 0 and smooth in b, such that, with p_1^Γ
+of (Γ.4) ([[sec:i-b-1-5]]) for 2L_b, the inner product h_(η,b) and the adjoints of [[ch:s01]] (for |dx| and dt_*),
+
+    sup_(Γ_b) λ_max(p_1^Γ) ≤ Cη,                                                                    {#eq:iii-h2-1-1}
+
+with C independent of η and b. In particular 2L_b is strongly trapping admissible ([Hin26c, Definition 5.8]) at every
+b ∈ B̄_1.
+
+*Proof.* *Step 1: the subprincipal operator.* Over U_Γ, E^Υ = 0 and R_(g_b) has order 0, so [[eq:iii-f-4-1]] holds at
+every b ∈ B̄_1, on half-densities by |dg_b|:
+
+    iS_sub(2L_b) = ∇^(π*S²T*)_(H_G) + 2E^C_(g_b) σ_1(iδ_(g_b)) G_(g_b),
+
+by the identity of [Hin17, Proposition 4.1] recalled above, with σ_1(iδ_g)(ζ)h = ι_(g⁻¹ζ)h.
+
+*Step 2: the frame.* On O put σ := −ζ(∂_(t_*)) and e_0 := ζ/σ: stationary, homogeneous of degree 0, null on Σ := Σ_b
+and future directed there. As ∂_(t_*) is Killing, H_Gσ = 0; and ∇^(π*T*)_(H_G)ζ = 0, which is the geodesic equation
+(the identity of [[sec:iii-d-5-2]] (c), which uses no property of the metric). So ∇_(H_G)e_0 = 0 on Σ ∩ O. Let
+τ := dt_*, timelike by (B2). A timelike covector and a nonzero null covector are never g⁻¹-orthogonal, so with
+
+    e_2 := aτ + ce_0,        a := −1/g⁻¹(τ, e_0),        c := −a g⁻¹(τ, τ)/(2g⁻¹(τ, e_0)),
+
+expansion with g⁻¹(e_0, e_0) = 0 gives g⁻¹(e_0, e_2) = −1 and g⁻¹(e_2, e_2) = a²g⁻¹(τ, τ) + 2ac g⁻¹(τ, e_0) = 0 on
+Σ ∩ O; e_2 is stationary and homogeneous of degree 0. Let V := {e_0, e_2}^⊥, a bundle of rank 3 on which g⁻¹ is
+positive definite (the orthogonal complement of a Lorentzian plane). Every covector is ω = ω_0e_0 + ω_V + ω_2e_2 with
+ω_V ∈ V, ω_2 = −g⁻¹(ω, e_0) and ω_0 = −g⁻¹(ω, e_2). As ∇ is metric and ∇_(H_G)e_0 = 0,
+
+    (∇_(H_G)e_2)_2 = −H_G g⁻¹(e_2, e_0) = 0,        (∇_(H_G)e_2)_0 = −½H_G g⁻¹(e_2, e_2) = 0,
+
+so w := ∇_(H_G)e_2 ∈ V; and for a section v of V, (∇_(H_G)v)_2 = −H_G g⁻¹(v, e_0) = 0, (∇_(H_G)v)_0 = g⁻¹(v, w), and
+the V-part ∇^V v is g-skew. In a local frame (e_0, v_1, v_2, v_3, e_2) with (v_i) g⁻¹-orthonormal in V, therefore,
+
+    ∇_(H_G) = H_G + σ(N_1 + Ω)  componentwise,    N_1e_0 = 0,  N_1v = σ⁻¹g⁻¹(v, w)e_0,  N_1e_2 = σ⁻¹w,   {#eq:iii-h2-1-2}
+
+with Ω, the matrix of σ⁻¹∇^V in (v_i), skew; σ⁻¹w and Ω are homogeneous of degree 0, as H_G is of degree 1 and the
+frame of degree 0. (At b₀ the frame of [[sec:iii-d-5-2]] (c), whose e_2 is not built from dt_*, has the same
+structure; the comparison is not used.)
+
+*Step 3: the grading.* Give e_0, V, e_2 the weights 0, 1, 2, and S²T* the induced weight wt, the weight of a symmetric
+product being the sum of the weights of its factors. The dual frame vector E_2 satisfies g⁻¹e_0 = −E_2 (the pairings of
+e_0 with e_0, V, e_2 are 0, 0, −1), so σ_1(iδ)(ζ) = ι_(g⁻¹ζ) = −σι_(E_2), and Step 1 reads, on components,
+
+    iS_sub(2L_b) = H_G + σ(A + Ω),        A := N_1 + 2γ_C E^C_(c)(−ι_(E_2))G,                            {#eq:iii-h2-1-3}
+
+N_1 and Ω acting as derivations, and E^C_(c)ω := 2c_C ⊗_s ω − (2/3)(1 − e_C) g ⟨c_C, ω⟩ the map E^C_(g_b) of
+[[eq:iii-b-6-2]] divided by γ_C, with ⟨·, ·⟩ := g⁻¹. We determine the part of A + Ω that preserves wt. Write
+c_C = c_0e_0 + Σ_i c_i v_i + c_2e_2, so that c_2 = −g⁻¹(c_C, e_0), and e_ae_b := e_a ⊗_s e_b. The metric itself is
+
+    g = −2e_0e_2 + T,        T := v_1² + v_2² + v_3²,
+
+as the Gram matrix of g⁻¹ in (e_0, v_1, v_2, v_3, e_2) is its own inverse; in particular ι_(E_2)g = g(E_2, ·) = −e_0.
+
+(a) N_1 maps e_0 to 0, V into span e_0 and e_2 into V; so as a derivation it lowers wt by exactly 1. Ω acts on V
+alone, by skew maps, and preserves wt.
+
+(b) As G = I − ½g tr, for h ∈ S²T*
+
+    ιh := −ι_(E_2)Gh = −ι_(E_2)h − ½(tr h)e_0,
+
+tr h being the g⁻¹-trace. ι_(E_2) removes a factor e_2 and so lowers wt by 2, and tr h vanishes on the parts of h of
+weight ≠ 2, since g⁻¹ pairs e_0 only with e_2 and V only with V. So ι maps the part of weight w of S²T* to the part of
+weight w − 2 of T*.
+
+(c) In E^C_(c), the component c_μe_μ of c_C raises wt by wt(e_μ) in the first term; in the second, ⟨e_μ, ω⟩ ≠ 0 only
+for the part of ω of weight 2 − wt(e_μ), and g has weight 2, so it raises wt by wt(e_μ) as well. Hence
+2γ_C E^C_(c) ∘ ι changes wt by wt(e_μ) − 2 ≤ 0, with equality only for μ = 2.
+
+So A + Ω does not raise wt, and its wt-preserving part is
+
+    D := 2γ_C c_2 Φ + Ω,        Φh := 2e_2 ⊗_s ιh − (2/3)(1 − e_C) g ⟨e_2, ιh⟩,
+
+where ⟨e_2, ω⟩ = −ω_0 is minus the e_0-coefficient of ω. On the monomials (v ∈ V, i ≠ j):
+
+- e_0² and e_0v: ι_(E_2) vanishes on them and so does tr, so ι = 0 and Φ = 0.
+- e_0e_2: ι_(E_2)(e_0e_2) = ½e_0 and tr(e_0e_2) = g⁻¹(e_0, e_2) = −1, so ι(e_0e_2) = −½e_0 + ½e_0 = 0 and Φ = 0.
+- v_iv_j: ι_(E_2) and tr vanish, so Φ(v_iv_j) = 0.
+- v_i²: ι_(E_2)v_i² = 0 and tr v_i² = 1, so ι(v_i²) = −½e_0 and ⟨e_2, −½e_0⟩ = ½. Hence
+
+      Φ(v_i²) = −e_0e_2 − (1/3)(1 − e_C)g = −(1/3)(1 + 2e_C)e_0e_2 − (1/3)(1 − e_C)T,
+
+  by g = −2e_0e_2 + T. So Φ(T) = −(1 + 2e_C)e_0e_2 − (1 − e_C)T, and Φ(v_i² − v_j²) = 0.
+- e_2v: ι_(E_2)(e_2v) = ½v and tr(e_2v) = 0, so ι(e_2v) = −½v; ⟨e_2, v⟩ = 0, and Φ(e_2v) = −e_2v.
+- e_2²: ι_(E_2)e_2² = e_2 and tr e_2² = 0, so ι(e_2²) = −e_2; ⟨e_2, e_2⟩ = 0, and Φ(e_2²) = −2e_2².
+
+Moreover Ω T = 2Σ_i v_i ⊗_s Ωv_i = 2Σ_(i,j) Ω_(ji) v_iv_j = 0, Ω being skew, and Ω maps the trace-free part S²_0V of
+S²V into itself, the trace on S²V being invariant under the infinitesimal rotation Ω.
+
+Refine wt to W := 2wt + s, with s = 1 on T and on S²_0V and s = 0 elsewhere. The seven pieces
+
+    e_0²;   e_0 ⊗_s V;   e_0e_2;   ℝT;   S²_0V;   e_2 ⊗_s V;   e_2²
+
+have W = 0, 2, 4, 5, 5, 6, 8; they are mutually orthogonal for the inner product of Step 4 below, and Ω maps each into
+itself. By the list above, D maps each piece into itself except for the component of D(T) along e_0e_2, which goes from
+W = 5 to W = 4. Every other part of A + Ω lowers wt by at least 1, by (a) and (c), and hence lowers W by at least
+2 − 1 = 1. So
+
+    A + Ω = D_0 + D_−,
+
+where D_− lowers W and D_0 preserves each piece, and on the seven pieces, in the order above, D_0 is Ω plus the scalars
+
+    0,   0,   0,   −2(1 − e_C)γ_C c_2,   0,   −2γ_C c_2,   −4γ_C c_2.
+
+This is the structure of [[prop:iii-f-4-1]], with N_1 in place of 2N, γ_C in place of γ and Ω in place of κR. The
+grading argument uses the frame only through four facts: g = −2e_0e_2 + Σ_i v_i²; the weights; that the part of the
+connection that does not preserve wt lowers it; and that the wt-preserving part acts on V by skew maps. All four hold
+here, as does g⁻¹e_0 = −E_2 with e_0 proportional to ζ. Finally c_2 = −g⁻¹(c_C, e_0) < 0: c_C is past timelike (B3)
+and e_0 is future null, and a past and a future causal covector, not both null, have positive g⁻¹-pairing. As e_C < 1,
+the scalars are ≥ 0.
+
+*Step 4: the inner product.* Let ⟨·, ·⟩_0 be the inner product on π*S²T* induced by declaring e_0, v_1, v_2, v_3, e_2
+orthonormal. It does not depend on the choice of (v_i), as O(V) acts unitarily, so it is defined on O, stationary,
+homogeneous of degree 0 and smooth in b (the frame is built from g_b, ζ and dt_*); the seven pieces are orthogonal for
+it, and Ω is skew for it. Put h⁰_(η,b) := Σ_P η^(−2W(P)) ⟨·_P, ·_P⟩_0 on Σ ∩ O, the sum over the pieces, and extend it
+to O by the same formulas: e_0, e_2 (by the formulas for a and c), V, the frame and the pieces are defined near Σ_b,
+where span{e_0, e_2} = span{τ, e_0} stays Lorentzian and e_0, τ stay independent (on O, by (B1)–(B2)). This gives a
+stationary inner product on O, homogeneous of degree 0 and smooth in b; p_1^Γ involves the inner product only on Γ_b
+and through its derivative along H_G, which is tangent to Σ, so the extension does not enter. In an
+h⁰_(η,b)-orthonormal frame a map lowering W by j ≥ 1 has its entries multiplied by η^j, so D_− is O(η), while D_0 is
+unchanged; h⁰_(η,b) is constant in the frame, so H_G is skew. By [[eq:iii-h2-1-3]] and [[eq:i-b-6-0]], on Γ_b,
+
+    p_1^Γ = −½(D_0 + D_0^*) + O(η),        −½(D_0 + D_0^*) ≤ 0,
+
+for half-densities by |dg_b|. The O(η) term is bounded by η times a polynomial in |σ⁻¹w|, γ_C and the components c_μ,
+which are continuous on O and in b; as Γ_b ∩ {σ = 1} lies in a fixed compact subset of O modulo time translations (B1),
+the bound is uniform on B̄_1.
+
+*Step 5: the density.* The adjoints of [[ch:s01]] are for |dt_*| |dx|, and [[eq:iii-h2-1-3]] is on half-densities by
+|dg_b| = f_b |dt_*| |dx|. Put h_(η,b) := f_b h⁰_(η,b). Then ∫ h_(η,b)(u, v) |dt_*| |dx| = ∫ h⁰_(η,b)(u, v) |dg_b|, so the
+two pairings agree, and with them the adjoints and p_1^Γ (p_1^Γ is an endomorphism, and a scalar factor in the inner
+product changes neither its self-adjointness nor its eigenvalues). This replaces the scalar O(|b − b₀|) that
+[[lem:iii-d-5-2]] and [[prop:iii-f-4-1]] carry for a fixed inner product. With Cη < ε, [[eq:iii-h2-1-1]] gives strong
+trapping admissibility. ∎
+
+**Corollary {#cor:iii-h2-1-2}** (δ_Γ uniformly small.) For every k ∈ ℕ₀ there are η_k ∈ (0, 1] and ε_k > 0 such that,
+with h_Γ := h_(η_k,b) in (Γ.4), δ_Γ(0) < 1/(2(k + 1)) and δ_Γ(−ε) ≤ 1/(k + 1) for ε ∈ (0, ε_k] and every b ∈ B̄_1. So
+the condition δ_Γ(0) < 1/(2(k + 1)), under which [[thm:iii-h1-1-3]] is proved at the order k ([[sec:iii-h1-1]]), holds
+at every b ∈ B̄_1, for every k.
+
+*Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_0 and [[eq:iii-h2-1-1]] give
+f(η′) ≤ Cη − 2β_0η′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_0). f is Lipschitz with constant Q := sup_Γ q^Γ, and
+f(γ_−) − f(γ_+) = ½ν_min, so γ_+ − γ_− ≥ ν_min/(2Q). Hence, by [[eq:i-b-1-4]],
+
+    δ_Γ(−ε) ≤ (γ_+ + ε)/(γ_+ − γ_−) ≤ (2Q/ν_min)(Cη/(2β_0) + ε),
+
+and likewise δ_Γ(0) ≤ (2Q/ν_min)Cη/(2β_0). β_0, Q and ν_min are continuous and positive on the compact B̄_1 (B1).
+Choose η_k and ε_k accordingly. ∎
+
+For each k the inner product h_(η_k,b) is a different one. [[thm:i-b-1-3]] is applied at each k separately (in the proof
+of [[lem:iii-h1-3-1]]), so this is what it needs.
+
+### 2-admissibility near b₀ for every order {#sec:iii-h2-2}
+
+This section is [Hin26, Theorem 10.1] near b₀, for every k.
+
+**Theorem {#thm:iii-h2-2-1}** (2-admissibility on B̄_1 for every k.) For every k ∈ ℕ₀, the order 𝗌 of (B4) and every
+b ∈ B̄_1, the forward solution u of L_b u = f satisfies the estimate [[eq:iii-h1-1-2]] of [[thm:iii-h1-1-3]] with a
+constant C_k independent of b. So 2L_b is 2-admissible with sf-weight α_sf, sf-loss 0 and margin 1
+([[def:ii-c-2-7]], relaxed, for these orders) at every b ∈ B̄_1, with constants uniform in b; in particular
+[[thm:iii-h1-1-3]] holds at every b ∈ B̄_1, for every k.
+
+*Proof.* Run the proof of [[thm:iii-h1-1-3]] ([[sec:iii-h1-2]]–[[sec:iii-h1-7]]) at b ∈ B̄_1. Each constant is uniform,
+as follows.
+
+(i) [[sec:iii-h1-2]]: c is at most the c_(j,k′) of [[thm:iii-h-4-1]] (3) for j + k′ ≤ k, uniform near b₀ by
+[[cor:iii-h-4-2]] (and [[lem:iii-h-5-2]] (b)). [[lem:iii-h1-2-1]] has no constant; its high-energy input,
+[[thm:i-b-1-3]] (3), is uniform in b by [[sec:i-b-9]].
+
+(ii) [[lem:iii-h1-3-1]] for |σ| ≥ C_0: [[thm:i-b-1-3]] (5) at the orders of [[lem:iii-h1-1-2]] (b), with
+h_Γ := h_(η_k,b) of [[cor:iii-h2-1-2]]. By [[sec:i-b-9]] its constants are uniform in b, given (H5)–(H8) continuously
+in b ((Dyn)) and the inner product continuous in b; then the thresholds γ_± of [[sec:i-b-6]] and c_Γ are continuous in
+b. The condition (k + 1)δ ≤ 1 of that proof holds on B̄_1 by [[cor:iii-h2-1-2]], for ε ≤ ε_k.
+
+(iii) [[lem:iii-h1-3-1]] for c/2 ≤ |σ| ≤ C_0: the argument by contradiction there, run with sequences
+(σ_n, b_n) → (σ_*, b_*), b_* ∈ B̄_1. The estimates [[eq:i-a-7-1]] and [[eq:i-a-7-3]] of [[thm:i-a-7-2]] hold uniformly
+in b for these fixed orders ([[thm:i-a-8-1]]); the coefficients of L̂_(b_n)(σ_n) converge in C^∞ to those of
+L̂_(b_*)(σ_*); and the limit is a nonzero element of the kernel of L̂_(b_*)(σ_*) on a space of admissible order. This
+contradicts [[cor:iii-h-4-4]], as b_* ∈ ℬ. The inverse is then bounded uniformly and continuous in (σ, b)
+([[thm:i-a-8-1]]), which gives the σ∂_σ-derivatives as there.
+
+(iv) [[sec:iii-h1-4]] ([[lem:iii-h1-4-1]]–[[lem:iii-h1-4-2]]): [[cor:iii-h-4-2]]–[[cor:iii-h-4-3]] and the bound
+[[eq:iii-h-4-5]], uniform near b₀ ([[rem:iii-h-2-6]] and the uniformity paragraph of the proof of [[cor:iii-h-4-2]]).
+
+(v) [[sec:iii-h1-5]] ([[lem:iii-h1-5-1]]): uniform near b₀, by the last paragraph of [[sec:iii-h1-5]]
+([[rem:iii-h-2-6]]).
+
+(vi) [[sec:iii-h1-6]] ([[lem:iii-h1-6-1]]–[[lem:iii-h1-6-2]]): statements about t_*-translation-invariant elliptic
+operators and integration in t_*, which do not involve b.
+
+(vii) [[sec:iii-h1-7]]: the assembly, linear in the bounds above.
+
+*Uniformity for every k on B̄_1.* The uniformity near b₀ that (i), (iv) and (v) cite ([[cor:iii-h-4-2]],
+[[rem:iii-h-2-6]], [[lem:iii-h-5-2]]) comes from [[thm:i-c-7-1]] (2), together with two arguments of the uniformity
+paragraph of the proof of [[cor:iii-h-4-2]]: the uniform inverse of [[prop:iii-h-3-2]] (by contradiction) and the
+column bounds of [[rem:iii-h-2-6]], both local in b. [[thm:i-c-7-1]] gives constants uniform on a neighbourhood of a
+parameter at which its hypotheses hold, and the neighbourhood may depend on k. Its hypotheses, (G), (Z_𝒫) and (TF) of
+[[ch:s03]], and the invertibility in [[prop:iii-h-3-2]] and [[cor:iii-h-4-4]], are qualitative and hold at every
+b ∈ B̄_1: (G) and (TF) by [[sec:iii-h-1]], the rest because ℬ is taken inside the neighbourhoods of [[prop:iii-h-3-2]]
+and [[cor:iii-h-4-4]]. So for each k, [[thm:i-c-7-1]] (2), with [[prop:iii-h-3-2]] and [[rem:iii-h-2-6]] rerun at b_*,
+gives uniform constants near each b_* ∈ B̄_1, and by compactness c_k and C_k are uniform on B̄_1.
+
+For [[def:ii-c-2-7]]: (1) is [[prop:iii-h2-1-1]]; (2), tf-admissibility with weight α_sf + 2, is [[prop:iii-f1-3-3]],
+which holds for every b near b₀ as the tf-normal operator does not depend on b; (3) is [[eq:iii-h1-1-2]] at the orders of
+(B4), which lie in 𝒪_c. ∎
+
+### Forward solutions of the stationary models, uniformly near b₀ {#sec:iii-h2-3}
+
+This section is [Hin26c, Theorem 10.1] for the stationary models 2L_b, b ∈ B̄_1.
+
+**Lemma {#lem:iii-h2-3-2}** (The ι⁺-normal operator does not depend on b.) For b ∈ ℬ, in the normal form
+[[eq:ii-f-1-4]] of P_0 = 2L_b on {|x| > 3R₁}: S = S̄, Q = Q_b, g_00 = g_b^00, and ρ²P⁽⁰⁾ = (2L̄)^∧(0) + R_b, so that
+P⁽⁰⁾(0, ω, ρ∂_ρ, ∂_ω) is that of 2L̄. Hence N_(ι⁺)(2L_b) = N_(ι⁺)(2L̄), and N⁰(σ) ([[eq:ii-f-1-6]]) does not depend
+on b.
+
+*Proof.* By [[lem:iii-f-2-1]] (2)–(3), on {|x| > 3R₁}, 2L_b = 2L̄ − g_b^00∂²_(t_*) + Q_b∂_(t_*) + R_b, with
+g_b^00 ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b and R_b ∈ ρ⁴Diff²_b; and 2L̄ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (2L̄)^∧(0) with
+(2L̄)^∧(0) ∈ ρ²Diff²_b. Comparing with [[eq:ii-f-1-4]] (c = 3/2) gives the identifications. As ρ⁻²R_b ∈ ρ²Diff²_b
+vanishes at ρ = 0, the frozen operator P⁽⁰⁾(0, ·) is (ρ⁻²(2L̄)^∧(0))|_(ρ=0). [[def:ii-f-1-1]] uses only S_0 = S|_(∂X)
+and P⁽⁰⁾(0, ·). ∎
+
+In dimension 3 + 1 the mass enters R_b at ρ³, and ρ⁻²R_b is of order ρ; in dimension 4 + 1 it is of order ρ². Either
+way it vanishes at ρ = 0; what matters is that the remainder carries all the dependence on b.
+
+**Theorem {#thm:iii-h2-3-1}** ([[thm:ii-f-8-1]] uniformly near b₀.) [[thm:ii-f-8-1]], with [[rem:ii-f-8-2]] (margin
+1), holds for P_0 = 2L_b, b ∈ B̄_1, ℵ = 2, sf-loss 0, the order 𝗌 of (B4), and a constant C_k independent of b.
+
+*Proof.* (a) *[[sec:ii-f-1]]–[[sec:ii-f-6]].* They concern N_(ι⁺)(P_0): its Mellin family N⁰(σ) and the semiclassical
+rescaling ([[sec:ii-f-1-2]]–[[sec:ii-f-1-3]]), the estimates of [[prop:ii-f-3-1]] and [[prop:ii-f-5-1]] and their
+lemmas, and the forward problem for N_(ι⁺)(P_0) ([[prop:ii-f-6-2]]). By [[lem:iii-h2-3-2]] their statements do not
+depend on b. The proof in [[sec:ii-f-6-3]] also uses P_0: it builds P_λ := P_0 + ψψ̃(N − P_0), applies
+[[prop:ii-e-3-4]] to it with λ chosen by smallness relative to P_0, and the orders of [[sec:ii-f-6-1]] are admissible
+for P_0. So [[sec:ii-f-6]] is run with P_0 := 2L_(b₀) for every b, which is allowed as the statement of
+[[prop:ii-f-6-2]] involves only N_(ι⁺)(P_0) = N_(ι⁺)(2L_(b₀)). The statement also involves the order of
+[[sec:ii-f-6-1]], admissible for P_0; with P_0 := 2L_(b₀) this is the order 𝗌 of (B4), which [[sec:ii-f-7-2]] uses at
+2L_b, so the substitution is consistent. The compactness and contradiction arguments of [[sec:ii-f-3-5]],
+[[sec:ii-f-4-2]] and [[sec:ii-f-5-4]] concern N⁰ and N_tf, which do not depend on b. The uniqueness of
+[[sec:ii-f-1-4]] ([[lem:ii-f-1-3]]–[[lem:ii-f-1-4]]) is qualitative and holds for every g_b, with t_* a time function
+([[lem:ii-b-1-1]]).
+
+(b) *[[sec:ii-f-7]].* P_+ = χN_(ι⁺)(P_0) + (1 − χ)P_0 ([[def:ii-f-7-1]]), and P_+ − N_(ι⁺)(P_0) =
+(1 − χ)(P_0 − N_(ι⁺)(P_0)) lies in x_I²τ³ρ_cf⁻² Diff²_ebe ([[lem:ii-f-7-2]] (b)), with seminorms continuous in b
+([[lem:iii-f-2-1]] (3): the coefficients are smooth in b). The τ_1 of [[lem:ii-f-7-2]] (c) is uniform, the normalised
+difference there being O(ρ_+²) with constants continuous in b. By the remark after [[prop:ii-f-7-4]], τ_0 and the
+constants depend on P_0 only through [[sec:ii-f-7-6]]. Its estimates are the radial estimates at cf ([[lem:ii-f-7-6]],
+whose quantities at the radial sets are those of N_(ι⁺)(P_0), independent of b by (a)), the radial estimates at 𝓘⁺
+([[prop:ii-d-3-5]]–[[prop:ii-d-3-6]]), propagation estimates and the slab estimates of [[ch:s07]]; and
+τ_0 < ½C′τ_1 involves the C′ of [[lem:ii-c-3-2]]. Their constants depend on finitely many seminorms of
+P_+ − N_(ι⁺)(P_0) and of the orders, and on margins, all continuous in b. The one limit argument there (u^ε ⇀ u)
+extracts a solution from an estimate that is already uniform. Strong uniqueness ([[sec:ii-f-7-4]]) is qualitative.
+Finite-time solvability ([[sec:ii-f-7-5]]) applies [[prop:ii-e-3-4]] and [[prop:ii-e-4-3]] on slabs to operators weakly
+admissible relative to P_0 = 2L_b itself, with ε_P ≤ C t_(*,0)^(−(1−ℓ_+)) ([[lem:ii-f-7-5]]; C is a seminorm of
+N_(ι⁺)(P_0) − P_0 in the class of [[lem:ii-f-1-2]], continuous in b by [[lem:iii-f-2-1]] (3)). The constants of
+[[ch:s07]] depend on P_0 through finitely many coefficient norms and the structural margins (the timelike conditions,
+the threshold, the dynamics), and are uniform for ε_P small (the last paragraph of the proof of [[prop:ii-e-3-4]], and
+the proof of [[prop:ii-e-4-3]], which applies it). For P_0 = 2L_b these norms, which [[sec:ii-f-7-5]] bounds over all
+its slabs at a fixed b, are seminorms of stationary coefficients smooth in b ([[lem:iii-f-2-1]] (3)), and the margins
+are continuous and positive in b; so they are bounded, respectively bounded below, on the compact B̄_1, as no
+perturbation of 2L_(b₀) is taken. What is uniform in b is the constant of each slab (those of [[lem:ii-f-7-5]] depend
+on the step), and only finitely many steps enter [[eq:ii-f-7-4]] at T = 2δ⁻¹, so the bound is uniform. So
+[[prop:ii-f-7-4]] holds with τ_0 and C uniform on B̄_1.
+
+(c) *[[sec:ii-f-8]].* Step 0 of the proof in [[sec:ii-f-8-2]] uses [[prop:ii-e-4-3]] on a slab, uniform as in (b).
+Steps 1 and 3 use [[prop:ii-f-7-4]], uniform by (b). Step 2 uses the 2-admissibility estimate [[eq:ii-f-8-6]], uniform
+by [[thm:iii-h2-2-1]], and [[lem:ii-f-1-3]]–[[lem:ii-f-1-4]], which are qualitative. Step 4 sums the bounds. So
+[[eq:ii-f-8-2]] holds with C_k independent of b. ∎
+
+### Forward solutions of admissible operators, uniformly near b₀ {#sec:iii-h2-4}
+
+This section is [Hin26c, Theorem 11.1] uniformly over the family 2L_b.
+
+**Theorem {#thm:iii-h2-4-1}** ([[thm:ii-f1-1-1]] uniformly near b₀.) Let α_I, α_+, ℓ_I, ℓ_+, ℓ_K be as in
+[[thm:ii-f1-1-1]], with ℵ = 2, δ = 0 and the order 𝗌 of (B4). There are ε_0 > 0 and d ∈ ℕ such that for every
+b ∈ B̄_1 the conclusions of [[thm:ii-f1-1-1]] and [[cor:ii-f1-1-2]] hold with P_0 := 2L_b (with [[rem:ii-f1-7-1]] for
+margin 1), with ε_0, d and C_k independent of b. Moreover, for k ≥ 1: let b_j → b in B̄_1; let P_j be admissible
+relative to 2L_(b_j) of class ((0;k+d),(2ℓ_I,ℓ_+,ℓ_K)), with ‖P_j − 2L_(b_j)‖_((0;d)) < ε_0 and
+‖P_j − 2L_(b_j)‖_((0;k+d)) bounded, and with coefficients converging in C² on compact subsets of M° ∩ {r > r_0} to those
+of P, admissible relative to 2L_b with ‖P − 2L_b‖_((0;d)) < ε_0; and let f_j → f in [[eq:ii-f1-1-4]]. Then the forward
+solutions converge in H^(k−1,(α_I−ς,α_+−ς,−2−ς))_b(Ω_*; E)^(•,−) for every ς > 0.
+
+*Proof.* The proof of [[thm:ii-f1-1-1]] depends on P_0 only through the following inputs.
+
+(i) [[thm:ii-e-6-1]] and [[prop:ii-e-3-4]], [[prop:ii-e-4-3]] and [[prop:ii-e-4-4]] ([[sec:ii-f1-3-1]]).
+[[thm:ii-e-6-1]] is uniform over the stationary models of nearby parameters (its last sentence). The slab propositions
+are applied relative to P_0 = 2L_b ([[prop:ii-f1-3-1]] (iv) on Ω_(1,T_η), [[lem:ii-f1-2-9]] on Ω_(1,4/ε), and
+[[prop:ii-e-4-4]], which rests on [[prop:ii-e-4-3]]), and are uniform on every slab as in the proof of
+[[thm:iii-h2-3-1]] (b).
+
+(ii) The thresholds of [[lem:ii-f1-2-1]] and of [[lem:ii-c-3-2]] and [[lem:ii-c-3-7]], which are continuous in the
+coefficients.
+
+(iii) The orders ([[sec:ii-f1-2-3]]), fixed by (B4).
+
+(iv) [[thm:ii-f-8-1]] with [[rem:ii-f-8-2]], uniform by [[thm:iii-h2-3-1]].
+
+(v) The 2-admissibility estimate [[eq:ii-c-2-2]], uniform by [[thm:iii-h2-2-1]].
+
+Every other constant depends on P only through ε_0 (the last sentence of [[sec:ii-f1-3-1]]). So ε_0, d and C_k can be
+chosen independent of b ∈ B̄_1. *Continuity.* Run the proof of [[sec:ii-f1-6]] with P^(j) := P_j relative to 2L_(b_j).
+By the first part the u_j are bounded in H^(k,(α_I,α_+,−2))_b uniformly in j. A weak limit point ũ satisfies Pũ = f,
+by the C² convergence of the coefficients on compact sets; the uniqueness of [[lem:ii-f1-2-2]], which is qualitative,
+gives ũ = u, and [[lem:ii-f1-6-1]] gives convergence in norm. ∎
+
+[Hin26c, Theorem 11.1] also allows P_0 near an admissible P_1 among all small stationary perturbations. That wider
+statement is not proved here and is not used: the later chapters use only the family 2L_b, b ∈ B̄_*.
+
+### Forward solutions in the cone near b₀ {#sec:iii-h2-5}
+
+**Corollary {#cor:iii-h2-5-1}** (Forward solutions near b₀; [Hin26, Theorem 11.12] in dimension 4 + 1.)
+[[thm:iii-i-5-3]] holds for every b ∈ B_* in place of b₀. With g_0 := g_(b₀,b,−S), g := g_0 + h and the forward
+solution u of L^(g,g_0)u = f, [[eq:iii-i-5-1]]–[[eq:iii-i-5-2]] hold with ε_0, d and C_k independent of b. For k ≥ 1,
+u depends continuously on (b, S, h) in H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b(Ω_*; S²T*)^(•,−), for every ς > 0.
+
+*Proof.* The proof of [[thm:iii-i-5-3]], with P_0 := 2L_b and [[thm:iii-h2-4-1]] in place of [[thm:ii-f1-1-1]]. Its
+hypothesis (i) is [[thm:iii-h2-2-1]]. (ii) is unchanged, as S̄ and Ā do not depend on b. (iii) is [[cor:iii-i-5-2]],
+which is stated for g_0 = g_(b₀,b,−S) and P_0 = 2L_b and whose hypothesis is now [[thm:iii-h2-2-1]], with
+‖P − 2L_b‖_((0;d)) ≤ C(|b − b₀| + |S| + ‖h‖_(𝒳^(d+5))) by [[prop:iii-i-3-4]], [[eq:iii-i-3-7]], small by (B5).
+*Continuity.* [[thm:iii-h2-4-1]], as 2L^(g,g_0) depends smoothly on (b, S) and continuously on h in the norm of
+[[eq:iii-i-3-7]] ([[lem:iii-i-3-6]]). ∎
+
+[Hin26, Theorem 11.12] states continuity in (b₀, b, S, h); here b₀ is fixed.
+
+### Null infinity: the setting and the structure {#sec:iii-i1-1}
+
+This section and the next two are [Hin26, Section 11.2] in dimension 4 + 1: the partial polyhomogeneity at 𝓘⁺ of
+solutions of L^(g,g_0)u = f without loss at ι⁺ ([Hin26, Proposition 11.14 and Lemma 11.15]), and formal solutions of
+L_b u = f at 𝓘⁺ ([Hin26, Proposition 11.16]). The leading part of the operator at 𝓘⁺ is (X_+ − X_I)(X_I − 3/2 − Ā),
+with the constant lower-triangular Ā, for the dynamical operator as for L_b ([[prop:iii-i-3-3]]); the terms A^h, B^h
+of [Hin26] and its h-dependent coupling (A^h)_(7,6) of the radiation field into the 11-component are half an order
+lower and enter only through the error.
+
+On the region U_I := [0, c_I]_(ρ_I) × [0, 1]_(ρ_+) × 𝕊³, with the coordinates [[eq:iii-i-3-1]] (so that
+{ρ_+ = 1} = {t_* = 0}) and c_I ∈ (0, 1] small, weights are listed at (𝓘⁺, ι⁺) and none at K⁺, as in [Hin26].
+L := L^(g,g_0) with g_0 := g_(b₀,b,−S), g := g_0 + h and h ∈ 𝒳^∞ small ([[eq:iii-i-1-4]], [[prop:iii-i-3-4]]). All
+functions below vanish for t_* ≤ 1, so the region {0 ≤ t_* ≤ 1}, where h is extended arbitrarily, plays no role.
+Components are taken in the splitting [[eq:iii-c-1-6]], slots 1, …, 7. [[sec:iii-f-1]] takes
+(1 − e_C)(1 − v_C)γ_C > 100. Put
+
+    ℓ_I^max := 3/2 + (1 − e_C)(1 − v_C)γ_C   (> 100),                                                 {#eq:iii-i1-1-1}
+
+the least indicial root of the π_C-slots. The weights at 𝓘⁺ below reach min(a_I + ½, ℓ_I^max): a_I + ½ is the bound of
+the products with the coefficients of the error, whose remainder has the weight a_I − 1, against the least exponent 3/2
+of u ([Hin26] has ℓ_I ≤ 3 + ε_I, the same bound in dimension 3 + 1 with the least exponent 1); and ℓ_I^max keeps ℓ_I
+below the roots of the π_C-slots, which [Hin26] states as 3 + ε_I < 1 + (1 − e_C)(1 − v_C)γ_C.
+
+**Lemma {#lem:iii-i1-1-1}** (The structure; [Hin26, (11.26) and (11.34)] in dimension 4 + 1.) On U_I,
+
+    ρ_I⁻¹ρ_+⁻²L = L_0 + L̃,        L_0 := (X_+ − X_I)(X_I − 3/2 − Ā),
+    L̃ ∈ (ρ_I C^∞ + H^(∞,(ℰ^tot_I−1,a_I−1),(ℰ_+,a_+))_b) Diff²_b,                                       {#eq:iii-i1-1-2}
+
+and for L_b the same holds with L̃ ∈ ρ_I Diff²_b (smooth coefficients). X_+ − X_I and X_I − 3/2 − Ā commute.
+
+*Proof.* Divide [[eq:iii-i-3-4]] by ρ_Iρ_+², and for L_b use [[lem:iii-i-3-2]] with the change of frame of
+[[lem:iii-c-1-3]]. Ā is constant, and X_+, X_I commute. ∎
+
+[Hin26] has L_0 = −(ρ_I∂_(ρ_I) − (I + A^h))(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + ρ_+⁻¹B^h, with
+L̃ ∈ (ρ_I C^∞ + H^(k−2,(ℰ^C_I−1,2+ε_I),(ℰ_+,3+ε_+))_b) Diff²_b, which gains min Re(ℰ^C_I − 1) > 2γ_Υ; here L̃ gains ½
+(as min Re ℰ^tot_I = 3/2), and L_0 has constant coefficients.
+
+*Integration tools.* We use [[lem:iii-a-1-2]] ([Hin26, Lemma 2.12]: the equation (x∂_x − z)u = f adds (z, 0) to the
+index set when Re z ≤ α, for a weight α ≠ Re z), [[lem:iii-a-3-1]] ([Hin26, Lemma 2.22]) and [[lem:iii-a-3-2]]
+([Hin26, Lemma 2.23]: the equation (x∂_x − y∂_y + z)u = f, with α + Re z > β and an a priori bound near y = 1). Here
+(x, y) = (ρ_I, ρ_+) when integrating forward from {ρ_+ = 1}, where u = 0, and (x, y) = (ρ_+, ρ_I) when integrating
+backward from {ρ_I = c_I}. Slot j of L_0u is
+
+    (L_0u)_j = (X_+ − X_I)((X_I − 3/2 − Ā_jj)u_j − Σ_(i<j) Ā_ji u_i),                                    {#eq:iii-i1-1-3}
+
+the couplings being at (3, 1), (4, 1), (4, 3), (5, 2), (7, 3) and (7, 4) ([[lem:iii-c-4-2]]).
+
+### Partial polyhomogeneity at null infinity {#sec:iii-i1-2}
+
+This section is [Hin26, Proposition 11.14 and Lemma 11.15] in dimension 4 + 1.
+
+**Proposition {#prop:iii-i1-2-1}** (Partial polyhomogeneity at 𝓘⁺; [Hin26, Proposition 11.14] in dimension 4 + 1.)
+Let ℰ^C_I and ℰ_+ be as in [[def:iii-i-1-1]]. Let 3/2 < ℓ_I < min(a_I + ½, ℓ_I^max),
+ℓ_+ < min(ℓ_I, a_+ + min Re ℰ_+), ℓ_+ ∉ Re π_1ℰ_+ ∪ Re π_1ℰ^tot_I and ℓ_I ∉ 3/2 + σ_Υ. Suppose that u and f vanish for
+t_* ≤ 1, and
+
+    Lu = f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),(ℰ_++2,ℓ_++2))_b,      u ∈ H^(∞,α_I,(ℰ_+,ℓ_+))_b          {#eq:iii-i1-2-1}
+
+for some α_I ∈ ℝ. Then u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,ℓ_+))_b.
+
+[Hin26] asks ℓ_+ < ℓ_I ≤ 3 + ε_I, its 3 + ε_I being the product bound in dimension 3 + 1. Its exceptional roots
+1 + σ_Υ (at most 1 + 2γ_Υ) can equal a small ℓ_I, which its statement does not exclude, and its roots 1 + λ_C of the
+π_C-slots lie far above. The exclusions ℓ_I ∉ 3/2 + σ_Υ and ℓ_+ ∉ Re π_1ℰ^tot_I come from the conditions α ≠ Re z of
+[[lem:iii-a-1-2]] and of [[lem:iii-a-3-2]].
+
+**Lemma {#lem:iii-i1-2-2}** (The expansion at 𝓘⁺ away from ι⁺; [Hin26, Lemma 11.15] in dimension 4 + 1.) Under the
+assumptions of [[prop:iii-i1-2-1]], u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),α_+)_b for every
+α_+ < min(α_I, 3/2, ℓ_+, min Re ℰ_+).
+
+*Proof.* Reducing α_I if necessary, we may assume α_I < 3/2 and
+
+    u ∈ H^(∞,α_I,α_+)_b.                                                                             {#eq:iii-i1-2-2}
+
+*Step 1: the weight below 3/2.* Fix η ∈ (0, ½) with α_I + η < 3/2. By [[eq:iii-i1-1-2]] and [[lem:iii-c-2-1]] (the
+𝓘⁺-index set of the coefficient has min Re = ½ > η; at ι⁺, min Re ℰ_+ > 0), L̃u ∈ H^(∞,α_I+η,α_+)_b; and
+ρ_I⁻¹ρ_+⁻²f ∈ H^(∞,α_I+η,α_+)_b, as its 𝓘⁺-index sets ℰ^C_I and ℱ_(I,11) − 1 have min Re > 3/2 and its data at ι⁺
+are (ℰ_+, ℓ_+) with α_+ < min(ℓ_+, min Re ℰ_+). So L_0u ∈ H^(∞,α_I+η,α_+)_b. In slot 1, by [[eq:iii-i1-1-3]],
+(X_I − 3/2 − λ)w = (L_0u)_1 for w := (X_+ − X_I)u_1 and the eigenvalue λ of the slot. [[lem:iii-a-1-2]] in ρ_I (with
+Re(3/2 + λ) > α_I + η, so that no term is added; the a priori hypothesis, on ρ_I near c_I, away from 𝓘⁺, holds by
+[[eq:iii-i1-2-2]]) gives w ∈ H^(∞,α_I+η,α_+)_b. Then (X_I − X_+)u_1 = −w with u_1 = 0 near {ρ_+ = 1}, and
+[[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), z = 0, E = F = ∅ and α = α_I + η > β = α_+ gives
+u_1 ∈ H^(∞,α_I+η,α_+)_b. In slot j > 1 the couplings (X_+ − X_I)Ā_ji u_i, i < j, already improved, go to the right,
+and the same two steps apply, as every eigenvalue satisfies 3/2 + λ ≥ 3/2 > α_I + η. So [[eq:iii-i1-2-2]] holds with
+α_I + η in place of α_I, and iterating,
+
+    u ∈ ⋂_(α_I<3/2) H^(∞,α_I,α_+)_b.                                                                {#eq:iii-i1-2-3}
+
+*Step 2: the first expansion term.* Let 0 < η < min((1 − e_Υ)γ_Υ, ½), the least nonzero element of σ_Υ being
+(1 − e_Υ)γ_Υ (as 0 < e_Υ < 1). By [[eq:iii-i1-2-3]] and [[eq:iii-i1-1-2]], L̃u and ρ_I⁻¹ρ_+⁻²f lie in
+H^(∞,3/2+η,α_+)_b. In the slots 1–5 and 7, whose eigenvalues exceed η, the two steps of Step 1 give membership at
+3/2 + η (slot 7 by the couplings (7, 3) and (7, 4) from slots already improved; Ā_76 = 0). In slot 6 (π̸_0, eigenvalue
+0), [[lem:iii-a-1-2]] adds (3/2, 0): (X_+ − X_I)π̸_0u ∈ H^(∞,((3/2,0),3/2+η),α_+)_b, and [[lem:iii-a-3-2]]
+(E = {(3/2, 0)}, α = 3/2 + η > α_+, 3/2 ≠ α_+) gives π̸_0u ∈ H^(∞,((3/2,0),3/2+η),α_+)_b, the terms it adds at ι⁺
+lying above the weight α_+ < 3/2. So
+
+    u ∈ H^(∞,(⟨ℰ^C_I⟩,α_I),α_+)_b        for every α_I < 3/2 + (1 − e_Υ)γ_Υ,                             {#eq:iii-i1-2-4}
+
+with π̸_0u carrying (3/2, 0) and no other slot carrying an expansion term below the weight. In dimension 3 + 1, u_11
+acquires (1, 0) here, from (A^h)_(7,6) acting on π̸_0u ([Hin26, (11.29)]); in dimension 4 + 1 that coupling is part of
+L̃, and acting on (3/2, 0) it gives 𝓘⁺-order ≥ 2 > 3/2 + η.
+
+*Step 3: the full expansion.* Suppose [[eq:iii-i1-2-4]] holds for some α_I, and let 0 < η < ½. Every slot of u has its
+𝓘⁺-index set in ℰ^tot_I ([[lem:iii-c-3-2]] (c)), so by [[eq:iii-i1-1-2]] and [[lem:iii-c-2-1]], with
+(ℰ^tot_I − 1) + ℰ^tot_I ⊂ ℰ^C_I ([[def:iii-c-3-1]] (3)) and ℰ^tot_I + 1 ⊂ ℰ^C_I ([[lem:iii-c-3-2]] (a)),
+L̃u ∈ H^(∞,(ℰ^C_I,α′),α_+)_b with α′ := min(ℓ_I, α_I + η). The three inequalities of [[lem:iii-c-2-1]] hold:
+α′ < α_I + ½; α′ ≤ α_I + a_I − 1, as a_I > 3/2; and α′ < (a_I − 1) + 3/2 = a_I + ½, the remainder of the coefficient at
+the weight a_I − 1, which has no expansion, against the least exponent 3/2 of u. This last is where the hypothesis
+ℓ_I < a_I + ½ enters. The term ρ_I⁻¹ρ_+⁻²f has the 𝓘⁺-index sets ℰ^C_I (slots 1–6) and
+ℰ^C_I ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) (slot 7) at the weight ℓ_I. Here α′ is chosen off 3/2 + σ_Υ, by decreasing η (ℓ_I is
+off it by hypothesis).
+
+Slots 1–3: the eigenvalues satisfy 3/2 + λ_C ≥ ℓ_I^max > ℓ_I ≥ α′, so [[lem:iii-a-1-2]] adds nothing, and
+(X_+ − X_I)u_j ∈ H^(∞,(ℰ^C_I,α′),α_+)_b; [[lem:iii-a-3-2]] (E = ℰ^C_I, α′ > α_+, and α_+ ∉ Re π_1ℰ^C_I as α_+ < 3/2)
+gives u_j ∈ H^(∞,(ℰ^C_I,α′),α_+)_b, the index set it adds at ι⁺ lying above the weight α_+.
+
+Slots 4, 5, 6: with the couplings (4, 1), (4, 3), (5, 2) from the slots 1–3 on the right, the eigenvalue
+s ∈ {(1 − e_Υ)γ_Υ, γ_Υ, 0} adds (3/2 + s, 0), so u_01, π_1/u and π̸_0u lie in the classes of ℰ_(I,01), ℰ_(I,1/) and
+ℰ̸_(I,0) at the weight α′.
+
+Slot 7: the couplings (7, 3) (index set ℰ^C_I) and (7, 4) (index set ℰ_(I,01)), the term (3/2 + (1 − e_Υ)γ_Υ, 0) of
+f, and, through L̃, the h-dependent couplings, which land in ℰ^C_I (above); with the eigenvalue 2γ_Υ,
+[[lem:iii-a-1-2]] gives ℰ^C_I ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) ∪ (3/2 + 2γ_Υ, 0) = ℰ_(I,11), as (1 − e_Υ)γ_Υ ≠ 2γ_Υ.
+
+So [[eq:iii-i1-2-4]] holds with α′ in place of α_I, in the class of [[def:iii-i-1-1]] (1), and finitely many steps
+reach ℓ_I. ∎
+
+*Proof of [[prop:iii-i1-2-1]].* *Step 1: the data at ι⁺, at a weaker 𝓘⁺-weight.* Suppose that
+u ∈ H^(∞,(⟨ℰ^C_I⟩,α_I),(ℰ_+,ℓ_+))_b for some α_I < ℓ_+ (or u ∈ H^(∞,α_I,(ℰ_+,ℓ_+))_b when α_I < 3/2; this holds for
+the given α_I). By [[eq:iii-i1-1-2]], L̃u has the 𝓘⁺-weight α_I + η for η < ½, with some index set, and the data
+(ℰ_+, ℓ_+) at ι⁺ (ℰ_+ + ℰ_+ ⊂ ℰ_+; the remainder of the product needs ℓ_+ < a_+ + min Re ℰ_+, the remainder of the
+coefficient at the weight a_+ against the least exponent of u). Integrate L_0u = ρ_I⁻¹ρ_+⁻²f − L̃u slot by slot as in
+[[lem:iii-i1-2-2]], except that the hyperbolic field is integrated backward from {ρ_I = c_I}: [[lem:iii-a-3-2]] with
+(x, y) = (ρ_+, ρ_I), the a priori bound near {ρ_I = c_I} being the hypothesis u ∈ H^(∞,·,(ℰ_+,ℓ_+)) there (away from
+𝓘⁺), needs ℓ_+ > α_I + η (α + Re z > β) and α_I + η ∉ Re π_1ℰ_+; and in the slot-by-slot step [[lem:iii-a-1-2]] in
+ρ_I needs α_I + η off 3/2 + spec Ā. Decrease η to ensure all three. This gives the data (ℰ_+, ℓ_+) at ι⁺, and 𝓘⁺-index
+sets that are extended unions with ℰ_+; but by [[lem:iii-i1-2-2]] the 𝓘⁺-expansion of u, which is determined by u away
+from ι⁺, has exponents only in ⟨ℰ^C_I⟩ up to the weight ℓ_I, so the coefficients of all other terms vanish. Hence the
+hypothesis holds with α_I + η, and finitely many steps give it for every α_I < ℓ_+.
+
+*Step 2: both.* Now integrate forward as in [[lem:iii-i1-2-2]], from α_I < ℓ_+ close to ℓ_+ up to ℓ_I, keeping the data
+(ℰ_+, ℓ_+) at ι⁺. In [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), the 𝓘⁺-weight α_I + η of the right side exceeds ℓ_+
+(α + Re z > β with β = ℓ_+), and ℓ_+ ∉ Re π_1 of the 𝓘⁺-index sets, which lie in ℰ^tot_I (a hypothesis; these sets do
+not depend on the weight); also ℓ_+ < ℓ_I and ℓ_+ ∉ Re π_1ℰ_+. The index sets at ι⁺ that it produces are extended
+unions of ℰ_+ with 𝓘⁺-index sets of components of u, but u has the index set ℰ_+ at ι⁺ by Step 1, so no other
+exponent occurs. After finitely many steps, u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_+,ℓ_+))_b. ∎
+
+### Formal solutions at null infinity {#sec:iii-i1-3}
+
+This section is [Hin26, Proposition 11.16] in dimension 4 + 1.
+
+**Proposition {#prop:iii-i1-3-1}** (Formal solutions at 𝓘⁺; [Hin26, Proposition 11.16] in dimension 4 + 1.) Let ℰ^C_I
+be as in [[def:iii-i-1-1]] and Ĕ_+ ⊂ ℂ × ℕ₀ an index set. Let ℓ̆_+ < ℓ_I < ℓ_I^max with ℓ_I > 3/2,
+ℓ̆_+, ℓ_I ∉ Re π_1ℰ^C_I and ℓ̆_+, ℓ_I ≠ 3/2 + (1 − e_Υ)γ_Υ. Let
+f ∈ H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),(Ĕ_++2,ℓ̆_++2))_b vanish for t_* < 1. Then there are an index set ℰ^♯_+, depending only
+on ℰ^C_I and Ĕ_+, and u ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ^♯_+,ℓ̆_+))_b vanishing on {t_* < 1} ∪ {ρ_I > ½c_I}, with
+
+    f − L_b u ∈ H^(∞,ℓ_I+1,(ℰ^♯_++2,ℓ̆_++2))_b(Ω_*; S²T*).                                              {#eq:iii-i1-3-1}
+
+One can take ℰ^♯_+ = ⋃_(j≥1) ℰ^(♯,(j))_+, with
+
+    ℰ^(♯,(1))_+ := Ĕ_+ ∪̄ {(3/2 + (1 − e_Υ)γ_Υ, 0)},
+    ℰ^(♯,(j+1))_+ := ℰ^(♯,(j))_+ ∪̄^(k(ℰ^C_I,z)+1) {(z, 0)}
+                     for each z ∈ π_1ℰ^C_I with m_j ≤ Re z < m_j + 1,                              {#eq:iii-i1-3-2}
+
+m_j := min Re ℰ^C_I + j − 1 (only Re z ≤ ℓ_I matters), where k(ℰ^C_I, z) is the largest logarithmic order of ℰ^C_I
+at z, and E ∪̄^m {(z, 0)} is the extended union of [[lem:iii-a-1-2]] taken m times: E ∪ {(z, m − 1)} if z ∉ π_1E, and
+E with its logarithmic order at z raised by m otherwise. (The rounds of the proof take the windows [μ_j, μ_j + 1), with
+μ_j ≥ m_j the least real part left; the union ℰ^♯_+ is the same.) If all the terms ρ_I^(z+1)(log ρ_I)^k of the
+𝓘⁺-expansion of f vanish for Re z ≤ C_0, these z may be omitted from [[eq:iii-i1-3-2]].
+
+[Hin26, (11.33a)] has ℰ^(♯,(1))_+ = Ĕ_+ ∪ {(1, 0)} ∪ {(1 + (1 − e_Υ)γ_Υ, 0)} and windows j < Re z ≤ j + 1. The (1, 0)
+comes from the radiation coupling of its Step 1, which dimension 4 + 1 does not have. Its windows rely on
+min Re ℰ^C_I ∈ (1, 2) in dimension 3 + 1; [[eq:iii-i1-3-2]] takes them from min Re ℰ^C_I upward in steps of 1, which is
+what the induction uses. And [Hin26, (11.33a)–(11.33b)] write ∪ where [[lem:iii-a-1-2]] returns the extended union
+E ∪̄ {(z, 0)}; the plain union understates the logarithmic orders at ι⁺ when Ĕ_+ meets z_1 or π_1ℰ^C_I, and the
+existence of ℰ^♯_+ is not affected.
+
+*Proof.* By [[lem:iii-i1-1-1]], ρ_I⁻¹ρ_+⁻²L_b = L_0 + L̃ with L̃ ∈ ρ_I Diff²_b. Let χ = χ(ρ_I) ∈ C^∞_c([0, ½c_I))
+equal 1 near 0. By [[def:iii-i-1-1]] (2) ([[eq:iii-c-5-1]]), write
+
+    f = χρ_I^(5/2+(1−e_Υ)γ_Υ) f^♭_11 (dx¹)² + f̃,      f^♭_11 ∈ H^(∞,(Ĕ_++2,ℓ̆_++2))_b(Ω_* ∩ 𝓘⁺),
+                                                     f̃ ∈ H^(∞,(ℰ^C_I+1,ℓ_I+1),(Ĕ_++2,ℓ̆_++2))_b,
+
+the exceptional term of the 11-component: ℱ_(I,11) = 1 + (ℰ^C_I ∪ (3/2 + (1 − e_Υ)γ_Υ, 0)), and
+z_1 := 3/2 + (1 − e_Υ)γ_Υ < 3/2 + 2γ_Υ < min Re ℰ^C_I by [[def:iii-c-3-1]] (2), so the splitting is clean.
+
+*Step 1: the exceptional term.* Try v := χρ_I^(z_1)u^♭(dx¹)² with u^♭ = u^♭(ρ_+, ω). On slot 7, the last,
+X_I − 3/2 − Ā acts by z_1 − 3/2 − 2γ_Υ = −(1 + e_Υ)γ_Υ ≠ 0 (there is no slot below it), and
+(X_+ − X_I)ρ_I^(z_1) = ρ_I^(z_1)(X_+ − z_1). So, where χ = 1,
+L_0v = −(1 + e_Υ)γ_Υ ρ_I^(z_1)((X_+ − z_1)u^♭)(dx¹)², and the corresponding term of ρ_I⁻¹ρ_+⁻²f is
+ρ_I^(z_1)ρ_+⁻²f^♭_11(dx¹)². Solve, on 𝓘⁺,
+
+    (X_+ − z_1)u^♭ = −((1 + e_Υ)γ_Υ)⁻¹ρ_+⁻²f^♭_11,        u^♭ = 0 near {ρ_+ = 1}.
+
+[[lem:iii-a-1-2]] in ρ_+ (ℓ̆_+ ≠ z_1; the right side vanishes for t_* < 1, so the solution vanishing at ρ_+ = 1 does
+too) gives u^♭ ∈ H^(∞,(Ĕ_+∪̄{(z_1,0)},ℓ̆_+))_b(Ω_* ∩ 𝓘⁺). Then f − L_b v has no term ρ_I^(z_1+1) in slot 7: the
+remainder from L̃ is ρ_I^(z_1+2) times H^∞-functions with the index set ℰ^(♯,(1))_+ + 2 at ι⁺, and
+z_1 + 2 ∈ ℰ^tot_I + 2 ⊂ ℰ^C_I + 1 ([[lem:iii-c-3-2]] (c)); the derivatives of χ are supported away from 𝓘⁺. So f is
+reduced to
+
+    f ∈ H^(∞,(F_I+1,ℓ_I+1),(F_++2,ℓ̆_++2))_b,      F_I = ℰ^C_I,      F_+ = ℰ^(♯,(1))_+.        {#eq:iii-i1-3-3}
+
+*Step 2: the remaining terms.* Given [[eq:iii-i1-3-3]], let z ∈ π_1F_I with Re z < min Re F_I + 1 and Re z ≤ ℓ_I, let
+k := k(F_I, z), and let χρ_I^(z+1)(log ρ_I)^k f^((z+1,k)) be the corresponding term of f, with
+f^((z+1,k)) ∈ H^(∞,(F_++2,ℓ̆_++2))_b(Ω_* ∩ 𝓘⁺; S²T*). As Re z > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)) and
+Re z ≤ ℓ_I < ℓ_I^max, z ∉ 3/2 + spec Ā, so z − 3/2 − Ā is invertible. Let u^((z,k)) solve
+
+    (z − 3/2 − Ā)(X_+ − z)u^((z,k)) = ρ_+⁻²f^((z+1,k)),        u^((z,k)) = 0 for t_* ≤ 1;
+
+by [[lem:iii-a-1-2]] (ℓ̆_+ ≠ Re z), u^((z,k)) ∈ H^(∞,(F_+∪̄{(z,0)},ℓ̆_+))_b(Ω_* ∩ 𝓘⁺). By [[eq:iii-a-1-1]] in ρ_I,
+
+    L_0(ρ_I^z(log ρ_I)^k u^((z,k)))
+        = ρ_I^z(log ρ_I)^k ρ_+⁻²f^((z+1,k)) + ρ_I^z Σ_(k′<k) (log ρ_I)^(k′) ρ_+⁻²f′^((z+1,k′)),
+
+with explicit f′^((z+1,k′)) ∈ H^(∞,((F_+∪̄{(z,0)})+2,ℓ̆_++2))_b; and L̃ applied to it gives terms
+ρ_I^(z+1+j)(log ρ_I)^(k″), j ≥ 1, k″ ≤ k, which lie in F_I + 1 at 𝓘⁺ beyond the current window (z + j ∈ ℰ^C_I, as
+ℰ^C_I + 1 ⊂ ℰ^C_I by [[lem:iii-c-3-2]] (a); L̃ has smooth coefficients, so the shifts are integers). Replacing f by
+f − L_b(χρ_I^z(log ρ_I)^k u^((z,k))) replaces (F_I, F_+) by (F_I ∖ {(z, k)}, F_+ ∪̄ {(z, 0)}); repeating for
+(z, k − 1), …, (z, 0) gives (F_I ∖ {(z, j)}_(j≤k), F_+ ∪̄^(k+1) {(z, 0)}), the logarithmic order at z rising by one at
+each repetition through the extended union. Doing this for every such z (finitely many, by the construction of
+[[lem:iii-c-3-2]] (e)) replaces F_I by {(z, k) ∈ F_I : Re z ≥ min Re F_I + 1} and F_+ by the next set of
+[[eq:iii-i1-3-2]]. Finitely many rounds exhaust the terms with Re z ≤ ℓ_I, and the remainder has the 𝓘⁺-weight ℓ_I + 1
+with no expansion, which is [[eq:iii-i1-3-1]]. The terms of u vanish on {ρ_I > ½c_I} by the cut-off and on {t_* < 1}
+by construction, and lie in the class of [[def:iii-i-1-1]] (1): their 𝓘⁺-exponents are those of ℰ^C_I, and z_1 in
+slot 7, with (z_1, 0) ∈ ℰ_(I,11). If the terms of f vanish for Re z ≤ C_0, the corresponding u^((z,k)) are 0. ∎
+
+By [[eq:iii-i1-3-2]], min Re ℰ^♯_+ = min(min Re Ĕ_+, 3/2 + (1 − e_Υ)γ_Υ), since min Re ℰ^C_I > 3/2 + 2γ_Υ: when Ĕ_+
+does not go lower, the index set at ι⁺ of the formal solution starts at 3/2 + (1 − e_Υ)γ_Υ.
+
+### Almost linear bounds: the setting {#sec:iii-i2-1}
+
+This section and [[sec:iii-i2-2]]–[[sec:iii-i2-5]] are [Hin26, Section 11.3] in dimension 4 + 1: the improvement of the
+forward solutions of L^(g,g_0)u = f at ι⁺ and K⁺ for right sides with more decay there ([Hin26, Proposition 11.17]),
+with the two integration lemmas it rests on ([Hin26, Lemmas 11.18 and 11.19]). The scheme is that of [Hin26]. The
+forward solution of [[thm:iii-i-5-3]] is improved by rewriting L_b u = f − (L^(g,g_0) − L_b)u, solving away the terms
+at null infinity ([[prop:iii-i1-3-1]]), splitting L_b⁻¹ by the Fourier transform in t_* into high, regular low and
+singular low frequencies, integrating the singular part twice in t_*, and recovering the expansion at null infinity
+([[prop:iii-i1-2-1]]). The bookkeeping window of the iteration is (0, 1), the window of [[eq:iii-h-1-1]] inside the
+indicial gap of L̂_b(0) ([[prop:iii-f1-2-3]] (a)), where [Hin26] has (0, ε_ind). As in [[thm:iii-i-5-3]], everything in
+these sections is at b = b₀; base points b near b₀ are treated in [[ch:s25]].
+
+*The manifold.* X = {r ≥ r_0} as in [[sec:iii-h-1]], and M′ := [ℝ̄_(t_*) × X̄; {±∞} × ∂X̄], the manifold M of
+[[sec:ii-g1-3-1]] over X̄ ([[rem:ii-g1-3-7]]; [[sec:iii-a-4]] in dimension 4 + 1). Its faces are I (the lift of
+ℝ̄ × ∂X̄; its part in t_* > 0 is 𝓘⁺), ι = ι⁺ ∪ ι⁻ (the front faces) and K = K⁺ ∪ K⁻ (the lifts of {±∞} × X̄), and it
+has the artificial boundary {r = r_0}, at which all spaces are extendible. H^(k,β_I,β_ι,β_K)_b(M′), with index sets
+where written, are the spaces of [[sec:iii-a-4]] for the b-density |dt_*/⟨t_*⟩| μ_b, μ_b = |dx|/⟨x⟩⁴; on Ω_* they are
+the spaces of [[sec:iii-i-1]] (the last paragraph of [[cor:ii-g1-4-5]]). Put Ω_− := cl_(M′){t_* ≤ 1} and, for C > 0,
+Ω_< := cl_(M′){t_* ≤ −Cr}, with H̄ for restrictions. X^±_(sc-b) and its spaces, with the faces scf, tf, zf and the
+weights listed in that order, are those of [[sec:ii-g1-3-1]] ([[eq:ii-g1-3-2]]).
+
+*Coordinates.* With r = |x|:
+
+(a) near I ∩ ι⁺, on {t_* > 0}: ρ_I := t_*/r and ρ_+ := 1/t_* ([Hin26, (3.4e)]), and
+t_*∂_(t_*) = ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+);
+
+(b) near ι⁺ ∩ K⁺: ρ_+ := 1/r and ρ_K := r/t_* ([Hin26, (3.4g)]), and near all of K⁺, ρ_K := ⟨x⟩/t_* with x ∈ X̄; in
+both, t_*∂_(t_*) = −ρ_K∂_(ρ_K) at fixed x;
+
+(c) near I ∩ ι⁻, on {t_* < 2}: ρ_0 := (2 − t_*)⁻¹ and ρ_I := (2 − t_*)/r, and
+(2 − t_*)∂_(t_*) = ρ_0∂_(ρ_0) − ρ_I∂_(ρ_I).
+
+Indeed, in (a), t_*∂_(t_*)ρ_I = ρ_I and t_*∂_(t_*)ρ_+ = −ρ_+; in (c), ∂_(t_*)ρ_0 = ρ_0² and ∂_(t_*)ρ_I = −1/r. The
+chart [Hin26, (3.4c)] uses t_* + 2, whose field −(t_* + 2)∂_(t_*) vanishes at t_* = −2; (c) covers {t_* < 2} in one
+chart. In all three, ∂_(t_*) ∈ ρ_ιρ_K 𝒱_b(M′) (ρ_ι, ρ_K defining functions of ι, K), so ∂_(t_*) raises the ι- and
+K-weights by 1 and keeps the I-weight.
+
+*The operator.* L_b := L_(b₀); g_0 := g_(b₀,b₀,−S), g := g_0 + h and L := L^(g,g_0), with |S| < ε_0, h ∈ 𝒳^∞
+([[eq:iii-i-1-4]]) and ‖h‖_(𝒳^d) < ε_0, where ε_0 and d are those of [[thm:iii-i-5-3]]. L̂_b(σ) is invertible for real
+σ ≠ 0 ([[cor:iii-h-4-4]]), and so is the augmented operator L̃_b(σ) of [[def:iii-h-3-1]] for 0 < |σ| ≤ c_k
+([[cor:iii-h-4-2]]). ℓ_I^max is [[eq:iii-i1-1-1]], and σ_Υ is as at the start of the chapter.
+
+*The gap.* By [[prop:iii-f1-2-3]] (a) no indicial root of L̂_b(0) has real part in (0, 1], so (0, 1) lies in its
+indicial gap for μ_b; [[eq:iii-h-1-1]] takes its weight α with α + 2 ∈ (0, 1), and so do these sections.
+
+### Integration of ∂_(t_*) {#sec:iii-i2-2}
+
+**Lemma {#lem:iii-i2-2-1}** (Integration of ∂_(t_*); [Hin26, Lemma 11.18] in dimension 4 + 1.) Let k ∈ ℕ₀,
+β_I, β_ι, β_K ∈ ℝ with β_K ≠ 0, ℰ_K an index set, and C > 0.
+
+(1) (*From t_* = 1.*) If u|_(Ω_−) ∈ H̄^(k,β_I,β_ι,(ℰ_K,β_K))_b(Ω_−) and
+∂_(t_*)u ∈ H^(k,β_I,β_ι+1,(ℰ_K+1,β_K+1))_b(M′), then for every ε > 0
+
+    u ∈ H^(k,β_I,min(β_ι,β_I−ε),(ℰ_K∪̄{(0,0)},β_K))_b(M′).                                               {#eq:iii-i2-2-1}
+
+(2) (*From t_* = −Cr.*) If u|_(Ω_<) ∈ H̄^(k,∞,β_ι,β_K)_b(Ω_<) and
+(∂_(t_*)u)|_(Ω_−) ∈ H̄^(k,β_I,β_ι+1,β_K+1)_b(Ω_−), then for every ε > 0
+
+    u|_(Ω_−) ∈ H̄^(k,min(β_I,β_ι−ε),β_ι,β_K)_b(Ω_−),                                                    {#eq:iii-i2-2-2}
+
+and likewise with (ℰ_K, β_K) and (ℰ_K + 1, β_K + 1) in place of β_K and β_K + 1.
+
+As Ω_< ∩ I = ∅, the first weight on Ω_< is immaterial; the K⁻-weight in [[eq:iii-i2-2-2]] is the a priori one, and the
+content of [[eq:iii-i2-2-2]] is the I-weight.
+
+*Proof.* (1) *Near I ∩ ι⁺.* In the chart (a), with x := ρ_I/C′ and y := ρ_+/2 for a large C′, so that
+{y ≥ ½} = {t_* ≤ 1} and {x < 2} covers {t_* < 2C′r}, the hypotheses read (x∂_x − y∂_y)u = t_*∂_(t_*)u ∈
+H^(k,β_I,β_ι)_b (as t_* = ρ_+⁻¹ is a defining function of ι⁺ to the power −1 there) and u ∈ H^(k,β_I)_b on
+{y ≥ ½}. [[lem:iii-a-3-2]] with z = 0, E = F = ∅, α := β_I and the target weight β := β′_ι := min(β_ι, β_I − ε) (so
+that α > β and the right side lies in H^(k,α,β)_b) gives u ∈ H^(k,β_I,β′_ι)_b there. (The flow of x∂_x − y∂_y
+preserves xy and increases x as y decreases, so the value at a point depends on the data at smaller x only; the end
+x = 2 plays no role. Where the square [0, 2)² of the chart meets {r < r_0}, u is first extended across {r = r_0} by
+the Seeley extension of [[rem:ii-g1-3-7]], which acts in the spatial variable and commutes with ∂_(t_*); the
+characteristics being the sets {r = const}, nothing propagates across {r = r_0}.) This holds on every set
+{t_* ≤ C′r}, that is, off any neighbourhood of K⁺.
+
+*Near K⁺.* In the chart (b) with ρ_K = ⟨x⟩/t_* and x ∈ X̄, ρ_K∂_(ρ_K)u = −t_*∂_(t_*)u ∈ H^(k,(ℰ_K,β_K),β_ι)_b
+(t_* = ⟨x⟩ρ_K⁻¹), and on {ρ_K ≥ ½}, a set of the previous kind, u has the ι⁺-weight β′_ι ≤ β_ι. [[lem:iii-a-1-2]] with
+z = 0 (β_K ≠ 0) and H := X̄ (the ι⁺-face ∂X̄ carrying the weight β′_ι; its solution operators act in ρ_K alone and
+commute with the extension at {r = r_0}) gives u ∈ H^(k,(ℰ_K∪̄{(0,0)},β_K),β′_ι)_b near K⁺. Away from I ∪ ι⁺ ∪ K⁺ in
+t_* ≥ 1 the set is compact, and u(t_*) = u(1) + ∫_1^(t_*) ∂_(t_*)u gives H^k there. With the hypothesis on Ω_− this is
+[[eq:iii-i2-2-1]].
+
+(2) Ω_− ∖ Ω_< is covered by the chart (c) on {r ≥ R}, where ρ_I ≤ C + 2/R, and by the compact set
+{r ≤ R, −CR ≤ t_* ≤ 1}, on which u(t_*) = u(−CR) + ∫_(−CR)^(t_*) ∂_(t_*)u gives the claim. In the chart (c), with
+x := ρ_0 and y := ρ_I/C″, C″ > 2C, we have {y ≥ ½} ∩ {r ≥ R} ⊂ Ω_< for R large, and
+(x∂_x − y∂_y)u = (2 − t_*)∂_(t_*)u ∈ H^(k,β_ι,β_I)_b (2 − t_* = ρ_0⁻¹ is a defining function of ι⁻ to the power −1).
+[[lem:iii-a-3-2]] with z = 0, E = F = ∅, α := β_ι and the target weight min(β_I, β_ι − ε) < α at y = 0 gives
+[[eq:iii-i2-2-2]] near I. It is applied to ψ(r)u, ψ = 1 on [R, ∞) and ψ = 0 on [0, R/2], so that the square of the
+chart meets only {r ≥ R/2}; ψ(r) commutes with ∂_(t_*) and changes nothing on {r ≥ R}. The K⁻-weight: near K⁻, Ω_−
+lies in Ω_< for every constant. Index sets at K pass through unchanged. ∎
+
+### Integration with a moment condition {#sec:iii-i2-3}
+
+**Lemma {#lem:iii-i2-3-1}** (Integration with a moment condition; [Hin26, Lemma 11.19] in dimension 4 + 1.) Let
+Ω_< := cl_(M′){t_* < −r} and β_I, β_ι, β_K ∈ ℝ with β_ι > β_I, β_K ≤ β_ι − β_I and β_K ∈ (−1, 1) ∖ {0}. Suppose
+u|_(Ω_<) ∈ H̄^(k,∞,β_ι,β_K)_b(Ω_<), ℱu is supported in [−c_0, c_0] × X for some c_0 < ½, and
+
+    ℱ(∂_(t_*)u)|_(±(0,1]) ∈ H^(k+ℓ,(β_I,β_ι,((0,0),β_K)))_b(X^±_(sc-b)),                                 {#eq:iii-i2-3-1}
+
+with ℓ a k-independent integer depending on the weights, the restrictions to zf of the two signs agreeing when β_K > 0.
+Then u ∈ H^(k,β_I,β_ι−ε,((0,0),β_K))_b(M′) for every ε > 0.
+
+[Hin26] states β_K < 1, β_K ≠ 0. The condition β_K > −1 is needed for the application of [[prop:ii-g1-3-5]] (1) below,
+whose K-weight β_K + 1 must lie in (0, ∞) ∖ ℕ; it is implicit in [Hin26]. By [[prop:ii-g1-3-5]] (1) alone,
+[[eq:iii-i2-3-1]] gives ∂_(t_*)u the I-weight β_I − ε, and [[lem:iii-i2-2-1]] would then give u the ι-weight β_I − 2ε
+only; the moment condition [[eq:iii-i2-3-4]] below is what gives β_ι − ε. [Hin26] asks ℱu to be supported in
+[−1, 1] × X. Its proof treats f_2 by [[prop:ii-g1-3-5]] (1), whose cut-off is 1 only near [−½, ½], and f_1 by
+[[def:ii-g1-2-7]], which asks regularity across σ = ±1, where ℱf may jump. Support in [−c_0, c_0], c_0 < ½, meets
+both, and the application in [[sec:iii-i2-5]] has it.
+
+*Proof.* Let χ = χ(t_*/r) equal 0 on (−∞, −3] and 1 on [−2, ∞), and f := ∂_(t_*)u. As ∂_(t_*)χ = r⁻¹χ′(t_*/r) is
+supported in {−3r ≤ t_* ≤ −2r} ⊂ Ω_<, away from I and K,
+
+    ∂_(t_*)(χu) = f′ + χf,        f′ := (∂_(t_*)χ)u ∈ H^(k,∞,β_ι+1,∞)_b(M′).                             {#eq:iii-i2-3-2}
+
+Let χ_scf ∈ C^∞_c([0, 2)) equal 1 on [0, 1], regarded as χ_scf(ρ/|σ|) on X^±_(sc-b), ρ = ⟨x⟩⁻¹ (1 near scf, 0 near
+zf), and f_1 := ℱ⁻¹(χ_scf ℱf), f_2 := ℱ⁻¹((1 − χ_scf)ℱf). Since (1 − χ_scf)ℱf ∈
+H^(k+ℓ,(∞,β_ι,((0,0),β_K)))_b (it vanishes near scf), [[prop:ii-g1-3-5]] (1) (with the K-weight
+β_K + 1 ∈ (0, 2) ∖ {1}; for ℓ large) gives
+
+    f_2,  χf_2 ∈ H^(k,β_ι+1−ε,β_ι+1,β_K+1)_b(M′),                                                       {#eq:iii-i2-3-3}
+
+χ being bounded and conormal on M′. As χu = 0 for t_* ≤ −3r, χu = F′ + F_1 + F_2 with F′ := ∫_(−∞)^(t_*) f′ and
+F_j := ∫_(−∞)^(t_*) χf_j.
+
+*F′ and F_2.* F′ vanishes for t_* ≤ −3r. By [[lem:iii-i2-2-1]] (2) with C = 3 and [[eq:iii-i2-3-2]],
+F′|_(Ω_−) ∈ H̄^(k,β_ι−ε,β_ι,∞)_b, and [[lem:iii-i2-2-1]] (1) (with a large nonzero K-weight) gives
+F′ ∈ H^(k,β_ι−ε,β_ι−2ε,(0,0))_b(M′). Likewise, by [[eq:iii-i2-3-3]], F_2|_(Ω_−) ∈ H̄^(k,β_ι−ε,β_ι,∞)_b and
+F_2 ∈ H^(k,β_ι−ε,β_ι−2ε,((0,0),β_K))_b(M′) (β_K ≠ 0).
+
+*F_1.* As χ_scf vanishes near zf, ℱf_1 = χ_scf ℱf ∈ H^(k+ℓ,(β_I,β_ι,∞))_b. On its support, near tf ∩ scf,
+ρ_scf = ρ/|σ| and ρ_tf = |σ| (the proof of [[lem:iii-a-4-1]]), and near scf° ρ_scf ∼ ρ. Let γ := β_ι − β_I if this is
+not an integer, and γ := β_ι − β_I − ε′ with 0 < ε′ < min(ε, 1 − β_K) if it is (then it is at least 1); so γ ∉ ℕ,
+γ ≥ β_ι − β_I − ε and γ ≥ β_K. Then
+
+    ℱf_1 = ρ^(β_I)|σ|^γ w,        w ∈ H^(k+ℓ)_b(±[0, 1]_σ × X̄; |dσ/σ| μ_b).
+
+So the pair (ℱf_1|_((−∞,0)), ℱf_1|_((0,∞))) lies in the space X^(k′,γ) of [[def:ii-g1-2-7]], with vanishing polynomial
+part and with values in ρ^(β_I)H^(k″)_b(X̄, μ_b); and [[prop:ii-g1-2-8]] (2) with β = γ + 1 ∉ ℕ, applied to V^αℱf_1 for
+the b-vector fields V on X̄ (ℱ commutes with them), gives f_1 ∈ ρ^(β_I)⟨t_*⟩^(−γ−1)H^k_b(ℝ̄_(t_*) × X̄), in the
+convention H^(k,β)_b(ℝ) = ⟨t_*⟩^(−β)H^k_b(ℝ, |dt_*/⟨t_*⟩|) of [[def:ii-g1-2-1]]; so does χf_1. As γ > 0, f_1(·, x) is
+integrable in t_* (by Cauchy–Schwarz with ⟨t_*⟩^(−2γ−1)), and |ℱf_1(σ)| ≤ C|σ|^γ (by Sobolev embedding in log|σ|,
+ℓ ≥ 1), so
+
+    ∫_ℝ f_1(t_*, x) dt_* = ℱf_1(0, x) = 0.                                                             {#eq:iii-i2-3-4}
+
+*For t_* ≤ 1:* integrating χf_1 from −∞ ([[lem:iii-a-1-2]] in τ = |t_*|⁻¹, where t_*∂_(t_*) = −τ∂_τ, with the weight
+γ > 0 and the solution vanishing at τ = 0) gives
+F_1|_({t_*≤1}) ∈ ρ^(β_I)⟨t_*⟩^(−γ)H̄^k_b([−∞, 1] × X̄) = H̄^(k,β_I,β_I+γ,γ)_b(Ω_−): near I, ρ ∼ ρ_I; near ι⁻, ρ and
+⟨t_*⟩⁻¹ are both ∼ ρ_ι; near K⁻, ⟨t_*⟩⁻¹ ∼ ρ_K; and the b-vector fields of ℝ̄ × X̄ lift to span those of M′.
+
+*For t_* ≥ −1:* by [[eq:iii-i2-3-4]],
+
+    F_1(t_*) = −∫_(t_*)^∞ f_1(s) ds + F_3(t_*),        F_3(t_*) := ∫_(−∞)^(t_*) ((χ − 1)f_1)(s) ds.
+
+The first term lies in ρ^(β_I)⟨t_*⟩^(−γ)H̄^k_b([−1, ∞] × X̄), which has the weights (β_I, β_I + γ, γ) at (I, ι⁺, K⁺), by
+the same integration from +∞. (χ − 1)f_1 is supported in {t_* ≤ −2r}, so F_3|_(Ω_<) ∈ H̄^(k,∞,β_I+γ,γ)_b as above, and
+∂_(t_*)F_3 = (χ − 1)f_1 ∈ H^(k,∞,β_I+γ+1,γ+1)_b(M′). [[lem:iii-i2-2-1]] (2) (with C = 1) gives
+F_3|_(Ω_−) ∈ H̄^(k,β_I+γ−ε,β_I+γ,γ)_b, and [[lem:iii-i2-2-1]] (1) (γ ≠ 0) gives
+F_3 ∈ H^(k,β_I+γ−ε,β_I+γ−2ε,((0,0),γ))_b(M′). Altogether, as β_I + γ − ε ≥ β_I for ε small and β_I + γ ≥ β_ι − ε,
+F_1 ∈ H^(k,β_I,β_ι−3ε,((0,0),γ))_b(M′).
+
+*Conclusion.* χu = F′ + F_1 + F_2 ∈ H^(k,β_I,β_ι−3ε,((0,0),β_K))_b, as γ ≥ β_K. (1 − χ)u is supported in
+{t_* ≤ −2r} ⊂ Ω_<, with the weights (∞, β_ι, β_K). Renaming ε gives the claim. ∎
+
+### The three frequency ranges {#sec:iii-i2-4}
+
+Fix k. Let c ∈ (0, ½] be at most ς_1 of [[lem:ii-g1-4-6]], the c_(k′) of [[cor:iii-h-4-2]] and the c_(j,k′) of
+[[thm:iii-h-4-1]] (3) for j + k′ ≤ k + ℓ_0, ℓ_0 being the losses below, and let χ ∈ C^∞_c([0, c)) equal 1 on
+[0, c/2], as in [[sec:iii-h1-2]]. So c depends on k, and, through the weight α of [[eq:iii-h-1-1]] ([[lem:iii-i2-4-2]]),
+on the step of [[sec:iii-i2-5]] in which it is used. The memberships [[eq:iii-i2-5-5]]–[[eq:iii-i2-5-9]] below hold at
+the order k for that c, the losses ℓ_0 being independent of k; u, u_I and u^♭ do not depend on c, so their memberships
+hold at every order. H^∞ in [[eq:iii-i2-5-5]]–[[eq:iii-i2-5-9]] is to be read in this sense.
+
+For f ∈ C^∞_c(Ω_*°), [[lem:iii-h1-2-1]], [[eq:iii-h1-4-1]]–[[eq:iii-h1-4-2]] and [[eq:iii-h1-5-1]]–[[eq:iii-h1-5-2]] give
+the forward solution of L_b u = f as u = u_hi + u_reg + u_sing, with ℱu_hi = (1 − χ(|σ|))L̂_b(σ)⁻¹f̂(σ) on ℝ,
+ℱu_reg = χ(|σ|)û_(reg,1)(σ) on ℝ (the proof of [[lem:iii-h1-4-1]]),
+(û_(reg,1), b̂_1, Ŝ_1) := L̃_b(σ)⁻¹(f̂(σ), 0, 0), and u_sing = ġ + h_s1 of [[eq:iii-h1-5-1]], with (the proof of
+[[lem:iii-h1-5-1]])
+
+    ℱ(∂_(t_*)ġ) = χ(|σ|)G_1(σ)(b̂_1(σ)),        ℱ(∂²_(t_*)h_s1) = χ(|σ|)G_2(σ)(Ŝ_1(σ)),
+    G_1(σ)(ḃ) := Ψ(σ, ·)ġ(ḃ),        G_2(σ)(S) := (Ψ − σ∂_σΨ)h(S) − iσΨh̆(S),                            {#eq:iii-i2-4-1}
+
+with Ψ of [[lem:iii-h-2-5]]. The bounds below are linear in f, and the forward solution map is continuous
+([[thm:iii-i-5-3]] with h = 0, S = 0), so the decomposition and the bounds extend by density to the spaces stated. These
+spaces are extendible at {r = r_0}, where C^∞_c(Ω_*°) is not dense: one approximates an extension of f across
+{r = r_0}, vanishing for t_* < 1, by smooth compactly supported functions, for which the decomposition holds, and
+restricts. The forward solution on {r ≥ r_0} depends on f there only, since {r = r_0} is spacelike with dr future
+timelike ([[lem:ii-c-3-2]] (1)), so that r decreases along future causal curves. [[ch:s18]] uses the same convention.
+
+**Lemma {#lem:iii-i2-4-1}** (High and bounded frequencies; [Hin26, (11.44)] in dimension 4 + 1.) Let
+f ∈ H^(∞,(β^f_I+1,β_ι+2,β_K))_b(Ω_*)^(•,−) with β_K ∈ (0, ∞) ∖ ℕ, β^f_I ≥ 3/2 and
+β^f_I + 1 ≥ β_ι + 2 − min(β_K, 1 − ε_1) for some ε_1 ∈ (0, 1). Then u_hi ∈ H^(∞,(3/2−ε,N,N))_b(M′) for every N and
+every ε > 0.
+
+*Proof.* Let χ_(C_0) be the cut-off of [[cor:ii-g1-4-5]] (1 on [−C_0, C_0], supported in [−C′_0, C′_0]). The piece
+ℱ⁻¹((1 − χ_(C_0))L̂_b⁻¹f̂) lies in H^(∞,(β′_I,N,N))_b(M′) for every β′_I < min(β^f_I, 3/2 + S̄) = 3/2, by
+[[cor:ii-g1-4-5]] (with the hypotheses of [[ch:s02]] for 2L_(b₀), as in [[sec:iii-h1-3]]; S̄ = 0, as in the proof of
+[[thm:iii-i-5-3]]). The rest is w := (χ_(C_0) − χ(|σ|))L̂_b⁻¹f̂, supported in J := {c/2 ≤ |σ| ≤ C′_0}. By
+[[prop:ii-g1-3-3]] (1) and (2), whose hypotheses on the weights are those of the lemma, f̂ lies on ±(0, 1] in
+H^(∞,(min(β^f_I+1,β_ι+2)−ε,β_ι+1,·))_b(X^±_(sc-b)), and on ±[½, ∞) in the high-frequency space with the scf-weight
+β^f_I + 1. On functions supported in the compact set J, away from tf and zf, both norms are equivalent to that of
+H̄^(∞,β)_b(J × X̄) of [[cor:ii-g1-4-2]] (2), with β the scf-weight. So f̂|_J ∈ H̄^(∞,5/2−ε)_b(J × X̄), as β_ι + 2 ≥ 5/2
+and β^f_I + 1 ≥ 5/2 (if β_ι < ½, use the weaker weight β_ι + 2 − ε in place of 5/2 − ε throughout; in the
+applications β_ι > ½). [[cor:ii-g1-4-2]] (2) with β_scf := 3/2 − ε < 3/2 + S̄ (L̂_b(σ) is invertible on J̄,
+[[cor:iii-h-4-4]]) gives w ∈ H̄^(∞,3/2−2ε)_b(J × X̄). With χ′ the cut-off of [[prop:ii-g1-3-5]], χ′w is supported away
+from tf and zf and lies in H^(∞,(3/2−2ε,N,N))_b(X^±_(sc-b)) for every N (and has no Taylor coefficients at 0), so
+[[prop:ii-g1-3-5]] (1) gives ℱ⁻¹(χ′w) ∈ H^(∞,(3/2−3ε,N,N))_b(M′); and (1 − χ′)w, supported in ±[½, C′_0], lies in the
+high-frequency space with every σ-weight, so [[prop:ii-g1-3-5]] (2) gives ℱ⁻¹((1 − χ′)w) ∈ H^(∞,(3/2−2ε,N,N))_b(M′).
+Each step loses finitely many derivatives, depending on N; the space is H^∞. ∎
+
+**Lemma {#lem:iii-i2-4-2}** (Low frequencies; [Hin26c, Proposition 13.18] for L̃_b, [Hin26, (11.45)].) Let α be as in
+[[eq:iii-h-1-1]], β_scf < 3/2, ε ∈ (0, 1), and β_tf, β_zf with β_tf − β_zf = α + 2. There is ℓ such that for
+f̂ ∈ H^(k+ℓ,(β_scf+1,β_tf+2,β_zf))_b(X^±_(sc-b)) (over ±[0, c]) and (û, b̂, Ŝ)(σ) := L̃_b(σ)⁻¹(f̂(σ), 0, 0),
+
+    û ∈ H^(k,(β_scf−ε,β_tf,β_zf))_b(X^±_(sc-b)),        b̂, Ŝ ∈ H^(k,β_zf)_b(±(0, c], |dσ/σ|),           {#eq:iii-i2-4-2}
+
+with norms bounded by that of f̂.
+
+*Proof.* This is the proof of [[prop:ii-g1-4-7]], with [[cor:iii-h-4-2]] and [[thm:iii-h-4-1]] (3) for L̃_b in place of
+[[thm:i-c-6-4]] (4)–(5). Division by the scalar |σ|^(β_zf), which commutes with L̃_b(σ)⁻¹ (componentwise, L̃_b⁻¹ being
+linear) and satisfies σ∂_σ|σ|^(β_zf) = β_zf|σ|^(β_zf), reduces to β_zf = 0, β_tf = α + 2. Take α_+ := 0,
+𝗋_out := β_scf − 2 − ε/2, below the outgoing threshold −½ + S̄ = −½, and the orders of [[sec:i-c-6]] built from it,
+equal to 𝗋_out near the zero section over sctf (as the proof of [[cor:iii-h-4-2]] uses them). For 0 < |σ| ≤ c and
+j ≤ k, [[thm:iii-h-4-1]] (3) (its estimate [[eq:iii-h-4-2]], as [[lem:iii-h1-4-1]]–[[lem:iii-h1-4-2]] use it) bounds
+‖(σ∂_σ)^j L̃_b⁻¹g‖ in ‖·‖_((s+j;m),(𝗋,α,0),ς), plus the moduli of the last two components, by
+C‖g‖_((s−1;m+j),(𝗋+1,α+2,0),ς), ς = |σ|. [[eq:ii-g1-4-5b]] and [[eq:ii-g1-4-5a]] with l = α and ε/2 convert the left
+side to H^(m−ℓ̃,(β_scf−ε,α+2,0))_(b,ς) and the right side to H^(m+j+ℓ_a,(β_scf+1,α+4,0))_(b,ς), as
+𝗋_out + 2 − ε/2 = β_scf − ε and 𝗋_out + 3 + ε/2 = β_scf + 1. Leibniz' rule and integration in |dσ/σ| (the description of
+the norm in [[sec:ii-g1-4-3]]) give [[eq:iii-i2-4-2]], with ℓ := ℓ_a + ℓ̃; for the moduli,
+∫ Σ_(j≤k) |(σ∂_σ)^j b̂|² |dσ/σ| is bounded the same way. ∎
+
+**Lemma {#lem:iii-i2-4-3}** (The cut-off states; [Hin26, (11.47)–(11.48)] in dimension 4 + 1.) Let a ∈ ℝ,
+b̂ ∈ H^(∞,a)_b(±(0, c], |dσ/σ|; 𝔟_ℂ) and Ŝ ∈ H^(∞,a)_b(±(0, c], |dσ/σ|; 𝒮_(1,ℂ)). Then for every N and ε > 0,
+
+    χ(|σ|)G_1(σ)(b̂(σ)) ∈ H^(∞,(N,a+2−ε,a))_b(X^±_(sc-b)),
+    χ(|σ|)G_2(σ)(Ŝ(σ)) ∈ H^(∞,(N,a+3−ε,a))_b(X^±_(sc-b)).                                            {#eq:iii-i2-4-3}
+
+[Hin26, (11.47)] has the orders (1 − ε, 1 − ε, ·) and (1 − ε, 2 − ε, ·) for the states before the cut-off, so that
+[Hin26, (11.48)] has (1 − ε, a + 1 − ε, a) and (1 − ε, a + 2 − ε, a).
+
+*Proof.* *Pointwise bounds.* By [[sec:iii-h-1]] the states ġ(ḃ) lie in 𝒜^q with q = 2 (for ṁ) or q = 3 (for Ȧ), and
+h(S) ∈ 𝒜³, h̆(S) ∈ 𝒜². For r ≥ 1, Ψ = Φ(σr), Φ entire with |∂^j_ζΦ| ≤ C_(j,M)⟨ζ⟩^(−M) ([[lem:iii-h-2-5]] (b)),
+σ∂_σΨ = ζΦ′(ζ) and r∂_rΨ = ζΦ′(ζ), ζ = σr. So G_1(ḃ) = Φ(ζ)ġ and
+G_2(S) = (Φ − ζΦ′)(ζ)h − iζΦ(ζ) r⁻¹h̆, with r⁻¹h̆ ∈ 𝒜³. For r ≤ 1, Ψ and its σ- and x-derivatives are bounded for
+|σ| ≤ 1 ([[lem:iii-h-2-5]] (d) and its proof). Hence, with q_1 := 2, q_2 := 3 and V any product of σ∂_σ and b-vector
+fields on X̄, |VG_i| ≤ C_(V,M)⟨|σ|⟨x⟩⟩^(−M)⟨x⟩^(−q_i) on basis elements.
+
+*Weights.* By [[sec:ii-g1-4-3]] the norm of H^(K,β)_b(X^±_(sc-b)) is equivalent to
+
+    (Σ_(K′≤K) ∫ ‖(σ∂_σ)^(K′)v(σ)‖²_(H^(K−K′,β)_(b,|σ|)) |dσ/σ|)^(1/2),
+
+with ‖v‖_(H^(m,β)_(b,ς)) = ‖w_β(ς)⁻¹v‖_(H̄^m_b(X̄,μ_b)) and (the proof of [[lem:ii-g1-4-6]])
+w_β(ς) ∼ ς^(β_tf)W_β(ρ̂), ρ̂ := ⟨x⟩⁻¹/ς, W_β(ρ̂) = (ρ̂/(1 + ρ̂))^(β_scf)(1 + ρ̂)^(β_tf−β_zf), with bounded logarithmic
+derivatives. Take β = (N, a + q_i − ε, a), so that β_tf − β_zf = q_i − ε. Where ς⟨x⟩ ≥ 1 (ρ̂ ≤ 1),
+W_β⁻¹ ≤ C(ς⟨x⟩)^N, and with M = N + q_i, |W_β⁻¹VG_i| ≤ Cς^(q_i)(ς⟨x⟩)^(−2q_i), whose square is μ_b-integrable there
+with integral ≤ Cς^(2q_i). Where ς⟨x⟩ ≤ 1, W_β⁻¹ ≤ C(ς⟨x⟩)^(q_i−ε), so |W_β⁻¹VG_i| ≤ Cς^(q_i−ε)⟨x⟩^(−ε), and
+∫ ⟨x⟩^(−2ε) μ_b < ∞. So ‖W_β⁻¹VG_i(σ)‖_(L²(μ_b)) ≤ C|σ|^(q_i−ε), and by Leibniz' rule
+
+    ‖χG_1(b̂)‖²_(H^(K,β)) ≤ C Σ_(K′≤K) ∫ |σ|^(−2(a+q_1−ε)) |σ|^(2(q_1−ε)) |(σ∂_σ)^(K′)b̂|² |dσ/σ| = C‖b̂‖²_(H^(K,a)_b),
+
+and likewise for G_2. ∎

@@ -1,0 +1,81 @@
+label	source	source_name	note
+ch:s13	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:3-25; docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:3-21	III.D, III.D1-III.D3 status sentences and intros	intro composed; (Dyn) named; inner radius a parameter (BEYOND5-R0-PROOF section 4)
+sec:iii-d-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:26-45	III.D §1	
+eq:iii-d-1-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:31-37	III.D (1.1)	Weitzenböck parenthesis moved to prop:np-10-16 (i)
+sec:iii-d-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:47-121	III.D §2	
+lem:iii-d-2-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:54-117	III.D Lemma 2.1	
+eq:iii-d-2-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:60-61	III.D (2.1)	
+eq:iii-d-2-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:66-69	III.D (2.2)	
+sec:iii-d-3	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:123-166	III.D §3	machine-check paragraph 161-166 dropped
+lem:iii-d-3-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:125-160	III.D Lemma 3.1	trace weight m renamed m_N (m is the mass)
+eq:iii-d-3-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:127-130	III.D (3.1)	
+eq:iii-d-3-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:131-134	III.D (3.2)	
+eq:iii-d-3-3	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:136	III.D (3.3)	
+sec:iii-d-4	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:168-234	III.D §4	
+eq:iii-d-4-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:170-174	III.D (4.1)	lambda renamed iota
+eq:s13-nsl	(new)	type-wise indicial matrix of III.D (3.3)	written out from III.D (3.2)-(3.3) and III.A1 (2.11); replaces harm5.py K8
+lem:iii-d-4-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:176-229; docket68/n1star/N1STAR-PROOF.md:3676-3685	III.D Lemma 4.1; NP Prop 10.12 (i)	determinants derived by hand (eq:s13-dets)
+eq:iii-d-4-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:189-191	III.D (4.2)	
+eq:s13-dets	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:197-203	determinants in the proof of III.D Lemma 4.1	derivation written; replaces harm5.py K8
+eq:s13-qfactor	(new)	factorisation of Q_l at z = 0	used for the bounds and NP 10.30 (ii)
+rem:s13-trace-weight	docket68/n1star/N1STAR-PROOF.md:3685-3687	NP Prop 10.12 (i), weight-1 sentence (G1)	derived: e replaced by (3e-1)/2
+sec:iii-d-5	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:236	III.D §5	
+sec:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:238-267	III.D §5.1	
+eq:s13-chris	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:179-183	Christoffel symbols in the proof of III.D1 Lemma 3.1	
+prop:np-10-18	docket68/n1star/N1STAR-PROOF.md:3928-3956	NP 10.18, Prop 10.15 (i)-(iv)	(iii) derived by hand; replaces thresh5.py U1-U4
+lem:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:249-264	III.D Lemma 5.1	computed sentence 240-247 replaced by prop:np-10-18 (iii)
+sec:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:269-288	III.D §5.2	facts (a)-(d) cited to S12 items of NP 10.17, 10.19
+lem:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:289-318	III.D Lemma 5.2	
+sec:iii-d-6	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:320-435	III.D §6	
+prop:iii-d-6-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:322-333	III.D Proposition 6.1	
+prop:np-10-16	docket68/n1star/N1STAR-PROOF.md:3764-3791	NP 10.16, Prop 10.13 (i)-(v)	each item derived by hand; replaces modes5.py M1-M5
+prop:iii-d-6-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:360-422	III.D Proposition 6.2	inner radius a parameter in (d)
+prop:iii-d-6-3	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:424-435	III.D Proposition 6.3	
+sec:iii-d-7	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:437-466	III.D §7	
+prop:np-10-20	docket68/n1star/N1STAR-PROOF.md:4122-4141	NP 10.20, Prop 10.17 (i)-(iii)	Hankel limits by [DLMF] in place of a numerical check
+lem:iii-d-7-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:439-466	III.D Lemma 7.1	
+sec:iii-d1-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:14-65	III.D1 intro and §1	the 'how it differs' paragraph opens the section
+eq:iii-d1-1-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:47-51	III.D1 (1.1)	
+eq:iii-d1-1-2	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:62	III.D1 (1.2)	
+sec:iii-d1-2	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:67-167	III.D1 §2	
+eq:iii-d1-2-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:71	III.D1 (2.1)	t is the static time (declared in the chapter notation)
+lem:iii-d1-2-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:82-167	III.D1 Lemma 2.1	
+sec:iii-d1-3	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:169-194	III.D1 §3	
+lem:iii-d1-3-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:171-190	III.D1 Lemma 3.1	
+prop:np-10-15	docket68/n1star/N1STAR-PROOF.md:3676-3711	NP 10.15, Prop 10.12 (i)-(vi)	(ii), (iii), (v), (vi) derived by hand; replaces gaugepot5.py G1-G7
+sec:iii-d1-4	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:196-306	III.D1 §4	
+prop:iii-d1-4-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:198-298	III.D1 Proposition 4.1	
+eq:iii-d1-4-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:245-248	III.D1 (4.1)	
+sec:iii-d1-5	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:308-339	III.D1 §5	
+lem:iii-d1-5-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:310-338	III.D1 Lemma 5.1	the bundle remark (finding D'5) folded into the proof
+sec:iii-d2-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:13-63	III.D2 intro and §1	
+eq:iii-d2-1-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:29	III.D2 (1.1)	
+eq:iii-d2-1-2	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:52-56	III.D2 (1.2)	
+sec:iii-d2-2	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:65-131	III.D2 §2	
+lem:iii-d2-2-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:67-110	III.D2 Lemma 2.1	
+eq:iii-d2-2-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:69-71	III.D2 (2.1)	
+eq:iii-d2-2-2	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:73-76	III.D2 (2.2)	
+eq:iii-d2-2-3	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:85	III.D2 (2.3)	
+lem:iii-d2-2-2	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:112-131	III.D2 Lemma 2.2	
+sec:iii-d2-3	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:133-287	III.D2 §3	
+prop:iii-d2-3-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:135-280	III.D2 Proposition 3.1	
+eq:iii-d2-3-1	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:137-139	III.D2 (3.1)	
+eq:iii-d2-3-2	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:144-148	III.D2 (3.2)	
+eq:iii-d2-3-3	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:150-154	III.D2 (3.3)	
+eq:iii-d2-3-4	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:160-166	III.D2 (3.4)	
+eq:iii-d2-3-5	docket68/n1star/proof5/PART-III-D3-SYMSTATES.md:209-213	III.D2 (3.5)	
+prop:np-10-28	docket68/n1star/N1STAR-PROOF.md:4968-5004	NP 10.28, Prop 10.25 (i)-(vi)	(vi) Ricci-flatness from [ER08]; rest derived; replaces zstates5.py Z1-Z6
+sec:iii-d3-1	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:11-72	III.D3 intro and §1	(R1)-(R5) proved via prop:np-10-29 and prop:np-10-30
+eq:iii-d3-1-1	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:24-27	III.D3 (1.1)	
+eq:iii-d3-1-2	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:31-34	III.D3 (1.2)	
+eq:iii-d3-1-3	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:41-43	III.D3 (1.3)	the misprint finding kept as one sentence
+eq:iii-d3-1-4	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:48	III.D3 (1.4)	
+prop:np-10-29	docket68/n1star/N1STAR-PROOF.md:5076-5104	NP 10.29, Prop 10.26 (i)-(iii), (v)	model states verified by hand; 4D control (iv) not carried; replaces genstates5.py H1-H5
+eq:iii-d3-3-3	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:152-155	III.D3 (3.3)	stated with the unit-sphere form V_S
+prop:np-10-30	docket68/n1star/N1STAR-PROOF.md:5175-5210	NP 10.30, Prop 10.27 (i)-(v) and deduced (c)	no resonance for 0<z<4 by interval bounds and one identity; (vi) at e=0 not carried; replaces puregauge5.py J1-J5
+sec:iii-d3-2	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:74-105	III.D3 §2	
+lem:iii-d3-2-1	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:76-98	III.D3 Lemma 2.1	exponent m renamed m_*
+sec:iii-d3-3	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:107-265	III.D3 §3	
+prop:iii-d3-3-1	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:109-247	III.D3 Proposition 3.1	model-solution citations point to prop:np-10-29, -30
+eq:iii-d3-3-1	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:120-123	III.D3 (3.1)	
+eq:iii-d3-3-2	docket68/n1star/proof5/PART-III-D4-GENSTATES.md:129-132	III.D3 (3.2)	

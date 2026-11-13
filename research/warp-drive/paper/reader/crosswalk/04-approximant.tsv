@@ -16,7 +16,7 @@ eq:leading-coefficient	(derivation)	new display
 sec:stage-zero	docket68/n1star/N1STAR-PROOF.md:540-554; paper/RESPONSE-HL-5D.md:479-483	NP 5.1 Stage 0; P s.4 Stage 0	section heading
 eq:eddington	docket68/n1star/lead5.py:6-8	Eddington-Finkelstein form of g0	transformation tau = v - r written out
 eq:transport-angular	(derivation)	Christoffel symbols of g0 in EF coordinates	replaces the transport claim of ansatz5 A3
-eq:wave-profile	paper/RESPONSE-HL-5D.md:221-227; docket68/n1star/lead5.py:58-66	P (2.5') as a profile	recall of the chapter-2 wave, polar angle written vartheta
+eq:waves (recalled, unlabelled here)	paper/RESPONSE-HL-5D.md:221-227	P (2.5') as a profile	recall of the chapter-2 display [[eq:waves]] with y_i := r^(-3/2) p_i/lam; label removed (reader nit 26c)
 lem:stage-zero	docket68/n1star/N1STAR-PROOF.md:543-554; paper/RESPONSE-HL-5D.md:479-483; paper/RESPONSE-HL-5D.md:232-241	NP 5.1 (lead5 L1-L5, ansatz5 A2-A3); P Prop 2.3	(a)-(e) = L5, L1 with the explicit vv coefficient, L2, L3, L4; all proved by hand (about 45 lines)
 eq:stage-zero	paper/RESPONSE-HL-5D.md:239	P s.2.4: R_vv quadratic part -2(P1_v^2 + P1_v P2_v + P2_v^2)
 eq:chi-transport	docket68/n1star/N1STAR-PROOF.md:548-554	NP 5.1 transport for chi	smoothness argument copied; explicit form of the right-hand side added
@@ -27,6 +27,8 @@ def:first-stage-operator	docket68/n1star/N1STAR-PROOF.md:575-576; docket68/n1sta
 lem:first-entry	docket68/n1star/N1STAR-PROOF.md:572-590	NP Lemma 5.1	weight count written out case by case
 eq:stage-m	docket68/n1star/N1STAR-PROOF.md:575	NP (5.3)
 lem:first-stage-operator	docket68/n1star/N1STAR-PROOF.md:591-595	NP Lemma 5.2	proof written out from the principal term
+lem:linear-wave	docket68/n1star/N1STAR-PROOF.md:612-615; docket68/n1star/proof5/PART-IX-GAUGE.md:93-99	NP Lemma 5.3 proof ("Picard iteration"); [BGP] Thm 3.2.11, Lemma A.5.9 as read in proof5 Part IX	added for reader Major 1: existence for the linear wave equation on Omega from [BGP] on the Cauchy development of Sigma_tau0, with Stein extension; uniqueness from the energy lemma
+eq:linear-wave	(derivation)	new display	
 lem:stage-system	docket68/n1star/N1STAR-PROOF.md:596-615	NP Lemma 5.3	S_m, Bbar, Cbar, W_phi named explicitly; stage5 S1 (order lam^1 in eight components) not needed: the hand proof covers every m
 eq:stage-system	docket68/n1star/N1STAR-PROOF.md:600-604	NP Lemma 5.3 (a)-(c)
 sec:approximant	docket68/n1star/N1STAR-PROOF.md:616-627	NP 5.4	section heading

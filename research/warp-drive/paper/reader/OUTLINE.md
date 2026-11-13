@@ -69,6 +69,7 @@ theory).
 | 87-ten-l5.md | ch:ten-l5 | M Ch 26 |
 | 90-scope.md | ch:scope | M Ch 27 |
 | 95-standard-results.md | app:standard-results | M Appendix S1 |
+| 96-tables.md | app:tables | Appendix B: coefficient tables the written proofs use (ruling of 2026-11-13) |
 | 98-references.md | — | the bibliography (unnumbered) |
 
 Part titles: part:statements "Introduction and statements"; part:approximant "The approximant"; part:existence

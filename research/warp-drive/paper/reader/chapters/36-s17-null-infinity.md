@@ -177,3 +177,757 @@ We use with it property (F1) of [[sec:iii-a-1]]: a b-vector field maps H^(k,(ℰ
 Multiplication by C^∞ preserves the spaces, as index sets are closed under + ℕ₀, and multiplication by ρ_H^c shifts ℰ_H
 and α_H by c.
 
+### Metric perturbations {#sec:iii-c-3}
+
+This section is [Hin26, Definitions 5.3–5.4, Remark 5.5] in dimension 4 + 1. Write
+
+    σ_Υ := {0, (1 − e_Υ)γ_Υ, γ_Υ, 2γ_Υ} ⊂ [0, ½),
+
+the eigenvalues of S̄ on the slots 4–7 ([[lem:iii-f-3-1]], [[lem:iii-c-4-2]]).
+
+**Definition {#def:iii-c-3-1}** ([Hin26, Definition 5.3] in dimension 4 + 1.) Let ℰ₀, ℰ_I^C ⊂ ℂ × ℕ₀ be index sets
+such that
+
+(1) min Re ℰ₀ > 0 and jℰ₀ ⊂ ℰ₀ for all j ∈ ℕ;
+
+(2) min Re ℰ_I^C > 3/2 + 2γ_Υ;
+
+(3) with
+
+    ℰ_I^tot := ℰ_I^C ∪ ⋃_(s∈σ_Υ) (3/2 + s, 0),                                                         {#eq:iii-c-3-1}
+
+ℰ_I^tot + (ℰ_I^tot − 1) ⊂ ℰ_I^C.
+
+This strengthens the condition ℰ_I^C + (ℰ_I^tot − 1) ⊂ ℰ_I^C of [Hin26, Definition 5.3], and it implies the condition
+jℰ_I^tot ⊂ ℰ_I^C, j ≥ 2, there ([[lem:iii-c-3-2]] (b)). It is needed for [[prop:iii-c-5-2]]. Under the conditions of
+[Hin26] alone, ℰ_I^C + (ℰ_I^tot − 1) ⊂ ℰ_I^C and jℰ_I^tot ⊂ ℰ_I^C for j ≥ 2, the conclusion of
+[[lem:iii-c-3-2]] (b) fails. Indeed, let z₀ ∈ (3/2 + 2γ_Υ, 2) and let ℰ_I^C be the smallest index set containing (z₀, 0)
+with these two properties. Every element it acquires beyond (z₀, 0) lies in ℰ_I^C + (ℰ_I^tot − 1), with real part at
+least min(2z₀ − 1, z₀ + ½) > 2, or in jℰ_I^tot, j ≥ 2, with real part at least 3. So (2, 0) ∉ ℰ_I^C, while
+(3, 0) = 2(3/2, 0) ∈ 2ℰ_I^tot; and (3, 0) ∈ ℰ_I^C + 1 would need (2, 0) ∈ ℰ_I^C. Hence 2ℰ_I^tot ⊄ ℰ_I^C + 1.
+
+Set
+
+    ℰ_(I,01) := ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0),     ℰ_(I,1/) := ℰ_I^C ∪ (3/2 + γ_Υ, 0),
+    ℰ̸_(I,0) := ℰ_I^C ∪ (3/2, 0),
+    ℰ_(I,11) := ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) ∪ (3/2 + 2γ_Υ, 0).                                      {#eq:iii-c-3-2}
+
+Let k ≥ 5, ℓ₀ > 0 and ℓ_I > 3/2. Then H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_ext) ⊂ H^(k,0,0)_b(Ω_ext; S²T*) is the space of
+real symmetric 2-tensors h whose restriction to U satisfies
+
+    π_C h ∈ H^(k,(ℰ₀,ℓ₀),(ℰ_I^C,ℓ_I))_b,     π₀₁h ∈ H^(k,(ℰ₀,ℓ₀),(ℰ_(I,01),ℓ_I))_b,
+    π_(1/)h ∈ H^(k,(ℰ₀,ℓ₀),(ℰ_(I,1/),ℓ_I))_b,     π̸₀h ∈ H^(k,(ℰ₀,ℓ₀),(ℰ̸_(I,0),ℓ_I))_b,
+    π₁₁h ∈ H^(k,(ℰ₀,ℓ₀),(ℰ_(I,11),ℓ_I))_b.                                                            {#eq:iii-c-3-3}
+
+If 0 < ℓ₀ < min Re ℰ₀ we write ℓ₀ for (ℰ₀, ℓ₀), and if 3/2 < ℓ_I < min Re ℰ_I^C we write (−, ℓ_I) for (⟨ℰ_I^C⟩, ℓ_I).
+
+So π_C h decays strongly at ℐ⁺; π₀₁h and π_(1/)h decay like |x|^(−3/2−(1−e_Υ)γ_Υ) and |x|^(−3/2−γ_Υ); π̸₀h has a
+radiation field at |x|^(−3/2); and π₁₁h carries the exponents 3/2 + 2γ_Υ (its own) and 3/2 + (1 − e_Υ)γ_Υ (from π₀₁h
+through the entry (7, 4) of Ā), but no radiation field, unlike the exponent 1 of [Hin26]
+([[rem:s17-no-radiation]]). The condition k ≥ 5 gives k − 2 > 5/2 = ½ dim Ω_ext, so [[lem:iii-c-2-1]] applies to
+H^(k−2) factors.
+
+**Lemma {#lem:iii-c-3-2}** (Consequences of [[def:iii-c-3-1]].) Under [[eq:iii-c-1-1]] and [[def:iii-c-3-1]]:
+
+(a) ℰ_I^C + ½ ⊂ ℰ_I^C and ℰ_I^tot + ½ ⊂ ℰ_I^C; so ℰ_I^C + 1, ℰ_I^tot + 1 ⊂ ℰ_I^C, and (2, 0), (3, 0) ⊂ ℰ_I^C.
+
+(b) jℰ_I^tot ⊂ ℰ_I^C + (j − 1) for j ≥ 2; in particular 2ℰ_I^tot ⊂ ℰ_I^C + 1.
+
+(c) ℰ_I^tot + 2 ⊂ ℰ_I^C + 1, and every component index set of [[eq:iii-c-3-3]] lies in ℰ_I^tot.
+
+(d) The intersections of ℰ_(I,01), ℰ_(I,1/), ℰ̸_(I,0), ℰ_(I,11) with {Re z > 3/2 + 2γ_Υ} equal that of ℰ_I^C ([Hin26,
+remark (iii) after Definition 5.3]).
+
+(e) For every index set ℰ̃ with min Re ℰ̃ > 3/2 + 2γ_Υ there is a smallest ℰ_I^C ⊇ ℰ̃ satisfying (2)–(3) of
+[[def:iii-c-3-1]] ([Hin26, remark (ii) after Definition 5.3]).
+
+*Proof.* (a) (3/2, 0) ⊂ ℰ_I^tot, so ½ ∈ ℰ_I^tot − 1, and (3) gives
+ℰ_I^C + ½ ⊂ ℰ_I^tot + (ℰ_I^tot − 1) ⊂ ℰ_I^C, and likewise ℰ_I^tot + ½ ⊂ ℰ_I^C. Iterating gives + 1.
+(2, 0) = (3/2, 0) + (½, 0) and (3, 0) = 2(3/2, 0).
+
+(b) 2ℰ_I^tot = (ℰ_I^tot + (ℰ_I^tot − 1)) + 1 ⊂ ℰ_I^C + 1, using only (3); and
+(j + 1)ℰ_I^tot ⊂ ℰ_I^C + (j − 1) + ℰ_I^tot = (ℰ_I^C + (ℰ_I^tot − 1)) + j ⊂ ℰ_I^C + j.
+
+(c) From (a): ℰ_I^tot + 1 ⊂ ℰ_I^C. The component sets are unions of ℰ_I^C with some (3/2 + s, 0).
+
+(d) The added sets are {3/2 + s + j}. For j = 0, 3/2 + s ≤ 3/2 + 2γ_Υ; for j ≥ 1,
+3/2 + s + j ∈ ℰ_I^tot + 1 ⊂ ℰ_I^C by (a).
+
+(e) Put Σ := ⋃_s (3/2 + s, 0), ℰ_((0)) := ℰ̃, and let ℰ_((m+1)) be the smallest index set containing ℰ_((m)) and
+ℰ′_m + (ℰ′_m − 1), ℰ′_m := ℰ_((m)) ∪ Σ. Each new element has real part at least ½ more than an element it is built
+from, and the generators in {Re z < C} are finitely many; so in each half plane {Re z < C} only finitely many elements
+arise, after at most 2C steps, with bounded logarithmic orders. The union ℰ_I^C is an index set; it satisfies (3) by
+construction, and (2) since new elements have real part at least 3/2 + ½ = 2 > 3/2 + 2γ_Υ by [[eq:iii-c-1-1]]. Every
+set satisfying (2)–(3) and containing ℰ̃ contains each ℰ_((m)). ∎
+
+**Definition {#def:iii-c-3-3}** ([Hin26, Definition 5.4] in dimension 4 + 1.) For ℰ₀ as in [[def:iii-c-3-1]] (1),
+k ≥ 5, ℓ₀ > 0, ℓ_I > 3/2, H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(Ω_ext) is the space of h with
+π_C h, π₀₁h, π_(1/)h, π̸₀h ∈ H^(k,(ℰ₀,ℓ₀),((3,0),ℓ_I))_b and π₁₁h ∈ H^(k,(ℰ₀,ℓ₀),((2,0),ℓ_I))_b on U. By
+[[lem:iii-c-3-2]] (a) it lies in H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b for every ℰ_I^C of [[def:iii-c-3-1]].
+
+The class ⟨(2, 0)⟩₀ of [Hin26] has (1, 0) for π̸₀ and π₁₁. For π₁₁ that is the mass order, (2, 0) here. For π̸₀ it is
+the radiation order; the class above contains no radiation field of π̸₀, and with (3/2, 0) in slot 6 the mapping
+property [[eq:iii-c-5-3]] below would fail (the error term ρ₀²ρ_I²C^∞Diff²_b of [[eq:iii-c-4-4]] maps ρ_I^(3/2) to
+ρ_I^(7/2), outside (4, 0)). [Hin26] uses ⟨(2, 0)⟩₀ to subtract the radiation fields in [Hin26, Theorem 5.21, Step 2]
+((5.64), p. 104). In dimension 4 + 1 that subtraction is not needed ([[rem:iii-c1-3-2]]).
+
+**Definition {#def:iii-c-3-4}** (The background class.) 𝒢 is the set of Lorentzian metrics g₀ on Ω_ext, smooth on M,
+with
+
+    g₀ − η ∈ ρ₀²ρ_I²C^∞(U; S²T*),     π(g₀ − η) ∈ ρ₀²ρ_I³C^∞(U)     (π ∈ {π_C, π₀₁, π_(1/), π̸₀}),        {#eq:iii-c-3-4}
+
+equivalently g₀ − η ∈ H^(∞,(2,0),⟨(3,0)⟩₀,∞)_b(U) ([Hin26, footnote 55], in dimension 4 + 1 and with η in place of
+g_m). [[prop:iii-c-4-4]] uses only the first condition; the second matters for perturbations measured from g_b.
+
+**Lemma {#lem:iii-c-3-5}** ([Hin26, Remark 5.5] in dimension 4 + 1.) (1) g_b ∈ 𝒢 for every b ∈ ℬ. (2) For S ∈ 𝒮₁
+small as in [[lem:iii-b-5-2]], φ_S^*g_b − g_b ∈ H^(∞,(2,0),⟨(3,0)⟩₀,∞)_b on U ∩ {χ_IVP(1 − χ_K) = 1}, so φ_S^*g_b
+agrees there with an element of 𝒢.
+
+*Proof.* (1) By [[prop:iii-b-3-6]], g_b − g_μ ∈ |x|⁻³C^∞ = ρ₀³ρ_I³C^∞, and on {|x| ≥ 3R₁},
+g_μ − η = μ|x|⁻²(dt − d|x|)² = μρ₀²ρ_I²(dx¹)², which has only the slot π₁₁. (2) By [[lem:iii-b-5-2]], there
+φ_S^*g_b − g_b = |x|⁻²h_S(ω)(dx¹)² + ρ₀²ρ_I³C^∞, with h_S ∈ C^∞(𝕊³). ∎
+
+Outside {χ_IVP(1 − χ_K) = 1} near I₀, φ_S is the flow of a cut-off boost, and φ_S^*η − η is of size O(1) there:
+ℒ_(V(S))η = dχ ⊗_s X_w^♭, with dχ of size |x|⁻¹ and X_w^♭ of size |x|. So [Hin26, Remark 5.5] holds where φ_S is the
+boost. [Hin26, Section 5.6] modifies the gauge near I₀ by a cut-off χ₀ ((5.76) there); this is carried to dimension
+4 + 1 in [[ch:s26]].
+
+### The structure at null infinity {#sec:iii-c-4}
+
+This section is [Hin26, Proposition 5.11 and (5.40)–(5.41a)] in dimension 4 + 1. The operator is that of
+[[eq:iii-b-6-8]]: for metrics g, g₀,
+
+    L^(g,g₀) := L_(g,g₀) = ½□_g + E^C_(g₀)δ_gG_g + (δ^*_(g₀) − δ^*_g)δ_gG_g + R_g
+                           + δ^*_(g₀,E_C)(C_(g,g₀) − Y_(g,g₀) + E^Υ_(g₀)G_(g₀)),                          {#eq:iii-c-4-1}
+
+the derivative D₁|_((g,g₀))P of [Hin26], with L^(g_b,g_b) = L_b of [[eq:iii-f-1-1]].
+
+**Lemma {#lem:iii-c-4-1}** (The background at the corner.) On U, in the frame of products of dt_*, dx^i,
+
+    L_b = −ρ₀²ρ_I(X_I − 3/2 − S̄)(X₀ − X_I) + R̃_b,     R̃_b ∈ ρ₀²ρ_I²Diff²_b(U; S²T*),                   {#eq:iii-c-4-2}
+
+with S̄ the endomorphism of [[lem:iii-f-2-1]] (2), and R̃_b with coefficients in C^∞(U).
+
+*Proof.* By [[eq:iii-f-2-2]]–[[eq:iii-f-2-3]], on {|x| > 3R₁},
+2L_b = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (2L̄)^(0) − g_b^(00)∂²_(t_*) + Q_b∂_(t_*) + R_b, where (2L̄)^(0) denotes the
+stationary part of 2L̄, with (2L̄)^(0) ∈ ρ²Diff²_b, g_b^(00) ∈ ρ²C^∞(X̄), Q_b ∈ ρ³Diff¹_b, R_b ∈ ρ⁴Diff²_b, all
+stationary b-operators on X̄: polynomials in ρ∂_ρ|_(t_*) and ∂_ω with coefficients in C^∞(X̄). By [[eq:iii-c-1-4]]
+these vector fields are b-vector fields on U (∂_ω at fixed t_*, ρ is ∂_ω at fixed ρ₀, ρ_I, as t_* and ρ do not depend on
+ω), and ρ = ρ₀ρ_I, ∂_(t_*) = ρ₀(X₀ − X_I). So the last four terms lie in ρ₀²ρ_I²Diff²_b(U); for instance
+g_b^(00)∂²_(t_*) ∈ ρ₀⁴ρ_I²Diff²_b. For the first, (X₀ − X_I)ρ = 0, so
+
+    −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄)
+        = −2ρ₀²ρ_I(X₀ − X_I)(X_I − 3/2 − S̄) − 2ρ₀²ρ_I(X₀ − X_I) 8μ₀ρ₀²ρ_I(X₀ − X_I),
+
+and the second term lies in ρ₀⁴ρ_I²Diff²_b. S̄ is homogeneous of degree 0, a function of ω in this frame, so it
+commutes with X₀ − X_I. Halving gives [[eq:iii-c-4-2]]. ∎
+
+The leading part can be checked on radial functions on Minkowski space without [[lem:iii-f-2-1]]. With □ = −tr ∇²,
+u := x¹ and v := x⁰, a radial function f satisfies ½□f = ½(∂_t² − ∂²_(|x|) − 3|x|⁻¹∂_(|x|))f
+= 2∂_u∂_v f + (3/2)|x|⁻¹(∂_u − ∂_v)f, since ∂_t = ∂_u + ∂_v and ∂_(|x|) = ∂_v − ∂_u. By [[eq:iii-c-1-5]], with
+X_Iρ₀ = 0, X_Iρ_I = ρ_I and |x|⁻¹ = ρ₀ρ_I,
+
+    2∂_v∂_u = −ρ₀²ρ_I X_I(X₀ − X_I) − ½ρ₀²ρ_I X_I ρ_I X_I,
+    (3/2)|x|⁻¹∂_u = (3/2)ρ₀²ρ_I(X₀ − X_I) + ¾ρ₀²ρ_I² X_I,     (3/2)|x|⁻¹∂_v = −¾ρ₀²ρ_I² X_I,
+
+so ½□ = −ρ₀²ρ_I(X_I − 3/2)(X₀ − X_I) modulo ρ₀²ρ_I²Diff²_b with polynomial coefficients (X_I and X₀ − X_I commute).
+With |x|⁻¹ in place of (3/2)|x|⁻¹, as for the radial wave operator in dimension 3 + 1, the same lines give 1 in place of
+3/2, which is [Hin26, (5.40)].
+
+**Lemma {#lem:iii-c-4-2}** (The matrix Ā.) In the rescaled null frame (dt_* + 2d|x|, dt_*, |x|e^a) of ḡ, the image of
+the products of (dt_*, dx^i) under a map F₀(ω), S̄ has a constant matrix Ā; in the frame [[eq:iii-c-1-6]] of η its
+matrix is Ā modulo ρ₀²ρ_I²C^∞ ([[lem:iii-c-1-3]]). It is lower triangular, with diagonal
+
+    2(1 − v_C)γ_C,  (1 − v_C)γ_C,  (1 − e_C)(1 − v_C)γ_C,  (1 − e_Υ)γ_Υ,  γ_Υ,  0,  2γ_Υ,                 {#eq:iii-c-4-3}
+
+and off-diagonal entries exactly at (3, 1), (4, 1), (4, 3), (5, 2), (7, 3), (7, 4), with Ā₇₄ = 2(1 − e_Υ)γ_Υ and
+Ā₇₆ = 0. Each summand of [[eq:iii-c-1-6]] is mapped to summands of its own type.
+
+*Proof.* *The frame.* The model metric of [[sec:iii-f-2]] is ḡ = −(dt_* + d|x|)² + Σ_i(dx^i)², the Minkowski metric
+with time t̄ := t_* + |x|. Its null coordinates are x̄⁰ := t̄ + |x| and x̄¹ := t̄ − |x| = t_*, so dx̄⁰ = dt_* + 2d|x|,
+dx̄¹ = dt_*, and ḡ = −½(dx̄⁰ ⊗ dx̄¹ + dx̄¹ ⊗ dx̄⁰) + |x|²g̸. Let ∂̄₀, ∂̄₁ be the dual null vectors and take the slot
+coordinates [[eq:iii-c-1-7]] in the frame (dx̄⁰, dx̄¹, |x|e^a). So ḡ(∂̄₀, ∂̄₁) = −½, ḡ⁻¹(dx̄⁰, dx̄¹) = −2 and
+ḡ⁻¹(dx̄⁰, dx̄⁰) = ḡ⁻¹(dx̄¹, dx̄¹) = 0. For a 1-form α write α = α₀dx̄⁰ + α₁dx̄¹ + α_T with α₀ = α(∂̄₀), α₁ = α(∂̄₁) and
+α_T tangential; then ⟨α, β⟩ := ḡ⁻¹(α, β) = −2(α₀β₁ + α₁β₀) + α_T·β_T, and tr h = −4h₀₁ + tr̸h for a symmetric
+2-tensor h. For a symmetric product, (α ⊗_s β)(∂̄_i, ∂̄_j) = ½(α_iβ_j + α_jβ_i).
+
+*The ingredients.* By [[eq:iii-f-2-2]], ρS̄ = −Ē^C ι_X Ḡ + (dt_* ⊗_s ·)Ē^Υ Ḡ with X := ḡ⁻¹dt_*. Here X = −2∂̄₀ and
+ι_Xḡ = dx̄¹. By [[def:iii-b-6-1]] and [[eq:iii-b-6-5]], with v := v_C, c̄_C = ρĉ and
+ĉ := ½(1 − v)dx̄⁰ + ½(1 + v)dx̄¹, which is dt̄ − v d|x| in these coordinates,
+
+    Ē^Cω = γ_Cρ(2ĉ ⊗_s ω − ⅔(1 − e_C)ḡ⟨ĉ, ω⟩),     Ē^ΥḠh = −γ_Υρ(2ι_Y h − e_Υ(tr h) dt̄),
+
+with dt̄ = ½(dx̄⁰ + dx̄¹) and Y := ḡ⁻¹dt̄ = −∂̄₀ − ∂̄₁. Hence
+
+    S̄h = −γ_C(2ĉ ⊗_s ω − ⅔(1 − e_C)ḡ⟨ĉ, ω⟩) − γ_Υ dx̄¹ ⊗_s β,
+    ω := ι_XḠh = −2h(∂̄₀, ·) − ½(tr h)dx̄¹,     β := 2ι_Y h − e_Υ(tr h) dt̄.                             {#eq:s17-sbar}
+
+In components, with h(∂̄₀, ·) = h₀₀dx̄⁰ + h₀₁dx̄¹ + h_(0ā),
+
+    ω₀ = −2h₀₀,     ω₁ = −2h₀₁ − ½(−4h₀₁ + tr̸h) = −½tr̸h,     ω_T = −2h_(0ā),
+    β₀ = −2(h₀₀ + h₀₁) − ½e_Υ tr h,     β₁ = −2(h₀₁ + h₁₁) − ½e_Υ tr h,     β_T = −2(h_(0ā) + h_(1ā)).
+
+*The slots.* Put a := ½(1 − v), b := ½(1 + v) and s₃ := ⅓tr̸h, so ⟨ĉ, ω⟩ = −2(aω₁ + bω₀) and
+aω₁ + bω₀ = −(3a/2)s₃ − 2b h₀₀. The tensor 2ĉ ⊗_s ω has no tangential block, and dx̄¹ ⊗_s β has components only at
+(∂̄₀, ∂̄₁), (∂̄₁, ∂̄₁) and (∂̄₁, tangential), equal to ½β₀, β₁ and ½β_T. Reading off the slot coordinates of S̄h:
+
+- slot 1: S̄h(∂̄₀, ∂̄₀) = −2aγ_Cω₀ = 2(1 − v)γ_C h₀₀;
+- slot 2: the tangential part of S̄h(∂̄₀, ·) is −aγ_Cω_T = (1 − v)γ_C h_(0ā);
+- slots 3 and 6: the tangential block is ⅔(1 − e_C)γ_C⟨ĉ, ω⟩|x|²g̸, a multiple of g̸, so slot 6 of S̄h vanishes and
+  slot 3 is −(4/3)(1 − e_C)γ_C(aω₁ + bω₀) = (1 − e_C)(1 − v)γ_C s₃ + (4/3)(1 − e_C)(1 + v)γ_C h₀₀;
+- slot 4: S̄h(∂̄₀, ∂̄₁) = −γ_C(aω₁ + bω₀)(1 − ⅔(1 − e_C)) − ½γ_Υβ₀, which with tr h = −4h₀₁ + 3s₃ is
+  ((1 + 2e_C)(1 + v)γ_C/3 + γ_Υ)h₀₀ + ¼((1 + 2e_C)(1 − v)γ_C + 3e_Υγ_Υ)s₃ + (1 − e_Υ)γ_Υ h₀₁;
+- slot 5: the tangential part of S̄h(∂̄₁, ·) is −bγ_Cω_T − ½γ_Υβ_T = ((1 + v)γ_C + γ_Υ)h_(0ā) + γ_Υ h_(1ā);
+- slot 7: S̄h(∂̄₁, ∂̄₁) = −2bγ_Cω₁ − γ_Υβ₁ = (3/2)((1 + v)γ_C + e_Υγ_Υ)s₃ + 2(1 − e_Υ)γ_Υ h₀₁ + 2γ_Υ h₁₁.
+
+The coefficients are constants, so the matrix Ā of S̄ in this frame is constant. Slot j of S̄h involves only slots
+i ≤ j of h, so Ā is lower triangular; its diagonal is [[eq:iii-c-4-3]], and its off-diagonal entries are the nonzero
+coefficients above, at (3, 1), (4, 1), (4, 3), (5, 2), (7, 3) and (7, 4), with Ā₇₄ = 2(1 − e_Υ)γ_Υ. The slot π̸₀h
+enters no slot of S̄h, so Ā₇₆ = 0. The scalar slots 1, 3, 4, 7 are mapped into scalar slots, the vector slots 2, 5 into
+vector slots, and slot 6 to 0. The diagonal is [[eq:iii-f-3-1]] with its multiplicities, as the triangular form
+requires. The frame (dx̄⁰, dx̄¹, |x|e^a) is the image of the products of (dt_*, dx^i) under the map that fixes dt_* and
+sends dx^i to its tangential part plus ω^i(dx̄⁰ − dx̄¹)/2, which depends on ω alone; and it differs from the frame of η
+by I + ρ²C^∞ ([[lem:iii-c-1-3]]). ∎
+
+Independently of the calculation: S̄ commutes with the rotations of ℝ⁴, which preserve ḡ, t_*, c_C and c_Υ near
+infinity ([[def:iii-b-6-1]]), and [[eq:iii-c-1-6]] is rotation-equivariant. The stabiliser SO(3) of ω acts on the rank-1
+summands trivially, on the two rank-3 summands by its standard representation, and on |x|²ker tr̸ by the irreducible
+5-dimensional one. By Schur's lemma S̄ maps each summand to the summands of the same type by scalars, and these do not
+depend on ω, as SO(4) acts transitively on 𝕊³.
+
+The trace couplings (3, 1), (4, 1), (4, 3), (7, 3) differ from the values of [Hin26, (5.28)] in dimension 3 + 1
+([[prop:np-10-38]] (1)); only the support of Ā enters below.
+
+**Lemma {#lem:iii-c-4-3}** (Counting coefficients.) Let g, g′, g₀, g₀′ be Lorentzian metrics on U whose Cartesian
+components are bounded with bounded inverses. In the Cartesian frame, L^(g,g₀) − L^(g′,g₀′) is a second-order operator
+Σ a^(μν)∂_μ∂_ν + Σ b^μ∂_μ + c whose coefficients are sums of products of: polynomials in the components of g, g′, g₀,
+g₀′ and their inverses; at most two factors from {∂g, ∂g′, ∂g₀, ∂g₀′, c_C, c_Υ, c_(Υ,H)}, or one second derivative of
+one of the metrics or one derivative of a c; and at least one factor δ from {g − g′, g₀ − g₀′} or a Cartesian
+derivative of it of order at most 2. Second-order coefficients contain no derivative; first-order ones at most one
+derivative of order one or one c; and the δ factor counts towards these limits.
+
+*Proof.* Each term of [[eq:iii-c-4-1]] is, in Cartesian coordinates, of the stated form for a single pair (g, g₀): □_g
+has principal part −g^(μν)∂_μ∂_ν, first-order part with one Christoffel symbol and zeroth-order part with one derivative
+of a Christoffel symbol or two of them; E^C_(g₀) and E^Υ_(g₀) contain one c and no derivative ([[eq:iii-b-6-1]],
+[[eq:iii-b-6-2]]); δ_g, δ^*_g, δ^*_(g₀) are first order with one Christoffel symbol in the zeroth-order part; C_(g,g₀)
+and Y_(g,g₀) are zeroth order with one first derivative of g or g₀ ([[lem:iii-b-6-3]]); R_g is zeroth order with one
+second derivative or two first derivatives. Each coefficient of [[eq:iii-c-4-1]] is a polynomial in g, g⁻¹, g₀, g₀⁻¹,
+their derivatives and the c's. The difference of a polynomial expression at two arguments is a sum of terms each with
+one difference factor, by ab − a′b′ = (a − a′)b + a′(b − b′) and g⁻¹ − g′⁻¹ = −g⁻¹(g − g′)g′⁻¹. ∎
+
+**Proposition {#prop:iii-c-4-4}** ([Hin26, Proposition 5.11 and (5.41a)] in dimension 4 + 1.) Let k ≥ 5, ℰ₀ as in
+[[def:iii-c-3-1]] (1), ℓ₀ > 0, ℓ_I > 0, and let ℱ be an index set with min Re ℱ > 0 and 2ℱ ⊂ ℱ. Let g₁, g₀ ∈ 𝒢 and
+h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b(U; S²T*) (every component), with ‖h‖_(H^(k,a₀,a_I)_b) < ε₀ for some a₀, a_I > 0 with
+h ∈ H^(k,a₀,a_I)_b, ε₀ > 0 small depending on k, a₀, a_I and on g₁. Then g := g₁ + h satisfies, on U, in the splitting
+[[eq:iii-c-1-6]],
+
+    L^(g,g₀) ≡ −ρ₀²ρ_I(X_I − 3/2 − Ā)(X₀ − X_I)
+               mod (ρ₀²ρ_I²C^∞ + H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b) Diff²_b(U; S²T*).                       {#eq:iii-c-4-4}
+
+In particular this holds with ℱ = ℰ_I^tot for h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b ([[lem:iii-c-3-2]] (b)–(c)), and with
+ℱ = (2, 0) for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b.
+
+*Proof.* *The background.* By [[lem:iii-c-4-1]] and [[lem:iii-c-1-3]], conjugate by the frame change
+F = F₀(ω)(I + E), E ∈ ρ₀²ρ_I²C^∞. F₀ commutes with X₀ and X_I, so F₀⁻¹L_bF₀ has a leading part with F₀⁻¹S̄F₀ = Ā
+([[lem:iii-c-4-2]]); and (I + E)⁻¹P(I + E) − P = (I + E)⁻¹[P, E], which for P ∈ ρ₀²ρ_I Diff²_b lies in
+ρ₀⁴ρ_I³Diff¹_b, as 𝒱_b preserves ρ₀²ρ_I²C^∞. So [[eq:iii-c-4-4]] holds for (g, g₀) = (g_b, g_b) with remainder in
+ρ₀²ρ_I²C^∞Diff²_b.
+
+*Counting.* Apply [[lem:iii-c-4-3]] to the difference of L^(g,g₀) and L_b, with the conversion to b-operators: every
+Cartesian derivative lies in ρ₀𝒱_b(U) ([[lem:iii-c-1-1]]); c_C, c_Υ ∈ |x|⁻¹C^∞ = ρ₀ρ_I C^∞ on U ([[def:iii-b-6-1]]),
+and c_(Υ,H) is supported in {|x| < 5R₁}, a compact subset of U away from I₀ ∪ ℐ⁺; the Cartesian components of g_b, g₁,
+g₀ and their inverses are smooth on U, and their Cartesian derivatives lie in ρ₀C^∞. A term with second-order
+derivatives is a∂_μ∂_ν ∈ aρ₀²Diff²_b; a first-order term has its b^μ containing one first derivative or one c, both in
+ρ₀(·), times ∂_μ ∈ ρ₀𝒱_b; a zeroth-order term contains two such factors or one second derivative. So each term is ρ₀²
+times a product of the δ factor, or of 𝒱_b-derivatives of it of order at most 2, with smooth bounded functions and with
+other δ factors, applied through Diff²_b.
+
+*The backgrounds.* For (g₁, g₀) against (g_b, g_b): δ ∈ {g₁ − g_b, g₀ − g_b} ⊂ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]],
+[[lem:iii-c-3-5]] (1)), which 𝒱_b preserves; the terms lie in
+ρ₀⁴ρ_I²C^∞Diff²_b ⊂ ρ₀²ρ_I²C^∞Diff²_b.
+
+*The perturbation.* For (g₁ + h, g₀) against (g₁, g₀): δ = h, and
+(g₁ + h)⁻¹ − g₁⁻¹ = Σ_(j≥1)(−1)^j g₁⁻¹(hg₁⁻¹)^j. By [[lem:iii-c-2-1]] with γ = (ℓ₀, ℓ_I) (the strict inequalities
+hold, as min Re ℰ₀, min Re ℱ, ℓ₀, ℓ_I > 0), the j-th term lies in
+H^(k,(jℰ₀,ℓ₀),(jℱ,ℓ_I))_b ⊂ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b. For j so large that ja₀ ≥ ℓ₀ and ja_I ≥ ℓ_I, it lies in
+H^(k,ℓ₀,ℓ_I)_b with norm at most C(Cε₀)^j (part (i) of the proof of [[lem:iii-c-2-1]]); so the series converges for
+Cε₀ < 1. Every coefficient of the difference is then ρ₀² times an element of H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b
+([[lem:iii-c-2-1]] with k − 2 > 5/2, and (F1)); that is, an element of H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. The frame change
+F preserves both classes. ∎
+
+The form [Hin26, (5.26a)] of this statement in dimension 4 + 1 is
+L^(g,g₀) ≡ (2|x|^(−3/2)∂₀|x|^(3/2) + |x|⁻¹Ā)∂₁ modulo the same class, by [[eq:iii-c-1-5]]:
+2∂₀∂₁ + (3/2)|x|⁻¹∂₁ ≡ −ρ₀²ρ_I(X_I − 3/2)(X₀ − X_I) and |x|⁻¹Ā∂₁ ≡ ρ₀²ρ_IĀ(X₀ − X_I).
+
+**Remark {#rem:iii-c-4-5}** (The terms A^h, B^h of [Hin26], and [Hin26, Lemmas 5.6–5.8] in dimension 4 + 1.) [Hin26]
+keeps A^h − A₀ ∈ C^∞ + H^(k−1,(ℰ₀,ℓ₀),(ℰ_I^tot−1,ℓ_I−1))_b and B^h in the leading part because in dimension 3 + 1,
+min Re(ℰ_I^tot − 1) = 0: they are of the same order as A₀. In dimension 4 + 1 the same classes have min Re = ½, and
+[[prop:iii-c-4-4]] places them in the error, in the form ρ₀²ρ_I · ρ_I^(ℰ_I^tot−1) = ρ₀²ρ_I^(ℰ_I^tot). [Hin26, Lemmas
+5.6–5.8 and Corollaries 5.9–5.10] calculate the entries of A^h, B^h and the edge-b form; in dimension 4 + 1 the b-form
+needs only the memberships used in the proof above, which are their counterparts:
+g⁻¹ − g₁⁻¹ ≡ −g₁⁻¹hg₁⁻¹ modulo H^(k,(2ℰ₀,ℓ₀),(2ℱ,ℓ_I))_b ([Hin26, (5.11)]); the Cartesian Christoffel symbols satisfy
+Γ(g) − Γ(g₁) ∈ ρ₀H^(k−1,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ([Hin26, (5.12)]); and
+Riem(g) − Riem(g₁) ∈ ρ₀²H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ([Hin26, Lemma 5.8]). The edge-b form (5.26b) is in [[ch:s26]]. Taking
+ℱ = ℰ_I^tot for every component discards the component structure (for instance the ∂₁² coefficient g^(11) is tied to
+h₀₀, of index ℰ_I^C); the b-form does not need it, but (5.26b) and the energy estimates of [[ch:s26]] do. At the level
+of tensors the drop by half an order is the counting of [[lem:iii-c-4-3]]. For comparison, item (7) of
+[[prop:np-10-64]] gives three of the h-dependent entries (A(7, 1), A(4, 7), B(4, 1)) of the closely related operator
+of [Hin23a] in dimensions 3 + 1 and 4 + 1, and those of dimension 4 + 1 are r^(−1/2) times those of dimension 3 + 1;
+that operator omits the γ_Υ term, which carries one c and obeys the same counting.
+
+### Forward mapping {#sec:iii-c-5}
+
+This section is [Hin26, Definition 5.13, Proposition 5.14, Corollary 5.15] in dimension 4 + 1.
+
+**Definition {#def:iii-c-5-1}** ([Hin26, Definition 5.13] in dimension 4 + 1.) Let ℰ₀, ℰ_I^C be as in
+[[def:iii-c-3-1]], k ≥ 3, ℓ₀ > 0, ℓ_I > 3/2.
+
+(1) Set
+
+    ℱ_(I,11) := 1 + (ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0)).                                                {#eq:iii-c-5-1}
+
+H^(k,(ℰ₀+2,ℓ₀+2),⟨ℰ_I^C+1⟩′,ℓ_I+1)_b(Ω_ext) is the space of real symmetric 2-tensors f with, on U,
+π_C f, π₀₁f, π_(1/)f, π̸₀f ∈ H^(k,(ℰ₀+2,ℓ₀+2),(ℰ_I^C+1,ℓ_I+1))_b and π₁₁f ∈ H^(k,(ℰ₀+2,ℓ₀+2),(ℱ_(I,11),ℓ_I+1))_b.
+
+(2) If ℓ₀ < min Re ℰ₀ we write ℓ₀ + 2 for (ℰ₀ + 2, ℓ₀ + 2), and if ℓ_I < min Re ℰ_I^C we write (−′, ℓ_I + 1) for
+(⟨ℰ_I^C + 1⟩′, ℓ_I + 1).
+
+(3) H^(k,(ℰ₀+2,ℓ₀+2),⟨(4,0)⟩′,ℓ_I+1)_b(Ω_ext) is the space of f with π_C f, π₀₁f, π_(1/)f, π̸₀f in ((4, 0), ℓ_I + 1)
+and π₁₁f in ((3, 0), ℓ_I + 1) at ℐ⁺, and in (ℰ₀ + 2, ℓ₀ + 2) at I₀.
+
+The set ℱ_(I,11) of [Hin26, (5.43)] also contains 1 + (1, 0), from the radiation field of π̸₀ through the h-dependent
+(7, 6) entry of A^h. In dimension 4 + 1 that entry is part of the error of [[eq:iii-c-4-4]], and what it produces lies
+in ℰ_I^C + 1 ([[rem:s17-no-radiation]]).
+
+**Proposition {#prop:iii-c-5-2}** ([Hin26, Proposition 5.14] in dimension 4 + 1.) Let g = g₁ + h, g₁, g₀ ∈ 𝒢, with
+h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_ext) small as in [[prop:iii-c-4-4]], k ≥ 5. Then
+
+    L^(g,g₀) : H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_ext) → H^(k−2,(ℰ₀+2,ℓ₀+2),⟨ℰ_I^C+1⟩′,ℓ_I+1)_b(Ω_ext)         {#eq:iii-c-5-2}
+
+continuously. If h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b (small), then
+
+    L^(g,g₀) : H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(Ω_ext) → H^(k−2,(ℰ₀+2,ℓ₀+2),⟨(4,0)⟩′,ℓ_I+1)_b(Ω_ext).         {#eq:iii-c-5-3}
+
+*Proof.* Away from U the spaces impose nothing beyond H^k and H^(k−2), and L^(g,g₀) is a second-order operator with
+coefficients in H^(k−2); by property (F2) of [[sec:iii-a-1]] it suffices to work on U. Let ġ be in the domain of
+[[eq:iii-c-5-2]]. Every slot of ġ lies in H^(k,(ℰ₀,ℓ₀),(ℰ_I^tot,ℓ_I))_b ([[lem:iii-c-3-2]] (c)). Split L^(g,g₀) by
+[[eq:iii-c-4-4]] with ℱ = ℰ_I^tot.
+
+*The C^∞ error.* ρ₀²ρ_I²C^∞Diff²_b maps ġ into H^(k−2,(ℰ₀+2,ℓ₀+2),(ℰ_I^tot+2,ℓ_I+2))_b in every slot, and
+ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 ⊂ ℱ_(I,11) ([[lem:iii-c-3-2]] (c)).
+
+*The perturbation.* H^(k−2,(ℰ₀+2,ℓ₀+2),(ℰ_I^tot,ℓ_I))_b Diff²_b maps ġ, by [[lem:iii-c-2-1]] and (F1), into
+H^(k−2,(2ℰ₀+2,γ₀),(2ℰ_I^tot,γ_I))_b with γ₀ = ℓ₀ + 2 and γ_I = ℓ_I + 1. The strict inequalities of [[lem:iii-c-2-1]]
+hold: ℓ₀ + 2 < ℓ₀ + 2 + min Re ℰ₀; ℓ_I + 1 < ℓ_I + 3/2 = ℓ_I + min Re ℰ_I^tot; and ℓ_I + 1 < 2ℓ_I as ℓ_I > 3/2.
+And 2ℰ₀ + 2 ⊂ ℰ₀ + 2, 2ℰ_I^tot ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (b)).
+
+*The leading part.* u := (X₀ − X_I)ġ has the slot index sets of ġ (F1). Then w := (X_I − 3/2 − Ā)u has, in slot j,
+(X_I − 3/2 − Ā_(jj))u_j − Σ_(i<j) Ā_(ji)u_i. In a slot with index set ℰ_I^C ∪ (3/2 + s, 0) and Ā_(jj) = s, the term
+ρ_I^(3/2+s)a(ρ₀, ω) is annihilated: X_I − 3/2 − s kills it, and the terms ρ_I^(3/2+s+j), j ≥ 1, lie in ℰ_I^C
+([[lem:iii-c-3-2]] (d)). This holds in slot 4 (s = (1 − e_Υ)γ_Υ), slot 5 (s = γ_Υ) and slot 6 (s = 0), and for the
+term 3/2 + 2γ_Υ of slot 7. By [[lem:iii-c-4-2]] the couplings are (3, 1), (4, 1), (4, 3), (5, 2) and (7, 3), from
+π_C slots with index set ℰ_I^C, and (7, 4), which brings ℰ_(I,01) into slot 7. So w_j ∈ (ℰ_I^C, ℓ_I) at ℐ⁺ for
+j ≤ 6, and w₇ ∈ (ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0), ℓ_I): the term 3/2 + (1 − e_Υ)γ_Υ of slot 7 itself is not
+annihilated, nor is that of slot 4 brought by (7, 4). Multiplying by −ρ₀²ρ_I gives ℰ_I^C + 1, resp. ℱ_(I,11), at
+weight ℓ_I + 1, and ℰ₀ + 2 at weight ℓ₀ + 2 at I₀. Regularity: H^(k−2).
+
+[[eq:iii-c-5-3]]: the slots of ġ have index sets (3, 0) (slots 1–6) and (2, 0) (slot 7). The leading part does not
+annihilate ρ_I² in slot 7 (2 ≠ 3/2 + 2γ_Υ) and gives (2, 0) there, (3, 0) elsewhere; the couplings into slot 7 come
+from slots with (3, 0); after the factor ρ_I this is (3, 0) in slot 7 and (4, 0) in the others. The error gives
+(2, 0) + 2 = (4, 0), and the perturbation, with ℱ = (2, 0), gives (2, 0) + (2, 0) = (4, 0). Continuity follows from
+that of the products in [[lem:iii-c-2-1]]. ∎
+
+**Corollary {#cor:iii-c-5-3}** ([Hin26, Corollary 5.15] in dimension 4 + 1.) Let g₀ ∈ 𝒢 with Ric(g₀) = 0, and
+h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b(Ω_ext) small as in [[prop:iii-c-4-4]], k ≥ 5. Then
+
+    P(g₀ + h, g₀) ∈ H^(k−2,(ℰ₀+2,ℓ₀+2),⟨ℰ_I^C+1⟩′,ℓ_I+1)_b(Ω_ext),                                      {#eq:iii-c-5-4}
+
+and for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b small, P(g₀ + h, g₀) ∈ H^(k−2,(ℰ₀+2,ℓ₀+2),⟨(4,0)⟩′,ℓ_I+1)_b.
+
+*Proof.* P(g₀, g₀) = Ric(g₀) − δ^*_(g₀,E_C)Υ^(E_Υ)(g₀, g₀) = 0, since Υ⁰(g₀, g₀) = 0 and
+E^Υ_(g₀)G_(g₀)(g₀ − g₀) = 0 ([[eq:iii-b-6-3]]–[[eq:iii-b-6-4]]). So
+
+    P(g₀ + h, g₀) = ∫₀¹ L^(g₀+sh,g₀) h ds,                                                              {#eq:iii-c-5-5}
+
+and [[prop:iii-c-5-2]] with g₁ = g₀ and the perturbation sh applies for each s ∈ [0, 1], with bounds uniform in s. The
+integrand is continuous in s with values in the target space (the coefficients are polynomial in s and in the Neumann
+series of (g₀ + sh)⁻¹), so the integral converges there. ∎
+
+[Hin26] states Corollary 5.15 with g = g_b + h and writes P(g_b + h, g₀) through h̃ = h − (g₀ − g_b) ([Hin26, (5.48)]).
+When g₀ ≠ g_b, L(g₀ − g_b) has I₀-index set (2, 0) + 2 in dimension 4 + 1, which lies in ℰ₀ + 2 only if
+(2, 0) ⊂ ℰ₀. The statement is used with the perturbation measured from g₀ ([Hin26, (5.77a)]), which is the form above;
+measured from g_b with g₀ ≠ g_b the conclusion needs (2, 0) ⊂ ℰ₀ in dimension 4 + 1 ((1, 0) in dimension 3 + 1).
+
+**Remark {#rem:s17-no-radiation}** (The 11-component carries no radiation field.) In [Hin26] the sets ℰ_(I,11) and
+ℱ_(I,11) contain (1, 0), from the coupling of the radiation field of π̸₀h into the 11-component by the h-dependent
+(7, 6) entry of A^h ([Hin26, p. 98], and [Hin26, p. 169]: "this coupling is absent when h = 0"), and from the mass
+term. In dimension 4 + 1, Ā₇₆ = 0 ([[lem:iii-c-4-2]]), the h-dependent coupling is part of the error of
+[[eq:iii-c-4-4]] and lands at 3/2 + ½ = 2 ∈ ℰ_I^C ([[lem:iii-c-3-2]] (a)), and the mass term μ|x|⁻²(dx¹)² has index
+(2, 0) ([[lem:iii-c-3-5]]). So in the exterior region the radiation field of π̸₀h reaches the 11-component of the
+operator only at the order 2, in ℰ_I^C. At ι⁺ this matches [[def:iii-g1-1-2]], where the index set at ι⁺ ∩ ℐ⁺ that
+[Hin26] calls ℰ_(ι⁺,ℐ,11) is the union of those for 2γ_Υ and (1 − e_Υ)γ_Υ.
+
+[Hin26] uses the Sobolev algebra property of H^(k−2)_b, k − 2 > ½ dim Ω_ext, without proof ([Hin26, Section 5, remark
+(vii)]), and with it the products of partially polyhomogeneous functions; [[lem:iii-c-2-1]] proves the form used, with
+its strict inequalities on the weights, and every use above has room to spare.
+
+### The setting at ι⁺ {#sec:iii-g3-1}
+
+The next three sections extend the inverse of the ι⁺-normal operator of [[thm:iii-g1-3-1]] to sources with partial
+expansions at ι⁺ ∩ ℐ⁺. Against [Hin26, Section 9.1.3], dimension 4 + 1 changes five things. (a) The condition
+1 < ℓ_I < 1 + (1 − e_C)(1 − v_C)γ_C of [Hin26, (9.44)] becomes 3/2 < ℓ_I < 3/2 + s_C, with
+s_C := γ_C(1 − e_C)(1 − v_C) (and ℓ_I off the real parts of ℰ_I^tot). (b) The sources of [Hin26] carry two
+exceptional exponents in their (dx¹)²-component, at 1 + 1 and 1 + 1 + (1 − e_Υ)γ_Υ. In dimension 4 + 1 they carry one,
+at 1 + λ_♯, with
+
+    λ_♯ := 3/2 + (1 − e_Υ)γ_Υ,                                                                           {#eq:iii-g3-0-1}
+
+since π₁₁h carries no radiation field ([[rem:s17-no-radiation]]). So the incoming pole that [Hin26] has at λ = 1 has no
+counterpart, and the least pole is λ_♯ ([[cor:iii-g3-2-6]]). (c) The pure ι⁺ resonances have real part at least 2
+([[lem:iii-g1-4-2]] (a)), where those of [Hin26] exceed 1. (d) [[thm:iii-g1-3-1]] (2) loses d derivatives with d
+depending on Re λ, so the statements at finite regularity hold on strips. (e) The expansion at K⁺ is that of
+[[thm:iii-g2-3-1]], below ℓ_K^max = min(3, 2 + 2γ_C v_C). The harmonic degrees there are at most 4 (5 in [Hin26]).
+
+We use the setting of [[sec:iii-g1-1]]: ι⁺ = [0, ∞]_v × 𝕊³ with the faces {v = 0} = ℐ⁺ ∩ ι⁺ and
+{R = 0} = K⁺ ∩ ι⁺, R = v⁻¹; the defining functions ρ_I = v/(1 + v), ρ_K = R/(1 + R); the operator
+
+    N_(ι⁺)(λ) = −2v(v∂_v − λ)(v∂_v − 3/2 − S̄) + v²L̃(0)(ω, v∂_v, ∂_ω),
+    2L̄(t_*^(−λ)w) = t_*^(−λ−2)N_(ι⁺)(λ)w                                                                {#eq:iii-g3-1-1}
+
+([[eq:iii-g1-1-1]]; [[lem:iii-g-1-2]] (c)); the index set ℰ_K at K⁺ ∩ ι⁺ ([[def:iii-g1-1-2]] (3), [[lem:iii-g1-1-3]]);
+the sets ℰ^tot_(ι⁺,ℐ), ℰ^C_(ι⁺,ℐ) and ℰ_s, s ∈ σ_Υ, of [[eq:iii-g1-1-5]]; and spec_(ι⁺)(L̄), Spec_(ι⁺)(L̄)
+([[def:iii-g1-4-1]]). From [[ch:s16]] we use further ℓ_K^max, the roots 𝒲(ℓ_K), the formal solutions of
+[[lem:iii-g2-2-4]] and [[thm:iii-g2-3-1]] with their conventions for the types s1 and v1, and [[cor:iii-g2-3-2]]. The
+parameters are those of [[thm:iii-g1-3-1]], with γ_Υ < min(½s_C, ¼) (this is [[eq:iii-c-1-1]] together with the
+condition of [[lem:iii-g1-1-1]]). Let ℰ_I^C be an index set as in [[def:iii-c-3-1]], with its sets [[eq:iii-c-3-2]] and
+ℱ_(I,11) of [[eq:iii-c-5-1]]. Fix
+
+    3/2 < ℓ_I < 3/2 + s_C,     ℓ_I ∉ Re π₁ℰ_I^tot,                                                       {#eq:iii-g3-1-2}
+
+the form of [Hin26, (9.44)] in dimension 4 + 1; it includes ℓ_I ∉ Re π₁ℰ^tot_(ι⁺,ℐ), as ℰ^tot_(ι⁺,ℐ) ⊂ ℰ_I^tot. And
+ℓ_K ∈ (−1, ℓ_K^max), with ℓ_K ∉ Re π₁ℰ_K and ℓ_K ≠ −Re μ for every root μ of [[prop:iii-f1-2-3]].
+
+*Slots on ι⁺.* Near v = 0, ι⁺ lies in {|x| ≥ 3R₁}, where the rescaled null frame of [[eq:iii-c-1-6]] is a smooth frame
+of S²T*. Its slots, with the slot coordinates [[eq:iii-c-1-7]] and the projections π_C, π₀₁, π_(1/), π̸₀, π₁₁ of
+[[def:iii-c-1-2]], are used on ι⁺ near v = 0. The null frames of η, g_μ and ḡ agree on ι⁺: [[lem:iii-c-1-3]] is stated
+on the region U, which ι⁺ does not meet, but its proof uses only |x| ≥ 4R₁ and shows that the frames differ by
+F₀(ω)(I + E) with E ∈ |x|⁻²C^∞; near ι⁺ ∩ ℐ⁺, |x|⁻¹ = v/t_* vanishes at ι⁺. So the frames restrict to ι⁺ identically,
+and there S̄ has the constant matrix Ā of [[lem:iii-c-4-2]] (constant in the frame of ḡ). Let e₇ be the basis section
+of ⟨(dx¹)²⟩.
+
+**Definition {#def:iii-g3-1-1}** ([Hin26, (9.45)] in dimension 4 + 1.) H^(k,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺; S²T*) is
+the space of h with h ∈ H^(k,(ℰ_K,ℓ_K))_b near R = 0 and, near v = 0, π_C h ∈ (ℰ_I^C, ℓ_I), π₀₁h ∈ (ℰ_(I,01), ℓ_I),
+π_(1/)h ∈ (ℰ_(I,1/), ℓ_I), π̸₀h ∈ (ℰ̸_(I,0), ℓ_I), π₁₁h ∈ (ℰ_(I,11), ℓ_I), each with regularity k.
+H^(k,(⟨ℰ_I^C+1⟩′,ℓ_I+1),ℓ_K−2)_b(ι⁺; S²T*) is the space of f with f ∈ H^(k,ℓ_K−2)_b near R = 0 and, near v = 0,
+π_C f, π₀₁f, π_(1/)f, π̸₀f ∈ (ℰ_I^C + 1, ℓ_I + 1) and π₁₁f ∈ (ℱ_(I,11), ℓ_I + 1). The same names without the second
+order denote the spaces on [0, 1)_v × 𝕊³ defined by the conditions at v = 0.
+
+**Lemma {#lem:iii-g3-1-2}** (The spaces of [[ch:s16]] lie in these.) (1) The eigenvectors of Ā for 2γ_Υ, γ_Υ, 0 and
+(1 − e_Υ)γ_Υ are supported in the slots {7}, {5}, {6} and {4, 7}, and those for the elements of σ_C have no component
+in slot 6. (2) The space H^(k,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺) of [[def:iii-g1-1-2]] is contained in
+H^(k,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺).
+
+*Proof.* (1) Ā is lower triangular ([[lem:iii-c-4-2]]), so an eigenvector for a diagonal entry a_(jj) distinct from
+every other diagonal entry (all seven are distinct, as 2γ_Υ < s_C) has x_i = 0 for i < j, x_j = 1, and x_i for i > j
+determined by (a_(ii) − a_(jj))x_i = −Σ_(j≤m<i) a_(im)x_m. By the support of Ā in [[lem:iii-c-4-2]], rows 5 and 6 have no
+entry in column 4, rows 6 and 7 none in column 5, row 7 none in column 6, and a₇₄ ≠ 0; this gives the supports. For
+c ∈ σ_C, slot 6 gives (0 − c)x₆ = 0 (row 6 has only its diagonal entry, which is 0).
+
+(2) ℰ^C_(ι⁺,ℐ) = ℰ^tot_(ι⁺,ℐ) + 1 ⊂ ℰ_I^tot + 1 ⊂ ℰ_I^C ([[lem:iii-c-3-2]] (a)). By (1), slot 4 of h is the slot-4 part
+of Π_((1−e_Υ)γ_Υ)h and of Π_C h, in ℰ_((1−e_Υ)γ_Υ) ∪ ℰ^C_(ι⁺,ℐ) ⊂ ℰ_(I,01). In the same way slot 5 lies in
+ℰ_(γ_Υ) ∪ ℰ^C_(ι⁺,ℐ) ⊂ ℰ_(I,1/), slot 6 in the set ℰ_s of [[eq:iii-g1-1-5]] with s = 0, which lies in ℰ̸_(I,0), slot 7
+in ℰ_(2γ_Υ) ∪ ℰ_((1−e_Υ)γ_Υ) ∪ ℰ^C_(ι⁺,ℐ) ⊂ ℰ_(I,11), and slots 1–3, which only Π_C reaches, in
+ℰ^C_(ι⁺,ℐ) ⊂ ℰ_I^C. ∎
+
+### Partially polyhomogeneous inputs {#sec:iii-g3-2}
+
+This section is [Hin26, Lemmas 9.13–9.14, Proposition 9.15, Definition 9.16, Remark 9.17] in dimension 4 + 1.
+
+**Lemma {#lem:iii-g3-2-1}** ([Hin26, Lemma 9.13]; no dimension enters.) Let ℰ ⊂ ℂ × ℕ₀ be an index set, α ∈ ℝ, and
+(R(λ)f)(x) := x^λ ∫₀^x t^(−λ)f(t) dt/t for f ∈ Ċ^∞([0, 1]), a right inverse of x∂_x − λ. Then R(λ) extends from
+Re λ < min(α, min Re ℰ) to a finite-meromorphic family R(λ) : H̄^(k,(ℰ,α))_b([0, 1)) → H̄^(k+1,(ℰ,α))_b([0, 1)) on
+{Re λ < α}, with divisor {(z, k(ℰ, z)) : z ∈ π₁ℰ, Re z < α}. The same holds with values in a Hilbert space ℋ (for
+instance H^m(𝕊³)), except that the residues are then not of finite rank.
+
+*Proof.* (i) ℰ = ∅. With s := t/x, x^(−α)R(λ)f(x) = ∫₀¹ s^(α−λ)(xs)^(−α)f(xs) ds/s, a multiplicative convolution of
+t^(−α)f with s^(α−λ)1_((0,1))(s), whose L¹(ds/s)-norm is (α − Re λ)⁻¹. By Young's inequality on the group
+((0, ∞), ·), ‖R(λ)f‖_(x^αL²(dx/x)) ≤ (α − Re λ)⁻¹‖f‖_(x^αL²(dx/x)), with f extended by 0 to (1, ∞) and R(λ)f
+restricted to (0, 1). From x∂_xR(λ)f = λR(λ)f + f, by induction (x∂_x)^jR(λ)f is bounded in x^αL² by ‖f‖_(H̄^(j−1,α)_b)
+for j ≤ k + 1. The family is holomorphic in λ, and Ċ^∞ is dense.
+
+(ii) General ℰ. Write f = χ Σ x^z(log x)^j f_((z,j)) + f′ ([Hin26, Definition 2.8]), f′ ∈ H̄^(k,α)_b, and treat f′ by
+(i). For Re λ < Re z, R(λ)x^z = (z − λ)⁻¹x^z, and differentiating in z, R(λ)(x^z(log x)^j) = ∂_z^j((z − λ)⁻¹x^z)
+([Hin26, (9.46)]). This is meromorphic in λ ∈ ℂ, with a pole of order j + 1 at λ = z, and lies in
+H̄^(∞,((z,j),α))_b. And R(λ)((1 − χ)x^z(log x)^j) vanishes near x = 0 and is entire in λ. The residue at λ = z depends
+only on the coefficients f_((z,i)), so it has finite rank in the scalar case. ∎
+
+**Lemma {#lem:iii-g3-2-2}** ([Hin26, Lemma 9.14] in dimension 4 + 1.) Let ℓ_I satisfy [[eq:iii-g3-1-2]],
+l := 2⌈ℓ_I⌉ + 10, and f ∈ H^(k+l,(⟨ℰ_I^C+1⟩′,ℓ_I+1))_b([0, 1)_v × 𝕊³; S²T*). There is
+u(λ) ∈ H^(k+2,(⟨ℰ_I^C⟩,ℓ_I))_b([0, 1)_v × 𝕊³), linear and continuous in f, a finite sum
+χ_I Σ v^z(log v)^j c_(z,j)(λ, ω) supported in {v < 1}, such that:
+
+(1) u is meromorphic in λ ∈ ℂ, with divisor contained in {(z, k(ℰ^C_(I,♯), z)) : z ∈ π₁ℰ^C_(I,♯), Re z < ℓ_I}, where
+
+    ℰ^C_(I,♯) := (λ_♯, 0) ∪ ℰ_I^C ⊂ ℰ_I^tot;                                                             {#eq:iii-g3-2-1}
+
+(2) away from the poles, f − N_(ι⁺)(λ)u(λ) ∈ H^(k,ℓ_I+1)_b([0, 1)_v × 𝕊³).
+
+Here χ_I ∈ C_c^∞([0, 1)_v) equals 1 on [0, ½].
+
+*Proof.* By [[eq:iii-g3-1-1]], N_(ι⁺)(λ)u = f is (v∂_v − λ)(v∂_v − 3/2 − Ā)u + Ñu = g, with g := −(1/(2v))f and
+Ñ := −(v/2)L̃(0) ∈ v Diff²_b. Near v = 0, g has, at weight ℓ_I, the index set ℰ_I^C in slots 1–6 and
+ℰ_I^C ∪ (λ_♯, 0) in slot 7 ([[def:iii-c-5-1]]). Of the latter, only the term v^(λ_♯) itself lies outside ℰ_I^C, since
+λ_♯ + j ∈ ℰ_I^C for j ≥ 1 ([[lem:iii-c-3-2]] (d)). If f has no expansion at v = 0, take u = 0.
+
+*The exceptional term.* Let g_exc := χ_I v^(λ_♯)g_♯(ω)e₇. As e₇ is an eigenvector of Ā for 2γ_Υ
+([[lem:iii-g3-1-2]] (1)), w♭_exc := (λ_♯ − 3/2 − 2γ_Υ)⁻¹v^(λ_♯)g_♯e₇ = −((1 + e_Υ)γ_Υ)⁻¹v^(λ_♯)g_♯e₇ solves
+(v∂_v − 3/2 − Ā)w♭_exc = v^(λ_♯)g_♯e₇. (On all of S²T*, λ_♯ − 3/2 − Ā is not invertible, as
+λ_♯ − 3/2 = (1 − e_Υ)γ_Υ ∈ spec Ā; only its restriction to the line of e₇ is used.) Let
+w_exc(λ) := (λ_♯ − λ)⁻¹w♭_exc ([[lem:iii-g3-2-1]]), with a simple pole at λ_♯.
+
+*The terms of ℰ_I^C.* For (z, j) ∈ ℰ_I^C with Re z < ℓ_I: Re z − 3/2 ∈ (2γ_Υ, s_C) ([[def:iii-c-3-1]] (2) and
+[[eq:iii-g3-1-2]]), and spec Ā ⊂ [0, 2γ_Υ] ∪ [s_C, ∞) ([[eq:iii-f-3-1]]). So z − 3/2 − Ā is invertible, and
+w♭ := ∂_z^j(v^z(z − 3/2 − Ā)⁻¹)c solves (v∂_v − 3/2 − Ā)w♭ = v^z(log v)^j c for a coefficient c(ω) held fixed. Let
+w(λ) := (v∂_v − λ)⁻¹w♭, calculated term by term by [[lem:iii-g3-2-1]] (ii): meromorphic, with poles only at λ = z, of
+order at most j + 1.
+
+*Iteration.* Solving away a term T at exponent z by χ_I w leaves −Ñ(χ_I w) and terms supported in {½ ≤ v < 1}. As
+L̃(0) is a b-operator in (v∂_v, ∂_ω) with smooth coefficients, Ñ(χ_I w) has the exponents z + 1, with the same
+logarithmic orders and coefficients with the same poles in λ, and two fewer derivatives in ω. Treat the exponents in
+order of increasing real part. Each new exponent lies in ℰ^C_(I,♯) + ℕ ⊂ ℰ_I^C and has real part in
+(3/2 + 2γ_Υ, ℓ_I) while it is to be solved away, so the invertibility above applies. There are finitely many such
+exponents, since ℰ^C_(I,♯) is an index set, and none has real part ℓ_I, by [[eq:iii-g3-1-2]]. A chain from the least
+exponent to ℓ_I has at most ⌈ℓ_I⌉ steps, losing at most 2⌈ℓ_I⌉ < l − 2 derivatives. The remaining terms have real part
+above ℓ_I and lie in H^(k,ℓ_I)_b at the level of g, so in H^(k,ℓ_I+1)_b at that of f. The poles: at each z, the solving
+step contributes order at most j + 1 ≤ k(ℰ^C_(I,♯), z) + 1, and the coefficients carried from lower exponents z′ have
+poles only at those z′. So the divisor is as stated. u lies in ⟨ℰ_I^C⟩: the exceptional term sits in slot 7 at
+λ_♯ ∈ ℰ_(I,11), and all other exponents are in ℰ_I^C. ∎
+
+**Lemma {#lem:iii-g3-2-3}** (Uniqueness below the least exponent.) Let h ∈ H^(k,(⟨ℰ_I^C⟩,ℓ_I),β)_b(ι⁺) with
+β ∈ (−1, 0) and k ≥ k₀(Re z), the regularity that [[thm:iii-g1-3-1]] (2) needs at z (it depends on Re z through the
+loss d there). Then N_(ι⁺)(z)h ∈ H^(k−2,(⟨ℰ_I^C+1⟩′,ℓ_I+1),β−2)_b for every z. Let w₀ be a lower bound for the real
+parts of the exponents of h at v = 0, let Re z < ℓ′ ≤ w₀, let z not be a pole of the inverse of [[thm:iii-g1-3-1]]
+(all uses below have Re z < 2, where it has none, [[lem:iii-g1-4-2]] (a)), and suppose N_(ι⁺)(z)h lies in the domain
+H^(k−2,ℓ′+1,β−2)_b of [[thm:iii-g1-3-1]] (2) with ℓ′ for its ℓ_I. Then N_(ι⁺)(z)⁻¹N_(ι⁺)(z)h = h, with the inverse of
+[[thm:iii-g1-3-1]]. For h as above, w₀ = 3/2 and any ℓ′ ∈ (Re z, 3/2) serve when Re z < 3/2, the exponents of
+N_(ι⁺)(z)h being at least λ_♯ + 1 > 5/2.
+
+*Proof.* The mapping property near v = 0 is the calculation of the leading part in the proof of [[prop:iii-c-5-2]], with
+v∂_v in place of X_I and the factor (v∂_v − z) preserving index sets, together with v²L̃(0) mapping ℰ_I^tot into
+ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (c)). Near R = 0, N_(ι⁺)(z) ∈ R⁻²Diff²_b ([[eq:iii-g1-1-3]]). For the
+identity: every exponent w of h at v = 0 has Re w ≥ w₀ > Re z. So R^z h = v^(−z)h, extended by 0 to {v < 0}, is a sum of
+terms v₊^(w−z)c(ω) (powers of log allowed), Re(w − z) > 0, and a remainder of positive order; these lie in H^s near
+v = 0 for every s < ½ + Re(w − z), and are b-regular there. With the admissible choice s = min(½, 2 − Re z) − δ and μ of
+the proof of [[thm:iii-g1-3-1]] (its Step 5 (ii), with ℓ_K = β > −1), R^z h lies in the space on which N_sf(z) is
+invertible ([[thm:iii-g-5-1]]). Since v₊^(w−z) is continuous at v = 0, the derivative across v = 0 creates no term
+supported there, so N_sf(z)(R^z h) is the extension by 0 of R^(2+z)N_(ι⁺)(z)h. By [[eq:iii-g1-3-1]],
+N_(ι⁺)(z)⁻¹N_(ι⁺)(z)h = R^(−z)N_sf(z)⁻¹N_sf(z)R^z h = h. ∎
+
+**Proposition {#prop:iii-g3-2-4}** ([Hin26, Proposition 9.15] in dimension 4 + 1.) Let ℓ_I, ℓ_K be as in
+[[sec:iii-g3-1]]. The map N_(ι⁺)(λ)⁻¹ of [[thm:iii-g1-3-1]], on the space of [[def:iii-g3-1-1]], extends from
+{Re λ < λ_♯} to a meromorphic family
+
+    N_(ι⁺)(λ)⁻¹ : H^(∞,(⟨ℰ_I^C+1⟩′,ℓ_I+1),ℓ_K−2)_b(ι⁺) → H^(∞,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺),
+    Re λ < ℓ_I,                                                                                          {#eq:iii-g3-2-2}
+
+which inverts N_(ι⁺)(λ) (N_(ι⁺)(λ)N_(ι⁺)(λ)⁻¹f = f). Its poles lie in spec_(ι⁺)(L̄) ∪ π₁ℰ^C_(I,♯), and the order of a
+pole λ₀ is at most m_ι(λ₀) + m_♯(λ₀), where m_ι is the order of the pole of [[eq:iii-g1-3-3]] at λ₀ (0 if none)
+and m_♯(λ₀) := k(ℰ^C_(I,♯), λ₀) + 1 (0 if λ₀ ∉ π₁ℰ^C_(I,♯)). At finite regularity: for every ε > 0 and
+λ₋ < ℓ_I − ε there is l′ such that [[eq:iii-g3-2-2]] holds from H^(k+l′) to H^k on {λ₋ < Re λ < ℓ_I − ε} for every k.
+
+*Proof.* Given f, let u(λ) be as in [[lem:iii-g3-2-2]] for f near v = 0 (it already carries the cut-off χ_I; the second
+cut-off below changes nothing, χ_I² having the same properties), and set f′(λ) := f − N_(ι⁺)(λ)(χ_I u(λ)). Near v = 0
+this is [[lem:iii-g3-2-2]] (2), up to terms supported in {½ ≤ v < 1}; for v ≥ 1 it equals f. So
+f′(λ) ∈ H^(∞,ℓ_I+1,ℓ_K−2)_b(ι⁺), meromorphic with the poles of u. Let u′(λ) := N_(ι⁺)(λ)⁻¹f′(λ) by
+[[thm:iii-g1-3-1]] (2), finite-meromorphic on {Re λ < ℓ_I}, in H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),(ℰ_K,ℓ_K))_b, which lies in
+the target by [[lem:iii-g3-1-2]] (2). Then N_(ι⁺)(λ)(χ_I u + u′) = f, and χ_I u + u′ is in the target space. The poles
+are those of u ([[lem:iii-g3-2-2]] (1)) and those of u′, which come from f′ and from the inverse of
+[[thm:iii-g1-3-1]]; at λ₀ the Laurent orders add, giving the bound.
+
+*Agreement below λ_♯.* For Re λ < λ_♯ all exponents of f at v = 0 are at least λ_♯ + 1, so f lies in the domain of
+[[thm:iii-g1-3-1]] (2) with ℓ′ := λ_♯ − δ, and u(λ) is holomorphic there. By [[lem:iii-g3-2-3]] with w₀ = λ_♯, the
+least exponent of χ_I u, and ℓ′ ∈ (Re λ, λ_♯), N⁻¹N(χ_I u) = χ_I u, so χ_I u + u′ = N⁻¹(Nχ_I u + f′) = N⁻¹f.
+
+*Finite regularity.* The loss d of [[thm:iii-g1-3-1]] depends on λ only through Re λ: through the regularity s and the
+number of steps, at most ⌈ℓ_I − Re λ⌉ + 2, each losing two derivatives (Step 5 (ii)–(iii) of its proof). Near each
+value of Re λ one s serves, its condition s < min(½, 2 − Re λ) being open; so d is locally bounded in Re λ, hence
+bounded on [λ₋, ℓ_I − ε], and l′ := l + sup d serves. ∎
+
+**Definition {#def:iii-g3-2-5}** ([Hin26, Definition 9.16].) spec^(<ℓ_I)_(ι⁺)(L̄, ℰ_I^C) ⊂ {Re λ < ℓ_I} is the set of
+poles of [[eq:iii-g3-2-2]], and Spec^(<ℓ_I)_(ι⁺)(L̄, ℰ_I^C) the set of (λ, k) with λ a pole of order k + 1.
+
+**Corollary {#cor:iii-g3-2-6}** ([Hin26, (9.49)] in dimension 4 + 1.) If λ_♯ < ℓ_I, then
+(λ_♯, 0) ∈ Spec^(<ℓ_I)_(ι⁺)(L̄, ℰ_I^C). Every other element of spec^(<ℓ_I)_(ι⁺)(L̄, ℰ_I^C) has real part greater than
+3/2 + 2γ_Υ, and none has real part below λ_♯.
+
+*Proof.* spec_(ι⁺)(L̄) ⊂ {Re ≥ 2} ([[lem:iii-g1-4-2]] (a)), and
+π₁ℰ^C_(I,♯) ⊂ {λ_♯} ∪ {Re > 3/2 + 2γ_Υ}, with λ_♯ < 3/2 + 2γ_Υ < 2. The order at λ_♯ is at most 0 + 1, as
+λ_♯ ∉ π₁ℰ_I^C. It is a pole: take f with only the exceptional term, g_♯ ≠ 0. The residue of χ_I u at λ_♯ has the term
+−χ_I w♭_exc, a non-zero multiple of v^(λ_♯)g_♯e₇, and its other terms have exponents λ_♯ + j, j ≥ 1. The residue of u′
+is N_(ι⁺)(λ_♯)⁻¹ of the residue of f′ (the inverse of [[thm:iii-g1-3-1]] is holomorphic at λ_♯ < 2), so it lies in the
+space of [[def:iii-g1-1-2]], where its Π_(2γ_Υ)-component has index set ℰ_(2γ_Υ) = ℰ^C_(ι⁺,ℐ) ∪ (3/2 + 2γ_Υ, 0), which
+does not contain λ_♯ (ℰ^C_(ι⁺,ℐ) starts at 5/2). As Π_(2γ_Υ)e₇ = e₇, the Π_(2γ_Υ)-component of the residue of
+χ_I u + u′ has a non-zero v^(λ_♯)-term. (Slot 7 alone would not do: it also receives the component along the
+eigenvector for (1 − e_Υ)γ_Υ, [[lem:iii-g3-1-2]] (1).) ∎
+
+At the exponent λ_♯ itself the agreement of [[prop:iii-g3-2-4]] with the inverse of [[thm:iii-g1-3-1]] fails:
+R^(λ_♯)(v^(λ_♯)e₇) extended by 0 is v₊⁰e₇, and N_sf(λ_♯) = −2∂_v(v∂_v + λ_♯ − 3/2 − S̄) + … applied to it produces
+−2δ(v)(λ_♯ − 3/2 − 2γ_Υ)e₇ ≠ 0 at the light cone. So v^(λ_♯)e₇ is not in the range of the inverse of
+[[thm:iii-g1-3-1]], whose outputs carry no incoming term ([[thm:iii-g1-3-1]] (1)).
+
+**Remark {#rem:s17-exceptional}** (When the pole at λ_♯ is excited.) In [Hin26, (9.49)] the boundary spectrum contains
+(1, 0), from the coupling of the radiation field into the (dx¹)²-component and from the mass term; in dimension 4 + 1
+both land in ℰ_I^C ([[rem:s17-no-radiation]]) and give no pole. The pole at λ_♯ < 2 is excited only by sources with an
+exceptional term v^(1+λ_♯)e₇ at ℐ⁺ ∩ ι⁺. For f = N_(ι⁺)(λ)h with h as in [[def:iii-g3-1-1]], such a term arises exactly
+when Π_(2γ_Υ)h carries a v^(λ_♯)-term, that is, when the v^(λ_♯)-coefficients c₄, c₇ of slots 4 and 7 of h are not in
+the ratio of the eigenvector of Ā for (1 − e_Υ)γ_Υ ([[lem:iii-g3-1-2]] (1)): by the calculation of the leading part in
+the proof of [[prop:iii-c-5-2]], slot 7 of (v∂_v − 3/2 − Ā)h at v^(λ_♯) is −(1 + e_Υ)γ_Υc₇ − Ā₇₄c₄, which vanishes
+along that eigenvector. The set ℰ_(I,11) allows such a term, and the space of [[def:iii-g1-1-2]] does not. The index
+sets at ι⁺ of [[ch:s23]] contain (λ_♯, 0) accordingly. The identification of [[prop:iii-g3-2-4]] with the inverse of
+[[thm:iii-g1-3-1]] below λ_♯ holds by uniqueness in the admissible spaces of [[thm:iii-g-5-1]]: the extension by zero
+of v₊^(w−λ), Re(w − λ) > 0, lies in them and creates no term at the light cone ([[lem:iii-g3-2-3]]); at the incoming
+exponent itself the extension by zero creates δ(v), which is why λ_♯ is a pole.
+
+**Remark {#rem:iii-g3-2-7}** ([Hin26, Remark 9.17] in dimension 4 + 1.) Let (α, 0) ∈ ℰ_I^C with
+3/2 + 2γ_Υ < α < ℓ_I, α ∉ spec_(ι⁺)(L̄) and α ∉ π₁ℰ^C_(ι⁺,ℐ) ∪ (3/2 + σ_Υ + ℕ₀), and f := χ_I v^(α+1)f₀(ω),
+f₀ ≠ 0. Then N_(ι⁺)(λ)⁻¹f has a simple pole at λ = α: as in [[cor:iii-g3-2-6]], the v^α-term of the residue, a
+non-zero multiple of (α − 3/2 − Ā)⁻¹f₀, cannot be cancelled by the residue of u′, whose exponents lie in
+π₁ℰ^C_(ι⁺,ℐ) ∪ (3/2 + σ_Υ + ℕ₀). In the language of scattering, the residue solves the problem at frequency α with
+incoming data v^α u₀, u₀ = (α − 3/2 − Ā)⁻¹(½f₀) (the residue of (α − λ)⁻¹w♭ is −w♭, and g = −(1/(2v))f), and its
+outgoing data are its radiation fields at 3/2 + spec Ā. So ℰ_I^C specifies the frequencies at which incoming data are
+allowed.
+
+### Quasi-homogeneous solutions and resonant states {#sec:iii-g3-3}
+
+This section is [Hin26, Corollary 9.18 to Remark 9.24] in dimension 4 + 1.
+
+**Corollary {#cor:iii-g3-3-1}** ([Hin26, Corollary 9.18] in dimension 4 + 1.) Let Re λ₀ < ℓ_I, J ∈ ℕ₀, and
+
+    f = Σ_(j=0)^J t_*^(−λ₀−2)(log t_*)^j f^((λ₀+2,j))(R, ω),
+    f^((λ₀+2,j)) ∈ H^(∞,(⟨ℰ_I^C+1⟩′,ℓ_I+1),ℓ_K−2)_b(ι⁺).                                                 {#eq:iii-g3-3-1}
+
+Let K be the order of the pole of [[eq:iii-g3-2-2]] at λ₀ (0 if none). Then:
+
+(1) (*Existence.*) There is a solution of 2L̄u = f, linear in f, of the form
+
+    u = Σ_(j=0)^(J+K) t_*^(−λ₀)(log t_*)^j u^((λ₀,j))(R, ω),
+    u^((λ₀,j)) ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺).                                                   {#eq:iii-g3-3-2}
+
+(2) (*Expansion at R = 0.*) u = χ_K u₀ + ũ, with χ_K the cut-off of [[sec:iii-g2-4]] restricted to ι⁺ (the formal
+solutions grow as R → ∞), u₀ a sum of the formal solutions of [[ch:s16]] ([[eq:iii-g2-3-1]] and [[lem:iii-g2-2-4]] (b),
+with the conventions for s1 and v1) with t_*^(−λ) replaced by t_*^(−λ₀)(log t_*)^j, j ≤ J + K, and ũ a sum of terms
+t_*^(−λ₀)(log t_*)^j H^(∞,(⟨ℰ_I^C⟩,ℓ_I),ℓ_K)_b(ι⁺). This holds for every solution of the form [[eq:iii-g3-3-2]] of
+2L̄u = f with f as in [[eq:iii-g3-3-1]] (with J + K for J).
+
+*Proof.* (1) After scalar factors, f = (1/(2πi)) ∮ t_*^(−λ−2) Σ_j (λ − λ₀)^(−j−1)f^((λ₀+2,j)) dλ over a small circle
+around λ₀, and u := (1/(2πi)) ∮ t_*^(−λ) Σ_j (λ − λ₀)^(−j−1)N_(ι⁺)(λ)⁻¹f^((λ₀+2,j)) dλ is defined by
+[[prop:iii-g3-2-4]], with a pole of the integrand of order at most J + 1 + K at λ₀. By [[eq:iii-g3-1-1]],
+2L̄(t_*^(−λ)w) = t_*^(−λ−2)N_(ι⁺)(λ)w, so 2L̄u = f, and the residue expands into [[eq:iii-g3-3-2]].
+
+(2) As in [Hin26]. Near R = 0 the top term satisfies N_(ι⁺)(λ₀)u^((λ₀,J)) ∈ H^(∞,ℓ_K−2)_b, so by [[thm:iii-g2-3-1]] it
+is a sum of formal solutions modulo H^(∞,ℓ_K)_b. Each such term is removed by subtracting its (log t_*)^J-version, the
+formal solution of [[thm:iii-g2-3-1]] with argument t_*^(−λ₀+μ)(log t_*)^J Y. Since
+t_*^(−λ)(log t_*)^J = (−∂_λ)^J t_*^(−λ) and the errors of the formal solutions of [[thm:iii-g2-3-1]],
+t_*^(−λ−2)R^(−μ+k_μ−1)C^∞ (its proof), depend holomorphically on λ, the error of the subtracted term lies in
+Σ_(j≤J) t_*^(−λ₀−2)(log t_*)^j H^(∞,ℓ_K−2)_b near R = 0, as −μ + k_μ − 1 ≥ 1 > ℓ_K − 2. Then induct downwards on j: if
+u^((λ₀,j)) ∈ H^(∞,ℓ_K)_b for j > j₀, the coefficient of t_*^(−λ₀−2)(log t_*)^(j₀) in 2L̄u gives
+N_(ι⁺)(λ₀)u^((λ₀,j₀)) − (j₀ + 1)∂_λN_(ι⁺)(λ₀)u^((λ₀,j₀+1)) ∈ H^(∞,ℓ_K−2)_b, as N_(ι⁺) is linear in λ. Here
+∂_λN_(ι⁺) = 2v(v∂_v − 3/2 − S̄) ∈ R⁻¹Diff¹_b, so the second term lies in H^(∞,ℓ_K−1)_b, and the first step applies to
+u^((λ₀,j₀)). ∎
+
+**Definition {#def:iii-g3-3-2}** ([Hin26, Definition 9.19] in dimension 4 + 1.) For Re λ < ℓ_I and k ∈ ℕ₀ ∪ {∞},
+
+    Res^k_(ι⁺)(L̄, ℰ_I^C, λ) := {u = Σ_(j=0)^K t_*^(−λ)(log t_*)^j u^((λ,j))(v, ω) : L̄u = 0,
+                                u^((λ,j)) ∈ H^(k,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_K,ℓ_K))_b(ι⁺), K ∈ ℕ₀}.                {#eq:iii-g3-3-3}
+
+So the solution of [[cor:iii-g3-3-1]] is unique modulo Res^∞_(ι⁺)(L̄, ℰ_I^C, λ₀).
+
+**Remark {#rem:iii-g3-3-3}** ([Hin26, Remark 9.20] in dimension 4 + 1.) The proof of [[cor:iii-g3-3-1]] (2) applies to
+the elements of [[eq:iii-g3-3-3]], for every ℓ_K < ℓ_K^max allowed in [[sec:iii-g3-1]]: it describes their asymptotics
+as R → 0 modulo O(R^(ℓ_K)). By [[rem:iii-g3-2-7]], [[eq:iii-g3-3-3]] depends on ℰ_I^C, and it is infinite-dimensional,
+the incoming data being sections over 𝕊³ ([[def:iii-g3-3-6]] and [[prop:iii-g3-3-7]]).
+
+**Lemma {#lem:iii-g3-3-4}** (Left inverse.) Let β ∈ (−1, 0). For h ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),β)_b(ι⁺),
+N_(ι⁺)(z)⁻¹N_(ι⁺)(z)h = h as meromorphic functions on {Re z < ℓ_I}, with [[eq:iii-g3-2-2]] for ℓ_K = β. For finite k
+the same holds on every strip {λ₋ < Re z < ℓ_I − ε}, λ₋ < 3/2, when h has b-regularity k ≥ l′(λ₋, ε) + 2, with l′
+of [[prop:iii-g3-2-4]].
+
+*Proof.* β is admissible in [[sec:iii-g3-1]]: ℰ_K ⊂ {Re ≥ 0}, and no root of [[prop:iii-f1-2-3]] has real part in
+(0, 1). So (ℰ_K, β) is the weight β alone, and N_(ι⁺)(z)h lies in the domain of [[eq:iii-g3-2-2]] by the mapping
+property of [[lem:iii-g3-2-3]]. Both sides are meromorphic in z. For Re z < 3/2 they agree by [[lem:iii-g3-2-3]], as
+N(z)h then has exponents above 5/2 at v = 0, so it lies in the domain of [[thm:iii-g1-3-1]] with some
+ℓ′ ∈ (Re z, 3/2), and [[eq:iii-g3-2-2]] agrees there with the inverse of [[thm:iii-g1-3-1]] ([[prop:iii-g3-2-4]]). By
+the identity theorem they agree on the connected set {Re z < ℓ_I} off the poles; at finite k, on the strip, which off
+the poles is connected and meets {Re z < 3/2}. ∎
+
+**Lemma {#lem:iii-g3-3-5}** ([Hin26, Lemma 9.21] in dimension 4 + 1.) Res^k_(ι⁺)(L̄, ℰ_I^C, λ) does not depend on the
+choice of ℓ_K. For k = ∞ it is the space of the tensors
+
+    res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f(z)),                                                                {#eq:iii-g3-3-4}
+
+f a polynomial in z with values in H^(∞,(⟨ℰ_I^C+1⟩′,ℓ_I+1),β−2)_b(ι⁺), β ∈ (−1, 0) arbitrary. For finite k it is
+contained in (resp. contains) the space of such tensors with f of b-regularity k − l′ (resp. k + l′), l′ as in
+[[prop:iii-g3-2-4]] on a strip containing λ.
+
+*Proof.* Independence of ℓ_K: by [[rem:iii-g3-3-3]] the elements have the expansion of [[cor:iii-g3-3-1]] (2) at R = 0
+for every allowed ℓ_K. The tensor [[eq:iii-g3-3-4]] is annihilated by 2t_*²L̄: writing the residue as (1/(2πi))∮, this
+gives (1/(2πi))∮ t_*^(−z)f(z) dz = 0, f being holomorphic; and by [[eq:iii-g3-2-2]] it has the form
+[[eq:iii-g3-3-3]]. Conversely let u = Σ_(j≤K) t_*^(−λ)(log t_*)^j u^((λ,j)) be in [[eq:iii-g3-3-3]]. After scalar
+factors, u = (1/(2πi))∮ t_*^(−z)ũ(z) dz with ũ(z) := Σ_j (z − λ)^(−j−1)u^((λ,j)), and L̄u = 0 says that
+res_(z=λ)(t_*^(−z−2)N_(ι⁺)(z)ũ(z)) = 0 for all t_*, so N_(ι⁺)(z)ũ(z) is holomorphic at λ. Let f(z) be its Taylor
+polynomial at λ of degree K(λ), the order of the pole of [[eq:iii-g3-2-2]] at λ. By the independence just shown, take
+ℓ_K ∈ (0, ℓ_K^max). Then near R = 0, u^((λ,j)) ∈ H^(k,−ε)_b for every ε > 0 (ℰ_K ∩ {Re = 0} = {(0, 0)},
+[[lem:iii-g1-1-3]] (b)), so with β := −ε and the mapping property of [[lem:iii-g3-2-3]], f takes values in
+H^(k−2,(⟨ℰ_I^C+1⟩′,ℓ_I+1),β−2)_b. By [[lem:iii-g3-3-4]] (for finite k, on a strip containing λ),
+N(z)⁻¹N(z)ũ(z) = ũ(z), and N(z)⁻¹(N(z)ũ(z) − f(z)) is holomorphic at λ, its argument vanishing to order K(λ) + 1
+there. So u = res_(z=λ)(t_*^(−z)ũ(z)) = res_(z=λ)(t_*^(−z)N(z)⁻¹f(z)). ∎
+
+**Definition {#def:iii-g3-3-6}** ([Hin26, (9.54)–(9.55)] in dimension 4 + 1.) For Re λ < ℓ_I, Res_(ι⁺)(L̄, λ) is the
+space of tensors [[eq:iii-g3-3-4]] with f a polynomial with values in H^(k,ℓ_I+1,β−2)_b. By the finite-meromorphy of
+[[thm:iii-g1-3-1]] (2) it is finite-dimensional, consists of tensors of infinite b-regularity, and does not depend on k;
+it lies in Res^∞_(ι⁺)(L̄, ℰ_I^C, λ). The quotient H^(k,(⟨ℰ_I^C+1⟩′,ℓ_I+1),β−2)_b / H^(k,ℓ_I+1,β−2)_b is identified with
+
+    H^(k,(⟨ℰ_I^C+1⟩′,≤ℓ_I+1))_b := {χ_I(f₁₁^((λ_♯+1,0))v^(λ_♯+1)e₇
+                                    + Σ_((ν,j)∈ℰ_I^C+1, Re ν≤ℓ_I+1) v^ν(log v)^j f^((ν,j))(ω))},         {#eq:iii-g3-3-5}
+
+f₁₁^((λ_♯+1,0)) ∈ H^k(𝕊³), f^((ν,j)) ∈ H^k(𝕊³; S²T*): finitely many copies of H^k(𝕊³). The first term is present only
+if λ_♯ < ℓ_I; otherwise v^(λ_♯+1)e₇ lies in H^(k,ℓ_I+1)_b. [Hin26, (9.55)] has two exceptional terms, v² and
+v^(2+(1−e_Υ)γ_Υ) in the (dx¹)²-component; here there is one.
+
+**Proposition {#prop:iii-g3-3-7}** ([Hin26, Proposition 9.22] in dimension 4 + 1.) Let Re λ < ℓ_I, K(λ) the order of
+the pole of [[eq:iii-g3-2-2]] at λ, and Poly^K(ℂ_z; X) the polynomials of degree at most K with coefficients in X. There
+is l = l(ℓ_I, λ) such that for k ≥ l the map
+
+    Res_(ι⁺)(L̄, λ) ⊕ Poly^(K(λ))(ℂ_z; H^(k,(⟨ℰ_I^C+1⟩′,≤ℓ_I+1))_b) → Res^(k−l)_(ι⁺)(L̄, ℰ_I^C, λ),
+    (u₀, f) ↦ u₀ + res_(z=λ)(t_*^(−z)N_(ι⁺)(z)⁻¹f(z)),                                                   {#eq:iii-g3-3-6}
+
+defined independently of k, is well defined and continuous, and Res^k_(ι⁺)(L̄, ℰ_I^C, λ) lies in the range of the map
+for k − l in place of k. There is a right inverse for k = ∞ which is continuous from Res^k to the domain with k − l for
+every k.
+
+*Proof.* Well-definedness and continuity: [[prop:iii-g3-2-4]] on a strip containing λ, and [[eq:iii-g3-3-5]] as a
+subspace of the domain of [[eq:iii-g3-2-2]]. The proof of [[lem:iii-g3-3-5]] gives a map
+u ↦ f ∈ Poly^(K(λ))(ℂ; H^(k−l,(⟨ℰ_I^C+1⟩′,ℓ_I+1),β−2)_b) with u = res(t_*^(−z)N⁻¹f), β ∈ (−1, 0) fixed, defined
+independently of k. Split f = f₁ + f₂ uniquely, f₁ with values in H^(k−l,ℓ_I+1,β−2)_b and f₂ in [[eq:iii-g3-3-5]]: f₂
+is the finite expansion of f at v = 0 cut off by χ_I. The right inverse is u ↦ (res(t_*^(−z)N⁻¹f₁), f₂), the first
+component in Res_(ι⁺)(L̄, λ) by [[def:iii-g3-3-6]]. ∎
+
+So [[eq:iii-g3-3-6]] parametrises the quasi-homogeneous nullspace by a finite-dimensional piece of pure resonant states
+(no incoming data) and an infinite-dimensional piece of finite description that encodes incoming data through the
+sources.
+
+**Remark {#rem:iii-g3-3-8}** ([Hin26, Remark 9.23] in dimension 4 + 1.) [[eq:iii-g3-3-6]] over-parametrises. At
+λ = λ_♯ (when λ_♯ < ℓ_I), the counterpart of λ = 1 in [Hin26]: Res_(ι⁺)(L̄, λ_♯) = {0}, as λ_♯ < 2
+([[lem:iii-g1-4-2]] (a)), and N_(ι⁺)(z)⁻¹f has no pole at z = λ_♯ unless f₁₁^((λ_♯+1,0)) ≠ 0 in [[eq:iii-g3-3-5]]: the
+other terms of [[eq:iii-g3-3-5]] have exponents in ℰ_I^C + 1, whose poles lie in π₁ℰ_I^C ([[lem:iii-g3-2-2]]), and
+λ_♯ ∉ π₁ℰ_I^C.
+
+**Remark {#rem:iii-g3-3-9}** ([Hin26, Remark 9.24] in dimension 4 + 1.) Let
+λ ∈ spec^(<ℓ_I)_(ι⁺)(L̄, ℰ_I^C) ∖ spec_(ι⁺)(L̄) (for instance λ = λ_♯) and let u ≠ 0 be the image of (0, f) under the map
+[[eq:iii-g3-3-6]]. N_(ι⁺) is SO(4)-equivariant, so it preserves the components of each harmonic
+degree ([[sec:iii-a1-1]]). The formal solutions at R = 0 below ℓ_K^max occur only at the roots of the table of
+[[sec:iii-g2-1]], whose types have degree at most 4 (s4 at −2). So if f has only harmonic components of degree ≥ 5, the
+expansion of u at R = 0 is trivial modulo O(R^(ℓ_K)) for every ℓ_K < ℓ_K^max. Even an arbitrarily high finite order of
+vanishing at R = 0 thus leaves an infinite-dimensional space of resonant states that are not pure. ([Hin26]: degree at
+most 5, l ≥ 6.)
+

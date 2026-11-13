@@ -23,6 +23,12 @@ files; only the assembled `PAPER.md`, its PDF and the code appendix are publishe
   Writers may check their algebra privately with computer algebra; the text presents only the mathematics. A step the
   record establishes only by a large or floating-point computation, for which no written proof is found, is not stated
   as proved: it is marked `[[pending:computational-N]]` for the coordinator, who decides it with the author.
+- The author's rulings of 2026-11-13. (i) Every claim the record establishes by a certified computation is proved in
+  writing, with its explicit constants, including claims about explicit approximants and splines: the proof prints the
+  objects it needs (coefficient tables go to Appendix B) and the written inequalities that bound them. (ii) A numerical
+  experiment that no proof uses is kept as a labelled remark, one short paragraph opened by
+  `**Remark {#rem:key}** (Numerical observation.)`, saying what was observed and that no proof uses it. Inside such a
+  paragraph the words of computation are allowed; program, code and file names are not.
 
 ## 2. Forbidden in the edition (checked by `lint.py`)
 
@@ -65,4 +71,7 @@ Chapters are written in parallel, so numbers are symbolic in the chapter sources
 ## 5. The appendix
 
 - **Appendix A. Results from the literature.** Each published result the proofs use as a black box, stated exactly,
-  with its source, number and page. There is no other appendix: no computations and no code.
+  with its source, number and page.
+- **Appendix B. Tables.** The coefficients of the explicit approximants, splines and enclosures that written proofs
+  use (author's ruling of 2026-11-13), each table headed by the definition of the object and the result that uses it.
+  No code appears anywhere.

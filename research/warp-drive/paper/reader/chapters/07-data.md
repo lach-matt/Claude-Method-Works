@@ -358,10 +358,12 @@ solution's X_s norm and ‖F‖_(L² H^(s−1)) (‖∂_r (ϖ, q)‖_(L^∞), a 
 
 and integrating, taking the supremum over [a, r], and Young's and Gronwall's lemmas give the bound.
 
-The commutator and product estimates used are these. The Kato–Ponce inequality [GO13, p. 1]: for 1 < p < ∞ and s > 0,
-‖J^s(f g) − f J^s g‖_(L^p) ≤ C (‖∇f‖_(L^∞) ‖J^(s−1) g‖_(L^p) + ‖J^s f‖_(L^p) ‖g‖_(L^∞)), J := (1 − Δ)^(1/2) on R^n. The
-Moser estimate [DS23, Remark 2.3(i)]: for a smooth function Φ of u, ‖Φ(u)‖_s ≤ C_I + F_I(‖u‖_∞) ‖u‖_s for u ∈ H^s, with
-C_I and F_I depending on Φ. On S³ both follow from R³ through a finite atlas and a partition of unity.
+The commutator and product estimates used are these. The Kato–Ponce inequality [GO13, p. 1] ([[thm:std-kato-ponce]], for
+Schwartz functions, extended at p = 2 to the compactly supported functions used here by [[cor:std-kato-ponce]]): for 1 <
+p < ∞ and s > 0, ‖J^s(f g) − f J^s g‖_(L^p) ≤ C (‖∇f‖_(L^∞) ‖J^(s−1) g‖_(L^p) + ‖J^s f‖_(L^p) ‖g‖_(L^∞)), J := (1 −
+Δ)^(1/2) on R^n. The Moser estimate [DS23, Remark 2.3(i)] ([[rem:std-ds-moser]], for s > N/2 and Φ satisfying (A2) of
+[DS23]): for a smooth function Φ of u, ‖Φ(u)‖_s ≤ C_I + F_I(‖u‖_∞) ‖u‖_s for u ∈ H^s, with C_I and F_I depending on Φ.
+On S³ both follow from R³ through a finite atlas and a partition of unity.
 
 *Proof.* Commute s angular derivatives, by the Killing fields X^I of the round S³, through [[eq:data-linear]]; the
 commutators are estimated in terms of M_s by the Moser and Kato–Ponce inequalities on S³. Parabolic energy:
@@ -438,10 +440,10 @@ quadratic and evaluated at U_i. Fix s_1 > 3/2 + 4 and s := s_1 + 2. At U = 0 the
 [[lem:linear-evolution]] at index s keeps the iterates in the ball of radius 2 C_0 λ^(N−2) of X_s, and at index s_1
 gives ‖U_(i+1) − U_i‖_(X_(s_1)) ≤ C λ^(N−3) ‖U_i − U_(i−1)‖_(X_(s_1)) (the difference of the frozen coefficients
 multiplies U_i, estimated in the higher norm), a contraction. Bounded in X_s and contracting in X_(s_1), the iterates
-converge to a solution in X_s; this is the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems ([AO14,
-Section 4.1], [DS23, Section 4], [AG22, p. 1]: boundedness in a high norm and contraction in a low norm), and the
-parabolic component obeys the same estimates. Uniqueness holds in the ball of radius 2 C_0 λ^(N−2) of X_s, by the
-difference estimate.
+converge to a solution in X_s; this is the scheme of Kato and Majda for quasilinear symmetric hyperbolic systems
+([[rem:std-iteration]]; [AO14, Section 4.1, p. 19], [DS23, Section 4], [AG22, p. 1]: boundedness in a high norm and
+contraction in a low norm), and the parabolic component obeys the same estimates. Uniqueness holds in the ball of radius
+2 C_0 λ^(N−2) of X_s, by the difference estimate.
 
 U = 0 on r < v_start − τ0. There 𝒞(γ, κ) vanishes, and where U_i vanishes so do the quadratic terms at U_i; so for every
 r1 < v_start − τ0 the system for U_(i+1) has zero forcing terms on [a, r1] and zero data at r = a, and

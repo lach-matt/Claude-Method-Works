@@ -250,7 +250,7 @@ frame dt_*, dx^i lie in ρ²C^∞(X̄), uniformly and smoothly in b. So (H6), (K
 
 *Proof.* On {|x| ≤ 2R₁}, T_m of [[eq:iii-b-3-3]] is constant, so g_b is g^KS_b in a translated time coordinate, and r₀ −
 2δ₀ ≥ ½r_♭; so g_b is smooth and Lorentzian of signature (1, 4) there, smoothly in b, by [[lem:s12-ks-domain]]. On {|x|
-≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b. *dt_* is timelike.* In the
+≥ ½R₁}, [[prop:iii-b-3-6]] gives smoothness and g_b − η ∈ |x|⁻²C^∞, smoothly in b. *The time function.* In the
 coordinates (t_KS, x) = Φ_m(t, x), t_* = t − ψ(|x|) has differential dt_KS − β d|x| with β := ψ′ − T_m′ = 1 −
 χ_∞(ρ)(8m₀ρ⁻² − 2m(ρ² − m)⁻¹), ρ := |x| ([[eq:iii-b-3-3]], [[eq:iii-b-3-6]]). Off supp χ_∞, in particular on [r₀ − 2δ₀,
 2R₁], β = 1. On supp χ_∞ ⊂ [2R₁, ∞), ρ² ≥ 4m₀ and m < 3m₀/2, so (8m₀ − 2m)ρ² − 8m₀m > 20m₀² − 12m₀² > 0, the bracket is
@@ -387,7 +387,7 @@ correction e^(±νs/4)w_±, obtained by solving the driven equation with the var
 (−∞, s] or [s, ∞). This gives the invariant splitting [[eq:ii-b-1-1]], with N̄^u and N̄^s spanned by these solutions,
 continuous along Γ, and the rate μ = ¼ν of (K3).
 
-*The field of t_*.* Transported by T_F ([[lem:vi-a-0-1]] (a)), 𝖵 = a𝖵_s with a := q_(s,1)/q_(*,1), smooth and positive
+*Transport by T_F.* Transported by T_F ([[lem:vi-a-0-1]] (a)), 𝖵 = a𝖵_s with a := q_(s,1)/q_(*,1), smooth and positive
 near Γ, as both time differentials are timelike there, and a = 1 on Γ by [[lem:vi-a-0-1]] (c). Hence e^(s𝖵) = e^(s𝖵_s)
 on the invariant set Γ, and along Γ, D(a𝖵_s) = D𝖵_s + 𝖵_s ⊗ da. Here 𝖵_s is tangent to Γ and da vanishes on TΓ, so
 the added term maps the normal directions into TΓ and annihilates TΓ. The normal block, its rates and the homogeneous
@@ -416,7 +416,7 @@ the radial motion is that of a particle in the potential CW, which has a single 
 at r_h and at ∞ ([[prop:np-10-19-iv]]). There are three cases.
 
 - C < 4m: fξ ≠ 0 throughout, so r is strictly monotone.
-- C > 4m: {CW > 1} is an interval (r_−, r_+) ∋ r_ph with r_h < r_−. A curve stays in (r_h, r_−] or in [r_+, ∞), with
+- C > 4m: {CW > 1} is an interval (r′, r″) ∋ r_ph with r_h < r′. A curve stays in (r_h, r′] or in [r″, ∞), with
   exactly one turning point, where ξ = 0 and ξ̇ ≠ 0.
 - C = 4m: the curve lies on Γ or on one of the four branches of {fξ = ±u}, along which r is monotone and tends to r_ph
   at one end.
@@ -433,8 +433,9 @@ the branches with φ_u = 0 are backward asymptotic to Γ and those with φ_s = 0
 *At the horizon* (v variables, regular across r = r_h; v is a chart, and the components are those of t_*,
 [[sec:vi-a-0]]). On {G^(0)_(z₀) = 0}, fξ² − 2z₀ξ + r⁻²C = 0, with the roots ξ = (z₀ ± (1 − fC r⁻²)^(1/2))/f. One root
 is regular at f = 0, where it tends to C/(2z₀r_h²); the other is ∼ 2z₀/f. A future null covector with
-ν(∂_t) = −z₀ ≠ 0 is not a multiple of dr, so ν^♯ is not tangent to the null generator ∂_v of ℋ, and dr(γ̇) < 0 there
-by [[prop:np-10-19-iv]] (d): on the regular root a curve crosses ℋ inward in finite parameter. Inside, dr is timelike
+ν(∂_t) = −z₀ ≠ 0 is not a multiple of dr, so ν^♯ is not tangent to the null generator ∂_v of ℋ. At r = r_h,
+g⁻¹(dr, ·) = ∂_v + f∂_r = ∂_v is future directed null ([[prop:np-10-19-iv]] (d)), so dr(γ̇) = g(∂_v, γ̇) < 0 for the
+future causal velocity γ̇: on the regular root a curve crosses ℋ inward in finite parameter. Inside, dr is timelike
 (G(dr) = f < 0) and ṙ < 0 strictly. On compact subsets of Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r_h − ϵ}, compactified at fibre
 infinity, ṙ is bounded above by a negative constant, including at fibre infinity by [[prop:vi-a-2-1]] (𝖧r = 2f). So
 the curve reaches {r < r₀ − δ₀} in finite parameter. On the singular root, which near ℋ is the component
@@ -599,7 +600,8 @@ so it is a bijection of [r₀ − 2δ₀, ∞); κ_b is defined globally and is 
 |x| ∈ (5R₁/8, 3R₁/4) ∪ (3R₁/2, 7R₁/4), r̃_b is C^∞-close to |x| and so differs from r_h = R₁. For b near b₀,
 {r_A = r₊} lies in {χ_H = 1}, since r_A is close to |x| and r₊ to R₁. ∎
 
-On {χ_H(|x|) = 1}, Ψ_b^* r_A = (r₊(b)/r_h)|x|, so Ψ_b^* dr_A = (r₊(b)/r_h) dr there.
+Where χ_H(|Ψ_b(x)|) = 1, in particular near {|x| = r_h}, the definition of Ψ_b gives Ψ_b^* r_A = (r₊(b)/r_h)|x|, so
+Ψ_b^* dr_A = (r₊(b)/r_h) dr there.
 
 Below, g̃_b := Ψ_b^* g_b, with the time function Ψ_b^* t_*; its differential Ψ_b^* dt_* is timelike for g̃_b. The
 spectral families of g_b and g̃_b are conjugate: on the bundles of [[sec:i-a-1-2]], trivialised by dt_*, dx^i, pulling
@@ -1062,14 +1064,13 @@ and to r₊ or ∞ at the other. By [[cor:vi-b1-1-2]] (c), with ε₈ ≤ ε(δ)
 zero lies in O, so these curves are exactly those through {φ_u = 0} ∩ Σ ∩ O (backward asymptotic to Γ_b) or
 {φ_s = 0} ∩ Σ ∩ O (forward asymptotic), extended by the flow.
 
-*At infinity.* As r → ∞, ℛ = r⁴E² + O(r²(1 + Λ)) and α = r² + O(1), so
-p_r = (p̃ − β)/α = sgn(p̃) + O((1 + Λ) r⁻²); and r_A = |x|(1 + O(|x|⁻²)) ([[lem:iii-b-3-1]] (b)) gives
-ξ_t = p_r + O((1 + Λ^(1/2)) r⁻²) for the coefficient ξ_t of d|x|, while |η|/r ≤ Λ^(1/2) r⁻¹. Forward with r → ∞,
-ṙ > 0 forces sgn p̃ = z₀, so ξ_t → z₀; and with t_* = t − F(|x|), F := t − t_* a function of |x| with
-F′ = 1 + O(r⁻²) ([[eq:iii-b-3-3]], [[lem:iii-b-3-5]] (a), [[eq:iii-b-3-6]]), ξ_* = ξ_t − z₀F′ → 0. Backward,
-ξ_* → −2z₀. The bounds are uniform for Λ ≤ Λ_𝖪, so the argument at infinity of [[prop:vi-a-5-1]] applies verbatim
-with C replaced by Λ. This gives convergence to R_out and R_(z₀,in), and the absorbing sets
-𝒜_out = {r > R, |ξ_*| < ϵ} and 𝒜_in = {r > R, |ξ_* + 2z₀| < ϵ}.
+*At infinity.* As r → ∞, ℛ = r⁴E² + O(r²(1 + Λ)) and α = r² + O(1), so p_r = (p̃ − β)/α = sgn(p̃) + O((1 + Λ) r⁻²); and
+r_A = |x|(1 + O(|x|⁻²)) ([[lem:iii-b-3-1]] (b)) gives ξ_t = p_r + O((1 + Λ^(1/2)) r⁻²) for the coefficient ξ_t of d|x|,
+while |η|/r ≤ Λ^(1/2) r⁻¹. Forward with r → ∞, ṙ > 0 forces sgn p̃ = z₀, so ξ_t → z₀; and with t_* = t − F(|x|), F := t
+− t_* a function of |x| with F′ = 1 + O(r⁻²) ([[eq:iii-b-3-3]], [[lem:iii-b-3-5]] (a), [[eq:iii-b-3-6]]), ξ_* = ξ_t −
+z₀F′ → 0. Backward, ξ_* → −2z₀. The bounds are uniform for Λ ≤ Λ_𝖪, the bound of Λ on a compact set 𝖪 of initial points,
+so the argument at infinity of [[prop:vi-a-5-1]] applies verbatim with C replaced by Λ. This gives convergence to R_out
+and R_(z₀,in), and the absorbing sets 𝒜_out = {r > R, |ξ_*| < ϵ} and 𝒜_in = {r > R, |ξ_* + 2z₀| < ϵ}.
 
 *Near the radial sets.* (H3), as proved in [[prop:vi-b-2-2]], gives 𝖧_b q ≥ ½β₀q on ∂Σ₀ ∩ {q < ϵ_q} near ∂ℛ_±
 and ρ_∞⁻¹𝖧_bρ_∞ ≥ ½β₀ at ∂ℛ_±, with β₀ := β₀(b₀). By continuity there is a neighbourhood U_R of ∂ℛ_± in the

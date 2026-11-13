@@ -52,3 +52,10 @@ weaker than the statement the chapter must make, write the chapter as far as the
 
 Work in place: write the chapter file early and extend it, so nothing is lost if your context fills. Do not modify
 any file outside `chapters/`, `crosswalk/` and your report.
+
+## The author's rulings of 2026-11-13 (see STYLE.md section 1)
+- `maps/proof-projects.md` classifies the record's computed items. A class (a) item (a claim about a defined object)
+  is proved in writing in `proofs/P-*.md`; cite its result by key and merge the proof into your chapter when it lands.
+- A class (b) item (a numerical experiment no proof uses) is kept: write it as one paragraph
+  `**Remark {#rem:key}** (Numerical observation.)`, saying what was observed and that no proof uses it.
+- A class (c) item (a statement about a computational route) is deleted; where needed, say only what is not proved.

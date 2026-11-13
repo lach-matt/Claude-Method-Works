@@ -44,3 +44,19 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Written proofs in proofs/P-<project>.md, merged into their chapters by the chapter writers: A (C87, Theorem 4's
   epsilon_ind), B multipliers, C (lambda0 constants), F (edge theorem hypotheses), G (far-region exponents) launched.
 - Held for the author: D (residuals at 10 l5), E (the families' example), B's band constant, class (b), class (c).
+
+## The author's rulings of 2026-11-13 (STYLE.md section 1, lint, OUTLINE 96-tables.md)
+- Class (b), 57 numerical experiments: kept as labelled remarks "(Numerical observation.)", one paragraph each.
+  Every pending:computational-N marker already placed (Ch 3, 7, 9, 10) becomes such a remark or a written proof.
+- Project E: proved at the record's own example (agents E-a background, E-b margins and bend).
+- Constants: prove absolutely everything, including B's band constant (agent B2), A2 (sent to agent A), D1 at the
+  record's approximant with the exact-data proposition beside it (agent D1), and D2-D4 with printed coefficients
+  (agent D234, planning first; it stops above about 25,000 lines for a size confirmation).
+- Class (c), 6 statements about a computational route: deleted; where needed, only what is not proved is said.
+
+## From the S12 writer
+- S13 cited the whole NP 10.17 and 10.19 as proved in S12; S12 carries 10.17 (ii), 10.19 (ii), (iv). The S13 writer
+  was told to carry 10.17 (i), (iii)-(v) and 10.19 (iii) and re-key.
+
+## From R-06-07
+- Items 1-5 of the main theorem are proved in both Ch 3 and Ch 7: keep one proof (fix writer proposes which).

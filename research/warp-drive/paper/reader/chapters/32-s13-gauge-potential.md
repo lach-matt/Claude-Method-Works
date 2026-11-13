@@ -24,8 +24,9 @@ Seven results of the main argument enter as inputs and are proved in this chapte
 [[prop:np-10-15]] (the zero energy data of the unmodified operator), [[prop:np-10-16]] (the mode equations on
 Tangherlini), [[prop:np-10-18]] (the structure at infinity and the horizon threshold), [[prop:np-10-20]] (the
 transition face and the weights), [[prop:np-10-28]] (the symmetries and the linearised Myers–Perry metrics),
-[[prop:np-10-29]] and [[prop:np-10-30]] (the model generalised states and their root facts). The trapping computations
-of [[prop:np-10-17]] and [[prop:np-10-19]] are proved in [[ch:s12]].
+[[prop:np-10-29]] and [[prop:np-10-30]] (the model generalised states and their root facts). The trapping results
+of [[prop:np-10-17-i]]–[[prop:np-10-17-v]] and [[prop:np-10-19-ii]]–[[prop:np-10-19-iii]] are proved in
+[[ch:s12]].
 
 *The dynamical hypotheses.* The theory of [[ch:s01]]–[[ch:s03]] applies to operators on a trivial bundle satisfying
 hypotheses (H1)–(H8), (G), (Z) and (TF). Some of these concern the metric alone: the radial structure of the horizon in
@@ -59,7 +60,7 @@ As [Hin26, (6.1)] requires, the supports of c_(Υ,H) and of c_Υ on {|x| < 5R_1}
 U_Γ of the projection of the trapped sets of all g_b, b ∈ ℬ; by (Dyn) these lie over a fixed compact subset of
 {r_h < |x| < 5R_1} near |x|² = 2m_0 ([[sec:iii-d-5-2]]). The *gauge potential wave operator* is
 
-    □^Υ_b := □^Υ_(g_b,E_Υ) = 2δ_(g_b,E_Υ) G_(g_b) δ*_(g_b) = □_(g_b) + 2E^Υ_(g_b) G_(g_b) δ*_(g_b),          {#eq:iii-d-1-1}
+    □^Υ_b := □^Υ_(g_b,E_Υ) = 2δ_(g_b,E_Υ) G_(g_b) δ*_(g_b) = □_(g_b) + 2E^Υ_(g_b) G_(g_b) δ*_(g_b),       {#eq:iii-d-1-1}
 
 acting on 1-forms, with □_g := 2δ_g G_g δ*_g. On a Ricci-flat metric, □_g = dδ_g + δ_g d = ∇*∇, the Hodge and the
 Bochner d'Alembertian ([[prop:np-10-16]] (i)). Its spectral family is
@@ -82,14 +83,14 @@ and P̂(0) − □_(g_b) Id is of first order with t_*-independent coefficients.
 
 (2) On {|x| > 0}, exactly,
 
-    □̄^Υ = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S̄) + (□̄^Υ)^(0),                                                      {#eq:iii-d-2-1}
+    □̄^Υ = −2∂_(t_*) ρ(ρ∂_ρ − 3/2 − S̄) + (□̄^Υ)^(0),                                                     {#eq:iii-d-2-1}
 
 with S̄ and (□̄^Υ)^(0) ∈ ρ² Diff_b² given in [[lem:iii-d-3-1]], and no ∂_(t_*)² term.
 
 (3) On {|x| > 3R_1},
 
     □^Υ_b = □̄^Υ − g_b^00 ∂_(t_*)² + Q_b ∂_(t_*) + R_b,     g_b^00 ∈ ρ²C^∞(X̄),  Q_b ∈ ρ³ Diff_b¹,  R_b ∈ ρ⁴ Diff_b²,
-                                                                                                           {#eq:iii-d-2-2}
+                                                                                                          {#eq:iii-d-2-2}
 
 all stationary and smooth in b (and in e_Υ, γ_Υ). Hence (H2) holds with S := S̄ near infinity (in the Cartesian frame,
 Θ⁻¹S̄Θ with Θ = Θ(x̂) the change from the null splitting [[eq:iii-a1-2-2]]; its spectrum is that of S̄), Q := Q_b,
@@ -144,20 +145,20 @@ D := ρ∂_ρ, e := e_Υ and γ := γ_Υ:
     c̄ = ρ(½, ½, 0),     ḡ⁻¹(c̄) = −ρ(∂_0 + ∂_1),
 
            ⎛ 2   2 − 2m_N(1 − e)   0   0   0   ½m_N(1 − e) tr ⎞
-    Ē = γρ ⎜ 0   2 − 2m_N(1 − e)   0   2   0   ½m_N(1 − e) tr ⎟ ;                                      {#eq:iii-d-3-1}
-           ⎝ 0   0                 2   0   2   0              ⎠
+    Ē = γρ ⎜ 0   2 − 2m_N(1 − e)   0   2   0   ½m_N(1 − e) tr ⎟ ;
+           ⎝ 0   0                 2   0   2   0              ⎠                                           {#eq:iii-d-3-1}
 
                                         ⎛ 1 − e   0   0 ⎞
     2ĒḠδ̄* = 2∂_(t_*) ρS̄ + γρ²M_E,   S̄ = γ ⎜ 1 − e   2   0 ⎟ ,
                                         ⎝ 0       0   1 ⎠
 
           ⎛ −(1 + e)D + Ne    −(1 − e)D − Ne   −e δ_𝕊 ⎞
-    M_E = ⎜ (1 − e)D + Ne     (1 + e)D − Ne    −e δ_𝕊 ⎟ ;                                              {#eq:iii-d-3-2}
-          ⎝ 2d_𝕊              2d_𝕊             0      ⎠
+    M_E = ⎜ (1 − e)D + Ne     (1 + e)D − Ne    −e δ_𝕊 ⎟ ;
+          ⎝ 2d_𝕊              2d_𝕊             0      ⎠                                                   {#eq:iii-d-3-2}
 
 so that □̄^Υ = −2∂_(t_*) ρ(D − N/2 − S̄) + (□̄^Υ)^(0) with
 
-    (□̄^Υ)^(0) = ᵇ□̄(0) + γρ²M_E.                                                                          {#eq:iii-d-3-3}
+    (□̄^Υ)^(0) = ᵇ□̄(0) + γρ²M_E.                                                                         {#eq:iii-d-3-3}
 
 At N = 2 these are [Hin26, (6.10)–(6.11)]. The spectrum of S̄ is γ(1 − e), 2γ and γ (with multiplicity N) at every N,
 so min Re spec S̄ = γ min(1 − e, 1).
@@ -183,15 +184,15 @@ Write z := 4e_Υγ_Υ², κ := l(l + 2) and, for l ≥ 1,
 
     s_(l,1) := (l + 1)² + z/2 − ((l + 1)² + z + z²/4)^(1/2),   s_(l,2) := (l + 1)² + z/2 + ((l + 1)² + z + z²/4)^(1/2),
 
-    ι^Υ_(sl,l+j) := ½ + (¼ + s_(l,j))^(1/2)  (j = 1, 2),     ι^Υ_(s0,2) := ½ + (9/4 + z)^(1/2).            {#eq:iii-d-4-1}
+    ι^Υ_(sl,l+j) := ½ + (¼ + s_(l,j))^(1/2)  (j = 1, 2),     ι^Υ_(s0,2) := ½ + (9/4 + z)^(1/2).           {#eq:iii-d-4-1}
 
 The type-wise indicial matrices are read off from [[eq:iii-d-3-3]], [[lem:iii-a1-2-1]] (1) and the identities
 [[lem:iii-a1-1-5]]. On a scalar type l 1-form (aS, bS, c d_𝕊S), S ∈ 𝒮_l, l ≥ 1, the operator ρ⁻²(□̄^Υ)^(0) acts on
 ρ^ι(a, b, c) as ρ^ι N_sl(ι)(a, b, c), where, with p := −ι² + 2ι,
 
                ⎛ p + κ + 3/2 − γ((1 + e)ι − 3e)   −3/2 − γ((1 − e)ι + 3e)            −κ(1 + eγ) ⎞
-    N_sl(ι) =  ⎜ −3/2 + γ((1 − e)ι + 3e)           p + κ + 3/2 + γ((1 + e)ι − 3e)    κ(1 − eγ)  ⎟ ,       {#eq:s13-nsl}
-               ⎝ −2 + 2γ                           2 + 2γ                            p + κ − 1  ⎠
+    N_sl(ι) =  ⎜ −3/2 + γ((1 − e)ι + 3e)           p + κ + 3/2 + γ((1 + e)ι − 3e)    κ(1 − eγ)  ⎟ ,
+               ⎝ −2 + 2γ                           2 + 2γ                            p + κ − 1  ⎠           {#eq:s13-nsl}
 
 with e := e_Υ and γ := γ_Υ. Indeed, by [[eq:iii-a1-2-11]] the operator ᵇ□̄(0) contributes p + κ on the first two
 components, p + κ − 2 on the third, and the matrix with rows (3/2, −3/2, −κ), (−3/2, 3/2, κ), (−2, 2, 1); and M_E acts
@@ -213,7 +214,8 @@ All are real and simple: each is a simple zero of the determinant of its type's 
 indicial family has at most simple poles. At z = 0, ι^Υ_(s0,2) = 2 and ι^Υ_(sl,l+j) = l + j, the roots of
 [[lem:iii-a1-2-3]] for 1-forms. For 0 < z ≤ ½,
 
-    ι^Υ_(sl,l+j) ∈ (l + j, l + j + ¼),     ι^Υ_(s0,2) ∈ (2, 2 + z/3],     2 < ι^Υ_(s1,2) < min(ι^Υ_(s0,2), 3),    {#eq:iii-d-4-2}
+    ι^Υ_(sl,l+j) ∈ (l + j, l + j + ¼),     ι^Υ_(s0,2) ∈ (2, 2 + z/3],     2 < ι^Υ_(s1,2) < min(ι^Υ_(s0,2), 3),
+                                                                                                          {#eq:iii-d-4-2}
 
 and (0, ι^Υ_(s1,2)) is an indicial gap (at z = 0 the gap is (0, 2)). As z → 0, ι^Υ_(s0,2) = 2 + z/3 + O(z²),
 ι^Υ_(sl,l+1) = l + 1 + lz/(2(l + 1)(2l + 1)) + O(z²) and ι^Υ_(sl,l+2) = l + 2 + (l + 2)z/(2(l + 1)(2l + 3)) + O(z²).
@@ -250,7 +252,7 @@ P − 2l − 1 = −(ι − l − 1)(ι + l − 1), P + 2l + 3 = −(ι − l �
 is PY − Y − 2κ = Y² − ιY − Y − 2κ, while (Y + ι − 3)(Y − 2ι) = Y² − ιY − 3Y − 2ι² + 6ι; their difference
 2Y + 2ι² − 6ι − 2κ vanishes by the definition of Y. So the second term is z(l + 3 − ι)(l + ι − 1)(κ − s). Finally
 
-    (s − l(l + 1))(s − (l + 1)(l + 2)) = s² − (2 + 2κ)s + κ(κ + 1),                                        {#eq:s13-qfactor}
+    (s − l(l + 1))(s − (l + 1)(l + 2)) = s² − (2 + 2κ)s + κ(κ + 1),                                     {#eq:s13-qfactor}
 
 since l(l + 1) + (l + 1)(l + 2) = 2(l + 1)² = 2 + 2κ and l(l + 1)²(l + 2) = κ(κ + 1); so Q_l(s) is
 (s − l(l + 1))(s − (l + 1)(l + 2)) + z(κ − s), and [[eq:s13-dets]] follows.
@@ -297,7 +299,7 @@ On g_(b_0), in the ingoing chart (v, r, y), y = (y¹, y², y³) coordinates on �
 g = −f dv² + 2dv dr + r²g_𝕊, so g^vv = 0, g^vr = 1, g^rr = f, g^(ra) = g^(va) = 0, and |dg| = r³|dv dr dg_𝕊|. Its
 Christoffel symbols with a lower index v are, from g_vv = −f and g_vr = 1,
 
-    Γ^v_vv = f′/2,   Γ^r_vv = ff′/2,   Γ^r_vr = −f′/2,   Γ^v_vr = 0,   Γ^λ_va = 0,                         {#eq:s13-chris}
+    Γ^v_vv = f′/2,   Γ^r_vv = ff′/2,   Γ^r_vr = −f′/2,   Γ^v_vr = 0,   Γ^λ_va = 0,                        {#eq:s13-chris}
 
 since Γ^λ_vν = ½g^(λκ)(∂_ν g_κv − ∂_κ g_vν) for the stationary metric, g_κv does not depend on the angles, and
 g_va = 0. At r_h, f = 0 and f′(r_h) = 2m_0 r_h⁻³ = 2/r_h.
@@ -377,20 +379,20 @@ theory of [[ch:s02]] does not use that property: [[thm:i-b-1-3]] assumes (Γ.4),
 sup_Γ λ_max(p_1^Γ) < ½ν_min, and its losses are governed by δ_Γ ([[eq:i-b-1-4]]). That condition is open, and we
 prove it near b_0. We use the following facts on Tangherlini, proved in [[ch:s12]].
 
-(a) The subprincipal operator of □_(g_(b_0)) on half-densities by |dg| is −i∇^(π*T*)_(H_G) ([[prop:np-10-17]] (i)).
+(a) The subprincipal operator of □_(g_(b_0)) on half-densities by |dg| is −i∇^(π*T*)_(H_G) ([[prop:np-10-17-i]]).
 
 (b) The trapped set in the future characteristic set is {r² = 2m_0, ξ = 0}; at the value 1 of the semiclassical
 parameter it is {r² = 2m_0, ξ = 0, C = 4m_0}, C = r²|η|² the Casimir of 𝕊³, with expansion rates ±ν,
-ν = 4(2m_0)^(−1/2), {φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0, and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17]] (ii),
-[[prop:np-10-19]] (ii)).
+ν = 4(2m_0)^(−1/2), {φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0, and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17-ii]],
+[[prop:np-10-19-ii]]).
 
 (c) On the characteristic set, the frame e_0 = ζ, e_1 = r(ζ_(1)w^(0) + ζ_(0)w^(1)),
 e_2 = ½r²(ζ_(0)w^(0) + ζ_(1)w^(1) − η), with w^(0) = f^(1/2)dt and w^(1) = f^(−1/2)dr, has Gram matrix CJ,
 J = ((0, 0, −1), (0, 1, 0), (−1, 0, 0)), and ∇_(H_G)e_0 = 0, ∇_(H_G)e_1 = −2σe_0, ∇_(H_G)e_2 = −2σe_1; an angular
-covector is orthogonal to all three if and only if it is orthogonal to η ([[prop:np-10-17]] (iii)–(iv)).
+covector is orthogonal to all three if and only if it is orthogonal to η ([[prop:np-10-17-iii]], [[prop:np-10-17-iv]]).
 
 (d) In the inner product diag(1, ϵ_1⁻¹, ϵ_1⁻²) on span{e_0, e_1, e_2}/C^(1/2), the endomorphism p_1 = −½(M + M*), M
-the connection matrix of (c), has spectrum 0, ±(2ϵ_1)^(1/2) ([[prop:np-10-17]] (v), [[prop:np-10-19]] (iii)).
+the connection matrix of (c), has spectrum 0, ±(2ϵ_1)^(1/2) ([[prop:np-10-17-v]], [[prop:np-10-19-iii]]).
 
 **Lemma {#lem:iii-d-5-2}** (The trapped set; [Hin26, Lemma 6.4] in dimension 4 + 1, in the form [[thm:i-b-1-3]]
 uses.) Assume (Dyn), with the trapped sets Γ_b (at z_0 = ±1) depending continuously on b and Γ_(b_0) as in (b). For
@@ -495,7 +497,7 @@ The two formulas give M_t = κa/r², M_r = κb/r² where W = 0, and M_r = −iσ
 dA = F_tr S dt ∧ dr. Next, with W = r^(1/2)Φ, (fW′/r)′ = r^(−1/2)(fΦ′)′ + ½r^(−3/2)f′Φ − (3/4)r^(−5/2)fΦ, so
 fr^(1/2)R[r^(1/2)Φ] = f(fΦ′)′ + σ²Φ − f(κr⁻² + (3/4)fr⁻² − ½f′r⁻¹)Φ, and (3/4)f − ½rf′ = 3/4 − (7/4)m_0r⁻².
 Finally, for A(W), a = −fW′/(κr) and b = iσW/(κrf), so F_tr = σ²W/(κrf) + (fW′/r)′/κ = W/r³ when R[W] = 0;
-M_t = M_r = 0 by the formulas above; and the angular component of δdA, which by the same computation is
+M_t = M_r = 0 by the formulas above; and the angular component of δdA, which by the same calculation is
 r⁻¹(iσra/f + (rfb)′)d_𝕊S, vanishes since iσra/f = −iσW′/κ and (rfb)′ = iσW′/κ.
 
 (v) V_0 > 0 is clear; Λ − 1/4 > 0; and κ + 3/4 − (7/4)m_0/r² > κ − 1 ≥ 2 for κ ≥ 3, as m_0/r² < 1, while at κ = 0
@@ -608,9 +610,9 @@ sector |arg x| ≤ π − δ and in −2π + δ ≤ arg x ≤ π − δ respecti
 (iii) ∫^∞ ρ^(2(a−α))r³dr = ∫^∞ r^(3−2(a−α))dr is finite if and only if a − α > 2. By [[prop:np-10-18]] (iv),
 g^00 = −2m_0ρ² + O(ρ⁴), and W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). ∎
 
-**Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) There is ϵ > 0 such that for
-e_Υ ∈ [0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ, (□^Υ_b)^ is tf-admissible ([[def:i-c-5-1]]) with every
-weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when e_Υγ_Υ² = 0).
+**Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) There is ϵ > 0 such that for e_Υ ∈
+[0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ, the family σ ↦ (□^Υ_b)^(σ) is tf-admissible ([[def:i-c-5-1]]) with
+every weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when e_Υγ_Υ² = 0).
 
 *Proof.* The transition face operator N_tf(e^(iθ)) of [[sec:i-c-4]] is built from the data of the operator at ρ = 0
 only: S_0, the normal operator N(P⁽⁰⁾) and H_0. By [[lem:iii-d-2-1]] (3) these are the model's, independent of b and
@@ -629,8 +631,8 @@ of [[eq:i-a-1-5]] move continuously, they remain admissible for small parameters
 factors ρ̂ and ρ̂². So 𝒳_(tf,θ) is the same space for all small γ_Υ, and by [[cor:i-c-5-2]] (b) at γ_Υ = 0, uniformly
 over the three sectors, ‖w‖ ≤ C‖N^0_tf w‖ ≤ C‖N^γ_tf w‖ + C′|γ_Υ|‖w‖; for C′|γ_Υ| ≤ ½ this gives injectivity of
 N^γ_tf(e^(iθ)) for all θ ∈ [0, π], and the adjoint estimate [[eq:i-c-5-2]] gives that of N^γ_tf(1)^(*h) in the same
-way. So (□̄^Υ)^ is tf-admissible with weight 1, and by [[cor:i-c-5-2]] (c) with every weight in the gap. The condition
-e_Υ ≥ 0 makes z ≥ 0, so that [[lem:iii-d-4-1]] describes the gap. ∎
+way. So the family of □̄^Υ is tf-admissible with weight 1, and by [[cor:i-c-5-2]] (c) with every weight in the gap.
+The condition e_Υ ≥ 0 makes z ≥ 0, so that [[lem:iii-d-4-1]] describes the gap. ∎
 
 ### The zero energy setting {#sec:iii-d1-1}
 
@@ -663,7 +665,7 @@ invertibility do not depend on these choices.
 *The horizon functional.* Let ω* := d(H(r − r_h)) = δ(r − r_h)dr, H the Heaviside function, a stationary
 distributional 1-form supported on the horizon sphere, and
 
-    ℓ(v) := ∫_X g⁻¹(v, ω*) |dg_X| = r_h³ ∫_(𝕊³) v(∂_(t_*))|_(r=r_h) dx̂,                                    {#eq:iii-d1-1-1}
+    ℓ(v) := ∫_X g⁻¹(v, ω*) |dg_X| = r_h³ ∫_(𝕊³) v(∂_(t_*))|_(r=r_h) dx̂,                                 {#eq:iii-d1-1-1}
 
 where |dg| = |dt_*| ⊗ |dg_X|, so |dg_X| = r³|dr dx̂| near r_h, and g⁻¹(v, dr) = v(∇r) = v(∂_v + f∂_r) equals
 v(∂_(t_*)) at r_h. ℓ is continuous on H^(s′) near the horizon sphere for s′ > ½ (the trace theorem), so on 𝒴_0 and
@@ -672,7 +674,7 @@ v(∂_(t_*)) at r_h. ℓ is continuous on H^(s′) near the horizon sphere for s
 *The modified divergence at the horizon.* With the trace weight 2/3, E_H h := 2ι_(c♯_(Υ,H))h − (2/3)c_(Υ,H) tr_g h
 ([Hin26, (6.22)] with the weight 2/3), and since tr_g G_g h = −(3/2)tr_g h in dimension 5 ([[lem:iii-b-6-2]]),
 
-    E_H G_g = 2ι_(c♯_(Υ,H)),                                                                               {#eq:iii-d1-1-2}
+    E_H G_g = 2ι_(c♯_(Υ,H)),                                                                             {#eq:iii-d1-1-2}
 
 as [Hin26]'s E_(H⁺,1)G = 2ι_(c♯) in dimension 4 with the weight 1. The horizon part of □^Υ_b is
 2γ_(Υ,H)E_H G δ*.
@@ -681,7 +683,7 @@ as [Hin26]'s E_(H⁺,1)G = 2ι_(c♯) in dimension 4 with the weight 1. The hori
 
 Let
 
-    W* := r⁻²dt + r_h r⁻³f⁻¹dr = r⁻²dv − dr/(r(r + r_h)).                                                  {#eq:iii-d1-2-1}
+    W* := r⁻²dt + r_h r⁻³f⁻¹dr = r⁻²dv − dr/(r(r + r_h)).                                                {#eq:iii-d1-2-1}
 
 The two forms agree, as dt = dv − f⁻¹dr and f = (r − r_h)(r + r_h)/r². The second shows that W* is smooth on
 {r > 0} in the ingoing chart, so on X̄ up to ∂_♯X; near infinity dt = dt_* + (f⁻¹ + O(r⁻²))dr with all derivatives
@@ -806,7 +808,7 @@ infinity form span{W*}.
 (iv) ℓ(P̂(0)u) = 0 for every stationary u smooth near the horizon sphere.
 
 (v) ℓ([□, t_*]W*) = 4π², and δW* = 0. At r_h, ι_(∇r)δ*W* = −r_h⁻³(dv + (3/2)dr), and for c_H = c_v dv + c_r dr at r_h,
-ℓ(2E_H G δ*W*) = −12π²c_v − 8π²c_r; so c_H = −½χ dr gives 4π², and for the source term
+ℓ(2E_H G δ*W*) = −12π²c_v − 8π²c_r; so c_H = −½χ dr gives 4π², and for the inhomogeneity
 𝔣(σ̂, γ̂) := −iσ̂[□, t_*]W* + 2γ̂E_H G δ*W*, ℓ(𝔣(σ̂, γ̂)) = 4π²(−iσ̂ + γ̂), which is nonzero for Im σ̂ ≥ 0, γ̂ ≥ 0, not
 both zero.
 
@@ -840,11 +842,11 @@ a_0 = b_1 = 0, and smoothness at r_h forces the numerator to vanish at r_h, that
 A dt + B dr = a_2W*.
 
 (v) The first value is [[lem:iii-d1-3-1]] (1), and δW* = 0 is shown before [[lem:iii-d1-2-1]]. At r_h, ∇r = ∂_v, and
-with [[eq:s13-chris]], (δ*W*)_vv = −r_h⁻³ (proof of [[lem:iii-d1-3-1]]). Further ∇_rW*_v = −5/(2r_h³) at r_h (proof
-of [[lem:iii-d1-3-1]]) and ∇_vW*_r = −Γ^r_vr W*_r − Γ^v_vr W*_v = (f′/2)W*_r = −1/(2r_h³), so
-(δ*W*)_rv = ½(∇_rW*_v + ∇_vW*_r) = −3/(2r_h³), and ι_(∇r)δ*W* = (δ*W*)_(v·) = −r_h⁻³(dv + (3/2)dr). By [[eq:iii-d1-1-2]] and c_H♯ = c_v∂_r + c_r∂_v at r_h,
-(2E_H G δ*W*)_v = 4(c_v(δ*W*)_rv + c_r(δ*W*)_vv) = −(6c_v + 4c_r)r_h⁻³, and ℓ multiplies by 2π²r_h³. The value of
-ℓ(𝔣) then follows from (1) and the case c_v = 0, c_r = −½; and |−iσ̂ + γ̂|² = |σ̂|² + 2γ̂ Im σ̂ + γ̂² > 0.
+with [[eq:s13-chris]], (δ*W*)_vv = −r_h⁻³ (proof of [[lem:iii-d1-3-1]]). Further ∇_rW*_v = −5/(2r_h³) at r_h (proof of
+[[lem:iii-d1-3-1]]) and ∇_vW*_r = −Γ^r_vr W*_r − Γ^v_vr W*_v = (f′/2)W*_r = −1/(2r_h³), so (δ*W*)_rv = ½(∇_rW*_v +
+∇_vW*_r) = −3/(2r_h³), and ι_(∇r)δ*W* = (δ*W*)_(v·) = −r_h⁻³(dv + (3/2)dr). By [[eq:iii-d1-1-2]] and c_H♯ = c_v∂_r +
+c_r∂_v at r_h, (2E_H G δ*W*)_v = 4(c_v(δ*W*)_rv + c_r(δ*W*)_vv) = −(6c_v + 4c_r)r_h⁻³, and ℓ multiplies by 2π²r_h³. The
+value of ℓ(𝔣) then follows from (1) and the case c_v = 0, c_r = −½; and |−iσ̂ + γ̂|² = |σ̂|² + 2γ̂ Im σ̂ + γ̂² > 0.
 
 (vi) In the static chart the nonzero Christoffel symbols with indices in {t, r} are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2
 and Γ^r_rr = −f′/(2f), and W* has no angular component. ∇t_* = −f⁻¹∂_t − ∂_r and □_0t_* = −r⁻³∂_r(r³f · (−f⁻¹)) = 3/r.
@@ -897,7 +899,7 @@ f_1, let (w, d) := 𝒫_γ(σ)⁻¹(f_1, 0); then P̂_γ(σ)(w − (d/c)u) = f_1
 *The expansion.* By [[lem:iii-d1-2-1]] (1) and density, ℓ(P̂(0)v) = 0 for every v that is H^s near the horizon
 sphere (s > 5/2), so applying ℓ to P̂_γ(σ)u + cψ = 0 gives, with u = u_(σ,γ),
 
-    c_(σ,γ) ℓ(ψ) = −σℓ(Tu) − σ²ℓ(P_2u) − 2γℓ(E_H G δ*u) − 2γσℓ(E_H G δ*_1u).                              {#eq:iii-d1-4-1}
+    c_(σ,γ) ℓ(ψ) = −σℓ(Tu) − σ²ℓ(P_2u) − 2γℓ(E_H G δ*u) − 2γσℓ(E_H G δ*_1u).                             {#eq:iii-d1-4-1}
 
 *Claim:* as (σ, γ) → (0, 0) with |σ| ≤ c_0, Im σ ≥ 0 and γ ∈ [0, γ_1], c_(σ,γ) → 0 and u_(σ,γ) → W* in H^(s′)(K)
 for every compact K ⊂ X° and s′ < s. Let (σ_j, γ_j) → (0, 0), and (u_j, c_j) the corresponding pairs; |c_j| ≤ C. Let
@@ -968,3 +970,603 @@ with Re ι > α), ℰ and their shifts by ℕ_0 does not depend on β; call it �
 min Re ℰ′ ≥ min(α, min Re ℰ) > 0. [[lem:iii-a-1-4]] is stated for scalar operators; its proof uses A only through the
 meromorphy of N(A, ι)⁻¹ with bounds on vertical strips, which hold for the matrix-valued indicial family
 [[eq:i-c-1-3]] by [[lem:i-c-2-4]]; so it applies verbatim on E. The same holds for [[lem:iii-a-1-5]]. ∎
+
+### Zero energy states from the symmetries of Minkowski space {#sec:iii-d2-1}
+
+This section and the next two prove [Hin26, Sections 6.5.1–6.5.2] (pp. 125–134) in dimension 4 + 1: the comparison of
+the operators of g_b with those of Minkowski space and of g_m, and the stationary and generalised zero energy states
+of □^Υ_b. The mass of g_b enters at |x|⁻² and the rotation at |x|⁻³ ([[eq:iii-b-3-5]]), so every comparison of
+[Hin26, Lemma 6.14] gains one power of ρ, and so do the corrections and the symmetric gradients built from it. The
+correction to the boost then sits at ρ¹, which is no indicial root, so [Hin26, (6.31)]'s logarithm and the formal
+solution lemma it needs do not occur; the corrections to the translations and rotations sit at ρ², which is an s1 root
+when e_Υγ_Υ² = 0, so here the modification at infinity is used with e_Υ > 0 and γ_Υ ≠ 0.
+
+*Setting.* ℬ, g_b (b = (m, A), A ∈ 𝔰𝔬(4)), t_*, ρ, the trivialisation by dt_*, dx¹, …, dx⁴ and the bundle E are as in
+[[sec:iii-d-1]], and g_m := g_((m,0)). The model is ḡ = −dt̄² + dx², t̄ = t_* + |x|, with δ̄*, □̄^Υ as in
+[[sec:iii-d-2]]. Fix γ_(Υ,H) ∈ (0, ϵ_0] and then b ∈ ℬ(γ_(Υ,H)), e_Υ ∈ (0, ϵ_1] and 0 < |γ_Υ| < ϵ_1 as in
+[[prop:iii-d1-4-1]], so that
+
+    z := 4e_Υγ_Υ² ∈ (0, ½],                                                                              {#eq:iii-d2-1-1}
+
+and write □^Υ_b := □^Υ_(g_b,E_Υ). We take c_Υ and c_(Υ,H) invariant under the rotations of x
+(c_Υ = ζ_∞(|x|)|x|⁻¹dt with ζ_∞ = 1 for large |x|, and c_(Υ,H) = −½χ(|x|)d|x|), which [[def:iii-b-6-1]] and
+[[sec:iii-d1-1]] allow. By [[prop:iii-d1-4-1]] and [[lem:iii-d1-5-1]], (□^Υ_b)^(0) is invertible on the b-spaces with
+an unweighted b-density, for every s > 3/2 and every weight in the gap (0, ι^Υ_(s1,2)), and maps 𝒜^(2+ℰ),
+min Re ℰ > 0, into polyhomogeneous spaces. *All b-spaces from here on use an unweighted b-density near ∂X*, as
+[Hin26, Section 6.5] does.
+
+*Indicial roots.* By [[lem:iii-d-4-1]] the indicial roots of (□^Υ_b)^(0) do not depend on b or on the horizon
+modification, and for 0 < z ≤ ½: at s0 they are 0, 3, ι^Υ_(s0,2) ∈ (2, 3) and 1 − ι^Υ_(s0,2); at s1 they are 0, 4,
+ι^Υ_(s1,2) ∈ (2, ι^Υ_(s0,2)), a root in (3, 4), and their mirror images 1 − ι; at sl, l ≥ 2, and vl, l ≥ 1, every
+root is ≤ 0 or ≥ 3. In particular *neither 1 nor 2 is an indicial root, of any type*: the integer roots are 0, 3,
+1 − l, l + 3, −l and l + 2, none of which is 1 or 2 for l ≥ 1, and by [[eq:iii-d-4-2]] the others lie strictly
+between consecutive integers for 0 < z ≤ ½. Fix ϵ_ind > 0 less than d(Re ι, ℤ) for every indicial root ι with
+Re ι ∉ ℤ and |Re ι| ≤ 10. ℰ_ind denotes an index set with min Re ℰ_ind ≥ ϵ_ind, which may change from line to line,
+and (k, 0) the index set {(k + j, 0) : j ∈ ℕ_0}.
+
+*The model symmetries* ([Hin26, (6.29)] in dimension 4 + 1). For S ∈ 𝒮_1, so |x|S = ξ · x for some ξ ∈ ℝ⁴, and
+V ∈ 𝒱_1, so V = Σ_(i<j) c_ij(x^i dx^j − x^j dx^i) with c ∈ 𝔰𝔬(4) (the Euclidean duals of the rotation fields;
+[[def:iii-a1-1-7]]),
+
+    ω̄^(0)_s0 := ḡ(∂_(t_*), ·) = −dt̄,   ω̄^(0)_s1(S) := d(|x|S),   ω̆̄^((0),1)_s1(S) := |x|d(|x|S) − |x|S dt̄,
+    ω̄^(−1)_v1(V) := V.                                                                                  {#eq:iii-d2-1-2}
+
+ω̄_s1(S) = ξ · dx is dual to a translation, B̄(S) := t_*ω̄_s1(S) + ω̆̄¹_s1(S) = t̄ d(ξ · x) − (ξ · x)dt̄ to a Lorentz
+boost, and V to the rotation field R_V := ḡ⁻¹V = Σ c_ij(x^i∂_j − x^j∂_i) (the same vector field in the coordinates
+(t̄, x) and (t_*, x), as R_V|x| = 0). All four are Killing 1-forms of ḡ, so δ̄* annihilates them and
+□̄^Υ = 2δ̄_Ē Ḡδ̄* does too. Their components are smooth on X̄, of orders ρ⁰, ρ⁰, ρ⁻¹ and ρ⁻¹.
+
+### Comparison of operators {#sec:iii-d2-2}
+
+**Lemma {#lem:iii-d2-2-1}** ([Hin26, Lemma 6.14] in dimension 4 + 1.) For b = (m, A) ∈ ℬ, near ∂X and on stationary
+sections,
+
+    (δ*_(g_b))^(0) ∈ ρ Diff_b¹,  (δ*_(g_b))^(0) − (δ̄*)^(0) ∈ ρ³ Diff_b⁰,  (δ*_(g_b))^(0) − (δ*_(g_m))^(0) ∈ ρ⁴ Diff_b⁰,
+                                                                                                         {#eq:iii-d2-2-1}
+    (□^Υ_b)^(0) ∈ ρ² Diff_b²,   (□^Υ_b)^(0) − (□̄^Υ)^(0) ∈ ρ⁴ Diff_b²,   (□^Υ_b)^(0) − (□^Υ_(g_m,E_Υ))^(0) ∈ ρ⁵ Diff_b²,
+                                                                                                         {#eq:iii-d2-2-2}
+
+and [□^Υ_b, t_*] ∈ ρ Diff_b¹, [□^Υ_b − □^Υ_(g_m,E_Υ), t_*] ∈ ρ⁴ Diff_b¹ on stationary sections. ([Hin26] has ρ², ρ³
+in the first line and ρ³, ρ⁴ in the second.)
+
+*Proof.* Near ∂X the components of g_b, g_b⁻¹, ḡ and ḡ⁻¹ in the coordinates (t_*, x) are smooth functions on X̄
+(functions of (ρ, x̂)), and
+
+    g_b − ḡ ∈ ρ²C^∞,     g_b − g_m ∈ ρ³C^∞,                                                              {#eq:iii-d2-2-3}
+
+and the same for the inverses. Indeed [[eq:iii-b-3-5]] gives g_b − g_m ∈ |x|⁻³C^∞ and g_m − η ∈ |x|⁻²C^∞,
+η = −dt² + dx² in the time t of [[eq:iii-b-3-6]], with the duals; by [[eq:iii-b-3-6]], t̄ = t + C′ − 8m_0|x|⁻¹ near
+infinity, so ḡ − η = −16m_0|x|⁻²dt d|x| − 64m_0²|x|⁻⁴d|x|² ∈ |x|⁻²C^∞; and the frame change
+dt = dt_* + (1 − 8m_0|x|⁻²)d|x| has coefficients smooth on X̄, so it preserves ρ^kC^∞. The Cartesian derivatives
+∂_(x^i) lie in ρ Diff_b¹, and ∂_(t_*) annihilates stationary sections. Hence Γ(g) ∈ ρC^∞ for g = g_b, ḡ, and
+g_1 − g_2 ∈ ρ^kC^∞ (with the inverses) implies Γ(g_1) − Γ(g_2) ∈ ρ^(k+1)C^∞. On stationary 1-forms
+δ*_gω = ½(∂_μω_ν + ∂_νω_μ) − Γ^λ_μν ω_λ, whose first part does not depend on g: this gives [[eq:iii-d2-2-1]] with
+k = 2, 3. For [[eq:iii-d2-2-2]]: δ_g = −g^(μν)∇_μ lies in ρ Diff_b¹ with δ_(g_1) − δ_(g_2) ∈ ρ^(k+1) Diff_b¹;
+G_(g_1) − G_(g_2) ∈ ρ^k Diff_b⁰; and near ∂X, E^Υ_g h = −γ_Υ(2ι_(g⁻¹c_Υ)h − (2/3)(1 − e_Υ)c_Υ tr_g h) with
+c_Υ ∈ ρC^∞ ([[def:iii-b-6-1]]; the horizon term is supported in {|x| < 5R_1}), so E^Υ_g ∈ ρ Diff_b⁰ and
+E^Υ_(g_1) − E^Υ_(g_2) ∈ ρ^(k+1) Diff_b⁰; the model's Ē uses c̄ = |x|⁻¹dt̄, which differs from c_Υ by ρ³C^∞. Expanding
+2(δ_1 + E_1)G_1δ*_1 − 2(δ_2 + E_2)G_2δ*_2 into terms each containing one difference gives ρ^(k+2) Diff_b², and
+(□^Υ_b)^(0) ∈ ρ² Diff_b² in the same way. For the commutators: on stationary sections [□^Υ_g, t_*] is the first-order
+operator obtained from the terms of □^Υ_g with one ∂_(t_*) (those with ∂_(t_*)² give 2∂_(t_*), which vanishes on
+stationary sections); these are −2g^(t_*ν)∂_ν plus connection and E terms, so the same counting applies, with
+g^(t_*ν) ∈ C^∞ and its differences in ρ^kC^∞; and [[lem:iii-d-2-1]] (2)–(3) gives
+[□^Υ_b, t_*] = −2ρ(ρ∂_ρ − 3/2 − S̄) + Q_b ∈ ρ Diff_b¹. ∎
+
+**Lemma {#lem:iii-d2-2-2}** (Smooth dependence on b.) Let α ∈ (0, ι^Υ_(s1,2)) and let b ↦ f_b be of class C^k from
+ℬ(γ_(Υ,H)) into H̄_b^(s−1,α+2) for every s. Then b ↦ u_b := (□^Υ_b)^(0)⁻¹f_b is of class C^k into H̄_b^(s,α) for
+every s, and its derivatives are the inverse images ∂_b u_b = (□^Υ_b)^(0)⁻¹(∂_b f_b − (∂_b(□^Υ_b)^(0))u_b) and their
+iterates.
+
+*Proof.* Write P_b := (□^Υ_b)^(0). As in the proof of [[lem:iii-d1-5-1]] (2), u_b ∈ ⋂_s H̄_b^(s,α). The coefficients
+of P_b depend smoothly on b in C^∞ ([[prop:iii-b-3-6]]), so P_(b′) − P_b maps H̄_b^(s+1,α) to H̄_b^(s−1,α+2) with norm
+O(|b′ − b|); and ‖P_(b′)⁻¹‖ from H̄_b^(s−1,α+2) to H̄_b^(s,α) is bounded for b′ near b, by [[thm:i-c-7-1]] (2) (the
+estimate without error term, uniform near a point where (Z) holds). So
+u_(b′) − u_b = P_(b′)⁻¹((f_(b′) − f_b) − (P_(b′) − P_b)u_b) → 0 in H̄_b^(s,α); that is, b ↦ P_b⁻¹w is continuous for
+every fixed w ∈ ⋂_s H̄_b^(s−1,α+2), uniformly on bounded sets of each H̄_b^(s−1,α+2). With u̇ := P_b⁻¹(ḟ − Ṗu_b),
+
+    (u_(b+h) − u_b)/h − u̇ = P_(b+h)⁻¹((f_(b+h) − f_b)/h − ((P_(b+h) − P_b)/h)u_b) − P_b⁻¹(ḟ − Ṗu_b) → 0,
+
+since the bracket converges in every H̄_b^(s−1,α+2) and P_(b+h)⁻¹ → P_b⁻¹ strongly there. Induction gives C^k. ∎
+
+### The states {#sec:iii-d2-3}
+
+**Proposition {#prop:iii-d2-3-1}** ([Hin26, Proposition 6.15] in dimension 4 + 1.) Assume (Dyn), and let E_Υ and b be
+as in [[sec:iii-d2-1]]. There are stationary 1-forms, linear in S ∈ 𝒮_1 and V ∈ 𝒱_1 and smooth in b,
+
+    ω^(0)_(b,s0) := g_b(∂_(t_*), ·),   ω^(0)_(b,s1)(S),   ω̆^((0),1)_(b,s1)(S),   ω^(−1)_(b,v1)(V),      {#eq:iii-d2-3-1}
+
+smooth on X, with components in ρ⁻¹C^∞(X̄) at most ([Hin26, footnote 72]), with
+
+    ω^(0)_(b,s0) − ω̄^(0)_s0 ∈ ρ²C^∞,                ω^(0)_(b,s1)(S) − ω̄^(0)_s1(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)),
+    ω̆^((0),1)_(b,s1)(S) − ω̆̄^((0),1)_s1(S) ∈ 𝒜^((1,0)∪(1+ℰ_ind)),   ω^(−1)_(b,v1)(V) − V ∈ 𝒜^((2,0)∪(2+ℰ_ind)),
+                                                                                                         {#eq:iii-d2-3-2}
+
+such that
+
+    □^Υ_b ω^(0)_(b,s0) = 0,   □^Υ_b ω^(0)_(b,s1)(S) = 0,   □^Υ_b(t_*ω^(0)_(b,s1)(S) + ω̆^((0),1)_(b,s1)(S)) = 0,
+    □^Υ_b ω^(−1)_(b,v1)(V) = 0.                                                                          {#eq:iii-d2-3-3}
+
+(1) (*No logarithm.*) In place of [Hin26, (6.31)]: the correction to the boost has no logarithmic term;
+c_(b,s1) = 0.
+
+(2) (*Symmetric gradients.*) δ*_(g_b)ω^(0)_(b,s0) = 0, and
+
+    h_(b,s1)(S) := δ*_(g_b)ω^(0)_(b,s1)(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)),
+    δ*_(g_b)(t_*ω^(0)_(b,s1)(S) + ω̆^((0),1)_(b,s1)(S)) =: t_*h_(b,s1)(S) + h̆¹_(b,s1)(S),
+    h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)),     h_(b,v1)(V) := δ*_(g_b)ω^(−1)_(b,v1)(V) ∈ 𝒜^((3,0)∪(3+ℰ_ind));
+                                                                                                         {#eq:iii-d2-3-4}
+
+the ρ² leading term of h̆¹_(b,s1)(S) is of scalar type 1, given by the same S; and h_(b,s1)(S),
+t_*h_(b,s1)(S) + h̆¹_(b,s1)(S) and h_(b,v1)(V) lie in the kernels of D_(g_b)Ric and of δ_(g_b,E_Υ)G_(g_b).
+
+(3) (*Killing rotations*, [Hin26, Remark 6.17].) If R_V is a Killing field of g_b, then
+ω^(−1)_(b,v1)(V) = g_b(R_V, ·) and h_(b,v1)(V) = 0. At b = (m, 0) this holds for every V ∈ 𝒱_1: six independent
+rotations, where Kerr has three.
+
+*Proof.* Throughout, P_b := (□^Υ_b)^(0), and we use two facts. (F1) *If f_1 ∈ 𝒜^(2+ℱ) is smooth on X̄, ℱ an index set
+with min Re ℱ = k ∈ {1, 2} and (k, 0) its only element with real part below k + ϵ_ind, then
+P_b⁻¹f_1 ∈ 𝒜^((k,0)∪(k+ℰ_ind)).* Indeed, by [[lem:iii-d1-5-1]], u := P_b⁻¹f_1 ∈ ⋂_s H̄_b^(s,α) for every α < k in the
+gap (as k ≤ 2 < ι^Υ_(s1,2)), and [[lem:iii-a-1-4]] with A = ρ⁻²P_b near ∂X ([[eq:i-c-1-1]]) and
+α ∈ (k − ϵ_ind, k) gives u ∈ 𝒜^ℰ with ℰ generated by ℱ and the boundary spectrum above α; the latter has no point with
+real part in (k − ϵ_ind, k + ϵ_ind) (no root at 1 or 2), so the only element of ℰ there is ℱ's (k, 0), without
+logarithm. (F2) *For a Killing 1-form K of g_b, δ*_(g_b)K = 0, hence □^Υ_bK = 0; and for any stationary 1-form ω,
+h := δ*_(g_b)ω satisfies D_(g_b)Ric(h) = ½ℒ_(ω♯)Ric(g_b) = 0 and δ_(g_b,E_Υ)G_(g_b)h = ½□^Υ_bω; the same holds for
+t_*ω + ω̆.*
+
+*Time translation.* ∂_(t_*) is Killing for g_b, so (F2) gives □^Υ_bω_(b,s0) = 0 and δ*ω_(b,s0) = 0; and
+ω_(b,s0) − ω̄_s0 = (g_b − ḡ)(∂_(t_*), ·) ∈ ρ²C^∞ by [[eq:iii-d2-2-3]].
+
+*Translations.* δ̄*ω̄_s1 = 0, so by [[eq:iii-d2-2-1]]
+δ*_(g_b)ω̄_s1 = ((δ*_(g_b))^(0) − (δ̄*)^(0))ω̄_s1 ∈ ρ³C^∞, and f_b := □^Υ_bω̄_s1 = 2δ_(g_b,E_Υ)G_(g_b)δ*_(g_b)ω̄_s1
+is smooth on X̄ and in ρ⁴C^∞ near ∂X (δ_(g_b) + E^Υ_(g_b,∞) ∈ ρ Diff_b¹ there), that is in 𝒜^(2+(2,0)). By (F1) with
+k = 2, ω′_b := −P_b⁻¹f_b ∈ 𝒜^((2,0)∪(2+ℰ_ind)), and ω_(b,s1) := ω̄_s1 + ω′_b solves
+□^Υ_bω_(b,s1) = f_b + P_bω′_b = 0. Then h_(b,s1) = (δ*_(g_b))^(0)ω′_b + ((δ*_(g_b))^(0) − (δ̄*)^(0))ω̄_s1 lies in
+ρ Diff_b¹ 𝒜^((2,0)∪(2+ℰ_ind)) + ρ³C^∞ ⊂ 𝒜^((3,0)∪(3+ℰ_ind)). f_b depends smoothly on b in ρ⁴C^∞, so
+[[lem:iii-d2-2-2]] gives smoothness in b.
+
+*Boosts.* B̄ = t_*ω̄_s1 + ω̆̄¹_s1 is Killing for ḡ, so □̄^ΥB̄ = 0, and □̄^Υω̄_s1 = 0. Hence
+
+    f̆_b := □^Υ_b(t_*ω_(b,s1) + ω̆̄¹_s1) = [□^Υ_b − □̄^Υ, t_*]ω̄_s1 + ((□^Υ_b)^(0) − (□̄^Υ)^(0))ω̆̄¹_s1
+            + [□^Υ_b, t_*]ω′_b,                                                                          {#eq:iii-d2-3-5}
+
+as the terms with a factor t_*, t_*(□^Υ_b − □̄^Υ)ω̄_s1 = t_*f_b and t_*□^Υ_bω′_b = −t_*f_b, cancel. By
+[[lem:iii-d-2-1]] (3), near ∂X, □^Υ_b − □̄^Υ = −g_b^00∂_(t_*)² + Q_b∂_(t_*) + R_b with Q_b ∈ ρ³ Diff_b¹ and
+R_b = (□^Υ_b)^(0) − (□̄^Υ)^(0) ∈ ρ⁴ Diff_b² (also [[eq:iii-d2-2-2]]); on stationary sections
+[□^Υ_b − □̄^Υ, t_*] = Q_b. So the first term of [[eq:iii-d2-3-5]] is Q_bω̄_s1 ∈ ρ³C^∞, the second
+R_bω̆̄¹_s1 ∈ ρ⁴ Diff_b²(ρ⁻¹C^∞) ⊂ ρ³C^∞, and the third, by [[lem:iii-d2-2-1]], in
+ρ Diff_b¹ 𝒜^((2,0)∪(2+ℰ_ind)) ⊂ 𝒜^((3,0)∪(3+ℰ_ind)). So f̆_b ∈ 𝒜^(2+((1,0)∪(1+ℰ_ind))), smooth on X̄, and by (F1) with
+k = 1, ω̆′_b := −P_b⁻¹f̆_b ∈ 𝒜^((1,0)∪(1+ℰ_ind)). Put ω̆_(b,s1) := ω̆̄¹_s1 + ω̆′_b; then
+□^Υ_b(t_*ω_(b,s1) + ω̆_(b,s1)) = f̆_b + P_bω̆′_b = 0. No logarithm arises, since 1 is not an indicial root; this is
+(1). Smoothness in b: f̆_b is smooth in b ([[lem:iii-d2-2-2]] for ω′_b), and [[lem:iii-d2-2-2]] again.
+
+For (2): [δ*_g, t_*] = dt_* ⊗_s (·) for every metric, and δ̄*B̄ = 0 gives dt_* ⊗_s ω̄_s1 + (δ̄*)^(0)ω̆̄¹_s1 = 0. So
+
+    h̆¹_(b,s1) = dt_* ⊗_s ω′_b + ((δ*_(g_b))^(0) − (δ̄*)^(0))ω̆̄¹_s1 + (δ*_(g_b))^(0)ω̆′_b
+              ∈ 𝒜^((2,0)∪(2+ℰ_ind)) + ρ³ Diff_b⁰(ρ⁻¹C^∞) + ρ Diff_b¹ 𝒜^((1,0)∪(1+ℰ_ind)) ⊂ 𝒜^((2,0)∪(2+ℰ_ind)).
+
+*Its leading term.* At b_S := (m, 0) the metric g_m, t_* and E_Υ are invariant under the rotations of x
+([[sec:iii-d2-1]]); the construction is linear and, by the uniqueness of the inverse images, equivariant, so
+S ↦ h̆¹_(b_S,s1)(S) is an SO(4)-equivariant linear map from 𝒮_1, the representation ℝ⁴. The decomposition of
+[[lem:iii-a1-1-6]] is into SO(4)-invariant subspaces, and among the types only scalar type 1 contains ℝ⁴ (at each l
+the scalar, vector and tensor types are, for SO(4), the representations of highest weights (l/2, l/2),
+((l ± 1)/2, (l ∓ 1)/2) and ((l ± 2)/2, (l ∓ 2)/2), and ℝ⁴ is (½, ½)); so h̆¹_(b_S,s1)(S) is of scalar type 1, given
+by S. For general b, by [[eq:iii-d2-2-2]], f_b − f_(b_S) = (P_b − P_(b_S))ω̄_s1 ∈ ρ⁵C^∞, so
+ω′_b − ω′_(b_S) = −P_b⁻¹((f_b − f_(b_S)) + (P_b − P_(b_S))ω′_(b_S)), whose argument lies in
+ρ^(2+3)C^∞ + 𝒜^(2+(5,0)∪(5+ℰ_ind)), lies in H̄_b^(∞,α) for some α > 2 ([[lem:iii-d1-5-1]], any
+α ∈ (2, ι^Υ_(s1,2))). Then, term by term in [[eq:iii-d2-3-5]],
+f̆_b − f̆_(b_S) ∈ ρ⁴C^∞ + H̄_b^(∞,α+1) + 𝒜^((6,0)∪(6+ℰ_ind)) by [[lem:iii-d2-2-1]] (the commutator bound and
+R_b − R_(b_S) ∈ ρ⁵ Diff_b²), and ω̆′_b − ω̆′_(b_S) = −P_b⁻¹((f̆_b − f̆_(b_S)) + (P_b − P_(b_S))ω̆′_(b_S)) lies in
+H̄_b^(∞,α″) for every α″ < 2 ([[lem:iii-d1-5-1]]), so that (δ*_(g_b))^(0) of it is O(ρ^(α″+1)), α″ ∈ (1, 2). So, in
+the formula for h̆¹, the differences dt_* ⊗_s (ω′_b − ω′_(b_S)),
+((δ*_(g_b))^(0) − (δ*_(g_m))^(0))ω̆̄¹_s1 ∈ ρ³C^∞, (δ*_(g_b))^(0)(ω̆′_b − ω̆′_(b_S)) and
+((δ*_(g_b))^(0) − (δ*_(g_m))^(0))ω̆′_(b_S) ∈ ρ⁵C^∞ are all O(ρ^(2+ϵ)) for some ϵ > 0, and h̆¹_b and h̆¹_(b_S) have the
+same ρ² term.
+
+*Rotations.* g_m(R_V, ·) = V, since g_m = η + m|x|⁻²(dt − d|x|)² ([[eq:iii-b-3-4]]) and R_V t = R_V|x| = 0; and R_V is
+Killing for the spherically symmetric g_m, so δ*_(g_m)V = 0. By [[eq:iii-d2-2-1]],
+δ*_(g_b)V = ((δ*_(g_b))^(0) − (δ*_(g_m))^(0))V ∈ ρ⁴ Diff_b⁰(ρ⁻¹C^∞) ⊂ ρ³C^∞ near ∂X, smooth on X̄, so
+f_b := □^Υ_bV ∈ 𝒜^(2+(2,0)), and (F1) gives ω′_b := −P_b⁻¹f_b ∈ 𝒜^((2,0)∪(2+ℰ_ind)), smooth in b by
+[[lem:iii-d2-2-2]]. ω_(b,v1)(V) := V + ω′_b solves [[eq:iii-d2-3-3]], and
+h_(b,v1)(V) = δ*_(g_b)V + (δ*_(g_b))^(0)ω′_b ∈ ρ³C^∞ + 𝒜^((3,0)∪(3+ℰ_ind)).
+
+The kernel statements in (2) are (F2).
+
+(3) If R_V is Killing for g_b, K := g_b(R_V, ·) has □^Υ_bK = 0 by (F2), and
+K − V = (g_b − ḡ)(R_V, ·) ∈ ρ²C^∞ · ρ⁻¹ ⊂ ρC^∞ by [[eq:iii-d2-2-3]]. So ω_(b,v1)(V) − K ∈ 𝒜^((1,0)∪(1+ℰ_ind)) is in
+the kernel of P_b on H̄_b^(s,α) for α ∈ (0, 1), which is trivial ([[lem:iii-d1-5-1]] (1)); so ω_(b,v1)(V) = K and
+h_(b,v1)(V) = δ*K = 0. At b = (m, 0), K = V for every V by the above, and 𝒱_1 ≅ 𝔰𝔬(4) has dimension 6. ∎
+
+*Remarks.* (a) *The decay rates* ([Hin26, Remark 6.16]). h_(b,s1) gains three powers over ω_(b,s1), not one, because
+g_b is translation-invariant to two orders (g_b − ḡ ∈ ρ²C^∞); h_(b,v1) gains four powers over ω_(b,v1) because g_b is
+spherically symmetric to three orders (g_b − g_m ∈ ρ³C^∞). (b) Which R_V are Killing for g_b depends on the rotation
+A; at A = 0 all are, and (3) is used there.
+
+The following proposition collects the facts about the symmetries, and about the linearised Myers–Perry metrics at
+zero rotation, that this section and [[ch:s15]] use.
+
+**Proposition {#prop:np-10-28}** (Symmetries and linearised metrics on Tangherlini.) Let g = g_m.
+
+(i) In Cartesian coordinates g − ḡ ∈ ρ²C^∞ and Γ(g) ∈ ρ³C^∞; hence (δ*_g)^(0) − (δ̄*)^(0) ∈ ρ³ Diff_b⁰ and
+(□^Υ_g)^(0) − (□̄^Υ)^(0) ∈ ρ⁴ Diff_b². The tortoise coordinate satisfies r_* − r → 0, with no logarithm.
+
+(ii) δ*_g dx¹ ∈ ρ³C^∞ and □dx¹ = 2δGδ*dx¹ ∈ ρ⁴C^∞. The number 2 is an s1 root of (□^Υ_b)^(0) at z = 0 and not for
+z > 0, where the s1 root near 2 is ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) > 2.
+
+(iii) For the boost B̄ = t̄ dx¹ − x¹dt̄, which is Killing for ḡ, δ*_gB̄ − t_*δ*_g dx¹ is stationary and lies in
+ρ²C^∞, and the stationary residual □^Υ_gB̄ − t_*□^Υ_g dx¹ lies in ρ³C^∞. The number 1 is not an s1 root for z ≥ 0:
+the s1 determinant at ι = 1 is 3(12 + 3z).
+
+(iv) Each of the six 1-forms x^i dx^j − x^j dx^i equals g(R, ·) for the rotation field R = ḡ⁻¹(x^i dx^j − x^j dx^i)
+and is Killing for g; they are linearly independent, as are the four functions x^i/r on 𝕊³.
+
+(v) h_m := ∂_m g and, for w := x¹dx² − x²dx¹, h_A := (m/r⁴)(dt ⊗ w + w ⊗ dt) (t the static time) solve
+D_g Ric(h) = 0 and lie in ρ²C^∞ and ρ³C^∞. η_m := δ_(g,E)G_g h_m lies in ρ³C^∞ and is spherically symmetric. h_A is
+trace-free with δ_g h_A = 0, so η_A := δ_(g,E)G_g h_A = E^Υ h_A = (2γ_Υ m/(fr⁵))w near infinity, of order ρ⁴ and of
+vector type 1. The number 1 is not an s0 root and 2 is not a v1 root: the s0 determinant at ι = 1 is 2(2 + z), and the
+v1 determinant at ι = 2 is 3.
+
+(vi) The single-spin Myers–Perry metric [ER08, Section 4.1, (32)–(33)] in five dimensions,
+
+    −dt² + (m/Σ)(dt − a sin²ϑ dφ)² + (Σ/Δ)dr² + Σdϑ² + (r² + a²)sin²ϑ dφ² + r²cos²ϑ dψ²,
+
+Σ := r² + a²cos²ϑ, Δ := r² + a² − m, is Ricci-flat [ER08, Section 4.1]; at a = 0 it is g_m, in the coordinates
+x¹ + ix² = r sin ϑ e^(iφ), x³ + ix⁴ = r cos ϑ e^(iψ) on the round 𝕊³; and ∂_a of it at a = 0 is −h_A, with
+w = r²sin²ϑ dφ.
+
+*Proof.* (i) is [[eq:iii-d2-2-3]] and the proof of [[lem:iii-d2-2-1]] (the static time and the time of
+[[eq:iii-b-3-6]] differ by a function of r with derivative in ρ²C^∞), and r_* − r = −m/r + O(r⁻³) by
+[[prop:np-10-16]] (v). (ii) δ̄*dx¹ = 0, so δ*_g dx¹ = ((δ*_g)^(0) − (δ̄*)^(0))dx¹ ∈ ρ³C^∞, and 2δ_gG_g ∈ ρ Diff_b¹. The
+s1 root is [[eq:iii-d-4-1]] at l = 1, since ½ + (¼ + s)^(1/2) = ½(1 + (1 + 4s)^(1/2)) and
+1 + 4s_(1,1) = 17 + 2z − 2(z² + 4z + 16)^(1/2); at z = 0 it is 2, and for z > 0 it exceeds 2 by [[lem:iii-d-4-1]].
+(iii) δ̄*B̄ = 0 gives dt_* ⊗_s dx¹ + (δ̄*)^(0)B̆ = 0 with B̆ := B̄ − t_*dx¹ stationary in ρ⁻¹C^∞, so
+δ*_gB̄ − t_*δ*_g dx¹ = ((δ*_g)^(0) − (δ̄*)^(0))B̆ ∈ ρ²C^∞; the residual is the sum of the first two terms of
+[[eq:iii-d2-3-5]], in ρ³C^∞. At l = 1, ι = 1, [[eq:s13-dets]] gives (3)(1)Q_1(0) = 3(κ(κ + 1) + zκ) with κ = 3.
+(iv) g_m = η + (m/r²)(dt − dr)² ([[eq:iii-b-3-4]]) and R annihilates t and r, so g(R, ·) = η(R, ·), which is the
+given form; R is Killing for every spherically symmetric metric. Independence: 𝔰𝔬(4) has dimension 6, and the
+coordinate functions are independent. (v) g_m is Ricci-flat for every m, so D Ric(∂_m g) = 0; by (vi), h_A is minus
+the derivative of a Ricci-flat family, so D Ric(h_A) = 0. The orders follow from [[eq:iii-b-3-4]] and from
+|w| = O(r) in Cartesian components. η_m is spherically symmetric because g_m, c_Υ and E_Υ are, and its order follows
+as in [[lem:iii-d2-2-1]]: δ_(g,E)G_g maps ρ²C^∞ into ρ³C^∞. For h_A: g^tφ = 0 and w is angular, so tr_g h_A = 0; for
+the divergence of a symmetric tensor, ∇_μh^μ_ν = |g|^(−1/2)∂_μ(|g|^(1/2)h^μ_ν) − ½(∂_ν g_αβ)h^(αβ), where the last
+term vanishes as h^(αβ) has only tφ components and g_tφ = 0 identically; h^φ_t = m/r⁴ and h^t_φ = −(m/(fr²))sin²ϑ do
+not depend on t or φ, so δ_g h_A = 0. Then G_g h_A = h_A and
+E^Υ h_A = −2γ_Υ ι_(g⁻¹c)h_A with g⁻¹c = −(fr)⁻¹∂_t, which gives (2γ_Υ m/(fr⁵))w. The determinants are [[eq:s13-dets]]:
+1 · (−2)(−2 − z) and (2 + 1)(3 − 2). (vi) At a = 0, Σ = r², Δ = r² − m = r²f, and the metric is
+−f dt² + f⁻¹dr² + r²(dϑ² + sin²ϑ dφ² + cos²ϑ dψ²), the last bracket being the round metric of 𝕊³ in these
+coordinates. ∂_a of (m/Σ)(dt − a sin²ϑ dφ)² at a = 0 is −(m/r²)sin²ϑ(dt ⊗ dφ + dφ ⊗ dt), and the other coefficients
+have vanishing a-derivative at a = 0; with w = x¹dx² − x²dx¹ = r²sin²ϑ dφ this is −h_A. ∎
+
+### Generalised zero energy states: the setting {#sec:iii-d3-1}
+
+The generalised zero energy states of □^Υ_b are polynomials in t_* in its kernel, built on the time translation, the
+translations and boosts, the rotations, and the indicial roots of (□^Υ_b)^(0) below −1, with their symmetric gradients
+([Hin26, Proposition 6.18 and Remark 6.19] in dimension 4 + 1). The zero energy operator of g_b differs from
+Minkowski's by ρ⁴ Diff_b² ([[lem:iii-d2-2-1]]), one power more than on Kerr, so the correction to the leading term of
+every stationary state lies two orders below it instead of one. The leading terms are computed exactly on Minkowski
+space, and part (1) carries no logarithm.
+
+E_Υ, b, □^Υ_b, P_b := (□^Υ_b)^(0), the model ḡ, t̄ = t_* + |x|, □̄^Υ, the unweighted b-density and the 1-forms
+ω^(0)_(b,s0), ω^(0)_(b,s1)(S), ω̆^((0),1)_(b,s1)(S), ω^(−1)_(b,v1)(V) are those of [[sec:iii-d2-1]]–[[sec:iii-d2-3]],
+with z = 4e_Υγ_Υ² ∈ (0, ½]. Near ∂X write
+
+    □^Υ_b = A_0 + A_1∂_(t_*) + A_2∂_(t_*)²,   A_0 = P_b ∈ ρ² Diff_b²,   A_1 ∈ ρ Diff_b¹,   A_2 = −g_b^00 ∈ ρ²C^∞,
+                                                                                                         {#eq:iii-d3-1-1}
+
+and Ā_0, Ā_1 for the model (Ā_2 = 0). By [[lem:iii-d-2-1]] and [[lem:iii-d2-2-1]], A_0 − Ā_0 ∈ ρ⁴ Diff_b²,
+A_1 − Ā_1 = Q_b ∈ ρ³ Diff_b¹, and A_0 − A_0^(m) ∈ ρ⁵ Diff_b², A_1 − A_1^(m) ∈ ρ⁴ Diff_b¹ against the non-rotating
+g_m. Also
+
+    δ*_(g_b) = (δ*_(g_b))^(0) + dt_* ⊗_s (·)∂_(t_*),     (δ*_(g_b))^(0) ∈ ρ Diff_b¹.                     {#eq:iii-d3-1-2}
+
+By [[eq:iii-d-2-1]] and [[lem:iii-d-3-1]], Ā_1 = ρN_1(ρ∂_ρ) with N_1(ι) := −2(ι − 3/2 − S̄), and Ā_0 = ρ²N_0(ρ∂_ρ)
+with N_0 the indicial family of [[sec:iii-d-4]]; so Ā_1(ρ^a w) = ρ^(a+1)N_1(a)w and Ā_0(ρ^a w) = ρ^(a+2)N_0(a)w for w
+on 𝕊³.
+
+*Generalised states.* For stationary 1-forms ω̆⁰ := ω, ω̆¹, …, ω̆^K and k ≤ K put
+ω^(≤k) := Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) ω̆^i ([Hin26, (6.36a)]). The coefficient of t_*^(k−j) in □^Υ_b ω^(≤k) is
+(k!/(k − j)!)(A_0ω̆^j + A_1ω̆^(j−1) + A_2ω̆^(j−2)) (ω̆^(−1) = ω̆^(−2) := 0), so
+
+    ω^(≤k) ∈ ker □^Υ_b  (k ≤ K)  ⟺  A_0ω̆^j = −A_1ω̆^(j−1) − A_2ω̆^(j−2)  (0 ≤ j ≤ K).                   {#eq:iii-d3-1-3}
+
+(The proof of [Hin26, Proposition 6.18] prints A_0ω̆^(l−2) for A_2ω̆^(l−2) in this recursion.) By
+[[eq:iii-d3-1-2]], δ*_(g_b)ω^(≤k) = Σ_(j=0)^k (k!/(k − j)!) t_*^(k−j) h̆^j with
+
+    h̆^j := (δ*_(g_b))^(0)ω̆^j + dt_* ⊗_s ω̆^(j−1),                                                      {#eq:iii-d3-1-4}
+
+so its constant coefficient is k! h̆^k; and δ*_(g_b)ω^(≤k) lies in ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b) whenever
+ω^(≤k) ∈ ker □^Υ_b (fact (F2) in the proof of [[prop:iii-d2-3-1]]).
+
+*Exponents.* Let ℳ be the finite set of real numbers in [−10, 10] of the form Re ι + j, ι an indicial root of P_b
+([[lem:iii-d-4-1]]; they do not depend on b, and all are real) and j ∈ ℤ, and fix ϵ_ind > 0 less than half the least
+distance between distinct points of ℳ (this implies the condition of [[sec:iii-d2-1]]). ℰ_ind denotes an index set
+with min Re ℰ_ind ≥ ϵ_ind, changing from line to line. Every exponent below lies in ℳ.
+
+*The model states.* The leading terms of the states are the following exact solutions on 4 + 1 Minkowski space, with
+E_Υ at the trace weight 2/3 and c̄ = r⁻¹dt̄. We write e := e_Υ, γ := γ_Υ, and S ∈ 𝒮_1, V ∈ 𝒱_1 as in
+[[eq:iii-d2-1-2]]; V = r²V_𝕊 with V_𝕊 a 1-form on the unit 𝕊³, so that V is (0, 0, ρ⁻¹V_𝕊) in the splitting.
+
+**Proposition {#prop:np-10-29}** (The model states of the symmetries.)
+
+(i) With W̄ := |x|(−dt̄ + β_e d|x|) and β_e := (2 − e)/(4e), t_*ω̄^(0)_s0 + W̄ ∈ ker □̄^Υ. The tensor
+h̄^(0)_s0 := δ̄*(t_*ω̄^(0)_s0 + W̄) = dt_* ⊗_s ω̄^(0)_s0 + (δ̄*)^(0)W̄ is stationary, homogeneous of degree 0, of scalar
+type 0, and in the splitting [[eq:iii-a1-2-2]]
+
+    h̄^(0)_s0 = (16e)⁻¹(2 − 5e, −(2 + 3e), 0, 2 − 5e, 0, 4(2 − e)g_𝕊) ≠ 0;
+
+it lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ. For 0 < z < 4, none of −1, −2, −3, −4 is an s0 root of P_b; −2 is one
+at z = 4.
+
+(ii) With B̆ := ω̆̄^((0),1)_s1(S) and W̄_2 := r²(a_2S dx̄⁰ + b_2S dx̄¹) + k_2r³dS,
+(a_2, b_2, k_2) := (24e)⁻¹(4 − 7e, −(4 + 17e), (2/3)(25e − 4)), the polynomial
+t_*²ω̄^(0)_s1(S) + 2t_*B̆ + 2W̄_2 lies in ker □̄^Υ. Its halved symmetric gradient
+h̄²_s1(S) := dt_* ⊗_s B̆ + (δ̄*)^(0)W̄_2 is stationary, homogeneous of degree −1, of scalar type 1, nonzero for S ≠ 0
+and 0 < e < 4/7, and in both kernels. For 0 < z < 20/3, none of −2, −3, −4 is an s1 root of P_b; −2 is one at z = 0
+and −3 at z = 20/3.
+
+(iii) t_*V + k_1|x|V ∈ ker □̄^Υ if and only if k_1 = 1 + 2γ/5. Then
+
+    h̄¹_v1(V) := dt_* ⊗_s V + (δ̄*)^(0)(k_1|x|V) = (0, 0, ¼(1 + ⅖γ)ρ⁻¹V_𝕊, 0, ¼(1 − ⅖γ)ρ⁻¹V_𝕊, 0),       {#eq:iii-d3-3-3}
+
+stationary and in both kernels. None of −2, −3, −4 is a v1 root, for every z.
+
+(iv) ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) = 2 + z/12 + O(z²) and
+ι^Υ_(s0,2) = ½(1 + (9 + 4z)^(1/2)) = 2 + z/3 + O(z²), and ι^Υ_(s1,2) < ι^Υ_(s0,2) for every z > 0. In particular 1 and
+2 lie in the gap (0, ι^Υ_(s1,2)) for z > 0, and 2 is its end at z = 0.
+
+*Proof.* For a stationary u, □̄^Υ(t_*u) = t_*□̄^Υu + Ā_1u, and Ā_1 = −2ρ(ρ∂_ρ − 3/2 − S̄). In the splitting we use the
+coefficients (a, b, c) of a type s1 1-form (aS, bS, c d_𝕊S) and the matrices [[eq:s13-nsl]]; write D := ρ∂_ρ.
+
+(i) ω̄ := ω̄^(0)_s0 = −dt̄ = (−½, −½, 0) is Killing, so □̄^Υ(t_*ω̄ + W̄) = Ā_1ω̄ + Ā_0W̄. Here S̄ω̄ = −½γ(1 − e, 3 − e,
+0) and (D − 3/2)ω̄ = (¾, ¾, 0), so Ā_1ω̄ = −ρ(3/2 + γ(1 − e), 3/2 + γ(3 − e), 0). Since dt̄ = ½(dx̄⁰ + dx̄¹) and d|x| =
+½(dx̄⁰ − dx̄¹), W̄ = ρ⁻¹w with w = ½(β_e − 1, −β_e − 1), and Ā_0W̄ = ρN_s0(−1)w with
+
+    N_s0(−1) = ( −3/2 + γ(1 + 4e) , −3/2 + γ(1 − 4e) ; −3/2 + γ(4e − 1) , −3/2 − γ(1 + 4e) ).
+
+So N_s0(−1)w = (3/2 + γ(4eβ_e − 1), 3/2 + γ(4eβ_e + 1)), which equals (3/2 + γ(1 − e), 3/2 + γ(3 − e)) exactly when
+4eβ_e = 2 − e. By [[lem:iii-a1-2-1]] (1), (δ̄*)^(0)(ρ⁻¹w) has a = ½w_0, b = −¼(w_0 − w_1), e′ = −½w_1, q = (w_0 − w_1)g_𝕊
+and c = f = 0, and dt_* ⊗_s ω̄ = dx̄¹ ⊗_s ω̄ has b = −¼, e′ = −½; with w_0 − w_1 = β_e this gives the stated
+components. h̄^(0)_s0 = δ̄*(t_*ω̄ + W̄) because δ̄*(t_*u) = t_*δ̄*u + dt_* ⊗_s u and δ̄*ω̄ = 0; it lies in the kernels by
+fact (F2) of the proof of [[prop:iii-d2-3-1]] for ḡ. The s0 roots below 0 are 1 − ι^Υ_(s0,2) = ½ − (9/4 + z)^(1/2),
+which equals −k exactly when z = (k + 2)(k − 1); for k = 1, 2, 3, 4 these are 0, 4, 10, 18.
+
+(ii) By [[eq:iii-d3-1-3]] with Ā_2 = 0, the polynomial lies in the kernel if Ā_0ω̄_s1 = 0, Ā_1ω̄_s1 + Ā_0B̆ = 0 and
+Ā_1B̆ + Ā_0W̄_2 = 0. The first two hold since ω̄_s1 and the boost t_*ω̄_s1 + B̆ are Killing. In the splitting,
+d(rS) = (½S, −½S, d_𝕊S), so B̆ = r d(rS) − rS dt̄ = ρ⁻¹(0, −S, d_𝕊S), with coefficients ρ⁻¹(0, −1, 1), and
+S̄(0, −1, 1) = γ(0, −2, 1); so −Ā_1B̆ = 2(D − 3/2 − S̄)(0, −1, 1) = (0, 5 + 4γ, −5 − 2γ). W̄_2 = ρ⁻²(a_2, b_2, k_2) and
+Ā_0W̄_2 = N_s1(−2)(a_2, b_2, k_2), where at l = 1 (κ = 3), N_s1(−2) = N⁰ + γN¹ with
+
+    N⁰ = ( −7/2 , −3/2 , −3 ; −3/2 , −7/2 , 3 ; −2 , 2 , −6 ),
+    N¹ = ( 2 + 5e , 2 − 5e , −3e ; 5e − 2 , −(2 + 5e) , −3e ; 2 , 2 , 0 ).
+
+Multiplying out, N⁰(a_2, b_2, k_2) = (24e)⁻¹(0, 120e, −120e) = (0, 5, −5) and
+N¹(a_2, b_2, k_2) = (24e)⁻¹(0, 96e, −48e) = (0, 4, −2). For instance the first entry of N⁰(a_2, b_2, k_2) is
+(24e)⁻¹(−(7/2)(4 − 7e) + (3/2)(4 + 17e) − 2(25e − 4)) = 0, and the second entry of N¹(a_2, b_2, k_2) is
+(24e)⁻¹((5e − 2)(4 − 7e) + (2 + 5e)(4 + 17e) − e(50e − 8)) = (24e)⁻¹ · 96e. So the third relation holds. By
+[[eq:iii-d3-1-2]] for ḡ, δ̄*(t_*²ω̄_s1 + 2t_*B̆ + 2W̄_2) = 2t_*δ̄*(t_*ω̄_s1 + B̆) + 2(dt_* ⊗_s B̆ + (δ̄*)^(0)W̄_2), and
+the first term vanishes; so h̄²_s1 is stationary, and it lies in the kernels by (F2). Its (dx̄¹)² component is
+−ρ⁻¹S from dt_* ⊗_s B̆ plus ½ρD(ρ⁻²b_2S) = −b_2ρ⁻¹S, in all −(1 + b_2)ρ⁻¹S, and 1 + b_2 = (7e − 4)/(24e). For the
+roots: the s1 roots other than 1 − ι^Υ_(s1,j) are 0, 4 and the positive ι^Υ_(s1,j); and 1 − ι = −k exactly when
+ι² − ι = k(k + 1), that is when Q_1(k(k + 1)) = 0. With Q_1(s) = s² − (8 + z)s + 12 + 3z, Q_1(6) = −3z,
+Q_1(12) = 60 − 9z and Q_1(20) = 252 − 17z.
+
+(iii) V = ρ⁻¹(0, 0, V_𝕊) and |x|V = ρ⁻²(0, 0, V_𝕊). On v1, Ā_0(ρ^a(0, 0, V_𝕊)) = ρ^(a+2)(−a² + 2a + 3)(0, 0, V_𝕊) and
+S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_1V = −2(−1 − 3/2 − γ)(0, 0, V_𝕊)
+= (5 + 2γ)(0, 0, V_𝕊). The relation Ā_1V + Ā_0(k_1|x|V) = 0 holds exactly when k_1 = 1 + 2γ/5. By
+[[lem:iii-a1-2-1]] (1), (δ̄*)^(0)(ρ⁻²(0, 0, V_𝕊)) has c = −¼ρ(D + 1)ρ⁻²V_𝕊 = ¼ρ⁻¹V_𝕊, f = −¼ρ⁻¹V_𝕊 and
+q = ρ⁻¹δ*_𝕊V_𝕊 = 0 (V_𝕊 is Killing on 𝕊³), and dt_* ⊗_s V has f = ½ρ⁻¹V_𝕊; with k_1 this is [[eq:iii-d3-3-3]].
+Stationarity and the kernels follow as in (ii). The v1 roots are −1 and 3.
+
+(iv) ½ + (¼ + s)^(1/2) = ½(1 + (1 + 4s)^(1/2)), and 1 + 4s_(1,1) = 17 + 2z − 2(z² + 4z + 16)^(1/2),
+1 + 4(2 + z) = 9 + 4z. The expansions are those of [[lem:iii-d-4-1]]. ι^Υ_(s1,2) < ι^Υ_(s0,2) if and only if
+s_(1,1) < 2 + z, that is 2 − z/2 < (4 + z + z²/4)^(1/2), which holds for z ≥ 4 trivially and for 0 < z < 4 after
+squaring. ∎
+
+**Proposition {#prop:np-10-30}** (The classes without symmetry.) On 4 + 1 Minkowski space, for □̄^Υ:
+
+(i) (*The indicial families.*) On the types s0, sl (l ≥ 1) and vl, Ā_2 = 0, Ā_0 = ρ²N_0(ρ∂_ρ) with det N_0 given by
+[[eq:s13-dets]], and Ā_1 = ρN_1(ρ∂_ρ) with N_1(ι) = −2(ι − 3/2 − S̄), S̄ independent of ι. At vl,
+N_0(ι) = −(ι + l)(ι − l − 2) and N_1(ι) = −2(ι − 3/2 − γ_Υ).
+
+(ii) (*The classes.*) For every l ≥ 1, Q_l(l(l + 1)) = lz, Q_l((l + 1)(l + 2)) = −(l + 2)z and
+Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for 0 < z < 20/3 the negative sl roots other than 1 − l,
+μ_(l,0) := 1 − ι^Υ_(sl,l+1) and μ_(l,1) := 1 − ι^Υ_(sl,l+2), satisfy −l − 1 < μ_(l,0) < −l and
+−l − 2 < μ_(l,1) < −l − 1, with μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and
+μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
+= −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots 1 − l and the vl roots −l are roots at every z. For
+0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0.
+
+(iii) (*The symmetric gradient.*) N(δ̄*(0), ι) is injective on the types sl and vl for l ≥ 2 and every ι ∈ ℂ, on s0
+and s1 for ι ≠ 0, and on v1 for ι ≠ −1.
+
+(iv) (*No resonance.*) Let 0 < z < 4. Call a class root each of μ_s0 (type s0, range K = 2), μ_(l,0) and μ_(l,1)
+(type sl, l = 1, 2, 3, K = 2), 1 − l (type sl, 2 ≤ l ≤ 5, K = 5 − l) and −l (type vl, 2 ≤ l ≤ 4, K = 4 − l). For each
+class root μ of type τ, μ is a simple root of type τ, and neither μ + 2 nor μ − k, 1 ≤ k ≤ K, is a root of type τ.
+The bound 4 is sharp: at z = 4, μ_s0 = −2 and μ_s0 + 2 = 0 is an s0 root. At z = 0 the classes meet at sl:
+μ_(l,0) − 1 = μ_(l,1), μ_(l,1) + 2 = 1 − l, and 1 − l − k = μ_(l,k−1) for k ≤ min(2, 5 − l); never at vl.
+
+(v) (*The states.*) For each class root μ of type τ with a nonzero indicial solution ρ^μ w̄_0 of the model, the
+recursion N_0(μ − i)w̄_i = −N_1(μ − i + 1)w̄_(i−1), 1 ≤ i ≤ K, has a unique solution of type τ, and
+Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) ρ^(μ−i)w̄_i ∈ ker □̄^Υ for k ≤ K. At vl, w̄_i = k_i w̄_0 with k_0 = 1 and
+k_i = k_(i−1)(2l + 2i + 1 + 2γ_Υ)/(i(2l + i + 2)); at l = 1, k_1 = 1 + 2γ_Υ/5.
+
+*Proof.* (i) is [[eq:iii-d-2-1]], [[lem:iii-d-3-1]] and [[sec:iii-d-4]]; on vl, S̄ acts as γ_Υ and N_0 = p + κ.
+(ii) By [[eq:s13-qfactor]], Q_l(s) = (s − l(l + 1))(s − (l + 1)(l + 2)) + z(κ − s), and κ − l(l + 1) = l,
+κ − (l + 1)(l + 2) = −(l + 2), κ − (l + 2)(l + 3) = −3(l + 2), while the product at (l + 2)(l + 3) is
+(4l + 6) · 2(l + 2). As Q_l is a monic quadratic, its roots s_(l,1) < s_(l,2) satisfy
+l(l + 1) < s_(l,1) < (l + 1)(l + 2) < s_(l,2) < (l + 2)(l + 3) when 0 < z < (8l + 12)/3, which holds for z < 20/3;
+and ι ↦ ι² − ι is increasing on ι > ½, which gives the intervals. The expansions and μ_s0 are those of
+[[lem:iii-d-4-1]], and ½ − (9/4 + z)^(1/2) ∈ (−2, −1) for 0 < z < 4. The last sentence follows from the list of
+[[lem:iii-d-4-1]], whose positive roots are > 0. (iii) is [[lem:iii-a1-2-4]].
+(iv) *Simplicity.* For 0 < z < 4 the roots of type s0 are μ_s0 ∈ (−2, −1), 0, ι^Υ_(s0,2) ∈ (2, 3) and 3, and those of
+type sl are μ_(l,1) < −l − 1 < μ_(l,0) < −l < 1 − l < l + 1 < ι^Υ_(sl,l+1) < l + 2 < ι^Υ_(sl,l+2) < l + 3; they are
+distinct, so each is a simple zero of the determinant [[eq:s13-dets]], whose degree is their number. *μ_s0.* μ_s0 + 2
+∈ (0, 1), μ_s0 − 1 ∈ (−3, −2) and μ_s0 − 2 ∈ (−4, −3) contain no s0 root. *μ_(l,0).* μ_(l,0) + 2 ∈ (−l + 1, −l + 2)
+and μ_(l,0) − 2 ∈ (−l − 3, −l − 2) contain no sl root. μ_(l,0) − 1 ∈ (−l − 2, −l − 1) could only be μ_(l,1); but
+μ_(l,0) − 1 = μ_(l,1) means ι_2 = ι_1 + 1 for ι_j := ι^Υ_(sl,l+j). Then s_(l,1) = ι_1² − ι_1 and
+s_(l,2) = ι_1² + ι_1, and the relations s_(l,1) + s_(l,2) = 2 + 2κ + z and s_(l,1)s_(l,2) = κ(κ + 1) + zκ give
+ι_1² = (l + 1)² + z/2 =: X and X(X − 1) = κ((l + 1)² + z); since X − 1 = κ + z/2, the difference of the two sides is
+z/2 + z²/4, which vanishes only at z = 0 and z = −2. *μ_(l,1).* μ_(l,1) + 2 ∈ (−l, −l + 1), μ_(l,1) − 1 and
+μ_(l,1) − 2 lie below −l − 2, and none of these intervals contains an sl root. *The integer classes.* For μ = 1 − l
+(sl), μ + 2 = 3 − l and μ − k = 1 − l − k are integers different from 1 − l and l + 3, the only integer sl roots, and
+the noninteger roots are not integers. For μ = −l (vl), μ + 2 = 2 − l and −l − k differ from −l and l + 2. *At
+z = 4*, ½ − (9/4 + 4)^(1/2) = −2. *At z = 0*, μ_(l,0) = −l, μ_(l,1) = −l − 1, and the coincidences are immediate.
+(v) By (iv), N_0(μ − i) is invertible on type τ for 1 ≤ i ≤ K, and N_0, N_1 preserve the type
+([[sec:iii-a1-2]]), so the recursion has a unique solution. With ω̆^i := ρ^(μ−i)w̄_i, Ā_0ω̆^i = ρ^(μ−i+2)N_0(μ − i)w̄_i
+and Ā_1ω̆^(i−1) = ρ^(μ−i+2)N_1(μ − i + 1)w̄_(i−1), so [[eq:iii-d3-1-3]] holds for the model with Ā_2 = 0. At vl,
+N_0(−l − i) = −i(2l + i + 2) and N_1(−l − i + 1) = 2l + 2i + 1 + 2γ_Υ, which gives the recursion for k_i; at l = 1,
+i = 1 it is (5 + 2γ_Υ)/5. ∎
+
+We collect the root facts used below; all hold for 0 < z ≤ ½.
+
+(R1) −1, −2, −3, −4 are not s0 roots of P_b ([[prop:np-10-29]] (i)).
+
+(R2) −2, −3, −4 are not s1 roots ([[prop:np-10-29]] (ii)).
+
+(R3) −2, −3, −4 are not v1 roots ([[prop:np-10-29]] (iii)).
+
+(R4) The class roots of [[prop:np-10-30]] (iv) are simple, and for each class root μ of type τ with range K, neither
+μ + 2 nor μ − k, 1 ≤ k ≤ K, is a type τ root ([[prop:np-10-30]] (ii), (iv)).
+
+(R5) The indicial family N(δ̄*(0), ι) is injective on each type except at ι = 0 (s0, s1) and ι = −1 (v1)
+([[lem:iii-a1-2-4]]).
+
+### Solving with a prescribed leading term {#sec:iii-d3-2}
+
+**Lemma {#lem:iii-d3-2-1}** Let m_* ∈ ℳ, m_* ≤ 2, and let f_1 be smooth on X with ρ⁻²f_1 ∈ 𝒜^ℱ near ∂X, where
+ℱ ⊂ {(m_*, 0)} ∪ {Re ≥ m_* + ϵ_ind}, and suppose that the ρ^(m_*)-coefficient f_(m_*) of ρ⁻²f_1 has components only of
+types τ for which m_* is not a type τ root. Then there is u ∈ 𝒜^((m_*,0)∪(m_*+ℰ_ind)), smooth on X, with P_bu = f_1
+and ρ^(m_*)-coefficient u_(m_*) = N(ρ⁻²P_b, m_*)⁻¹f_(m_*), of the types of f_(m_*). If f_1 depends smoothly on b (in
+the topology of these spaces), u can be chosen to.
+
+*Proof.* Near ∂X, A := ρ⁻²P_b is an elliptic b-operator whose normal operator is the model's ([[lem:iii-d-2-1]] (3))
+and so commutes with the rotations; its indicial family N(A, ι) preserves the types, and on type τ it is invertible
+exactly off the type τ roots. So w := N(A, m_*)⁻¹f_(m_*) is defined, smooth on 𝕊³, of the types of f_(m_*). With
+χ_∂ the cut-off of [[ch:s03]], u_0 := χ_∂ρ^(m_*)w has P_bu_0 = χ_∂ρ^(m_*+2)f_(m_*) + ρ²(A − N(A))(χ_∂ρ^(m_*)w)
++ (smooth, compactly supported), and A − N(A) ∈ ρ Diff_b², so f_2 := f_1 − P_bu_0 has ρ⁻²f_2 ∈ 𝒜^(ℱ_1) with
+ℱ_1 ⊂ {Re ≥ m_* + ϵ_ind}. [[lem:iii-a-1-5]] (formal solutions; on the bundle, by the argument given for
+[[lem:iii-a-1-4]] in the proof of [[lem:iii-d1-5-1]]) with β = 3 gives u_1 ∈ 𝒜^(ℰ_1) near ∂X,
+ℰ_1 ⊂ {Re ≥ m_* + ϵ_ind} (its exponents are those of ℱ_1 plus ℕ_0, with logarithms where they meet roots), such that
+f_3 := f_2 − P_b(χ_∂u_1) is smooth on X̄ with ρ⁻²f_3 ∈ 𝒜^𝒢, 𝒢 ⊂ {Re ≥ 3}. Finally u_2 := P_b⁻¹f_3
+([[lem:iii-d1-5-1]]): u_2 ∈ ⋂_s H̄_b^(s,α) for every α < ι^Υ_(s1,2), and [[lem:iii-a-1-4]] with α just below
+ι^Υ_(s1,2) (no root in between) gives u_2 ∈ 𝒜^(ℰ_2) with ℰ_2 ⊂ {Re ≥ ι^Υ_(s1,2)} ⊂ {Re ≥ m_* + ϵ_ind}, as m_* ≤ 2 and
+ι^Υ_(s1,2) − 2 > 2ϵ_ind. Then u := u_0 + χ_∂u_1 + u_2. Smoothness in b: w depends smoothly on b (the normal operator
+does not depend on b, and f_(m_*) does smoothly), [[lem:iii-a-1-5]] states smooth dependence for a smoothly varying A,
+and [[lem:iii-d2-2-2]] covers u_2. ∎
+
+When the leading term of f_1 is that of a model right side, that is f_1 = f̄ + f′ with ρ⁻²f̄ ∈ ρ^(m_*)C^∞ near ∂X the
+right side of a model equation Ā_0ū = f̄ solved by a homogeneous ū = ρ^(m_*)w̄, and f′ two orders lower, the leading term
+of u is ū: indeed f_(m_*) = f̄_(m_*) and N(A, m_*) = N(ρ⁻²Ā_0, m_*), so u_(m_*) = w̄.
+
+### The generalised states {#sec:iii-d3-3}
+
+**Proposition {#prop:iii-d3-3-1}** ([Hin26, Proposition 6.18] in dimension 4 + 1.) Assume (Dyn), and let E_Υ and b be
+as in [[sec:iii-d3-1]]. All 1-forms below are stationary, smooth on X, smooth in b, and linear in S ∈ 𝒮_l and
+V ∈ 𝒱_l; every ω^(≤k) lies in ker □^Υ_b, and every symmetric gradient δ*_(g_b)ω^(≤k) in
+ker D_(g_b)Ric ∩ ker δ_(g_b,E_Υ)G_(g_b).
+
+(1) (*The time translation; the s0 root 0 of the linearised operator.*) Let W̄ and β_e be as in [[prop:np-10-29]] (i).
+There are ω̆^((0),1)_(b,s0) with ω̆^((0),1)_(b,s0) − χ_∂W̄ ∈ 𝒜^((1,0)∪(1+ℰ_ind)), and
+ω̆^((0),k)_(b,s0) ∈ 𝒜^((−k,0)∪(−k+ℰ_ind)), k = 2, 3, 4, with scalar type 0 leading terms, such that, with
+ω^(0)_(b,s0) as the zeroth term, ω^((0),≤k)_(b,s0) ∈ ker □^Υ_b for k ≤ 4. The stationary tensor
+
+    h^(0)_(b,s0) := δ*_(g_b)ω^((0),≤1)_(b,s0) ∈ 𝒜^((0,0)∪(2,0)∪(2+ℰ_ind))                                {#eq:iii-d3-3-1}
+
+has the leading term h̄^(0)_s0 of [[prop:np-10-29]] (i), nonzero, homogeneous of degree 0 and of scalar type 0. For
+k = 0, …, 3, h^((0),≤k)_(b,s0) := (k + 1)⁻¹δ*_(g_b)ω^((0),≤k+1)_(b,s0)
+= t_*^k h^(0)_(b,s0) + Σ_(i=1)^k (k!/(k − i)!) t_*^(k−i) h̆^((0),i)_(b,s0), with
+
+    h̆^((0),i)_(b,s0) := (δ*_(g_b))^(0)ω̆^((0),i+1)_(b,s0) + dt_* ⊗_s ω̆^((0),i)_(b,s0) ∈ 𝒜^((−i,0)∪(−i+ℰ_ind)).
+                                                                                                         {#eq:iii-d3-3-2}
+
+(2) (*The boosts to higher order; the s1 root −1.*) There are ω̆^((0),k)_(b,s1)(S) ∈ 𝒜^((−k,0)∪(−k+ℰ_ind)),
+k = 2, 3, 4, with scalar type 1 leading terms, continuing ω^(0)_(b,s1)(S), ω̆^((0),1)_(b,s1)(S) of
+[[prop:iii-d2-3-1]], such that ω^((0),≤k)_(b,s1)(S) ∈ ker □^Υ_b for k ≤ 4. With [[eq:iii-d3-1-4]], the constant
+coefficient of h^(≤k)_(b,s1)(S) := δ*_(g_b)ω^((0),≤k)_(b,s1)(S) is k! h̆^k_(b,s1)(S), with
+h̆^k_(b,s1)(S) ∈ 𝒜^((−k+1,0)∪(−k+1+ℰ_ind)) (k = 2, 3, 4), and the leading term of h̆²_(b,s1)(S) is h̄²_s1(S) of
+[[prop:np-10-29]] (ii), homogeneous of degree −1, of scalar type 1, nonzero for S ≠ 0; here the leading term of
+ω̆^((0),2)_(b,s1)(S) is the model solution W̄_2 of Ā_0W̄_2 = −Ā_1ω̆̄^((0),1)_s1.
+
+(3) (*The rotations to higher order; the v1 root −1.*) There are ω̆^((−1),k)_(b,v1)(V) ∈ 𝒜^((−k−1,0)∪(−k−1+ℰ_ind)),
+k = 1, 2, 3, with vector type 1 leading terms, the first being (1 + ⅖γ_Υ)|x|V, such that
+ω^((−1),≤k)_(b,v1)(V) ∈ ker □^Υ_b for k ≤ 3. The constant coefficient of
+h^(≤k)_(b,v1)(V) := δ*_(g_b)ω^((−1),≤k)_(b,v1)(V) is k! h̆^k_(b,v1)(V), with
+h̆^k_(b,v1)(V) ∈ 𝒜^((−k,0)∪(−k+ℰ_ind)), and the leading term of h̆¹_(b,v1)(V) is h̄¹_v1(V) of [[eq:iii-d3-3-3]] (in
+[Hin26]'s splitting, the analogue of [Hin26, (6.40)]). If R_V is Killing for g_b (at A = 0, every V), then
+h^(≤1)_(b,v1)(V) = h̆¹_(b,v1)(V) is stationary ([Hin26, Remark 6.19]).
+
+(4)–(7) (*The classes without symmetry.*) Let μ be a class root of [[prop:np-10-30]] (iv), of type
+τ ∈ {s0, sl, vl}, K its range, and ω̄ = ρ^μ w̄ a nonzero indicial solution of the model of type τ (given by S ∈ 𝒮_l or
+V ∈ 𝒱_l). There are ω^(μ)_b ∈ 𝒜^((μ,0)∪(μ+ℰ_ind)) with leading term ω̄ and
+ω^(μ)_b − χ_∂ω̄ ∈ 𝒜^((μ+2,0)∪(μ+2+ℰ_ind)), P_bω^(μ)_b = 0, and ω̆^((μ),k)_b ∈ 𝒜^((μ−k,0)∪(μ−k+ℰ_ind)), 1 ≤ k ≤ K,
+with type τ leading terms, such that ω^((μ),≤k)_b ∈ ker □^Υ_b for k ≤ K. The symmetric gradient
+h^(μ+1)_b := δ*_(g_b)ω^(μ)_b ∈ 𝒜^((μ+1,0)∪(μ+1+ℰ_ind)) has the nonzero leading term (δ̄*)^(0)ω̄, of type τ, and the
+constant coefficient of δ*_(g_b)ω^((μ),≤k)_b is k! h̆^((μ),k)_b, with
+h̆^((μ),k)_b ∈ 𝒜^((μ+1−k,0)∪(μ+1−k+ℰ_ind)).
+
+*Proof.* Each step solves an equation A_0ω̆ = f_1 by [[lem:iii-d3-2-1]]; we name its m_*, the type of the leading
+coefficient of f_1 and the root fact that applies, and identify the leading term by the remark after
+[[lem:iii-d3-2-1]]. *Types.* At b = (m, 0) the operators are invariant under the rotations of x (with c_Υ and c_(Υ,H)
+radial, [[sec:iii-d2-1]]), so every construction from S ∈ 𝒮_l (or V ∈ 𝒱_l) stays in the corresponding isotypic
+component, the type of the class (as in the proof of [[prop:iii-d2-3-1]] (2)); for general b, A_i − A_i^(m) is one
+order lower than A_i − Ā_i ([[sec:iii-d3-1]]), so leading coefficients are unchanged and keep their types. *Model
+solutions.* The model leading terms named below solve the model equations exactly, by [[prop:np-10-29]] and
+[[prop:np-10-30]] (v).
+
+*(1).* ω_s0 := ω^(0)_(b,s0) is Killing, so A_0ω_s0 = 0 and A_1ω_s0 = □^Υ_b(t_*ω_s0)
+= 2δ_(g_b,E_Υ)G_(g_b)(dt_* ⊗_s ω_s0) ∈ ρC^∞. The model has Ā_0W̄ = −Ā_1ω̄_s0 ([[prop:np-10-29]] (i)). So
+ω̆¹ := χ_∂W̄ + ω̆′ with A_0ω̆′ = −(A_1ω_s0 − Ā_1ω̄_s0) − (A_0 − Ā_0)W̄ + (compactly supported). Here
+A_1ω_s0 − Ā_1ω̄_s0 = Q_bω_s0 + Ā_1(ω_s0 − ω̄_s0) ∈ ρ³C^∞ ([[eq:iii-d2-3-2]]) and
+(A_0 − Ā_0)W̄ ∈ ρ⁴ Diff_b²(ρ⁻¹C^∞) ⊂ ρ³C^∞, so [[lem:iii-d3-2-1]] with m_* = 1 (no root) gives
+ω̆′ ∈ 𝒜^((1,0)∪(1+ℰ_ind)). In particular the right side □^Υ_b(t_*ω_s0) has the model's ρ¹ term and no ρ² term. Then
+h^(0)_(b,s0) = dt_* ⊗_s ω_s0 + (δ*_(g_b))^(0)ω̆¹, and
+h^(0)_(b,s0) − h̄^(0)_s0 = dt_* ⊗_s (ω_s0 − ω̄_s0) + ((δ*_(g_b))^(0) − (δ̄*)^(0))W̄ + (δ*_(g_b))^(0)ω̆′, which lies in
+ρ²C^∞ + ρ³ Diff_b⁰(ρ⁻¹C^∞) + 𝒜^((2,0)∪(2+ℰ_ind)); this is [[eq:iii-d3-3-1]]. h̄^(0)_s0 is stationary, homogeneous of
+degree 0, nonzero, and lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ ([[prop:np-10-29]] (i)). For k = 2, 3, 4,
+[[eq:iii-d3-1-3]] asks A_0ω̆^k = −A_1ω̆^(k−1) − A_2ω̆^(k−2); inductively the right side lies in
+ρ Diff_b¹ 𝒜^((−k+1,0)∪(−k+1+ℰ_ind)) + ρ²𝒜^((−k+2,0)∪…), so ρ⁻² of it has m_* = −k, its leading coefficient that of
+−Ā_1ω̆̄^(k−1), of type s0, and −k is no s0 root (R1); [[lem:iii-d3-2-1]] gives ω̆^k ∈ 𝒜^((−k,0)∪(−k+ℰ_ind)). The
+formula for h^((0),≤k): by [[eq:iii-d3-1-4]] with h̆′^j := (δ*_(g_b))^(0)ω̆^j + dt_* ⊗_s ω̆^(j−1), h̆′^0 = 0 and
+h̆′^1 = h^(0)_(b,s0), δ*_(g_b)ω^(≤k+1) = Σ_(i=0)^k ((k + 1)!/(k − i)!) t_*^(k−i) h̆′^(i+1)
+= (k + 1)Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) h̆′^(i+1), and h̆^((0),i)_(b,s0) = h̆′^(i+1); the orders follow from
+[[eq:iii-d3-1-2]].
+
+*(2).* Inductively, for k = 2, 3, 4, the right side of [[eq:iii-d3-1-3]] is −A_1ω̆^(k−1) − A_2ω̆^(k−2) with
+ω̆¹ = ω̆^((0),1)_(b,s1) ∈ 𝒜^((−1,0)∪(1,0)∪(1+ℰ_ind)) ([[eq:iii-d2-3-2]]); ρ⁻² of it has m_* = −k and leading
+coefficient that of −Ā_1ω̆̄^(k−1), of scalar type 1, and −k is no s1 root (R2). [[lem:iii-d3-2-1]] gives ω̆^k, with
+leading term the model's ω̆̄^k_s1. By [[eq:iii-d3-1-4]],
+h̆^k = (δ*_(g_b))^(0)ω̆^k + dt_* ⊗_s ω̆^(k−1) ∈ 𝒜^((−k+1,0)∪…). Its ρ⁻¹ term at k = 2 is h̄²_s1(S), which is half the
+symmetric gradient of t_*²ω̄_s1 + 2t_*ω̆̄¹_s1 + 2W̄_2, stationary because t_*ω̄_s1 + ω̆̄¹_s1 is a boost, and nonzero
+for S ≠ 0 ([[prop:np-10-29]] (ii), as e_Υ ≤ ϵ_1 < 4/7).
+
+*(3).* For k = 1: ω_v1 := ω^(−1)_(b,v1)(V) = V + 𝒜^((2,0)∪…), and −A_1ω_v1 has ρ⁻² of it with m_* = −2 and leading
+coefficient that of −Ā_1V, of vector type 1; −2 is no v1 root (R3), so [[lem:iii-d3-2-1]] gives ω̆¹ with leading
+term the model's, (1 + ⅖γ_Υ)|x|V ([[prop:np-10-29]] (iii)). k = 2, 3 are as in (2), with m_* = −k − 1 and (R3).
+h̆¹ = (δ*_(g_b))^(0)ω̆¹ + dt_* ⊗_s ω_v1 has the leading term (δ̄*)^(0)((1 + ⅖γ_Υ)|x|V) + dt_* ⊗_s V, which is
+[[eq:iii-d3-3-3]]. If R_V is Killing for g_b, ω_v1 = g_b(R_V, ·) ([[prop:iii-d2-3-1]] (3)), so δ*_(g_b)ω_v1 = 0 and
+h^(≤1)_(b,v1) = h̆¹_(b,v1).
+
+*(4)–(7).* P_b(χ_∂ω̄) = χ_∂(A_0 − Ā_0)ω̄ + (compactly supported), and
+(A_0 − Ā_0)ω̄ ∈ ρ⁴ Diff_b²(ρ^μC^∞) ⊂ ρ^(μ+4)C^∞, whose leading coefficient comes from g_m − ḡ (the rotation enters one
+order lower) and so is of type τ; [[lem:iii-d3-2-1]] with m_* = μ + 2 ≤ 2 (no type τ root, (R4)) gives ω′ with
+P_bω′ = −P_b(χ_∂ω̄), and ω^(μ)_b := χ_∂ω̄ + ω′. Its symmetric gradient:
+(δ*_(g_b))^(0)ω^(μ)_b = (δ̄*)^(0)ω̄ + ((δ*_(g_b))^(0) − (δ̄*)^(0))ω̄ + (δ*_(g_b))^(0)ω′, the last two in ρ^(μ+3); the
+first is ρ^(μ+1)N(ρ⁻¹(δ̄*)^(0), μ)w̄, nonzero by (R5), as μ ∉ {0, −1}. The recursion [[eq:iii-d3-1-3]]: for
+1 ≤ k ≤ K, the right side −A_1ω̆^(k−1) − A_2ω̆^(k−2) has ρ⁻² of it with m_* = μ − k and leading coefficient that of
+−Ā_1ω̆̄^(k−1), of type τ, while its other terms are lower by at least ϵ_ind, which is all the identification of the
+leading coefficient needs: (A_1 − Ā_1)ω̆̄^(k−1) and A_2ω̆^(k−2) are in ρ^(μ−k+4), Ā_1(ω̆^(k−1) − ω̆̄^(k−1)) is in
+𝒜^(μ−k+2+ℰ_ind) by [[lem:iii-d3-2-1]], and (A_0 − Ā_0) applied to the leading term to be found is in ρ^(μ−k+4).
+μ − k is no type τ root (R4), so [[lem:iii-d3-2-1]] gives ω̆^k with leading term the model's ω̆̄^k
+([[prop:np-10-30]] (v)). The corrections, lower by at least ϵ_ind, may meet roots, and their logarithms are in
+μ − k + ℰ_ind. The statements about h̆^((μ),k)_b follow from [[eq:iii-d3-1-4]]. ∎
+
+*Remarks.* (a) [Hin26] also states that the leading terms h̄^(0)_s0, h̄²_s1(S), h̄¹_v1(V) and (δ̄*)^(0)ω̄ span the
+kernels of the indicial families of the model of the linearised gauge-fixed Einstein operator at the corresponding
+roots, N_τ(L̄(0), ι), ι = 0, −1, −1, μ + 1. That is a statement about L̄, whose indicial roots and kernels are
+[Hin26, Lemma 8.4] in dimension 4 + 1; it is proved with that lemma, in [[ch:s15]]. (b) *The window.* The classes and
+their degrees are [Hin26]'s, chosen there to capture the pure gauge contributions down to t_*⁻⁴ in the late-time
+expansion on Kerr. Which window dimension 4 + 1 needs is decided by the decay proved in [[ch:s19]]–[[ch:s24]]; if it
+is wider, the same construction applies to the further roots, given the corresponding root facts. (c) *No logarithm in
+(1).* [Hin26]'s ω̆^((0),1)_(b,s0) lies in 𝒜^((−1,0)∪(0,1)∪(1+ℰ_ind)), with log ρ at the s0 root 0, from the ρ² term of
+its right side; in dimension 4 + 1 that term vanishes. (d) The coefficients β_e and (a_2, b_2, k_2) of
+[[prop:np-10-29]] carry e_Υ⁻¹: at e_Υ = 0, −1 at s0 and −2 at s1 are indicial roots of P_b, the integer coincidences
+that e_Υ > 0 removes [Hin26, p. 81]. The same coincidences at e_Υ = 0 are those of [[prop:np-10-30]] (iv) at z = 0.

@@ -48,7 +48,8 @@ constant c,
 
     R[G(·, · + c)](X, θ) = R[G](X, θ + c).                                                       {#eq:phase-equivariance}
 
-(b) If Φ is a smooth function on Ω, possibly depending on λ, and u = v + λΦ, then for each λ R[G(·, · + Φ)](X, θ) = R_u[G](X, θ + Φ(X)).
+(b) If Φ is a smooth function on Ω, possibly depending on λ, and u = v + λΦ, then for each λ R[G(·, · + Φ)](X, θ) =
+R_u[G](X, θ + Φ(X)).
 
 *Proof.* (b) contains (a): for Φ = c, ∂u = ∂v, so R_u = R. For a profile f put f_Φ(X, θ) := f(X, θ + Φ(X)). Then
 
@@ -97,14 +98,14 @@ The leading coefficient R^(0) of a wave on g0 has a closed form once the wave is
 where ∇ is the Levi-Civita connection of g0 acting on W at fixed θ, □_(g0) the wave operator of g0 on functions, and
 |∂_θ W|² := g0^(ac) g0^(bd) ∂_θ W_ab ∂_θ W_cd.
 
-*Proof.* We compute with profiles. The formulas below for Ric(g), C, D and S are polynomial identities in the 2-jet of
-h := g − g0 at a point, with coefficients from the 2-jet of g0, and they hold for every symmetric array of second
-derivatives. The two-scale derivative ∂^v_a := ∂_a + λ⁻¹ v_a ∂_θ satisfies ∂^v_a ∂^v_b = ∂^v_b ∂^v_a, and ∂_a [F] = [∂^v_a
-F] in every chart, since v is a scalar. So the identities hold for profiles, with ∂_a replaced by ∂^v_a and the
+*Proof.* We compute with profiles. The formulas below for Ric(g), C, D and S are polynomial identities in the 2-jet of h
+:= g − g0 at a point, with coefficients from the 2-jet of g0, and they hold for every symmetric array of second
+derivatives. The two-scale derivative ∂^v_a := ∂_a + λ⁻¹ v_a ∂_θ satisfies ∂^v_a ∂^v_b = ∂^v_b ∂^v_a, and ∂_a [F] =
+[∂^v_a F] in every chart, since v is a scalar. So the identities hold for profiles, with ∂_a replaced by ∂^v_a and the
 covariant derivative of g0 by ∇^v_a := ∇_a + λ⁻¹ v_a ∂_θ, where ∇_a acts at fixed θ; R[g0 + λ W] is Ric^H(g0 + λ W)
 computed in this way, in any chart, and we identify the coefficients of the powers of λ, which are profiles. Write ∂ :=
-∂_θ and v_a := ∂_a v, raise and lower indices with g0, so that ℓ^a = g0^(ab) v_b, and put h := λ W, g := g0 + h.
-The hypotheses give, at every (X, θ),
+∂_θ and v_a := ∂_a v, raise and lower indices with g0, so that ℓ^a = g0^(ab) v_b, and put h := λ W, g := g0 + h. The
+hypotheses give, at every (X, θ),
 
     W_ab ℓ^b = 0,   ∂W_ab ℓ^b = 0,   ℓ^a v_a = 0,   g0^(ab) W_ab = 0,   g0^(ab) ∂W_ab = 0.
 
@@ -133,8 +134,9 @@ is −(1/2)(2 W^(ab) v_a ∂W_b^ρ − ℓ^ρ W·∂W) = (1/2) ℓ^ρ W·∂W. S
     D_1^ρ = (div W)^ρ + (1/2) ℓ^ρ W·∂W.
 
 The order λ⁻¹. The only terms of size λ⁻¹ come from the derivatives of C_0 in phase: ∇^v_c C^c_ab − ∇^v_b C^c_ac
-contains λ⁻¹ (v_c ∂C_0^c_ab − v_b ∂C_0^c_ac). Since C_0^c_ac = 0, this is λ⁻¹ v_c ∂C_0^c_ab = λ⁻¹ (1/2) ∂(v_a v_c
-∂W_b^c + v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab) = 0, because v_c ∂W_b^c = ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1) because D = O(λ). So R^(−1) = 0.
+contains λ⁻¹ (v_c ∂C_0^c_ab − v_b ∂C_0^c_ac). Since C_0^c_ac = 0, this is λ⁻¹ v_c ∂C_0^c_ab = λ⁻¹ (1/2) ∂(v_a v_c ∂W_b^c
++ v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab) = 0, because v_c ∂W_b^c = ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1)
+because D = O(λ). So R^(−1) = 0.
 
 The order λ⁰ of Ric(g) − Ric(g0) has four parts.
 
@@ -264,11 +266,12 @@ transport
     (∂_r + 3/(2r)) ∂_θ χ = F_2                                                                        {#eq:chi-transport}
 
 along ℓ = ∂_r: first ∂_θ χ, a second harmonic, is found by integrating along the integral curves of ℓ, which from every
-point of Ω reach Σ_τ0 inside Ω [[lem:domain]] (d), and χ is its primitive in θ with zero mean. Then R^(0)
-≡ 0 identically in (X, θ). The function χ is smooth on Ω × S¹, at the axes of the T² action included: ℓ has no angular
-component, so the transport preserves smoothness on S³, and its right-hand side F_2 is built from g0 and W_TT, which is smooth at both axes ([[lem:waves]] (a)); explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² =
-(x1² + x2²)/r² and s² = (x3² + x4²)/r², with h² = 2/(1 + cos² 2ϑ) and cos 2ϑ = (x1² + x2² − x3² − x4²)/r², which is
-smooth on r > 0.
+point of Ω reach Σ_τ0 inside Ω [[lem:domain]] (d), and χ is its primitive in θ with zero mean. Then R^(0) ≡ 0
+identically in (X, θ). The function χ is smooth on Ω × S¹, at the axes of the T² action included: ℓ has no angular
+component, so the transport preserves smoothness on S³, and its right-hand side F_2 is built from g0 and W_TT, which is
+smooth at both axes ([[lem:waves]] (a)); explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² = (x1²
++ x2²)/r² and s² = (x3² + x4²)/r², with h² = 2/(1 + cos² 2ϑ) and cos 2ϑ = (x1² + x2² − x3² − x4²)/r², which is smooth on
+r > 0.
 
 ### The ansatz {#sec:ansatz}
 
@@ -314,22 +317,21 @@ order; in φ_m through dφ_m and □̃φ_m, the latter only as −(1/2)(□̃φ_
 *Proof.* We count weights. A factor of stage m + 1 has weight m + 1 (ĝ_(m+1), m_(m+1)) or contributes the derivative λ^m
 (∂φ_(m+1)) ∂_θ of weight m. In a monomial of order m containing ĝ_(m+1), the other factors and the derivatives therefore
 have weights summing to −1. Every weight is at least 0 except that of λ⁻¹ (∂v) ∂_θ, and there are at most two
-derivatives. Let n be the number of derivatives λ⁻¹ (∂v) ∂_θ in the monomial; then n ∈ {1, 2}, and the other factors
-and derivatives have weights summing to n − 1. If n = 1, they all have weight 0, and the derivative λ⁻¹ (∂v) ∂_θ hits
-ĝ_(m+1), since ∂_θ needs an oscillating factor and the only factor of weight 0 is g0. If n = 2, exactly one other
-factor has weight 1 and every other factor and derivative weight 0; the two derivatives λ⁻¹ (∂v) ∂_θ both hit
-ĝ_(m+1), or one hits ĝ_(m+1) and the other W, or both hit W while ĝ_(m+1) stands undifferentiated in g⁻¹ (the term
-(1/2) ĝ_(m+1)(ℓ, ℓ) ∂_θ² W). In every case ĝ_(m+1) appears linearly, since two such factors have
-weight at least 2(m + 1) − 2 > m, and the other factors have weight at most 1: they are g0, v, W, m1 and φ1 (the
-derivative (∂φ1) ∂_θ having weight 0). These are the factors of weight at most 1 of G1 and u1, and the same count
-applies to λ Y in R_(u1)[G1 + ε λ Y], which has weight 1; so these terms are T̂ ĝ_(m+1). A monomial of order m
-containing m_(m+1) or ∂φ_(m+1) has the remaining weights summing to −1 or 0 respectively; they arise only in the phase
-contraction [[eq:eikonal-coefficients]], where both derivatives of λ W fall on the phase, and give −(1/2) e_(m+1) ∂_θ²
-W. Two factors among m_m and ∂φ_m have weights at least
-m − 1 each (m_m has weight m, and the derivative λ^(m−1) (∂φ_m) ∂_θ weight m − 1), and every ∂_θ needs an oscillating
-factor, of weight at least 1; so they reach order m only when m = 1, in the phase contraction, through the q_2 terms, which [[eq:eikonal-coefficients]] places in
-e_2. The second harmonic of W hit twice by λ⁻¹ (∂v) ∂_θ is contracted with ḡ⁻¹(dv, dv), of weight at least 1, since
-g0⁻¹(dv, dv) = 0.
+derivatives. Let n be the number of derivatives λ⁻¹ (∂v) ∂_θ in the monomial; then n ∈ {1, 2}, and the other factors and
+derivatives have weights summing to n − 1. If n = 1, they all have weight 0, and the derivative λ⁻¹ (∂v) ∂_θ hits
+ĝ_(m+1), since ∂_θ needs an oscillating factor and the only factor of weight 0 is g0. If n = 2, exactly one other factor
+has weight 1 and every other factor and derivative weight 0; the two derivatives λ⁻¹ (∂v) ∂_θ both hit ĝ_(m+1), or one
+hits ĝ_(m+1) and the other W, or both hit W while ĝ_(m+1) stands undifferentiated in g⁻¹ (the term (1/2) ĝ_(m+1)(ℓ, ℓ)
+∂_θ² W). In every case ĝ_(m+1) appears linearly, since two such factors have weight at least 2(m + 1) − 2 > m, and the
+other factors have weight at most 1: they are g0, v, W, m1 and φ1 (the derivative (∂φ1) ∂_θ having weight 0). These are
+the factors of weight at most 1 of G1 and u1, and the same count applies to λ Y in R_(u1)[G1 + ε λ Y], which has weight
+1; so these terms are T̂ ĝ_(m+1). A monomial of order m containing m_(m+1) or ∂φ_(m+1) has the remaining weights summing
+to −1 or 0 respectively; they arise only in the phase contraction [[eq:eikonal-coefficients]], where both derivatives of
+λ W fall on the phase, and give −(1/2) e_(m+1) ∂_θ² W. Two factors among m_m and ∂φ_m have weights at least m − 1 each
+(m_m has weight m, and the derivative λ^(m−1) (∂φ_m) ∂_θ weight m − 1), and every ∂_θ needs an oscillating factor, of
+weight at least 1; so they reach order m only when m = 1, in the phase contraction, through the q_2 terms, which
+[[eq:eikonal-coefficients]] places in e_2. The second harmonic of W hit twice by λ⁻¹ (∂v) ∂_θ is contracted with ḡ⁻¹(dv,
+dv), of weight at least 1, since g0⁻¹(dv, dv) = 0.
 
 Apart from the q_2 terms, which [[eq:eikonal-coefficients]] places in e_2, the stage-m unknowns m_m and φ_m therefore
 appear linearly at order m. The mean m_m, of weight m, reaches order m undifferentiated in θ; its second derivatives
@@ -356,19 +358,19 @@ derivatives, v and W alone. In particular, when e_1 = 0, T̂ does not depend on 
     ∂^(u1)_a ∂^(u1)_b (λ Y) = λ⁻¹ v_a v_b ∂_θ² Y + v_a ∂_b ∂_θ Y + v_b ∂_a ∂_θ Y + (∂_a ∂_b v) ∂_θ Y
                     + (v_a ∂_b φ1 + v_b ∂_a φ1) ∂_θ² Y + O(λ),
 
-and G1⁻¹ = g0⁻¹ − λ (m1 + W)^♯ + O(λ²). The principal term −(1/2) G1^(ab) ∂^(u1)_a ∂^(u1)_b (λ Y) therefore contributes at order
-λ⁰
+and G1⁻¹ = g0⁻¹ − λ (m1 + W)^♯ + O(λ²). The principal term −(1/2) G1^(ab) ∂^(u1)_a ∂^(u1)_b (λ Y) therefore contributes
+at order λ⁰
 
     −(ℓ·∂_X) ∂_θ Y − (1/2)(□̃v) ∂_θ Y − (ℓ·dφ1) ∂_θ² Y + (1/2)(m1 + W)(ℓ, ℓ) ∂_θ² Y
         = −(ℓ·∂_X) ∂_θ Y − (1/2)(□̃v) ∂_θ Y − (1/2) e_1 ∂_θ² Y,
 
 since W(ℓ, ℓ) = 0 and e_1 = 2 ℓ·dφ1 − m1(ℓ, ℓ). The variation of G⁻¹ in the principal term, −λ Y^♯ + O(λ²), meets
-∂^(u1)_a ∂^(u1)_b G1 = λ⁻¹ v_a v_b ∂_θ² W + O(1) and gives (1/2) Y(ℓ, ℓ) ∂_θ² W. The remaining terms of Ric^H are of first order
-in g [[sec:gauge]]; their variation contains ∂^(u1)(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from G1, ∂^(u1) G1 and g0,
-bounded profiles whose parts of order λ⁰ are built from g0, ∂g0 and dv ⊗ ∂_θ W (m1 has zero θ-derivative, and φ1
-enters ∂^(u1) G1 only at order λ), and λ Y times bounded profiles, which is O(λ). So T̂ Y = −(ℓ·∂_X) ∂_θ Y −
-(1/2) e_1 ∂_θ² Y + ℳ Y with ℳ Y := −(1/2)(□̃v) ∂_θ Y + (1/2) Y(ℓ, ℓ) ∂_θ² W + B·(dv ⊗ ∂_θ Y), B a bounded profile built from g0, ∂g0, v and
-W. With e_1 = 0 this is the claim; m1 and φ1 entered only through e_1. ∎
+∂^(u1)_a ∂^(u1)_b G1 = λ⁻¹ v_a v_b ∂_θ² W + O(1) and gives (1/2) Y(ℓ, ℓ) ∂_θ² W. The remaining terms of Ric^H are of
+first order in g [[sec:gauge]]; their variation contains ∂^(u1)(λ Y) = dv ⊗ ∂_θ Y + O(λ) times coefficients built from
+G1, ∂^(u1) G1 and g0, bounded profiles whose parts of order λ⁰ are built from g0, ∂g0 and dv ⊗ ∂_θ W (m1 has zero
+θ-derivative, and φ1 enters ∂^(u1) G1 only at order λ), and λ Y times bounded profiles, which is O(λ). So T̂ Y =
+−(ℓ·∂_X) ∂_θ Y − (1/2) e_1 ∂_θ² Y + ℳ Y with ℳ Y := −(1/2)(□̃v) ∂_θ Y + (1/2) Y(ℓ, ℓ) ∂_θ² W + B·(dv ⊗ ∂_θ Y), B a
+bounded profile built from g0, ∂g0, v and W. With e_1 = 0 this is the claim; m1 and φ1 entered only through e_1. ∎
 
 **Lemma {#lem:linear-wave}** (Linear wave equations on Ω.) Let d ≥ 1, and let B^a and C be smooth d × d matrices of
 functions on Ω, smooth meaning that all their derivatives extend continuously to the boundary. For every smooth f on Ω
@@ -429,10 +431,10 @@ whose mean is zero. For Z := ∂_θ ĝ_(m+1), equation (c) is the transport
 
     −(ℓ·∂_X) Z + ℳ' Z = F
 
-along ℓ, with ℳ' := Π_osc ℳ ∂_θ⁻¹ a bounded operator on smooth zero-mean profiles ([[lem:first-stage-operator]]; ∂_θ⁻¹ the
-zero-mean primitive): an ordinary differential equation along the integral curves of ℓ, which reach Σ_τ0 inside Ω
-[[lem:domain]] (d). Its right-hand side contains □̃φ_m. Put Ψ_m := □̃φ_m. By the commutator identity for
-[L0, □̃] [[eq:commutator]] applied to (b), Ψ_m satisfies the transport
+along ℓ, with ℳ' := Π_osc ℳ ∂_θ⁻¹ a bounded operator on smooth zero-mean profiles ([[lem:first-stage-operator]]; ∂_θ⁻¹
+the zero-mean primitive): an ordinary differential equation along the integral curves of ℓ, which reach Σ_τ0 inside Ω
+[[lem:domain]] (d). Its right-hand side contains □̃φ_m. Put Ψ_m := □̃φ_m. By the commutator identity for [L0, □̃]
+[[eq:commutator]] applied to (b), Ψ_m satisfies the transport
 
     L0 Ψ_m − (2/r) Ψ_m = −(1/2) □̃(m_m(ℓ, ℓ) + q_m) − (1/r)(∂_τ + ∂_r)(m_m(ℓ, ℓ) + q_m) − (3/r²) ∂_r φ_m,
 

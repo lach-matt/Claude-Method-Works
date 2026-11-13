@@ -29,14 +29,14 @@ correction. No logarithm enters, the cut-off forcing terms are supported in a co
 the window (0, ϵ_ind) of the weights of [Hin26] becomes (0, 1). [Hin26, Proposition 10.7] rests on [Hin26c, Theorem
 9.41] with augmentation columns that depend on σ; [[thm:i-c-6-4]] allows only constant, compactly supported columns, and
 [[thm:iii-h-4-1]] extends it. [Hin26, Lemma 10.5] (partial polyhomogeneity) is used in [Hin26] only in its Section 11.5
-and is not needed here. In the proof of [Hin26, Theorem 10.1] in dimension 3 + 1, the derivatives ∂_(t_*)ġ and
-∂²_(t_*)h_s1 of the contributions of the states have sf-weights −½ − ϵ and ½ − ϵ, and the two integrations in t_* end
-at −3/2 − ϵ, below α_sf; this is the sf-loss δ > α_sf + 3/2 of [Hin26, Theorem 10.1]. In dimension 4 + 1 the
-transforms of the cut-off states decay rapidly at scf ([[lem:iii-h-2-5]]), the derivatives have sf-weights below 0 and
-1, which leaves room for α_sf + 1 and α_sf + 2, and the integrations return to α_sf itself ([[lem:iii-h1-5-1]] and
-[[sec:iii-h1-7]]). No splitting at ℐ⁺ ([Hin26, (10.57)]) and no condition at the outgoing radial set ([Hin26, Remark
-10.2], used in the proof of [Hin26, Lemma 10.12]) is needed. Several steps of [Hin26] need more than is stated there,
-in dimension 3 + 1 as in 4 + 1; [[sec:s18-remarks]] collects them.
+and is not needed here. In the proof of [Hin26, Theorem 10.1] in dimension 3 + 1, the derivatives ∂_(t_*)v_ġ and
+∂²_(t_*)v_h of the contributions of the states ([[eq:iii-h1-5-1]]) have sf-weights −½ − ϵ and ½ − ϵ, and the two
+integrations in t_* end at −3/2 − ϵ, below α_sf; this is the sf-loss δ > α_sf + 3/2 of [Hin26, Theorem 10.1]. In
+dimension 4 + 1 the transforms of the cut-off states decay rapidly at scf ([[lem:iii-h-2-5]]), the derivatives have
+sf-weights below 0 and 1, which leaves room for α_sf + 1 and α_sf + 2, and the integrations return to α_sf itself
+([[lem:iii-h1-5-1]] and [[sec:iii-h1-7]]). No splitting at ℐ⁺ ([Hin26, (10.57)]) and no condition at the outgoing
+radial set ([Hin26, Remark 10.2], used in the proof of [Hin26, Lemma 10.12]) is needed. Several steps of [Hin26] need
+more than is stated there, in dimension 3 + 1 as in 4 + 1; [[sec:s18-remarks]] collects them.
 
 *The inner radius.* Every result of the chapter holds with the inner radius r_0 = r_♭ ∈ (0, ½R_1] of [[def:s12-radii]]
 as a parameter, with constants that depend on it. The radius enters only through r ≥ r_0 > 0 on X, through the spaces,
@@ -50,8 +50,9 @@ is written |σ|⁻¹. Large exponents of decay are written M. The Fourier transf
 
 ### Setting {#sec:iii-h-1}
 
-*Parameters.* They are those of [[sec:iii-f3-1]] and [[sec:iii-f4-1]]: b = (m, A) near b_0, the modification
-parameters with (Dyn), (C1) and γ_Υ small, and a constant regularity s > ½ + ϑ_L ([[lem:iii-f2-1-1]]). The pairing is
+*Parameters.* They are those of [[sec:iii-f3-1]] and [[sec:iii-f4-1]]: b = (m, A) near b_0, the modification parameters
+with (Dyn), condition (C1) of [[sec:iii-f1-1]] and γ_Υ small, and a constant regularity s > ½ + ϑ_L
+([[lem:iii-f2-1-1]]). (The conditions (C1)–(C3) of [[def:iii-h1-1-1]] below are different ones.) The pairing is
 ⟨u, v⟩ := ∫_X ⟨u, v⟩_(g_b) |dx|. On X we write r := |x|, so r ≥ r_0 > 0, and ρ is the boundary defining function of
 [[sec:i-c-6]], ρ = 1/r; [[sec:ii-g1-4-3]] uses ⟨x⟩⁻¹, which on {r ≥ 1} differs from 1/r by a smooth factor with values
 in [2^(−1/2), 1].
@@ -73,7 +74,7 @@ satisfies (H1)–(H5) of [[sec:i-a-1]], with index 0 at σ ≠ 0 ([[cor:iii-f2-1
     Σ_0 := {σ ∈ ℂ : 0 < |σ| ≤ 1, Im σ ≥ 0}.
 
 *The operator.* By [[sec:iii-f4-2]], L_b = L_0 + L_1∂_(t_*) + L_2∂²_(t_*) with stationary operators L_j on X: on
-stationary sections L_0 = L̂_b(0), L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*], and
+stationary sections L_0 = L̂_b(0), L_1 = [L_b, t_*] and L_2 = ½[ [L_b, t_*], t_* ], and
 
     L̂_b(σ) = L_0 − iσL_1 − σ²L_2.
 
@@ -84,7 +85,7 @@ which rest on [[lem:iii-f-2-1]]; [[eq:i-c-1-1]]). On compact subsets of X the L_
 
     ġ(ḃ) := ṁ ġ^Υ_b(1, 0) + ġ^Υ_b(0, Ȧ),
 
-with ġ^Υ_b of [[prop:iii-f3-2-2]], and for S ∈ 𝒮_1 let h(S) := h_(b,s1)(S) and h̆(S) := h̆^1_(b,s1)(S)
+with ġ^Υ_b of [[prop:iii-f3-2-2]], and for S ∈ 𝒮_1 let h(S) := h_(b,s1)(S) and h̆(S) := h̆¹_(b,s1)(S)
 ([[eq:iii-f3-4-2]]; [[prop:iii-d2-3-1]], which is [Hin26, Proposition 6.15] in dimension 4 + 1). These sections are
 smooth on X and conormal at ∂X. Their weights (the largest q with the state in 𝒜^q) are 2 for ġ(1, 0), 3 for ġ(0, Ȧ),
 3 for h(S) and 2 for h̆(S) ([[sec:iii-f4-1]]). The generalised state is
@@ -237,7 +238,7 @@ b-derivatives ([[sec:ii-g1-4-3]]). f̂_c is bounded in C^∞, uniformly for |σ|
 M = 𝗋′_out + 3 + ϵ.
 
 (c) On supp φ(ρ/ς) ⊂ {ρ ≥ 2ς}, |σr| ≤ ½, and by (a) and Taylor's formula
-|(r∂_r)^a∂_ω^β(G(σr, x) − G(0, x))| ≤ C|σ|r there; the b-derivatives of φ(ρ/ς) are bounded uniformly in ς. So
+|(r∂_r)^(a′)∂_ω^β(G(σr, x) − G(0, x))| ≤ C|σ|r there; the b-derivatives of φ(ρ/ς) are bounded uniformly in ς. So
 |f̂_∞(σ) − f̂_∞(0)| ≤ Cςρ² there, together with b-derivatives. As H̄_b^(p,a) = ρ^(a+2)H̄_b^p(μ_b), the part of the left
 side of [[eq:iii-h-2-5]] over {r ≥ 1} is at most
 
@@ -290,19 +291,19 @@ continuous on {Im σ ≥ 0} ∖ 0, pointwise in x ([[lem:iii-h-2-4]] (d) and (b)
 So, as σ → 0, ĝ^aug(σ) ∼ iσ⁻¹ġ and ĥ^aug(σ) ∼ −σ⁻²h + iσ⁻¹h̆ on compact sets. These are the naive columns of
 [Hin26, (10.5)], whose spacetime counterparts are H(t_*)ġ and H(t_*)(t_*h + h̆), H the Heaviside function.
 
-**Remark {#rem:iii-h-2-6}** (Uniformity in b.) [[lem:iii-h-2-2]]–[[lem:iii-h-2-4]] are stated at fixed b; near b_0
-their bounds hold uniformly with a loss δ > 0. The states depend continuously on b with values in H̄_b^(p,a) for every
-p and every a below their weights minus 2: for ġ(ḃ) by [[prop:iii-f3-2-2]] (3), at every regularity; for h(S) and
-h̆(S) by [[lem:iii-d2-2-2]], the continuity of the 1-forms ω′_b, ω̆′_b in H̄_b^(s,α) below their weight, δ*_(g_b)
-gaining one order of decay. And H̄_b^(∞,a) ⊂ 𝒜^(a+2) (b-Sobolev embedding, as H̄_b^(p,a) = ρ^(a+2)H̄_b^p(μ_b)). So for
-every δ > 0 the states are bounded in 𝒜^(2−δ) (ġ(1, 0) and h̆(S)), resp. 𝒜^(3−δ) (ġ(0, Ȧ) and h(S)), and in C^∞ on
-compact subsets of X, locally uniformly in b; and the coefficients of L_b depend smoothly on b. The proofs then give,
-uniformly for b near b_0: [[eq:iii-h-2-1]] with r^(−4+δ); f̂(0) bounded in 𝒜^(3−δ) and w in 𝒜^(1−δ);
-[[eq:iii-h-2-3]] with |G| ≤ Cr^δ⟨ζ⟩^(−M), together with its derivatives; [[lem:iii-h-2-4]] (b) for β_tf < 3 − δ;
-[[eq:iii-h-2-5]] with |σ|^(1−a−δ); and the bounds in the proof of [[lem:iii-h-5-2]] (b) with ρ^(3−δ). By
-[[eq:iii-h-2-2]], f̂(0) depends continuously on b in H̄_b^(∞,a) for every a < 1. Where uniformity in b is used (the bound
-of [[prop:iii-h-3-2]], [[cor:iii-h-4-2]], [[cor:iii-h-4-3]] and [[lem:iii-h-5-2]]) the weights leave room for the loss:
-with δ := ϵ_0 := ¼(1 − (α + 2)), α + 2 + ϵ_0 < 1 − δ and 1 − (α + 2) − δ ≥ ϵ_0.
+**Remark {#rem:iii-h-2-6}** (Uniformity in b.) [[lem:iii-h-2-2]]–[[lem:iii-h-2-4]] are stated at fixed b; near b_0 their
+bounds hold uniformly with a loss δ > 0. The states depend continuously on b with values in H̄_b^(p,a) for every p and
+every a below their weights minus 2: for ġ(ḃ) by [[prop:iii-f3-2-2]] (3), at every regularity; for h(S) and h̆(S) by
+[[prop:iii-d2-3-1]] and [[lem:iii-d2-2-2]], the 1-forms ω^(0)_(b,s1)(S) and ω̆^((0),1)_(b,s1)(S) being continuous in b
+in H̄_b^(s,α) below their weight and δ*_(g_b) gaining one order of decay. And H̄_b^(∞,a) ⊂ 𝒜^(a+2) (b-Sobolev embedding,
+as H̄_b^(p,a) = ρ^(a+2)H̄_b^p(μ_b)). So for every δ > 0 the states are bounded in 𝒜^(2−δ) (ġ(1, 0) and h̆(S)), resp.
+𝒜^(3−δ) (ġ(0, Ȧ) and h(S)), and in C^∞ on compact subsets of X, locally uniformly in b; and the coefficients of L_b
+depend smoothly on b. The proofs then give, uniformly for b near b_0: [[eq:iii-h-2-1]] with r^(−4+δ); f̂(0) bounded in
+𝒜^(3−δ) and w in 𝒜^(1−δ); [[eq:iii-h-2-3]] with |G| ≤ Cr^δ⟨ζ⟩^(−M), together with its derivatives; [[lem:iii-h-2-4]] (b)
+for β_tf < 3 − δ; [[eq:iii-h-2-5]] with |σ|^(1−a−δ); and the bounds in the proof of [[lem:iii-h-5-2]] (b) with ρ^(3−δ).
+By [[eq:iii-h-2-2]], f̂(0) depends continuously on b in H̄_b^(∞,a) for every a < 1. Where uniformity in b is used (the
+bound of [[prop:iii-h-3-2]], [[cor:iii-h-4-2]], [[cor:iii-h-4-3]] and [[lem:iii-h-5-2]]) the weights leave room for the
+loss: with δ := ϵ_0 := ¼(1 − (α + 2)), α + 2 + ϵ_0 < 1 − δ and 1 − (α + 2) − δ ≥ ϵ_0.
 
 ### The augmented zero energy operator {#sec:iii-h-3}
 
@@ -784,3 +785,334 @@ Im σ > 0 ([[thm:i-a-7-2]] (6)), and is polynomially bounded for |Re σ| ≥ C_0
 decay of f̂, Cauchy's theorem moves the contour to Im σ = γ″ ∈ (0, γ), and then to 𝒞_− ∪ 𝒞_0 ∪ 𝒞_+: on
 |Re σ| ≥ c/2, L̂_b(σ)⁻¹ is continuous up to the real axis ([[thm:i-a-7-2]] (6) at each real σ_* ≠ 0, where it is
 invertible), with the polynomial bounds above for dominated convergence. ∎
+
+### High frequencies {#sec:iii-h1-3}
+
+This section is [Hin26, Lemma 10.9] in dimension 4 + 1.
+
+**Lemma {#lem:iii-h1-3-1}** Let
+
+    u_hi(t_*, ·) := (2π)⁻¹ ∫_(ℝ∖[−c/2,c/2]) e^(−iσt_*)(1 − χ(|σ|)) L̂_b(σ)⁻¹ f̂(σ) dσ.
+
+Then, for every ϵ > 0 below the margins of [[lem:iii-h1-1-2]] (a),
+
+    ‖u_hi‖_(H^((𝗌;k),(α_sf+1−2ϵ,0))_(3b;b)(M_0)) ≤ C_ϵ ‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).       {#eq:iii-h1-3-1}
+
+This is [Hin26, (10.44)] with α_sf + 1 − 2ϵ in place of α_sf; the weight α_sf would need a stronger threshold at the
+incoming radial set ([[sec:s18-remarks]]).
+
+*Proof.* Write β := α_sf + 1. The transform û_hi is supported in |σ| ≥ c/2, and on c/2 ≤ |σ| ≤ 1 the sc-b norm at σ
+and the semiclassical norm at the semiclassical parameter |σ|⁻¹ are both equivalent to the fixed norm, uniformly on this
+compact set (the parameterised calculus, (S7) in [[sec:ii-a-3]]). So by [[lem:ii-a-5-2]],
+
+    ‖u_hi‖² ∼ Σ_(j_1+j_2≤k) ∫_(|σ|≥c/2) ‖σ^(j_1)(σ∂_σ)^(j_2) û_hi(σ)‖²_((𝗌_σ;k−j_1−j_2),𝗌_σ+β,𝗌_σ) dσ,
+
+in the semiclassical norms of [[lem:ii-a-5-2]] at the semiclassical parameter |σ|⁻¹. By Leibniz, (σ∂_σ)^(j_2)û_hi is a
+combination of bounded functions of σ (from 1 − χ) times ((σ∂_σ)^(j′)L̂_b⁻¹)(σ)(σ∂_σ)^(j_3)f̂(σ), j′ + j_3 ≤ j_2.
+
+*|σ| ≥ C_0.* Apply [[thm:i-b-1-3]] (5) with the orders of [[lem:iii-h1-1-2]] (b), the weight β, j′ and k − j_1 − j_2:
+with δ := δ_Γ(−ϵ),
+
+    ‖(σ∂_σ)^(j′) L̂_b(σ)⁻¹ g‖_((s_c;k−j_1−j_2),𝗋+β,𝖻;+) ≤ C|σ|^(−1+(j′+1)δ) ‖g‖_((s_c−1;k−j_1−j_2+j′),𝗋+β+1,𝖻;+),
+
+the left side bounding the norm above (s_c + j′ ≥ s_c, and the subscript + only adds terms). The norm with subscript +
+on the right is at most C Σ_(j_4≤k−j_1−j_2+j′) |σ|^(j_4) ‖g‖_((s_c−1;k−j_1−j_3−j_4),𝗋+β+1,𝖻), since it tests in
+addition with multiplication by |σ|; and (s_c − 1)-norms are bounded by s_c-norms. As δ_Γ is continuous and
+δ_Γ(0) < 1/(2(k + 1)) at b ∈ ℬ_k, ϵ > 0 can be fixed with (k + 1)δ ≤ 1. Then
+|σ|^(2(j_1−1+(j′+1)δ+j_4)) ≤ |σ|^(2(j_1+j_4)), and the integrand is bounded by
+
+    C Σ |σ|^(2(j_1+j_4)) ‖(σ∂_σ)^(j_3) f̂(σ)‖²_((𝗌_σ;k−j_1−j_3−j_4),𝗌_σ+β+1,𝗌_σ),     j_1 + j_4 + j_3 ≤ k.
+
+*c/2 ≤ |σ| ≤ C_0.* L̂_b(σ) is invertible there ([[cor:iii-h-4-4]]). The induced pairs (s_c, 𝗋_σ), σ in this compact
+set, depend continuously on σ in C^∞ and are admissible at σ with the weight β ([[lem:iii-h1-1-2]] (a)), with margins
+and constancy neighbourhoods uniform, as 𝗋_σ(x, ξ) = S_(z_0)(x, ξ/|σ|) with |σ| in a compact subset of (0, ∞). So
+[[thm:i-a-7-2]] (1) gives [[eq:i-a-7-1]] uniformly at these orders, and [[eq:i-a-7-3]] holds likewise, since the proof
+of [[thm:i-a-7-2]] (4) gives constants that are uniform for such families. The last terms drop uniformly. Otherwise
+there are σ_n → σ_* and u_n of norm 1 at the orders 𝗋_(σ_n) with ‖L̂_b(σ_n)u_n‖ → 0. As 𝗋_(σ_n) → 𝗋_(σ_*)
+uniformly, the u_n are bounded in the fixed space of order 𝗋_(σ_*) − ϵ for n large, and a subsequence converges weakly
+there and strongly in H̄^(−M,−M). The limit is nonzero by the uniform [[eq:i-a-7-1]], and it lies in the kernel of
+L̂_b(σ_*) on a space of an admissible order (𝗋_(σ_*) − ϵ, the margins exceeding ϵ); this contradicts the invertibility
+([[cor:iii-h-4-4]]; the kernel does not depend on the orders, [[thm:i-a-7-2]] (3)). For [[eq:i-a-7-3]] the argument is
+that of the proof of [[thm:i-a-7-2]] (6). Then [[eq:i-a-7-6]] holds at each σ with the orders (s_c, 𝗋_σ), uniformly,
+the inverse bound being obtained as above at each raised order (s_c + l, 𝗋_σ), l ≤ j′, that the product formula uses:
+∂_σ^(j′)L̂_b⁻¹ is a sum of products of L̂_b⁻¹ and σ-derivatives of L̂_b (on test sections, σ ↦ L̂_b(σ)⁻¹g is smooth in
+the fixed spaces of the orders of [[lem:i-a-7-1]], by [[thm:i-a-7-2]] (6)), each factor is bounded uniformly between
+the spaces at σ, and a σ-derivative of L̂_b costs one b-derivative. So the output is bounded in the decay order
+𝗋_σ + β, a fortiori in 𝗋_σ + β − 2ϵ, by the input in 𝗋_σ + β + 1. (σ∂_σ)^(j′) is a combination of σ^i∂_σ^i, i ≤ j′,
+with bounded coefficients. The integrand is bounded as before, without powers of |σ|, and on |σ| ≥ C_0 the bound at
+the weight β gives it at β − 2ϵ.
+
+*Conclusion.* By [[lem:ii-a-5-2]] again, with the weight β + 1 = α_sf + 2, the integral is at most
+C‖f‖²_(H^((𝗌;k),(α_sf+2,0))_(3b;b)). ∎
+
+u_hi is not supported in Ω, so its norm is taken on M_0 ([Hin26, footnote 100]). The loss of derivatives (regularity
+𝗌 for f and for u_hi) is the loss at the trapped set.
+
+### Low frequencies: the regular part {#sec:iii-h1-4}
+
+This section is [Hin26, Lemmas 10.10–10.11] in dimension 4 + 1. For |σ| ≤ c with σ ≠ 0 and Im σ ≥ 0 put
+([[def:iii-h-3-1]], [[cor:iii-h-4-2]])
+
+    (û_(reg,1)(σ), b̂_1(σ), Ŝ_1(σ)) := L̃_b(σ)⁻¹(f̂(σ), 0, 0).                                           {#eq:iii-h1-4-1}
+
+By [[eq:iii-h-4-6]], for these σ,
+
+    L̂_b(σ)⁻¹ f̂(σ) = û_(reg,1)(σ) + ĝ^aug(σ)(b̂_1(σ)) + ĥ^aug(σ)(Ŝ_1(σ)).                               {#eq:iii-h1-4-2}
+
+*Properties.* By the formula in the proof of [[thm:iii-h-4-1]] (3), with e = 0,
+(b̂_1, Ŝ_1) = Ξ(σ)⁻¹(⟨R(σ)f̂(σ), φ_(i′)⟩_h)_(i′), with R = L̂_b⁻¹ and Ξ(σ)_(i′i) = ⟨R(σ)F_i(σ), φ_(i′)⟩_h. R is
+holomorphic in Im σ > 0 ([[thm:i-a-7-2]] (6)), the columns F_i = f̂_ḃ, f̂_S are holomorphic there with values in every
+H̄_b^(p,M) ([[lem:iii-h-2-4]] (d)), and f̂ is entire. So b̂_1, Ŝ_1 and û_(reg,1) = R(σ)(f̂ − Σ c_iF_i) (paired with any
+φ ∈ C_c^∞(X°)) are holomorphic in Im σ > 0, continuous down to [−c, c] ∖ 0 ([[thm:i-a-7-2]] (6) at real σ_*), and
+bounded uniformly by [[eq:iii-h-4-5]]. Here any orders of [[sec:i-c-6]] may be used, since these are statements about
+pairings with test sections, which do not depend on the orders; and ‖f̂(σ)‖_((s_c;k),(𝗋+α_sf+2,α_sf+2,0),|σ|) is
+bounded for |σ| ≤ 1, as f̂(σ) is supported in a fixed compact subset of X° ([[lem:i-c-6-2]] (a)).
+
+**Lemma {#lem:iii-h1-4-1}** (The regular part.)
+u_reg(t_*, ·) := (2π)⁻¹ ∫_(𝒞_−∪𝒞_0∪𝒞_+) e^(−iσt_*) χ(|σ|) û_(reg,1)(σ) dσ satisfies
+
+    ‖u_reg‖_(H^((𝗌+1;k),(α_sf,0))_(3b;b)(M_0)) ≤ C‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).            {#eq:iii-h1-4-3}
+
+[Hin26] has 𝗌 on the left and 𝗌 − 1 on the right; here f is used at its regularity 𝗌, and the gain is the elliptic
+one ([[sec:s18-remarks]]).
+
+*Proof.* As χ = 1 on [0, c/2] and the integrand is bounded near 0 and holomorphic inside 𝒞_0, Cauchy's theorem moves
+𝒞_0 to [−c/2, c/2] (pairing with test sections; the small semicircle around 0 contributes o(1)). So
+û_reg = χû_(reg,1) on ℝ, supported in [−c, c]. By [[lem:ii-a-5-2]] with the order 𝗌 + 1 and the weight α_sf, and
+[[lem:ii-a-5-3]] (the norms of [[def:i-c-6-1]]),
+
+    ‖u_reg‖² ∼ Σ_(j≤k) ∫_(−c)^c ‖(σ∂_σ)^j(χû_(reg,1))‖²_((s_c+1;k−j),(𝗋+1+α_sf,α_sf,0),|σ|) dσ.
+
+By [[lem:iii-h1-1-2]] (c) and [[cor:iii-h-4-3]], [[thm:iii-h-4-1]] (3) applies to L̃_b on Σ′ = Σ_0 ∩ ℝ with the orders
+(s_c + 1, 𝗋 + 1) and α_+ = α = α_sf. By Leibniz and [[eq:iii-h-4-2]], for |σ| ≤ c,
+
+    ‖(σ∂_σ)^j(χû_(reg,1))‖_((s_c+1;k−j),(𝗋+1+α_sf,α_sf,0),|σ|)
+        ≤ C Σ_(j_2≤j) ‖(σ∂_σ)^(j_2) f̂(σ)‖_((s_c;k−j_2),(𝗋+1+α_sf+1,α_sf+2,0),|σ|),
+
+where j_2 counts the derivatives that fall on f̂; each derivative that falls on L̃_b⁻¹ costs one order of b-regularity
+of f̂. The decay order 𝗋 + α_sf + 2 and the regularity s_c are those of 𝗌 + α_sf + 2 and 𝗌, so by [[lem:ii-a-5-2]] with
+the weight α_sf + 2 the integral is at most C‖f‖²_(H^((𝗌;k),(α_sf+2,0))_(3b;b)). ∎
+
+**Lemma {#lem:iii-h1-4-2}** (The coefficients.)
+
+    Σ_(j≤k) ∫_(−c)^c (|(σ∂_σ)^j b̂_1(σ)|² + |(σ∂_σ)^j Ŝ_1(σ)|²) dσ ≤ C‖f‖²_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).
+
+*Proof.* As for [[lem:iii-h1-4-1]], with the moduli of the second and third components in [[eq:iii-h-4-2]]. ∎
+
+### The singular part {#sec:iii-h1-5}
+
+This section is [Hin26, Lemma 10.12] in dimension 4 + 1. With ĝ^aug, ĥ^aug of [[eq:iii-h-2-6]] and
+𝒞 := 𝒞_− ∪ 𝒞_0 ∪ 𝒞_+ put
+
+    v_ġ(t_*, ·) := (2π)⁻¹ ∫_𝒞 e^(−iσt_*) χ(|σ|) ĝ^aug(σ)(b̂_1(σ)) dσ,
+    v_h(t_*, ·) := (2π)⁻¹ ∫_𝒞 e^(−iσt_*) χ(|σ|) ĥ^aug(σ)(Ŝ_1(σ)) dσ.                                     {#eq:iii-h1-5-1}
+
+By [[lem:iii-h1-2-1]], [[eq:iii-h1-4-2]] and χ(|σ|) = 1 on 𝒞_0,
+
+    u = u_hi + u_reg + u_sing,     u_sing := v_ġ + v_h.                                                  {#eq:iii-h1-5-2}
+
+On 𝒞_0, |e^(−iσt_*)| = e^(t_* Im σ), so [[eq:iii-h1-5-1]] grows at most like e^(ct_*/2); the poles of ĝ^aug and ĥ^aug
+at 0 prevent moving 𝒞_0 to the real axis. Their t_*-derivatives do not have these poles.
+
+**Lemma {#lem:iii-h1-5-1}** (Bounds for derivatives.) For every p ∈ ℕ_0, with k and c as in [[sec:iii-h1-2]],
+
+    ∂_(t_*)v_ġ ∈ H^((p;k),(α_sf+1,0))_(3b;b)(M_0),     ∂²_(t_*)v_h ∈ H^((p;k),(α_sf+2,0))_(3b;b)(M_0),   {#eq:iii-h1-5-3}
+
+with norms at most C_p‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).
+
+[Hin26, (10.51)–(10.52)] have the sf-weights −½ − ϵ and ½ − ϵ and the regularity 𝗌 only, under the condition
+𝗌′ + α′ < −½ at R_out. Here every constant regularity is allowed and no condition at R_out is needed, as the transforms
+decay rapidly at scf.
+
+*Proof.* *The transforms.* Differentiating [[eq:iii-h1-5-1]] under the integral, ∂_(t_*) brings a factor −iσ, and by
+[[eq:iii-h-2-6]], −iσĝ^aug(σ)(ḃ) = Ψ(σ, ·)ġ(ḃ) and
+
+    −σ²ĥ^aug(σ)(S) = (Ψ − σ∂_σΨ)h(S) − iσΨ h̆(S),                                                       {#eq:iii-h1-5-4}
+
+with Ψ(σ, x) = ∫ e^(iσt_*)∂_(t_*)χ_K dt_*, entire in σ for each x (the support of ∂_(t_*)χ_K(·, x) is compact). So
+∂_(t_*)v_ġ = (2π)⁻¹∫ e^(−iσt_*)χΨġ(b̂_1) dσ over the same contour, and the integrand is bounded near 0 and holomorphic
+inside 𝒞_0; as in [[lem:iii-h1-4-1]], 𝒞_0 moves to [−c/2, c/2], and ℱ(∂_(t_*)v_ġ) = χΨġ(b̂_1) on ℝ. Likewise
+ℱ(∂²_(t_*)v_h) is χ times [[eq:iii-h1-5-4]] at S = Ŝ_1.
+
+*Uniform bounds.* For r ≥ 1, Ψ = Φ(σr) ([[lem:iii-h-2-5]] (b)), with Φ entire and |∂^j_ζΦ| ≤ C_(j,M)⟨ζ⟩^(−M) on
+{Im ζ ≥ 0}. So, with ζ = σr,
+
+    Ψġ = r⁻²Φ(ζ)(r²ġ),     −σ²ĥ^aug(σ)(S) = r⁻³((Φ(ζ) − ζΦ′(ζ))r³h − iζΦ(ζ)r²h̆),
+
+where r²ġ, r³h and r²h̆ are bounded with all their b-derivatives (the weights are 2 or 3, 3 and 2; [[sec:iii-h-1]]).
+Each is r^(−q)G(σr, x) with q = 2, resp. 3, and G smooth with |(ζ∂_ζ)^j(r∂_r)^a∂_ω^βG| ≤ C⟨ζ⟩^(−M) for ζ real;
+σ∂_σ acts as ζ∂_ζ. The proof of [[lem:iii-h-2-4]] (b), with r⁻³ replaced by r^(−q), gives
+sup_(0<|σ|≤1) ‖(σ∂_σ)^j(·)‖_(H^(k′,(M,β_tf,0))_(b,|σ|)) < ∞ for every k′, M and β_tf < q, since the bound
+ρ_tf^(q−β_tf) is square integrable for μ_b uniformly if and only if β_tf < q. For r ≤ 1, Ψ and its σ- and
+x-derivatives are bounded uniformly for |σ| ≤ 1 (proof of [[lem:iii-h-2-5]] (d):
+∂^j_σΨ = ∫ (it_*)^j e^(iσt_*)∂_(t_*)χ_K dt_*). By [[eq:ii-g1-4-5a]] with l + 4 = β_tf, for every constant order pair and
+|σ| ≤ ς_1 (and c ≤ ς_1, [[sec:iii-h1-2]]),
+
+    sup_(0<|σ|≤c) Σ_(j≤k) (‖(σ∂_σ)^j(Ψġ(e_i))‖_((p;k),(p+β′,β′,0),|σ|)
+                            + ‖(σ∂_σ)^j(σ²ĥ^aug(σ)(e′_i))‖_((p;k),(p+β″,β″,0),|σ|)) < ∞
+
+for basis elements e_i, e′_i, every p, β′ < 0 and β″ < 1. Take β′ := α_sf + 1 < 0 and β″ := α_sf + 2 < 1, by
+[[eq:iii-h1-1-1]].
+
+*Inverse transform.* By [[lem:ii-a-5-2]] with the constant order p and the weight β′, and Leibniz,
+
+    ‖∂_(t_*)v_ġ‖² ∼ Σ_(j≤k) ∫_(−c)^c ‖(σ∂_σ)^j(χΨġ(b̂_1))‖²_((p;k−j),(p+β′,β′,0),|σ|) dσ
+                 ≤ C Σ_(j≤k) ∫_(−c)^c |(σ∂_σ)^j b̂_1|² dσ,
+
+and [[lem:iii-h1-4-2]] bounds the right side; likewise for ∂²_(t_*)v_h, with β″ and Ŝ_1. ∎
+
+The same holds uniformly for b near b_0, by [[rem:iii-h-2-6]], as β′ < 0 and β″ < 1 hold with room.
+
+### Integration in t_* {#sec:iii-h1-6}
+
+This section is [Hin26, Lemma 10.13] in dimension 4 + 1, for variable orders.
+
+**Lemma {#lem:iii-h1-6-1}** (Translation-invariant elliptic operators.) Let 𝗌 ∈ C^∞(³ᵇS*M̃_0) be
+t_*-translation-invariant, d ∈ ℕ and θ_0 > 0. There are t_*-translation-invariant operators A ∈ Ψ̃^𝗌_3b, elliptic,
+B′ ∈ Ψ̃^(−𝗌)_3b and R ∈ Ψ̃^(−d)_3b with
+
+    I = B′A + R²,                                                                                       {#eq:iii-h1-6-1}
+
+whose Schwartz kernels are supported in {|t_* − t′_*| ≤ θ_0⟨x⟩, |x − x′| ≤ θ_0⟨x⟩}. They act on H^(𝗌′,(β,γ))_3b
+with the orders shifted by their own, for all β and γ. (Only b-order k = 0 is claimed: for variable orders,
+commutators with b-vector fields carry logarithmic factors, and [[lem:iii-h1-6-2]] reduces to k = 0 first.)
+
+*Proof.* In the frame ⟨x⟩∂_(t_*), ⟨x⟩∂_(x_i), which is t_*-invariant, a 3b covector has fibre coordinates ζ ∈ ℝ⁵, and
+a t_*-translation-invariant function on the 3b-cotangent bundle is a function of (x, ζ); in particular 𝗌 = 𝗌(x, ζ). For
+a symbol a(x, ζ) of variable order (in the symbol classes of [[sec:ii-a-3]]) put, with ψ ∈ C_c^∞(ℝ⁵) equal to 1 near
+0 and supported in {|y| ≤ θ_1},
+
+    Op(a)u(t_*, x) := (2π)⁻⁵ ∫ e^(i((t_*−t′_*)τ+(x−x′)·ξ)) ψ((t_* − t′_*, x − x′)/⟨x⟩)
+                          × a(x, ⟨x⟩(τ, ξ)) u(t′_*, x′) dt′_* dx′ dτ dξ.
+
+In a unit cell of the scaled bounded geometry ((S9) in [[sec:ii-a-3]]; cells of size ⟨x_α⟩), after rescaling by ⟨x_α⟩,
+this is the quantization with the cut-off of [Hin26d, (3.26)] ([[sec:ii-a-8-3]]) of the symbol
+a(x, (⟨x⟩/⟨x_α⟩)ζ̃), which lies in the same class, since ⟨x⟩/⟨x_α⟩ is bounded above and below with bounded scaled
+derivatives; the cut-off is rescaled by the same factor. A change of cut-off changes the operator by one with smooth
+kernel, supported within bounded cell distance and rapidly decaying in the scaled variables: a residual operator
+localized near the diagonal. So Op(a) ∈ Ψ̃^(ord a)_3b, localized near the diagonal, with kernel range θ_1⟨x⟩. Its
+kernel depends on (t_* − t′_*, x, x′), so Op(a) commutes with t_*-translations; compositions of such operators commute
+with them and have kernel ranges that add. Take a := ⟨ζ⟩^𝗌, A := Op(a) and B_0 := Op(a⁻¹). Then B_0A = I − R_1 with
+R_1 ∈ Ψ̃^(−(1−2δ))_3b translation-invariant (the calculus with variable orders loses δ > 0 in the remainder). With
+d′(1 − 2δ) ≥ d, B := Σ_(j<d′) R_1^j B_0 gives BA = I − R_1^(d′) =: I − R, and I = BA + R = (B + RB)A + R², so
+B′ := B + RB. All of these are translation-invariant, with kernel range at most 4d′(1 + θ_1)θ_1⟨x⟩ ≤ θ_0⟨x⟩ for θ_1
+small (compositions add ranges, with ⟨x′⟩ ≤ (1 + θ_1)⟨x⟩ on them). For the weights w = ρ_sf^β ρ_K^γ, w⁻¹Aw has kernel
+K_A(z, z′)w(z′)/w(z), and on the support of the kernel w(z′)/w(z) is smooth and bounded with bounded scaled
+derivatives, as the logarithmic 3b-derivatives of ρ_sf and ρ_K are bounded: an operator of the same class. ∎
+
+**Lemma {#lem:iii-h1-6-2}** ([Hin26, Lemma 10.13] in dimension 4 + 1.) Let 𝗌 be a t_*-translation-invariant 3b order,
+constant over {r ≤ r_0 + δ_1} for some δ_1 ∈ (0, 1] (as the orders in 𝒪_c are, by [[def:ii-c-2-4]] (3): constant over
+{r ≤ r_Γ}, r_Γ > r_2 > r_0), and let k ∈ ℕ_0, β ∈ ℝ and ℓ > ½. If u is a distribution on M_0° with
+
+    u|_(Ω_−) ∈ H̄^((𝗌;k),(β−1,−ℓ))_(3b;b)(Ω_−),     ∂_(t_*)u ∈ H^((𝗌;k),(β,−ℓ+1))_(3b;b)(M_0),
+
+then u ∈ H^((𝗌;k),(β−1,−ℓ))_(3b;b)(M_0), with norm at most C times the sum of those two norms. The density is |dt_*|
+times any weighted b-density on X; a change of density is a shift of β.
+
+*Proof.* *Cut-off.* Let χ ∈ C^∞(ℝ) equal 1 on [−¼, ∞) and 0 on (−∞, −½], and put u′ := χ(t_*/r)u. Then u − u′ is
+supported in {t_* ≤ −r/4} ⊂ Ω_−, away from {t_* = 1}, so it lies in H^((𝗌;k),(β−1,−ℓ))_(3b;b)(M_0); χ(t_*/r) is
+homogeneous of degree 0, a 3b multiplier; and ∂_(t_*)u′ = χ(t_*/r)∂_(t_*)u + r⁻¹χ′(t_*/r)u, whose last term is
+supported in Ω_− away from {t_* = 1} and from K^±, and lies in H^((𝗌;k),(β,−ℓ+1))_(3b;b), as r⁻¹ = ρ_sf there. So we
+may assume u = 0 for t_* ≤ −r/2, and then only ∂_(t_*)u =: f enters.
+
+*b-regularity.* ∂_(t_*) and ⟨x⟩∂_x commute with ∂_(t_*), and ∂_(t_*)(t_*∂_(t_*)u) = t_*∂_(t_*)f + f, which preserves
+the support condition; by induction it suffices to take k = 0.
+
+*The case 𝗌 = 0, with u = 0 for t ≤ θr, where t := t_* + r and θ ∈ (0, 1).* On {t ≥ θr}, ρ_sf = r⁻¹ and ρ_K = r/t
+are defining functions up to bounded factors (r ≥ r_0). As ∂_(t_*) commutes with powers of r we may take β = 0. Dropping
+the angular variables (the density is |dt dr| after the shift of β), f = ρ_K^(1−ℓ)f_0 = r^(1−ℓ)t^(ℓ−1)f_0 with
+f_0 ∈ L²(|dt dr|), and u(t, r) = ∫_(θr)^t f(t′, r) dt′. Fix a ∈ (−½, ℓ − 1), which is possible as ℓ > ½. Then
+
+    ‖ρ_sf ρ_K^ℓ u‖² = ∫_(r_0)^∞ ∫_(θr)^∞ t^(−2ℓ) |∫_(θr)^t t′^(ℓ−1) f_0(t′, r) dt′|² dt dr
+                   ≤ ∫∫ t^(−2ℓ) (t^(2a+1)/(2a + 1)) ∫_(θr)^t t′^(2ℓ−2−2a) |f_0|² dt′ dt dr,
+
+by Cauchy–Schwarz with t′^(ℓ−1) = t′^a · t′^(ℓ−1−a). Exchanging the integrals and using
+∫_(t′)^∞ t^(−2ℓ+2a+1) dt = t′^(−2ℓ+2a+2)/(2ℓ − 2a − 2), the right side is at most
+C‖f_0‖²_(L²) = C‖f‖²_(H^(0,(0,1−ℓ))_3b).
+Nothing here depends on the dimension.
+
+*Near r = r_0.* Let χ_1 = χ_1(r) equal 1 near {r = r_0} and vanish on {r ≥ min(r_0 + δ_1, (3/2)r_0)}. It commutes with
+∂_(t_*), so χ_1u and (1 − χ_1)u both satisfy the hypotheses. For (1 − χ_1)u the argument below applies with θ_0 so
+small that the kernels stay away from {r = r_0}. Over supp χ_1 the order is a constant s_0; extend χ_1u across
+{r = r_0} by an extension operator E acting in x only (Seeley's extension [See64], by reflection in r, into
+{r > ½r_0}), which is bounded on the extendible spaces of order s_0 and on the weighted L² spaces and commutes with
+∂_(t_*). Then Eχ_1u is supported in {t_* ≥ −C}, and at bounded r the weights are those of t_*; so the argument below
+applies to it with the constant order s_0 and with t := t_* + r + C′ for a constant C′ that makes t ≥ θr on its
+support. Restriction to {r ≥ r_0} is bounded.
+
+*General 𝗌.* Take A, B′ and R of [[lem:iii-h1-6-1]] with d ≥ sup|𝗌| + |inf 𝗌| and θ_0 so small that z ∈ supp K_A or
+z ∈ supp K_R (as a function of its first variable, with its second variable in supp u ⊂ {t_* ≥ −r/2}) forces
+t_* ≥ −(3/4)r, that is, t ≥ r/4 (with ⟨x⟩ ≤ Cr on r ≥ r_0). The operators are localized near the diagonal, hence act
+on all distributions, and [[eq:iii-h1-6-1]] holds on them. Au and Ru vanish for t ≤ r/4, and ∂_(t_*)(Au) = Af lies in
+H^(0,(β,−ℓ+1))_3b and ∂_(t_*)(Ru) = Rf in H^(𝗌+d,(β,−ℓ+1))_3b ⊂ H^(0,(β,−ℓ+1))_3b. By the case 𝗌 = 0 with θ = ¼,
+Au, Ru ∈ H^(0,(β−1,−ℓ))_3b, and u = B′(Au) + R(Ru) ∈ H^(𝗌,(β−1,−ℓ))_3b, with the estimate. ∎
+
+[Hin26] proves the case 𝗌 = 0 and refers the rest to [Hin26c, Lemma 14.6], whose proof applies the case 𝗌 = 0 to Au.
+This needs A translation-invariant, so that ∂_(t_*)Au = Af, and localized near the diagonal, so that Au keeps a support
+condition; [[lem:iii-h1-6-1]] supplies both, by a translation-invariant quantization in the calculus of [[ch:s04]].
+
+### Proof of the 2-admissibility {#sec:iii-h1-7}
+
+*Proof of [[thm:iii-h1-1-3]].* Let f ∈ C_c^∞(Ω°) be as in [[sec:iii-h1-2]], and u = u_hi + u_reg + u_sing as in
+[[eq:iii-h1-5-2]]. Write ‖f‖ := ‖f‖_(H^((𝗌;k),(α_sf+2,0))_(3b;b)(Ω)^(•,−)).
+
+(i) By [[lem:iii-h1-3-1]] (with ϵ < ½) and [[lem:iii-h1-4-1]], u_hi + u_reg ∈ H^((𝗌;k),(α_sf,0))_(3b;b)(M_0) with norm
+at most C‖f‖, as α_sf < α_sf + 1 − 2ϵ and 𝗌 < 𝗌 + 1.
+
+(ii) u = 0 for t_* < t_1, where t_1 > 1, so u_sing = −(u_hi + u_reg) on Ω_−:
+
+    u_sing|_(Ω_−) ∈ H̄^((𝗌;k),(α_sf,0))_(3b;b)(Ω_−),     ∂_(t_*)u_sing|_(Ω_−) ∈ H̄^((𝗌−1;k),(α_sf+1,0))_(3b;b)(Ω_−).
+
+(iii) By [[lem:iii-h1-5-1]] with p ≥ sup 𝗌, ∂²_(t_*)u_sing = ∂_(t_*)(∂_(t_*)v_ġ) + ∂²_(t_*)v_h lies in
+H^((𝗌−1;k),(α_sf+2,0))_(3b;b)(M_0).
+
+(iv) [[lem:iii-h1-6-2]] for ∂_(t_*)u_sing, with the order 𝗌 − 1, β = α_sf + 2 and ℓ = 1 (the data (ii) lie in
+(α_sf + 1, 0) ⊂ (β − 1, −1)), gives ∂_(t_*)u_sing ∈ H^((𝗌−1;k),(α_sf+1,−1))_(3b;b)(M_0).
+
+(v) [[lem:iii-h1-6-2]] for u_sing, with 𝗌 − 1, β = α_sf + 1 and ℓ = 2 (the data (ii) lie in (α_sf, 0) ⊂ (β − 1, −2),
+at the regularity 𝗌 ≥ 𝗌 − 1), gives u_sing ∈ H^((𝗌−1;k),(α_sf,−2))_(3b;b)(M_0).
+
+(vi) So u ∈ H^((𝗌−1;k),(α_sf,−2))_(3b;b)(M_0) with norm at most C‖f‖, every bound being linear in ‖f‖. As u is
+supported in Ω, this is [[eq:iii-h1-1-2]]. For general f, [[eq:iii-h1-1-2]] follows by density and the uniqueness of
+forward solutions ([[prop:ii-e-3-4]]). ∎
+
+Each step needed only the weights of [[eq:iii-h1-1-1]]: α_sf + 1 < 0 in (iii), through β′, and α_sf + 2 < 1, through
+β″. In dimension 3 + 1 the same steps stop at β′ = −½ − ϵ, below α_sf + 1, and this is the loss in [Hin26, Theorem
+10.1].
+
+### Remarks on [Hin26, Section 10] {#sec:s18-remarks}
+
+The following points compare the argument of this chapter with that of [Hin26, Section 10].
+
+(a) *The rows.* [Hin26, (10.6b)] does not make the augmented zero energy operator injective; [[rem:s18-rows]] gives a
+choice of rows satisfying it for which [Hin26, Proposition 10.6] fails, and [[eq:iii-h-3-1]] is the condition the proof
+uses.
+
+(b) *The incoming threshold.* [[def:ii-c-2-4]] (6) with α_K = −2 and margin 1 gives 𝗌 + α_sf > ½(−1 + ϑ_in) − 1 at
+the incoming radial set (ϑ^(3b)_in = ϑ_in by [[lem:ii-c-2-6]]), while the spectral estimates for
+u ∈ H^(𝗌,(α_sf,0))_3b need 𝗌 + α_sf > ½(−1 + ϑ_in) ([[eq:i-a-1-5]], [[sec:i-b-1-4]]). [Hin26, Lemmas 10.9–10.10]
+measure u_hi and u_reg at the weight α_sf and the regularity 𝗌, which the hypothesis does not cover where
+𝗌 + α_sf ≤ ½(−1 + ϑ_in). [Hin26, Remark 10.2] checks only the outgoing radial set, where the condition of
+[[def:ii-c-2-4]] (5) is 𝗌 + α_sf < ½(−1 + ϑ_out) + α_K − 1 = ½(−1 + ϑ_out) − 3; the remark states −½ − 1 there,
+without α_K. Here u_hi is measured at the weight α_sf + 1 ([[lem:iii-h1-3-1]]) and u_reg at the regularity 𝗌 + 1
+([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
+
+(c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ) ≤ 1
+([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness of
+δ_Γ(0) only on a neighbourhood that shrinks as the bound decreases. [Hin26] states its Theorem 10.1 for b near b_0 with
+its Proposition 8.3 (strong trapping admissibility near b_0 in dimension 3 + 1). [[thm:iii-h1-1-3]] is therefore stated
+on the sets ℬ_k, and [[rem:s18-every-k]] gives one neighbourhood for every k.
+
+(d) *The class of orders.* 𝒪_c adds to [[def:ii-c-2-4]] the conditions (C1)–(C3), under which the induced spectral
+orders satisfy the hypotheses of [[ch:s01]]–[[ch:s03]]: a constant regularity order ((O1) of [[def:i-a-admissible]]
+and [[rem:i-a-1-1]]; [[ch:s03]]), the constancy of the semiclassical order over {r ≤ r_2 − δ_0}, and the monotonicity
+on a neighbourhood of the characteristic set ([[sec:i-b-1-4]]; [Hin26c, footnote 78]). [Hin26] applies
+[Hin26c, Theorems 9.16 and 9.41] to the induced orders without stating these conditions.
+
+(e) *Bounded frequencies.* On c/2 ≤ |σ| ≤ C_0, [Hin26] cites only [Hin26c, Theorem 9.16 (5)], a high-energy
+statement; here [[thm:i-a-7-2]] (6) and [[eq:i-a-7-6]], with the invertibility of [[cor:iii-h-4-4]], cover them
+([[lem:iii-h1-3-1]]).
+
+(f) *Variable orders in [Hin26, Lemma 10.13].* Its reduction to 𝗌 = 0 through [Hin26c, Lemma 14.6] needs an elliptic
+operator that commutes with ∂_(t_*) and is localized near the diagonal, so that Au keeps a forward support condition,
+for which the case 𝗌 = 0 is proved with t ≥ θr for any θ > 0; [[lem:iii-h1-6-1]] constructs it.

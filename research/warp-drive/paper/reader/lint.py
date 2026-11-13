@@ -46,6 +46,12 @@ FORBIDDEN = [
 ]
 RX = [(re.compile(p), why) for p, why in FORBIDDEN]
 
+# The author's ruling (2026-11-13): numerical experiments no proof uses are kept as labelled remarks, one paragraph
+# opened by "**Remark {#rem:key}** (Numerical observation.)". Inside one, words of computation are allowed; program,
+# code and file names are not.
+OBS_START = re.compile(r"^\*\*Remark(?: \{#rem:[a-z0-9\-]+\}| [0-9A-Z]+\.[0-9]+)\*\* \(Numerical observation\.\)")
+OBS_NARROW = re.compile(r"\[\[C:|\bComputation C\d|(?i:\bprograms?\b|\bcode\b|\bscripts?\b|\bsympy\b|\bmpmath\b)")
+
 RESULT_KINDS = ("thm", "lem", "prop", "cor", "def", "rem", "eq", "ch", "sec", "app", "part")
 DEF_RX = re.compile(r"\{#(" + "|".join(RESULT_KINDS) + r"):([a-z0-9][a-z0-9\-]*)\}")
 REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\-]*)\]\]")
@@ -58,14 +64,19 @@ def scan_text(name, text, assembled):
     hits = []
     lines = text.split("\n")
     refs = "references" in name
+    in_obs = False
     for i, ln in enumerate(lines, 1):
+        if OBS_START.match(ln):
+            in_obs = True
+        elif not ln.strip():
+            in_obs = False
         if len(ln) > 121:
             hits.append((i, "line longer than 121 characters (%d)" % len(ln), ln[:80]))
         probe = URL.sub("", ln)
         for rx, why in RX:
             if refs and why in ("no-code ruling", "file name", "filler", "process word"):
                 continue  # titles of cited works are quoted as published
-            m = rx.search(probe)
+            m = (OBS_NARROW if in_obs and why == "no-code ruling" else rx).search(probe)
             if m:
                 hits.append((i, why, ln.strip()[:110]))
         if assembled and ("{#" in ln or "[[" in ln):
@@ -136,6 +147,13 @@ def selftest():
              "Proof. By Lemma 5.3 and the identity (5.2), expanded term by term. ∎")
     if scan_text("selftest", clean, assembled=False):
         print("FALSE POSITIVE on clean text:", scan_text("selftest", clean, assembled=False)); ok = False
+    obs = "**Remark {#rem:obs}** (Numerical observation.) Computed numerically in floating point, the ratio is 0.42."
+    if scan_text("selftest", obs, assembled=False):
+        print("FALSE POSITIVE on a numerical observation remark"); ok = False
+    if not scan_text("selftest", obs + " The program ran.", assembled=False):
+        print("CONTROL FAILED: program name inside a numerical observation remark"); ok = False
+    if not scan_text("selftest", obs + "\n\nComputed numerically again.", assembled=False):
+        print("CONTROL FAILED: computation words after the remark's paragraph"); ok = False
     if not scan_text("selftest", "see [[thm:main]]", assembled=True):
         print("CONTROL FAILED: unresolved label in assembled mode"); ok = False
     print("selftest:", "PASS" if ok else "FAIL")
