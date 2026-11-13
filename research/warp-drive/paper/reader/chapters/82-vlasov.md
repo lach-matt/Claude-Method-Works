@@ -1347,34 +1347,36 @@ data of g0 are γ = (1 + 1/r²) dr² + r² dΩ², and by [[lem:constraints-evolu
 definition.
 
 *The rays.* Put w := (1 − f k²/r²)^(1/2). Then −u_t²/f + f u_r² + u_ϑ²/r² = −1/f + (1 − f k²/r²)/f + k²/r² = 0, so u_α is
-an eikonal. Its future rays solve dt/ds = 1/f, dr/ds = w, dϑ/ds = k/r², and with dτ/dt = 1 + κ′ dr/dt = 1 + m w,
+an eikonal, and ℓ_α = g3⁻¹du_α has the components (1/f, w, k/r²) in (t, r, ϑ), future directed on r > 1. Its rays solve
+dt/ds = 1/f, dr/ds = w, dϑ/ds = k/r², and with dτ/dt = 1 + κ′ dr/dt = 1 + 𝔪 w,
 
-    dr/dτ = W(r) := f w/(1 + m w),      dϑ/dτ = Θ(r) := f k/(r² (1 + m w)),
+    dr/dτ = ṙ(r) := f w/(1 + 𝔪 w),      dϑ/dτ = ϑ̇(r) := f k/(r² (1 + 𝔪 w)),
 
 functions of r alone at fixed α. Let S̃ := {|r − 3| ≤ 0.36, |ϑ − π/4| ≤ 0.18} and S := S̃ × [−0.6, 0.6], so that
 supp F0 ⊂ int S. For |α| ≤ 0.6, |k| ≤ 3 sin 0.6 < 1.7, and for r ≥ 2.64, f k²/r² ≤ 2.89/6.9696 < 0.42, so w > 0.76,
-f > 0.856 and m < 0.1435, and W ≥ f w/(1 + m) > 0.56. W is increasing in r on r² > 2: f increases, m decreases, and
-f k²/r² = k²(r² − 1)/r⁴ has derivative 2k²(2 − r²)/r⁵ < 0, so w increases and W = f/(w⁻¹ + m) has an increasing
-numerator and a decreasing positive denominator. On the rays from S̃, r ≥ 2.64 and r increases, and |Θ| ≤ |k|/r² <
+f > 0.856 and 𝔪 < 0.1435, and ṙ ≥ f w/(1 + 𝔪) > 0.56. ṙ is increasing in r on r² > 2: f increases, 𝔪 decreases, and
+f k²/r² = k²(r² − 1)/r⁴ has derivative 2k²(2 − r²)/r⁵ < 0, so w increases and ṙ = f/(w⁻¹ + 𝔪) has an increasing
+numerator and a decreasing positive denominator. On the rays from S̃, r ≥ 2.64 and r increases, and |ϑ̇| ≤ |k|/r² <
 1.7/r².
 
-*(V1).* In the coordinates (r, ϑ) the flow map from Σ_0 to Σ_τ is (r0, ϑ0) ↦ (R(τ; r0), ϑ0 + ∫_0^τ Θ(R(s; r0)) ds), with
-dR/dτ = W(R), R(0; r0) = r0. Its Jacobian is ∂R/∂r0 = W(R(τ; r0))/W(r0), since both sides solve y′ = W′(R) y with y(0)
-= 1; as R ≥ r0 and W increases, it is at least 1 =: J0. On Σ_0, t = −κ(r), so d(u_α|Σ_0) = −(κ′ + ϕ′) dr − k dϑ with
-κ′ + ϕ′ = (m + w)/f, ϕ the integral in [[eq:vlasov-witness]]. In the coframe ((1 + m)^(1/2) dr, r dϑ), orthonormal for
-the orbit part (1 + m) dr² + r² dϑ² of γ, its angle β0 from the inward radial direction satisfies tan β0 = T(r, k) :=
-k f (1 + m)^(1/2)/(r (m + w)). Since ∂_k w = −f k/(r² w),
+*(V1).* In the coordinates (r, ϑ) the flow map from Σ_0 to Σ_τ is (r0, ϑ0) ↦ (R(τ; r0), ϑ0 + ∫_0^τ ϑ̇(R(s; r0)) ds),
+with dR/dτ = ṙ(R), R(0; r0) = r0. Its Jacobian is ∂R/∂r0 = ṙ(R(τ; r0))/ṙ(r0), since both sides solve y′ = ṙ′(R) y with
+y(0) = 1; as R ≥ r0 and ṙ increases, it is at least 1 =: J0. On Σ_0, t = −κ(r), so d(u_α|Σ_0) = (κ′ + ϕ′) dr + k dϑ
+with κ′ + ϕ′ = (𝔪 + w)/f, ϕ the integral in [[eq:vlasov-witness]]. In the coframe ((1 + 𝔪)^(1/2) dr, r dϑ), orthonormal
+for the orbit part (1 + 𝔪) dr² + r² dϑ² of γ, its angle β0 from the outward radial direction satisfies tan β0 =
+𝔗(r, k) := k f (1 + 𝔪)^(1/2)/(r (𝔪 + w)). Since ∂_k w = −f k/(r² w),
 
-    ∂_k T = (f (1 + m)^(1/2)/r) ((m + w) + f k²/(r² w))/(m + w)² ≥ f/(r (1 + m)) = (r² − 1)/(r (r² + 1)),
+    ∂_k 𝔗 = (f (1 + 𝔪)^(1/2)/r) ((𝔪 + w) + f k²/(r² w))/(𝔪 + w)² ≥ f/(r (1 + 𝔪)) = (r² − 1)/(r (r² + 1)),
 
-which decreases on r² > 2 + √5 and is > 0.249 on [2.64, 3.36]. There |T| ≤ 1.7 · 1.0694/(2.64 · 0.8485) < 0.82, since m >
-0.0885 there, so cos²β0 = (1 + T²)⁻¹ > 0.59; and dk/dα = 3 cos α ≥ 3 cos 0.6 > 2.47. Hence ∂_α β0 = cos²β0 ∂_k T dk/dα >
-0.59 · 0.249 · 2.47 > 0.36 =: b on S, and β0(x, ·) is increasing, so injective: the field is labelled by initial
-direction.
+which decreases on r² > 2 + √5 and is > 0.249 on [2.64, 3.36]. There |𝔗| ≤ 1.7 · 1.0694/(2.64 · 0.8485) < 0.82, since
+𝔪 > 0.0885 there, so cos²β0 = (1 + 𝔗²)⁻¹ > 0.59; and dk/dα = 3 cos α ≥ 3 cos 0.6 > 2.47. Hence ∂_α β0 = cos²β0 ∂_k 𝔗
+dk/dα > 0.59 · 0.249 · 2.47 > 0.36 =: b_* on S, and β0(x, ·) is increasing, so injective: the field is labelled by
+initial direction.
 
 *(V2).* A ray from S̃ is in Ω only while r ≤ b(τ) = 9 − 2τ, and r ≥ 2.64 + 0.56 τ on it, so only for τ ≤ 6.36/2.56 <
-2.49. Over that time |ϑ − ϑ0| ≤ ∫_0^2.49 1.7 (2.64 + 0.56 s)⁻² ds = (1.7/0.56)(1/2.64 − 1/4.0344) < 0.40. So on the tubes
-of S, ϑ ∈ [0.2054, π/2 − 0.2054] and r ≥ 2.64, and ρ1 = r cos ϑ, ρ2 = r sin ϑ are at least 2.64 sin 0.2054 > 0.53 =: 2δ.
+2.49. Over that time |ϑ − ϑ0| ≤ ∫_0^2.49 1.7 (2.64 + 0.56 s)⁻² ds = (1.7/0.56)(1/2.64 − 1/4.0344) < 0.3975. So on the
+tubes of S, ϑ ∈ [0.2078, π/2 − 0.2078], since π/4 − 0.18 − 0.3975 > 0.2078, and r ≥ 2.64; so ρ1 = r cos ϑ and ρ2 =
+r sin ϑ are at least 2.64 sin 0.2078 > 0.54 > 0.53 =: 2δ.
 (V2′) is vacuous, there being no radial dust.
 
 *The solutions.* The data are those of g0 on Σ_0 with the field ε F0 and the labels u_α|Σ_0 on the outgoing branch, the

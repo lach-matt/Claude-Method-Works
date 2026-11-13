@@ -2626,15 +2626,17 @@ the same at every degree, and they are of size γ_Ca_vr_h. The zeroth-order coef
 differentiating S at most once, which gives no multiple of S dt²; so the coefficient of H_0 in F_0 is κ/(2r_h²) plus a
 number that does not depend on κ.
 
-*The weight.* Let α + 2 =: β lie in the indicial gap at infinity of the block, and use on stationary fields of scalar
-type l, near infinity, the norms
+*The weight.* Let α + 2 =: β lie in the indicial gap at infinity of the block. The zero-energy problem is posed on
+X̄ = {r ≥ r_0}, with r_0 = r_♭ ≤ r_h/2 ([[def:s12-radii]]), so that its domain contains r = r_h/2. On stationary
+fields of scalar type l we use the norms
 
-    ‖h‖_X² := Σ_j ∫ r^(2α+3)(|u_j|² + r²|∂_ru_j|² + κ|u_j|²) dr,     ‖F‖_Y² := Σ_j ∫ r^(2α+7)|F_j|² dr
+    ‖h‖_X² := Σ_j ∫ r^(2α+3)(|u_j|² + r²|∂_ru_j|² + κ|u_j|²) dr,     ‖F‖_Y² := Σ_j ∫ r^(2α+7)|F_j|² dr,
                                                                                                   {#eq:rb-block-norms}
 
-in the orthonormal components (F_j those of a tensor F of the form [[eq:rb-scalar-type]]): these are norms of
-H̄_b^(1,α) and H̄_b^(0,α+2) of [[sec:i-c-1-2]] near infinity, with the b-vector field r∂_r and the rotation fields as
-generators (the squares of the rotation fields sum to κ on scalar type l). In x := log r, u = r^(−β)φ(x) gives
+with the integrals over the whole domain, in the orthonormal components (F_j those of a tensor F of the form
+[[eq:rb-scalar-type]]): near infinity these are norms of H̄_b^(1,α) and H̄_b^(0,α+2) of [[sec:i-c-1-2]], with the
+b-vector field r∂_r and the rotation fields as generators (the squares of the rotation fields sum to κ on scalar type
+l), and on a bounded range of r they are equivalent to those of H¹ and L². In x := log r, u = r^(−β)φ(x) gives
 r^(2α+3)(|u|² + r²|∂_ru|²)dr = (|φ|² + |φ′ − βφ|²)dx, and F = r^(−β−2)φ(x) gives r^(2α+7)|F|²dr = |φ|²dx.
 
 **Lemma {#lem:rb-quasimode}** (An upper bound for the least singular value.) For every nonzero v ∈ ℂ^(n_l) and every
