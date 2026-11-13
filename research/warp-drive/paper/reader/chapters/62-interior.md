@@ -144,62 +144,135 @@ M_gl, on which its metric induces (γ, k).
 
 (ii) Σ is acausal in M_gl and in V, and its Cauchy developments D_(M_gl)(Σ) and D_V(Σ) are globally hyperbolic
 developments of (Σ, γ, k) in the sense of [Sbi15, Definition 2.1] ([[thm:std-sbierski]] (1)). Their maximal common
-globally hyperbolic
-development U ⊂ D_(M_gl)(Σ) contains a neighbourhood of Σ; there is a time-orientation-preserving isometric
-embedding j : U → D_V(Σ), the identity on Σ, so that on U the metric of M_gl and g_λ agree up to j; and the two
-developments glued along U by j form one Hausdorff globally hyperbolic development of (Σ, γ, k).
+globally hyperbolic development U ⊂ D_(M_gl)(Σ) contains a neighbourhood of Σ; there is a time-orientation-preserving
+isometric embedding j : U → D_V(Σ), the identity on Σ, so that on U the metric of M_gl and g_λ agree up to j; and the
+two developments glued along U by j form one Hausdorff globally hyperbolic development of (Σ, γ, k).
 
-*Proof.* *V exists.* Σ̄ = Σ^IVP ∩ {r_♭ ≤ r ≤ R} is compact and lies in the interior of Ω′_+ ([[lem:vii-1-2]] (b)),
-and there g0 = g_(b₀) ((a) there). dt_IVP is timelike for g_(b₀) on {|x| ≥ ½r_♭}: on {|x| ≥ r_♭} by
-[[lem:iii-b-3-7]] (b), and on {½r_♭ ≤ |x| ≤ r_♭}, where ψ′_IVP = ψ′ = 1, as for t_* after [[lem:iii-b-3-7]]. In the
-Kerr–Schild coordinates, with τ = t_KS − c₀, dt_IVP = dt_KS − β dr with β ∈ (−1, 1], and
-g_(b₀)⁻¹(dt_KS, dt_IVP) = −1 − H(1 + β) < 0, H = μ_end r⁻² ([[lem:iii-b-3-3]] (d)); so dt_IVP lies in the cone of
-dτ. By [[lem:vii-1-1]], g_λ − g_(b₀) = O(λ) in C⁰ on Ω′_+. So for λ small dt_IVP is timelike for g_λ, in the cone of
-dτ, on a connected open neighbourhood V of Σ̄ in Ω′_+ ∩ {|x| > ½r_♭}, and t_IVP increases strictly along
-future causal curves of (V, g_λ).
+*Proof.* *V exists.* Σ̄ = Σ^IVP ∩ {r_♭ ≤ r ≤ R} is compact and connected, a graph over the closed shell
+{r_♭ ≤ |x| ≤ R}, and lies in the interior of Ω′_+ ([[lem:vii-1-2]] (b)), where g0 = g_(b₀) ((a) there). dt_IVP is
+timelike for g_(b₀) on {|x| ≥ ½r_♭}: on {|x| ≥ r_♭} by [[lem:iii-b-3-7]] (b), and on {½r_♭ ≤ |x| ≤ r_♭}, where
+ψ′_IVP = ψ′ = 1, as for t_* after [[lem:iii-b-3-7]]. In the Kerr–Schild coordinates, with τ = t_KS − c₀,
+dt_IVP = dt_KS − β dr with β ∈ (−1, 1], and g_(b₀)⁻¹(dt_KS, dt_IVP) = −1 − H(1 + β) < 0, H = μ_end r⁻²
+([[lem:iii-b-3-3]] (d)); so dt_IVP lies in the cone of dτ. By compactness and continuity there are c, δ > 0 such that
+the closed coordinate δ-neighbourhood of Σ̄ lies in the interior of Ω′_+ ∩ {|x| > ½r_♭}, and g_(b₀)⁻¹(dt_IVP, dt_IVP)
+and g_(b₀)⁻¹(dτ, dt_IVP) are at most −2c on it. By [[lem:vii-1-1]], g_λ − g_(b₀) = O(λ) in C⁰ on Ω′_+. So for λ small,
+depending on c and δ and hence on R and Ω′, the two quantities are at most −c for g_λ there. Let V be the open
+δ-neighbourhood of Σ̄; it is connected, the union of balls each meeting the connected set Σ̄. On V, dt_IVP is timelike
+for g_λ and in the cone of dτ, which is past; so t_IVP increases strictly along future causal curves of (V, g_λ).
 
-*(i), the charts at Σ.* Let K ⊂ Σ be compact, n_λ and n the future unit normals of Σ for g_λ and g, and
+*Σ in V.* Σ = V ∩ {r_♭ < |x| < R, t_IVP = 0} is an open subset of a level set of t_IVP, whose differential does not
+vanish; so Σ is a smooth hypersurface of V, spacelike as dt_IVP is timelike, and acausal, as t_IVP increases strictly
+along future causal curves. By [[thm:std-bgp-development]], D_V(Σ) is an open subset of V containing Σ, globally
+hyperbolic, with Σ as a Cauchy hypersurface. Moreover D_V(Σ) ∩ {t_IVP = 0} = Σ: an inextendible causal curve through a
+point p of D_V(Σ) meets Σ, and t_IVP increases strictly along it, so that if t_IVP(p) = 0 it meets Σ at p.
 
-    E_λ(s, x) := exp^(g_λ)_x(s n_λ)  (s ≤ 0),     E(s, x) := exp^g_x(s n)  (s ≥ 0).
+*A and B are manifolds with boundary Σ.* As D_V(Σ) is open in V and dt_IVP ≠ 0, A = D_V(Σ) ∩ {t_IVP ≤ 0} is a
+manifold with boundary D_V(Σ) ∩ {t_IVP = 0} = Σ, and A ∖ Σ = D_V(Σ) ∩ {t_IVP < 0} is open in V. B ∖ Σ =
+{|x| > r_♭, t_IVP > 0} is open in ℝ × ℝ⁴. A point of Σ has an open neighbourhood N ⊂ {r_♭ < |x| < R}, on which
+N ∩ {t_IVP = 0} = N ∩ Σ^IVP ⊂ Σ, so that B ∩ N = N ∩ {t_IVP ≥ 0}; as dt_IVP ≠ 0, B is a manifold with boundary Σ. g is
+smooth on B up to Σ, which is spacelike for it, γ being Riemannian. As A ⊂ {t_IVP ≤ 0} and B ⊂ {t_IVP ≥ 0},
+A ∩ B = Σ.
 
-D_V(Σ) is an open neighbourhood of Σ in V ([[thm:std-bgp-development]]), and B is a manifold with boundary Σ near Σ,
-as Σ ⊂ {r_♭ < r < R}; so for some ε(K) > 0, E_λ maps [−ε, 0] × K diffeomorphically into A and E maps [0, ε] × K
-diffeomorphically into B. There E_λ^*g_λ = −ds² + h^λ_s and E^*g = −ds² + h_s, with h^λ_0 = h_0 = γ and
-∂_s h^λ_0 = ∂_s h_0 = 2k, k the second fundamental form with respect to the future normal. In such coordinates the
-spatial components of Ric = 0 read ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with F a universal expression. Differentiating
-m times in s makes ∂_s^(m+2)h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives. By
-induction, ∂_s^m h^λ and ∂_s^m h agree at s = 0 for every m, with all their x-derivatives. So H := h^λ on s ≤ 0 and h
-on s ≥ 0 has one-sided partial derivatives of every order that agree at s = 0, and is C^∞. The metric −ds² + H is
-then smooth, Ricci-flat on each side, and so on both, Ric depending continuously on two derivatives. The maps
-(s, x) ↦ E_λ(s, x) for s ≤ 0 and E(s, x) for s ≥ 0, over a cover of Σ by such K, are homeomorphisms onto open subsets
-of M_gl; they agree on overlaps and are diffeomorphisms onto open subsets of A and B on s < 0 and s > 0. They give
-M_gl its smooth structure near Σ; away from Σ it is that of A and B. ∂_s is future directed on both sides, so the time
-orientations of g_λ and g fit together.
+*(i), the topology.* The inclusions of A and B into ℝ × ℝ⁴ agree on Σ, so they define a continuous injective map from
+M_gl onto A ∪ B. It is open. Indeed, A = (A ∪ B) ∩ {t_IVP ≤ 0} and B = (A ∪ B) ∩ {t_IVP ≥ 0} are closed in A ∪ B; so if
+S ⊂ A ∪ B meets A and B in relatively open sets, (A ∪ B) ∖ S is the union of the closed sets A ∖ S and B ∖ S, and S is
+open in A ∪ B. We identify M_gl with A ∪ B by this homeomorphism. Then M_gl is Hausdorff and second countable, and
+A ∖ Σ = M_gl ∩ {t_IVP < 0} and B ∖ Σ = M_gl ∩ {t_IVP > 0} are disjoint open subsets of it, covering M_gl ∖ Σ, which
+carry the smooth structures of V and of ℝ × ℝ⁴ and the metrics g_λ and g. The smooth structure across Σ is the one
+constructed next, not that of the coordinates (t, x): g_λ and g need not agree as matrices on Σ.
 
-*(i), Hausdorff.* A ∖ Σ = D_V(Σ) ∩ {t_IVP < 0} is open in V, and B ∖ Σ = {|x| > r_♭, t_IVP > 0} is open; both are
-saturated, so both are open in M_gl, and M_gl ∖ Σ is their disjoint union. Two points off Σ are separated in A or in
-B, or by these two sets. A point of Σ and any other point are separated by a chart above and a neighbourhood in A or B
-disjoint from its image, A, B and Σ being Hausdorff.
+*(i), the charts at Σ.* Let n_λ and n be the future unit normals of Σ for g_λ and g. Then dt_IVP(n_λ) > 0, as dt_IVP
+is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. Let p ∈ Σ, and let U_0 be a neighbourhood of p in
+Σ with coordinates x = (x¹, …, x⁴). Near p, g is the restriction to B of a smooth Lorentzian metric g̃ on an open set of
+ℝ × ℝ⁴, g being smooth up to Σ. The maps
 
-*(ii).* In V, Σ lies in the level set {t_IVP = 0} of a function that increases strictly along future causal curves,
-so Σ is acausal there. In M_gl, let c be a future causal curve with c(0) ∈ Σ. In each chart above ds is timelike, as
-g⁻¹(ds, ds) = −1, and s increases strictly along future causal curves; so c lies in {s > 0} ⊂ B ∖ Σ just after the
-parameter 0, and if c meets Σ at a parameter σ₁ it lies in {s < 0} ⊂ A ∖ Σ just before σ₁. Σ is closed in M_gl. If c
-met Σ again, let σ₁ be the first parameter after 0 at which it does; then c((0, σ₁)) is a connected subset of
-(A ∖ Σ) ⊔ (B ∖ Σ) meeting both open sets, which is impossible. So Σ is acausal in M_gl.
+    E_λ(s, x) := exp^(g_λ)_x(s n_λ),     Ẽ(s, x) := exp^(g̃)_x(s n)
 
-M_gl and V are connected time-oriented Lorentzian manifolds (A and B are connected, every point of A lying on a causal
-curve in A that meets the connected Σ), and Σ is an acausal smooth hypersurface in each. By
-[[thm:std-bgp-development]], D_(M_gl)(Σ) and D_V(Σ) are open, globally hyperbolic, and have Σ as a Cauchy
-hypersurface. In the chart, Σ is the graph of a function over the shell {r_♭ < |x| < R} ⊂ ℝ⁴, which is connected; γ is
-Riemannian, Σ being spacelike; and (γ, k) satisfies the constraint equations, as both metrics are vacuum. So (Σ, γ, k)
-is an initial data set and both Cauchy developments, with the inclusion of Σ, are globally hyperbolic developments of
-it [Sbi15, Definition 2.1, p. 11]. By [Sbi15, Theorem 2.6, p. 12] they have a common globally hyperbolic development,
-and by [Sbi15, Theorem 3.4, p. 14] a maximal one, U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that
-preserves the time orientation and the embedding of Σ [Sbi15, Definitions 2.2 and 2.4, p. 11]. U is open and contains
-Σ. By [Sbi15, Theorem 3.13, p. 20] U has no corresponding boundary points, and gluing the two developments along U by
-j gives a Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7, p. 12, and its proof,
-pp. 20–22]. ∎
+are defined and smooth near (0, p) in ℝ × U_0, and their differentials at (0, p) map (σ, ξ) ∈ ℝ × T_pΣ to σn_λ + ξ
+and to σn + ξ, which are isomorphisms, n_λ and n being transverse to Σ. By the inverse function theorem there are an
+open neighbourhood U ⊂ U_0 of p and ε > 0 such that E_λ and Ẽ map (−ε, ε) × U diffeomorphically onto open sets
+O_λ ⊂ D_V(Σ) and O ⊂ {r_♭ < |x| < R}, and such that ∂_s(t_IVP ∘ E_λ) > 0 and ∂_s(t_IVP ∘ Ẽ) > 0 there, these being
+dt_IVP(n_λ) and dt_IVP(n) at s = 0. Since t_IVP vanishes at s = 0, t_IVP ∘ E_λ and t_IVP ∘ Ẽ have the sign of s. So
+E_λ maps (−ε, 0] × U onto O_λ ∩ {t_IVP ≤ 0} = O_λ ∩ A, and Ẽ maps [0, ε) × U onto O ∩ {t_IVP ≥ 0} = O ∩ B, with
+O ∩ Σ = U. For 0 ≤ s < ε the g̃-geodesic σ ↦ Ẽ(σ, x), σ ∈ [0, s], lies in B, where g̃ = g; so Ẽ(s, x) =
+E(s, x) := exp^g_x(s n) there, whatever the extension g̃. Put
+
+    Φ_U(s, x) := E_λ(s, x)  (−ε < s ≤ 0),     Φ_U(s, x) := E(s, x)  (0 ≤ s < ε),
+
+both being x at s = 0. Φ_U is a bijection from (−ε, ε) × U onto W_U := (O_λ ∩ A) ∪ (O ∩ B), which is open in M_gl,
+since W_U ∩ A = O_λ ∩ A and W_U ∩ B = O ∩ B are open in A and in B. Φ_U is continuous on the closed halves {s ≤ 0}
+and {s ≥ 0}, and its inverse on the closed pieces W_U ∩ A and W_U ∩ B; so Φ_U is a homeomorphism. On {s < 0} and on
+{s > 0} it is a diffeomorphism onto the open subsets O_λ ∩ (A ∖ Σ) of A ∖ Σ and O ∩ (B ∖ Σ) of B ∖ Σ.
+
+*(i), the smooth structure.* Two charts Φ_U and Φ_U′ of this kind are given by the same formulas where both are
+defined. Let (s, x) lie in the domain of Φ_U′⁻¹ ∘ Φ_U. If s ≠ 0, this map is smooth near (s, x), as both charts are
+diffeomorphisms onto open subsets of A ∖ Σ, or both of B ∖ Σ, there. If s = 0, then x ∈ U ∩ U′, and Φ_U = Φ_U′ on a
+neighbourhood N of (0, x) contained in both domains. Φ_U′⁻¹ ∘ Φ_U is continuous and fixes (0, x), so it maps a smaller
+neighbourhood N′ ⊂ N into N, and for y ∈ N′, Φ_U′(Φ_U′⁻¹Φ_U(y)) = Φ_U(y) = Φ_U′(y), whence Φ_U′⁻¹Φ_U(y) = y, Φ_U′ being
+injective. So the transition maps are smooth, and the charts Φ_U, with the charts of A ∖ Σ and of B ∖ Σ, form a
+smooth atlas of M_gl, a five-dimensional manifold without boundary. A ∖ Σ and B ∖ Σ are open submanifolds of it, and
+Σ, which is {s = 0} in every chart Φ_U, is a smooth embedded hypersurface.
+
+*(i), the metric.* s ↦ E_λ(s, x) and s ↦ E(s, x) are geodesics of g_λ and of g with unit timelike tangent, equal to
+n_λ and n at s = 0. So E_λ^*g_λ = −ds² + h^λ_s on (−ε, 0] × U and E^*g = −ds² + h_s on [0, ε) × U, with Riemannian
+metrics h^λ_s and h_s on U: along a unit timelike geodesic g(∂_s, ∂_s) = −1, and for a coordinate field ∂_i of U,
+∂_s g(∂_s, ∂_i) = g(∂_s, ∇_(∂_s)∂_i) = g(∂_s, ∇_(∂_i)∂_s) = ½∂_i g(∂_s, ∂_s) = 0, with g(∂_s, ∂_i) = 0 at s = 0. At
+s = 0, h^λ_0 = h_0 = γ, and ∂_s h^λ_0 = ∂_s h_0: ∂_s g(∂_i, ∂_j) = g(∇_(∂_i)∂_s, ∂_j) + g(∂_i, ∇_(∂_j)∂_s) is at s = 0
+twice the second fundamental form of Σ with respect to the future unit normal, which is k for both metrics. The metric
+−ds² + h_s has the Christoffel symbols Γ^s_ij = ½∂_s h_ij, Γ^i_sj = ½h^ik ∂_s h_kj and Γ^i_jk those of h_s, the others
+vanishing; so the spatial components of its Ricci tensor are
+
+    R_ij = ½∂_s²h_ij + Ric(h_s)_ij + ¼(h^kl ∂_s h_kl) ∂_s h_ij − ½h^kl ∂_s h_ik ∂_s h_jl.
+
+Ric = 0 therefore reads ∂_s²h = F(h, ∂_s h, ∂_x h, ∂_x²h), with F := −2 Ric(h) − ½(h^kl ∂_s h_kl) ∂_s h + (∂_s h)h⁻¹(∂_s h)
+a universal expression, polynomial in h⁻¹, h, ∂_s h and the first and second x-derivatives of h. Differentiating m times
+in s makes ∂_s^(m+2)h at s = 0 a universal expression in the ∂_s^j h, j ≤ m + 1, and their x-derivatives. By induction
+on m, from h^λ_0 = h_0 and ∂_s h^λ_0 = ∂_s h_0, ∂_s^m h^λ and ∂_s^m h agree at s = 0 for every m, with all their
+x-derivatives. So H := h^λ on s ≤ 0 and h on s ≥ 0 has one-sided partial derivatives of every order which agree at
+s = 0. By induction on the order, every partial derivative of H exists, the one-sided difference quotients in s having
+the same limit at s = 0, and it is continuous; so H is C^∞. The metric −ds² + H is then smooth on (−ε, ε) × U,
+Ricci-flat on s ≠ 0, and so on s = 0 as well, Ric depending continuously on two derivatives. As the transition maps
+between the Φ_U are the identity near Σ, these metrics, g_λ on A ∖ Σ and g on B ∖ Σ form one smooth Ricci-flat
+Lorentzian metric g_gl on M_gl. On Σ = {s = 0} it induces H_0 = γ and the second fundamental form ½∂_s H_0 = k.
+
+*(i), time orientation and connectedness.* Along each geodesic s ↦ Φ_U(s, x) the tangent ∂_s is timelike and
+continuous, so it stays in the cone of its value n_λ, resp. n, at s = 0: ∂_s is future directed for g_λ on s < 0 and
+for g on s > 0. The future cones of g_λ on A ∖ Σ, of g on B ∖ Σ and the cones of ∂_s on the sets W_U therefore agree
+where these sets overlap, and define a time orientation of g_gl, in which the unit normal ∂_s of Σ is future.
+B ∖ Σ = {|x| > r_♭, t > ψ_IVP(|x|)} is connected, the region above the graph of a continuous function over the
+connected set {|x| > r_♭} ⊂ ℝ⁴, and B lies in its closure; so B is connected. For A, and for later use: let S be an
+acausal set in a time-oriented Lorentzian manifold N, p ∈ D_N(S), and c an inextendible future causal curve through p
+meeting S at q, say with p before q (the other case is the same with past and future exchanged). Then every point y
+of c between p and q lies in D_N(S). Indeed, for an inextendible causal curve c′ through y, the curve formed by c up to
+y and the future half of c′ from y is causal, inextendible and passes through p, so it meets S; c meets S only at q,
+S being acausal, and q follows y; so c′ meets S. In V, through a point p of A ∖ Σ passes an inextendible timelike
+geodesic of g_λ, which meets Σ at a point q, after p as t_IVP(p) < 0 = t_IVP(q). Every point of it between p and q
+lies in D_V(Σ) and has t_IVP ≤ 0, so it lies in A. So every point of A is joined to the connected set Σ in A, and A is
+connected; M_gl = A ∪ B, with A ∩ B = Σ ≠ ∅, is connected. Every point of D_(M_gl)(Σ) and of D_V(Σ) is joined to Σ
+within it in the same way, so these two sets are connected too.
+
+*(ii).* In V, Σ is acausal (above). In M_gl, let c be a future causal curve with c(0) ∈ Σ. In each chart Φ_U, ds is
+timelike, as g_gl⁻¹(ds, ds) = −1, and past, as its metric dual is −∂_s; so s increases strictly along future causal
+curves. So c lies in {s > 0} ⊂ B ∖ Σ just after the parameter 0, and if c meets Σ at a parameter σ₁ it lies in
+{s < 0} ⊂ A ∖ Σ just before σ₁. Σ is closed in M_gl. If c met Σ again, let σ₁ be the first parameter after 0 at which
+it does; then c((0, σ₁)) is a connected subset of (A ∖ Σ) ⊔ (B ∖ Σ) meeting both open sets, which is impossible. So Σ
+is acausal in M_gl.
+
+So Σ is an acausal smooth spacelike hypersurface in each of the connected time-oriented Lorentzian manifolds M_gl and
+V. By [[thm:std-bgp-development]], D_(M_gl)(Σ) and D_V(Σ) are open, globally hyperbolic and connected, and have Σ as a
+Cauchy hypersurface. In the chart, Σ is the graph of a function over the shell {r_♭ < |x| < R} ⊂ ℝ⁴, which is
+connected; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations, both
+metrics being vacuum. So (Σ, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4, and both Cauchy
+developments, with the inclusion of Σ, are globally hyperbolic developments of it [Sbi15, Definition 2.1]
+([[thm:std-sbierski]] (1)): they are connected and time oriented, as [Sbi15] assumes of every Lorentzian manifold
+(p. 10), vacuum, and induce (γ, k) on Σ with respect to the future normal, by (i) for M_gl. By [Sbi15, Theorem 2.6]
+they have a common globally hyperbolic development, and by [Sbi15, Theorem 3.4] a maximal one ([[thm:std-sbierski]]
+(3), (4)), U ⊂ D_(M_gl)(Σ), with an isometric embedding j into D_V(Σ) that preserves the time orientation and the
+embedding of Σ [Sbi15, Definitions 2.2 and 2.4] ([[thm:std-sbierski]] (2)), so that j is the identity on Σ. U is open
+(the proof of [Sbi15, Theorem 3.4]) and contains Σ, a Cauchy surface of U. By [Sbi15, Theorem 3.13] U has no
+corresponding boundary points ([[thm:std-sbierski]] (5)), and gluing the two developments along U by j gives a
+Hausdorff globally hyperbolic development that extends both [Sbi15, Theorem 2.7 and its proof] ([[thm:std-sbierski]]
+(3), (6)). ∎
 
 **Remark {#rem:interior-one-spacetime}** (What [[lem:interior-one-spacetime]] says.)
 
@@ -221,7 +294,7 @@ pp. 20–22]. ∎
 To continue g_λ's own data, g_λ would first have to be constructed on the whole of Σ^IVP, out to spatial infinity.
 The region there lies after the shell (v > v_end), where g_λ is Tangherlini plus the means times powers of λ plus the
 remainder of [[lem:vii-1-1]]. Those data would then have to be shown to lie in a data class of [[thm:iii-k-4-3]], and
-[[prop:vii-3-2]] with b = (m′, 0) and S = 0, now on g_λ's own data, would give their development, with the interior
+[[prop:vii-3-2]] with b = (m′, 0) and S = 0, applied to g_λ's own data, would give their development, with the interior
 of [[prop:interior]] at late times; without the symmetry, [[thm:settling]] (ii) would. The first step needs estimates
 on a domain reaching spatial infinity at the time of Σ^IVP; the construction from past null infinity
 ([[thm:past-construction]]) is the natural start. This section locates that step and fixes the data class.

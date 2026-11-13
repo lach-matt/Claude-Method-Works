@@ -120,8 +120,8 @@ Lemma 5.6 for the pointwise bounds; here the slots of h and of g_(b₀) − η g
 
 *The radius R₀.* Enlarging R₀ keeps [[lem:iii-c1-1-1]] true. We fix R₀ once, so that in addition R₀ ≥ 4|C″| + 4, the
 function F₀ of [[lem:s26-development]] is increasing on [R₀, ∞), and every statement of this chapter made for r₀ large
-(in [[lem:s26-development]], [[rem:iv-4-2]], [[lem:iv2-1-1]] (a), [[lem:iv2-2-2]], [[lem:iv2-2-3]], [[cor:iv2-4-1]] and
-[[prop:iii-c2-4-2]]) holds for every r₀ ≥ R₀. Each of these asks r₀ above a bound depending only on b₀, the gauge
+(in [[lem:s26-development]], [[rem:iv-4-2]], [[lem:iv2-1-1]] (a), [[lem:iv2-2-2]], [[lem:iv2-2-3]] and [[cor:iv2-4-1]])
+holds for every r₀ ≥ R₀. Each of these asks r₀ above a bound depending only on b₀, the gauge
 parameters, ℓ^♭₀, ℓ^♭_I and the constant c of [[lem:iv2-2-1]], whose choice does not involve r₀ (it is the smallness of
 x_I in [[prop:iv-3-1]] and [[prop:iv1-2-2]]). From here on R₀ is this radius.
 
@@ -1584,29 +1584,48 @@ determines (h̃₁)_(0j); and its e⁰-component, −½(e₀t_IVP)(h̃₁)₀₀
 e⁰-component of its right side, determines (h̃₁)₀₀; all lie in H^(∞,(ℰ₀+1,ℓ₀+1))_b, linearly and continuously in the
 data. So h₁ = rh̃₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b. ∎
 
-These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ and ℓ₀ > 3/2, and then [[thm:iii-c2-3-1]]; if (γ, κ)
-satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
+These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 3/2 and ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀ as in
+[[thm:iii-c1-2-1]] (k₀ = N_NM = 153), which holds for (γ̃, κ̃) small in a suitable norm, by the continuity in
+[[prop:iii-c2-4-1]]; and then they enter [[thm:iii-c2-3-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
 
 **Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
-dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), and suppose that data on Σ^BL := t_BL⁻¹(0) are as in
-[Hin26, (5.82)], with index set ℰ₀ and weight ℓ₀, small, and satisfying the constraints. Then the solution of the
-gauge-fixed equation with Υ⁰ in a conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity induces on
-Σ_IVP ∩ {r > r₀} data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index set ℰ_log arises.
+dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and
+γ^BL_(b₀), κ^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in
+[[thm:iii-c1-3-1]], δ ∈ (0, ¼], and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on
+Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
+κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]]
+gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in [[thm:iv2-3-1]] (by the
+continuity in [[prop:iii-c2-4-1]], this holds for (γ̃^BL, κ̃^BL) small in a suitable norm). Then the solution h of the
+gauge-fixed equation with Υ⁰, Ric(g_(b₀) + h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain
+of dependence D_δ of Σ^BL ∩ {r > δ⁻¹} within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity,
+induces on Σ_IVP ∩ {r > r₀}, for r₀ large, data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index
+set ℰ_log arises.
 
-*Proof.* The solution in U_δ is that of [Hin26] (the boost problem of [COM81]), obtained by the arguments of
-[[thm:iii-c1-2-1]] on [−δ, δ]_τ × [0, δ]_ρ × 𝕊³, τ = t/r; its partial polyhomogeneity h ∈ H^(∞,(ℰ₀,ℓ₀))_b(U_δ)
-follows as in Step 1 of the proof of [[thm:iii-c1-3-1]]. On {|x| ≥ R₃}, t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), with
-t = t_KS + T_m the time of [[eq:iii-b-3-3]] and T_m = 2m r⁻¹ + O(r⁻³) ([[lem:iii-b-3-5]] (a)). For the Tangherlini
-metric of mass m, f = 1 − m r⁻², t_KS − t_BL = ∫ m r⁻²(1 − m r⁻²)⁻¹ dr = −m r⁻¹ + O(r⁻³); so
-t − t_BL = m r⁻¹ + O(r⁻²), a smooth function of ρ = r⁻¹ near ρ = 0 (in dimension 3 + 1 the integral is 2m log r). So
-τ_IVP := t_IVP/r = τ_BL + ρc(ρ) with c smooth, and Taylor expansion of a(τ_BL)ρ^z(log ρ)^k = a(τ_IVP − ρc(ρ))ρ^z(log ρ)^k
-in ρ gives the terms ρ^(z+j)(log ρ)^k, j ∈ ℕ₀: the index set (z, k) + ℕ₀ ⊂ ℰ₀, with no new logarithm. ∎
+*Proof.* *The time functions.* On {|x| ≥ R₃}, t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), with t = t_KS + T_m the time of
+[[eq:iii-b-3-3]] and T_m = 2m r⁻¹ + O(r⁻³) ([[lem:iii-b-3-5]] (a)). For the Tangherlini metric of mass m,
+f = 1 − m r⁻², t_KS − t_BL = ∫ m r⁻²(1 − m r⁻²)⁻¹ dr = −m r⁻¹ − m²/(3r³) − ⋯, an odd series in r⁻¹; so
+t − t_BL = m r⁻¹ + O(r⁻³), a smooth function of ρ = r⁻¹ near ρ = 0 (in dimension 3 + 1 the integral is 2m log r). So
+τ_IVP := t_IVP/r = τ_BL + ρc(ρ) and τ_BL := t_BL/r = τ − ρc̃(ρ), with c and c̃ smooth.
+
+*The solution.* As dτ_BL = dτ + O(ρ) in the b-sense, G_b(dτ_BL, dτ_BL) = τ² − 1 + O(ρ) < 0 on U_δ, and |τ| < ¼ there,
+inside the range of [[prop:iv-4-1]]. So [[lem:iv2-2-2]] holds with τ′ replaced by τ_BL and Σ_(IVP,r₀) by
+Σ^BL ∩ {r > δ⁻¹}, on D_δ: its proof uses only that the initial surface is a level set of a b-time function and the
+b-structure of the operator, and U_δ itself has the timelike side {r = δ⁻¹}, so the problem is posed on D_δ. The
+operator with Υ⁰ differs from L by a first-order term of the class absorbed there (the proof of [[lem:iii-c2-2-1]] with
+χ₀ = 0, ρ_I being bounded below on U_δ). With these estimates for the right inverses, [[thm:ii-g-2-1]] gives h on D_δ as
+in the proof of [[thm:iv2-3-1]] (d = 7, trivial support classes); this is the boost problem of [COM81], as in [Hin26].
+Its partial polyhomogeneity h ∈ H^(∞,(ℰ₀,ℓ₀))_b(D_δ) follows as in Step 1 of the proof of [[thm:iii-c1-3-1]], with
+[[lem:iv2-2-2]] in place of [[eq:iii-c1-2-2]]. On Σ_IVP, t is bounded, so Σ_IVP ∩ {r > r₀} ⊂ D_δ for r₀ large.
+
+*The data.* Taylor expansion of a(τ_BL)ρ^z(log ρ)^k = a(τ_IVP − ρc(ρ))ρ^z(log ρ)^k in ρ gives the terms
+ρ^(z+j)(log ρ)^k, j ∈ ℕ₀: the index set (z, k) + ℕ₀ ⊂ ℰ₀, with no new logarithm. ∎
 
 So [Hin26, Remark 5.26] (logarithms from (2, 0) + ℰ_log) has no counterpart in dimension 4 + 1 from this mechanism;
 logarithmic index sets enter the later chapters for other reasons (the analysis at ι⁺ and K⁺).
 
-**Remark {#rem:iii-c2-4-3}** ([Hin26, Example 5.27] in dimension 4 + 1.) (1) Data that are exactly Myers–Perry outside
-a compact set ([CD03] in dimension 4 + 1; [[ch:s28]]) satisfy [[prop:iii-c2-4-1]] with ℰ₀ = ∅ and every ℓ₀. (2) The
+**Remark {#rem:iii-c2-4-3}** ([Hin26, Example 5.27] in dimension 4 + 1.) (1) Data equal to the data of g_(b₀) outside a
+compact set satisfy [[prop:iii-c2-4-1]] with ℰ₀ = ∅ and every ℓ₀; gluing produces data equal outside a compact set to
+those of a member of the family ([CD03] in dimension 4 + 1; [[ch:s28]]). (2) The
 constructions by the conformal method in [Hin26, Example 5.27 (2)–(3)] are stated in dimension 3 + 1; their
 counterparts in dimension 4 + 1 are not used here.
 

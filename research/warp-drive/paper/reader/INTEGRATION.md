@@ -504,3 +504,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   rewordings (F_p smooth only up to s = 0; h_R does not vanish beyond the band on the initial slice, same exponent
   2a − 6; chapter 63 uses the flat Σ_4). Notation: N for the null boundary clashes with OUTLINE's N; proof G's k := dv
   clashes with the data's k. DLMF (15.10.1), (15.5.1), (15.4.28) for Appendix A.
+- Proof E background (R-P-E-background): every result true (about 140 rows recomputed; the true k = 2 error 8.403e-4
+  against the bound 8.558e-4); the λ > 0 argument was circular (repaired by Ŝ ≥ 0.6112). Every bound is stronger than
+  its uses need (tube margins ×33, ×4, ×35, ×56). One copy of the quintic and μ_s: sec:table-seed-profile; E-a's
+  sec:tab-bg-spline deleted. T4 (rem:bg-grid) is used by no proof.

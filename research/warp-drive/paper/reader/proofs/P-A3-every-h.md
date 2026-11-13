@@ -13,17 +13,17 @@ The argument has three steps. As (κ, h) varies, no root of P(·; κ, h) meets t
 at κ = 3 ([[lem:s14-line-two]]); no root meets the line Re ι = −1/(2h) ([[lem:s14-line-far]]); and the number of roots
 on each side of these lines is read off in the limit h → 0⁺ from [[lem:s14-small-h]].
 
-**Lemma {#lem:s14-half-plane-count}** (Counting roots in a half-plane.) Let Ω ⊂ ℝ² be connected, and for ω ∈ Ω let
-p_ω(z) = a_n(ω)zⁿ + … + a_0(ω) be a polynomial whose coefficients are continuous functions on Ω, with a_n(ω) ≠ 0. Let
-H ⊂ ℂ be an open half-plane with boundary line L. If no p_ω has a root on L, then the number of roots of p_ω in H,
-counted with multiplicity, is the same for every ω ∈ Ω.
+**Lemma {#lem:s14-half-plane-count}** (Counting roots in a half-plane.) Let Ω ⊂ ℝ² be connected, and for ϖ ∈ Ω let
+p_ϖ(z) = a_n(ϖ)zⁿ + … + a_0(ϖ) be a polynomial whose coefficients are continuous functions on Ω, with a_n(ϖ) ≠ 0. Let
+H ⊂ ℂ be an open half-plane with boundary line L. If no p_ϖ has a root on L, then the number of roots of p_ϖ in H,
+counted with multiplicity, is the same for every ϖ ∈ Ω.
 
-*Proof.* Fix ω₀ ∈ Ω. Every root z of p_ω satisfies |z| ≤ 1 + max_(j<n) |a_j(ω)/a_n(ω)|, and the right side is
-continuous in ω. So there are a neighbourhood V of ω₀ in Ω and a number R, larger than the distance from 0 to L, such
-that every root of p_ω, ω ∈ V, has modulus less than R. Let G := H ∩ {|z| < R}, a bounded convex open set whose
-boundary Γ consists of a segment of L and an arc of the circle |z| = R. As p_(ω₀) has no root on Γ,
-m₀ := min_Γ |p_(ω₀)| > 0, and after shrinking V, |p_ω − p_(ω₀)| < m₀ on Γ for ω ∈ V, since Γ is bounded and the
-coefficients are continuous. By Rouché's theorem p_ω and p_(ω₀) have equally many roots in G, and these are all their
+*Proof.* Fix ϖ₀ ∈ Ω. Every root z of p_ϖ satisfies |z| ≤ 1 + max_(j<n) |a_j(ϖ)/a_n(ϖ)|, and the right side is
+continuous in ϖ. So there are a neighbourhood V of ϖ₀ in Ω and a number R, larger than the distance from 0 to L, such
+that every root of p_ϖ, ϖ ∈ V, has modulus less than R. Let G := H ∩ {|z| < R}, a bounded convex open set whose
+boundary Γ consists of a segment of L and an arc of the circle |z| = R. As p_(ϖ₀) has no root on Γ,
+m₀ := min_Γ |p_(ϖ₀)| > 0, and after shrinking V, |p_ϖ − p_(ϖ₀)| < m₀ on Γ for ϖ ∈ V, since Γ is bounded and the
+coefficients are continuous. By Rouché's theorem p_ϖ and p_(ϖ₀) have equally many roots in G, and these are all their
 roots in H. So the number is locally constant on Ω, hence constant, Ω being connected. ∎
 
 #### The line Re ι = 2 {#sec:s14-every-h-two}
@@ -68,24 +68,24 @@ Hence for κ > 3 no root of P(·; κ, h) has real part 2, and for κ = 3 the onl
 *Proof.* (a) As h < e, 3e − (1 − e)h > 2e > 0, so f₀ has the sign of κ − 3. In f₁ the brackets are positive:
 κ + 3 + 21eκ − 9e > κ, (4 − e)κ² − (1 − 9e)κ + 3 − 6e > 3κ² − κ > 0 and κ² − 1 > 0; so f₁ < −3e(κ + 5) < 0.
 
-(b) The f_j are real, so P(2 + iy; κ, h) = A(y²) + iyB(y²) with the real polynomials
+(b) The f_j are real, so P(2 + iy; κ, h) = Φ(y²) + iyΨ(y²) with the real polynomials
 
-    A(s) := f₀ − f₂s + f₄s² − f₆s³,     B(s) := f₁ − f₃s + f₅s².
+    Φ(s) := f₀ − f₂s + f₄s² − f₆s³,     Ψ(s) := f₁ − f₃s + f₅s².
 
-Then −A(s) − h(κ + s)B(s) = D₀ + D₁s + D₂s² + D₃s³ with D₀ = −f₀ − hκf₁, D₁ = f₂ + hκf₃ − hf₁,
-D₂ = −f₄ − hκf₅ + hf₃ and D₃ = f₆ − hf₅, and inserting [[eq:s14-f-two]] and collecting terms,
+Then −Φ(s) − h(κ + s)Ψ(s) = d₀ + d₁s + d₂s² + d₃s³ with d₀ = −f₀ − hκf₁, d₁ = f₂ + hκf₃ − hf₁,
+d₂ = −f₄ − hκf₅ + hf₃ and d₃ = f₆ − hf₅, and inserting [[eq:s14-f-two]] and collecting terms,
 
-    D₀ = hκ(24e + h(2κ + 20eκ − 6e) + h²((3 − e)κ² + (1 + 9e)κ + 6 − 6e) + 6h³(κ² − 1)),
-    D₁ = 2 + 10e + h((3 − e)κ + 7 + 51e) + h²((10 + 42e)κ + 10 + 8e)
+    d₀ = hκ(24e + h(2κ + 20eκ − 6e) + h²((3 − e)κ² + (1 + 9e)κ + 6 − 6e) + 6h³(κ² − 1)),
+    d₁ = 2 + 10e + h((3 − e)κ + 7 + 51e) + h²((10 + 42e)κ + 10 + 8e)
          + h³((9 − 3e)κ² + (2 + 26e)κ + 14 − 6e) + 6h⁴(3κ² − 1),
-    D₂ = h(3 − e) + h²(8 + 22e) + h³((9 − 3e)κ + 1 + 17e) + 18h⁴κ,
-    D₃ = h³(3 − e) + 6h⁴.                                                                                {#eq:s14-d-two}
+    d₂ = h(3 − e) + h²(8 + 22e) + h³((9 − 3e)κ + 1 + 17e) + 18h⁴κ,
+    d₃ = h³(3 − e) + 6h⁴.                                                                                {#eq:s14-d-two}
 
-For instance, in D₀ the terms of order e give −3e(κ − 3) + 3e(κ + 5) = 24e, those of order h give
+For instance, in d₀ the terms of order e give −3e(κ − 3) + 3e(κ + 5) = 24e, those of order h give
 (1 − e)(κ − 3) + κ + 3 + 21eκ − 9e = 2κ + 20eκ − 6e, and those of order h² give
-−(κ − 3)(κ + 1) + (4 − e)κ² − (1 − 9e)κ + 3 − 6e = (3 − e)κ² + (1 + 9e)κ + 6 − 6e. For κ ≥ 1 and 0 < e < 1/3 every
-bracket in [[eq:s14-d-two]] is positive, so D₀, D₂, D₃ > 0 and D₁ > 2. If P(2 + iy; κ, h) = 0 with y ≠ 0, then
-A(y²) = B(y²) = 0, so −A(y²) − h(κ + y²)B(y²) = 0, while D₀ + D₁y² + D₂y⁴ + D₃y⁶ ≥ D₁y² > 0. ∎
+−(κ − 3)(κ + 1) + (4 − e)κ² − (1 − 9e)κ + 3 − 6e = (3 − e)κ² + (1 + 9e)κ + 6 − 6e. For κ > 1 and 0 < e < 1/3 every
+bracket in [[eq:s14-d-two]] is positive, so d₀, d₂, d₃ > 0 and d₁ > 2. If P(2 + iy; κ, h) = 0 with y ≠ 0, then
+Φ(y²) = Ψ(y²) = 0, so −Φ(y²) − h(κ + y²)Ψ(y²) = 0, while d₀ + d₁y² + d₂y⁴ + d₃y⁶ ≥ d₁y² > 0. ∎
 
 #### The line Re ι = −1/(2h) {#sec:s14-every-h-far}
 

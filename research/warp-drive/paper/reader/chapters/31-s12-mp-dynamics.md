@@ -1016,8 +1016,8 @@ on Σ^♭₁ near Γ_b, the field 𝖵 of t_*, transported by T_F, is aH_𝒢 wi
 is smooth and positive. Let p ∈ Γ_b. By [[lem:vi-b1-3-1]], e^(sH_𝒢)|_(Γ_b) is conjugate by π to e^(sH_𝔥) = e^(sc₀X₀)
 e^(sc₁X₁) e^(sc₂X₂), the c_i being constant along the orbit. Differentiating, D_(πp) e^(sH_𝔥) = De^(sc₀X₀) De^(sc₁X₁)
 De^(sc₂X₂) + s Σ_i X_i ⊗ dc_i. Here e^(tX₁) and e^(tX₂) are cotangent lifts of rotations of 𝕊³ (by the frame's J₁₂ and
-J₃₄), with derivatives bounded uniformly in t on 𝒴. [[lem:vi-b1-3-2]] enters at the rotated point e^(sc₁X₁) e^(sc₂X₂)
-πp; the rotations commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
+J₃₄), with derivatives bounded uniformly in t on 𝒴. Every b with |b − b₀| ≤ ε_K lies in ℬ ([[def:s12-radii]]), so
+‖A‖² < m₀/400 and [[lem:vi-b1-3-2]] applies; it enters at the rotated point e^(sc₁X₁) e^(sc₂X₂) πp; the rotations commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
 |D_p e^(sH_𝒢)|_(TΓ_b)| ≤ C_p(1 + |s|)², and by [[lem:vi-b1-3-3]], |D_p e^(s𝖵)|_(TΓ_b)| ≤ C′_p(1 + |s|)³. Now let ϵ > 0.
 Identify Γ_b with Γ_(b₀) smoothly in b by ι_b(ω, η) := (ω, κ_b(ω, η)η) on Γ^𝕊_(b₀), where κ_b, near 1, solves ℛ_c(ω,
 κ_bη) = 0 with ℛ_c taken at b ([[lem:vi-b1-2-1]]: the radial derivative η·∂_ηℛ_c is −8m₀² ≠ 0 at b₀, from ℛ_c = C(m₀ −
@@ -1101,8 +1101,11 @@ then in {r_A < r₊} a parameter T later, still on the half-line. So 𝓛 ⊂ �
 𝓛 ⊂ ∂ℛ_±, and γ lies in 𝒰_L near that end. Forward this is impossible: L > 0 along γ does not decrease forward in
 𝒰_L, so it cannot tend to 0. Hence an exterior curve with r → r₊ forward leaves {r_A > r₊}, so meets ℋ_b and crosses
 it inward; one with r → r₊ backward tends backward to ∂ℛ_±. Inside, read for g̃_b (Ψ_b carries {r < r_h} to the inside
-of ℋ_b, [[lem:vi-b-1-2]]): on {r₀ − 2δ₀ ≤ r < r_h}, dr is timelike ([[lem:vi-b-1-1]] and [[prop:vi-b-2-2]]), so r
-decreases strictly along γ. On compact subsets of the compactified Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
+of ℋ_b, [[lem:vi-b-1-2]]): on {r₀ − 2δ₀ ≤ r < r_h}, dr is timelike for g̃_b. On {r ≤ r₂} this is part of (H4) in
+[[prop:vi-b-2-2]]. On {r₂ ≤ r < r_h}, for b near b₀, χ_H(|Ψ_b(x)|) = 1, so Ψ_b^* r_A = (r₊(b)/r_h)|x| (the remark after
+[[lem:vi-b-1-2]]) and g̃_b⁻¹(dr, dr) = (r_h/r₊(b))² (g^KS_b)⁻¹(dr_A, dr_A) ∘ Ψ_b, as in the proof of [[lem:vi-b-2-1]];
+this is negative by [[lem:vi-b-1-1]], since there r₋ < r_A ∘ Ψ_b = (r₊(b)/r_h)r < r₊(b) (the paragraph after
+[[eq:vi-b-1-1]]). So r decreases strictly along γ. On compact subsets of the compactified Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
 ṙ is bounded above by a negative constant, so γ reaches {r < r₀ − δ₀} in finite time. Backward, r increases strictly
 along an interior curve. If the curve meets ℋ_b backward, it crossed it inward there, and its earlier part is an
 exterior curve, treated above. Otherwise, with s₀ a parameter at which γ is inside, r → r̄ ≤ r_h as s → −∞. The case
