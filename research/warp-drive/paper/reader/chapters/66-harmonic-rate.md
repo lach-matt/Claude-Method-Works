@@ -630,24 +630,23 @@ at every p < min(p_0, 3/2), with [[eq:gd-r7-4]], gives the rate.
 finitely many of their derivatives; so outside a ball they are ṁ times those of the initial solution ḣ^(K) of
 [[prop:viii-1-2]] for the data of K_V, and ḣ − ṁḣ^(K) has data of compact support. It solves L^♮(ḣ − ṁḣ^(K)) = 0, an
 equation whose principal part is ½□_g ⊗ id; so it vanishes on the Cauchy development ℰ, in the interior of 𝒟, of the
-part of Σ° outside a large ball ([[thm:std-bgp-development]], [[thm:std-bgp-cauchy]] (3)). ḣ^(K) induces the data of
-K_V ([[lem:viii-1-1]] (1)), so k := ḣ^(K) − K_V induces zero data, with DRic(k) = 0. By [[thm:ix-2-2]] and Step 1 of
-its proof (with Z = 0 and U := U^♯ ∩ {t_IVP < 1}, so that Ω′_+ ⊂ 𝒟), k = ℒ_(Y_K)g near Σ°, with Y_K = 0 on Σ° and
-∇_nY_K^♭ = k(n, ·) + ½k(n, n)n^♭ = −K_V(n, ·) − ½K_V(n, n)n^♭ there, as ḣ^(K)(n, ·) = 0 on Σ^IVP
-([[lem:viii-1-1]]); averaging over SO(4), we take Y_K spherically symmetric. Near infinity on Σ^IVP,
-K_V = |x|⁻²(dt − d|x|)² ([[sec:hg-exterior]]), so ∇_nY_K is conormal of order 2: Y_K has data of order 1 and no Killing
-part. On ℰ, h_0 = (ḣ − ṁK_V)_0 = ṁk = ℒ_(ṁY_K)g, so ℒ_(Y_0−ṁY_K)g = 0: Y_0 − ṁY_K is a spherically symmetric Killing
-field on ℰ, whose orbit space is connected, so it equals c″(∂_v)^♭ ([[lem:gd-1-4]] (c)). Let Z^(K) be the solution of
-□Z^(K) = 0 on N⁺ with the data of Y_K − W**_H on Σ° ([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order 1, and
-exactly 1: its value on Σ° near infinity is dt/|x| − d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting
-c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0. Then Z_c := Z′_0 − ṁZ^(K) − c″(∂_t)^♭ solves □Z_c =
-0, with data of compact support. [[cor:gd-r7-6]] for Z^(K) at every p < 1 and [[cor:gd-r7-4]] for Z_c give the rate
-t_*^(−1+ε), the Killing part
-dropping out of the metric. If ṁ = 0: then Z′_0 = Y_0 near Σ°, h_0 vanishes outside the domain of influence of a ball,
-so 𝔷 = 0 there and Y_0 = ζ_∞(∂_v)^♭ near infinity on Σ°; [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭ gives the last
-display, with c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². For data with compact support, ġ_0 = 0 near Σ° outside a ball, and
-δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ ([[lem:gd-1-4]] (a), [[thm:rw-settling]] (a)) is constant on the simply connected
-orbit space of the interior of N⁺ ([[lem:gd-1-4]] (b)); so ṁ = 0. ∎
+part of Σ° outside a large ball ([[thm:std-bgp-development]], [[thm:std-bgp-cauchy]] (3)). ḣ^(K) induces the data of K_V
+([[lem:viii-1-1]] (1)), so k := ḣ^(K) − K_V induces zero data, with DRic(k) = 0. By [[thm:ix-2-2]] and Step 1 of its
+proof (with Z = 0 and U := U^♯ ∩ {t_IVP < 1}, so that Ω′_+ ⊂ 𝒟), k = ℒ_(Y_K)g near Σ°, with Y_K = 0 on Σ° and ∇_nY_K^♭
+= k(n, ·) + ½k(n, n)n^♭ = −K_V(n, ·) − ½K_V(n, n)n^♭ there, as ḣ^(K)(n, ·) = 0 on Σ^IVP ([[lem:viii-1-1]]); averaging
+over SO(4), we take Y_K spherically symmetric. Near infinity on Σ^IVP, K_V = |x|⁻²(dt − d|x|)² ([[sec:hg-exterior]]), so
+∇_nY_K is conormal of order 2: Y_K has data of order 1 and no Killing part. On ℰ, h_0 = (ḣ − ṁK_V)_0 = ṁk = ℒ_(ṁY_K)g,
+so ℒ_(Y_0−ṁY_K)g = 0: Y_0 − ṁY_K is a spherically symmetric Killing field on ℰ, whose orbit space is connected, so it
+equals c″(∂_v)^♭ ([[lem:gd-1-4]] (c)). Let Z^(K) be the solution of □Z^(K) = 0 on N⁺ with the data of Y_K − W**_H on Σ°
+([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order 1, and exactly 1: its value on Σ° near infinity is dt/|x|
+− d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0.
+Then Z_c := Z′_0 − ṁZ^(K) − c″(∂_t)^♭ solves □Z_c = 0, with data of compact support. [[cor:gd-r7-6]] for Z^(K) at every
+p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part dropping out of the metric. If ṁ = 0: then
+Z′_0 = Y_0 near Σ°, h_0 vanishes outside the domain of influence of a ball, so 𝔷 = 0 there and Y_0 = ζ_∞(∂_v)^♭ near
+infinity on Σ°; [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭ gives the last display, with c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π².
+For data with compact support, ġ_0 = 0 near Σ° outside a ball, and δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ ([[lem:gd-1-4]] (a),
+[[thm:rw-settling]] (a)) is constant on the simply connected orbit space of the interior of N⁺ ([[lem:gd-1-4]] (b)); so
+ṁ = 0. ∎
 
 ### The 1-forms with no part of degree l ≤ 1 {#sec:hr-subspace}
 
@@ -1037,8 +1036,8 @@ weight below.
 *Step 2* is that of [[thm:gd-r6-4]]: [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), whose conditions are w_I − 1 ≥ 3/2 and
 w_I ≥ γ_+ + 1 + ε_1 (as α_K > 1 − ε_1), gives u_hi ∈ H^(∞,(3/2−ε,N,N))_b; and [[prop:ii-g1-3-3]] (1) with ε_PP gives
 f̂|_(±(0,c]) ∈ H^(∞,(min(w_I,γ_++2)−ε,γ_++1,((0,0),α_K−1)))_b, with f̂(0) = ∫f dt_* ∈ H^(∞,γ_++1)_b(X) ∩ ran Π. The
-density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) in [[cor:ii-f1-1-2]]: ½ < b_+ < b_I < 3/2, b_+ ≤
-γ_+, b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½, and b_+ − ½ ∈ (0, 1).
+density step takes b_+ := ½(½ + γ_+) ∈ (½, γ_+) and b_I := ½(b_+ + 3/2) in [[cor:ii-f1-1-2]]: ½ < b_+ < b_I < 3/2, b_+
+≤ γ_+, b_I + 1 < 5/2 ≤ w_I and α_K ≥ ½, and b_+ − ½ ∈ (0, 1).
 
 *Step 3.1 (zero energy, without the column).* At α := γ_+ − 3, α + 2 = γ_+ − 1 ∈ (−1, 0), and 𝒴_0 has the μ_b-weight
 γ_+ + 1, so f̂(0) ∈ 𝒴_0 ∩ ran Π and û_0 := P_Π(0)⁻¹f̂(0) ∈ H^(∞,γ_+−1)_b(X) ([[prop:gd-r8-5]] at every regularity). With

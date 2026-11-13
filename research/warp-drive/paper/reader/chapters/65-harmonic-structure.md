@@ -234,11 +234,12 @@ By (d), among the gauge vectors cvW* + U with U stationary and smooth at the hor
 Q[X] depends only on the l = 0 part X_0 of X: Q[X] = Q[X_0].
 
 (b) δW* = 0, (dW*)_(vr) = 2r⁻³ and Q[W*] = 4π². The Killing form (∂_v)^♭ = −f dv + dr has Q[(∂_v)^♭] = 4π²m₀, and
-(∂_v)^♭ − m₀W* is closed. ℓ([□, v]W*) = 4π². ℓ(Θ(K)) = −2π², and ℓ(Θ(K_V)) = −2π². Q[W**](v) = 2π²(v + r_h/2),
+(∂_v)^♭ − m₀W* is closed. ℓ([□, v]W*) = 4π². ℓ(Υ̇⁰(K̄)) = 2π², and ℓ(Υ̇⁰(K_V)) = 2π². Q[W**](v) = 2π²(v + r_h/2),
 so (d/dv)Q[W**] = 2π².
 
-[[eq:gd-2-1]] is the time-dependent form of [[lem:iii-d1-2-1]] (1) and (3): ℓ annihilates □ of every stationary 1-form
-smooth at the horizon (the case ∂_v = 0 of [[eq:gd-2-1]]), and spans the annihilator of the range at zero energy.
+[[eq:gd-2-1]] is the time-dependent form of [[lem:iii-d1-2-1]] (1): ℓ annihilates □ of every stationary 1-form smooth
+at the horizon (the case ∂_v = 0 of [[eq:gd-2-1]]). By [[lem:iii-d1-2-1]] (3), ℓ moreover spans the annihilator of the
+range at zero energy.
 
 *Proof.* (a) □X = dδX + δF, and (dδX)_v = ∂_v(δX). For the 2-form F, (δF)^ν = −|det g|^(−1/2)∂_μ(|det g|^(1/2)F^(μν))
 with |det g|^(1/2) = r³γ^(1/2), and (δF)_v = g_(vv)(δF)^v + g_(vr)(δF)^r = −f(δF)^v + (δF)^r. At r = r_h, f = 0, so
@@ -254,8 +255,8 @@ SO(4)-average and dω is invariant, ∫_(S³)(δX + F_(vr)) dω = ∫_(S³)(δX_
 
 (b) δW* = 0 and dW* = 2r⁻³dv ∧ dr ([[sec:hg-setting]]), so Q[W*] = r_h³ · 2π² · 2r_h⁻³ = 4π². For (∂_v)^♭,
 [[lem:gd-r2-9]] gives (φ, q) = (0, 2m₀), so Q = 4π²m₀, and (∂_v)^♭ − m₀W* = −dψ is closed. ℓ([□, v]W*) = 4π² is the
-proof of [[lem:iii-d1-3-1]] (1). Θ(K) = −r⁻³dv ([[prop:np-10-2]] (iv) (b)), so ℓ(Θ(K)) = −r_h³ · r_h⁻³ · 2π² = −2π²; and
-K_V = K near the horizon ([[eq:gd-0-1]]). By [[prop:np-10-2]] (iv) (b), W** has φ = 0 and q = v + r_h/2, and
+proof of [[lem:iii-d1-3-1]] (1). Υ̇⁰(K̄) = r⁻³dv ([[prop:np-10-2]] (iv) (b)), so ℓ(Υ̇⁰(K̄)) = r_h³ · r_h⁻³ · 2π² = 2π²;
+and K_V = K̄ near the horizon ([[eq:gd-0-1]]). By [[prop:np-10-2]] (iv) (b), W** has φ = 0 and q = v + r_h/2, and
 [[lem:gd-r2-9]] gives Q[W**] = 2π²(v + r_h/2). ∎
 
 ### The harmonic-gauge solutions and the forced growth {#sec:hg-solutions}

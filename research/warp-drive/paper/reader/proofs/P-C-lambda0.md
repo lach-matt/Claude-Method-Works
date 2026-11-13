@@ -121,7 +121,7 @@ The seven printed values for n = 1, …, 7 sum to 0.747713403759, so T_(1/8) = (
 **Remark {#rem:envelope-dependence}** (Which end of c_e each bound uses.) The two ends of [[eq:envelope-c]] enter
 different bounds. (i) The lower end enters every bound on λ0 at the numerical point that rests on the size of the wave.
 In the operator norm, whatever the mean m1, every admissible C_app is at least (4/3) c_e a^(−3/2), the operator norm
-of W_TT at the point X* of [[sec:lambda0-norms]] at the phase s = 0 ([[prop:lambda0-norms]] (i) and its proof), and by
+of W_TT at the point X* of [[sec:lambda0-norms]] at the phase ψ = 0 ([[prop:lambda0-norms]] (i) and its proof), and by
 [[lem:lambda0-point]] (a), a^(−3/2) > 7.133376, so
 
     (4/3) c_e a^(−3/2) ≥ (4/3) · 1.3240711 · 7.133376 > 12.593309.
@@ -131,8 +131,8 @@ is (4/3) c₋ a^(−3/2). Combined with ε1 < s0 < 0.030768560 ([[sec:epsilon-on
 0.030768560/12.593309 < 0.0024433, which is the operator-norm bound of [[prop:lambda0]]; that bound therefore holds
 exactly as far as the lower end of c_e does. The Frobenius and largest-entry bounds 0.0019079 and 0.0012228 use the
 lower end in the same way, and no other property of c_e ([[rem:lambda0-norms-c]]). (ii) The upper end enters through
-env ≤ c_e: in [[lem:lambda0-point]] (c), where any c_e < 3 suffices, and in the bound 1 + c_e²/18 ≤ 1.0974028 used for
-the threshold of [[thm:layer]], which needs c_e ≤ 1.3241035.
+env ≤ c_e: in [[lem:lambda0-point]] (e), where any c_e < 3 suffices and which no bound of [[sec:lambda0-norms]] uses,
+and in the bound 1 + c_e²/18 ≤ 1.0974028 used for the threshold of [[thm:layer]], which needs c_e ≤ 1.3241035.
 
 ### The admissible range of ε1 {#sec:epsilon-one}
 
