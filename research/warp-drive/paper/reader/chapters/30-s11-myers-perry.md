@@ -1319,16 +1319,15 @@ norms, [Hin26d, Definition 3.14 and Remark 3.15]. The proof of (E2), on which th
 compact inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory,
 [[thm:std-analytic-fredholm]]; (E2) and (E3) also use the Sobolev embedding theorem on the compact ∂M, by which
 C^∞(∂M) is the intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s, t, p, u and C are
-the source's. [Shu92, Appendix 1, Lemma 1.4,
-pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential operator acting as in (1.2) between spaces
-of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p ∈ (1, +∞) there exists C > 0 such that
-(1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈ W_p^(−∞)(X, E) and
-Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol a_m(x, ξ) of A is a matrix in local
-trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ) with ξ ≠ 0. It is called uniformly
-elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0", with |ξ| the length in
-the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X, E) is the Sobolev
-space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate to coordinate
-balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
+the source's. [Shu92, Appendix 1, Lemma 1.4, pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential
+operator acting as in (1.2) between spaces of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p
+∈ (1, +∞) there exists C > 0 such that (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈
+W_p^(−∞)(X, E) and Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol a_m(x, ξ) of A is a
+matrix in local trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ) with ξ ≠ 0. It is
+called uniformly elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0",
+with |ξ| the length in the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X,
+E) is the Sobolev space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate
+to coordinate balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
 
 Let Z be a compact manifold without boundary, fix a Riemannian metric on it, and let P be a differential operator of
 order m on Z with smooth coefficients, acting on ℂ^(N_E)-valued functions, whose principal symbol is invertible at every

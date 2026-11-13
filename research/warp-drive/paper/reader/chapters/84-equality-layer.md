@@ -1168,7 +1168,9 @@ with λ^γ c_m E^(2+1/m) at the same level, E ≥ λ^(3+δ), using M/m ≤ 1/56 
 E^(1−M/m), as 4 − γ > (3 + δ)(1 + (M + 1)/m); λ ε² ≤ C λ E^(2−2M/m), as 1 − γ > (3 + δ)(2M + 1)/m; and the remainder
 C λ^(N−5) E^(1−M/m), as N − 5 − γ > (3 + δ)(1 + (M + 1)/m), N − 5 ≥ 4; each with (3 + δ) ≤ 7/2, (7/2)(28/27) < 3.9 and
 (7/2)/27 < 0.9. So |ρ| ≤ λ^γ m0 for λ small. Over a carrier period env and m0 change by relative amounts at most C λ
-E^(−1/m) and C λ E^(−2/m), both o(λ^γ), since |env′| ≤ C E^(1−1/m) and |m0′| ≤ C (env² + env |env′|). So if R(v) ≥ 1 +
+E^(−1/m) and C λ E^(−2/m), both o(λ^γ), since |env′| ≤ C E^(1−1/m) and |m0′| ≤ C (env² + env |env′|); and |ν(· − τ0)|
+by at most C λ/(v − v_s), ν having at most a double zero, which is o(λ^γ) since v − v_s ≥ (E(v)/C_κ)^(1/κ) by Taylor's
+formula at v_s and (3 + δ)/κ < 1/10. So if R(v) ≥ 1 +
 2λ^γ, then R ≥ 1 + (3/2)λ^γ on [v − πλ, v + πλ], and at the points there where Re[d e^(iv/λ)] = |d|, g_λ⁻¹(dΦ0, dΦ0) ≥
 m0 (R − 1 − λ^γ) > 0, using ν ≤ 0. If R(v) ≤ 1 − 2λ^γ, then g_λ⁻¹(dΦ0, dΦ0) ≤ m0(R − 1 + λ^γ) < 0. ∎
 

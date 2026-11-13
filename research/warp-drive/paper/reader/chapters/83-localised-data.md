@@ -790,7 +790,7 @@ and κ > 0, K^l_l < 0 exactly when N_κ < 0 and qf < 1. In the packet (u1 ≤ u 
 and in region III, N_κ = (μ3q/R³)(qf − 3) − ψ_III′(v̂).
 
 Proof. Since q > 0 and qf < 2, 2/q − f = (2 − qf)/q > 0. By [[lem:racz-split-formulas]],
-κ = −N_κ/(q√(2/q − f)(2 − qf)) and K^l_l = 3(qf − 1)/(ER√(2/q − f)), and q²(2/q − f) = q(2 − qf); this gives the
+κ = −N_κ/(q√(2/q − f)(2 − qf)) and K^l_l = 3(qf − 1)/(qR√(2/q − f)), and q²(2/q − f) = q(2 − qf); this gives the
 product, and since q, R, √(2/q − f) and 2 − qf are positive, κ > 0 exactly when N_κ < 0 and K^l_l < 0 exactly when
 qf < 1. In the packet substitute [[eq:bg-inputs]] with qf = 2aJ and μ′ = −(2/3)ℬλ: the terms without ℬ give
 (μq/R³)(qf − 3) − (aK/J + a′ − μq/R³), using 2μJa/(R³f) = μq/R³; the terms in ℬ are ℬ times
