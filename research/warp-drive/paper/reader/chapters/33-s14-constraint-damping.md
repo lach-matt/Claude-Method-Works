@@ -785,10 +785,10 @@ b₀.
 
 (a) Every indicial root ι of P^C_b satisfies Re ι ∉ [−100, 19/10]; the only roots with real part in [−100, 2] are ι = 2
 at scalar type 0 and at scalar type 1, each simple. At each type and degree as many roots have real part ≥ 2 as
-< −100: three each at scalar type l ≥ 1, two each at scalar type 0, one each at vector type l ≥ 1. The real parts
-accumulate only at ±∞.
+< −100: three each at scalar type l ≥ 1, two each at scalar type 0, one each at vector type l ≥ 1. Each strip
+{|Re ι| ≤ R} contains only finitely many roots, so the real parts accumulate only at ±∞.
 
-(b) There is a countable set 𝖹 ⊂ (0, 10⁻⁶] such that for h ∉ 𝖹 the roots are simple and the remaining clauses of
+(b) There is a countable set 𝖹₁ ⊂ (0, 10⁻⁶] such that for h ∉ 𝖹₁ the roots are simple and the remaining clauses of
 [[thm:iii-e-1-1]] (3) hold.
 
 *Proof.* The indicial family of P^C_b at ∂X is that of the Minkowski model with c = |x|⁻¹(dt − v_C d|x|), independent of
@@ -798,8 +798,8 @@ indicial roots of type and degree l are, in the variable ι of [[prop:np-10-12]]
 ρ^ι = r^(−ι)), the roots of p_(v) and of P_l. (a) is [[prop:np-10-54]].
 
 (b) Fix l. Each condition is the non-vanishing at h of a polynomial in h, and we show that none of these polynomials
-vanishes identically; then each fails for at most finitely many h, and 𝖹, the union over l and over the finitely many
-conditions at each l, is countable. *Simplicity.* By [[lem:s14-small-h]], for all sufficiently small h > 0 the roots
+vanishes identically; then each fails for at most finitely many h, and 𝖹₁, the union over l and over the finitely
+many conditions at each l, is countable. *Simplicity.* By [[lem:s14-small-h]], for all sufficiently small h > 0 the roots
 of P_l, of C and of p_(v) are simple; so their discriminants, polynomials in h, do not vanish identically; and
 ι = 2 is not a root of C (proof of [[prop:np-10-54]]). *Excluded points.* For a fixed real x, P_l(x) is a polynomial
 in h with value 8v(x − 2)Q_5(x) at h = 0, and p_(v)(x) has value −2v(x − 3) at h = 0. For the scalar type the points
@@ -807,8 +807,10 @@ are x ∈ {1 − l, 3 − l, l + 3, l + 5} ∖ {2}: each satisfies x ≤ 1 or x 
 ([[lem:s14-q5]] (a)); at l = 0 the points are 1, 3, 5, and C(x)|_(h=0) = (5e − 2)x + 5e + 4 is 10e + 2, 20e − 2 and
 30e − 6 there. For the vector type with l ≥ 2 the points 1 − l, 2 − l, l + 3, l + 4 differ from 3. *Real parts.* Let
 k ∈ [3, 51] be an integer, and write P_l(k + iy) = A_k(y²) + iyB_k(y²) with A_k, B_k real polynomials. A non-real root
-k + iy, y ≠ 0, makes y² a common root of A_k and B_k, so the resultant Res(A_k, B_k), a polynomial in h, vanishes; it
-vanishes in general exactly when P_l has two roots with sum 2k or a double root at k. By [[lem:s14-small-h]], as h → 0⁺
+k + iy, y ≠ 0, makes y² a common root of A_k and B_k, so the resultant Res(A_k, B_k), a polynomial in h, vanishes.
+Conversely, as P_l is real, a common root t of A_k and B_k gives P_l(k ± it^(1/2)) = 0: a conjugate pair with real
+part k if t > 0, two real roots k ± |t|^(1/2), of sum 2k, if t < 0, and a double root at k if t = 0. So Res(A_k, B_k)
+vanishes exactly when P_l has two roots, counted with multiplicity, of sum 2k. By [[lem:s14-small-h]], as h → 0⁺
 the roots of P_l converge to 2, ι₊, ι₋ or have real parts tending to −∞. The limit sums are 2 + ι_± and
 ι₊ + ι₋ = 5 + 1/13653 ([[lem:s14-q5]] (b)); 2 + ι_± = 2k would make 2k − 2 ≥ 4 a real root of Q_5, which
 [[lem:s14-q5]] (a) excludes. So for small h > 0 no two roots have sum 2k and no root is double, and Res(A_k, B_k) does
@@ -819,9 +821,16 @@ roots only. ∎
 
     α_K := 1,     α_sf := −C_0 − 5/2,                                                                       {#eq:iv4-2-1}
 
-w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1), c_C satisfies [Hin26a, Proposition 5.1] (1)–(6) on Tangherlini
-space g_(b₀), for some δ_r > 0 and with δ_sf = 1/100; and on g_b for b near b₀, with smaller δ_r and the same δ_sf,
-conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for C_0 in [[eq:iv4-2-1]], that is at
+w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1), c_C satisfies the conditions (1)–(6) of [Hin26a, Proposition
+5.1] on Tangherlini space g_(b₀), for some δ_r > 0 and with δ_sf = 1/100. In dimension 4 + 1, with r_c the radius of
+the saddle (the r_0 of [Hin26a]) and r_♯ the inner radius ([[sec:iv5-0]]), these conditions are: (1) r c is past
+timelike on {r ≥ r_♯}; (2) c = ½r_c⁻²(r_c dt − v(r − r_c) dr) on [r_c/2, 2r_c] and c = r⁻¹(dt − v dr) for r ≥ 3r_c;
+(3) the S of [[eq:s14-s]] is positive definite on |r − r_c| ≤ (6/5)r_ce^(1/2)/v; (4) r²(−ℓ(dw/w) + S) is positive
+definite near the corner ∂K⁺, on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r}; (5) r²(−ℓ(dw′/w′) + S) is positive definite near the
+sink, on {ρ_sf ≤ 2δ_r, |(r/t)/v − 1| ≤ 2δ_sf}; (6) −ℓ(−dr) is positive definite on [r_♯, r_c − r_ce^(1/2)/v] and
+−ℓ(dr) on [r_c + r_ce^(1/2)/v, ∞), and on 𝗌𝖿 the two conditions of [Hin26a, (5.8)] hold: −r²ℓ(d(r/t)) is positive
+definite for r/t ∈ [δ_r, v(1 − δ_sf)], and −r²ℓ(−d(r/t)) for r/t ∈ [v(1 + δ_sf), 10]. The conditions also hold on g_b for b near b₀,
+with smaller δ_r and the same δ_sf, conditions (5)–(6) on 𝗌𝖿 not depending on b. The same holds with C_0 − 1 for C_0 in [[eq:iv4-2-1]], that is at
 α_sf = −C_0 − 3/2, for every C_0 ≥ 0: the conditions at 𝗌𝖿 are then b_sf = −C_0 − 1/2 < b* and b_K = 1 > b_sf − b*.
 
 *Proof.* (1)–(3) and (6) off 𝗌𝖿 are [[prop:np-10-14]] (i)–(iii). (4)–(6) at 𝗌𝖿: the symbol T = r²(−ℓ(dw/w) + S)
@@ -842,7 +851,8 @@ the same 3sc model; so it persists for b near b₀. ∎
 *Proof.* ϑ_ℋ is the maximum over the compact ∂ℛ_± of the top eigenvalue of β_0⁻¹p_(1,±)(0), self-adjoint for the fibre
 inner product B of [[lem:iv4-1-1]]. By its definition p_(1,±)(0) = A_± − h⁻¹ℓ(±ρ_∞·), where A_± comes from 2δGδ* and is
 free of h, and the h⁻¹-part is h⁻¹ρ_∞ times the damping symbol of L at the conormal covectors of the horizon. These are
-future null, so [[lem:iv4-1-1]] ([Hin26a, Lemma 3.5]) makes ℓ of them B-negative definite, with the sign that damps.
+future null, so [[lem:iv4-1-1]] ([Hin26a, Lemma 3.5]) makes ℓ of them B-positive definite, so that −h⁻¹ℓ is
+negative definite, the sign that damps.
 So, by Weyl's inequality, ϑ_ℋ ≤ ϑ_0(b) − c(b)h⁻¹ with ϑ_0 and c > 0 continuous in b. At b₀,
 ϑ_0 = 102401/640 and c = 102399/20480000, and ϑ_ℋ itself is −4995.83… at h = 10⁻⁶ ([[prop:np-10-79]]); the bound
 ϑ_0 − ch⁻¹ is −4839.95… at h = 10⁻⁶. So ½ + ϑ_0(b) − c(b)h⁻¹ < −100 for b near b₀ and h ≤ 10⁻⁶, the margin at b₀ being
@@ -860,7 +870,9 @@ and τ₁, that is g_b and t_*: apart from the threshold in (H3), which is [[lem
 hypotheses (Dyn) on the metric alone, verified for g_b, b near b₀, in [[ch:s12]] ([[ch:s13]]), and they hold for every
 operator with principal part □_(g_b) ⊗ Id. (G): by [[lem:iv4-1-3]] (a) and [[lem:i-c-2-2]], the indicial roots
 relevant to the weight α + 2 (Euclidean density) are the ι with Re ι = α + 2; none has real part in
-[−100, 19/10] ∪ (19/10, 2), so (β_−, 2) with β_− := max{Re ι < −100} < −100 ≤ −C_0 is a gap. ∎
+[−100, 19/10] ∪ (19/10, 2), so (β_−, 2) with β_− := max{Re ι : Re ι < −100} < −100 ≤ −C_0 is a gap. The maximum
+exists: some root ι₀ has Re ι₀ < −100, and the strip {Re ι₀ ≤ Re ι ≤ −100} contains only finitely many roots
+([[lem:iv4-1-3]] (a)). ∎
 
 ### Solvability on weighted 3b-spaces {#sec:iv5}
 

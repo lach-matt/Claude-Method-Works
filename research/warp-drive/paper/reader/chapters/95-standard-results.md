@@ -335,7 +335,7 @@ c ∈ ρ_sf C^∞(M; T*) satisfying the following properties for some r0 > 100m,
 
 The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.3 and 3.9], and r/t/v in (5) is (r/t)/v.
 
-**Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, p. 11; Definitions 2.1, 2.2 and 2.4, p. 11;
+**Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, Definitions 2.1, 2.2 and 2.4, p. 11;
 Theorems 2.6 and 2.7, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of Theorem 2.7,
 pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. "Initial data (𝓜, ḡ, k̄)
 for the vacuum Einstein equations consists of a connected d-dimensional Riemannian manifold (𝓜, ḡ) together with a

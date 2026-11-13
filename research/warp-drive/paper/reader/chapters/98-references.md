@@ -28,7 +28,7 @@
   higher dimensions*, Class. Quantum Grav. 23 (2006), 7383–7394. doi:10.1088/0264-9381/23/24/011 arXiv:gr-qc/0608108v2
 - [CBCM10] Y. Choquet-Bruhat, P. T. Chruściel, J. M. Martín-García, *The Cauchy problem on a characteristic cone for the
   Einstein equations in arbitrary dimensions*, Ann. Henri Poincaré 12 (2011), 419–482. doi:10.1007/s00023-011-0076-5
-  arXiv:1006.4467
+  arXiv:1006.4467v1
 - [CBF06] Y. Choquet-Bruhat, H. Friedrich, *Motion of isolated bodies*, Class. Quantum Grav. 23 (2006), 5941–5949.
   doi:10.1088/0264-9381/23/20/015
 - [CCRT07] S. I. Chernyshenko, P. Constantin, J. C. Robinson, E. S. Titi, *A posteriori regularity of the
@@ -73,7 +73,7 @@
 - [ER08] R. Emparan, H. S. Reall, *Black holes in higher dimensions*, Living Rev. Relativ. 11 (2008), 6.
   doi:10.12942/lrr-2008-6 arXiv:0801.3471v2
 - [GO13] L. Grafakos, S. Oh, *The Kato–Ponce inequality*, Comm. Partial Differential Equations 39 (2014), 1128–1157.
-  doi:10.1080/03605302.2013.822885 arXiv:1303.5144
+  doi:10.1080/03605302.2013.822885 arXiv:1303.5144v1
 - [HHV21] D. Häfner, P. Hintz, A. Vasy, *Linear stability of slowly rotating Kerr black holes*, Invent. Math. 223
   (2021), 1227–1406; correction, Invent. Math. 236 (2024), 477–481. doi:10.1007/s00222-020-01002-4
   doi:10.1007/s00222-024-01240-w arXiv:1906.00860v2
@@ -127,11 +127,6 @@
   143002. doi:10.1088/1361-6382/ad5487 arXiv:2404.07659v1
 - [HL25] C. Huneau, J. Luk, *High-frequency backreaction for the Einstein equations under U(1) symmetry: from
   Einstein-dust to Einstein-Vlasov*, preprint (2025). arXiv:2506.21779v1
-- [Hö83] L. Hörmander, *The analysis of linear partial differential operators I*, Grundlehren Math. Wiss. 256, Springer,
-  Berlin (1983).
-- [Ho85] See [Hö85].
-- [Hö85] L. Hörmander, *The analysis of linear partial differential operators III*, Grundlehren Math. Wiss. 274,
-  Springer, Berlin (1985).
 - [Hö90] L. Hörmander, *The analysis of linear partial differential operators I: Distribution theory and Fourier
   analysis*, 2nd ed., Grundlehren Math. Wiss. 256, Springer, Berlin (1990); reprinted in Classics in Mathematics,
   Springer, Berlin (2003).
@@ -175,6 +170,8 @@
   higher dimensions*, Prog. Theor. Phys. 111 (2004), 29–73. doi:10.1143/PTP.111.29 arXiv:hep-th/0308128v4
 - [KK25] I. Kadar, L. Kehrberger, *Scattering, polyhomogeneity and asymptotics for quasilinear wave equations from past
   to future null infinity*, preprint (2025). arXiv:2501.09814v2
+- [KP88] T. Kato, G. Ponce, *Commutator estimates and the Euler and Navier–Stokes equations*, Comm. Pure Appl. Math.
+  41 (1988), 891–907. doi:10.1002/cpa.3160410704
 - [KS17] S. Klainerman, J. Szeftel, *Global nonlinear stability of Schwarzschild spacetime under polarized
   perturbations*, Ann. of Math. Stud. 210, Princeton Univ. Press, Princeton, NJ (2020). doi:10.1515/9780691218526
   arXiv:1711.07597v2
@@ -218,8 +215,8 @@
   doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
 - [Rie49] M. Riesz, *L'intégrale de Riemann–Liouville et le problème de Cauchy*, Acta Math. 81 (1949), 1–222.
   doi:10.1007/BF02395016
-- [RS1] M. Reed, B. Simon, *Methods of modern mathematical physics I: Functional analysis*, Academic Press, New York
-  (1972).
+- [RS1] M. Reed, B. Simon, *Methods of modern mathematical physics I: Functional analysis*, revised and enlarged
+  edition, Academic Press, New York (1980).
 - [RT12] M. Reiterer, E. Trubowitz, *Choptuik's critical spacetime exists*, Comm. Math. Phys. 368 (2019), 143–186.
   doi:10.1007/s00220-019-03413-8 arXiv:1203.3766v1
 - [SBG] See [Hin26d].
