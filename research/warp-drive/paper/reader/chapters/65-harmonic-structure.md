@@ -884,8 +884,8 @@ u := ρ^(−3/2)Z satisfies
    upper bound. The compact part, the set Q of that proof (a compact set of the first kind of [[sec:s27-local]] for g,
    containing 𝒦⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
    estimates for a linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on that compact domain
-   of dependence; on Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g. Uniqueness on each
-   region is [[lem:ii-f-1-3]].
+   of dependence; on Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g.
+   Uniqueness on each region is [[lem:ii-f-1-3]].
 6. *What is not used.* The recovery of the sharp weight at ℐ⁺, Steps 4–6 of the proof of [[thm:iv2-2-4]], integrates
    each slot along X_I and X₀ − X_I; with Ā = 0 every Cartesian component would be integrated as slot 6 is there. Only
    the estimate [[eq:gd-r4-2]] is needed below. ∎

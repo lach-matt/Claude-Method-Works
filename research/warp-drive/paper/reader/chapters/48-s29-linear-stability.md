@@ -464,8 +464,8 @@ the three sets on which [[prop:viii-1-2]] solves, only 𝒟⁺ reaches them off 
 𝒟⁺ ∩ {r < r_1}. There ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) ([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) vanish on {|x| < 5R₁},
 which contains these points ([[sec:viii-0]]), and ḣ is, for every k, of class H^k up to Σ^IVP on 𝒟⁺ ∩ {r ≤ r_1}, the
 class of [[thm:iv3-2-1]] imposing H^k away from infinity ([[sec:iv3-1]]). In a chart {t_IVP ≥ 0} near such a point,
-H^k for every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of [[thm:std-ly-extension]],
-bounded on every W^(k,2) of a half-space, and apply Sobolev embedding on ℝ⁵. ∎
+H^k for every k gives every derivative continuous up to Σ°: after a cut-off, extend by the operator of
+[[thm:std-ly-extension]], bounded on every W^(k,2) of a half-space, and apply Sobolev embedding on ℝ⁵. ∎
 
 *Time orientation.* As in [[lem:ii-b-1-1]], dt_* is past timelike. dt_IVP is timelike for g on M_♭
 ([[lem:iii-b-3-7]] (b)) and past timelike: both dt_* and dt_IVP are dt − φ′(|x|) d|x| with β := φ′ − T′_(m₀) in

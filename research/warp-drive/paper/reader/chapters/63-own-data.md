@@ -653,12 +653,13 @@ g⁻¹ − g_b0⁻¹ = O(λ r⁻²), B(Σ) − B(0) = O(λ r⁻³) and C(Σ) −
 
 so B(H)·∂k = 2q(g)(∂g, ∂k) + l(g)(Γ̂, ∂k) and C(H)k is the rest. *Bounds on g.* The covector dv has Cartesian
 components (1, x̂), of Euclidean length √2, so |μ m| = 2μ r⁻² ≤ 1/8. By [[eq:background]], g_b0⁻¹ = η⁻¹ − μ r⁻² L0 ⊗ L0
-with |L0|² = 2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible with
-|g⁻¹| ≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the components of g and g⁻¹ are
-bounded by an absolute constant, and so are the coefficients of q, l, c, c′ and their g-derivatives. (a) By
-[[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), |∂g_b0| + |Γ̂| ≤ C μ r⁻³ and |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So
-|∂g| ≤ C μ r⁻³ + |∂H| and |∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and
-2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂. Between H and 0, g^(±1)
+with |L0|² = 2, so |g_b0⁻¹| ≤ 9/8. Hence |g_b0⁻¹ H| ≤ 9/400, and g = g_b0 (1 + g_b0⁻¹ H) is invertible, with
+norm of the inverse |g⁻¹| ≤ (9/8)/(1 − 9/400) < 6/5; also the norm of g is at most 1 + 1/8 + 1/50 < 6/5. So the
+components of g and g⁻¹ are bounded by an absolute constant, and so are the coefficients of q, l, c, c′ and their
+g-derivatives. (a) By [[eq:far-sigma-bounds]] and [[lem:far-scaling]] (a), the first derivatives satisfy
+|∂g_b0| + |Γ̂| ≤ C μ r⁻³ and the second ones |∂∂g_b0| + |∂Γ̂| ≤ C μ r⁻⁴. So |∂g| ≤ C μ r⁻³ + |∂H| and
+|∂∂g| ≤ C μ r⁻⁴ + |∂∂H|, and (a) follows term by term, with μ² r⁻⁶ ≤ μ r⁻⁴/16 and 2|Γ̂| |∂H| ≤ |Γ̂|² + |∂H|². (b) Each
+coefficient is a polynomial in g^(±1), ∂g, ∂∂g, Γ̂, ∂Γ̂. Between H and 0, g^(±1)
 change by at most C|H| (g⁻¹ − g_b0⁻¹ = −g⁻¹ H g_b0⁻¹), ∂g by ∂H, ∂∂g by ∂∂H, and Γ̂ not at all. Bounding the difference
 of a product by the sum, over its factors, of the change of one factor times the bounds of the others gives (b). (c) The
 coefficients depend on μ only through g = η + μ m + H and Γ̂. The operator μ ∂_μ maps μ m, μ ∂m and μ ∂∂m to themselves
