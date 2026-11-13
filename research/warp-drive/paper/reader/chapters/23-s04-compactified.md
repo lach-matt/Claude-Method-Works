@@ -905,17 +905,74 @@ does not combine them. (This is how the tame estimates are used: an operator arr
 #### Smooth operators on mixed spaces {#sec:ii-a-8-3}
 
 *Cut-offs.* [Hin26d, Definition 3.34] calls an operator *localized near the diagonal* when its Schwartz kernel is
-supported within a finite d_ℬ-distance of the diagonal. This is a property an operator of the calculus may or may not
-have, and residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary
-operators are taken localized near the diagonal. Quantizations are, by the cut-off ψ(x − x′) of [Hin26d, (3.26)] and
-the chart cut-offs of [Hin26d, Definition 3.31]. The class is closed under compositions and adjoints, since kernel
-supports add or are reflected, and under commutators with vector fields, and it contains the finite-order parametrices
-of [[lem:ii-a-8-4]] (b), which are quantizations. For χ ∈ C^∞(M̃), an operator A is *carried by* χ if A = χ′Aχ′ for
-some χ′ ∈ C^∞(M̃) such that χ = 1 within d_ℬ-distance D of supp χ′. Here D bounds the kernel ranges of the finitely many
+supported within a finite d_ℬ-distance of the diagonal. Here d_ℬ is the metric of [Hin26d, Proposition 2.3, p. 19]:
+d_ℬ(p, q) is the infimum of the lengths L(γ, T, I) of the chains from p to q, that is, of piecewise smooth curves cut
+into pieces each of which lies in one chart of ℬ, L being the sum of the Euclidean lengths of the pieces in their charts
+[Hin26d, (2.5)]. Being localized near the diagonal is a property an operator of the calculus may or may not have, and
+residual operators need not have it [Hin26d, Remark 3.48]. Here the operators of 𝒫 and all auxiliary operators are
+taken localized near the diagonal. The *kernel range* of such an operator is the supremum of d_ℬ(p, q) over the
+support of its Schwartz kernel. Quantizations are localized near the diagonal, by the cut-off ψ(x − x′) of [Hin26d,
+(3.26)] and the chart cut-offs of [Hin26d, Definition 3.31]. Their kernel ranges may be made as small as we please:
+[Hin26d, Lemma 3.42, p. 51] states that (1 − η̃)Op_𝒱(a) is residual for a ∈ wS^m whenever η̃ ∈ C^∞_(uni,ℬ×ℬ)(M × M)
+equals 1 within d_ℬ-distance ϵ of the diagonal, and its proof shows the same when, in each local quantization,
+ψ(x − x′) is replaced by ψ(x − x′)η_0(x − x′) with η_0 ∈ C_c^∞(ℝ^n) equal to 1 near 0 (the form used on p. 52). If
+supp η_0 ⊂ {|x| < ϵ/C}, C the constant of [Hin26d, (2.3)], the new kernel has range at most ϵ. We call this
+*truncating* the quantization to range ϵ. It changes the operator by a residual one, so it changes no principal symbol,
+wave front set or elliptic set, and it commutes with multiplication on the left by functions. For the quantizations Op
+of Ψ̃ ([[sec:ii-a-4-2]]) the same holds with ρℬ in place of ℬ: its charts are boxes in those of ℬ, magnified by factors
+at least 1, so d_ℬ ≤ d_(ρℬ). The class is closed under compositions and adjoints, since kernel supports add or are
+reflected, and under commutators with vector fields, which do not enlarge kernel supports. It contains the finite-order
+parametrices of [[lem:ii-a-8-4]] (b), which are quantizations.
+
+Cut-offs are real functions in C^∞(M̃). For such a χ, an operator A is *carried by* χ if A = χ′Aχ′ for some
+χ′ ∈ C^∞(M̃) such that χ = 1 within d_ℬ-distance D of supp χ′. Here D bounds the kernel ranges of the finitely many
 operators of the statement at hand; for differential operators χ = 1 on supp χ′ suffices. Then Aχ = A = χA, and
 AP = APχ for each operator P of the statement. [Hin26c] writes B = χBχ, and its estimates are read with this convention.
-[Hin26c, p. 48] does not require the localization near the diagonal. Auxiliary operators chosen in a proof are carried
-by cut-offs nested between χ′ and χ.
+[Hin26c, p. 48] does not require the localization near the diagonal.
+
+*Room inside the carriers.* The choices made in the proofs need room, and it is found inside the carriers χ′, not
+between χ′ and χ. Let A_1, …, A_r ≠ 0 be the operators of a statement carried by χ, through χ′_1, …, χ′_r, and put
+ϑ := Σ_i |χ′_i|² and c := min_i (sup |χ′_i|)^(−2) ≤ 1. As A_i = χ′_iA_iχ′_i, the Schwartz kernel of A_i vanishes where
+χ′_i(p)χ′_i(q) ≠ 1, so both base points of its support lie in {ϑ ≥ c}. Hence A_i = ωA_i = A_iω for every ω ∈ C^∞(M̃)
+equal to 1 near {ϑ ≥ c}, and WF′(A_i) ⊂ WF′(ω) by (S5): the wave front sets and elliptic sets of the A_i lie over
+{ϑ ≥ c}. The coordinate vector fields of the charts of ℬ are uniformly bounded combinations of b-vector fields ((S1),
+[[sec:ii-a-4-1]]), so the derivatives of ϑ in these charts are bounded by some Λ_ϑ. Summing over the pieces of a chain
+gives |ϑ(p) − ϑ(q)| ≤ Λ_ϑ L(γ, T, I), hence |ϑ(p) − ϑ(q)| ≤ Λ_ϑ d_ℬ(p, q). Put ϵ_ϑ := c/(64Λ_ϑ), and fix f, f̂,
+f_* ∈ C^∞(ℝ) with f = 1 on [3c/4, ∞), f = 0 on (−∞, c/2], f̂ = 1 on [c/4, ∞), f̂ = 0 on (−∞, c/8], f_* = 1 on
+[c/16, ∞) and f_* = 0 on (−∞, c/32]. Three rules govern the choices.
+
+(R1) *Auxiliary operators* are taken with Schwartz kernels supported in {(p, q) : d_ℬ(p, q) ≤ ϵ_ϑ, max(ϑ(p), ϑ(q)) ≥
+c/2}. Such are the quantizations of symbols f(ϑ)ã, ã ∈ C^∞(ᵉ³ᵇT̄*M̃), truncated to range ϵ_ϑ, their adjoints, and their
+products with differential operators. As f(ϑ) = 1 near {ϑ ≥ c}, they may be chosen elliptic, or microlocally equal to
+I, on any compact subset of ᵉ³ᵇS*M̃ over {ϑ ≥ c}, with wave front sets in any given neighbourhood of it. Both base
+points of the kernel of an auxiliary operator or of an A_i lie in {ϑ ≥ c/2 − Λ_ϑϵ_ϑ} ⊂ {ϑ > c/4}, where φ̂ := f̂(ϑ)
+equals 1. So every such operator T, and every operator whose kernel lies in the support of the kernel of T (its
+commutators with vector fields, for instance), equals φ̂Tφ̂. Let p be within d_ℬ-distance D + 8ϵ_ϑ = D + c/(8Λ_ϑ) of
+supp φ̂ ⊂ {ϑ ≥ c/8}. Take a chain from a point of supp φ̂ to p of length below D + c/(8Λ_ϑ), and cut it where the length
+of its initial part first exceeds the excess of its length over D (if that excess is positive). Along the initial
+part, of length below c/(8Λ_ϑ), ϑ stays positive, and the rest has length below D. So p is within D of
+{ϑ > 0} ⊂ ⋃_i supp χ′_i, where χ = 1. Hence these operators are carried by χ through φ̂, in statements whose operators
+have kernel ranges up to D + 8ϵ_ϑ.
+
+(R2) *The cut-off χ_*.* Put χ_* := f_*(ϑ). It equals 1 within d_ℬ-distance ϵ_ϑ of supp φ̂, where
+ϑ > c/8 − c/64 > c/16, and χ = 1 within D of supp χ_* ⊂ ⋃_i supp χ′_i. So Tχ_* = T for the operators T of (R1);
+they are carried by χ_* through φ̂ in statements whose operators have kernel ranges at most ϵ_ϑ; χ_*P = χ_*Pχ for every
+P of kernel range at most D; and χ_* is carried by χ, through a function of ϑ equal to 1 on [c/32, ∞) and to 0 on
+(−∞, c/64].
+
+(R3) *Inner cut-offs.* Fix h_♭ ∈ C^∞(ℝ) with h_♭ = 0 near 0 and h_♭(1) = 1, and put χ_1 := h_♭(χ). As χ_1 = 1 wherever
+χ = 1, every operator carried by χ is carried by χ_1, through the same function and for the same D. The function χ_1,
+and each of its derivatives along b-vector fields, is χ times a function in C^∞(M̃), the functions h_♭^(j)(s)/s being
+smooth. For a word V^J in the V_i, the identity fVw = V(fw) − (Vf)w, applied repeatedly, writes χ_1V^Ju as a sum of
+terms ±V^(J′)((V^(J″)χ_1)u), with J′ and J″ complementary subwords of J, and (V^(J″)χ_1)u = h(χu) with h ∈ C^∞(M̃).
+By [[eq:ii-a-8-1]] and [[lem:ii-a-8-4]] (a) for the multiplication by h,
+
+    ‖χ_1V^Ju‖_(H^((𝗍;q))_(e3b;b)) ≤ C‖χu‖_(H^((𝗍;q+|J|))_(e3b;b))     for all 𝗍, q and J.
+
+So the nested cut-offs of an induction over k levels, χ, h_♭(χ), h_♭(h_♭(χ)), …, need no room at all, and only the
+constants depend on k. The auxiliary operators of a proof are those of (R1) for the operators of its statement carried
+by χ. When an induction applies the statement at a lower level with χ_1 in place of χ, the rules are applied anew
+there, to the operators of that statement.
 
 **Lemma {#lem:ii-a-8-4}** Let A ∈ C^∞_b Ψ^(m′)_e3b, m′ ∈ ℝ, and let 𝗌 be a variable order.
 
