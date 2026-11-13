@@ -288,8 +288,8 @@ and ϰ² is the least eigenvalue of the Schur complement S = G11 − G12 G22⁻�
 functions, block 1 being the pair (s^q cos log s, s^q sin log s). We write ϰ(a, ℓ0) := ϰ(ℓ0 − a; ℓ0 − 2, ℓ0 − 3).
 
 *Proof.* With t = log s ∈ (−log 2, 0), a real relation c1 s^q cos log s + c2 s^q sin log s + c3 s^(p1) + c4 s^(p2) = 0
-reads ((c1 − i c2)/2) e^((q+i)t) + ((c1 + i c2)/2) e^((q−i)t) + c3 e^(p1 t) + c4 e^(p2 t) = 0. The exponents q ± i, p1, p2
-are pairwise distinct, and the Wronskian of e^(z1 t), …, e^(z4 t) is e^((z1+⋯+z4)t) Π_(j<k)(z_k − z_j) ≠ 0, a
+reads ((c1 − i c2)/2) e^((q+i)t) + ((c1 + i c2)/2) e^((q−i)t) + c3 e^(p1 t) + c4 e^(p2 t) = 0. The exponents q ± i,
+p1, p2 are pairwise distinct, and the Wronskian of e^(z1 t), …, e^(z4 t) is e^((z1+⋯+z4)t) Π_(j<k)(z_k − z_j) ≠ 0, a
 Vandermonde determinant; so all coefficients vanish. Now s^q cos(log s + ψ) = cos ψ s^q cos log s − sin ψ s^q sin log s
 is a nonzero combination of the first two functions, hence not in the span of the last two. By least squares its
 squared distance from that span is vᵀ S v with v = (cos ψ, −sin ψ), and S is positive definite because the Gram matrix
@@ -461,8 +461,8 @@ The flux 𝔟_X is linear in the data, a degree-0 flux of a change in ρ³C^∞ 
 K_p − K_((m,0,w,0)) ∈ ρ⁴C^∞, so 𝔮_0(p) = 𝔮_0(m, 0, w, 0): the energy and momentum depend only on p₂. Hence c̃_E = c_E,
 ã11 = a11 and ã12 = a12 = 0. At w = 0 the differences of the graph's data from the slice's are ρ⁴C^∞ in the metric and
 ∇²f + ρ⁵C^∞ in K, smoothly in (m, A, c), by (d). The term ∇²f does not depend on p and carries no angular momentum:
-for W antisymmetric, (Wx) · x̂ = 0, so (Wx) · ∇²f · x̂ = f″ (Wx) · x̂ = 0 and the trace term of the flux vanishes too. The degree-1 fluxes of the A- and c-derivatives
-of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³ → 0. So c̃_J = c_J and ã22 = a22, and
+for W antisymmetric, (Wx) · x̂ = 0, so (Wx) · ∇²f · x̂ = f″ (Wx) · x̂ = 0, and the trace term of the flux vanishes too.
+The degree-1 fluxes of the A- and c-derivatives of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³ → 0. So c̃_J = c_J and ã22 = a22, and
 det D𝔮̃(p_λ) = c̃_E (ã11 ã22)⁴ c̃_J⁶ = 6π² (6π² m_λ)⁸ (4π² m_λ)⁶ ≠ 0. The p₂-block of D𝔮̃_0 is diag(c_E, a11 I₄),
 invertible. The rest is the inverse function theorem. ∎
 

@@ -31,7 +31,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 37 S18 | NOT CONFIRMED 1M 3m 5n | done | running |
 | 38 S19 | NOT CONFIRMED 1M 2m 5n | done | NOT CONFIRMED 0M 1m 8n; second fix running |
 | 39 S20 | NOT CONFIRMED 1M 4m 8n | done | CONFIRMED (3 nits); depends on S4 (d_T, k₀, k₁) |
-| 40 S21 | NOT CONFIRMED 1M 5m 8n | running | - |
+| 40 S21 | NOT CONFIRMED 1M 5m 8n | done | running |
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | running | - |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | running |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | running |

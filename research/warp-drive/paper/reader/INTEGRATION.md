@@ -286,3 +286,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - Chapter 60: lem:np-10-50-a duplicates chapter 61's prop:after-shell-profiles (a); keep 60's (sent to the 61 writer).
   Chapter 03 points to ch:after-shell where lem:vii-1-2 (60) and cor:vii-2-3 (47) are meant, and its ε_K conditions
   omit (E1)-(E2) of row w1 (sent to the 00-03 reader; the 60 reader rules).
+- S21 fix: Lemma iii-i9-2-6 (c) is at b₀ only; new part (e) gives the form at b. Uses of (c) at b must cite (e): S22
+  (41:38, 924, 1607; sent to its fix), S25 (44:120, 153, 429; sent), S23 (42:29, 198, 199, 418, 426; sent to its reader).
+  Chapter 3 should add def:iii-i10-1-1 at "parameter exponent z". S21 left λ, ϑ, 𝒩, ℱ, 𝒢, M as shared with S22, S23,
+  S25 (integration). The material folded into S21 from the source's dropped closing section stays (decided).

@@ -1,14 +1,14 @@
 ## The model at a base point near b₀ {#ch:s25a}
 
-The linear theory of [[ch:s19]] is written at the base point b₀ = (m₀, 0), and in the chapters that follow it is
-written at a base point whose black hole parameter b lies in a fixed neighbourhood ℬ_* of b₀. This chapter collects what that
+The linear theory of [[ch:s19]] is written at the base point b₀ = (m₀, 0), and in the chapters that follow it is written
+at a base point whose black hole parameter b lies in a fixed neighbourhood ℬ_* of b₀. This chapter collects what that
 requires, using only [[ch:s11]]–[[ch:s19]]: the statement at b of a result proved at b₀ ([[def:s25-at-b]]); the model
-objects at b, with bounds uniform in b ([[lem:iii-i15-1-1]]): the forward solutions, the ι⁺- and tf-normal operators
-and the indicial roots, which do not depend on b, the zero energy states, towers and physical states at b, real and
-smooth in b and equivariant under the antipodal map, the augmented low-energy theory, and the Killing time
-translation; the rotation state at b ([[rem:iii-i15-1-2]]); and the results of [[ch:s19]] on null infinity and the
-almost linear bounds at b, with constants uniform in b ([[prop:iii-i2-5-1-b]]). [Hin26] states its Sections 11.2–12
-at base points with |b − b₀| small; the results here are part of that statement in dimension 4 + 1.
+objects at b, with bounds uniform in b ([[lem:iii-i15-1-1]]): the forward solutions, the ι⁺- and tf-normal operators and
+the indicial roots, which do not depend on b, the zero energy states, towers and physical states at b, real and smooth in
+b and equivariant under the antipodal map, the augmented low-energy theory, and the Killing time translation; the
+rotation state at b ([[rem:iii-i15-1-2]]); and the results of [[ch:s19]] on null infinity and the almost linear bounds at
+b, with constants uniform in b ([[prop:iii-i2-5-1-b]]). [Hin26] states its Sections 11.2–12 at base points with |b − b₀|
+small; the results here are part of that statement in dimension 4 + 1.
 
 *What changes in dimension 4 + 1.* At b₀ every rotation is Killing, and the rotation state h_(b₀,v1) vanishes. At a
 rotating b only the rotations commuting with the spin are Killing, and h_(b,v1) is O(|b − b₀|) but not zero
@@ -55,16 +55,15 @@ which are stated for g_0 = g_(b₀,b,−S) of [[eq:iii-i-1-1]] with |b − b₀|
 at ∂X being that of 2L̄ ([[lem:iii-f-2-1]] (3)).
 
 (P3) The zero energy states of L_b listed in [[sec:iii-g2-1]] and their companions, the 1-form towers of
-[[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b are chosen real and smooth in b, equal at b₀
-to those at b₀, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b, and, except for ġ_b, with leading terms
-at ∂X that do not depend on b. The leading terms of ġ_b may depend on b through the mass, and the linear theory uses
-the index sets of ġ_b and its smoothness in b. The rotation state h_(b,v1) ∈ 𝒜³ is smooth in b and vanishes at b₀. The element
-−1 of SO(4), x ↦ −x on the spatial factor, is an isometry of every g_b: it commutes with the spin matrix, and the
-metric [[eq:iii-b-3-2]] is even in x ([[lem:iii-e1-2-1]] with O = −1). It preserves t_* = t − ψ(|x|)
-([[eq:iii-b-3-6]]), the radial functions ψ, ζ_∞ and χ, and the gauge 1-forms c_Υ = ζ_∞(|x|)|x|⁻¹dt and
-c_(Υ,H) = −½χ(|x|)d|x| of [[sec:iii-d2-1]] and c_C of [[sec:iv4-0]], a combination of dt and d|x| with coefficients
-that depend on |x| only. So it commutes with L_b, □^Υ_b, P_b and L̂_b(0). The states are equivariant under it: h_b(S)
-is odd, ġ_b(ḃ) and h_(b,v1)(V) are even.
+[[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b are chosen real and smooth in b, equal at b₀ to
+those at b₀, with index sets in (μ − j) + ℰ_ind, ℰ_ind independent of b, and, except for ġ_b, with leading terms at ∂X
+that do not depend on b. The leading terms of ġ_b may depend on b through the mass, and the linear theory uses the index
+sets of ġ_b and its smoothness in b. The rotation state h_(b,v1) ∈ 𝒜³ is smooth in b and vanishes at b₀. The element −1
+of SO(4), x ↦ −x on the spatial factor, is an isometry of every g_b: it commutes with the spin matrix, and the metric
+[[eq:iii-b-3-2]] is even in x ([[lem:iii-e1-2-1]] with O = −1). It preserves t_* = t − ψ(|x|) ([[eq:iii-b-3-6]]), the
+radial functions ψ, ζ_∞ and χ, and the gauge 1-forms c_Υ = ζ_∞(|x|)|x|⁻¹dt and c_(Υ,H) = −½χ(|x|)d|x| of [[sec:iii-d2-1]]
+and c_C of [[sec:iv4-0]], a combination of dt and d|x| with coefficients that depend on |x| only. So it commutes with
+L_b, □^Υ_b, P_b and L̂_b(0). The states are equivariant under it: h_b(S) is odd, ġ_b(ḃ) and h_(b,v1)(V) are even.
 
 (P4) [[cor:iii-h-4-2]]–[[cor:iii-h-4-4]] and [[thm:iii-h1-1-3]] hold at b ([[thm:iii-h2-2-1]] and the compactness
 argument of its proof), and so do the other statements of [[ch:s18]] that the linear theory uses: [[def:iii-h-2-1]],
@@ -126,12 +125,12 @@ with |ḃ_V| = O(|b − b₀||V|) and
 
 *Proof.* At b, h_(b,v1)(V) is δ*_(g_b) of a 1-form in ker □^Υ_b ([[eq:iii-d2-3-4]]), so it lies in ker L̂_b(0) in the
 space 𝒳_0 of [[sec:iii-h-1]], and it is O(|b − b₀||V|) (P3). Near b₀ that nullspace has the dimension it has at b₀, with
-the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of
-[[prop:iii-h-3-2]]: the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible and continuous in b,
-so its inverse is bounded on the compact ℬ̄_*). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover
-S_V = 0: the pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and
-S_V = 0, the h_b(S) being part of the basis. So h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ)
-being part of the basis. ∎
+the continuous basis ġ_b(ḃ), the gauge-corrected state of [[eq:iii-f3-2-1]], and h_b(S) (the proof of [[prop:iii-h-3-2]]:
+the matrix B(b) of the rows [[eq:iii-h-3-1]] in these bases is invertible and continuous in b, so its inverse is bounded
+on the compact ℬ̄_*). So h_(b,v1)(V) = ġ_b(ḃ_V) + h_b(S_V) with |ḃ_V| + |S_V| = O(|b − b₀||V|). Moreover S_V = 0: the
+pullback by −1 fixes h_(b,v1)(V) and ġ_b(ḃ_V) and reverses h_b(S_V) ((P3)), so h_b(S_V) = 0, and S_V = 0, the h_b(S)
+being part of the basis. So h_(b,v1)(V) = ġ_b(ḃ_V), and ker h_(b,v1) = {V : ḃ_V = 0}, the ġ_b(ḃ) being part of the basis.
+∎
 
 ### Null infinity and the almost linear bounds at b {#sec:s25a-s19-at-b}
 

@@ -62,8 +62,9 @@ On the spectral side, X̄, M′, X^±_(sc-b) with the faces scf, tf, zf and the 
 ε > 0.
 
 *The base point.* The base points of the linearisation are pairs (h, p⃗) as in [[sec:iii-i9-2]], whose black hole
-parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[lem:iii-i15-1-2]]. On ℬ̄_* the
-model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in (b, S, h) (property
+parameter b lies in the closed ball ℬ̄_* about b_0 of [[sec:iii-h2-0]], shrunk as in [[ch:s20]] (to a radius at most
+1/(2C_B), [[lem:s20-rows]], and for [[prop:iii-i15-2-8]]) and in [[lem:iii-i15-1-2]]; every result below holds on this
+ball. On ℬ̄_* the model objects are uniform in b ([[lem:iii-i15-1-1]]): the forward problem at b with continuity in (b, S, h) (property
 (P1) there); the ι⁺-normal operator, the transition face normal operator and the indicial roots of L̂_b(0) at ∂X, which
 do not depend on b (P2); the zero energy states of the table of roots of [[sec:iii-g2-1]] for L_b, their companions,
 the 1-form towers of [[prop:iii-d3-3-1]], the physical states of [[prop:iii-f4-5-1]] and ġ_b, which are real and smooth
@@ -871,10 +872,10 @@ m_ν(W), and the expansion is unique. *Bounds:* every map is linear and bounded,
 Since f′ = L_b u, the coefficients S_ν and u^rot are linear functions of u.
 
 **Lemma {#lem:iii-i11-3-3}** (The coefficients near the reference point.) Fix b ∈ ℬ̄_* and let p⃗_b ∈ 𝒫 be the
-parameter whose only nonzero component is b − b_0. In [[lem:iii-i11-3-2]], if (h_j, p⃗_j) → (0, p⃗_b), G_j → G in
-𝒴⁰(α), and the forward solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of L_(0,p⃗_b)u = G satisfy the hypothesis with the
-same w_0 and β′_+, the u_j being bounded there, then S^(h_j,p⃗_j)_ν(G_j) → S^(0,p⃗_b)_ν(G). At b_0, p⃗_(b_0) = 0 and
-L_(0,0) = L_(b_0).
+parameter whose only nonzero component is b − b_0. In [[lem:iii-i11-3-2]], if the base points (h_j, p⃗_j) have black
+hole parameter b, (h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴⁰(α), and the forward solutions u_j of L_(h_j,p⃗_j)u_j = G_j and
+u of L_(0,p⃗_b)u = G satisfy the hypothesis with the same w_0 and β′_+, the u_j being bounded there, then
+S^(h_j,p⃗_j)_ν(G_j) → S^(0,p⃗_b)_ν(G). At b_0, p⃗_(b_0) = 0 and L_(0,0) = L_(b_0).
 
 *Proof.* As in [[lem:iii-i8-3-3]], with L_(0,p⃗_b) as the reference operator: u_j − u is the forward solution of
 L_(0,p⃗_b)(u_j − u) = R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j, and R_j → 0 in 𝒴⁰(α) (the count of Step 0 of the proof of
@@ -1501,9 +1502,10 @@ the space 𝒴(β) of [[sec:iii-i8-1]] records the ι⁺-exponents below 4 in �
 and 𝒴^♮_2(β) lies in it by [[lem:iii-i13-1-3]] (a). ∎
 
 **Lemma {#lem:iii-i13-2-3}** (The coefficients near the reference point, at every level.) Fix b ∈ ℬ̄_*, and let p⃗_b be
-as in [[lem:iii-i11-3-3]]. In [[lem:iii-i13-2-2]], if (h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴^♮(β), and the forward
-solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with
-uniform bounds, then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
+as in [[lem:iii-i11-3-3]]. In [[lem:iii-i13-2-2]], if the base points (h_j, p⃗_j) have black hole parameter b,
+(h_j, p⃗_j) → (0, p⃗_b), G_j → G in 𝒴^♮(β), and the forward solutions u_j of L_(h_j,p⃗_j)u_j = G_j and u of
+L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with uniform bounds, then
+S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
 
 *Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]]. ∎
 

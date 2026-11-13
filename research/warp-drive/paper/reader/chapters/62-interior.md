@@ -378,16 +378,17 @@ D⁻(Σ_far; g) was integrated numerically down to τ_S − 3000: along it |v �
 constant of the comparison dv(Y) ≥ −2ε_g dτ(Y) of [[lem:interior-far-part]] (iii) between ½ and 2. No proof uses these
 observations.
 
-*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell g_app −
-g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof of
-[[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), M_m := 2 ∫_(−∞)^v 𝒮_(m,3)
-dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion. [[lem:vii-0-1]] asks for
-components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of [[thm:settling]] (ii) is
-polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an expansion nor excludes one. The
-data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]] asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂
-ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure under sums is the only condition linking the
-elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As ℓ_0 > 5/2, the norm ‖·‖_(d_1) of [[sec:s27-class]]
-is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for the class [[eq:vii-0-1]] it is infinite.
+*What H₁ carries.* On H₁ ∩ P′, |g_λ − g_app| ≤ Cλ^(K−3) t^(−2) ([[thm:past-construction]] (3)). After the shell
+g_app − g0 = Σ_j λ^j m_j, the means alone, every oscillating profile vanishing on {v ≥ v_end} (step (3) of the proof
+of [[prop:past-items]]); and m_m ∈ L_2 ([[thm:past-approximant]]): a leading term r⁻² M_m(v, x̂), with
+M_m := 2 ∫_(−∞)^v 𝒮_(m,3) dv′, plus a remainder in E_(5/2). That is a leading term and a bound, not an expansion.
+[[lem:vii-0-1]] asks for components in ρ²C^∞ and ρ³C^∞, expansions in integer powers of ρ = 1/r, and the class of
+[[thm:settling]] (ii) is polyhomogeneous with terms of orders r⁻² and r⁻³. An E_(5/2) bound neither gives such an
+expansion nor excludes one. The data index set of [[thm:iii-k-4-3]] need not be integral: row d1 of [[sec:vi-c-1]]
+asks min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 and ℓ_0 ∉ Re π_1ℰ_0, and none of these is integrality. Closure
+under sums is the only condition linking the elements, so (5/2, 0) ∈ ℰ_0 forces (5, 0), (15/2, 0), … into it. As
+ℓ_0 > 5/2, the norm ‖·‖_(d_1) of [[sec:s27-class]] is finite on a term ρ^(5/2) a(ω) exactly when (5/2, 0) ∈ ℰ_0; for
+the class [[eq:vii-0-1]] it is infinite.
 
 **Definition {#def:half-class}** (The half-integer class.) The *half-integer class* is the data class of
 [[thm:iii-k-4-3]] with
@@ -399,17 +400,22 @@ spaces.
 
 **Lemma {#lem:half-class}** (Row d1, and what lies in the half-integer class.) (a) ℰ_0^½ and ℓ_0 satisfy row d1 of
 [[sec:vi-c-1]], and ℰ_0^½ contains the index set of [[eq:vii-0-1]]. (b) Let γ̃, k̃ be smooth symmetric 2-tensors on
-Σ^IVP whose Cartesian components are, on {r ≥ R′}, ρ² and ρ³ times smooth functions of (ρ^(1/2), x̂) on [0, R′^(−1/2)] ×
-𝕊³. Then ‖(γ̃, k̃)‖^½_(d_1) is finite, bounded as in [[lem:vii-0-1]].
+Σ^IVP whose Cartesian components are, on {r ≥ R′}, ρ² and ρ³ times smooth functions of (ρ^(1/2), x̂) on
+[0, R′^(−1/2)] × 𝕊³. Then ‖(γ̃, k̃)‖^½_(d_1) is finite, bounded as in [[lem:vii-0-1]].
 
 *Proof.* (a) min Re ℰ_0^½ = 2 > 3/2 + 2γ_Υ, as γ_Υ < ¼. (2 + j/2) + (2 + k/2) = 2 + (j + k + 4)/2, so ℰ_0^½ is closed
-under sums, and jℰ_0^½ ⊂ ℰ_0^½. ℓ_0 > 3, and Re π_1ℰ_0^½ = {2, 5/2, 3, 7/2, 4, …} does not contain ℓ_0. The index set of
-[[eq:vii-0-1]] is the part of ℰ_0^½ with j even. (b) Put s := ρ^(1/2). Taylor's formula in s writes ρ²Φ(s, x̂) = Σ_(j ≤
-3) ρ^(2+j/2) a_j(x̂) + ρ⁴Φ₄(s, x̂), with a_j and Φ₄ smooth, the seminorms of the remainder bounded by those of Φ. Smooth
-functions of s are conormal in ρ, as ρ∂_ρ = ½ s∂_s. The exponents 2 + j/2 < ℓ_0 lie in ℰ_0^½; the term with 2 + j/2 >
-ℓ_0, if any (j = 3 when ℓ_0 < 7/2), and the remainder lie in ρ^(ℓ_0)H^∞_b, as ℓ_0 < 4 and the weights are those of the
-b-density, a weight being the pointwise order. Likewise ρ³Φ = Σ_(j ≤ 3) ρ^(3+j/2) b_j + ρ⁵Φ₅, with exponents in ℰ_0^½ +
-1 below ℓ_0 + 1 < 5. On {r ≤ 2R′} the weights are bounded above and below. ∎
+under sums, and jℰ_0^½ ⊂ ℰ_0^½. ℓ_0 > 3, and Re π_1ℰ_0^½ = {2, 5/2, 3, 7/2, 4, …} does not contain ℓ_0. The index set
+of [[eq:vii-0-1]] is the part of ℰ_0^½ with j even.
+
+(b) Put s := ρ^(1/2). Taylor's formula in s writes
+
+    ρ²Φ(s, x̂) = Σ_(j ≤ 3) ρ^(2+j/2) a_j(x̂) + ρ⁴Φ₄(s, x̂),
+
+with a_j and Φ₄ smooth, the seminorms of the remainder bounded by those of Φ. Smooth functions of s are conormal in ρ,
+as ρ∂_ρ = ½ s∂_s. The exponents 2 + j/2 < ℓ_0 lie in ℰ_0^½; the term with 2 + j/2 > ℓ_0, if any (j = 3 when
+ℓ_0 < 7/2), and the remainder lie in ρ^(ℓ_0)H^∞_b, as ℓ_0 < 4 and the weights are those of the b-density, a weight
+being the pointwise order. Likewise ρ³Φ = Σ_(j ≤ 3) ρ^(3+j/2) b_j + ρ⁵Φ₅, with exponents in ℰ_0^½ + 1 below
+ℓ_0 + 1 < 5. On {r ≤ 2R′} the weights are bounded above and below. ∎
 
 **Remark {#rem:half-class-changes}** (What the half-integer class changes.) The data index set enters the rest of the
 stability theory only through ℰ^C_I ([[thm:iii-c1-3-1]], row d2 of [[sec:vi-c-1]]), the exponents Λ ⊃ π_1ℰ^C_I and the
