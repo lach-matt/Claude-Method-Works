@@ -1272,45 +1272,82 @@ there (the solutions of the ordinary differential equation in ρ_H), and its coe
 #### Normal operator arguments {#sec:iii-a-1-1}
 
 Let ∂M be a compact manifold without boundary, M := [0, ρ₀)_ρ × ∂M, with the b-density |dρ/ρ| ⊗ μ, μ a smooth
-positive density on ∂M. Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0,
-H^k(∂M) is normed by ‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices; this is the
-usual Sobolev norm up to equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35]), and
-‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M) elliptic near ρ = 0, N(A, ι) = Σ_j A_j(0)ι^j
-is an elliptic operator on ∂M depending polynomially on ι. We use two facts about it.
+positive density on ∂M, and let N_E ≥ 1 be an integer. The operators of this section act on ℂ^(N_E)-valued functions.
+Diff^m_b(M; ℂ^(N_E)) is the space of N_E × N_E matrices with entries in Diff^m_b(M): in the collar and in local
+coordinates y on ∂M, A = Σ_(j+|β|≤m) a_jβ(ρ, y)(ρ∂_ρ)^j∂_y^β with smooth matrix-valued coefficients a_jβ, and
+A = Σ_(j≤m) A_j(ρ)(ρ∂_ρ)^j with A_j ∈ C^∞([0, ρ₀); Diff^(m−j)(∂M; ℂ^(N_E))), the operators on ∂M being matrices of
+differential operators in the same way. A is *elliptic* near ρ = 0 if its *principal symbol*, the matrix
+Σ_(j+|β|=m) a_jβ(ρ, y)ξ^jη^β, is invertible for all real (ξ, η) ≠ (0, 0) and all (ρ, y) with ρ near 0; for N_E = 1
+this is the ellipticity of [[def:s11-b-analysis]] (2). The normal operator, the indicial family, the indicial roots and
+the boundary spectrum are defined as in [[def:s11-b-analysis]] (2), with ℂ^(N_E)-valued u and u′. A ℂ^(N_E)-valued
+function lies in one of the spaces of [[def:s11-b-analysis]] (3), (5) and (6), or in H^k(∂M) below, when each of its
+components does, and these spaces are written as those of functions: H^k(∂M) stands for H^k(∂M; ℂ^(N_E)), and so on.
+A b-differential operator on the sections of a vector bundle of rank N_E over M with a frame smooth up to ρ = 0 is,
+written in that frame, an element of Diff^m_b(M; ℂ^(N_E)); the bundles of the later chapters are trivialised in this
+way ([[sec:i-a-1-2]]).
+
+Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0, H^k(∂M) is normed by
+‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component
+and ‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to
+equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35], for each component), and
+‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0,
+N(A, ι) = Σ_j A_j(0)ι^j depends polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix
+Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use two facts about it.
 
 (E1) *Large-parameter ellipticity.* For every strip {c₁ ≤ Re ι ≤ c₂} and every integer s ≥ 0 there are R and C such
 that N(A, ι) : H^(s+m)(∂M) → H^s(∂M) is invertible for |Im ι| ≥ R in the strip, with
 
     Σ_(j≤m) |ι|^(m−j)‖N(A, ι)⁻¹g‖_(H^(s+j)(∂M)) ≤ C‖g‖_(H^s(∂M)).
 
-(E2) *Analytic Fredholm theory.* N(A, ι)⁻¹ : L²(∂M) → H^m(∂M) is meromorphic in ℂ. The coefficients of the negative
-powers in its Laurent expansions have finite rank and map H^s(∂M) to H^(s+m)(∂M) for every integer s ≥ 0, so C^∞(∂M)
-to C^∞(∂M).
+(E2) *Analytic Fredholm theory.* N(A, ι)⁻¹ : L²(∂M) → H^m(∂M) is meromorphic in ℂ. Let s ≥ 0 be an integer. At every
+ι that is not a pole, N(A, ι)⁻¹ maps H^s(∂M) to H^(s+m)(∂M), with norm bounded uniformly on every compact set of such
+ι. Every coefficient of its Laurent expansion at any point of ℂ maps H^s(∂M) to H^(s+m)(∂M), so C^∞(∂M) to C^∞(∂M);
+the coefficients of the negative powers have finite rank.
 
-Both are proved from one result of the literature, the elliptic estimate on a compact manifold without boundary.
-[Hin26d, Proposition 3.55 (3), p. 57] states: for A ∈ w′Ψ^(m′)_𝒱(M), B ∈ Ψ⁰_𝒱(M) and u ∈ wρ^(−∞)H^(−∞)_𝒱(M), "If
-WF′_𝒱(B) ⊂ Ell^(m,w)_𝒱(A), then for any N there exists C_N so that ‖Bu‖_(wρ^l H^m_𝒱(M)) ≤ C_N(‖Au‖_(ww′ρ^l
-H^(m−m′)_𝒱(M)) + ‖u‖_(wρ^(−N) H^(−N)_𝒱))". On a compact manifold Z without boundary the calculus is the standard one
-([Hin26d, Example 3.63, p. 61]), with ρ = w = w′ = 1 and H^m_𝒱(Z) = H^m(Z). With B = I and N = 0 this gives, for a
-differential operator P of order m on Z whose principal symbol vanishes nowhere on T*Z ∖ o and every integer s ≥ 0,
-a constant C with
+Both are proved from one result of the literature, the elliptic estimate on a manifold without boundary. In the
+following quotation the letters A, X, E, F, m, s, t, p, u and C are the source's. [Shu92, Appendix 1, Lemma 1.4,
+pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential operator acting as in (1.2) between spaces
+of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p ∈ (1, +∞) there exists C > 0 such that
+(1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈ W_p^(−∞)(X, E) and
+Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol a_m(x, ξ) of A is a matrix in local
+trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ) with ξ ≠ 0. It is called uniformly
+elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0", with |ξ| the length in
+the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X, E) is the Sobolev
+space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate to coordinate
+balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–68).
 
-    ‖w‖_(H^(s+m)(Z)) ≤ C(‖Pw‖_(H^s(Z)) + ‖w‖_(L²(Z))),                                                 (EE)
+Let Z be a compact manifold without boundary, fix a Riemannian metric on it, and let P be a differential operator of
+order m on Z with smooth coefficients, acting on ℂ^(N_E)-valued functions, whose principal symbol is invertible at every
+point of T*Z ∖ o. The quotation applies to P on the trivial bundle Z × ℂ^(N_E). Z is of bounded geometry: the coverings
+of compact manifolds are among the examples of [Shu92, Appendix 1, p. 64], and Z covers itself. The trivial bundle, with
+its global trivialisation, has constant transition functions, so it is of bounded geometry (p. 65). In canonical
+coordinates of a fixed radius r below the injectivity radius, which are defined by a point of Z and an orthonormal frame
+there, the coefficients of P are smooth functions of the frame and of the point of the closed ball of radius r, and
+these range over a compact set (the orthonormal frame bundle times the closed ball); so the coefficients are bounded with
+all their derivatives, uniformly, and P is C^∞-bounded. The function |a_m⁻¹(x, ξ)||ξ|^m is continuous on T*Z ∖ o and
+homogeneous of degree 0 in ξ, so it is bounded by its maximum on the compact set {|ξ| = 1}; this is (1.4). On the
+compact Z, W_2^k, k ∈ ℕ₀, is the usual Sobolev space of ℂ^(N_E)-valued functions, so it is H^k(Z) with an equivalent
+norm, the norms of this section being built, as on ∂M above, from smooth fields spanning TZ. So (1.5) with s + m in
+place of s, t = 0 and p = 2, extended from C^∞(Z) to H^(s+m)(Z) by density and by the continuity of both of its sides
+in H^(s+m)(Z) (P maps H^(s+m)(Z) continuously to H^s(Z), p. 69), and the last sentence of the quotation give, for
+every integer s ≥ 0, a constant C with
 
-and w ∈ H^(s+m)(Z) whenever w ∈ L²(Z) and Pw ∈ H^s(Z).
+    ‖v‖_(H^(s+m)(Z)) ≤ C(‖Pv‖_(H^s(Z)) + ‖v‖_(L²(Z))),     v ∈ H^(s+m)(Z),                                (EE)
+
+and v ∈ H^(s+m)(Z) whenever v ∈ L²(Z) and Pv ∈ H^s(Z), Pv being taken in the sense of distributions.
 
 *Proof of (E1).* Let 𝕋 := ℝ/2πℤ and Z := 𝕋_x × ∂M, with the density |dx| ⊗ μ and the norms H^k(Z) defined as above
 with the fields ∂_x, X₁, …, X_q. For c ∈ ℝ and κ ∈ [0, 1] let P_(c,κ) := Σ_j A_j(0)(∂_x + c + iκ)^j. In local
 coordinates y on ∂M, with A = Σ_(j+|β|≤m) a_jβ(ρ, y)(ρ∂_ρ)^j∂_y^β, P_(c,κ) = Σ a_jβ(0, y)(∂_x + c + iκ)^j∂_y^β, whose
-principal symbol at (ξ, η) is i^m Σ_(j+|β|=m) a_jβ(0, y)ξ^jη^β; it vanishes nowhere on T*Z ∖ o, by the ellipticity of
-A. So (EE) holds for each P_(c,κ). It holds with one constant C₁ for all (c, κ) ∈ K := [c₁, c₂] × [0, 1]: the
-difference P_(c,κ) − P_(c′,κ′) has order at most m − 1, with coefficients bounded by C_K(|c − c′| + |κ − κ′|) on K,
-so ‖(P_(c,κ) − P_(c′,κ′))w‖_(H^s) ≤ C_K(|c − c′| + |κ − κ′|)‖w‖_(H^(s+m)); for (c, κ) close to (c′, κ′) this term is
+principal symbol at (ξ, η) is the matrix i^m Σ_(j+|β|=m) a_jβ(0, y)ξ^jη^β; it is invertible on T*Z ∖ o, by the
+ellipticity of A. So (EE) holds for each P_(c,κ). It holds with one constant C₁ for all (c, κ) ∈ K := [c₁, c₂] × [0, 1]:
+the difference P_(c,κ) − P_(c′,κ′) has order at most m − 1, with coefficients bounded by C_K(|c − c′| + |κ − κ′|) on K,
+so ‖(P_(c,κ) − P_(c′,κ′))v‖_(H^s) ≤ C_K(|c − c′| + |κ − κ′|)‖v‖_(H^(s+m)); for (c, κ) close to (c′, κ′) this term is
 absorbed, and (EE) holds there with twice the constant of (c′, κ′); finitely many such neighbourhoods cover K.
 
-Now let u ∈ H^(s+m)(∂M), ι = c + iτ with c ∈ [c₁, c₂], n := ⌊τ⌋, κ := τ − n and w := e^(inx)u. Then
-P_(c,κ)w = e^(inx)N(A, ι)u. As ∂_x commutes with the X_i, every product of at most k of the fields ∂_x, X_i applied to
-w is e^(inx)(in)^l X_(i₁)⋯X_(i_p)u with l + p ≤ k; so ‖w‖_(H^k(Z)) is bounded above and below, with constants
+Now let u ∈ H^(s+m)(∂M), ι = c + iτ with c ∈ [c₁, c₂], n := ⌊τ⌋, κ := τ − n and v := e^(inx)u. Then
+P_(c,κ)v = e^(inx)N(A, ι)u. As ∂_x commutes with the X_i, every product of at most k of the fields ∂_x, X_i applied to
+v is e^(inx)(in)^l X_(i₁)⋯X_(i_p)u with l + p ≤ k; so ‖v‖_(H^k(Z)) is bounded above and below, with constants
 depending only on k, by [u]_(k,τ) := Σ_(l≤k) ⟨τ⟩^l ‖u‖_(H^(k−l)(∂M)), ⟨τ⟩ := (1 + τ²)^(1/2) (the term l = 0 dominates
 the others where |n| ≤ 1). So (EE) gives [u]_(s+m,τ) ≤ C₂([N(A, ι)u]_(s,τ) + ‖u‖_(L²)), and as
 ‖u‖_(L²) ≤ ⟨τ⟩^(−s−m)[u]_(s+m,τ),
@@ -1318,12 +1355,13 @@ the others where |n| ≤ 1). So (EE) gives [u]_(s+m,τ) ≤ C₂([N(A, ι)u]_(s,
     [u]_(s+m,τ) ≤ 2C₂[N(A, ι)u]_(s,τ)     for ⟨τ⟩^(s+m) ≥ 2C₂.                                           (E1′)
 
 *Invertibility.* Fix R with ⟨R⟩^m ≥ 2C₂ for s = 0. By (E1′) at s = 0, N(A, ι) : H^m → L² is injective with closed
-range for |Im ι| ≥ R. Its formal adjoint with respect to μ is Σ_j A_j(0)*ῑ^j = N(A′, ῑ) with A′ := Σ_j A_j(0)*(ρ∂_ρ)^j,
-which is elliptic near ρ = 0, as its polynomial at ρ = 0 is (−1)^m times the complex conjugate of that of A at
-(−ξ, η); and Re ῑ = Re ι. So, after enlarging R, N(A′, ῑ) is injective on H^m as well. If g ∈ L² is orthogonal to the
-range of N(A, ι), then N(A′, ῑ)g = 0 in the sense of distributions; (EE) for the operator P′ built from A′ as P_(c,κ)
-from A, applied to e^(in′x)g with n′ := ⌊−τ⌋, gives g ∈ H^m, so g = 0. Hence N(A, ι) : H^m → L² is bijective. For
-g ∈ H^s, u := N(A, ι)⁻¹g lies in H^m and P_(c,κ)(e^(inx)u) = e^(inx)g ∈ H^s(Z), so u ∈ H^(s+m) by (EE).
+range for |Im ι| ≥ R. Its formal adjoint with respect to μ and the Euclidean inner product of ℂ^(N_E) is
+Σ_j A_j(0)*ῑ^j = N(A′, ῑ) with A′ := Σ_j A_j(0)*(ρ∂_ρ)^j, which is elliptic near ρ = 0, as its principal symbol at
+ρ = 0 is (−1)^m times the conjugate transpose of that of A at (−ξ, η); and Re ῑ = Re ι. So, after enlarging R,
+N(A′, ῑ) is injective on H^m as well. If g ∈ L² is orthogonal to the range of N(A, ι), then N(A′, ῑ)g = 0 in the
+sense of distributions; (EE) for the operator P′ built from A′ as P_(c,κ) from A, applied to e^(in′x)g with
+n′ := ⌊−τ⌋, gives g ∈ H^m, so g = 0. Hence N(A, ι) : H^m → L² is bijective. For g ∈ H^s, u := N(A, ι)⁻¹g lies in H^m
+and P_(c,κ)(e^(inx)u) = e^(inx)g ∈ H^s(Z), so u ∈ H^(s+m) by (EE).
 
 *The estimate.* We show, by induction on s,
 
@@ -1333,22 +1371,48 @@ which is (E1), as |ι| ≤ C⟨τ⟩ in the strip. At s = 0 it is (E1′). Let s
 N(A, ι)X_iu = X_ig + [N(A, ι), X_i]u, where [N(A, ι), X_i] = Σ_j ι^j[A_j(0), X_i] and [A_j(0), X_i] has order at
 most m − j; so ‖[N(A, ι), X_i]u‖_(H^(s−1)) ≤ C Σ_(l≤m) ⟨τ⟩^l‖u‖_(H^(s−1+m−l)) ≤ C′‖g‖_(H^(s−1)), by the case s − 1.
 The case s − 1 applied to X_iu ∈ H^(s−1+m) then gives Σ_l ⟨τ⟩^l‖X_iu‖_(H^(s−1+m−l)) ≤ C(‖X_ig‖_(H^(s−1)) +
-C′‖g‖_(H^(s−1))) ≤ C″‖g‖_(H^s), and ‖v‖_(H^k) ≤ ‖v‖_(H^(k−1)) + Σ_i ‖X_iv‖_(H^(k−1)) gives the case s. ∎
+C′‖g‖_(H^(s−1))) ≤ C″‖g‖_(H^s), and ‖u‖_(H^k) ≤ ‖u‖_(H^(k−1)) + Σ_i ‖X_iu‖_(H^(k−1)) at k = s + m − l gives the
+case s. ∎
 
 *Proof of (E2).* Fix ι₀ at which N(A, ι₀) is invertible, by (E1). On the Hilbert space H^m(∂M) let
 B(ι) := N(A, ι₀)⁻¹(N(A, ι) − N(A, ι₀)) = Σ_(j≥1) (ι^j − ι₀^j)N(A, ι₀)⁻¹A_j(0). For j ≥ 1, A_j(0) has order at most
 m − 1 and maps H^m to H^1, and N(A, ι₀)⁻¹ maps H^1 to H^(m+1) by (E1); and the inclusion H^(m+1)(∂M) ↪ H^m(∂M) is
-compact ([Hin26d, Theorem 3.21, p. 37], [[thm:std-sbg-calculus]] (S3), on the compact ∂M with w = w′ = 1). So B is an
-entire family of compact operators on H^m, and Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) is invertible wherever N(A, ι) is,
-in particular at ι₀. By [[thm:std-analytic-fredholm]], W(ι) := (Id + B(ι))⁻¹ exists off a discrete set and is
-meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m. At a pole ι₁ of order p write
+compact ([Hin26d, Theorem 3.21, p. 38], [[thm:std-sbg-calculus]] (S3), on the compact ∂M with w = w′ = 1, for each
+component). So B is an entire family of compact operators on H^m, and Id + B(ι) = N(A, ι₀)⁻¹N(A, ι) is invertible
+wherever N(A, ι) is, in particular at ι₀. By [[thm:std-analytic-fredholm]], W(ι) := (Id + B(ι))⁻¹ exists off a
+discrete set and is meromorphic on ℂ; so is N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ : L² → H^m. At a pole ι₁ of order p write
 W(ι) = Σ_(k≥−p) W_k(ι − ι₁)^k and B(ι) = Σ_(k≥0) B_k(ι − ι₁)^k. From (Id + B)W = Id, (Id + B₀)W_(−p) = 0 and
-(Id + B₀)W_(−p+k) = −Σ_(1≤l≤k) B_lW_(−p+k−l) for 1 ≤ k < p. The kernel of Id + B₀ is finite-dimensional, as v = −B₀v
-on it and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the preimage under
+(Id + B₀)W_(−p+k) = −Σ_(1≤l≤k) B_lW_(−p+k−l) for 1 ≤ k < p. The kernel of Id + B₀ is finite-dimensional, as B₀ acts
+on it as −Id and B₀ is compact; so W_(−p) has finite rank, and inductively each W_(−p+k), k < p, maps into the preimage under
 Id + B₀ of a finite-dimensional space, which is finite-dimensional. So the coefficients of the negative powers of
-N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ have finite rank. They are integrals of (ι − ι₁)^(k−1)N(A, ι)⁻¹ over a small circle about
-ι₁; on it, by (EE) for P_(c,κ) with the constant C₁ and the comparison of norms above (|τ| being bounded there),
-‖N(A, ι)⁻¹g‖_(H^(s+m)) ≤ C(‖g‖_(H^s) + ‖N(A, ι)⁻¹g‖_(L²)) ≤ C′‖g‖_(H^s), so they map H^s to H^(s+m). ∎
+N(A, ι)⁻¹ = W(ι)N(A, ι₀)⁻¹ have finite rank.
+
+*Bounds off the poles.* Let s ≥ 0 be an integer and Ω ⊂ ℂ a compact set containing no pole. Choose c₁ ≤ c₂ and T ≥ 0
+with Ω ⊂ {c₁ ≤ Re ι ≤ c₂, |Im ι| ≤ T}, and let C₁ be the constant of (EE) at the order s for the P_(c,κ),
+(c, κ) ∈ [c₁, c₂] × [0, 1], found in the proof of (E1). As a function with values in the operators L² → H^m, N(A, ·)⁻¹
+is holomorphic on a neighbourhood of Ω, hence continuous in norm there; so ‖N(A, ι)⁻¹‖_(L²→H^m) ≤ C_Ω for ι ∈ Ω. For
+ι = c + iτ ∈ Ω and g ∈ H^s let u := N(A, ι)⁻¹g ∈ H^m, and let n, κ and v := e^(inx)u be as in the proof of (E1). Then
+v ∈ L²(Z) and P_(c,κ)v = e^(inx)g ∈ H^s(Z), so v ∈ H^(s+m)(Z) by (EE), and u ∈ H^(s+m)(∂M) by the comparison of
+‖v‖_(H^k(Z)) with [u]_(k,τ) in that proof. That comparison, (EE), ‖u‖_(H^k) ≤ [u]_(k,τ) and, as |τ| ≤ T,
+[g]_(s,τ) ≤ (s + 1)⟨T⟩^s‖g‖_(H^s) give ‖u‖_(H^(s+m)) ≤ C(‖g‖_(H^s) + ‖u‖_(L²)), with C depending on s, m, T and C₁
+only. As ‖u‖_(L²) ≤ C_Ω‖g‖_(L²) ≤ C_Ω‖g‖_(H^s),
+
+    ‖N(A, ι)⁻¹g‖_(H^(s+m)) ≤ C′_Ω‖g‖_(H^s)     (ι ∈ Ω, g ∈ H^s),
+
+which is the bound of (E2). For ι, ι′ ∈ Ω, on H^s,
+N(A, ι)⁻¹ − N(A, ι′)⁻¹ = N(A, ι)⁻¹(N(A, ι′) − N(A, ι))N(A, ι′)⁻¹, and N(A, ι′) − N(A, ι) = Σ_j (ι′^j − ι^j)A_j(0)
+maps H^(s+m) to H^s with norm at most C″_Ω|ι′ − ι|, as A_j(0) has order at most m − j and
+ι′^j − ι^j = (ι′ − ι)Σ_(a+b=j−1) ι′^aι^b. So, in the norm of operators H^s → H^(s+m),
+‖N(A, ι)⁻¹ − N(A, ι′)⁻¹‖ ≤ (C′_Ω)²C″_Ω|ι − ι′| on Ω.
+
+*The Laurent coefficients.* Let ι₁ ∈ ℂ, and let r₁ > 0 be so small that the closed disc of radius r₁ about ι₁ contains
+no pole other than ι₁. The coefficient of (ι − ι₁)^k, k ∈ ℤ, in the Laurent expansion of N(A, ι)⁻¹ at ι₁ is (2πi)⁻¹
+times the integral of (ι − ι₁)^(−k−1)N(A, ι)⁻¹ over the circle |ι − ι₁| = r₁, taken in the operators L² → H^m. Take
+for Ω that circle, which contains no pole. By the last paragraph the integrand is continuous on it in the norm of
+operators H^s → H^(s+m), so the integral converges in that norm too, to an operator that agrees on H^s with the
+coefficient (the Riemann sums are the same, and convergence in H^(s+m) implies convergence in H^m). So the coefficient
+maps H^s to H^(s+m), with norm at most r₁^(−k)C′_Ω. As s is arbitrary, it maps C^∞(∂M), the intersection of the
+H^s(∂M), to itself. ∎
 
 Define
 

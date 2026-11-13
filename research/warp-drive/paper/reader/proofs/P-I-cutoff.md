@@ -25,7 +25,7 @@ only the data of the truncated problems, whose effect is removed by letting T �
 g_b0 = η + μ m with m := r⁻² dv ⊗ dv, μ = μ_end, the coordinates (v, r, x̂) with ℓ = ∂_r at fixed (v, x̂) and ∂_v
 the derivative at fixed (r, x̂), which is ∂_t at fixed x. The Cartesian derivatives are
 
-    ∂_t = ∂_v,     ∂_i = x̂_i (∂_v + ℓ) + r⁻¹ Y_i,     Y_i := r (∂_i − x̂_i x̂·∂_x),                        {#eq:cutoff-cartesian}
+    ∂_t = ∂_v,     ∂_i = x̂_i (∂_v + ℓ) + r⁻¹ Y_i,     Y_i := r (∂_i − x̂_i x̂·∂_x),               {#eq:cutoff-cartesian}
 
 where Y_i is a vector field on the sphere {v, r fixed}, acting on x̂ only, with coefficients smooth in x̂. Put
 I_1 := [v_end + 1, V′_P − 1], which contains v1 (v1 ≥ v_end + 2 and v1 ≤ V′_P − κ_P − 1 − m_Ω,
@@ -39,8 +39,8 @@ A family of smooth tensors F on 𝒰_1, or on a subset of it, is *of strip order
 all i, β, j up to a fixed order, the constant independent of the members of the family. By [[eq:bondi-expansion]],
 u_J is of strip order (J + 1)/2, and H_J of strip order 2, the G_k being bounded with all their derivatives. A
 *monomial* is r^(−k/2) (v − v1)^n a(x̂) with integers k, n ≥ 0 and a smooth; its *weight* is n − k/2. Since
-r^(−k/2) (v − v1)^n = r^(n−k/2) s^n with s = (v − v1)/r, a monomial is homogeneous of degree equal to its weight under the
-dilation D_ς of Section [[sec:far-homogeneity]].
+r^(−k/2) (v − v1)^n = r^(n−k/2) s^n with s = (v − v1)/r, a monomial is homogeneous, of degree equal to its weight,
+under the dilation D_ς of Section [[sec:far-homogeneity]].
 
 **Lemma {#lem:cutoff-expansion}** (the operator at fixed v). Let K ≥ 4, let c_4, …, c_K be smooth symmetric tensors on
 I_1 × S³ (Cartesian components), bounded with all derivatives, and put H := Σ_(k=4)^K r^(−k/2) c_k and c_k := 0 for
@@ -101,7 +101,7 @@ least 2, and are of strip order (J + 5)/2. Hence P(H_J) is of strip order (J + 3
 with c_k = G_k, multiplying by r^q and letting r → ∞ at fixed (v, x̂), π_q = 0 for q ≤ (J + 2)/2. As J is arbitrary,
 for every q ≥ 3
 
-    (2q − 5) ∂_v G_(2q−2) = (Δ̊ + (q − 2)(q − 4)) G_(2q−4) − 2 R_q,                                      {#eq:cutoff-recursion}
+    (2q − 5) ∂_v G_(2q−2) = (Δ̊ + (q − 2)(q − 4)) G_(2q−4) − 2 R_q,                                {#eq:cutoff-recursion}
 
 R_q being formed from the G_k, k ≤ 2q − 4, by [[eq:cutoff-terms]] (G_2 := G_3 := 0).
 
@@ -116,12 +116,12 @@ is ([[prop:bondi-hierarchy]]) and G fixes v.
 (k − 3)(n + 1) G_(k,n+1) = (Δ̊ + (q − 2)(q − 4)) G_(k−2,n) − 2 [R_q]_n, where [R_q]_n = 0 for n > q − 6. The monomials
 (k, n + 1) and (k − 2, n) have the same weight n + 1 − k/2 =: −p. If p < 4 then n > q − 6, and with k = 2(p + n + 1),
 
-    (n + 1)(2p + 2n − 1) G_(2(p+n+1), n+1) = (Δ̊ + (p + n)(p + n − 2)) G_(2(p+n), n).                    {#eq:cutoff-weight-recursion}
+    (n + 1)(2p + 2n − 1) G_(2(p+n+1), n+1) = (Δ̊ + (p + n)(p + n − 2)) G_(2(p+n), n).       {#eq:cutoff-weight-recursion}
 
-The weights are at most −2 and lie in ½ℤ, so p < 4 means p ∈ {2, 5/2, 3, 7/2} ⊂ Π. For p ∈ Π, the computation in the
+The weights are at most −2 and lie in ½ℤ, so p < 4 means p ∈ {2, 5/2, 3, 7/2} ⊂ Π. For p ∈ Π, the calculation in the
 proof of [[lem:own-self-similar]], made for a smooth F(s, x̂) with Δ̊ acting on each Cartesian component, gives
 
-    □_η (r^(−p) F) = −2 r^(−p−2) [ (s − s²/2) ∂_s² F + (p − ½)(1 − s) ∂_s F − ½ (p² − 2p + Δ̊) F ].       {#eq:cutoff-ode}
+    □_η (r^(−p) F) = −2 r^(−p−2) [ (s − s²/2) ∂_s² F + (p − ½)(1 − s) ∂_s F − ½ (p² − 2p + Δ̊) F ].      {#eq:cutoff-ode}
 
 Since □_η Σ_p = 0, the bracket vanishes for F = F_p on [0, 3/2] × S³, and its coefficient of s^n at s = 0 is
 ½ [(n + 1)(2p + 2n − 1) F_(p,n+1) − (Δ̊ + (p + n)(p + n − 2)) F_(p,n)], as n(n − 1) + (2p − 1) n + p² − 2p =
@@ -131,7 +131,7 @@ F_(p,0) ([[def:own-sigma]]), and 2p + 2n − 1 > 0; by induction on n, G_(2(p+n)
 **Definition {#def:cutoff-extension}** (the continuation of the expansion). For an integer J ≥ 8 put
 
     Σ′_J := Σ_(8≤k≤J) Σ_(0≤n≤k/2−4) r^(−k/2) (v − v1)^n (G_(k,n) − F_(k/2−n, n))
-          = Σ_(8≤k≤J) Σ_(0≤n≤k/2−4) r^(−(k/2−n)) s^n (G_(k,n) − F_(k/2−n, n)),                          {#eq:cutoff-extension}
+          = Σ_(8≤k≤J) Σ_(0≤n≤k/2−4) r^(−(k/2−n)) s^n (G_(k,n) − F_(k/2−n, n)),                     {#eq:cutoff-extension}
 
 a finite sum, defined on {r > 0} by its second form, and m_J := g_λ − g_b0 − Σ − Σ′_J on 𝒰_1.
 
@@ -145,12 +145,12 @@ and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The
 dilation (Section [[sec:far-homogeneity]]). G-invariance: G_(k,n) and F_(p,n) are Taylor coefficients at v = v1 of the
 G-invariant G_k ([[lem:cutoff-polynomial]]) and Σ_p ([[lem:own-sigma-data]] (c)).
 
-(b) For p ∈ Π let M_p := ⌊J/2 − p⌋ ≥ 0 and split Σ_p = Σ_(n≤M_p) r^(−p−n) (v − v1)^n F_(p,n) + r^(−p) s^(M_p+1) ρ_p(s, x̂),
-with ρ_p smooth on [0, 3/2] × S³ (Taylor's formula with integral remainder; F_p is smooth there by
-[[lem:own-self-similar]]). The polynomial part of Σ consists of the monomials r^(−k/2)(v − v1)^n F_(k/2−n, n) with
-k ≤ J. By [[lem:cutoff-polynomial]], H_J is the sum of the monomials r^(−k/2)(v − v1)^n G_(k,n), k ≤ J, and
-G_(k,n) = F_(k/2−n, n) at the weights above −4; at the weights −4 and below, the coefficient of Σ plus that of Σ′_J is
-F_(k/2−n,n) + (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]],
+(b) For p ∈ Π let M_p := ⌊J/2 − p⌋ ≥ 0 and split Σ_p = Σ_(n≤M_p) r^(−p−n) (v − v1)^n F_(p,n) + r^(−p) s^(M_p+1) ρ_p(s,
+x̂), with ρ_p smooth on [0, 3/2] × S³ (Taylor's formula with integral remainder; F_p is smooth there by
+[[lem:own-self-similar]]). The polynomial part of Σ consists of the monomials r^(−k/2)(v − v1)^n F_(k/2−n, n) with k ≤
+J. By [[lem:cutoff-polynomial]], H_J is the sum of the monomials r^(−k/2)(v − v1)^n G_(k,n), k ≤ J, and G_(k,n) =
+F_(k/2−n, n) at the weights above −4; at the weights −4 and below, the coefficient of Σ plus that of Σ′_J is F_(k/2−n,n)
++ (G_(k,n) − F_(k/2−n,n)) = G_(k,n). Hence, by [[eq:cutoff-hj]],
 
     m_J = u_J − Σ_(p∈Π) r^(−p) s^(M_p+1) ρ_p(s, x̂).
 
@@ -160,8 +160,8 @@ r^(−i′) ∂_s^(i′)(s^(M+1) ρ′) with ρ′ smooth, each at most C r^(−
 J/2 − p ∈ ½ℤ. ∎
 
 **Remark {#rem:cutoff-weights}** (what is new in Σ′_J). The weight −4 terms of Σ′_J are r⁻⁴ s^n (G_(8+2n,n) − F_(4,n)),
-n ≥ 1: the component of degree −4 of g_λ − g_b0 solves −½ □_η = −Q_6 (the source of [[prop:far-residual]]) where Σ_4
-solves □_η Σ_4 = 0, and the two agree at s = 0. The terms of weight −9/2 and below are the higher homogeneous
+n ≥ 1: the component of degree −4 of g_λ − g_b0 solves −½ □_η = −Q_6 (the term of degree −6 of [[prop:far-residual]])
+where Σ_4 solves □_η Σ_4 = 0, and the two agree at s = 0. The terms of weight −9/2 and below are the higher homogeneous
 components of g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controlled here and are not needed.
 
 ### The truncated problems and the initial slice {#sec:cutoff-cap}
@@ -189,7 +189,7 @@ Write 𝒮^♭_T := Σ̃_T ∩ {v ≤ V_T + δ_0/4} for the part of the initial 
 {r_T ≤ r ≤ r_T + d_V} along the rays of Σ̃_T (v increases along them with dv/dr ≥ 1, [[lem:own-wedge]] (b)), and
 r_T ≥ c_W (1 + |T|). Near Σ̃_T put
 
-    H_0 := Σ + Σ′_J,     M := (1 − χ_T) m_J  (M := 0 where χ_T = 1),     H_D := D_T − g_b0 = H_0 + M,       {#eq:cutoff-hd}
+    H_0 := Σ + Σ′_J,     M := (1 − χ_T) m_J  (M := 0 where χ_T = 1),     H_D := D_T − g_b0 = H_0 + M,     {#eq:cutoff-hd}
 
 the identity on the strip being D_T − g_b0 = Σ + Σ′_J + (1 − χ_T)(g_λ − g_b0 − Σ − Σ′_J). Let δ := g_T − D_T, defined on
 W_T ∩ {t̃ ≤ T + δ_T} near Σ̃_T. Then h_R = g_T − g_b0 − Σ = Σ′_J + M + δ there.
@@ -224,46 +224,45 @@ whose integrand is in ℰ by the chain rule, and ℰ ℬ^q ⊂ ℬ^q. ∎
 with C depending on λ, J and N_0 but not on T. In the notation of [[def:cutoff-classes]], δ ∈ 𝒯^4 + ℬ^((J+3)/2) for
 the derivatives of order at least 2.
 
-*Proof.* *The source.* Put ℱ := P(H_D). We show ℱ ∈ 𝒯^6 + ℬ^((J+3)/2). First, P(H_0) is tame of order 6. P(Σ) is: by
-the proof of [[prop:far-residual]] (with □_η Σ_4 = 0), P(Σ) is a finite sum of homogeneous terms of degrees at most −6
-and of Rem′, and ∂ lowers the degree of a homogeneous term by one, while ∂_a Rem′ = ς⁻¹ (∂_X Rem)′; so
-|∂^j Γ^α P(Σ)| ≤ C λ r^(−6−j). And P(H_0) − P(Σ) = ∫_0^1 DP(Σ + θ Σ′_J)[Σ′_J] dθ, with
-DP(H)[k] = −½ g^(ab) ∂_a ∂_b k + B(H)·∂k + C(H) k ([[prop:far-coefficients]]); g^(ab), B and C are polynomials in
-g^(±1), ∂g, ∂∂g, Γ̂ and ∂Γ̂, so by Leibniz's rule, [[eq:far-sigma-bounds]] and [[lem:cutoff-extension]] (a) they are tame
-of orders 0, 3 and 4 for H = Σ + θ Σ′_J, while Σ′_J is tame of order 4; each of the three terms is tame of order 6.
-Second, ℱ − P(H_0) = P(H_0 + M) − P(H_0) vanishes where χ_T = 1, and on the strip it equals
-−½ g_M^(ab) ∂_a ∂_b M − ½ (g_M^(ab) − g_0^(ab)) ∂_a ∂_b H_0 + N(X, H_0 + M, ∂H_0 + ∂M) − N(X, H_0, ∂H_0), with
-g_M := g_b0 + H_D and g_0 := g_b0 + H_0. M is of strip order (J + 1)/2, uniformly in T, by [[lem:cutoff-extension]] (b)
-and the bounds on χ_T(v). As in the proof of [[lem:cutoff-polynomial]], g_M⁻¹(dv, dv) = O(r⁻²) and every other second
-derivative in the first term contains ℓ, r⁻¹ Y or an O(r⁻¹) coefficient, so the first term is of strip order
-(J + 3)/2; the other two contain M or ∂M times factors of strip order at least 2. By [[lem:cutoff-classes]] (c),
-ℱ − P(H_0) ∈ ℬ^((J+3)/2).
+*Proof.* *The forcing at the slice.* Put ℱ := P(H_D). We show ℱ ∈ 𝒯^6 + ℬ^((J+3)/2). First, P(H_0) is tame of order 6.
+P(Σ) is: by the proof of [[prop:far-residual]] (with □_η Σ_4 = 0), P(Σ) is a finite sum of homogeneous terms of degrees
+at most −6 and of Rem′, and ∂ lowers the degree of a homogeneous term by one, while ∂_a Rem′ = ς⁻¹ (∂_X Rem)′; so |∂^j
+Γ^α P(Σ)| ≤ C λ r^(−6−j). And P(H_0) − P(Σ) = ∫_0^1 DP(Σ + θ Σ′_J)[Σ′_J] dθ, with DP(H)[k] = −½ g^(ab) ∂_a ∂_b k +
+B(H)·∂k + C(H) k ([[prop:far-coefficients]]); g^(ab), B and C are polynomials in g^(±1), ∂g, ∂∂g, Γ̂ and ∂Γ̂, so by
+Leibniz's rule, [[eq:far-sigma-bounds]] and [[lem:cutoff-extension]] (a) they are tame of orders 0, 3 and 4 for H = Σ +
+θ Σ′_J, while Σ′_J is tame of order 4; each of the three terms is tame of order 6. Second, ℱ − P(H_0) = P(H_0 + M) −
+P(H_0) vanishes where χ_T = 1, and on the strip it equals −½ g_M^(ab) ∂_a ∂_b M − ½ (g_M^(ab) − g_0^(ab)) ∂_a ∂_b H_0 +
+N(X, H_0 + M, ∂H_0 + ∂M) − N(X, H_0, ∂H_0), with g_M := g_b0 + H_D and g_0 := g_b0 + H_0. M is of strip order (J + 1)/2,
+uniformly in T, by [[lem:cutoff-extension]] (b) and the bounds on χ_T(v). As in the proof of [[lem:cutoff-polynomial]],
+g_M⁻¹(dv, dv) = O(r⁻²) and every other second derivative in the first term contains ℓ, r⁻¹ Y or an O(r⁻¹) coefficient,
+so the first term is of strip order (J + 3)/2; the other two contain M or ∂M times factors of strip order at least 2. By
+[[lem:cutoff-classes]] (c), ℱ − P(H_0) ∈ ℬ^((J+3)/2).
 
 *Coordinates at the slice.* Use (y, x), y := t̃ − T, on r ≥ 4R: ∂_y = ∂_t, and ∂̃_i := ∂_i + f′ x̂_i ∂_t is tangent to
 the slices, so ∂_i = ∂̃_i − f′ x̂_i ∂_y with f′ x̂_i tame of order 2 (f′ ∈ |x|⁻² C^∞). The classes may therefore be
 defined with ∂_y and ∂̃_i in place of ∂_t and ∂_i. Put δ_ν := ∂_y^ν δ|_(y=0), functions on Σ̃_T. The Cauchy data of g_T
 and D_T agree, so δ_0 = δ_1 = 0 and every ∂̃^γ δ_0, ∂̃^γ δ_1 vanishes. We show by induction on ν ≥ 2 that
 
-    |∂̃^γ δ_ν| ≤ C (r^(−4−ν−|γ|) + 1_(𝒮^♭_T) r^(−(J+3)/2))   for ν + |γ| ≤ N_0,                             {#eq:cutoff-induction}
+    |∂̃^γ δ_ν| ≤ C (r^(−4−ν−|γ|) + 1_(𝒮^♭_T) r^(−(J+3)/2))   for ν + |γ| ≤ N_0,                    {#eq:cutoff-induction}
 
 which gives [[eq:cutoff-jets]], a Cartesian ∂^β at y = 0 being a combination of the ∂̃^γ δ_ν, ν + |γ| ≤ |β|, with
 coefficients in ℰ that gain r⁻¹ for each order they lack.
 
-*The equation.* P(H_D + δ) = 0, and P(H_D + δ) − P(H_D) = −½ g_δ^(ab) ∂_a ∂_b δ + e_0 δ + e_1·∂δ, with
-g_δ := g_b0 + H_D + δ = g_T, e_0 = ∫_0^1 [∂_H(−½ g^(ab)(H_D + θδ)) ∂_a ∂_b H_D + ∂_H N(X, H_D + θδ, ∂H_D + θ∂δ)] dθ and
-e_1 = ∫_0^1 ∂_(∂H) N(X, H_D + θδ, ∂H_D + θ∂δ) dθ. In (y, x), g^(ab) ∂_a ∂_b = g⁻¹(dt̃, dt̃) ∂_y² + 2 g⁻¹(dt̃, dx^i) ∂_y ∂̃_i +
-g^(ij) ∂̃_i ∂̃_j + b^y ∂_y + b^i ∂̃_i, with b^y, b^i built from g⁻¹ and second derivatives of f(r), tame of order 3. Apply
-∂_y^ν, ν ≥ 0, and restrict to y = 0, where δ = ∂δ = 0 and g_δ = g_D := g_b0 + H_D:
+*The equation.* P(H_D + δ) = 0, and P(H_D + δ) − P(H_D) = −½ g_δ^(ab) ∂_a ∂_b δ + e_0 δ + e_1·∂δ, with g_δ := g_b0 + H_D
++ δ = g_T, e_0 = ∫_0^1 [∂_H(−½ g^(ab)(H_D + θδ)) ∂_a ∂_b H_D + ∂_H N(X, H_D + θδ, ∂H_D + θ∂δ)] dθ and e_1 = ∫_0^1 ∂_(∂H)
+N(X, H_D + θδ, ∂H_D + θ∂δ) dθ. In (y, x), g^(ab) ∂_a ∂_b = g⁻¹(dt̃, dt̃) ∂_y² + 2 g⁻¹(dt̃, dx^i) ∂_y ∂̃_i + g^(ij) ∂̃_i
+∂̃_j + b^y ∂_y + b^i ∂̃_i, with b^y, b^i built from g⁻¹ and second derivatives of f(r), tame of order 3. Apply ∂_y^ν, ν
+≥ 0, and restrict to y = 0, where δ = ∂δ = 0 and g_δ = g_D := g_b0 + H_D:
 
-    −½ g_D⁻¹(dt̃, dt̃) δ_(ν+2) = −∂_y^ν ℱ|_(y=0) − ℛ_ν.                                                {#eq:cutoff-jet-equation}
+    −½ g_D⁻¹(dt̃, dt̃) δ_(ν+2) = −∂_y^ν ℱ|_(y=0) − ℛ_ν.                                         {#eq:cutoff-jet-equation}
 
 By Leibniz's rule ℛ_ν is a finite sum of products, each with at least one factor ∂̃^γ δ_μ, μ ≤ ν + 1, and the other
 factors further such factors or y- and tangential derivatives, at y = 0, of g⁻¹(H_D), e_0, e_1, b^y, b^i at δ = 0 and of
 their derivatives in δ, ∂δ. The term δ_(ν+2) occurs only on the left: the only way to place ν + 2 derivatives ∂_y on δ
-is ∂_y^ν on ∂_y² δ with the undifferentiated coefficient. At δ = 0, by [[lem:cutoff-classes]] (d) applied with
-A = (H_0, ∂H_0, ∂∂H_0) ∈ 𝒯^2 × 𝒯^3 × 𝒯^4 ⊂ ℰ and B = (M, ∂M, ∂∂M) ∈ ℬ^((J+1)/2), the coefficients are: g⁻¹(H_D) and
-b in 𝒯^0 + ℬ^((J+1)/2), e_1 in 𝒯^3 + ℬ^((J+1)/2) (∂_(∂H) N is linear in ∂g = μ ∂m + ∂H and in Γ̂, tame of order 3), e_0 in
-𝒯^4 + ℬ^((J+1)/2) (it is linear in ∂∂g, quadratic in ∂g, Γ̂, or contains ∂Γ̂, tame of order 4). Each y- or tangential
+is ∂_y^ν on ∂_y² δ with the undifferentiated coefficient. At δ = 0, by [[lem:cutoff-classes]] (d) applied with A = (H_0,
+∂H_0, ∂∂H_0) ∈ 𝒯^2 × 𝒯^3 × 𝒯^4 ⊂ ℰ and B = (M, ∂M, ∂∂M) ∈ ℬ^((J+1)/2), the coefficients are: g⁻¹(H_D) and b in 𝒯^0 +
+ℬ^((J+1)/2), e_1 in 𝒯^3 + ℬ^((J+1)/2) (∂_(∂H) N is linear in ∂g = μ ∂m + ∂H and in Γ̂, tame of order 3), e_0 in 𝒯^4 +
+ℬ^((J+1)/2) (it is linear in ∂∂g, quadratic in ∂g, Γ̂, or contains ∂Γ̂, tame of order 4). Each y- or tangential
 derivative of a coefficient lowers its 𝒯-part by one more order and keeps its ℬ-part.
 
 *The count.* Suppose [[eq:cutoff-induction]] for 2 ≤ μ ≤ ν + 1. In ∂_y^ν of g_δ^(ab) ∂_a ∂_b δ the derivatives on δ and
@@ -279,12 +278,13 @@ on the coefficients number ν + 2 in total; in ∂_y^ν (e_1·∂δ) they number
 
 **Proposition {#prop:cutoff-cap}** (the initial slice). Let T ≤ T_0 and k ≥ 0. On Σ̃_T, for |α| ≤ k,
 
-    |Γ^α h_R| ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     |∂Γ^α h_R| ≤ C (r⁻⁵ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     {#eq:cutoff-cap-general}
+    |Γ^α h_R| ≤ C (r⁻⁴ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),     |∂Γ^α h_R| ≤ C (r⁻⁵ + 1_(𝒮^♭_T) r^(|α|−(J+3)/2)),
+                                                                            {#eq:cutoff-cap-general}
 
 with C depending on λ, J and k but not on T. If J ≥ 2k + 7, then |Γ^α h_R| ≤ C r⁻⁴ and |∂Γ^α h_R| ≤ C r⁻⁵ on all of
 Σ̃_T, and for 0 < a < 3
 
-    E_T[Γ^α h_R] ≤ C |T|^(2a−6)  (|α| ≤ k),     𝔈_k(T) ≤ C |T|^(2a−6).                                     {#eq:cutoff-cap}
+    E_T[Γ^α h_R] ≤ C |T|^(2a−6)  (|α| ≤ k),     𝔈_k(T) ≤ C |T|^(2a−6).                                   {#eq:cutoff-cap}
 
 On Σ̃_T ∩ {v ≤ V_T}, h_R = g_λ − g_b0 − Σ; on Σ̃_T ∩ {v ≥ V_T + δ_0/4}, h_R = Σ′_J and ∂_t h_R = ∂_t Σ′_J there, and
 there |∂^β (h_R − Σ′_J)| ≤ C r^(−4−|β|) for |β| ≥ 2.
@@ -308,15 +308,17 @@ statement: χ_T = 0 on {v ≤ V_T}, where D_T = g_λ and δ = 0 near Σ̃_T ([[l
 on {v ≥ V_T + δ_0/4}, where δ, ∂δ vanish and [[eq:cutoff-jets]] holds without the strip term. ∎
 
 **Remark {#rem:cutoff-growth}** (the order of the matching). The condition J ≥ 2k + 7 is what the commuted fields need.
-If the data beyond the band were those of g_b0 + Σ, that is Σ′_J replaced by 0, the mismatch on the band would be
-M = (1 − χ_T)(g_λ − g_b0 − Σ), of strip order 9/2 only: by [[lem:cutoff-polynomial]] its coefficient of r^(−9/2) is
-r^(−9/2) G_(9,0), of weight −9/2 and constant in v. Then ℱ − P(Σ) = χ_T′(v)(ℓ + 3/(2r)) M + O(r⁻⁶) =
-−3 χ_T′(v) r^(−11/2) G_(9,0) + O(r⁻⁶) on the band, δ_2 = 2ℱ/g_D⁻¹(dt̃, dt̃) by [[eq:cutoff-jet-equation]], and each further
-∂_y falls on χ_T without gain. Since Z = (y + T + β_f(r)) ∂_y + r ∂_r in (y, r, x̂), with β_f := f − v1 − r f′ bounded,
-Z² δ = (T + β_f)² δ_2 at y = 0, and ∂_y Z² δ contains (T + β_f)² δ_3 with δ_3 = −6 χ_T″(v) r^(−11/2) G_(9,0)/g_D⁻¹(dt̃, dt̃)
-+ O(r^(−11/2) |χ_T′| + r⁻⁶). So E_T[Z² h_R] is at least c |T|^(2a−4) when G_(9,0) ≢ 0, which is unbounded as T → −∞
-for every a > 2; with k factors Z the order is |T|^(2a+2k−8). In general a mismatch of strip order q gives
-E_T[Γ^α h_R] up to C |T|^(2a+2|α|−2q+1), and [[prop:cutoff-cap]] uses q = (J + 1)/2.
+If the data beyond the band were those of g_b0 + Σ, that is with Σ′_J replaced by 0, the mismatch on the band would be
+(1 − χ_T) h_λ, h_λ := g_λ − g_b0 − Σ, of strip order 9/2 only: by [[lem:cutoff-polynomial]] the coefficient of r^(−9/2)
+of h_λ is G_(9,0), of weight −9/2 and constant in v, and the rest is of strip order 5. Since P(Σ + h_λ) = 0, the forcing
+at the slice is ℱ = P(Σ + h_λ − χ_T h_λ) = χ_T′(v)(ℓ + 3/(2r)) h_λ + O(r⁻⁶) = −3 χ_T′(v) r^(−11/2) G_(9,0) + O(r⁻⁶) on
+the band, and by [[eq:cutoff-jet-equation]] δ_2 = 2ℱ/g_D⁻¹(dt̃, dt̃) and δ_3 = −6 χ_T″(v) r^(−11/2) G_(9,0)/g_D⁻¹(dt̃,
+dt̃) + O(r⁻⁶): a derivative ∂_y falls on χ_T without gain. In (y, r, x̂), Z = (y + T + β_f) ∂_y + r ∂_r with ∂_r at
+fixed (y, x̂) and β_f := f − v1 − r f′ bounded, and ∂_r v = 1 + f′ there. So at y = 0, ∂_y Z² δ = ((T + β_f)² + 2 (T +
+β_f) r (1 + f′)) δ_3 + O(|T| r^(−11/2) + T² r⁻⁶), and the bracket is −T² + O(|T|) on the band, where r = |T| + O(1).
+Hence |∂_y Z² h_R| ≥ c T² r^(−11/2) where |χ_T″| and |G_(9,0)| are bounded below, and E_T[Z² h_R] ≥ c |T|^(2a−4) when
+G_(9,0) ≢ 0, which is unbounded as T → −∞ for every a > 2; with k factors Z the order is |T|^(2a+2k−8). In general a
+mismatch of strip order q gives E_T[Γ^α h_R] up to C |T|^(2a+2|α|−2q+1), and [[prop:cutoff-cap]] uses q = (J + 1)/2.
 
 ### The continuation with the matched truncation {#sec:cutoff-continuation}
 

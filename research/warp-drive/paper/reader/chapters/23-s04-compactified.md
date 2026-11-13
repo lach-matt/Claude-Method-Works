@@ -1598,9 +1598,10 @@ large for the finitely many orders involved. Let χ_* be the cut-off of (R2) of 
 G_iχ_* = G_i, which is all that [[lem:ii-a-8-4]] (c) asks of the cut-off: χ_* needs no margin of its own. And χ = 1
 within D of supp χ_*, so ‖χ_*Lu‖_(−N−m) = ‖χ_*Lχu‖_(−N−m) ≤ C‖χu‖_(−N) by [[lem:ii-a-8-6]] (a).
 
-*Localisation.* G_(i+1) = Op(χ̃_(i+1)) is microsupported in K_(i+1), and 1 − χ̃_(i+1) vanishes near K_i ⊃ supp a, so
-(I − G_(i+1))A ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]). I − G_(i+2) = Op(1 − χ̃_(i+2)) is microsupported in the support of
-1 − χ̃_(i+2), which is disjoint from K_(i+1). Hence, writing A = G_(i+1)A + (I − G_(i+1))A and inserting
+*Localisation.* G_(i+1), which is Op(χ̃_(i+1)) up to a residual operator, is microsupported in K_(i+1), and
+1 − χ̃_(i+1) vanishes near K_i ⊃ supp a, so (I − G_(i+1))A ∈ Ψ̃^(−∞) ([[lem:ii-a1-1-2]]). I − G_(i+2), which is
+Op(1 − χ̃_(i+2)) up to a residual operator, is microsupported in the support of 1 − χ̃_(i+2), which is disjoint from
+K_(i+1). Hence, writing A = G_(i+1)A + (I − G_(i+1))A and inserting
 I = G_(i+2) + (I − G_(i+2)) after Op(q) and after E_A,
 
     A = G_(i+1)Op(q)G_(i+2)L − G_(i+1)E_AG_(i+2) + G_(i+1)Op(q)(I − G_(i+2))L − G_(i+1)E_A(I − G_(i+2))
