@@ -1026,8 +1026,7 @@ Then Πu = u, and for every small ϵ > 0
     u ∈ H^(∞,(γ_+−3ϵ,γ_+,α_K))_b(M′),     |u| ≤ C t_*^(−α_K)‖f‖  on {r_♭ < r ≤ R′, t_* ≥ 8 max(R′, 1)},  {#eq:gd-r8-2}
 
 with every number k of derivatives in x and t_*, ‖f‖ a norm of f in that space at an order k + k′, k′ independent
-of k. There is no singular
-part and no W*.
+of k. There is no singular part and no W*.
 
 *Proof.* Πu = u by [[lem:gd-r8-2]] (b). We follow the proof of [[thm:gd-r6-4]].
 

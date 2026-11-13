@@ -265,8 +265,8 @@ of order 𝗍 − 1, and by the exact identities Op(ρ^(−𝗍) φ_ε z φ_z) a
 Op(ρ^(−𝗍) φ_ε z). So Op(ρ^(−𝗍) φ_ε z) Φ_z = Σ_i Op(q_i) Op(ρ^(−𝗍) φ_ε x_i) Φ_i + R_ε with R_ε uniformly of order
 𝗍 − 1. [[lem:ii-d-2-4]] applied to Op(q_i) and Op(ρ^(−𝗍) φ_ε x_i) Φ_i w gives [[eq:ii-d-2-4]], as
 ‖Op(ρ^(−𝗍) φ_ε x_i) Φ_i w‖_(−½) ≤ C‖w‖_(𝗍−½). In the particular case put X := Σ_j x_j* x_j and
-q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤ c_*⁻¹, so
-|q_i| ≤ c_*^(−1/2). ∎
+q_i := ζ z X⁻¹ x_i* with ζ supported in V. Then Σ_i q_i x_i = ζz = z and Σ_i q_i q_i* = ζ² z X⁻¹ z* ≤ c_*⁻¹, so each
+q_i has norm at most c_*^(−1/2). ∎
 
 In [[lem:ii-d-2-3]] and in [[lem:ii-a1-4-1]] and [[lem:ii-a1-4-2]], L enters only through L = Op(ℓ_f) + R_L, with ℓ_f
 ∈ C^(d_0) S̃^m (matrix-valued, with real scalar principal part ℓ) and R_L bounded of every order. So they hold for
