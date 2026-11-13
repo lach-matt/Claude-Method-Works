@@ -1203,3 +1203,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-70 done (reports/F-70.md): both readings fixed (2M 14m 20n); [KI03, (5.3)] no longer cited, the identity and 15/16
   proved in lem:rb-tensor-ricci. R2-70 reads it. Integration lint item: chapter 21 has older wrapped lines starting
   with "|" (e.g. 253, 299, 1872).
+- R4-S27 NOT CONFIRMED 0M 3m 3n (reviews/R4-S27.md), all with exact fixes; F4-S27 applies them and the chapter 48 and
+  65 texts (65:841 corrected to c_1 ≤ c_♮ small). Then a short diff reading.

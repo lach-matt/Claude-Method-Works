@@ -25,9 +25,9 @@ The inequalities on the background that these results use are proved at the end 
 *The background.* The background g0 is the solution of the two-null-dust equations [[eq:two-dust-limit]] with the
 characteristic data of [[sec:bg-data]]: e^(2σ) = 1/2 on the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the ingoing
 shell 𝒜(v) = 3.6 b(v; 3, 4.5) on 𝒞_out, the outgoing packet ℬ(u) = 1.7 b(u; 5.7, 7.2) on 𝒞_in, and at the corner
-R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads
-g0 = −q² f dv̂² + 2q dv̂ dR + R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is
-ingoing Vaidya ([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
+R = 5, R_u = −0.47, R_v = 1/2 and mass 3/2. In the chart (v̂, R) of [[eq:bg-chart]] it reads g0 = −q² f dv̂² + 2q
+dv̂ dR + R² dΩ₃², q := e^ψ, f = 1 − μ/R². Region I is {u ≤ u1}, u1 = 5.7, where ψ = 0 and g0 is ingoing Vaidya
+([[lem:margins-region-one]]); region III is {u ≥ u2}, u2 = 7.2, past the outgoing packet, where ψ = ψ_III(v̂) and
 μ = μ3 ∈ [0.8220998, 0.8221253] ([[lem:bg-reduction]] (e), [[thm:bg-margins]] (a)).
 
 *The background as two-dust data.* g0 is the background of [[def:two-dust-data]], written in the normalisation
