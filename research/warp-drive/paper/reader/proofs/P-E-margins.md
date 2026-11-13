@@ -21,11 +21,23 @@ identities of the background ([[pending:two-dust-identities]]):
 
 and R_u < 0 on the domain. We use the time orientation in which u and v increase to the future. Rácz's quantities on a
 round slice are κ (the radial extrinsic curvature) and K^l_l (the trace on the spheres), with the sign conventions of
-[[pending:lem-racz-split-formulas]]. The split is hyperbolic where κK^l_l < 0 ([[thm:std-racz-hyperbolic]]). It is not
-hyperbolic where κK^l_l > 0: by [Rac16, (4.22), p. 13], the characteristic roots ξ_n of the split at a leaf covector
-ξ_S solve K^l_l ξ_n² − 2ξ_n (k·ξ_S) + κ|ξ_S|² = 0, where k is the mixed part of the extrinsic curvature; the leaves are
-three-dimensional, so there is ξ_S ≠ 0 with k·ξ_S = 0, and for it the discriminant is −4κK^l_l|ξ_S|² < 0, so the roots
-are not real.
+[[pending:lem-racz-split-formulas]]. Hyperbolic means first-order symmetrizable hyperbolic, as in
+[[thm:std-racz-hyperbolic]], by which the split is hyperbolic where κK^l_l < 0. It is not hyperbolic where κK^l_l > 0.
+To see this, use the notation of [[rem:std-racz-characteristic]]: for a real leaf covector ξ_S = (ξ_K) ≠ 0 put
+B(ξ_S) := ξ_K B^(K), k·ξ_S := γ̂^(KL) k_K ξ_L and |ξ_S|² := γ̂^(KL) ξ_K ξ_L > 0, where k is the mixed part of the
+extrinsic curvature, and write ξ_n for n̂^i ξ_i. The characteristic polynomial of the split at ξ = (ξ_ρ, ξ_S) is
+det(ξ_ρ I + B(ξ_S)), the determinant of its principal symbol, and its essential part, a factor, is the quadratic
+[Rac16, (4.22)]
+
+    K^l_l ξ_n² − 2ξ_n (k·ξ_S) + κ|ξ_S|² = 0,   with roots   ξ_n = (k·ξ_S ± √((k·ξ_S)² − κK^l_l|ξ_S|²))/K^l_l.
+
+By [Rac16, (4.23)] a root ξ_n gives the root ξ_ρ = N̂^K ξ_K + N̂ ξ_n of the characteristic polynomial, so −ξ_ρ is an
+eigenvalue of B(ξ_S); and since N̂ ≠ 0 (n̂_i = N̂(dρ)_i is a unit covector) and N̂^K ξ_K are real, ξ_ρ is real exactly
+when ξ_n is. The leaves are three-dimensional, so we may choose ξ_S with k·ξ_S = 0. Then the discriminant is
+−4κK^l_l|ξ_S|² < 0, and the roots ξ_n = ±i|ξ_S|√(κK^l_l)/K^l_l are not real, so B(ξ_S) has an eigenvalue that is not
+real. If H were a common symmetrizer, positive definite with H B^(K) symmetric for every K, then H B(ξ_S) would be
+symmetric, so B(ξ_S) would be self-adjoint for the inner product (x, y) ↦ xᵀHy and its eigenvalues would be real. So
+the split has no common symmetrizer, and is not hyperbolic, where κK^l_l > 0.
 
 ### Enclosures and quadrature {#sec:margins-tools}
 
@@ -173,12 +185,13 @@ complete, so
 
     φ(R) = 0.01 (h_P² D(y_P) − l1 h_L K (R − c_L)),     y_P := (R − c_P)/h_P,
 
-with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table gives, with K̃ := C̃_40,
+with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table gives, with K̃ := C̃_40 and
+rounded to ten decimals,
 
-    0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) = −0.0011576361,  −0.0011591651,  −0.0011584676,
+    0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) ≈ −0.0011576361,  −0.0011591651,  −0.0011584676,
 
-and by [[lem:margins-bump-table]] (a) the true values differ from these by at most 0.01(0.09 × 10⁻⁴ + (54/305) × 0.67 ×
-5 × 10⁻⁵) ≤ 1.5 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1, 4.7] its minimum point x* lies
+and by [[lem:margins-bump-table]] (a) the true values differ from these printed decimals by at most 0.01(0.09 × 10⁻⁴ +
+(54/305) × 0.67 × 5 × 10⁻⁵) + 5 × 10⁻¹¹ ≤ 1.5 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1, 4.7] its minimum point x* lies
 in (4.415, 4.445). There [[lem:margins-enclosure]] (b), with h = 0.015 and sup|φ″| ≤ 0.01, so that (h²/8) sup|φ″| ≤
 2.82 × 10⁻⁷, gives φ ≥ −0.0011591651 − 1.5 × 10⁻⁷ − 2.82 × 10⁻⁷ = −0.0011595971 ≥ −0.0011596, while φ(4.43) ≤
 −0.0011591651 + 1.5 × 10⁻⁷ ≤ −0.0011590.
@@ -229,9 +242,9 @@ and points between the two slices have τ0 + φ(R) ≤ τ ≤ τ0. ∎
 and Σ′ lies to the past of Σ_τ0 where they differ, at τ-distance at most max|φ| ≤ 0.0011596. Let γ be a causal curve
 joining a point p of Σ′ with R_p ≥ R_* to a point q of Σ_τ0. Then γ lies in region I. If γ is not constant, it runs to
 the future from p to q, every point of γ other than q has R ∈ (3.5, 5.75), and the angular displacement of γ on the
-unit sphere S³ is at most 3.25 × 10⁻⁴. A causal curve joining a point of Σ′ with R < R_* to a point q of Σ_τ0 has R_q <
-R_*, and there Σ′ = Σ_τ0. So carrying a domain of influence from one slice to the other widens its angular support by
-at most 3.3 × 10⁻⁴ rad.
+unit sphere S³ is at most 3.25 × 10⁻⁴. The slice Σ_τ0 is acausal; so a causal curve joining a point p of Σ′ with
+R_p < R_*, which lies on Σ_τ0, to a point q of Σ_τ0 is constant, and R_q = R_p < R_*. Hence carrying a domain of
+influence from one slice to the other widens its angular support by at most 3.3 × 10⁻⁴ rad.
 
 *Proof.* On Σ′, τ = τ0 + φ(R). By [[prop:margins-bend]], φ = 0 outside [3.5, 5.75], and φ < 0 on (3.5, 5.75), since φ
 strictly decreases from φ(3.5) = 0 on [3.5, x*] and strictly increases to φ(5.75) = 0 on [x*, 5.75]. This gives the
@@ -265,10 +278,16 @@ the right-hand bound being the maximum over Ṙ. At the points of γ other than 
 = 1 + μ/R² ≥ 1 + 1.5/5.75² ≥ 1.045368 and √(2 − f) ≥ 1.02243. Hence |Ω̇| ≤ τ̇/(3.5 × 1.02243) ≤ τ̇/3.5785, and the
 angular displacement is at most (τ0 − τ(p))/3.5785 = −φ(R_p)/3.5785 ≤ 0.0011596/3.5785 ≤ 3.25 × 10⁻⁴.
 
-*Below R_*.* Let a causal curve join p ∈ Σ′ with R_p < R_* to q ∈ Σ_τ0; then φ(R_p) = 0, so p ∈ Σ_τ0. Suppose R_q ≥
-R_*, so that q lies in region I. If the curve runs to the future from p to q, then u ≤ u(q) ≤ 5.7 along it, it lies in
-region I, and τ(p) = τ0 = τ(q) forces it to be constant, against R_p ≠ R_q. If it runs to the future from q to p, then
-v̂(p) ≥ v̂(q) gives R_p ≥ R_q ≥ R_*, again a contradiction. So R_q < R_*. ∎
+*Σ_τ0 is acausal.* In the chart [[eq:bg-chart]], g = −e^(2ψ) f dv̂² + 2e^ψ dv̂ dR + R² dΩ₃², so the induced metric of
+Σ_τ0 = {v̂ = τ0 + R} is e^ψ(2 − e^ψ f) dR² + R² dΩ₃²; on the domain v̂ ≥ 0, so R ≥ 0.68 on Σ_τ0. Here e^ψ f < 1 at
+every point of Σ_τ0: for R ≥ R_* the point lies in region I by [[lem:margins-region-one]] (c), where ψ = 0 and f = 1 −
+μ/R² < 1; for 0.68 ≤ R ≤ R_* the proof of [[prop:bg-slice]] gives e^ψ f < 1 on every row of its tables. Parametrise
+the quotient curve of Σ_τ0 by R. Along it v̂ = τ0 + R increases, so v increases strictly, and −2e^(2s)(du/dR)(dv/dR)
+= e^ψ(2 − e^ψ f) > 0, so u decreases strictly. Let a future causal curve run from p1 ∈ Σ_τ0 to p2 ∈ Σ_τ0. Then
+v(p2) ≥ v(p1) and u(p2) ≥ u(p1), which give R(p2) ≥ R(p1) and R(p2) ≤ R(p1); so u and v take the same values at both
+ends, and as they do not decrease along the curve they are constant on it. Its tangent then has u̇ = v̇ = 0 and
+R²|Ω̇|² ≤ 2e^(2s) u̇ v̇ = 0, so the curve is constant. Finally, a point p of Σ′ with R_p < R_* has φ(R_p) = 0 and lies
+on Σ_τ0, so a causal curve joining it to a point q of Σ_τ0 is constant, and R_q = R_p < R_*. ∎
 
 **Lemma {#lem:margins-shell-data}** (The data on the shell.) On 𝒩 put P := R_v, write ′ for d/dv, and let f_N := 1 −
 μ/R², w := f_N/(3P) and g := 2P/f_N along 𝒩. For 3 ≤ v ≤ 4.5,

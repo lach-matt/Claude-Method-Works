@@ -1075,10 +1075,11 @@ with C depending on the bound on h in H⁸, as [[eq:iv2-2-3]] allows: at these o
 
 With u₂ ∈ H^((1;m),(a₀,2γ))_(e,b;b) in place of H^(j,(a₀,2γ))_b the loss is one b-derivative instead of two, as
 P_i ∈ Diff¹_(e,b)Diff¹_b and x_I²Δ̸ ∈ x_IDiff¹_(e,b)Diff¹_b: then b_i ∈ H^(m−1,(a₀,2γ))_b with norm at most
-C‖u₂‖_(H^((1;m),(a₀,2γ))_(e,b;b)), and the two cases read with m − 1 in place of j − 2. For m ≥ 4 this gives
-[[eq:iv2-2-5]] with ‖h‖_(H^(m+1)) and ‖u₂‖_(H^((1;4),(a₀,2γ))_(e,b;b)) in the tame term, and the first term of its right
-side in H^((1;m)); for m ≤ 3 it gives [[eq:iv2-2-5-low]] in H^((1;m)). And f₃ ∈ H^(k+3,(a₀,2β))_b: f_(2,♭) is, and
-[L_g, χ_c]u₁ is supported in {ρ_I ≥ c/4}.
+C‖u₂‖_(H^((1;m),(a₀,2γ))_(e,b;b)), and the two cases are m − 1 ≥ 3 and m − 1 ≤ 2. For m ≥ 4 the argument of (1)
+gives [[eq:iv2-2-5]] with j − 2, ‖u₂‖_(H^(j,(a₀,2γ))_b), ‖h‖_(H^j) and ‖u₂‖_(H^(5,(a₀,2γ))_b) replaced by m − 1,
+‖u₂‖_(H^((1;m),(a₀,2γ))_(e,b;b)), ‖h‖_(H^(m+1)) and ‖u₂‖_(H^((1;4),(a₀,2γ))_(e,b;b)); for m ≤ 3 the argument of (2)
+gives [[eq:iv2-2-5-low]] with the same replacements. And f₃ ∈ H^(k+3,(a₀,2β))_b: f_(2,♭) is, and [L_g, χ_c]u₁ is
+supported in {ρ_I ≥ c/4}.
 
 *Step 5 (the integration, slot by slot).* Write [[eq:iv2-2-4]] by slots. As Ā is lower triangular with the entries of
 [[sec:iv2-0]], for j ≠ 6
@@ -1109,9 +1110,18 @@ Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = �
 u ∈ 𝒴^k_(a₀)(Ω⁺), that is, ġ = ρ^(3/2)u + χġ_N ∈ H^(k,α₀,(−,ℓ^♭_I))_b on Ω⁺ ([[sec:iv2-0]]), and on Ω⁻ by Step 1.
 
 *The estimate.* Each step is bounded by the previous ones: Step 1 by [[eq:iv2-2-1]], Step 3 by [[eq:iv2-2-2]], Step 4
-by [[eq:iv2-2-5]], Step 5 by the constants of [[lem:iv2-1-2]]. The tame terms carry ‖h‖ at most three orders above the
-order of the norm on the right ([[eq:iv2-2-1]], [[eq:iv2-2-2]], [[eq:iv2-2-5]]), and the lower norms of f and of the
-data are of order at most 8; this gives [[eq:iv2-2-3]]. *Uniqueness.* Two solutions differ by one with vanishing data
+by [[eq:iv2-2-5]] and [[eq:iv2-2-5-low]], Step 5 by the constants of [[lem:iv2-1-2]]. The tame terms carry ‖h‖ at most
+three orders above the order of the norm on the right ([[eq:iv2-2-1]], [[eq:iv2-2-2]], [[eq:iv2-2-5]]), and the lower
+norms of f and of the data are of order at most 8; this gives [[eq:iv2-2-3]].
+
+*The estimate with C depending on h.* Let k ≥ 1. The lower norms in the tame terms are of orders 4, 5 and 4 for f, ġ₀
+and ġ₁ in [[eq:iv2-2-1]] at s = k + 3, of order 4 for f_(2,♭) in [[eq:iv2-2-2]] at m = k + 3, and of orders (1;4) and 5
+for u₂ in [[eq:iv2-2-5]], which is used only at m ≥ 4 and j ≥ 5. Each is at most the order to which the same quantity
+is bounded in the main term of its step: k + 4 for f, ġ₀ and ġ₁, k + 3 for f_(2,♭), (1;m) and j for u₂. So every tame
+term is at most C‖h‖_(H^(k+7,ℓ^♭₀,(−,ℓ^♭_I))_b) times the main terms, and the steps give [[eq:iii-c1-2-2]] with C
+depending on h. Let k = 0. Step 1 uses [[lem:iv2-2-2]] at s = 3, Step 3 uses [[lem:iv2-2-3]] at m = 3, and both
+integrations of Step 5 use [[eq:iv2-2-5-low]] (at m = 3 and j = 2); none of these has a tame term, h being bounded in
+H⁸. So [[eq:iii-c1-2-2]] holds at k = 0 too, with C depending on the bound on h in H⁸. *Uniqueness.* Two solutions differ by one with vanishing data
 and forcing term; it vanishes on Ω_N by [[lem:iv2-2-2]], and on Ω⁺ as the forward solution with vanishing forcing term
 ([[lem:ii-f-1-3]]). ∎
 
@@ -1159,7 +1169,8 @@ C_k of [[eq:ii-g-2-3]]: ‖Φ(h)‖_k ≤ C^P_k(1 + |h|_(k+d)) + ‖h₀‖_(H^(
 depending only on g₀, k and δ. For k ≤ N_NM and ‖h_j‖_(H^(N_NM,ℓ^♭₀)_b) ≤ 1 this is at most (C^P_k + 2)(1 + |h|_(k+d));
 so we take C_k := C^P_k + 2 for k ≤ N_NM, which does not depend on the data. For k > N_NM,
 C_k := C^P_k + ‖h₀‖_(H^k) + ‖h₁‖_(H^k) is finite, as h_j ∈ H^∞, and does not enter the threshold of [[thm:ii-g-2-1]].
-(Smallness in H^(2d) alone does not suffice here: that threshold depends on the C_k with k ≤ N_NM.)
+(Smallness in H^(2d) alone is not enough for this argument: the threshold of [[thm:ii-g-2-1]] depends on the C_k with
+k ≤ N_NM.)
 
 *(iii) Right inverses.* For h in the set above, Ψ(h)(f, ġ₀, ġ₁) := ġ of [[thm:iv2-2-4]] with α₀ := ℓ^♭₀ > ℓ^♭_I. Then
 Φ′(h)Ψ(h) = id on F^∞, and [[eq:iv2-2-3]] gives [[eq:ii-g-2-4]]:
@@ -1407,9 +1418,9 @@ leading part sends the slots other than 6 from the weight ℓ^♭_I to ℓ^♭_I
 ρ_I^(3/2)a of slot 6 (column 6 of Ā vanishes: Ā_(j6) = 0 for j < 6, Ā being lower triangular, and Ā₆₆ = Ā₇₆ = 0; so on it
 X_I − 3/2 − Ā acts as X_I − 3/2, which commutes past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at
 I₀, with α₀ + 1 ≥ α₁, and it has the weight at least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈
-H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in H^(∞,α₁)_b(Σ_(IVP,r₀)). Indeed X₀ is not tangent to Σ_IVP near I₀ (there
-X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates (τ, ρ)), so these data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are
-determined by h₀, h₁ and the equation, which is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b
+H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in H^(∞,α₁)_b(Σ_(IVP,r₀)). Near I₀, X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates
+(τ, ρ), so X₀τ′ = (2 − C″)ρ for τ′ = τ − C″ρ: X₀ is tangent to Σ_IVP = {τ′ = 0} only when C″ = 2, and in general these
+data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b
 (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R
 removes its terms with real part at most α₁ (the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀
 replaced by α₁ > ℓ^♭_I gives Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After

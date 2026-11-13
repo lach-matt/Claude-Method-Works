@@ -709,3 +709,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   (the source computed one parameter point): its reader checks it. Notation: GD's K → K_V; the III.H cut-off χ^H_K;
   the augmentation row φ_*; its own Θ := δGk (rename edition-wide); ϰ_♯ cites eq:iii-g3-0-1, which S17 may still
   print as λ_♯ (check at integration). The word "Source" followed by a space trips the lint ("forcing term" used).
+- Proof B fixed (F-P-B): five polynomial multipliers F_A, F_B, F_2, F_C, F_T in z = 1 − 2/r², weights positive by
+  Bernstein coefficients (proofs/T-B.md, sec:tb-morawetz); l = 0 at |σ| ≥ 1 by chapter 70's bound above the barrier.
+  Source → edition: B_0 at 0+, 1, 3, 10: 164.5, 183.5, 275.2, 725.0 → 70.17, 7.82, 1.33, 0.38; X_0(3) 158.57 → 23.36
+  (≤ 83.85 on 0 < |σ| ≤ 3); summed H¹ constant 184.82 → 179.26; unweighted 986.4 → 568.55; B_l(3), B_l(10) (l ≥ 6)
+  19.22, 26.80 → 11.36, 25.56; rows A, B, C, S4, S3, T2 and the 15/16 transfers at or below the source. Not reached:
+  C256's decaying point values (σ = 3 to 96); prop:band-points (B2) is the edition's statement there. B2's 283.06,
+  305.31, 308.46 stand. B̃ is now B*_l of prop:morawetz-harmonics; K_l → J_l. lem:morawetz-identity now reads "a
+  solution, with u and u′ locally absolutely continuous, of −u″ + (V − σ²)u = f (almost everywhere)", allows any
+  bounded φ, and proves R(σ)f is one: B2 must use exactly this wording. Chapter 70 must be re-merged with the fixed
+  proof B (its corollary, master-operator and large-frequency results changed) and lem:morawetz-complex must add the
+  hypothesis |φ| ≤ 1. The figures 202.6 and B_0(3) 585.53 recorded earlier in this file are superseded by these.

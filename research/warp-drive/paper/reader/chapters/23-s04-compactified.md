@@ -2382,10 +2382,18 @@ A ∈ C^((d_0;k))_(e3b;b) 𝒫 with a representation 𝐚, and χ′, χ cut-off
 
     ‖χ′Au‖_((𝗍−m;k)) ≤ C_k(‖𝐚‖_((d_0;d̃))‖χu‖_((𝗍;k)) + ‖𝐚‖_((d_0;k))‖χu‖_((𝗍;d̃))).
 
-*Proof.* By [[eq:ii-a-8-1]] and the Leibniz rule, V^J(a_qP_qu) is a sum of products (V^(J_1)a_q)(V^(J_2)P_qu). Apply
-[[eq:ii-a-9-7]] with B := χ′ and B^♯ := χ″, multiplication operators with χ″ = 1 near supp χ′ and χ″ carried by χ, to
-ℓ := a_q and to P_qu in place of u. Then ‖χ″P_qu‖_((𝗍−m;q′)) ≤ C‖χu‖_((𝗍;q′)), by the support convention and
-[[lem:ii-a-8-4]] (a). ∎
+*Proof.* Let χ‴ ∈ C^∞(M̃) carry χ′: χ′ = χ‴χ′χ‴, and χ = 1 within d_ℬ-distance D of supp χ‴, D bounding the kernel
+ranges of the operators of 𝒫. Then χ‴²χ′ = χ′, so |χ‴| = 1 on supp χ′. Put χ″ := F″(|χ‴|²) and χ_c := F_c(|χ‴|²),
+with F″, F_c ∈ C^∞(ℝ), F″ = 1 on [3/4, ∞), F″ = 0 on (−∞, 1/2], F_c = 1 on [1/4, ∞) and F_c = 0 on (−∞, 1/8]. Then
+χ″ = 1 near supp χ′, χ_c = 1 near supp χ″, and supp χ_c ⊂ supp χ‴. By [[eq:ii-a-8-1]] and the Leibniz rule, for
+|J| ≤ k, V^J(χ′a_qP_qu) is a sum of products (V^(J_0)χ′)(V^(J_1)a_q)(V^(J_2)P_qu), with J_0, J_1, J_2 complementary
+subwords of J. Apply [[eq:ii-a-9-7]] with the cut-off χ_c in place of χ, to B := V^(J_0)χ′ and B^♯ := χ″, which are
+multiplication operators carried by χ_c (as χ_c = 1 near supp χ″ ⊃ supp χ′) with WF′(B) ⊂ Ell(B^♯), to ℓ := a_q, to
+P_qu in place of u, and to (|J_1|, |J_1| + |J_2|) in place of (j, k). Its error terms are ‖χ″P_qu‖_((𝗍−m;q′)) and
+‖χ_cP_qu‖_((𝗍−m;q′)), with q′ = |J_1| + |J_2| ≤ k or q′ = d̃. As χ = 1 within D of supp χ_c ⊃ supp χ″, these are
+‖χ″P_qχu‖_((𝗍−m;q′)) and ‖χ_cP_qχu‖_((𝗍−m;q′)), which are at most C‖χu‖_((𝗍;q′)) by [[lem:ii-a-8-4]] (a). The
+coefficient norms are ‖a_q‖_((d_0;d̃)) and ‖a_q‖_((d_0;q′)) ≤ ‖a_q‖_((d_0;k)). Summing over the finitely many J and q
+gives the bound. ∎
 
 **Proposition {#prop:ii-a-9-8}** ([Hin26c, Proposition 3.29].) Let 𝒫 ⊂ C^∞_b Ψ^m_e3b be finite. There are d_0, d ∈ ℕ,
 depending only on 𝗌, m and N, such that the following holds for all k and L ∈ C^((d_0;d))_(e3b;b) 𝒫 with a

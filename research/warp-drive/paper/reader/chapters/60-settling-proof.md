@@ -279,14 +279,14 @@ close to 4 + ε_K as desired. With ε′ := α − 4 − ε_t > 0, [[eq:vii-0-2]
     (γ − γ_(b₀), k − k_(b₀)) = (γ − γ_λ, k − k_λ) + (γ_λ − γ_(b₀), k_λ − k_(b₀))
 
 lies in the class, with norm below δ + ½ε = ε. So [[cor:s27-rate]] (a) applies: [[thm:iii-k-4-3]] holds with
-‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S|, |S⁰| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S|, |S⁰| < ε_m, as C_𝔟 ≥ 1; by its (2),
-g induces (φ|)^*(γ, k) on φ⁻¹(Σ^IVP), φ = φ_(−S,−S⁰), and φ⁻¹ = φ_S ∘ ψ_(S⁰) ([[eq:s27-motion]]). The vanishing of
-h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-0-2]] with g_b in place
-of g_(m′,0). ∎
+‖b − b₀‖_𝔟 < ε_m/C_𝔟 and |S|, |S⁰| < ε_m/C_𝔟, hence |b − b₀| < ε_m and |S|, |S⁰| < ε_m, as C_𝔟 ≥ 1. By (2) of
+[[thm:iii-k-4-3]], g induces (φ|)^*(γ, k) on φ⁻¹(Σ^IVP), φ := φ_(−S,−S⁰), and φ⁻¹ = φ_S ∘ ψ_(S⁰) ([[eq:s27-motion]]).
+The vanishing of h_tot(p⃗) on the interior of {χ_K = 1} holds as in (i), and [[cor:s27-rate]] (c) gives [[eq:vii-0-2]]
+with g_b in place of g_(m′,0). ∎
 
 *Proof of [[thm:settling]].* *The parameters.* [[thm:settling]] fixes its quantities in the order of
 [[thm:settling-precise]]: first l5, μ0, A, env and τ0, then b₀ = (μ_end, 0), about which the stability theory is set
-up, and its inner radius r_♭ ∈ (0, ½R₁], R₁ = √μ_end, and then ℓ0 and ε_K. The number ℓ0 ∈ (3, 4) is the ℓ_0 of the
+up, and its inner radius r_♭ ∈ (0, ½R₁] = (0, √μ_end/2], and then ℓ0 and ε_K. The number ℓ0 ∈ (3, 4) is the ℓ_0 of the
 data class [[eq:vii-0-1]], and ε_K is the one chosen at step (4) of [[thm:vi-c-2-1]], with [[eq:vii-0-1]] at step (3).
 With the ℓ_I ∈ (3, ℓ_0) chosen at step (3), which is admissible in row d2 of [[sec:vi-c-1]] (it avoids the discrete
 exclusion sets of that row, [[sec:s27-class]]), and the ε_+ chosen at step (4), ε_K satisfies the conditions that
