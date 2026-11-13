@@ -1421,6 +1421,43 @@ New (c):
   `checks/torusstress5.py`, `checks/vlasovhf5.py`, `checks/axisphase5.py`, `checks/nledger5.py`, `checks/twoscale5.py`,
   `checks/nfamily5.py`, `checks/vlasovex5.py`, `checks/bandconst5.py`, `checks/racglobal5.py`, `checks/intcert5.py`,
   `checks/truebg5.py`, `checks/racslice5.py`, `checks/qsign5.py`, `checks/mbslice5.py`, `checks/mbsign5.py`,
+  `checks/r9beyond5.py`, `checks/r5op5.py`, `checks/r6sigma5.py`, `checks/r5settle5.py`, `eind5.py`, `growth5.py` and
+  `docket68/lemmas/seed_escape.py`; `checks/r0census5.py` (a census read at the lines), `checks/e2meas5.py` and
+  `checks/g1curv5.py` (measurements) carry no negative control. A census of the deduced claims in sections 1–9 as they
+  stood on 2026-11-02 (103 claims, of which 27 named no program for the step) left none without one but the analytic
+  estimates named below, the settling write-out and one step resting on a reading at source; where a check stops short of
+  the step (an order λ¹ structure computed to order λ² in place of every order, a scan to a finite l) its entry in
+  Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
+  mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
+  supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
+  rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data
+  (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null cones, the background
+  on the whole domain is deduced (More families, above; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I).
+```
+
+[final-pass FP3 2026-11-13: the paper carries this text after the final pass's third round (FP3, the full-paper
+verifier's nit): `eind5.py`, `growth5.py` and `docket68/lemmas/seed_escape.py` added to the section-9 list. The text
+this block held before, kept:]
+
+~~~text
+  `checks/support8b.py`, `checks/support8c.py`, `checks/flux5.py`, `checks/mpdata5.py`, `checks/gluedecay5.py`,
+  `checks/kirecon5.py`, `checks/hclass5.py`, `checks/re813.py`, `checks/eindcert5.py`, `checks/vii5census.py`,
+  `checks/vii5read.py` and `checks/census9.py`, and for section 9 `checks/support9.py`, `checks/charge5.py`,
+  `checks/eqlayer5.py`, `checks/e2lower5.py`, `checks/twodomainx5.py`, `checks/level2loop5.py`, `checks/lambdacount5.py`,
+  `checks/twodomain5.py`, `checks/excise5.py`, `checks/ix5.py`, `checks/epsind5.py`, `checks/thetain5.py`,
+  `checks/prop31loss5.py`, `checks/dnumber5.py`, `checks/x7indep5.py`, `checks/modcount5.py`, `checks/d0count5.py`,
+  `checks/ordcensus5.py`, `checks/l2par5.py`, `checks/logind5.py`, `checks/iotaind5.py`, `checks/rootavoid5.py`,
+  `checks/deltacap5.py`, `checks/inverse6_5a.py`, `checks/zeroext5.py`, `checks/tensorzero5.py`, `checks/inverse6_5.py`,
+  `checks/inverse6_5m.py`, `checks/scalarblock5.py`, `checks/envelope5.py`, `checks/classm5.py`, `checks/lam0data5.py`,
+  `checks/m22evol5.py`, `checks/m22cert5.py`, `checks/g5angle5.py`, `checks/sectexp5.py`, `checks/secondzero5.py`,
+  `checks/szconv5.py`, `checks/cdata5.py`, `checks/rich5.py`, `checks/rcert5d.py`, `checks/reduce5.py`,
+  `checks/symbol5s.py`, `checks/null3.py`, `checks/linest5.py`, `checks/lev1_5.py`, `checks/wgron5.py`,
+  `checks/axis5.py`, `checks/axisbianchi5.py`, `checks/axhier5.py`, `checks/cont5.py`, `checks/blocks5.py`,
+  `checks/blockw5.py`, `checks/cpaxis5.py`, `checks/cp3grid5.py`, `checks/late5b.py`, `checks/mtrunc5.py`,
+  `checks/tail5.py`, `checks/innerr5.py`, `checks/twobg5.py`, `checks/twodecomp5.py`, `checks/twoledger5.py`,
+  `checks/torusstress5.py`, `checks/vlasovhf5.py`, `checks/axisphase5.py`, `checks/nledger5.py`, `checks/twoscale5.py`,
+  `checks/nfamily5.py`, `checks/vlasovex5.py`, `checks/bandconst5.py`, `checks/racglobal5.py`, `checks/intcert5.py`,
+  `checks/truebg5.py`, `checks/racslice5.py`, `checks/qsign5.py`, `checks/mbslice5.py`, `checks/mbsign5.py`,
   `checks/r9beyond5.py`, `checks/r5op5.py`, `checks/r6sigma5.py` and `checks/r5settle5.py`; `checks/r0census5.py` (a
   census read at the lines), `checks/e2meas5.py` and `checks/g1curv5.py` (measurements) carry no negative control. A
   census of the deduced claims in sections 1–9 as they stood on 2026-11-02 (103 claims, of which 27 named no program for
@@ -1433,7 +1470,7 @@ New (c):
   characteristic data (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null
   cones, the background on the whole domain is deduced (More families, above; supplement
   `docket68/n1star/FAMILIES5-FULL.md` Part I).
-```
+~~~
 
 [final-pass FP2 2026-11-13: the paper carries this text after the final pass's second round (FP2, the full-paper
 verifier's major 2): the list of section 9's programs made complete, and the census of section 9's claims dated, no

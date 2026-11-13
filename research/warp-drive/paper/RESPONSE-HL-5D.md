@@ -120,7 +120,7 @@ papers' proofs were carried to five dimensions by modification, at every place a
 the dimension, and the completeness of the censuses was evidenced by two methods, not proved. The write-out uses no
 census of the source papers; its own three completeness claims are settled by enumeration and by a reading (section 8.8).
 Section 9 proves that the development of g_λ's own data settles, with no gluing, in a class wider by half-integer orders,
-and the linear solution's decay in a Regge–Wheeler-type and in harmonic gauge; it deduces the two-dust and
+and the linear solution's settling in a Regge–Wheeler-type gauge and in harmonic gauge; it deduces the two-dust and
 restricted-Vlasov counterparts and states the constants and the scope.
 
 The two theorems share their architecture. Both reduce the vacuum equations in the symmetry class to 2+1 gravity coupled
@@ -792,7 +792,7 @@ development that extends past the initial surface, because near r = r_0 the line
 the difference, which vanishes to infinite order on the noncharacteristic initial surface, is extended by zero:
 `docket68/n1star/checks/ix5.py` X8). Part IX asserts nothing about X; in the two gauges below X is determined and the
 decay is stated there. The rest of this section gives, beside the proof, the route first taken by deduction, and the
-gauge results proved since; it stands beside the proof as an independent route.
+gauge results proved since.
 
 Linearly more is known, and it applies to the class: the class carries no vector-type perturbation and no linearised
 rotation (computed, `docket68/n1star/settle5.py` T1), and for the other two types the gauge-invariant master quantities
@@ -1890,18 +1890,18 @@ found (`docket68/n1star/checks/vii5census.py` V2 sorts the spellings of ω only)
   `checks/torusstress5.py`, `checks/vlasovhf5.py`, `checks/axisphase5.py`, `checks/nledger5.py`, `checks/twoscale5.py`,
   `checks/nfamily5.py`, `checks/vlasovex5.py`, `checks/bandconst5.py`, `checks/racglobal5.py`, `checks/intcert5.py`,
   `checks/truebg5.py`, `checks/racslice5.py`, `checks/qsign5.py`, `checks/mbslice5.py`, `checks/mbsign5.py`,
-  `checks/r9beyond5.py`, `checks/r5op5.py`, `checks/r6sigma5.py` and `checks/r5settle5.py`; `checks/r0census5.py` (a
-  census read at the lines), `checks/e2meas5.py` and `checks/g1curv5.py` (measurements) carry no negative control. A
-  census of the deduced claims in sections 1–9 as they stood on 2026-11-02 (103 claims, of which 27 named no program for
-  the step) left none without one but the analytic estimates named below, the settling write-out and one step resting on
-  a reading at source; where a check stops short of the step (an order λ¹ structure computed to order λ² in place of
-  every order, a scan to a finite l) its entry in Appendix A says so. The analytic estimates themselves (the energy
-  estimate and the bootstrap's analysis, the mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme,
-  the settling write-out) are proved in the supplement and read by independent verifiers, not computed (deduced). The
-  two-dust background's convergence on a rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's
-  characteristic data (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null
-  cones, the background on the whole domain is deduced (More families, above; supplement
-  `docket68/n1star/FAMILIES5-FULL.md` Part I).
+  `checks/r9beyond5.py`, `checks/r5op5.py`, `checks/r6sigma5.py`, `checks/r5settle5.py`, `eind5.py`, `growth5.py` and
+  `docket68/lemmas/seed_escape.py`; `checks/r0census5.py` (a census read at the lines), `checks/e2meas5.py` and
+  `checks/g1curv5.py` (measurements) carry no negative control. A census of the deduced claims in sections 1–9 as they
+  stood on 2026-11-02 (103 claims, of which 27 named no program for the step) left none without one but the analytic
+  estimates named below, the settling write-out and one step resting on a reading at source; where a check stops short of
+  the step (an order λ¹ structure computed to order λ² in place of every order, a scan to a finite l) its entry in
+  Appendix A says so. The analytic estimates themselves (the energy estimate and the bootstrap's analysis, the
+  mollifier's Bernstein- and Friedrichs-type bounds, the Nash–Moser scheme, the settling write-out) are proved in the
+  supplement and read by independent verifiers, not computed (deduced). The two-dust background's convergence on a
+  rectangle reaching Σ_τ0 is computed for one choice of the outgoing family's characteristic data
+  (`checks/twodomainx5.py`); for the data the supplement states, explicit Vaidya data on two null cones, the background
+  on the whole domain is deduced (More families, above; supplement `docket68/n1star/FAMILIES5-FULL.md` Part I).
 
 ---
 
@@ -2958,114 +2958,173 @@ Programs behind section 9, in `docket68/n1star/`:
   and every use of the lower triangular condition (3), used by none of the parts that might.
 - `checks/redshift5.py` R1–R16: the red-shift commutation for the class's master fields on five-dimensional Tangherlini
   behind supplement Proposition 10.1 (iv) (its Lemmas 10.1a–10.1b), the amendments it carried to the supplement's
-  sections 8, 9 and 10.3, and (R13) the paper's replacement blocks against the seated text. Computed (exact, sympy,
-  unless marked numerical); READ where quoted. About four minutes under load.
+  sections 8, 9 and 10.3, and (R13) the paper's replacement blocks against the seated text. Controls: one for each check,
+  each a mutation that must fail, e.g. (51) without its first-order term (R1), an extremal horizon (R2), the first-order
+  part dropped (R3), the orientation reversed (R4, R5), Z3 without λ ≤ d0/20 (R14), a mutated new text (R13). Computed
+  (exact, sympy, unless marked numerical); READ where quoted. About four minutes under load.
 - `checks/rwgauge5u.py` U1–U11: the metric components of a scalar-type perturbation in the Regge–Wheeler-type gauge of
   [KI03], uniformly in r on the leaves of [HKW18]'s decay foliation (supplement RWGAUGE5): the growth r^(1/2) attained
-  and the weighted decay. Computed (exact, sympy); U3 (b) takes the longest.
+  and the weighted decay. Controls: one for each check, each a mutation that must fail, e.g. the chart change dv = du +
+  dr/f (U1), the weight 3/2 mutated to 1 (U2), the tensor potential for the scalar one (U3), a long-range potential (U5,
+  U6), orthogonality claimed at j = 0 (U11). Computed (exact, sympy); U3 (b) takes the longest.
 - `checks/deltacap5.py` P1–P3: how small the proof's own formulas make δ and λ1 (Theorem 4): with the constants of upper
   bounds taken ≥ 1 and d at least LOSS-D.md's floor at the record's point, log₁₀ δ < −(59/196)(32d + 9) (P1), below
-  −7.66 × 10¹⁶ at d = 7.959 × 10¹⁵ (P2), and the same bound for λ1 (P3). Certified (exact integers).
+  −7.66 × 10¹⁶ at d = 7.959 × 10¹⁵ (P2), and the same bound for λ1 (P3). Controls: the unsound ratio 31/100, d = 1,
+  A_2d ≥ 2^−(32d+9), θ0 ≥ 1 (C1–C4). Certified (exact integers).
 - `checks/inverse6_5.py` K1–K8: the microlocal constants at L_b0 that the record's proofs use, and the arithmetic of the
   effective replacements proved in INVERSE5-SIX.md (the six inverse bounds, part 1); K6, the interpolation constant of
-  the high-energy inverse. Computed (exact) and certified (interval arithmetic). About a minute on a loaded machine.
+  the high-energy inverse. Controls: K1 with ν_1's sign reversed, K2's claim λ_max = 2ε, K3 without the grading (η = 1),
+  with c → −c and with trace weight 1, K4 with a_v < 0, K6 with the gap doubled, K7 without its R′ term, K8 without the
+  identity's last term (C1–C9). Computed (exact) and certified (interval arithmetic). About a minute on a loaded machine.
 - `checks/inverse6_5a.py` A0–A5: the assembly of λ1 and δ from their inputs, with every input's status (INVERSE5-SIX.md
-  round 2): the chain's formula, monotone in its inputs, and its value at the loss d. READ (quotes found by content in
-  pinned files), computed (exact or 60-digit), deduced where said. Seconds.
+  round 2): the chain's formula, monotone in its inputs, and its value at the loss d. Controls: λ1 with η_gl C_R for
+  η_gl/C_R, α = 8d, the absorption's sign reversed, a mutated quote, the exponent −(1−δ)/4 for −(1−δ)/2, C_0 with
+  exponent −1/4 (C1–C6). READ (quotes found by content in pinned files), computed (exact or 60-digit), deduced where
+  said. Seconds.
 - `checks/inverse6_5m.py` M0–M7: certified real-axis resolvent bounds for the mode-decomposed operators behind the two
   mode-stability bounds (□ on 1-forms at b0, and L_b0 at σ ≠ 0), every harmonic (the six inverse bounds, part 2).
-  Computed (exact) and certified (interval arithmetic at 30 digits, with explicit tail bounds). Tens of minutes on a
-  loaded machine.
-- `checks/zeroext5.py` Z0–Z5: the scalar model's zero-energy inverse bound carried into the norm of I.C (3.2), at s = 1
-  and α = −1, on the extended domain through the horizon, with one constant for every harmonic. Computed (exact),
-  certified (rational enclosures), deduced where said. A minute.
+  Controls: family C's multiplier off centre, V_V at l = 1 (the Killing sector), the V_S majorant at l ≥ 3 with φ_C,
+  family B with s_L = 3/2, M7's tensor row with round 1's reading of the bracket (C1–C5). Computed (exact) and certified
+  (interval arithmetic at 30 digits, with explicit tail bounds). Tens of minutes on a loaded machine.
+- `checks/zeroext5.py` Z0–Z2, Z4, Z5, Z5b: the scalar model's zero-energy inverse bound carried into the norm of I.C
+  (3.2), at s = 1 and α = −1, on the extended domain through the horizon, with one constant for every harmonic. Controls:
+  Z2 with w = 1, Z1 with the boundary term's sign flipped, Z5b against the claim C/4, Z4 without the inner region's κ(1 −
+  a²) piece (C1–C4). Computed (exact), certified (rational enclosures), deduced where said. A minute.
 - `checks/tensorzero5.py` T1–T6: the zero-energy inverse bound of L_b0 on its tensor-type block, in the class, through
-  the horizon. Computed (exact), certified (rational bounds), deduced where said. A few minutes.
+  the horizon. Controls: T2–T3 on the trace part (an s-type tensor), T4 and T5 with the scalar weight, T3b and T3c with
+  −ΔT + T (C1–C5). Computed (exact), certified (rational bounds), deduced where said. A few minutes.
 - `checks/scalarblock5.py` S0–S8: the scalar-type blocks of L̂_b0(0) written exactly, every harmonic at once, with the
   identities that pin them, their indicial structure at infinity, and what the weight of (3.2) does to their inverse
-  (INVERSE5-SCALAR.md part A). Computed (exact, l symbolic), certified (200 bits), floating point where said. Several
-  minutes.
+  (INVERSE5-SCALAR.md part A). Controls: D Ric without its −∇∇ tr h term, S3 with δ for δG, f = 1 − 1/r³ (not
+  Ricci-flat), the record's □^C polynomial at e_C = 1/10240, σ_min(L_2) ≥ 10⁻⁴ claimed at α = −1 (C1–C5). Computed
+  (exact, l symbolic), certified (200 bits), floating point where said. Several minutes.
 - `checks/rootavoid5.py` R0–R12: the avoidances of finite sets of roots, decided at the weights of `checks/dweights5.py`
-  W1, at every level and at both Taylor levels (INVERSE5-SCALAR.md part B). READ, computed (exact) and certified
-  (interval enclosures). Some minutes.
+  W1, at every level and at both Taylor levels (INVERSE5-SCALAR.md part B). Controls: a level or root planted where R4,
+  R6, R7, R10 or R11 must find it, ε′ moved so that w = 0 at one (k, i), d1 replaced by a rational, z = 7/2 and
+  z = 49/256 (rational class roots), R9's field test on 2 d1 + 1/3, R12 at e_C = 1/102401 (C1–C11). READ, computed
+  (exact) and certified (interval enclosures). Some minutes.
 - `checks/dnumber5.py` K1–K6: the loss d as far as the record numbers it: X_7 summed exactly over the levels, and c′
-  reduced to the one order the record fixes only by the closed graph theorem. READ, deduced, computed (exact integers).
-  About ten seconds.
+  reduced to the one order the record fixes only by the closed graph theorem. Controls: K4's closed form without the
+  propagation against a brute-force simulation, the dictionary shift removed, K1 without F4's excess, K4's floor sum at a
+  perturbed d1 (C1–C4). READ, deduced, computed (exact integers). About ten seconds.
 - `checks/x7indep5.py` I1–I4: dnumber5's ΣX_7, d and N reproduced by an independent route, and its production path tested
-  against brute force and under mutation. Computed (exact integers and rationals). About twenty seconds.
+  against brute force and under mutation. Controls: four mutations of dnumber5's production path (the top level dropped,
+  the ceil(β − 5/2) term set to 1, two per point for three, E^flat's excess set to 0), each changing a pinned total, and
+  the top level dropped against I2's brute force (M1–M5). Computed (exact integers and rationals). About twenty seconds.
 - `checks/modcount5.py` M0–M6: the fixed per-level steps of the β-levels, with every other step a level charges beyond
-  the counted loops, read and counted at the record's weights, so that c′ and d become integers. READ (every cited line
-  pinned), deduced, computed. Seconds.
-- `checks/d0count5.py` Q1–Q6: the coefficient orders the write-out fixes by the closed graph theorem, counted. Computed
-  (exact integer and rational bookkeeping), deduced (the estimates whose derivative counts it carries), READ. Seconds.
+  the counted loops, read and counted at the record's weights, so that c′ and d become integers. Controls: a table row or
+  a pattern dropped, Corollary 4.5 charged at l, Proposition 4.4 read per exponent, the one-off application on R0, a
+  moved anchor, M_a without X_7(α), the base at a_K = 4 + ε_K, no round for the windows, α_0 = 2 + 10⁻⁶ d with its Lemma
+  3.2 uncharged (C1–C11). READ (every cited line pinned), deduced, computed. Seconds.
+- `checks/d0count5.py` Q0–Q7: the coefficient orders the write-out fixes by the closed graph theorem, counted. Controls:
+  Q2 with J one less, Q1 at δ = 2/27, a census row removed, Q3 without the right expansion's 2L, and nine more (round 7's
+  weight and Sobolev order, Schur decay 2K = 2, the change of chart dropped, δ = 1/20, (f)'s factor order and depths
+  mutated, rounds 8–9's orders) (C1–C13). Computed (exact integer and rational bookkeeping), deduced (the estimates whose
+  derivative counts it carries), READ. Seconds.
 - `checks/ordcensus5.py` O0–O5: the orders at which the forward-solution chain invokes the calculus the write-out fixes
-  by the closed graph theorem, read site by site. READ (files md5-pinned, every citation found by content). Seconds.
+  by the closed graph theorem, read site by site. Controls: a census row dropped, τ and J′ taken without N and the
+  oscillation, a cited line altered in a copy, N = 10 for 14, κ := 2 read as 1 (C1–C5). READ (files md5-pinned, every
+  citation found by content). Seconds.
 - `checks/l2par5.py` P0–P4: the level-2 loop read per exponent or per (α_0, k): the applications at one exponent act in
-  parallel, so the loss follows one chain of exponents and the bound on d holds on both readings. READ, deduced. Seconds.
-- `checks/logind5.py` S1–S5, L0–L4: the log orders of E^flat and of the level-2 sources, proved by induction over the
-  construction's steps and recomputed from that induction. READ, deduced, computed. Seconds.
+  parallel, so the loss follows one chain of exponents and the bound on d holds on both readings. Controls: E_ind given
+  an element of real part 0, the parallel sums charged in series, a cited line altered in a copy (C1–C3). READ, deduced.
+  Seconds.
+- `checks/logind5.py` L0–L4 (the induction's steps S1–S5 deduced): the log orders of E^flat and of the level-2 sources,
+  proved by induction over the construction's steps and recomputed from that induction. Controls: the windows' raises
+  summed, not maximised; pole order l_0 = 1; d1 with log order 1 at level 2; Step 1's unions raising at the completed
+  points (C1–C4). READ, deduced, computed. Seconds.
 - `checks/iotaind5.py` I0–I5: E^ι_ind, the index set the write-out leaves unlisted at future timelike infinity, computed
-  at b0 from the construction, and what it adds on (1, 3 + ε_K]. READ, deduced (each construction step's exponent rule),
-  computed. About two minutes.
+  at b0 from the construction, and what it adds on (1, 3 + ε_K]. Controls: the D″ sites with every type's roots, the
+  1-form statements' E_ind collected, u_b's roots above −2 admitted, a cited line altered in a copy (C1–C4). READ,
+  deduced (each construction step's exponent rule), computed. About two minutes.
 - `checks/tail5.py` T1–T9: the half-order tail that the shell leaves at past null infinity, and what it puts on Hintz's
-  initial surface at spatial infinity (SETTLE-GLAM5.md section 3), computed for a bump envelope. Computed (exact, sympy;
-  mpmath at 30–40 digits).
+  initial surface at spatial infinity (SETTLE-GLAM5.md section 3), computed for a bump envelope. Controls: the full
+  coefficients compared (T4), a field of zero time integral (T5, T8), the ρ^(5/2) term subtracted and l0 = 9/4 (T6), an
+  even product (T9). Computed (exact, sympy; mpmath at 30–40 digits).
 - `checks/r9beyond5.py` B1–B6: BEYOND5 Lemma 6.4 (iv) written out (SETTLE-GLAM5.md Lemma R9.1), every inequality
   computed: the far part's past domain of dependence, the place of its inner null boundary in the record's domains, and
-  what stays in the domain of dependence under g_λ. B1, B3, B4 exact; B2 exact (z3) with samples; B5 numeric. One to
-  three minutes.
+  what stays in the domain of dependence under g_λ. Controls: F′ = −1 (a null slice), 2e replaced by e/2 (B2), V′ above
+  or below its choice (B3, B3n), a region whose ingoing rays miss S (B5), an altered quote (B6). B1, B3, B4 exact; B2
+  exact (z3) with samples; B5 numeric. One to three minutes.
 - `checks/r5op5.py` O1–O3: the quantities of SETTLE-GLAM5.md Theorem R4.6 measured on the full five-dimensional
-  gauge-fixed operator instead of typed, and the G-naturality behind the invariance of the continuation. Computed (mpmath
-  at 40 digits on sympy-differentiated metrics).
+  gauge-fixed operator instead of typed, and the G-naturality behind the invariance of the continuation. Controls: H
+  mutated to a profile that is not self-similar (O1), F to 1 + s (O2), σ to a shear (O3). Computed (mpmath at 40 digits
+  on sympy-differentiated metrics).
 - `checks/r6sigma5.py` S1–S4, W: F_4 exists and cancels the degree −6 part of P(g_b0 + Σ) on the full gauge-fixed
-  operator, and the weight window (ℓ0 − 1, 3) computed as a whole from exponents measured on fields (W1 the cap's, W2 the
-  N-flux tail's) and counted by hand. S1–S3 exact; S4 mpmath at 40 digits; W1 quadrature at 30 digits. Three to 29
-  minutes, S4 most of it.
-- `checks/r5settle5.py` A–G: the computations behind SETTLE-GLAM5's round-5 seating that are not measured on the full
+  operator (S4 on one example, Σ_2 = (3/10) r⁻² P; the general case deduced), and the weight window (ℓ0 − 1, 3) computed
+  as a whole from exponents measured on fields (W1 the cap's, W2 the N-flux tail's) and counted by hand. Controls: the
+  code mutated ((7/2) replaced by 3 in S1; a constant F, −Σ_4 and Σ_4 dropped in S4), a constant at l = 2, and W with
+  p = 4 dropped from Σ. S1–S3 exact; S4 mpmath at 40 digits; W1 quadrature at 30 digits. Three to 29 minutes, S4 most of
+  it.
+- `checks/r5settle5.py` A–H: the computations behind SETTLE-GLAM5's round-5 seating that are not measured on the full
   operator; among them G2, the cap, and G3, the N-flux tail beyond |T|, each with its control. Exact (sympy and
   integers); D–F sampled in floating point; G2–G3 mpmath quadrature.
-- `checks/twobg5.py` G1–G5, R0: the two-dust background on the whole domain, with the outgoing family's data stated
-  (FAMILIES5-FULL.md section 2). About ten minutes.
+- `checks/twobg5.py` G1–G5: the two-dust background on the whole domain, with the outgoing family's data stated
+  (FAMILIES5-FULL.md section 2). Controls: B depending on v (G1), the rays without the redshift term (G4), a heavier
+  shell and B → −B (G5). G1 exact (sympy); G2–G5 computed, floating point. About ten minutes.
 - `checks/twodecomp5.py` J0–J9: the identities behind Lemmas 3.2₂ and 3.3₂ and the equation (3.5₂) for h
-  (FAMILIES5-FULL.md section 8). Computed (exact rational arithmetic at random points; the identities are polynomial in
-  the jets). About three minutes.
+  (FAMILIES5-FULL.md section 8). Controls: plain Ric for Ric^H, λF_1W without λ²F_1Q, φ_in transported along the other
+  generator, χ_out on du dv, J8 with q := 1, J9 without the cross term ((a)–(f)). Computed (exact rational arithmetic at
+  random points; the identities are polynomial in the jets). About three minutes.
 - `checks/twoledger5.py` T1–T2: the power counting of Theorem E₂'s Steps 4–6 with two families, term by term
-  (FAMILIES5-FULL.md section 8). Computed (exact integer and symbolic arithmetic). Seconds.
+  (FAMILIES5-FULL.md section 8). Controls: the phases from s_K(w), the coupling estimated as a generic second derivative,
+  Step 6 without the P ∂_i rewriting or under the τ-τ rewriting, the transport without Bernstein, K = 5 ((a)–(f)).
+  Computed (exact integer and symbolic arithmetic). Seconds.
 - `checks/torusstress5.py` V1–V4: what massless Vlasov limits the T² class can produce (FAMILIES5-FULL.md part III); V2,
-  the stress of a massless Vlasov measure in the class. Computed (exact). Seconds.
+  the stress of a massless Vlasov measure in the class. Controls: the non-divergence operator (V1), roundness without V2
+  (V3), one more null momentum and a wrong metric (V4). Computed (exact). Seconds.
 - `checks/vlasovhf5.py` H1–H7: the high-frequency passage to restricted massless Vlasov limits in the class
   (FAMILIES5-VLASOV.md); H7, a smooth restricted field reaches an axis only along the axial directions, its density
-  growing like 1/ρ2. H1–H4, H7 exact; H5 numpy; H6 mpmath, its (b) a model. A few minutes.
+  growing like 1/ρ2. Controls: one for each check: the fast part dropped (H1), the second polarisation and a flipped sign
+  (H2), 3+1 dimensions and Hess without its Christoffel term (H3), no rescaling, Λ = 1 (H4), the Schur term dropped (H5),
+  a mutated N-system (H6), axial momenta (H7). H1–H4, H7 exact; H5 numpy; H6 mpmath, its (b) a model. A few minutes.
 - `checks/twoscale5.py` T1: exact two-scale jets for the high-frequency identities of vlasovhf5 (FAMILIES5-VLASOV.md).
-  Computed (exact, Fractions). Seconds.
+  Control: a mutated d/ds (d/ds c = +n). Computed (exact, Fractions). Seconds.
 - `checks/axisphase5.py` A1–A4: which null phases the T² class permits, and angular separation at the axes
-  (FAMILIES5-FULL.md part II). Computed (exact, sympy). Under a minute.
+  (FAMILIES5-FULL.md part II). Controls: the non-invariant phase τ − x3 (A1), a sphere, α = β (A3), two ingoing radial
+  phases v and 2v (A4). Computed (exact, sympy). Under a minute.
 - `checks/nfamily5.py` N1–N5: the data step with N overlapping families, and the separations Theorem V needs; N3, the
-  scheme's only divisors are spacetime symbols (FAMILIES5-R6.md). Computed (exact). About 75 minutes under load.
+  scheme's only divisors are spacetime symbols (FAMILIES5-R6.md). Controls: the second polarisation and a mixed harmonic
+  at order λ (N1), a trace on the leaves (N2), Q_n without the hierarchy (N3), a label along the ingoing direction or
+  2.3° from the outgoing one (N4), an untrapped r = a (N5). Computed (exact). About 75 minutes under load.
 - `checks/nledger5.py` L1–L4: the power counting of Theorem E₂_N's Steps 4–6 with N families, term by term
-  (FAMILIES5-R8.md section R8.4). Computed (exact integer and symbolic arithmetic). About a minute.
+  (FAMILIES5-R8.md section R8.4). Controls: Lemma 3.3_N without the contraction, a cross term without its (1 − P) gain, a
+  coupling estimated as a generic second derivative, a factor of phase ω/λ² ((a)–(d)). Computed (exact integer and
+  symbolic arithmetic). About a minute.
 - `checks/vlasovex5.py` X1–X3: Theorem V is not vacuous: an explicit family on Tangherlini meeting its open conditions
-  (FAMILIES5-R6.md section 3). X1 exact; X2, X3 floating point. A few minutes.
+  (FAMILIES5-R6.md section 3). Controls: an untrapped inner boundary a = 1.2 (X1), a focusing family, rejected by the
+  caustic check (X2). X1 exact; X2, X3 floating point. A few minutes.
 - `checks/bandconst5.py` B1–B6: constraint data for a perturbation of Part I's data supported in an angular band
-  (FAMILIES5-AXIS.md section 2); B6, the characteristic constraints on an outgoing cone. B1, B2, B4, B6 exact; B3, B5
-  floating point. A few minutes.
+  (FAMILIES5-AXIS.md section 2); B6, the characteristic constraints on an outgoing cone. Controls: κ treated as free data
+  (B1), the five-dimensional trace factor in four dimensions (B2), ds2 = 0 and the weight dropped (B4), the angular
+  operator removed (B5), Ric(∂_θ, ∂_θ), not a cone constraint (B6). B1, B2, B4, B6 exact; B3, B5 floating point. A few
+  minutes.
 - `checks/racglobal5.py` R1–R4: where Rácz's algebraic-hyperbolic split is hyperbolic on Part I's whole slice, what
-  replaces it where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-VLASOV.md section 5). R2's
-  identities and R3 exact; R1, R4 floating point. A few minutes.
+  replaces it where it is not, and the one charge of exactly localised vacuum data (FAMILIES5-VLASOV.md section 5).
+  Controls: Nk without its flux term or at half the amplitude (R1), a K of mixed sign (R2), ∂_φ components admitted (R3),
+  the integrand without −2 ds2² (R4). R2's identities and R3 exact; R1, R4 floating point. A few minutes.
 - `checks/racslice5.py` S1–S3: band-localised constraint data across the shell's non-hyperbolic band, posed on a deformed
-  slice (FAMILIES5-R6.md section 2). S1 exact; S2, S3 floating point. A few minutes.
+  slice (FAMILIES5-R6.md section 2). Controls: the formula without its Christoffel term (S1), A = 0 and A → −A (S2). S1
+  exact; S2, S3 floating point. A few minutes.
 - `checks/intcert5.py` C1–C3: interval-arithmetic certificates for the margins of Theorems Q and L″ (FAMILIES5-R8.md
-  section R8.2): C1, C2 for the computed background, C3 for the background itself. Certified (interval arithmetic). About
-  ten minutes under load.
-- `checks/truebg5.py` T1–T4: the background itself on Σ_τ0 below R_*, certified (FAMILIES5-R8.md section R8.2). T2–T4
-  certified (interval arithmetic); the reduction deduced. About half an hour under load.
+  section R8.2): C1, C2 for the computed background, C3 for the background itself. Controls: μ0 → −μ0 and Γ without its
+  4νE² term (C1), wider boxes not certified (C1d, C2d), A = 0.001 and A = 0 (C2), a float integration shifted by 10⁻⁶ and
+  A = 0 (C3). Certified (interval arithmetic). About ten minutes under load.
+- `checks/truebg5.py` T1–T4: the background itself on Σ_τ0 below R_*, certified (FAMILIES5-R8.md section R8.2). Controls:
+  a shifted B amplitude (T1, T2), the tube shrunk to d/10 (T2), every packet input widened by half (T3). T2–T4 certified
+  (interval arithmetic); the reduction deduced. About half an hour under load.
 - `checks/qsign5.py` Q1–Q7: the sign of the one charge of exactly localised data on Part I's slice (FAMILIES5-R6.md
-  section 1). Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point, Q3's Γ > 0 certified. About a quarter of an hour under
-  load.
+  section 1). Controls: 4νE² replaced by 3νE² (Q1, Q7), P's coefficient 8 → 6 (Q2), the −Γψ²/sin 2θ term dropped (Q4), a
+  band outside the horizon (Q6), each flux term's sign flipped (Q7). Q1, Q2, Q5 exact; Q3, Q4, Q6, Q7 floating point,
+  Q3's Γ > 0 certified. About a quarter of an hour under load.
 - `checks/mbslice5.py` S1–S5: FAMILIES5-MB.md's Theorem T (iii) and Lemma X1 on every class slice, as exact polynomial
-  identities, and mbsign5 E4 (a), (c) and qsign5 Q1 by the same route. Computed (exact). A few minutes.
+  identities, and mbsign5 E4 (a), (c) and qsign5 Q1 by the same route. Controls: S1 with |T|² halved or K_RR's w′ term
+  dropped, S2 with k_T² + 3 or R³P² doubled, S4's lapse direction without its curvature term, S5 with 4νE² → 3νE²; each
+  gives a nonzero polynomial. Computed (exact). A few minutes.
 - `checks/mbsign5.py` E1–E9: the sign of the charge Q =: −E of seeds that perturb the metric on the band
-  (FAMILIES5-MB.md). Computed (exact). About 7 to 10 minutes under load.
+  (FAMILIES5-MB.md). Controls: one for each check (E1–E9), e.g. B's derivative sign reversed, |T|² halved, a band outside
+  the horizon, a gauge-variant variable admitted, the potential of the wrong sign. Computed (exact). About 7 to 10
+  minutes under load.
 - `checks/layerlin5.py` N0–N6: the term linear in the waves at x_K = 1 at equality: the inverse-metric identity (N0); the
   two-scale linearized operators at the seed and their class S, closed under them (N1); the gauge's Pol^+ (N2); the first
   three profiles of the record's construction, H_1 and H_2 in S, H_3's scalar sector and its horizon value A env d K
@@ -3082,63 +3141,89 @@ Programs behind section 9, in `docket68/n1star/`:
   exponent and derivative ledgers (K ≥ 6). Each with a control that must fail. Exact; under three minutes in all.
 - `checks/layerfix5.py` F1–F4: the repairs the independent verifier of rounds 1–2 asked for (EQUALITY5-LAYER.md R3.1),
   each with a control that must fail. Computed (exact). About half a minute.
-- `checks/layerband5.py` B1–B3: the layer outside the window (EQUALITY5-LAYER.md R3.2 (b)–(d)). B1 sampled (a check of a
-  deduced inequality, not a proof); B2 exact; B3 a model with unit constants. About half a minute.
+- `checks/layerband5.py` B1–B3: the layer outside the window (EQUALITY5-LAYER.md R3.2 (b)–(d)). Controls: 8 replaced by
+  1/8 (B1), K = 6 with σ = 3, p = 3 and K = 9 (B2), λ = 10⁻³⁰⁰ at K = 10 (B3). B1 sampled (a check of a deduced
+  inequality, not a proof); B2 exact; B3 a model with unit constants. About half a minute.
 - `checks/veryedge5.py` V1–V5: the very edge of the equality layer: where the expansion in λ of the term linear in the
-  wave stops being ordered, and what it re-sums to (EQUALITY5-LAYER.md R3.2 (e)). V1–V3 exact; V4–V5 mpmath at 40–60
-  digits, sampled where it says so. About two minutes.
-- `checks/lamL5.py` L1–L4: λ_L of Theorem L made explicit (EQUALITY5-LAYER.md R3.3). Computed (exact rationals and
-  integers; outward-rounded interval arithmetic). About a minute.
-- `checks/stagen5.py` S1–S5: stage N's data (EQUALITY5-LAYER.md R3.4). S1, S5 READ; S2 a ledger (exact); S3 an identity
-  (exact). A few seconds.
+  wave stops being ordered, and what it re-sums to (EQUALITY5-LAYER.md R3.2 (e)). Controls: the vv mass coupling halved
+  (V1), R_X frozen and slice data with i ∂_v (V2), ν_hom (V3), three flatter edges (V4), c = 0 (V5). V1–V3 exact; V4–V5
+  mpmath at 40–60 digits, sampled where it says so. About two minutes.
+- `checks/lamL5.py` L1–L4: λ_L of Theorem L made explicit (EQUALITY5-LAYER.md R3.3). Controls: the record's flat envelope
+  (L1), B without m! (L2), no interpolation (L3), 1.01 times each threshold (L4). Computed (exact rationals and integers;
+  outward-rounded interval arithmetic). About a minute.
+- `checks/stagen5.py` S1–S5: stage N's data (EQUALITY5-LAYER.md R3.4). Controls: the pre-D615 wording (S1), stage N − 1
+  (S2), a θ-dependent coefficient (S3), the window (S4), the pinned sentence removed (S5). S1, S5 READ; S2 a ledger
+  (exact); S3 an identity (exact). A few seconds.
 - `checks/edgeP5.py` Q1–Q4: the very edge for Theorem 2's solution (EQUALITY5-LAYER.md R4.1: Lemma L.15_P, the exact
-  re-summation; Lemma L.16, the kernel lemma; Theorem L_E). Q1 exact; Q2 sampled, a check of the deduced Lemma L.16.
-  About half an hour.
+  re-summation; Lemma L.16, the kernel lemma; Theorem L_E). Controls: slice data and P's mass coupling dropped (Q1), the
+  frozen local form and a wrong log-derivative (Q2), c = 0 and an inflated D2 (Q3), x = 10λ (Q4). Q1 exact; Q2 sampled, a
+  check of the deduced Lemma L.16. About half an hour.
 - `checks/stagefree5.py` G1–G4: the free stage-N data decide the deep layer for Theorem 1's g_λ (EQUALITY5-LAYER.md R4.2:
-  Proposition L.19). G1, G2 exact; G3 a model with unit constants; G4 READ. About two minutes.
+  Proposition L.19). Controls: the Hessian without its Christoffel term (G1), the weight r^(−1/2) (G2), ψ := env (G3),
+  the pre-D615 range (G4). G1, G2 exact; G3 a model with unit constants; G4 READ. About two minutes.
 - `checks/bandL4p5.py` H1–H4: the band 6 ≤ K ≤ 9 is an artefact of Lemma L.4's hypothesis (EQUALITY5-LAYER.md R4.3: Lemma
-  L.4′, and Proposition L.12 for every K ≥ 6). H1, H2 exact (H1 the bookkeeping of a deduced lemma); H3 a model with unit
-  constants. About three minutes.
+  L.4′, and Proposition L.12 for every K ≥ 6). Controls: h = 1/2 and the non-triangular rule (H1), K = 5, Theorem E's w
+  and round 4's level-mixed comparison (H2), Lemma L.4's rule at K = 6 (H3), round 3's m and κ (H4). H1, H2 exact (H1 the
+  bookkeeping of a deduced lemma); H3 a model with unit constants. About three minutes.
 - `checks/lamL5b.py` M1–M5: λ_L at the paper's point updated (EQUALITY5-LAYER.md R4.5): λ0 < 0.0024433, C_Φ in terms of
-  C1, and the window's hypothesis term under Lemma L.4′. M1 READ; M2, M4, M5 certified (outward interval arithmetic); M3
-  computed. About two minutes.
+  C1, and the window's hypothesis term under Lemma L.4′. Controls: a pin's last digit mutated (M1), μ′ = (4/9) env² (M2),
+  equally spaced nodes (M3), 1.01 Λ_5′ (M4), k! mutated to (k + 2)! (M5). M1 READ; M2, M4, M5 certified (outward interval
+  arithmetic); M3 computed. About two minutes.
 - `checks/edge1_5.py` X1–X17: the deep layer and the very edge for Theorem 1's solution (EQUALITY5-LAYER.md R5.3, R6.1:
-  Lemma H_Σ, Lemma L.21, Proposition L.22, Lemma W, Theorem L_1E). X1–X8 exact; the others computed, some sampled. About
-  an hour.
+  Lemma H_Σ, Lemma L.21, Proposition L.22, Lemma W, Theorem L_1E). Controls: one for each check (X1–X17), each a mutated
+  term, coefficient or bound that must fail, e.g. F/4 for F/2 (X1), the vv mass coupling dropped (X3), adversarial (b4,
+  b5) (X15, X17). X1–X8 exact; the others computed, some sampled. About an hour.
 - `checks/degtwo5.py` T1–T7: the degree-two and localisation lemmas, the transition and the dips (EQUALITY5-LAYER.md
-  R5.2, R5.4, R6.2: Lemmas L.15_P (b), L.17, L.18; Theorem L.24, one switch per column; Proposition L.25). T1–T3, T7
-  exact; T4, T6 bounds (T4 a model with unit constants). About ten minutes.
+  R5.2, R5.4, R6.2: Lemmas L.15_P (b), L.17, L.18; Theorem L.24, one switch per column; Proposition L.25). Controls: Ric
+  without the gauge term (T1), a wrong background (T2), e = D (T3), env = x⁴⁰ (T4), a structureless ρ (T5), round 5's
+  bump choice and an extra bump (T6), ε_6 ≤ λ⁴ (T7). T1–T3, T7 exact; T4, T6 bounds (T4 a model with unit constants).
+  About ten minutes.
 - `checks/constL5.py` K1–K4: the constants C_L11 and C_L4 of λ_L as formulas in λ0's leaves (EQUALITY5-LAYER.md R5.5).
-  The formulas deduced; K1–K4 computed.
-- `checks/bfam5.py` B1–B6: the family below the top at the horizon, b4 and b5 computed (EQUALITY5-LAYER.md R8.1). Forms
-  exact; B5's values at ρ* and the decision for the paper's waves certified (interval arithmetic). About eighty minutes
-  under load.
-- `checks/hyp5.py` H0–H5: the envelope hypotheses of Theorem L_1E″ proved, not sampled (EQUALITY5-LAYER.md R8.2). H0, H3,
-  H4, H5 exact; H1, H2 certified (interval arithmetic). About eight minutes.
+  Controls: a step beyond λ0's derivative order (K1), a non-monotone node (K2), C_S = 0 (K3), Cd's power and a dropped
+  term of Ca (K4). The formulas deduced; K1–K4 computed.
+- `checks/bfam5.py` B1–B6: the family below the top at the horizon, b4 and b5 computed (EQUALITY5-LAYER.md R8.1).
+  Controls: the vv mass coupling halved, r0 frozen, the mass couplings left at μ0 = 1 when μ0 = 16. Forms exact; B5's
+  values at ρ* and the decision for the paper's waves certified (interval arithmetic). About eighty minutes under load.
+- `checks/hyp5.py` H0–H5: the envelope hypotheses of Theorem L_1E″ proved, not sampled (EQUALITY5-LAYER.md R8.2).
+  Controls: the recursion without C(k, i) (H0), the interval [0, 1/40] (H1), the solver's sin⁴ envelope (H2–H4),
+  exp(−1/x) (H5). H0, H3, H4, H5 exact; H1, H2 certified (interval arithmetic). About eight minutes.
 - `checks/lam25_5.py` L1–L3: the threshold λ_25(δ) of Proposition L.25″ (a) as a certified formula in the record's
-  constants (EQUALITY5-LAYER.md R8.3). L1, L2 certified; L3 computed, a check on finitely many E. About a minute.
-- `checks/lamconst5.py` C1–C5: the constants of λ_25 written out (EQUALITY5-LAYER.md R9.1–R9.3). C1, C5 certified
-  (interval arithmetic); C2–C4 computed (exact). A few minutes.
+  constants (EQUALITY5-LAYER.md R8.3). Control: the s_n bound halved (L3). L1, L2 certified; L3 computed, a check on
+  finitely many E. About a minute.
+- `checks/lamconst5.py` C1–C5: the constants of λ_25 written out (EQUALITY5-LAYER.md R9.1–R9.3). Controls: C_L1 without
+  its quadratic term and sup |β0| without its r_q′ term (C1), a leaf outside the set (C2), a planted compactness line
+  (C4), (W1) admitted (C5). C1, C5 certified (interval arithmetic); C2–C4 computed (exact). A few minutes.
 - `checks/envelope5.py` E1–E3, P0: a C_c^∞ envelope for Theorem 1 at the paper's point, with certified bounds on every
-  derivative to order 14 (CONSTANTS5.md, round 2). Certified (interval arithmetic, outward rounded; exact rationals).
-- `checks/lzerotrace5.py` T0–T6: Theorem 1's λ0 at the paper's point, every factor traced to the supplement by line, and
-  the certified upper bound recomputed from the record's own definitions (CONSTANTS5.md, round 3). READ, deduced,
-  certified.
+  derivative to order 14 (CONSTANTS5.md, round 2). Controls: E3's shrink test without the tail's flat factor, the bounds
+  halved, ∫env² off by 10⁻⁴ (C1–C3). Certified (interval arithmetic, outward rounded; exact rationals); the tail argument
+  (E2) deduced.
+- `checks/lzerotrace5.py` T0–T7: Theorem 1's λ0 at the paper's point, every factor traced to the supplement by line, and
+  the certified upper bound recomputed from the record's own definitions (CONSTANTS5.md, round 3). Controls: the trace
+  rows shifted by a line, C_app ≥ 12.6 claimed, an even harmonic, a point outside Ω, a direction not in ker d(v + τ), T7
+  with μ0 (C1–C6). READ, deduced, certified.
 - `checks/classm5.py` K1–K5: the stage-1 mean at W_TT's maximiser, reduced to one number by the symmetry class, and the
-  size of W_TT on the initial slice. Computed (exact), certified (Arb balls). Seconds.
+  size of W_TT on the initial slice. Controls: K1 with a v φ1 component, K2 with an off-class entry, K3's angular claim
+  at q = 1, K3 on τ = −1 (C1–C4). Computed (exact), certified (Arb balls). Seconds.
 - `checks/lam0data5.py` D1–D8, E1, G1–G3: the stage-1 data on the initial slice (S_1, B_1), an admissible envelope, and
-  the stability constant over X*'s past (LAMBDA0-DATA5.md). Computed (exact; floating point where said), certified (Arb).
-  About 11 minutes on a loaded machine.
+  the stability constant over X*'s past (LAMBDA0-DATA5.md). Controls: S_1's sign flipped, the phase or B_1 dropped, the
+  sin⁴ envelope, X* moved to r = a + 1/100, G1's slopes 1.25 times too steep (C1–C6). Computed (exact; floating point
+  where said), certified (Arb). About 11 minutes on a loaded machine.
 - `checks/m22evol5.py` S1–S4, N1–N4: the stage-1 evolution on X*'s past and the number M_22 (LAMBDA0-DATA5.md section
-  12), from lam0data5's data on the initial slice. Computed (exact; floating point where said). About an hour.
+  12), from lam0data5's data on the initial slice. Controls: the mean source's sign flipped, gh_2's coupling dropped or
+  its data set to zero, the axis division, M_22 off the class, T + B for T − B, two coefficients multiplied by 1.2
+  (C1–C8). Computed (exact; floating point where said). About an hour.
 - `checks/m22cert5.py` X1–X8: the attempt at a certified lower bound on |M_22| by an a posteriori energy estimate
-  (M22CERT5.md). Computed (exact, and floating point), certified (exact rationals; Arb balls), READ. About 30 minutes.
+  (M22CERT5.md). Controls: P_η without its 1/2, the envelope's slopes at the pieces' ends, X3 at the outer boundary, ∂_τ²
+  m_vv raised by 10⁻⁶ of its maximum, X8 with C3's factor (C1–C5). Computed (exact, and floating point), certified (exact
+  rationals; Arb balls), READ. About 30 minutes.
 - `checks/g5angle5.py` A1–A3: growth5.py's Bondi scheme re-run with every zero of the round spheres' expansion recorded
   (`checks/g5zeros5.py`), read: A1, the pinned breakdown reproduced at N_x = 16; A2, at its own step the scheme is
-  unstable in angle at N_x = 24 and 32 on the seed itself; A3, the first zero-less columns. Computed (floating point).
+  unstable in angle at N_x = 24 and 32 on the seed itself; A3, the first zero-less columns. Controls: the N_x = 24
+  comparison, the N_x = 16 run under the instability test, r_min = 1.25. Computed (floating point).
 - `docket68/lemmas/hf_anchor5.py` A0–A5: the estimate that the vacuum solution stays within C λ of its approximant
   (`docket68/lemmas/hf_theorem5.py` F7), with C and λ made definite at the record's values; among them the solver's
-  anchor check. Computed (exact unless marked), READ, deduced.
+  anchor check. Controls (--mutants): the data's λ env′ term dropped (A3), h's maximum taken as 1 (A2). Computed (exact
+  unless marked), READ, deduced.
 
 ## Appendix B. The author's words
 
@@ -3353,9 +3438,12 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | section 9, physical wavelengths: λ0 | `docket68/n1star/CONSTANTS5.md`; `checks/envelope5.py`; |
 | | `checks/lzerotrace5.py`; `checks/classm5.py`; `docket68/n1star/LAMBDA0-DATA5.md`; `checks/lam0data5.py`; |
 | | `checks/m22evol5.py`; `docket68/n1star/M22CERT5.md`; `checks/m22cert5.py` |
+| section 9, physical wavelengths: existence at 10 l5 | `docket68/n1star/CERTIFY-10L5-RESULT.md` sections 1–14; |
+| | Theorems 7.L, 8.L1 and 8.W; Lemma 9.C |
 | section 9, settling: the resolvent band | `docket68/n1star/E2-PILOT.md` section 3j; `checks/e2trapband5_384.out`; |
 | | `checks/e2h1band5.out`; R11 |
-| section 9, settling: the constants without a number | `docket68/n1star/checks/support9.py` S3 |
+| section 9, settling: the constants without a number | `docket68/n1star/EFFECTIVE-CONSTANTS.md`; |
+| | `checks/support9.py` S3 |
 | section 9, settling: the charge for larger ℓ_I | `docket68/n1star/checks/charge5.py` G1–G2 |
 | section 9, settling: the certified lower bound | `docket68/n1star/checks/e2lower5.py` E1 |
 | section 9, the double-null prototype | `docket68/n1star/CERTIFY-10L5.md` section 6b; `dnsolve5.py`, |
@@ -3379,8 +3467,8 @@ full, and its log `docket68/n1star/N1STAR-LOG.md` records each decision.
 | | `checks/degtwo5.py` T1–T7; `checks/bfam5.py` B1–B6; `checks/hyp5.py` H0–H5 |
 | the boundary at equality: the thresholds λ_L and λ_25 | `checks/lamL5.py` L1–L4; `checks/lamL5b.py` M1–M5; |
 | | `checks/constL5.py` K1–K4; `checks/lam25_5.py` L1–L3; `checks/lamconst5.py` C1–C5 |
-| section 9, more families: two crossing dusts | `docket68/n1star/FAMILIES5-FULL.md` Part I; `checks/twobg5.py` G1–G5, |
-| | R0; `checks/twodecomp5.py` J0–J9; `checks/twoledger5.py` T1–T2 |
+| section 9, more families: two crossing dusts | `docket68/n1star/FAMILIES5-FULL.md` Part I; `checks/twobg5.py` G1–G5; |
+| | `checks/twodecomp5.py` J0–J9; `checks/twoledger5.py` T1–T2 |
 | section 9, more families: the axes | `docket68/n1star/FAMILIES5-AXIS.md` |
 | section 9, more families: restricted Vlasov limits | `docket68/n1star/FAMILIES5-VLASOV.md`, `FAMILIES5-R6.md`, |
 | | `FAMILIES5-R8.md`; `checks/torusstress5.py` V2; `checks/vlasovhf5.py` H1–H7; `checks/twoscale5.py` T1; |
